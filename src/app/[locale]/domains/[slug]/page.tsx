@@ -7,6 +7,7 @@ import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { MdxContent } from '@/components/mdx-content';
+import { ShareButton } from '@/components/share-button';
 import { Link } from '@/i18n/navigation';
 
 export function generateStaticParams() {
@@ -140,6 +141,15 @@ function DomainDetail({
           >
             {t(`status.${card.status}`)}
           </span>
+        </div>
+
+        <div className="mb-6">
+          <ShareButton
+            title={card.title}
+            text={card.summary}
+            label={t('share')}
+            copiedLabel={t('copied')}
+          />
         </div>
 
         <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.summary}</p>

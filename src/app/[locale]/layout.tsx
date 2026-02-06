@@ -109,6 +109,15 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={inter.variable}>
+      <head>
+        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+          <script
+            defer
+            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+            src="https://plausible.io/js/script.js"
+          />
+        )}
+      </head>
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
         <script
           type="application/ld+json"

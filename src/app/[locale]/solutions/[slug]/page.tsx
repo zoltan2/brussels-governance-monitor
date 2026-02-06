@@ -7,6 +7,7 @@ import { routing, type Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { MdxContent } from '@/components/mdx-content';
+import { ShareButton } from '@/components/share-button';
 import { Link } from '@/i18n/navigation';
 
 export function generateStaticParams() {
@@ -141,6 +142,15 @@ function SolutionDetail({
           >
             {t(`feasibility.${card.feasibility}`)}
           </span>
+        </div>
+
+        <div className="mb-6">
+          <ShareButton
+            title={card.title}
+            text={card.mechanism}
+            label={t('share')}
+            copiedLabel={t('copied')}
+          />
         </div>
 
         <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-3">

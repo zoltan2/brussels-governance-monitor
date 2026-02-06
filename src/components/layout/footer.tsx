@@ -11,7 +11,7 @@ export function Footer() {
           <p className="text-xs text-neutral-400">{t('disclaimer')}</p>
           <div className="flex gap-4 text-xs">
             <a
-              href="https://github.com/advice-that/brussels-governance-monitor"
+              href="https://github.com/zoltan2/brussels-governance-monitor"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-neutral-700"

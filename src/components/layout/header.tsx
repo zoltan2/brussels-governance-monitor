@@ -16,7 +16,7 @@ export function Header() {
           Brussels Governance Monitor
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav aria-label="Main" className="hidden items-center gap-6 md:flex">
           <Link href="/" className="text-sm text-neutral-600 hover:text-neutral-900">
             {t('home')}
           </Link>

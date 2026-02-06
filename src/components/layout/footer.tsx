@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 export function Footer() {
   const t = useTranslations('footer');
@@ -9,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col items-center gap-4 text-center">
           <p className="text-sm font-medium text-neutral-600">{t('project')}</p>
           <p className="text-xs text-neutral-400">{t('disclaimer')}</p>
-          <div className="flex flex-wrap justify-center gap-4 text-xs text-neutral-500">
+          <nav aria-label="Footer" className="flex flex-wrap justify-center gap-4 text-xs text-neutral-500">
             <a
               href="https://github.com/zoltan2/brussels-governance-monitor"
               target="_blank"
@@ -19,10 +20,14 @@ export function Footer() {
               {t('license')}
             </a>
             <span className="text-neutral-300" aria-hidden="true">|</span>
-            <span className="text-neutral-400">{t('editorial')}</span>
+            <Link href="/editorial" className="underline underline-offset-2 hover:text-neutral-700">
+              {t('editorial')}
+            </Link>
             <span className="text-neutral-300" aria-hidden="true">|</span>
-            <span className="text-neutral-400">{t('privacy')}</span>
-          </div>
+            <Link href="/privacy" className="underline underline-offset-2 hover:text-neutral-700">
+              {t('privacy')}
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

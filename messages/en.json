@@ -113,6 +113,78 @@
     "errorMessage": "An error occurred. Please try again.",
     "privacy": "Max. 1 email/week. Unsubscribe in 1 click."
   },
+  "editorial": {
+    "title": "Editorial Charter",
+    "intro": "Brussels Governance Monitor is a civic information project. This charter defines the principles that guide our editorial work.",
+    "principles": {
+      "title": "Core principles",
+      "neutrality": "Factual neutrality: we report facts, not opinions. No political stance.",
+      "sources": "Mandatory sourcing: every claim is accompanied by its source (official document, press release, news article, statistical data).",
+      "factOpinion": "Fact/interpretation distinction: analyses are clearly identified as such and separated from raw facts.",
+      "transparency": "Funding transparency: the project is hosted by Advice That SRL. It is not funded by any political party or interest group.",
+      "noPartisan": "No partisan affiliation: no politician names appear in the cards. Content focuses on mechanisms, not individuals.",
+      "rightOfReply": "Right of reply: any person or institution cited may request a correction or addition via our contact address."
+    },
+    "verification": {
+      "title": "Verification process",
+      "description": "Each card is verified through a two-step process: two independent sources, or a single recognised institutional source (Court of Auditors, parliament, regional administration). Metrics systematically indicate their confidence level."
+    },
+    "confidence": {
+      "title": "Confidence levels",
+      "officialDesc": "Data from a published official document (law, report, institutional statistic).",
+      "estimatedDesc": "Estimate based on partial data, extrapolations, or reliable secondary sources.",
+      "unconfirmedDesc": "Information not yet verifiable by a second source. Explicitly flagged."
+    },
+    "corrections": {
+      "title": "Corrections and updates",
+      "description": "Any reported error is corrected as soon as possible. Corrections are tracked: each card indicates its last modification date and the nature of the change. Version history is available via the public GitHub repository."
+    },
+    "independence": {
+      "title": "Independence",
+      "description": "Brussels Governance Monitor is a project independent of any partisan, trade union, media, or governmental structure. The source code is published under the AGPL v3 licence to ensure technical transparency."
+    },
+    "lastUpdated": "Last updated: {date}"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "controller": {
+      "title": "Data controller",
+      "description": "The data controller is Advice That SRL, a Belgian company. Brussels Governance Monitor is a project hosted by this company."
+    },
+    "dataCollected": {
+      "title": "Data collected",
+      "description": "We only collect data strictly necessary for the email alert service:",
+      "email": "Email address (for sending weekly digests)",
+      "topics": "Chosen topics (to personalise alert content)",
+      "locale": "Preferred language (to send emails in the correct language)"
+    },
+    "basis": {
+      "title": "Legal basis",
+      "description": "The processing of your data is based on your explicit consent (Article 6.1.a of the GDPR). You may withdraw this consent at any time."
+    },
+    "retention": {
+      "title": "Data retention",
+      "description": "Your data is retained as long as your subscription is active. Upon unsubscription, your data is deleted within 30 days."
+    },
+    "rights": {
+      "title": "Your rights",
+      "description": "Under the GDPR, you have the following rights:",
+      "access": "Right of access: obtain a copy of your personal data",
+      "rectification": "Right to rectification: correct inaccurate data",
+      "deletion": "Right to erasure: request deletion of your data",
+      "portability": "Right to data portability: receive your data in a structured format",
+      "withdraw": "Right to withdraw consent: unsubscribe at any time in one click"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "This website does not use advertising or tracking cookies. Only strictly necessary technical cookies for site operation may be used."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "To exercise your rights or ask a question about data protection, contact us at: privacy@brusselsgovernance.be"
+    },
+    "lastUpdated": "Last updated: {date}"
+  },
   "notFound": {
     "title": "Page not found",
     "description": "The page you are looking for does not exist or has been moved.",

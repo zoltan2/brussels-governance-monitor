@@ -113,6 +113,78 @@
     "errorMessage": "Er is een fout opgetreden. Probeer het opnieuw.",
     "privacy": "Max. 1 e-mail/week. Uitschrijven met 1 klik."
   },
+  "editorial": {
+    "title": "Redactioneel charter",
+    "intro": "Brussels Governance Monitor is een burgerinitiatief voor informatievoorziening. Dit charter definieert de principes die ons redactioneel werk sturen.",
+    "principles": {
+      "title": "Fundamentele principes",
+      "neutrality": "Feitelijke neutraliteit: wij rapporteren feiten, geen meningen. Geen politieke stellingname.",
+      "sources": "Verplichte bronvermelding: elke bewering wordt vergezeld van haar bron (officieel document, persbericht, persartikel, statistiek).",
+      "factOpinion": "Onderscheid feiten/interpretaties: analyses worden duidelijk als zodanig geïdentificeerd en gescheiden van ruwe feiten.",
+      "transparency": "Transparantie over financiering: het project wordt gehost door Advice That SRL. Het wordt door geen enkele politieke partij of belangengroep gefinancierd.",
+      "noPartisan": "Geen partijdigheid: geen namen van politici verschijnen in de fiches. De inhoud richt zich op mechanismen, niet op personen.",
+      "rightOfReply": "Recht van antwoord: elke persoon of instelling die wordt geciteerd kan een correctie of aanvulling aanvragen via ons contactadres."
+    },
+    "verification": {
+      "title": "Verificatieproces",
+      "description": "Elke fiche wordt geverifieerd via een tweestappenproces: dubbele onafhankelijke bron, of één erkende institutionele bron (Rekenhof, parlement, gewestelijke administratie). De kerncijfers vermelden systematisch hun betrouwbaarheidsniveau."
+    },
+    "confidence": {
+      "title": "Betrouwbaarheidsniveaus",
+      "officialDesc": "Gegeven uit een gepubliceerd officieel document (wet, rapport, institutionele statistiek).",
+      "estimatedDesc": "Schatting op basis van gedeeltelijke gegevens, extrapolaties of betrouwbare secundaire bronnen.",
+      "unconfirmedDesc": "Informatie die nog niet door een tweede bron verifieerbaar is. Expliciet aangegeven."
+    },
+    "corrections": {
+      "title": "Correcties en updates",
+      "description": "Elke gemelde fout wordt zo snel mogelijk gecorrigeerd. Correcties worden bijgehouden: elke fiche vermeldt de datum van de laatste wijziging en de aard van de wijziging. De versiegeschiedenis is consulteerbaar via de publieke GitHub-repository."
+    },
+    "independence": {
+      "title": "Onafhankelijkheid",
+      "description": "Brussels Governance Monitor is een project dat onafhankelijk is van elke partijdige, vakbonds-, media- of overheidsstructuur. De broncode is gepubliceerd onder de AGPL v3-licentie om technische transparantie te garanderen."
+    },
+    "lastUpdated": "Laatste update: {date}"
+  },
+  "privacy": {
+    "title": "Privacybeleid",
+    "controller": {
+      "title": "Verantwoordelijke voor de verwerking",
+      "description": "De verantwoordelijke voor de verwerking van gegevens is Advice That SRL, een Belgische vennootschap. Brussels Governance Monitor is een project dat door deze vennootschap wordt gehost."
+    },
+    "dataCollected": {
+      "title": "Verzamelde gegevens",
+      "description": "Wij verzamelen uitsluitend de strikt noodzakelijke gegevens voor de werking van de e-mailwaarschuwingsdienst:",
+      "email": "E-mailadres (voor het versturen van wekelijkse samenvattingen)",
+      "topics": "Gekozen thema's (om de inhoud van de waarschuwingen te personaliseren)",
+      "locale": "Voorkeurstaal (om e-mails in de juiste taal te versturen)"
+    },
+    "basis": {
+      "title": "Rechtsgrond",
+      "description": "De verwerking van uw gegevens berust op uw uitdrukkelijke toestemming (artikel 6.1.a van de AVG). U kunt deze toestemming op elk moment intrekken."
+    },
+    "retention": {
+      "title": "Bewaartermijn",
+      "description": "Uw gegevens worden bewaard zolang uw abonnement actief is. Bij uitschrijving worden uw gegevens binnen 30 dagen verwijderd."
+    },
+    "rights": {
+      "title": "Uw rechten",
+      "description": "Conform de AVG beschikt u over de volgende rechten:",
+      "access": "Recht op inzage: een kopie van uw persoonsgegevens verkrijgen",
+      "rectification": "Recht op rectificatie: onjuiste gegevens corrigeren",
+      "deletion": "Recht op wissing: verwijdering van uw gegevens aanvragen",
+      "portability": "Recht op overdraagbaarheid: uw gegevens in een gestructureerd formaat ontvangen",
+      "withdraw": "Recht op intrekking van toestemming: u kunt zich op elk moment met één klik uitschrijven"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "Deze website gebruikt geen reclame- of trackingcookies. Alleen strikt noodzakelijke technische cookies voor de werking van de site kunnen worden gebruikt."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Om uw rechten uit te oefenen of een vraag te stellen over de bescherming van uw gegevens, kunt u contact met ons opnemen via: privacy@brusselsgovernance.be"
+    },
+    "lastUpdated": "Laatste update: {date}"
+  },
   "notFound": {
     "title": "Pagina niet gevonden",
     "description": "De pagina die u zoekt bestaat niet of is verplaatst.",

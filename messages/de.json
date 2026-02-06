@@ -113,6 +113,78 @@
     "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "privacy": "Max. 1 E-Mail/Woche. Abmeldung mit 1 Klick."
   },
+  "editorial": {
+    "title": "Redaktionelle Charta",
+    "intro": "Brussels Governance Monitor ist ein bürgerschaftliches Informationsprojekt. Diese Charta definiert die Grundsätze, die unsere redaktionelle Arbeit leiten.",
+    "principles": {
+      "title": "Grundprinzipien",
+      "neutrality": "Sachliche Neutralität: Wir berichten Fakten, keine Meinungen. Keine politische Stellungnahme.",
+      "sources": "Pflicht zur Quellenangabe: Jede Behauptung wird von ihrer Quelle begleitet (offizielles Dokument, Pressemitteilung, Presseartikel, statistische Daten).",
+      "factOpinion": "Unterscheidung Fakten/Interpretationen: Analysen werden klar als solche gekennzeichnet und von Rohdaten getrennt.",
+      "transparency": "Transparenz der Finanzierung: Das Projekt wird von Advice That SRL gehostet. Es wird von keiner politischen Partei oder Interessengruppe finanziert.",
+      "noPartisan": "Keine Parteilichkeit: Keine Politikernamen erscheinen in den Karten. Der Inhalt konzentriert sich auf Mechanismen, nicht auf Personen.",
+      "rightOfReply": "Recht auf Gegendarstellung: Jede zitierte Person oder Institution kann eine Korrektur oder Ergänzung über unsere Kontaktadresse anfordern."
+    },
+    "verification": {
+      "title": "Überprüfungsverfahren",
+      "description": "Jede Karte wird in einem zweistufigen Verfahren überprüft: doppelte unabhängige Quelle oder eine einzelne anerkannte institutionelle Quelle (Rechnungshof, Parlament, Regionalverwaltung). Die Kennzahlen geben systematisch ihr Vertrauensniveau an."
+    },
+    "confidence": {
+      "title": "Vertrauensstufen",
+      "officialDesc": "Daten aus einem veröffentlichten offiziellen Dokument (Gesetz, Bericht, institutionelle Statistik).",
+      "estimatedDesc": "Schätzung auf Grundlage teilweiser Daten, Extrapolationen oder zuverlässiger Sekundärquellen.",
+      "unconfirmedDesc": "Information, die noch nicht durch eine zweite Quelle überprüfbar ist. Ausdrücklich gekennzeichnet."
+    },
+    "corrections": {
+      "title": "Korrekturen und Aktualisierungen",
+      "description": "Jeder gemeldete Fehler wird schnellstmöglich korrigiert. Korrekturen werden nachverfolgt: Jede Karte gibt das Datum der letzten Änderung und die Art der Änderung an. Die Versionshistorie ist über das öffentliche GitHub-Repository einsehbar."
+    },
+    "independence": {
+      "title": "Unabhängigkeit",
+      "description": "Brussels Governance Monitor ist ein Projekt, das unabhängig von jeder parteiischen, gewerkschaftlichen, medialen oder staatlichen Struktur ist. Der Quellcode wird unter der AGPL v3-Lizenz veröffentlicht, um technische Transparenz zu gewährleisten."
+    },
+    "lastUpdated": "Letzte Aktualisierung: {date}"
+  },
+  "privacy": {
+    "title": "Datenschutzrichtlinie",
+    "controller": {
+      "title": "Verantwortlicher für die Datenverarbeitung",
+      "description": "Der Verantwortliche für die Datenverarbeitung ist Advice That SRL, eine belgische Gesellschaft. Brussels Governance Monitor ist ein von dieser Gesellschaft gehostetes Projekt."
+    },
+    "dataCollected": {
+      "title": "Erhobene Daten",
+      "description": "Wir erheben ausschließlich die für den E-Mail-Benachrichtigungsdienst unbedingt erforderlichen Daten:",
+      "email": "E-Mail-Adresse (für den Versand wöchentlicher Zusammenfassungen)",
+      "topics": "Gewählte Themen (zur Personalisierung der Benachrichtigungsinhalte)",
+      "locale": "Bevorzugte Sprache (um E-Mails in der richtigen Sprache zu versenden)"
+    },
+    "basis": {
+      "title": "Rechtsgrundlage",
+      "description": "Die Verarbeitung Ihrer Daten beruht auf Ihrer ausdrücklichen Einwilligung (Artikel 6 Abs. 1 lit. a DSGVO). Sie können diese Einwilligung jederzeit widerrufen."
+    },
+    "retention": {
+      "title": "Aufbewahrungsdauer",
+      "description": "Ihre Daten werden aufbewahrt, solange Ihr Abonnement aktiv ist. Bei Abmeldung werden Ihre Daten innerhalb von 30 Tagen gelöscht."
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "description": "Gemäß der DSGVO stehen Ihnen folgende Rechte zu:",
+      "access": "Recht auf Auskunft: eine Kopie Ihrer personenbezogenen Daten erhalten",
+      "rectification": "Recht auf Berichtigung: unrichtige Daten korrigieren",
+      "deletion": "Recht auf Löschung: Löschung Ihrer Daten verlangen",
+      "portability": "Recht auf Datenübertragbarkeit: Ihre Daten in einem strukturierten Format erhalten",
+      "withdraw": "Recht auf Widerruf der Einwilligung: jederzeit mit einem Klick abmelden"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "Diese Website verwendet keine Werbe- oder Tracking-Cookies. Es können nur technisch notwendige Cookies für den Betrieb der Website verwendet werden."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Um Ihre Rechte auszuüben oder eine Frage zum Datenschutz zu stellen, kontaktieren Sie uns unter: privacy@brusselsgovernance.be"
+    },
+    "lastUpdated": "Letzte Aktualisierung: {date}"
+  },
   "notFound": {
     "title": "Seite nicht gefunden",
     "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",

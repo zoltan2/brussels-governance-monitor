@@ -113,6 +113,78 @@
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
     "privacy": "Max. 1 email/semaine. Désabonnement en 1 clic."
   },
+  "editorial": {
+    "title": "Charte éditoriale",
+    "intro": "Brussels Governance Monitor est un projet d'information citoyenne. Cette charte définit les principes qui guident notre travail éditorial.",
+    "principles": {
+      "title": "Principes fondamentaux",
+      "neutrality": "Neutralité factuelle : nous rapportons des faits, pas des opinions. Aucune prise de position politique.",
+      "sources": "Sources obligatoires : chaque affirmation est accompagnée de sa source (document officiel, communiqué, article de presse, donnée statistique).",
+      "factOpinion": "Distinction faits/interprétations : les analyses sont clairement identifiées comme telles et séparées des faits bruts.",
+      "transparency": "Transparence sur le financement : le projet est hébergé par Advice That SRL. Il n'est financé par aucun parti politique ni groupe d'intérêt.",
+      "noPartisan": "Aucune affiliation partisane : aucun nom de politicien n'apparaît dans les fiches. Le contenu se concentre sur les mécanismes, pas sur les personnes.",
+      "rightOfReply": "Droit de réponse : toute personne ou institution citée peut demander une correction ou un complément via notre adresse de contact."
+    },
+    "verification": {
+      "title": "Processus de vérification",
+      "description": "Chaque fiche est vérifiée selon un processus en deux temps : double source indépendante, ou source institutionnelle unique reconnue (Cour des comptes, parlement, administration régionale). Les métriques indiquent systématiquement leur niveau de confiance."
+    },
+    "confidence": {
+      "title": "Niveaux de confiance",
+      "officialDesc": "Donnée issue d'un document officiel publié (loi, rapport, statistique institutionnelle).",
+      "estimatedDesc": "Estimation basée sur des données partielles, des extrapolations ou des sources secondaires fiables.",
+      "unconfirmedDesc": "Information non encore vérifiable par une seconde source. Signalée explicitement."
+    },
+    "corrections": {
+      "title": "Corrections et mises à jour",
+      "description": "Toute erreur signalée est corrigée dans les meilleurs délais. Les corrections sont tracées : chaque fiche indique sa date de dernière modification et la nature du changement. L'historique des versions est consultable via le dépôt GitHub public."
+    },
+    "independence": {
+      "title": "Indépendance",
+      "description": "Brussels Governance Monitor est un projet indépendant de toute structure partisane, syndicale, médiatique ou gouvernementale. Le code source est publié sous licence AGPL v3 pour garantir la transparence technique."
+    },
+    "lastUpdated": "Dernière mise à jour : {date}"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "controller": {
+      "title": "Responsable du traitement",
+      "description": "Le responsable du traitement des données est Advice That SRL, société de droit belge. Brussels Governance Monitor est un projet hébergé par cette société."
+    },
+    "dataCollected": {
+      "title": "Données collectées",
+      "description": "Nous collectons uniquement les données strictement nécessaires au fonctionnement du service d'alerte email :",
+      "email": "Adresse email (pour l'envoi des digest hebdomadaires)",
+      "topics": "Thèmes choisis (pour personnaliser le contenu des alertes)",
+      "locale": "Langue préférée (pour envoyer les emails dans la bonne langue)"
+    },
+    "basis": {
+      "title": "Base juridique",
+      "description": "Le traitement de vos données repose sur votre consentement explicite (article 6.1.a du RGPD). Vous pouvez retirer ce consentement à tout moment."
+    },
+    "retention": {
+      "title": "Durée de conservation",
+      "description": "Vos données sont conservées tant que votre abonnement est actif. En cas de désabonnement, vos données sont supprimées dans un délai de 30 jours."
+    },
+    "rights": {
+      "title": "Vos droits",
+      "description": "Conformément au RGPD, vous disposez des droits suivants :",
+      "access": "Droit d'accès : obtenir une copie de vos données personnelles",
+      "rectification": "Droit de rectification : corriger des données inexactes",
+      "deletion": "Droit à l'effacement : demander la suppression de vos données",
+      "portability": "Droit à la portabilité : recevoir vos données dans un format structuré",
+      "withdraw": "Droit de retrait du consentement : vous désabonner à tout moment en un clic"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "Ce site n'utilise aucun cookie publicitaire ni cookie de suivi. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Pour exercer vos droits ou poser une question relative à la protection de vos données, contactez-nous à : privacy@brusselsgovernance.be"
+    },
+    "lastUpdated": "Dernière mise à jour : {date}"
+  },
   "notFound": {
     "title": "Page non trouvée",
     "description": "La page que vous cherchez n'existe pas ou a été déplacée.",

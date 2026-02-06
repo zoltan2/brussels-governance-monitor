@@ -1,0 +1,88 @@
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import type { DomainCard as DomainCardType } from '@/lib/content';
+import { formatDate } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+
+const statusStyles: Record<string, string> = {
+  blocked: 'bg-status-blocked text-white',
+  delayed: 'bg-status-delayed text-white',
+  ongoing: 'bg-status-ongoing text-white',
+  resolved: 'bg-status-resolved text-white',
+};
+
+const confidenceStyles: Record<string, string> = {
+  official: 'text-brand-700',
+  estimated: 'text-status-delayed',
+  unconfirmed: 'text-neutral-400',
+};
+
+interface DomainCardProps {
+  card: DomainCardType;
+  locale: string;
+}
+
+export function DomainCard({ card, locale }: DomainCardProps) {
+  const t = useTranslations('domains');
+
+  return (
+    <article className="flex flex-col rounded-lg border border-neutral-200 bg-white p-6 transition-shadow hover:shadow-md">
+      <div className="mb-3 flex items-start justify-between gap-2">
+        <h3 className="text-lg font-semibold text-neutral-900">{card.title}</h3>
+        <span
+          className={cn(
+            'shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium',
+            statusStyles[card.status],
+          )}
+        >
+          {t(`status.${card.status}`)}
+        </span>
+      </div>
+
+      <p className="mb-4 text-sm leading-relaxed text-neutral-600">{card.summary}</p>
+
+      {card.metrics.length > 0 && (
+        <div className="mb-4">
+          <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            {t('metrics')}
+          </h4>
+          <div className="grid grid-cols-2 gap-2">
+            {card.metrics.slice(0, 4).map((metric) => (
+              <div key={metric.label} className="rounded bg-neutral-50 p-2">
+                <p className="text-lg font-bold text-brand-900">
+                  {metric.value}
+                  {metric.unit && (
+                    <span className="ml-1 text-xs font-normal text-neutral-500">
+                      {metric.unit}
+                    </span>
+                  )}
+                </p>
+                <p className="text-xs text-neutral-500">{metric.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="mt-auto flex items-center justify-between pt-4 text-xs text-neutral-400">
+        <div className="flex items-center gap-2">
+          <span className={confidenceStyles[card.confidenceLevel]}>
+            {t(`confidence.${card.confidenceLevel}`)}
+          </span>
+          <span>·</span>
+          <span>{t('lastModified', { date: formatDate(card.lastModified, locale) })}</span>
+        </div>
+      </div>
+
+      <Link
+        href={`/domains/${card.slug}`}
+        className="mt-3 inline-flex items-center text-sm font-medium text-brand-700 hover:text-brand-900"
+      >
+        {t('readMore')}
+        <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </Link>
+    </article>
+  );
+}

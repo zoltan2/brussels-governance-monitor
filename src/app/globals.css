@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Typography — Inter as primary, system fallbacks */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Neutral palette — no red/green (Belgian political connotation) */
+
+  /* Primary brand — dark blue */
+  --color-brand-900: oklch(0.25 0.05 250);
+  --color-brand-800: oklch(0.3 0.06 250);
+  --color-brand-700: oklch(0.35 0.07 250);
+  --color-brand-600: oklch(0.42 0.08 250);
+
+  /* Neutral grays */
+  --color-neutral-50: oklch(0.98 0 0);
+  --color-neutral-100: oklch(0.96 0 0);
+  --color-neutral-200: oklch(0.92 0 0);
+  --color-neutral-300: oklch(0.87 0 0);
+  --color-neutral-400: oklch(0.7 0 0);
+  --color-neutral-500: oklch(0.55 0 0);
+  --color-neutral-600: oklch(0.45 0 0);
+  --color-neutral-700: oklch(0.37 0 0);
+  --color-neutral-800: oklch(0.27 0 0);
+  --color-neutral-900: oklch(0.18 0 0);
+
+  /* Status colors — avoiding red/green */
+  --color-status-blocked: oklch(0.37 0 0);
+  --color-status-delayed: oklch(0.75 0.15 75);
+  --color-status-ongoing: oklch(0.55 0.12 250);
+  --color-status-resolved: oklch(0.6 0.1 195);
+
+  /* Feasibility colors */
+  --color-feasibility-high: oklch(0.55 0.12 250);
+  --color-feasibility-medium: oklch(0.75 0.15 75);
+  --color-feasibility-low: oklch(0.6 0.06 50);
+  --color-feasibility-very-low: oklch(0.5 0.04 30);
+  --color-feasibility-near-zero: oklch(0.45 0 0);
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-neutral-900);
+  background-color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

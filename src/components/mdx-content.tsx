@@ -45,14 +45,12 @@ const sharedComponents = {
   ),
 };
 
-function useMDXComponent(code: string) {
-  return useMemo(() => {
-    const fn = new Function(code);
-    return fn({ ...runtime }).default;
-  }, [code]);
-}
-
 export function MdxContent({ code }: MdxContentProps) {
-  const Component = useMDXComponent(code);
-  return <Component components={sharedComponents} />;
+  const element = useMemo(() => {
+    const fn = new Function(code);
+    const Component = fn({ ...runtime }).default;
+    return <Component components={sharedComponents} />;
+  }, [code]);
+
+  return element;
 }

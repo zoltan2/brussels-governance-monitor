@@ -9,8 +9,8 @@
     "dev": "velite && next dev",
     "build": "velite --clean && next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,json,md,mdx,css}\""
   },
@@ -34,7 +34,6 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
     "@tailwindcss/postcss": "^4.1.18"
   }
 }

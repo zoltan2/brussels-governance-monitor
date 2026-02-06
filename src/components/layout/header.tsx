@@ -26,6 +26,9 @@ export function Header() {
           <Link href="/#solutions" className="text-sm text-neutral-600 hover:text-neutral-900">
             {t('solutions')}
           </Link>
+          <Link href="/data" className="text-sm text-neutral-600 hover:text-neutral-900">
+            {t('data')}
+          </Link>
           <LocaleSwitcher />
         </nav>
 
@@ -71,6 +74,13 @@ export function Header() {
               className="text-sm text-neutral-600 hover:text-neutral-900"
             >
               {t('solutions')}
+            </Link>
+            <Link
+              href="/data"
+              onClick={() => setMenuOpen(false)}
+              className="text-sm text-neutral-600 hover:text-neutral-900"
+            >
+              {t('data')}
             </Link>
             <div className="pt-2">
               <LocaleSwitcher />

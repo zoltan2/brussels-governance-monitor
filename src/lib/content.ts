@@ -52,16 +52,18 @@ function getCollections(): VeliteCollections {
 
 /**
  * Get all domain cards for a given locale.
- * Falls back to FR if no card exists in the requested locale.
+ * Per-card fallback: if a card doesn't exist in the requested locale,
+ * the FR version is used instead.
  */
 export function getDomainCards(locale: Locale): DomainCard[] {
   const { domainCards } = getCollections();
-  const localeCards = domainCards.filter((c) => c.locale === locale);
+  const frCards = domainCards.filter((c) => c.locale === 'fr');
+  if (locale === 'fr') return frCards;
 
-  if (localeCards.length > 0) return localeCards;
-
-  // Fallback to FR
-  return domainCards.filter((c) => c.locale === 'fr');
+  return frCards.map((frCard) => {
+    const localeCard = domainCards.find((c) => c.slug === frCard.slug && c.locale === locale);
+    return localeCard || frCard;
+  });
 }
 
 /**
@@ -84,15 +86,18 @@ export function getDomainCard(
 
 /**
  * Get all solution cards for a given locale.
- * Falls back to FR if no card exists in the requested locale.
+ * Per-card fallback: if a card doesn't exist in the requested locale,
+ * the FR version is used instead.
  */
 export function getSolutionCards(locale: Locale): SolutionCard[] {
   const { solutionCards } = getCollections();
-  const localeCards = solutionCards.filter((c) => c.locale === locale);
+  const frCards = solutionCards.filter((c) => c.locale === 'fr');
+  if (locale === 'fr') return frCards;
 
-  if (localeCards.length > 0) return localeCards;
-
-  return solutionCards.filter((c) => c.locale === 'fr');
+  return frCards.map((frCard) => {
+    const localeCard = solutionCards.find((c) => c.slug === frCard.slug && c.locale === locale);
+    return localeCard || frCard;
+  });
 }
 
 /**

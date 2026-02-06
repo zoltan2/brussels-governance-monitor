@@ -25,7 +25,7 @@ const domainCards = defineCollection({
   schema: s
     .object({
       title: s.string().max(120),
-      slug: s.slug('domainCards'),
+      slug: s.string(),
       locale: localeEnum,
       domain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social']),
       status: s.enum(['blocked', 'delayed', 'ongoing', 'resolved']),
@@ -55,7 +55,7 @@ const solutionCards = defineCollection({
   schema: s
     .object({
       title: s.string().max(120),
-      slug: s.slug('solutionCards'),
+      slug: s.string(),
       locale: localeEnum,
       solutionType: s.enum(['political', 'constitutional', 'parliamentary']),
       feasibility: s.enum(['high', 'medium', 'low', 'very-low', 'near-zero']),
@@ -89,7 +89,7 @@ const sectorCards = defineCollection({
   schema: s
     .object({
       title: s.string().max(120),
-      slug: s.slug('sectorCards'),
+      slug: s.string(),
       locale: localeEnum,
       parentDomain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social']),
       sector: s.string(),
@@ -149,7 +149,7 @@ const comparisonCards = defineCollection({
   schema: s
     .object({
       title: s.string().max(120),
-      slug: s.slug('comparisonCards'),
+      slug: s.string(),
       locale: localeEnum,
       comparisonType: s.enum(['intra-belgian', 'international']),
       entities: s.array(

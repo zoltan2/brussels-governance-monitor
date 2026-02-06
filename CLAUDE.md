@@ -101,5 +101,5 @@ src/
 │   └── layout/             ← Header, footer, locale switcher
 ├── i18n/                   ← next-intl config
 ├── lib/                    ← Utilities, content helpers
-└── middleware.ts           ← next-intl locale middleware
+└── proxy.ts               ← next-intl locale proxy (Next.js 16 convention, replaces middleware.ts)
 ```

@@ -79,6 +79,28 @@
   "fallback": {
     "banner": "French version — {locale} translation in progress"
   },
+  "subscribe": {
+    "title": "Stay informed",
+    "subtitle": "Receive a weekly digest of updates on the domains that interest you.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "your@email.be",
+    "topicsLabel": "Topics to follow",
+    "topics": {
+      "budget": "Budget",
+      "mobility": "Mobility",
+      "employment": "Employment",
+      "housing": "Housing",
+      "climate": "Climate",
+      "social": "Social",
+      "solutions": "Exit paths"
+    },
+    "submit": "Subscribe",
+    "submitting": "Subscribing...",
+    "successTitle": "Subscription confirmed",
+    "successMessage": "You will receive a welcome email shortly.",
+    "errorMessage": "An error occurred. Please try again.",
+    "privacy": "Max. 1 email/week. Unsubscribe in 1 click."
+  },
   "notFound": {
     "title": "Page not found",
     "description": "The page you are looking for does not exist or has been moved.",

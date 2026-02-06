@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import { CrisisCounter } from '@/components/crisis-counter';
 import { DomainCard } from '@/components/domain-card';
 import { SolutionCard } from '@/components/solution-card';
+import { SubscribeForm } from '@/components/subscribe-form';
 import { getDomainCards, getSolutionCards } from '@/lib/content';
 import type { Locale } from '@/i18n/routing';
 
@@ -24,6 +25,12 @@ export default async function HomePage({
       <DomainsSection domainCards={domainCards} locale={locale} />
 
       <SolutionsSection solutionCards={solutionCards} />
+
+      <section id="subscribe" className="py-16">
+        <div className="mx-auto max-w-md px-4">
+          <SubscribeForm />
+        </div>
+      </section>
     </>
   );
 }

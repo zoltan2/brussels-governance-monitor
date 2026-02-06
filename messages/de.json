@@ -79,6 +79,28 @@
   "fallback": {
     "banner": "Französische Version — {locale} Übersetzung in Arbeit"
   },
+  "subscribe": {
+    "title": "Bleiben Sie informiert",
+    "subtitle": "Erhalten Sie eine wöchentliche Zusammenfassung der Updates zu den Bereichen, die Sie interessieren.",
+    "emailLabel": "E-Mail-Adresse",
+    "emailPlaceholder": "ihre@email.be",
+    "topicsLabel": "Themen zum Folgen",
+    "topics": {
+      "budget": "Haushalt",
+      "mobility": "Mobilität",
+      "employment": "Beschäftigung",
+      "housing": "Wohnen",
+      "climate": "Klima",
+      "social": "Soziales",
+      "solutions": "Auswege"
+    },
+    "submit": "Abonnieren",
+    "submitting": "Wird abonniert...",
+    "successTitle": "Abonnement bestätigt",
+    "successMessage": "Sie erhalten in Kürze eine Willkommens-E-Mail.",
+    "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "privacy": "Max. 1 E-Mail/Woche. Abmeldung mit 1 Klick."
+  },
   "notFound": {
     "title": "Seite nicht gefunden",
     "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",

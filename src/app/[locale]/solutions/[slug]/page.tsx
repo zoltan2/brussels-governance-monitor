@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
@@ -11,6 +12,44 @@ import { Link } from '@/i18n/navigation';
 export function generateStaticParams() {
   const slugs = getAllSolutionSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const result = getSolutionCard(slug, locale as Locale);
+  if (!result) return {};
+
+  const { card } = result;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+  return {
+    title: card.title,
+    description: card.mechanism,
+    openGraph: {
+      title: card.title,
+      description: card.mechanism,
+      type: 'article',
+      locale,
+      url: `${siteUrl}/${locale}/solutions/${slug}`,
+      images: [
+        {
+          url: `${siteUrl}/${locale}/og?title=${encodeURIComponent(card.title)}&type=solution&feasibility=${card.feasibility}`,
+          width: 1200,
+          height: 630,
+          alt: card.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: card.title,
+      description: card.mechanism,
+    },
+  };
 }
 
 const feasibilityStyles: Record<string, string> = {
@@ -97,7 +136,7 @@ function SolutionDetail({
 
           <div className="rounded-lg bg-neutral-50 p-4">
             <p className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
-              Timeline
+              {t('timelineLabel')}
             </p>
             <p className="mt-1 text-sm text-neutral-700">{t(`timeline.${card.timeline}`)}</p>
           </div>
@@ -139,7 +178,7 @@ function SolutionDetail({
           </div>
         )}
 
-        <div className="prose-sm">
+        <div className="mt-8">
           <MdxContent code={card.content} />
         </div>
       </div>

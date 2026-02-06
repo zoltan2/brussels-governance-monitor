@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
@@ -11,6 +12,44 @@ import { Link } from '@/i18n/navigation';
 export function generateStaticParams() {
   const slugs = getAllDomainSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const result = getDomainCard(slug, locale as Locale);
+  if (!result) return {};
+
+  const { card } = result;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+  return {
+    title: card.title,
+    description: card.summary,
+    openGraph: {
+      title: card.title,
+      description: card.summary,
+      type: 'article',
+      locale,
+      url: `${siteUrl}/${locale}/domains/${slug}`,
+      images: [
+        {
+          url: `${siteUrl}/${locale}/og?title=${encodeURIComponent(card.title)}&type=domain&status=${card.status}`,
+          width: 1200,
+          height: 630,
+          alt: card.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: card.title,
+      description: card.summary,
+    },
+  };
 }
 
 const statusStyles: Record<string, string> = {
@@ -104,7 +143,7 @@ function DomainDetail({
           </div>
         )}
 
-        <div className="prose-sm">
+        <div className="mt-8">
           <MdxContent code={card.content} />
         </div>
 
@@ -124,7 +163,7 @@ function DomainDetail({
                   {source.label}
                 </a>
                 <span className="ml-2 text-xs text-neutral-400">
-                  (consulté le {formatDate(source.accessedAt, locale)})
+                  ({t('accessedAt', { date: formatDate(source.accessedAt, locale) })})
                 </span>
               </li>
             ))}

@@ -26,6 +26,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const messages = await getMessages();
   const metadata = messages.metadata as { title: string; description: string };
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   return {
     title: {
@@ -33,7 +34,7 @@ export async function generateMetadata({
       template: `%s | ${metadata.title}`,
     },
     description: metadata.description,
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+    metadataBase: new URL(siteUrl),
     alternates: {
       languages: Object.fromEntries(
         routing.locales.map((l) => [l, `/${l}`]),
@@ -44,6 +45,19 @@ export async function generateMetadata({
       description: metadata.description,
       locale,
       type: 'website',
+      images: [
+        {
+          url: `/${locale}/og?title=${encodeURIComponent(metadata.title)}`,
+          width: 1200,
+          height: 630,
+          alt: metadata.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: metadata.title,
+      description: metadata.description,
     },
   };
 }

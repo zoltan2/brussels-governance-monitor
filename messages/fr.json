@@ -79,6 +79,18 @@
   "fallback": {
     "banner": "Version française — traduction {locale} en cours"
   },
+  "data": {
+    "title": "Données",
+    "subtitle": "Toutes les métriques sourcées, vérifiables et téléchargeables",
+    "domain": "Domaine",
+    "metric": "Indicateur",
+    "value": "Valeur",
+    "source": "Source",
+    "date": "Date",
+    "confidence": "Confiance",
+    "downloadCsv": "Télécharger CSV",
+    "noData": "Aucune donnée disponible."
+  },
   "subscribe": {
     "title": "Restez informé",
     "subtitle": "Recevez un digest hebdomadaire des mises à jour sur les domaines qui vous intéressent.",

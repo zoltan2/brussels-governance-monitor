@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "Brussels Governance Monitor",
+    "description": "Rendre la gouvernance bruxelloise visible, vérifiable et compréhensible"
+  },
+  "nav": {
+    "home": "Accueil",
+    "domains": "Domaines",
+    "solutions": "Sorties de crise",
+    "data": "Données",
+    "about": "À propos"
+  },
+  "counter": {
+    "title": "Bruxelles sans gouvernement",
+    "days": "{count, plural, one {# jour} other {# jours}}",
+    "since": "depuis les élections du 9 juin 2024",
+    "explanation": "La Région de Bruxelles-Capitale fonctionne en « affaires courantes » : le gouvernement sortant expédie les affaires quotidiennes, mais ne peut prendre aucune décision politique nouvelle ni voter de nouveau budget."
+  },
+  "domains": {
+    "title": "Domaines impactés",
+    "subtitle": "Ce qui est bloqué, retardé ou dégradé faute de gouvernement",
+    "status": {
+      "blocked": "Bloqué",
+      "delayed": "Retardé",
+      "ongoing": "En cours",
+      "resolved": "Résolu"
+    },
+    "confidence": {
+      "official": "Source officielle",
+      "estimated": "Estimation BGM",
+      "unconfirmed": "Non confirmé"
+    },
+    "lastModified": "Dernière mise à jour : {date}",
+    "sources": "Sources",
+    "metrics": "Chiffres clés",
+    "readMore": "Lire la fiche complète",
+    "backToHome": "Retour à l'accueil"
+  },
+  "solutions": {
+    "title": "Comment ça peut se débloquer ?",
+    "subtitle": "Les voies de sortie réalistes, documentées et sourcées",
+    "feasibility": {
+      "high": "Faisabilité haute",
+      "medium": "Faisabilité moyenne",
+      "low": "Faisabilité faible",
+      "very-low": "Faisabilité très faible",
+      "near-zero": "Quasi impossible"
+    },
+    "timeline": {
+      "immediate": "Immédiat",
+      "weeks": "Quelques semaines",
+      "months": "Quelques mois",
+      "years": "Plusieurs années"
+    },
+    "precedent": "Précédent",
+    "mechanism": "Mécanisme",
+    "risks": "Risques",
+    "whoCanTrigger": "Qui peut déclencher",
+    "legalBasis": "Base légale",
+    "readMore": "Lire la fiche complète",
+    "backToHome": "Retour à l'accueil"
+  },
+  "footer": {
+    "project": "Un projet d'intérêt général hébergé par Advice That SRL",
+    "disclaimer": "Non affilié à aucun parti politique",
+    "license": "Code source AGPL v3",
+    "editorial": "Charte éditoriale",
+    "privacy": "Politique de confidentialité"
+  },
+  "locale": {
+    "switchTo": "Changer de langue",
+    "fr": "Français",
+    "nl": "Nederlands",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "fallback": {
+    "banner": "Version française — traduction {locale} en cours"
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
+  }
+}

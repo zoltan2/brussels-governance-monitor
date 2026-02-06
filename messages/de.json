@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "Brussels Governance Monitor",
+    "description": "Die Brüsseler Regierungsführung sichtbar, überprüfbar und verständlich machen"
+  },
+  "nav": {
+    "home": "Startseite",
+    "domains": "Bereiche",
+    "solutions": "Auswege aus der Krise",
+    "data": "Daten",
+    "about": "Über uns"
+  },
+  "counter": {
+    "title": "Brüssel ohne Regierung",
+    "days": "{count, plural, one {# Tag} other {# Tage}}",
+    "since": "seit den Wahlen vom 9. Juni 2024",
+    "explanation": "Die Region Brüssel-Hauptstadt arbeitet im Modus der 'laufenden Geschäfte': Die scheidende Regierung erledigt die täglichen Angelegenheiten, kann aber keine neuen politischen Entscheidungen treffen oder einen neuen Haushalt verabschieden."
+  },
+  "domains": {
+    "title": "Betroffene Bereiche",
+    "subtitle": "Was blockiert, verzögert oder verschlechtert ist mangels Regierung",
+    "status": {
+      "blocked": "Blockiert",
+      "delayed": "Verzögert",
+      "ongoing": "Laufend",
+      "resolved": "Gelöst"
+    },
+    "confidence": {
+      "official": "Offizielle Quelle",
+      "estimated": "BGM-Schätzung",
+      "unconfirmed": "Unbestätigt"
+    },
+    "lastModified": "Letzte Aktualisierung: {date}",
+    "sources": "Quellen",
+    "metrics": "Kennzahlen",
+    "readMore": "Vollständige Karte lesen",
+    "backToHome": "Zurück zur Startseite"
+  },
+  "solutions": {
+    "title": "Wie kann dies gelöst werden?",
+    "subtitle": "Realistische, dokumentierte und belegte Auswege",
+    "feasibility": {
+      "high": "Hohe Machbarkeit",
+      "medium": "Mittlere Machbarkeit",
+      "low": "Geringe Machbarkeit",
+      "very-low": "Sehr geringe Machbarkeit",
+      "near-zero": "Nahezu unmöglich"
+    },
+    "timeline": {
+      "immediate": "Sofort",
+      "weeks": "Einige Wochen",
+      "months": "Einige Monate",
+      "years": "Mehrere Jahre"
+    },
+    "precedent": "Präzedenzfall",
+    "mechanism": "Mechanismus",
+    "risks": "Risiken",
+    "whoCanTrigger": "Wer kann dies auslösen",
+    "legalBasis": "Rechtsgrundlage",
+    "readMore": "Vollständige Karte lesen",
+    "backToHome": "Zurück zur Startseite"
+  },
+  "footer": {
+    "project": "Ein gemeinnütziges Projekt, gehostet von Advice That SRL",
+    "disclaimer": "Keiner politischen Partei angeschlossen",
+    "license": "Quellcode AGPL v3",
+    "editorial": "Redaktionelle Charta",
+    "privacy": "Datenschutzrichtlinie"
+  },
+  "locale": {
+    "switchTo": "Sprache ändern",
+    "fr": "Français",
+    "nl": "Nederlands",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "fallback": {
+    "banner": "Französische Version — {locale} Übersetzung in Arbeit"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "backHome": "Zurück zur Startseite"
+  }
+}

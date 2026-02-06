@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "Brussels Governance Monitor",
+    "description": "Het Brusselse bestuur zichtbaar, verifieerbaar en begrijpelijk maken"
+  },
+  "nav": {
+    "home": "Home",
+    "domains": "Domeinen",
+    "solutions": "Uitwegen uit de crisis",
+    "data": "Gegevens",
+    "about": "Over ons"
+  },
+  "counter": {
+    "title": "Brussel zonder regering",
+    "days": "{count, plural, one {# dag} other {# dagen}}",
+    "since": "sinds de verkiezingen van 9 juni 2024",
+    "explanation": "Het Brussels Hoofdstedelijk Gewest functioneert in 'lopende zaken': de uittredende regering behandelt de dagelijkse zaken, maar kan geen nieuw politiek besluit nemen of een nieuwe begroting goedkeuren."
+  },
+  "domains": {
+    "title": "Getroffen domeinen",
+    "subtitle": "Wat geblokkeerd, vertraagd of verslechterd is bij gebrek aan een regering",
+    "status": {
+      "blocked": "Geblokkeerd",
+      "delayed": "Vertraagd",
+      "ongoing": "Lopend",
+      "resolved": "Opgelost"
+    },
+    "confidence": {
+      "official": "Officiële bron",
+      "estimated": "BGM-schatting",
+      "unconfirmed": "Niet bevestigd"
+    },
+    "lastModified": "Laatste update: {date}",
+    "sources": "Bronnen",
+    "metrics": "Kerncijfers",
+    "readMore": "Lees de volledige fiche",
+    "backToHome": "Terug naar home"
+  },
+  "solutions": {
+    "title": "Hoe kan dit worden gedeblokkeerd?",
+    "subtitle": "Realistische, gedocumenteerde en onderbouwde uitwegen",
+    "feasibility": {
+      "high": "Hoge haalbaarheid",
+      "medium": "Gemiddelde haalbaarheid",
+      "low": "Lage haalbaarheid",
+      "very-low": "Zeer lage haalbaarheid",
+      "near-zero": "Bijna onmogelijk"
+    },
+    "timeline": {
+      "immediate": "Onmiddellijk",
+      "weeks": "Enkele weken",
+      "months": "Enkele maanden",
+      "years": "Meerdere jaren"
+    },
+    "precedent": "Precedent",
+    "mechanism": "Mechanisme",
+    "risks": "Risico's",
+    "whoCanTrigger": "Wie kan dit initiëren",
+    "legalBasis": "Wettelijke basis",
+    "readMore": "Lees de volledige fiche",
+    "backToHome": "Terug naar home"
+  },
+  "footer": {
+    "project": "Een project van algemeen belang gehost door Advice That SRL",
+    "disclaimer": "Niet gelieerd aan enige politieke partij",
+    "license": "Broncode AGPL v3",
+    "editorial": "Redactioneel charter",
+    "privacy": "Privacybeleid"
+  },
+  "locale": {
+    "switchTo": "Taal wijzigen",
+    "fr": "Français",
+    "nl": "Nederlands",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "fallback": {
+    "banner": "Franse versie — {locale} vertaling in voorbereiding"
+  },
+  "notFound": {
+    "title": "Pagina niet gevonden",
+    "description": "De pagina die u zoekt bestaat niet of is verplaatst.",
+    "backHome": "Terug naar home"
+  }
+}

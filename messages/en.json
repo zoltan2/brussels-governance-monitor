@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "Brussels Governance Monitor",
+    "description": "Making Brussels governance visible, verifiable, and understandable"
+  },
+  "nav": {
+    "home": "Home",
+    "domains": "Domains",
+    "solutions": "Exit paths",
+    "data": "Data",
+    "about": "About"
+  },
+  "counter": {
+    "title": "Brussels without a government",
+    "days": "{count, plural, one {# day} other {# days}}",
+    "since": "since the elections of 9 June 2024",
+    "explanation": "The Brussels-Capital Region is operating in 'caretaker mode': the outgoing government handles daily affairs but cannot take any new political decisions or approve a new budget."
+  },
+  "domains": {
+    "title": "Impacted domains",
+    "subtitle": "What is blocked, delayed, or degraded due to the absence of government",
+    "status": {
+      "blocked": "Blocked",
+      "delayed": "Delayed",
+      "ongoing": "Ongoing",
+      "resolved": "Resolved"
+    },
+    "confidence": {
+      "official": "Official source",
+      "estimated": "BGM estimate",
+      "unconfirmed": "Unconfirmed"
+    },
+    "lastModified": "Last updated: {date}",
+    "sources": "Sources",
+    "metrics": "Key figures",
+    "readMore": "Read the full card",
+    "backToHome": "Back to home"
+  },
+  "solutions": {
+    "title": "How can this be resolved?",
+    "subtitle": "Realistic, documented, and sourced exit paths",
+    "feasibility": {
+      "high": "High feasibility",
+      "medium": "Medium feasibility",
+      "low": "Low feasibility",
+      "very-low": "Very low feasibility",
+      "near-zero": "Near impossible"
+    },
+    "timeline": {
+      "immediate": "Immediate",
+      "weeks": "A few weeks",
+      "months": "A few months",
+      "years": "Several years"
+    },
+    "precedent": "Precedent",
+    "mechanism": "Mechanism",
+    "risks": "Risks",
+    "whoCanTrigger": "Who can trigger this",
+    "legalBasis": "Legal basis",
+    "readMore": "Read the full card",
+    "backToHome": "Back to home"
+  },
+  "footer": {
+    "project": "A public interest project hosted by Advice That SRL",
+    "disclaimer": "Not affiliated with any political party",
+    "license": "Source code AGPL v3",
+    "editorial": "Editorial charter",
+    "privacy": "Privacy policy"
+  },
+  "locale": {
+    "switchTo": "Change language",
+    "fr": "Français",
+    "nl": "Nederlands",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "fallback": {
+    "banner": "French version — {locale} translation in progress"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to home"
+  }
+}

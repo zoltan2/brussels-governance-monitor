@@ -43,9 +43,7 @@ export function SolutionCard({ card }: SolutionCardProps) {
         <div className="flex gap-4">
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
-              {t('timeline.immediate').split(' ')[0] === t('timeline.immediate')
-                ? 'Délai'
-                : 'Timeline'}
+              {t('timelineLabel')}
             </h4>
             <p className="mt-1 text-sm text-neutral-700">{t(`timeline.${card.timeline}`)}</p>
           </div>

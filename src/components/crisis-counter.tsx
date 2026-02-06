@@ -6,24 +6,24 @@ export function CrisisCounter() {
   const days = daysSinceElections();
 
   return (
-    <section className="bg-brand-900 py-16 text-white">
+    <section className="bg-gradient-to-b from-brand-900 to-brand-800 py-20 text-white">
       <div className="mx-auto max-w-5xl px-4 text-center">
-        <h1 className="mb-2 text-lg font-medium tracking-wide uppercase text-white/70">
+        <h1 className="mb-4 text-sm font-semibold tracking-widest uppercase text-white/60">
           {t('title')}
         </h1>
 
-        <div className="my-6">
-          <span className="text-7xl font-bold tabular-nums tracking-tighter md:text-9xl">
+        <div className="my-8">
+          <span className="text-7xl font-extrabold tabular-nums tracking-tighter sm:text-8xl md:text-9xl">
             {days}
           </span>
-          <p className="mt-2 text-xl text-white/80">
+          <p className="mt-3 text-xl font-medium text-white/80">
             {t('days', { count: days })}
           </p>
         </div>
 
-        <p className="text-sm text-white/60">{t('since')}</p>
+        <p className="text-sm font-medium text-white/50">{t('since')}</p>
 
-        <p className="mx-auto mt-8 max-w-2xl text-sm leading-relaxed text-white/70">
+        <p className="mx-auto mt-10 max-w-2xl text-sm leading-relaxed text-white/60">
           {t('explanation')}
         </p>
       </div>

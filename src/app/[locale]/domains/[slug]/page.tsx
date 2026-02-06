@@ -71,8 +71,32 @@ export default async function DomainDetailPage({
   if (!result) notFound();
 
   const { card, isFallback } = result;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
-  return <DomainDetail card={card} locale={locale} isFallback={isFallback} />;
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: card.title,
+    description: card.summary,
+    dateModified: card.lastModified,
+    url: `${siteUrl}/${locale}/domains/${slug}`,
+    inLanguage: locale,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Brussels Governance Monitor',
+      url: siteUrl,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <DomainDetail card={card} locale={locale} isFallback={isFallback} />
+    </>
+  );
 }
 
 function DomainDetail({

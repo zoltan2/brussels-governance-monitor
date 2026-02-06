@@ -78,10 +78,42 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const messages = await getMessages();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const metadata = messages.metadata as { title: string; description: string };
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        name: metadata.title,
+        description: metadata.description,
+        url: `${siteUrl}/${locale}`,
+        inLanguage: locale,
+        publisher: { '@id': `${siteUrl}/#organization` },
+      },
+      {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+        name: 'Brussels Governance Monitor',
+        url: siteUrl,
+        description: metadata.description,
+        parentOrganization: {
+          '@type': 'Organization',
+          name: 'Advice That SRL',
+          url: 'https://advicethat.com',
+        },
+      },
+    ],
+  };
 
   return (
     <html lang={locale} className={inter.variable}>
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">
             <a

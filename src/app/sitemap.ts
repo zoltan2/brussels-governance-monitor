@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brusselsgovernance.be';
   const locales = routing.locales;
 
-  const staticPaths = ['', '/data', '/editorial', '/privacy'];
+  const staticPaths = ['', '/data', '/editorial', '/privacy', '/timeline', '/glossary', '/faq', '/legal'];
   const domainSlugs = getAllDomainSlugs();
   const solutionSlugs = getAllSolutionSlugs();
 

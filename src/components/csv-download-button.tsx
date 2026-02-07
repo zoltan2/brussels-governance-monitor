@@ -7,6 +7,7 @@ interface MetricRow {
   value: string;
   unit: string;
   source: string;
+  sourceUrl: string;
   date: string;
   confidence: string;
 }
@@ -18,9 +19,9 @@ interface CsvDownloadButtonProps {
 
 export function CsvDownloadButton({ rows, label }: CsvDownloadButtonProps) {
   function handleDownload() {
-    const headers = ['Domain', 'Indicator', 'Value', 'Unit', 'Source', 'Date', 'Confidence'];
+    const headers = ['Domain', 'Indicator', 'Value', 'Unit', 'Source', 'Source URL', 'Date', 'Confidence'];
     const csvRows = rows.map((r) =>
-      [r.domain, r.label, r.value, r.unit, r.source, r.date, r.confidence]
+      [r.domain, r.label, r.value, r.unit, r.source, r.sourceUrl, r.date, r.confidence]
         .map((v) => `"${v.replace(/"/g, '""')}"`)
         .join(','),
     );

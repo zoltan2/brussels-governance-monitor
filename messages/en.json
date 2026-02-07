@@ -8,6 +8,9 @@
     "domains": "Domains",
     "solutions": "Exit paths",
     "data": "Data",
+    "timeline": "Timeline",
+    "glossary": "Glossary",
+    "faq": "FAQ",
     "about": "About"
   },
   "counter": {
@@ -71,7 +74,10 @@
     "disclaimer": "Not affiliated with any political party",
     "license": "Source code AGPL v3",
     "editorial": "Editorial charter",
-    "privacy": "Privacy policy"
+    "privacy": "Privacy policy",
+    "glossary": "Glossary",
+    "faq": "FAQ",
+    "legal": "Legal notice"
   },
   "locale": {
     "switchTo": "Change language",
@@ -93,7 +99,10 @@
     "date": "Date",
     "confidence": "Confidence",
     "downloadCsv": "Download CSV",
-    "noData": "No data available."
+    "noData": "No data available.",
+    "sourcesTitle": "Sources reference",
+    "sourcesSubtitle": "Complete list of sources used in our cards, with direct links to original documents.",
+    "openSource": "Open"
   },
   "subscribe": {
     "title": "Stay informed",
@@ -112,8 +121,8 @@
     },
     "submit": "Subscribe",
     "submitting": "Subscribing...",
-    "successTitle": "Subscription confirmed",
-    "successMessage": "You will receive a welcome email shortly.",
+    "successTitle": "Check your inbox",
+    "successMessage": "A confirmation email has been sent. Click the link to activate your subscription.",
     "errorMessage": "An error occurred. Please try again.",
     "privacy": "Max. 1 email/week. Unsubscribe in 1 click."
   },
@@ -186,6 +195,122 @@
     "contact": {
       "title": "Contact",
       "description": "To exercise your rights or ask a question about data protection, contact us at: privacy@brusselsgovernance.be"
+    },
+    "lastUpdated": "Last updated: {date}"
+  },
+  "timeline": {
+    "title": "Formation timeline",
+    "subtitle": "Every attempt to form a Brussels government since the elections of 9 June 2024",
+    "phaseTracker": "Where do we stand?",
+    "phases": {
+      "exploration": "Exploration",
+      "negotiation": "Negotiation",
+      "agreement": "Agreement",
+      "government": "Government"
+    },
+    "currentPhase": "Current phase",
+    "roundLabel": "Round {number}",
+    "actor": "Designated person",
+    "period": "Period",
+    "formula": "Formula attempted",
+    "result": "Result",
+    "results": {
+      "ongoing": "Ongoing",
+      "recommendation": "Recommendation made",
+      "stalled": "Stalled",
+      "failed": "Failed"
+    },
+    "failureReason": "Reason for failure",
+    "events": "Key events",
+    "eventTypes": {
+      "designation": "Designation",
+      "consultation": "Consultation",
+      "proposal": "Proposal",
+      "blockage": "Blockage",
+      "resignation": "Resignation",
+      "citizen": "Citizens' initiative",
+      "budget": "Budget"
+    },
+    "ongoing": "ongoing",
+    "backToHome": "Back to home"
+  },
+  "search": {
+    "placeholder": "Search...",
+    "noResults": "No results found.",
+    "loading": "Loading search..."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "subtitle": "Answers to the most common questions about the Brussels government crisis",
+    "backToHome": "Back to home",
+    "questions": {
+      "q1": "Why doesn't Brussels have a government?",
+      "a1": "Since the regional elections of 9 June 2024, Brussels political parties have failed to form a majority coalition in parliament. Brussels' institutional structure, which requires majorities in both linguistic groups, complicates formation. Several attempts have failed due to disagreements over coalition formulas and the distribution of competences.",
+      "q2": "What does 'caretaker government' mean?",
+      "a2": "A caretaker government can only manage day-to-day matters and continue existing commitments. It cannot launch new policies, vote a new budget, or make strategic decisions. The budget is managed through provisional twelfths: each month, one twelfth of the previous budget is rolled over.",
+      "q3": "What are the concrete impacts for residents?",
+      "a3": "Infrastructure projects are frozen (Metro 3, tunnel renovations), housing policies are suspended (Housing Fund, rental guarantee), the job market suffers from inaction (ONEM exclusions), and the regional budget loses real value due to inflation without possible adjustment.",
+      "q4": "Has this happened before in Belgium?",
+      "a4": "At the federal level, yes. Belgium held the world record for the longest period without a government: 541 days between 2010 and 2011. At the Brussels regional level, the current situation is unprecedented in both duration and complexity.",
+      "q5": "Who can unblock the situation?",
+      "a5": "The Brussels political parties elected to the regional parliament. The King can also appoint formateurs, informateurs, or mediators to facilitate negotiations. As a last resort, new regional elections are theoretically possible but constitutionally near-impossible.",
+      "q6": "What are provisional twelfths?",
+      "a6": "An emergency budget mechanism that rolls over one twelfth of the last approved budget each month. This allows salaries and current expenses to be paid but prevents any new investment and any adjustment to inflation or changing needs.",
+      "q7": "What are BGM's sources?",
+      "a7": "All our data comes from official sources (Court of Auditors, Brussels parliament, regional administrations) or reliable secondary sources (press, academic studies). Every figure is accompanied by its source and confidence level. Everything is available on the Data page.",
+      "q8": "Is BGM affiliated with a political party?",
+      "a8": "No. Brussels Governance Monitor is an independent project hosted by Advice That SRL. It is not funded or supported by any political party, trade union, or interest group. The source code is published under the AGPL v3 licence to ensure full transparency.",
+      "q9": "How can I contribute?",
+      "a9": "You can report an error, propose a correction, or submit new sources via our GitHub repository. The source code is open and contributions are welcome. You can also subscribe to email alerts to follow the evolution of the situation.",
+      "q10": "How long can this last?",
+      "a10": "There is no legal limit to the duration of caretaker government in Belgium. The situation could theoretically last until the next regional elections scheduled for 2029. In practice, citizen pressure, media attention, and European budget deadlines could accelerate negotiations."
+    }
+  },
+  "glossary": {
+    "title": "Glossary",
+    "subtitle": "Key terms of the Brussels government formation, explained simply",
+    "searchPlaceholder": "Search a term...",
+    "categories": {
+      "institution": "Institution",
+      "procedure": "Procedure",
+      "budget": "Budget",
+      "political": "Political",
+      "legal": "Legal",
+      "bgm": "BGM"
+    },
+    "allCategories": "All",
+    "relatedTerms": "Related terms",
+    "sources": "Sources",
+    "noResults": "No terms found.",
+    "backToHome": "Back to home"
+  },
+  "legal": {
+    "title": "Legal notice",
+    "publisher": {
+      "title": "Responsible publisher",
+      "description": "Advice That SRL, a Belgian company.",
+      "address": "Registered office address available at the Crossroads Bank for Enterprises.",
+      "bce": "Company number: to be completed"
+    },
+    "hosting": {
+      "title": "Hosting",
+      "description": "The site is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, United States. Deployment region: CDG1 (Paris, France)."
+    },
+    "intellectual": {
+      "title": "Intellectual property",
+      "description": "The source code of Brussels Governance Monitor is published under the AGPL v3 licence on GitHub. Editorial content (texts, data, analyses) is published under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), unless otherwise stated."
+    },
+    "liability": {
+      "title": "Limitation of liability",
+      "description": "The information published on this site is provided for informational purposes. Despite all care taken in verifying data, Brussels Governance Monitor cannot guarantee the accuracy, completeness, or timeliness of all information. Use of the information is at the user's own risk."
+    },
+    "links": {
+      "title": "External links",
+      "description": "The site contains links to third-party websites (public institutions, media, databases). Brussels Governance Monitor exercises no control over the content of these sites and disclaims any responsibility for their content."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "For any questions about the site: contact@brusselsgovernance.be"
     },
     "lastUpdated": "Last updated: {date}"
   },

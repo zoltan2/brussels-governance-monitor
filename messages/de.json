@@ -8,6 +8,9 @@
     "domains": "Bereiche",
     "solutions": "Auswege aus der Krise",
     "data": "Daten",
+    "timeline": "Chronologie",
+    "glossary": "Glossar",
+    "faq": "FAQ",
     "about": "Über uns"
   },
   "counter": {
@@ -71,7 +74,10 @@
     "disclaimer": "Keiner politischen Partei angeschlossen",
     "license": "Quellcode AGPL v3",
     "editorial": "Redaktionelle Charta",
-    "privacy": "Datenschutzrichtlinie"
+    "privacy": "Datenschutzrichtlinie",
+    "glossary": "Glossar",
+    "faq": "FAQ",
+    "legal": "Impressum"
   },
   "locale": {
     "switchTo": "Sprache ändern",
@@ -93,7 +99,10 @@
     "date": "Datum",
     "confidence": "Zuverlässigkeit",
     "downloadCsv": "CSV herunterladen",
-    "noData": "Keine Daten verfügbar."
+    "noData": "Keine Daten verfügbar.",
+    "sourcesTitle": "Quellenverzeichnis",
+    "sourcesSubtitle": "Vollständige Liste der in unseren Karten verwendeten Quellen mit direkten Links zu den Originaldokumenten.",
+    "openSource": "Öffnen"
   },
   "subscribe": {
     "title": "Bleiben Sie informiert",
@@ -112,8 +121,8 @@
     },
     "submit": "Abonnieren",
     "submitting": "Wird abonniert...",
-    "successTitle": "Abonnement bestätigt",
-    "successMessage": "Sie erhalten in Kürze eine Willkommens-E-Mail.",
+    "successTitle": "Überprüfen Sie Ihren Posteingang",
+    "successMessage": "Eine Bestätigungs-E-Mail wurde gesendet. Klicken Sie auf den Link, um Ihr Abonnement zu aktivieren.",
     "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "privacy": "Max. 1 E-Mail/Woche. Abmeldung mit 1 Klick."
   },
@@ -186,6 +195,122 @@
     "contact": {
       "title": "Kontakt",
       "description": "Um Ihre Rechte auszuüben oder eine Frage zum Datenschutz zu stellen, kontaktieren Sie uns unter: privacy@brusselsgovernance.be"
+    },
+    "lastUpdated": "Letzte Aktualisierung: {date}"
+  },
+  "timeline": {
+    "title": "Chronologie der Regierungsbildung",
+    "subtitle": "Jeder Versuch zur Bildung einer Brüsseler Regierung seit den Wahlen vom 9. Juni 2024",
+    "phaseTracker": "Wo stehen wir?",
+    "phases": {
+      "exploration": "Exploration",
+      "negotiation": "Verhandlung",
+      "agreement": "Vereinbarung",
+      "government": "Regierung"
+    },
+    "currentPhase": "Aktuelle Phase",
+    "roundLabel": "Round {number}",
+    "actor": "Beauftragter",
+    "period": "Zeitraum",
+    "formula": "Versuchte Formel",
+    "result": "Ergebnis",
+    "results": {
+      "ongoing": "Laufend",
+      "recommendation": "Empfehlung formuliert",
+      "stalled": "Festgefahren",
+      "failed": "Gescheitert"
+    },
+    "failureReason": "Grund des Scheiterns",
+    "events": "Schlüsselereignisse",
+    "eventTypes": {
+      "designation": "Ernennung",
+      "consultation": "Konsultation",
+      "proposal": "Vorschlag",
+      "blockage": "Blockade",
+      "resignation": "Rücktritt",
+      "citizen": "Bürgerinitiative",
+      "budget": "Haushalt"
+    },
+    "ongoing": "laufend",
+    "backToHome": "Zurück zur Startseite"
+  },
+  "search": {
+    "placeholder": "Suchen...",
+    "noResults": "Keine Ergebnisse gefunden.",
+    "loading": "Suche wird geladen..."
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Antworten auf die häufigsten Fragen zur Brüsseler Regierungskrise",
+    "backToHome": "Zurück zur Startseite",
+    "questions": {
+      "q1": "Warum hat Brüssel keine Regierung?",
+      "a1": "Seit den Regionalwahlen vom 9. Juni 2024 haben die Brüsseler Parteien es nicht geschafft, eine Mehrheitskoalition im Parlament zu bilden. Die institutionelle Struktur Brüssels, die Mehrheiten in beiden Sprachgruppen erfordert, erschwert die Bildung. Mehrere Versuche sind an Meinungsverschiedenheiten über Koalitionsformeln und die Verteilung der Zuständigkeiten gescheitert.",
+      "q2": "Was bedeutet 'laufende Geschäfte'?",
+      "a2": "Eine geschäftsführende Regierung kann nur Tagesgeschäfte erledigen und bereits eingegangene Verpflichtungen fortsetzen. Sie kann keine neuen Maßnahmen ergreifen, keinen neuen Haushalt verabschieden und keine strategischen Entscheidungen treffen. Der Haushalt wird über vorläufige Zwölftel verwaltet: Jeden Monat wird ein Zwölftel des vorherigen Haushalts fortgeschrieben.",
+      "q3": "Welche konkreten Auswirkungen hat das für die Einwohner?",
+      "a3": "Infrastrukturprojekte liegen auf Eis (Metro 3, Tunnelrenovierungen), die Wohnungspolitik ist ausgesetzt (Wohnungsfonds, Mietgarantie), der Arbeitsmarkt leidet unter Untätigkeit (ONEM-Ausschlüsse), und der Regionalhaushalt verliert durch Inflation an realem Wert ohne Anpassungsmöglichkeit.",
+      "q4": "Ist das in Belgien schon einmal vorgekommen?",
+      "a4": "Auf Bundesebene ja. Belgien hielt den Weltrekord für die längste Zeit ohne Regierung: 541 Tage zwischen 2010 und 2011. Auf der Ebene der Region Brüssel-Hauptstadt ist die aktuelle Situation in Dauer und Komplexität beispiellos.",
+      "q5": "Wer kann die Situation auflösen?",
+      "a5": "Die in das Regionalparlament gewählten Brüsseler Parteien. Der König kann auch Formateurs, Informateurs oder Vermittler ernennen, um die Verhandlungen zu erleichtern. Als letztes Mittel sind Neuwahlen theoretisch möglich, aber verfassungsrechtlich nahezu unmöglich.",
+      "q6": "Was sind vorläufige Zwölftel?",
+      "a6": "Ein Nothaushaltsmechanismus, der jeden Monat ein Zwölftel des zuletzt verabschiedeten Haushalts fortschreibt. Damit können Gehälter und laufende Ausgaben bezahlt werden, aber neue Investitionen und Anpassungen an Inflation oder veränderte Bedürfnisse sind ausgeschlossen.",
+      "q7": "Was sind die Quellen von BGM?",
+      "a7": "Alle unsere Daten stammen aus offiziellen Quellen (Rechnungshof, Brüsseler Parlament, Regionalverwaltungen) oder zuverlässigen Sekundärquellen (Presse, akademische Studien). Jede Zahl wird von ihrer Quelle und ihrem Vertrauensniveau begleitet. Alles ist auf der Daten-Seite einsehbar.",
+      "q8": "Ist BGM mit einer politischen Partei verbunden?",
+      "a8": "Nein. Brussels Governance Monitor ist ein unabhängiges Projekt, das von Advice That SRL gehostet wird. Es wird von keiner politischen Partei, Gewerkschaft oder Interessengruppe finanziert oder unterstützt. Der Quellcode ist unter der AGPL v3-Lizenz veröffentlicht, um vollständige Transparenz zu gewährleisten.",
+      "q9": "Wie kann ich beitragen?",
+      "a9": "Sie können einen Fehler melden, eine Korrektur vorschlagen oder neue Quellen über unser GitHub-Repository einreichen. Der Quellcode ist offen und Beiträge sind willkommen. Sie können sich auch für E-Mail-Benachrichtigungen anmelden, um die Entwicklung der Situation zu verfolgen.",
+      "q10": "Wie lange kann das noch dauern?",
+      "a10": "Es gibt keine gesetzliche Grenze für die Dauer der laufenden Geschäfte in Belgien. Die Situation könnte theoretisch bis zu den nächsten Regionalwahlen 2029 andauern. In der Praxis könnten Bürgerdruck, Medienaufmerksamkeit und europäische Haushaltsfristen die Verhandlungen beschleunigen."
+    }
+  },
+  "glossary": {
+    "title": "Glossar",
+    "subtitle": "Die Schlüsselbegriffe der Brüsseler Regierungsbildung, einfach erklärt",
+    "searchPlaceholder": "Begriff suchen...",
+    "categories": {
+      "institution": "Institution",
+      "procedure": "Verfahren",
+      "budget": "Haushalt",
+      "political": "Politik",
+      "legal": "Recht",
+      "bgm": "BGM"
+    },
+    "allCategories": "Alle",
+    "relatedTerms": "Verwandte Begriffe",
+    "sources": "Quellen",
+    "noResults": "Keine Begriffe gefunden.",
+    "backToHome": "Zurück zur Startseite"
+  },
+  "legal": {
+    "title": "Impressum",
+    "publisher": {
+      "title": "Verantwortlicher Herausgeber",
+      "description": "Advice That SRL, eine Gesellschaft nach belgischem Recht.",
+      "address": "Adresse des eingetragenen Sitzes verfügbar bei der Zentralen Datenbank der Unternehmen.",
+      "bce": "Unternehmensnummer: zu ergänzen"
+    },
+    "hosting": {
+      "title": "Hosting",
+      "description": "Die Website wird von Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, Vereinigte Staaten, gehostet. Bereitstellungsregion: CDG1 (Paris, Frankreich)."
+    },
+    "intellectual": {
+      "title": "Geistiges Eigentum",
+      "description": "Der Quellcode von Brussels Governance Monitor ist unter der AGPL v3-Lizenz auf GitHub veröffentlicht. Redaktionelle Inhalte (Texte, Daten, Analysen) sind unter Creative Commons Namensnennung-Weitergabe unter gleichen Bedingungen 4.0 International (CC BY-SA 4.0) veröffentlicht, sofern nicht anders angegeben."
+    },
+    "liability": {
+      "title": "Haftungsbeschränkung",
+      "description": "Die auf dieser Website veröffentlichten Informationen dienen ausschließlich Informationszwecken. Trotz aller Sorgfalt bei der Überprüfung der Daten kann Brussels Governance Monitor die Richtigkeit, Vollständigkeit oder Aktualität aller Informationen nicht garantieren. Die Nutzung der Informationen erfolgt auf eigene Verantwortung des Nutzers."
+    },
+    "links": {
+      "title": "Externe Links",
+      "description": "Die Website enthält Links zu Websites Dritter (öffentliche Einrichtungen, Medien, Datenbanken). Brussels Governance Monitor übt keine Kontrolle über den Inhalt dieser Websites aus und lehnt jede Verantwortung für deren Inhalt ab."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Für Fragen zur Website: contact@brusselsgovernance.be"
     },
     "lastUpdated": "Letzte Aktualisierung: {date}"
   },

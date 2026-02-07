@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { LocaleSwitcher } from './locale-switcher';
+import { Search } from '@/components/search';
 
 export function Header() {
   const t = useTranslations('nav');
@@ -29,6 +30,13 @@ export function Header() {
           <Link href="/data" className="text-sm text-neutral-600 hover:text-neutral-900">
             {t('data')}
           </Link>
+          <Link href="/timeline" className="text-sm text-neutral-600 hover:text-neutral-900">
+            {t('timeline')}
+          </Link>
+          <Link href="/glossary" className="text-sm text-neutral-600 hover:text-neutral-900">
+            {t('glossary')}
+          </Link>
+          <Search />
           <LocaleSwitcher />
         </nav>
 
@@ -81,6 +89,20 @@ export function Header() {
               className="text-sm text-neutral-600 hover:text-neutral-900"
             >
               {t('data')}
+            </Link>
+            <Link
+              href="/timeline"
+              onClick={() => setMenuOpen(false)}
+              className="text-sm text-neutral-600 hover:text-neutral-900"
+            >
+              {t('timeline')}
+            </Link>
+            <Link
+              href="/glossary"
+              onClick={() => setMenuOpen(false)}
+              className="text-sm text-neutral-600 hover:text-neutral-900"
+            >
+              {t('glossary')}
             </Link>
             <div className="pt-2">
               <LocaleSwitcher />

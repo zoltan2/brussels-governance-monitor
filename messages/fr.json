@@ -8,6 +8,9 @@
     "domains": "Domaines",
     "solutions": "Sorties de crise",
     "data": "Données",
+    "timeline": "Chronologie",
+    "glossary": "Glossaire",
+    "faq": "FAQ",
     "about": "À propos"
   },
   "counter": {
@@ -71,7 +74,10 @@
     "disclaimer": "Non affilié à aucun parti politique",
     "license": "Code source AGPL v3",
     "editorial": "Charte éditoriale",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "glossary": "Glossaire",
+    "faq": "FAQ",
+    "legal": "Mentions légales"
   },
   "locale": {
     "switchTo": "Changer de langue",
@@ -93,7 +99,10 @@
     "date": "Date",
     "confidence": "Confiance",
     "downloadCsv": "Télécharger CSV",
-    "noData": "Aucune donnée disponible."
+    "noData": "Aucune donnée disponible.",
+    "sourcesTitle": "Référentiel des sources",
+    "sourcesSubtitle": "Liste complète des sources utilisées dans nos fiches, avec liens directs vers les documents originaux.",
+    "openSource": "Ouvrir"
   },
   "subscribe": {
     "title": "Restez informé",
@@ -112,8 +121,8 @@
     },
     "submit": "S'inscrire",
     "submitting": "Inscription...",
-    "successTitle": "Inscription confirmée",
-    "successMessage": "Vous recevrez un email de bienvenue sous peu.",
+    "successTitle": "Vérifiez votre boîte mail",
+    "successMessage": "Un email de confirmation vous a été envoyé. Cliquez sur le lien pour activer votre abonnement.",
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
     "privacy": "Max. 1 email/semaine. Désabonnement en 1 clic."
   },
@@ -186,6 +195,122 @@
     "contact": {
       "title": "Contact",
       "description": "Pour exercer vos droits ou poser une question relative à la protection de vos données, contactez-nous à : privacy@brusselsgovernance.be"
+    },
+    "lastUpdated": "Dernière mise à jour : {date}"
+  },
+  "timeline": {
+    "title": "Chronologie de la formation",
+    "subtitle": "Chaque tentative de formation d'un gouvernement bruxellois depuis les élections du 9 juin 2024",
+    "phaseTracker": "Où en sommes-nous ?",
+    "phases": {
+      "exploration": "Exploration",
+      "negotiation": "Négociation",
+      "agreement": "Accord",
+      "government": "Gouvernement"
+    },
+    "currentPhase": "Phase actuelle",
+    "roundLabel": "Round {number}",
+    "actor": "Mandataire",
+    "period": "Période",
+    "formula": "Formule tentée",
+    "result": "Résultat",
+    "results": {
+      "ongoing": "En cours",
+      "recommendation": "Recommandation formulée",
+      "stalled": "Enlisé",
+      "failed": "Échoué"
+    },
+    "failureReason": "Raison de l'échec",
+    "events": "Événements clés",
+    "eventTypes": {
+      "designation": "Désignation",
+      "consultation": "Consultation",
+      "proposal": "Proposition",
+      "blockage": "Blocage",
+      "resignation": "Démission",
+      "citizen": "Initiative citoyenne",
+      "budget": "Budget"
+    },
+    "ongoing": "en cours",
+    "backToHome": "Retour à l'accueil"
+  },
+  "search": {
+    "placeholder": "Rechercher...",
+    "noResults": "Aucun résultat trouvé.",
+    "loading": "Chargement de la recherche..."
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "subtitle": "Les réponses aux questions les plus posées sur la crise gouvernementale bruxelloise",
+    "backToHome": "Retour à l'accueil",
+    "questions": {
+      "q1": "Pourquoi Bruxelles n'a-t-elle pas de gouvernement ?",
+      "a1": "Depuis les élections régionales du 9 juin 2024, les partis politiques bruxellois n'ont pas réussi à former une coalition majoritaire au parlement. La structure institutionnelle bruxelloise, qui exige des majorités dans les deux groupes linguistiques, complique la formation. Plusieurs tentatives ont échoué en raison de désaccords sur les formules de coalition et la répartition des compétences.",
+      "q2": "Que signifie « affaires courantes » ?",
+      "a2": "Un gouvernement en affaires courantes ne peut que gérer les dossiers quotidiens et poursuivre les engagements déjà pris. Il ne peut pas lancer de nouvelles politiques, voter un nouveau budget, ni prendre de décisions stratégiques. Le budget est géré par douzièmes provisoires : chaque mois, un douzième du budget précédent est reconduit.",
+      "q3": "Quels sont les impacts concrets pour les habitants ?",
+      "a3": "Les projets d'infrastructure sont gelés (Metro 3, rénovations de tunnels), les politiques de logement sont suspendues (Fonds du Logement, garantie locative), le marché de l'emploi souffre de l'inaction (exclusions ONEM), et le budget régional perd de sa valeur réelle à cause de l'inflation sans ajustement possible.",
+      "q4": "Est-ce que cela s'est déjà produit en Belgique ?",
+      "a4": "Au niveau fédéral, oui. La Belgique a détenu le record mondial de durée sans gouvernement : 541 jours entre 2010 et 2011. Au niveau régional bruxellois, la situation actuelle est inédite par sa durée et sa complexité.",
+      "q5": "Qui peut débloquer la situation ?",
+      "a5": "Les partis politiques bruxellois élus au parlement régional. Le Roi peut aussi nommer des formateurs, informateurs ou médiateurs pour faciliter les négociations. En dernier recours, de nouvelles élections régionales sont théoriquement possibles mais constitutionnellement quasi impossibles.",
+      "q6": "Que sont les douzièmes provisoires ?",
+      "a6": "Un mécanisme budgétaire d'urgence qui reconduit chaque mois un douzième du dernier budget voté. Cela permet de payer les salaires et les dépenses courantes, mais empêche tout investissement nouveau et toute adaptation à l'inflation ou aux besoins changeants.",
+      "q7": "Quelles sont les sources de BGM ?",
+      "a7": "Toutes nos données proviennent de sources officielles (Cour des comptes, parlement bruxellois, administrations régionales) ou de sources secondaires fiables (presse, études académiques). Chaque chiffre est accompagné de sa source et de son niveau de confiance. L'ensemble est consultable sur la page Données.",
+      "q8": "BGM est-il affilié à un parti politique ?",
+      "a8": "Non. Brussels Governance Monitor est un projet indépendant hébergé par Advice That SRL. Il n'est financé ni soutenu par aucun parti politique, syndicat ou groupe d'intérêt. Le code source est publié sous licence AGPL v3 pour garantir une transparence totale.",
+      "q9": "Comment puis-je contribuer ?",
+      "a9": "Vous pouvez signaler une erreur, proposer une correction ou soumettre de nouvelles sources via notre dépôt GitHub. Le code source est ouvert et les contributions sont les bienvenues. Vous pouvez également vous inscrire aux alertes email pour suivre l'évolution de la situation.",
+      "q10": "Combien de temps cela peut-il encore durer ?",
+      "a10": "Il n'y a aucune limite légale à la durée des affaires courantes en Belgique. La situation peut théoriquement durer jusqu'aux prochaines élections régionales prévues en 2029. En pratique, la pression citoyenne, médiatique et les échéances budgétaires européennes pourraient accélérer les négociations."
+    }
+  },
+  "glossary": {
+    "title": "Glossaire",
+    "subtitle": "Les termes clés de la formation gouvernementale bruxelloise, expliqués simplement",
+    "searchPlaceholder": "Rechercher un terme...",
+    "categories": {
+      "institution": "Institution",
+      "procedure": "Procédure",
+      "budget": "Budget",
+      "political": "Politique",
+      "legal": "Juridique",
+      "bgm": "BGM"
+    },
+    "allCategories": "Toutes",
+    "relatedTerms": "Termes liés",
+    "sources": "Sources",
+    "noResults": "Aucun terme trouvé.",
+    "backToHome": "Retour à l'accueil"
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "publisher": {
+      "title": "Éditeur responsable",
+      "description": "Advice That SRL, société de droit belge.",
+      "address": "Adresse du siège social disponible au registre de la Banque-Carrefour des Entreprises.",
+      "bce": "Numéro d'entreprise : à compléter"
+    },
+    "hosting": {
+      "title": "Hébergement",
+      "description": "Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis. Région de déploiement : CDG1 (Paris, France)."
+    },
+    "intellectual": {
+      "title": "Propriété intellectuelle",
+      "description": "Le code source de Brussels Governance Monitor est publié sous licence AGPL v3 sur GitHub. Le contenu éditorial (textes, données, analyses) est publié sous licence Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), sauf mention contraire."
+    },
+    "liability": {
+      "title": "Limitation de responsabilité",
+      "description": "Les informations publiées sur ce site sont fournies à titre informatif. Malgré tout le soin apporté à la vérification des données, Brussels Governance Monitor ne peut garantir l'exactitude, l'exhaustivité ou l'actualité de toutes les informations. L'utilisation des informations se fait sous la responsabilité de l'utilisateur."
+    },
+    "links": {
+      "title": "Liens externes",
+      "description": "Le site contient des liens vers des sites tiers (institutions publiques, médias, bases de données). Brussels Governance Monitor n'exerce aucun contrôle sur le contenu de ces sites et décline toute responsabilité quant à leur contenu."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Pour toute question relative au site : contact@brusselsgovernance.be"
     },
     "lastUpdated": "Dernière mise à jour : {date}"
   },

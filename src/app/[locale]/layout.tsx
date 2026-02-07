@@ -110,6 +110,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={inter.variable}>
       <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Brussels Governance Monitor"
+          href="/feed"
+        />
         {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
           <script
             defer

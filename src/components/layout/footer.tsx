@@ -27,6 +27,18 @@ export function Footer() {
             <Link href="/privacy" className="underline underline-offset-2 hover:text-neutral-700">
               {t('privacy')}
             </Link>
+            <span className="text-neutral-300" aria-hidden="true">|</span>
+            <Link href="/glossary" className="underline underline-offset-2 hover:text-neutral-700">
+              {t('glossary')}
+            </Link>
+            <span className="text-neutral-300" aria-hidden="true">|</span>
+            <Link href="/faq" className="underline underline-offset-2 hover:text-neutral-700">
+              {t('faq')}
+            </Link>
+            <span className="text-neutral-300" aria-hidden="true">|</span>
+            <Link href="/legal" className="underline underline-offset-2 hover:text-neutral-700">
+              {t('legal')}
+            </Link>
           </nav>
         </div>
       </div>

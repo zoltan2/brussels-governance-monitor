@@ -81,6 +81,98 @@ const solutionCards = defineCollection({
 });
 
 // ──────────────────────────────────────────────
+// Collection: Formation Rounds (timeline macro-structure)
+// ──────────────────────────────────────────────
+const formationRounds = defineCollection({
+  name: 'FormationRound',
+  pattern: 'formation-rounds/*.mdx',
+  schema: s
+    .object({
+      number: s.number(),
+      label: s.string().max(120),
+      slug: s.string(),
+      locale: localeEnum,
+      actor: s.string(), // e.g. "Formateur (MR)", "Informateurs (Les Engagés + Groen)"
+      startDate: s.isodate(),
+      endDate: s.isodate().optional(), // null if ongoing
+      formulaAttempted: s.string(),
+      result: s.enum(['ongoing', 'recommendation', 'stalled', 'failed']),
+      failureReason: s.string().optional(),
+      lastModified: s.isodate(),
+      content: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      permalink: `/timeline#round-${data.number}`,
+    })),
+});
+
+// ──────────────────────────────────────────────
+// Collection: Formation Events (timeline detail)
+// ──────────────────────────────────────────────
+const formationEvents = defineCollection({
+  name: 'FormationEvent',
+  pattern: 'formation-events/*.mdx',
+  schema: s
+    .object({
+      title: s.string().max(200),
+      slug: s.string(),
+      locale: localeEnum,
+      date: s.isodate(),
+      round: s.number(), // links to FormationRound.number
+      eventType: s.enum([
+        'designation',
+        'consultation',
+        'proposal',
+        'blockage',
+        'resignation',
+        'citizen',
+        'budget',
+      ]),
+      summary: s.string().max(500),
+      impact: s.string().optional(),
+      sources: s.array(sourceSchema),
+      lastModified: s.isodate(),
+      content: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      permalink: `/timeline#event-${data.slug}`,
+    })),
+});
+
+// ──────────────────────────────────────────────
+// Collection: Glossary Terms
+// ──────────────────────────────────────────────
+const glossaryTerms = defineCollection({
+  name: 'GlossaryTerm',
+  pattern: 'glossary/*.mdx',
+  schema: s
+    .object({
+      term: s.string().max(120),
+      slug: s.string(),
+      locale: localeEnum,
+      definition: s.string().max(500),
+      category: s.enum([
+        'institution',
+        'procedure',
+        'budget',
+        'political',
+        'legal',
+        'bgm',
+      ]),
+      relatedTerms: s.array(s.string()).default([]),
+      sources: s.array(sourceSchema).default([]),
+      lastModified: s.isodate(),
+      content: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      permalink: `/glossary#${data.slug}`,
+    })),
+});
+
+// ──────────────────────────────────────────────
 // Collection: Sector Cards (V1 — schema ready, 0 content)
 // ──────────────────────────────────────────────
 const sectorCards = defineCollection({
@@ -196,6 +288,9 @@ export default defineConfig({
   collections: {
     domainCards,
     solutionCards,
+    formationRounds,
+    formationEvents,
+    glossaryTerms,
     sectorCards,
     comparisonCards,
   },

@@ -8,6 +8,9 @@
     "domains": "Domeinen",
     "solutions": "Uitwegen uit de crisis",
     "data": "Gegevens",
+    "timeline": "Chronologie",
+    "glossary": "Woordenlijst",
+    "faq": "FAQ",
     "about": "Over ons"
   },
   "counter": {
@@ -71,7 +74,10 @@
     "disclaimer": "Niet gelieerd aan enige politieke partij",
     "license": "Broncode AGPL v3",
     "editorial": "Redactioneel charter",
-    "privacy": "Privacybeleid"
+    "privacy": "Privacybeleid",
+    "glossary": "Woordenlijst",
+    "faq": "FAQ",
+    "legal": "Juridische vermeldingen"
   },
   "locale": {
     "switchTo": "Taal wijzigen",
@@ -93,7 +99,10 @@
     "date": "Datum",
     "confidence": "Betrouwbaarheid",
     "downloadCsv": "CSV downloaden",
-    "noData": "Geen gegevens beschikbaar."
+    "noData": "Geen gegevens beschikbaar.",
+    "sourcesTitle": "Bronnenlijst",
+    "sourcesSubtitle": "Volledige lijst van bronnen gebruikt in onze fiches, met directe links naar de originele documenten.",
+    "openSource": "Openen"
   },
   "subscribe": {
     "title": "Blijf op de hoogte",
@@ -112,8 +121,8 @@
     },
     "submit": "Inschrijven",
     "submitting": "Inschrijven...",
-    "successTitle": "Inschrijving bevestigd",
-    "successMessage": "U ontvangt binnenkort een welkomstmail.",
+    "successTitle": "Controleer uw mailbox",
+    "successMessage": "Er is een bevestigingsmail naar u verstuurd. Klik op de link om uw abonnement te activeren.",
     "errorMessage": "Er is een fout opgetreden. Probeer het opnieuw.",
     "privacy": "Max. 1 e-mail/week. Uitschrijven met 1 klik."
   },
@@ -186,6 +195,122 @@
     "contact": {
       "title": "Contact",
       "description": "Om uw rechten uit te oefenen of een vraag te stellen over de bescherming van uw gegevens, kunt u contact met ons opnemen via: privacy@brusselsgovernance.be"
+    },
+    "lastUpdated": "Laatste update: {date}"
+  },
+  "timeline": {
+    "title": "Chronologie van de formatie",
+    "subtitle": "Elke poging tot vorming van een Brusselse regering sinds de verkiezingen van 9 juni 2024",
+    "phaseTracker": "Waar staan we?",
+    "phases": {
+      "exploration": "Exploratie",
+      "negotiation": "Onderhandeling",
+      "agreement": "Akkoord",
+      "government": "Regering"
+    },
+    "currentPhase": "Huidige fase",
+    "roundLabel": "Round {number}",
+    "actor": "Mandataris",
+    "period": "Periode",
+    "formula": "Geprobeerde formule",
+    "result": "Resultaat",
+    "results": {
+      "ongoing": "Lopend",
+      "recommendation": "Aanbeveling geformuleerd",
+      "stalled": "Vastgelopen",
+      "failed": "Mislukt"
+    },
+    "failureReason": "Reden van mislukking",
+    "events": "Belangrijke gebeurtenissen",
+    "eventTypes": {
+      "designation": "Benoeming",
+      "consultation": "Consultatie",
+      "proposal": "Voorstel",
+      "blockage": "Blokkade",
+      "resignation": "Ontslag",
+      "citizen": "Burgerinitiatief",
+      "budget": "Budget"
+    },
+    "ongoing": "lopend",
+    "backToHome": "Terug naar home"
+  },
+  "search": {
+    "placeholder": "Zoeken...",
+    "noResults": "Geen resultaten gevonden.",
+    "loading": "Zoeken laden..."
+  },
+  "faq": {
+    "title": "Veelgestelde vragen",
+    "subtitle": "Antwoorden op de meest gestelde vragen over de Brusselse regeringscrisis",
+    "backToHome": "Terug naar home",
+    "questions": {
+      "q1": "Waarom heeft Brussel geen regering?",
+      "a1": "Sinds de regionale verkiezingen van 9 juni 2024 zijn de Brusselse politieke partijen er niet in geslaagd een meerderheidscoalitie te vormen in het parlement. De institutionele structuur van Brussel, die meerderheden in beide taalgroepen vereist, bemoeilijkt de vorming. Meerdere pogingen zijn mislukt door onenigheid over coalitieformules en de verdeling van bevoegdheden.",
+      "q2": "Wat betekent 'lopende zaken'?",
+      "a2": "Een regering in lopende zaken kan alleen dagelijkse dossiers beheren en reeds aangegane verbintenissen voortzetten. Ze kan geen nieuw beleid lanceren, geen nieuwe begroting stemmen en geen strategische beslissingen nemen. De begroting wordt beheerd via voorlopige twaalfden: elke maand wordt een twaalfde van de vorige begroting verlengd.",
+      "q3": "Wat zijn de concrete gevolgen voor de inwoners?",
+      "a3": "Infrastructuurprojecten liggen stil (Metro 3, tunnelrenovaties), het woonbeleid is opgeschort (Woningfonds, huurgarantie), de arbeidsmarkt lijdt onder het stilzitten (ONEM-uitsluitingen), en de gewestelijke begroting verliest reële waarde door inflatie zonder mogelijke aanpassing.",
+      "q4": "Is dit al eerder gebeurd in België?",
+      "a4": "Op federaal niveau wel. België hield het wereldrecord van langste periode zonder regering: 541 dagen tussen 2010 en 2011. Op Brussels gewestelijk niveau is de huidige situatie ongezien in duur en complexiteit.",
+      "q5": "Wie kan de situatie deblokkeren?",
+      "a5": "De Brusselse politieke partijen die in het regionaal parlement zijn verkozen. De Koning kan ook formateurs, informateurs of bemiddelaars aanstellen om de onderhandelingen te vergemakkelijken. Als laatste redmiddel zijn nieuwe regionale verkiezingen theoretisch mogelijk maar grondwettelijk bijna onmogelijk.",
+      "q6": "Wat zijn voorlopige twaalfden?",
+      "a6": "Een noodbegrotingsmechanisme dat elke maand een twaalfde van de laatst gestemde begroting verlengt. Dit maakt het mogelijk lonen en lopende uitgaven te betalen, maar verhindert elke nieuwe investering en elke aanpassing aan inflatie of veranderende behoeften.",
+      "q7": "Wat zijn de bronnen van BGM?",
+      "a7": "Al onze gegevens komen van officiële bronnen (Rekenhof, Brussels parlement, gewestelijke administraties) of betrouwbare secundaire bronnen (pers, academische studies). Elk cijfer gaat vergezeld van zijn bron en betrouwbaarheidsniveau. Het geheel is te raadplegen op de pagina Gegevens.",
+      "q8": "Is BGM verbonden met een politieke partij?",
+      "a8": "Nee. Brussels Governance Monitor is een onafhankelijk project gehost door Advice That SRL. Het wordt niet gefinancierd of ondersteund door enige politieke partij, vakbond of belangengroep. De broncode is gepubliceerd onder de AGPL v3-licentie om volledige transparantie te garanderen.",
+      "q9": "Hoe kan ik bijdragen?",
+      "a9": "U kunt een fout melden, een correctie voorstellen of nieuwe bronnen indienen via onze GitHub-repository. De broncode is open en bijdragen zijn welkom. U kunt zich ook inschrijven voor e-mailwaarschuwingen om de evolutie van de situatie te volgen.",
+      "q10": "Hoe lang kan dit nog duren?",
+      "a10": "Er is geen wettelijke limiet aan de duur van lopende zaken in België. De situatie kan theoretisch duren tot de volgende regionale verkiezingen in 2029. In de praktijk zouden burgerdruk, mediadruk en Europese begrotingsdeadlines de onderhandelingen kunnen versnellen."
+    }
+  },
+  "glossary": {
+    "title": "Woordenlijst",
+    "subtitle": "De sleutelbegrippen van de Brusselse regeringsvorming, eenvoudig uitgelegd",
+    "searchPlaceholder": "Zoek een term...",
+    "categories": {
+      "institution": "Instelling",
+      "procedure": "Procedure",
+      "budget": "Budget",
+      "political": "Politiek",
+      "legal": "Juridisch",
+      "bgm": "BGM"
+    },
+    "allCategories": "Alle",
+    "relatedTerms": "Gerelateerde termen",
+    "sources": "Bronnen",
+    "noResults": "Geen termen gevonden.",
+    "backToHome": "Terug naar home"
+  },
+  "legal": {
+    "title": "Juridische vermeldingen",
+    "publisher": {
+      "title": "Verantwoordelijke uitgever",
+      "description": "Advice That SRL, vennootschap naar Belgisch recht.",
+      "address": "Adres van de maatschappelijke zetel beschikbaar bij de Kruispuntbank van Ondernemingen.",
+      "bce": "Ondernemingsnummer: aan te vullen"
+    },
+    "hosting": {
+      "title": "Hosting",
+      "description": "De site wordt gehost door Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, Verenigde Staten. Implementatieregio: CDG1 (Parijs, Frankrijk)."
+    },
+    "intellectual": {
+      "title": "Intellectuele eigendom",
+      "description": "De broncode van Brussels Governance Monitor is gepubliceerd onder de AGPL v3-licentie op GitHub. De redactionele inhoud (teksten, gegevens, analyses) is gepubliceerd onder Creative Commons Naamsvermelding-GelijkDelen 4.0 Internationaal (CC BY-SA 4.0), tenzij anders vermeld."
+    },
+    "liability": {
+      "title": "Beperking van aansprakelijkheid",
+      "description": "De op deze site gepubliceerde informatie wordt verstrekt ter informatie. Ondanks alle zorg die besteed wordt aan de verificatie van de gegevens, kan Brussels Governance Monitor de juistheid, volledigheid of actualiteit van alle informatie niet garanderen. Het gebruik van de informatie gebeurt onder de verantwoordelijkheid van de gebruiker."
+    },
+    "links": {
+      "title": "Externe links",
+      "description": "De site bevat links naar sites van derden (overheidsinstellingen, media, databanken). Brussels Governance Monitor oefent geen controle uit over de inhoud van deze sites en wijst elke verantwoordelijkheid af met betrekking tot hun inhoud."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Voor elke vraag over de site: contact@brusselsgovernance.be"
     },
     "lastUpdated": "Laatste update: {date}"
   },

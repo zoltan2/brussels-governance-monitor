@@ -17,7 +17,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  // Title is set via template from layout
   const titles: Record<string, string> = {
     fr: 'Données',
     nl: 'Gegevens',
@@ -34,6 +33,7 @@ interface MetricRow {
   value: string;
   unit: string;
   source: string;
+  sourceUrl: string;
   date: string;
   confidence: string;
 }
@@ -49,22 +49,59 @@ export default async function DataPage({
   const cards = getDomainCards(locale as Locale);
 
   const rows: MetricRow[] = cards.flatMap((card) =>
-    card.metrics.map((m) => ({
+    card.metrics.map((m) => {
+      // Find matching source URL from card sources
+      const matchingSource = card.sources.find(
+        (s) =>
+          s.label.toLowerCase().includes(m.source.toLowerCase()) ||
+          m.source.toLowerCase().includes(s.label.split('—')[0].trim().toLowerCase()),
+      );
+
+      return {
+        domain: card.domain,
+        domainTitle: card.title,
+        label: m.label,
+        value: m.value,
+        unit: m.unit || '',
+        source: m.source,
+        sourceUrl: matchingSource?.url || '',
+        date: m.date,
+        confidence: card.confidenceLevel,
+      };
+    }),
+  );
+
+  // Also build a full sources list from all cards
+  const allSources = cards.flatMap((card) =>
+    card.sources.map((s) => ({
       domain: card.domain,
       domainTitle: card.title,
-      label: m.label,
-      value: m.value,
-      unit: m.unit || '',
-      source: m.source,
-      date: m.date,
-      confidence: card.confidenceLevel,
+      label: s.label,
+      url: s.url,
+      accessedAt: s.accessedAt,
     })),
   );
 
-  return <DataView rows={rows} locale={locale} />;
+  return <DataView rows={rows} sources={allSources} locale={locale} />;
 }
 
-function DataView({ rows, locale }: { rows: MetricRow[]; locale: string }) {
+interface SourceRow {
+  domain: string;
+  domainTitle: string;
+  label: string;
+  url: string;
+  accessedAt: string;
+}
+
+function DataView({
+  rows,
+  sources,
+  locale,
+}: {
+  rows: MetricRow[];
+  sources: SourceRow[];
+  locale: string;
+}) {
   const t = useTranslations('data');
   const td = useTranslations('domains');
 
@@ -95,6 +132,7 @@ function DataView({ rows, locale }: { rows: MetricRow[]; locale: string }) {
           <CsvDownloadButton rows={rows} label={t('downloadCsv')} />
         </div>
 
+        {/* Metrics table */}
         {rows.length === 0 ? (
           <p className="text-sm text-neutral-500">{t('noData')}</p>
         ) : (
@@ -123,7 +161,20 @@ function DataView({ rows, locale }: { rows: MetricRow[]; locale: string }) {
                         <span className="ml-1 font-normal text-neutral-400">{row.unit}</span>
                       )}
                     </td>
-                    <td className="px-4 py-3 text-neutral-500">{row.source}</td>
+                    <td className="px-4 py-3 text-neutral-500">
+                      {row.sourceUrl ? (
+                        <a
+                          href={row.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand-700 underline underline-offset-2 hover:text-brand-900"
+                        >
+                          {row.source}
+                        </a>
+                      ) : (
+                        row.source
+                      )}
+                    </td>
                     <td className="whitespace-nowrap px-4 py-3 text-neutral-500">
                       {formatDate(row.date, locale)}
                     </td>
@@ -134,6 +185,50 @@ function DataView({ rows, locale }: { rows: MetricRow[]; locale: string }) {
                 ))}
               </tbody>
             </table>
+          </div>
+        )}
+
+        {/* Full sources reference */}
+        {sources.length > 0 && (
+          <div className="mt-12">
+            <h2 className="mb-4 text-lg font-bold text-neutral-900">{t('sourcesTitle')}</h2>
+            <p className="mb-6 text-sm text-neutral-500">{t('sourcesSubtitle')}</p>
+            <div className="space-y-3">
+              {sources.map((s, i) => (
+                <div key={i} className="rounded-lg border border-neutral-200 p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-medium text-neutral-900">{s.label}</p>
+                      <p className="mt-0.5 text-xs text-neutral-400">
+                        {s.domainTitle} · {td('accessedAt', { date: formatDate(s.accessedAt, locale) })}
+                      </p>
+                    </div>
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0 rounded-md border border-neutral-200 px-3 py-1.5 text-xs font-medium text-brand-700 transition-colors hover:bg-neutral-50 hover:text-brand-900"
+                    >
+                      <svg
+                        className="mr-1 inline-block h-3 w-3"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                      {t('openSource')}
+                    </a>
+                  </div>
+                  <p className="mt-1 truncate text-xs text-neutral-400">{s.url}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>

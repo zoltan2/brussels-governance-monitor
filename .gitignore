@@ -13,6 +13,9 @@ dist/
 # Velite generated
 .velite/
 
+# Pagefind generated
+public/pagefind/
+
 # Environment
 .env
 .env.local

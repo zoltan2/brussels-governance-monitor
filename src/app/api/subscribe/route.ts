@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getResend, EMAIL_FROM, TOPICS } from '@/lib/resend';
-import WelcomeEmail from '@/emails/welcome';
+import { generateConfirmToken } from '@/lib/token';
+import ConfirmEmail from '@/emails/confirm';
 
 const subscribeSchema = z.object({
   email: z.string().email(),
@@ -31,11 +32,8 @@ export async function POST(request: Request) {
     }
 
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-    const unsubscribeUrl = `${siteUrl}/${locale}`;
-
-    // Create contact in Resend with audience
-    // Note: in production, use Resend Audiences + Contacts API
-    // For MVP, we send the welcome email directly
+    const token = generateConfirmToken({ email, locale, topics });
+    const confirmUrl = `${siteUrl}/api/confirm?token=${encodeURIComponent(token)}`;
 
     const resend = getResend();
     const { error: sendError } = await resend.emails.send({
@@ -43,25 +41,24 @@ export async function POST(request: Request) {
       to: email,
       subject:
         locale === 'nl'
-          ? 'Welkom bij Brussels Governance Monitor'
-          : 'Bienvenue sur Brussels Governance Monitor',
-      react: WelcomeEmail({ locale, topics, unsubscribeUrl }),
+          ? 'Bevestig uw inschrijving — Brussels Governance Monitor'
+          : 'Confirmez votre inscription — Brussels Governance Monitor',
+      react: ConfirmEmail({ locale, confirmUrl }),
       tags: [
-        { name: 'type', value: 'welcome' },
+        { name: 'type', value: 'confirm' },
         { name: 'locale', value: locale },
-        ...topics.map((t) => ({ name: 'topic', value: t })),
       ],
     });
 
     if (sendError) {
       console.error('Resend error:', sendError);
       return NextResponse.json(
-        { error: 'Failed to send email' },
+        { error: 'Failed to send confirmation email' },
         { status: 500 },
       );
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, requiresConfirmation: true });
   } catch {
     return NextResponse.json(
       { error: 'Internal server error' },

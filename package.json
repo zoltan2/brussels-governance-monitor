@@ -8,6 +8,7 @@
     "velite": "velite",
     "dev": "velite && next dev",
     "build": "velite --clean && next build",
+    "postbuild": "pagefind --site .next/server/app --output-path public/pagefind",
     "start": "next start",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
@@ -34,6 +35,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.18"
+    "@tailwindcss/postcss": "^4.1.18",
+    "pagefind": "^1.4.0"
   }
 }

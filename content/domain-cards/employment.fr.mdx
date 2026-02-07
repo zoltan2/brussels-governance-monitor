@@ -5,13 +5,13 @@ locale: fr
 domain: employment
 status: delayed
 blockedSince: "2024-06-09"
-summary: "Le chômage bruxellois augmente (+4,4 % en un an) pendant que la réforme fédérale exclut 40 000+ Bruxellois des allocations. En affaires courantes, la Région ne peut pas lancer de nouveaux programmes d'emploi ni répondre pleinement à la crise."
+summary: "Le chômage bruxellois augmente (+4,4 % en un an) pendant que la réforme fédérale exclut 42 000 Bruxellois des allocations. En affaires courantes, la Région ne peut pas lancer de nouveaux programmes d'emploi ni répondre pleinement à la crise."
 sectors:
   - associatif
   - construction
 sources:
   - label: "Actiris — Chiffres du chômage en Région bruxelloise (déc. 2025)"
-    url: "https://press.actiris.be/les-chiffres-du-chomage-en-region-bruxelloise-wttq9z"
+    url: "https://press.actiris.be/les-chiffres-du-chomage-en-region-bruxelloise-ef1hne"
     accessedAt: "2026-02-06"
   - label: "Statbel — Emploi et chômage (Enquête forces de travail, T3 2025)"
     url: "https://statbel.fgov.be/fr/themes/emploi-formation/marche-du-travail/emploi-et-chomage"
@@ -39,33 +39,34 @@ sources:
     accessedAt: "2026-02-07"
 confidenceLevel: official
 metrics:
-  - label: "Demandeurs d'emploi (oct. 2025)"
-    value: "96 161"
+  - label: "Demandeurs d'emploi (déc. 2025)"
+    value: "96 650"
     source: "Actiris"
-    date: "2025-10-31"
+    date: "2025-12-31"
   - label: "Taux de chômage (admin.)"
-    value: "15,3%"
-    unit: "+4% sur 1 an"
+    value: "15,4%"
+    unit: "+4,4% sur 1 an"
     source: "Actiris"
-    date: "2025-10-31"
-  - label: "Chômage des jeunes"
-    value: "+6,1%"
+    date: "2025-12-31"
+  - label: "Chômage des jeunes (<25 ans)"
+    value: "+3,4%"
     unit: "variation annuelle"
     source: "Actiris"
-    date: "2025-10-31"
-  - label: "Exclus des allocations (2026)"
-    value: "40 000+"
-    unit: "personnes"
-    source: "FGTB / ONEM"
+    date: "2025-12-31"
+  - label: "Exclus des allocations (jan. 2026 – jul. 2027)"
+    value: "42 000"
+    unit: "personnes (estimation cumulée)"
+    source: "Actiris"
     date: "2026-01-01"
   - label: "Nouveaux programmes d'emploi"
     value: "0"
     unit: "lancés"
     source: "Parlement bruxellois"
     date: "2026-02-01"
-lastModified: "2026-02-06"
-changeType: new
-changeSummary: "Première publication de la fiche Emploi"
+draft: true
+lastModified: "2026-02-07"
+changeType: updated
+changeSummary: "Audit métriques : mise à jour chiffres Actiris déc. 2025 (96 650 DEI, 15,4%, jeunes +3,4%), exclus 42 000 (source Actiris)"
 summaryFalc: "Le chômage à Bruxelles est le plus haut de Belgique. Les programmes pour aider les gens à trouver du travail sont bloqués. Les jeunes sont les plus touchés."
 ---
 
@@ -79,7 +80,7 @@ Depuis le 1er janvier 2026, la réforme adoptée par le gouvernement fédéral l
 
 - **Stage d'insertion professionnelle** réduit de 12 à 6 mois
 - **Allocations d'insertion** limitées à 12 mois (contre 36 mois auparavant)
-- **Exclusion massive** : selon la FGTB, au moins 32 000 Bruxellois ont été exclus dès janvier 2026, et 40 000+ le seront sur l'ensemble de l'année
+- **Exclusion massive** : selon Actiris, 42 000 Bruxellois seront exclus entre janvier 2026 et juillet 2027, dont 36 000 durant les sept premiers mois
 
 Les communes les plus touchées : Bruxelles-Ville (7 825 exclusions), Schaerbeek (4 761), Anderlecht (4 604), Molenbeek (4 048). À Saint-Josse, Molenbeek et Saint-Gilles, près de 4 % de la population est concernée.
 
@@ -123,4 +124,4 @@ Les personnes exclues des allocations de chômage se tourneront vers les CPAS po
 
 ## Pourquoi c'est important
 
-L'emploi est le premier déterminant de la qualité de vie. Avec un taux de chômage de 15,4 % — le plus élevé des trois Régions belges — et une réforme fédérale qui exclut des dizaines de milliers de personnes, Bruxelles a besoin d'une réponse politique régionale forte. En affaires courantes, cette réponse ne peut pas venir.
+L'emploi est le premier déterminant de la qualité de vie. Avec un taux de chômage de 15,4 % (déc. 2025) — le plus élevé des trois Régions belges — et une réforme fédérale qui exclut 42 000 personnes sur 18 mois (estimation Actiris), Bruxelles a besoin d'une réponse politique régionale forte. En affaires courantes, cette réponse ne peut pas venir.

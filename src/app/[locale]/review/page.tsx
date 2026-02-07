@@ -3,8 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { getDraftCards } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
-import { formatDate } from '@/lib/utils';
-import { Link } from '@/i18n/navigation';
+import { ReviewCard } from '@/components/review-card';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -16,20 +15,6 @@ export async function generateMetadata(): Promise<Metadata> {
     robots: { index: false, follow: false },
   };
 }
-
-const typeLabels: Record<string, string> = {
-  domain: 'Domaine',
-  solution: 'Solution',
-  sector: 'Secteur',
-  comparison: 'Comparaison',
-};
-
-const typeColors: Record<string, string> = {
-  domain: 'bg-brand-900 text-white',
-  solution: 'bg-feasibility-medium text-white',
-  sector: 'bg-status-ongoing text-white',
-  comparison: 'bg-neutral-600 text-white',
-};
 
 export default async function ReviewPage({
   params,
@@ -53,6 +38,16 @@ function ReviewContent({
 }) {
   const t = useTranslations('review');
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+  const rejectReasons: Record<string, string> = {
+    'out-of-scope': t('rejectReasons.outOfScope'),
+    'insufficient-source': t('rejectReasons.insufficientSource'),
+    duplicate: t('rejectReasons.duplicate'),
+    'not-priority': t('rejectReasons.notPriority'),
+    'factual-error': t('rejectReasons.factualError'),
+  };
+
   return (
     <div className="py-12">
       <div className="mx-auto max-w-3xl px-4">
@@ -66,48 +61,42 @@ function ReviewContent({
             <p className="text-neutral-500">{t('empty')}</p>
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-4">
             <p className="text-sm text-neutral-400">
               {t('count', { count: drafts.length })}
             </p>
             {drafts.map((draft) => {
-              const href =
-                draft.type === 'domain'
-                  ? ({ pathname: '/domains/[slug]' as const, params: { slug: draft.slug } })
-                  : draft.type === 'solution'
-                    ? ({ pathname: '/solutions/[slug]' as const, params: { slug: draft.slug } })
-                    : draft.type === 'sector'
-                      ? ({ pathname: '/sectors/[slug]' as const, params: { slug: draft.slug } })
-                      : ({ pathname: '/comparisons/[slug]' as const, params: { slug: draft.slug } });
+              const typePathMap: Record<string, string> = {
+                domain: 'domains',
+                solution: 'solutions',
+                sector: 'sectors',
+                comparison: 'comparisons',
+              };
+              const permalink = `${siteUrl}/${locale}/${typePathMap[draft.type]}/${draft.slug}`;
 
               return (
-                <div
-                  key={`${draft.type}-${draft.slug}`}
-                  className="flex items-center justify-between rounded-lg border border-amber-200 bg-amber-50 p-4"
-                >
-                  <div className="min-w-0 flex-1">
-                    <div className="mb-1 flex items-center gap-2">
-                      <span
-                        className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${typeColors[draft.type]}`}
-                      >
-                        {typeLabels[draft.type]}
-                      </span>
-                      <span className="text-xs text-neutral-400">
-                        {formatDate(draft.lastModified, locale)}
-                      </span>
-                    </div>
-                    <p className="font-medium text-neutral-900">{draft.title}</p>
-                    <p className="mt-0.5 text-xs text-neutral-400">
-                      {draft.slug} · {draft.locale}
-                    </p>
-                  </div>
-                  <Link
-                    href={href}
-                    className="ml-4 shrink-0 rounded-md bg-brand-900 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-800"
-                  >
-                    {t('view')}
-                  </Link>
-                </div>
+                <ReviewCard
+                  key={`${draft.type}-${draft.slug}-${draft.locale}`}
+                  title={draft.title}
+                  slug={draft.slug}
+                  type={draft.type}
+                  locale={draft.locale}
+                  lastModified={draft.lastModified}
+                  permalink={permalink}
+                  labels={{
+                    publish: t('publish'),
+                    reject: t('reject'),
+                    published: t('published'),
+                    rejected: t('rejected'),
+                    preview: t('preview'),
+                    rejectReasons,
+                    confirmPublish: t('confirmPublish'),
+                    confirmReject: t('confirmReject'),
+                    cancel: t('cancel'),
+                    error: t('error'),
+                    authRequired: t('authRequired'),
+                  }}
+                />
               );
             })}
           </div>

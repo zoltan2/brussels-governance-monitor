@@ -657,15 +657,32 @@
     "cancel": "Abbrechen"
   },
   "review": {
-    "title": "Karten zur Validierung ausstehend",
-    "description": "Diese Karten befinden sich im Entwurfsmodus (draft: true). Sie sind auf der öffentlichen Seite nicht sichtbar.",
-    "empty": "Keine Karten zur Validierung ausstehend.",
+    "title": "Karten zur Validierung",
+    "description": "Diese Karten befinden sich im Entwurfsmodus. Sie sind auf der öffentlichen Seite nicht sichtbar. Verwenden Sie die Schaltflächen zum Veröffentlichen oder Ablehnen.",
+    "empty": "Keine Karten zur Validierung.",
     "count": "{count, plural, one {# Karte ausstehend} other {# Karten ausstehend}}",
     "view": "Ansehen",
-    "howTitle": "Wie validiert man eine Karte?",
-    "step1": "Klicken Sie auf « Ansehen » um den Karteninhalt zu prüfen",
-    "step2": "Überprüfen Sie die Fakten, Quellen und den Ton",
-    "step3": "Wenn die Karte fertig ist: ändern Sie draft: true → draft: false in der MDX-Datei",
-    "step4": "Beim nächsten Build erscheint die Karte auf der öffentlichen Seite"
+    "publish": "Validieren & veröffentlichen",
+    "reject": "Ablehnen",
+    "published": "Veröffentlicht",
+    "rejected": "Abgelehnt",
+    "preview": "Vorschau",
+    "confirmPublish": "Veröffentlichung bestätigen?",
+    "confirmReject": "Ablehnung bestätigen?",
+    "cancel": "Abbrechen",
+    "error": "Fehler",
+    "authRequired": "Admin-Geheimnis eingeben:",
+    "rejectReasons": {
+      "outOfScope": "Außerhalb des Geltungsbereichs",
+      "insufficientSource": "Unzureichende Quelle",
+      "duplicate": "Duplikat",
+      "notPriority": "Nicht prioritär",
+      "factualError": "Sachfehler"
+    },
+    "howTitle": "Wie funktioniert es?",
+    "step1": "Klicken Sie auf « Vorschau » um den Karteninhalt anzuzeigen",
+    "step2": "Überprüfen Sie Fakten, Quellen und Ton",
+    "step3": "Klicken Sie auf « Validieren & veröffentlichen » um die Karte online zu stellen",
+    "step4": "Oder « Ablehnen » mit einem Grund zum Archivieren"
   }
 }

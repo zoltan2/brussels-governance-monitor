@@ -658,14 +658,31 @@
   },
   "review": {
     "title": "Cards awaiting validation",
-    "description": "These cards are in draft mode (draft: true). They are not visible on the public site.",
+    "description": "These cards are in draft mode. They are not visible on the public site. Use the buttons to publish or reject.",
     "empty": "No cards awaiting validation.",
     "count": "{count, plural, one {# card pending} other {# cards pending}}",
     "view": "View",
-    "howTitle": "How to validate a card?",
-    "step1": "Click « View » to review the card content",
-    "step2": "Check the facts, sources, and tone",
-    "step3": "If the card is ready: change draft: true → draft: false in the MDX file",
-    "step4": "On the next build, the card will appear on the public site"
+    "publish": "Validate & publish",
+    "reject": "Reject",
+    "published": "Published",
+    "rejected": "Rejected",
+    "preview": "Preview",
+    "confirmPublish": "Confirm publication?",
+    "confirmReject": "Confirm rejection?",
+    "cancel": "Cancel",
+    "error": "Error",
+    "authRequired": "Enter admin secret:",
+    "rejectReasons": {
+      "outOfScope": "Out of scope",
+      "insufficientSource": "Insufficient source",
+      "duplicate": "Duplicate",
+      "notPriority": "Not priority",
+      "factualError": "Factual error"
+    },
+    "howTitle": "How does it work?",
+    "step1": "Click \"Preview\" to view the card content",
+    "step2": "Verify facts, sources, and tone",
+    "step3": "Click \"Validate & publish\" to make the card live",
+    "step4": "Or \"Reject\" with a reason to archive it"
   }
 }

@@ -1,0 +1,204 @@
+{
+  "$schema": "./source-registry-schema.json",
+  "description": "Registre des sources surveillées par BGM. Chaque source est vérifiée périodiquement pour détecter les changements.",
+  "sources": [
+    {
+      "id": "watch-001",
+      "name": "Actiris — Marché de l'emploi bruxellois",
+      "url": "https://www.actiris.brussels/fr/citoyens/",
+      "type": "institutional",
+      "category": "employment",
+      "cardsAffected": ["employment"],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Chiffres chômage, demandeurs d'emploi, jeunes"
+    },
+    {
+      "id": "watch-002",
+      "name": "Parlement bruxellois — Séances plénières",
+      "url": "https://www.parlement.brussels/seances-plenieres/",
+      "type": "institutional",
+      "category": "governance",
+      "cardsAffected": ["budget", "social"],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Votes, débats, questions parlementaires, ordonnances"
+    },
+    {
+      "id": "watch-003",
+      "name": "COCOM/GGC — Actualités",
+      "url": "https://www.ccc-ggc.brussels/fr/news",
+      "type": "institutional",
+      "category": "social",
+      "cardsAffected": ["social", "health-social"],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Décisions COCOM, Iriscare, politique sans-abri, santé mentale, allocations familiales"
+    },
+    {
+      "id": "watch-004",
+      "name": "Iriscare — Publications",
+      "url": "https://www.iriscare.brussels/fr/publications/",
+      "type": "institutional",
+      "category": "social",
+      "cardsAffected": ["social", "health-social"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Rapports annuels, agréments, conventions, données secteur"
+    },
+    {
+      "id": "watch-005",
+      "name": "Bruxelles Environnement — Actualités",
+      "url": "https://environnement.brussels/actualites",
+      "type": "institutional",
+      "category": "climate",
+      "cardsAffected": ["climate", "environment"],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Plan climat, qualité de l'air, Renolution, performances énergétiques"
+    },
+    {
+      "id": "watch-006",
+      "name": "STIB/MIVB — Actualités",
+      "url": "https://www.stib-mivb.be/article.html?_guid=22e37b27-e52e-3910-a7b6-f2e3dc240816&l=fr",
+      "type": "institutional",
+      "category": "mobility",
+      "cardsAffected": ["mobility", "transport"],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Réseau métro/tram/bus, fréquentation, projets (métro 3), perturbations"
+    },
+    {
+      "id": "watch-007",
+      "name": "Bruxelles Mobilité — Actualités",
+      "url": "https://mobilite-mobiliteit.brussels/fr/actualites",
+      "type": "institutional",
+      "category": "mobility",
+      "cardsAffected": ["mobility"],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Good Move, pistes cyclables, zones 30, chantiers"
+    },
+    {
+      "id": "watch-008",
+      "name": "Statbel — Statistiques régionales Bruxelles",
+      "url": "https://statbel.fgov.be/fr/themes/datalab/bruxelles",
+      "type": "institutional",
+      "category": "data",
+      "cardsAffected": ["budget", "employment", "housing"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "PIB, population, revenus, immobilier, emploi — données par région"
+    },
+    {
+      "id": "watch-009",
+      "name": "IBSA — Institut Bruxellois de Statistique et d'Analyse",
+      "url": "https://ibsa.brussels/publications",
+      "type": "institutional",
+      "category": "data",
+      "cardsAffected": ["budget", "employment", "housing", "mobility"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Baromètre conjoncturel, mini-bru, focus thématiques"
+    },
+    {
+      "id": "watch-010",
+      "name": "Bruss'Help — Publications",
+      "url": "https://www.brusshelp.org/publications",
+      "type": "institutional",
+      "category": "social",
+      "cardsAffected": ["social", "health-social"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Dénombrements sans-abri, rapports d'activité, dispositif hivernal"
+    },
+    {
+      "id": "watch-011",
+      "name": "perspective.brussels — Publications",
+      "url": "https://perspective.brussels/fr/actualites-publications/publications",
+      "type": "institutional",
+      "category": "urban",
+      "cardsAffected": ["housing", "mobility", "construction"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "PAD, PRDD, plans d'aménagement, données urbanistiques"
+    },
+    {
+      "id": "watch-012",
+      "name": "Brulocalis — Actualités",
+      "url": "https://brulocalis.brussels/fr/actualites",
+      "type": "institutional",
+      "category": "governance",
+      "cardsAffected": ["budget", "social"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Impact sur les communes, CPAS, finances communales"
+    },
+    {
+      "id": "watch-013",
+      "name": "Famiris — Actualités",
+      "url": "https://famiris.brussels/fr/actualites/",
+      "type": "institutional",
+      "category": "social",
+      "cardsAffected": ["social", "health-social"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Allocations familiales bruxelloises, réformes, chiffres"
+    },
+    {
+      "id": "watch-014",
+      "name": "BX1 — Politique bruxelloise",
+      "url": "https://bx1.be/categories/news/",
+      "type": "press",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Média bruxellois de référence. Source secondaire, recoupement."
+    },
+    {
+      "id": "watch-015",
+      "name": "RTBF — Bruxelles",
+      "url": "https://www.rtbf.be/en-continu?taxonomy=BRUXELLES",
+      "type": "press",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Média public. Source secondaire pour recoupement."
+    },
+    {
+      "id": "watch-016",
+      "name": "Observatoire de la Santé et du Social",
+      "url": "https://www.ccc-ggc.brussels/fr/observatoire-de-la-sante-et-du-social/publications",
+      "type": "institutional",
+      "category": "social",
+      "cardsAffected": ["social", "health-social"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Baromètre social, indicateurs de pauvreté, santé publique"
+    },
+    {
+      "id": "watch-017",
+      "name": "Région de Bruxelles-Capitale — Moniteur",
+      "url": "https://be.brussels/a-propos-de-la-region/decisions-officielles",
+      "type": "institutional",
+      "category": "governance",
+      "cardsAffected": ["budget"],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Ordonnances, arrêtés, décisions officielles RBC"
+    },
+    {
+      "id": "watch-018",
+      "name": "Bruxelles Logement",
+      "url": "https://logement.brussels/actualites/",
+      "type": "institutional",
+      "category": "housing",
+      "cardsAffected": ["housing", "housing-sector"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Loyers, logement social, primes, grille indicative"
+    }
+  ]
+}

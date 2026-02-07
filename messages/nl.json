@@ -657,15 +657,32 @@
     "cancel": "Annuleren"
   },
   "review": {
-    "title": "Kaarten in afwachting van validatie",
-    "description": "Deze kaarten staan in conceptmodus (draft: true). Ze zijn niet zichtbaar op de openbare site.",
-    "empty": "Geen kaarten in afwachting van validatie.",
+    "title": "Kaarten ter validatie",
+    "description": "Deze kaarten zijn in conceptmodus. Ze zijn niet zichtbaar op de publieke site. Gebruik de knoppen om te valideren of af te wijzen.",
+    "empty": "Geen kaarten ter validatie.",
     "count": "{count, plural, one {# kaart in afwachting} other {# kaarten in afwachting}}",
     "view": "Bekijken",
-    "howTitle": "Hoe een kaart valideren?",
-    "step1": "Klik op « Bekijken » om de inhoud van de kaart te raadplegen",
-    "step2": "Controleer de feiten, bronnen en de toon",
-    "step3": "Als de kaart klaar is: verander draft: true → draft: false in het MDX-bestand",
-    "step4": "Bij de volgende build verschijnt de kaart op de openbare site"
+    "publish": "Valideren & publiceren",
+    "reject": "Afwijzen",
+    "published": "Gepubliceerd",
+    "rejected": "Afgewezen",
+    "preview": "Voorbeeld",
+    "confirmPublish": "Publicatie bevestigen?",
+    "confirmReject": "Afwijzing bevestigen?",
+    "cancel": "Annuleren",
+    "error": "Fout",
+    "authRequired": "Voer het admin-geheim in:",
+    "rejectReasons": {
+      "outOfScope": "Buiten bereik",
+      "insufficientSource": "Onvoldoende bron",
+      "duplicate": "Duplicaat",
+      "notPriority": "Niet prioritair",
+      "factualError": "Feitelijke fout"
+    },
+    "howTitle": "Hoe werkt het?",
+    "step1": "Klik op « Voorbeeld » om de inhoud van de kaart te bekijken",
+    "step2": "Controleer de feiten, bronnen en toon",
+    "step3": "Klik op « Valideren & publiceren » om de kaart online te zetten",
+    "step4": "Of « Afwijzen » met een reden om te archiveren"
   }
 }

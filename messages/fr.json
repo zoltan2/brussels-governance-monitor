@@ -658,14 +658,31 @@
   },
   "review": {
     "title": "Cartes en attente de validation",
-    "description": "Ces cartes sont en mode brouillon (draft: true). Elles ne sont pas visibles sur le site public.",
+    "description": "Ces cartes sont en mode brouillon. Elles ne sont pas visibles sur le site public. Utilisez les boutons pour valider ou rejeter.",
     "empty": "Aucune carte en attente de validation.",
     "count": "{count, plural, one {# carte en attente} other {# cartes en attente}}",
     "view": "Voir",
-    "howTitle": "Comment valider une carte ?",
-    "step1": "Cliquez sur « Voir » pour consulter le contenu de la carte",
+    "publish": "Valider & publier",
+    "reject": "Rejeter",
+    "published": "Publiée",
+    "rejected": "Rejetée",
+    "preview": "Aperçu",
+    "confirmPublish": "Confirmer la publication ?",
+    "confirmReject": "Confirmer le rejet ?",
+    "cancel": "Annuler",
+    "error": "Erreur",
+    "authRequired": "Entrez le secret admin :",
+    "rejectReasons": {
+      "outOfScope": "Hors périmètre",
+      "insufficientSource": "Source insuffisante",
+      "duplicate": "Doublon",
+      "notPriority": "Pas prioritaire",
+      "factualError": "Erreur factuelle"
+    },
+    "howTitle": "Comment ça marche ?",
+    "step1": "Cliquez sur « Aperçu » pour consulter le contenu de la carte",
     "step2": "Vérifiez les faits, les sources, et le ton",
-    "step3": "Si la carte est prête : changez draft: true → draft: false dans le fichier MDX",
-    "step4": "Au prochain build, la carte apparaîtra sur le site public"
+    "step3": "Cliquez sur « Valider & publier » pour mettre la carte en ligne",
+    "step4": "Ou « Rejeter » avec un motif pour l'archiver"
   }
 }

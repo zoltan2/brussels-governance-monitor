@@ -1,0 +1,114 @@
+{
+  "$schema": "./source-log-schema.json",
+  "description": "Journal des sources traitées par BGM. Chaque entrée documente une source soumise, son analyse, et les actions prises.",
+  "sources": [
+    {
+      "id": "src-001",
+      "submittedAt": "2026-02-07",
+      "type": "institutional-report",
+      "format": "web",
+      "url": "https://www.actiris.brussels/fr/citoyens/",
+      "title": "Actiris — Marché de l'emploi bruxellois",
+      "publisher": "Actiris",
+      "publishDate": "2025-10-01",
+      "confidenceLevel": "official",
+      "verdict": "fiable",
+      "dataExtracted": [
+        "Taux de chômage BXL : 15.3% (oct 2025)",
+        "96 161 demandeurs d'emploi",
+        "Chômage jeunes : +6.1%"
+      ],
+      "cardsAffected": [
+        { "slug": "employment", "type": "domain", "action": "updated-metrics" }
+      ],
+      "notes": "Source institutionnelle directe. Données utilisées pour les métriques de la carte emploi."
+    },
+    {
+      "id": "src-002",
+      "submittedAt": "2026-02-07",
+      "type": "institutional-report",
+      "format": "web",
+      "url": "https://statbel.fgov.be/",
+      "title": "Statbel — Statistiques régionales",
+      "publisher": "Statbel (SPF Économie)",
+      "publishDate": "2025-12-01",
+      "confidenceLevel": "official",
+      "verdict": "fiable",
+      "dataExtracted": [
+        "PIB Bruxelles : ~83 milliards EUR",
+        "Population BXL : ~1.2 million",
+        "Taux de chômage régional comparatif"
+      ],
+      "cardsAffected": [
+        { "slug": "budget", "type": "domain", "action": "updated-metrics" },
+        { "slug": "employment-response", "type": "comparison", "action": "created" }
+      ],
+      "notes": "Institut national de statistique. Source de référence pour les données socioéconomiques belges."
+    },
+    {
+      "id": "src-003",
+      "submittedAt": "2026-02-07",
+      "type": "institutional-report",
+      "format": "web",
+      "url": "https://ec.europa.eu/eurostat",
+      "title": "Eurostat — Statistiques régionales NUTS-2",
+      "publisher": "Eurostat (Commission européenne)",
+      "publishDate": "2025-12-01",
+      "confidenceLevel": "official",
+      "verdict": "fiable",
+      "dataExtracted": [
+        "Taux de chômage régions-capitales UE",
+        "PIB par habitant (SPA) régions NUTS-2"
+      ],
+      "cardsAffected": [
+        { "slug": "unemployment-capital-regions", "type": "comparison", "action": "created" },
+        { "slug": "gdp-per-capita-regions", "type": "comparison", "action": "created" }
+      ],
+      "notes": "Office statistique de l'UE. Utilisé pour les comparaisons internationales (cartes Tier 2)."
+    },
+    {
+      "id": "src-004",
+      "submittedAt": "2026-02-07",
+      "type": "press-article",
+      "format": "web",
+      "url": "https://www.lavenir.net/actu/belgique/2026/02/07/de-wever-le-gouvernement-doit-revoir-sa-reforme-de-la-tva-KVPZ4VQYWNGLPBWLDHF2CBJ5NE/",
+      "title": "De Wever : le gouvernement doit revoir sa réforme de la TVA",
+      "publisher": "L'Avenir",
+      "publishDate": "2026-02-07",
+      "confidenceLevel": "unconfirmed",
+      "verdict": "non-retenu",
+      "dataExtracted": [
+        "Réforme fédérale TVA critiquée par le Conseil d'État",
+        "Entrée en vigueur prévue 1er mars 2026, remise en question",
+        "Taux différenciés 6% vs 12% selon type de prestation"
+      ],
+      "cardsAffected": [],
+      "notes": "Source presse unique. Concerne le gouvernement FÉDÉRAL (politique TVA), pas la Région bruxelloise. Hors périmètre BGM. Aucune carte créée ni mise à jour."
+    },
+    {
+      "id": "src-005",
+      "submittedAt": "2026-02-07",
+      "type": "press-article",
+      "format": "web",
+      "url": "https://www.lesoir.be/727359/article/2026-02-07/la-region-bruxelloise-va-reformer-les-allocations-familiales-pour-economiser-8",
+      "title": "La Région bruxelloise va réformer les allocations familiales pour économiser 8 millions",
+      "publisher": "Le Soir",
+      "publishDate": "2026-02-07",
+      "confidenceLevel": "estimated",
+      "verdict": "fiable",
+      "dataExtracted": [
+        "308 000+ enfants concernés par les allocations familiales à BXL",
+        "Réforme : centralisation vers Famiris (4 opérateurs → 1)",
+        "Économie visée : 8 millions EUR/an",
+        "33 millions EUR d'économies déjà réalisées sur les familles",
+        "Suppression du supplément de 12 EUR/mois prévu pour 2026",
+        "Réduction permanente de 10 EUR/mois pour enfants nés avant 2020"
+      ],
+      "cardsAffected": [
+        { "slug": "social", "type": "domain", "action": "updated-content" },
+        { "slug": "health-social", "type": "sector", "action": "updated-content" }
+      ],
+      "notes": "Source presse de référence (Le Soir), recoupée par BX1 et Famiris. Paywall empêche lecture complète, données reconstituées par recoupement. Concerne la COCOM/Région bruxelloise — directement dans le périmètre BGM."
+    }
+  ]
+}

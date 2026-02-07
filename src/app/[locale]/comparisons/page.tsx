@@ -1,0 +1,70 @@
+import { setRequestLocale } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
+import { getComparisonCards } from '@/lib/content';
+import type { Locale } from '@/i18n/routing';
+import { Link } from '@/i18n/navigation';
+import { formatDate } from '@/lib/utils';
+
+export default async function ComparisonsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const cards = getComparisonCards(locale as Locale);
+
+  return <ComparisonsList cards={cards} locale={locale} />;
+}
+
+function ComparisonsList({
+  cards,
+  locale,
+}: {
+  cards: ReturnType<typeof getComparisonCards>;
+  locale: string;
+}) {
+  const t = useTranslations('comparisons');
+
+  return (
+    <section className="py-12">
+      <div className="mx-auto max-w-4xl px-4">
+        <h1 className="mb-2 text-3xl font-bold text-neutral-900">{t('title')}</h1>
+        <p className="mb-8 text-base text-neutral-600">{t('subtitle')}</p>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {cards.map((card) => (
+            <Link
+              key={card.slug}
+              href={{ pathname: '/comparisons/[slug]', params: { slug: card.slug } }}
+              className="group rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+            >
+              <div className="mb-3 flex flex-wrap gap-1.5">
+                {card.entities.map((e) => (
+                  <span
+                    key={e.code}
+                    className="rounded bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-600"
+                  >
+                    {e.code}
+                  </span>
+                ))}
+              </div>
+              <h2 className="mb-2 text-lg font-semibold text-neutral-900 group-hover:text-brand-700">
+                {card.title}
+              </h2>
+              <p className="mb-3 text-sm text-neutral-600">{card.indicator}</p>
+              <p className="text-xs text-neutral-400">
+                {formatDate(card.lastModified, locale)}
+              </p>
+            </Link>
+          ))}
+        </div>
+
+        {cards.length === 0 && (
+          <p className="text-center text-neutral-500">{t('noData')}</p>
+        )}
+      </div>
+    </section>
+  );
+}

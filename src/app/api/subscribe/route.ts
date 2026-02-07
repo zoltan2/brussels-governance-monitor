@@ -2,18 +2,39 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getResend, EMAIL_FROM, TOPICS } from '@/lib/resend';
 import { generateConfirmToken } from '@/lib/token';
+import { rateLimit } from '@/lib/rate-limit';
 import ConfirmEmail from '@/emails/confirm';
 
 const subscribeSchema = z.object({
   email: z.string().email(),
   locale: z.enum(['fr', 'nl']),
   topics: z.array(z.enum(TOPICS)).min(1),
+  website: z.string().max(0).optional(), // honeypot field — must be empty
 });
 
 export async function POST(request: Request) {
   try {
+    // Rate limiting
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const { allowed, remaining } = rateLimit(ip);
+    if (!allowed) {
+      return NextResponse.json(
+        { error: 'Too many requests' },
+        {
+          status: 429,
+          headers: { 'Retry-After': '60', 'X-RateLimit-Remaining': String(remaining) },
+        },
+      );
+    }
+
     const body = await request.json();
     const parsed = subscribeSchema.safeParse(body);
+
+    // Honeypot check — if the hidden field has a value, it's a bot
+    if (parsed.success && parsed.data.website) {
+      // Silently accept to not reveal the honeypot
+      return NextResponse.json({ success: true, requiresConfirmation: true });
+    }
 
     if (!parsed.success) {
       return NextResponse.json(

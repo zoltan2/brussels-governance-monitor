@@ -142,10 +142,10 @@ function TimelineView({
           <p className="text-sm text-neutral-500">Aucune donnée disponible.</p>
         ) : (
           <div className="space-y-8">
-            {rounds.map((round) => {
+            {[...rounds].reverse().map((round) => {
               const roundEvents = events
                 .filter((e) => e.round === round.number)
-                .sort((a, b) => a.date.localeCompare(b.date));
+                .sort((a, b) => b.date.localeCompare(a.date));
 
               return (
                 <div
@@ -158,10 +158,7 @@ function TimelineView({
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                       <div>
                         <h3 className="text-lg font-bold text-neutral-900">
-                          {t('roundLabel', { number: round.number })}
-                          <span className="ml-2 text-base font-normal text-neutral-500">
-                            {round.label}
-                          </span>
+                          {round.label}
                         </h3>
                         <p className="mt-1 text-sm text-neutral-500">
                           <span className="font-medium">{t('actor')}:</span> {round.actor}

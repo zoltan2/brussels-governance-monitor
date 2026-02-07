@@ -75,7 +75,7 @@ export function DomainCard({ card, locale }: DomainCardProps) {
       </div>
 
       <Link
-        href={`/domains/${card.slug}`}
+        href={{ pathname: '/domains/[slug]', params: { slug: card.slug } }}
         className="mt-3 inline-flex items-center text-sm font-medium text-brand-700 hover:text-brand-900"
       >
         {t('readMore')}

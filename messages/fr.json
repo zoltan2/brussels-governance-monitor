@@ -6,10 +6,11 @@
   "nav": {
     "home": "Accueil",
     "domains": "Domaines",
-    "solutions": "Sorties de crise",
+    "understand": "Comprendre",
     "data": "Données",
     "timeline": "Chronologie",
     "glossary": "Glossaire",
+    "explainers": "Explications",
     "faq": "FAQ",
     "about": "À propos"
   },
@@ -74,10 +75,17 @@
     "disclaimer": "Non affilié à aucun parti politique",
     "license": "Code source AGPL v3",
     "editorial": "Charte éditoriale",
+    "methodology": "Notre méthode",
     "privacy": "Politique de confidentialité",
     "glossary": "Glossaire",
     "faq": "FAQ",
-    "legal": "Mentions légales"
+    "legal": "Mentions légales",
+    "explainers": "Comprendre",
+    "timeline": "Chronologie",
+    "contentTitle": "Contenu",
+    "aboutTitle": "À propos",
+    "data": "Données",
+    "comparisons": "Comparaisons"
   },
   "locale": {
     "switchTo": "Changer de langue",
@@ -99,10 +107,25 @@
     "date": "Date",
     "confidence": "Confiance",
     "downloadCsv": "Télécharger CSV",
+    "downloadJson": "Télécharger JSON",
     "noData": "Aucune donnée disponible.",
     "sourcesTitle": "Référentiel des sources",
     "sourcesSubtitle": "Liste complète des sources utilisées dans nos fiches, avec liens directs vers les documents originaux.",
-    "openSource": "Ouvrir"
+    "openSource": "Ouvrir",
+    "sourceType": {
+      "domain": "Domaine",
+      "solution": "Solution",
+      "sector": "Secteur",
+      "comparison": "Comparaison",
+      "event": "Événement",
+      "glossary": "Glossaire"
+    }
+  },
+  "freshness": {
+    "recent": "Vérifié récemment",
+    "current": "À jour",
+    "aging": "À revérifier",
+    "stale": "Mise à jour nécessaire"
   },
   "subscribe": {
     "title": "Restez informé",
@@ -318,5 +341,331 @@
     "title": "Page non trouvée",
     "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
     "backHome": "Retour à l'accueil"
+  },
+  "methodology": {
+    "title": "Notre méthode",
+    "intro": "Brussels Governance Monitor est un outil d'information citoyenne. Cette page explique comment nous collectons, vérifions et publions les données.",
+    "dataSources": {
+      "title": "D'où viennent nos données",
+      "description": "Nous classons nos sources en quatre niveaux de fiabilité :",
+      "tierA": "Niveau A",
+      "tierADesc": "Documents officiels publiés (ordonnances, rapports de la Cour des comptes, statistiques Statbel/IBSA, procès-verbaux du Parlement)",
+      "tierB": "Niveau B",
+      "tierBDesc": "Communications institutionnelles (communiqués de presse d'Actiris, STIB, SLRB, Bruxelles Environnement)",
+      "tierC": "Niveau C",
+      "tierCDesc": "Presse de référence (RTBF, VRT, Le Soir, De Standaard, BX1, BRUZZ) — utilisée quand la source primaire n'est pas accessible en ligne",
+      "tierD": "Niveau D",
+      "tierDDesc": "Analyses et études (Brupartners, universités, think tanks) — contextualisent les données brutes"
+    },
+    "verification": {
+      "title": "Comment nous vérifions",
+      "description": "Chaque donnée publiée passe par un processus de vérification :",
+      "doubleSource": "Double source : toute métrique est vérifiée par au moins deux sources indépendantes, ou par une source institutionnelle unique reconnue (Cour des comptes, Parlement, administration)",
+      "dateCheck": "Vérification de date : chaque source est consultée et datée. Les données obsolètes sont mises à jour ou retirées.",
+      "contextCheck": "Vérification de contexte : les chiffres sont toujours accompagnés de leur contexte (méthodologie, périmètre, limites connues)"
+    },
+    "confidence": {
+      "title": "Nos niveaux de confiance",
+      "officialDesc": "Source institutionnelle publiée — donnée vérifiable directement dans le document source",
+      "estimatedDesc": "Estimation BGM basée sur des données partielles, avec méthodologie documentée",
+      "unconfirmedDesc": "Information rapportée par la presse uniquement, non encore confirmée par une source institutionnelle"
+    },
+    "limitations": {
+      "title": "Ce que BGM ne fait pas",
+      "noPrediction": "Pas de prédiction : nous ne prédisons pas quand un gouvernement sera formé ni quelle coalition est la plus probable",
+      "noScoring": "Pas de scoring politique : nous n'attribuons pas de notes aux partis ni ne jugeons leurs positions",
+      "noExhaustive": "Pas d'exhaustivité : nous couvrons les domaines les plus impactés, pas l'intégralité de la politique régionale"
+    },
+    "independence": {
+      "title": "Notre indépendance",
+      "description": "BGM est un projet hébergé par Advice That SRL, sans affiliation partisane, syndicale ou médiatique. Le financement est transparent : aucune subvention publique, aucun don politique. Le code source est publié sous licence AGPL v3."
+    },
+    "corrections": {
+      "title": "Politique de corrections",
+      "description": "Nous distinguons trois types de corrections :",
+      "minor": "Correction mineure",
+      "minorDesc": "Coquille, lien cassé, mise à jour de date — corrigée silencieusement, tracée dans l'historique Git",
+      "substantial": "Correction substantielle",
+      "substantialDesc": "Modification d'un chiffre, d'une source ou d'une interprétation — signalée dans le champ « changeSummary » de la fiche",
+      "retraction": "Rétractation",
+      "retractionDesc": "Suppression d'une information fausse — signalée explicitement avec explication"
+    },
+    "lastUpdated": "Dernière mise à jour : {date}"
+  },
+  "explainers": {
+    "parliamentPowers": {
+      "title": "Que peut faire le Parlement sans gouvernement ?",
+      "subtitle": "Les pouvoirs réels du Parlement bruxellois en période d'affaires courantes",
+      "whatItCanDo": {
+        "title": "Ce que le Parlement peut faire",
+        "questions": "Poser des questions parlementaires au gouvernement en affaires courantes et exiger des réponses",
+        "twelfths": "Voter les douzièmes provisoires pour assurer la continuité budgétaire",
+        "commissions": "Tenir des commissions parlementaires et auditionner des experts ou responsables",
+        "hearings": "Débattre de résolutions et d'interpellations, même sans capacité législative pleine"
+      },
+      "whatItCannotDo": {
+        "title": "Ce que le Parlement ne peut pas faire",
+        "newLaws": "Voter de nouvelles ordonnances (lois régionales) sur des matières nécessitant un gouvernement de plein exercice",
+        "budget": "Adopter un véritable budget régional — seuls les douzièmes provisoires sont possibles",
+        "policy": "Lancer de nouvelles politiques publiques ou créer de nouveaux programmes",
+        "appointments": "Procéder aux nominations stratégiques dans les organismes régionaux"
+      },
+      "twelfths": {
+        "title": "Les douzièmes provisoires",
+        "description": "Le vote des douzièmes provisoires est le pouvoir budgétaire résiduel du Parlement sans gouvernement. Chaque trimestre, le Parlement autorise la Région à dépenser un douzième du dernier budget voté par mois. Ce mécanisme assure la survie administrative mais empêche tout investissement nouveau."
+      },
+      "realWorld": {
+        "title": "En pratique",
+        "description": "Le Parlement bruxellois continue de siéger et de travailler. Les parlementaires posent des questions, organisent des auditions et débattent. Mais leur capacité d'action législative est structurellement limitée : sans gouvernement pour proposer des textes et les défendre, le processus législatif est largement paralysé."
+      },
+      "concreteActivity": {
+        "title": "Activité concrète depuis juin 2024",
+        "description": "Malgré l'absence de gouvernement de plein exercice, le Parlement bruxellois n'est pas inactif. Voici ce qu'il a fait concrètement depuis les élections :",
+        "twelfthsVoted": "Votes des douzièmes provisoires : le Parlement a voté les crédits provisoires chaque trimestre pour assurer la continuité budgétaire de la Région, de la COCOM et de la COCOF",
+        "questions": "Questions parlementaires : des centaines de questions écrites et orales ont été adressées au gouvernement en affaires courantes, sur des sujets allant du logement social à la mobilité en passant par la sécurité",
+        "hearings": "Auditions en commission : les commissions parlementaires ont auditionné des experts, des responsables d'organismes para-régionaux et des acteurs de terrain sur les impacts de la crise",
+        "resolutions": "Résolutions et interpellations : le Parlement a adopté des résolutions non contraignantes appelant à accélérer les négociations et à protéger certains budgets"
+      },
+      "composition": {
+        "title": "Composition actuelle",
+        "description": "Le Parlement bruxellois compte 89 députés répartis en deux groupes linguistiques : 72 membres du groupe linguistique français et 17 membres du groupe linguistique néerlandais. La présidence est assurée par rotation. Les 89 députés sont répartis entre 13 partis, ce qui en fait l'un des parlements les plus fragmentés de Belgique."
+      },
+      "paradox": {
+        "title": "Le paradoxe du Parlement sans gouvernement",
+        "description": "Le Parlement est la seule institution régionale bruxelloise qui fonctionne à plein régime. Il siège, il débat, il contrôle. Mais il est structurellement limité : sans gouvernement pour déposer des projets d'ordonnance et les défendre, le Parlement est un moteur qui tourne au ralenti. Il peut poser des questions, mais il ne peut pas légiférer. Il peut voter les douzièmes provisoires, mais il ne peut pas voter un vrai budget. Il peut alerter, mais il ne peut pas agir."
+      }
+    },
+    "brusselsParadox": {
+      "title": "Le paradoxe bruxellois : riche en PIB, pauvre en revenus",
+      "subtitle": "Pourquoi la capitale économique de la Belgique manque de moyens",
+      "gdp": {
+        "title": "19 % du PIB belge",
+        "description": "Bruxelles produit environ 19 % du produit intérieur brut de la Belgique, avec seulement 10 % de la population. Cette richesse économique s'explique par la concentration d'institutions européennes, de sièges sociaux et de services financiers. Le PIB par habitant bruxellois est le plus élevé du pays."
+      },
+      "commuters": {
+        "title": "360 000 navetteurs",
+        "description": "Chaque jour, environ 360 000 travailleurs viennent travailler à Bruxelles depuis la Flandre et la Wallonie. Ils contribuent au PIB bruxellois mais paient leurs impôts sur le revenu dans leur commune de résidence. Bruxelles supporte les coûts d'infrastructure sans bénéficier des recettes fiscales correspondantes."
+      },
+      "income": {
+        "title": "Revenu disponible inférieur",
+        "description": "Malgré un PIB élevé, le revenu disponible moyen par habitant à Bruxelles est inférieur à celui de la Flandre. La pauvreté touche 30 % de la population bruxelloise. Le taux de chômage régional (15,3 %) est le plus élevé des trois Régions belges."
+      },
+      "transfers": {
+        "title": "Les transferts fiscaux",
+        "description": "Le système fiscal belge redistribue une partie des revenus entre les Régions. Bruxelles est à la fois contributeur net au PIB national et bénéficiaire de mécanismes de solidarité. La question du financement de Bruxelles — et notamment de la compensation pour les navetteurs — est un sujet récurrent des négociations institutionnelles."
+      },
+      "whyMatters": {
+        "title": "Pourquoi c'est important pour la crise",
+        "description": "Le paradoxe bruxellois explique pourquoi la crise gouvernementale frappe si durement : une Région structurellement sous-financée qui perd sa capacité d'investissement pendant deux ans voit ses services publics se dégrader plus vite que les deux autres Régions."
+      }
+    },
+    "levelsOfPower": {
+      "title": "Qui décide quoi à Bruxelles ?",
+      "subtitle": "Six niveaux de pouvoir impactent la vie des Bruxellois. Voici leurs rôles, leurs compétences et leur état actuel.",
+      "intro": "Bruxelles est la ville la plus institutionnellement complexe d'Europe. Six niveaux de pouvoir se superposent, chacun avec des compétences propres. En temps normal, cette complexité est invisible pour le citoyen. En temps de crise, elle devient le problème : quand un niveau est bloqué, les autres ne peuvent pas toujours compenser.",
+      "table": {
+        "level": "Niveau",
+        "examples": "Compétences clés",
+        "crisisStatus": "État actuel",
+        "eu": "Union européenne",
+        "euExamples": "Financements (FEDER, FSE+), normes environnementales, Semestre européen",
+        "euStatus": "Opérationnel",
+        "federal": "État fédéral",
+        "federalExamples": "Sécurité sociale, justice, fiscalité, SNCB, défense",
+        "federalStatus": "Opérationnel (gouv. Arizona)",
+        "region": "Région de Bruxelles-Capitale",
+        "regionExamples": "Logement, emploi, mobilité, environnement, budget régional",
+        "regionStatus": "Bloqué (affaires courantes)",
+        "communities": "Commissions communautaires",
+        "communitiesExamples": "Santé, aide sociale, culture (COCOM, COCOF, VGC)",
+        "communitiesStatus": "Partiellement bloqué",
+        "communes": "19 communes",
+        "communesExamples": "Urbanisme, état civil, CPAS, police locale, voirie",
+        "communesStatus": "Opérationnel (moyens réduits)",
+        "pararegional": "Organismes para-régionaux",
+        "pararegionalExamples": "Actiris, STIB, Bruxelles-Logement, Bruxelles Environnement",
+        "pararegionalStatus": "Fonctionnement réduit"
+      },
+      "eu": {
+        "title": "L'Union européenne",
+        "role": "L'UE ne gouverne pas Bruxelles, mais elle conditionne une partie significative de son environnement. Les fonds européens (FEDER, FSE+) financent des projets d'infrastructure et de cohésion sociale. Les directives européennes fixent des objectifs contraignants en matière de qualité de l'air, d'efficacité énergétique et de marché du travail. Le Semestre européen évalue les politiques budgétaires belges, y compris la situation de Bruxelles.",
+        "impact": "En l'absence de gouvernement régional, Bruxelles risque de ne pas pouvoir programmer et dépenser les fonds européens dans les délais impartis. Certains programmes nécessitent un co-financement régional que le mécanisme des douzièmes provisoires ne permet pas d'activer. La Commission européenne observe la situation, mais n'a pas de levier direct pour la résoudre."
+      },
+      "federal": {
+        "title": "L'État fédéral",
+        "competences": "L'État fédéral gère la sécurité sociale (chômage, pensions, soins de santé), la justice, la police fédérale, la fiscalité nationale, le rail (SNCB/NMBS) et la défense. Ces compétences impactent directement les Bruxellois : les allocations de chômage, les remboursements de soins de santé et les trains qui desservent Bruxelles dépendent du fédéral, pas de la Région.",
+        "asymmetry": "Le gouvernement fédéral (coalition Arizona) est opérationnel depuis début 2025. Il prend des décisions qui impactent Bruxelles — réformes fiscales, refinancement des entités fédérées, accords de coopération — sans que la Région bruxelloise ait un gouvernement de plein exercice pour défendre ses intérêts dans les négociations. Cette asymétrie est l'une des conséquences les plus concrètes de la crise."
+      },
+      "regions": {
+        "title": "Les trois Régions : une asymétrie inédite",
+        "comparison": "La Flandre et la Wallonie ont formé leurs gouvernements régionaux après les élections de juin 2024. Bruxelles non. Cette asymétrie crée une situation sans précédent dans l'histoire belge : deux Régions sur trois peuvent légiférer, investir et programmer leurs politiques, tandis que la troisième est en gestion minimale. Sur les mêmes matières (logement, emploi, mobilité, environnement), la Flandre et la Wallonie avancent pendant que Bruxelles recule.",
+        "consequences": "Les accords de coopération inter-régionaux — nécessaires pour des dossiers comme la mobilité des navetteurs ou la gestion de l'eau — sont bloqués côté bruxellois. Les entreprises actives dans plusieurs Régions font face à des incohérences réglementaires. Les transferts financiers inter-régionaux continuent sur base de paramètres anciens, sans possibilité de renégociation."
+      },
+      "communities": {
+        "title": "Les commissions communautaires : le millefeuille bruxellois",
+        "cocom": "La COCOM/CCC (Commission communautaire commune) gère les matières bi-communautaires à Bruxelles : hôpitaux, maisons de repos, aide aux sans-abri, coordination de la politique de santé. Son gouvernement est composé des mêmes ministres que le gouvernement régional. Conséquence directe : la COCOM est paralysée par la même crise. Les investissements en santé et en aide sociale sont gelés.",
+        "cocofVgc": "La COCOF (Commission communautaire française) gère les matières francophones (culture, formation professionnelle, aide aux personnes) et dispose d'un budget propre. La VGC (Vlaamse Gemeenschapscommissie) remplit le même rôle côté néerlandophone, mais est structurellement plus liée au gouvernement flamand. En période de crise régionale, la COCOF et la VGC continuent de fonctionner, mais avec des moyens contraints et sans vision stratégique régionale."
+      },
+      "communes": {
+        "title": "Les 19 communes : amortisseurs de la crise",
+        "role": "Les 19 communes bruxelloises (Bruxelles-Ville, Ixelles, Schaerbeek, Molenbeek, Anderlecht, etc.) exercent des compétences de proximité : urbanisme, état civil, police locale, CPAS (aide sociale), enseignement communal, voirie locale. En période de non-gouvernement régional, les communes sont souvent le seul niveau de pouvoir qui agit concrètement pour les citoyens au quotidien.",
+        "disparities": "Mais les moyens des communes sont inégaux. Les communes à hauts revenus (Uccle, Woluwe-Saint-Pierre) disposent de recettes fiscales solides. Les communes à faibles revenus (Molenbeek, Saint-Josse, Anderlecht) dépendent davantage des subsides régionaux — subsides gelés ou réduits faute de nouveau budget régional. La crise régionale creuse les inégalités entre communes."
+      },
+      "provinces": {
+        "title": "L'absence de province : une exception unique",
+        "exception": "Bruxelles est la seule Région belge sans province. En Flandre et en Wallonie, les provinces jouent un rôle opérationnel significatif : enseignement provincial, patrimoine culturel, infrastructures sportives, co-financement de projets locaux. À Bruxelles, la Région assume directement ces compétences provinciales, en vertu de la loi spéciale du 12 janvier 1989.",
+        "consequence": "Cette absence signifie que la Région bruxelloise porte un éventail de compétences plus large que les deux autres Régions. En temps normal, c'est un avantage (moins d'intermédiaires). En temps de crise, c'est un handicap supplémentaire : il n'y a pas de « province bruxelloise » pour prendre le relais sur certaines matières quand la Région est paralysée."
+      },
+      "pararegional": {
+        "title": "Les organismes para-régionaux",
+        "organisms": "Les organismes d'intérêt public régionaux constituent l'administration opérationnelle de Bruxelles : Actiris (emploi), STIB/MIVB (transports), Bruxelles-Logement (logement), Bruxelles Environnement (environnement), perspective.brussels (urbanisme), Innoviris (recherche), Bruxelles-Propreté (déchets). Ces organismes fonctionnent avec des contrats de gestion pluriannuels et continuent leurs missions en affaires courantes.",
+        "limits": "Mais « continuer » n'est pas « avancer ». Les contrats de gestion arrivent à échéance sans être renouvelés. Les investissements nouveaux sont bloqués. Les projets qui nécessitent une décision politique — une nouvelle ligne de tram, un programme de rénovation énergétique, une réforme de l'aide à l'emploi — sont gelés. Les organismes gèrent l'existant, ils ne peuvent pas innover."
+      },
+      "policeZones": {
+        "title": "Les zones de police",
+        "description": "Bruxelles compte 6 zones de police locale (Bruxelles-Capitale/Ixelles, Midi, Ouest, Marlow, Montgomery, Nord), chacune gérée par un conseil de police composé de représentants des communes. La police fonctionne indépendamment de la crise régionale, mais les dotations régionales destinées à la sécurité sont gelées aux niveaux de 2024. Les investissements en équipement, en recrutement et en infrastructure policière sont reportés."
+      },
+      "blockage": {
+        "title": "Où se situe le blocage ?",
+        "description": "Le blocage est concentré au niveau de la Région de Bruxelles-Capitale et de la COCOM. Ces deux niveaux — qui partagent le même gouvernement — sont les seuls à ne pas disposer d'un exécutif de plein exercice. Le fédéral, les communes, les organismes para-régionaux et les zones de police continuent de fonctionner. Mais ils ne peuvent pas compenser l'absence de vision régionale, de budget d'investissement et de capacité législative. La Région est le niveau stratégique : sans elle, les autres niveaux gèrent le quotidien sans pouvoir préparer l'avenir."
+      }
+    },
+    "governmentFormation": {
+      "title": "Comment se forme un gouvernement bruxellois ?",
+      "subtitle": "Le processus de formation, de l'élection à l'investiture",
+      "steps": {
+        "title": "Les étapes de la formation",
+        "elections": "Élections",
+        "electionsDesc": "Les Bruxellois élisent les 89 membres du Parlement régional (72 francophones + 17 néerlandophones)",
+        "consultation": "Consultation",
+        "consultationDesc": "Le président du Parlement consulte les partis et peut désigner un informateur pour explorer les coalitions possibles",
+        "formation": "Formation",
+        "formationDesc": "Un formateur est désigné pour négocier un accord de gouvernement entre les partis de la future coalition",
+        "agreement": "Accord",
+        "agreementDesc": "Les partis signent un accord de gouvernement qui fixe le programme et la composition du gouvernement",
+        "government": "Gouvernement",
+        "governmentDesc": "Le gouvernement est constitué et prête serment devant le Parlement"
+      },
+      "doubleMajority": {
+        "title": "La double majorité linguistique",
+        "description": "La particularité bruxelloise est l'exigence de majorités dans les deux groupes linguistiques du Parlement. Le gouvernement doit comprendre des ministres des deux groupes. Certaines décisions requièrent une majorité dans chaque groupe. Ce mécanisme protège la minorité néerlandophone mais complique considérablement la formation d'une coalition."
+      },
+      "differenceFederal": {
+        "title": "Différence avec le niveau fédéral",
+        "description": "Au niveau fédéral, le Roi joue un rôle actif : il désigne les informateurs et formateurs. Au niveau régional bruxellois, c'est le président du Parlement qui mène le processus. Il n'y a pas de rôle royal dans la formation des gouvernements régionaux — c'est une compétence exclusivement parlementaire."
+      },
+      "elections2024": {
+        "title": "Résultats du 9 juin 2024",
+        "intro": "Les élections régionales du 9 juin 2024 ont produit un parlement très fragmenté. Sept partis francophones et six partis néerlandophones se partagent les 89 sièges. Aucune coalition simple ne dispose simultanément d'une majorité dans les deux groupes linguistiques.",
+        "frGroup": "Groupe linguistique français (72 sièges)",
+        "nlGroup": "Groupe linguistique néerlandais (17 sièges)",
+        "total": "Total",
+        "majority": "Majorité simple",
+        "source": "Source : SPF Intérieur, résultats officiels du 9 juin 2024. Les chiffres peuvent différer légèrement selon les recomptages. Vérification BGM : février 2026.",
+        "arithmetic": "L'arithmétique des coalitions",
+        "arithmeticDesc": "Pour former un gouvernement, il faut réunir une majorité dans chaque groupe linguistique : 37 sièges sur 72 côté francophone et 9 sièges sur 17 côté néerlandophone. Côté francophone, plusieurs combinaisons de 3-4 partis atteignent 37 sièges. Mais côté néerlandophone, avec seulement 17 sièges répartis entre 6 partis, trouver 9 sièges qui soient politiquement compatibles avec la coalition francophone est extrêmement difficile. C'est cette contrainte arithmétique qui explique l'échec des six rounds de formation."
+      },
+      "currentCrisis": {
+        "title": "La crise actuelle",
+        "description": "Depuis les élections du 9 juin 2024, six rounds de formation ont eu lieu sans aboutir à un gouvernement. Le blocage principal est la double majorité linguistique : les combinaisons qui fonctionnent côté francophone ne trouvent pas de majorité correspondante côté néerlandophone."
+      }
+    }
+  },
+  "home": {
+    "mission": {
+      "what": "BGM rend visible ce qui se passe (ou ne se passe pas) à Bruxelles sans gouvernement.",
+      "how": "Chaque donnée est sourcée, chaque métrique est vérifiable, chaque analyse est transparente.",
+      "why": "Parce qu'une démocratie a besoin de citoyens informés, surtout en temps de crise."
+    },
+    "latestEvent": "Dernier événement",
+    "viewTimeline": "Voir la chronologie complète",
+    "explainersTitle": "Comprendre la crise",
+    "explainersSubtitle": "Des explications pédagogiques pour aller plus loin",
+    "explainerParliament": "Que peut faire le Parlement sans gouvernement ?",
+    "explainerParadox": "Le paradoxe bruxellois : PIB vs revenus",
+    "explainerFormation": "Comment se forme un gouvernement bruxellois ?",
+    "explainerLevels": "Qui décide quoi à Bruxelles ?",
+    "sectorsTitle": "Secteurs impactés",
+    "sectorsSubtitle": "Comment l'absence de gouvernement affecte concrètement l'économie bruxelloise",
+    "viewAllSectors": "Voir toutes les fiches secteur",
+    "timelineTitle": "Chronologie",
+    "timelineSubtitle": "Suivre les étapes de la formation du gouvernement bruxellois",
+    "viewTimeline2": "Consulter la chronologie complète"
+  },
+  "sectors": {
+    "title": "Secteurs impactés",
+    "subtitle": "Comment l'absence de gouvernement affecte les secteurs clés de l'économie bruxelloise",
+    "frozenMechanisms": "Mécanismes gelés",
+    "activeMechanisms": "Ce qui continue",
+    "impactIndicators": "Indicateurs d'impact",
+    "stakeholders": "Acteurs concernés",
+    "humanImpact": "Impact humain",
+    "readMore": "Lire la fiche complète",
+    "backToHome": "Retour à l'accueil",
+    "share": "Partager",
+    "copied": "Lien copié !"
+  },
+  "accessibility": {
+    "falcLabel": "En bref (lecture facile)"
+  },
+  "comparisons": {
+    "title": "Comparaisons",
+    "subtitle": "Bruxelles face aux autres Régions belges : chiffres, contextes et trajectoires",
+    "backToList": "Retour aux comparaisons",
+    "entity": "Entité",
+    "value": "Valeur",
+    "date": "Date",
+    "methodology": "Méthodologie",
+    "caveat": "Limites de comparabilité",
+    "source": "Source",
+    "lastModified": "Dernière mise à jour : {date}",
+    "noData": "Aucune comparaison disponible.",
+    "share": "Partager",
+    "copied": "Lien copié !"
+  },
+  "cardSubscribe": {
+    "title": "Suivre ce domaine par email",
+    "emailPlaceholder": "votre@email.be",
+    "submit": "S'abonner",
+    "submitting": "...",
+    "success": "Vérifiez votre boîte mail pour confirmer votre inscription.",
+    "error": "Une erreur est survenue. Réessayez.",
+    "privacy": "Max. 1 email/semaine. Désabonnement en 1 clic."
+  },
+  "cite": {
+    "label": "Citer",
+    "copied": "Citation copiée !"
+  },
+  "feedback": {
+    "button": "Signaler une erreur",
+    "title": "Signaler un problème sur cette fiche",
+    "typeLabel": "Type",
+    "types": {
+      "error": "Erreur factuelle",
+      "correction": "Correction à apporter",
+      "source": "Source manquante ou cassée",
+      "other": "Autre"
+    },
+    "messageLabel": "Description",
+    "messagePlaceholder": "Décrivez le problème ou la correction suggérée...",
+    "emailLabel": "Email (optionnel, pour le suivi)",
+    "emailPlaceholder": "votre@email.be",
+    "submit": "Envoyer",
+    "submitting": "Envoi...",
+    "success": "Merci ! Votre signalement a bien été enregistré.",
+    "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
+    "cancel": "Annuler"
+  },
+  "review": {
+    "title": "Cartes en attente de validation",
+    "description": "Ces cartes sont en mode brouillon (draft: true). Elles ne sont pas visibles sur le site public.",
+    "empty": "Aucune carte en attente de validation.",
+    "count": "{count, plural, one {# carte en attente} other {# cartes en attente}}",
+    "view": "Voir",
+    "howTitle": "Comment valider une carte ?",
+    "step1": "Cliquez sur « Voir » pour consulter le contenu de la carte",
+    "step2": "Vérifiez les faits, les sources, et le ton",
+    "step3": "Si la carte est prête : changez draft: true → draft: false dans le fichier MDX",
+    "step4": "Au prochain build, la carte apparaîtra sur le site public"
   }
 }

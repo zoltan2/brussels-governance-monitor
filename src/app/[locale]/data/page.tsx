@@ -1,9 +1,9 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { getDomainCards } from '@/lib/content';
+import { getDomainCards, getAllSources, type AggregatedSource } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
-import { CsvDownloadButton } from '@/components/csv-download-button';
+import { CsvDownloadButton, JsonDownloadButton } from '@/components/csv-download-button';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -51,11 +51,21 @@ export default async function DataPage({
   const rows: MetricRow[] = cards.flatMap((card) =>
     card.metrics.map((m) => {
       // Find matching source URL from card sources
-      const matchingSource = card.sources.find(
-        (s) =>
-          s.label.toLowerCase().includes(m.source.toLowerCase()) ||
-          m.source.toLowerCase().includes(s.label.split('—')[0].trim().toLowerCase()),
-      );
+      // Handle slash-separated source names (e.g. "SLRB / VRT")
+      const sourceParts = m.source.split(/\s*\/\s*/);
+      const matchingSource = card.sources.find((s) => {
+        const labelLower = s.label.toLowerCase();
+        const labelPrefix = s.label.split('—')[0].trim().toLowerCase();
+        return (
+          labelLower.includes(m.source.toLowerCase()) ||
+          m.source.toLowerCase().includes(labelPrefix) ||
+          sourceParts.some(
+            (part) =>
+              labelLower.includes(part.trim().toLowerCase()) ||
+              part.trim().toLowerCase().includes(labelPrefix),
+          )
+        );
+      });
 
       return {
         domain: card.domain,
@@ -71,26 +81,10 @@ export default async function DataPage({
     }),
   );
 
-  // Also build a full sources list from all cards
-  const allSources = cards.flatMap((card) =>
-    card.sources.map((s) => ({
-      domain: card.domain,
-      domainTitle: card.title,
-      label: s.label,
-      url: s.url,
-      accessedAt: s.accessedAt,
-    })),
-  );
+  // Aggregate sources from ALL content types
+  const allSources = getAllSources(locale as Locale);
 
   return <DataView rows={rows} sources={allSources} locale={locale} />;
-}
-
-interface SourceRow {
-  domain: string;
-  domainTitle: string;
-  label: string;
-  url: string;
-  accessedAt: string;
 }
 
 function DataView({
@@ -99,7 +93,7 @@ function DataView({
   locale,
 }: {
   rows: MetricRow[];
-  sources: SourceRow[];
+  sources: AggregatedSource[];
   locale: string;
 }) {
   const t = useTranslations('data');
@@ -129,7 +123,10 @@ function DataView({
             <h1 className="text-2xl font-bold text-neutral-900">{t('title')}</h1>
             <p className="mt-1 text-sm text-neutral-500">{t('subtitle')}</p>
           </div>
-          <CsvDownloadButton rows={rows} label={t('downloadCsv')} />
+          <div className="flex gap-2">
+            <CsvDownloadButton rows={rows} label={t('downloadCsv')} />
+            <JsonDownloadButton rows={rows} label={t('downloadJson')} />
+          </div>
         </div>
 
         {/* Metrics table */}
@@ -200,7 +197,8 @@ function DataView({
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium text-neutral-900">{s.label}</p>
                       <p className="mt-0.5 text-xs text-neutral-400">
-                        {s.domainTitle} · {td('accessedAt', { date: formatDate(s.accessedAt, locale) })}
+                        <span className="rounded bg-neutral-100 px-1.5 py-0.5 font-medium text-neutral-500">{t(`sourceType.${s.contentType}`)}</span>
+                        {' '}{s.contentTitle} · {td('accessedAt', { date: formatDate(s.accessedAt, locale) })}
                       </p>
                     </div>
                     <a

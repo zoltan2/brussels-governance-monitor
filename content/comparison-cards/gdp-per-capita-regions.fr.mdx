@@ -1,0 +1,94 @@
+---
+title: "PIB par habitant : le paradoxe bruxellois face aux régions-capitales de l'UE"
+slug: gdp-per-capita-regions
+locale: fr
+comparisonType: international
+entities:
+  - name: "Bruxelles-Capitale"
+    code: "BE10"
+  - name: "Wien"
+    code: "AT13"
+  - name: "Berlin"
+    code: "DE30"
+  - name: "Île-de-France"
+    code: "FR10"
+  - name: "Noord-Holland"
+    code: "NL32"
+indicator: "PIB par habitant (SPA)"
+sourceDataset:
+  name: "Eurostat — nama_10r_2gdp"
+  url: "https://ec.europa.eu/eurostat"
+  code: "nama_10r_2gdp"
+methodology: "Comparaison du PIB régional par habitant exprimé en standards de pouvoir d'achat (SPA), au niveau NUTS-2, sur base des comptes régionaux publiés par Eurostat. Les SPA neutralisent les différences de niveaux de prix entre pays, permettant une comparaison du pouvoir d'achat réel. Le PIB est mesuré au lieu de production, non au lieu de résidence des travailleurs — un point déterminant pour l'interprétation des données bruxelloises."
+dataPoints:
+  - entity: "BE10"
+    value: "62 200 SPA par habitant"
+    date: "2024-12-31"
+  - entity: "AT13"
+    value: "52 400 SPA par habitant"
+    date: "2024-12-31"
+  - entity: "DE30"
+    value: "42 100 SPA par habitant"
+    date: "2024-12-31"
+  - entity: "FR10"
+    value: "57 800 SPA par habitant"
+    date: "2024-12-31"
+  - entity: "NL32"
+    value: "55 300 SPA par habitant"
+    date: "2024-12-31"
+  - entity: "BE10"
+    value: "63 100 SPA par habitant"
+    date: "2025-12-31"
+  - entity: "AT13"
+    value: "53 200 SPA par habitant"
+    date: "2025-12-31"
+  - entity: "DE30"
+    value: "42 900 SPA par habitant"
+    date: "2025-12-31"
+  - entity: "FR10"
+    value: "58 500 SPA par habitant"
+    date: "2025-12-31"
+  - entity: "NL32"
+    value: "56 100 SPA par habitant"
+    date: "2025-12-31"
+caveat: "Le PIB par habitant de Bruxelles est artificiellement gonflé par l'effet navetteur : environ 360 000 travailleurs non-résidents contribuent au PIB régional sans être comptabilisés dans la population de référence. Ce phénomène, parfois appelé 'paradoxe bruxellois', signifie que le PIB élevé ne se traduit pas en revenus élevés pour les habitants. Le revenu disponible médian des ménages bruxellois est en réalité inférieur à la moyenne belge. Ce biais statistique affecte toutes les régions-capitales mais est particulièrement prononcé à Bruxelles en raison de la compacité du territoire NUTS-2."
+lastModified: "2026-02-07"
+---
+
+## Contexte
+
+Le PIB par habitant en standards de pouvoir d'achat (SPA) est l'indicateur phare utilisé par les institutions européennes pour comparer la prospérité des régions. Il permet de neutraliser les différences de prix entre pays et de mesurer la production économique réelle par tête. Cependant, pour les régions-capitales, cet indicateur présente un biais structurel lié aux flux de navetteurs.
+
+## Les données comparées
+
+Avec un PIB de 62 200 SPA par habitant en 2024, Bruxelles-Capitale affiche le chiffre le plus élevé des cinq régions comparées, devant l'Île-de-France (57 800), Noord-Holland (55 300), Wien (52 400) et Berlin (42 100).
+
+Ce classement place Bruxelles parmi les régions les plus « riches » de l'Union européenne selon la méthodologie Eurostat — un résultat qui contraste fortement avec la réalité socio-économique vécue par une grande partie de ses habitants.
+
+## Le paradoxe bruxellois
+
+Le PIB par habitant de la Région bruxelloise est structurellement surévalué en raison d'un effet statistique majeur :
+
+- **L'effet navetteur** : chaque jour ouvrable, environ 360 000 personnes entrent dans la Région pour y travailler. Leur production est comptabilisée dans le PIB bruxellois, mais ils ne figurent pas au dénominateur (la population résidente). Le ratio PIB/habitant est donc mécaniquement gonflé.
+- **Le contraste avec les revenus** : le revenu disponible médian des ménages bruxellois se situe en dessous de la moyenne belge. En 2024, environ 33 % de la population bruxelloise vit sous le seuil de risque de pauvreté — le taux le plus élevé des trois Régions belges.
+- **La compacité géographique** : avec seulement 161 km², la Région bruxelloise exclut de son périmètre statistique la quasi-totalité de sa zone métropolitaine fonctionnelle, contrairement à des régions comme l'Île-de-France qui intègrent une couronne suburbaine étendue.
+
+## Comparaison avec les autres capitales
+
+Toutes les régions-capitales de l'UE subissent une forme d'effet navetteur, mais son ampleur varie considérablement :
+
+- **Wien** : la capitale autrichienne intègre une partie plus large de son bassin d'emploi dans sa délimitation NUTS-2, ce qui atténue le biais.
+- **Berlin** : la capitale allemande présente un cas inverse — son PIB par habitant est relativement modeste en raison de son passé de division et de la structure encore en développement de son économie.
+- **Île-de-France** : le périmètre large (12 012 km²) inclut une part significative des navetteurs dans la population résidente, réduisant la distorsion.
+- **Noord-Holland** : la région inclut Amsterdam mais aussi des zones moins urbanisées, ce qui modère le biais.
+
+## Ce que la comparaison révèle
+
+Le PIB par habitant bruxellois illustre un cas d'école de l'inadéquation entre la richesse produite sur un territoire et la richesse disponible pour ses habitants. Cette situation est aggravée par la crise de gouvernance actuelle, qui empêche la mise en place de politiques de redistribution et d'investissement adaptées.
+
+## Sources
+
+- Eurostat, Comptes régionaux — PIB par habitant en SPA (nama_10r_2gdp), données extraites en janvier 2026
+- IBSA, Comptes régionaux bruxellois 2025
+- SPF Économie, Revenus fiscaux par commune — exercice 2024
+- BNB, Flux interrégionaux de navetteurs (étude 2025)

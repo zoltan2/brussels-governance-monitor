@@ -51,7 +51,9 @@ export function Search() {
         response.results.slice(0, 8).map((r: { data: () => Promise<SearchResult> }) => r.data()),
       );
       // Filter to current locale
-      const filtered = data.filter((r: SearchResult) => r.url.includes(`/${locale}/`));
+      const filtered = data
+        .filter((r: SearchResult) => r.url.includes(`/${locale}/`))
+        .map((r: SearchResult) => ({ ...r, url: r.url.replace(/\.html$/, '') }));
       setResults(filtered);
     },
     [pagefind, locale],

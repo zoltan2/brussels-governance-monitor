@@ -6,10 +6,11 @@
   "nav": {
     "home": "Home",
     "domains": "Domeinen",
-    "solutions": "Uitwegen uit de crisis",
+    "understand": "Begrijpen",
     "data": "Gegevens",
     "timeline": "Chronologie",
     "glossary": "Woordenlijst",
+    "explainers": "Uitleg",
     "faq": "FAQ",
     "about": "Over ons"
   },
@@ -74,10 +75,17 @@
     "disclaimer": "Niet gelieerd aan enige politieke partij",
     "license": "Broncode AGPL v3",
     "editorial": "Redactioneel charter",
+    "methodology": "Onze methode",
     "privacy": "Privacybeleid",
     "glossary": "Woordenlijst",
     "faq": "FAQ",
-    "legal": "Juridische vermeldingen"
+    "legal": "Juridische vermeldingen",
+    "explainers": "Begrijpen",
+    "timeline": "Chronologie",
+    "contentTitle": "Inhoud",
+    "aboutTitle": "Over ons",
+    "data": "Gegevens",
+    "comparisons": "Vergelijkingen"
   },
   "locale": {
     "switchTo": "Taal wijzigen",
@@ -98,11 +106,26 @@
     "source": "Bron",
     "date": "Datum",
     "confidence": "Betrouwbaarheid",
+    "downloadJson": "JSON downloaden",
     "downloadCsv": "CSV downloaden",
     "noData": "Geen gegevens beschikbaar.",
     "sourcesTitle": "Bronnenlijst",
     "sourcesSubtitle": "Volledige lijst van bronnen gebruikt in onze fiches, met directe links naar de originele documenten.",
-    "openSource": "Openen"
+    "openSource": "Openen",
+    "sourceType": {
+      "domain": "Domein",
+      "solution": "Oplossing",
+      "sector": "Sector",
+      "comparison": "Vergelijking",
+      "event": "Evenement",
+      "glossary": "Woordenlijst"
+    }
+  },
+  "freshness": {
+    "recent": "Recent geverifieerd",
+    "current": "Actueel",
+    "aging": "Hercontrole nodig",
+    "stale": "Update nodig"
   },
   "subscribe": {
     "title": "Blijf op de hoogte",
@@ -318,5 +341,331 @@
     "title": "Pagina niet gevonden",
     "description": "De pagina die u zoekt bestaat niet of is verplaatst.",
     "backHome": "Terug naar home"
+  },
+  "methodology": {
+    "title": "Onze methode",
+    "intro": "Brussels Governance Monitor is een instrument voor burgerinformatie. Deze pagina legt uit hoe wij gegevens verzamelen, verifiëren en publiceren.",
+    "dataSources": {
+      "title": "Waar komen onze gegevens vandaan",
+      "description": "Wij classificeren onze bronnen in vier betrouwbaarheidsniveaus:",
+      "tierA": "Niveau A",
+      "tierADesc": "Gepubliceerde officiële documenten (ordonnanties, verslagen van het Rekenhof, statistieken Statbel/IBSA, notulen van het Parlement)",
+      "tierB": "Niveau B",
+      "tierBDesc": "Institutionele communicatie (persberichten van Actiris, MIVB, BGHM, Leefmilieu Brussel)",
+      "tierC": "Niveau C",
+      "tierCDesc": "Referentiepers (RTBF, VRT, Le Soir, De Standaard, BX1, BRUZZ) — gebruikt wanneer de primaire bron niet online toegankelijk is",
+      "tierD": "Niveau D",
+      "tierDDesc": "Analyses en studies (Brupartners, universiteiten, denktanks) — contextualiseren de ruwe gegevens"
+    },
+    "verification": {
+      "title": "Hoe wij verifiëren",
+      "description": "Elke gepubliceerde gegeven doorloopt een verificatieproces:",
+      "doubleSource": "Dubbele bron: elke metriek wordt geverifieerd door minstens twee onafhankelijke bronnen, of door één erkende institutionele bron (Rekenhof, Parlement, administratie)",
+      "dateCheck": "Datumcontrole: elke bron wordt geraadpleegd en gedateerd. Verouderde gegevens worden bijgewerkt of verwijderd.",
+      "contextCheck": "Contextcontrole: cijfers worden altijd vergezeld van hun context (methodologie, reikwijdte, bekende beperkingen)"
+    },
+    "confidence": {
+      "title": "Onze betrouwbaarheidsniveaus",
+      "officialDesc": "Gepubliceerde institutionele bron — gegeven direct verifieerbaar in het brondocument",
+      "estimatedDesc": "BGM-schatting op basis van gedeeltelijke gegevens, met gedocumenteerde methodologie",
+      "unconfirmedDesc": "Informatie alleen gemeld door de pers, nog niet bevestigd door een institutionele bron"
+    },
+    "limitations": {
+      "title": "Wat BGM niet doet",
+      "noPrediction": "Geen voorspellingen: wij voorspellen niet wanneer een regering zal worden gevormd of welke coalitie het meest waarschijnlijk is",
+      "noScoring": "Geen politieke scores: wij kennen geen punten toe aan partijen en beoordelen hun standpunten niet",
+      "noExhaustive": "Geen volledigheid: wij behandelen de meest getroffen domeinen, niet het geheel van het gewestelijk beleid"
+    },
+    "independence": {
+      "title": "Onze onafhankelijkheid",
+      "description": "BGM is een project gehost door Advice That SRL, zonder partijdige, vakbonds- of mediatieke affiliatie. De financiering is transparant: geen overheidssubsidie, geen politieke donaties. De broncode is gepubliceerd onder de AGPL v3-licentie."
+    },
+    "corrections": {
+      "title": "Correctiebeleid",
+      "description": "Wij onderscheiden drie soorten correcties:",
+      "minor": "Kleine correctie",
+      "minorDesc": "Tikfout, gebroken link, datumupdate — stilzwijgend gecorrigeerd, bijgehouden in de Git-geschiedenis",
+      "substantial": "Substantiële correctie",
+      "substantialDesc": "Wijziging van een cijfer, een bron of een interpretatie — vermeld in het veld 'changeSummary' van de fiche",
+      "retraction": "Intrekking",
+      "retractionDesc": "Verwijdering van onjuiste informatie — expliciet vermeld met uitleg"
+    },
+    "lastUpdated": "Laatste update: {date}"
+  },
+  "explainers": {
+    "parliamentPowers": {
+      "title": "Wat kan het Parlement zonder regering?",
+      "subtitle": "De werkelijke bevoegdheden van het Brussels Parlement tijdens lopende zaken",
+      "whatItCanDo": {
+        "title": "Wat het Parlement kan doen",
+        "questions": "Parlementaire vragen stellen aan de regering in lopende zaken en antwoorden eisen",
+        "twelfths": "Voorlopige twaalfden stemmen om de begrotingscontinuïteit te verzekeren",
+        "commissions": "Parlementaire commissies houden en experts of verantwoordelijken horen",
+        "hearings": "Resoluties en interpellaties bespreken, zelfs zonder volledige wetgevende capaciteit"
+      },
+      "whatItCannotDo": {
+        "title": "Wat het Parlement niet kan doen",
+        "newLaws": "Nieuwe ordonnanties (gewestelijke wetten) stemmen over zaken die een volwaardige regering vereisen",
+        "budget": "Een echte gewestelijke begroting goedkeuren — alleen voorlopige twaalfden zijn mogelijk",
+        "policy": "Nieuw overheidsbeleid lanceren of nieuwe programma's opzetten",
+        "appointments": "Strategische benoemingen in de gewestelijke instellingen doorvoeren"
+      },
+      "twelfths": {
+        "title": "De voorlopige twaalfden",
+        "description": "De stemming over voorlopige twaalfden is de resterende begrotingsbevoegdheid van het Parlement zonder regering. Elk kwartaal machtigt het Parlement het Gewest om per maand een twaalfde van de laatst gestemde begroting uit te geven. Dit mechanisme verzekert het administratieve voortbestaan maar verhindert elke nieuwe investering."
+      },
+      "realWorld": {
+        "title": "In de praktijk",
+        "description": "Het Brussels Parlement blijft vergaderen en werken. De parlementsleden stellen vragen, organiseren hoorzittingen en debatteren. Maar hun wetgevende slagkracht is structureel beperkt: zonder regering om teksten voor te stellen en te verdedigen, is het wetgevend proces grotendeels verlamd."
+      },
+      "concreteActivity": {
+        "title": "Concrete activiteit sinds juni 2024",
+        "description": "Ondanks het ontbreken van een volwaardige regering is het Brussels Parlement niet inactief. Dit is wat het concreet heeft gedaan sinds de verkiezingen:",
+        "twelfthsVoted": "Stemmingen over de voorlopige twaalfden: het Parlement heeft elk kwartaal de voorlopige kredieten gestemd om de begrotingscontinuïteit van het Gewest, de GGC en de COCOF te verzekeren",
+        "questions": "Parlementaire vragen: honderden schriftelijke en mondelinge vragen zijn gericht aan de regering in lopende zaken, over onderwerpen gaande van sociale huisvesting tot mobiliteit en veiligheid",
+        "hearings": "Hoorzittingen in commissie: de parlementaire commissies hebben experts, verantwoordelijken van para-gewestelijke instellingen en terreinactoren gehoord over de gevolgen van de crisis",
+        "resolutions": "Resoluties en interpellaties: het Parlement heeft niet-bindende resoluties aangenomen die oproepen de onderhandelingen te versnellen en bepaalde begrotingen te beschermen"
+      },
+      "composition": {
+        "title": "Huidige samenstelling",
+        "description": "Het Brussels Parlement telt 89 volksvertegenwoordigers verdeeld over twee taalgroepen: 72 leden van de Franse taalgroep en 17 leden van de Nederlandse taalgroep. Het voorzitterschap wordt bij toerbeurt waargenomen. De 89 volksvertegenwoordigers zijn verdeeld over 13 partijen, waarmee het een van de meest versnipperde parlementen van België is."
+      },
+      "paradox": {
+        "title": "De paradox van het Parlement zonder regering",
+        "description": "Het Parlement is de enige Brusselse gewestelijke instelling die op volle toeren draait. Het vergadert, het debatteert, het controleert. Maar het is structureel beperkt: zonder regering om ontwerpsordonnanties in te dienen en te verdedigen, is het Parlement een motor die op halve kracht draait. Het kan vragen stellen, maar het kan niet wetgeven. Het kan de voorlopige twaalfden stemmen, maar het kan geen echte begroting goedkeuren. Het kan waarschuwen, maar het kan niet handelen."
+      }
+    },
+    "brusselsParadox": {
+      "title": "De Brusselse paradox: rijk aan BBP, arm aan inkomsten",
+      "subtitle": "Waarom de economische hoofdstad van België een tekort aan middelen heeft",
+      "gdp": {
+        "title": "19 % van het Belgische BBP",
+        "description": "Brussel produceert ongeveer 19 % van het Belgische bruto binnenlands product, met slechts 10 % van de bevolking. Deze economische rijkdom is te verklaren door de concentratie van Europese instellingen, hoofdkantoren en financiële diensten. Het BBP per inwoner in Brussel is het hoogste van het land."
+      },
+      "commuters": {
+        "title": "360.000 pendelaars",
+        "description": "Elke dag komen ongeveer 360.000 werknemers in Brussel werken vanuit Vlaanderen en Wallonië. Zij dragen bij aan het Brusselse BBP maar betalen hun inkomstenbelasting in hun woongemeente. Brussel draagt de infrastructuurkosten zonder te profiteren van de bijbehorende fiscale inkomsten."
+      },
+      "income": {
+        "title": "Lager beschikbaar inkomen",
+        "description": "Ondanks een hoog BBP is het gemiddelde beschikbare inkomen per inwoner in Brussel lager dan in Vlaanderen. Armoede treft 30 % van de Brusselse bevolking. Het gewestelijke werkloosheidspercentage (15,3 %) is het hoogste van de drie Belgische Gewesten."
+      },
+      "transfers": {
+        "title": "De fiscale transfers",
+        "description": "Het Belgische belastingstelsel herverdeelt een deel van de inkomsten tussen de Gewesten. Brussel is zowel nettobijdrager aan het nationaal BBP als begunstigde van solidariteitsmechanismen. De kwestie van de financiering van Brussel — en met name de compensatie voor pendelaars — is een terugkerend thema in de institutionele onderhandelingen."
+      },
+      "whyMatters": {
+        "title": "Waarom dit belangrijk is voor de crisis",
+        "description": "De Brusselse paradox verklaart waarom de regeringscrisis zo hard toeslaat: een structureel ondergefinancierd Gewest dat twee jaar lang zijn investeringscapaciteit verliest, ziet zijn openbare diensten sneller verslechteren dan de twee andere Gewesten."
+      }
+    },
+    "levelsOfPower": {
+      "title": "Wie beslist wat in Brussel?",
+      "subtitle": "Zes bestuursniveaus hebben invloed op het leven van de Brusselaars. Hier zijn hun rollen, hun bevoegdheden en hun huidige toestand.",
+      "intro": "Brussel is de meest institutioneel complexe stad van Europa. Zes bestuursniveaus overlappen elkaar, elk met eigen bevoegdheden. In normale tijden is deze complexiteit onzichtbaar voor de burger. In crisistijd wordt ze het probleem: wanneer één niveau geblokkeerd is, kunnen de andere niet altijd compenseren.",
+      "table": {
+        "level": "Niveau",
+        "examples": "Belangrijkste bevoegdheden",
+        "crisisStatus": "Huidige toestand",
+        "eu": "Europese Unie",
+        "euExamples": "Financieringen (EFRO, ESF+), milieunormen, Europees Semester",
+        "euStatus": "Operationeel",
+        "federal": "Federale staat",
+        "federalExamples": "Sociale zekerheid, justitie, fiscaliteit, NMBS, defensie",
+        "federalStatus": "Operationeel (Arizona-coalitie)",
+        "region": "Brussels Hoofdstedelijk Gewest",
+        "regionExamples": "Huisvesting, werkgelegenheid, mobiliteit, leefmilieu, gewestelijke begroting",
+        "regionStatus": "Geblokkeerd (lopende zaken)",
+        "communities": "Gemeenschapscommissies",
+        "communitiesExamples": "Gezondheid, maatschappelijk welzijn, cultuur (GGC, COCOF, VGC)",
+        "communitiesStatus": "Gedeeltelijk geblokkeerd",
+        "communes": "19 gemeenten",
+        "communesExamples": "Stedenbouw, burgerlijke stand, OCMW, lokale politie, wegenis",
+        "communesStatus": "Operationeel (verminderde middelen)",
+        "pararegional": "Para-gewestelijke instellingen",
+        "pararegionalExamples": "Actiris, MIVB, Brussel Huisvesting, Leefmilieu Brussel",
+        "pararegionalStatus": "Verminderde werking"
+      },
+      "eu": {
+        "title": "De Europese Unie",
+        "role": "De EU bestuurt Brussel niet, maar bepaalt wel een aanzienlijk deel van de omgeving. Europese fondsen (EFRO, ESF+) financieren infrastructuur- en sociale cohesieprojecten. Europese richtlijnen leggen bindende doelstellingen op inzake luchtkwaliteit, energie-efficiëntie en arbeidsmarkt. Het Europees Semester beoordeelt het Belgische begrotingsbeleid, inclusief de situatie van Brussel.",
+        "impact": "Bij gebrek aan een gewestregering riskeert Brussel de Europese fondsen niet binnen de gestelde termijnen te kunnen programmeren en besteden. Sommige programma's vereisen een gewestelijke cofinanciering die het mechanisme van de voorlopige twaalfden niet kan activeren. De Europese Commissie volgt de situatie op, maar heeft geen directe hefboom om ze op te lossen."
+      },
+      "federal": {
+        "title": "De federale staat",
+        "competences": "De federale staat beheert de sociale zekerheid (werkloosheid, pensioenen, gezondheidszorg), justitie, de federale politie, de nationale fiscaliteit, het spoor (NMBS) en defensie. Deze bevoegdheden hebben een directe impact op de Brusselaars: werkloosheidsuitkeringen, terugbetalingen van gezondheidszorg en de treinen die Brussel bedienen, hangen af van het federale niveau, niet van het Gewest.",
+        "asymmetry": "De federale regering (Arizona-coalitie) is operationeel sinds begin 2025. Ze neemt beslissingen die Brussel treffen — fiscale hervormingen, herfinanciering van de deelgebieden, samenwerkingsakkoorden — zonder dat het Brussels Gewest een volwaardige regering heeft om zijn belangen te verdedigen in de onderhandelingen. Deze asymmetrie is een van de meest concrete gevolgen van de crisis."
+      },
+      "regions": {
+        "title": "De drie Gewesten: een ongeziene asymmetrie",
+        "comparison": "Vlaanderen en Wallonië hebben hun gewestregeringen gevormd na de verkiezingen van juni 2024. Brussel niet. Deze asymmetrie creëert een situatie zonder precedent in de Belgische geschiedenis: twee van de drie Gewesten kunnen wetgeven, investeren en hun beleid programmeren, terwijl het derde op minimaal beheer draait. Op dezelfde materies (huisvesting, werkgelegenheid, mobiliteit, leefmilieu) gaan Vlaanderen en Wallonië vooruit terwijl Brussel achteruitgaat.",
+        "consequences": "De intergewestelijke samenwerkingsakkoorden — noodzakelijk voor dossiers als de mobiliteit van pendelaars of het waterbeheer — zijn geblokkeerd aan Brusselse zijde. Bedrijven die in meerdere Gewesten actief zijn, worden geconfronteerd met regelgevende inconsistenties. De financiële transfers tussen Gewesten lopen verder op basis van verouderde parameters, zonder mogelijkheid tot heronderhandeling."
+      },
+      "communities": {
+        "title": "De gemeenschapscommissies: het Brusselse lasagnemodel",
+        "cocom": "De GGC (Gemeenschappelijke Gemeenschapscommissie) beheert de bi-communautaire materies in Brussel: ziekenhuizen, rusthuizen, daklozenopvang, coördinatie van het gezondheidsbeleid. Haar bestuur bestaat uit dezelfde ministers als de gewestregering. Direct gevolg: de GGC is verlamd door dezelfde crisis. De investeringen in gezondheid en maatschappelijk welzijn liggen stil.",
+        "cocofVgc": "De COCOF (Commission communautaire française) beheert de Franstalige materies (cultuur, beroepsopleiding, bijstand aan personen) en beschikt over een eigen budget. De VGC (Vlaamse Gemeenschapscommissie) vervult dezelfde rol aan Nederlandstalige zijde, maar is structureel sterker verbonden met de Vlaamse Regering. In tijden van gewestelijke crisis blijven de COCOF en de VGC functioneren, maar met beperkte middelen en zonder gewestelijke strategische visie."
+      },
+      "communes": {
+        "title": "De 19 gemeenten: schokdempers van de crisis",
+        "role": "De 19 Brusselse gemeenten (Stad Brussel, Elsene, Schaarbeek, Sint-Jans-Molenbeek, Anderlecht, enz.) oefenen nabijheidsbevoegdheden uit: stedenbouw, burgerlijke stand, lokale politie, OCMW (sociale bijstand), gemeentelijk onderwijs, lokale wegenis. In tijden zonder gewestregering zijn de gemeenten vaak het enige bestuursniveau dat concreet handelt voor de burgers in het dagelijks leven.",
+        "disparities": "Maar de middelen van de gemeenten zijn ongelijk. Gemeenten met hoge inkomens (Ukkel, Sint-Pieters-Woluwe) beschikken over solide fiscale ontvangsten. Gemeenten met lage inkomens (Sint-Jans-Molenbeek, Sint-Joost-ten-Node, Anderlecht) zijn meer afhankelijk van gewestelijke subsidies — subsidies die bevroren of verminderd zijn bij gebrek aan een nieuwe gewestelijke begroting. De gewestelijke crisis verdiept de ongelijkheden tussen gemeenten."
+      },
+      "provinces": {
+        "title": "Het ontbreken van een provincie: een unieke uitzondering",
+        "exception": "Brussel is het enige Belgische Gewest zonder provincie. In Vlaanderen en Wallonië spelen de provincies een significante operationele rol: provinciaal onderwijs, cultureel erfgoed, sportinfrastructuur, cofinanciering van lokale projecten. In Brussel neemt het Gewest deze provinciale bevoegdheden rechtstreeks op zich, krachtens de bijzondere wet van 12 januari 1989.",
+        "consequence": "Dit ontbreken betekent dat het Brussels Gewest een breder bevoegdheidsspectrum draagt dan de twee andere Gewesten. In normale tijden is dit een voordeel (minder tussenschakels). In crisistijd is het een extra handicap: er is geen 'Brusselse provincie' om bepaalde materies over te nemen wanneer het Gewest verlamd is."
+      },
+      "pararegional": {
+        "title": "De para-gewestelijke instellingen",
+        "organisms": "De gewestelijke instellingen van openbaar nut vormen de operationele administratie van Brussel: Actiris (werkgelegenheid), MIVB (vervoer), Brussel Huisvesting (huisvesting), Leefmilieu Brussel (leefmilieu), perspective.brussels (stedenbouw), Innoviris (onderzoek), Net Brussel (afval). Deze instellingen functioneren met meerjarige beheersovereenkomsten en zetten hun opdrachten voort in lopende zaken.",
+        "limits": "Maar 'voortzetten' is niet 'vooruitgaan'. De beheersovereenkomsten lopen af zonder te worden vernieuwd. Nieuwe investeringen zijn geblokkeerd. Projecten die een politieke beslissing vereisen — een nieuwe tramlijn, een programma voor energetische renovatie, een hervorming van de tewerkstellingshulp — liggen stil. De instellingen beheren het bestaande, ze kunnen niet innoveren."
+      },
+      "policeZones": {
+        "title": "De politiezones",
+        "description": "Brussel telt 6 lokale politiezones (Brussel-Hoofdstad/Elsene, Zuid, West, Marlow, Montgomery, Noord), elk beheerd door een politieraad bestaande uit vertegenwoordigers van de gemeenten. De politie functioneert onafhankelijk van de gewestelijke crisis, maar de gewestelijke dotaties bestemd voor veiligheid zijn bevroren op het niveau van 2024. De investeringen in uitrusting, aanwerving en politie-infrastructuur zijn uitgesteld."
+      },
+      "blockage": {
+        "title": "Waar zit de blokkering?",
+        "description": "De blokkering is geconcentreerd op het niveau van het Brussels Hoofdstedelijk Gewest en de GGC. Deze twee niveaus — die dezelfde regering delen — zijn de enige die niet over een volwaardig bestuur beschikken. Het federale niveau, de gemeenten, de para-gewestelijke instellingen en de politiezones blijven functioneren. Maar ze kunnen het ontbreken van een gewestelijke visie, een investeringsbegroting en wetgevende capaciteit niet compenseren. Het Gewest is het strategische niveau: zonder dat niveau beheren de andere het dagelijkse zonder de toekomst te kunnen voorbereiden."
+      }
+    },
+    "governmentFormation": {
+      "title": "Hoe wordt een Brusselse regering gevormd?",
+      "subtitle": "Het formatieproces, van de verkiezing tot de eedaflegging",
+      "steps": {
+        "title": "De stappen van de formatie",
+        "elections": "Verkiezingen",
+        "electionsDesc": "De Brusselaars kiezen de 89 leden van het gewestelijk Parlement (72 Franstaligen + 17 Nederlandstaligen)",
+        "consultation": "Consultatie",
+        "consultationDesc": "De voorzitter van het Parlement raadpleegt de partijen en kan een informateur aanwijzen om de mogelijke coalities te verkennen",
+        "formation": "Formatie",
+        "formationDesc": "Een formateur wordt aangewezen om een regeerakkoord te onderhandelen tussen de partijen van de toekomstige coalitie",
+        "agreement": "Akkoord",
+        "agreementDesc": "De partijen ondertekenen een regeerakkoord dat het programma en de samenstelling van de regering vastlegt",
+        "government": "Regering",
+        "governmentDesc": "De regering wordt samengesteld en legt de eed af voor het Parlement"
+      },
+      "doubleMajority": {
+        "title": "De dubbele taalmeerderheid",
+        "description": "De Brusselse bijzonderheid is de vereiste van meerderheden in beide taalgroepen van het Parlement. De regering moet ministers uit beide groepen bevatten. Sommige beslissingen vereisen een meerderheid in elke groep. Dit mechanisme beschermt de Nederlandstalige minderheid maar bemoeilijkt de coalitievorming aanzienlijk."
+      },
+      "differenceFederal": {
+        "title": "Verschil met het federale niveau",
+        "description": "Op federaal niveau speelt de Koning een actieve rol: hij wijst informateurs en formateurs aan. Op het Brussels gewestelijk niveau is het de voorzitter van het Parlement die het proces leidt. De Koning speelt geen rol bij de vorming van gewestelijke regeringen — het is een exclusief parlementaire bevoegdheid."
+      },
+      "elections2024": {
+        "title": "Resultaten van 9 juni 2024",
+        "intro": "De gewestverkiezingen van 9 juni 2024 hebben een sterk versnipperd parlement opgeleverd. Zeven Franstalige en zes Nederlandstalige partijen verdelen de 89 zetels. Geen enkele eenvoudige coalitie beschikt tegelijkertijd over een meerderheid in beide taalgroepen.",
+        "frGroup": "Franse taalgroep (72 zetels)",
+        "nlGroup": "Nederlandse taalgroep (17 zetels)",
+        "total": "Totaal",
+        "majority": "Gewone meerderheid",
+        "source": "Bron: FOD Binnenlandse Zaken, officiële resultaten van 9 juni 2024. De cijfers kunnen licht afwijken na hertelling. Verificatie BGM: februari 2026.",
+        "arithmetic": "De coalitierekenkunde",
+        "arithmeticDesc": "Om een regering te vormen, moet een meerderheid in elke taalgroep worden bereikt: 37 zetels op 72 aan Franstalige zijde en 9 zetels op 17 aan Nederlandstalige zijde. Aan Franstalige zijde bereiken meerdere combinaties van 3-4 partijen 37 zetels. Maar aan Nederlandstalige zijde, met slechts 17 zetels verdeeld over 6 partijen, is het vinden van 9 zetels die politiek compatibel zijn met de Franstalige coalitie bijzonder moeilijk. Het is deze rekenkundige beperking die het mislukken van de zes formatierondes verklaart."
+      },
+      "currentCrisis": {
+        "title": "De huidige crisis",
+        "description": "Sinds de verkiezingen van 9 juni 2024 hebben zes formatierondes plaatsgevonden zonder tot een regering te leiden. Het belangrijkste struikelblok is de dubbele taalmeerderheid: de combinaties die werken aan Franstalige zijde vinden geen overeenkomstige meerderheid aan Nederlandstalige zijde."
+      }
+    }
+  },
+  "home": {
+    "mission": {
+      "what": "BGM maakt zichtbaar wat er in Brussel gebeurt (of niet gebeurt) zonder regering.",
+      "how": "Elk gegeven is onderbouwd, elke metriek is verifieerbaar, elke analyse is transparant.",
+      "why": "Omdat een democratie geïnformeerde burgers nodig heeft, zeker in tijden van crisis."
+    },
+    "latestEvent": "Laatste gebeurtenis",
+    "viewTimeline": "Bekijk de volledige chronologie",
+    "explainersTitle": "De crisis begrijpen",
+    "explainersSubtitle": "Educatieve uitleg om verder te gaan",
+    "explainerParliament": "Wat kan het Parlement zonder regering?",
+    "explainerParadox": "De Brusselse paradox: BBP vs inkomsten",
+    "explainerFormation": "Hoe wordt een Brusselse regering gevormd?",
+    "explainerLevels": "Wie beslist wat in Brussel?",
+    "sectorsTitle": "Getroffen sectoren",
+    "sectorsSubtitle": "Hoe de afwezigheid van een regering de Brusselse economie concreet treft",
+    "viewAllSectors": "Alle sectorfiches bekijken",
+    "timelineTitle": "Chronologie",
+    "timelineSubtitle": "De stappen van de Brusselse regeringsvorming volgen",
+    "viewTimeline2": "De volledige chronologie raadplegen"
+  },
+  "sectors": {
+    "title": "Getroffen sectoren",
+    "subtitle": "Hoe het ontbreken van een regering de belangrijkste sectoren van de Brusselse economie treft",
+    "frozenMechanisms": "Bevroren mechanismen",
+    "activeMechanisms": "Wat verder loopt",
+    "impactIndicators": "Impactindicatoren",
+    "stakeholders": "Betrokken actoren",
+    "humanImpact": "Menselijke impact",
+    "readMore": "Lees de volledige fiche",
+    "backToHome": "Terug naar home",
+    "share": "Delen",
+    "copied": "Link gekopieerd!"
+  },
+  "accessibility": {
+    "falcLabel": "Kort samengevat (eenvoudig lezen)"
+  },
+  "comparisons": {
+    "title": "Vergelijkingen",
+    "subtitle": "Brussel tegenover de andere Belgische Gewesten: cijfers, contexten en trajecten",
+    "backToList": "Terug naar vergelijkingen",
+    "entity": "Entiteit",
+    "value": "Waarde",
+    "date": "Datum",
+    "methodology": "Methodologie",
+    "caveat": "Vergelijkbaarheidsbeperkingen",
+    "source": "Bron",
+    "lastModified": "Laatst bijgewerkt: {date}",
+    "noData": "Geen vergelijkingen beschikbaar.",
+    "share": "Delen",
+    "copied": "Link gekopieerd!"
+  },
+  "cardSubscribe": {
+    "title": "Volg dit domein per e-mail",
+    "emailPlaceholder": "uw@email.be",
+    "submit": "Abonneren",
+    "submitting": "...",
+    "success": "Controleer uw mailbox om uw inschrijving te bevestigen.",
+    "error": "Er is een fout opgetreden. Probeer het opnieuw.",
+    "privacy": "Max. 1 e-mail/week. Uitschrijven met 1 klik."
+  },
+  "cite": {
+    "label": "Citeren",
+    "copied": "Citaat gekopieerd!"
+  },
+  "feedback": {
+    "button": "Fout melden",
+    "title": "Een probleem melden over deze fiche",
+    "typeLabel": "Type",
+    "types": {
+      "error": "Feitelijke fout",
+      "correction": "Correctie nodig",
+      "source": "Ontbrekende of gebroken bron",
+      "other": "Overig"
+    },
+    "messageLabel": "Beschrijving",
+    "messagePlaceholder": "Beschrijf het probleem of de voorgestelde correctie...",
+    "emailLabel": "E-mail (optioneel, voor opvolging)",
+    "emailPlaceholder": "uw@email.be",
+    "submit": "Versturen",
+    "submitting": "Bezig met verzenden...",
+    "success": "Bedankt! Uw melding is geregistreerd.",
+    "errorMessage": "Er is een fout opgetreden. Probeer het opnieuw.",
+    "cancel": "Annuleren"
+  },
+  "review": {
+    "title": "Kaarten in afwachting van validatie",
+    "description": "Deze kaarten staan in conceptmodus (draft: true). Ze zijn niet zichtbaar op de openbare site.",
+    "empty": "Geen kaarten in afwachting van validatie.",
+    "count": "{count, plural, one {# kaart in afwachting} other {# kaarten in afwachting}}",
+    "view": "Bekijken",
+    "howTitle": "Hoe een kaart valideren?",
+    "step1": "Klik op « Bekijken » om de inhoud van de kaart te raadplegen",
+    "step2": "Controleer de feiten, bronnen en de toon",
+    "step3": "Als de kaart klaar is: verander draft: true → draft: false in het MDX-bestand",
+    "step4": "Bij de volgende build verschijnt de kaart op de openbare site"
   }
 }

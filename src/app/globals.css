@@ -46,3 +46,61 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Print styles — optimized for journalists */
+@media print {
+  /* Hide navigation, footer, interactive elements */
+  nav,
+  footer,
+  .subscribe-form,
+  [data-hide-print],
+  button:not([data-print-visible]) {
+    display: none !important;
+  }
+
+  /* Reset colors for print */
+  body {
+    color: black;
+    background: white;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Ensure links show their URL */
+  a[href^="http"]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: #666;
+    word-break: break-all;
+  }
+
+  /* Prevent page breaks inside cards */
+  article,
+  .card,
+  [data-card] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Add page break before major sections */
+  h1 {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* First h1 should not break */
+  h1:first-of-type {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  /* Optimize images */
+  img {
+    max-width: 100% !important;
+  }
+
+  /* Show source URL in footer */
+  @page {
+    margin: 2cm;
+  }
+}

@@ -6,10 +6,11 @@
   "nav": {
     "home": "Home",
     "domains": "Domains",
-    "solutions": "Exit paths",
+    "understand": "Understand",
     "data": "Data",
     "timeline": "Timeline",
     "glossary": "Glossary",
+    "explainers": "Explainers",
     "faq": "FAQ",
     "about": "About"
   },
@@ -74,10 +75,17 @@
     "disclaimer": "Not affiliated with any political party",
     "license": "Source code AGPL v3",
     "editorial": "Editorial charter",
+    "methodology": "Our method",
     "privacy": "Privacy policy",
     "glossary": "Glossary",
     "faq": "FAQ",
-    "legal": "Legal notice"
+    "legal": "Legal notice",
+    "explainers": "Understand",
+    "timeline": "Timeline",
+    "contentTitle": "Content",
+    "aboutTitle": "About",
+    "data": "Data",
+    "comparisons": "Comparisons"
   },
   "locale": {
     "switchTo": "Change language",
@@ -98,11 +106,26 @@
     "source": "Source",
     "date": "Date",
     "confidence": "Confidence",
+    "downloadJson": "Download JSON",
     "downloadCsv": "Download CSV",
     "noData": "No data available.",
     "sourcesTitle": "Sources reference",
     "sourcesSubtitle": "Complete list of sources used in our cards, with direct links to original documents.",
-    "openSource": "Open"
+    "openSource": "Open",
+    "sourceType": {
+      "domain": "Domain",
+      "solution": "Solution",
+      "sector": "Sector",
+      "comparison": "Comparison",
+      "event": "Event",
+      "glossary": "Glossary"
+    }
+  },
+  "freshness": {
+    "recent": "Recently verified",
+    "current": "Up to date",
+    "aging": "Review needed",
+    "stale": "Update needed"
   },
   "subscribe": {
     "title": "Stay informed",
@@ -318,5 +341,331 @@
     "title": "Page not found",
     "description": "The page you are looking for does not exist or has been moved.",
     "backHome": "Back to home"
+  },
+  "methodology": {
+    "title": "Our method",
+    "intro": "Brussels Governance Monitor is a civic information tool. This page explains how we collect, verify, and publish data.",
+    "dataSources": {
+      "title": "Where our data comes from",
+      "description": "We classify our sources into four reliability tiers:",
+      "tierA": "Tier A",
+      "tierADesc": "Published official documents (ordinances, Court of Auditors reports, Statbel/IBSA statistics, parliamentary minutes)",
+      "tierB": "Tier B",
+      "tierBDesc": "Institutional communications (press releases from Actiris, STIB, SLRB, Brussels Environment)",
+      "tierC": "Tier C",
+      "tierCDesc": "Reference press (RTBF, VRT, Le Soir, De Standaard, BX1, BRUZZ) — used when the primary source is not available online",
+      "tierD": "Tier D",
+      "tierDDesc": "Analyses and studies (Brupartners, universities, think tanks) — provide context for raw data"
+    },
+    "verification": {
+      "title": "How we verify",
+      "description": "Every published data point goes through a verification process:",
+      "doubleSource": "Double source: every metric is verified by at least two independent sources, or by a single recognised institutional source (Court of Auditors, Parliament, administration)",
+      "dateCheck": "Date check: every source is consulted and dated. Outdated data is updated or removed.",
+      "contextCheck": "Context check: figures are always accompanied by their context (methodology, scope, known limitations)"
+    },
+    "confidence": {
+      "title": "Our confidence levels",
+      "officialDesc": "Published institutional source — data directly verifiable in the source document",
+      "estimatedDesc": "BGM estimate based on partial data, with documented methodology",
+      "unconfirmedDesc": "Information reported by the press only, not yet confirmed by an institutional source"
+    },
+    "limitations": {
+      "title": "What BGM does not do",
+      "noPrediction": "No predictions: we do not predict when a government will be formed or which coalition is most likely",
+      "noScoring": "No political scoring: we do not assign scores to parties or judge their positions",
+      "noExhaustive": "No exhaustiveness: we cover the most impacted domains, not the entirety of regional policy"
+    },
+    "independence": {
+      "title": "Our independence",
+      "description": "BGM is a project hosted by Advice That SRL, with no partisan, trade union, or media affiliation. Funding is transparent: no public subsidies, no political donations. The source code is published under the AGPL v3 licence."
+    },
+    "corrections": {
+      "title": "Corrections policy",
+      "description": "We distinguish three types of corrections:",
+      "minor": "Minor correction",
+      "minorDesc": "Typo, broken link, date update — corrected silently, tracked in Git history",
+      "substantial": "Substantial correction",
+      "substantialDesc": "Change to a figure, source, or interpretation — noted in the card's 'changeSummary' field",
+      "retraction": "Retraction",
+      "retractionDesc": "Removal of false information — explicitly flagged with explanation"
+    },
+    "lastUpdated": "Last updated: {date}"
+  },
+  "explainers": {
+    "parliamentPowers": {
+      "title": "What can Parliament do without a government?",
+      "subtitle": "The actual powers of the Brussels Parliament during caretaker government",
+      "whatItCanDo": {
+        "title": "What Parliament can do",
+        "questions": "Ask parliamentary questions to the caretaker government and demand answers",
+        "twelfths": "Vote provisional twelfths to ensure budget continuity",
+        "commissions": "Hold parliamentary committees and hear experts or officials",
+        "hearings": "Debate resolutions and interpellations, even without full legislative capacity"
+      },
+      "whatItCannotDo": {
+        "title": "What Parliament cannot do",
+        "newLaws": "Vote new ordinances (regional laws) on matters requiring a fully empowered government",
+        "budget": "Adopt a real regional budget — only provisional twelfths are possible",
+        "policy": "Launch new public policies or create new programmes",
+        "appointments": "Make strategic appointments in regional bodies"
+      },
+      "twelfths": {
+        "title": "Provisional twelfths",
+        "description": "Voting provisional twelfths is Parliament's residual budgetary power without a government. Each quarter, Parliament authorises the Region to spend one twelfth of the last approved budget per month. This mechanism ensures administrative survival but prevents any new investment."
+      },
+      "realWorld": {
+        "title": "In practice",
+        "description": "The Brussels Parliament continues to sit and work. Members ask questions, organise hearings, and debate. But their legislative capacity is structurally limited: without a government to propose and defend texts, the legislative process is largely paralysed."
+      },
+      "concreteActivity": {
+        "title": "Concrete activity since June 2024",
+        "description": "Despite the absence of a fully empowered government, the Brussels Parliament has not been idle. Here is what it has concretely done since the elections:",
+        "twelfthsVoted": "Provisional twelfths votes: Parliament has voted provisional appropriations each quarter to ensure budgetary continuity for the Region, COCOM, and COCOF",
+        "questions": "Parliamentary questions: hundreds of written and oral questions have been addressed to the caretaker government, on subjects ranging from social housing to mobility to security",
+        "hearings": "Committee hearings: parliamentary committees have heard experts, heads of para-regional bodies, and field actors on the impacts of the crisis",
+        "resolutions": "Resolutions and interpellations: Parliament has adopted non-binding resolutions calling for accelerated negotiations and the protection of certain budgets"
+      },
+      "composition": {
+        "title": "Current composition",
+        "description": "The Brussels Parliament has 89 members divided into two linguistic groups: 72 members in the French linguistic group and 17 members in the Dutch linguistic group. The presidency is held on a rotating basis. The 89 members are spread across 13 parties, making it one of the most fragmented parliaments in Belgium."
+      },
+      "paradox": {
+        "title": "The paradox of a Parliament without a government",
+        "description": "Parliament is the only Brussels regional institution operating at full capacity. It sits, it debates, it scrutinises. But it is structurally limited: without a government to table and defend draft ordinances, Parliament is an engine running at half speed. It can ask questions, but it cannot legislate. It can vote provisional twelfths, but it cannot vote a real budget. It can raise the alarm, but it cannot act."
+      }
+    },
+    "brusselsParadox": {
+      "title": "The Brussels paradox: rich in GDP, poor in income",
+      "subtitle": "Why Belgium's economic capital lacks resources",
+      "gdp": {
+        "title": "19% of Belgian GDP",
+        "description": "Brussels produces approximately 19% of Belgium's gross domestic product, with only 10% of the population. This economic wealth is explained by the concentration of European institutions, corporate headquarters, and financial services. Brussels' GDP per capita is the highest in the country."
+      },
+      "commuters": {
+        "title": "360,000 commuters",
+        "description": "Every day, approximately 360,000 workers commute to Brussels from Flanders and Wallonia. They contribute to Brussels' GDP but pay their income taxes in their municipality of residence. Brussels bears the infrastructure costs without benefiting from the corresponding tax revenues."
+      },
+      "income": {
+        "title": "Lower disposable income",
+        "description": "Despite a high GDP, the average disposable income per capita in Brussels is lower than in Flanders. Poverty affects 30% of the Brussels population. The regional unemployment rate (15.3%) is the highest of the three Belgian Regions."
+      },
+      "transfers": {
+        "title": "Fiscal transfers",
+        "description": "The Belgian tax system redistributes part of the revenue between Regions. Brussels is both a net contributor to national GDP and a beneficiary of solidarity mechanisms. The question of Brussels' funding — particularly compensation for commuters — is a recurring theme in institutional negotiations."
+      },
+      "whyMatters": {
+        "title": "Why this matters for the crisis",
+        "description": "The Brussels paradox explains why the government crisis hits so hard: a structurally underfunded Region that loses its investment capacity for two years sees its public services deteriorate faster than the other two Regions."
+      }
+    },
+    "levelsOfPower": {
+      "title": "Who decides what in Brussels?",
+      "subtitle": "Six levels of power impact the lives of Brussels residents. Here are their roles, their competences, and their current status.",
+      "intro": "Brussels is the most institutionally complex city in Europe. Six levels of power overlap, each with its own competences. In normal times, this complexity is invisible to the citizen. In times of crisis, it becomes the problem: when one level is blocked, the others cannot always compensate.",
+      "table": {
+        "level": "Level",
+        "examples": "Key competences",
+        "crisisStatus": "Current status",
+        "eu": "European Union",
+        "euExamples": "Funding (ERDF, ESF+), environmental standards, European Semester",
+        "euStatus": "Operational",
+        "federal": "Federal state",
+        "federalExamples": "Social security, justice, taxation, SNCB/NMBS, defence",
+        "federalStatus": "Operational (Arizona coalition)",
+        "region": "Brussels-Capital Region",
+        "regionExamples": "Housing, employment, mobility, environment, regional budget",
+        "regionStatus": "Blocked (caretaker mode)",
+        "communities": "Community commissions",
+        "communitiesExamples": "Health, social welfare, culture (COCOM, COCOF, VGC)",
+        "communitiesStatus": "Partially blocked",
+        "communes": "19 municipalities",
+        "communesExamples": "Urban planning, civil registry, CPAS/OCMW, local police, roads",
+        "communesStatus": "Operational (reduced resources)",
+        "pararegional": "Para-regional bodies",
+        "pararegionalExamples": "Actiris, STIB/MIVB, Brussels Housing, Brussels Environment",
+        "pararegionalStatus": "Reduced operations"
+      },
+      "eu": {
+        "title": "The European Union",
+        "role": "The EU does not govern Brussels, but it shapes a significant part of its environment. European funds (ERDF, ESF+) finance infrastructure and social cohesion projects. European directives set binding targets for air quality, energy efficiency, and the labour market. The European Semester assesses Belgian budgetary policies, including the situation in Brussels.",
+        "impact": "Without a regional government, Brussels risks being unable to programme and spend European funds within the required deadlines. Some programmes require regional co-funding that the provisional twelfths mechanism cannot activate. The European Commission is monitoring the situation but has no direct lever to resolve it."
+      },
+      "federal": {
+        "title": "The federal state",
+        "competences": "The federal state manages social security (unemployment, pensions, healthcare), justice, the federal police, national taxation, railways (SNCB/NMBS), and defence. These competences directly impact Brussels residents: unemployment benefits, healthcare reimbursements, and the trains serving Brussels depend on the federal level, not the Region.",
+        "asymmetry": "The federal government (Arizona coalition) has been operational since early 2025. It makes decisions that impact Brussels — tax reforms, refinancing of federated entities, cooperation agreements — without the Brussels Region having a fully empowered government to defend its interests in negotiations. This asymmetry is one of the most concrete consequences of the crisis."
+      },
+      "regions": {
+        "title": "The three Regions: an unprecedented asymmetry",
+        "comparison": "Flanders and Wallonia formed their regional governments after the June 2024 elections. Brussels did not. This asymmetry creates a situation without precedent in Belgian history: two of three Regions can legislate, invest, and programme their policies, while the third operates on minimal management. On the same matters (housing, employment, mobility, environment), Flanders and Wallonia are moving forward while Brussels is falling behind.",
+        "consequences": "Inter-regional cooperation agreements — necessary for issues such as commuter mobility or water management — are blocked on the Brussels side. Businesses active in multiple Regions face regulatory inconsistencies. Financial transfers between Regions continue on outdated parameters, with no possibility of renegotiation."
+      },
+      "communities": {
+        "title": "The community commissions: Brussels' institutional layer cake",
+        "cocom": "The COCOM/GGC (Joint Community Commission) manages bi-community matters in Brussels: hospitals, nursing homes, homeless shelters, health policy coordination. Its government consists of the same ministers as the regional government. Direct consequence: the COCOM is paralysed by the same crisis. Investments in health and social welfare are frozen.",
+        "cocofVgc": "The COCOF (French Community Commission) manages French-speaking matters (culture, vocational training, personal assistance) and has its own budget. The VGC (Flemish Community Commission) fulfils the same role on the Dutch-speaking side but is structurally more linked to the Flemish government. During the regional crisis, the COCOF and VGC continue to function, but with constrained resources and without a regional strategic vision."
+      },
+      "communes": {
+        "title": "The 19 municipalities: crisis shock absorbers",
+        "role": "The 19 Brussels municipalities (City of Brussels, Ixelles, Schaerbeek, Molenbeek, Anderlecht, etc.) exercise proximity competences: urban planning, civil registry, local police, CPAS/OCMW (social welfare), municipal education, local roads. During a period without a regional government, the municipalities are often the only level of power that acts concretely for citizens in daily life.",
+        "disparities": "But municipal resources are unequal. High-income municipalities (Uccle, Woluwe-Saint-Pierre) have solid tax revenues. Low-income municipalities (Molenbeek, Saint-Josse, Anderlecht) depend more on regional subsidies — subsidies that are frozen or reduced due to the absence of a new regional budget. The regional crisis deepens inequalities between municipalities."
+      },
+      "provinces": {
+        "title": "The absence of a province: a unique exception",
+        "exception": "Brussels is the only Belgian Region without a province. In Flanders and Wallonia, provinces play a significant operational role: provincial education, cultural heritage, sports infrastructure, co-funding of local projects. In Brussels, the Region directly assumes these provincial competences, under the special law of 12 January 1989.",
+        "consequence": "This absence means the Brussels Region carries a broader range of competences than the other two Regions. In normal times, this is an advantage (fewer intermediaries). In times of crisis, it is an additional handicap: there is no 'Brussels province' to take over certain matters when the Region is paralysed."
+      },
+      "pararegional": {
+        "title": "Para-regional bodies",
+        "organisms": "The regional public interest bodies form the operational administration of Brussels: Actiris (employment), STIB/MIVB (transport), Brussels Housing (housing), Brussels Environment (environment), perspective.brussels (urban planning), Innoviris (research), Bruxelles-Proprete (waste). These bodies operate under multi-year management contracts and continue their missions during caretaker government.",
+        "limits": "But 'continuing' is not 'advancing'. Management contracts expire without being renewed. New investments are blocked. Projects requiring a political decision — a new tram line, an energy renovation programme, an employment aid reform — are frozen. The bodies manage what exists; they cannot innovate."
+      },
+      "policeZones": {
+        "title": "Police zones",
+        "description": "Brussels has 6 local police zones (Brussels-Capital/Ixelles, South, West, Marlow, Montgomery, North), each managed by a police council made up of municipal representatives. The police operates independently of the regional crisis, but regional allocations for security are frozen at 2024 levels. Investments in equipment, recruitment, and police infrastructure are postponed."
+      },
+      "blockage": {
+        "title": "Where is the blockage?",
+        "description": "The blockage is concentrated at the level of the Brussels-Capital Region and the COCOM. These two levels — which share the same government — are the only ones without a fully empowered executive. The federal level, municipalities, para-regional bodies, and police zones continue to function. But they cannot compensate for the absence of a regional vision, investment budget, and legislative capacity. The Region is the strategic level: without it, the other levels manage day-to-day affairs without being able to prepare for the future."
+      }
+    },
+    "governmentFormation": {
+      "title": "How is a Brussels government formed?",
+      "subtitle": "The formation process, from election to inauguration",
+      "steps": {
+        "title": "The steps of the formation",
+        "elections": "Elections",
+        "electionsDesc": "Brussels residents elect the 89 members of the regional Parliament (72 French-speaking + 17 Dutch-speaking)",
+        "consultation": "Consultation",
+        "consultationDesc": "The President of Parliament consults the parties and may designate an informateur to explore possible coalitions",
+        "formation": "Formation",
+        "formationDesc": "A formateur is designated to negotiate a government agreement between the parties of the future coalition",
+        "agreement": "Agreement",
+        "agreementDesc": "The parties sign a government agreement setting out the programme and the composition of the government",
+        "government": "Government",
+        "governmentDesc": "The government is constituted and takes the oath before Parliament"
+      },
+      "doubleMajority": {
+        "title": "The double linguistic majority",
+        "description": "The Brussels particularity is the requirement for majorities in both linguistic groups of Parliament. The government must include ministers from both groups. Certain decisions require a majority in each group. This mechanism protects the Dutch-speaking minority but considerably complicates coalition formation."
+      },
+      "differenceFederal": {
+        "title": "Difference from the federal level",
+        "description": "At the federal level, the King plays an active role: he designates informateurs and formateurs. At the Brussels regional level, it is the President of Parliament who leads the process. There is no royal role in the formation of regional governments — it is an exclusively parliamentary competence."
+      },
+      "elections2024": {
+        "title": "Results of 9 June 2024",
+        "intro": "The regional elections of 9 June 2024 produced a highly fragmented parliament. Seven French-speaking and six Dutch-speaking parties share the 89 seats. No simple coalition commands a simultaneous majority in both linguistic groups.",
+        "frGroup": "French linguistic group (72 seats)",
+        "nlGroup": "Dutch linguistic group (17 seats)",
+        "total": "Total",
+        "majority": "Simple majority",
+        "source": "Source: FPS Interior, official results of 9 June 2024. Figures may differ slightly depending on recounts. BGM verification: February 2026.",
+        "arithmetic": "Coalition arithmetic",
+        "arithmeticDesc": "To form a government, a majority in each linguistic group is required: 37 seats out of 72 on the French-speaking side and 9 seats out of 17 on the Dutch-speaking side. On the French-speaking side, several combinations of 3-4 parties reach 37 seats. But on the Dutch-speaking side, with only 17 seats spread across 6 parties, finding 9 seats that are politically compatible with the French-speaking coalition is extremely difficult. It is this arithmetic constraint that explains the failure of the six rounds of formation."
+      },
+      "currentCrisis": {
+        "title": "The current crisis",
+        "description": "Since the elections of 9 June 2024, six rounds of formation have taken place without resulting in a government. The main blockage is the double linguistic majority: the combinations that work on the French-speaking side do not find a corresponding majority on the Dutch-speaking side."
+      }
+    }
+  },
+  "home": {
+    "mission": {
+      "what": "BGM makes visible what is happening (or not happening) in Brussels without a government.",
+      "how": "Every data point is sourced, every metric is verifiable, every analysis is transparent.",
+      "why": "Because a democracy needs informed citizens, especially in times of crisis."
+    },
+    "latestEvent": "Latest event",
+    "viewTimeline": "View the full timeline",
+    "explainersTitle": "Understanding the crisis",
+    "explainersSubtitle": "Educational explanations to go further",
+    "explainerParliament": "What can Parliament do without a government?",
+    "explainerParadox": "The Brussels paradox: GDP vs income",
+    "explainerFormation": "How is a Brussels government formed?",
+    "explainerLevels": "Who decides what in Brussels?",
+    "sectorsTitle": "Sectors impacted",
+    "sectorsSubtitle": "How the absence of government concretely affects the Brussels economy",
+    "viewAllSectors": "View all sector cards",
+    "timelineTitle": "Timeline",
+    "timelineSubtitle": "Follow the steps of the Brussels government formation",
+    "viewTimeline2": "View the full timeline"
+  },
+  "sectors": {
+    "title": "Impacted sectors",
+    "subtitle": "How the absence of government affects key sectors of the Brussels economy",
+    "frozenMechanisms": "Frozen mechanisms",
+    "activeMechanisms": "What continues",
+    "impactIndicators": "Impact indicators",
+    "stakeholders": "Stakeholders",
+    "humanImpact": "Human impact",
+    "readMore": "Read the full card",
+    "backToHome": "Back to home",
+    "share": "Share",
+    "copied": "Link copied!"
+  },
+  "accessibility": {
+    "falcLabel": "In brief (easy read)"
+  },
+  "comparisons": {
+    "title": "Comparisons",
+    "subtitle": "Brussels compared to other Belgian Regions: data, context and trajectories",
+    "backToList": "Back to comparisons",
+    "entity": "Entity",
+    "value": "Value",
+    "date": "Date",
+    "methodology": "Methodology",
+    "caveat": "Comparability limitations",
+    "source": "Source",
+    "lastModified": "Last updated: {date}",
+    "noData": "No comparisons available.",
+    "share": "Share",
+    "copied": "Link copied!"
+  },
+  "cardSubscribe": {
+    "title": "Follow this topic by email",
+    "emailPlaceholder": "your@email.com",
+    "submit": "Subscribe",
+    "submitting": "...",
+    "success": "Check your inbox to confirm your subscription.",
+    "error": "An error occurred. Please try again.",
+    "privacy": "Max. 1 email/week. Unsubscribe in 1 click."
+  },
+  "cite": {
+    "label": "Cite",
+    "copied": "Citation copied!"
+  },
+  "feedback": {
+    "button": "Report an error",
+    "title": "Report an issue with this card",
+    "typeLabel": "Type",
+    "types": {
+      "error": "Factual error",
+      "correction": "Correction needed",
+      "source": "Missing or broken source",
+      "other": "Other"
+    },
+    "messageLabel": "Description",
+    "messagePlaceholder": "Describe the issue or suggested correction...",
+    "emailLabel": "Email (optional, for follow-up)",
+    "emailPlaceholder": "your@email.com",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "success": "Thank you! Your report has been registered.",
+    "errorMessage": "An error occurred. Please try again.",
+    "cancel": "Cancel"
+  },
+  "review": {
+    "title": "Cards awaiting validation",
+    "description": "These cards are in draft mode (draft: true). They are not visible on the public site.",
+    "empty": "No cards awaiting validation.",
+    "count": "{count, plural, one {# card pending} other {# cards pending}}",
+    "view": "View",
+    "howTitle": "How to validate a card?",
+    "step1": "Click « View » to review the card content",
+    "step2": "Check the facts, sources, and tone",
+    "step3": "If the card is ready: change draft: true → draft: false in the MDX file",
+    "step4": "On the next build, the card will appear on the public site"
   }
 }

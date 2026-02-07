@@ -19,6 +19,7 @@ export function SubscribeForm() {
   const t = useTranslations('subscribe');
   const locale = useLocale();
   const [email, setEmail] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot
   const [topics, setTopics] = useState<string[]>(['budget', 'mobility', 'solutions']);
   const [state, setState] = useState<SubmitState>('idle');
 
@@ -42,6 +43,7 @@ export function SubscribeForm() {
           email,
           locale: locale === 'fr' || locale === 'nl' ? locale : 'fr',
           topics,
+          website, // honeypot
         }),
       });
 
@@ -69,6 +71,19 @@ export function SubscribeForm() {
     <form onSubmit={handleSubmit} className="rounded-lg border border-neutral-200 bg-white p-6">
       <h3 className="mb-1 text-lg font-semibold text-neutral-900">{t('title')}</h3>
       <p className="mb-4 text-sm text-neutral-500">{t('subtitle')}</p>
+
+      {/* Honeypot field — hidden from users, filled by bots */}
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="subscribe-website">Website</label>
+        <input
+          id="subscribe-website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
 
       <div className="mb-4">
         <label htmlFor="subscribe-email" className="mb-1 block text-xs font-medium text-neutral-600">

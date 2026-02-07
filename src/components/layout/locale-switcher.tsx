@@ -12,6 +12,9 @@ export function LocaleSwitcher() {
 
   function onSelectChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const nextLocale = e.target.value as Locale;
+    // usePathname returns a concrete path at runtime (e.g. "/domains/budget"),
+    // but TS types it as a pattern union including "/domains/[slug]"
+    // @ts-expect-error — safe: router.replace handles concrete paths correctly
     router.replace(pathname, { locale: nextLocale });
   }
 

@@ -2,5 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "regions": ["cdg1"],
-  "crons": []
+  "crons": [
+    {
+      "path": "/api/cron/digest",
+      "schedule": "0 7 * * 1"
+    }
+  ]
 }

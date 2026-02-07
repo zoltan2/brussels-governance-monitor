@@ -38,6 +38,8 @@ const domainCards = defineCollection({
       lastModified: s.isodate(),
       changeType: s.enum(['new', 'updated', 'status-change', 'data-refresh']).optional(),
       changeSummary: s.string().optional(),
+      summaryFalc: s.string().max(200).optional(),
+      draft: s.boolean().default(false),
       content: s.mdx(),
     })
     .transform((data) => ({
@@ -71,6 +73,8 @@ const solutionCards = defineCollection({
       mechanism: s.string(),
       risks: s.array(s.string()).default([]),
       whoCanTrigger: s.string(),
+      summaryFalc: s.string().max(200).optional(),
+      draft: s.boolean().default(false),
       lastModified: s.isodate(),
       content: s.mdx(),
     })
@@ -223,6 +227,7 @@ const sectorCards = defineCollection({
         )
         .default([]),
       humanImpact: s.string().optional(),
+      draft: s.boolean().default(false),
       lastModified: s.isodate(),
       content: s.mdx(),
     })
@@ -267,6 +272,7 @@ const comparisonCards = defineCollection({
         )
         .default([]),
       caveat: s.string().optional(),
+      draft: s.boolean().default(false),
       lastModified: s.isodate(),
       content: s.mdx(),
     })

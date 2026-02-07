@@ -6,8 +6,14 @@ import { getDomainCard, getAllDomainSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
 import { FallbackBanner } from '@/components/fallback-banner';
+import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
 import { ShareButton } from '@/components/share-button';
+import { CiteButton } from '@/components/cite-button';
+import { FeedbackButton } from '@/components/feedback-button';
+import { FalcSummary } from '@/components/falc-summary';
+import { FreshnessBadge } from '@/components/freshness-badge';
+import { CardSubscribe } from '@/components/card-subscribe';
 import { Link } from '@/i18n/navigation';
 
 export function generateStaticParams() {
@@ -110,6 +116,9 @@ function DomainDetail({
   isFallback: boolean;
 }) {
   const t = useTranslations('domains');
+  const tCite = useTranslations('cite');
+  const tFeedback = useTranslations('feedback');
+  const tSub = useTranslations('cardSubscribe');
 
   return (
     <article className="py-12">
@@ -129,6 +138,7 @@ function DomainDetail({
           {t('backToHome')}
         </Link>
 
+        {card.draft && <DraftBanner />}
         {isFallback && <FallbackBanner targetLocale={locale} />}
 
         <div className="mt-4 mb-6 flex items-start justify-between gap-3">
@@ -143,16 +153,25 @@ function DomainDetail({
           </span>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
             title={card.title}
             text={card.summary}
             label={t('share')}
             copiedLabel={t('copied')}
           />
+          <CiteButton
+            title={card.title}
+            lastModified={card.lastModified}
+            label={tCite('label')}
+            copiedLabel={tCite('copied')}
+          />
         </div>
 
         <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.summary}</p>
+
+        {card.summaryFalc && <FalcSummary summary={card.summaryFalc} />}
 
         {card.metrics.length > 0 && (
           <div className="mb-8">
@@ -206,6 +225,50 @@ function DomainDetail({
           <p className="mt-4 text-xs text-neutral-400">
             {t('lastModified', { date: formatDate(card.lastModified, locale) })}
           </p>
+        </div>
+
+        <div className="mt-8">
+          <CardSubscribe
+            topic={card.slug}
+            locale={locale}
+            labels={{
+              title: tSub('title'),
+              emailPlaceholder: tSub('emailPlaceholder'),
+              submit: tSub('submit'),
+              submitting: tSub('submitting'),
+              success: tSub('success'),
+              error: tSub('error'),
+              privacy: tSub('privacy'),
+            }}
+          />
+        </div>
+
+        <div className="mt-8">
+          <FeedbackButton
+            cardTitle={card.title}
+            cardType="domain"
+            cardSlug={card.slug}
+            labels={{
+              button: tFeedback('button'),
+              title: tFeedback('title'),
+              typeLabel: tFeedback('typeLabel'),
+              types: {
+                error: tFeedback('types.error'),
+                correction: tFeedback('types.correction'),
+                source: tFeedback('types.source'),
+                other: tFeedback('types.other'),
+              },
+              messageLabel: tFeedback('messageLabel'),
+              messagePlaceholder: tFeedback('messagePlaceholder'),
+              emailLabel: tFeedback('emailLabel'),
+              emailPlaceholder: tFeedback('emailPlaceholder'),
+              submit: tFeedback('submit'),
+              submitting: tFeedback('submitting'),
+              success: tFeedback('success'),
+              errorMessage: tFeedback('errorMessage'),
+              cancel: tFeedback('cancel'),
+            }}
+          />
         </div>
       </div>
     </article>

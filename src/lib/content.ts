@@ -15,6 +15,8 @@ export interface DomainCard {
   lastModified: string;
   changeType?: string;
   changeSummary?: string;
+  summaryFalc?: string;
+  draft: boolean;
   content: string;
   permalink: string;
 }
@@ -31,6 +33,8 @@ export interface SolutionCard {
   mechanism: string;
   risks: string[];
   whoCanTrigger: string;
+  summaryFalc?: string;
+  draft: boolean;
   lastModified: string;
   content: string;
   permalink: string;
@@ -87,12 +91,54 @@ export interface GlossaryTerm {
   permalink: string;
 }
 
+export interface SectorCard {
+  title: string;
+  slug: string;
+  locale: Locale;
+  parentDomain: string;
+  sector: string;
+  frozenMechanisms: Array<{ name: string; description: string; since?: string }>;
+  activeMechanisms: Array<{ name: string; description: string }>;
+  impactIndicators: Array<{
+    label: string;
+    value: string;
+    source: string;
+    url?: string;
+    frequency?: string;
+  }>;
+  stakeholders: Array<{ name: string; type: string; url?: string }>;
+  humanImpact?: string;
+  draft: boolean;
+  lastModified: string;
+  content: string;
+  permalink: string;
+}
+
+export interface ComparisonCard {
+  title: string;
+  slug: string;
+  locale: Locale;
+  comparisonType: 'intra-belgian' | 'international';
+  entities: Array<{ name: string; code: string }>;
+  indicator: string;
+  sourceDataset: { name: string; url: string; code?: string };
+  methodology: string;
+  dataPoints: Array<{ entity: string; value: string; date: string }>;
+  caveat?: string;
+  draft: boolean;
+  lastModified: string;
+  content: string;
+  permalink: string;
+}
+
 interface VeliteCollections {
   domainCards: DomainCard[];
   solutionCards: SolutionCard[];
   formationRounds: FormationRound[];
   formationEvents: FormationEvent[];
   glossaryTerms: GlossaryTerm[];
+  sectorCards: SectorCard[];
+  comparisonCards: ComparisonCard[];
 }
 
 function getCollections(): VeliteCollections {
@@ -106,6 +152,8 @@ function getCollections(): VeliteCollections {
       formationRounds: [],
       formationEvents: [],
       glossaryTerms: [],
+      sectorCards: [],
+      comparisonCards: [],
     };
   }
 }
@@ -115,15 +163,28 @@ function getCollections(): VeliteCollections {
  * Per-card fallback: if a card doesn't exist in the requested locale,
  * the FR version is used instead.
  */
+const statusOrder: Record<DomainCard['status'], number> = {
+  blocked: 0,
+  delayed: 1,
+  ongoing: 2,
+  resolved: 3,
+};
+
 export function getDomainCards(locale: Locale): DomainCard[] {
   const { domainCards } = getCollections();
-  const frCards = domainCards.filter((c) => c.locale === 'fr');
-  if (locale === 'fr') return frCards;
+  const frCards = domainCards.filter((c) => c.locale === 'fr' && !c.draft);
 
-  return frCards.map((frCard) => {
-    const localeCard = domainCards.find((c) => c.slug === frCard.slug && c.locale === locale);
-    return localeCard || frCard;
-  });
+  const cards =
+    locale === 'fr'
+      ? frCards
+      : frCards.map((frCard) => {
+          const localeCard = domainCards.find(
+            (c) => c.slug === frCard.slug && c.locale === locale,
+          );
+          return localeCard || frCard;
+        });
+
+  return cards.sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
 }
 
 /**
@@ -151,7 +212,7 @@ export function getDomainCard(
  */
 export function getSolutionCards(locale: Locale): SolutionCard[] {
   const { solutionCards } = getCollections();
-  const frCards = solutionCards.filter((c) => c.locale === 'fr');
+  const frCards = solutionCards.filter((c) => c.locale === 'fr' && !c.draft);
   if (locale === 'fr') return frCards;
 
   return frCards.map((frCard) => {
@@ -295,4 +356,231 @@ export function getGlossaryTerm(
   if (fallback) return { term: fallback, isFallback: true };
 
   return null;
+}
+
+// ──────────────────────────────────────────────
+// Sector Cards
+// ──────────────────────────────────────────────
+
+/**
+ * Get all sector cards for a given locale.
+ * Per-card fallback: if a card doesn't exist in the requested locale,
+ * the FR version is used instead.
+ */
+export function getSectorCards(locale: Locale): SectorCard[] {
+  const { sectorCards } = getCollections();
+  const frCards = sectorCards.filter((c) => c.locale === 'fr' && !c.draft);
+  if (locale === 'fr') return frCards;
+
+  return frCards.map((frCard) => {
+    const localeCard = sectorCards.find((c) => c.slug === frCard.slug && c.locale === locale);
+    return localeCard || frCard;
+  });
+}
+
+/**
+ * Get a single sector card by slug and locale.
+ * Falls back to FR version if locale version doesn't exist.
+ */
+export function getSectorCard(
+  slug: string,
+  locale: Locale,
+): { card: SectorCard; isFallback: boolean } | null {
+  const { sectorCards } = getCollections();
+  const card = sectorCards.find((c) => c.slug === slug && c.locale === locale);
+  if (card) return { card, isFallback: false };
+
+  const fallback = sectorCards.find((c) => c.slug === slug && c.locale === 'fr');
+  if (fallback) return { card: fallback, isFallback: true };
+
+  return null;
+}
+
+/**
+ * Get all sector card slugs (for generateStaticParams).
+ */
+export function getAllSectorSlugs(): string[] {
+  const { sectorCards } = getCollections();
+  return [...new Set(sectorCards.map((c) => c.slug))];
+}
+
+// ──────────────────────────────────────────────
+// Comparison Cards
+// ──────────────────────────────────────────────
+
+/**
+ * Get all comparison cards for a given locale.
+ * Per-card fallback to FR.
+ */
+export function getComparisonCards(locale: Locale): ComparisonCard[] {
+  const { comparisonCards } = getCollections();
+  const frCards = comparisonCards.filter((c) => c.locale === 'fr' && !c.draft);
+  if (locale === 'fr') return frCards;
+
+  return frCards.map((frCard) => {
+    const localeCard = comparisonCards.find(
+      (c) => c.slug === frCard.slug && c.locale === locale,
+    );
+    return localeCard || frCard;
+  });
+}
+
+/**
+ * Get a single comparison card by slug and locale.
+ * Falls back to FR version if locale version doesn't exist.
+ */
+export function getComparisonCard(
+  slug: string,
+  locale: Locale,
+): { card: ComparisonCard; isFallback: boolean } | null {
+  const { comparisonCards } = getCollections();
+  const card = comparisonCards.find((c) => c.slug === slug && c.locale === locale);
+  if (card) return { card, isFallback: false };
+
+  const fallback = comparisonCards.find((c) => c.slug === slug && c.locale === 'fr');
+  if (fallback) return { card: fallback, isFallback: true };
+
+  return null;
+}
+
+/**
+ * Get all comparison card slugs (for generateStaticParams).
+ */
+export function getAllComparisonSlugs(): string[] {
+  const { comparisonCards } = getCollections();
+  return [...new Set(comparisonCards.map((c) => c.slug))];
+}
+
+// ──────────────────────────────────────────────
+// Aggregated Sources — all sources across all content types
+// ──────────────────────────────────────────────
+
+export interface AggregatedSource {
+  label: string;
+  url: string;
+  accessedAt: string;
+  contentType: 'domain' | 'solution' | 'sector' | 'comparison' | 'event' | 'glossary';
+  contentTitle: string;
+}
+
+export function getAllSources(locale: Locale): AggregatedSource[] {
+  const sources: AggregatedSource[] = [];
+
+  // Domain cards
+  for (const card of getDomainCards(locale)) {
+    for (const s of card.sources) {
+      sources.push({
+        label: s.label,
+        url: s.url,
+        accessedAt: s.accessedAt,
+        contentType: 'domain',
+        contentTitle: card.title,
+      });
+    }
+  }
+
+  // Formation events
+  for (const event of getFormationEvents(locale)) {
+    for (const s of event.sources) {
+      sources.push({
+        label: s.label,
+        url: s.url,
+        accessedAt: s.accessedAt,
+        contentType: 'event',
+        contentTitle: event.title,
+      });
+    }
+  }
+
+  // Glossary terms
+  for (const term of getGlossaryTerms(locale)) {
+    for (const s of term.sources) {
+      sources.push({
+        label: s.label,
+        url: s.url,
+        accessedAt: s.accessedAt,
+        contentType: 'glossary',
+        contentTitle: term.term,
+      });
+    }
+  }
+
+  // Comparison cards (single sourceDataset per card)
+  for (const card of getComparisonCards(locale)) {
+    sources.push({
+      label: card.sourceDataset.name,
+      url: card.sourceDataset.url,
+      accessedAt: card.lastModified,
+      contentType: 'comparison',
+      contentTitle: card.title,
+    });
+  }
+
+  // Sector cards (impact indicator sources)
+  for (const card of getSectorCards(locale)) {
+    for (const ind of card.impactIndicators) {
+      if (ind.url) {
+        sources.push({
+          label: ind.source,
+          url: ind.url,
+          accessedAt: card.lastModified,
+          contentType: 'sector',
+          contentTitle: card.title,
+        });
+      }
+    }
+  }
+
+  // Deduplicate by URL
+  const seen = new Set<string>();
+  return sources.filter((s) => {
+    if (seen.has(s.url)) return false;
+    seen.add(s.url);
+    return true;
+  });
+}
+
+// ──────────────────────────────────────────────
+// Draft/Review — returns ALL draft cards for editorial review
+// ──────────────────────────────────────────────
+
+export interface DraftItem {
+  type: 'domain' | 'solution' | 'sector' | 'comparison';
+  title: string;
+  slug: string;
+  locale: Locale;
+  lastModified: string;
+  permalink: string;
+}
+
+export function getDraftCards(locale: Locale): DraftItem[] {
+  const { domainCards, solutionCards, sectorCards, comparisonCards } = getCollections();
+
+  const drafts: DraftItem[] = [];
+
+  for (const card of domainCards) {
+    if (card.draft && card.locale === locale) {
+      drafts.push({ type: 'domain', title: card.title, slug: card.slug, locale: card.locale, lastModified: card.lastModified, permalink: card.permalink });
+    }
+  }
+
+  for (const card of solutionCards) {
+    if (card.draft && card.locale === locale) {
+      drafts.push({ type: 'solution', title: card.title, slug: card.slug, locale: card.locale, lastModified: card.lastModified, permalink: card.permalink });
+    }
+  }
+
+  for (const card of sectorCards) {
+    if (card.draft && card.locale === locale) {
+      drafts.push({ type: 'sector', title: card.title, slug: card.slug, locale: card.locale, lastModified: card.lastModified, permalink: card.permalink });
+    }
+  }
+
+  for (const card of comparisonCards) {
+    if (card.draft && card.locale === locale) {
+      drafts.push({ type: 'comparison', title: card.title, slug: card.slug, locale: card.locale, lastModified: card.lastModified, permalink: card.permalink });
+    }
+  }
+
+  return drafts.sort((a, b) => b.lastModified.localeCompare(a.lastModified));
 }

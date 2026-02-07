@@ -84,7 +84,7 @@ export function SolutionCard({ card }: SolutionCardProps) {
       </div>
 
       <Link
-        href={`/solutions/${card.slug}`}
+        href={{ pathname: '/solutions/[slug]', params: { slug: card.slug } }}
         className="mt-auto inline-flex items-center text-sm font-medium text-brand-700 hover:text-brand-900"
       >
         {t('readMore')}

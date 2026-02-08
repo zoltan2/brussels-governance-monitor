@@ -31,7 +31,7 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: email.trim(),
-          locale,
+          locale: locale === 'fr' || locale === 'nl' ? locale : 'fr',
           topics: [topic],
           website: '', // honeypot
         }),

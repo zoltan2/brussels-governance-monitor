@@ -89,6 +89,9 @@ function ParliamentPowersView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('composition.title')}</h2>
           <p>{t('composition.description')}</p>
 
+          <h2 className="text-lg font-semibold text-neutral-900">{t('doubleMajorityDetail.title')}</h2>
+          <p>{t('doubleMajorityDetail.description')}</p>
+
           <div className="rounded-lg border border-amber-200 bg-amber-50/50 p-4">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('paradox.title')}</h2>
             <p>{t('paradox.description')}</p>

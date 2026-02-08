@@ -16,6 +16,7 @@ import { FreshnessBadge } from '@/components/freshness-badge';
 import { VerificationBadge } from '@/components/verification-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { StatusAccordion } from '@/components/status-accordion';
+import { RelatedCards } from '@/components/related-cards';
 import { Link } from '@/i18n/navigation';
 
 export function generateStaticParams() {
@@ -276,6 +277,8 @@ function DomainDetail({
             {t(`notSaid.${card.slug}`)}
           </p>
         </div>
+
+        <RelatedCards domain={card.slug} />
 
         {verification && (
           <div className="mt-8">

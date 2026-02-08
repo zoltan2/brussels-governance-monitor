@@ -56,54 +56,78 @@ export function Header() {
               </svg>
             </button>
             {dropdownOpen && (
-              <div className="absolute left-0 top-full z-50 mt-2 w-64 rounded-lg border border-neutral-200 bg-white py-2 shadow-lg">
+              <div className="absolute left-0 top-full z-50 mt-2 w-72 rounded-lg border border-neutral-200 bg-white py-2 shadow-lg">
+                {/* Fondamentaux */}
+                <p className="px-4 pt-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+                  {t('understandFundamentals')}
+                </p>
                 <Link
-                  href="/timeline"
+                  href="/explainers/brussels-overview"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
                 >
-                  {t('timeline')}
+                  {th('explainerOverview')}
                 </Link>
                 <Link
                   href="/explainers/levels-of-power"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
                 >
                   {th('explainerLevels')}
                 </Link>
                 <Link
+                  href="/explainers/government-formation"
+                  onClick={() => setDropdownOpen(false)}
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                >
+                  {th('explainerFormation')}
+                </Link>
+
+                {/* Éclairages */}
+                <p className="mt-2 px-4 pt-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+                  {t('understandInsights')}
+                </p>
+                <Link
+                  href="/explainers/brussels-paradox"
+                  onClick={() => setDropdownOpen(false)}
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                >
+                  {th('explainerParadox')}
+                </Link>
+                <Link
                   href="/explainers/parliament-powers"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
                 >
                   {th('explainerParliament')}
                 </Link>
                 <Link
-                  href="/explainers/government-formation"
+                  href="/explainers/brussels-cosmopolitan"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
                 >
-                  {th('explainerFormation')}
+                  {th('explainerCosmopolitan')}
                 </Link>
+
+                <hr className="my-1.5 border-neutral-100" />
                 <Link
-                  href="/explainers/brussels-paradox"
+                  href="/timeline"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
                 >
-                  {th('explainerParadox')}
+                  {t('timeline')}
                 </Link>
-                <hr className="my-1 border-neutral-100" />
                 <Link
                   href="/glossary"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
                 >
                   {t('glossary')}
                 </Link>
                 <Link
                   href="/faq"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
                 >
                   {t('faq')}
                 </Link>
@@ -148,22 +172,33 @@ export function Header() {
               {t('domains')}
             </a>
 
-            {/* Comprendre section */}
-            <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-neutral-400">{t('understand')}</p>
-            <Link href="/timeline" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {t('timeline')}
+            {/* Comprendre — Fondamentaux */}
+            <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">{t('understandFundamentals')}</p>
+            <Link href="/explainers/brussels-overview" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
+              {th('explainerOverview')}
             </Link>
             <Link href="/explainers/levels-of-power" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
               {th('explainerLevels')}
             </Link>
-            <Link href="/explainers/parliament-powers" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {th('explainerParliament')}
-            </Link>
             <Link href="/explainers/government-formation" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
               {th('explainerFormation')}
             </Link>
+
+            {/* Comprendre — Éclairages */}
+            <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">{t('understandInsights')}</p>
             <Link href="/explainers/brussels-paradox" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
               {th('explainerParadox')}
+            </Link>
+            <Link href="/explainers/parliament-powers" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
+              {th('explainerParliament')}
+            </Link>
+            <Link href="/explainers/brussels-cosmopolitan" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
+              {th('explainerCosmopolitan')}
+            </Link>
+
+            <hr className="my-1 border-neutral-100" />
+            <Link href="/timeline" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
+              {t('timeline')}
             </Link>
             <Link href="/glossary" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
               {t('glossary')}

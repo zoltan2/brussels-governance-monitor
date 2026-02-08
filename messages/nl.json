@@ -7,6 +7,8 @@
     "home": "Home",
     "domains": "Domeinen",
     "understand": "Begrijpen",
+    "understandFundamentals": "Fundamenten",
+    "understandInsights": "Inzichten",
     "data": "Gegevens",
     "timeline": "Chronologie",
     "glossary": "Woordenlijst",
@@ -325,7 +327,9 @@
       "q9": "Hoe kan ik bijdragen?",
       "a9": "U kunt een fout melden, een correctie voorstellen of nieuwe bronnen indienen via onze GitHub-repository. De broncode is open en bijdragen zijn welkom. U kunt zich ook inschrijven voor e-mailwaarschuwingen om de evolutie van de situatie te volgen.",
       "q10": "Hoe lang kan dit nog duren?",
-      "a10": "Er is geen wettelijke limiet aan de duur van lopende zaken in België. De situatie kan theoretisch duren tot de volgende regionale verkiezingen in 2029. In de praktijk zouden burgerdruk, mediadruk en Europese begrotingsdeadlines de onderhandelingen kunnen versnellen."
+      "a10": "Er is geen wettelijke limiet aan de duur van lopende zaken in België. De situatie kan theoretisch duren tot de volgende regionale verkiezingen in 2029. In de praktijk zouden burgerdruk, mediadruk en Europese begrotingsdeadlines de onderhandelingen kunnen versnellen.",
+      "q11": "Waarom is Brussel zo complex?",
+      "a11": "Brussel is tegelijkertijd een Gewest, de hoofdstad van België, de zetel van de EU en een stad van 19 autonome gemeenten. Zes verschillende regeringen oefenen er bevoegdheden uit (federaal, gewestelijk, GGC, COCOF, VGC, gemeentelijk). De vorming van een gewestregering vereist een dubbele taalmeerderheid (FR + NL), wat de coalitievorming bemoeilijkt. Deze wereldwijd unieke institutionele architectuur is het resultaat van historische compromissen tussen de taalgemeenschappen."
     }
   },
   "glossary": {
@@ -557,6 +561,10 @@
         "title": "Huidige samenstelling",
         "description": "Het Brussels Parlement telt 89 volksvertegenwoordigers verdeeld over twee taalgroepen: 72 leden van de Franse taalgroep en 17 leden van de Nederlandse taalgroep. Het voorzitterschap wordt bij toerbeurt waargenomen. De 89 volksvertegenwoordigers zijn verdeeld over 13 partijen, waarmee het een van de meest versnipperde parlementen van België is."
       },
+      "doubleMajorityDetail": {
+        "title": "De dubbele meerderheid: sleutel tot de crisis",
+        "description": "Om een Brusselse regering te bevestigen, moet een meerderheid worden bereikt in ELKE taalgroep: 37/72 aan Franstalige zijde EN 9/17 aan Nederlandstalige zijde. Met 13 versnipperde partijen is het vinden van een combinatie die aan beide kanten tegelijk werkt een rekenkundig hoofdbreker. Deze grondwettelijke vereiste, bedoeld om de Nederlandstalige minderheid te beschermen, is het structurele mechanisme dat de uitzonderlijke duur van de huidige crisis verklaart."
+      },
       "paradox": {
         "title": "De paradox van het Parlement zonder regering",
         "description": "Het Parlement is de enige Brusselse gewestelijke instelling die op volle toeren draait. Het vergadert, het debatteert, het controleert. Maar het is structureel beperkt: zonder regering om ontwerpsordonnanties in te dienen en te verdedigen, is het Parlement een motor die op halve kracht draait. Het kan vragen stellen, maar het kan niet wetgeven. Het kan de voorlopige twaalfden stemmen, maar het kan geen echte begroting goedkeuren. Het kan waarschuwen, maar het kan niet handelen."
@@ -655,6 +663,22 @@
       "blockage": {
         "title": "Waar zit de blokkering?",
         "description": "De blokkering is geconcentreerd op het niveau van het Brussels Hoofdstedelijk Gewest en de GGC. Deze twee niveaus — die dezelfde regering delen — zijn de enige die niet over een volwaardig bestuur beschikken. Het federale niveau, de gemeenten, de para-gewestelijke instellingen en de politiezones blijven functioneren. Maar ze kunnen het ontbreken van een gewestelijke visie, een investeringsbegroting en wetgevende capaciteit niet compenseren. Het Gewest is het strategische niveau: zonder dat niveau beheren de andere het dagelijkse zonder de toekomst te kunnen voorbereiden."
+      },
+      "whoDecidesWhat": {
+        "title": "Wie beslist wat?",
+        "intro": "Om de crisis te begrijpen, moet u weten welk bestuursniveau waarover beslist. Hier zijn de belangrijkste bevoegdheden en de verantwoordelijke instelling:",
+        "budget": "Gewestelijke begroting",
+        "budgetWho": "Brussels Parlement (op voorstel van de regering — onmogelijk in lopende zaken)",
+        "housing": "Sociale huisvesting",
+        "housingWho": "BGHM (gewestelijk) + 16 OVM's (lokaal) — investeringen bevroren",
+        "transport": "Openbaar vervoer",
+        "transportWho": "MIVB (para-gewestelijk) + Beliris (federaal voor Metro 3)",
+        "employment": "Werkgelegenheid en opleiding",
+        "employmentWho": "Actiris (gewestelijk) + Bruxelles Formation / VDAB (gemeenschaps)",
+        "health": "Gezondheid en sociale bijstand",
+        "healthWho": "GGC (bi-communautair) — geblokkeerd door dezelfde crisis",
+        "environment": "Leefmilieu en klimaat",
+        "environmentWho": "Leefmilieu Brussel (gewestelijk) — projecten bevroren"
       }
     },
     "governmentFormation": {
@@ -695,8 +719,88 @@
       "currentCrisis": {
         "title": "De huidige crisis",
         "description": "Sinds de verkiezingen van 9 juni 2024 hebben zes formatierondes plaatsgevonden zonder tot een regering te leiden. Het belangrijkste struikelblok is de dubbele taalmeerderheid: de combinaties die werken aan Franstalige zijde vinden geen overeenkomstige meerderheid aan Nederlandstalige zijde."
+      },
+      "whyHarder": {
+        "title": "Waarom het in Brussel moeilijker is",
+        "description": "In tegenstelling tot het federale niveau combineert de vorming van een Brusselse regering drie unieke moeilijkheden: (1) de dubbele taalmeerderheid vereist een gelijktijdig akkoord in twee afzonderlijke kiesblokken; (2) er is geen koninklijke rol om de bemiddeling te vergemakkelijken — de voorzitter van het Parlement leidt het proces alleen; (3) de partijversnippering is extreem: 13 partijen voor 89 zetels, ofwel een gemiddelde van 7 zetels per partij. Op federaal niveau kan de Koning informateurs en formateurs benoemen met een moreel gezag dat op gewestelijk niveau niet bestaat."
       }
+    },
+    "brusselsOverview": {
+      "title": "Brussel in het kort",
+      "subtitle": "Brussel begrijpen in 5 minuten, zonder voorkennis",
+      "intro": "Brussel is een unieke stad in de wereld. Tegelijk hoofdstad van België, zetel van de Europese Unie en een volwaardig Gewest, wordt het bestuurd door een institutionele architectuur van uitzonderlijke complexiteit. Hier is het essentiële.",
+      "keyFigures": {
+        "title": "Brussel in 5 cijfers",
+        "population": "1,2 miljoen inwoners",
+        "populationDesc": "verdeeld over 19 autonome gemeenten",
+        "gdp": "19 % van het Belgische BBP",
+        "gdpDesc": "maar een beschikbaar inkomen onder het nationale gemiddelde",
+        "parliament": "89 gewestelijke volksvertegenwoordigers",
+        "parliamentDesc": "72 Franstaligen + 17 Nederlandstaligen",
+        "governments": "6 regeringen",
+        "governmentsDesc": "oefenen bevoegdheden uit op Brussels grondgebied",
+        "languages": "100+ gesproken talen",
+        "languagesDesc": "de meest kosmopolitische stad van België"
+      },
+      "doubleStatus": {
+        "title": "Een uniek dubbel statuut",
+        "description": "Brussel is de enige entiteit in België die tegelijk een Gewest is (zoals Vlaanderen of Wallonië) en de hoofdstad van het land. Deze dubbele pet betekent dat Brussel zijn eigen gewestelijke bevoegdheden beheert (huisvesting, werkgelegenheid, mobiliteit) en tegelijk de federale en Europese instellingen op zijn grondgebied herbergt."
+      },
+      "complexity": {
+        "title": "Waarom 6 regeringen?",
+        "description": "Op het Brussels grondgebied oefenen zes bestuursniveaus bevoegdheden uit: het federale, het Gewest, de GGC (bi-communautair), de COCOF (Franstalig), de VGC (Nederlandstalig) en de 19 gemeenten. Deze architectuur is het resultaat van historische compromissen tussen de taalgemeenschappen. In normale tijden werkt ze. Wanneer een niveau blokkeert — zoals het Gewest en de GGC sinds juni 2024 — planten de gevolgen zich trapsgewijs voort."
+      },
+      "euImpact": {
+        "title": "Hoofdstad van Europa",
+        "description": "Brussel herbergt het Europees Parlement, de Europese Commissie, de Raad van de EU, het hoofdkwartier van de NAVO en meer dan 4.000 internationale organisaties. Ongeveer 120.000 internationale ambtenaren werken er. Dit statuut genereert een aanzienlijke economische activiteit maar creëert ook een fiscale paradox: veel van deze werknemers genieten van belastingvrijstellingen en dragen niet volledig bij aan de gewestelijke inkomsten."
+      },
+      "commuterParadox": {
+        "title": "De pendelpardox",
+        "description": "Elke dag komen ongeveer 360.000 pendelaars Brussel binnen om te werken. Zij dragen bij aan 19 % van het nationaal BBP maar betalen hun belastingen in hun woongemeente, in Vlaanderen of Wallonië. Brussel produceert de rijkdom maar vangt er slechts een fractie van op. Dit verschil tussen hoog BBP en lage inkomsten staat centraal in de 'Brusselse paradox'."
+      },
+      "goFurther": "Om verder te gaan:",
+      "linkLevels": "Wie beslist wat in Brussel?",
+      "linkFormation": "Hoe wordt een Brusselse regering gevormd?",
+      "linkParadox": "De Brusselse paradox: BBP vs inkomsten",
+      "sources": "Bronnen: BISA (gewestelijke statistieken), Brussels Parlement (samenstelling), Eurostat (EU-gegevens), Statbel (bevolking)."
+    },
+    "brusselsCosmopolitan": {
+      "title": "Kosmopolitisch Brussel",
+      "subtitle": "De internationale dimensie en de superdiversiteit van de hoofdstad",
+      "intro": "Brussel is niet alleen de hoofdstad van België. Het is een van de meest internationale steden ter wereld, een kruispunt waar Europese instellingen, internationale organisaties en een bevolking van unieke diversiteit in Europa samenkomen.",
+      "euCapital": {
+        "title": "Hoofdstad van de Europese Unie",
+        "description": "Brussel concentreert de belangrijkste EU-instellingen: de Europese Commissie (Berlaymont), het Europees Parlement (Leopoldswijk), de Raad van de EU (Justus Lipsius/Europa). Meer dan 30.000 Europese ambtenaren werken er, aangevuld met duizenden lobbyisten, journalisten, diplomaten en consultants. De Europese wijk vormt een ware 'staat in de stad'."
+      },
+      "internationalOrgs": {
+        "title": "Verder dan de EU: een mondiaal knooppunt",
+        "description": "Brussel is ook de zetel van de NAVO, die er ongeveer 4.000 mensen tewerkstelt. Meer dan 4.000 ngo's, beroepsfederaties en internationale organisaties zijn er gevestigd. Deze concentratie van internationale actoren maakt van Brussel de tweede diplomatieke stad ter wereld na New York."
+      },
+      "fiscalImpact": {
+        "title": "De paradoxale fiscale impact",
+        "description": "De ambtenaren van de Europese instellingen en de NAVO genieten van een speciaal fiscaal regime: zij betalen een interne gemeenschapsbelasting maar zijn vrijgesteld van Belgische inkomstenbelasting. Zij maken gebruik van de Brusselse openbare diensten (wegen, vervoer, veiligheid) zonder evenredig bij te dragen aan de gewestelijke inkomsten. Dit verschil versterkt de Brusselse paradox: een stad rijk aan economische activiteit maar structureel deficitair in fiscale ontvangsten."
+      },
+      "superdiversity": {
+        "title": "De Brusselse superdiversiteit",
+        "description": "Brussel is de meest diverse stad van België en een van de meest diverse van Europa. Meer dan 180 nationaliteiten leven er samen en meer dan 100 talen worden er dagelijks gesproken. Het Frans is de dominante voertaal, maar het Nederlands, het Arabisch, het Turks, het Engels en het Portugees behoren tot de meest gesproken talen thuis."
+      },
+      "dutchStatus": {
+        "title": "Het Nederlands: een beschermde minderheid",
+        "description": "Ongeveer 5 tot 8 % van de Brusselaars is moedertaal Nederlandstalig, maar de bescherming van de Nederlandstalige minderheid is verankerd in de Grondwet via de dubbele taalmeerderheid en de gemeenschapsinstellingen (VGC). De Nederlandse taalgroep in het Parlement (17 zetels op 89) beschikt over een feitelijk vetorecht bij de regeringsvorming — het is precies dit mechanisme dat centraal staat in de huidige crisis."
+      },
+      "demographicChallenge": {
+        "title": "De demografische uitdaging",
+        "description": "Brussel is het jongste Gewest van België: 24 % van de bevolking is jonger dan 18 jaar (tegenover 20 % in Vlaanderen en Wallonië). De bevolking is in twintig jaar met 20 % gegroeid. Deze groei oefent een constante druk uit op de openbare diensten — scholen, crèches, woningen, vervoer — precies de sectoren die bevroren zijn door het ontbreken van een regering."
+      },
+      "goFurther": "Om verder te gaan:",
+      "linkEmployment": "Werkgelegenheid: de cijfers van de crisis",
+      "linkSocial": "Sociaal: de vangnetten onder druk",
+      "linkHousing": "Huisvesting: de crisis die verergert",
+      "sources": "Bronnen: BISA, Eurostat, Wijkmonitoring, Statbel, Brussels Parlement."
     }
+  },
+  "relatedCards": {
+    "title": "Om verder te gaan"
   },
   "home": {
     "citizenIntro": "Brussel heeft sinds juni 2024 geen volwaardige regering. Deze site toont wat vooruitgaat, wat geblokkeerd is, en wat met zekerheid bekend is — op basis van verifieerbare openbare bronnen.",
@@ -715,6 +819,8 @@
     "explainerParadox": "De Brusselse paradox: BBP vs inkomsten",
     "explainerFormation": "Hoe wordt een Brusselse regering gevormd?",
     "explainerLevels": "Wie beslist wat in Brussel?",
+    "explainerOverview": "Brussel in het kort",
+    "explainerCosmopolitan": "Kosmopolitisch Brussel",
     "sectorsTitle": "Getroffen sectoren",
     "sectorsSubtitle": "Hoe de afwezigheid van een regering de Brusselse economie concreet treft",
     "viewAllSectors": "Alle sectorfiches bekijken",

@@ -103,6 +103,18 @@ export const routing = defineRouting({
       en: '/explainers/government-formation',
       de: '/erklaerungen/regierungsbildung',
     },
+    '/explainers/brussels-overview': {
+      fr: '/comprendre/bruxelles-en-bref',
+      nl: '/begrijpen/brussel-in-het-kort',
+      en: '/explainers/brussels-overview',
+      de: '/erklaerungen/bruessel-auf-einen-blick',
+    },
+    '/explainers/brussels-cosmopolitan': {
+      fr: '/comprendre/bruxelles-cosmopolite',
+      nl: '/begrijpen/kosmopolitisch-brussel',
+      en: '/explainers/brussels-cosmopolitan',
+      de: '/erklaerungen/kosmopolitisches-bruessel',
+    },
     '/how-to-read': {
       fr: '/comment-lire-ce-site',
       nl: '/hoe-deze-site-lezen',

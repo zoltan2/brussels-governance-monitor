@@ -142,6 +142,46 @@ function LevelsOfPowerView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('policeZones.title')}</h2>
           <p>{t('policeZones.description')}</p>
 
+          {/* Who decides what */}
+          <h2 className="text-lg font-semibold text-neutral-900">{t('whoDecidesWhat.title')}</h2>
+          <p>{t('whoDecidesWhat.intro')}</p>
+          <div className="overflow-x-auto rounded-lg border border-neutral-200">
+            <table className="w-full text-left text-xs">
+              <thead className="bg-neutral-50">
+                <tr>
+                  <th className="px-3 py-2 font-semibold text-neutral-900">{t('table.level')}</th>
+                  <th className="px-3 py-2 font-semibold text-neutral-900">{t('table.examples')}</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                <tr>
+                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.budget')}</td>
+                  <td className="px-3 py-2">{t('whoDecidesWhat.budgetWho')}</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.housing')}</td>
+                  <td className="px-3 py-2">{t('whoDecidesWhat.housingWho')}</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.transport')}</td>
+                  <td className="px-3 py-2">{t('whoDecidesWhat.transportWho')}</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.employment')}</td>
+                  <td className="px-3 py-2">{t('whoDecidesWhat.employmentWho')}</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.health')}</td>
+                  <td className="px-3 py-2">{t('whoDecidesWhat.healthWho')}</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.environment')}</td>
+                  <td className="px-3 py-2">{t('whoDecidesWhat.environmentWho')}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           {/* Where is the blockage */}
           <div className="rounded-lg border border-amber-200 bg-amber-50/50 p-4">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('blockage.title')}</h2>

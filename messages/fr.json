@@ -7,6 +7,8 @@
     "home": "Accueil",
     "domains": "Domaines",
     "understand": "Comprendre",
+    "understandFundamentals": "Fondamentaux",
+    "understandInsights": "Éclairages",
     "data": "Données",
     "timeline": "Chronologie",
     "glossary": "Glossaire",
@@ -325,7 +327,9 @@
       "q9": "Comment puis-je contribuer ?",
       "a9": "Vous pouvez signaler une erreur, proposer une correction ou soumettre de nouvelles sources via notre dépôt GitHub. Le code source est ouvert et les contributions sont les bienvenues. Vous pouvez également vous inscrire aux alertes email pour suivre l'évolution de la situation.",
       "q10": "Combien de temps cela peut-il encore durer ?",
-      "a10": "Il n'y a aucune limite légale à la durée des affaires courantes en Belgique. La situation peut théoriquement durer jusqu'aux prochaines élections régionales prévues en 2029. En pratique, la pression citoyenne, médiatique et les échéances budgétaires européennes pourraient accélérer les négociations."
+      "a10": "Il n'y a aucune limite légale à la durée des affaires courantes en Belgique. La situation peut théoriquement durer jusqu'aux prochaines élections régionales prévues en 2029. En pratique, la pression citoyenne, médiatique et les échéances budgétaires européennes pourraient accélérer les négociations.",
+      "q11": "Pourquoi Bruxelles est-elle si complexe ?",
+      "a11": "Bruxelles est simultanément une Région, la capitale de la Belgique, le siège de l'UE et une ville de 19 communes autonomes. Six gouvernements différents y exercent des compétences (fédéral, régional, COCOM, COCOF, VGC, communaux). La formation d'un gouvernement régional exige une double majorité linguistique (FR + NL), ce qui complique les coalitions. Cette architecture institutionnelle unique au monde est le résultat de compromis historiques entre communautés linguistiques."
     }
   },
   "glossary": {
@@ -557,6 +561,10 @@
         "title": "Composition actuelle",
         "description": "Le Parlement bruxellois compte 89 députés répartis en deux groupes linguistiques : 72 membres du groupe linguistique français et 17 membres du groupe linguistique néerlandais. La présidence est assurée par rotation. Les 89 députés sont répartis entre 13 partis, ce qui en fait l'un des parlements les plus fragmentés de Belgique."
       },
+      "doubleMajorityDetail": {
+        "title": "La double majorité : clé de la crise",
+        "description": "Pour investir un gouvernement bruxellois, il faut réunir une majorité dans CHAQUE groupe linguistique : 37/72 côté francophone ET 9/17 côté néerlandophone. Avec 13 partis fragmentés, trouver une combinaison qui fonctionne des deux côtés simultanément est un casse-tête arithmétique. Cette exigence constitutionnelle, conçue pour protéger la minorité néerlandophone, est le mécanisme structurel qui explique la durée exceptionnelle de la crise actuelle."
+      },
       "paradox": {
         "title": "Le paradoxe du Parlement sans gouvernement",
         "description": "Le Parlement est la seule institution régionale bruxelloise qui fonctionne à plein régime. Il siège, il débat, il contrôle. Mais il est structurellement limité : sans gouvernement pour déposer des projets d'ordonnance et les défendre, le Parlement est un moteur qui tourne au ralenti. Il peut poser des questions, mais il ne peut pas légiférer. Il peut voter les douzièmes provisoires, mais il ne peut pas voter un vrai budget. Il peut alerter, mais il ne peut pas agir."
@@ -655,6 +663,22 @@
       "blockage": {
         "title": "Où se situe le blocage ?",
         "description": "Le blocage est concentré au niveau de la Région de Bruxelles-Capitale et de la COCOM. Ces deux niveaux — qui partagent le même gouvernement — sont les seuls à ne pas disposer d'un exécutif de plein exercice. Le fédéral, les communes, les organismes para-régionaux et les zones de police continuent de fonctionner. Mais ils ne peuvent pas compenser l'absence de vision régionale, de budget d'investissement et de capacité législative. La Région est le niveau stratégique : sans elle, les autres niveaux gèrent le quotidien sans pouvoir préparer l'avenir."
+      },
+      "whoDecidesWhat": {
+        "title": "Qui décide de quoi ?",
+        "intro": "Pour comprendre la crise, il faut savoir quel niveau de pouvoir décide de quoi. Voici les principales compétences et l'institution responsable :",
+        "budget": "Budget régional",
+        "budgetWho": "Parlement bruxellois (sur proposition du gouvernement — impossible en affaires courantes)",
+        "housing": "Logement social",
+        "housingWho": "SLRB (régional) + 16 SISP (local) — investissements gelés",
+        "transport": "Transports publics",
+        "transportWho": "STIB (para-régional) + Beliris (fédéral pour Metro 3)",
+        "employment": "Emploi et formation",
+        "employmentWho": "Actiris (régional) + Bruxelles Formation / VDAB (communautaire)",
+        "health": "Santé et aide sociale",
+        "healthWho": "COCOM/GGC (bi-communautaire) — bloquée par la même crise",
+        "environment": "Environnement et climat",
+        "environmentWho": "Bruxelles Environnement (régional) — projets gelés"
       }
     },
     "governmentFormation": {
@@ -695,8 +719,88 @@
       "currentCrisis": {
         "title": "La crise actuelle",
         "description": "Depuis les élections du 9 juin 2024, six rounds de formation ont eu lieu sans aboutir à un gouvernement. Le blocage principal est la double majorité linguistique : les combinaisons qui fonctionnent côté francophone ne trouvent pas de majorité correspondante côté néerlandophone."
+      },
+      "whyHarder": {
+        "title": "Pourquoi c'est plus difficile à Bruxelles",
+        "description": "Contrairement au niveau fédéral, la formation d'un gouvernement bruxellois cumule trois difficultés uniques : (1) la double majorité linguistique exige un accord simultané dans deux blocs électoraux distincts ; (2) il n'y a pas de rôle royal pour faciliter la médiation — le président du Parlement seul mène le processus ; (3) la fragmentation partisane est extrême : 13 partis pour 89 sièges, soit une moyenne de 7 sièges par parti. Au niveau fédéral, le Roi peut nommer des informateurs et des formateurs avec une autorité morale qui n'existe pas au niveau régional."
       }
+    },
+    "brusselsOverview": {
+      "title": "Bruxelles en bref",
+      "subtitle": "Comprendre Bruxelles en 5 minutes, sans connaissances préalables",
+      "intro": "Bruxelles est une ville unique au monde. À la fois capitale de la Belgique, siège de l'Union européenne et Région à part entière, elle est gouvernée par une architecture institutionnelle d'une complexité exceptionnelle. Voici l'essentiel.",
+      "keyFigures": {
+        "title": "Bruxelles en 5 chiffres",
+        "population": "1,2 million d'habitants",
+        "populationDesc": "répartis dans 19 communes autonomes",
+        "gdp": "19 % du PIB belge",
+        "gdpDesc": "mais un revenu disponible inférieur à la moyenne nationale",
+        "parliament": "89 députés régionaux",
+        "parliamentDesc": "72 francophones + 17 néerlandophones",
+        "governments": "6 gouvernements",
+        "governmentsDesc": "exercent des compétences sur le territoire bruxellois",
+        "languages": "100+ langues parlées",
+        "languagesDesc": "la ville la plus cosmopolite de Belgique"
+      },
+      "doubleStatus": {
+        "title": "Un double statut unique",
+        "description": "Bruxelles est la seule entité en Belgique à être à la fois une Région (comme la Flandre ou la Wallonie) et la capitale du pays. Cette double casquette signifie que Bruxelles gère ses propres compétences régionales (logement, emploi, mobilité) tout en accueillant les institutions fédérales et européennes sur son territoire."
+      },
+      "complexity": {
+        "title": "Pourquoi 6 gouvernements ?",
+        "description": "Sur le territoire bruxellois, six niveaux de pouvoir exercent des compétences : le fédéral, la Région, la COCOM (bi-communautaire), la COCOF (francophone), la VGC (néerlandophone) et les 19 communes. Cette architecture résulte des compromis historiques entre communautés linguistiques. En temps normal, elle fonctionne. Quand un niveau se bloque — comme la Région et la COCOM depuis juin 2024 — les conséquences se propagent en cascade."
+      },
+      "euImpact": {
+        "title": "Capitale de l'Europe",
+        "description": "Bruxelles accueille le Parlement européen, la Commission européenne, le Conseil de l'UE, le siège de l'OTAN et plus de 4 000 organisations internationales. Environ 120 000 fonctionnaires internationaux y travaillent. Ce statut génère une activité économique considérable mais crée aussi un paradoxe fiscal : nombre de ces travailleurs bénéficient d'exonérations fiscales et ne contribuent pas pleinement aux recettes régionales."
+      },
+      "commuterParadox": {
+        "title": "Le paradoxe des navetteurs",
+        "description": "Chaque jour, environ 360 000 navetteurs entrent dans Bruxelles pour travailler. Ils contribuent à 19 % du PIB national mais paient leurs impôts dans leur commune de résidence, en Flandre ou en Wallonie. Bruxelles produit la richesse mais n'en capte qu'une fraction. Ce décalage entre PIB élevé et revenus bas est au cœur du « paradoxe bruxellois »."
+      },
+      "goFurther": "Pour approfondir :",
+      "linkLevels": "Qui décide quoi à Bruxelles ?",
+      "linkFormation": "Comment se forme un gouvernement bruxellois ?",
+      "linkParadox": "Le paradoxe bruxellois : PIB vs revenus",
+      "sources": "Sources : IBSA (statistiques régionales), Parlement bruxellois (composition), Eurostat (données UE), Statbel (population)."
+    },
+    "brusselsCosmopolitan": {
+      "title": "Bruxelles cosmopolite",
+      "subtitle": "La dimension internationale et la superdiversité de la capitale",
+      "intro": "Bruxelles n'est pas seulement la capitale de la Belgique. C'est l'une des villes les plus internationales au monde, un carrefour où se croisent institutions européennes, organisations internationales et une population d'une diversité unique en Europe.",
+      "euCapital": {
+        "title": "Capitale de l'Union européenne",
+        "description": "Bruxelles concentre les principales institutions de l'UE : la Commission européenne (Berlaymont), le Parlement européen (Espace Léopold), le Conseil de l'UE (Justus Lipsius/Europa). Plus de 30 000 fonctionnaires européens y travaillent, auxquels s'ajoutent des milliers de lobbyistes, journalistes, diplomates et consultants. Le quartier européen constitue un véritable « État dans la ville »."
+      },
+      "internationalOrgs": {
+        "title": "Au-delà de l'UE : un hub mondial",
+        "description": "Bruxelles est aussi le siège de l'OTAN, qui y emploie environ 4 000 personnes. Plus de 4 000 ONG, fédérations professionnelles et organisations internationales y sont établies. Cette concentration d'acteurs internationaux fait de Bruxelles la deuxième ville diplomatique au monde après New York."
+      },
+      "fiscalImpact": {
+        "title": "L'impact fiscal paradoxal",
+        "description": "Les fonctionnaires des institutions européennes et de l'OTAN bénéficient d'un régime fiscal spécial : ils paient un impôt communautaire interne mais sont exonérés des impôts belges sur leurs revenus. Ils consomment les services publics bruxellois (routes, transports, sécurité) sans contribuer proportionnellement aux recettes régionales. Ce décalage renforce le paradoxe bruxellois : une ville riche en activité économique mais structurellement déficitaire en recettes fiscales."
+      },
+      "superdiversity": {
+        "title": "La superdiversité bruxelloise",
+        "description": "Bruxelles est la ville la plus diverse de Belgique et l'une des plus diverses d'Europe. Plus de 180 nationalités y cohabitent et plus de 100 langues y sont parlées quotidiennement. Le français est la langue véhiculaire dominante, mais le néerlandais, l'arabe, le turc, l'anglais et le portugais sont parmi les langues les plus parlées à la maison."
+      },
+      "dutchStatus": {
+        "title": "Le néerlandais : une minorité protégée",
+        "description": "Environ 5 à 8 % des Bruxellois sont néerlandophones natifs, mais la protection de la minorité néerlandophone est inscrite dans la Constitution via la double majorité linguistique et les institutions communautaires (VGC). Le groupe linguistique néerlandais au Parlement (17 sièges sur 89) dispose d'un droit de veto effectif sur la formation du gouvernement — c'est précisément ce mécanisme qui est au cœur de la crise actuelle."
+      },
+      "demographicChallenge": {
+        "title": "Le défi démographique",
+        "description": "Bruxelles est la Région la plus jeune de Belgique : 24 % de la population a moins de 18 ans (contre 20 % en Flandre et en Wallonie). La population a crû de 20 % en vingt ans. Cette croissance exerce une pression constante sur les services publics — écoles, crèches, logements, transports — qui sont précisément les secteurs gelés par l'absence de gouvernement."
+      },
+      "goFurther": "Pour approfondir :",
+      "linkEmployment": "Emploi : les chiffres de la crise",
+      "linkSocial": "Social : les filets de sécurité sous tension",
+      "linkHousing": "Logement : la crise qui s'aggrave",
+      "sources": "Sources : IBSA, Eurostat, Monitoring des quartiers, Statbel, Parlement bruxellois."
     }
+  },
+  "relatedCards": {
+    "title": "Pour aller plus loin"
   },
   "home": {
     "citizenIntro": "Bruxelles n'a pas de gouvernement de plein exercice depuis juin 2024. Ce site montre ce qui avance, ce qui est bloqué, et ce que l'on sait avec certitude — à partir de sources publiques vérifiables.",
@@ -715,6 +819,8 @@
     "explainerParadox": "Le paradoxe bruxellois : PIB vs revenus",
     "explainerFormation": "Comment se forme un gouvernement bruxellois ?",
     "explainerLevels": "Qui décide quoi à Bruxelles ?",
+    "explainerOverview": "Bruxelles en bref",
+    "explainerCosmopolitan": "Bruxelles cosmopolite",
     "sectorsTitle": "Secteurs impactés",
     "sectorsSubtitle": "Comment l'absence de gouvernement affecte concrètement l'économie bruxelloise",
     "viewAllSectors": "Voir toutes les fiches secteur",

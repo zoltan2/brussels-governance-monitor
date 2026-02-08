@@ -7,6 +7,8 @@
     "home": "Home",
     "domains": "Domains",
     "understand": "Understand",
+    "understandFundamentals": "Fundamentals",
+    "understandInsights": "Insights",
     "data": "Data",
     "timeline": "Timeline",
     "glossary": "Glossary",
@@ -325,7 +327,9 @@
       "q9": "How can I contribute?",
       "a9": "You can report an error, propose a correction, or submit new sources via our GitHub repository. The source code is open and contributions are welcome. You can also subscribe to email alerts to follow the evolution of the situation.",
       "q10": "How long can this last?",
-      "a10": "There is no legal limit to the duration of caretaker government in Belgium. The situation could theoretically last until the next regional elections scheduled for 2029. In practice, citizen pressure, media attention, and European budget deadlines could accelerate negotiations."
+      "a10": "There is no legal limit to the duration of caretaker government in Belgium. The situation could theoretically last until the next regional elections scheduled for 2029. In practice, citizen pressure, media attention, and European budget deadlines could accelerate negotiations.",
+      "q11": "Why is Brussels so complex?",
+      "a11": "Brussels is simultaneously a Region, the capital of Belgium, the seat of the EU, and a city of 19 autonomous municipalities. Six different governments exercise competences there (federal, regional, COCOM, COCOF, VGC, municipal). Forming a regional government requires a double linguistic majority (FR + NL), which complicates coalition-building. This institutional architecture, unique in the world, is the result of historical compromises between linguistic communities."
     }
   },
   "glossary": {
@@ -557,6 +561,10 @@
         "title": "Current composition",
         "description": "The Brussels Parliament has 89 members divided into two linguistic groups: 72 members in the French linguistic group and 17 members in the Dutch linguistic group. The presidency is held on a rotating basis. The 89 members are spread across 13 parties, making it one of the most fragmented parliaments in Belgium."
       },
+      "doubleMajorityDetail": {
+        "title": "The double majority: key to the crisis",
+        "description": "To invest a Brussels government, a majority must be secured in EACH linguistic group: 37/72 on the French-speaking side AND 9/17 on the Dutch-speaking side. With 13 fragmented parties, finding a combination that works on both sides simultaneously is an arithmetic puzzle. This constitutional requirement, designed to protect the Dutch-speaking minority, is the structural mechanism that explains the exceptional duration of the current crisis."
+      },
       "paradox": {
         "title": "The paradox of a Parliament without a government",
         "description": "Parliament is the only Brussels regional institution operating at full capacity. It sits, it debates, it scrutinises. But it is structurally limited: without a government to table and defend draft ordinances, Parliament is an engine running at half speed. It can ask questions, but it cannot legislate. It can vote provisional twelfths, but it cannot vote a real budget. It can raise the alarm, but it cannot act."
@@ -655,6 +663,22 @@
       "blockage": {
         "title": "Where is the blockage?",
         "description": "The blockage is concentrated at the level of the Brussels-Capital Region and the COCOM. These two levels — which share the same government — are the only ones without a fully empowered executive. The federal level, municipalities, para-regional bodies, and police zones continue to function. But they cannot compensate for the absence of a regional vision, investment budget, and legislative capacity. The Region is the strategic level: without it, the other levels manage day-to-day affairs without being able to prepare for the future."
+      },
+      "whoDecidesWhat": {
+        "title": "Who decides what?",
+        "intro": "To understand the crisis, you need to know which level of power decides what. Here are the main competences and the responsible institution:",
+        "budget": "Regional budget",
+        "budgetWho": "Brussels Parliament (on proposal from the government — impossible under caretaker mode)",
+        "housing": "Social housing",
+        "housingWho": "SLRB (regional) + 16 social housing companies (local) — investments frozen",
+        "transport": "Public transport",
+        "transportWho": "STIB/MIVB (para-regional) + Beliris (federal for Metro 3)",
+        "employment": "Employment and training",
+        "employmentWho": "Actiris (regional) + Bruxelles Formation / VDAB (community)",
+        "health": "Health and social welfare",
+        "healthWho": "COCOM/GGC (bi-community) — blocked by the same crisis",
+        "environment": "Environment and climate",
+        "environmentWho": "Brussels Environment (regional) — projects frozen"
       }
     },
     "governmentFormation": {
@@ -695,8 +719,88 @@
       "currentCrisis": {
         "title": "The current crisis",
         "description": "Since the elections of 9 June 2024, six rounds of formation have taken place without resulting in a government. The main blockage is the double linguistic majority: the combinations that work on the French-speaking side do not find a corresponding majority on the Dutch-speaking side."
+      },
+      "whyHarder": {
+        "title": "Why it is harder in Brussels",
+        "description": "Unlike the federal level, forming a Brussels government combines three unique difficulties: (1) the double linguistic majority requires a simultaneous agreement in two distinct electoral blocs; (2) there is no royal role to facilitate mediation — the President of Parliament alone leads the process; (3) party fragmentation is extreme: 13 parties for 89 seats, an average of 7 seats per party. At the federal level, the King can appoint informateurs and formateurs with a moral authority that does not exist at the regional level."
       }
+    },
+    "brusselsOverview": {
+      "title": "Brussels at a glance",
+      "subtitle": "Understand Brussels in 5 minutes, with no prior knowledge",
+      "intro": "Brussels is a city unique in the world. Capital of Belgium, seat of the European Union, and a Region in its own right, it is governed by an institutional architecture of exceptional complexity. Here is the essential.",
+      "keyFigures": {
+        "title": "Brussels in 5 figures",
+        "population": "1.2 million inhabitants",
+        "populationDesc": "spread across 19 autonomous municipalities",
+        "gdp": "19% of Belgian GDP",
+        "gdpDesc": "but a disposable income below the national average",
+        "parliament": "89 regional MPs",
+        "parliamentDesc": "72 French-speaking + 17 Dutch-speaking",
+        "governments": "6 governments",
+        "governmentsDesc": "exercise competences on Brussels territory",
+        "languages": "100+ languages spoken",
+        "languagesDesc": "the most cosmopolitan city in Belgium"
+      },
+      "doubleStatus": {
+        "title": "A unique double status",
+        "description": "Brussels is the only entity in Belgium to be both a Region (like Flanders or Wallonia) and the country's capital. This dual role means Brussels manages its own regional competences (housing, employment, mobility) while hosting federal and European institutions on its territory."
+      },
+      "complexity": {
+        "title": "Why 6 governments?",
+        "description": "On Brussels territory, six levels of power exercise competences: the federal level, the Region, the COCOM (bi-community), the COCOF (French-speaking), the VGC (Dutch-speaking), and the 19 municipalities. This architecture is the result of historical compromises between linguistic communities. In normal times, it works. When one level is blocked — as the Region and the COCOM have been since June 2024 — the consequences cascade."
+      },
+      "euImpact": {
+        "title": "Capital of Europe",
+        "description": "Brussels hosts the European Parliament, the European Commission, the Council of the EU, the NATO headquarters, and more than 4,000 international organisations. Around 120,000 international officials work there. This status generates considerable economic activity but also creates a fiscal paradox: many of these workers benefit from tax exemptions and do not fully contribute to regional revenues."
+      },
+      "commuterParadox": {
+        "title": "The commuter paradox",
+        "description": "Every day, approximately 360,000 commuters enter Brussels to work. They contribute to 19% of national GDP but pay their taxes in their municipality of residence, in Flanders or Wallonia. Brussels produces the wealth but captures only a fraction of it. This gap between high GDP and low income is at the heart of the 'Brussels paradox'."
+      },
+      "goFurther": "To go further:",
+      "linkLevels": "Who decides what in Brussels?",
+      "linkFormation": "How is a Brussels government formed?",
+      "linkParadox": "The Brussels paradox: GDP vs income",
+      "sources": "Sources: IBSA (regional statistics), Brussels Parliament (composition), Eurostat (EU data), Statbel (population)."
+    },
+    "brusselsCosmopolitan": {
+      "title": "Cosmopolitan Brussels",
+      "subtitle": "The international dimension and superdiversity of the capital",
+      "intro": "Brussels is not just the capital of Belgium. It is one of the most international cities in the world, a crossroads where European institutions, international organisations, and a population of unique diversity in Europe converge.",
+      "euCapital": {
+        "title": "Capital of the European Union",
+        "description": "Brussels concentrates the main EU institutions: the European Commission (Berlaymont), the European Parliament (Leopold Quarter), the Council of the EU (Justus Lipsius/Europa). More than 30,000 European civil servants work there, alongside thousands of lobbyists, journalists, diplomats, and consultants. The European Quarter constitutes a veritable 'state within the city'."
+      },
+      "internationalOrgs": {
+        "title": "Beyond the EU: a global hub",
+        "description": "Brussels is also the headquarters of NATO, which employs approximately 4,000 people there. More than 4,000 NGOs, professional federations, and international organisations are established there. This concentration of international actors makes Brussels the second diplomatic city in the world after New York."
+      },
+      "fiscalImpact": {
+        "title": "The paradoxical fiscal impact",
+        "description": "Officials of European institutions and NATO benefit from a special tax regime: they pay an internal community tax but are exempt from Belgian income taxes. They consume Brussels public services (roads, transport, security) without contributing proportionally to regional revenues. This gap reinforces the Brussels paradox: a city rich in economic activity but structurally deficient in tax revenues."
+      },
+      "superdiversity": {
+        "title": "Brussels superdiversity",
+        "description": "Brussels is the most diverse city in Belgium and one of the most diverse in Europe. More than 180 nationalities coexist there and more than 100 languages are spoken daily. French is the dominant lingua franca, but Dutch, Arabic, Turkish, English, and Portuguese are among the most spoken languages at home."
+      },
+      "dutchStatus": {
+        "title": "Dutch: a protected minority",
+        "description": "Approximately 5 to 8% of Brussels residents are native Dutch speakers, but the protection of the Dutch-speaking minority is enshrined in the Constitution through the double linguistic majority and community institutions (VGC). The Dutch linguistic group in Parliament (17 seats out of 89) holds an effective veto right on government formation — it is precisely this mechanism that is at the heart of the current crisis."
+      },
+      "demographicChallenge": {
+        "title": "The demographic challenge",
+        "description": "Brussels is the youngest Region in Belgium: 24% of the population is under 18 (compared to 20% in Flanders and Wallonia). The population has grown by 20% in twenty years. This growth places constant pressure on public services — schools, childcare, housing, transport — which are precisely the sectors frozen by the absence of government."
+      },
+      "goFurther": "To go further:",
+      "linkEmployment": "Employment: the crisis in numbers",
+      "linkSocial": "Social affairs: safety nets under strain",
+      "linkHousing": "Housing: the deepening crisis",
+      "sources": "Sources: IBSA, Eurostat, Neighbourhood Monitoring, Statbel, Brussels Parliament."
     }
+  },
+  "relatedCards": {
+    "title": "Go further"
   },
   "home": {
     "citizenIntro": "Brussels has been without a fully empowered government since June 2024. This site shows what is progressing, what is blocked, and what is known with certainty — based on verifiable public sources.",
@@ -715,6 +819,8 @@
     "explainerParadox": "The Brussels paradox: GDP vs income",
     "explainerFormation": "How is a Brussels government formed?",
     "explainerLevels": "Who decides what in Brussels?",
+    "explainerOverview": "Brussels at a glance",
+    "explainerCosmopolitan": "Cosmopolitan Brussels",
     "sectorsTitle": "Sectors impacted",
     "sectorsSubtitle": "How the absence of government concretely affects the Brussels economy",
     "viewAllSectors": "View all sector cards",

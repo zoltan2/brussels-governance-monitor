@@ -1,10 +1,10 @@
-import { createHmac } from 'crypto';
+import { createHmac, timingSafeEqual } from 'crypto';
 
 const TOKEN_EXPIRY_HOURS = 48;
 
 function getSecret(): string {
-  const secret = process.env.RESEND_API_KEY;
-  if (!secret) throw new Error('RESEND_API_KEY required for token generation');
+  const secret = process.env.AUTH_SECRET;
+  if (!secret) throw new Error('AUTH_SECRET required for token generation');
   return secret;
 }
 
@@ -29,7 +29,13 @@ export function verifyConfirmToken(token: string): TokenPayload | null {
   const [encoded, signature] = parts;
   const expectedSig = createHmac('sha256', getSecret()).update(encoded).digest('base64url');
 
-  if (signature !== expectedSig) return null;
+  try {
+    const sigBuf = Buffer.from(signature, 'base64url');
+    const expectedBuf = Buffer.from(expectedSig, 'base64url');
+    if (sigBuf.length !== expectedBuf.length || !timingSafeEqual(sigBuf, expectedBuf)) return null;
+  } catch {
+    return null;
+  }
 
   try {
     const data = JSON.parse(Buffer.from(encoded, 'base64url').toString());

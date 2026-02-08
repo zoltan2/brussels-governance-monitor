@@ -7,6 +7,8 @@
     "home": "Startseite",
     "domains": "Bereiche",
     "understand": "Verstehen",
+    "understandFundamentals": "Grundlagen",
+    "understandInsights": "Einblicke",
     "data": "Daten",
     "timeline": "Chronologie",
     "glossary": "Glossar",
@@ -325,7 +327,9 @@
       "q9": "Wie kann ich beitragen?",
       "a9": "Sie können einen Fehler melden, eine Korrektur vorschlagen oder neue Quellen über unser GitHub-Repository einreichen. Der Quellcode ist offen und Beiträge sind willkommen. Sie können sich auch für E-Mail-Benachrichtigungen anmelden, um die Entwicklung der Situation zu verfolgen.",
       "q10": "Wie lange kann das noch dauern?",
-      "a10": "Es gibt keine gesetzliche Grenze für die Dauer der laufenden Geschäfte in Belgien. Die Situation könnte theoretisch bis zu den nächsten Regionalwahlen 2029 andauern. In der Praxis könnten Bürgerdruck, Medienaufmerksamkeit und europäische Haushaltsfristen die Verhandlungen beschleunigen."
+      "a10": "Es gibt keine gesetzliche Grenze für die Dauer der laufenden Geschäfte in Belgien. Die Situation könnte theoretisch bis zu den nächsten Regionalwahlen 2029 andauern. In der Praxis könnten Bürgerdruck, Medienaufmerksamkeit und europäische Haushaltsfristen die Verhandlungen beschleunigen.",
+      "q11": "Warum ist Brüssel so komplex?",
+      "a11": "Brüssel ist gleichzeitig eine Region, die Hauptstadt Belgiens, der Sitz der EU und eine Stadt mit 19 autonomen Gemeinden. Sechs verschiedene Regierungen üben dort Zuständigkeiten aus (Bund, Region, GGK, COCOF, VGC, Gemeinden). Die Bildung einer Regionalregierung erfordert eine doppelte sprachliche Mehrheit (FR + NL), was die Koalitionsbildung erschwert. Diese weltweit einzigartige institutionelle Architektur ist das Ergebnis historischer Kompromisse zwischen den Sprachgemeinschaften."
     }
   },
   "glossary": {
@@ -557,6 +561,10 @@
         "title": "Aktuelle Zusammensetzung",
         "description": "Das Brüsseler Parlament zählt 89 Abgeordnete, die in zwei Sprachgruppen aufgeteilt sind: 72 Mitglieder der französischen Sprachgruppe und 17 Mitglieder der niederländischen Sprachgruppe. Der Vorsitz wird im Wechsel wahrgenommen. Die 89 Abgeordneten verteilen sich auf 13 Parteien, was es zu einem der am stärksten zersplitterten Parlamente Belgiens macht."
       },
+      "doubleMajorityDetail": {
+        "title": "Die doppelte Mehrheit: Schlüssel zur Krise",
+        "description": "Um eine Brüsseler Regierung einzusetzen, muss in JEDER Sprachgruppe eine Mehrheit erreicht werden: 37/72 auf französischsprachiger Seite UND 9/17 auf niederländischsprachiger Seite. Mit 13 zersplitterten Parteien ist es ein arithmetisches Rätsel, eine Kombination zu finden, die auf beiden Seiten gleichzeitig funktioniert. Diese verfassungsrechtliche Anforderung, die zum Schutz der niederländischsprachigen Minderheit geschaffen wurde, ist der strukturelle Mechanismus, der die außergewöhnliche Dauer der aktuellen Krise erklärt."
+      },
       "paradox": {
         "title": "Das Paradox des Parlaments ohne Regierung",
         "description": "Das Parlament ist die einzige Brüsseler Regionalinstitution, die mit voller Kapazität arbeitet. Es tagt, es debattiert, es kontrolliert. Aber es ist strukturell begrenzt: Ohne eine Regierung, die Ordonnanzenentwürfe einbringt und verteidigt, ist das Parlament ein Motor, der auf halber Kraft läuft. Es kann Fragen stellen, aber es kann nicht gesetzgeben. Es kann die vorläufigen Zwölftel beschließen, aber es kann keinen echten Haushalt verabschieden. Es kann warnen, aber es kann nicht handeln."
@@ -655,6 +663,22 @@
       "blockage": {
         "title": "Wo liegt die Blockade?",
         "description": "Die Blockade konzentriert sich auf der Ebene der Region Brüssel-Hauptstadt und der GGK. Diese beiden Ebenen — die dieselbe Regierung teilen — sind die einzigen ohne eine vollwertige Exekutive. Die Bundesebene, die Gemeinden, die para-regionalen Einrichtungen und die Polizeizonen funktionieren weiter. Aber sie können das Fehlen einer regionalen Vision, eines Investitionshaushalts und einer Gesetzgebungskompetenz nicht ausgleichen. Die Region ist die strategische Ebene: Ohne sie verwalten die anderen Ebenen das Tagesgeschäft, ohne die Zukunft vorbereiten zu können."
+      },
+      "whoDecidesWhat": {
+        "title": "Wer entscheidet was?",
+        "intro": "Um die Krise zu verstehen, muss man wissen, welche Machtebene worüber entscheidet. Hier sind die wichtigsten Zuständigkeiten und die verantwortliche Institution:",
+        "budget": "Regionalhaushalt",
+        "budgetWho": "Brüsseler Parlament (auf Vorschlag der Regierung — in laufenden Geschäften unmöglich)",
+        "housing": "Sozialer Wohnungsbau",
+        "housingWho": "SLRB (regional) + 16 Sozialwohnungsgesellschaften (lokal) — Investitionen eingefroren",
+        "transport": "Öffentlicher Nahverkehr",
+        "transportWho": "STIB/MIVB (para-regional) + Beliris (Bund für Metro 3)",
+        "employment": "Beschäftigung und Ausbildung",
+        "employmentWho": "Actiris (regional) + Bruxelles Formation / VDAB (Gemeinschaft)",
+        "health": "Gesundheit und Sozialhilfe",
+        "healthWho": "GGK (bikommunal) — durch dieselbe Krise blockiert",
+        "environment": "Umwelt und Klima",
+        "environmentWho": "Brüssel Umwelt (regional) — Projekte eingefroren"
       }
     },
     "governmentFormation": {
@@ -695,8 +719,88 @@
       "currentCrisis": {
         "title": "Die aktuelle Krise",
         "description": "Seit den Wahlen vom 9. Juni 2024 haben sechs Formationsrunden stattgefunden, ohne zu einer Regierung zu führen. Das Haupthindernis ist die doppelte sprachliche Mehrheit: Die Kombinationen, die auf französischsprachiger Seite funktionieren, finden keine entsprechende Mehrheit auf niederländischsprachiger Seite."
+      },
+      "whyHarder": {
+        "title": "Warum es in Brüssel schwieriger ist",
+        "description": "Im Gegensatz zur Bundesebene vereint die Bildung einer Brüsseler Regierung drei einzigartige Schwierigkeiten: (1) Die doppelte sprachliche Mehrheit erfordert eine gleichzeitige Einigung in zwei getrennten Wählerblöcken; (2) es gibt keine königliche Rolle zur Erleichterung der Vermittlung — der Parlamentspräsident leitet den Prozess allein; (3) die Parteienzersplitterung ist extrem: 13 Parteien für 89 Sitze, also durchschnittlich 7 Sitze pro Partei. Auf Bundesebene kann der König Informateurs und Formateurs mit einer moralischen Autorität ernennen, die auf Regionalebene nicht existiert."
       }
+    },
+    "brusselsOverview": {
+      "title": "Brüssel im Überblick",
+      "subtitle": "Brüssel in 5 Minuten verstehen, ohne Vorkenntnisse",
+      "intro": "Brüssel ist eine weltweit einzigartige Stadt. Gleichzeitig Hauptstadt Belgiens, Sitz der Europäischen Union und eigenständige Region wird sie von einer institutionellen Architektur außergewöhnlicher Komplexität regiert. Hier das Wesentliche.",
+      "keyFigures": {
+        "title": "Brüssel in 5 Zahlen",
+        "population": "1,2 Millionen Einwohner",
+        "populationDesc": "verteilt auf 19 autonome Gemeinden",
+        "gdp": "19 % des belgischen BIP",
+        "gdpDesc": "aber ein verfügbares Einkommen unter dem nationalen Durchschnitt",
+        "parliament": "89 Regionalabgeordnete",
+        "parliamentDesc": "72 französischsprachige + 17 niederländischsprachige",
+        "governments": "6 Regierungen",
+        "governmentsDesc": "üben Zuständigkeiten auf dem Brüsseler Gebiet aus",
+        "languages": "100+ gesprochene Sprachen",
+        "languagesDesc": "die kosmopolitischste Stadt Belgiens"
+      },
+      "doubleStatus": {
+        "title": "Ein einzigartiger Doppelstatus",
+        "description": "Brüssel ist die einzige Einheit in Belgien, die gleichzeitig eine Region (wie Flandern oder Wallonien) und die Landeshauptstadt ist. Diese Doppelrolle bedeutet, dass Brüssel seine eigenen regionalen Zuständigkeiten verwaltet (Wohnen, Beschäftigung, Mobilität) und gleichzeitig die föderalen und europäischen Institutionen auf seinem Gebiet beherbergt."
+      },
+      "complexity": {
+        "title": "Warum 6 Regierungen?",
+        "description": "Auf dem Brüsseler Gebiet üben sechs Machtebenen Zuständigkeiten aus: der Bund, die Region, die GGK (bikommunal), die COCOF (französischsprachig), die VGC (niederländischsprachig) und die 19 Gemeinden. Diese Architektur ist das Ergebnis historischer Kompromisse zwischen den Sprachgemeinschaften. In normalen Zeiten funktioniert sie. Wenn eine Ebene blockiert wird — wie die Region und die GGK seit Juni 2024 — pflanzen sich die Folgen kaskadenartig fort."
+      },
+      "euImpact": {
+        "title": "Hauptstadt Europas",
+        "description": "Brüssel beherbergt das Europäische Parlament, die Europäische Kommission, den Rat der EU, das NATO-Hauptquartier und mehr als 4.000 internationale Organisationen. Etwa 120.000 internationale Beamte arbeiten dort. Dieser Status erzeugt eine beträchtliche wirtschaftliche Aktivität, schafft aber auch ein fiskalisches Paradox: Viele dieser Arbeitnehmer genießen Steuerbefreiungen und tragen nicht vollständig zu den regionalen Einnahmen bei."
+      },
+      "commuterParadox": {
+        "title": "Das Pendlerparadox",
+        "description": "Jeden Tag kommen etwa 360.000 Pendler nach Brüssel, um zu arbeiten. Sie tragen zu 19 % des nationalen BIP bei, zahlen ihre Steuern aber in ihrer Wohngemeinde in Flandern oder Wallonien. Brüssel produziert den Reichtum, fängt aber nur einen Bruchteil davon auf. Dieses Gefälle zwischen hohem BIP und niedrigen Einkommen steht im Zentrum des 'Brüsseler Paradoxons'."
+      },
+      "goFurther": "Zum Vertiefen:",
+      "linkLevels": "Wer entscheidet was in Brüssel?",
+      "linkFormation": "Wie wird eine Brüsseler Regierung gebildet?",
+      "linkParadox": "Das Brüsseler Paradox: BIP vs Einkommen",
+      "sources": "Quellen: IBSA (Regionalstatistiken), Brüsseler Parlament (Zusammensetzung), Eurostat (EU-Daten), Statbel (Bevölkerung)."
+    },
+    "brusselsCosmopolitan": {
+      "title": "Kosmopolitisches Brüssel",
+      "subtitle": "Die internationale Dimension und die Superdiversität der Hauptstadt",
+      "intro": "Brüssel ist nicht nur die Hauptstadt Belgiens. Es ist eine der internationalsten Städte der Welt, ein Knotenpunkt, an dem europäische Institutionen, internationale Organisationen und eine Bevölkerung einzigartiger Vielfalt in Europa zusammentreffen.",
+      "euCapital": {
+        "title": "Hauptstadt der Europäischen Union",
+        "description": "Brüssel konzentriert die wichtigsten EU-Institutionen: die Europäische Kommission (Berlaymont), das Europäische Parlament (Leopoldviertel), den Rat der EU (Justus Lipsius/Europa). Mehr als 30.000 europäische Beamte arbeiten dort, ergänzt durch Tausende von Lobbyisten, Journalisten, Diplomaten und Beratern. Das Europaviertel bildet einen regelrechten 'Staat in der Stadt'."
+      },
+      "internationalOrgs": {
+        "title": "Über die EU hinaus: ein globaler Knotenpunkt",
+        "description": "Brüssel ist auch der Sitz der NATO, die dort etwa 4.000 Mitarbeiter beschäftigt. Mehr als 4.000 NGOs, Berufsverbände und internationale Organisationen sind dort ansässig. Diese Konzentration internationaler Akteure macht Brüssel zur zweitwichtigsten Diplomatenstadt der Welt nach New York."
+      },
+      "fiscalImpact": {
+        "title": "Die paradoxe fiskalische Auswirkung",
+        "description": "Die Beamten der europäischen Institutionen und der NATO profitieren von einem speziellen Steuerregime: Sie zahlen eine interne Gemeinschaftssteuer, sind aber von der belgischen Einkommensteuer befreit. Sie nutzen die Brüsseler öffentlichen Dienste (Straßen, Verkehr, Sicherheit), ohne proportional zu den regionalen Einnahmen beizutragen. Dieses Gefälle verstärkt das Brüsseler Paradox: eine Stadt reich an wirtschaftlicher Aktivität, aber strukturell defizitär bei den Steuereinnahmen."
+      },
+      "superdiversity": {
+        "title": "Die Brüsseler Superdiversität",
+        "description": "Brüssel ist die vielfältigste Stadt Belgiens und eine der vielfältigsten in Europa. Mehr als 180 Nationalitäten leben dort zusammen und mehr als 100 Sprachen werden dort täglich gesprochen. Französisch ist die dominierende Verkehrssprache, aber Niederländisch, Arabisch, Türkisch, Englisch und Portugiesisch gehören zu den meistgesprochenen Sprachen zu Hause."
+      },
+      "dutchStatus": {
+        "title": "Niederländisch: eine geschützte Minderheit",
+        "description": "Etwa 5 bis 8 % der Brüsseler sind niederländische Muttersprachler, aber der Schutz der niederländischsprachigen Minderheit ist in der Verfassung über die doppelte sprachliche Mehrheit und die Gemeinschaftsinstitutionen (VGC) verankert. Die niederländische Sprachgruppe im Parlament (17 Sitze von 89) verfügt über ein effektives Vetorecht bei der Regierungsbildung — genau dieser Mechanismus steht im Mittelpunkt der aktuellen Krise."
+      },
+      "demographicChallenge": {
+        "title": "Die demografische Herausforderung",
+        "description": "Brüssel ist die jüngste Region Belgiens: 24 % der Bevölkerung ist unter 18 Jahre alt (gegenüber 20 % in Flandern und Wallonien). Die Bevölkerung ist in zwanzig Jahren um 20 % gewachsen. Dieses Wachstum übt einen ständigen Druck auf die öffentlichen Dienste aus — Schulen, Kinderbetreuung, Wohnungen, Verkehr — also genau jene Sektoren, die durch das Fehlen einer Regierung eingefroren sind."
+      },
+      "goFurther": "Zum Vertiefen:",
+      "linkEmployment": "Beschäftigung: die Krisenzahlen",
+      "linkSocial": "Soziales: die Sicherheitsnetze unter Druck",
+      "linkHousing": "Wohnen: die sich verschärfende Krise",
+      "sources": "Quellen: IBSA, Eurostat, Quartiersmonitoring, Statbel, Brüsseler Parlament."
     }
+  },
+  "relatedCards": {
+    "title": "Weiterführend"
   },
   "home": {
     "citizenIntro": "Brüssel hat seit Juni 2024 keine vollwertige Regierung. Diese Seite zeigt, was vorankommt, was blockiert ist und was mit Sicherheit bekannt ist — auf Grundlage überprüfbarer öffentlicher Quellen.",
@@ -715,6 +819,8 @@
     "explainerParadox": "Das Brüsseler Paradox: BIP vs Einkommen",
     "explainerFormation": "Wie wird eine Brüsseler Regierung gebildet?",
     "explainerLevels": "Wer entscheidet was in Brüssel?",
+    "explainerOverview": "Brüssel im Überblick",
+    "explainerCosmopolitan": "Kosmopolitisches Brüssel",
     "sectorsTitle": "Betroffene Sektoren",
     "sectorsSubtitle": "Wie die Abwesenheit einer Regierung die Brüsseler Wirtschaft konkret betrifft",
     "viewAllSectors": "Alle Sektorkarten ansehen",

@@ -223,10 +223,12 @@ function ExplainersSection() {
   const t = useTranslations('home');
 
   const explainers = [
+    { href: '/explainers/brussels-overview' as const, label: t('explainerOverview') },
     { href: '/explainers/levels-of-power' as const, label: t('explainerLevels') },
-    { href: '/explainers/parliament-powers' as const, label: t('explainerParliament') },
-    { href: '/explainers/brussels-paradox' as const, label: t('explainerParadox') },
     { href: '/explainers/government-formation' as const, label: t('explainerFormation') },
+    { href: '/explainers/brussels-paradox' as const, label: t('explainerParadox') },
+    { href: '/explainers/parliament-powers' as const, label: t('explainerParliament') },
+    { href: '/explainers/brussels-cosmopolitan' as const, label: t('explainerCosmopolitan') },
   ];
 
   return (

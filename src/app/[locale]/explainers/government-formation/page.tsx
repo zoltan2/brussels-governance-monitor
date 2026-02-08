@@ -118,6 +118,11 @@ function GovernmentFormationView() {
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('currentCrisis.title')}</h2>
           <p>{t('currentCrisis.description')}</p>
+
+          <div className="rounded-lg border border-amber-200 bg-amber-50/50 p-4">
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('whyHarder.title')}</h2>
+            <p>{t('whyHarder.description')}</p>
+          </div>
         </div>
       </div>
     </section>

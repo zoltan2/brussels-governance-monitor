@@ -190,6 +190,32 @@
     "errorMessage": "An error occurred. Please try again.",
     "privacy": "Max. 1 email/week. Unsubscribe in 1 click."
   },
+  "subscribeConfirmed": {
+    "successTitle": "Subscription confirmed",
+    "successMessage": "Your subscription is active. You will receive a weekly digest (on Mondays) with updates on the domains you follow.",
+    "successTopics": "Topics followed:",
+    "errorTitle": "Error",
+    "errorMessage": "An error occurred during confirmation. Please try subscribing again.",
+    "expiredTitle": "Link expired",
+    "expiredMessage": "This confirmation link has expired (48h). Please subscribe again.",
+    "backHome": "Back to home",
+    "topicLabels": {
+      "budget": "Budget",
+      "mobility": "Mobility",
+      "employment": "Employment",
+      "housing": "Housing",
+      "climate": "Climate",
+      "social": "Social",
+      "solutions": "Exit paths"
+    }
+  },
+  "subscribeUnsubscribed": {
+    "successTitle": "Unsubscribed",
+    "successMessage": "You will no longer receive emails from Brussels Governance Monitor. Your request will be processed within 30 days in accordance with the GDPR.",
+    "errorTitle": "Error",
+    "errorMessage": "This unsubscribe link is invalid or has expired. Contact us at privacy@brusselsgovernance.be.",
+    "backHome": "Back to home"
+  },
   "editorial": {
     "title": "Editorial Charter",
     "intro": "Brussels Governance Monitor is a civic information project. This charter defines the principles that guide our editorial work.",

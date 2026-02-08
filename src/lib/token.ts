@@ -22,6 +22,45 @@ export function generateConfirmToken(payload: TokenPayload): string {
   return `${encoded}.${signature}`;
 }
 
+const UNSUB_EXPIRY_HOURS = 365 * 24; // 1 year
+
+interface UnsubscribePayload {
+  email: string;
+}
+
+export function generateUnsubscribeToken(email: string): string {
+  const expiry = Date.now() + UNSUB_EXPIRY_HOURS * 60 * 60 * 1000;
+  const data = JSON.stringify({ email, type: 'unsub', exp: expiry });
+  const encoded = Buffer.from(data).toString('base64url');
+  const signature = createHmac('sha256', getSecret()).update(encoded).digest('base64url');
+  return `${encoded}.${signature}`;
+}
+
+export function verifyUnsubscribeToken(token: string): UnsubscribePayload | null {
+  const parts = token.split('.');
+  if (parts.length !== 2) return null;
+
+  const [encoded, signature] = parts;
+  const expectedSig = createHmac('sha256', getSecret()).update(encoded).digest('base64url');
+
+  try {
+    const sigBuf = Buffer.from(signature, 'base64url');
+    const expectedBuf = Buffer.from(expectedSig, 'base64url');
+    if (sigBuf.length !== expectedBuf.length || !timingSafeEqual(sigBuf, expectedBuf)) return null;
+  } catch {
+    return null;
+  }
+
+  try {
+    const data = JSON.parse(Buffer.from(encoded, 'base64url').toString());
+    if (data.type !== 'unsub') return null;
+    if (data.exp < Date.now()) return null;
+    return { email: data.email };
+  } catch {
+    return null;
+  }
+}
+
 export function verifyConfirmToken(token: string): TokenPayload | null {
   const parts = token.split('.');
   if (parts.length !== 2) return null;

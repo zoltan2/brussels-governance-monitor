@@ -14,10 +14,19 @@ import {
   getGlossaryTerms,
 } from '../content';
 
-// These tests use the real Velite data (built content).
-// They verify the content helper functions work correctly with actual data.
+// These tests require Velite build output (.velite/ directory).
+// Run `npm run build` first to generate it, or they will be skipped.
+let hasVeliteData = false;
+try {
+  require('../../.velite');
+  hasVeliteData = true;
+} catch {
+  // Velite data not available
+}
 
-describe('getDomainCards', () => {
+const describeWithData = hasVeliteData ? describe : describe.skip;
+
+describeWithData('getDomainCards', () => {
   it('returns cards for FR locale', () => {
     const cards = getDomainCards('fr');
     expect(cards.length).toBeGreaterThan(0);
@@ -45,7 +54,7 @@ describe('getDomainCards', () => {
   });
 });
 
-describe('getDomainCard', () => {
+describeWithData('getDomainCard', () => {
   it('returns a card for an existing slug', () => {
     const slugs = getAllDomainSlugs();
     expect(slugs.length).toBeGreaterThan(0);
@@ -62,7 +71,7 @@ describe('getDomainCard', () => {
   });
 });
 
-describe('getAllDomainSlugs', () => {
+describeWithData('getAllDomainSlugs', () => {
   it('returns unique slugs', () => {
     const slugs = getAllDomainSlugs();
     expect(slugs.length).toBeGreaterThan(0);
@@ -70,7 +79,7 @@ describe('getAllDomainSlugs', () => {
   });
 });
 
-describe('getSolutionCards', () => {
+describeWithData('getSolutionCards', () => {
   it('returns cards for FR locale', () => {
     const cards = getSolutionCards('fr');
     expect(cards.length).toBeGreaterThan(0);
@@ -86,7 +95,7 @@ describe('getSolutionCards', () => {
   });
 });
 
-describe('getAllSolutionSlugs', () => {
+describeWithData('getAllSolutionSlugs', () => {
   it('returns unique slugs', () => {
     const slugs = getAllSolutionSlugs();
     expect(slugs.length).toBeGreaterThan(0);
@@ -94,14 +103,14 @@ describe('getAllSolutionSlugs', () => {
   });
 });
 
-describe('getSectorCards', () => {
+describeWithData('getSectorCards', () => {
   it('returns cards for FR locale', () => {
     const cards = getSectorCards('fr');
     expect(cards.length).toBeGreaterThan(0);
   });
 });
 
-describe('getAllSectorSlugs', () => {
+describeWithData('getAllSectorSlugs', () => {
   it('returns unique slugs', () => {
     const slugs = getAllSectorSlugs();
     expect(slugs.length).toBeGreaterThan(0);
@@ -109,14 +118,14 @@ describe('getAllSectorSlugs', () => {
   });
 });
 
-describe('getComparisonCards', () => {
+describeWithData('getComparisonCards', () => {
   it('returns cards for FR locale', () => {
     const cards = getComparisonCards('fr');
     expect(cards.length).toBeGreaterThan(0);
   });
 });
 
-describe('getAllComparisonSlugs', () => {
+describeWithData('getAllComparisonSlugs', () => {
   it('returns unique slugs', () => {
     const slugs = getAllComparisonSlugs();
     expect(slugs.length).toBeGreaterThan(0);
@@ -124,7 +133,7 @@ describe('getAllComparisonSlugs', () => {
   });
 });
 
-describe('getFormationRounds', () => {
+describeWithData('getFormationRounds', () => {
   it('returns rounds sorted by number', () => {
     const rounds = getFormationRounds('fr');
     expect(rounds.length).toBeGreaterThan(0);
@@ -134,7 +143,7 @@ describe('getFormationRounds', () => {
   });
 });
 
-describe('getFormationEvents', () => {
+describeWithData('getFormationEvents', () => {
   it('returns events sorted by date', () => {
     const events = getFormationEvents('fr');
     expect(events.length).toBeGreaterThan(0);
@@ -144,7 +153,7 @@ describe('getFormationEvents', () => {
   });
 });
 
-describe('getGlossaryTerms', () => {
+describeWithData('getGlossaryTerms', () => {
   it('returns terms for FR locale', () => {
     const terms = getGlossaryTerms('fr');
     expect(terms.length).toBeGreaterThan(0);

@@ -78,7 +78,6 @@ function TimelineView({
   locale: string;
 }) {
   const t = useTranslations('timeline');
-  const td = useTranslations('domains');
 
   return (
     <section className="py-12">

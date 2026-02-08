@@ -190,6 +190,32 @@
     "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "privacy": "Max. 1 E-Mail/Woche. Abmeldung mit 1 Klick."
   },
+  "subscribeConfirmed": {
+    "successTitle": "Anmeldung bestätigt",
+    "successMessage": "Ihr Abonnement ist aktiv. Sie erhalten jeden Montag eine wöchentliche Zusammenfassung mit Aktualisierungen zu den von Ihnen verfolgten Bereichen.",
+    "successTopics": "Verfolgte Themen:",
+    "errorTitle": "Fehler",
+    "errorMessage": "Bei der Bestätigung ist ein Fehler aufgetreten. Bitte melden Sie sich erneut an.",
+    "expiredTitle": "Link abgelaufen",
+    "expiredMessage": "Dieser Bestätigungslink ist abgelaufen (48 Std.). Bitte melden Sie sich erneut an.",
+    "backHome": "Zurück zur Startseite",
+    "topicLabels": {
+      "budget": "Haushalt",
+      "mobility": "Mobilität",
+      "employment": "Beschäftigung",
+      "housing": "Wohnen",
+      "climate": "Klima",
+      "social": "Soziales",
+      "solutions": "Auswege"
+    }
+  },
+  "subscribeUnsubscribed": {
+    "successTitle": "Abmeldung bestätigt",
+    "successMessage": "Sie erhalten keine E-Mails mehr von Brussels Governance Monitor. Ihr Antrag wird innerhalb von 30 Tagen gemäß der DSGVO bearbeitet.",
+    "errorTitle": "Fehler",
+    "errorMessage": "Dieser Abmeldelink ist ungültig oder abgelaufen. Kontaktieren Sie uns unter privacy@brusselsgovernance.be.",
+    "backHome": "Zurück zur Startseite"
+  },
   "editorial": {
     "title": "Redaktionelle Charta",
     "intro": "Brussels Governance Monitor ist ein bürgerschaftliches Informationsprojekt. Diese Charta definiert die Grundsätze, die unsere redaktionelle Arbeit leiten.",

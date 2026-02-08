@@ -190,6 +190,32 @@
     "errorMessage": "Er is een fout opgetreden. Probeer het opnieuw.",
     "privacy": "Max. 1 e-mail/week. Uitschrijven met 1 klik."
   },
+  "subscribeConfirmed": {
+    "successTitle": "Inschrijving bevestigd",
+    "successMessage": "Uw abonnement is actief. U ontvangt een wekelijkse samenvatting (op maandag) met updates over de domeinen die u volgt.",
+    "successTopics": "Gevolgde thema's:",
+    "errorTitle": "Fout",
+    "errorMessage": "Er is een fout opgetreden bij de bevestiging. Probeer u opnieuw in te schrijven.",
+    "expiredTitle": "Link verlopen",
+    "expiredMessage": "Deze bevestigingslink is verlopen (48u). Schrijf u opnieuw in.",
+    "backHome": "Terug naar home",
+    "topicLabels": {
+      "budget": "Budget",
+      "mobility": "Mobiliteit",
+      "employment": "Werkgelegenheid",
+      "housing": "Huisvesting",
+      "climate": "Klimaat",
+      "social": "Sociaal",
+      "solutions": "Uitwegen"
+    }
+  },
+  "subscribeUnsubscribed": {
+    "successTitle": "Uitschrijving bevestigd",
+    "successMessage": "U ontvangt geen e-mails meer van Brussels Governance Monitor. Uw verzoek wordt binnen 30 dagen verwerkt conform de AVG.",
+    "errorTitle": "Fout",
+    "errorMessage": "Deze uitschrijvingslink is ongeldig of verlopen. Neem contact met ons op via privacy@brusselsgovernance.be.",
+    "backHome": "Terug naar home"
+  },
   "editorial": {
     "title": "Redactioneel charter",
     "intro": "Brussels Governance Monitor is een burgerinitiatief voor informatievoorziening. Dit charter definieert de principes die ons redactioneel werk sturen.",

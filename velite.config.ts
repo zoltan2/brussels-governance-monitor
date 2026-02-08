@@ -177,6 +177,36 @@ const glossaryTerms = defineCollection({
 });
 
 // ──────────────────────────────────────────────
+// Collection: Verifications (audit trail per card)
+// ──────────────────────────────────────────────
+const verifications = defineCollection({
+  name: 'Verification',
+  pattern: 'verifications/*.mdx',
+  schema: s
+    .object({
+      slug: s.string(),
+      locale: localeEnum,
+      cardType: s.enum(['domain', 'sector']),
+      cardSlug: s.string(),
+      date: s.isodate(),
+      result: s.enum(['no-change', 'change-detected', 'uncertainty', 'suspended']),
+      summary: s.string().max(500),
+      trigger: s
+        .enum(['scheduled', 'source-contradiction', 'external-report', 'institutional-event'])
+        .optional(),
+      sourcesConsulted: s.array(sourceSchema),
+      editor: s.string().default('BGM'),
+      nextVerification: s.isodate().optional(),
+      lastModified: s.isodate(),
+      content: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      permalink: `/verifications/${data.cardSlug}-${data.date}`,
+    })),
+});
+
+// ──────────────────────────────────────────────
 // Collection: Sector Cards (V1 — schema ready, 0 content)
 // ──────────────────────────────────────────────
 const sectorCards = defineCollection({
@@ -297,6 +327,7 @@ export default defineConfig({
     formationRounds,
     formationEvents,
     glossaryTerms,
+    verifications,
     sectorCards,
     comparisonCards,
   },

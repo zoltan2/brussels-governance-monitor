@@ -344,37 +344,96 @@
   },
   "methodology": {
     "title": "Onze methode",
-    "intro": "Brussels Governance Monitor is een instrument voor burgerinformatie. Deze pagina legt uit hoe wij gegevens verzamelen, verifiëren en publiceren.",
+    "intro": "Brussels Governance Monitor observeert de concrete gevolgen van de afwezigheid van een volwaardige regering in Brussel. Het doel is niet politiek, noch militant, maar burgerlijk: institutionele informatie die vaak verspreid, onzichtbaar of moeilijk toegankelijk is, leesbaar, verifieerbaar en betwistbaar maken.",
+    "mission": {
+      "title": "Wat BGM documenteert",
+      "what": "wat er gebeurt,",
+      "whatNot": "wat er niet gebeurt,",
+      "known": "en wat men op een bepaald moment werkelijk weet."
+    },
+    "model": {
+      "title": "Een eenvoudig model: Kaart / Gebeurtenis / Verificatie",
+      "cards": "Kaarten",
+      "cardsDesc": "Beschrijven de toestand van een domein (budget, mobiliteit, sociaal...) of een sector, op basis van publieke bronnen.",
+      "events": "Gebeurtenissen",
+      "eventsDesc": "Documenteren precieze institutionele feiten (stemming, besluit, publicatie, gemiste deadline).",
+      "verifications": "Verificaties",
+      "verificationsDesc": "Gedocumenteerde redactionele handelingen die een bestaande informatie op een bepaalde datum bevestigen, weerleggen of opschorten.",
+      "conclusion": "Dit model maakt institutionele stilte zichtbaar, zonder speculatie."
+    },
+    "statuses": {
+      "title": "Statussen gebaseerd op verifieerbare criteria",
+      "description": "Elke kaart heeft een procedurele status:",
+      "blocked": "juridisch verhinderd proces",
+      "delayed": "formeel tijdschema niet gerespecteerd",
+      "ongoing": "actief en conform proces",
+      "resolved": "formeel afgesloten procedure",
+      "criteria": "Deze statussen berusten op binaire criteria, zijn reproduceerbaar door derden, en hangen niet af van politieke mening of moreel oordeel.",
+      "prudence": "Twijfel leidt nooit automatisch tot de strengste status."
+    },
     "dataSources": {
-      "title": "Waar komen onze gegevens vandaan",
-      "description": "Wij classificeren onze bronnen in vier betrouwbaarheidsniveaus:",
-      "tierA": "Niveau A",
+      "title": "Een expliciete bronhiërarchie",
+      "description": "BGM classificeert zijn bronnen naar aard en robuustheid:",
+      "tierA": "Wettelijke en reglementaire bronnen",
       "tierADesc": "Gepubliceerde officiële documenten (ordonnanties, verslagen van het Rekenhof, statistieken Statbel/IBSA, notulen van het Parlement)",
-      "tierB": "Niveau B",
+      "tierB": "Administratieve en budgettaire bronnen",
       "tierBDesc": "Institutionele communicatie (persberichten van Actiris, MIVB, BGHM, Leefmilieu Brussel)",
-      "tierC": "Niveau C",
+      "tierC": "Operationele bronnen",
       "tierCDesc": "Referentiepers (RTBF, VRT, Le Soir, De Standaard, BX1, BRUZZ) — gebruikt wanneer de primaire bron niet online toegankelijk is",
-      "tierD": "Niveau D",
-      "tierDDesc": "Analyses en studies (Brupartners, universiteiten, denktanks) — contextualiseren de ruwe gegevens"
+      "tierD": "Analytische of contextuele bronnen",
+      "tierDDesc": "Analyses en studies (Brupartners, universiteiten, denktanks) — contextualiseren de ruwe gegevens",
+      "noSource": "Geen enkele informatie wordt gepubliceerd zonder identificeerbare bron. Links, raadplegingsdata en beperkingen worden altijd vermeld."
     },
-    "verification": {
-      "title": "Hoe wij verifiëren",
-      "description": "Elke gepubliceerde gegeven doorloopt een verificatieproces:",
-      "doubleSource": "Dubbele bron: elke metriek wordt geverifieerd door minstens twee onafhankelijke bronnen, of door één erkende institutionele bron (Rekenhof, Parlement, administratie)",
-      "dateCheck": "Datumcontrole: elke bron wordt geraadpleegd en gedateerd. Verouderde gegevens worden bijgewerkt of verwijderd.",
-      "contextCheck": "Contextcontrole: cijfers worden altijd vergezeld van hun context (methodologie, reikwijdte, bekende beperkingen)"
+    "estimations": {
+      "title": "Strikt omkaderde schattingen",
+      "description": "Wanneer BGM een schatting produceert (bv. begrotingsaanpassing, temporele vergelijking):",
+      "signaled": "wordt ze expliciet als schatting aangeduid,",
+      "publicData": "berust ze op publieke gegevens,",
+      "documented": "worden haar methode, hypothesen en beperkingen gedocumenteerd,",
+      "margin": "wordt een onzekerheidsmarge aangegeven.",
+      "conclusion": "Een schatting wordt nooit als een officieel feit gepresenteerd."
     },
+    "uncertainty": {
+      "title": "Het beheer van onzekerheid maakt deel uit van het systeem",
+      "description": "BGM forceert nooit een conclusie. Wanneer informatie onzeker, tegenstrijdig of niet verifieerbaar wordt, wordt ze:",
+      "flagged": "als zodanig aangeduid,",
+      "maintained": "met voorbehoud gehandhaafd,",
+      "suspended": "of tijdelijk opgeschort.",
+      "conclusion": "Niet concluderen is soms de meest rigoureuze positie."
+    },
+    "limitations": {
+      "title": "Wat BGM niet doet",
+      "noPrediction": "Geen politieke voorspelling",
+      "noJudgment": "Geen waardeoordeel",
+      "noEmotional": "Geen emotionele classificatie (\"ernstig\", \"catastrofaal\")",
+      "noPersonalization": "Geen politieke personalisering (geen namen, geen partijen)",
+      "noCausation": "Geen niet-aangetoonde causaliteit",
+      "conclusion": "BGM documenteert processen, geen intenties."
+    },
+    "transparency": {
+      "title": "Transparantie en betwisting",
+      "description": "Alle door BGM gepubliceerde informatie is voorzien van bron, datum en is verifieerbaar.",
+      "channel": "Een openbaar betwistingskanaal stelt elke burger, journalist of instelling in staat om:",
+      "reportError": "een fout te melden,",
+      "suggestSource": "een bron voor te stellen,",
+      "askClarification": "een methodologische verduidelijking te vragen.",
+      "response": "Elke ontvankelijke betwisting krijgt een gedocumenteerd antwoord."
+    },
+    "selfLimitations": {
+      "title": "Erkende beperkingen",
+      "description": "BGM erkent expliciet:",
+      "framing": "een kadering gericht op de impact van de afwezigheid van een regering,",
+      "coverage": "een beperkte dekking tot bepaalde prioritaire domeinen,",
+      "dataDependency": "een afhankelijkheid van de beschikbaarheid van publieke gegevens,",
+      "team": "een bewust beperkt redactieteam.",
+      "conclusion": "Deze beperkingen worden gedocumenteerd, niet verborgen."
+    },
+    "tagline": "Brussels Governance Monitor zegt niet wat u moet denken. Het toont wat verifieerbaar is, wat niet, en waarom.",
     "confidence": {
       "title": "Onze betrouwbaarheidsniveaus",
       "officialDesc": "Gepubliceerde institutionele bron — gegeven direct verifieerbaar in het brondocument",
       "estimatedDesc": "BGM-schatting op basis van gedeeltelijke gegevens, met gedocumenteerde methodologie",
       "unconfirmedDesc": "Informatie alleen gemeld door de pers, nog niet bevestigd door een institutionele bron"
-    },
-    "limitations": {
-      "title": "Wat BGM niet doet",
-      "noPrediction": "Geen voorspellingen: wij voorspellen niet wanneer een regering zal worden gevormd of welke coalitie het meest waarschijnlijk is",
-      "noScoring": "Geen politieke scores: wij kennen geen punten toe aan partijen en beoordelen hun standpunten niet",
-      "noExhaustive": "Geen volledigheid: wij behandelen de meest getroffen domeinen, niet het geheel van het gewestelijk beleid"
     },
     "independence": {
       "title": "Onze onafhankelijkheid",
@@ -389,6 +448,34 @@
       "substantialDesc": "Wijziging van een cijfer, een bron of een interpretatie — vermeld in het veld 'changeSummary' van de fiche",
       "retraction": "Intrekking",
       "retractionDesc": "Verwijdering van onjuiste informatie — expliciet vermeld met uitleg"
+    },
+    "verification": {
+      "title": "Hoe wij verifiëren",
+      "description": "Elke gepubliceerde gegeven doorloopt een verificatieproces:",
+      "doubleSource": "Dubbele bron: elke metriek wordt geverifieerd door minstens twee onafhankelijke bronnen, of door één erkende institutionele bron (Rekenhof, Parlement, administratie)",
+      "dateCheck": "Datumcontrole: elke bron wordt geraadpleegd en gedateerd. Verouderde gegevens worden bijgewerkt of verwijderd.",
+      "contextCheck": "Contextcontrole: cijfers worden altijd vergezeld van hun context (methodologie, reikwijdte, bekende beperkingen)"
+    },
+    "protocol": {
+      "title": "Verificatieprotocol",
+      "intro": "De Verificatie is een gedocumenteerde redactionele handeling waarbij het BGM-team op een bepaalde datum de toestand van een bestaande kaart vaststelt aan de hand van institutionele bronnen, en expliciet maakt: ofwel de afwezigheid van een significante wijziging, ofwel het optreden van een feitelijke wijziging, ofwel de tijdelijke onmogelijkheid om tot een conclusie te komen.",
+      "v1Title": "V1 — Geen wijziging vastgesteld",
+      "v1Desc": "De geraadpleegde bronnen bevestigen dat de situatie ongewijzigd is. De institutionele stilte is bevestigd.",
+      "v2Title": "V2 — Feitelijke wijziging vastgesteld",
+      "v2Desc": "Een nieuw verifieerbaar feit wijzigt een of meer indicatoren of statussen. De wijziging is gedocumenteerd en van bronnen voorzien.",
+      "v3Title": "V3 — Onzekerheid of onvoldoende gegevens",
+      "v3Desc": "De bronnen zijn tegenstrijdig, onvolledig of afwezig. Geen solide conclusie mogelijk. Een V3-resultaat leidt tot een herziening van het betrouwbaarheidsniveau.",
+      "v4Title": "V4 — Tijdelijke opschorting",
+      "v4Desc": "Een eerder gepubliceerde informatie kan niet meer worden geverifieerd. De informatie wordt opgeschort tot verduidelijking. Een V4-resultaat leidt tot een herziening van het betrouwbaarheidsniveau.",
+      "checklist": "Verplichte checklist",
+      "checklistItems": "Bronnen opnieuw geraadpleegd • URLs toegankelijk of gearchiveerd • Datum gedocumenteerd • Brontype geïdentificeerd • Resultaat expliciet (V1–V4) • Geen politiek oordeel • Scope duidelijk afgebakend",
+      "frequency": "Frequentie van verificaties",
+      "frequencyBudget": "Domeinen met hoge traagheid (Budget, Juridisch): maandelijkse verificatie of bij belangrijke gebeurtenis",
+      "frequencyOperational": "Operationele domeinen (Mobiliteit, Sociaal): driemaandelijkse verificatie of bij publicatie van bron",
+      "triggers": "Buitengewone triggers",
+      "triggersDesc": "Een verificatie kan worden uitgelokt door: (a) een A- of B-bron die een indicator tegenspreekt, (b) een gedocumenteerde externe melding, (c) een belangrijke institutionele gebeurtenis.",
+      "nonEvents": "Niet-gebeurtenissen",
+      "nonEventsDesc": "Een niet-gebeurtenis kan alleen worden gedocumenteerd als een verwachte deadline berust op een wettelijke basis of een gevestigd precedent, en de overschrijding objectief vaststelbaar is."
     },
     "lastUpdated": "Laatste update: {date}"
   },
@@ -692,5 +779,21 @@
     "step2": "Controleer de feiten, bronnen en toon",
     "step3": "Klik op « Valideren & publiceren » om de kaart online te zetten",
     "step4": "Of « Afwijzen » met een reden om te archiveren"
+  },
+  "verification": {
+    "title": "Laatste verificatie",
+    "date": "Geverifieerd op {date}",
+    "nextDate": "Volgende verificatie gepland: {date}",
+    "result": {
+      "no-change": "Geen wijziging vastgesteld",
+      "change-detected": "Wijziging vastgesteld",
+      "uncertainty": "Onzekerheid gemeld",
+      "suspended": "Informatie opgeschort"
+    },
+    "sourcesConsulted": "Geraadpleegde bronnen",
+    "editor": "Geverifieerd door {editor}",
+    "contestation": "Deze verificatie werd uitgevoerd door het BGM-team. Elke gedocumenteerde betwisting is welkom.",
+    "viewAll": "Bekijk de verificatiegeschiedenis",
+    "noVerification": "Geen verificatie gepubliceerd voor deze kaart."
   }
 }

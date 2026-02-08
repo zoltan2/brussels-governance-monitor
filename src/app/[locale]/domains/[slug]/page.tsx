@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
-import { getDomainCard, getAllDomainSlugs } from '@/lib/content';
+import { getDomainCard, getAllDomainSlugs, getLatestVerification } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
 import { FallbackBanner } from '@/components/fallback-banner';
@@ -13,6 +13,7 @@ import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FalcSummary } from '@/components/falc-summary';
 import { FreshnessBadge } from '@/components/freshness-badge';
+import { VerificationBadge } from '@/components/verification-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { Link } from '@/i18n/navigation';
 
@@ -78,6 +79,7 @@ export default async function DomainDetailPage({
   if (!result) notFound();
 
   const { card, isFallback } = result;
+  const verification = getLatestVerification(slug, 'domain', locale as Locale);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   const jsonLd = {
@@ -101,7 +103,7 @@ export default async function DomainDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <DomainDetail card={card} locale={locale} isFallback={isFallback} />
+      <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} />
     </>
   );
 }
@@ -110,10 +112,12 @@ function DomainDetail({
   card,
   locale,
   isFallback,
+  verification,
 }: {
   card: ReturnType<typeof getDomainCard> extends { card: infer C } | null ? C : never;
   locale: string;
   isFallback: boolean;
+  verification: ReturnType<typeof getLatestVerification>;
 }) {
   const t = useTranslations('domains');
   const tCite = useTranslations('cite');
@@ -226,6 +230,12 @@ function DomainDetail({
             {t('lastModified', { date: formatDate(card.lastModified, locale) })}
           </p>
         </div>
+
+        {verification && (
+          <div className="mt-8">
+            <VerificationBadge verification={verification} locale={locale} />
+          </div>
+        )}
 
         <div className="mt-8">
           <CardSubscribe

@@ -344,37 +344,96 @@
   },
   "methodology": {
     "title": "Unsere Methode",
-    "intro": "Brussels Governance Monitor ist ein Instrument zur Bürgerinformation. Diese Seite erklärt, wie wir Daten sammeln, überprüfen und veröffentlichen.",
+    "intro": "Brussels Governance Monitor beobachtet die konkreten Auswirkungen des Fehlens einer vollwertigen Regierung in Brüssel. Sein Ziel ist weder politisch noch aktivistisch, sondern bürgerschaftlich: institutionelle Informationen, die oft verstreut, unsichtbar oder schwer zugänglich sind, lesbar, überprüfbar und anfechtbar zu machen.",
+    "mission": {
+      "title": "Was BGM dokumentiert",
+      "what": "was geschieht,",
+      "whatNot": "was nicht geschieht,",
+      "known": "und was man zu einem bestimmten Zeitpunkt tatsächlich weiß."
+    },
+    "model": {
+      "title": "Ein einfaches Modell: Karte / Ereignis / Überprüfung",
+      "cards": "Karten",
+      "cardsDesc": "Beschreiben den Zustand eines Bereichs (Haushalt, Mobilität, Soziales...) oder eines Sektors, auf Grundlage öffentlicher Quellen.",
+      "events": "Ereignisse",
+      "eventsDesc": "Dokumentieren präzise institutionelle Fakten (Abstimmung, Entscheidung, Veröffentlichung, verpasste Frist).",
+      "verifications": "Überprüfungen",
+      "verificationsDesc": "Dokumentierte redaktionelle Handlungen, die eine bestehende Information an einem bestimmten Datum bestätigen, widerlegen oder aussetzen.",
+      "conclusion": "Dieses Modell macht institutionelle Stille sichtbar, ohne Spekulation."
+    },
+    "statuses": {
+      "title": "Auf überprüfbaren Kriterien basierende Status",
+      "description": "Jede Karte hat einen prozeduralen Status:",
+      "blocked": "rechtlich verhinderter Prozess",
+      "delayed": "formaler Zeitplan nicht eingehalten",
+      "ongoing": "aktiver und konformer Prozess",
+      "resolved": "Verfahren formal abgeschlossen",
+      "criteria": "Diese Status beruhen auf binären Kriterien, sind durch Dritte reproduzierbar und hängen weder von politischer Meinung noch von moralischer Bewertung ab.",
+      "prudence": "Zweifel führt niemals automatisch zum strengsten Status."
+    },
     "dataSources": {
-      "title": "Woher unsere Daten stammen",
-      "description": "Wir klassifizieren unsere Quellen in vier Zuverlässigkeitsstufen:",
-      "tierA": "Stufe A",
+      "title": "Eine explizite Quellenhierarchie",
+      "description": "BGM klassifiziert seine Quellen nach Art und Robustheit:",
+      "tierA": "Gesetzliche und regulatorische Quellen",
       "tierADesc": "Veröffentlichte offizielle Dokumente (Ordonnanzen, Berichte des Rechnungshofs, Statbel/IBSA-Statistiken, Parlamentsprotokolle)",
-      "tierB": "Stufe B",
+      "tierB": "Verwaltungs- und Haushaltsquellen",
       "tierBDesc": "Institutionelle Kommunikation (Pressemitteilungen von Actiris, STIB, SLRB, Bruxelles Environnement)",
-      "tierC": "Stufe C",
+      "tierC": "Operative Quellen",
       "tierCDesc": "Referenzpresse (RTBF, VRT, Le Soir, De Standaard, BX1, BRUZZ) — verwendet, wenn die Primärquelle online nicht zugänglich ist",
-      "tierD": "Stufe D",
-      "tierDDesc": "Analysen und Studien (Brupartners, Universitäten, Denkfabriken) — kontextualisieren die Rohdaten"
+      "tierD": "Analytische oder kontextuelle Quellen",
+      "tierDDesc": "Analysen und Studien (Brupartners, Universitäten, Denkfabriken) — kontextualisieren die Rohdaten",
+      "noSource": "Keine Information wird ohne identifizierbare Quelle veröffentlicht. Links, Abrufdaten und Einschränkungen werden stets angegeben."
     },
-    "verification": {
-      "title": "Wie wir überprüfen",
-      "description": "Jede veröffentlichte Angabe durchläuft einen Überprüfungsprozess:",
-      "doubleSource": "Doppelte Quelle: Jede Kennzahl wird durch mindestens zwei unabhängige Quellen überprüft, oder durch eine einzelne anerkannte institutionelle Quelle (Rechnungshof, Parlament, Verwaltung)",
-      "dateCheck": "Datumskontrolle: Jede Quelle wird eingesehen und datiert. Veraltete Daten werden aktualisiert oder entfernt.",
-      "contextCheck": "Kontextkontrolle: Zahlen werden stets von ihrem Kontext begleitet (Methodik, Geltungsbereich, bekannte Einschränkungen)"
+    "estimations": {
+      "title": "Streng eingerahmte Schätzungen",
+      "description": "Wenn BGM eine Schätzung erstellt (z. B. Haushaltsanpassung, zeitlicher Vergleich):",
+      "signaled": "wird sie ausdrücklich als Schätzung gekennzeichnet,",
+      "publicData": "beruht sie auf öffentlichen Daten,",
+      "documented": "werden ihre Methode, Annahmen und Grenzen dokumentiert,",
+      "margin": "wird eine Unsicherheitsspanne angegeben.",
+      "conclusion": "Eine Schätzung wird niemals als offizielle Tatsache dargestellt."
     },
+    "uncertainty": {
+      "title": "Der Umgang mit Unsicherheit ist Teil des Systems",
+      "description": "BGM erzwingt niemals eine Schlussfolgerung. Wenn eine Information unsicher, widersprüchlich oder nicht überprüfbar wird, wird sie:",
+      "flagged": "als solche gekennzeichnet,",
+      "maintained": "unter Vorbehalt beibehalten,",
+      "suspended": "oder vorübergehend ausgesetzt.",
+      "conclusion": "Nicht zu schlussfolgern ist manchmal die rigoroseste Position."
+    },
+    "limitations": {
+      "title": "Was BGM nicht tut",
+      "noPrediction": "Keine politische Vorhersage",
+      "noJudgment": "Kein Werturteil",
+      "noEmotional": "Keine emotionale Einstufung (\"schwerwiegend\", \"katastrophal\")",
+      "noPersonalization": "Keine politische Personalisierung (keine Namen, keine Parteien)",
+      "noCausation": "Keine nicht nachgewiesene Kausalität",
+      "conclusion": "BGM dokumentiert Prozesse, keine Absichten."
+    },
+    "transparency": {
+      "title": "Transparenz und Anfechtung",
+      "description": "Alle von BGM veröffentlichten Informationen sind quellenbelegt, datiert und überprüfbar.",
+      "channel": "Ein öffentlicher Anfechtungskanal ermöglicht es jedem Bürger, Journalisten oder jeder Institution:",
+      "reportError": "einen Fehler zu melden,",
+      "suggestSource": "eine Quelle vorzuschlagen,",
+      "askClarification": "eine methodische Klarstellung zu erbitten.",
+      "response": "Jede zulässige Anfechtung erhält eine dokumentierte Antwort."
+    },
+    "selfLimitations": {
+      "title": "Anerkannte Grenzen",
+      "description": "BGM erkennt ausdrücklich an:",
+      "framing": "eine Rahmung, die auf die Auswirkungen des Fehlens einer Regierung fokussiert ist,",
+      "coverage": "eine auf bestimmte prioritäre Bereiche begrenzte Abdeckung,",
+      "dataDependency": "eine Abhängigkeit von der Verfügbarkeit öffentlicher Daten,",
+      "team": "ein bewusst kleines Redaktionsteam.",
+      "conclusion": "Diese Grenzen werden dokumentiert, nicht verschleiert."
+    },
+    "tagline": "Brussels Governance Monitor sagt Ihnen nicht, was Sie denken sollen. Es zeigt, was überprüfbar ist, was nicht, und warum.",
     "confidence": {
       "title": "Unsere Vertrauensstufen",
       "officialDesc": "Veröffentlichte institutionelle Quelle — Daten direkt im Quelldokument überprüfbar",
       "estimatedDesc": "BGM-Schätzung auf Grundlage teilweiser Daten, mit dokumentierter Methodik",
       "unconfirmedDesc": "Information nur von der Presse gemeldet, noch nicht durch eine institutionelle Quelle bestätigt"
-    },
-    "limitations": {
-      "title": "Was BGM nicht tut",
-      "noPrediction": "Keine Vorhersagen: Wir sagen nicht voraus, wann eine Regierung gebildet wird oder welche Koalition am wahrscheinlichsten ist",
-      "noScoring": "Kein politisches Scoring: Wir vergeben keine Noten an Parteien und bewerten ihre Positionen nicht",
-      "noExhaustive": "Keine Vollständigkeit: Wir behandeln die am stärksten betroffenen Bereiche, nicht die gesamte Regionalpolitik"
     },
     "independence": {
       "title": "Unsere Unabhängigkeit",
@@ -389,6 +448,34 @@
       "substantialDesc": "Änderung einer Zahl, einer Quelle oder einer Interpretation — im Feld 'changeSummary' der Karte vermerkt",
       "retraction": "Rücknahme",
       "retractionDesc": "Entfernung falscher Informationen — ausdrücklich mit Erklärung gekennzeichnet"
+    },
+    "verification": {
+      "title": "Wie wir überprüfen",
+      "description": "Jede veröffentlichte Angabe durchläuft einen Überprüfungsprozess:",
+      "doubleSource": "Doppelte Quelle: Jede Kennzahl wird durch mindestens zwei unabhängige Quellen überprüft, oder durch eine einzelne anerkannte institutionelle Quelle (Rechnungshof, Parlament, Verwaltung)",
+      "dateCheck": "Datumskontrolle: Jede Quelle wird eingesehen und datiert. Veraltete Daten werden aktualisiert oder entfernt.",
+      "contextCheck": "Kontextkontrolle: Zahlen werden stets von ihrem Kontext begleitet (Methodik, Geltungsbereich, bekannte Einschränkungen)"
+    },
+    "protocol": {
+      "title": "Überprüfungsprotokoll",
+      "intro": "Eine Überprüfung ist eine dokumentierte redaktionelle Handlung, bei der das BGM-Team an einem bestimmten Datum den Zustand einer bestehenden Karte anhand institutioneller Quellen feststellt und explizit macht: entweder das Ausbleiben einer signifikanten Änderung, oder das Auftreten einer faktischen Änderung, oder die vorübergehende Unmöglichkeit, eine Schlussfolgerung zu ziehen.",
+      "v1Title": "V1 — Keine Änderung festgestellt",
+      "v1Desc": "Die konsultierten Quellen bestätigen, dass die Situation unverändert ist. Die institutionelle Stille ist bestätigt.",
+      "v2Title": "V2 — Faktische Änderung festgestellt",
+      "v2Desc": "Eine neue überprüfbare Tatsache ändert eine oder mehrere Kennzahlen oder Status. Die Änderung ist dokumentiert und belegt.",
+      "v3Title": "V3 — Unsicherheit oder unzureichende Daten",
+      "v3Desc": "Die Quellen sind widersprüchlich, unvollständig oder fehlen. Keine solide Schlussfolgerung möglich. Ein V3-Ergebnis löst eine Überprüfung des Vertrauensniveaus aus.",
+      "v4Title": "V4 — Vorübergehende Aussetzung",
+      "v4Desc": "Eine zuvor veröffentlichte Information kann nicht mehr überprüft werden. Die Information wird bis zur Klärung ausgesetzt. Ein V4-Ergebnis löst eine Überprüfung des Vertrauensniveaus aus.",
+      "checklist": "Obligatorische Checkliste",
+      "checklistItems": "Quellen erneut konsultiert • URLs zugänglich oder archiviert • Datum dokumentiert • Quellentyp identifiziert • Ergebnis explizit (V1–V4) • Kein politisches Urteil • Umfang klar begrenzt",
+      "frequency": "Häufigkeit der Überprüfungen",
+      "frequencyBudget": "Domänen mit hoher Trägheit (Budget, Recht): monatliche Überprüfung oder bei Großereignis",
+      "frequencyOperational": "Operative Domänen (Mobilität, Soziales): vierteljährliche Überprüfung oder bei Quellenveröffentlichung",
+      "triggers": "Außerplanmäßige Auslöser",
+      "triggersDesc": "Eine Überprüfung kann ausgelöst werden durch: (a) eine A- oder B-Quelle, die einer Kennzahl widerspricht, (b) eine dokumentierte externe Meldung, (c) ein wichtiges institutionelles Ereignis.",
+      "nonEvents": "Nicht-Ereignisse",
+      "nonEventsDesc": "Ein Nicht-Ereignis darf nur dokumentiert werden, wenn eine erwartete Frist auf einer Rechtsgrundlage oder einem etablierten Präzedenzfall beruht und die Fristüberschreitung objektiv feststellbar ist."
     },
     "lastUpdated": "Letzte Aktualisierung: {date}"
   },
@@ -692,5 +779,21 @@
     "step2": "Überprüfen Sie Fakten, Quellen und Ton",
     "step3": "Klicken Sie auf « Validieren & veröffentlichen » um die Karte online zu stellen",
     "step4": "Oder « Ablehnen » mit einem Grund zum Archivieren"
+  },
+  "verification": {
+    "title": "Letzte Überprüfung",
+    "date": "Überprüft am {date}",
+    "nextDate": "Nächste Überprüfung geplant: {date}",
+    "result": {
+      "no-change": "Keine Änderung festgestellt",
+      "change-detected": "Änderung festgestellt",
+      "uncertainty": "Unsicherheit gemeldet",
+      "suspended": "Information ausgesetzt"
+    },
+    "sourcesConsulted": "Konsultierte Quellen",
+    "editor": "Überprüft von {editor}",
+    "contestation": "Diese Überprüfung wurde vom BGM-Team durchgeführt. Jede dokumentierte Anfechtung ist willkommen.",
+    "viewAll": "Überprüfungsverlauf anzeigen",
+    "noVerification": "Keine Überprüfung für diese Karte veröffentlicht."
   }
 }

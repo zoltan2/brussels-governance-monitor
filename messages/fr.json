@@ -344,37 +344,96 @@
   },
   "methodology": {
     "title": "Notre méthode",
-    "intro": "Brussels Governance Monitor est un outil d'information citoyenne. Cette page explique comment nous collectons, vérifions et publions les données.",
+    "intro": "Brussels Governance Monitor observe les effets concrets de l'absence de gouvernement de plein exercice à Bruxelles. Son objectif n'est ni politique, ni militant, mais civique : rendre lisibles, vérifiables et contestables des informations institutionnelles souvent dispersées, silencieuses ou difficiles d'accès.",
+    "mission": {
+      "title": "Ce que BGM documente",
+      "what": "ce qui se passe,",
+      "whatNot": "ce qui ne se passe pas,",
+      "known": "et ce que l'on sait réellement à un instant donné."
+    },
+    "model": {
+      "title": "Un modèle simple : Carte / Événement / Vérification",
+      "cards": "Cartes",
+      "cardsDesc": "Décrivent l'état d'un domaine (budget, mobilité, social…) ou d'un secteur, à partir de sources publiques.",
+      "events": "Événements",
+      "eventsDesc": "Documentent des faits institutionnels précis (vote, décision, publication, échéance manquée).",
+      "verifications": "Vérifications",
+      "verificationsDesc": "Actes éditoriaux documentés qui confirment, infirment ou suspendent une information existante à une date donnée.",
+      "conclusion": "Ce modèle permet de rendre le silence institutionnel visible, sans spéculation."
+    },
+    "statuses": {
+      "title": "Des statuts fondés sur des critères vérifiables",
+      "description": "Chaque carte possède un statut procédural :",
+      "blocked": "processus juridiquement empêché",
+      "delayed": "calendrier formel non respecté",
+      "ongoing": "processus actif et conforme",
+      "resolved": "procédure formellement clôturée",
+      "criteria": "Ces statuts reposent sur des critères binaires, sont reproductibles par un tiers, et ne dépendent ni d'opinion politique ni d'évaluation morale.",
+      "prudence": "Le doute ne conduit jamais automatiquement au statut le plus sévère."
+    },
     "dataSources": {
-      "title": "D'où viennent nos données",
-      "description": "Nous classons nos sources en quatre niveaux de fiabilité :",
-      "tierA": "Niveau A",
+      "title": "Une hiérarchie explicite des sources",
+      "description": "BGM classe ses sources selon leur nature et leur robustesse :",
+      "tierA": "Sources légales et réglementaires",
       "tierADesc": "Documents officiels publiés (ordonnances, rapports de la Cour des comptes, statistiques Statbel/IBSA, procès-verbaux du Parlement)",
-      "tierB": "Niveau B",
+      "tierB": "Sources administratives et budgétaires",
       "tierBDesc": "Communications institutionnelles (communiqués de presse d'Actiris, STIB, SLRB, Bruxelles Environnement)",
-      "tierC": "Niveau C",
+      "tierC": "Sources opérationnelles",
       "tierCDesc": "Presse de référence (RTBF, VRT, Le Soir, De Standaard, BX1, BRUZZ) — utilisée quand la source primaire n'est pas accessible en ligne",
-      "tierD": "Niveau D",
-      "tierDDesc": "Analyses et études (Brupartners, universités, think tanks) — contextualisent les données brutes"
+      "tierD": "Sources analytiques ou contextuelles",
+      "tierDDesc": "Analyses et études (Brupartners, universités, think tanks) — contextualisent les données brutes",
+      "noSource": "Aucune information n'est publiée sans source identifiable. Les liens, dates de consultation et limites sont toujours indiqués."
     },
-    "verification": {
-      "title": "Comment nous vérifions",
-      "description": "Chaque donnée publiée passe par un processus de vérification :",
-      "doubleSource": "Double source : toute métrique est vérifiée par au moins deux sources indépendantes, ou par une source institutionnelle unique reconnue (Cour des comptes, Parlement, administration)",
-      "dateCheck": "Vérification de date : chaque source est consultée et datée. Les données obsolètes sont mises à jour ou retirées.",
-      "contextCheck": "Vérification de contexte : les chiffres sont toujours accompagnés de leur contexte (méthodologie, périmètre, limites connues)"
+    "estimations": {
+      "title": "Des estimations strictement encadrées",
+      "description": "Lorsque BGM produit une estimation (ex. ajustement budgétaire, comparaison temporelle) :",
+      "signaled": "elle est explicitement signalée comme estimation,",
+      "publicData": "elle repose sur des données publiques,",
+      "documented": "sa méthode, ses hypothèses et ses limites sont documentées,",
+      "margin": "une marge d'incertitude est indiquée.",
+      "conclusion": "Une estimation n'est jamais présentée comme un fait officiel."
     },
+    "uncertainty": {
+      "title": "La gestion de l'incertitude fait partie du système",
+      "description": "BGM ne force jamais une conclusion. Lorsqu'une information devient incertaine, contradictoire ou non vérifiable, elle est :",
+      "flagged": "signalée comme telle,",
+      "maintained": "maintenue avec réserve,",
+      "suspended": "ou suspendue temporairement.",
+      "conclusion": "Ne pas conclure est parfois la position la plus rigoureuse."
+    },
+    "limitations": {
+      "title": "Ce que BGM ne fait pas",
+      "noPrediction": "Pas de prédiction politique",
+      "noJudgment": "Pas de jugement de valeur",
+      "noEmotional": "Pas de classement émotionnel (« grave », « catastrophique »)",
+      "noPersonalization": "Pas de personnalisation politique (pas de noms, pas de partis)",
+      "noCausation": "Pas de causalité non démontrée",
+      "conclusion": "BGM documente des processus, pas des intentions."
+    },
+    "transparency": {
+      "title": "Transparence et contestation",
+      "description": "Toute information publiée par BGM est sourcée, datée et vérifiable.",
+      "channel": "Un canal public de contestation permet à tout citoyen, journaliste ou institution de :",
+      "reportError": "signaler une erreur,",
+      "suggestSource": "proposer une source,",
+      "askClarification": "demander une clarification méthodologique.",
+      "response": "Chaque contestation recevable reçoit une réponse documentée."
+    },
+    "selfLimitations": {
+      "title": "Limites assumées",
+      "description": "BGM reconnaît explicitement :",
+      "framing": "un cadrage centré sur l'impact de l'absence de gouvernement,",
+      "coverage": "une couverture limitée à certains domaines prioritaires,",
+      "dataDependency": "une dépendance à la disponibilité des données publiques,",
+      "team": "une équipe éditoriale volontairement réduite.",
+      "conclusion": "Ces limites sont documentées, non dissimulées."
+    },
+    "tagline": "Brussels Governance Monitor ne dit pas quoi penser. Il montre ce qui est vérifiable, ce qui ne l'est pas, et pourquoi.",
     "confidence": {
       "title": "Nos niveaux de confiance",
       "officialDesc": "Source institutionnelle publiée — donnée vérifiable directement dans le document source",
       "estimatedDesc": "Estimation BGM basée sur des données partielles, avec méthodologie documentée",
       "unconfirmedDesc": "Information rapportée par la presse uniquement, non encore confirmée par une source institutionnelle"
-    },
-    "limitations": {
-      "title": "Ce que BGM ne fait pas",
-      "noPrediction": "Pas de prédiction : nous ne prédisons pas quand un gouvernement sera formé ni quelle coalition est la plus probable",
-      "noScoring": "Pas de scoring politique : nous n'attribuons pas de notes aux partis ni ne jugeons leurs positions",
-      "noExhaustive": "Pas d'exhaustivité : nous couvrons les domaines les plus impactés, pas l'intégralité de la politique régionale"
     },
     "independence": {
       "title": "Notre indépendance",
@@ -389,6 +448,34 @@
       "substantialDesc": "Modification d'un chiffre, d'une source ou d'une interprétation — signalée dans le champ « changeSummary » de la fiche",
       "retraction": "Rétractation",
       "retractionDesc": "Suppression d'une information fausse — signalée explicitement avec explication"
+    },
+    "verification": {
+      "title": "Comment nous vérifions",
+      "description": "Chaque donnée publiée passe par un processus de vérification :",
+      "doubleSource": "Double source : toute métrique est vérifiée par au moins deux sources indépendantes, ou par une source institutionnelle unique reconnue (Cour des comptes, Parlement, administration)",
+      "dateCheck": "Vérification de date : chaque source est consultée et datée. Les données obsolètes sont mises à jour ou retirées.",
+      "contextCheck": "Vérification de contexte : les chiffres sont toujours accompagnés de leur contexte (méthodologie, périmètre, limites connues)"
+    },
+    "protocol": {
+      "title": "Protocole de vérification",
+      "intro": "La Vérification est un acte éditorial documenté par lequel l'équipe de BGM constate, à une date donnée, l'état d'une carte existante au regard de sources institutionnelles, et explicite : soit l'absence de changement significatif, soit l'apparition d'un changement factuel, soit l'impossibilité temporaire de conclure.",
+      "v1Title": "V1 — Aucun changement constaté",
+      "v1Desc": "Les sources consultées confirment que la situation est inchangée. Le silence institutionnel est confirmé.",
+      "v2Title": "V2 — Changement factuel identifié",
+      "v2Desc": "Un fait nouveau vérifiable modifie une ou plusieurs métriques ou statuts. Le changement est documenté et sourcé.",
+      "v3Title": "V3 — Incertitude ou données insuffisantes",
+      "v3Desc": "Les sources sont contradictoires, incomplètes ou absentes. Aucune conclusion solide ne peut être tirée. Un résultat V3 déclenche un réexamen du niveau de confiance.",
+      "v4Title": "V4 — Suspension temporaire",
+      "v4Desc": "Une information précédemment publiée ne peut plus être vérifiée. L'information est suspendue jusqu'à clarification. Un résultat V4 déclenche un réexamen du niveau de confiance.",
+      "checklist": "Checklist obligatoire",
+      "checklistItems": "Sources reconsultées • URLs accessibles ou archivées • Date documentée • Type de source identifié • Résultat explicite (V1–V4) • Aucun jugement politique • Périmètre clairement limité",
+      "frequency": "Fréquence des vérifications",
+      "frequencyBudget": "Domaines à forte inertie (Budget, Légalité) : vérification mensuelle ou déclenchée par événement majeur",
+      "frequencyOperational": "Domaines opérationnels (Mobilité, Social) : vérification trimestrielle ou à publication source",
+      "triggers": "Déclencheurs hors cycle",
+      "triggersDesc": "Une vérification peut être déclenchée par : (a) une source A ou B contredisant une métrique, (b) un signalement externe documenté, (c) un événement institutionnel majeur.",
+      "nonEvents": "Non-événements",
+      "nonEventsDesc": "Un non-événement ne peut être documenté que si une échéance attendue repose sur une base légale ou un précédent établi, et que le dépassement du délai est objectivement constatable."
     },
     "lastUpdated": "Dernière mise à jour : {date}"
   },
@@ -692,5 +779,21 @@
     "step2": "Vérifiez les faits, les sources, et le ton",
     "step3": "Cliquez sur « Valider & publier » pour mettre la carte en ligne",
     "step4": "Ou « Rejeter » avec un motif pour l'archiver"
+  },
+  "verification": {
+    "title": "Dernière vérification",
+    "date": "Vérifiée le {date}",
+    "nextDate": "Prochaine vérification prévue : {date}",
+    "result": {
+      "no-change": "Aucun changement constaté",
+      "change-detected": "Changement identifié",
+      "uncertainty": "Incertitude signalée",
+      "suspended": "Information suspendue"
+    },
+    "sourcesConsulted": "Sources consultées",
+    "editor": "Vérifié par {editor}",
+    "contestation": "Cette vérification a été effectuée par l'équipe BGM. Toute contestation documentée est la bienvenue.",
+    "viewAll": "Voir l'historique des vérifications",
+    "noVerification": "Aucune vérification publiée pour cette carte."
   }
 }

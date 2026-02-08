@@ -131,12 +131,30 @@ export interface ComparisonCard {
   permalink: string;
 }
 
+export interface Verification {
+  slug: string;
+  locale: Locale;
+  cardType: 'domain' | 'sector';
+  cardSlug: string;
+  date: string;
+  result: 'no-change' | 'change-detected' | 'uncertainty' | 'suspended';
+  summary: string;
+  trigger?: string;
+  sourcesConsulted: Array<{ label: string; url: string; accessedAt: string }>;
+  editor: string;
+  nextVerification?: string;
+  lastModified: string;
+  content: string;
+  permalink: string;
+}
+
 interface VeliteCollections {
   domainCards: DomainCard[];
   solutionCards: SolutionCard[];
   formationRounds: FormationRound[];
   formationEvents: FormationEvent[];
   glossaryTerms: GlossaryTerm[];
+  verifications: Verification[];
   sectorCards: SectorCard[];
   comparisonCards: ComparisonCard[];
 }
@@ -152,6 +170,7 @@ function getCollections(): VeliteCollections {
       formationRounds: [],
       formationEvents: [],
       glossaryTerms: [],
+      verifications: [],
       sectorCards: [],
       comparisonCards: [],
     };
@@ -449,6 +468,56 @@ export function getComparisonCard(
 export function getAllComparisonSlugs(): string[] {
   const { comparisonCards } = getCollections();
   return [...new Set(comparisonCards.map((c) => c.slug))];
+}
+
+// ──────────────────────────────────────────────
+// Verifications
+// ──────────────────────────────────────────────
+
+/**
+ * Get the latest verification for a given card (by cardSlug + cardType).
+ * Falls back to FR if locale version doesn't exist.
+ */
+export function getLatestVerification(
+  cardSlug: string,
+  cardType: 'domain' | 'sector',
+  locale: Locale,
+): Verification | null {
+  const { verifications } = getCollections();
+
+  const matching = verifications
+    .filter((v) => v.cardSlug === cardSlug && v.cardType === cardType && v.locale === locale)
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+  if (matching.length > 0) return matching[0];
+
+  // Fallback to FR
+  const frMatching = verifications
+    .filter((v) => v.cardSlug === cardSlug && v.cardType === cardType && v.locale === 'fr')
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+  return frMatching.length > 0 ? frMatching[0] : null;
+}
+
+/**
+ * Get all verifications for a given card, sorted by date desc.
+ */
+export function getCardVerifications(
+  cardSlug: string,
+  cardType: 'domain' | 'sector',
+  locale: Locale,
+): Verification[] {
+  const { verifications } = getCollections();
+
+  const matching = verifications
+    .filter((v) => v.cardSlug === cardSlug && v.cardType === cardType && v.locale === locale)
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+  if (matching.length > 0) return matching;
+
+  return verifications
+    .filter((v) => v.cardSlug === cardSlug && v.cardType === cardType && v.locale === 'fr')
+    .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 // ──────────────────────────────────────────────

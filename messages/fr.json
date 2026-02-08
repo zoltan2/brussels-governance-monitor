@@ -29,10 +29,21 @@
       "ongoing": "En cours",
       "resolved": "Résolu"
     },
+    "statusCitizen": {
+      "blocked": "Ce dossier ne peut pas avancer sans nouveau gouvernement.",
+      "delayed": "Ce dossier a pris du retard par rapport à son calendrier officiel.",
+      "ongoing": "Ce dossier avance normalement dans le cadre actuel.",
+      "resolved": "Ce dossier est terminé. Une décision officielle a été prise."
+    },
     "confidence": {
       "official": "Source officielle",
       "estimated": "Estimation BGM",
       "unconfirmed": "Non confirmé"
+    },
+    "confidenceCitizen": {
+      "official": "Confirmé par une source officielle",
+      "estimated": "Estimé par BGM (méthode documentée)",
+      "unconfirmed": "En attente de confirmation officielle"
     },
     "lastModified": "Dernière mise à jour : {date}",
     "sources": "Sources",
@@ -41,7 +52,34 @@
     "backToHome": "Retour à l'accueil",
     "accessedAt": "consulté le {date}",
     "share": "Partager",
-    "copied": "Lien copié !"
+    "copied": "Lien copié !",
+    "concreteImpactTitle": "Ce que ça signifie concrètement",
+    "concreteImpact": {
+      "budget": "Aucun nouveau budget ne peut être voté. La Région fonctionne sur la base du budget précédent, reconduit par douzièmes provisoires. Les investissements nouveaux sont juridiquement impossibles et la valeur réelle des dépenses existantes diminue avec l'inflation.",
+      "mobility": "Les projets d'infrastructure majeurs (Metro 3, rénovation de tunnels, nouvelles phases de Good Move) ne peuvent pas recevoir d'approbation politique. La STIB assure le service existant mais aucun développement nouveau ne peut être lancé.",
+      "employment": "La Région ne peut pas créer de nouveaux programmes d'emploi ni adapter ses dispositifs à la réforme fédérale du chômage. Les mesures existantes continuent mais sans possibilité d'ajustement face à la hausse du chômage.",
+      "housing": "Aucun nouveau programme de logement social ne peut être lancé. Le Fonds du Logement a suspendu ses crédits. La liste d'attente (62 234 ménages) s'allonge chaque mois sans possibilité de réponse politique structurelle.",
+      "climate": "Les nouvelles phases du Plan Air-Climat-Énergie ne peuvent pas être lancées. Les primes Renolution sont réduites aux enveloppes existantes. La trajectoire vers l'objectif de -40 % de CO2 d'ici 2030 prend du retard faute de décisions nouvelles.",
+      "social": "Les investissements bicommunautaires de la COCOM sont gelés. Les CPAS font face à un afflux de demandes sans moyens supplémentaires. Les nouvelles initiatives en santé mentale et politique sans-abri sont à l'arrêt."
+    },
+    "whyStatusTitle": "Pourquoi ce statut",
+    "whyStatus": {
+      "budget": "Le vote d'un nouveau budget régional requiert un gouvernement de plein exercice (Loi spéciale du 12 janvier 1989). En affaires courantes, le Parlement ne peut voter que les douzièmes provisoires. Aucune autorité alternative n'existe pour cette compétence. Le mécanisme palliatif actif est la reconduction du budget précédent par douzièmes provisoires (ordonnance du 20/12/2024).",
+      "mobility": "Les projets Metro 3 et Good Move Phase 2 requièrent des décisions gouvernementales (approbation de marchés publics, engagements budgétaires pluriannuels). Ces décisions ne relèvent pas des affaires courantes. Le Parlement a questionné le gouvernement sortant à ce sujet. La STIB continue ses opérations courantes mais les échéances contractuelles de Metro 3 sont dépassées.",
+      "employment": "Les mesures régionales d'activation de l'emploi (plans de formation, emplois subventionnés) ont des échéances réglementaires qui arrivent à terme. Le renouvellement de ces dispositifs requiert des décisions gouvernementales. Actiris continue son fonctionnement courant mais ne peut pas adapter ses programmes à la réforme fédérale du chômage.",
+      "housing": "La création de logements sociaux et l'attribution de crédits au Fonds du Logement requièrent des engagements budgétaires nouveaux, impossibles en affaires courantes. La SLRB continue la gestion du parc existant mais ne peut lancer aucune nouvelle construction. La liste d'attente dépasse 62 000 ménages, un seuil record.",
+      "climate": "L'adoption des nouvelles phases du Plan Air-Climat-Énergie (PACE) requiert une validation gouvernementale. Les échéances fixées par l'objectif 2030 sont formellement dépassées sans décision structurelle. Bruxelles Environnement continue ses programmes existants mais sans budget nouveau pour les primes Renolution élargies.",
+      "social": "Les décisions d'investissement de la COCOM (compétence bicommunautaire) requièrent une approbation politique impossible en affaires courantes. Les CPAS dépendent des subsides régionaux dont les enveloppes ne peuvent être augmentées. Iriscare fonctionne en mode minimal. Le nombre de sans-abri dénombrés augmente sans réponse politique possible."
+    },
+    "notSaidTitle": "Ce que BGM ne dit pas",
+    "notSaid": {
+      "budget": "Cette fiche ne dit pas que le budget actuel est insuffisant en soi — elle documente que l'absence de nouveau budget empêche toute adaptation aux réalités économiques actuelles. La corrélation entre affaires courantes et dégradation budgétaire n'est pas présentée comme une causalité directe.",
+      "mobility": "Cette fiche ne dit pas que les projets de mobilité sont annulés — elle documente qu'ils sont en attente de décision politique. Le retard constaté peut avoir des causes multiples dont certaines sont antérieures à la crise gouvernementale.",
+      "employment": "Cette fiche ne dit pas que la hausse du chômage est causée par l'absence de gouvernement — elle documente que les mesures régionales de réponse sont gelées pendant que le taux évolue. La dynamique de l'emploi dépend de facteurs multiples (conjoncture, réforme fédérale, structure économique).",
+      "housing": "Cette fiche ne dit pas que la crise du logement est née avec la crise gouvernementale — le déficit de logements sociaux est structurel et antérieur. Elle documente que l'absence de gouvernement empêche toute réponse politique nouvelle à une situation qui se dégrade.",
+      "climate": "Cette fiche ne dit pas que Bruxelles va manquer ses objectifs climatiques à cause de l'absence de gouvernement — elle documente que les mécanismes de décision nécessaires pour atteindre ces objectifs sont gelés. L'atteinte de l'objectif 2030 dépend de nombreux facteurs au-delà de la gouvernance régionale.",
+      "social": "Cette fiche ne dit pas que les services sociaux ne fonctionnent plus — les CPAS et Iriscare continuent leur mission de base. Elle documente que les investissements nouveaux, les adaptations de capacité et les réformes structurelles sont impossibles en affaires courantes."
+    }
   },
   "solutions": {
     "title": "Comment ça peut se débloquer ?",
@@ -76,6 +114,7 @@
     "license": "Code source AGPL v3",
     "editorial": "Charte éditoriale",
     "methodology": "Notre méthode",
+    "howToRead": "Comment lire ce site",
     "privacy": "Politique de confidentialité",
     "glossary": "Glossaire",
     "faq": "FAQ",
@@ -660,6 +699,9 @@
     }
   },
   "home": {
+    "citizenIntro": "Bruxelles n'a pas de gouvernement de plein exercice depuis juin 2024. Ce site montre ce qui avance, ce qui est bloqué, et ce que l'on sait avec certitude — à partir de sources publiques vérifiables.",
+    "citizenIntroFalc": "Bruxelles n'a pas de vrai gouvernement depuis plus d'un an. Ce site vous montre ce qui fonctionne encore, ce qui est arrêté, et pourquoi.",
+    "howToReadLink": "Comment lire ce site ?",
     "mission": {
       "what": "BGM rend visible ce qui se passe (ou ne se passe pas) à Bruxelles sans gouvernement.",
       "how": "Chaque donnée est sourcée, chaque métrique est vérifiable, chaque analyse est transparente.",
@@ -796,5 +838,43 @@
     "contestation": "Cette vérification a été effectuée par l'équipe BGM. Toute contestation documentée est la bienvenue.",
     "viewAll": "Voir l'historique des vérifications",
     "noVerification": "Aucune vérification publiée pour cette carte."
+  },
+  "howToRead": {
+    "title": "Comment lire ce site",
+    "intro": "Ce guide explique comment interpréter les informations présentées sur Brussels Governance Monitor. Aucune connaissance politique préalable n'est requise.",
+    "statusTitle": "Les statuts des dossiers",
+    "statusIntro": "Chaque fiche domaine affiche un statut qui reflète son état actuel :",
+    "statusBlocked": "Bloqué",
+    "statusBlockedDesc": "Ce dossier ne peut pas avancer sans nouveau gouvernement. Une décision politique est légalement requise et personne n'a l'autorité pour la prendre en affaires courantes.",
+    "statusDelayed": "Retardé",
+    "statusDelayedDesc": "Ce dossier a pris du retard par rapport à son calendrier officiel. Des échéances ont été dépassées ou des décisions reportées.",
+    "statusOngoing": "En cours",
+    "statusOngoingDesc": "Ce dossier avance normalement dans le cadre actuel. Les mécanismes existants fonctionnent sans intervention politique nouvelle.",
+    "statusResolved": "Résolu",
+    "statusResolvedDesc": "Ce dossier est terminé. Une décision officielle a été prise et le problème identifié a été traité.",
+    "confidenceTitle": "Les niveaux de confiance",
+    "confidenceIntro": "Chaque donnée que nous publions porte un niveau de confiance qui indique d'où elle vient :",
+    "confidenceOfficialLabel": "Source officielle",
+    "confidenceOfficialDesc": "L'information provient d'un document officiel (ordonnance, rapport parlementaire, statistique publique). C'est le niveau le plus fiable.",
+    "confidenceEstimatedLabel": "Estimation BGM",
+    "confidenceEstimatedDesc": "L'information est calculée par BGM à partir de données publiques, avec une méthode documentée. La marge d'erreur est indiquée quand elle est significative.",
+    "confidenceUnconfirmedLabel": "Non confirmé",
+    "confidenceUnconfirmedDesc": "L'information provient uniquement de sources de presse et n'a pas encore été confirmée par un document officiel. Elle peut évoluer.",
+    "cardsTitle": "Comprendre les fiches",
+    "cardsIntro": "Chaque fiche domaine vous présente :",
+    "cardsStatus": "Un statut coloré (bloqué, retardé, en cours, résolu) — voir ci-dessus",
+    "cardsMetrics": "Des chiffres clés — les données essentielles avec leur source",
+    "cardsAnalysis": "Une analyse factuelle — ce qui se passe concrètement, sans opinion",
+    "cardsSources": "Les sources — avec liens directs vers les documents originaux",
+    "cardsVerification": "Une vérification périodique — indiquant quand la fiche a été vérifiée pour la dernière fois",
+    "falcTitle": "Lecture facile",
+    "falcDesc": "Certaines fiches proposent un résumé « En bref » en langage simplifié (niveau B1). Ce résumé ne remplace pas la fiche complète mais permet une première compréhension rapide.",
+    "timelineTitle": "La chronologie",
+    "timelineDesc": "La chronologie retrace les événements officiels de la formation du gouvernement bruxellois, dans l'ordre. Chaque événement est daté et sourcé.",
+    "moreTitle": "Pour aller plus loin",
+    "moreMethodology": "Notre méthodologie complète explique comment nous vérifions, estimons et corrigeons nos informations.",
+    "moreExplainers": "Les pages « Comprendre » approfondissent des sujets clés (niveaux de pouvoir, paradoxe bruxellois, etc.).",
+    "moreData": "La page Données permet de télécharger toutes nos métriques en format ouvert (CSV, JSON).",
+    "lastUpdated": "Dernière mise à jour de ce guide : {date}"
   }
 }

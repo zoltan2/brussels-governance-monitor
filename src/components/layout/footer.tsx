@@ -44,6 +44,9 @@ export function Footer() {
               <Link href="/methodology" className="hover:text-neutral-700">
                 {t('methodology')}
               </Link>
+              <Link href="/how-to-read" className="hover:text-neutral-700">
+                {t('howToRead')}
+              </Link>
               <Link href="/privacy" className="hover:text-neutral-700">
                 {t('privacy')}
               </Link>

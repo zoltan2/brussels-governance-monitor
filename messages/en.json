@@ -29,10 +29,21 @@
       "ongoing": "Ongoing",
       "resolved": "Resolved"
     },
+    "statusCitizen": {
+      "blocked": "This issue cannot move forward without a new government.",
+      "delayed": "This issue has fallen behind its official schedule.",
+      "ongoing": "This issue is progressing normally within the current framework.",
+      "resolved": "This issue is concluded. An official decision has been taken."
+    },
     "confidence": {
       "official": "Official source",
       "estimated": "BGM estimate",
       "unconfirmed": "Unconfirmed"
+    },
+    "confidenceCitizen": {
+      "official": "Confirmed by an official source",
+      "estimated": "Estimated by BGM (documented methodology)",
+      "unconfirmed": "Awaiting official confirmation"
     },
     "lastModified": "Last updated: {date}",
     "sources": "Sources",
@@ -41,7 +52,34 @@
     "backToHome": "Back to home",
     "accessedAt": "accessed on {date}",
     "share": "Share",
-    "copied": "Link copied!"
+    "copied": "Link copied!",
+    "concreteImpactTitle": "What this means in practice",
+    "concreteImpact": {
+      "budget": "No new budget can be voted. The Region operates on the basis of the previous budget, rolled over through provisional twelfths. New investments are legally impossible and the real value of existing expenditure is eroded by inflation.",
+      "mobility": "Major infrastructure projects (Metro 3, tunnel renovations, new phases of Good Move) cannot receive political approval. STIB (Brussels transit) maintains existing services but no new development can be launched.",
+      "employment": "The Region cannot create new employment programmes or adapt its measures to the federal unemployment reform. Existing measures continue but without the possibility of adjustment in response to rising unemployment.",
+      "housing": "No new social housing programme can be launched. The Housing Fund has suspended its lending. The waiting list (62,234 households) grows each month with no possibility of a structural policy response.",
+      "climate": "The new phases of the Air-Climate-Energy Plan cannot be launched. Renolution energy renovation grants are limited to existing budgets. The trajectory towards the target of -40% CO2 by 2030 is falling behind due to the absence of new decisions.",
+      "social": "Bi-community investments by COCOM (Joint Community Commission) are frozen. CPAS (public social welfare centres) face a surge in requests without additional resources. New initiatives in mental health and homelessness policy are on hold."
+    },
+    "whyStatusTitle": "Why this status",
+    "whyStatus": {
+      "budget": "Voting a new regional budget requires a fully empowered government (Special Law of 12 January 1989). Under caretaker government, Parliament can only vote provisional twelfths. No alternative authority exists for this competence. The active fallback mechanism is the rollover of the previous budget through provisional twelfths (ordinance of 20/12/2024).",
+      "mobility": "The Metro 3 and Good Move Phase 2 projects require government decisions (approval of public procurement, multi-year budget commitments). These decisions fall outside the scope of caretaker government. Parliament has questioned the outgoing government on this matter. STIB (Brussels transit) continues its day-to-day operations but the contractual deadlines for Metro 3 have been exceeded.",
+      "employment": "Regional employment activation measures (training plans, subsidised jobs) have regulatory deadlines that are expiring. Renewing these measures requires government decisions. Actiris continues its day-to-day operations but cannot adapt its programmes to the federal unemployment reform.",
+      "housing": "The creation of social housing and the allocation of credits to the Housing Fund require new budget commitments, which are impossible under caretaker government. The SLRB (Brussels social housing agency) continues managing the existing stock but cannot launch any new construction. The waiting list exceeds 62,000 households, a record threshold.",
+      "climate": "The adoption of the new phases of the Air-Climate-Energy Plan (PACE) requires government approval. The deadlines set by the 2030 target have been formally exceeded without a structural decision. Brussels Environment continues its existing programmes but without a new budget for expanded Renolution grants.",
+      "social": "Investment decisions by COCOM (Joint Community Commission, a bi-community competence) require political approval that is impossible under caretaker government. CPAS (public social welfare centres) depend on regional subsidies whose budgets cannot be increased. Iriscare operates in minimal mode. The number of counted homeless persons is rising without the possibility of a policy response."
+    },
+    "notSaidTitle": "What BGM does not say",
+    "notSaid": {
+      "budget": "This card does not say that the current budget is inherently insufficient — it documents that the absence of a new budget prevents any adaptation to current economic realities. The correlation between caretaker government and budgetary deterioration is not presented as direct causation.",
+      "mobility": "This card does not say that the mobility projects have been cancelled — it documents that they are awaiting a political decision. The observed delay may have multiple causes, some of which predate the government crisis.",
+      "employment": "This card does not say that rising unemployment is caused by the absence of government — it documents that regional response measures are frozen while the unemployment rate evolves. Employment dynamics depend on multiple factors (economic conditions, federal reform, economic structure).",
+      "housing": "This card does not say that the housing crisis was born with the government crisis — the social housing deficit is structural and predates it. It documents that the absence of government prevents any new policy response to a deteriorating situation.",
+      "climate": "This card does not say that Brussels will miss its climate targets because of the absence of government — it documents that the decision-making mechanisms needed to reach those targets are frozen. Reaching the 2030 target depends on many factors beyond regional governance.",
+      "social": "This card does not say that social services have stopped functioning — CPAS (public social welfare centres) and Iriscare continue their core mission. It documents that new investments, capacity adjustments, and structural reforms are impossible under caretaker government."
+    }
   },
   "solutions": {
     "title": "How can this be resolved?",
@@ -85,7 +123,8 @@
     "contentTitle": "Content",
     "aboutTitle": "About",
     "data": "Data",
-    "comparisons": "Comparisons"
+    "comparisons": "Comparisons",
+    "howToRead": "How to read this site"
   },
   "locale": {
     "switchTo": "Change language",
@@ -660,6 +699,9 @@
     }
   },
   "home": {
+    "citizenIntro": "Brussels has been without a fully empowered government since June 2024. This site shows what is progressing, what is blocked, and what is known with certainty — based on verifiable public sources.",
+    "citizenIntroFalc": "Brussels has had no real government for over a year. This site shows you what is still working, what has stopped, and why.",
+    "howToReadLink": "How to read this site?",
     "mission": {
       "what": "BGM makes visible what is happening (or not happening) in Brussels without a government.",
       "how": "Every data point is sourced, every metric is verifiable, every analysis is transparent.",
@@ -796,5 +838,43 @@
     "contestation": "This verification was performed by the BGM team. Any documented contestation is welcome.",
     "viewAll": "View verification history",
     "noVerification": "No verification published for this card."
+  },
+  "howToRead": {
+    "title": "How to read this site",
+    "intro": "This guide explains how to interpret the information presented on Brussels Governance Monitor. No prior political knowledge is required.",
+    "statusTitle": "Issue statuses",
+    "statusIntro": "Each domain card displays a status reflecting its current state:",
+    "statusBlocked": "Blocked",
+    "statusBlockedDesc": "This issue cannot move forward without a new government. A political decision is legally required and no one has the authority to take it under caretaker government.",
+    "statusDelayed": "Delayed",
+    "statusDelayedDesc": "This issue has fallen behind its official schedule. Deadlines have been missed or decisions postponed.",
+    "statusOngoing": "Ongoing",
+    "statusOngoingDesc": "This issue is progressing normally within the current framework. Existing mechanisms are functioning without new political intervention.",
+    "statusResolved": "Resolved",
+    "statusResolvedDesc": "This issue is concluded. An official decision has been taken and the identified problem has been addressed.",
+    "confidenceTitle": "Confidence levels",
+    "confidenceIntro": "Every piece of data we publish carries a confidence level indicating where it comes from:",
+    "confidenceOfficialLabel": "Official source",
+    "confidenceOfficialDesc": "The information comes from an official document (ordinance, parliamentary report, public statistics). This is the most reliable level.",
+    "confidenceEstimatedLabel": "BGM estimate",
+    "confidenceEstimatedDesc": "The information is calculated by BGM from public data, using a documented methodology. The margin of error is indicated when significant.",
+    "confidenceUnconfirmedLabel": "Unconfirmed",
+    "confidenceUnconfirmedDesc": "The information comes solely from press sources and has not yet been confirmed by an official document. It may evolve.",
+    "cardsTitle": "Understanding the cards",
+    "cardsIntro": "Each domain card presents:",
+    "cardsStatus": "A colour-coded status (blocked, delayed, ongoing, resolved) — see above",
+    "cardsMetrics": "Key figures — essential data with their source",
+    "cardsAnalysis": "A factual analysis — what is concretely happening, without opinion",
+    "cardsSources": "Sources — with direct links to original documents",
+    "cardsVerification": "A periodic verification — indicating when the card was last verified",
+    "falcTitle": "Easy read",
+    "falcDesc": "Some cards offer an 'In brief' summary in simplified language (B1 level). This summary does not replace the full card but provides a quick initial understanding.",
+    "timelineTitle": "The timeline",
+    "timelineDesc": "The timeline traces the official events of the Brussels government formation, in order. Each event is dated and sourced.",
+    "moreTitle": "Going further",
+    "moreMethodology": "Our full methodology explains how we verify, estimate, and correct our information.",
+    "moreExplainers": "The 'Understand' pages explore key topics in depth (levels of power, the Brussels paradox, etc.).",
+    "moreData": "The Data page allows you to download all our metrics in open format (CSV, JSON).",
+    "lastUpdated": "Last updated: {date}"
   }
 }

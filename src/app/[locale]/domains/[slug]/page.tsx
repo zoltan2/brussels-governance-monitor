@@ -15,6 +15,7 @@ import { FalcSummary } from '@/components/falc-summary';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { VerificationBadge } from '@/components/verification-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
+import { StatusAccordion } from '@/components/status-accordion';
 import { Link } from '@/i18n/navigation';
 
 export function generateStaticParams() {
@@ -145,16 +146,26 @@ function DomainDetail({
         {card.draft && <DraftBanner />}
         {isFallback && <FallbackBanner targetLocale={locale} />}
 
-        <div className="mt-4 mb-6 flex items-start justify-between gap-3">
-          <h1 className="text-3xl font-bold text-neutral-900">{card.title}</h1>
-          <span
-            className={cn(
-              'shrink-0 rounded-full px-3 py-1 text-sm font-medium',
-              statusStyles[card.status],
-            )}
-          >
-            {t(`status.${card.status}`)}
-          </span>
+        <div className="mt-4 mb-6">
+          <div className="flex items-start justify-between gap-3">
+            <h1 className="text-3xl font-bold text-neutral-900">{card.title}</h1>
+            <span
+              className={cn(
+                'shrink-0 rounded-full px-3 py-1 text-sm font-medium',
+                statusStyles[card.status],
+              )}
+            >
+              {t(`status.${card.status}`)}
+            </span>
+          </div>
+          <p className="mt-2 text-sm text-neutral-500">
+            {t(`statusCitizen.${card.status}`)}
+          </p>
+          <div className="mt-3">
+            <StatusAccordion title={t('whyStatusTitle')}>
+              {t(`whyStatus.${card.slug}`)}
+            </StatusAccordion>
+          </div>
         </div>
 
         <div className="mb-4 flex flex-wrap items-center gap-3">
@@ -173,9 +184,35 @@ function DomainDetail({
           />
         </div>
 
+        <div className="mb-2 inline-flex items-center gap-1.5 text-xs">
+          <span
+            className={cn(
+              'font-medium',
+              card.confidenceLevel === 'official' && 'text-brand-700',
+              card.confidenceLevel === 'estimated' && 'text-status-delayed',
+              card.confidenceLevel === 'unconfirmed' && 'text-neutral-400',
+            )}
+          >
+            {t(`confidence.${card.confidenceLevel}`)}
+          </span>
+          <span className="text-neutral-300">—</span>
+          <span className="text-neutral-500">
+            {t(`confidenceCitizen.${card.confidenceLevel}`)}
+          </span>
+        </div>
+
         <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.summary}</p>
 
         {card.summaryFalc && <FalcSummary summary={card.summaryFalc} />}
+
+        <div className="mb-6 rounded-lg border border-brand-200 bg-brand-50 p-4">
+          <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-800">
+            {t('concreteImpactTitle')}
+          </h2>
+          <p className="text-sm leading-relaxed text-brand-900">
+            {t(`concreteImpact.${card.slug}`)}
+          </p>
+        </div>
 
         {card.metrics.length > 0 && (
           <div className="mb-8">
@@ -228,6 +265,15 @@ function DomainDetail({
 
           <p className="mt-4 text-xs text-neutral-400">
             {t('lastModified', { date: formatDate(card.lastModified, locale) })}
+          </p>
+        </div>
+
+        <div className="mt-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
+          <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+            {t('notSaidTitle')}
+          </h2>
+          <p className="text-xs leading-relaxed text-neutral-600 italic">
+            {t(`notSaid.${card.slug}`)}
           </p>
         </div>
 

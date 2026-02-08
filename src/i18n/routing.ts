@@ -103,6 +103,12 @@ export const routing = defineRouting({
       en: '/explainers/government-formation',
       de: '/erklaerungen/regierungsbildung',
     },
+    '/how-to-read': {
+      fr: '/comment-lire-ce-site',
+      nl: '/hoe-deze-site-lezen',
+      en: '/how-to-read',
+      de: '/wie-diese-seite-lesen',
+    },
   },
 });
 

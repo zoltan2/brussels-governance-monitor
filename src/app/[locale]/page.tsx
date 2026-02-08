@@ -33,6 +33,8 @@ export default async function HomePage({
     <>
       <CrisisCounter />
 
+      <CitizenIntro />
+
       {latestEvent && <LatestEvent event={latestEvent} locale={locale} />}
 
       <MissionStatement />
@@ -53,6 +55,31 @@ export default async function HomePage({
         </div>
       </section>
     </>
+  );
+}
+
+function CitizenIntro() {
+  const t = useTranslations('home');
+
+  return (
+    <section className="py-6">
+      <div className="mx-auto max-w-3xl px-4">
+        <div className="rounded-lg border border-neutral-200 bg-white p-5">
+          <p className="text-sm leading-relaxed text-neutral-700">{t('citizenIntro')}</p>
+          <p className="mt-2 text-xs leading-relaxed text-neutral-500 italic">
+            {t('citizenIntroFalc')}
+          </p>
+          <div className="mt-3">
+            <Link
+              href="/how-to-read"
+              className="text-xs font-medium text-brand-700 underline underline-offset-2 hover:text-brand-900"
+            >
+              {t('howToReadLink')}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

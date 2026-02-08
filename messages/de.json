@@ -29,10 +29,21 @@
       "ongoing": "Laufend",
       "resolved": "Gelöst"
     },
+    "statusCitizen": {
+      "blocked": "Dieses Dossier kann ohne eine neue Regierung nicht vorankommen.",
+      "delayed": "Dieses Dossier hat gegenüber dem offiziellen Zeitplan Verzögerungen erfahren.",
+      "ongoing": "Dieses Dossier verläuft im aktuellen Rahmen normal.",
+      "resolved": "Dieses Dossier ist abgeschlossen. Eine offizielle Entscheidung wurde getroffen."
+    },
     "confidence": {
       "official": "Offizielle Quelle",
       "estimated": "BGM-Schätzung",
       "unconfirmed": "Unbestätigt"
+    },
+    "confidenceCitizen": {
+      "official": "Durch eine offizielle Quelle bestätigt",
+      "estimated": "Von BGM geschätzt (dokumentierte Methodik)",
+      "unconfirmed": "Offizielle Bestätigung ausstehend"
     },
     "lastModified": "Letzte Aktualisierung: {date}",
     "sources": "Quellen",
@@ -41,7 +52,34 @@
     "backToHome": "Zurück zur Startseite",
     "accessedAt": "abgerufen am {date}",
     "share": "Teilen",
-    "copied": "Link kopiert!"
+    "copied": "Link kopiert!",
+    "concreteImpactTitle": "Was das konkret bedeutet",
+    "concreteImpact": {
+      "budget": "Es kann kein neuer Haushalt verabschiedet werden. Die Region arbeitet auf Grundlage des vorherigen Haushalts, der über vorläufige Zwölftel fortgeschrieben wird. Neue Investitionen sind rechtlich unmöglich und der reale Wert der bestehenden Ausgaben sinkt durch die Inflation.",
+      "mobility": "Große Infrastrukturprojekte (Metro 3, Tunnelrenovierungen, neue Phasen von Good Move) können keine politische Genehmigung erhalten. Die STIB gewährleistet den bestehenden Betrieb, aber keine neue Entwicklung kann gestartet werden.",
+      "employment": "Die Region kann keine neuen Beschäftigungsprogramme schaffen und ihre Maßnahmen nicht an die föderale Reform der Arbeitslosenversicherung anpassen. Die bestehenden Maßnahmen laufen weiter, aber ohne Anpassungsmöglichkeit an die steigende Arbeitslosigkeit.",
+      "housing": "Es kann kein neues Sozialwohnungsprogramm gestartet werden. Der Wohnungsfonds hat seine Kreditvergabe ausgesetzt. Die Warteliste (62.234 Haushalte) wächst jeden Monat ohne Möglichkeit einer strukturellen politischen Antwort.",
+      "climate": "Die neuen Phasen des Luft-Klima-Energieplans können nicht gestartet werden. Die Renolution-Prämien sind auf die bestehenden Budgets beschränkt. Der Kurs zum Ziel von -40 % CO2 bis 2030 gerät mangels neuer Entscheidungen in Verzug.",
+      "social": "Die bikommunalen Investitionen der GGK sind eingefroren. Die ÖSHZ sind mit einem Anstieg der Anträge ohne zusätzliche Mittel konfrontiert. Neue Initiativen im Bereich psychische Gesundheit und Obdachlosenpolitik stehen still."
+    },
+    "whyStatusTitle": "Warum dieser Status",
+    "whyStatus": {
+      "budget": "Die Verabschiedung eines neuen Regionalhaushalts erfordert eine vollwertige Regierung (Sondergesetz vom 12. Januar 1989). In laufenden Geschäften kann das Parlament nur die vorläufigen Zwölftel beschließen. Es gibt keine alternative Zuständigkeit für diese Kompetenz. Der aktive Notmechanismus ist die Fortschreibung des vorherigen Haushalts über vorläufige Zwölftel (Verordnung vom 20.12.2024).",
+      "mobility": "Die Projekte Metro 3 und Good Move Phase 2 erfordern Regierungsentscheidungen (Genehmigung öffentlicher Aufträge, mehrjährige Haushaltsverpflichtungen). Diese Entscheidungen fallen nicht unter die laufenden Geschäfte. Das Parlament hat die geschäftsführende Regierung dazu befragt. Die STIB setzt ihren laufenden Betrieb fort, aber die vertraglichen Fristen für Metro 3 sind überschritten.",
+      "employment": "Die regionalen Maßnahmen zur Aktivierung der Beschäftigung (Ausbildungspläne, subventionierte Stellen) haben reglementarische Fristen, die auslaufen. Die Erneuerung dieser Maßnahmen erfordert Regierungsentscheidungen. Actiris setzt seinen laufenden Betrieb fort, kann aber seine Programme nicht an die föderale Reform der Arbeitslosenversicherung anpassen.",
+      "housing": "Der Bau von Sozialwohnungen und die Zuweisung von Krediten an den Wohnungsfonds erfordern neue Haushaltsverpflichtungen, die in laufenden Geschäften unmöglich sind. Die SLRB (Brüsseler Sozialwohnungsbaugesellschaft) verwaltet den bestehenden Bestand weiter, kann aber keinen Neubau starten. Die Warteliste überschreitet 62.000 Haushalte, eine Rekordschwelle.",
+      "climate": "Die Verabschiedung der neuen Phasen des Luft-Klima-Energieplans (LKEP) erfordert eine Genehmigung durch die Regierung. Die durch das Ziel 2030 gesetzten Fristen sind ohne strukturelle Entscheidung formell überschritten. Brüssel Umwelt setzt seine bestehenden Programme fort, aber ohne neues Budget für die erweiterten Renolution-Prämien.",
+      "social": "Die Investitionsentscheidungen der GGK (bikommunale Zuständigkeit) erfordern eine politische Genehmigung, die in laufenden Geschäften unmöglich ist. Die ÖSHZ sind auf regionale Zuschüsse angewiesen, deren Budgets nicht erhöht werden können. Iriscare arbeitet im Minimalmodus. Die Zahl der gezählten Obdachlosen steigt ohne mögliche politische Antwort."
+    },
+    "notSaidTitle": "Was BGM nicht sagt",
+    "notSaid": {
+      "budget": "Diese Karte sagt nicht, dass der aktuelle Haushalt an sich unzureichend ist — sie dokumentiert, dass das Fehlen eines neuen Haushalts jede Anpassung an die aktuelle wirtschaftliche Realität verhindert. Die Korrelation zwischen laufenden Geschäften und Haushaltsverschlechterung wird nicht als direkter Kausalzusammenhang dargestellt.",
+      "mobility": "Diese Karte sagt nicht, dass die Mobilitätsprojekte abgesagt wurden — sie dokumentiert, dass sie auf eine politische Entscheidung warten. Die festgestellte Verzögerung kann mehrere Ursachen haben, von denen einige vor der Regierungskrise liegen.",
+      "employment": "Diese Karte sagt nicht, dass der Anstieg der Arbeitslosigkeit durch das Fehlen einer Regierung verursacht wird — sie dokumentiert, dass die regionalen Gegenmaßnahmen eingefroren sind, während sich die Arbeitslosenquote entwickelt. Die Beschäftigungsdynamik hängt von mehreren Faktoren ab (Konjunktur, föderale Reform, Wirtschaftsstruktur).",
+      "housing": "Diese Karte sagt nicht, dass die Wohnungskrise mit der Regierungskrise entstanden ist — das Defizit an Sozialwohnungen ist strukturell und besteht seit längerem. Sie dokumentiert, dass das Fehlen einer Regierung jede neue politische Antwort auf eine sich verschlechternde Situation verhindert.",
+      "climate": "Diese Karte sagt nicht, dass Brüssel seine Klimaziele wegen des Fehlens einer Regierung verfehlen wird — sie dokumentiert, dass die zur Erreichung dieser Ziele erforderlichen Entscheidungsmechanismen eingefroren sind. Das Erreichen des Ziels 2030 hängt von zahlreichen Faktoren jenseits der regionalen Regierungsführung ab.",
+      "social": "Diese Karte sagt nicht, dass die Sozialdienste nicht mehr funktionieren — die ÖSHZ und Iriscare setzen ihre Grundaufgabe fort. Sie dokumentiert, dass neue Investitionen, Kapazitätsanpassungen und strukturelle Reformen in laufenden Geschäften unmöglich sind."
+    }
   },
   "solutions": {
     "title": "Wie kann dies gelöst werden?",
@@ -85,7 +123,8 @@
     "contentTitle": "Inhalt",
     "aboutTitle": "Über uns",
     "data": "Daten",
-    "comparisons": "Vergleiche"
+    "comparisons": "Vergleiche",
+    "howToRead": "Wie Sie diese Seite lesen"
   },
   "locale": {
     "switchTo": "Sprache ändern",
@@ -660,6 +699,9 @@
     }
   },
   "home": {
+    "citizenIntro": "Brüssel hat seit Juni 2024 keine vollwertige Regierung. Diese Seite zeigt, was vorankommt, was blockiert ist und was mit Sicherheit bekannt ist — auf Grundlage überprüfbarer öffentlicher Quellen.",
+    "citizenIntroFalc": "Brüssel hat seit über einem Jahr keine richtige Regierung. Diese Seite zeigt Ihnen, was noch funktioniert, was stillsteht und warum.",
+    "howToReadLink": "Wie liest man diese Seite?",
     "mission": {
       "what": "BGM macht sichtbar, was in Brüssel ohne Regierung geschieht (oder nicht geschieht).",
       "how": "Jede Angabe ist belegt, jede Kennzahl ist überprüfbar, jede Analyse ist transparent.",
@@ -796,5 +838,43 @@
     "contestation": "Diese Überprüfung wurde vom BGM-Team durchgeführt. Jede dokumentierte Anfechtung ist willkommen.",
     "viewAll": "Überprüfungsverlauf anzeigen",
     "noVerification": "Keine Überprüfung für diese Karte veröffentlicht."
+  },
+  "howToRead": {
+    "title": "Wie Sie diese Seite lesen",
+    "intro": "Dieser Leitfaden erklärt, wie Sie die auf Brussels Governance Monitor dargestellten Informationen interpretieren können. Es sind keine politischen Vorkenntnisse erforderlich.",
+    "statusTitle": "Die Status der Dossiers",
+    "statusIntro": "Jede Bereichskarte zeigt einen Status an, der den aktuellen Zustand widerspiegelt:",
+    "statusBlocked": "Blockiert",
+    "statusBlockedDesc": "Dieses Dossier kann ohne eine neue Regierung nicht vorankommen. Eine politische Entscheidung ist gesetzlich erforderlich und niemand hat die Befugnis, sie in laufenden Geschäften zu treffen.",
+    "statusDelayed": "Verzögert",
+    "statusDelayedDesc": "Dieses Dossier hat gegenüber dem offiziellen Zeitplan Verzögerungen erfahren. Fristen wurden überschritten oder Entscheidungen verschoben.",
+    "statusOngoing": "Laufend",
+    "statusOngoingDesc": "Dieses Dossier verläuft im aktuellen Rahmen normal. Die bestehenden Mechanismen funktionieren ohne neues politisches Eingreifen.",
+    "statusResolved": "Gelöst",
+    "statusResolvedDesc": "Dieses Dossier ist abgeschlossen. Eine offizielle Entscheidung wurde getroffen und das identifizierte Problem wurde behandelt.",
+    "confidenceTitle": "Die Vertrauensstufen",
+    "confidenceIntro": "Jede von uns veröffentlichte Angabe trägt eine Vertrauensstufe, die angibt, woher sie stammt:",
+    "confidenceOfficialLabel": "Offizielle Quelle",
+    "confidenceOfficialDesc": "Die Information stammt aus einem offiziellen Dokument (Verordnung, Parlamentsbericht, öffentliche Statistik). Dies ist die zuverlässigste Stufe.",
+    "confidenceEstimatedLabel": "BGM-Schätzung",
+    "confidenceEstimatedDesc": "Die Information wurde von BGM auf Grundlage öffentlicher Daten mit einer dokumentierten Methodik berechnet. Die Fehlerquote wird angegeben, wenn sie erheblich ist.",
+    "confidenceUnconfirmedLabel": "Unbestätigt",
+    "confidenceUnconfirmedDesc": "Die Information stammt ausschließlich aus Pressequellen und wurde noch nicht durch ein offizielles Dokument bestätigt. Sie kann sich verändern.",
+    "cardsTitle": "Die Karten verstehen",
+    "cardsIntro": "Jede Bereichskarte zeigt Ihnen:",
+    "cardsStatus": "Einen farbcodierten Status (blockiert, verzögert, laufend, gelöst) — siehe oben",
+    "cardsMetrics": "Kennzahlen — die wesentlichen Daten mit ihrer Quelle",
+    "cardsAnalysis": "Eine sachliche Analyse — was konkret geschieht, ohne Meinung",
+    "cardsSources": "Die Quellen — mit direkten Links zu den Originaldokumenten",
+    "cardsVerification": "Eine regelmäßige Überprüfung — die angibt, wann die Karte zuletzt überprüft wurde",
+    "falcTitle": "Leichte Sprache",
+    "falcDesc": "Einige Karten bieten eine Zusammenfassung 'Kurz zusammengefasst' in vereinfachter Sprache (Niveau B1). Diese Zusammenfassung ersetzt nicht die vollständige Karte, ermöglicht aber ein erstes schnelles Verständnis.",
+    "timelineTitle": "Die Chronologie",
+    "timelineDesc": "Die Chronologie zeichnet die offiziellen Ereignisse der Brüsseler Regierungsbildung in chronologischer Reihenfolge nach. Jedes Ereignis ist datiert und mit Quellen belegt.",
+    "moreTitle": "Weiterführende Informationen",
+    "moreMethodology": "Unsere vollständige Methodik erklärt, wie wir unsere Informationen überprüfen, schätzen und korrigieren.",
+    "moreExplainers": "Die Seiten 'Verstehen' vertiefen Schlüsselthemen (Machtebenen, Brüsseler Paradox usw.).",
+    "moreData": "Die Seite Daten ermöglicht es Ihnen, alle unsere Kennzahlen im offenen Format herunterzuladen (CSV, JSON).",
+    "lastUpdated": "Letzte Aktualisierung dieses Leitfadens: {date}"
   }
 }

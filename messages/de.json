@@ -375,14 +375,15 @@
       "title": "Eine explizite Quellenhierarchie",
       "description": "BGM klassifiziert seine Quellen nach Art und Robustheit:",
       "tierA": "Gesetzliche und regulatorische Quellen",
-      "tierADesc": "Veröffentlichte offizielle Dokumente (Ordonnanzen, Berichte des Rechnungshofs, Statbel/IBSA-Statistiken, Parlamentsprotokolle)",
+      "tierADesc": "Veröffentlichte offizielle Dokumente, insbesondere Ordonnanzen, Berichte des Rechnungshofs, Statbel/IBSA-Statistiken, Parlamentsprotokolle",
       "tierB": "Verwaltungs- und Haushaltsquellen",
-      "tierBDesc": "Institutionelle Kommunikation (Pressemitteilungen von Actiris, STIB, SLRB, Bruxelles Environnement)",
+      "tierBDesc": "Institutionelle Kommunikation, insbesondere Actiris, STIB, SLRB, Bruxelles Environnement, Iriscare, Brulocalis, BISA",
       "tierC": "Operative Quellen",
-      "tierCDesc": "Referenzpresse (RTBF, VRT, Le Soir, De Standaard, BX1, BRUZZ) — verwendet, wenn die Primärquelle online nicht zugänglich ist",
+      "tierCDesc": "Referenzpresse, insbesondere RTBF, VRT, Le Soir, De Standaard, L'Echo, La Libre, BX1, BRUZZ — verwendet, wenn die Primärquelle online nicht zugänglich ist",
       "tierD": "Analytische oder kontextuelle Quellen",
-      "tierDDesc": "Analysen und Studien (Brupartners, Universitäten, Denkfabriken) — kontextualisieren die Rohdaten",
-      "noSource": "Keine Information wird ohne identifizierbare Quelle veröffentlicht. Links, Abrufdaten und Einschränkungen werden stets angegeben."
+      "tierDDesc": "Analysen und Studien, insbesondere Brupartners, Universitäten, Denkfabriken — kontextualisieren die Rohdaten",
+      "noSource": "Keine Information wird ohne identifizierbare Quelle veröffentlicht. Links, Abrufdaten und Einschränkungen werden stets angegeben.",
+      "allSources": "Die vollständige Liste unserer Quellen einsehen"
     },
     "estimations": {
       "title": "Streng eingerahmte Schätzungen",

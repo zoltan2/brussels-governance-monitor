@@ -132,6 +132,14 @@ function MethodologyView() {
               <li><strong>{t('dataSources.tierD')}</strong> — {t('dataSources.tierDDesc')}</li>
             </ul>
             <p className="mt-3">{t('dataSources.noSource')}</p>
+            <p className="mt-2">
+              <Link
+                href="/data"
+                className="text-brand-700 underline underline-offset-2 hover:text-brand-900"
+              >
+                {t('dataSources.allSources')}
+              </Link>
+            </p>
           </div>
 
           {/* Estimations */}

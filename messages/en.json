@@ -375,14 +375,15 @@
       "title": "An explicit source hierarchy",
       "description": "BGM classifies its sources by nature and robustness:",
       "tierA": "Legal and regulatory sources",
-      "tierADesc": "Published official documents (ordinances, Court of Auditors reports, Statbel/IBSA statistics, parliamentary minutes)",
+      "tierADesc": "Published official documents, including ordinances, Court of Auditors reports, Statbel/IBSA statistics, parliamentary minutes",
       "tierB": "Administrative and budgetary sources",
-      "tierBDesc": "Institutional communications (press releases from Actiris, STIB, SLRB, Brussels Environment)",
+      "tierBDesc": "Institutional communications, including Actiris, STIB, SLRB, Brussels Environment, Iriscare, Brulocalis, BISA",
       "tierC": "Operational sources",
-      "tierCDesc": "Reference press (RTBF, VRT, Le Soir, De Standaard, BX1, BRUZZ) — used when the primary source is not available online",
+      "tierCDesc": "Reference press, including RTBF, VRT, Le Soir, De Standaard, L'Echo, La Libre, BX1, BRUZZ — used when the primary source is not available online",
       "tierD": "Analytical or contextual sources",
-      "tierDDesc": "Analyses and studies (Brupartners, universities, think tanks) — provide context for raw data",
-      "noSource": "No information is published without an identifiable source. Links, consultation dates, and limitations are always indicated."
+      "tierDDesc": "Analyses and studies, including Brupartners, universities, think tanks — provide context for raw data",
+      "noSource": "No information is published without an identifiable source. Links, consultation dates, and limitations are always indicated.",
+      "allSources": "View the full list of our sources"
     },
     "estimations": {
       "title": "Strictly framed estimations",

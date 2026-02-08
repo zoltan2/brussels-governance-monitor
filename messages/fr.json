@@ -375,14 +375,15 @@
       "title": "Une hiérarchie explicite des sources",
       "description": "BGM classe ses sources selon leur nature et leur robustesse :",
       "tierA": "Sources légales et réglementaires",
-      "tierADesc": "Documents officiels publiés (ordonnances, rapports de la Cour des comptes, statistiques Statbel/IBSA, procès-verbaux du Parlement)",
+      "tierADesc": "Documents officiels publiés, notamment ordonnances, rapports de la Cour des comptes, statistiques Statbel/IBSA, procès-verbaux du Parlement",
       "tierB": "Sources administratives et budgétaires",
-      "tierBDesc": "Communications institutionnelles (communiqués de presse d'Actiris, STIB, SLRB, Bruxelles Environnement)",
+      "tierBDesc": "Communications institutionnelles, notamment Actiris, STIB, SLRB, Bruxelles Environnement, Iriscare, Brulocalis, BISA",
       "tierC": "Sources opérationnelles",
-      "tierCDesc": "Presse de référence (RTBF, VRT, Le Soir, De Standaard, BX1, BRUZZ) — utilisée quand la source primaire n'est pas accessible en ligne",
+      "tierCDesc": "Presse de référence, notamment RTBF, VRT, Le Soir, De Standaard, L'Echo, La Libre, BX1, BRUZZ — utilisée quand la source primaire n'est pas accessible en ligne",
       "tierD": "Sources analytiques ou contextuelles",
-      "tierDDesc": "Analyses et études (Brupartners, universités, think tanks) — contextualisent les données brutes",
-      "noSource": "Aucune information n'est publiée sans source identifiable. Les liens, dates de consultation et limites sont toujours indiqués."
+      "tierDDesc": "Analyses et études, notamment Brupartners, universités, think tanks — contextualisent les données brutes",
+      "noSource": "Aucune information n'est publiée sans source identifiable. Les liens, dates de consultation et limites sont toujours indiqués.",
+      "allSources": "Consulter la liste complète de nos sources"
     },
     "estimations": {
       "title": "Des estimations strictement encadrées",

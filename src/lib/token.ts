@@ -3,8 +3,8 @@ import { createHmac, timingSafeEqual } from 'crypto';
 const TOKEN_EXPIRY_HOURS = 48;
 
 function getSecret(): string {
-  const secret = process.env.AUTH_SECRET;
-  if (!secret) throw new Error('AUTH_SECRET required for token generation');
+  const secret = process.env.AUTH_SECRET || process.env.RESEND_API_KEY;
+  if (!secret) throw new Error('AUTH_SECRET or RESEND_API_KEY required for token generation');
   return secret;
 }
 

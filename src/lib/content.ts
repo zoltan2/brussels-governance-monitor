@@ -69,7 +69,9 @@ export interface FormationEvent {
     | 'blockage'
     | 'resignation'
     | 'citizen'
-    | 'budget';
+    | 'budget'
+    | 'initiative';
+  confidenceLevel?: 'official' | 'estimated' | 'unconfirmed';
   summary: string;
   impact?: string;
   sources: Array<{ label: string; url: string; accessedAt: string }>;

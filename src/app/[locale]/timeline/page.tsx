@@ -64,6 +64,7 @@ const EVENT_TYPE_COLORS: Record<string, string> = {
   resignation: 'bg-neutral-500',
   citizen: 'bg-blue-500',
   budget: 'bg-amber-600',
+  initiative: 'bg-blue-800',
 };
 
 function TimelineView({

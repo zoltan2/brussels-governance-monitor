@@ -237,7 +237,7 @@ function SolutionDetail({
 
         <div className="mt-10">
           <CardSubscribe
-            topic={card.slug}
+            topic="solutions"
             locale={locale}
             labels={{
               title: tSub('title'),

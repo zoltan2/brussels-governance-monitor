@@ -189,7 +189,7 @@ function SectorDetail({
 
         <div className="mt-8">
           <CardSubscribe
-            topic={card.slug}
+            topic={card.parentDomain}
             locale={locale}
             labels={{
               title: tSub('title'),

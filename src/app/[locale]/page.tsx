@@ -186,7 +186,7 @@ function SectorsPreview({
         </div>
         <div className="mt-4 text-center">
           <Link
-            href={{ pathname: '/sectors/[slug]', params: { slug: 'nonprofit' } }}
+            href="/sectors"
             className="text-sm font-medium text-brand-700 underline underline-offset-2 hover:text-brand-900"
           >
             {t('viewAllSectors')}

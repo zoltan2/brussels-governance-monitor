@@ -17,7 +17,7 @@ function localizedUrl(siteUrl: string, locale: Locale, href: Href): string {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brusselsgovernance.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
   const locales = routing.locales;
 
   const staticPaths: Href[] = [

@@ -61,7 +61,7 @@ export function JsonDownloadButton({ rows, label }: CsvDownloadButtonProps) {
     const data = {
       generator: 'Brussels Governance Monitor',
       license: 'AGPL-3.0',
-      url: 'https://brussels-governance-monitor.vercel.app',
+      url: 'https://governance.brussels',
       exportedAt: new Date().toISOString(),
       metrics: rows.map((r) => ({
         domain: r.domain,

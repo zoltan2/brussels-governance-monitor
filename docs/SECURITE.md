@@ -21,7 +21,7 @@ BGM est un projet touchant à la politique. Le risque de cyberattaque motivée p
 | Vercel | zoltan2s-projects | [ ] | [ ] |
 | Resend | [compte email] | [ ] | [ ] |
 | Registrar domaine | [à préciser] | [ ] | [ ] |
-| Plausible | [à configurer] | [ ] | [ ] |
+| Umami Cloud | cloud.umami.is | [ ] | [ ] |
 | Email principal | [à préciser] | [ ] | [ ] |
 | Gestionnaire de mots de passe | [à préciser] | [ ] | [ ] |
 

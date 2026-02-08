@@ -76,7 +76,7 @@ export async function GET(request: Request) {
       const res = await fetch(source.url, {
         signal: controller.signal,
         headers: {
-          'User-Agent': 'BGM-Watch/1.0 (+https://brussels-governance-monitor.vercel.app)',
+          'User-Agent': 'BGM-Watch/1.0 (+https://governance.brussels)',
         },
       });
       clearTimeout(timeout);
@@ -138,7 +138,7 @@ export async function GET(request: Request) {
 
   // Send digest email if there's anything to report
   const adminEmail = process.env.ADMIN_EMAIL;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brussels-governance-monitor.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
 
   if (adminEmail && process.env.RESEND_API_KEY && (changed.length > 0 || pendingDrafts.length > 0)) {
     try {

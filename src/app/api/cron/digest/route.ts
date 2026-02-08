@@ -40,7 +40,7 @@ export async function GET(request: Request) {
       status: c.status,
       summary: c.summary,
       lastModified: c.lastModified,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://brussels-governance-monitor.vercel.app'}/${locale}/domains/${c.slug}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels'}/${locale}/domains/${c.slug}`,
     }));
   }
 

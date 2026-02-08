@@ -122,11 +122,11 @@ export default async function LocaleLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="BGM" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
-        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
           <script
             defer
-            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
-            src="https://plausible.io/js/script.js"
+            src="https://cloud.umami.is/script.js"
+            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
           />
         )}
       </head>

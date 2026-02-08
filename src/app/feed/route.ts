@@ -1,6 +1,6 @@
 import { getDomainCards, getSolutionCards } from '@/lib/content';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://brussels-governance-monitor.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
 
 function escapeXml(str: string): string {
   return str

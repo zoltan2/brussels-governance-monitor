@@ -21,11 +21,11 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io", // unsafe-eval required: Velite MDX uses new Function() at runtime
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cloud.umami.is", // unsafe-eval required: Velite MDX uses new Function() at runtime
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self'",
-              "connect-src 'self' https://plausible.io",
+              "connect-src 'self' https://cloud.umami.is",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",

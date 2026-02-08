@@ -11,7 +11,7 @@ export function getResend(): Resend {
   return _resend;
 }
 
-export const EMAIL_FROM = 'Brussels Governance Monitor <noreply@updates.brusselsgovernance.be>';
+export const EMAIL_FROM = 'Brussels Governance Monitor <noreply@mail.brusselsgovernance.be>';
 
 export const TOPICS = [
   'budget',

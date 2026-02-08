@@ -1,3 +1,4 @@
+import { auth } from '@/auth';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 
@@ -15,21 +16,14 @@ const CONTENT_DIRS: Record<string, string> = {
   comparison: 'content/comparison-cards',
 };
 
-export async function POST(request: Request) {
+export const POST = auth(async function POST(req) {
+  if (!req.auth) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
-    // Auth check
-    const adminSecret = process.env.ADMIN_SECRET;
-    if (!adminSecret) {
-      return NextResponse.json({ error: 'Admin not configured' }, { status: 503 });
-    }
-
-    const authHeader = request.headers.get('x-admin-secret');
-    if (authHeader !== adminSecret) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
     // Validate input
-    const body = await request.json();
+    const body = await req.json();
     const parsed = rejectSchema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(
@@ -89,4 +83,4 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
-}
+});

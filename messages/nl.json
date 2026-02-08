@@ -656,6 +656,14 @@
     "errorMessage": "Er is een fout opgetreden. Probeer het opnieuw.",
     "cancel": "Annuleren"
   },
+  "login": {
+    "title": "Administratie",
+    "description": "Toegang voorbehouden aan beheerders van de Brussels Governance Monitor.",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "submit": "Inloggen",
+    "error": "Onjuist e-mailadres of wachtwoord."
+  },
   "review": {
     "title": "Kaarten ter validatie",
     "description": "Deze kaarten zijn in conceptmodus. Ze zijn niet zichtbaar op de publieke site. Gebruik de knoppen om te valideren of af te wijzen.",
@@ -671,7 +679,7 @@
     "confirmReject": "Afwijzing bevestigen?",
     "cancel": "Annuleren",
     "error": "Fout",
-    "authRequired": "Voer het admin-geheim in:",
+    "signOut": "Uitloggen",
     "rejectReasons": {
       "outOfScope": "Buiten bereik",
       "insufficientSource": "Onvoldoende bron",

@@ -20,7 +20,6 @@ interface ReviewCardProps {
     confirmReject: string;
     cancel: string;
     error: string;
-    authRequired: string;
   };
 }
 
@@ -39,34 +38,17 @@ export function ReviewCard({
   const [showRejectMenu, setShowRejectMenu] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const getAdminSecret = (): string | null => {
-    if (typeof window === 'undefined') return null;
-    let secret = sessionStorage.getItem('bgm-admin-secret');
-    if (!secret) {
-      secret = prompt(labels.authRequired);
-      if (secret) sessionStorage.setItem('bgm-admin-secret', secret);
-    }
-    return secret;
-  };
-
   const handlePublish = async () => {
-    const secret = getAdminSecret();
-    if (!secret) return;
-
     setState('publishing');
     try {
       const res = await fetch('/api/review/publish', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-admin-secret': secret,
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slug, type, locale }),
       });
 
       if (res.status === 401) {
-        sessionStorage.removeItem('bgm-admin-secret');
-        setErrorMsg('Secret invalide');
+        setErrorMsg('Session expired');
         setState('error');
         return;
       }
@@ -86,24 +68,17 @@ export function ReviewCard({
   };
 
   const handleReject = async (reason: string) => {
-    const secret = getAdminSecret();
-    if (!secret) return;
-
     setState('rejecting');
     setShowRejectMenu(false);
     try {
       const res = await fetch('/api/review/reject', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-admin-secret': secret,
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slug, type, locale, reason }),
       });
 
       if (res.status === 401) {
-        sessionStorage.removeItem('bgm-admin-secret');
-        setErrorMsg('Secret invalide');
+        setErrorMsg('Session expired');
         setState('error');
         return;
       }
@@ -170,7 +145,7 @@ export function ReviewCard({
       </div>
 
       {state === 'error' && (
-        <div className="mt-3 rounded-md bg-red-50 px-3 py-2 text-xs text-red-700">
+        <div className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-700">
           {labels.error}: {errorMsg}
         </div>
       )}

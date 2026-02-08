@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { auth, signOut } from '@/auth';
+import { redirect } from 'next/navigation';
 import { getDraftCards } from '@/lib/content';
-import { routing, type Locale } from '@/i18n/routing';
+import { type Locale } from '@/i18n/routing';
 import { ReviewCard } from '@/components/review-card';
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -22,21 +21,14 @@ export default async function ReviewPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  setRequestLocale(locale);
 
+  const session = await auth();
+  if (!session) {
+    redirect(`/${locale}/login`);
+  }
+
+  const t = await getTranslations('review');
   const drafts = getDraftCards(locale as Locale);
-
-  return <ReviewContent drafts={drafts} locale={locale} />;
-}
-
-function ReviewContent({
-  drafts,
-  locale,
-}: {
-  drafts: ReturnType<typeof getDraftCards>;
-  locale: string;
-}) {
-  const t = useTranslations('review');
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
@@ -51,9 +43,24 @@ function ReviewContent({
   return (
     <div className="py-12">
       <div className="mx-auto max-w-3xl px-4">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-neutral-900">{t('title')}</h1>
-          <p className="mt-2 text-neutral-500">{t('description')}</p>
+        <div className="mb-8 flex items-start justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-neutral-900">{t('title')}</h1>
+            <p className="mt-2 text-neutral-500">{t('description')}</p>
+          </div>
+          <form
+            action={async () => {
+              'use server';
+              await signOut({ redirectTo: '/' });
+            }}
+          >
+            <button
+              type="submit"
+              className="rounded-md border border-neutral-300 px-3 py-1.5 text-sm text-neutral-600 transition-colors hover:bg-neutral-50"
+            >
+              {t('signOut')}
+            </button>
+          </form>
         </div>
 
         {drafts.length === 0 ? (
@@ -94,7 +101,6 @@ function ReviewContent({
                     confirmReject: t('confirmReject'),
                     cancel: t('cancel'),
                     error: t('error'),
-                    authRequired: t('authRequired'),
                   }}
                 />
               );

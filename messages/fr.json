@@ -656,6 +656,14 @@
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
     "cancel": "Annuler"
   },
+  "login": {
+    "title": "Administration",
+    "description": "Accès réservé aux administrateurs du Brussels Governance Monitor.",
+    "email": "Email",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "error": "Email ou mot de passe incorrect."
+  },
   "review": {
     "title": "Cartes en attente de validation",
     "description": "Ces cartes sont en mode brouillon. Elles ne sont pas visibles sur le site public. Utilisez les boutons pour valider ou rejeter.",
@@ -671,7 +679,7 @@
     "confirmReject": "Confirmer le rejet ?",
     "cancel": "Annuler",
     "error": "Erreur",
-    "authRequired": "Entrez le secret admin :",
+    "signOut": "Déconnexion",
     "rejectReasons": {
       "outOfScope": "Hors périmètre",
       "insufficientSource": "Source insuffisante",

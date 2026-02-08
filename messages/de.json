@@ -656,6 +656,14 @@
     "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "cancel": "Abbrechen"
   },
+  "login": {
+    "title": "Verwaltung",
+    "description": "Zugang nur für Administratoren des Brussels Governance Monitor.",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "submit": "Anmelden",
+    "error": "E-Mail oder Passwort falsch."
+  },
   "review": {
     "title": "Karten zur Validierung",
     "description": "Diese Karten befinden sich im Entwurfsmodus. Sie sind auf der öffentlichen Seite nicht sichtbar. Verwenden Sie die Schaltflächen zum Veröffentlichen oder Ablehnen.",
@@ -671,7 +679,7 @@
     "confirmReject": "Ablehnung bestätigen?",
     "cancel": "Abbrechen",
     "error": "Fehler",
-    "authRequired": "Admin-Geheimnis eingeben:",
+    "signOut": "Abmelden",
     "rejectReasons": {
       "outOfScope": "Außerhalb des Geltungsbereichs",
       "insufficientSource": "Unzureichende Quelle",

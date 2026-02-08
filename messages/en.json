@@ -656,6 +656,14 @@
     "errorMessage": "An error occurred. Please try again.",
     "cancel": "Cancel"
   },
+  "login": {
+    "title": "Administration",
+    "description": "Access restricted to Brussels Governance Monitor administrators.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "error": "Incorrect email or password."
+  },
   "review": {
     "title": "Cards awaiting validation",
     "description": "These cards are in draft mode. They are not visible on the public site. Use the buttons to publish or reject.",
@@ -671,7 +679,7 @@
     "confirmReject": "Confirm rejection?",
     "cancel": "Cancel",
     "error": "Error",
-    "authRequired": "Enter admin secret:",
+    "signOut": "Sign out",
     "rejectReasons": {
       "outOfScope": "Out of scope",
       "insufficientSource": "Insufficient source",

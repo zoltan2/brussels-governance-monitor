@@ -61,6 +61,8 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
       <form onSubmit={handleSubmit} className="flex gap-2">
         <input
           type="email"
+          id={`card-subscribe-${topic}`}
+          name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={labels.emailPlaceholder}

@@ -46,6 +46,7 @@ export async function POST(request: Request) {
     const { email, locale, topics } = parsed.data;
 
     if (!process.env.RESEND_API_KEY) {
+      console.error('Subscribe: RESEND_API_KEY is not set');
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 503 },
@@ -80,7 +81,8 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ success: true, requiresConfirmation: true });
-  } catch {
+  } catch (err) {
+    console.error('Subscribe: unexpected error:', err);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 },

@@ -51,9 +51,12 @@ export function SubscribeForm() {
         setState('success');
         setEmail('');
       } else {
+        const data = await res.json().catch(() => ({}));
+        console.error(`Subscribe failed (${res.status}):`, data);
         setState('error');
       }
-    } catch {
+    } catch (err) {
+      console.error('Subscribe network error:', err);
       setState('error');
     }
   }
@@ -114,6 +117,7 @@ export function SubscribeForm() {
             >
               <input
                 type="checkbox"
+                name={`topic-${topic}`}
                 checked={topics.includes(topic)}
                 onChange={() => toggleTopic(topic)}
                 className="sr-only"

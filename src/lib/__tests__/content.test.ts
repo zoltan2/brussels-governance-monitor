@@ -18,6 +18,7 @@ import {
 // Run `npm run build` first to generate it, or they will be skipped.
 let hasVeliteData = false;
 try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   require('../../.velite');
   hasVeliteData = true;
 } catch {

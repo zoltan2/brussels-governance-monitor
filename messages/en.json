@@ -299,6 +299,16 @@
       "portability": "Right to data portability: receive your data in a structured format",
       "withdraw": "Right to withdraw consent: unsubscribe at any time in one click"
     },
+    "thirdParties": {
+      "title": "Third-party processors",
+      "description": "For the sake of transparency, here is the complete list of third-party services used by this site:",
+      "vercel": "Vercel (hosting) — Hosts the website. Region: Paris (CDG1). Processes server logs (IP addresses, HTTP headers). No personal data is stored beyond temporary technical logs.",
+      "umami": "Umami (analytics) — Privacy-friendly traffic measurement. No cookies, no personal data collected, no cross-site tracking. EU cloud hosting.",
+      "resend": "Resend (email) — Sends confirmation emails and weekly digests. Processes subscriber email addresses. Based in the United States with GDPR compliance (DPA signed).",
+      "appsignal": "AppSignal (monitoring) — Monitors server errors and performance. No personal data collected, no cookies, exclusively server-side processing. Dutch company, EU hosting.",
+      "legalBasis": "Legal basis: legitimate interest (Article 6.1.f GDPR) for Vercel, Umami and AppSignal; consent (Article 6.1.a) for Resend.",
+      "statusPage": "Service status page: https://status.governance.brussels"
+    },
     "cookies": {
       "title": "Cookies",
       "description": "This website does not use advertising or tracking cookies. Only strictly necessary technical cookies for site operation may be used."

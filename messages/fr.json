@@ -299,6 +299,16 @@
       "portability": "Droit à la portabilité : recevoir vos données dans un format structuré",
       "withdraw": "Droit de retrait du consentement : vous désabonner à tout moment en un clic"
     },
+    "thirdParties": {
+      "title": "Sous-traitants et outils tiers",
+      "description": "Dans un souci de transparence, voici la liste complète des services tiers utilisés par ce site :",
+      "vercel": "Vercel (hébergement) — Héberge le site web. Région : Paris (CDG1). Traite les logs serveur (adresses IP, en-têtes HTTP). Aucune donnée personnelle n'est stockée au-delà des logs techniques temporaires.",
+      "umami": "Umami (statistiques) — Mesure de fréquentation respectueuse de la vie privée. Aucun cookie, aucune donnée personnelle collectée, aucun suivi inter-sites. Hébergement cloud EU.",
+      "resend": "Resend (emails) — Envoie les emails de confirmation et les digest hebdomadaires. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
+      "appsignal": "AppSignal (monitoring) — Surveille les erreurs serveur et les performances. Aucune donnée personnelle collectée, aucun cookie, traitement exclusivement côté serveur. Société néerlandaise, hébergement EU.",
+      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Vercel, Umami et AppSignal ; consentement (article 6.1.a) pour Resend.",
+      "statusPage": "Page de statut du service : https://status.governance.brussels"
+    },
     "cookies": {
       "title": "Cookies",
       "description": "Ce site n'utilise aucun cookie publicitaire ni cookie de suivi. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés."

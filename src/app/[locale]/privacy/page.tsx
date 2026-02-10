@@ -81,6 +81,17 @@ function PrivacyView() {
             <li>{t('rights.withdraw')}</li>
           </ul>
 
+          <h2 className="text-lg font-semibold text-neutral-900">{t('thirdParties.title')}</h2>
+          <p>{t('thirdParties.description')}</p>
+          <ul className="ml-4 list-disc space-y-2">
+            <li>{t('thirdParties.vercel')}</li>
+            <li>{t('thirdParties.umami')}</li>
+            <li>{t('thirdParties.resend')}</li>
+            <li>{t('thirdParties.appsignal')}</li>
+          </ul>
+          <p className="text-xs text-neutral-500">{t('thirdParties.legalBasis')}</p>
+          <p className="text-xs text-neutral-500">{t('thirdParties.statusPage')}</p>
+
           <h2 className="text-lg font-semibold text-neutral-900">{t('cookies.title')}</h2>
           <p>{t('cookies.description')}</p>
 
@@ -88,7 +99,7 @@ function PrivacyView() {
           <p>{t('contact.description')}</p>
 
           <p className="mt-8 text-xs text-neutral-400">
-            {t('lastUpdated', { date: '2026-02-06' })}
+            {t('lastUpdated', { date: '2026-02-10' })}
           </p>
         </div>
       </div>

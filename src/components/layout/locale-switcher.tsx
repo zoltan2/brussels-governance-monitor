@@ -2,62 +2,36 @@
 
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
+import { useParams } from 'next/navigation';
 import { routing, type Locale } from '@/i18n/routing';
-
-/**
- * Resolve a concrete pathname (internal or localized) into the
- * pattern + params format that next-intl's router requires for
- * localized dynamic routes.
- *
- * usePathname() may return either the internal path ("/domains/mobility")
- * or the localized path ("/domaines/mobility" on FR, "/domeinen/mobility" on NL).
- * We must handle all variants.
- */
-function resolvePathname(pathname: string) {
-  // All localized prefixes → internal pattern mapping
-  // Each entry: [prefix, internalPattern]
-  const prefixMap: [string, '/domains/[slug]' | '/solutions/[slug]' | '/sectors/[slug]' | '/comparisons/[slug]'][] = [
-    // domains
-    ['/domains/', '/domains/[slug]'],
-    ['/domaines/', '/domains/[slug]'],
-    ['/domeinen/', '/domains/[slug]'],
-    ['/bereiche/', '/domains/[slug]'],
-    // solutions
-    ['/solutions/', '/solutions/[slug]'],
-    ['/oplossingen/', '/solutions/[slug]'],
-    ['/loesungen/', '/solutions/[slug]'],
-    // sectors
-    ['/sectors/', '/sectors/[slug]'],
-    ['/secteurs/', '/sectors/[slug]'],
-    ['/sectoren/', '/sectors/[slug]'],
-    ['/sektoren/', '/sectors/[slug]'],
-    // comparisons
-    ['/comparisons/', '/comparisons/[slug]'],
-    ['/comparaisons/', '/comparisons/[slug]'],
-    ['/vergelijkingen/', '/comparisons/[slug]'],
-    ['/vergleiche/', '/comparisons/[slug]'],
-  ];
-
-  for (const [prefix, pattern] of prefixMap) {
-    if (pathname.startsWith(prefix) && pathname.length > prefix.length) {
-      const slug = pathname.slice(prefix.length);
-      return { pathname: pattern, params: { slug } };
-    }
-  }
-
-  // Static route — return as-is (type-safe for next-intl)
-  return pathname as Parameters<ReturnType<typeof useRouter>['replace']>[0];
-}
 
 export function LocaleSwitcher() {
   const t = useTranslations('locale');
   const locale = useLocale();
   const router = useRouter();
+  // usePathname() returns the INTERNAL route pattern (e.g. '/domains/[slug]')
   const pathname = usePathname();
+  // useParams() returns the ACTUAL param values (e.g. { slug: 'mobility' })
+  const params = useParams();
 
   function onSelectChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const nextLocale = e.target.value as Locale;
-    router.replace(resolvePathname(pathname), { locale: nextLocale });
+    const slug = typeof params?.slug === 'string' ? params.slug : undefined;
+
+    if (slug) {
+      // Dynamic route: pathname is already the pattern '/domains/[slug]'
+      // Pass it with actual slug value from useParams()
+      router.replace(
+        { pathname, params: { slug } } as Parameters<typeof router.replace>[0],
+        { locale: nextLocale },
+      );
+    } else {
+      // Static route: pathname is the internal key like '/glossary'
+      router.replace(
+        pathname as Parameters<typeof router.replace>[0],
+        { locale: nextLocale },
+      );
+    }
   }
 
   return (

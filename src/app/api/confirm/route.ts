@@ -49,7 +49,7 @@ export async function GET(request: Request) {
       tags: [
         { name: 'type', value: 'welcome' },
         { name: 'locale', value: locale },
-        { name: 'topics', value: topics.join(',') },
+        { name: 'topics', value: topics.join('-') },
       ],
     });
 

@@ -49,13 +49,22 @@ body {
 
 /* Print styles — optimized for journalists */
 @media print {
-  /* Hide navigation, footer, interactive elements */
+  /* Hide navigation, header, breadcrumbs, search, interactive elements */
+  header,
   nav,
-  footer,
+  .breadcrumb,
+  .search-trigger,
   .subscribe-form,
   [data-hide-print],
   button:not([data-print-visible]) {
     display: none !important;
+  }
+
+  /* Keep footer visible with site URL */
+  footer {
+    display: block !important;
+    font-size: 9pt;
+    color: #999;
   }
 
   /* Reset colors for print */

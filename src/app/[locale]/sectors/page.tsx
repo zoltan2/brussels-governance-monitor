@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import { getSectorCards } from '@/lib/content';
 import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
+import { Breadcrumb } from '@/components/breadcrumb';
 import { routing, type Locale } from '@/i18n/routing';
 import type { Metadata } from 'next';
 
@@ -49,9 +50,14 @@ function SectorsContent({
   sectorCards: ReturnType<typeof getSectorCards>;
 }) {
   const t = useTranslations('sectors');
+  const tb = useTranslations('breadcrumb');
 
   return (
     <>
+      <Breadcrumb items={[
+        { label: tb('home'), href: '/' },
+        { label: tb('sectors') },
+      ]} />
       <h1 className="mb-2 text-2xl font-bold text-neutral-900">{t('title')}</h1>
       <p className="mb-8 text-sm text-neutral-500">{t('subtitle')}</p>
 

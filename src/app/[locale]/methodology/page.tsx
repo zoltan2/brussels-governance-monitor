@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
+import { Breadcrumb } from '@/components/breadcrumb';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -38,20 +39,16 @@ export default async function MethodologyPage({
 
 function MethodologyView() {
   const t = useTranslations('methodology');
+  const tb = useTranslations('breadcrumb');
   const td = useTranslations('domains');
 
   return (
     <section className="py-12">
       <div className="mx-auto max-w-3xl px-4">
-        <Link
-          href="/"
-          className="mb-6 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700"
-        >
-          <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          {td('backToHome')}
-        </Link>
+        <Breadcrumb items={[
+          { label: tb('home'), href: '/' },
+          { label: tb('methodology') },
+        ]} />
 
         <h1 className="mb-4 text-2xl font-bold text-neutral-900">{t('title')}</h1>
 

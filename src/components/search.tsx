@@ -9,6 +9,14 @@ interface SearchResult {
   excerpt: string;
 }
 
+interface PagefindResult {
+  id: string;
+  data: () => Promise<SearchResult>;
+}
+
+const stripDiacritics = (s: string) =>
+  s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
 export function Search() {
   const t = useTranslations('search');
   const locale = useLocale();
@@ -46,9 +54,28 @@ export function Search() {
         setResults([]);
         return;
       }
-      const response = await pagefind.search(term);
+
+      const normalized = stripDiacritics(term);
+      const queries =
+        normalized !== term
+          ? [pagefind.search(term), pagefind.search(normalized)]
+          : [pagefind.search(term)];
+
+      const responses = await Promise.all(queries);
+      const allResults: PagefindResult[] = responses.flatMap(
+        (r: { results: PagefindResult[] }) => r.results,
+      );
+
+      // Deduplicate by ID, keep first (best score)
+      const seen = new Set<string>();
+      const unique = allResults.filter((r) => {
+        if (seen.has(r.id)) return false;
+        seen.add(r.id);
+        return true;
+      });
+
       const data: SearchResult[] = await Promise.all(
-        response.results.slice(0, 8).map((r: { data: () => Promise<SearchResult> }) => r.data()),
+        unique.slice(0, 8).map((r) => r.data()),
       );
       // Filter to current locale
       const filtered = data

@@ -1,6 +1,54 @@
 [
   {
     "date": "2026-02-10",
+    "type": "added",
+    "section": "comparisons",
+    "targetSlug": "hicp-capital-regions",
+    "descriptions": {
+      "fr": "Nouvelle comparaison : IPCH (inflation) dans 6 capitales européennes",
+      "nl": "Nieuwe vergelijking: HICP (inflatie) in 6 Europese hoofdsteden",
+      "en": "New comparison: HICP (inflation) across 6 European capitals",
+      "de": "Neuer Vergleich: HVPI (Inflation) in 6 europäischen Hauptstädten"
+    }
+  },
+  {
+    "date": "2026-02-10",
+    "type": "added",
+    "section": "comparisons",
+    "targetSlug": "public-transport-modal-split",
+    "descriptions": {
+      "fr": "Nouvelle comparaison : part modale des transports publics dans 6 pays européens",
+      "nl": "Nieuwe vergelijking: aandeel openbaar vervoer in 6 Europese landen",
+      "en": "New comparison: public transport modal split across 6 European countries",
+      "de": "Neuer Vergleich: Anteil des öffentlichen Verkehrs in 6 europäischen Ländern"
+    }
+  },
+  {
+    "date": "2026-02-10",
+    "type": "added",
+    "section": "comparisons",
+    "targetSlug": "ghg-emissions-capita",
+    "descriptions": {
+      "fr": "Nouvelle comparaison : émissions de GES par habitant dans 6 pays européens",
+      "nl": "Nieuwe vergelijking: broeikasgasuitstoot per inwoner in 6 Europese landen",
+      "en": "New comparison: GHG emissions per capita across 6 European countries",
+      "de": "Neuer Vergleich: Treibhausgasemissionen pro Kopf in 6 europäischen Ländern"
+    }
+  },
+  {
+    "date": "2026-02-10",
+    "type": "added",
+    "section": "comparisons",
+    "targetSlug": "housing-cost-burden",
+    "descriptions": {
+      "fr": "Nouvelle comparaison : taux d'effort logement dans 6 pays européens",
+      "nl": "Nieuwe vergelijking: woonlasten als percentage van het inkomen in 6 Europese landen",
+      "en": "New comparison: housing cost burden across 6 European countries",
+      "de": "Neuer Vergleich: Wohnkostenbelastung in 6 europäischen Ländern"
+    }
+  },
+  {
+    "date": "2026-02-10",
     "type": "updated",
     "section": "domains",
     "targetSlug": "budget",

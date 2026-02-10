@@ -4,6 +4,7 @@ import { getComparisonCards } from '@/lib/content';
 import { buildMetadata } from '@/lib/metadata';
 import { routing, type Locale } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
+import { Breadcrumb } from '@/components/breadcrumb';
 import { formatDate } from '@/lib/utils';
 import type { Metadata } from 'next';
 
@@ -48,10 +49,15 @@ function ComparisonsList({
   locale: string;
 }) {
   const t = useTranslations('comparisons');
+  const tb = useTranslations('breadcrumb');
 
   return (
     <section className="py-12">
       <div className="mx-auto max-w-4xl px-4">
+        <Breadcrumb items={[
+          { label: tb('home'), href: '/' },
+          { label: tb('comparisons') },
+        ]} />
         <h1 className="mb-2 text-3xl font-bold text-neutral-900">{t('title')}</h1>
         <p className="mb-8 text-base text-neutral-600">{t('subtitle')}</p>
 

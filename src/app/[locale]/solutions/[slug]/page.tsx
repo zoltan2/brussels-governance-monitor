@@ -16,6 +16,7 @@ import { FalcSummary } from '@/components/falc-summary';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { Link } from '@/i18n/navigation';
+import { Breadcrumb } from '@/components/breadcrumb';
 
 export function generateStaticParams() {
   const slugs = getAllSolutionSlugs();
@@ -99,6 +100,7 @@ function SolutionDetail({
   isFallback: boolean;
 }) {
   const t = useTranslations('solutions');
+  const tb = useTranslations('breadcrumb');
   const tCite = useTranslations('cite');
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
@@ -106,20 +108,11 @@ function SolutionDetail({
   return (
     <article className="py-12">
       <div className="mx-auto max-w-3xl px-4">
-        <Link
-          href="/"
-          className="mb-6 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700"
-        >
-          <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          {t('backToHome')}
-        </Link>
+        <Breadcrumb items={[
+          { label: tb('home'), href: '/' },
+          { label: tb('solutions'), href: '/solutions' },
+          { label: card.title },
+        ]} />
 
         {card.draft && <DraftBanner />}
         {isFallback && <FallbackBanner targetLocale={locale} />}

@@ -2,7 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
-import { Link } from '@/i18n/navigation';
+import { Breadcrumb } from '@/components/breadcrumb';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -40,20 +40,16 @@ export default async function FaqPage({
 
 function FaqView() {
   const t = useTranslations('faq');
-  const td = useTranslations('domains');
+  const tb = useTranslations('breadcrumb');
 
   return (
     <section className="py-12">
       <div className="mx-auto max-w-3xl px-4">
-        <Link
-          href="/"
-          className="mb-6 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700"
-        >
-          <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          {td('backToHome')}
-        </Link>
+        <Breadcrumb items={[
+          { label: tb('home'), href: '/' },
+          { label: tb('understand'), href: '/explainers/brussels-overview' },
+          { label: t('title') },
+        ]} />
 
         <h1 className="text-2xl font-bold text-neutral-900">{t('title')}</h1>
         <p className="mt-1 mb-8 text-sm text-neutral-500">{t('subtitle')}</p>

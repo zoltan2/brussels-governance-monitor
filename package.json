@@ -15,7 +15,8 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,json,md,mdx,css}\"",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:digest": "tsx scripts/test-digest.ts"
   },
   "dependencies": {
     "@appsignal/nodejs": "^3.7.4",
@@ -42,7 +43,9 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
     "@vitejs/plugin-react": "^5.1.3",
+    "dotenv": "^17.2.4",
     "pagefind": "^1.4.0",
+    "tsx": "^4.21.0",
     "vitest": "^3.2.4"
   }
 }

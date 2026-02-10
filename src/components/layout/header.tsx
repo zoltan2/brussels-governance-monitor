@@ -24,7 +24,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="border-b border-neutral-200 bg-white">
+    <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-brand-900">
           <img src="/logo.png" alt="" width={28} height={28} className="shrink-0" />
@@ -212,6 +212,9 @@ export function Header() {
               {t('data')}
             </Link>
 
+            <div className="pt-2">
+              <Search />
+            </div>
             <div className="pt-2">
               <LocaleSwitcher />
             </div>

@@ -5,6 +5,7 @@ import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
 import { CsvDownloadButton, JsonDownloadButton } from '@/components/csv-download-button';
 import { Link } from '@/i18n/navigation';
+import { Breadcrumb } from '@/components/breadcrumb';
 import { buildMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 
@@ -104,6 +105,7 @@ function DataView({
   locale: string;
 }) {
   const t = useTranslations('data');
+  const tb = useTranslations('breadcrumb');
   const td = useTranslations('domains');
 
   const confidenceLabels: Record<string, string> = {
@@ -115,15 +117,10 @@ function DataView({
   return (
     <section className="py-12">
       <div className="mx-auto max-w-5xl px-4">
-        <Link
-          href="/"
-          className="mb-6 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700"
-        >
-          <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          {td('backToHome')}
-        </Link>
+        <Breadcrumb items={[
+          { label: tb('home'), href: '/' },
+          { label: tb('data') },
+        ]} />
 
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>

@@ -14,6 +14,7 @@ import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { Link } from '@/i18n/navigation';
+import { Breadcrumb } from '@/components/breadcrumb';
 
 export function generateStaticParams() {
   const slugs = getAllComparisonSlugs();
@@ -65,21 +66,18 @@ function ComparisonDetail({
   isFallback: boolean;
 }) {
   const t = useTranslations('comparisons');
+  const tb = useTranslations('breadcrumb');
   const tCite = useTranslations('cite');
   const tFeedback = useTranslations('feedback');
 
   return (
     <article className="py-12">
       <div className="mx-auto max-w-3xl px-4">
-        <Link
-          href="/comparisons"
-          className="mb-6 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700"
-        >
-          <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          {t('backToList')}
-        </Link>
+        <Breadcrumb items={[
+          { label: tb('home'), href: '/' },
+          { label: tb('comparisons'), href: '/comparisons' },
+          { label: card.title },
+        ]} />
 
         {card.draft && <DraftBanner />}
         {isFallback && <FallbackBanner targetLocale={locale} />}

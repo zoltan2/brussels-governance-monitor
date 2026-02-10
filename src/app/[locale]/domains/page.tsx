@@ -4,6 +4,7 @@ import { getDomainCards } from '@/lib/content';
 import { DomainCard } from '@/components/domain-card';
 import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
+import { Breadcrumb } from '@/components/breadcrumb';
 import { formatDate } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
 import type { Locale } from '@/i18n/routing';
@@ -62,6 +63,7 @@ function DomainsView({
   locale: string;
 }) {
   const t = useTranslations('domains');
+  const tb = useTranslations('breadcrumb');
 
   const lastVerified = domainCards
     .map((c) => c.lastModified)
@@ -71,15 +73,10 @@ function DomainsView({
   return (
     <section className="py-12">
       <div className="mx-auto max-w-5xl px-4">
-        <Link
-          href="/"
-          className="mb-6 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700"
-        >
-          <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          {t('backToHome')}
-        </Link>
+        <Breadcrumb items={[
+          { label: tb('home'), href: '/' },
+          { label: tb('domains') },
+        ]} />
 
         <div className="mb-8 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
           <div>

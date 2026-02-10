@@ -5,21 +5,40 @@ import { usePathname, useRouter } from '@/i18n/navigation';
 import { routing, type Locale } from '@/i18n/routing';
 
 /**
- * Resolve a concrete internal pathname (e.g. "/domains/mobility") into
- * the pattern + params format that next-intl's router requires for
- * localized dynamic routes (e.g. { pathname: '/domains/[slug]', params: { slug: 'mobility' } }).
+ * Resolve a concrete pathname (internal or localized) into the
+ * pattern + params format that next-intl's router requires for
+ * localized dynamic routes.
  *
- * Static routes (e.g. "/timeline") are returned as-is.
+ * usePathname() may return either the internal path ("/domains/mobility")
+ * or the localized path ("/domaines/mobility" on FR, "/domeinen/mobility" on NL).
+ * We must handle all variants.
  */
 function resolvePathname(pathname: string) {
-  const dynamicRoutes = [
-    { pattern: '/domains/[slug]' as const, prefix: '/domains/' },
-    { pattern: '/solutions/[slug]' as const, prefix: '/solutions/' },
-    { pattern: '/sectors/[slug]' as const, prefix: '/sectors/' },
-    { pattern: '/comparisons/[slug]' as const, prefix: '/comparisons/' },
+  // All localized prefixes → internal pattern mapping
+  // Each entry: [prefix, internalPattern]
+  const prefixMap: [string, '/domains/[slug]' | '/solutions/[slug]' | '/sectors/[slug]' | '/comparisons/[slug]'][] = [
+    // domains
+    ['/domains/', '/domains/[slug]'],
+    ['/domaines/', '/domains/[slug]'],
+    ['/domeinen/', '/domains/[slug]'],
+    ['/bereiche/', '/domains/[slug]'],
+    // solutions
+    ['/solutions/', '/solutions/[slug]'],
+    ['/oplossingen/', '/solutions/[slug]'],
+    ['/loesungen/', '/solutions/[slug]'],
+    // sectors
+    ['/sectors/', '/sectors/[slug]'],
+    ['/secteurs/', '/sectors/[slug]'],
+    ['/sectoren/', '/sectors/[slug]'],
+    ['/sektoren/', '/sectors/[slug]'],
+    // comparisons
+    ['/comparisons/', '/comparisons/[slug]'],
+    ['/comparaisons/', '/comparisons/[slug]'],
+    ['/vergelijkingen/', '/comparisons/[slug]'],
+    ['/vergleiche/', '/comparisons/[slug]'],
   ];
 
-  for (const { pattern, prefix } of dynamicRoutes) {
+  for (const [prefix, pattern] of prefixMap) {
     if (pathname.startsWith(prefix) && pathname.length > prefix.length) {
       const slug = pathname.slice(prefix.length);
       return { pathname: pattern, params: { slug } };

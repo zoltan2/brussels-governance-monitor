@@ -5,7 +5,7 @@ import { generateUnsubscribeToken } from '@/lib/token';
 import DigestEmail from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
 
-const SUPPORTED_DIGEST_LOCALES: Locale[] = ['fr', 'nl'];
+const SUPPORTED_DIGEST_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -88,7 +88,7 @@ export async function GET(request: Request) {
   for (const contact of contacts) {
     // Determine locale (fallback to fr if unsupported)
     const locale = SUPPORTED_DIGEST_LOCALES.includes(contact.locale as Locale)
-      ? (contact.locale as 'fr' | 'nl')
+      ? (contact.locale as Locale)
       : 'fr';
 
     const allUpdates = updatedCardsByLocale[locale] || [];
@@ -108,16 +108,18 @@ export async function GET(request: Request) {
     }
 
     const unsubToken = generateUnsubscribeToken(contact.email);
-    const unsubscribeUrl = `${siteUrl}/api/unsubscribe?token=${encodeURIComponent(unsubToken)}&locale=${locale}`;
+    const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
 
     try {
       await resend.emails.send({
         from: EMAIL_FROM,
         to: contact.email,
-        subject:
-          locale === 'nl'
-            ? `Wekelijkse samenvatting — ${weekOf}`
-            : `Digest hebdomadaire — ${weekOf}`,
+        subject: {
+          fr: `Digest hebdomadaire — ${weekOf}`,
+          nl: `Wekelijkse samenvatting — ${weekOf}`,
+          en: `Weekly digest — ${weekOf}`,
+          de: `Wöchentliche Zusammenfassung — ${weekOf}`,
+        }[locale] || `Digest hebdomadaire — ${weekOf}`,
         react: DigestEmail({ locale, updates, weekOf, unsubscribeUrl }),
         tags: [
           { name: 'type', value: 'digest' },

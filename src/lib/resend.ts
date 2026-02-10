@@ -52,6 +52,58 @@ export async function addContact(
 }
 
 /**
+ * Get a contact's preferences from Resend.
+ */
+export async function getContact(
+  email: string,
+): Promise<{ locale: string; topics: string[] } | null> {
+  const resend = getResend();
+  const { data: contacts } = await resend.contacts.list({ limit: 100 });
+  if (!contacts) return null;
+
+  const contact = contacts.data.find(
+    (c) => c.email === email && !c.unsubscribed,
+  );
+  if (!contact) return null;
+
+  const { data: detail } = await resend.contacts.get({ id: contact.id });
+  if (!detail) return null;
+
+  const props = detail.properties || {};
+  const locale =
+    props.locale && typeof props.locale === 'object' && 'value' in props.locale
+      ? String(props.locale.value)
+      : 'fr';
+  const topicsStr =
+    props.topics && typeof props.topics === 'object' && 'value' in props.topics
+      ? String(props.topics.value)
+      : '';
+
+  return {
+    locale,
+    topics: topicsStr ? topicsStr.split(',') : [],
+  };
+}
+
+/**
+ * Update a contact's preferences (locale and topics) in Resend.
+ */
+export async function updateContactPreferences(
+  email: string,
+  locale: string,
+  topics: string[],
+): Promise<void> {
+  const resend = getResend();
+  await resend.contacts.update({
+    email,
+    properties: {
+      locale,
+      topics: topics.join(','),
+    },
+  });
+}
+
+/**
  * Mark a contact as unsubscribed in Resend.
  */
 export async function removeContact(email: string): Promise<void> {

@@ -7,7 +7,7 @@ import ConfirmEmail from '@/emails/confirm';
 
 const subscribeSchema = z.object({
   email: z.string().email(),
-  locale: z.enum(['fr', 'nl']),
+  locale: z.enum(['fr', 'nl', 'en', 'de']),
   topics: z.array(z.enum(TOPICS)).min(1),
   website: z.string().max(0).optional(), // honeypot field — must be empty
 });
@@ -61,10 +61,12 @@ export async function POST(request: Request) {
     const { error: sendError } = await resend.emails.send({
       from: EMAIL_FROM,
       to: email,
-      subject:
-        locale === 'nl'
-          ? 'Bevestig uw inschrijving — Brussels Governance Monitor'
-          : 'Confirmez votre inscription — Brussels Governance Monitor',
+      subject: {
+        fr: 'Confirmez votre inscription — Brussels Governance Monitor',
+        nl: 'Bevestig uw inschrijving — Brussels Governance Monitor',
+        en: 'Confirm your subscription — Brussels Governance Monitor',
+        de: 'Bestätigen Sie Ihre Anmeldung — Brussels Governance Monitor',
+      }[locale] || 'Confirmez votre inscription — Brussels Governance Monitor',
       react: ConfirmEmail({ locale, confirmUrl }),
       tags: [
         { name: 'type', value: 'confirm' },

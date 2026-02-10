@@ -11,32 +11,28 @@ import {
   Text,
 } from '@react-email/components';
 
-interface WelcomeEmailProps {
+interface PreferencesUpdatedEmailProps {
   locale: string;
   topics: string[];
-  unsubscribeUrl: string;
+  preferencesUrl: string;
 }
 
-interface WelcomeTranslation {
+interface PreferencesTranslation {
   preview: string;
   title: string;
   greeting: string;
-  explanation: string;
   topicsTitle: string;
   topicLabels: Record<string, string>;
-  frequency: string;
-  unsubscribe: string;
+  manage: string;
   footer: string;
   disclaimer: string;
 }
 
-const translations: Record<string, WelcomeTranslation> = {
+const translations: Record<string, PreferencesTranslation> = {
   fr: {
-    preview: 'Bienvenue sur Brussels Governance Monitor',
-    title: 'Bienvenue',
-    greeting: 'Votre inscription est confirmée.',
-    explanation:
-      'Vous recevrez un digest hebdomadaire (le lundi) avec les mises à jour des domaines que vous suivez. Pas de changement = pas d\'email.',
+    preview: 'Vos préférences ont été mises à jour',
+    title: 'Préférences mises à jour',
+    greeting: 'Vos préférences de notification ont été enregistrées.',
     topicsTitle: 'Vos thèmes suivis :',
     topicLabels: {
       budget: 'Budget',
@@ -47,17 +43,15 @@ const translations: Record<string, WelcomeTranslation> = {
       social: 'Social & Santé',
       solutions: 'Sortie de crise',
     },
-    frequency: 'Fréquence : maximum 1 email par semaine.',
-    unsubscribe: 'Gérer mes préférences ou me désabonner',
-    footer: 'Brussels Governance Monitor — Un projet d\'intérêt général hébergé par Advice That SRL',
+    manage: 'Gérer mes préférences',
+    footer:
+      'Brussels Governance Monitor — Un projet d\'intérêt général hébergé par Advice That SRL',
     disclaimer: 'Non affilié à aucun parti politique',
   },
   nl: {
-    preview: 'Welkom bij Brussels Governance Monitor',
-    title: 'Welkom',
-    greeting: 'Uw inschrijving is bevestigd.',
-    explanation:
-      'U ontvangt een wekelijkse samenvatting (op maandag) met updates over de domeinen die u volgt. Geen wijziging = geen e-mail.',
+    preview: 'Uw voorkeuren zijn bijgewerkt',
+    title: 'Voorkeuren bijgewerkt',
+    greeting: 'Uw meldingsvoorkeuren zijn opgeslagen.',
     topicsTitle: 'Uw gevolgde thema\'s:',
     topicLabels: {
       budget: 'Budget',
@@ -68,17 +62,15 @@ const translations: Record<string, WelcomeTranslation> = {
       social: 'Sociaal & Gezondheid',
       solutions: 'Uitwegen uit de crisis',
     },
-    frequency: 'Frequentie: maximaal 1 e-mail per week.',
-    unsubscribe: 'Mijn voorkeuren beheren of uitschrijven',
-    footer: 'Brussels Governance Monitor — Een project van algemeen belang gehost door Advice That SRL',
+    manage: 'Mijn voorkeuren beheren',
+    footer:
+      'Brussels Governance Monitor — Een project van algemeen belang gehost door Advice That SRL',
     disclaimer: 'Niet gelieerd aan enige politieke partij',
   },
   en: {
-    preview: 'Welcome to Brussels Governance Monitor',
-    title: 'Welcome',
-    greeting: 'Your subscription is confirmed.',
-    explanation:
-      'You will receive a weekly digest (on Mondays) with updates on the domains you follow. No changes = no email.',
+    preview: 'Your preferences have been updated',
+    title: 'Preferences updated',
+    greeting: 'Your notification preferences have been saved.',
     topicsTitle: 'Your followed topics:',
     topicLabels: {
       budget: 'Budget',
@@ -89,17 +81,15 @@ const translations: Record<string, WelcomeTranslation> = {
       social: 'Social & Health',
       solutions: 'Exit paths',
     },
-    frequency: 'Frequency: maximum 1 email per week.',
-    unsubscribe: 'Manage my preferences or unsubscribe',
-    footer: 'Brussels Governance Monitor — A public interest project hosted by Advice That SRL',
+    manage: 'Manage my preferences',
+    footer:
+      'Brussels Governance Monitor — A public interest project hosted by Advice That SRL',
     disclaimer: 'Not affiliated with any political party',
   },
   de: {
-    preview: 'Willkommen bei Brussels Governance Monitor',
-    title: 'Willkommen',
-    greeting: 'Ihre Anmeldung ist bestätigt.',
-    explanation:
-      'Sie erhalten eine wöchentliche Zusammenfassung (montags) mit Aktualisierungen zu den von Ihnen verfolgten Bereichen. Keine Änderung = keine E-Mail.',
+    preview: 'Ihre Einstellungen wurden aktualisiert',
+    title: 'Einstellungen aktualisiert',
+    greeting: 'Ihre Benachrichtigungseinstellungen wurden gespeichert.',
     topicsTitle: 'Ihre verfolgten Themen:',
     topicLabels: {
       budget: 'Haushalt',
@@ -110,14 +100,18 @@ const translations: Record<string, WelcomeTranslation> = {
       social: 'Soziales & Gesundheit',
       solutions: 'Auswege aus der Krise',
     },
-    frequency: 'Häufigkeit: maximal 1 E-Mail pro Woche.',
-    unsubscribe: 'Meine Einstellungen verwalten oder abmelden',
-    footer: 'Brussels Governance Monitor — Ein Projekt im öffentlichen Interesse, gehostet von Advice That SRL',
+    manage: 'Meine Einstellungen verwalten',
+    footer:
+      'Brussels Governance Monitor — Ein Projekt im öffentlichen Interesse, gehostet von Advice That SRL',
     disclaimer: 'Keiner politischen Partei angeschlossen',
   },
 };
 
-export default function WelcomeEmail({ locale, topics, unsubscribeUrl }: WelcomeEmailProps) {
+export default function PreferencesUpdatedEmail({
+  locale,
+  topics,
+  preferencesUrl,
+}: PreferencesUpdatedEmailProps) {
   const t = translations[locale] || translations.fr;
 
   return (
@@ -129,7 +123,6 @@ export default function WelcomeEmail({ locale, topics, unsubscribeUrl }: Welcome
           <Heading style={styles.heading}>{t.title}</Heading>
 
           <Text style={styles.text}>{t.greeting}</Text>
-          <Text style={styles.text}>{t.explanation}</Text>
 
           <Section style={styles.topicsSection}>
             <Text style={styles.topicsTitle}>{t.topicsTitle}</Text>
@@ -140,12 +133,10 @@ export default function WelcomeEmail({ locale, topics, unsubscribeUrl }: Welcome
             ))}
           </Section>
 
-          <Text style={styles.frequency}>{t.frequency}</Text>
-
           <Hr style={styles.hr} />
 
-          <Link href={unsubscribeUrl} style={styles.unsubscribeLink}>
-            {t.unsubscribe}
+          <Link href={preferencesUrl} style={styles.manageLink}>
+            {t.manage}
           </Link>
 
           <Text style={styles.footer}>{t.footer}</Text>
@@ -159,7 +150,8 @@ export default function WelcomeEmail({ locale, topics, unsubscribeUrl }: Welcome
 const styles = {
   body: {
     backgroundColor: '#f9fafb',
-    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    fontFamily:
+      'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     margin: '0',
     padding: '0',
   },
@@ -203,17 +195,11 @@ const styles = {
     lineHeight: '1.6',
     margin: '0 0 4px',
   },
-  frequency: {
-    color: '#6b7280',
-    fontSize: '13px',
-    lineHeight: '1.5',
-    margin: '16px 0 0',
-  },
   hr: {
     borderColor: '#e5e7eb',
     margin: '24px 0',
   },
-  unsubscribeLink: {
+  manageLink: {
     color: '#6b7280',
     display: 'block' as const,
     fontSize: '12px',

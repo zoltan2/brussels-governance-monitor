@@ -20,13 +20,22 @@ interface DigestUpdate {
 }
 
 interface DigestEmailProps {
-  locale: 'fr' | 'nl';
+  locale: string;
   updates: DigestUpdate[];
   weekOf: string;
   unsubscribeUrl: string;
 }
 
-const translations = {
+const translations: Record<string, {
+  preview: string;
+  title: string;
+  intro: string;
+  noUpdates: string;
+  readMore: string;
+  unsubscribe: string;
+  footer: string;
+  disclaimer: string;
+}> = {
   fr: {
     preview: 'Digest hebdomadaire — Brussels Governance Monitor',
     title: 'Digest de la semaine',
@@ -48,6 +57,28 @@ const translations = {
     footer:
       'Brussels Governance Monitor — Een project van algemeen belang gehost door Advice That SRL',
     disclaimer: 'Niet gelieerd aan enige politieke partij',
+  },
+  en: {
+    preview: 'Weekly digest — Brussels Governance Monitor',
+    title: 'Weekly digest',
+    intro: 'Here are the updates for the domains you follow.',
+    noUpdates: 'No updates this week for your followed topics.',
+    readMore: 'Read more →',
+    unsubscribe: 'Manage my preferences or unsubscribe',
+    footer:
+      'Brussels Governance Monitor — A public interest project hosted by Advice That SRL',
+    disclaimer: 'Not affiliated with any political party',
+  },
+  de: {
+    preview: 'Wöchentliche Zusammenfassung — Brussels Governance Monitor',
+    title: 'Wöchentliche Zusammenfassung',
+    intro: 'Hier sind die Aktualisierungen der Bereiche, denen Sie folgen.',
+    noUpdates: 'Keine Aktualisierungen diese Woche für Ihre verfolgten Themen.',
+    readMore: 'Weiterlesen →',
+    unsubscribe: 'Meine Einstellungen verwalten oder abmelden',
+    footer:
+      'Brussels Governance Monitor — Ein Projekt im öffentlichen Interesse, gehostet von Advice That SRL',
+    disclaimer: 'Keiner politischen Partei angeschlossen',
   },
 };
 

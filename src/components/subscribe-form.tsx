@@ -41,7 +41,7 @@ export function SubscribeForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email,
-          locale: locale === 'fr' || locale === 'nl' ? locale : 'fr',
+          locale: ['fr', 'nl', 'en', 'de'].includes(locale) ? locale : 'fr',
           topics,
           website, // honeypot
         }),

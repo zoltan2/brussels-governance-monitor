@@ -11,11 +11,19 @@ import {
 } from '@react-email/components';
 
 interface ConfirmEmailProps {
-  locale: 'fr' | 'nl';
+  locale: string;
   confirmUrl: string;
 }
 
-const translations = {
+const translations: Record<string, {
+  preview: string;
+  title: string;
+  greeting: string;
+  button: string;
+  expiry: string;
+  ignore: string;
+  footer: string;
+}> = {
   fr: {
     preview: 'Confirmez votre inscription à Brussels Governance Monitor',
     title: 'Confirmez votre email',
@@ -39,6 +47,30 @@ const translations = {
       'Als u deze inschrijving niet hebt aangevraagd, negeer dan deze e-mail.',
     footer:
       'Brussels Governance Monitor — Een project van algemeen belang gehost door Advice That SRL',
+  },
+  en: {
+    preview: 'Confirm your subscription to Brussels Governance Monitor',
+    title: 'Confirm your email',
+    greeting:
+      'You have requested to receive alerts from Brussels Governance Monitor. Click the button below to confirm your subscription.',
+    button: 'Confirm my subscription',
+    expiry: 'This link expires in 48 hours.',
+    ignore:
+      'If you did not request this subscription, simply ignore this email.',
+    footer:
+      'Brussels Governance Monitor — A public interest project hosted by Advice That SRL',
+  },
+  de: {
+    preview: 'Bestätigen Sie Ihre Anmeldung bei Brussels Governance Monitor',
+    title: 'Bestätigen Sie Ihre E-Mail',
+    greeting:
+      'Sie haben Benachrichtigungen von Brussels Governance Monitor angefordert. Klicken Sie auf die Schaltfläche unten, um Ihre Anmeldung zu bestätigen.',
+    button: 'Meine Anmeldung bestätigen',
+    expiry: 'Dieser Link läuft in 48 Stunden ab.',
+    ignore:
+      'Wenn Sie diese Anmeldung nicht angefordert haben, ignorieren Sie diese E-Mail einfach.',
+    footer:
+      'Brussels Governance Monitor — Ein Projekt im öffentlichen Interesse, gehostet von Advice That SRL',
   },
 };
 

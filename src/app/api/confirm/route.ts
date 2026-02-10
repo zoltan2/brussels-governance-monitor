@@ -3,6 +3,13 @@ import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
 import { getResend, EMAIL_FROM, addContact } from '@/lib/resend';
 import WelcomeEmail from '@/emails/welcome';
 
+const welcomeSubjects: Record<string, string> = {
+  fr: 'Bienvenue sur Brussels Governance Monitor',
+  nl: 'Welkom bij Brussels Governance Monitor',
+  en: 'Welcome to Brussels Governance Monitor',
+  de: 'Willkommen bei Brussels Governance Monitor',
+};
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const token = searchParams.get('token');
@@ -31,18 +38,15 @@ export async function GET(request: Request) {
 
   try {
     const unsubToken = generateUnsubscribeToken(email);
-    const unsubscribeUrl = `${siteUrl}/api/unsubscribe?token=${encodeURIComponent(unsubToken)}&locale=${locale}`;
+    const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
     const resend = getResend();
 
     await resend.emails.send({
       from: EMAIL_FROM,
       to: email,
-      subject:
-        locale === 'nl'
-          ? 'Welkom bij Brussels Governance Monitor'
-          : 'Bienvenue sur Brussels Governance Monitor',
+      subject: welcomeSubjects[locale] || welcomeSubjects.fr,
       react: WelcomeEmail({
-        locale: locale as 'fr' | 'nl',
+        locale,
         topics,
         unsubscribeUrl,
       }),

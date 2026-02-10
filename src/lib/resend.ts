@@ -38,7 +38,9 @@ export async function addContact(
   const result = await resend.contacts.create({ email });
 
   // Properties must be set via update (create rejects them)
+  // Delay to respect Resend rate limit (2 req/sec)
   if (result.data) {
+    await new Promise((r) => setTimeout(r, 600));
     await resend.contacts.update({
       id: result.data.id,
       properties: {

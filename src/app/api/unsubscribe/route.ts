@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { verifyUnsubscribeToken } from '@/lib/token';
-import { getResend, EMAIL_FROM } from '@/lib/resend';
+import { getResend, EMAIL_FROM, removeContact } from '@/lib/resend';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -22,9 +22,19 @@ export async function GET(request: Request) {
   }
 
   const { email } = payload;
+
+  // Mark as unsubscribed in Resend Contacts
+  if (process.env.RESEND_API_KEY) {
+    try {
+      await removeContact(email);
+    } catch {
+      // Contact update failure should not block the unsubscribe flow
+    }
+  }
+
   const adminEmail = process.env.ADMIN_EMAIL;
 
-  // Notify admin about the unsubscribe request
+  // Notify admin about the unsubscribe
   if (adminEmail && process.env.RESEND_API_KEY) {
     try {
       const resend = getResend();
@@ -32,7 +42,7 @@ export async function GET(request: Request) {
         from: EMAIL_FROM,
         to: adminEmail,
         subject: `[BGM] Désabonnement : ${email}`,
-        text: `L'utilisateur ${email} s'est désabonné des alertes Brussels Governance Monitor.\n\nDate : ${new Date().toISOString()}\n\nAction requise : supprimer l'adresse de la liste d'envoi.`,
+        text: `L'utilisateur ${email} s'est désabonné des alertes Brussels Governance Monitor.\n\nDate : ${new Date().toISOString()}\n\nLe contact a été automatiquement marqué comme désabonné dans Resend.`,
         tags: [{ name: 'type', value: 'unsubscribe-notification' }],
       });
     } catch {

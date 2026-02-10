@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
-import { getResend, EMAIL_FROM } from '@/lib/resend';
+import { getResend, EMAIL_FROM, addContact } from '@/lib/resend';
 import WelcomeEmail from '@/emails/welcome';
 
 export async function GET(request: Request) {
@@ -52,6 +52,13 @@ export async function GET(request: Request) {
         ...topics.map((t) => ({ name: 'topic', value: t })),
       ],
     });
+
+    // Persist subscriber in Resend Contacts (non-blocking)
+    try {
+      await addContact(email, locale, topics);
+    } catch {
+      // Contact persistence failure should not block the confirm flow
+    }
 
     return NextResponse.redirect(
       `${siteUrl}/${locale}/subscribe/confirmed?status=success&topics=${topics.join(',')}`

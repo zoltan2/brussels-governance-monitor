@@ -19,7 +19,7 @@ export function LatestEvent({
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex-1">
             <p className="mb-1 text-xs font-medium uppercase tracking-wider text-brand-700">
-              {t('latestEvent')} — {formatDate(event.date, locale)}
+              {t('latestEvent')} — <time dateTime={event.date}>{formatDate(event.date, locale)}</time>
             </p>
             <p className="text-sm text-neutral-700">{event.summary}</p>
             <span className="mt-1 inline-block rounded-sm bg-neutral-200 px-2 py-0.5 text-xs text-neutral-600">

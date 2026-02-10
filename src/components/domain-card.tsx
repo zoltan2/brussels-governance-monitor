@@ -70,7 +70,7 @@ export function DomainCard({ card, locale }: DomainCardProps) {
             {t(`confidence.${card.confidenceLevel}`)}
           </span>
           <span>·</span>
-          <span>{t('lastModified', { date: formatDate(card.lastModified, locale) })}</span>
+          <time dateTime={card.lastModified}>{t('lastModified', { date: formatDate(card.lastModified, locale) })}</time>
         </div>
       </div>
 

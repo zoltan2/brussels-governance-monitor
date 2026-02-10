@@ -238,7 +238,7 @@ function DomainDetail({
           </div>
         )}
 
-        <div className="mt-8">
+        <div className="mt-8" {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}>
           <MdxContent code={card.content} />
         </div>
 
@@ -257,15 +257,15 @@ function DomainDetail({
                 >
                   {source.label}
                 </a>
-                <span className="ml-2 text-xs text-neutral-400">
+                <time dateTime={source.accessedAt} className="ml-2 text-xs text-neutral-400">
                   ({t('accessedAt', { date: formatDate(source.accessedAt, locale) })})
-                </span>
+                </time>
               </li>
             ))}
           </ul>
 
           <p className="mt-4 text-xs text-neutral-400">
-            {t('lastModified', { date: formatDate(card.lastModified, locale) })}
+            <time dateTime={card.lastModified}>{t('lastModified', { date: formatDate(card.lastModified, locale) })}</time>
           </p>
         </div>
 

@@ -19,6 +19,12 @@ sources:
   - label: "IRCELINE — Qualité de l'air en Belgique — Rapports annuels"
     url: "https://www.irceline.be/fr/documentation/rapports"
     accessedAt: "2026-02-07"
+  - label: "IRCELINE — Évaluation préliminaire de la qualité de l'air 2024"
+    url: "https://www.irceline.be/en/news/air-quality-in-2024-preliminary-assessment"
+    accessedAt: "2026-02-10"
+  - label: "Healthy Belgium — Impact sanitaire de la pollution de l'air"
+    url: "https://www.healthybelgium.be/en/health-status/determinants-of-health/air-quality"
+    accessedAt: "2026-02-10"
   - label: "Bruxelles Environnement — Primes Renolution"
     url: "https://renolution.brussels/fr"
     accessedAt: "2026-02-07"
@@ -52,19 +58,33 @@ metrics:
     value: "Gelé"
     source: "Bruxelles Environnement"
     date: "2026-01-01"
+  - label: "PM2.5 (moyenne annuelle 2024)"
+    value: "7,4"
+    unit: "µg/m³ (norme OMS : 5 µg/m³)"
+    source: "IRCELINE — Évaluation préliminaire 2024"
+    date: "2024-12-31"
   - label: "Qualité de l'air (NO2 fond urbain)"
     value: "~21"
-    unit: "µg/m3 (limite UE 2030 : 20)"
+    unit: "µg/m³ (limite UE 2030 : 20)"
     source: "IRCELINE"
     date: "2025-12-31"
+  - label: "Baisse PM2.5 depuis 2006"
+    value: "-49%"
+    source: "IRCELINE / Bruxelles Environnement"
+    date: "2024-12-31"
+  - label: "Décès prématurés liés à la pollution"
+    value: ">930"
+    unit: "par an (~2,5/jour)"
+    source: "Bruxelles Environnement / études sanitaires 2024"
+    date: "2024-12-31"
   - label: "Nouveaux investissements climat"
     value: "0"
     unit: "projets lancés"
     source: "Parlement bruxellois"
     date: "2026-02-01"
-lastModified: "2026-02-08"
+lastModified: "2026-02-10"
 changeType: updated
-changeSummary: "Veille #1 : LEZ renforcée 01/01/2026 (diesel Euro 5 interdit, ~225 000 véhicules), crise Renolution (42,2M impayés, action Renillusion 01/07/2026)"
+changeSummary: "Ajout données IRCELINE 2024 : PM2.5 7,4 µg/m³ (record bas, -49% depuis 2006), >930 décès prématurés/an, impact sanitaire"
 summaryFalc: "Bruxelles a des objectifs pour le climat mais ne peut rien faire de nouveau. Les primes pour isoler les maisons sont réduites. Les plans climat sont en pause."
 ---
 
@@ -117,7 +137,13 @@ Le PACE, adopté en 2016, renforcé en 2019, puis révisé en mai 2023 avec un o
 
 ## La qualité de l'air : des progrès fragiles
 
-La qualité de l'air à Bruxelles s'est améliorée ces dernières années, notamment grâce à la zone de basses émissions (LEZ) et au renouvellement du parc automobile. Selon les données IRCELINE, la concentration de NO2 aux stations de fond urbain avoisine **21 µg/m3** en 2025, contre environ 30 µg/m3 en 2019 aux mêmes stations. La future limite européenne de 20 µg/m3 (applicable dès 2030) est désormais tout juste dépassée.
+La qualité de l'air à Bruxelles s'est améliorée ces dernières années, notamment grâce à la zone de basses émissions (LEZ) et au renouvellement du parc automobile. La concentration de PM2.5 a atteint **7,4 µg/m³** en moyenne annuelle en 2024 — un record bas historique et une baisse de **49 % depuis 2006**. Toutefois, ce niveau reste supérieur à la recommandation de l'OMS (5 µg/m³) : **la quasi-totalité de la population bruxelloise reste exposée à des niveaux dépassant cette norme**.
+
+Pour le NO2, la concentration aux stations de fond urbain avoisine **21 µg/m³** en 2025, contre environ 30 µg/m³ en 2019. La future limite européenne de 20 µg/m³ (applicable dès 2030) est désormais tout juste dépassée.
+
+### L'impact sanitaire
+
+Malgré ces améliorations, la pollution de l'air cause encore plus de **930 décès prématurés par an** dans la Région de Bruxelles-Capitale, soit environ 2,5 décès par jour. Cela représente plus de 10 % de la mortalité totale dans la Région. La cause principale reste le trafic routier (NO2 et particules fines).
 
 Cependant, ces progrès reposent sur des mécanismes déjà en place. Depuis le **1er janvier 2026**, les véhicules diesel Euro 5 sont interdits dans la LEZ, affectant environ **225 000 véhicules**. Cette étape, décidée avant les élections, s'est appliquée automatiquement.
 

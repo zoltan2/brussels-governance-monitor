@@ -19,6 +19,12 @@ sources:
   - label: "IRCEL — Luchtkwaliteit in België — Jaarverslagen"
     url: "https://www.irceline.be/nl/documentatie/verslagen"
     accessedAt: "2026-02-07"
+  - label: "IRCEL — Voorlopige beoordeling van de luchtkwaliteit 2024"
+    url: "https://www.irceline.be/en/news/air-quality-in-2024-preliminary-assessment"
+    accessedAt: "2026-02-10"
+  - label: "Healthy Belgium — Gezondheidsimpact van luchtvervuiling"
+    url: "https://www.healthybelgium.be/en/health-status/determinants-of-health/air-quality"
+    accessedAt: "2026-02-10"
   - label: "Leefmilieu Brussel — Renolution-premies"
     url: "https://renolution.brussels/nl"
     accessedAt: "2026-02-07"
@@ -49,19 +55,33 @@ metrics:
     value: "Bevroren"
     source: "Leefmilieu Brussel"
     date: "2026-01-01"
+  - label: "PM2.5 (jaargemiddelde 2024)"
+    value: "7,4"
+    unit: "µg/m³ (WHO-norm: 5 µg/m³)"
+    source: "IRCEL — Voorlopige beoordeling 2024"
+    date: "2024-12-31"
   - label: "Luchtkwaliteit (NO2 stedelijke achtergrond)"
     value: "~21"
     unit: "µg/m3 (EU-limiet 2030: 20)"
     source: "IRCEL"
     date: "2025-12-31"
+  - label: "Daling PM2.5 sinds 2006"
+    value: "-49%"
+    source: "IRCEL / Leefmilieu Brussel"
+    date: "2024-12-31"
+  - label: "Vroegtijdige sterfgevallen door luchtvervuiling"
+    value: ">930"
+    unit: "per jaar (~2,5/dag)"
+    source: "Leefmilieu Brussel / gezondheidsstudies 2024"
+    date: "2024-12-31"
   - label: "Nieuwe klimaatinvesteringen"
     value: "0"
     unit: "gelanceerde projecten"
     source: "Brussels Parlement"
     date: "2026-02-01"
-lastModified: "2026-02-08"
+lastModified: "2026-02-10"
 changeType: updated
-changeSummary: "Veille #1: LEZ versterkt 01/01/2026 (diesel Euro 5 verboden, ~225.000 voertuigen), crisis Renolution (42,2M onbetaald, actie Renillusion 01/07/2026)"
+changeSummary: "IRCEL-gegevens 2024 toegevoegd: PM2.5 7,4 µg/m³ (record laag, -49% sinds 2006), >930 vroegtijdige sterfgevallen/jaar, gezondheidsimpact"
 summaryFalc: "Brussel heeft klimaatdoelen maar kan niets nieuws doen. De premies om huizen te isoleren zijn verminderd. De klimaatplannen staan op pauze."
 ---
 
@@ -114,7 +134,13 @@ Het LKEP, aangenomen in 2016, versterkt in 2019 en herzien in mei 2023 met een v
 
 ## Luchtkwaliteit: fragiele vooruitgang
 
-De luchtkwaliteit in Brussel is de laatste jaren verbeterd, met name dankzij de lage-emissiezone (LEZ) en de vernieuwing van het voertuigenpark. Volgens IRCEL-gegevens is de NO2-concentratie op stedelijke achtergrondstations rond **21 µg/m3** ligt in 2025, tegenover ongeveer 30 µg/m3 op dezelfde stations in 2019. De toekomstige Europese limiet van 20 µg/m3 (van toepassing vanaf 2030) wordt nu net overschreden.
+De luchtkwaliteit in Brussel is de laatste jaren verbeterd, met name dankzij de lage-emissiezone (LEZ) en de vernieuwing van het voertuigenpark. De PM2.5-concentratie bereikte **7,4 µg/m³** als jaargemiddelde in 2024 — een historisch laag record en een daling van **49% sinds 2006**. Toch blijft dit niveau boven de WHO-aanbeveling (5 µg/m³): **nagenoeg de gehele Brusselse bevolking blijft blootgesteld aan niveaus boven deze norm**.
+
+Voor NO2 ligt de concentratie op stedelijke achtergrondstations rond **21 µg/m³** in 2025, tegenover ongeveer 30 µg/m³ in 2019. De toekomstige Europese limiet van 20 µg/m³ (van toepassing vanaf 2030) wordt nu net overschreden.
+
+### Gezondheidsimpact
+
+Ondanks deze verbeteringen veroorzaakt luchtvervuiling nog steeds meer dan **930 vroegtijdige sterfgevallen per jaar** in het Brussels Hoofdstedelijk Gewest, of ongeveer 2,5 sterfgevallen per dag. Dit vertegenwoordigt meer dan 10% van de totale sterfte in het Gewest. De belangrijkste oorzaak blijft het wegverkeer (NO2 en fijnstof).
 
 Deze vooruitgang berust echter op reeds bestaande mechanismen. Sinds **1 januari 2026** zijn dieselvoertuigen Euro 5 verboden in de LEZ, waardoor ongeveer **225.000 voertuigen** worden getroffen. Deze stap, beslist vóór de verkiezingen, is automatisch van toepassing geworden.
 

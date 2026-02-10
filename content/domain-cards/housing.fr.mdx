@@ -31,6 +31,15 @@ sources:
   - label: "Statbel — Office belge de statistique"
     url: "https://statbel.fgov.be/"
     accessedAt: "2026-02-07"
+  - label: "IBSA — Conditions de logement (surpeuplement)"
+    url: "https://ibsa.brussels/themes/amenagement-du-territoire-et-immobilier"
+    accessedAt: "2026-02-10"
+  - label: "Brussels Signal — Outdated rent grid renders 50% of Brussels rentals legally abusive"
+    url: "https://brusselssignal.eu/2025/06/outdated-rent-grid-renders-50-of-brussels-rentals-legally-abusive/"
+    accessedAt: "2026-02-10"
+  - label: "Simont Braun — Brussels introduces mandatory rent caps (mai 2025)"
+    url: "https://simontbraun.eu/brussels-introduces-mandatory-rent-caps-as-of-1-may-2025/2025/06/23/"
+    accessedAt: "2026-02-10"
 confidenceLevel: official
 metrics:
   - label: "Ménages en attente d'un logement social"
@@ -52,13 +61,28 @@ metrics:
     unit: "€/mois (+2 % sur un an)"
     source: "Federia (contrats 2025)"
     date: "2025-12-31"
+  - label: "Surpeuplement"
+    value: "31%"
+    unit: "des Bruxellois (vs 5,7 % en Belgique)"
+    source: "IBSA"
+    date: "2024-12-31"
+  - label: "Ménages locataires"
+    value: "60%"
+    unit: "des ménages bruxellois (vs 30 % en Belgique)"
+    source: "Statbel"
+    date: "2024-12-31"
+  - label: "Contrôle des loyers"
+    value: "Seuil de 20 %"
+    unit: "au-dessus du loyer de référence = présomption d'abus (depuis 01/05/2025)"
+    source: "Code bruxellois du Logement (Moniteur belge)"
+    date: "2025-05-01"
   - label: "Crédits Fonds du Logement"
     value: "Ecoreno repris, acquisition suspendus"
     source: "Fonds du Logement (Ecoreno repris 02/01/2026, acquisition suspendus jusqu'au 31/03/2026)"
     date: "2026-01-02"
-lastModified: "2026-02-08"
+lastModified: "2026-02-10"
 changeType: updated
-changeSummary: "Veille #1 : Ecoreno repris 02/01/2026, acquisition suspendus, dette SLRB 195M, vente actifs Ariane+Palais (~52M)"
+changeSummary: "Ajout surpeuplement (31% IBSA), ratio locataires (60%), loi contrôle loyers mai 2025 (seuil 20%, grille obsolète)"
 summaryFalc: "Les loyers à Bruxelles augmentent. Plus de 60 000 familles attendent un logement social. Sans gouvernement, aucun nouveau programme de logement ne peut démarrer."
 ---
 
@@ -81,6 +105,16 @@ Le fossé entre le marché social et le marché privé illustre l'urgence :
 - Pour un appartement 1 chambre : ~1 110 €/mois début 2026
 
 La moitié des ménages bruxellois remplissent les conditions d'accès au logement social. L'offre ne couvre qu'une fraction de la demande.
+
+### Le surpeuplement, un indicateur silencieux
+
+**31 % des Bruxellois** vivent dans un logement surpeuplé (nombre de pièces insuffisant par rapport à la taille du ménage), contre 5,7 % en moyenne en Belgique. Bruxelles est la région la plus surpeuplée du pays. Ce chiffre, stable depuis plusieurs années, reflète un déficit structurel de logements abordables de taille adaptée.
+
+### Le contrôle des loyers (mai 2025)
+
+Depuis le **1er mai 2025**, le Code bruxellois du Logement impose un cadre de référence pour les loyers. Tout loyer dépassant de **plus de 20 %** le loyer de référence calculé via la grille officielle (loyers.brussels) est présumé abusif, la charge de la preuve incombant au bailleur.
+
+Cependant, la grille de référence est basée sur des enquêtes de 2017 à 2020, ce qui la rend obsolète : selon une analyse de Brussels Signal, **plus de 50 % des baux actuels** dépasseraient le seuil et seraient techniquement « abusifs » en raison du décalage entre les loyers réels et la grille dépassée.
 
 ## Le Fonds du Logement à l'arrêt
 

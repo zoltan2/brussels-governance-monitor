@@ -49,6 +49,12 @@ export const routing = defineRouting({
       en: '/legal',
       de: '/impressum',
     },
+    '/domains': {
+      fr: '/domaines',
+      nl: '/domeinen',
+      en: '/domains',
+      de: '/bereiche',
+    },
     '/domains/[slug]': {
       fr: '/domaines/[slug]',
       nl: '/domeinen/[slug]',

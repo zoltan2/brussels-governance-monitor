@@ -41,8 +41,6 @@ export default async function HomePage({
 
       {latestEvent && <LatestEvent event={latestEvent} locale={locale} />}
 
-      <RecentChanges entries={recentChanges} locale={locale} />
-
       <MissionStatement />
 
       <DomainsSection domainCards={domainCards} locale={locale} lastVerified={lastVerified} />
@@ -56,8 +54,11 @@ export default async function HomePage({
       <ExplainersSection />
 
       <section id="subscribe" className="py-16">
-        <div className="mx-auto max-w-md px-4">
-          <SubscribeForm />
+        <div className="mx-auto max-w-5xl px-4">
+          <div className="grid gap-8 md:grid-cols-2">
+            <SubscribeForm />
+            <RecentChanges entries={recentChanges} locale={locale} />
+          </div>
         </div>
       </section>
     </>

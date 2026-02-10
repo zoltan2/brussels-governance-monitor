@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { LocaleSwitcher } from './locale-switcher';
 import { Search } from '@/components/search';
@@ -9,7 +9,6 @@ import { Search } from '@/components/search';
 export function Header() {
   const t = useTranslations('nav');
   const th = useTranslations('home');
-  const locale = useLocale();
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -32,9 +31,9 @@ export function Header() {
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-6 md:flex">
-          <a href={`/${locale}/#domains`} className="text-sm text-neutral-600 hover:text-neutral-900">
+          <Link href="/domains" className="text-sm text-neutral-600 hover:text-neutral-900">
             {t('domains')}
-          </a>
+          </Link>
 
           {/* Comprendre dropdown */}
           <div ref={dropdownRef} className="relative">
@@ -169,9 +168,9 @@ export function Header() {
             <Link href="/" onClick={() => setMenuOpen(false)} className="text-sm font-medium text-neutral-900">
               {t('home')}
             </Link>
-            <a href={`/${locale}/#domains`} onClick={() => setMenuOpen(false)} className="text-sm text-neutral-600 hover:text-neutral-900">
+            <Link href="/domains" onClick={() => setMenuOpen(false)} className="text-sm text-neutral-600 hover:text-neutral-900">
               {t('domains')}
-            </a>
+            </Link>
 
             {/* Comprendre — Fondamentaux */}
             <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">{t('understandFundamentals')}</p>

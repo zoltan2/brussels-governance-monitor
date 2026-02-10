@@ -4,6 +4,32 @@ import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { routing, type Locale } from '@/i18n/routing';
 
+/**
+ * Resolve a concrete internal pathname (e.g. "/domains/mobility") into
+ * the pattern + params format that next-intl's router requires for
+ * localized dynamic routes (e.g. { pathname: '/domains/[slug]', params: { slug: 'mobility' } }).
+ *
+ * Static routes (e.g. "/timeline") are returned as-is.
+ */
+function resolvePathname(pathname: string) {
+  const dynamicRoutes = [
+    { pattern: '/domains/[slug]' as const, prefix: '/domains/' },
+    { pattern: '/solutions/[slug]' as const, prefix: '/solutions/' },
+    { pattern: '/sectors/[slug]' as const, prefix: '/sectors/' },
+    { pattern: '/comparisons/[slug]' as const, prefix: '/comparisons/' },
+  ];
+
+  for (const { pattern, prefix } of dynamicRoutes) {
+    if (pathname.startsWith(prefix) && pathname.length > prefix.length) {
+      const slug = pathname.slice(prefix.length);
+      return { pathname: pattern, params: { slug } };
+    }
+  }
+
+  // Static route — return as-is (type-safe for next-intl)
+  return pathname as Parameters<ReturnType<typeof useRouter>['replace']>[0];
+}
+
 export function LocaleSwitcher() {
   const t = useTranslations('locale');
   const locale = useLocale();
@@ -12,10 +38,7 @@ export function LocaleSwitcher() {
 
   function onSelectChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const nextLocale = e.target.value as Locale;
-    // usePathname returns a concrete path at runtime (e.g. "/domains/budget"),
-    // but TS types it as a pattern union including "/domains/[slug]"
-    // @ts-expect-error — safe: router.replace handles concrete paths correctly
-    router.replace(pathname, { locale: nextLocale });
+    router.replace(resolvePathname(pathname), { locale: nextLocale });
   }
 
   return (

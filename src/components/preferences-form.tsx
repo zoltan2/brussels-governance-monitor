@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { UnsubscribeSurvey } from '@/components/unsubscribe-survey';
 
 const TOPIC_OPTIONS = [
@@ -38,17 +39,14 @@ export function PreferencesForm({ token }: PreferencesFormProps) {
   const t = useTranslations('subscribePreferences');
   const topicT = useTranslations('subscribe');
 
-  const [state, setState] = useState<FormState>('loading');
+  const [state, setState] = useState<FormState>(token ? 'loading' : 'invalid');
   const [email, setEmail] = useState('');
   const [topics, setTopics] = useState<string[]>([]);
   const [locale, setLocale] = useState('fr');
   const [showSurvey, setShowSurvey] = useState(false);
 
   useEffect(() => {
-    if (!token) {
-      setState('invalid');
-      return;
-    }
+    if (!token) return;
 
     fetch(`/api/preferences?token=${encodeURIComponent(token)}`)
       .then((res) => {
@@ -147,9 +145,9 @@ export function PreferencesForm({ token }: PreferencesFormProps) {
           </svg>
         </div>
         <p className="text-sm text-neutral-600">{t('errorInvalidToken')}</p>
-        <a href="/" className="mt-4 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700">
+        <Link href="/" className="mt-4 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700">
           {t('backHome')}
-        </a>
+        </Link>
       </div>
     );
   }
@@ -163,9 +161,9 @@ export function PreferencesForm({ token }: PreferencesFormProps) {
           </svg>
         </div>
         <p className="text-sm font-medium text-neutral-900">{t('unsubscribed')}</p>
-        <a href="/" className="mt-4 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700">
+        <Link href="/" className="mt-4 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700">
           {t('backHome')}
-        </a>
+        </Link>
       </div>
     );
   }

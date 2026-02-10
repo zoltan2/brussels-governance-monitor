@@ -1041,5 +1041,30 @@
     "moreExplainers": "Les pages « Comprendre » approfondissent des sujets clés (niveaux de pouvoir, paradoxe bruxellois, etc.).",
     "moreData": "La page Données permet de télécharger toutes nos métriques en format ouvert (CSV, JSON).",
     "lastUpdated": "Dernière mise à jour de ce guide : {date}"
+  },
+  "changelog": {
+    "title": "Dernières mises à jour",
+    "viewAll": "Voir tout l'historique",
+    "pageTitle": "Historique des modifications",
+    "pageSubtitle": "Toutes les mises à jour du contenu du site.",
+    "date": "Date",
+    "description": "Description",
+    "type": "Type",
+    "section": "Section",
+    "types": {
+      "added": "Ajout",
+      "updated": "Mise à jour",
+      "corrected": "Correction",
+      "removed": "Suppression"
+    },
+    "sections": {
+      "domains": "Domaines",
+      "solutions": "Solutions",
+      "sectors": "Secteurs",
+      "comparisons": "Comparaisons",
+      "timeline": "Chronologie",
+      "glossary": "Glossaire",
+      "site": "Site"
+    }
   }
 }

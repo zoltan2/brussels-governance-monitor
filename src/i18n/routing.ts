@@ -127,6 +127,12 @@ export const routing = defineRouting({
       en: '/how-to-read',
       de: '/wie-diese-seite-lesen',
     },
+    '/changelog': {
+      fr: '/mises-a-jour',
+      nl: '/wijzigingen',
+      en: '/changelog',
+      de: '/aenderungen',
+    },
   },
 });
 

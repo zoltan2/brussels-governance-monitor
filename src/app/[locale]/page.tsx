@@ -6,6 +6,8 @@ import { DomainCard } from '@/components/domain-card';
 import { SolutionCard } from '@/components/solution-card';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { getDomainCards, getSolutionCards, getSectorCards, getFormationEvents } from '@/lib/content';
+import { getRecentChanges } from '@/lib/changelog';
+import { RecentChanges } from '@/components/recent-changes';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
@@ -24,6 +26,8 @@ export default async function HomePage({
   const events = getFormationEvents(locale as Locale);
   const latestEvent = events.length > 0 ? events[events.length - 1] : undefined;
 
+  const recentChanges = getRecentChanges(locale as Locale);
+
   const lastVerified = [...domainCards, ...solutionCards]
     .map((c) => c.lastModified)
     .sort()
@@ -36,6 +40,8 @@ export default async function HomePage({
       <CitizenIntro />
 
       {latestEvent && <LatestEvent event={latestEvent} locale={locale} />}
+
+      <RecentChanges entries={recentChanges} locale={locale} />
 
       <MissionStatement />
 

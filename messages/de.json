@@ -1041,5 +1041,30 @@
     "moreExplainers": "Die Seiten 'Verstehen' vertiefen Schlüsselthemen (Machtebenen, Brüsseler Paradox usw.).",
     "moreData": "Die Seite Daten ermöglicht es Ihnen, alle unsere Kennzahlen im offenen Format herunterzuladen (CSV, JSON).",
     "lastUpdated": "Letzte Aktualisierung dieses Leitfadens: {date}"
+  },
+  "changelog": {
+    "title": "Letzte Änderungen",
+    "viewAll": "Vollständige Änderungshistorie anzeigen",
+    "pageTitle": "Änderungsprotokoll",
+    "pageSubtitle": "Alle Inhaltsaktualisierungen der Website.",
+    "date": "Datum",
+    "description": "Beschreibung",
+    "type": "Typ",
+    "section": "Bereich",
+    "types": {
+      "added": "Hinzugefügt",
+      "updated": "Aktualisiert",
+      "corrected": "Korrektur",
+      "removed": "Entfernt"
+    },
+    "sections": {
+      "domains": "Bereiche",
+      "solutions": "Lösungen",
+      "sectors": "Sektoren",
+      "comparisons": "Vergleiche",
+      "timeline": "Chronologie",
+      "glossary": "Glossar",
+      "site": "Website"
+    }
   }
 }

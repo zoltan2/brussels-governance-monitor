@@ -1,8 +1,30 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { getSectorCards } from '@/lib/content';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
-import type { Locale } from '@/i18n/routing';
+import { routing, type Locale } from '@/i18n/routing';
+import type { Metadata } from 'next';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const titles: Record<string, string> = { fr: 'Secteurs impactés', nl: 'Getroffen sectoren', en: 'Impacted sectors', de: 'Betroffene Sektoren' };
+  const descriptions: Record<string, string> = {
+    fr: 'L\'impact concret de l\'absence de gouvernement bruxellois sur les secteurs économiques.',
+    nl: 'De concrete impact van het ontbreken van een Brusselse regering op de economische sectoren.',
+    en: 'The concrete impact of the absence of a Brussels government on economic sectors.',
+    de: 'Die konkreten Auswirkungen des Fehlens einer Brüsseler Regierung auf die Wirtschaftssektoren.',
+  };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/sectors' });
+}
 
 export default async function SectorsPage({
   params,

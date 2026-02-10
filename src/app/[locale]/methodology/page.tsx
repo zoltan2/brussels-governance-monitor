@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Notre méthode',
-    nl: 'Onze methode',
-    en: 'Our Method',
-    de: 'Unsere Methode',
+  const titles: Record<string, string> = { fr: 'Notre méthode', nl: 'Onze methode', en: 'Our Method', de: 'Unsere Methode' };
+  const descriptions: Record<string, string> = {
+    fr: 'Comment nous vérifions, estimons et corrigeons nos informations sur la gouvernance bruxelloise.',
+    nl: 'Hoe wij onze informatie over het Brusselse bestuur verifiëren, schatten en corrigeren.',
+    en: 'How we verify, estimate and correct our information on Brussels governance.',
+    de: 'Wie wir unsere Informationen zur Brüsseler Regierungsführung überprüfen, schätzen und korrigieren.',
   };
-  return { title: titles[locale] || 'Our Method' };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/methodology' });
 }
 
 export default async function MethodologyPage({

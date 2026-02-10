@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { getSectorCard, getAllSectorSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
+import { buildMetadata } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -30,10 +31,14 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { card } = result;
-  return {
+  const description = card.humanImpact || card.title;
+  return buildMetadata({
+    locale,
     title: card.title,
-    description: card.humanImpact || card.title,
-  };
+    description,
+    path: `/sectors/${slug}`,
+    ogParams: `title=${encodeURIComponent(card.title)}&type=sector`,
+  });
 }
 
 export default async function SectorDetailPage({

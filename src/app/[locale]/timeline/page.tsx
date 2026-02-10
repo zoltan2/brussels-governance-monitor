@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import { getFormationRounds, getFormationEvents, getCurrentPhase } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -22,7 +23,13 @@ export async function generateMetadata({
     en: 'Formation timeline',
     de: 'Chronologie der Regierungsbildung',
   };
-  return { title: titles[locale] || 'Timeline' };
+  const descriptions: Record<string, string> = {
+    fr: 'Tous les événements officiels de la formation du gouvernement bruxellois, dans l\'ordre chronologique.',
+    nl: 'Alle officiële gebeurtenissen van de Brusselse regeringsvorming, in chronologische volgorde.',
+    en: 'All official events of the Brussels government formation, in chronological order.',
+    de: 'Alle offiziellen Ereignisse der Brüsseler Regierungsbildung in chronologischer Reihenfolge.',
+  };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/timeline' });
 }
 
 export default async function TimelinePage({

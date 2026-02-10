@@ -5,6 +5,7 @@ import { DomainCard } from '@/components/domain-card';
 import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { formatDate } from '@/lib/utils';
+import { buildMetadata } from '@/lib/metadata';
 import type { Locale } from '@/i18n/routing';
 import type { Metadata } from 'next';
 
@@ -12,19 +13,32 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+const titles: Record<string, string> = {
+  fr: 'Domaines impactés',
+  nl: 'Getroffen domeinen',
+  en: 'Impacted domains',
+  de: 'Betroffene Bereiche',
+};
+
+const descriptions: Record<string, string> = {
+  fr: 'Ce qui est bloqué, retardé ou dégradé faute de gouvernement bruxellois.',
+  nl: 'Wat geblokkeerd, vertraagd of verslechterd is door het ontbreken van een Brusselse regering.',
+  en: 'What is blocked, delayed or degraded without a Brussels government.',
+  de: 'Was ohne Brüsseler Regierung blockiert, verzögert oder verschlechtert ist.',
+};
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Domaines impactés',
-    nl: 'Getroffen domeinen',
-    en: 'Impacted domains',
-    de: 'Betroffene Bereiche',
-  };
-  return { title: titles[locale] || 'Impacted domains' };
+  return buildMetadata({
+    locale,
+    title: titles[locale] || titles.en,
+    description: descriptions[locale] || descriptions.en,
+    path: '/domains',
+  });
 }
 
 export default async function DomainsPage({

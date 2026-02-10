@@ -4,7 +4,18 @@ import { daysSinceElections } from '@/lib/utils';
 
 export const runtime = 'nodejs';
 
-export async function GET(request: NextRequest) {
+const daysLabel: Record<string, string> = {
+  fr: 'jours sans gouvernement',
+  nl: 'dagen zonder regering',
+  en: 'days without government',
+  de: 'Tage ohne Regierung',
+};
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ locale: string }> },
+) {
+  const { locale } = await params;
   const { searchParams } = new URL(request.url);
   const title = searchParams.get('title') || 'Brussels Governance Monitor';
   const type = searchParams.get('type') || 'default';
@@ -105,7 +116,7 @@ export async function GET(request: NextRequest) {
                 color: 'rgba(255, 255, 255, 0.6)',
               }}
             >
-              jours sans gouvernement
+              {daysLabel[locale] || daysLabel.fr}
             </span>
           </div>
         </div>

@@ -1,9 +1,31 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { getComparisonCards } from '@/lib/content';
-import type { Locale } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
+import { routing, type Locale } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { formatDate } from '@/lib/utils';
+import type { Metadata } from 'next';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const titles: Record<string, string> = { fr: 'Comparaisons', nl: 'Vergelijkingen', en: 'Comparisons', de: 'Vergleiche' };
+  const descriptions: Record<string, string> = {
+    fr: 'Bruxelles comparée aux autres capitales et régions européennes : données Eurostat.',
+    nl: 'Brussel vergeleken met andere Europese hoofdsteden en regio\'s: Eurostat-gegevens.',
+    en: 'Brussels compared to other European capitals and regions: Eurostat data.',
+    de: 'Brüssel im Vergleich mit anderen europäischen Hauptstädten und Regionen: Eurostat-Daten.',
+  };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/comparisons' });
+}
 
 export default async function ComparisonsPage({
   params,

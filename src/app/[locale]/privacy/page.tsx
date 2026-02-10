@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Politique de confidentialité',
-    nl: 'Privacybeleid',
-    en: 'Privacy Policy',
-    de: 'Datenschutzrichtlinie',
+  const titles: Record<string, string> = { fr: 'Politique de confidentialité', nl: 'Privacybeleid', en: 'Privacy Policy', de: 'Datenschutzrichtlinie' };
+  const descriptions: Record<string, string> = {
+    fr: 'Comment nous protégeons vos données personnelles sur le Brussels Governance Monitor.',
+    nl: 'Hoe wij uw persoonlijke gegevens beschermen op de Brussels Governance Monitor.',
+    en: 'How we protect your personal data on the Brussels Governance Monitor.',
+    de: 'Wie wir Ihre persönlichen Daten auf dem Brussels Governance Monitor schützen.',
   };
-  return { title: titles[locale] || 'Privacy Policy' };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/privacy' });
 }
 
 export default async function PrivacyPage({

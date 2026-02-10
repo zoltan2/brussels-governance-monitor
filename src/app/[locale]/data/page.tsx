@@ -5,6 +5,7 @@ import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
 import { CsvDownloadButton, JsonDownloadButton } from '@/components/csv-download-button';
 import { Link } from '@/i18n/navigation';
+import { buildMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -23,7 +24,13 @@ export async function generateMetadata({
     en: 'Data',
     de: 'Daten',
   };
-  return { title: titles[locale] || 'Data' };
+  const descriptions: Record<string, string> = {
+    fr: 'Téléchargez toutes les métriques du Brussels Governance Monitor en format ouvert (CSV, JSON).',
+    nl: 'Download alle kerncijfers van de Brussels Governance Monitor in open formaat (CSV, JSON).',
+    en: 'Download all Brussels Governance Monitor metrics in open format (CSV, JSON).',
+    de: 'Laden Sie alle Kennzahlen des Brussels Governance Monitor im offenen Format herunter (CSV, JSON).',
+  };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/data' });
 }
 
 interface MetricRow {

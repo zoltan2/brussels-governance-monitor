@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Bruxelles cosmopolite',
-    nl: 'Kosmopolitisch Brussel',
-    en: 'Cosmopolitan Brussels',
-    de: 'Kosmopolitisches Brüssel',
+  const titles: Record<string, string> = { fr: 'Bruxelles cosmopolite', nl: 'Kosmopolitisch Brussel', en: 'Cosmopolitan Brussels', de: 'Kosmopolitisches Brüssel' };
+  const descriptions: Record<string, string> = {
+    fr: 'La diversité de Bruxelles en chiffres : nationalités, langues et démographie.',
+    nl: 'De diversiteit van Brussel in cijfers: nationaliteiten, talen en demografie.',
+    en: 'Brussels diversity in numbers: nationalities, languages and demographics.',
+    de: 'Die Vielfalt Brüssels in Zahlen: Nationalitäten, Sprachen und Demografie.',
   };
-  return { title: titles[locale] || titles.en };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/explainers/brussels-cosmopolitan' });
 }
 
 export default async function BrusselsCosmopolitanPage({

@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Le paradoxe bruxellois : riche en PIB, pauvre en revenus',
-    nl: 'De Brusselse paradox: rijk aan bbp, arm aan inkomsten',
-    en: 'The Brussels paradox: GDP-rich, income-poor',
-    de: 'Das Brüsseler Paradox: reich am BIP, arm an Einkommen',
+  const titles: Record<string, string> = { fr: 'Le paradoxe bruxellois : riche en PIB, pauvre en revenus', nl: 'De Brusselse paradox: rijk aan bbp, arm aan inkomsten', en: 'The Brussels paradox: GDP-rich, income-poor', de: 'Das Brüsseler Paradox: reich am BIP, arm an Einkommen' };
+  const descriptions: Record<string, string> = {
+    fr: 'Bruxelles produit 20% du PIB belge mais ses habitants sont parmi les plus pauvres du pays.',
+    nl: 'Brussel produceert 20% van het Belgische bbp, maar de inwoners behoren tot de armsten van het land.',
+    en: 'Brussels produces 20% of Belgian GDP but its residents are among the poorest in the country.',
+    de: 'Brüssel erzeugt 20% des belgischen BIP, aber seine Einwohner gehören zu den ärmsten des Landes.',
   };
-  return { title: titles[locale] || titles.en };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/explainers/brussels-paradox' });
 }
 
 export default async function BrusselsParadoxPage({

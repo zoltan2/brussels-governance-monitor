@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Bruxelles en bref',
-    nl: 'Brussel in het kort',
-    en: 'Brussels at a glance',
-    de: 'Brüssel auf einen Blick',
+  const titles: Record<string, string> = { fr: 'Bruxelles en bref', nl: 'Brussel in het kort', en: 'Brussels at a glance', de: 'Brüssel auf einen Blick' };
+  const descriptions: Record<string, string> = {
+    fr: 'L\'essentiel sur Bruxelles : population, institutions, enjeux et fonctionnement.',
+    nl: 'Het essentiële over Brussel: bevolking, instellingen, uitdagingen en werking.',
+    en: 'The essentials about Brussels: population, institutions, challenges and how it works.',
+    de: 'Das Wesentliche über Brüssel: Bevölkerung, Institutionen, Herausforderungen und Funktionsweise.',
   };
-  return { title: titles[locale] || titles.en };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/explainers/brussels-overview' });
 }
 
 export default async function BrusselsOverviewPage({

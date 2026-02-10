@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Questions fréquentes',
-    nl: 'Veelgestelde vragen',
-    en: 'FAQ',
-    de: 'Häufig gestellte Fragen',
+  const titles: Record<string, string> = { fr: 'Questions fréquentes', nl: 'Veelgestelde vragen', en: 'FAQ', de: 'Häufig gestellte Fragen' };
+  const descriptions: Record<string, string> = {
+    fr: 'Réponses aux questions les plus fréquentes sur le Brussels Governance Monitor.',
+    nl: 'Antwoorden op de meest gestelde vragen over de Brussels Governance Monitor.',
+    en: 'Answers to the most frequently asked questions about the Brussels Governance Monitor.',
+    de: 'Antworten auf die häufigsten Fragen zum Brussels Governance Monitor.',
   };
-  return { title: titles[locale] || 'FAQ' };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/faq' });
 }
 
 const QUESTION_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'] as const;

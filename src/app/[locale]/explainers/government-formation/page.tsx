@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Comment se forme un gouvernement bruxellois ?',
-    nl: 'Hoe wordt een Brusselse regering gevormd?',
-    en: 'How is a Brussels government formed?',
-    de: 'Wie wird eine Brüsseler Regierung gebildet?',
+  const titles: Record<string, string> = { fr: 'Comment se forme un gouvernement bruxellois ?', nl: 'Hoe wordt een Brusselse regering gevormd?', en: 'How is a Brussels government formed?', de: 'Wie wird eine Brüsseler Regierung gebildet?' };
+  const descriptions: Record<string, string> = {
+    fr: 'Les étapes de la formation d\'un gouvernement bruxellois : informateur, formateur, accord, investiture.',
+    nl: 'De stappen van de Brusselse regeringsvorming: informateur, formateur, akkoord, investituur.',
+    en: 'The steps of forming a Brussels government: informateur, formateur, agreement, investiture.',
+    de: 'Die Schritte der Brüsseler Regierungsbildung: Informateur, Formateur, Abkommen, Vereidigung.',
   };
-  return { title: titles[locale] || titles.en };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/explainers/government-formation' });
 }
 
 export default async function GovernmentFormationPage({

@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { getDomainCard, getAllDomainSlugs, getLatestVerification } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
+import { buildMetadata } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -34,32 +35,13 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { card } = result;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
-  return {
+  return buildMetadata({
+    locale,
     title: card.title,
     description: card.summary,
-    openGraph: {
-      title: card.title,
-      description: card.summary,
-      type: 'article',
-      locale,
-      url: `${siteUrl}/${locale}/domains/${slug}`,
-      images: [
-        {
-          url: `${siteUrl}/${locale}/og?title=${encodeURIComponent(card.title)}&type=domain&status=${card.status}`,
-          width: 1200,
-          height: 630,
-          alt: card.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: card.title,
-      description: card.summary,
-    },
-  };
+    path: `/domains/${slug}`,
+    ogParams: `title=${encodeURIComponent(card.title)}&type=domain&status=${card.status}`,
+  });
 }
 
 const statusStyles: Record<string, string> = {

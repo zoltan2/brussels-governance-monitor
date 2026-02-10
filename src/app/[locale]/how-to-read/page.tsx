@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Comment lire ce site',
-    nl: 'Hoe deze site lezen',
-    en: 'How to read this site',
-    de: 'Wie diese Seite lesen',
+  const titles: Record<string, string> = { fr: 'Comment lire ce site', nl: 'Hoe deze site lezen', en: 'How to read this site', de: 'Wie diese Seite lesen' };
+  const descriptions: Record<string, string> = {
+    fr: 'Guide pratique pour comprendre les fiches, statuts et données du Brussels Governance Monitor.',
+    nl: 'Praktische gids om de fiches, statussen en gegevens van de Brussels Governance Monitor te begrijpen.',
+    en: 'Practical guide to understanding the cards, statuses and data of the Brussels Governance Monitor.',
+    de: 'Praktischer Leitfaden zum Verständnis der Karten, Status und Daten des Brussels Governance Monitor.',
   };
-  return { title: titles[locale] || 'How to read this site' };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/how-to-read' });
 }
 
 export default async function HowToReadPage({

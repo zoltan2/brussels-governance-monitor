@@ -2,6 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { getGlossaryTerms } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -15,13 +16,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Glossaire',
-    nl: 'Woordenlijst',
-    en: 'Glossary',
-    de: 'Glossar',
+  const titles: Record<string, string> = { fr: 'Glossaire', nl: 'Woordenlijst', en: 'Glossary', de: 'Glossar' };
+  const descriptions: Record<string, string> = {
+    fr: 'Termes clés de la gouvernance bruxelloise expliqués simplement.',
+    nl: 'Sleutelbegrippen van het Brusselse bestuur eenvoudig uitgelegd.',
+    en: 'Key terms of Brussels governance explained simply.',
+    de: 'Schlüsselbegriffe der Brüsseler Regierungsführung einfach erklärt.',
   };
-  return { title: titles[locale] || 'Glossary' };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/glossary' });
 }
 
 export default async function GlossaryPage({

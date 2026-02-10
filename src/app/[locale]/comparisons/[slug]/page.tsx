@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { getComparisonCard, getAllComparisonSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
+import { buildMetadata } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -29,10 +30,13 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { card } = result;
-  return {
+  return buildMetadata({
+    locale,
     title: card.title,
     description: card.indicator,
-  };
+    path: `/comparisons/${slug}`,
+    ogParams: `title=${encodeURIComponent(card.title)}&type=comparison`,
+  });
 }
 
 export default async function ComparisonDetailPage({

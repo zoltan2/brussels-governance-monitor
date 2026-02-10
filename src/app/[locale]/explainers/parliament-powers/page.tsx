@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Que peut faire le Parlement sans gouvernement ?',
-    nl: 'Wat kan het Parlement zonder regering?',
-    en: 'What can Parliament do without a government?',
-    de: 'Was kann das Parlament ohne Regierung tun?',
+  const titles: Record<string, string> = { fr: 'Que peut faire le Parlement sans gouvernement ?', nl: 'Wat kan het Parlement zonder regering?', en: 'What can Parliament do without a government?', de: 'Was kann das Parlament ohne Regierung tun?' };
+  const descriptions: Record<string, string> = {
+    fr: 'Les pouvoirs du Parlement bruxellois en période d\'affaires courantes.',
+    nl: 'De bevoegdheden van het Brussels Parlement tijdens de lopende zaken.',
+    en: 'The powers of the Brussels Parliament during caretaker period.',
+    de: 'Die Befugnisse des Brüsseler Parlaments während der geschäftsführenden Periode.',
   };
-  return { title: titles[locale] || titles.en };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/explainers/parliament-powers' });
 }
 
 export default async function ParliamentPowersPage({

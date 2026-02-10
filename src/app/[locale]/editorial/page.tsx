@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Charte éditoriale',
-    nl: 'Redactioneel charter',
-    en: 'Editorial Charter',
-    de: 'Redaktionelle Charta',
+  const titles: Record<string, string> = { fr: 'Charte éditoriale', nl: 'Redactioneel charter', en: 'Editorial Charter', de: 'Redaktionelle Charta' };
+  const descriptions: Record<string, string> = {
+    fr: 'Nos principes éditoriaux : neutralité, sources vérifiées, transparence.',
+    nl: 'Onze redactionele principes: neutraliteit, geverifieerde bronnen, transparantie.',
+    en: 'Our editorial principles: neutrality, verified sources, transparency.',
+    de: 'Unsere redaktionellen Grundsätze: Neutralität, verifizierte Quellen, Transparenz.',
   };
-  return { title: titles[locale] || 'Editorial Charter' };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/editorial' });
 }
 
 export default async function EditorialPage({

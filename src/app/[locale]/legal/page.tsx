@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Mentions légales',
-    nl: 'Juridische vermeldingen',
-    en: 'Legal notice',
-    de: 'Impressum',
+  const titles: Record<string, string> = { fr: 'Mentions légales', nl: 'Juridische vermeldingen', en: 'Legal notice', de: 'Impressum' };
+  const descriptions: Record<string, string> = {
+    fr: 'Informations légales et conditions d\'utilisation du Brussels Governance Monitor.',
+    nl: 'Juridische informatie en gebruiksvoorwaarden van de Brussels Governance Monitor.',
+    en: 'Legal information and terms of use of the Brussels Governance Monitor.',
+    de: 'Rechtliche Informationen und Nutzungsbedingungen des Brussels Governance Monitor.',
   };
-  return { title: titles[locale] || 'Legal' };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/legal' });
 }
 
 export default async function LegalPage({

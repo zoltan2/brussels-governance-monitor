@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
@@ -14,13 +15,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Qui décide quoi à Bruxelles ?',
-    nl: 'Wie beslist wat in Brussel?',
-    en: 'Who decides what in Brussels?',
-    de: 'Wer entscheidet was in Brüssel?',
+  const titles: Record<string, string> = { fr: 'Qui décide quoi à Bruxelles ?', nl: 'Wie beslist wat in Brussel?', en: 'Who decides what in Brussels?', de: 'Wer entscheidet was in Brüssel?' };
+  const descriptions: Record<string, string> = {
+    fr: 'Fédéral, régional, communautaire, communal : les niveaux de pouvoir à Bruxelles expliqués.',
+    nl: 'Federaal, gewestelijk, gemeenschaps-, gemeentelijk: de machtsniveaus in Brussel uitgelegd.',
+    en: 'Federal, regional, community, municipal: the levels of power in Brussels explained.',
+    de: 'Bundes-, Regional-, Gemeinschafts-, Gemeindeebene: die Machtebenen in Brüssel erklärt.',
   };
-  return { title: titles[locale] || titles.en };
+  return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/explainers/levels-of-power' });
 }
 
 export default async function LevelsOfPowerPage({

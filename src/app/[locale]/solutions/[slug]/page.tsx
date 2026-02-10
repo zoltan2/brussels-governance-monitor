@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { getSolutionCard, getAllSolutionSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
+import { buildMetadata } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -31,32 +32,13 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { card } = result;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
-  return {
+  return buildMetadata({
+    locale,
     title: card.title,
     description: card.mechanism,
-    openGraph: {
-      title: card.title,
-      description: card.mechanism,
-      type: 'article',
-      locale,
-      url: `${siteUrl}/${locale}/solutions/${slug}`,
-      images: [
-        {
-          url: `${siteUrl}/${locale}/og?title=${encodeURIComponent(card.title)}&type=solution&feasibility=${card.feasibility}`,
-          width: 1200,
-          height: 630,
-          alt: card.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: card.title,
-      description: card.mechanism,
-    },
-  };
+    path: `/solutions/${slug}`,
+    ogParams: `title=${encodeURIComponent(card.title)}&type=solution&feasibility=${card.feasibility}`,
+  });
 }
 
 const feasibilityStyles: Record<string, string> = {

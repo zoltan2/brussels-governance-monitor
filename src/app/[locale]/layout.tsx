@@ -43,14 +43,16 @@ export async function generateMetadata({
     openGraph: {
       title: metadata.title,
       description: metadata.description,
+      siteName: 'Brussels Governance Monitor',
       locale,
       type: 'website',
+      url: `${siteUrl}/${locale}`,
       images: [
         {
-          url: `/${locale}/og?title=${encodeURIComponent(metadata.title)}`,
+          url: '/og-image.png',
           width: 1200,
           height: 630,
-          alt: metadata.title,
+          alt: 'Brussels Governance Monitor',
         },
       ],
     },

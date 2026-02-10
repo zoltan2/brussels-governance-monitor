@@ -4,6 +4,7 @@ import { routing } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { getChangelog } from '@/lib/changelog';
 import { formatDate } from '@/lib/utils';
+import { buildMetadata } from '@/lib/metadata';
 import type { Locale } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import type { ChangelogEntry } from '@/lib/changelog';
@@ -12,27 +13,32 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+const titles: Record<string, string> = {
+  fr: 'Historique des modifications',
+  nl: 'Wijzigingsgeschiedenis',
+  en: 'Changelog',
+  de: 'Änderungsprotokoll',
+};
+
+const descriptions: Record<string, string> = {
+  fr: 'Toutes les mises à jour du contenu du Brussels Governance Monitor.',
+  nl: 'Alle inhoudsupdates van de Brussels Governance Monitor.',
+  en: 'All content updates to the Brussels Governance Monitor.',
+  de: 'Alle Inhaltsaktualisierungen des Brussels Governance Monitor.',
+};
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = {
-    fr: 'Historique des modifications',
-    nl: 'Wijzigingsgeschiedenis',
-    en: 'Changelog',
-    de: 'Änderungsprotokoll',
-  };
-  return {
-    title: titles[locale] || 'Changelog',
-    description: {
-      fr: 'Toutes les mises à jour du contenu du Brussels Governance Monitor.',
-      nl: 'Alle inhoudsupdates van de Brussels Governance Monitor.',
-      en: 'All content updates to the Brussels Governance Monitor.',
-      de: 'Alle Inhaltsaktualisierungen des Brussels Governance Monitor.',
-    }[locale] || 'All content updates to the Brussels Governance Monitor.',
-  };
+  return buildMetadata({
+    locale,
+    title: titles[locale] || titles.en,
+    description: descriptions[locale] || descriptions.en,
+    path: '/changelog',
+  });
 }
 
 export default async function ChangelogPage({

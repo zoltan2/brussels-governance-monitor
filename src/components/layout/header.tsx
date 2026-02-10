@@ -26,7 +26,8 @@ export function Header() {
   return (
     <header className="border-b border-neutral-200 bg-white">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight text-brand-900">
+        <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-brand-900">
+          <img src="/logo.png" alt="" width={28} height={28} className="shrink-0" />
           Brussels Governance Monitor
         </Link>
 

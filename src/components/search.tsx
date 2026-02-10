@@ -87,7 +87,7 @@ export function Search() {
         className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs text-neutral-500 transition-colors hover:bg-neutral-100"
         aria-label={t('placeholder')}
       >
-        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -104,13 +104,16 @@ export function Search() {
       {open && (
         <div
           className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 pt-[15vh]"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t('placeholder')}
           onClick={(e) => {
             if (e.target === e.currentTarget) setOpen(false);
           }}
         >
           <div className="w-full max-w-lg rounded-lg bg-white shadow-2xl">
             <div className="flex items-center border-b border-neutral-200 px-4">
-              <svg className="mr-2 h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="mr-2 h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -118,8 +121,10 @@ export function Search() {
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
               </svg>
+              <label htmlFor="search-input" className="sr-only">{t('placeholder')}</label>
               <input
                 ref={inputRef}
+                id="search-input"
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}

@@ -88,7 +88,7 @@ export function SolutionCard({ card }: SolutionCardProps) {
         className="mt-auto inline-flex items-center text-sm font-medium text-brand-700 hover:text-brand-900"
       >
         {t('readMore')}
-        <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </Link>

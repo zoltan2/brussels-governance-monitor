@@ -51,6 +51,7 @@ export function Header() {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -150,11 +151,11 @@ export function Header() {
           aria-label="Menu"
         >
           {menuOpen ? (
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
@@ -164,7 +165,7 @@ export function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="border-t border-neutral-100 px-4 pb-4 md:hidden">
-          <nav className="flex flex-col gap-3 pt-3">
+          <nav aria-label="Menu" className="flex flex-col gap-3 pt-3">
             <Link href="/" onClick={() => setMenuOpen(false)} className="text-sm font-medium text-neutral-900">
               {t('home')}
             </Link>

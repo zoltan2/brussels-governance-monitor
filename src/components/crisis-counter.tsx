@@ -8,7 +8,7 @@ export function CrisisCounter() {
   return (
     <section className="bg-gradient-to-b from-brand-900 to-brand-800 py-20 text-white">
       <div className="mx-auto max-w-5xl px-4 text-center">
-        <h1 className="mb-4 text-sm font-semibold tracking-widest uppercase text-white/60">
+        <h1 className="mb-4 text-sm font-semibold tracking-widest uppercase text-white/80">
           {t('title')}
         </h1>
 
@@ -21,9 +21,9 @@ export function CrisisCounter() {
           </p>
         </div>
 
-        <p className="text-sm font-medium text-white/50">{t('since')}</p>
+        <p className="text-sm font-medium text-white/80">{t('since')}</p>
 
-        <p className="mx-auto mt-10 max-w-2xl text-sm leading-relaxed text-white/60">
+        <p className="mx-auto mt-10 max-w-2xl text-sm leading-relaxed text-white/80">
           {t('explanation')}
         </p>
       </div>

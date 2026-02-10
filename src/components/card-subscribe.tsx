@@ -49,7 +49,7 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
 
   if (status === 'success') {
     return (
-      <div className="rounded-lg border border-teal-200 bg-teal-50 p-4">
+      <div className="rounded-lg border border-teal-200 bg-teal-50 p-4" role="status" aria-live="polite">
         <p className="text-sm text-teal-700">{labels.success}</p>
       </div>
     );
@@ -59,6 +59,7 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
     <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
       <p className="mb-3 text-sm font-medium text-neutral-700">{labels.title}</p>
       <form onSubmit={handleSubmit} className="flex gap-2">
+        <label htmlFor={`card-subscribe-${topic}`} className="sr-only">{labels.emailPlaceholder}</label>
         <input
           type="email"
           id={`card-subscribe-${topic}`}
@@ -78,7 +79,7 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
         </button>
       </form>
       {status === 'error' && (
-        <p className="mt-2 text-xs text-red-600">{labels.error}</p>
+        <p className="mt-2 text-xs text-status-delayed" role="alert">{labels.error}</p>
       )}
       <p className="mt-2 text-xs text-neutral-400">{labels.privacy}</p>
     </div>

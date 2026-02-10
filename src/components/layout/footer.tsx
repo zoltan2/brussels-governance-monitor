@@ -13,7 +13,7 @@ export function Footer() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-400">
               {t('contentTitle')}
             </p>
-            <nav className="flex flex-col gap-2 text-xs text-neutral-500">
+            <nav aria-label={t('contentTitle')} className="flex flex-col gap-2 text-xs text-neutral-500">
               <Link href="/timeline" className="hover:text-neutral-700">
                 {t('timeline')}
               </Link>
@@ -37,7 +37,7 @@ export function Footer() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-400">
               {t('aboutTitle')}
             </p>
-            <nav className="flex flex-col gap-2 text-xs text-neutral-500">
+            <nav aria-label={t('aboutTitle')} className="flex flex-col gap-2 text-xs text-neutral-500">
               <Link href="/editorial" className="hover:text-neutral-700">
                 {t('editorial')}
               </Link>

@@ -79,7 +79,7 @@ export function FeedbackButton({ cardTitle, cardType, cardSlug, labels }: Feedba
         onClick={() => setOpen(true)}
         className="inline-flex items-center gap-1.5 rounded-md border border-neutral-300 bg-white px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-50"
       >
-        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -97,7 +97,7 @@ export function FeedbackButton({ cardTitle, cardType, cardSlug, labels }: Feedba
       <h3 className="mb-3 text-sm font-semibold text-neutral-900">{labels.title}</h3>
 
       {status === 'success' ? (
-        <p className="text-sm text-teal-700">{labels.success}</p>
+        <p className="text-sm text-teal-700" role="status" aria-live="polite">{labels.success}</p>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-3">
           <div>
@@ -147,7 +147,7 @@ export function FeedbackButton({ cardTitle, cardType, cardSlug, labels }: Feedba
           </div>
 
           {status === 'error' && (
-            <p className="text-xs text-red-600">{labels.errorMessage}</p>
+            <p className="text-xs text-status-delayed" role="alert">{labels.errorMessage}</p>
           )}
 
           <div className="flex gap-2">

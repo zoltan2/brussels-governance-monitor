@@ -46,7 +46,7 @@ function BrusselsCosmopolitanView() {
       <div className="mx-auto max-w-3xl px-4">
         <Breadcrumb items={[
           { label: tb('home'), href: '/' },
-          { label: tb('understand'), href: '/explainers/brussels-overview' },
+          { label: tb('understand'), href: '/understand' },
           { label: t('title') },
         ]} />
 

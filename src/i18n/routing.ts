@@ -91,6 +91,12 @@ export const routing = defineRouting({
       en: '/comparisons/[slug]',
       de: '/vergleiche/[slug]',
     },
+    '/understand': {
+      fr: '/comprendre',
+      nl: '/begrijpen',
+      en: '/understand',
+      de: '/verstehen',
+    },
     '/explainers/levels-of-power': {
       fr: '/comprendre/niveaux-de-pouvoir',
       nl: '/begrijpen/machtsniveaus',

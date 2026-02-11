@@ -1,6 +1,17 @@
 [
   {
     "date": "2026-02-11",
+    "type": "new",
+    "section": "communes",
+    "descriptions": {
+      "fr": "Nouvelle section : monitoring des 19 communes bruxelloises. 3 communes pilotes : Bruxelles-Ville, Anderlecht, Schaerbeek (4 langues chacune)",
+      "nl": "Nieuwe sectie: monitoring van de 19 Brusselse gemeenten. 3 pilootgemeenten: Brussel-Stad, Anderlecht, Schaarbeek (elk in 4 talen)",
+      "en": "New section: monitoring Brussels' 19 municipalities. 3 pilot municipalities: City of Brussels, Anderlecht, Schaerbeek (4 languages each)",
+      "de": "Neuer Bereich: Monitoring der 19 Brüsseler Gemeinden. 3 Pilotgemeinden: Stadt Brüssel, Anderlecht, Schaerbeek (jeweils in 4 Sprachen)"
+    }
+  },
+  {
+    "date": "2026-02-11",
     "type": "updated",
     "section": "domains",
     "targetSlug": "mobility",

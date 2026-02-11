@@ -117,7 +117,7 @@
     "project": "Een project van algemeen belang gehost door Advice That SRL",
     "identity": "Advice That SRL — Delwartstraat 149, 1070 Brussel — KBO 0728.534.930 — contact@brusselsgovernance.be",
     "disclaimer": "Niet gelieerd aan enige politieke partij",
-    "license": "Broncode AGPL v3",
+    "license": "Publieke broncode — alle rechten voorbehouden",
     "editorial": "Redactioneel charter",
     "methodology": "Onze methode",
     "privacy": "Privacybeleid",
@@ -138,7 +138,8 @@
     "sectors": "Sectoren",
     "solutions": "Uitwegen",
     "accessibility": "Toegankelijkheid",
-    "sourceCode": "Broncode"
+    "sourceCode": "Broncode",
+    "communes": "Gemeenten"
   },
   "locale": {
     "switchTo": "Taal wijzigen",
@@ -328,7 +329,7 @@
     },
     "independence": {
       "title": "Onafhankelijkheid",
-      "description": "Brussels Governance Monitor is een project dat onafhankelijk is van elke partijdige, vakbonds-, media- of overheidsstructuur. De broncode is gepubliceerd onder de AGPL v3-licentie om technische transparantie te garanderen."
+      "description": "Brussels Governance Monitor is een project dat onafhankelijk is van elke partijdige, vakbonds-, media- of overheidsstructuur. De broncode is publiek beschikbaar om technische transparantie te garanderen. Alle rechten voorbehouden."
     },
     "lastUpdated": "Laatste update: {date}"
   },
@@ -448,7 +449,7 @@
       "q7": "Wat zijn de bronnen van BGM?",
       "a7": "Al onze gegevens komen van officiële bronnen (Rekenhof, Brussels parlement, gewestelijke administraties) of betrouwbare secundaire bronnen (pers, academische studies). Elk cijfer gaat vergezeld van zijn bron en betrouwbaarheidsniveau. Het geheel is te raadplegen op de pagina Gegevens.",
       "q8": "Is BGM verbonden met een politieke partij?",
-      "a8": "Nee. Brussels Governance Monitor is een onafhankelijk project gehost door Advice That SRL. Het wordt niet gefinancierd of ondersteund door enige politieke partij, vakbond of belangengroep. De broncode is gepubliceerd onder de AGPL v3-licentie om volledige transparantie te garanderen.",
+      "a8": "Nee. Brussels Governance Monitor is een onafhankelijk project gehost door Advice That SRL. Het wordt niet gefinancierd of ondersteund door enige politieke partij, vakbond of belangengroep. De broncode is publiek beschikbaar om volledige transparantie te garanderen. Alle rechten voorbehouden.",
       "q9": "Hoe kan ik bijdragen?",
       "a9": "U kunt een fout melden, een correctie voorstellen of nieuwe bronnen indienen via onze GitHub-repository. De broncode is open en bijdragen zijn welkom. U kunt zich ook inschrijven voor e-mailwaarschuwingen om de evolutie van de situatie te volgen.",
       "q10": "Hoe lang kan dit nog duren?",
@@ -489,7 +490,7 @@
     },
     "intellectual": {
       "title": "Intellectuele eigendom",
-      "description": "De broncode van Brussels Governance Monitor is gepubliceerd onder de AGPL v3-licentie op GitHub. De redactionele inhoud (teksten, gegevens, analyses) is gepubliceerd onder Creative Commons Naamsvermelding-GelijkDelen 4.0 Internationaal (CC BY-SA 4.0), tenzij anders vermeld."
+      "description": "De broncode van Brussels Governance Monitor is publiek beschikbaar op GitHub voor transparantie en controleerbaarheid. De broncode en redactionele inhoud zijn intellectueel eigendom van Advice That SRL. Alle rechten voorbehouden."
     },
     "liability": {
       "title": "Beperking van aansprakelijkheid",
@@ -606,7 +607,7 @@
     },
     "independence": {
       "title": "Onze onafhankelijkheid",
-      "description": "BGM is een project gehost door Advice That SRL, zonder partijdige, vakbonds- of mediatieke affiliatie. De financiering is transparant: geen overheidssubsidie, geen politieke donaties. De broncode is gepubliceerd onder de AGPL v3-licentie."
+      "description": "BGM is een project gehost door Advice That SRL, zonder partijdige, vakbonds- of mediatieke affiliatie. De financiering is transparant: geen overheidssubsidie, geen politieke donaties. De broncode is publiek beschikbaar. Alle rechten voorbehouden."
     },
     "corrections": {
       "title": "Correctiebeleid",
@@ -1120,7 +1121,8 @@
     "howToRead": "Leeswijzer",
     "editorial": "Redactionele lijn",
     "transparency": "Transparantie",
-    "accessibility": "Toegankelijkheid"
+    "accessibility": "Toegankelijkheid",
+    "communes": "Gemeenten"
   },
   "understand": {
     "title": "Begrijpen",
@@ -1209,7 +1211,7 @@
     "accessibilityTitle": "Toegankelijkheid",
     "accessibilitySummary": "WCAG 2.1 niveau AA-conformiteit. Toetsenbordnavigatie, gecontroleerde contrasten, ondersteuning voor schermlezers.",
     "sourceTitle": "Broncode",
-    "sourceSummary": "De code is gepubliceerd onder de AGPL v3-licentie. Elke wijziging is traceerbaar.",
+    "sourceSummary": "De code is publiek beschikbaar. Elke wijziging is traceerbaar.",
     "sourceLink": "https://github.com/zoltan2/brussels-governance-monitor",
     "fundingTitle": "Financiering",
     "fundingText": "Dit project wordt ontwikkeld en onderhouden door Advice That SRL (Brussel). Het wordt momenteel zelf gefinancierd. Geen adverteerder, politieke partij of publieke instelling draagt bij aan de financiering van deze website. Het project staat open voor publieke of filantropische financiering die verenigbaar is met zijn redactionele onafhankelijkheid. Neem contact met ons op als u dit initiatief wilt steunen.",
@@ -1219,5 +1221,57 @@
     "contactTitle": "Contact",
     "contactEmail": "contact@brusselsgovernance.be",
     "readMore": "Lezen →"
+  },
+  "communes": {
+    "title": "De 19 gemeenten",
+    "subtitle": "Monitoring van transparantie en gemeentelijk bestuur in Brussel",
+    "transparencyScore": "Transparantiescore",
+    "mayor": "Burgemeester",
+    "coalition": "Coalitie",
+    "population": "Bevolking",
+    "councilSeats": "Zetels in de gemeenteraad",
+    "postalCode": "Postcode",
+    "area": "Oppervlakte",
+    "readMore": "Bekijk de fiche",
+    "backToList": "Terug naar gemeenten",
+    "share": "Delen",
+    "copied": "Link gekopieerd!",
+    "lastModified": "Laatst bijgewerkt: {date}",
+    "sortBy": "Sorteren op",
+    "sortName": "Naam",
+    "sortPopulation": "Bevolking",
+    "sortTransparency": "Transparantie",
+    "indicators": {
+      "budgetOnline": "Budget online",
+      "councilMinutesOnline": "Notulen gemeenteraad online",
+      "councilLivestream": "Livestream gemeenteraad",
+      "openData": "Gemeentelijke Open Data",
+      "participationPlatform": "Participatieplatform",
+      "mandateRegistry": "Mandatenregister"
+    },
+    "indicatorValues": {
+      "yes": "Ja",
+      "partial": "Gedeeltelijk",
+      "no": "Nee"
+    },
+    "sources": "Bronnen",
+    "sourceTypes": {
+      "official": "Officieel",
+      "media": "Media",
+      "opendata": "Open Data",
+      "citizen": "Burger",
+      "regional": "Gewestelijk"
+    },
+    "alerts": "Waarschuwingen",
+    "alertSeverity": {
+      "info": "Informatie",
+      "warning": "Waarschuwing",
+      "critical": "Kritiek"
+    },
+    "relatedDomains": "Gerelateerde domeinen",
+    "relatedSectors": "Gerelateerde sectoren",
+    "keyFigures": "Kerncijfers",
+    "transparencyGrid": "Transparantieraster",
+    "criteriaOf": "{score}/{total} criteria"
   }
 }

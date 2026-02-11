@@ -271,6 +271,69 @@ const sectorCards = defineCollection({
 });
 
 // ──────────────────────────────────────────────
+// Collection: Commune Cards (19 communes bruxelloises)
+// ──────────────────────────────────────────────
+const communeSourceSchema = s.object({
+  label: s.string(),
+  url: s.string().url(),
+  type: s.enum(['official', 'media', 'opendata', 'citizen', 'regional']),
+  accessedAt: s.isodate(),
+});
+
+const communeCards = defineCollection({
+  name: 'CommuneCard',
+  pattern: 'commune-cards/*.mdx',
+  schema: s
+    .object({
+      title: s.string().max(120),
+      slug: s.string(),
+      locale: localeEnum,
+      commune: s.string(),
+      postalCode: s.string(),
+      population: s.number(),
+      area: s.number().optional(),
+      mayor: s.string(),
+      mayorParty: s.string(),
+      coalition: s.array(s.string()),
+      councilSeats: s.number(),
+      transparencyIndicators: s.object({
+        budgetOnline: s.enum(['yes', 'partial', 'no']),
+        councilMinutesOnline: s.enum(['yes', 'partial', 'no']),
+        councilLivestream: s.enum(['yes', 'partial', 'no']),
+        openData: s.enum(['yes', 'partial', 'no']),
+        participationPlatform: s.enum(['yes', 'partial', 'no']),
+        mandateRegistry: s.enum(['yes', 'partial', 'no']),
+      }),
+      relatedDomains: s
+        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social']))
+        .default([]),
+      relatedSectors: s.array(s.string()).default([]),
+      sources: s.array(communeSourceSchema),
+      keyFigures: s.array(metricSchema).default([]),
+      alerts: s
+        .array(
+          s.object({
+            label: s.string(),
+            severity: s.enum(['info', 'warning', 'critical']),
+            date: s.isodate(),
+          }),
+        )
+        .default([]),
+      draft: s.boolean().default(false),
+      lastModified: s.isodate(),
+      content: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      permalink: `/communes/${data.slug}`,
+      transparencyScore: Object.values(data.transparencyIndicators).filter(
+        (v) => v === 'yes',
+      ).length,
+      transparencyTotal: Object.keys(data.transparencyIndicators).length,
+    })),
+});
+
+// ──────────────────────────────────────────────
 // Collection: Comparison Cards (V1 — schema ready, 0 content)
 // ──────────────────────────────────────────────
 const comparisonCards = defineCollection({
@@ -333,5 +396,6 @@ export default defineConfig({
     verifications,
     sectorCards,
     comparisonCards,
+    communeCards,
   },
 });

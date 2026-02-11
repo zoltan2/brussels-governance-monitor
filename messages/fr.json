@@ -117,7 +117,7 @@
     "project": "Un projet d'intérêt général hébergé par Advice That SRL",
     "identity": "Advice That SRL — Rue Delwart 149, 1070 Bruxelles — BCE 0728.534.930 — contact@brusselsgovernance.be",
     "disclaimer": "Non affilié à aucun parti politique",
-    "license": "Code source AGPL v3",
+    "license": "Code source public — tous droits réservés",
     "editorial": "Charte éditoriale",
     "methodology": "Notre méthode",
     "howToRead": "Comment lire ce site",
@@ -138,7 +138,8 @@
     "sectors": "Secteurs",
     "solutions": "Sorties de crise",
     "accessibility": "Accessibilité",
-    "sourceCode": "Code source"
+    "sourceCode": "Code source",
+    "communes": "Communes"
   },
   "locale": {
     "switchTo": "Changer de langue",
@@ -328,7 +329,7 @@
     },
     "independence": {
       "title": "Indépendance",
-      "description": "Brussels Governance Monitor est un projet indépendant de toute structure partisane, syndicale, médiatique ou gouvernementale. Le code source est publié sous licence AGPL v3 pour garantir la transparence technique."
+      "description": "Brussels Governance Monitor est un projet indépendant de toute structure partisane, syndicale, médiatique ou gouvernementale. Le code source est publié publiquement pour garantir la transparence technique. Tous droits réservés."
     },
     "lastUpdated": "Dernière mise à jour : {date}"
   },
@@ -448,7 +449,7 @@
       "q7": "Quelles sont les sources de BGM ?",
       "a7": "Toutes nos données proviennent de sources officielles (Cour des comptes, parlement bruxellois, administrations régionales) ou de sources secondaires fiables (presse, études académiques). Chaque chiffre est accompagné de sa source et de son niveau de confiance. L'ensemble est consultable sur la page Données.",
       "q8": "BGM est-il affilié à un parti politique ?",
-      "a8": "Non. Brussels Governance Monitor est un projet indépendant hébergé par Advice That SRL. Il n'est financé ni soutenu par aucun parti politique, syndicat ou groupe d'intérêt. Le code source est publié sous licence AGPL v3 pour garantir une transparence totale.",
+      "a8": "Non. Brussels Governance Monitor est un projet indépendant hébergé par Advice That SRL. Il n'est financé ni soutenu par aucun parti politique, syndicat ou groupe d'intérêt. Le code source est publié publiquement pour garantir une transparence totale. Tous droits réservés.",
       "q9": "Comment puis-je contribuer ?",
       "a9": "Vous pouvez signaler une erreur, proposer une correction ou soumettre de nouvelles sources via notre dépôt GitHub. Le code source est ouvert et les contributions sont les bienvenues. Vous pouvez également vous inscrire aux alertes email pour suivre l'évolution de la situation.",
       "q10": "Combien de temps cela peut-il encore durer ?",
@@ -489,7 +490,7 @@
     },
     "intellectual": {
       "title": "Propriété intellectuelle",
-      "description": "Le code source de Brussels Governance Monitor est publié sous licence AGPL v3 sur GitHub. Le contenu éditorial (textes, données, analyses) est publié sous licence Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), sauf mention contraire."
+      "description": "Le code source de Brussels Governance Monitor est publié publiquement sur GitHub pour garantir transparence et auditabilité. Le code source et le contenu éditorial sont la propriété intellectuelle d'Advice That SRL. Tous droits réservés."
     },
     "liability": {
       "title": "Limitation de responsabilité",
@@ -606,7 +607,7 @@
     },
     "independence": {
       "title": "Notre indépendance",
-      "description": "BGM est un projet hébergé par Advice That SRL, sans affiliation partisane, syndicale ou médiatique. Le financement est transparent : aucune subvention publique, aucun don politique. Le code source est publié sous licence AGPL v3."
+      "description": "BGM est un projet hébergé par Advice That SRL, sans affiliation partisane, syndicale ou médiatique. Le financement est transparent : aucune subvention publique, aucun don politique. Le code source est publié publiquement. Tous droits réservés."
     },
     "corrections": {
       "title": "Politique de corrections",
@@ -1120,7 +1121,8 @@
     "howToRead": "Comment lire",
     "editorial": "Ligne éditoriale",
     "transparency": "Transparence",
-    "accessibility": "Accessibilité"
+    "accessibility": "Accessibilité",
+    "communes": "Communes"
   },
   "understand": {
     "title": "Comprendre",
@@ -1209,7 +1211,7 @@
     "accessibilityTitle": "Accessibilité",
     "accessibilitySummary": "Conformité WCAG 2.1 niveau AA. Navigation au clavier, contrastes vérifiés, lecteurs d'écran supportés.",
     "sourceTitle": "Code source",
-    "sourceSummary": "Le code est publié sous licence AGPL v3. Chaque modification est traçable.",
+    "sourceSummary": "Le code est publié publiquement. Chaque modification est traçable.",
     "sourceLink": "https://github.com/zoltan2/brussels-governance-monitor",
     "fundingTitle": "Financement",
     "fundingText": "Ce projet est développé et maintenu par Advice That SRL (Bruxelles). Il est actuellement autofinancé. Aucun annonceur, parti politique ou institution publique ne contribue au financement de ce site. Le projet est ouvert à des financements publics ou philanthropiques compatibles avec son indépendance éditoriale. Si vous souhaitez soutenir cette initiative, contactez-nous.",
@@ -1219,5 +1221,57 @@
     "contactTitle": "Contact",
     "contactEmail": "contact@brusselsgovernance.be",
     "readMore": "Lire →"
+  },
+  "communes": {
+    "title": "Les 19 communes",
+    "subtitle": "Monitoring de la transparence et de la gouvernance communale à Bruxelles",
+    "transparencyScore": "Score transparence",
+    "mayor": "Bourgmestre",
+    "coalition": "Coalition",
+    "population": "Population",
+    "councilSeats": "Sièges au conseil",
+    "postalCode": "Code postal",
+    "area": "Superficie",
+    "readMore": "Voir la fiche",
+    "backToList": "Retour aux communes",
+    "share": "Partager",
+    "copied": "Lien copié !",
+    "lastModified": "Dernière mise à jour : {date}",
+    "sortBy": "Trier par",
+    "sortName": "Nom",
+    "sortPopulation": "Population",
+    "sortTransparency": "Transparence",
+    "indicators": {
+      "budgetOnline": "Budget en ligne",
+      "councilMinutesOnline": "PV du conseil en ligne",
+      "councilLivestream": "Livestream du conseil",
+      "openData": "Open Data communal",
+      "participationPlatform": "Plateforme de participation",
+      "mandateRegistry": "Registre des mandats"
+    },
+    "indicatorValues": {
+      "yes": "Oui",
+      "partial": "Partiel",
+      "no": "Non"
+    },
+    "sources": "Sources",
+    "sourceTypes": {
+      "official": "Officiel",
+      "media": "Média",
+      "opendata": "Open Data",
+      "citizen": "Citoyen",
+      "regional": "Régional"
+    },
+    "alerts": "Alertes",
+    "alertSeverity": {
+      "info": "Information",
+      "warning": "Attention",
+      "critical": "Critique"
+    },
+    "relatedDomains": "Domaines liés",
+    "relatedSectors": "Secteurs liés",
+    "keyFigures": "Chiffres clés",
+    "transparencyGrid": "Grille de transparence",
+    "criteriaOf": "{score}/{total} critères"
   }
 }

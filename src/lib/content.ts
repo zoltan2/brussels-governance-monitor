@@ -151,6 +151,44 @@ export interface Verification {
   permalink: string;
 }
 
+export interface CommuneCard {
+  title: string;
+  slug: string;
+  locale: Locale;
+  commune: string;
+  postalCode: string;
+  population: number;
+  area?: number;
+  mayor: string;
+  mayorParty: string;
+  coalition: string[];
+  councilSeats: number;
+  transparencyIndicators: {
+    budgetOnline: 'yes' | 'partial' | 'no';
+    councilMinutesOnline: 'yes' | 'partial' | 'no';
+    councilLivestream: 'yes' | 'partial' | 'no';
+    openData: 'yes' | 'partial' | 'no';
+    participationPlatform: 'yes' | 'partial' | 'no';
+    mandateRegistry: 'yes' | 'partial' | 'no';
+  };
+  relatedDomains: string[];
+  relatedSectors: string[];
+  sources: Array<{
+    label: string;
+    url: string;
+    type: 'official' | 'media' | 'opendata' | 'citizen' | 'regional';
+    accessedAt: string;
+  }>;
+  keyFigures: Array<{ label: string; value: string; unit?: string; source: string; date: string }>;
+  alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
+  draft: boolean;
+  lastModified: string;
+  content: string;
+  permalink: string;
+  transparencyScore: number;
+  transparencyTotal: number;
+}
+
 interface VeliteCollections {
   domainCards: DomainCard[];
   solutionCards: SolutionCard[];
@@ -160,6 +198,7 @@ interface VeliteCollections {
   verifications: Verification[];
   sectorCards: SectorCard[];
   comparisonCards: ComparisonCard[];
+  communeCards: CommuneCard[];
 }
 
 function getCollections(): VeliteCollections {
@@ -176,6 +215,7 @@ function getCollections(): VeliteCollections {
       verifications: [],
       sectorCards: [],
       comparisonCards: [],
+      communeCards: [],
     };
   }
 }
@@ -655,4 +695,52 @@ export function getDraftCards(locale: Locale): DraftItem[] {
   }
 
   return drafts.sort((a, b) => b.lastModified.localeCompare(a.lastModified));
+}
+
+// ──────────────────────────────────────────────
+// Commune Cards
+// ──────────────────────────────────────────────
+
+/**
+ * Get all commune cards for a given locale.
+ * Per-card fallback: if a card doesn't exist in the requested locale,
+ * the FR version is used instead. Sorted by commune name.
+ */
+export function getCommuneCards(locale: Locale): CommuneCard[] {
+  const { communeCards } = getCollections();
+  const frCards = communeCards.filter((c) => c.locale === 'fr' && !c.draft);
+  if (locale === 'fr') return frCards.sort((a, b) => a.title.localeCompare(b.title, 'fr'));
+
+  return frCards
+    .map((frCard) => {
+      const localeCard = communeCards.find((c) => c.slug === frCard.slug && c.locale === locale);
+      return localeCard || frCard;
+    })
+    .sort((a, b) => a.title.localeCompare(b.title, locale));
+}
+
+/**
+ * Get a single commune card by slug and locale.
+ * Falls back to FR version if locale version doesn't exist.
+ */
+export function getCommuneCard(
+  slug: string,
+  locale: Locale,
+): { card: CommuneCard; isFallback: boolean } | null {
+  const { communeCards } = getCollections();
+  const card = communeCards.find((c) => c.slug === slug && c.locale === locale);
+  if (card) return { card, isFallback: false };
+
+  const fallback = communeCards.find((c) => c.slug === slug && c.locale === 'fr');
+  if (fallback) return { card: fallback, isFallback: true };
+
+  return null;
+}
+
+/**
+ * Get all commune card slugs (for generateStaticParams).
+ */
+export function getAllCommuneSlugs(): string[] {
+  const { communeCards } = getCollections();
+  return [...new Set(communeCards.map((c) => c.slug))];
 }

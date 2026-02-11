@@ -117,7 +117,7 @@
     "project": "A public interest project hosted by Advice That SRL",
     "identity": "Advice That SRL — Rue Delwart 149, 1070 Brussels — CBE 0728.534.930 — contact@brusselsgovernance.be",
     "disclaimer": "Not affiliated with any political party",
-    "license": "Source code AGPL v3",
+    "license": "Public source code — all rights reserved",
     "editorial": "Editorial charter",
     "methodology": "Our method",
     "privacy": "Privacy policy",
@@ -138,7 +138,8 @@
     "sectors": "Sectors",
     "solutions": "Exit paths",
     "accessibility": "Accessibility",
-    "sourceCode": "Source code"
+    "sourceCode": "Source code",
+    "communes": "Municipalities"
   },
   "locale": {
     "switchTo": "Change language",
@@ -328,7 +329,7 @@
     },
     "independence": {
       "title": "Independence",
-      "description": "Brussels Governance Monitor is a project independent of any partisan, trade union, media, or governmental structure. The source code is published under the AGPL v3 licence to ensure technical transparency."
+      "description": "Brussels Governance Monitor is a project independent of any partisan, trade union, media, or governmental structure. The source code is publicly available to ensure technical transparency. All rights reserved."
     },
     "lastUpdated": "Last updated: {date}"
   },
@@ -448,7 +449,7 @@
       "q7": "What are BGM's sources?",
       "a7": "All our data comes from official sources (Court of Auditors, Brussels parliament, regional administrations) or reliable secondary sources (press, academic studies). Every figure is accompanied by its source and confidence level. Everything is available on the Data page.",
       "q8": "Is BGM affiliated with a political party?",
-      "a8": "No. Brussels Governance Monitor is an independent project hosted by Advice That SRL. It is not funded or supported by any political party, trade union, or interest group. The source code is published under the AGPL v3 licence to ensure full transparency.",
+      "a8": "No. Brussels Governance Monitor is an independent project hosted by Advice That SRL. It is not funded or supported by any political party, trade union, or interest group. The source code is publicly available to ensure full transparency. All rights reserved.",
       "q9": "How can I contribute?",
       "a9": "You can report an error, propose a correction, or submit new sources via our GitHub repository. The source code is open and contributions are welcome. You can also subscribe to email alerts to follow the evolution of the situation.",
       "q10": "How long can this last?",
@@ -489,7 +490,7 @@
     },
     "intellectual": {
       "title": "Intellectual property",
-      "description": "The source code of Brussels Governance Monitor is published under the AGPL v3 licence on GitHub. Editorial content (texts, data, analyses) is published under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), unless otherwise stated."
+      "description": "The source code of Brussels Governance Monitor is publicly available on GitHub for transparency and auditability. The source code and editorial content are the intellectual property of Advice That SRL. All rights reserved."
     },
     "liability": {
       "title": "Limitation of liability",
@@ -606,7 +607,7 @@
     },
     "independence": {
       "title": "Our independence",
-      "description": "BGM is a project hosted by Advice That SRL, with no partisan, trade union, or media affiliation. Funding is transparent: no public subsidies, no political donations. The source code is published under the AGPL v3 licence."
+      "description": "BGM is a project hosted by Advice That SRL, with no partisan, trade union, or media affiliation. Funding is transparent: no public subsidies, no political donations. The source code is publicly available. All rights reserved."
     },
     "corrections": {
       "title": "Corrections policy",
@@ -1120,7 +1121,8 @@
     "howToRead": "How to read",
     "editorial": "Editorial policy",
     "transparency": "Transparency",
-    "accessibility": "Accessibility"
+    "accessibility": "Accessibility",
+    "communes": "Municipalities"
   },
   "understand": {
     "title": "Understand",
@@ -1209,7 +1211,7 @@
     "accessibilityTitle": "Accessibility",
     "accessibilitySummary": "WCAG 2.1 Level AA conformance. Keyboard navigation, verified contrast ratios, screen reader support.",
     "sourceTitle": "Source code",
-    "sourceSummary": "The code is published under the AGPL v3 license. Every change is traceable.",
+    "sourceSummary": "The code is publicly available. Every change is traceable.",
     "sourceLink": "https://github.com/zoltan2/brussels-governance-monitor",
     "fundingTitle": "Funding",
     "fundingText": "This project is developed and maintained by Advice That SRL (Brussels). It is currently self-funded. No advertiser, political party, or public institution contributes to the funding of this website. The project is open to public or philanthropic funding compatible with its editorial independence. Contact us if you wish to support this initiative.",
@@ -1219,5 +1221,57 @@
     "contactTitle": "Contact",
     "contactEmail": "contact@brusselsgovernance.be",
     "readMore": "Read →"
+  },
+  "communes": {
+    "title": "The 19 municipalities",
+    "subtitle": "Monitoring transparency and municipal governance in Brussels",
+    "transparencyScore": "Transparency score",
+    "mayor": "Mayor",
+    "coalition": "Coalition",
+    "population": "Population",
+    "councilSeats": "Council seats",
+    "postalCode": "Postal code",
+    "area": "Area",
+    "readMore": "View details",
+    "backToList": "Back to municipalities",
+    "share": "Share",
+    "copied": "Link copied!",
+    "lastModified": "Last updated: {date}",
+    "sortBy": "Sort by",
+    "sortName": "Name",
+    "sortPopulation": "Population",
+    "sortTransparency": "Transparency",
+    "indicators": {
+      "budgetOnline": "Budget online",
+      "councilMinutesOnline": "Council minutes online",
+      "councilLivestream": "Council livestream",
+      "openData": "Municipal Open Data",
+      "participationPlatform": "Participation platform",
+      "mandateRegistry": "Mandate registry"
+    },
+    "indicatorValues": {
+      "yes": "Yes",
+      "partial": "Partial",
+      "no": "No"
+    },
+    "sources": "Sources",
+    "sourceTypes": {
+      "official": "Official",
+      "media": "Media",
+      "opendata": "Open Data",
+      "citizen": "Citizen",
+      "regional": "Regional"
+    },
+    "alerts": "Alerts",
+    "alertSeverity": {
+      "info": "Information",
+      "warning": "Warning",
+      "critical": "Critical"
+    },
+    "relatedDomains": "Related domains",
+    "relatedSectors": "Related sectors",
+    "keyFigures": "Key figures",
+    "transparencyGrid": "Transparency grid",
+    "criteriaOf": "{score}/{total} criteria"
   }
 }

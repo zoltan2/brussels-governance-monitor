@@ -163,6 +163,18 @@ export const routing = defineRouting({
       en: '/accessibility',
       de: '/barrierefreiheit',
     },
+    '/communes': {
+      fr: '/communes',
+      nl: '/gemeenten',
+      en: '/municipalities',
+      de: '/gemeinden',
+    },
+    '/communes/[slug]': {
+      fr: '/communes/[slug]',
+      nl: '/gemeenten/[slug]',
+      en: '/municipalities/[slug]',
+      de: '/gemeinden/[slug]',
+    },
   },
 });
 

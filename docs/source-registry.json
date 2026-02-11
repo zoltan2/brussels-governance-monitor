@@ -1,12 +1,35 @@
 {
   "$schema": "./source-registry-schema.json",
-  "description": "Registre des sources surveillées par BGM. 132 sources couvrant FR/NL/EN/DE. Priorités : P0 (critique) → P4 (marginal). Voir ANALYSE_SOURCES.md pour la méthodologie.",
-  "lastUpdated": "2026-02-10",
+  "description": "Registre des sources surveillées par BGM. 231 sources. Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
+  "lastUpdated": "2026-02-11",
   "stats": {
-    "total": 133,
-    "byPriority": { "P0": 27, "P1": 31, "P2": 40, "P3": 34, "P4": 1 },
-    "byLang": { "fr": 43, "nl": 40, "en": 25, "de": 2, "multi": 22 },
-    "byType": { "institutional": 31, "press": 76, "agency": 4, "research": 6, "legal": 7, "think-tank": 8 }
+    "total": 231,
+    "byTier": {
+      "editorial": 159,
+      "radar": 72
+    },
+    "byPriority": {
+      "P0": 27,
+      "P1": 32,
+      "P2": 47,
+      "P3": 49,
+      "P4": 62
+    },
+    "byLang": {
+      "fr": 55,
+      "multi": 36,
+      "nl": 40,
+      "en": 82,
+      "de": 4
+    },
+    "byType": {
+      "institutional": 53,
+      "press": 90,
+      "legal": 7,
+      "agency": 4,
+      "research": 42,
+      "think-tank": 21
+    }
   },
   "sources": [
     {
@@ -17,10 +40,13 @@
       "lang": "fr",
       "priority": "P0",
       "category": "employment",
-      "cardsAffected": ["employment"],
+      "cardsAffected": [
+        "employment"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Chiffres chômage, demandeurs d'emploi, jeunes"
+      "notes": "Chiffres chômage, demandeurs d'emploi, jeunes",
+      "tier": "editorial"
     },
     {
       "id": "watch-002",
@@ -30,10 +56,14 @@
       "lang": "fr",
       "priority": "P0",
       "category": "governance",
-      "cardsAffected": ["budget", "social"],
+      "cardsAffected": [
+        "budget",
+        "social"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Votes, débats, questions parlementaires, ordonnances"
+      "notes": "Votes, débats, questions parlementaires, ordonnances",
+      "tier": "editorial"
     },
     {
       "id": "watch-003",
@@ -43,10 +73,14 @@
       "lang": "multi",
       "priority": "P0",
       "category": "social",
-      "cardsAffected": ["social", "health-social"],
+      "cardsAffected": [
+        "social",
+        "health-social"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Décisions COCOM, Iriscare, politique sans-abri, santé mentale, allocations familiales"
+      "notes": "Décisions COCOM, Iriscare, politique sans-abri, santé mentale, allocations familiales",
+      "tier": "editorial"
     },
     {
       "id": "watch-004",
@@ -56,10 +90,14 @@
       "lang": "multi",
       "priority": "P0",
       "category": "social",
-      "cardsAffected": ["social", "health-social"],
+      "cardsAffected": [
+        "social",
+        "health-social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Rapports annuels, agréments, conventions, données secteur"
+      "notes": "Rapports annuels, agréments, conventions, données secteur",
+      "tier": "editorial"
     },
     {
       "id": "watch-005",
@@ -69,10 +107,14 @@
       "lang": "fr",
       "priority": "P0",
       "category": "climate",
-      "cardsAffected": ["climate", "environment"],
+      "cardsAffected": [
+        "climate",
+        "environment"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Plan climat, qualité de l'air, Renolution, performances énergétiques"
+      "notes": "Plan climat, qualité de l'air, Renolution, performances énergétiques",
+      "tier": "editorial"
     },
     {
       "id": "watch-006",
@@ -82,10 +124,14 @@
       "lang": "multi",
       "priority": "P0",
       "category": "mobility",
-      "cardsAffected": ["mobility", "transport"],
+      "cardsAffected": [
+        "mobility",
+        "transport"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Réseau métro/tram/bus, fréquentation, projets (métro 3), perturbations"
+      "notes": "Réseau métro/tram/bus, fréquentation, projets (métro 3), perturbations",
+      "tier": "editorial"
     },
     {
       "id": "watch-007",
@@ -95,10 +141,13 @@
       "lang": "multi",
       "priority": "P0",
       "category": "mobility",
-      "cardsAffected": ["mobility"],
+      "cardsAffected": [
+        "mobility"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Good Move, pistes cyclables, zones 30, chantiers"
+      "notes": "Good Move, pistes cyclables, zones 30, chantiers",
+      "tier": "editorial"
     },
     {
       "id": "watch-008",
@@ -108,10 +157,15 @@
       "lang": "multi",
       "priority": "P0",
       "category": "data",
-      "cardsAffected": ["budget", "employment", "housing"],
+      "cardsAffected": [
+        "budget",
+        "employment",
+        "housing"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "PIB, population, revenus, immobilier, emploi — données par région"
+      "notes": "PIB, population, revenus, immobilier, emploi — données par région",
+      "tier": "editorial"
     },
     {
       "id": "watch-009",
@@ -121,10 +175,16 @@
       "lang": "multi",
       "priority": "P0",
       "category": "data",
-      "cardsAffected": ["budget", "employment", "housing", "mobility"],
+      "cardsAffected": [
+        "budget",
+        "employment",
+        "housing",
+        "mobility"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Baromètre conjoncturel, mini-bru, focus thématiques"
+      "notes": "Baromètre conjoncturel, mini-bru, focus thématiques",
+      "tier": "editorial"
     },
     {
       "id": "watch-010",
@@ -134,10 +194,14 @@
       "lang": "fr",
       "priority": "P0",
       "category": "social",
-      "cardsAffected": ["social", "health-social"],
+      "cardsAffected": [
+        "social",
+        "health-social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Dénombrements sans-abri, rapports d'activité, dispositif hivernal"
+      "notes": "Dénombrements sans-abri, rapports d'activité, dispositif hivernal",
+      "tier": "editorial"
     },
     {
       "id": "watch-011",
@@ -147,10 +211,15 @@
       "lang": "multi",
       "priority": "P0",
       "category": "urban",
-      "cardsAffected": ["housing", "mobility", "construction"],
+      "cardsAffected": [
+        "housing",
+        "mobility",
+        "construction"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "PAD, PRDD, plans d'aménagement, données urbanistiques"
+      "notes": "PAD, PRDD, plans d'aménagement, données urbanistiques",
+      "tier": "editorial"
     },
     {
       "id": "watch-012",
@@ -160,10 +229,14 @@
       "lang": "fr",
       "priority": "P1",
       "category": "governance",
-      "cardsAffected": ["budget", "social"],
+      "cardsAffected": [
+        "budget",
+        "social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Impact sur les communes, CPAS, finances communales"
+      "notes": "Impact sur les communes, CPAS, finances communales",
+      "tier": "editorial"
     },
     {
       "id": "watch-013",
@@ -173,10 +246,14 @@
       "lang": "fr",
       "priority": "P1",
       "category": "social",
-      "cardsAffected": ["social", "health-social"],
+      "cardsAffected": [
+        "social",
+        "health-social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Allocations familiales bruxelloises, réformes, chiffres"
+      "notes": "Allocations familiales bruxelloises, réformes, chiffres",
+      "tier": "editorial"
     },
     {
       "id": "watch-014",
@@ -189,7 +266,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Média bruxellois de référence. Source secondaire, recoupement."
+      "notes": "Média bruxellois de référence. Source secondaire, recoupement.",
+      "tier": "editorial"
     },
     {
       "id": "watch-015",
@@ -202,7 +280,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Média public. Source secondaire pour recoupement."
+      "notes": "Média public. Source secondaire pour recoupement.",
+      "tier": "editorial"
     },
     {
       "id": "watch-016",
@@ -212,10 +291,14 @@
       "lang": "fr",
       "priority": "P0",
       "category": "social",
-      "cardsAffected": ["social", "health-social"],
+      "cardsAffected": [
+        "social",
+        "health-social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Baromètre social, indicateurs de pauvreté, santé publique"
+      "notes": "Baromètre social, indicateurs de pauvreté, santé publique",
+      "tier": "editorial"
     },
     {
       "id": "watch-017",
@@ -225,10 +308,13 @@
       "lang": "multi",
       "priority": "P0",
       "category": "governance",
-      "cardsAffected": ["budget"],
+      "cardsAffected": [
+        "budget"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Ordonnances, arrêtés, décisions officielles RBC"
+      "notes": "Ordonnances, arrêtés, décisions officielles RBC",
+      "tier": "editorial"
     },
     {
       "id": "watch-018",
@@ -238,12 +324,15 @@
       "lang": "fr",
       "priority": "P0",
       "category": "housing",
-      "cardsAffected": ["housing", "housing-sector"],
+      "cardsAffected": [
+        "housing",
+        "housing-sector"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Loyers, logement social, primes, grille indicative"
+      "notes": "Loyers, logement social, primes, grille indicative",
+      "tier": "editorial"
     },
-
     {
       "id": "watch-133",
       "name": "budget.brussels — Budget régional bruxellois",
@@ -252,14 +341,18 @@
       "lang": "multi",
       "priority": "P0",
       "category": "budget",
-      "cardsAffected": ["budget"],
+      "cardsAffected": [
+        "budget"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Portail officiel du budget de la Région de Bruxelles-Capitale. Dépenses, recettes, comptes, affaires courantes."
+      "notes": "Portail officiel du budget de la Région de Bruxelles-Capitale. Dépenses, recettes, comptes, affaires courantes.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P0 — NOUVELLES SOURCES CRITIQUES ==="},
-
+    {
+      "_comment": "=== P0 — NOUVELLES SOURCES CRITIQUES ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-019",
       "name": "Moniteur belge / Belgisch Staatsblad",
@@ -268,10 +361,18 @@
       "lang": "multi",
       "priority": "P0",
       "category": "governance",
-      "cardsAffected": ["budget", "social", "housing", "climate", "mobility", "employment"],
+      "cardsAffected": [
+        "budget",
+        "social",
+        "housing",
+        "climate",
+        "mobility",
+        "employment"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Journal officiel. Seule source officielle des ordonnances, arrêtés et décisions."
+      "notes": "Journal officiel. Seule source officielle des ordonnances, arrêtés et décisions.",
+      "tier": "editorial"
     },
     {
       "id": "watch-020",
@@ -281,10 +382,14 @@
       "lang": "multi",
       "priority": "P0",
       "category": "climate",
-      "cardsAffected": ["climate", "budget"],
+      "cardsAffected": [
+        "climate",
+        "budget"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Tarifs énergie + eau, rapports annuels, indicateurs sociaux énergie"
+      "notes": "Tarifs énergie + eau, rapports annuels, indicateurs sociaux énergie",
+      "tier": "editorial"
     },
     {
       "id": "watch-021",
@@ -294,10 +399,14 @@
       "lang": "multi",
       "priority": "P0",
       "category": "housing",
-      "cardsAffected": ["housing", "housing-sector"],
+      "cardsAffected": [
+        "housing",
+        "housing-sector"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Logement social BXL, parc immobilier, listes d'attente, rapports annuels"
+      "notes": "Logement social BXL, parc immobilier, listes d'attente, rapports annuels",
+      "tier": "editorial"
     },
     {
       "id": "watch-022",
@@ -310,7 +419,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien de référence FR. Couverture BXL la plus dense. Paywall partiel."
+      "notes": "Quotidien de référence FR. Couverture BXL la plus dense. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-023",
@@ -323,7 +433,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Fil d'info primaire FR/NL. Source wire, recoupement. B2B paywall."
+      "notes": "Fil d'info primaire FR/NL. Source wire, recoupement. B2B paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-024",
@@ -333,10 +444,14 @@
       "lang": "fr",
       "priority": "P0",
       "category": "governance",
-      "cardsAffected": ["budget", "social"],
+      "cardsAffected": [
+        "budget",
+        "social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Référence socio-politique belge. Courrier hebdomadaire, dossiers formation."
+      "notes": "Référence socio-politique belge. Courrier hebdomadaire, dossiers formation.",
+      "tier": "editorial"
     },
     {
       "id": "watch-025",
@@ -349,7 +464,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Média public flamand. Indispensable pour crédibilité NL. Gratuit."
+      "notes": "Média public flamand. Indispensable pour crédibilité NL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-026",
@@ -362,7 +478,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Seul média 100% bruxellois trilingue (NL/FR/EN). Gratuit."
+      "notes": "Seul média 100% bruxellois trilingue (NL/FR/EN). Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-027",
@@ -375,7 +492,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Current affairs de référence NL. Interviews politiques, dossiers."
+      "notes": "Current affairs de référence NL. Interviews politiques, dossiers.",
+      "tier": "editorial"
     },
     {
       "id": "watch-028",
@@ -388,11 +506,13 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Plus grand média EN de Belgique. Couverture BXL + EU. Paywall partiel."
+      "notes": "Plus grand média EN de Belgique. Couverture BXL + EU. Paywall partiel.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P1 — HAUTE PRIORITE : INSTITUTIONNEL ==="},
-
+    {
+      "_comment": "=== P1 — HAUTE PRIORITE : INSTITUTIONNEL ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-029",
       "name": "Chambre des représentants / De Kamer",
@@ -401,10 +521,14 @@
       "lang": "multi",
       "priority": "P1",
       "category": "governance",
-      "cardsAffected": ["budget", "social"],
+      "cardsAffected": [
+        "budget",
+        "social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Documents parlementaires fédéraux. Impact sur le budget RBC."
+      "notes": "Documents parlementaires fédéraux. Impact sur le budget RBC.",
+      "tier": "editorial"
     },
     {
       "id": "watch-030",
@@ -417,7 +541,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Publications, rapports d'information, réforme institutionnelle."
+      "notes": "Publications, rapports d'information, réforme institutionnelle.",
+      "tier": "editorial"
     },
     {
       "id": "watch-031",
@@ -427,10 +552,14 @@
       "lang": "nl",
       "priority": "P1",
       "category": "governance",
-      "cardsAffected": ["social", "education"],
+      "cardsAffected": [
+        "social",
+        "education"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Commission communautaire flamande. Enseignement, culture NL à BXL."
+      "notes": "Commission communautaire flamande. Enseignement, culture NL à BXL.",
+      "tier": "editorial"
     },
     {
       "id": "watch-032",
@@ -440,10 +569,14 @@
       "lang": "multi",
       "priority": "P1",
       "category": "housing",
-      "cardsAffected": ["housing", "housing-sector"],
+      "cardsAffected": [
+        "housing",
+        "housing-sector"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Loyers de référence officiels. Grille indicative RBC."
+      "notes": "Loyers de référence officiels. Grille indicative RBC.",
+      "tier": "editorial"
     },
     {
       "id": "watch-033",
@@ -453,14 +586,19 @@
       "lang": "multi",
       "priority": "P1",
       "category": "climate",
-      "cardsAffected": ["climate", "environment"],
+      "cardsAffected": [
+        "climate",
+        "environment"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Données qualité de l'air en temps réel. Indice BelAQI."
+      "notes": "Données qualité de l'air en temps réel. Indice BelAQI.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P1 — HAUTE PRIORITE : PRESSE FR ==="},
-
+    {
+      "_comment": "=== P1 — HAUTE PRIORITE : PRESSE FR ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-034",
       "name": "RTL Info",
@@ -472,7 +610,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "TV privée + web. Couverture BXL politique. Gratuit."
+      "notes": "TV privée + web. Couverture BXL politique. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-035",
@@ -485,7 +624,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien de référence FR. Couverture politique. Paywall partiel."
+      "notes": "Quotidien de référence FR. Couverture politique. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-036",
@@ -495,10 +635,14 @@
       "lang": "fr",
       "priority": "P1",
       "category": "economic",
-      "cardsAffected": ["budget", "employment"],
+      "cardsAffected": [
+        "budget",
+        "employment"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien économique de référence. Budget, finances publiques. Paywall."
+      "notes": "Quotidien économique de référence. Budget, finances publiques. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-037",
@@ -511,7 +655,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Chaîne info continue FR. Débats politiques. Gratuit."
+      "notes": "Chaîne info continue FR. Débats politiques. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-038",
@@ -524,7 +669,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Trimestriel coopératif. Investigation BXL/Belgique. Paywall partiel."
+      "notes": "Trimestriel coopératif. Investigation BXL/Belgique. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-039",
@@ -537,7 +683,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Trimestriel politique belge. Analyses de fond. Paywall partiel."
+      "notes": "Trimestriel politique belge. Analyses de fond. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-040",
@@ -550,7 +697,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Radio publique. Matinale politique, interviews. Gratuit."
+      "notes": "Radio publique. Matinale politique, interviews. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-041",
@@ -560,10 +708,14 @@
       "lang": "fr",
       "priority": "P1",
       "category": "social",
-      "cardsAffected": ["social", "health-social"],
+      "cardsAffected": [
+        "social",
+        "health-social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Bimensuel social. CPAS, pauvreté, logement, emploi. Paywall partiel."
+      "notes": "Bimensuel social. CPAS, pauvreté, logement, emploi. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-042",
@@ -573,10 +725,15 @@
       "lang": "multi",
       "priority": "P1",
       "category": "urban",
-      "cardsAffected": ["housing", "mobility", "social"],
+      "cardsAffected": [
+        "housing",
+        "mobility",
+        "social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Revue académique open access sur Bruxelles. Trilingue FR/NL/EN."
+      "notes": "Revue académique open access sur Bruxelles. Trilingue FR/NL/EN.",
+      "tier": "editorial"
     },
     {
       "id": "watch-043",
@@ -586,14 +743,20 @@
       "lang": "fr",
       "priority": "P1",
       "category": "urban",
-      "cardsAffected": ["housing", "mobility", "construction"],
+      "cardsAffected": [
+        "housing",
+        "mobility",
+        "construction"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Bruxelles en mouvements. Urbanisme, logement, ~80 comités de quartier."
+      "notes": "Bruxelles en mouvements. Urbanisme, logement, ~80 comités de quartier.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P1 — HAUTE PRIORITE : PRESSE NL ==="},
-
+    {
+      "_comment": "=== P1 — HAUTE PRIORITE : PRESSE NL ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-044",
       "name": "De Morgen",
@@ -605,7 +768,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien progressiste flamand. Politique BXL. Paywall."
+      "notes": "Quotidien progressiste flamand. Politique BXL. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-045",
@@ -615,10 +779,14 @@
       "lang": "nl",
       "priority": "P1",
       "category": "economic",
-      "cardsAffected": ["budget", "employment"],
+      "cardsAffected": [
+        "budget",
+        "employment"
+      ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien éco/finance NL. Formation, budget. Paywall."
+      "notes": "Quotidien éco/finance NL. Formation, budget. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-046",
@@ -631,7 +799,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Plus grand tirage flamand. Couverture BXL/Flandre. Paywall partiel."
+      "notes": "Plus grand tirage flamand. Couverture BXL/Flandre. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-047",
@@ -644,7 +813,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdomadaire de référence NL. Investigation. Paywall."
+      "notes": "Hebdomadaire de référence NL. Investigation. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-048",
@@ -657,7 +827,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Web coopératif NL. Investigation politique/économique. Paywall."
+      "notes": "Web coopératif NL. Investigation politique/économique. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-049",
@@ -670,7 +841,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Documentaires d'investigation VRT. Gratuit sur VRT MAX."
+      "notes": "Documentaires d'investigation VRT. Gratuit sur VRT MAX.",
+      "tier": "editorial"
     },
     {
       "id": "watch-050",
@@ -683,7 +855,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Matinale radio publique NL. Interviews politiques. Gratuit."
+      "notes": "Matinale radio publique NL. Interviews politiques. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-051",
@@ -696,7 +869,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Talk show quotidien NL. Débat politique. Gratuit."
+      "notes": "Talk show quotidien NL. Débat politique. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-052",
@@ -709,7 +883,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Documents parlementaires flamands. Impact VGC/BXL NL."
+      "notes": "Documents parlementaires flamands. Impact VGC/BXL NL.",
+      "tier": "editorial"
     },
     {
       "id": "watch-053",
@@ -719,14 +894,19 @@
       "lang": "nl",
       "priority": "P1",
       "category": "social",
-      "cardsAffected": ["social", "health-social"],
+      "cardsAffected": [
+        "social",
+        "health-social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Secteur social flamand/BXL. CPAS, pauvreté, inclusion."
+      "notes": "Secteur social flamand/BXL. CPAS, pauvreté, inclusion.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P1 — HAUTE PRIORITE : PRESSE EN ==="},
-
+    {
+      "_comment": "=== P1 — HAUTE PRIORITE : PRESSE EN ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-054",
       "name": "POLITICO Europe",
@@ -738,7 +918,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "EU affairs basé à BXL. Formation gouvernement belge. Paywall partiel."
+      "notes": "EU affairs basé à BXL. Formation gouvernement belge. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-055",
@@ -751,7 +932,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Non-profit basé à BXL. Couverture EU + Belgique. Paywall partiel."
+      "notes": "Non-profit basé à BXL. Couverture EU + Belgique. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-056",
@@ -764,7 +946,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "VRT en anglais. Couverture Belgique/Flandre. Gratuit."
+      "notes": "VRT en anglais. Couverture Belgique/Flandre. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-057",
@@ -774,14 +957,18 @@
       "lang": "en",
       "priority": "P1",
       "category": "economic",
-      "cardsAffected": ["budget"],
+      "cardsAffected": [
+        "budget"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Économie EU, open access. Basé à BXL. Analyses budgétaires."
+      "notes": "Économie EU, open access. Basé à BXL. Analyses budgétaires.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P2 — PRIORITE MOYENNE : INSTITUTIONNEL ==="},
-
+    {
+      "_comment": "=== P2 — PRIORITE MOYENNE : INSTITUTIONNEL ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-058",
       "name": "SNCB/NMBS — Mobilité bruxelloise",
@@ -790,10 +977,14 @@
       "lang": "multi",
       "priority": "P2",
       "category": "mobility",
-      "cardsAffected": ["mobility", "transport"],
+      "cardsAffected": [
+        "mobility",
+        "transport"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Navetteurs, RER/GEN, gares bruxelloises."
+      "notes": "Navetteurs, RER/GEN, gares bruxelloises.",
+      "tier": "editorial"
     },
     {
       "id": "watch-059",
@@ -803,10 +994,14 @@
       "lang": "nl",
       "priority": "P2",
       "category": "mobility",
-      "cardsAffected": ["mobility", "transport"],
+      "cardsAffected": [
+        "mobility",
+        "transport"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Bus flamands à/via BXL. Connexions périphérie."
+      "notes": "Bus flamands à/via BXL. Connexions périphérie.",
+      "tier": "editorial"
     },
     {
       "id": "watch-060",
@@ -816,10 +1011,13 @@
       "lang": "multi",
       "priority": "P2",
       "category": "climate",
-      "cardsAffected": ["climate"],
+      "cardsAffected": [
+        "climate"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Réseau gaz/électricité BXL. Données consommation."
+      "notes": "Réseau gaz/électricité BXL. Données consommation.",
+      "tier": "editorial"
     },
     {
       "id": "watch-061",
@@ -829,10 +1027,14 @@
       "lang": "multi",
       "priority": "P2",
       "category": "climate",
-      "cardsAffected": ["climate", "budget"],
+      "cardsAffected": [
+        "climate",
+        "budget"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Tarifs énergie fédéraux. Impact sur factures BXL."
+      "notes": "Tarifs énergie fédéraux. Impact sur factures BXL.",
+      "tier": "editorial"
     },
     {
       "id": "watch-062",
@@ -842,14 +1044,19 @@
       "lang": "fr",
       "priority": "P2",
       "category": "governance",
-      "cardsAffected": ["social", "education"],
+      "cardsAffected": [
+        "social",
+        "education"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Publications COCOF. Compétences communautaires FR à BXL."
+      "notes": "Publications COCOF. Compétences communautaires FR à BXL.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P2 — PRIORITE MOYENNE : PRESSE FR ==="},
-
+    {
+      "_comment": "=== P2 — PRIORITE MOYENNE : PRESSE FR ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-063",
       "name": "La DH / Les Sports+",
@@ -861,7 +1068,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien populaire FR. BXL faits divers + politique. Paywall partiel."
+      "notes": "Quotidien populaire FR. BXL faits divers + politique. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-064",
@@ -874,7 +1082,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien régional Wallonie + BXL. Paywall."
+      "notes": "Quotidien régional Wallonie + BXL. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-065",
@@ -887,7 +1096,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Web hyperlocal. 19 communes. Gratuit."
+      "notes": "Web hyperlocal. 19 communes. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-066",
@@ -900,7 +1110,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Blog/analyse politique bruxelloise. Gratuit."
+      "notes": "Blog/analyse politique bruxelloise. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-067",
@@ -910,10 +1121,14 @@
       "lang": "fr",
       "priority": "P2",
       "category": "economic",
-      "cardsAffected": ["budget", "employment"],
+      "cardsAffected": [
+        "budget",
+        "employment"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdo économique FR. Entreprises, emploi. Paywall."
+      "notes": "Hebdo économique FR. Entreprises, emploi. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-068",
@@ -926,7 +1141,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdomadaire généraliste FR. Enquêtes politique. Paywall."
+      "notes": "Hebdomadaire généraliste FR. Enquêtes politique. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-069",
@@ -939,7 +1155,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Radio régionale publique. Proximité BXL. Gratuit."
+      "notes": "Radio régionale publique. Proximité BXL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-070",
@@ -952,7 +1169,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Radio privée FR. Info continue. Gratuit."
+      "notes": "Radio privée FR. Info continue. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-071",
@@ -965,7 +1183,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Trimestriel analyse politique. Paywall partiel."
+      "notes": "Trimestriel analyse politique. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-072",
@@ -978,7 +1197,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Revue intellectuelle belge. Analyses de fond. Paywall partiel."
+      "notes": "Revue intellectuelle belge. Analyses de fond. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-073",
@@ -988,10 +1208,14 @@
       "lang": "fr",
       "priority": "P2",
       "category": "social",
-      "cardsAffected": ["social", "health-social"],
+      "cardsAffected": [
+        "social",
+        "health-social"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Trimestriel pauvreté, CPAS. Gratuit."
+      "notes": "Trimestriel pauvreté, CPAS. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-074",
@@ -1004,11 +1228,13 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Actualités juridiques FR. Ordonnances, jurisprudence."
+      "notes": "Actualités juridiques FR. Ordonnances, jurisprudence.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P2 — PRIORITE MOYENNE : PRESSE NL ==="},
-
+    {
+      "_comment": "=== P2 — PRIORITE MOYENNE : PRESSE NL ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-075",
       "name": "Het Laatste Nieuws (HLN)",
@@ -1020,7 +1246,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien populaire NL. Plus grand tirage Belgique. Paywall partiel."
+      "notes": "Quotidien populaire NL. Plus grand tirage Belgique. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-076",
@@ -1033,7 +1260,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "TV privée NL. Info continue. Gratuit."
+      "notes": "TV privée NL. Info continue. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-077",
@@ -1043,10 +1271,13 @@
       "lang": "nl",
       "priority": "P2",
       "category": "housing",
-      "cardsAffected": ["housing"],
+      "cardsAffected": [
+        "housing"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Portail logement VGC. Info NL à BXL."
+      "notes": "Portail logement VGC. Info NL à BXL.",
+      "tier": "editorial"
     },
     {
       "id": "watch-078",
@@ -1056,10 +1287,14 @@
       "lang": "nl",
       "priority": "P2",
       "category": "economic",
-      "cardsAffected": ["budget", "employment"],
+      "cardsAffected": [
+        "budget",
+        "employment"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdo économique NL. Entreprises, emploi. Paywall."
+      "notes": "Hebdo économique NL. Entreprises, emploi. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-079",
@@ -1069,10 +1304,13 @@
       "lang": "nl",
       "priority": "P2",
       "category": "economic",
-      "cardsAffected": ["employment"],
+      "cardsAffected": [
+        "employment"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Fédération employeurs flamands. Impact emploi BXL."
+      "notes": "Fédération employeurs flamands. Impact emploi BXL.",
+      "tier": "editorial"
     },
     {
       "id": "watch-080",
@@ -1085,7 +1323,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Mensuel analyse socio-politique NL. Paywall partiel."
+      "notes": "Mensuel analyse socio-politique NL. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-081",
@@ -1095,10 +1334,13 @@
       "lang": "nl",
       "priority": "P2",
       "category": "mobility",
-      "cardsAffected": ["mobility"],
+      "cardsAffected": [
+        "mobility"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Coalition ONG mobilité durable Flandre/BXL."
+      "notes": "Coalition ONG mobilité durable Flandre/BXL.",
+      "tier": "editorial"
     },
     {
       "id": "watch-082",
@@ -1111,7 +1353,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Web alternatif NL. Gratuit."
+      "notes": "Web alternatif NL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-083",
@@ -1124,7 +1367,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Actualités juridiques NL. Gratuit."
+      "notes": "Actualités juridiques NL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-084",
@@ -1137,7 +1381,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Base législative NL. Gratuit."
+      "notes": "Base législative NL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-085",
@@ -1147,10 +1392,14 @@
       "lang": "multi",
       "priority": "P2",
       "category": "governance",
-      "cardsAffected": ["budget", "employment"],
+      "cardsAffected": [
+        "budget",
+        "employment"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Think tank indépendant. Réforme institutionnelle, emploi."
+      "notes": "Think tank indépendant. Réforme institutionnelle, emploi.",
+      "tier": "editorial"
     },
     {
       "id": "watch-086",
@@ -1163,11 +1412,13 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Podcast politique VRT. Formation, coulisses. Gratuit."
+      "notes": "Podcast politique VRT. Formation, coulisses. Gratuit.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P2 — PRIORITE MOYENNE : PRESSE EN ==="},
-
+    {
+      "_comment": "=== P2 — PRIORITE MOYENNE : PRESSE EN ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-087",
       "name": "EURACTIV",
@@ -1179,7 +1430,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien web EU policy. 12 langues. Gratuit."
+      "notes": "Quotidien web EU policy. 12 langues. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-088",
@@ -1192,7 +1444,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Bulletin quotidien EU FR/EN. Paywall."
+      "notes": "Bulletin quotidien EU FR/EN. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-089",
@@ -1205,7 +1458,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Trimestriel + web. Belgique expats. Gratuit."
+      "notes": "Trimestriel + web. Belgique expats. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-090",
@@ -1218,7 +1472,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "TV 24/7 + web. EU + Europe. Gratuit."
+      "notes": "TV 24/7 + web. EU + Europe. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-091",
@@ -1231,7 +1486,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Wire service. EU + Belgique économique. Paywall partiel."
+      "notes": "Wire service. EU + Belgique économique. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-092",
@@ -1244,7 +1500,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Wire service. EU + Belgique. N/A direct."
+      "notes": "Wire service. EU + Belgique. N/A direct.",
+      "tier": "editorial"
     },
     {
       "id": "watch-093",
@@ -1257,7 +1514,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Think tank EU policy. Basé à BXL. Open access."
+      "notes": "Think tank EU policy. Basé à BXL. Open access.",
+      "tier": "editorial"
     },
     {
       "id": "watch-094",
@@ -1270,7 +1528,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Think tank EU intégration. Basé à BXL."
+      "notes": "Think tank EU intégration. Basé à BXL.",
+      "tier": "editorial"
     },
     {
       "id": "watch-095",
@@ -1283,11 +1542,13 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Think tank belge. Relations internationales, gouvernance."
+      "notes": "Think tank belge. Relations internationales, gouvernance.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P2 — PRIORITE MOYENNE : PRESSE DE ==="},
-
+    {
+      "_comment": "=== P2 — PRIORITE MOYENNE : PRESSE DE ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-096",
       "name": "Grenz-Echo",
@@ -1299,7 +1560,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Unique quotidien DE de Belgique. Communauté germanophone. Paywall."
+      "notes": "Unique quotidien DE de Belgique. Communauté germanophone. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-097",
@@ -1312,11 +1574,13 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Radio-TV publique germanophone. Gratuit."
+      "notes": "Radio-TV publique germanophone. Gratuit.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P3 — COMPLEMENTAIRE : FR ==="},
-
+    {
+      "_comment": "=== P3 — COMPLEMENTAIRE : FR ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-098",
       "name": "Bruxelles Bondy Blog",
@@ -1328,7 +1592,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Participatif. Quartiers populaires BXL. Gratuit."
+      "notes": "Participatif. Quartiers populaires BXL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-099",
@@ -1341,7 +1606,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Web digital-native. Politique + économie. Gratuit."
+      "notes": "Web digital-native. Politique + économie. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-100",
@@ -1354,7 +1620,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdo satirique politique belge. Paywall partiel."
+      "notes": "Hebdo satirique politique belge. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-101",
@@ -1367,7 +1634,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Mensuel familles. Allocations, crèches. Paywall partiel."
+      "notes": "Mensuel familles. Allocations, crèches. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-102",
@@ -1380,7 +1648,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Bimestriel écologie/transition. Paywall partiel."
+      "notes": "Bimestriel écologie/transition. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-103",
@@ -1390,10 +1659,13 @@
       "lang": "fr",
       "priority": "P3",
       "category": "social",
-      "cardsAffected": ["culture"],
+      "cardsAffected": [
+        "culture"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Semestriel culture/société. Gratuit."
+      "notes": "Semestriel culture/société. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-104",
@@ -1406,7 +1678,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Portail collectif médias indépendants FR. Gratuit."
+      "notes": "Portail collectif médias indépendants FR. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-105",
@@ -1419,7 +1692,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Bimestriel féministe. Paywall partiel."
+      "notes": "Bimestriel féministe. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-106",
@@ -1432,11 +1706,13 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdo juridique. Jurisprudence. Paywall."
+      "notes": "Hebdo juridique. Jurisprudence. Paywall.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P3 — COMPLEMENTAIRE : NL ==="},
-
+    {
+      "_comment": "=== P3 — COMPLEMENTAIRE : NL ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-107",
       "name": "Gazet van Antwerpen",
@@ -1448,7 +1724,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien Anvers. Couverture Flandre/BXL. Paywall partiel."
+      "notes": "Quotidien Anvers. Couverture Flandre/BXL. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-108",
@@ -1461,7 +1738,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien Limbourg. Paywall partiel."
+      "notes": "Quotidien Limbourg. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-109",
@@ -1471,10 +1749,13 @@
       "lang": "nl",
       "priority": "P3",
       "category": "social",
-      "cardsAffected": ["education"],
+      "cardsAffected": [
+        "education"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Promotion néerlandais à BXL."
+      "notes": "Promotion néerlandais à BXL.",
+      "tier": "editorial"
     },
     {
       "id": "watch-110",
@@ -1484,10 +1765,14 @@
       "lang": "nl",
       "priority": "P3",
       "category": "economic",
-      "cardsAffected": ["employment", "commerce"],
+      "cardsAffected": [
+        "employment",
+        "commerce"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Fédération PME flamande. Impact commerce BXL."
+      "notes": "Fédération PME flamande. Impact commerce BXL.",
+      "tier": "editorial"
     },
     {
       "id": "watch-111",
@@ -1500,7 +1785,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Fonds investigation NL. Projets financés."
+      "notes": "Fonds investigation NL. Projets financés.",
+      "tier": "editorial"
     },
     {
       "id": "watch-112",
@@ -1513,7 +1799,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Opinion flamingante. Perspective communautaire NL. Gratuit."
+      "notes": "Opinion flamingante. Perspective communautaire NL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-113",
@@ -1526,7 +1813,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Magazine international NL. Belgique/monde. Gratuit."
+      "notes": "Magazine international NL. Belgique/monde. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-114",
@@ -1536,10 +1824,13 @@
       "lang": "nl",
       "priority": "P3",
       "category": "social",
-      "cardsAffected": ["culture"],
+      "cardsAffected": [
+        "culture"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Trimestriel culture/société NL. Gratuit."
+      "notes": "Trimestriel culture/société NL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-115",
@@ -1552,7 +1843,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Agence jeunes, diversité Flandre/BXL. Gratuit."
+      "notes": "Agence jeunes, diversité Flandre/BXL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-116",
@@ -1565,7 +1857,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Web digital-native NL. Gratuit."
+      "notes": "Web digital-native NL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-117",
@@ -1578,7 +1871,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdo culture/politique NL. Interviews. Paywall partiel."
+      "notes": "Hebdo culture/politique NL. Interviews. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-118",
@@ -1591,7 +1885,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Portail juridique NL. Gratuit."
+      "notes": "Portail juridique NL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-119",
@@ -1604,7 +1899,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Bimensuel juridique NL. Paywall."
+      "notes": "Bimensuel juridique NL. Paywall.",
+      "tier": "editorial"
     },
     {
       "id": "watch-120",
@@ -1614,10 +1910,13 @@
       "lang": "nl",
       "priority": "P3",
       "category": "economic",
-      "cardsAffected": ["budget"],
+      "cardsAffected": [
+        "budget"
+      ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Think tank progressiste NL. Budget, fiscalité."
+      "notes": "Think tank progressiste NL. Budget, fiscalité.",
+      "tier": "editorial"
     },
     {
       "id": "watch-121",
@@ -1630,11 +1929,13 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdo conservateur flamand. Paywall partiel."
+      "notes": "Hebdo conservateur flamand. Paywall partiel.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P3 — COMPLEMENTAIRE : EN ==="},
-
+    {
+      "_comment": "=== P3 — COMPLEMENTAIRE : EN ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-122",
       "name": "The Parliament Magazine",
@@ -1646,7 +1947,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Mensuel + web. PE, Commission, Conseil. Paywall partiel."
+      "notes": "Mensuel + web. PE, Commission, Conseil. Paywall partiel.",
+      "tier": "editorial"
     },
     {
       "id": "watch-123",
@@ -1659,7 +1961,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdo EU policy. Gratuit."
+      "notes": "Hebdo EU policy. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-124",
@@ -1672,7 +1975,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien web EU (depuis 2023). Commentaire + news. Gratuit."
+      "notes": "Quotidien web EU (depuis 2023). Commentaire + news. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-125",
@@ -1685,7 +1989,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien web EU + BXL. Gratuit."
+      "notes": "Quotidien web EU + BXL. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-126",
@@ -1698,7 +2003,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien web BXL vie locale EN. Gratuit."
+      "notes": "Quotidien web BXL vie locale EN. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-127",
@@ -1711,7 +2017,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Portail expat. Belgique pratique. Gratuit."
+      "notes": "Portail expat. Belgique pratique. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-128",
@@ -1724,7 +2031,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Web Flandre/BXL en anglais (réduit). Gratuit."
+      "notes": "Web Flandre/BXL en anglais (réduit). Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-129",
@@ -1737,7 +2045,8 @@
       "cardsAffected": [],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Agrégateur EU institutionnel. Calendrier événements. Gratuit."
+      "notes": "Agrégateur EU institutionnel. Calendrier événements. Gratuit.",
+      "tier": "editorial"
     },
     {
       "id": "watch-130",
@@ -1750,7 +2059,8 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Think tank EU governance. Open access."
+      "notes": "Think tank EU governance. Open access.",
+      "tier": "editorial"
     },
     {
       "id": "watch-131",
@@ -1763,11 +2073,13 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Fondation EPP. EU governance. Open access."
+      "notes": "Fondation EPP. EU governance. Open access.",
+      "tier": "editorial"
     },
-
-    {"_comment": "=== P4 — MARGINAL ==="},
-
+    {
+      "_comment": "=== P4 — MARGINAL ===",
+      "tier": "editorial"
+    },
     {
       "id": "watch-132",
       "name": "Brussels Report",
@@ -1779,7 +2091,1278 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Web opinion libre-marché. EU. Utilité marginale pour BGM."
+      "notes": "Web opinion libre-marché. EU. Utilité marginale pour BGM.",
+      "tier": "editorial"
+    },
+    {
+      "name": "CBCS — Centre bruxellois de coordination sociopolitique",
+      "url": "https://cbcs.be/zoom-sur-les-19-communes-bruxelloises/",
+      "type": "research",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "social",
+      "cardsAffected": [
+        "social",
+        "health-social"
+      ],
+      "frequency": "weekly",
+      "notes": "Analyses sociales par commune, fiches thématiques. Périmètre social BGM.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-134"
+    },
+    {
+      "name": "ETUI — European Trade Union Institute",
+      "url": "https://www.etui.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P2",
+      "category": "employment",
+      "cardsAffected": [
+        "employment"
+      ],
+      "frequency": "monthly",
+      "notes": "Recherche monde du travail EU. Publications emploi, salaires, conditions de travail.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-135"
+    },
+    {
+      "name": "UITP — Union Internationale des Transports Publics",
+      "url": "https://www.uitp.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P2",
+      "category": "mobility",
+      "cardsAffected": [
+        "mobility",
+        "transport"
+      ],
+      "frequency": "monthly",
+      "notes": "HQ mondial à Bruxelles. Données comparatives transports publics, mobilité urbaine.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-136"
+    },
+    {
+      "name": "EuroCities — Réseau des grandes villes européennes",
+      "url": "https://eurocities.eu",
+      "type": "research",
+      "lang": "en",
+      "priority": "P2",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "notes": "Réseau 200 villes. Benchmarks urbains, comparaisons gouvernance.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-137"
+    },
+    {
+      "name": "Climate Action Network Europe (CAN)",
+      "url": "https://caneurope.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P2",
+      "category": "climate",
+      "cardsAffected": [
+        "climate",
+        "environment"
+      ],
+      "frequency": "monthly",
+      "notes": "Coalition ONG climat. Rapports politiques climatiques régionales.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-138"
+    },
+    {
+      "name": "EEB — European Environmental Bureau",
+      "url": "https://eeb.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P2",
+      "category": "climate",
+      "cardsAffected": [
+        "climate",
+        "environment"
+      ],
+      "frequency": "monthly",
+      "notes": "180+ ONG membres. Rapports environnement EU.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-139"
+    },
+    {
+      "name": "Friends of Europe",
+      "url": "https://www.friendsofeurope.org",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P2",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "notes": "Think tank politique EU. Débats, analyses. Complémentaire Bruegel/EPC/CEPS.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-140"
+    },
+    {
+      "name": "Transparency International EU",
+      "url": "https://transparency.eu",
+      "type": "research",
+      "lang": "en",
+      "priority": "P2",
+      "category": "governance",
+      "cardsAffected": [
+        "budget"
+      ],
+      "frequency": "monthly",
+      "notes": "Anti-corruption, transparence institutions. Pertinent gouvernance/budget.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-141"
+    },
+    {
+      "name": "Belgien.info — Journal germanophone Belgique",
+      "url": "https://www.belgien.info",
+      "type": "press",
+      "lang": "de",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "weekly",
+      "notes": "Seul média DE couvrant la Belgique. Communauté DE/AT/CH.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-142"
+    },
+    {
+      "name": "EU Reporter",
+      "url": "https://www.eureporter.co",
+      "type": "press",
+      "lang": "en",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "weekly",
+      "notes": "Média EU depuis BXL, angle différent. Aussi en chinois.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-143"
+    },
+    {
+      "name": "Commissioner.brussels — Profil international de Bruxelles",
+      "url": "https://www.commissioner.brussels",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "notes": "Rapport PDF : 38 institutions UE, 65 IO, OTAN. Dimension internationale BXL.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-144"
+    },
+    {
+      "name": "PICUM — Platform for International Cooperation on Undocumented Migrants",
+      "url": "https://picum.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P3",
+      "category": "social",
+      "cardsAffected": [
+        "social"
+      ],
+      "frequency": "monthly",
+      "notes": "Migration, populations vulnérables à Bruxelles.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-145"
+    },
+    {
+      "name": "Ville de Bruxelles — Site officiel",
+      "url": "https://www.bruxelles.be",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "institutions",
+      "notes": "Niveau communal, pas régional. À promouvoir si BGM couvre les communes.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-146"
+    },
+    {
+      "name": "EEAS — Service européen pour l'action extérieure",
+      "url": "https://www.eeas.europa.eu",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Liste IO/ONU à Bruxelles (PDF 2025). Dimension internationale.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-147"
+    },
+    {
+      "name": "La Gazette de Bruxelles",
+      "url": "https://www.gazette-de-bruxelles.be",
+      "type": "press",
+      "lang": "fr",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-locaux",
+      "notes": "Blog politique/culture 19 communes. Contenu irrégulier.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-148"
+    },
+    {
+      "name": "RMDP — Réseau Médias de Proximité",
+      "url": "https://www.mediasdeproximite.be",
+      "type": "press",
+      "lang": "fr",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-locaux",
+      "notes": "12 TV locales (Canal Zoom, TV Com). Focus hyperlocal.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-149"
+    },
+    {
+      "name": "EU DisinfoLab",
+      "url": "https://www.disinfo.eu",
+      "type": "research",
+      "lang": "en",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "recherche",
+      "notes": "Rapports désinformation et influence étrangère à Bruxelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-150"
+    },
+    {
+      "name": "Freedom House",
+      "url": "https://freedomhouse.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "recherche",
+      "notes": "Indices démocratie. Utile pour comparaisons internationales.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-151"
+    },
+    {
+      "name": "FEPS — Foundation for European Progressive Studies",
+      "url": "https://www.feps-europe.eu",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Fondation études progressistes. Angle centre-gauche EU.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-152"
+    },
+    {
+      "name": "ECDPM — European Centre for Development Policy Management",
+      "url": "https://ecdpm.org",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Relations EU-Afrique. Bruxelles + Maastricht.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-153"
+    },
+    {
+      "name": "GMF — German Marshall Fund (Bureau BXL)",
+      "url": "https://www.gmfus.org/our-offices/brussels",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Fondation US à Bruxelles. Relations transatlantiques.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-154"
+    },
+    {
+      "name": "Carnegie Europe",
+      "url": "https://carnegieeurope.eu",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Politique étrangère européenne. Branche Carnegie Endowment.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-155"
+    },
+    {
+      "name": "International Crisis Group",
+      "url": "https://www.crisisgroup.org",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "HQ mondial à Bruxelles. Prévention conflits.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-156"
+    },
+    {
+      "name": "SPF Affaires Étrangères (BE)",
+      "url": "https://diplomatie.belgium.be",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Liste IO intergouvernementales en Belgique (PDF).",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-157"
+    },
+    {
+      "name": "Enabel — Agence belge de développement",
+      "url": "https://www.enabel.be",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Coopération internationale belge.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-158"
+    },
+    {
+      "name": "Belgian Consular Union — Ambassades en Belgique",
+      "url": "https://belgianconsularunion.be/fr/ambassades-en-belgique/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "183 missions diplomatiques. Répertoire.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-159"
+    },
+    {
+      "name": "OTAN / NATO — Siège Bruxelles",
+      "url": "https://www.nato.int",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Siège mondial à Haren/Evere.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-160"
+    },
+    {
+      "name": "Institutions UE — Portail général",
+      "url": "https://european-union.europa.eu",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "38 institutions UE à Bruxelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-161"
+    },
+    {
+      "name": "IOM — Organisation Internationale pour les Migrations (BXL)",
+      "url": "https://www.iom.int",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Bureau Bruxelles Rue Montoyer.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-162"
+    },
+    {
+      "name": "UNEP/UNFPA — Antennes ONU Bruxelles",
+      "url": "https://www.unep.org",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "climate",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Bureaux Boulevard Régent.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-163"
+    },
+    {
+      "name": "Eurocontrol — Sécurité navigation aérienne",
+      "url": "https://www.eurocontrol.int",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Organisation intergouvernementale basée à Bruxelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-164"
+    },
+    {
+      "name": "U.S. Mission to the EU",
+      "url": "https://useu.usmission.gov",
+      "type": "institutional",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Mission américaine auprès de l'UE.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-165"
+    },
+    {
+      "name": "Mission chinoise auprès de l'UE",
+      "url": "http://eu.china-mission.gov.cn/eng/",
+      "type": "institutional",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Réponses diplomatiques chinoises depuis Bruxelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-166"
+    },
+    {
+      "name": "Ambassade de France en Belgique",
+      "url": "https://be.diplomatie.gouv.fr/fr",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Rue Ducale, Bruxelles-Ville.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-167"
+    },
+    {
+      "name": "Ambassade du Brésil à Bruxelles",
+      "url": "http://www.gov.br/mre/pt-br/embaixada-bruxelas",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Av. F.D. Roosevelt, Ixelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-168"
+    },
+    {
+      "name": "Ambassade RDC à Bruxelles",
+      "url": "https://ambardc.be",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Rue Marie de Bourgogne. Diaspora congolaise majeure.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-169"
+    },
+    {
+      "name": "Délégation générale du Québec à Bruxelles",
+      "url": "https://www.international.gouv.qc.ca/fr/bruxelles",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "diplomatie-io",
+      "notes": "Francophonie.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-170"
+    },
+    {
+      "name": "Human Rights Watch — Bureau EU",
+      "url": "https://www.hrw.org/europe",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Droits humains. Bureau européen.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-171"
+    },
+    {
+      "name": "Amnesty International EU",
+      "url": "https://www.amnesty.eu",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Lobbying droits humains EU.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-172"
+    },
+    {
+      "name": "Greenpeace EU",
+      "url": "https://www.greenpeace.org/eu-unit/",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "climate",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Bureau européen Greenpeace. Rapports environnement.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-173"
+    },
+    {
+      "name": "WWF European Policy Office",
+      "url": "https://www.wwf.eu",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "climate",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Biodiversité EU.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-174"
+    },
+    {
+      "name": "Oxfam International (Bureau BXL)",
+      "url": "https://www.oxfam.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Pauvreté globale, lobbying EU.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-175"
+    },
+    {
+      "name": "Save the Children EU",
+      "url": "https://www.savethechildren.net",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Protection enfance EU.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-176"
+    },
+    {
+      "name": "Reporters Without Borders / RSF",
+      "url": "https://rsf.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Liberté de la presse. Bureau Bruxelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-177"
+    },
+    {
+      "name": "CONCORD — Confédération européenne ONG développement",
+      "url": "https://concordeurope.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "28 plateformes nationales. Rue d'Arlon.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-178"
+    },
+    {
+      "name": "Search for Common Ground (Bureau BXL)",
+      "url": "https://www.sfcg.org/headquarters/brussels/",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "ONG paix globale. Rue Belliard.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-179"
+    },
+    {
+      "name": "EPLO — European Peacebuilding Liaison Office",
+      "url": "https://eplo.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Plateforme ONG/think tanks prévention conflits.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-180"
+    },
+    {
+      "name": "ILGA-Europe — Droits LGBTIQ+",
+      "url": "https://www.ilga-europe.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Bureau européen droits LGBTIQ+.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-181"
+    },
+    {
+      "name": "International Campaign for Tibet — Europe",
+      "url": "https://www.savetibet.eu",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "ong-internationales",
+      "notes": "Lobbying droits humains.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-182"
+    },
+    {
+      "name": "ECIPE — European Centre for International Political Economy",
+      "url": "https://www.ecipe.org",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P4",
+      "category": "economic",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Commerce international.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-183"
+    },
+    {
+      "name": "EIAS — European Institute for Asian Studies",
+      "url": "https://www.eias.org",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Relations Asie-Europe.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-184"
+    },
+    {
+      "name": "MEDEA — Institut de coopération méditerranéenne",
+      "url": "https://www.medea.be",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Coopération euro-arabe.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-185"
+    },
+    {
+      "name": "Lisbon Council — Compétitivité économique",
+      "url": "https://www.lisboncouncil.net",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P4",
+      "category": "economic",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Croissance inclusive, ASBL.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-186"
+    },
+    {
+      "name": "SDA — Security & Defence Agenda",
+      "url": "https://www.securitydefenceagenda.org",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Sécurité, défense EU/OTAN.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-187"
+    },
+    {
+      "name": "Brookings Institution",
+      "url": "https://www.brookings.edu",
+      "type": "think-tank",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Think tank US, publications sur BXL/EU.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-188"
+    },
+    {
+      "name": "CSR Europe — Réseau responsabilité sociale entreprises",
+      "url": "https://www.csreurope.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "economic",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Business durable.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-189"
+    },
+    {
+      "name": "EFC — European Foundation Centre",
+      "url": "https://www.efc.be",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Centre européen des fondations. Philanthropie.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-190"
+    },
+    {
+      "name": "College of Europe",
+      "url": "https://www.coleurope.eu",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "think-tanks",
+      "notes": "Formation élites EU. Bruges + BXL.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-191"
+    },
+    {
+      "name": "UIA — Union of International Associations",
+      "url": "https://uia.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "associations-reseaux",
+      "notes": "2 500+ associations internationales à BXL, Yearbook 70 000+ orgs.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-192"
+    },
+    {
+      "name": "EuroBrussels — Répertoire emploi EU",
+      "url": "https://www.eurobrussels.com",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "employment",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "associations-reseaux",
+      "notes": "500+ organisations listées, 2 000+ jobs.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-193"
+    },
+    {
+      "name": "Association Hubs Brussels",
+      "url": "https://associationhubs.org/brussels/",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "associations-reseaux",
+      "notes": "ESAE, FAIB, MAI, UIA — écosystème associations.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-194"
+    },
+    {
+      "name": "European Youth Forum",
+      "url": "https://www.youthforum.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "associations-reseaux",
+      "notes": "Forum jeunesse européenne.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-195"
+    },
+    {
+      "name": "IFJ — International Federation of Journalists",
+      "url": "https://www.ifj.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "associations-reseaux",
+      "notes": "Fédération internationale journalistes, basée BXL.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-196"
+    },
+    {
+      "name": "Education International",
+      "url": "https://www.ei-ie.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "associations-reseaux",
+      "notes": "Fédération mondiale syndicats éducation.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-197"
+    },
+    {
+      "name": "AmCham EU — Chambre de commerce américaine",
+      "url": "https://www.amchameu.eu",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "economic",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "associations-reseaux",
+      "notes": "Lobbying business US en Belgique.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-198"
+    },
+    {
+      "name": "CGTN — China Global Television Network (Bureau BXL)",
+      "url": "https://news.cgtn.com",
+      "type": "press",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-etrangers",
+      "stateMedia": true,
+      "notes": "Média d'État chinois. Scanner pour renseignement éditorial, JAMAIS citer comme source.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-199"
+    },
+    {
+      "name": "Xinhua News Agency (Bureau BXL)",
+      "url": "https://www.xinhuanet.com",
+      "type": "press",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-etrangers",
+      "stateMedia": true,
+      "notes": "Agence de presse d'État chinoise. Couverture UE accrue depuis 10 ans.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-200"
+    },
+    {
+      "name": "Global Times (Bureau BXL)",
+      "url": "https://www.globaltimes.cn",
+      "type": "press",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-etrangers",
+      "stateMedia": true,
+      "notes": "Média d'État chinois. Forum médias sino-UE à Bruxelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-201"
+    },
+    {
+      "name": "CMG/CRI — China Media Group (Siège européen BXL)",
+      "url": "http://www.cri.cn",
+      "type": "press",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-etrangers",
+      "stateMedia": true,
+      "notes": "Siège européen propagande chinoise. Partenariats médias locaux.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-202"
+    },
+    {
+      "name": "China Media Project (Analyses)",
+      "url": "https://chinamediaproject.org",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-etrangers",
+      "notes": "Analyse critique expansion médias chinois en Europe via Bruxelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-203"
+    },
+    {
+      "name": "Vox Europ",
+      "url": "https://voxeurop.eu",
+      "type": "press",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-etrangers",
+      "notes": "Presse européenne. Reporting influence à Bruxelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-204"
+    },
+    {
+      "name": "European Newsroom",
+      "url": "https://europeannewsroom.com",
+      "type": "press",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-etrangers",
+      "notes": "Accueil journalistes africains, pont Afrique-Europe.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-205"
+    },
+    {
+      "name": "AEJ Belgium / Maison du MédiaLab",
+      "url": "https://aejbelgium.eu",
+      "type": "press",
+      "lang": "multi",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-etrangers",
+      "notes": "Soutien médias Europe de l'Est/Sud. Diversité presse BXL.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-206"
+    },
+    {
+      "name": "Konrad-Adenauer-Stiftung (Bureau BXL)",
+      "url": "https://www.kas.de/en/web/europaeische-und-internationale-zusammenarbeit",
+      "type": "think-tank",
+      "lang": "de",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "medias-etrangers",
+      "notes": "Fondation politique allemande. Bureau européen depuis 1978.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-207"
+    },
+    {
+      "name": "Vivre à Bruxelles — Guide des 19 communes",
+      "url": "https://vivreabruxelles.be/les-19-communes-de-bruxelles-capitale.html",
+      "type": "press",
+      "lang": "fr",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "culture-communautaire",
+      "notes": "Guide information communale.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-208"
+    },
+    {
+      "name": "Archives de la Ville de Bruxelles",
+      "url": "https://archives.bruxelles.be/bulletins-communaux",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "culture-communautaire",
+      "notes": "PV conseils communaux, archives numérisées depuis XIXe siècle.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-209"
+    },
+    {
+      "name": "Centre Culturel Congolais",
+      "url": "https://www.centreculturelcongolais.be",
+      "type": "research",
+      "lang": "fr",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "culture-communautaire",
+      "notes": "Focus histoire et communes bruxelloises. Diaspora congolaise.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-210"
+    },
+    {
+      "name": "Annuaire Afro-Belge (Brukmer)",
+      "url": "https://annuaire-afro-belge.brukmer.be/directory/categories/medias",
+      "type": "press",
+      "lang": "fr",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "culture-communautaire",
+      "notes": "Médias afro-belges. Actualités communes bruxelloises.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-211"
+    },
+    {
+      "name": "Diaspora for Development",
+      "url": "https://diasporafordevelopment.eu/cpt_practices/diaspora-media/",
+      "type": "research",
+      "lang": "fr",
+      "priority": "P4",
+      "category": "social",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "culture-communautaire",
+      "notes": "Plateforme diasporas africaines (Niger, Congo) à Bruxelles.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-212"
+    },
+    {
+      "name": "World Cities Culture Forum — Brussels",
+      "url": "https://worldcitiescultureforum.com/city/brussels/",
+      "type": "research",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "culture-communautaire",
+      "notes": "Politique culturelle impliquant les 19 communes.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-213"
+    },
+    {
+      "name": "African Union Media Fellowship (EEAS)",
+      "url": "https://www.eeas.europa.eu/eeas/african-union-media-fellows%E2%80%99-visit-brussels-brings-au-and-eu-closer-together_en",
+      "type": "institutional",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "culture-communautaire",
+      "notes": "Pont AU-UE. Visites BXL pour couverture communes.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-214"
+    },
+    {
+      "name": "brussels.info — Embassies Guide",
+      "url": "https://www.brussels.info/embassies/",
+      "type": "institutional",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "repertoires",
+      "notes": "Guide +200 ambassades/consulats.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-215"
+    },
+    {
+      "name": "embassies.info Belgium",
+      "url": "https://embassies.info/belgium/foreignmissions/brussels",
+      "type": "institutional",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "repertoires",
+      "notes": "173 missions diplomatiques triées par pays.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-216"
+    },
+    {
+      "name": "Expat Info Desk — Brussels Newspapers",
+      "url": "https://www.expatinfodesk.com/destinations/brussels/communication/newspapers/",
+      "type": "press",
+      "lang": "en",
+      "priority": "P4",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "radarCategory": "repertoires",
+      "notes": "Guide presse bruxelloise pour expats mondiaux.",
+      "tier": "radar",
+      "enabled": true,
+      "id": "watch-217"
     }
   ]
 }

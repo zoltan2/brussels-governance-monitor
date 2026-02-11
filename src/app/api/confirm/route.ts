@@ -30,10 +30,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'service_unavailable' }, { status: 503 });
     }
 
-    // Deduplication: if contact already exists, skip welcome email + creation
+    // If contact already exists, merge topics instead of ignoring
     const existing = await getContact(email);
     if (existing) {
-      return NextResponse.json({ success: true, topics, alreadyConfirmed: true });
+      const mergedTopics = [...new Set([...existing.topics, ...topics])];
+      if (mergedTopics.length !== existing.topics.length) {
+        const { updateContactPreferences } = await import('@/lib/resend');
+        await updateContactPreferences(email, existing.locale, mergedTopics);
+      }
+      return NextResponse.json({ success: true, topics: mergedTopics, alreadyConfirmed: true });
     }
 
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';

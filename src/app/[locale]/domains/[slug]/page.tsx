@@ -271,6 +271,7 @@ function DomainDetail({
               submit: tSub('submit'),
               submitting: tSub('submitting'),
               success: tSub('success'),
+              successExisting: tSub('successExisting'),
               error: tSub('error'),
               privacy: tSub('privacy'),
             }}

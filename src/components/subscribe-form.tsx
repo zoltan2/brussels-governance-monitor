@@ -13,7 +13,7 @@ const TOPIC_OPTIONS = [
   'solutions',
 ] as const;
 
-type SubmitState = 'idle' | 'loading' | 'success' | 'error';
+type SubmitState = 'idle' | 'loading' | 'success' | 'successExisting' | 'error';
 
 export function SubscribeForm() {
   const t = useTranslations('subscribe');
@@ -48,7 +48,8 @@ export function SubscribeForm() {
       });
 
       if (res.ok) {
-        setState('success');
+        const data = await res.json();
+        setState(data.alreadySubscribed ? 'successExisting' : 'success');
         setEmail('');
       } else {
         const data = await res.json().catch(() => ({}));
@@ -61,11 +62,15 @@ export function SubscribeForm() {
     }
   }
 
-  if (state === 'success') {
+  if (state === 'success' || state === 'successExisting') {
     return (
       <div className="rounded-lg border border-brand-600/20 bg-brand-900/5 p-6 text-center">
-        <p className="text-sm font-medium text-brand-900">{t('successTitle')}</p>
-        <p className="mt-1 text-xs text-neutral-500">{t('successMessage')}</p>
+        <p className="text-sm font-medium text-brand-900">
+          {state === 'successExisting' ? t('successExistingTitle') : t('successTitle')}
+        </p>
+        <p className="mt-1 text-xs text-neutral-500">
+          {state === 'successExisting' ? t('successExistingMessage') : t('successMessage')}
+        </p>
       </div>
     );
   }

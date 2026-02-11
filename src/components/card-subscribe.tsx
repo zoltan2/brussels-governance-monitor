@@ -11,6 +11,7 @@ interface CardSubscribeProps {
     submit: string;
     submitting: string;
     success: string;
+    successExisting: string;
     error: string;
     privacy: string;
   };
@@ -18,7 +19,7 @@ interface CardSubscribeProps {
 
 export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'successExisting' | 'error'>('idle');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -38,7 +39,8 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
       });
 
       if (res.ok) {
-        setStatus('success');
+        const data = await res.json();
+        setStatus(data.alreadySubscribed ? 'successExisting' : 'success');
       } else {
         setStatus('error');
       }
@@ -47,10 +49,12 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
     }
   }
 
-  if (status === 'success') {
+  if (status === 'success' || status === 'successExisting') {
     return (
       <div className="rounded-lg border border-teal-200 bg-teal-50 p-4" role="status" aria-live="polite">
-        <p className="text-sm text-teal-700">{labels.success}</p>
+        <p className="text-sm text-teal-700">
+          {status === 'successExisting' ? labels.successExisting : labels.success}
+        </p>
       </div>
     );
   }

@@ -4,16 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { UnsubscribeSurvey } from '@/components/unsubscribe-survey';
-
-const TOPIC_OPTIONS = [
-  'budget',
-  'mobility',
-  'employment',
-  'housing',
-  'climate',
-  'social',
-  'solutions',
-] as const;
+import { DOMAIN_TOPICS, SECTOR_TOPICS } from '@/lib/resend';
 
 const LOCALE_OPTIONS = [
   { value: 'fr', label: 'Français' },
@@ -222,8 +213,33 @@ export function PreferencesForm({ token }: PreferencesFormProps) {
         <legend className="mb-2 text-xs font-medium text-neutral-600">
           {t('topicsLabel')}
         </legend>
+
+        <p className="mb-1.5 text-xs text-neutral-500">{t('domainsGroup')}</p>
         <div className="flex flex-wrap gap-2">
-          {TOPIC_OPTIONS.map((topic) => (
+          {DOMAIN_TOPICS.map((topic) => (
+            <label
+              key={topic}
+              className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+                topics.includes(topic)
+                  ? 'border-brand-600 bg-brand-900 text-white'
+                  : 'border-neutral-300 bg-white text-neutral-600 hover:border-neutral-400'
+              }`}
+            >
+              <input
+                type="checkbox"
+                name={`topic-${topic}`}
+                checked={topics.includes(topic)}
+                onChange={() => toggleTopic(topic)}
+                className="sr-only"
+              />
+              {topicT(`topics.${topic}`)}
+            </label>
+          ))}
+        </div>
+
+        <p className="mt-3 mb-1.5 text-xs text-neutral-500">{t('sectorsGroup')}</p>
+        <div className="flex flex-wrap gap-2">
+          {SECTOR_TOPICS.map((topic) => (
             <label
               key={topic}
               className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${

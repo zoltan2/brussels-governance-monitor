@@ -56,6 +56,9 @@ export function Footer() {
               {t('transparenceTitle')}
             </p>
             <nav aria-label={t('transparenceTitle')} className="flex flex-col gap-2 text-xs text-neutral-500">
+              <Link href="/transparency" className="hover:text-neutral-700">
+                {t('transparenceTitle')}
+              </Link>
               <Link href="/editorial" className="hover:text-neutral-700">
                 {t('editorial')}
               </Link>

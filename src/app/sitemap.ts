@@ -13,7 +13,7 @@ type Href = Parameters<typeof getPathname>[0]['href'];
 
 function localizedUrl(siteUrl: string, locale: Locale, href: Href): string {
   const pathname = getPathname({ locale, href });
-  return `${siteUrl}/${locale}${pathname}`;
+  return `${siteUrl}${pathname}`;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {

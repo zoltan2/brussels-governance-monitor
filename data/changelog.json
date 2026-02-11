@@ -1,6 +1,30 @@
 [
   {
     "date": "2026-02-11",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "housing",
+    "descriptions": {
+      "fr": "Veille : données Federia Baromètre 2025 (loyer médian 1 213 €, baux −10 %, désengagement investisseurs)",
+      "nl": "Monitoring: Federia Barometer 2025 (mediane huur 1 213 €, huurcontracten −10 %, terugtrekking investeerders)",
+      "en": "Monitoring: Federia Barometer 2025 (median rent €1,213, leases −10%, investor disengagement)",
+      "de": "Monitoring: Federia Barometer 2025 (Medianmiete 1 213 €, Mietverträge −10 %, Rückzug der Investoren)"
+    }
+  },
+  {
+    "date": "2026-02-11",
+    "type": "updated",
+    "section": "sectors",
+    "targetSlug": "housing-sector",
+    "descriptions": {
+      "fr": "Mise à jour : liste d'attente 62 234, désengagement investisseurs privés (Federia 2025)",
+      "nl": "Update: wachtlijst 62 234, terugtrekking privé-investeerders (Federia 2025)",
+      "en": "Update: waiting list 62,234, private investor disengagement (Federia 2025)",
+      "de": "Aktualisierung: Warteliste 62 234, Rückzug privater Investoren (Federia 2025)"
+    }
+  },
+  {
+    "date": "2026-02-11",
     "type": "added",
     "section": "timeline",
     "targetSlug": "tensions-groen-conclave",

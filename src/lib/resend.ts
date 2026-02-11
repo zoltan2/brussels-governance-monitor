@@ -178,6 +178,9 @@ export async function listActiveContacts(): Promise<ActiveContact[]> {
     for (const contact of data.data) {
       if (contact.unsubscribed) continue;
 
+      // Rate limit: Resend allows 2 req/sec
+      await new Promise((r) => setTimeout(r, 500));
+
       // Fetch individual contact to get properties
       const { data: detail } = await resend.contacts.get({
         id: contact.id,

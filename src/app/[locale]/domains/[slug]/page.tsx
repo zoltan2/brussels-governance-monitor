@@ -166,7 +166,7 @@ function DomainDetail({
               'font-medium',
               card.confidenceLevel === 'official' && 'text-brand-700',
               card.confidenceLevel === 'estimated' && 'text-status-delayed',
-              card.confidenceLevel === 'unconfirmed' && 'text-neutral-400',
+              card.confidenceLevel === 'unconfirmed' && 'text-neutral-500',
             )}
           >
             {t(`confidence.${card.confidenceLevel}`)}
@@ -192,7 +192,7 @@ function DomainDetail({
 
         {card.metrics.length > 0 && (
           <div className="mb-8">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
               {t('metrics')}
             </h2>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -218,7 +218,7 @@ function DomainDetail({
         </div>
 
         <div className="mt-10 border-t border-neutral-200 pt-6">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
             {t('sources')}
           </h2>
           <ul className="space-y-2">
@@ -232,14 +232,14 @@ function DomainDetail({
                 >
                   {source.label}
                 </a>
-                <time dateTime={source.accessedAt} className="ml-2 text-xs text-neutral-400">
+                <time dateTime={source.accessedAt} className="ml-2 text-xs text-neutral-500">
                   ({t('accessedAt', { date: formatDate(source.accessedAt, locale) })})
                 </time>
               </li>
             ))}
           </ul>
 
-          <p className="mt-4 text-xs text-neutral-400">
+          <p className="mt-4 text-xs text-neutral-500">
             <time dateTime={card.lastModified}>{t('lastModified', { date: formatDate(card.lastModified, locale) })}</time>
           </p>
         </div>

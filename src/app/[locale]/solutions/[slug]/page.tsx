@@ -147,21 +147,21 @@ function SolutionDetail({
 
         <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
           <div className="rounded-lg bg-neutral-50 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('mechanism')}
             </p>
             <p className="mt-1 text-sm text-neutral-700">{card.mechanism}</p>
           </div>
 
           <div className="rounded-lg bg-neutral-50 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('whoCanTrigger')}
             </p>
             <p className="mt-1 text-sm text-neutral-700">{card.whoCanTrigger}</p>
           </div>
 
           <div className="rounded-lg bg-neutral-50 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('timelineLabel')}
             </p>
             <p className="mt-1 text-sm text-neutral-700">{t(`timeline.${card.timeline}`)}</p>
@@ -172,7 +172,7 @@ function SolutionDetail({
 
         {card.precedent && (
           <div className="mb-6 rounded-lg border border-neutral-200 bg-white p-4">
-            <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('precedent')}
             </h2>
             <p className="text-sm text-neutral-700">
@@ -183,7 +183,7 @@ function SolutionDetail({
 
         {card.legalBasis && (
           <div className="mb-6 rounded-lg border border-neutral-200 bg-white p-4">
-            <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('legalBasis')}
             </h2>
             <p className="text-sm text-neutral-700">{card.legalBasis}</p>
@@ -192,7 +192,7 @@ function SolutionDetail({
 
         {card.risks.length > 0 && (
           <div className="mb-8">
-            <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('risks')}
             </h2>
             <ul className="space-y-2">

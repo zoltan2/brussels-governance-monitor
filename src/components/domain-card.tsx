@@ -14,7 +14,7 @@ const statusStyles: Record<string, string> = {
 const confidenceStyles: Record<string, string> = {
   official: 'text-brand-700',
   estimated: 'text-status-delayed',
-  unconfirmed: 'text-neutral-400',
+  unconfirmed: 'text-neutral-500',
 };
 
 interface DomainCardProps {
@@ -43,7 +43,7 @@ export function DomainCard({ card, locale }: DomainCardProps) {
 
       {card.metrics.length > 0 && (
         <div className="mb-4">
-          <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-400">
+          <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
             {t('metrics')}
           </h4>
           <div className="grid grid-cols-2 gap-2">
@@ -64,7 +64,7 @@ export function DomainCard({ card, locale }: DomainCardProps) {
         </div>
       )}
 
-      <div className="mt-auto flex items-center justify-between pt-4 text-xs text-neutral-400">
+      <div className="mt-auto flex items-center justify-between pt-4 text-xs text-neutral-500">
         <div className="flex items-center gap-2">
           <span className={confidenceStyles[card.confidenceLevel]}>
             {t(`confidence.${card.confidenceLevel}`)}

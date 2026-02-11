@@ -98,7 +98,7 @@ function BrusselsCosmopolitanView() {
             </ul>
           </div>
 
-          <p className="text-xs text-neutral-400">{t('sources')}</p>
+          <p className="text-xs text-neutral-500">{t('sources')}</p>
         </div>
       </div>
     </section>

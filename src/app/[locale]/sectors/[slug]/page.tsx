@@ -109,7 +109,7 @@ function SectorDetail({
 
         {card.frozenMechanisms.length > 0 && (
           <div className="mb-8">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
               {t('frozenMechanisms')}
             </h2>
             <ul className="space-y-3">
@@ -125,7 +125,7 @@ function SectorDetail({
 
         {card.activeMechanisms.length > 0 && (
           <div className="mb-8">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
               {t('activeMechanisms')}
             </h2>
             <ul className="space-y-3">
@@ -141,7 +141,7 @@ function SectorDetail({
 
         {card.impactIndicators.length > 0 && (
           <div className="mb-8">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
               {t('impactIndicators')}
             </h2>
             <div className="grid grid-cols-2 gap-3">
@@ -149,7 +149,7 @@ function SectorDetail({
                 <div key={ind.label} className="rounded-lg bg-neutral-50 p-4">
                   <p className="text-2xl font-bold text-brand-900">{ind.value}</p>
                   <p className="mt-1 text-xs text-neutral-500">{ind.label}</p>
-                  <p className="text-xs text-neutral-400">{ind.source}</p>
+                  <p className="text-xs text-neutral-500">{ind.source}</p>
                 </div>
               ))}
             </div>
@@ -162,7 +162,7 @@ function SectorDetail({
 
         {card.stakeholders.length > 0 && (
           <div className="mt-10 border-t border-neutral-200 pt-6">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
               {t('stakeholders')}
             </h2>
             <ul className="space-y-1">
@@ -186,7 +186,7 @@ function SectorDetail({
           </div>
         )}
 
-        <p className="mt-6 text-xs text-neutral-400">
+        <p className="mt-6 text-xs text-neutral-500">
           {t('backToHome')} — {formatDate(card.lastModified, locale)}
         </p>
 

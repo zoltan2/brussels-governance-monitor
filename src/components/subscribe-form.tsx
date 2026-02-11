@@ -64,7 +64,7 @@ export function SubscribeForm() {
 
   if (state === 'success' || state === 'successExisting') {
     return (
-      <div className="rounded-lg border border-brand-600/20 bg-brand-900/5 p-6 text-center">
+      <div className="rounded-lg border border-brand-600/20 bg-brand-900/5 p-6 text-center" role="status" aria-live="polite">
         <p className="text-sm font-medium text-brand-900">
           {state === 'successExisting' ? t('successExistingTitle') : t('successTitle')}
         </p>
@@ -104,7 +104,7 @@ export function SubscribeForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t('emailPlaceholder')}
-          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand-600 focus:ring-1 focus:ring-brand-600 focus:outline-none"
+          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus:border-brand-600 focus:ring-1 focus:ring-brand-600 focus:outline-none"
         />
       </div>
 
@@ -142,10 +142,10 @@ export function SubscribeForm() {
       </button>
 
       {state === 'error' && (
-        <p className="mt-2 text-xs text-status-delayed">{t('errorMessage')}</p>
+        <p className="mt-2 text-xs text-status-delayed" role="alert">{t('errorMessage')}</p>
       )}
 
-      <p className="mt-3 text-center text-xs text-neutral-400">{t('privacy')}</p>
+      <p className="mt-3 text-center text-xs text-neutral-500">{t('privacy')}</p>
     </form>
   );
 }

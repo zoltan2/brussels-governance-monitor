@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
           {/* Column 1: Content */}
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-400">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
               {t('contentTitle')}
             </p>
             <nav aria-label={t('contentTitle')} className="flex flex-col gap-2 text-xs text-neutral-500">
@@ -34,7 +34,7 @@ export function Footer() {
 
           {/* Column 2: About */}
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-400">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
               {t('aboutTitle')}
             </p>
             <nav aria-label={t('aboutTitle')} className="flex flex-col gap-2 text-xs text-neutral-500">
@@ -67,8 +67,8 @@ export function Footer() {
 
         <div className="mt-8 border-t border-neutral-200 pt-6 text-center">
           <p className="text-sm font-medium text-neutral-600">{t('project')}</p>
-          <p className="mt-1 text-xs text-neutral-400">{t('identity')}</p>
-          <p className="mt-1 text-xs text-neutral-400">{t('disclaimer')}</p>
+          <p className="mt-1 text-xs text-neutral-500">{t('identity')}</p>
+          <p className="mt-1 text-xs text-neutral-500">{t('disclaimer')}</p>
         </div>
       </div>
     </footer>

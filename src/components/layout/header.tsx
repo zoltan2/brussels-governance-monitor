@@ -59,7 +59,7 @@ export function Header() {
             {dropdownOpen && (
               <div className="absolute left-0 top-full z-50 mt-2 w-72 rounded-lg border border-neutral-200 bg-white py-2 shadow-lg">
                 {/* Fondamentaux */}
-                <p className="px-4 pt-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+                <p className="px-4 pt-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">
                   {t('understandFundamentals')}
                 </p>
                 <Link
@@ -85,7 +85,7 @@ export function Header() {
                 </Link>
 
                 {/* Éclairages */}
-                <p className="mt-2 px-4 pt-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+                <p className="mt-2 px-4 pt-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">
                   {t('understandInsights')}
                 </p>
                 <Link
@@ -174,7 +174,7 @@ export function Header() {
             </Link>
 
             {/* Comprendre — Fondamentaux */}
-            <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">{t('understandFundamentals')}</p>
+            <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{t('understandFundamentals')}</p>
             <Link href="/explainers/brussels-overview" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
               {th('explainerOverview')}
             </Link>
@@ -186,7 +186,7 @@ export function Header() {
             </Link>
 
             {/* Comprendre — Éclairages */}
-            <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">{t('understandInsights')}</p>
+            <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{t('understandInsights')}</p>
             <Link href="/explainers/brussels-paradox" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
               {th('explainerParadox')}
             </Link>

@@ -100,7 +100,7 @@ function HowToReadView() {
                 <p className="mt-1 text-xs">{t('confidenceEstimatedDesc')}</p>
               </div>
               <div className="rounded-lg bg-neutral-50 p-4">
-                <p className="font-medium text-neutral-400">{t('confidenceUnconfirmedLabel')}</p>
+                <p className="font-medium text-neutral-500">{t('confidenceUnconfirmedLabel')}</p>
                 <p className="mt-1 text-xs">{t('confidenceUnconfirmedDesc')}</p>
               </div>
             </div>
@@ -162,7 +162,7 @@ function HowToReadView() {
             </ul>
           </div>
 
-          <p className="mt-4 text-xs text-neutral-400">
+          <p className="mt-4 text-xs text-neutral-500">
             {t('lastUpdated', { date: '2026-02-08' })}
           </p>
         </div>

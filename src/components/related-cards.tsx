@@ -79,7 +79,7 @@ export function RelatedCards({ domain }: { domain: string }) {
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-2">
             <svg
-              className="h-4 w-4 shrink-0 text-neutral-400"
+              className="h-4 w-4 shrink-0 text-neutral-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

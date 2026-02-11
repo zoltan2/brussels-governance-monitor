@@ -84,7 +84,7 @@ function DomainsView({
             <p className="text-sm text-neutral-500">{t('subtitle')}</p>
           </div>
           {lastVerified && (
-            <p className="text-xs text-neutral-400">
+            <p className="text-xs text-neutral-500">
               {t('lastModified', { date: formatDate(lastVerified, locale) })}
             </p>
           )}

@@ -125,7 +125,7 @@ function TimelineView({
                   </div>
                   <span
                     className={`text-xs ${
-                      isActive ? 'font-bold text-neutral-900' : 'text-neutral-400'
+                      isActive ? 'font-bold text-neutral-900' : 'text-neutral-500'
                     }`}
                   >
                     {t(`phases.${phase}`)}
@@ -137,7 +137,7 @@ function TimelineView({
               );
             })}
           </div>
-          <p className="mt-3 text-xs text-neutral-400">
+          <p className="mt-3 text-xs text-neutral-500">
             {t('currentPhase')}: {t(`phases.${currentPhase}`)}
           </p>
         </div>
@@ -204,7 +204,7 @@ function TimelineView({
                   {/* Events */}
                   {roundEvents.length > 0 && (
                     <div className="p-6">
-                      <h4 className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-400">
+                      <h4 className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
                         {t('events')}
                       </h4>
                       <div className="relative space-y-0">
@@ -229,7 +229,7 @@ function TimelineView({
                             {/* Content */}
                             <div className="min-w-0 flex-1">
                               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3">
-                                <span className="text-xs font-medium text-neutral-400">
+                                <span className="text-xs font-medium text-neutral-500">
                                   {formatDate(event.date, locale)}
                                 </span>
                                 <span
@@ -245,7 +245,7 @@ function TimelineView({
                               </p>
                               <p className="mt-0.5 text-sm text-neutral-500">{event.summary}</p>
                               {event.impact && (
-                                <p className="mt-1 text-xs text-neutral-400 italic">
+                                <p className="mt-1 text-xs text-neutral-500 italic">
                                   {event.impact}
                                 </p>
                               )}

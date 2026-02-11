@@ -128,8 +128,8 @@ export function ReviewCard({
             <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${typeBadgeColors[type]}`}>
               {type}
             </span>
-            <span className="text-xs text-neutral-400">{locale.toUpperCase()}</span>
-            <span className="text-xs text-neutral-400">{lastModified}</span>
+            <span className="text-xs text-neutral-500">{locale.toUpperCase()}</span>
+            <span className="text-xs text-neutral-500">{lastModified}</span>
           </div>
           <p className="text-sm font-semibold text-neutral-900">{title}</p>
         </div>
@@ -181,7 +181,7 @@ export function ReviewCard({
               ))}
               <button
                 onClick={() => setShowRejectMenu(false)}
-                className="block w-full border-t border-neutral-100 px-4 py-2 text-left text-sm text-neutral-400 hover:bg-neutral-50"
+                className="block w-full border-t border-neutral-100 px-4 py-2 text-left text-sm text-neutral-500 hover:bg-neutral-50"
               >
                 {labels.cancel}
               </button>

@@ -159,7 +159,7 @@ function DataView({
                     <td className="whitespace-nowrap px-4 py-3 font-semibold text-brand-900">
                       {row.value}
                       {row.unit && (
-                        <span className="ml-1 font-normal text-neutral-400">{row.unit}</span>
+                        <span className="ml-1 font-normal text-neutral-500">{row.unit}</span>
                       )}
                     </td>
                     <td className="px-4 py-3 text-neutral-500">
@@ -200,7 +200,7 @@ function DataView({
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium text-neutral-900">{s.label}</p>
-                      <p className="mt-0.5 text-xs text-neutral-400">
+                      <p className="mt-0.5 text-xs text-neutral-500">
                         <span className="rounded bg-neutral-100 px-1.5 py-0.5 font-medium text-neutral-500">{t(`sourceType.${s.contentType}`)}</span>
                         {' '}{s.contentTitle} · {td('accessedAt', { date: formatDate(s.accessedAt, locale) })}
                       </p>
@@ -227,7 +227,7 @@ function DataView({
                       {t('openSource')}
                     </a>
                   </div>
-                  <p className="mt-1 truncate text-xs text-neutral-400">{s.url}</p>
+                  <p className="mt-1 truncate text-xs text-neutral-500">{s.url}</p>
                 </div>
               ))}
             </div>

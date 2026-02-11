@@ -82,7 +82,7 @@ function ComparisonsList({
                 {card.title}
               </h2>
               <p className="mb-3 text-sm text-neutral-600">{card.indicator}</p>
-              <p className="text-xs text-neutral-400">
+              <p className="text-xs text-neutral-500">
                 {formatDate(card.lastModified, locale)}
               </p>
             </Link>

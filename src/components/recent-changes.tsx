@@ -29,7 +29,7 @@ export function RecentChanges({
           <li key={i} className="flex items-start gap-3 text-xs">
             <time
               dateTime={entry.date}
-              className="shrink-0 pt-0.5 text-neutral-400"
+              className="shrink-0 pt-0.5 text-neutral-500"
             >
               {formatDate(entry.date, locale)}
             </time>

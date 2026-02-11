@@ -126,7 +126,7 @@ function GlossaryView({
 
                         {term.relatedTerms.length > 0 && (
                           <div className="mt-3 flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-medium text-neutral-400">
+                            <span className="text-xs font-medium text-neutral-500">
                               {t('relatedTerms')}:
                             </span>
                             {term.relatedTerms.map((rt) => (
@@ -143,7 +143,7 @@ function GlossaryView({
 
                         {term.sources.length > 0 && (
                           <div className="mt-3 flex flex-wrap gap-2">
-                            <span className="text-xs font-medium text-neutral-400">
+                            <span className="text-xs font-medium text-neutral-500">
                               {t('sources')}:
                             </span>
                             {term.sources.map((s, i) => (

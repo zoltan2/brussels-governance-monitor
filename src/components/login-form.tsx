@@ -77,7 +77,7 @@ export function LoginForm({ locale, labels }: LoginFormProps) {
       </div>
 
       {error && (
-        <p className="text-sm text-amber-700">{labels.error}</p>
+        <p className="text-sm text-amber-700" role="alert">{labels.error}</p>
       )}
 
       <button

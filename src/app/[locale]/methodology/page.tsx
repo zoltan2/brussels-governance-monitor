@@ -267,7 +267,7 @@ function MethodologyView() {
             <p className="text-sm font-medium text-brand-900">{t('tagline')}</p>
           </div>
 
-          <p className="mt-4 text-xs text-neutral-400">
+          <p className="mt-4 text-xs text-neutral-500">
             {t('lastUpdated', { date: '2026-02-08' })}
           </p>
         </div>

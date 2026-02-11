@@ -107,7 +107,7 @@ function GovernmentFormationView() {
             </div>
           </div>
 
-          <p className="text-xs text-neutral-400">{t('elections2024.source')}</p>
+          <p className="text-xs text-neutral-500">{t('elections2024.source')}</p>
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('elections2024.arithmetic')}</h2>
           <p>{t('elections2024.arithmeticDesc')}</p>

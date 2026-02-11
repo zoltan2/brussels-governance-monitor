@@ -90,7 +90,7 @@ function ChangelogView({ entries, locale }: { entries: ChangelogEntry[]; locale:
             <tbody className="divide-y divide-neutral-100">
               {entries.map((entry, i) => (
                 <tr key={i}>
-                  <td className="py-2.5 pr-4 align-top whitespace-nowrap text-neutral-400">
+                  <td className="py-2.5 pr-4 align-top whitespace-nowrap text-neutral-500">
                     <time dateTime={entry.date}>{formatDate(entry.date, locale)}</time>
                   </td>
                   <td className="py-2.5 pr-4 align-top">

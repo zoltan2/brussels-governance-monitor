@@ -86,7 +86,7 @@ function EditorialView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('independence.title')}</h2>
           <p>{t('independence.description')}</p>
 
-          <p className="mt-8 text-xs text-neutral-400">
+          <p className="mt-8 text-xs text-neutral-500">
             {t('lastUpdated', { date: '2026-02-06' })}
           </p>
         </div>

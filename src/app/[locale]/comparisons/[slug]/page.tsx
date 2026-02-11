@@ -128,7 +128,7 @@ function ComparisonDetail({
                   <tr key={i} className="border-b border-neutral-100">
                     <td className="py-2 pr-4 font-medium text-neutral-700">{dp.entity}</td>
                     <td className="py-2 pr-4 text-neutral-600">{dp.value}</td>
-                    <td className="py-2 text-neutral-400">{formatDate(dp.date, locale)}</td>
+                    <td className="py-2 text-neutral-500">{formatDate(dp.date, locale)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -137,7 +137,7 @@ function ComparisonDetail({
         )}
 
         <div className="mb-6 rounded-lg bg-neutral-50 p-4">
-          <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-400">
+          <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
             {t('methodology')}
           </h2>
           <p className="text-sm text-neutral-600">{card.methodology}</p>
@@ -157,10 +157,10 @@ function ComparisonDetail({
         </div>
 
         <div className="mt-8 border-t border-neutral-200 pt-4">
-          <p className="text-xs text-neutral-400">
+          <p className="text-xs text-neutral-500">
             {t('source')}: <a href={card.sourceDataset.url} target="_blank" rel="noopener noreferrer" className="text-brand-700 underline underline-offset-2 hover:text-brand-900">{card.sourceDataset.name}</a>
           </p>
-          <p className="mt-2 text-xs text-neutral-400">
+          <p className="mt-2 text-xs text-neutral-500">
             {t('lastModified', { date: formatDate(card.lastModified, locale) })}
           </p>
         </div>

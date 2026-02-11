@@ -69,7 +69,7 @@ export default async function ReviewPage({
           </div>
         ) : (
           <div className="space-y-4">
-            <p className="text-sm text-neutral-400">
+            <p className="text-sm text-neutral-500">
               {t('count', { count: drafts.length })}
             </p>
             {drafts.map((draft) => {

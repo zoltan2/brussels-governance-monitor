@@ -34,7 +34,7 @@ export function SolutionCard({ card }: SolutionCardProps) {
 
       <div className="mb-4 space-y-3">
         <div>
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
             {t('mechanism')}
           </h3>
           <p className="mt-1 text-sm text-neutral-600">{card.mechanism}</p>
@@ -42,13 +42,13 @@ export function SolutionCard({ card }: SolutionCardProps) {
 
         <div className="flex gap-4">
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('timelineLabel')}
             </h3>
             <p className="mt-1 text-sm text-neutral-700">{t(`timeline.${card.timeline}`)}</p>
           </div>
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('whoCanTrigger')}
             </h3>
             <p className="mt-1 text-sm text-neutral-700">{card.whoCanTrigger}</p>
@@ -57,7 +57,7 @@ export function SolutionCard({ card }: SolutionCardProps) {
 
         {card.precedent && (
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('precedent')}
             </h3>
             <p className="mt-1 text-sm text-neutral-600">
@@ -68,7 +68,7 @@ export function SolutionCard({ card }: SolutionCardProps) {
 
         {card.risks.length > 0 && (
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('risks')}
             </h3>
             <ul className="mt-1 space-y-1">

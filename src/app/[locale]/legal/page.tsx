@@ -59,7 +59,7 @@ function LegalView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('publisher.title')}</h2>
           <p>{t('publisher.description')}</p>
           <p>{t('publisher.address')}</p>
-          <p className="text-xs text-neutral-400">{t('publisher.bce')}</p>
+          <p className="text-xs text-neutral-500">{t('publisher.bce')}</p>
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('hosting.title')}</h2>
           <p>{t('hosting.description')}</p>
@@ -76,7 +76,7 @@ function LegalView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('contact.title')}</h2>
           <p>{t('contact.description')}</p>
 
-          <p className="mt-8 text-xs text-neutral-400">
+          <p className="mt-8 text-xs text-neutral-500">
             {t('lastUpdated', { date: '2026-02-11' })}
           </p>
         </div>

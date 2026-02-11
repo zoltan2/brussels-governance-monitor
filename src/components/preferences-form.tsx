@@ -188,7 +188,7 @@ export function PreferencesForm({ token }: PreferencesFormProps) {
       )}
 
       <div className="mb-4">
-        <p className="mb-1 text-xs text-neutral-400">{email}</p>
+        <p className="mb-1 text-xs text-neutral-500">{email}</p>
       </div>
 
       <div className="mb-4">
@@ -273,7 +273,7 @@ export function PreferencesForm({ token }: PreferencesFormProps) {
         <button
           type="button"
           onClick={() => setShowSurvey(true)}
-          className="text-xs text-neutral-400 underline hover:text-neutral-600"
+          className="text-xs text-neutral-500 underline hover:text-neutral-600"
         >
           {t('unsubscribeLink')}
         </button>

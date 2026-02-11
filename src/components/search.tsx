@@ -140,7 +140,7 @@ export function Search() {
         >
           <div className="w-full max-w-lg rounded-lg bg-white shadow-2xl">
             <div className="flex items-center border-b border-neutral-200 px-4">
-              <svg className="mr-2 h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <svg className="mr-2 h-4 w-4 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -156,12 +156,12 @@ export function Search() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t('placeholder')}
-                className="flex-1 border-none py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none"
+                className="flex-1 border-none py-3 text-sm text-neutral-900 placeholder:text-neutral-500 focus:outline-none"
               />
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded border border-neutral-200 px-1.5 py-0.5 text-[10px] text-neutral-400"
+                className="rounded border border-neutral-200 px-1.5 py-0.5 text-[10px] text-neutral-500"
               >
                 ESC
               </button>
@@ -196,7 +196,7 @@ export function Search() {
             )}
 
             {!pagefind && query.trim() && (
-              <div className="p-6 text-center text-sm text-neutral-400">
+              <div className="p-6 text-center text-sm text-neutral-500">
                 {t('loading')}
               </div>
             )}

@@ -76,7 +76,7 @@ function UnderstandContent() {
 
       <h1 className="mb-3 text-2xl font-bold text-neutral-900">{t('title')}</h1>
       <p className="mb-2 text-neutral-600">{t('intro')}</p>
-      <p className="mb-10 text-sm text-neutral-400 italic">{t('manifesto')}</p>
+      <p className="mb-10 text-sm text-neutral-500 italic">{t('manifesto')}</p>
 
       {/* Par où commencer */}
       <section className="mb-10">

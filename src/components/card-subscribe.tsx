@@ -72,7 +72,7 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder={labels.emailPlaceholder}
           required
-          className="min-w-0 flex-1 rounded-md border border-neutral-300 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+          className="min-w-0 flex-1 rounded-md border border-neutral-300 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
         />
         <button
           type="submit"
@@ -85,7 +85,7 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
       {status === 'error' && (
         <p className="mt-2 text-xs text-status-delayed" role="alert">{labels.error}</p>
       )}
-      <p className="mt-2 text-xs text-neutral-400">{labels.privacy}</p>
+      <p className="mt-2 text-xs text-neutral-500">{labels.privacy}</p>
     </div>
   );
 }

@@ -22,7 +22,7 @@ export function StatusAccordion({ title, children, defaultOpen = false }: Status
       >
         {title}
         <svg
-          className={cn('h-4 w-4 shrink-0 text-neutral-400 transition-transform', open && 'rotate-180')}
+          className={cn('h-4 w-4 shrink-0 text-neutral-500 transition-transform', open && 'rotate-180')}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

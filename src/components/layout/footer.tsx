@@ -81,11 +81,6 @@ export function Footer() {
         <div className="mt-8 border-t border-neutral-200 pt-6 text-center">
           <p className="text-sm font-medium text-neutral-600">{t('project')}</p>
           <p className="mt-1 text-xs text-neutral-500">{t('identity')}</p>
-          <p className="mt-1 text-xs text-neutral-500">
-            <a href="mailto:contact@brusselsgovernance.be" className="hover:text-neutral-700">
-              contact@brusselsgovernance.be
-            </a>
-          </p>
           <p className="mt-2 text-xs text-neutral-500">
             <Link href="/privacy" className="hover:text-neutral-700">{t('privacy')}</Link>
             {' · '}

@@ -12,6 +12,8 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -22,6 +24,55 @@ export function Header() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  function getMenuItems() {
+    return menuRef.current
+      ? Array.from(menuRef.current.querySelectorAll<HTMLElement>('[role="menuitem"]'))
+      : [];
+  }
+
+  function handleMenuKeyDown(e: React.KeyboardEvent) {
+    const items = getMenuItems();
+    if (items.length === 0) return;
+    const current = items.indexOf(document.activeElement as HTMLElement);
+
+    switch (e.key) {
+      case 'ArrowDown': {
+        e.preventDefault();
+        const next = current < items.length - 1 ? current + 1 : 0;
+        items[next].focus();
+        break;
+      }
+      case 'ArrowUp': {
+        e.preventDefault();
+        const prev = current > 0 ? current - 1 : items.length - 1;
+        items[prev].focus();
+        break;
+      }
+      case 'Home':
+        e.preventDefault();
+        items[0].focus();
+        break;
+      case 'End':
+        e.preventDefault();
+        items[items.length - 1].focus();
+        break;
+      case 'Escape':
+        e.preventDefault();
+        setDropdownOpen(false);
+        triggerRef.current?.focus();
+        break;
+    }
+  }
+
+  function handleTriggerKeyDown(e: React.KeyboardEvent) {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setDropdownOpen(true);
+      // Focus first item on next tick after render
+      setTimeout(() => getMenuItems()[0]?.focus(), 0);
+    }
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur-sm">
@@ -39,8 +90,10 @@ export function Header() {
           {/* Comprendre dropdown */}
           <div ref={dropdownRef} className="relative">
             <button
+              ref={triggerRef}
               type="button"
               onClick={() => setDropdownOpen(!dropdownOpen)}
+              onKeyDown={handleTriggerKeyDown}
               className="inline-flex items-center gap-1 text-sm text-neutral-600 hover:text-neutral-900"
               aria-expanded={dropdownOpen}
               aria-haspopup="true"
@@ -57,29 +110,32 @@ export function Header() {
               </svg>
             </button>
             {dropdownOpen && (
-              <div className="absolute left-0 top-full z-50 mt-2 w-72 rounded-lg border border-neutral-200 bg-white py-2 shadow-lg">
+              <div ref={menuRef} role="menu" onKeyDown={handleMenuKeyDown} className="absolute left-0 top-full z-50 mt-2 w-72 rounded-lg border border-neutral-200 bg-white py-2 shadow-lg">
                 {/* Fondamentaux */}
                 <p className="px-4 pt-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">
                   {t('understandFundamentals')}
                 </p>
                 <Link
+                  role="menuitem"
                   href="/explainers/brussels-overview"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
                   {th('explainerOverview')}
                 </Link>
                 <Link
+                  role="menuitem"
                   href="/explainers/levels-of-power"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
                   {th('explainerLevels')}
                 </Link>
                 <Link
+                  role="menuitem"
                   href="/explainers/government-formation"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
                   {th('explainerFormation')}
                 </Link>
@@ -89,46 +145,52 @@ export function Header() {
                   {t('understandInsights')}
                 </p>
                 <Link
+                  role="menuitem"
                   href="/explainers/brussels-paradox"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
                   {th('explainerParadox')}
                 </Link>
                 <Link
+                  role="menuitem"
                   href="/explainers/parliament-powers"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
                   {th('explainerParliament')}
                 </Link>
                 <Link
+                  role="menuitem"
                   href="/explainers/brussels-cosmopolitan"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
                   {th('explainerCosmopolitan')}
                 </Link>
 
                 <hr className="my-1.5 border-neutral-100" />
                 <Link
+                  role="menuitem"
                   href="/timeline"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
                   {t('timeline')}
                 </Link>
                 <Link
+                  role="menuitem"
                   href="/glossary"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
                   {t('glossary')}
                 </Link>
                 <Link
+                  role="menuitem"
                   href="/faq"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
                   {t('faq')}
                 </Link>

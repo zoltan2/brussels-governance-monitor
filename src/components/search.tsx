@@ -26,6 +26,7 @@ export function Search() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [pagefind, setPagefind] = useState<any>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (open && !pagefind) {
@@ -106,6 +107,23 @@ export function Search() {
     return () => document.removeEventListener('keydown', handleKeydown);
   }, []);
 
+  function handleDialogKeyDown(e: React.KeyboardEvent) {
+    if (e.key !== 'Tab' || !dialogRef.current) return;
+    const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+      'input, button, a[href]',
+    );
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   return (
     <>
       <button
@@ -130,10 +148,12 @@ export function Search() {
 
       {open && (
         <div
+          ref={dialogRef}
           className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 pt-[15vh]"
           role="dialog"
           aria-modal="true"
           aria-label={t('placeholder')}
+          onKeyDown={handleDialogKeyDown}
           onClick={(e) => {
             if (e.target === e.currentTarget) setOpen(false);
           }}

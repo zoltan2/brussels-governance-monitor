@@ -72,6 +72,7 @@ export interface FormationEvent {
     | 'budget'
     | 'initiative';
   confidenceLevel?: 'official' | 'estimated' | 'unconfirmed';
+  order?: number;
   summary: string;
   impact?: string;
   sources: Array<{ label: string; url: string; accessedAt: string }>;

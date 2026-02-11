@@ -150,7 +150,7 @@ function TimelineView({
             {[...rounds].reverse().map((round) => {
               const roundEvents = events
                 .filter((e) => e.round === round.number)
-                .sort((a, b) => b.date.localeCompare(a.date));
+                .sort((a, b) => b.date.localeCompare(a.date) || (b.order ?? 0) - (a.order ?? 0));
 
               return (
                 <div

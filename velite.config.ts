@@ -135,6 +135,7 @@ const formationEvents = defineCollection({
         'initiative',
       ]),
       confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']).optional(),
+      order: s.number().optional(), // intra-day ordering (higher = later in the day)
       summary: s.string().max(500),
       impact: s.string().optional(),
       sources: s.array(sourceSchema),

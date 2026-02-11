@@ -77,7 +77,7 @@ function LegalView() {
           <p>{t('contact.description')}</p>
 
           <p className="mt-8 text-xs text-neutral-400">
-            {t('lastUpdated', { date: '2026-02-10' })}
+            {t('lastUpdated', { date: '2026-02-11' })}
           </p>
         </div>
       </div>

@@ -113,6 +113,7 @@
   },
   "footer": {
     "project": "A public interest project hosted by Advice That SRL",
+    "identity": "Advice That SRL — Rue Delwart 149, 1070 Brussels — CBE 0728.534.930 — contact@brusselsgovernance.be",
     "disclaimer": "Not affiliated with any political party",
     "license": "Source code AGPL v3",
     "editorial": "Editorial charter",
@@ -274,7 +275,7 @@
     "title": "Privacy Policy",
     "controller": {
       "title": "Data controller",
-      "description": "The data controller is Advice That SRL, a Belgian company. Brussels Governance Monitor is a project hosted by this company."
+      "description": "The data controller is Advice That SRL, a Belgian company. Registered office: Rue Delwart 149, 1070 Brussels. CBE: 0728.534.930. Brussels Governance Monitor is a project hosted by this company."
     },
     "dataCollected": {
       "title": "Data collected",
@@ -298,7 +299,10 @@
       "rectification": "Right to rectification: correct inaccurate data",
       "deletion": "Right to erasure: request deletion of your data",
       "portability": "Right to data portability: receive your data in a structured format",
-      "withdraw": "Right to withdraw consent: unsubscribe at any time in one click"
+      "opposition": "Right to object: object to the processing of your data (Article 21)",
+      "limitation": "Right to restriction: restrict the processing of your data (Article 18)",
+      "withdraw": "Right to withdraw consent: unsubscribe at any time in one click",
+      "complaint": "You also have the right to lodge a complaint with the Belgian Data Protection Authority (DPA): https://www.dataprotectionauthority.be"
     },
     "thirdParties": {
       "title": "Third-party processors",
@@ -308,7 +312,8 @@
       "resend": "Resend (email) — Sends confirmation emails and weekly digests. Processes subscriber email addresses. Based in the United States with GDPR compliance (DPA signed).",
       "appsignal": "AppSignal (monitoring) — Monitors server errors and performance. No personal data collected, no cookies, exclusively server-side processing. Dutch company, EU hosting.",
       "legalBasis": "Legal basis: legitimate interest (Article 6.1.f GDPR) for Vercel, Umami and AppSignal; consent (Article 6.1.a) for Resend.",
-      "statusPage": "Service status page: https://status.governance.brussels"
+      "statusPage": "Service status page: https://status.governance.brussels",
+      "transfers": "Transfers outside the EU: Resend (US) and Vercel (logs processed in the US) benefit from Standard Contractual Clauses (SCCs) and are certified under the EU-US Data Privacy Framework (DPF). DPAs are automatically accepted with each service's terms of use."
     },
     "cookies": {
       "title": "Cookies",
@@ -413,8 +418,8 @@
     "title": "Legal notice",
     "publisher": {
       "title": "Responsible publisher",
-      "description": "Advice That SRL, a Belgian limited liability company.",
-      "address": "Registered office: address available at the Crossroads Bank for Enterprises (CBE).",
+      "description": "Zoltán Jánosi, managing director of Advice That SRL, a Belgian limited liability company.",
+      "address": "Registered office: Rue Delwart 149, 1070 Brussels, Belgium.",
       "bce": "CBE: 0728.534.930 — VAT: BE 0728.534.930"
     },
     "hosting": {

@@ -113,6 +113,7 @@
   },
   "footer": {
     "project": "Un projet d'intérêt général hébergé par Advice That SRL",
+    "identity": "Advice That SRL — Rue Delwart 149, 1070 Bruxelles — BCE 0728.534.930 — contact@brusselsgovernance.be",
     "disclaimer": "Non affilié à aucun parti politique",
     "license": "Code source AGPL v3",
     "editorial": "Charte éditoriale",
@@ -274,7 +275,7 @@
     "title": "Politique de confidentialité",
     "controller": {
       "title": "Responsable du traitement",
-      "description": "Le responsable du traitement des données est Advice That SRL, société de droit belge. Brussels Governance Monitor est un projet hébergé par cette société."
+      "description": "Le responsable du traitement des données est Advice That SRL, société de droit belge. Siège social : Rue Delwart 149, 1070 Bruxelles. BCE : 0728.534.930. Brussels Governance Monitor est un projet hébergé par cette société."
     },
     "dataCollected": {
       "title": "Données collectées",
@@ -298,7 +299,10 @@
       "rectification": "Droit de rectification : corriger des données inexactes",
       "deletion": "Droit à l'effacement : demander la suppression de vos données",
       "portability": "Droit à la portabilité : recevoir vos données dans un format structuré",
-      "withdraw": "Droit de retrait du consentement : vous désabonner à tout moment en un clic"
+      "opposition": "Droit d'opposition : vous opposer au traitement de vos données (article 21)",
+      "limitation": "Droit à la limitation : restreindre le traitement de vos données (article 18)",
+      "withdraw": "Droit de retrait du consentement : vous désabonner à tout moment en un clic",
+      "complaint": "Vous avez également le droit d'introduire une réclamation auprès de l'Autorité de protection des données (APD) : https://www.autoriteprotectiondonnees.be"
     },
     "thirdParties": {
       "title": "Sous-traitants et outils tiers",
@@ -308,7 +312,8 @@
       "resend": "Resend (emails) — Envoie les emails de confirmation et les digest hebdomadaires. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
       "appsignal": "AppSignal (monitoring) — Surveille les erreurs serveur et les performances. Aucune donnée personnelle collectée, aucun cookie, traitement exclusivement côté serveur. Société néerlandaise, hébergement EU.",
       "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Vercel, Umami et AppSignal ; consentement (article 6.1.a) pour Resend.",
-      "statusPage": "Page de statut du service : https://status.governance.brussels"
+      "statusPage": "Page de statut du service : https://status.governance.brussels",
+      "transfers": "Transferts hors UE : Resend (États-Unis) et Vercel (logs traités aux États-Unis) bénéficient de clauses contractuelles types (SCCs) et sont certifiés sous le EU-US Data Privacy Framework (DPF). Les DPA sont automatiquement acceptés avec les conditions d'utilisation de chaque service."
     },
     "cookies": {
       "title": "Cookies",
@@ -413,8 +418,8 @@
     "title": "Mentions légales",
     "publisher": {
       "title": "Éditeur responsable",
-      "description": "Advice That SRL, société à responsabilité limitée de droit belge.",
-      "address": "Siège social : adresse disponible au registre de la Banque-Carrefour des Entreprises (BCE).",
+      "description": "Zoltán Jánosi, gérant d'Advice That SRL, société à responsabilité limitée de droit belge.",
+      "address": "Siège social : Rue Delwart 149, 1070 Bruxelles, Belgique.",
       "bce": "BCE : 0728.534.930 — TVA : BE 0728.534.930"
     },
     "hosting": {

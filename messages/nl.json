@@ -113,6 +113,7 @@
   },
   "footer": {
     "project": "Een project van algemeen belang gehost door Advice That SRL",
+    "identity": "Advice That SRL — Delwartstraat 149, 1070 Brussel — KBO 0728.534.930 — contact@brusselsgovernance.be",
     "disclaimer": "Niet gelieerd aan enige politieke partij",
     "license": "Broncode AGPL v3",
     "editorial": "Redactioneel charter",
@@ -274,7 +275,7 @@
     "title": "Privacybeleid",
     "controller": {
       "title": "Verantwoordelijke voor de verwerking",
-      "description": "De verantwoordelijke voor de verwerking van gegevens is Advice That SRL, een Belgische vennootschap. Brussels Governance Monitor is een project dat door deze vennootschap wordt gehost."
+      "description": "De verantwoordelijke voor de verwerking van gegevens is Advice That SRL, een Belgische vennootschap. Maatschappelijke zetel: Delwartstraat 149, 1070 Brussel. KBO: 0728.534.930. Brussels Governance Monitor is een project dat door deze vennootschap wordt gehost."
     },
     "dataCollected": {
       "title": "Verzamelde gegevens",
@@ -298,7 +299,10 @@
       "rectification": "Recht op rectificatie: onjuiste gegevens corrigeren",
       "deletion": "Recht op wissing: verwijdering van uw gegevens aanvragen",
       "portability": "Recht op overdraagbaarheid: uw gegevens in een gestructureerd formaat ontvangen",
-      "withdraw": "Recht op intrekking van toestemming: u kunt zich op elk moment met één klik uitschrijven"
+      "opposition": "Recht van bezwaar: bezwaar maken tegen de verwerking van uw gegevens (artikel 21)",
+      "limitation": "Recht op beperking: de verwerking van uw gegevens beperken (artikel 18)",
+      "withdraw": "Recht op intrekking van toestemming: u kunt zich op elk moment met één klik uitschrijven",
+      "complaint": "U hebt ook het recht om een klacht in te dienen bij de Gegevensbeschermingsautoriteit (GBA): https://www.gegevensbeschermingsautoriteit.be"
     },
     "thirdParties": {
       "title": "Onderaannemers en tools van derden",
@@ -308,7 +312,8 @@
       "resend": "Resend (e-mails) — Verstuurt bevestigings-e-mails en wekelijkse samenvattingen. Verwerkt e-mailadressen van abonnees. Gevestigd in de Verenigde Staten met AVG-naleving (DPA ondertekend).",
       "appsignal": "AppSignal (monitoring) — Bewaakt serverfouten en prestaties. Geen persoonsgegevens verzameld, geen cookies, uitsluitend verwerking aan serverzijde. Nederlands bedrijf, EU-hosting.",
       "legalBasis": "Rechtsgrond: gerechtvaardigd belang (artikel 6.1.f AVG) voor Vercel, Umami en AppSignal; toestemming (artikel 6.1.a) voor Resend.",
-      "statusPage": "Statuspagina van de dienst: https://status.governance.brussels"
+      "statusPage": "Statuspagina van de dienst: https://status.governance.brussels",
+      "transfers": "Doorgifte buiten de EU: Resend (VS) en Vercel (logs verwerkt in de VS) beschikken over standaardcontractbepalingen (SCCs) en zijn gecertificeerd onder het EU-VS Data Privacy Framework (DPF). De DPA's worden automatisch aanvaard met de gebruiksvoorwaarden van elke dienst."
     },
     "cookies": {
       "title": "Cookies",
@@ -413,8 +418,8 @@
     "title": "Juridische vermeldingen",
     "publisher": {
       "title": "Verantwoordelijke uitgever",
-      "description": "Advice That SRL, besloten vennootschap naar Belgisch recht.",
-      "address": "Maatschappelijke zetel: adres beschikbaar bij de Kruispuntbank van Ondernemingen (KBO).",
+      "description": "Zoltán Jánosi, zaakvoerder van Advice That SRL, besloten vennootschap naar Belgisch recht.",
+      "address": "Maatschappelijke zetel: Delwartstraat 149, 1070 Brussel, België.",
       "bce": "KBO: 0728.534.930 — BTW: BE 0728.534.930"
     },
     "hosting": {

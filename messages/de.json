@@ -113,6 +113,7 @@
   },
   "footer": {
     "project": "Ein gemeinnütziges Projekt, gehostet von Advice That SRL",
+    "identity": "Advice That SRL — Rue Delwart 149, 1070 Brüssel — ZDU 0728.534.930 — contact@brusselsgovernance.be",
     "disclaimer": "Keiner politischen Partei angeschlossen",
     "license": "Quellcode AGPL v3",
     "editorial": "Redaktionelle Charta",
@@ -274,7 +275,7 @@
     "title": "Datenschutzrichtlinie",
     "controller": {
       "title": "Verantwortlicher für die Datenverarbeitung",
-      "description": "Der Verantwortliche für die Datenverarbeitung ist Advice That SRL, eine belgische Gesellschaft. Brussels Governance Monitor ist ein von dieser Gesellschaft gehostetes Projekt."
+      "description": "Der Verantwortliche für die Datenverarbeitung ist Advice That SRL, eine belgische Gesellschaft. Eingetragener Sitz: Rue Delwart 149, 1070 Brüssel. ZDU: 0728.534.930. Brussels Governance Monitor ist ein von dieser Gesellschaft gehostetes Projekt."
     },
     "dataCollected": {
       "title": "Erhobene Daten",
@@ -298,7 +299,10 @@
       "rectification": "Recht auf Berichtigung: unrichtige Daten korrigieren",
       "deletion": "Recht auf Löschung: Löschung Ihrer Daten verlangen",
       "portability": "Recht auf Datenübertragbarkeit: Ihre Daten in einem strukturierten Format erhalten",
-      "withdraw": "Recht auf Widerruf der Einwilligung: jederzeit mit einem Klick abmelden"
+      "opposition": "Widerspruchsrecht: der Verarbeitung Ihrer Daten widersprechen (Artikel 21)",
+      "limitation": "Recht auf Einschränkung: die Verarbeitung Ihrer Daten einschränken (Artikel 18)",
+      "withdraw": "Recht auf Widerruf der Einwilligung: jederzeit mit einem Klick abmelden",
+      "complaint": "Sie haben auch das Recht, eine Beschwerde bei der belgischen Datenschutzbehörde (APD) einzureichen: https://www.autoriteprotectiondonnees.be"
     },
     "thirdParties": {
       "title": "Auftragsverarbeiter und Drittanbieter-Tools",
@@ -308,7 +312,8 @@
       "resend": "Resend (E-Mails) — Versendet Bestätigungs-E-Mails und wöchentliche Zusammenfassungen. Verarbeitet E-Mail-Adressen der Abonnenten. Sitz in den USA mit DSGVO-Konformität (DPA unterzeichnet).",
       "appsignal": "AppSignal (Monitoring) — Überwacht Serverfehler und Leistung. Keine personenbezogenen Daten erhoben, keine Cookies, ausschließlich serverseitige Verarbeitung. Niederländisches Unternehmen, EU-Hosting.",
       "legalBasis": "Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) für Vercel, Umami und AppSignal; Einwilligung (Art. 6 Abs. 1 lit. a) für Resend.",
-      "statusPage": "Statusseite des Dienstes: https://status.governance.brussels"
+      "statusPage": "Statusseite des Dienstes: https://status.governance.brussels",
+      "transfers": "Übermittlungen außerhalb der EU: Resend (USA) und Vercel (Logs in den USA verarbeitet) verfügen über Standardvertragsklauseln (SCCs) und sind unter dem EU-US Data Privacy Framework (DPF) zertifiziert. Die DPAs werden automatisch mit den Nutzungsbedingungen jedes Dienstes akzeptiert."
     },
     "cookies": {
       "title": "Cookies",
@@ -413,8 +418,8 @@
     "title": "Impressum",
     "publisher": {
       "title": "Verantwortlicher Herausgeber",
-      "description": "Advice That SRL, eine Gesellschaft mit beschränkter Haftung nach belgischem Recht.",
-      "address": "Eingetragener Sitz: Adresse verfügbar bei der Zentralen Datenbank der Unternehmen (ZDU).",
+      "description": "Zoltán Jánosi, Geschäftsführer der Advice That SRL, einer Gesellschaft mit beschränkter Haftung nach belgischem Recht.",
+      "address": "Eingetragener Sitz: Rue Delwart 149, 1070 Brüssel, Belgien.",
       "bce": "ZDU: 0728.534.930 — USt-IdNr.: BE 0728.534.930"
     },
     "hosting": {

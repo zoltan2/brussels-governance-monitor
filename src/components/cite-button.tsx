@@ -20,7 +20,7 @@ export function CiteButton({ title, lastModified, label, copiedLabel }: CiteButt
       day: 'numeric',
     });
 
-    const citation = `Brussels Governance Monitor. « ${title} ». Mis à jour le ${date}. ${url}. Licence CC BY-SA 4.0.`;
+    const citation = `Brussels Governance Monitor. « ${title} ». Mis à jour le ${date}. ${url}. Tous droits réservés — Advice That SRL.`;
 
     navigator.clipboard.writeText(citation).then(() => {
       setCopied(true);

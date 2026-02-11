@@ -86,7 +86,7 @@ export async function GET(request: Request) {
   return NextResponse.json({
     generator: 'Brussels Governance Monitor',
     version: '1.0',
-    license: 'AGPL-3.0',
+    license: 'All rights reserved — Advice That SRL',
     locale,
     generatedAt: new Date().toISOString(),
     ...result,

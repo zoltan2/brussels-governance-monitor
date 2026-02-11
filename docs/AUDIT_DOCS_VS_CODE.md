@@ -22,7 +22,7 @@ C'est le document que je consulte en premier et le plus souvent. Il contient :
 
 | Section | Usage concret dans le code |
 |---------|---------------------------|
-| Décisions D1-D13 (lignes 13-27) | Architecture complète : Velite+Zod+MDX (D2), Resend+React Email (D6), 4 langues (D7), AGPL v3 (D9), palette neutre (D12) |
+| Décisions D1-D13 (lignes 13-27) | Architecture complète : Velite+Zod+MDX (D2), Resend+React Email (D6), 4 langues (D7), Source-Available (D9), palette neutre (D12) |
 | Section 0 — Cadre institutionnel (l.31-100) | Mentions légales, charte éditoriale, page privacy, footer ("Advice That SRL", "Non affilié") |
 | F3/F4 — Système email (l.359-494) | Toute l'implémentation email : subscribe flow, confirm, welcome, digest, templates React Email |
 | Préférences utilisateur (l.407-435) | Page de préférences, topics, mapping Resend |

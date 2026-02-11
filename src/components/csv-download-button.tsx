@@ -60,7 +60,7 @@ export function JsonDownloadButton({ rows, label }: CsvDownloadButtonProps) {
   function handleDownload() {
     const data = {
       generator: 'Brussels Governance Monitor',
-      license: 'AGPL-3.0',
+      license: 'All rights reserved — Advice That SRL',
       url: 'https://governance.brussels',
       exportedAt: new Date().toISOString(),
       metrics: rows.map((r) => ({

@@ -6,7 +6,7 @@
 **Date :** 2026-02-06
 **Statut :** Décisions verrouillées — prêt pour le développement
 **Porteur :** Advice That SRL (Belgique)
-**Licence :** AGPL v3 (open source dès le MVP)
+**Licence :** Source-Available (tous droits réservés — Advice That SRL)
 
 ### Décisions officielles
 
@@ -20,7 +20,7 @@
 | D6 | Système email | Resend + React Email + Vercel Cron. Digest hebdo auto + alertes semi-auto + newsletter manuelle |
 | D7 | Langues | FR/NL/EN/DE dès le MVP (FR source, NL humaine, EN/DE IA+relecture). Extensible à N langues. Backend admin = FR uniquement |
 | D8 | Structure juridique | Advice That SRL — responsable RGPD, pas d'affiliation partisane |
-| D9 | Licence | AGPL v3 — repo public GitHub |
+| D9 | Licence | Source-Available — repo public GitHub, tous droits réservés |
 | D10 | Pivot si gouvernement formé | Bilan de crise + suivi engagements ("promis → tenu ?") |
 | D11 | Charte éditoriale | Rédigée et publiée AVANT le lancement |
 | D12 | Design | Sobre, institutionnel, data-driven. Palette neutre (gris, bleu foncé, blanc). Typo Inter/IBM Plex. |
@@ -54,10 +54,10 @@ Le compteur de jours est un point d'entrée, pas la finalité. La valeur durable
 - Pas de profiling, pas de tracking publicitaire
 - Analytics privacy-friendly (Plausible, pas de cookies tiers)
 
-### Open source
+### Code source public
 
-- Code publié en open source dès le lancement MVP
-- Licence AGPL v3 — toute réutilisation déployée reste publique
+- Code publié publiquement dès le lancement MVP pour transparence et auditabilité
+- Licence Source-Available — tous droits réservés (Advice That SRL)
 - Repo public GitHub, README clair, 2FA, branch protection, aucun secret dans le code
 - Fork possible par d'autres villes/régions
 
@@ -1004,7 +1004,7 @@ En V1 :
 |---|--------|--------|-------------|
 | A1 | Réserver le nom de domaine (.brussels / .be) | **En cours** | Advice That SRL |
 | A2 | Rédiger la charte éditoriale (1 page) | À faire | Advice That SRL |
-| A3 | Créer le repo GitHub public (AGPL v3) | À faire (S1) | Dev |
+| A3 | Créer le repo GitHub public (Source-Available) | À faire (S1) | Dev |
 | A4 | Identifier 5 journalistes beta-testeurs | À faire (S4-S5) | Advice That SRL |
 
 ---

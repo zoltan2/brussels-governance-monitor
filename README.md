@@ -30,7 +30,7 @@ Available in French, Dutch, English, and German. French is the source language.
 
 ## License
 
-[AGPL-3.0](LICENSE) — All derivative deployments must remain open source.
+[Source-Available](LICENSE) — Code public for transparency and auditability. All rights reserved by Advice That SRL. See LICENSE for details.
 
 ## Carrier
 

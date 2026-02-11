@@ -11,6 +11,8 @@ export function Header() {
   const th = useTranslations('home');
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileComprendre, setMobileComprendre] = useState(false);
+  const [mobileTools, setMobileTools] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -235,60 +237,113 @@ export function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="border-t border-neutral-100 px-4 pb-4 md:hidden">
-          <nav aria-label="Menu" className="flex flex-col gap-3 pt-3">
-            <Link href="/" onClick={() => setMenuOpen(false)} className="text-sm font-medium text-neutral-900">
+          <nav aria-label="Menu" className="flex flex-col pt-3">
+            {/* Search — always visible at top */}
+            <div className="pb-3">
+              <Search />
+            </div>
+
+            <hr className="border-neutral-100" />
+
+            {/* Direct links */}
+            <Link href="/" onClick={() => setMenuOpen(false)} className="py-3 text-sm font-medium text-neutral-900">
               {t('home')}
             </Link>
-            <Link href="/domains" onClick={() => setMenuOpen(false)} className="text-sm text-neutral-600 hover:text-neutral-900">
+            <Link href="/domains" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
               {t('domains')}
             </Link>
-
-            {/* Comprendre — Fondamentaux */}
-            <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{t('understandFundamentals')}</p>
-            <Link href="/explainers/brussels-overview" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {th('explainerOverview')}
-            </Link>
-            <Link href="/explainers/levels-of-power" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {th('explainerLevels')}
-            </Link>
-            <Link href="/explainers/government-formation" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {th('explainerFormation')}
-            </Link>
-
-            {/* Comprendre — Éclairages */}
-            <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{t('understandInsights')}</p>
-            <Link href="/explainers/brussels-paradox" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {th('explainerParadox')}
-            </Link>
-            <Link href="/explainers/parliament-powers" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {th('explainerParliament')}
-            </Link>
-            <Link href="/explainers/brussels-cosmopolitan" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {th('explainerCosmopolitan')}
-            </Link>
-
-            <hr className="my-1 border-neutral-100" />
-            <Link href="/timeline" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {t('timeline')}
-            </Link>
-            <Link href="/glossary" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {t('glossary')}
-            </Link>
-            <Link href="/faq" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {t('faq')}
-            </Link>
-            <Link href="/data" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
-              {t('data')}
-            </Link>
-
-            <Link href="/sectors" onClick={() => setMenuOpen(false)} className="mt-2 text-sm text-neutral-600 hover:text-neutral-900">
+            <Link href="/sectors" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
               {t('sectors')}
             </Link>
 
-            <div className="pt-2">
-              <Search />
-            </div>
-            <div className="pt-2">
+            <hr className="border-neutral-100" />
+
+            {/* Comprendre — accordion */}
+            <button
+              type="button"
+              onClick={() => setMobileComprendre(!mobileComprendre)}
+              className="flex w-full items-center justify-between py-3 text-sm text-neutral-600"
+              aria-expanded={mobileComprendre}
+            >
+              {t('understand')}
+              <svg
+                className={`h-4 w-4 text-neutral-400 transition-transform duration-300 ${mobileComprendre ? 'rotate-180' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {mobileComprendre && (
+              <div className="flex flex-col pb-2">
+                <p className="px-4 pb-1 text-xs font-semibold uppercase tracking-wider text-neutral-400">
+                  {t('understandFundamentals')}
+                </p>
+                <Link href="/explainers/brussels-overview" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {th('explainerOverview')}
+                </Link>
+                <Link href="/explainers/levels-of-power" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {th('explainerLevels')}
+                </Link>
+                <Link href="/explainers/government-formation" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {th('explainerFormation')}
+                </Link>
+                <p className="mt-2 px-4 pb-1 text-xs font-semibold uppercase tracking-wider text-neutral-400">
+                  {t('understandInsights')}
+                </p>
+                <Link href="/explainers/brussels-paradox" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {th('explainerParadox')}
+                </Link>
+                <Link href="/explainers/parliament-powers" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {th('explainerParliament')}
+                </Link>
+                <Link href="/explainers/brussels-cosmopolitan" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {th('explainerCosmopolitan')}
+                </Link>
+              </div>
+            )}
+
+            {/* Outils — accordion */}
+            <button
+              type="button"
+              onClick={() => setMobileTools(!mobileTools)}
+              className="flex w-full items-center justify-between py-3 text-sm text-neutral-600"
+              aria-expanded={mobileTools}
+            >
+              {t('tools')}
+              <svg
+                className={`h-4 w-4 text-neutral-400 transition-transform duration-300 ${mobileTools ? 'rotate-180' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {mobileTools && (
+              <div className="flex flex-col pb-2">
+                <Link href="/timeline" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('timeline')}
+                </Link>
+                <Link href="/glossary" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('glossary')}
+                </Link>
+                <Link href="/faq" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('faq')}
+                </Link>
+                <Link href="/data" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('data')}
+                </Link>
+              </div>
+            )}
+
+            <hr className="border-neutral-100" />
+
+            {/* Language switcher */}
+            <div className="pt-3">
               <LocaleSwitcher />
             </div>
           </nav>

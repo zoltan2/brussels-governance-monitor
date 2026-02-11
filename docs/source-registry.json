@@ -3,8 +3,8 @@
   "description": "Registre des sources surveillées par BGM. 132 sources couvrant FR/NL/EN/DE. Priorités : P0 (critique) → P4 (marginal). Voir ANALYSE_SOURCES.md pour la méthodologie.",
   "lastUpdated": "2026-02-10",
   "stats": {
-    "total": 132,
-    "byPriority": { "P0": 26, "P1": 31, "P2": 40, "P3": 34, "P4": 1 },
+    "total": 133,
+    "byPriority": { "P0": 27, "P1": 31, "P2": 40, "P3": 34, "P4": 1 },
     "byLang": { "fr": 43, "nl": 40, "en": 25, "de": 2, "multi": 22 },
     "byType": { "institutional": 31, "press": 76, "agency": 4, "research": 6, "legal": 7, "think-tank": 8 }
   },
@@ -242,6 +242,20 @@
       "frequency": "weekly",
       "enabled": true,
       "notes": "Loyers, logement social, primes, grille indicative"
+    },
+
+    {
+      "id": "watch-133",
+      "name": "budget.brussels — Budget régional bruxellois",
+      "url": "https://budget.brussels/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P0",
+      "category": "budget",
+      "cardsAffected": ["budget"],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Portail officiel du budget de la Région de Bruxelles-Capitale. Dépenses, recettes, comptes, affaires courantes."
     },
 
     {"_comment": "=== P0 — NOUVELLES SOURCES CRITIQUES ==="},

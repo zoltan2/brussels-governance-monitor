@@ -49,22 +49,18 @@ body {
 
 /* Print styles — optimized for journalists */
 @media print {
-  /* Hide navigation, header, breadcrumbs, search, interactive elements */
+  /* Hide navigation, interactive elements, forms */
   header,
-  nav,
   .breadcrumb,
   .search-trigger,
-  .subscribe-form,
+  #subscribe,
+  form,
+  select,
+  textarea,
+  input,
   [data-hide-print],
-  button:not([data-print-visible]) {
+  button {
     display: none !important;
-  }
-
-  /* Keep footer visible with site URL */
-  footer {
-    display: block !important;
-    font-size: 9pt;
-    color: #999;
   }
 
   /* Reset colors for print */
@@ -75,23 +71,53 @@ body {
     line-height: 1.5;
   }
 
+  /* Crisis counter: fix white-on-white text */
+  section[class*="from-brand"] {
+    background: white !important;
+    color: black !important;
+  }
+  section[class*="from-brand"] * {
+    color: black !important;
+  }
+
+  /* Reset light backgrounds to white */
+  [class*="bg-neutral-50"],
+  [class*="bg-brand-50"],
+  [class*="bg-teal-50"],
+  [class*="bg-amber-50"],
+  [class*="bg-blue-50"] {
+    background: white !important;
+  }
+
   /* Ensure links show their URL */
   a[href^="http"]::after {
     content: ' (' attr(href) ')';
     font-size: 0.8em;
-    color: #666;
+    color: #444;
     word-break: break-all;
   }
 
-  /* Prevent page breaks inside cards */
+  /* Don't duplicate URL for links that already show it */
+  a[href^="http"][aria-hidden]::after,
+  nav a::after {
+    content: none !important;
+  }
+
+  /* Tables: prevent clipping */
+  [class*="overflow-x-auto"] {
+    overflow: visible !important;
+  }
+
+  /* Prevent page breaks inside cards and articles */
   article,
   .card,
-  [data-card] {
+  [data-card],
+  table {
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
-  /* Add page break before major sections */
+  /* Page break before major sections */
   h1 {
     break-before: page;
     page-break-before: always;
@@ -108,7 +134,19 @@ body {
     max-width: 100% !important;
   }
 
-  /* Show source URL in footer */
+  /* Simplify footer: keep only legal info */
+  footer nav {
+    display: none !important;
+  }
+  footer p[class*="font-semibold"] {
+    display: none !important;
+  }
+  footer {
+    font-size: 9pt;
+    color: #666;
+  }
+
+  /* Page margins */
   @page {
     margin: 2cm;
   }

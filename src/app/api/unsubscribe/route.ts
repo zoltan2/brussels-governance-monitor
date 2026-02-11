@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { verifyUnsubscribeToken } from '@/lib/token';
-import { getResend, EMAIL_FROM, removeContact } from '@/lib/resend';
+import { getResend, EMAIL_FROM, removeContact, resendCall } from '@/lib/resend';
 import GoodbyeEmail from '@/emails/goodbye';
 
 export async function GET(request: Request) {
@@ -39,13 +39,15 @@ export async function GET(request: Request) {
   if (adminEmail && process.env.RESEND_API_KEY) {
     try {
       const resend = getResend();
-      await resend.emails.send({
-        from: EMAIL_FROM,
-        to: adminEmail,
-        subject: `[BGM] Désabonnement : ${email}`,
-        text: `L'utilisateur ${email} s'est désabonné des alertes Brussels Governance Monitor.\n\nDate : ${new Date().toISOString()}\n\nLe contact a été automatiquement marqué comme désabonné dans Resend.`,
-        tags: [{ name: 'type', value: 'unsubscribe-notification' }],
-      });
+      await resendCall(() =>
+        resend.emails.send({
+          from: EMAIL_FROM,
+          to: adminEmail,
+          subject: `[BGM] Désabonnement : ${email}`,
+          text: `L'utilisateur ${email} s'est désabonné des alertes Brussels Governance Monitor.\n\nDate : ${new Date().toISOString()}\n\nLe contact a été automatiquement marqué comme désabonné dans Resend.`,
+          tags: [{ name: 'type', value: 'unsubscribe-notification' }],
+        }),
+      );
     } catch {
       // Notification failure should not block the unsubscribe flow
     }
@@ -104,16 +106,18 @@ export async function POST(request: Request) {
         en: 'Your unsubscription is confirmed',
         de: 'Ihre Abmeldung ist bestätigt',
       };
-      await resend.emails.send({
-        from: EMAIL_FROM,
-        to: email,
-        subject: goodbyeSubjects[emailLocale] || goodbyeSubjects.fr,
-        react: GoodbyeEmail({
-          locale: emailLocale,
-          siteUrl,
+      await resendCall(() =>
+        resend.emails.send({
+          from: EMAIL_FROM,
+          to: email,
+          subject: goodbyeSubjects[emailLocale] || goodbyeSubjects.fr,
+          react: GoodbyeEmail({
+            locale: emailLocale,
+            siteUrl,
+          }),
+          tags: [{ name: 'type', value: 'goodbye' }],
         }),
-        tags: [{ name: 'type', value: 'goodbye' }],
-      });
+      );
     } catch {
       // Goodbye email failure should not block the unsubscribe flow
     }
@@ -129,13 +133,15 @@ export async function POST(request: Request) {
           ? `\nCommentaire : ${feedback}`
           : '\nCommentaire : aucun';
 
-        await resend.emails.send({
-          from: EMAIL_FROM,
-          to: adminEmail,
-          subject: `[BGM] Désabonnement : ${email}`,
-          text: `L'utilisateur ${email} s'est désabonné des alertes Brussels Governance Monitor.\n\nDate : ${new Date().toISOString()}${ratingLine}${feedbackLine}\n\nLe contact a été automatiquement marqué comme désabonné dans Resend.`,
-          tags: [{ name: 'type', value: 'unsubscribe-notification' }],
-        });
+        await resendCall(() =>
+          resend.emails.send({
+            from: EMAIL_FROM,
+            to: adminEmail,
+            subject: `[BGM] Désabonnement : ${email}`,
+            text: `L'utilisateur ${email} s'est désabonné des alertes Brussels Governance Monitor.\n\nDate : ${new Date().toISOString()}${ratingLine}${feedbackLine}\n\nLe contact a été automatiquement marqué comme désabonné dans Resend.`,
+            tags: [{ name: 'type', value: 'unsubscribe-notification' }],
+          }),
+        );
       } catch {
         // Notification failure should not block the unsubscribe flow
       }

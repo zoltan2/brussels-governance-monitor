@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createHash } from 'crypto';
-import { getResend, EMAIL_FROM } from '@/lib/resend';
+import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { getDraftCards } from '@/lib/content';
 
 interface SourceEntry {
@@ -173,13 +173,15 @@ export async function GET(request: Request) {
         errorList,
       ].filter(Boolean).join('\n');
 
-      await resend.emails.send({
-        from: EMAIL_FROM,
-        to: adminEmail,
-        subject: `BGM Watch — ${changed.length} changement(s), ${pendingDrafts.length} draft(s) — ${dateStr}`,
-        text: body,
-        tags: [{ name: 'type', value: 'watch-digest' }],
-      });
+      await resendCall(() =>
+        resend.emails.send({
+          from: EMAIL_FROM,
+          to: adminEmail,
+          subject: `BGM Watch — ${changed.length} changement(s), ${pendingDrafts.length} draft(s) — ${dateStr}`,
+          text: body,
+          tags: [{ name: 'type', value: 'watch-digest' }],
+        }),
+      );
     } catch (emailErr) {
       console.error('Watch digest email error:', emailErr);
     }

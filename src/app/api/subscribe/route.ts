@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { getResend, EMAIL_FROM, TOPICS, getContact, updateContactPreferences } from '@/lib/resend';
+import { getResend, EMAIL_FROM, TOPICS, getContact, updateContactPreferences, resendCall } from '@/lib/resend';
 import { generateConfirmToken } from '@/lib/token';
 import { rateLimit } from '@/lib/rate-limit';
 import ConfirmEmail from '@/emails/confirm';
@@ -72,21 +72,23 @@ export async function POST(request: Request) {
     const confirmUrl = `${siteUrl}/${locale}/subscribe/confirm?token=${encodeURIComponent(token)}`;
 
     const resend = getResend();
-    const { error: sendError } = await resend.emails.send({
-      from: EMAIL_FROM,
-      to: email,
-      subject: {
-        fr: 'Confirmez votre inscription — Brussels Governance Monitor',
-        nl: 'Bevestig uw inschrijving — Brussels Governance Monitor',
-        en: 'Confirm your subscription — Brussels Governance Monitor',
-        de: 'Bestätigen Sie Ihre Anmeldung — Brussels Governance Monitor',
-      }[locale] || 'Confirmez votre inscription — Brussels Governance Monitor',
-      react: ConfirmEmail({ locale, confirmUrl }),
-      tags: [
-        { name: 'type', value: 'confirm' },
-        { name: 'locale', value: locale },
-      ],
-    });
+    const { error: sendError } = await resendCall(() =>
+      resend.emails.send({
+        from: EMAIL_FROM,
+        to: email,
+        subject: {
+          fr: 'Confirmez votre inscription — Brussels Governance Monitor',
+          nl: 'Bevestig uw inschrijving — Brussels Governance Monitor',
+          en: 'Confirm your subscription — Brussels Governance Monitor',
+          de: 'Bestätigen Sie Ihre Anmeldung — Brussels Governance Monitor',
+        }[locale] || 'Confirmez votre inscription — Brussels Governance Monitor',
+        react: ConfirmEmail({ locale, confirmUrl }),
+        tags: [
+          { name: 'type', value: 'confirm' },
+          { name: 'locale', value: locale },
+        ],
+      }),
+    );
 
     if (sendError) {
       console.error('Resend error:', sendError);

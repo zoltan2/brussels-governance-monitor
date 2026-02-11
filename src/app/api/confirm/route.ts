@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
-import { getResend, EMAIL_FROM, addContact, getContact } from '@/lib/resend';
+import { getResend, EMAIL_FROM, addContact, getContact, resendCall } from '@/lib/resend';
 import WelcomeEmail from '@/emails/welcome';
 
 const welcomeSubjects: Record<string, string> = {
@@ -46,24 +46,23 @@ export async function POST(request: Request) {
     const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
     const resend = getResend();
 
-    await resend.emails.send({
-      from: EMAIL_FROM,
-      to: email,
-      subject: welcomeSubjects[locale] || welcomeSubjects.fr,
-      react: WelcomeEmail({
-        locale,
-        topics,
-        unsubscribeUrl,
+    await resendCall(() =>
+      resend.emails.send({
+        from: EMAIL_FROM,
+        to: email,
+        subject: welcomeSubjects[locale] || welcomeSubjects.fr,
+        react: WelcomeEmail({
+          locale,
+          topics,
+          unsubscribeUrl,
+        }),
+        tags: [
+          { name: 'type', value: 'welcome' },
+          { name: 'locale', value: locale },
+          { name: 'topics', value: topics.join('-') },
+        ],
       }),
-      tags: [
-        { name: 'type', value: 'welcome' },
-        { name: 'locale', value: locale },
-        { name: 'topics', value: topics.join('-') },
-      ],
-    });
-
-    // Delay to respect Resend rate limit (2 req/sec) after sending email
-    await new Promise((r) => setTimeout(r, 1000));
+    );
 
     // Persist subscriber in Resend Contacts
     try {

@@ -1,15 +1,12 @@
 import { NextResponse } from 'next/server';
 import { getDomainCards } from '@/lib/content';
-import { getResend, EMAIL_FROM, listActiveContacts, SECTOR_TO_DOMAIN } from '@/lib/resend';
+import { getResend, EMAIL_FROM, listActiveContacts, SECTOR_TO_DOMAIN, resendCall } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
 import DigestEmail from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
 
 const SUPPORTED_DIGEST_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
-
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+const BATCH_SIZE = 50; // Resend allows 100, use 50 for safety
 
 /**
  * Weekly digest cron endpoint.
@@ -17,7 +14,7 @@ function sleep(ms: number): Promise<void> {
  *
  * 1. Fetches active subscribers from Resend Contacts
  * 2. Checks which domain cards were updated in the past 7 days
- * 3. Sends personalized digests to each subscriber based on their topics
+ * 3. Sends personalized digests via Resend Batch API
  */
 export async function GET(request: Request) {
   const authHeader = request.headers.get('authorization');
@@ -85,8 +82,11 @@ export async function GET(request: Request) {
   let skipped = 0;
   const errors: string[] = [];
 
+  // Build individual email payloads
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const emailPayloads: any[] = [];
+
   for (const contact of contacts) {
-    // Determine locale (fallback to fr if unsupported)
     const locale = SUPPORTED_DIGEST_LOCALES.includes(contact.locale as Locale)
       ? (contact.locale as Locale)
       : 'fr';
@@ -94,8 +94,6 @@ export async function GET(request: Request) {
     const allUpdates = updatedCardsByLocale[locale] || [];
 
     // Filter updates matching subscriber's topics
-    // Expand sector topics to include their parent domain for matching
-    // e.g. subscriber with "culture" also matches domain "budget"
     const subscriberDomainTopics = new Set<string>();
     for (const t of contact.topics) {
       if (t === 'solutions') continue;
@@ -108,7 +106,6 @@ export async function GET(request: Request) {
         ? allUpdates.filter((u) => subscriberDomainTopics.has(u.domain))
         : allUpdates;
 
-    // Skip if no relevant updates
     if (updates.length === 0) {
       skipped++;
       continue;
@@ -117,29 +114,38 @@ export async function GET(request: Request) {
     const unsubToken = generateUnsubscribeToken(contact.email);
     const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
 
-    try {
-      await resend.emails.send({
-        from: EMAIL_FROM,
-        to: contact.email,
-        subject: {
-          fr: `Digest hebdomadaire — ${weekOf}`,
-          nl: `Wekelijkse samenvatting — ${weekOf}`,
-          en: `Weekly digest — ${weekOf}`,
-          de: `Wöchentliche Zusammenfassung — ${weekOf}`,
-        }[locale] || `Digest hebdomadaire — ${weekOf}`,
-        react: DigestEmail({ locale, updates, weekOf, unsubscribeUrl }),
-        tags: [
-          { name: 'type', value: 'digest' },
-          { name: 'locale', value: locale },
-        ],
-      });
-      sent++;
-    } catch (err) {
-      errors.push(`${contact.email}: ${String(err)}`);
-    }
+    emailPayloads.push({
+      from: EMAIL_FROM,
+      to: contact.email,
+      subject: {
+        fr: `Digest hebdomadaire — ${weekOf}`,
+        nl: `Wekelijkse samenvatting — ${weekOf}`,
+        en: `Weekly digest — ${weekOf}`,
+        de: `Wöchentliche Zusammenfassung — ${weekOf}`,
+      }[locale] || `Digest hebdomadaire — ${weekOf}`,
+      react: DigestEmail({ locale, updates, weekOf, unsubscribeUrl }),
+      tags: [
+        { name: 'type', value: 'digest' },
+        { name: 'locale', value: locale },
+      ],
+    });
+  }
 
-    // Rate limit: Resend allows 2 req/sec, use 500ms pause
-    await sleep(500);
+  // Send in batches using Resend Batch API
+  for (let i = 0; i < emailPayloads.length; i += BATCH_SIZE) {
+    const batch = emailPayloads.slice(i, i + BATCH_SIZE);
+    try {
+      const { error } = await resendCall(() =>
+        resend.batch.send(batch),
+      );
+      if (error) {
+        errors.push(`Batch ${Math.floor(i / BATCH_SIZE)}: ${JSON.stringify(error)}`);
+      } else {
+        sent += batch.length;
+      }
+    } catch (err) {
+      errors.push(`Batch ${Math.floor(i / BATCH_SIZE)}: ${String(err)}`);
+    }
   }
 
   return NextResponse.json({

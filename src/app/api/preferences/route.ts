@@ -6,6 +6,7 @@ import {
   getContact,
   updateContactPreferences,
   TOPICS,
+  resendCall,
 } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
 import PreferencesUpdatedEmail from '@/emails/preferences-updated';
@@ -126,20 +127,22 @@ export async function POST(request: Request) {
     };
 
     const resend = getResend();
-    await resend.emails.send({
-      from: EMAIL_FROM,
-      to: payload.email,
-      subject: prefSubjects[selectedLocale] || prefSubjects.fr,
-      react: PreferencesUpdatedEmail({
-        locale: selectedLocale,
-        topics: validTopics,
-        preferencesUrl,
+    await resendCall(() =>
+      resend.emails.send({
+        from: EMAIL_FROM,
+        to: payload.email,
+        subject: prefSubjects[selectedLocale] || prefSubjects.fr,
+        react: PreferencesUpdatedEmail({
+          locale: selectedLocale,
+          topics: validTopics,
+          preferencesUrl,
+        }),
+        tags: [
+          { name: 'type', value: 'preferences-updated' },
+          { name: 'locale', value: selectedLocale },
+        ],
       }),
-      tags: [
-        { name: 'type', value: 'preferences-updated' },
-        { name: 'locale', value: selectedLocale },
-      ],
-    });
+    );
 
     return NextResponse.json({ success: true });
   } catch {

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { getResend, EMAIL_FROM } from '@/lib/resend';
+import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 
 const feedbackSchema = z.object({
@@ -42,26 +42,28 @@ export async function POST(request: Request) {
     }
 
     const resend = getResend();
-    const { error: sendError } = await resend.emails.send({
-      from: EMAIL_FROM,
-      to: FEEDBACK_RECIPIENT,
-      subject: `[BGM Feedback] ${feedbackType} — ${cardTitle}`,
-      text: [
-        `Type: ${feedbackType}`,
-        `Card: ${cardTitle} (${cardType}/${cardSlug})`,
-        `URL: ${url}`,
-        email ? `Reply to: ${email}` : 'No reply email provided',
-        '',
-        'Message:',
-        message,
-      ].join('\n'),
-      replyTo: email || undefined,
-      tags: [
-        { name: 'type', value: 'feedback' },
-        { name: 'feedbackType', value: feedbackType },
-        { name: 'cardType', value: cardType },
-      ],
-    });
+    const { error: sendError } = await resendCall(() =>
+      resend.emails.send({
+        from: EMAIL_FROM,
+        to: FEEDBACK_RECIPIENT,
+        subject: `[BGM Feedback] ${feedbackType} — ${cardTitle}`,
+        text: [
+          `Type: ${feedbackType}`,
+          `Card: ${cardTitle} (${cardType}/${cardSlug})`,
+          `URL: ${url}`,
+          email ? `Reply to: ${email}` : 'No reply email provided',
+          '',
+          'Message:',
+          message,
+        ].join('\n'),
+        replyTo: email || undefined,
+        tags: [
+          { name: 'type', value: 'feedback' },
+          { name: 'feedbackType', value: feedbackType },
+          { name: 'cardType', value: cardType },
+        ],
+      }),
+    );
 
     if (sendError) {
       console.error('Resend feedback error:', sendError);

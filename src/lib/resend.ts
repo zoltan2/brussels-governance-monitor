@@ -56,6 +56,56 @@ export const SECTOR_TO_DOMAIN: Record<string, string> = {
   transport: 'mobility',
 };
 
+// ---------------------------------------------------------------------------
+// Rate-limit throttle + retry for Resend API (2 req/s limit)
+// ---------------------------------------------------------------------------
+
+let _lastCallMs = 0;
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+async function throttle(): Promise<void> {
+  const now = Date.now();
+  const wait = 600 - (now - _lastCallMs);
+  if (wait > 0) await sleep(wait);
+  _lastCallMs = Date.now();
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isRateLimited(error: any): boolean {
+  return error?.statusCode === 429 || error?.name === 'rate_limit_exceeded';
+}
+
+/**
+ * Execute a Resend API call with throttling (600ms between calls)
+ * and automatic retry with exponential backoff on 429.
+ */
+export async function resendCall<T>(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  fn: () => Promise<{ data: T | null; error: any }>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+): Promise<{ data: T | null; error: any }> {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    await throttle();
+    const result = await fn();
+    if (result.error && isRateLimited(result.error)) {
+      const backoff = 1000 * Math.pow(2, attempt); // 1s, 2s, 4s
+      console.warn(`Resend rate limited, retrying in ${backoff}ms (attempt ${attempt + 1}/3)`);
+      await sleep(backoff);
+      continue;
+    }
+    return result;
+  }
+  await throttle();
+  return fn();
+}
+
+// ---------------------------------------------------------------------------
+// Contact management
+// ---------------------------------------------------------------------------
+
 /**
  * Add a confirmed subscriber to Resend Contacts.
  * Stores locale and topics as custom properties.
@@ -66,24 +116,27 @@ export async function addContact(
   topics: string[],
 ): Promise<void> {
   const resend = getResend();
-  const result = await resend.contacts.create({
-    email,
-    properties: {
-      locale,
-      topics: topics.join(','),
-    },
-  });
-
-  // Fallback: if properties were ignored by create, set via update
-  if (result.data) {
-    await new Promise((r) => setTimeout(r, 1000));
-    await resend.contacts.update({
-      id: result.data.id,
+  const result = await resendCall(() =>
+    resend.contacts.create({
+      email,
       properties: {
         locale,
         topics: topics.join(','),
       },
-    });
+    }),
+  );
+
+  // Fallback: if properties were ignored by create, set via update
+  if (result.data) {
+    await resendCall(() =>
+      resend.contacts.update({
+        id: (result.data as { id: string }).id,
+        properties: {
+          locale,
+          topics: topics.join(','),
+        },
+      }),
+    );
   }
 }
 
@@ -94,7 +147,9 @@ export async function getContact(
   email: string,
 ): Promise<{ locale: string; topics: string[] } | null> {
   const resend = getResend();
-  const { data: contacts } = await resend.contacts.list({ limit: 100 });
+  const { data: contacts } = await resendCall(() =>
+    resend.contacts.list({ limit: 100 }),
+  );
   if (!contacts) return null;
 
   const contact = contacts.data.find(
@@ -102,7 +157,9 @@ export async function getContact(
   );
   if (!contact) return null;
 
-  const { data: detail } = await resend.contacts.get({ id: contact.id });
+  const { data: detail } = await resendCall(() =>
+    resend.contacts.get({ id: contact.id }),
+  );
   if (!detail) return null;
 
   const props = detail.properties || {};
@@ -130,13 +187,15 @@ export async function updateContactPreferences(
   topics: string[],
 ): Promise<void> {
   const resend = getResend();
-  await resend.contacts.update({
-    email,
-    properties: {
-      locale,
-      topics: topics.join(','),
-    },
-  });
+  await resendCall(() =>
+    resend.contacts.update({
+      email,
+      properties: {
+        locale,
+        topics: topics.join(','),
+      },
+    }),
+  );
 }
 
 /**
@@ -144,10 +203,12 @@ export async function updateContactPreferences(
  */
 export async function removeContact(email: string): Promise<void> {
   const resend = getResend();
-  await resend.contacts.update({
-    email,
-    unsubscribed: true,
-  });
+  await resendCall(() =>
+    resend.contacts.update({
+      email,
+      unsubscribed: true,
+    }),
+  );
 }
 
 export interface ActiveContact {
@@ -172,19 +233,17 @@ export async function listActiveContacts(): Promise<ActiveContact[]> {
     };
     if (cursor) options.after = cursor;
 
-    const { data, error } = await resend.contacts.list(options);
+    const { data, error } = await resendCall(() =>
+      resend.contacts.list(options),
+    );
     if (error || !data) break;
 
     for (const contact of data.data) {
       if (contact.unsubscribed) continue;
 
-      // Rate limit: Resend allows 2 req/sec
-      await new Promise((r) => setTimeout(r, 500));
-
-      // Fetch individual contact to get properties
-      const { data: detail } = await resend.contacts.get({
-        id: contact.id,
-      });
+      const { data: detail } = await resendCall(() =>
+        resend.contacts.get({ id: contact.id }),
+      );
       if (!detail) continue;
 
       const props = detail.properties || {};

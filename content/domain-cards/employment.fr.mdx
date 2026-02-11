@@ -5,7 +5,7 @@ locale: fr
 domain: employment
 status: delayed
 blockedSince: "2024-06-09"
-summary: "Le chômage bruxellois augmente (+4,4 % en un an) pendant que la réforme fédérale exclut 42 000 Bruxellois des allocations. En affaires courantes, la Région ne peut pas lancer de nouveaux programmes d'emploi ni répondre pleinement à la crise."
+summary: "Le chômage bruxellois s'aggrave : 98 458 demandeurs d'emploi en janvier 2026 (+7,3 %), tandis que la réforme fédérale exclut 42 000 Bruxellois des allocations. Les faillites augmentent de 13,6 %. En affaires courantes, aucune réponse structurelle n'est possible."
 sectors:
   - associatif
   - construction
@@ -37,6 +37,15 @@ sources:
   - label: "ONEM — Office national de l'emploi"
     url: "https://www.onem.be/"
     accessedAt: "2026-02-07"
+  - label: "Actiris — Chiffres du chômage en Région bruxelloise (jan. 2026)"
+    url: "https://press.actiris.be/les-chiffres-du-chomage-en-region-bruxelloise"
+    accessedAt: "2026-02-11"
+  - label: "L-Post — Faillites en Belgique 2025 : Bruxelles +13,6%"
+    url: "https://lfrancophone.be/economie/faillites-belgique-2025"
+    accessedAt: "2026-02-11"
+  - label: "L'Avenir — 30 000 pertes d'emploi en Belgique, plus haut en 11 ans"
+    url: "https://www.lavenir.net/economie/2026/01/30/pertes-emploi-belgique-2025/"
+    accessedAt: "2026-02-11"
 confidenceLevel: official
 metrics:
   - label: "Demandeurs d'emploi (déc. 2025)"
@@ -78,10 +87,20 @@ metrics:
     unit: "vs 72,7 % Belgique, 76,5 % Flandre"
     source: "Statbel (Enquête forces de travail, T3 2025)"
     date: "2025-09-30"
-lastModified: "2026-02-10"
+  - label: "Demandeurs d'emploi (jan. 2026)"
+    value: "98 458"
+    unit: "+7,3 % sur 1 an"
+    source: "Actiris"
+    date: "2026-01-31"
+  - label: "Faillites BXL (2025)"
+    value: "2 184"
+    unit: "+13,6 % sur 1 an"
+    source: "L-Post / Statbel"
+    date: "2025-12-31"
+lastModified: "2026-02-11"
 changeType: updated
-changeSummary: "Ajout données StatBel T3 2025 : taux chômage OIT 13,1% (2× BE), taux emploi 64,9% (le plus bas des 3 Régions)"
-summaryFalc: "Le chômage à Bruxelles est le plus haut de Belgique. Les programmes pour aider les gens à trouver du travail sont bloqués. Les jeunes sont les plus touchés."
+changeSummary: "Veille : Actiris janv. 2026 (98 458 DEI, +7,3 %), faillites BXL +13,6 %, 30 000 pertes emploi nationales"
+summaryFalc: "Le chômage à Bruxelles augmente. Près de 100 000 personnes cherchent un emploi. Sans gouvernement, aucun nouveau programme de soutien ne peut démarrer."
 ---
 
 ## La double crise
@@ -135,6 +154,12 @@ Ces mesures, opérationnelles à partir du 1er mars 2026, représentent ce qu'un
 En janvier 2026, l'ONEM a envoyé **7 654 courriers** (art. 63) aux demandeurs d'emploi bruxellois, les informant d'une fin de droit aux allocations d'insertion au **1er juillet 2026**. Actiris se prépare à absorber un afflux massif de réinscriptions dès mars 2026, en anticipation du basculement.
 
 Par ailleurs, le contrôle renforcé des jeunes de moins de 25 ans entre en vigueur le **1er mars 2026** : les jeunes en stage d'insertion devront démontrer une recherche active d'emploi sous peine de suspension anticipée.
+
+### Janvier 2026 : l'accélération
+
+Les chiffres d'Actiris de janvier 2026 confirment la tendance haussière : **98 458 demandeurs d'emploi inoccupés** (DEI), soit une hausse de **7,3 %** sur un an. C'est le chiffre le plus élevé depuis la sortie de la crise COVID.
+
+En parallèle, les faillites en Région bruxelloise ont atteint **2 184 en 2025**, en hausse de **13,6 %** sur un an (source : Statbel / L-Post). Au niveau national, **30 000 pertes d'emploi nettes** ont été enregistrées — le chiffre le plus élevé depuis 11 ans.
 
 ## Le dialogue social bloqué
 

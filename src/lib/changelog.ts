@@ -10,6 +10,7 @@ const changelogEntrySchema = z.object({
     'solutions',
     'sectors',
     'comparisons',
+    'communes',
     'timeline',
     'glossary',
     'site',
@@ -28,7 +29,7 @@ const changelogSchema = z.array(changelogEntrySchema);
 export interface ChangelogEntry {
   date: string;
   type: 'added' | 'updated' | 'corrected' | 'removed';
-  section: 'domains' | 'solutions' | 'sectors' | 'comparisons' | 'timeline' | 'glossary' | 'site';
+  section: 'domains' | 'solutions' | 'sectors' | 'comparisons' | 'communes' | 'timeline' | 'glossary' | 'site';
   targetSlug: string | null;
   description: string;
 }

@@ -254,6 +254,14 @@ function ExplainersSection() {
             </Link>
           ))}
         </div>
+        <div className="mt-4 text-right">
+          <Link
+            href="/understand"
+            className="text-sm font-medium text-brand-700 underline underline-offset-2 hover:text-brand-900"
+          >
+            {t('viewAllExplainers')}
+          </Link>
+        </div>
       </div>
     </section>
   );

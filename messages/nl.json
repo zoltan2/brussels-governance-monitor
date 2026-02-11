@@ -15,7 +15,8 @@
     "glossary": "Woordenlijst",
     "explainers": "Uitleg",
     "faq": "FAQ",
-    "about": "Over ons"
+    "about": "Over ons",
+    "sectors": "Sectoren"
   },
   "counter": {
     "title": "Brussel zonder regering",
@@ -128,7 +129,15 @@
     "aboutTitle": "Over ons",
     "data": "Gegevens",
     "comparisons": "Vergelijkingen",
-    "howToRead": "Hoe deze site lezen"
+    "howToRead": "Hoe deze site lezen",
+    "explorerTitle": "Verkennen",
+    "comprendreTitle": "Begrijpen",
+    "transparenceTitle": "Transparantie",
+    "domains": "Domeinen",
+    "sectors": "Sectoren",
+    "solutions": "Uitwegen",
+    "accessibility": "Toegankelijkheid",
+    "sourceCode": "Broncode"
   },
   "locale": {
     "switchTo": "Taal wijzigen",
@@ -957,9 +966,6 @@
     "share": "Delen",
     "copied": "Link gekopieerd!"
   },
-  "accessibility": {
-    "falcLabel": "Kort samengevat (eenvoudig lezen)"
-  },
   "comparisons": {
     "title": "Vergelijkingen",
     "subtitle": "Brussel tegenover de andere Belgische Gewesten: cijfers, contexten en trajecten",
@@ -1111,7 +1117,9 @@
     "changelog": "Updates",
     "methodology": "Methodologie",
     "howToRead": "Leeswijzer",
-    "editorial": "Redactionele lijn"
+    "editorial": "Redactionele lijn",
+    "transparency": "Transparantie",
+    "accessibility": "Toegankelijkheid"
   },
   "understand": {
     "title": "Begrijpen",
@@ -1164,5 +1172,51 @@
       "glossary": "Woordenlijst",
       "site": "Site"
     }
+  },
+  "accessibility": {
+    "falcLabel": "Kort samengevat (eenvoudig lezen)",
+    "title": "Toegankelijkheid",
+    "intro": "Brussels Governance Monitor streeft ernaar zijn inhoud toegankelijk te maken voor zoveel mogelijk mensen, in overeenstemming met de Richtlijnen voor Toegankelijkheid van Webcontent (WCAG) 2.1, niveau AA.",
+    "conformanceTitle": "Conformiteitsstatus",
+    "conformanceText": "Deze website is gedeeltelijk conform het WCAG 2.1 niveau AA-referentiekader.",
+    "measuresTitle": "Genomen maatregelen",
+    "measure1": "Semantische structuur: HTML5-tags (header, main, nav, article, section), consistente kopjeshiërarchie, breadcrumbs met Schema.org-markering",
+    "measure2": "Toetsenbordnavigatie: snelkoppeling naar inhoud, toetsenbordnavigatie in dropdownmenu's (pijltjes, Escape), focusbeheer in het zoekveld",
+    "measure3": "Toegankelijke formulieren: gekoppelde labels, foutmeldingen aangekondigd aan schermlezers (ARIA live regions), correct verborgen honeypot-veld",
+    "measure4": "Contrasten: kleurenpalet gecontroleerd op een minimale contrastverhouding van 4,5:1 voor alle informatieve teksten",
+    "measure5": "Media en beweging: respect voor de voorkeur « prefers-reduced-motion », geen automatische animaties",
+    "measure6": "Taal: dynamisch lang-attribuut op elke pagina (fr/nl/en/de)",
+    "measure7": "Afdrukken: specifiek stylesheet met zichtbare URLs",
+    "techTitle": "Gebruikte technologieën",
+    "techText": "HTML5, CSS (Tailwind CSS), JavaScript (React/Next.js), ARIA, Schema.org (JSON-LD).",
+    "limitationsTitle": "Bekende beperkingen",
+    "limitation1": "Zoekresultaatfragmenten worden weergegeven als onbewerkte HTML (Pagefind) en zijn mogelijk niet volledig gestructureerd.",
+    "limitation2": "Sommige decoratieve elementen (SVG-iconen) hebben nog niet systematisch het attribuut aria-hidden.",
+    "anysurferText": "Deze website streeft naar conformiteit met WCAG 2.1 niveau AA, het referentiekader waarop het AnySurfer-label is gebaseerd. Er is nog geen AnySurfer-certificering aangevraagd.",
+    "feedbackTitle": "Feedback",
+    "feedbackText": "Als u een toegankelijkheidsprobleem op deze website tegenkomt, neem dan contact met ons op. Wij antwoorden binnen 15 werkdagen.",
+    "feedbackEmail": "contact@brusselsgovernance.be",
+    "statementDate": "Deze verklaring is opgesteld op 10 februari 2026."
+  },
+  "transparency": {
+    "title": "Transparantie",
+    "intro": "Brussels Governance Monitor is een onafhankelijk burgerinstrument. Hier leest u hoe wij de betrouwbaarheid van onze inhoud garanderen.",
+    "editorialTitle": "Redactioneel charter",
+    "editorialSummary": "Geen politicusnamen, brongebaseerde betrouwbaarheidsniveaus, institutionele toon. Elk feit wordt geverifieerd en toegeschreven.",
+    "methodologyTitle": "Methodologie",
+    "methodologySummary": "Officiële bronnen, Eurostat-gegevens, verificatieproces, expliciete betrouwbaarheidsniveaus.",
+    "accessibilityTitle": "Toegankelijkheid",
+    "accessibilitySummary": "WCAG 2.1 niveau AA-conformiteit. Toetsenbordnavigatie, gecontroleerde contrasten, ondersteuning voor schermlezers.",
+    "sourceTitle": "Broncode",
+    "sourceSummary": "De code is gepubliceerd onder de AGPL v3-licentie. Elke wijziging is traceerbaar.",
+    "sourceLink": "https://github.com/zoltan2/brussels-governance-monitor",
+    "fundingTitle": "Financiering",
+    "fundingText": "Dit project wordt ontwikkeld en onderhouden door Advice That SRL (Brussel). Het wordt momenteel zelf gefinancierd. Geen adverteerder, politieke partij of publieke instelling draagt bij aan de financiering van deze website. Het project staat open voor publieke of filantropische financiering die verenigbaar is met zijn redactionele onafhankelijkheid. Neem contact met ons op als u dit initiatief wilt steunen.",
+    "correctionTitle": "Correctiebeleid",
+    "correctionText": "Elke gemelde feitelijke fout wordt binnen 48 uur gecorrigeerd en gedocumenteerd in het wijzigingslogboek.",
+    "correctionLink": "Bekijk het wijzigingslogboek",
+    "contactTitle": "Contact",
+    "contactEmail": "contact@brusselsgovernance.be",
+    "readMore": "Lezen →"
   }
 }

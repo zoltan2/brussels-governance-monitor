@@ -151,6 +151,18 @@ export const routing = defineRouting({
       en: '/changelog',
       de: '/aenderungen',
     },
+    '/transparency': {
+      fr: '/transparence',
+      nl: '/transparantie',
+      en: '/transparency',
+      de: '/transparenz',
+    },
+    '/accessibility': {
+      fr: '/accessibilite',
+      nl: '/toegankelijkheid',
+      en: '/accessibility',
+      de: '/barrierefreiheit',
+    },
   },
 });
 

@@ -42,6 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/changelog',
     '/privacy',
     '/legal',
+    '/transparency',
+    '/accessibility',
   ];
   const domainSlugs = getAllDomainSlugs();
   const solutionSlugs = getAllSolutionSlugs();

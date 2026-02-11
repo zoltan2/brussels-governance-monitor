@@ -194,12 +194,20 @@ export function Header() {
                 >
                   {t('faq')}
                 </Link>
+                <Link
+                  role="menuitem"
+                  href="/data"
+                  onClick={() => setDropdownOpen(false)}
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                >
+                  {t('data')}
+                </Link>
               </div>
             )}
           </div>
 
-          <Link href="/data" className="text-sm text-neutral-600 hover:text-neutral-900">
-            {t('data')}
+          <Link href="/sectors" className="text-sm text-neutral-600 hover:text-neutral-900">
+            {t('sectors')}
           </Link>
           <Search />
           <LocaleSwitcher />
@@ -269,9 +277,12 @@ export function Header() {
             <Link href="/faq" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
               {t('faq')}
             </Link>
-
-            <Link href="/data" onClick={() => setMenuOpen(false)} className="mt-2 text-sm text-neutral-600 hover:text-neutral-900">
+            <Link href="/data" onClick={() => setMenuOpen(false)} className="pl-2 text-sm text-neutral-600 hover:text-neutral-900">
               {t('data')}
+            </Link>
+
+            <Link href="/sectors" onClick={() => setMenuOpen(false)} className="mt-2 text-sm text-neutral-600 hover:text-neutral-900">
+              {t('sectors')}
             </Link>
 
             <div className="pt-2">

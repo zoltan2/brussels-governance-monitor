@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
-import { getResend, EMAIL_FROM, addContact } from '@/lib/resend';
+import { getResend, EMAIL_FROM, addContact, getContact } from '@/lib/resend';
 import WelcomeEmail from '@/emails/welcome';
 
 const welcomeSubjects: Record<string, string> = {
@@ -10,33 +10,33 @@ const welcomeSubjects: Record<string, string> = {
   de: 'Willkommen bei Brussels Governance Monitor',
 };
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const token = searchParams.get('token');
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
-  if (!token) {
-    return NextResponse.redirect(
-      `${siteUrl}/fr/subscribe/confirmed?status=error`
-    );
-  }
-
-  const payload = verifyConfirmToken(token);
-  if (!payload) {
-    return NextResponse.redirect(
-      `${siteUrl}/fr/subscribe/confirmed?status=expired`
-    );
-  }
-
-  const { email, locale, topics } = payload;
-
-  if (!process.env.RESEND_API_KEY) {
-    return NextResponse.redirect(
-      `${siteUrl}/${locale}/subscribe/confirmed?status=error`
-    );
-  }
-
+export async function POST(request: Request) {
   try {
+    const body = await request.json();
+    const token = body.token;
+
+    if (!token || typeof token !== 'string') {
+      return NextResponse.json({ error: 'missing_token' }, { status: 400 });
+    }
+
+    const payload = verifyConfirmToken(token);
+    if (!payload) {
+      return NextResponse.json({ error: 'expired' }, { status: 410 });
+    }
+
+    const { email, locale, topics } = payload;
+
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json({ error: 'service_unavailable' }, { status: 503 });
+    }
+
+    // Deduplication: if contact already exists, skip welcome email + creation
+    const existing = await getContact(email);
+    if (existing) {
+      return NextResponse.json({ success: true, topics, alreadyConfirmed: true });
+    }
+
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
     const unsubToken = generateUnsubscribeToken(email);
     const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
     const resend = getResend();
@@ -57,19 +57,18 @@ export async function GET(request: Request) {
       ],
     });
 
-    // Persist subscriber in Resend Contacts (non-blocking)
+    // Delay to respect Resend rate limit (2 req/sec) after sending email
+    await new Promise((r) => setTimeout(r, 1000));
+
+    // Persist subscriber in Resend Contacts
     try {
       await addContact(email, locale, topics);
     } catch {
       // Contact persistence failure should not block the confirm flow
     }
 
-    return NextResponse.redirect(
-      `${siteUrl}/${locale}/subscribe/confirmed?status=success&topics=${topics.join(',')}`
-    );
+    return NextResponse.json({ success: true, topics });
   } catch {
-    return NextResponse.redirect(
-      `${siteUrl}/${locale}/subscribe/confirmed?status=error`
-    );
+    return NextResponse.json({ error: 'internal_error' }, { status: 500 });
   }
 }

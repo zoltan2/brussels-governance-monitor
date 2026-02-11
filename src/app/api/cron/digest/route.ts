@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getDomainCards } from '@/lib/content';
-import { getResend, EMAIL_FROM, listActiveContacts } from '@/lib/resend';
+import { getResend, EMAIL_FROM, listActiveContacts, SECTOR_TO_DOMAIN } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
 import DigestEmail from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
@@ -94,11 +94,18 @@ export async function GET(request: Request) {
     const allUpdates = updatedCardsByLocale[locale] || [];
 
     // Filter updates matching subscriber's topics
-    // The "solutions" topic is ignored for domain card digests
-    const subscriberDomainTopics = contact.topics.filter((t) => t !== 'solutions');
+    // Expand sector topics to include their parent domain for matching
+    // e.g. subscriber with "culture" also matches domain "budget"
+    const subscriberDomainTopics = new Set<string>();
+    for (const t of contact.topics) {
+      if (t === 'solutions') continue;
+      subscriberDomainTopics.add(t);
+      const parent = SECTOR_TO_DOMAIN[t];
+      if (parent) subscriberDomainTopics.add(parent);
+    }
     const updates =
-      subscriberDomainTopics.length > 0
-        ? allUpdates.filter((u) => subscriberDomainTopics.includes(u.domain))
+      subscriberDomainTopics.size > 0
+        ? allUpdates.filter((u) => subscriberDomainTopics.has(u.domain))
         : allUpdates;
 
     // Skip if no relevant updates

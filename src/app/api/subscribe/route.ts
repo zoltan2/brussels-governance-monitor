@@ -55,7 +55,7 @@ export async function POST(request: Request) {
 
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
     const token = generateConfirmToken({ email, locale, topics });
-    const confirmUrl = `${siteUrl}/api/confirm?token=${encodeURIComponent(token)}`;
+    const confirmUrl = `${siteUrl}/${locale}/subscribe/confirm?token=${encodeURIComponent(token)}`;
 
     const resend = getResend();
     const { error: sendError } = await resend.emails.send({

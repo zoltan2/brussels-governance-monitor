@@ -13,7 +13,7 @@ export function getResend(): Resend {
 
 export const EMAIL_FROM = 'Brussels Governance Monitor <noreply@mail.brusselsgovernance.be>';
 
-export const TOPICS = [
+export const DOMAIN_TOPICS = [
   'budget',
   'mobility',
   'employment',
@@ -23,7 +23,38 @@ export const TOPICS = [
   'solutions',
 ] as const;
 
+export const SECTOR_TOPICS = [
+  'commerce',
+  'construction',
+  'culture',
+  'digital',
+  'education',
+  'environment',
+  'health-social',
+  'horeca',
+  'housing-sector',
+  'nonprofit',
+  'transport',
+] as const;
+
+export const TOPICS = [...DOMAIN_TOPICS, ...SECTOR_TOPICS] as const;
+
 export type Topic = (typeof TOPICS)[number];
+
+/** Maps each sector slug to its parent domain for digest matching. */
+export const SECTOR_TO_DOMAIN: Record<string, string> = {
+  commerce: 'employment',
+  construction: 'housing',
+  culture: 'budget',
+  digital: 'employment',
+  education: 'social',
+  environment: 'climate',
+  'health-social': 'social',
+  horeca: 'employment',
+  'housing-sector': 'housing',
+  nonprofit: 'social',
+  transport: 'mobility',
+};
 
 /**
  * Add a confirmed subscriber to Resend Contacts.
@@ -35,12 +66,17 @@ export async function addContact(
   topics: string[],
 ): Promise<void> {
   const resend = getResend();
-  const result = await resend.contacts.create({ email });
+  const result = await resend.contacts.create({
+    email,
+    properties: {
+      locale,
+      topics: topics.join(','),
+    },
+  });
 
-  // Properties must be set via update (create rejects them)
-  // Delay to respect Resend rate limit (2 req/sec)
+  // Fallback: if properties were ignored by create, set via update
   if (result.data) {
-    await new Promise((r) => setTimeout(r, 600));
+    await new Promise((r) => setTimeout(r, 1000));
     await resend.contacts.update({
       id: result.data.id,
       properties: {

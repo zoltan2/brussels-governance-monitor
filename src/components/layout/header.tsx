@@ -211,6 +211,9 @@ export function Header() {
           <Link href="/sectors" className="text-sm text-neutral-600 hover:text-neutral-900">
             {t('sectors')}
           </Link>
+          <Link href="/dossiers" className="text-sm text-neutral-600 hover:text-neutral-900">
+            {t('dossiers')}
+          </Link>
           <Search />
           <LocaleSwitcher />
         </nav>
@@ -254,6 +257,9 @@ export function Header() {
             </Link>
             <Link href="/sectors" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
               {t('sectors')}
+            </Link>
+            <Link href="/dossiers" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
+              {t('dossiers')}
             </Link>
 
             <hr className="border-neutral-100" />

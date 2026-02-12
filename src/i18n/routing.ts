@@ -175,6 +175,8 @@ export const routing = defineRouting({
       en: '/municipalities/[slug]',
       de: '/gemeinden/[slug]',
     },
+    '/dossiers': '/dossiers',
+    '/dossiers/[slug]': '/dossiers/[slug]',
   },
 });
 

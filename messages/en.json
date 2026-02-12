@@ -17,6 +17,7 @@
     "faq": "FAQ",
     "about": "About",
     "sectors": "Sectors",
+    "dossiers": "Dossiers",
     "tools": "Tools"
   },
   "counter": {
@@ -139,7 +140,8 @@
     "solutions": "Exit paths",
     "accessibility": "Accessibility",
     "sourceCode": "Source code",
-    "communes": "Municipalities"
+    "communes": "Municipalities",
+    "dossiers": "Dossiers"
   },
   "locale": {
     "switchTo": "Change language",
@@ -206,7 +208,8 @@
       "housing-sector": "Housing (sector)",
       "nonprofit": "Nonprofit",
       "transport": "Transport",
-      "communes": "Communes"
+      "communes": "Communes",
+      "dossiers": "Key dossiers"
     },
     "submit": "Subscribe",
     "submitting": "Subscribing...",
@@ -287,6 +290,7 @@
     "domainsGroup": "Domains",
     "sectorsGroup": "Sectors",
     "communesGroup": "Communes",
+    "dossiersGroup": "Dossiers",
     "save": "Save",
     "saving": "Saving...",
     "saved": "Preferences saved!",
@@ -1124,7 +1128,8 @@
     "editorial": "Editorial policy",
     "transparency": "Transparency",
     "accessibility": "Accessibility",
-    "communes": "Municipalities"
+    "communes": "Municipalities",
+    "dossiers": "Dossiers"
   },
   "understand": {
     "title": "Understand",
@@ -1176,6 +1181,7 @@
       "timeline": "Timeline",
       "glossary": "Glossary",
       "communes": "Municipalities",
+      "dossiers": "Dossiers",
       "site": "Site"
     }
   },
@@ -1276,5 +1282,59 @@
     "keyFigures": "Key figures",
     "transparencyGrid": "Transparency grid",
     "criteriaOf": "{score}/{total} criteria"
+  },
+  "dossiers": {
+    "title": "Key dossiers",
+    "subtitle": "Major Brussels dossiers impacted by the absence of government",
+    "readMore": "View dossier",
+    "backToList": "Back to dossiers",
+    "share": "Share",
+    "copied": "Link copied!",
+    "lastModified": "Last updated: {date}",
+    "estimatedBudget": "Estimated budget",
+    "estimatedCostOfInaction": "Estimated cost of inaction",
+    "stakeholders": "Stakeholders",
+    "blockedSince": "Blocked for {days} days",
+    "sources": "Sources",
+    "accessedAt": "accessed on {date}",
+    "metrics": "Key figures",
+    "alerts": "Alerts",
+    "relatedDomains": "Related domains",
+    "relatedSectors": "Related sectors",
+    "relatedCommunes": "Related municipalities",
+    "relatedFormationEvents": "Related formation events",
+    "noData": "No dossiers available.",
+    "phase": {
+      "announced": "Announced",
+      "planned": "Planned",
+      "in-progress": "In progress",
+      "stalled": "Stalled",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "crisisImpact": {
+      "blocked": "Blocked",
+      "delayed": "Delayed",
+      "reduced": "Reduced impact",
+      "unaffected": "Unaffected"
+    },
+    "decisionLevel": {
+      "regional": "Regional",
+      "communal": "Municipal",
+      "federal": "Federal",
+      "mixed": "Mixed"
+    },
+    "dossierType": {
+      "infrastructure": "Infrastructure",
+      "housing": "Housing",
+      "regulatory": "Regulatory",
+      "utility": "Public utility",
+      "security": "Security"
+    },
+    "confidence": {
+      "official": "Official source",
+      "estimated": "BGM estimate",
+      "unconfirmed": "Unconfirmed"
+    }
   }
 }

@@ -334,6 +334,55 @@ const communeCards = defineCollection({
 });
 
 // ──────────────────────────────────────────────
+// Collection: Dossier Cards (transversal impact layer)
+// ──────────────────────────────────────────────
+const dossierCards = defineCollection({
+  name: 'DossierCard',
+  pattern: 'dossiers/*.mdx',
+  schema: s
+    .object({
+      title: s.string().max(120),
+      slug: s.string(),
+      locale: localeEnum,
+      dossierType: s.enum(['infrastructure', 'housing', 'regulatory', 'utility', 'security']),
+      phase: s.enum(['announced', 'planned', 'in-progress', 'stalled', 'completed', 'cancelled']),
+      crisisImpact: s.enum(['blocked', 'delayed', 'reduced', 'unaffected']),
+      blockedSince: s.isodate().optional(),
+      decisionLevel: s.enum(['regional', 'communal', 'federal', 'mixed']),
+      summary: s.string().max(500),
+      estimatedBudget: s.string().optional(),
+      estimatedCostOfInaction: s.string().optional(),
+      stakeholders: s.array(s.string()).default([]),
+      relatedDomains: s
+        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social']))
+        .default([]),
+      relatedSectors: s.array(s.string()).default([]),
+      relatedCommunes: s.array(s.string()).default([]),
+      relatedFormationEvents: s.array(s.string()).default([]),
+      sources: s.array(sourceSchema),
+      metrics: s.array(metricSchema).default([]),
+      alerts: s
+        .array(
+          s.object({
+            label: s.string(),
+            severity: s.enum(['info', 'warning', 'critical']),
+            date: s.isodate(),
+          }),
+        )
+        .default([]),
+      confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']),
+      dprCommitment: s.string().optional(),
+      lastModified: s.isodate(),
+      draft: s.boolean().default(false),
+      content: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      permalink: `/dossiers/${data.slug}`,
+    })),
+});
+
+// ──────────────────────────────────────────────
 // Collection: Comparison Cards (V1 — schema ready, 0 content)
 // ──────────────────────────────────────────────
 const comparisonCards = defineCollection({
@@ -397,5 +446,6 @@ export default defineConfig({
     sectorCards,
     comparisonCards,
     communeCards,
+    dossierCards,
   },
 });

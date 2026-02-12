@@ -17,6 +17,7 @@
     "faq": "FAQ",
     "about": "Über uns",
     "sectors": "Sektoren",
+    "dossiers": "Dossiers",
     "tools": "Werkzeuge"
   },
   "counter": {
@@ -139,7 +140,8 @@
     "solutions": "Auswege",
     "accessibility": "Barrierefreiheit",
     "sourceCode": "Quellcode",
-    "communes": "Gemeinden"
+    "communes": "Gemeinden",
+    "dossiers": "Dossiers"
   },
   "locale": {
     "switchTo": "Sprache ändern",
@@ -206,7 +208,8 @@
       "housing-sector": "Wohnen (Sektor)",
       "nonprofit": "Vereinswesen",
       "transport": "Transport",
-      "communes": "Gemeinden"
+      "communes": "Gemeinden",
+      "dossiers": "Schlüsseldossiers"
     },
     "submit": "Abonnieren",
     "submitting": "Wird abonniert...",
@@ -287,6 +290,7 @@
     "domainsGroup": "Bereiche",
     "sectorsGroup": "Sektoren",
     "communesGroup": "Gemeinden",
+    "dossiersGroup": "Dossiers",
     "save": "Speichern",
     "saving": "Speichern...",
     "saved": "Einstellungen gespeichert!",
@@ -1124,7 +1128,8 @@
     "editorial": "Redaktionelle Linie",
     "transparency": "Transparenz",
     "accessibility": "Barrierefreiheit",
-    "communes": "Gemeinden"
+    "communes": "Gemeinden",
+    "dossiers": "Dossiers"
   },
   "understand": {
     "title": "Verstehen",
@@ -1176,6 +1181,7 @@
       "timeline": "Chronologie",
       "glossary": "Glossar",
       "communes": "Gemeinden",
+      "dossiers": "Dossiers",
       "site": "Website"
     }
   },
@@ -1276,5 +1282,59 @@
     "keyFigures": "Kennzahlen",
     "transparencyGrid": "Transparenzraster",
     "criteriaOf": "{score}/{total} Kriterien"
+  },
+  "dossiers": {
+    "title": "Schlüsseldossiers",
+    "subtitle": "Die großen Brüsseler Dossiers, die vom Fehlen einer Regierung betroffen sind",
+    "readMore": "Dossier ansehen",
+    "backToList": "Zurück zu den Dossiers",
+    "share": "Teilen",
+    "copied": "Link kopiert!",
+    "lastModified": "Zuletzt aktualisiert: {date}",
+    "estimatedBudget": "Geschätztes Budget",
+    "estimatedCostOfInaction": "Geschätzte Kosten des Nichthandelns",
+    "stakeholders": "Beteiligte Akteure",
+    "blockedSince": "Blockiert seit {days} Tagen",
+    "sources": "Quellen",
+    "accessedAt": "abgerufen am {date}",
+    "metrics": "Kennzahlen",
+    "alerts": "Warnungen",
+    "relatedDomains": "Verwandte Bereiche",
+    "relatedSectors": "Verwandte Sektoren",
+    "relatedCommunes": "Verwandte Gemeinden",
+    "relatedFormationEvents": "Verwandte Bildungsereignisse",
+    "noData": "Keine Dossiers verfügbar.",
+    "phase": {
+      "announced": "Angekündigt",
+      "planned": "Geplant",
+      "in-progress": "In Bearbeitung",
+      "stalled": "Festgefahren",
+      "completed": "Abgeschlossen",
+      "cancelled": "Abgebrochen"
+    },
+    "crisisImpact": {
+      "blocked": "Blockiert",
+      "delayed": "Verzögert",
+      "reduced": "Reduzierte Auswirkung",
+      "unaffected": "Nicht betroffen"
+    },
+    "decisionLevel": {
+      "regional": "Regional",
+      "communal": "Kommunal",
+      "federal": "Föderativ",
+      "mixed": "Gemischt"
+    },
+    "dossierType": {
+      "infrastructure": "Infrastruktur",
+      "housing": "Wohnungsbau",
+      "regulatory": "Regulierung",
+      "utility": "Öffentliche Versorgung",
+      "security": "Sicherheit"
+    },
+    "confidence": {
+      "official": "Offizielle Quelle",
+      "estimated": "BGM-Schätzung",
+      "unconfirmed": "Nicht bestätigt"
+    }
   }
 }

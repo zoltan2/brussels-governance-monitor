@@ -151,6 +151,34 @@ export interface Verification {
   permalink: string;
 }
 
+export interface DossierCard {
+  title: string;
+  slug: string;
+  locale: Locale;
+  dossierType: 'infrastructure' | 'housing' | 'regulatory' | 'utility' | 'security';
+  phase: 'announced' | 'planned' | 'in-progress' | 'stalled' | 'completed' | 'cancelled';
+  crisisImpact: 'blocked' | 'delayed' | 'reduced' | 'unaffected';
+  blockedSince?: string;
+  decisionLevel: 'regional' | 'communal' | 'federal' | 'mixed';
+  summary: string;
+  estimatedBudget?: string;
+  estimatedCostOfInaction?: string;
+  stakeholders: string[];
+  relatedDomains: string[];
+  relatedSectors: string[];
+  relatedCommunes: string[];
+  relatedFormationEvents: string[];
+  sources: Array<{ label: string; url: string; accessedAt: string }>;
+  metrics: Array<{ label: string; value: string; unit?: string; source: string; date: string }>;
+  alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
+  confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
+  dprCommitment?: string;
+  lastModified: string;
+  draft: boolean;
+  content: string;
+  permalink: string;
+}
+
 export interface CommuneCard {
   title: string;
   slug: string;
@@ -199,6 +227,7 @@ interface VeliteCollections {
   sectorCards: SectorCard[];
   comparisonCards: ComparisonCard[];
   communeCards: CommuneCard[];
+  dossierCards: DossierCard[];
 }
 
 function getCollections(): VeliteCollections {
@@ -216,6 +245,7 @@ function getCollections(): VeliteCollections {
       sectorCards: [],
       comparisonCards: [],
       communeCards: [],
+      dossierCards: [],
     };
   }
 }
@@ -743,4 +773,60 @@ export function getCommuneCard(
 export function getAllCommuneSlugs(): string[] {
   const { communeCards } = getCollections();
   return [...new Set(communeCards.map((c) => c.slug))];
+}
+
+// ──────────────────────────────────────────────
+// Dossier Cards
+// ──────────────────────────────────────────────
+
+const crisisImpactOrder: Record<DossierCard['crisisImpact'], number> = {
+  blocked: 0,
+  delayed: 1,
+  reduced: 2,
+  unaffected: 3,
+};
+
+/**
+ * Get all dossier cards for a given locale.
+ * Per-card fallback: if a card doesn't exist in the requested locale,
+ * the FR version is used instead. Sorted by crisis impact severity.
+ */
+export function getDossierCards(locale: Locale): DossierCard[] {
+  const { dossierCards } = getCollections();
+  const frCards = dossierCards.filter((c) => c.locale === 'fr' && !c.draft);
+  if (locale === 'fr')
+    return frCards.sort((a, b) => crisisImpactOrder[a.crisisImpact] - crisisImpactOrder[b.crisisImpact]);
+
+  return frCards
+    .map((frCard) => {
+      const localeCard = dossierCards.find((c) => c.slug === frCard.slug && c.locale === locale);
+      return localeCard || frCard;
+    })
+    .sort((a, b) => crisisImpactOrder[a.crisisImpact] - crisisImpactOrder[b.crisisImpact]);
+}
+
+/**
+ * Get a single dossier card by slug and locale.
+ * Falls back to FR version if locale version doesn't exist.
+ */
+export function getDossierCard(
+  slug: string,
+  locale: Locale,
+): { card: DossierCard; isFallback: boolean } | null {
+  const { dossierCards } = getCollections();
+  const card = dossierCards.find((c) => c.slug === slug && c.locale === locale);
+  if (card) return { card, isFallback: false };
+
+  const fallback = dossierCards.find((c) => c.slug === slug && c.locale === 'fr');
+  if (fallback) return { card: fallback, isFallback: true };
+
+  return null;
+}
+
+/**
+ * Get all dossier card slugs (for generateStaticParams).
+ */
+export function getAllDossierSlugs(): string[] {
+  const { dossierCards } = getCollections();
+  return [...new Set(dossierCards.map((c) => c.slug))];
 }

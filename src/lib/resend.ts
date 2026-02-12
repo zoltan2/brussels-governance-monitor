@@ -39,7 +39,9 @@ export const SECTOR_TOPICS = [
 
 export const COMMUNE_TOPICS = ['communes'] as const;
 
-export const TOPICS = [...DOMAIN_TOPICS, ...SECTOR_TOPICS, ...COMMUNE_TOPICS] as const;
+export const DOSSIER_TOPICS = ['dossiers'] as const;
+
+export const TOPICS = [...DOMAIN_TOPICS, ...SECTOR_TOPICS, ...COMMUNE_TOPICS, ...DOSSIER_TOPICS] as const;
 
 export type Topic = (typeof TOPICS)[number];
 

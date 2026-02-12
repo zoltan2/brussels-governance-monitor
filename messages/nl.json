@@ -17,6 +17,7 @@
     "faq": "FAQ",
     "about": "Over ons",
     "sectors": "Sectoren",
+    "dossiers": "Dossiers",
     "tools": "Hulpmiddelen"
   },
   "counter": {
@@ -139,7 +140,8 @@
     "solutions": "Uitwegen",
     "accessibility": "Toegankelijkheid",
     "sourceCode": "Broncode",
-    "communes": "Gemeenten"
+    "communes": "Gemeenten",
+    "dossiers": "Dossiers"
   },
   "locale": {
     "switchTo": "Taal wijzigen",
@@ -206,7 +208,8 @@
       "housing-sector": "Huisvesting (sector)",
       "nonprofit": "Verenigingen",
       "transport": "Transport",
-      "communes": "Gemeenten"
+      "communes": "Gemeenten",
+      "dossiers": "Sleuteldossiers"
     },
     "submit": "Inschrijven",
     "submitting": "Inschrijven...",
@@ -287,6 +290,7 @@
     "domainsGroup": "Domeinen",
     "sectorsGroup": "Sectoren",
     "communesGroup": "Gemeenten",
+    "dossiersGroup": "Dossiers",
     "save": "Opslaan",
     "saving": "Opslaan...",
     "saved": "Voorkeuren opgeslagen!",
@@ -1124,7 +1128,8 @@
     "editorial": "Redactionele lijn",
     "transparency": "Transparantie",
     "accessibility": "Toegankelijkheid",
-    "communes": "Gemeenten"
+    "communes": "Gemeenten",
+    "dossiers": "Dossiers"
   },
   "understand": {
     "title": "Begrijpen",
@@ -1176,6 +1181,7 @@
       "timeline": "Chronologie",
       "glossary": "Woordenlijst",
       "communes": "Gemeenten",
+      "dossiers": "Dossiers",
       "site": "Site"
     }
   },
@@ -1276,5 +1282,59 @@
     "keyFigures": "Kerncijfers",
     "transparencyGrid": "Transparantieraster",
     "criteriaOf": "{score}/{total} criteria"
+  },
+  "dossiers": {
+    "title": "Sleuteldossiers",
+    "subtitle": "De grote Brusselse dossiers die getroffen worden door het ontbreken van een regering",
+    "readMore": "Bekijk het dossier",
+    "backToList": "Terug naar dossiers",
+    "share": "Delen",
+    "copied": "Link gekopieerd!",
+    "lastModified": "Laatst bijgewerkt: {date}",
+    "estimatedBudget": "Geschat budget",
+    "estimatedCostOfInaction": "Geschatte kosten van inactiviteit",
+    "stakeholders": "Betrokken actoren",
+    "blockedSince": "Geblokkeerd sinds {days} dagen",
+    "sources": "Bronnen",
+    "accessedAt": "geraadpleegd op {date}",
+    "metrics": "Kerncijfers",
+    "alerts": "Waarschuwingen",
+    "relatedDomains": "Gerelateerde domeinen",
+    "relatedSectors": "Gerelateerde sectoren",
+    "relatedCommunes": "Gerelateerde gemeenten",
+    "relatedFormationEvents": "Gerelateerde formatiegebeurtenissen",
+    "noData": "Geen dossiers beschikbaar.",
+    "phase": {
+      "announced": "Aangekondigd",
+      "planned": "Gepland",
+      "in-progress": "In uitvoering",
+      "stalled": "Vastgelopen",
+      "completed": "Voltooid",
+      "cancelled": "Geannuleerd"
+    },
+    "crisisImpact": {
+      "blocked": "Geblokkeerd",
+      "delayed": "Vertraagd",
+      "reduced": "Verminderde impact",
+      "unaffected": "Niet getroffen"
+    },
+    "decisionLevel": {
+      "regional": "Gewestelijk",
+      "communal": "Gemeentelijk",
+      "federal": "Federaal",
+      "mixed": "Gemengd"
+    },
+    "dossierType": {
+      "infrastructure": "Infrastructuur",
+      "housing": "Huisvesting",
+      "regulatory": "Regelgevend",
+      "utility": "Openbare dienst",
+      "security": "Veiligheid"
+    },
+    "confidence": {
+      "official": "Officiële bron",
+      "estimated": "BGM-schatting",
+      "unconfirmed": "Niet bevestigd"
+    }
   }
 }

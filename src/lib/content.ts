@@ -406,8 +406,8 @@ export function getCurrentPhase(): 'exploration' | 'negotiation' | 'agreement' |
   if (frRounds.length === 0) return 'exploration';
 
   const latest = frRounds.sort((a, b) => b.number - a.number)[0];
-  if (latest.result === 'ongoing') return 'exploration';
-  return 'exploration'; // Until a round reaches negotiation/agreement
+  if (latest.result === 'ongoing') return 'negotiation';
+  return 'exploration';
 }
 
 // ──────────────────────────────────────────────

@@ -1,11 +1,9 @@
 /**
- * Calculate the number of days since the Brussels elections (9 June 2024).
+ * Days between Brussels elections (9 June 2024) and government agreement (12 February 2026).
+ * Frozen at 613 — the counter no longer ticks.
  */
 export function daysSinceElections(): number {
-  const electionDate = new Date('2024-06-09T00:00:00+02:00');
-  const now = new Date();
-  const diffMs = now.getTime() - electionDate.getTime();
-  return Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  return 613;
 }
 
 /**

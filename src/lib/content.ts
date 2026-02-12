@@ -379,7 +379,7 @@ export function getFormationEvents(locale: Locale): FormationEvent[] {
   const { formationEvents } = getCollections();
   const frEvents = formationEvents
     .filter((e) => e.locale === 'fr')
-    .sort((a, b) => a.date.localeCompare(b.date));
+    .sort((a, b) => a.date.localeCompare(b.date) || (a.order ?? 0) - (b.order ?? 0));
   if (locale === 'fr') return frEvents;
 
   return frEvents.map((frEvent) => {

@@ -1,7 +1,8 @@
 import { useTranslations } from 'next-intl';
 import { daysSinceElections } from '@/lib/utils';
+import { FormationPhase } from '@/components/formation-phase';
 
-export function CrisisCounter() {
+export function CrisisCounter({ currentPhase }: { currentPhase: string }) {
   const t = useTranslations('counter');
   const days = daysSinceElections();
 
@@ -26,6 +27,10 @@ export function CrisisCounter() {
         <p className="mx-auto mt-10 max-w-2xl text-sm leading-relaxed text-white/80">
           {t('explanation')}
         </p>
+
+        <div className="mx-auto mt-6 max-w-md">
+          <FormationPhase currentPhase={currentPhase} variant="bar" theme="dark" />
+        </div>
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ import { LatestEvent } from '@/components/latest-event';
 import { DomainCard } from '@/components/domain-card';
 import { SolutionCard } from '@/components/solution-card';
 import { SubscribeForm } from '@/components/subscribe-form';
-import { getDomainCards, getSolutionCards, getSectorCards, getFormationEvents } from '@/lib/content';
+import { getDomainCards, getSolutionCards, getSectorCards, getFormationEvents, getCurrentPhase } from '@/lib/content';
 import { getRecentChanges } from '@/lib/changelog';
 import { RecentChanges } from '@/components/recent-changes';
 import { formatDate } from '@/lib/utils';
@@ -35,7 +35,7 @@ export default async function HomePage({
 
   return (
     <>
-      <CrisisCounter />
+      <CrisisCounter currentPhase={getCurrentPhase()} />
 
       <CitizenIntro />
 

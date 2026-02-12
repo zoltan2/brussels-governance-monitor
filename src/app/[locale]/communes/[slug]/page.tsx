@@ -284,7 +284,7 @@ function CommuneDetail({
 
         <div className="mt-8">
           <CardSubscribe
-            topic={`commune-${card.slug}`}
+            topic="communes"
             locale={locale}
             labels={{
               title: tSub('title'),
@@ -302,7 +302,7 @@ function CommuneDetail({
         <div className="mt-8">
           <FeedbackButton
             cardTitle={card.title}
-            cardType="sector"
+            cardType="commune"
             cardSlug={card.slug}
             labels={{
               button: tFeedback('button'),

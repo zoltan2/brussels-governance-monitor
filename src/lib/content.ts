@@ -49,7 +49,7 @@ export interface FormationRound {
   startDate: string;
   endDate?: string;
   formulaAttempted: string;
-  result: 'ongoing' | 'recommendation' | 'stalled' | 'failed';
+  result: 'ongoing' | 'recommendation' | 'stalled' | 'failed' | 'success';
   failureReason?: string;
   lastModified: string;
   content: string;
@@ -70,7 +70,8 @@ export interface FormationEvent {
     | 'resignation'
     | 'citizen'
     | 'budget'
-    | 'initiative';
+    | 'initiative'
+    | 'agreement';
   confidenceLevel?: 'official' | 'estimated' | 'unconfirmed';
   order?: number;
   summary: string;
@@ -406,6 +407,7 @@ export function getCurrentPhase(): 'exploration' | 'negotiation' | 'agreement' |
   if (frRounds.length === 0) return 'exploration';
 
   const latest = frRounds.sort((a, b) => b.number - a.number)[0];
+  if (latest.result === 'success') return 'agreement';
   if (latest.result === 'ongoing') return 'negotiation';
   return 'exploration';
 }

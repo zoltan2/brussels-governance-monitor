@@ -62,6 +62,7 @@ const RESULT_COLORS: Record<string, string> = {
   recommendation: 'bg-indigo-100 text-indigo-800',
   stalled: 'bg-amber-100 text-amber-800',
   failed: 'bg-neutral-100 text-neutral-600',
+  success: 'bg-teal-100 text-teal-800',
 };
 
 const EVENT_TYPE_COLORS: Record<string, string> = {
@@ -73,6 +74,7 @@ const EVENT_TYPE_COLORS: Record<string, string> = {
   citizen: 'bg-blue-500',
   budget: 'bg-amber-600',
   initiative: 'bg-blue-800',
+  agreement: 'bg-teal-600',
 };
 
 function TimelineView({

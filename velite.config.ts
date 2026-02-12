@@ -100,7 +100,7 @@ const formationRounds = defineCollection({
       startDate: s.isodate(),
       endDate: s.isodate().optional(), // null if ongoing
       formulaAttempted: s.string(),
-      result: s.enum(['ongoing', 'recommendation', 'stalled', 'failed']),
+      result: s.enum(['ongoing', 'recommendation', 'stalled', 'failed', 'success']),
       failureReason: s.string().optional(),
       lastModified: s.isodate(),
       content: s.mdx(),
@@ -133,6 +133,7 @@ const formationEvents = defineCollection({
         'citizen',
         'budget',
         'initiative',
+        'agreement',
       ]),
       confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']).optional(),
       order: s.number().optional(), // intra-day ordering (higher = later in the day)

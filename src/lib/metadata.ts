@@ -26,12 +26,18 @@ export function buildMetadata({
     ? `${siteUrl}/${locale}/og?${ogParams}`
     : `${siteUrl}/${locale}/og?title=${encodeURIComponent(title)}`;
 
+  const truncatedDescription =
+    description.length > 160 ? description.slice(0, 157) + '...' : description;
+
   return {
     title,
-    description,
+    description: truncatedDescription,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title,
-      description,
+      description: truncatedDescription,
       siteName,
       locale,
       type: 'website',
@@ -48,7 +54,8 @@ export function buildMetadata({
     twitter: {
       card: 'summary_large_image',
       title,
-      description,
+      description: truncatedDescription,
+      images: [imageUrl],
     },
   };
 }

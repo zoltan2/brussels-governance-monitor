@@ -8,6 +8,7 @@ import { SubscribeForm } from '@/components/subscribe-form';
 import { getDomainCards, getSolutionCards, getSectorCards, getFormationEvents, getCurrentPhase } from '@/lib/content';
 import { getRecentChanges } from '@/lib/changelog';
 import { RecentChanges } from '@/components/recent-changes';
+import { GovernmentTable } from '@/components/government-table';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
@@ -40,6 +41,8 @@ export default async function HomePage({
       <CitizenIntro />
 
       {latestEvent && <LatestEvent event={latestEvent} locale={locale} />}
+
+      <GovernmentTable locale={locale} />
 
       <MissionStatement />
 

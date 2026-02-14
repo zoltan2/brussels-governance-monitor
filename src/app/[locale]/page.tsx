@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { CrisisCounter } from '@/components/crisis-counter';
@@ -11,6 +12,38 @@ import { GovernmentTable } from '@/components/government-table';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
+import { buildMetadata } from '@/lib/metadata';
+
+const titles: Record<string, string> = {
+  fr: 'Gouvernance bruxelloise — Suivi citoyen et factuel',
+  nl: 'Brussels bestuur — Onafhankelijke burgeropvolging',
+  en: 'Brussels Governance — Independent Citizen Monitoring',
+  de: 'Brüsseler Regierungsführung — Unabhängige Bürgerüberwachung',
+};
+
+const descriptions: Record<string, string> = {
+  fr: 'Moniteur indépendant de la gouvernance à Bruxelles. Engagements de la DPR, dossiers clés, composition du gouvernement et données ouvertes.',
+  nl: 'Onafhankelijke monitor van het Brusselse bestuur. DPR-engagementen, sleuteldossiers, regeringssamenstelling en open data.',
+  en: 'Independent Brussels governance monitor. DPR commitments, key dossiers, government composition and open data.',
+  de: 'Unabhängiger Monitor der Brüsseler Regierungsführung. DPR-Verpflichtungen, Schlüsseldossiers, Regierungszusammensetzung und offene Daten.',
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const title = titles[locale] || titles.fr;
+  const description = descriptions[locale] || descriptions.fr;
+
+  return buildMetadata({
+    locale,
+    title,
+    description,
+    ogParams: `title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent('governance.brussels')}`,
+  });
+}
 
 export default async function HomePage({
   params,

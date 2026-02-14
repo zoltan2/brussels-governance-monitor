@@ -1,12 +1,4 @@
 /**
- * Days between Brussels elections (9 June 2024) and government agreement (12 February 2026).
- * Frozen at 613 — the counter no longer ticks.
- */
-export function daysSinceElections(): number {
-  return 613;
-}
-
-/**
  * Format a date string to a localized short date.
  */
 export function formatDate(dateStr: string, locale: string): string {

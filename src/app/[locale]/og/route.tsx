@@ -1,27 +1,19 @@
 import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
-import { daysSinceElections } from '@/lib/utils';
 
 export const runtime = 'nodejs';
-
-const daysLabel: Record<string, string> = {
-  fr: 'jours sans gouvernement',
-  nl: 'dagen zonder regering',
-  en: 'days without government',
-  de: 'Tage ohne Regierung',
-};
 
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ locale: string }> },
 ) {
-  const { locale } = await params;
+  await params;
   const { searchParams } = new URL(request.url);
   const title = searchParams.get('title') || 'Brussels Governance Monitor';
   const type = searchParams.get('type') || 'default';
   const status = searchParams.get('status');
   const feasibility = searchParams.get('feasibility');
-  const days = daysSinceElections();
+  const subtitle = searchParams.get('subtitle');
 
   const badgeText =
     type === 'domain' && status
@@ -99,26 +91,27 @@ export async function GET(
             justifyContent: 'space-between',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
+          <span
+            style={{
+              fontSize: '24px',
+              fontWeight: 600,
+              color: 'rgba(255, 255, 255, 0.5)',
+              letterSpacing: '0.02em',
+            }}
+          >
+            governance.brussels
+          </span>
+          {subtitle && (
             <span
               style={{
-                fontSize: '72px',
-                fontWeight: 800,
-                color: 'white',
-              }}
-            >
-              {days}
-            </span>
-            <span
-              style={{
-                fontSize: '24px',
+                fontSize: '20px',
                 fontWeight: 500,
-                color: 'rgba(255, 255, 255, 0.6)',
+                color: 'rgba(255, 255, 255, 0.4)',
               }}
             >
-              {daysLabel[locale] || daysLabel.fr}
+              {subtitle}
             </span>
-          </div>
+          )}
         </div>
       </div>
     ),

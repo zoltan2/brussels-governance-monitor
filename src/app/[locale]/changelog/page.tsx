@@ -79,12 +79,13 @@ function ChangelogView({ entries, locale }: { entries: ChangelogEntry[]; locale:
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
+            <caption className="sr-only">{t('pageTitle')}</caption>
             <thead>
               <tr className="border-b border-neutral-200 text-neutral-500">
-                <th className="pb-2 pr-4 font-medium">{t('date')}</th>
-                <th className="pb-2 pr-4 font-medium">{t('type')}</th>
-                <th className="pb-2 pr-4 font-medium">{t('section')}</th>
-                <th className="pb-2 font-medium">{t('description')}</th>
+                <th scope="col" className="pb-2 pr-4 font-medium">{t('date')}</th>
+                <th scope="col" className="pb-2 pr-4 font-medium">{t('type')}</th>
+                <th scope="col" className="pb-2 pr-4 font-medium">{t('section')}</th>
+                <th scope="col" className="pb-2 font-medium">{t('description')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-neutral-100">

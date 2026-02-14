@@ -116,11 +116,12 @@ function ComparisonDetail({
         {card.dataPoints.length > 0 && (
           <div className="mb-8 overflow-x-auto">
             <table className="w-full text-left text-sm">
+              <caption className="sr-only">{card.title}</caption>
               <thead>
                 <tr className="border-b border-neutral-200">
-                  <th className="py-2 pr-4 font-semibold text-neutral-500">{t('entity')}</th>
-                  <th className="py-2 pr-4 font-semibold text-neutral-500">{t('value')}</th>
-                  <th className="py-2 font-semibold text-neutral-500">{t('date')}</th>
+                  <th scope="col" className="py-2 pr-4 font-semibold text-neutral-500">{t('entity')}</th>
+                  <th scope="col" className="py-2 pr-4 font-semibold text-neutral-500">{t('value')}</th>
+                  <th scope="col" className="py-2 font-semibold text-neutral-500">{t('date')}</th>
                 </tr>
               </thead>
               <tbody>

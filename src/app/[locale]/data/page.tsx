@@ -139,14 +139,15 @@ function DataView({
         ) : (
           <div className="overflow-x-auto rounded-lg border border-neutral-200">
             <table className="w-full text-left text-sm">
+              <caption className="sr-only">{t('pageTitle')}</caption>
               <thead className="bg-neutral-50 text-xs font-semibold uppercase tracking-wide text-neutral-500">
                 <tr>
-                  <th className="px-4 py-3">{t('domain')}</th>
-                  <th className="px-4 py-3">{t('metric')}</th>
-                  <th className="px-4 py-3">{t('value')}</th>
-                  <th className="px-4 py-3">{t('source')}</th>
-                  <th className="px-4 py-3">{t('date')}</th>
-                  <th className="px-4 py-3">{t('confidence')}</th>
+                  <th scope="col" className="px-4 py-3">{t('domain')}</th>
+                  <th scope="col" className="px-4 py-3">{t('metric')}</th>
+                  <th scope="col" className="px-4 py-3">{t('value')}</th>
+                  <th scope="col" className="px-4 py-3">{t('source')}</th>
+                  <th scope="col" className="px-4 py-3">{t('date')}</th>
+                  <th scope="col" className="px-4 py-3">{t('confidence')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">

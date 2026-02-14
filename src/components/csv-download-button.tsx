@@ -43,7 +43,7 @@ export function CsvDownloadButton({ rows, label }: CsvDownloadButtonProps) {
       onClick={handleDownload}
       className="inline-flex shrink-0 items-center gap-2 rounded-md border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50"
     >
-      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -92,7 +92,7 @@ export function JsonDownloadButton({ rows, label }: CsvDownloadButtonProps) {
       onClick={handleDownload}
       className="inline-flex shrink-0 items-center gap-2 rounded-md border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50"
     >
-      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"

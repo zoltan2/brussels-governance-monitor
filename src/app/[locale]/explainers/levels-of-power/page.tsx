@@ -60,11 +60,12 @@ function LevelsOfPowerView() {
           {/* Overview table */}
           <div className="overflow-x-auto rounded-lg border border-neutral-200">
             <table className="w-full text-left text-xs">
+              <caption className="sr-only">{t('table.level')}</caption>
               <thead className="bg-neutral-50">
                 <tr>
-                  <th className="px-3 py-2 font-semibold text-neutral-900">{t('table.level')}</th>
-                  <th className="px-3 py-2 font-semibold text-neutral-900">{t('table.examples')}</th>
-                  <th className="px-3 py-2 font-semibold text-neutral-900">{t('table.crisisStatus')}</th>
+                  <th scope="col" className="px-3 py-2 font-semibold text-neutral-900">{t('table.level')}</th>
+                  <th scope="col" className="px-3 py-2 font-semibold text-neutral-900">{t('table.examples')}</th>
+                  <th scope="col" className="px-3 py-2 font-semibold text-neutral-900">{t('table.crisisStatus')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">
@@ -146,10 +147,11 @@ function LevelsOfPowerView() {
           <p>{t('whoDecidesWhat.intro')}</p>
           <div className="overflow-x-auto rounded-lg border border-neutral-200">
             <table className="w-full text-left text-xs">
+              <caption className="sr-only">{t('whoDecidesWhat.title')}</caption>
               <thead className="bg-neutral-50">
                 <tr>
-                  <th className="px-3 py-2 font-semibold text-neutral-900">{t('table.level')}</th>
-                  <th className="px-3 py-2 font-semibold text-neutral-900">{t('table.examples')}</th>
+                  <th scope="col" className="px-3 py-2 font-semibold text-neutral-900">{t('table.level')}</th>
+                  <th scope="col" className="px-3 py-2 font-semibold text-neutral-900">{t('table.examples')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">

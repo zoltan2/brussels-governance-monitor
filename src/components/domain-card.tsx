@@ -20,15 +20,17 @@ const confidenceStyles: Record<string, string> = {
 interface DomainCardProps {
   card: DomainCardType;
   locale: string;
+  headingLevel?: 'h2' | 'h3';
 }
 
-export function DomainCard({ card, locale }: DomainCardProps) {
+export function DomainCard({ card, locale, headingLevel = 'h3' }: DomainCardProps) {
   const t = useTranslations('domains');
+  const Heading = headingLevel;
 
   return (
     <article className="flex flex-col rounded-lg border border-neutral-200 bg-white p-6 transition-shadow hover:shadow-md">
       <div className="mb-3 flex items-start justify-between gap-2">
-        <h3 className="text-lg font-semibold text-neutral-900">{card.title}</h3>
+        <Heading className="text-lg font-semibold text-neutral-900">{card.title}</Heading>
         <span
           className={cn(
             'shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium',
@@ -43,9 +45,9 @@ export function DomainCard({ card, locale }: DomainCardProps) {
 
       {card.metrics.length > 0 && (
         <div className="mb-4">
-          <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500" role="heading" aria-level={headingLevel === 'h2' ? 3 : 4}>
             {t('metrics')}
-          </h4>
+          </p>
           <div className="grid grid-cols-2 gap-2">
             {card.metrics.slice(0, 4).map((metric) => (
               <div key={metric.label} className="rounded bg-neutral-50 p-2">
@@ -77,6 +79,7 @@ export function DomainCard({ card, locale }: DomainCardProps) {
       <Link
         href={{ pathname: '/domains/[slug]', params: { slug: card.slug } }}
         className="mt-3 inline-flex items-center text-sm font-medium text-brand-700 hover:text-brand-900"
+        aria-label={`${t('readMore')} : ${card.title}`}
       >
         {t('readMore')}
         <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

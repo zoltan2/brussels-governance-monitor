@@ -92,7 +92,7 @@ function DomainsView({
 
         <div className="grid gap-6 md:grid-cols-2">
           {domainCards.map((card) => (
-            <DomainCard key={card.slug} card={card} locale={locale} />
+            <DomainCard key={card.slug} card={card} locale={locale} headingLevel="h2" />
           ))}
         </div>
       </div>

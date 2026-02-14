@@ -35,7 +35,7 @@ export function VerificationBadge({ verification, locale }: VerificationBadgePro
       className={`rounded-lg border p-4 ${resultStyles[verification.result]}`}
     >
       <div className="flex items-start gap-3">
-        <svg className="mt-0.5 h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="mt-0.5 h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"

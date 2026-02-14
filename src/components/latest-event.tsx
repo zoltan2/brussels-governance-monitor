@@ -14,7 +14,7 @@ export function LatestEvent({
   const tt = useTranslations('timeline');
 
   return (
-    <section className="border-y border-neutral-200 bg-neutral-50/50 py-6">
+    <div className="border-y border-neutral-200 bg-neutral-50/50 py-6">
       <div className="mx-auto max-w-5xl px-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex-1">
@@ -34,6 +34,6 @@ export function LatestEvent({
           </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

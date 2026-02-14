@@ -47,7 +47,7 @@ function LegalView() {
           href="/"
           className="mb-6 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700"
         >
-          <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           {td('backToHome')}

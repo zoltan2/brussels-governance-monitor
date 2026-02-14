@@ -25,7 +25,7 @@ export default async function HomePage({
   const events = getFormationEvents(locale as Locale);
   const latestEvent = events.length > 0 ? events[events.length - 1] : undefined;
 
-  const recentChanges = getRecentChanges(locale as Locale);
+  const recentChanges = getRecentChanges(locale as Locale, 3);
 
   const lastVerified = domainCards
     .map((c) => c.lastModified)
@@ -40,13 +40,13 @@ export default async function HomePage({
 
       {latestEvent && <LatestEvent event={latestEvent} locale={locale} />}
 
-      <RecentActivitySection recentChanges={recentChanges} locale={locale} />
-
       <GovernmentTable locale={locale} />
 
       <DomainsSection domainCards={domainCards} locale={locale} lastVerified={lastVerified} />
 
       {sectorCards.length > 0 && <SectorsPreview sectorCards={sectorCards} />}
+
+      <RecentActivitySection recentChanges={recentChanges} locale={locale} />
 
       <TimelineSection />
 

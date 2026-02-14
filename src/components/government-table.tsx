@@ -26,7 +26,7 @@ export function GovernmentTable({ locale }: { locale: string }) {
           <div className="space-y-3">
             {governmentData.members.map((member) => (
               <div
-                key={member.party}
+                key={member.name}
                 className="flex flex-col gap-1 border-b border-neutral-100 pb-3 last:border-0 last:pb-0 sm:flex-row sm:items-start sm:gap-3"
               >
                 <div className="flex shrink-0 items-center gap-2 sm:w-36">

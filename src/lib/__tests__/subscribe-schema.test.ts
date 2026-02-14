@@ -1,20 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { z } from 'zod';
 
-// Recreate the schema from the subscribe route for isolated testing
-const TOPICS = [
-  'budget',
-  'mobility',
-  'employment',
-  'housing',
-  'climate',
-  'social',
-  'solutions',
-] as const;
+import { TOPICS } from '@/lib/resend';
 
 const subscribeSchema = z.object({
   email: z.string().email(),
-  locale: z.enum(['fr', 'nl']),
+  locale: z.enum(['fr', 'nl', 'en', 'de']),
   topics: z.array(z.enum(TOPICS)).min(1),
   website: z.string().max(0).optional(),
 });
@@ -56,10 +47,19 @@ describe('subscribe schema', () => {
     expect(result.success).toBe(false);
   });
 
-  it('rejects unsupported locale', () => {
+  it('accepts EN locale', () => {
     const result = subscribeSchema.safeParse({
       email: 'user@example.com',
       locale: 'en',
+      topics: ['budget'],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('rejects unsupported locale', () => {
+    const result = subscribeSchema.safeParse({
+      email: 'user@example.com',
+      locale: 'es',
       topics: ['budget'],
     });
     expect(result.success).toBe(false);
@@ -83,11 +83,20 @@ describe('subscribe schema', () => {
     expect(result.success).toBe(false);
   });
 
-  it('accepts all valid topics', () => {
+  it('accepts new domain topics', () => {
     const result = subscribeSchema.safeParse({
       email: 'user@example.com',
       locale: 'fr',
-      topics: ['budget', 'mobility', 'employment', 'housing', 'climate', 'social', 'solutions'],
+      topics: ['budget', 'security', 'economy', 'engagements'],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('accepts commune and dossier topics', () => {
+    const result = subscribeSchema.safeParse({
+      email: 'user@example.com',
+      locale: 'fr',
+      topics: ['commune-bruxelles-ville', 'dossier-slrb'],
     });
     expect(result.success).toBe(true);
   });

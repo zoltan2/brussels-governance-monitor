@@ -18,6 +18,9 @@
     "about": "À propos",
     "sectors": "Secteurs",
     "dossiers": "Dossiers",
+    "dashboard": "Engagements",
+    "explore": "Explorer",
+    "communes": "Communes",
     "tools": "Outils"
   },
   "counter": {
@@ -85,7 +88,11 @@
       "employment": "Cette fiche ne dit pas que la hausse du chômage est causée par l'absence de gouvernement — elle documente que les mesures régionales de réponse sont gelées pendant que le taux évolue. La dynamique de l'emploi dépend de facteurs multiples (conjoncture, réforme fédérale, structure économique).",
       "housing": "Cette fiche ne dit pas que la crise du logement est née avec la crise gouvernementale — le déficit de logements sociaux est structurel et antérieur. Elle documente que l'absence de gouvernement empêche toute réponse politique nouvelle à une situation qui se dégrade.",
       "climate": "Cette fiche ne dit pas que Bruxelles va manquer ses objectifs climatiques à cause de l'absence de gouvernement — elle documente que les mécanismes de décision nécessaires pour atteindre ces objectifs sont gelés. L'atteinte de l'objectif 2030 dépend de nombreux facteurs au-delà de la gouvernance régionale.",
-      "social": "Cette fiche ne dit pas que les services sociaux ne fonctionnent plus — les CPAS et Iriscare continuent leur mission de base. Elle documente que les investissements nouveaux, les adaptations de capacité et les réformes structurelles sont impossibles en affaires courantes."
+      "social": "Cette fiche ne dit pas que les services sociaux ne fonctionnent plus — les CPAS et Iriscare continuent leur mission de base. Elle documente que les investissements nouveaux, les adaptations de capacité et les réformes structurelles sont impossibles en affaires courantes.",
+      "security": "Cette fiche ne dit pas que le plan régional de sécurité résoudra tous les défis sécuritaires — elle documente les engagements chiffrés de la DPR. L'efficacité dépend du financement effectif, de la coordination avec les zones de police et de la coopération fédérale.",
+      "economy": "Cette fiche ne dit pas que les mesures économiques garantiront la croissance — elle documente les engagements de la DPR en matière d'attractivité et de développement. L'impact réel dépendra de la conjoncture internationale et de la mise en œuvre effective des dispositifs annoncés.",
+      "cleanliness": "Cette fiche ne dit pas que les mesures de propreté résoudront le problème immédiatement — elle documente les engagements concrets de la DPR. L'efficacité dépend du déploiement des moyens, de la coordination Région-communes et du comportement des usagers.",
+      "institutional": "Cette fiche ne dit pas que la simplification institutionnelle se fera sans difficulté — elle documente les engagements de rationalisation inscrits dans la DPR. Ces réformes nécessitent des accords politiques complexes et des majorités spéciales au Parlement."
     }
   },
   "solutions": {
@@ -198,6 +205,10 @@
       "housing": "Logement",
       "climate": "Climat",
       "social": "Social",
+      "security": "Sécurité",
+      "economy": "Économie",
+      "cleanliness": "Propreté",
+      "institutional": "Institutionnel",
       "solutions": "Sortie de crise",
       "commerce": "Commerce",
       "construction": "Construction",
@@ -210,8 +221,16 @@
       "housing-sector": "Logement (secteur)",
       "nonprofit": "Associatif",
       "transport": "Transport",
-      "communes": "Communes",
-      "dossiers": "Dossiers clés"
+      "commune-bruxelles-ville": "Bruxelles-Ville",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaerbeek",
+      "dossier-slrb": "SLRB",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Métro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Plan Sécurité",
+      "engagements": "Engagements DPR"
     },
     "submit": "S'inscrire",
     "submitting": "Inscription...",
@@ -244,6 +263,10 @@
       "housing": "Logement",
       "climate": "Climat",
       "social": "Social",
+      "security": "Sécurité",
+      "economy": "Économie",
+      "cleanliness": "Propreté",
+      "institutional": "Institutionnel",
       "solutions": "Sortie de crise",
       "commerce": "Commerce",
       "construction": "Construction",
@@ -255,7 +278,17 @@
       "horeca": "Horeca",
       "housing-sector": "Logement (secteur)",
       "nonprofit": "Associatif",
-      "transport": "Transport"
+      "transport": "Transport",
+      "commune-bruxelles-ville": "Bruxelles-Ville",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaerbeek",
+      "dossier-slrb": "SLRB",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Métro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Plan Sécurité",
+      "engagements": "Engagements DPR"
     }
   },
   "subscribeConfirmed": {
@@ -274,7 +307,32 @@
       "housing": "Logement",
       "climate": "Climat",
       "social": "Social",
-      "solutions": "Sortie de crise"
+      "security": "Sécurité",
+      "economy": "Économie",
+      "cleanliness": "Propreté",
+      "institutional": "Institutionnel",
+      "solutions": "Sortie de crise",
+      "commerce": "Commerce",
+      "construction": "Construction",
+      "culture": "Culture",
+      "digital": "Numérique",
+      "education": "Enseignement",
+      "environment": "Environnement",
+      "health-social": "Santé-Social",
+      "horeca": "Horeca",
+      "housing-sector": "Logement (secteur)",
+      "nonprofit": "Associatif",
+      "transport": "Transport",
+      "commune-bruxelles-ville": "Bruxelles-Ville",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaerbeek",
+      "dossier-slrb": "SLRB",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Métro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Plan Sécurité",
+      "engagements": "Engagements DPR"
     }
   },
   "subscribeUnsubscribed": {
@@ -293,6 +351,7 @@
     "sectorsGroup": "Secteurs",
     "communesGroup": "Communes",
     "dossiersGroup": "Dossiers",
+    "engagementsGroup": "Engagements",
     "save": "Enregistrer",
     "saving": "Enregistrement...",
     "saved": "Préférences enregistrées !",
@@ -965,6 +1024,9 @@
     "timelineTitle": "Chronologie",
     "timelineSubtitle": "Suivre les étapes de la formation du gouvernement bruxellois",
     "viewTimeline2": "Consulter la chronologie complète",
+    "dashboardTitle": "Suivi des engagements",
+    "dashboardSubtitle": "16 promesses chiffrées extraites de la Déclaration de Politique Régionale, vérifiées source par source.",
+    "viewDashboard": "Consulter le tableau de bord",
     "governmentTitle": "Nouveau gouvernement bruxellois",
     "governmentSubtitle": "Prestation de serment prévue samedi 14 février — noms issus de sources de presse, à confirmer",
     "governmentRoles": {
@@ -1144,7 +1206,8 @@
     "transparency": "Transparence",
     "accessibility": "Accessibilité",
     "communes": "Communes",
-    "dossiers": "Dossiers"
+    "dossiers": "Dossiers",
+    "dashboard": "Engagements"
   },
   "understand": {
     "title": "Comprendre",
@@ -1350,6 +1413,22 @@
       "official": "Source officielle",
       "estimated": "Estimation BGM",
       "unconfirmed": "Non confirmé"
+    }
+  },
+  "dashboard": {
+    "title": "Engagements du gouvernement",
+    "subtitle": "Suivi des engagements chiffrés de la Déclaration de Politique Régionale (13 février 2026). Chaque promesse est vérifiée, source par source.",
+    "total": "{count} engagements suivis",
+    "source": "Source",
+    "commitments": "engagements",
+    "dprChapter": "DPR ch. {chapter}",
+    "baseline": "Situation actuelle",
+    "learnMore": "Voir la fiche domaine",
+    "status": {
+      "pending": "En attente",
+      "on-track": "En bonne voie",
+      "delayed": "Retardé",
+      "achieved": "Réalisé"
     }
   }
 }

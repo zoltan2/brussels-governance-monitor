@@ -1,20 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { z } from 'zod';
 
-// Replicate the subscribe schema from the API route
-const TOPICS = [
-  'budget',
-  'mobility',
-  'employment',
-  'housing',
-  'climate',
-  'social',
-  'solutions',
-] as const;
+import { TOPICS } from '@/lib/resend';
 
 const subscribeSchema = z.object({
   email: z.string().email(),
-  locale: z.enum(['fr', 'nl']),
+  locale: z.enum(['fr', 'nl', 'en', 'de']),
   topics: z.array(z.enum(TOPICS)).min(1),
   website: z.string().max(0).optional(),
 });

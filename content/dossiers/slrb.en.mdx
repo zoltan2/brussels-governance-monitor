@@ -1,19 +1,18 @@
 ---
-title: "SLRB: The Social Housing Crisis"
+title: "SLRB: 1,000+ public housing units and financial consolidation"
 slug: slrb
 locale: en
 dossierType: housing
-phase: stalled
+phase: in-progress
 crisisImpact: blocked
 blockedSince: "2024-06-09"
 decisionLevel: regional
-summary: "The Société du Logement de la Région de Bruxelles-Capitale (SLRB) manages over 39,000 social housing units. The absence of a government is blocking the renovation plan and construction of new housing, while the waiting list exceeds 50,000 households."
-estimatedBudget: "~800M EUR in identified needs"
-estimatedCostOfInaction: "Accelerated deterioration of the existing housing stock"
+summary: "The February 2026 agreement provides for the financial consolidation of the SLRB and the construction of over 1,000 public housing units during the legislature (400M EUR). The waiting list exceeds 50,000 households."
+estimatedBudget: "400M EUR (public housing) + SLRB consolidation"
 stakeholders:
   - "SLRB (Société du Logement de la Région de Bruxelles-Capitale)"
   - "16 Sociétés Immobilières de Service Public (SISP)"
-  - "Région de Bruxelles-Capitale"
+  - "Brussels-Capital Region"
 relatedDomains:
   - housing
   - budget
@@ -22,10 +21,15 @@ relatedSectors:
   - housing-sector
   - construction
 relatedCommunes: []
+relatedFormationEvents:
+  - accord-gouvernement-bruxellois
 sources:
-  - label: "SLRB — Rapport annuel"
+  - label: "SLRB — Annual report"
     url: "https://www.slrb-bghm.brussels/"
     accessedAt: "2026-02-12"
+  - label: "RTBF — What the regional government agreement contains (12 Feb. 2026)"
+    url: "https://www.rtbf.be/article/equilibre-budgetaire-en-2029-good-move-primes-renolution-voici-ce-que-contient-l-accord-de-gouvernement-regional-a-bruxelles-11678417"
+    accessedAt: "2026-02-13"
 metrics:
   - label: "Social housing units managed"
     value: "~39 000"
@@ -35,38 +39,54 @@ metrics:
     value: ">50 000"
     source: "SLRB"
     date: "2025-01-01"
-  - label: "Average waiting time"
-    value: "~10"
-    unit: "years"
-    source: "SLRB"
-    date: "2025-01-01"
+  - label: "Public housing units planned (DPR)"
+    value: "1 000+"
+    source: "DPR Feb. 2026"
+    date: "2026-02-13"
+  - label: "Public housing budget (DPR)"
+    value: "400"
+    unit: "M EUR"
+    source: "DPR Feb. 2026"
+    date: "2026-02-13"
 alerts:
   - label: "Multi-year renovation plan frozen due to lack of a new budget"
     severity: critical
     date: "2025-01-01"
-confidenceLevel: estimated
-lastModified: "2026-02-12"
+  - label: "DPR: financial consolidation and 1,000+ public housing units announced"
+    severity: info
+    date: "2026-02-13"
+confidenceLevel: official
+dprCommitment: "1,000+ public housing units during the legislature (400M EUR), financial consolidation of the SLRB"
+lastModified: "2026-02-14"
 ---
 
-## Background
+## Government agreement: what changes
+
+The agreement of 12 February 2026 provides for two structural measures for the SLRB:
+
+- **1,000+ public housing units** during the legislature, with a budget of **400 million EUR**
+- **Financial consolidation** of the SLRB, whose budgetary situation required a recovery plan
+
+The end of the caretaker period unblocks the multi-year renovation plan and construction projects that had been frozen since June 2024.
+
+## Inherited context
 
 The SLRB coordinates social housing policy in the Brussels Region. It oversees 16 Sociétés Immobilières de Service Public (SISP) that directly manage the housing stock. With over 50,000 households on the waiting list, social housing in Brussels is under structural pressure.
 
-The existing stock requires major renovation work — thermal insulation, compliance upgrades, and heavy renovation of dilapidated buildings. These investments require multi-year budget commitments that only a fully empowered government can authorise.
+The existing stock requires major renovation work — thermal insulation, compliance upgrades, and heavy renovation of dilapidated buildings. These investments require multi-year budget commitments that were impossible under caretaker government.
 
-## Impact of the Crisis
-
-The absence of a regional government prevents:
+## What was blocked (June 2024 — February 2026)
 
 - The adoption of a new multi-year renovation plan
 - Funding for new construction projects
 - Arbitrations between renovating the existing stock and building new housing
 - Implementation of an updated allocation policy
 
-The SISPs continue to handle day-to-day management (maintenance, allocation according to existing lists), but all structural investment is frozen.
+The SISPs continued to handle day-to-day management (maintenance, allocation according to existing lists), but all structural investment was frozen.
 
-## Key Issues
+## Issues to monitor
 
-- **Social**: housing is the largest expenditure item for low-income Brussels households; the lack of a structural response deepens precarity
-- **Energy**: a large proportion of the housing stock is energy-inefficient; renovation delays increase tenants' utility costs
-- **Urban planning**: several new housing projects are ready on paper but cannot be launched
+- **Social**: housing is the largest expenditure item for low-income Brussels households; the 1,000+ announced units will only cover a fraction of the 50,000 households on the waiting list
+- **Energy**: a large proportion of the housing stock is energy-inefficient; zero-interest loans (200M EUR, replacing Renolution) could accelerate renovation
+- **Urban planning**: several new housing projects are ready on paper and can now be launched
+- **Budgetary**: the fiscal consolidation effort to return to balance by 2029 will determine the effective pace of investment

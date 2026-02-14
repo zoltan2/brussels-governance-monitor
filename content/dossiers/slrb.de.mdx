@@ -1,19 +1,18 @@
 ---
-title: "SLRB: Die Krise des sozialen Wohnungsbaus"
+title: "SLRB: 1 000+ Sozialwohnungen und finanzielle Konsolidierung"
 slug: slrb
 locale: de
 dossierType: housing
-phase: stalled
+phase: in-progress
 crisisImpact: blocked
 blockedSince: "2024-06-09"
 decisionLevel: regional
-summary: "Die Société du Logement de la Région de Bruxelles-Capitale (SLRB) verwaltet mehr als 39 000 Sozialwohnungen. Die fehlende Regierung blockiert den Sanierungsplan und den Bau neuer Wohnungen, während die Warteliste über 50 000 Haushalte umfasst."
-estimatedBudget: "~800M EUR identifizierter Bedarf"
-estimatedCostOfInaction: "Beschleunigte Verschlechterung des bestehenden Bestands"
+summary: "Das Abkommen vom Februar 2026 sieht die finanzielle Konsolidierung der SLRB und den Bau von mehr als 1 000 Sozialwohnungen während der Legislaturperiode vor (400M EUR). Die Warteliste umfasst über 50 000 Haushalte."
+estimatedBudget: "400M EUR (Sozialwohnungen) + Konsolidierung SLRB"
 stakeholders:
   - "SLRB (Société du Logement de la Région de Bruxelles-Capitale)"
   - "16 Sociétés Immobilières de Service Public (SISP)"
-  - "Région de Bruxelles-Capitale"
+  - "Region Brüssel-Hauptstadt"
 relatedDomains:
   - housing
   - budget
@@ -22,10 +21,15 @@ relatedSectors:
   - housing-sector
   - construction
 relatedCommunes: []
+relatedFormationEvents:
+  - accord-gouvernement-bruxellois
 sources:
-  - label: "SLRB — Rapport annuel"
+  - label: "SLRB — Jahresbericht"
     url: "https://www.slrb-bghm.brussels/"
     accessedAt: "2026-02-12"
+  - label: "RTBF — Was das Regierungsabkommen enthält (12. Feb. 2026)"
+    url: "https://www.rtbf.be/article/equilibre-budgetaire-en-2029-good-move-primes-renolution-voici-ce-que-contient-l-accord-de-gouvernement-regional-a-bruxelles-11678417"
+    accessedAt: "2026-02-13"
 metrics:
   - label: "Verwaltete Sozialwohnungen"
     value: "~39 000"
@@ -35,38 +39,54 @@ metrics:
     value: ">50 000"
     source: "SLRB"
     date: "2025-01-01"
-  - label: "Durchschnittliche Wartezeit"
-    value: "~10"
-    unit: "Jahre"
-    source: "SLRB"
-    date: "2025-01-01"
+  - label: "Geplante Sozialwohnungen (DPR)"
+    value: "1 000+"
+    source: "DPR Feb. 2026"
+    date: "2026-02-13"
+  - label: "Budget Sozialwohnungen (DPR)"
+    value: "400"
+    unit: "M EUR"
+    source: "DPR Feb. 2026"
+    date: "2026-02-13"
 alerts:
   - label: "Mehrjähriger Sanierungsplan wegen fehlendem Haushalt eingefroren"
     severity: critical
     date: "2025-01-01"
-confidenceLevel: estimated
-lastModified: "2026-02-12"
+  - label: "DPR: finanzielle Konsolidierung und 1 000+ Sozialwohnungen angekündigt"
+    severity: info
+    date: "2026-02-13"
+confidenceLevel: official
+dprCommitment: "1 000+ Sozialwohnungen während der Legislaturperiode (400M EUR), finanzielle Konsolidierung der SLRB"
+lastModified: "2026-02-14"
 ---
 
-## Kontext
+## Regierungsabkommen: was sich ändert
+
+Das Abkommen vom 12. Februar 2026 sieht zwei strukturelle Maßnahmen für die SLRB vor:
+
+- **1 000+ Sozialwohnungen** während der Legislaturperiode, mit einem Budget von **400 Millionen EUR**
+- **Finanzielle Konsolidierung** der SLRB, deren Haushaltslage einen Sanierungsplan erforderte
+
+Das Ende der geschäftsführenden Regierung ermöglicht die Freigabe des mehrjährigen Sanierungsplans und der Bauprojekte, die seit Juni 2024 eingefroren waren.
+
+## Geerbter Kontext
 
 Die SLRB koordiniert die Sozialpolitik im Bereich Wohnungsbau in der Region Brüssel-Hauptstadt. Sie beaufsichtigt 16 Sociétés Immobilières de Service Public (SISP), die den Wohnungsbestand direkt verwalten. Mit über 50 000 Haushalten auf der Warteliste steht der soziale Wohnungsbau in Brüssel unter strukturellem Druck.
 
-Der bestehende Bestand erfordert umfangreiche Sanierungsarbeiten — Wärmedämmung, Anpassung an geltende Normen, Grundsanierung baufälliger Gebäude. Diese Investitionen erfordern mehrjährige Haushaltsverpflichtungen, die nur eine handlungsfähige Regierung genehmigen kann.
+Der bestehende Bestand erfordert umfangreiche Sanierungsarbeiten — Wärmedämmung, Anpassung an geltende Normen, Grundsanierung baufälliger Gebäude. Diese Investitionen erfordern mehrjährige Haushaltsverpflichtungen, die in der geschäftsführenden Regierung unmöglich waren.
 
-## Auswirkungen der Krise
-
-Die fehlende Regionalregierung verhindert:
+## Was blockiert war (Juni 2024 — Februar 2026)
 
 - Die Verabschiedung eines neuen mehrjährigen Sanierungsplans
 - Die Finanzierung neuer Bauprojekte
 - Die Abwägung zwischen Sanierung des bestehenden Bestands und Neubau
 - Die Umsetzung einer aktualisierten Vergabepolitik
 
-Die SISP setzen die laufende Verwaltung fort (Instandhaltung, Vergabe gemäß bestehenden Listen), aber jede strukturelle Investition ist eingefroren.
+Die SISP setzten die laufende Verwaltung fort (Instandhaltung, Vergabe gemäß bestehenden Listen), aber jede strukturelle Investition war eingefroren.
 
-## Herausforderungen
+## Zu beobachtende Punkte
 
-- **Soziales**: Wohnen ist der größte Ausgabenposten für Brüsseler Haushalte mit geringem Einkommen; das Fehlen einer strukturellen Antwort verschärft die Prekarität
-- **Energie**: Ein großer Teil des Bestands ist energieintensiv; die Sanierungsverzögerungen erhöhen die Nebenkosten der Mieter
-- **Städtebau**: Mehrere Neubauprojekte sind planungsreif, können aber nicht gestartet werden
+- **Soziales**: Wohnen ist der größte Ausgabenposten für Brüsseler Haushalte mit geringem Einkommen; die 1 000+ angekündigten Wohnungen decken nur einen Bruchteil der 50 000 wartenden Haushalte ab
+- **Energie**: Ein großer Teil des Bestands ist energieintensiv; die zinslosen Darlehen (200M EUR, als Ersatz für Renolution) könnten die Sanierung beschleunigen
+- **Städtebau**: Mehrere Neubauprojekte sind planungsreif und können nun gestartet werden
+- **Haushalt**: Die Konsolidierungsanstrengung zur Rückkehr zum Gleichgewicht bis 2029 wird das tatsächliche Investitionstempo bestimmen

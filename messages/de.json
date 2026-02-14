@@ -18,6 +18,9 @@
     "about": "Über uns",
     "sectors": "Sektoren",
     "dossiers": "Dossiers",
+    "dashboard": "Verpflichtungen",
+    "explore": "Erkunden",
+    "communes": "Gemeinden",
     "tools": "Werkzeuge"
   },
   "counter": {
@@ -85,7 +88,11 @@
       "employment": "Diese Karte sagt nicht, dass der Anstieg der Arbeitslosigkeit durch das Fehlen einer Regierung verursacht wird — sie dokumentiert, dass die regionalen Gegenmaßnahmen eingefroren sind, während sich die Arbeitslosenquote entwickelt. Die Beschäftigungsdynamik hängt von mehreren Faktoren ab (Konjunktur, föderale Reform, Wirtschaftsstruktur).",
       "housing": "Diese Karte sagt nicht, dass die Wohnungskrise mit der Regierungskrise entstanden ist — das Defizit an Sozialwohnungen ist strukturell und besteht seit längerem. Sie dokumentiert, dass das Fehlen einer Regierung jede neue politische Antwort auf eine sich verschlechternde Situation verhindert.",
       "climate": "Diese Karte sagt nicht, dass Brüssel seine Klimaziele wegen des Fehlens einer Regierung verfehlen wird — sie dokumentiert, dass die zur Erreichung dieser Ziele erforderlichen Entscheidungsmechanismen eingefroren sind. Das Erreichen des Ziels 2030 hängt von zahlreichen Faktoren jenseits der regionalen Regierungsführung ab.",
-      "social": "Diese Karte sagt nicht, dass die Sozialdienste nicht mehr funktionieren — die ÖSHZ und Iriscare setzen ihre Grundaufgabe fort. Sie dokumentiert, dass neue Investitionen, Kapazitätsanpassungen und strukturelle Reformen in laufenden Geschäften unmöglich sind."
+      "social": "Diese Karte sagt nicht, dass die Sozialdienste nicht mehr funktionieren — die ÖSHZ und Iriscare setzen ihre Grundaufgabe fort. Sie dokumentiert, dass neue Investitionen, Kapazitätsanpassungen und strukturelle Reformen in laufenden Geschäften unmöglich sind.",
+      "security": "Diese Seite behauptet nicht, dass der regionale Sicherheitsplan alle Sicherheitsprobleme lösen wird — sie dokumentiert die bezifferten Verpflichtungen der RPE. Die Wirksamkeit hängt von der tatsächlichen Finanzierung, der Koordination mit den Polizeizonen und der föderalen Zusammenarbeit ab.",
+      "economy": "Diese Seite behauptet nicht, dass die Wirtschaftsmaßnahmen Wachstum garantieren — sie dokumentiert die Verpflichtungen der RPE zur Attraktivität und Entwicklung. Die tatsächlichen Auswirkungen hängen von der internationalen Konjunktur und der effektiven Umsetzung ab.",
+      "cleanliness": "Diese Seite behauptet nicht, dass die Sauberkeitsmaßnahmen das Problem sofort lösen — sie dokumentiert die konkreten Verpflichtungen der RPE. Die Wirksamkeit hängt vom Einsatz der Mittel, der Koordination Region-Gemeinden und dem Nutzerverhalten ab.",
+      "institutional": "Diese Seite behauptet nicht, dass die institutionelle Vereinfachung problemlos verlaufen wird — sie dokumentiert die Rationalisierungsverpflichtungen der RPE. Diese Reformen erfordern komplexe politische Vereinbarungen und besondere Mehrheiten im Parlament."
     }
   },
   "solutions": {
@@ -198,6 +205,10 @@
       "housing": "Wohnen",
       "climate": "Klima",
       "social": "Soziales",
+      "security": "Sicherheit",
+      "economy": "Wirtschaft",
+      "cleanliness": "Sauberkeit",
+      "institutional": "Institutionell",
       "solutions": "Auswege",
       "commerce": "Handel",
       "construction": "Bauwesen",
@@ -210,8 +221,16 @@
       "housing-sector": "Wohnen (Sektor)",
       "nonprofit": "Vereinswesen",
       "transport": "Transport",
-      "communes": "Gemeinden",
-      "dossiers": "Schlüsseldossiers"
+      "commune-bruxelles-ville": "Stadt Brüssel",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaerbeek",
+      "dossier-slrb": "SLRB",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Metro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Sicherheitsplan",
+      "engagements": "RPE-Verpflichtungen"
     },
     "submit": "Abonnieren",
     "submitting": "Wird abonniert...",
@@ -244,6 +263,10 @@
       "housing": "Wohnen",
       "climate": "Klima",
       "social": "Soziales",
+      "security": "Sicherheit",
+      "economy": "Wirtschaft",
+      "cleanliness": "Sauberkeit",
+      "institutional": "Institutionell",
       "solutions": "Auswege",
       "commerce": "Handel",
       "construction": "Bauwesen",
@@ -255,7 +278,17 @@
       "horeca": "Horeca",
       "housing-sector": "Wohnen (Sektor)",
       "nonprofit": "Vereinswesen",
-      "transport": "Verkehr"
+      "transport": "Verkehr",
+      "commune-bruxelles-ville": "Stadt Brüssel",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaerbeek",
+      "dossier-slrb": "SLRB",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Metro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Sicherheitsplan",
+      "engagements": "RPE-Verpflichtungen"
     }
   },
   "subscribeConfirmed": {
@@ -274,7 +307,32 @@
       "housing": "Wohnen",
       "climate": "Klima",
       "social": "Soziales",
-      "solutions": "Auswege"
+      "security": "Sicherheit",
+      "economy": "Wirtschaft",
+      "cleanliness": "Sauberkeit",
+      "institutional": "Institutionell",
+      "solutions": "Auswege",
+      "commerce": "Handel",
+      "construction": "Bauwesen",
+      "culture": "Kultur",
+      "digital": "Digital",
+      "education": "Bildung",
+      "environment": "Umwelt",
+      "health-social": "Gesundheit-Soziales",
+      "horeca": "Gastronomie",
+      "housing-sector": "Wohnen (Sektor)",
+      "nonprofit": "Vereinswesen",
+      "transport": "Transport",
+      "commune-bruxelles-ville": "Stadt Brüssel",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaerbeek",
+      "dossier-slrb": "SLRB",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Metro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Sicherheitsplan",
+      "engagements": "RPE-Verpflichtungen"
     }
   },
   "subscribeUnsubscribed": {
@@ -293,6 +351,7 @@
     "sectorsGroup": "Sektoren",
     "communesGroup": "Gemeinden",
     "dossiersGroup": "Dossiers",
+    "engagementsGroup": "Verpflichtungen",
     "save": "Speichern",
     "saving": "Speichern...",
     "saved": "Einstellungen gespeichert!",
@@ -965,6 +1024,9 @@
     "timelineTitle": "Chronologie",
     "timelineSubtitle": "Die Schritte der Brüsseler Regierungsbildung verfolgen",
     "viewTimeline2": "Die vollständige Chronologie ansehen",
+    "dashboardTitle": "Verfolgung der Verpflichtungen",
+    "dashboardSubtitle": "16 bezifferte Versprechen aus der Regionalen Politikerklärung, quellenbasiert überprüft.",
+    "viewDashboard": "Dashboard ansehen",
     "governmentTitle": "Neue Brüsseler Regierung",
     "governmentSubtitle": "Vereidigung geplant für Samstag, 14. Februar — Namen aus Pressequellen, noch zu bestätigen",
     "governmentRoles": {
@@ -1144,7 +1206,8 @@
     "transparency": "Transparenz",
     "accessibility": "Barrierefreiheit",
     "communes": "Gemeinden",
-    "dossiers": "Dossiers"
+    "dossiers": "Dossiers",
+    "dashboard": "Verpflichtungen"
   },
   "understand": {
     "title": "Verstehen",
@@ -1350,6 +1413,22 @@
       "official": "Offizielle Quelle",
       "estimated": "BGM-Schätzung",
       "unconfirmed": "Nicht bestätigt"
+    }
+  },
+  "dashboard": {
+    "title": "Verpflichtungen der Regierung",
+    "subtitle": "Verfolgung der bezifferten Verpflichtungen der Regionalen Politikerklärung (13. Februar 2026). Jede Zusage wird quellenbasiert überprüft.",
+    "total": "{count} Verpflichtungen verfolgt",
+    "source": "Quelle",
+    "commitments": "Verpflichtungen",
+    "dprChapter": "RPE Kap. {chapter}",
+    "baseline": "Aktuelle Situation",
+    "learnMore": "Zur Bereichsseite",
+    "status": {
+      "pending": "Ausstehend",
+      "on-track": "Im Plan",
+      "delayed": "Verzögert",
+      "achieved": "Erreicht"
     }
   }
 }

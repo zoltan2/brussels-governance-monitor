@@ -1,20 +1,19 @@
 ---
-title: "Metro 3: Die Jahrhundertbaustelle in der Schwebe"
+title: "Metro 3: Projekt 10 Jahre eingefroren, Ersatz durch Straßenbahn"
 slug: metro-3
 locale: de
 dossierType: infrastructure
-phase: stalled
+phase: cancelled
 crisisImpact: blocked
 blockedSince: "2024-06-09"
 decisionLevel: mixed
-summary: "Die Verlängerung der Metrolinie in den Norden Brüssels (Albert — Bordet) ist das größte Infrastrukturprojekt der Region. Die fehlende Regierung blockiert die Haushaltsentscheidungen und die für die Fortführung der Arbeiten notwendigen Schiedssprüche."
-estimatedBudget: "~5,2 Milliarden EUR"
-estimatedCostOfInaction: "Geschätzte Mehrkosten von mehreren Hundert Millionen EUR"
+summary: "Das Abkommen vom Februar 2026 kündigt die Aufgabe des Projekts Metro 3 wie geplant an (Verlängerung Albert — Bordet, ~5,2 Mrd EUR). Die Metro wird 10 Jahre eingefroren und durch eine Straßenbahn ersetzt, die die Schleife des bestehenden Netzes vervollständigt."
+estimatedBudget: "~5,2 Milliarden EUR (aufgegebenes Projekt)"
 stakeholders:
   - "Société des Transports Intercommunaux de Bruxelles (STIB)"
-  - "Beliris (accord de coopération fédéral)"
-  - "Région de Bruxelles-Capitale"
-  - "Gouvernement fédéral"
+  - "Beliris (föderales Kooperationsabkommen)"
+  - "Region Brüssel-Hauptstadt"
+  - "Föderalregierung"
 relatedDomains:
   - mobility
   - budget
@@ -23,7 +22,8 @@ relatedSectors:
   - transport
 relatedCommunes:
   - schaerbeek
-  - evere
+relatedFormationEvents:
+  - accord-gouvernement-bruxellois
 sources:
   - label: "Metro 3 — Offizielle Projektwebsite"
     url: "https://metro3.be/fr"
@@ -31,46 +31,63 @@ sources:
   - label: "Beliris — Im Dienste der Brüsseler"
     url: "https://www.beliris.be/"
     accessedAt: "2026-02-12"
+  - label: "RTBF — Was das Regierungsabkommen enthält (12. Feb. 2026)"
+    url: "https://www.rtbf.be/article/equilibre-budgetaire-en-2029-good-move-primes-renolution-voici-ce-que-contient-l-accord-de-gouvernement-regional-a-bruxelles-11678417"
+    accessedAt: "2026-02-13"
 metrics:
-  - label: "Geschätztes Gesamtbudget"
+  - label: "Geschätztes Gesamtbudget (ursprüngliches Projekt)"
     value: "~5,2"
     unit: "Mrd EUR"
-    source: "Estimations STIB/Beliris"
+    source: "Schätzungen STIB/Beliris"
     date: "2025-01-01"
-  - label: "Geplante neue Stationen"
-    value: "7"
-    source: "STIB"
-    date: "2025-01-01"
-  - label: "Ursprünglicher Inbetriebnahmehorizont"
-    value: "2035"
-    source: "STIB"
-    date: "2024-01-01"
+  - label: "Dauer der Einfrierung"
+    value: "10"
+    unit: "Jahre"
+    source: "DPR Feb. 2026"
+    date: "2026-02-13"
 alerts:
   - label: "Keine Haushaltsschiedssprüche in geschäftsführender Regierung möglich"
     severity: critical
     date: "2025-01-01"
-confidenceLevel: estimated
-lastModified: "2026-02-12"
+  - label: "DPR: Metro 3 für 10 Jahre eingefroren, Ersatz durch Straßenbahn"
+    severity: critical
+    date: "2026-02-13"
+confidenceLevel: official
+dprCommitment: "Einfrierung der Metro 3 für 10 Jahre, Ersatz durch eine Straßenbahn, die die Schleife vervollständigt"
+lastModified: "2026-02-14"
 ---
 
-## Kontext
+## Regierungsabkommen: was sich ändert
 
-Das Projekt Metro 3 zielt darauf ab, die Nord-Süd-Metrolinie in Brüssel zu verlängern und die Station Albert (Forest) mit Bordet (Evere) über die Innenstadt zu verbinden. Es handelt sich um das größte Verkehrsinfrastrukturprojekt der Region Brüssel-Hauptstadt.
+Das Abkommen vom 12. Februar 2026 besiegelt die einschneidendste Entscheidung für den Brüsseler öffentlichen Nahverkehr seit Jahrzehnten:
 
-Das Projekt wird gemeinsam von der Region und dem Bund über das Kooperationsabkommen Beliris finanziert. Diese doppelte Aufsicht bedeutet, dass jede strukturelle Entscheidung die Zustimmung beider Machtebenen erfordert.
+- **Metro 3 für 10 Jahre eingefroren** — das Projekt wie geplant (Verlängerung Albert — Bordet, ~5,2 Milliarden EUR) wird aufgegeben
+- **Ersatz durch eine Straßenbahn**, die die Schleife des bestehenden Netzes vervollständigt
+- Die laufenden Baustellen (Constitution, Südpalast) werden **fortgesetzt**
+- **Tram 15** (Nordbahnhof — Tour & Taxis) wird beibehalten
 
-## Auswirkungen der Krise
+Diese Entscheidung lenkt Milliarden Euro an Investitionen von der unterirdischen Metro zur oberirdischen Straßenbahn um.
 
-Ohne eine handlungsfähige Regionalregierung sind die wichtigsten Haushaltsentscheidungen eingefroren. Die geschäftsführende Regierung kann nicht:
+## Geerbter Kontext
 
-- Neue mehrjährige Haushaltsmittel bewilligen
-- Über Mehrkosten durch Inflation und Verzögerungen entscheiden
-- Die Bedingungen des Beliris-Abkommens neu verhandeln
+Das Projekt Metro 3 zielte darauf ab, die Nord-Süd-Metrolinie in Brüssel zu verlängern und die Station Albert (Forest) mit Bordet (Evere) über die Innenstadt zu verbinden. Es handelte sich um das größte Verkehrsinfrastrukturprojekt der Region Brüssel-Hauptstadt, kofinanziert von der Region und dem Bund über das Kooperationsabkommen Beliris.
 
-Die vorbereitenden Arbeiten gehen teilweise weiter, aber die Phasen, die neue finanzielle Verpflichtungen erfordern, sind blockiert.
+Die Kosten des Projekts waren von anfänglichen Schätzungen von 3,2 Milliarden auf über 5,2 Milliarden EUR explodiert, was eine wachsende öffentliche Debatte über seine haushaltspolitische Relevanz nährte.
 
-## Herausforderungen
+## Was blockiert war (Juni 2024 — Februar 2026)
 
-- **Mobilität**: Das Brüsseler Metronetz ist zu Stoßzeiten überlastet; die Verlängerung soll die Straßenbahn- und Buslinien im Norden entlasten
-- **Raumplanung**: Die geplanten Stationen sollen die Stadtentwicklung entlang der Strecke fördern
-- **Kosten der Untätigkeit**: Jedes Jahr Verzögerung verursacht Mehrkosten durch Materialpreissteigerungen und die verlängerte Mobilisierung der Bauteams
+Ohne eine handlungsfähige Regionalregierung waren die wichtigsten Haushaltsentscheidungen eingefroren:
+
+- Neue mehrjährige Haushaltsmittel
+- Entscheidungen über Mehrkosten durch Inflation
+- Die Neuverhandlung der Bedingungen des Beliris-Abkommens
+
+Die vorbereitenden Arbeiten gingen teilweise weiter, aber die Phasen, die neue finanzielle Verpflichtungen erforderten, waren blockiert.
+
+## Zu beobachtende Punkte
+
+- **Umwidmung**: Die Zukunft der bereits gebauten oder im Bau befindlichen Infrastruktur für Metro 3 (Tunnel, Stationen) muss definiert werden
+- **Ersatzstraßenbahn**: Streckenführung, Zeitplan und Budget der Ersatzstraßenbahn sind noch nicht bekannt
+- **Beliris**: Die Auswirkungen auf das föderale Kooperationsabkommen müssen zwischen der Region und der Bundesregierung verhandelt werden
+- **Mobilität im Norden**: Die nördlichen Brüsseler Gemeinden (Schaerbeek, Evere), die auf die Metro warteten, müssen anders angebunden werden
+- **Haushalt**: Die Einsparungen bei Metro 3 könnten für andere regionale Prioritäten umgewidmet werden

@@ -10,7 +10,11 @@ const TOPIC_OPTIONS = [
   'housing',
   'climate',
   'social',
-  'solutions',
+  'security',
+  'economy',
+  'cleanliness',
+  'institutional',
+  'engagements',
 ] as const;
 
 type SubmitState = 'idle' | 'loading' | 'success' | 'successExisting' | 'error';
@@ -20,7 +24,7 @@ export function SubscribeForm() {
   const locale = useLocale();
   const [email, setEmail] = useState('');
   const [website, setWebsite] = useState(''); // honeypot
-  const [topics, setTopics] = useState<string[]>(['budget', 'mobility', 'solutions']);
+  const [topics, setTopics] = useState<string[]>(['budget', 'mobility', 'engagements']);
   const [state, setState] = useState<SubmitState>('idle');
 
   function toggleTopic(topic: string) {

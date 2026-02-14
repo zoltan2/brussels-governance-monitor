@@ -1,12 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { z } from 'zod';
 
-// Replicate the schema from the subscribe route for testing
-const TOPICS = ['budget', 'mobility', 'employment', 'housing', 'climate', 'social', 'solutions'] as const;
+import { TOPICS } from '@/lib/resend';
 
 const subscribeSchema = z.object({
   email: z.string().email(),
-  locale: z.enum(['fr', 'nl']),
+  locale: z.enum(['fr', 'nl', 'en', 'de']),
   topics: z.array(z.enum(TOPICS)).min(1),
 });
 
@@ -47,10 +46,19 @@ describe('subscribe validation', () => {
     expect(result.success).toBe(false);
   });
 
-  it('rejects unsupported locale', () => {
+  it('accepts EN locale', () => {
     const result = subscribeSchema.safeParse({
       email: 'test@example.com',
       locale: 'en',
+      topics: ['budget'],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('rejects unsupported locale', () => {
+    const result = subscribeSchema.safeParse({
+      email: 'test@example.com',
+      locale: 'es',
       topics: ['budget'],
     });
     expect(result.success).toBe(false);

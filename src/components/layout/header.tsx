@@ -8,11 +8,9 @@ import { Search } from '@/components/search';
 
 export function Header() {
   const t = useTranslations('nav');
-  const th = useTranslations('home');
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileComprendre, setMobileComprendre] = useState(false);
-  const [mobileTools, setMobileTools] = useState(false);
+  const [mobileExplore, setMobileExplore] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -71,7 +69,6 @@ export function Header() {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       setDropdownOpen(true);
-      // Focus first item on next tick after render
       setTimeout(() => getMenuItems()[0]?.focus(), 0);
     }
   }
@@ -88,8 +85,11 @@ export function Header() {
           <Link href="/domains" className="text-sm text-neutral-600 hover:text-neutral-900">
             {t('domains')}
           </Link>
+          <Link href="/dashboard" className="text-sm text-neutral-600 hover:text-neutral-900">
+            {t('dashboard')}
+          </Link>
 
-          {/* Comprendre dropdown */}
+          {/* Explorer dropdown */}
           <div ref={dropdownRef} className="relative">
             <button
               ref={triggerRef}
@@ -100,7 +100,7 @@ export function Header() {
               aria-expanded={dropdownOpen}
               aria-haspopup="true"
             >
-              {t('understand')}
+              {t('explore')}
               <svg
                 className={`h-3.5 w-3.5 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`}
                 fill="none"
@@ -112,66 +112,42 @@ export function Header() {
               </svg>
             </button>
             {dropdownOpen && (
-              <div ref={menuRef} role="menu" onKeyDown={handleMenuKeyDown} className="absolute left-0 top-full z-50 mt-2 w-72 rounded-lg border border-neutral-200 bg-white py-2 shadow-lg">
-                {/* Fondamentaux */}
-                <p className="px-4 pt-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">
-                  {t('understandFundamentals')}
-                </p>
+              <div ref={menuRef} role="menu" onKeyDown={handleMenuKeyDown} className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-neutral-200 bg-white py-2 shadow-lg">
                 <Link
                   role="menuitem"
-                  href="/explainers/brussels-overview"
+                  href="/sectors"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
-                  {th('explainerOverview')}
+                  {t('sectors')}
                 </Link>
                 <Link
                   role="menuitem"
-                  href="/explainers/levels-of-power"
+                  href="/dossiers"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
-                  {th('explainerLevels')}
+                  {t('dossiers')}
                 </Link>
                 <Link
                   role="menuitem"
-                  href="/explainers/government-formation"
+                  href="/communes"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
                 >
-                  {th('explainerFormation')}
-                </Link>
-
-                {/* Éclairages */}
-                <p className="mt-2 px-4 pt-1 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">
-                  {t('understandInsights')}
-                </p>
-                <Link
-                  role="menuitem"
-                  href="/explainers/brussels-paradox"
-                  onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
-                >
-                  {th('explainerParadox')}
-                </Link>
-                <Link
-                  role="menuitem"
-                  href="/explainers/parliament-powers"
-                  onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
-                >
-                  {th('explainerParliament')}
-                </Link>
-                <Link
-                  role="menuitem"
-                  href="/explainers/brussels-cosmopolitan"
-                  onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
-                >
-                  {th('explainerCosmopolitan')}
+                  {t('communes')}
                 </Link>
 
                 <hr className="my-1.5 border-neutral-100" />
+
+                <Link
+                  role="menuitem"
+                  href="/understand"
+                  onClick={() => setDropdownOpen(false)}
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                >
+                  {t('understand')}
+                </Link>
                 <Link
                   role="menuitem"
                   href="/timeline"
@@ -188,32 +164,10 @@ export function Header() {
                 >
                   {t('glossary')}
                 </Link>
-                <Link
-                  role="menuitem"
-                  href="/faq"
-                  onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
-                >
-                  {t('faq')}
-                </Link>
-                <Link
-                  role="menuitem"
-                  href="/data"
-                  onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
-                >
-                  {t('data')}
-                </Link>
               </div>
             )}
           </div>
 
-          <Link href="/sectors" className="text-sm text-neutral-600 hover:text-neutral-900">
-            {t('sectors')}
-          </Link>
-          <Link href="/dossiers" className="text-sm text-neutral-600 hover:text-neutral-900">
-            {t('dossiers')}
-          </Link>
           <Search />
           <LocaleSwitcher />
         </nav>
@@ -241,39 +195,34 @@ export function Header() {
       {menuOpen && (
         <div className="border-t border-neutral-100 px-4 pb-4 md:hidden">
           <nav aria-label="Menu" className="flex flex-col pt-3">
-            {/* Search — always visible at top */}
             <div className="pb-3">
               <Search />
             </div>
 
             <hr className="border-neutral-100" />
 
-            {/* Direct links */}
             <Link href="/" onClick={() => setMenuOpen(false)} className="py-3 text-sm font-medium text-neutral-900">
               {t('home')}
             </Link>
             <Link href="/domains" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
               {t('domains')}
             </Link>
-            <Link href="/sectors" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
-              {t('sectors')}
-            </Link>
-            <Link href="/dossiers" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
-              {t('dossiers')}
+            <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
+              {t('dashboard')}
             </Link>
 
             <hr className="border-neutral-100" />
 
-            {/* Comprendre — accordion */}
+            {/* Explorer — accordion */}
             <button
               type="button"
-              onClick={() => setMobileComprendre(!mobileComprendre)}
+              onClick={() => setMobileExplore(!mobileExplore)}
               className="flex w-full items-center justify-between py-3 text-sm text-neutral-600"
-              aria-expanded={mobileComprendre}
+              aria-expanded={mobileExplore}
             >
-              {t('understand')}
+              {t('explore')}
               <svg
-                className={`h-4 w-4 text-neutral-400 transition-transform duration-300 ${mobileComprendre ? 'rotate-180' : ''}`}
+                className={`h-4 w-4 text-neutral-400 transition-transform duration-300 ${mobileExplore ? 'rotate-180' : ''}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -282,73 +231,32 @@ export function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            {mobileComprendre && (
+            {mobileExplore && (
               <div className="flex flex-col pb-2">
-                <p className="px-4 pb-1 text-xs font-semibold uppercase tracking-wider text-neutral-400">
-                  {t('understandFundamentals')}
-                </p>
-                <Link href="/explainers/brussels-overview" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
-                  {th('explainerOverview')}
+                <Link href="/sectors" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('sectors')}
                 </Link>
-                <Link href="/explainers/levels-of-power" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
-                  {th('explainerLevels')}
+                <Link href="/dossiers" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('dossiers')}
                 </Link>
-                <Link href="/explainers/government-formation" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
-                  {th('explainerFormation')}
+                <Link href="/communes" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('communes')}
                 </Link>
-                <p className="mt-2 px-4 pb-1 text-xs font-semibold uppercase tracking-wider text-neutral-400">
-                  {t('understandInsights')}
-                </p>
-                <Link href="/explainers/brussels-paradox" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
-                  {th('explainerParadox')}
+                <hr className="my-1 border-neutral-100" />
+                <Link href="/understand" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('understand')}
                 </Link>
-                <Link href="/explainers/parliament-powers" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
-                  {th('explainerParliament')}
-                </Link>
-                <Link href="/explainers/brussels-cosmopolitan" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
-                  {th('explainerCosmopolitan')}
-                </Link>
-              </div>
-            )}
-
-            {/* Outils — accordion */}
-            <button
-              type="button"
-              onClick={() => setMobileTools(!mobileTools)}
-              className="flex w-full items-center justify-between py-3 text-sm text-neutral-600"
-              aria-expanded={mobileTools}
-            >
-              {t('tools')}
-              <svg
-                className={`h-4 w-4 text-neutral-400 transition-transform duration-300 ${mobileTools ? 'rotate-180' : ''}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {mobileTools && (
-              <div className="flex flex-col pb-2">
                 <Link href="/timeline" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('timeline')}
                 </Link>
                 <Link href="/glossary" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('glossary')}
                 </Link>
-                <Link href="/faq" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
-                  {t('faq')}
-                </Link>
-                <Link href="/data" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
-                  {t('data')}
-                </Link>
               </div>
             )}
 
             <hr className="border-neutral-100" />
 
-            {/* Language switcher */}
             <div className="pt-3">
               <LocaleSwitcher />
             </div>

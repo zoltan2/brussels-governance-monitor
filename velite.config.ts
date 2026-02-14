@@ -27,7 +27,7 @@ const domainCards = defineCollection({
       title: s.string().max(120),
       slug: s.string(),
       locale: localeEnum,
-      domain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social']),
+      domain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional']),
       status: s.enum(['blocked', 'delayed', 'ongoing', 'resolved']),
       blockedSince: s.isodate().optional(),
       summary: s.string().max(500),
@@ -355,7 +355,7 @@ const dossierCards = defineCollection({
       estimatedCostOfInaction: s.string().optional(),
       stakeholders: s.array(s.string()).default([]),
       relatedDomains: s
-        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social']))
+        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional']))
         .default([]),
       relatedSectors: s.array(s.string()).default([]),
       relatedCommunes: s.array(s.string()).default([]),

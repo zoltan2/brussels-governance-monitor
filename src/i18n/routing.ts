@@ -175,6 +175,12 @@ export const routing = defineRouting({
       en: '/municipalities/[slug]',
       de: '/gemeinden/[slug]',
     },
+    '/dashboard': {
+      fr: '/engagements',
+      nl: '/engagementen',
+      en: '/commitments',
+      de: '/verpflichtungen',
+    },
     '/dossiers': '/dossiers',
     '/dossiers/[slug]': '/dossiers/[slug]',
   },

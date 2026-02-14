@@ -1,0 +1,503 @@
+{
+  "lastModified": "2026-02-14",
+  "source": "DPR du 13 février 2026 (sources presse concordantes)",
+  "sourceUrl": "https://www.rtbf.be/article/equilibre-budgetaire-en-2029-good-move-primes-renolution-voici-ce-que-contient-l-accord-de-gouvernement-regional-a-bruxelles-11678417",
+  "commitments": [
+    {
+      "id": "budget-balance",
+      "domain": "budget",
+      "target": {
+        "fr": "Retour à l'équilibre budgétaire",
+        "nl": "Terugkeer naar begrotingsevenwicht",
+        "en": "Return to budgetary balance",
+        "de": "Rückkehr zum Haushaltsgleichgewicht"
+      },
+      "indicator": {
+        "fr": "Déficit → 0 €",
+        "nl": "Tekort → 0 €",
+        "en": "Deficit → €0",
+        "de": "Defizit → 0 €"
+      },
+      "description": {
+        "fr": "La Région accumule un déficit annuel de ~1,2 milliard EUR. L'objectif est d'atteindre l'équilibre (recettes = dépenses) d'ici 2029, par 80 % de réductions de dépenses et 20 % de recettes nouvelles. Mesure : comptes annuels de la Région.",
+        "nl": "Het Gewest heeft een jaarlijks tekort van ~1,2 miljard EUR. Het doel is om tegen 2029 het evenwicht te bereiken (inkomsten = uitgaven), via 80 % besparingen en 20 % nieuwe inkomsten. Meting: jaarrekeningen van het Gewest.",
+        "en": "The Region runs an annual deficit of ~€1.2 billion. The goal is to reach balance (revenue = spending) by 2029, through 80% spending cuts and 20% new revenue. Measured via the Region's annual accounts.",
+        "de": "Die Region verzeichnet ein jährliches Defizit von ~1,2 Mrd. EUR. Ziel ist es, bis 2029 das Gleichgewicht (Einnahmen = Ausgaben) zu erreichen, durch 80 % Ausgabenkürzungen und 20 % neue Einnahmen. Messung: Jahresabschlüsse der Region."
+      },
+      "baseline": {
+        "fr": "Déficit annuel ~1,241 milliard EUR (2025)",
+        "nl": "Jaarlijks tekort ~1,241 miljard EUR (2025)",
+        "en": "Annual deficit ~€1.241 billion (2025)",
+        "de": "Jährliches Defizit ~1,241 Mrd. EUR (2025)"
+      },
+      "deadline": "2029",
+      "status": "pending",
+      "chapter": 2
+    },
+    {
+      "id": "debt-ceiling",
+      "domain": "budget",
+      "target": {
+        "fr": "Plafond de dette supplémentaire",
+        "nl": "Bijkomend schuldenplafond",
+        "en": "Additional debt ceiling",
+        "de": "Zusätzliche Schuldenobergrenze"
+      },
+      "indicator": {
+        "fr": "≤ 3 milliards €",
+        "nl": "≤ 3 miljard €",
+        "en": "≤ €3 billion",
+        "de": "≤ 3 Milliarden €"
+      },
+      "description": {
+        "fr": "La dette régionale a triplé depuis 2016 (15,65 Mrd €). Ce plafond limite l'endettement supplémentaire à 3 milliards € sur la législature (2 Mrd SEC + 1 Mrd Code 8). Mesure : rapport annuel de la Cour des comptes.",
+        "nl": "De gewestelijke schuld is sinds 2016 verdrievoudigd (15,65 Mrd €). Dit plafond beperkt de extra schuldopname tot 3 miljard € over de legislatuur (2 Mrd SEC + 1 Mrd Code 8). Meting: jaarverslag Rekenhof.",
+        "en": "Regional debt has tripled since 2016 (€15.65B). This ceiling limits additional borrowing to €3 billion over the legislature (€2B SEC + €1B Code 8). Measured via annual Court of Auditors report.",
+        "de": "Die Regionalschuld hat sich seit 2016 verdreifacht (15,65 Mrd. €). Diese Obergrenze begrenzt die zusätzliche Verschuldung auf 3 Mrd. € über die Legislatur (2 Mrd. SEC + 1 Mrd. Code 8). Messung: Jahresbericht des Rechnungshofs."
+      },
+      "baseline": {
+        "fr": "Dette consolidée : 15,65 milliards EUR (fin 2024)",
+        "nl": "Geconsolideerde schuld: 15,65 miljard EUR (eind 2024)",
+        "en": "Consolidated debt: €15.65 billion (end 2024)",
+        "de": "Konsolidierte Schulden: 15,65 Mrd. EUR (Ende 2024)"
+      },
+      "deadline": "2029",
+      "status": "pending",
+      "chapter": 2
+    },
+    {
+      "id": "be-home-doubling",
+      "domain": "budget",
+      "target": {
+        "fr": "Doublement de la prime BE HOME",
+        "nl": "Verdubbeling van de BE HOME-premie",
+        "en": "Doubling of the BE HOME premium",
+        "de": "Verdopplung der BE HOME-Prämie"
+      },
+      "indicator": {
+        "fr": "×2 (baisse précompte immobilier)",
+        "nl": "×2 (verlaging onroerende voorheffing)",
+        "en": "×2 (property tax reduction)",
+        "de": "×2 (Grundsteuersenkung)"
+      },
+      "description": {
+        "fr": "La prime BE HOME réduit le précompte immobilier pour les propriétaires occupants bruxellois. Le doublement vise à renforcer l'attractivité résidentielle de la Région et à freiner l'exode fiscal. Mesure : publication de l'arrêté.",
+        "nl": "De BE HOME-premie verlaagt de onroerende voorheffing voor Brusselse eigenaar-bewoners. De verdubbeling wil de residentiële aantrekkelijkheid van het Gewest versterken en de fiscale uittocht afremmen. Meting: publicatie van het besluit.",
+        "en": "The BE HOME premium reduces property tax for Brussels owner-occupiers. Doubling it aims to strengthen the Region's residential attractiveness and curb fiscal exodus. Measured by publication of the decree.",
+        "de": "Die BE HOME-Prämie senkt die Grundsteuer für Brüsseler Eigentümer-Bewohner. Die Verdopplung soll die Wohnattraktivität der Region stärken und die steuerliche Abwanderung bremsen. Messung: Veröffentlichung des Erlasses."
+      },
+      "baseline": {
+        "fr": "Prime existante (montant simple)",
+        "nl": "Bestaande premie (enkel bedrag)",
+        "en": "Existing premium (single amount)",
+        "de": "Bestehende Prämie (einfacher Betrag)"
+      },
+      "deadline": "2027",
+      "status": "pending",
+      "chapter": 2
+    },
+    {
+      "id": "ipp-reduction",
+      "domain": "budget",
+      "target": {
+        "fr": "Baisse de l'impôt des personnes physiques",
+        "nl": "Verlaging personenbelasting",
+        "en": "Personal income tax reduction",
+        "de": "Senkung der Einkommensteuer"
+      },
+      "indicator": {
+        "fr": "-1 %",
+        "nl": "-1 %",
+        "en": "-1%",
+        "de": "-1 %"
+      },
+      "description": {
+        "fr": "L'additionnelle régionale à l'impôt des personnes physiques (IPP) sera réduite d'un point, soit un gain estimé à ~268 €/an par travailleur bruxellois. L'objectif est de réduire l'écart fiscal avec la Flandre et la Wallonie. Mesure : modification de l'additionnelle régionale.",
+        "nl": "De gewestelijke opcentiemen op de personenbelasting worden met één punt verlaagd, wat neerkomt op een geschat voordeel van ~268 €/jaar per Brusselse werknemer. Het doel is het fiscale verschil met Vlaanderen en Wallonië te verkleinen. Meting: wijziging van de gewestelijke opcentiemen.",
+        "en": "The regional surcharge on personal income tax will be reduced by one point, an estimated gain of ~€268/year per Brussels worker. The aim is to reduce the tax gap with Flanders and Wallonia. Measured by modification of the regional surcharge.",
+        "de": "Der regionale Zuschlag zur Einkommensteuer wird um einen Punkt gesenkt, was einem geschätzten Vorteil von ~268 €/Jahr pro Brüsseler Arbeitnehmer entspricht. Ziel ist es, den Steuerabstand zu Flandern und Wallonien zu verringern. Messung: Änderung des regionalen Zuschlags."
+      },
+      "baseline": {
+        "fr": "Taux actuel de l'additionnelle régionale",
+        "nl": "Huidig tarief van de gewestelijke opcentiemen",
+        "en": "Current regional surcharge rate",
+        "de": "Aktueller regionaler Zuschlagssatz"
+      },
+      "deadline": "2028",
+      "status": "pending",
+      "chapter": 2
+    },
+    {
+      "id": "registration-abatement",
+      "domain": "budget",
+      "target": {
+        "fr": "Hausse du plafond d'abattement droits d'enregistrement",
+        "nl": "Verhoging plafond abattement registratierechten",
+        "en": "Increase in registration rights abatement ceiling",
+        "de": "Erhöhung der Registrierungsabgabengrenze"
+      },
+      "indicator": {
+        "fr": "600 000 € → 800 000 €",
+        "nl": "600.000 € → 800.000 €",
+        "en": "€600,000 → €800,000",
+        "de": "600.000 € → 800.000 €"
+      },
+      "description": {
+        "fr": "Lors de l'achat d'un premier logement à Bruxelles, un abattement s'applique sur les droits d'enregistrement. Le plafond passe de 600 000 à 800 000 €, dans une enveloppe fermée de 100 M€. Cela rend l'abattement accessible à plus d'acheteurs. Mesure : arrêté régional.",
+        "nl": "Bij de aankoop van een eerste woning in Brussel geldt een abattement op de registratierechten. Het plafond stijgt van 600.000 naar 800.000 €, binnen een gesloten budget van 100 M€. Dit maakt het abattement toegankelijk voor meer kopers. Meting: gewestbesluit.",
+        "en": "When purchasing a first home in Brussels, an abatement applies on registration fees. The ceiling rises from €600,000 to €800,000, within a closed budget of €100M. This makes the abatement accessible to more buyers. Measured by regional decree.",
+        "de": "Beim Kauf einer Erstwohnung in Brüssel gilt ein Freibetrag auf die Registrierungsgebühren. Die Obergrenze steigt von 600.000 auf 800.000 €, innerhalb eines geschlossenen Budgets von 100 Mio. €. Dies macht den Freibetrag für mehr Käufer zugänglich. Messung: Regionalerlass."
+      },
+      "baseline": {
+        "fr": "Plafond actuel : 600 000 €",
+        "nl": "Huidig plafond: 600.000 €",
+        "en": "Current ceiling: €600,000",
+        "de": "Aktuelle Obergrenze: 600.000 €"
+      },
+      "deadline": "2029",
+      "status": "pending",
+      "chapter": 2
+    },
+    {
+      "id": "employment-rate",
+      "domain": "employment",
+      "target": {
+        "fr": "Taux d'emploi",
+        "nl": "Werkgelegenheidsgraad",
+        "en": "Employment rate",
+        "de": "Beschäftigungsquote"
+      },
+      "indicator": {
+        "fr": "→ 70 %",
+        "nl": "→ 70 %",
+        "en": "→ 70%",
+        "de": "→ 70 %"
+      },
+      "description": {
+        "fr": "Le taux d'emploi bruxellois est structurellement plus bas que la moyenne belge (~72 %). L'objectif de 70 % s'inscrit dans la stratégie européenne pour 2030. Mesure : statistiques Actiris et Statbel.",
+        "nl": "De Brusselse werkgelegenheidsgraad ligt structureel lager dan het Belgische gemiddelde (~72 %). Het doel van 70 % sluit aan bij de Europese strategie voor 2030. Meting: Actiris- en Statbel-statistieken.",
+        "en": "Brussels' employment rate is structurally lower than the Belgian average (~72%). The 70% target aligns with the European strategy for 2030. Measured via Actiris and Statbel statistics.",
+        "de": "Die Brüsseler Beschäftigungsquote liegt strukturell unter dem belgischen Durchschnitt (~72 %). Das 70-%-Ziel steht im Einklang mit der europäischen Strategie für 2030. Messung: Actiris- und Statbel-Statistiken."
+      },
+      "baseline": {
+        "fr": "~65 % (estimation 2025)",
+        "nl": "~65 % (schatting 2025)",
+        "en": "~65% (2025 estimate)",
+        "de": "~65 % (Schätzung 2025)"
+      },
+      "deadline": "2030",
+      "status": "pending",
+      "chapter": 5
+    },
+    {
+      "id": "actiris-delay",
+      "domain": "employment",
+      "target": {
+        "fr": "Délai d'accompagnement Actiris",
+        "nl": "Begeleidingstermijn Actiris",
+        "en": "Actiris support delay",
+        "de": "Actiris-Begleitungsfrist"
+      },
+      "indicator": {
+        "fr": "5 mois → 3 mois",
+        "nl": "5 maanden → 3 maanden",
+        "en": "5 months → 3 months",
+        "de": "5 Monate → 3 Monate"
+      },
+      "description": {
+        "fr": "Un demandeur d'emploi bruxellois attend en moyenne 5 mois avant d'être accompagné par Actiris. L'objectif est de réduire ce délai à 3 mois pour accélérer le retour à l'emploi. Mesure : rapports d'activité Actiris.",
+        "nl": "Een Brusselse werkzoekende wacht gemiddeld 5 maanden op begeleiding door Actiris. Het doel is deze termijn te verkorten tot 3 maanden om de terugkeer naar werk te versnellen. Meting: Actiris-activiteitenverslagen.",
+        "en": "A Brussels jobseeker waits an average of 5 months for Actiris support. The goal is to reduce this to 3 months to speed up the return to employment. Measured via Actiris activity reports.",
+        "de": "Ein Brüsseler Arbeitssuchender wartet durchschnittlich 5 Monate auf Begleitung durch Actiris. Ziel ist es, diese Frist auf 3 Monate zu verkürzen, um die Rückkehr in die Beschäftigung zu beschleunigen. Messung: Actiris-Tätigkeitsberichte."
+      },
+      "baseline": {
+        "fr": "Délai moyen : 5 mois",
+        "nl": "Gemiddelde termijn: 5 maanden",
+        "en": "Average delay: 5 months",
+        "de": "Durchschnittliche Frist: 5 Monate"
+      },
+      "deadline": "2029",
+      "status": "pending",
+      "chapter": 5
+    },
+    {
+      "id": "permit-delays",
+      "domain": "housing",
+      "target": {
+        "fr": "Délais de permis d'urbanisme divisés par 2",
+        "nl": "Bouwvergunningentermijnen gehalveerd",
+        "en": "Urban planning permit delays halved",
+        "de": "Baugenehmigungsfristen halbiert"
+      },
+      "indicator": {
+        "fr": "→ 6 mois en moyenne",
+        "nl": "→ gemiddeld 6 maanden",
+        "en": "→ 6 months average",
+        "de": "→ durchschnittlich 6 Monate"
+      },
+      "description": {
+        "fr": "Les délais de traitement des permis d'urbanisme à Bruxelles sont jugés excessifs, freinant la construction et la rénovation. L'objectif est de les diviser par deux via l'automatisation (MyPermit) et la fusion urbanisme-environnement. Mesure : statistiques urban.brussels.",
+        "nl": "De behandelingstermijnen voor stedenbouwkundige vergunningen in Brussel worden als buitensporig beschouwd, wat bouw en renovatie vertraagt. Het doel is ze te halveren via automatisering (MyPermit) en de fusie stedenbouw-milieu. Meting: statistieken urban.brussels.",
+        "en": "Brussels urban planning permit processing times are considered excessive, slowing down construction and renovation. The aim is to halve them through automation (MyPermit) and merging urban planning-environment permits. Measured via urban.brussels statistics.",
+        "de": "Die Bearbeitungszeiten für Baugenehmigungen in Brüssel gelten als übermäßig lang und bremsen Bau und Renovierung. Ziel ist die Halbierung durch Automatisierung (MyPermit) und die Zusammenlegung von Stadtplanungs- und Umweltgenehmigungen. Messung: urban.brussels-Statistiken."
+      },
+      "baseline": {
+        "fr": "~12 mois en moyenne (estimation)",
+        "nl": "~12 maanden gemiddeld (schatting)",
+        "en": "~12 months average (estimate)",
+        "de": "~12 Monate durchschnittlich (Schätzung)"
+      },
+      "deadline": "2029",
+      "status": "pending",
+      "chapter": 6
+    },
+    {
+      "id": "station-security",
+      "domain": "security",
+      "target": {
+        "fr": "Investissement sécurisation des gares",
+        "nl": "Investering in stationsbeveiliging",
+        "en": "Station security investment",
+        "de": "Investition in Bahnhofssicherheit"
+      },
+      "indicator": {
+        "fr": "10 M€",
+        "nl": "10 M€",
+        "en": "€10M",
+        "de": "10 Mio. €"
+      },
+      "description": {
+        "fr": "Les gares du Midi et du Nord concentrent des problèmes de sécurité (drogues, agressions, sentiment d'insécurité). Un investissement régional de 10 M€ est prévu pour la vidéosurveillance, l'éclairage et la coordination policière. Mesure : budget régional alloué.",
+        "nl": "De stations Brussel-Zuid en -Noord kampen met veiligheidsproblemen (drugs, agressie, onveiligheidsgevoel). Een gewestelijke investering van 10 M€ is voorzien voor camerabewaking, verlichting en politiecoördinatie. Meting: toegewezen gewestbudget.",
+        "en": "Midi and Nord stations face security issues (drugs, assaults, insecurity). A regional investment of €10M is planned for CCTV, lighting and police coordination. Measured by allocated regional budget.",
+        "de": "Die Bahnhöfe Midi und Nord haben Sicherheitsprobleme (Drogen, Übergriffe, Unsicherheitsgefühl). Eine regionale Investition von 10 Mio. € ist für Videoüberwachung, Beleuchtung und Polizeikoordination vorgesehen. Messung: zugewiesenes Regionalbudget."
+      },
+      "baseline": {
+        "fr": "Pas d'enveloppe régionale dédiée",
+        "nl": "Geen specifiek gewestbudget",
+        "en": "No dedicated regional budget",
+        "de": "Kein spezifisches Regionalbudget"
+      },
+      "deadline": "2029",
+      "status": "pending",
+      "chapter": 7
+    },
+    {
+      "id": "road-infrastructure",
+      "domain": "mobility",
+      "target": {
+        "fr": "Enveloppe annuelle voiries et espace public",
+        "nl": "Jaarlijks budget wegen en openbare ruimte",
+        "en": "Annual road and public space budget",
+        "de": "Jährliches Budget für Straßen und öffentlichen Raum"
+      },
+      "indicator": {
+        "fr": "+40 M€/an",
+        "nl": "+40 M€/jaar",
+        "en": "+€40M/year",
+        "de": "+40 Mio. €/Jahr"
+      },
+      "description": {
+        "fr": "L'état des voiries bruxelloises s'est dégradé, notamment faute d'investissement pendant la crise politique. Une enveloppe supplémentaire de 40 M€ par an est prévue pour la réfection des chaussées, les trottoirs et l'espace public. Mesure : budget annuel voiries dans les comptes régionaux.",
+        "nl": "De staat van de Brusselse wegen is verslechterd, vooral door gebrek aan investeringen tijdens de politieke crisis. Een extra budget van 40 M€ per jaar is voorzien voor de herstelling van rijwegen, voetpaden en openbare ruimte. Meting: jaarlijks wegenbudget in de gewestrekeningen.",
+        "en": "Brussels roads have deteriorated, partly due to lack of investment during the political crisis. An additional €40M per year is planned for road resurfacing, pavements and public space. Measured by annual road budget in regional accounts.",
+        "de": "Der Zustand der Brüsseler Straßen hat sich verschlechtert, u.a. wegen fehlender Investitionen während der politischen Krise. Ein zusätzliches Budget von 40 Mio. € pro Jahr ist für Straßensanierung, Gehwege und öffentlichen Raum vorgesehen. Messung: jährliches Straßenbudget in den Regionalkonten."
+      },
+      "baseline": {
+        "fr": "Budget existant (gelé sous douzièmes provisoires)",
+        "nl": "Bestaand budget (bevroren onder voorlopige twaalfden)",
+        "en": "Existing budget (frozen under provisional twelfths)",
+        "de": "Bestehendes Budget (eingefroren unter vorläufigen Zwölfteln)"
+      },
+      "deadline": "2026",
+      "status": "pending",
+      "chapter": 3
+    },
+    {
+      "id": "lez-pass",
+      "domain": "mobility",
+      "target": {
+        "fr": "Pass annuel LEZ",
+        "nl": "LEZ-jaarpas",
+        "en": "Annual LEZ pass",
+        "de": "LEZ-Jahrespass"
+      },
+      "indicator": {
+        "fr": "350 € (social : 200 €)",
+        "nl": "350 € (sociaal: 200 €)",
+        "en": "€350 (social: €200)",
+        "de": "350 € (Sozial: 200 €)"
+      },
+      "description": {
+        "fr": "Actuellement, les véhicules non conformes à la zone de basses émissions (LEZ) reçoivent une amende par infraction constatée. Le pass annuel créerait une alternative légale à 350 €/an (200 € pour les revenus modestes). L'amende mensuelle serait réduite à 80 €. Mesure : publication de l'arrêté.",
+        "nl": "Momenteel krijgen voertuigen die niet voldoen aan de lage-emissiezone (LEZ) een boete per vastgestelde overtreding. De jaarpas zou een legaal alternatief bieden voor 350 €/jaar (200 € voor lage inkomens). De maandelijkse boete zou dalen naar 80 €. Meting: publicatie van het besluit.",
+        "en": "Currently, vehicles not complying with the low emission zone (LEZ) receive a fine per observed offence. The annual pass would create a legal alternative at €350/year (€200 for low incomes). The monthly fine would be reduced to €80. Measured by publication of the decree.",
+        "de": "Derzeit erhalten Fahrzeuge, die nicht der Umweltzone (LEZ) entsprechen, eine Strafe pro festgestelltem Verstoß. Der Jahrespass würde eine legale Alternative für 350 €/Jahr (200 € für Geringverdiener) schaffen. Die monatliche Strafe würde auf 80 € gesenkt. Messung: Veröffentlichung des Erlasses."
+      },
+      "baseline": {
+        "fr": "Amende par infraction constatée",
+        "nl": "Boete per vastgestelde overtreding",
+        "en": "Fine per observed offence",
+        "de": "Strafe pro festgestelltem Verstoß"
+      },
+      "deadline": "2026",
+      "status": "pending",
+      "chapter": 3
+    },
+    {
+      "id": "site-freeze",
+      "domain": "housing",
+      "target": {
+        "fr": "Gel des sites Josaphat, Meylemeersch, Keyenbempt, Calevoet",
+        "nl": "Bevriezing sites Josaphat, Meylemeersch, Keyenbempt, Calevoet",
+        "en": "Freeze of Josaphat, Meylemeersch, Keyenbempt, Calevoet sites",
+        "de": "Einfrieren der Standorte Josaphat, Meylemeersch, Keyenbempt, Calevoet"
+      },
+      "indicator": {
+        "fr": "18 mois",
+        "nl": "18 maanden",
+        "en": "18 months",
+        "de": "18 Monate"
+      },
+      "description": {
+        "fr": "Ces quatre sites font l'objet de controverses urbanistiques (logements vs espaces verts). Un gel de 18 mois suspend tout développement pour réévaluer leur affectation. Mesure : arrêté de gel et étude d'affectation.",
+        "nl": "Deze vier sites zijn het onderwerp van stedenbouwkundige controverses (woningen vs groene ruimtes). Een bevriezing van 18 maanden schort alle ontwikkeling op om hun bestemming te herevalueren. Meting: bevriezingsbesluit en bestemmingsstudie.",
+        "en": "These four sites are subject to urban planning controversies (housing vs green spaces). An 18-month freeze suspends all development to reassess their designation. Measured by freeze decree and designation study.",
+        "de": "Diese vier Standorte sind Gegenstand städtebaulicher Kontroversen (Wohnungsbau vs. Grünflächen). Ein 18-monatiges Einfrieren setzt jede Entwicklung aus, um ihre Bestimmung neu zu bewerten. Messung: Einfrierungserlass und Bestimmungsstudie."
+      },
+      "baseline": {
+        "fr": "Projets de développement en cours ou planifiés",
+        "nl": "Lopende of geplande ontwikkelingsprojecten",
+        "en": "Ongoing or planned development projects",
+        "de": "Laufende oder geplante Entwicklungsprojekte"
+      },
+      "deadline": "2027",
+      "status": "pending",
+      "chapter": 6
+    },
+    {
+      "id": "dluu",
+      "domain": "housing",
+      "target": {
+        "fr": "DLUU (régularisation urbanistique simplifiée)",
+        "nl": "DLUU (vereenvoudigde stedenbouwkundige regularisatie)",
+        "en": "DLUU (simplified urban planning regularization)",
+        "de": "DLUU (vereinfachte städtebauliche Regularisierung)"
+      },
+      "indicator": {
+        "fr": "Actif",
+        "nl": "Actief",
+        "en": "Active",
+        "de": "Aktiv"
+      },
+      "description": {
+        "fr": "La Déclaration Libératoire Unique Urbanistique permet de régulariser des infractions urbanistiques mineures (vérandas, extensions, modifications de façade) par une procédure simplifiée au lieu de la procédure standard longue et coûteuse. Active jusqu'en 2029.",
+        "nl": "De Unieke Vrijstellende Stedenbouwkundige Verklaring maakt het mogelijk om kleine stedenbouwkundige overtredingen (veranda's, uitbreidingen, gevelwijzigingen) te regulariseren via een vereenvoudigde procedure in plaats van de lange en dure standaardprocedure. Actief tot 2029.",
+        "en": "The Unique Liberatory Urban Planning Declaration allows minor urban planning offences (verandas, extensions, facade changes) to be regularized through a simplified procedure instead of the lengthy and costly standard process. Active until 2029.",
+        "de": "Die Einmalige Befreiende Städtebauliche Erklärung ermöglicht die Regularisierung geringfügiger städtebaulicher Verstöße (Veranden, Erweiterungen, Fassadenänderungen) durch ein vereinfachtes Verfahren statt des langen und kostspieligen Standardverfahrens. Aktiv bis 2029."
+      },
+      "baseline": {
+        "fr": "Procédure standard de régularisation (longue et coûteuse)",
+        "nl": "Standaard regularisatieprocedure (lang en duur)",
+        "en": "Standard regularization procedure (lengthy and costly)",
+        "de": "Standard-Regularisierungsverfahren (langwierig und kostspielig)"
+      },
+      "deadline": "2029",
+      "status": "pending",
+      "chapter": 6
+    },
+    {
+      "id": "siamu-reinforcement",
+      "domain": "security",
+      "target": {
+        "fr": "Renforcement des effectifs SIAMU",
+        "nl": "Versterking DBDMH-personeel",
+        "en": "SIAMU staff reinforcement",
+        "de": "Verstärkung des SIAMU-Personals"
+      },
+      "indicator": {
+        "fr": "2 phases",
+        "nl": "2 fasen",
+        "en": "2 phases",
+        "de": "2 Phasen"
+      },
+      "description": {
+        "fr": "Le Service d'Incendie et d'Aide Médicale Urgente (SIAMU) fait face à un manque d'effectifs signalé par les syndicats. Deux phases de recrutement sont prévues pour renforcer la capacité opérationnelle et améliorer les conditions de travail. Mesure : effectifs SIAMU dans les rapports annuels.",
+        "nl": "De Dienst voor Brandbestrijding en Dringende Medische Hulp (DBDMH) kampt met een personeelstekort, gemeld door de vakbonden. Twee rekruteringsfasen zijn voorzien om de operationele capaciteit te versterken en de arbeidsomstandigheden te verbeteren. Meting: DBDMH-personeelsbestand in de jaarverslagen.",
+        "en": "The Fire and Emergency Medical Service (SIAMU) faces a staff shortage reported by unions. Two recruitment phases are planned to strengthen operational capacity and improve working conditions. Measured by SIAMU headcount in annual reports.",
+        "de": "Der Feuerwehr- und Rettungsdienst (SIAMU) leidet unter einem von den Gewerkschaften gemeldeten Personalmangel. Zwei Rekrutierungsphasen sind vorgesehen, um die Einsatzfähigkeit zu stärken und die Arbeitsbedingungen zu verbessern. Messung: SIAMU-Personalbestand in den Jahresberichten."
+      },
+      "baseline": {
+        "fr": "Effectifs jugés insuffisants (syndicats)",
+        "nl": "Personeelsbestand ontoereikend geacht (vakbonden)",
+        "en": "Staff levels deemed insufficient (unions)",
+        "de": "Personalbestand als unzureichend eingestuft (Gewerkschaften)"
+      },
+      "deadline": "2029",
+      "status": "pending",
+      "chapter": 7
+    },
+    {
+      "id": "car-free-day",
+      "domain": "mobility",
+      "target": {
+        "fr": "2e journée sans voiture (semaine de l'Iris)",
+        "nl": "2e autoloze dag (Irisweek)",
+        "en": "2nd car-free day (Iris week)",
+        "de": "2. Autofreier Tag (Iris-Woche)"
+      },
+      "indicator": {
+        "fr": "1 jour supplémentaire/an",
+        "nl": "1 extra dag/jaar",
+        "en": "1 additional day/year",
+        "de": "1 zusätzlicher Tag/Jahr"
+      },
+      "description": {
+        "fr": "Bruxelles organise chaque année une journée sans voiture (dimanche en septembre). Une seconde journée est prévue pendant la semaine de l'Iris (fête de la Région, en mai). Mesure : organisation effective de l'événement.",
+        "nl": "Brussel organiseert elk jaar een autoloze dag (zondag in september). Een tweede dag is voorzien tijdens de Irisweek (feest van het Gewest, in mei). Meting: effectieve organisatie van het evenement.",
+        "en": "Brussels holds a car-free day every year (Sunday in September). A second day is planned during Iris week (the Region's festival, in May). Measured by the event taking place.",
+        "de": "Brüssel veranstaltet jährlich einen autofreien Tag (Sonntag im September). Ein zweiter Tag ist während der Iris-Woche (Fest der Region, im Mai) geplant. Messung: tatsächliche Durchführung der Veranstaltung."
+      },
+      "baseline": {
+        "fr": "1 journée sans voiture par an (septembre)",
+        "nl": "1 autoloze dag per jaar (september)",
+        "en": "1 car-free day per year (September)",
+        "de": "1 autofreier Tag pro Jahr (September)"
+      },
+      "deadline": "2027",
+      "status": "pending",
+      "chapter": 3
+    },
+    {
+      "id": "admin-pillars",
+      "domain": "institutional",
+      "target": {
+        "fr": "Mise en place des piliers 1 & 2 (réforme admin)",
+        "nl": "Invoering pijlers 1 & 2 (admin hervorming)",
+        "en": "Implementation of pillars 1 & 2 (admin reform)",
+        "de": "Umsetzung der Säulen 1 & 2 (Verwaltungsreform)"
+      },
+      "indicator": {
+        "fr": "Opérationnel",
+        "nl": "Operationeel",
+        "en": "Operational",
+        "de": "Operativ"
+      },
+      "description": {
+        "fr": "La réforme administrative prévoit de fusionner 25 structures régionales en 4 piliers. Le pilier 1 (support mutualisé : RH, IT, finances) et le pilier 2 (missions métier : mobilité, logement, environnement, etc.) sont prioritaires. Objectif : économies de 20 à 30 % des coûts de fonctionnement. Mesure : décrets de création des entités.",
+        "nl": "De administratieve hervorming voorziet de fusie van 25 gewestelijke structuren in 4 pijlers. Pijler 1 (gedeelde ondersteuning: HR, IT, financiën) en pijler 2 (kernmissies: mobiliteit, huisvesting, milieu, enz.) zijn prioritair. Doel: besparingen van 20 tot 30 % op de werkingskosten. Meting: oprichtingsbesluiten van de entiteiten.",
+        "en": "The admin reform plans to merge 25 regional structures into 4 pillars. Pillar 1 (shared support: HR, IT, finance) and Pillar 2 (core missions: mobility, housing, environment, etc.) are priorities. Target: 20-30% savings on operating costs. Measured by entity creation decrees.",
+        "de": "Die Verwaltungsreform plant die Fusion von 25 regionalen Strukturen in 4 Säulen. Säule 1 (gemeinsame Unterstützung: HR, IT, Finanzen) und Säule 2 (Kernaufgaben: Mobilität, Wohnungswesen, Umwelt usw.) haben Priorität. Ziel: 20-30 % Einsparungen bei den Betriebskosten. Messung: Gründungserlasse der Einheiten."
+      },
+      "baseline": {
+        "fr": "25 structures régionales distinctes",
+        "nl": "25 afzonderlijke gewestelijke structuren",
+        "en": "25 separate regional structures",
+        "de": "25 separate regionale Strukturen"
+      },
+      "deadline": "2026",
+      "status": "pending",
+      "chapter": 4
+    }
+  ]
+}

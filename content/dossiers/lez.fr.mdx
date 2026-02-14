@@ -1,12 +1,12 @@
 ---
-title: "LEZ : la zone de basses émissions en question"
+title: "LEZ : maintenue avec pass annuel et amendes réduites"
 slug: lez
 locale: fr
 dossierType: regulatory
 phase: in-progress
 crisisImpact: delayed
 decisionLevel: regional
-summary: "La zone de basses émissions (LEZ) de Bruxelles restreint progressivement l'accès des véhicules les plus polluants. Le calendrier de durcissement prévu nécessite des décisions politiques que le gouvernement en affaires courantes ne peut prendre."
+summary: "L'accord de février 2026 maintient la LEZ mais introduit un pass annuel (350 EUR, tarif social 200 EUR) comme alternative aux amendes par infraction. L'amende est réduite à 80 EUR et le plafond de 4 amendes/an est supprimé."
 stakeholders:
   - "Bruxelles Environnement"
   - "Région de Bruxelles-Capitale"
@@ -18,43 +18,63 @@ relatedSectors:
   - transport
   - environment
 relatedCommunes: []
+relatedFormationEvents:
+  - accord-gouvernement-bruxellois
 sources:
   - label: "Bruxelles Environnement — LEZ"
     url: "https://lez.brussels/"
     accessedAt: "2026-02-12"
+  - label: "RTBF — Ce que contient l'accord de gouvernement régional (12 fév. 2026)"
+    url: "https://www.rtbf.be/article/equilibre-budgetaire-en-2029-good-move-primes-renolution-voici-ce-que-contient-l-accord-de-gouvernement-regional-a-bruxelles-11678417"
+    accessedAt: "2026-02-13"
 metrics:
   - label: "Année de création"
     value: "2018"
     source: "Bruxelles Environnement"
     date: "2025-01-01"
-  - label: "Véhicules concernés par les restrictions"
-    value: "~100 000"
-    source: "Estimation Bruxelles Environnement"
-    date: "2025-01-01"
+  - label: "Pass annuel (DPR)"
+    value: "350"
+    unit: "EUR/an (social : 200 EUR)"
+    source: "DPR fév. 2026"
+    date: "2026-02-13"
+  - label: "Amende par infraction (DPR)"
+    value: "80"
+    unit: "EUR (contre 350 EUR avant)"
+    source: "DPR fév. 2026"
+    date: "2026-02-13"
 alerts:
   - label: "Calendrier de durcissement 2025-2030 nécessitant validation politique"
     severity: warning
     date: "2025-01-01"
-confidenceLevel: estimated
-lastModified: "2026-02-12"
+  - label: "DPR : pass annuel 350 EUR, amende réduite à 80 EUR"
+    severity: info
+    date: "2026-02-13"
+confidenceLevel: official
+dprCommitment: "Pass annuel LEZ 350 EUR (social 200 EUR), amende réduite à 80 EUR/infraction, plafond 4 amendes/an supprimé"
+lastModified: "2026-02-14"
 ---
 
-## Contexte
+## Accord de gouvernement : ce qui change
+
+L'accord du 12 février 2026 modifie substantiellement le régime de la LEZ :
+
+- **Pass annuel** : les propriétaires de véhicules non conformes pourront acheter un pass à **350 EUR/an** (tarif social **200 EUR**) pour circuler légalement
+- **Amende réduite** : l'amende par infraction passe de 350 à **80 EUR**
+- **Plafond supprimé** : le plafond de 4 amendes par an est supprimé
+
+La LEZ est maintenue dans son principe mais son impact financier sur les automobilistes est significativement atténué.
+
+## Contexte hérité
 
 La LEZ (Low Emission Zone) de Bruxelles a été instaurée en 2018 pour améliorer la qualité de l'air en interdisant progressivement les véhicules les plus polluants sur le territoire régional. Le calendrier prévoit un durcissement progressif des normes d'accès, avec l'objectif d'interdire les véhicules diesel d'ici 2030 et les véhicules à essence d'ici 2035.
 
-## Impact de la crise
+## Ce qui était en suspens (juin 2024 — février 2026)
 
-La LEZ continue de fonctionner selon les règles déjà adoptées. Cependant, les prochaines phases de durcissement nécessitent des décisions politiques :
+La LEZ a continué de fonctionner selon les règles déjà adoptées. Cependant, les prochaines phases de durcissement nécessitaient des décisions politiques qui ne pouvaient être prises en affaires courantes.
 
-- Confirmation ou ajustement du calendrier 2025-2030
-- Adoption de mesures d'accompagnement social (primes de remplacement, alternatives de mobilité)
-- Évaluation des dérogations
-
-Le gouvernement en affaires courantes peut maintenir le dispositif existant mais ne peut pas adopter de nouvelles phases réglementaires.
-
-## Enjeux
+## Enjeux à suivre
 
 - **Santé publique** : la qualité de l'air à Bruxelles reste inférieure aux recommandations de l'OMS dans plusieurs zones
-- **Justice sociale** : les ménages à faibles revenus possèdent souvent les véhicules les plus anciens et sont les premiers affectés par les restrictions
-- **Cohérence climatique** : le retard dans le durcissement compromet les objectifs climatiques régionaux
+- **Justice sociale** : le pass annuel et le tarif social visent à atténuer l'impact sur les ménages à faibles revenus
+- **Cohérence climatique** : l'assouplissement du régime d'amendes soulève des questions sur la trajectoire d'élimination des véhicules polluants
+- **Calendrier de durcissement** : la confirmation ou la révision du calendrier 2025-2030 reste à décider

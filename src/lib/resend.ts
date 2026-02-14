@@ -21,6 +21,10 @@ export const DOMAIN_TOPICS = [
   'climate',
   'social',
   'solutions',
+  'security',
+  'economy',
+  'cleanliness',
+  'institutional',
 ] as const;
 
 export const SECTOR_TOPICS = [
@@ -37,11 +41,24 @@ export const SECTOR_TOPICS = [
   'transport',
 ] as const;
 
-export const COMMUNE_TOPICS = ['communes'] as const;
+export const COMMUNE_TOPICS = [
+  'commune-bruxelles-ville',
+  'commune-anderlecht',
+  'commune-schaerbeek',
+] as const;
 
-export const DOSSIER_TOPICS = ['dossiers'] as const;
+export const DOSSIER_TOPICS = [
+  'dossier-slrb',
+  'dossier-lez',
+  'dossier-vivaqua',
+  'dossier-metro-3',
+  'dossier-good-move',
+  'dossier-plan-securite',
+] as const;
 
-export const TOPICS = [...DOMAIN_TOPICS, ...SECTOR_TOPICS, ...COMMUNE_TOPICS, ...DOSSIER_TOPICS] as const;
+export const ENGAGEMENT_TOPICS = ['engagements'] as const;
+
+export const TOPICS = [...DOMAIN_TOPICS, ...SECTOR_TOPICS, ...COMMUNE_TOPICS, ...DOSSIER_TOPICS, ...ENGAGEMENT_TOPICS] as const;
 
 export type Topic = (typeof TOPICS)[number];
 

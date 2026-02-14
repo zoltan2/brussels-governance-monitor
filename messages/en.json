@@ -18,6 +18,9 @@
     "about": "About",
     "sectors": "Sectors",
     "dossiers": "Dossiers",
+    "dashboard": "Commitments",
+    "explore": "Explore",
+    "communes": "Municipalities",
     "tools": "Tools"
   },
   "counter": {
@@ -85,7 +88,11 @@
       "employment": "This card does not say that rising unemployment is caused by the absence of government — it documents that regional response measures are frozen while the unemployment rate evolves. Employment dynamics depend on multiple factors (economic conditions, federal reform, economic structure).",
       "housing": "This card does not say that the housing crisis was born with the government crisis — the social housing deficit is structural and predates it. It documents that the absence of government prevents any new policy response to a deteriorating situation.",
       "climate": "This card does not say that Brussels will miss its climate targets because of the absence of government — it documents that the decision-making mechanisms needed to reach those targets are frozen. Reaching the 2030 target depends on many factors beyond regional governance.",
-      "social": "This card does not say that social services have stopped functioning — CPAS (public social welfare centres) and Iriscare continue their core mission. It documents that new investments, capacity adjustments, and structural reforms are impossible under caretaker government."
+      "social": "This card does not say that social services have stopped functioning — CPAS (public social welfare centres) and Iriscare continue their core mission. It documents that new investments, capacity adjustments, and structural reforms are impossible under caretaker government.",
+      "security": "This page does not claim that the regional security plan will solve all safety challenges — it documents the quantified commitments from the RPD. Effectiveness depends on actual funding, coordination with police zones and federal cooperation.",
+      "economy": "This page does not claim that economic measures will guarantee growth — it documents the RPD commitments on attractiveness and development. Actual impact will depend on the international economic climate and effective implementation of announced measures.",
+      "cleanliness": "This page does not claim that cleanliness measures will solve the problem immediately — it documents the concrete commitments from the RPD. Effectiveness depends on deployment of resources, Region-municipality coordination and user behaviour.",
+      "institutional": "This page does not claim that institutional simplification will be straightforward — it documents the rationalisation commitments from the RPD. These reforms require complex political agreements and special majorities in Parliament."
     }
   },
   "solutions": {
@@ -198,6 +205,10 @@
       "housing": "Housing",
       "climate": "Climate",
       "social": "Social",
+      "security": "Security",
+      "economy": "Economy",
+      "cleanliness": "Cleanliness",
+      "institutional": "Institutional",
       "solutions": "Exit paths",
       "commerce": "Commerce",
       "construction": "Construction",
@@ -210,8 +221,16 @@
       "housing-sector": "Housing (sector)",
       "nonprofit": "Nonprofit",
       "transport": "Transport",
-      "communes": "Communes",
-      "dossiers": "Key dossiers"
+      "commune-bruxelles-ville": "City of Brussels",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaerbeek",
+      "dossier-slrb": "SLRB",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Metro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Security Plan",
+      "engagements": "RPD commitments"
     },
     "submit": "Subscribe",
     "submitting": "Subscribing...",
@@ -244,6 +263,10 @@
       "housing": "Housing",
       "climate": "Climate",
       "social": "Social",
+      "security": "Security",
+      "economy": "Economy",
+      "cleanliness": "Cleanliness",
+      "institutional": "Institutional",
       "solutions": "Exit paths",
       "commerce": "Commerce",
       "construction": "Construction",
@@ -255,7 +278,17 @@
       "horeca": "Horeca",
       "housing-sector": "Housing (sector)",
       "nonprofit": "Nonprofit",
-      "transport": "Transport"
+      "transport": "Transport",
+      "commune-bruxelles-ville": "City of Brussels",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaerbeek",
+      "dossier-slrb": "SLRB",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Metro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Security Plan",
+      "engagements": "RPD commitments"
     }
   },
   "subscribeConfirmed": {
@@ -274,7 +307,32 @@
       "housing": "Housing",
       "climate": "Climate",
       "social": "Social",
-      "solutions": "Exit paths"
+      "security": "Security",
+      "economy": "Economy",
+      "cleanliness": "Cleanliness",
+      "institutional": "Institutional",
+      "solutions": "Exit paths",
+      "commerce": "Commerce",
+      "construction": "Construction",
+      "culture": "Culture",
+      "digital": "Digital",
+      "education": "Education",
+      "environment": "Environment",
+      "health-social": "Health-Social",
+      "horeca": "Horeca",
+      "housing-sector": "Housing (sector)",
+      "nonprofit": "Non-profit",
+      "transport": "Transport",
+      "commune-bruxelles-ville": "City of Brussels",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaerbeek",
+      "dossier-slrb": "SLRB",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Metro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Security Plan",
+      "engagements": "RPD commitments"
     }
   },
   "subscribeUnsubscribed": {
@@ -293,6 +351,7 @@
     "sectorsGroup": "Sectors",
     "communesGroup": "Communes",
     "dossiersGroup": "Dossiers",
+    "engagementsGroup": "Commitments",
     "save": "Save",
     "saving": "Saving...",
     "saved": "Preferences saved!",
@@ -965,6 +1024,9 @@
     "timelineTitle": "Timeline",
     "timelineSubtitle": "Follow the steps of the Brussels government formation",
     "viewTimeline2": "View the full timeline",
+    "dashboardTitle": "Commitment tracking",
+    "dashboardSubtitle": "16 quantified promises from the Regional Policy Declaration, verified source by source.",
+    "viewDashboard": "View the dashboard",
     "governmentTitle": "New Brussels government",
     "governmentSubtitle": "Swearing-in scheduled for Saturday February 14 — names from press sources, to be confirmed",
     "governmentRoles": {
@@ -1144,7 +1206,8 @@
     "transparency": "Transparency",
     "accessibility": "Accessibility",
     "communes": "Municipalities",
-    "dossiers": "Dossiers"
+    "dossiers": "Dossiers",
+    "dashboard": "Commitments"
   },
   "understand": {
     "title": "Understand",
@@ -1350,6 +1413,22 @@
       "official": "Official source",
       "estimated": "BGM estimate",
       "unconfirmed": "Unconfirmed"
+    }
+  },
+  "dashboard": {
+    "title": "Government commitments",
+    "subtitle": "Tracking the quantified commitments from the Regional Policy Declaration (13 February 2026). Each promise is verified, source by source.",
+    "total": "{count} commitments tracked",
+    "source": "Source",
+    "commitments": "commitments",
+    "dprChapter": "RPD ch. {chapter}",
+    "baseline": "Current situation",
+    "learnMore": "View domain page",
+    "status": {
+      "pending": "Pending",
+      "on-track": "On track",
+      "delayed": "Delayed",
+      "achieved": "Achieved"
     }
   }
 }

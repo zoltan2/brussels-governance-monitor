@@ -18,6 +18,9 @@
     "about": "Over ons",
     "sectors": "Sectoren",
     "dossiers": "Dossiers",
+    "dashboard": "Engagementen",
+    "explore": "Verkennen",
+    "communes": "Gemeenten",
     "tools": "Hulpmiddelen"
   },
   "counter": {
@@ -85,7 +88,11 @@
       "employment": "Deze fiche zegt niet dat de stijging van de werkloosheid wordt veroorzaakt door de afwezigheid van een regering — ze documenteert dat de gewestelijke antwoordmaatregelen bevroren zijn terwijl het werkloosheidscijfer evolueert. De dynamiek van de werkgelegenheid hangt af van meerdere factoren (conjunctuur, federale hervorming, economische structuur).",
       "housing": "Deze fiche zegt niet dat de wooncrisis is ontstaan met de regeringscrisis — het tekort aan sociale woningen is structureel en dateert van daarvoor. Ze documenteert dat de afwezigheid van een regering elk nieuw politiek antwoord verhindert op een situatie die verslechtert.",
       "climate": "Deze fiche zegt niet dat Brussel zijn klimaatdoelstellingen zal missen door de afwezigheid van een regering — ze documenteert dat de besluitvormingsmechanismen die nodig zijn om deze doelstellingen te bereiken, bevroren zijn. Het behalen van de doelstelling 2030 hangt af van talrijke factoren die verder gaan dan het gewestelijk bestuur.",
-      "social": "Deze fiche zegt niet dat de sociale diensten niet meer functioneren — de OCMW's en Iriscare zetten hun basismissie voort. Ze documenteert dat nieuwe investeringen, capaciteitsaanpassingen en structurele hervormingen onmogelijk zijn in lopende zaken."
+      "social": "Deze fiche zegt niet dat de sociale diensten niet meer functioneren — de OCMW's en Iriscare zetten hun basismissie voort. Ze documenteert dat nieuwe investeringen, capaciteitsaanpassingen en structurele hervormingen onmogelijk zijn in lopende zaken.",
+      "security": "Deze fiche zegt niet dat het regionale veiligheidsplan alle veiligheidsproblemen zal oplossen — ze documenteert de cijfermatige engagementen uit de GBV. De doeltreffendheid hangt af van de effectieve financiering, de coördinatie met de politiezones en de federale samenwerking.",
+      "economy": "Deze fiche zegt niet dat de economische maatregelen groei garanderen — ze documenteert de engagementen uit de GBV inzake aantrekkelijkheid en ontwikkeling. De werkelijke impact zal afhangen van de internationale conjunctuur en de effectieve uitvoering van de aangekondigde maatregelen.",
+      "cleanliness": "Deze fiche zegt niet dat de netheidsmaatregelen het probleem onmiddellijk zullen oplossen — ze documenteert de concrete engagementen uit de GBV. De doeltreffendheid hangt af van de inzet van middelen, de coördinatie Gewest-gemeenten en het gedrag van de gebruikers.",
+      "institutional": "Deze fiche zegt niet dat de institutionele vereenvoudiging zonder moeilijkheden zal verlopen — ze documenteert de rationaliseringsengagementen uit de GBV. Deze hervormingen vereisen complexe politieke akkoorden en bijzondere meerderheden in het Parlement."
     }
   },
   "solutions": {
@@ -198,6 +205,10 @@
       "housing": "Huisvesting",
       "climate": "Klimaat",
       "social": "Sociaal",
+      "security": "Veiligheid",
+      "economy": "Economie",
+      "cleanliness": "Netheid",
+      "institutional": "Institutioneel",
       "solutions": "Uitwegen",
       "commerce": "Handel",
       "construction": "Bouw",
@@ -210,8 +221,16 @@
       "housing-sector": "Huisvesting (sector)",
       "nonprofit": "Verenigingen",
       "transport": "Transport",
-      "communes": "Gemeenten",
-      "dossiers": "Sleuteldossiers"
+      "commune-bruxelles-ville": "Stad Brussel",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaarbeek",
+      "dossier-slrb": "BGHM",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Metro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Veiligheidsplan",
+      "engagements": "GBV-engagementen"
     },
     "submit": "Inschrijven",
     "submitting": "Inschrijven...",
@@ -244,6 +263,10 @@
       "housing": "Huisvesting",
       "climate": "Klimaat",
       "social": "Sociaal",
+      "security": "Veiligheid",
+      "economy": "Economie",
+      "cleanliness": "Netheid",
+      "institutional": "Institutioneel",
       "solutions": "Uitwegen",
       "commerce": "Handel",
       "construction": "Bouw",
@@ -255,7 +278,17 @@
       "horeca": "Horeca",
       "housing-sector": "Huisvesting (sector)",
       "nonprofit": "Verenigingsleven",
-      "transport": "Transport"
+      "transport": "Transport",
+      "commune-bruxelles-ville": "Stad Brussel",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaarbeek",
+      "dossier-slrb": "BGHM",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Metro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Veiligheidsplan",
+      "engagements": "GBV-engagementen"
     }
   },
   "subscribeConfirmed": {
@@ -274,7 +307,32 @@
       "housing": "Huisvesting",
       "climate": "Klimaat",
       "social": "Sociaal",
-      "solutions": "Uitwegen"
+      "security": "Veiligheid",
+      "economy": "Economie",
+      "cleanliness": "Netheid",
+      "institutional": "Institutioneel",
+      "solutions": "Uitwegen",
+      "commerce": "Handel",
+      "construction": "Bouw",
+      "culture": "Cultuur",
+      "digital": "Digitaal",
+      "education": "Onderwijs",
+      "environment": "Milieu",
+      "health-social": "Gezondheid-Sociaal",
+      "horeca": "Horeca",
+      "housing-sector": "Huisvesting (sector)",
+      "nonprofit": "Verenigingsleven",
+      "transport": "Transport",
+      "commune-bruxelles-ville": "Stad Brussel",
+      "commune-anderlecht": "Anderlecht",
+      "commune-schaerbeek": "Schaarbeek",
+      "dossier-slrb": "BGHM",
+      "dossier-lez": "LEZ",
+      "dossier-vivaqua": "Vivaqua",
+      "dossier-metro-3": "Metro 3",
+      "dossier-good-move": "Good Move",
+      "dossier-plan-securite": "Veiligheidsplan",
+      "engagements": "GBV-engagementen"
     }
   },
   "subscribeUnsubscribed": {
@@ -293,6 +351,7 @@
     "sectorsGroup": "Sectoren",
     "communesGroup": "Gemeenten",
     "dossiersGroup": "Dossiers",
+    "engagementsGroup": "Engagementen",
     "save": "Opslaan",
     "saving": "Opslaan...",
     "saved": "Voorkeuren opgeslagen!",
@@ -965,6 +1024,9 @@
     "timelineTitle": "Chronologie",
     "timelineSubtitle": "De stappen van de Brusselse regeringsvorming volgen",
     "viewTimeline2": "De volledige chronologie raadplegen",
+    "dashboardTitle": "Opvolging van de engagementen",
+    "dashboardSubtitle": "16 cijfermatige beloftes uit de Gewestelijke Beleidsverklaring, bron per bron geverifieerd.",
+    "viewDashboard": "Dashboard raadplegen",
     "governmentTitle": "Nieuwe Brusselse regering",
     "governmentSubtitle": "Eedaflegging gepland op zaterdag 14 februari — namen uit persbronnen, te bevestigen",
     "governmentRoles": {
@@ -1144,7 +1206,8 @@
     "transparency": "Transparantie",
     "accessibility": "Toegankelijkheid",
     "communes": "Gemeenten",
-    "dossiers": "Dossiers"
+    "dossiers": "Dossiers",
+    "dashboard": "Engagementen"
   },
   "understand": {
     "title": "Begrijpen",
@@ -1350,6 +1413,22 @@
       "official": "Officiële bron",
       "estimated": "BGM-schatting",
       "unconfirmed": "Niet bevestigd"
+    }
+  },
+  "dashboard": {
+    "title": "Engagementen van de regering",
+    "subtitle": "Opvolging van de cijfermatige engagementen uit de Gewestelijke Beleidsverklaring (13 februari 2026). Elke belofte wordt geverifieerd, bron per bron.",
+    "total": "{count} engagementen gevolgd",
+    "source": "Bron",
+    "commitments": "engagementen",
+    "dprChapter": "GBV hst. {chapter}",
+    "baseline": "Huidige situatie",
+    "learnMore": "Bekijk de domeinkaart",
+    "status": {
+      "pending": "In afwachting",
+      "on-track": "Op schema",
+      "delayed": "Vertraagd",
+      "achieved": "Gerealiseerd"
     }
   }
 }

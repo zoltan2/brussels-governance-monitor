@@ -42,6 +42,8 @@ export default async function HomePage({
 
       <GovernmentTable locale={locale} />
 
+      <DashboardCta />
+
       <DomainsSection domainCards={domainCards} locale={locale} lastVerified={lastVerified} />
 
       {sectorCards.length > 0 && <SectorsPreview sectorCards={sectorCards} />}
@@ -201,6 +203,30 @@ function TimelineSection() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </Link>
+      </div>
+    </section>
+  );
+}
+
+function DashboardCta() {
+  const t = useTranslations('home');
+
+  return (
+    <section className="py-8">
+      <div className="mx-auto max-w-3xl px-4">
+        <div className="rounded-lg border border-brand-200 bg-brand-50/30 p-5 text-center">
+          <h2 className="mb-1 text-base font-semibold text-neutral-900">{t('dashboardTitle')}</h2>
+          <p className="mb-4 text-sm text-neutral-500">{t('dashboardSubtitle')}</p>
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center rounded-lg border border-brand-700 px-5 py-2 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-700 hover:text-white"
+          >
+            {t('viewDashboard')}
+            <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
       </div>
     </section>
   );

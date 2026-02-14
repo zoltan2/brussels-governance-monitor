@@ -1,18 +1,17 @@
 ---
-title: "Vivaqua: Der dringende Sanierungsbedarf der Wasserinfrastruktur"
+title: "Vivaqua: finanzielle Konsolidierung angekündigt"
 slug: vivaqua
 locale: de
 dossierType: utility
-phase: stalled
+phase: in-progress
 crisisImpact: blocked
 blockedSince: "2024-06-09"
 decisionLevel: regional
-summary: "Vivaqua, der öffentliche Wasserversorger in Brüssel, steht vor einem alternden Leitungsnetz, das massive Investitionen erfordert. Der mehrjährige Investitionsplan ist mangels Regierung zur Genehmigung eingefroren."
+summary: "Das Abkommen vom Februar 2026 sieht die finanzielle Konsolidierung von Vivaqua vor. Der mehrjährige Investitionsplan (~1,3 Milliarden EUR) zur Erneuerung des Wassernetzes kann wieder aufgenommen werden."
 estimatedBudget: "~1,3 Milliarden EUR geplante Investitionen"
-estimatedCostOfInaction: "Zunahme von Leckagen und Gesundheitsrisiken"
 stakeholders:
   - "Vivaqua"
-  - "Région de Bruxelles-Capitale"
+  - "Region Brüssel-Hauptstadt"
   - "HYDRIA"
 relatedDomains:
   - budget
@@ -20,9 +19,14 @@ relatedDomains:
 relatedSectors:
   - environment
 relatedCommunes: []
+relatedFormationEvents:
+  - accord-gouvernement-bruxellois
 sources:
-  - label: "Vivaqua — Site officiel"
+  - label: "Vivaqua — Offizielle Website"
     url: "https://www.vivaqua.be/"
+    accessedAt: "2026-02-12"
+  - label: "BX1 — Nach 613 Tagen Blockade, Regierungsabkommen"
+    url: "https://bx1.be/categories/news/apres-613-jours-de-blocage-la-region-bruxelloise-tient-enfin-un-accord-de-gouvernement/"
     accessedAt: "2026-02-12"
 metrics:
   - label: "Netzlänge"
@@ -33,7 +37,7 @@ metrics:
   - label: "Erforderliche jährliche Investitionen"
     value: "~200"
     unit: "M EUR/Jahr"
-    source: "Estimation Vivaqua"
+    source: "Schätzung Vivaqua"
     date: "2025-01-01"
   - label: "Durchschnittsalter der Leitungen"
     value: ">60"
@@ -44,29 +48,38 @@ alerts:
   - label: "Mehrjähriger Investitionsplan wartet auf Genehmigung"
     severity: critical
     date: "2025-01-01"
-confidenceLevel: estimated
-lastModified: "2026-02-12"
+  - label: "DPR: finanzielle Konsolidierung von Vivaqua angekündigt"
+    severity: info
+    date: "2026-02-13"
+confidenceLevel: official
+dprCommitment: "Finanzielle Konsolidierung von Vivaqua"
+lastModified: "2026-02-14"
 ---
 
-## Kontext
+## Regierungsabkommen: was sich ändert
+
+Das Abkommen vom 12. Februar 2026 sieht die **finanzielle Konsolidierung von Vivaqua** vor. Diese Maßnahme gehört zu den strukturellen Verpflichtungen der Koalition, neben der Konsolidierung der SLRB. Die genauen Modalitäten (Rekapitalisierung, regionale Bürgschaft, Schuldenumstrukturierung) sind noch nicht bekannt.
+
+Das Ende der geschäftsführenden Regierung ermöglicht die Freigabe des mehrjährigen Investitionsplans und der Tarifentscheidungen, die seit Juni 2024 ausstanden.
+
+## Geerbter Kontext
 
 Vivaqua ist der Brüsseler Interkommunalverband, der für die Produktion und Verteilung von Trinkwasser sowie die Sammlung von Abwasser zuständig ist. Sein Leitungsnetz mit über 4 200 km Länge ist zu großen Teilen veraltet — einige Leitungen stammen aus dem 19. Jahrhundert.
 
-Der Betreiber hat einen ehrgeizigen mehrjährigen Investitionsplan erarbeitet, um das Netz schrittweise zu erneuern, die Widerstandsfähigkeit gegenüber extremen Wetterereignissen zu verbessern und die Wasserverluste zu reduzieren.
+Der Betreiber hatte einen ehrgeizigen mehrjährigen Investitionsplan erarbeitet, um das Netz schrittweise zu erneuern, die Widerstandsfähigkeit gegenüber extremen Wetterereignissen zu verbessern und die Wasserverluste zu reduzieren.
 
-## Auswirkungen der Krise
+## Was blockiert war (Juni 2024 — Februar 2026)
 
-Die geschäftsführende Regierung kann nicht:
+- Die Genehmigung des mehrjährigen Investitionsplans
+- Die für die Finanzierung der Arbeiten notwendigen Tariferhöhungen
+- Die Prioritätensetzung zwischen Netzerneuerung und neuer Infrastruktur
+- Die regionalen Bürgschaften für die Anleihen von Vivaqua
 
-- Den mehrjährigen Investitionsplan genehmigen
-- Die für die Finanzierung der Arbeiten notwendigen Tariferhöhungen genehmigen
-- Die Prioritäten zwischen Netzerneuerung und neuer Infrastruktur festlegen
-- Die Anleihen von Vivaqua bei Finanzinstituten absichern
+Die laufende Instandhaltung wurde fortgesetzt, aber die Erneuerungsinvestitionen wurden aufgeschoben, was die Alterung des Netzes verschärfte.
 
-Die laufende Instandhaltung wird fortgesetzt, aber die Erneuerungsinvestitionen werden aufgeschoben, was die Alterung des Netzes verschärft.
-
-## Herausforderungen
+## Zu beobachtende Punkte
 
 - **Öffentliche Gesundheit**: Ein alterndes Netz erhöht das Kontaminationsrisiko
 - **Wasserverluste**: Die Leckagen im Netz stellen eine erhebliche Verschwendung der Ressource dar
 - **Klimaresilienz**: Die Regenwasserableitungsinfrastrukturen sind angesichts der immer häufigeren Starkregenereignisse unterdimensioniert
+- **Tarifgestaltung**: Die finanzielle Konsolidierung könnte Tarifanpassungen für die Verbraucher nach sich ziehen

@@ -1,34 +1,30 @@
 import { useTranslations } from 'next-intl';
-import { daysSinceElections } from '@/lib/utils';
 import { FormationPhase } from '@/components/formation-phase';
 
 export function CrisisCounter({ currentPhase }: { currentPhase: string }) {
   const t = useTranslations('counter');
-  const days = daysSinceElections();
 
   return (
-    <section className="bg-gradient-to-b from-brand-900 to-brand-800 py-20 text-white">
+    <section className="bg-gradient-to-b from-slate-800 to-slate-700 py-16 text-white">
       <div className="mx-auto max-w-5xl px-4 text-center">
-        <h1 className="mb-4 text-sm font-semibold tracking-widest uppercase text-white/80">
-          {t('title')}
+        <p className="text-sm text-white/50">
+          <span className="tabular-nums font-semibold">613</span> {t('archived')}
+        </p>
+        <p className="mt-1 text-sm font-medium text-white/70">{t('closed')}</p>
+
+        <h1 className="mt-8 text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
+          {t('pivot')}
         </h1>
 
-        <div className="my-8">
-          <span className="text-7xl font-extrabold tabular-nums tracking-tighter sm:text-8xl md:text-9xl">
-            {days}
-          </span>
-          <p className="mt-3 text-xl font-medium text-white/80">
-            {t('days', { count: days })}
-          </p>
-        </div>
-
-        <p className="text-sm font-medium text-white/80">{t('since')}</p>
-
-        <p className="mx-auto mt-10 max-w-2xl text-sm leading-relaxed text-white/80">
+        <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/70">
           {t('explanation')}
         </p>
 
-        <div className="mx-auto mt-6 max-w-md">
+        <p className="mt-4 text-sm font-medium tracking-wide text-white/90">
+          {t('valueProp')}
+        </p>
+
+        <div className="mx-auto mt-8 max-w-md">
           <FormationPhase currentPhase={currentPhase} variant="bar" theme="dark" />
         </div>
       </div>

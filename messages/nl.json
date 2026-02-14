@@ -21,14 +21,15 @@
     "tools": "Hulpmiddelen"
   },
   "counter": {
-    "title": "Brussel zonder regering",
-    "days": "{count, plural, one {dag} other {dagen}}",
-    "since": "sinds de verkiezingen van 9 juni 2024",
-    "explanation": "Het Brussels Hoofdstedelijk Gewest functioneert in 'lopende zaken': de uittredende regering behandelt de dagelijkse zaken, maar kan geen nieuw politiek besluit nemen of een nieuwe begroting goedkeuren."
+    "archived": "dagen zonder gewestregering",
+    "closed": "Het is voorbij.",
+    "pivot": "Nu kan Brussel handelen.",
+    "explanation": "Een regering van 7 partijen heeft de eed afgelegd. Deze site documenteert de uitvoering van hun beloften — dezelfde nauwkeurigheid, dezelfde bronnen, dezelfde onafhankelijkheid.",
+    "valueProp": "Domein per domein, cijfer per cijfer, bron per bron."
   },
   "domains": {
-    "title": "Getroffen domeinen",
-    "subtitle": "Wat geblokkeerd, vertraagd of verslechterd is bij gebrek aan een regering",
+    "title": "Gevolgde dossiers",
+    "subtitle": "De grote Brusselse dossiers, domein per domein gevolgd",
     "status": {
       "blocked": "Geblokkeerd",
       "delayed": "Vertraagd",
@@ -88,6 +89,7 @@
     }
   },
   "solutions": {
+    "archiveBanner": "Deze inhoud is gearchiveerd. Het Brussels Hoofdstedelijk Gewest heeft op 12 februari 2026 een regering gevormd (klassieke coalitie van 7 partijen). Deze scenario's worden bewaard ter herinnering.",
     "title": "Hoe kan dit worden gedeblokkeerd?",
     "subtitle": "Realistische, gedocumenteerde en onderbouwde uitwegen",
     "feasibility": {
@@ -137,7 +139,7 @@
     "transparenceTitle": "Transparantie",
     "domains": "Domeinen",
     "sectors": "Sectoren",
-    "solutions": "Uitwegen",
+    "solutions": "Oplossingen (archief)",
     "accessibility": "Toegankelijkheid",
     "sourceCode": "Broncode",
     "communes": "Gemeenten",
@@ -937,17 +939,18 @@
     "title": "Om verder te gaan"
   },
   "home": {
-    "citizenIntro": "Brussel heeft sinds juni 2024 geen volwaardige regering. Deze site toont wat vooruitgaat, wat geblokkeerd is, en wat met zekerheid bekend is — op basis van verifieerbare openbare bronnen.",
-    "citizenIntroFalc": "Brussel heeft al meer dan een jaar geen echte regering. Deze site toont u wat nog werkt, wat stilligt, en waarom.",
+    "citizenIntro": "Wat hebben ze beloofd? En houden ze woord? Na 613 dagen zonder regering heeft Brussel een nieuw bestuur. Deze site volgt de uitvoering van de gemaakte beloften — domein per domein, cijfer per cijfer, bron per bron.",
+    "citizenIntroFalc": "Brussel heeft een nieuwe regering. Deze site controleert of ze doet wat ze heeft beloofd.",
     "howToReadLink": "Hoe deze site lezen?",
+    "subscribeCta": "Ontvang het essentiële — één e-mail per week, geen spam, geen partij.",
     "mission": {
-      "what": "BGM maakt zichtbaar wat er in Brussel gebeurt (of niet gebeurt) zonder regering.",
+      "what": "BGM maakt zichtbaar wat de Brusselse regering doet (of niet doet).",
       "how": "Elk gegeven is onderbouwd, elke metriek is verifieerbaar, elke analyse is transparant.",
-      "why": "Omdat een democratie geïnformeerde burgers nodig heeft, zeker in tijden van crisis."
+      "why": "Omdat een democratie geïnformeerde burgers nodig heeft die beloften verifiëren."
     },
     "latestEvent": "Laatste gebeurtenis",
     "viewTimeline": "Bekijk de volledige chronologie",
-    "explainersTitle": "De crisis begrijpen",
+    "explainersTitle": "Het Brusselse bestuur begrijpen",
     "explainersSubtitle": "Educatieve uitleg om verder te gaan",
     "explainerParliament": "Wat kan het Parlement zonder regering?",
     "explainerParadox": "De Brusselse paradox: BBP vs inkomsten",

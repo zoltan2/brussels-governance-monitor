@@ -21,14 +21,15 @@
     "tools": "Werkzeuge"
   },
   "counter": {
-    "title": "Brüssel ohne Regierung",
-    "days": "{count, plural, one {Tag} other {Tage}}",
-    "since": "seit den Wahlen vom 9. Juni 2024",
-    "explanation": "Die Region Brüssel-Hauptstadt arbeitet im Modus der 'laufenden Geschäfte': Die scheidende Regierung erledigt die täglichen Angelegenheiten, kann aber keine neuen politischen Entscheidungen treffen oder einen neuen Haushalt verabschieden."
+    "archived": "Tage ohne Regionalregierung",
+    "closed": "Es ist vorbei.",
+    "pivot": "Jetzt kann Brüssel handeln.",
+    "explanation": "Eine 7-Parteien-Regierung hat den Eid abgelegt. Diese Seite dokumentiert die Umsetzung ihrer Versprechen — gleiche Genauigkeit, gleiche Quellen, gleiche Unabhängigkeit.",
+    "valueProp": "Bereich für Bereich, Zahl für Zahl, Quelle für Quelle."
   },
   "domains": {
-    "title": "Betroffene Bereiche",
-    "subtitle": "Was blockiert, verzögert oder verschlechtert ist mangels Regierung",
+    "title": "Verfolgte Dossiers",
+    "subtitle": "Die großen Brüsseler Dossiers, Bereich für Bereich verfolgt",
     "status": {
       "blocked": "Blockiert",
       "delayed": "Verzögert",
@@ -88,6 +89,7 @@
     }
   },
   "solutions": {
+    "archiveBanner": "Dieser Inhalt ist archiviert. Die Region Brüssel-Hauptstadt hat am 12. Februar 2026 eine Regierung gebildet (klassische 7-Parteien-Koalition). Diese Szenarien werden zur Erinnerung aufbewahrt.",
     "title": "Wie kann dies gelöst werden?",
     "subtitle": "Realistische, dokumentierte und belegte Auswege",
     "feasibility": {
@@ -137,7 +139,7 @@
     "transparenceTitle": "Transparenz",
     "domains": "Bereiche",
     "sectors": "Sektoren",
-    "solutions": "Auswege",
+    "solutions": "Lösungen (Archiv)",
     "accessibility": "Barrierefreiheit",
     "sourceCode": "Quellcode",
     "communes": "Gemeinden",
@@ -937,17 +939,18 @@
     "title": "Weiterführend"
   },
   "home": {
-    "citizenIntro": "Brüssel hat seit Juni 2024 keine vollwertige Regierung. Diese Seite zeigt, was vorankommt, was blockiert ist und was mit Sicherheit bekannt ist — auf Grundlage überprüfbarer öffentlicher Quellen.",
-    "citizenIntroFalc": "Brüssel hat seit über einem Jahr keine richtige Regierung. Diese Seite zeigt Ihnen, was noch funktioniert, was stillsteht und warum.",
+    "citizenIntro": "Was haben sie versprochen? Und halten sie Wort? Nach 613 Tagen ohne Regierung hat Brüssel eine neue Exekutive. Diese Seite verfolgt die Umsetzung der eingegangenen Verpflichtungen — Bereich für Bereich, Zahl für Zahl, Quelle für Quelle.",
+    "citizenIntroFalc": "Brüssel hat eine neue Regierung. Diese Seite überprüft, ob sie tut, was sie versprochen hat.",
     "howToReadLink": "Wie liest man diese Seite?",
+    "subscribeCta": "Das Wesentliche erhalten — eine E-Mail pro Woche, kein Spam, keine Partei.",
     "mission": {
-      "what": "BGM macht sichtbar, was in Brüssel ohne Regierung geschieht (oder nicht geschieht).",
+      "what": "BGM macht sichtbar, was die Brüsseler Regierung tut (oder nicht tut).",
       "how": "Jede Angabe ist belegt, jede Kennzahl ist überprüfbar, jede Analyse ist transparent.",
-      "why": "Weil eine Demokratie informierte Bürger braucht, besonders in Krisenzeiten."
+      "why": "Weil eine Demokratie informierte Bürger braucht, die Versprechen überprüfen."
     },
     "latestEvent": "Letztes Ereignis",
     "viewTimeline": "Vollständige Chronologie ansehen",
-    "explainersTitle": "Die Krise verstehen",
+    "explainersTitle": "Die Brüsseler Regierungsführung verstehen",
     "explainersSubtitle": "Pädagogische Erklärungen zum Vertiefen",
     "explainerParliament": "Was kann das Parlament ohne Regierung tun?",
     "explainerParadox": "Das Brüsseler Paradox: BIP vs Einkommen",

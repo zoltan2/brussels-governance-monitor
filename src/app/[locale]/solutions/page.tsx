@@ -18,16 +18,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const titles: Record<string, string> = {
-    fr: 'Solutions de sortie de crise',
-    nl: 'Oplossingen voor de crisis',
-    en: 'Crisis exit solutions',
-    de: 'Lösungen für die Krise',
+    fr: 'Solutions de sortie de crise (archives)',
+    nl: 'Oplossingen voor de crisis (archief)',
+    en: 'Crisis exit solutions (archives)',
+    de: 'Lösungen für die Krise (Archiv)',
   };
   const descriptions: Record<string, string> = {
-    fr: 'Les voies de sortie réalistes pour la crise gouvernementale bruxelloise, documentées et sourcées.',
-    nl: 'Realistische oplossingen voor de Brusselse regeringscrisis, gedocumenteerd en met bronnen.',
-    en: 'Realistic exit paths for the Brussels government crisis, documented and sourced.',
-    de: 'Realistische Auswege aus der Brüsseler Regierungskrise, dokumentiert und mit Quellen belegt.',
+    fr: 'Les scénarios de sortie de crise envisagés avant la formation du gouvernement bruxellois. Contenu archivé.',
+    nl: 'De crisisscenario\'s die werden overwogen vóór de vorming van de Brusselse regering. Gearchiveerde inhoud.',
+    en: 'Crisis exit scenarios considered before the formation of the Brussels government. Archived content.',
+    de: 'Krisenszenarien, die vor der Bildung der Brüsseler Regierung in Betracht gezogen wurden. Archivierter Inhalt.',
   };
   return buildMetadata({
     locale,
@@ -68,6 +68,13 @@ function SolutionsContent({
         { label: tb('home'), href: '/' },
         { label: tb('solutions') },
       ]} />
+
+      <div className="mb-6 rounded-lg border border-neutral-300 bg-neutral-50 p-4">
+        <p className="text-sm text-neutral-600">
+          {t('archiveBanner')}
+        </p>
+      </div>
+
       <h1 className="mb-2 text-2xl font-bold text-neutral-900">{t('title')}</h1>
       <p className="mb-8 text-sm text-neutral-500">{t('subtitle')}</p>
 

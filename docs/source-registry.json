@@ -1,29 +1,29 @@
 {
   "$schema": "./source-registry-schema.json",
-  "description": "Registre des sources surveillées par BGM. 231 sources. Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
-  "lastUpdated": "2026-02-11",
+  "description": "Registre des sources surveillées par BGM. 232 sources. Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
+  "lastUpdated": "2026-02-13",
   "stats": {
-    "total": 231,
+    "total": 232,
     "byTier": {
-      "editorial": 159,
+      "editorial": 160,
       "radar": 72
     },
     "byPriority": {
       "P0": 27,
       "P1": 32,
-      "P2": 47,
+      "P2": 48,
       "P3": 49,
       "P4": 62
     },
     "byLang": {
       "fr": 55,
-      "multi": 36,
+      "multi": 37,
       "nl": 40,
       "en": 82,
       "de": 4
     },
     "byType": {
-      "institutional": 53,
+      "institutional": 54,
       "press": 90,
       "legal": 7,
       "agency": 4,
@@ -3363,6 +3363,24 @@
       "tier": "radar",
       "enabled": true,
       "id": "watch-217"
+    },
+    {
+      "name": "BRUXEO — Confédération patronale du social profit bruxellois",
+      "url": "https://www.bruxeo.be",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "employment",
+      "cardsAffected": [
+        "employment",
+        "social",
+        "nonprofit"
+      ],
+      "frequency": "weekly",
+      "notes": "Confédération représentative des entreprises à profit social bruxelloises. Intersectorielle et pluraliste : santé, action sociale, insertion, éducation, aide à domicile. Partenaire CESRBC. FR/NL.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-218"
     }
   ]
 }

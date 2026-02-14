@@ -21,14 +21,15 @@
     "tools": "Outils"
   },
   "counter": {
-    "title": "Bruxelles sans gouvernement",
-    "days": "{count, plural, one {jour} other {jours}}",
-    "since": "depuis les élections du 9 juin 2024",
-    "explanation": "La Région de Bruxelles-Capitale fonctionne en « affaires courantes » : le gouvernement sortant expédie les affaires quotidiennes, mais ne peut prendre aucune décision politique nouvelle ni voter de nouveau budget."
+    "archived": "jours sans gouvernement régional",
+    "closed": "C'est terminé.",
+    "pivot": "Maintenant, Bruxelles peut agir.",
+    "explanation": "Un gouvernement à 7 partis a prêté serment. Ce site documente la mise en œuvre de ses engagements — même rigueur, mêmes sources, même indépendance.",
+    "valueProp": "Domaine par domaine, chiffre par chiffre, source par source."
   },
   "domains": {
-    "title": "Domaines impactés",
-    "subtitle": "Ce qui est bloqué, retardé ou dégradé faute de gouvernement",
+    "title": "Dossiers suivis",
+    "subtitle": "Les grands dossiers bruxellois, suivis domaine par domaine",
     "status": {
       "blocked": "Bloqué",
       "delayed": "Retardé",
@@ -88,6 +89,7 @@
     }
   },
   "solutions": {
+    "archiveBanner": "Ce contenu est archivé. La Région de Bruxelles-Capitale a formé un gouvernement le 12 février 2026 (coalition classique à 7 partis). Ces scénarios sont conservés pour mémoire.",
     "title": "Comment ça peut se débloquer ?",
     "subtitle": "Les voies de sortie réalistes, documentées et sourcées",
     "feasibility": {
@@ -137,7 +139,7 @@
     "transparenceTitle": "Transparence",
     "domains": "Domaines",
     "sectors": "Secteurs",
-    "solutions": "Sorties de crise",
+    "solutions": "Solutions (archives)",
     "accessibility": "Accessibilité",
     "sourceCode": "Code source",
     "communes": "Communes",
@@ -937,17 +939,18 @@
     "title": "Pour aller plus loin"
   },
   "home": {
-    "citizenIntro": "Bruxelles n'a pas de gouvernement de plein exercice depuis juin 2024. Ce site montre ce qui avance, ce qui est bloqué, et ce que l'on sait avec certitude — à partir de sources publiques vérifiables.",
-    "citizenIntroFalc": "Bruxelles n'a pas de vrai gouvernement depuis plus d'un an. Ce site vous montre ce qui fonctionne encore, ce qui est arrêté, et pourquoi.",
+    "citizenIntro": "Ils ont promis quoi ? Et ils tiennent parole ? Après 613 jours sans gouvernement, Bruxelles a un nouvel exécutif. Ce site suit la mise en œuvre des engagements pris — domaine par domaine, chiffre par chiffre, source par source.",
+    "citizenIntroFalc": "Bruxelles a un nouveau gouvernement. Ce site vérifie s'il fait ce qu'il a promis.",
     "howToReadLink": "Comment lire ce site ?",
+    "subscribeCta": "Recevez l'essentiel — un email par semaine, pas de spam, pas de parti.",
     "mission": {
-      "what": "BGM rend visible ce qui se passe (ou ne se passe pas) à Bruxelles sans gouvernement.",
+      "what": "BGM rend visible ce que fait (ou ne fait pas) le gouvernement bruxellois.",
       "how": "Chaque donnée est sourcée, chaque métrique est vérifiable, chaque analyse est transparente.",
-      "why": "Parce qu'une démocratie a besoin de citoyens informés, surtout en temps de crise."
+      "why": "Parce qu'une démocratie a besoin de citoyens informés qui vérifient les engagements."
     },
     "latestEvent": "Dernier événement",
     "viewTimeline": "Voir la chronologie complète",
-    "explainersTitle": "Comprendre la crise",
+    "explainersTitle": "Comprendre la gouvernance bruxelloise",
     "explainersSubtitle": "Des explications pédagogiques pour aller plus loin",
     "explainerParliament": "Que peut faire le Parlement sans gouvernement ?",
     "explainerParadox": "Le paradoxe bruxellois : PIB vs revenus",

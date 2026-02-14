@@ -21,14 +21,15 @@
     "tools": "Tools"
   },
   "counter": {
-    "title": "Brussels without a government",
-    "days": "{count, plural, one {day} other {days}}",
-    "since": "since the elections of 9 June 2024",
-    "explanation": "The Brussels-Capital Region is operating in 'caretaker mode': the outgoing government handles daily affairs but cannot take any new political decisions or approve a new budget."
+    "archived": "days without a regional government",
+    "closed": "It's over.",
+    "pivot": "Now, Brussels can act.",
+    "explanation": "A 7-party government has been sworn in. This site documents the implementation of their commitments — same rigor, same sources, same independence.",
+    "valueProp": "Domain by domain, figure by figure, source by source."
   },
   "domains": {
-    "title": "Impacted domains",
-    "subtitle": "What is blocked, delayed, or degraded due to the absence of government",
+    "title": "Monitored domains",
+    "subtitle": "Key Brussels issues, tracked domain by domain",
     "status": {
       "blocked": "Blocked",
       "delayed": "Delayed",
@@ -88,6 +89,7 @@
     }
   },
   "solutions": {
+    "archiveBanner": "This content is archived. The Brussels-Capital Region formed a government on 12 February 2026 (classical 7-party coalition). These scenarios are preserved for the record.",
     "title": "How can this be resolved?",
     "subtitle": "Realistic, documented, and sourced exit paths",
     "feasibility": {
@@ -137,7 +139,7 @@
     "transparenceTitle": "Transparency",
     "domains": "Domains",
     "sectors": "Sectors",
-    "solutions": "Exit paths",
+    "solutions": "Solutions (archives)",
     "accessibility": "Accessibility",
     "sourceCode": "Source code",
     "communes": "Municipalities",
@@ -937,17 +939,18 @@
     "title": "Go further"
   },
   "home": {
-    "citizenIntro": "Brussels has been without a fully empowered government since June 2024. This site shows what is progressing, what is blocked, and what is known with certainty — based on verifiable public sources.",
-    "citizenIntroFalc": "Brussels has had no real government for over a year. This site shows you what is still working, what has stopped, and why.",
+    "citizenIntro": "What did they promise? And are they keeping their word? After 613 days without a government, Brussels has a new executive. This site tracks the implementation of their commitments — domain by domain, figure by figure, source by source.",
+    "citizenIntroFalc": "Brussels has a new government. This site checks whether they do what they promised.",
     "howToReadLink": "How to read this site?",
+    "subscribeCta": "Get the essentials — one email per week, no spam, no party.",
     "mission": {
-      "what": "BGM makes visible what is happening (or not happening) in Brussels without a government.",
+      "what": "BGM makes visible what the Brussels government does (or doesn't do).",
       "how": "Every data point is sourced, every metric is verifiable, every analysis is transparent.",
-      "why": "Because a democracy needs informed citizens, especially in times of crisis."
+      "why": "Because a democracy needs informed citizens who verify commitments."
     },
     "latestEvent": "Latest event",
     "viewTimeline": "View the full timeline",
-    "explainersTitle": "Understanding the crisis",
+    "explainersTitle": "Understanding Brussels governance",
     "explainersSubtitle": "Educational explanations to go further",
     "explainerParliament": "What can Parliament do without a government?",
     "explainerParadox": "The Brussels paradox: GDP vs income",

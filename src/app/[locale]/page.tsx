@@ -3,9 +3,8 @@ import { useTranslations } from 'next-intl';
 import { CrisisCounter } from '@/components/crisis-counter';
 import { LatestEvent } from '@/components/latest-event';
 import { DomainCard } from '@/components/domain-card';
-import { SolutionCard } from '@/components/solution-card';
 import { SubscribeForm } from '@/components/subscribe-form';
-import { getDomainCards, getSolutionCards, getSectorCards, getFormationEvents, getCurrentPhase } from '@/lib/content';
+import { getDomainCards, getSectorCards, getFormationEvents, getCurrentPhase } from '@/lib/content';
 import { getRecentChanges } from '@/lib/changelog';
 import { RecentChanges } from '@/components/recent-changes';
 import { GovernmentTable } from '@/components/government-table';
@@ -22,14 +21,13 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   const domainCards = getDomainCards(locale as Locale);
-  const solutionCards = getSolutionCards(locale as Locale);
   const sectorCards = getSectorCards(locale as Locale);
   const events = getFormationEvents(locale as Locale);
   const latestEvent = events.length > 0 ? events[events.length - 1] : undefined;
 
   const recentChanges = getRecentChanges(locale as Locale);
 
-  const lastVerified = [...domainCards, ...solutionCards]
+  const lastVerified = domainCards
     .map((c) => c.lastModified)
     .sort()
     .pop();
@@ -42,13 +40,11 @@ export default async function HomePage({
 
       {latestEvent && <LatestEvent event={latestEvent} locale={locale} />}
 
+      <RecentActivitySection recentChanges={recentChanges} locale={locale} />
+
       <GovernmentTable locale={locale} />
 
-      <MissionStatement />
-
       <DomainsSection domainCards={domainCards} locale={locale} lastVerified={lastVerified} />
-
-      <SolutionsSection solutionCards={solutionCards} />
 
       {sectorCards.length > 0 && <SectorsPreview sectorCards={sectorCards} />}
 
@@ -58,10 +54,7 @@ export default async function HomePage({
 
       <section id="subscribe" className="py-16">
         <div className="mx-auto max-w-5xl px-4">
-          <div className="grid gap-8 md:grid-cols-2">
-            <SubscribeForm />
-            <RecentChanges entries={recentChanges} locale={locale} />
-          </div>
+          <SubscribeForm />
         </div>
       </section>
     </>
@@ -74,18 +67,23 @@ function CitizenIntro() {
   return (
     <section className="py-6">
       <div className="mx-auto max-w-3xl px-4">
-        <div className="rounded-lg border border-neutral-200 bg-white p-5">
-          <p className="text-sm leading-relaxed text-neutral-700">{t('citizenIntro')}</p>
-          <p className="mt-2 text-xs leading-relaxed text-neutral-500 italic">
+        <div className="rounded-lg border border-neutral-200 bg-white p-4">
+          <p className="text-xs leading-relaxed text-neutral-500 italic">
             {t('citizenIntroFalc')}
           </p>
-          <div className="mt-3">
+          <div className="mt-3 flex flex-wrap items-center gap-4">
             <Link
               href="/how-to-read"
               className="text-xs font-medium text-brand-700 underline underline-offset-2 hover:text-brand-900"
             >
               {t('howToReadLink')}
             </Link>
+            <a
+              href="#subscribe"
+              className="text-xs font-medium text-brand-700 underline underline-offset-2 hover:text-brand-900"
+            >
+              {t('subscribeCta')}
+            </a>
           </div>
         </div>
       </div>
@@ -93,17 +91,19 @@ function CitizenIntro() {
   );
 }
 
-function MissionStatement() {
-  const t = useTranslations('home');
+function RecentActivitySection({
+  recentChanges,
+  locale,
+}: {
+  recentChanges: ReturnType<typeof getRecentChanges>;
+  locale: string;
+}) {
+  if (recentChanges.length === 0) return null;
 
   return (
-    <section className="py-10">
-      <div className="mx-auto max-w-3xl px-4 text-center">
-        <div className="space-y-2 text-sm text-neutral-600">
-          <p>{t('mission.what')}</p>
-          <p>{t('mission.how')}</p>
-          <p>{t('mission.why')}</p>
-        </div>
+    <section className="py-8">
+      <div className="mx-auto max-w-3xl px-4">
+        <RecentChanges entries={recentChanges} locale={locale} />
       </div>
     </section>
   );
@@ -138,29 +138,6 @@ function DomainsSection({
         <div className="grid gap-6 md:grid-cols-2">
           {domainCards.map((card) => (
             <DomainCard key={card.slug} card={card} locale={locale} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function SolutionsSection({
-  solutionCards,
-}: {
-  solutionCards: ReturnType<typeof getSolutionCards>;
-}) {
-  const t = useTranslations('solutions');
-
-  return (
-    <section id="solutions" className="bg-neutral-50 py-16">
-      <div className="mx-auto max-w-5xl px-4">
-        <h2 className="mb-2 text-2xl font-bold text-neutral-900">{t('title')}</h2>
-        <p className="mb-8 text-sm text-neutral-500">{t('subtitle')}</p>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {solutionCards.map((card) => (
-            <SolutionCard key={card.slug} card={card} />
           ))}
         </div>
       </div>

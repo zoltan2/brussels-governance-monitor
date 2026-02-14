@@ -70,7 +70,11 @@
       "employment": "La Région ne peut pas créer de nouveaux programmes d'emploi ni adapter ses dispositifs à la réforme fédérale du chômage. Les mesures existantes continuent mais sans possibilité d'ajustement face à la hausse du chômage.",
       "housing": "Aucun nouveau programme de logement social ne peut être lancé. Le Fonds du Logement a suspendu ses crédits. La liste d'attente (62 234 ménages) s'allonge chaque mois sans possibilité de réponse politique structurelle.",
       "climate": "Les nouvelles phases du Plan Air-Climat-Énergie ne peuvent pas être lancées. Les primes Renolution sont réduites aux enveloppes existantes. La trajectoire vers l'objectif de -40 % de CO2 d'ici 2030 prend du retard faute de décisions nouvelles.",
-      "social": "Les investissements bicommunautaires de la COCOM sont gelés. Les CPAS font face à un afflux de demandes sans moyens supplémentaires. Les nouvelles initiatives en santé mentale et politique sans-abri sont à l'arrêt."
+      "social": "Les investissements bicommunautaires de la COCOM sont gelés. Les CPAS font face à un afflux de demandes sans moyens supplémentaires. Les nouvelles initiatives en santé mentale et politique sans-abri sont à l'arrêt.",
+      "security": "Le nouveau gouvernement prévoit un commissaire régional anti-drogues, un investissement de 10 millions EUR dans les gares, la connexion des systèmes de vidéosurveillance et le renforcement des pompiers (SIAMU). Ces mesures doivent être financées par le budget 2026.",
+      "economy": "Le nouveau gouvernement prévoit une Zone Franche Urbaine au Port et à Forest, un positionnement comme capitale de l'IA, et l'ouverture de Kanal. La concrétisation dépend des arrêtés d'exécution et du budget.",
+      "cleanliness": "Le nouveau gouvernement prévoit une réforme de Bruxelles-Propreté, des brigades régionales, des conteneurs souterrains et des amendes immédiates. La concrétisation dépend du budget et de la coordination avec les communes.",
+      "institutional": "Le nouveau gouvernement prévoit de fusionner 25 structures en 4 piliers, réduisant les coûts de 20 à 30 %. Les piliers 1 et 2 doivent être opérationnels en 2026, mais certaines fusions nécessitent des majorités spéciales au Parlement."
     },
     "whyStatusTitle": "Pourquoi ce statut",
     "whyStatus": {
@@ -79,7 +83,11 @@
       "employment": "Les mesures régionales d'activation de l'emploi (plans de formation, emplois subventionnés) ont des échéances réglementaires qui arrivent à terme. Le renouvellement de ces dispositifs requiert des décisions gouvernementales. Actiris continue son fonctionnement courant mais ne peut pas adapter ses programmes à la réforme fédérale du chômage.",
       "housing": "La création de logements sociaux et l'attribution de crédits au Fonds du Logement requièrent des engagements budgétaires nouveaux, impossibles en affaires courantes. La SLRB continue la gestion du parc existant mais ne peut lancer aucune nouvelle construction. La liste d'attente dépasse 62 000 ménages, un seuil record.",
       "climate": "L'adoption des nouvelles phases du Plan Air-Climat-Énergie (PACE) requiert une validation gouvernementale. Les échéances fixées par l'objectif 2030 sont formellement dépassées sans décision structurelle. Bruxelles Environnement continue ses programmes existants mais sans budget nouveau pour les primes Renolution élargies.",
-      "social": "Les décisions d'investissement de la COCOM (compétence bicommunautaire) requièrent une approbation politique impossible en affaires courantes. Les CPAS dépendent des subsides régionaux dont les enveloppes ne peuvent être augmentées. Iriscare fonctionne en mode minimal. Le nombre de sans-abri dénombrés augmente sans réponse politique possible."
+      "social": "Les décisions d'investissement de la COCOM (compétence bicommunautaire) requièrent une approbation politique impossible en affaires courantes. Les CPAS dépendent des subsides régionaux dont les enveloppes ne peuvent être augmentées. Iriscare fonctionne en mode minimal. Le nombre de sans-abri dénombrés augmente sans réponse politique possible.",
+      "security": "Le chapitre Sécurité de la DPR prévoit un plan régional intégré : commissaire anti-drogues, 10 M€ pour la sécurisation des gares du Midi et du Nord, interconnexion de la vidéosurveillance et renforcement du SIAMU. Ces mesures nécessitent des arrêtés d'exécution et des dotations budgétaires inscrites au budget 2026.",
+      "economy": "Le chapitre Économie de la DPR prévoit la création d'une Zone Franche Urbaine (Port de Bruxelles + site Audi Forest), le positionnement comme capitale de l'IA, et l'ouverture du musée Kanal sous nouvelle gouvernance. La mise en œuvre dépend des arrêtés d'exécution et du budget 2026.",
+      "cleanliness": "Le chapitre Propreté de la DPR prévoit une réforme de l'ABP, des brigades régionales de propreté, le déploiement de conteneurs souterrains et la perception immédiate des amendes. La mise en œuvre dépend des moyens budgétaires inscrits au budget 2026.",
+      "institutional": "Le chapitre 4 de la DPR prévoit la fusion de 25 structures régionales en 4 piliers, avec des économies de 20 à 30 % des coûts de fonctionnement. Les piliers 1 et 2 doivent être opérationnels dès 2026. Certaines fusions nécessitent des majorités spéciales au Parlement."
     },
     "notSaidTitle": "Ce que BGM ne dit pas",
     "notSaid": {
@@ -1041,7 +1049,8 @@
   "sectors": {
     "title": "Secteurs impactés",
     "subtitle": "Comment l'absence de gouvernement affecte les secteurs clés de l'économie bruxelloise",
-    "frozenMechanisms": "Mécanismes gelés",
+    "frozenMechanisms": "Mécanismes en attente de relance",
+    "frozenMechanismsNote": "Ces mécanismes étaient gelés pendant la période d'affaires courantes (juin 2024 – février 2026). Le nouveau gouvernement peut désormais les réactiver.",
     "activeMechanisms": "Ce qui continue",
     "impactIndicators": "Indicateurs d'impact",
     "stakeholders": "Acteurs concernés",
@@ -1394,7 +1403,8 @@
       "blocked": "Bloqué",
       "delayed": "Retardé",
       "reduced": "Impact réduit",
-      "unaffected": "Non impacté"
+      "unaffected": "Non impacté",
+      "resolved": "Résolu"
     },
     "decisionLevel": {
       "regional": "Régional",

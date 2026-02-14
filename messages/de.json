@@ -70,7 +70,11 @@
       "employment": "Die Region kann keine neuen Beschäftigungsprogramme schaffen und ihre Maßnahmen nicht an die föderale Reform der Arbeitslosenversicherung anpassen. Die bestehenden Maßnahmen laufen weiter, aber ohne Anpassungsmöglichkeit an die steigende Arbeitslosigkeit.",
       "housing": "Es kann kein neues Sozialwohnungsprogramm gestartet werden. Der Wohnungsfonds hat seine Kreditvergabe ausgesetzt. Die Warteliste (62.234 Haushalte) wächst jeden Monat ohne Möglichkeit einer strukturellen politischen Antwort.",
       "climate": "Die neuen Phasen des Luft-Klima-Energieplans können nicht gestartet werden. Die Renolution-Prämien sind auf die bestehenden Budgets beschränkt. Der Kurs zum Ziel von -40 % CO2 bis 2030 gerät mangels neuer Entscheidungen in Verzug.",
-      "social": "Die bikommunalen Investitionen der GGK sind eingefroren. Die ÖSHZ sind mit einem Anstieg der Anträge ohne zusätzliche Mittel konfrontiert. Neue Initiativen im Bereich psychische Gesundheit und Obdachlosenpolitik stehen still."
+      "social": "Die bikommunalen Investitionen der GGK sind eingefroren. Die ÖSHZ sind mit einem Anstieg der Anträge ohne zusätzliche Mittel konfrontiert. Neue Initiativen im Bereich psychische Gesundheit und Obdachlosenpolitik stehen still.",
+      "security": "Die neue Regierung plant einen regionalen Anti-Drogen-Kommissar, eine Investition von 10 Mio. € in Bahnhöfe, die Vernetzung von Kamerasystemen und die Verstärkung der Feuerwehr (DBDMH). Diese Maßnahmen müssen über den Haushalt 2026 finanziert werden.",
+      "economy": "Die neue Regierung plant eine Städtische Freihandelszone am Hafen und in Forest, die Positionierung als KI-Hauptstadt und die Eröffnung von Kanal. Die Umsetzung hängt von Durchführungserlassen und dem Haushalt ab.",
+      "cleanliness": "Die neue Regierung plant eine Reform der Brüsseler Reinigungsagentur, regionale Brigaden, unterirdische Container und sofortige Bußgelder. Die Umsetzung hängt vom Haushalt und der Koordination mit den Gemeinden ab.",
+      "institutional": "Die neue Regierung plant die Fusion von 25 Strukturen zu 4 Säulen mit Einsparungen von 20 bis 30 %. Die Säulen 1 und 2 sollen 2026 betriebsbereit sein, aber bestimmte Fusionen erfordern besondere Mehrheiten im Parlament."
     },
     "whyStatusTitle": "Warum dieser Status",
     "whyStatus": {
@@ -79,7 +83,11 @@
       "employment": "Die regionalen Maßnahmen zur Aktivierung der Beschäftigung (Ausbildungspläne, subventionierte Stellen) haben reglementarische Fristen, die auslaufen. Die Erneuerung dieser Maßnahmen erfordert Regierungsentscheidungen. Actiris setzt seinen laufenden Betrieb fort, kann aber seine Programme nicht an die föderale Reform der Arbeitslosenversicherung anpassen.",
       "housing": "Der Bau von Sozialwohnungen und die Zuweisung von Krediten an den Wohnungsfonds erfordern neue Haushaltsverpflichtungen, die in laufenden Geschäften unmöglich sind. Die SLRB (Brüsseler Sozialwohnungsbaugesellschaft) verwaltet den bestehenden Bestand weiter, kann aber keinen Neubau starten. Die Warteliste überschreitet 62.000 Haushalte, eine Rekordschwelle.",
       "climate": "Die Verabschiedung der neuen Phasen des Luft-Klima-Energieplans (LKEP) erfordert eine Genehmigung durch die Regierung. Die durch das Ziel 2030 gesetzten Fristen sind ohne strukturelle Entscheidung formell überschritten. Brüssel Umwelt setzt seine bestehenden Programme fort, aber ohne neues Budget für die erweiterten Renolution-Prämien.",
-      "social": "Die Investitionsentscheidungen der GGK (bikommunale Zuständigkeit) erfordern eine politische Genehmigung, die in laufenden Geschäften unmöglich ist. Die ÖSHZ sind auf regionale Zuschüsse angewiesen, deren Budgets nicht erhöht werden können. Iriscare arbeitet im Minimalmodus. Die Zahl der gezählten Obdachlosen steigt ohne mögliche politische Antwort."
+      "social": "Die Investitionsentscheidungen der GGK (bikommunale Zuständigkeit) erfordern eine politische Genehmigung, die in laufenden Geschäften unmöglich ist. Die ÖSHZ sind auf regionale Zuschüsse angewiesen, deren Budgets nicht erhöht werden können. Iriscare arbeitet im Minimalmodus. Die Zahl der gezählten Obdachlosen steigt ohne mögliche politische Antwort.",
+      "security": "Das Sicherheitskapitel der RPE sieht einen integrierten Regionalplan vor: Anti-Drogen-Kommissar, 10 Mio. € für die Sicherung der Bahnhöfe Süd und Nord, Vernetzung der Videoüberwachungssysteme und Verstärkung der DBDMH (Feuerwehr). Diese Maßnahmen erfordern Durchführungserlasse und Haushaltsmittel im Budget 2026.",
+      "economy": "Das Wirtschaftskapitel der RPE sieht die Schaffung einer Städtischen Freihandelszone (Brüsseler Hafen + Audi-Forest-Gelände), die Positionierung als KI-Hauptstadt und die Eröffnung des Kanal-Museums unter neuer Verwaltung vor. Die Umsetzung hängt von Durchführungserlassen und dem Haushalt 2026 ab.",
+      "cleanliness": "Das Sauberkeitskapitel der RPE sieht eine Reform der ABP, regionale Sauberkeitsbrigaden, unterirdische Abfallcontainer und die sofortige Erhebung von Bußgeldern vor. Die Umsetzung hängt von den Haushaltsmitteln im Budget 2026 ab.",
+      "institutional": "Kapitel 4 der RPE sieht die Fusion von 25 regionalen Strukturen zu 4 Säulen vor, mit Einsparungen von 20 bis 30 % der Betriebskosten. Die Säulen 1 und 2 sollen 2026 betriebsbereit sein. Bestimmte Fusionen erfordern besondere Mehrheiten im Parlament."
     },
     "notSaidTitle": "Was BGM nicht sagt",
     "notSaid": {
@@ -1041,7 +1049,8 @@
   "sectors": {
     "title": "Betroffene Sektoren",
     "subtitle": "Wie das Fehlen einer Regierung die wichtigsten Sektoren der Brüsseler Wirtschaft betrifft",
-    "frozenMechanisms": "Eingefrorene Mechanismen",
+    "frozenMechanisms": "Mechanismen in Erwartung der Reaktivierung",
+    "frozenMechanismsNote": "Diese Mechanismen waren während der geschäftsführenden Regierung (Juni 2024 – Februar 2026) eingefroren. Die neue Regierung kann sie nun reaktivieren.",
     "activeMechanisms": "Was weiterläuft",
     "impactIndicators": "Auswirkungsindikatoren",
     "stakeholders": "Betroffene Akteure",
@@ -1394,7 +1403,8 @@
       "blocked": "Blockiert",
       "delayed": "Verzögert",
       "reduced": "Reduzierte Auswirkung",
-      "unaffected": "Nicht betroffen"
+      "unaffected": "Nicht betroffen",
+      "resolved": "Gelöst"
     },
     "decisionLevel": {
       "regional": "Regional",

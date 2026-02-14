@@ -70,7 +70,11 @@
       "employment": "Het Gewest kan geen nieuwe tewerkstellingsprogramma's creëren noch zijn maatregelen aanpassen aan de federale hervorming van de werkloosheid. De bestaande maatregelen lopen verder maar zonder aanpassingsmogelijkheid aan de stijgende werkloosheid.",
       "housing": "Er kan geen nieuw sociaal woningbouwprogramma worden gelanceerd. Het Woningfonds heeft zijn kredieten opgeschort. De wachtlijst (62.234 gezinnen) groeit elke maand zonder mogelijkheid tot structureel politiek antwoord.",
       "climate": "De nieuwe fasen van het Lucht-Klimaat-Energieplan kunnen niet worden gelanceerd. De Renolution-premies zijn beperkt tot de bestaande enveloppes. Het traject naar de doelstelling van -40% CO2 tegen 2030 loopt vertraging op bij gebrek aan nieuwe beslissingen.",
-      "social": "De bicommunautaire investeringen van de GGC liggen stil. De OCMW's worden geconfronteerd met een toevloed van aanvragen zonder bijkomende middelen. Nieuwe initiatieven op het vlak van geestelijke gezondheid en daklozenbeleid staan op pauze."
+      "social": "De bicommunautaire investeringen van de GGC liggen stil. De OCMW's worden geconfronteerd met een toevloed van aanvragen zonder bijkomende middelen. Nieuwe initiatieven op het vlak van geestelijke gezondheid en daklozenbeleid staan op pauze.",
+      "security": "De nieuwe regering voorziet in een regionaal commissaris anti-drugs, een investering van 10 miljoen EUR in de stations, de verbinding van camerasystemen en de versterking van de brandweer (DBDMH). Deze maatregelen moeten worden gefinancierd via de begroting 2026.",
+      "economy": "De nieuwe regering voorziet in een Stedelijke Vrijhandelszone aan de Haven en in Forest, een positionering als AI-hoofdstad en de opening van Kanal. De concretisering hangt af van uitvoeringsbesluiten en het budget.",
+      "cleanliness": "De nieuwe regering voorziet in een hervorming van Brussel-Netheid, gewestelijke brigades, ondergrondse containers en onmiddellijke boetes. De concretisering hangt af van het budget en de coördinatie met de gemeenten.",
+      "institutional": "De nieuwe regering wil 25 structuren fuseren tot 4 pijlers, met een kostenbesparing van 20 tot 30 %. Pijlers 1 en 2 moeten operationeel zijn in 2026, maar bepaalde fusies vereisen bijzondere meerderheden in het Parlement."
     },
     "whyStatusTitle": "Waarom deze status",
     "whyStatus": {
@@ -79,7 +83,11 @@
       "employment": "De gewestelijke maatregelen voor activering van de werkgelegenheid (opleidingsplannen, gesubsidieerde banen) hebben reglementaire termijnen die aflopen. De vernieuwing van deze maatregelen vereist regeringsbeslissingen. Actiris zet zijn dagelijkse werking voort maar kan zijn programma's niet aanpassen aan de federale hervorming van de werkloosheid.",
       "housing": "De bouw van sociale woningen en de toekenning van kredieten aan het Woningfonds vereisen nieuwe begrotingsverbintenissen, die onmogelijk zijn in lopende zaken. De BGHM zet het beheer van het bestaande woningenpark voort maar kan geen enkele nieuwe bouw lanceren. De wachtlijst overschrijdt 62.000 gezinnen, een recorddrempel.",
       "climate": "De goedkeuring van de nieuwe fasen van het Lucht-Klimaat-Energieplan (LKEP) vereist een goedkeuring door de regering. De door de doelstelling 2030 vastgelegde termijnen zijn formeel overschreden zonder structurele beslissing. Leefmilieu Brussel zet haar bestaande programma's voort maar zonder nieuw budget voor de uitgebreide Renolution-premies.",
-      "social": "De investeringsbeslissingen van de GGC (bicommunautaire bevoegdheid) vereisen een politieke goedkeuring die in lopende zaken onmogelijk is. De OCMW's zijn afhankelijk van gewestelijke subsidies waarvan de enveloppes niet kunnen worden verhoogd. Iriscare functioneert op minimale modus. Het aantal getelde daklozen stijgt zonder mogelijk politiek antwoord."
+      "social": "De investeringsbeslissingen van de GGC (bicommunautaire bevoegdheid) vereisen een politieke goedkeuring die in lopende zaken onmogelijk is. De OCMW's zijn afhankelijk van gewestelijke subsidies waarvan de enveloppes niet kunnen worden verhoogd. Iriscare functioneert op minimale modus. Het aantal getelde daklozen stijgt zonder mogelijk politiek antwoord.",
+      "security": "Het hoofdstuk Veiligheid van de GBV voorziet in een geïntegreerd regionaal plan: commissaris anti-drugs, 10 M€ voor de beveiliging van de stations Zuid en Noord, interconnectie van camerabewaking en versterking van de DBDMH. Deze maatregelen vereisen uitvoeringsbesluiten en begrotingskredieten in de begroting 2026.",
+      "economy": "Het hoofdstuk Economie van de GBV voorziet in de oprichting van een Stedelijke Vrijhandelszone (Haven van Brussel + Audi Forest-site), de positionering als AI-hoofdstad en de opening van het Kanal-museum onder nieuw bestuur. De uitvoering hangt af van uitvoeringsbesluiten en de begroting 2026.",
+      "cleanliness": "Het hoofdstuk Netheid van de GBV voorziet in een hervorming van het ANB, gewestelijke netheids­brigades, ondergrondse containers en onmiddellijke inning van boetes. De uitvoering hangt af van de begrotingsmiddelen in de begroting 2026.",
+      "institutional": "Hoofdstuk 4 van de GBV voorziet in de fusie van 25 gewestelijke structuren tot 4 pijlers, met besparingen van 20 tot 30 % op de werkingskosten. Pijlers 1 en 2 moeten operationeel zijn in 2026. Bepaalde fusies vereisen bijzondere meerderheden in het Parlement."
     },
     "notSaidTitle": "Wat BGM niet zegt",
     "notSaid": {
@@ -1041,7 +1049,8 @@
   "sectors": {
     "title": "Getroffen sectoren",
     "subtitle": "Hoe het ontbreken van een regering de belangrijkste sectoren van de Brusselse economie treft",
-    "frozenMechanisms": "Bevroren mechanismen",
+    "frozenMechanisms": "Mechanismen in afwachting van heractivering",
+    "frozenMechanismsNote": "Deze mechanismen waren bevroren tijdens de periode van lopende zaken (juni 2024 – februari 2026). De nieuwe regering kan ze nu heractiveren.",
     "activeMechanisms": "Wat verder loopt",
     "impactIndicators": "Impactindicatoren",
     "stakeholders": "Betrokken actoren",
@@ -1394,7 +1403,8 @@
       "blocked": "Geblokkeerd",
       "delayed": "Vertraagd",
       "reduced": "Verminderde impact",
-      "unaffected": "Niet getroffen"
+      "unaffected": "Niet getroffen",
+      "resolved": "Opgelost"
     },
     "decisionLevel": {
       "regional": "Gewestelijk",

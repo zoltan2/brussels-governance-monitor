@@ -158,7 +158,7 @@ export interface DossierCard {
   locale: Locale;
   dossierType: 'infrastructure' | 'housing' | 'regulatory' | 'utility' | 'security';
   phase: 'announced' | 'planned' | 'in-progress' | 'stalled' | 'completed' | 'cancelled';
-  crisisImpact: 'blocked' | 'delayed' | 'reduced' | 'unaffected';
+  crisisImpact: 'blocked' | 'delayed' | 'reduced' | 'unaffected' | 'resolved';
   blockedSince?: string;
   decisionLevel: 'regional' | 'communal' | 'federal' | 'mixed';
   summary: string;
@@ -786,6 +786,7 @@ const crisisImpactOrder: Record<DossierCard['crisisImpact'], number> = {
   delayed: 1,
   reduced: 2,
   unaffected: 3,
+  resolved: 4,
 };
 
 /**

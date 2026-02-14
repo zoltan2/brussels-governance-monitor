@@ -33,13 +33,16 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { card } = result;
-  return buildMetadata({
-    locale,
-    title: card.title,
-    description: card.mechanism,
-    path: `/solutions/${slug}`,
-    ogParams: `title=${encodeURIComponent(card.title)}&type=solution&feasibility=${card.feasibility}`,
-  });
+  return {
+    ...buildMetadata({
+      locale,
+      title: card.title,
+      description: card.mechanism,
+      path: `/solutions/${slug}`,
+      ogParams: `title=${encodeURIComponent(card.title)}&type=solution&feasibility=${card.feasibility}`,
+    }),
+    robots: { index: false, follow: true },
+  };
 }
 
 const feasibilityStyles: Record<string, string> = {
@@ -117,7 +120,13 @@ function SolutionDetail({
         {card.draft && <DraftBanner />}
         {isFallback && <FallbackBanner targetLocale={locale} />}
 
-        <div className="mt-4 mb-6 flex items-start justify-between gap-3">
+        <div className="mt-4 mb-6 rounded-lg border border-neutral-300 bg-neutral-50 p-4">
+          <p className="text-sm text-neutral-600">
+            {t('archiveBanner')}
+          </p>
+        </div>
+
+        <div className="mb-6 flex items-start justify-between gap-3">
           <h1 className="text-3xl font-bold text-neutral-900">{card.title}</h1>
           <span
             className={cn(

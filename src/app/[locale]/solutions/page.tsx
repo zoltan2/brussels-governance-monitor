@@ -29,12 +29,15 @@ export async function generateMetadata({
     en: 'Crisis exit scenarios considered before the formation of the Brussels government. Archived content.',
     de: 'Krisenszenarien, die vor der Bildung der Brüsseler Regierung in Betracht gezogen wurden. Archivierter Inhalt.',
   };
-  return buildMetadata({
-    locale,
-    title: titles[locale] || titles.en,
-    description: descriptions[locale] || descriptions.en,
-    path: '/solutions',
-  });
+  return {
+    ...buildMetadata({
+      locale,
+      title: titles[locale] || titles.en,
+      description: descriptions[locale] || descriptions.en,
+      path: '/solutions',
+    }),
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function SolutionsPage({

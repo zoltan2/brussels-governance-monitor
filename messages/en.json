@@ -70,7 +70,11 @@
       "employment": "The Region cannot create new employment programmes or adapt its measures to the federal unemployment reform. Existing measures continue but without the possibility of adjustment in response to rising unemployment.",
       "housing": "No new social housing programme can be launched. The Housing Fund has suspended its lending. The waiting list (62,234 households) grows each month with no possibility of a structural policy response.",
       "climate": "The new phases of the Air-Climate-Energy Plan cannot be launched. Renolution energy renovation grants are limited to existing budgets. The trajectory towards the target of -40% CO2 by 2030 is falling behind due to the absence of new decisions.",
-      "social": "Bi-community investments by COCOM (Joint Community Commission) are frozen. CPAS (public social welfare centres) face a surge in requests without additional resources. New initiatives in mental health and homelessness policy are on hold."
+      "social": "Bi-community investments by COCOM (Joint Community Commission) are frozen. CPAS (public social welfare centres) face a surge in requests without additional resources. New initiatives in mental health and homelessness policy are on hold.",
+      "security": "The new government plans an anti-drugs commissioner, a €10 million investment in railway stations, connecting CCTV systems and reinforcing the fire service (SIAMU). These measures must be funded through the 2026 budget.",
+      "economy": "The new government plans an Urban Free Zone at the Port and Forest, positioning Brussels as an AI capital, and opening Kanal museum. Implementation depends on implementing decrees and the budget.",
+      "cleanliness": "The new government plans a reform of Brussels Cleanliness Agency, regional brigades, underground waste containers and immediate fines. Implementation depends on the budget and coordination with municipalities.",
+      "institutional": "The new government plans to merge 25 structures into 4 pillars, cutting costs by 20-30%. Pillars 1 and 2 must be operational in 2026, but some mergers require special majorities in Parliament."
     },
     "whyStatusTitle": "Why this status",
     "whyStatus": {
@@ -79,7 +83,11 @@
       "employment": "Regional employment activation measures (training plans, subsidised jobs) have regulatory deadlines that are expiring. Renewing these measures requires government decisions. Actiris continues its day-to-day operations but cannot adapt its programmes to the federal unemployment reform.",
       "housing": "The creation of social housing and the allocation of credits to the Housing Fund require new budget commitments, which are impossible under caretaker government. The SLRB (Brussels social housing agency) continues managing the existing stock but cannot launch any new construction. The waiting list exceeds 62,000 households, a record threshold.",
       "climate": "The adoption of the new phases of the Air-Climate-Energy Plan (PACE) requires government approval. The deadlines set by the 2030 target have been formally exceeded without a structural decision. Brussels Environment continues its existing programmes but without a new budget for expanded Renolution grants.",
-      "social": "Investment decisions by COCOM (Joint Community Commission, a bi-community competence) require political approval that is impossible under caretaker government. CPAS (public social welfare centres) depend on regional subsidies whose budgets cannot be increased. Iriscare operates in minimal mode. The number of counted homeless persons is rising without the possibility of a policy response."
+      "social": "Investment decisions by COCOM (Joint Community Commission, a bi-community competence) require political approval that is impossible under caretaker government. CPAS (public social welfare centres) depend on regional subsidies whose budgets cannot be increased. Iriscare operates in minimal mode. The number of counted homeless persons is rising without the possibility of a policy response.",
+      "security": "The Security chapter of the RPD provides for an integrated regional plan: an anti-drugs commissioner, €10M for securing South and North stations, interconnection of CCTV systems and reinforcement of SIAMU (fire service). These measures require implementing decrees and budget allocations in the 2026 budget.",
+      "economy": "The Economy chapter of the RPD provides for the creation of an Urban Free Zone (Brussels Port + Audi Forest site), positioning Brussels as an AI capital, and opening the Kanal museum under new governance. Implementation depends on implementing decrees and the 2026 budget.",
+      "cleanliness": "The Cleanliness chapter of the RPD provides for a reform of the Brussels Cleanliness Agency (ABP), regional cleanliness brigades, underground waste containers and immediate fine collection. Implementation depends on budget allocations in the 2026 budget.",
+      "institutional": "Chapter 4 of the RPD provides for the merger of 25 regional structures into 4 pillars, with savings of 20-30% on operating costs. Pillars 1 and 2 must be operational by 2026. Some mergers require special majorities in Parliament."
     },
     "notSaidTitle": "What BGM does not say",
     "notSaid": {
@@ -1041,7 +1049,8 @@
   "sectors": {
     "title": "Impacted sectors",
     "subtitle": "How the absence of government affects key sectors of the Brussels economy",
-    "frozenMechanisms": "Frozen mechanisms",
+    "frozenMechanisms": "Mechanisms awaiting reactivation",
+    "frozenMechanismsNote": "These mechanisms were frozen during the caretaker government period (June 2024 – February 2026). The new government can now reactivate them.",
     "activeMechanisms": "What continues",
     "impactIndicators": "Impact indicators",
     "stakeholders": "Stakeholders",
@@ -1394,7 +1403,8 @@
       "blocked": "Blocked",
       "delayed": "Delayed",
       "reduced": "Reduced impact",
-      "unaffected": "Unaffected"
+      "unaffected": "Unaffected",
+      "resolved": "Resolved"
     },
     "decisionLevel": {
       "regional": "Regional",

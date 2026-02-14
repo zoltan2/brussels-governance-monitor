@@ -112,6 +112,9 @@ function SectorDetail({
             <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
               {t('frozenMechanisms')}
             </h2>
+            <p className="mb-3 rounded border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
+              {t('frozenMechanismsNote')}
+            </p>
             <ul className="space-y-3">
               {card.frozenMechanisms.map((m) => (
                 <li key={m.name} className="rounded-lg bg-neutral-50 p-4">

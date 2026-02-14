@@ -53,6 +53,7 @@ const impactStyles: Record<string, string> = {
   delayed: 'bg-status-delayed text-white',
   reduced: 'bg-status-ongoing text-white',
   unaffected: 'bg-neutral-400 text-white',
+  resolved: 'bg-status-resolved text-white',
 };
 
 const phaseStyles: Record<string, string> = {

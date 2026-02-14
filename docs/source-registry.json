@@ -1,22 +1,22 @@
 {
   "$schema": "./source-registry-schema.json",
-  "description": "Registre des sources surveillées par BGM. 232 sources. Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
-  "lastUpdated": "2026-02-13",
+  "description": "Registre des sources surveillées par BGM. 233 sources. Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
+  "lastUpdated": "2026-02-14",
   "stats": {
-    "total": 232,
+    "total": 233,
     "byTier": {
-      "editorial": 160,
+      "editorial": 161,
       "radar": 72
     },
     "byPriority": {
       "P0": 27,
-      "P1": 32,
+      "P1": 33,
       "P2": 48,
       "P3": 49,
       "P4": 62
     },
     "byLang": {
-      "fr": 55,
+      "fr": 56,
       "multi": 37,
       "nl": 40,
       "en": 82,
@@ -24,7 +24,7 @@
     },
     "byType": {
       "institutional": 54,
-      "press": 90,
+      "press": 91,
       "legal": 7,
       "agency": 4,
       "research": 42,
@@ -3381,6 +3381,20 @@
       "tier": "editorial",
       "enabled": true,
       "id": "watch-218"
+    },
+    {
+      "name": "7sur7 — Actualité Belgique",
+      "url": "https://www.7sur7.be/belgique/",
+      "type": "press",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "daily",
+      "notes": "Média généraliste DPG Media. Couverture politique belge et bruxelloise. Source secondaire pour recoupement.",
+      "tier": "editorial",
+      "enabled": true,
+      "id": "watch-219"
     }
   ]
 }

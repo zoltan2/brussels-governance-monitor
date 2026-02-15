@@ -218,6 +218,19 @@ export interface CommuneCard {
   transparencyTotal: number;
 }
 
+export interface DigestEntry {
+  week: string;
+  lang: string;
+  title: string;
+  auto_translated: boolean;
+  redirect_lang: 'fr' | 'nl' | 'en' | 'de';
+  generated_at: string;
+  content: string;
+  year: string;
+  weekNum: string;
+  permalink: string;
+}
+
 interface VeliteCollections {
   domainCards: DomainCard[];
   solutionCards: SolutionCard[];
@@ -229,6 +242,7 @@ interface VeliteCollections {
   comparisonCards: ComparisonCard[];
   communeCards: CommuneCard[];
   dossierCards: DossierCard[];
+  digestEntries: DigestEntry[];
 }
 
 function getCollections(): VeliteCollections {
@@ -247,6 +261,7 @@ function getCollections(): VeliteCollections {
       comparisonCards: [],
       communeCards: [],
       dossierCards: [],
+      digestEntries: [],
     };
   }
 }
@@ -841,4 +856,60 @@ export function getAllDossierSlugs(): string[] {
  */
 export function getDossiersForDomain(domain: string, locale: Locale): DossierCard[] {
   return getDossierCards(locale).filter((d) => d.relatedDomains.includes(domain));
+}
+
+// ──────────────────────────────────────────────
+// Digest Entries (weekly multilingual digest)
+// ──────────────────────────────────────────────
+
+/**
+ * Get all digest entries for a given language, sorted by week desc.
+ */
+export function getDigestEntries(lang: string): DigestEntry[] {
+  const { digestEntries } = getCollections();
+  return digestEntries
+    .filter((e) => e.lang === lang)
+    .sort((a, b) => b.week.localeCompare(a.week));
+}
+
+/**
+ * Get a specific digest entry by week and language.
+ * Falls back to FR if the requested language doesn't exist.
+ */
+export function getDigestEntry(
+  week: string,
+  lang: string,
+): { entry: DigestEntry; isFallback: boolean } | null {
+  const { digestEntries } = getCollections();
+  const entry = digestEntries.find((e) => e.week === week && e.lang === lang);
+  if (entry) return { entry, isFallback: false };
+
+  const fallback = digestEntries.find((e) => e.week === week && e.lang === 'fr');
+  if (fallback) return { entry: fallback, isFallback: true };
+
+  return null;
+}
+
+/**
+ * Get all unique digest weeks (for generateStaticParams).
+ */
+export function getAllDigestWeeks(): string[] {
+  const { digestEntries } = getCollections();
+  return [...new Set(digestEntries.map((e) => e.week))].sort().reverse();
+}
+
+/**
+ * Get all unique digest languages (for generateStaticParams).
+ */
+export function getAllDigestLangs(): string[] {
+  const { digestEntries } = getCollections();
+  return [...new Set(digestEntries.map((e) => e.lang))];
+}
+
+/**
+ * Get the most recent digest week.
+ */
+export function getLatestDigestWeek(): string | null {
+  const weeks = getAllDigestWeeks();
+  return weeks.length > 0 ? weeks[0] : null;
 }

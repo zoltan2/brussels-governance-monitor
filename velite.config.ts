@@ -384,6 +384,33 @@ const dossierCards = defineCollection({
 });
 
 // ──────────────────────────────────────────────
+// Collection: Digest Entries (weekly multilingual digest pages)
+// ──────────────────────────────────────────────
+const digestEntries = defineCollection({
+  name: 'DigestEntry',
+  pattern: 'digest/*.mdx',
+  schema: s
+    .object({
+      week: s.string(), // e.g. "2026-w07"
+      lang: s.string(), // e.g. "fr", "ar", "sw" — NOT limited to 4 locales
+      title: s.string().max(200),
+      auto_translated: s.boolean().default(false),
+      redirect_lang: s.enum(['fr', 'nl', 'en', 'de']),
+      generated_at: s.isodate(),
+      content: s.mdx(),
+    })
+    .transform((data) => {
+      const [year, weekNum] = data.week.split('-w');
+      return {
+        ...data,
+        year,
+        weekNum: `w${weekNum}`,
+        permalink: `/digest/${data.lang}/${year}/w${weekNum}`,
+      };
+    }),
+});
+
+// ──────────────────────────────────────────────
 // Collection: Comparison Cards (V1 — schema ready, 0 content)
 // ──────────────────────────────────────────────
 const comparisonCards = defineCollection({
@@ -448,5 +475,6 @@ export default defineConfig({
     comparisonCards,
     communeCards,
     dossierCards,
+    digestEntries,
   },
 });

@@ -16,7 +16,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,json,md,mdx,css}\"",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:digest": "tsx scripts/test-digest.ts"
+    "test:digest": "tsx scripts/test-digest.ts",
+    "generate-digest": "tsx scripts/generate-digest.ts"
   },
   "dependencies": {
     "@appsignal/nodejs": "^3.7.4",

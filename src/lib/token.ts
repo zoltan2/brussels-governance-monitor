@@ -61,6 +61,49 @@ export function verifyUnsubscribeToken(token: string): UnsubscribePayload | null
   }
 }
 
+// ---------------------------------------------------------------------------
+// Digest approval tokens (24h expiry)
+// ---------------------------------------------------------------------------
+
+const DIGEST_APPROVE_EXPIRY_HOURS = 24;
+
+interface DigestApprovalPayload {
+  week: string;
+}
+
+export function generateDigestApprovalToken(week: string): string {
+  const expiry = Date.now() + DIGEST_APPROVE_EXPIRY_HOURS * 60 * 60 * 1000;
+  const data = JSON.stringify({ week, type: 'digest-approve', exp: expiry });
+  const encoded = Buffer.from(data).toString('base64url');
+  const signature = createHmac('sha256', getSecret()).update(encoded).digest('base64url');
+  return `${encoded}.${signature}`;
+}
+
+export function verifyDigestApprovalToken(token: string): DigestApprovalPayload | null {
+  const parts = token.split('.');
+  if (parts.length !== 2) return null;
+
+  const [encoded, signature] = parts;
+  const expectedSig = createHmac('sha256', getSecret()).update(encoded).digest('base64url');
+
+  try {
+    const sigBuf = Buffer.from(signature, 'base64url');
+    const expectedBuf = Buffer.from(expectedSig, 'base64url');
+    if (sigBuf.length !== expectedBuf.length || !timingSafeEqual(sigBuf, expectedBuf)) return null;
+  } catch {
+    return null;
+  }
+
+  try {
+    const data = JSON.parse(Buffer.from(encoded, 'base64url').toString());
+    if (data.type !== 'digest-approve') return null;
+    if (data.exp < Date.now()) return null;
+    return { week: data.week };
+  } catch {
+    return null;
+  }
+}
+
 export function verifyConfirmToken(token: string): TokenPayload | null {
   const parts = token.split('.');
   if (parts.length !== 2) return null;

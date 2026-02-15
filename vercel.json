@@ -4,6 +4,10 @@
   "regions": ["cdg1"],
   "crons": [
     {
+      "path": "/api/cron/prepare-digest",
+      "schedule": "0 20 * * 0"
+    },
+    {
       "path": "/api/cron/digest",
       "schedule": "0 7 * * 1"
     },

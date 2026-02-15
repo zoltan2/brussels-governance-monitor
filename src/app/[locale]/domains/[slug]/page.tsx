@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
-import { getDomainCard, getAllDomainSlugs, getLatestVerification } from '@/lib/content';
+import { getDomainCard, getAllDomainSlugs, getLatestVerification, getDossiersForDomain } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
@@ -18,6 +18,7 @@ import { VerificationBadge } from '@/components/verification-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { StatusAccordion } from '@/components/status-accordion';
 import { RelatedCards } from '@/components/related-cards';
+import { RelatedDossiers } from '@/components/related-dossiers';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 
@@ -65,6 +66,7 @@ export default async function DomainDetailPage({
 
   const { card, isFallback } = result;
   const verification = getLatestVerification(slug, 'domain', locale as Locale);
+  const relatedDossiers = getDossiersForDomain(slug, locale as Locale);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   const jsonLd = {
@@ -88,7 +90,7 @@ export default async function DomainDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} />
+      <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} relatedDossiers={relatedDossiers} />
     </>
   );
 }
@@ -98,11 +100,13 @@ function DomainDetail({
   locale,
   isFallback,
   verification,
+  relatedDossiers,
 }: {
   card: ReturnType<typeof getDomainCard> extends { card: infer C } | null ? C : never;
   locale: string;
   isFallback: boolean;
   verification: ReturnType<typeof getLatestVerification>;
+  relatedDossiers: ReturnType<typeof getDossiersForDomain>;
 }) {
   const t = useTranslations('domains');
   const tb = useTranslations('breadcrumb');
@@ -252,6 +256,8 @@ function DomainDetail({
             {t(`notSaid.${card.slug}`)}
           </p>
         </div>
+
+        <RelatedDossiers dossiers={relatedDossiers} />
 
         <RelatedCards domain={card.slug} />
 

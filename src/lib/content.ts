@@ -833,3 +833,11 @@ export function getAllDossierSlugs(): string[] {
   const { dossierCards } = getCollections();
   return [...new Set(dossierCards.map((c) => c.slug))];
 }
+
+/**
+ * Get dossier cards related to a given domain slug.
+ * Returns dossiers whose relatedDomains array includes the domain.
+ */
+export function getDossiersForDomain(domain: string, locale: Locale): DossierCard[] {
+  return getDossierCards(locale).filter((d) => d.relatedDomains.includes(domain));
+}

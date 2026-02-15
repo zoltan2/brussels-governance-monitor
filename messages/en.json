@@ -1373,7 +1373,7 @@
   },
   "dossiers": {
     "title": "Key dossiers",
-    "subtitle": "Major Brussels dossiers impacted by the absence of government",
+    "subtitle": "The dossiers shaping the future of Brussels, tracked and sourced",
     "readMore": "View dossier",
     "backToList": "Back to dossiers",
     "share": "Share",
@@ -1424,6 +1424,20 @@
       "official": "Official source",
       "estimated": "BGM estimate",
       "unconfirmed": "Unconfirmed"
+    },
+    "suggest": {
+      "title": "Missing a dossier?",
+      "description": "Suggest a Brussels dossier we should be tracking.",
+      "nameLabel": "Dossier name",
+      "namePlaceholder": "E.g.: Reform of emergency zones",
+      "reasonLabel": "Why this dossier matters (optional)",
+      "reasonPlaceholder": "Impact on Brussels residents, recent developments…",
+      "emailLabel": "Your email (optional)",
+      "emailPlaceholder": "To keep you informed",
+      "submit": "Submit",
+      "submitting": "Submitting…",
+      "success": "Thank you for your suggestion! We will review it.",
+      "errorMessage": "An error occurred. Please try again."
     }
   },
   "dashboard": {

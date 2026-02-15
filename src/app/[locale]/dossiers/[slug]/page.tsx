@@ -48,14 +48,6 @@ export async function generateMetadata({
   });
 }
 
-const impactStyles: Record<string, string> = {
-  blocked: 'bg-status-blocked text-white',
-  delayed: 'bg-status-delayed text-white',
-  reduced: 'bg-status-ongoing text-white',
-  unaffected: 'bg-neutral-400 text-white',
-  resolved: 'bg-status-resolved text-white',
-};
-
 const phaseStyles: Record<string, string> = {
   announced: 'border-neutral-400 text-neutral-600',
   planned: 'border-brand-600 text-brand-700',
@@ -141,11 +133,6 @@ function DossierDetail({
         <h1 className="mt-4 mb-3 text-3xl font-bold text-neutral-900">{card.title}</h1>
 
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          <span
-            className={`rounded-full px-3 py-1 text-sm font-medium ${impactStyles[card.crisisImpact]}`}
-          >
-            {t(`crisisImpact.${card.crisisImpact}`)}
-          </span>
           <span
             className={`rounded-full border px-3 py-1 text-sm font-medium ${phaseStyles[card.phase]}`}
           >

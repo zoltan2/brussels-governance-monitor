@@ -1373,7 +1373,7 @@
   },
   "dossiers": {
     "title": "Dossiers clés",
-    "subtitle": "Les grands dossiers bruxellois impactés par l'absence de gouvernement",
+    "subtitle": "Les dossiers qui façonnent l'avenir de Bruxelles, suivis et sourcés",
     "readMore": "Voir le dossier",
     "backToList": "Retour aux dossiers",
     "share": "Partager",
@@ -1424,6 +1424,20 @@
       "official": "Source officielle",
       "estimated": "Estimation BGM",
       "unconfirmed": "Non confirmé"
+    },
+    "suggest": {
+      "title": "Un dossier manque ?",
+      "description": "Proposez un dossier bruxellois que nous devrions suivre.",
+      "nameLabel": "Nom du dossier",
+      "namePlaceholder": "Ex. : Réforme des zones de secours",
+      "reasonLabel": "Pourquoi ce dossier est important (optionnel)",
+      "reasonPlaceholder": "Impact sur les Bruxellois, actualité récente…",
+      "emailLabel": "Votre email (optionnel)",
+      "emailPlaceholder": "Pour vous tenir informé",
+      "submit": "Envoyer",
+      "submitting": "Envoi…",
+      "success": "Merci pour votre suggestion ! Nous l'examinerons.",
+      "errorMessage": "Une erreur est survenue. Réessayez."
     }
   },
   "dashboard": {

@@ -1373,7 +1373,7 @@
   },
   "dossiers": {
     "title": "Schlüsseldossiers",
-    "subtitle": "Die großen Brüsseler Dossiers, die vom Fehlen einer Regierung betroffen sind",
+    "subtitle": "Die Dossiers, die die Zukunft Brüssels gestalten — verfolgt und belegt",
     "readMore": "Dossier ansehen",
     "backToList": "Zurück zu den Dossiers",
     "share": "Teilen",
@@ -1424,6 +1424,20 @@
       "official": "Offizielle Quelle",
       "estimated": "BGM-Schätzung",
       "unconfirmed": "Nicht bestätigt"
+    },
+    "suggest": {
+      "title": "Fehlt ein Dossier?",
+      "description": "Schlagen Sie ein Brüsseler Dossier vor, das wir verfolgen sollten.",
+      "nameLabel": "Name des Dossiers",
+      "namePlaceholder": "Z.B.: Reform der Hilfeleistungszonen",
+      "reasonLabel": "Warum ist dieses Dossier wichtig (optional)",
+      "reasonPlaceholder": "Auswirkungen auf die Brüsseler, aktuelle Entwicklungen…",
+      "emailLabel": "Ihre E-Mail (optional)",
+      "emailPlaceholder": "Um Sie auf dem Laufenden zu halten",
+      "submit": "Absenden",
+      "submitting": "Wird gesendet…",
+      "success": "Vielen Dank für Ihren Vorschlag! Wir werden ihn prüfen.",
+      "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
     }
   },
   "dashboard": {

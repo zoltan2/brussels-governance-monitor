@@ -1373,7 +1373,7 @@
   },
   "dossiers": {
     "title": "Sleuteldossiers",
-    "subtitle": "De grote Brusselse dossiers die getroffen worden door het ontbreken van een regering",
+    "subtitle": "De dossiers die de toekomst van Brussel vormgeven, gevolgd en onderbouwd",
     "readMore": "Bekijk het dossier",
     "backToList": "Terug naar dossiers",
     "share": "Delen",
@@ -1424,6 +1424,20 @@
       "official": "Officiële bron",
       "estimated": "BGM-schatting",
       "unconfirmed": "Niet bevestigd"
+    },
+    "suggest": {
+      "title": "Ontbreekt er een dossier?",
+      "description": "Stel een Brussels dossier voor dat we zouden moeten volgen.",
+      "nameLabel": "Naam van het dossier",
+      "namePlaceholder": "Bv.: Hervorming van de hulpverleningszones",
+      "reasonLabel": "Waarom is dit dossier belangrijk (optioneel)",
+      "reasonPlaceholder": "Impact op de Brusselaars, recent nieuws…",
+      "emailLabel": "Uw e-mail (optioneel)",
+      "emailPlaceholder": "Om u op de hoogte te houden",
+      "submit": "Verzenden",
+      "submitting": "Verzenden…",
+      "success": "Bedankt voor uw suggestie! We zullen deze bekijken.",
+      "errorMessage": "Er is een fout opgetreden. Probeer opnieuw."
     }
   },
   "dashboard": {

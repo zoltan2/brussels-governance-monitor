@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import { getDossierCards } from '@/lib/content';
 import { buildMetadata } from '@/lib/metadata';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { SuggestDossier } from '@/components/suggest-dossier';
 import { routing, type Locale } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
@@ -24,10 +25,10 @@ export async function generateMetadata({
     de: 'Schlüsseldossiers',
   };
   const descriptions: Record<string, string> = {
-    fr: "Les grands dossiers bruxellois impactés par l'absence de gouvernement.",
-    nl: 'De grote Brusselse dossiers die getroffen worden door het ontbreken van een regering.',
-    en: 'Major Brussels dossiers impacted by the absence of government.',
-    de: 'Die großen Brüsseler Dossiers, die vom Fehlen einer Regierung betroffen sind.',
+    fr: "Les dossiers qui façonnent l'avenir de Bruxelles, suivis et sourcés.",
+    nl: 'De dossiers die de toekomst van Brussel vormgeven, gevolgd en onderbouwd.',
+    en: 'The dossiers shaping the future of Brussels, tracked and sourced.',
+    de: 'Die Dossiers, die die Zukunft Brüssels gestalten — verfolgt und belegt.',
   };
   return buildMetadata({
     locale,
@@ -53,14 +54,6 @@ export default async function DossiersPage({
     </div>
   );
 }
-
-const impactStyles: Record<string, string> = {
-  blocked: 'bg-status-blocked text-white',
-  delayed: 'bg-status-delayed text-white',
-  reduced: 'bg-status-ongoing text-white',
-  unaffected: 'bg-neutral-400 text-white',
-  resolved: 'bg-status-resolved text-white',
-};
 
 const phaseStyles: Record<string, string> = {
   announced: 'border-neutral-400 text-neutral-600',
@@ -102,11 +95,6 @@ function DossiersContent({
             >
               <div className="mb-3 flex flex-wrap items-center gap-2">
                 <span
-                  className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${impactStyles[card.crisisImpact]}`}
-                >
-                  {t(`crisisImpact.${card.crisisImpact}`)}
-                </span>
-                <span
                   className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${phaseStyles[card.phase]}`}
                 >
                   {t(`phase.${card.phase}`)}
@@ -125,6 +113,22 @@ function DossiersContent({
               </div>
             </Link>
           ))}
+          <SuggestDossier
+            labels={{
+              title: t('suggest.title'),
+              description: t('suggest.description'),
+              nameLabel: t('suggest.nameLabel'),
+              namePlaceholder: t('suggest.namePlaceholder'),
+              reasonLabel: t('suggest.reasonLabel'),
+              reasonPlaceholder: t('suggest.reasonPlaceholder'),
+              emailLabel: t('suggest.emailLabel'),
+              emailPlaceholder: t('suggest.emailPlaceholder'),
+              submit: t('suggest.submit'),
+              submitting: t('suggest.submitting'),
+              success: t('suggest.success'),
+              errorMessage: t('suggest.errorMessage'),
+            }}
+          />
         </div>
       )}
     </>

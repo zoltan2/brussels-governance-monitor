@@ -781,31 +781,32 @@ export function getAllCommuneSlugs(): string[] {
 // Dossier Cards
 // ──────────────────────────────────────────────
 
-const crisisImpactOrder: Record<DossierCard['crisisImpact'], number> = {
-  blocked: 0,
-  delayed: 1,
-  reduced: 2,
-  unaffected: 3,
-  resolved: 4,
+const phaseOrder: Record<DossierCard['phase'], number> = {
+  'in-progress': 0,
+  planned: 1,
+  announced: 2,
+  stalled: 3,
+  completed: 4,
+  cancelled: 5,
 };
 
 /**
  * Get all dossier cards for a given locale.
  * Per-card fallback: if a card doesn't exist in the requested locale,
- * the FR version is used instead. Sorted by crisis impact severity.
+ * the FR version is used instead. Sorted by phase priority.
  */
 export function getDossierCards(locale: Locale): DossierCard[] {
   const { dossierCards } = getCollections();
   const frCards = dossierCards.filter((c) => c.locale === 'fr' && !c.draft);
   if (locale === 'fr')
-    return frCards.sort((a, b) => crisisImpactOrder[a.crisisImpact] - crisisImpactOrder[b.crisisImpact]);
+    return frCards.sort((a, b) => phaseOrder[a.phase] - phaseOrder[b.phase]);
 
   return frCards
     .map((frCard) => {
       const localeCard = dossierCards.find((c) => c.slug === frCard.slug && c.locale === locale);
       return localeCard || frCard;
     })
-    .sort((a, b) => crisisImpactOrder[a.crisisImpact] - crisisImpactOrder[b.crisisImpact]);
+    .sort((a, b) => phaseOrder[a.phase] - phaseOrder[b.phase]);
 }
 
 /**

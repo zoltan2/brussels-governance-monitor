@@ -22,10 +22,10 @@ const titles: Record<string, string> = {
 };
 
 const descriptions: Record<string, string> = {
-  fr: 'Ce qui est bloqué, retardé ou dégradé faute de gouvernement bruxellois.',
-  nl: 'Wat geblokkeerd, vertraagd of verslechterd is door het ontbreken van een Brusselse regering.',
-  en: 'What is blocked, delayed or degraded without a Brussels government.',
-  de: 'Was ohne Brüsseler Regierung blockiert, verzögert oder verschlechtert ist.',
+  fr: 'Les grands dossiers bruxellois, suivis domaine par domaine.',
+  nl: 'De grote Brusselse dossiers, domein per domein gevolgd.',
+  en: 'Major Brussels issues, tracked domain by domain.',
+  de: 'Die großen Brüsseler Dossiers, Bereich für Bereich verfolgt.',
 };
 
 export async function generateMetadata({

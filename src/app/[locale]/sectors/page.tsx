@@ -19,10 +19,10 @@ export async function generateMetadata({
   const { locale } = await params;
   const titles: Record<string, string> = { fr: 'Secteurs impactés', nl: 'Getroffen sectoren', en: 'Impacted sectors', de: 'Betroffene Sektoren' };
   const descriptions: Record<string, string> = {
-    fr: 'L\'impact concret de l\'absence de gouvernement bruxellois sur les secteurs économiques.',
-    nl: 'De concrete impact van het ontbreken van een Brusselse regering op de economische sectoren.',
-    en: 'The concrete impact of the absence of a Brussels government on economic sectors.',
-    de: 'Die konkreten Auswirkungen des Fehlens einer Brüsseler Regierung auf die Wirtschaftssektoren.',
+    fr: 'Les secteurs clés de l\'économie bruxelloise, suivis et documentés.',
+    nl: 'De belangrijkste sectoren van de Brusselse economie, gevolgd en gedocumenteerd.',
+    en: 'Key sectors of the Brussels economy, tracked and documented.',
+    de: 'Die wichtigsten Sektoren der Brüsseler Wirtschaft, verfolgt und dokumentiert.',
   };
   return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/sectors' });
 }

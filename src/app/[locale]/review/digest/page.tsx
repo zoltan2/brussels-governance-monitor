@@ -110,6 +110,31 @@ export default function DigestReviewPage() {
     }
   }
 
+  async function handleTestSend() {
+    if (!digest) return;
+    setStatus('saving');
+    setError('');
+    setSuccessMsg('');
+
+    try {
+      const res = await fetch('/api/digest/test-send', { method: 'POST' });
+
+      if (!res.ok) {
+        const data = await res.json();
+        setError(data.error || 'Failed to send test');
+        setStatus('loaded');
+        return;
+      }
+
+      const data = await res.json();
+      setSuccessMsg(`Mail test envoyé à ${data.sentTo}`);
+      setStatus('loaded');
+    } catch {
+      setError('Failed to send test');
+      setStatus('loaded');
+    }
+  }
+
   async function handleApprove() {
     if (!digest || digest.sent) return;
     if (!confirm('Confirmer l\'envoi du digest ? Les mails seront envoyés lundi 8h CET.')) return;
@@ -331,13 +356,20 @@ export default function DigestReviewPage() {
 
         {/* Action buttons */}
         {!isSent && (
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <button
               onClick={handleSave}
               disabled={status === 'saving' || status === 'approving'}
               className="rounded-md bg-neutral-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-700 disabled:opacity-50"
             >
               {status === 'saving' ? 'Sauvegarde...' : 'Sauvegarder'}
+            </button>
+            <button
+              onClick={handleTestSend}
+              disabled={status === 'saving' || status === 'approving'}
+              className="rounded-md border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 disabled:opacity-50"
+            >
+              Envoyer un test
             </button>
             <button
               onClick={handleApprove}

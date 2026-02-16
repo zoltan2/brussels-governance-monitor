@@ -247,7 +247,7 @@ const sectorCards = defineCollection({
       title: s.string().max(120),
       slug: s.string(),
       locale: localeEnum,
-      parentDomain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social']),
+      parentDomain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional']),
       sector: s.string(),
       frozenMechanisms: s
         .array(
@@ -332,7 +332,7 @@ const communeCards = defineCollection({
         mandateRegistry: s.enum(['yes', 'partial', 'no']),
       }),
       relatedDomains: s
-        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social']))
+        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional']))
         .default([]),
       relatedSectors: s.array(s.string()).default([]),
       sources: s.array(communeSourceSchema),

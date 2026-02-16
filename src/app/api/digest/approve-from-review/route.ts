@@ -89,7 +89,9 @@ export const POST = auth(async function POST(req) {
         title: c.title,
         domain: c.domain,
         status: c.status,
-        summary: c.changeSummary || c.summary,
+        summary: (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
+          ? c.changeSummary
+          : c.summary,
         url: `${siteUrl}/${locale}/domains/${c.slug}`,
       }));
   }

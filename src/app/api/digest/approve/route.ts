@@ -121,7 +121,9 @@ export async function GET(request: Request) {
         title: c.title,
         domain: c.domain,
         status: c.status,
-        summary: c.changeSummary || c.summary,
+        summary: (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
+          ? c.changeSummary
+          : c.summary,
         url: `${siteUrl}/${locale}/domains/${c.slug}`,
       }));
   }

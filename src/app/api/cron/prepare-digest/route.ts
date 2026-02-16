@@ -101,7 +101,9 @@ export async function GET(request: Request) {
           title: c.title,
           domain: c.domain,
           status: c.status,
-          summary: c.changeSummary || c.summary,
+          summary: (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
+            ? c.changeSummary
+            : c.summary,
           url: `${siteUrl}/${locale}/domains/${c.slug}`,
         };
       });
@@ -201,12 +203,20 @@ export async function GET(request: Request) {
     updatedDomains,
   };
 
-  // 7. Write to GitHub
+  // 7. Write to GitHub — preserve user edits if same week
   const filePath = 'data/pending-digest.json';
   let existingSha: string | undefined;
   try {
     const existing = await readGitHubFile(filePath);
-    if (existing) existingSha = existing.sha;
+    if (existing) {
+      existingSha = existing.sha;
+      const prev = JSON.parse(existing.content);
+      // If same week, not sent, preserve user-edited fields
+      if (prev.week === week && !prev.sent) {
+        pendingDigest.closingNote = prev.closingNote;
+        pendingDigest.weeklyNumber = prev.weeklyNumber;
+      }
+    }
   } catch {
     // File doesn't exist yet, that's fine
   }

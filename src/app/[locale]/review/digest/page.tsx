@@ -307,9 +307,12 @@ export default function DigestReviewPage() {
 
         {/* Editable: closing note — 4 locales */}
         <section className="mb-6 rounded-lg border border-neutral-200 p-4">
-          <h2 className="mb-3 text-sm font-semibold text-neutral-700">
+          <h2 className="mb-1 text-sm font-semibold text-neutral-700">
             Mot de la fin
           </h2>
+          <p className="mb-3 text-xs text-neutral-400">
+            Retours à la ligne supportés. <code className="rounded bg-neutral-100 px-1">*italique*</code> <code className="rounded bg-neutral-100 px-1">**gras**</code>
+          </p>
           <div className="space-y-3">
             <div>
               <label className="mb-1 block text-xs font-medium text-neutral-500">FR</label>
@@ -317,7 +320,7 @@ export default function DigestReviewPage() {
                 value={closingNoteFr}
                 onChange={(e) => setClosingNoteFr(e.target.value)}
                 disabled={isSent}
-                rows={2}
+                rows={4}
                 className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
@@ -327,7 +330,7 @@ export default function DigestReviewPage() {
                 value={closingNoteNl}
                 onChange={(e) => setClosingNoteNl(e.target.value)}
                 disabled={isSent}
-                rows={2}
+                rows={4}
                 className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
@@ -337,7 +340,7 @@ export default function DigestReviewPage() {
                 value={closingNoteEn}
                 onChange={(e) => setClosingNoteEn(e.target.value)}
                 disabled={isSent}
-                rows={2}
+                rows={4}
                 className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
@@ -347,7 +350,7 @@ export default function DigestReviewPage() {
                 value={closingNoteDe}
                 onChange={(e) => setClosingNoteDe(e.target.value)}
                 disabled={isSent}
-                rows={2}
+                rows={4}
                 className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>

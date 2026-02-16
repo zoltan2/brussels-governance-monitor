@@ -50,6 +50,7 @@ const T: Record<string, {
   domainsTitle: string;
   readMore: string;
   founderTitle: string;
+  founderDesc: string;
   feedbackQuestion: string;
   feedbackYes: string;
   feedbackNo: string;
@@ -74,6 +75,7 @@ const T: Record<string, {
     domainsTitle: 'Domaines mis à jour',
     readMore: 'Lire la fiche →',
     founderTitle: 'Fondateur Brussels Governance Monitor',
+    founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
     feedbackQuestion: 'Ce digest vous a été utile ?',
     feedbackYes: '👍 Oui',
     feedbackNo: '👎 Non',
@@ -98,6 +100,7 @@ const T: Record<string, {
     domainsTitle: 'Bijgewerkte domeinen',
     readMore: 'Lees de fiche →',
     founderTitle: 'Oprichter Brussels Governance Monitor',
+    founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
     feedbackQuestion: 'Was deze digest nuttig voor u?',
     feedbackYes: '👍 Ja',
     feedbackNo: '👎 Nee',
@@ -122,6 +125,7 @@ const T: Record<string, {
     domainsTitle: 'Updated domains',
     readMore: 'Read more →',
     founderTitle: 'Founder, Brussels Governance Monitor',
+    founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
     feedbackQuestion: 'Was this digest useful?',
     feedbackYes: '👍 Yes',
     feedbackNo: '👎 No',
@@ -146,6 +150,7 @@ const T: Record<string, {
     domainsTitle: 'Aktualisierte Bereiche',
     readMore: 'Weiterlesen →',
     founderTitle: 'Gründer, Brussels Governance Monitor',
+    founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
     feedbackQuestion: 'War dieser Digest nützlich?',
     feedbackYes: '👍 Ja',
     feedbackNo: '👎 Nein',
@@ -158,6 +163,42 @@ const T: Record<string, {
     statusLabels: { blocked: 'Blockiert', delayed: 'Verzögert', ongoing: 'Laufend', resolved: 'Gelöst' },
   },
 };
+
+/** Parse simple markdown (line breaks, **bold**, *italic*) into React nodes. */
+function renderFormattedText(
+  text: string,
+  baseStyle: React.CSSProperties,
+): React.ReactNode[] {
+  const lines = text.split('\n');
+  const result: React.ReactNode[] = [];
+
+  lines.forEach((line, lineIdx) => {
+    if (lineIdx > 0) result.push(<br key={`br-${lineIdx}`} />);
+
+    // Split on **bold** and *italic* markers
+    const parts = line.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/);
+    parts.forEach((part, partIdx) => {
+      const key = `${lineIdx}-${partIdx}`;
+      if (part.startsWith('**') && part.endsWith('**')) {
+        result.push(
+          <strong key={key} style={{ ...baseStyle, fontWeight: 700 }}>
+            {part.slice(2, -2)}
+          </strong>,
+        );
+      } else if (part.startsWith('*') && part.endsWith('*')) {
+        result.push(
+          <em key={key} style={{ ...baseStyle, fontStyle: 'italic' }}>
+            {part.slice(1, -1)}
+          </em>,
+        );
+      } else if (part) {
+        result.push(<span key={key}>{part}</span>);
+      }
+    });
+  });
+
+  return result;
+}
 
 /**
  * Inner content component — renders the main white container without Html/Head/Body.
@@ -536,22 +577,26 @@ export function DigestContent({
                     <td style={{ padding: '22px 24px' }}>
                       <p
                         style={{
-                          margin: '0 0 12px',
+                          margin: '0 0 16px',
                           color: '#78350f',
                           fontSize: '14px',
-                          fontStyle: 'italic' as const,
                           lineHeight: '1.6',
                         }}
                       >
-                        {closingNote}
+                        {renderFormattedText(closingNote, {
+                          color: '#78350f',
+                          fontSize: '14px',
+                          lineHeight: '1.6',
+                        })}
                       </p>
-                      <p style={{ margin: 0 }}>
-                        <span style={{ color: '#92400e', fontSize: '13px', fontWeight: 600 }}>
-                          Zoltán Jánosi
-                        </span>
-                        <span style={{ color: '#a16207', fontSize: '13px', fontWeight: 400 }}>
-                          , {t.founderTitle}
-                        </span>
+                      <p style={{ margin: '0 0 2px', color: '#92400e', fontSize: '13px', fontWeight: 600 }}>
+                        Zoltán Jánosi
+                      </p>
+                      <p style={{ margin: '0 0 1px', color: '#a16207', fontSize: '12px' }}>
+                        {t.founderTitle}
+                      </p>
+                      <p style={{ margin: 0, color: '#a16207', fontSize: '11px', fontStyle: 'italic' as const }}>
+                        {t.founderDesc}
                       </p>
                     </td>
                   </tr>

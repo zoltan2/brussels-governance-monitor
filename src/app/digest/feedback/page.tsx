@@ -46,7 +46,7 @@ function FeedbackContent() {
   useEffect(() => {
     if (tracked.current || !week || !vote) return;
     tracked.current = true;
-    window.umami?.track('digest-feedback', { week, vote });
+    window.umami?.track(`digest-feedback-${vote}`);
   }, [week, vote]);
 
   return (

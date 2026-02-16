@@ -8,7 +8,7 @@ import {
   Section,
   Text,
 } from '@react-email/components';
-import DigestEmail, { type DigestEmailProps } from './digest';
+import { DigestContent, type DigestEmailProps } from './digest';
 
 interface DigestPreviewEmailProps extends DigestEmailProps {
   approveUrl: string;
@@ -26,7 +26,14 @@ export default function DigestPreviewEmail({
     <Html lang="fr">
       <Head />
       <Preview>PREVIEW — Digest à approuver avant lundi 8h</Preview>
-      <Body style={styles.body}>
+      <Body
+        style={{
+          margin: '0',
+          padding: '0',
+          backgroundColor: '#eef1f6',
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        }}
+      >
         {/* Preview banner */}
         <Container style={styles.banner}>
           <Text style={styles.bannerTitle}>PREVIEW</Text>
@@ -47,25 +54,33 @@ export default function DigestPreviewEmail({
           </Section>
         </Container>
 
-        {/* Render the actual digest */}
-        <DigestEmail {...digestProps} />
+        {/* Render the actual digest content (without extra Html/Body wrapper) */}
+        <table
+          role="presentation"
+          width="100%"
+          cellPadding={0}
+          cellSpacing={0}
+          style={{ backgroundColor: '#eef1f6' }}
+        >
+          <tbody>
+            <tr>
+              <td align="center" style={{ padding: '0 16px 32px' }}>
+                <DigestContent {...digestProps} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </Body>
     </Html>
   );
 }
 
 const styles = {
-  body: {
-    backgroundColor: '#f9fafb',
-    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    margin: '0',
-    padding: '0',
-  },
   banner: {
     backgroundColor: '#fef3c7',
     borderBottom: '2px solid #f59e0b',
     margin: '0 auto',
-    maxWidth: '520px',
+    maxWidth: '640px',
     padding: '20px 32px',
     textAlign: 'center' as const,
   },

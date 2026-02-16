@@ -193,6 +193,8 @@ export async function GET(request: Request) {
         closingNote: digest.closingNote[locale] || digest.closingNote.fr,
         commitmentCount: digest.commitmentCount,
         siteUrl,
+        feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
+        feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
       }),
       tags: [
         { name: 'type', value: 'digest' },

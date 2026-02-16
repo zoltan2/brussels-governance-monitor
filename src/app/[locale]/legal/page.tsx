@@ -42,7 +42,7 @@ function LegalView() {
 
   return (
     <section className="py-12">
-      <div className="mx-auto max-w-3xl px-4">
+      <div className="mx-auto max-w-5xl px-4">
         <Link
           href="/"
           className="mb-6 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700"

@@ -42,7 +42,7 @@ export default async function ReviewPage({
 
   return (
     <div className="py-12">
-      <div className="mx-auto max-w-3xl px-4">
+      <div className="mx-auto max-w-5xl px-4">
         <div className="mb-8 flex items-start justify-between">
           <div>
             <h1 className="text-3xl font-bold text-neutral-900">{t('title')}</h1>

@@ -62,6 +62,16 @@ function UnderstandContent() {
     { href: '/explainers/brussels-cosmopolitan' as const, title: t('cosmopolitanTitle'), desc: t('cosmopolitanDesc') },
   ];
 
+  const institutions = [
+    { href: '/explainers/brussels-region' as const, title: t('regionTitle'), desc: t('regionDesc') },
+    { href: '/explainers/cocom' as const, title: t('cocomTitle'), desc: t('cocomDesc') },
+    { href: '/explainers/cocof' as const, title: t('cocofTitle'), desc: t('cocofDesc') },
+    { href: '/explainers/vgc' as const, title: t('vgcTitle'), desc: t('vgcDesc') },
+    { href: '/explainers/communities-in-brussels' as const, title: t('communitiesTitle'), desc: t('communitiesDesc') },
+    { href: '/explainers/federal-and-brussels' as const, title: t('federalTitle'), desc: t('federalDesc') },
+    { href: '/explainers/who-decides-what' as const, title: t('whoDecidesTitle'), desc: t('whoDecidesDesc') },
+  ];
+
   const follow = [
     { href: '/timeline' as const, title: t('timelineTitle'), desc: t('timelineDesc') },
     { href: '/faq' as const, title: t('faqTitle'), desc: t('faqDesc') },
@@ -95,6 +105,23 @@ function UnderstandContent() {
         <h2 className="mb-4 text-lg font-semibold text-neutral-900">{t('fundamentalsSection')}</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {fundamentals.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+            >
+              <h3 className="mb-2 text-base font-semibold text-neutral-900">{item.title}</h3>
+              <p className="text-sm text-neutral-600">{item.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Institutions bruxelloises */}
+      <section className="mb-10">
+        <h2 className="mb-4 text-lg font-semibold text-neutral-900">{t('institutionsSection')}</h2>
+        <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
+          {institutions.map((item) => (
             <Link
               key={item.href}
               href={item.href}

@@ -139,6 +139,48 @@ export const routing = defineRouting({
       en: '/explainers/brussels-cosmopolitan',
       de: '/erklaerungen/kosmopolitisches-bruessel',
     },
+    '/explainers/brussels-region': {
+      fr: '/comprendre/region-bruxelles',
+      nl: '/begrijpen/brussels-gewest',
+      en: '/explainers/brussels-region',
+      de: '/erklaerungen/region-bruessel',
+    },
+    '/explainers/cocom': {
+      fr: '/comprendre/cocom',
+      nl: '/begrijpen/ggc',
+      en: '/explainers/cocom',
+      de: '/erklaerungen/ggk',
+    },
+    '/explainers/cocof': {
+      fr: '/comprendre/cocof',
+      nl: '/begrijpen/fgc',
+      en: '/explainers/cocof',
+      de: '/erklaerungen/cocof',
+    },
+    '/explainers/vgc': {
+      fr: '/comprendre/vgc',
+      nl: '/begrijpen/vgc',
+      en: '/explainers/vgc',
+      de: '/erklaerungen/vgc',
+    },
+    '/explainers/communities-in-brussels': {
+      fr: '/comprendre/communautes-a-bruxelles',
+      nl: '/begrijpen/gemeenschappen-in-brussel',
+      en: '/explainers/communities-in-brussels',
+      de: '/erklaerungen/gemeinschaften-in-bruessel',
+    },
+    '/explainers/federal-and-brussels': {
+      fr: '/comprendre/federal-et-bruxelles',
+      nl: '/begrijpen/federaal-en-brussel',
+      en: '/explainers/federal-and-brussels',
+      de: '/erklaerungen/bund-und-bruessel',
+    },
+    '/explainers/who-decides-what': {
+      fr: '/comprendre/qui-decide-quoi',
+      nl: '/begrijpen/wie-beslist-wat',
+      en: '/explainers/who-decides-what',
+      de: '/erklaerungen/wer-entscheidet-was',
+    },
     '/how-to-read': {
       fr: '/comment-lire-ce-site',
       nl: '/hoe-deze-site-lezen',

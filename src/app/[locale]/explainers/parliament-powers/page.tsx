@@ -42,7 +42,7 @@ function ParliamentPowersView() {
 
   return (
     <section className="py-12">
-      <div className="mx-auto max-w-3xl px-4">
+      <div className="mx-auto max-w-5xl px-4">
         <Breadcrumb items={[
           { label: tb('home'), href: '/' },
           { label: tb('understand'), href: '/understand' },

@@ -46,11 +46,25 @@ function getNextMonday8CET(now: Date): Date {
  * POST /api/digest/approve-from-review
  * Auth-protected — approve and send the digest (same logic as /api/digest/approve
  * but uses session auth instead of token auth).
+ *
+ * Body (optional JSON):
+ *   schedule: 'now' | 'monday' — default 'now' (send immediately)
+ *   resend: boolean — allow re-sending even if already marked sent
  */
 export const POST = auth(async function POST(req) {
   if (!req.auth) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
+
+  let body: { schedule?: string; resend?: boolean } = {};
+  try {
+    body = await req.json();
+  } catch {
+    // No body or invalid JSON — use defaults
+  }
+
+  const sendNow = body.schedule !== 'monday';
+  const allowResend = body.resend === true;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
 
@@ -62,7 +76,7 @@ export const POST = auth(async function POST(req) {
 
   const digest = JSON.parse(file.content);
 
-  if (digest.sent) {
+  if (digest.sent && !allowResend) {
     return NextResponse.json({ error: 'Digest already sent' }, { status: 409 });
   }
 
@@ -70,9 +84,11 @@ export const POST = auth(async function POST(req) {
 
   const now = new Date();
   let scheduledAt: string | undefined;
-  const nextMonday8CET = getNextMonday8CET(now);
-  if (now < nextMonday8CET) {
-    scheduledAt = nextMonday8CET.toISOString();
+  if (!sendNow) {
+    const nextMonday8CET = getNextMonday8CET(now);
+    if (now < nextMonday8CET) {
+      scheduledAt = nextMonday8CET.toISOString();
+    }
   }
 
   const createdAt = new Date(digest.created_at);
@@ -207,7 +223,7 @@ export const POST = auth(async function POST(req) {
     filePath,
     JSON.stringify(digest, null, 2) + '\n',
     file.sha,
-    `chore: digest ${digest.week} approved via review and sent`,
+    `chore: digest ${digest.week} ${allowResend ? 're-' : ''}sent via review${scheduledAt ? ' (scheduled)' : ''}`,
   );
 
   return NextResponse.json({

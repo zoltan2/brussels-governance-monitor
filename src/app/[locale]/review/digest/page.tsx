@@ -135,17 +135,27 @@ export default function DigestReviewPage() {
     }
   }
 
-  async function handleApprove() {
-    if (!digest || digest.sent) return;
-    if (!confirm('Confirmer l\'envoi du digest ? Les mails seront envoyés lundi 8h CET.')) return;
+  async function handleApprove(schedule: 'now' | 'monday', resend = false) {
+    if (!digest) return;
+    if (!resend && digest.sent) return;
+
+    const msg = resend
+      ? 'Renvoyer le digest maintenant ? (les mails précédents doivent être annulés dans Resend)'
+      : schedule === 'now'
+        ? 'Envoyer le digest maintenant ?'
+        : 'Programmer l\'envoi pour lundi 8h CET ?';
+    if (!confirm(msg)) return;
 
     setStatus('approving');
     setError('');
     setSuccessMsg('');
 
     try {
-      // Generate token server-side
-      const res = await fetch('/api/digest/approve-from-review', { method: 'POST' });
+      const res = await fetch('/api/digest/approve-from-review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ schedule, resend }),
+      });
 
       if (!res.ok) {
         const data = await res.json();
@@ -155,7 +165,8 @@ export default function DigestReviewPage() {
       }
 
       const data = await res.json();
-      setSuccessMsg(`Digest approuvé ! ${data.sent} mail(s) programmé(s) (${data.scheduledAt})`);
+      const label = data.scheduledAt === 'immediate' ? 'envoyé(s)' : `programmé(s) (${data.scheduledAt})`;
+      setSuccessMsg(`Digest approuvé ! ${data.sent} mail(s) ${label}`);
       setStatus('loaded');
       await fetchDigest();
     } catch {
@@ -375,18 +386,25 @@ export default function DigestReviewPage() {
               Envoyer un test
             </button>
             <button
-              onClick={handleApprove}
+              onClick={() => handleApprove('now')}
               disabled={status === 'saving' || status === 'approving'}
               className="rounded-md bg-blue-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-800 disabled:opacity-50"
             >
-              {status === 'approving' ? 'Approbation...' : 'Approuver l\'envoi'}
+              {status === 'approving' ? 'Envoi...' : 'Envoyer maintenant'}
+            </button>
+            <button
+              onClick={() => handleApprove('monday')}
+              disabled={status === 'saving' || status === 'approving'}
+              className="rounded-md border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800 transition-colors hover:bg-blue-100 disabled:opacity-50"
+            >
+              Programmer lundi 8h
             </button>
           </div>
         )}
 
         {isSent && digest.sent_at && (
           <div className="rounded-md border border-teal-200 bg-teal-50 p-4">
-            <p className="text-sm text-teal-800">
+            <p className="mb-3 text-sm text-teal-800">
               Digest envoyé le {new Date(digest.sent_at).toLocaleDateString('fr-BE', {
                 day: 'numeric',
                 month: 'long',
@@ -394,6 +412,16 @@ export default function DigestReviewPage() {
                 hour: '2-digit',
                 minute: '2-digit',
               })}
+            </p>
+            <button
+              onClick={() => handleApprove('now', true)}
+              disabled={status === 'approving'}
+              className="rounded-md border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-800 transition-colors hover:bg-amber-100 disabled:opacity-50"
+            >
+              {status === 'approving' ? 'Renvoi...' : 'Renvoyer maintenant'}
+            </button>
+            <p className="mt-2 text-xs text-amber-600">
+              Annulez d&apos;abord les mails programmés dans le dashboard Resend avant de renvoyer.
             </p>
           </div>
         )}

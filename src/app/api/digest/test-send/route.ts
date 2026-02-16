@@ -4,7 +4,7 @@ import { readGitHubFile } from '@/lib/github';
 import { getDomainCards } from '@/lib/content';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
-import DigestEmail from '@/emails/digest';
+import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
 import type { DigestUpdate } from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
 
@@ -81,29 +81,37 @@ export const POST = auth(async function POST(req) {
   const unsubToken = generateUnsubscribeToken(adminEmail);
   const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
 
+  const emailProps = {
+    locale,
+    updates,
+    weekOf,
+    unsubscribeUrl,
+    summaryLine: digest.summary[locale] || digest.summary.fr,
+    weeklyNumber: {
+      value: digest.weeklyNumber.value,
+      label: digest.weeklyNumber.label[locale] || digest.weeklyNumber.label.fr,
+      source: digest.weeklyNumber.source[locale] || digest.weeklyNumber.source.fr,
+    },
+    closingNote: digest.closingNote[locale] || digest.closingNote.fr,
+    commitmentCount: digest.commitmentCount,
+    siteUrl,
+    feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
+    feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
+  };
+
   const resend = getResend();
   const { error } = await resendCall(() =>
     resend.emails.send({
       from: EMAIL_FROM,
       to: adminEmail,
+      replyTo: adminEmail,
       subject: `[TEST] Digest ${digest.week} — ${updates.length} domaine${updates.length > 1 ? 's' : ''}`,
-      react: DigestEmail({
-        locale,
-        updates,
-        weekOf,
-        unsubscribeUrl,
-        summaryLine: digest.summary[locale] || digest.summary.fr,
-        weeklyNumber: {
-          value: digest.weeklyNumber.value,
-          label: digest.weeklyNumber.label[locale] || digest.weeklyNumber.label.fr,
-          source: digest.weeklyNumber.source[locale] || digest.weeklyNumber.source.fr,
-        },
-        closingNote: digest.closingNote[locale] || digest.closingNote.fr,
-        commitmentCount: digest.commitmentCount,
-        siteUrl,
-        feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
-        feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
-      }),
+      react: DigestEmail(emailProps),
+      text: generateDigestPlainText(emailProps),
+      headers: {
+        'List-Unsubscribe': `<${unsubscribeUrl}>`,
+        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+      },
       tags: [{ name: 'type', value: 'digest-test' }],
     }),
   );

@@ -164,6 +164,71 @@ const T: Record<string, {
   },
 };
 
+/** Generate a plain text version of the digest for multipart emails. */
+export function generateDigestPlainText({
+  locale,
+  updates,
+  weekOf,
+  unsubscribeUrl,
+  summaryLine,
+  weeklyNumber,
+  closingNote,
+  commitmentCount,
+  siteUrl,
+}: DigestEmailProps): string {
+  const t = T[locale] || T.fr;
+
+  // Strip markdown markers for plain text
+  const plainNote = closingNote
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1');
+
+  const lines: string[] = [
+    `${t.title} — ${weekOf}`,
+    t.welcome,
+    '',
+    `${t.briefLabel}: ${summaryLine}`,
+    '',
+    t.weeklyNumberTitle,
+    weeklyNumber.value,
+    weeklyNumber.label,
+    weeklyNumber.source,
+    '',
+    `${t.commitmentsTitle}: ${commitmentCount} ${t.commitmentsDesc}`,
+    `${siteUrl}/${locale}/${t.commitmentsLink}`,
+    '',
+    '---',
+    '',
+    t.domainsTitle,
+    '',
+  ];
+
+  for (const update of updates) {
+    const statusLabel = t.statusLabels[update.status] || update.status;
+    lines.push(`[${statusLabel}] ${update.title}`);
+    lines.push(update.summary);
+    lines.push(`${t.readMore} ${update.url}`);
+    lines.push('');
+  }
+
+  if (plainNote) {
+    lines.push('---', '', plainNote, '');
+    lines.push('Zoltán Jánosi');
+    lines.push(t.founderTitle);
+    lines.push(t.founderDesc);
+    lines.push('');
+  }
+
+  lines.push('---', '');
+  lines.push(`${t.managePrefs}: ${unsubscribeUrl}`);
+  lines.push('');
+  lines.push(`${t.brand} — governance.brussels`);
+  lines.push(t.entity);
+  lines.push(t.disclaimer);
+
+  return lines.join('\n');
+}
+
 /** Parse simple markdown (line breaks, **bold**, *italic*) into React nodes. */
 function renderFormattedText(
   text: string,

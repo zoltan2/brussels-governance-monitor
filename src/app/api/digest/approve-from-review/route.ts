@@ -4,7 +4,7 @@ import { readGitHubFile, writeGitHubFile } from '@/lib/github';
 import { getDomainCards } from '@/lib/content';
 import { getResend, EMAIL_FROM, listActiveContacts, SECTOR_TO_DOMAIN, resendCall } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
-import DigestEmail from '@/emails/digest';
+import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
 import type { DigestUpdate } from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
 
@@ -138,28 +138,36 @@ export const POST = auth(async function POST(req) {
       de: `Wöchentliche Zusammenfassung — ${weekOf}`,
     };
 
+    const emailProps = {
+      locale,
+      updates,
+      weekOf,
+      unsubscribeUrl,
+      summaryLine: digest.summary[locale] || digest.summary.fr,
+      weeklyNumber: {
+        value: digest.weeklyNumber.value,
+        label: digest.weeklyNumber.label[locale] || digest.weeklyNumber.label.fr,
+        source: digest.weeklyNumber.source[locale] || digest.weeklyNumber.source.fr,
+      },
+      closingNote: digest.closingNote[locale] || digest.closingNote.fr,
+      commitmentCount: digest.commitmentCount,
+      siteUrl,
+      feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
+      feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
+    };
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const payload: any = {
       from: EMAIL_FROM,
       to: contact.email,
+      replyTo: process.env.ADMIN_EMAIL,
       subject: subjectMap[locale] || subjectMap.fr,
-      react: DigestEmail({
-        locale,
-        updates,
-        weekOf,
-        unsubscribeUrl,
-        summaryLine: digest.summary[locale] || digest.summary.fr,
-        weeklyNumber: {
-          value: digest.weeklyNumber.value,
-          label: digest.weeklyNumber.label[locale] || digest.weeklyNumber.label.fr,
-          source: digest.weeklyNumber.source[locale] || digest.weeklyNumber.source.fr,
-        },
-        closingNote: digest.closingNote[locale] || digest.closingNote.fr,
-        commitmentCount: digest.commitmentCount,
-        siteUrl,
-        feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
-        feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
-      }),
+      react: DigestEmail(emailProps),
+      text: generateDigestPlainText(emailProps),
+      headers: {
+        'List-Unsubscribe': `<${unsubscribeUrl}>`,
+        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+      },
       tags: [
         { name: 'type', value: 'digest' },
         { name: 'locale', value: locale },

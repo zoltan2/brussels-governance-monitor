@@ -500,7 +500,14 @@
       "agreement": "Government agreement"
     },
     "ongoing": "ongoing",
-    "backToHome": "Back to home"
+    "backToHome": "Back to home",
+    "governmentTitle": "Government in office",
+    "governmentSubtitle": "Mandate tracking by chapter — actions, reactions, key dates",
+    "chapterLabel": "Chapter {number}",
+    "chapterStatus": {
+      "ongoing": "Ongoing",
+      "closed": "Closed"
+    }
   },
   "search": {
     "placeholder": "Search...",

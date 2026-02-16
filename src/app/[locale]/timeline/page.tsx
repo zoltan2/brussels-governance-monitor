@@ -1,10 +1,12 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { getFormationRounds, getFormationEvents, getCurrentPhase } from '@/lib/content';
+import { getFormationRounds, getFormationEvents, getCurrentPhase, getGovernmentChapters } from '@/lib/content';
+import type { GovernmentChapter } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
+import { MdxContent } from '@/components/mdx-content';
 import { Breadcrumb } from '@/components/breadcrumb';
 import type { Metadata } from 'next';
 
@@ -43,9 +45,10 @@ export default async function TimelinePage({
 
   const rounds = getFormationRounds(locale as Locale);
   const events = getFormationEvents(locale as Locale);
+  const chapters = getGovernmentChapters(locale as Locale);
   const currentPhase = getCurrentPhase();
 
-  return <TimelineView rounds={rounds} events={events} currentPhase={currentPhase} locale={locale} />;
+  return <TimelineView rounds={rounds} events={events} chapters={chapters} currentPhase={currentPhase} locale={locale} />;
 }
 
 const PHASES = ['exploration', 'negotiation', 'agreement', 'government'] as const;
@@ -77,14 +80,21 @@ const EVENT_TYPE_COLORS: Record<string, string> = {
   agreement: 'bg-teal-600',
 };
 
+const CHAPTER_STATUS_COLORS: Record<string, string> = {
+  ongoing: 'bg-blue-100 text-blue-800',
+  closed: 'bg-teal-100 text-teal-800',
+};
+
 function TimelineView({
   rounds,
   events,
+  chapters,
   currentPhase,
   locale,
 }: {
   rounds: ReturnType<typeof getFormationRounds>;
   events: ReturnType<typeof getFormationEvents>;
+  chapters: GovernmentChapter[];
   currentPhase: string;
   locale: string;
 }) {
@@ -144,6 +154,115 @@ function TimelineView({
           </p>
         </div>
 
+        {/* Government Chapters */}
+        {chapters.length > 0 && (
+          <div className="mb-8">
+            <h2 className="mb-4 text-lg font-bold text-neutral-900">{t('governmentTitle')}</h2>
+            <p className="mb-6 text-sm text-neutral-500">{t('governmentSubtitle')}</p>
+            <div className="space-y-8">
+              {[...chapters].reverse().map((chapter) => {
+                const chapterEvents = events
+                  .filter((e) => e.chapter === chapter.number)
+                  .sort((a, b) => b.date.localeCompare(a.date) || (b.order ?? 0) - (a.order ?? 0));
+
+                return (
+                  <div
+                    key={chapter.number}
+                    id={`chapter-${chapter.number}`}
+                    className="rounded-lg border border-neutral-200 bg-white"
+                  >
+                    {/* Chapter header */}
+                    <div className="border-b border-neutral-100 p-6">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                          <h3 className="text-lg font-bold text-neutral-900">
+                            {t('chapterLabel', { number: chapter.number })} — {chapter.label}
+                          </h3>
+                        </div>
+                        <span
+                          className={`inline-flex w-fit items-center rounded-full px-3 py-1 text-xs font-medium ${
+                            CHAPTER_STATUS_COLORS[chapter.status] || 'bg-neutral-100 text-neutral-600'
+                          }`}
+                        >
+                          {t(`chapterStatus.${chapter.status}`)}
+                        </span>
+                      </div>
+
+                      <div className="mt-4 text-sm">
+                        <span className="font-medium text-neutral-600">{t('period')}:</span>{' '}
+                        <span className="text-neutral-500">
+                          {formatDate(chapter.startDate, locale)}
+                          {' — '}
+                          {chapter.endDate ? formatDate(chapter.endDate, locale) : t('ongoing')}
+                        </span>
+                      </div>
+
+                      <p className="mt-3 text-sm text-neutral-600">{chapter.summary}</p>
+
+                      {/* Chapter MDX content */}
+                      {chapter.content && (
+                        <div className="mt-4">
+                          <MdxContent code={chapter.content} />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Chapter events */}
+                    {chapterEvents.length > 0 && (
+                      <div className="p-6">
+                        <h4 className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                          {t('events')}
+                        </h4>
+                        <div className="relative space-y-0">
+                          <div className="absolute top-2 bottom-2 left-[7px] w-px bg-neutral-200" />
+                          {chapterEvents.map((event) => (
+                            <div
+                              key={event.slug}
+                              id={`event-${event.slug}`}
+                              className="relative flex gap-4 pb-4 last:pb-0"
+                            >
+                              <div className="relative z-10 mt-1.5 flex shrink-0">
+                                <div
+                                  className={`h-[15px] w-[15px] rounded-full border-2 border-white ${
+                                    EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-400'
+                                  }`}
+                                />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3">
+                                  <span className="text-xs font-medium text-neutral-500">
+                                    {formatDate(event.date, locale)}
+                                  </span>
+                                  <span
+                                    className={`inline-flex w-fit rounded px-1.5 py-0.5 text-[10px] font-medium text-white ${
+                                      EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-400'
+                                    }`}
+                                  >
+                                    {t(`eventTypes.${event.eventType}`)}
+                                  </span>
+                                </div>
+                                <p className="mt-1 text-sm font-medium text-neutral-800">
+                                  {event.title}
+                                </p>
+                                <p className="mt-0.5 text-sm text-neutral-500">{event.summary}</p>
+                                {event.impact && (
+                                  <p className="mt-1 text-xs text-neutral-500 italic">
+                                    {event.impact}
+                                  </p>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Rounds */}
         {rounds.length === 0 ? (
           <p className="text-sm text-neutral-500">Aucune donnée disponible.</p>
@@ -151,7 +270,7 @@ function TimelineView({
           <div className="space-y-8">
             {[...rounds].reverse().map((round) => {
               const roundEvents = events
-                .filter((e) => e.round === round.number)
+                .filter((e) => e.round === round.number && !e.chapter)
                 .sort((a, b) => b.date.localeCompare(a.date) || (b.order ?? 0) - (a.order ?? 0));
 
               return (

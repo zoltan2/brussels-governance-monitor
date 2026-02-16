@@ -124,6 +124,7 @@ const formationEvents = defineCollection({
       locale: localeEnum,
       date: s.isodate(),
       round: s.number(), // links to FormationRound.number
+      chapter: s.number().optional(), // links to GovernmentChapter.number (post-formation)
       eventType: s.enum([
         'designation',
         'consultation',
@@ -146,6 +147,31 @@ const formationEvents = defineCollection({
     .transform((data) => ({
       ...data,
       permalink: `/timeline#event-${data.slug}`,
+    })),
+});
+
+// ──────────────────────────────────────────────
+// Collection: Government Chapters (post-formation mandate tracking)
+// ──────────────────────────────────────────────
+const governmentChapters = defineCollection({
+  name: 'GovernmentChapter',
+  pattern: 'government-chapters/*.mdx',
+  schema: s
+    .object({
+      number: s.number(),
+      label: s.string().max(120),
+      slug: s.string(),
+      locale: localeEnum,
+      startDate: s.isodate(),
+      endDate: s.isodate().optional(),
+      status: s.enum(['ongoing', 'closed']),
+      summary: s.string().max(500),
+      lastModified: s.isodate(),
+      content: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      permalink: `/timeline#chapter-${data.number}`,
     })),
 });
 
@@ -469,6 +495,7 @@ export default defineConfig({
     solutionCards,
     formationRounds,
     formationEvents,
+    governmentChapters,
     glossaryTerms,
     verifications,
     sectorCards,

@@ -62,6 +62,7 @@ export interface FormationEvent {
   locale: Locale;
   date: string;
   round: number;
+  chapter?: number;
   eventType:
     | 'designation'
     | 'consultation'
@@ -77,6 +78,20 @@ export interface FormationEvent {
   summary: string;
   impact?: string;
   sources: Array<{ label: string; url: string; accessedAt: string }>;
+  lastModified: string;
+  content: string;
+  permalink: string;
+}
+
+export interface GovernmentChapter {
+  number: number;
+  label: string;
+  slug: string;
+  locale: Locale;
+  startDate: string;
+  endDate?: string;
+  status: 'ongoing' | 'closed';
+  summary: string;
   lastModified: string;
   content: string;
   permalink: string;
@@ -236,6 +251,7 @@ interface VeliteCollections {
   solutionCards: SolutionCard[];
   formationRounds: FormationRound[];
   formationEvents: FormationEvent[];
+  governmentChapters: GovernmentChapter[];
   glossaryTerms: GlossaryTerm[];
   verifications: Verification[];
   sectorCards: SectorCard[];
@@ -255,6 +271,7 @@ function getCollections(): VeliteCollections {
       solutionCards: [],
       formationRounds: [],
       formationEvents: [],
+      governmentChapters: [],
       glossaryTerms: [],
       verifications: [],
       sectorCards: [],
@@ -422,9 +439,32 @@ export function getCurrentPhase(): 'exploration' | 'negotiation' | 'agreement' |
   if (frRounds.length === 0) return 'exploration';
 
   const latest = frRounds.sort((a, b) => b.number - a.number)[0];
-  if (latest.result === 'success') return 'agreement';
+  if (latest.result === 'success') return 'government';
   if (latest.result === 'ongoing') return 'negotiation';
   return 'exploration';
+}
+
+// ──────────────────────────────────────────────
+// Government Chapters (post-formation mandate tracking)
+// ──────────────────────────────────────────────
+
+/**
+ * Get all government chapters for a locale, sorted by number.
+ * Falls back to FR if locale version doesn't exist.
+ */
+export function getGovernmentChapters(locale: Locale): GovernmentChapter[] {
+  const { governmentChapters } = getCollections();
+  const frChapters = governmentChapters
+    .filter((c) => c.locale === 'fr')
+    .sort((a, b) => a.number - b.number);
+  if (locale === 'fr') return frChapters;
+
+  return frChapters.map((frChapter) => {
+    const localeChapter = governmentChapters.find(
+      (c) => c.number === frChapter.number && c.locale === locale,
+    );
+    return localeChapter || frChapter;
+  });
 }
 
 // ──────────────────────────────────────────────

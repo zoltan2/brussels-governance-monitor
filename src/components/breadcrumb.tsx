@@ -1,8 +1,10 @@
-import { Link } from '@/i18n/navigation';
+import { Link, getPathname } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
 import type { ComponentProps } from 'react';
+import type { Locale } from '@/i18n/routing';
 
 type LinkHref = ComponentProps<typeof Link>['href'];
+type PathHref = Parameters<typeof getPathname>[0]['href'];
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
 
@@ -12,7 +14,7 @@ interface BreadcrumbItem {
 }
 
 export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
-  const locale = useLocale();
+  const locale = useLocale() as Locale;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -21,7 +23,9 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.label,
-      ...(item.href ? { item: `${siteUrl}/${locale}${item.href === '/' ? '' : item.href}` } : {}),
+      ...(item.href
+        ? { item: `${siteUrl}${getPathname({ locale, href: item.href as PathHref })}` }
+        : {}),
     })),
   };
 

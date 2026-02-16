@@ -13,7 +13,6 @@ import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FreshnessBadge } from '@/components/freshness-badge';
-import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 export function generateStaticParams() {

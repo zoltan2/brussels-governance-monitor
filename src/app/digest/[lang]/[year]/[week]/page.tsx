@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import digestLanguages from '../../../../../../config/digest-languages.json';
 import {
@@ -83,7 +84,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
             if (!availableLangs.includes(code)) return null;
             const isActive = code === lang;
             return (
-              <a
+              <Link
                 key={code}
                 href={`/digest/${code}/${year}/${week}`}
                 className={`rounded px-2 py-0.5 text-xs font-medium ${
@@ -93,16 +94,16 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
                 }`}
               >
                 {code.toUpperCase()}
-              </a>
+              </Link>
             );
           })}
-          <a
+          <Link
             href="/digest"
             className="text-xs text-neutral-500 hover:text-neutral-700"
             style={{ marginInlineStart: 'auto' }}
           >
             All languages &rarr;
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -152,12 +153,12 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
             <p className="text-xs text-neutral-500">
               This content was automatically translated. The original version
               is in French.{' '}
-              <a
+              <Link
                 href={`/digest/fr/${year}/${week}`}
                 className="text-brand-700 underline"
               >
                 Read the French version
-              </a>
+              </Link>
               .
             </p>
           )}

@@ -19,7 +19,6 @@ import { CardSubscribe } from '@/components/card-subscribe';
 import { StatusAccordion } from '@/components/status-accordion';
 import { RelatedCards } from '@/components/related-cards';
 import { RelatedDossiers } from '@/components/related-dossiers';
-import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 export function generateStaticParams() {

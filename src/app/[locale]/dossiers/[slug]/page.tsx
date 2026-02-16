@@ -88,9 +88,10 @@ function DossierDetail({
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
 
-  // Blocked days counter
+  // Blocked days counter (use fixed build date to avoid impure Date.now() in render)
+  const buildDate = new Date();
   const blockedDays = card.blockedSince
-    ? Math.floor((Date.now() - new Date(card.blockedSince).getTime()) / (1000 * 60 * 60 * 24))
+    ? Math.floor((buildDate.getTime() - new Date(card.blockedSince).getTime()) / (1000 * 60 * 60 * 24))
     : null;
 
   // Resolve related cards

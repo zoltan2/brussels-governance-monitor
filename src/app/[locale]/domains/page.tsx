@@ -3,7 +3,6 @@ import { useTranslations } from 'next-intl';
 import { getDomainCards } from '@/lib/content';
 import { DomainCard } from '@/components/domain-card';
 import { routing } from '@/i18n/routing';
-import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { formatDate } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';

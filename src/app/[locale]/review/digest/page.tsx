@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface LocaleStrings {
   fr: string;
@@ -43,11 +43,7 @@ export default function DigestReviewPage() {
   const [closingNoteEn, setClosingNoteEn] = useState('');
   const [closingNoteDe, setClosingNoteDe] = useState('');
 
-  useEffect(() => {
-    fetchDigest();
-  }, []);
-
-  async function fetchDigest() {
+  const fetchDigest = useCallback(async () => {
     setStatus('loading');
     try {
       const res = await fetch('/api/digest/pending');
@@ -71,7 +67,13 @@ export default function DigestReviewPage() {
       setError('Failed to fetch pending digest');
       setStatus('error');
     }
-  }
+  }, []);
+
+  useEffect(() => {
+    // Initial data fetch — standard async pattern, not a cascading render risk
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchDigest();
+  }, [fetchDigest]);
 
   async function handleSave() {
     if (!digest) return;

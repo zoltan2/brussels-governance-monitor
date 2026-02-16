@@ -1,7 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
-import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { getChangelog } from '@/lib/changelog';
 import { formatDate } from '@/lib/utils';

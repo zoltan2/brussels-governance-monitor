@@ -5,7 +5,6 @@ import type { GovernmentChapter } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
-import { Link } from '@/i18n/navigation';
 import { MdxContent } from '@/components/mdx-content';
 import { Breadcrumb } from '@/components/breadcrumb';
 import type { Metadata } from 'next';

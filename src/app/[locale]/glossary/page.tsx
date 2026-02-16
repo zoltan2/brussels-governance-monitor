@@ -3,7 +3,6 @@ import { useTranslations } from 'next-intl';
 import { getGlossaryTerms } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
-import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import type { Metadata } from 'next';
 

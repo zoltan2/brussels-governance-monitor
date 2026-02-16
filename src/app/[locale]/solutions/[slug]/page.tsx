@@ -15,7 +15,6 @@ import { FeedbackButton } from '@/components/feedback-button';
 import { FalcSummary } from '@/components/falc-summary';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
-import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 export function generateStaticParams() {

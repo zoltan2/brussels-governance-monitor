@@ -3,9 +3,12 @@ import { routing } from '@/i18n/routing';
 import { getPathname } from '@/i18n/navigation';
 import {
   getAllDomainSlugs,
-  getAllSolutionSlugs,
   getAllSectorSlugs,
   getAllComparisonSlugs,
+  getAllCommuneSlugs,
+  getAllDossierSlugs,
+  getAllDigestWeeks,
+  getAllDigestLangs,
 } from '@/lib/content';
 import type { Locale } from '@/i18n/routing';
 
@@ -25,6 +28,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/domains',
     '/sectors',
     '/comparisons',
+    '/communes',
+    '/dossiers',
+    '/dashboard',
     '/understand',
     '/timeline',
     '/glossary',
@@ -46,9 +52,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/accessibility',
   ];
   const domainSlugs = getAllDomainSlugs();
-  const solutionSlugs = getAllSolutionSlugs();
   const sectorSlugs = getAllSectorSlugs();
   const comparisonSlugs = getAllComparisonSlugs();
+  const communeSlugs = getAllCommuneSlugs();
+  const dossierSlugs = getAllDossierSlugs();
 
   const entries: MetadataRoute.Sitemap = [];
 
@@ -78,19 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  for (const slug of solutionSlugs) {
-    for (const locale of locales) {
-      entries.push({
-        url: localizedUrl(siteUrl, locale, {
-          pathname: '/solutions/[slug]',
-          params: { slug },
-        }),
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.8,
-      });
-    }
-  }
+  // Solutions removed: all solution pages have robots: { index: false }
 
   for (const slug of sectorSlugs) {
     for (const locale of locales) {
@@ -116,6 +111,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 0.7,
+      });
+    }
+  }
+
+  for (const slug of communeSlugs) {
+    for (const locale of locales) {
+      entries.push({
+        url: localizedUrl(siteUrl, locale, {
+          pathname: '/communes/[slug]',
+          params: { slug },
+        }),
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+      });
+    }
+  }
+
+  for (const slug of dossierSlugs) {
+    for (const locale of locales) {
+      entries.push({
+        url: localizedUrl(siteUrl, locale, {
+          pathname: '/dossiers/[slug]',
+          params: { slug },
+        }),
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+      });
+    }
+  }
+
+  // Digest pages (outside locale routing — /digest/[lang]/[year]/[week])
+  const digestWeeks = getAllDigestWeeks();
+  const digestLangs = getAllDigestLangs();
+  for (const week of digestWeeks) {
+    // Parse week format "2026-w07" → year "2026", week "w07"
+    const [year, w] = week.split('-');
+    for (const lang of digestLangs) {
+      entries.push({
+        url: `${siteUrl}/digest/${lang}/${year}/${w}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.5,
       });
     }
   }

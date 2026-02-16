@@ -4,7 +4,6 @@ import { getDomainCards, getAllSources, type AggregatedSource } from '@/lib/cont
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
 import { CsvDownloadButton, JsonDownloadButton } from '@/components/csv-download-button';
-import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { buildMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';

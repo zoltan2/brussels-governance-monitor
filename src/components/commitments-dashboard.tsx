@@ -159,7 +159,7 @@ export function CommitmentsDashboard({
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
-                    <p className="mt-1 text-[10px] text-neutral-400">
+                    <p className="mt-1 text-[10px] text-neutral-500">
                       {t('dprChapter', { chapter: commitment.chapter })}
                     </p>
                   </button>

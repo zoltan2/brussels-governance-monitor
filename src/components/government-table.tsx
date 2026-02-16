@@ -61,7 +61,7 @@ export function GovernmentTable({ locale }: { locale: string }) {
             ))}
           </div>
 
-          <p className="mt-4 border-t border-neutral-100 pt-3 text-[10px] text-neutral-400">
+          <p className="mt-4 border-t border-neutral-100 pt-3 text-[10px] text-neutral-500">
             {t('governmentSource')}
           </p>
         </div>

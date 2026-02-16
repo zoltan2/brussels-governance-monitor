@@ -1,5 +1,89 @@
 [
   {
+    "date": "2026-02-16",
+    "type": "added",
+    "section": "timeline",
+    "targetSlug": "mise-au-travail-gouvernement",
+    "descriptions": {
+      "fr": "Nouvel événement : mise au travail du gouvernement — réunions immédiates, 1er conseil des ministres jeudi 19, DPR le 23, vote de confiance le 25. Mesures budgétaires, controverse linguistique, réactions PTB",
+      "nl": "Nieuw evenement: regering aan het werk — onmiddellijke vergaderingen, eerste ministerraad donderdag 19, GBV op 23, vertrouwensstemming op 25. Budgettaire maatregelen, taalcontroverse, PVDA-reacties",
+      "en": "New event: government gets to work — immediate meetings, first council of ministers Thursday 19, RPD on 23, confidence vote on 25. Budget measures, language controversy, PTB reactions",
+      "de": "Neues Ereignis: Regierung nimmt Arbeit auf — sofortige Sitzungen, erster Ministerrat Donnerstag 19, RPE am 23, Vertrauensabstimmung am 25. Haushaltsmaßnahmen, Sprachkontroverse, PVDA-Reaktionen"
+    }
+  },
+  {
+    "date": "2026-02-16",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "budget",
+    "descriptions": {
+      "fr": "Budget : premières mesures budgétaires — moratoire embauches, réduction consultants, coupes subventions facultatives, objectif déficit <1 Mrd 2026",
+      "nl": "Budget: eerste budgettaire maatregelen — aanwervingsstop, vermindering consultants, schrapping facultatieve subsidies, doelstelling tekort <1 Mrd 2026",
+      "en": "Budget: first budget measures — hiring freeze, consultant reduction, discretionary subsidy cuts, deficit target <EUR 1B 2026",
+      "de": "Budget: erste Haushaltsmaßnahmen — Einstellungsstopp, Beraterreduktion, Streichung fakultativer Zuschüsse, Defizitziel <1 Mrd 2026"
+    }
+  },
+  {
+    "date": "2026-02-16",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "institutional",
+    "descriptions": {
+      "fr": "Institutionnel : prochaines étapes (DPR 23 fév., vote confiance 25 fév.) + bilinguisme — engagement DPR et controverse linguistique",
+      "nl": "Institutioneel: volgende stappen (GBV 23 feb., vertrouwensstemming 25 feb.) + tweetaligheid — engagement GBV en taalcontroverse",
+      "en": "Institutional: next steps (RPD 23 Feb, confidence vote 25 Feb) + bilingualism — RPD commitment and language controversy",
+      "de": "Institutionell: nächste Schritte (RPE 23. Feb., Vertrauensabstimmung 25. Feb.) + Zweisprachigkeit — RPE-Engagement und Sprachkontroverse"
+    }
+  },
+  {
+    "date": "2026-02-16",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "good-move",
+    "descriptions": {
+      "fr": "Veille Good Move : analyse La Libre (14 fév.) + réaction Comité citoyen — lectures divergentes au sein de la coalition, comité dénonce un simple changement de nom",
+      "nl": "Monitoring Good Move: analyse La Libre (14 feb.) + reactie Burgercomité — uiteenlopende interpretaties binnen de coalitie, comité hekelt naamsverandering zonder inhoudelijke wijziging",
+      "en": "Good Move monitoring: La Libre analysis (14 Feb.) + Citizens' Committee reaction — divergent readings within the coalition, committee denounces a mere name change",
+      "de": "Good Move Monitoring: Analyse La Libre (14. Feb.) + Reaktion Bürgerkomitee — unterschiedliche Lesarten innerhalb der Koalition, Komitee kritisiert bloße Namensänderung"
+    }
+  },
+  {
+    "date": "2026-02-16",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "metro-3",
+    "descriptions": {
+      "fr": "Veille Métro 3 : controverse Palais du Midi — ARAU dénonce une « aberration urbanistique », rapport stabilité (90% hors normes), Conseil d'État avait suspendu le permis de démolition",
+      "nl": "Monitoring Metro 3: controverse Zuidpaleis — ARAU hekelt een 'stedenbouwkundige aberratie', stabiliteitsrapport (90% onder de normen), Raad van State had sloopvergunning geschorst",
+      "en": "Metro 3 monitoring: Palais du Midi controversy — ARAU denounces an 'urban planning aberration', stability report (90% below standards), Council of State had suspended demolition permit",
+      "de": "Metro 3 Monitoring: Kontroverse Palais du Midi — ARAU prangert 'städtebauliche Fehlplanung' an, Stabilitätsbericht (90% unter Normen), Staatsrat hatte Abrissgenehmigung ausgesetzt"
+    }
+  },
+  {
+    "date": "2026-02-16",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "slrb",
+    "descriptions": {
+      "fr": "Veille SLRB : vente forcée de 2 sites (Ariane, Palais) et ~200 logements sociaux pour éponger la dette régionale. Fonds de déconsolidation annoncé",
+      "nl": "Monitoring BGHM: gedwongen verkoop van 2 sites (Ariane, Paleis) en ~200 sociale woningen om de regionale schuld af te bouwen. Deconsolidatiefonds aangekondigd",
+      "en": "SLRB monitoring: forced sale of 2 sites (Ariane, Palais) and ~200 social housing units to reduce regional debt. Deconsolidation fund announced",
+      "de": "SLRB Monitoring: Zwangsverkauf von 2 Standorten (Ariane, Palais) und ~200 Sozialwohnungen zur Tilgung der regionalen Schulden. Entkonsolidierungsfonds angekündigt"
+    }
+  },
+  {
+    "date": "2026-02-16",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "vivaqua",
+    "descriptions": {
+      "fr": "Veille Vivaqua : recapitalisation 180M EUR (Région 49,99%), intégration Hydria, série d'effondrements d'égouts (220 km à rénover d'urgence, 70M EUR/an nécessaires)",
+      "nl": "Monitoring Vivaqua: herkapitalisatie 180M EUR (Gewest 49,99%), integratie Hydria, reeks rioolinstortingen (220 km dringende renovatie, 70M EUR/jaar nodig)",
+      "en": "Vivaqua monitoring: €180M recapitalisation (Region 49.99%), Hydria integration, series of sewer collapses (220 km urgent renovation needed, €70M/year required)",
+      "de": "Vivaqua Monitoring: Rekapitalisierung 180M EUR (Region 49,99%), Hydria-Integration, Serie von Kanaleinstürzen (220 km dringende Sanierung, 70M EUR/Jahr erforderlich)"
+    }
+  },
+  {
     "date": "2026-02-13",
     "type": "added",
     "section": "timeline",

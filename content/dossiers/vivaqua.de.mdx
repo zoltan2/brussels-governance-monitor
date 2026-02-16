@@ -28,6 +28,9 @@ sources:
   - label: "BX1 — Nach 613 Tagen Blockade, Regierungsabkommen"
     url: "https://bx1.be/categories/news/apres-613-jours-de-blocage-la-region-bruxelloise-tient-enfin-un-accord-de-gouvernement/"
     accessedAt: "2026-02-12"
+  - label: "DH — Serie von Kanaleinstürzen in Brüssel (5. Feb. 2026)"
+    url: "https://www.dhnet.be/regions/bruxelles/bruxelles-mobilite/2026/02/05/serie-noire-deffondrements-de-voiries-a-bruxelles-trams-et-bus-impactes-le-reseau-degouttage-est-en-mauvais-etat-alerte-vivaqua-YUHNPSM6RZANRDJMQEF2FR737E/"
+    accessedAt: "2026-02-16"
 metrics:
   - label: "Netzlänge"
     value: "~4 200"
@@ -44,6 +47,16 @@ metrics:
     unit: "Jahre"
     source: "Vivaqua"
     date: "2025-01-01"
+  - label: "Rekapitalisierung (DPR)"
+    value: "180"
+    unit: "M EUR"
+    source: "DPR Feb. 2026"
+    date: "2026-02-13"
+  - label: "Kanäle mit dringendem Sanierungsbedarf"
+    value: "220"
+    unit: "km"
+    source: "Vivaqua / DH"
+    date: "2026-02-05"
 alerts:
   - label: "Mehrjähriger Investitionsplan wartet auf Genehmigung"
     severity: critical
@@ -51,16 +64,35 @@ alerts:
   - label: "DPR: finanzielle Konsolidierung von Vivaqua angekündigt"
     severity: info
     date: "2026-02-13"
+  - label: "Serie von Kanaleinstürzen: 220 km dringend sanierungsbedürftig"
+    severity: critical
+    date: "2026-02-05"
 confidenceLevel: official
 dprCommitment: "Finanzielle Konsolidierung von Vivaqua"
-lastModified: "2026-02-14"
+lastModified: "2026-02-16"
 ---
 
 ## Regierungsabkommen: was sich ändert
 
-Das Abkommen vom 12. Februar 2026 sieht die **finanzielle Konsolidierung von Vivaqua** vor. Diese Maßnahme gehört zu den strukturellen Verpflichtungen der Koalition, neben der Konsolidierung der SLRB. Die genauen Modalitäten (Rekapitalisierung, regionale Bürgschaft, Schuldenumstrukturierung) sind noch nicht bekannt.
+Das Abkommen vom 12. Februar 2026 sieht die **finanzielle Konsolidierung von Vivaqua** mit nun bekannten Modalitäten vor:
+
+- **Rekapitalisierung von 180M EUR** — die Region übernimmt eine Beteiligung von **49,99 %** am Kapital von Vivaqua
+- **Integration von Hydria** (Wasserrecycling) in Vivaqua
+- **Einsparziele**: 18M EUR bis 2029 (Vivaqua) + 32M EUR (Hydria)
+- Ein **Entkonsolidierungsfonds** wird geschaffen, um die Schulden von Vivaqua aus dem Regionalhaushalt herauszunehmen
 
 Das Ende der geschäftsführenden Regierung ermöglicht die Freigabe des mehrjährigen Investitionsplans und der Tarifentscheidungen, die seit Juni 2024 ausstanden.
+
+## Serie von Kanaleinstürzen (Februar 2026)
+
+Anfang Februar 2026 verdeutlichte eine Serie von Kanaleinstürzen den kritischen Zustand des Netzes:
+
+- **Rue Rogier**: Einsturz Mitte Januar, Straßenbahnen 25 und 62 zwei Wochen lang unterbrochen
+- **Avenue Churchill** (Ukkel): Straßenbahn 7 am 5. Februar unterbrochen
+- **Avenue Plasky**: Absenkung am 15. Januar
+- Straßenbahnlinien 81 und 92 ebenfalls betroffen
+
+Vivaqua erklärte: „Das Kanalnetz ist in schlechtem Zustand." Von den 1 900 km Netz **benötigen 220 km dringende Sanierung**, bei einem geschätzten Bedarf von **70M EUR pro Jahr**. 85 % der Schulden von Vivaqua (über 1 Milliarde EUR) stammen aus Kanalsanierungsverträgen.
 
 ## Geerbter Kontext
 

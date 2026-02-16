@@ -7,6 +7,7 @@ const changelogEntrySchema = z.object({
   type: z.enum(['added', 'updated', 'corrected', 'removed']),
   section: z.enum([
     'domains',
+    'dossiers',
     'solutions',
     'sectors',
     'comparisons',
@@ -29,7 +30,7 @@ const changelogSchema = z.array(changelogEntrySchema);
 export interface ChangelogEntry {
   date: string;
   type: 'added' | 'updated' | 'corrected' | 'removed';
-  section: 'domains' | 'solutions' | 'sectors' | 'comparisons' | 'communes' | 'timeline' | 'glossary' | 'site';
+  section: 'domains' | 'dossiers' | 'solutions' | 'sectors' | 'comparisons' | 'communes' | 'timeline' | 'glossary' | 'site';
   targetSlug: string | null;
   description: string;
 }

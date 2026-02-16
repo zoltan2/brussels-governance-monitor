@@ -28,6 +28,9 @@ sources:
   - label: "BX1 — Après 613 jours de blocage, accord de gouvernement"
     url: "https://bx1.be/categories/news/apres-613-jours-de-blocage-la-region-bruxelloise-tient-enfin-un-accord-de-gouvernement/"
     accessedAt: "2026-02-12"
+  - label: "DH — Série noire d'effondrements d'égouts à Bruxelles (5 fév. 2026)"
+    url: "https://www.dhnet.be/regions/bruxelles/bruxelles-mobilite/2026/02/05/serie-noire-deffondrements-de-voiries-a-bruxelles-trams-et-bus-impactes-le-reseau-degouttage-est-en-mauvais-etat-alerte-vivaqua-YUHNPSM6RZANRDJMQEF2FR737E/"
+    accessedAt: "2026-02-16"
 metrics:
   - label: "Longueur du réseau"
     value: "~4 200"
@@ -44,6 +47,16 @@ metrics:
     unit: "ans"
     source: "Vivaqua"
     date: "2025-01-01"
+  - label: "Recapitalisation (DPR)"
+    value: "180"
+    unit: "M EUR"
+    source: "DPR fév. 2026"
+    date: "2026-02-13"
+  - label: "Égouts nécessitant rénovation urgente"
+    value: "220"
+    unit: "km"
+    source: "Vivaqua / DH"
+    date: "2026-02-05"
 alerts:
   - label: "Plan d'investissement pluriannuel en attente d'approbation"
     severity: critical
@@ -51,16 +64,35 @@ alerts:
   - label: "DPR : solidification financière de Vivaqua annoncée"
     severity: info
     date: "2026-02-13"
+  - label: "Série d'effondrements d'égouts : 220 km à rénover d'urgence"
+    severity: critical
+    date: "2026-02-05"
 confidenceLevel: official
 dprCommitment: "Solidification financière de Vivaqua"
-lastModified: "2026-02-14"
+lastModified: "2026-02-16"
 ---
 
 ## Accord de gouvernement : ce qui change
 
-L'accord du 12 février 2026 prévoit la **solidification financière de Vivaqua**. Cette mesure fait partie des engagements structurels de la coalition, aux côtés de la solidification de la SLRB. Les modalités exactes (recapitalisation, garantie régionale, restructuration de la dette) ne sont pas encore connues.
+L'accord du 12 février 2026 prévoit la **solidification financière de Vivaqua** avec des modalités désormais connues :
+
+- **Recapitalisation de 180M EUR** — la Région prend une participation de **49,99 %** dans le capital de Vivaqua
+- **Intégration d'Hydria** (recyclage de l'eau) au sein de Vivaqua
+- **Objectifs d'économies** : 18M EUR d'ici 2029 (Vivaqua) + 32M EUR (Hydria)
+- Un **fonds de déconsolidation** sera créé pour sortir la dette de Vivaqua du budget régional
 
 La fin des affaires courantes permet de débloquer le plan d'investissement pluriannuel et les décisions tarifaires en attente depuis juin 2024.
+
+## Série d'effondrements d'égouts (février 2026)
+
+Début février 2026, une série d'effondrements d'égouts a mis en lumière l'état critique du réseau :
+
+- **Rue Rogier** : effondrement mi-janvier, trams 25 et 62 interrompus pendant deux semaines
+- **Avenue Churchill** (Uccle) : tram 7 interrompu le 5 février
+- **Avenue Plasky** : affaissement le 15 janvier
+- Lignes de tram 81 et 92 également touchées
+
+Vivaqua a déclaré : « Le réseau d'égouttage est en mauvais état. » Sur les 1 900 km de réseau, **220 km nécessitent une rénovation urgente**, pour un besoin estimé à **70M EUR par an**. 85 % de la dette de Vivaqua (plus d'1 milliard EUR) provient des contrats de rénovation des égouts.
 
 ## Contexte hérité
 

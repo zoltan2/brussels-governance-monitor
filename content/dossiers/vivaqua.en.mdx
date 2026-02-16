@@ -28,6 +28,9 @@ sources:
   - label: "BX1 — After 613 days of deadlock, government agreement"
     url: "https://bx1.be/categories/news/apres-613-jours-de-blocage-la-region-bruxelloise-tient-enfin-un-accord-de-gouvernement/"
     accessedAt: "2026-02-12"
+  - label: "DH — Series of sewer collapses in Brussels (5 Feb. 2026)"
+    url: "https://www.dhnet.be/regions/bruxelles/bruxelles-mobilite/2026/02/05/serie-noire-deffondrements-de-voiries-a-bruxelles-trams-et-bus-impactes-le-reseau-degouttage-est-en-mauvais-etat-alerte-vivaqua-YUHNPSM6RZANRDJMQEF2FR737E/"
+    accessedAt: "2026-02-16"
 metrics:
   - label: "Network length"
     value: "~4 200"
@@ -44,6 +47,16 @@ metrics:
     unit: "years"
     source: "Vivaqua"
     date: "2025-01-01"
+  - label: "Recapitalisation (DPR)"
+    value: "180"
+    unit: "M EUR"
+    source: "DPR Feb. 2026"
+    date: "2026-02-13"
+  - label: "Sewers requiring urgent renovation"
+    value: "220"
+    unit: "km"
+    source: "Vivaqua / DH"
+    date: "2026-02-05"
 alerts:
   - label: "Multi-year investment plan pending approval"
     severity: critical
@@ -51,16 +64,35 @@ alerts:
   - label: "DPR: financial consolidation of Vivaqua announced"
     severity: info
     date: "2026-02-13"
+  - label: "Series of sewer collapses: 220 km requiring urgent renovation"
+    severity: critical
+    date: "2026-02-05"
 confidenceLevel: official
 dprCommitment: "Financial consolidation of Vivaqua"
-lastModified: "2026-02-14"
+lastModified: "2026-02-16"
 ---
 
 ## Government agreement: what changes
 
-The agreement of 12 February 2026 provides for the **financial consolidation of Vivaqua**. This measure is part of the coalition's structural commitments, alongside the consolidation of the SLRB. The exact modalities (recapitalisation, regional guarantee, debt restructuring) are not yet known.
+The agreement of 12 February 2026 provides for the **financial consolidation of Vivaqua** with now-known modalities:
+
+- **180M EUR recapitalisation** — the Region takes a **49.99%** stake in Vivaqua's capital
+- **Integration of Hydria** (water recycling) into Vivaqua
+- **Savings targets**: 18M EUR by 2029 (Vivaqua) + 32M EUR (Hydria)
+- A **deconsolidation fund** will be created to remove Vivaqua's debt from the regional budget
 
 The end of the caretaker period unblocks the multi-year investment plan and tariff decisions that had been pending since June 2024.
+
+## Series of sewer collapses (February 2026)
+
+In early February 2026, a series of sewer collapses highlighted the critical state of the network:
+
+- **Rue Rogier**: collapse in mid-January, trams 25 and 62 interrupted for two weeks
+- **Avenue Churchill** (Uccle): tram 7 interrupted on 5 February
+- **Avenue Plasky**: subsidence on 15 January
+- Tram lines 81 and 92 also affected
+
+Vivaqua stated: "The sewer network is in poor condition." Of the 1,900 km of network, **220 km require urgent renovation**, at an estimated cost of **70M EUR per year**. 85% of Vivaqua's debt (over 1 billion EUR) stems from sewer renovation contracts.
 
 ## Inherited context
 

@@ -104,7 +104,7 @@ export default async function LocaleLayout({
         parentOrganization: {
           '@type': 'Organization',
           name: 'Advice That SRL',
-          url: 'https://advicethat.com',
+          url: 'https://advicethat.be',
         },
       },
     ],

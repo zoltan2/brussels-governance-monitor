@@ -67,7 +67,7 @@ export default function DigestLayout({
               <p className="text-xs text-neutral-500">
                 Brussels Governance Monitor &mdash; An{' '}
                 <a
-                  href="https://advicethat.com"
+                  href="https://advicethat.be"
                   className="underline hover:text-neutral-700"
                   target="_blank"
                   rel="noopener noreferrer"

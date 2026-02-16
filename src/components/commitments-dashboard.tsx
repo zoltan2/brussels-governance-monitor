@@ -109,14 +109,14 @@ export function CommitmentsDashboard({
 
       {sortedYears.map((year) => (
         <div key={year} className="mb-8">
-          <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-neutral-900">
+          <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-neutral-900">
             <span className="rounded bg-brand-800 px-2 py-0.5 text-xs font-bold text-white">
               {year}
             </span>
-            <span className="text-xs font-normal text-neutral-400">
+            <span className="text-xs font-normal text-neutral-500">
               {byDeadline[year].length} {t('commitments')}
             </span>
-          </h3>
+          </h2>
 
           <div className="grid gap-3 sm:grid-cols-2">
             {byDeadline[year].map((commitment) => {
@@ -172,7 +172,7 @@ export function CommitmentsDashboard({
                         </p>
                       )}
                       {base && (
-                        <p className="mt-2 text-xs text-neutral-400">
+                        <p className="mt-2 text-xs text-neutral-500">
                           <span className="font-medium text-neutral-500">{t('baseline')}</span>{' '}
                           {base}
                         </p>

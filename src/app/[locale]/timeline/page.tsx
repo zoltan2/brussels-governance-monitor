@@ -70,14 +70,14 @@ const RESULT_COLORS: Record<string, string> = {
 
 const EVENT_TYPE_COLORS: Record<string, string> = {
   designation: 'bg-slate-700',
-  consultation: 'bg-blue-600',
-  proposal: 'bg-indigo-500',
-  blockage: 'bg-amber-500',
-  resignation: 'bg-neutral-500',
-  citizen: 'bg-blue-500',
-  budget: 'bg-amber-600',
+  consultation: 'bg-blue-700',
+  proposal: 'bg-indigo-600',
+  blockage: 'bg-amber-700',
+  resignation: 'bg-neutral-600',
+  citizen: 'bg-blue-700',
+  budget: 'bg-amber-700',
   initiative: 'bg-blue-800',
-  agreement: 'bg-teal-600',
+  agreement: 'bg-teal-700',
 };
 
 const CHAPTER_STATUS_COLORS: Record<string, string> = {
@@ -210,9 +210,9 @@ function TimelineView({
                     {/* Chapter events */}
                     {chapterEvents.length > 0 && (
                       <div className="p-6">
-                        <h4 className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                        <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
                           {t('events')}
-                        </h4>
+                        </p>
                         <div className="relative space-y-0">
                           <div className="absolute top-2 bottom-2 left-[7px] w-px bg-neutral-200" />
                           {chapterEvents.map((event) => (
@@ -325,9 +325,9 @@ function TimelineView({
                   {/* Events */}
                   {roundEvents.length > 0 && (
                     <div className="p-6">
-                      <h4 className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                      <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
                         {t('events')}
-                      </h4>
+                      </p>
                       <div className="relative space-y-0">
                         {/* Vertical line */}
                         <div className="absolute top-2 bottom-2 left-[7px] w-px bg-neutral-200" />

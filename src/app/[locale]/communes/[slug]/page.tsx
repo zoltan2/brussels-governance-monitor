@@ -167,7 +167,7 @@ function CommuneDetail({
                     )}
                   </p>
                   <p className="mt-1 text-xs text-neutral-500">{fig.label}</p>
-                  <p className="text-xs text-neutral-400">{fig.source}</p>
+                  <p className="text-xs text-neutral-500">{fig.source}</p>
                 </div>
               ))}
             </div>
@@ -254,7 +254,7 @@ function CommuneDetail({
           </h2>
           {Object.entries(sourcesByType).map(([type, sources]) => (
             <div key={type} className="mb-4">
-              <h3 className="mb-2 text-xs font-medium text-neutral-400">
+              <h3 className="mb-2 text-xs font-medium text-neutral-500">
                 {t(`sourceTypes.${type}`)}
               </h3>
               <ul className="space-y-1">
@@ -268,7 +268,7 @@ function CommuneDetail({
                     >
                       {s.label}
                     </a>
-                    <span className="ml-2 text-xs text-neutral-400">
+                    <span className="ml-2 text-xs text-neutral-500">
                       ({formatDate(s.accessedAt, locale)})
                     </span>
                   </li>

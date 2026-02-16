@@ -47,12 +47,12 @@ export function VerificationBadge({ verification, locale }: VerificationBadgePro
           <p className="text-sm font-medium">
             {t(`result.${verification.result}`)}
           </p>
-          <p className="mt-0.5 text-xs opacity-75">
+          <p className="mt-0.5 text-xs">
             {t('date', { date: formatLocalDate(verification.date, locale) })}
           </p>
           <p className="mt-1 text-xs leading-relaxed">{verification.summary}</p>
           {verification.nextVerification && (
-            <p className="mt-1 text-xs opacity-60">
+            <p className="mt-1 text-xs">
               {t('nextDate', { date: formatLocalDate(verification.nextVerification, locale) })}
             </p>
           )}

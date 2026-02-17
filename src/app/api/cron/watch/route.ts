@@ -11,7 +11,7 @@ interface SourceEntry {
   type: 'institutional' | 'press';
   category: string;
   cardsAffected: string[];
-  frequency: 'daily' | 'weekly';
+  frequency: 'daily' | 'weekly' | 'monthly';
   enabled: boolean;
   notes: string;
 }
@@ -78,9 +78,11 @@ export async function GET(request: Request) {
   // Determine which sources to check based on frequency
   const today = new Date();
   const isMonday = today.getDay() === 1;
+  const isFirstOfMonth = today.getDate() === 1;
   const enabledSources = sources.filter((s) => {
     if (!s.enabled) return false;
     if (s.frequency === 'weekly' && !isMonday) return false;
+    if (s.frequency === 'monthly' && !isFirstOfMonth) return false;
     return true;
   });
 

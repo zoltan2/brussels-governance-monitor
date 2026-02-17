@@ -17,6 +17,28 @@ const TOPIC_OPTIONS = [
   'engagements',
 ] as const;
 
+const COMMUNE_OPTIONS = [
+  'commune-anderlecht',
+  'commune-auderghem',
+  'commune-berchem-sainte-agathe',
+  'commune-bruxelles-ville',
+  'commune-etterbeek',
+  'commune-evere',
+  'commune-forest',
+  'commune-ganshoren',
+  'commune-ixelles',
+  'commune-jette',
+  'commune-koekelberg',
+  'commune-molenbeek-saint-jean',
+  'commune-saint-gilles',
+  'commune-saint-josse-ten-noode',
+  'commune-schaerbeek',
+  'commune-uccle',
+  'commune-watermael-boitsfort',
+  'commune-woluwe-saint-lambert',
+  'commune-woluwe-saint-pierre',
+] as const;
+
 type SubmitState = 'idle' | 'loading' | 'success' | 'successExisting' | 'error';
 
 export function SubscribeForm() {
@@ -25,6 +47,7 @@ export function SubscribeForm() {
   const [email, setEmail] = useState('');
   const [website, setWebsite] = useState(''); // honeypot
   const [topics, setTopics] = useState<string[]>(['budget', 'mobility', 'engagements']);
+  const [communes, setCommunes] = useState<string[]>([]);
   const [state, setState] = useState<SubmitState>('idle');
 
   function toggleTopic(topic: string) {
@@ -33,9 +56,16 @@ export function SubscribeForm() {
     );
   }
 
+  function toggleCommune(commune: string) {
+    setCommunes((prev) =>
+      prev.includes(commune) ? prev.filter((c) => c !== commune) : [...prev, commune],
+    );
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email || topics.length === 0) return;
+    const allTopics = [...topics, ...communes];
+    if (!email || allTopics.length === 0) return;
 
     setState('loading');
 
@@ -46,7 +76,7 @@ export function SubscribeForm() {
         body: JSON.stringify({
           email,
           locale: ['fr', 'nl', 'en', 'de'].includes(locale) ? locale : 'fr',
-          topics,
+          topics: allTopics,
           website, // honeypot
         }),
       });
@@ -137,9 +167,39 @@ export function SubscribeForm() {
         </div>
       </fieldset>
 
+      <details className="mb-4">
+        <summary className="cursor-pointer text-xs font-medium text-neutral-600 hover:text-neutral-800">
+          {t('communesLabel')}
+          {communes.length > 0 && (
+            <span className="ml-1 text-brand-900">({communes.length})</span>
+          )}
+        </summary>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {COMMUNE_OPTIONS.map((commune) => (
+            <label
+              key={commune}
+              className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+                communes.includes(commune)
+                  ? 'border-brand-600 bg-brand-900 text-white'
+                  : 'border-neutral-300 bg-white text-neutral-600 hover:border-neutral-400'
+              }`}
+            >
+              <input
+                type="checkbox"
+                name={`commune-${commune}`}
+                checked={communes.includes(commune)}
+                onChange={() => toggleCommune(commune)}
+                className="sr-only"
+              />
+              {t(`topics.${commune}`)}
+            </label>
+          ))}
+        </div>
+      </details>
+
       <button
         type="submit"
-        disabled={state === 'loading' || topics.length === 0}
+        disabled={state === 'loading' || (topics.length === 0 && communes.length === 0)}
         className="w-full rounded-md bg-brand-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {state === 'loading' ? t('submitting') : t('submit')}

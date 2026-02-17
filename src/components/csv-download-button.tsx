@@ -10,6 +10,7 @@ interface MetricRow {
   sourceUrl: string;
   date: string;
   confidence: string;
+  cardType?: string;
 }
 
 interface CsvDownloadButtonProps {

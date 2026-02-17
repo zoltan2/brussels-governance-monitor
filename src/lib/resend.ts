@@ -42,9 +42,25 @@ export const SECTOR_TOPICS = [
 ] as const;
 
 export const COMMUNE_TOPICS = [
-  'commune-bruxelles-ville',
   'commune-anderlecht',
+  'commune-auderghem',
+  'commune-berchem-sainte-agathe',
+  'commune-bruxelles-ville',
+  'commune-etterbeek',
+  'commune-evere',
+  'commune-forest',
+  'commune-ganshoren',
+  'commune-ixelles',
+  'commune-jette',
+  'commune-koekelberg',
+  'commune-molenbeek-saint-jean',
+  'commune-saint-gilles',
+  'commune-saint-josse-ten-noode',
   'commune-schaerbeek',
+  'commune-uccle',
+  'commune-watermael-boitsfort',
+  'commune-woluwe-saint-lambert',
+  'commune-woluwe-saint-pierre',
 ] as const;
 
 export const DOSSIER_TOPICS = [

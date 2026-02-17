@@ -7,7 +7,7 @@ const feedbackSchema = z.object({
   cardTitle: z.string().min(1).max(200),
   cardType: z.string().min(1).max(50),
   cardSlug: z.string().min(1).max(100),
-  feedbackType: z.enum(['error', 'correction', 'source', 'other', 'suggest-dossier']),
+  feedbackType: z.enum(['error', 'correction', 'source', 'other', 'suggest-dossier', 'suggest-source']),
   message: z.string().min(1).max(2000),
   email: z.string().email().optional(),
   url: z.string().url().max(500),

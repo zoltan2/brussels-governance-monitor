@@ -10,6 +10,7 @@ import {
   Section,
   Text,
 } from '@react-email/components';
+import { getTopicLabels } from './topic-labels';
 
 interface PreferencesUpdatedEmailProps {
   locale: string;
@@ -22,7 +23,6 @@ interface PreferencesTranslation {
   title: string;
   greeting: string;
   topicsTitle: string;
-  topicLabels: Record<string, string>;
   manage: string;
   footer: string;
   disclaimer: string;
@@ -30,49 +30,23 @@ interface PreferencesTranslation {
 
 const translations: Record<string, PreferencesTranslation> = {
   fr: {
-    preview: 'Vos préférences ont été mises à jour',
-    title: 'Préférences mises à jour',
-    greeting: 'Vos préférences de notification ont été enregistrées.',
-    topicsTitle: 'Vos thèmes suivis :',
-    topicLabels: {
-      budget: 'Budget',
-      mobility: 'Mobilité',
-      employment: 'Emploi',
-      housing: 'Logement',
-      climate: 'Climat & Énergie',
-      social: 'Social & Santé',
-      security: 'Sécurité',
-      economy: 'Économie',
-      cleanliness: 'Propreté',
-      institutional: 'Institutionnel',
-      solutions: 'Sortie de crise',
-    },
-    manage: 'Gérer mes préférences',
+    preview: 'Vos pr\u00e9f\u00e9rences ont \u00e9t\u00e9 mises \u00e0 jour',
+    title: 'Pr\u00e9f\u00e9rences mises \u00e0 jour',
+    greeting: 'Vos pr\u00e9f\u00e9rences de notification ont \u00e9t\u00e9 enregistr\u00e9es.',
+    topicsTitle: 'Vos th\u00e8mes suivis :',
+    manage: 'G\u00e9rer mes pr\u00e9f\u00e9rences',
     footer:
-      'Brussels Governance Monitor — Un projet d\'intérêt général hébergé par Advice That SRL',
-    disclaimer: 'Non affilié à aucun parti politique',
+      'Brussels Governance Monitor \u2014 Un projet d\'int\u00e9r\u00eat g\u00e9n\u00e9ral h\u00e9berg\u00e9 par Advice That SRL',
+    disclaimer: 'Non affili\u00e9 \u00e0 aucun parti politique',
   },
   nl: {
     preview: 'Uw voorkeuren zijn bijgewerkt',
     title: 'Voorkeuren bijgewerkt',
     greeting: 'Uw meldingsvoorkeuren zijn opgeslagen.',
     topicsTitle: 'Uw gevolgde thema\'s:',
-    topicLabels: {
-      budget: 'Budget',
-      mobility: 'Mobiliteit',
-      employment: 'Werkgelegenheid',
-      housing: 'Huisvesting',
-      climate: 'Klimaat & Energie',
-      social: 'Sociaal & Gezondheid',
-      security: 'Veiligheid',
-      economy: 'Economie',
-      cleanliness: 'Netheid',
-      institutional: 'Institutioneel',
-      solutions: 'Uitwegen uit de crisis',
-    },
     manage: 'Mijn voorkeuren beheren',
     footer:
-      'Brussels Governance Monitor — Een project van algemeen belang gehost door Advice That SRL',
+      'Brussels Governance Monitor \u2014 Een project van algemeen belang gehost door Advice That SRL',
     disclaimer: 'Niet gelieerd aan enige politieke partij',
   },
   en: {
@@ -80,22 +54,9 @@ const translations: Record<string, PreferencesTranslation> = {
     title: 'Preferences updated',
     greeting: 'Your notification preferences have been saved.',
     topicsTitle: 'Your followed topics:',
-    topicLabels: {
-      budget: 'Budget',
-      mobility: 'Mobility',
-      employment: 'Employment',
-      housing: 'Housing',
-      climate: 'Climate & Energy',
-      social: 'Social & Health',
-      security: 'Security',
-      economy: 'Economy',
-      cleanliness: 'Cleanliness',
-      institutional: 'Institutional',
-      solutions: 'Exit paths',
-    },
     manage: 'Manage my preferences',
     footer:
-      'Brussels Governance Monitor — A public interest project hosted by Advice That SRL',
+      'Brussels Governance Monitor \u2014 A public interest project hosted by Advice That SRL',
     disclaimer: 'Not affiliated with any political party',
   },
   de: {
@@ -103,22 +64,9 @@ const translations: Record<string, PreferencesTranslation> = {
     title: 'Einstellungen aktualisiert',
     greeting: 'Ihre Benachrichtigungseinstellungen wurden gespeichert.',
     topicsTitle: 'Ihre verfolgten Themen:',
-    topicLabels: {
-      budget: 'Haushalt',
-      mobility: 'Mobilität',
-      employment: 'Beschäftigung',
-      housing: 'Wohnen',
-      climate: 'Klima & Energie',
-      social: 'Soziales & Gesundheit',
-      security: 'Sicherheit',
-      economy: 'Wirtschaft',
-      cleanliness: 'Sauberkeit',
-      institutional: 'Institutionell',
-      solutions: 'Auswege aus der Krise',
-    },
     manage: 'Meine Einstellungen verwalten',
     footer:
-      'Brussels Governance Monitor — Ein Projekt im öffentlichen Interesse, gehostet von Advice That SRL',
+      'Brussels Governance Monitor \u2014 Ein Projekt im \u00f6ffentlichen Interesse, gehostet von Advice That SRL',
     disclaimer: 'Keiner politischen Partei angeschlossen',
   },
 };
@@ -129,6 +77,7 @@ export default function PreferencesUpdatedEmail({
   preferencesUrl,
 }: PreferencesUpdatedEmailProps) {
   const t = translations[locale] || translations.fr;
+  const labels = getTopicLabels(locale);
 
   return (
     <Html lang={locale}>
@@ -144,7 +93,7 @@ export default function PreferencesUpdatedEmail({
             <Text style={styles.topicsTitle}>{t.topicsTitle}</Text>
             {topics.map((topic) => (
               <Text key={topic} style={styles.topicItem}>
-                — {t.topicLabels[topic] || topic}
+                — {labels[topic] || topic}
               </Text>
             ))}
           </Section>

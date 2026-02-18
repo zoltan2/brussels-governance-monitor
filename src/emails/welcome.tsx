@@ -10,6 +10,7 @@ import {
   Section,
   Text,
 } from '@react-email/components';
+import { getTopicLabels } from './topic-labels';
 
 interface WelcomeEmailProps {
   locale: string;
@@ -23,7 +24,6 @@ interface WelcomeTranslation {
   greeting: string;
   explanation: string;
   topicsTitle: string;
-  topicLabels: Record<string, string>;
   frequency: string;
   unsubscribe: string;
   footer: string;
@@ -38,19 +38,6 @@ const translations: Record<string, WelcomeTranslation> = {
     explanation:
       'Vous recevrez un digest hebdomadaire (le lundi) avec les mises à jour des domaines que vous suivez. Pas de changement = pas d\'email.',
     topicsTitle: 'Vos thèmes suivis :',
-    topicLabels: {
-      budget: 'Budget',
-      mobility: 'Mobilité',
-      employment: 'Emploi',
-      housing: 'Logement',
-      climate: 'Climat & Énergie',
-      social: 'Social & Santé',
-      security: 'Sécurité',
-      economy: 'Économie',
-      cleanliness: 'Propreté',
-      institutional: 'Institutionnel',
-      solutions: 'Sortie de crise',
-    },
     frequency: 'Fréquence : maximum 1 email par semaine.',
     unsubscribe: 'Gérer mes préférences ou me désabonner',
     footer: 'Brussels Governance Monitor — Un projet d\'intérêt général hébergé par Advice That SRL',
@@ -63,19 +50,6 @@ const translations: Record<string, WelcomeTranslation> = {
     explanation:
       'U ontvangt een wekelijkse samenvatting (op maandag) met updates over de domeinen die u volgt. Geen wijziging = geen e-mail.',
     topicsTitle: 'Uw gevolgde thema\'s:',
-    topicLabels: {
-      budget: 'Budget',
-      mobility: 'Mobiliteit',
-      employment: 'Werkgelegenheid',
-      housing: 'Huisvesting',
-      climate: 'Klimaat & Energie',
-      social: 'Sociaal & Gezondheid',
-      security: 'Veiligheid',
-      economy: 'Economie',
-      cleanliness: 'Netheid',
-      institutional: 'Institutioneel',
-      solutions: 'Uitwegen uit de crisis',
-    },
     frequency: 'Frequentie: maximaal 1 e-mail per week.',
     unsubscribe: 'Mijn voorkeuren beheren of uitschrijven',
     footer: 'Brussels Governance Monitor — Een project van algemeen belang gehost door Advice That SRL',
@@ -88,19 +62,6 @@ const translations: Record<string, WelcomeTranslation> = {
     explanation:
       'You will receive a weekly digest (on Mondays) with updates on the domains you follow. No changes = no email.',
     topicsTitle: 'Your followed topics:',
-    topicLabels: {
-      budget: 'Budget',
-      mobility: 'Mobility',
-      employment: 'Employment',
-      housing: 'Housing',
-      climate: 'Climate & Energy',
-      social: 'Social & Health',
-      security: 'Security',
-      economy: 'Economy',
-      cleanliness: 'Cleanliness',
-      institutional: 'Institutional',
-      solutions: 'Exit paths',
-    },
     frequency: 'Frequency: maximum 1 email per week.',
     unsubscribe: 'Manage my preferences or unsubscribe',
     footer: 'Brussels Governance Monitor — A public interest project hosted by Advice That SRL',
@@ -113,19 +74,6 @@ const translations: Record<string, WelcomeTranslation> = {
     explanation:
       'Sie erhalten eine wöchentliche Zusammenfassung (montags) mit Aktualisierungen zu den von Ihnen verfolgten Bereichen. Keine Änderung = keine E-Mail.',
     topicsTitle: 'Ihre verfolgten Themen:',
-    topicLabels: {
-      budget: 'Haushalt',
-      mobility: 'Mobilität',
-      employment: 'Beschäftigung',
-      housing: 'Wohnen',
-      climate: 'Klima & Energie',
-      social: 'Soziales & Gesundheit',
-      security: 'Sicherheit',
-      economy: 'Wirtschaft',
-      cleanliness: 'Sauberkeit',
-      institutional: 'Institutionell',
-      solutions: 'Auswege aus der Krise',
-    },
     frequency: 'Häufigkeit: maximal 1 E-Mail pro Woche.',
     unsubscribe: 'Meine Einstellungen verwalten oder abmelden',
     footer: 'Brussels Governance Monitor — Ein Projekt im öffentlichen Interesse, gehostet von Advice That SRL',
@@ -135,6 +83,7 @@ const translations: Record<string, WelcomeTranslation> = {
 
 export default function WelcomeEmail({ locale, topics, unsubscribeUrl }: WelcomeEmailProps) {
   const t = translations[locale] || translations.fr;
+  const labels = getTopicLabels(locale);
 
   return (
     <Html lang={locale}>
@@ -151,7 +100,7 @@ export default function WelcomeEmail({ locale, topics, unsubscribeUrl }: Welcome
             <Text style={styles.topicsTitle}>{t.topicsTitle}</Text>
             {topics.map((topic) => (
               <Text key={topic} style={styles.topicItem}>
-                — {t.topicLabels[topic] || topic}
+                — {labels[topic] || topic}
               </Text>
             ))}
           </Section>

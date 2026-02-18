@@ -14,147 +14,147 @@ import type { Locale } from '@/i18n/routing';
 
 type Href = Parameters<typeof getPathname>[0]['href'];
 
-function localizedUrl(siteUrl: string, locale: Locale, href: Href): string {
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
+const locales = routing.locales;
+
+function localizedUrl(locale: Locale, href: Href): string {
   const pathname = getPathname({ locale, href });
   return `${siteUrl}${pathname}`;
 }
 
+/**
+ * Build hreflang alternates for a given href across all locales.
+ * Includes x-default pointing to the French version (primary audience).
+ */
+function buildAlternates(href: Href): Record<string, string> {
+  const languages: Record<string, string> = {};
+  for (const locale of locales) {
+    languages[locale] = localizedUrl(locale, href);
+  }
+  // x-default → French version (primary Brussels audience)
+  languages['x-default'] = localizedUrl('fr' as Locale, href);
+  return languages;
+}
+
+/**
+ * Create one sitemap entry per locale for a given href, each with
+ * hreflang alternates pointing to all other language versions.
+ */
+function addLocalizedEntries(
+  entries: MetadataRoute.Sitemap,
+  href: Href,
+  options: { changeFrequency: 'daily' | 'weekly' | 'monthly'; priority: number }
+) {
+  const alternates = buildAlternates(href);
+  for (const locale of locales) {
+    entries.push({
+      url: localizedUrl(locale, href),
+      lastModified: new Date(),
+      changeFrequency: options.changeFrequency,
+      priority: options.priority,
+      alternates: { languages: alternates },
+    });
+  }
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
-  const locales = routing.locales;
-
-  const staticPaths: Href[] = [
-    '/',
-    '/domains',
-    '/sectors',
-    '/comparisons',
-    '/communes',
-    '/dossiers',
-    '/dashboard',
-    '/understand',
-    '/timeline',
-    '/glossary',
-    '/faq',
-    '/explainers/brussels-overview',
-    '/explainers/levels-of-power',
-    '/explainers/government-formation',
-    '/explainers/brussels-paradox',
-    '/explainers/parliament-powers',
-    '/explainers/brussels-cosmopolitan',
-    '/explainers/brussels-region',
-    '/explainers/cocom',
-    '/explainers/cocof',
-    '/explainers/vgc',
-    '/explainers/communities-in-brussels',
-    '/explainers/federal-and-brussels',
-    '/explainers/who-decides-what',
-    '/data',
-    '/editorial',
-    '/methodology',
-    '/how-to-read',
-    '/changelog',
-    '/privacy',
-    '/legal',
-    '/transparency',
-    '/accessibility',
-  ];
-  const domainSlugs = getAllDomainSlugs();
-  const sectorSlugs = getAllSectorSlugs();
-  const comparisonSlugs = getAllComparisonSlugs();
-  const communeSlugs = getAllCommuneSlugs();
-  const dossierSlugs = getAllDossierSlugs();
-
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const href of staticPaths) {
-    for (const locale of locales) {
-      const isHome = href === '/';
-      entries.push({
-        url: localizedUrl(siteUrl, locale, href),
-        lastModified: new Date(),
-        changeFrequency: isHome ? 'daily' : 'weekly',
-        priority: isHome ? 1.0 : 0.7,
-      });
-    }
+  // ── Static pages ──────────────────────────────────────────────
+  const staticPaths: { href: Href; priority?: number; changeFrequency?: 'daily' | 'weekly' }[] = [
+    { href: '/', priority: 1.0, changeFrequency: 'daily' },
+    { href: '/domains' },
+    { href: '/sectors' },
+    { href: '/comparisons' },
+    { href: '/communes' },
+    { href: '/dossiers' },
+    { href: '/dashboard' },
+    { href: '/understand' },
+    { href: '/timeline' },
+    { href: '/glossary' },
+    { href: '/faq' },
+    { href: '/explainers/brussels-overview' },
+    { href: '/explainers/levels-of-power' },
+    { href: '/explainers/government-formation' },
+    { href: '/explainers/brussels-paradox' },
+    { href: '/explainers/parliament-powers' },
+    { href: '/explainers/brussels-cosmopolitan' },
+    { href: '/explainers/brussels-region' },
+    { href: '/explainers/cocom' },
+    { href: '/explainers/cocof' },
+    { href: '/explainers/vgc' },
+    { href: '/explainers/communities-in-brussels' },
+    { href: '/explainers/federal-and-brussels' },
+    { href: '/explainers/who-decides-what' },
+    { href: '/data' },
+    { href: '/editorial' },
+    { href: '/methodology' },
+    { href: '/how-to-read' },
+    { href: '/changelog' },
+    { href: '/privacy' },
+    { href: '/legal' },
+    { href: '/transparency' },
+    { href: '/accessibility' },
+  ];
+
+  for (const { href, priority, changeFrequency } of staticPaths) {
+    addLocalizedEntries(entries, href, {
+      changeFrequency: changeFrequency ?? 'weekly',
+      priority: priority ?? 0.7,
+    });
   }
 
-  for (const slug of domainSlugs) {
-    for (const locale of locales) {
-      entries.push({
-        url: localizedUrl(siteUrl, locale, {
-          pathname: '/domains/[slug]',
-          params: { slug },
-        }),
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.8,
-      });
-    }
+  // ── Domains ───────────────────────────────────────────────────
+  for (const slug of getAllDomainSlugs()) {
+    addLocalizedEntries(
+      entries,
+      { pathname: '/domains/[slug]', params: { slug } },
+      { changeFrequency: 'weekly', priority: 0.8 }
+    );
   }
 
-  // Solutions removed: all solution pages have robots: { index: false }
-
-  for (const slug of sectorSlugs) {
-    for (const locale of locales) {
-      entries.push({
-        url: localizedUrl(siteUrl, locale, {
-          pathname: '/sectors/[slug]',
-          params: { slug },
-        }),
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.7,
-      });
-    }
+  // ── Sectors ───────────────────────────────────────────────────
+  for (const slug of getAllSectorSlugs()) {
+    addLocalizedEntries(
+      entries,
+      { pathname: '/sectors/[slug]', params: { slug } },
+      { changeFrequency: 'weekly', priority: 0.7 }
+    );
   }
 
-  for (const slug of comparisonSlugs) {
-    for (const locale of locales) {
-      entries.push({
-        url: localizedUrl(siteUrl, locale, {
-          pathname: '/comparisons/[slug]',
-          params: { slug },
-        }),
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.7,
-      });
-    }
+  // ── Comparisons ───────────────────────────────────────────────
+  for (const slug of getAllComparisonSlugs()) {
+    addLocalizedEntries(
+      entries,
+      { pathname: '/comparisons/[slug]', params: { slug } },
+      { changeFrequency: 'weekly', priority: 0.7 }
+    );
   }
 
-  for (const slug of communeSlugs) {
-    for (const locale of locales) {
-      entries.push({
-        url: localizedUrl(siteUrl, locale, {
-          pathname: '/communes/[slug]',
-          params: { slug },
-        }),
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.7,
-      });
-    }
+  // ── Communes ──────────────────────────────────────────────────
+  for (const slug of getAllCommuneSlugs()) {
+    addLocalizedEntries(
+      entries,
+      { pathname: '/communes/[slug]', params: { slug } },
+      { changeFrequency: 'weekly', priority: 0.7 }
+    );
   }
 
-  for (const slug of dossierSlugs) {
-    for (const locale of locales) {
-      entries.push({
-        url: localizedUrl(siteUrl, locale, {
-          pathname: '/dossiers/[slug]',
-          params: { slug },
-        }),
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.7,
-      });
-    }
+  // ── Dossiers ──────────────────────────────────────────────────
+  for (const slug of getAllDossierSlugs()) {
+    addLocalizedEntries(
+      entries,
+      { pathname: '/dossiers/[slug]', params: { slug } },
+      { changeFrequency: 'weekly', priority: 0.7 }
+    );
   }
 
-  // Digest pages (outside locale routing — /digest/[lang]/[year]/[week])
+  // ── Digest pages (outside locale routing) ─────────────────────
+  // These don't use the i18n routing system, so no hreflang alternates.
   const digestWeeks = getAllDigestWeeks();
   const digestLangs = getAllDigestLangs();
   for (const week of digestWeeks) {
-    // Parse week format "2026-w07" → year "2026", week "w07"
     const [year, w] = week.split('-');
     for (const lang of digestLangs) {
       entries.push({

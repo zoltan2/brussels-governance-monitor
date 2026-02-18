@@ -96,6 +96,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: '/legal' },
     { href: '/transparency' },
     { href: '/accessibility' },
+    { href: '/about' },
   ];
 
   for (const { href, priority, changeFrequency } of staticPaths) {

@@ -51,6 +51,7 @@ export default async function AccessibilityPage({
         <Breadcrumb
           items={[
             { label: tb('home'), href: '/' },
+            { label: tb('transparency'), href: '/transparency' },
             { label: t('title') },
           ]}
         />
@@ -90,6 +91,18 @@ export default async function AccessibilityPage({
             </h2>
             <p>{t('techText')}</p>
 
+            {/* Linguistic accessibility */}
+            <h2 className="text-lg font-semibold text-neutral-900">
+              {t('linguisticTitle')}
+            </h2>
+            <p>{t('linguisticText')}</p>
+
+            {/* Plain language */}
+            <h2 className="text-lg font-semibold text-neutral-900">
+              {t('plainLanguageTitle')}
+            </h2>
+            <p>{t('plainLanguageText')}</p>
+
             {/* Known limitations */}
             <h2 className="text-lg font-semibold text-neutral-900">
               {t('limitationsTitle')}
@@ -107,14 +120,6 @@ export default async function AccessibilityPage({
               {t('feedbackTitle')}
             </h2>
             <p>{t('feedbackText')}</p>
-            <p>
-              <a
-                href={`mailto:${t('feedbackEmail')}`}
-                className="text-brand-700 underline underline-offset-2 hover:text-brand-900"
-              >
-                {t('feedbackEmail')}
-              </a>
-            </p>
 
             {/* Statement date */}
             <p className="mt-8 text-xs text-neutral-500">

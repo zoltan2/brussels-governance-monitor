@@ -74,6 +74,9 @@ export function Footer() {
               <Link href="/accessibility" className="hover:text-neutral-700">
                 {t('accessibility')}
               </Link>
+              <Link href="/about" className="hover:text-neutral-700">
+                {t('about')}
+              </Link>
               <a
                 href="https://github.com/zoltan2/brussels-governance-monitor"
                 target="_blank"

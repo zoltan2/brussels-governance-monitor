@@ -47,6 +47,7 @@ function MethodologyView() {
       <div className="mx-auto max-w-5xl px-4">
         <Breadcrumb items={[
           { label: tb('home'), href: '/' },
+          { label: tb('transparency'), href: '/transparency' },
           { label: tb('methodology') },
         ]} />
 
@@ -261,6 +262,13 @@ function MethodologyView() {
             </ul>
             <p className="mt-2 text-xs text-neutral-500">{t('selfLimitations.conclusion')}</p>
           </div>
+
+          {/* See editorial */}
+          <p className="mt-4">
+            <Link href="/editorial" className="text-brand-700 underline underline-offset-2 hover:text-brand-900">
+              {t('seeEditorial')}
+            </Link>
+          </p>
 
           {/* Tagline */}
           <div className="mt-8 rounded-lg border border-brand-200 bg-brand-50 p-5 text-center">

@@ -108,6 +108,18 @@ export default async function TransparencyPage({
             </a>
           </div>
 
+          {/* Qui est derrière le BGM */}
+          <div className="rounded-lg border border-neutral-200 p-6">
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('aboutTitle')}</h2>
+            <p className="mb-3 text-sm text-neutral-600">{t('aboutText')}</p>
+            <Link
+              href="/about"
+              className="text-sm font-medium text-brand-700 hover:text-brand-900"
+            >
+              {t('aboutLink')}
+            </Link>
+          </div>
+
           {/* Financement */}
           <div className="rounded-lg border border-neutral-200 p-6">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('fundingTitle')}</h2>
@@ -131,6 +143,7 @@ export default async function TransparencyPage({
           {/* Contact */}
           <div className="rounded-lg border border-neutral-200 p-6">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('contactTitle')}</h2>
+            <p className="mb-3 text-sm text-neutral-600">{t('contactText')}</p>
             <p className="text-sm text-neutral-600">
               <a
                 href={`mailto:${t('contactEmail')}`}

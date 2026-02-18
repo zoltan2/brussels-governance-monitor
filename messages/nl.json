@@ -157,6 +157,7 @@
     "sectors": "Sectoren",
     "solutions": "Oplossingen (archief)",
     "accessibility": "Toegankelijkheid",
+    "about": "Over ons",
     "sourceCode": "Broncode",
     "communes": "Gemeenten",
     "dossiers": "Dossiers"
@@ -464,7 +465,7 @@
   },
   "editorial": {
     "title": "Redactioneel charter",
-    "intro": "Brussels Governance Monitor is een burgerinitiatief voor informatievoorziening. Dit charter definieert de principes die ons redactioneel werk sturen.",
+    "intro": "Brussels Governance Monitor structureert, traceert en verifieert informatie over het Brusselse bestuur. Dit charter definieert de principes die ons redactioneel werk sturen. Het is een aanvulling op onze pagina Methode, die de concrete tools en processen beschrijft.",
     "principles": {
       "title": "Fundamentele principes",
       "neutrality": "Feitelijke neutraliteit: wij rapporteren feiten, geen meningen. Geen politieke stellingname.",
@@ -472,17 +473,19 @@
       "factOpinion": "Onderscheid feiten/interpretaties: analyses worden duidelijk als zodanig geïdentificeerd en gescheiden van ruwe feiten.",
       "transparency": "Transparantie over financiering: het project wordt gehost door Advice That SRL. Het wordt door geen enkele politieke partij of belangengroep gefinancierd.",
       "noPartisan": "Geen partijdigheid: geen namen van politici verschijnen in de fiches. De inhoud richt zich op mechanismen, niet op personen.",
-      "rightOfReply": "Recht van antwoord: elke persoon of instelling die wordt geciteerd kan een correctie of aanvulling aanvragen via ons contactadres."
+      "rightOfReply": "Recht van antwoord: elke persoon of instelling die wordt geciteerd, kan een correctie of aanvulling vragen via het feedbackformulier dat op elke fiche toegankelijk is."
     },
     "verification": {
       "title": "Verificatieproces",
-      "description": "Elke fiche wordt geverifieerd via een tweestappenproces: dubbele onafhankelijke bron, of één erkende institutionele bron (Rekenhof, parlement, gewestelijke administratie). De kerncijfers vermelden systematisch hun betrouwbaarheidsniveau."
+      "description": "Elke fiche wordt geverifieerd via een tweestappenproces: dubbele onafhankelijke bron, of één erkende institutionele bron (Rekenhof, parlement, gewestelijke administratie). De kerncijfers vermelden systematisch hun betrouwbaarheidsniveau.",
+      "seeMethod": "Het gedetailleerde verificatieprotocol (V1–V4) wordt beschreven op onze pagina Methode."
     },
     "confidence": {
       "title": "Betrouwbaarheidsniveaus",
       "officialDesc": "Gegeven uit een gepubliceerd officieel document (wet, rapport, institutionele statistiek).",
       "estimatedDesc": "Schatting op basis van gedeeltelijke gegevens, extrapolaties of betrouwbare secundaire bronnen.",
-      "unconfirmedDesc": "Informatie die nog niet door een tweede bron verifieerbaar is. Expliciet aangegeven."
+      "unconfirmedDesc": "Informatie die nog niet door een tweede bron verifieerbaar is. Expliciet aangegeven.",
+      "seeMethod": "De volledige definities worden beschreven op onze pagina Methode."
     },
     "corrections": {
       "title": "Correcties en updates",
@@ -683,12 +686,12 @@
   },
   "methodology": {
     "title": "Onze methode",
-    "intro": "Brussels Governance Monitor observeert de concrete gevolgen van de afwezigheid van een volwaardige regering in Brussel. Het doel is niet politiek, noch militant, maar burgerlijk: institutionele informatie die vaak verspreid, onzichtbaar of moeilijk toegankelijk is, leesbaar, verifieerbaar en betwistbaar maken.",
+    "intro": "Brussels Governance Monitor documenteert het bestuur van het Brussels Hoofdstedelijk Gewest: politieke engagementen, begrotingsbeslissingen, institutionele hervormingen. Het doel is niet politiek, niet militant, maar burgerlijk: institutionele informatie die vaak verspreid of moeilijk toegankelijk is, leesbaar, verifieerbaar en betwistbaar maken.",
     "mission": {
       "title": "Wat BGM documenteert",
-      "what": "wat er gebeurt,",
-      "whatNot": "wat er niet gebeurt,",
-      "known": "en wat men op een bepaald moment werkelijk weet."
+      "what": "wat er beslist of beloofd is,",
+      "whatNot": "wat vooruitgaat — of niet,",
+      "known": "en wat de publieke gegevens daadwerkelijk toelaten te meten."
     },
     "model": {
       "title": "Een eenvoudig model: Kaart / Gebeurtenis / Verificatie",
@@ -753,7 +756,7 @@
     "transparency": {
       "title": "Transparantie en betwisting",
       "description": "Alle door BGM gepubliceerde informatie is voorzien van bron, datum en is verifieerbaar.",
-      "channel": "Een openbaar betwistingskanaal stelt elke burger, journalist of instelling in staat om:",
+      "channel": "Het feedbackformulier, toegankelijk op elke fiche en vanaf de pagina Transparantie, stelt elke burger, journalist of instelling in staat om:",
       "reportError": "een fout te melden,",
       "suggestSource": "een bron voor te stellen,",
       "askClarification": "een methodologische verduidelijking te vragen.",
@@ -762,12 +765,13 @@
     "selfLimitations": {
       "title": "Erkende beperkingen",
       "description": "BGM erkent expliciet:",
-      "framing": "een kadering gericht op de impact van de afwezigheid van een regering,",
+      "framing": "een kader gericht op de uitvoering van de engagementen van de gewestregering,",
       "coverage": "een beperkte dekking tot bepaalde prioritaire domeinen,",
       "dataDependency": "een afhankelijkheid van de beschikbaarheid van publieke gegevens,",
       "team": "een bewust beperkt redactieteam.",
       "conclusion": "Deze beperkingen worden gedocumenteerd, niet verborgen."
     },
+    "seeEditorial": "De redactionele principes die dit werk omkaderen, zijn geformaliseerd in ons Redactioneel charter.",
     "tagline": "Brussels Governance Monitor zegt niet wat u moet denken. Het toont wat verifieerbaar is, wat niet, en waarom.",
     "confidence": {
       "title": "Onze betrouwbaarheidsniveaus",
@@ -1529,7 +1533,8 @@
     "communes": "Gemeenten",
     "dossiers": "Dossiers",
     "dashboard": "Engagementen",
-    "subscribe": "Inschrijven"
+    "subscribe": "Inschrijven",
+    "about": "Over ons"
   },
   "understand": {
     "title": "Begrijpen",
@@ -1620,14 +1625,18 @@
     "limitation1": "Zoekresultaatfragmenten worden weergegeven als onbewerkte HTML (Pagefind) en zijn mogelijk niet volledig gestructureerd.",
     "limitation2": "Sommige decoratieve elementen (SVG-iconen) hebben nog niet systematisch het attribuut aria-hidden.",
     "anysurferText": "Deze website streeft naar conformiteit met WCAG 2.1 niveau AA, het referentiekader waarop het AnySurfer-label is gebaseerd. Er is nog geen AnySurfer-certificering aangevraagd.",
+    "linguisticTitle": "Taaltoegankelijkheid",
+    "linguisticText": "De belangrijkste inhoud van de site is beschikbaar in vier talen: Frans, Nederlands, Engels en Duits. Het lang-attribuut wordt dynamisch ingesteld op elke pagina. De wekelijkse samenvatting (BGM Weekly Digest) wordt uitgerold in meer dan 80 talen, omdat Brussel 184 nationaliteiten telt en bestuur iedereen aangaat. Automatische vertalingen worden als zodanig aangegeven.",
+    "plainLanguageTitle": "Duidelijke taal",
+    "plainLanguageText": "BGM streeft naar toegankelijk taalgebruik en vermijdt institutioneel jargon zoveel mogelijk. De domeifiches bevatten een korte samenvatting. Een aanpassing naar Makkelijk Lezen wordt overwogen voor de kerninhoud.",
     "feedbackTitle": "Feedback",
-    "feedbackText": "Als u een toegankelijkheidsprobleem op deze website tegenkomt, neem dan contact met ons op. Wij antwoorden binnen 15 werkdagen.",
+    "feedbackText": "Als u een toegankelijkheidsprobleem op deze site ondervindt, gebruik dan het feedbackformulier of neem contact met ons op via contact@brusselsgovernance.be. Wij verbinden ons ertoe binnen 15 werkdagen te antwoorden.",
     "feedbackEmail": "contact@brusselsgovernance.be",
     "statementDate": "Deze verklaring is opgesteld op 10 februari 2026."
   },
   "transparency": {
     "title": "Transparantie",
-    "intro": "Brussels Governance Monitor is een onafhankelijk burgerinstrument. Hier leest u hoe wij de betrouwbaarheid van onze inhoud garanderen.",
+    "intro": "Brussels Governance Monitor is een onafhankelijk burgerinstrument dat Brusselse overheidsinformatie structureert, traceert en verifieert. Deze pagina legt uit hoe wij de betrouwbaarheid van onze inhoud garanderen — en hoe u ons ter verantwoording kunt roepen.",
     "editorialTitle": "Redactioneel charter",
     "editorialSummary": "Geen politicusnamen, brongebaseerde betrouwbaarheidsniveaus, institutionele toon. Elk feit wordt geverifieerd en toegeschreven.",
     "methodologyTitle": "Methodologie",
@@ -1637,14 +1646,36 @@
     "sourceTitle": "Broncode",
     "sourceSummary": "De code is publiek beschikbaar. Elke wijziging is traceerbaar.",
     "sourceLink": "https://github.com/zoltan2/brussels-governance-monitor",
+    "aboutTitle": "Wie zit er achter de BGM",
+    "aboutText": "De Brussels Governance Monitor is een project opgericht door Zoltán Jánosi, communicatiestrateeg gevestigd in Brussel. De site wordt gehost door Advice That SRL. Het is niet gelieerd aan enige politieke partij, media of belangengroep.",
+    "aboutLink": "Meer weten →",
     "fundingTitle": "Financiering",
     "fundingText": "Dit project wordt ontwikkeld en onderhouden door Advice That SRL (Brussel). Het wordt momenteel zelf gefinancierd. Geen adverteerder, politieke partij of publieke instelling draagt bij aan de financiering van deze website. Het project staat open voor publieke of filantropische financiering die verenigbaar is met zijn redactionele onafhankelijkheid. Neem contact met ons op als u dit initiatief wilt steunen.",
     "correctionTitle": "Correctiebeleid",
     "correctionText": "Elke gemelde feitelijke fout wordt binnen 48 uur gecorrigeerd en gedocumenteerd in het wijzigingslogboek.",
     "correctionLink": "Bekijk het wijzigingslogboek",
-    "contactTitle": "Contact",
+    "contactTitle": "Een fout melden of contact opnemen",
+    "contactText": "Gebruik het feedbackformulier op de fiches om een onnauwkeurigheid te melden, een bron voor te stellen of een vraag te stellen. Elke ontvankelijke melding krijgt een gedocumenteerd antwoord. Voor vragen over toegankelijkheid of algemene verzoeken:",
     "contactEmail": "contact@brusselsgovernance.be",
     "readMore": "Lezen →"
+  },
+  "about": {
+    "title": "Over de Brussels Governance Monitor",
+    "intro": "De Brussels Governance Monitor (BGM) is een onafhankelijk instrument voor het opvolgen van het Brusselse bestuur, gepubliceerd op governance.brussels. Het doel: complexe overheidsinformatie leesbaar, traceerbaar en verifieerbaar maken.",
+    "contextTitle": "Waarom deze site bestaat",
+    "contextText": "Brussel heeft een van de meest complexe institutionele landschappen van Europa. Gewest, gemeenschapscommissies, gemeenten, intercommunales, ministeriële kabinetten — beslissingen worden op meerdere niveaus genomen, vaak zonder voldoende zichtbaarheid voor burgers, journalisten of maatschappelijke organisaties. De BGM bestaat om die leemte te vullen.",
+    "whatTitle": "Wat de BGM doet",
+    "whatText": "De Brussels Governance Monitor structureert en analyseert het nieuws over het Brusselse gewestelijke bestuur: opvolging van politieke engagementen, gedocumenteerde monitoring van beslissingen, benoemingen en institutionele ontwikkelingen. Elke gepubliceerde informatie is voorzien van bronvermelding. Elke analyse is traceerbaar.",
+    "approachTitle": "De aanpak: nauwkeurigheid zonder agenda",
+    "approachText": "De BGM is niet gelieerd aan enige partij, belangengroep of mediabedrijf. Het produceert geen als analyse vermomde meningen. De aanpak berust op drie principes: informatie structureren om ze toegankelijk te maken, elke bron traceren om verificatie mogelijk te maken, en feiten presenteren zonder ideologisch kader.",
+    "whoTitle": "Wie zit er achter de BGM",
+    "whoText": "De BGM is opgericht en wordt onderhouden door Zoltán Jánosi, communicatiestrateeg gevestigd in Brussel, met meer dan 20 jaar ervaring in het structureren van complexe informatie voor publieke, private en associatieve organisaties. De BGM is een project van algemeen belang gehost door Advice That SRL (Brussel).",
+    "servicesTitle": "Opleidingen en advies",
+    "servicesText": "Naast de BGM biedt Zoltán Jánosi opleidingen en advies aan over artificiële intelligentie — basiskennis, ethiek, praktische toepassingen — en over feitelijke communicatie. Deze diensten richten zich tot organisaties die AI willen begrijpen zonder jargon, de concrete implicaties willen evalueren en weloverwogen beslissingen willen nemen.",
+    "contactTitle": "Contact",
+    "contactText": "Bent u journalist, onderzoeker, organisatie of burger met interesse in het project? Gebruik het feedbackformulier om rechtstreeks contact met ons op te nemen.",
+    "contactFallback": "Voor algemene vragen:",
+    "contactEmail": "contact@brusselsgovernance.be"
   },
   "communes": {
     "title": "De 19 gemeenten",

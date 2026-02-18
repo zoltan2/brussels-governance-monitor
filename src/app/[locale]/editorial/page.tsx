@@ -2,6 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
+import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import type { Metadata } from 'next';
 
@@ -17,10 +18,10 @@ export async function generateMetadata({
   const { locale } = await params;
   const titles: Record<string, string> = { fr: 'Charte éditoriale', nl: 'Redactioneel charter', en: 'Editorial Charter', de: 'Redaktionelle Charta' };
   const descriptions: Record<string, string> = {
-    fr: 'Nos principes éditoriaux : neutralité, sources vérifiées, transparence.',
-    nl: 'Onze redactionele principes: neutraliteit, geverifieerde bronnen, transparantie.',
-    en: 'Our editorial principles: neutrality, verified sources, transparency.',
-    de: 'Unsere redaktionellen Grundsätze: Neutralität, verifizierte Quellen, Transparenz.',
+    fr: 'Charte éditoriale du Brussels Governance Monitor : neutralité factuelle, sources obligatoires, distinction faits et interprétations, droit de réponse, indépendance politique.',
+    nl: 'Redactioneel charter van de Brussels Governance Monitor: feitelijke neutraliteit, verplichte bronnen, onderscheid feiten en interpretaties, recht van antwoord, politieke onafhankelijkheid.',
+    en: 'Editorial charter of the Brussels Governance Monitor: factual neutrality, mandatory sources, distinction between facts and interpretation, right of reply, political independence.',
+    de: 'Redaktionelle Charta des Brussels Governance Monitor: sachliche Neutralität, Quellenpflicht, Unterscheidung von Fakten und Interpretationen, Recht auf Gegendarstellung, politische Unabhängigkeit.',
   };
   return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/editorial' });
 }
@@ -46,6 +47,7 @@ function EditorialView() {
       <div className="mx-auto max-w-5xl px-4">
         <Breadcrumb items={[
           { label: tb('home'), href: '/' },
+          { label: tb('transparency'), href: '/transparency' },
           { label: tb('editorial') },
         ]} />
 
@@ -66,6 +68,11 @@ function EditorialView() {
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('verification.title')}</h2>
           <p>{t('verification.description')}</p>
+          <p>
+            <Link href="/methodology" className="text-brand-700 underline underline-offset-2 hover:text-brand-900">
+              {t('verification.seeMethod')}
+            </Link>
+          </p>
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('confidence.title')}</h2>
           <ul className="ml-4 list-disc space-y-2">
@@ -79,6 +86,11 @@ function EditorialView() {
               <strong>{td('confidence.unconfirmed')}</strong> — {t('confidence.unconfirmedDesc')}
             </li>
           </ul>
+          <p>
+            <Link href="/methodology" className="text-brand-700 underline underline-offset-2 hover:text-brand-900">
+              {t('confidence.seeMethod')}
+            </Link>
+          </p>
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('corrections.title')}</h2>
           <p>{t('corrections.description')}</p>

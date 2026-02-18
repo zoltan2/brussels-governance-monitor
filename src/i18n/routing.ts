@@ -223,6 +223,12 @@ export const routing = defineRouting({
       en: '/commitments',
       de: '/verpflichtungen',
     },
+    '/about': {
+      fr: '/a-propos',
+      nl: '/over-ons',
+      en: '/about',
+      de: '/ueber-uns',
+    },
     '/dossiers': '/dossiers',
     '/dossiers/[slug]': '/dossiers/[slug]',
   },

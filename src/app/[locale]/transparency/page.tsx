@@ -3,6 +3,7 @@ import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { FeedbackButton } from '@/components/feedback-button';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -45,6 +46,7 @@ export default async function TransparencyPage({
 
   const t = await getTranslations('transparency');
   const tb = await getTranslations('breadcrumb');
+  const tFeedback = await getTranslations('feedback');
 
   return (
     <section className="py-12">
@@ -144,6 +146,33 @@ export default async function TransparencyPage({
           <div className="rounded-lg border border-neutral-200 p-6">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('contactTitle')}</h2>
             <p className="mb-3 text-sm text-neutral-600">{t('contactText')}</p>
+            <div className="mb-3">
+              <FeedbackButton
+                cardTitle={t('title')}
+                cardType="page"
+                cardSlug="transparency"
+                labels={{
+                  button: tFeedback('button'),
+                  title: tFeedback('title'),
+                  typeLabel: tFeedback('typeLabel'),
+                  types: {
+                    error: tFeedback('types.error'),
+                    correction: tFeedback('types.correction'),
+                    source: tFeedback('types.source'),
+                    other: tFeedback('types.other'),
+                  },
+                  messageLabel: tFeedback('messageLabel'),
+                  messagePlaceholder: tFeedback('messagePlaceholder'),
+                  emailLabel: tFeedback('emailLabel'),
+                  emailPlaceholder: tFeedback('emailPlaceholder'),
+                  submit: tFeedback('submit'),
+                  submitting: tFeedback('submitting'),
+                  success: tFeedback('success'),
+                  errorMessage: tFeedback('errorMessage'),
+                  cancel: tFeedback('cancel'),
+                }}
+              />
+            </div>
             <p className="text-sm text-neutral-600">
               <a
                 href={`mailto:${t('contactEmail')}`}

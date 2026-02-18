@@ -2,6 +2,7 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -76,6 +77,14 @@ export default async function AboutPage({
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('contactTitle')}</h2>
           <p>{t('contactText')}</p>
+          <p>
+            <Link
+              href="/transparency"
+              className="font-medium text-brand-700 hover:text-brand-900"
+            >
+              {t('contactLink')}
+            </Link>
+          </p>
           <p>
             {t('contactFallback')}{' '}
             <a

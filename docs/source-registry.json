@@ -1,23 +1,23 @@
 {
   "$schema": "./source-registry-schema.json",
-  "description": "Registre des sources surveillées par BGM. 245 sources (31 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
-  "lastUpdated": "2026-02-17",
+  "description": "Registre des sources surveillées par BGM. 246 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
+  "lastUpdated": "2026-02-18",
   "stats": {
-    "total": 245,
-    "rss": 31,
+    "total": 246,
+    "rss": 32,
     "byTier": {
-      "editorial": 173,
+      "editorial": 174,
       "radar": 72
     },
     "byPriority": {
       "P0": 29,
-      "P1": 39,
-      "P2": 52,
+      "P1": 42,
+      "P2": 50,
       "P3": 49,
       "P4": 62
     },
     "byLang": {
-      "fr": 62,
+      "fr": 63,
       "multi": 37,
       "nl": 46,
       "en": 82,
@@ -25,7 +25,7 @@
     },
     "byType": {
       "institutional": 54,
-      "press": 103,
+      "press": 104,
       "legal": 7,
       "agency": 4,
       "research": 42,
@@ -654,7 +654,7 @@
       ],
       "frequency": "daily",
       "enabled": true,
-      "notes": "Quotidien économique de référence. Budget, finances publiques. Paywall.",
+      "notes": "Quotidien économique de référence. Budget, finances publiques. Paywall. Bot-protected (403 récurrent sur RSS depuis 18/02).",
       "tier": "editorial"
     },
     {
@@ -1144,17 +1144,20 @@
       "id": "watch-067",
       "name": "Trends-Tendances",
       "url": "https://trends.levif.be/",
+      "fetchMode": "rss",
+      "rssUrl": "https://trends.levif.be/feed/",
       "type": "press",
       "lang": "fr",
-      "priority": "P2",
+      "priority": "P1",
       "category": "economic",
       "cardsAffected": [
         "budget",
-        "employment"
+        "employment",
+        "economy"
       ],
-      "frequency": "weekly",
+      "frequency": "daily",
       "enabled": true,
-      "notes": "Hebdo économique FR. Entreprises, emploi. Paywall.",
+      "notes": "Hebdo économique FR. Entreprises, emploi, analyse politique-économique bruxelloise. Paywall. Bot-protected (403 probable).",
       "tier": "editorial"
     },
     {
@@ -1165,12 +1168,14 @@
       "rssUrl": "https://www.levif.be/feed/",
       "type": "press",
       "lang": "fr",
-      "priority": "P2",
+      "priority": "P1",
       "category": "governance",
-      "cardsAffected": [],
-      "frequency": "weekly",
+      "cardsAffected": [
+        "institutional"
+      ],
+      "frequency": "daily",
       "enabled": true,
-      "notes": "Hebdomadaire généraliste FR. Enquêtes politique. Paywall.",
+      "notes": "Hebdomadaire généraliste FR avec mise à jour quotidienne en ligne. Enquêtes politique, société. Paywall. Bot-protected (403 probable).",
       "tier": "editorial"
     },
     {
@@ -3631,6 +3636,24 @@
       "frequency": "daily",
       "enabled": true,
       "notes": "IEB enquêtes publiques urbanisme",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-246",
+      "name": "Sudinfo / La Capitale — Bruxelles",
+      "url": "https://www.sudinfo.be/lacapitale/bruxelles",
+      "type": "press",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "governance",
+      "cardsAffected": [
+        "security",
+        "social",
+        "cleanliness"
+      ],
+      "frequency": "daily",
+      "enabled": true,
+      "notes": "Édition bruxelloise de SudPresse/Sudinfo. Premier groupe presse FR par lectorat. Faits divers, vie locale, politique communale. Bot-protected (403 probable).",
       "tier": "editorial"
     }
   ]

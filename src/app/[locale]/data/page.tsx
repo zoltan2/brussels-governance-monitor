@@ -5,6 +5,7 @@ import { routing, type Locale } from '@/i18n/routing';
 import { CsvDownloadButton, JsonDownloadButton } from '@/components/csv-download-button';
 import { SourceRegistry, type RegistrySource } from '@/components/source-registry';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { Link } from '@/i18n/navigation';
 import { buildMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import registry from '@/../docs/source-registry.json';
@@ -51,6 +52,7 @@ interface MetricRow {
 
 interface DossierSection {
   title: string;
+  slug: string;
   rows: MetricRow[];
 }
 
@@ -140,6 +142,7 @@ export default async function DataPage({
     }));
     const dossierSection: DossierSection = {
       title: card.title.split(':')[0]?.trim() ?? card.title,
+      slug: card.slug,
       rows,
     };
     const group = groupMap.get(parentKey);
@@ -300,6 +303,10 @@ function DataView({
               </div>
             </div>
           </div>
+
+          <a href="#sources" className="text-sm font-medium text-brand-700 hover:text-brand-900">
+            {t('registry.seeAllSources')} &darr;
+          </a>
         </div>
 
         {/* ===== SECTION 2 — Source registry ===== */}
@@ -360,6 +367,18 @@ function DataView({
                     </summary>
 
                     <div className="border-t border-neutral-100 px-5 pb-5 pt-3">
+                      {/* Domain card link */}
+                      {group.rows.length > 0 && (
+                        <div className="mb-3">
+                          <Link
+                            href={{ pathname: '/domains/[slug]', params: { slug: group.domainKey } }}
+                            className="text-xs font-medium text-brand-700 hover:text-brand-900"
+                          >
+                            {t('metrics.seeCard')}
+                          </Link>
+                        </div>
+                      )}
+
                       {/* Domain metrics table */}
                       {group.rows.length > 0 && (
                         <MetricsTable rows={group.rows} t={t} />
@@ -367,10 +386,18 @@ function DataView({
 
                       {/* Dossier sub-groups */}
                       {group.dossiers.map((dossier) => (
-                        <div key={dossier.title} className="mt-4">
-                          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-400">
-                            {t('metrics.dossier')} — {dossier.title}
-                          </p>
+                        <div key={dossier.slug} className="mt-4">
+                          <div className="mb-2 flex items-baseline gap-2">
+                            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+                              {t('metrics.dossier')} — {dossier.title}
+                            </p>
+                            <Link
+                              href={{ pathname: '/dossiers/[slug]', params: { slug: dossier.slug } }}
+                              className="text-xs font-medium text-brand-700 hover:text-brand-900"
+                            >
+                              {t('metrics.seeDossier')}
+                            </Link>
+                          </div>
                           <MetricsTable rows={dossier.rows} t={t} />
                         </div>
                       ))}

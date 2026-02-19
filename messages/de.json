@@ -21,6 +21,7 @@
     "dashboard": "Verpflichtungen",
     "explore": "Erkunden",
     "communes": "Gemeinden",
+    "radar": "Radar",
     "tools": "Werkzeuge"
   },
   "counter": {
@@ -160,7 +161,9 @@
     "about": "Über uns",
     "sourceCode": "Quellcode",
     "communes": "Gemeinden",
-    "dossiers": "Dossiers"
+    "dossiers": "Dossiers",
+    "changelog": "Änderungen",
+    "radar": "Radar"
   },
   "locale": {
     "switchTo": "Sprache ändern",
@@ -1362,7 +1365,33 @@
       "parliament-vp": "Parlament"
     },
     "governmentUnknown": "Noch anzukündigen",
-    "governmentSource": "Quellen: La Libre, BX1, RTBF (14. Feb. 2026)"
+    "governmentSource": "Quellen: La Libre, BX1, RTBF (14. Feb. 2026)",
+    "identity": "BGM ist ein unabhängiges Bürgerprojekt.",
+    "identityDetail": "Nicht verbunden mit einer Partei, einer Regierung oder einem Medium.",
+    "identityLink": "Wer steckt hinter diesem Projekt?",
+    "columnFollow": "Verfolgen",
+    "columnUnderstand": "Verstehen",
+    "newHere": "Neu hier?",
+    "allExplainers": "Alles verstehen",
+    "explainerMap": "Wie man diese Seite liest",
+    "explainerBuilding": "Brüssel im Überblick",
+    "explainerUsers": "Wer entscheidet was?",
+    "explainerScale": "Das Brüsseler Paradoxon",
+    "lastVeille": "Letzte Prüfung",
+    "veilleSources": "{count} Quellen überprüft",
+    "signalsTitle": "Signale in Überprüfung",
+    "shieldFootnote": "BGM veröffentlicht nur durch Primärquellen bestätigte Daten.",
+    "veilleMethod": "Unsere Methode",
+    "dossiersHomeTitle": "Verfolgte Dossiers",
+    "dossiersHomeSubtitle": "Die großen Brüsseler Dossiers",
+    "viewAllDossiers": "Alle {count} Dossiers ansehen",
+    "domainsHomeTitle": "Schlüsselbereiche",
+    "domainsHomeSubtitle": "Der Zustand der Region, Bereich für Bereich",
+    "viewAllDomains": "Alle {count} Bereiche ansehen",
+    "sectorsHomeTitle": "Schlüsselsektoren",
+    "sectorsHomeSubtitle": "Die Sektoren der Brüsseler Wirtschaft",
+    "viewAllSectorsCount": "Alle {count} Sektoren ansehen",
+    "subscribeSection": "Bleiben Sie informiert"
   },
   "sectors": {
     "title": "Betroffene Sektoren",
@@ -1536,7 +1565,8 @@
     "dossiers": "Dossiers",
     "dashboard": "Verpflichtungen",
     "subscribe": "Abonnieren",
-    "about": "Über uns"
+    "about": "Über uns",
+    "radar": "Radar"
   },
   "understand": {
     "title": "Verstehen",
@@ -1829,5 +1859,35 @@
     "contactLink": "Zum Feedback-Formular →",
     "contactFallback": "Für allgemeine Anfragen:",
     "contactEmail": "contact@brusselsgovernance.be"
+  },
+  "veille": {
+    "lastVeille": "Letzte Prüfung",
+    "linkLabel": "Siehe unsere Überprüfungsmethode"
+  },
+  "radar": {
+    "title": "BGM Radar",
+    "subtitle": "Signale in Überprüfung durch den Brussels Governance Monitor.",
+    "shieldText": "Diese Signale werden derzeit überprüft. BGM veröffentlicht nur Daten, die durch Primärquellen bestätigt wurden.",
+    "homepageTitle": "Zu verfolgen",
+    "seeAll": "Vollständigen Radar anzeigen",
+    "source": "Quelle",
+    "nextStep": "Nächster Schritt",
+    "detectedOn": "Erkannt am {date}",
+    "confidence": {
+      "official": "Offiziell",
+      "estimated": "Geschätzt",
+      "unconfirmed": "Unbestätigt"
+    },
+    "status": {
+      "active": "Aktiv",
+      "confirmed": "Bestätigt",
+      "archived": "Archiviert"
+    },
+    "confirmedSection": "Kürzlich bestätigt",
+    "archiveSection": "Archiv",
+    "showArchive": "{count} archivierte Signale anzeigen",
+    "noActiveSignals": "Derzeit keine aktiven Signale.",
+    "seeCard": "Aktualisierte Karte ansehen →",
+    "seeCardDomain": "Karte {domain} ansehen →"
   }
 }

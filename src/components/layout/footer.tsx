@@ -53,6 +53,12 @@ export function Footer() {
               <Link href="/data" className="hover:text-neutral-700">
                 {t('data')}
               </Link>
+              <Link href="/changelog" className="hover:text-neutral-700">
+                {t('changelog')}
+              </Link>
+              <Link href="/radar" className="hover:text-neutral-700">
+                {t('radar')}
+              </Link>
             </nav>
           </div>
 

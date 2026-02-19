@@ -21,6 +21,7 @@
     "dashboard": "Engagements",
     "explore": "Explorer",
     "communes": "Communes",
+    "radar": "Radar",
     "tools": "Outils"
   },
   "counter": {
@@ -160,7 +161,9 @@
     "about": "À propos",
     "sourceCode": "Code source",
     "communes": "Communes",
-    "dossiers": "Dossiers"
+    "dossiers": "Dossiers",
+    "changelog": "Mises à jour",
+    "radar": "Radar"
   },
   "locale": {
     "switchTo": "Changer de langue",
@@ -1362,7 +1365,33 @@
       "parliament-vp": "Parlement"
     },
     "governmentUnknown": "À annoncer",
-    "governmentSource": "Sources : La Libre, BX1, RTBF (14 fév. 2026)"
+    "governmentSource": "Sources : La Libre, BX1, RTBF (14 fév. 2026)",
+    "identity": "BGM est un projet citoyen indépendant.",
+    "identityDetail": "Non affilié à un parti, un gouvernement, ou un média.",
+    "identityLink": "Qui se cache derrière ce projet ?",
+    "columnFollow": "Suivre",
+    "columnUnderstand": "Comprendre",
+    "newHere": "Nouveau ici ?",
+    "allExplainers": "Tout comprendre",
+    "explainerMap": "Comment lire ce site",
+    "explainerBuilding": "Bruxelles en bref",
+    "explainerUsers": "Qui décide quoi ?",
+    "explainerScale": "Le paradoxe bruxellois",
+    "lastVeille": "Dernière veille",
+    "veilleSources": "{count} sources consultées",
+    "veilleMethod": "Notre méthode",
+    "signalsTitle": "Signaux en cours de vérification",
+    "shieldFootnote": "BGM ne publie que des données confirmées par des sources primaires.",
+    "dossiersHomeTitle": "Dossiers suivis",
+    "dossiersHomeSubtitle": "Les grands dossiers bruxellois",
+    "viewAllDossiers": "Voir les {count} dossiers",
+    "domainsHomeTitle": "Domaines clés",
+    "domainsHomeSubtitle": "L'état de la Région, domaine par domaine",
+    "viewAllDomains": "Voir les {count} domaines",
+    "sectorsHomeTitle": "Secteurs clés",
+    "sectorsHomeSubtitle": "Les secteurs de l'économie bruxelloise",
+    "viewAllSectorsCount": "Voir les {count} secteurs",
+    "subscribeSection": "Restez informé"
   },
   "sectors": {
     "title": "Secteurs impactés",
@@ -1536,7 +1565,8 @@
     "dossiers": "Dossiers",
     "dashboard": "Engagements",
     "subscribe": "S'inscrire",
-    "about": "À propos"
+    "about": "À propos",
+    "radar": "Radar"
   },
   "understand": {
     "title": "Comprendre",
@@ -1829,5 +1859,35 @@
     "choicesText": "Vous recevrez le digest dans la langue que vous utilisez actuellement. Vous pouvez la changer dans vos préférences.",
     "choicesDetail": "Après inscription, vous pourrez affiner vos préférences : ajouter des communes, des secteurs ou des dossiers spécifiques.",
     "gdpr": "Base légale : consentement (art. 6.1.a RGPD). Données conservées 30 jours après désabonnement. Désabonnement en 1 clic dans chaque email. Hébergement : Resend (DPA signé). Responsable : Advice That SRL, Bruxelles."
+  },
+  "veille": {
+    "lastVeille": "Dernière veille",
+    "linkLabel": "Voir notre méthode de vérification"
+  },
+  "radar": {
+    "title": "Radar BGM",
+    "subtitle": "Signaux en cours de vérification par le Brussels Governance Monitor.",
+    "shieldText": "Ces signaux sont en cours de vérification. BGM ne publie que des données confirmées par des sources primaires.",
+    "homepageTitle": "À suivre",
+    "seeAll": "Voir tout le radar",
+    "source": "Source",
+    "nextStep": "Prochaine étape",
+    "detectedOn": "Détecté le {date}",
+    "confidence": {
+      "official": "Officiel",
+      "estimated": "Estimé",
+      "unconfirmed": "Non confirmé"
+    },
+    "status": {
+      "active": "Actif",
+      "confirmed": "Confirmé",
+      "archived": "Archivé"
+    },
+    "confirmedSection": "Récemment confirmés",
+    "archiveSection": "Archive",
+    "showArchive": "Voir les {count} signaux archivés",
+    "noActiveSignals": "Aucun signal actif pour le moment.",
+    "seeCard": "Voir la fiche mise à jour →",
+    "seeCardDomain": "Voir la fiche {domain} →"
   }
 }

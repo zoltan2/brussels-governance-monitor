@@ -21,6 +21,7 @@
     "dashboard": "Engagementen",
     "explore": "Verkennen",
     "communes": "Gemeenten",
+    "radar": "Radar",
     "tools": "Hulpmiddelen"
   },
   "counter": {
@@ -160,7 +161,9 @@
     "about": "Over ons",
     "sourceCode": "Broncode",
     "communes": "Gemeenten",
-    "dossiers": "Dossiers"
+    "dossiers": "Dossiers",
+    "changelog": "Wijzigingen",
+    "radar": "Radar"
   },
   "locale": {
     "switchTo": "Taal wijzigen",
@@ -1362,7 +1365,33 @@
       "parliament-vp": "Parlement"
     },
     "governmentUnknown": "Nog aan te kondigen",
-    "governmentSource": "Bronnen: La Libre, BX1, RTBF (14 feb. 2026)"
+    "governmentSource": "Bronnen: La Libre, BX1, RTBF (14 feb. 2026)",
+    "identity": "BGM is een onafhankelijk burgerproject.",
+    "identityDetail": "Niet verbonden aan een partij, een regering, of een media.",
+    "identityLink": "Wie zit achter dit project?",
+    "columnFollow": "Volgen",
+    "columnUnderstand": "Begrijpen",
+    "newHere": "Nieuw hier?",
+    "allExplainers": "Alles begrijpen",
+    "explainerMap": "Hoe deze site te lezen",
+    "explainerBuilding": "Brussel in het kort",
+    "explainerUsers": "Wie beslist wat?",
+    "explainerScale": "De Brusselse paradox",
+    "lastVeille": "Laatste bewaakte veranderingen",
+    "veilleSources": "{count} bronnen geraadpleegd",
+    "signalsTitle": "Signalen in verificatie",
+    "shieldFootnote": "BGM publiceert alleen gegevens bevestigd door primaire bronnen.",
+    "veilleMethod": "Onze methode",
+    "dossiersHomeTitle": "Gevolgde dossiers",
+    "dossiersHomeSubtitle": "De grote Brusselse dossiers",
+    "viewAllDossiers": "Bekijk de {count} dossiers",
+    "domainsHomeTitle": "Sleuteldomeinen",
+    "domainsHomeSubtitle": "De staat van het Gewest, domein per domein",
+    "viewAllDomains": "Bekijk de {count} domeinen",
+    "sectorsHomeTitle": "Sleutelsectoren",
+    "sectorsHomeSubtitle": "De sectoren van de Brusselse economie",
+    "viewAllSectorsCount": "Bekijk de {count} sectoren",
+    "subscribeSection": "Blijf op de hoogte"
   },
   "sectors": {
     "title": "Getroffen sectoren",
@@ -1536,7 +1565,8 @@
     "dossiers": "Dossiers",
     "dashboard": "Engagementen",
     "subscribe": "Inschrijven",
-    "about": "Over ons"
+    "about": "Over ons",
+    "radar": "Radar"
   },
   "understand": {
     "title": "Begrijpen",
@@ -1829,5 +1859,35 @@
     "choicesText": "U ontvangt de digest in de taal die u momenteel gebruikt. U kunt deze wijzigen in uw voorkeuren.",
     "choicesDetail": "Na inschrijving kunt u uw voorkeuren verfijnen: gemeenten, sectoren of specifieke dossiers toevoegen.",
     "gdpr": "Rechtsgrond: toestemming (art. 6.1.a AVG). Gegevens bewaard tot 30 dagen na uitschrijving. Uitschrijven met 1 klik in elke e-mail. Hosting: Resend (DPA ondertekend). Verantwoordelijke: Advice That SRL, Brussel."
+  },
+  "veille": {
+    "lastVeille": "Laatste monitoring",
+    "linkLabel": "Bekijk onze verificatiemethode"
+  },
+  "radar": {
+    "title": "Radar BGM",
+    "subtitle": "Signalen in verificatie door de Brussels Governance Monitor.",
+    "shieldText": "Deze signalen worden momenteel geverifieerd. BGM publiceert alleen gegevens bevestigd door primaire bronnen.",
+    "homepageTitle": "Te volgen",
+    "seeAll": "Bekijk de volledige radar",
+    "source": "Bron",
+    "nextStep": "Volgende stap",
+    "detectedOn": "Gedetecteerd op {date}",
+    "confidence": {
+      "official": "Officieel",
+      "estimated": "Geschat",
+      "unconfirmed": "Niet bevestigd"
+    },
+    "status": {
+      "active": "Actief",
+      "confirmed": "Bevestigd",
+      "archived": "Gearchiveerd"
+    },
+    "confirmedSection": "Recent bevestigd",
+    "archiveSection": "Archief",
+    "showArchive": "Bekijk de {count} gearchiveerde signalen",
+    "noActiveSignals": "Geen actieve signalen op dit moment.",
+    "seeCard": "Bekijk de bijgewerkte fiche →",
+    "seeCardDomain": "Bekijk de fiche {domain} →"
   }
 }

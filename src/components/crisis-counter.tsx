@@ -1,8 +1,10 @@
 import { useTranslations } from 'next-intl';
-import { FormationPhase } from '@/components/formation-phase';
+import { Link } from '@/i18n/navigation';
+import { Shield, ArrowRight } from 'lucide-react';
 
-export function CrisisCounter({ currentPhase }: { currentPhase: string }) {
+export function CrisisCounter() {
   const t = useTranslations('counter');
+  const th = useTranslations('home');
 
   return (
     <section className="bg-gradient-to-b from-slate-800 to-slate-700 py-16 text-white">
@@ -20,13 +22,27 @@ export function CrisisCounter({ currentPhase }: { currentPhase: string }) {
           {t('explanation')}
         </p>
 
-        <p className="mt-4 text-sm font-medium tracking-wide text-white/90">
+        {/* Identity callout */}
+        <div className="mx-auto mt-8 max-w-lg rounded-lg border border-white/10 bg-white/5 px-5 py-4 text-left">
+          <div className="flex items-start gap-3">
+            <Shield size={18} className="mt-0.5 shrink-0 text-white/50" aria-hidden={true} />
+            <div>
+              <p className="text-sm font-medium text-white/90">{th('identity')}</p>
+              <p className="mt-0.5 text-xs text-white/60">{th('identityDetail')}</p>
+              <Link
+                href="/about"
+                className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-white/80 underline underline-offset-2 hover:text-white"
+              >
+                {th('identityLink')}
+                <ArrowRight size={12} className="text-white/60" aria-hidden={true} />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-6 text-sm font-medium tracking-wide text-white/90">
           {t('valueProp')}
         </p>
-
-        <div className="mx-auto mt-8 max-w-md">
-          <FormationPhase currentPhase={currentPhase} theme="dark" />
-        </div>
       </div>
     </section>
   );

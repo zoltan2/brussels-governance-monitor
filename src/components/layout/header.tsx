@@ -159,6 +159,14 @@ export function Header() {
                 </Link>
                 <Link
                   role="menuitem"
+                  href="/radar"
+                  onClick={() => setDropdownOpen(false)}
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                >
+                  {t('radar')}
+                </Link>
+                <Link
+                  role="menuitem"
                   href="/glossary"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
@@ -249,6 +257,9 @@ export function Header() {
                 </Link>
                 <Link href="/timeline" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('timeline')}
+                </Link>
+                <Link href="/radar" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('radar')}
                 </Link>
                 <Link href="/glossary" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('glossary')}

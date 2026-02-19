@@ -229,6 +229,7 @@ export const routing = defineRouting({
       en: '/about',
       de: '/ueber-uns',
     },
+    '/radar': '/radar',
     '/dossiers': '/dossiers',
     '/dossiers/[slug]': '/dossiers/[slug]',
   },

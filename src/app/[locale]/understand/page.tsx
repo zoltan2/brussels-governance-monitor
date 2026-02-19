@@ -17,16 +17,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const titles: Record<string, string> = {
-    fr: 'Comprendre la crise bruxelloise',
-    nl: 'De Brusselse crisis begrijpen',
-    en: 'Understanding the Brussels crisis',
-    de: 'Die Brüsseler Krise verstehen',
+    fr: 'Comprendre la gouvernance bruxelloise',
+    nl: 'Het Brusselse bestuur begrijpen',
+    en: 'Understanding Brussels governance',
+    de: 'Die Brüsseler Regierungsführung verstehen',
   };
   const descriptions: Record<string, string> = {
-    fr: 'Des explications pédagogiques sur les institutions bruxelloises, la formation du gouvernement et les enjeux de la crise politique.',
-    nl: 'Pedagogische uitleg over de Brusselse instellingen, de regeringsvorming en de uitdagingen van de politieke crisis.',
-    en: 'Educational explanations about Brussels institutions, government formation and the challenges of the political crisis.',
-    de: 'Pädagogische Erklärungen zu den Brüsseler Institutionen, der Regierungsbildung und den Herausforderungen der politischen Krise.',
+    fr: 'Des explications pédagogiques sur les institutions bruxelloises, la formation du gouvernement et le suivi des engagements.',
+    nl: 'Pedagogische uitleg over de Brusselse instellingen, de regeringsvorming en de opvolging van de engagementen.',
+    en: 'Educational explanations about Brussels institutions, government formation and commitment tracking.',
+    de: 'Pädagogische Erklärungen zu den Brüsseler Institutionen, der Regierungsbildung und der Verfolgung der Verpflichtungen.',
   };
   return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/understand' });
 }
@@ -151,7 +151,7 @@ function UnderstandContent() {
         </div>
       </section>
 
-      {/* Suivre la crise */}
+      {/* Suivre les engagements */}
       <section>
         <h2 className="mb-4 text-lg font-semibold text-neutral-900">{t('followSection')}</h2>
         <div className="grid gap-4 md:grid-cols-2">

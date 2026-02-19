@@ -2,15 +2,69 @@
   "lastVeille": "2026-02-19",
   "entries": [
     {
-      "id": "2026-02-18-participations-strategiques",
-      "date": "2026-02-18",
-      "confidence": "unconfirmed",
+      "id": "2026-02-19-onem-5e-vague",
+      "date": "2026-02-19",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["employment", "social"],
+      "source": {
+        "label": "La Libre Belgique",
+        "url": "https://www.lalibre.be/belgique/2026/02/19/diplome-region-age-genre-qui-sont-les-168063-personnes-exclues-du-chomage-OJ3FFUPM4VG7ZAJ7RIO324JRXM/",
+        "accessedAt": "2026-02-19"
+      },
+      "nextStep": {
+        "fr": "Chiffres Actiris février 2026 attendus début mars",
+        "nl": "Actiris-cijfers februari 2026 verwacht begin maart",
+        "en": "Actiris February 2026 figures expected early March",
+        "de": "Actiris-Zahlen Februar 2026 Anfang März erwartet"
+      },
+      "descriptions": {
+        "fr": "5e vague ONEM (14/02) : ~36 000 courriers envoyés, fin de droit entre 07/2026 et 07/2027. Total national : 168 063 exclusions, dont 22,1 % à Bruxelles (~37 000 personnes).",
+        "nl": "5e RVA-golf (14/02): ~36.000 brieven verstuurd, einde recht tussen 07/2026 en 07/2027. Nationaal totaal: 168.063 uitsluitingen, waarvan 22,1 % in Brussel (~37.000 personen).",
+        "en": "5th ONEM wave (14/02): ~36,000 letters sent, end of rights between 07/2026 and 07/2027. National total: 168,063 exclusions, 22.1% in Brussels (~37,000 people).",
+        "de": "5. ONEM-Welle (14.02.): ~36.000 Briefe verschickt, Ende des Anspruchs zwischen 07/2026 und 07/2027. Gesamt national: 168.063 Ausschlüsse, davon 22,1 % in Brüssel (~37.000 Personen)."
+      },
+      "promotedTo": null,
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-02-19-precompte-immobilier-communes",
+      "date": "2026-02-19",
+      "confidence": "official",
       "status": "active",
       "cards": ["budget"],
       "source": {
-        "label": "VRT NWS",
-        "url": "https://www.vrt.be/vrtnws/nl/",
-        "accessedAt": "2026-02-18"
+        "label": "Batibouw / Immoweb",
+        "url": "https://batibouw.com/fr/articles/1065/precompte-immobilier-en-hausse-a-bruxelles-neuf-communes-augmentent-la-fiscalite-en-2026",
+        "accessedAt": "2026-02-19"
+      },
+      "nextStep": {
+        "fr": "Vérifier impact sur les recettes communales (budgets 2026)",
+        "nl": "Impact op gemeentelijke inkomsten verifiëren (begrotingen 2026)",
+        "en": "Verify impact on municipal revenues (2026 budgets)",
+        "de": "Auswirkungen auf Gemeindeeinnahmen überprüfen (Haushalte 2026)"
+      },
+      "descriptions": {
+        "fr": "9 communes sur 19 augmentent le précompte immobilier en 2026 : Auderghem, Bruxelles-Ville, Etterbeek, Evere, Ganshoren, Koekelberg, Saint-Josse, Uccle, Watermael-Boitsfort. Hausse jusqu'à ~210 €/an à Saint-Josse.",
+        "nl": "9 van de 19 gemeenten verhogen de onroerende voorheffing in 2026: Oudergem, Stad Brussel, Etterbeek, Evere, Ganshoren, Koekelberg, Sint-Joost, Ukkel, Watermaal-Bosvoorde. Stijging tot ~210 €/jaar in Sint-Joost.",
+        "en": "9 of 19 municipalities raise property tax in 2026: Auderghem, City of Brussels, Etterbeek, Evere, Ganshoren, Koekelberg, Saint-Josse, Uccle, Watermael-Boitsfort. Increase up to ~€210/year in Saint-Josse.",
+        "de": "9 von 19 Gemeinden erhöhen die Grundsteuer 2026: Auderghem, Stadt Brüssel, Etterbeek, Evere, Ganshoren, Koekelberg, Saint-Josse, Ukkel, Watermaal-Bosvoorde. Anstieg bis ~210 €/Jahr in Saint-Josse."
+      },
+      "promotedTo": null,
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-02-18-participations-strategiques",
+      "date": "2026-02-18",
+      "confidence": "estimated",
+      "status": "active",
+      "cards": ["budget"],
+      "source": {
+        "label": "La Libre Belgique",
+        "url": "https://www.lalibre.be/belgique/politique-belge/2026/02/18/de-gucht-dement-tout-maquillage-des-chiffres-pour-enjoliver-le-budget-regional-bruxellois-F7HTRX6WDVG5ZIUAKZGT3KTYUQ/",
+        "accessedAt": "2026-02-19"
       },
       "nextStep": {
         "fr": "Débat DPR en plénière le 23/02, vote de confiance le 25/02",
@@ -19,10 +73,10 @@
         "de": "RPE-Plenardebatte am 23/02, Vertrauensabstimmung am 25/02"
       },
       "descriptions": {
-        "fr": "Le gouvernement bruxellois exclurait ~580 M€ de dépenses (SLRB, Vivaqua) du calcul du déficit SEC via des « participations stratégiques ».",
-        "nl": "De Brusselse regering zou ~580 miljoen euro aan uitgaven (SLRB, Vivaqua) uitsluiten van de SEC-tekortberekening via 'strategische participaties'.",
-        "en": "The Brussels government would reportedly exclude ~€580M in spending (SLRB, Vivaqua) from the SEC deficit calculation via 'strategic participations'.",
-        "de": "Die Brüsseler Regierung würde ~580 Mio. € an Ausgaben (SLRB, Vivaqua) über ‚strategische Beteiligungen' aus der SEC-Defizitberechnung ausschließen."
+        "fr": "Cadre budgétaire : 3 Mrd€ de dette autorisée (2 Mrd SEC + 1 Mrd participations stratégiques SLRB/Vivaqua). De Gucht défend la conformité SEC, Voka dénonce un artifice comptable.",
+        "nl": "Begrotingskader: 3 mrd€ toegestane schuld (2 mrd SEC + 1 mrd strategische participaties BGHM/Vivaqua). De Gucht verdedigt SEC-conformiteit, Voka hekelt boekhoudkundig trucje.",
+        "en": "Budget framework: €3B authorised debt (€2B SEC + €1B strategic participations SLRB/Vivaqua). De Gucht defends SEC compliance, Voka denounces accounting artifice.",
+        "de": "Haushaltsrahmen: 3 Mrd€ genehmigte Schulden (2 Mrd SEC + 1 Mrd strategische Beteiligungen SLRB/Vivaqua). De Gucht verteidigt SEC-Konformität, Voka kritisiert Bilanztrick."
       },
       "promotedTo": null,
       "archivedAt": null,

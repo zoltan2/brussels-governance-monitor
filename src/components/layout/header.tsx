@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { LocaleSwitcher } from './locale-switcher';
@@ -77,7 +78,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-brand-900">
-          <img src="/logo.png" alt="" width={28} height={28} className="shrink-0" />
+          <Image src="/logo.png" alt="" width={28} height={28} className="shrink-0" />
           Brussels Governance Monitor
         </Link>
 

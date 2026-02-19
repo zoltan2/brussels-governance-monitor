@@ -18,17 +18,14 @@ const PHASE_COLORS: Record<string, string> = {
  */
 export function FormationPhase({
   currentPhase,
-  variant = 'bar',
   theme = 'light',
 }: {
   currentPhase: string;
-  variant?: 'bar' | 'dots';
   theme?: 'light' | 'dark';
 }) {
   const t = useTranslations('timeline');
   const isDark = theme === 'dark';
 
-  // variant === 'bar'
   return (
     <Link href="/timeline" className="group block">
       <div className="flex items-center gap-3">

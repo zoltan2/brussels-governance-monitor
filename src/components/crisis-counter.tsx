@@ -25,7 +25,7 @@ export function CrisisCounter({ currentPhase }: { currentPhase: string }) {
         </p>
 
         <div className="mx-auto mt-8 max-w-md">
-          <FormationPhase currentPhase={currentPhase} variant="bar" theme="dark" />
+          <FormationPhase currentPhase={currentPhase} theme="dark" />
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import '../globals.css';
 
@@ -42,7 +43,7 @@ export default function DigestLayout({
                 href="https://governance.brussels"
                 className="flex items-center gap-2 text-lg font-semibold tracking-tight text-brand-900"
               >
-                <img
+                <Image
                   src="/logo.png"
                   alt=""
                   width={28}

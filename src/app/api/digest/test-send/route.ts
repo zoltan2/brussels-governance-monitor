@@ -8,8 +8,6 @@ import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
 import type { DigestUpdate } from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
 
-const SUPPORTED_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
-
 function formatWeekRange(date: Date, locale: string): string {
   const localeMap: Record<string, string> = {
     fr: 'fr-BE',

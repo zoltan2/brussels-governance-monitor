@@ -1,5 +1,4 @@
 {
-  "$schema": "./source-registry-schema.json",
   "description": "Registre des sources surveillées par BGM. 258 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
   "lastUpdated": "2026-02-18",
   "stats": {

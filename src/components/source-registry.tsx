@@ -146,6 +146,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
           value={query}
           onChange={(e) => { setQuery(e.target.value); setExpanded(false); }}
           placeholder={labels.search}
+          aria-label={labels.search}
           className="w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
         />
       </div>

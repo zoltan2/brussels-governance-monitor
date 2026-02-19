@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 import digestLanguages from '../../../config/digest-languages.json';
 import {
   getAllDigestWeeks,

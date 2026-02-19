@@ -33,7 +33,10 @@ export async function readGitHubFile(path: string): Promise<GitHubFileResult | n
   const { token, repo } = getConfig();
   const url = `https://api.github.com/repos/${repo}/contents/${path}`;
 
-  const res = await fetch(url, { headers: getHeaders(token) });
+  const res = await fetch(url, {
+    headers: getHeaders(token),
+    signal: AbortSignal.timeout(10_000),
+  });
   if (res.status === 404) return null;
   if (!res.ok) {
     throw new Error(`GitHub API error reading ${path}: ${res.status} ${await res.text()}`);
@@ -69,6 +72,7 @@ export async function writeGitHubFile(
     method: 'PUT',
     headers: getHeaders(token),
     body: JSON.stringify(body),
+    signal: AbortSignal.timeout(15_000),
   });
 
   if (!res.ok) {

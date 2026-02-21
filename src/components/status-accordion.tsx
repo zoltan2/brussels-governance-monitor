@@ -19,6 +19,7 @@ export function StatusAccordion({ title, children, defaultOpen = false }: Status
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
         aria-expanded={open}
+        aria-controls={`accordion-${title.replace(/\s+/g, '-').toLowerCase()}`}
       >
         {title}
         <svg
@@ -32,7 +33,7 @@ export function StatusAccordion({ title, children, defaultOpen = false }: Status
         </svg>
       </button>
       {open && (
-        <div className="border-t border-neutral-200 px-4 py-3 text-xs leading-relaxed text-neutral-600">
+        <div id={`accordion-${title.replace(/\s+/g, '-').toLowerCase()}`} role="region" aria-label={title} className="border-t border-neutral-200 px-4 py-3 text-xs leading-relaxed text-neutral-600">
           {children}
         </div>
       )}

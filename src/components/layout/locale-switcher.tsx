@@ -35,9 +35,11 @@ export function LocaleSwitcher() {
   }
 
   return (
-    <label className="relative">
+    <label htmlFor="locale-select" className="relative">
       <span className="sr-only">{t('switchTo')}</span>
       <select
+        id="locale-select"
+        name="language"
         defaultValue={locale}
         onChange={onSelectChange}
         className="appearance-none rounded-md border border-neutral-300 bg-white px-3 py-1.5 pr-8 text-sm text-neutral-700 hover:border-neutral-400 focus:border-brand-600 focus:ring-1 focus:ring-brand-600 focus:outline-none"

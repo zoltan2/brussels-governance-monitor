@@ -17,6 +17,10 @@ interface PagefindResult {
 const stripDiacritics = (s: string) =>
   s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
+/** Strip all HTML tags except <mark> (used by Pagefind for highlighting) */
+const sanitizeExcerpt = (html: string) =>
+  html.replace(/<(?!\/?mark\b)[^>]*>/gi, '');
+
 export function Search() {
   const t = useTranslations('search');
   const locale = useLocale();
@@ -187,6 +191,14 @@ export function Search() {
               </button>
             </div>
 
+            <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+              {query.trim() && pagefind
+                ? results.length > 0
+                  ? `${results.length} ${results.length === 1 ? t('result') : t('results')}`
+                  : t('noResults')
+                : ''}
+            </div>
+
             {query.trim() && results.length > 0 && (
               <ul className="max-h-80 overflow-y-auto p-2">
                 {results.map((result, i) => (
@@ -201,7 +213,7 @@ export function Search() {
                       </p>
                       <p
                         className="mt-0.5 text-xs text-neutral-500"
-                        dangerouslySetInnerHTML={{ __html: result.excerpt }}
+                        dangerouslySetInnerHTML={{ __html: sanitizeExcerpt(result.excerpt) }}
                       />
                     </a>
                   </li>

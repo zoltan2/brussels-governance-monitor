@@ -110,6 +110,34 @@ export default async function TransparencyPage({
             </a>
           </div>
 
+          {/* Protection des visiteurs */}
+          <div className="rounded-lg border border-neutral-200 p-6">
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('securityTitle')}</h2>
+            <p className="mb-3 text-sm text-neutral-600">{t('securityIntro')}</p>
+            <ul className="space-y-2 text-sm text-neutral-600">
+              <li className="flex gap-2">
+                <span className="shrink-0 text-brand-700" aria-hidden="true">&bull;</span>
+                <span>{t('securityNoTracker')}</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="shrink-0 text-brand-700" aria-hidden="true">&bull;</span>
+                <span>{t('securityAnalytics')}</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="shrink-0 text-brand-700" aria-hidden="true">&bull;</span>
+                <span>{t('securitySri')}</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="shrink-0 text-brand-700" aria-hidden="true">&bull;</span>
+                <span>{t('securityHttps')}</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="shrink-0 text-brand-700" aria-hidden="true">&bull;</span>
+                <span>{t('securityHosting')}</span>
+              </li>
+            </ul>
+          </div>
+
           {/* Qui est derrière le BGM */}
           <div className="rounded-lg border border-neutral-200 p-6">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('aboutTitle')}</h2>

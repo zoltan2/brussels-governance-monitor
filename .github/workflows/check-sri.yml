@@ -1,0 +1,71 @@
+name: SRI Hash Check
+
+on:
+  schedule:
+    # Every day at 07:00 UTC (08:00 Brussels time)
+    - cron: '0 7 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  check-sri:
+    name: Verify Umami SRI Hash
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check SRI hash
+        id: sri
+        run: node scripts/check-sri.mjs --fix 2>&1 | tee sri-output.txt
+        continue-on-error: true
+
+      - name: Create issue on mismatch
+        if: steps.sri.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const output = fs.readFileSync('sri-output.txt', 'utf-8');
+
+            // Check if an open issue already exists
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'sri-mismatch',
+            });
+
+            if (issues.length > 0) {
+              console.log('Open SRI mismatch issue already exists, skipping.');
+              return;
+            }
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'SRI mismatch: Umami script hash has changed',
+              labels: ['sri-mismatch'],
+              body: [
+                '## Umami SRI Hash Mismatch',
+                '',
+                'The daily SRI check detected that the Umami analytics script has been updated.',
+                'The `integrity` attribute in `src/app/[locale]/layout.tsx` no longer matches the remote script.',
+                '**Analytics is currently blocked by the browser.**',
+                '',
+                '### Output',
+                '```',
+                output,
+                '```',
+                '',
+                '### Fix',
+                '1. Run `npm run check:sri -- --fix` to get the new hash',
+                '2. Update the `integrity="sha384-..."` attribute in `src/app/[locale]/layout.tsx`',
+                '3. Commit, push, close this issue',
+                '',
+                '*This issue was created automatically by the [SRI check workflow](https://github.com/' + context.repo.owner + '/' + context.repo.repo + '/actions/workflows/check-sri.yml).*',
+              ].join('\n'),
+            });

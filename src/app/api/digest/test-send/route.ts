@@ -76,6 +76,7 @@ export const POST = auth(async function POST(req) {
     }));
 
   const weekOf = formatWeekRange(createdAt, locale);
+  const weekNum = parseInt(digest.week.split('-w')[1], 10);
   const unsubToken = generateUnsubscribeToken(adminEmail);
   const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
 
@@ -103,7 +104,7 @@ export const POST = auth(async function POST(req) {
       from: EMAIL_FROM,
       to: adminEmail,
       replyTo: adminEmail,
-      subject: `[TEST] Digest ${digest.week} — ${updates.length} domaine${updates.length > 1 ? 's' : ''}`,
+      subject: `[TEST] BGM Digest #${weekNum} — ${weekOf}`,
       react: DigestEmail(emailProps),
       text: generateDigestPlainText(emailProps),
       headers: {

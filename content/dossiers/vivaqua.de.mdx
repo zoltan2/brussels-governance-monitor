@@ -30,6 +30,15 @@ sources:
   - label: "DH — Serie von Kanaleinstürzen in Brüssel (5. Feb. 2026)"
     url: "https://www.dhnet.be/regions/bruxelles/bruxelles-mobilite/2026/02/05/serie-noire-deffondrements-de-voiries-a-bruxelles-trams-et-bus-impactes-le-reseau-degouttage-est-en-mauvais-etat-alerte-vivaqua-YUHNPSM6RZANRDJMQEF2FR737E/"
     accessedAt: "2026-02-16"
+  - label: "RTBF — Wie BRUGEL Vivaqua zum Absturz brachte: Missmanagement im Zentrum der Untersuchung (Feb. 2026)"
+    url: "https://www.rtbf.be/article/comment-brugel-a-fait-plonger-vivaqua-la-gestion-defaillante-de-lintercommunale-est-au-coeur-de-lenquete-11668857"
+    accessedAt: "2026-02-22"
+  - label: "BX1 — Wasserrechnung steigt, Regulierer kritisiert Vivaqua-Verwaltung (Feb. 2026)"
+    url: "https://bx1.be/categories/news/la-facture-de-leau-augmente-a-bruxelles-mais-le-regulateur-pointe-la-mauvaise-gestion-de-vivaqua/"
+    accessedAt: "2026-02-22"
+  - label: "Vivaqua — Tariferhöhung ab 1. Januar 2026"
+    url: "https://www.vivaqua.be/fr/actualites/news/increase-in-water-rates-starting-1-january-2026"
+    accessedAt: "2026-02-22"
 metrics:
   - label: "Netzlänge"
     value: "~4 200"
@@ -56,6 +65,20 @@ metrics:
     unit: "km"
     source: "Vivaqua / DH"
     date: "2026-02-05"
+  - label: "Tariferhöhung (1. Jan. 2026)"
+    value: "+12,5%"
+    source: "Vivaqua / BRUGEL"
+    date: "2026-01-01"
+  - label: "Unbezahlte Rechnungen"
+    value: "73"
+    unit: "M EUR"
+    source: "BRUGEL (2026)"
+    date: "2026-02-01"
+  - label: "Von BRUGEL abgelehnte Kosten"
+    value: "35"
+    unit: "M EUR"
+    source: "BRUGEL (2026)"
+    date: "2026-02-01"
 alerts:
   - label: "DPR: finanzielle Konsolidierung von Vivaqua angekündigt"
     severity: info
@@ -63,11 +86,14 @@ alerts:
   - label: "Serie von Kanaleinstürzen: 220 km dringend sanierungsbedürftig"
     severity: warning
     date: "2026-02-05"
+  - label: "BRUGEL kritisiert Vivaqua-Verwaltung: 73M EUR unbezahlte Rechnungen, 35M EUR abgelehnte Kosten"
+    severity: warning
+    date: "2026-02-22"
 confidenceLevel: official
 dprCommitment: "Finanzielle Konsolidierung von Vivaqua"
-lastModified: "2026-02-19"
+lastModified: "2026-02-22"
 changeType: updated
-changeSummary: "Post-Krisen-Update — Blockadestatus entfernt, Meldungen aktualisiert"
+changeSummary: "Tariferhöhung +12,5%, BRUGEL kritisiert Missmanagement (73M EUR unbezahlt)"
 ---
 
 ## Regierungsabkommen: was sich ändert
@@ -80,6 +106,18 @@ Das Abkommen vom 12. Februar 2026 sieht die **finanzielle Konsolidierung von Viv
 - Ein **Entkonsolidierungsfonds** wird geschaffen, um die Schulden von Vivaqua aus dem Regionalhaushalt herauszunehmen
 
 Das Ende der geschäftsführenden Regierung ermöglicht die Freigabe des mehrjährigen Investitionsplans und der Tarifentscheidungen, die seit Juni 2024 ausstanden.
+
+## Tariferhöhung und Kritik des Regulierers (Februar 2026)
+
+Ab dem 1. Januar 2026 sind die Wassertarife in Brüssel um **12,5%** gestiegen, was laut Vivaqua etwa 1,70 EUR/Monat pro Person entspricht. Die Verschuldung des Interkommunalverbands beläuft sich auf etwa **1 Milliarde EUR**.
+
+Der Brüsseler Regulierer BRUGEL veröffentlichte eine kritische Analyse der Verwaltung von Vivaqua:
+
+- **73M EUR an unbezahlten Rechnungen** — Betrag der nicht eingezogenen Forderungen bei Verbrauchern
+- **35M EUR an abgelehnten Kosten** — Ausgaben, die vom Regulierer als nicht gerechtfertigt bewertet und aus der Tarifberechnung ausgeschlossen wurden
+- BRUGEL kritisiert ein mangelhaftes Management, das zum Tarifdruck auf die Haushalte beiträgt
+
+Die Tariferhöhung erfolgt zu einem Zeitpunkt, an dem die neue Regierung die Rekapitalisierung von 180M EUR und die Schaffung eines Entkonsolidierungsfonds angekündigt hat, um die Schulden aus dem Regionalhaushalt herauszunehmen.
 
 ## Serie von Kanaleinstürzen (Februar 2026)
 

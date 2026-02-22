@@ -2,6 +2,54 @@
   {
     "date": "2026-02-22",
     "type": "added",
+    "section": "timeline",
+    "targetSlug": "dpr-parlement",
+    "descriptions": {
+      "fr": "Nouvel événement : présentation de la DPR au Parlement bruxellois, lundi 23 février 2026 à 16h30. Vote de confiance prévu le 25 février.",
+      "nl": "Nieuw evenement: voorstelling van de GBV in het Brussels Parlement, maandag 23 februari 2026 om 16u30. Vertrouwensstemming voorzien op 25 februari.",
+      "en": "New event: presentation of the DPR to Brussels Parliament, Monday 23 February 2026 at 4:30 pm. Vote of confidence expected on 25 February.",
+      "de": "Neues Ereignis: Vorstellung der DPR im Brüsseler Parlament, Montag 23. Februar 2026 um 16:30 Uhr. Vertrauensabstimmung am 25. Februar vorgesehen."
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "vivaqua",
+    "descriptions": {
+      "fr": "Dossier Vivaqua enrichi : hausse tarifaire +12,5 % au 1er janvier 2026, BRUGEL dénonce la gestion défaillante (73M EUR d'impayés, 35M EUR de coûts rejetés), dette ~1 milliard EUR.",
+      "nl": "Dossier Vivaqua verrijkt: tariefverhoging +12,5% per 1 januari 2026, BRUGEL hekelt slecht beheer (73M EUR onbetaald, 35M EUR afgewezen kosten), schuld ~1 miljard EUR.",
+      "en": "Vivaqua dossier enriched: +12.5% tariff increase from 1 January 2026, BRUGEL denounces mismanagement (EUR 73M unpaid, EUR 35M costs rejected), debt ~EUR 1 billion.",
+      "de": "Dossier Vivaqua angereichert: Tariferhöhung +12,5% ab 1. Januar 2026, BRUGEL kritisiert Missmanagement (73M EUR unbezahlt, 35M EUR abgelehnte Kosten), Schulden ~1 Mrd. EUR."
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "employment",
+    "descriptions": {
+      "fr": "Emploi : 5e vague ONEM (36 000 courriers, 168 063 exclusions nationales dont 22,1 % à Bruxelles). La Cour des comptes juge la compensation CPAS sous-estimée (709,3M EUR d'ici 2029).",
+      "nl": "Werk: 5e RVA-golf (36.000 brieven, 168.063 nationale uitsluitingen waarvan 22,1% in Brussel). Rekenkamer oordeelt dat OCMW-compensatie onderschat is (709,3M EUR tegen 2029).",
+      "en": "Employment: 5th ONEM wave (36,000 letters, 168,063 national exclusions of which 22.1% in Brussels). Court of Audit deems CPAS compensation underestimated (EUR 709.3M by 2029).",
+      "de": "Beschäftigung: 5. ONEM-Welle (36.000 Briefe, 168.063 nationale Ausschlüsse, davon 22,1% in Brüssel). Rechnungshof hält ÖSHZ-Kompensation für unterschätzt (709,3M EUR bis 2029)."
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "cleanliness",
+    "descriptions": {
+      "fr": "Propreté : 7 731 amendes pour dépôts clandestins en 2025 (+61 %), dont 36,7 % de non-résidents (« tourisme des déchets »). ~12M EUR d'amendes. Conteneurs enterrés et caméras intelligentes prévus.",
+      "nl": "Netheid: 7.731 boetes voor sluikstorten in 2025 (+61%), waarvan 36,7% niet-inwoners (« afvaltoerisme »). ~12M EUR aan boetes. Ondergrondse containers en slimme camera's gepland.",
+      "en": "Cleanliness: 7,731 fines for illegal dumping in 2025 (+61%), of which 36.7% non-residents ('waste tourism'). ~EUR 12M in fines. Underground containers and smart cameras planned.",
+      "de": "Sauberkeit: 7.731 Bußgelder für illegale Entsorgung 2025 (+61%), davon 36,7% Nicht-Einwohner (« Abfalltourismus »). ~12M EUR an Bußgeldern. Unterflurcontainer und intelligente Kameras geplant."
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "type": "added",
     "section": "site",
     "targetSlug": null,
     "descriptions": {

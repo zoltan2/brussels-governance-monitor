@@ -30,6 +30,15 @@ sources:
   - label: "DH — Series of sewer collapses in Brussels (5 Feb. 2026)"
     url: "https://www.dhnet.be/regions/bruxelles/bruxelles-mobilite/2026/02/05/serie-noire-deffondrements-de-voiries-a-bruxelles-trams-et-bus-impactes-le-reseau-degouttage-est-en-mauvais-etat-alerte-vivaqua-YUHNPSM6RZANRDJMQEF2FR737E/"
     accessedAt: "2026-02-16"
+  - label: "RTBF — How BRUGEL exposed Vivaqua: poor management at the heart of the investigation (Feb. 2026)"
+    url: "https://www.rtbf.be/article/comment-brugel-a-fait-plonger-vivaqua-la-gestion-defaillante-de-lintercommunale-est-au-coeur-de-lenquete-11668857"
+    accessedAt: "2026-02-22"
+  - label: "BX1 — Water bill rises in Brussels, regulator points to Vivaqua mismanagement (Feb. 2026)"
+    url: "https://bx1.be/categories/news/la-facture-de-leau-augmente-a-bruxelles-mais-le-regulateur-pointe-la-mauvaise-gestion-de-vivaqua/"
+    accessedAt: "2026-02-22"
+  - label: "Vivaqua — Rate increase from 1 January 2026"
+    url: "https://www.vivaqua.be/fr/actualites/news/increase-in-water-rates-starting-1-january-2026"
+    accessedAt: "2026-02-22"
 metrics:
   - label: "Network length"
     value: "~4 200"
@@ -56,6 +65,20 @@ metrics:
     unit: "km"
     source: "Vivaqua / DH"
     date: "2026-02-05"
+  - label: "Tariff increase (1 Jan. 2026)"
+    value: "+12.5%"
+    source: "Vivaqua / BRUGEL"
+    date: "2026-01-01"
+  - label: "Unpaid consumer bills"
+    value: "73"
+    unit: "M EUR"
+    source: "BRUGEL (2026)"
+    date: "2026-02-01"
+  - label: "Costs rejected by BRUGEL"
+    value: "35"
+    unit: "M EUR"
+    source: "BRUGEL (2026)"
+    date: "2026-02-01"
 alerts:
   - label: "DPR: financial consolidation of Vivaqua announced"
     severity: info
@@ -63,11 +86,14 @@ alerts:
   - label: "Series of sewer collapses: 220 km requiring urgent renovation"
     severity: warning
     date: "2026-02-05"
+  - label: "BRUGEL denounces Vivaqua management: 73M EUR unpaid bills, 35M EUR costs rejected"
+    severity: warning
+    date: "2026-02-22"
 confidenceLevel: official
 dprCommitment: "Financial consolidation of Vivaqua"
-lastModified: "2026-02-19"
+lastModified: "2026-02-22"
 changeType: updated
-changeSummary: "Post-crisis update — blocked status removed, alerts updated"
+changeSummary: "Tariff increase +12.5%, BRUGEL denounces mismanagement (73M EUR unpaid)"
 ---
 
 ## Government agreement: what changes
@@ -80,6 +106,18 @@ The agreement of 12 February 2026 provides for the **financial consolidation of 
 - A **deconsolidation fund** will be created to remove Vivaqua's debt from the regional budget
 
 The end of the caretaker period unblocks the multi-year investment plan and tariff decisions that had been pending since June 2024.
+
+## Tariff increase and regulator criticism (February 2026)
+
+From 1 January 2026, water tariffs in Brussels increased by **12.5%**, amounting to approximately EUR 1.70/month per person according to Vivaqua. The utility's debt stands at approximately **EUR 1 billion**.
+
+The Brussels regulator BRUGEL published a critical analysis of Vivaqua's management:
+
+- **EUR 73M in unpaid bills** — the amount of uncollected consumer receivables
+- **EUR 35M in rejected costs** — expenses deemed unjustified by the regulator and excluded from the tariff calculation
+- BRUGEL denounces poor management that contributes to tariff pressure on households
+
+The tariff increase comes at a time when the new government has announced a EUR 180M recapitalisation and the creation of a deconsolidation fund to remove the debt from the regional budget.
 
 ## Series of sewer collapses (February 2026)
 

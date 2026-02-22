@@ -30,6 +30,15 @@ sources:
   - label: "DH — Reeks rioolinstortingen in Brussel (5 feb. 2026)"
     url: "https://www.dhnet.be/regions/bruxelles/bruxelles-mobilite/2026/02/05/serie-noire-deffondrements-de-voiries-a-bruxelles-trams-et-bus-impactes-le-reseau-degouttage-est-en-mauvais-etat-alerte-vivaqua-YUHNPSM6RZANRDJMQEF2FR737E/"
     accessedAt: "2026-02-16"
+  - label: "RTBF — Hoe BRUGEL Vivaqua deed kelderen: slecht beheer centraal in het onderzoek (feb. 2026)"
+    url: "https://www.rtbf.be/article/comment-brugel-a-fait-plonger-vivaqua-la-gestion-defaillante-de-lintercommunale-est-au-coeur-de-lenquete-11668857"
+    accessedAt: "2026-02-22"
+  - label: "BX1 — De waterfactuur stijgt, BRUGEL wijst op slecht beheer van Vivaqua (feb. 2026)"
+    url: "https://bx1.be/categories/news/la-facture-de-leau-augmente-a-bruxelles-mais-le-regulateur-pointe-la-mauvaise-gestion-de-vivaqua/"
+    accessedAt: "2026-02-22"
+  - label: "Vivaqua — Tariefverhoging per 1 januari 2026"
+    url: "https://www.vivaqua.be/fr/actualites/news/increase-in-water-rates-starting-1-january-2026"
+    accessedAt: "2026-02-22"
 metrics:
   - label: "Lengte van het netwerk"
     value: "~4 200"
@@ -56,6 +65,20 @@ metrics:
     unit: "km"
     source: "Vivaqua / DH"
     date: "2026-02-05"
+  - label: "Tariefverhoging (1 jan. 2026)"
+    value: "+12,5%"
+    source: "Vivaqua / BRUGEL"
+    date: "2026-01-01"
+  - label: "Onbetaalde facturen"
+    value: "73"
+    unit: "M EUR"
+    source: "BRUGEL (2026)"
+    date: "2026-02-01"
+  - label: "Door BRUGEL afgewezen kosten"
+    value: "35"
+    unit: "M EUR"
+    source: "BRUGEL (2026)"
+    date: "2026-02-01"
 alerts:
   - label: "DPR: financiële consolidatie van Vivaqua aangekondigd"
     severity: info
@@ -63,11 +86,14 @@ alerts:
   - label: "Reeks rioolinstortingen: 220 km dringend te renoveren"
     severity: warning
     date: "2026-02-05"
+  - label: "BRUGEL hekelt beheer van Vivaqua: 73M EUR onbetaalde facturen, 35M EUR afgewezen kosten"
+    severity: warning
+    date: "2026-02-22"
 confidenceLevel: official
 dprCommitment: "Financiële consolidatie van Vivaqua"
-lastModified: "2026-02-19"
+lastModified: "2026-02-22"
 changeType: updated
-changeSummary: "Post-crisis update — blokkade-status verwijderd, meldingen geactualiseerd"
+changeSummary: "Tariefverhoging +12,5%, BRUGEL hekelt slecht beheer (73M EUR onbetaald)"
 ---
 
 ## Regeringsakkoord: wat verandert er
@@ -80,6 +106,18 @@ Het akkoord van 12 februari 2026 voorziet in de **financiële consolidatie van V
 - Een **deconsolidatiefonds** wordt opgericht om de schuld van Vivaqua uit de gewestbegroting te halen
 
 Het einde van de lopende zaken maakt het mogelijk om het meerjarig investeringsplan en de tariefbeslissingen die sinds juni 2024 in de wacht stonden, te deblokkeren.
+
+## Tariefverhoging en kritiek van de regulator (februari 2026)
+
+Op 1 januari 2026 zijn de watertarieven in Brussel met **12,5%** gestegen, ofwel ongeveer 1,70 EUR/maand per persoon volgens Vivaqua. De schuld van de intercommunale bedraagt ongeveer **1 miljard EUR**.
+
+De Brusselse regulator BRUGEL publiceerde een kritische analyse van het beheer van Vivaqua:
+
+- **73M EUR aan onbetaalde facturen** — het bedrag aan niet-geïnde vorderingen bij consumenten
+- **35M EUR aan afgewezen kosten** — uitgaven die door de regulator als niet gerechtvaardigd worden beschouwd en uit de tariefberekening zijn uitgesloten
+- BRUGEL hekelt een gebrekkig beheer dat bijdraagt tot de tariefdruk op de huishoudens
+
+De tariefverhoging komt op een moment dat de nieuwe regering de herkapitalisatie van 180M EUR en de oprichting van een deconsolidatiefonds heeft aangekondigd om de schuld uit de gewestbegroting te halen.
 
 ## Reeks rioolinstortingen (februari 2026)
 

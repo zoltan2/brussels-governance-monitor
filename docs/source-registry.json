@@ -1,34 +1,35 @@
 {
-  "description": "Registre des sources surveillées par BGM. 284 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
+  "description": "Registre des sources surveillées par BGM. 270 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
   "lastUpdated": "2026-02-22",
   "stats": {
-    "total": 284,
+    "total": 270,
     "rss": 32,
     "byTier": {
-      "editorial": 191,
-      "radar": 73
+      "editorial": 196,
+      "radar": 74
     },
     "byPriority": {
       "P0": 30,
-      "P1": 50,
-      "P2": 59,
-      "P3": 50,
+      "P1": 52,
+      "P2": 70,
+      "P3": 56,
       "P4": 62
     },
     "byLang": {
-      "fr": 64,
-      "multi": 50,
-      "nl": 46,
+      "fr": 71,
+      "multi": 65,
+      "nl": 48,
       "en": 82,
       "de": 4
     },
     "byType": {
-      "institutional": 68,
-      "press": 104,
+      "institutional": 87,
+      "press": 106,
       "legal": 7,
       "agency": 4,
       "research": 42,
-      "think-tank": 21
+      "think-tank": 21,
+      "ngo": 3
     }
   },
   "sources": [

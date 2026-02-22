@@ -2,6 +2,30 @@
   {
     "date": "2026-02-22",
     "type": "added",
+    "section": "site",
+    "targetSlug": null,
+    "descriptions": {
+      "fr": "Nouveau système de tags : 13 étiquettes (8 publics + 5 transversaux) affichées sur les pages domaines. Seniors, PMR, Jeunesse, Familles, Primo-arrivants, Sans-abri, Indépendants, Locataires + Genre, Coût de la vie, Précarité, Bilinguisme, Participation citoyenne.",
+      "nl": "Nieuw tagsysteem: 13 labels (8 publiek + 5 transversaal) op domeinen-pagina's. Ouderen, PBM, Jeugd, Gezinnen, Nieuwkomers, Daklozen, Zelfstandigen, Huurders + Gender, Levensduurte, Armoede, Tweetaligheid, Burgerparticipatie.",
+      "en": "New tags system: 13 tags (8 public + 5 cross-cutting) displayed on domain pages. Seniors, PRM, Youth, Families, Newcomers, Homeless, Self-employed, Tenants + Gender, Cost of living, Precarity, Bilingualism, Citizen participation.",
+      "de": "Neues Tag-System: 13 Tags (8 öffentlich + 5 transversal) auf Domänen-Seiten. Senioren, PRM, Jugend, Familien, Neuankömmlinge, Obdachlose, Selbstständige, Mieter + Gender, Lebenshaltungskosten, Prekarität, Zweisprachigkeit, Bürgerbeteiligung."
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "type": "added",
+    "section": "site",
+    "targetSlug": null,
+    "descriptions": {
+      "fr": "Filtre par domaine sur le registre des sources : 262 sources assignées à 1+ domaine(s), dropdown de filtrage sur la page données.",
+      "nl": "Domeinfilter op bronregister: 262 bronnen toegewezen aan 1+ domein(en), dropdown-filter op de gegevenspagina.",
+      "en": "Domain filter on source registry: 262 sources assigned to 1+ domain(s), filter dropdown on data page.",
+      "de": "Domänenfilter im Quellenregister: 262 Quellen zu 1+ Domäne(n) zugewiesen, Filter-Dropdown auf der Datenseite."
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "type": "added",
     "section": "domains",
     "targetSlug": "urban-planning",
     "descriptions": {

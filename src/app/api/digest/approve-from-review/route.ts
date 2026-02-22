@@ -91,9 +91,6 @@ export const POST = auth(async function POST(req) {
     }
   }
 
-  // Use actual send date (not creation date) for the email subject date range
-  const sendDate = scheduledAt ? new Date(scheduledAt) : now;
-
   const createdAt = new Date(digest.created_at);
   const sevenDaysAgo = new Date(createdAt);
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
@@ -146,15 +143,16 @@ export const POST = auth(async function POST(req) {
       continue;
     }
 
-    const weekOf = formatWeekRange(sendDate, locale);
+    const weekOf = formatWeekRange(createdAt, locale);
+    const weekNum = parseInt(digest.week.split('-w')[1], 10);
     const unsubToken = generateUnsubscribeToken(contact.email);
     const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
 
     const subjectMap: Record<string, string> = {
-      fr: `Digest hebdomadaire — ${weekOf}`,
-      nl: `Wekelijkse samenvatting — ${weekOf}`,
-      en: `Weekly digest — ${weekOf}`,
-      de: `Wöchentliche Zusammenfassung — ${weekOf}`,
+      fr: `BGM Digest #${weekNum} — ${weekOf}`,
+      nl: `BGM Digest #${weekNum} — ${weekOf}`,
+      en: `BGM Digest #${weekNum} — ${weekOf}`,
+      de: `BGM Digest #${weekNum} — ${weekOf}`,
     };
 
     const emailProps = {

@@ -106,9 +106,6 @@ export async function GET(request: Request) {
   }
   // If after Monday 8h CET, send immediately (no scheduledAt)
 
-  // Use actual send date (not creation date) for the email subject date range
-  const sendDate = scheduledAt ? nextMonday8CET : now;
-
   // 6. Calculate cutoff and collect updates (same as prepare-digest)
   const createdAt = new Date(digest.created_at);
   const sevenDaysAgo = new Date(createdAt);
@@ -166,15 +163,16 @@ export async function GET(request: Request) {
       continue;
     }
 
-    const weekOf = formatWeekRange(sendDate, locale);
+    const weekOf = formatWeekRange(createdAt, locale);
+    const weekNum = parseInt(digest.week.split('-w')[1], 10);
     const unsubToken = generateUnsubscribeToken(contact.email);
     const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
 
     const subjectMap: Record<string, string> = {
-      fr: `Digest hebdomadaire — ${weekOf}`,
-      nl: `Wekelijkse samenvatting — ${weekOf}`,
-      en: `Weekly digest — ${weekOf}`,
-      de: `Wöchentliche Zusammenfassung — ${weekOf}`,
+      fr: `BGM Digest #${weekNum} — ${weekOf}`,
+      nl: `BGM Digest #${weekNum} — ${weekOf}`,
+      en: `BGM Digest #${weekNum} — ${weekOf}`,
+      de: `BGM Digest #${weekNum} — ${weekOf}`,
     };
 
     const emailProps = {

@@ -91,6 +91,9 @@ export const POST = auth(async function POST(req) {
     }
   }
 
+  // Use actual send date (not creation date) for the email subject date range
+  const sendDate = scheduledAt ? new Date(scheduledAt) : now;
+
   const createdAt = new Date(digest.created_at);
   const sevenDaysAgo = new Date(createdAt);
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
@@ -143,7 +146,7 @@ export const POST = auth(async function POST(req) {
       continue;
     }
 
-    const weekOf = formatWeekRange(createdAt, locale);
+    const weekOf = formatWeekRange(sendDate, locale);
     const unsubToken = generateUnsubscribeToken(contact.email);
     const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
 

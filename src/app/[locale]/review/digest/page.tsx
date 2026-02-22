@@ -37,7 +37,13 @@ export default function DigestReviewPage() {
   // Editable fields
   const [numberValue, setNumberValue] = useState('');
   const [numberLabelFr, setNumberLabelFr] = useState('');
+  const [numberLabelNl, setNumberLabelNl] = useState('');
+  const [numberLabelEn, setNumberLabelEn] = useState('');
+  const [numberLabelDe, setNumberLabelDe] = useState('');
   const [numberSourceFr, setNumberSourceFr] = useState('');
+  const [numberSourceNl, setNumberSourceNl] = useState('');
+  const [numberSourceEn, setNumberSourceEn] = useState('');
+  const [numberSourceDe, setNumberSourceDe] = useState('');
   const [closingNoteFr, setClosingNoteFr] = useState('');
   const [closingNoteNl, setClosingNoteNl] = useState('');
   const [closingNoteEn, setClosingNoteEn] = useState('');
@@ -57,7 +63,13 @@ export default function DigestReviewPage() {
       setDigest(data);
       setNumberValue(data.weeklyNumber.value);
       setNumberLabelFr(data.weeklyNumber.label.fr);
+      setNumberLabelNl(data.weeklyNumber.label.nl || '');
+      setNumberLabelEn(data.weeklyNumber.label.en || '');
+      setNumberLabelDe(data.weeklyNumber.label.de || '');
       setNumberSourceFr(data.weeklyNumber.source.fr);
+      setNumberSourceNl(data.weeklyNumber.source.nl || '');
+      setNumberSourceEn(data.weeklyNumber.source.en || '');
+      setNumberSourceDe(data.weeklyNumber.source.de || '');
       setClosingNoteFr(data.closingNote.fr);
       setClosingNoteNl(data.closingNote.nl);
       setClosingNoteEn(data.closingNote.en);
@@ -88,8 +100,8 @@ export default function DigestReviewPage() {
         body: JSON.stringify({
           weeklyNumber: {
             value: numberValue,
-            label: { fr: numberLabelFr, nl: numberLabelFr, en: numberLabelFr, de: numberLabelFr },
-            source: { fr: numberSourceFr, nl: numberSourceFr, en: numberSourceFr, de: numberSourceFr },
+            label: { fr: numberLabelFr, nl: numberLabelNl || numberLabelFr, en: numberLabelEn || numberLabelFr, de: numberLabelDe || numberLabelFr },
+            source: { fr: numberSourceFr, nl: numberSourceNl || numberSourceFr, en: numberSourceEn || numberSourceFr, de: numberSourceDe || numberSourceFr },
           },
           closingNote: { fr: closingNoteFr, nl: closingNoteNl, en: closingNoteEn, de: closingNoteDe },
         }),
@@ -306,12 +318,78 @@ export default function DigestReviewPage() {
               />
             </div>
             <div>
+              <label className="mb-1 block text-xs font-medium text-neutral-500">Légende (NL)</label>
+              <input
+                type="text"
+                value={numberLabelNl}
+                onChange={(e) => setNumberLabelNl(e.target.value)}
+                disabled={isSent}
+                placeholder={numberLabelFr || 'NL — vide = copie FR'}
+                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs font-medium text-neutral-500">Légende (EN)</label>
+              <input
+                type="text"
+                value={numberLabelEn}
+                onChange={(e) => setNumberLabelEn(e.target.value)}
+                disabled={isSent}
+                placeholder={numberLabelFr || 'EN — empty = copy FR'}
+                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs font-medium text-neutral-500">Légende (DE)</label>
+              <input
+                type="text"
+                value={numberLabelDe}
+                onChange={(e) => setNumberLabelDe(e.target.value)}
+                disabled={isSent}
+                placeholder={numberLabelFr || 'DE — leer = Kopie FR'}
+                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+              />
+            </div>
+            <div>
               <label className="mb-1 block text-xs font-medium text-neutral-500">Source (FR)</label>
               <input
                 type="text"
                 value={numberSourceFr}
                 onChange={(e) => setNumberSourceFr(e.target.value)}
                 disabled={isSent}
+                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs font-medium text-neutral-500">Source (NL)</label>
+              <input
+                type="text"
+                value={numberSourceNl}
+                onChange={(e) => setNumberSourceNl(e.target.value)}
+                disabled={isSent}
+                placeholder={numberSourceFr || 'NL — vide = copie FR'}
+                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs font-medium text-neutral-500">Source (EN)</label>
+              <input
+                type="text"
+                value={numberSourceEn}
+                onChange={(e) => setNumberSourceEn(e.target.value)}
+                disabled={isSent}
+                placeholder={numberSourceFr || 'EN — empty = copy FR'}
+                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs font-medium text-neutral-500">Source (DE)</label>
+              <input
+                type="text"
+                value={numberSourceDe}
+                onChange={(e) => setNumberSourceDe(e.target.value)}
+                disabled={isSent}
+                placeholder={numberSourceFr || 'DE — leer = Kopie FR'}
                 className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>

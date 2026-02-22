@@ -25,6 +25,9 @@ export const DOMAIN_TOPICS = [
   'economy',
   'cleanliness',
   'institutional',
+  'urban-planning',
+  'digital',
+  'education',
 ] as const;
 
 export const SECTOR_TOPICS = [
@@ -83,8 +86,8 @@ export const SECTOR_TO_DOMAIN: Record<string, string> = {
   commerce: 'employment',
   construction: 'housing',
   culture: 'budget',
-  digital: 'employment',
-  education: 'social',
+  digital: 'digital',
+  education: 'education',
   environment: 'climate',
   'health-social': 'social',
   horeca: 'employment',

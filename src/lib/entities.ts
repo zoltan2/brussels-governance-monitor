@@ -17,7 +17,10 @@ export type DomainId =
   | 'security'
   | 'economy'
   | 'cleanliness'
-  | 'institutional';
+  | 'institutional'
+  | 'urban-planning'
+  | 'digital'
+  | 'education';
 
 export interface EntityMeta {
   id: EntityId;

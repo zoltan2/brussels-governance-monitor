@@ -14,6 +14,9 @@ const TOPIC_OPTIONS = [
   'economy',
   'cleanliness',
   'institutional',
+  'urban-planning',
+  'digital',
+  'education',
   'engagements',
 ] as const;
 

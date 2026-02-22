@@ -41,6 +41,9 @@ const domainStyles: Record<string, string> = {
   economy: 'border-l-cyan-500',
   cleanliness: 'border-l-lime-500',
   institutional: 'border-l-indigo-500',
+  'urban-planning': 'border-l-stone-500',
+  digital: 'border-l-sky-500',
+  education: 'border-l-fuchsia-500',
 };
 
 type DomainSlug =
@@ -53,7 +56,10 @@ type DomainSlug =
   | 'security'
   | 'economy'
   | 'cleanliness'
-  | 'institutional';
+  | 'institutional'
+  | 'urban-planning'
+  | 'digital'
+  | 'education';
 
 export function CommitmentsDashboard({
   data,

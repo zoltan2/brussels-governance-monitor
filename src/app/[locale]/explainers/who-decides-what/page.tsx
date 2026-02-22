@@ -17,6 +17,9 @@ const DOMAIN_KEYS = [
   'economy',
   'cleanliness',
   'institutional',
+  'urban-planning',
+  'digital',
+  'education',
 ] as const;
 
 export function generateStaticParams() {

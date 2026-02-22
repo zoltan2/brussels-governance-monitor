@@ -2,6 +2,42 @@
   {
     "date": "2026-02-22",
     "type": "added",
+    "section": "domains",
+    "targetSlug": "urban-planning",
+    "descriptions": {
+      "fr": "Nouveau domaine : Urbanisme — accélération des permis, amnistie urbanistique, suppression avis conforme CRMS, relance Neo. 4 locales.",
+      "nl": "Nieuw domein: Stedenbouw — versnelling vergunningen, stedenbouwkundige amnestie, afschaffing eensluidend advies KCML, herstart Neo. 4 talen.",
+      "en": "New domain: Urban Planning — faster permits, planning amnesty, CRMS binding opinion removed, Neo revival. 4 locales.",
+      "de": "Neuer Bereich: Städtebau — schnellere Genehmigungen, städtebauliche Amnestie, KCML-Gutachten abgeschafft, Neo-Neustart. 4 Sprachen."
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "type": "added",
+    "section": "domains",
+    "targetSlug": "digital",
+    "descriptions": {
+      "fr": "Nouveau domaine : Numérique — fracture digitale, simplification administrative, smart city, Bruxelles capitale de l'IA. 4 locales.",
+      "nl": "Nieuw domein: Digitaal — digitale kloof, administratieve vereenvoudiging, smart city, Brussel als AI-hoofdstad. 4 talen.",
+      "en": "New domain: Digital — digital divide, administrative simplification, smart city, Brussels as AI capital. 4 locales.",
+      "de": "Neuer Bereich: Digital — digitale Kluft, Verwaltungsvereinfachung, Smart City, Brüssel als KI-Hauptstadt. 4 Sprachen."
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "type": "added",
+    "section": "domains",
+    "targetSlug": "education",
+    "descriptions": {
+      "fr": "Nouveau domaine : Enseignement — places en crèche, décrochage scolaire, coordination Cocof/VGC. 4 locales. Secteur Enseignement remappé vers ce domaine.",
+      "nl": "Nieuw domein: Onderwijs — kinderopvangplaatsen, schooluitval, coördinatie Cocof/VGC. 4 talen. Sector Onderwijs gehermapt naar dit domein.",
+      "en": "New domain: Education — childcare places, school dropout, Cocof/VGC coordination. 4 locales. Education sector remapped to this domain.",
+      "de": "Neuer Bereich: Bildung — Krippenplätze, Schulabbruch, Koordinierung Cocof/VGC. 4 Sprachen. Sektor Bildung zu diesem Bereich umgemappt."
+    }
+  },
+  {
+    "date": "2026-02-22",
+    "type": "added",
     "section": "dossiers",
     "targetSlug": "accessibilite-pmr",
     "descriptions": {

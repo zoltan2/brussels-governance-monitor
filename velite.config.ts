@@ -27,7 +27,7 @@ const domainCards = defineCollection({
       title: s.string().max(120),
       slug: s.string(),
       locale: localeEnum,
-      domain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional']),
+      domain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional', 'urban-planning', 'digital', 'education']),
       status: s.enum(['blocked', 'delayed', 'ongoing', 'resolved']),
       blockedSince: s.isodate().optional(),
       summary: s.string().max(500),
@@ -247,7 +247,7 @@ const sectorCards = defineCollection({
       title: s.string().max(120),
       slug: s.string(),
       locale: localeEnum,
-      parentDomain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional']),
+      parentDomain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional', 'urban-planning', 'digital', 'education']),
       sector: s.string(),
       frozenMechanisms: s
         .array(
@@ -332,7 +332,7 @@ const communeCards = defineCollection({
         mandateRegistry: s.enum(['yes', 'partial', 'no']),
       }),
       relatedDomains: s
-        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional']))
+        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional', 'urban-planning', 'digital', 'education']))
         .default([]),
       relatedSectors: s.array(s.string()).default([]),
       sources: s.array(communeSourceSchema),
@@ -381,7 +381,7 @@ const dossierCards = defineCollection({
       estimatedCostOfInaction: s.string().optional(),
       stakeholders: s.array(s.string()).default([]),
       relatedDomains: s
-        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional']))
+        .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional', 'urban-planning', 'digital', 'education']))
         .default([]),
       relatedSectors: s.array(s.string()).default([]),
       relatedCommunes: s.array(s.string()).default([]),

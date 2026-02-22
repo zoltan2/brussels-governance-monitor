@@ -47,6 +47,34 @@ const relatedByDomain: Record<string, RelatedItem[]> = {
     { href: { pathname: '/sectors/[slug]', params: { slug: 'nonprofit' } }, label: 'sectorNonprofit', type: 'sector' },
     { href: '/explainers/brussels-cosmopolitan', label: 'explainerCosmopolitan', type: 'explainer' },
   ],
+  security: [
+    { href: '/explainers/levels-of-power', label: 'explainerLevels', type: 'explainer' },
+  ],
+  economy: [
+    { href: { pathname: '/sectors/[slug]', params: { slug: 'commerce' } }, label: 'sectorCommerce', type: 'sector' },
+    { href: '/explainers/brussels-paradox', label: 'explainerParadox', type: 'explainer' },
+  ],
+  cleanliness: [
+    { href: '/explainers/levels-of-power', label: 'explainerLevels', type: 'explainer' },
+  ],
+  institutional: [
+    { href: '/explainers/who-decides-what', label: 'explainerWhoDecides', type: 'explainer' },
+    { href: '/explainers/levels-of-power', label: 'explainerLevels', type: 'explainer' },
+  ],
+  'urban-planning': [
+    { href: { pathname: '/sectors/[slug]', params: { slug: 'construction' } }, label: 'sectorConstruction', type: 'sector' },
+    { href: { pathname: '/sectors/[slug]', params: { slug: 'environment' } }, label: 'sectorEnvironment', type: 'sector' },
+    { href: '/explainers/levels-of-power', label: 'explainerLevels', type: 'explainer' },
+  ],
+  digital: [
+    { href: { pathname: '/sectors/[slug]', params: { slug: 'digital' } }, label: 'sectorDigital', type: 'sector' },
+    { href: '/explainers/brussels-overview', label: 'explainerOverview', type: 'explainer' },
+  ],
+  education: [
+    { href: { pathname: '/sectors/[slug]', params: { slug: 'education' } }, label: 'sectorEducation', type: 'sector' },
+    { href: '/explainers/communities-in-brussels', label: 'explainerCommunities', type: 'explainer' },
+    { href: '/explainers/brussels-cosmopolitan', label: 'explainerCosmopolitan', type: 'explainer' },
+  ],
 };
 
 export function RelatedCards({ domain }: { domain: string }) {
@@ -68,6 +96,11 @@ export function RelatedCards({ domain }: { domain: string }) {
     sectorHousing: 'Logement',
     sectorEnvironment: 'Environnement',
     sectorHealthSocial: 'Santé & social',
+    sectorCommerce: 'Commerce',
+    sectorDigital: 'Numérique',
+    sectorEducation: 'Enseignement',
+    explainerWhoDecides: 'Qui décide quoi ?',
+    explainerCommunities: 'Les Communautés à Bruxelles',
   };
 
   return (

@@ -75,7 +75,10 @@
       "security": "The new government plans an anti-drugs commissioner, a €10 million investment in railway stations, connecting CCTV systems and reinforcing the fire service (SIAMU). These measures must be funded through the 2026 budget.",
       "economy": "The new government plans an Urban Free Zone at the Port and Forest, positioning Brussels as an AI capital, and opening Kanal museum. Implementation depends on implementing decrees and the budget.",
       "cleanliness": "The new government plans a reform of Brussels Cleanliness Agency, regional brigades, underground waste containers and immediate fines. Implementation depends on the budget and coordination with municipalities.",
-      "institutional": "The new government plans to merge 25 structures into 4 pillars, cutting costs by 20-30%. Pillars 1 and 2 must be operational in 2026, but some mergers require special majorities in Parliament."
+      "institutional": "The new government plans to merge 25 structures into 4 pillars, cutting costs by 20-30%. Pillars 1 and 2 must be operational in 2026, but some mergers require special majorities in Parliament.",
+      "urban-planning": "The RPD provides for faster urban planning permits (target: halve processing times), a planning amnesty and the revival of the Neo project at the Heysel. The removal of the CRMS binding opinion aims to unblock renovations in protected areas.",
+      "digital": "The RPD provides for a digital inclusion plan for the ~40% of Brussels households with digital difficulties, modernisation of IRISbox and Easy Brussels, and positioning Brussels as an AI capital.",
+      "education": "The RPD provides for creating childcare places, a plan to tackle school dropout (~15% of 18-24 year-olds) and coordination between Cocof and VGC for education policies."
     },
     "whyStatusTitle": "Why this status",
     "whyStatus": {
@@ -88,7 +91,10 @@
       "security": "The Security chapter of the RPD provides for an integrated regional plan: an anti-drugs commissioner, €10M for securing South and North stations, interconnection of CCTV systems and reinforcement of SIAMU (fire service). These measures require implementing decrees and budget allocations in the 2026 budget.",
       "economy": "The Economy chapter of the RPD provides for the creation of an Urban Free Zone (Brussels Port + Audi Forest site), positioning Brussels as an AI capital, and opening the Kanal museum under new governance. Implementation depends on implementing decrees and the 2026 budget.",
       "cleanliness": "The Cleanliness chapter of the RPD provides for a reform of the Brussels Cleanliness Agency (ABP), regional cleanliness brigades, underground waste containers and immediate fine collection. Implementation depends on budget allocations in the 2026 budget.",
-      "institutional": "Chapter 4 of the RPD provides for the merger of 25 regional structures into 4 pillars, with savings of 20-30% on operating costs. Pillars 1 and 2 must be operational by 2026. Some mergers require special majorities in Parliament."
+      "institutional": "Chapter 4 of the RPD provides for the merger of 25 regional structures into 4 pillars, with savings of 20-30% on operating costs. Pillars 1 and 2 must be operational by 2026. Some mergers require special majorities in Parliament.",
+      "urban-planning": "The RPD devotes a chapter to urban planning with structural reforms: faster permits, planning amnesty, removal of the CRMS binding opinion. Implementation depends on executive orders and the 2026 budget.",
+      "digital": "The RPD provides for tackling the digital divide, administrative simplification and smart city deployment. Paradigm (CIRB) has a policy framework to proceed. Delivery depends on the 2026 budget.",
+      "education": "The RPD provides for investment in childcare, tackling school dropout and strengthening Cocof/VGC coordination. Education primarily falls under the Communities — the Region intervenes through the community commissions."
     },
     "relatedDossiers": "Related dossiers",
     "notSaidTitle": "What BGM does not say",
@@ -102,7 +108,10 @@
       "security": "This page does not claim that the regional security plan will solve all safety challenges — it documents the quantified commitments from the RPD. Effectiveness depends on actual funding, coordination with police zones and federal cooperation.",
       "economy": "This page does not claim that economic measures will guarantee growth — it documents the RPD commitments on attractiveness and development. Actual impact will depend on the international economic climate and effective implementation of announced measures.",
       "cleanliness": "This page does not claim that cleanliness measures will solve the problem immediately — it documents the concrete commitments from the RPD. Effectiveness depends on deployment of resources, Region-municipality coordination and user behaviour.",
-      "institutional": "This page does not claim that institutional simplification will be straightforward — it documents the rationalisation commitments from the RPD. These reforms require complex political agreements and special majorities in Parliament."
+      "institutional": "This page does not claim that institutional simplification will be straightforward — it documents the rationalisation commitments from the RPD. These reforms require complex political agreements and special majorities in Parliament.",
+      "urban-planning": "This card does not predict whether the government can reduce permit processing times. It documents the RPD commitments on urban planning. The impact of the amnesty and the removal of the CRMS opinion will depend on implementation details.",
+      "digital": "This card does not predict the effectiveness of the digital inclusion plan. It documents the RPD commitments. The digital divide is a multifactorial phenomenon that extends beyond regional policy alone.",
+      "education": "This card does not predict whether the government can solve the childcare shortage or school dropout. Education primarily falls under the Communities — the Region has a coordination and investment role through the community commissions."
     }
   },
   "solutions": {
@@ -260,6 +269,7 @@
       "economy": "Economy",
       "cleanliness": "Cleanliness",
       "institutional": "Institutional",
+      "urban-planning": "Urban Planning",
       "solutions": "Exit paths",
       "commerce": "Commerce",
       "construction": "Construction",
@@ -1308,6 +1318,21 @@
             "domain": "Institutional",
             "primary": "Region (Parliament, policy statement)",
             "others": "Federal (special laws), COCOM (United Assembly)"
+          },
+          "urban-planning": {
+            "domain": "Urban Planning",
+            "primary": "Region (urban.brussels, permits)",
+            "others": "Municipalities (municipal permits), Federal (Beliris/major projects)"
+          },
+          "digital": {
+            "domain": "Digital",
+            "primary": "Region (Paradigm/CIRB, IRISbox)",
+            "others": "Federal (e-government, BOSA), Municipalities (local online services)"
+          },
+          "education": {
+            "domain": "Education",
+            "primary": "FWB / Fl. Com. (school programmes)",
+            "others": "COCOF/VGC (transferred policies), Region (vocational training via Actiris)"
           }
         }
       },

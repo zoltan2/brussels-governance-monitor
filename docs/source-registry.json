@@ -1,9 +1,9 @@
 {
-  "description": "Registre des sources surveillées par BGM. 264 sources (34 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
+  "description": "Registre des sources surveillées par BGM. 284 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
   "lastUpdated": "2026-02-22",
   "stats": {
-    "total": 264,
-    "rss": 34,
+    "total": 284,
+    "rss": 32,
     "byTier": {
       "editorial": 191,
       "radar": 73
@@ -3666,7 +3666,10 @@
       "lang": "multi",
       "priority": "P0",
       "category": "governance",
-      "cardsAffected": ["budget", "institutional"],
+      "cardsAffected": [
+        "budget",
+        "institutional"
+      ],
       "frequency": "daily",
       "enabled": true,
       "notes": "Portail officiel de la Région de Bruxelles-Capitale — actualités, communiqués du gouvernement. Complète watch-020 (décisions officielles).",
@@ -3680,7 +3683,10 @@
       "lang": "fr",
       "priority": "P1",
       "category": "security",
-      "cardsAffected": ["security", "plan-securite"],
+      "cardsAffected": [
+        "security",
+        "plan-securite"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Bruxelles Prévention & Sécurité — actualités, campagnes, statistiques sécuritaires. Compétence du ministre-président.",
@@ -3694,7 +3700,9 @@
       "lang": "multi",
       "priority": "P1",
       "category": "cleanliness",
-      "cardsAffected": ["cleanliness"],
+      "cardsAffected": [
+        "cleanliness"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Agence Bruxelles-Propreté — actualités opérationnelles, collectes, dépôts clandestins, N₂O. Compétence de la secrétaire d'État à la Propreté publique.",
@@ -3708,7 +3716,10 @@
       "lang": "multi",
       "priority": "P1",
       "category": "economy",
-      "cardsAffected": ["economy", "employment"],
+      "cardsAffected": [
+        "economy",
+        "employment"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Agence bruxelloise pour l'Entrepreneuriat — actualités économiques, entrepreneuriat, missions internationales. Compétence du ministre de l'Économie.",
@@ -3722,7 +3733,10 @@
       "lang": "multi",
       "priority": "P1",
       "category": "governance",
-      "cardsAffected": ["budget", "institutional"],
+      "cardsAffected": [
+        "budget",
+        "institutional"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Agenda des commissions parlementaires — auditions ministérielles, débats sectoriels. Complète watch-002 (plénières).",
@@ -3736,7 +3750,10 @@
       "lang": "multi",
       "priority": "P1",
       "category": "governance",
-      "cardsAffected": ["budget", "institutional"],
+      "cardsAffected": [
+        "budget",
+        "institutional"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Plateforme Editoria — publications officielles des communes et institutions régionales bruxelloises. PV Conseil des ministres, règlements communaux.",
@@ -3750,7 +3767,9 @@
       "lang": "multi",
       "priority": "P2",
       "category": "urban",
-      "cardsAffected": ["housing"],
+      "cardsAffected": [
+        "housing"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Administration régionale de l'urbanisme — permis, enquêtes publiques, patrimoine. Compétence de la secrétaire d'État à l'Urbanisme.",
@@ -3764,7 +3783,10 @@
       "lang": "multi",
       "priority": "P2",
       "category": "economy",
-      "cardsAffected": ["economy", "horeca"],
+      "cardsAffected": [
+        "economy",
+        "horeca"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Office du tourisme — communiqués, chiffres de fréquentation, événements. Compétence du ministre-président (Tourisme).",
@@ -3778,7 +3800,9 @@
       "lang": "multi",
       "priority": "P2",
       "category": "employment",
-      "cardsAffected": ["employment"],
+      "cardsAffected": [
+        "employment"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Organisme régional de gestion des ressources humaines de la fonction publique bruxelloise. Indicateur du moratoire embauches DPR.",
@@ -3792,7 +3816,10 @@
       "lang": "multi",
       "priority": "P2",
       "category": "economy",
-      "cardsAffected": ["economy", "housing"],
+      "cardsAffected": [
+        "economy",
+        "housing"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Société de Développement pour la Région de Bruxelles-Capitale — projets immobiliers, zones d'entreprises, logements moyens.",
@@ -3806,7 +3833,9 @@
       "lang": "multi",
       "priority": "P2",
       "category": "economy",
-      "cardsAffected": ["economy"],
+      "cardsAffected": [
+        "economy"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Institut bruxellois pour la recherche et l'innovation. Compétence du ministre-président (Recherche scientifique). IA, GovTech, processus intégré avec Finance.Brussels.",
@@ -3820,7 +3849,10 @@
       "lang": "multi",
       "priority": "P2",
       "category": "economy",
-      "cardsAffected": ["economy", "budget"],
+      "cardsAffected": [
+        "economy",
+        "budget"
+      ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Outil financier public régional — prêts, participations, fonds. Lien avec les participations stratégiques du budget (BGHM, Vivaqua).",
@@ -3834,7 +3866,10 @@
       "lang": "multi",
       "priority": "P1",
       "category": "social",
-      "cardsAffected": ["social", "seniors-a-bruxelles"],
+      "cardsAffected": [
+        "social",
+        "seniors-a-bruxelles"
+      ],
       "frequency": "monthly",
       "enabled": true,
       "notes": "Dashboards Power BI : places MR/MRS/CSJ, taux d'occupation, prix, forfaits, profils résidents, APA. Page d'actualités pour détecter les mises à jour.",
@@ -3848,7 +3883,10 @@
       "lang": "multi",
       "priority": "P3",
       "category": "employment",
-      "cardsAffected": ["employment", "seniors-a-bruxelles"],
+      "cardsAffected": [
+        "employment",
+        "seniors-a-bruxelles"
+      ],
       "frequency": "quarterly",
       "enabled": true,
       "notes": "Données trimestrielles flexi-jobs par tranche d'âge (<25, 25-39, 40-49, 50-64, 65+) et région. Excel téléchargeable. 65+ : +52,6 % en 2024.",
@@ -3862,7 +3900,10 @@
       "lang": "fr",
       "priority": "P1",
       "category": "social",
-      "cardsAffected": ["social", "accessibilite-pmr"],
+      "cardsAffected": [
+        "social",
+        "accessibilite-pmr"
+      ],
       "frequency": "yearly",
       "enabled": true,
       "notes": "Rapport annuel DG HAN : allocations ARR/AI par région, évaluation handicap, délais. 253 866 bénéficiaires en 2024, Bruxelles 9,1 %.",
@@ -3876,7 +3917,10 @@
       "lang": "multi",
       "priority": "P2",
       "category": "social",
-      "cardsAffected": ["social", "accessibilite-pmr"],
+      "cardsAffected": [
+        "social",
+        "accessibilite-pmr"
+      ],
       "frequency": "yearly",
       "enabled": true,
       "notes": "Données interactives discriminations par critère, domaine et région. Handicap = 28 % des dossiers 2024 (582 dossiers, 1 267 signalements).",
@@ -3890,7 +3934,9 @@
       "lang": "multi",
       "priority": "P2",
       "category": "social",
-      "cardsAffected": ["accessibilite-pmr"],
+      "cardsAffected": [
+        "accessibilite-pmr"
+      ],
       "frequency": "monthly",
       "enabled": true,
       "notes": "Portail d'information sur le handicap à Bruxelles. Répertoire ETA (12), services Phare, Carte européenne, reconnaissance, droits.",
@@ -3904,12 +3950,357 @@
       "lang": "multi",
       "priority": "P1",
       "category": "social",
-      "cardsAffected": ["accessibilite-pmr"],
+      "cardsAffected": [
+        "accessibilite-pmr"
+      ],
       "frequency": "monthly",
       "fetchMode": "rss",
       "rssUrl": "https://iriscare.brussels/fr/feed",
       "enabled": true,
       "notes": "Page Iriscare handicap : aides mobilité, CEAH, Carte européenne du handicap. 14 490 cartes envoyées, 9 406 nouvelles demandes CEAH en 2025.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-265",
+      "name": "Inter-Environnement Bruxelles (IEB)",
+      "url": "https://www.ieb.be/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "climate",
+      "cardsAffected": [
+        "urban-planning",
+        "climate",
+        "institutional"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "rssUrl": "https://www.ieb.be/spip.php?page=rss",
+      "notes": "Association bruxelloise — urbanisme, environnement, participation citoyenne. RSS SPIP.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-266",
+      "name": "Ville de Bruxelles — Actualités",
+      "url": "https://www.brussels.be/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P3",
+      "category": "institutional",
+      "cardsAffected": [
+        "institutional",
+        "cleanliness",
+        "security"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "rssUrl": "https://www.brussels.be/rss.xml",
+      "notes": "Site officiel de la Ville de Bruxelles. RSS XML.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-267",
+      "name": "BRUZZ Stedenbouw",
+      "url": "https://www.bruzz.be/topic/stedenbouw/rss.xml",
+      "type": "press",
+      "lang": "nl",
+      "priority": "P2",
+      "category": "urban-planning",
+      "cardsAffected": [
+        "urban-planning"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "rssUrl": "https://www.bruzz.be/topic/stedenbouw/rss.xml",
+      "skipKeywordFilter": true,
+      "notes": "BRUZZ stedenbouw topic RSS. Thematic feed, no keyword filter needed.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-268",
+      "name": "Le Spécialiste",
+      "url": "https://www.lespecialiste.be/",
+      "type": "press",
+      "lang": "fr",
+      "priority": "P3",
+      "category": "social",
+      "cardsAffected": [
+        "social"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Presse médicale belge francophone. Pas de RSS fonctionnel.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-269",
+      "name": "Iriscare — Actualités",
+      "url": "https://www.iriscare.brussels/fr/news/iriscare-fr/",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "social",
+      "cardsAffected": [
+        "social",
+        "seniors-a-bruxelles",
+        "accessibilite-pmr"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "notes": "Page actualités Iriscare — complémente le feed RSS existant.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-270",
+      "name": "Famiris",
+      "url": "https://famiris.brussels/fr/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": [
+        "social",
+        "education"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Caisse bruxelloise d'allocations familiales. Prestations familiales, primes.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-271",
+      "name": "Samusocial",
+      "url": "https://samusocial.be/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": [
+        "social"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Dispositif d'urgence sociale bruxellois — hébergement, maraudes, familles.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-272",
+      "name": "Bruss'Help",
+      "url": "https://www.brusshelp.org/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": [
+        "social"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Coordination bruxelloise de l'aide aux sans-abri. Dénombrements, rapports.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-273",
+      "name": "safe.brussels",
+      "url": "https://safe.brussels/fr",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "security",
+      "cardsAffected": [
+        "security"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Observatoire bruxellois pour la prévention et la sécurité. Rapports annuels, enquêtes.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-274",
+      "name": "equal.brussels",
+      "url": "https://equal.brussels/fr/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P3",
+      "category": "social",
+      "cardsAffected": [
+        "social",
+        "institutional"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Organisme régional pour l'égalité des chances. Note : certificat SSL parfois instable.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-275",
+      "name": "Bruxelles Formation",
+      "url": "https://www.bruxellesformation.brussels/",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "employment",
+      "cardsAffected": [
+        "employment",
+        "education"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Service public de formation professionnelle francophone à Bruxelles.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-276",
+      "name": "VDAB Brussel",
+      "url": "https://www.vdab.be/brussel",
+      "type": "institutional",
+      "lang": "nl",
+      "priority": "P3",
+      "category": "employment",
+      "cardsAffected": [
+        "employment",
+        "education"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Service flamand de l'emploi et de la formation — section Bruxelles.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-277",
+      "name": "Vivaqua",
+      "url": "https://www.vivaqua.be/fr/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P3",
+      "category": "climate",
+      "cardsAffected": [
+        "climate"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Opérateur public de l'eau à Bruxelles. Qualité eau, investissements réseau.",
+      "tier": "radar"
+    },
+    {
+      "id": "watch-278",
+      "name": "Paradigm (CIRB)",
+      "url": "https://paradigm.brussels/fr",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "digital",
+      "cardsAffected": [
+        "digital"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Centre d'informatique pour la Région de Bruxelles-Capitale. Smart city, IRISbox. Redirige vers be.brussels.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-279",
+      "name": "Brupartners",
+      "url": "https://brupartners.brussels/fr",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "institutional",
+      "cardsAffected": [
+        "budget",
+        "employment",
+        "institutional"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Conseil économique et social bruxellois. Avis, rapports, concertation sociale.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-280",
+      "name": "Fonds du Logement",
+      "url": "https://fonds.brussels/fr",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P3",
+      "category": "housing",
+      "cardsAffected": [
+        "housing"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Fonds du Logement bruxellois. Prêts hypothécaires sociaux, logements. Migré vers fonds.brussels.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-281",
+      "name": "Bruxelles Fiscalité",
+      "url": "https://fiscalite.brussels/fr",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "budget",
+      "cardsAffected": [
+        "budget"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Administration fiscale régionale. Précompte immobilier, taxes. Redirige vers be.brussels.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-282",
+      "name": "Cocof",
+      "url": "https://www.ccf.brussels/",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "institutional",
+      "cardsAffected": [
+        "education",
+        "social",
+        "institutional"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Commission communautaire française. Enseignement, social, culture côté francophone.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-283",
+      "name": "Observatoire de la Santé et du Social",
+      "url": "https://www.ccc-ggc.brussels/fr",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": [
+        "social"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Observatoire rattaché à la COCOM/GGC. Rapports sociaux, baromètre. URL spécifique observatoire 404, utiliser racine.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-284",
+      "name": "IBSA",
+      "url": "https://ibsa.brussels/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P1",
+      "category": "institutional",
+      "cardsAffected": [
+        "budget",
+        "employment",
+        "institutional"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Institut Bruxellois de Statistique et d'Analyse. Focus, données, tableaux de bord.",
       "tier": "editorial"
     }
   ]

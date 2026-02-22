@@ -19,6 +19,7 @@ import { CardSubscribe } from '@/components/card-subscribe';
 import { StatusAccordion } from '@/components/status-accordion';
 import { RelatedCards } from '@/components/related-cards';
 import { RelatedDossiers } from '@/components/related-dossiers';
+import { DomainTags } from '@/components/domain-tags';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 export function generateStaticParams() {
@@ -180,7 +181,11 @@ function DomainDetail({
           </span>
         </div>
 
-        <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.summary}</p>
+        <p className="mb-4 text-base leading-relaxed text-neutral-600">{card.summary}</p>
+
+        <div className="mb-6">
+          <DomainTags domain={card.slug} locale={locale} />
+        </div>
 
         {card.summaryFalc && <FalcSummary summary={card.summaryFalc} />}
 

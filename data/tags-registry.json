@@ -1,0 +1,82 @@
+{
+  "tags": [
+    {
+      "id": "senior",
+      "type": "public",
+      "labels": { "fr": "Seniors", "nl": "Ouderen", "en": "Seniors", "de": "Senioren" },
+      "domains": ["social", "housing", "mobility"]
+    },
+    {
+      "id": "pmr",
+      "type": "public",
+      "labels": { "fr": "PMR / Handicap", "nl": "PBM / Handicap", "en": "PRM / Disability", "de": "PRM / Behinderung" },
+      "domains": ["social", "mobility", "housing"]
+    },
+    {
+      "id": "jeunesse",
+      "type": "public",
+      "labels": { "fr": "Jeunesse", "nl": "Jeugd", "en": "Youth", "de": "Jugend" },
+      "domains": ["education", "employment", "social"]
+    },
+    {
+      "id": "familles",
+      "type": "public",
+      "labels": { "fr": "Familles", "nl": "Gezinnen", "en": "Families", "de": "Familien" },
+      "domains": ["education", "social", "housing"]
+    },
+    {
+      "id": "primo-arrivants",
+      "type": "public",
+      "labels": { "fr": "Primo-arrivants", "nl": "Nieuwkomers", "en": "Newcomers", "de": "Neuankömmlinge" },
+      "domains": ["social", "employment", "education"]
+    },
+    {
+      "id": "sans-abri",
+      "type": "public",
+      "labels": { "fr": "Sans-abri", "nl": "Daklozen", "en": "Homeless", "de": "Obdachlose" },
+      "domains": ["social", "housing"]
+    },
+    {
+      "id": "independants",
+      "type": "public",
+      "labels": { "fr": "Indépendants", "nl": "Zelfstandigen", "en": "Self-employed", "de": "Selbstständige" },
+      "domains": ["economy", "employment", "budget"]
+    },
+    {
+      "id": "locataires",
+      "type": "public",
+      "labels": { "fr": "Locataires", "nl": "Huurders", "en": "Tenants", "de": "Mieter" },
+      "domains": ["housing"]
+    },
+    {
+      "id": "genre",
+      "type": "transversal",
+      "labels": { "fr": "Genre", "nl": "Gender", "en": "Gender", "de": "Gender" },
+      "domains": ["social", "employment", "security"]
+    },
+    {
+      "id": "cout-de-la-vie",
+      "type": "transversal",
+      "labels": { "fr": "Coût de la vie", "nl": "Levensduurte", "en": "Cost of living", "de": "Lebenshaltungskosten" },
+      "domains": ["budget", "housing", "social", "economy"]
+    },
+    {
+      "id": "precarite",
+      "type": "transversal",
+      "labels": { "fr": "Précarité", "nl": "Armoede", "en": "Precarity", "de": "Prekarität" },
+      "domains": ["social", "housing", "employment", "education"]
+    },
+    {
+      "id": "bilinguisme",
+      "type": "transversal",
+      "labels": { "fr": "Bilinguisme", "nl": "Tweetaligheid", "en": "Bilingualism", "de": "Zweisprachigkeit" },
+      "domains": ["institutional", "education", "employment"]
+    },
+    {
+      "id": "participation",
+      "type": "transversal",
+      "labels": { "fr": "Participation citoyenne", "nl": "Burgerparticipatie", "en": "Citizen participation", "de": "Bürgerbeteiligung" },
+      "domains": ["institutional", "urban-planning", "climate"]
+    }
+  ]
+}

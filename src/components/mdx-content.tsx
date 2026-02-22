@@ -43,6 +43,23 @@ const sharedComponents = {
       {...props}
     />
   ),
+  table: (props: React.HTMLAttributes<HTMLTableElement>) => (
+    <div className="my-4 overflow-x-auto rounded-lg border border-neutral-200">
+      <table className="w-full text-sm" {...props} />
+    </div>
+  ),
+  thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead className="bg-slate-50 text-left text-xs font-semibold uppercase tracking-wide text-neutral-500" {...props} />
+  ),
+  th: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
+    <th className="px-4 py-2.5" {...props} />
+  ),
+  td: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
+    <td className="border-t border-neutral-100 px-4 py-2.5 text-neutral-700" {...props} />
+  ),
+  tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
+    <tr className="even:bg-slate-50/50" {...props} />
+  ),
 };
 
 export function MdxContent({ code }: MdxContentProps) {

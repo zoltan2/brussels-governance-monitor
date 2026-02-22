@@ -371,7 +371,7 @@ const dossierCards = defineCollection({
       title: s.string().max(120),
       slug: s.string(),
       locale: localeEnum,
-      dossierType: s.enum(['infrastructure', 'housing', 'regulatory', 'utility', 'security']),
+      dossierType: s.enum(['infrastructure', 'housing', 'regulatory', 'utility', 'security', 'social']),
       phase: s.enum(['announced', 'planned', 'in-progress', 'stalled', 'completed', 'cancelled']),
       crisisImpact: s.enum(['blocked', 'delayed', 'reduced', 'unaffected', 'resolved']),
       blockedSince: s.isodate().optional(),

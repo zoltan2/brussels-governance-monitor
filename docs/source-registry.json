@@ -1,29 +1,29 @@
 {
-  "description": "Registre des sources surveillées par BGM. 258 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
-  "lastUpdated": "2026-02-18",
+  "description": "Registre des sources surveillées par BGM. 260 sources (33 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
+  "lastUpdated": "2026-02-22",
   "stats": {
-    "total": 258,
-    "rss": 32,
+    "total": 260,
+    "rss": 33,
     "byTier": {
-      "editorial": 186,
-      "radar": 72
+      "editorial": 187,
+      "radar": 73
     },
     "byPriority": {
       "P0": 30,
-      "P1": 47,
+      "P1": 48,
       "P2": 57,
-      "P3": 49,
+      "P3": 50,
       "P4": 62
     },
     "byLang": {
       "fr": 64,
-      "multi": 48,
+      "multi": 50,
       "nl": 46,
       "en": 82,
       "de": 4
     },
     "byType": {
-      "institutional": 66,
+      "institutional": 68,
       "press": 104,
       "legal": 7,
       "agency": 4,
@@ -84,19 +84,22 @@
     },
     {
       "id": "watch-004",
-      "name": "Iriscare — Publications",
-      "url": "https://www.iriscare.brussels/fr/publications/",
+      "name": "Iriscare — Actualités et publications",
+      "url": "https://www.iriscare.brussels/fr/",
       "type": "institutional",
       "lang": "multi",
       "priority": "P0",
       "category": "social",
       "cardsAffected": [
         "social",
-        "health-social"
+        "health-social",
+        "seniors-a-bruxelles"
       ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Rapports annuels, agréments, conventions, données secteur",
+      "fetchMode": "rss",
+      "rssUrl": "https://iriscare.brussels/fr/feed",
+      "notes": "Rapports annuels, agréments, conventions, données secteur, maisons de repos, APA. RSS WordPress (2.0).",
       "tier": "editorial"
     },
     {
@@ -3822,6 +3825,34 @@
       "enabled": true,
       "notes": "Outil financier public régional — prêts, participations, fonds. Lien avec les participations stratégiques du budget (BGHM, Vivaqua).",
       "tier": "editorial"
+    },
+    {
+      "id": "watch-259",
+      "name": "stat.iriscare.brussels — Portail statistique aînés",
+      "url": "https://stat.iriscare.brussels/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P1",
+      "category": "social",
+      "cardsAffected": ["social", "seniors-a-bruxelles"],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Dashboards Power BI : places MR/MRS/CSJ, taux d'occupation, prix, forfaits, profils résidents, APA. Page d'actualités pour détecter les mises à jour.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-260",
+      "name": "ONSS — Statistiques flexi-jobs (par âge et région)",
+      "url": "https://www.onss.be/stats/flexijobs",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P3",
+      "category": "employment",
+      "cardsAffected": ["employment", "seniors-a-bruxelles"],
+      "frequency": "quarterly",
+      "enabled": true,
+      "notes": "Données trimestrielles flexi-jobs par tranche d'âge (<25, 25-39, 40-49, 50-64, 65+) et région. Excel téléchargeable. 65+ : +52,6 % en 2024.",
+      "tier": "radar"
     }
   ]
 }

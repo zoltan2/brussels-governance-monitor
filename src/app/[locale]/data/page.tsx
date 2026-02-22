@@ -73,6 +73,7 @@ const registrySources: RegistrySource[] = registry.sources
     type: (s.type ?? 'press') as RegistrySource['type'],
     lang: s.lang ?? '',
     category: s.category ?? '',
+    domaines: (s as Record<string, unknown>).domaines as string[] | undefined,
     enabled: s.enabled ?? true,
     tier: (s.tier ?? 'editorial') as RegistrySource['tier'],
     url: s.url ?? undefined,
@@ -201,6 +202,7 @@ function DataView({
   const t = useTranslations('data');
   const tb = useTranslations('breadcrumb');
   const td = useTranslations('domains');
+  const ts = useTranslations('subscribe');
 
   const confidenceLabels: Record<string, string> = {
     official: td('confidence.official'),
@@ -226,6 +228,23 @@ function DataView({
       agency: t('registry.typeAgency'),
       research: t('registry.typeResearch'),
       'think-tank': t('registry.typeThinkTank'),
+      ngo: t('registry.typeNgo'),
+    },
+    domainFilter: t('registry.domainFilter'),
+    domainLabels: {
+      budget: ts('topics.budget'),
+      mobility: ts('topics.mobility'),
+      employment: ts('topics.employment'),
+      housing: ts('topics.housing'),
+      climate: ts('topics.climate'),
+      social: ts('topics.social'),
+      security: ts('topics.security'),
+      economy: ts('topics.economy'),
+      cleanliness: ts('topics.cleanliness'),
+      institutional: ts('topics.institutional'),
+      'urban-planning': ts('topics.urban-planning'),
+      digital: ts('topics.digital'),
+      education: ts('topics.education'),
     },
     suggestTitle: t('registry.suggestTitle'),
     suggestDescription: t('registry.suggestDescription'),

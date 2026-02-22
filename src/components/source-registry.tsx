@@ -4,9 +4,10 @@ import { useState, useMemo } from 'react';
 
 export interface RegistrySource {
   name: string;
-  type: 'institutional' | 'press' | 'legal' | 'agency' | 'research' | 'think-tank';
+  type: 'institutional' | 'press' | 'legal' | 'agency' | 'research' | 'think-tank' | 'ngo';
   lang: string;
   category: string;
+  domaines?: string[];
   enabled: boolean;
   tier: 'editorial' | 'radar';
   url?: string;
@@ -51,6 +52,7 @@ const TYPE_STYLES: Record<string, { bg: string; text: string }> = {
   agency: { bg: 'bg-blue-50', text: 'text-blue-700' },
   research: { bg: 'bg-amber-50', text: 'text-amber-700' },
   'think-tank': { bg: 'bg-amber-50', text: 'text-amber-700' },
+  ngo: { bg: 'bg-teal-50', text: 'text-teal-700' },
 };
 
 const INITIAL_VISIBLE = 20;
@@ -82,13 +84,28 @@ interface SourceRegistryProps {
     inactive: string;
     noResults: string;
     typeLabels: Record<string, string>;
+    domainFilter?: string;
+    domainLabels?: Record<string, string>;
   } & SuggestLabels;
 }
 
 export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
   const [activeFilter, setActiveFilter] = useState<FilterKey>('all');
+  const [activeDomain, setActiveDomain] = useState<string>('all');
   const [query, setQuery] = useState('');
   const [expanded, setExpanded] = useState(false);
+
+  const domainOptions = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const s of sources) {
+      for (const d of s.domaines ?? []) {
+        counts[d] = (counts[d] || 0) + 1;
+      }
+    }
+    return Object.entries(counts)
+      .sort(([, a], [, b]) => b - a)
+      .map(([id, count]) => ({ id, count }));
+  }, [sources]);
 
   const filterCounts = useMemo(() => {
     const counts: Record<FilterKey, number> = {
@@ -111,10 +128,11 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
     const q = query.toLowerCase().trim();
     return sources.filter((s) => {
       if (!filterFn(s)) return false;
+      if (activeDomain !== 'all' && !(s.domaines ?? []).includes(activeDomain)) return false;
       if (q && !s.name.toLowerCase().includes(q) && !(s.url?.toLowerCase().includes(q))) return false;
       return true;
     });
-  }, [sources, activeFilter, query]);
+  }, [sources, activeFilter, activeDomain, query]);
 
   const visible = expanded ? filtered : filtered.slice(0, INITIAL_VISIBLE);
   const remaining = filtered.length - INITIAL_VISIBLE;
@@ -138,6 +156,25 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
           </button>
         ))}
       </div>
+
+      {/* Domain filter */}
+      {domainOptions.length > 0 && labels.domainLabels && (
+        <div className="mb-4">
+          <select
+            value={activeDomain}
+            onChange={(e) => { setActiveDomain(e.target.value); setExpanded(false); }}
+            className="w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm text-neutral-900 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+            aria-label={labels.domainFilter ?? 'Domain'}
+          >
+            <option value="all">{labels.domainFilter ?? 'Domain'} — {labels.all}</option>
+            {domainOptions.map(({ id, count }) => (
+              <option key={id} value={id}>
+                {labels.domainLabels?.[id] ?? id} ({count})
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
       {/* Search */}
       <div className="mb-4">

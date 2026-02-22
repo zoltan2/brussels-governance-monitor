@@ -1,17 +1,17 @@
 {
-  "description": "Registre des sources surveillées par BGM. 260 sources (33 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
+  "description": "Registre des sources surveillées par BGM. 264 sources (34 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
   "lastUpdated": "2026-02-22",
   "stats": {
-    "total": 260,
-    "rss": 33,
+    "total": 264,
+    "rss": 34,
     "byTier": {
-      "editorial": 187,
+      "editorial": 191,
       "radar": 73
     },
     "byPriority": {
       "P0": 30,
-      "P1": 48,
-      "P2": 57,
+      "P1": 50,
+      "P2": 59,
       "P3": 50,
       "P4": 62
     },
@@ -3853,6 +3853,64 @@
       "enabled": true,
       "notes": "Données trimestrielles flexi-jobs par tranche d'âge (<25, 25-39, 40-49, 50-64, 65+) et région. Excel téléchargeable. 65+ : +52,6 % en 2024.",
       "tier": "radar"
+    },
+    {
+      "id": "watch-261",
+      "name": "SPF Sécurité sociale — Rapport annuel personnes handicapées",
+      "url": "https://rapportannuel.socialsecurity.belgium.be/handicap-allocations/",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "social",
+      "cardsAffected": ["social", "accessibilite-pmr"],
+      "frequency": "yearly",
+      "enabled": true,
+      "notes": "Rapport annuel DG HAN : allocations ARR/AI par région, évaluation handicap, délais. 253 866 bénéficiaires en 2024, Bruxelles 9,1 %.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-262",
+      "name": "UNIA — Chiffres signalements et dossiers",
+      "url": "https://www.unia.be/fr/connaissances-recommandations/chiffres-unia",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": ["social", "accessibilite-pmr"],
+      "frequency": "yearly",
+      "enabled": true,
+      "notes": "Données interactives discriminations par critère, domaine et région. Handicap = 28 % des dossiers 2024 (582 dossiers, 1 267 signalements).",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-263",
+      "name": "handicap.brussels — Portail handicap Bruxelles",
+      "url": "https://handicap.brussels/fr",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": ["accessibilite-pmr"],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Portail d'information sur le handicap à Bruxelles. Répertoire ETA (12), services Phare, Carte européenne, reconnaissance, droits.",
+      "tier": "editorial"
+    },
+    {
+      "id": "watch-264",
+      "name": "Iriscare — Actualités personnes handicapées",
+      "url": "https://www.iriscare.brussels/fr/citoyens/personnes-en-situation-de-handicap/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P1",
+      "category": "social",
+      "cardsAffected": ["accessibilite-pmr"],
+      "frequency": "monthly",
+      "fetchMode": "rss",
+      "rssUrl": "https://iriscare.brussels/fr/feed",
+      "enabled": true,
+      "notes": "Page Iriscare handicap : aides mobilité, CEAH, Carte européenne du handicap. 14 490 cartes envoyées, 9 406 nouvelles demandes CEAH en 2025.",
+      "tier": "editorial"
     }
   ]
 }

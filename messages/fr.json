@@ -62,8 +62,6 @@
     "readMore": "Lire la fiche complète",
     "backToHome": "Retour à l'accueil",
     "accessedAt": "consulté le {date}",
-    "share": "Partager",
-    "copied": "Lien copié !",
     "concreteImpactTitle": "Ce que ça signifie concrètement",
     "concreteImpact": {
       "budget": "Le gouvernement prépare le budget 2026, avec un objectif d'équilibre budgétaire en 2029. L'effort total est estimé à 1,2 milliard EUR (80 % coupes, 20 % recettes). Le moratoire sur les embauches, en vigueur depuis 2024, est prolongé pour toute la législature. Les douzièmes provisoires restent en vigueur jusqu'au vote du budget.",
@@ -138,9 +136,7 @@
     "legalBasis": "Base légale",
     "timelineLabel": "Délai",
     "readMore": "Lire la fiche complète",
-    "backToHome": "Retour à l'accueil",
-    "share": "Partager",
-    "copied": "Lien copié !"
+    "backToHome": "Retour à l'accueil"
   },
   "footer": {
     "project": "Un projet d'intérêt général hébergé par Advice That SRL",
@@ -1432,9 +1428,7 @@
     "stakeholders": "Acteurs concernés",
     "humanImpact": "Impact humain",
     "readMore": "Lire la fiche complète",
-    "backToHome": "Retour à l'accueil",
-    "share": "Partager",
-    "copied": "Lien copié !"
+    "backToHome": "Retour à l'accueil"
   },
   "comparisons": {
     "title": "Comparaisons",
@@ -1447,9 +1441,7 @@
     "caveat": "Limites de comparabilité",
     "source": "Source",
     "lastModified": "Dernière mise à jour : {date}",
-    "noData": "Aucune comparaison disponible.",
-    "share": "Partager",
-    "copied": "Lien copié !"
+    "noData": "Aucune comparaison disponible."
   },
   "cardSubscribe": {
     "title": "Suivre ce domaine par email",
@@ -1461,9 +1453,19 @@
     "error": "Une erreur est survenue. Réessayez.",
     "privacy": "Max. 1 email/semaine. Désabonnement en 1 clic."
   },
-  "cite": {
-    "label": "Citer",
-    "copied": "Citation copiée !"
+  "share": {
+    "share": "Partager",
+    "copyLink": "Copier le lien",
+    "copied": "Lien copié !",
+    "shareVia": "Partager via",
+    "email": "Email",
+    "cite": "Citer",
+    "standard": "Standard",
+    "academic": "Académique (APA)",
+    "copy": "Copier",
+    "citationCopied": "Citation copiée !",
+    "exportBibtex": "Exporter BibTeX",
+    "close": "Fermer"
   },
   "feedback": {
     "button": "Signaler une erreur",
@@ -1758,8 +1760,6 @@
     "area": "Superficie",
     "readMore": "Voir la fiche",
     "backToList": "Retour aux communes",
-    "share": "Partager",
-    "copied": "Lien copié !",
     "lastModified": "Dernière mise à jour : {date}",
     "sortBy": "Trier par",
     "sortName": "Nom",
@@ -1803,8 +1803,6 @@
     "subtitle": "Les dossiers qui façonnent l'avenir de Bruxelles, suivis et sourcés",
     "readMore": "Voir le dossier",
     "backToList": "Retour aux dossiers",
-    "share": "Partager",
-    "copied": "Lien copié !",
     "lastModified": "Dernière mise à jour : {date}",
     "estimatedBudget": "Budget estimé",
     "estimatedCostOfInaction": "Coût estimé de l'inaction",

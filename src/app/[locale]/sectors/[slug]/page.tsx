@@ -54,21 +54,24 @@ export default async function SectorDetailPage({
 
   const { card, isFallback } = result;
 
-  return <SectorDetail card={card} locale={locale} isFallback={isFallback} />;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  return <SectorDetail card={card} locale={locale} isFallback={isFallback} siteUrl={siteUrl} />;
 }
 
 function SectorDetail({
   card,
   locale,
   isFallback,
+  siteUrl,
 }: {
   card: ReturnType<typeof getSectorCard> extends { card: infer C } | null ? C : never;
   locale: string;
   isFallback: boolean;
+  siteUrl: string;
 }) {
   const t = useTranslations('sectors');
   const tb = useTranslations('breadcrumb');
-  const tCite = useTranslations('cite');
+  const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
 
@@ -89,16 +92,17 @@ function SectorDetail({
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
+            url={`${siteUrl}/${locale}/sectors/${card.slug}`}
             title={card.title}
-            text={card.humanImpact || card.title}
-            label={t('share')}
-            copiedLabel={t('copied')}
+            description={card.humanImpact || card.title}
+            labels={{ share: tShare('share'), copyLink: tShare('copyLink'), copied: tShare('copied'), shareVia: tShare('shareVia'), email: tShare('email') }}
           />
           <CiteButton
+            url={`${siteUrl}/${locale}/sectors/${card.slug}`}
             title={card.title}
-            lastModified={card.lastModified}
-            label={tCite('label')}
-            copiedLabel={tCite('copied')}
+            date={card.lastModified}
+            locale={locale}
+            labels={{ cite: tShare('cite'), standard: tShare('standard'), academic: tShare('academic'), copy: tShare('copy'), copied: tShare('citationCopied'), exportBibtex: tShare('exportBibtex'), close: tShare('close') }}
           />
         </div>
 

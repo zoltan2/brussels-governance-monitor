@@ -62,8 +62,6 @@
     "readMore": "Vollständige Karte lesen",
     "backToHome": "Zurück zur Startseite",
     "accessedAt": "abgerufen am {date}",
-    "share": "Teilen",
-    "copied": "Link kopiert!",
     "concreteImpactTitle": "Was das konkret bedeutet",
     "concreteImpact": {
       "budget": "Die Regierung bereitet den Haushalt 2026 vor, mit dem Ziel eines Haushaltsgleichgewichts bis 2029. Die Gesamtanstrengung wird auf 1,2 Milliarden EUR geschätzt (80 % Kürzungen, 20 % Einnahmen). Der Einstellungsstopp, in Kraft seit 2024, wird für die gesamte Legislatur verlängert. Die vorläufigen Zwölftel bleiben bis zur Abstimmung des Haushalts in Kraft.",
@@ -138,9 +136,7 @@
     "legalBasis": "Rechtsgrundlage",
     "timelineLabel": "Zeitrahmen",
     "readMore": "Vollständige Karte lesen",
-    "backToHome": "Zurück zur Startseite",
-    "share": "Teilen",
-    "copied": "Link kopiert!"
+    "backToHome": "Zurück zur Startseite"
   },
   "footer": {
     "project": "Ein gemeinnütziges Projekt, gehostet von Advice That SRL",
@@ -1432,9 +1428,7 @@
     "stakeholders": "Betroffene Akteure",
     "humanImpact": "Menschliche Auswirkungen",
     "readMore": "Vollständige Karte lesen",
-    "backToHome": "Zurück zur Startseite",
-    "share": "Teilen",
-    "copied": "Link kopiert!"
+    "backToHome": "Zurück zur Startseite"
   },
   "comparisons": {
     "title": "Vergleiche",
@@ -1447,9 +1441,7 @@
     "caveat": "Vergleichbarkeitsgrenzen",
     "source": "Quelle",
     "lastModified": "Zuletzt aktualisiert: {date}",
-    "noData": "Keine Vergleiche verfügbar.",
-    "share": "Teilen",
-    "copied": "Link kopiert!"
+    "noData": "Keine Vergleiche verfügbar."
   },
   "cardSubscribe": {
     "title": "Dieses Thema per E-Mail verfolgen",
@@ -1461,9 +1453,19 @@
     "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "privacy": "Max. 1 E-Mail/Woche. Abmeldung mit 1 Klick."
   },
-  "cite": {
-    "label": "Zitieren",
-    "copied": "Zitat kopiert!"
+  "share": {
+    "share": "Teilen",
+    "copyLink": "Link kopieren",
+    "copied": "Link kopiert!",
+    "shareVia": "Teilen über",
+    "email": "E-Mail",
+    "cite": "Zitieren",
+    "standard": "Standard",
+    "academic": "Akademisch (APA)",
+    "copy": "Kopieren",
+    "citationCopied": "Zitat kopiert!",
+    "exportBibtex": "BibTeX exportieren",
+    "close": "Schließen"
   },
   "feedback": {
     "button": "Fehler melden",
@@ -1739,8 +1741,6 @@
     "area": "Fläche",
     "readMore": "Details ansehen",
     "backToList": "Zurück zu den Gemeinden",
-    "share": "Teilen",
-    "copied": "Link kopiert!",
     "lastModified": "Zuletzt aktualisiert: {date}",
     "sortBy": "Sortieren nach",
     "sortName": "Name",
@@ -1784,8 +1784,6 @@
     "subtitle": "Die Dossiers, die die Zukunft Brüssels gestalten — verfolgt und belegt",
     "readMore": "Dossier ansehen",
     "backToList": "Zurück zu den Dossiers",
-    "share": "Teilen",
-    "copied": "Link kopiert!",
     "lastModified": "Zuletzt aktualisiert: {date}",
     "estimatedBudget": "Geschätztes Budget",
     "estimatedCostOfInaction": "Geschätzte Kosten des Nichthandelns",

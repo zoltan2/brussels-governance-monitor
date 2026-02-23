@@ -44,7 +44,7 @@ export async function generateMetadata({
     title: card.title,
     description: card.summary,
     path: `/dossiers/${slug}`,
-    ogParams: `title=${encodeURIComponent(card.title)}&type=dossier`,
+    ogParams: `title=${encodeURIComponent(card.title)}&type=dossier&date=${card.lastModified}&confidence=${card.confidenceLevel}${card.metrics.length > 0 ? `&stats=${encodeURIComponent(JSON.stringify(card.metrics.slice(0, 3).map((m) => ({ label: m.label, value: `${m.value}${m.unit ? ` ${m.unit}` : ''}` }))))}` : ''}`,
   });
 }
 
@@ -70,21 +70,24 @@ export default async function DossierDetailPage({
 
   const { card, isFallback } = result;
 
-  return <DossierDetail card={card} locale={locale as Locale} isFallback={isFallback} />;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  return <DossierDetail card={card} locale={locale as Locale} isFallback={isFallback} siteUrl={siteUrl} />;
 }
 
 function DossierDetail({
   card,
   locale,
   isFallback,
+  siteUrl,
 }: {
   card: ReturnType<typeof getDossierCard> extends { card: infer C } | null ? C : never;
   locale: Locale;
   isFallback: boolean;
+  siteUrl: string;
 }) {
   const t = useTranslations('dossiers');
   const tb = useTranslations('breadcrumb');
-  const tCite = useTranslations('cite');
+  const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
 
@@ -166,16 +169,17 @@ function DossierDetail({
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
+            url={`${siteUrl}/${locale}/dossiers/${card.slug}`}
             title={card.title}
-            text={card.summary}
-            label={t('share')}
-            copiedLabel={t('copied')}
+            description={card.summary}
+            labels={{ share: tShare('share'), copyLink: tShare('copyLink'), copied: tShare('copied'), shareVia: tShare('shareVia'), email: tShare('email') }}
           />
           <CiteButton
+            url={`${siteUrl}/${locale}/dossiers/${card.slug}`}
             title={card.title}
-            lastModified={card.lastModified}
-            label={tCite('label')}
-            copiedLabel={tCite('copied')}
+            date={card.lastModified}
+            locale={locale}
+            labels={{ cite: tShare('cite'), standard: tShare('standard'), academic: tShare('academic'), copy: tShare('copy'), copied: tShare('citationCopied'), exportBibtex: tShare('exportBibtex'), close: tShare('close') }}
           />
         </div>
 

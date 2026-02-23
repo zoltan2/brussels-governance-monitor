@@ -62,8 +62,6 @@
     "readMore": "Read the full card",
     "backToHome": "Back to home",
     "accessedAt": "accessed on {date}",
-    "share": "Share",
-    "copied": "Link copied!",
     "concreteImpactTitle": "What this means in practice",
     "concreteImpact": {
       "budget": "The government is preparing the 2026 budget, targeting a balanced budget by 2029. The total effort is estimated at EUR 1.2 billion (80% cuts, 20% revenue). The hiring freeze, in effect since 2024, is extended for the full legislature. Provisional twelfths remain in effect until the budget is voted.",
@@ -138,9 +136,7 @@
     "legalBasis": "Legal basis",
     "timelineLabel": "Timeline",
     "readMore": "Read the full card",
-    "backToHome": "Back to home",
-    "share": "Share",
-    "copied": "Link copied!"
+    "backToHome": "Back to home"
   },
   "footer": {
     "project": "A public interest project hosted by Advice That SRL",
@@ -1432,9 +1428,7 @@
     "stakeholders": "Stakeholders",
     "humanImpact": "Human impact",
     "readMore": "Read the full card",
-    "backToHome": "Back to home",
-    "share": "Share",
-    "copied": "Link copied!"
+    "backToHome": "Back to home"
   },
   "comparisons": {
     "title": "Comparisons",
@@ -1447,9 +1441,7 @@
     "caveat": "Comparability limitations",
     "source": "Source",
     "lastModified": "Last updated: {date}",
-    "noData": "No comparisons available.",
-    "share": "Share",
-    "copied": "Link copied!"
+    "noData": "No comparisons available."
   },
   "cardSubscribe": {
     "title": "Follow this topic by email",
@@ -1461,9 +1453,19 @@
     "error": "An error occurred. Please try again.",
     "privacy": "Max. 1 email/week. Unsubscribe in 1 click."
   },
-  "cite": {
-    "label": "Cite",
-    "copied": "Citation copied!"
+  "share": {
+    "share": "Share",
+    "copyLink": "Copy link",
+    "copied": "Link copied!",
+    "shareVia": "Share via",
+    "email": "Email",
+    "cite": "Cite",
+    "standard": "Standard",
+    "academic": "Academic (APA)",
+    "copy": "Copy",
+    "citationCopied": "Citation copied!",
+    "exportBibtex": "Export BibTeX",
+    "close": "Close"
   },
   "feedback": {
     "button": "Report an error",
@@ -1739,8 +1741,6 @@
     "area": "Area",
     "readMore": "View details",
     "backToList": "Back to municipalities",
-    "share": "Share",
-    "copied": "Link copied!",
     "lastModified": "Last updated: {date}",
     "sortBy": "Sort by",
     "sortName": "Name",
@@ -1784,8 +1784,6 @@
     "subtitle": "The dossiers shaping the future of Brussels, tracked and sourced",
     "readMore": "View dossier",
     "backToList": "Back to dossiers",
-    "share": "Share",
-    "copied": "Link copied!",
     "lastModified": "Last updated: {date}",
     "estimatedBudget": "Estimated budget",
     "estimatedCostOfInaction": "Estimated cost of inaction",

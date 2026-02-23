@@ -62,8 +62,6 @@
     "readMore": "Lees de volledige fiche",
     "backToHome": "Terug naar home",
     "accessedAt": "geraadpleegd op {date}",
-    "share": "Delen",
-    "copied": "Link gekopieerd!",
     "concreteImpactTitle": "Wat dit concreet betekent",
     "concreteImpact": {
       "budget": "De regering bereidt de begroting 2026 voor, met een doelstelling van begrotingsevenwicht in 2029. De totale inspanning wordt geraamd op 1,2 miljard EUR (80 % bezuinigingen, 20 % inkomsten). De aanwervingsstop, van kracht sinds 2024, wordt verlengd voor de hele legislatuur. De voorlopige twaalfden blijven van kracht tot de stemming van de begroting.",
@@ -138,9 +136,7 @@
     "legalBasis": "Wettelijke basis",
     "timelineLabel": "Termijn",
     "readMore": "Lees de volledige fiche",
-    "backToHome": "Terug naar home",
-    "share": "Delen",
-    "copied": "Link gekopieerd!"
+    "backToHome": "Terug naar home"
   },
   "footer": {
     "project": "Een project van algemeen belang gehost door Advice That SRL",
@@ -1432,9 +1428,7 @@
     "stakeholders": "Betrokken actoren",
     "humanImpact": "Menselijke impact",
     "readMore": "Lees de volledige fiche",
-    "backToHome": "Terug naar home",
-    "share": "Delen",
-    "copied": "Link gekopieerd!"
+    "backToHome": "Terug naar home"
   },
   "comparisons": {
     "title": "Vergelijkingen",
@@ -1447,9 +1441,7 @@
     "caveat": "Vergelijkbaarheidsbeperkingen",
     "source": "Bron",
     "lastModified": "Laatst bijgewerkt: {date}",
-    "noData": "Geen vergelijkingen beschikbaar.",
-    "share": "Delen",
-    "copied": "Link gekopieerd!"
+    "noData": "Geen vergelijkingen beschikbaar."
   },
   "cardSubscribe": {
     "title": "Volg dit domein per e-mail",
@@ -1461,9 +1453,19 @@
     "error": "Er is een fout opgetreden. Probeer het opnieuw.",
     "privacy": "Max. 1 e-mail/week. Uitschrijven met 1 klik."
   },
-  "cite": {
-    "label": "Citeren",
-    "copied": "Citaat gekopieerd!"
+  "share": {
+    "share": "Delen",
+    "copyLink": "Link kopiëren",
+    "copied": "Link gekopieerd!",
+    "shareVia": "Delen via",
+    "email": "E-mail",
+    "cite": "Citeren",
+    "standard": "Standaard",
+    "academic": "Academisch (APA)",
+    "copy": "Kopiëren",
+    "citationCopied": "Citaat gekopieerd!",
+    "exportBibtex": "BibTeX exporteren",
+    "close": "Sluiten"
   },
   "feedback": {
     "button": "Fout melden",
@@ -1758,8 +1760,6 @@
     "area": "Oppervlakte",
     "readMore": "Bekijk de fiche",
     "backToList": "Terug naar gemeenten",
-    "share": "Delen",
-    "copied": "Link gekopieerd!",
     "lastModified": "Laatst bijgewerkt: {date}",
     "sortBy": "Sorteren op",
     "sortName": "Naam",
@@ -1803,8 +1803,6 @@
     "subtitle": "De dossiers die de toekomst van Brussel vormgeven, gevolgd en onderbouwd",
     "readMore": "Bekijk het dossier",
     "backToList": "Terug naar dossiers",
-    "share": "Delen",
-    "copied": "Link gekopieerd!",
     "lastModified": "Laatst bijgewerkt: {date}",
     "estimatedBudget": "Geschat budget",
     "estimatedCostOfInaction": "Geschatte kosten van inactiviteit",

@@ -42,7 +42,7 @@ export async function generateMetadata({
     title: card.title,
     description: card.summary,
     path: `/domains/${slug}`,
-    ogParams: `title=${encodeURIComponent(card.title)}&type=domain&status=${card.status}`,
+    ogParams: `title=${encodeURIComponent(card.title)}&type=domain&status=${card.status}&date=${card.lastModified}&confidence=${card.confidenceLevel}${card.metrics.length > 0 ? `&stats=${encodeURIComponent(JSON.stringify(card.metrics.slice(0, 3).map((m) => ({ label: m.label, value: `${m.value}${m.unit ? ` ${m.unit}` : ''}` }))))}` : ''}`,
   });
 }
 
@@ -90,7 +90,7 @@ export default async function DomainDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} relatedDossiers={relatedDossiers} />
+      <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} relatedDossiers={relatedDossiers} siteUrl={siteUrl} />
     </>
   );
 }
@@ -101,16 +101,18 @@ function DomainDetail({
   isFallback,
   verification,
   relatedDossiers,
+  siteUrl,
 }: {
   card: ReturnType<typeof getDomainCard> extends { card: infer C } | null ? C : never;
   locale: string;
   isFallback: boolean;
   verification: ReturnType<typeof getLatestVerification>;
   relatedDossiers: ReturnType<typeof getDossiersForDomain>;
+  siteUrl: string;
 }) {
   const t = useTranslations('domains');
   const tb = useTranslations('breadcrumb');
-  const tCite = useTranslations('cite');
+  const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
 
@@ -151,16 +153,17 @@ function DomainDetail({
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
+            url={`${siteUrl}/${locale}/domains/${card.slug}`}
             title={card.title}
-            text={card.summary}
-            label={t('share')}
-            copiedLabel={t('copied')}
+            description={card.summary}
+            labels={{ share: tShare('share'), copyLink: tShare('copyLink'), copied: tShare('copied'), shareVia: tShare('shareVia'), email: tShare('email') }}
           />
           <CiteButton
+            url={`${siteUrl}/${locale}/domains/${card.slug}`}
             title={card.title}
-            lastModified={card.lastModified}
-            label={tCite('label')}
-            copiedLabel={tCite('copied')}
+            date={card.lastModified}
+            locale={locale}
+            labels={{ cite: tShare('cite'), standard: tShare('standard'), academic: tShare('academic'), copy: tShare('copy'), copied: tShare('citationCopied'), exportBibtex: tShare('exportBibtex'), close: tShare('close') }}
           />
         </div>
 

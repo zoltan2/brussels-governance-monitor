@@ -1,5 +1,65 @@
 [
   {
+    "date": "2026-02-23",
+    "type": "updated",
+    "section": "sectors",
+    "targetSlug": null,
+    "descriptions": {
+      "fr": "Mise à jour massive : 10 fiches sectorielles enrichies avec données février 2026. Construction (−1 402 entreprises), culture (FWB −12,9M), transport (Métro 3 4,76 Mrd), environnement (LEZ −55 % NOx), logement (SLRB 197M dette), numérique (300K vulnérables), associatif (5 000+ ASBL), éducation (10 000 places crèche manquantes), commerce (13,5 % vacance), santé (INAMI 41,3 Mrd).",
+      "nl": "Massale update: 10 sectorfiches verrijkt met data van februari 2026. Bouw (−1.402 bedrijven), cultuur (FWB −12,9M), transport (Metro 3 4,76 Mrd), milieu (LEZ −55% NOx), huisvesting (SLRB 197M schuld), digitaal (300K kwetsbaar), verenigingen (5.000+ VZW's), onderwijs (10.000 crèche-plaatsen tekort), handel (13,5% leegstand), gezondheid (RIZIV 41,3 Mrd).",
+      "en": "Major update: 10 sector cards enriched with February 2026 data. Construction (−1,402 companies), culture (FWB −12.9M), transport (Metro 3 EUR 4.76B), environment (LEZ −55% NOx), housing (SLRB EUR 197M debt), digital (300K vulnerable), nonprofit (5,000+ ASBL), education (10,000 childcare places missing), commerce (13.5% vacancy), health (INAMI EUR 41.3B).",
+      "de": "Großes Update: 10 Sektorkarten mit Daten vom Februar 2026 angereichert. Bau (−1.402 Unternehmen), Kultur (FWB −12,9M), Transport (Metro 3 4,76 Mrd), Umwelt (LEZ −55% NOx), Wohnen (SLRB 197M Schulden), Digital (300K gefährdet), Vereine (5.000+ VoG), Bildung (10.000 Krippenplätze fehlen), Handel (13,5% Leerstand), Gesundheit (INAMI 41,3 Mrd)."
+    }
+  },
+  {
+    "date": "2026-02-23",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "economy",
+    "descriptions": {
+      "fr": "Économie : contexte construction (−1 402 entreprises, permis au plus bas depuis 2012), premier Conseil des ministres (19/02), budget priorité #1.",
+      "nl": "Economie: bouwcontext (−1.402 bedrijven, vergunningen op laagste peil sinds 2012), eerste Ministerraad (19/02), budget prioriteit #1.",
+      "en": "Economy: construction context (−1,402 companies, permits at lowest since 2012), first Council of Ministers (19/02), budget priority #1.",
+      "de": "Wirtschaft: Baukontext (−1.402 Unternehmen, Genehmigungen auf Tiefstwert seit 2012), erster Ministerrat (19.02.), Budget Priorität #1."
+    }
+  },
+  {
+    "date": "2026-02-23",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "security",
+    "descriptions": {
+      "fr": "Sécurité : rapport annuel safe.brussels (données 2024) — criminalité stable (~157 000/an), drogues +33 %, armes à feu 92 incidents (8 décès), taux par habitant en baisse.",
+      "nl": "Veiligheid: jaarverslag safe.brussels (data 2024) — criminaliteit stabiel (~157.000/jaar), drugs +33%, vuurwapens 92 incidenten (8 doden), rate per inwoner daalt.",
+      "en": "Security: safe.brussels annual report (2024 data) — crime stable (~157,000/year), drugs +33%, firearms 92 incidents (8 deaths), per capita rate declining.",
+      "de": "Sicherheit: Jahresbericht safe.brussels (Daten 2024) — Kriminalität stabil (~157.000/Jahr), Drogen +33%, Schusswaffen 92 Vorfälle (8 Tote), Pro-Kopf-Rate sinkend."
+    }
+  },
+  {
+    "date": "2026-02-23",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "fusion-polices",
+    "descriptions": {
+      "fr": "Fusion polices : projet en commission Intérieur de la Chambre (10/02), réforme nationale 176→60 zones, vote attendu avant l'été 2026.",
+      "nl": "Politiefusie: wetsontwerp in commissie Binnenlandse Zaken van de Kamer (10/02), nationale hervorming 176→60 zones, stemming verwacht vóór zomer 2026.",
+      "en": "Police merger: bill presented to Interior Commission (10/02), national reform 176→60 zones, vote expected before summer 2026.",
+      "de": "Polizeifusion: Gesetzentwurf in der Innenkommission der Kammer (10.02.), nationale Reform 176→60 Zonen, Abstimmung vor Sommer 2026 erwartet."
+    }
+  },
+  {
+    "date": "2026-02-23",
+    "type": "updated",
+    "section": "sectors",
+    "targetSlug": "horeca",
+    "descriptions": {
+      "fr": "Horeca : TVA hôtel 6→12 % (1er mars) — complications de mise en œuvre (double tarif, mesures transitoires). Faillites record 2025 : 2 184 à Bruxelles, 5 631 emplois horeca perdus nationalement.",
+      "nl": "Horeca: btw hotel 6→12% (1 maart) — complicaties bij implementatie (dubbel tarief, overgangsmaatregelen). Record faillissementen 2025: 2.184 in Brussel, 5.631 horeca-banen verloren nationaal.",
+      "en": "Horeca: hotel VAT 6→12% (1 March) — implementation complications (dual rate, transitional measures). Record 2025 bankruptcies: 2,184 in Brussels, 5,631 horeca jobs lost nationally.",
+      "de": "Horeca: Hotel-MwSt. 6→12% (1. März) — Umsetzungskomplikationen (Doppeltarif, Übergangsmaßnahmen). Rekord-Insolvenzen 2025: 2.184 in Brüssel, 5.631 Horeca-Arbeitsplätze national verloren."
+    }
+  },
+  {
     "date": "2026-02-22",
     "type": "added",
     "section": "timeline",

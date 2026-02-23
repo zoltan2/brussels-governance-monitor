@@ -25,7 +25,9 @@ export async function generateMetadata({
   return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/faq' });
 }
 
-const QUESTION_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'] as const;
+/** q1-q7: current situation + general BGM. q8-q13: historical crisis section. */
+const CURRENT_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'] as const;
+const CRISIS_KEYS = ['q8', 'q9', 'q10', 'q11', 'q12', 'q13'] as const;
 
 export default async function FaqPage({
   params,
@@ -36,6 +38,20 @@ export default async function FaqPage({
   setRequestLocale(locale);
 
   return <FaqView />;
+}
+
+function FaqItem({ questionKey, t }: { questionKey: string; t: ReturnType<typeof useTranslations<'faq'>> }) {
+  const num = questionKey.slice(1);
+  return (
+    <details className="group rounded-lg border border-neutral-200 bg-white">
+      <summary className="cursor-pointer px-5 py-4 text-sm font-medium text-neutral-900 select-none hover:bg-neutral-50">
+        <span className="ml-1">{t(`questions.${questionKey}`)}</span>
+      </summary>
+      <div className="border-t border-neutral-100 px-5 py-4 text-sm leading-relaxed text-neutral-600">
+        {t(`questions.a${num}`)}
+      </div>
+    </details>
+  );
 }
 
 function FaqView() {
@@ -54,20 +70,22 @@ function FaqView() {
         <h1 className="text-2xl font-bold text-neutral-900">{t('title')}</h1>
         <p className="mt-1 mb-8 text-sm text-neutral-500">{t('subtitle')}</p>
 
-        <div className="space-y-6">
-          {QUESTION_KEYS.map((key) => (
-            <details
-              key={key}
-              className="group rounded-lg border border-neutral-200 bg-white"
-            >
-              <summary className="cursor-pointer px-5 py-4 text-sm font-medium text-neutral-900 select-none hover:bg-neutral-50">
-                <span className="ml-1">{t(`questions.${key}`)}</span>
-              </summary>
-              <div className="border-t border-neutral-100 px-5 py-4 text-sm leading-relaxed text-neutral-600">
-                {t(`questions.a${key.slice(1)}`)}
-              </div>
-            </details>
+        <div className="space-y-4">
+          {CURRENT_KEYS.map((key) => (
+            <FaqItem key={key} questionKey={key} t={t} />
           ))}
+        </div>
+
+        {/* Historical crisis section */}
+        <div className="mt-10">
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+            {t('crisisSectionTitle')}
+          </h2>
+          <div className="space-y-4">
+            {CRISIS_KEYS.map((key) => (
+              <FaqItem key={key} questionKey={key} t={t} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

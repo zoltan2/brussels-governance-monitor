@@ -6,6 +6,7 @@ import {
   getDigestEntry,
   getAllDigestWeeks,
   getAllDigestLangs,
+  getAdjacentDigestWeeks,
 } from '@/lib/content';
 import { MdxContent } from '@/components/mdx-content';
 
@@ -73,6 +74,15 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
 
   const verifiedLangs = ['fr', 'nl', 'en', 'de'];
   const availableLangs = getAllDigestLangs();
+
+  // Adjacent weeks for prev/next navigation
+  const { prev, next } = getAdjacentDigestWeeks(weekKey);
+  const prevUrl = prev
+    ? `/digest/${lang}/${prev.split('-w')[0]}/w${prev.split('-w')[1]}`
+    : null;
+  const nextUrl = next
+    ? `/digest/${lang}/${next.split('-w')[0]}/w${next.split('-w')[1]}`
+    : null;
 
   return (
     <>
@@ -175,6 +185,44 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
             &mdash; independent civic monitoring of Brussels governance.
           </p>
         </div>
+
+        {/* Prev/Next navigation */}
+        {(prevUrl || nextUrl) && (
+          <nav className="mt-8 flex items-center justify-between border-t border-neutral-200 pt-6">
+            {prevUrl ? (
+              <Link
+                href={prevUrl}
+                className="flex items-center gap-1.5 text-sm text-neutral-600 hover:text-brand-900"
+              >
+                <span aria-hidden="true">&larr;</span>
+                <span>
+                  Week {prev!.split('-w')[1]}
+                </span>
+              </Link>
+            ) : (
+              <span />
+            )}
+            <Link
+              href="/digest"
+              className="text-xs text-neutral-500 hover:text-neutral-700"
+            >
+              All editions
+            </Link>
+            {nextUrl ? (
+              <Link
+                href={nextUrl}
+                className="flex items-center gap-1.5 text-sm text-neutral-600 hover:text-brand-900"
+              >
+                <span>
+                  Week {next!.split('-w')[1]}
+                </span>
+                <span aria-hidden="true">&rarr;</span>
+              </Link>
+            ) : (
+              <span />
+            )}
+          </nav>
+        )}
       </article>
     </>
   );

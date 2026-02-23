@@ -953,3 +953,20 @@ export function getLatestDigestWeek(): string | null {
   const weeks = getAllDigestWeeks();
   return weeks.length > 0 ? weeks[0] : null;
 }
+
+/**
+ * Get adjacent (prev/next) digest weeks for navigation.
+ * Returns null for prev if this is the earliest week,
+ * and null for next if this is the latest week.
+ */
+export function getAdjacentDigestWeeks(
+  currentWeek: string,
+): { prev: string | null; next: string | null } {
+  const weeks = getAllDigestWeeks(); // sorted desc: latest first
+  const idx = weeks.indexOf(currentWeek);
+  if (idx === -1) return { prev: null, next: null };
+  return {
+    next: idx > 0 ? weeks[idx - 1]! : null, // newer = lower index
+    prev: idx < weeks.length - 1 ? weeks[idx + 1]! : null, // older = higher index
+  };
+}

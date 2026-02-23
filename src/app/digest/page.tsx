@@ -169,17 +169,25 @@ export default function DigestIndexPage() {
           <h2 className="mb-4 text-lg font-semibold text-neutral-800">
             Previous editions
           </h2>
-          <ul className="space-y-2">
+          <ul className="space-y-4">
             {allWeeks.slice(1).map((week) => {
               const [y, wn] = week.split('-w');
               return (
-                <li key={week}>
-                  <a
-                    href={`/digest/fr/${y}/w${wn}`}
-                    className="text-sm text-brand-700 underline underline-offset-2 hover:text-brand-900"
-                  >
+                <li key={week} className="flex flex-wrap items-baseline gap-2">
+                  <span className="text-sm font-medium text-neutral-700">
                     Week {wn} ({y})
-                  </a>
+                  </span>
+                  {['fr', 'nl', 'en', 'de'].map((code) =>
+                    availableLangs.includes(code) ? (
+                      <a
+                        key={code}
+                        href={`/digest/${code}/${y}/w${wn}`}
+                        className="rounded border border-neutral-200 px-1.5 py-0.5 text-xs text-neutral-600 hover:border-brand-700 hover:text-brand-900"
+                      >
+                        {code.toUpperCase()}
+                      </a>
+                    ) : null,
+                  )}
                 </li>
               );
             })}

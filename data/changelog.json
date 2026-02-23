@@ -1,6 +1,18 @@
 [
   {
     "date": "2026-02-23",
+    "type": "added",
+    "section": "dossiers",
+    "targetSlug": "data-centers-ia-energie",
+    "descriptions": {
+      "fr": "Nouveau dossier transversal : Data centers et IA — impact sur le système énergétique bruxellois. 3,2 TWh de consommation DC en Belgique (4 % du total national), KevlinX BRU01 opérationnel à Neder-Over-Heembeek, projections BCG 7-15,5 TWh en 2035, impact réseau Elia, consommation par requête IA.",
+      "nl": "Nieuw transversaal dossier: Datacenters en AI — impact op het Brusselse energiesysteem. 3,2 TWh datacenterverbruik in België (4 % van nationaal totaal), KevlinX BRU01 operationeel in Neder-Over-Heembeek, BCG-projecties 7-15,5 TWh in 2035, impact Elia-net, energieverbruik per AI-verzoek.",
+      "en": "New cross-cutting dossier: Data centres and AI — impact on the Brussels energy system. 3.2 TWh DC consumption in Belgium (4% of national total), KevlinX BRU01 operational in Neder-Over-Heembeek, BCG projections 7-15.5 TWh by 2035, Elia grid impact, energy consumption per AI query.",
+      "de": "Neues Querschnittsdossier: Rechenzentren und KI — Auswirkungen auf das Brüsseler Energiesystem. 3,2 TWh Rechenzentrenverbrauch in Belgien (4 % des nationalen Gesamtverbrauchs), KevlinX BRU01 in Neder-Over-Heembeek in Betrieb, BCG-Projektionen 7-15,5 TWh bis 2035, Elia-Netzauswirkungen, Energieverbrauch pro KI-Anfrage."
+    }
+  },
+  {
+    "date": "2026-02-23",
     "type": "updated",
     "section": "sectors",
     "targetSlug": null,

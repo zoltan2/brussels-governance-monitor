@@ -2,6 +2,60 @@
   "lastVeille": "2026-02-24",
   "entries": [
     {
+      "id": "2026-02-24-cocof-dpr-competences",
+      "date": "2026-02-24",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["institutional"],
+      "source": {
+        "label": "DH / Belga — Cocof : Hublet et Dilliès prêtent serment (23 fév. 2026)",
+        "url": "https://www.dhnet.be/regions/bruxelles/2026/02/23/les-ministres-du-college-de-la-cocof-ont-prete-serment-ce-dimanche-HRYF5FKPXJFK3NZ5PZYLMKMQAQ/",
+        "accessedAt": "2026-02-24"
+      },
+      "nextStep": {
+        "fr": "Vote de confiance au Parlement bruxellois (25/02). Budget 2026 fin mars.",
+        "nl": "Vertrouwensstemming in het Brussels Parlement (25/02). Begroting 2026 eind maart.",
+        "en": "Confidence vote in Brussels Parliament (25/02). 2026 budget end of March.",
+        "de": "Vertrauensabstimmung im Brüsseler Parlament (25.02.). Haushalt 2026 Ende März."
+      },
+      "descriptions": {
+        "fr": "DPR présentée au Parlement bruxellois (23/02). DPC Cocof présentée au Parlement francophone. Collège Cocof installé : Hublet (Emploi/Économie), Dilliès (Formation), Laaouej (Cohésion/Culture), Lalieux (Crèches/Santé). Présidence partagée : Vervoort (PS) jusqu'en nov. 2027, puis Kazadi (Engagés).",
+        "nl": "GBV voorgesteld in het Brussels Parlement (23/02). GBV Cocof voorgesteld in het Franstalig Parlement. Cocof-college geïnstalleerd: Hublet (Werk/Economie), Dilliès (Opleiding), Laaouej (Cohesie/Cultuur), Lalieux (Kinderopvang/Gezondheid). Gedeeld voorzitterschap: Vervoort (PS) tot nov. 2027, daarna Kazadi (Engagés).",
+        "en": "DPR presented to Brussels Parliament (23/02). Cocof DPC presented to French-speaking Parliament. Cocof college installed: Hublet (Employment/Economy), Dilliès (Training), Laaouej (Cohesion/Culture), Lalieux (Childcare/Health). Shared presidency: Vervoort (PS) until Nov 2027, then Kazadi (Engagés).",
+        "de": "RPE im Brüsseler Parlament vorgestellt (23.02.). Cocof-GPE im Frankophonen Parlament vorgestellt. Cocof-Kollegium installiert: Hublet (Arbeit/Wirtschaft), Dilliès (Ausbildung), Laaouej (Zusammenhalt/Kultur), Lalieux (Kinderbetreuung/Gesundheit). Geteilte Präsidentschaft: Vervoort (PS) bis Nov. 2027, dann Kazadi (Engagés)."
+      },
+      "promotedTo": "institutional",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-02-24-mobilite-partagee-dossier",
+      "date": "2026-02-24",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["mobility"],
+      "source": {
+        "label": "Conseil d'État — contentieux trottinettes (arrêt janv. 2026)",
+        "url": "https://www.lecho.be/dossiers/mobilite/le-conseil-d-etat-suspend-les-regles-bruxelloises-sur-les-trottinettes-electriques/10615363.html",
+        "accessedAt": "2026-02-24"
+      },
+      "nextStep": {
+        "fr": "Nouveau cadre réglementaire trottinettes attendu (2026). Expiration concession Villo! sept. 2026. Deadline zéro émission taxis 2027.",
+        "nl": "Nieuw regelgevend kader stepjes verwacht (2026). Vervallen concessie Villo! sept. 2026. Deadline nul-emissie taxi's 2027.",
+        "en": "New e-scooter regulatory framework expected (2026). Villo! concession expiry Sept. 2026. Zero-emission taxi deadline 2027.",
+        "de": "Neuer Regelungsrahmen für E-Roller erwartet (2026). Auslaufen der Villo!-Konzession Sept. 2026. Nullemissions-Taxifrist 2027."
+      },
+      "descriptions": {
+        "fr": "Nouveau dossier : mobilité partagée à Bruxelles. ~9 200 trottinettes (Lime/Dott/Bolt), cadre réglementaire suspendu par le Conseil d'État (janv. 2026). Villo! (360 stations, concession expire sept. 2026). Accidentologie en hausse : 541 blessés 2024, +62 % Q1 2025.",
+        "nl": "Nieuw dossier: deelmobiliteit in Brussel. ~9.200 steps (Lime/Dott/Bolt), regelgevend kader geschorst door de Raad van State (jan. 2026). Villo! (360 stations, concessie vervalt sept. 2026). Stijgende accidentologie: 541 gewonden 2024, +62% Q1 2025.",
+        "en": "New dossier: shared mobility in Brussels. ~9,200 e-scooters (Lime/Dott/Bolt), regulatory framework suspended by Council of State (Jan. 2026). Villo! (360 stations, concession expires Sept. 2026). Rising accident rates: 541 injured 2024, +62% Q1 2025.",
+        "de": "Neues Dossier: Geteilte Mobilität in Brüssel. ~9.200 E-Roller (Lime/Dott/Bolt), Regelungsrahmen vom Staatsrat ausgesetzt (Jan. 2026). Villo! (360 Stationen, Konzession läuft Sept. 2026 aus). Steigende Unfallzahlen: 541 Verletzte 2024, +62% Q1 2025."
+      },
+      "promotedTo": "mobilite-partagee",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
       "id": "2026-02-21-renolution-deblocage",
       "date": "2026-02-21",
       "confidence": "official",

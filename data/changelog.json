@@ -2,6 +2,24 @@
   {
     "date": "2026-02-25",
     "type": "updated",
+    "section": "sectors",
+    "targetSlug": "culture",
+    "descriptions": {
+      "fr": "Carte secteur culture enrichie : nouvelle section librairies et commerce du livre — données ICC (70 000 emplois, 13 Md EUR), ~30 librairies indépendantes (marge 1 %), Filigranes (quasi-faillite/renaissance), réorganisation Club, Foire du Livre record (85 000 visiteurs), menace TVA 9 %. 3 indicateurs ajoutés.",
+      "nl": "Cultuursectorkaart verrijkt: nieuwe sectie boekhandels en boekhandel — CCI-gegevens (70 000 banen, 13 Md EUR), ~30 onafhankelijke boekhandels (marge 1 %), Filigranes (bijna-faillissement/wedergeboorte), reorganisatie Club, recordboekenbeurs (85 000 bezoekers), btw-dreiging 9 %. 3 indicatoren toegevoegd.",
+      "en": "Culture sector card enriched: new bookstores and book trade section — CCI data (70,000 jobs, EUR 13bn), ~30 independent bookstores (1% margin), Filigranes (near-bankruptcy/revival), Club reorganisation, record Book Fair (85,000 visitors), VAT 9% threat. 3 indicators added.",
+      "de": "Kultursektorkarte bereichert: neuer Abschnitt Buchhandlungen und Buchhandel — KKW-Daten (70 000 Arbeitsplätze, 13 Mrd. EUR), ~30 unabhängige Buchhandlungen (1 % Marge), Filigranes (Beinahe-Insolvenz/Wiedergeburt), Club-Umstrukturierung, Rekord-Buchmesse (85 000 Besucher), MwSt.-Drohung 9 %. 3 Indikatoren hinzugefügt."
+    },
+    "summaries": {
+      "fr": "Carte culture enrichie — librairies, ICC, Filigranes, Foire du Livre, TVA",
+      "nl": "Cultuurkaart verrijkt — boekhandels, CCI, Filigranes, Boekenbeurs, btw",
+      "en": "Culture card enriched — bookstores, CCI, Filigranes, Book Fair, VAT",
+      "de": "Kulturkarte bereichert — Buchhandlungen, KKW, Filigranes, Buchmesse, MwSt."
+    }
+  },
+  {
+    "date": "2026-02-25",
+    "type": "updated",
     "section": "domains",
     "targetSlug": "employment",
     "descriptions": {

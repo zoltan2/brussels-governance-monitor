@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
-import { getDomainCard, getAllDomainSlugs, getLatestVerification, getDossiersForDomain } from '@/lib/content';
+import { getDomainCard, getAllDomainSlugs, getLatestVerification, getDossiersForDomain, getSectorsForDomain, getComparisonsForDomain, getGlossaryForDomain } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
@@ -18,8 +18,9 @@ import { VerificationBadge } from '@/components/verification-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { StatusAccordion } from '@/components/status-accordion';
 import { RelatedCards } from '@/components/related-cards';
-import { RelatedDossiers } from '@/components/related-dossiers';
 import { DomainTags } from '@/components/domain-tags';
+import { DomainHubNav } from '@/components/domain-hub-nav';
+import { TableOfContents } from '@/components/table-of-contents';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 export function generateStaticParams() {
@@ -67,6 +68,9 @@ export default async function DomainDetailPage({
   const { card, isFallback } = result;
   const verification = getLatestVerification(slug, 'domain', locale as Locale);
   const relatedDossiers = getDossiersForDomain(slug, locale as Locale);
+  const relatedSectors = getSectorsForDomain(slug, locale as Locale);
+  const relatedComparisons = getComparisonsForDomain(slug, locale as Locale);
+  const relatedGlossary = getGlossaryForDomain(slug, locale as Locale);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   const jsonLd = {
@@ -90,7 +94,7 @@ export default async function DomainDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} relatedDossiers={relatedDossiers} siteUrl={siteUrl} />
+      <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} relatedDossiers={relatedDossiers} relatedSectors={relatedSectors} relatedComparisons={relatedComparisons} relatedGlossary={relatedGlossary} siteUrl={siteUrl} />
     </>
   );
 }
@@ -101,6 +105,9 @@ function DomainDetail({
   isFallback,
   verification,
   relatedDossiers,
+  relatedSectors,
+  relatedComparisons,
+  relatedGlossary,
   siteUrl,
 }: {
   card: ReturnType<typeof getDomainCard> extends { card: infer C } | null ? C : never;
@@ -108,6 +115,9 @@ function DomainDetail({
   isFallback: boolean;
   verification: ReturnType<typeof getLatestVerification>;
   relatedDossiers: ReturnType<typeof getDossiersForDomain>;
+  relatedSectors: ReturnType<typeof getSectorsForDomain>;
+  relatedComparisons: ReturnType<typeof getComparisonsForDomain>;
+  relatedGlossary: ReturnType<typeof getGlossaryForDomain>;
   siteUrl: string;
 }) {
   const t = useTranslations('domains');
@@ -192,6 +202,14 @@ function DomainDetail({
 
         {card.summaryFalc && <FalcSummary summary={card.summaryFalc} />}
 
+        <DomainHubNav
+          locale={locale}
+          sectors={relatedSectors}
+          dossiers={relatedDossiers}
+          comparisons={relatedComparisons}
+          glossaryTerms={relatedGlossary}
+        />
+
         <div className="mb-6 rounded-lg border border-brand-200 bg-brand-50 p-4">
           <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-800">
             {t('concreteImpactTitle')}
@@ -224,7 +242,9 @@ function DomainDetail({
           </div>
         )}
 
-        <div className="mt-8" {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}>
+        <TableOfContents locale={locale} />
+
+        <div className="mt-8" data-mdx-content {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}>
           <MdxContent code={card.content} />
         </div>
 
@@ -264,9 +284,8 @@ function DomainDetail({
           </p>
         </div>
 
-        <RelatedDossiers dossiers={relatedDossiers} />
-
-        <RelatedCards domain={card.slug} />
+        {/* RelatedCards shown only when hub has no sectors (fallback for domains without sector cards) */}
+        {relatedSectors.length === 0 && <RelatedCards domain={card.slug} />}
 
         {verification && (
           <div className="mt-8">

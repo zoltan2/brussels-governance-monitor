@@ -553,6 +553,13 @@ export function getAllSectorSlugs(): string[] {
   return [...new Set(sectorCards.map((c) => c.slug))];
 }
 
+/**
+ * Get sector cards whose parentDomain matches a given domain slug.
+ */
+export function getSectorsForDomain(domain: string, locale: Locale): SectorCard[] {
+  return getSectorCards(locale).filter((s) => s.parentDomain === domain);
+}
+
 // ──────────────────────────────────────────────
 // Comparison Cards
 // ──────────────────────────────────────────────
@@ -598,6 +605,59 @@ export function getComparisonCard(
 export function getAllComparisonSlugs(): string[] {
   const { comparisonCards } = getCollections();
   return [...new Set(comparisonCards.map((c) => c.slug))];
+}
+
+/**
+ * Static domain→comparison mapping (POC).
+ * Will be replaced by a relatedDomains field on ComparisonCard schema.
+ */
+const comparisonDomainMap: Record<string, string[]> = {
+  housing: ['housing-cost-burden'],
+  budget: ['budget-management'],
+  mobility: ['public-transport-modal-split'],
+  employment: ['unemployment-capital-regions', 'employment-response'],
+  climate: ['ghg-emissions-capita'],
+  economy: ['gdp-per-capita-regions'],
+  social: ['poverty-capital-regions'],
+  institutional: ['formation-timeline'],
+};
+
+/**
+ * Get comparison cards related to a given domain slug.
+ */
+export function getComparisonsForDomain(domain: string, locale: Locale): ComparisonCard[] {
+  const slugs = comparisonDomainMap[domain] ?? [];
+  if (slugs.length === 0) return [];
+  return getComparisonCards(locale).filter((c) => slugs.includes(c.slug));
+}
+
+/**
+ * Static domain→glossary mapping (POC).
+ * Will be replaced by a relatedDomains field on GlossaryTerm schema.
+ */
+const glossaryDomainMap: Record<string, string[]> = {
+  housing: ['slrb', 'bruxelles-logement', 'fonds-du-logement', 'be-home', 'garantie-locative'],
+  budget: ['douziemes-provisoires', 'ordonnance'],
+  mobility: ['stib-mivb', 'good-move', 'lez'],
+  employment: ['actiris', 'bruxelles-formation', 'hub-brussels'],
+  climate: ['renolution', 'lez', 'plan-national-energie-climat'],
+  social: ['cpas', 'iriscare', 'cocom-ccc'],
+  security: ['zone-de-police', 'siamu'],
+  institutional: ['parlement-bruxellois', 'gouvernement-regional', 'double-majorite-linguistique', 'formateur'],
+  economy: ['hub-brussels', 'zone-franche-urbaine'],
+  cleanliness: ['abp', 'respect-brussels'],
+  'urban-planning': ['good-move'],
+  digital: ['hub-brussels'],
+  education: ['cocof', 'vgc', 'communaute-francaise', 'communaute-flamande'],
+};
+
+/**
+ * Get glossary terms related to a given domain slug.
+ */
+export function getGlossaryForDomain(domain: string, locale: Locale): GlossaryTerm[] {
+  const slugs = glossaryDomainMap[domain] ?? [];
+  if (slugs.length === 0) return [];
+  return getGlossaryTerms(locale).filter((t) => slugs.includes(t.slug));
 }
 
 // ──────────────────────────────────────────────

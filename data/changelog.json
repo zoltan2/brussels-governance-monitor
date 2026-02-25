@@ -2,6 +2,42 @@
   {
     "date": "2026-02-25",
     "type": "updated",
+    "section": "domains",
+    "targetSlug": "employment",
+    "descriptions": {
+      "fr": "Carte emploi : ajout cellule Actiris dédiée aux Zones Franches Urbaines (Port de Bruxelles + Audi Forest), engagement DPR déjà documenté dans la carte économie.",
+      "nl": "Werkgelegenheidskaart: toevoeging speciale Actiris-cel voor Stedelijke Vrijhandelszones (Haven van Brussel + Audi Forest), GBV-engagement reeds gedocumenteerd in de economiekaart.",
+      "en": "Employment card: added dedicated Actiris unit for Urban Free Zones (Port of Brussels + Audi Forest), DPR commitment already documented in economy card.",
+      "de": "Beschäftigungskarte: Actiris-Zelle für Urbane Freizonen hinzugefügt (Hafen von Brüssel + Audi Forest), DPR-Engagement bereits in der Wirtschaftskarte dokumentiert."
+    },
+    "summaries": {
+      "fr": "Carte emploi mise à jour — cellule Actiris Zones Franches",
+      "nl": "Werkgelegenheidskaart bijgewerkt — Actiris-cel Vrijhandelszones",
+      "en": "Employment card updated — Actiris Urban Free Zones unit",
+      "de": "Beschäftigungskarte aktualisiert — Actiris-Zelle Freizonen"
+    }
+  },
+  {
+    "date": "2026-02-25",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "urban-planning",
+    "descriptions": {
+      "fr": "Carte urbanisme : ajout guichet unique Fast-Track pour les Zones Franches Urbaines, engagement DPR déjà documenté dans la carte économie.",
+      "nl": "Stedenbouwkaart: toevoeging Fast-Track éénloket voor Stedelijke Vrijhandelszones, GBV-engagement reeds gedocumenteerd in de economiekaart.",
+      "en": "Urban planning card: added Fast-Track single window for Urban Free Zones, RPD commitment already documented in economy card.",
+      "de": "Städtebaukarte: Fast-Track-Einheitsschalter für Urbane Freizonen hinzugefügt, RPE-Engagement bereits in der Wirtschaftskarte dokumentiert."
+    },
+    "summaries": {
+      "fr": "Carte urbanisme mise à jour — guichet Fast-Track Zones Franches",
+      "nl": "Stedenbouwkaart bijgewerkt — Fast-Track éénloket Vrijhandelszones",
+      "en": "Urban planning card updated — Fast-Track single window Free Zones",
+      "de": "Städtebaukarte aktualisiert — Fast-Track-Schalter Freizonen"
+    }
+  },
+  {
+    "date": "2026-02-25",
+    "type": "updated",
     "section": "communes",
     "targetSlug": "woluwe-saint-pierre",
     "descriptions": {

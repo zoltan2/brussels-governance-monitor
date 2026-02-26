@@ -14,6 +14,7 @@ import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
+import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 export function generateStaticParams() {
@@ -165,6 +166,8 @@ function SectorDetail({
         <div className="mt-8">
           <MdxContent code={card.content} />
         </div>
+
+        <HeritageCallout slug={card.slug} locale={locale} type="sector" />
 
         {card.stakeholders.length > 0 && (
           <div className="mt-10 border-t border-neutral-200 pt-6">

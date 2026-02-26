@@ -7,7 +7,8 @@ const labels: Record<string, { title: string; cta: string }> = {
   de: { title: 'Geerbter Kontext (Juni 2024 \u2013 Februar 2026)', cta: 'Vollständigen Kontext lesen' },
 };
 
-const heritageSummaries: Record<string, Record<string, string>> = {
+/* ── Domain summaries (6 + 7 minor) ── */
+const domainSummaries: Record<string, Record<string, string>> = {
   fr: {
     budget: 'Durant 20 mois d\u2019affaires courantes, la Région a fonctionné en douzièmes provisoires. La dette a triplé (passant de 3,7 à 11,5 milliards EUR), les investissements ont été gelés et les communes ont accumulé des déficits.',
     mobility: 'Good Move, le Métro 3, la LEZ et les contrats de gestion de la STIB étaient bloqués ou en contentieux. Les infrastructures cyclables et les plans de circulation ont été suspendus.',
@@ -70,10 +71,73 @@ const heritageSummaries: Record<string, Record<string, string>> = {
   },
 };
 
-export function HeritageCallout({ domain, locale }: { domain: string; locale: string }) {
+/* ── Sector summaries (11 sectors) ── */
+const sectorSummaries: Record<string, Record<string, string>> = {
+  fr: {
+    nonprofit: 'Les conventions pluriannuelles expirées n\u2019ont pu être renouvelées, les agréments gelés et les subventions facultatives suspendues. Plus de 5 000 associations et 105 000 travailleurs non marchands ont été affectés.',
+    construction: 'Les PAD (Plans d\u2019Aménagement Directeur) étaient gelés, bloquant Neo, Gare du Midi, Delta et Casernes. Le secteur a perdu 1 402 entreprises en 2024, et 800 logements restaient bloqués par le moratoire sur les friches.',
+    'health-social': 'Les agréments Iriscare étaient gelés, les conventions non renouvelées et le plan sans-abri à l\u2019arrêt. Zéro nouvel agrément entre juin 2024 et février 2026, avec des listes d\u2019attente de plusieurs mois en santé mentale.',
+    horeca: 'Les subventions saisonnières, permis de terrasse et la politique touristique étaient gelés. Le secteur (9 000 établissements, 35 000 emplois) a subi 17 % des faillites régionales en 2025, aggravé par le doublement de la TVA hôtelière fédérale.',
+    culture: 'Les subventions culturelles régionales, le cofinancement des festivals et les budgets des centres culturels étaient gelés. Environ 300 institutions subsidiées et 15 000 emplois culturels affectés, avec des coupes de la FWB (\u22129,12M EUR).',
+    transport: 'Le plan d\u2019investissement STIB, les arbitrages régionaux du Métro 3 et les nouvelles lignes étaient bloqués. Le Métro 3 a été abandonné dans sa forme actuelle (coût : 4,76 Mrd EUR, dépassement de +477 %).',
+    education: 'Les nouveaux programmes de Bruxelles Formation, les rénovations d\u2019infrastructure scolaire et les projets bilingues pilotes étaient gelés. 28 % de chômage chez les jeunes, 10 000 places de crèche manquantes.',
+    digital: 'La stratégie Smart City, les subsides d\u2019inclusion numérique et les incitants startups étaient gelés. 40 % de vulnérabilité numérique (~300 000 Bruxellois), sans nouvelle impulsion politique.',
+    environment: 'Les primes Renolution chauffage, le Blue Deal et le plan biodiversité étaient gelés. 75 % des bâtiments bruxellois classés PEB D ou inférieur, 15 000 demandes Renolution en attente.',
+    commerce: 'Les programmes de revitalisation commerciale, les subsides et la stratégie économie de nuit étaient gelés. 13,5 % de cellules commerciales vides, 60 000 établissements sans soutien nouveau.',
+    'housing-sector': 'Les nouveaux programmes de logement social, la mise à jour de la régulation locative et le plan d\u2019investissement SLRB étaient bloqués. La SLRB, endettée à 197M EUR, a dû vendre les sites Ariane et Palais.',
+  },
+  nl: {
+    nonprofit: 'Verlopen meerjarige overeenkomsten konden niet worden vernieuwd, erkenningen werden bevroren en facultatieve subsidies opgeschort. Meer dan 5.000 verenigingen en 105.000 non-profitwerkers werden getroffen.',
+    construction: 'De RPA\u2019s (Richtplannen van Aanleg) waren bevroren, waardoor Neo, Zuidstation, Delta en Kazernes geblokkeerd bleven. De sector verloor 1.402 ondernemingen in 2024, en 800 woningen bleven geblokkeerd door het moratorium op braakliggende terreinen.',
+    'health-social': 'Iriscare-erkenningen waren bevroren, overeenkomsten niet vernieuwd en het daklozenplan stilgelegd. Nul nieuwe erkenningen tussen juni 2024 en februari 2026, met wachtlijsten van meerdere maanden in de geestelijke gezondheidszorg.',
+    horeca: 'Seizoenssubsidies, terrasvergunningen en toerismebeleid waren bevroren. De sector (9.000 vestigingen, 35.000 banen) leed onder 17 % van de regionale faillissementen in 2025, verergerd door de verdubbeling van het federale hotel-btw-tarief.',
+    culture: 'Regionale cultuursubsidies, festivalcofinanciering en budgetten van culturele centra waren bevroren. Circa 300 gesubsidieerde instellingen en 15.000 culturele banen getroffen, met bijkomende besparingen van de FWB (\u22129,12M EUR).',
+    transport: 'Het MIVB-investeringsplan, de regionale arbitrages voor Metro 3 en nieuwe lijnen waren geblokkeerd. Metro 3 werd in zijn huidige vorm verlaten (kosten: 4,76 Mrd EUR, overschrijding van +477 %).',
+    education: 'Nieuwe programma\u2019s van Bruxelles Formation, schoolinfrastructuurrenovaties en tweetalige pilootprojecten waren bevroren. 28 % jeugdwerkloosheid, 10.000 ontbrekende kinderopvangplaatsen.',
+    digital: 'De Smart City-strategie, digitale inclusiesubsidies en startup-incentives waren bevroren. 40 % digitale kwetsbaarheid (~300.000 Brusselaars), zonder nieuwe politieke impuls.',
+    environment: 'De Renolution-verwarmingspremies, het Blue Deal en het biodiversiteitsplan waren bevroren. 75 % van de Brusselse gebouwen is PEB D of lager geklasseerd, 15.000 Renolution-aanvragen in afwachting.',
+    commerce: 'Programma\u2019s voor commerciële revitalisering, subsidies en de strategie voor de nachteconomie waren bevroren. 13,5 % leegstand in commerciële panden, 60.000 handelszaken zonder nieuwe steun.',
+    'housing-sector': 'Nieuwe sociale huisvestingsprogramma\u2019s, de actualisering van de huurregulering en het BGHM-investeringsplan waren geblokkeerd. De BGHM, met een schuld van 197M EUR, moest de sites Ariane en Palais verkopen.',
+  },
+  en: {
+    nonprofit: 'Expired multi-year conventions could not be renewed, approvals were frozen and optional subsidies suspended. Over 5,000 associations and 105,000 non-market workers were affected.',
+    construction: 'Territorial Planning Documents (PAD) were frozen, blocking Neo, Gare du Midi, Delta and Casernes. The sector lost 1,402 companies in 2024, and 800 housing units remained blocked by the brownfield moratorium.',
+    'health-social': 'Iriscare approvals were frozen, conventions not renewed and the homelessness plan stalled. Zero new approvals between June 2024 and February 2026, with waiting lists of several months for mental health care.',
+    horeca: 'Seasonal subsidies, terrace permits and tourism policy were frozen. The sector (9,000 establishments, 35,000 jobs) suffered 17% of regional bankruptcies in 2025, worsened by the doubling of the federal hotel VAT rate.',
+    culture: 'Regional cultural subsidies, festival co-financing and cultural centre budgets were frozen. Around 300 subsidised institutions and 15,000 cultural jobs affected, with additional FWB cuts (\u22129.12M EUR).',
+    transport: 'The STIB investment plan, regional Metro 3 arbitrations and new lines were blocked. Metro 3 was abandoned in its current form (cost: 4.76 bn EUR, +477% overrun).',
+    education: 'New Bruxelles Formation programmes, school infrastructure renovations and bilingual pilot projects were frozen. 28% youth unemployment, 10,000 missing childcare places.',
+    digital: 'The Smart City strategy, digital inclusion subsidies and startup incentives were frozen. 40% digital vulnerability (~300,000 Brussels residents), without new policy impetus.',
+    environment: 'Renolution heating premiums, the Blue Deal and the biodiversity plan were frozen. 75% of Brussels buildings rated PEB D or lower, 15,000 Renolution applications pending.',
+    commerce: 'Commercial revitalisation programmes, subsidies and the night economy strategy were frozen. 13.5% empty retail units, 60,000 commercial establishments without new support.',
+    'housing-sector': 'New social housing programmes, rental regulation updates and the SLRB investment plan were blocked. The SLRB, indebted at 197M EUR, had to sell the Ariane and Palais sites.',
+  },
+  de: {
+    nonprofit: 'Abgelaufene Mehrjahresvereinbarungen konnten nicht erneuert werden, Genehmigungen wurden eingefroren und fakultative Zuschüsse ausgesetzt. Über 5.000 Vereine und 105.000 Non-Profit-Beschäftigte waren betroffen.',
+    construction: 'Die Richtpläne (PAD) waren eingefroren, wodurch Neo, Südbahnhof, Delta und Kasernen blockiert blieben. Der Sektor verlor 1.402 Unternehmen 2024, und 800 Wohnungen blieben durch das Brachflächen-Moratorium blockiert.',
+    'health-social': 'Iriscare-Genehmigungen waren eingefroren, Vereinbarungen nicht erneuert und der Obdachlosenplan gestoppt. Null neue Genehmigungen zwischen Juni 2024 und Februar 2026, mit mehrmonatigen Wartelisten für psychische Gesundheitsversorgung.',
+    horeca: 'Saisonsubventionen, Terrassengenehmigungen und Tourismuspolitik waren eingefroren. Der Sektor (9.000 Betriebe, 35.000 Arbeitsplätze) erlitt 17 % der regionalen Insolvenzen 2025, verschärft durch die Verdopplung des föderalen Hotel-MwSt-Satzes.',
+    culture: 'Regionale Kultursubventionen, Festivalkofinanzierung und Budgets der Kulturzentren waren eingefroren. Rund 300 subventionierte Einrichtungen und 15.000 Kulturarbeitsplätze betroffen, mit zusätzlichen FWB-Kürzungen (\u22129,12 Mio. EUR).',
+    transport: 'Der STIB-Investitionsplan, die regionalen Metro-3-Schiedsverfahren und neue Linien waren blockiert. Metro 3 wurde in seiner aktuellen Form aufgegeben (Kosten: 4,76 Mrd. EUR, +477 % Überschreitung).',
+    education: 'Neue Programme von Bruxelles Formation, Schulinfrastrukturrenovierungen und zweisprachige Pilotprojekte waren eingefroren. 28 % Jugendarbeitslosigkeit, 10.000 fehlende Kinderbetreuungsplätze.',
+    digital: 'Die Smart-City-Strategie, Zuschüsse für digitale Inklusion und Startup-Anreize waren eingefroren. 40 % digitale Verwundbarkeit (~300.000 Brüsseler), ohne neuen politischen Impuls.',
+    environment: 'Die Renolution-Heizungsprämien, der Blue Deal und der Biodiversitätsplan waren eingefroren. 75 % der Brüsseler Gebäude mit PEB D oder niedriger bewertet, 15.000 Renolution-Anträge ausstehend.',
+    commerce: 'Programme zur Handelsrevitalisierung, Subventionen und die Nachtökonomie-Strategie waren eingefroren. 13,5 % Leerstand bei Geschäftsflächen, 60.000 Handelsbetriebe ohne neue Unterstützung.',
+    'housing-sector': 'Neue Sozialwohnungsprogramme, Aktualisierungen der Mietregulierung und der SLRB-Investitionsplan waren blockiert. Die SLRB, mit 197 Mio. EUR verschuldet, musste die Standorte Ariane und Palais verkaufen.',
+  },
+};
+
+const archiveSlugs: Record<string, string> = {
+  domain: 'heritage-gouvernemental',
+  sector: 'heritage-sectoriel',
+};
+
+export function HeritageCallout({ slug, locale, type = 'domain' }: { slug: string; locale: string; type?: 'domain' | 'sector' }) {
   const l = labels[locale] ?? labels.fr;
-  const summaries = heritageSummaries[locale] ?? heritageSummaries.fr;
-  const summary = summaries[domain];
+  const summaries = type === 'sector'
+    ? (sectorSummaries[locale] ?? sectorSummaries.fr)
+    : (domainSummaries[locale] ?? domainSummaries.fr);
+  const summary = summaries[slug];
 
   if (!summary) return null;
 
@@ -87,7 +151,7 @@ export function HeritageCallout({ domain, locale }: { domain: string; locale: st
       </div>
       <p className="text-xs leading-relaxed text-neutral-600">{summary}</p>
       <Link
-        href={{ pathname: '/archives/[slug]', params: { slug: 'heritage-gouvernemental' } }}
+        href={{ pathname: '/archives/[slug]', params: { slug: archiveSlugs[type] } }}
         className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
       >
         {l.cta}

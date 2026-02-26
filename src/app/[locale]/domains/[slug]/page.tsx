@@ -251,7 +251,7 @@ function DomainDetail({
         </div>
 
         {/* ── HERITAGE CONTEXT — mini callout linking to archive ── */}
-        <HeritageCallout domain={card.slug} locale={locale} />
+        <HeritageCallout slug={card.slug} locale={locale} type="domain" />
 
         {/* ── CONCLUSION — concrete impact (after analysis, not before) ── */}
         <div className="mt-8 rounded-lg border border-brand-200 bg-brand-50 p-4">

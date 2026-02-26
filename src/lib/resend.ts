@@ -45,6 +45,7 @@ export const SECTOR_TOPICS = [
 ] as const;
 
 export const COMMUNE_TOPICS = [
+  'communes',
   'commune-anderlecht',
   'commune-auderghem',
   'commune-berchem-sainte-agathe',
@@ -81,6 +82,7 @@ export const DOSSIER_TOPICS = [
   'dossier-mobilite-partagee',
   'dossier-reforme-administration',
   'dossier-assemblees-citoyennes',
+  'dossier-faillites',
 ] as const;
 
 export const ENGAGEMENT_TOPICS = ['engagements'] as const;

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { getResend, EMAIL_FROM, TOPICS, getContact, updateContactPreferences, resendCall } from '@/lib/resend';
+import { getResend, EMAIL_FROM, getContact, updateContactPreferences, resendCall } from '@/lib/resend';
 import { generateConfirmToken } from '@/lib/token';
 import { rateLimit } from '@/lib/rate-limit';
 import ConfirmEmail from '@/emails/confirm';
@@ -8,7 +8,7 @@ import ConfirmEmail from '@/emails/confirm';
 const subscribeSchema = z.object({
   email: z.string().email(),
   locale: z.enum(['fr', 'nl', 'en', 'de']),
-  topics: z.array(z.enum(TOPICS)).min(1),
+  topics: z.array(z.string().min(1)).min(1),
   website: z.string().max(0).optional(), // honeypot field — must be empty
 });
 

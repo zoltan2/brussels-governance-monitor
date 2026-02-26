@@ -1,12 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import { z } from 'zod';
 
-import { TOPICS } from '@/lib/resend';
-
 const subscribeSchema = z.object({
   email: z.string().email(),
   locale: z.enum(['fr', 'nl', 'en', 'de']),
-  topics: z.array(z.enum(TOPICS)).min(1),
+  topics: z.array(z.string().min(1)).min(1),
 });
 
 describe('subscribe validation', () => {
@@ -73,13 +71,22 @@ describe('subscribe validation', () => {
     expect(result.success).toBe(false);
   });
 
-  it('rejects invalid topic', () => {
+  it('rejects empty string topic', () => {
     const result = subscribeSchema.safeParse({
       email: 'test@example.com',
       locale: 'fr',
-      topics: ['invalid-topic'],
+      topics: [''],
     });
     expect(result.success).toBe(false);
+  });
+
+  it('accepts any non-empty topic', () => {
+    const result = subscribeSchema.safeParse({
+      email: 'test@example.com',
+      locale: 'fr',
+      topics: ['dossiers', 'communes', 'any-future-card'],
+    });
+    expect(result.success).toBe(true);
   });
 
   it('rejects missing fields', () => {

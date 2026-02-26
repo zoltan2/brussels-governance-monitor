@@ -71,7 +71,31 @@ export default async function DossierDetailPage({
   const { card, isFallback } = result;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  return <DossierDetail card={card} locale={locale as Locale} isFallback={isFallback} siteUrl={siteUrl} />;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: card.title,
+    description: card.summary,
+    dateModified: card.lastModified,
+    url: `${siteUrl}/${locale}/dossiers/${slug}`,
+    inLanguage: locale,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Brussels Governance Monitor',
+      url: siteUrl,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <DossierDetail card={card} locale={locale as Locale} isFallback={isFallback} siteUrl={siteUrl} />
+    </>
+  );
 }
 
 function DossierDetail({

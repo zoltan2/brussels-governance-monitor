@@ -56,7 +56,34 @@ export default async function CommuneDetailPage({
   const { card, isFallback } = result;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  return <CommuneDetail card={card} locale={locale as Locale} isFallback={isFallback} siteUrl={siteUrl} />;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'GovernmentOrganization',
+    name: card.title,
+    description: `${card.mayor} (${card.mayorParty})`,
+    url: `${siteUrl}/${locale}/communes/${slug}`,
+    areaServed: {
+      '@type': 'City',
+      name: card.title,
+      address: { '@type': 'PostalAddress', postalCode: card.postalCode, addressCountry: 'BE' },
+    },
+    member: {
+      '@type': 'Person',
+      name: card.mayor,
+      jobTitle: 'Bourgmestre',
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <CommuneDetail card={card} locale={locale as Locale} isFallback={isFallback} siteUrl={siteUrl} />
+    </>
+  );
 }
 
 function CommuneDetail({

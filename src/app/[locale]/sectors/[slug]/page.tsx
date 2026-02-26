@@ -56,7 +56,31 @@ export default async function SectorDetailPage({
   const { card, isFallback } = result;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  return <SectorDetail card={card} locale={locale} isFallback={isFallback} siteUrl={siteUrl} />;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: card.title,
+    description: card.humanImpact || card.title,
+    dateModified: card.lastModified,
+    url: `${siteUrl}/${locale}/sectors/${slug}`,
+    inLanguage: locale,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Brussels Governance Monitor',
+      url: siteUrl,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <SectorDetail card={card} locale={locale} isFallback={isFallback} siteUrl={siteUrl} />
+    </>
+  );
 }
 
 function SectorDetail({

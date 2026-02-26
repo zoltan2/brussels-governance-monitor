@@ -68,7 +68,7 @@ export function buildMetadata({
   const truncatedDescription =
     description.length > 160 ? description.slice(0, 157) + '...' : description;
 
-  // Build hreflang alternates for all locales
+  // Build hreflang alternates for all locales + x-default
   const languages: Record<string, string> = {};
   for (const l of routing.locales) {
     if (path) {
@@ -77,6 +77,10 @@ export function buildMetadata({
       languages[l] = `${siteUrl}/${l}`;
     }
   }
+  // x-default → French version (primary Brussels audience)
+  languages['x-default'] = path
+    ? `${siteUrl}${getPathname({ locale: 'fr' as Locale, href: pathToHref(path) })}`
+    : `${siteUrl}/fr`;
 
   return {
     title,

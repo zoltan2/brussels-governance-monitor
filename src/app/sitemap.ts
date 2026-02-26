@@ -7,8 +7,15 @@ import {
   getAllComparisonSlugs,
   getAllCommuneSlugs,
   getAllDossierSlugs,
+  getAllArchiveSlugs,
   getAllDigestWeeks,
   getAllDigestLangs,
+  getDomainCard,
+  getSectorCard,
+  getComparisonCard,
+  getCommuneCard,
+  getDossierCard,
+  getArchivePage,
 } from '@/lib/content';
 import type { Locale } from '@/i18n/routing';
 
@@ -41,16 +48,26 @@ function buildAlternates(href: Href): Record<string, string> {
  * Create one sitemap entry per locale for a given href, each with
  * hreflang alternates pointing to all other language versions.
  */
+/**
+ * Helper: get real lastModified date from a content card.
+ * Falls back to current build time for static pages.
+ */
+function contentDate(dateStr?: string): Date {
+  return dateStr ? new Date(dateStr) : new Date();
+}
+
 function addLocalizedEntries(
   entries: MetadataRoute.Sitemap,
   href: Href,
-  options: { changeFrequency: 'daily' | 'weekly' | 'monthly'; priority: number }
+  options: { changeFrequency: 'daily' | 'weekly' | 'monthly'; priority: number },
+  lastModified?: Date
 ) {
   const alternates = buildAlternates(href);
+  const date = lastModified ?? new Date();
   for (const locale of locales) {
     entries.push({
       url: localizedUrl(locale, href),
-      lastModified: new Date(),
+      lastModified: date,
       changeFrequency: options.changeFrequency,
       priority: options.priority,
       alternates: { languages: alternates },
@@ -97,6 +114,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: '/transparency' },
     { href: '/accessibility' },
     { href: '/about' },
+    { href: '/radar' },
   ];
 
   for (const { href, priority, changeFrequency } of staticPaths) {
@@ -108,46 +126,67 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Domains ───────────────────────────────────────────────────
   for (const slug of getAllDomainSlugs()) {
+    const result = getDomainCard(slug, 'fr' as Locale);
     addLocalizedEntries(
       entries,
       { pathname: '/domains/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.8 }
+      { changeFrequency: 'weekly', priority: 0.8 },
+      contentDate(result?.card.lastModified)
     );
   }
 
   // ── Sectors ───────────────────────────────────────────────────
   for (const slug of getAllSectorSlugs()) {
+    const result = getSectorCard(slug, 'fr' as Locale);
     addLocalizedEntries(
       entries,
       { pathname: '/sectors/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.7 }
+      { changeFrequency: 'weekly', priority: 0.7 },
+      contentDate(result?.card.lastModified)
     );
   }
 
   // ── Comparisons ───────────────────────────────────────────────
   for (const slug of getAllComparisonSlugs()) {
+    const result = getComparisonCard(slug, 'fr' as Locale);
     addLocalizedEntries(
       entries,
       { pathname: '/comparisons/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.7 }
+      { changeFrequency: 'weekly', priority: 0.7 },
+      contentDate(result?.card.lastModified)
     );
   }
 
   // ── Communes ──────────────────────────────────────────────────
   for (const slug of getAllCommuneSlugs()) {
+    const result = getCommuneCard(slug, 'fr' as Locale);
     addLocalizedEntries(
       entries,
       { pathname: '/communes/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.7 }
+      { changeFrequency: 'weekly', priority: 0.7 },
+      contentDate(result?.card.lastModified)
     );
   }
 
   // ── Dossiers ──────────────────────────────────────────────────
   for (const slug of getAllDossierSlugs()) {
+    const result = getDossierCard(slug, 'fr' as Locale);
     addLocalizedEntries(
       entries,
       { pathname: '/dossiers/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.7 }
+      { changeFrequency: 'weekly', priority: 0.7 },
+      contentDate(result?.card.lastModified)
+    );
+  }
+
+  // ── Archives ────────────────────────────────────────────────
+  for (const slug of getAllArchiveSlugs()) {
+    const result = getArchivePage(slug, 'fr' as Locale);
+    addLocalizedEntries(
+      entries,
+      { pathname: '/archives/[slug]', params: { slug } },
+      { changeFrequency: 'monthly', priority: 0.5 },
+      contentDate(result?.page.lastModified)
     );
   }
 

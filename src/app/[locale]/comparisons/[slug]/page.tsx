@@ -53,7 +53,31 @@ export default async function ComparisonDetailPage({
   const { card, isFallback } = result;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  return <ComparisonDetail card={card} locale={locale} isFallback={isFallback} siteUrl={siteUrl} />;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: card.title,
+    description: card.indicator,
+    dateModified: card.lastModified,
+    url: `${siteUrl}/${locale}/comparisons/${slug}`,
+    inLanguage: locale,
+    creator: {
+      '@type': 'Organization',
+      name: 'Brussels Governance Monitor',
+      url: siteUrl,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ComparisonDetail card={card} locale={locale} isFallback={isFallback} siteUrl={siteUrl} />
+    </>
+  );
 }
 
 function ComparisonDetail({

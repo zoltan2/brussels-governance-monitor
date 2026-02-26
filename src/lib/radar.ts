@@ -20,12 +20,13 @@ const radarEntrySchema = z.object({
   cards: z.array(z.string()).min(1),
   source: z.object({
     label: z.string(),
-    url: z.string().url(),
+    url: z.string().url().nullable(),
     accessedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   }),
   nextStep: i18nString.optional(),
   descriptions: i18nString,
   promotedTo: z.string().nullable(),
+  promotedSection: z.enum(['domains', 'dossiers']).optional(),
   archivedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
   period: z.string().optional(),
 });
@@ -45,10 +46,11 @@ export interface LocalizedRadarEntry {
   confidence: 'official' | 'estimated' | 'unconfirmed';
   status: 'active' | 'confirmed' | 'archived';
   cards: string[];
-  source: { label: string; url: string; accessedAt: string };
+  source: { label: string; url: string | null; accessedAt: string };
   nextStep?: string;
   description: string;
   promotedTo: string | null;
+  promotedSection?: 'domains' | 'dossiers';
   archivedAt: string | null;
   period?: string;
 }
@@ -70,6 +72,7 @@ function localize(entry: RadarEntry, locale: Locale): LocalizedRadarEntry {
     nextStep: entry.nextStep?.[locale] || entry.nextStep?.fr,
     description: entry.descriptions[locale] || entry.descriptions.fr,
     promotedTo: entry.promotedTo,
+    promotedSection: entry.promotedSection,
     archivedAt: entry.archivedAt,
     period: entry.period,
   };

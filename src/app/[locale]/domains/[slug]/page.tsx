@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { getDomainCard, getAllDomainSlugs, getLatestVerification, getDossiersForDomain, getSectorsForDomain, getComparisonsForDomain, getGlossaryForDomain } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
-import { formatDate, cn } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
@@ -12,7 +12,6 @@ import { MdxContent } from '@/components/mdx-content';
 import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
-import { FalcSummary } from '@/components/falc-summary';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { VerificationBadge } from '@/components/verification-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
@@ -21,6 +20,9 @@ import { RelatedCards } from '@/components/related-cards';
 import { DomainTags } from '@/components/domain-tags';
 import { DomainHubNav } from '@/components/domain-hub-nav';
 import { TableOfContents } from '@/components/table-of-contents';
+import { CollapsibleMetrics } from '@/components/collapsible-metrics';
+import { CollapsibleSources } from '@/components/collapsible-sources';
+import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 export function generateStaticParams() {
@@ -126,9 +128,17 @@ function DomainDetail({
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
 
+  const falcLabels: Record<string, string> = {
+    fr: 'En bref (lecture facile)',
+    nl: 'Kort samengevat (eenvoudige taal)',
+    en: 'In brief (easy read)',
+    de: 'Kurz gefasst (leichte Sprache)',
+  };
+
   return (
     <article className="py-12">
       <div className="mx-auto max-w-5xl px-4">
+        {/* ── HEADER ── */}
         <Breadcrumb items={[
           { label: tb('home'), href: '/' },
           { label: tb('domains'), href: '/domains' },
@@ -138,7 +148,7 @@ function DomainDetail({
         {card.draft && <DraftBanner />}
         {isFallback && <FallbackBanner targetLocale={locale} />}
 
-        <div className="mt-4 mb-6">
+        <div className="mt-4 mb-4">
           <div className="flex items-start justify-between gap-3">
             <h1 className="text-3xl font-bold text-neutral-900">{card.title}</h1>
             <span
@@ -160,7 +170,19 @@ function DomainDetail({
           </div>
         </div>
 
+        {/* Metadata line: confidence + freshness + share + cite */}
         <div className="mb-4 flex flex-wrap items-center gap-3">
+          <span
+            className={cn(
+              'inline-flex items-center gap-1.5 text-xs font-medium',
+              card.confidenceLevel === 'official' && 'text-brand-700',
+              card.confidenceLevel === 'estimated' && 'text-status-delayed',
+              card.confidenceLevel === 'unconfirmed' && 'text-neutral-500',
+            )}
+            title={t(`confidenceCitizen.${card.confidenceLevel}`)}
+          >
+            {t(`confidence.${card.confidenceLevel}`)}
+          </span>
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
             url={`${siteUrl}/${locale}/domains/${card.slug}`}
@@ -177,31 +199,39 @@ function DomainDetail({
           />
         </div>
 
-        <div className="mb-2 inline-flex items-center gap-1.5 text-xs">
-          <span
-            className={cn(
-              'font-medium',
-              card.confidenceLevel === 'official' && 'text-brand-700',
-              card.confidenceLevel === 'estimated' && 'text-status-delayed',
-              card.confidenceLevel === 'unconfirmed' && 'text-neutral-500',
-            )}
-          >
-            {t(`confidence.${card.confidenceLevel}`)}
-          </span>
-          <span className="text-neutral-300">—</span>
-          <span className="text-neutral-500">
-            {t(`confidenceCitizen.${card.confidenceLevel}`)}
-          </span>
-        </div>
+        <p className="mb-3 text-base leading-relaxed text-neutral-600">{card.summary}</p>
 
-        <p className="mb-4 text-base leading-relaxed text-neutral-600">{card.summary}</p>
-
-        <div className="mb-6">
+        <div className="mb-4">
           <DomainTags domain={card.slug} locale={locale} />
         </div>
 
-        {card.summaryFalc && <FalcSummary summary={card.summaryFalc} />}
+        {/* FALC — collapsible, closed by default */}
+        {card.summaryFalc && (
+          <details className="mb-6 rounded-lg border border-blue-200 bg-blue-50/50">
+            <summary className="flex cursor-pointer items-center gap-2 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-brand-700">
+              <svg
+                className="h-4 w-4 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              {falcLabels[locale] ?? falcLabels.fr}
+            </summary>
+            <div className="border-t border-blue-200 px-4 pb-3 pt-2">
+              <p className="text-sm leading-relaxed text-neutral-700">{card.summaryFalc}</p>
+            </div>
+          </details>
+        )}
 
+        {/* ── NAVIGATION ── */}
         <DomainHubNav
           locale={locale}
           sectors={relatedSectors}
@@ -210,7 +240,21 @@ function DomainDetail({
           glossaryTerms={relatedGlossary}
         />
 
-        <div className="mb-6 rounded-lg border border-brand-200 bg-brand-50 p-4">
+        <TableOfContents locale={locale} />
+
+        {/* ── KEY METRICS — 5 visible, rest collapsible ── */}
+        <CollapsibleMetrics metrics={card.metrics} locale={locale} />
+
+        {/* ── EDITORIAL BODY ── */}
+        <div className="mt-4" data-mdx-content {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}>
+          <MdxContent code={card.content} />
+        </div>
+
+        {/* ── HERITAGE CONTEXT — mini callout linking to archive ── */}
+        <HeritageCallout domain={card.slug} locale={locale} />
+
+        {/* ── CONCLUSION — concrete impact (after analysis, not before) ── */}
+        <div className="mt-8 rounded-lg border border-brand-200 bg-brand-50 p-4">
           <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-800">
             {t('concreteImpactTitle')}
           </h2>
@@ -219,62 +263,7 @@ function DomainDetail({
           </p>
         </div>
 
-        {card.metrics.length > 0 && (
-          <div className="mb-8">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
-              {t('metrics')}
-            </h2>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {card.metrics.map((metric) => (
-                <div key={metric.label} className="rounded-lg bg-neutral-50 p-4">
-                  <p className="text-2xl font-bold text-brand-900">
-                    {metric.value}
-                    {metric.unit && (
-                      <span className="ml-1 text-sm font-normal text-neutral-500">
-                        {metric.unit}
-                      </span>
-                    )}
-                  </p>
-                  <p className="mt-1 text-xs text-neutral-500">{metric.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        <TableOfContents locale={locale} />
-
-        <div className="mt-8" data-mdx-content {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}>
-          <MdxContent code={card.content} />
-        </div>
-
-        <div className="mt-10 border-t border-neutral-200 pt-6">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
-            {t('sources')}
-          </h2>
-          <ul className="space-y-2">
-            {card.sources.map((source) => (
-              <li key={source.url} className="text-sm">
-                <a
-                  href={source.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-700 underline underline-offset-2 hover:text-brand-900"
-                >
-                  {source.label}
-                </a>
-                <time dateTime={source.accessedAt} className="ml-2 text-xs text-neutral-500">
-                  ({t('accessedAt', { date: formatDate(source.accessedAt, locale) })})
-                </time>
-              </li>
-            ))}
-          </ul>
-
-          <p className="mt-4 text-xs text-neutral-500">
-            <time dateTime={card.lastModified}>{t('lastModified', { date: formatDate(card.lastModified, locale) })}</time>
-          </p>
-        </div>
-
+        {/* ── TRANSPARENCY — "Ce que BGM ne dit pas" (before sources) ── */}
         <div className="mt-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
           <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
             {t('notSaidTitle')}
@@ -284,7 +273,14 @@ function DomainDetail({
           </p>
         </div>
 
-        {/* RelatedCards shown only when hub has no sectors (fallback for domains without sector cards) */}
+        {/* ── SOURCES — collapsible (5 visible, expand all) ── */}
+        <CollapsibleSources
+          sources={card.sources}
+          lastModified={card.lastModified}
+          locale={locale}
+        />
+
+        {/* ── FOOTER ── */}
         {relatedSectors.length === 0 && <RelatedCards domain={card.slug} />}
 
         {verification && (

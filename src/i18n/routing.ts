@@ -232,6 +232,12 @@ export const routing = defineRouting({
     '/radar': '/radar',
     '/dossiers': '/dossiers',
     '/dossiers/[slug]': '/dossiers/[slug]',
+    '/archives/[slug]': {
+      fr: '/archives/[slug]',
+      nl: '/archief/[slug]',
+      en: '/archives/[slug]',
+      de: '/archiv/[slug]',
+    },
   },
 });
 

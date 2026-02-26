@@ -9,7 +9,7 @@ interface MdxContentProps {
 
 const sharedComponents = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="mb-3 mt-8 text-xl font-semibold text-neutral-900" {...props} />
+    <h2 className="mb-3 mt-10 border-b border-neutral-200 pb-2 text-lg font-bold text-neutral-900" {...props} />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3 className="mb-2 mt-6 text-lg font-semibold text-neutral-800" {...props} />

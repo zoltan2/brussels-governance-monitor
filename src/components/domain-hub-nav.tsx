@@ -58,10 +58,10 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
             )}
             <div className="mt-2 flex gap-3 text-[10px] text-neutral-400">
               {s.frozenMechanisms.length > 0 && (
-                <span>{s.frozenMechanisms.length} {locale === 'fr' ? 'méc. gelés' : locale === 'nl' ? 'bevr. mech.' : locale === 'de' ? 'eingefr. Mech.' : 'frozen mech.'}</span>
+                <span>{s.frozenMechanisms.length} {locale === 'fr' ? 'dispositifs suspendus' : locale === 'nl' ? 'opgeschorte regelingen' : locale === 'de' ? 'ausgesetzte Maßnahmen' : 'suspended measures'}</span>
               )}
               {s.activeMechanisms.length > 0 && (
-                <span>{s.activeMechanisms.length} {locale === 'fr' ? 'méc. actifs' : locale === 'nl' ? 'act. mech.' : locale === 'de' ? 'akt. Mech.' : 'active mech.'}</span>
+                <span>{s.activeMechanisms.length} {locale === 'fr' ? 'dispositifs actifs' : locale === 'nl' ? 'actieve regelingen' : locale === 'de' ? 'aktive Maßnahmen' : 'active measures'}</span>
               )}
             </div>
           </Link>

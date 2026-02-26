@@ -481,6 +481,28 @@ const comparisonCards = defineCollection({
     })),
 });
 
+// ──────────────────────────────────────────────
+// Collection: Archive Pages (frozen historical content)
+// ──────────────────────────────────────────────
+const archivePages = defineCollection({
+  name: 'ArchivePage',
+  pattern: 'archive-pages/*.mdx',
+  schema: s
+    .object({
+      title: s.string().max(200),
+      slug: s.string(),
+      locale: localeEnum,
+      summary: s.string().max(500),
+      period: s.string(),
+      lastModified: s.isodate(),
+      content: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      permalink: `/archives/${data.slug}`,
+    })),
+});
+
 export default defineConfig({
   root: 'content',
   output: {
@@ -503,5 +525,6 @@ export default defineConfig({
     communeCards,
     dossierCards,
     digestEntries,
+    archivePages,
   },
 });

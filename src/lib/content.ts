@@ -259,6 +259,7 @@ interface VeliteCollections {
   communeCards: CommuneCard[];
   dossierCards: DossierCard[];
   digestEntries: DigestEntry[];
+  archivePages: ArchivePage[];
 }
 
 function getCollections(): VeliteCollections {
@@ -279,6 +280,7 @@ function getCollections(): VeliteCollections {
       communeCards: [],
       dossierCards: [],
       digestEntries: [],
+      archivePages: [],
     };
   }
 }
@@ -1029,4 +1031,40 @@ export function getAdjacentDigestWeeks(
     next: idx > 0 ? weeks[idx - 1]! : null, // newer = lower index
     prev: idx < weeks.length - 1 ? weeks[idx + 1]! : null, // older = higher index
   };
+}
+
+// ──────────────────────────────────────────────
+// Archive Pages
+// ──────────────────────────────────────────────
+
+export interface ArchivePage {
+  title: string;
+  slug: string;
+  locale: string;
+  summary: string;
+  period: string;
+  lastModified: string;
+  content: string;
+  permalink: string;
+}
+
+export function getArchivePage(
+  slug: string,
+  locale: Locale,
+): { page: ArchivePage; isFallback: boolean } | null {
+  const { archivePages } = getCollections();
+  const exact = archivePages.find(
+    (p: ArchivePage) => p.slug === slug && p.locale === locale,
+  );
+  if (exact) return { page: exact, isFallback: false };
+  const fallback = archivePages.find(
+    (p: ArchivePage) => p.slug === slug && p.locale === 'fr',
+  );
+  if (fallback) return { page: fallback, isFallback: true };
+  return null;
+}
+
+export function getAllArchiveSlugs(): string[] {
+  const { archivePages } = getCollections();
+  return [...new Set(archivePages.map((p: ArchivePage) => p.slug))];
 }

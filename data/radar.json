@@ -1,11 +1,38 @@
 {
-  "lastVeille": "2026-02-24",
+  "lastVeille": "2026-02-26",
   "entries": [
+    {
+      "id": "2026-02-26-stib-mivb-schuman-bus",
+      "date": "2026-02-26",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["mobility"],
+      "source": {
+        "label": "BRUZZ — MIVB-bussen keren niet terug naar Schumanplein (25 fév. 2026)",
+        "url": "https://www.bruzz.be/actua/mobiliteit/mivb-bussen-keren-ook-na-heraanleg-niet-terug-naar-schumanplein-2026-02-25",
+        "accessedAt": "2026-02-26"
+      },
+      "nextStep": {
+        "fr": "Fin des travaux Schumanplein prévue fin 2026. Suivi impact accessibilité axe européen.",
+        "nl": "Einde werken Schumanplein verwacht eind 2026. Opvolging impact bereikbaarheid Europese as.",
+        "en": "Schumanplein works completion expected end of 2026. Monitoring accessibility impact on European axis.",
+        "de": "Abschluss der Arbeiten am Schumanplein voraussichtlich Ende 2026. Überwachung der Auswirkungen auf die Erreichbarkeit der europäischen Achse."
+      },
+      "descriptions": {
+        "fr": "Les bus STIB-MIVB ne reviendront pas au Schumanplein après les travaux de réaménagement. 5 lignes définitivement détournées via Maalbeek. Le système de poteaux rétractables prévu a été abandonné (trop complexe). Beliris avait pourtant commencé l'installation de l'armature composite.",
+        "nl": "De MIVB-bussen keren niet terug naar het Schumanplein na de heraanlegwerken. 5 lijnen definitief omgeleid via Maalbeek. Het geplande systeem van verzinkbare paaltjes is geschrapt (te complex). Beliris was nochtans al begonnen met de installatie van vezelwapening.",
+        "en": "STIB-MIVB buses will not return to Schumanplein after redevelopment works. 5 lines permanently rerouted via Maalbeek. The planned retractable bollard system was abandoned (too complex). Beliris had already started installing composite reinforcement.",
+        "de": "STIB-MIVB-Busse kehren nach den Umbauarbeiten nicht zum Schumanplein zurück. 5 Linien dauerhaft über Maalbeek umgeleitet. Das geplante System versenkbarer Poller wurde aufgegeben (zu komplex). Beliris hatte bereits mit der Installation der Verbundbewehrung begonnen."
+      },
+      "promotedTo": "mobility",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-02-24-cocof-dpr-competences",
       "date": "2026-02-24",
       "confidence": "official",
-      "status": "active",
+      "status": "archived",
       "cards": ["institutional"],
       "source": {
         "label": "DH / Belga — Cocof : Hublet et Dilliès prêtent serment (23 fév. 2026)",
@@ -25,14 +52,14 @@
         "de": "RPE im Brüsseler Parlament vorgestellt (23.02.). Cocof-GPE im Frankophonen Parlament vorgestellt. Cocof-Kollegium installiert: Hublet (Arbeit/Wirtschaft), Dilliès (Ausbildung), Laaouej (Zusammenhalt/Kultur), Lalieux (Kinderbetreuung/Gesundheit). Geteilte Präsidentschaft: Vervoort (PS) bis Nov. 2027, dann Kazadi (Engagés)."
       },
       "promotedTo": "institutional",
-      "archivedAt": null,
+      "archivedAt": "2026-02-24",
       "period": "gouvernement-2026"
     },
     {
       "id": "2026-02-24-mobilite-partagee-dossier",
       "date": "2026-02-24",
       "confidence": "official",
-      "status": "active",
+      "status": "archived",
       "cards": ["mobility"],
       "source": {
         "label": "Conseil d'État — contentieux trottinettes (arrêt janv. 2026)",
@@ -52,14 +79,15 @@
         "de": "Neues Dossier: Geteilte Mobilität in Brüssel. ~9.200 E-Roller (Lime/Dott/Bolt), Regelungsrahmen vom Staatsrat ausgesetzt (Jan. 2026). Villo! (360 Stationen, Konzession läuft Sept. 2026 aus). Steigende Unfallzahlen: 541 Verletzte 2024, +62% Q1 2025."
       },
       "promotedTo": "mobilite-partagee",
-      "archivedAt": null,
+      "promotedSection": "dossiers",
+      "archivedAt": "2026-02-24",
       "period": "gouvernement-2026"
     },
     {
       "id": "2026-02-21-renolution-deblocage",
       "date": "2026-02-21",
       "confidence": "official",
-      "status": "active",
+      "status": "archived",
       "cards": ["housing"],
       "source": {
         "label": "VRT NWS",
@@ -79,7 +107,7 @@
         "de": "Freigabe von 56M EUR (50M Urban.Brussels + 6M Leefmilieu Brussel) zur Abwicklung der Renolution-Anträge. 2.692 Anträge genehmigt (~41M EUR), 600+ in Bearbeitung. Zahlungen vor Ende 2026. Zinslose Darlehen ab 2027 (66M EUR/Jahr)."
       },
       "promotedTo": null,
-      "archivedAt": null,
+      "archivedAt": "2026-02-24",
       "period": "gouvernement-2026"
     },
     {
@@ -248,7 +276,7 @@
       "id": "2026-02-17-depots-clandestins",
       "date": "2026-02-22",
       "confidence": "official",
-      "status": "active",
+      "status": "archived",
       "cards": ["cleanliness"],
       "source": {
         "label": "RTBF — Dépôts clandestins : 12M EUR d'amendes en 2025",
@@ -268,7 +296,7 @@
         "de": "7.731 Bußgelder 2025 (+61%), davon 36,7% gegen Nicht-Einwohner (« Abfalltourismus »). Gesamtbetrag: ~12M EUR. Müllsäcke 10x billiger in Brüssel. Die Region plant Unterflurcontainer und intelligente Kameras."
       },
       "promotedTo": null,
-      "archivedAt": null,
+      "archivedAt": "2026-02-24",
       "period": "gouvernement-2026"
     },
     {

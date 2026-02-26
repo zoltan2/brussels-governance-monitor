@@ -67,12 +67,20 @@ export const COMMUNE_TOPICS = [
 ] as const;
 
 export const DOSSIER_TOPICS = [
+  'dossiers',
   'dossier-slrb',
   'dossier-lez',
   'dossier-vivaqua',
   'dossier-metro-3',
   'dossier-good-move',
   'dossier-plan-securite',
+  'dossier-fusion-polices',
+  'dossier-seniors',
+  'dossier-accessibilite-pmr',
+  'dossier-data-centers',
+  'dossier-mobilite-partagee',
+  'dossier-reforme-administration',
+  'dossier-assemblees-citoyennes',
 ] as const;
 
 export const ENGAGEMENT_TOPICS = ['engagements'] as const;

@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-02-27",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "institutional",
+    "descriptions": {
+      "fr": "Masterplan Bilinguisme documenté sur la carte Institutionnel : plans linguistiques obligatoires pour les hôpitaux, financement formations administration, accompagnement communes/CPAS, test linguistique Actiris. Contexte : totaalplan Van Achter (Communauté flamande) en parallèle. 2 nouvelles sources ajoutées (VRT NWS, BRUZZ).",
+      "nl": "Masterplan Tweetaligheid gedocumenteerd op institutionele kaart: verplichte taalbeleidsplannen ziekenhuizen, extra financiering taalopleidingen bestuur, begeleiding gemeenten/OCMW's, Actiris-taaltest. Context: totaalplan Van Achter (Vlaamse Gemeenschap) parallel. 2 nieuwe bronnen (VRT NWS, BRUZZ).",
+      "en": "Bilingualism Masterplan documented on Institutional card: mandatory hospital language policy plans, admin training funding, municipality/CPAS guidance, Actiris language test. Context: parallel Van Achter totaalplan (Flemish Community). 2 new sources added (VRT NWS, BRUZZ).",
+      "de": "Masterplan Zweisprachigkeit auf institutioneller Karte dokumentiert: verpflichtende Sprachpolitikpläne Krankenhäuser, Finanzierung Verwaltungsschulungen, Begleitung Gemeinden/ÖSHZ, Actiris-Sprachtest. Kontext: paralleler Totaalplan Van Achter (Flämische Gemeinschaft). 2 neue Quellen (VRT NWS, BRUZZ)."
+    },
+    "summaries": {
+      "fr": "Carte Institutionnel — Masterplan Bilinguisme (hôpitaux, administration, communes)",
+      "nl": "Institutionele kaart — Masterplan Tweetaligheid (ziekenhuizen, bestuur, gemeenten)",
+      "en": "Institutional card — Bilingualism Masterplan (hospitals, administration, municipalities)",
+      "de": "Institutionelle Karte — Masterplan Zweisprachigkeit (Krankenhäuser, Verwaltung, Gemeinden)"
+    }
+  },
+  {
+    "date": "2026-02-27",
     "type": "added",
     "section": "dossiers",
     "targetSlug": "acs",

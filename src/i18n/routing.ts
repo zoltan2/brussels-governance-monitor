@@ -238,6 +238,12 @@ export const routing = defineRouting({
       en: '/archives/[slug]',
       de: '/archiv/[slug]',
     },
+    '/press': {
+      fr: '/presse',
+      nl: '/pers',
+      en: '/press',
+      de: '/presse',
+    },
   },
 });
 

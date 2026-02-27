@@ -168,7 +168,8 @@
     "communes": "Gemeenten",
     "dossiers": "Dossiers",
     "changelog": "Wijzigingen",
-    "radar": "Radar"
+    "radar": "Radar",
+    "press": "Pers"
   },
   "locale": {
     "switchTo": "Taal wijzigen",
@@ -1640,7 +1641,8 @@
     "dashboard": "Engagementen",
     "subscribe": "Inschrijven",
     "about": "Over ons",
-    "radar": "Radar"
+    "radar": "Radar",
+    "press": "Pers"
   },
   "understand": {
     "title": "Begrijpen",
@@ -1710,6 +1712,18 @@
       "dossiers": "Dossiers",
       "site": "Site"
     }
+  },
+  "press": {
+    "pageTitle": "Persoverzicht",
+    "pageSubtitle": "Zij schrijven over governance.brussels",
+    "intro": "governance.brussels is een onafhankelijk burgerproject. Hier vindt u artikelen, citaten en vermeldingen in de pers en media.",
+    "types": {
+      "feature": "Artikel",
+      "citation": "Citaat",
+      "mention": "Vermelding"
+    },
+    "by": "door",
+    "readArticle": "Artikel lezen"
   },
   "accessibility": {
     "falcLabel": "Kort samengevat (eenvoudig lezen)",

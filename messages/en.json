@@ -168,7 +168,8 @@
     "communes": "Municipalities",
     "dossiers": "Dossiers",
     "changelog": "Updates",
-    "radar": "Radar"
+    "radar": "Radar",
+    "press": "Press"
   },
   "locale": {
     "switchTo": "Change language",
@@ -1640,7 +1641,8 @@
     "dashboard": "Commitments",
     "subscribe": "Subscribe",
     "about": "About",
-    "radar": "Radar"
+    "radar": "Radar",
+    "press": "Press"
   },
   "understand": {
     "title": "Understand",
@@ -1710,6 +1712,18 @@
       "dossiers": "Dossiers",
       "site": "Site"
     }
+  },
+  "press": {
+    "pageTitle": "Press coverage",
+    "pageSubtitle": "They write about governance.brussels",
+    "intro": "governance.brussels is an independent citizen project. Here are the articles, citations and mentions covering it in the press and media.",
+    "types": {
+      "feature": "Article",
+      "citation": "Citation",
+      "mention": "Mention"
+    },
+    "by": "by",
+    "readArticle": "Read article"
   },
   "accessibility": {
     "falcLabel": "In brief (easy read)",

@@ -168,7 +168,8 @@
     "communes": "Gemeinden",
     "dossiers": "Dossiers",
     "changelog": "Änderungen",
-    "radar": "Radar"
+    "radar": "Radar",
+    "press": "Presse"
   },
   "locale": {
     "switchTo": "Sprache ändern",
@@ -1640,7 +1641,8 @@
     "dashboard": "Verpflichtungen",
     "subscribe": "Abonnieren",
     "about": "Über uns",
-    "radar": "Radar"
+    "radar": "Radar",
+    "press": "Presse"
   },
   "understand": {
     "title": "Verstehen",
@@ -1710,6 +1712,18 @@
       "dossiers": "Dossiers",
       "site": "Website"
     }
+  },
+  "press": {
+    "pageTitle": "Pressespiegel",
+    "pageSubtitle": "Sie berichten über governance.brussels",
+    "intro": "governance.brussels ist ein unabhängiges Bürgerprojekt. Hier finden Sie Artikel, Zitate und Erwähnungen in Presse und Medien.",
+    "types": {
+      "feature": "Artikel",
+      "citation": "Zitat",
+      "mention": "Erwähnung"
+    },
+    "by": "von",
+    "readArticle": "Artikel lesen"
   },
   "accessibility": {
     "falcLabel": "Kurz zusammengefasst (leichte Sprache)",

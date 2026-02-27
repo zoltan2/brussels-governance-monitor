@@ -70,6 +70,7 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'dossier-assemblees-citoyennes': 'Assemblées citoyennes',
     'dossier-faillites': 'Faillites à Bruxelles',
     'dossier-pfas': 'PFAS à Bruxelles',
+    'dossier-acs': 'ACS (emploi non marchand)',
     // Generic
     communes: 'Toutes les communes',
   },
@@ -135,6 +136,7 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'dossier-assemblees-citoyennes': 'Burgerassemblees',
     'dossier-faillites': 'Faillissementen in Brussel',
     'dossier-pfas': 'PFAS in Brussel',
+    'dossier-acs': 'GESCO (non-profittewerkstelling)',
     // Generic
     communes: 'Alle gemeenten',
   },
@@ -200,6 +202,7 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'dossier-assemblees-citoyennes': 'Citizen Assemblies',
     'dossier-faillites': 'Bankruptcies in Brussels',
     'dossier-pfas': 'PFAS in Brussels',
+    'dossier-acs': 'ACS (non-profit employment)',
     // Generic
     communes: 'All municipalities',
   },
@@ -265,6 +268,7 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'dossier-assemblees-citoyennes': 'Bürgerversammlungen',
     'dossier-faillites': 'Insolvenzen in Brüssel',
     'dossier-pfas': 'PFAS in Brüssel',
+    'dossier-acs': 'ACS (Non-Profit-Beschäftigung)',
     // Generic
     communes: 'Alle Gemeinden',
   },

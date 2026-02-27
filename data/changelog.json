@@ -3,6 +3,42 @@
     "date": "2026-02-27",
     "type": "added",
     "section": "dossiers",
+    "targetSlug": "acs",
+    "descriptions": {
+      "fr": "Nouveau dossier : ACS (Agents Contractuels Subventionnés). ~10 000 postes subsidiés (~6 700 actifs), budget ~250M EUR, principal levier d'emploi non marchand à Bruxelles. Aucun nouveau poste depuis 2007. Réforme engagée depuis 2015 (activation vs soutien structurel). Manifestation du non-marchand le 3 février 2026. 7 sources vérifiées, 8 métriques.",
+      "nl": "Nieuw dossier: GESCO (Gesubsidieerde Contractuelen). ~10 000 gesubsidieerde posten (~6 700 actief), budget ~250M EUR, belangrijkste hefboom voor non-profittewerkstelling in Brussel. Geen nieuwe posten sinds 2007. Hervorming sinds 2015 (activering vs structurele steun). Betoging non-profit op 3 februari 2026. 7 geverifieerde bronnen, 8 indicatoren.",
+      "en": "New dossier: ACS (Subsidised Contract Workers). ~10,000 subsidised positions (~6,700 active), budget ~250M EUR, the main non-profit employment lever in Brussels. No new positions since 2007. Reform since 2015 (activation vs structural support). Non-profit sector demonstration on 3 February 2026. 7 verified sources, 8 metrics.",
+      "de": "Neues Dossier: ACS (Subventionierte Vertragsbedienstete). ~10.000 subventionierte Stellen (~6.700 aktiv), Budget ~250 Mio. EUR, wichtigster Hebel für Non-Profit-Beschäftigung in Brüssel. Keine neuen Stellen seit 2007. Reform seit 2015 (Aktivierung vs strukturelle Unterstützung). Demonstration des Non-Profit-Sektors am 3. Februar 2026. 7 verifizierte Quellen, 8 Kennzahlen."
+    },
+    "summaries": {
+      "fr": "Dossier ACS — emploi non marchand, ~10 000 postes, réforme structurelle",
+      "nl": "Dossier GESCO — non-profittewerkstelling, ~10 000 posten, structurele hervorming",
+      "en": "ACS dossier — non-profit employment, ~10,000 positions, structural reform",
+      "de": "ACS-Dossier — Non-Profit-Beschäftigung, ~10.000 Stellen, Strukturreform"
+    }
+  },
+  {
+    "date": "2026-02-27",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "employment",
+    "descriptions": {
+      "fr": "Ajout section ACS sur la carte Emploi : ~10 000 postes non marchand sous pression, manifestation 3 février 2026, renvoi au dossier dédié. Section « lasagne institutionnelle » ajoutée à la carte Institutionnel (9 ministres de la santé, 6 niveaux de pouvoir).",
+      "nl": "GESCO-sectie toegevoegd aan werkgelegenheidskaart: ~10 000 non-profit posten onder druk, betoging 3 februari 2026, verwijzing naar speciaal dossier. Sectie «institutionele lasagne» toegevoegd aan institutionele kaart (9 ministers van volksgezondheid, 6 bestuursniveaus).",
+      "en": "ACS section added to Employment card: ~10,000 non-profit positions under pressure, 3 February 2026 demonstration, cross-reference to dedicated dossier. 'Institutional lasagne' section added to Institutional card (9 health ministers, 6 governance levels).",
+      "de": "ACS-Abschnitt zur Beschäftigungskarte hinzugefügt: ~10.000 Non-Profit-Stellen unter Druck, Demonstration 3. Februar 2026, Verweis auf spezielles Dossier. Abschnitt «institutionelle Lasagne» zur institutionellen Karte hinzugefügt (9 Gesundheitsminister, 6 Verwaltungsebenen)."
+    },
+    "summaries": {
+      "fr": "Cartes Emploi + Institutionnel enrichies — ACS + lasagne institutionnelle",
+      "nl": "Kaarten Werk + Institutioneel verrijkt — GESCO + institutionele lasagne",
+      "en": "Employment + Institutional cards enriched — ACS + institutional lasagne",
+      "de": "Karten Beschäftigung + Institutionell bereichert — ACS + institutionelle Lasagne"
+    }
+  },
+  {
+    "date": "2026-02-27",
+    "type": "added",
+    "section": "dossiers",
     "targetSlug": "pfas",
     "descriptions": {
       "fr": "Nouveau dossier : PFAS à Bruxelles. 82 parcelles contaminées (sols + eaux souterraines), site Sicli à Uccle (jusqu'à 1 000× la norme), TFA dans l'eau potable (97 % des analyses > future norme UE), cadre réglementaire en évolution. 9 sources vérifiées, 6 métriques.",

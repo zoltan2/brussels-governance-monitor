@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-02-27",
+    "type": "added",
+    "section": "dossiers",
+    "targetSlug": "pfas",
+    "descriptions": {
+      "fr": "Nouveau dossier : PFAS à Bruxelles. 82 parcelles contaminées (sols + eaux souterraines), site Sicli à Uccle (jusqu'à 1 000× la norme), TFA dans l'eau potable (97 % des analyses > future norme UE), cadre réglementaire en évolution. 9 sources vérifiées, 6 métriques.",
+      "nl": "Nieuw dossier: PFAS in Brussel. 82 verontreinigde percelen (bodem + grondwater), site Sicli in Ukkel (tot 1 000× de norm), TFA in drinkwater (97% analyses > toekomstige EU-norm), regelgevend kader in ontwikkeling. 9 geverifieerde bronnen, 6 indicatoren.",
+      "en": "New dossier: PFAS in Brussels. 82 contaminated parcels (soil + groundwater), Sicli site in Uccle (up to 1,000× the standard), TFA in drinking water (97% of analyses > future EU standard), evolving regulatory framework. 9 verified sources, 6 metrics.",
+      "de": "Neues Dossier: PFAS in Brüssel. 82 kontaminierte Parzellen (Boden + Grundwasser), Standort Sicli in Ukkel (bis 1.000× die Norm), TFA im Trinkwasser (97% der Analysen > künftige EU-Norm), sich entwickelnder Regulierungsrahmen. 9 verifizierte Quellen, 6 Kennzahlen."
+    },
+    "summaries": {
+      "fr": "Dossier PFAS — 82 parcelles contaminées, site Sicli, TFA dans l'eau potable",
+      "nl": "Dossier PFAS — 82 verontreinigde percelen, site Sicli, TFA in drinkwater",
+      "en": "PFAS dossier — 82 contaminated parcels, Sicli site, TFA in drinking water",
+      "de": "PFAS-Dossier — 82 kontaminierte Parzellen, Standort Sicli, TFA im Trinkwasser"
+    }
+  },
+  {
+    "date": "2026-02-27",
     "type": "updated",
     "section": "domains",
     "targetSlug": "institutional",

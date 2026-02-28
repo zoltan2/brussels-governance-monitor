@@ -1,28 +1,35 @@
 # Brussels Governance Monitor
 
+> **This is NOT open-source software.** The code is published for transparency and auditability only. See [LICENSE](LICENSE) for full terms. No permission is granted to copy, deploy, or create derivative works without prior written agreement from Advice That SRL.
+
 Making Brussels governance visible, verifiable, and understandable.
 
-**Brussels Governance Monitor** is a civic tech project that tracks the impact of the ongoing political crisis in the Brussels-Capital Region. It provides structured, sourced, and multilingual information about what is blocked, what it costs, and what the realistic options are to resolve the situation.
+**Brussels Governance Monitor** is a civic tech project that tracks governance in the Brussels-Capital Region. It provides structured, sourced, and multilingual information across 13 policy domains, 19 municipalities, and 16 active dossiers.
 
-## Status
+Live at **[governance.brussels](https://governance.brussels)**
 
-**In development** (Sprint 1)
+## Why is the code public?
 
-## Stack
+Transparency is central to the project's mission. Publishing the source code allows anyone to:
 
-- [Next.js](https://nextjs.org/) 15 (App Router) + TypeScript
-- [Velite](https://velite.js.org/) (Zod + MDX content collections)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [next-intl](https://next-intl-docs.vercel.app/) (FR / NL / EN / DE)
+- **Verify** that the data and methodology are sound
+- **Audit** that no political bias is embedded in the code
+- **Report** factual errors via [issues](https://github.com/zoltan2/brussels-governance-monitor/issues)
 
-## Development
+## What you can do
 
-```bash
-npm install
-npm run dev
-```
+- Read and audit the code
+- Report factual errors or broken sources
+- Suggest corrections via issues (not pull requests)
 
-Open [http://localhost:3000](http://localhost:3000).
+## What you cannot do
+
+- Copy, fork, or redistribute the code or content
+- Deploy or host any version of this software
+- Use the code or content to train AI models
+- Create derivative works
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Languages
 
@@ -30,8 +37,6 @@ Available in French, Dutch, English, and German. French is the source language.
 
 ## License
 
-[Source-Available](LICENSE) — Code public for transparency and auditability. All rights reserved by Advice That SRL. See LICENSE for details.
+[Source-Available](LICENSE) — All rights reserved by Advice That SRL (Belgium).
 
-## Carrier
-
-Project hosted by **Advice That SRL** (Belgium). Not affiliated with any political party, movement, or partisan organization.
+For licensing inquiries: contact@brusselsgovernance.be

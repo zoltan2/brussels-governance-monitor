@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { getRequestConfig } from 'next-intl/server';
 import { hasLocale } from 'next-intl';
 import { routing } from './routing';

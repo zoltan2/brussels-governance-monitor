@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import digestLanguages from '../../../../config/digest-languages.json';
 
 const RTL_LANGS = new Set(

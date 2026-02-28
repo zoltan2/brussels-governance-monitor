@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { Resend } from 'resend';
 
 let _resend: Resend | null = null;

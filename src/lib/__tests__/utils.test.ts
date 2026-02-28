@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { describe, it, expect } from 'vitest';
 import { formatDate, cn } from '../utils';
 

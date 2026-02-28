@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 /**
  * Simple in-memory rate limiter for API routes.
  * Tracks requests per IP with a sliding window.

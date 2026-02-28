@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { useTranslations } from 'next-intl';
 import governmentData from '@/../data/government.json';
 import type { Locale } from '@/i18n/routing';

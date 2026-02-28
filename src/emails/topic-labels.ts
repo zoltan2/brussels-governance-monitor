@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 /**
  * Shared topic labels for email templates.
  * Single source of truth — imported by welcome.tsx and preferences-updated.tsx.

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {

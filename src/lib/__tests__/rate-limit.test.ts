@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { describe, it, expect, vi, afterEach } from 'vitest';
 
 // Re-import for each test to reset the in-memory store

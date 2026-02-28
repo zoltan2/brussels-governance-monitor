@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';

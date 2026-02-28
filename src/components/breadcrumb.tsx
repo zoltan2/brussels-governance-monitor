@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { Link, getPathname } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
 import type { ComponentProps } from 'react';

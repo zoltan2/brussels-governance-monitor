@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { createHmac, timingSafeEqual } from 'crypto';
 
 const TOKEN_EXPIRY_HOURS = 48;

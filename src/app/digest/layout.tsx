@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';

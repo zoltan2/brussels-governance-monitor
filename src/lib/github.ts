@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 /**
  * GitHub API helpers for reading/writing files via the Contents API.
  * Extracted from src/app/api/review/publish/route.ts for reuse.

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
 import { readFile } from 'node:fs/promises';

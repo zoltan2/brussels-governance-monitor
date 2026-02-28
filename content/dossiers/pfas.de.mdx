@@ -6,7 +6,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "82 kontaminierte Parzellen in der Region Brüssel identifiziert. Der Sicli-Standort in Ukkel weist Werte bis zu 1.000× über der Norm auf. TFA überschreitet die künftige EU-Norm in allen 6 Trinkwasserreservoirs. Der Umweltrat fordert einen integrierten Rahmen (Februar 2026)."
+summary: "82 kontaminierte Parzellen in der Region Brüssel identifiziert. Der Sicli-Standort in Ukkel weist Werte bis zu 1.058× über der Norm auf (31 PFAS-Verbindungen im Boden, 20 im Grundwasser). TFA überschreitet die künftige EU-Norm in allen 6 Trinkwasserreservoirs. Der Umweltrat fordert einen integrierten Rahmen (Februar 2026)."
 estimatedBudget: "Nicht beziffert — Sanierungskosten Sicli und Wasseraufbereitung zu bestimmen"
 stakeholders:
   - "Brüssel Umwelt"
@@ -51,6 +51,15 @@ sources:
   - label: "RTBF — Interaktive PFAS-Karte für Brüsseler Leitungswasser (Nov. 2023)"
     url: "https://www.rtbf.be/article/bruxelles-l-eau-de-votre-robinet-est-elle-contaminee-aux-pfas-toutes-les-donnees-sur-notre-carte-interactive-11291515"
     accessedAt: "2026-02-27"
+  - label: "BRUZZ — Sicli-Gelände in Ukkel schwer mit PFAS kontaminiert (Juni 2025)"
+    url: "https://www.bruzz.be/actua/mobiliteit/gronden-van-failliete-brandblusproducent-sicli-ukkel-ernstig-vervuild-met-pfas"
+    accessedAt: "2026-02-28"
+  - label: "BRUZZ — Trinkwasser nach PFAS-Fund am Sicli-Standort nicht belastet (Juli 2025)"
+    url: "https://www.bruzz.be/actua/samenleving/na-ontdekking-van-pfas-op-sicli-terrein-ukkel-drinkwater-niet-besmet-2025-07-03"
+    accessedAt: "2026-02-28"
+  - label: "BRUZZ — Brüssel Umwelt meldet große PFAS-Überschreitungen in Ukkel (Sept. 2025)"
+    url: "https://www.bruzz.be/actua/milieu/leefmilieu-brussel-rapporteert-grote-overschrijdingen-pfas-concentraties-ukkel-2025-09"
+    accessedAt: "2026-02-28"
 metrics:
   - label: "Identifizierte kontaminierte Parzellen"
     value: "82"
@@ -64,10 +73,15 @@ metrics:
     value: "55"
     source: "Brüssel Umwelt"
     date: "2026-02-27"
+  - label: "Max. Überschreitung Standort Sicli (Boden)"
+    value: "708×"
+    unit: "die Norm (31 PFAS-Verbindungen nachgewiesen)"
+    source: "BRUZZ / Brüssel Umwelt"
+    date: "2025-09-19"
   - label: "Max. Überschreitung Standort Sicli (Grundwasser)"
-    value: ">1 000×"
-    unit: "die Norm"
-    source: "RTBF / Brüssel Umwelt"
+    value: "1 058×"
+    unit: "die Norm (20 PFAS-Verbindungen nachgewiesen)"
+    source: "BRUZZ / Brüssel Umwelt"
     date: "2025-09-19"
   - label: "EU-Trinkwassernorm (Summe 20 PFAS)"
     value: "100"
@@ -89,9 +103,9 @@ alerts:
     severity: warning
     date: "2024-10-22"
 confidenceLevel: official
-lastModified: "2026-02-27"
-changeType: added
-changeSummary: "Erstellung des PFAS-Dossiers — kontaminierte Böden, Trinkwasser, Regulierungsrahmen"
+lastModified: "2026-02-28"
+changeType: updated
+changeSummary: "Sicli-Zahlen verfeinert (708× Boden, 1.058× Grundwasser, 31/20 Verbindungen) + 3 BRUZZ-Quellen hinzugefügt"
 ---
 
 ## Allgemeine Lage
@@ -107,7 +121,7 @@ Der schwerwiegendste Fall betrifft den ehemaligen Standort des Unternehmens Sicl
 - **April–Mai 2023**: von Sicli beauftragte Analysen enthüllen extreme Konzentrationen
 - **Dezember 2023**: Brüssel Umwelt erfährt von den Ergebnissen
 - **Juni 2025**: gemeinsame öffentliche Bekanntmachung mit der Gemeinde Ukkel, nach dem Konkurs von Sicli und der Weigerung der Konkursverwalter, die Analysen fortzusetzen
-- **September 2025**: detaillierte Ergebnisse veröffentlicht — Werte **1,4- bis 530-fach über der Norm** im Grundwasser außerhalb des Geländes, und **über 1.000-fach die Norm** auf dem Industriegelände selbst
+- **September 2025**: detaillierte Ergebnisse veröffentlicht — **31 PFAS-Verbindungen** im Boden (Norm bis zu **708-fach** überschritten) und **20 Verbindungen** im Grundwasser (Norm bis zu **1.058-fach** überschritten) auf dem Industriegelände; außerhalb des Geländes Werte 1,4- bis 530-fach über der Norm
 
 Ein Sicherheitsperimeter von 100 Metern wurde eingerichtet: Verbot des Verzehrs von Obst, Gemüse, Eiern oder Kleinvieh aus Gärten in der Zone. Das von Vivaqua verteilte Trinkwasser ist nicht betroffen.
 

@@ -23,6 +23,12 @@ const changelogEntrySchema = z.object({
     en: z.string(),
     de: z.string(),
   }),
+  summaries: z.object({
+    fr: z.string(),
+    nl: z.string(),
+    en: z.string(),
+    de: z.string(),
+  }).optional(),
 });
 
 const changelogSchema = z.array(changelogEntrySchema);
@@ -33,6 +39,7 @@ export interface ChangelogEntry {
   section: 'domains' | 'dossiers' | 'solutions' | 'sectors' | 'comparisons' | 'communes' | 'timeline' | 'glossary' | 'site';
   targetSlug: string | null;
   description: string;
+  summary?: string;
 }
 
 export function getChangelog(locale: Locale): ChangelogEntry[] {
@@ -43,9 +50,38 @@ export function getChangelog(locale: Locale): ChangelogEntry[] {
     section: entry.section,
     targetSlug: entry.targetSlug,
     description: entry.descriptions[locale] || entry.descriptions.fr,
+    summary: entry.summaries?.[locale] || entry.summaries?.fr,
   }));
 }
 
 export function getRecentChanges(locale: Locale, limit = 5): ChangelogEntry[] {
   return getChangelog(locale).slice(0, limit);
+}
+
+export interface LatestUpdate {
+  date: string;
+  type: 'added' | 'updated' | 'corrected' | 'removed';
+  section: string;
+  targetSlug: string | null;
+  description: string;
+  summary?: string;
+  href: string | null;
+}
+
+const SECTION_ROUTES: Record<string, string> = {
+  domains: '/domains',
+  dossiers: '/dossiers',
+  sectors: '/sectors',
+  communes: '/communes',
+  comparisons: '/comparisons',
+  solutions: '/solutions',
+  glossary: '/glossary',
+};
+
+export function getLatestUpdate(locale: Locale): LatestUpdate {
+  const entries = getChangelog(locale);
+  const entry = entries[0];
+  const base = SECTION_ROUTES[entry.section];
+  const href = base && entry.targetSlug ? `${base}/${entry.targetSlug}` : null;
+  return { ...entry, href };
 }

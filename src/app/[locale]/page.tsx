@@ -5,7 +5,9 @@ import { CrisisCounter } from '@/components/crisis-counter';
 import { DomainCard } from '@/components/domain-card';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { getDomainCards, getSectorCards, getDossierCards } from '@/lib/content';
-import { getActiveSignals, getLastVeille, getVeilleSourceCount } from '@/lib/radar';
+import { getActiveSignals, getVeilleSourceCount } from '@/lib/radar';
+import { getLatestUpdate } from '@/lib/changelog';
+import { LatestUpdateBar } from '@/components/latest-update-bar';
 import { GovernmentTable } from '@/components/government-table';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
@@ -71,8 +73,8 @@ export default async function HomePage({
   const sectorCards = getSectorCards(locale as Locale);
   const dossierCards = getDossierCards(locale as Locale);
   const radarSignals = getActiveSignals(locale as Locale, 3);
-  const lastVeille = getLastVeille();
   const veilleSourceCount = getVeilleSourceCount();
+  const latestUpdate = getLatestUpdate(locale as Locale);
 
   // Sort by lastModified desc for homepage previews
   const recentDossiers = [...dossierCards]
@@ -89,10 +91,18 @@ export default async function HomePage({
     <>
       <CrisisCounter />
 
+      <LatestUpdateBar
+        date={latestUpdate.date}
+        description={latestUpdate.description}
+        summary={latestUpdate.summary}
+        section={latestUpdate.section}
+        targetSlug={latestUpdate.targetSlug}
+        locale={locale}
+      />
+
       <TwoColumnSection
         signals={radarSignals}
         locale={locale}
-        lastVeille={lastVeille}
         veilleSourceCount={veilleSourceCount}
       />
 
@@ -116,19 +126,17 @@ export default async function HomePage({
 function TwoColumnSection({
   signals,
   locale,
-  lastVeille,
   veilleSourceCount,
 }: {
   signals: LocalizedRadarEntry[];
   locale: string;
-  lastVeille: string;
   veilleSourceCount: number;
 }) {
   return (
     <section className="py-10">
       <div className="mx-auto max-w-5xl px-4">
         <div className="grid gap-8 md:grid-cols-[3fr_2fr]">
-          <FollowColumn signals={signals} locale={locale} lastVeille={lastVeille} veilleSourceCount={veilleSourceCount} />
+          <FollowColumn signals={signals} locale={locale} veilleSourceCount={veilleSourceCount} />
           <UnderstandColumn locale={locale} />
         </div>
       </div>
@@ -143,12 +151,10 @@ function TwoColumnSection({
 function FollowColumn({
   signals,
   locale,
-  lastVeille,
   veilleSourceCount,
 }: {
   signals: LocalizedRadarEntry[];
   locale: string;
-  lastVeille: string;
   veilleSourceCount: number;
 }) {
   const t = useTranslations('home');
@@ -170,12 +176,9 @@ function FollowColumn({
           <div className="flex items-center gap-2 text-xs text-neutral-700">
             <Eye size={14} className="shrink-0 text-neutral-400" aria-hidden={true} />
             <span className="font-medium">
-              {t('lastVeille')} : {formatDate(lastVeille, locale)}
+              {t('veilleActive', { count: veilleSourceCount })}
             </span>
           </div>
-          <p className="mt-1 pl-[22px] text-xs text-neutral-500">
-            {t('veilleSources', { count: veilleSourceCount })}
-          </p>
           <Link
             href="/methodology"
             className="mt-1.5 inline-flex items-center gap-1 pl-[22px] text-xs font-medium text-brand-700 hover:text-brand-900"

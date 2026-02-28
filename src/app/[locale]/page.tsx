@@ -208,7 +208,7 @@ function FollowColumn({
               >
                 <time
                   dateTime={signal.date}
-                  className="shrink-0 text-xs tabular-nums text-neutral-400"
+                  className="shrink-0 text-xs tabular-nums text-neutral-500"
                 >
                   {formatDate(signal.date, locale)}
                 </time>
@@ -234,7 +234,7 @@ function FollowColumn({
         {/* 6. Shield footnote — discrete safety net */}
         <div className="border-t border-neutral-100 px-4 py-3">
           <div className="border-l-2 border-blue-200 pl-3">
-            <p className="text-xs text-neutral-400">
+            <p className="text-xs text-neutral-500">
               {t('shieldFootnote')}
             </p>
           </div>
@@ -399,7 +399,7 @@ function DossiersPreview({
                   ))}
                 </div>
               )}
-              <p className="mt-2 text-xs text-neutral-400">
+              <p className="mt-2 text-xs text-neutral-500">
                 {td('lastModified', { date: formatDate(card.lastModified, locale) })}
               </p>
             </Link>

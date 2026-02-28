@@ -62,9 +62,15 @@ export default async function SectorDetailPage({
     '@type': 'Article',
     headline: card.title,
     description: card.humanImpact || card.title,
+    datePublished: card.lastModified,
     dateModified: card.lastModified,
     url: `${siteUrl}/${locale}/sectors/${slug}`,
     inLanguage: locale,
+    author: {
+      '@type': 'Organization',
+      name: 'Brussels Governance Monitor',
+      url: siteUrl,
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Brussels Governance Monitor',

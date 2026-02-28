@@ -96,6 +96,14 @@ export default async function LocaleLayout({
         url: `${siteUrl}/${locale}`,
         inLanguage: locale,
         publisher: { '@id': `${siteUrl}/#organization` },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${siteUrl}/${locale}?q={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
       },
       {
         '@type': 'Organization',
@@ -103,6 +111,22 @@ export default async function LocaleLayout({
         name: 'Brussels Governance Monitor',
         url: siteUrl,
         description: metadata.description,
+        foundingDate: '2024-06-09',
+        logo: `${siteUrl}/apple-touch-icon.png`,
+        sameAs: [
+          'https://github.com/zoltan2/brussels-governance-monitor',
+        ],
+        knowsAbout: [
+          'Brussels regional governance',
+          'Belgian politics',
+          'Brussels-Capital Region',
+          'Public policy monitoring',
+          'Government accountability',
+        ],
+        founder: {
+          '@type': 'Person',
+          name: 'Zoltán Jánosi',
+        },
         parentOrganization: {
           '@type': 'Organization',
           name: 'Advice That SRL',

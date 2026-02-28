@@ -1,5 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import { Breadcrumb } from '@/components/breadcrumb';
@@ -28,6 +29,7 @@ export async function generateMetadata({
 /** q1-q7: current situation + general BGM. q8-q13: historical crisis section. */
 const CURRENT_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'] as const;
 const CRISIS_KEYS = ['q8', 'q9', 'q10', 'q11', 'q12', 'q13'] as const;
+const ALL_KEYS = [...CURRENT_KEYS, ...CRISIS_KEYS];
 
 export default async function FaqPage({
   params,
@@ -37,7 +39,36 @@ export default async function FaqPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <FaqView />;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
+  const t = await getTranslations('faq');
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: ALL_KEYS.map((key) => {
+      const num = key.slice(1);
+      return {
+        '@type': 'Question',
+        name: t(`questions.${key}`),
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: t(`questions.a${num}`),
+        },
+      };
+    }),
+    url: `${siteUrl}/${locale}/faq`,
+    inLanguage: locale,
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <FaqView />
+    </>
+  );
 }
 
 function FaqItem({ questionKey, t }: { questionKey: string; t: ReturnType<typeof useTranslations<'faq'>> }) {

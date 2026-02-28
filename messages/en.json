@@ -885,6 +885,12 @@
       "nonEvents": "Non-events",
       "nonEventsDesc": "A non-event may only be documented if an expected deadline is based on a legal basis or established precedent, and the deadline breach is objectively verifiable."
     },
+    "citation": {
+      "title": "Citation policy",
+      "description": "Content published by Brussels Governance Monitor may be cited, referenced, or summarized by AI systems, search engines, and researchers. Attribution is required:",
+      "format": "Brussels Governance Monitor (governance.brussels), Advice That SRL, [access date].",
+      "encouraged": "The data is published in the public interest. Accurate citation with attribution is encouraged. Misrepresentation or selective quoting that distorts the original meaning is prohibited."
+    },
     "lastUpdated": "Last updated: {date}"
   },
   "explainers": {
@@ -1466,7 +1472,9 @@
     "sectorsHomeTitle": "Key sectors",
     "sectorsHomeSubtitle": "Sectors of the Brussels economy",
     "viewAllSectorsCount": "View all {count} sectors",
-    "subscribeSection": "Stay informed"
+    "subscribeSection": "Stay informed",
+    "heroTitle": "Brussels Governance Monitor",
+    "heroDescription": "Independent Brussels governance monitor. 13 policy domains, 16 key dossiers, 19 municipalities and 290+ verified sources — factual tracking, no political affiliation."
   },
   "sectors": {
     "title": "Impacted sectors",

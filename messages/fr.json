@@ -885,6 +885,12 @@
       "nonEvents": "Non-événements",
       "nonEventsDesc": "Un non-événement ne peut être documenté que si une échéance attendue repose sur une base légale ou un précédent établi, et que le dépassement du délai est objectivement constatable."
     },
+    "citation": {
+      "title": "Politique de citation",
+      "description": "Les contenus publiés par Brussels Governance Monitor peuvent être cités, référencés ou résumés par des systèmes d'intelligence artificielle, des moteurs de recherche et des chercheurs. L'attribution est requise :",
+      "format": "Brussels Governance Monitor (governance.brussels), Advice That SRL, [date de consultation].",
+      "encouraged": "Les données sont publiées dans l'intérêt général. La citation fidèle avec attribution est encouragée. Toute déformation ou citation sélective dénaturant le sens original est interdite."
+    },
     "lastUpdated": "Dernière mise à jour : {date}"
   },
   "explainers": {
@@ -1466,7 +1472,9 @@
     "sectorsHomeTitle": "Secteurs clés",
     "sectorsHomeSubtitle": "Les secteurs de l'économie bruxelloise",
     "viewAllSectorsCount": "Voir les {count} secteurs",
-    "subscribeSection": "Restez informé"
+    "subscribeSection": "Restez informé",
+    "heroTitle": "Brussels Governance Monitor",
+    "heroDescription": "Moniteur indépendant de la gouvernance bruxelloise. 13 domaines, 16 dossiers clés, 19 communes et 290+ sources vérifiées — suivi factuel, sans affiliation politique."
   },
   "sectors": {
     "title": "Secteurs impactés",

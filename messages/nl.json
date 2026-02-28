@@ -885,6 +885,12 @@
       "nonEvents": "Niet-gebeurtenissen",
       "nonEventsDesc": "Een niet-gebeurtenis kan alleen worden gedocumenteerd als een verwachte deadline berust op een wettelijke basis of een gevestigd precedent, en de overschrijding objectief vaststelbaar is."
     },
+    "citation": {
+      "title": "Citatiebeleid",
+      "description": "De inhoud van Brussels Governance Monitor mag worden geciteerd, gerefereerd of samengevat door AI-systemen, zoekmachines en onderzoekers. Bronvermelding is vereist:",
+      "format": "Brussels Governance Monitor (governance.brussels), Advice That SRL, [raadpleegdatum].",
+      "encouraged": "De gegevens worden gepubliceerd in het algemeen belang. Getrouwe citatie met bronvermelding wordt aangemoedigd. Verdraaiing of selectief citeren dat de oorspronkelijke betekenis vervormt is verboden."
+    },
     "lastUpdated": "Laatste update: {date}"
   },
   "explainers": {
@@ -1466,7 +1472,9 @@
     "sectorsHomeTitle": "Sleutelsectoren",
     "sectorsHomeSubtitle": "De sectoren van de Brusselse economie",
     "viewAllSectorsCount": "Bekijk de {count} sectoren",
-    "subscribeSection": "Blijf op de hoogte"
+    "subscribeSection": "Blijf op de hoogte",
+    "heroTitle": "Brussels Governance Monitor",
+    "heroDescription": "Onafhankelijke monitor van het Brusselse bestuur. 13 beleidsdomeinen, 16 sleuteldossiers, 19 gemeenten en 290+ geverifieerde bronnen — feitelijke opvolging, zonder politieke affiliatie."
   },
   "sectors": {
     "title": "Getroffen sectoren",

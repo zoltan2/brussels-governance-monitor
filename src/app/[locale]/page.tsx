@@ -89,6 +89,8 @@ export default async function HomePage({
 
   return (
     <>
+      <HeroSection />
+
       <CrisisCounter />
 
       <LatestUpdateBar
@@ -116,6 +118,27 @@ export default async function HomePage({
 
       <SubscribeSection />
     </>
+  );
+}
+
+// ──────────────────────────────────────────────
+// Hero section: h1 + descriptive paragraph
+// ──────────────────────────────────────────────
+
+function HeroSection() {
+  const t = useTranslations('home');
+
+  return (
+    <section className="pt-8 pb-2">
+      <div className="mx-auto max-w-5xl px-4">
+        <h1 className="text-2xl font-bold text-neutral-900 sm:text-3xl">
+          {t('heroTitle')}
+        </h1>
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-neutral-600">
+          {t('heroDescription')}
+        </p>
+      </div>
+    </section>
   );
 }
 

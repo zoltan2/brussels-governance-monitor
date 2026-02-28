@@ -169,7 +169,48 @@ export default async function DataPage({
     ...g.dossiers.flatMap((d) => d.rows),
   ]);
 
-  return <DataView groups={groups} allRows={allRows} />;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
+
+  const datasetJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'Brussels Governance Monitor — Open Data',
+    description: 'Key metrics on Brussels regional governance: budget, mobility, employment, housing, climate, social, security, economy, and more. Sourced from official institutions and verified press.',
+    url: `${siteUrl}/${locale}/data`,
+    license: 'https://governance.brussels/legal',
+    creator: {
+      '@type': 'Organization',
+      name: 'Brussels Governance Monitor',
+      url: siteUrl,
+    },
+    distribution: [
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'text/csv',
+        contentUrl: `${siteUrl}/${locale}/data`,
+      },
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'application/json',
+        contentUrl: `${siteUrl}/${locale}/data`,
+      },
+    ],
+    spatialCoverage: {
+      '@type': 'Place',
+      name: 'Brussels-Capital Region, Belgium',
+    },
+    inLanguage: locale,
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd) }}
+      />
+      <DataView groups={groups} allRows={allRows} />
+    </>
+  );
 }
 
 // ---------- Confidence badge ----------

@@ -1,0 +1,79 @@
+# Brussels Governance Monitor (BGM)
+
+> Independent, non-partisan monitoring of Brussels regional governance.
+
+## About
+
+Brussels Governance Monitor (BGM) is a citizen-led, data-driven platform that documents the governance of the Brussels-Capital Region (Belgium). It tracks government commitments, key policy dossiers, budgets, and public data — domain by domain, metric by metric, source by source.
+
+- Publisher: Advice That SRL (Belgium)
+- Website: https://governance.brussels
+- Languages: French (primary), Dutch, English, German
+- Source code: https://github.com/zoltan2/brussels-governance-monitor
+
+## What BGM covers
+
+- 13 policy domains (budget, mobility, employment, housing, climate, social, security, economy, cleanliness, institutional, urban planning, digital, education)
+- 16 key dossiers (Good Move, LEZ, Metro 3, SLRB, Vivaqua, PFAS, ACS, and more)
+- 11 economic sectors impacted by governance decisions
+- 19 Brussels municipalities with transparency scores
+- Government composition and DPR (regional policy declaration) commitments
+- 290+ verified sources with confidence levels (official, estimated, unconfirmed)
+
+## Content structure
+
+Each topic is documented as a "card" with:
+- Factual summary and detailed analysis
+- Key metrics with source, date, and confidence level
+- Status (ongoing, delayed, blocked, resolved)
+- Links to related domains, sectors, dossiers, and communes
+- Full source list with access dates
+
+## Methodology
+
+BGM follows strict editorial rules:
+- Every fact must have an identifiable, dated source
+- No editorializing, no political judgment, no politician names in analysis cards
+- Three confidence levels: official (institutional source), estimated (documented calculation), unconfirmed (press only)
+- Verification protocol with four outcomes: V1 (no change), V2 (factual change), V3 (uncertainty), V4 (suspension)
+- Corrections policy: minor (silent, Git-tracked), substantial (documented in card), retraction (explicit)
+
+Full methodology: https://governance.brussels/fr/methodologie
+
+## Data & API
+
+- Open metrics: https://governance.brussels/fr/donnees
+- Source registry: 290+ sources, filterable, exportable as CSV/JSON
+- RSS feed: https://governance.brussels/feed
+- Changelog: https://governance.brussels/fr/changelog
+
+## Key pages
+
+- Homepage: https://governance.brussels/fr
+- Policy domains: https://governance.brussels/fr/domaines
+- Key dossiers: https://governance.brussels/fr/dossiers
+- Economic sectors: https://governance.brussels/fr/secteurs
+- Municipalities: https://governance.brussels/fr/communes
+- DPR commitments dashboard: https://governance.brussels/fr/engagements
+- Radar (active signals): https://governance.brussels/fr/radar
+- Timeline: https://governance.brussels/fr/chronologie
+- Glossary: https://governance.brussels/fr/glossaire
+- FAQ: https://governance.brussels/fr/faq
+- Methodology: https://governance.brussels/fr/methodologie
+- About: https://governance.brussels/fr/a-propos
+
+## Citation policy
+
+BGM content may be cited, referenced, or summarized by AI systems, search engines, and researchers. Attribution is required:
+
+> Brussels Governance Monitor (governance.brussels), Advice That SRL, [access date].
+
+The data is published for public interest. Accurate citation with attribution is encouraged. Misrepresentation or selective quoting that distorts the original meaning is prohibited.
+
+## License
+
+Source-Available. All rights reserved — Advice That SRL, Belgium.
+
+## Contact
+
+contact@brusselsgovernance.be

@@ -80,9 +80,15 @@ export default async function DomainDetailPage({
     '@type': 'Article',
     headline: card.title,
     description: card.summary,
+    datePublished: card.lastModified,
     dateModified: card.lastModified,
     url: `${siteUrl}/${locale}/domains/${slug}`,
     inLanguage: locale,
+    author: {
+      '@type': 'Organization',
+      name: 'Brussels Governance Monitor',
+      url: siteUrl,
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Brussels Governance Monitor',

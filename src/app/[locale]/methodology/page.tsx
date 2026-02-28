@@ -250,6 +250,16 @@ function MethodologyView() {
             <p>{t('independence.description')}</p>
           </div>
 
+          {/* Citation policy */}
+          <div>
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('citation.title')}</h2>
+            <p className="mb-2">{t('citation.description')}</p>
+            <blockquote className="border-l-2 border-brand-200 pl-4 text-sm italic text-neutral-600">
+              {t('citation.format')}
+            </blockquote>
+            <p className="mt-2">{t('citation.encouraged')}</p>
+          </div>
+
           {/* Self-limitations */}
           <div>
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('selfLimitations.title')}</h2>

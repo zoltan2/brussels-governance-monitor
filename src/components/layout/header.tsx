@@ -18,6 +18,8 @@ export function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -28,6 +30,23 @@ export function Header() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Mobile menu: Escape to close + focus management
+  useEffect(() => {
+    if (!menuOpen) return;
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        mobileToggleRef.current?.focus();
+      }
+    }
+    // Move focus into mobile menu on open
+    const firstLink = mobileMenuRef.current?.querySelector<HTMLElement>('a, button');
+    firstLink?.focus();
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [menuOpen]);
 
   function getMenuItems() {
     return menuRef.current
@@ -142,7 +161,7 @@ export function Header() {
                   {t('communes')}
                 </Link>
 
-                <hr className="my-1.5 border-neutral-100" />
+                <hr role="separator" className="my-1.5 border-neutral-100" />
 
                 <Link
                   role="menuitem"
@@ -185,6 +204,7 @@ export function Header() {
         </nav>
 
         <button
+          ref={mobileToggleRef}
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
           className="inline-flex items-center justify-center rounded-md p-2 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 md:hidden"
@@ -205,13 +225,13 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-neutral-100 px-4 pb-4 md:hidden">
+        <div ref={mobileMenuRef} className="border-t border-neutral-100 px-4 pb-4 md:hidden">
           <nav aria-label="Menu" className="flex flex-col pt-3">
             <div className="pb-3">
               <Search />
             </div>
 
-            <hr className="border-neutral-100" />
+            <hr aria-hidden="true" className="border-neutral-100" />
 
             <Link href="/" onClick={() => setMenuOpen(false)} className="py-3 text-sm font-medium text-neutral-900">
               {t('home')}
@@ -223,7 +243,7 @@ export function Header() {
               {t('dashboard')}
             </Link>
 
-            <hr className="border-neutral-100" />
+            <hr aria-hidden="true" className="border-neutral-100" />
 
             {/* Explorer — accordion */}
             <button
@@ -254,7 +274,7 @@ export function Header() {
                 <Link href="/communes" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('communes')}
                 </Link>
-                <hr className="my-1 border-neutral-100" />
+                <hr aria-hidden="true" className="my-1 border-neutral-100" />
                 <Link href="/understand" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('understand')}
                 </Link>
@@ -270,7 +290,7 @@ export function Header() {
               </div>
             )}
 
-            <hr className="border-neutral-100" />
+            <hr aria-hidden="true" className="border-neutral-100" />
 
             <div className="pt-3">
               <LocaleSwitcher />

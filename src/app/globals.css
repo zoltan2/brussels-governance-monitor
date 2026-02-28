@@ -152,6 +152,28 @@ body {
   }
 }
 
+/* Focus visible — WCAG 2.4.7: visible focus indicator on all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-brand-700);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Link underlines — WCAG 1.4.1: links distinguishable without color alone */
+footer nav a {
+  text-decoration: underline;
+  text-decoration-color: oklch(0.45 0 0 / 0.3);
+  text-underline-offset: 2px;
+}
+footer nav a:hover {
+  text-decoration-color: oklch(0.45 0 0);
+}
+
 /* Reduced motion — accessibility (WCAG 2.3.3) */
 @media (prefers-reduced-motion: reduce) {
   *,

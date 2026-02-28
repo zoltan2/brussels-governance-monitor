@@ -69,7 +69,7 @@ export function DomainCard({ card, locale, headingLevel = 'h3' }: DomainCardProp
         </div>
       )}
 
-      <div className="mt-auto flex items-center justify-between pt-4 text-xs text-neutral-500">
+      <div className="mt-auto flex items-center justify-between pt-4 text-xs text-neutral-600">
         <div className="flex items-center gap-2">
           <span className={confidenceStyles[card.confidenceLevel]}>
             {t(`confidence.${card.confidenceLevel}`)}

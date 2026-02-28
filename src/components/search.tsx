@@ -30,10 +30,15 @@ export function Search() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
+  const [isMac, setIsMac] = useState(true);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [pagefind, setPagefind] = useState<any>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsMac(navigator.platform.toUpperCase().includes('MAC'));
+  }, []);
 
   useEffect(() => {
     if (open && !pagefind) {
@@ -148,8 +153,8 @@ export function Search() {
           />
         </svg>
         <span className="hidden sm:inline">{t('placeholder')}</span>
-        <kbd className="hidden rounded border border-neutral-300 px-1 font-mono text-[10px] sm:inline">
-          {'\u2318'}K
+        <kbd className="hidden rounded border border-neutral-300 px-1 font-mono text-[10px] sm:inline" suppressHydrationWarning>
+          {isMac ? '\u2318' : 'Ctrl+'}K
         </kbd>
       </button>
 
@@ -189,6 +194,7 @@ export function Search() {
                 type="button"
                 onClick={() => setOpen(false)}
                 className="rounded border border-neutral-200 px-1.5 py-0.5 text-[10px] text-neutral-500"
+                aria-label={t('close')}
               >
                 ESC
               </button>

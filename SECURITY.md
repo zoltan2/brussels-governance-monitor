@@ -15,7 +15,7 @@ There are no versioned releases — the `main` branch is the only supported vers
 If you discover a security vulnerability, please report it responsibly:
 
 1. **Do NOT open a public issue.** Security issues must be reported privately.
-2. **Email:** [security@governance.brussels](mailto:security@governance.brussels)
+2. **Email:** [contact@governance.brussels](mailto:contact@governance.brussels)
 3. **Include:**
    - Description of the vulnerability
    - Steps to reproduce

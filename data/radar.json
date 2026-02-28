@@ -1,5 +1,5 @@
 {
-  "lastVeille": "2026-02-27",
+  "lastVeille": "2026-02-28",
   "entries": [
     {
       "id": "2026-02-27-masterplan-bilinguisme",
@@ -332,29 +332,30 @@
     },
     {
       "id": "2026-02-21-renolution-deblocage",
-      "date": "2026-02-21",
+      "date": "2026-02-28",
       "confidence": "official",
-      "status": "archived",
-      "cards": ["housing"],
+      "status": "active",
+      "cards": ["housing", "climate"],
       "source": {
-        "label": "VRT NWS",
-        "url": "https://vrtnws.be/p.KKBk447aG",
-        "accessedAt": "2026-02-21"
+        "label": "BRUZZ — Renteloze lening vervangt Renolution-premie (fév. 2026)",
+        "url": "https://www.bruzz.be/actua/milieu/renteloze-lening-vervangt-renolution-premie-lage-middenklasse-zal-uit-de-boot-vallen",
+        "accessedAt": "2026-02-28"
       },
       "nextStep": {
-        "fr": "Suivi des 600+ dossiers restants et du nouveau système de prêts à taux zéro (2027)",
-        "nl": "Opvolging van de 600+ resterende dossiers en het nieuwe systeem van renteloze leningen (2027)",
-        "en": "Monitoring of 600+ remaining applications and new zero-interest loan system (2027)",
-        "de": "Verfolgung der 600+ verbleibenden Anträge und des neuen Systems zinsloser Darlehen (2027)"
+        "fr": "Modalités du prêt à taux zéro pas encore définies. Clarification attendue d'ici janvier 2027 (Embuild). Label PEB E obligatoire pour tous les logements d'ici 2033.",
+        "nl": "Modaliteiten renteloze lening nog niet vastgelegd. Verduidelijking verwacht tegen januari 2027 (Embuild). EPB-label E verplicht voor alle woningen tegen 2033.",
+        "en": "Zero-interest loan modalities not yet defined. Clarification expected by January 2027 (Embuild). EPC label E mandatory for all homes by 2033.",
+        "de": "Modalitäten des zinslosen Darlehens noch nicht festgelegt. Klärung bis Januar 2027 erwartet (Embuild). EPB-Label E für alle Wohnungen bis 2033 verpflichtend."
       },
       "descriptions": {
-        "fr": "Déblocage de 56M EUR (50M Urban.Brussels + 6M Leefmilieu Brussel) pour solder les dossiers Renolution. 2 692 dossiers validés (~41M EUR), 600+ en cours de traitement. Paiements avant fin 2026. Prêts à taux zéro dès 2027 (66M EUR/an).",
-        "nl": "Vrijmaking van 56M EUR (50M Urban.Brussels + 6M Leefmilieu Brussel) om de Renolution-dossiers af te ronden. 2.692 dossiers goedgekeurd (~41M EUR), 600+ in behandeling. Betalingen vóór eind 2026. Renteloze leningen vanaf 2027 (66M EUR/jaar).",
-        "en": "Release of EUR 56M (50M Urban.Brussels + 6M Leefmilieu Brussel) to clear the Renolution backlog. 2,692 applications validated (~EUR 41M), 600+ being processed. Payments before end of 2026. Zero-interest loans from 2027 (EUR 66M/year).",
-        "de": "Freigabe von 56M EUR (50M Urban.Brussels + 6M Leefmilieu Brussel) zur Abwicklung der Renolution-Anträge. 2.692 Anträge genehmigt (~41M EUR), 600+ in Bearbeitung. Zahlungen vor Ende 2026. Zinslose Darlehen ab 2027 (66M EUR/Jahr)."
+        "fr": "Déblocage Renolution (56M EUR) en cours. Le prêt à taux zéro (PTZ) remplacera les primes dès 2027 (66M EUR/an). Embuild estime que primes et prêts devraient être complémentaires et craint un report massif des rénovations. Un fiscaliste de la VUB avertit que la classe moyenne inférieure sera exclue : un prêt, même à taux zéro, nécessite une capacité de remboursement. Le mécanisme est « budgétairement neutre » pour la Région mais transfère le risque aux ménages.",
+        "nl": "Deblokkering Renolution (56M EUR) loopt. De renteloze lening vervangt premies vanaf 2027 (66M EUR/jaar). Embuild beschouwt premies en leningen als complementair en vreest massaal uitstel van renovaties. Een fiscalist van de VUB waarschuwt dat de lagere middenklasse uit de boot valt: een lening, zelfs renteloos, vereist terugbetalingscapaciteit. Het mechanisme is 'budgetneutraal' voor het Gewest maar verschuift het risico naar huishoudens.",
+        "en": "Renolution backlog clearing (EUR 56M) ongoing. Zero-interest loans will replace premiums from 2027 (EUR 66M/year). Embuild considers premiums and loans should be complementary and fears massive renovation postponement. A VUB tax law professor warns the lower middle class will be excluded: a loan, even at zero interest, requires repayment capacity. The mechanism is 'budget-neutral' for the Region but shifts risk to households.",
+        "de": "Freigabe Renolution (56M EUR) läuft. Zinslose Darlehen ersetzen Prämien ab 2027 (66M EUR/Jahr). Embuild betrachtet Prämien und Darlehen als komplementär und befürchtet massiven Renovierungsaufschub. Ein Steuerrechtler der VUB warnt, dass die untere Mittelschicht ausgeschlossen wird: Ein Darlehen, selbst zinslos, erfordert Rückzahlungsfähigkeit. Der Mechanismus ist 'haushaltsneutral' für die Region, verlagert aber das Risiko auf die Haushalte."
       },
-      "promotedTo": null,
-      "archivedAt": "2026-02-24",
+      "promotedTo": "housing",
+      "promotedSection": "domains",
+      "archivedAt": null,
       "period": "gouvernement-2026"
     },
     {

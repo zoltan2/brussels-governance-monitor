@@ -18,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const titles: Record<string, string> = { fr: 'Qui décide quoi à Bruxelles ?', nl: 'Wie beslist wat in Brussel?', en: 'Who decides what in Brussels?', de: 'Wer entscheidet was in Brüssel?' };
+  const titles: Record<string, string> = { fr: 'Les niveaux de pouvoir à Bruxelles', nl: 'De bestuursniveaus in Brussel', en: 'Levels of power in Brussels', de: 'Die Machtebenen in Brüssel' };
   const descriptions: Record<string, string> = {
     fr: 'Fédéral, régional, communautaire, communal : les niveaux de pouvoir à Bruxelles expliqués.',
     nl: 'Federaal, gewestelijk, gemeenschaps-, gemeentelijk: de machtsniveaus in Brussel uitgelegd.',

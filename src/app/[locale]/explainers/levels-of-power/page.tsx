@@ -5,6 +5,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
+import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import type { Metadata } from 'next';
 
@@ -144,45 +145,16 @@ function LevelsOfPowerView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('policeZones.title')}</h2>
           <p>{t('policeZones.description')}</p>
 
-          {/* Who decides what */}
-          <h2 className="text-lg font-semibold text-neutral-900">{t('whoDecidesWhat.title')}</h2>
-          <p>{t('whoDecidesWhat.intro')}</p>
-          <div className="overflow-x-auto rounded-lg border border-neutral-200">
-            <table className="w-full text-left text-xs">
-              <caption className="sr-only">{t('whoDecidesWhat.title')}</caption>
-              <thead className="bg-neutral-50">
-                <tr>
-                  <th scope="col" className="px-3 py-2 font-semibold text-neutral-900">{t('table.level')}</th>
-                  <th scope="col" className="px-3 py-2 font-semibold text-neutral-900">{t('table.examples')}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-neutral-100">
-                <tr>
-                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.budget')}</td>
-                  <td className="px-3 py-2">{t('whoDecidesWhat.budgetWho')}</td>
-                </tr>
-                <tr>
-                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.housing')}</td>
-                  <td className="px-3 py-2">{t('whoDecidesWhat.housingWho')}</td>
-                </tr>
-                <tr>
-                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.transport')}</td>
-                  <td className="px-3 py-2">{t('whoDecidesWhat.transportWho')}</td>
-                </tr>
-                <tr>
-                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.employment')}</td>
-                  <td className="px-3 py-2">{t('whoDecidesWhat.employmentWho')}</td>
-                </tr>
-                <tr>
-                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.health')}</td>
-                  <td className="px-3 py-2">{t('whoDecidesWhat.healthWho')}</td>
-                </tr>
-                <tr>
-                  <td className="px-3 py-2 font-medium">{t('whoDecidesWhat.environment')}</td>
-                  <td className="px-3 py-2">{t('whoDecidesWhat.environmentWho')}</td>
-                </tr>
-              </tbody>
-            </table>
+          {/* Who decides what — link to dedicated page */}
+          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-6 text-center">
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('whoDecidesWhat.title')}</h2>
+            <p className="mb-4 text-neutral-600">{t('whoDecidesWhat.description')}</p>
+            <Link
+              href="/explainers/who-decides-what"
+              className="inline-block rounded-md bg-brand-800 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-900"
+            >
+              {t('whoDecidesWhat.cta')}
+            </Link>
           </div>
 
           {/* Where is the blockage */}

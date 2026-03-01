@@ -1038,19 +1038,8 @@
       },
       "whoDecidesWhat": {
         "title": "Who decides what?",
-        "intro": "Which level of power decides what? Here are the main competences and the responsible institution:",
-        "budget": "Regional budget",
-        "budgetWho": "Brussels Parliament (on proposal from the government)",
-        "housing": "Social housing",
-        "housingWho": "SLRB (regional) + 16 social housing companies (local)",
-        "transport": "Public transport",
-        "transportWho": "STIB/MIVB (para-regional) + Beliris (federal for Metro 3)",
-        "employment": "Employment and training",
-        "employmentWho": "Actiris (regional) + Bruxelles Formation / VDAB (community)",
-        "health": "Health and social welfare",
-        "healthWho": "COCOM/GGC (bi-community)",
-        "environment": "Environment and climate",
-        "environmentWho": "Brussels Environment (regional)"
+        "description": "Which level of power manages which domain? See the full competence matrix, domain by domain.",
+        "cta": "View the competence matrix"
       }
     },
     "governmentFormation": {
@@ -1468,7 +1457,7 @@
     "allExplainers": "Understand everything",
     "explainerMap": "How to read this site",
     "explainerBuilding": "Brussels in brief",
-    "explainerUsers": "Who decides what?",
+    "explainerUsers": "Levels of power",
     "explainerScale": "The Brussels paradox",
     "lastVeille": "Last check",
     "veilleActive": "Active monitoring — {count} sources consulted",

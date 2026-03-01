@@ -1038,19 +1038,8 @@
       },
       "whoDecidesWhat": {
         "title": "Qui décide de quoi ?",
-        "intro": "Quel niveau de pouvoir décide de quoi ? Voici les principales compétences et l'institution responsable :",
-        "budget": "Budget régional",
-        "budgetWho": "Parlement bruxellois (sur proposition du gouvernement)",
-        "housing": "Logement social",
-        "housingWho": "SLRB (régional) + 16 SISP (local)",
-        "transport": "Transports publics",
-        "transportWho": "STIB (para-régional) + Beliris (fédéral pour Metro 3)",
-        "employment": "Emploi et formation",
-        "employmentWho": "Actiris (régional) + Bruxelles Formation / VDAB (communautaire)",
-        "health": "Santé et aide sociale",
-        "healthWho": "COCOM/GGC (bi-communautaire)",
-        "environment": "Environnement et climat",
-        "environmentWho": "Bruxelles Environnement (régional)"
+        "description": "Quel niveau de pouvoir gère quel domaine ? Consultez la matrice complète des compétences, domaine par domaine.",
+        "cta": "Voir la matrice des compétences"
       }
     },
     "governmentFormation": {
@@ -1468,7 +1457,7 @@
     "allExplainers": "Tout comprendre",
     "explainerMap": "Comment lire ce site",
     "explainerBuilding": "Bruxelles en bref",
-    "explainerUsers": "Qui décide quoi ?",
+    "explainerUsers": "Les niveaux de pouvoir",
     "explainerScale": "Le paradoxe bruxellois",
     "lastVeille": "Dernière veille",
     "veilleActive": "Veille active — {count} sources consultées",

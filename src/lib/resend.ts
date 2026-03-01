@@ -86,7 +86,16 @@ export const DOSSIER_TOPICS = [
   'dossier-reforme-administration',
   'dossier-assemblees-citoyennes',
   'dossier-faillites',
+  'dossier-pfas',
+  'dossier-acs',
 ] as const;
+
+/** Maps Velite dossier slugs to topic identifiers (only for slugs that differ). */
+export const DOSSIER_SLUG_TO_TOPIC: Record<string, string> = {
+  'seniors-a-bruxelles': 'dossier-seniors',
+  'data-centers-ia-energie': 'dossier-data-centers',
+  'faillites-a-bruxelles': 'dossier-faillites',
+};
 
 export const ENGAGEMENT_TOPICS = ['engagements'] as const;
 

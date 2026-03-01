@@ -318,7 +318,7 @@ function CommuneDetail({
 
         <div className="mt-8">
           <CardSubscribe
-            topic="communes"
+            topic={`commune-${card.slug}`}
             locale={locale}
             labels={{
               title: tSub('title'),

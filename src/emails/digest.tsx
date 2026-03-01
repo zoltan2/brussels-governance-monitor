@@ -14,7 +14,9 @@ import {
 export interface DigestUpdate {
   title: string;
   domain: string;
-  status: 'blocked' | 'delayed' | 'ongoing' | 'resolved';
+  section: 'domains' | 'dossiers' | 'sectors' | 'communes';
+  status?: 'blocked' | 'delayed' | 'ongoing' | 'resolved';
+  phase?: 'announced' | 'planned' | 'in-progress' | 'stalled' | 'completed' | 'cancelled';
   summary: string;
   url: string;
 }
@@ -40,6 +42,17 @@ const STATUS_STYLES = {
   resolved: { badgeBg: '#f0fdfa', badgeText: '#115e59', badgeBorder: '#14b8a6', cardBorder: '#0d9488' },
 } as const;
 
+const PHASE_STYLES: Record<string, { badgeBg: string; badgeText: string; badgeBorder: string; cardBorder: string }> = {
+  announced: { badgeBg: '#eff6ff', badgeText: '#1e40af', badgeBorder: '#93c5fd', cardBorder: '#2563eb' },
+  planned: { badgeBg: '#eff6ff', badgeText: '#1e40af', badgeBorder: '#93c5fd', cardBorder: '#2563eb' },
+  'in-progress': { badgeBg: '#eff6ff', badgeText: '#1e40af', badgeBorder: '#93c5fd', cardBorder: '#2563eb' },
+  stalled: { badgeBg: '#fef3c7', badgeText: '#92400e', badgeBorder: '#fbbf24', cardBorder: '#e67e22' },
+  completed: { badgeBg: '#f0fdfa', badgeText: '#115e59', badgeBorder: '#14b8a6', cardBorder: '#0d9488' },
+  cancelled: { badgeBg: '#f1f5f9', badgeText: '#334155', badgeBorder: '#94a3b8', cardBorder: '#64748b' },
+};
+
+const NEUTRAL_STYLE = { badgeBg: '#f1f5f9', badgeText: '#334155', badgeBorder: '#94a3b8', cardBorder: '#64748b' };
+
 const T: Record<string, {
   preview: string;
   title: string;
@@ -51,6 +64,9 @@ const T: Record<string, {
   commitmentsLink: string;
   seeButton: string;
   domainsTitle: string;
+  dossiersTitle: string;
+  sectorsTitle: string;
+  communesTitle: string;
   readMore: string;
   founderTitle: string;
   founderDesc: string;
@@ -64,6 +80,7 @@ const T: Record<string, {
   entity: string;
   disclaimer: string;
   statusLabels: Record<string, string>;
+  phaseLabels: Record<string, string>;
 }> = {
   fr: {
     preview: 'Digest hebdomadaire — Brussels Governance Monitor',
@@ -76,6 +93,9 @@ const T: Record<string, {
     commitmentsLink: 'engagements',
     seeButton: 'Voir →',
     domainsTitle: 'Domaines mis à jour',
+    dossiersTitle: 'Dossiers mis à jour',
+    sectorsTitle: 'Secteurs mis à jour',
+    communesTitle: 'Communes mises à jour',
     readMore: 'Lire la fiche →',
     founderTitle: 'Fondateur Brussels Governance Monitor',
     founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
@@ -89,6 +109,7 @@ const T: Record<string, {
     entity: 'Advice That SRL — Bruxelles, Belgique',
     disclaimer: 'Non affilié à aucun parti politique',
     statusLabels: { blocked: 'Bloqué', delayed: 'Retardé', ongoing: 'En cours', resolved: 'Résolu' },
+    phaseLabels: { announced: 'Annoncé', planned: 'Planifié', 'in-progress': 'En cours', stalled: 'Bloqué', completed: 'Terminé', cancelled: 'Annulé' },
   },
   nl: {
     preview: 'Wekelijkse samenvatting — Brussels Governance Monitor',
@@ -101,6 +122,9 @@ const T: Record<string, {
     commitmentsLink: 'engagementen',
     seeButton: 'Bekijken →',
     domainsTitle: 'Bijgewerkte domeinen',
+    dossiersTitle: 'Bijgewerkte dossiers',
+    sectorsTitle: 'Bijgewerkte sectoren',
+    communesTitle: 'Bijgewerkte gemeenten',
     readMore: 'Lees de fiche →',
     founderTitle: 'Oprichter Brussels Governance Monitor',
     founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
@@ -114,6 +138,7 @@ const T: Record<string, {
     entity: 'Advice That SRL — Brussel, België',
     disclaimer: 'Niet gelieerd aan enige politieke partij',
     statusLabels: { blocked: 'Geblokkeerd', delayed: 'Vertraagd', ongoing: 'Lopend', resolved: 'Opgelost' },
+    phaseLabels: { announced: 'Aangekondigd', planned: 'Gepland', 'in-progress': 'Lopend', stalled: 'Geblokkeerd', completed: 'Voltooid', cancelled: 'Geannuleerd' },
   },
   en: {
     preview: 'Weekly digest — Brussels Governance Monitor',
@@ -126,6 +151,9 @@ const T: Record<string, {
     commitmentsLink: 'commitments',
     seeButton: 'View →',
     domainsTitle: 'Updated domains',
+    dossiersTitle: 'Updated dossiers',
+    sectorsTitle: 'Updated sectors',
+    communesTitle: 'Updated communes',
     readMore: 'Read more →',
     founderTitle: 'Founder, Brussels Governance Monitor',
     founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
@@ -139,6 +167,7 @@ const T: Record<string, {
     entity: 'Advice That SRL — Brussels, Belgium',
     disclaimer: 'Not affiliated with any political party',
     statusLabels: { blocked: 'Blocked', delayed: 'Delayed', ongoing: 'Ongoing', resolved: 'Resolved' },
+    phaseLabels: { announced: 'Announced', planned: 'Planned', 'in-progress': 'In progress', stalled: 'Stalled', completed: 'Completed', cancelled: 'Cancelled' },
   },
   de: {
     preview: 'Wöchentliche Zusammenfassung — Brussels Governance Monitor',
@@ -151,6 +180,9 @@ const T: Record<string, {
     commitmentsLink: 'verpflichtungen',
     seeButton: 'Ansehen →',
     domainsTitle: 'Aktualisierte Bereiche',
+    dossiersTitle: 'Aktualisierte Dossiers',
+    sectorsTitle: 'Aktualisierte Sektoren',
+    communesTitle: 'Aktualisierte Gemeinden',
     readMore: 'Weiterlesen →',
     founderTitle: 'Gründer, Brussels Governance Monitor',
     founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
@@ -164,6 +196,7 @@ const T: Record<string, {
     entity: 'Advice That SRL — Brüssel, Belgien',
     disclaimer: 'Keiner politischen Partei angeschlossen',
     statusLabels: { blocked: 'Blockiert', delayed: 'Verzögert', ongoing: 'Laufend', resolved: 'Gelöst' },
+    phaseLabels: { announced: 'Angekündigt', planned: 'Geplant', 'in-progress': 'Laufend', stalled: 'Blockiert', completed: 'Abgeschlossen', cancelled: 'Abgesagt' },
   },
 };
 
@@ -202,16 +235,34 @@ export function generateDigestPlainText({
     '',
     '---',
     '',
-    t.domainsTitle,
     '',
   ];
 
-  for (const update of updates) {
-    const statusLabel = t.statusLabels[update.status] || update.status;
-    lines.push(`[${statusLabel}] ${update.title}`);
-    lines.push(update.summary);
-    lines.push(`${t.readMore} ${update.url}`);
+  const sectionOrder: Array<{ key: DigestUpdate['section']; title: string }> = [
+    { key: 'domains', title: t.domainsTitle },
+    { key: 'dossiers', title: t.dossiersTitle },
+    { key: 'sectors', title: t.sectorsTitle },
+    { key: 'communes', title: t.communesTitle },
+  ];
+
+  for (const { key, title } of sectionOrder) {
+    const sectionUpdates = updates.filter((u) => u.section === key);
+    if (sectionUpdates.length === 0) continue;
+
+    lines.push(title);
     lines.push('');
+
+    for (const update of sectionUpdates) {
+      const badgeLabel = update.status
+        ? (t.statusLabels[update.status] || update.status)
+        : update.phase
+          ? (t.phaseLabels[update.phase] || update.phase)
+          : '';
+      lines.push(badgeLabel ? `[${badgeLabel}] ${update.title}` : update.title);
+      lines.push(update.summary);
+      lines.push(`${t.readMore} ${update.url}`);
+      lines.push('');
+    }
   }
 
   if (plainNote) {
@@ -525,96 +576,121 @@ export function DigestContent({
           </td>
         </tr>
 
-        {/* ===== DOMAINS TITLE ===== */}
-        <tr>
-          <td style={{ padding: '24px 40px 20px' }}>
-            <p style={{ margin: 0, color: '#1a2744', fontSize: '18px', fontWeight: 700 }}>
-              {t.domainsTitle}
-            </p>
-          </td>
-        </tr>
+        {/* ===== CONTENT SECTIONS ===== */}
+        {(['domains', 'dossiers', 'sectors', 'communes'] as const).map((sectionKey) => {
+          const sectionUpdates = updates.filter((u) => u.section === sectionKey);
+          if (sectionUpdates.length === 0) return null;
 
-        {/* ===== DOMAIN CARDS ===== */}
-        {updates.map((update, i) => {
-          const colors = STATUS_STYLES[update.status] || STATUS_STYLES.ongoing;
-          const isEven = i % 2 === 0;
+          const sectionTitleMap = {
+            domains: t.domainsTitle,
+            dossiers: t.dossiersTitle,
+            sectors: t.sectorsTitle,
+            communes: t.communesTitle,
+          };
 
-          return (
-            <tr key={update.url}>
-              <td style={{ padding: '0 40px 20px' }}>
-                <table
-                  role="presentation"
-                  width="100%"
-                  cellPadding={0}
-                  cellSpacing={0}
-                  style={{
-                    backgroundColor: isEven ? '#f8fafc' : '#ffffff',
-                    borderRadius: '10px',
-                    overflow: 'hidden' as const,
-                    ...(isEven
-                      ? { borderLeft: `4px solid ${colors.cardBorder}` }
-                      : {
-                          border: '1px solid #e2e8f0',
-                          borderLeft: `4px solid ${colors.cardBorder}`,
-                        }),
-                  }}
-                >
-                  <tbody>
-                    <tr>
-                      <td style={{ padding: '20px 22px' }}>
-                        <span
-                          style={{
-                            display: 'inline-block',
-                            backgroundColor: colors.badgeBg,
-                            color: colors.badgeText,
-                            fontSize: '11px',
-                            fontWeight: 700,
-                            padding: '3px 10px',
-                            borderRadius: '20px',
-                            border: `1px solid ${colors.badgeBorder}`,
-                          }}
-                        >
-                          {t.statusLabels[update.status] || update.status}
-                        </span>
-                        <p
-                          style={{
-                            margin: '8px 0 8px',
-                            color: '#1a2744',
-                            fontSize: '17px',
-                            fontWeight: 700,
-                            lineHeight: '1.35',
-                          }}
-                        >
-                          {update.title}
-                        </p>
-                        <p
-                          style={{
-                            margin: '0 0 12px',
-                            color: '#475569',
-                            fontSize: '14px',
-                            lineHeight: '1.55',
-                          }}
-                        >
-                          {update.summary}
-                        </p>
-                        <Link
-                          href={update.url}
-                          style={{
-                            color: '#2563eb',
-                            fontSize: '14px',
-                            fontWeight: 600,
-                            textDecoration: 'none',
-                          }}
-                        >
-                          {t.readMore}
-                        </Link>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+          return [
+            <tr key={`title-${sectionKey}`}>
+              <td style={{ padding: '24px 40px 20px' }}>
+                <p style={{ margin: 0, color: '#1a2744', fontSize: '18px', fontWeight: 700 }}>
+                  {sectionTitleMap[sectionKey]}
+                </p>
               </td>
-            </tr>
-          );
+            </tr>,
+            ...sectionUpdates.map((update, i) => {
+              const colors = update.status
+                ? (STATUS_STYLES[update.status] || STATUS_STYLES.ongoing)
+                : update.phase
+                  ? (PHASE_STYLES[update.phase] || NEUTRAL_STYLE)
+                  : NEUTRAL_STYLE;
+
+              const badgeLabel = update.status
+                ? (t.statusLabels[update.status] || update.status)
+                : update.phase
+                  ? (t.phaseLabels[update.phase] || update.phase)
+                  : null;
+
+              const isEven = i % 2 === 0;
+
+              return (
+                <tr key={update.url}>
+                  <td style={{ padding: '0 40px 20px' }}>
+                    <table
+                      role="presentation"
+                      width="100%"
+                      cellPadding={0}
+                      cellSpacing={0}
+                      style={{
+                        backgroundColor: isEven ? '#f8fafc' : '#ffffff',
+                        borderRadius: '10px',
+                        overflow: 'hidden' as const,
+                        ...(isEven
+                          ? { borderLeft: `4px solid ${colors.cardBorder}` }
+                          : {
+                              border: '1px solid #e2e8f0',
+                              borderLeft: `4px solid ${colors.cardBorder}`,
+                            }),
+                      }}
+                    >
+                      <tbody>
+                        <tr>
+                          <td style={{ padding: '20px 22px' }}>
+                            {badgeLabel && (
+                              <span
+                                style={{
+                                  display: 'inline-block',
+                                  backgroundColor: colors.badgeBg,
+                                  color: colors.badgeText,
+                                  fontSize: '11px',
+                                  fontWeight: 700,
+                                  padding: '3px 10px',
+                                  borderRadius: '20px',
+                                  border: `1px solid ${colors.badgeBorder}`,
+                                }}
+                              >
+                                {badgeLabel}
+                              </span>
+                            )}
+                            <p
+                              style={{
+                                margin: badgeLabel ? '8px 0 8px' : '0 0 8px',
+                                color: '#1a2744',
+                                fontSize: '17px',
+                                fontWeight: 700,
+                                lineHeight: '1.35',
+                              }}
+                            >
+                              {update.title}
+                            </p>
+                            <p
+                              style={{
+                                margin: '0 0 12px',
+                                color: '#475569',
+                                fontSize: '14px',
+                                lineHeight: '1.55',
+                              }}
+                            >
+                              {update.summary}
+                            </p>
+                            <Link
+                              href={update.url}
+                              style={{
+                                color: '#2563eb',
+                                fontSize: '14px',
+                                fontWeight: 600,
+                                textDecoration: 'none',
+                              }}
+                            >
+                              {t.readMore}
+                            </Link>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              );
+            }),
+          ];
         })}
 
         {/* ===== DIVIDER ===== */}

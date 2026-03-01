@@ -4,12 +4,10 @@
 import { auth } from '@/auth';
 import { NextResponse } from 'next/server';
 import { readGitHubFile } from '@/lib/github';
-import { getDomainCards } from '@/lib/content';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
+import { collectDigestUpdates } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
-import type { DigestUpdate } from '@/emails/digest';
-import type { Locale } from '@/i18n/routing';
 
 function formatWeekRange(date: Date, locale: string): string {
   const localeMap: Record<string, string> = {
@@ -59,25 +57,19 @@ export const POST = auth(async function POST(req) {
   const digest = JSON.parse(file.content);
   const locale = 'fr';
 
-  // Collect updated cards
+  // Calculate cutoff — use weekStart if available, fallback to 7-day
+  const cutoff = digest.weekStart || (() => {
+    const createdAt = new Date(digest.created_at);
+    const sevenDaysAgo = new Date(createdAt);
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    return sevenDaysAgo.toISOString().split('T')[0];
+  })();
+
+  // Collect all updated content
+  const { byLocale } = collectDigestUpdates(cutoff, siteUrl);
+  const updates = byLocale[locale] || [];
+
   const createdAt = new Date(digest.created_at);
-  const sevenDaysAgo = new Date(createdAt);
-  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-  const cutoff = sevenDaysAgo.toISOString().split('T')[0];
-
-  const cards = getDomainCards(locale as Locale);
-  const updates: DigestUpdate[] = cards
-    .filter((c) => c.lastModified >= cutoff)
-    .map((c) => ({
-      title: c.title,
-      domain: c.domain,
-      status: c.status,
-      summary: (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
-        ? c.changeSummary
-        : c.summary,
-      url: `${siteUrl}/${locale}/domains/${c.slug}`,
-    }));
-
   const weekOf = formatWeekRange(createdAt, locale);
   const weekNum = parseInt(digest.week.split('-w')[1], 10);
   const unsubToken = generateUnsubscribeToken(adminEmail);

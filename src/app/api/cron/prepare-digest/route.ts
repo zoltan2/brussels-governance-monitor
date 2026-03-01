@@ -6,14 +6,12 @@ import { getDomainCards } from '@/lib/content';
 import { readGitHubFile, writeGitHubFile } from '@/lib/github';
 import { getResend, EMAIL_FROM, listActiveContacts, resendCall } from '@/lib/resend';
 import { generateDigestApprovalToken, generateUnsubscribeToken } from '@/lib/token';
+import { collectDigestUpdates, generateSummaryLine } from '@/lib/digest-updates';
 import DigestPreviewEmail from '@/emails/digest-preview';
-import type { Locale } from '@/i18n/routing';
-import type { DigestUpdate } from '@/emails/digest';
-
-const SUPPORTED_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
 
 interface PendingDigest {
   week: string;
+  weekStart?: string;
   created_at: string;
   approved: boolean;
   sent: boolean;
@@ -26,7 +24,7 @@ interface PendingDigest {
   };
   closingNote: Record<string, string>;
   commitmentCount: number;
-  updatedDomains: string[];
+  updatedTopics: string[];
 }
 
 /** Format the ISO week string, e.g. "2026-w07" */
@@ -64,7 +62,7 @@ function formatWeekRange(date: Date, locale: string): string {
 /**
  * Prepare digest cron — triggered Sunday 21h CET.
  *
- * 1. Collects updated domain cards from the past 7 days
+ * 1. Collects updated cards from all content types since Monday
  * 2. Builds pending-digest JSON
  * 3. Stores it via GitHub API
  * 4. Sends preview email to admin
@@ -84,58 +82,24 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'ADMIN_EMAIL not configured' }, { status: 500 });
   }
 
-  // 1. Calculate 7-day cutoff
+  // 1. Calculate cutoff — ISO week Monday 00:00 UTC
   const now = new Date();
-  const sevenDaysAgo = new Date(now);
-  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-  const cutoff = sevenDaysAgo.toISOString().split('T')[0];
+  const dayOfWeek = now.getUTCDay();
+  const monday = new Date(now);
+  monday.setUTCDate(monday.getUTCDate() - ((dayOfWeek + 6) % 7));
+  monday.setUTCHours(0, 0, 0, 0);
+  const cutoff = monday.toISOString().split('T')[0];
 
-  // 2. Collect updated domain cards per locale
-  const updatedCardsByLocale: Record<string, DigestUpdate[]> = {};
-  const updatedDomainSlugs = new Set<string>();
+  // 2. Collect all updated content
+  const { byLocale, updatedTopics, counts } = collectDigestUpdates(cutoff, siteUrl);
+  const frUpdates = byLocale.fr || [];
+  const totalFrUpdates = frUpdates.length;
 
-  for (const locale of SUPPORTED_LOCALES) {
-    const cards = getDomainCards(locale);
-    updatedCardsByLocale[locale] = cards
-      .filter((c) => c.lastModified >= cutoff)
-      .map((c) => {
-        updatedDomainSlugs.add(c.domain);
-        return {
-          title: c.title,
-          domain: c.domain,
-          status: c.status,
-          summary: (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
-            ? c.changeSummary
-            : c.summary,
-          url: `${siteUrl}/${locale}/domains/${c.slug}`,
-        };
-      });
-  }
-
-  const updatedDomains = [...updatedDomainSlugs];
-  const frUpdates = updatedCardsByLocale.fr || [];
-
-  // 3. Auto-generate summary line
-  const statusChanges = frUpdates.filter((u) => u.status !== 'ongoing').length;
-  const summaryFr =
-    frUpdates.length === 0
-      ? 'Aucune mise à jour cette semaine.'
-      : `${frUpdates.length} domaine${frUpdates.length > 1 ? 's' : ''} mis à jour${statusChanges > 0 ? `, ${statusChanges} changement${statusChanges > 1 ? 's' : ''} de statut` : ''}`;
-
-  const summaryNl =
-    frUpdates.length === 0
-      ? 'Geen updates deze week.'
-      : `${frUpdates.length} domein${frUpdates.length > 1 ? 'en' : ''} bijgewerkt${statusChanges > 0 ? `, ${statusChanges} statuswijziging${statusChanges > 1 ? 'en' : ''}` : ''}`;
-
-  const summaryEn =
-    frUpdates.length === 0
-      ? 'No updates this week.'
-      : `${frUpdates.length} domain${frUpdates.length > 1 ? 's' : ''} updated${statusChanges > 0 ? `, ${statusChanges} status change${statusChanges > 1 ? 's' : ''}` : ''}`;
-
-  const summaryDe =
-    frUpdates.length === 0
-      ? 'Keine Aktualisierungen diese Woche.'
-      : `${frUpdates.length} Bereich${frUpdates.length > 1 ? 'e' : ''} aktualisiert${statusChanges > 0 ? `, ${statusChanges} Statusänderung${statusChanges > 1 ? 'en' : ''}` : ''}`;
+  // 3. Auto-generate summary line per locale
+  const summaryFr = generateSummaryLine(counts, 'fr');
+  const summaryNl = generateSummaryLine(counts, 'nl');
+  const summaryEn = generateSummaryLine(counts, 'en');
+  const summaryDe = generateSummaryLine(counts, 'de');
 
   // 4. Read commitment count
   let commitmentCount = 0;
@@ -154,7 +118,7 @@ export async function GET(request: Request) {
   let weeklyNumberLabelFr = 'Engagements chiffrés de la DPR';
   let weeklyNumberSourceFr = 'Brussels Governance Monitor';
 
-  if (frUpdates.length > 0) {
+  if (totalFrUpdates > 0) {
     const frCards = getDomainCards('fr');
     const firstUpdated = frCards.find(
       (c) => c.lastModified >= cutoff && c.metrics.length > 0,
@@ -172,6 +136,7 @@ export async function GET(request: Request) {
 
   const pendingDigest: PendingDigest = {
     week,
+    weekStart: cutoff,
     created_at: now.toISOString(),
     approved: false,
     sent: false,
@@ -203,7 +168,7 @@ export async function GET(request: Request) {
       de: 'Allen eine gute Woche.',
     },
     commitmentCount,
-    updatedDomains,
+    updatedTopics,
   };
 
   // 7. Write to GitHub — preserve user edits if same week
@@ -255,7 +220,7 @@ export async function GET(request: Request) {
     resend.emails.send({
       from: EMAIL_FROM,
       to: adminEmail,
-      subject: `[PREVIEW] Digest ${week} — ${frUpdates.length} domaine${frUpdates.length > 1 ? 's' : ''}`,
+      subject: `[PREVIEW] Digest ${week} — ${totalFrUpdates} mise${totalFrUpdates > 1 ? 's' : ''} à jour`,
       react: DigestPreviewEmail({
         locale: 'fr',
         updates: previewUpdates,
@@ -281,8 +246,9 @@ export async function GET(request: Request) {
   return NextResponse.json({
     success: true,
     week,
-    updatedDomains,
-    frUpdateCount: frUpdates.length,
+    updatedTopics,
+    counts,
+    frUpdateCount: totalFrUpdates,
     subscriberCount,
     commitmentCount,
   });

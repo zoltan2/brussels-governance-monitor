@@ -26,7 +26,8 @@ interface PendingDigest {
   };
   closingNote: LocaleStrings;
   commitmentCount: number;
-  updatedDomains: string[];
+  updatedTopics?: string[];
+  updatedDomains?: string[];
 }
 
 type Status = 'loading' | 'loaded' | 'saving' | 'error' | 'approving';
@@ -218,6 +219,7 @@ export default function DigestReviewPage() {
 
   const isSent = digest.sent;
   const isApproved = digest.approved;
+  const topics: string[] = digest.updatedTopics || digest.updatedDomains || [];
 
   return (
     <div className="py-12">
@@ -249,7 +251,7 @@ export default function DigestReviewPage() {
             {isSent ? 'Envoyé' : isApproved ? 'Approuvé' : 'En attente'}
           </span>
           <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600">
-            {digest.updatedDomains.length} domaine{digest.updatedDomains.length > 1 ? 's' : ''}
+            {topics.length} sujet{topics.length > 1 ? 's' : ''}
           </span>
           <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600">
             {digest.commitmentCount} engagements
@@ -276,19 +278,26 @@ export default function DigestReviewPage() {
           </p>
         </section>
 
-        {/* Updated domains (read-only) */}
+        {/* Updated topics (read-only) */}
         <section className="mb-6">
-          <h2 className="mb-2 text-sm font-semibold text-neutral-700">Domaines mis à jour</h2>
+          <h2 className="mb-2 text-sm font-semibold text-neutral-700">Sujets mis à jour</h2>
           <div className="flex flex-wrap gap-2">
-            {digest.updatedDomains.map((d) => (
-              <span
-                key={d}
-                className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700"
-              >
-                {d}
-              </span>
-            ))}
-            {digest.updatedDomains.length === 0 && (
+            {topics.map((d) => {
+              const chipColor = d.startsWith('dossier-')
+                ? 'bg-blue-50 text-blue-800'
+                : d.startsWith('commune-')
+                  ? 'bg-amber-50 text-amber-800'
+                  : 'bg-slate-100 text-slate-700';
+              return (
+                <span
+                  key={d}
+                  className={`rounded px-2 py-1 text-xs font-medium ${chipColor}`}
+                >
+                  {d}
+                </span>
+              );
+            })}
+            {topics.length === 0 && (
               <span className="text-sm text-neutral-400 italic">Aucun</span>
             )}
           </div>

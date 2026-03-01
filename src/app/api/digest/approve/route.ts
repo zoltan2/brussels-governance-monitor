@@ -3,11 +3,10 @@
 
 import { NextResponse } from 'next/server';
 import { readGitHubFile, writeGitHubFile } from '@/lib/github';
-import { getDomainCards } from '@/lib/content';
-import { getResend, EMAIL_FROM, listActiveContacts, SECTOR_TO_DOMAIN, resendCall } from '@/lib/resend';
+import { getResend, EMAIL_FROM, listActiveContacts, resendCall } from '@/lib/resend';
 import { verifyDigestApprovalToken, generateUnsubscribeToken } from '@/lib/token';
+import { collectDigestUpdates, filterUpdatesForSubscriber } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
-import type { DigestUpdate } from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
 
 const SUPPORTED_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
@@ -15,6 +14,7 @@ const BATCH_SIZE = 50;
 
 interface PendingDigest {
   week: string;
+  weekStart?: string;
   created_at: string;
   approved: boolean;
   sent: boolean;
@@ -27,7 +27,7 @@ interface PendingDigest {
   };
   closingNote: Record<string, string>;
   commitmentCount: number;
-  updatedDomains: string[];
+  updatedTopics: string[];
 }
 
 /** Format a date range for the locale */
@@ -109,27 +109,15 @@ export async function GET(request: Request) {
   }
   // If after Monday 8h CET, send immediately (no scheduledAt)
 
-  // 6. Calculate cutoff and collect updates (same as prepare-digest)
-  const createdAt = new Date(digest.created_at);
-  const sevenDaysAgo = new Date(createdAt);
-  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-  const cutoff = sevenDaysAgo.toISOString().split('T')[0];
+  // 6. Calculate cutoff and collect updates
+  const cutoff = digest.weekStart || (() => {
+    const createdAt = new Date(digest.created_at);
+    const sevenDaysAgo = new Date(createdAt);
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    return sevenDaysAgo.toISOString().split('T')[0];
+  })();
 
-  const updatedCardsByLocale: Record<string, DigestUpdate[]> = {};
-  for (const locale of SUPPORTED_LOCALES) {
-    const cards = getDomainCards(locale);
-    updatedCardsByLocale[locale] = cards
-      .filter((c) => c.lastModified >= cutoff)
-      .map((c) => ({
-        title: c.title,
-        domain: c.domain,
-        status: c.status,
-        summary: (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
-          ? c.changeSummary
-          : c.summary,
-        url: `${siteUrl}/${locale}/domains/${c.slug}`,
-      }));
-  }
+  const { byLocale } = collectDigestUpdates(cutoff, siteUrl);
 
   // 7. Fetch active contacts
   const contacts = await listActiveContacts();
@@ -144,21 +132,8 @@ export async function GET(request: Request) {
       ? (contact.locale as Locale)
       : 'fr';
 
-    const allUpdates = updatedCardsByLocale[locale] || [];
-
-    // Filter by subscriber's topics
-    const subscriberDomainTopics = new Set<string>();
-    for (const t of contact.topics) {
-      if (t === 'solutions') continue;
-      subscriberDomainTopics.add(t);
-      const parent = SECTOR_TO_DOMAIN[t];
-      if (parent) subscriberDomainTopics.add(parent);
-    }
-
-    const updates =
-      subscriberDomainTopics.size > 0
-        ? allUpdates.filter((u) => subscriberDomainTopics.has(u.domain))
-        : allUpdates;
+    const allUpdates = byLocale[locale] || [];
+    const updates = filterUpdatesForSubscriber(allUpdates, contact.topics);
 
     // Business rule: no email if no matching updates
     if (updates.length === 0) {
@@ -166,6 +141,7 @@ export async function GET(request: Request) {
       continue;
     }
 
+    const createdAt = new Date(digest.created_at);
     const weekOf = formatWeekRange(createdAt, locale);
     const weekNum = parseInt(digest.week.split('-w')[1], 10);
     const unsubToken = generateUnsubscribeToken(contact.email);
@@ -197,7 +173,7 @@ export async function GET(request: Request) {
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const payload: any = {
+    const emailPayload: any = {
       from: EMAIL_FROM,
       to: contact.email,
       replyTo: process.env.ADMIN_EMAIL,
@@ -216,10 +192,10 @@ export async function GET(request: Request) {
     };
 
     if (scheduledAt) {
-      payload.scheduledAt = scheduledAt;
+      emailPayload.scheduledAt = scheduledAt;
     }
 
-    emailPayloads.push(payload);
+    emailPayloads.push(emailPayload);
   }
 
   // 9. Send in batches

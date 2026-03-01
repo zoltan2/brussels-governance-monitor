@@ -2,12 +2,11 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { NextResponse } from 'next/server';
-import { getDomainCards } from '@/lib/content';
 import { readGitHubFile, writeGitHubFile } from '@/lib/github';
-import { getResend, EMAIL_FROM, listActiveContacts, SECTOR_TO_DOMAIN, resendCall } from '@/lib/resend';
+import { getResend, EMAIL_FROM, listActiveContacts, resendCall } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
+import { collectDigestUpdates, filterUpdatesForSubscriber } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
-import type { DigestUpdate } from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
 
 const SUPPORTED_DIGEST_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
@@ -104,26 +103,15 @@ export async function GET(request: Request) {
   // Approved but not sent — send now (safety net)
   console.log(`Safety-net send for digest ${digest.week} (approved but not sent)`);
 
-  const createdAt = new Date(digest.created_at);
-  const sevenDaysAgo = new Date(createdAt);
-  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-  const cutoff = sevenDaysAgo.toISOString().split('T')[0];
+  // Calculate cutoff — use weekStart if available, fallback to 7-day
+  const cutoff = digest.weekStart || (() => {
+    const createdAt = new Date(digest.created_at);
+    const sevenDaysAgo = new Date(createdAt);
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    return sevenDaysAgo.toISOString().split('T')[0];
+  })();
 
-  const updatedCardsByLocale: Record<string, DigestUpdate[]> = {};
-  for (const locale of SUPPORTED_DIGEST_LOCALES) {
-    const cards = getDomainCards(locale);
-    updatedCardsByLocale[locale] = cards
-      .filter((c) => c.lastModified >= cutoff)
-      .map((c) => ({
-        title: c.title,
-        domain: c.domain,
-        status: c.status,
-        summary: (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
-          ? c.changeSummary
-          : c.summary,
-        url: `${siteUrl}/${locale}/domains/${c.slug}`,
-      }));
-  }
+  const { byLocale } = collectDigestUpdates(cutoff, siteUrl);
 
   let contacts;
   try {
@@ -142,25 +130,15 @@ export async function GET(request: Request) {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const emailPayloads: any[] = [];
+  const createdAt = new Date(digest.created_at);
 
   for (const contact of contacts) {
     const locale = SUPPORTED_DIGEST_LOCALES.includes(contact.locale as Locale)
       ? (contact.locale as Locale)
       : 'fr';
 
-    const allUpdates = updatedCardsByLocale[locale] || [];
-
-    const subscriberDomainTopics = new Set<string>();
-    for (const t of contact.topics) {
-      if (t === 'solutions') continue;
-      subscriberDomainTopics.add(t);
-      const parent = SECTOR_TO_DOMAIN[t];
-      if (parent) subscriberDomainTopics.add(parent);
-    }
-    const updates =
-      subscriberDomainTopics.size > 0
-        ? allUpdates.filter((u) => subscriberDomainTopics.has(u.domain))
-        : allUpdates;
+    const allUpdates = byLocale[locale] || [];
+    const updates = filterUpdatesForSubscriber(allUpdates, contact.topics);
 
     if (updates.length === 0) {
       skipped++;

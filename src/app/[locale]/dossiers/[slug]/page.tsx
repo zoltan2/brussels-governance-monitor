@@ -13,6 +13,7 @@ import {
   getCommuneCard,
   getFormationEvents,
 } from '@/lib/content';
+import { DOSSIER_SLUG_TO_TOPIC } from '@/lib/resend';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
@@ -434,7 +435,7 @@ function DossierDetail({
 
         <div className="mt-8">
           <CardSubscribe
-            topic="dossiers"
+            topic={DOSSIER_SLUG_TO_TOPIC[card.slug] || `dossier-${card.slug}`}
             locale={locale}
             labels={{
               title: tSub('title'),

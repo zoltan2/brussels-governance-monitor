@@ -32,6 +32,13 @@ const changelogEntrySchema = z.object({
     en: z.string(),
     de: z.string(),
   }).optional(),
+  /** Heading text per locale to scroll to on the target page (used to build #anchor fragment) */
+  anchor: z.object({
+    fr: z.string(),
+    nl: z.string(),
+    en: z.string(),
+    de: z.string(),
+  }).optional(),
 });
 
 const changelogSchema = z.array(changelogEntrySchema);
@@ -43,6 +50,7 @@ export interface ChangelogEntry {
   targetSlug: string | null;
   description: string;
   summary?: string;
+  anchor?: string;
 }
 
 export function getChangelog(locale: Locale): ChangelogEntry[] {
@@ -54,6 +62,7 @@ export function getChangelog(locale: Locale): ChangelogEntry[] {
     targetSlug: entry.targetSlug,
     description: entry.descriptions[locale] || entry.descriptions.fr,
     summary: entry.summaries?.[locale] || entry.summaries?.fr,
+    anchor: entry.anchor?.[locale] || entry.anchor?.fr,
   }));
 }
 
@@ -68,6 +77,7 @@ export interface LatestUpdate {
   targetSlug: string | null;
   description: string;
   summary?: string;
+  anchor?: string;
   href: string | null;
 }
 

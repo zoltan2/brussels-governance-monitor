@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { Link } from '@/i18n/navigation';
-import { formatDate } from '@/lib/utils';
+import { formatDate, slugify } from '@/lib/utils';
 
 interface LatestUpdateBarProps {
   date: string;
@@ -10,11 +10,12 @@ interface LatestUpdateBarProps {
   summary?: string;
   section: string;
   targetSlug: string | null;
+  anchor?: string;
   locale: string;
 }
 
-export function LatestUpdateBar({ date, description, summary, section, targetSlug, locale }: LatestUpdateBarProps) {
-  const linkHref = getLinkHref(section, targetSlug);
+export function LatestUpdateBar({ date, description, summary, section, targetSlug, anchor, locale }: LatestUpdateBarProps) {
+  const linkHref = getLinkHref(section, targetSlug, anchor);
 
   const content = (
     <div className="mx-auto flex min-w-0 max-w-5xl items-center gap-2 px-4 py-2.5">
@@ -50,21 +51,22 @@ export function LatestUpdateBar({ date, description, summary, section, targetSlu
   );
 }
 
-function getLinkHref(section: string, slug: string | null) {
+function getLinkHref(section: string, slug: string | null, anchor?: string) {
   if (!slug) return null;
+  const hash = anchor ? slugify(anchor) : undefined;
   switch (section) {
     case 'domains':
-      return { pathname: '/domains/[slug]' as const, params: { slug } };
+      return { pathname: '/domains/[slug]' as const, params: { slug }, hash };
     case 'dossiers':
-      return { pathname: '/dossiers/[slug]' as const, params: { slug } };
+      return { pathname: '/dossiers/[slug]' as const, params: { slug }, hash };
     case 'sectors':
-      return { pathname: '/sectors/[slug]' as const, params: { slug } };
+      return { pathname: '/sectors/[slug]' as const, params: { slug }, hash };
     case 'communes':
-      return { pathname: '/communes/[slug]' as const, params: { slug } };
+      return { pathname: '/communes/[slug]' as const, params: { slug }, hash };
     case 'comparisons':
-      return { pathname: '/comparisons/[slug]' as const, params: { slug } };
+      return { pathname: '/comparisons/[slug]' as const, params: { slug }, hash };
     case 'solutions':
-      return { pathname: '/solutions/[slug]' as const, params: { slug } };
+      return { pathname: '/solutions/[slug]' as const, params: { slug }, hash };
     default:
       return null;
   }

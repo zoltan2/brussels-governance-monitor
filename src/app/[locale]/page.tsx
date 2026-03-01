@@ -100,6 +100,7 @@ export default async function HomePage({
         summary={latestUpdate.summary}
         section={latestUpdate.section}
         targetSlug={latestUpdate.targetSlug}
+        anchor={latestUpdate.anchor}
         locale={locale}
       />
 

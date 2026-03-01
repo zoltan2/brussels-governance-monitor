@@ -70,7 +70,7 @@ async function main() {
   console.log(`Cutoff: ${cutoff}`);
 
   // 3. Collect all updates
-  const { byLocale, counts } = collectDigestUpdates(cutoff, siteUrl);
+  const { byLocale, counts } = collectDigestUpdates(cutoff, siteUrl, 'preview');
   const allUpdates = byLocale[locale] || [];
   console.log(`Total updates (${locale}): ${allUpdates.length}`);
 

@@ -231,7 +231,7 @@ export function generateDigestPlainText({
     weeklyNumber.source,
     '',
     `${t.commitmentsTitle}: ${commitmentCount} ${t.commitmentsDesc}`,
-    `${siteUrl}/${locale}/${t.commitmentsLink}`,
+    `${siteUrl}/${locale}/${t.commitmentsLink}?utm_source=bgm-digest&utm_medium=email&utm_campaign=weekly&utm_content=commitments`,
     '',
     '---',
     '',
@@ -544,7 +544,7 @@ export function DigestContent({
                           </td>
                           <td style={{ textAlign: 'right' as const, verticalAlign: 'middle' as const }}>
                             <Button
-                              href={`${siteUrl}/${locale}/${t.commitmentsLink}`}
+                              href={`${siteUrl}/${locale}/${t.commitmentsLink}?utm_source=bgm-digest&utm_medium=email&utm_campaign=weekly&utm_content=commitments`}
                               style={{
                                 display: 'inline-block',
                                 backgroundColor: '#2563eb',

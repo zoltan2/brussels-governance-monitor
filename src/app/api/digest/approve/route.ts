@@ -117,7 +117,7 @@ export async function GET(request: Request) {
     return sevenDaysAgo.toISOString().split('T')[0];
   })();
 
-  const { byLocale } = collectDigestUpdates(cutoff, siteUrl);
+  const { byLocale } = collectDigestUpdates(cutoff, siteUrl, digest.week);
 
   // 7. Fetch active contacts
   const contacts = await listActiveContacts();

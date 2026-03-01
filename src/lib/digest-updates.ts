@@ -21,11 +21,18 @@ export interface CollectedDigest {
   counts: DigestCounts;
 }
 
+/** Append UTM parameters to a URL. */
+function withUtm(url: string, campaign: string, content: string): string {
+  const sep = url.includes('?') ? '&' : '?';
+  return `${url}${sep}utm_source=bgm-digest&utm_medium=email&utm_campaign=${encodeURIComponent(campaign)}&utm_content=${encodeURIComponent(content)}`;
+}
+
 /**
  * Collect all updated content across domains, dossiers, sectors, and communes.
  * Returns updates grouped by locale with topic identifiers for subscriber filtering.
+ * If `campaign` is provided (e.g. "2026-w09"), UTM parameters are appended to all URLs.
  */
-export function collectDigestUpdates(cutoff: string, siteUrl: string): CollectedDigest {
+export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?: string): CollectedDigest {
   const byLocale: Record<string, DigestUpdate[]> = {};
   const topicSet = new Set<string>();
   const frCounts: DigestCounts = { domains: 0, dossiers: 0, sectors: 0, communes: 0 };
@@ -47,7 +54,9 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string): Collected
         summary: (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
           ? c.changeSummary
           : c.summary,
-        url: `${siteUrl}/${locale}/domains/${c.slug}`,
+        url: campaign
+          ? withUtm(`${siteUrl}/${locale}/domains/${c.slug}`, campaign, c.domain)
+          : `${siteUrl}/${locale}/domains/${c.slug}`,
       });
     }
 
@@ -64,7 +73,9 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string): Collected
         section: 'dossiers',
         phase: c.phase,
         summary: c.summary,
-        url: `${siteUrl}/${locale}/dossiers/${c.slug}`,
+        url: campaign
+          ? withUtm(`${siteUrl}/${locale}/dossiers/${c.slug}`, campaign, topic)
+          : `${siteUrl}/${locale}/dossiers/${c.slug}`,
       });
     }
 
@@ -79,7 +90,9 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string): Collected
         domain: c.slug,
         section: 'sectors',
         summary: c.humanImpact || c.title,
-        url: `${siteUrl}/${locale}/sectors/${c.slug}`,
+        url: campaign
+          ? withUtm(`${siteUrl}/${locale}/sectors/${c.slug}`, campaign, c.slug)
+          : `${siteUrl}/${locale}/sectors/${c.slug}`,
       });
     }
 
@@ -95,7 +108,9 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string): Collected
         domain: topic,
         section: 'communes',
         summary: c.title,
-        url: `${siteUrl}/${locale}/communes/${c.slug}`,
+        url: campaign
+          ? withUtm(`${siteUrl}/${locale}/communes/${c.slug}`, campaign, topic)
+          : `${siteUrl}/${locale}/communes/${c.slug}`,
       });
     }
 

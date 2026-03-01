@@ -101,7 +101,7 @@ export const POST = auth(async function POST(req) {
     return sevenDaysAgo.toISOString().split('T')[0];
   })();
 
-  const { byLocale } = collectDigestUpdates(cutoff, siteUrl);
+  const { byLocale } = collectDigestUpdates(cutoff, siteUrl, digest.week);
 
   const contacts = await listActiveContacts();
 

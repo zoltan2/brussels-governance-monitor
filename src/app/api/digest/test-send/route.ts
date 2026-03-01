@@ -66,7 +66,7 @@ export const POST = auth(async function POST(req) {
   })();
 
   // Collect all updated content
-  const { byLocale } = collectDigestUpdates(cutoff, siteUrl);
+  const { byLocale } = collectDigestUpdates(cutoff, siteUrl, digest.week);
   const updates = byLocale[locale] || [];
 
   const createdAt = new Date(digest.created_at);

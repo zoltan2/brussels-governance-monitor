@@ -93,6 +93,11 @@ function CocomView() {
                   {t('linkCocof')}
                 </Link>
               </li>
+              <li>
+                <Link href="/explainers/vgc" className="text-brand-700 underline underline-offset-2 hover:text-brand-900">
+                  {t('linkVgc')}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

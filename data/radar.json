@@ -2,6 +2,90 @@
   "lastVeille": "2026-03-01",
   "entries": [
     {
+      "id": "2026-02-27-vote-confiance-dillies",
+      "date": "2026-02-27",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["institutional"],
+      "source": {
+        "label": "BRUZZ — Vertrouwensstemming: 51 voor, 27 tegen (27 feb. 2026)",
+        "url": "https://www.bruzz.be/actua/politiek",
+        "accessedAt": "2026-03-01"
+      },
+      "nextStep": {
+        "fr": "Gouvernement opérationnel. Budget régional 2026 déposé le 6 mars. Premiers arrêtés d'exécution de la DPR attendus au printemps 2026.",
+        "nl": "Regering operationeel. Gewestbegroting 2026 ingediend op 6 maart. Eerste uitvoeringsbesluiten GBV verwacht voorjaar 2026.",
+        "en": "Government operational. Regional budget 2026 to be submitted 6 March. First RPD implementation decrees expected spring 2026.",
+        "de": "Regierung operativ. Regionalhaushalt 2026 wird am 6. März eingereicht. Erste RPE-Durchführungserlasse im Frühjahr 2026 erwartet."
+      },
+      "descriptions": {
+        "fr": "Le Parlement bruxellois a accordé la confiance au gouvernement Dilliès le 27 février 2026 : 51 voix pour (MR, PS, Engagés, Groen, Anders, Vooruit ; CD&V soutien externe), 27 contre (N-VA, DéFI, PTB, Ecolo, TFA). Le gouvernement est officiellement en fonction.",
+        "nl": "Het Brussels Parlement verleende het vertrouwen aan de regering-Dilliès op 27 februari 2026: 51 stemmen vóór (MR, PS, Engagés, Groen, Anders, Vooruit; CD&V externe steun), 27 tegen (N-VA, DéFI, PTB, Ecolo, TFA). De regering is officieel in functie.",
+        "en": "The Brussels Parliament granted confidence to the Dilliès government on 27 February 2026: 51 in favour (MR, PS, Engagés, Groen, Anders, Vooruit; CD&V external support), 27 against (N-VA, DéFI, PTB, Ecolo, TFA). The government is officially in office.",
+        "de": "Das Brüsseler Parlament sprach der Regierung Dilliès am 27. Februar 2026 das Vertrauen aus: 51 Stimmen dafür (MR, PS, Engagés, Groen, Anders, Vooruit; CD&V externe Unterstützung), 27 dagegen (N-VA, DéFI, PTB, Ecolo, TFA). Die Regierung ist offiziell im Amt."
+      },
+      "promotedTo": "institutional",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-02-27-lez-tolerance-zero-amende",
+      "date": "2026-02-27",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["lez", "climate", "mobility"],
+      "source": {
+        "label": "BX1 / BRUZZ — Aucune amende LEZ depuis janvier 2026 (27 fév. 2026)",
+        "url": "https://bx1.be/categories/news/",
+        "accessedAt": "2026-03-01"
+      },
+      "nextStep": {
+        "fr": "Amendes de 350 EUR à partir du 1er avril 2026. Surveiller le nombre d'amendes émises après la fin de la tolérance. Mise en place du pass annuel (350 EUR / social 200 EUR) à confirmer.",
+        "nl": "Boetes van 350 EUR vanaf 1 april 2026. Aantal uitgeschreven boetes na einde tolerantie opvolgen. Invoering jaarlijkse pas (350 EUR / sociaal 200 EUR) te bevestigen.",
+        "en": "350 EUR fines from 1 April 2026. Monitor fines issued after tolerance ends. Annual pass implementation (350 EUR / social 200 EUR) to be confirmed.",
+        "de": "350 EUR Bußgelder ab 1. April 2026. Anzahl erhobener Bußgelder nach Ende der Toleranz verfolgen. Einführung Jahrespass (350 EUR / Sozial 200 EUR) zu bestätigen."
+      },
+      "descriptions": {
+        "fr": "Le ministre Dirk De Smedt (Anders) confirme au Parlement : zéro amende LEZ émise depuis le 1er janvier 2026 (diesel Euro 5, essence Euro 2 interdits). Période de tolérance de 3 mois. 4 386 avertissements envoyés par Bruxelles Fiscalité. Amendes prévues après le 1er avril.",
+        "nl": "Minister Dirk De Smedt (Anders) bevestigt in het Parlement: geen enkele LEZ-boete uitgeschreven sinds 1 januari 2026 (diesel Euro 5, benzine Euro 2 verboden). Tolerantieperiode van 3 maanden. 4 386 waarschuwingen verstuurd door Brussel Fiscaliteit. Boetes voorzien na 1 april.",
+        "en": "Minister Dirk De Smedt (Anders) confirms in Parliament: zero LEZ fines issued since 1 January 2026 (diesel Euro 5, petrol Euro 2 banned). 3-month tolerance period. 4,386 warnings sent by Brussels Fiscality. Fines expected after 1 April.",
+        "de": "Minister Dirk De Smedt (Anders) bestätigt im Parlament: null LEZ-Bußgelder seit 1. Januar 2026 (Diesel Euro 5, Benzin Euro 2 verboten). 3-monatige Toleranzperiode. 4.386 Verwarnungen von Brüssel Steuerwesen versandt. Bußgelder nach dem 1. April vorgesehen."
+      },
+      "promotedTo": "lez",
+      "promotedSection": "dossiers",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-02-27-friches-vote-parlement",
+      "date": "2026-02-27",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["urban-planning", "housing", "climate"],
+      "source": {
+        "label": "BX1 — Parlement rejette moratoire Ecolo (27 fév. 2026)",
+        "url": "https://bx1.be/categories/news/",
+        "accessedAt": "2026-03-01"
+      },
+      "nextStep": {
+        "fr": "Moratoire 18 mois en cours sur Keyenbempt, Calevoet, Josaphat, Meylemeersch. Échéance : août-septembre 2027. Surveiller les demandes de permis sur ces sites.",
+        "nl": "Moratorium van 18 maanden loopt op Keyenbempt, Calevoet, Josaphat, Meylemeersch. Deadline: augustus-september 2027. Vergunningsaanvragen op deze sites opvolgen.",
+        "en": "18-month moratorium running on Keyenbempt, Calevoet, Josaphat, Meylemeersch. Deadline: August-September 2027. Monitor permit applications on these sites.",
+        "de": "18-monatiges Moratorium läuft auf Keyenbempt, Calevoet, Josaphat, Meylemeersch. Frist: August-September 2027. Genehmigungsanträge auf diesen Standorten verfolgen."
+      },
+      "descriptions": {
+        "fr": "Le Parlement bruxellois rejette 68-4 (2 abstentions) la proposition d'ordonnance Ecolo pour un moratoire sur 9 zones vertes. La majorité applique son compromis : 3 sites préservés définitivement (Wiels, Ajvil, Donderberg), moratoire 18 mois sur les autres. Ecolo seul à voter contre le rejet ; N-VA et Vlaams Belang s'abstiennent.",
+        "nl": "Het Brussels Parlement verwerpt met 68-4 (2 onthoudingen) het Ecolo-voorstel voor een moratorium op 9 groene zones. De meerderheid past haar compromis toe: 3 sites definitief beschermd (Wiels, Ajvil, Donderberg), 18 maanden moratorium op overige. Ecolo als enige tegen de verwerping; N-VA en Vlaams Belang onthouden zich.",
+        "en": "The Brussels Parliament rejects 68-4 (2 abstentions) the Ecolo draft ordinance for a moratorium on 9 green zones. The majority applies its compromise: 3 sites permanently preserved (Wiels, Ajvil, Donderberg), 18-month moratorium on others. Ecolo alone votes against the rejection; N-VA and Vlaams Belang abstain.",
+        "de": "Das Brüsseler Parlament lehnt mit 68-4 (2 Enthaltungen) den Ecolo-Verordnungsentwurf für ein Moratorium auf 9 Grünflächen ab. Die Mehrheit wendet ihren Kompromiss an: 3 Standorte dauerhaft geschützt (Wiels, Ajvil, Donderberg), 18-monatiges Moratorium auf übrige. Ecolo stimmt als einzige gegen die Ablehnung; N-VA und Vlaams Belang enthalten sich."
+      },
+      "promotedTo": "urban-planning",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
       "id": "2026-02-14-vgc-college-installe",
       "date": "2026-02-14",
       "confidence": "official",
@@ -141,8 +225,8 @@
     {
       "id": "2026-02-27-commission-egalite-chances",
       "date": "2026-02-27",
-      "confidence": "unconfirmed",
-      "status": "active",
+      "confidence": "official",
+      "status": "archived",
       "cards": ["institutional"],
       "source": {
         "label": "La Libre — Commission Égalité des Chances menacée au Parlement (26 fév. 2026)",
@@ -150,19 +234,19 @@
         "accessedAt": "2026-02-27"
       },
       "nextStep": {
-        "fr": "Prochain bureau du Parlement : la proposition de reclassification sera réexaminée. Surveiller si le PS obtient le maintien de la commission permanente.",
-        "nl": "Volgend bureau van het Parlement: het herclassificatievoorstel wordt opnieuw onderzocht. Opvolgen of de PS het behoud van de vaste commissie verkrijgt.",
-        "en": "Next Parliament bureau meeting: reclassification proposal to be re-examined. Monitor whether PS secures the permanent commission status.",
-        "de": "Nächste Sitzung des Parlamentspräsidiums: Umklassifizierungsvorschlag wird erneut geprüft. Beobachten, ob die PS den Status der ständigen Kommission sichert."
+        "fr": "Résolu : la Commission Égalité est maintenue comme commission permanente. Proposition de suppression abandonnée lors du vote de confiance du 27 février 2026.",
+        "nl": "Opgelost: de Commissie Gelijke Kansen blijft behouden als vaste commissie. Afschaffingsvoorstel van de baan bij de vertrouwensstemming van 27 februari 2026.",
+        "en": "Resolved: the Equal Opportunities Commission is retained as a permanent commission. Abolition proposal dropped during the vote of confidence on 27 February 2026.",
+        "de": "Gelöst: Die Kommission für Chancengleichheit bleibt als ständige Kommission erhalten. Abschaffungsvorschlag bei der Vertrauensabstimmung am 27. Februar 2026 fallen gelassen."
       },
       "descriptions": {
-        "fr": "Le bureau du Parlement bruxellois a proposé de transformer la Commission permanente de l'Égalité des Chances en simple comité d'avis (perte des pouvoirs législatifs et budgétaires). Réactions vives : PS (« stupéfaction »), MR (« surprise »), Ecolo (« sans nous, c'était voté »). Point reporté. Première tension interne au sein de la nouvelle majorité sur un sujet institutionnel.",
-        "nl": "Het bureau van het Brussels Parlement stelde voor om de vaste Commissie Gelijke Kansen om te vormen tot een eenvoudig adviescomité (verlies van wetgevende en budgettaire bevoegdheden). Heftige reacties: PS (« verbijstering »), MR (« verrassing »), Ecolo (« zonder ons was het gestemd »). Punt uitgesteld. Eerste interne spanning binnen de nieuwe meerderheid over een institutioneel onderwerp.",
-        "en": "The Brussels Parliament bureau proposed transforming the permanent Equal Opportunities Commission into a simple advisory committee (losing legislative and budgetary powers). Strong reactions: PS ('stupefaction'), MR ('surprise'), Ecolo ('without us, it would have passed'). Point postponed. First internal tension within the new majority on an institutional matter.",
-        "de": "Das Büro des Brüsseler Parlaments schlug vor, die ständige Kommission für Chancengleichheit in einen einfachen Beirat umzuwandeln (Verlust der Gesetzgebungs- und Haushaltsbefugnisse). Heftige Reaktionen: PS (« Verblüffung »), MR (« Überraschung »), Ecolo (« ohne uns wäre es durchgegangen »). Punkt vertagt. Erste interne Spannung in der neuen Mehrheit zu einem institutionellen Thema."
+        "fr": "Le bureau du Parlement bruxellois a proposé de transformer la Commission permanente de l'Égalité des Chances en simple comité d'avis (perte des pouvoirs législatifs et budgétaires). Réactions vives : PS (« stupéfaction »), MR (« surprise »), Ecolo (« sans nous, c'était voté »). Lors du vote de confiance du 27 février, la majorité a confirmé le maintien de toutes les commissions. Proposition de suppression abandonnée.",
+        "nl": "Het bureau van het Brussels Parlement stelde voor om de vaste Commissie Gelijke Kansen om te vormen tot een eenvoudig adviescomité (verlies van wetgevende en budgettaire bevoegdheden). Heftige reacties: PS (« verbijstering »), MR (« verrassing »), Ecolo (« zonder ons was het gestemd »). Bij de vertrouwensstemming van 27 februari bevestigde de meerderheid het behoud van alle commissies. Afschaffingsvoorstel van de baan.",
+        "en": "The Brussels Parliament bureau proposed transforming the permanent Equal Opportunities Commission into a simple advisory committee (losing legislative and budgetary powers). Strong reactions: PS ('stupefaction'), MR ('surprise'), Ecolo ('without us, it would have passed'). During the vote of confidence on 27 February, the majority confirmed the retention of all commissions. Abolition proposal dropped.",
+        "de": "Das Büro des Brüsseler Parlaments schlug vor, die ständige Kommission für Chancengleichheit in einen einfachen Beirat umzuwandeln (Verlust der Gesetzgebungs- und Haushaltsbefugnisse). Heftige Reaktionen: PS (« Verblüffung »), MR (« Überraschung »), Ecolo (« ohne uns wäre es durchgegangen »). Bei der Vertrauensabstimmung am 27. Februar bestätigte die Mehrheit die Beibehaltung aller Kommissionen. Abschaffungsvorschlag vom Tisch."
       },
       "promotedTo": null,
-      "archivedAt": null,
+      "archivedAt": "2026-03-01",
       "period": "gouvernement-2026"
     },
     {

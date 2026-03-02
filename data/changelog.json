@@ -1,5 +1,41 @@
 [
   {
+    "date": "2026-03-03",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "budget",
+    "descriptions": {
+      "fr": "Audit de fraîcheur des 13 cartes domaines. Budget : langage conditionnel remplacé par le vote de confiance (27 fév.) et le calendrier budgétaire (6 mars). Social : métriques COCOM et sans-abri mises à jour post-formation. Climat : incohérence status corrigée, PACE en actualisation. Mobilité : métriques Metro 3 et Good Move alignées sur l'accord. Numérique : localisation KevlinX corrigée (Neder-Over-Heembeek). Éducation : engagements DPC COCOF ajoutés.",
+      "nl": "Versheidsaudit van alle 13 domeinkaarten. Budget: voorwaardelijke taal vervangen door vertrouwensstemming (27 feb.) en begrotingskalender (6 maart). Sociaal: GGC- en daklozenbeleid-indicatoren bijgewerkt. Klimaat: statusincoherentie gecorrigeerd, PACE in actualisering. Mobiliteit: Metro 3 en Good Move-indicatoren afgestemd op akkoord. Digitaal: KevlinX-locatie gecorrigeerd (Neder-Over-Heembeek). Onderwijs: DPC COCOF-engagementen toegevoegd.",
+      "en": "Freshness audit of all 13 domain cards. Budget: conditional language replaced with confidence vote (27 Feb) and budget calendar (6 March). Social: COCOM and homelessness metrics updated post-formation. Climate: status inconsistency fixed, PACE being updated. Mobility: Metro 3 and Good Move metrics aligned with agreement. Digital: KevlinX location corrected (Neder-Over-Heembeek). Education: COCOF DPC commitments added.",
+      "de": "Frische-Audit aller 13 Domainkarten. Budget: bedingte Sprache durch Vertrauensabstimmung (27. Feb.) und Haushaltskalender (6. März) ersetzt. Soziales: COCOM- und Obdachlosenkennzahlen aktualisiert. Klima: Statusinkonsistenz behoben, PACE wird aktualisiert. Mobilität: Metro 3 und Good Move an Abkommen angeglichen. Digital: KevlinX-Standort korrigiert (Neder-Over-Heembeek). Bildung: DPC-COCOF-Verpflichtungen hinzugefügt."
+    },
+    "summaries": {
+      "fr": "13 cartes domaines — audit fraîcheur post-accord, métriques et langage mis à jour",
+      "nl": "13 domeinkaarten — versheidsaudit na akkoord, indicatoren en taal bijgewerkt",
+      "en": "13 domain cards — post-agreement freshness audit, metrics and language updated",
+      "de": "13 Domainkarten — Frische-Audit nach Abkommen, Kennzahlen und Sprache aktualisiert"
+    }
+  },
+  {
+    "date": "2026-03-03",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "slrb",
+    "descriptions": {
+      "fr": "Audit de cohérence croisée : 16 dossiers × 13 domaines × 11 secteurs. 11 incohérences factuelles (P0) corrigées : SLRB 39K→42K logements, sans-abri 7134→9777, NOx −39→−55 %, TVA date 2025→2026, moratoire 2024→fin 2023, PFAS 1000→1058×, 10M/an→10M, LEZ params, 25→4 structures. Enrichissements P1 : PFAS dans 4 domaines, ACS dans 3 cartes, mobilité partagée, data centers, assemblées citoyennes, LEZ résultats, safe.brussels, SLRB calendrier.",
+      "nl": "Cross-coherentieaudit: 16 dossiers × 13 domeinen × 11 sectoren. 11 feitelijke inconsistenties (P0) gecorrigeerd: BGHM 39K→42K woningen, daklozen 7134→9777, NOx −39→−55 %, btw-datum 2025→2026, moratorium 2024→eind 2023, PFAS 1000→1058×, 10M/jaar→10M, LEZ-parameters, 25→4 structuren. P1-verrijkingen: PFAS in 4 domeinen, ACS in 3 kaarten, deelmobiliteit, datacenters, burgerraden, LEZ-resultaten, safe.brussels, BGHM-kalender.",
+      "en": "Cross-content coherence audit: 16 dossiers × 13 domains × 11 sectors. 11 factual inconsistencies (P0) corrected: SLRB 39K→42K housing units, homeless 7134→9777, NOx −39→−55%, VAT date 2025→2026, moratorium 2024→end 2023, PFAS 1000→1058×, 10M/year→10M, LEZ params, 25→4 structures. P1 enrichments: PFAS across 4 domains, ACS in 3 cards, shared mobility, data centres, citizens' assemblies, LEZ results, safe.brussels, SLRB reform calendar.",
+      "de": "Cross-Content-Kohärenzaudit: 16 Dossiers × 13 Domänen × 11 Sektoren. 11 faktische Inkonsistenzen (P0) korrigiert: SLRB 39K→42K Wohnungen, Obdachlose 7134→9777, NOx −39→−55 %, MwSt-Datum 2025→2026, Moratorium 2024→Ende 2023, PFAS 1000→1058×, 10M/Jahr→10M, LEZ-Parameter, 25→4 Strukturen. P1-Anreicherungen: PFAS in 4 Domänen, ACS in 3 Karten, Shared Mobility, Rechenzentren, Bürgerversammlungen, LEZ-Ergebnisse, safe.brussels, SLRB-Reformkalender."
+    },
+    "summaries": {
+      "fr": "Audit cohérence — 11 P0 corrigées, enrichissements PFAS/ACS/data centers dans 72 fichiers",
+      "nl": "Coherentieaudit — 11 P0 gecorrigeerd, verrijkingen PFAS/ACS/datacenters in 72 bestanden",
+      "en": "Coherence audit — 11 P0 fixed, PFAS/ACS/data centre enrichments across 72 files",
+      "de": "Kohärenzaudit — 11 P0 korrigiert, PFAS/ACS/Rechenzentren-Anreicherungen in 72 Dateien"
+    }
+  },
+  {
     "date": "2026-03-02",
     "type": "updated",
     "section": "sectors",

@@ -88,6 +88,7 @@ export const DOSSIER_TOPICS = [
   'dossier-faillites',
   'dossier-pfas',
   'dossier-acs',
+  'dossier-rse',
 ] as const;
 
 /** Maps Velite dossier slugs to topic identifiers (only for slugs that differ). */

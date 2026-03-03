@@ -52,6 +52,7 @@ const DOSSIER_OPTIONS = [
   'dossier-faillites',
   'dossier-pfas',
   'dossier-acs',
+  'dossier-rse',
 ] as const;
 
 const COMMUNE_OPTIONS = [

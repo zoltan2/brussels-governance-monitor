@@ -1,12 +1,12 @@
 ---
-title: "Sicherheitsplan: regionaler Drogenkommissar und 10M EUR für die Bahnhöfe"
+title: "Sicherheitsplan: Drogenkommissar, 10M EUR für Bahnhöfe und Fusion der Polizeizonen"
 slug: plan-securite
 locale: de
 dossierType: security
 phase: in-progress
 crisisImpact: resolved
-decisionLevel: regional
-summary: "Das Abkommen vom Februar 2026 sieht einen integrierten regionalen Sicherheitsplan, einen regionalen Drogenkommissar, 10M EUR für die Sicherung der Bahnhöfe Midi und Nord sowie die Vernetzung der Videoüberwachungssysteme vor."
+decisionLevel: mixed
+summary: "Das Abkommen vom Februar 2026 sieht einen integrierten regionalen Sicherheitsplan, einen regionalen Drogenkommissar, 10M EUR für die Sicherung der Bahnhöfe Midi und Nord sowie die Vernetzung der Videoüberwachungssysteme vor. Parallel dazu treibt die föderale Regierung die Fusion der 6 Brüsseler Polizeizonen zu einer einzigen Zone voran (6 500 Beamte, 55M EUR über 5 Jahre, Inkrafttreten 2027)."
 stakeholders:
   - "Bruxelles Prévention & Sécurité (BPS)"
   - "Region Brüssel-Hauptstadt"
@@ -30,6 +30,12 @@ sources:
   - label: "BX1 — Der Ministerpräsident besucht den Südbahnhof (17. Feb. 2026)"
     url: "https://bx1.be/categories/news/le-nouveau-ministre-president-boris-dillies-en-visite-a-la-gare-du-midi-il-y-a-mieux-a-faire-en-matiere-de-coordination/"
     accessedAt: "2026-02-18"
+  - label: "BX1 — Fusion der Polizeizonen: der Plan Quintin für 2026 und Inkrafttreten 2027"
+    url: "https://bx1.be/categories/news/fusion-des-zones-de-police-le-plan-du-ministre-quintin-pour-2026-et-une-effectivite-en-2027/"
+    accessedAt: "2026-03-03"
+  - label: "RTBF — Eine einzige Polizeizone für Brüssel mit 6 500 Beamten (Juli 2025)"
+    url: "https://www.rtbf.be/article/une-seule-zone-de-police-pour-tout-bruxelles-avec-6500-agents-le-gouvernement-federal-valide-la-fusion-11577786"
+    accessedAt: "2026-03-03"
 metrics:
   - label: "Polizeizonen in Brüssel"
     value: "6"
@@ -40,6 +46,16 @@ metrics:
     unit: "M EUR"
     source: "DPR Feb. 2026"
     date: "2026-02-13"
+  - label: "Beamte Einheitszone (geplant)"
+    value: "6 500"
+    unit: "operativ + ~1 000 Logistik"
+    source: "Innenmin. / RTBF"
+    date: "2025-07-18"
+  - label: "Finanzierung Fusion"
+    value: "55"
+    unit: "M EUR über 5 Jahre"
+    source: "Innenmin. / RTBF"
+    date: "2025-07-18"
 alerts:
   - label: "DPR: Drogenkommissar + 10M EUR Bahnhöfe + integrierter Plan"
     severity: info
@@ -47,11 +63,14 @@ alerts:
   - label: "Besuch MP Südbahnhof: Sicherheitskoordination zu stärken"
     severity: info
     date: "2026-02-17"
+  - label: "Fusion der Polizeizonen: 2. Lesung angenommen, Königlicher Erlass vorgesehen Mitte 2026, Inkrafttreten 2027"
+    severity: warning
+    date: "2025-12-23"
 confidenceLevel: official
 dprCommitment: "Regionaler Drogenkommissar, 10M EUR Sicherung Bahnhöfe Midi/Nord, integrierter regionaler Plan, vernetzte Videoüberwachung"
-lastModified: "2026-02-19"
+lastModified: "2026-03-03"
 changeType: updated
-changeSummary: "Post-Krisen-Update — Blockadestatus entfernt, Meldungen aktualisiert"
+changeSummary: "Fusion der Polizeizonen hinzugefügt (6 500 Beamte, 55M EUR, Inkrafttreten 2027), BX1/RTBF-Quellen, gemischte Entscheidungsebene regional/föderal"
 ---
 
 ## Erste Feldaktion: Südbahnhof (17. Februar)
@@ -99,10 +118,18 @@ Der vorherige regionale Sicherheitsplan war abgelaufen und sollte durch die neue
 
 Die bestehenden Maßnahmen funktionieren weiterhin, aber ohne erneuerten strategischen Rahmen.
 
+## Fusion der 6 Polizeizonen (föderal)
+
+Die föderale Regierung trägt ein bedeutendes Reformprojekt: die **Fusion der 6 Brüsseler Polizeizonen** zu einer einzigen einheitlichen Zone. Innenminister Bernard Quintin (MR) ließ den Text in **zweiter Lesung** vom Ministerrat verabschieden (23. Dezember 2025).
+
+Die Einheitszone würde **6 500 operative Beamte** und rund 1 000 Logistikbeamte umfassen, was sie zur größten Polizeizone Belgiens machen würde. Eine **Finanzierung von 55 Millionen EUR über 5 Jahre** (11M EUR/Jahr) ist für die Begleitung des Übergangs vorgesehen.
+
+Der erste Königliche Ausführungserlass ist für Mitte 2026 vorgesehen, mit einem Inkrafttreten im Jahr 2027. Les Engagés bestreiten jedoch, ihre Zustimmung gegeben zu haben, und verweisen auf eine strukturell unzureichende Finanzierung (geschätztes Defizit zwischen 300 und 500M EUR für die Brüsseler Polizei).
+
 ## Zu beobachtende Punkte
 
+- **Fusion der Polizeizonen**: der in zweiter Lesung verabschiedete Text muss noch in der Kammer debattiert werden. Les Engagés bestreiten die Finanzierung. Königlicher Erlass vorgesehen Mitte 2026, Inkrafttreten 2027
 - **Drogenkommissar**: Die Modalitäten der Funktion (Befugnisse, Budget, Zuordnung) müssen noch festgelegt werden
 - **Bahnhöfe**: Die Koordination mit der SNCB (föderal) und den lokalen Polizeizonen bestimmt die Wirksamkeit der 10M EUR
 - **Videoüberwachung**: Die Vernetzung wirft Fragen zu Datenschutz und Verhältnismäßigkeit auf
-- **Fusion der Polizeizonen**: In der DPR erwähnt, erfordert eine Abstimmung auf Bundesebene
 - **Prävention**: Die Sicherheitsproblematiken entwickeln sich weiter (Cyberkriminalität, Radikalisierung, urbane Gewalt) und der neue Plan muss darauf eingehen

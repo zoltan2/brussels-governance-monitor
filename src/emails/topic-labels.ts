@@ -5,10 +5,15 @@
  * Shared topic labels for email templates.
  * Single source of truth — imported by welcome.tsx and preferences-updated.tsx.
  *
- * Must stay in sync with TOPIC_OPTIONS and COMMUNE_OPTIONS in subscribe-form.tsx.
- * When a slug is not found here, emails fall back to displaying the raw slug.
+ * Domain, sector, and commune labels are static.
+ * Dossier labels are derived dynamically from Velite via getAllDossierTopicOptions().
+ * When a slug is not found, emails fall back to displaying the raw slug.
  */
-export const topicLabels: Record<string, Record<string, string>> = {
+
+import { getAllDossierTopicOptions } from '@/lib/content';
+import type { Locale } from '@/i18n/routing';
+
+const staticLabels: Record<string, Record<string, string>> = {
   fr: {
     // Domain topics
     budget: 'Budget',
@@ -22,7 +27,7 @@ export const topicLabels: Record<string, Record<string, string>> = {
     cleanliness: 'Propret\u00e9',
     institutional: 'Institutionnel',
     'urban-planning': 'Urbanisme',
-    digital: 'Numérique',
+    digital: 'Num\u00e9rique',
     education: 'Enseignement',
     solutions: 'Sortie de crise',
     engagements: 'Engagements DPR',
@@ -51,31 +56,13 @@ export const topicLabels: Record<string, Record<string, string>> = {
     construction: 'Construction',
     culture: 'Culture',
     environment: 'Environnement',
-    'health-social': 'Santé-Social',
+    'health-social': 'Sant\u00e9-Social',
     horeca: 'Horeca',
     'housing-sector': 'Logement (secteur)',
     nonprofit: 'Associatif',
     transport: 'Transport',
-    // Dossier topics
-    dossiers: 'Tous les dossiers',
-    'dossier-slrb': 'SLRB',
-    'dossier-lez': 'LEZ',
-    'dossier-vivaqua': 'Vivaqua',
-    'dossier-metro-3': 'Métro 3',
-    'dossier-good-move': 'Good Move',
-    'dossier-plan-securite': 'Plan Sécurité',
-    'dossier-fusion-polices': 'Fusion des zones de police',
-    'dossier-seniors': 'Seniors à Bruxelles',
-    'dossier-accessibilite-pmr': 'Accessibilité PMR',
-    'dossier-data-centers': 'Data Centers & IA',
-    'dossier-mobilite-partagee': 'Mobilité partagée',
-    'dossier-reforme-administration': "Réforme de l'administration",
-    'dossier-assemblees-citoyennes': 'Assemblées citoyennes',
-    'dossier-faillites': 'Faillites à Bruxelles',
-    'dossier-pfas': 'PFAS à Bruxelles',
-    'dossier-acs': 'ACS (emploi non marchand)',
-    'dossier-rse': 'RSE / Transition économique',
     // Generic
+    dossiers: 'Tous les dossiers',
     communes: 'Toutes les communes',
   },
   nl: {
@@ -113,7 +100,6 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'commune-watermael-boitsfort': 'Watermaal-Bosvoorde',
     'commune-woluwe-saint-lambert': 'Sint-Lambrechts-Woluwe',
     'commune-woluwe-saint-pierre': 'Sint-Pieters-Woluwe',
-    // Sector topics
     commerce: 'Handel',
     construction: 'Bouw',
     culture: 'Cultuur',
@@ -123,26 +109,7 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'housing-sector': 'Huisvesting (sector)',
     nonprofit: 'Verenigingsleven',
     transport: 'Vervoer',
-    // Dossier topics
     dossiers: 'Alle dossiers',
-    'dossier-slrb': 'BGHM',
-    'dossier-lez': 'LEZ',
-    'dossier-vivaqua': 'Vivaqua',
-    'dossier-metro-3': 'Metro 3',
-    'dossier-good-move': 'Good Move',
-    'dossier-plan-securite': 'Veiligheidsplan',
-    'dossier-fusion-polices': 'Fusie van politiezones',
-    'dossier-seniors': 'Senioren in Brussel',
-    'dossier-accessibilite-pmr': 'Toegankelijkheid PBM',
-    'dossier-data-centers': 'Datacenters & AI',
-    'dossier-mobilite-partagee': 'Gedeelde mobiliteit',
-    'dossier-reforme-administration': 'Hervorming van het bestuur',
-    'dossier-assemblees-citoyennes': 'Burgerassemblees',
-    'dossier-faillites': 'Faillissementen in Brussel',
-    'dossier-pfas': 'PFAS in Brussel',
-    'dossier-acs': 'GESCO (non-profittewerkstelling)',
-    'dossier-rse': 'MVO / Economische transitie',
-    // Generic
     communes: 'Alle gemeenten',
   },
   en: {
@@ -180,7 +147,6 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'commune-watermael-boitsfort': 'Watermael-Boitsfort',
     'commune-woluwe-saint-lambert': 'Woluwe-Saint-Lambert',
     'commune-woluwe-saint-pierre': 'Woluwe-Saint-Pierre',
-    // Sector topics
     commerce: 'Commerce',
     construction: 'Construction',
     culture: 'Culture',
@@ -190,26 +156,7 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'housing-sector': 'Housing (sector)',
     nonprofit: 'Nonprofit',
     transport: 'Transport',
-    // Dossier topics
     dossiers: 'All dossiers',
-    'dossier-slrb': 'SLRB',
-    'dossier-lez': 'LEZ',
-    'dossier-vivaqua': 'Vivaqua',
-    'dossier-metro-3': 'Metro 3',
-    'dossier-good-move': 'Good Move',
-    'dossier-plan-securite': 'Security Plan',
-    'dossier-fusion-polices': 'Police Zone Merger',
-    'dossier-seniors': 'Seniors in Brussels',
-    'dossier-accessibilite-pmr': 'Accessibility for PRM',
-    'dossier-data-centers': 'Data Centers & AI',
-    'dossier-mobilite-partagee': 'Shared Mobility',
-    'dossier-reforme-administration': 'Administrative Reform',
-    'dossier-assemblees-citoyennes': 'Citizen Assemblies',
-    'dossier-faillites': 'Bankruptcies in Brussels',
-    'dossier-pfas': 'PFAS in Brussels',
-    'dossier-acs': 'ACS (non-profit employment)',
-    'dossier-rse': 'CSR / Economic Transition',
-    // Generic
     communes: 'All municipalities',
   },
   de: {
@@ -223,7 +170,7 @@ export const topicLabels: Record<string, Record<string, string>> = {
     economy: 'Wirtschaft',
     cleanliness: 'Sauberkeit',
     institutional: 'Institutionell',
-    'urban-planning': 'Städtebau',
+    'urban-planning': 'St\u00e4dtebau',
     digital: 'Digital',
     education: 'Bildung',
     solutions: 'Auswege aus der Krise',
@@ -247,7 +194,6 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'commune-watermael-boitsfort': 'Watermael-Boitsfort',
     'commune-woluwe-saint-lambert': 'Woluwe-Saint-Lambert',
     'commune-woluwe-saint-pierre': 'Woluwe-Saint-Pierre',
-    // Sector topics
     commerce: 'Handel',
     construction: 'Bauwesen',
     culture: 'Kultur',
@@ -257,31 +203,28 @@ export const topicLabels: Record<string, Record<string, string>> = {
     'housing-sector': 'Wohnen (Sektor)',
     nonprofit: 'Vereinswesen',
     transport: 'Verkehr',
-    // Dossier topics
     dossiers: 'Alle Dossiers',
-    'dossier-slrb': 'SLRB',
-    'dossier-lez': 'LEZ',
-    'dossier-vivaqua': 'Vivaqua',
-    'dossier-metro-3': 'Metro 3',
-    'dossier-good-move': 'Good Move',
-    'dossier-plan-securite': 'Sicherheitsplan',
-    'dossier-fusion-polices': 'Fusion der Polizeizonen',
-    'dossier-seniors': 'Senioren in Brüssel',
-    'dossier-accessibilite-pmr': 'Barrierefreiheit für PRM',
-    'dossier-data-centers': 'Rechenzentren & KI',
-    'dossier-mobilite-partagee': 'Geteilte Mobilität',
-    'dossier-reforme-administration': 'Verwaltungsreform',
-    'dossier-assemblees-citoyennes': 'Bürgerversammlungen',
-    'dossier-faillites': 'Insolvenzen in Brüssel',
-    'dossier-pfas': 'PFAS in Brüssel',
-    'dossier-acs': 'ACS (Non-Profit-Beschäftigung)',
-    'dossier-rse': 'CSR / Wirtschaftliche Transition',
-    // Generic
     communes: 'Alle Gemeinden',
   },
 };
 
-/** Get topic labels for a locale, with FR fallback */
+/**
+ * Build dossier labels from Velite for a given locale.
+ * Returns a map of topicId → shortTitle (e.g. 'dossier-slrb' → 'SLRB').
+ */
+function buildDossierLabels(locale: string): Record<string, string> {
+  const validLocale = (['fr', 'nl', 'en', 'de'].includes(locale) ? locale : 'fr') as Locale;
+  const options = getAllDossierTopicOptions(validLocale);
+  const labels: Record<string, string> = {};
+  for (const opt of options) {
+    labels[opt.topicId] = opt.label;
+  }
+  return labels;
+}
+
+/** Get topic labels for a locale, with FR fallback. Dossier labels are derived from Velite. */
 export function getTopicLabels(locale: string): Record<string, string> {
-  return topicLabels[locale] || topicLabels.fr;
+  const base = staticLabels[locale] || staticLabels.fr;
+  const dossierLabels = buildDossierLabels(locale);
+  return { ...base, ...dossierLabels };
 }

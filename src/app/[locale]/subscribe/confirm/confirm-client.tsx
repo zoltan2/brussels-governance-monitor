@@ -10,7 +10,7 @@ import { Link } from '@/i18n/navigation';
 
 type ConfirmState = 'idle' | 'loading' | 'success' | 'already' | 'expired' | 'error';
 
-export function ConfirmClient() {
+export function ConfirmClient({ dossierLabels }: { dossierLabels: Record<string, string> }) {
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
   const t = useTranslations('subscribeConfirm');
@@ -84,7 +84,7 @@ export function ConfirmClient() {
                       key={topic}
                       className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800"
                     >
-                      {t(`topicLabels.${topic}`)}
+                      {dossierLabels[topic] || t(`topicLabels.${topic}`)}
                     </span>
                   ))}
                 </div>

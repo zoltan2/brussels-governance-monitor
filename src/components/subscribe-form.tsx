@@ -35,26 +35,6 @@ const SECTOR_OPTIONS = [
   'transport',
 ] as const;
 
-const DOSSIER_OPTIONS = [
-  'dossier-slrb',
-  'dossier-lez',
-  'dossier-vivaqua',
-  'dossier-metro-3',
-  'dossier-good-move',
-  'dossier-plan-securite',
-  'dossier-fusion-polices',
-  'dossier-seniors',
-  'dossier-accessibilite-pmr',
-  'dossier-data-centers',
-  'dossier-mobilite-partagee',
-  'dossier-reforme-administration',
-  'dossier-assemblees-citoyennes',
-  'dossier-faillites',
-  'dossier-pfas',
-  'dossier-acs',
-  'dossier-rse',
-] as const;
-
 const COMMUNE_OPTIONS = [
   'commune-anderlecht',
   'commune-auderghem',
@@ -79,7 +59,11 @@ const COMMUNE_OPTIONS = [
 
 type SubmitState = 'idle' | 'loading' | 'success' | 'successExisting' | 'error';
 
-export function SubscribeForm() {
+interface SubscribeFormProps {
+  dossierOptions: Array<{ id: string; label: string }>;
+}
+
+export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
   const t = useTranslations('subscribe');
   const locale = useLocale();
   const [email, setEmail] = useState('');
@@ -241,16 +225,16 @@ export function SubscribeForm() {
           )}
         </summary>
         <div className="mt-2 flex flex-wrap gap-2">
-          {DOSSIER_OPTIONS.map((dossier) => (
-            <label key={dossier} className={pillClass(dossiers.includes(dossier))}>
+          {dossierOptions.map((option) => (
+            <label key={option.id} className={pillClass(dossiers.includes(option.id))}>
               <input
                 type="checkbox"
-                name={`dossier-${dossier}`}
-                checked={dossiers.includes(dossier)}
-                onChange={() => toggleDossier(dossier)}
+                name={`dossier-${option.id}`}
+                checked={dossiers.includes(option.id)}
+                onChange={() => toggleDossier(option.id)}
                 className="sr-only"
               />
-              {t(`topics.${dossier}`)}
+              {option.label}
             </label>
           ))}
         </div>

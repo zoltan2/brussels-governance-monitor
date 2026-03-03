@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { CrisisCounter } from '@/components/crisis-counter';
 import { DomainCard } from '@/components/domain-card';
 import { SubscribeForm } from '@/components/subscribe-form';
-import { getDomainCards, getSectorCards, getDossierCards } from '@/lib/content';
+import { getDomainCards, getSectorCards, getDossierCards, getAllDossierTopicOptions } from '@/lib/content';
 import { getActiveSignals, getVeilleSourceCount } from '@/lib/radar';
 import { getLatestUpdate } from '@/lib/changelog';
 import { LatestUpdateBar } from '@/components/latest-update-bar';
@@ -118,7 +118,7 @@ export default async function HomePage({
 
       <SectorsPreview sectorCards={recentSectors} totalCount={sectorCards.length} />
 
-      <SubscribeSection />
+      <SubscribeSection dossierOptions={getAllDossierTopicOptions(locale as Locale).map((d) => ({ id: d.topicId, label: d.label }))} />
     </>
   );
 }
@@ -527,11 +527,15 @@ function SectorsPreview({
 // Subscribe section (full width)
 // ──────────────────────────────────────────────
 
-function SubscribeSection() {
+function SubscribeSection({
+  dossierOptions,
+}: {
+  dossierOptions: Array<{ id: string; label: string }>;
+}) {
   return (
     <section id="subscribe" className="bg-neutral-50 py-16">
       <div className="mx-auto max-w-5xl px-4">
-        <SubscribeForm />
+        <SubscribeForm dossierOptions={dossierOptions} />
       </div>
     </section>
   );

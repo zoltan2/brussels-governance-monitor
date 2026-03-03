@@ -8,7 +8,7 @@ import {
   EMAIL_FROM,
   getContact,
   updateContactPreferences,
-  TOPICS,
+  getTopics,
   resendCall,
 } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
@@ -93,8 +93,9 @@ export async function POST(request: Request) {
     );
   }
 
+  const allTopics = getTopics();
   const validTopics = topics.filter((t): t is string =>
-    TOPICS.includes(t as typeof TOPICS[number]),
+    allTopics.includes(t),
   );
   if (validTopics.length === 0) {
     return NextResponse.json(

@@ -369,6 +369,7 @@ const dossierCards = defineCollection({
   schema: s
     .object({
       title: s.string().max(120),
+      shortTitle: s.string().max(50).optional(),
       slug: s.string(),
       locale: localeEnum,
       dossierType: s.enum(['infrastructure', 'housing', 'regulatory', 'utility', 'security', 'social']),

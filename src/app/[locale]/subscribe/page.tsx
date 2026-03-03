@@ -3,9 +3,10 @@
 
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { routing } from '@/i18n/routing';
+import { routing, type Locale } from '@/i18n/routing';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { SubscribeForm } from '@/components/subscribe-form';
+import { getAllDossierTopicOptions } from '@/lib/content';
 import { buildMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 
@@ -46,10 +47,19 @@ export default async function SubscribePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <SubscribeView />;
+  const dossierOptions = getAllDossierTopicOptions(locale as Locale).map((d) => ({
+    id: d.topicId,
+    label: d.label,
+  }));
+
+  return <SubscribeView dossierOptions={dossierOptions} />;
 }
 
-function SubscribeView() {
+function SubscribeView({
+  dossierOptions,
+}: {
+  dossierOptions: Array<{ id: string; label: string }>;
+}) {
   const t = useTranslations('subscribePage');
   const tb = useTranslations('breadcrumb');
 
@@ -69,7 +79,7 @@ function SubscribeView() {
         <p className="mt-2 text-neutral-600">{t('subtitle')}</p>
 
         <div className="mt-8">
-          <SubscribeForm />
+          <SubscribeForm dossierOptions={dossierOptions} />
         </div>
 
         {/* Ce que vous recevrez */}

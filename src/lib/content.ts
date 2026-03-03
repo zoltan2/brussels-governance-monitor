@@ -172,6 +172,7 @@ export interface Verification {
 
 export interface DossierCard {
   title: string;
+  shortTitle?: string;
   slug: string;
   locale: Locale;
   dossierType: 'infrastructure' | 'housing' | 'regulatory' | 'utility' | 'security';
@@ -961,6 +962,27 @@ export function getAllDossierSlugs(): string[] {
  */
 export function getDossiersForDomain(domain: string, locale: Locale): DossierCard[] {
   return getDossierCards(locale).filter((d) => d.relatedDomains.includes(domain));
+}
+
+/**
+ * Get all dossier topic options for subscription forms.
+ * Derives topic IDs and labels from Velite dossier cards.
+ * Uses DOSSIER_SLUG_TO_TOPIC for the 3 slugs that differ from the `dossier-{slug}` convention.
+ */
+export function getAllDossierTopicOptions(
+  locale: Locale,
+): Array<{ topicId: string; label: string }> {
+  // Inline the 3 slug→topic overrides to avoid importing from resend.ts
+  const slugToTopic: Record<string, string> = {
+    'seniors-a-bruxelles': 'dossier-seniors',
+    'data-centers-ia-energie': 'dossier-data-centers',
+    'faillites-a-bruxelles': 'dossier-faillites',
+  };
+  const cards = getDossierCards(locale);
+  return cards.map((c) => ({
+    topicId: slugToTopic[c.slug] || `dossier-${c.slug}`,
+    label: c.shortTitle || c.title,
+  }));
 }
 
 // ──────────────────────────────────────────────

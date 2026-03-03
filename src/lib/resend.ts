@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { Resend } from 'resend';
+import { getDossierCards } from '@/lib/content';
 
 let _resend: Resend | null = null;
 
@@ -70,27 +71,6 @@ export const COMMUNE_TOPICS = [
   'commune-woluwe-saint-pierre',
 ] as const;
 
-export const DOSSIER_TOPICS = [
-  'dossiers',
-  'dossier-slrb',
-  'dossier-lez',
-  'dossier-vivaqua',
-  'dossier-metro-3',
-  'dossier-good-move',
-  'dossier-plan-securite',
-  'dossier-fusion-polices',
-  'dossier-seniors',
-  'dossier-accessibilite-pmr',
-  'dossier-data-centers',
-  'dossier-mobilite-partagee',
-  'dossier-reforme-administration',
-  'dossier-assemblees-citoyennes',
-  'dossier-faillites',
-  'dossier-pfas',
-  'dossier-acs',
-  'dossier-rse',
-] as const;
-
 /** Maps Velite dossier slugs to topic identifiers (only for slugs that differ). */
 export const DOSSIER_SLUG_TO_TOPIC: Record<string, string> = {
   'seniors-a-bruxelles': 'dossier-seniors',
@@ -98,11 +78,38 @@ export const DOSSIER_SLUG_TO_TOPIC: Record<string, string> = {
   'faillites-a-bruxelles': 'dossier-faillites',
 };
 
+/**
+ * Get all dossier topics dynamically from Velite.
+ * Returns ['dossiers', 'dossier-slrb', 'dossier-lez', ...].
+ * Uses getDossierCards() from content.ts (static Velite import, safe in all contexts).
+ */
+export function getDossierTopics(): string[] {
+  const cards = getDossierCards('fr');
+  const slugs = [
+    ...new Set(
+      cards.map((c) => DOSSIER_SLUG_TO_TOPIC[c.slug] || `dossier-${c.slug}`),
+    ),
+  ];
+  return ['dossiers', ...slugs];
+}
+
 export const ENGAGEMENT_TOPICS = ['engagements'] as const;
 
-export const TOPICS = [...DOMAIN_TOPICS, ...SECTOR_TOPICS, ...COMMUNE_TOPICS, ...DOSSIER_TOPICS, ...ENGAGEMENT_TOPICS] as const;
+/**
+ * Get all valid topics (static + dynamic dossiers).
+ * Returns a fresh array each call to include any new dossiers from Velite.
+ */
+export function getTopics(): string[] {
+  return [
+    ...DOMAIN_TOPICS,
+    ...SECTOR_TOPICS,
+    ...COMMUNE_TOPICS,
+    ...getDossierTopics(),
+    ...ENGAGEMENT_TOPICS,
+  ];
+}
 
-export type Topic = (typeof TOPICS)[number];
+export type Topic = string;
 
 /** Maps each sector slug to its parent domain for digest matching. */
 export const SECTOR_TO_DOMAIN: Record<string, string> = {

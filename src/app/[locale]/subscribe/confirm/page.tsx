@@ -3,7 +3,8 @@
 
 import { Suspense } from 'react';
 import { setRequestLocale } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
+import { routing, type Locale } from '@/i18n/routing';
+import { getAllDossierTopicOptions } from '@/lib/content';
 import { ConfirmClient } from './confirm-client';
 
 export function generateStaticParams() {
@@ -18,9 +19,14 @@ export default async function ConfirmPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const dossierLabels: Record<string, string> = {};
+  for (const d of getAllDossierTopicOptions(locale as Locale)) {
+    dossierLabels[d.topicId] = d.label;
+  }
+
   return (
     <Suspense fallback={<ConfirmSkeleton />}>
-      <ConfirmClient />
+      <ConfirmClient dossierLabels={dossierLabels} />
     </Suspense>
   );
 }

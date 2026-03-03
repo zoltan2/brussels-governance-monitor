@@ -3,8 +3,9 @@
 
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { routing } from '@/i18n/routing';
+import { routing, type Locale } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
+import { getAllDossierTopicOptions } from '@/lib/content';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -23,15 +24,22 @@ export default async function ConfirmedPage({
   const { status, topics } = await searchParams;
   const topicList = topics ? topics.split(',').filter(Boolean) : [];
 
-  return <ConfirmedView status={status} topicList={topicList} />;
+  const dossierLabels: Record<string, string> = {};
+  for (const d of getAllDossierTopicOptions(locale as Locale)) {
+    dossierLabels[d.topicId] = d.label;
+  }
+
+  return <ConfirmedView status={status} topicList={topicList} dossierLabels={dossierLabels} />;
 }
 
 function ConfirmedView({
   status,
   topicList,
+  dossierLabels,
 }: {
   status: string | undefined;
   topicList: string[];
+  dossierLabels: Record<string, string>;
 }) {
   const t = useTranslations('subscribeConfirmed');
 
@@ -73,7 +81,7 @@ function ConfirmedView({
                         key={topic}
                         className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800"
                       >
-                        {t(`topicLabels.${topic}`)}
+                        {dossierLabels[topic] || t(`topicLabels.${topic}`)}
                       </span>
                     ))}
                   </div>

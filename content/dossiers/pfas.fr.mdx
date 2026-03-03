@@ -6,7 +6,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "82 parcelles contaminées identifiées en Région bruxelloise. Le site Sicli à Uccle présente des taux jusqu'à 1 058× la norme (31 composés PFAS dans le sol, 20 dans les eaux souterraines). Le TFA dépasse la future norme EU dans les 6 réservoirs d'eau potable. Le Conseil de l'Environnement demande un cadre intégré (février 2026)."
+summary: "82 parcelles contaminées identifiées en Région bruxelloise. Le site Sicli à Uccle présente des taux jusqu'à 1 058× la norme (31 composés PFAS dans le sol, 20 dans les eaux souterraines). Le TFA dépasse la norme UE « total PFAS » (500 ng/L, en vigueur depuis janvier 2026) dans les 6 réservoirs d'eau potable. Procès historique 3M en Belgique (1 400 résidents, 28M EUR). Le Conseil de l'Environnement demande un cadre intégré."
 estimatedBudget: "Non chiffré — coûts de dépollution Sicli et traitement de l'eau à déterminer"
 stakeholders:
   - "Bruxelles Environnement"
@@ -33,7 +33,7 @@ sources:
   - label: "Vivaqua — Qualité de l'eau et PFAS"
     url: "https://www.vivaqua.be/en/water-quality-in-brussels-what-about-pfas/"
     accessedAt: "2026-02-27"
-  - label: "RTBF — TFA dans l'eau des Bruxellois dépasse la future norme UE (oct. 2024)"
+  - label: "RTBF — TFA dans l'eau des Bruxellois dépasse la norme UE (oct. 2024)"
     url: "https://www.rtbf.be/article/pfas-les-concentrations-de-tfa-dans-l-eau-des-bruxellois-depassent-la-future-norme-europeenne-11453049"
     accessedAt: "2026-02-27"
   - label: "RTBF — Sicli : les autorités connaissaient les concentrations depuis 2023 (2025)"
@@ -60,6 +60,12 @@ sources:
   - label: "BRUZZ — Bruxelles Environnement rapporte de grands dépassements PFAS à Uccle (sept. 2025)"
     url: "https://www.bruzz.be/actua/milieu/leefmilieu-brussel-rapporteert-grote-overschrijdingen-pfas-concentraties-ukkel-2025-09"
     accessedAt: "2026-02-28"
+  - label: "Commission européenne — Coût de la pollution PFAS : 440 Mrd EUR d'ici 2050 (jan. 2026)"
+    url: "https://environment.ec.europa.eu/news/new-study-confirms-huge-and-growing-costs-pfas-pollution-2026-01-29_en"
+    accessedAt: "2026-03-03"
+  - label: "Belga — Procès PFAS 3M : 1 400 résidents de Zwijndrecht (fév. 2026)"
+    url: "https://www.belganewsagency.eu/pfas-contamination-trial-of-1400-residents-against-chemical-company-3m-begins"
+    accessedAt: "2026-03-03"
 metrics:
   - label: "Parcelles contaminées identifiées"
     value: "82"
@@ -88,7 +94,7 @@ metrics:
     unit: "ng/L"
     source: "Directive UE eau potable"
     date: "2024-03-01"
-  - label: "Analyses TFA dépassant future norme 500 ng/L"
+  - label: "Analyses TFA dépassant la norme UE 500 ng/L"
     value: "97%"
     source: "RTBF / données Vivaqua"
     date: "2024-10-22"
@@ -99,13 +105,13 @@ alerts:
   - label: "Site Sicli : taux jusqu'à 1 058× la norme, périmètre de sécurité 100m"
     severity: warning
     date: "2025-09-19"
-  - label: "TFA : 97 % des analyses eau potable dépassent la future norme UE"
+  - label: "TFA : 97 % des analyses eau potable dépassent la norme UE (500 ng/L)"
     severity: warning
     date: "2024-10-22"
 confidenceLevel: official
-lastModified: "2026-02-28"
+lastModified: "2026-03-03"
 changeType: updated
-changeSummary: "Chiffres Sicli affinés (708× sol, 1 058× nappe, 31/20 composés) + 3 sources BRUZZ ajoutées"
+changeSummary: "Norme UE 500 ng/L en vigueur (jan. 2026), rapport CE coût PFAS 440 Mrd EUR, procès 3M Anvers (1 400 résidents), calendrier ECHA précisé"
 ---
 
 ## Situation générale
@@ -130,7 +136,7 @@ Un périmètre de sécurité de 100 mètres a été établi : interdiction de co
 Vivaqua affirme que la norme européenne de 100 ng/L pour la somme de 20 PFAS n'est dépassée nulle part dans la Région. Cependant, les analyses révèlent un problème spécifique avec le **TFA (acide trifluoroacétique)** :
 
 - Le TFA est détecté dans les **6 réservoirs** alimentant les Bruxellois
-- **97 % des 287 analyses** dépassent la future norme de 500 ng/L pour le total PFAS
+- **97 % des 287 analyses** dépassent la norme de 500 ng/L pour le total PFAS (en vigueur depuis le 12 janvier 2026)
 - Les concentrations varient de 500 à 1 900 ng/L (maximum au réservoir de Daussoulx-Boitsfort)
 - Les filtres à charbon actif classiques sont incapables de capter le TFA — seule l'osmose inverse fonctionne, à un coût élevé
 
@@ -143,12 +149,20 @@ La toxicité du TFA reste débattue : un conseil scientifique indépendant consi
 - **Avril 2025** : le gouvernement approuve en première lecture un projet définissant le « total PFAS » à 500 ng/L et ajoutant le TFA à la liste de surveillance (valeur guide : 2 200 ng/L)
 - **Février 2026** : le Conseil de l'Environnement demande un **cadre intégré** — gestion des contaminations existantes, protection durable de l'eau potable, principe pollueur-payeur, répartition équitable des coûts
 
-Au niveau européen, une interdiction générale des PFAS n'est pas attendue avant fin 2026. Un règlement interdisant les PFAS dans les mousses anti-incendie (≥1 mg/L) a été voté en avril 2025.
+- **Janvier 2026** : la norme UE « total PFAS » (500 ng/L, incluant le TFA) entre en vigueur dans tous les États membres (Directive 2020/2184). Bruxelles appliquait déjà la norme « somme 20 PFAS » (100 ng/L) depuis mars 2024
+
+Au niveau européen, l'Agence européenne des produits chimiques (ECHA) consultera le public au printemps 2026 sur son projet d'avis relatif à une restriction universelle des PFAS (plus de 10 000 substances, 14 secteurs). Un avis final est attendu fin 2026. Un règlement interdisant les PFAS dans les mousses anti-incendie (≥1 mg/L) a été voté en avril 2025.
+
+## Contexte européen et juridique
+
+- **Janvier 2026** : une étude commandée par la Commission européenne estime le coût de la pollution aux PFAS à **440 milliards d'euros** d'ici 2050 en l'absence d'action supplémentaire — le seul traitement de l'eau polluée dépasserait 1 000 milliards d'euros
+- **Février 2026** : ouverture du procès 3M à Anvers — **1 400 résidents** de Zwijndrecht réclament 20 000 EUR chacun (28 millions EUR au total) pour troubles de voisinage excessifs liés aux PFAS. Un précédent de 2023 avait accordé 2 000 EUR à une famille. Décision attendue fin mars 2026. Jurisprudence importante pour le principe pollueur-payeur applicable au cas Sicli
+- **Printemps 2026** : consultation publique de l'ECHA sur la restriction universelle des PFAS (plus de 10 000 substances). Avis final attendu fin 2026
 
 ## Enjeux à suivre
 
-- **Dépollution Sicli** : qui paie après la faillite ? Bruxelles-Environnement négocie avec le propriétaire Afitec
-- **Coût du traitement de l'eau** : l'osmose inverse pour éliminer le TFA pourrait se répercuter sur la facture des consommateurs
+- **Dépollution Sicli** : qui paie après la faillite ? Bruxelles-Environnement négocie avec le propriétaire Afitec. La jurisprudence 3M pourrait renforcer le principe pollueur-payeur
+- **Coût du traitement de l'eau** : l'osmose inverse pour éliminer le TFA pourrait se répercuter sur la facture des consommateurs. L'étude de la Commission estime le coût du traitement de l'eau polluée à plus de 1 000 milliards d'euros à l'échelle européenne
 - **Cadre intégré** : le gouvernement bruxellois répondra-t-il aux recommandations du Conseil de l'Environnement ?
 - **Cartographie** : les campagnes d'analyse se poursuivent — le nombre de parcelles contaminées pourrait augmenter
 - **Norme TFA** : la valeur guide de 2 200 ng/L proposée par la Région est jugée insuffisante par certains experts

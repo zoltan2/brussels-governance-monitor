@@ -1,6 +1,33 @@
 {
-  "lastVeille": "2026-03-02",
+  "lastVeille": "2026-03-03",
   "entries": [
+    {
+      "id": "2026-03-02-audi-forest-vrijzone",
+      "date": "2026-03-02",
+      "confidence": "unconfirmed",
+      "status": "active",
+      "cards": ["economy", "employment"],
+      "source": {
+        "label": "BRUZZ Economie — Drie ministers bezoeken Audi-site, adviseur aangesteld (2 mars 2026)",
+        "url": null,
+        "accessedAt": "2026-03-03"
+      },
+      "nextStep": {
+        "fr": "Surveiller la publication de l'ordonnance « zone franche urbaine » (annoncée dans l'accord de gouvernement). Calendrier de la réindustrialisation du site à suivre.",
+        "nl": "Publicatie ordonnantie 'stedelijke vrijzone' opvolgen (aangekondigd in het regeerakkoord). Kalender herindustrialisering site op te volgen.",
+        "en": "Monitor publication of the 'urban free zone' ordinance (announced in the government accord). Site reindustrialisation timeline to follow.",
+        "de": "Veröffentlichung der Verordnung ‚städtische Freizone' verfolgen (im Regierungsabkommen angekündigt). Zeitplan der Reindustrialisierung des Standorts zu verfolgen."
+      },
+      "descriptions": {
+        "fr": "Les ministres Dilliès, Hublet et Henry visitent le site Audi Forest le 2 mars 2026. Nomination d'Olivier Van Steirtegem comme conseiller spécial « Audi Forest » pour coordonner la réindustrialisation. Objectif gouvernemental : recréer 2 500 emplois sur le site. L'accord de gouvernement prévoit une « zone franche urbaine » pour accélérer la reconversion, mais aucune ordonnance n'a encore été publiée.",
+        "nl": "Ministers Dilliès, Hublet en Henry bezoeken de Audi Forest-site op 2 maart 2026. Benoeming van Olivier Van Steirtegem als bijzonder adviseur 'Audi Forest' om de herindustrialisering te coördineren. Overheidsdoelstelling: 2 500 banen herscheppen op de site. Het regeerakkoord voorziet een 'stedelijke vrijzone' om de reconversie te versnellen, maar er is nog geen ordonnantie gepubliceerd.",
+        "en": "Ministers Dilliès, Hublet and Henry visit the Audi Forest site on 2 March 2026. Olivier Van Steirtegem appointed as special advisor 'Audi Forest' to coordinate reindustrialisation. Government target: recreate 2,500 jobs on the site. The government accord provides for an 'urban free zone' to accelerate reconversion, but no ordinance has been published yet.",
+        "de": "Die Minister Dilliès, Hublet und Henry besuchen den Audi-Forest-Standort am 2. März 2026. Ernennung von Olivier Van Steirtegem als Sonderberater ‚Audi Forest' zur Koordinierung der Reindustrialisierung. Regierungsziel: 2 500 Arbeitsplätze am Standort neu schaffen. Das Regierungsabkommen sieht eine ‚städtische Freizone' vor, um die Umstellung zu beschleunigen, aber noch keine Verordnung veröffentlicht."
+      },
+      "promotedTo": null,
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-02-28-lez-raad-van-state-standstill",
       "date": "2026-02-28",
@@ -290,16 +317,16 @@
         "accessedAt": "2026-02-27"
       },
       "nextStep": {
-        "fr": "Réponse du gouvernement bruxellois attendue. Arrêté 'total PFAS' (500 ng/L) en deuxième lecture à venir. Résultats complémentaires site Sicli début 2026.",
-        "nl": "Antwoord van de Brusselse regering verwacht. Besluit 'totaal PFAS' (500 ng/L) in tweede lezing verwacht. Aanvullende resultaten site Sicli begin 2026.",
-        "en": "Brussels government response expected. 'Total PFAS' decree (500 ng/L) second reading upcoming. Additional Sicli site results early 2026.",
-        "de": "Antwort der Brüsseler Regierung erwartet. Erlass 'Gesamt-PFAS' (500 ng/L) zweite Lesung ausstehend. Ergänzende Ergebnisse Standort Sicli Anfang 2026."
+        "fr": "Réponse du gouvernement bruxellois attendue. Norme UE « total PFAS » (500 ng/L) en vigueur depuis janvier 2026 — arrêté régional en deuxième lecture à venir. Procès 3M : décision fin mars 2026. Consultation ECHA printemps 2026.",
+        "nl": "Antwoord van de Brusselse regering verwacht. EU-norm 'totaal PFAS' (500 ng/L) van kracht sinds januari 2026 — gewestelijk besluit in tweede lezing verwacht. 3M-proces: uitspraak eind maart 2026. ECHA-raadpleging voorjaar 2026.",
+        "en": "Brussels government response expected. EU 'total PFAS' standard (500 ng/L) in force since January 2026 — regional decree second reading upcoming. 3M trial: ruling expected late March 2026. ECHA consultation spring 2026.",
+        "de": "Antwort der Brüsseler Regierung erwartet. EU-Norm ‚Gesamt-PFAS' (500 ng/L) in Kraft seit Januar 2026 — Regionalerlass in zweiter Lesung ausstehend. 3M-Prozess: Urteil Ende März 2026. ECHA-Konsultation Frühjahr 2026."
       },
       "descriptions": {
-        "fr": "Le Conseil de l'Environnement demande un cadre intégré pour les PFAS en Région bruxelloise : gestion des contaminations existantes (82 parcelles, site Sicli), protection durable de l'eau potable (TFA dépasse la future norme UE dans les 6 réservoirs), principe pollueur-payeur, répartition équitable des coûts. Nouveau dossier créé sur le moniteur avec 9 sources vérifiées.",
-        "nl": "De Raad voor het Leefmilieu vraagt een geïntegreerd kader voor PFAS in het Brussels Gewest: beheer van bestaande verontreinigingen (82 percelen, site Sicli), duurzame bescherming van drinkwater (TFA overschrijdt toekomstige EU-norm in alle 6 reservoirs), vervuiler-betaalt-principe, billijke kostenverdeling. Nieuw dossier aangemaakt op de monitor met 9 geverifieerde bronnen.",
-        "en": "The Environment Council calls for an integrated PFAS framework for the Brussels Region: management of existing contaminations (82 parcels, Sicli site), sustainable drinking water protection (TFA exceeds future EU norm in all 6 reservoirs), polluter-pays principle, equitable cost distribution. New dossier created on the monitor with 9 verified sources.",
-        "de": "Der Umweltrat fordert einen integrierten PFAS-Rahmen für die Region Brüssel: Management bestehender Kontaminationen (82 Parzellen, Standort Sicli), nachhaltiger Trinkwasserschutz (TFA überschreitet künftige EU-Norm in allen 6 Reservoirs), Verursacherprinzip, gerechte Kostenverteilung. Neues Dossier auf dem Monitor mit 9 verifizierten Quellen erstellt."
+        "fr": "Le Conseil de l'Environnement demande un cadre intégré pour les PFAS en Région bruxelloise : gestion des contaminations existantes (82 parcelles, site Sicli), protection durable de l'eau potable (TFA dépasse la norme UE de 500 ng/L dans les 6 réservoirs), principe pollueur-payeur, répartition équitable des coûts. Procès 3M à Anvers (1 400 résidents, 28M EUR) : jurisprudence pour le principe pollueur-payeur. Coût PFAS estimé à 440 Mrd EUR d'ici 2050 (Commission européenne).",
+        "nl": "De Raad voor het Leefmilieu vraagt een geïntegreerd kader voor PFAS in het Brussels Gewest: beheer van bestaande verontreinigingen (82 percelen, site Sicli), duurzame bescherming van drinkwater (TFA overschrijdt de EU-norm van 500 ng/L in alle 6 reservoirs), vervuiler-betaalt-principe, billijke kostenverdeling. 3M-proces in Antwerpen (1.400 inwoners, 28M EUR): rechtspraak voor het vervuiler-betaalt-principe. PFAS-kosten geschat op 440 mrd EUR tegen 2050 (Europese Commissie).",
+        "en": "The Environment Council calls for an integrated PFAS framework for the Brussels Region: management of existing contaminations (82 parcels, Sicli site), sustainable drinking water protection (TFA exceeds the EU standard of 500 ng/L in all 6 reservoirs), polluter-pays principle, equitable cost distribution. 3M trial in Antwerp (1,400 residents, EUR 28M): jurisprudence for the polluter-pays principle. PFAS costs estimated at EUR 440bn by 2050 (European Commission).",
+        "de": "Der Umweltrat fordert einen integrierten PFAS-Rahmen für die Region Brüssel: Management bestehender Kontaminationen (82 Parzellen, Standort Sicli), nachhaltiger Trinkwasserschutz (TFA überschreitet die EU-Norm von 500 ng/L in allen 6 Reservoirs), Verursacherprinzip, gerechte Kostenverteilung. 3M-Prozess in Antwerpen (1.400 Anwohner, 28 Mio. EUR): Rechtsprechung für das Verursacherprinzip. PFAS-Kosten auf 440 Mrd. EUR bis 2050 geschätzt (Europäische Kommission)."
       },
       "promotedTo": "pfas",
       "promotedSection": "dossiers",

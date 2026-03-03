@@ -2,6 +2,42 @@
   {
     "date": "2026-03-03",
     "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "pfas",
+    "descriptions": {
+      "fr": "Dossier PFAS enrichi : norme UE « total PFAS » (500 ng/L) en vigueur depuis janvier 2026, rapport Commission européenne (coût PFAS estimé à 440 Mrd EUR d'ici 2050), procès historique 3M à Anvers (1 400 résidents, 28M EUR), calendrier ECHA précisé (consultation printemps 2026). Nouvelle section « Contexte européen et juridique ». Corrections « future norme » → norme en vigueur dans 16 fichiers (dossier + 4 domaines + 2 secteurs × 4 locales).",
+      "nl": "Dossier PFAS verrijkt: EU-norm 'totaal PFAS' (500 ng/L) van kracht sinds januari 2026, rapport Europese Commissie (PFAS-kosten geschat op 440 mrd EUR tegen 2050), historisch 3M-proces in Antwerpen (1.400 inwoners, 28M EUR), ECHA-kalender bijgewerkt (raadpleging voorjaar 2026). Nieuwe sectie 'Europese en juridische context'. Correcties 'toekomstige norm' → norm van kracht in 16 bestanden.",
+      "en": "PFAS dossier enriched: EU 'total PFAS' standard (500 ng/L) in force since January 2026, European Commission report (PFAS costs estimated at EUR 440bn by 2050), landmark 3M trial in Antwerp (1,400 residents, EUR 28M), ECHA timeline updated (consultation spring 2026). New 'European and legal context' section. 'Future standard' corrections across 16 files.",
+      "de": "PFAS-Dossier angereichert: EU-Norm ‚Gesamt-PFAS' (500 ng/L) in Kraft seit Januar 2026, Bericht Europäische Kommission (PFAS-Kosten auf 440 Mrd. EUR bis 2050 geschätzt), historischer 3M-Prozess in Antwerpen (1.400 Anwohner, 28 Mio. EUR), ECHA-Kalender aktualisiert (Konsultation Frühjahr 2026). Neue Rubrik ‚Europäischer und rechtlicher Kontext'. Korrektur ‚künftige Norm' → Norm in Kraft in 16 Dateien."
+    },
+    "summaries": {
+      "fr": "PFAS — norme UE en vigueur, rapport CE 440 Mrd EUR, procès 3M, calendrier ECHA",
+      "nl": "PFAS — EU-norm van kracht, EC-rapport 440 mrd EUR, 3M-proces, ECHA-kalender",
+      "en": "PFAS — EU standard in force, EC report EUR 440bn, 3M trial, ECHA timeline",
+      "de": "PFAS — EU-Norm in Kraft, EK-Bericht 440 Mrd. EUR, 3M-Prozess, ECHA-Kalender"
+    }
+  },
+  {
+    "date": "2026-03-03",
+    "type": "added",
+    "section": "site",
+    "targetSlug": "audi-forest-vrijzone",
+    "descriptions": {
+      "fr": "Nouveau signal radar : les ministres Dilliès, Hublet et Henry visitent le site Audi Forest (2 mars 2026). Nomination d'Olivier Van Steirtegem comme conseiller spécial. Objectif : recréer 2 500 emplois. L'ordonnance « zone franche urbaine » annoncée dans l'accord de gouvernement n'est pas encore publiée.",
+      "nl": "Nieuw radarsignaal: ministers Dilliès, Hublet en Henry bezoeken Audi Forest-site (2 maart 2026). Benoeming Olivier Van Steirtegem als bijzonder adviseur. Doel: 2.500 banen herscheppen. Ordonnantie 'stedelijke vrijzone' uit het regeerakkoord nog niet gepubliceerd.",
+      "en": "New radar signal: Ministers Dilliès, Hublet and Henry visit Audi Forest site (2 March 2026). Olivier Van Steirtegem appointed as special advisor. Target: recreate 2,500 jobs. 'Urban free zone' ordinance from the government accord not yet published.",
+      "de": "Neues Radarsignal: Minister Dilliès, Hublet und Henry besuchen Audi-Forest-Standort (2. März 2026). Ernennung Olivier Van Steirtegem als Sonderberater. Ziel: 2.500 Arbeitsplätze neu schaffen. Verordnung ‚städtische Freizone' aus dem Regierungsabkommen noch nicht veröffentlicht."
+    },
+    "summaries": {
+      "fr": "Radar — signal Audi Forest : visite ministres, conseiller spécial, 2 500 emplois",
+      "nl": "Radar — signaal Audi Forest: ministerbezoek, bijzonder adviseur, 2.500 banen",
+      "en": "Radar — Audi Forest signal: ministers visit, special advisor, 2,500 jobs",
+      "de": "Radar — Signal Audi Forest: Ministerbesuch, Sonderberater, 2.500 Arbeitsplätze"
+    }
+  },
+  {
+    "date": "2026-03-03",
+    "type": "updated",
     "section": "domains",
     "targetSlug": "budget",
     "descriptions": {

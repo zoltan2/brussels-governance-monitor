@@ -6,7 +6,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "82 kontaminierte Parzellen in der Region Brüssel identifiziert. Der Sicli-Standort in Ukkel weist Werte bis zu 1.058× über der Norm auf (31 PFAS-Verbindungen im Boden, 20 im Grundwasser). TFA überschreitet die künftige EU-Norm in allen 6 Trinkwasserreservoirs. Der Umweltrat fordert einen integrierten Rahmen (Februar 2026)."
+summary: "82 kontaminierte Parzellen in der Region Brüssel identifiziert. Der Sicli-Standort in Ukkel weist Werte bis zu 1.058× über der Norm auf (31 PFAS-Verbindungen im Boden, 20 im Grundwasser). TFA überschreitet die EU-Norm ‚Gesamt-PFAS' (500 ng/L, in Kraft seit Januar 2026) in allen 6 Trinkwasserreservoirs. Historischer 3M-Prozess in Belgien (1.400 Anwohner, 28 Mio. EUR). Der Umweltrat fordert einen integrierten Rahmen."
 estimatedBudget: "Nicht beziffert — Sanierungskosten Sicli und Wasseraufbereitung zu bestimmen"
 stakeholders:
   - "Brüssel Umwelt"
@@ -33,7 +33,7 @@ sources:
   - label: "Vivaqua — Wasserqualität und PFAS"
     url: "https://www.vivaqua.be/en/water-quality-in-brussels-what-about-pfas/"
     accessedAt: "2026-02-27"
-  - label: "RTBF — TFA im Brüsseler Trinkwasser überschreitet künftige EU-Norm (Okt. 2024)"
+  - label: "RTBF — TFA im Brüsseler Trinkwasser überschreitet EU-Norm (Okt. 2024)"
     url: "https://www.rtbf.be/article/pfas-les-concentrations-de-tfa-dans-l-eau-des-bruxellois-depassent-la-future-norme-europeenne-11453049"
     accessedAt: "2026-02-27"
   - label: "RTBF — Sicli: Behörden kannten extreme Konzentrationen seit 2023 (2025)"
@@ -60,6 +60,12 @@ sources:
   - label: "BRUZZ — Brüssel Umwelt meldet große PFAS-Überschreitungen in Ukkel (Sept. 2025)"
     url: "https://www.bruzz.be/actua/milieu/leefmilieu-brussel-rapporteert-grote-overschrijdingen-pfas-concentraties-ukkel-2025-09"
     accessedAt: "2026-02-28"
+  - label: "Europäische Kommission — Kosten der PFAS-Verschmutzung: 440 Mrd. EUR bis 2050 (Jan. 2026)"
+    url: "https://environment.ec.europa.eu/news/new-study-confirms-huge-and-growing-costs-pfas-pollution-2026-01-29_en"
+    accessedAt: "2026-03-03"
+  - label: "Belga — PFAS-Prozess 3M: 1.400 Anwohner Zwijndrecht (Feb. 2026)"
+    url: "https://www.belganewsagency.eu/pfas-contamination-trial-of-1400-residents-against-chemical-company-3m-begins"
+    accessedAt: "2026-03-03"
 metrics:
   - label: "Identifizierte kontaminierte Parzellen"
     value: "82"
@@ -88,7 +94,7 @@ metrics:
     unit: "ng/L"
     source: "EU-Trinkwasserrichtlinie"
     date: "2024-03-01"
-  - label: "TFA-Analysen über künftiger Norm 500 ng/L"
+  - label: "TFA-Analysen über der EU-Norm von 500 ng/L"
     value: "97%"
     source: "RTBF / Vivaqua-Daten"
     date: "2024-10-22"
@@ -99,13 +105,13 @@ alerts:
   - label: "Standort Sicli: Werte bis 1.058× die Norm, Sicherheitsperimeter 100m"
     severity: warning
     date: "2025-09-19"
-  - label: "TFA: 97% der Trinkwasseranalysen überschreiten künftige EU-Norm"
+  - label: "TFA: 97% der Trinkwasseranalysen überschreiten EU-Norm (500 ng/L)"
     severity: warning
     date: "2024-10-22"
 confidenceLevel: official
-lastModified: "2026-02-28"
+lastModified: "2026-03-03"
 changeType: updated
-changeSummary: "Sicli-Zahlen verfeinert (708× Boden, 1.058× Grundwasser, 31/20 Verbindungen) + 3 BRUZZ-Quellen hinzugefügt"
+changeSummary: "EU-Norm 500 ng/L in Kraft (Jan. 2026), EK-Studie PFAS-Kosten 440 Mrd. EUR, 3M-Prozess Antwerpen (1.400 Anwohner), ECHA-Kalender aktualisiert"
 ---
 
 ## Allgemeine Lage
@@ -130,7 +136,7 @@ Ein Sicherheitsperimeter von 100 Metern wurde eingerichtet: Verbot des Verzehrs 
 Vivaqua erklärt, dass die europäische Norm von 100 ng/L für die Summe von 20 PFAS nirgendwo im Gewest überschritten werde. Die Analysen offenbaren jedoch ein spezifisches Problem mit **TFA (Trifluoressigsäure)**:
 
 - TFA wird in allen **6 Reservoirs** nachgewiesen, die die Brüsseler versorgen
-- **97 % der 287 Analysen** überschreiten die künftige Norm von 500 ng/L für Gesamt-PFAS
+- **97 % der 287 Analysen** überschreiten die Norm von 500 ng/L für Gesamt-PFAS (in Kraft seit 12. Januar 2026)
 - Die Konzentrationen reichen von 500 bis 1.900 ng/L (Maximum am Reservoir Daussoulx-Bosvoorde)
 - Standard-Aktivkohlefilter können TFA nicht auffangen — nur Umkehrosmose funktioniert, zu hohen Kosten
 
@@ -143,12 +149,20 @@ Die Toxizität von TFA ist umstritten: Ein unabhängiger Wissenschaftsrat betrac
 - **April 2025**: Die Regierung genehmigt in erster Lesung einen Entwurf, der „Gesamt-PFAS" auf 500 ng/L definiert und TFA zur Überwachungsliste hinzufügt (Richtwert: 2.200 ng/L)
 - **Februar 2026**: Der Umweltrat fordert einen **integrierten Rahmen** — Management bestehender Kontaminationen, nachhaltiger Schutz des Trinkwassers, Verursacherprinzip, gerechte Kostenverteilung
 
-Auf europäischer Ebene ist ein generelles PFAS-Verbot nicht vor Ende 2026 zu erwarten. Eine Verordnung zum Verbot von PFAS in Löschschäumen (≥1 mg/L) wurde im April 2025 beschlossen.
+- **Januar 2026**: Die EU-Norm „Gesamt-PFAS" (500 ng/L, einschließlich TFA) tritt in allen Mitgliedstaaten in Kraft (Richtlinie 2020/2184). Brüssel wandte die Norm „Summe 20 PFAS" (100 ng/L) bereits seit März 2024 an
+
+Auf europäischer Ebene wird die Europäische Chemikalienagentur (ECHA) im Frühjahr 2026 eine öffentliche Konsultation zu ihrem Gutachtenentwurf für eine universelle PFAS-Beschränkung durchführen (mehr als 10.000 Stoffe, 14 Sektoren). Ein endgültiges Gutachten wird Ende 2026 erwartet. Eine Verordnung zum Verbot von PFAS in Löschschäumen (≥1 mg/L) wurde im April 2025 beschlossen.
+
+## Europäischer und rechtlicher Kontext
+
+- **Januar 2026**: Eine von der Europäischen Kommission in Auftrag gegebene Studie schätzt die Kosten der PFAS-Verschmutzung auf **440 Milliarden Euro** bis 2050 ohne zusätzliche Maßnahmen — allein die Aufbereitung von verschmutztem Wasser würde 1.000 Milliarden Euro übersteigen
+- **Februar 2026**: Eröffnung des 3M-Prozesses in Antwerpen — **1.400 Anwohner** aus Zwijndrecht fordern jeweils 20.000 EUR (insgesamt 28 Millionen EUR) wegen übermäßiger Nachbarschaftsbelästigung durch PFAS. Ein Präzedenzfall von 2023 sprach einer Familie 2.000 EUR zu. Urteil Ende März 2026 erwartet. Wichtige Rechtsprechung für das Verursacherprinzip, anwendbar auf den Fall Sicli
+- **Frühjahr 2026**: Öffentliche Konsultation der ECHA zur universellen PFAS-Beschränkung (über 10.000 Stoffe). Endgültiges Gutachten Ende 2026 erwartet
 
 ## Zu verfolgende Punkte
 
-- **Sanierung Sicli**: Wer bezahlt nach dem Konkurs? Brüssel Umwelt verhandelt mit Eigentümer Afitec
-- **Kosten der Wasseraufbereitung**: Umkehrosmose zur Entfernung von TFA könnte sich auf die Verbraucherrechnungen auswirken
+- **Sanierung Sicli**: Wer bezahlt nach dem Konkurs? Brüssel Umwelt verhandelt mit Eigentümer Afitec. Die 3M-Rechtsprechung könnte das Verursacherprinzip stärken
+- **Kosten der Wasseraufbereitung**: Umkehrosmose zur Entfernung von TFA könnte sich auf die Verbraucherrechnungen auswirken. Die Kommissionsstudie schätzt die Kosten für die Aufbereitung von verschmutztem Wasser auf über 1.000 Milliarden Euro auf europäischer Ebene
 - **Integrierter Rahmen**: Wird die Brüsseler Regierung auf die Empfehlungen des Umweltrats eingehen?
 - **Kartierung**: Die Analysekampagnen laufen weiter — die Zahl der kontaminierten Parzellen könnte steigen
 - **TFA-Norm**: Der vom Gewest vorgeschlagene Richtwert von 2.200 ng/L wird von manchen Experten als unzureichend betrachtet

@@ -3,6 +3,42 @@
     "date": "2026-03-04",
     "type": "updated",
     "section": "dossiers",
+    "targetSlug": "vivaqua",
+    "descriptions": {
+      "fr": "Dossier Vivaqua enrichi à partir de l'avis IEB (nov. 2025) sur le PGE 2028-2033 : nouvelle section « Réseau d'assainissement et surverses » (10 Mm³/an surverses, 62 Mm³ en STEP dont ~50 % parasites, 15 % eaux usées flamandes, 20 % du prix = intérêt général, relation Vivaqua-Hydria floue). Nouvelle section « Tarif social et vulnérabilité hydrique » (BIM 55+50 EUR, Fonds social 2,5M EUR/an, non-recours, modèle flamand, 31 % sous seuil pauvreté, coupures d'eau). Source IEB + stakeholder ajoutés.",
+      "nl": "Dossier Vivaqua verrijkt op basis van IEB-advies (nov. 2025) over WBP 2028-2033: nieuwe sectie « Rioleringsnetwerk en overstorten » (10 Mm³/jaar overstorten, 62 Mm³ in RWZI waarvan ~50 % parasitair, 15 % Vlaams afvalwater, 20 % prijs = algemeen belang, onduidelijke relatie Vivaqua-Hydria). Nieuwe sectie « Sociaal tarief en waterkwetsbaarheid » (BIM 55+50 EUR, Sociaal Fonds 2,5M EUR/jaar, niet-gebruik, Vlaams model, 31 % onder armoedegrens, waterafsluitingen). IEB-bron + stakeholder toegevoegd.",
+      "en": "Vivaqua dossier enriched from IEB opinion (Nov. 2025) on WMP 2028-2033: new section 'Sewerage network and overflows' (10 Mm³/year overflows, 62 Mm³ in WWTP of which ~50% parasitic, 15% Flemish wastewater, 20% of price = general interest, unclear Vivaqua-Hydria relationship). New section 'Social tariff and water vulnerability' (BIM EUR 55+50, Social Fund EUR 2.5M/year, non-take-up, Flemish model, 31% below poverty line, water disconnections). IEB source + stakeholder added.",
+      "de": "Dossier Vivaqua angereichert aus IEB-Stellungnahme (Nov. 2025) zum WBP 2028-2033: neuer Abschnitt « Kanalisationsnetz und Überläufe » (10 Mm³/Jahr Überläufe, 62 Mm³ in Kläranlagen davon ~50 % Parasitärwasser, 15 % flämisches Abwasser, 20 % des Preises = Allgemeininteresse, unklare Beziehung Vivaqua-Hydria). Neuer Abschnitt « Sozialtarif und Wassergefährdung » (BIM 55+50 EUR, Sozialfonds 2,5M EUR/Jahr, Nicht-Inanspruchnahme, flämisches Modell, 31 % unter Armutsgrenze, Wasserabsperrungen). IEB-Quelle + Stakeholder hinzugefügt."
+    },
+    "summaries": {
+      "fr": "Vivaqua — avis IEB : surverses, eaux parasites, tarif social, vulnérabilité hydrique",
+      "nl": "Vivaqua — IEB-advies: overstorten, parasitair water, sociaal tarief, waterkwetsbaarheid",
+      "en": "Vivaqua — IEB opinion: overflows, parasitic water, social tariff, water vulnerability",
+      "de": "Vivaqua — IEB-Stellungnahme: Überläufe, Parasitärwasser, Sozialtarif, Wassergefährdung"
+    }
+  },
+  {
+    "date": "2026-03-04",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "climate",
+    "descriptions": {
+      "fr": "Carte Climat enrichie à partir de l'avis IEB (nov. 2025) : nouvelle section « Gestion de l'eau et adaptation climatique » — GIEP sous-financée (levier clé), surverses 10 Mm³/an, traitement quaternaire obligatoire horizon 2039 (polluants émergents), pollueur-payeur élargi (producteurs couvrent min. 80 % d'ici 31/12/2028, Directive UE eaux résiduaires). Source IEB ajoutée.",
+      "nl": "Klimaatkaart verrijkt op basis van IEB-advies (nov. 2025): nieuwe sectie « Waterbeheer en klimaatadaptatie » — GIEP ondergefinancierd (essentieel instrument), overstorten 10 Mm³/jaar, quaternaire zuivering verplicht tegen 2039 (opkomende verontreinigingen), uitgebreid vervuiler-betaalt (producenten dekken min. 80 % tegen 31/12/2028, EU-richtlijn). IEB-bron toegevoegd.",
+      "en": "Climate card enriched from IEB opinion (Nov. 2025): new section 'Water management and climate adaptation' — GIEP underfunded (key lever), overflows 10 Mm³/year, quaternary treatment mandatory by 2039 (emerging pollutants), extended polluter-pays (producers cover min. 80% by 31/12/2028, EU Directive). IEB source added.",
+      "de": "Klimakarte angereichert aus IEB-Stellungnahme (Nov. 2025): neuer Abschnitt « Wasserwirtschaft und Klimaanpassung » — GIEP unterfinanziert (zentraler Hebel), Überläufe 10 Mm³/Jahr, Quartärbehandlung Pflicht bis 2039 (neue Schadstoffe), erweitertes Verursacherprinzip (Hersteller decken min. 80 % bis 31.12.2028, EU-Richtlinie). IEB-Quelle hinzugefügt."
+    },
+    "summaries": {
+      "fr": "Climat — avis IEB : GIEP, surverses, traitement quaternaire, pollueur-payeur",
+      "nl": "Klimaat — IEB-advies: GIEP, overstorten, quaternaire zuivering, vervuiler-betaalt",
+      "en": "Climate — IEB opinion: GIEP, overflows, quaternary treatment, polluter-pays",
+      "de": "Klima — IEB-Stellungnahme: GIEP, Überläufe, Quartärbehandlung, Verursacherprinzip"
+    }
+  },
+  {
+    "date": "2026-03-04",
+    "type": "updated",
+    "section": "dossiers",
     "targetSlug": "pfas",
     "descriptions": {
       "fr": "Dossier PFAS enrichi : ajout du Règlement (UE) 2025/1988 (REACH Entrée 82, adopté le 2 oct. 2025, en vigueur le 23 oct. 2025) interdisant les PFAS dans les mousses anti-incendie (≥1 mg/L). Lien direct avec le cas Sicli (fabricant d'extincteurs). Calendrier complet : étiquetage oct. 2026, fin extincteurs portables oct. 2026/déc. 2030, interdiction générale oct. 2030, dérogations Seveso/offshore/militaire oct. 2035. Obligations SIAMU (plan de gestion par site dès oct. 2026). Correction date erronée (octobre 2025, pas avril). Source EUR-Lex ajoutée.",

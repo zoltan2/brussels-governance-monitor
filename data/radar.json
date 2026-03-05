@@ -1,6 +1,62 @@
 {
-  "lastVeille": "2026-03-04",
+  "lastVeille": "2026-03-05",
   "entries": [
+    {
+      "id": "2026-03-04-dalle-bara-trams",
+      "date": "2026-03-04",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["mobility"],
+      "source": {
+        "label": "BX1 — Trams 4 et 10 interrompus pendant un an à la Gare du Midi (4 mars 2026)",
+        "url": "https://bx1.be/categories/news/les-trams-4-et-10-interrompus-pendant-un-an-a-la-gare-du-midi-la-stib-adapte-son-offre/",
+        "accessedAt": "2026-03-05"
+      },
+      "nextStep": {
+        "fr": "Début des travaux le 27 avril 2026. Surveiller la mise en place du réseau de substitution et l'impact sur les usagers (Uccle, Forest, Saint-Gilles). Fin prévue avril 2027.",
+        "nl": "Start werken op 27 april 2026. Inzet vervangnetwerk en impact op reizigers (Ukkel, Vorst, Sint-Gillis) opvolgen. Einde gepland april 2027.",
+        "en": "Works start 27 April 2026. Monitor replacement network rollout and user impact (Uccle, Forest, Saint-Gilles). Planned completion April 2027.",
+        "de": "Arbeitsbeginn 27. April 2026. Ersatznetz und Auswirkungen auf Fahrgäste (Ukkel, Vorst, Saint-Gilles) verfolgen. Geplantes Ende April 2027."
+      },
+      "descriptions": {
+        "fr": "La STIB annonce la coupure des trams 4, 10, 51 et 81 au niveau de la gare du Midi pendant un an (27 avril 2026 → avril 2027). Raison : réparation d'urgence d'une dalle en béton sous la place Bara dans le tunnel de prémétro (infrastructure de 40 ans, infiltrations, corrosion, risque d'effondrement). Plan de substitution : bus 50/96/37 renforcés, tram 82 prolongé.",
+        "nl": "De MIVB kondigt de onderbreking van trams 4, 10, 51 en 81 ter hoogte van het Zuidstation aan voor één jaar (27 april 2026 → april 2027). Reden: dringende herstelling van een betonplaat onder het Baraplein in de premetrotunnel (40 jaar oude infrastructuur, infiltraties, corrosie, instortingsgevaar). Vervangplan: versterkte bus 50/96/37, verlengde tram 82.",
+        "en": "STIB announces the interruption of trams 4, 10, 51 and 81 near Gare du Midi for one year (27 April 2026 → April 2027). Reason: emergency repair of a concrete slab beneath Place Bara in the pre-metro tunnel (40-year-old infrastructure, infiltration, corrosion, collapse risk). Replacement plan: reinforced buses 50/96/37, extended tram 82.",
+        "de": "Die STIB kündigt die Unterbrechung der Trams 4, 10, 51 und 81 im Bereich des Südbahnhofs für ein Jahr an (27. April 2026 → April 2027). Grund: Notfallreparatur einer Betonplatte unter dem Baraplatz im Premetro-Tunnel (40 Jahre alte Infrastruktur, Wassereintritte, Korrosion, Einsturzrisiko). Ersatzplan: verstärkte Busse 50/96/37, verlängerte Tram 82."
+      },
+      "promotedTo": "mobility",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-04-beliris-tunnels-101m",
+      "date": "2026-03-04",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["mobility"],
+      "source": {
+        "label": "BX1 — Rénovation des tunnels : 100 millions sur la table (4 mars 2026)",
+        "url": "https://bx1.be/categories/news/renovation-des-tunnels-100-millions-sur-la-table-pour-lune-des-priorites-de-mobilite-bruxelloises/",
+        "accessedAt": "2026-03-05"
+      },
+      "nextStep": {
+        "fr": "Surveiller le calendrier des travaux (tunnels Louise, Belliard). Fin travaux Schuman prévue automne 2026.",
+        "nl": "Werkkalender opvolgen (tunnels Louiza, Belliard). Einde werken Schuman verwacht herfst 2026.",
+        "en": "Monitor works timeline (Louise, Belliard tunnels). Schuman works completion expected autumn 2026.",
+        "de": "Arbeitszeitplan verfolgen (Tunnels Louise, Belliard). Ende Schuman-Arbeiten Herbst 2026 erwartet."
+      },
+      "descriptions": {
+        "fr": "Le ministre fédéral Quintin (MR, Beliris) annonce 50 M€ Beliris + 51,3 M€ Région = 101,3 M€ pour la rénovation des tunnels bruxellois (Louise, Belliard, etc.). Autres projets : parkings de délestage (Stalle), cyclostrades, Mediapark Reyers, Schuman (fin automne 2026).",
+        "nl": "Federaal minister Quintin (MR, Beliris) kondigt 50 M€ Beliris + 51,3 M€ Gewest = 101,3 M€ aan voor de renovatie van Brusselse tunnels (Louiza, Belliard, enz.). Andere projecten: ontradingsparkings (Stalle), fietssnelwegen, Mediapark Reyers, Schuman (einde herfst 2026).",
+        "en": "Federal minister Quintin (MR, Beliris) announces EUR 50M Beliris + EUR 51.3M Region = EUR 101.3M for Brussels tunnel renovation (Louise, Belliard, etc.). Other projects: park-and-ride (Stalle), cycle highways, Mediapark Reyers, Schuman (completion autumn 2026).",
+        "de": "Bundesminister Quintin (MR, Beliris) kündigt 50 Mio. € Beliris + 51,3 Mio. € Region = 101,3 Mio. € für die Sanierung Brüsseler Tunnels an (Louise, Belliard usw.). Weitere Projekte: P+R-Parkplätze (Stalle), Radschnellwege, Mediapark Reyers, Schuman (Ende Herbst 2026)."
+      },
+      "promotedTo": "mobility",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-02-24-omnibus-csrd-reduction",
       "date": "2026-02-24",
@@ -168,27 +224,27 @@
       "period": "gouvernement-2026"
     },
     {
-      "id": "2026-03-01-cores-securite-iran",
-      "date": "2026-03-01",
+      "id": "2026-03-04-cores-securite-iran",
+      "date": "2026-03-04",
       "confidence": "official",
       "status": "active",
       "cards": ["security"],
       "source": {
-        "label": "BRUZZ — Minister-president Dilliès roept Gewestelijke Veiligheidsraad bijeen (1 mars 2026)",
-        "url": "https://www.bruzz.be/actua/politiek",
-        "accessedAt": "2026-03-02"
+        "label": "BX1 — Conseil régional de sécurité convoqué par Dilliès (4 mars 2026)",
+        "url": "https://bx1.be/categories/news/un-conseil-regional-de-securite-convoque-par-boris-dillies-on-doit-pouvoir-evaluer-la-menace/",
+        "accessedAt": "2026-03-05"
       },
       "nextStep": {
-        "fr": "Réunion CORES prévue mercredi 5 mars. Surveiller les mesures concrètes annoncées (renforcement patrouilles, plan Vigipirate bruxellois, etc.).",
-        "nl": "CORES-vergadering gepland woensdag 5 maart. Concrete aangekondigde maatregelen opvolgen (versterking patrouilles, Brussels Vigipirate-plan, enz.).",
-        "en": "CORES meeting planned Wednesday 5 March. Monitor concrete measures announced (patrol reinforcement, Brussels Vigipirate-type plan, etc.).",
-        "de": "CORES-Sitzung geplant Mittwoch 5. März. Konkrete angekündigte Maßnahmen verfolgen (Patrouilleverstärkung, Brüsseler Vigipirate-Plan usw.)."
+        "fr": "Surveiller l'évolution du niveau de menace et les éventuelles mesures concrètes (renforts, dispositifs spéciaux). Conseil national de sécurité fédéral tenu le 5 mars.",
+        "nl": "Evolutie dreigingsniveau en eventuele concrete maatregelen opvolgen (versterkingen, speciale dispositieven). Nationale Veiligheidsraad gehouden op 5 maart.",
+        "en": "Monitor threat level evolution and any concrete measures (reinforcements, special arrangements). Federal National Security Council held on 5 March.",
+        "de": "Entwicklung des Bedrohungsniveaus und eventuelle konkrete Maßnahmen verfolgen (Verstärkungen, Sonderdispositive). Nationaler Sicherheitsrat am 5. März abgehalten."
       },
       "descriptions": {
-        "fr": "Le ministre-président Dilliès convoque le Conseil régional de sécurité (CORES) pour évaluer les conséquences des événements en Iran sur Bruxelles. CORES réunit les 19 bourgmestres, 6 chefs de zone police, le procureur. Convocation préventive, pas de menace concrète. Le renforcement du CORES est inscrit dans l'accord de gouvernement.",
-        "nl": "Minister-president Dilliès roept de Gewestelijke Veiligheidsraad (CORES) bijeen om de gevolgen van de gebeurtenissen in Iran voor Brussel te evalueren. CORES verenigt de 19 burgemeesters, 6 politiezonechefs, de procureur. Preventieve bijeenroeping, geen concrete dreiging. De versterking van CORES staat in het regeerakkoord.",
-        "en": "Minister-President Dilliès convenes the Regional Security Council (CORES) to assess the consequences of events in Iran for Brussels. CORES brings together the 19 mayors, 6 police zone chiefs, the prosecutor. Preventive convening, no concrete threat. Strengthening CORES is part of the government accord.",
-        "de": "Ministerpräsident Dilliès beruft den Regionalen Sicherheitsrat (CORES) ein, um die Folgen der Ereignisse im Iran für Brüssel zu bewerten. CORES vereint die 19 Bürgermeister, 6 Polizeizonenchefs, den Staatsanwalt. Präventive Einberufung, keine konkrete Bedrohung. Die Stärkung des CORES ist im Regierungsabkommen verankert."
+        "fr": "Le 4 mars 2026, le ministre-président Dilliès convoque le Conseil régional de sécurité (CORES) suite aux frappes américano-israéliennes en Iran. Réunion avec les 19 bourgmestres, 6 corpschefs de police, le procureur du Roi et l'OCAM. Menace au niveau 3/4 (grave), inchangée depuis octobre 2023. Renforts policiers déployés dès le week-end. Première activation du CORES sous le gouvernement Dilliès.",
+        "nl": "Op 4 maart 2026 roept minister-president Dilliès de Gewestelijke Veiligheidsraad (CORES) bijeen na de Amerikaans-Israëlische luchtaanvallen op Iran. Vergadering met de 19 burgemeesters, 6 politiezonechefs, de procureur des Konings en het OCAD. Dreigingsniveau 3/4 (ernstig), ongewijzigd sinds oktober 2023. Politieversterkingen ingezet vanaf het weekend. Eerste activering van CORES onder de regering-Dilliès.",
+        "en": "On 4 March 2026, Minister-President Dilliès convenes the Regional Security Council (CORES) following US-Israeli strikes on Iran. Meeting with 19 mayors, 6 police zone chiefs, King's Prosecutor and OCAM. Threat level at 3/4 (serious), unchanged since October 2023. Police reinforcements deployed from the weekend. First activation of CORES under the Dilliès government.",
+        "de": "Am 4. März 2026 beruft Ministerpräsident Dilliès den Regionalen Sicherheitsrat (CORES) nach den amerikanisch-israelischen Angriffen auf den Iran ein. Sitzung mit 19 Bürgermeistern, 6 Polizeizonenchefs, dem Staatsanwalt des Königs und OKAM. Bedrohungsniveau 3/4 (schwerwiegend), seit Oktober 2023 unverändert. Polizeiverstärkungen ab dem Wochenende eingesetzt. Erste Aktivierung des CORES unter der Regierung Dilliès."
       },
       "promotedTo": "security",
       "promotedSection": "domains",

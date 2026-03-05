@@ -2,6 +2,24 @@
   {
     "date": "2026-03-05",
     "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "acs",
+    "descriptions": {
+      "fr": "Dossier ACS enrichi : 6 nouvelles sources (BX1, RTBF, FGTB, CSC, arrêté RBC). Suppression ACS insertion (550 postes, déc. 2023). Subvention compensatoire communes (43,8 M€, 2024). Manifestation nationale 12 mars 2026 (front commun syndical, préavis SNCB/STIB).",
+      "nl": "Dossier GESCO verrijkt: 6 nieuwe bronnen (BX1, RTBF, ABVV, ACV, besluit BHG). Schrapping GESCO-inschakelingsposten (550, dec. 2023). Compensatiesubsidie gemeenten (43,8 M€, 2024). Nationale betoging 12 maart 2026 (gemeenschappelijk vakbondsfront, stakingsaanzegging NMBS/MIVB).",
+      "en": "ACS dossier enriched: 6 new sources (BX1, RTBF, FGTB, CSC, BCR decree). ACS insertion elimination (550 positions, Dec. 2023). Compensation subsidy for communes (EUR 43.8M, 2024). National demonstration 12 March 2026 (joint union front, SNCB/STIB strike notice).",
+      "de": "ACS-Dossier ergänzt: 6 neue Quellen (BX1, RTBF, FGTB, CSC, Erlass RHB). Streichung ACS-Eingliederungsstellen (550, Dez. 2023). Kompensationssubvention Gemeinden (43,8 Mio. €, 2024). Nationale Demonstration 12. März 2026 (gemeinsame Gewerkschaftsfront, Streikankündigung SNCB/STIB)."
+    },
+    "summaries": {
+      "fr": "ACS — sources enrichies, suppression insertion, subvention communes, manif 12 mars",
+      "nl": "GESCO — bronnen verrijkt, schrapping inschakeling, subsidie gemeenten, betoging 12 maart",
+      "en": "ACS — sources enriched, insertion elimination, commune subsidy, 12 March demonstration",
+      "de": "ACS — Quellen ergänzt, Eingliederungsstreichung, Gemeindesubvention, Demo 12. März"
+    }
+  },
+  {
+    "date": "2026-03-05",
+    "type": "updated",
     "section": "domains",
     "targetSlug": "security",
     "descriptions": {

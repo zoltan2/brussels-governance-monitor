@@ -5,15 +5,6 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ['@appsignal/nodejs'],
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/fr',
-        permanent: true, // 308 — consolidates SEO link equity to /fr
-      },
-    ];
-  },
   async headers() {
     return [
       {

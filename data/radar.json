@@ -1,6 +1,90 @@
 {
-  "lastVeille": "2026-03-05",
+  "lastVeille": "2026-03-06",
   "entries": [
+    {
+      "id": "2026-03-05-budget-2026-approuve",
+      "date": "2026-03-05",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["budget", "institutional"],
+      "source": {
+        "label": "BX1 — Le gouvernement bruxellois valide le budget pour 2026 (5 mars 2026)",
+        "url": "https://bx1.be/categories/politique/le-gouvernement-bruxellois-valide-le-budget-pour-2026/",
+        "accessedAt": "2026-03-06"
+      },
+      "nextStep": {
+        "fr": "Suivre l'examen en commission Finances (16 mars) et le vote en plénière (26-27 mars). Analyser les détails du budget dès publication.",
+        "nl": "Bespreking in commissie Financiën (16 maart) en stemming in plenaire (26-27 maart) opvolgen. Begrotingsdetails analyseren na publicatie.",
+        "en": "Follow Finance committee review (16 March) and plenary vote (26-27 March). Analyse budget details once published.",
+        "de": "Prüfung in Finanzkommission (16. März) und Plenarwahl (26.-27. März) verfolgen. Haushaltsdetails nach Veröffentlichung analysieren."
+      },
+      "descriptions": {
+        "fr": "Le gouvernement Dilliès a approuvé le budget 2026 en conseil des ministres le 5 mars 2026, mettant fin au régime de douzièmes provisoires. Déficit ramené à 957 millions EUR (contre ~1,2 milliard en 2025). Trajectoire d'équilibre en 2029. Dépôt au Parlement le 6 mars, vote prévu 26-27 mars.",
+        "nl": "De regering-Dilliès keurde de begroting 2026 goed in de ministerraad van 5 maart 2026, waarmee het regime van voorlopige twaalfden eindigt. Tekort teruggebracht tot 957 miljoen EUR (tegen ~1,2 miljard in 2025). Traject naar evenwicht in 2029. Indiening bij Parlement 6 maart, stemming voorzien 26-27 maart.",
+        "en": "The Dilliès government approved the 2026 budget in the council of ministers on 5 March 2026, ending the provisional twelfths regime. Deficit reduced to EUR 957 million (down from ~1.2 billion in 2025). Balance trajectory by 2029. Filed to Parliament 6 March, vote scheduled 26-27 March.",
+        "de": "Die Regierung Dilliès genehmigte den Haushalt 2026 im Ministerrat am 5. März 2026 und beendete damit das Regime der vorläufigen Zwölftel. Defizit auf 957 Millionen EUR gesenkt (von ~1,2 Milliarden in 2025). Gleichgewichtspfad bis 2029. Beim Parlament eingereicht am 6. März, Abstimmung vorgesehen 26.-27. März."
+      },
+      "promotedTo": "budget",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-08-auderghem-safe-places",
+      "date": "2026-03-08",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["auderghem"],
+      "source": {
+        "label": "L'Avenir — Auderghem, première commune bruxelloise à lancer les « safe places » (5 mars 2026)",
+        "url": "https://www.lavenir.net/regions/bruxelles/2026/03/05/harcelement-de-rue-auderghem-premiere-commune-bruxelloise-a-lancer-le-projet-safe-places-des-lieux-surs-LXSBAPFKFBE5VB6EVCVXLRQMEI/",
+        "accessedAt": "2026-03-06"
+      },
+      "nextStep": {
+        "fr": "Suivre le lancement effectif le 8 mars. Vérifier si d'autres communes bruxelloises adoptent le dispositif.",
+        "nl": "Effectieve lancering 8 maart opvolgen. Controleren of andere Brusselse gemeenten het initiatief overnemen.",
+        "en": "Follow the actual launch on 8 March. Check if other Brussels communes adopt the scheme.",
+        "de": "Tatsächlichen Start am 8. März verfolgen. Prüfen, ob andere Brüsseler Gemeinden das Konzept übernehmen."
+      },
+      "descriptions": {
+        "fr": "Auderghem, première commune bruxelloise à lancer le projet « Safe Places » : 10 commerces, 3 institutions et la station STIB Hankar identifiés comme refuges contre le harcèlement de rue. Personnel formé par PsyBru. Lancement prévu le 8 mars 2026.",
+        "nl": "Oudergem, eerste Brusselse gemeente die 'Safe Places' lanceert: 10 winkels, 3 instellingen en MIVB-station Hankar als toevluchtsoorden tegen straatintimidatie. Personeel opgeleid door PsyBru. Lancering voorzien 8 maart 2026.",
+        "en": "Auderghem, first Brussels commune to launch 'Safe Places': 10 shops, 3 institutions and STIB Hankar station as refuges against street harassment. Staff trained by PsyBru. Launch planned 8 March 2026.",
+        "de": "Auderghem, erste Brüsseler Gemeinde mit 'Safe Places': 10 Geschäfte, 3 Institutionen und STIB-Station Hankar als Zufluchtsorte gegen Straßenbelästigung. Personal durch PsyBru geschult. Start geplant 8. März 2026."
+      },
+      "promotedTo": "auderghem",
+      "promotedSection": "communes",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-05-siamu-dotation-triplee",
+      "date": "2026-03-05",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["security", "institutional"],
+      "source": {
+        "label": "BRUZZ — Federale overheid verdriedubbelt dotatie voor Brusselse brandweer (5 mars 2026)",
+        "url": "https://www.bruzz.be/actua/veiligheid/federale-overheid-verdriedubbelt-dotaties-voor-brusselse-brandweer-2026-03-05",
+        "accessedAt": "2026-03-06"
+      },
+      "nextStep": {
+        "fr": "Suivre l'utilisation des moyens supplémentaires par le SIAMU. Surveiller les phases de renforcement des effectifs prévues par la DPR.",
+        "nl": "Gebruik van extra middelen door de Brandweer opvolgen. Geplande personeelsversterkingsfasen uit de GBV monitoren.",
+        "en": "Follow the use of additional resources by SIAMU. Monitor staff reinforcement phases planned in the RPD.",
+        "de": "Nutzung der zusätzlichen Mittel durch SIAMU verfolgen. Geplante Personalverstärkungsphasen aus der RPE beobachten."
+      },
+      "descriptions": {
+        "fr": "La Chambre a voté le 5 mars 2026 le quasi-triplement de la dotation fédérale pour le SIAMU : de 5,7 à 15,4 millions EUR/an. Correction d'une discrimination (arrêt Cour constitutionnelle 2022) depuis la réforme des zones de secours de 2015. Indexation annuelle à partir de 2027.",
+        "nl": "De Kamer stemde op 5 maart 2026 de quasi-verdrievoudiging van de federale dotatie voor de Brandweer: van 5,7 naar 15,4 miljoen EUR/jaar. Correctie van een discriminatie (arrest Grondwettelijk Hof 2022) sinds de hervorming van de hulpverleningszones van 2015. Jaarlijkse indexering vanaf 2027.",
+        "en": "The Chamber voted on 5 March 2026 to nearly triple the federal dotation for SIAMU: from EUR 5.7 to 15.4 million/year. Correction of discrimination (Constitutional Court ruling 2022) since the 2015 emergency zones reform. Annual indexation from 2027.",
+        "de": "Die Kammer stimmte am 5. März 2026 für die nahezu Verdreifachung der Bundesdotation für SIAMU: von 5,7 auf 15,4 Millionen EUR/Jahr. Korrektur einer Diskriminierung (Urteil Verfassungsgericht 2022) seit der Reform der Hilfeleistungszonen 2015. Jährliche Indexierung ab 2027."
+      },
+      "promotedTo": "security",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-12-manifestation-nationale",
       "date": "2026-03-12",

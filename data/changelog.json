@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-03-06",
+    "type": "new",
+    "section": "dossiers",
+    "targetSlug": "bien-etre",
+    "descriptions": {
+      "fr": "Nouveau dossier : Bien-être et qualité de vie à Bruxelles. Satisfaction de vie 7,5/10 (IBSA), pauvreté 25-33 % (EU-SILC), espérance de vie 82,15 ans, 25 m²/hab d'espaces verts, 40e mondial Mercer.",
+      "nl": "Nieuw dossier: Welzijn en levenskwaliteit in Brussel. Levenstevredenheid 7,5/10 (IBSA), armoede 25-33 % (EU-SILC), levensverwachting 82,15 jaar, 25 m²/inw. groene ruimten, 40e wereldwijd Mercer.",
+      "en": "New dossier: Well-being and quality of life in Brussels. Life satisfaction 7.5/10 (IBSA), poverty 25-33% (EU-SILC), life expectancy 82.15 years, 25 m²/inh. green space, Mercer 40th globally.",
+      "de": "Neues Dossier: Wohlbefinden und Lebensqualität in Brüssel. Lebenszufriedenheit 7,5/10 (IBSA), Armut 25-33 % (EU-SILC), Lebenserwartung 82,15 Jahre, 25 m²/Einw. Grünflächen, 40. weltweit Mercer."
+    },
+    "summaries": {
+      "fr": "Dossier Bien-être : 13 sources P0, 10 dimensions sourcées",
+      "nl": "Dossier Welzijn: 13 P0-bronnen, 10 gedimensioneerd",
+      "en": "Well-being dossier: 13 P0 sources, 10 sourced dimensions",
+      "de": "Dossier Wohlbefinden: 13 P0-Quellen, 10 dimensioniert"
+    }
+  },
+  {
+    "date": "2026-03-06",
     "type": "updated",
     "section": "domains",
     "targetSlug": "employment",

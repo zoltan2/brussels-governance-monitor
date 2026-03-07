@@ -2,6 +2,24 @@
   {
     "date": "2026-03-07",
     "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "bien-etre",
+    "descriptions": {
+      "fr": "Dossier bien-être enrichi : santé mentale (Sciensano HIS 2023-2024, 58 % de bien-être psychique à Bruxelles vs 64,9 % en Flandre, 23,9 % en détresse sévère) et fracture numérique (40 % de vulnérabilité, arrêt Cour constitutionnelle sept. 2025).",
+      "nl": "Dossier welzijn verrijkt: geestelijke gezondheid (Sciensano GE 2023-2024, 58 % psychisch welzijn in Brussel vs 64,9 % in Vlaanderen, 23,9 % in ernstige nood) en digitale kloof (40 % kwetsbaar, arrest Grondwettelijk Hof sept. 2025).",
+      "en": "Well-being dossier enriched: mental health (Sciensano HIS 2023-2024, 58% psychological well-being in Brussels vs 64.9% in Flanders, 23.9% severe distress) and digital divide (40% vulnerable, Constitutional Court ruling Sept. 2025).",
+      "de": "Dossier Wohlbefinden bereichert: psychische Gesundheit (Sciensano GBE 2023-2024, 58 % psychisches Wohlbefinden in Brüssel vs 64,9 % in Flandern, 23,9 % schwere Belastung) und digitale Kluft (40 % verwundbar, Urteil Verfassungsgerichtshof Sept. 2025)."
+    },
+    "summaries": {
+      "fr": "Dossier bien-être : santé mentale + fracture numérique",
+      "nl": "Dossier welzijn: geestelijke gezondheid + digitale kloof",
+      "en": "Well-being dossier: mental health + digital divide",
+      "de": "Dossier Wohlbefinden: psychische Gesundheit + digitale Kluft"
+    }
+  },
+  {
+    "date": "2026-03-07",
+    "type": "updated",
     "section": "domains",
     "targetSlug": "institutional",
     "descriptions": {

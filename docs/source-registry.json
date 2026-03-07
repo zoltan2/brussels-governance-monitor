@@ -1,8 +1,8 @@
 {
   "description": "Registre des sources surveillées par BGM. 270 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
-  "lastUpdated": "2026-02-22",
+  "lastUpdated": "2026-03-07",
   "stats": {
-    "total": 270,
+    "total": 285,
     "rss": 32,
     "byTier": {
       "editorial": 196,
@@ -29,7 +29,7 @@
       "agency": 4,
       "research": 42,
       "think-tank": 21,
-      "ngo": 3
+      "ngo": 4
     }
   },
   "sources": [
@@ -916,24 +916,26 @@
       "name": "IEB — Inter-Environnement Bruxelles",
       "url": "https://www.ieb.be/",
       "fetchMode": "rss",
-      "rssUrl": "https://ieb.be/spip.php?page=rss",
+      "rssUrl": "https://www.ieb.be/spip.php?page=backend",
       "type": "press",
       "lang": "fr",
       "priority": "P1",
       "category": "urban",
       "cardsAffected": [
+        "climate",
         "housing",
-        "mobility",
-        "construction"
+        "urban-planning",
+        "mobility"
       ],
       "frequency": "weekly",
       "enabled": true,
       "notes": "Bruxelles en mouvements. Urbanisme, logement, ~80 comités de quartier.",
       "tier": "editorial",
       "domaines": [
+        "climate",
         "housing",
-        "mobility",
-        "urban-planning"
+        "urban-planning",
+        "mobility"
       ]
     },
     {
@@ -4787,7 +4789,7 @@
       "frequency": "weekly",
       "enabled": true,
       "fetchMode": "rss",
-      "rssUrl": "https://www.ieb.be/spip.php?page=rss",
+      "rssUrl": "https://www.ieb.be/spip.php?page=backend",
       "notes": "Association bruxelloise — urbanisme, environnement, participation citoyenne. RSS SPIP.",
       "tier": "editorial",
       "domaines": [
@@ -5185,6 +5187,32 @@
       "domaines": [
         "budget",
         "employment",
+        "institutional"
+      ]
+    },
+    {
+      "id": "watch-285",
+      "name": "BRAL — Brusselse Raad voor het Leefmilieu",
+      "url": "https://bral.brussels/nl",
+      "type": "ngo",
+      "lang": "nl",
+      "priority": "P1",
+      "category": "climate",
+      "cardsAffected": [
+        "climate",
+        "mobility",
+        "urban-planning",
+        "institutional"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Fédération NL des comités de quartier à Bruxelles. Thèmes : qualité de l'air, mobilité, urbanisme, gouvernance. Pas de RSS — scraping HTML.",
+      "tier": "editorial",
+      "domaines": [
+        "climate",
+        "mobility",
+        "urban-planning",
         "institutional"
       ]
     }

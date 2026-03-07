@@ -2,34 +2,16 @@
   "description": "Registre des sources surveillées par BGM. 270 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
   "lastUpdated": "2026-03-07",
   "stats": {
-    "total": 285,
-    "rss": 32,
-    "byTier": {
-      "editorial": 196,
-      "radar": 74
-    },
-    "byPriority": {
-      "P0": 30,
-      "P1": 52,
-      "P2": 70,
-      "P3": 56,
-      "P4": 62
-    },
-    "byLang": {
-      "fr": 71,
-      "multi": 65,
-      "nl": 48,
-      "en": 82,
-      "de": 4
-    },
+    "total": 303,
     "byType": {
       "institutional": 87,
       "press": 106,
+      "unknown": 14,
       "legal": 7,
       "agency": 4,
       "research": 42,
       "think-tank": 21,
-      "ngo": 4
+      "ngo": 22
     }
   },
   "sources": [
@@ -5214,6 +5196,368 @@
         "mobility",
         "urban-planning",
         "institutional"
+      ]
+    },
+    {
+      "id": "watch-286",
+      "name": "Canopea (ex-IEW)",
+      "url": "https://www.canopea.be/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "climate",
+      "cardsAffected": [
+        "climate"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Fédération des associations environnementales francophones. Climat, énergie, mobilité, biodiversité. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "climate"
+      ]
+    },
+    {
+      "id": "watch-287",
+      "name": "Avello (ex-GRACQ)",
+      "url": "https://avello.org/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "mobility",
+      "cardsAffected": [
+        "mobility"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Association francophone des cyclistes quotidiens (rebrandé GRACQ → Avello 2025). Mobilité active, infrastructure vélo. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "mobility"
+      ]
+    },
+    {
+      "id": "watch-288",
+      "name": "Fietsersbond Brussel",
+      "url": "https://www.fietsersbond.be/",
+      "type": "ngo",
+      "lang": "nl",
+      "priority": "P3",
+      "category": "mobility",
+      "cardsAffected": [
+        "mobility"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Pendant NL d'Avello. Mobilité vélo, infrastructure cyclable. Pas de RSS — scraping HTML.",
+      "tier": "editorial",
+      "domaines": [
+        "mobility"
+      ]
+    },
+    {
+      "id": "watch-289",
+      "name": "Pro Velo",
+      "url": "https://www.provelo.org/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P3",
+      "category": "mobility",
+      "cardsAffected": [
+        "mobility"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "ASBL vélo à Bruxelles : Villo!, formations, cyclo-tourisme. Moins watchdog, plus opérationnel. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "mobility"
+      ]
+    },
+    {
+      "id": "watch-290",
+      "name": "RBDH/BBRoW — Rassemblement Bruxellois pour le Droit à l'Habitat",
+      "url": "https://rbdh-bbrow.be/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P1",
+      "category": "housing",
+      "cardsAffected": [
+        "housing"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Coupole bilingue droit au logement Bruxelles. Politique logement, loyers, social. TLS instable — scraping HTML, surveiller cert.",
+      "tier": "editorial",
+      "domaines": [
+        "housing"
+      ]
+    },
+    {
+      "id": "watch-291",
+      "name": "FéBUL — Fédération Bruxelloise Unie pour le Logement",
+      "url": "https://www.febul.be/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "housing",
+      "cardsAffected": [
+        "housing"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Fédération FR associations logement Bruxelles. Formation, accompagnement locataires, innovation sociale. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "housing"
+      ]
+    },
+    {
+      "id": "watch-292",
+      "name": "ARAU — Atelier de Recherche et d'Action Urbaines",
+      "url": "https://www.arau.org/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "urban-planning",
+      "cardsAffected": [
+        "urban-planning",
+        "housing"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Urbanisme, patrimoine, aménagement du territoire à Bruxelles depuis 1969. Avis publics, enquêtes. Pas de RSS — scraping HTML.",
+      "tier": "editorial",
+      "domaines": [
+        "urban-planning",
+        "housing"
+      ]
+    },
+    {
+      "id": "watch-293",
+      "name": "Brussels Platform Armoede",
+      "url": "https://www.brusselsplatformarmoede.be/",
+      "type": "ngo",
+      "lang": "nl",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": [
+        "social"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Plateforme NL pauvreté Bruxelles. Coordonne organisations terrain, publie rapports. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "social"
+      ]
+    },
+    {
+      "id": "watch-294",
+      "name": "FDSS — Fédération des Services Sociaux",
+      "url": "https://www.fdss.be/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": [
+        "social"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Fédération FR services sociaux. Précarité, aide sociale, CPAS. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "social"
+      ]
+    },
+    {
+      "id": "watch-295",
+      "name": "AMA — Fédération des services d'aide aux sans-abri",
+      "url": "https://www.ama.be/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": [
+        "social"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Fédération FR aide sans-abri Bruxelles/Wallonie. Hébergement, accompagnement. Pas de RSS — newsletter uniquement.",
+      "tier": "editorial",
+      "domaines": [
+        "social"
+      ]
+    },
+    {
+      "id": "watch-296",
+      "name": "FeBISP — Fédération Bruxelloise de l'Insertion Socio-Professionnelle",
+      "url": "https://www.febisp.be/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "employment",
+      "cardsAffected": [
+        "employment"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Fédération FR insertion socio-professionnelle Bruxelles. Formation, emploi, CISP/OISP. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "employment"
+      ]
+    },
+    {
+      "id": "watch-297",
+      "name": "Ligue des Droits Humains",
+      "url": "https://www.liguedh.be/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "security",
+      "cardsAffected": [
+        "security"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "ASBL droits humains FR Belgique. Police, justice, libertés fondamentales. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "security"
+      ]
+    },
+    {
+      "id": "watch-298",
+      "name": "Liga voor Mensenrechten",
+      "url": "https://mensenrechten.be/",
+      "type": "ngo",
+      "lang": "nl",
+      "priority": "P2",
+      "category": "security",
+      "cardsAffected": [
+        "security"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Pendant NL de la Ligue des Droits Humains. Droits fondamentaux, police, justice. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "security"
+      ]
+    },
+    {
+      "id": "watch-299",
+      "name": "Police Watch",
+      "url": "https://www.policewatch.be/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "security",
+      "cardsAffected": [
+        "security"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Projet LDH + Liga. Observatoire violences policières Belgique. Bilingue FR/NL. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "security"
+      ]
+    },
+    {
+      "id": "watch-300",
+      "name": "EDRi — European Digital Rights",
+      "url": "https://edri.org/feed/",
+      "type": "ngo",
+      "lang": "en",
+      "priority": "P3",
+      "category": "digital",
+      "cardsAffected": [
+        "digital"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Réseau européen droits numériques (siège Bruxelles). Vie privée, surveillance, IA. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "digital"
+      ]
+    },
+    {
+      "id": "watch-301",
+      "name": "Brussels Privacy Hub (VUB)",
+      "url": "https://www.brusselsprivacyhub.com/",
+      "type": "ngo",
+      "lang": "en",
+      "priority": "P3",
+      "category": "digital",
+      "cardsAffected": [
+        "digital"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Centre de recherche vie privée VUB. Publications, événements. Ancien site .eu archivé, nouveau sur .com. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "digital"
+      ]
+    },
+    {
+      "id": "watch-302",
+      "name": "Access Now",
+      "url": "https://www.accessnow.org/feed/",
+      "type": "ngo",
+      "lang": "en",
+      "priority": "P3",
+      "category": "digital",
+      "cardsAffected": [
+        "digital"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "ONG internationale droits numériques (bureau Bruxelles). Politique UE, vie privée, IA. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "digital"
+      ]
+    },
+    {
+      "id": "watch-303",
+      "name": "SAW-B — Fédération d'économie sociale",
+      "url": "https://saw-b.be/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "economy",
+      "cardsAffected": [
+        "economy"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Fédération FR économie sociale. RSE, coopératives, entreprises sociales. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "economy"
       ]
     }
   ]

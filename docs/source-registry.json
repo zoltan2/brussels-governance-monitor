@@ -2,16 +2,16 @@
   "description": "Registre des sources surveillées par BGM. 270 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
   "lastUpdated": "2026-03-07",
   "stats": {
-    "total": 303,
+    "total": 323,
     "byType": {
       "institutional": 87,
       "press": 106,
       "unknown": 14,
       "legal": 7,
       "agency": 4,
-      "research": 42,
+      "research": 43,
       "think-tank": 21,
-      "ngo": 22
+      "ngo": 41
     }
   },
   "sources": [
@@ -5321,7 +5321,7 @@
     {
       "id": "watch-292",
       "name": "ARAU — Atelier de Recherche et d'Action Urbaines",
-      "url": "https://www.arau.org/",
+      "url": "https://www.arau.org/fr/feed",
       "type": "ngo",
       "lang": "fr",
       "priority": "P1",
@@ -5332,8 +5332,8 @@
       ],
       "frequency": "weekly",
       "enabled": true,
-      "fetchMode": "html",
-      "notes": "Urbanisme, patrimoine, aménagement du territoire à Bruxelles depuis 1969. Avis publics, enquêtes. Pas de RSS — scraping HTML.",
+      "fetchMode": "rss",
+      "notes": "Urbanisme, patrimoine, aménagement du territoire à Bruxelles depuis 1969. Avis publics, enquêtes. RSS WordPress (découvert actif mars 2026).",
       "tier": "editorial",
       "domaines": [
         "urban-planning",
@@ -5558,6 +5558,411 @@
       "tier": "editorial",
       "domaines": [
         "economy"
+      ]
+    },
+    {
+      "id": "watch-304",
+      "name": "Horeca Brussels (Fed. Horeca Bruxelles)",
+      "url": "https://www.horecabrussels.be/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P1",
+      "category": "horeca",
+      "cardsAffected": [
+        "horeca"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Fédération des indépendants cafés, restaurants, hôtels à Bruxelles. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "economy"
+      ]
+    },
+    {
+      "id": "watch-305",
+      "name": "RAB/BKO — Réseau des Arts à Bruxelles",
+      "url": "http://rabbko.be/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P1",
+      "category": "culture",
+      "cardsAffected": [
+        "culture"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Réseau bilingue 170+ organisations artistiques bruxelloises. Interlocuteur politique culture BXL. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "education"
+      ]
+    },
+    {
+      "id": "watch-306",
+      "name": "UCM — Union des Classes Moyennes",
+      "url": "https://www.ucm.be/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "commerce",
+      "cardsAffected": [
+        "commerce"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Organisation FR indépendants et PME. Pendant FR d'UNIZO. Baromètre PME, plaidoyer. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "economy"
+      ]
+    },
+    {
+      "id": "watch-307",
+      "name": "Syndicat des Locataires",
+      "url": "https://syndicatdeslocataires.wordpress.com/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "housing",
+      "cardsAffected": [
+        "housing-sector",
+        "housing"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Syndicat locataires Bruxelles. Droit au logement, expulsions, marché locatif. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "housing"
+      ]
+    },
+    {
+      "id": "watch-308",
+      "name": "FAPEO — Fédération des Associations de Parents",
+      "url": "https://www.fapeo.be/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "education",
+      "cardsAffected": [
+        "education"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Fédération parents enseignement officiel (FWB + Bruxelles). Analyses, plaidoyer éducation. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "education"
+      ]
+    },
+    {
+      "id": "watch-309",
+      "name": "Embuild.Brussels",
+      "url": "https://embuild.brussels/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "construction",
+      "cardsAffected": [
+        "construction"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Branche régionale Confédération Construction. 16 000 entreprises. Permis, réglementation, construction circulaire. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "economy",
+        "urban-planning"
+      ]
+    },
+    {
+      "id": "watch-310",
+      "name": "Lasso — Brussels cultuurparticipatie",
+      "url": "http://lasso.be/",
+      "type": "ngo",
+      "lang": "nl",
+      "priority": "P2",
+      "category": "culture",
+      "cardsAffected": [
+        "culture"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Plateforme NL participation culturelle Bruxelles. Inclusion, jeunesse, handicap. Financée VGC/Flandre. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "education"
+      ]
+    },
+    {
+      "id": "watch-311",
+      "name": "Comeos — Fédération du commerce",
+      "url": "https://www.comeos.be/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "commerce",
+      "cardsAffected": [
+        "commerce"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Fédération belge commerce et services. 11 % du PIB, 550 000 emplois. Analyses sectorielles. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "economy"
+      ]
+    },
+    {
+      "id": "watch-312",
+      "name": "CAWaB — Collectif Accessibilité Wallonie Bruxelles",
+      "url": "https://cawab.be/spip.php?page=backend",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "social",
+      "cardsAffected": [
+        "accessibilite-pmr",
+        "social"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Coalition 22 associations handicap. Référence accessibilité PMR Bruxelles/Wallonie. Certification Access-i. RSS SPIP.",
+      "tier": "editorial",
+      "domaines": [
+        "social"
+      ]
+    },
+    {
+      "id": "watch-313",
+      "name": "Eneo — mouvement social des aînés",
+      "url": "https://www.eneo.be/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": [
+        "seniors-a-bruxelles",
+        "social"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "Plus grand mouvement FR aînés (40 000 membres). Pensions, accessibilité numérique, transport, âgisme. RSS WordPress (peu de contenu).",
+      "tier": "editorial",
+      "domaines": [
+        "social"
+      ]
+    },
+    {
+      "id": "watch-314",
+      "name": "Liages (ex-Espace Seniors)",
+      "url": "https://www.liages.be/feed/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "social",
+      "cardsAffected": [
+        "seniors-a-bruxelles",
+        "social"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "ASBL bruxelloise depuis 1977. Lutte contre l'âgisme, inégalités sociales aînés. Coordonne FUFA. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "social"
+      ]
+    },
+    {
+      "id": "watch-315",
+      "name": "HEAL — Health and Environment Alliance",
+      "url": "https://www.env-health.org/feed/",
+      "type": "ngo",
+      "lang": "en",
+      "priority": "P2",
+      "category": "climate",
+      "cardsAffected": [
+        "climate"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "rss",
+      "notes": "ONG santé-environnement basée à Bruxelles (70+ membres). PFAS, pollution air, perturbateurs endocriniens. RSS WordPress.",
+      "tier": "editorial",
+      "domaines": [
+        "climate"
+      ]
+    },
+    {
+      "id": "watch-316",
+      "name": "G1000 — Platform for Democratic Innovation",
+      "url": "https://www.g1000.org/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "institutional",
+      "cardsAffected": [
+        "institutional"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Plateforme belge innovation démocratique. Assemblées citoyennes, panels délibératifs. Fondé 2011. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional"
+      ]
+    },
+    {
+      "id": "watch-317",
+      "name": "Agora.Brussels",
+      "url": "https://agora.brussels/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "institutional",
+      "cardsAffected": [
+        "institutional"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Mouvement citoyen démocratie par tirage au sort. Élu au Parlement bruxellois 2019. 4 assemblées citoyennes, 220+ propositions. Site Wix, pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional"
+      ]
+    },
+    {
+      "id": "watch-318",
+      "name": "Transparency International Belgium",
+      "url": "https://transparencybelgium.be/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "institutional",
+      "cardsAffected": [
+        "institutional"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Chapitre belge de TI. Intégrité secteur public, anti-corruption. Plan stratégique 2025-2029. Certificat SSL instable.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional"
+      ]
+    },
+    {
+      "id": "watch-319",
+      "name": "Cumuleo — Transparence des mandats",
+      "url": "https://www.cumuleo.be/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P0",
+      "category": "institutional",
+      "cardsAffected": [
+        "institutional"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Base de données 1,46M+ mandats, 37 400+ politiciens depuis 2004. Cumul des mandats, transparence. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional"
+      ]
+    },
+    {
+      "id": "watch-320",
+      "name": "Transparencia.be — Demandes d'accès à l'information",
+      "url": "https://transparencia.be/",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P0",
+      "category": "institutional",
+      "cardsAffected": [
+        "institutional"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Plateforme FOI (Alaveteli). 6 064 demandes, 1 810 autorités. Phase 1 = 19 communes bruxelloises. Pas de RSS.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional"
+      ]
+    },
+    {
+      "id": "watch-321",
+      "name": "Brulocalis — Association Ville et Communes RBC",
+      "url": "https://brulocalis.brussels/fr",
+      "type": "ngo",
+      "lang": "multi",
+      "priority": "P1",
+      "category": "institutional",
+      "cardsAffected": [
+        "institutional"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "ASBL au service des 19 communes + 19 CPAS. Magazine Trait d'Union, guides, analyses juridiques. Source institutionnelle riche.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional"
+      ]
+    },
+    {
+      "id": "watch-322",
+      "name": "CRISP — Centre de recherche socio-politique",
+      "url": "https://www.crisp.be/",
+      "type": "research",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "institutional",
+      "cardsAffected": [
+        "institutional"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Centre de recherche indépendant depuis 1958. Courrier hebdomadaire (2 250+ numéros), analyses élections communales, dynamiques politiques locales.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional"
+      ]
+    },
+    {
+      "id": "watch-323",
+      "name": "ACQU — Comités de Quartier Ucclois",
+      "url": "https://www.acqu.be/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "urban-planning",
+      "cardsAffected": [
+        "urban-planning"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Fédération 24+ comités de quartier à Uccle depuis 1973. Urbanisme, mobilité, environnement, patrimoine. Lettre aux habitants trimestrielle.",
+      "tier": "editorial",
+      "domaines": [
+        "urban-planning"
       ]
     }
   ]

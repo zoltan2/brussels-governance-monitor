@@ -72,6 +72,21 @@ sources:
   - label: "BRUZZ — Steeds meer kinderen slapen op straat in Brussel (19 fév. 2026)"
     url: "https://www.bruzz.be/actua/samenleving/steeds-meer-kinderen-slapen-op-straat-brussel-2026-02-19"
     accessedAt: "2026-02-20"
+  - label: "Vivalis — Impact fin de droit aux allocations de chômage en Région bruxelloise (mars 2025)"
+    url: "https://www.vivalis.brussels/fr/actualites/projet-de-limitation-de-la-duree-doctroi-des-allocations-de"
+    accessedAt: "2026-03-08"
+  - label: "Cour des comptes — Budget fédéral, compensation CPAS sous-estimée (fév. 2026)"
+    url: "https://www.lavenir.net/actu/belgique/2026/02/19/budget-federal-la-compensation-de-la-reforme-du-chomage-pour-les-cpas-sous-estimee-cest-lavis-de-la-cour-des-comptes-PY6AKWWOBJFR5CYNSTAGFMKR3E/"
+    accessedAt: "2026-03-08"
+  - label: "UVCW — Compensations octroyées aux CPAS (réforme chômage)"
+    url: "https://www.uvcw.be/insertion/actus/art-9826"
+    accessedAt: "2026-03-08"
+  - label: "IBSA — Statistiques CPAS Bruxelles (bénéficiaires RIS)"
+    url: "https://ibsa.brussels/themes/precarite-et-aide-sociale/centres-publics-d-action-sociale-cpas"
+    accessedAt: "2026-03-08"
+  - label: "RTBF — Affluence CPAS plus importante que prévu (mars 2026)"
+    url: "https://www.rtbf.be/article/reforme-du-chomage-les-cpas-evoquent-une-affluence-plus-importante-que-prevu-11670063"
+    accessedAt: "2026-03-08"
 confidenceLevel: estimated
 metrics:
   - label: "Financement COCOM"
@@ -135,6 +150,16 @@ metrics:
     unit: "milliard EUR (estimation cumulée)"
     source: "RTBF / Brulocalis"
     date: "2026-02-01"
+  - label: "Exclusions chômage à Bruxelles (réforme 2026)"
+    value: "~8 000"
+    unit: "personnes (2026-2027)"
+    source: "ONEM / RTBF"
+    date: "2026-03-01"
+  - label: "Exclus sans revenu identifiable (projection)"
+    value: "42"
+    unit: "% des exclus <55 ans (Bruxelles)"
+    source: "Vivalis (étude BCSS, mars 2025)"
+    date: "2025-03-01"
   - label: "Accord — Sécurité gares"
     value: "10"
     unit: "millions EUR (Midi + Nord)"
@@ -155,9 +180,9 @@ metrics:
     unit: "sans-abri, addictions, accompagnement"
     source: "RTBF / DH (fév. 2026)"
     date: "2026-02-12"
-lastModified: "2026-03-02"
+lastModified: "2026-03-08"
 changeType: updated
-changeSummary: "Métriques COCOM et sans-abri mises à jour post-formation du gouvernement"
+changeSummary: "Nouvelle section : réforme du chômage et impact sur les CPAS bruxellois (données croisées Vivalis, Cour des comptes, SPP IS, IBSA)"
 summaryFalc: "Le nouveau gouvernement investit dans la sécurité des gares et crée un commissaire aux drogues. Les services pour les sans-abri et les personnes en difficulté sont protégés."
 ---
 
@@ -193,6 +218,45 @@ La DPR prévoit des mesures complémentaires en matière de santé :
 - **Aide alimentaire** : structuration régionale de l'aide alimentaire, avec un cadre coordonné pour les initiatives locales et associatives
 
 Ces engagements sont inscrits dans la DPR mais n'ont pas encore fait l'objet de mesures d'exécution.
+
+## Réforme du chômage : impact sur les CPAS bruxellois
+
+### De quoi s'agit-il ?
+
+Depuis le 1er janvier 2026, les allocations de chômage sont limitées à deux ans maximum en Belgique. Les personnes qui dépassent ce seuil perdent leur droit aux allocations. La mesure s'applique en trois vagues :
+
+- **1er janvier 2026** : personnes avec plus de 20 ans d'inoccupation
+- **1er mars 2026** : personnes avec 8 à 20 ans d'inoccupation
+- **1er avril 2026** : personnes avec 2 à 8 ans d'inoccupation
+
+Au total, **185 700 personnes** perdront leurs allocations entre janvier 2026 et juillet 2027 en Belgique. À Bruxelles, environ **8 000 personnes** sont concernées.
+
+### Que deviennent les personnes exclues ?
+
+Le gouvernement fédéral a budgétisé la réforme sur l'hypothèse que, parmi les exclus, un tiers retrouverait un emploi, un tiers passerait au CPAS (revenu d'intégration sociale) et un tiers disposerait de ressources suffisantes (conjoint, épargne). Plusieurs sources contredisent cette projection :
+
+- **Banque nationale de Belgique** : le retour à l'emploi concernerait **10 à 20 %** des exclus, pas 33 %
+- **Vivalis** (étude basée sur les données BCSS, mars 2025) : parmi les 24 700 exclus de moins de 55 ans, **21 % retrouveraient un emploi**, **32 % passeraient au CPAS**, **42 % se retrouveraient sans revenu identifiable** et 5 % basculeraient vers l'assurance maladie-invalidité
+- **Cour des comptes** (février 2026) : l'hypothèse gouvernementale est qualifiée de « pas très réaliste » ; la part basculant vers le CPAS est « probablement sous-estimée »
+- **Précédent de 2015** (limitation des allocations d'insertion) : 72 % des exclus n'avaient pas retrouvé d'emploi à 6 mois
+
+### Bruxelles particulièrement exposée
+
+Bruxelles représente environ 10 % de la population belge, mais concentrerait un tiers des bénéficiaires du revenu d'intégration et un tiers des personnes sans revenu issus de la réforme (Vivalis). Le nombre de bénéficiaires du RIS à Bruxelles s'élevait déjà à **46 911** en moyenne annuelle en 2024 (IBSA), en hausse de 12 % depuis 2020. Les communes les plus touchées sont Saint-Josse-ten-Noode, Molenbeek-Saint-Jean, Saint-Gilles et Bruxelles-Ville, où près de 4 % de la population sont concernés.
+
+### Données divergentes : pourquoi les chiffres ne concordent pas
+
+Les premières données officielles du SPP Intégration sociale indiquent que 20 à 27,5 % des exclus de janvier se sont adressés aux CPAS. Cependant, les CPAS de terrain rapportent des taux de présentation au guichet de 40 à 50 %, voire davantage à Bruxelles. L'écart s'explique par la nature des données : les chiffres du SPP comptabilisent les dossiers administrativement encodés (données de paiement ou d'encodage), tandis que les CPAS comptent les personnes qui se présentent au guichet, y compris celles en cours d'instruction ou en attente. Le délai entre la demande et l'encodage est de plusieurs semaines.
+
+### Le point aveugle : le non-recours
+
+Sans croisement systématique des bases de données (ONEM, ONSS, mutualités, CPAS) via la Banque Carrefour de la Sécurité Sociale (BCSS), il est impossible de déterminer ce que deviennent les personnes qui ne se présentent pas au CPAS : emploi, travail non déclaré, dépendance financière d'un proche, départ du territoire ou non-recours aux droits. L'étude Vivalis est la seule à avoir croisé ces données pour Bruxelles ; elle projette que 42 % des exclus de moins de 55 ans se retrouveraient sans aucun revenu identifiable.
+
+### Impact budgétaire
+
+Le gouvernement fédéral a prévu 300 millions EUR de compensation pour les CPAS en 2026. Selon la Cour des comptes, cette enveloppe couvrirait les besoins pour 2026 mais s'avérerait insuffisante pour les années suivantes, avec des dépenses estimées à 709 millions EUR en 2029. Le coût cumulé pour l'ensemble des CPAS belges est estimé entre 631 millions et plus d'un milliard EUR sur la législature.
+
+Sources : ONEM ; SPP Intégration sociale ; Vivalis (mars 2025) ; Cour des comptes (fév. 2026) ; UVCW ; IBSA ; RTBF (mars 2026).
 
 ## Agents contractuels subventionnés (ACS)
 

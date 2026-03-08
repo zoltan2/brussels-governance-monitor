@@ -1,48 +1,83 @@
 {
-  "week": "2026-w09",
-  "created_at": "2026-03-01T20:00:40.393Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w10",
+  "weekStart": "2026-03-02",
+  "created_at": "2026-03-08T21:01:33.257Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "11 domaines mis à jour",
-    "nl": "11 domeinen bijgewerkt",
-    "en": "11 domains updated",
-    "de": "11 Bereiche aktualisiert"
+    "fr": "11 domaines, 9 dossiers, 11 secteurs, 17 communes mis à jour",
+    "nl": "11 domeinen, 9 dossiers, 11 sectoren, 17 gemeenten bijgewerkt",
+    "en": "11 domains, 9 dossiers, 11 sectors, 17 communes updated",
+    "de": "11 Bereiche, 9 Dossiers, 11 Sektoren, 17 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "75",
+    "value": "Budget 2026 approuvé",
     "label": {
-      "fr": "Bruxelles-Propreté a collecté 75 tonnes de bonbonnes de protoxyde d'azote en 2025, dont plus de 50 tonnes provenant de dépôts clandestins.",
-      "nl": "Net Brussel heeft in 2025 75 ton lachgasflessen ingezameld, waarvan meer dan 50 ton afkomstig van clandestiene stortingen. ",
-      "en": "Bruxelles-Propreté collected 75 tonnes of nitrous oxide cylinders in 2025, of which over 50 tonnes came from clandestine dumps. ",
-      "de": "Brüssel-Sauberkeit hat 2025 75 Tonnen Lachgasflaschen gesammelt, davon mehr als 50 Tonnen aus illegalen Ablagerungen. "
+      "fr": "Régime budgétaire",
+      "nl": "Régime budgétaire",
+      "en": "Régime budgétaire",
+      "de": "Régime budgétaire"
     },
     "source": {
-      "fr": "Bruxelles-Propreté (10 fév. 2026)",
-      "nl": "Net Brussel (10 feb. 2026)",
-      "en": "Bruxelles-Propreté (10 Feb. 2026)",
-      "de": "Brüssel-Sauberkeit (10. Feb. 2026)"
+      "fr": "Gouvernement bruxellois (conseil des ministres, 5 mars 2026)",
+      "nl": "Gouvernement bruxellois (conseil des ministres, 5 mars 2026)",
+      "en": "Gouvernement bruxellois (conseil des ministres, 5 mars 2026)",
+      "de": "Gouvernement bruxellois (conseil des ministres, 5 mars 2026)"
     }
   },
   "closingNote": {
-    "fr": "Ce digest s’arrête ici. Le monitoring, lui, continue.\nBonne semaine à tous.",
-    "nl": "Deze digest eindigt hier. De opvolging gaat verder.\nEen goede week gewenst.",
-    "en": "This digest ends here. The monitoring continues.\nWishing you all a good week.",
-    "de": "Dieser Digest endet hier. Das Monitoring geht weiter.\nAllen eine gute Woche."
+    "fr": "Bonne semaine à tous.",
+    "nl": "Een goede week gewenst.",
+    "en": "Wishing you all a good week.",
+    "de": "Allen eine gute Woche."
   },
   "commitmentCount": 16,
-  "updatedDomains": [
-    "cleanliness",
+  "updatedTopics": [
+    "budget",
     "climate",
     "digital",
-    "economy",
     "education",
     "employment",
     "housing",
     "institutional",
     "mobility",
     "security",
-    "urban-planning"
-  ],
-  "sent_at": "2026-03-01T23:59:39.906Z"
+    "social",
+    "urban-planning",
+    "dossier-acs",
+    "dossier-bien-etre",
+    "dossier-lez",
+    "dossier-pfas",
+    "dossier-plan-securite",
+    "dossier-rse",
+    "dossier-slrb",
+    "dossier-vivaqua",
+    "dossier-metro-3",
+    "commerce",
+    "construction",
+    "culture",
+    "environment",
+    "health-social",
+    "horeca",
+    "housing-sector",
+    "nonprofit",
+    "transport",
+    "commune-anderlecht",
+    "commune-auderghem",
+    "commune-berchem-sainte-agathe",
+    "commune-etterbeek",
+    "commune-evere",
+    "commune-forest",
+    "commune-ganshoren",
+    "commune-ixelles",
+    "commune-jette",
+    "commune-koekelberg",
+    "commune-molenbeek-saint-jean",
+    "commune-saint-gilles",
+    "commune-saint-josse-ten-noode",
+    "commune-schaerbeek",
+    "commune-uccle",
+    "commune-watermael-boitsfort",
+    "commune-woluwe-saint-lambert"
+  ]
 }

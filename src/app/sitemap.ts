@@ -13,6 +13,7 @@ import {
   getAllArchiveSlugs,
   getAllDigestWeeks,
   getAllDigestLangs,
+  getDigestEntry,
   getDomainCard,
   getSectorCard,
   getComparisonCard,
@@ -52,11 +53,19 @@ function buildAlternates(href: Href): Record<string, string> {
  * hreflang alternates pointing to all other language versions.
  */
 /**
+ * Site launch date — used as fallback for pages without a known
+ * lastModified. Avoids signalling "modified today" on every build,
+ * which wastes Google's crawl budget.
+ */
+const SITE_LAUNCH = new Date('2026-02-12');
+
+/**
  * Helper: get real lastModified date from a content card.
- * Falls back to current build time for static pages.
+ * Falls back to site launch date (not build time) to avoid
+ * polluting the sitemap lastmod signal.
  */
 function contentDate(dateStr?: string): Date {
-  return dateStr ? new Date(dateStr) : new Date();
+  return dateStr ? new Date(dateStr) : SITE_LAUNCH;
 }
 
 function addLocalizedEntries(
@@ -125,7 +134,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     addLocalizedEntries(entries, href, {
       changeFrequency: changeFrequency ?? 'weekly',
       priority: priority ?? 0.7,
-    });
+    }, SITE_LAUNCH);
   }
 
   // ── Domains ───────────────────────────────────────────────────
@@ -201,9 +210,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const week of digestWeeks) {
     const [year, w] = week.split('-');
     for (const lang of digestLangs) {
+      const result = getDigestEntry(week, lang);
+      const digestDate = result?.entry.generated_at
+        ? new Date(result.entry.generated_at)
+        : SITE_LAUNCH;
       entries.push({
         url: `${siteUrl}/digest/${lang}/${year}/${w}`,
-        lastModified: new Date(),
+        lastModified: digestDate,
         changeFrequency: 'weekly',
         priority: 0.5,
       });

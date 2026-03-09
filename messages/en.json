@@ -479,7 +479,7 @@
       "sources": "Mandatory sourcing: every claim is accompanied by its source (official document, press release, news article, statistical data).",
       "factOpinion": "Fact/interpretation distinction: analyses are clearly identified as such and separated from raw facts.",
       "transparency": "Funding transparency: the project is hosted by Advice That SRL. It is not funded by any political party or interest group.",
-      "noPartisan": "No partisan affiliation: no politician names appear in the cards. Content focuses on mechanisms, not individuals.",
+      "noPartisan": "No partisan affiliation: domain and sector cards do not mention politician names. Municipal cards include mayors and coalitions as public factual data. Content focuses on mechanisms, not individuals.",
       "rightOfReply": "Right of reply: any person or institution cited may request a correction or addition via the feedback form accessible on each card."
     },
     "verification": {
@@ -714,14 +714,24 @@
       "known": "and what public data actually allows us to measure."
     },
     "model": {
-      "title": "A simple model: Card / Event / Verification",
-      "cards": "Cards",
-      "cardsDesc": "Describe the state of a domain (budget, mobility, social affairs...) or a sector, based on public sources.",
+      "title": "A structured, multi-level model",
+      "cards": "Domain cards",
+      "cardsDesc": "13 thematic domains (budget, mobility, social affairs...) describe the state of regional governance based on public sources.",
+      "sectors": "Sector cards",
+      "sectorsDesc": "11 professional sectors (horeca, construction, health-social...) document the concrete impact of regional policies.",
+      "dossiers": "Dossiers",
+      "dossiersDesc": "18 cross-cutting dossiers (Good Move, LEZ, Metro 3, PFAS, ACS...) track major Brussels projects in depth.",
+      "communes": "Municipalities",
+      "communesDesc": "19 municipal cards document transparency, local governance and political developments in each Brussels municipality.",
       "events": "Events",
       "eventsDesc": "Document specific institutional facts (vote, decision, publication, missed deadline).",
+      "radar": "Radar signals",
+      "radarDesc": "Real-time monitoring signals: recent developments, court decisions, publications — classified by confidence and status.",
+      "dashboard": "DPR commitments",
+      "dashboardDesc": "16 quantified commitments from the Regional Policy Declaration, tracked by deadline and progress status.",
       "verifications": "Verifications",
       "verificationsDesc": "Documented editorial acts that confirm, refute, or suspend existing information at a given date.",
-      "conclusion": "This model makes institutional silence visible, without speculation."
+      "conclusion": "This model documents Brussels governance at every level, without speculation."
     },
     "statuses": {
       "title": "Statuses based on verifiable criteria",
@@ -769,7 +779,7 @@
       "noPrediction": "No political prediction",
       "noJudgment": "No value judgement",
       "noEmotional": "No emotional classification (\"serious\", \"catastrophic\")",
-      "noPersonalization": "No political personalisation (no names, no parties)",
+      "noPersonalization": "No political personalisation in domain and sector cards (municipal cards include mayors and coalitions as public factual data)",
       "noCausation": "No undemonstrated causation",
       "conclusion": "BGM documents processes, not intentions."
     },
@@ -782,12 +792,22 @@
       "askClarification": "request a methodological clarification.",
       "response": "Every admissible contestation receives a documented response."
     },
+    "veille": {
+      "title": "Automated daily monitoring",
+      "description": "Since February 2026, BGM monitors over 300 public sources daily via an automated system. This system detects content changes, analyses their relevance, and produces a monitoring report each morning. Significant changes are integrated into the cards after human verification.",
+      "process": "The process follows a strict pipeline: change detection through text comparison, relevance classification (V1 to V4), AI-assisted contextual analysis, then manual integration into the cards after editorial validation."
+    },
+    "translations": {
+      "title": "Translations and multilingualism",
+      "description": "French is the source language for all content. Dutch receives particular attention, given Brussels' bilingualism. English and German are produced with AI assistance (Claude, Anthropic) and then reviewed. Automated translations are systematically checked for Belgian institutional terminology.",
+      "digest": "The weekly digest is available in 11 languages, including the site's 4 languages and 7 languages of Brussels diaspora communities."
+    },
     "seeEditorial": "The editorial principles that govern this work are formalised in our Editorial Charter.",
     "selfLimitations": {
       "title": "Acknowledged limitations",
       "description": "BGM explicitly acknowledges:",
       "framing": "a focus on the implementation of the regional government's commitments,",
-      "coverage": "coverage limited to certain priority domains,",
+      "coverage": "coverage spanning 13 domains, 11 sectors, 18 dossiers and 19 municipalities — broad but not exhaustive,",
       "dataDependency": "a dependency on the availability of public data,",
       "team": "a deliberately small editorial team.",
       "conclusion": "These limitations are documented, not concealed."
@@ -834,8 +854,9 @@
       "checklist": "Mandatory checklist",
       "checklistItems": "Sources reconsulted • URLs accessible or archived • Date documented • Source type identified • Result explicit (V1-V4) • No political judgment • Scope clearly limited",
       "frequency": "Verification frequency",
-      "frequencyBudget": "High-inertia domains (Budget, Legal): monthly verification or triggered by major event",
-      "frequencyOperational": "Operational domains (Mobility, Social): quarterly verification or upon source publication",
+      "frequencyDaily": "Automated daily monitoring: a surveillance system analyses over 300 public sources every day and flags relevant changes.",
+      "frequencyBudget": "High-inertia domains (Budget, Legality): in-depth monthly verification or triggered by major event",
+      "frequencyOperational": "Operational domains (Mobility, Social): in-depth quarterly verification or upon source publication",
       "triggers": "Off-cycle triggers",
       "triggersDesc": "A verification may be triggered by: (a) an A or B source contradicting a metric, (b) a documented external report, (c) a major institutional event.",
       "nonEvents": "Non-events",
@@ -1740,7 +1761,7 @@
     "securityTitle": "Visitor protection",
     "securityIntro": "BGM does not collect any personal data during your visit. These are the concrete choices we have made to protect your security.",
     "securityNoTracker": "No advertising trackers, no third-party cookies, no data resale.",
-    "securityAnalytics": "Anonymous traffic analysis via Umami (hosted in Europe, GDPR-compliant) — no IP addresses, no fingerprinting.",
+    "securityAnalytics": "Anonymous traffic analysis via Umami (hosted in Europe, GDPR-compliant) + Vercel Analytics (Web Vitals, performance) — no IP addresses, no fingerprinting.",
     "securitySri": "Every external script is locked by cryptographic fingerprint: only code we have verified can run on your device.",
     "securityHttps": "Mandatory encrypted connection (HTTPS) with strict security headers.",
     "securityHosting": "European hosting (Paris), monitoring in the Netherlands — no data transfers outside the EU.",

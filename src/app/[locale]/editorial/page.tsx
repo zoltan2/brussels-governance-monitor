@@ -102,7 +102,7 @@ function EditorialView() {
           <p>{t('independence.description')}</p>
 
           <p className="mt-8 text-xs text-neutral-500">
-            {t('lastUpdated', { date: '2026-02-06' })}
+            {t('lastUpdated', { date: '2026-03-09' })}
           </p>
         </div>
       </div>

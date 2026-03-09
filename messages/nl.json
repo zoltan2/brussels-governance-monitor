@@ -479,7 +479,7 @@
       "sources": "Verplichte bronvermelding: elke bewering wordt vergezeld van haar bron (officieel document, persbericht, persartikel, statistiek).",
       "factOpinion": "Onderscheid feiten/interpretaties: analyses worden duidelijk als zodanig geïdentificeerd en gescheiden van ruwe feiten.",
       "transparency": "Transparantie over financiering: het project wordt gehost door Advice That SRL. Het wordt door geen enkele politieke partij of belangengroep gefinancierd.",
-      "noPartisan": "Geen partijdigheid: geen namen van politici verschijnen in de fiches. De inhoud richt zich op mechanismen, niet op personen.",
+      "noPartisan": "Geen partijdigheid: domein- en sectorkaarten vermelden geen namen van politici. Gemeentefiches bevatten namen van burgemeesters en coalities als openbare feitelijke gegevens. De inhoud richt zich op mechanismen, niet op personen.",
       "rightOfReply": "Recht van antwoord: elke persoon of instelling die wordt geciteerd, kan een correctie of aanvulling vragen via het feedbackformulier dat op elke fiche toegankelijk is."
     },
     "verification": {
@@ -714,14 +714,24 @@
       "known": "en wat de publieke gegevens daadwerkelijk toelaten te meten."
     },
     "model": {
-      "title": "Een eenvoudig model: Kaart / Gebeurtenis / Verificatie",
-      "cards": "Kaarten",
-      "cardsDesc": "Beschrijven de toestand van een domein (budget, mobiliteit, sociaal...) of een sector, op basis van publieke bronnen.",
+      "title": "Een gestructureerd model op meerdere niveaus",
+      "cards": "Domeinkaarten",
+      "cardsDesc": "13 thematische domeinen (budget, mobiliteit, sociaal…) beschrijven de stand van het regionale bestuur op basis van openbare bronnen.",
+      "sectors": "Sectorkaarten",
+      "sectorsDesc": "11 professionele sectoren (horeca, bouw, gezondheid-sociaal…) documenteren de concrete impact van het regionale beleid.",
+      "dossiers": "Dossiers",
+      "dossiersDesc": "18 transversale dossiers (Good Move, LEZ, Metro 3, PFAS, ACS…) volgen de grote Brusselse werven in de diepte.",
+      "communes": "Gemeenten",
+      "communesDesc": "19 gemeentefiches documenteren de transparantie, het lokale bestuur en de politieke feiten van elke Brusselse gemeente.",
       "events": "Gebeurtenissen",
-      "eventsDesc": "Documenteren precieze institutionele feiten (stemming, besluit, publicatie, gemiste deadline).",
+      "eventsDesc": "Documenteren specifieke institutionele feiten (stemming, beslissing, publicatie, gemiste deadline).",
+      "radar": "Radarsignalen",
+      "radarDesc": "Realtime monitoring: recente feiten, gerechtelijke beslissingen, publicaties — geclassificeerd op betrouwbaarheid en status.",
+      "dashboard": "DPR-engagementen",
+      "dashboardDesc": "16 gekwantificeerde engagementen uit de Gewestelijke Beleidsverklaring, gevolgd op deadline en voortgangsstatus.",
       "verifications": "Verificaties",
-      "verificationsDesc": "Gedocumenteerde redactionele handelingen die een bestaande informatie op een bepaalde datum bevestigen, weerleggen of opschorten.",
-      "conclusion": "Dit model maakt institutionele stilte zichtbaar, zonder speculatie."
+      "verificationsDesc": "Gedocumenteerde redactionele handelingen die bestaande informatie op een bepaalde datum bevestigen, weerleggen of opschorten.",
+      "conclusion": "Dit model maakt het mogelijk het Brusselse bestuur op alle niveaus te documenteren, zonder speculatie."
     },
     "statuses": {
       "title": "Statussen gebaseerd op verifieerbare criteria",
@@ -769,7 +779,7 @@
       "noPrediction": "Geen politieke voorspelling",
       "noJudgment": "Geen waardeoordeel",
       "noEmotional": "Geen emotionele classificatie (\"ernstig\", \"catastrofaal\")",
-      "noPersonalization": "Geen politieke personalisering (geen namen, geen partijen)",
+      "noPersonalization": "Geen politieke personalisatie in domein- en sectorkaarten (gemeentefiches vermelden burgemeesters en coalities als openbare feitelijke gegevens)",
       "noCausation": "Geen niet-aangetoonde causaliteit",
       "conclusion": "BGM documenteert processen, geen intenties."
     },
@@ -786,10 +796,20 @@
       "title": "Erkende beperkingen",
       "description": "BGM erkent expliciet:",
       "framing": "een kader gericht op de uitvoering van de engagementen van de gewestregering,",
-      "coverage": "een beperkte dekking tot bepaalde prioritaire domeinen,",
+      "coverage": "een dekking van 13 domeinen, 11 sectoren, 18 dossiers en 19 gemeenten — breed maar niet uitputtend,",
       "dataDependency": "een afhankelijkheid van de beschikbaarheid van publieke gegevens,",
       "team": "een bewust beperkt redactieteam.",
       "conclusion": "Deze beperkingen worden gedocumenteerd, niet verborgen."
+    },
+    "veille": {
+      "title": "Dagelijkse geautomatiseerde monitoring",
+      "description": "Sinds februari 2026 monitort BGM dagelijks meer dan 300 openbare bronnen via een geautomatiseerd systeem. Dit systeem detecteert inhoudswijzigingen, analyseert hun relevantie en produceert elke ochtend een monitoringrapport. Significante wijzigingen worden na menselijke verificatie in de kaarten geïntegreerd.",
+      "process": "Het proces volgt een strikt stappenplan: wijzigingsdetectie door tekstvergelijking, classificatie op relevantie (V1 tot V4), AI-ondersteunde contextuele analyse, gevolgd door handmatige integratie in de kaarten na redactionele validatie."
+    },
+    "translations": {
+      "title": "Vertalingen en meertaligheid",
+      "description": "Frans is de brontaal van alle inhoud. Nederlands krijgt bijzondere aandacht, gezien de tweetaligheid van Brussel. Engels en Duits worden geproduceerd met AI-ondersteuning (Claude, Anthropic) en vervolgens gereviseerd. Automatische vertalingen worden systematisch gecontroleerd op Belgische institutionele terminologie.",
+      "digest": "De wekelijkse digest is beschikbaar in 11 talen, waaronder de 4 talen van de site en 7 talen van Brusselse diasporagemeenschappen."
     },
     "seeEditorial": "De redactionele principes die dit werk omkaderen, zijn geformaliseerd in ons Redactioneel charter.",
     "tagline": "Brussels Governance Monitor zegt niet wat u moet denken. Het toont wat verifieerbaar is, wat niet, en waarom.",
@@ -834,8 +854,9 @@
       "checklist": "Verplichte checklist",
       "checklistItems": "Bronnen opnieuw geraadpleegd • URLs toegankelijk of gearchiveerd • Datum gedocumenteerd • Brontype geïdentificeerd • Resultaat expliciet (V1–V4) • Geen politiek oordeel • Scope duidelijk afgebakend",
       "frequency": "Frequentie van verificaties",
-      "frequencyBudget": "Domeinen met hoge traagheid (Budget, Juridisch): maandelijkse verificatie of bij belangrijke gebeurtenis",
-      "frequencyOperational": "Operationele domeinen (Mobiliteit, Sociaal): driemaandelijkse verificatie of bij publicatie van bron",
+      "frequencyDaily": "Dagelijkse geautomatiseerde monitoring: een bewakingssysteem analyseert dagelijks meer dan 300 openbare bronnen en signaleert relevante wijzigingen.",
+      "frequencyBudget": "Domeinen met hoge inertie (Budget, Legaliteit): grondige maandelijkse verificatie of bij grote gebeurtenis",
+      "frequencyOperational": "Operationele domeinen (Mobiliteit, Sociaal): grondige driemaandelijkse verificatie of bij bronpublicatie",
       "triggers": "Buitengewone triggers",
       "triggersDesc": "Een verificatie kan worden uitgelokt door: (a) een A- of B-bron die een indicator tegenspreekt, (b) een gedocumenteerde externe melding, (c) een belangrijke institutionele gebeurtenis.",
       "nonEvents": "Niet-gebeurtenissen",
@@ -1740,7 +1761,7 @@
     "securityTitle": "Bescherming van bezoekers",
     "securityIntro": "BGM verzamelt geen persoonlijke gegevens tijdens uw bezoek. Dit zijn de concrete keuzes die we hebben gemaakt om uw veiligheid te beschermen.",
     "securityNoTracker": "Geen advertentietrackers, geen cookies van derden, geen doorverkoop van gegevens.",
-    "securityAnalytics": "Anonieme bezoekersanalyse via Umami (gehost in Europa, AVG-conform) — geen IP-adres, geen fingerprinting.",
+    "securityAnalytics": "Anonieme bezoekersanalyse via Umami (gehost in Europa, AVG-conform) + Vercel Analytics (Web Vitals, prestaties) — geen IP-adres, geen fingerprinting.",
     "securitySri": "Elk extern script is vergrendeld met een cryptografische vingerafdruk: alleen door ons gecontroleerde code kan op uw apparaat worden uitgevoerd.",
     "securityHttps": "Verplichte versleutelde verbinding (HTTPS) met strikte beveiligingsheaders.",
     "securityHosting": "Europese hosting (Parijs), monitoring in Nederland — geen gegevensoverdracht buiten de EU.",

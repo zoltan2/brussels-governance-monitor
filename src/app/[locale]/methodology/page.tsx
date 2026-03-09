@@ -73,14 +73,34 @@ function MethodologyView() {
           {/* Model */}
           <div>
             <h2 className="mb-3 text-lg font-semibold text-neutral-900">{t('model.title')}</h2>
-            <div className="space-y-3">
+            <div className="grid gap-3 sm:grid-cols-2">
               <div className="rounded-lg bg-neutral-50 p-4">
                 <p className="font-medium text-neutral-900">{t('model.cards')}</p>
                 <p className="mt-1">{t('model.cardsDesc')}</p>
               </div>
               <div className="rounded-lg bg-neutral-50 p-4">
+                <p className="font-medium text-neutral-900">{t('model.sectors')}</p>
+                <p className="mt-1">{t('model.sectorsDesc')}</p>
+              </div>
+              <div className="rounded-lg bg-neutral-50 p-4">
+                <p className="font-medium text-neutral-900">{t('model.dossiers')}</p>
+                <p className="mt-1">{t('model.dossiersDesc')}</p>
+              </div>
+              <div className="rounded-lg bg-neutral-50 p-4">
+                <p className="font-medium text-neutral-900">{t('model.communes')}</p>
+                <p className="mt-1">{t('model.communesDesc')}</p>
+              </div>
+              <div className="rounded-lg bg-neutral-50 p-4">
                 <p className="font-medium text-neutral-900">{t('model.events')}</p>
                 <p className="mt-1">{t('model.eventsDesc')}</p>
+              </div>
+              <div className="rounded-lg bg-neutral-50 p-4">
+                <p className="font-medium text-neutral-900">{t('model.radar')}</p>
+                <p className="mt-1">{t('model.radarDesc')}</p>
+              </div>
+              <div className="rounded-lg bg-neutral-50 p-4">
+                <p className="font-medium text-neutral-900">{t('model.dashboard')}</p>
+                <p className="mt-1">{t('model.dashboardDesc')}</p>
               </div>
               <div className="rounded-lg bg-neutral-50 p-4">
                 <p className="font-medium text-neutral-900">{t('model.verifications')}</p>
@@ -234,6 +254,14 @@ function MethodologyView() {
                 <p className="mt-1 text-xs text-neutral-500">{t('protocol.v4Desc')}</p>
               </div>
             </div>
+            <div className="mt-4 space-y-2">
+              <p className="font-medium text-neutral-900">{t('protocol.frequency')}</p>
+              <ul className="ml-4 list-disc space-y-1">
+                <li>{t('protocol.frequencyDaily')}</li>
+                <li>{t('protocol.frequencyBudget')}</li>
+                <li>{t('protocol.frequencyOperational')}</li>
+              </ul>
+            </div>
           </div>
 
           {/* Corrections */}
@@ -263,6 +291,20 @@ function MethodologyView() {
             <p className="mt-2">{t('citation.encouraged')}</p>
           </div>
 
+          {/* Veille */}
+          <div>
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('veille.title')}</h2>
+            <p className="mb-2">{t('veille.description')}</p>
+            <p className="text-xs text-neutral-500 italic">{t('veille.process')}</p>
+          </div>
+
+          {/* Translations */}
+          <div>
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('translations.title')}</h2>
+            <p className="mb-2">{t('translations.description')}</p>
+            <p>{t('translations.digest')}</p>
+          </div>
+
           {/* Self-limitations */}
           <div>
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('selfLimitations.title')}</h2>
@@ -289,7 +331,7 @@ function MethodologyView() {
           </div>
 
           <p className="mt-4 text-xs text-neutral-500">
-            {t('lastUpdated', { date: '2026-02-08' })}
+            {t('lastUpdated', { date: '2026-03-09' })}
           </p>
         </div>
       </div>

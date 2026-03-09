@@ -479,7 +479,7 @@
       "sources": "Pflicht zur Quellenangabe: Jede Behauptung wird von ihrer Quelle begleitet (offizielles Dokument, Pressemitteilung, Presseartikel, statistische Daten).",
       "factOpinion": "Unterscheidung Fakten/Interpretationen: Analysen werden klar als solche gekennzeichnet und von Rohdaten getrennt.",
       "transparency": "Transparenz der Finanzierung: Das Projekt wird von Advice That SRL gehostet. Es wird von keiner politischen Partei oder Interessengruppe finanziert.",
-      "noPartisan": "Keine Parteilichkeit: Keine Politikernamen erscheinen in den Karten. Der Inhalt konzentriert sich auf Mechanismen, nicht auf Personen.",
+      "noPartisan": "Keine Parteilichkeit: Bereichs- und Sektorkarten nennen keine Politikernamen. Gemeindekarten enthalten Bürgermeister und Koalitionen als öffentliche Sachdaten. Der Inhalt konzentriert sich auf Mechanismen, nicht auf Personen.",
       "rightOfReply": "Recht auf Gegendarstellung: Jede zitierte Person oder Institution kann über das Feedback-Formular auf jeder Karte eine Korrektur oder Ergänzung beantragen."
     },
     "verification": {
@@ -714,14 +714,24 @@
       "known": "und was die öffentlichen Daten tatsächlich zu messen erlauben."
     },
     "model": {
-      "title": "Ein einfaches Modell: Karte / Ereignis / Überprüfung",
-      "cards": "Karten",
-      "cardsDesc": "Beschreiben den Zustand eines Bereichs (Haushalt, Mobilität, Soziales...) oder eines Sektors, auf Grundlage öffentlicher Quellen.",
+      "title": "Ein strukturiertes Mehrebenen-Modell",
+      "cards": "Bereichskarten",
+      "cardsDesc": "13 thematische Bereiche (Haushalt, Mobilität, Soziales…) beschreiben den Stand der regionalen Regierungsführung auf Basis öffentlicher Quellen.",
+      "sectors": "Sektorkarten",
+      "sectorsDesc": "11 Berufssektoren (Gastronomie, Bauwesen, Gesundheit-Soziales…) dokumentieren die konkreten Auswirkungen der regionalen Politik.",
+      "dossiers": "Dossiers",
+      "dossiersDesc": "18 bereichsübergreifende Dossiers (Good Move, LEZ, Metro 3, PFAS, ACS…) verfolgen die großen Brüsseler Projekte eingehend.",
+      "communes": "Gemeinden",
+      "communesDesc": "19 Gemeindekarten dokumentieren Transparenz, lokale Regierungsführung und politische Entwicklungen in jeder Brüsseler Gemeinde.",
       "events": "Ereignisse",
-      "eventsDesc": "Dokumentieren präzise institutionelle Fakten (Abstimmung, Entscheidung, Veröffentlichung, verpasste Frist).",
+      "eventsDesc": "Dokumentieren spezifische institutionelle Fakten (Abstimmung, Entscheidung, Veröffentlichung, versäumte Frist).",
+      "radar": "Radarsignale",
+      "radarDesc": "Echtzeit-Monitoring: aktuelle Entwicklungen, Gerichtsentscheidungen, Veröffentlichungen — klassifiziert nach Vertrauensstufe und Status.",
+      "dashboard": "DPR-Verpflichtungen",
+      "dashboardDesc": "16 quantifizierte Verpflichtungen aus der Regionalen Regierungserklärung, verfolgt nach Frist und Fortschrittsstatus.",
       "verifications": "Überprüfungen",
-      "verificationsDesc": "Dokumentierte redaktionelle Handlungen, die eine bestehende Information an einem bestimmten Datum bestätigen, widerlegen oder aussetzen.",
-      "conclusion": "Dieses Modell macht institutionelle Stille sichtbar, ohne Spekulation."
+      "verificationsDesc": "Dokumentierte redaktionelle Handlungen, die bestehende Informationen zu einem bestimmten Datum bestätigen, widerlegen oder aussetzen.",
+      "conclusion": "Dieses Modell ermöglicht es, die Brüsseler Regierungsführung auf allen Ebenen zu dokumentieren, ohne Spekulation."
     },
     "statuses": {
       "title": "Auf überprüfbaren Kriterien basierende Status",
@@ -769,7 +779,7 @@
       "noPrediction": "Keine politische Vorhersage",
       "noJudgment": "Kein Werturteil",
       "noEmotional": "Keine emotionale Einstufung (\"schwerwiegend\", \"katastrophal\")",
-      "noPersonalization": "Keine politische Personalisierung (keine Namen, keine Parteien)",
+      "noPersonalization": "Keine politische Personalisierung in Bereichs- und Sektorkarten (Gemeindekarten nennen Bürgermeister und Koalitionen als öffentliche Sachdaten)",
       "noCausation": "Keine nicht nachgewiesene Kausalität",
       "conclusion": "BGM dokumentiert Prozesse, keine Absichten."
     },
@@ -786,7 +796,7 @@
       "title": "Anerkannte Grenzen",
       "description": "BGM erkennt ausdrücklich an:",
       "framing": "ein Fokus auf die Umsetzung der Verpflichtungen der Regionalregierung,",
-      "coverage": "eine auf bestimmte prioritäre Bereiche begrenzte Abdeckung,",
+      "coverage": "eine Abdeckung von 13 Bereichen, 11 Sektoren, 18 Dossiers und 19 Gemeinden — breit, aber nicht erschöpfend,",
       "dataDependency": "eine Abhängigkeit von der Verfügbarkeit öffentlicher Daten,",
       "team": "ein bewusst kleines Redaktionsteam.",
       "conclusion": "Diese Grenzen werden dokumentiert, nicht verschleiert."
@@ -833,12 +843,23 @@
       "checklist": "Obligatorische Checkliste",
       "checklistItems": "Quellen erneut konsultiert • URLs zugänglich oder archiviert • Datum dokumentiert • Quellentyp identifiziert • Ergebnis explizit (V1–V4) • Kein politisches Urteil • Umfang klar begrenzt",
       "frequency": "Häufigkeit der Überprüfungen",
-      "frequencyBudget": "Domänen mit hoher Trägheit (Budget, Recht): monatliche Überprüfung oder bei Großereignis",
-      "frequencyOperational": "Operative Domänen (Mobilität, Soziales): vierteljährliche Überprüfung oder bei Quellenveröffentlichung",
+      "frequencyDaily": "Automatisiertes tägliches Monitoring: Ein Überwachungssystem analysiert täglich über 300 öffentliche Quellen und meldet relevante Änderungen.",
+      "frequencyBudget": "Bereiche mit hoher Trägheit (Haushalt, Legalität): gründliche monatliche Überprüfung oder bei großem Ereignis",
+      "frequencyOperational": "Operative Bereiche (Mobilität, Soziales): gründliche vierteljährliche Überprüfung oder bei Quellenveröffentlichung",
       "triggers": "Außerplanmäßige Auslöser",
       "triggersDesc": "Eine Überprüfung kann ausgelöst werden durch: (a) eine A- oder B-Quelle, die einer Kennzahl widerspricht, (b) eine dokumentierte externe Meldung, (c) ein wichtiges institutionelles Ereignis.",
       "nonEvents": "Nicht-Ereignisse",
       "nonEventsDesc": "Ein Nicht-Ereignis darf nur dokumentiert werden, wenn eine erwartete Frist auf einer Rechtsgrundlage oder einem etablierten Präzedenzfall beruht und die Fristüberschreitung objektiv feststellbar ist."
+    },
+    "veille": {
+      "title": "Automatisiertes tägliches Monitoring",
+      "description": "Seit Februar 2026 überwacht BGM täglich mehr als 300 öffentliche Quellen über ein automatisiertes System. Dieses System erkennt Inhaltsänderungen, analysiert ihre Relevanz und erstellt jeden Morgen einen Monitoring-Bericht. Wesentliche Änderungen werden nach menschlicher Überprüfung in die Karten integriert.",
+      "process": "Der Prozess folgt einer strengen Pipeline: Änderungserkennung durch Textvergleich, Relevanzklassifizierung (V1 bis V4), KI-gestützte Kontextanalyse, dann manuelle Integration in die Karten nach redaktioneller Validierung."
+    },
+    "translations": {
+      "title": "Übersetzungen und Mehrsprachigkeit",
+      "description": "Französisch ist die Ausgangssprache aller Inhalte. Niederländisch erhält besondere Aufmerksamkeit angesichts der Zweisprachigkeit Brüssels. Englisch und Deutsch werden mit KI-Unterstützung (Claude, Anthropic) erstellt und anschließend überprüft. Automatische Übersetzungen werden systematisch auf belgische institutionelle Terminologie kontrolliert.",
+      "digest": "Der wöchentliche Digest ist in 11 Sprachen verfügbar, darunter die 4 Sprachen der Website und 7 Sprachen der Brüsseler Diaspora-Gemeinschaften."
     },
     "seeEditorial": "Die redaktionellen Grundsätze, die diese Arbeit leiten, sind in unserer Redaktionellen Charta formalisiert.",
     "citation": {
@@ -1740,7 +1761,7 @@
     "securityTitle": "Schutz der Besucher",
     "securityIntro": "BGM sammelt während Ihres Besuchs keine persönlichen Daten. Dies sind die konkreten technischen Entscheidungen, die wir zum Schutz Ihrer Sicherheit getroffen haben.",
     "securityNoTracker": "Keine Werbetracker, keine Drittanbieter-Cookies, kein Datenweiterverkauf.",
-    "securityAnalytics": "Anonyme Besucheranalyse über Umami (in Europa gehostet, DSGVO-konform) — keine IP-Adressen, kein Fingerprinting.",
+    "securityAnalytics": "Anonyme Besucheranalyse über Umami (in Europa gehostet, DSGVO-konform) + Vercel Analytics (Web Vitals, Leistung) — keine IP-Adressen, kein Fingerprinting.",
     "securitySri": "Jedes externe Skript ist durch einen kryptografischen Fingerabdruck gesichert: Nur von uns überprüfter Code kann auf Ihrem Gerät ausgeführt werden.",
     "securityHttps": "Pflichtmäßig verschlüsselte Verbindung (HTTPS) mit strengen Sicherheitsheadern.",
     "securityHosting": "Europäisches Hosting (Paris), Monitoring in den Niederlanden — kein Datentransfer außerhalb der EU.",

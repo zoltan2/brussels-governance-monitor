@@ -1,6 +1,62 @@
 {
-  "lastVeille": "2026-03-08",
+  "lastVeille": "2026-03-09",
   "entries": [
+    {
+      "id": "2026-03-09-ugent-nn-geluksbarometer-2026",
+      "date": "2026-03-09",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["bien-etre"],
+      "source": {
+        "label": "Nationale Notaris (NN) — Nationaal Geluksonderzoek 2026 (UGent/NN, 9 mars 2026)",
+        "url": "https://www.notaris.be/nieuws-pers/detail/nationaal-geluksonderzoek-belgen-iets-minder-gelukkig-maar-brussel-scoort-het-hoogst",
+        "accessedAt": "2026-03-09"
+      },
+      "nextStep": {
+        "fr": "Attendre la publication du rapport complet UGent (PDF). Comparer avec le Baromètre social 2024 et Sciensano HIS 2023-2024.",
+        "nl": "Publicatie volledig UGent-rapport (PDF) afwachten. Vergelijken met Sociale Barometer 2024 en Sciensano GE 2023-2024.",
+        "en": "Await publication of full UGent report (PDF). Compare with Social Barometer 2024 and Sciensano HIS 2023-2024.",
+        "de": "Veröffentlichung des vollständigen UGent-Berichts (PDF) abwarten. Vergleich mit Sozialbarometer 2024 und Sciensano GBE 2023-2024."
+      },
+      "descriptions": {
+        "fr": "Baromètre national du bonheur 2026 (UGent/Notaire.be) : score national en recul (6,53 vs 6,78 en 2024). Bruxelles en tête (6,62), devant la Flandre (6,61) et la Wallonie (6,36). 1 572 répondants, enquête annuelle depuis 2017. Résultat contre-intuitif : la région la plus précaire affiche le bonheur subjectif le plus élevé.",
+        "nl": "Nationaal Geluksonderzoek 2026 (UGent/Notaris.be): nationale score gedaald (6,53 vs 6,78 in 2024). Brussel koploper (6,62), vóór Vlaanderen (6,61) en Wallonië (6,36). 1 572 respondenten, jaarlijks onderzoek sinds 2017. Contra-intuïtief resultaat: de meest precaire regio scoort het hoogst op subjectief geluk.",
+        "en": "National Happiness Barometer 2026 (UGent/Notaris.be): national score down (6.53 vs 6.78 in 2024). Brussels leads (6.62), ahead of Flanders (6.61) and Wallonia (6.36). 1,572 respondents, annual survey since 2017. Counter-intuitive result: the most precarious region reports the highest subjective happiness.",
+        "de": "Nationaler Glücksbarometer 2026 (UGent/Notaris.be): nationaler Wert gesunken (6,53 vs 6,78 in 2024). Brüssel führt (6,62), vor Flandern (6,61) und Wallonien (6,36). 1 572 Befragte, jährliche Umfrage seit 2017. Kontraintuitives Ergebnis: die prekarste Region zeigt das höchste subjektive Glück."
+      },
+      "promotedTo": "bien-etre",
+      "promotedSection": "dossiers",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-05-reforme-admin-arrete-1re-lecture",
+      "date": "2026-03-05",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["institutional"],
+      "source": {
+        "label": "BRUZZ — Hervorming Brusselse administratie: eerste besluit in eerste lezing goedgekeurd (5 maart 2026)",
+        "url": "https://www.bruzz.be/actua/politiek/hervorming-brusselse-administratie-eerste-besluit-eerste-lezing-goedgekeurd-2026-03-05",
+        "accessedAt": "2026-03-09"
+      },
+      "nextStep": {
+        "fr": "Suivre la deuxième lecture (avis Conseil d'État). Vérifier le calendrier de fusion perspective + urban.brussels + citydev. Budget d'implémentation attendu au T2 2026.",
+        "nl": "Tweede lezing opvolgen (advies Raad van State). Tijdschema fusie perspective + urban.brussels + citydev nagaan. Implementatiebudget verwacht in Q2 2026.",
+        "en": "Follow second reading (Council of State opinion). Check merger timeline for perspective + urban.brussels + citydev. Implementation budget expected Q2 2026.",
+        "de": "Zweite Lesung verfolgen (Gutachten Staatsrat). Fusionszeitplan perspective + urban.brussels + citydev prüfen. Implementierungsbudget erwartet Q2 2026."
+      },
+      "descriptions": {
+        "fr": "Le gouvernement bruxellois approuve en première lecture l'arrêté organisant le pilier 1 (administration transversale) de la réforme Big Bang. Ministre De Smedt (CD&V) : fusion perspective.brussels + urban.brussels + citydev, regroupement talent.brussels + HR, plateforme budgétaire unique. Prochaine étape : avis du Conseil d'État.",
+        "nl": "De Brusselse regering keurt in eerste lezing het besluit goed voor pijler 1 (transversale administratie) van de Big Bang-hervorming. Minister De Smedt (CD&V): fusie perspective.brussels + urban.brussels + citydev, hergroepering talent.brussels + HR, één budgetplatform. Volgende stap: advies Raad van State.",
+        "en": "Brussels government approves in first reading the decree organising pillar 1 (transversal administration) of the Big Bang reform. Minister De Smedt (CD&V): merger perspective.brussels + urban.brussels + citydev, talent.brussels + HR regrouping, single budgetary platform. Next step: Council of State opinion.",
+        "de": "Die Brüsseler Regierung genehmigt in erster Lesung den Erlass zur Organisation von Säule 1 (transversale Verwaltung) der Big-Bang-Reform. Minister De Smedt (CD&V): Fusion perspective.brussels + urban.brussels + citydev, Zusammenlegung talent.brussels + HR, einheitliche Budgetplattform. Nächster Schritt: Gutachten des Staatsrats."
+      },
+      "promotedTo": "reforme-administration",
+      "promotedSection": "dossiers",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-06-schaerbeek-henry-ontslag",
       "date": "2026-03-06",

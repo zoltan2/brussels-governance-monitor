@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-03-11",
+    "type": "corrected",
+    "section": "domains",
+    "targetSlug": "social",
+    "descriptions": {
+      "fr": "Correction carte Social + digest w10 (×10 langues) : le chiffre de 8 000 exclus du chômage concernait la seule commune de Bruxelles-Ville, pas la Région. Corrigé en ~42 000 (estimation Actiris, Région bruxelloise).",
+      "nl": "Correctie kaart Sociaal + digest w10 (×10 talen): het cijfer van 8 000 werkloosheidsuitsluitingen betrof enkel de gemeente Brussel-Stad, niet het Gewest. Gecorrigeerd naar ~42 000 (schatting Actiris, Brussels Gewest).",
+      "en": "Correction Social card + digest w10 (×10 languages): the 8,000 unemployment exclusions figure referred to Brussels-City municipality only, not the Region. Corrected to ~42,000 (Actiris estimate, Brussels-Capital Region).",
+      "de": "Korrektur Karte Soziales + Digest w10 (×10 Sprachen): die Zahl von 8.000 Arbeitslosenausschlüssen betraf nur die Gemeinde Brüssel-Stadt, nicht die Region. Korrigiert auf ~42.000 (Schätzung Actiris, Region Brüssel-Hauptstadt)."
+    },
+    "summaries": {
+      "fr": "Correction : 8 000 (commune) → ~42 000 (Région) exclus du chômage",
+      "nl": "Correctie: 8 000 (gemeente) → ~42 000 (Gewest) werkloosheidsuitsluitingen",
+      "en": "Correction: 8,000 (municipality) → ~42,000 (Region) unemployment exclusions",
+      "de": "Korrektur: 8.000 (Gemeinde) → ~42.000 (Region) Arbeitslosenausschlüsse"
+    }
+  },
+  {
+    "date": "2026-03-11",
     "type": "updated",
     "section": "domains",
     "targetSlug": "employment",

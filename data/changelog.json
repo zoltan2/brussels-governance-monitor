@@ -3,6 +3,24 @@
     "date": "2026-03-11",
     "type": "updated",
     "section": "domains",
+    "targetSlug": "employment",
+    "descriptions": {
+      "fr": "Carte emploi : diagnostic structurel Itinera (2006-2022). Taux d'emploi ~55 % (données admin., vs 64,9 % EFT). Stagnation emploi femmes (0 %), recul hommes (−5,8 %). 0/19 communes > moyenne UE. Jeunes : 25 % en emploi, chômage → inactivité. 18 crèches/100 enfants.",
+      "nl": "Kaart werkgelegenheid: structurele diagnose Itinera (2006-2022). Werkzaamheidsgraad ~55 % (admin. data, vs 64,9 % EAK). Stagnatie vrouwen (0 %), daling mannen (−5,8 %). 0/19 gemeenten > EU-gemiddelde. Jongeren: 25 % aan het werk, werkloosheid → inactiviteit. 18 crèches/100 kinderen.",
+      "en": "Employment card: Itinera structural diagnostic (2006-2022). Employment rate ~55% (admin. data, vs 64.9% LFS). Women stagnation (0%), men decline (−5.8%). 0/19 communes above EU average. Youth: 25% employed, unemployment → inactivity. 18 childcare places/100 children.",
+      "de": "Karte Beschäftigung: Itinera-Strukturdiagnose (2006-2022). Beschäftigungsquote ~55 % (Verwaltungsdaten, vs 64,9 % AKE). Stagnation Frauen (0 %), Rückgang Männer (−5,8 %). 0/19 Gemeinden über EU-Durchschnitt. Jugendliche: 25 % beschäftigt, Arbeitslosigkeit → Inaktivität. 18 Krippenplätze/100 Kinder."
+    },
+    "summaries": {
+      "fr": "Carte emploi : diagnostic structurel Itinera (~55 %, 0/19 communes > UE)",
+      "nl": "Kaart werkgelegenheid: structurele diagnose Itinera (~55 %, 0/19 gemeenten > EU)",
+      "en": "Employment card: Itinera structural diagnostic (~55%, 0/19 above EU)",
+      "de": "Karte Beschäftigung: Itinera-Strukturdiagnose (~55 %, 0/19 > EU)"
+    }
+  },
+  {
+    "date": "2026-03-11",
+    "type": "updated",
+    "section": "domains",
     "targetSlug": "budget",
     "descriptions": {
       "fr": "Carte budget : calendrier parlementaire précisé — commission Finances 16 mars (président Ghyssels PS), commissions sectorielles 17-21 mars, vote 26-27 mars, deadline 1er avril (source BRUZZ/Parlement bruxellois).",

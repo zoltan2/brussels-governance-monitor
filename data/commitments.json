@@ -54,8 +54,18 @@
         }
       ],
       "dataPoints": [
-        { "date": "2025-01-01", "value": -1241, "unit": "M€", "source": "Comptes régionaux 2025" },
-        { "date": "2026-03-06", "value": -957, "unit": "M€", "source": "Budget 2026 approuvé" }
+        {
+          "date": "2025-01-01",
+          "value": -1241,
+          "unit": "M€",
+          "source": "Comptes régionaux 2025"
+        },
+        {
+          "date": "2026-03-06",
+          "value": -957,
+          "unit": "M€",
+          "source": "Budget 2026 approuvé"
+        }
       ]
     },
     {
@@ -101,10 +111,20 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-18",
+          "status": "announced",
+          "source": "Cadre budgétaire présenté : 3 Mrd € (2 Mrd SEC + 1 Mrd participations stratégiques)"
         }
       ],
       "dataPoints": [
-        { "date": "2024-12-31", "value": 0, "unit": "Mrd€", "source": "Baseline — dette existante 15,65 Mrd (plafond supplémentaire: 0)" }
+        {
+          "date": "2024-12-31",
+          "value": 0,
+          "unit": "Mrd€",
+          "source": "Baseline — dette existante 15,65 Mrd (plafond supplémentaire: 0)"
+        }
       ]
     },
     {
@@ -150,6 +170,11 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : BE HOME doublé à 320 EUR/mois"
         }
       ]
     },
@@ -196,6 +221,11 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : baisse IPP de 1 point (~268 EUR/an/travailleur)"
         }
       ]
     },
@@ -242,6 +272,11 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : seuil d'exemption relevé de 600 000 à 800 000 EUR"
         }
       ]
     },
@@ -288,10 +323,20 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : objectif taux d'emploi 70 % en fin de législature"
         }
       ],
       "dataPoints": [
-        { "date": "2025-01-01", "value": 65.0, "unit": "%", "source": "Estimation Statbel 2025" }
+        {
+          "date": "2025-01-01",
+          "value": 65,
+          "unit": "%",
+          "source": "Estimation Statbel 2025"
+        }
       ]
     },
     {
@@ -337,10 +382,20 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : bilan de compétences obligatoire, évaluation linguistique à l'inscription"
         }
       ],
       "dataPoints": [
-        { "date": "2025-01-01", "value": 5, "unit": "mois", "source": "Rapports Actiris 2025" }
+        {
+          "date": "2025-01-01",
+          "value": 5,
+          "unit": "mois",
+          "source": "Rapports Actiris 2025"
+        }
       ]
     },
     {
@@ -386,10 +441,20 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : MyPermit, guichet unique Fast-Track, fusion urbanisme-environnement"
         }
       ],
       "dataPoints": [
-        { "date": "2025-01-01", "value": 12, "unit": "mois", "source": "Estimation urban.brussels" }
+        {
+          "date": "2025-01-01",
+          "value": 12,
+          "unit": "mois",
+          "source": "Estimation urban.brussels"
+        }
       ]
     },
     {
@@ -435,6 +500,16 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : 10 M EUR sécurisation gares Midi et Nord"
+        },
+        {
+          "date": "2026-02-17",
+          "status": "announced",
+          "source": "Première visite terrain Gare du Midi — BX1"
         }
       ]
     },
@@ -481,6 +556,11 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : +40 M EUR/an voiries et espace public"
         }
       ]
     },
@@ -527,6 +607,16 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : pass annuel 350 EUR (social 200 EUR), amende réduite à 80 EUR"
+        },
+        {
+          "date": "2026-02-28",
+          "status": "announced",
+          "source": "Conseil d'État : avis critique sur la réduction des amendes LEZ — BRUZZ"
         }
       ]
     },
@@ -573,6 +663,11 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-27",
+          "status": "in-legislation",
+          "source": "Vote Parlement (68-4) : 3 sites préservés, 4 sous moratoire 18 mois — BX1"
         }
       ]
     },
@@ -665,6 +760,16 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : 2 phases de renforcement des effectifs SIAMU"
+        },
+        {
+          "date": "2026-03-05",
+          "status": "announced",
+          "source": "Dotation fédérale triplée (5,7 → 15,4 M EUR/an) — vote Chambre"
         }
       ]
     },
@@ -711,6 +816,11 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-13",
+          "status": "announced",
+          "source": "Accord de gouvernement : 2e dimanche sans voiture (semaine de l'Iris)"
         }
       ]
     },
@@ -757,6 +867,16 @@
           "date": "2026-02-13",
           "status": "not-started",
           "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-02-26",
+          "status": "announced",
+          "source": "Big Bang annoncé : 25 structures → 4 piliers"
+        },
+        {
+          "date": "2026-03-05",
+          "status": "in-legislation",
+          "source": "Arrêté Pilier 1 approuvé en 1re lecture — administration transversale"
         }
       ]
     }

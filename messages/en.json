@@ -1906,11 +1906,14 @@
     "baseline": "Current situation",
     "learnMore": "View domain page",
     "status": {
-      "pending": "Pending",
-      "on-track": "On track",
+      "not-started": "Not started",
+      "announced": "Announced",
+      "in-legislation": "In legislation",
+      "implemented": "Implemented",
       "delayed": "Delayed",
-      "achieved": "Achieved"
-    }
+      "abandoned": "Abandoned"
+    },
+    "minister": "Minister"
   },
   "subscribePage": {
     "title": "Follow Brussels governance",

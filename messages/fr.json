@@ -1925,11 +1925,14 @@
     "baseline": "Situation actuelle",
     "learnMore": "Voir la fiche domaine",
     "status": {
-      "pending": "En attente",
-      "on-track": "En bonne voie",
+      "not-started": "Pas encore abordé",
+      "announced": "Annoncé",
+      "in-legislation": "En cours législatif",
+      "implemented": "Mis en œuvre",
       "delayed": "Retardé",
-      "achieved": "Réalisé"
-    }
+      "abandoned": "Abandonné"
+    },
+    "minister": "Ministre"
   },
   "subscribePage": {
     "title": "Suivez la gouvernance bruxelloise",

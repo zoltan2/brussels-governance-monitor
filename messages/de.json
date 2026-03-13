@@ -1906,11 +1906,14 @@
     "baseline": "Aktuelle Situation",
     "learnMore": "Zur Bereichsseite",
     "status": {
-      "pending": "Ausstehend",
-      "on-track": "Im Plan",
+      "not-started": "Noch nicht begonnen",
+      "announced": "Angekündigt",
+      "in-legislation": "Im Gesetzgebungsverfahren",
+      "implemented": "Umgesetzt",
       "delayed": "Verzögert",
-      "achieved": "Erreicht"
-    }
+      "abandoned": "Aufgegeben"
+    },
+    "minister": "Minister"
   },
   "subscribePage": {
     "title": "Verfolgen Sie die Brüsseler Regierungsführung",

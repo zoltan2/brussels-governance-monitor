@@ -1,7 +1,7 @@
 {
-  "lastModified": "2026-02-14",
-  "source": "DPR du 13 février 2026 (sources presse concordantes)",
-  "sourceUrl": "https://www.rtbf.be/article/equilibre-budgetaire-en-2029-good-move-primes-renolution-voici-ce-que-contient-l-accord-de-gouvernement-regional-a-bruxelles-11678417",
+  "lastModified": "2026-03-13",
+  "source": "DPR du 13 février 2026 (parlement.brussels)",
+  "sourceUrl": "https://www.parlement.brussels/wp-content/uploads/2026/02/Declaration-de-politique-2.pdf",
   "commitments": [
     {
       "id": "budget-balance",
@@ -31,8 +31,32 @@
         "de": "Jährliches Defizit ~1,241 Mrd. EUR (2025)"
       },
       "deadline": "2029",
-      "status": "pending",
-      "chapter": 2
+      "chapter": 2,
+      "minister": {
+        "name": "Dirk De Smedt",
+        "portfolio": {
+          "fr": "Ministre du Budget et des Finances",
+          "nl": "Minister van Budget en Financiën",
+          "en": "Minister of Budget and Finance",
+          "de": "Minister für Haushalt und Finanzen"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        },
+        {
+          "date": "2026-03-06",
+          "status": "announced",
+          "source": "Budget 2026 approuvé, déficit ramené à 957M EUR"
+        }
+      ],
+      "dataPoints": [
+        { "date": "2025-01-01", "value": -1241, "unit": "M€", "source": "Comptes régionaux 2025" },
+        { "date": "2026-03-06", "value": -957, "unit": "M€", "source": "Budget 2026 approuvé" }
+      ]
     },
     {
       "id": "debt-ceiling",
@@ -62,8 +86,26 @@
         "de": "Konsolidierte Schulden: 15,65 Mrd. EUR (Ende 2024)"
       },
       "deadline": "2029",
-      "status": "pending",
-      "chapter": 2
+      "chapter": 2,
+      "minister": {
+        "name": "Dirk De Smedt",
+        "portfolio": {
+          "fr": "Ministre du Budget et des Finances",
+          "nl": "Minister van Budget en Financiën",
+          "en": "Minister of Budget and Finance",
+          "de": "Minister für Haushalt und Finanzen"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ],
+      "dataPoints": [
+        { "date": "2024-12-31", "value": 0, "unit": "Mrd€", "source": "Baseline — dette existante 15,65 Mrd (plafond supplémentaire: 0)" }
+      ]
     },
     {
       "id": "be-home-doubling",
@@ -93,8 +135,23 @@
         "de": "Bestehende Prämie (einfacher Betrag)"
       },
       "deadline": "2027",
-      "status": "pending",
-      "chapter": 2
+      "chapter": 2,
+      "minister": {
+        "name": "Dirk De Smedt",
+        "portfolio": {
+          "fr": "Ministre du Budget et des Finances",
+          "nl": "Minister van Budget en Financiën",
+          "en": "Minister of Budget and Finance",
+          "de": "Minister für Haushalt und Finanzen"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "ipp-reduction",
@@ -124,8 +181,23 @@
         "de": "Aktueller regionaler Zuschlagssatz"
       },
       "deadline": "2028",
-      "status": "pending",
-      "chapter": 2
+      "chapter": 2,
+      "minister": {
+        "name": "Dirk De Smedt",
+        "portfolio": {
+          "fr": "Ministre du Budget et des Finances",
+          "nl": "Minister van Budget en Financiën",
+          "en": "Minister of Budget and Finance",
+          "de": "Minister für Haushalt und Finanzen"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "registration-abatement",
@@ -155,8 +227,23 @@
         "de": "Aktuelle Obergrenze: 600.000 €"
       },
       "deadline": "2029",
-      "status": "pending",
-      "chapter": 2
+      "chapter": 2,
+      "minister": {
+        "name": "Dirk De Smedt",
+        "portfolio": {
+          "fr": "Ministre du Budget et des Finances",
+          "nl": "Minister van Budget en Financiën",
+          "en": "Minister of Budget and Finance",
+          "de": "Minister für Haushalt und Finanzen"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "employment-rate",
@@ -186,8 +273,26 @@
         "de": "~65 % (Schätzung 2025)"
       },
       "deadline": "2030",
-      "status": "pending",
-      "chapter": 5
+      "chapter": 5,
+      "minister": {
+        "name": "Laurent Hublet",
+        "portfolio": {
+          "fr": "Ministre de l'Économie et de l'Emploi",
+          "nl": "Minister van Economie en Werk",
+          "en": "Minister of Economy and Employment",
+          "de": "Minister für Wirtschaft und Beschäftigung"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ],
+      "dataPoints": [
+        { "date": "2025-01-01", "value": 65.0, "unit": "%", "source": "Estimation Statbel 2025" }
+      ]
     },
     {
       "id": "actiris-delay",
@@ -217,8 +322,26 @@
         "de": "Durchschnittliche Frist: 5 Monate"
       },
       "deadline": "2029",
-      "status": "pending",
-      "chapter": 5
+      "chapter": 5,
+      "minister": {
+        "name": "Laurent Hublet",
+        "portfolio": {
+          "fr": "Ministre de l'Économie et de l'Emploi",
+          "nl": "Minister van Economie en Werk",
+          "en": "Minister of Economy and Employment",
+          "de": "Minister für Wirtschaft und Beschäftigung"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ],
+      "dataPoints": [
+        { "date": "2025-01-01", "value": 5, "unit": "mois", "source": "Rapports Actiris 2025" }
+      ]
     },
     {
       "id": "permit-delays",
@@ -248,8 +371,26 @@
         "de": "~12 Monate durchschnittlich (Schätzung)"
       },
       "deadline": "2029",
-      "status": "pending",
-      "chapter": 6
+      "chapter": 6,
+      "minister": {
+        "name": "Audrey Henry",
+        "portfolio": {
+          "fr": "Secrétaire d'État à l'Urbanisme",
+          "nl": "Staatssecretaris voor Stedenbouw",
+          "en": "State Secretary for Urban Planning",
+          "de": "Staatssekretärin für Stadtplanung"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ],
+      "dataPoints": [
+        { "date": "2025-01-01", "value": 12, "unit": "mois", "source": "Estimation urban.brussels" }
+      ]
     },
     {
       "id": "station-security",
@@ -279,8 +420,23 @@
         "de": "Kein spezifisches Regionalbudget"
       },
       "deadline": "2029",
-      "status": "pending",
-      "chapter": 7
+      "chapter": 7,
+      "minister": {
+        "name": "Boris Dilliès",
+        "portfolio": {
+          "fr": "Ministre-Président (Sécurité, SIAMU)",
+          "nl": "Minister-President (Veiligheid, DBDMH)",
+          "en": "Minister-President (Security, SIAMU)",
+          "de": "Ministerpräsident (Sicherheit, SIAMU)"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "road-infrastructure",
@@ -310,8 +466,23 @@
         "de": "Bestehendes Budget (eingefroren unter vorläufigen Zwölfteln)"
       },
       "deadline": "2026",
-      "status": "pending",
-      "chapter": 3
+      "chapter": 3,
+      "minister": {
+        "name": "Elke Van den Brandt",
+        "portfolio": {
+          "fr": "Ministre de la Mobilité",
+          "nl": "Minister van Mobiliteit",
+          "en": "Minister of Mobility",
+          "de": "Minister für Mobilität"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "lez-pass",
@@ -341,8 +512,23 @@
         "de": "Strafe pro festgestelltem Verstoß"
       },
       "deadline": "2026",
-      "status": "pending",
-      "chapter": 3
+      "chapter": 3,
+      "minister": {
+        "name": "Elke Van den Brandt",
+        "portfolio": {
+          "fr": "Ministre de la Mobilité",
+          "nl": "Minister van Mobiliteit",
+          "en": "Minister of Mobility",
+          "de": "Minister für Mobilität"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "site-freeze",
@@ -372,8 +558,23 @@
         "de": "Laufende oder geplante Entwicklungsprojekte"
       },
       "deadline": "2027",
-      "status": "pending",
-      "chapter": 6
+      "chapter": 6,
+      "minister": {
+        "name": "Audrey Henry",
+        "portfolio": {
+          "fr": "Secrétaire d'État à l'Urbanisme",
+          "nl": "Staatssecretaris voor Stedenbouw",
+          "en": "State Secretary for Urban Planning",
+          "de": "Staatssekretärin für Stadtplanung"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "dluu",
@@ -403,8 +604,23 @@
         "de": "Standard-Regularisierungsverfahren (langwierig und kostspielig)"
       },
       "deadline": "2029",
-      "status": "pending",
-      "chapter": 6
+      "chapter": 6,
+      "minister": {
+        "name": "Audrey Henry",
+        "portfolio": {
+          "fr": "Secrétaire d'État à l'Urbanisme",
+          "nl": "Staatssecretaris voor Stedenbouw",
+          "en": "State Secretary for Urban Planning",
+          "de": "Staatssekretärin für Stadtplanung"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "siamu-reinforcement",
@@ -434,8 +650,23 @@
         "de": "Personalbestand als unzureichend eingestuft (Gewerkschaften)"
       },
       "deadline": "2029",
-      "status": "pending",
-      "chapter": 7
+      "chapter": 7,
+      "minister": {
+        "name": "Boris Dilliès",
+        "portfolio": {
+          "fr": "Ministre-Président (Sécurité, SIAMU)",
+          "nl": "Minister-President (Veiligheid, DBDMH)",
+          "en": "Minister-President (Security, SIAMU)",
+          "de": "Ministerpräsident (Sicherheit, SIAMU)"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "car-free-day",
@@ -465,8 +696,23 @@
         "de": "1 autofreier Tag pro Jahr (September)"
       },
       "deadline": "2027",
-      "status": "pending",
-      "chapter": 3
+      "chapter": 3,
+      "minister": {
+        "name": "Elke Van den Brandt",
+        "portfolio": {
+          "fr": "Ministre de la Mobilité",
+          "nl": "Minister van Mobiliteit",
+          "en": "Minister of Mobility",
+          "de": "Minister für Mobilität"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     },
     {
       "id": "admin-pillars",
@@ -496,8 +742,23 @@
         "de": "25 separate regionale Strukturen"
       },
       "deadline": "2026",
-      "status": "pending",
-      "chapter": 4
+      "chapter": 4,
+      "minister": {
+        "name": "Dirk De Smedt",
+        "portfolio": {
+          "fr": "Ministre de la Fonction publique et de la Simplification administrative",
+          "nl": "Minister van Ambtenarenzaken en Administratieve vereenvoudiging",
+          "en": "Minister of Civil Service and Administrative Simplification",
+          "de": "Minister für Öffentlichen Dienst und Verwaltungsvereinfachung"
+        }
+      },
+      "statusHistory": [
+        {
+          "date": "2026-02-13",
+          "status": "not-started",
+          "source": "DPR adoptée — parlement.brussels"
+        }
+      ]
     }
   ]
 }

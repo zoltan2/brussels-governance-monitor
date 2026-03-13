@@ -6,6 +6,26 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { CommitmentSparkline } from '@/components/commitment-sparkline';
+import { CommitmentTimeline } from '@/components/commitment-timeline';
+
+interface StatusEntry {
+  date: string;
+  status: string;
+  source: string;
+}
+
+interface DataPoint {
+  date: string;
+  value: number;
+  unit: string;
+  source: string;
+}
+
+interface Minister {
+  name: string;
+  portfolio: Record<string, string>;
+}
 
 interface Commitment {
   id: string;
@@ -15,8 +35,10 @@ interface Commitment {
   description: Record<string, string>;
   baseline: Record<string, string>;
   deadline: string;
-  status: 'pending' | 'on-track' | 'delayed' | 'achieved';
   chapter: number;
+  minister: Minister;
+  statusHistory: StatusEntry[];
+  dataPoints?: DataPoint[];
 }
 
 export interface CommitmentsData {
@@ -26,11 +48,20 @@ export interface CommitmentsData {
   commitments: Commitment[];
 }
 
+type CommitmentStatus = 'not-started' | 'announced' | 'in-legislation' | 'implemented' | 'delayed' | 'abandoned';
+
+function getCurrentStatus(statusHistory: StatusEntry[]): CommitmentStatus {
+  if (statusHistory.length === 0) return 'not-started';
+  return statusHistory[statusHistory.length - 1].status as CommitmentStatus;
+}
+
 const statusStyles: Record<string, string> = {
-  pending: 'bg-neutral-100 text-neutral-600',
-  'on-track': 'bg-status-ongoing/10 text-status-ongoing',
+  'not-started': 'bg-neutral-100 text-neutral-600',
+  announced: 'bg-blue-100 text-blue-700',
+  'in-legislation': 'bg-indigo-100 text-indigo-700',
+  implemented: 'bg-status-resolved/10 text-status-resolved',
   delayed: 'bg-status-delayed/10 text-status-delayed',
-  achieved: 'bg-status-resolved/10 text-status-resolved',
+  abandoned: 'bg-slate-200 text-slate-500',
 };
 
 const domainStyles: Record<string, string> = {
@@ -83,6 +114,15 @@ export function CommitmentsDashboard({
     });
   }
 
+  const statusLabels: Record<string, string> = {
+    'not-started': t('status.not-started'),
+    announced: t('status.announced'),
+    'in-legislation': t('status.in-legislation'),
+    implemented: t('status.implemented'),
+    delayed: t('status.delayed'),
+    abandoned: t('status.abandoned'),
+  };
+
   const byDeadline = data.commitments.reduce(
     (acc, c) => {
       const year = c.deadline;
@@ -132,6 +172,8 @@ export function CommitmentsDashboard({
               const isExpanded = expanded.has(commitment.id);
               const desc = commitment.description?.[locale] || commitment.description?.fr;
               const base = commitment.baseline?.[locale] || commitment.baseline?.fr;
+              const currentStatus = getCurrentStatus(commitment.statusHistory);
+              const portfolio = commitment.minister.portfolio[locale] || commitment.minister.portfolio.fr;
 
               return (
                 <div
@@ -144,29 +186,39 @@ export function CommitmentsDashboard({
                     className="w-full cursor-pointer p-4 text-left"
                     aria-expanded={isExpanded}
                   >
-                    <div className="mb-2 flex items-start justify-between gap-2">
-                      <p className="text-sm font-medium text-neutral-900">
-                        {commitment.target[locale] || commitment.target.fr}
-                      </p>
+                    <div className="mb-1 flex items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-neutral-900">
+                          {commitment.target[locale] || commitment.target.fr}
+                        </p>
+                        <p className="mt-0.5 text-[10px] text-neutral-400">
+                          {portfolio}
+                        </p>
+                      </div>
                       <span
-                        className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ${statusStyles[commitment.status]}`}
+                        className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ${statusStyles[currentStatus]}`}
                       >
-                        {t(`status.${commitment.status}`)}
+                        {statusLabels[currentStatus]}
                       </span>
                     </div>
                     <div className="flex items-end justify-between gap-2">
                       <p className="text-lg font-bold text-brand-900">
                         {commitment.indicator[locale] || commitment.indicator.fr}
                       </p>
-                      <svg
-                        className={`h-4 w-4 shrink-0 text-neutral-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
+                      <div className="flex items-center gap-2">
+                        {commitment.dataPoints && commitment.dataPoints.length >= 2 && (
+                          <CommitmentSparkline dataPoints={commitment.dataPoints} />
+                        )}
+                        <svg
+                          className={`h-4 w-4 shrink-0 text-neutral-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
                     </div>
                     <p className="mt-1 text-[10px] text-neutral-500">
                       {t('dprChapter', { chapter: commitment.chapter })}
@@ -186,6 +238,13 @@ export function CommitmentsDashboard({
                           {base}
                         </p>
                       )}
+
+                      <CommitmentTimeline
+                        statusHistory={commitment.statusHistory}
+                        locale={locale}
+                        statusLabels={statusLabels}
+                      />
+
                       <Link
                         href={{ pathname: '/domains/[slug]' as const, params: { slug: commitment.domain as DomainSlug } }}
                         className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-brand-700 hover:underline"

@@ -1925,11 +1925,14 @@
     "baseline": "Huidige situatie",
     "learnMore": "Bekijk de domeinkaart",
     "status": {
-      "pending": "In afwachting",
-      "on-track": "Op schema",
+      "not-started": "Nog niet gestart",
+      "announced": "Aangekondigd",
+      "in-legislation": "In wetgevend proces",
+      "implemented": "Uitgevoerd",
       "delayed": "Vertraagd",
-      "achieved": "Gerealiseerd"
-    }
+      "abandoned": "Opgegeven"
+    },
+    "minister": "Minister"
   },
   "subscribePage": {
     "title": "Volg het Brusselse bestuur",

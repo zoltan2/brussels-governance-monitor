@@ -2,8 +2,8 @@
   "week": "2026-w11",
   "weekStart": "2026-03-09",
   "created_at": "2026-03-15T20:00:37.431Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "7 domaines, 5 dossiers, 1 commune mis à jour",
     "nl": "7 domeinen, 5 dossiers, 1 gemeente bijgewerkt",
@@ -46,5 +46,6 @@
     "dossier-reforme-administration",
     "dossier-metro-3",
     "commune-bruxelles-ville"
-  ]
+  ],
+  "sent_at": "2026-03-15T21:25:16.144Z"
 }

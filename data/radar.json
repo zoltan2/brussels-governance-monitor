@@ -1,6 +1,62 @@
 {
-  "lastVeille": "2026-03-13",
+  "lastVeille": "2026-03-15",
   "entries": [
+    {
+      "id": "2026-03-13-rep-sup-ordonnance",
+      "date": "2026-03-13",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["cleanliness"],
+      "source": {
+        "label": "BRUZZ — Brussels Parlement stemt in met UPV verpakkingsindustrie (13 maart 2026)",
+        "url": "https://www.bruzz.be/actua/politiek/brussels-parlement-stemt-met-uitgebreide-verantwoordelijkheid-verpakkingsindustrie-2026-03-13",
+        "accessedAt": "2026-03-15"
+      },
+      "nextStep": {
+        "fr": "Suivre le vote au Parlement flamand (texte encore en discussion). Vérifier les premiers versements aux communes en 2026.",
+        "nl": "Stemming in het Vlaams Parlement opvolgen (tekst nog in bespreking). Eerste stortingen aan gemeenten in 2026 nagaan.",
+        "en": "Follow the vote in the Flemish Parliament (text still under discussion). Monitor first payments to municipalities in 2026.",
+        "de": "Abstimmung im Flämischen Parlament verfolgen (Text noch in Diskussion). Erste Zahlungen an Gemeinden 2026 prüfen."
+      },
+      "descriptions": {
+        "fr": "Le Parlement bruxellois vote l'ordonnance REP plastique à usage unique (directive SUP). 51,4 M€/an financés par les producteurs (26,7 M€ dès 2026). 54 % aux communes, 46 % à la Région. Extension possible à meubles, textiles, couches.",
+        "nl": "Het Brussels Parlement stemt de ordonnantie UPV kunststof voor eenmalig gebruik (SUP-richtlijn). 51,4 M€/jaar gefinancierd door producenten (26,7 M€ vanaf 2026). 54% voor gemeenten, 46% voor het Gewest. Uitbreiding mogelijk naar meubels, textiel, luiers.",
+        "en": "Brussels Parliament passes EPR ordinance for single-use plastics (SUP Directive). €51.4M/year funded by producers (€26.7M from 2026). 54% to municipalities, 46% to the Region. Possible extension to furniture, textiles, nappies.",
+        "de": "Das Brüsseler Parlament verabschiedet die EPR-Verordnung für Einwegkunststoffe (SUP-Richtlinie). 51,4 Mio. €/Jahr von Herstellern finanziert (26,7 Mio. € ab 2026). 54 % für Gemeinden, 46 % für die Region. Mögliche Erweiterung auf Möbel, Textilien, Windeln."
+      },
+      "promotedTo": "cleanliness",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-13-fusion-polices-motion-belangenconflict",
+      "date": "2026-03-13",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["security"],
+      "source": {
+        "label": "BRUZZ — Défi-motie belangenconflict tegen politiefusie (13 maart 2026)",
+        "url": "https://www.bruzz.be/actua/veiligheid/brussels-parlement-neemt-defi-motie-voor-belangenconflict-tegen-politiefusie-overweging-2026-03-13",
+        "accessedAt": "2026-03-15"
+      },
+      "nextStep": {
+        "fr": "Suivre la concertation 60 jours (échéance ~12 mai 2026). Vérifier si d'autres parlements régionaux déposent des motions similaires.",
+        "nl": "Overlegperiode 60 dagen opvolgen (deadline ~12 mei 2026). Nagaan of andere regionale parlementen gelijkaardige moties indienen.",
+        "en": "Follow the 60-day consultation (deadline ~12 May 2026). Check if other regional parliaments file similar motions.",
+        "de": "60-tägige Konzertierungsphase verfolgen (Frist ~12. Mai 2026). Prüfen, ob andere Regionalparlamente ähnliche Anträge stellen."
+      },
+      "descriptions": {
+        "fr": "Le Parlement bruxellois prend en considération la motion DéFI/Ecolo de conflit d'intérêt contre la fusion des 6 zones de police. Concertation 60 jours avec la Chambre fédérale, suspension de la procédure législative. Arguments : caractère imposé (vs volontaire ailleurs), opposition des bourgmestres, avis négatifs Brulocalis et Conseil d'État.",
+        "nl": "Het Brussels Parlement neemt de DéFI/Ecolo-motie van belangenconflict tegen de fusie van 6 politiezones in overweging. 60 dagen overleg met de federale Kamer, opschorting van de wetgevende procedure. Argumenten: verplicht karakter (vs vrijwillig elders), verzet van burgemeesters, negatieve adviezen Brulocalis en Raad van State.",
+        "en": "Brussels Parliament considers the DéFI/Ecolo conflict of interest motion against the merger of 6 police zones. 60-day consultation with the federal Chamber, suspension of legislative procedure. Arguments: mandatory nature (vs voluntary elsewhere), mayor opposition, negative opinions from Brulocalis and Council of State.",
+        "de": "Das Brüsseler Parlament nimmt den DéFI/Ecolo-Antrag auf Interessenkonflikt gegen die Fusion der 6 Polizeizonen in Betracht. 60-tägige Konzertierung mit der föderalen Kammer, Aussetzung des Gesetzgebungsverfahrens. Argumente: Pflichtcharakter (vs freiwillig anderswo), Widerstand der Bürgermeister, negative Gutachten Brulocalis und Staatsrat."
+      },
+      "promotedTo": "security",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-12-cluster-defense-bedex",
       "date": "2026-03-12",

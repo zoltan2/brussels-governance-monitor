@@ -20,6 +20,7 @@ import { CardSubscribe } from '@/components/card-subscribe';
 import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
 
+
 export function generateStaticParams() {
   const slugs = getAllSectorSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));

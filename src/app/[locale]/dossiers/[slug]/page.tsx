@@ -28,6 +28,7 @@ import { CardSubscribe } from '@/components/card-subscribe';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 
+
 export function generateStaticParams() {
   const slugs = getAllDossierSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));

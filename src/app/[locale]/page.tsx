@@ -18,6 +18,7 @@ import type { Locale } from '@/i18n/routing';
 import type { DossierCard as DossierCardType, SectorCard as SectorCardType } from '@/lib/content';
 import type { LocalizedRadarEntry } from '@/lib/radar';
 import { buildMetadata } from '@/lib/metadata';
+import { SupportCtaHome } from '@/components/support-cta';
 import {
   Radio,
   BookOpen,
@@ -117,6 +118,8 @@ export default async function HomePage({
       <DomainsPreview domainCards={recentDomains} locale={locale} totalCount={domainCards.length} />
 
       <SectorsPreview sectorCards={recentSectors} totalCount={sectorCards.length} />
+
+      <SupportCtaHome />
 
       <SubscribeSection dossierOptions={getAllDossierTopicOptions(locale as Locale).map((d) => ({ id: d.topicId, label: d.label }))} />
     </>

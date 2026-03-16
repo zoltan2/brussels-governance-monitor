@@ -11,6 +11,7 @@ import { buildMetadata } from '@/lib/metadata';
 import type { Locale } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import type { ChangelogEntry } from '@/lib/changelog';
+import { SupportCtaChangelog } from '@/components/support-cta';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -78,6 +79,8 @@ function ChangelogView({ entries, locale }: { entries: ChangelogEntry[]; locale:
 
         <h1 className="mb-2 text-2xl font-bold text-neutral-900">{t('pageTitle')}</h1>
         <p className="mb-8 text-sm text-neutral-500">{t('pageSubtitle')}</p>
+
+        <SupportCtaChangelog />
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">

@@ -21,6 +21,7 @@ import { TransparencyGrid } from '@/components/transparency-grid';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 
+
 export function generateStaticParams() {
   const slugs = getAllCommuneSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));

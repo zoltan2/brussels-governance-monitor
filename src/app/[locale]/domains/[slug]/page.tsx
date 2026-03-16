@@ -27,6 +27,7 @@ import { CollapsibleMetrics } from '@/components/collapsible-metrics';
 import { CollapsibleSources } from '@/components/collapsible-sources';
 import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { SupportCtaInline } from '@/components/support-cta';
 
 export function generateStaticParams() {
   const slugs = getAllDomainSlugs();
@@ -314,6 +315,8 @@ function DomainDetail({
             }}
           />
         </div>
+
+        <SupportCtaInline />
 
         <div className="mt-8">
           <FeedbackButton

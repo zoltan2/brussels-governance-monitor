@@ -19,6 +19,7 @@ import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { SupportCtaInline } from '@/components/support-cta';
 
 export function generateStaticParams() {
   const slugs = getAllSectorSlugs();
@@ -248,6 +249,8 @@ function SectorDetail({
             }}
           />
         </div>
+
+        <SupportCtaInline />
 
         <div className="mt-8">
           <FeedbackButton

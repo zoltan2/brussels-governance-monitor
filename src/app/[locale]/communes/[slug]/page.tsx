@@ -20,6 +20,7 @@ import { CardSubscribe } from '@/components/card-subscribe';
 import { TransparencyGrid } from '@/components/transparency-grid';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { SupportCtaInline } from '@/components/support-cta';
 
 export function generateStaticParams() {
   const slugs = getAllCommuneSlugs();
@@ -332,6 +333,8 @@ function CommuneDetail({
             }}
           />
         </div>
+
+        <SupportCtaInline />
 
         <div className="mt-8">
           <FeedbackButton

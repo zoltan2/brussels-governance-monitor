@@ -1,5 +1,113 @@
 [
   {
+    "date": "2026-03-16",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "security",
+    "descriptions": {
+      "fr": "Carte sécurité : task-force hotspot gare du Nord activée (fermeture commerces 1h-6h, caméras, trottinettes 8 km/h). Explosion avenue Albert Giraud à Schaerbeek (13 mars, engin pyrotechnique, aucun blessé).",
+      "nl": "Kaart veiligheid: taskforce hotspot Noordstation geactiveerd (sluiting winkels 1u-6u, camera's, steps 8 km/u). Explosie Albert Giraudlaan in Schaarbeek (13 maart, pyrotechnisch apparaat, geen gewonden).",
+      "en": "Security card: Gare du Nord hotspot task force activated (shop closure 1am-6am, cameras, e-scooters 8 km/h). Explosion on avenue Albert Giraud in Schaerbeek (13 March, pyrotechnic device, no injuries).",
+      "de": "Karte Sicherheit: Task-Force Hotspot Nordbahnhof aktiviert (Geschäftsschließung 1-6 Uhr, Kameras, E-Scooter 8 km/h). Explosion Avenue Albert Giraud in Schaerbeek (13. März, pyrotechnisches Gerät, keine Verletzten)."
+    },
+    "summaries": {
+      "fr": "Task-force gare du Nord + explosion Schaerbeek",
+      "nl": "Taskforce Noordstation + explosie Schaarbeek",
+      "en": "Gare du Nord task force + Schaerbeek explosion",
+      "de": "Task-Force Nordbahnhof + Explosion Schaerbeek"
+    }
+  },
+  {
+    "date": "2026-03-16",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "economy",
+    "descriptions": {
+      "fr": "Carte économie : Visit Brussels perd 5,7 M EUR dans le budget 2026 (austérité régionale). Double impact avec la TVA hôtelière à 12 %.",
+      "nl": "Kaart economie: Visit Brussels verliest 5,7 M EUR in begroting 2026 (regionale besparingen). Dubbele impact met hotel-btw op 12%.",
+      "en": "Economy card: Visit Brussels loses €5.7M in the 2026 budget (regional austerity). Double impact with hotel VAT at 12%.",
+      "de": "Karte Wirtschaft: Visit Brussels verliert 5,7 Mio. EUR im Haushalt 2026 (regionale Sparmaßnahmen). Doppelwirkung mit Hotel-MwSt. bei 12 %."
+    },
+    "summaries": {
+      "fr": "Visit Brussels : -5,7 M EUR (austérité 2026)",
+      "nl": "Visit Brussels: -5,7 M EUR (besparingen 2026)",
+      "en": "Visit Brussels: -€5.7M (austerity 2026)",
+      "de": "Visit Brussels: -5,7 Mio. EUR (Sparmaßnahmen 2026)"
+    }
+  },
+  {
+    "date": "2026-03-16",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "institutional",
+    "descriptions": {
+      "fr": "Carte institutionnel : Brulocalis enrichi (ventilation charges : police ~500M, pensions 775M, chômage 558M, fiscal 32M/an). Palais de Justice : rénovation totale >600M EUR (façade 2030, intérieur 2040).",
+      "nl": "Kaart institutioneel: Brulocalis verrijkt (verdeling lasten: politie ~500M, pensioenen 775M, werkloosheid 558M, fiscaal 32M/jaar). Justitiepaleis: totale renovatie >600M EUR (gevel 2030, interieur 2040).",
+      "en": "Institutional card: Brulocalis enriched (charge breakdown: police ~500M, pensions 775M, unemployment 558M, tax 32M/year). Palais de Justice: total renovation >€600M (facade 2030, interior 2040).",
+      "de": "Karte Institutionell: Brulocalis angereichert (Lastenverteilung: Polizei ~500M, Pensionen 775M, Arbeitslosigkeit 558M, Steuer 32M/Jahr). Justizpalast: Gesamtrenovierung >600 Mio. EUR (Fassade 2030, Innenausbau 2040)."
+    },
+    "summaries": {
+      "fr": "Brulocalis détaillé + Palais de Justice 600M",
+      "nl": "Brulocalis gedetailleerd + Justitiepaleis 600M",
+      "en": "Brulocalis detailed + Palais de Justice €600M",
+      "de": "Brulocalis detailliert + Justizpalast 600 Mio."
+    }
+  },
+  {
+    "date": "2026-03-16",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "housing",
+    "descriptions": {
+      "fr": "Carte logement : amiante et moisissures dans les tours Machtens à Molenbeek (~200 logements sociaux). Démolition prévue, pas de plan de relogement.",
+      "nl": "Kaart huisvesting: asbest en schimmel in de Machtenstorens in Molenbeek (~200 sociale woningen). Sloop voorzien, geen herhuisvestingsplan.",
+      "en": "Housing card: asbestos and mould in Machtens towers in Molenbeek (~200 social housing units). Demolition planned, no rehousing plan.",
+      "de": "Karte Wohnen: Asbest und Schimmel in den Machtens-Türmen in Molenbeek (~200 Sozialwohnungen). Abriss geplant, kein Umsiedlungsplan."
+    },
+    "summaries": {
+      "fr": "Amiante tours Machtens Molenbeek (~200 logements)",
+      "nl": "Asbest Machtenstorens Molenbeek (~200 woningen)",
+      "en": "Asbestos Machtens towers Molenbeek (~200 units)",
+      "de": "Asbest Machtens-Türme Molenbeek (~200 Wohnungen)"
+    }
+  },
+  {
+    "date": "2026-03-16",
+    "type": "updated",
+    "section": "communes",
+    "targetSlug": "schaerbeek",
+    "descriptions": {
+      "fr": "Commune Schaerbeek : explosion avenue Albert Giraud (13 mars 2026, engin pyrotechnique, aucun blessé). Enquête en cours.",
+      "nl": "Gemeente Schaarbeek: explosie Albert Giraudlaan (13 maart 2026, pyrotechnisch apparaat, geen gewonden). Onderzoek lopende.",
+      "en": "Municipality of Schaerbeek: explosion on avenue Albert Giraud (13 March 2026, pyrotechnic device, no injuries). Investigation ongoing.",
+      "de": "Gemeinde Schaerbeek: Explosion Avenue Albert Giraud (13. März 2026, pyrotechnisches Gerät, keine Verletzten). Ermittlungen laufen."
+    },
+    "summaries": {
+      "fr": "Explosion Schaerbeek — engin pyrotechnique",
+      "nl": "Explosie Schaarbeek — pyrotechnisch apparaat",
+      "en": "Schaerbeek explosion — pyrotechnic device",
+      "de": "Explosion Schaerbeek — pyrotechnisches Gerät"
+    }
+  },
+  {
+    "date": "2026-03-16",
+    "type": "updated",
+    "section": "communes",
+    "targetSlug": "molenbeek-saint-jean",
+    "descriptions": {
+      "fr": "Commune Molenbeek : amiante dans les tours Machtens (~200 logements sociaux). Démolition prévue, pas de plan de relogement.",
+      "nl": "Gemeente Molenbeek: asbest in de Machtenstorens (~200 sociale woningen). Sloop voorzien, geen herhuisvestingsplan.",
+      "en": "Municipality of Molenbeek: asbestos in Machtens towers (~200 social housing units). Demolition planned, no rehousing plan.",
+      "de": "Gemeinde Molenbeek: Asbest in den Machtens-Türmen (~200 Sozialwohnungen). Abriss geplant, kein Umsiedlungsplan."
+    },
+    "summaries": {
+      "fr": "Amiante tours Machtens Molenbeek",
+      "nl": "Asbest Machtenstorens Molenbeek",
+      "en": "Asbestos Machtens towers Molenbeek",
+      "de": "Asbest Machtens-Türme Molenbeek"
+    }
+  },
+  {
     "date": "2026-03-15",
     "type": "updated",
     "section": "domains",

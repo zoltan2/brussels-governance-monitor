@@ -172,14 +172,6 @@ function SupportView({
                 </a>
               ))}
             </div>
-            <a
-              href={donateMonthlyUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-medium text-blue-800 hover:underline"
-            >
-              {t('monthlyOther')}
-            </a>
           </div>
         </div>
         <p className="mb-10 text-center text-xs text-neutral-400">

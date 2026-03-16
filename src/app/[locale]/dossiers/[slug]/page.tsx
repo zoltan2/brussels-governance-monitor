@@ -27,7 +27,7 @@ import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
-import { SupportCtaInline } from '@/components/support-cta';
+
 
 export function generateStaticParams() {
   const slugs = getAllDossierSlugs();
@@ -450,8 +450,6 @@ function DossierDetail({
             }}
           />
         </div>
-
-        <SupportCtaInline />
 
         <div className="mt-8">
           <FeedbackButton

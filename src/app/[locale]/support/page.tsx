@@ -40,7 +40,8 @@ export async function generateMetadata({
   });
 }
 
-const DONATE_BASE_URL = 'https://donate.stripe.com/3cI6oG72qdqma76dWe3wQ01';
+const DONATE_ONCE_URL = 'https://donate.stripe.com/3cI6oG72qdqma76dWe3wQ01';
+const DONATE_MONTHLY_URL = 'https://donate.stripe.com/8x2fZg86ubie932aK23wQ02';
 
 const stripeLocaleMap: Record<string, string> = {
   fr: 'fr',
@@ -49,9 +50,16 @@ const stripeLocaleMap: Record<string, string> = {
   de: 'de',
 };
 
-function getDonateUrl(locale: string): string {
+function getDonateOnceUrl(locale: string): string {
   const stripeLocale = stripeLocaleMap[locale] || 'fr';
-  return `${DONATE_BASE_URL}?locale=${stripeLocale}`;
+  return `${DONATE_ONCE_URL}?locale=${stripeLocale}`;
+}
+
+function getDonateMonthlyUrl(locale: string, amountCents?: number): string {
+  const stripeLocale = stripeLocaleMap[locale] || 'fr';
+  const params = new URLSearchParams({ locale: stripeLocale });
+  if (amountCents) params.set('prefilled_amount', String(amountCents));
+  return `${DONATE_MONTHLY_URL}?${params.toString()}`;
 }
 
 export default async function SupportPage({
@@ -62,10 +70,24 @@ export default async function SupportPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <SupportView locale={locale} donateUrl={getDonateUrl(locale)} />;
+  return (
+    <SupportView
+      locale={locale}
+      donateOnceUrl={getDonateOnceUrl(locale)}
+      donateMonthlyUrl={(cents?: number) => getDonateMonthlyUrl(locale, cents)}
+    />
+  );
 }
 
-function SupportView({ locale, donateUrl }: { locale: string; donateUrl: string }) {
+function SupportView({
+  locale,
+  donateOnceUrl,
+  donateMonthlyUrl,
+}: {
+  locale: string;
+  donateOnceUrl: string;
+  donateMonthlyUrl: (cents?: number) => string;
+}) {
   const t = useTranslations('support');
   const tb = useTranslations('breadcrumb');
 
@@ -117,20 +139,52 @@ function SupportView({ locale, donateUrl }: { locale: string; donateUrl: string 
         </div>
 
         {/* Section 3: Donate */}
-        <div className="mb-10 text-center">
-          <a
-            href={donateUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-900 px-10 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-800 hover:shadow-md"
-          >
-            {t('donateButton')}
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
-          </a>
-          <p className="mt-3 text-xs text-neutral-400">
-            Visa · Mastercard · Bancontact · Apple Pay · Google Pay
-          </p>
+        <div className="mb-10 grid gap-5 sm:grid-cols-2">
+          {/* One-time */}
+          <div className="rounded-lg border border-neutral-200 bg-white p-5 text-center">
+            <h3 className="mb-1 text-sm font-semibold text-neutral-800">{t('onceTitle')}</h3>
+            <p className="mb-4 text-xs text-neutral-500">{t('onceSubtitle')}</p>
+            <a
+              href={donateOnceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-900 px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-800 hover:shadow-md"
+            >
+              {t('donateButton')}
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+            </a>
+          </div>
+
+          {/* Monthly */}
+          <div className="rounded-lg border border-blue-200 bg-blue-50/30 p-5 text-center">
+            <h3 className="mb-1 text-sm font-semibold text-neutral-800">{t('monthlyTitle')}</h3>
+            <p className="mb-4 text-xs text-neutral-500">{t('monthlySubtitle')}</p>
+            <div className="mb-3 flex justify-center gap-2">
+              {[500, 1000, 2000].map((cents) => (
+                <a
+                  key={cents}
+                  href={donateMonthlyUrl(cents)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md border border-blue-800 px-4 py-2 text-xs font-medium text-blue-800 transition-colors hover:bg-blue-800 hover:text-white"
+                >
+                  {cents / 100} €/{t('month')}
+                </a>
+              ))}
+            </div>
+            <a
+              href={donateMonthlyUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium text-blue-800 hover:underline"
+            >
+              {t('monthlyOther')}
+            </a>
+          </div>
         </div>
+        <p className="mb-10 text-center text-xs text-neutral-400">
+          Visa · Mastercard · Bancontact · Apple Pay · Google Pay
+        </p>
 
         {/* Section 4: Stats */}
         <div className="mb-10 flex flex-wrap justify-center gap-6 text-center text-xs text-neutral-500">

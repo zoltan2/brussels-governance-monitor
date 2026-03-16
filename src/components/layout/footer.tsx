@@ -89,6 +89,9 @@ export function Footer() {
               <Link href="/press" className="hover:text-neutral-700">
                 {t('press')}
               </Link>
+              <Link href="/support" className="hover:text-neutral-700 font-medium text-blue-800">
+                {t('support')}
+              </Link>
             </nav>
           </div>
         </div>

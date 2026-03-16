@@ -128,6 +128,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: '/about' },
     { href: '/radar' },
     { href: '/press' },
+    { href: '/support' },
   ];
 
   for (const { href, priority, changeFrequency } of staticPaths) {

@@ -247,6 +247,12 @@ export const routing = defineRouting({
       en: '/press',
       de: '/presse',
     },
+    '/support': {
+      fr: '/soutenir',
+      nl: '/steunen',
+      en: '/support',
+      de: '/unterstuetzen',
+    },
   },
 });
 

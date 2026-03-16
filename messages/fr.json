@@ -22,7 +22,8 @@
     "explore": "Explorer",
     "communes": "Communes",
     "radar": "Radar",
-    "tools": "Outils"
+    "tools": "Outils",
+    "support": "Soutenir"
   },
   "counter": {
     "archived": "jours sans gouvernement régional",
@@ -170,7 +171,11 @@
     "dossiers": "Dossiers",
     "changelog": "Mises à jour",
     "radar": "Radar",
-    "press": "Presse"
+    "press": "Presse",
+    "support": "Soutenir",
+    "supportTitle": "Ce projet vit grâce à vous",
+    "supportSubtitle": "Indépendant, sans pub, sans subvention — votre soutien compte.",
+    "supportCta": "Soutenir le projet"
   },
   "locale": {
     "switchTo": "Changer de langue",
@@ -1634,7 +1639,8 @@
     "subscribe": "S'inscrire",
     "about": "À propos",
     "radar": "Radar",
-    "press": "Presse"
+    "press": "Presse",
+    "support": "Soutenir le projet"
   },
   "understand": {
     "title": "Comprendre",
@@ -1716,6 +1722,31 @@
     },
     "by": "par",
     "readArticle": "Lire l'article"
+  },
+  "support": {
+    "pageTitle": "Soutenir le Brussels Governance Monitor",
+    "pageSubtitle": "Un projet citoyen, indépendant, sans publicité et sans subvention.",
+    "intro": "Le Brussels Governance Monitor documente l'action du gouvernement bruxellois au quotidien. Tout est en accès libre. Ce travail repose entièrement sur du temps bénévole et des outils payants. Votre soutien permet de maintenir ce projet en ligne et à jour.",
+    "whatItFunds": "À quoi sert votre soutien",
+    "pillarHosting": "Hébergement",
+    "pillarVeille": "Veille quotidienne",
+    "pillarLanguages": "13 langues",
+    "pillarIndependence": "Indépendance",
+    "languagesNote": "4 langues complètes (FR, NL, EN, DE) + digest hebdomadaire en 12 langues, 79 à terme.",
+    "donateButton": "Soutenir governance.brussels",
+    "statPages": "pages",
+    "statSources": "sources",
+    "statDomains": "domaines",
+    "statCommunes": "communes",
+    "transparencyTitle": "Transparence",
+    "legalText": "Le Brussels Governance Monitor est édité par Advice That SRL, Rue Delwart 149, 1070 Bruxelles — BCE 0728.534.930 — contact@brusselsgovernance.be. Les dons sont volontaires, sans contrepartie et non déductibles fiscalement. Les dons ne font pas l'objet de remboursement. Chaque euro finance le fonctionnement du site et la production de contenu.",
+    "otherWaysTitle": "Vous pouvez aussi aider autrement",
+    "shareLabel": "Partager",
+    "shareText": "Faites connaître governance.brussels autour de vous",
+    "reportLabel": "Signaler",
+    "reportText": "Sources, corrections ou suggestions → contact@brusselsgovernance.be",
+    "contributeLabel": "Contribuer",
+    "contributeText": "Le code source est disponible sur"
   },
   "accessibility": {
     "falcLabel": "En bref (lecture facile)",

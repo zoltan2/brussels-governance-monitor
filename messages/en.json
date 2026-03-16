@@ -22,7 +22,8 @@
     "explore": "Explore",
     "communes": "Municipalities",
     "radar": "Radar",
-    "tools": "Tools"
+    "tools": "Tools",
+    "support": "Support"
   },
   "counter": {
     "archived": "days without a regional government",
@@ -170,7 +171,11 @@
     "dossiers": "Dossiers",
     "changelog": "Updates",
     "radar": "Radar",
-    "press": "Press"
+    "press": "Press",
+    "support": "Support",
+    "supportTitle": "This project relies on you",
+    "supportSubtitle": "Independent, ad-free, no subsidies — your support matters.",
+    "supportCta": "Support the project"
   },
   "locale": {
     "switchTo": "Change language",
@@ -1634,7 +1639,8 @@
     "subscribe": "Subscribe",
     "about": "About",
     "radar": "Radar",
-    "press": "Press"
+    "press": "Press",
+    "support": "Support the project"
   },
   "understand": {
     "title": "Understand",
@@ -1716,6 +1722,31 @@
     },
     "by": "by",
     "readArticle": "Read article"
+  },
+  "support": {
+    "pageTitle": "Support the Brussels Governance Monitor",
+    "pageSubtitle": "An independent citizen project, ad-free and without subsidies.",
+    "intro": "The Brussels Governance Monitor documents the Brussels government's actions on a daily basis. Everything is freely accessible. This work relies entirely on volunteer time and paid tools. Your support keeps this project online and up to date.",
+    "whatItFunds": "What your support funds",
+    "pillarHosting": "Hosting",
+    "pillarVeille": "Daily monitoring",
+    "pillarLanguages": "13 languages",
+    "pillarIndependence": "Independence",
+    "languagesNote": "4 full languages (FR, NL, EN, DE) + weekly digest in 12 languages, 79 eventually.",
+    "donateButton": "Support governance.brussels",
+    "statPages": "pages",
+    "statSources": "sources",
+    "statDomains": "domains",
+    "statCommunes": "municipalities",
+    "transparencyTitle": "Transparency",
+    "legalText": "The Brussels Governance Monitor is published by Advice That SRL, Rue Delwart 149, 1070 Brussels — BCE 0728.534.930 — contact@brusselsgovernance.be. Donations are voluntary, with no consideration, and not tax-deductible. Donations are non-refundable. Every euro funds the operation of the site and content production.",
+    "otherWaysTitle": "Other ways to help",
+    "shareLabel": "Share",
+    "shareText": "Spread the word about governance.brussels",
+    "reportLabel": "Report",
+    "reportText": "Sources, corrections or suggestions → contact@brusselsgovernance.be",
+    "contributeLabel": "Contribute",
+    "contributeText": "The source code is available on"
   },
   "accessibility": {
     "falcLabel": "In brief (easy read)",

@@ -302,10 +302,10 @@
         "de": "Die Brüsseler Beschäftigungsquote liegt strukturell unter dem belgischen Durchschnitt (~72 %). Das 70-%-Ziel steht im Einklang mit der europäischen Strategie für 2030. Messung: Actiris- und Statbel-Statistiken."
       },
       "baseline": {
-        "fr": "~65 % (estimation 2025)",
-        "nl": "~65 % (schatting 2025)",
-        "en": "~65% (2025 estimate)",
-        "de": "~65 % (Schätzung 2025)"
+        "fr": "58,9 % (Statbel LFS, 2024)",
+        "nl": "58,9 % (Statbel LFS, 2024)",
+        "en": "58.9% (Statbel LFS, 2024)",
+        "de": "58,9 % (Statbel LFS, 2024)"
       },
       "deadline": "2030",
       "chapter": 5,
@@ -332,10 +332,10 @@
       ],
       "dataPoints": [
         {
-          "date": "2025-01-01",
-          "value": 65,
+          "date": "2024-12-31",
+          "value": 58.9,
           "unit": "%",
-          "source": "Estimation Statbel 2025"
+          "source": "BISA Mini-Bru 2026 (Statbel LFS, 2024) — écart de 11,1 pts vs objectif DPR 70 %"
         }
       ]
     },

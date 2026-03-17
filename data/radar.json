@@ -1,6 +1,62 @@
 {
-  "lastVeille": "2026-03-16",
+  "lastVeille": "2026-03-17",
   "entries": [
+    {
+      "id": "2026-03-17-greve-bruxelles-proprete",
+      "date": "2026-03-18",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["cleanliness"],
+      "source": {
+        "label": "BX1 — Trois jours de grève chez Bruxelles-Propreté (16 mars 2026)",
+        "url": "https://bx1.be/categories/news/trois-jours-de-greve-chez-bruxelles-proprete-des-ce-mercredi-quels-sacs-ne-seront-pas-recoltes/",
+        "accessedAt": "2026-03-17"
+      },
+      "nextStep": {
+        "fr": "Suivre la reprise du service après le 20 mars. Vérifier si les retards de collecte persistent.",
+        "nl": "Hervatting dienst na 20 maart opvolgen. Nagaan of ophaalvertragingen aanhouden.",
+        "en": "Monitor service resumption after 20 March. Check if collection delays persist.",
+        "de": "Wiederaufnahme des Dienstes nach dem 20. März verfolgen. Prüfen, ob Abholungsverzögerungen anhalten."
+      },
+      "descriptions": {
+        "fr": "Grève Bruxelles-Propreté du 18 au 20 mars 2026. Collecte limitée aux sacs blancs/oranges/verts. Sacs bleus et jaunes non ramassés jusqu'à la semaine suivante.",
+        "nl": "Staking Net Brussel van 18 tot 20 maart 2026. Ophaling beperkt tot witte/oranje/groene zakken. Blauwe en gele zakken niet opgehaald tot volgende week.",
+        "en": "Bruxelles-Propreté strike 18-20 March 2026. Collection limited to white/orange/green bags. Blue and yellow bags not collected until following week.",
+        "de": "Streik Bruxelles-Propreté 18.-20. März 2026. Abholung auf weiße/orange/grüne Säcke beschränkt. Blaue und gelbe Säcke erst nächste Woche abgeholt."
+      },
+      "promotedTo": "cleanliness",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-16-militaires-ecoles-synagogues",
+      "date": "2026-03-16",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["security"],
+      "source": {
+        "label": "RTBF — Militaires déployés pour la sécurité des synagogues et écoles juives (16 mars 2026)",
+        "url": "https://www.rtbf.be/article/antisemitisme-des-militaires-seront-deployes-pour-assurer-la-securite-des-synagogues-et-ecoles-juives-annoncent-les-ministres-quintin-et-francken-11695365",
+        "accessedAt": "2026-03-17"
+      },
+      "nextStep": {
+        "fr": "Vérifier le déploiement effectif et la coordination avec les zones de police bruxelloises.",
+        "nl": "Effectieve inzet en coördinatie met Brusselse politiezones nagaan.",
+        "en": "Verify actual deployment and coordination with Brussels police zones.",
+        "de": "Tatsächlichen Einsatz und Koordination mit Brüsseler Polizeizonen prüfen."
+      },
+      "descriptions": {
+        "fr": "Quintin (Intérieur) et Francken (Défense) annoncent le déploiement de militaires devant les synagogues et écoles juives. Contexte : attentat synagogue Liège (10 mars), menace niveau 3. Verlinden (Justice) critique l'annonce non discutée en Conseil des ministres.",
+        "nl": "Quintin (Binnenlandse Zaken) en Francken (Defensie) kondigen inzet van militairen aan bij synagogen en Joodse scholen. Context: aanslag synagoge Luik (10 maart), dreigingsniveau 3. Verlinden (Justitie) bekritiseert niet-besproken aankondiging in ministerraad.",
+        "en": "Quintin (Interior) and Francken (Defence) announce military deployment at synagogues and Jewish schools. Context: Liege synagogue attack (10 March), threat level 3. Verlinden (Justice) criticises announcement not discussed in Council of Ministers.",
+        "de": "Quintin (Inneres) und Francken (Verteidigung) kündigen Militäreinsatz vor Synagogen und jüdischen Schulen an. Kontext: Anschlag Synagoge Lüttich (10. März), Bedrohungsstufe 3. Verlinden (Justiz) kritisiert nicht im Ministerrat besprochene Ankündigung."
+      },
+      "promotedTo": "security",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-16-taskforce-hotspot-gare-du-nord",
       "date": "2026-03-16",

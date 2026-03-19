@@ -2,10 +2,19 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
 export function Footer() {
   const t = useTranslations('footer');
+  const locale = useLocale();
+
+  const podcastUrl =
+    locale === 'nl'
+      ? 'https://podcast.governance.brussels/@debriefingbgm'
+      : locale === 'fr'
+        ? 'https://podcast.governance.brussels/@lebriefingbgm'
+        : null;
 
   return (
     <footer className="border-t border-neutral-200 bg-neutral-50">
@@ -77,6 +86,17 @@ export function Footer() {
               <Link href="/radar" className="hover:text-neutral-700">
                 {t('radar')}
               </Link>
+              {podcastUrl && (
+                <a
+                  href={podcastUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-neutral-700"
+                >
+                  {t('podcast')}
+                  <span className="ml-1 text-neutral-400" aria-hidden="true">&#8599;</span>
+                </a>
+              )}
             </nav>
           </div>
 

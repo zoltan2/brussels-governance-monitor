@@ -80,6 +80,20 @@ function PressView({ mentions, locale }: { mentions: PressMention[]; locale: str
 
         <p className="mb-8 text-sm leading-relaxed text-neutral-600">{t('intro')}</p>
 
+        {(locale === 'fr' || locale === 'nl') && (
+          <div className="mb-8 rounded-lg border border-blue-100 bg-blue-50/50 px-5 py-4">
+            <a
+              href={locale === 'nl' ? 'https://podcast.governance.brussels/@debriefingbgm' : 'https://podcast.governance.brussels/@lebriefingbgm'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-blue-900 hover:text-blue-700 hover:underline"
+            >
+              {t('podcastLabel')}
+              <span className="ml-1 text-blue-400" aria-hidden="true">&#8599;</span>
+            </a>
+          </div>
+        )}
+
         <div className="space-y-4">
           {mentions.map((mention, i) => (
             <article

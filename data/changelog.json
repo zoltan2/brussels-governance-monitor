@@ -1,5 +1,95 @@
 [
   {
+    "date": "2026-03-19",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "mobility",
+    "descriptions": {
+      "fr": "Carte mobilité : sentiment de sécurité cyclistes en chute (24 % vs 39 % en 2023), 40 % femmes, e-bikes 50 %.",
+      "nl": "Kaart mobiliteit: veiligheidsgevoel fietsers daalt (24 % vs 39 % in 2023), 40 % vrouwen, e-bikes 50 %.",
+      "en": "Mobility card: cyclist safety perception drops (24% vs 39% in 2023), 40% women, e-bikes 50%.",
+      "de": "Karte Mobilität: Sicherheitsgefühl Radfahrer sinkt (24 % vs 39 % 2023), 40 % Frauen, E-Bikes 50 %."
+    },
+    "summaries": {
+      "fr": "Cyclistes : sécurité en chute (24 %)",
+      "nl": "Fietsers: veiligheid daalt (24 %)",
+      "en": "Cyclists: safety drops (24%)",
+      "de": "Radfahrer: Sicherheit sinkt (24 %)"
+    }
+  },
+  {
+    "date": "2026-03-19",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "housing",
+    "descriptions": {
+      "fr": "Carte logement : 32 % logements énergivores (F/G), Renolution supprimé, deadline 2033 menacée. Attractivité résidentielle (Brussels Studies).",
+      "nl": "Kaart huisvesting: 32 % energieverslindende woningen (F/G), Renolution geschrapt, deadline 2033 bedreigd. Residentiële aantrekkelijkheid (Brussels Studies).",
+      "en": "Housing card: 32% energy-guzzling homes (F/G), Renolution scrapped, 2033 deadline at risk. Residential attractiveness (Brussels Studies).",
+      "de": "Karte Wohnen: 32 % energiefressende Wohnungen (F/G), Renolution gestrichen, Frist 2033 gefährdet. Wohnattraktivität (Brussels Studies)."
+    },
+    "summaries": {
+      "fr": "32 % logements énergivores + attractivité résidentielle",
+      "nl": "32 % energieverslindend + residentiële aantrekkelijkheid",
+      "en": "32% energy-guzzling + residential attractiveness",
+      "de": "32 % energiefressend + Wohnattraktivität"
+    }
+  },
+  {
+    "date": "2026-03-19",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "security",
+    "descriptions": {
+      "fr": "Carte sécurité : mesures hotspot Quartier Nord enrichies — fermeture nocturne, enquêtes intégrité, Plan Gares 10M€.",
+      "nl": "Kaart veiligheid: hotspot-maatregelen Noordwijk verrijkt — nachtelijke sluiting, integriteitonderzoeken, Stationsplan 10M€.",
+      "en": "Security card: North Quarter hotspot measures enriched — night closure, integrity investigations, Station Plan €10M.",
+      "de": "Karte Sicherheit: Hotspot-Maßnahmen Nordviertel angereichert — nächtliche Schließung, Integritätsuntersuchungen, Bahnhofsplan 10M€."
+    },
+    "summaries": {
+      "fr": "Quartier Nord : mesures enrichies",
+      "nl": "Noordwijk: verrijkte maatregelen",
+      "en": "North Quarter: enriched measures",
+      "de": "Nordviertel: angereicherte Maßnahmen"
+    }
+  },
+  {
+    "date": "2026-03-19",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "cleanliness",
+    "descriptions": {
+      "fr": "Carte propreté : bilan J1 grève Bruxelles-Propreté — 80 % personnel actif, perturbations limitées.",
+      "nl": "Kaart netheid: balans dag 1 staking Net Brussel — 80 % personeel actief, beperkte hinder.",
+      "en": "Cleanliness card: day 1 strike update — 80% staff active, limited disruption.",
+      "de": "Karte Sauberkeit: Bilanz Tag 1 Streik — 80 % Personal aktiv, begrenzte Störungen."
+    },
+    "summaries": {
+      "fr": "Grève J1 : 80 % actif, perturbations limitées",
+      "nl": "Staking dag 1: 80 % actief, beperkte hinder",
+      "en": "Strike day 1: 80% active, limited disruption",
+      "de": "Streik Tag 1: 80 % aktiv, begrenzte Störungen"
+    }
+  },
+  {
+    "date": "2026-03-19",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "budget",
+    "descriptions": {
+      "fr": "Carte budget : Dilliès en commission Finances — « situation catastrophique », « politique cadeaux terminée ». Vote 26-27 mars.",
+      "nl": "Kaart budget: Dilliès in Financiële commissie — « catastrofale situatie », « politiek van cadeaus voorbij ». Stemming 26-27 maart.",
+      "en": "Budget card: Dilliès in Finance committee — 'catastrophic situation', 'gift-giving policy over'. Vote 26-27 March.",
+      "de": "Karte Haushalt: Dilliès im Finanzausschuss — « katastrophale Lage », « Politik der Geschenke vorbei ». Abstimmung 26.-27. März."
+    },
+    "summaries": {
+      "fr": "Budget « catastrophique » — vote 26-27 mars",
+      "nl": "Budget « catastrofaal » — stemming 26-27 maart",
+      "en": "Budget 'catastrophic' — vote 26-27 March",
+      "de": "Haushalt « katastrophal » — Abstimmung 26.-27. März"
+    }
+  },
+  {
     "date": "2026-03-18",
     "type": "updated",
     "section": "domains",

@@ -1,6 +1,90 @@
 {
-  "lastVeille": "2026-03-18",
+  "lastVeille": "2026-03-19",
   "entries": [
+    {
+      "id": "2026-03-19-fietsers-veiligheid",
+      "date": "2026-03-17",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["mobility"],
+      "source": {
+        "label": "BRUZZ — Fietsobservatorium 2025 : veiligheidsgevoel daalt (19 mars 2026)",
+        "url": "https://www.bruzz.be/actua/mobiliteit/driedaagse-staking-net-brussel-hinder-voorlopig-minimaal-2026-03-18",
+        "accessedAt": "2026-03-19"
+      },
+      "nextStep": {
+        "fr": "Suivre les mesures d'adaptation des infrastructures cyclables dans le nouveau Plan Régional de Mobilité.",
+        "nl": "Maatregelen voor aanpassing fietsinfrastructuur in het nieuwe Gewestelijk Mobiliteitsplan opvolgen.",
+        "en": "Follow cycling infrastructure adaptation in the new Regional Mobility Plan.",
+        "de": "Maßnahmen zur Anpassung der Radinfrastruktur im neuen Regionalen Mobilitätsplan verfolgen."
+      },
+      "descriptions": {
+        "fr": "Sentiment de sécurité cycliste en chute : 24 % se sentent en sécurité (vs 39 % en 2023). 40 % femmes, e-bikes 50 %. Coexiste avec +15,3 % d'usage et doublement des tués (20 en 2025).",
+        "nl": "Veiligheidsgevoel fietsers daalt: 24 % voelt zich veilig (vs 39 % in 2023). 40 % vrouwen, e-bikes 50 %. Samen met +15,3 % gebruik en verdubbeling doden (20 in 2025).",
+        "en": "Cyclist safety perception drops: 24% feel safe (vs 39% in 2023). 40% women, e-bikes 50%. Alongside +15.3% usage and doubling of deaths (20 in 2025).",
+        "de": "Sicherheitsgefühl Radfahrer sinkt: 24 % fühlen sich sicher (vs 39 % 2023). 40 % Frauen, E-Bikes 50 %. Neben +15,3 % Nutzung und Verdoppelung der Toten (20 in 2025)."
+      },
+      "promotedTo": "mobility",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-19-logements-energivores",
+      "date": "2026-03-19",
+      "confidence": "estimated",
+      "status": "active",
+      "cards": ["housing"],
+      "source": {
+        "label": "BRUZZ / Immoweb-Belfius — 32 % energieverslindende woningen Brussel (mars 2026)",
+        "url": "https://www.bruzz.be/actua/mobiliteit/driedaagse-staking-net-brussel-hinder-voorlopig-minimaal-2026-03-18",
+        "accessedAt": "2026-03-19"
+      },
+      "nextStep": {
+        "fr": "Suivre les modalités du prêt à taux zéro et le rythme de rénovation vs deadline 2033.",
+        "nl": "Modaliteiten renteloze lening en renovatietempo vs deadline 2033 opvolgen.",
+        "en": "Follow zero-interest loan modalities and renovation pace vs 2033 deadline.",
+        "de": "Modalitäten des zinslosen Darlehens und Renovierungstempo vs Frist 2033 verfolgen."
+      },
+      "descriptions": {
+        "fr": "32 % des logements à la vente à Bruxelles sont énergivores (F/G) — pire ratio des 3 régions. Renolution supprimé → prêts à taux zéro. Deadline 2033 menacée.",
+        "nl": "32 % van de woningen te koop in Brussel is energieverslindend (F/G) — slechtste ratio van de 3 gewesten. Renolution geschrapt → renteloze leningen. Deadline 2033 bedreigd.",
+        "en": "32% of homes for sale in Brussels are energy-guzzling (F/G) — worst ratio of 3 regions. Renolution scrapped → zero-interest loans. 2033 deadline at risk.",
+        "de": "32 % der Wohnungen zum Verkauf in Brüssel sind energiefressend (F/G) — schlechtestes Verhältnis der 3 Regionen. Renolution gestrichen → zinslose Darlehen. Frist 2033 gefährdet."
+      },
+      "promotedTo": "housing",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-19-quartier-nord-mesures",
+      "date": "2026-03-16",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["security"],
+      "source": {
+        "label": "La Libre / DH — Mesures hotspot Quartier Nord (16-18 mars 2026)",
+        "url": "https://www.dhnet.be/regions/bruxelles/2026/03/18/la-situation-financiere-est-catastrophique-boris-dillies-assume-un-budget-de-redemarrage-a-bruxelles-pour-eviter-les-douziemes-provisoires-3PLVOWUF3VEV5KVYRHCEPJFKYY/",
+        "accessedAt": "2026-03-19"
+      },
+      "nextStep": {
+        "fr": "Suivre la publication des arrêtés communaux de fermeture nocturne et les résultats des enquêtes d'intégrité.",
+        "nl": "Publicatie gemeentelijke besluiten nachtelijke sluiting en resultaten integriteitonderzoeken opvolgen.",
+        "en": "Follow publication of night closure decrees and integrity investigation results.",
+        "de": "Veröffentlichung der Gemeindeerlasse zur Schließung und Ergebnisse der Integritätsuntersuchungen verfolgen."
+      },
+      "descriptions": {
+        "fr": "Mesures hotspot Quartier Nord : fermeture nocturne 1h-6h (Schaerbeek + Saint-Josse), enquêtes intégrité commerces, réaménagement rue d'Aerschot (Plan Gares 10M€).",
+        "nl": "Hotspot-maatregelen Noordwijk: nachtelijke sluiting 1u-6u (Schaarbeek + Sint-Joost), integriteitonderzoeken handelszaken, heraanleg Aerschotstraat (Stationsplan 10M€).",
+        "en": "North Quarter hotspot measures: night closure 01:00-06:00 (Schaerbeek + Saint-Josse), business integrity investigations, rue d'Aerschot redesign (Station Plan €10M).",
+        "de": "Hotspot-Maßnahmen Nordviertel: nächtliche Schließung 1-6 Uhr (Schaerbeek + Saint-Josse), Integritätsuntersuchungen, Umgestaltung rue d'Aerschot (Bahnhofsplan 10M€)."
+      },
+      "promotedTo": "security",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-18-taxibus-pmr",
       "date": "2026-03-17",

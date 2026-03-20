@@ -1,5 +1,95 @@
 [
   {
+    "date": "2026-03-20",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "social",
+    "descriptions": {
+      "fr": "Carte social : paquet d'urgence — 325 places hébergement sécurisées, équipe Cover relancée, accès soins RMP.",
+      "nl": "Kaart sociaal: noodpakket — 325 opvangplaatsen veiliggesteld, team Cover herstart, toegang zorg RMP.",
+      "en": "Social card: emergency package — 325 shelter places secured, Cover team relaunched, RMP healthcare access.",
+      "de": "Karte Soziales: Notpaket — 325 Unterkunftsplätze gesichert, Team Cover neu gestartet, RMP-Gesundheitszugang."
+    },
+    "summaries": {
+      "fr": "325 places sans-abri sécurisées + Cover relancé",
+      "nl": "325 opvangplaatsen veiliggesteld + Cover herstart",
+      "en": "325 shelter places secured + Cover relaunched",
+      "de": "325 Plätze gesichert + Cover neu gestartet"
+    }
+  },
+  {
+    "date": "2026-03-20",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "cleanliness",
+    "descriptions": {
+      "fr": "Carte propreté : réforme collecte déchets (sacs jaunes bihebdo, blancs 1×/sem, 315M€). Grève J2 : 38 % camions.",
+      "nl": "Kaart netheid: hervorming afvalinzameling (gele zakken tweewekelijks, witte 1×/week, 315M€). Staking dag 2: 38 % vrachtwagens.",
+      "en": "Cleanliness card: waste collection reform (yellow bags biweekly, white 1×/week, €315M). Strike day 2: 38% trucks.",
+      "de": "Karte Sauberkeit: Reform Abfallsammlung (gelbe Säcke zweiwöchentlich, weiße 1×/Woche, 315M€). Streik Tag 2: 38 % LKW."
+    },
+    "summaries": {
+      "fr": "Réforme collecte + grève J2 (38 %)",
+      "nl": "Hervorming inzameling + staking dag 2 (38 %)",
+      "en": "Collection reform + strike day 2 (38%)",
+      "de": "Reform Sammlung + Streik Tag 2 (38 %)"
+    }
+  },
+  {
+    "date": "2026-03-20",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "economy",
+    "descriptions": {
+      "fr": "Carte économie : Visit Brussels −6M€, Fête Iris 1 jour. RABKO (120+ institutions) alerte sur menaces culturelles.",
+      "nl": "Kaart economie: Visit Brussels −6M€, Irisfeest 1 dag. RABKO (120+ instellingen) waarschuwt voor culturele bedreigingen.",
+      "en": "Economy card: Visit Brussels −€6M, Iris Festival 1 day. RABKO (120+ institutions) warns of cultural threats.",
+      "de": "Karte Wirtschaft: Visit Brussels −6M€, Irisfest 1 Tag. RABKO (120+ Institutionen) warnt vor kulturellen Bedrohungen."
+    },
+    "summaries": {
+      "fr": "Visit Brussels −6M€ + RABKO alerte culture",
+      "nl": "Visit Brussels −6M€ + RABKO cultuurwaarschuwing",
+      "en": "Visit Brussels −€6M + RABKO culture alert",
+      "de": "Visit Brussels −6M€ + RABKO Kulturwarnung"
+    }
+  },
+  {
+    "date": "2026-03-20",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "institutional",
+    "descriptions": {
+      "fr": "Carte institutionnel : CD&V dans la majorité sans poste — commissaire STIB, 4 admin. Actiris, tensions VGC/N-VA.",
+      "nl": "Kaart institutioneel: CD&V in meerderheid zonder post — commissaris MIVB, 4 bestuurders Actiris, spanningen VGC/N-VA.",
+      "en": "Institutional card: CD&V in majority without post — STIB commissioner, 4 Actiris board members, VGC/N-VA tensions.",
+      "de": "Karte Institutionell: CD&V in Mehrheit ohne Posten — STIB-Kommissar, 4 Actiris-Verwaltungsräte, VGC/N-VA-Spannungen."
+    },
+    "summaries": {
+      "fr": "CD&V : majorité sans poste, « casse du siècle »",
+      "nl": "CD&V: meerderheid zonder post, « kraak van de eeuw »",
+      "en": "CD&V: majority without post, 'heist of the century'",
+      "de": "CD&V: Mehrheit ohne Posten, « Coup des Jahrhunderts »"
+    }
+  },
+  {
+    "date": "2026-03-20",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "urban-planning",
+    "descriptions": {
+      "fr": "Carte urbanisme : réforme CoBAT — permis unique, délais ÷2 (6 mois), fusion Urban+Perspective, économies 1,6M€.",
+      "nl": "Kaart stedenbouw: CoBAT-hervorming — unieke vergunning, termijnen ÷2 (6 maanden), fusie Urban+Perspective, besparingen 1,6M€.",
+      "en": "Urban planning card: CoBAT reform — single permit, timelines ÷2 (6 months), Urban+Perspective merger, €1.6M savings.",
+      "de": "Karte Städtebau: CoBAT-Reform — Einheitsgenehmigung, Fristen ÷2 (6 Monate), Fusion Urban+Perspective, 1,6M€ Einsparungen."
+    },
+    "summaries": {
+      "fr": "CoBAT : permis unique + fusion Urban/Perspective",
+      "nl": "CoBAT: unieke vergunning + fusie Urban/Perspective",
+      "en": "CoBAT: single permit + Urban/Perspective merger",
+      "de": "CoBAT: Einheitsgenehmigung + Fusion Urban/Perspective"
+    }
+  },
+  {
     "date": "2026-03-19",
     "type": "updated",
     "section": "domains",

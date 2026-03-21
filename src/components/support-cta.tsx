@@ -13,7 +13,7 @@ export function SupportCtaInline() {
 
   return (
     <div className="mt-8 border-t border-neutral-100 pt-4 text-center">
-      <p className="text-xs text-neutral-400">
+      <p className="text-xs text-neutral-500">
         {t('cardLine')}{' '}
         <Link href="/support" className="font-medium text-blue-800 hover:underline">
           {t('cardLink')}

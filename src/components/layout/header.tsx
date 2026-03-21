@@ -140,7 +140,7 @@ export function Header() {
                   role="menuitem"
                   href="/sectors"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('sectors')}
                 </Link>
@@ -148,7 +148,7 @@ export function Header() {
                   role="menuitem"
                   href="/dossiers"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('dossiers')}
                 </Link>
@@ -156,7 +156,7 @@ export function Header() {
                   role="menuitem"
                   href="/communes"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('communes')}
                 </Link>
@@ -167,7 +167,7 @@ export function Header() {
                   role="menuitem"
                   href="/understand"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('understand')}
                 </Link>
@@ -175,7 +175,7 @@ export function Header() {
                   role="menuitem"
                   href="/timeline"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('timeline')}
                 </Link>
@@ -183,7 +183,7 @@ export function Header() {
                   role="menuitem"
                   href="/radar"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('radar')}
                 </Link>
@@ -191,7 +191,7 @@ export function Header() {
                   role="menuitem"
                   href="/glossary"
                   onClick={() => setDropdownOpen(false)}
-                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus:bg-neutral-50 focus:text-neutral-900 focus:outline-none"
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('glossary')}
                 </Link>
@@ -261,7 +261,7 @@ export function Header() {
             >
               {t('explore')}
               <svg
-                className={`h-4 w-4 text-neutral-400 transition-transform duration-300 ${mobileExplore ? 'rotate-180' : ''}`}
+                className={`h-4 w-4 text-neutral-500 transition-transform duration-300 ${mobileExplore ? 'rotate-180' : ''}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

@@ -114,7 +114,7 @@ function SubscribeView({
         </div>
 
         {/* GDPR compact */}
-        <p className="mt-8 text-xs text-neutral-400">{t('gdpr')}</p>
+        <p className="mt-8 text-xs text-neutral-500">{t('gdpr')}</p>
       </div>
     </section>
   );

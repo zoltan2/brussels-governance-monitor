@@ -298,7 +298,7 @@ export default function DigestReviewPage() {
               );
             })}
             {topics.length === 0 && (
-              <span className="text-sm text-neutral-400 italic">Aucun</span>
+              <span className="text-sm text-neutral-500 italic">Aucun</span>
             )}
           </div>
         </section>
@@ -413,7 +413,7 @@ export default function DigestReviewPage() {
           <h2 className="mb-1 text-sm font-semibold text-neutral-700">
             Mot de la fin
           </h2>
-          <p className="mb-3 text-xs text-neutral-400">
+          <p className="mb-3 text-xs text-neutral-500">
             Retours à la ligne supportés. <code className="rounded bg-neutral-100 px-1">*italique*</code> <code className="rounded bg-neutral-100 px-1">**gras**</code>
           </p>
           <div className="space-y-3">

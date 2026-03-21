@@ -80,7 +80,7 @@ export default function DigestLayout({
                 </a>{' '}
                 project
               </p>
-              <p className="mt-1 text-xs text-neutral-400">
+              <p className="mt-1 text-xs text-neutral-500">
                 &copy; {new Date().getFullYear()} All rights reserved
               </p>
             </div>

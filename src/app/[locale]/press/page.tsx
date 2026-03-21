@@ -120,7 +120,7 @@ function PressView({ mentions, locale }: { mentions: PressMention[]; locale: str
                   className="hover:text-blue-800 hover:underline"
                 >
                   {mention.title}
-                  <span className="ml-1 text-neutral-400" aria-hidden="true">&#8599;</span>
+                  <span className="ml-1 text-neutral-500" aria-hidden="true">&#8599;</span>
                 </a>
               </h2>
 

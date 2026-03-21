@@ -171,7 +171,7 @@ function FollowColumn({
     <div className="flex flex-col">
       {/* Column title */}
       <div className="mb-4 flex items-center gap-2">
-        <Radio size={18} className="text-neutral-400" aria-hidden={true} />
+        <Radio size={18} className="text-neutral-500" aria-hidden={true} />
         <h2 className="text-sm font-semibold uppercase tracking-wider text-neutral-500">
           {t('columnFollow')}
         </h2>
@@ -181,7 +181,7 @@ function FollowColumn({
         {/* 1. Veille badge — reassuring opener */}
         <div className="px-4 pt-4 pb-3">
           <div className="flex items-center gap-2 text-xs text-neutral-700">
-            <Eye size={14} className="shrink-0 text-neutral-400" aria-hidden={true} />
+            <Eye size={14} className="shrink-0 text-neutral-500" aria-hidden={true} />
             <span className="font-medium">
               {t('veilleActive', { count: veilleSourceCount })}
             </span>
@@ -269,7 +269,7 @@ function UnderstandColumn({ locale }: { locale: string }) {
     <div className="flex flex-col">
       {/* Column title */}
       <div className="mb-4 flex items-center gap-2">
-        <BookOpen size={18} className="text-neutral-400" aria-hidden={true} />
+        <BookOpen size={18} className="text-neutral-500" aria-hidden={true} />
         <h2 className="text-sm font-semibold uppercase tracking-wider text-neutral-500">
           {t('columnUnderstand')}
         </h2>
@@ -285,7 +285,7 @@ function UnderstandColumn({ locale }: { locale: string }) {
               href={exp.href}
               className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
             >
-              <exp.Icon size={16} className="shrink-0 text-neutral-400" aria-hidden={true} />
+              <exp.Icon size={16} className="shrink-0 text-neutral-500" aria-hidden={true} />
               {exp.label}
             </Link>
           ))}
@@ -322,7 +322,7 @@ function DashboardCta() {
         <div className="rounded-lg border border-brand-200 bg-brand-50/30 p-6">
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-start gap-3">
-              <Target size={18} className="mt-0.5 shrink-0 text-neutral-400" aria-hidden={true} />
+              <Target size={18} className="mt-0.5 shrink-0 text-neutral-500" aria-hidden={true} />
               <div>
                 <h2 className="text-base font-semibold text-neutral-900">{t('dashboardTitle')}</h2>
                 <p className="mt-0.5 text-sm text-neutral-500">{t('dashboardSubtitle')}</p>
@@ -371,7 +371,7 @@ function DossiersPreview({
     <section className="py-10">
       <div className="mx-auto max-w-5xl px-4">
         <div className="mb-6 flex items-center gap-2">
-          <FolderOpen size={18} className="text-neutral-400" aria-hidden={true} />
+          <FolderOpen size={18} className="text-neutral-500" aria-hidden={true} />
           <div>
             <h2 className="text-lg font-semibold text-neutral-900">{t('dossiersHomeTitle')}</h2>
             <p className="text-sm text-neutral-500">{t('dossiersHomeSubtitle')}</p>
@@ -446,7 +446,7 @@ function DomainsPreview({
     <section className="py-10">
       <div className="mx-auto max-w-5xl px-4">
         <div className="mb-6 flex items-center gap-2">
-          <LayoutGrid size={18} className="text-neutral-400" aria-hidden={true} />
+          <LayoutGrid size={18} className="text-neutral-500" aria-hidden={true} />
           <div>
             <h2 className="text-lg font-semibold text-neutral-900">{t('domainsHomeTitle')}</h2>
             <p className="text-sm text-neutral-500">{t('domainsHomeSubtitle')}</p>
@@ -490,7 +490,7 @@ function SectorsPreview({
     <section className="py-10">
       <div className="mx-auto max-w-5xl px-4">
         <div className="mb-6 flex items-center gap-2">
-          <Building2 size={18} className="text-neutral-400" aria-hidden={true} />
+          <Building2 size={18} className="text-neutral-500" aria-hidden={true} />
           <div>
             <h2 className="text-lg font-semibold text-neutral-900">{t('sectorsHomeTitle')}</h2>
             <p className="text-sm text-neutral-500">{t('sectorsHomeSubtitle')}</p>

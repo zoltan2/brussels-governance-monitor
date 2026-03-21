@@ -84,7 +84,7 @@ export function TableOfContents({ locale }: { locale: string }) {
       aria-label={tocLabel[locale] ?? tocLabel.en}
       className="mb-8 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3"
     >
-      <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+      <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">
         {tocLabel[locale] ?? tocLabel.en}
       </p>
       <ol className="space-y-1">

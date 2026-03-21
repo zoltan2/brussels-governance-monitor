@@ -53,13 +53,13 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
             className="group rounded-lg border border-neutral-150 bg-neutral-50 p-4 transition-all hover:border-brand-300 hover:shadow-sm"
           >
             <div className="mb-1 flex items-center gap-2">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-400">{l.sectors}</span>
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{l.sectors}</span>
             </div>
             <p className="text-sm font-semibold text-brand-800 group-hover:text-brand-900">{s.title}</p>
             {s.humanImpact && (
               <p className="mt-1.5 text-xs leading-relaxed text-neutral-500 line-clamp-2">{s.humanImpact}</p>
             )}
-            <div className="mt-2 flex gap-3 text-[10px] text-neutral-400">
+            <div className="mt-2 flex gap-3 text-[10px] text-neutral-500">
               {s.frozenMechanisms.length > 0 && (
                 <span>{s.frozenMechanisms.length} {locale === 'fr' ? 'dispositifs suspendus' : locale === 'nl' ? 'opgeschorte regelingen' : locale === 'de' ? 'ausgesetzte Maßnahmen' : 'suspended measures'}</span>
               )}
@@ -78,7 +78,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
             className="group rounded-lg border border-neutral-150 bg-neutral-50 p-4 transition-all hover:border-brand-300 hover:shadow-sm"
           >
             <div className="mb-1 flex items-center gap-2">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-400">{l.dossiers}</span>
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{l.dossiers}</span>
               <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-medium ${phaseStyles[d.phase]}`}>
                 {pl[d.phase]}
               </span>
@@ -86,7 +86,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
             <p className="text-sm font-semibold text-brand-800 group-hover:text-brand-900">{d.title}</p>
             <p className="mt-1.5 text-xs leading-relaxed text-neutral-500 line-clamp-2">{d.summary}</p>
             {d.estimatedBudget && (
-              <p className="mt-2 text-[10px] font-medium text-neutral-400">{d.estimatedBudget}</p>
+              <p className="mt-2 text-[10px] font-medium text-neutral-500">{d.estimatedBudget}</p>
             )}
           </Link>
         ))}
@@ -99,7 +99,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
             className="group rounded-lg border border-neutral-150 bg-neutral-50 p-4 transition-all hover:border-brand-300 hover:shadow-sm"
           >
             <div className="mb-1">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-400">{l.comparisons}</span>
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{l.comparisons}</span>
             </div>
             <p className="text-sm font-semibold text-brand-800 group-hover:text-brand-900">{c.title}</p>
             {c.dataPoints.length > 0 && (
@@ -118,7 +118,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
       {/* Glossary pills */}
       {glossaryTerms.length > 0 && (
         <div className="mt-4 border-t border-neutral-100 pt-3">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-400">{l.glossary}</span>
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{l.glossary}</span>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {glossaryTerms.map((g) => (
               <Link

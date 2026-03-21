@@ -34,7 +34,7 @@ export function FormationPhase({
       <div className="flex items-center gap-3">
         <span
           className={`shrink-0 text-[11px] font-medium uppercase tracking-wide ${
-            isDark ? 'text-white/50' : 'text-neutral-400'
+            isDark ? 'text-white/50' : 'text-neutral-500'
           }`}
         >
           {t('phaseTracker')}
@@ -66,7 +66,7 @@ export function FormationPhase({
                         : 'font-semibold text-neutral-800'
                       : isDark
                         ? 'text-white/40'
-                        : 'text-neutral-400'
+                        : 'text-neutral-500'
                   }`}
                 >
                   {t(`phases.${phase}`)}

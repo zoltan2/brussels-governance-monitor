@@ -166,7 +166,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
           <select
             value={activeDomain}
             onChange={(e) => { setActiveDomain(e.target.value); setExpanded(false); }}
-            className="w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm text-neutral-900 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+            className="w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm text-neutral-900 focus-visible:border-brand-500 focus-visible:ring-1 focus-visible:ring-brand-500"
             aria-label={labels.domainFilter ?? 'Domain'}
           >
             <option value="all">{labels.domainFilter ?? 'Domain'} — {labels.all}</option>
@@ -187,7 +187,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
           onChange={(e) => { setQuery(e.target.value); setExpanded(false); }}
           placeholder={labels.search}
           aria-label={labels.search}
-          className="w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:border-brand-500 focus-visible:ring-1 focus-visible:ring-brand-500"
         />
       </div>
 
@@ -207,7 +207,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
               }`}
             >
               <div className="min-w-0 flex-1">
-                <span className={`text-sm ${s.enabled ? 'text-neutral-900' : 'text-neutral-400'}`}>
+                <span className={`text-sm ${s.enabled ? 'text-neutral-900' : 'text-neutral-500'}`}>
                   {s.name}
                 </span>
                 {hostname && (
@@ -215,7 +215,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-xs text-neutral-400 hover:text-neutral-600"
+                    className="block text-xs text-neutral-500 hover:text-neutral-600"
                   >
                     {hostname}
                   </a>
@@ -228,7 +228,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
                   {typeLabel}
                 </span>
                 {!s.enabled && (
-                  <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-400">
+                  <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-500">
                     {labels.inactive}
                   </span>
                 )}
@@ -252,7 +252,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
       {/* Empty state + inline suggest */}
       {filtered.length === 0 && (
         <div className="py-8 text-center">
-          <p className="mb-6 text-sm text-neutral-400">{labels.noResults}</p>
+          <p className="mb-6 text-sm text-neutral-500">{labels.noResults}</p>
           <SuggestSourceForm labels={labels} />
         </div>
       )}
@@ -333,7 +333,7 @@ function SuggestSourceForm({ labels }: { labels: SuggestLabels }) {
               placeholder={labels.suggestUrlPlaceholder}
               required
               maxLength={500}
-              className="w-full rounded-md border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-400"
+              className="w-full rounded-md border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500"
             />
           </div>
 
@@ -348,7 +348,7 @@ function SuggestSourceForm({ labels }: { labels: SuggestLabels }) {
               placeholder={labels.suggestCommentPlaceholder}
               rows={2}
               maxLength={500}
-              className="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400"
+              className="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500"
             />
           </div>
 

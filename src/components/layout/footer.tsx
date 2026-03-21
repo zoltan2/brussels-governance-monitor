@@ -40,7 +40,7 @@ export function Footer() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
               {t('explorerTitle')}
             </p>
-            <nav aria-label={t('explorerTitle')} className="flex flex-col gap-2 text-xs text-neutral-600">
+            <nav aria-label={t('explorerTitle')} className="flex flex-col gap-1 text-xs text-neutral-600 [&>a]:py-1 [&>a]:min-h-[24px]">
               <Link href="/domains" className="hover:text-neutral-700">
                 {t('domains')}
               </Link>
@@ -67,7 +67,7 @@ export function Footer() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
               {t('comprendreTitle')}
             </p>
-            <nav aria-label={t('comprendreTitle')} className="flex flex-col gap-2 text-xs text-neutral-600">
+            <nav aria-label={t('comprendreTitle')} className="flex flex-col gap-1 text-xs text-neutral-600 [&>a]:py-1 [&>a]:min-h-[24px]">
               <Link href="/timeline" className="hover:text-neutral-700">
                 {t('timeline')}
               </Link>
@@ -94,7 +94,7 @@ export function Footer() {
                   className="hover:text-neutral-700"
                 >
                   {t('podcast')}
-                  <span className="ml-1 text-neutral-400" aria-hidden="true">&#8599;</span>
+                  <span className="ml-1 text-neutral-500" aria-hidden="true">&#8599;</span>
                 </a>
               )}
             </nav>
@@ -105,7 +105,7 @@ export function Footer() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
               {t('transparenceTitle')}
             </p>
-            <nav aria-label={t('transparenceTitle')} className="flex flex-col gap-2 text-xs text-neutral-600">
+            <nav aria-label={t('transparenceTitle')} className="flex flex-col gap-1 text-xs text-neutral-600 [&>a]:py-1 [&>a]:min-h-[24px]">
               <Link href="/transparency" className="hover:text-neutral-700">
                 {t('transparenceTitle')}
               </Link>

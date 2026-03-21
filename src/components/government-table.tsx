@@ -32,7 +32,7 @@ export function GovernmentTable({ locale, inline = false }: GovernmentTableProps
           <p className="mt-0.5 text-xs text-neutral-500">{t('governmentSubtitle')}</p>
         </div>
         <svg
-          className="h-4 w-4 shrink-0 text-neutral-400 transition-transform group-open:rotate-90"
+          className="h-4 w-4 shrink-0 text-neutral-500 transition-transform group-open:rotate-90"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

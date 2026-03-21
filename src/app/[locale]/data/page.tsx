@@ -412,7 +412,7 @@ function DataView({
                   >
                     <summary className="flex cursor-pointer list-none items-center gap-3 px-5 py-4 [&::-webkit-details-marker]:hidden">
                       <svg
-                        className="h-4 w-4 shrink-0 text-neutral-400 transition-transform group-open:rotate-90"
+                        className="h-4 w-4 shrink-0 text-neutral-500 transition-transform group-open:rotate-90"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -423,7 +423,7 @@ function DataView({
                       <span className="flex-1 text-sm font-semibold text-neutral-900">
                         {group.domainTitle}
                       </span>
-                      <span className="text-xs text-neutral-400">
+                      <span className="text-xs text-neutral-500">
                         {t('metrics.nMetrics', { count: totalCount })}
                       </span>
                       <ConfidenceBadge
@@ -454,7 +454,7 @@ function DataView({
                       {group.dossiers.map((dossier) => (
                         <div key={dossier.slug} className="mt-4">
                           <div className="mb-2 flex items-baseline gap-2">
-                            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+                            <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
                               {t('metrics.dossier')} — {dossier.title}
                             </p>
                             <Link

@@ -133,7 +133,7 @@ function SupportView({
               <span className="text-xs font-medium text-neutral-700">{t('pillarIndependence')}</span>
             </div>
           </div>
-          <p className="mt-4 text-center text-[11px] text-neutral-400">
+          <p className="mt-4 text-center text-[11px] text-neutral-500">
             {t('languagesNote')}
           </p>
         </div>
@@ -174,7 +174,7 @@ function SupportView({
             </div>
           </div>
         </div>
-        <p className="mb-10 text-center text-xs text-neutral-400">
+        <p className="mb-10 text-center text-xs text-neutral-500">
           Visa · Mastercard · Bancontact · Apple Pay · Google Pay
         </p>
 
@@ -222,7 +222,7 @@ function SupportView({
                 className="text-blue-800 hover:underline"
               >
                 GitHub
-                <span className="ml-0.5 text-neutral-400" aria-hidden="true">&#8599;</span>
+                <span className="ml-0.5 text-neutral-500" aria-hidden="true">&#8599;</span>
               </a>
             </li>
           </ul>

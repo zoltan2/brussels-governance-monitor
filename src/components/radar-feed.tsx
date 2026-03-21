@@ -49,7 +49,7 @@ export function RadarFeed({
                 >
                   <time
                     dateTime={signal.date}
-                    className="shrink-0 text-xs tabular-nums text-neutral-400"
+                    className="shrink-0 text-xs tabular-nums text-neutral-500"
                   >
                     {formatDate(signal.date, locale)}
                   </time>

@@ -188,12 +188,12 @@ export function Search() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t('placeholder')}
-                className="flex-1 border-none py-3 text-sm text-neutral-900 placeholder:text-neutral-500 focus:outline-none"
+                className="flex-1 border-none py-3 text-sm text-neutral-900 placeholder:text-neutral-500"
               />
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded border border-neutral-200 px-1.5 py-0.5 text-[10px] text-neutral-500"
+                className="min-h-[24px] min-w-[24px] rounded border border-neutral-200 px-2 py-1 text-[10px] text-neutral-500"
                 aria-label={t('close')}
               >
                 ESC

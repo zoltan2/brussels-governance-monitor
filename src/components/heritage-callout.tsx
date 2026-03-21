@@ -147,7 +147,7 @@ export function HeritageCallout({ slug, locale, type = 'domain' }: { slug: strin
   return (
     <div className="my-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
       <div className="mb-2 flex items-center gap-2">
-        <svg className="h-4 w-4 shrink-0 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <svg className="h-4 w-4 shrink-0 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         <span className="text-xs font-semibold uppercase tracking-wide text-neutral-500">{l.title}</span>

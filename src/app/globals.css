@@ -26,8 +26,8 @@
 
   /* Status colors — avoiding red/green */
   --color-status-blocked: oklch(0.37 0 0);
-  --color-status-delayed: oklch(0.55 0.15 75);
-  --color-status-ongoing: oklch(0.55 0.12 250);
+  --color-status-delayed: oklch(0.48 0.15 75);
+  --color-status-ongoing: oklch(0.48 0.12 250);
   --color-status-resolved: oklch(0.5 0.1 195);
 
   /* Feasibility colors */
@@ -150,6 +150,11 @@ body {
   @page {
     margin: 2cm;
   }
+}
+
+/* Scroll margin — WCAG 2.4.11: focused/anchored content not obscured by sticky header (~64px) */
+[id] {
+  scroll-margin-top: 5rem;
 }
 
 /* Focus visible — WCAG 2.4.7: visible focus indicator on all interactive elements */

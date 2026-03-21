@@ -144,7 +144,7 @@ export default function DigestIndexPage() {
                   return (
                     <span
                       key={lang.code}
-                      className="rounded-md border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-400"
+                      className="rounded-md border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-500"
                       title={`${lang.name} — coming soon`}
                     >
                       {lang.native_name}

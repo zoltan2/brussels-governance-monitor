@@ -20,7 +20,7 @@ const CONFIDENCE_STYLES: Record<string, string> = {
 const STATUS_STYLES: Record<string, string> = {
   active: 'bg-blue-50 text-blue-700 border-blue-200',
   confirmed: 'bg-teal-50 text-teal-700 border-teal-200',
-  archived: 'bg-neutral-50 text-neutral-400 border-neutral-200',
+  archived: 'bg-neutral-50 text-neutral-500 border-neutral-200',
 };
 
 export function RadarContent({
@@ -97,7 +97,7 @@ export function RadarContent({
       {/* Archive */}
       {archived.length > 0 && (
         <details className="group">
-          <summary className="mb-4 flex cursor-pointer list-none items-center gap-2 text-sm font-semibold uppercase tracking-wider text-neutral-400 [&::-webkit-details-marker]:hidden">
+          <summary className="mb-4 flex cursor-pointer list-none items-center gap-2 text-sm font-semibold uppercase tracking-wider text-neutral-500 [&::-webkit-details-marker]:hidden">
             <svg
               className="h-4 w-4 shrink-0 transition-transform group-open:rotate-90"
               fill="none"
@@ -145,7 +145,7 @@ function SignalCard({
       <div className="mb-2 flex flex-wrap items-center gap-2">
         <time
           dateTime={signal.date}
-          className="text-xs tabular-nums text-neutral-400"
+          className="text-xs tabular-nums text-neutral-500"
         >
           {formatDate(signal.date, locale)}
         </time>
@@ -161,12 +161,12 @@ function SignalCard({
         </span>
       </div>
 
-      <p className={`text-sm leading-relaxed ${isArchived ? 'text-neutral-400' : 'text-neutral-700'}`}>
+      <p className={`text-sm leading-relaxed ${isArchived ? 'text-neutral-500' : 'text-neutral-700'}`}>
         {signal.description}
       </p>
 
       <div className="mt-3 flex flex-wrap items-center gap-4 text-xs">
-        <span className="text-neutral-400">
+        <span className="text-neutral-500">
           {labels.source} :{' '}
           {signal.source.url ? (
             <a
@@ -183,7 +183,7 @@ function SignalCard({
         </span>
 
         {signal.nextStep && (
-          <span className="text-neutral-400">
+          <span className="text-neutral-500">
             {labels.nextStep} : <span className="text-neutral-600">{signal.nextStep}</span>
           </span>
         )}

@@ -46,7 +46,7 @@ export function CommitmentTimeline({
               <span className="text-[11px] font-medium text-neutral-500">
                 {formatDate(entry.date, locale)}
               </span>
-              <span className="text-[10px] font-medium text-neutral-400">
+              <span className="text-[10px] font-medium text-neutral-500">
                 {statusLabels[entry.status] || entry.status}
               </span>
             </div>

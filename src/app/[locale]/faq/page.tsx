@@ -112,7 +112,7 @@ function FaqView() {
 
         {/* Historical crisis section */}
         <div className="mt-10">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-neutral-500">
             {t('crisisSectionTitle')}
           </h2>
           <div className="space-y-4">

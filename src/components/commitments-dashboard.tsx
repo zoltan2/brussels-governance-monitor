@@ -191,7 +191,7 @@ export function CommitmentsDashboard({
                         <p className="text-sm font-medium text-neutral-900">
                           {commitment.target[locale] || commitment.target.fr}
                         </p>
-                        <p className="mt-0.5 text-[10px] text-neutral-400">
+                        <p className="mt-0.5 text-[10px] text-neutral-500">
                           {portfolio}
                         </p>
                       </div>
@@ -210,7 +210,7 @@ export function CommitmentsDashboard({
                           <CommitmentSparkline dataPoints={commitment.dataPoints} />
                         )}
                         <svg
-                          className={`h-4 w-4 shrink-0 text-neutral-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+                          className={`h-4 w-4 shrink-0 text-neutral-500 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"

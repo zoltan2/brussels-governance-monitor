@@ -54,7 +54,7 @@ export function CollapsibleSources({ sources, lastModified, locale }: { sources:
         <button
           type="button"
           onClick={() => setExpanded(!expanded)}
-          className="mt-3 text-xs font-medium text-brand-700 transition-colors hover:text-brand-900"
+          className="mt-3 min-h-[24px] py-1 text-xs font-medium text-brand-700 transition-colors hover:text-brand-900"
         >
           {expanded ? l.showLess : l.showAll.replace('{n}', String(hiddenCount))}
         </button>

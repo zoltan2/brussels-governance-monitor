@@ -245,7 +245,7 @@ export function CiteButton({ url, title, date, locale, labels }: CiteButtonProps
           <button
             type="button"
             onClick={close}
-            className="absolute right-2 top-2 rounded p-1 text-neutral-400 hover:text-neutral-600"
+            className="absolute right-2 top-2 rounded p-1 text-neutral-500 hover:text-neutral-600"
             aria-label={labels.close}
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

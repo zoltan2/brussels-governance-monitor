@@ -203,7 +203,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
           id="pref-locale"
           value={locale}
           onChange={(e) => setLocale(e.target.value)}
-          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus:border-brand-600 focus:ring-1 focus:ring-brand-600 focus:outline-none"
+          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
         >
           {LOCALE_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>

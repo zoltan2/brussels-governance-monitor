@@ -8,6 +8,14 @@ import { routing, type Locale } from '@/i18n/routing';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 const siteName = 'Brussels Governance Monitor';
 
+/** OpenGraph expects regional locale codes (e.g. fr_BE, not just fr) */
+const ogLocaleMap: Record<string, string> = {
+  fr: 'fr_BE',
+  nl: 'nl_BE',
+  en: 'en_US',
+  de: 'de_DE',
+};
+
 type Href = Parameters<typeof getPathname>[0]['href'];
 
 /**
@@ -96,7 +104,7 @@ export function buildMetadata({
       title,
       description: truncatedDescription,
       siteName,
-      locale,
+      locale: ogLocaleMap[locale] || locale,
       type: 'website',
       url,
       images: [

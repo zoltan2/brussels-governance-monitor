@@ -77,6 +77,17 @@ export default async function CommuneDetailPage({
       name: card.mayor,
       jobTitle: 'Bourgmestre',
     },
+    parentOrganization: {
+      '@type': 'GovernmentOrganization',
+      name: 'Région de Bruxelles-Capitale / Brussels Hoofdstedelijk Gewest',
+      sameAs: 'https://www.wikidata.org/wiki/Q240',
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/${locale}/communes/${slug}`,
+      isAccessibleForFree: true,
+      isPartOf: { '@type': 'WebSite', '@id': `${siteUrl}/#website` },
+    },
   };
 
   return (

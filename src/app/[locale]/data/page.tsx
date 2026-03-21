@@ -201,7 +201,10 @@ export default async function DataPage({
     spatialCoverage: {
       '@type': 'Place',
       name: 'Brussels-Capital Region, Belgium',
+      sameAs: 'https://www.wikidata.org/wiki/Q240',
     },
+    temporalCoverage: '2024/..',
+    isAccessibleForFree: true,
     inLanguage: locale,
   };
 

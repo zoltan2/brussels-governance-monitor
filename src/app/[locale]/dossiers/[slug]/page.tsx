@@ -86,15 +86,27 @@ export default async function DossierDetailPage({
     dateModified: card.lastModified,
     url: `${siteUrl}/${locale}/dossiers/${slug}`,
     inLanguage: locale,
+    isAccessibleForFree: true,
     author: {
       '@type': 'Organization',
       name: 'Brussels Governance Monitor',
       url: siteUrl,
+      '@id': `${siteUrl}/#organization`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'Brussels Governance Monitor',
       url: siteUrl,
+      '@id': `${siteUrl}/#organization`,
+    },
+    about: {
+      '@type': 'GovernmentOrganization',
+      name: 'Région de Bruxelles-Capitale / Brussels Hoofdstedelijk Gewest',
+      sameAs: 'https://www.wikidata.org/wiki/Q240',
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
     },
   };
 

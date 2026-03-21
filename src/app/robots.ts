@@ -33,6 +33,21 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: '/api/',
       },
+      {
+        userAgent: 'anthropic-ai',
+        allow: '/',
+        disallow: '/api/',
+      },
+      {
+        userAgent: 'Applebot-Extended',
+        allow: '/',
+        disallow: '/api/',
+      },
+      {
+        userAgent: 'CCBot',
+        allow: '/',
+        disallow: '/api/',
+      },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
   };

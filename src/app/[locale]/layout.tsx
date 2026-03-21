@@ -119,6 +119,12 @@ export default async function LocaleLayout({
         sameAs: [
           'https://github.com/zoltan2/brussels-governance-monitor',
         ],
+        areaServed: {
+          '@type': 'AdministrativeArea',
+          name: 'Brussels-Capital Region',
+          sameAs: 'https://www.wikidata.org/wiki/Q240',
+        },
+        knowsLanguage: ['fr', 'nl', 'en', 'de'],
         knowsAbout: [
           'Brussels regional governance',
           'Belgian politics',

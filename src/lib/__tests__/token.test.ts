@@ -54,12 +54,8 @@ describe('token', () => {
     expect(verifyConfirmToken('a.b.c')).toBeNull();
   });
 
-  it('falls back to RESEND_API_KEY if AUTH_SECRET is not set', () => {
+  it('throws if AUTH_SECRET is not set', () => {
     vi.stubEnv('AUTH_SECRET', '');
-    vi.stubEnv('RESEND_API_KEY', 'resend-key-for-testing');
-    const token = generateConfirmToken(payload);
-    const result = verifyConfirmToken(token);
-    expect(result).not.toBeNull();
-    expect(result!.email).toBe('test@example.com');
+    expect(() => generateConfirmToken(payload)).toThrow('AUTH_SECRET is required');
   });
 });

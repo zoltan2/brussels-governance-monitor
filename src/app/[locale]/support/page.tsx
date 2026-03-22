@@ -80,7 +80,7 @@ export default async function SupportPage({
 }
 
 function SupportView({
-  locale,
+  locale: _locale,
   donateOnceUrl,
   donateMonthlyUrl,
 }: {

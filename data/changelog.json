@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-03-22",
+    "type": "added",
+    "section": "dossiers",
+    "targetSlug": "survol-bruxelles",
+    "descriptions": {
+      "fr": "Nouveau dossier : Survol de Bruxelles — 204 147 vols/an, Route Crucke (96 % violations), 5 condamnations de l'État, communes en justice, médiateur suspendu.",
+      "nl": "Nieuw dossier: Overvliegen Brussel — 204 147 vluchten/jaar, Route Crucke (96 % overtredingen), 5 veroordelingen Staat, gemeenten in rechtszaak, mediator geschorst.",
+      "en": "New dossier: Brussels Overflight — 204,147 flights/year, Route Crucke (96% violations), 5 state convictions, municipalities suing, mediator suspended.",
+      "de": "Neues Dossier: Überflug Brüssel — 204 147 Flüge/Jahr, Route Crucke (96 % Verstöße), 5 Verurteilungen Staat, Gemeinden klagen, Mediator suspendiert."
+    },
+    "summaries": {
+      "fr": "Dossier Survol de Bruxelles (19e dossier)",
+      "nl": "Dossier Overvliegen Brussel (19e dossier)",
+      "en": "Brussels Overflight dossier (19th dossier)",
+      "de": "Dossier Überflug Brüssel (19. Dossier)"
+    }
+  },
+  {
+    "date": "2026-03-22",
     "type": "updated",
     "section": "domains",
     "targetSlug": "urban-planning",

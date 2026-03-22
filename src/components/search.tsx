@@ -20,9 +20,12 @@ interface PagefindResult {
 const stripDiacritics = (s: string) =>
   s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-/** Strip all HTML tags except <mark> (used by Pagefind for highlighting) */
+/** Strip all HTML tags except <mark> (used by Pagefind for highlighting).
+ *  Also strips any attributes from <mark> to prevent event handler injection. */
 const sanitizeExcerpt = (html: string) =>
-  html.replace(/<(?!\/?mark\b)[^>]*>/gi, '');
+  html
+    .replace(/<mark[^>]*>/gi, '<mark>')
+    .replace(/<(?!\/?mark>)[^>]*>/gi, '');
 
 export function Search() {
   const t = useTranslations('search');

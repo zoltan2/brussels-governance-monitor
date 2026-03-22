@@ -6,9 +6,9 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 
 const rejectSchema = z.object({
-  slug: z.string().min(1),
+  slug: z.string().min(1).regex(/^[a-z0-9-]+$/, 'Slug must contain only lowercase letters, digits, and hyphens'),
   type: z.enum(['domain', 'solution', 'sector', 'comparison']),
-  locale: z.string().min(2).max(2),
+  locale: z.enum(['fr', 'nl', 'en', 'de']),
   reason: z.enum(['out-of-scope', 'insufficient-source', 'duplicate', 'not-priority', 'factual-error']),
 });
 

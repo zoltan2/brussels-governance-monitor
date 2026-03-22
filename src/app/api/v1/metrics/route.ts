@@ -40,5 +40,9 @@ export async function GET(request: Request) {
     generatedAt: new Date().toISOString(),
     count: metrics.length,
     metrics,
+  }, {
+    headers: {
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+    },
   });
 }

@@ -55,13 +55,24 @@ function formatWeekRange(date: Date, locale: string): string {
 
 /**
  * Digest approval endpoint.
- * GET /api/digest/approve?token=xxx
+ * POST /api/digest/approve  { token: "xxx" }
  *
+ * Changed from GET to POST to prevent accidental triggers by prefetch/link scanners.
  * Verifies token, marks approved, sends batch emails with scheduledAt if before Monday 8h CET.
  */
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const token = searchParams.get('token');
+export async function POST(request: Request) {
+  let token: string | null = null;
+
+  // Accept token from JSON body (POST) or query string (legacy GET compat)
+  const contentType = request.headers.get('content-type') || '';
+  if (contentType.includes('application/json')) {
+    const body = await request.json().catch(() => ({}));
+    token = body.token || null;
+  }
+  if (!token) {
+    const { searchParams } = new URL(request.url);
+    token = searchParams.get('token');
+  }
 
   if (!token) {
     return NextResponse.json({ error: 'Missing token' }, { status: 400 });

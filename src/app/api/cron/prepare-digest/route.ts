@@ -207,7 +207,8 @@ export async function GET(request: Request) {
 
   // 9. Generate approval token and send preview
   const token = generateDigestApprovalToken(week);
-  const approveUrl = `${siteUrl}/api/digest/approve?token=${encodeURIComponent(token)}`;
+  // Approval now requires POST — redirect admin to the review page with the token
+  const approveUrl = `${siteUrl}/fr/review/digest?approve_token=${encodeURIComponent(token)}`;
   const editUrl = `${siteUrl}/fr/review/digest`;
   const weekOf = formatWeekRange(now, 'fr');
 

@@ -95,6 +95,8 @@ export default async function HomePage({
     <>
       <CrisisCounter />
 
+      <CommemorationBanner locale={locale} />
+
       <LatestUpdateBar
         date={latestUpdate.date}
         description={latestUpdate.description}
@@ -541,5 +543,45 @@ function SubscribeSection({
         <SubscribeForm dossierOptions={dossierOptions} />
       </div>
     </section>
+  );
+}
+
+// ---------- 22 mars — 10e anniversaire attentats ----------
+
+const commemorationTexts: Record<string, { title: string; body: string }> = {
+  fr: {
+    title: '22 mars 2016 – 22 mars 2026',
+    body: 'Il y a dix ans, 32 personnes perdaient la vie et plus de 340 étaient blessées dans les attentats de Zaventem et Maelbeek. Ce site documente la gouvernance bruxelloise au quotidien\u00A0— aujourd\u2019hui, il s\u2019arrête un instant pour se souvenir.',
+  },
+  nl: {
+    title: '22 maart 2016 – 22 maart 2026',
+    body: 'Tien jaar geleden verloren 32 mensen het leven en raakten meer dan 340 gewond bij de aanslagen in Zaventem en Maalbeek. Deze site documenteert het Brusselse bestuur\u00A0— vandaag staat hij even stil om te herdenken.',
+  },
+  en: {
+    title: '22 March 2016 – 22 March 2026',
+    body: 'Ten years ago, 32 people lost their lives and more than 340 were injured in the attacks at Zaventem and Maelbeek. This site documents Brussels governance every day\u00A0— today, it pauses to remember.',
+  },
+  de: {
+    title: '22. März 2016 – 22. März 2026',
+    body: 'Vor zehn Jahren verloren 32 Menschen ihr Leben und mehr als 340 wurden bei den Anschlägen in Zaventem und Maalbeek verletzt. Diese Website dokumentiert die Brüsseler Regierungsführung\u00A0— heute hält sie inne, um zu gedenken.',
+  },
+};
+
+function CommemorationBanner({ locale }: { locale: string }) {
+  // Always render on March 22 — for SSG, this is build-time.
+  // Since the site rebuilds daily via Vercel deploy, this is accurate.
+  const now = new Date();
+  const isCommemorationDay =
+    now.getMonth() === 2 && now.getDate() === 22; // March = month 2 (0-indexed)
+
+  if (!isCommemorationDay) return null;
+
+  const text = commemorationTexts[locale] || commemorationTexts.fr;
+
+  return (
+    <div className="mx-auto mt-6 max-w-5xl border-l-4 border-slate-700 bg-slate-50 px-6 py-5">
+      <p className="text-sm font-semibold text-slate-800">{text.title}</p>
+      <p className="mt-1 text-sm leading-relaxed text-slate-700">{text.body}</p>
+    </div>
   );
 }

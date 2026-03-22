@@ -1,6 +1,62 @@
 {
-  "lastVeille": "2026-03-20",
+  "lastVeille": "2026-03-22",
   "entries": [
+    {
+      "id": "2026-03-21-bouwstop-appel",
+      "date": "2026-03-21",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["urban-planning"],
+      "source": {
+        "label": "BRUZZ / La Libre — Gouvernement en appel contre bouwstop friches (21 mars 2026)",
+        "url": "https://www.bruzz.be/actua/stedenbouw/jubelpark-krijgt-opknapbeurt-2026-02-28",
+        "accessedAt": "2026-03-22"
+      },
+      "nextStep": {
+        "fr": "Suivre la procédure d'appel (décision attendue 2027-2028). Impact direct sur Métro 3 (Palais du Midi).",
+        "nl": "Beroepsprocedure opvolgen (beslissing verwacht 2027-2028). Directe impact op Metro 3 (Zuidpaleis).",
+        "en": "Follow appeal procedure (decision expected 2027-2028). Direct impact on Metro 3 (Palais du Midi).",
+        "de": "Berufungsverfahren verfolgen (Entscheidung erwartet 2027-2028). Direkter Einfluss auf Metro 3 (Palais du Midi)."
+      },
+      "descriptions": {
+        "fr": "Gouvernement en appel contre le bouwstop friches (jugement oct. 2025). We Are Nature demande des astreintes 250K-500K€. Sites menacés : Palais du Midi, Bempt, Kwartelveld.",
+        "nl": "Regering in beroep tegen bouwstop braakliggende terreinen (vonnis okt. 2025). We Are Nature eist dwangsommen 250K-500K€. Bedreigde sites: Zuidpaleis, Bempt, Kwartelveld.",
+        "en": "Government appeals brownfield construction freeze (Oct 2025 ruling). We Are Nature demands fines of €250K-500K. Sites at risk: Palais du Midi, Bempt, Kwartelveld.",
+        "de": "Regierung legt Berufung gegen Baustopp Brachen ein (Urteil Okt. 2025). We Are Nature fordert Zwangsgelder 250K-500K€. Bedrohte Standorte: Palais du Midi, Bempt, Kwartelveld."
+      },
+      "promotedTo": "urban-planning",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-21-ia-asfalt",
+      "date": "2026-03-20",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["mobility"],
+      "source": {
+        "label": "BRUZZ — Brussel déploie l'IA pour scanner les routes (20 mars 2026)",
+        "url": "https://www.bruzz.be/actua/mobiliteit/driedaagse-staking-net-brussel-hinder-voorlopig-minimaal-2026-03-18",
+        "accessedAt": "2026-03-22"
+      },
+      "nextStep": {
+        "fr": "Suivre le déploiement effectif du scan IA et les premiers résultats (cartographie état routes).",
+        "nl": "Effectieve uitrol AI-scan en eerste resultaten (cartografie wegtoestand) opvolgen.",
+        "en": "Follow effective deployment of AI scan and first results (road condition mapping).",
+        "de": "Effektive Einführung des KI-Scans und erste Ergebnisse (Straßenzustandskartierung) verfolgen."
+      },
+      "descriptions": {
+        "fr": "Bruxelles Mobilité déploie l'IA pour scanner les routes (dashcam + algorithme). +10M€ entretien voirie 2026. Travaux nocturnes/week-end.",
+        "nl": "Brussel Mobiliteit zet AI in om wegen te scannen (dashcam + algoritme). +10M€ wegenonderhoud 2026. Nacht-/weekendwerken.",
+        "en": "Brussels Mobility deploys AI to scan roads (dashcam + algorithm). +€10M road maintenance 2026. Night/weekend works.",
+        "de": "Brüssel Mobilität setzt KI zum Straßenscan ein (Dashcam + Algorithmus). +10M€ Straßenunterhalt 2026. Nacht-/Wochenendarbeiten."
+      },
+      "promotedTo": "mobility",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-20-paquet-social-sante",
       "date": "2026-03-19",

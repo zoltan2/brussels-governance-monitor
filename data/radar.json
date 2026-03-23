@@ -1,6 +1,34 @@
 {
-  "lastVeille": "2026-03-22",
+  "lastVeille": "2026-03-23",
   "entries": [
+    {
+      "id": "2026-03-23-deploiement-militaire",
+      "date": "2026-03-23",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["security"],
+      "source": {
+        "label": "RTBF — Déploiement militaire début lundi 23 mars (19 mars 2026)",
+        "url": "https://www.rtbf.be/article/le-deploiement-de-militaires-dans-les-rues-commencera-ce-lundi-annonce-theo-francken-11697122",
+        "accessedAt": "2026-03-23"
+      },
+      "nextStep": {
+        "fr": "Suivre le démarrage effectif des patrouilles mixtes FIPA (avril 2026) et la réduction du contingent à 90 soldats après 3 mois (fin juin).",
+        "nl": "Start gemengde FIPA-patrouilles (april 2026) en reductie contingent tot 90 soldaten na 3 maanden (eind juni) opvolgen.",
+        "en": "Monitor start of joint FIPA patrols (April 2026) and contingent reduction to 90 soldiers after 3 months (end of June).",
+        "de": "Start der gemischten FIPA-Patrouillen (April 2026) und Reduzierung des Kontingents auf 90 Soldaten nach 3 Monaten (Ende Juni) verfolgen."
+      },
+      "descriptions": {
+        "fr": "200 militaires déployés à Bruxelles et Anvers dès le 23 mars : surveillance sites juifs, soutien police des chemins de fer, opérations FIPA. Patrouilles mixtes à partir d'avril. Réduction à 90 après 3 mois.",
+        "nl": "200 militairen ingezet in Brussel en Antwerpen vanaf 23 maart: bewaking Joodse locaties, steun spoorwegpolitie, FIPA-operaties. Gemengde patrouilles vanaf april. Reductie tot 90 na 3 maanden.",
+        "en": "200 soldiers deployed in Brussels and Antwerp from 23 March: Jewish site surveillance, railway police support, FIPA operations. Joint patrols from April. Reduced to 90 after 3 months.",
+        "de": "200 Soldaten ab 23. März in Brüssel und Antwerpen: Überwachung jüdischer Einrichtungen, Unterstützung Bahnpolizei, FIPA-Operationen. Gemischte Patrouillen ab April. Reduzierung auf 90 nach 3 Monaten."
+      },
+      "promotedTo": null,
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-22-survol-bruxelles",
       "date": "2026-03-16",

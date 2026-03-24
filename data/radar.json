@@ -1,6 +1,90 @@
 {
-  "lastVeille": "2026-03-23",
+  "lastVeille": "2026-03-24",
   "entries": [
+    {
+      "id": "2026-03-24-budget-commission-approuve",
+      "date": "2026-03-23",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["budget", "institutional"],
+      "source": {
+        "label": "BRUZZ — Brusselse begroting krijgt groen licht in commissie (23 mars 2026)",
+        "url": "https://www.bruzz.be/actua/politiek/brusselse-begroting-krijgt-groen-licht-commissie-2026-03-23",
+        "accessedAt": "2026-03-24"
+      },
+      "nextStep": {
+        "fr": "Vote en séance plénière vendredi 27 mars 2026. Suivi validation ICN du « code 8 » (avril 2026).",
+        "nl": "Stemming in plenaire vergadering vrijdag 27 maart 2026. Opvolging INR-validatie van « code 8 » (april 2026).",
+        "en": "Plenary vote Friday 27 March 2026. Monitor ICN validation of 'code 8' (April 2026).",
+        "de": "Plenar-Abstimmung Freitag 27. März 2026. INR-Validierung von « Code 8 » verfolgen (April 2026)."
+      },
+      "descriptions": {
+        "fr": "Commission des Finances approuve le budget 2026 (23/03). Déficit 957M€ repose sur « code 8 » (1 Mrd€ hors calcul). Plénière vendredi 27 mars.",
+        "nl": "Commissie Financiën keurt begroting 2026 goed (23/03). Tekort 957M€ steunt op « code 8 » (1 Mrd€ buiten berekening). Plenaire vrijdag 27 maart.",
+        "en": "Finance Committee approves 2026 budget (23/03). Deficit 957M EUR relies on 'code 8' (1 Bln EUR excluded). Plenary vote Friday 27 March.",
+        "de": "Finanzausschuss genehmigt Haushalt 2026 (23/03). Defizit 957M€ stützt sich auf « Code 8 » (1 Mrd€ außerhalb Berechnung). Plenum Freitag 27. März."
+      },
+      "promotedTo": null,
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-24-metro3-close-audition",
+      "date": "2026-03-24",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["metro-3", "mobility"],
+      "source": {
+        "label": "DH — Philippe Close sera auditionné au Parlement bruxellois (23 mars 2026)",
+        "url": "https://www.dhnet.be/regions/bruxelles/bruxelles-mobilite/2026/03/23/saga-du-metro-3-philippe-close-sera-auditionne-au-parlement-bruxellois-ce-mardi-ZOQWS5IUNJHXTMZZ67WT3UC57A/",
+        "accessedAt": "2026-03-24"
+      },
+      "nextStep": {
+        "fr": "Suivre les conclusions de la commission spéciale Métro 3 et le rapport final attendu.",
+        "nl": "Conclusies bijzondere commissie Metro 3 en verwacht eindrapport opvolgen.",
+        "en": "Follow special Metro 3 commission conclusions and expected final report.",
+        "de": "Schlussfolgerungen der Sonderkommission Metro 3 und erwarteten Abschlussbericht verfolgen."
+      },
+      "descriptions": {
+        "fr": "Philippe Close (bourgmestre Bruxelles-Ville) auditionné par la commission spéciale Métro 3 du Parlement (24/03). Sixième responsable politique entendu après Vervoort, Picqué, Onkelinx, Reynders, Mayeur.",
+        "nl": "Philippe Close (burgemeester Stad Brussel) gehoord door bijzondere commissie Metro 3 van het Parlement (24/03). Zesde politieke verantwoordelijke na Vervoort, Picqué, Onkelinx, Reynders, Mayeur.",
+        "en": "Philippe Close (mayor of Brussels-City) heard by special Metro 3 commission at Parliament (24/03). Sixth political leader after Vervoort, Picqué, Onkelinx, Reynders, Mayeur.",
+        "de": "Philippe Close (Bürgermeister Stadt Brüssel) von Sonderkommission Metro 3 im Parlament angehört (24/03). Sechster politischer Verantwortlicher nach Vervoort, Picqué, Onkelinx, Reynders, Mayeur."
+      },
+      "promotedTo": "metro-3",
+      "promotedSection": "dossiers",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-03-24-bois-cambre-pv-urbanistique",
+      "date": "2026-03-23",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["mobility", "urban-planning", "institutional"],
+      "source": {
+        "label": "L'Avenir — PV urbanistique Bois de la Cambre (23 mars 2026)",
+        "url": "https://www.lavenir.net/regions/bruxelles/bruxelles/2026/03/23/blocs-de-beton-de-la-discorde-au-bois-de-la-cambre-le-mr-contre-attaque-la-region-dresse-un-pv-a-la-ville-pour-infractions-urbanistiques-CAGHRD3Z6FE6XHDHPZ4UTC5UTY/",
+        "accessedAt": "2026-03-24"
+      },
+      "nextStep": {
+        "fr": "Suivi introduction permis d'urbanisme par la Ville. Évolution de la tension MR/Vooruit au sein du gouvernement.",
+        "nl": "Opvolging indiening stedenbouwkundige vergunning door de Stad. Evolutie spanning MR/Vooruit binnen de regering.",
+        "en": "Monitor building permit submission by the City. Evolution of MR/Vooruit tension within government.",
+        "de": "Einreichung Baugenehmigung durch die Stadt verfolgen. Entwicklung der Spannung MR/Vooruit innerhalb der Regierung."
+      },
+      "descriptions": {
+        "fr": "PV urbanistique : urban.brussels sanctionne la Ville pour blocs béton au Bois de la Cambre sans permis (zone classée). MR (Henry, Dilliès) critique Vooruit (Maes). Première fracture dans la coalition à 7 partis (jour 37).",
+        "nl": "Urbanistisch PV: urban.brussels sanctioneert Stad voor betonblokken Ter Kamerenbos zonder vergunning (beschermd gebied). MR (Henry, Dilliès) bekritiseert Vooruit (Maes). Eerste breuk in coalitie van 7 partijen (dag 37).",
+        "en": "Urbanistic PV: urban.brussels sanctions City for concrete blocks in Bois de la Cambre without permit (classified zone). MR (Henry, Dilliès) criticises Vooruit (Maes). First crack in 7-party coalition (day 37).",
+        "de": "Urbanistisches PV: urban.brussels sanktioniert Stadt für Betonblöcke im Bois de la Cambre ohne Genehmigung (Schutzgebiet). MR (Henry, Dilliès) kritisiert Vooruit (Maes). Erster Bruch in 7-Parteien-Koalition (Tag 37)."
+      },
+      "promotedTo": null,
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-23-deploiement-militaire",
       "date": "2026-03-23",

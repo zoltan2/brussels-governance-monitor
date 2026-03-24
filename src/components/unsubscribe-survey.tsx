@@ -22,7 +22,7 @@ export function UnsubscribeSurvey({
   const [feedback, setFeedback] = useState('');
 
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white p-6">
+    <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-6">
       <h2 className="mb-1 text-lg font-semibold text-neutral-900">
         {t('surveyTitle')}
       </h2>

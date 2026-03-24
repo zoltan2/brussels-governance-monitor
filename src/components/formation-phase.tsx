@@ -12,7 +12,7 @@ const PHASE_COLORS: Record<string, string> = {
   exploration: 'bg-amber-500',
   negotiation: 'bg-blue-400',
   agreement: 'bg-indigo-400',
-  government: 'bg-white',
+  government: 'bg-neutral-50',
 };
 
 /**

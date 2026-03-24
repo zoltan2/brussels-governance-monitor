@@ -264,7 +264,7 @@ function CommuneDetail({
                 <Link
                   key={d.slug}
                   href={{ pathname: '/domains/[slug]', params: { slug: d.slug } }}
-                  className="rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
+                  className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
                 >
                   {d.title}
                 </Link>
@@ -284,7 +284,7 @@ function CommuneDetail({
                 <Link
                   key={s.slug}
                   href={{ pathname: '/sectors/[slug]', params: { slug: s.slug } }}
-                  className="rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
+                  className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
                 >
                   {s.title}
                 </Link>

@@ -31,7 +31,7 @@ function UnsubscribedView({ status }: { status: string | undefined }) {
   return (
     <section className="py-12">
       <div className="mx-auto max-w-lg px-4">
-        <div className="rounded-lg border border-neutral-200 bg-white p-8 text-center">
+        <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
           {status === 'success' && (
             <>
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50">

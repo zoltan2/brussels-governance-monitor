@@ -124,7 +124,7 @@ export function ReviewCard({
   }
 
   return (
-    <div className="rounded-lg border border-amber-200 bg-white p-4">
+    <div className="rounded-lg border border-amber-200 bg-neutral-50 p-4">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <div className="mb-2 flex items-center gap-2">
@@ -172,7 +172,7 @@ export function ReviewCard({
           </button>
 
           {showRejectMenu && (
-            <div className="absolute left-0 top-full z-10 mt-1 w-56 rounded-lg border border-neutral-200 bg-white py-1 shadow-lg">
+            <div className="absolute left-0 top-full z-10 mt-1 w-56 rounded-lg border border-neutral-200 bg-neutral-50 py-1 shadow-lg">
               {Object.entries(labels.rejectReasons).map(([key, label]) => (
                 <button
                   key={key}

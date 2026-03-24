@@ -324,25 +324,25 @@ function DataView({
           </p>
 
           <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <div className="rounded-lg border border-neutral-200 bg-white px-4 py-3 text-center">
+            <div className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-center">
               <p className="text-2xl font-bold text-brand-900">{stats.total}</p>
               <p className="text-xs text-neutral-500">
                 {t('methodology.sourcesCount', { count: stats.total }).replace(String(stats.total) + ' ', '')}
               </p>
             </div>
-            <div className="rounded-lg border border-neutral-200 bg-white px-4 py-3 text-center">
+            <div className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-center">
               <p className="text-2xl font-bold text-brand-900">{stats.press}</p>
               <p className="text-xs text-neutral-500">
                 {t('methodology.pressCount', { count: stats.press }).replace(String(stats.press) + ' ', '')}
               </p>
             </div>
-            <div className="rounded-lg border border-neutral-200 bg-white px-4 py-3 text-center">
+            <div className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-center">
               <p className="text-2xl font-bold text-brand-900">{stats.institutional}</p>
               <p className="text-xs text-neutral-500">
                 {t('methodology.institutionalCount', { count: stats.institutional }).replace(String(stats.institutional) + ' ', '')}
               </p>
             </div>
-            <div className="rounded-lg border border-neutral-200 bg-white px-4 py-3 text-center">
+            <div className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-center">
               <p className="text-2xl font-bold text-brand-900">{stats.international}</p>
               <p className="text-xs text-neutral-500">
                 {t('methodology.internationalCount', { count: stats.international }).replace(String(stats.international) + ' ', '')}
@@ -408,7 +408,7 @@ function DataView({
                 return (
                   <details
                     key={group.domainKey}
-                    className="group rounded-lg border border-neutral-200 bg-white"
+                    className="group rounded-lg border border-neutral-200 bg-neutral-50"
                   >
                     <summary className="flex cursor-pointer list-none items-center gap-3 px-5 py-4 [&::-webkit-details-marker]:hidden">
                       <svg

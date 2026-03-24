@@ -185,7 +185,7 @@ function SolutionDetail({
         {card.summaryFalc && <FalcSummary summary={card.summaryFalc} />}
 
         {card.precedent && (
-          <div className="mb-6 rounded-lg border border-neutral-200 bg-white p-4">
+          <div className="mb-6 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
             <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('precedent')}
             </h2>
@@ -196,7 +196,7 @@ function SolutionDetail({
         )}
 
         {card.legalBasis && (
-          <div className="mb-6 rounded-lg border border-neutral-200 bg-white p-4">
+          <div className="mb-6 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
             <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
               {t('legalBasis')}
             </h2>

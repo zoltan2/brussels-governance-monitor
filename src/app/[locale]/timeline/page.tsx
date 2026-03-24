@@ -116,7 +116,7 @@ function TimelineView({
         <p className="mt-1 mb-8 text-sm text-neutral-500">{t('subtitle')}</p>
 
         {/* Phase tracker */}
-        <div className="mb-12 rounded-lg border border-neutral-200 bg-white p-6">
+        <div className="mb-12 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
           <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-neutral-500">
             {t('phaseTracker')}
           </h2>
@@ -171,7 +171,7 @@ function TimelineView({
                   <div
                     key={chapter.number}
                     id={`chapter-${chapter.number}`}
-                    className="rounded-lg border border-neutral-200 bg-white"
+                    className="rounded-lg border border-neutral-200 bg-neutral-50"
                   >
                     {/* Chapter header */}
                     <div className="border-b border-neutral-100 p-6">
@@ -279,7 +279,7 @@ function TimelineView({
                 <div
                   key={round.number}
                   id={`round-${round.number}`}
-                  className="rounded-lg border border-neutral-200 bg-white"
+                  className="rounded-lg border border-neutral-200 bg-neutral-50"
                 >
                   {/* Round header */}
                   <div className="border-b border-neutral-100 p-6">

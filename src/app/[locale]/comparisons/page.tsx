@@ -69,7 +69,7 @@ function ComparisonsList({
             <Link
               key={card.slug}
               href={{ pathname: '/comparisons/[slug]', params: { slug: card.slug } }}
-              className="group rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+              className="group rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-shadow hover:shadow-md"
             >
               <div className="mb-3 flex flex-wrap gap-1.5">
                 {card.entities.map((e) => (

@@ -119,7 +119,7 @@ function GlossaryView({
                       <div
                         key={term.slug}
                         id={term.slug}
-                        className="rounded-lg border border-neutral-200 bg-white p-5"
+                        className="rounded-lg border border-neutral-200 bg-neutral-50 p-5"
                       >
                         <h3 className="text-base font-semibold text-neutral-900">{term.term}</h3>
                         <p className="mt-2 text-sm leading-relaxed text-neutral-600">

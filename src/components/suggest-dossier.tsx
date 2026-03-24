@@ -89,7 +89,7 @@ export function SuggestDossier({ labels }: SuggestDossierProps) {
               placeholder={labels.namePlaceholder}
               required
               maxLength={200}
-              className="w-full rounded-md border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500"
+              className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500"
             />
           </div>
 
@@ -104,7 +104,7 @@ export function SuggestDossier({ labels }: SuggestDossierProps) {
               placeholder={labels.reasonPlaceholder}
               rows={2}
               maxLength={500}
-              className="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500"
+              className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500"
             />
           </div>
 
@@ -118,7 +118,7 @@ export function SuggestDossier({ labels }: SuggestDossierProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={labels.emailPlaceholder}
-              className="w-full rounded-md border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500"
+              className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500"
             />
           </div>
 

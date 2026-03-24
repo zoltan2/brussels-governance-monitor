@@ -23,7 +23,7 @@ export function DomainTags({ domain, locale }: { domain: string; locale: string 
           key={tag.id}
           className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-medium ${
             tag.type === 'transversal'
-              ? 'border border-neutral-300 bg-white text-neutral-600'
+              ? 'border border-neutral-300 bg-neutral-50 text-neutral-600'
               : 'bg-neutral-100 text-neutral-700'
           }`}
         >

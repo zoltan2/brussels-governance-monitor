@@ -139,7 +139,7 @@ function SignalCard({
       className={`rounded-lg border p-4 ${
         isArchived
           ? 'border-neutral-100 bg-neutral-50'
-          : 'border-neutral-200 bg-white'
+          : 'border-neutral-200 bg-neutral-50'
       }`}
     >
       <div className="mb-2 flex flex-wrap items-center gap-2">

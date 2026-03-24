@@ -98,7 +98,7 @@ function PressView({ mentions, locale }: { mentions: PressMention[]; locale: str
           {mentions.map((mention, i) => (
             <article
               key={i}
-              className="rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300"
+              className="rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-colors hover:border-neutral-300"
             >
               <div className="flex flex-wrap items-center gap-3 mb-2">
                 <time dateTime={mention.date} className="text-xs text-neutral-500">

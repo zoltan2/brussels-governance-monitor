@@ -45,7 +45,7 @@ export function LocaleSwitcher() {
         name="language"
         defaultValue={locale}
         onChange={onSelectChange}
-        className="appearance-none rounded-md border border-neutral-300 bg-white px-3 py-1.5 pr-8 text-sm text-neutral-700 hover:border-neutral-400 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
+        className="appearance-none rounded-md border border-neutral-300 bg-neutral-50 px-3 py-1.5 pr-8 text-sm text-neutral-700 hover:border-neutral-400 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
       >
         {routing.locales.map((l) => (
           <option key={l} value={l}>

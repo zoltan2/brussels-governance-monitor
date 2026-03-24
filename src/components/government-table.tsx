@@ -23,7 +23,7 @@ export function GovernmentTable({ locale, inline = false }: GovernmentTableProps
   const t = useTranslations('home');
 
   const table = (
-    <details className="group rounded-lg border border-neutral-200 bg-white" {...(inline ? {} : { open: true })}>
+    <details className="group rounded-lg border border-neutral-200 bg-neutral-50" {...(inline ? {} : { open: true })}>
       <summary className="flex cursor-pointer list-none items-center justify-between p-5 [&::-webkit-details-marker]:hidden">
         <div>
           <h2 className={`font-semibold text-neutral-900 ${inline ? 'text-xs' : 'text-sm'}`}>

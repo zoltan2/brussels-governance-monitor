@@ -141,7 +141,7 @@ function SupportView({
         {/* Section 3: Donate */}
         <div className="mb-10 grid gap-5 sm:grid-cols-2">
           {/* One-time */}
-          <div className="rounded-lg border border-neutral-200 bg-white p-5 text-center">
+          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-5 text-center">
             <h3 className="mb-1 text-sm font-semibold text-neutral-800">{t('onceTitle')}</h3>
             <p className="mb-4 text-xs text-neutral-500">{t('onceSubtitle')}</p>
             <a

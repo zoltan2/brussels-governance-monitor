@@ -25,7 +25,7 @@ export function RecentChanges({
   if (entries.length === 0) return null;
 
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white p-5">
+    <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
       <h2 className="mb-3 text-sm font-semibold text-neutral-900">{t('title')}</h2>
       <ul className="space-y-2">
         {entries.map((entry, i) => (

@@ -152,7 +152,7 @@ export function CiteButton({ url, title, date, locale, labels }: CiteButtonProps
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
         aria-controls={dialogId}
-        className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium text-neutral-500 transition-colors hover:bg-neutral-50 hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+        className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-medium text-neutral-500 transition-colors hover:bg-neutral-50 hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
       >
         <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path
@@ -171,7 +171,7 @@ export function CiteButton({ url, title, date, locale, labels }: CiteButtonProps
           id={dialogId}
           role="dialog"
           aria-label={labels.cite}
-          className="absolute left-0 top-full z-50 mt-1 w-80 rounded-lg border border-neutral-200 bg-white p-4 shadow-lg sm:w-96"
+          className="absolute left-0 top-full z-50 mt-1 w-80 rounded-lg border border-neutral-200 bg-neutral-50 p-4 shadow-lg sm:w-96"
         >
           {/* Tabs */}
           <div role="tablist" className="mb-3 flex gap-1 rounded-md bg-neutral-100 p-0.5">
@@ -184,7 +184,7 @@ export function CiteButton({ url, title, date, locale, labels }: CiteButtonProps
               onClick={() => { setTab('standard'); setCopied(false); }}
               className={`flex-1 rounded px-3 py-1.5 text-xs font-medium transition-colors ${
                 tab === 'standard'
-                  ? 'bg-white text-neutral-900 shadow-sm'
+                  ? 'bg-neutral-50 text-neutral-900 shadow-sm'
                   : 'text-neutral-500 hover:text-neutral-700'
               }`}
             >
@@ -199,7 +199,7 @@ export function CiteButton({ url, title, date, locale, labels }: CiteButtonProps
               onClick={() => { setTab('academic'); setCopied(false); }}
               className={`flex-1 rounded px-3 py-1.5 text-xs font-medium transition-colors ${
                 tab === 'academic'
-                  ? 'bg-white text-neutral-900 shadow-sm'
+                  ? 'bg-neutral-50 text-neutral-900 shadow-sm'
                   : 'text-neutral-500 hover:text-neutral-700'
               }`}
             >
@@ -235,7 +235,7 @@ export function CiteButton({ url, title, date, locale, labels }: CiteButtonProps
             <button
               type="button"
               onClick={handleExportBibtex}
-              className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-50"
+              className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-50"
             >
               {labels.exportBibtex}
             </button>

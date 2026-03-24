@@ -24,7 +24,7 @@ export function RadarFeed({
   return (
     <div className="py-6">
       <div className="mx-auto max-w-3xl px-4">
-        <div className="rounded-lg border border-neutral-200 bg-white py-5">
+        <div className="rounded-lg border border-neutral-200 bg-neutral-50 py-5">
           {/* Shield callout */}
           <div className="mx-5 mb-5 rounded-md border-l-4 border-blue-300 bg-blue-50/50 px-3 py-2.5">
             <p className="text-xs leading-relaxed text-neutral-600">

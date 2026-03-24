@@ -18,7 +18,7 @@ export function CommuneCard({ card }: CommuneCardProps) {
   return (
     <Link
       href={{ pathname: '/communes/[slug]', params: { slug: card.slug } }}
-      className="flex flex-col rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+      className="flex flex-col rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-shadow hover:shadow-md"
     >
       <h2 className="mb-2 text-base font-semibold text-neutral-900">{card.title}</h2>
 

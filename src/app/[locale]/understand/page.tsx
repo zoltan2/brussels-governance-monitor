@@ -111,7 +111,7 @@ function UnderstandContent() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+              className="rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-shadow hover:shadow-md"
             >
               <h3 className="mb-2 text-base font-semibold text-neutral-900">{item.title}</h3>
               <p className="text-sm text-neutral-600">{item.desc}</p>
@@ -128,7 +128,7 @@ function UnderstandContent() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+              className="rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-shadow hover:shadow-md"
             >
               <h3 className="mb-2 text-base font-semibold text-neutral-900">{item.title}</h3>
               <p className="text-sm text-neutral-600">{item.desc}</p>
@@ -145,7 +145,7 @@ function UnderstandContent() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+              className="rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-shadow hover:shadow-md"
             >
               <h3 className="mb-2 text-base font-semibold text-neutral-900">{item.title}</h3>
               <p className="text-sm text-neutral-600">{item.desc}</p>
@@ -162,7 +162,7 @@ function UnderstandContent() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+              className="rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-shadow hover:shadow-md"
             >
               <h3 className="mb-2 text-base font-semibold text-neutral-900">{item.title}</h3>
               <p className="text-sm text-neutral-600">{item.desc}</p>

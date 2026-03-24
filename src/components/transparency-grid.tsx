@@ -61,7 +61,7 @@ export function TransparencyGrid({ indicators, score, total }: TransparencyGridP
           return (
             <div
               key={key}
-              className="flex items-center gap-3 rounded-lg border border-neutral-200 bg-white p-3"
+              className="flex items-center gap-3 rounded-lg border border-neutral-200 bg-neutral-50 p-3"
             >
               <IndicatorIcon value={value} />
               <div className="min-w-0">

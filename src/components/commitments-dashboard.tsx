@@ -137,7 +137,7 @@ export function CommitmentsDashboard({
 
   return (
     <div>
-      <div className="mb-6 rounded-lg border border-neutral-200 bg-white p-4">
+      <div className="mb-6 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
         <div className="flex flex-wrap items-center gap-4 text-xs text-neutral-500">
           <span>
             {t('total', { count: data.commitments.length })}
@@ -178,7 +178,7 @@ export function CommitmentsDashboard({
               return (
                 <div
                   key={commitment.id}
-                  className={`rounded-lg border border-neutral-200 border-l-4 bg-white transition-shadow ${isExpanded ? 'shadow-sm' : ''} ${domainStyles[commitment.domain] || 'border-l-neutral-300'}`}
+                  className={`rounded-lg border border-neutral-200 border-l-4 bg-neutral-50 transition-shadow ${isExpanded ? 'shadow-sm' : ''} ${domainStyles[commitment.domain] || 'border-l-neutral-300'}`}
                 >
                   <button
                     type="button"

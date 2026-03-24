@@ -97,7 +97,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center gap-2 text-base font-semibold tracking-tight text-brand-900">
           <Image src="/logo.png" alt="" width={28} height={28} className="shrink-0" />
@@ -135,7 +135,7 @@ export function Header() {
               </svg>
             </button>
             {dropdownOpen && (
-              <div ref={menuRef} role="menu" onKeyDown={handleMenuKeyDown} className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-neutral-200 bg-white py-2 shadow-lg">
+              <div ref={menuRef} role="menu" onKeyDown={handleMenuKeyDown} className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-neutral-200 bg-neutral-50 py-2 shadow-lg">
                 <Link
                   role="menuitem"
                   href="/sectors"

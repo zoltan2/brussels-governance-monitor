@@ -119,7 +119,7 @@ function WhoDecidesWhatView() {
               <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
                 <p>{t('circles.circle2')}</p>
               </div>
-              <div className="rounded-lg border border-neutral-100 bg-white p-4">
+              <div className="rounded-lg border border-neutral-100 bg-neutral-50 p-4">
                 <p className="text-neutral-500">{t('circles.circle3')}</p>
               </div>
             </div>

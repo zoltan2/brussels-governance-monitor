@@ -31,7 +31,7 @@ export function DomainCard({ card, locale, headingLevel = 'h3' }: DomainCardProp
   const Heading = headingLevel;
 
   return (
-    <article className="flex flex-col rounded-lg border border-neutral-200 bg-white p-6 transition-shadow hover:shadow-md">
+    <article className="flex flex-col rounded-lg border border-neutral-200 bg-neutral-50 p-6 transition-shadow hover:shadow-md">
       <div className="mb-3 flex items-start justify-between gap-2">
         <Heading className="text-lg font-semibold text-neutral-900">{card.title}</Heading>
         <span

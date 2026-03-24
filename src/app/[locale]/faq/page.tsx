@@ -77,7 +77,7 @@ export default async function FaqPage({
 function FaqItem({ questionKey, t }: { questionKey: string; t: ReturnType<typeof useTranslations<'faq'>> }) {
   const num = questionKey.slice(1);
   return (
-    <details className="group rounded-lg border border-neutral-200 bg-white">
+    <details className="group rounded-lg border border-neutral-200 bg-neutral-50">
       <summary className="cursor-pointer px-5 py-4 text-sm font-medium text-neutral-900 select-none hover:bg-neutral-50">
         <span className="ml-1">{t(`questions.${questionKey}`)}</span>
       </summary>

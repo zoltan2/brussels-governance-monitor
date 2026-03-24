@@ -113,13 +113,13 @@ function WhoDecidesWhatView() {
           <div>
             <h2 className="mb-4 text-lg font-semibold text-neutral-900">{t('circles.title')}</h2>
             <div className="space-y-3">
-              <div className="rounded-lg border border-blue-200 bg-blue-50/50 p-4">
+              <div className="rounded-lg border border-brand-700/30 bg-brand-900/5 p-4">
                 <p>{t('circles.circle1')}</p>
               </div>
               <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
                 <p>{t('circles.circle2')}</p>
               </div>
-              <div className="rounded-lg border border-neutral-100 bg-white p-4">
+              <div className="rounded-lg border border-neutral-100 bg-neutral-50 p-4">
                 <p className="text-neutral-500">{t('circles.circle3')}</p>
               </div>
             </div>

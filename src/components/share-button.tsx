@@ -95,7 +95,7 @@ export function ShareButton({ url, title, description, labels }: ShareButtonProp
         onClick={handleToggle}
         aria-expanded={open}
         aria-controls={panelId}
-        className="inline-flex items-center gap-1.5 rounded-md border border-neutral-300 bg-white px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+        className="inline-flex items-center gap-1.5 rounded-md border border-neutral-300 bg-neutral-50 px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
       >
         <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path
@@ -111,7 +111,7 @@ export function ShareButton({ url, title, description, labels }: ShareButtonProp
       {open && (
         <div
           id={panelId}
-          className="absolute left-0 top-full z-50 mt-1 w-56 rounded-lg border border-neutral-200 bg-white py-1 shadow-lg"
+          className="absolute left-0 top-full z-50 mt-1 w-56 rounded-lg border border-neutral-200 bg-neutral-50 py-1 shadow-lg"
         >
           <p className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-neutral-500">
             {labels.shareVia}

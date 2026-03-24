@@ -38,9 +38,9 @@ export default function DigestLayout({
           />
         )}
       </head>
-      <body className="min-h-screen bg-white text-neutral-900 antialiased">
+      <body className="min-h-screen bg-neutral-50 text-neutral-900 antialiased">
         <div className="flex min-h-screen flex-col">
-          <header className="border-b border-neutral-200 bg-white">
+          <header className="border-b border-neutral-200 bg-neutral-50">
             <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
               <a
                 href="https://governance.brussels"

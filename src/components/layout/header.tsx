@@ -97,7 +97,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center gap-2 text-base font-semibold tracking-tight text-brand-900">
           <Image src="/logo.png" alt="" width={28} height={28} className="shrink-0" />
@@ -135,7 +135,7 @@ export function Header() {
               </svg>
             </button>
             {dropdownOpen && (
-              <div ref={menuRef} role="menu" onKeyDown={handleMenuKeyDown} className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-neutral-200 bg-white py-2 shadow-lg">
+              <div ref={menuRef} role="menu" onKeyDown={handleMenuKeyDown} className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-neutral-200 bg-neutral-50 py-2 shadow-lg">
                 <Link
                   role="menuitem"
                   href="/sectors"
@@ -202,7 +202,7 @@ export function Header() {
           <Search />
           <Link
             href="/support"
-            className="inline-flex items-center gap-1.5 rounded-md border border-blue-800 px-3 py-1 text-xs font-medium text-blue-800 transition-colors hover:bg-blue-800 hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded-md border border-brand-700 px-3 py-1 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-900 hover:text-neutral-50"
           >
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
             {t('support')}
@@ -302,7 +302,7 @@ export function Header() {
             <Link
               href="/support"
               onClick={() => setMenuOpen(false)}
-              className="my-3 inline-flex items-center justify-center gap-1.5 rounded-md border border-blue-800 px-4 py-2 text-sm font-medium text-blue-800 transition-colors hover:bg-blue-800 hover:text-white"
+              className="my-3 inline-flex items-center justify-center gap-1.5 rounded-md border border-brand-700 px-4 py-2 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-900 hover:text-neutral-50"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
               {t('support')}

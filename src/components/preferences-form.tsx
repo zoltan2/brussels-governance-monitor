@@ -124,7 +124,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
 
   if (state === 'loading') {
     return (
-      <div className="rounded-lg border border-neutral-200 bg-white p-8 text-center">
+      <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
         <div className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-2 border-neutral-300 border-t-brand-900" />
         <p className="text-sm text-neutral-500">{t('title')}</p>
       </div>
@@ -133,7 +133,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
 
   if (state === 'invalid') {
     return (
-      <div className="rounded-lg border border-neutral-200 bg-white p-8 text-center">
+      <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-50">
           <svg className="h-6 w-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" />
@@ -149,9 +149,9 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
 
   if (unsubscribed) {
     return (
-      <div className="rounded-lg border border-neutral-200 bg-white p-8 text-center">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50">
-          <svg className="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand-900/5">
+          <svg className="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -174,7 +174,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
   }
 
   return (
-    <form onSubmit={handleSave} className="rounded-lg border border-neutral-200 bg-white p-6">
+    <form onSubmit={handleSave} className="rounded-lg border border-neutral-200 bg-neutral-50 p-6">
       <h2 className="mb-1 text-lg font-semibold text-neutral-900">{t('title')}</h2>
       <p className="mb-6 text-sm text-neutral-500">{t('subtitle')}</p>
 
@@ -226,7 +226,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
               className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                 topics.includes(topic)
                   ? 'border-brand-600 bg-brand-900 text-white'
-                  : 'border-neutral-300 bg-white text-neutral-600 hover:border-neutral-400'
+                  : 'border-neutral-300 bg-neutral-50 text-neutral-600 hover:border-neutral-400'
               }`}
             >
               <input
@@ -249,7 +249,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
               className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                 topics.includes(topic)
                   ? 'border-brand-600 bg-brand-900 text-white'
-                  : 'border-neutral-300 bg-white text-neutral-600 hover:border-neutral-400'
+                  : 'border-neutral-300 bg-neutral-50 text-neutral-600 hover:border-neutral-400'
               }`}
             >
               <input
@@ -272,7 +272,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
               className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                 topics.includes(topic)
                   ? 'border-brand-600 bg-brand-900 text-white'
-                  : 'border-neutral-300 bg-white text-neutral-600 hover:border-neutral-400'
+                  : 'border-neutral-300 bg-neutral-50 text-neutral-600 hover:border-neutral-400'
               }`}
             >
               <input
@@ -295,7 +295,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
               className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                 topics.includes(option.id)
                   ? 'border-brand-600 bg-brand-900 text-white'
-                  : 'border-neutral-300 bg-white text-neutral-600 hover:border-neutral-400'
+                  : 'border-neutral-300 bg-neutral-50 text-neutral-600 hover:border-neutral-400'
               }`}
             >
               <input
@@ -318,7 +318,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
               className={`cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                 topics.includes(topic)
                   ? 'border-brand-600 bg-brand-900 text-white'
-                  : 'border-neutral-300 bg-white text-neutral-600 hover:border-neutral-400'
+                  : 'border-neutral-300 bg-neutral-50 text-neutral-600 hover:border-neutral-400'
               }`}
             >
               <input

@@ -12,13 +12,13 @@ import type { RadarLabels } from './page';
 const PAGE_SIZE = 30;
 
 const CONFIDENCE_STYLES: Record<string, string> = {
-  official: 'bg-blue-50 text-blue-700 border-blue-200',
+  official: 'bg-brand-900/5 text-brand-700 border-brand-700/30',
   estimated: 'bg-amber-50 text-amber-700 border-amber-200',
   unconfirmed: 'bg-neutral-100 text-neutral-500 border-neutral-200',
 };
 
 const STATUS_STYLES: Record<string, string> = {
-  active: 'bg-blue-50 text-blue-700 border-blue-200',
+  active: 'bg-brand-900/5 text-brand-700 border-brand-700/30',
   confirmed: 'bg-teal-50 text-teal-700 border-teal-200',
   archived: 'bg-neutral-50 text-neutral-500 border-neutral-200',
 };
@@ -48,7 +48,7 @@ export function RadarContent({
       </div>
 
       {/* Shield callout */}
-      <div className="mb-8 rounded-md border-l-4 border-blue-300 bg-blue-50/50 px-4 py-3">
+      <div className="mb-8 rounded-md border-l-4 border-brand-700/30 bg-brand-900/5 px-4 py-3">
         <p className="text-sm leading-relaxed text-neutral-600">
           {labels.shieldText}
         </p>
@@ -139,7 +139,7 @@ function SignalCard({
       className={`rounded-lg border p-4 ${
         isArchived
           ? 'border-neutral-100 bg-neutral-50'
-          : 'border-neutral-200 bg-white'
+          : 'border-neutral-200 bg-neutral-50'
       }`}
     >
       <div className="mb-2 flex flex-wrap items-center gap-2">

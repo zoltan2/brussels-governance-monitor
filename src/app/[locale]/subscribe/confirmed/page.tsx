@@ -46,12 +46,12 @@ function ConfirmedView({
   return (
     <section className="py-12">
       <div className="mx-auto max-w-lg px-4">
-        <div className="rounded-lg border border-neutral-200 bg-white p-8 text-center">
+        <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
           {status === 'success' && (
             <>
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand-900/5">
                 <svg
-                  className="h-6 w-6 text-blue-700"
+                  className="h-6 w-6 text-brand-700"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -79,7 +79,7 @@ function ConfirmedView({
                     {topicList.map((topic) => (
                       <span
                         key={topic}
-                        className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800"
+                        className="rounded-full bg-brand-700/20 px-3 py-1 text-xs font-medium text-brand-800"
                       >
                         {dossierLabels[topic] || t(`topicLabels.${topic}`)}
                       </span>

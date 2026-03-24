@@ -11,7 +11,7 @@ interface StatusEntry {
 
 const STATUS_DOT_COLORS: Record<string, string> = {
   'not-started': 'bg-neutral-400',
-  announced: 'bg-blue-600',
+  announced: 'bg-brand-600',
   'in-legislation': 'bg-indigo-600',
   implemented: 'bg-teal-600',
   delayed: 'bg-amber-600',

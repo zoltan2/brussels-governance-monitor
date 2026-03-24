@@ -101,7 +101,7 @@ export function ReviewCard({
   };
 
   const typeBadgeColors: Record<string, string> = {
-    domain: 'bg-blue-100 text-blue-800',
+    domain: 'bg-brand-700/20 text-brand-800',
     solution: 'bg-amber-100 text-amber-800',
     sector: 'bg-teal-100 text-teal-800',
     comparison: 'bg-purple-100 text-purple-800',
@@ -124,7 +124,7 @@ export function ReviewCard({
   }
 
   return (
-    <div className="rounded-lg border border-amber-200 bg-white p-4">
+    <div className="rounded-lg border border-amber-200 bg-neutral-50 p-4">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <div className="mb-2 flex items-center gap-2">
@@ -172,7 +172,7 @@ export function ReviewCard({
           </button>
 
           {showRejectMenu && (
-            <div className="absolute left-0 top-full z-10 mt-1 w-56 rounded-lg border border-neutral-200 bg-white py-1 shadow-lg">
+            <div className="absolute left-0 top-full z-10 mt-1 w-56 rounded-lg border border-neutral-200 bg-neutral-50 py-1 shadow-lg">
               {Object.entries(labels.rejectReasons).map(([key, label]) => (
                 <button
                   key={key}

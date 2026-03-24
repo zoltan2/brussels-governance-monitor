@@ -8,7 +8,7 @@ import type { Locale } from '@/i18n/routing';
 type Role = 'minister-president' | 'minister' | 'state-secretary' | 'parliament-vp';
 
 const roleBadgeClasses: Record<Role, string> = {
-  'minister-president': 'bg-blue-100 text-blue-800',
+  'minister-president': 'bg-brand-700/20 text-brand-800',
   minister: 'bg-slate-100 text-slate-700',
   'state-secretary': 'bg-neutral-100 text-neutral-600',
   'parliament-vp': 'bg-neutral-100 text-neutral-600',
@@ -23,7 +23,7 @@ export function GovernmentTable({ locale, inline = false }: GovernmentTableProps
   const t = useTranslations('home');
 
   const table = (
-    <details className="group rounded-lg border border-neutral-200 bg-white" {...(inline ? {} : { open: true })}>
+    <details className="group rounded-lg border border-neutral-200 bg-neutral-50" {...(inline ? {} : { open: true })}>
       <summary className="flex cursor-pointer list-none items-center justify-between p-5 [&::-webkit-details-marker]:hidden">
         <div>
           <h2 className={`font-semibold text-neutral-900 ${inline ? 'text-xs' : 'text-sm'}`}>

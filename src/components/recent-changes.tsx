@@ -7,7 +7,7 @@ import { formatDate } from '@/lib/utils';
 import type { ChangelogEntry } from '@/lib/changelog';
 
 const typeBadgeClasses: Record<ChangelogEntry['type'], string> = {
-  added: 'bg-blue-100 text-blue-800',
+  added: 'bg-brand-700/20 text-brand-800',
   updated: 'bg-slate-100 text-slate-700',
   corrected: 'bg-amber-100 text-amber-800',
   removed: 'bg-neutral-200 text-neutral-600',
@@ -25,7 +25,7 @@ export function RecentChanges({
   if (entries.length === 0) return null;
 
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white p-5">
+    <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
       <h2 className="mb-3 text-sm font-semibold text-neutral-900">{t('title')}</h2>
       <ul className="space-y-2">
         {entries.map((entry, i) => (

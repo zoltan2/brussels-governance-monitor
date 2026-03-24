@@ -43,12 +43,12 @@ export default async function GlossaryPage({
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  institution: 'bg-blue-100 text-blue-800',
+  institution: 'bg-brand-700/20 text-brand-800',
   procedure: 'bg-indigo-100 text-indigo-800',
   budget: 'bg-amber-100 text-amber-800',
   political: 'bg-slate-100 text-slate-700',
   legal: 'bg-neutral-100 text-neutral-700',
-  bgm: 'bg-blue-50 text-blue-700',
+  bgm: 'bg-brand-900/5 text-brand-700',
 };
 
 function GlossaryView({
@@ -119,7 +119,7 @@ function GlossaryView({
                       <div
                         key={term.slug}
                         id={term.slug}
-                        className="rounded-lg border border-neutral-200 bg-white p-5"
+                        className="rounded-lg border border-neutral-200 bg-neutral-50 p-5"
                       >
                         <h3 className="text-base font-semibold text-neutral-900">{term.term}</h3>
                         <p className="mt-2 text-sm leading-relaxed text-neutral-600">

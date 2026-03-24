@@ -69,7 +69,7 @@ function SectorsContent({
           <Link
             key={card.slug}
             href={{ pathname: '/sectors/[slug]', params: { slug: card.slug } }}
-            className="rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+            className="rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-shadow hover:shadow-md"
           >
             <h2 className="mb-2 text-base font-semibold text-neutral-900">{card.title}</h2>
             {card.humanImpact && (

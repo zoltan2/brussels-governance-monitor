@@ -217,7 +217,7 @@ function DomainDetail({
 
         {/* FALC — collapsible, closed by default */}
         {card.summaryFalc && (
-          <details className="mb-6 rounded-lg border border-blue-200 bg-blue-50/50">
+          <details className="mb-6 rounded-lg border border-brand-700/30 bg-brand-900/5">
             <summary className="flex cursor-pointer items-center gap-2 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-brand-700">
               <svg
                 className="h-4 w-4 shrink-0"
@@ -235,7 +235,7 @@ function DomainDetail({
               </svg>
               {falcLabels[locale] ?? falcLabels.fr}
             </summary>
-            <div className="border-t border-blue-200 px-4 pb-3 pt-2">
+            <div className="border-t border-brand-700/30 px-4 pb-3 pt-2">
               <p className="text-sm leading-relaxed text-neutral-700">{card.summaryFalc}</p>
             </div>
           </details>

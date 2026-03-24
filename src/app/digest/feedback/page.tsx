@@ -55,14 +55,14 @@ function FeedbackContent() {
   return (
     <div className="flex flex-1 items-center justify-center px-4 py-16">
       <div className="max-w-md text-center">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-brand-900/5">
           <span className="text-3xl">{vote === 'yes' ? '👍' : '👎'}</span>
         </div>
         <h1 className="mb-3 text-xl font-bold text-neutral-900">{t.title}</h1>
         <p className="mb-8 text-neutral-500">{t.subtitle}</p>
         <a
           href={`https://governance.brussels/${lang}`}
-          className="text-sm font-medium text-blue-700 hover:text-blue-900"
+          className="text-sm font-medium text-brand-700 hover:text-brand-900"
         >
           {t.back}
         </a>

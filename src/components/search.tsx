@@ -173,7 +173,7 @@ export function Search() {
             if (e.target === e.currentTarget) setOpen(false);
           }}
         >
-          <div className="w-full max-w-lg rounded-lg bg-white shadow-2xl">
+          <div className="w-full max-w-lg rounded-lg bg-neutral-50 shadow-2xl">
             <div className="flex items-center border-b border-neutral-200 px-4">
               <svg className="mr-2 h-4 w-4 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path

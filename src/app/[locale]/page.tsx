@@ -179,7 +179,7 @@ function FollowColumn({
         </h2>
       </div>
 
-      <div className="flex-1 rounded-lg border border-neutral-200 bg-white">
+      <div className="flex-1 rounded-lg border border-neutral-200 bg-neutral-50">
         {/* 1. Veille badge — reassuring opener */}
         <div className="px-4 pt-4 pb-3">
           <div className="flex items-center gap-2 text-xs text-neutral-700">
@@ -242,7 +242,7 @@ function FollowColumn({
 
         {/* 6. Shield footnote — discrete safety net */}
         <div className="border-t border-neutral-100 px-4 py-3">
-          <div className="border-l-2 border-blue-200 pl-3">
+          <div className="border-l-2 border-brand-700/30 pl-3">
             <p className="text-xs text-neutral-500">
               {t('shieldFootnote')}
             </p>
@@ -278,7 +278,7 @@ function UnderstandColumn({ locale }: { locale: string }) {
       </div>
 
       {/* Explainer links card */}
-      <div className="rounded-lg border border-neutral-200 bg-white p-4">
+      <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
         <p className="mb-3 text-xs font-medium text-neutral-500">{t('newHere')}</p>
         <div className="space-y-2">
           {explainers.map((exp) => (
@@ -385,7 +385,7 @@ function DossiersPreview({
             <Link
               key={card.slug}
               href={{ pathname: '/dossiers/[slug]', params: { slug: card.slug } }}
-              className="flex flex-col rounded-lg border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+              className="flex flex-col rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-shadow hover:shadow-md"
             >
               <div className="mb-2 flex items-start justify-between gap-2">
                 <h3 className="text-sm font-semibold text-neutral-900">{card.title}</h3>
@@ -504,7 +504,7 @@ function SectorsPreview({
             <Link
               key={card.slug}
               href={{ pathname: '/sectors/[slug]', params: { slug: card.slug } }}
-              className="rounded-lg border border-neutral-200 bg-white p-4 transition-shadow hover:shadow-md"
+              className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 transition-shadow hover:shadow-md"
             >
               <h3 className="mb-1 text-sm font-semibold text-neutral-900">{card.title}</h3>
               <p className="text-xs text-neutral-500">

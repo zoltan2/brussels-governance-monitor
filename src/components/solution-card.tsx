@@ -22,7 +22,7 @@ export function SolutionCard({ card }: SolutionCardProps) {
   const t = useTranslations('solutions');
 
   return (
-    <article className="flex flex-col rounded-lg border border-neutral-200 bg-white p-6 transition-shadow hover:shadow-md">
+    <article className="flex flex-col rounded-lg border border-neutral-200 bg-neutral-50 p-6 transition-shadow hover:shadow-md">
       <div className="mb-3 flex items-start justify-between gap-2">
         <h3 className="text-lg font-semibold text-neutral-900">{card.title}</h3>
         <span

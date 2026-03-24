@@ -58,7 +58,7 @@ export default async function PressPage({
 }
 
 const typeBadgeClasses: Record<PressMention['type'], string> = {
-  feature: 'bg-blue-100 text-blue-800',
+  feature: 'bg-brand-700/20 text-brand-800',
   citation: 'bg-slate-100 text-slate-700',
   mention: 'bg-amber-100 text-amber-800',
 };
@@ -81,15 +81,15 @@ function PressView({ mentions, locale }: { mentions: PressMention[]; locale: str
         <p className="mb-8 text-sm leading-relaxed text-neutral-600">{t('intro')}</p>
 
         {(locale === 'fr' || locale === 'nl') && (
-          <div className="mb-8 rounded-lg border border-blue-100 bg-blue-50/50 px-5 py-4">
+          <div className="mb-8 rounded-lg border border-brand-700/20 bg-brand-900/5 px-5 py-4">
             <a
               href={locale === 'nl' ? 'https://podcast.governance.brussels/@debriefingbgm' : 'https://podcast.governance.brussels/@lebriefingbgm'}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-blue-900 hover:text-blue-700 hover:underline"
+              className="text-sm font-medium text-brand-900 hover:text-brand-700 hover:underline"
             >
               {t('podcastLabel')}
-              <span className="ml-1 text-blue-400" aria-hidden="true">&#8599;</span>
+              <span className="ml-1 text-brand-600" aria-hidden="true">&#8599;</span>
             </a>
           </div>
         )}
@@ -98,7 +98,7 @@ function PressView({ mentions, locale }: { mentions: PressMention[]; locale: str
           {mentions.map((mention, i) => (
             <article
               key={i}
-              className="rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-neutral-300"
+              className="rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-colors hover:border-neutral-300"
             >
               <div className="flex flex-wrap items-center gap-3 mb-2">
                 <time dateTime={mention.date} className="text-xs text-neutral-500">
@@ -117,7 +117,7 @@ function PressView({ mentions, locale }: { mentions: PressMention[]; locale: str
                   href={mention.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-800 hover:underline"
+                  className="hover:text-brand-800 hover:underline"
                 >
                   {mention.title}
                   <span className="ml-1 text-neutral-500" aria-hidden="true">&#8599;</span>

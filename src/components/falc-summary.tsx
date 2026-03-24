@@ -7,7 +7,7 @@ export function FalcSummary({ summary }: { summary: string }) {
   const t = useTranslations('accessibility');
 
   return (
-    <div className="mb-8 rounded-lg border border-blue-200 bg-blue-50/50 p-4">
+    <div className="mb-8 rounded-lg border border-brand-700/20 bg-brand-900/5 p-4">
       <div className="mb-2 flex items-center gap-2">
         <svg
           className="h-5 w-5 text-brand-700"

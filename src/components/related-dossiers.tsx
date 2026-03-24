@@ -21,7 +21,7 @@ export function RelatedDossiers({ dossiers }: { dossiers: DossierCard[] }) {
   if (dossiers.length === 0) return null;
 
   return (
-    <div className="mt-10 rounded-lg border border-neutral-200 bg-white p-4">
+    <div className="mt-10 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
       <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-neutral-500">
         {t('relatedDossiers')}
       </h2>

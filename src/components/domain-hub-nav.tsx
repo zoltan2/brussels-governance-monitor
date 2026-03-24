@@ -14,7 +14,7 @@ const hubLabels: Record<string, Record<string, string>> = {
 const phaseStyles: Record<string, string> = {
   announced: 'bg-neutral-100 text-neutral-600',
   planned: 'bg-brand-50 text-brand-700',
-  'in-progress': 'bg-blue-50 text-status-ongoing',
+  'in-progress': 'bg-brand-900/5 text-status-ongoing',
   stalled: 'bg-amber-50 text-status-blocked',
   completed: 'bg-teal-50 text-status-resolved',
   cancelled: 'bg-neutral-50 text-neutral-500',
@@ -43,7 +43,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
   const pl = phaseLabels[locale] ?? phaseLabels.fr;
 
   return (
-    <nav aria-label="Hub navigation" className="mb-8 rounded-xl border border-neutral-200 bg-white p-5">
+    <nav aria-label="Hub navigation" className="mb-8 rounded-xl border border-neutral-200 bg-neutral-50 p-5">
       <div className="grid gap-4 sm:grid-cols-2">
         {/* Sectors */}
         {sectors.map((s) => (
@@ -124,7 +124,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
               <Link
                 key={g.slug}
                 href={{ pathname: '/glossary' }}
-                className="rounded-full border border-neutral-200 bg-white px-2.5 py-1 text-xs text-neutral-600 transition-colors hover:border-brand-300 hover:text-brand-700"
+                className="rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs text-neutral-600 transition-colors hover:border-brand-300 hover:text-brand-700"
               >
                 {g.term}
               </Link>

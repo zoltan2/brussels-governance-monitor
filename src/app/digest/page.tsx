@@ -155,7 +155,7 @@ export default function DigestIndexPage() {
                   <a
                     key={lang.code}
                     href={`/digest/${lang.code}/${year}/w${weekNum}`}
-                    className="rounded-md border border-neutral-200 bg-white px-3 py-1.5 text-sm text-neutral-700 hover:border-brand-700 hover:text-brand-900"
+                    className="rounded-md border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-700 hover:border-brand-700 hover:text-brand-900"
                   >
                     {lang.native_name}
                   </a>

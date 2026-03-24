@@ -43,6 +43,8 @@ function savePrefs(prefs: A11yPrefs) {
 function applyPrefs(prefs: A11yPrefs) {
   const html = document.documentElement;
   html.classList.toggle('dark', prefs.dark);
+  // When user explicitly picks light mode, block the prefers-color-scheme media query
+  html.classList.toggle('light-forced', !prefs.dark);
   html.classList.toggle('high-contrast', prefs.highContrast);
   html.classList.toggle('dyslexic-font', prefs.dyslexicFont);
   html.style.setProperty('--font-scale', String(prefs.fontScale));

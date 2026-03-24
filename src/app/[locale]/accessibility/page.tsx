@@ -24,10 +24,10 @@ export async function generateMetadata({
     de: 'Barrierefreiheit',
   };
   const descriptions: Record<string, string> = {
-    fr: 'Declaration d\'accessibilite du Brussels Governance Monitor — conformite WCAG 2.1 AA.',
-    nl: 'Toegankelijkheidsverklaring van de Brussels Governance Monitor — WCAG 2.1 AA-conformiteit.',
-    en: 'Accessibility statement for the Brussels Governance Monitor — WCAG 2.1 AA conformance.',
-    de: 'Barrierefreiheitserklarung des Brussels Governance Monitor — WCAG 2.1 AA-Konformitat.',
+    fr: 'Declaration d\'accessibilite du Brussels Governance Monitor — conformite WCAG 2.2 AA.',
+    nl: 'Toegankelijkheidsverklaring van de Brussels Governance Monitor — WCAG 2.2 AA-conformiteit.',
+    en: 'Accessibility statement for the Brussels Governance Monitor — WCAG 2.2 AA conformance.',
+    de: 'Barrierefreiheitserklarung des Brussels Governance Monitor — WCAG 2.2 AA-Konformitat.',
   };
   return buildMetadata({
     locale,
@@ -86,6 +86,25 @@ export default async function AccessibilityPage({
               <li>{t('measure5')}</li>
               <li>{t('measure6')}</li>
               <li>{t('measure7')}</li>
+              <li>{t('measure8')}</li>
+              <li>{t('measure9')}</li>
+              <li>{t('measure10')}</li>
+              <li>{t('measure11')}</li>
+              <li>{t('measure12')}</li>
+            </ul>
+
+            {/* Accessibility toolbar */}
+            <h2 className="text-lg font-semibold text-neutral-900">
+              {t('toolbarTitle')}
+            </h2>
+            <p>{t('toolbarText')}</p>
+            <ul className="ml-4 list-disc space-y-2">
+              <li>{t('toolbarFeature1')}</li>
+              <li>{t('toolbarFeature2')}</li>
+              <li>{t('toolbarFeature3')}</li>
+              <li>{t('toolbarFeature4')}</li>
+              <li>{t('toolbarFeature5')}</li>
+              <li>{t('toolbarFeature6')}</li>
             </ul>
 
             {/* Technologies used */}
@@ -113,6 +132,8 @@ export default async function AccessibilityPage({
             <ul className="ml-4 list-disc space-y-2">
               <li>{t('limitation1')}</li>
               <li>{t('limitation2')}</li>
+              <li>{t('limitation3')}</li>
+              <li>{t('limitation4')}</li>
             </ul>
 
             {/* AnySurfer */}

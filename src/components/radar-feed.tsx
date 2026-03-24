@@ -7,7 +7,7 @@ import { formatDate } from '@/lib/utils';
 import type { LocalizedRadarEntry } from '@/lib/radar';
 
 const CONFIDENCE_STYLES: Record<string, string> = {
-  official: 'bg-blue-50 text-blue-700 border-blue-200',
+  official: 'bg-brand-900/5 text-brand-700 border-brand-700/30',
   estimated: 'bg-amber-50 text-amber-700 border-amber-200',
   unconfirmed: 'bg-neutral-100 text-neutral-500 border-neutral-200',
 };
@@ -26,7 +26,7 @@ export function RadarFeed({
       <div className="mx-auto max-w-3xl px-4">
         <div className="rounded-lg border border-neutral-200 bg-neutral-50 py-5">
           {/* Shield callout */}
-          <div className="mx-5 mb-5 rounded-md border-l-4 border-blue-300 bg-blue-50/50 px-3 py-2.5">
+          <div className="mx-5 mb-5 rounded-md border-l-4 border-brand-700/30 bg-brand-900/5 px-3 py-2.5">
             <p className="text-xs leading-relaxed text-neutral-600">
               {t('shieldText')}
             </p>

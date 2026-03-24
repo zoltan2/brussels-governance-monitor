@@ -62,8 +62,8 @@ export function ConfirmClient({ dossierLabels }: { dossierLabels: Record<string,
       <section className="py-12">
         <div className="mx-auto max-w-lg px-4">
           <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50">
-              <svg className="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand-900/5">
+              <svg className="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -82,7 +82,7 @@ export function ConfirmClient({ dossierLabels }: { dossierLabels: Record<string,
                   {topics.map((topic) => (
                     <span
                       key={topic}
-                      className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800"
+                      className="rounded-full bg-brand-700/20 px-3 py-1 text-xs font-medium text-brand-800"
                     >
                       {dossierLabels[topic] || t(`topicLabels.${topic}`)}
                     </span>
@@ -140,8 +140,8 @@ export function ConfirmClient({ dossierLabels }: { dossierLabels: Record<string,
     <section className="py-12">
       <div className="mx-auto max-w-lg px-4">
         <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50">
-            <svg className="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand-900/5">
+            <svg className="h-6 w-6 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>

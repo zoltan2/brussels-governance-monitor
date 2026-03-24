@@ -242,7 +242,7 @@ function FollowColumn({
 
         {/* 6. Shield footnote — discrete safety net */}
         <div className="border-t border-neutral-100 px-4 py-3">
-          <div className="border-l-2 border-blue-200 pl-3">
+          <div className="border-l-2 border-brand-700/30 pl-3">
             <p className="text-xs text-neutral-500">
               {t('shieldFootnote')}
             </p>

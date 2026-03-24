@@ -25,7 +25,7 @@ export function FreshnessBadge({ lastModified, locale }: FreshnessBadgeProps) {
     colorClass = 'bg-teal-50 text-teal-700 border-teal-200';
     label = t('recent');
   } else if (days <= 30) {
-    colorClass = 'bg-blue-50 text-blue-700 border-blue-200';
+    colorClass = 'bg-brand-900/5 text-brand-700 border-brand-700/30';
     label = t('current');
   } else if (days <= 90) {
     colorClass = 'bg-amber-50 text-amber-700 border-amber-200';

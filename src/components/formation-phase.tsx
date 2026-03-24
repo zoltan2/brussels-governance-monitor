@@ -10,7 +10,7 @@ const PHASES = ['exploration', 'negotiation', 'agreement', 'government'] as cons
 
 const PHASE_COLORS: Record<string, string> = {
   exploration: 'bg-amber-500',
-  negotiation: 'bg-blue-400',
+  negotiation: 'bg-brand-600',
   agreement: 'bg-indigo-400',
   government: 'bg-neutral-50',
 };

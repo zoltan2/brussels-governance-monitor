@@ -57,7 +57,7 @@ function getCurrentStatus(statusHistory: StatusEntry[]): CommitmentStatus {
 
 const statusStyles: Record<string, string> = {
   'not-started': 'bg-neutral-100 text-neutral-600',
-  announced: 'bg-blue-100 text-blue-700',
+  announced: 'bg-brand-700/20 text-brand-700',
   'in-legislation': 'bg-indigo-100 text-indigo-700',
   implemented: 'bg-status-resolved/10 text-status-resolved',
   delayed: 'bg-status-delayed/10 text-status-delayed',
@@ -66,7 +66,7 @@ const statusStyles: Record<string, string> = {
 
 const domainStyles: Record<string, string> = {
   budget: 'border-l-amber-500',
-  mobility: 'border-l-blue-500',
+  mobility: 'border-l-brand-600',
   housing: 'border-l-orange-500',
   employment: 'border-l-violet-500',
   climate: 'border-l-emerald-500',

@@ -244,7 +244,7 @@ export default function DigestReviewPage() {
               isSent
                 ? 'bg-teal-100 text-teal-800'
                 : isApproved
-                  ? 'bg-blue-100 text-blue-800'
+                  ? 'bg-brand-700/20 text-brand-800'
                   : 'bg-amber-100 text-amber-800'
             }`}
           >
@@ -284,7 +284,7 @@ export default function DigestReviewPage() {
           <div className="flex flex-wrap gap-2">
             {topics.map((d) => {
               const chipColor = d.startsWith('dossier-')
-                ? 'bg-blue-50 text-blue-800'
+                ? 'bg-brand-900/5 text-brand-800'
                 : d.startsWith('commune-')
                   ? 'bg-amber-50 text-amber-800'
                   : 'bg-slate-100 text-slate-700';
@@ -480,14 +480,14 @@ export default function DigestReviewPage() {
             <button
               onClick={() => handleApprove('now')}
               disabled={status === 'saving' || status === 'approving'}
-              className="rounded-md bg-blue-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-800 disabled:opacity-50"
+              className="rounded-md bg-brand-900 px-4 py-2 text-sm font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:opacity-50"
             >
               {status === 'approving' ? 'Envoi...' : 'Envoyer maintenant'}
             </button>
             <button
               onClick={() => handleApprove('monday')}
               disabled={status === 'saving' || status === 'approving'}
-              className="rounded-md border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800 transition-colors hover:bg-blue-100 disabled:opacity-50"
+              className="rounded-md border border-brand-700/30 bg-brand-900/5 px-4 py-2 text-sm font-medium text-brand-800 transition-colors hover:bg-brand-700/20 disabled:opacity-50"
             >
               Programmer lundi 8h
             </button>

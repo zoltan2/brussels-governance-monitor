@@ -49,10 +49,10 @@ const FILTERS: FilterDef[] = [
 ];
 
 const TYPE_STYLES: Record<string, { bg: string; text: string }> = {
-  institutional: { bg: 'bg-blue-50', text: 'text-blue-700' },
+  institutional: { bg: 'bg-brand-900/5', text: 'text-brand-700' },
   press: { bg: 'bg-neutral-100', text: 'text-neutral-600' },
-  legal: { bg: 'bg-blue-50', text: 'text-blue-700' },
-  agency: { bg: 'bg-blue-50', text: 'text-blue-700' },
+  legal: { bg: 'bg-brand-900/5', text: 'text-brand-700' },
+  agency: { bg: 'bg-brand-900/5', text: 'text-brand-700' },
   research: { bg: 'bg-amber-50', text: 'text-amber-700' },
   'think-tank': { bg: 'bg-amber-50', text: 'text-amber-700' },
   ngo: { bg: 'bg-teal-50', text: 'text-teal-700' },

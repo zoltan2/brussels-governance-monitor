@@ -101,7 +101,7 @@ export function ReviewCard({
   };
 
   const typeBadgeColors: Record<string, string> = {
-    domain: 'bg-blue-100 text-blue-800',
+    domain: 'bg-brand-700/20 text-brand-800',
     solution: 'bg-amber-100 text-amber-800',
     sector: 'bg-teal-100 text-teal-800',
     comparison: 'bg-purple-100 text-purple-800',

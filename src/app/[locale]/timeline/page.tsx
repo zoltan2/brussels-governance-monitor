@@ -57,13 +57,13 @@ const PHASES = ['exploration', 'negotiation', 'agreement', 'government'] as cons
 
 const PHASE_COLORS: Record<string, string> = {
   exploration: 'bg-amber-500',
-  negotiation: 'bg-blue-600',
+  negotiation: 'bg-brand-600',
   agreement: 'bg-indigo-600',
   government: 'bg-slate-800',
 };
 
 const RESULT_COLORS: Record<string, string> = {
-  ongoing: 'bg-blue-100 text-blue-800',
+  ongoing: 'bg-brand-700/20 text-brand-800',
   recommendation: 'bg-indigo-100 text-indigo-800',
   stalled: 'bg-amber-100 text-amber-800',
   failed: 'bg-neutral-100 text-neutral-600',
@@ -72,18 +72,18 @@ const RESULT_COLORS: Record<string, string> = {
 
 const EVENT_TYPE_COLORS: Record<string, string> = {
   designation: 'bg-slate-700',
-  consultation: 'bg-blue-700',
+  consultation: 'bg-brand-700',
   proposal: 'bg-indigo-600',
   blockage: 'bg-amber-700',
   resignation: 'bg-neutral-600',
-  citizen: 'bg-blue-700',
+  citizen: 'bg-brand-700',
   budget: 'bg-amber-700',
-  initiative: 'bg-blue-800',
+  initiative: 'bg-brand-800',
   agreement: 'bg-teal-700',
 };
 
 const CHAPTER_STATUS_COLORS: Record<string, string> = {
-  ongoing: 'bg-blue-100 text-blue-800',
+  ongoing: 'bg-brand-700/20 text-brand-800',
   closed: 'bg-teal-100 text-teal-800',
 };
 

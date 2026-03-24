@@ -14,7 +14,7 @@ const hubLabels: Record<string, Record<string, string>> = {
 const phaseStyles: Record<string, string> = {
   announced: 'bg-neutral-100 text-neutral-600',
   planned: 'bg-brand-50 text-brand-700',
-  'in-progress': 'bg-blue-50 text-status-ongoing',
+  'in-progress': 'bg-brand-900/5 text-status-ongoing',
   stalled: 'bg-amber-50 text-status-blocked',
   completed: 'bg-teal-50 text-status-resolved',
   cancelled: 'bg-neutral-50 text-neutral-500',

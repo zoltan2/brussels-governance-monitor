@@ -95,9 +95,9 @@ function UnderstandContent() {
       <section className="mb-10">
         <Link
           href="/explainers/brussels-overview"
-          className="block rounded-lg border-2 border-blue-900/20 bg-blue-900/5 p-6 transition-shadow hover:shadow-md"
+          className="block rounded-lg border-2 border-brand-900/20 bg-brand-900/5 p-6 transition-shadow hover:shadow-md"
         >
-          <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-blue-900/60">{t('startLabel')}</p>
+          <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-brand-900/60">{t('startLabel')}</p>
           <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('startTitle')}</h2>
           <p className="text-sm text-neutral-600">{t('startDesc')}</p>
         </Link>

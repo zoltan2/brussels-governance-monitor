@@ -8,7 +8,7 @@ import type { Locale } from '@/i18n/routing';
 type Role = 'minister-president' | 'minister' | 'state-secretary' | 'parliament-vp';
 
 const roleBadgeClasses: Record<Role, string> = {
-  'minister-president': 'bg-blue-100 text-blue-800',
+  'minister-president': 'bg-brand-700/20 text-brand-800',
   minister: 'bg-slate-100 text-slate-700',
   'state-secretary': 'bg-neutral-100 text-neutral-600',
   'parliament-vp': 'bg-neutral-100 text-neutral-600',

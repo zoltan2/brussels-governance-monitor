@@ -4,6 +4,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
+import { AccessibilityToolbar } from '@/components/accessibility-toolbar';
 import '../globals.css';
 
 const inter = Inter({
@@ -37,6 +38,11 @@ export default function DigestLayout({
             data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
           />
         )}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var p=JSON.parse(localStorage.getItem('bgm-a11y')||'{}');if(p.dark){document.documentElement.classList.add('dark');}else{document.documentElement.classList.add('light-forced');}if(p.highContrast)document.documentElement.classList.add('high-contrast');if(p.dyslexicFont){document.documentElement.classList.add('dyslexic-font');var l=document.createElement('link');l.id='dyslexic-font-link';l.rel='stylesheet';l.href='https://fonts.cdnfonts.com/css/opendyslexic';document.head.appendChild(l);}if(p.fontScale)document.documentElement.style.setProperty('--font-scale',String(p.fontScale));}catch(e){}})()`,
+          }}
+        />
       </head>
       <body className="min-h-screen bg-neutral-50 text-neutral-900 antialiased">
         <div className="flex min-h-screen flex-col">
@@ -92,6 +98,7 @@ export default function DigestLayout({
             </div>
           </footer>
         </div>
+        <AccessibilityToolbar locale="en" />
       </body>
     </html>
   );

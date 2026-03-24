@@ -4,10 +4,28 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useTranslations } from 'next-intl';
-import { useLocale } from 'next-intl';
 
 const STORAGE_KEY = 'bgm-a11y';
+
+/** Fallback labels (EN) — used when toolbar is rendered outside NextIntlClientProvider */
+const fallbackLabels = {
+  label: 'Accessibility tools',
+  darkMode: 'Dark mode',
+  lightMode: 'Light mode',
+  increaseFont: 'Increase text size',
+  decreaseFont: 'Decrease text size',
+  resetFont: 'Default size',
+  highContrast: 'High contrast',
+  dyslexicFont: 'Dyslexic font',
+  readAloud: 'Read aloud',
+  stopReading: 'Stop reading',
+  print: 'Print',
+  close: 'Close',
+  open: 'Accessibility',
+  fontScale: 'Text size',
+};
+
+type ToolbarLabels = typeof fallbackLabels;
 const MIN_SCALE = 0.85;
 const MAX_SCALE = 1.5;
 const SCALE_STEP = 0.1;
@@ -76,11 +94,9 @@ function getInitialPrefs(): A11yPrefs {
 
 /**
  * Inner component — only rendered client-side after mount.
- * This avoids calling setState in useEffect (react-hooks/set-state-in-effect).
+ * Accepts labels and locale as props so it works with or without NextIntlClientProvider.
  */
-function AccessibilityToolbarInner() {
-  const t = useTranslations('toolbar');
-  const locale = useLocale();
+function AccessibilityToolbarInner({ labels: t, locale }: { labels: ToolbarLabels; locale: string }) {
   const [open, setOpen] = useState(false);
   const [prefs, setPrefs] = useState<A11yPrefs>(getInitialPrefs);
   const [speaking, setSpeaking] = useState(false);
@@ -155,7 +171,7 @@ function AccessibilityToolbarInner() {
       return;
     }
 
-    const main = document.getElementById('main-content');
+    const main = document.getElementById('main-content') || document.getElementById('digest-content');
     if (!main) return;
 
     const text = main.innerText;
@@ -196,8 +212,8 @@ function AccessibilityToolbarInner() {
           type="button"
           onClick={() => setOpen(true)}
           className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-900 text-neutral-50 shadow-lg transition-transform hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
-          aria-label={t('open')}
-          title={t('open')}
+          aria-label={t.open}
+          title={t.open}
         >
           <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
             <circle cx="12" cy="4.5" r="2" />
@@ -212,11 +228,11 @@ function AccessibilityToolbarInner() {
         <div
           className="w-72 rounded-xl border border-neutral-200 bg-neutral-50 p-4 shadow-xl"
           role="region"
-          aria-label={t('label')}
+          aria-label={t.label}
         >
           {/* Header */}
           <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-neutral-900">{t('label')}</h2>
+            <h2 className="text-sm font-semibold text-neutral-900">{t.label}</h2>
             <button
               type="button"
               onClick={() => {
@@ -224,7 +240,7 @@ function AccessibilityToolbarInner() {
                 triggerRef.current?.focus();
               }}
               className="rounded-md p-1 text-neutral-500 hover:bg-neutral-200 hover:text-neutral-900"
-              aria-label={t('close')}
+              aria-label={t.close}
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -237,7 +253,7 @@ function AccessibilityToolbarInner() {
             <ToolbarToggle
               active={prefs.dark}
               onClick={toggleDark}
-              label={prefs.dark ? t('lightMode') : t('darkMode')}
+              label={prefs.dark ? t.lightMode : t.darkMode}
               icon={prefs.dark ? '\u2600\uFE0F' : '\uD83C\uDF19'}
             />
 
@@ -245,7 +261,7 @@ function AccessibilityToolbarInner() {
             <ToolbarToggle
               active={prefs.highContrast}
               onClick={toggleContrast}
-              label={t('highContrast')}
+              label={t.highContrast}
               icon={'\u25D0'}
             />
 
@@ -253,14 +269,14 @@ function AccessibilityToolbarInner() {
             <ToolbarToggle
               active={prefs.dyslexicFont}
               onClick={toggleDyslexic}
-              label={t('dyslexicFont')}
+              label={t.dyslexicFont}
               icon="Aa"
             />
 
             {/* Font scaling */}
             <div className="rounded-lg border border-neutral-200 bg-neutral-100 px-3 py-2">
               <p className="mb-1.5 text-xs font-medium text-neutral-700">
-                {t('fontScale')} — {scalePercent}%
+                {t.fontScale} — {scalePercent}%
               </p>
               <div className="flex items-center gap-2">
                 <button
@@ -268,8 +284,8 @@ function AccessibilityToolbarInner() {
                   onClick={decreaseFont}
                   disabled={prefs.fontScale <= MIN_SCALE}
                   className="flex h-8 w-8 items-center justify-center rounded-md border border-neutral-300 bg-neutral-50 text-sm font-bold text-neutral-700 transition-colors hover:bg-neutral-200 disabled:opacity-40"
-                  aria-label={t('decreaseFont')}
-                  title={t('decreaseFont')}
+                  aria-label={t.decreaseFont}
+                  title={t.decreaseFont}
                 >
                   A&#x2212;
                 </button>
@@ -277,17 +293,17 @@ function AccessibilityToolbarInner() {
                   type="button"
                   onClick={resetFont}
                   className="flex h-8 flex-1 items-center justify-center rounded-md border border-neutral-300 bg-neutral-50 text-xs text-neutral-600 transition-colors hover:bg-neutral-200"
-                  aria-label={t('resetFont')}
+                  aria-label={t.resetFont}
                 >
-                  {t('resetFont')}
+                  {t.resetFont}
                 </button>
                 <button
                   type="button"
                   onClick={increaseFont}
                   disabled={prefs.fontScale >= MAX_SCALE}
                   className="flex h-8 w-8 items-center justify-center rounded-md border border-neutral-300 bg-neutral-50 text-sm font-bold text-neutral-700 transition-colors hover:bg-neutral-200 disabled:opacity-40"
-                  aria-label={t('increaseFont')}
-                  title={t('increaseFont')}
+                  aria-label={t.increaseFont}
+                  title={t.increaseFont}
                 >
                   A+
                 </button>
@@ -304,10 +320,10 @@ function AccessibilityToolbarInner() {
                     ? 'border-status-ongoing bg-status-ongoing/10 text-status-ongoing'
                     : 'border-neutral-200 bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                 }`}
-                aria-label={speaking ? t('stopReading') : t('readAloud')}
+                aria-label={speaking ? t.stopReading : t.readAloud}
               >
                 <span className="text-base" aria-hidden="true">{speaking ? '\u23F9' : '\uD83D\uDD0A'}</span>
-                {speaking ? t('stopReading') : t('readAloud')}
+                {speaking ? t.stopReading : t.readAloud}
               </button>
             )}
 
@@ -316,16 +332,16 @@ function AccessibilityToolbarInner() {
               type="button"
               onClick={handlePrint}
               className="flex w-full items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-100 px-3 py-2 text-left text-xs font-medium text-neutral-700 transition-colors hover:bg-neutral-200"
-              aria-label={t('print')}
+              aria-label={t.print}
             >
               <span className="text-base" aria-hidden="true">{'\uD83D\uDDA8'}</span>
-              {t('print')}
+              {t.print}
             </button>
           </div>
 
           {/* Status for screen readers */}
           <div className="sr-only" role="status" aria-live="polite">
-            {speaking ? t('readAloud') : ''}
+            {speaking ? t.readAloud : ''}
           </div>
         </div>
       )}
@@ -335,13 +351,56 @@ function AccessibilityToolbarInner() {
 
 /**
  * Outer wrapper: renders null on server, mounts the inner component on client only.
- * This avoids hydration mismatch without needing setState in useEffect.
+ * Accepts optional locale prop for use outside NextIntlClientProvider (e.g. digest layout).
  */
-export function AccessibilityToolbar() {
+export function AccessibilityToolbar({ locale: localeProp }: { locale?: string } = {}) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []); // eslint-disable-line react-hooks/set-state-in-effect -- mount guard, intentional single render
   if (!mounted) return null;
-  return <AccessibilityToolbarInner />;
+  return <AccessibilityToolbarWithLabels locale={localeProp} />;
+}
+
+/**
+ * Resolves labels: tries next-intl first, falls back to hardcoded EN labels.
+ */
+function AccessibilityToolbarWithLabels({ locale: localeProp }: { locale?: string }) {
+  // Try to use next-intl if available, otherwise use fallback labels
+  let labels: ToolbarLabels;
+  let locale: string;
+
+  try {
+    // Dynamic import would be cleaner but hooks can't be conditional.
+    // Instead, we try-catch the hook — if NextIntlClientProvider is missing, it throws.
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { useTranslations, useLocale } = require('next-intl');
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const t = useTranslations('toolbar');
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    locale = useLocale();
+    labels = {
+      label: t('label'),
+      darkMode: t('darkMode'),
+      lightMode: t('lightMode'),
+      increaseFont: t('increaseFont'),
+      decreaseFont: t('decreaseFont'),
+      resetFont: t('resetFont'),
+      highContrast: t('highContrast'),
+      dyslexicFont: t('dyslexicFont'),
+      readAloud: t('readAloud'),
+      stopReading: t('stopReading'),
+      print: t('print'),
+      close: t('close'),
+      open: t('open'),
+      fontScale: t('fontScale'),
+    };
+  } catch {
+    labels = fallbackLabels;
+    locale = localeProp || 'en';
+  }
+
+  if (localeProp) locale = localeProp;
+
+  return <AccessibilityToolbarInner labels={labels} locale={locale} />;
 }
 
 function ToolbarToggle({

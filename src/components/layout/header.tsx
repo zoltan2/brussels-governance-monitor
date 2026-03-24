@@ -138,7 +138,7 @@ export function Header() {
               onKeyDown={handleTriggerKeyDown}
               className="inline-flex h-5 items-center gap-1 text-sm text-neutral-600 hover:text-neutral-900"
               aria-expanded={dropdownOpen}
-              aria-haspopup="true"
+              aria-haspopup="menu"
             >
               {t('explore')}
               <svg

@@ -107,6 +107,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Search highlight — ensure <mark> is accessible and visible in both modes */
+mark {
+  background-color: oklch(0.9 0.1 90);
+  color: var(--color-neutral-900);
+  padding: 0.1em 0.15em;
+  border-radius: 2px;
+}
+.dark mark {
+  background-color: oklch(0.4 0.1 90);
+  color: var(--color-neutral-900);
+}
+
 /* Dark mode gradient override for crisis counter */
 .dark section[class*="from-slate"] {
   background: var(--color-neutral-200) !important;

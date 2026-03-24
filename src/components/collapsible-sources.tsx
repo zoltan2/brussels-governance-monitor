@@ -43,6 +43,7 @@ export function CollapsibleSources({ sources, lastModified, locale }: { sources:
               className="text-brand-700 underline underline-offset-2 hover:text-brand-900"
             >
               {source.label}
+              <span className="sr-only"> ({labels[locale]?.title === 'Sources' ? 'opens in new tab' : locale === 'nl' ? 'opent in nieuw tabblad' : locale === 'de' ? 'öffnet in neuem Tab' : 'ouvre dans un nouvel onglet'})</span>
             </a>
             <time dateTime={source.accessedAt} className="ml-2 text-xs text-neutral-500">
               ({l.accessedAt.replace('{date}', formatDate(source.accessedAt, locale))})

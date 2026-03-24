@@ -195,7 +195,8 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
       </fieldset>
 
       <details className="mb-4">
-        <summary className="cursor-pointer text-xs font-medium text-neutral-600 hover:text-neutral-800">
+        <summary className="flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-neutral-600 hover:text-neutral-800 [&::-webkit-details-marker]:hidden">
+          <svg className="h-3.5 w-3.5 shrink-0 transition-transform [[open]>&]:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
           {t('sectorsLabel')}
           {sectors.length > 0 && (
             <span className="ml-1 text-brand-900">({sectors.length})</span>
@@ -218,7 +219,8 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
       </details>
 
       <details className="mb-4">
-        <summary className="cursor-pointer text-xs font-medium text-neutral-600 hover:text-neutral-800">
+        <summary className="flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-neutral-600 hover:text-neutral-800 [&::-webkit-details-marker]:hidden">
+          <svg className="h-3.5 w-3.5 shrink-0 transition-transform [[open]>&]:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
           {t('dossiersLabel')}
           {dossiers.length > 0 && (
             <span className="ml-1 text-brand-900">({dossiers.length})</span>
@@ -241,7 +243,8 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
       </details>
 
       <details className="mb-4">
-        <summary className="cursor-pointer text-xs font-medium text-neutral-600 hover:text-neutral-800">
+        <summary className="flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-neutral-600 hover:text-neutral-800 [&::-webkit-details-marker]:hidden">
+          <svg className="h-3.5 w-3.5 shrink-0 transition-transform [[open]>&]:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
           {t('communesLabel')}
           {communes.length > 0 && (
             <span className="ml-1 text-brand-900">({communes.length})</span>

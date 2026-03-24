@@ -154,6 +154,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
                 ? 'border-brand-700 bg-brand-700 text-white'
                 : 'border-neutral-200 bg-neutral-50 text-neutral-600 hover:bg-neutral-50'
             }`}
+            aria-pressed={activeFilter === f.key}
           >
             {labels[f.key]} ({filterCounts[f.key]})
           </button>

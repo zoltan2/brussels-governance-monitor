@@ -40,6 +40,12 @@ export default function DigestLayout({
       </head>
       <body className="min-h-screen bg-neutral-50 text-neutral-900 antialiased">
         <div className="flex min-h-screen flex-col">
+          <a
+            href="#digest-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand-900 focus:px-4 focus:py-2 focus:text-sm focus:text-neutral-50"
+          >
+            Skip to content
+          </a>
           <header className="border-b border-neutral-200 bg-neutral-50">
             <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
               <a
@@ -64,7 +70,7 @@ export default function DigestLayout({
             </div>
           </header>
 
-          <main className="flex-1">{children}</main>
+          <main id="digest-content" className="flex-1">{children}</main>
 
           <footer className="border-t border-neutral-200 bg-neutral-50">
             <div className="mx-auto max-w-3xl px-4 py-6 text-center">

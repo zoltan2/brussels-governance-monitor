@@ -1800,6 +1800,7 @@
     "limitation2": "Le digest hebdomadaire utilise un layout séparé avec lang=\"en\" sur la balise <html> (limitation Next.js pour les layouts imbriqués). Le contenu multilingue est correctement balisé via un attribut lang sur le conteneur intérieur",
     "limitation3": "Les ratios de contraste exacts en mode sombre nécessitent une vérification en conditions réelles (les couleurs oklch ne sont pas convertibles statiquement)",
     "limitation4": "La qualité de la synthèse vocale dépend du navigateur et du système d'exploitation de l'utilisateur",
+    "limitation5": "Le bouton d'accessibilité (fixé en bas à droite) peut partiellement masquer un élément recevant le focus clavier en bas de page (critère WCAG 2.4.11 Focus Not Obscured). Le contenu reste accessible par défilement",
     "anysurferText": "Ce site vise la conformité WCAG 2.2 niveau AA, le référentiel sur lequel repose le label AnySurfer. Une certification AnySurfer n'a pas encore été sollicitée.",
     "feedbackTitle": "Retour d'information",
     "linguisticTitle": "Accessibilité linguistique",

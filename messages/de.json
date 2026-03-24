@@ -1799,6 +1799,7 @@
     "limitation2": "Die wöchentliche Zusammenfassung verwendet ein separates Layout mit lang=\"en\" auf dem <html>-Element (Einschränkung von Next.js bei verschachtelten Layouts). Der mehrsprachige Inhalt ist korrekt über ein lang-Attribut auf dem inneren Container ausgezeichnet",
     "limitation3": "Die exakten Kontrastverhältnisse im Dunkelmodus erfordern eine Überprüfung unter realen Bedingungen (oklch-Farben sind nicht statisch konvertierbar)",
     "limitation4": "Die Qualität der Sprachsynthese hängt vom Browser und Betriebssystem des Nutzers ab",
+    "limitation5": "Die Barrierefreiheits-Schaltfläche (fest unten rechts) kann ein tastaturfokussiertes Element am Seitenende teilweise verdecken (WCAG 2.4.11 Focus Not Obscured). Der Inhalt bleibt durch Scrollen erreichbar",
     "anysurferText": "Diese Website strebt die Konformität mit WCAG 2.2 Stufe AA an, dem Standard, auf dem das AnySurfer-Label basiert. Eine AnySurfer-Zertifizierung wurde noch nicht beantragt.",
     "feedbackTitle": "Rückmeldung",
     "linguisticTitle": "Sprachliche Barrierefreiheit",

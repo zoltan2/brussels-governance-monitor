@@ -134,6 +134,7 @@ export default async function AccessibilityPage({
               <li>{t('limitation2')}</li>
               <li>{t('limitation3')}</li>
               <li>{t('limitation4')}</li>
+              <li>{t('limitation5')}</li>
             </ul>
 
             {/* AnySurfer */}

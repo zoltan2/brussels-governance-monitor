@@ -1800,6 +1800,7 @@
     "limitation2": "De wekelijkse samenvatting gebruikt een aparte layout met lang=\"en\" op de <html>-tag (beperking van Next.js voor geneste layouts). De meertalige inhoud is correct gemarkeerd via een lang-attribuut op de binnencontainer",
     "limitation3": "De exacte contrastverhoudingen in donkere modus vereisen verificatie onder reële omstandigheden (oklch-kleuren zijn niet statisch converteerbaar)",
     "limitation4": "De kwaliteit van de spraaksynthese is afhankelijk van de browser en het besturingssysteem van de gebruiker",
+    "limitation5": "De toegankelijkheidsknop (vast rechtsonder) kan een toetsenbordfocuselement onderaan de pagina gedeeltelijk verbergen (WCAG 2.4.11 Focus Not Obscured). De inhoud blijft bereikbaar door te scrollen",
     "anysurferText": "Deze website streeft naar conformiteit met WCAG 2.2 niveau AA, het referentiekader waarop het AnySurfer-label is gebaseerd. Er is nog geen AnySurfer-certificering aangevraagd.",
     "feedbackTitle": "Feedback",
     "linguisticTitle": "Taaltoegankelijkheid",

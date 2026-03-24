@@ -1799,6 +1799,7 @@
     "limitation2": "The weekly digest uses a separate layout with lang=\"en\" on the <html> element (Next.js limitation for nested layouts). Multilingual content is correctly marked up via a lang attribute on the inner container",
     "limitation3": "Exact contrast ratios in dark mode require verification under real-world conditions (oklch colours cannot be statically converted)",
     "limitation4": "Text-to-speech quality depends on the user's browser and operating system",
+    "limitation5": "The accessibility button (fixed bottom-right) may partially obscure a keyboard-focused element near the bottom of the page (WCAG 2.4.11 Focus Not Obscured). Content remains accessible by scrolling",
     "anysurferText": "This website aims for WCAG 2.2 Level AA conformance, the standard on which the AnySurfer label is based. AnySurfer certification has not yet been sought.",
     "feedbackTitle": "Feedback",
     "linguisticTitle": "Linguistic accessibility",

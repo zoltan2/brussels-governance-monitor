@@ -33,7 +33,7 @@ export function CollapsibleSources({ sources, lastModified, locale }: { sources:
       <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
         {l.title}
       </h2>
-      <ul className="space-y-2">
+      <ul id="collapsible-sources-list" className="space-y-2">
         {visible.map((source) => (
           <li key={source.url} className="text-sm">
             <a
@@ -43,6 +43,7 @@ export function CollapsibleSources({ sources, lastModified, locale }: { sources:
               className="text-brand-700 underline underline-offset-2 hover:text-brand-900"
             >
               {source.label}
+              <span className="sr-only"> ({labels[locale]?.title === 'Sources' ? 'opens in new tab' : locale === 'nl' ? 'opent in nieuw tabblad' : locale === 'de' ? 'öffnet in neuem Tab' : 'ouvre dans un nouvel onglet'})</span>
             </a>
             <time dateTime={source.accessedAt} className="ml-2 text-xs text-neutral-500">
               ({l.accessedAt.replace('{date}', formatDate(source.accessedAt, locale))})
@@ -55,6 +56,8 @@ export function CollapsibleSources({ sources, lastModified, locale }: { sources:
           type="button"
           onClick={() => setExpanded(!expanded)}
           className="mt-3 min-h-[24px] py-1 text-xs font-medium text-brand-700 transition-colors hover:text-brand-900"
+          aria-expanded={expanded}
+          aria-controls="collapsible-sources-list"
         >
           {expanded ? l.showLess : l.showAll.replace('{n}', String(hiddenCount))}
         </button>

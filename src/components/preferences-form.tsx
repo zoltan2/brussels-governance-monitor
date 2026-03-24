@@ -179,14 +179,14 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
       <p className="mb-6 text-sm text-neutral-500">{t('subtitle')}</p>
 
       {state === 'saved' && (
-        <div className="mb-4 rounded-md border border-brand-600/20 bg-brand-900/5 p-3">
+        <div role="status" aria-live="polite" className="mb-4 rounded-md border border-brand-600/20 bg-brand-900/5 p-3">
           <p className="text-sm font-medium text-brand-900">{t('saved')}</p>
           <p className="mt-0.5 text-xs text-neutral-500">{t('savedMessage')}</p>
         </div>
       )}
 
       {state === 'error' && (
-        <div className="mb-4 rounded-md border border-status-delayed/20 bg-status-delayed/5 p-3">
+        <div role="alert" className="mb-4 rounded-md border border-status-delayed/20 bg-status-delayed/5 p-3">
           <p className="text-sm text-status-delayed">{t('errorGeneric')}</p>
         </div>
       )}

@@ -34,7 +34,7 @@ export function CollapsibleMetrics({ metrics, locale }: { metrics: Metric[]; loc
       <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500">
         {l.title}
       </h2>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <div id="collapsible-metrics-grid" className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {visible.map((metric) => (
           <div key={metric.label} className="rounded-lg bg-neutral-50 p-4">
             <p className="text-2xl font-bold text-brand-900">
@@ -54,6 +54,8 @@ export function CollapsibleMetrics({ metrics, locale }: { metrics: Metric[]; loc
           type="button"
           onClick={() => setExpanded(!expanded)}
           className="mt-3 min-h-[24px] py-1 text-xs font-medium text-brand-700 transition-colors hover:text-brand-900"
+          aria-expanded={expanded}
+          aria-controls="collapsible-metrics-grid"
         >
           {expanded ? l.showLess : l.showAll.replace('{n}', String(hiddenCount))}
         </button>

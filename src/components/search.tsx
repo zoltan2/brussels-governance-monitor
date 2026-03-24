@@ -188,6 +188,10 @@ export function Search() {
                 ref={inputRef}
                 id="search-input"
                 type="text"
+                role="combobox"
+                aria-expanded={results.length > 0}
+                aria-controls="search-results"
+                aria-autocomplete="list"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t('placeholder')}
@@ -212,9 +216,9 @@ export function Search() {
             </div>
 
             {query.trim() && results.length > 0 && (
-              <ul className="max-h-80 overflow-y-auto p-2">
+              <ul id="search-results" role="listbox" className="max-h-80 overflow-y-auto p-2">
                 {results.map((result, i) => (
-                  <li key={i}>
+                  <li key={i} role="option" aria-selected={false}>
                     <a
                       href={result.url}
                       onClick={() => setOpen(false)}

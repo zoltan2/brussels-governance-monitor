@@ -95,6 +95,7 @@ export function Footer() {
                 >
                   {t('podcast')}
                   <span className="ml-1 text-neutral-500" aria-hidden="true">&#8599;</span>
+                  <span className="sr-only"> ({t('newTab')})</span>
                 </a>
               )}
             </nav>

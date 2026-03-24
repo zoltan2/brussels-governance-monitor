@@ -27,13 +27,15 @@ export function UnsubscribeSurvey({
         {t('surveyTitle')}
       </h2>
 
-      <div className="mb-4 mt-4">
-        <p className="mb-2 text-sm text-neutral-600">{t('surveyRating')}</p>
-        <div className="flex gap-1">
+      <fieldset className="mb-4 mt-4">
+        <legend className="mb-2 text-sm text-neutral-600">{t('surveyRating')}</legend>
+        <div className="flex gap-1" role="radiogroup" aria-label={t('surveyRating')}>
           {[1, 2, 3, 4, 5].map((star) => (
             <button
               key={star}
               type="button"
+              role="radio"
+              aria-checked={rating === star}
               onClick={() => setRating(star)}
               className="rounded p-1 transition-colors hover:bg-neutral-100"
               aria-label={`${star}/5`}
@@ -57,7 +59,7 @@ export function UnsubscribeSurvey({
             </button>
           ))}
         </div>
-      </div>
+      </fieldset>
 
       <div className="mb-6">
         <label htmlFor="unsubscribe-feedback" className="mb-1 block text-sm text-neutral-600">

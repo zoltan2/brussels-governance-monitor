@@ -31,21 +31,38 @@ export function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Mobile menu: Escape to close + focus management
+  // Mobile menu: Escape to close + focus trap + focus management
   useEffect(() => {
     if (!menuOpen) return;
-    function handleEscape(e: KeyboardEvent) {
+    function handleKeyDown(e: KeyboardEvent) {
       if (e.key === 'Escape') {
         setMenuOpen(false);
         mobileToggleRef.current?.focus();
+        return;
+      }
+      // Focus trap: Tab cycles within the mobile menu
+      if (e.key === 'Tab' && mobileMenuRef.current) {
+        const focusable = mobileMenuRef.current.querySelectorAll<HTMLElement>(
+          'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     }
     // Move focus into mobile menu on open
     const firstLink = mobileMenuRef.current?.querySelector<HTMLElement>('a, button');
     firstLink?.focus();
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [menuOpen]);
 
   function getMenuItems() {
@@ -121,7 +138,7 @@ export function Header() {
               onKeyDown={handleTriggerKeyDown}
               className="inline-flex h-5 items-center gap-1 text-sm text-neutral-600 hover:text-neutral-900"
               aria-expanded={dropdownOpen}
-              aria-haspopup="true"
+              aria-haspopup="menu"
             >
               {t('explore')}
               <svg

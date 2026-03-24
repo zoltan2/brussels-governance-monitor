@@ -38,13 +38,112 @@
   --color-feasibility-near-zero: oklch(0.45 0 0);
 }
 
+/* Dark mode — inverted neutral + brand palette */
+.dark {
+  --color-brand-900: oklch(0.85 0.05 250);
+  --color-brand-800: oklch(0.78 0.06 250);
+  --color-brand-700: oklch(0.7 0.07 250);
+  --color-brand-600: oklch(0.6 0.08 250);
+
+  --color-neutral-50: oklch(0.15 0 0);
+  --color-neutral-100: oklch(0.18 0 0);
+  --color-neutral-200: oklch(0.22 0 0);
+  --color-neutral-300: oklch(0.3 0 0);
+  --color-neutral-400: oklch(0.4 0 0);
+  --color-neutral-500: oklch(0.55 0 0);
+  --color-neutral-600: oklch(0.65 0 0);
+  --color-neutral-700: oklch(0.75 0 0);
+  --color-neutral-800: oklch(0.85 0 0);
+  --color-neutral-900: oklch(0.93 0 0);
+
+  --color-status-blocked: oklch(0.7 0 0);
+  --color-status-delayed: oklch(0.65 0.15 75);
+  --color-status-ongoing: oklch(0.65 0.12 250);
+  --color-status-resolved: oklch(0.65 0.1 195);
+
+  --color-feasibility-high: oklch(0.7 0.12 250);
+  --color-feasibility-medium: oklch(0.7 0.15 75);
+  --color-feasibility-low: oklch(0.7 0.06 50);
+  --color-feasibility-very-low: oklch(0.65 0.04 30);
+  --color-feasibility-near-zero: oklch(0.6 0 0);
+}
+
+/* High contrast mode — WCAG AAA (7:1 ratio) */
+.high-contrast {
+  --color-neutral-50: oklch(1 0 0);
+  --color-neutral-100: oklch(0.97 0 0);
+  --color-neutral-900: oklch(0 0 0);
+  --color-neutral-800: oklch(0.05 0 0);
+  --color-neutral-700: oklch(0.1 0 0);
+  --color-neutral-600: oklch(0.15 0 0);
+  --color-neutral-500: oklch(0.2 0 0);
+  --color-brand-900: oklch(0.1 0.08 250);
+  --color-brand-800: oklch(0.15 0.08 250);
+}
+
+.dark.high-contrast {
+  --color-neutral-50: oklch(0.05 0 0);
+  --color-neutral-100: oklch(0.08 0 0);
+  --color-neutral-900: oklch(1 0 0);
+  --color-neutral-800: oklch(0.97 0 0);
+}
+
+/* Font scaling — controlled by --font-scale on <html> */
+html {
+  font-size: calc(16px * var(--font-scale, 1));
+}
+
+/* Dyslexic-friendly font override */
+.dyslexic-font {
+  --font-sans: 'OpenDyslexic', 'Comic Sans MS', ui-sans-serif, sans-serif;
+}
+
 /* Base styles */
 body {
   font-family: var(--font-sans);
   color: var(--color-neutral-900);
-  background-color: white;
+  background-color: var(--color-neutral-50);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark mode gradient override for crisis counter */
+.dark section[class*="from-slate"] {
+  background: var(--color-neutral-200) !important;
+}
+
+/* Dark mode: ensure focus ring visibility */
+.dark a:focus-visible,
+.dark button:focus-visible,
+.dark input:focus-visible,
+.dark select:focus-visible,
+.dark textarea:focus-visible,
+.dark [tabindex]:focus-visible {
+  outline-color: var(--color-brand-700);
+}
+
+/* Respect OS dark mode preference */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-forced) {
+    --color-brand-900: oklch(0.85 0.05 250);
+    --color-brand-800: oklch(0.78 0.06 250);
+    --color-brand-700: oklch(0.7 0.07 250);
+    --color-brand-600: oklch(0.6 0.08 250);
+    --color-neutral-50: oklch(0.15 0 0);
+    --color-neutral-100: oklch(0.18 0 0);
+    --color-neutral-200: oklch(0.22 0 0);
+    --color-neutral-300: oklch(0.3 0 0);
+    --color-neutral-400: oklch(0.4 0 0);
+    --color-neutral-500: oklch(0.55 0 0);
+    --color-neutral-600: oklch(0.65 0 0);
+    --color-neutral-700: oklch(0.75 0 0);
+    --color-neutral-800: oklch(0.85 0 0);
+    --color-neutral-900: oklch(0.93 0 0);
+    --color-status-blocked: oklch(0.7 0 0);
+    --color-status-delayed: oklch(0.65 0.15 75);
+    --color-status-ongoing: oklch(0.65 0.12 250);
+    --color-status-resolved: oklch(0.65 0.1 195);
+  }
 }
 
 /* Print styles — optimized for journalists */

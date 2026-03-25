@@ -1,5 +1,59 @@
 [
   {
+    "date": "2026-03-25",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "mobility",
+    "descriptions": {
+      "fr": "LEZ : flou juridique avant le 1er avril, système transitoire confirmé en principe mais arrêté non voté.",
+      "nl": "LEZ: juridische onduidelijkheid vóór 1 april, overgangssysteem principieel bevestigd maar besluit niet gestemd.",
+      "en": "LEZ: legal uncertainty before 1 April, transitional system confirmed in principle but decree not voted.",
+      "de": "LEZ: rechtliche Unklarheit vor dem 1. April, Übergangssystem grundsätzlich bestätigt aber Erlass nicht abgestimmt."
+    },
+    "summaries": {
+      "fr": "LEZ : incertitude juridique avant le 1er avril",
+      "nl": "LEZ: juridische onzekerheid vóór 1 april",
+      "en": "LEZ: legal uncertainty before 1 April",
+      "de": "LEZ: rechtliche Unsicherheit vor dem 1. April"
+    }
+  },
+  {
+    "date": "2026-03-25",
+    "type": "corrected",
+    "section": "domains",
+    "targetSlug": "security",
+    "descriptions": {
+      "fr": "Correction déploiement militaire : 100 à 200 soldats (et non 200 fixes). Source : BRUZZ 24 mars.",
+      "nl": "Correctie militaire inzet: 100 tot 200 soldaten (niet 200 vast). Bron: BRUZZ 24 maart.",
+      "en": "Military deployment correction: 100-200 soldiers (not a fixed 200). Source: BRUZZ 24 March.",
+      "de": "Korrektur Militäreinsatz: 100 bis 200 Soldaten (nicht fest 200). Quelle: BRUZZ 24. März."
+    },
+    "summaries": {
+      "fr": "Sécurité : correction 200 → 100-200 militaires",
+      "nl": "Veiligheid: correctie 200 → 100-200 militairen",
+      "en": "Security: correction 200 → 100-200 soldiers",
+      "de": "Sicherheit: Korrektur 200 → 100-200 Soldaten"
+    }
+  },
+  {
+    "date": "2026-03-25",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "metro-3",
+    "descriptions": {
+      "fr": "Palais du Midi : réouverture partielle annoncée pour matchs de basket dès juin 2026.",
+      "nl": "Zuidpaleis: gedeeltelijke heropening aangekondigd voor basketbalwedstrijden vanaf juni 2026.",
+      "en": "Palais du Midi: partial reopening announced for basketball matches from June 2026.",
+      "de": "Südpalast: teilweise Wiedereröffnung für Basketballspiele ab Juni 2026 angekündigt."
+    },
+    "summaries": {
+      "fr": "Metro 3 : Zuidpaleis réouverture partielle basket",
+      "nl": "Metro 3: Zuidpaleis gedeeltelijke heropening basket",
+      "en": "Metro 3: Zuidpaleis partial reopening for basketball",
+      "de": "Metro 3: Südpalast teilweise Wiedereröffnung Basketball"
+    }
+  },
+  {
     "date": "2026-03-24",
     "type": "updated",
     "section": "domains",

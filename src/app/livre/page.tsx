@@ -3,6 +3,7 @@
 
 import Image from 'next/image';
 import { PreorderForm } from './preorder-form';
+import { StickyCta } from './sticky-cta';
 
 const reasons = [
   {
@@ -102,28 +103,28 @@ export default function LivrePage() {
           <div className="flex items-start gap-3 rounded-lg border border-[#E0E6F0] bg-white p-5">
             <span className="mt-0.5 text-[#F2A900]" aria-hidden="true">&rarr;</span>
             <p className="text-sm leading-relaxed text-[#1A2744]">
-              <strong className="text-[#1B3A6B]">Citoyen bruxellois</strong> qui
+              <strong className="text-[#1B3A6B]">Citoyen bruxellois</strong>{' '}qui
               veut comprendre sans se perdre
             </p>
           </div>
           <div className="flex items-start gap-3 rounded-lg border border-[#E0E6F0] bg-white p-5">
             <span className="mt-0.5 text-[#F2A900]" aria-hidden="true">&rarr;</span>
             <p className="text-sm leading-relaxed text-[#1A2744]">
-              <strong className="text-[#1B3A6B]">Journaliste ou acteur associatif</strong> qui
+              <strong className="text-[#1B3A6B]">Journaliste ou acteur associatif</strong>{' '}qui
               travaille avec cette information
             </p>
           </div>
           <div className="flex items-start gap-3 rounded-lg border border-[#E0E6F0] bg-white p-5">
             <span className="mt-0.5 text-[#F2A900]" aria-hidden="true">&rarr;</span>
             <p className="text-sm leading-relaxed text-[#1A2744]">
-              <strong className="text-[#1B3A6B]">&Eacute;lu ou fonctionnaire</strong> interpell&eacute;
-              par la question de la lisibilit&eacute;
+              <strong className="text-[#1B3A6B]">&Eacute;lu ou fonctionnaire</strong>{' '}interpellé
+              par la question de la lisibilité
             </p>
           </div>
           <div className="flex items-start gap-3 rounded-lg border border-[#E0E6F0] bg-white p-5">
             <span className="mt-0.5 text-[#F2A900]" aria-hidden="true">&rarr;</span>
             <p className="text-sm leading-relaxed text-[#1A2744]">
-              <strong className="text-[#1B3A6B]">Builder ou strat&egrave;ge</strong> qui se demande
+              <strong className="text-[#1B3A6B]">Builder ou stratège</strong>{' '}qui se demande
               si c&rsquo;est reproductible ailleurs
             </p>
           </div>
@@ -131,7 +132,7 @@ export default function LivrePage() {
       </section>
 
       {/* Preorder form */}
-      <section className="mt-16">
+      <section id="preorder-section" className="mt-16 scroll-mt-8">
         <div className="mx-auto max-w-md rounded-xl bg-[#1B3A6B] p-8 shadow-md">
           <h2 className="mb-2 text-center text-xl font-bold text-white">
             Pr&eacute;commande
@@ -143,6 +144,7 @@ export default function LivrePage() {
           <PreorderForm />
         </div>
       </section>
+      <StickyCta />
     </div>
   );
 }

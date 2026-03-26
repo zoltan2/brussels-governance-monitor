@@ -7,15 +7,16 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Brussels Airport genereert 204 147 vluchten/jaar en 24,4M passagiers (2025), waarvan 16 237 nachtvluchten. De Route Crucke (RNP-07L) concentreert de overlast op 450 000 Brusselaars — 96 % van de vluchten overtreedt de normen. De Staat is 5 keer veroordeeld. Koekelberg, Sint-Jans-Molenbeek en Jette starten gerechtelijke procedures (maart 2026). Petitie: 6 500+ handtekeningen. Federaal-Vlaams protocol ondertekend (dec. 2025)."
-estimatedBudget: "Cumulatieve boetes: ~32M EUR (waarvan <20 % geïnd). Dwangsommen: 18 000 EUR/overtreding, plafond 18M EUR/route."
+summary: "Brussels Airport: 204 147 vluchten/jaar, 24,4M passagiers (2025). Route Crucke (96 % overtredingen) + baan 01 (nachtgebruik +252 %). De Staat 5 keer veroordeeld, 25M EUR aan cumulatieve boetes. Koekelberg, Sint-Jans-Molenbeek, Jette in rechte + 5 Vlaamse gemeenten. Ultrafijne deeltjes gemeten tot 7 km. Federaal-Vlaams protocol ondertekend (dec. 2025)."
+estimatedBudget: "Cumulatieve boetes: ~25M EUR. Regionale boetes: ~32M EUR (waarvan <20 % geïnd). Dwangsommen: 18 000 EUR/overtreding (plafond 18M EUR/route) + 20 000 EUR/dag (baan 01) + 50 000 EUR/week (Vlaamse gemeenten). Geschatte gezondheidskosten: >1 Mrd EUR/jaar (HGR)."
 stakeholders:
   - "FOD Mobiliteit / Min. Crucke (Les Engagés)"
   - "sKeyes (luchtverkeersleiding)"
   - "Brussels Airport Company"
   - "Leefmilieu Brussel (22 geluidsmeetpunten)"
   - "Brusselse gemeenten (gemeenschappelijk front)"
-  - "UBCNA / BALB / Stop Survol Nord"
+  - "Vlaamse gemeenten (Grimbergen, Machelen, Meise, Vilvoorde, Wemmel)"
+  - "UBCNA / BALB / Stop Survol Nord / Wake Up Kraainem"
   - "Hoge Gezondheidsraad"
 relatedDomains:
   - mobility
@@ -31,6 +32,7 @@ relatedCommunes:
   - molenbeek-saint-jean
   - evere
   - jette
+  - woluwe-saint-pierre
 relatedFormationEvents: []
 sources:
   - label: "Leefmilieu Brussel — Cartografie vliegtuiglawaai (gegevens 2021)"
@@ -84,6 +86,21 @@ sources:
   - label: "WHO Europa — Richtlijnen omgevingslawaai (2018)"
     url: "https://www.who.int/europe/publications/i/item/9789289053563"
     accessedAt: "2026-03-26"
+  - label: "Wake Up Kraainem — Statistieken baangebruik baan 01"
+    url: "https://wakeupkraainem.be/situationactuelle/"
+    accessedAt: "2026-03-26"
+  - label: "L-Post — De Staat gaat niet in cassatie, instructie Wathelet enige legale (maart 2021)"
+    url: "https://lpost.be/2021/03/03/survols-autour-de-bruxelles-letat-ne-se-pourvoit-pas-en-cassation/"
+    accessedAt: "2026-03-26"
+  - label: "Atmospheric Environment — Ultrafijne deeltjes nabij Brussels Airport (2025)"
+    url: "https://www.sciencedirect.com/science/article/pii/S1352231025003504"
+    accessedAt: "2026-03-26"
+  - label: "Transport & Environment — Ultrafijne deeltjes van vliegtuigen, 52M Europeanen in gevaar (2024)"
+    url: "https://www.transportenvironment.org/articles/ultrafine-particles-from-planes-put-52-million-europeans-at-risk-of-serious-health-conditions"
+    accessedAt: "2026-03-26"
+  - label: "InfoBruit.brussels — Vliegtuiglawaai: klachten en monitoring"
+    url: "https://infobruit.brussels/fr/transports-et-voie-publique/avions"
+    accessedAt: "2026-03-26"
 metrics:
   - label: "Vluchten/jaar (2025)"
     value: "204 147"
@@ -120,6 +137,16 @@ metrics:
     unit: "van de RNP-07L-vluchten overtreedt de Brusselse normen"
     source: "Leefmilieu Brussel / BRUZZ"
     date: "2025-12-31"
+  - label: "Baan 01 — nachtgebruik"
+    value: "10,2%"
+    unit: "vs 2,9 % vóór 2004 (+252 %)"
+    source: "Wake Up Kraainem"
+    date: "2021-12-31"
+  - label: "Cumulatieve boetes (Belgische Staat)"
+    value: "~25M"
+    unit: "EUR (BXL 13M + Vlaamse gemeenten 3,2M + omwonenden oost 9,5M)"
+    source: "Aviation24.be / Travel Tomorrow"
+    date: "2025-12-31"
   - label: "Ingediende klachten (2025)"
     value: "32 777"
     unit: "dossiers (14,6M cumulatief in 24 jaar)"
@@ -145,6 +172,16 @@ metrics:
     unit: "directe banen op de site (64 225 totaal direct+indirect+geïnduceerd, 5,4 Mrd EUR toegevoegde waarde)"
     source: "Brussels Airport Company (studie 2024)"
     date: "2024-12-31"
+  - label: "Ultrafijne deeltjes — pieken"
+    value: "65 000-80 000"
+    unit: "deeltjes/cm3 (impact tot 7 km)"
+    source: "Atmospheric Environment (2025)"
+    date: "2025-01-01"
+  - label: "Geschatte gezondheidskosten"
+    value: ">1 Mrd"
+    unit: "EUR/jaar (geluid + luchtvervuiling)"
+    source: "Hoge Gezondheidsraad (2024)"
+    date: "2024-05-01"
   - label: "Blootgestelden aan vliegtuiglawaai in Europa (Lden >55 dB)"
     value: "2,6M"
     unit: "personen (drempel Europese richtlijn)"
@@ -167,21 +204,29 @@ alerts:
     severity: info
     date: "2029-06-30"
 confidenceLevel: official
-dprCommitment: "De Brusselse regeerverklaring bevat geen specifiek hoofdstuk over het overvliegen. De bevoegdheid is federaal (luchtvaart), maar het Gewest is bevoegd voor geluid (Leefmilieu Brussel). De regeerverklaring vermeldt luchtkwaliteit en gezondheid zonder specifiek te verwijzen naar vliegtuighinder."
+dprCommitment: "Het Brusselse regeerakkoord 2026-2029 voorziet in: uitbreiding van de nachtperiode tot 22u-7u, tonnagelimieten voor vliegtuigen die over Brussel vliegen, epidemiologische studie, compensatiefonds voor akoestische isolatie van overvlogen gebouwen, oprichting van een onafhankelijk orgaan voor geluidsmonitoring, en een regime van rechtstreekse inning van boetes. De luchtvaartbevoegdheid blijft federaal, maar het Gewest is bevoegd voor geluid (Leefmilieu Brussel, ordonnantie van 27 mei 1999)."
 lastModified: "2026-03-26"
 changeType: updated
-changeSummary: "Feitelijke update: Jette in rechte, petitie 6 500+, federaal-Vlaams protocol, volledig verkeer 2025, werkgelegenheid gecorrigeerd, Europese context (Schiphol, EEA, WHO) en wereldcontext (ICAO CAEP/13)."
+changeSummary: "Verrijking: baan 01 + winddrempels, Vlaamse gemeenten, ultrafijne deeltjes, standpunt Brusselse regering, akoestische isolatie, alternatieven (Luik, CDO), communautaire dimensie, burgerinstrumenten."
 ---
 
 ## Het conflict in het kort
 
-Brussels Airport (Zaventem), gelegen op 12 km van het centrum van Brussel, staat al meer dan **40 jaar** centraal in een conflict tussen de economische belangen van de luchthaven (24 000 directe banen, 64 225 banen in totaal, 5,4 Mrd EUR toegevoegde waarde) en de levenskwaliteit van **670 600 Brusselaars** die aan vliegtuiglawaai worden blootgesteld.
+Brussels Airport (Zaventem), gelegen op 12 km van het centrum van Brussel, staat al meer dan **40 jaar** centraal in een conflict tussen de economische belangen van de luchthaven (24 000 directe banen, 64 225 banen in totaal, 5,4 Mrd EUR toegevoegde waarde) en de levenskwaliteit van **670 600 Brusselaars** die aan vliegtuiglawaai worden blootgesteld. De Hoge Gezondheidsraad schat de gezondheidskosten op **meer dan 1 miljard EUR per jaar**.
 
-Het structurele probleem: de overheersende winden (zuidwest, 70 % van de tijd) dwingen opstijgingen op baan 25R **richting Brussel**, over dichtbevolkte wijken. Wanneer de wind uit het oosten waait, brengen landingen op baan 07L de vliegtuigen over het noordwesten van de stad.
+Het structurele probleem: de overheersende winden (zuidwest, 70 % van de tijd) dwingen opstijgingen op baan 25R **richting Brussel**, over dichtbevolkte wijken. Wanneer de wind uit het oosten waait, brengen landingen op baan 07L de vliegtuigen over het noordwesten van de stad. En wanneer de wind uit het noorden waait, brengt baan 01 de vliegtuigen over het oosten van Brussel.
 
-In 2025 verwerkte de luchthaven **24,4 miljoen passagiers** (+3,3 % vs 2024) en **795 000 ton vracht** (+8,5 %).
+In 2025 verwerkte de luchthaven **24,4 miljoen passagiers** (+3,3 % vs 2024) en **795 000 ton vracht** (+8,5 %). België heeft **~25 miljoen EUR aan cumulatieve boetes** betaald voor luchthinder.
 
-## Omstreden vliegroutes
+## De drie banen en hun hindercorridors
+
+Brussels Airport beschikt over drie banen:
+
+| Baan | Lengte | Oriëntatie | Hindercorridor |
+|------|--------|-----------|----------------|
+| **25R/07L** | 3 638 m | Oost-West | Opstijgingen 25R: centrum/noord BXL (kanaal). Landingen 07L: noordwesten (Koekelberg, Sint-Jans-Molenbeek, Jette, Schaarbeek) |
+| **25L/07R** | 3 211 m | Oost-West | Parallel aan de vorige, opstijgingen richting westen |
+| **01/19** | 2 987 m | Zuid-Noord | Landingen 01: oosten van BXL (Sint-Pieters-Woluwe, Kraainem, Wezembeek-Oppem) |
 
 ### Kanaalroute (baan 25R)
 Vertrekken langs de as van het kanaal van Brussel, met impact op het centrum en het noorden van het Gewest. Dit is historisch de meest gebruikte route (54 % van alle bewegingen).
@@ -197,34 +242,77 @@ Gegevens:
 
 De federale minister noemt de RNP-07L een "louter alternatieve procedure" en geen "preferentiële route". Critici merken op dat ze zelfs bij matige oostenwind (4-6 knopen) wordt geactiveerd.
 
+### Baan 01: de oostcorridor
+
+Baan 01/19 is de diagonale baan (zuid-noord). Landingen op baan 01 overvliegen **Sint-Pieters-Woluwe, Kraainem, Sterrebeek en Wezembeek-Oppem** op lage hoogte. Tot 2004 werd baan 01 slechts uitzonderlijk gebruikt voor landingen.
+
+| Periode | Daggebruik (baan 01) | Nachtgebruik (baan 01) |
+|---------|---------------------|------------------------|
+| 1997-2003 | 6,7 % | 2,9 % |
+| 2004-2021 | 13,2 % (**+97 %**) | 10,2 % (**+252 %**) |
+
+De brutale stijging houdt verband met de wijziging van de winddrempels (zie onderstaande sectie). In december 2023 kregen **1 400 bewoners** van de oostcorridor gelijk in rechte: **6M EUR** schadevergoeding + **20 000 EUR/dag** aan dwangsommen zolang de situatie voortduurt.
+
 ### Uitsluitingszone Koninklijk Kasteel van Laken
 Sinds **1954** verbiedt een perimeter van 1 500 m rond het Koninklijk Kasteel het overvliegen. Dit verbod, dat nooit ter discussie is gesteld, dwingt de vliegtrajecten om Laken heen — waardoor de overlast wordt afgewenteld op de naburige gemeenten. In 2024 stelde de N-VA voor om deze uitsluiting op te heffen tijdens de Arizona-onderhandelingen; MR en Les Engagés weigerden.
 
+## Winddrempels en Preferentieel Baangebruiksysteem (PRS)
+
+De federale regering legt een **Preferentieel Baangebruiksysteem** (PRS) op om het geluid te spreiden. De preferentiële banen zijn 25R, 25L en 19 (tegenover de overheersende zuidwestenwind). De banen 01, 07L en 07R zijn **niet-preferentieel** — ze zouden slechts uitzonderlijk mogen worden gebruikt.
+
+Het criterium voor omschakeling is de **rugwinddrempel** op baan 25: boven de drempel activeert sKeyes een niet-preferentiële baan. Deze drempel staat centraal in de controverse.
+
+### Chronologie van de drempelwijzigingen
+
+| Periode | Rugwinddrempel (baan 25) | Effect |
+|---------|--------------------------|--------|
+| Vóór 2004 | 8 knopen gemiddeld (ZONDER windstoten) | Baan 01 nagenoeg nooit gebruikt |
+| 2004 (plannen Anciaux) | Verlaagd naar 5-7 knopen | Sterke stijging gebruik baan 01 |
+| **17 jul. 2013 (instructie Wathelet)** | **MAXWIND 12 knopen (7 kt gem + 5 kt tolerantie windstoten)** | **Enige instructie die als legaal werd beoordeeld (Hof van Beroep, 22/10/2020)** |
+| Dec. 2013 (instructie Durinckx) | Ongeoorloofde wijziging | **Illegaal verklaard door het Hof van Beroep** |
+| Maart 2014 (DGLV) | 7 knopen MET windstoten (tolerantie van 5 kt geschrapt) | **Gebruik baan 01 overdag verdubbeld, 's nachts verdrievoudigd** |
+
+**Juridisch kernpunt**: het Hof van Beroep van Brussel oordeelde op 22 oktober 2020 dat de instructie Wathelet van 17 juli 2013 **"de enige legale is die geen enkele luchtvaartreglementering schendt"**. Alle latere instructies werden illegaal verklaard. De Staat is **niet** in cassatie gegaan (maart 2021). Toch past sKeyes in de praktijk de parameters toe die voortvloeien uit de illegale instructies.
+
+**Anticipatie**: sKeyes kan een niet-preferentiële baan **tot 2 uur vóór** de werkelijke verslechtering van de windcondities activeren, op basis van weersvoorspellingen. Dit anticipatiemechanisme versterkt het gebruik van de banen 01 en 07L.
+
 ## Chronologie van de gerechtelijke veroordelingen
 
-De Belgische Staat is **5 keer** veroordeeld in 20 jaar voor het overvliegen van Brussel:
+De Belgische Staat is **5 keer** veroordeeld in 20 jaar voor het overvliegen van Brussel. Het totaal aan betaalde boetes bedraagt **~25 miljoen EUR**:
 
 | Datum | Beslissing | Gevolg |
 |-------|-----------|--------|
 | 2003-2017 | 3 opeenvolgende veroordelingen | Oplopende dwangsommen |
-| Dec. 2023 | 4e veroordeling | Dwangsommen 12 000 EUR/overtreding |
+| Okt. 2020 | Hof van Beroep: instructie Wathelet enige legale | 93 gezinnen (~320 personen) vergoed. Staat veroordeeld voor fout (2004-2011) |
+| Dec. 2023 | Veroordeling baan 01 | **6M EUR** + **20 000 EUR/dag** voor 1 400 bewoners van de oostcorridor |
+| Mei 2021→ | Dwangsommen Vlaamse gemeenten | **50 000 EUR/week** aan Grimbergen, Machelen, Meise, Vilvoorde, Wemmel (lopend) |
 | **Feb. 2025** | **5e veroordeling** | Dwangsommen verhoogd tot **18 000 EUR/overtreding**, plafond **18M EUR/route**. Milieueffectrapport vereist medio 2026, maatregelenplan okt. 2026, verantwoording dec. 2026 |
-| Jul. 2025 | **Milieuvergunning vernietigd** (Vlaamse Raad) | Balanced Approach EU niet nageleefd. Vlaanderen moet opnieuw beslissen vóór juni 2029. Luchthaven blijft opereren onder vernietigde vergunning |
+| Jul. 2025 | **Milieuvergunning vernietigd** (Vlaamse Raad) | Balanced Approach EU niet nageleefd. Vlaanderen moet opnieuw beslissen vóór juni 2029 |
 
-Het Hof van Beroep van Brussel heeft de federale regering ook bevolen om de **vliegroutes te herzien** binnen een termijn van twee jaar, oordelend dat de huidige organisatie van het luchtverkeer de volksgezondheid schaadt en de geluidshinder niet billijk verdeelt.
+Het Hof van Beroep van Brussel heeft de federale regering bevolen om de **vliegroutes te herzien** binnen een termijn van twee jaar, oordelend dat de huidige organisatie van het luchtverkeer de volksgezondheid schaadt en de geluidshinder niet billijk verdeelt.
+
+**Verdeling van de 25M EUR aan boetes**: Brussels Gewest ~13M EUR, 5 Vlaamse gemeenten ~3,2M EUR, bewoners van de oostcorridor (baan 01) ~9,5M EUR.
 
 ## Gemeenten in actie (maart 2026)
 
-### Gemeenschappelijk front van de burgemeesters (februari 2026)
-De burgemeesters van **Schaarbeek**, **Sint-Jans-Molenbeek** en **Koekelberg** vormden op 9 februari 2026 een gemeenschappelijk front om te eisen:
+### Brusselse gemeenten
+
+**Gemeenschappelijk front van de burgemeesters** (9 februari 2026): Schaarbeek, Sint-Jans-Molenbeek en Koekelberg eisen:
 - Het **daadwerkelijke verbod op nachtvluchten** tussen 23u en 7u
 - Het **omleiden van zware vracht** buiten Brussel
 - De **voorrang voor trajecten die woonwijken vermijden**
 
-### Gerechtelijke stappen
-- **Koekelberg** (unanieme motie van de gemeenteraad, 16 maart 2026): eerste gemeente die gerechtelijke stappen onderneemt. Vraagt de onmiddellijke afschaffing van de RNP-07L, een strikt nachtelijk verbod van 22u tot 7u, naleving van de Brusselse normen en structureel overleg.
+**Gerechtelijke stappen**:
+- **Koekelberg** (unanieme motie, 16 maart 2026): eerste gemeente die gerechtelijke stappen onderneemt. Vraagt de afschaffing van de RNP-07L, een nachtelijk verbod van 22u tot 7u, naleving van de Brusselse normen.
 - **Sint-Jans-Molenbeek** sluit zich aan bij de procedure (19 maart 2026).
-- **Jette** (motie aangenomen op 4 maart 2026, meerderheid Ecolo-Groen/LBJette/MR-VLD): eist de drastische vermindering van landingen via baan 07L en start **twee gerechtelijke procedures** — een milieuvordering tot staking voor de Rechtbank van Eerste Aanleg en een betwisting van de milieuvergunning van de luchthaven voor de Raad voor Vergunningsbetwistingen.
+- **Jette** (motie 4 maart 2026, meerderheid Ecolo-Groen/LBJette/MR-VLD): eist de terugkeer naar de windnormen van de instructie Wathelet (17 juli 2013) en start **twee gerechtelijke procedures** — een milieuvordering tot staking + betwisting van de milieuvergunning voor de Raad voor Vergunningsbetwistingen.
+
+### Vlaamse gemeenten
+
+**Grimbergen, Machelen, Meise, Vilvoorde en Wemmel** hebben de Staat in rechte verslagen. Sinds **mei 2021** betaalt België **50 000 EUR/week** aan dwangsommen (3,2M EUR cumulatief in juli 2023). Het Hof van Beroep oordeelde dat de huidige geluidsverdeling **een bedreiging vormt voor de volksgezondheid**.
+
+### Gemeenten van Waals-Brabant
+Terhulpen en Waterloo hebben eveneens moties aangenomen tegen het overvliegen.
 
 ## Burgermobilisatie
 
@@ -269,12 +357,22 @@ Detail van de federale overtredingen:
 
 ## Gezondheidsimpact
 
-### Hoge Gezondheidsraad (mei 2024)
-De HGR publiceerde een wetenschappelijk advies over de gevolgen van het luchtverkeer op de gezondheid:
+### Geluid — Hoge Gezondheidsraad (mei 2024)
+De HGR publiceerde een wetenschappelijk advies over de gevolgen van het luchtverkeer op de gezondheid. De gezondheidskosten worden geschat op **meer dan 1 miljard EUR per jaar** rond Brussels Airport:
 - **160 000+ inwoners** met verhoogd gezondheidsrisico in Brussel
 - Vliegtuiglawaai is **meer verstorend voor de slaap** dan wegverkeer- of spoorlawaai bij een gelijkwaardig decibelniveau
 - Gedocumenteerde effecten: slaapstoornissen, hart- en vaatziekten (hypertensie, hartinfarct), stress en depressie, verminderde longfunctie, leerstoornissen bij kinderen, zwangerschapscomplicaties, verhoogd risico op diabetes type 2
 - **Aanbeveling**: verbod op vluchten tussen 23u en 7u
+
+### Ultrafijne deeltjes (luchtkwaliteit)
+
+Naast geluid stoot het luchtverkeer **ultrafijne deeltjes (UFP)** uit die een afzonderlijk gezondheidsrisico vormen.
+
+**Studie Brussels Airport** (Atmospheric Environment, 2025): vier meetpunten rond de luchthaven registreerden concentraties van **6 500-14 000 deeltjes/cm3** gerelateerd aan vliegtuigen, met pieken van **65 000-80 000 deeltjes/cm3** tijdens perioden van hoge activiteit. Deeltjes van 10-20 nm vertegenwoordigen tot **65 %** van het totale aantal. Taxiën en opstijgen dragen bij tot **50-64 %** van de concentraties. De impact houdt aan tot **7 km** van de luchthaven.
+
+**Op Europees niveau** (Transport & Environment, 2024): UFP van vliegtuigen worden in verband gebracht met **280 000 gevallen van hypertensie**, **330 000 gevallen van diabetes** en **18 000 gevallen van dementie**. **52 miljoen Europeanen** — meer dan 10 % van de bevolking — wonen in bijzonder blootgestelde zones. De deeltjes, kleiner dan 100 nanometer, dringen diep door in het lichaam: ze worden aangetroffen in het bloed, de hersenen en het placentaweefsel.
+
+De HGR heeft zijn analyse van 2024 bewust uitgebreid voorbij geluid om deze dimensie op te nemen.
 
 ### Recente internationale studies
 - **JACC (februari 2025)**: personen blootgesteld aan nachtelijk vliegtuiglawaai vertonen een **7 % hogere linkerventriculaire massa** en **4 % dikkere hartwanden**, indicatoren van verhoogd hartrisico.
@@ -283,12 +381,25 @@ De HGR publiceerde een wetenschappelijk advies over de gevolgen van het luchtver
 
 ## Boetes: minder dan 20 % geïnd
 
-Van de ~32 miljoen EUR aan boetes opgelegd door het Brussels Gewest:
+Van de ~32 miljoen EUR aan boetes opgelegd door het Brussels Gewest sinds 2000 (1 580 boetes):
 - **~6M EUR** daadwerkelijk geïnd (**minder dan 20 %**)
 - **10,8M EUR** definitief onbetaald (opgegeven)
 - **6,3M EUR** "oninbaar" (maar gedurende 10 jaar recupereerbaar)
+- **~8M EUR** in betwisting
 
-Dit lage inningspercentage stelt de doeltreffendheid van het regionale sanctiesysteem in vraag.
+Dit lage inningspercentage stelt de doeltreffendheid van het regionale sanctiesysteem in vraag. Het Brusselse regeerakkoord voorziet in een **regime van rechtstreekse inning** om hieraan te verhelpen.
+
+## Standpunt van de Brusselse regering
+
+Het regeerakkoord 2026-2029 bevat specifieke engagementen over het overvliegen:
+- **Uitbreiding van de nachtperiode** tot 22u-7u (momenteel 23u-7u)
+- **Tonnagelimieten** voor vliegtuigen die over Brussel vliegen
+- **Epidemiologische studie** over de gezondheidseffecten van het overvliegen
+- **Compensatiefonds** voor de akoestische isolatie van overvlogen gebouwen
+- Oprichting van een **onafhankelijk orgaan voor geluidsmonitoring**
+- **Regime van rechtstreekse inning** van boetes
+
+Het fonds voor akoestische isolatie is **nog niet operationeel**. In tegenstelling tot andere Europese luchthavens (Frankfurt: woningaankopen en compensaties onder 350 m; Luik: isolatieprogramma + aankopen; Berlijn-Tegel: isolatieformulieren voor alle omwonenden; Dublin: residentiële isolatie gericht op −5 tot 10 dB), beschikt Brussels Airport **niet over een vergelijkbaar residentieel programma voor akoestische isolatie**.
 
 ## Federaal-Vlaams protocol (december 2025)
 
@@ -301,6 +412,20 @@ Op 9 december 2025 ondertekenden de FOD Mobiliteit en het Vlaamse ministerie van
 ### Nieuwe nachtelijke beperkingen
 - **Zomer 2025**: luidruchtigste vliegtuigen geweerd uit nachtoperaties
 - **Zomer 2026**: stille nachtlandingen (01u-05u, weekend) alleen toegestaan voor vliegtuigen met QC ≤ 2
+
+## Alternatieven en mogelijke oplossingen
+
+### Overdracht van vracht naar Luik
+De luchthaven van Luik verwerkte **1,324 miljoen ton vracht** in 2025 (+14 %), opereert **24u/24** en is al de grootste vrachtluchthaven van België. Bij verstoringen in Brussel leiden operatoren hun vluchten al om naar Luik. **DHL verplaatste zijn Europese hub naar Leipzig in 2008** na de weigering om de nachtvluchten in Brussel uit te breiden — een vertrek dat tot **1 700 banen** heeft gekost.
+
+### Continue dalingsoperaties (CDO)
+**Continuous Descent Operations** verminderen het geluid met **1 tot 5 dB per vlucht** op de grond door het vliegtuig langer hoger te houden. sKeyes testte ze in 2022 (banen 25R/25L, 23u-06u) met Brussels Airlines, TUI, Ryanair en DHL. Europees potentieel: 150 000 ton kerosine bespaard/jaar.
+
+### Modernisering van de vloot
+De Airbus A320neo is **~6 dB stiller** dan de A320ceo — wat neerkomt op: 4 neo-opstijgingen = het geluid van 1 ceo-opstijging. Brussels Airport mikt op **63 % vliegtuigen van de laatste generatie tegen 2032**. De A350 en de 787 opereren meerdere dB onder de minima van ICAO Hoofdstuk 14.
+
+### Nieuwe ICAO-normen (CAEP/13, februari 2025)
+Toekomstige vliegtuigen moeten **minstens 6 dB stiller** zijn (−30 % geluid). Toepassingsdatum: **1 januari 2029**. Een nieuw **Hoofdstuk 15** legt supersonische vliegtuigen geluidsnormen op die gelijkwaardig zijn aan die van subsonische vliegtuigen.
 
 ## Balanced Approach-procedure (EU)
 
@@ -328,35 +453,18 @@ De Nederlandse Raad van State (hoogste bestuursrechtcollege) heeft het **plafond
 | Sydney (SYD) | 23u00-06u00 | 1995 |
 | **Brussel (BRU)** | **Beperkingen, maar 6 075+ overtredingen in 2025** | — |
 
-### WHO-drempels (2018, nog steeds van kracht)
-De Wereldgezondheidsorganisatie beveelt voor vliegtuiglawaai aan:
-- **Lden 45 dB** (gemiddelde dag-avond-nacht) — drempel waarboven schadelijke effecten worden geassocieerd
-- **Lnight 40 dB** (nachtelijke blootstelling) — drempel waarboven effecten op de slaap worden geassocieerd
-
-Deze drempels zijn **10 dB strenger** dan de meldingsdrempels van de Europese Geluidsrichtlijn (Lden 55 dB, Lnight 50 dB). In Brussel overschrijden **670 600 personen** de WHO-drempel van Lden 45 dB.
-
-### EU-doelstelling Nulvervuiling
-De Europese doelstelling "Nulvervuiling" streeft naar een vermindering van **30 % van de chronisch door verkeerslawaai gehinderde personen** tegen **2030**. Werkelijke voortgang: **slechts −3 % sinds 2017** — ver van het doel.
-
-## Mondiaal perspectief
-
-### Nieuwe ICAO-normen (CAEP/13, februari 2025)
-Het Comité voor Milieubescherming in de Luchtvaart (CAEP) van de ICAO heeft nieuwe geluidsnormen aangenomen:
-- Toekomstige vliegtuigen moeten **minstens 6 dB stiller** zijn dan de huidige modellen, wat een geluidsvermindering van **meer dan 30 %** inhoudt
-- **Toepassingsdatum**: 1 januari 2029 voor nieuwe typecertificeringen
-- Een nieuw **Hoofdstuk 15** legt supersonische vliegtuigen geluidsnormen op die gelijkwaardig zijn aan die van subsonische vliegtuigen
-
-### Compensaties: internationale vergelijking
-- **Japan**: 70 luchthavens met geluidstoeslagen. Op de militaire basis van Kadena (Okinawa) kenden de rechtbanken **30,2 Mrd JPY (~266M$)** toe aan 22 020 omwonenden
-- **Verenigde Staten (FAA)**: meer dan **10 Mrd$** geïnvesteerd in geluidsisolatie over 35 jaar, **143 000+ woningen** geïsoleerd. Hinderdrempel: DNL 65 dB
+### Internationale compensaties
+- **Japan**: 70 luchthavens met geluidstoeslagen. Kadena (Okinawa): **30,2 Mrd JPY (~266M$)** aan 22 020 omwonenden
+- **Verenigde Staten (FAA)**: meer dan **10 Mrd$** geïnvesteerd in akoestische isolatie, **143 000+ woningen** geïsoleerd
 - **298 luchthavens** wereldwijd passen op geluid gebaseerde toeslagen toe (waarvan 143 in Europa)
 
-### Technologische vooruitgang
-- Moderne jets zijn **~75 % stiller** dan modellen van de eerste generatie
-- De Airbus A350 en de Boeing 787 opereren **meerdere dB onder** de minima van ICAO Hoofdstuk 14
-- **Continuous Descent Operations (CDO)** verminderen het geluid met **1 tot 5 dB per vlucht** op de grond. Europees potentieel: 150 000 ton kerosine bespaard/jaar
+### WHO-drempels (2018, nog steeds van kracht)
+De WHO beveelt aan: **Lden 45 dB** (dag-avond-nacht) en **Lnight 40 dB** (nacht). Deze drempels zijn **10 dB strenger** dan de Europese Geluidsrichtlijn (Lden 55 dB, Lnight 50 dB). In Brussel overschrijden **670 600 personen** de WHO-drempel van Lden 45 dB.
 
-## Bevoegdheidsverdeling
+### EU-doelstelling Nulvervuiling
+Doelstelling: −30 % chronisch gehinderde personen tegen 2030. Voortgang: **slechts −3 % sinds 2017**.
+
+## Bevoegdheidsverdeling en communautaire dimensie
 
 | Niveau | Bevoegdheid | Acteur |
 |--------|------------|--------|
@@ -364,9 +472,21 @@ Het Comité voor Milieubescherming in de Luchtvaart (CAEP) van de ICAO heeft nie
 | Federaal | Bemiddeling | Ombudsman luchthaven (Touwaide, geschorst) |
 | Gewestelijk BXL | Geluid, milieu, geluidsnormen | Leefmilieu Brussel (22 geluidsmeetpunten) |
 | Vlaams | Milieuvergunning luchthaven | Vlaamse Regering (vernietigd jul. 2025) |
-| Gemeentelijk | Levenskwaliteit, stedenbouw, beroep | 19 gemeenten (Koekelberg, Molenbeek, Jette in rechte) |
+| Gemeentelijk | Levenskwaliteit, stedenbouw, beroep | Brusselse + Vlaamse gemeenten in rechte |
 
 Dit is een schoolvoorbeeld van de **Belgische institutionele complexiteit**: de luchthaven ligt in Vlaanderen, geluid is een Brusselse gewestbevoegdheid, luchtvaart is federaal, en de gemeenten dragen de gevolgen.
+
+De **taalkundige dimensie** doorsnijdt het dossier: in oktober 2023 riep Vlaanderen een **belangenconflict** in bij het Overlegcomité tegen nieuwe routes, met het argument dat ze het geluid verschoven naar de Vlaamse gemeenten "zonder intergovernementeel overleg". Het Hof van Beroep verwierp het Vlaamse bezwaar. IATA verzet zich tegen een volledige spertijd, wijzend op de rol van België als Europese vrachthub. Les Engagés bepleiten het verbod op nachtvluchten en op de luidruchtigste vliegtuigen.
+
+## Burgerinstrumenten
+
+Omwonenden beschikken over verschillende instrumenten om zich te informeren en te handelen:
+
+- **InfoBruit.brussels**: gewestelijk informatieportaal over geluid, met een sectie luchtvaart
+- **BATC** (batc.be): real-time vluchtradarsysteem (vertraging 15 min), geluidsgegevens, geluidscontouren, baangebruik
+- **Leefmilieu Brussel**: netwerk van 17 vaste stations waarvan **9 specifiek vliegtuiglawaai meten** (24u/24)
+- **Klachten**: elektronisch formulier via IrisBox (met eID) of PDF-formulier per post/e-mail. De klachten worden opgenomen in een register dat regelmatig wordt geanalyseerd en doorgestuurd naar de minister
+- **Ombudsdienst van de luchthaven** (airportmediation.be): federale dienst voor vragen en klachten
 
 ## Op te volgen dossiers
 
@@ -375,8 +495,10 @@ Dit is een schoolvoorbeeld van de **Belgische institutionele complexiteit**: de 
 - **Milieueffectrapport**: in te dienen medio 2026 (rechterlijk bevel)
 - **Concreet maatregelenplan**: vereist tegen oktober 2026
 - **Verlenging RNP-07L**: momenteel tot 31 oktober 2026 — wordt ze verlengd?
-- **Gemeentelijke acties**: Koekelberg, Sint-Jans-Molenbeek en Jette in rechte; andere gemeenten zouden kunnen volgen
+- **Terugkeer naar de instructie Wathelet**: gevraagd door Jette — enige instructie die als legaal werd beoordeeld. Toepassing in de praktijk?
+- **Gemeentelijke acties**: Koekelberg, Sint-Jans-Molenbeek, Jette in rechte; Vlaamse gemeenten cumuleren dwangsommen
+- **Fonds voor akoestische isolatie**: beloofd in het Brusselse regeerakkoord, nog niet operationeel
 - **Balanced Approach**: publieke raadpleging + advies Europese Commissie (horizon 2032 voor −30 % hinder)
 - **Milieuvergunning**: Vlaanderen moet opnieuw beslissen vóór juni 2029
-- **Nachtelijke vrachtvluchten**: 200 nachtelijke vrachtopstijgingen (Boeing 777) voorwerp van gerechtelijk onderzoek
-- **Verzet van de sector**: IATA, DHL en Singapore Airlines Cargo verzetten zich tegen een volledig spertijd, wijzend op de rol van België als Europese vrachthub
+- **Nachtelijke vrachtvluchten**: 200 nachtelijke vrachtopstijgingen (Boeing 777) voorwerp van gerechtelijk onderzoek. Overdracht naar Luik?
+- **Verzet van de sector**: IATA, DHL en Singapore Airlines Cargo verzetten zich tegen een volledige spertijd

@@ -32,41 +32,46 @@ export const POST = auth(async function POST(req) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const body = await req.json();
-  const parsed = editSchema.safeParse(body);
-  if (!parsed.success) {
-    return NextResponse.json(
-      { error: 'Invalid input', details: parsed.error.flatten() },
-      { status: 400 },
+  try {
+    const body = await req.json();
+    const parsed = editSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: 'Invalid input', details: parsed.error.flatten() },
+        { status: 400 },
+      );
+    }
+
+    const filePath = 'data/pending-digest.json';
+    const file = await readGitHubFile(filePath);
+    if (!file) {
+      return NextResponse.json({ error: 'No pending digest found' }, { status: 404 });
+    }
+
+    const digest = JSON.parse(file.content);
+
+    if (digest.sent) {
+      return NextResponse.json({ error: 'Digest already sent, cannot edit' }, { status: 409 });
+    }
+
+    // Apply edits
+    if (parsed.data.weeklyNumber) {
+      digest.weeklyNumber = parsed.data.weeklyNumber;
+    }
+    if (parsed.data.closingNote) {
+      digest.closingNote = parsed.data.closingNote;
+    }
+
+    await writeGitHubFile(
+      filePath,
+      JSON.stringify(digest, null, 2) + '\n',
+      file.sha,
+      `chore: edit pending digest ${digest.week}`,
     );
+
+    return NextResponse.json({ success: true, week: digest.week });
+  } catch (err) {
+    console.error('digest/edit: error:', err);
+    return NextResponse.json({ error: 'Failed to edit digest' }, { status: 500 });
   }
-
-  const filePath = 'data/pending-digest.json';
-  const file = await readGitHubFile(filePath);
-  if (!file) {
-    return NextResponse.json({ error: 'No pending digest found' }, { status: 404 });
-  }
-
-  const digest = JSON.parse(file.content);
-
-  if (digest.sent) {
-    return NextResponse.json({ error: 'Digest already sent, cannot edit' }, { status: 409 });
-  }
-
-  // Apply edits
-  if (parsed.data.weeklyNumber) {
-    digest.weeklyNumber = parsed.data.weeklyNumber;
-  }
-  if (parsed.data.closingNote) {
-    digest.closingNote = parsed.data.closingNote;
-  }
-
-  await writeGitHubFile(
-    filePath,
-    JSON.stringify(digest, null, 2) + '\n',
-    file.sha,
-    `chore: edit pending digest ${digest.week}`,
-  );
-
-  return NextResponse.json({ success: true, week: digest.week });
 });

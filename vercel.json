@@ -2,6 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "regions": ["cdg1"],
+  "rewrites": [
+    { "source": "/pagefind/:path*", "destination": "/api/pagefind/:path*" }
+  ],
   "crons": [
     {
       "path": "/api/cron/prepare-digest",

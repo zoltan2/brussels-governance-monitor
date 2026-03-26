@@ -85,7 +85,7 @@ export default function LivreLayout({
                 >
                   Advice That SRL
                 </a>{' '}
-                project &middot; Anderlecht, Bruxelles
+                project &middot; Bruxelles
               </p>
               <p className="mt-1 text-xs text-neutral-500">
                 &copy; {new Date().getFullYear()} All rights reserved

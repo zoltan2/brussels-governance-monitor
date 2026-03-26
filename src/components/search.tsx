@@ -45,16 +45,18 @@ export function Search() {
 
   useEffect(() => {
     if (open && !pagefind) {
-      // Dynamically load pagefind (Vercel rewrites /pagefind/* → /api/pagefind/*)
-      // @ts-expect-error -- pagefind is generated at build time, no TS declarations
-      import(/* webpackIgnore: true */ '/pagefind/pagefind.js')
-        .then((pf) => {
+      // Load pagefind via script tag (dynamic import fails on Vercel API routes)
+      const script = document.createElement('script');
+      script.src = '/pagefind/pagefind.js';
+      script.onload = () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const pf = (window as any).pagefind;
+        if (pf) {
           pf.init();
           setPagefind(pf);
-        })
-        .catch((err) => {
-          console.error('Pagefind load error:', err);
-        });
+        }
+      };
+      document.head.appendChild(script);
     }
   }, [open, pagefind]);
 

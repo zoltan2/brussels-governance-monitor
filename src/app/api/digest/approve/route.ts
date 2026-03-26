@@ -78,6 +78,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Missing token' }, { status: 400 });
   }
 
+  if (!process.env.RESEND_API_KEY) {
+    return NextResponse.json({ error: 'RESEND_API_KEY not configured' }, { status: 503 });
+  }
+
+  try {
+
   // 1. Verify token
   const payload = verifyDigestApprovalToken(token);
   if (!payload) {
@@ -248,6 +254,11 @@ export async function POST(request: Request) {
     scheduledAt: scheduledAt || 'immediate',
     errors: errors.length > 0 ? errors : undefined,
   });
+
+  } catch (err) {
+    console.error('digest/approve: error:', err);
+    return NextResponse.json({ error: 'Failed to approve digest' }, { status: 500 });
+  }
 }
 
 /** Calculate next Monday at 08:00 CET (UTC+1, or UTC+2 in summer). */

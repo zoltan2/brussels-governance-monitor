@@ -45,6 +45,11 @@ export const POST = auth(async function POST(req) {
   if (!adminEmail) {
     return NextResponse.json({ error: 'ADMIN_EMAIL not configured' }, { status: 500 });
   }
+  if (!process.env.RESEND_API_KEY) {
+    return NextResponse.json({ error: 'RESEND_API_KEY not configured' }, { status: 503 });
+  }
+
+  try {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
 
@@ -115,4 +120,9 @@ export const POST = auth(async function POST(req) {
   }
 
   return NextResponse.json({ success: true, sentTo: adminEmail });
+
+  } catch (err) {
+    console.error('digest/test-send: error:', err);
+    return NextResponse.json({ error: 'Failed to send test digest' }, { status: 500 });
+  }
 });

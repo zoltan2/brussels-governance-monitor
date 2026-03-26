@@ -14,11 +14,16 @@ export const GET = auth(async function GET(req) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const file = await readGitHubFile('data/pending-digest.json');
-  if (!file) {
-    return NextResponse.json({ error: 'No pending digest found' }, { status: 404 });
-  }
+  try {
+    const file = await readGitHubFile('data/pending-digest.json');
+    if (!file) {
+      return NextResponse.json({ error: 'No pending digest found' }, { status: 404 });
+    }
 
-  const digest = JSON.parse(file.content);
-  return NextResponse.json(digest);
+    const digest = JSON.parse(file.content);
+    return NextResponse.json(digest);
+  } catch (err) {
+    console.error('digest/pending: error:', err);
+    return NextResponse.json({ error: 'Failed to read pending digest' }, { status: 500 });
+  }
 });

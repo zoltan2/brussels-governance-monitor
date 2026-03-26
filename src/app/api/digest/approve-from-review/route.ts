@@ -58,6 +58,10 @@ export const POST = auth(async function POST(req) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  if (!process.env.RESEND_API_KEY) {
+    return NextResponse.json({ error: 'RESEND_API_KEY not configured' }, { status: 503 });
+  }
+
   let body: { schedule?: string; resend?: boolean } = {};
   try {
     body = await req.json();
@@ -67,6 +71,8 @@ export const POST = auth(async function POST(req) {
 
   const sendNow = body.schedule !== 'monday';
   const allowResend = body.resend === true;
+
+  try {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
 
@@ -215,4 +221,9 @@ export const POST = auth(async function POST(req) {
     scheduledAt: scheduledAt || 'immediate',
     errors: errors.length > 0 ? errors : undefined,
   });
+
+  } catch (err) {
+    console.error('digest/approve-from-review: error:', err);
+    return NextResponse.json({ error: 'Failed to approve digest' }, { status: 500 });
+  }
 });

@@ -4,6 +4,7 @@
 import { NextResponse } from 'next/server';
 import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
 import { getResend, EMAIL_FROM, addContact, getContact, resendCall } from '@/lib/resend';
+import { rateLimit } from '@/lib/rate-limit';
 import WelcomeEmail from '@/emails/welcome';
 
 const welcomeSubjects: Record<string, string> = {
@@ -15,6 +16,12 @@ const welcomeSubjects: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const { allowed } = rateLimit(ip);
+    if (!allowed) {
+      return NextResponse.json({ error: 'too_many_requests' }, { status: 429 });
+    }
+
     const body = await request.json();
     const token = body.token;
 
@@ -70,8 +77,8 @@ export async function POST(request: Request) {
     // Persist subscriber in Resend Contacts
     try {
       await addContact(email, locale, topics);
-    } catch {
-      // Contact persistence failure should not block the confirm flow
+    } catch (err) {
+      console.error('Confirm: addContact failed — subscriber received welcome email but was NOT persisted:', email, err);
     }
 
     return NextResponse.json({ success: true, topics });

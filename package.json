@@ -7,7 +7,7 @@
   "scripts": {
     "velite": "velite",
     "dev": "velite && next dev",
-    "build": "velite --clean && next build && pagefind --site .next/server/app --output-path public/pagefind",
+    "build": "velite --clean && next build && pagefind --site .next/server/app --output-path .next/server/pagefind",
     "start": "next start",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",

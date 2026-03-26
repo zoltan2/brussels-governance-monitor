@@ -11,9 +11,13 @@ const MIME_TYPES: Record<string, string> = {
   '.pf_meta': 'application/octet-stream',
   '.pf_fragment': 'application/octet-stream',
   '.pf_index': 'application/octet-stream',
+  '.pagefind': 'application/octet-stream',
   '.css': 'text/css',
   '.wasm': 'application/wasm',
 };
+
+// Extensions that contain pre-compressed (gzip) data from pagefind
+const PRECOMPRESSED = new Set(['.pf_meta', '.pf_fragment', '.pf_index', '.pagefind']);
 
 export async function GET(
   _request: Request,
@@ -27,7 +31,6 @@ export async function GET(
     return new NextResponse(null, { status: 400 });
   }
 
-  // pagefind-index/ is committed to the repo — available at /var/task/ on Vercel
   const fullPath = join(process.cwd(), 'pagefind-index', filePath);
 
   try {
@@ -35,12 +38,18 @@ export async function GET(
     const ext = '.' + filePath.split('.').pop();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
-    return new NextResponse(data, {
-      headers: {
-        'Content-Type': contentType,
-        'Cache-Control': 'public, max-age=86400, s-maxage=86400',
-      },
-    });
+    const headers: Record<string, string> = {
+      'Content-Type': contentType,
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+    };
+
+    // Pagefind binary files are already gzip-compressed internally.
+    // Tell the server/CDN not to re-compress them (double gzip = corrupt data).
+    if (PRECOMPRESSED.has(ext)) {
+      headers['Content-Encoding'] = 'gzip';
+    }
+
+    return new NextResponse(data, { headers });
   } catch {
     return new NextResponse(null, { status: 404 });
   }

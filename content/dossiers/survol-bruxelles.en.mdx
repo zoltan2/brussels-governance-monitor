@@ -7,15 +7,16 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Brussels Airport generates 204,147 flights/year and 24.4M passengers (2025), including 16,237 night flights. The Crucke Route (RNP-07L) concentrates noise pollution over 450,000 Brussels residents — 96% of flights violate standards. The State has been convicted 5 times. Koekelberg, Molenbeek and Jette are taking legal action (March 2026). Petition: 6,500+ signatures. Federal-Flemish protocol signed (Dec. 2025)."
-estimatedBudget: "Cumulative fines: ~32M EUR (of which <20% collected). Penalty payments: 18,000 EUR/infringement, cap 18M EUR/route."
+summary: "Brussels Airport: 204,147 flights/year, 24.4M passengers (2025). Crucke Route (96% violations) + runway 01 (night use +252%). The State has been convicted 5 times, 25M EUR in cumulative penalties. Koekelberg, Molenbeek, Jette in court + 5 Flemish municipalities. Ultrafine particles measured up to 7 km. Federal-Flemish protocol (Dec. 2025)."
+estimatedBudget: "Cumulative penalties: ~25M EUR. Regional fines: ~32M EUR (of which <20% collected). Penalty payments: 18,000 EUR/infringement (cap 18M EUR/route) + 20,000 EUR/day (runway 01) + 50,000 EUR/week (Flemish municipalities). Estimated health cost: >1 Bln EUR/year (SHC)."
 stakeholders:
   - "FPS Mobility / Min. Crucke (Les Engagés)"
   - "sKeyes (air traffic control)"
   - "Brussels Airport Company"
   - "Brussels Environment (22 noise monitors)"
   - "Brussels municipalities (joint front)"
-  - "UBCNA / BALB / Stop Survol Nord"
+  - "Flemish municipalities (Grimbergen, Machelen, Meise, Vilvoorde, Wemmel)"
+  - "UBCNA / BALB / Stop Survol Nord / Wake Up Kraainem"
   - "Superior Health Council"
 relatedDomains:
   - mobility
@@ -31,6 +32,7 @@ relatedCommunes:
   - molenbeek-saint-jean
   - evere
   - jette
+  - woluwe-saint-pierre
 relatedFormationEvents: []
 sources:
   - label: "Bruxelles Environnement — Aircraft noise mapping (2021 data)"
@@ -84,6 +86,21 @@ sources:
   - label: "WHO Europe — Environmental noise guidelines (2018)"
     url: "https://www.who.int/europe/publications/i/item/9789289053563"
     accessedAt: "2026-03-26"
+  - label: "Wake Up Kraainem — Runway 01 usage statistics"
+    url: "https://wakeupkraainem.be/situationactuelle/"
+    accessedAt: "2026-03-26"
+  - label: "L-Post — State does not appeal to Court of Cassation, Wathelet instruction only legal one (March 2021)"
+    url: "https://lpost.be/2021/03/03/survols-autour-de-bruxelles-letat-ne-se-pourvoit-pas-en-cassation/"
+    accessedAt: "2026-03-26"
+  - label: "Atmospheric Environment — Ultrafine particles near Brussels Airport (2025)"
+    url: "https://www.sciencedirect.com/science/article/pii/S1352231025003504"
+    accessedAt: "2026-03-26"
+  - label: "Transport & Environment — Ultrafine particles from planes, 52M Europeans at risk (2024)"
+    url: "https://www.transportenvironment.org/articles/ultrafine-particles-from-planes-put-52-million-europeans-at-risk-of-serious-health-conditions"
+    accessedAt: "2026-03-26"
+  - label: "InfoBruit.brussels — Aircraft noise: complaints and monitoring"
+    url: "https://infobruit.brussels/fr/transports-et-voie-publique/avions"
+    accessedAt: "2026-03-26"
 metrics:
   - label: "Flights/year (2025)"
     value: "204 147"
@@ -120,6 +137,16 @@ metrics:
     unit: "of RNP-07L flights violate Brussels noise standards"
     source: "Bruxelles Environnement / BRUZZ"
     date: "2025-12-31"
+  - label: "Runway 01 — night use"
+    value: "10.2%"
+    unit: "vs 2.9% before 2004 (+252%)"
+    source: "Wake Up Kraainem"
+    date: "2021-12-31"
+  - label: "Cumulative penalties (Belgian State)"
+    value: "~25M"
+    unit: "EUR (BXL 13M + Flemish municipalities 3.2M + eastern residents 9.5M)"
+    source: "Aviation24.be / Travel Tomorrow"
+    date: "2025-12-31"
   - label: "Complaints filed (2025)"
     value: "32 777"
     unit: "cases (14.6M cumulative over 24 years)"
@@ -127,7 +154,7 @@ metrics:
     date: "2025-12-31"
   - label: "Aircraft noise complaints Brussels Environment (2025)"
     value: "754"
-    unit: "×4 vs previous year"
+    unit: "x4 vs previous year"
     source: "Bruxelles Environnement"
     date: "2025-12-31"
   - label: "Unpaid fines"
@@ -145,6 +172,16 @@ metrics:
     unit: "direct on-site (64,225 total direct+indirect+induced, 5.4 Bln EUR added value)"
     source: "Brussels Airport Company (2024 study)"
     date: "2024-12-31"
+  - label: "Ultrafine particles — peaks"
+    value: "65,000-80,000"
+    unit: "particles/cm3 (impact up to 7 km)"
+    source: "Atmospheric Environment (2025)"
+    date: "2025-01-01"
+  - label: "Estimated health cost"
+    value: ">1 Bln"
+    unit: "EUR/year (noise + air pollution)"
+    source: "Superior Health Council (2024)"
+    date: "2024-05-01"
   - label: "Exposed to aircraft noise in Europe (Lden >55 dB)"
     value: "2.6M"
     unit: "people (EU directive threshold)"
@@ -167,21 +204,29 @@ alerts:
     severity: info
     date: "2029-06-30"
 confidenceLevel: official
-dprCommitment: "The Brussels regional policy statement does not contain a dedicated section on overflight. The competence is federal (aviation), but the Region is responsible for noise (Brussels Environment). The statement mentions air quality and health without specifically targeting aircraft nuisance."
+dprCommitment: "The Brussels regional policy statement 2026-2029 provides for: extension of the night-time period to 10 PM-7 AM, tonnage limits for aircraft overflying Brussels, an epidemiological study, a compensation fund for acoustic insulation of overflown buildings, creation of an independent noise monitoring body, and a direct fine recovery regime. Aviation remains a federal competence, but the Region is responsible for noise (Brussels Environment, ordinance of 27 May 1999)."
 lastModified: "2026-03-26"
 changeType: updated
-changeSummary: "Factual update: Jette legal action, petition 6,500+, federal-Flemish protocol, full 2025 traffic data, corrected employment figures, European context (Schiphol, EEA, WHO) and global perspective (ICAO CAEP/13)."
+changeSummary: "Enrichment: runway 01 + wind thresholds, Flemish municipalities, ultrafine particles, Brussels government position, acoustic insulation, alternatives (Liege, CDO), community dimension, citizen tools."
 ---
 
 ## The conflict in brief
 
-Brussels Airport (Zaventem), located 12 km from the centre of Brussels, has been at the heart of a conflict spanning more than **40 years** between the airport's economic interests (24,000 direct jobs, 64,225 total jobs, 5.4 Bln EUR in added value) and the quality of life of **670,600 Brussels residents** exposed to aircraft noise.
+Brussels Airport (Zaventem), located 12 km from the centre of Brussels, has been at the heart of a conflict spanning more than **40 years** between the airport's economic interests (24,000 direct jobs, 64,225 total jobs, 5.4 Bln EUR in added value) and the quality of life of **670,600 Brussels residents** exposed to aircraft noise. The Superior Health Council estimates the health cost at **more than 1 billion EUR per year**.
 
-The structural problem: prevailing winds (south-west, 70% of the time) require take-offs on runway 25R **towards Brussels**, overflying densely populated neighbourhoods. When the wind blows from the east, landings on runway 07L bring aircraft over the north-west of the city.
+The structural problem: prevailing winds (south-west, 70% of the time) require take-offs on runway 25R **towards Brussels**, overflying densely populated neighbourhoods. When the wind blows from the east, landings on runway 07L bring aircraft over the north-west of the city. And when the wind blows from the north, runway 01 brings aircraft over the east of Brussels.
 
-In 2025, the airport handled **24.4 million passengers** (+3.3% vs 2024) and **795,000 tonnes of cargo** (+8.5%).
+In 2025, the airport handled **24.4 million passengers** (+3.3% vs 2024) and **795,000 tonnes of cargo** (+8.5%). Belgium has paid **~25 million EUR in cumulative penalties** for aircraft nuisance.
 
-## Controversial flight routes
+## The three runways and their noise corridors
+
+Brussels Airport has three runways:
+
+| Runway | Length | Orientation | Noise corridor |
+|--------|--------|-------------|----------------|
+| **25R/07L** | 3,638 m | East-West | Take-offs 25R: central/northern BXL (canal). Landings 07L: north-west (Koekelberg, Molenbeek, Jette, Schaerbeek) |
+| **25L/07R** | 3,211 m | East-West | Parallel to the previous one, take-offs westward |
+| **01/19** | 2,987 m | South-North | Landings 01: eastern BXL (Woluwe-Saint-Pierre, Kraainem, Wezembeek-Oppem) |
 
 ### Canal Route (runway 25R)
 Departures following the axis of the Brussels canal, impacting the centre and north of the Region. This is historically the most-used route (54% of all movements).
@@ -197,34 +242,77 @@ Key data:
 
 The federal minister describes the RNP-07L as a "purely alternative procedure" rather than a "preferential route". Critics note it is activated even in moderate easterly winds (4-6 knots).
 
+### Runway 01: the eastern corridor
+
+Runway 01/19 is the diagonal runway (south-north). Landings on runway 01 overfly **Woluwe-Saint-Pierre, Kraainem, Sterrebeek and Wezembeek-Oppem** at low altitude. Until 2004, runway 01 was only used exceptionally for landings.
+
+| Period | Daytime use (runway 01) | Night-time use (runway 01) |
+|--------|------------------------|---------------------------|
+| 1997-2003 | 6.7% | 2.9% |
+| 2004-2021 | 13.2% (**+97%**) | 10.2% (**+252%**) |
+
+The sharp increase is linked to the modification of wind thresholds (see section below). In December 2023, **1,400 residents** of the eastern corridor won their case in court: **6M EUR** in damages + **20,000 EUR/day** in penalty payments as long as the situation persists.
+
 ### Royal Castle of Laeken exclusion zone
 Since **1954**, a 1,500 m perimeter around the Royal Castle prohibits overflights. This prohibition, never challenged, forces flight paths to divert around Laeken — shifting the nuisance onto neighbouring municipalities. In 2024, the N-VA proposed lifting this exclusion during the Arizona negotiations; MR and Les Engagés refused.
 
+## Wind thresholds and Preferential Runway System (PRS)
+
+The federal government imposes a **Preferential Runway System** (PRS) to distribute noise. The preferential runways are 25R, 25L and 19 (facing the prevailing south-westerly winds). Runways 01, 07L and 07R are **non-preferential** — they should only be used exceptionally.
+
+The switching criterion is the **tailwind threshold** on runway 25: beyond the threshold, sKeyes activates a non-preferential runway. This threshold is at the heart of the controversy.
+
+### Chronology of threshold modifications
+
+| Period | Tailwind threshold (runway 25) | Effect |
+|--------|-------------------------------|--------|
+| Before 2004 | 8 knots average (WITHOUT gusts) | Runway 01 almost never used |
+| 2004 (Anciaux plans) | Lowered to 5-7 knots | Sharp increase in runway 01 use |
+| **17 Jul. 2013 (Wathelet instruction)** | **MAXWIND 12 knots (7 kt avg + 5 kt gust tolerance)** | **Only instruction ruled legal (Court of Appeal, 22/10/2020)** |
+| Dec. 2013 (Durinckx instruction) | Unauthorised modification | **Declared illegal by the Court of Appeal** |
+| March 2014 (DGTA) | 7 knots WITH gusts (5 kt tolerance removed) | **Runway 01 use doubled by day, tripled at night** |
+
+**Key legal point**: the Brussels Court of Appeal ruled on 22 October 2020 that the Wathelet instruction of 17 July 2013 is **"the only legal, lawful instruction that does not violate any aviation regulation"**. All subsequent instructions were declared illegal. The State did **not** appeal to the Court of Cassation (March 2021). Yet in practice, sKeyes continues to apply the parameters from the illegal instructions.
+
+**Anticipation**: sKeyes can activate a non-preferential runway **up to 2 hours before** wind conditions actually deteriorate, based on weather forecasts. This anticipation mechanism amplifies the use of runways 01 and 07L.
+
 ## Timeline of court convictions
 
-The Belgian State has been convicted **5 times** in 20 years over Brussels overflight:
+The Belgian State has been convicted **5 times** in 20 years over Brussels overflight. The total penalties paid amount to **~25 million EUR**:
 
 | Date | Decision | Consequence |
 |------|----------|-------------|
 | 2003-2017 | 3 successive convictions | Escalating penalty payments |
-| Dec. 2023 | 4th conviction | Penalties of 12,000 EUR/infringement |
+| Oct. 2020 | Court of Appeal: Wathelet instruction only legal one | 93 families (~320 people) compensated. State convicted for fault (2004-2011) |
+| Dec. 2023 | Runway 01 conviction | **6M EUR** + **20,000 EUR/day** for 1,400 residents of the eastern corridor |
+| May 2021→ | Flemish municipalities penalty payments | **50,000 EUR/week** to Grimbergen, Machelen, Meise, Vilvoorde, Wemmel (ongoing) |
 | **Feb. 2025** | **5th conviction** | Penalties raised to **18,000 EUR/infringement**, cap **18M EUR/route**. Noise impact study required by mid-2026, action plan by Oct. 2026, justification by Dec. 2026 |
-| Jul. 2025 | **Environmental permit annulled** (Flemish Council) | EU Balanced Approach not followed. Flanders must re-decide before June 2029. Airport continues operating under annulled permit |
+| Jul. 2025 | **Environmental permit annulled** (Flemish Council) | EU Balanced Approach not followed. Flanders must re-decide before June 2029 |
 
 The Brussels Court of Appeal also ordered the federal government to **revise flight routes** within two years, ruling that the current air traffic organisation harms public health and does not equitably distribute noise pollution.
 
+**Breakdown of the 25M EUR in penalties**: Brussels Region ~13M EUR, 5 Flemish municipalities ~3.2M EUR, residents of the eastern corridor (runway 01) ~9.5M EUR.
+
 ## Municipalities take action (March 2026)
 
-### Mayors' joint front (February 2026)
-The mayors of **Schaerbeek**, **Molenbeek** and **Koekelberg** formed a joint front on 9 February 2026 to demand:
+### Brussels municipalities
+
+**Mayors' joint front** (9 February 2026): Schaerbeek, Molenbeek and Koekelberg demand:
 - An **effective ban on night flights** between 11 PM and 7 AM
 - The **rerouting of heavy freight** away from Brussels
 - **Priority for flight paths avoiding residential areas**
 
-### Legal proceedings
-- **Koekelberg** (unanimous municipal council motion, 16 March 2026): first municipality to launch legal proceedings. Demands the immediate abolition of the RNP-07L, a strict night ban from 10 PM to 7 AM, compliance with Brussels noise standards, and structural consultations.
+**Legal proceedings**:
+- **Koekelberg** (unanimous motion, 16 March 2026): first municipality to launch legal proceedings. Demands the abolition of the RNP-07L, a night ban from 10 PM to 7 AM, compliance with Brussels noise standards.
 - **Molenbeek** joins the proceedings (19 March 2026).
-- **Jette** (motion adopted on 4 March 2026, Ecolo-Groen/LBJette/MR-VLD majority): demands a drastic reduction of landings via runway 07L and has launched **two legal actions** — an environmental cessation action before the Court of First Instance and a challenge to the airport's environmental permit before the Raad voor Vergunningsbetwistingen.
+- **Jette** (motion 4 March 2026, Ecolo-Groen/LBJette/MR-VLD majority): demands a return to the wind standards of the Wathelet instruction (17 July 2013) and has launched **two legal actions** — an environmental cessation action + a challenge to the permit before the Raad voor Vergunningsbetwistingen.
+
+### Flemish municipalities
+
+**Grimbergen, Machelen, Meise, Vilvoorde and Wemmel** won their case in court against the State. Since **May 2021**, Belgium pays **50,000 EUR/week** in penalty payments (3.2M EUR cumulative by July 2023). The Court of Appeal ruled that the current noise distribution **constitutes a threat to public health**.
+
+### Walloon Brabant municipalities
+La Hulpe and Waterloo have also voted motions against overflight.
 
 ## Citizen mobilisation
 
@@ -269,12 +357,22 @@ Breakdown of federal infringements:
 
 ## Health impact
 
-### Superior Health Council (May 2024)
-The SHC published a scientific opinion on the health effects of air traffic:
+### Noise — Superior Health Council (May 2024)
+The SHC published a scientific opinion on the health effects of air traffic. The health cost is estimated at **more than 1 billion EUR per year** around Brussels Airport:
 - **160,000+ residents** at increased health risk in Brussels
 - Aircraft noise is **more disruptive to sleep** than road or rail noise at equivalent decibel levels
 - Documented effects: sleep disorders, cardiovascular diseases (hypertension, myocardial infarction), stress and depression, reduced lung function, learning difficulties in children, pregnancy complications, increased risk of type 2 diabetes
 - **Recommendation**: ban on flights between 11 PM and 7 AM
+
+### Ultrafine particles (air quality)
+
+Beyond noise, air traffic emits **ultrafine particles (UFP)** that pose a distinct health risk.
+
+**Brussels Airport study** (Atmospheric Environment, 2025): four measurement sites around the airport recorded concentrations of **6,500-14,000 particles/cm3** linked to aircraft, with peaks of **65,000-80,000 particles/cm3** during periods of high activity. Particles of 10-20 nm account for up to **65%** of the total number. Taxiing and take-off contribute **50-64%** of concentrations. The impact persists up to **7 km** from the airport.
+
+**At the European level** (Transport & Environment, 2024): UFP from aircraft are associated with **280,000 cases of hypertension**, **330,000 cases of diabetes** and **18,000 cases of dementia**. **52 million Europeans** — more than 10% of the population — live in particularly exposed areas. The particles, smaller than 100 nanometres, penetrate deep into the body: they are found in the blood, brain and placental tissue.
+
+The SHC deliberately broadened its 2024 analysis beyond noise to include this dimension.
 
 ### Recent international studies
 - **JACC (February 2025)**: people exposed to night-time aircraft noise show **7% greater left ventricular mass** and **4% thicker cardiac walls**, indicators of increased cardiac risk.
@@ -283,12 +381,25 @@ The SHC published a scientific opinion on the health effects of air traffic:
 
 ## Fines: less than 20% collected
 
-Of the ~32 million EUR in fines issued by the Brussels Region:
+Of the ~32 million EUR in fines issued by the Brussels Region since 2000 (1,580 fines):
 - **~6M EUR** actually collected (**less than 20%**)
 - **10.8M EUR** definitively unpaid (abandoned)
 - **6.3M EUR** "unrecoverable" (but recoverable for 10 years)
+- **~8M EUR** under dispute
 
-This collection rate raises questions about the effectiveness of the regional sanctions system.
+This collection rate raises questions about the effectiveness of the regional sanctions system. The Brussels government agreement provides for a **direct fine recovery regime** to address this.
+
+## Brussels government position
+
+The 2026-2029 government agreement contains specific commitments on overflight:
+- **Extension of the night-time period** to 10 PM-7 AM (currently 11 PM-7 AM)
+- **Tonnage limits** for aircraft overflying Brussels
+- **Epidemiological study** on the health effects of overflight
+- **Compensation fund** for acoustic insulation of overflown buildings
+- Creation of an **independent noise monitoring body**
+- **Direct fine recovery regime**
+
+The acoustic insulation fund is **not yet operational**. Unlike other European airports (Frankfurt: house buyouts and compensation within 350 m; Liege: insulation programme + buyouts; Berlin-Tegel: insulation forms for all residents; Dublin: targeted residential insulation aiming for -5 to 10 dB), Brussels Airport **has no comparable residential acoustic insulation programme**.
 
 ## Federal-Flemish protocol (December 2025)
 
@@ -301,6 +412,20 @@ On 9 December 2025, the FPS Mobility and the Flemish Ministry of the Environment
 ### New night-time restrictions
 - **Summer 2025**: noisiest aircraft banned from night-time operations
 - **Summer 2026**: quiet night landings (1 AM-5 AM, weekends) authorised only for aircraft with QC ≤ 2
+
+## Alternatives and potential solutions
+
+### Freight transfer to Liege
+Liege Airport handled **1.324 million tonnes of cargo** in 2025 (+14%), operates **24/7** and is already Belgium's largest cargo airport. During disruptions at Brussels, operators already redirect to Liege. **DHL transferred its European hub to Leipzig in 2008** after the refusal to extend night flights at Brussels — a departure that cost up to **1,700 jobs**.
+
+### Continuous Descent Operations (CDO)
+**Continuous Descent Operations** reduce noise by **1 to 5 dB per flight** on the ground by keeping the aircraft higher for longer. sKeyes tested them in 2022 (runways 25R/25L, 11 PM-6 AM) with Brussels Airlines, TUI, Ryanair and DHL. European potential: 150,000 tonnes of kerosene saved/year.
+
+### Fleet modernisation
+The Airbus A320neo is **~6 dB quieter** than the A320ceo — equivalent to: 4 neo take-offs = the noise of 1 ceo take-off. Brussels Airport aims for **63% next-generation aircraft by 2032**. The A350 and 787 operate several dB below the ICAO Chapter 14 minimums.
+
+### New ICAO standards (CAEP/13, February 2025)
+Future aircraft must be **at least 6 dB quieter** (-30% noise). Effective date: **1 January 2029**. A new **Chapter 15** requires supersonic aircraft to meet standards equivalent to subsonic aircraft.
 
 ## Balanced Approach procedure (EU)
 
@@ -328,35 +453,18 @@ The Dutch Council of State (highest administrative court) **annulled the cap of 
 | Sydney (SYD) | 11:00 PM-6:00 AM | 1995 |
 | **Brussels (BRU)** | **Restrictions, but 6,075+ infringements in 2025** | — |
 
-### WHO thresholds (2018, still in force)
-The World Health Organization recommends for aircraft noise:
-- **Lden 45 dB** (day-evening-night average) — threshold beyond which adverse effects are associated
-- **Lnight 40 dB** (night-time exposure) — threshold beyond which sleep effects are associated
-
-These thresholds are **10 dB stricter** than the notification thresholds of the European Noise Directive (Lden 55 dB, Lnight 50 dB). In Brussels, **670,600 people** exceed the WHO Lden 45 dB threshold.
-
-### EU Zero Pollution target
-The European "Zero Pollution" target aims for a **30% reduction in people chronically disturbed** by transport noise by **2030**. Actual progress: **only −3% since 2017** — far from the target.
-
-## Global perspective
-
-### New ICAO standards (CAEP/13, February 2025)
-The ICAO Committee on Aviation Environmental Protection (CAEP) adopted new noise standards:
-- Future aircraft must be **at least 6 dB quieter** than current models, representing a noise reduction of **more than 30%**
-- **Effective date**: 1 January 2029 for new type certifications
-- A new **Chapter 15** requires supersonic aircraft to meet noise standards equivalent to subsonic aircraft
-
-### Compensation: international comparison
-- **Japan**: 70 airports with noise charges. At Kadena military base (Okinawa), courts awarded **30.2 Bln JPY (~266M$)** to 22,020 residents
-- **United States (FAA)**: more than **10 Bln$** invested in acoustic insulation over 35 years, **143,000+ homes** soundproofed. Nuisance threshold: DNL 65 dB
+### International compensation
+- **Japan**: 70 airports with noise charges. Kadena (Okinawa): **30.2 Bln JPY (~266M$)** to 22,020 residents
+- **United States (FAA)**: more than **10 Bln$** invested in acoustic insulation, **143,000+ homes** soundproofed
 - **298 airports** worldwide apply noise-based charges (including 143 in Europe)
 
-### Technological progress
-- Modern jets are **~75% quieter** than first-generation models
-- The Airbus A350 and Boeing 787 operate **several dB below** the ICAO Chapter 14 minimums
-- **Continuous Descent Operations (CDO)** reduce noise by **1 to 5 dB per flight** on the ground. European potential: 150,000 tonnes of kerosene saved/year
+### WHO thresholds (2018, still in force)
+The WHO recommends: **Lden 45 dB** (day-evening-night) and **Lnight 40 dB** (night-time). These thresholds are **10 dB stricter** than the European Directive (Lden 55 dB, Lnight 50 dB). In Brussels, **670,600 people** exceed the WHO Lden 45 dB threshold.
 
-## Distribution of competences
+### EU Zero Pollution target
+Target: -30% of people chronically disturbed by 2030. Progress: **only -3% since 2017**.
+
+## Distribution of competences and community dimension
 
 | Level | Competence | Actor |
 |-------|-----------|-------|
@@ -364,9 +472,21 @@ The ICAO Committee on Aviation Environmental Protection (CAEP) adopted new noise
 | Federal | Mediation | Airport mediator (Touwaide, suspended) |
 | Brussels Regional | Noise, environment, noise standards | Bruxelles Environnement (22 noise monitors) |
 | Flemish | Airport environmental permit | Flemish Government (annulled Jul. 2025) |
-| Municipal | Quality of life, urban planning, appeals | 19 municipalities (Koekelberg, Molenbeek, Jette in court) |
+| Municipal | Quality of life, urban planning, appeals | Brussels + Flemish municipalities in court |
 
 This is an emblematic case of **Belgian institutional complexity**: the airport is in Flanders, noise is a Brussels regional competence, aviation is federal, and the municipalities bear the consequences.
+
+The **linguistic dimension** runs through the dossier: in October 2023, Flanders invoked a **conflict of interest** at the Concertation Committee against new routes, arguing that they shifted noise towards Flemish municipalities "without intergovernmental consultation". The Court of Appeal rejected the Flemish objection. IATA opposes a total curfew, citing Belgium's role as a European cargo hub. Les Engagés advocate banning night flights and the noisiest aircraft.
+
+## Citizen tools
+
+Residents have several tools to inform themselves and take action:
+
+- **InfoBruit.brussels**: regional noise information portal, including an aviation section
+- **BATC** (batc.be): real-time flight radar (15-minute delay), noise data, noise contours, runway usage
+- **Bruxelles Environnement**: network of 17 fixed stations of which **9 specifically measure aircraft noise** (24/7)
+- **Complaints**: electronic form via IrisBox (with eID) or PDF form by post/email. Complaints are recorded in a register that is analysed and regularly transmitted to the minister
+- **Airport mediation service** (airportmediation.be): federal questions and complaints service
 
 ## Issues to watch
 
@@ -375,8 +495,10 @@ This is an emblematic case of **Belgian institutional complexity**: the airport 
 - **Noise impact study**: to be submitted by mid-2026 (court order)
 - **Concrete action plan**: required by October 2026
 - **RNP-07L extension**: currently until 31 October 2026 — will it be renewed?
-- **Municipal legal actions**: Koekelberg, Molenbeek and Jette in court; other municipalities may follow
-- **Balanced Approach**: public consultation + European Commission opinion (horizon 2032 for −30% annoyance)
+- **Return to the Wathelet instruction**: demanded by Jette — only instruction ruled legal. Application in practice?
+- **Municipal legal actions**: Koekelberg, Molenbeek, Jette in court; Flemish municipalities accumulating penalty payments
+- **Acoustic insulation fund**: promised in the Brussels government agreement, not yet operational
+- **Balanced Approach**: public consultation + European Commission opinion (horizon 2032 for -30% annoyance)
 - **Environmental permit**: Flanders must re-decide before June 2029
-- **Night cargo flights**: 200 night-time cargo take-offs (Boeing 777) under judicial investigation
-- **Industry opposition**: IATA, DHL and Singapore Airlines Cargo oppose a total curfew, citing Belgium's role as a European cargo hub
+- **Night cargo flights**: 200 cargo take-offs (Boeing 777) under judicial investigation. Transfer to Liege?
+- **Industry opposition**: IATA, DHL and Singapore Airlines Cargo oppose a total curfew

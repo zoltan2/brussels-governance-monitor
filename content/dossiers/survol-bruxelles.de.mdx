@@ -7,15 +7,16 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Brussels Airport verzeichnet 204 147 Flüge/Jahr und 24,4 Mio. Passagiere (2025), davon 16 237 Nachtflüge. Die Route Crucke (RNP-07L) konzentriert die Belastung auf 450 000 Brüsseler — 96 % der Flüge verletzen die Normen. Der Staat wurde 5-mal verurteilt. Koekelberg, Molenbeek und Jette klagen (März 2026). Petition: 6 500+ Unterschriften. Föderales-flämisches Protokoll unterzeichnet (Dez. 2025)."
-estimatedBudget: "Kumulierte Bußgelder: ~32 Mio. EUR (davon <20 % eingezogen). Zwangsgelder: 18 000 EUR/Verstoß, Obergrenze 18 Mio. EUR/Route."
+summary: "Brussels Airport: 204 147 Flüge/Jahr, 24,4 Mio. Passagiere (2025). Route Crucke (96 % Verstöße) + Piste 01 (Nachtnutzung +252 %). Der Staat wurde 5-mal verurteilt, ~25 Mio. EUR kumulierte Bußgelder. Koekelberg, Molenbeek, Jette klagen + 5 flämische Gemeinden. Ultrafeine Partikel bis 7 km nachgewiesen. Föderales-flämisches Protokoll (Dez. 2025)."
+estimatedBudget: "Kumulierte Bußgelder: ~25 Mio. EUR. Regionale Geldstrafen: ~32 Mio. EUR (davon <20 % eingezogen). Zwangsgelder: 18 000 EUR/Verstoß (Obergrenze 18 Mio. EUR/Route) + 20 000 EUR/Tag (Piste 01) + 50 000 EUR/Woche (flämische Gemeinden). Geschätzte Gesundheitskosten: >1 Mrd. EUR/Jahr (HGR)."
 stakeholders:
   - "FÖD Mobilität / Min. Crucke (Les Engagés)"
   - "sKeyes (Flugsicherung)"
   - "Brussels Airport Company"
   - "Bruxelles Environnement (22 Schallmessstationen)"
   - "Brüsseler Gemeinden (gemeinsame Front)"
-  - "UBCNA / BALB / Stop Survol Nord"
+  - "Flämische Gemeinden (Grimbergen, Machelen, Meise, Vilvoorde, Wemmel)"
+  - "UBCNA / BALB / Stop Survol Nord / Wake Up Kraainem"
   - "Hoher Gesundheitsrat"
 relatedDomains:
   - mobility
@@ -31,6 +32,7 @@ relatedCommunes:
   - molenbeek-saint-jean
   - evere
   - jette
+  - woluwe-saint-pierre
 relatedFormationEvents: []
 sources:
   - label: "Bruxelles Environnement — Kartierung des Fluglärms (Daten 2021)"
@@ -84,6 +86,21 @@ sources:
   - label: "WHO Europa — Leitlinien für Umgebungslärm (2018)"
     url: "https://www.who.int/europe/publications/i/item/9789289053563"
     accessedAt: "2026-03-26"
+  - label: "Wake Up Kraainem — Nutzungsstatistiken der Piste 01"
+    url: "https://wakeupkraainem.be/situationactuelle/"
+    accessedAt: "2026-03-26"
+  - label: "L-Post — Staat verzichtet auf Kassationsbeschwerde, Wathelet-Anweisung einzig legal (März 2021)"
+    url: "https://lpost.be/2021/03/03/survols-autour-de-bruxelles-letat-ne-se-pourvoit-pas-en-cassation/"
+    accessedAt: "2026-03-26"
+  - label: "Atmospheric Environment — Ultrafeine Partikel in der Nähe von Brussels Airport (2025)"
+    url: "https://www.sciencedirect.com/science/article/pii/S1352231025003504"
+    accessedAt: "2026-03-26"
+  - label: "Transport & Environment — Ultrafeine Partikel aus Flugzeugen, 52 Mio. Europäer gefährdet (2024)"
+    url: "https://www.transportenvironment.org/articles/ultrafine-particles-from-planes-put-52-million-europeans-at-risk-of-serious-health-conditions"
+    accessedAt: "2026-03-26"
+  - label: "InfoBruit.brussels — Fluglärm: Beschwerden und Monitoring"
+    url: "https://infobruit.brussels/fr/transports-et-voie-publique/avions"
+    accessedAt: "2026-03-26"
 metrics:
   - label: "Flüge/Jahr (2025)"
     value: "204 147"
@@ -120,6 +137,16 @@ metrics:
     unit: "der RNP-07L-Flüge verletzen die Brüsseler Normen"
     source: "Bruxelles Environnement / BRUZZ"
     date: "2025-12-31"
+  - label: "Piste 01 — Nachtnutzung"
+    value: "10,2%"
+    unit: "gg. 2,9 % vor 2004 (+252 %)"
+    source: "Wake Up Kraainem"
+    date: "2021-12-31"
+  - label: "Kumulierte Bußgelder (belgischer Staat)"
+    value: "~25 Mio."
+    unit: "EUR (BXL 13 Mio. + flämische Gemeinden 3,2 Mio. + Anwohner Ost 9,5 Mio.)"
+    source: "Aviation24.be / Travel Tomorrow"
+    date: "2025-12-31"
   - label: "Eingereichte Beschwerden (2025)"
     value: "32 777"
     unit: "Akten (14,6 Mio. kumuliert in 24 Jahren)"
@@ -130,7 +157,7 @@ metrics:
     unit: "×4 gg. Vorjahr"
     source: "Bruxelles Environnement"
     date: "2025-12-31"
-  - label: "Unbezahlte Bußgelder"
+  - label: "Unbezahlte Geldstrafen"
     value: "~26"
     unit: "Mio. EUR von 32 Mio. EUR ausgestellt (<20 % eingezogen)"
     source: "BX1 (Feb. 2026)"
@@ -145,6 +172,16 @@ metrics:
     unit: "direkt vor Ort (64 225 gesamt direkt+indirekt+induziert, 5,4 Mrd. EUR Wertschöpfung)"
     source: "Brussels Airport Company (Studie 2024)"
     date: "2024-12-31"
+  - label: "Ultrafeine Partikel — Spitzenwerte"
+    value: "65 000-80 000"
+    unit: "Partikel/cm3 (Auswirkung bis 7 km)"
+    source: "Atmospheric Environment (2025)"
+    date: "2025-01-01"
+  - label: "Geschätzte Gesundheitskosten"
+    value: ">1 Mrd."
+    unit: "EUR/Jahr (Lärm + Luftverschmutzung)"
+    source: "Hoher Gesundheitsrat (2024)"
+    date: "2024-05-01"
   - label: "Dem Fluglärm ausgesetzt in Europa (Lden >55 dB)"
     value: "2,6 Mio."
     unit: "Personen (Schwellenwert EU-Richtlinie)"
@@ -167,21 +204,29 @@ alerts:
     severity: info
     date: "2029-06-30"
 confidenceLevel: official
-dprCommitment: "Die Brüsseler DPR enthält keinen eigenen Abschnitt zum Überflug. Die Zuständigkeit liegt beim Bund (Luftfahrt), aber die Region ist für Lärm zuständig (Bruxelles Environnement). Die DPR erwähnt Luftqualität und Gesundheit, ohne speziell auf Fluglärm einzugehen."
+dprCommitment: "Das Brüsseler Regierungsabkommen 2026-2029 sieht vor: Ausweitung der Nachtruhe auf 22-7 Uhr, Tonnage-Grenzen für Flugzeuge über Brüssel, epidemiologische Studie, Entschädigungsfonds für die Schalldämmung überflogener Gebäude, Einrichtung einer unabhängigen Lärmüberwachungsstelle und direktes Beitreibungsverfahren für Geldstrafen. Die Luftfahrtzuständigkeit liegt beim Bund, aber die Region ist für Lärm zuständig (Bruxelles Environnement, Verordnung vom 27. Mai 1999)."
 lastModified: "2026-03-26"
 changeType: updated
-changeSummary: "Faktische Aktualisierung: Jette klagt, Petition 6 500+, föderales-flämisches Protokoll, Verkehr 2025 komplett, Beschäftigung korrigiert, europäischer Kontext (Schiphol, EUA, WHO) und weltweiter Kontext (ICAO CAEP/13)."
+changeSummary: "Anreicherung: Piste 01 + Windschwellen, flämische Gemeinden, ultrafeine Partikel, Position der Brüsseler Regierung, Schalldämmung, Alternativen (Lüttich, CDO), Gemeinschaftsdimension, Bürger-Tools."
 ---
 
 ## Der Konflikt im Überblick
 
-Brussels Airport (Zaventem), 12 km vom Brüsseler Stadtzentrum entfernt, steht im Mittelpunkt eines über **40-jährigen Konflikts** zwischen den wirtschaftlichen Interessen des Flughafens (24 000 direkte Arbeitsplätze, 64 225 Arbeitsplätze insgesamt, 5,4 Mrd. EUR Wertschöpfung) und der Lebensqualität von **670 600 Brüsselern**, die dem Fluglärm ausgesetzt sind.
+Brussels Airport (Zaventem), 12 km vom Brüsseler Stadtzentrum entfernt, steht im Mittelpunkt eines über **40-jährigen Konflikts** zwischen den wirtschaftlichen Interessen des Flughafens (24 000 direkte Arbeitsplätze, 64 225 Arbeitsplätze insgesamt, 5,4 Mrd. EUR Wertschöpfung) und der Lebensqualität von **670 600 Brüsselern**, die dem Fluglärm ausgesetzt sind. Der Hohe Gesundheitsrat schätzt die Gesundheitskosten auf **über 1 Milliarde EUR pro Jahr**.
 
-Das strukturelle Problem: Die vorherrschenden Winde (Südwest, 70 % der Zeit) erzwingen Starts auf der Piste 25R **in Richtung Brüssel**, über dicht besiedelte Stadtviertel. Bei Ostwind führen die Landungen auf der Piste 07L die Flugzeuge über den Nordwesten der Stadt.
+Das strukturelle Problem: Die vorherrschenden Winde (Südwest, 70 % der Zeit) erzwingen Starts auf der Piste 25R **in Richtung Brüssel**, über dicht besiedelte Stadtviertel. Bei Ostwind führen die Landungen auf der Piste 07L die Flugzeuge über den Nordwesten der Stadt. Und bei Nordwind führt die Piste 01 die Flugzeuge über den Osten Brüssels.
 
-2025 hat der Flughafen **24,4 Millionen Passagiere** (+3,3 % gg. 2024) und **795 000 Tonnen Fracht** (+8,5 %) abgefertigt.
+2025 hat der Flughafen **24,4 Millionen Passagiere** (+3,3 % gg. 2024) und **795 000 Tonnen Fracht** (+8,5 %) abgefertigt. Belgien hat **~25 Millionen EUR an kumulierten Bußgeldern** für Fluglärm gezahlt.
 
-## Umstrittene Flugrouten
+## Die drei Pisten und ihre Lärmkorridore
+
+Brussels Airport verfügt über drei Pisten:
+
+| Piste | Länge | Ausrichtung | Lärmkorridor |
+|-------|-------|------------|--------------|
+| **25R/07L** | 3 638 m | Ost-West | Starts 25R: Zentrum/Norden BXL (Kanal). Landungen 07L: Nordwesten (Koekelberg, Molenbeek, Jette, Schaerbeek) |
+| **25L/07R** | 3 211 m | Ost-West | Parallel zur vorherigen, Starts nach Westen |
+| **01/19** | 2 987 m | Süd-Nord | Landungen 01: Osten BXL (Woluwe-Saint-Pierre, Kraainem, Wezembeek-Oppem) |
 
 ### Kanalroute (Piste 25R)
 Abflüge entlang der Achse des Brüsseler Kanals, mit Auswirkungen auf das Zentrum und den Norden der Region. Dies ist die historisch meistgenutzte Route (54 % aller Flugbewegungen).
@@ -197,34 +242,77 @@ Daten:
 
 Der Bundesminister bezeichnet die RNP-07L als „rein alternatives Verfahren" und nicht als „bevorzugte Route". Kritiker bemerken, dass sie auch bei mäßigem Ostwind (4-6 Knoten) aktiviert wird.
 
+### Piste 01: der Ostkorridor
+
+Die Piste 01/19 ist die diagonale Piste (Süd-Nord). Landungen auf der Piste 01 überfliegen **Woluwe-Saint-Pierre, Kraainem, Sterrebeek und Wezembeek-Oppem** in geringer Höhe. Bis 2004 wurde die Piste 01 nur ausnahmsweise für Landungen genutzt.
+
+| Zeitraum | Tagesnutzung (Piste 01) | Nachtnutzung (Piste 01) |
+|----------|------------------------|------------------------|
+| 1997-2003 | 6,7 % | 2,9 % |
+| 2004-2021 | 13,2 % (**+97 %**) | 10,2 % (**+252 %**) |
+
+Der sprunghafte Anstieg hängt mit der Änderung der Windschwellen zusammen (siehe Abschnitt unten). Im Dezember 2023 haben **1 400 Anwohner** des Ostkorridors vor Gericht Recht bekommen: **6 Mio. EUR** Schadensersatz + **20 000 EUR/Tag** Zwangsgelder, solange die Situation andauert.
+
 ### Sperrzone Königliches Schloss Laeken
 Seit **1954** verbietet ein Umkreis von 1 500 m um das Königliche Schloss den Überflug. Dieses nie infrage gestellte Verbot zwingt die Flugrouten zur Umgehung von Laeken — wodurch die Belastung auf die Nachbargemeinden verlagert wird. 2024 schlug die N-VA vor, dieses Verbot im Rahmen der Arizona-Verhandlungen aufzuheben; MR und Les Engagés lehnten ab.
 
+## Windschwellen und Vorzugspistensystem (PRS)
+
+Die Bundesregierung schreibt ein **Vorzugspistensystem** (PRS — Preferential Runway System) zur Lärmverteilung vor. Die Vorzugspisten sind die 25R, 25L und 19 (gegen die vorherrschenden Südwestwinde). Die Pisten 01, 07L und 07R sind **nicht-bevorzugt** — sie sollten nur ausnahmsweise genutzt werden.
+
+Das Umschaltkriterium ist die **Rückenwindschwelle** auf der Piste 25: Oberhalb der Schwelle aktiviert sKeyes eine nicht-bevorzugte Piste. Diese Schwelle steht im Zentrum der Kontroverse.
+
+### Chronologie der Schwellenänderungen
+
+| Zeitraum | Rückenwindschwelle (Piste 25) | Wirkung |
+|----------|-------------------------------|---------|
+| Vor 2004 | 8 Knoten Durchschnitt (OHNE Böen) | Piste 01 fast nie benutzt |
+| 2004 (Pläne Anciaux) | Abgesenkt auf 5-7 Knoten | Starker Anstieg der Piste-01-Nutzung |
+| **17. Juli 2013 (Anweisung Wathelet)** | **MAXWIND 12 Knoten (7 kt Durchschn. + 5 kt Böentoleranz)** | **Einzige als legal beurteilte Anweisung (Berufungsgericht, 22.10.2020)** |
+| Dez. 2013 (Anweisung Durinckx) | Nicht autorisierte Änderung | **Vom Berufungsgericht für illegal erklärt** |
+| März 2014 (DGTA) | 7 Knoten MIT Böen (Toleranz von 5 kt gestrichen) | **Piste-01-Nutzung verdoppelt am Tag, verdreifacht nachts** |
+
+**Zentraler juristischer Punkt**: Das Brüsseler Berufungsgericht hat am 22. Oktober 2020 entschieden, dass die Wathelet-Anweisung vom 17. Juli 2013 **„die einzige legale ist, die keine Luftfahrtvorschrift verletzt"**. Alle nachfolgenden Anweisungen wurden für illegal erklärt. Der Staat hat **keinen** Kassationsantrag gestellt (März 2021). In der Praxis wendet sKeyes jedoch weiterhin die Parameter der illegalen Anweisungen an.
+
+**Antizipation**: sKeyes kann eine nicht-bevorzugte Piste **bis zu 2 Stunden im Voraus** aktivieren, bevor sich die Windbedingungen tatsächlich verschlechtern, basierend auf Wettervorhersagen. Dieser Antizipationsmechanismus verstärkt die Nutzung der Pisten 01 und 07L.
+
 ## Chronologie der Gerichtsurteile
 
-Der belgische Staat wurde in 20 Jahren **5-mal** wegen des Brüsseler Überflugs verurteilt:
+Der belgische Staat wurde in 20 Jahren **5-mal** wegen des Brüsseler Überflugs verurteilt. Die Gesamtsumme der gezahlten Bußgelder beläuft sich auf **~25 Millionen EUR**:
 
 | Datum | Entscheidung | Folge |
 |-------|-------------|-------|
 | 2003-2017 | 3 aufeinanderfolgende Verurteilungen | Progressive Zwangsgelder |
-| Dez. 2023 | 4. Verurteilung | Zwangsgelder 12 000 EUR/Verstoß |
-| **Feb. 2025** | **5. Verurteilung** | Zwangsgelder auf **18 000 EUR/Verstoß** erhöht, Obergrenze **18 Mio. EUR/Route**. Lärm-Folgenabschätzung bis Mitte 2026 gefordert, Maßnahmenplan Okt. 2026, Begründung Dez. 2026 |
-| Juli 2025 | **Umweltgenehmigung aufgehoben** (Flämischer Rat) | Balanced Approach der EU nicht eingehalten. Flandern muss vor Juni 2029 erneut entscheiden. Flughafen operiert weiter unter aufgehobener Genehmigung |
+| Okt. 2020 | Berufungsgericht: Wathelet-Anweisung einzig legal | 93 Familien (~320 Personen) entschädigt. Staat wegen Fehlverhaltens verurteilt (2004-2011) |
+| Dez. 2023 | Verurteilung Piste 01 | **6 Mio. EUR** + **20 000 EUR/Tag** für 1 400 Anwohner des Ostkorridors |
+| Mai 2021→ | Zwangsgelder flämische Gemeinden | **50 000 EUR/Woche** an Grimbergen, Machelen, Meise, Vilvoorde, Wemmel (laufend) |
+| **Feb. 2025** | **5. Verurteilung** | Zwangsgelder auf **18 000 EUR/Verstoß** erhöht, Obergrenze **18 Mio. EUR/Route**. Lärm-Folgenabschätzung bis Mitte 2026, Maßnahmenplan Okt. 2026, Begründung Dez. 2026 |
+| Juli 2025 | **Umweltgenehmigung aufgehoben** (Flämischer Rat) | Balanced Approach der EU nicht eingehalten. Flandern muss vor Juni 2029 erneut entscheiden |
 
-Das Brüsseler Berufungsgericht hat die Bundesregierung zudem angewiesen, die **Flugrouten innerhalb von zwei Jahren zu überarbeiten**, da die aktuelle Organisation des Flugverkehrs die öffentliche Gesundheit beeinträchtige und die Lärmbelastung nicht gerecht verteile.
+Das Brüsseler Berufungsgericht hat die Bundesregierung angewiesen, die **Flugrouten innerhalb von zwei Jahren zu überarbeiten**, da die aktuelle Organisation die öffentliche Gesundheit beeinträchtige und die Lärmbelastung nicht gerecht verteile.
+
+**Aufschlüsselung der 25 Mio. EUR Bußgelder**: Region Brüssel ~13 Mio. EUR, 5 flämische Gemeinden ~3,2 Mio. EUR, Anwohner des Ostkorridors (Piste 01) ~9,5 Mio. EUR.
 
 ## Gemeinden klagen (März 2026)
 
-### Gemeinsame Front der Bürgermeister (Februar 2026)
-Die Bürgermeister von **Schaerbeek**, **Molenbeek** und **Koekelberg** bildeten am 9. Februar 2026 eine gemeinsame Front mit folgenden Forderungen:
+### Brüsseler Gemeinden
+
+**Gemeinsame Front der Bürgermeister** (9. Februar 2026): Schaerbeek, Molenbeek und Koekelberg fordern:
 - Das **effektive Verbot von Nachtflügen** zwischen 23 und 7 Uhr
 - Die **Umleitung von schwerem Frachtverkehr** außerhalb Brüssels
-- Der **Vorrang für Flugrouten, die Wohngebiete meiden**
+- Den **Vorrang für Flugrouten, die Wohngebiete meiden**
 
-### Gerichtliche Schritte
-- **Koekelberg** (einstimmiger Beschluss des Gemeinderats, 16. März 2026): erste Gemeinde, die Klage erhebt. Fordert die sofortige Abschaffung der RNP-07L, ein striktes Nachtflugverbot von 22 bis 7 Uhr, die Einhaltung der Brüsseler Normen und strukturelle Konsultationen.
+**Gerichtliche Schritte**:
+- **Koekelberg** (einstimmiger Beschluss, 16. März 2026): erste Gemeinde, die Klage erhebt. Fordert die Abschaffung der RNP-07L, ein Nachtflugverbot 22-7 Uhr, die Einhaltung der Brüsseler Normen.
 - **Molenbeek** schließt sich dem Verfahren an (19. März 2026).
-- **Jette** (Motion vom 4. März 2026 verabschiedet, Mehrheit Ecolo-Groen/LBJette/MR-VLD): fordert die drastische Reduzierung der Landungen über die Piste 07L und leitet **zwei Gerichtsverfahren** ein — eine Umwelt-Unterlassungsklage vor dem Gericht erster Instanz und eine Anfechtung der Umweltgenehmigung des Flughafens vor dem Raad voor Vergunningsbetwistingen.
+- **Jette** (Motion vom 4. März 2026, Mehrheit Ecolo-Groen/LBJette/MR-VLD): fordert die Rückkehr zu den Windschwellen der Wathelet-Anweisung (17. Juli 2013) und leitet **zwei Gerichtsverfahren** ein — eine Umwelt-Unterlassungsklage + eine Anfechtung der Genehmigung vor dem Raad voor Vergunningsbetwistingen.
+
+### Flämische Gemeinden
+
+**Grimbergen, Machelen, Meise, Vilvoorde und Wemmel** haben gegen den Staat vor Gericht gewonnen. Seit **Mai 2021** zahlt Belgien **50 000 EUR/Woche** Zwangsgelder (3,2 Mio. EUR kumuliert bis Juli 2023). Das Berufungsgericht hat entschieden, dass die aktuelle Lärmverteilung **eine Bedrohung für die öffentliche Gesundheit darstellt**.
+
+### Gemeinden im Wallonisch-Brabant
+La Hulpe und Waterloo haben ebenfalls Resolutionen gegen den Überflug verabschiedet.
 
 ## Bürgermobilisierung
 
@@ -269,26 +357,49 @@ Details der föderalen Verstöße:
 
 ## Gesundheitliche Auswirkungen
 
-### Hoher Gesundheitsrat (Mai 2024)
-Der HGR veröffentlichte ein wissenschaftliches Gutachten zu den Auswirkungen des Flugverkehrs auf die Gesundheit:
+### Lärm — Hoher Gesundheitsrat (Mai 2024)
+Der HGR veröffentlichte ein wissenschaftliches Gutachten zu den Auswirkungen des Flugverkehrs auf die Gesundheit. Die Gesundheitskosten werden auf **über 1 Milliarde EUR pro Jahr** rund um Brussels Airport geschätzt:
 - **160 000+ Anwohner** in Brüssel mit erhöhtem Gesundheitsrisiko
 - Fluglärm ist **schlafstörender** als Straßen- oder Schienenlärm bei gleichem Dezibelpegel
 - Dokumentierte Auswirkungen: Schlafstörungen, Herz-Kreislauf-Erkrankungen (Bluthochdruck, Herzinfarkt), Stress und Depression, eingeschränkte Lungenfunktion, Lernstörungen bei Kindern, Schwangerschaftskomplikationen, erhöhtes Risiko für Typ-2-Diabetes
 - **Empfehlung**: Verbot von Flügen zwischen 23 und 7 Uhr
+
+### Ultrafeine Partikel (Luftqualität)
+
+Über den Lärm hinaus emittiert der Flugverkehr **ultrafeine Partikel (UFP)**, die ein eigenständiges Gesundheitsrisiko darstellen.
+
+**Studie Brussels Airport** (Atmospheric Environment, 2025): Vier Messstationen rund um den Flughafen haben Konzentrationen von **6 500-14 000 Partikeln/cm3** durch Flugzeuge gemessen, mit Spitzenwerten von **65 000-80 000 Partikeln/cm3** in Hochbetriebszeiten. Partikel von 10-20 nm machen bis zu **65 %** der Gesamtzahl aus. Rollen und Starten tragen zu **50-64 %** der Konzentrationen bei. Die Auswirkung hält bis zu **7 km** vom Flughafen an.
+
+**Auf europäischer Ebene** (Transport & Environment, 2024): UFP aus Flugzeugen werden mit **280 000 Fällen von Bluthochdruck**, **330 000 Fällen von Diabetes** und **18 000 Fällen von Demenz** in Verbindung gebracht. **52 Millionen Europäer** — über 10 % der Bevölkerung — leben in besonders belasteten Gebieten. Die Partikel, kleiner als 100 Nanometer, dringen tief in den Organismus ein: Sie werden im Blut, im Gehirn und im Plazentagewebe nachgewiesen.
+
+Der HGR hat seine Analyse von 2024 bewusst über den Lärm hinaus auf diese Dimension ausgeweitet.
 
 ### Aktuelle internationale Studien
 - **JACC (Februar 2025)**: Personen, die nächtlichem Fluglärm ausgesetzt sind, weisen eine **7 % höhere linksventrikuläre Masse** und **4 % dickere Herzwände** auf — Indikatoren für ein erhöhtes Herzrisiko.
 - **Kardiovaskuläre Metaanalyse** (2024): Das Herz-Kreislauf-Risiko steigt um **+1,6 % pro 10 dB** Fluglärm. Vorhofflimmern: **+2,7 % pro 10 dB**. Herzinsuffizienz: **+2,3 % pro 10 dB**.
 - **EUA (2025)**: Verkehrslärm in Europa verursacht **66 000 vorzeitige Todesfälle/Jahr**, **50 000 neue Herz-Kreislauf-Fälle/Jahr** und **22 000 neue Fälle von Typ-2-Diabetes/Jahr**. Lärm ist die **3. umweltbedingte Gesundheitsbedrohung** in Europa, nach Luftverschmutzung und Hitzefolgen.
 
-## Bußgelder: weniger als 20 % eingezogen
+## Geldstrafen: weniger als 20 % eingezogen
 
-Von den ~32 Mio. EUR an von der Region Brüssel ausgestellten Bußgeldern:
+Von den ~32 Millionen EUR an von der Region Brüssel seit 2000 ausgestellten Geldstrafen (1 580 Strafen):
 - **~6 Mio. EUR** tatsächlich eingezogen (**weniger als 20 %**)
 - **10,8 Mio. EUR** endgültig unbezahlt (aufgegeben)
 - **6,3 Mio. EUR** „uneinbringlich" (aber 10 Jahre lang eintreibbar)
+- **~8 Mio. EUR** in Anfechtung
 
-Diese Einzugsquote stellt die Wirksamkeit des regionalen Sanktionssystems infrage.
+Diese Einzugsquote stellt die Wirksamkeit des regionalen Sanktionssystems infrage. Das Brüsseler Regierungsabkommen sieht ein **direktes Beitreibungsverfahren** als Abhilfe vor.
+
+## Position der Brüsseler Regierung
+
+Das Regierungsabkommen 2026-2029 enthält spezifische Verpflichtungen zum Überflug:
+- **Ausweitung der Nachtruhe** auf 22-7 Uhr (derzeit 23-7 Uhr)
+- **Tonnage-Grenzen** für Flugzeuge über Brüssel
+- **Epidemiologische Studie** zu den gesundheitlichen Auswirkungen des Überflugs
+- **Entschädigungsfonds** für die Schalldämmung überflogener Gebäude
+- Einrichtung einer **unabhängigen Lärmüberwachungsstelle**
+- **Direktes Beitreibungsverfahren** für Geldstrafen
+
+Der Fonds für Schalldämmung ist **noch nicht operativ**. Im Gegensatz zu anderen europäischen Flughäfen (Frankfurt: Hauskäufe und Entschädigungen unter 350 m; Lüttich: Dämmungsprogramm + Käufe; Berlin-Tegel: Dämmungsformulare für alle Anwohner; Dublin: gezielte Wohndämmung −5 bis 10 dB) verfügt Brussels Airport **über kein vergleichbares Wohnschalldämmungsprogramm**.
 
 ## Föderales-flämisches Protokoll (Dezember 2025)
 
@@ -300,7 +411,21 @@ Am 9. Dezember 2025 unterzeichneten der FÖD Mobilität und das flämische Umwel
 
 ### Neue Nachtbeschränkungen
 - **Sommer 2025**: Die lautesten Flugzeuge vom Nachtbetrieb ausgeschlossen
-- **Sommer 2026**: Nächtliche Ruhelandungen (01–05 Uhr, Wochenende) nur für Flugzeuge mit QC ≤ 2 zulässig
+- **Sommer 2026**: Nächtliche Ruhelandungen (01-05 Uhr, Wochenende) nur für Flugzeuge mit QC ≤ 2 zulässig
+
+## Alternativen und Lösungsansätze
+
+### Verlagerung des Frachtverkehrs nach Lüttich
+Der Flughafen Lüttich hat 2025 **1,324 Millionen Tonnen Fracht** abgefertigt (+14 %), operiert **rund um die Uhr** und ist bereits der größte Frachtflughafen Belgiens. Bei Störungen in Brüssel leiten die Betreiber bereits nach Lüttich um. **DHL verlegte seinen europäischen Hub 2008 nach Leipzig**, nachdem eine Ausweitung der Nachtflüge in Brüssel abgelehnt wurde — ein Abgang, der bis zu **1 700 Arbeitsplätze** kostete.
+
+### Verfahren des kontinuierlichen Sinkflugs (CDO)
+Die **Continuous Descent Operations** reduzieren den Lärm am Boden um **1 bis 5 dB pro Flug**, indem das Flugzeug länger in größerer Höhe gehalten wird. sKeyes hat sie 2022 getestet (Pisten 25R/25L, 23-06 Uhr) mit Brussels Airlines, TUI, Ryanair und DHL. Europäisches Potenzial: 150 000 Tonnen Kerosin-Einsparung/Jahr.
+
+### Flottenmodernisierung
+Der Airbus A320neo ist **~6 dB leiser** als der A320ceo — das entspricht: 4 Starts neo = der Lärm von 1 Start ceo. Brussels Airport strebt **63 % Flugzeuge der neuesten Generation bis 2032** an. Der A350 und die 787 operieren mehrere dB unter den Mindestanforderungen des ICAO-Kapitels 14.
+
+### Neue ICAO-Normen (CAEP/13, Februar 2025)
+Künftige Flugzeuge müssen **mindestens 6 dB leiser** sein (−30 % Lärm). Anwendungsdatum: **1. Januar 2029**. Ein neues **Kapitel 15** verpflichtet Überschallflugzeuge zu Normen, die denen von Unterschallflugzeugen entsprechen.
 
 ## Balanced-Approach-Verfahren (EU)
 
@@ -322,41 +447,24 @@ Der niederländische Staatsrat (höchstes Verwaltungsgericht) hat die **Obergren
 
 | Flughafen | Nachtflugverbot | Seit |
 |-----------|----------------|------|
-| Zürich (ZRH) | 23:30–06:00 (strikt, keine Ausnahmen) | 2010 |
-| Frankfurt (FRA) | 23:00–05:00 (strikt) + Obergrenze 48 545 Nachtbewegungen/Jahr | 2011 |
-| Paris-Orly (ORY) | 23:30–06:00 (verschärft ab Okt. 2026) | 2002 |
-| Sydney (SYD) | 23:00–06:00 | 1995 |
+| Zürich (ZRH) | 23:30-06:00 (strikt, keine Ausnahmen) | 2010 |
+| Frankfurt (FRA) | 23:00-05:00 (strikt) + Obergrenze 48 545 Nachtbewegungen/Jahr | 2011 |
+| Paris-Orly (ORY) | 23:30-06:00 (verschärft ab Okt. 2026) | 2002 |
+| Sydney (SYD) | 23:00-06:00 | 1995 |
 | **Brüssel (BRU)** | **Beschränkungen, aber 6 075+ Verstöße im Jahr 2025** | — |
 
-### WHO-Schwellenwerte (2018, weiterhin gültig)
-Die Weltgesundheitsorganisation empfiehlt für Fluglärm:
-- **Lden 45 dB** (Tag-Abend-Nacht-Durchschnitt) — Schwellenwert, ab dem nachteilige Auswirkungen assoziiert sind
-- **Lnight 40 dB** (Nachtexposition) — Schwellenwert, ab dem Schlafstörungen assoziiert sind
-
-Diese Schwellenwerte liegen **10 dB unter** den Meldewerten der EU-Umgebungslärmrichtlinie (Lden 55 dB, Lnight 50 dB). In Brüssel überschreiten **670 600 Personen** den WHO-Schwellenwert Lden 45 dB.
-
-### EU-Ziel Null-Verschmutzung
-Das europäische Ziel „Null-Verschmutzung" strebt eine Reduzierung der **chronisch durch Verkehrslärm belästigten Personen um 30 %** bis **2030** an. Tatsächlicher Fortschritt: **nur −3 % seit 2017** — weit vom Ziel entfernt.
-
-## Weltweite Perspektive
-
-### Neue ICAO-Normen (CAEP/13, Februar 2025)
-Das Komitee zum Schutz der Umwelt in der Luftfahrt (CAEP) der ICAO hat neue Lärmstandards verabschiedet:
-- Künftige Flugzeuge müssen **mindestens 6 dB leiser** sein als aktuelle Modelle, was einer Lärmreduzierung von **mehr als 30 %** entspricht
-- **Anwendungsdatum**: 1. Januar 2029 für neue Musterzulassungen
-- Ein neues **Kapitel 15** verpflichtet Überschallflugzeuge zur Einhaltung von Lärmstandards, die denen von Unterschallflugzeugen entsprechen
-
-### Entschädigungen: internationaler Vergleich
-- **Japan**: 70 Flughäfen mit Lärmgebühren. Am Militärstützpunkt Kadena (Okinawa) sprachen Gerichte **30,2 Mrd. JPY (~266 Mio. $)** an 22 020 Anwohner zu
-- **USA (FAA)**: über **10 Mrd. $** in Schallschutz investiert über 35 Jahre, **143 000+ Wohnungen** schallisoliert. Belästigungsschwelle: DNL 65 dB
+### Internationale Entschädigungen
+- **Japan**: 70 Flughäfen mit Lärmgebühren. Kadena (Okinawa): **30,2 Mrd. JPY (~266 Mio. $)** an 22 020 Anwohner
+- **USA (FAA)**: über **10 Mrd. $** in Schallschutz investiert, **143 000+ Wohnungen** schallisoliert
 - **298 Flughäfen** weltweit erheben lärmbasierte Gebühren (davon 143 in Europa)
 
-### Technologischer Fortschritt
-- Moderne Jets sind **~75 % leiser** als Modelle der ersten Generation
-- Der Airbus A350 und die Boeing 787 operieren **mehrere dB unter** den Mindestanforderungen des ICAO-Kapitels 14
-- **Continuous Descent Operations (CDO)** reduzieren den Lärm am Boden um **1 bis 5 dB pro Flug**. Europäisches Potenzial: 150 000 Tonnen Kerosin-Einsparung/Jahr
+### WHO-Schwellenwerte (2018, weiterhin gültig)
+Die WHO empfiehlt: **Lden 45 dB** (Tag-Abend-Nacht) und **Lnight 40 dB** (Nacht). Diese Schwellenwerte liegen **10 dB unter** der EU-Richtlinie (Lden 55 dB, Lnight 50 dB). In Brüssel überschreiten **670 600 Personen** den WHO-Schwellenwert Lden 45 dB.
 
-## Zuständigkeitsverteilung
+### EU-Ziel Null-Verschmutzung
+Ziel: −30 % chronisch belästigte Personen bis 2030. Fortschritt: **nur −3 % seit 2017**.
+
+## Zuständigkeitsverteilung und Gemeinschaftsdimension
 
 | Ebene | Zuständigkeit | Akteur |
 |-------|--------------|--------|
@@ -364,9 +472,21 @@ Das Komitee zum Schutz der Umwelt in der Luftfahrt (CAEP) der ICAO hat neue Lär
 | Föderal | Mediation | Flughafen-Ombudsmann (Touwaide, suspendiert) |
 | Regional BXL | Lärm, Umwelt, Lärmnormen | Bruxelles Environnement (22 Schallmessstationen) |
 | Flämisch | Umweltgenehmigung Flughafen | Flämische Regierung (aufgehoben Juli 2025) |
-| Kommunal | Lebensqualität, Stadtplanung, Rechtsmittel | 19 Gemeinden (Koekelberg, Molenbeek, Jette klagen) |
+| Kommunal | Lebensqualität, Stadtplanung, Rechtsmittel | Brüsseler Gemeinden + flämische Gemeinden vor Gericht |
 
 Dies ist ein emblematischer Fall der **institutionellen Komplexität Belgiens**: Der Flughafen liegt in Flandern, der Lärm fällt in die Zuständigkeit der Region Brüssel, die Luftfahrt ist Bundessache, und die Gemeinden tragen die Konsequenzen.
+
+Die **sprachliche Dimension** durchzieht das Dossier: Im Oktober 2023 hat Flandern im Konzertierungsausschuss einen **Interessenkonflikt** gegen neue Routen geltend gemacht und argumentiert, diese verlagerten den Lärm auf flämische Gemeinden „ohne Regierungskonsultation". Das Berufungsgericht hat den flämischen Einwand abgewiesen. IATA lehnt ein vollständiges Nachtflugverbot ab und verweist auf die Rolle Belgiens als Fracht-Hub. Les Engagés befürworten das Verbot von Nachtflügen und der lautesten Flugzeuge.
+
+## Bürger-Tools
+
+Den Anwohnern stehen mehrere Instrumente zur Information und zum Handeln zur Verfügung:
+
+- **InfoBruit.brussels**: Regionales Informationsportal zum Thema Lärm, einschließlich einer Luftfahrtabteilung
+- **BATC** (batc.be): Echtzeit-Flugradar (15 Min. Verzögerung), Lärmdaten, Lärmkonturen, Pistennutzung
+- **Bruxelles Environnement**: Netzwerk von 17 festen Stationen, davon **9 speziell für die Messung von Fluglärm** (rund um die Uhr)
+- **Beschwerden**: Elektronisches Formular IrisBox (mit eID) oder PDF-Formular per Post/E-Mail. Die Beschwerden werden in einem Register erfasst, das regelmäßig analysiert und dem Minister übermittelt wird
+- **Ombudsstelle des Flughafens** (airportmediation.be): Föderaler Fragen- und Beschwerdedienst
 
 ## Zu beobachtende Entwicklungen
 
@@ -375,8 +495,10 @@ Dies ist ein emblematischer Fall der **institutionellen Komplexität Belgiens**:
 - **Lärm-Folgenabschätzung**: bis Mitte 2026 vorzulegen (Gerichtsanordnung)
 - **Konkreter Maßnahmenplan**: bis Oktober 2026 gefordert
 - **Verlängerung RNP-07L**: derzeit bis 31. Oktober 2026 — wird sie erneuert?
-- **Kommunale Klagen**: Koekelberg, Molenbeek und Jette vor Gericht; weitere Gemeinden könnten folgen
+- **Rückkehr zur Wathelet-Anweisung**: von Jette gefordert — einzige als legal beurteilte Anweisung. Anwendung in der Praxis?
+- **Kommunale Klagen**: Koekelberg, Molenbeek, Jette vor Gericht; flämische Gemeinden häufen Zwangsgelder an
+- **Fonds für Schalldämmung**: im Brüsseler Regierungsabkommen versprochen, noch nicht operativ
 - **Balanced Approach**: öffentliche Konsultation + Stellungnahme der Europäischen Kommission (Horizont 2032 für −30 % Belästigung)
 - **Umweltgenehmigung**: Flandern muss vor Juni 2029 erneut entscheiden
-- **Nächtliche Frachtflüge**: 200 nächtliche Frachtstarts (Boeing 777) unter strafrechtlicher Ermittlung
-- **Industrie-Widerstand**: IATA, DHL und Singapore Airlines Cargo lehnen ein vollständiges Nachtflugverbot ab und verweisen auf die Rolle Belgiens als europäischer Fracht-Hub
+- **Nächtliche Frachtflüge**: 200 Cargo-Starts (Boeing 777) unter strafrechtlicher Ermittlung. Verlagerung nach Lüttich?
+- **Industrie-Widerstand**: IATA, DHL und Singapore Airlines Cargo lehnen ein vollständiges Nachtflugverbot ab

@@ -7,7 +7,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Brussels Airport génère 204 147 vols/an (2025), dont 16 237 nocturnes. La Route Crucke (RNP-07L), activée en 2025, concentre les nuisances sur 450 000 Bruxellois — 96 % des vols violent les normes bruxelloises. L'État a été condamné 5 fois. Koekelberg et Molenbeek lancent des actions en justice (mars 2026). Le médiateur fédéral est suspendu."
+summary: "Brussels Airport génère 204 147 vols/an et 24,4M passagers (2025), dont 16 237 vols nocturnes. La Route Crucke (RNP-07L) concentre les nuisances sur 450 000 Bruxellois — 96 % des vols violent les normes. L'État condamné 5 fois. Koekelberg, Molenbeek et Jette en justice (mars 2026). Pétition : 6 500+ signatures. Protocole fédéral-flamand signé (déc. 2025)."
 estimatedBudget: "Amendes cumulées : ~32M EUR (dont <20 % encaissés). Astreintes : 18 000 EUR/infraction, plafond 18M EUR/route."
 stakeholders:
   - "SPF Mobilité / Min. Crucke (Les Engagés)"
@@ -69,11 +69,36 @@ sources:
   - label: "DH — 64 PV sur la Route Crucke en un mois (fév. 2026)"
     url: "https://www.dhnet.be/regions/bruxelles/2026/02/06/nuisances-sonores-des-avions-au-dessus-de-bruxelles-64-p-v-sur-la-route-crucke-en-un-mois-aucun-avion-en-infraction-nechappe-aux-controles-GDD3VSAJRRB3DPTEZRICMQJEOM/"
     accessedAt: "2026-03-22"
+  - label: "Ecolo-Groen Jette — Motion Jette sous les avions (4 mars 2026)"
+    url: "https://www.ecologroenjette.be/post/motion-jette-sous-les-avions"
+    accessedAt: "2026-03-26"
+  - label: "La Libre — Le procureur requiert 2 ans ferme contre Touwaide (4 mars 2026)"
+    url: "https://www.lalibre.be/belgique/judiciaire/2026/03/04/le-procureur-requiert-deux-ans-ferme-contre-le-mediateur-federal-pour-laeroport-de-zaventem-philippe-touwaide-poursuivi-pour-harcelement-QP6RMODF3RH2NMHKIXMG7R5QDQ/"
+    accessedAt: "2026-03-26"
+  - label: "EEA — Bruit environnemental en Europe 2025 (rapport 05/2025)"
+    url: "https://www.eea.europa.eu/en/analysis/publications/environmental-noise-in-europe-2025"
+    accessedAt: "2026-03-26"
+  - label: "Commission européenne — OACI CAEP/13, nouvelles normes bruit avions (mars 2025)"
+    url: "https://transport.ec.europa.eu/news-events/news/commission-welcomes-icao-agreement-new-aircraft-standards-fuel-efficiency-and-noise-levels-driving-2025-03-03_en"
+    accessedAt: "2026-03-26"
+  - label: "WHO Europe — Lignes directrices bruit environnemental (2018)"
+    url: "https://www.who.int/europe/publications/i/item/9789289053563"
+    accessedAt: "2026-03-26"
 metrics:
   - label: "Vols/an (2025)"
     value: "204 147"
     unit: "(187 910 jour + 16 237 nuit)"
     source: "Médiateur fédéral"
+    date: "2025-12-31"
+  - label: "Passagers (2025)"
+    value: "24,4M"
+    unit: "+3,3 % vs 2024"
+    source: "Brussels Airport Company"
+    date: "2025-12-31"
+  - label: "Fret (2025)"
+    value: "795 000 t"
+    unit: "+8,5 % vs 2024"
+    source: "Brussels Airport Company"
     date: "2025-12-31"
   - label: "Personnes exposées bruit aérien (Lden >45 dB, 2021)"
     value: "670 600"
@@ -85,14 +110,11 @@ metrics:
     unit: "dans ~40 communes"
     source: "Bruxelles Environnement"
     date: "2024-12-31"
-  - label: "Infractions fédérales (2025)"
-    value: "6 000+"
-    source: "Médiateur fédéral"
+  - label: "Infractions totales (2025)"
+    value: "6 075"
+    unit: "1 317 fédérales + 4 758 régionales BXL"
+    source: "Médiateur fédéral + Bruxelles Environnement"
     date: "2025-12-31"
-  - label: "Infractions normes BXL (10 mois 2025)"
-    value: "4 758"
-    source: "Bruxelles Environnement"
-    date: "2025-10-31"
   - label: "Route Crucke — taux violation"
     value: "96%"
     unit: "des vols RNP-07L violent les normes bruxelloises"
@@ -102,6 +124,11 @@ metrics:
     value: "32 777"
     unit: "dossiers (14,6M cumulés en 24 ans)"
     source: "Médiateur fédéral"
+    date: "2025-12-31"
+  - label: "Plaintes bruit aérien Bruxelles Environnement (2025)"
+    value: "754"
+    unit: "×4 vs année précédente"
+    source: "Bruxelles Environnement"
     date: "2025-12-31"
   - label: "Amendes impayées"
     value: "~26"
@@ -114,29 +141,45 @@ metrics:
     source: "Tribunaux belges"
     date: "2025-02-27"
   - label: "Emplois aéroport"
-    value: "~85 000"
-    unit: "directs + indirects (5,4 Mrd EUR valeur ajoutée)"
-    source: "Brussels Airport Company"
+    value: "24 000"
+    unit: "directs sur site (64 225 total direct+indirect+induit, 5,4 Mrd EUR valeur ajoutée)"
+    source: "Brussels Airport Company (étude 2024)"
     date: "2024-12-31"
+  - label: "Exposés au bruit aérien en Europe (Lden >55 dB)"
+    value: "2,6M"
+    unit: "personnes (seuil directive européenne)"
+    source: "AEE — Bruit environnemental en Europe 2025"
+    date: "2025-06-24"
 alerts:
-  - label: "Étude d'impact environnemental à remettre avant le 1er juin 2026 (ordonnance tribunal)"
+  - label: "Étude d'impact bruit à remettre mi-2026 (ordonnance tribunal)"
     severity: warning
-    date: "2026-06-01"
+    date: "2026-06-30"
+  - label: "Plan de mesures concrètes exigé pour octobre 2026"
+    severity: warning
+    date: "2026-10-01"
+  - label: "Verdict Touwaide le 1er avril 2026 (tribunal correctionnel)"
+    severity: info
+    date: "2026-04-01"
+  - label: "Résultats étude sKeyes sur alternatives RNP-07L attendus avril 2026"
+    severity: info
+    date: "2026-04-30"
   - label: "Flandre doit re-statuer sur le permis environnemental avant juin 2029"
     severity: info
     date: "2029-06-30"
 confidenceLevel: official
 dprCommitment: "La DPR bruxelloise ne contient pas de section dédiée au survol. La compétence est fédérale (aviation), mais la Région est compétente pour le bruit (Bruxelles Environnement). La DPR mentionne la qualité de l'air et la santé sans cibler spécifiquement les nuisances aériennes."
-lastModified: "2026-03-22"
+lastModified: "2026-03-26"
 changeType: updated
-changeSummary: "Création du dossier Survol de Bruxelles : 204 147 vols/an, Route Crucke (96 % violations), 5 condamnations, communes en justice."
+changeSummary: "Mise à jour factuelle : Jette en justice, pétition 6 500+, protocole fédéral-flamand, trafic 2025 complet, emploi corrigé, contexte européen (Schiphol, EEA, WHO) et mondial (ICAO CAEP/13)."
 ---
 
 ## Le conflit en bref
 
-Brussels Airport (Zaventem), situé à 12 km du centre de Bruxelles, est au cœur d'un conflit de plus de **40 ans** entre les intérêts économiques de l'aéroport (~85 000 emplois, 5,4 Mrd EUR de valeur ajoutée) et la qualité de vie de **670 600 Bruxellois** exposés au bruit aérien.
+Brussels Airport (Zaventem), situé à 12 km du centre de Bruxelles, est au cœur d'un conflit de plus de **40 ans** entre les intérêts économiques de l'aéroport (24 000 emplois directs, 64 225 emplois au total, 5,4 Mrd EUR de valeur ajoutée) et la qualité de vie de **670 600 Bruxellois** exposés au bruit aérien.
 
 Le problème structurel : les vents dominants (sud-ouest, 70 % du temps) imposent des décollages sur la piste 25R **vers Bruxelles**, survolant des quartiers densément peuplés. Lorsque le vent souffle de l'est, les atterrissages sur la piste 07L amènent les avions au-dessus du nord-ouest de la ville.
+
+En 2025, l'aéroport a traité **24,4 millions de passagers** (+3,3 % vs 2024) et **795 000 tonnes de fret** (+8,5 %).
 
 ## Routes aériennes controversées
 
@@ -165,8 +208,10 @@ L'État belge a été condamné **5 fois** en 20 ans pour le survol de Bruxelles
 |------|----------|-------------|
 | 2003-2017 | 3 condamnations successives | Astreintes progressives |
 | Déc. 2023 | 4e condamnation | Astreintes 12 000 EUR/infraction |
-| **Fév. 2025** | **5e condamnation** | Astreintes relevées à **18 000 EUR/infraction**, plafond **18M EUR/route**. Étude d'impact environnemental exigée avant le 1er juin 2026 |
+| **Fév. 2025** | **5e condamnation** | Astreintes relevées à **18 000 EUR/infraction**, plafond **18M EUR/route**. Étude d'impact bruit exigée mi-2026, plan de mesures oct. 2026, justification déc. 2026 |
 | Juil. 2025 | **Permis environnemental annulé** (Conseil flamand) | Balanced Approach UE non respecté. Flandre doit re-statuer avant juin 2029. Aéroport continue sous permis annulé |
+
+La Cour d'appel de Bruxelles a également ordonné au gouvernement fédéral de **réviser les routes aériennes** dans un délai de deux ans, estimant que l'organisation actuelle du trafic aérien porte atteinte à la santé publique et ne répartit pas équitablement les nuisances sonores.
 
 ## Communes en action (mars 2026)
 
@@ -179,6 +224,14 @@ Les bourgmestres de **Schaerbeek**, **Molenbeek** et **Koekelberg** ont formé u
 ### Actions en justice
 - **Koekelberg** (motion unanime du conseil communal, 16 mars 2026) : première commune à lancer des poursuites. Demande l'abolition immédiate de la RNP-07L, une interdiction nocturne stricte 22h-7h, le respect des normes bruxelloises et des consultations structurelles.
 - **Molenbeek** rejoint la procédure (19 mars 2026).
+- **Jette** (motion adoptée le 4 mars 2026, majorité Ecolo-Groen/LBJette/MR-VLD) : demande la réduction drastique des atterrissages via la piste 07L et engage **deux actions judiciaires** — une action en cessation environnementale devant le Tribunal de première instance et une contestation du permis environnemental de l'aéroport devant le Raad voor Vergunningsbetwistingen.
+
+## Mobilisation citoyenne
+
+- **Pétition** « Non au survol intensif du Nord de Bruxelles » : **6 500+ signatures** (Change.org).
+- **Marche de protestation** le 8 mars 2026 à Bruxelles contre les nuisances aériennes.
+- **754 plaintes** pour bruit aérien reçues par Bruxelles Environnement en 2025 — près de **4 fois plus** que l'année précédente.
+- **32 777 dossiers** de plaintes au médiateur fédéral en 2025 (14,6M cumulés en 24 ans).
 
 ## Crise du médiateur fédéral (mars 2026)
 
@@ -186,29 +239,47 @@ Les bourgmestres de **Schaerbeek**, **Molenbeek** et **Koekelberg** ont formé u
 
 Motifs :
 - **Conflit d'intérêts** : administrateur de l'UBCNA (association anti-bruit) de 2002 à 2015, tout en exerçant la fonction de médiateur
-- **Condamnation** en juin 2024 pour harcèlement et calomnie envers la direction de l'aéroport (sursis)
-- **Nouvelles poursuites** : le tribunal correctionnel de Bruxelles statue le 1er avril 2026
+- **Condamnation** en juin 2024 pour harcèlement et calomnie envers la direction de l'aéroport (sursis). Appel examiné en **novembre 2026** par la Cour d'appel
+- **Audience du 4 mars 2026** (57e chambre du tribunal correctionnel de Bruxelles) : le procureur requiert **2 ans de prison ferme**. La défense plaide l'acquittement. **Verdict le 1er avril 2026 à 9h**
 
 Le ministre a également annoncé une évaluation du statut du médiateur (contractuel vs statutaire).
 
-Sources : RTBF, Le Vif (mars 2026).
+### Plainte pour travaux illégaux
+Le 18 février 2026, Touwaide a porté plainte contre Brussels Airport pour des **travaux d'extension non autorisés** d'un tournement de piste durant l'été 2025. Brussels Airport a reconnu que l'absence de permis résultait d'une « mauvaise interprétation de la réglementation ».
 
-## Impact sanitaire (Conseil Supérieur de la Santé, mai 2024)
+## Infractions 2025
 
-Le CSS a publié en mai 2024 un avis scientifique sur les effets du trafic aérien sur la santé. Constats :
+En 2025, **6 075 infractions** ont été enregistrées autour de Brussels Airport :
 
+| Type | Nombre | Source |
+|------|--------|--------|
+| Infractions fédérales | 1 317 | Médiateur fédéral |
+| Violations normes bruxelloises (10 mois) | 4 758 | Bruxelles Environnement |
+| **Total** | **6 075** | |
+
+Détail des infractions fédérales :
+- Avions interdits la nuit
+- Créneaux horaires manquants
+- Non-respect des procédures de nuit calme
+- Procédures de décollage de jour utilisées la nuit
+
+**Scandale Boeing 777 cargo** : 200 décollages nocturnes totalement illégaux. Niveau de bruit réel mesuré : **QC 10,7** (limite légale : 8,0). L'avion utilisait un QC fictif de 7,7 pour obtenir l'autorisation. Fait l'objet d'une **enquête judiciaire**.
+
+**Vols nocturnes sans créneau** : 1 032 (558 atterrissages + 474 décollages), en baisse de 29 % sur 3 ans.
+
+## Impact sanitaire
+
+### Conseil Supérieur de la Santé (mai 2024)
+Le CSS a publié un avis scientifique sur les effets du trafic aérien sur la santé :
 - **160 000+ résidents** à risque sanitaire accru à Bruxelles
 - Le bruit aérien est **plus perturbateur pour le sommeil** que le bruit routier ou ferroviaire à niveau de décibels équivalent
-- Effets documentés :
-  - Troubles du sommeil
-  - Maladies cardiovasculaires (hypertension, infarctus du myocarde)
-  - Stress et dépression
-  - Réduction de la fonction pulmonaire
-  - Troubles d'apprentissage chez les enfants
-  - Complications de grossesse (poids de naissance réduit)
-  - Risque accru de diabète de type 2
+- Effets documentés : troubles du sommeil, maladies cardiovasculaires (hypertension, infarctus du myocarde), stress et dépression, réduction de la fonction pulmonaire, troubles d'apprentissage chez les enfants, complications de grossesse, risque accru de diabète de type 2
+- **Recommandation** : interdiction des vols entre 23h et 7h
 
-**Recommandation du CSS** : interdiction des vols entre 23h et 7h.
+### Études internationales récentes
+- **JACC (février 2025)** : les personnes exposées au bruit aérien nocturne présentent une **masse ventriculaire gauche supérieure de 7 %** et des **parois cardiaques plus épaisses de 4 %**, indicateurs de risque cardiaque accru.
+- **Méta-analyse cardiovasculaire** (2024) : le risque cardiovasculaire augmente de **+1,6 % par tranche de 10 dB** de bruit aérien. Fibrillation auriculaire : **+2,7 % par 10 dB**. Insuffisance cardiaque : **+2,3 % par 10 dB**.
+- **AEE (2025)** : le bruit des transports en Europe cause **66 000 décès prématurés/an**, **50 000 nouveaux cas cardiovasculaires/an** et **22 000 nouveaux cas de diabète de type 2/an**. Le bruit est la **3e menace sanitaire environnementale** en Europe, après la pollution de l'air et les effets de la chaleur.
 
 ## Amendes : moins de 20 % encaissées
 
@@ -219,14 +290,71 @@ Sur les ~32 millions EUR d'amendes émises par la Région bruxelloise :
 
 Ce taux d'encaissement interroge l'efficacité du système de sanctions régional.
 
+## Protocole fédéral-flamand (décembre 2025)
+
+Le 9 décembre 2025, le SPF Mobilité et le ministère flamand de l'Environnement ont signé un **protocole de coopération** pour réduire le bruit autour de Brussels Airport. Éléments clés :
+- Comité de pilotage conjoint + groupe de travail technique avec BAC et sKeyes
+- Canal formel de consultation des riverains
+- Mesures à l'étude : trajectoires révisées, règles nocturnes plus strictes, incitations pour avions plus silencieux, investissements en isolation acoustique
+- Objectif affiché : « réduire le bruit sans freiner la croissance »
+
+### Nouvelles restrictions nocturnes
+- **Été 2025** : avions les plus bruyants bannis des opérations nocturnes
+- **Été 2026** : atterrissages nocturnes calmes (01h-05h, week-end) autorisés uniquement pour les avions QC ≤ 2
+
 ## Procédure Balanced Approach (UE)
 
-Le 26 janvier 2026, la **procédure Balanced Approach** (Règlement UE 598/2014) a été lancée, pilotée conjointement par les gouvernements fédéral et flamand. Cette procédure obligatoire inclut :
+Le 27 janvier 2026, la **procédure Balanced Approach** (Règlement UE 598/2014) a été lancée, pilotée conjointement par les gouvernements fédéral et flamand. Cette procédure obligatoire inclut :
 - Une consultation publique
 - Un avis de la Commission européenne
 - L'évaluation de 4 mesures : réduction du bruit à la source, aménagement du territoire, procédures opérationnelles, restrictions d'exploitation
 
+**Objectif chiffré** : réduction de **30 % des personnes fortement gênées** et de **30 % des personnes ayant un sommeil gravement perturbé** d'ici **2032** (par rapport à 2019).
+
 Elle a été déclenchée par l'annulation du permis environnemental en juillet 2025. La Flandre doit re-statuer d'ici **juin 2029**.
+
+## Contexte européen
+
+### Arrêt Schiphol (11 mars 2026)
+Le Conseil d'État néerlandais (plus haute juridiction administrative) a **annulé le plafond de 478 000 vols/an** imposé par le gouvernement à l'aéroport d'Amsterdam-Schiphol. Motif : justification insuffisante de la mesure. Le plafond nocturne de 27 000 mouvements reste en vigueur. En mars 2024, un tribunal avait jugé que le traitement des riverains de Schiphol constituait une **violation de la Convention européenne des droits de l'homme**.
+
+### Couvre-feux nocturnes comparatifs
+
+| Aéroport | Couvre-feu | Depuis |
+|----------|-----------|--------|
+| Zurich (ZRH) | 23h30-06h00 (strict, aucune exception) | 2010 |
+| Francfort (FRA) | 23h00-05h00 (strict) + plafond 48 545 mvts nocturnes/an | 2011 |
+| Paris-Orly (ORY) | 23h30-06h00 (renforcé dès oct. 2026) | 2002 |
+| Sydney (SYD) | 23h00-06h00 | 1995 |
+| **Bruxelles (BRU)** | **Restrictions, mais 6 075+ infractions en 2025** | — |
+
+### Seuils de l'OMS (2018, toujours en vigueur)
+L'Organisation mondiale de la Santé recommande pour le bruit aérien :
+- **Lden 45 dB** (moyenne jour-soir-nuit) — seuil au-delà duquel des effets néfastes sont associés
+- **Lnight 40 dB** (exposition nocturne) — seuil au-delà duquel des effets sur le sommeil sont associés
+
+Ces seuils sont **10 dB plus stricts** que les seuils de notification de la Directive européenne sur le bruit (Lden 55 dB, Lnight 50 dB). À Bruxelles, **670 600 personnes** dépassent le seuil Lden 45 dB de l'OMS.
+
+### Objectif UE Zéro Pollution
+L'objectif européen « Zéro Pollution » vise une réduction de **30 % des personnes chroniquement perturbées** par le bruit des transports d'ici **2030**. Progression réelle : **seulement −3 % depuis 2017** — très loin de la cible.
+
+## Perspective mondiale
+
+### Nouvelles normes OACI (CAEP/13, février 2025)
+Le Comité de la protection de l'environnement en aviation (CAEP) de l'OACI a adopté de nouvelles normes de bruit :
+- Les avions futurs devront être **au moins 6 dB plus silencieux** que les modèles actuels, soit une réduction du bruit de **plus de 30 %**
+- **Date d'application** : 1er janvier 2029 pour les nouvelles certifications de type
+- Un nouveau **Chapitre 15** impose aux avions supersoniques des normes de bruit équivalentes aux subsoniques
+
+### Compensations : comparaison internationale
+- **Japon** : 70 aéroports avec redevances bruit. À la base militaire de Kadena (Okinawa), les tribunaux ont accordé **30,2 Mrd JPY (~266M$)** à 22 020 résidents
+- **États-Unis (FAA)** : plus de **10 Mrd$** investis en isolation acoustique sur 35 ans, **143 000+ logements** insonorisés. Seuil de nuisance : DNL 65 dB
+- **298 aéroports** dans le monde appliquent des redevances basées sur le bruit (dont 143 en Europe)
+
+### Progrès technologiques
+- Les jets modernes sont **~75 % plus silencieux** que les modèles de première génération
+- L'Airbus A350 et le Boeing 787 opèrent **plusieurs dB en dessous** des minimums du Chapitre 14 de l'OACI
+- Les **Continuous Descent Operations (CDO)** réduisent le bruit de **1 à 5 dB par vol** au sol. Potentiel européen : 150 000 tonnes de kérosène économisées/an
 
 ## Répartition des compétences
 
@@ -236,16 +364,19 @@ Elle a été déclenchée par l'annulation du permis environnemental en juillet 
 | Fédéral | Médiation | Médiateur aéroport (Touwaide, suspendu) |
 | Régional BXL | Bruit, environnement, normes sonores | Bruxelles Environnement (22 sonomètres) |
 | Flamand | Permis environnemental aéroport | Gouvernement flamand (annulé juil. 2025) |
-| Communal | Qualité de vie, urbanisme, recours | 19 communes (Koekelberg, Molenbeek en justice) |
+| Communal | Qualité de vie, urbanisme, recours | 19 communes (Koekelberg, Molenbeek, Jette en justice) |
 
 C'est un cas emblématique de la **complexité institutionnelle belge** : l'aéroport est en Flandre, le bruit est compétence régionale bruxelloise, l'aviation est fédérale, et les communes portent les conséquences.
 
 ## Enjeux à suivre
 
-- **Étude d'impact environnemental** : à remettre avant le 1er juin 2026 (ordonnance tribunal)
-- **Résultats de l'étude impartiale** sur les alternatives à la RNP-07L (commandée par Crucke, résultats attendus avril 2026)
-- **Actions communales** : Koekelberg et Molenbeek en justice ; d'autres communes pourraient suivre
-- **Procédure Balanced Approach** : consultation publique + avis Commission européenne (horizon 2029)
-- **Tribunal Touwaide** : verdict le 1er avril 2026
+- **Verdict Touwaide** : 1er avril 2026, 9h (tribunal correctionnel de Bruxelles)
+- **Étude sKeyes** sur alternatives à la RNP-07L : résultats attendus avril 2026. Impartialité contestée par les communes
+- **Étude d'impact bruit** : à remettre mi-2026 (ordonnance tribunal)
+- **Plan de mesures concrètes** : exigé pour octobre 2026
 - **Prolongation RNP-07L** : actuellement jusqu'au 31 octobre 2026 — sera-t-elle renouvelée ?
-- **Vols nocturnes de fret** : 200 décollages cargo nocturnes (Boeing 777, AeroLogic) en infraction en 2025
+- **Actions communales** : Koekelberg, Molenbeek et Jette en justice ; d'autres communes pourraient suivre
+- **Balanced Approach** : consultation publique + avis Commission européenne (horizon 2032 pour −30 % de gêne)
+- **Permis environnemental** : Flandre doit re-statuer avant juin 2029
+- **Vols nocturnes de fret** : 200 décollages cargo nocturnes (Boeing 777) sous enquête judiciaire
+- **Opposition industrie** : IATA, DHL et Singapore Airlines Cargo s'opposent à un couvre-feu total, arguant du rôle de hub cargo européen de la Belgique

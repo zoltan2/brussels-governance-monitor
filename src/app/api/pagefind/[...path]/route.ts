@@ -27,7 +27,8 @@ export async function GET(
     return new NextResponse(null, { status: 400 });
   }
 
-  const fullPath = join(process.cwd(), 'public', 'pagefind', filePath);
+  // .next/server/pagefind/ is available at runtime on Vercel (included in serverless bundle)
+  const fullPath = join(process.cwd(), '.next', 'server', 'pagefind', filePath);
 
   try {
     const data = await readFile(fullPath);

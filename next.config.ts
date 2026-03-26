@@ -5,6 +5,9 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ['@appsignal/nodejs'],
+  outputFileTracingIncludes: {
+    '/api/pagefind/[...path]': ['./.next/server/pagefind/**/*'],
+  },
   async headers() {
     return [
       {

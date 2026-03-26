@@ -35,7 +35,6 @@ export default function LivrePage() {
         {/* Cover image */}
         <div className="w-full max-w-[300px] shrink-0 md:max-w-[400px]">
           <div className="overflow-hidden rounded-lg shadow-lg">
-            {/* TODO: replace placeholder with actual cover when provided */}
             <Image
               src="/livre/cover.png"
               alt="Couverture du livre La Lasagne — Zoltán Jánosi"
@@ -57,11 +56,11 @@ export default function LivrePage() {
             d&eacute;mocratie, les citoyens et l&rsquo;intelligence
             artificielle.
           </p>
-          <p className="mt-1 text-sm text-neutral-500">
+          <p className="mt-1 text-sm text-[#4A5568]">
             Zolt&aacute;n J&aacute;nosi
           </p>
 
-          <blockquote className="mt-6 border-l-4 border-[#F2A900] pl-4 text-base leading-relaxed text-neutral-700">
+          <blockquote className="mt-6 border-l-4 border-[#F2A900] pl-4 text-base leading-relaxed text-[#1A2744]">
             Bruxelles est la r&eacute;gion la plus complexe de Belgique. Et
             pourtant, aucun outil citoyen n&rsquo;existait pour suivre ce qui
             s&rsquo;y d&eacute;cide. Ce livre raconte comment un citoyen
@@ -81,12 +80,12 @@ export default function LivrePage() {
           {reasons.map((reason) => (
             <div
               key={reason.title}
-              className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm"
+              className="rounded-lg border border-[#E0E6F0] bg-white p-6 shadow-sm"
             >
               <h3 className="text-base font-semibold text-[#1B3A6B]">
                 {reason.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+              <p className="mt-2 text-sm leading-relaxed text-[#4A5568]">
                 {reason.description}
               </p>
             </div>
@@ -96,11 +95,11 @@ export default function LivrePage() {
 
       {/* Preorder form */}
       <section className="mt-16">
-        <div className="mx-auto max-w-md rounded-xl border border-[#1B3A6B]/10 bg-white p-8 shadow-md">
-          <h2 className="mb-2 text-center text-xl font-bold text-[#1B3A6B]">
+        <div className="mx-auto max-w-md rounded-xl bg-[#1B3A6B] p-8 shadow-md">
+          <h2 className="mb-2 text-center text-xl font-bold text-white">
             Pr&eacute;commande
           </h2>
-          <p className="mb-6 text-center text-sm text-neutral-500">
+          <p className="mb-6 text-center text-sm text-white/70">
             Sois parmi les premiers inform&eacute;s de la date de parution et
             du prix d&eacute;finitif.
           </p>

@@ -32,9 +32,10 @@ export default function LivreLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={inter.variable}>
+    <html lang="fr" className={`${inter.variable} light-forced`}>
       <head>
         <meta name="theme-color" content="#1B3A6B" />
+        <meta name="color-scheme" content="light" />
         {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
           <script
             defer

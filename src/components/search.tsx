@@ -47,12 +47,12 @@ export function Search() {
     if (open && !pagefind) {
       // @ts-expect-error -- pagefind is generated at build time, no TS declarations
       import(/* webpackIgnore: true */ '/pagefind/pagefind.js')
-        .then(async (pf) => {
-          await pf.options({ bundlePath: '/pagefind/' });
+        .then((pf) => {
+          pf.init();
           setPagefind(pf);
         })
-        .catch((err) => {
-          console.error('Pagefind load error:', err);
+        .catch(() => {
+          // Pagefind not available (dev mode or not yet indexed)
         });
     }
   }, [open, pagefind]);

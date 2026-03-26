@@ -8,22 +8,22 @@ const reasons = [
   {
     title: 'Pourquoi j\u2019ai construit BGM',
     description:
-      'Pas par militantisme. Par frustration. Un matin, j\u2019ai cherch\u00e9 \u00e0 comprendre qui avait d\u00e9cid\u00e9 quelque chose dans ma ville \u2014 et je n\u2019ai pas trouv\u00e9. Ce livre commence exactement l\u00e0.',
+      'Pas par militantisme. Par frustration. Un matin, j\u2019ai cherché à comprendre qui avait décidé quelque chose dans ma ville — et je n\u2019ai pas trouvé. Ce livre commence exactement là.',
   },
   {
-    title: 'Comment l\u2019IA m\u2019a permis de faire ce qui \u00e9tait impossible seul',
+    title: 'Comment l\u2019IA m\u2019a permis de faire ce qui était impossible seul',
     description:
-      'Surveiller des dizaines de sources institutionnelles, en quatre langues, chaque jour, seul \u2014 c\u2019est math\u00e9matiquement impossible sans automatisation. Ce livre raconte comment s\u2019est construit ce pipeline, semaine apr\u00e8s semaine, essai apr\u00e8s erreur.',
+      'Surveiller des dizaines de sources institutionnelles, en quatre langues, chaque jour, seul — c\u2019est mathématiquement impossible sans automatisation. Ce livre raconte comment s\u2019est construit ce pipeline, semaine après semaine, essai après erreur.',
   },
   {
-    title: 'Ce que la complexit\u00e9 bruxelloise dit de notre d\u00e9mocratie',
+    title: 'Ce que la complexité bruxelloise dit de notre démocratie',
     description:
-      'Bruxelles n\u2019est pas opaque parce que quelqu\u2019un a d\u00e9cid\u00e9 de cacher quoi que ce soit. Elle est opaque parce que personne n\u2019a eu int\u00e9r\u00eat \u00e0 rendre \u00e7a simple. C\u2019est une distinction importante \u2014 et elle change tout.',
+      'Bruxelles n\u2019est pas opaque parce que quelqu\u2019un a décidé de cacher quoi que ce soit. Elle est opaque parce que personne n\u2019a eu intérêt à rendre ça simple. C\u2019est une distinction importante — et elle change tout.',
   },
   {
     title: 'Les limites',
     description:
-      'Ce qu\u2019un citoyen seul ne peut structurellement pas faire. Les biais que l\u2019automatisation introduit sans qu\u2019on le veuille. Et les choix que j\u2019ai d\u00fb assumer \u2014 sur ce que BGM publie, et sur ce qu\u2019il ne publiera jamais.',
+      'Ce qu\u2019un citoyen seul ne peut structurellement pas faire. Les biais que l\u2019automatisation introduit sans qu\u2019on le veuille. Et les choix que j\u2019ai dû assumer — sur ce que BGM publie, et sur ce qu\u2019il ne publiera jamais.',
   },
 ];
 
@@ -38,7 +38,7 @@ export default function LivrePage() {
             {/* TODO: replace placeholder with actual cover when provided */}
             <Image
               src="/livre/cover.png"
-              alt="Couverture du livre La Lasagne \u2014 Zolt\u00e1n J\u00e1nosi"
+              alt="Couverture du livre La Lasagne — Zoltán Jánosi"
               width={400}
               height={580}
               className="h-auto w-full"

@@ -45,9 +45,9 @@ export function Search() {
 
   useEffect(() => {
     if (open && !pagefind) {
-      // Dynamically load pagefind (generated at end of build, output to public/)
+      // Dynamically load pagefind (served via API route from public/pagefind/)
       // @ts-expect-error -- pagefind is generated at build time, no TS declarations
-      import(/* webpackIgnore: true */ '/pagefind/pagefind.js')
+      import(/* webpackIgnore: true */ '/api/pagefind/pagefind.js')
         .then((pf) => {
           pf.init();
           setPagefind(pf);

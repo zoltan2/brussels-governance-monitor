@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cloud.umami.is", // unsafe-eval required: Velite MDX uses new Function() at runtime
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://cloud.umami.is", // unsafe-eval: Velite MDX new Function(); wasm-unsafe-eval: Pagefind WASM
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self'",

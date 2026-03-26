@@ -1,5 +1,203 @@
 [
   {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "budget",
+    "descriptions": {
+      "fr": "Budget 2026 approuvé en commission des Finances (23 mars). Déficit 957M€, recettes 6,622 Md€, dépenses 7,613 Md€. Vote plénière vendredi 27 mars.",
+      "nl": "Begroting 2026 goedgekeurd in commissie Financiën (23 maart). Tekort 957M€, ontvangsten 6,622 Mrd€, uitgaven 7,613 Mrd€. Plenaire stemming vrijdag 27 maart.",
+      "en": "2026 budget approved in Finance Committee (23 March). Deficit €957M, revenue €6.622B, expenditure €7.613B. Plenary vote Friday 27 March.",
+      "de": "Haushalt 2026 im Finanzausschuss genehmigt (23. März). Defizit 957M€, Einnahmen 6,622 Mrd€, Ausgaben 7,613 Mrd€. Plenar-Abstimmung Freitag 27. März."
+    },
+    "summaries": {
+      "fr": "Budget 2026 : 957M€ de déficit, approuvé en commission",
+      "nl": "Begroting 2026: 957M€ tekort, goedgekeurd in commissie",
+      "en": "2026 budget: €957M deficit, approved in committee",
+      "de": "Haushalt 2026: 957M€ Defizit, im Ausschuss genehmigt"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "cleanliness",
+    "descriptions": {
+      "fr": "Réforme Bruxelles-Propreté : sacs jaunes bihebdo, suppression 2e collecte blancs (10 communes), 100 espaces tri, budget 315M€ + 28M€ gare du Midi.",
+      "nl": "Hervorming Net Brussel: gele zakken tweewekelijks, afschaffing 2e ophaling witte zakken (10 gemeenten), 100 sorteerruimtes, budget 315M€ + 28M€ Zuidstation.",
+      "en": "Brussels Waste reform: yellow bags biweekly, 2nd white bag collection cancelled (10 municipalities), 100 sorting spaces, budget €315M + €28M Midi station.",
+      "de": "Reform Brüssel-Sauberkeit: gelbe Säcke zweiwöchentlich, 2. Abholung weiße Säcke gestrichen (10 Gemeinden), 100 Sortierplätze, Budget 315M€ + 28M€ Südbahnhof."
+    },
+    "summaries": {
+      "fr": "Propreté : réforme collecte déchets, 315M€",
+      "nl": "Netheid: hervorming afvalinzameling, 315M€",
+      "en": "Cleanliness: waste collection reform, €315M",
+      "de": "Sauberkeit: Reform Abfallsammlung, 315M€"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "security",
+    "descriptions": {
+      "fr": "100 militaires déployés depuis le 23 mars (3 mois). Agression CPAS Anderlecht (25 mars) dans un contexte de réforme fédérale du chômage.",
+      "nl": "100 militairen ingezet sinds 23 maart (3 maanden). Agressie OCMW Anderlecht (25 maart) in context van federale werkloosheidshervorming.",
+      "en": "100 soldiers deployed since 23 March (3 months). CPAS Anderlecht assault (25 March) amid federal unemployment reform.",
+      "de": "100 Soldaten seit 23. März im Einsatz (3 Monate). Angriff ÖSHZ Anderlecht (25. März) im Kontext der föderalen Arbeitslosenreform."
+    },
+    "summaries": {
+      "fr": "Sécurité : 100 militaires + agression CPAS Anderlecht",
+      "nl": "Veiligheid: 100 militairen + agressie OCMW Anderlecht",
+      "en": "Security: 100 soldiers + CPAS Anderlecht assault",
+      "de": "Sicherheit: 100 Soldaten + Angriff ÖSHZ Anderlecht"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "economy",
+    "descriptions": {
+      "fr": "Visit.brussels : budget réduit de 5,7M€, Fête de l'Iris réduite à 1 jour. Hub.brussels : fermeture de 2/3 des bureaux à l'étranger (non confirmé).",
+      "nl": "Visit.brussels: budget met 5,7M€ verminderd, Irisfeest beperkt tot 1 dag. Hub.brussels: sluiting 2/3 buitenlandse kantoren (niet bevestigd).",
+      "en": "Visit.brussels: budget cut by €5.7M, Iris Festival reduced to 1 day. Hub.brussels: closure of 2/3 foreign offices (unconfirmed).",
+      "de": "Visit.brussels: Budget um 5,7M€ gekürzt, Irisfest auf 1 Tag reduziert. Hub.brussels: Schließung 2/3 der Auslandsbüros (unbestätigt)."
+    },
+    "summaries": {
+      "fr": "Économie : coupes Visit.brussels + Hub.brussels",
+      "nl": "Economie: bezuinigingen Visit.brussels + Hub.brussels",
+      "en": "Economy: Visit.brussels + Hub.brussels cuts",
+      "de": "Wirtschaft: Kürzungen Visit.brussels + Hub.brussels"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "mobility",
+    "descriptions": {
+      "fr": "Bois de la Cambre : PV urbanistique pour blocs béton sans permis (23 mars). LEZ : flou persiste à J-5, système transitoire toujours informel.",
+      "nl": "Ter Kamerenbos: urbanistisch PV voor betonblokken zonder vergunning (23 maart). LEZ: onduidelijkheid houdt aan op D-5, overgangssysteem nog steeds informeel.",
+      "en": "Bois de la Cambre: urbanistic violation notice for concrete blocks without permit (23 March). LEZ: uncertainty persists at D-5, transitional system still informal.",
+      "de": "Bois de la Cambre: Urbanistisches PV für Betonblöcke ohne Genehmigung (23. März). LEZ: Unklarheit hält an bei T-5, Übergangssystem weiterhin informell."
+    },
+    "summaries": {
+      "fr": "Mobilité : PV Bois de la Cambre + LEZ flou J-5",
+      "nl": "Mobiliteit: PV Ter Kamerenbos + LEZ onduidelijk D-5",
+      "en": "Mobility: Bois de la Cambre violation + LEZ D-5 uncertainty",
+      "de": "Mobilität: PV Bois de la Cambre + LEZ Unklarheit T-5"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "institutional",
+    "descriptions": {
+      "fr": "Budget 2026 validé en commission. Tensions MR-Vooruit (Bois de la Cambre, jour 37). Groen : nouveau président Aimen Horch.",
+      "nl": "Begroting 2026 goedgekeurd in commissie. Spanningen MR-Vooruit (Ter Kamerenbos, dag 37). Groen: nieuwe voorzitter Aimen Horch.",
+      "en": "2026 budget approved in committee. MR-Vooruit tensions (Bois de la Cambre, day 37). Groen: new president Aimen Horch.",
+      "de": "Haushalt 2026 im Ausschuss genehmigt. Spannungen MR-Vooruit (Bois de la Cambre, Tag 37). Groen: neuer Vorsitzender Aimen Horch."
+    },
+    "summaries": {
+      "fr": "Institutionnel : budget, tensions coalition, Groen",
+      "nl": "Institutioneel: begroting, coalitiespanningen, Groen",
+      "en": "Institutional: budget, coalition tensions, Groen",
+      "de": "Institutionell: Haushalt, Koalitionsspannungen, Groen"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "social",
+    "descriptions": {
+      "fr": "Tensions CPAS : réforme fédérale du chômage provoque un afflux vers les CPAS bruxellois. Agression CPAS Anderlecht (25 mars).",
+      "nl": "OCMW-spanningen: federale werkloosheidshervorming veroorzaakt toestroom naar Brusselse OCMW's. Agressie OCMW Anderlecht (25 maart).",
+      "en": "CPAS tensions: federal unemployment reform drives influx to Brussels CPAS. Assault at Anderlecht CPAS (25 March).",
+      "de": "ÖSHZ-Spannungen: föderale Arbeitslosenreform verursacht Zustrom zu Brüsseler ÖSHZ. Angriff ÖSHZ Anderlecht (25. März)."
+    },
+    "summaries": {
+      "fr": "Social : tensions CPAS, réforme chômage fédéral",
+      "nl": "Sociaal: OCMW-spanningen, federale werkloosheidshervorming",
+      "en": "Social: CPAS tensions, federal unemployment reform",
+      "de": "Soziales: ÖSHZ-Spannungen, föderale Arbeitslosenreform"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "climate",
+    "descriptions": {
+      "fr": "Gouvernement introduit un recours contre l'arrêt de bouwstop dans les zones vertes (20 mars).",
+      "nl": "Regering tekent beroep aan tegen het bouwstop-arrest in groene zones (20 maart).",
+      "en": "Government appeals ruling on construction freeze in green zones (20 March).",
+      "de": "Regierung legt Berufung gegen Baustopp-Urteil in Grünzonen ein (20. März)."
+    },
+    "summaries": {
+      "fr": "Climat : recours contre bouwstop zones vertes",
+      "nl": "Klimaat: beroep tegen bouwstop groene zones",
+      "en": "Climate: appeal against green zone construction freeze",
+      "de": "Klima: Berufung gegen Baustopp in Grünzonen"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "housing",
+    "descriptions": {
+      "fr": "Audit AIS Saint-Josse : irrégularités signalées par la secrétaire d'État au Logement (22 mars).",
+      "nl": "Audit SVK Sint-Joost: onregelmatigheden gemeld door staatssecretaris voor Huisvesting (22 maart).",
+      "en": "Saint-Josse Social Rental Agency audit: irregularities reported by Secretary of State for Housing (22 March).",
+      "de": "Audit Soziale Immobilienagentur Saint-Josse: Unregelmäßigkeiten von der Staatssekretärin für Wohnungsbau gemeldet (22. März)."
+    },
+    "summaries": {
+      "fr": "Logement : audit AIS Saint-Josse, irrégularités",
+      "nl": "Huisvesting: audit SVK Sint-Joost, onregelmatigheden",
+      "en": "Housing: Saint-Josse rental agency audit, irregularities",
+      "de": "Wohnen: Audit Mietagentur Saint-Josse, Unregelmäßigkeiten"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "metro-3",
+    "descriptions": {
+      "fr": "Commission d'enquête métro 3 : audition du bourgmestre de Bruxelles-Ville (24 mars). Trams Stalingrad poursuivis, chaînon manquant 2027+.",
+      "nl": "Onderzoekscommissie metro 3: verhoor burgemeester Stad Brussel (24 maart). Trams Stalingrad gaan verder, ontbrekende schakel 2027+.",
+      "en": "Metro 3 inquiry commission: Brussels-City mayor heard (24 March). Stalingrad trams continue, missing link 2027+.",
+      "de": "Untersuchungskommission Metro 3: Bürgermeister Stadt Brüssel angehört (24. März). Stalingrad-Trams laufen weiter, fehlendes Glied 2027+."
+    },
+    "summaries": {
+      "fr": "Metro 3 : audition Close, trams Stalingrad poursuivis",
+      "nl": "Metro 3: verhoor Close, trams Stalingrad gaan verder",
+      "en": "Metro 3: Close hearing, Stalingrad trams continue",
+      "de": "Metro 3: Anhörung Close, Stalingrad-Trams laufen weiter"
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "type": "added",
+    "section": "timeline",
+    "targetSlug": "budget-2026-approuve",
+    "descriptions": {
+      "fr": "Événement timeline : budget régional 2026 approuvé en commission des Finances (23 mars). Premier budget complet après 613 jours de crise.",
+      "nl": "Tijdlijnevenement: gewestbegroting 2026 goedgekeurd in commissie Financiën (23 maart). Eerste volledige begroting na 613 dagen crisis.",
+      "en": "Timeline event: 2026 regional budget approved in Finance Committee (23 March). First full budget after 613 days of crisis.",
+      "de": "Zeitachsen-Ereignis: Regionalhaushalt 2026 im Finanzausschuss genehmigt (23. März). Erster vollständiger Haushalt nach 613 Tagen Krise."
+    },
+    "summaries": {
+      "fr": "Timeline : budget 2026 approuvé en commission",
+      "nl": "Tijdlijn: begroting 2026 goedgekeurd in commissie",
+      "en": "Timeline: 2026 budget approved in committee",
+      "de": "Zeitachse: Haushalt 2026 im Ausschuss genehmigt"
+    }
+  },
+  {
     "date": "2026-03-25",
     "type": "updated",
     "section": "domains",

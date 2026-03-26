@@ -8,22 +8,22 @@ const reasons = [
   {
     title: 'Pourquoi j\u2019ai construit BGM',
     description:
-      'Un citoyen d\u2019Anderlecht, aucune formation en journalisme, aucune connexion politique \u2014 juste la conviction qu\u2019un outil manquait.',
+      'Pas par militantisme. Par frustration. Un matin, j\u2019ai cherch\u00e9 \u00e0 comprendre qui avait d\u00e9cid\u00e9 quelque chose dans ma ville \u2014 et je n\u2019ai pas trouv\u00e9. Ce livre commence exactement l\u00e0.',
   },
   {
     title: 'Comment l\u2019IA m\u2019a permis de faire ce qui \u00e9tait impossible seul',
     description:
-      '547 pages, 4 langues, 323 sources, une veille quotidienne \u2014 le r\u00e9cit technique et humain d\u2019une collaboration avec l\u2019intelligence artificielle.',
+      'Surveiller des dizaines de sources institutionnelles, en quatre langues, chaque jour, seul \u2014 c\u2019est math\u00e9matiquement impossible sans automatisation. Ce livre raconte comment s\u2019est construit ce pipeline, semaine apr\u00e8s semaine, essai apr\u00e8s erreur.',
   },
   {
     title: 'Ce que la complexit\u00e9 bruxelloise dit de notre d\u00e9mocratie',
     description:
-      'F\u00e9d\u00e9ral, r\u00e9gional, communal, communautaire \u2014 pourquoi personne ne comprend qui d\u00e9cide quoi, et pourquoi c\u2019est un probl\u00e8me.',
+      'Bruxelles n\u2019est pas opaque parce que quelqu\u2019un a d\u00e9cid\u00e9 de cacher quoi que ce soit. Elle est opaque parce que personne n\u2019a eu int\u00e9r\u00eat \u00e0 rendre \u00e7a simple. C\u2019est une distinction importante \u2014 et elle change tout.',
   },
   {
-    title: 'Les limites \u2014 techniques, \u00e9thiques, humaines',
+    title: 'Les limites',
     description:
-      'Ce que l\u2019IA ne sait pas faire. Ce qu\u2019un citoyen seul ne peut pas couvrir. Les choix \u00e9ditoriaux qui m\u2019ont emp\u00each\u00e9 de dormir.',
+      'Ce qu\u2019un citoyen seul ne peut structurellement pas faire. Les biais que l\u2019automatisation introduit sans qu\u2019on le veuille. Et les choix que j\u2019ai d\u00fb assumer \u2014 sur ce que BGM publie, et sur ce qu\u2019il ne publiera jamais.',
   },
 ];
 
@@ -52,7 +52,7 @@ export default function LivrePage() {
           <h1 className="text-4xl font-bold tracking-tight text-[#1B3A6B] md:text-5xl">
             La Lasagne
           </h1>
-          <p className="mt-2 text-lg font-medium text-[#1B3A6B]/70 italic">
+          <p className="mt-2 text-lg font-medium text-[#1B3A6B] italic">
             Ce qu&rsquo;une crise politique m&rsquo;a appris sur la
             d&eacute;mocratie, les citoyens et l&rsquo;intelligence
             artificielle.

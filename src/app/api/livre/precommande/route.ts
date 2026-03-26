@@ -47,7 +47,7 @@ Tu seras parmi les premiers inform&eacute;s de la date de parution et du prix d&
 &rarr; <a href="https://www.linkedin.com/newsletters/le-signal-bgm-7430513857359527936/" style="color:#1B3A6B;text-decoration:underline;">Le Signal</a> &mdash; la newsletter hebdomadaire BGM sur LinkedIn
 </td></tr>
 <tr><td style="padding:4px 0;font-size:14px;line-height:1.5;color:#374151;">
-&rarr; <a href="https://podcast.governance.brussels" style="color:#1B3A6B;text-decoration:underline;">Le Briefing BGM</a> &mdash; le podcast
+&rarr; <a href="https://podcast.governance.brussels/@lebriefingbgm/episodes" style="color:#1B3A6B;text-decoration:underline;">Le Briefing BGM</a> &mdash; le podcast
 </td></tr>
 </table>
 
@@ -57,9 +57,16 @@ Tu seras parmi les premiers inform&eacute;s de la date de parution et du prix d&
 </td></tr>
 
 <!-- Footer -->
-<tr><td style="padding:16px 32px;border-top:1px solid #e5e7eb;text-align:center;">
+<tr><td style="padding:20px 32px;border-top:1px solid #e5e7eb;">
+<p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:#6b7280;">
+Je construis des outils pour rendre la gouvernance bruxelloise lisible. Si tu travailles sur quelque chose qui touche &agrave; la transparence, &agrave; l&rsquo;intelligence territoriale, ou &agrave; la communication institutionnelle &mdash; je suis preneur d&rsquo;un &eacute;change.
+</p>
+<p style="margin:0 0 12px;font-size:13px;color:#6b7280;">
+Tu peux aussi soutenir BGM directement&nbsp;:<br>
+<a href="https://governance.brussels/soutenir" style="color:#1B3A6B;text-decoration:underline;">governance.brussels/soutenir</a>
+</p>
 <p style="margin:0;font-size:12px;color:#9ca3af;">
-governance.brussels &middot; Anderlecht, Bruxelles
+<a href="https://governance.brussels" style="color:#9ca3af;text-decoration:underline;">governance.brussels</a> &middot; <a href="mailto:contact@brusselsgovernance.be" style="color:#9ca3af;text-decoration:underline;">contact@brusselsgovernance.be</a>
 </p>
 </td></tr>
 

@@ -44,9 +44,11 @@ export async function GET(
     };
 
     // Pagefind binary files are already gzip-compressed internally.
-    // Tell the server/CDN not to re-compress them (double gzip = corrupt data).
+    // Pagefind JS decompresses them itself. We must prevent the CDN/browser
+    // from touching the encoding — identity = "serve raw bytes, no transform".
     if (PRECOMPRESSED.has(ext)) {
-      headers['Content-Encoding'] = 'gzip';
+      headers['Content-Encoding'] = 'identity';
+      headers['Cache-Control'] = 'public, max-age=86400, s-maxage=86400, no-transform';
     }
 
     return new NextResponse(data, { headers });

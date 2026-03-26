@@ -8,7 +8,7 @@
     "velite": "velite",
     "dev": "velite && next dev",
     "build": "velite --clean && next build",
-    "postbuild": "pagefind --site .next/server/app --output-path public/pagefind",
+    "postbuild": "pagefind --site .next/server/app --output-path .next/static/pagefind",
     "start": "next start",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",

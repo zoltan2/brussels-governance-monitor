@@ -13,6 +13,8 @@ import { TableOfContents } from '@/components/table-of-contents';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { useTranslations } from 'next-intl';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const slugs = getAllArchiveSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));

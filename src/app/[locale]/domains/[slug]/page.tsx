@@ -29,6 +29,8 @@ import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const slugs = getAllDomainSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));

@@ -22,6 +22,8 @@ import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const slugs = getAllCommuneSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));

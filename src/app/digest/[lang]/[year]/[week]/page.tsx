@@ -17,6 +17,8 @@ interface DigestPageProps {
   params: Promise<{ lang: string; year: string; week: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const weeks = getAllDigestWeeks();
   const langs = getAllDigestLangs();

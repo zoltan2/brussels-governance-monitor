@@ -20,6 +20,8 @@ import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { Breadcrumb } from '@/components/breadcrumb';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const slugs = getAllSolutionSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));

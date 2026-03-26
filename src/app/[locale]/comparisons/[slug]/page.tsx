@@ -18,6 +18,8 @@ import { FeedbackButton } from '@/components/feedback-button';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { Breadcrumb } from '@/components/breadcrumb';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const slugs = getAllComparisonSlugs();
   return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));

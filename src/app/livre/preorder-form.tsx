@@ -44,13 +44,13 @@ export function PreorderForm() {
 
   if (state === 'success') {
     return (
-      <div className="rounded-lg bg-[#1B3A6B]/5 p-6 text-center">
-        <p className="text-base font-medium text-[#1B3A6B]">
+      <div className="rounded-lg bg-white/10 p-6 text-center">
+        <p className="text-base font-medium text-white">
           Merci {confirmedName}&nbsp;!
         </p>
-        <p className="mt-2 text-sm text-neutral-600">
-          Ta pr&eacute;commande est enregistr&eacute;e. Un email de
-          confirmation arrive dans ta bo&icirc;te.
+        <p className="mt-2 text-sm text-white/80">
+          Ta précommande est enregistrée. Un email de confirmation arrive dans
+          ta boîte.
         </p>
       </div>
     );
@@ -61,7 +61,7 @@ export function PreorderForm() {
       <div>
         <label
           htmlFor="preorder-firstname"
-          className="mb-1 block text-sm font-medium text-neutral-700"
+          className="mb-1 block text-sm font-medium text-white"
         >
           Prénom
         </label>
@@ -71,7 +71,7 @@ export function PreorderForm() {
           required
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
-          className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus:border-[#1B3A6B] focus:bg-white focus:ring-1 focus:ring-[#1B3A6B] focus:outline-none"
+          className="w-full rounded-md border border-white/20 bg-white px-3 py-2 text-sm text-[#1A2744] placeholder:text-[#4A5568] focus:border-[#F2A900] focus:ring-1 focus:ring-[#F2A900] focus:outline-none"
           placeholder="Ton prénom"
           disabled={state === 'loading'}
         />
@@ -80,7 +80,7 @@ export function PreorderForm() {
       <div>
         <label
           htmlFor="preorder-email"
-          className="mb-1 block text-sm font-medium text-neutral-700"
+          className="mb-1 block text-sm font-medium text-white"
         >
           Email
         </label>
@@ -90,14 +90,14 @@ export function PreorderForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus:border-[#1B3A6B] focus:bg-white focus:ring-1 focus:ring-[#1B3A6B] focus:outline-none"
+          className="w-full rounded-md border border-white/20 bg-white px-3 py-2 text-sm text-[#1A2744] placeholder:text-[#4A5568] focus:border-[#F2A900] focus:ring-1 focus:ring-[#F2A900] focus:outline-none"
           placeholder="ton@email.be"
           disabled={state === 'loading'}
         />
       </div>
 
       {state === 'error' && (
-        <p className="text-sm text-red-600" role="alert">
+        <p className="text-sm text-[#F2A900]" role="alert">
           {errorMsg}
         </p>
       )}
@@ -105,10 +105,10 @@ export function PreorderForm() {
       <button
         type="submit"
         disabled={state === 'loading'}
-        className="w-full rounded-md bg-[#1B3A6B] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1B3A6B]/90 disabled:opacity-60"
+        className="w-full rounded-md bg-[#F2A900] px-4 py-3 text-sm font-bold text-[#0F2140] transition-colors hover:bg-[#F2A900]/90 disabled:opacity-60"
       >
         {state === 'loading'
-          ? 'Envoi en cours\u2026'
+          ? 'Envoi en cours…'
           : 'Je précommande La Lasagne'}
       </button>
     </form>

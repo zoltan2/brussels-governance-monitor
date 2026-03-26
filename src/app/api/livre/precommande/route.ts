@@ -129,7 +129,7 @@ export async function POST(request: Request) {
       resend.emails.send({
         from: EMAIL_FROM,
         to: email,
-        subject: 'Ta precommande de "La Lasagne" est confirmee',
+        subject: 'Ta précommande de "La Lasagne" est confirmée',
         html: buildConfirmationEmail(firstName),
         tags: [
           { name: 'type', value: 'livre-precommande' },

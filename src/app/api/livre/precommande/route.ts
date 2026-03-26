@@ -114,17 +114,13 @@ export async function POST(request: Request) {
 
     const resend = getResend();
 
-    // Add contact with preorder tag
-    // TODO: add RESEND_AUDIENCE_ID to .env.local if a separate audience is desired
+    // Add contact — no custom properties (must be pre-defined in Resend audience)
+    // The email tag 'livre-precommande' identifies preorder contacts
     await resendCall(() =>
       resend.contacts.create({
         email,
         firstName,
         unsubscribed: false,
-        properties: {
-          source: 'livre-precommande',
-          preorderDate: new Date().toISOString().slice(0, 10),
-        },
       }),
     );
 

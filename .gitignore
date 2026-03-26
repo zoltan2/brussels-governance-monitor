@@ -13,8 +13,9 @@ dist/
 # Velite generated
 .velite/
 
-# Pagefind generated
+# Pagefind (old output locations — no longer used)
 public/pagefind/
+.next/static/pagefind/
 
 # Environment
 .env

@@ -61,12 +61,12 @@ export default function LivrePage() {
           </p>
 
           <blockquote className="mt-6 border-l-4 border-[#F2A900] pl-4 text-base leading-relaxed text-[#1A2744]">
-            Bruxelles est la r&eacute;gion la plus complexe de Belgique. Et
-            pourtant, aucun outil citoyen n&rsquo;existait pour suivre ce qui
-            s&rsquo;y d&eacute;cide. Ce livre raconte comment un citoyen
-            ordinaire a construit BGM &mdash; avec l&rsquo;IA, seul, depuis
-            Anderlecht &mdash; et ce que cette aventure dit de notre
-            d&eacute;mocratie.
+            Bruxelles a tenu 613 jours sans gouvernement r&eacute;gional.
+            Pendant ce temps, aucun outil citoyen n&rsquo;existait pour suivre
+            ce qui s&rsquo;y d&eacute;cidait, ou pas. Ce livre raconte
+            pourquoi c&rsquo;est scandaleux, comment un individu seul a
+            combl&eacute; ce vide avec l&rsquo;IA, et ce que &ccedil;a
+            r&eacute;v&egrave;le sur nos d&eacute;mocraties.
           </blockquote>
         </div>
       </div>
@@ -90,6 +90,43 @@ export default function LivrePage() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Target audience */}
+      <section className="mt-16">
+        <h2 className="mb-8 text-center text-2xl font-bold text-[#1B3A6B]">
+          Ce livre s&rsquo;adresse &agrave; vous si vous &ecirc;tes
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="flex items-start gap-3 rounded-lg border border-[#E0E6F0] bg-white p-5">
+            <span className="mt-0.5 text-[#F2A900]" aria-hidden="true">&rarr;</span>
+            <p className="text-sm leading-relaxed text-[#1A2744]">
+              <strong className="text-[#1B3A6B]">Citoyen bruxellois</strong> qui
+              veut comprendre sans se perdre
+            </p>
+          </div>
+          <div className="flex items-start gap-3 rounded-lg border border-[#E0E6F0] bg-white p-5">
+            <span className="mt-0.5 text-[#F2A900]" aria-hidden="true">&rarr;</span>
+            <p className="text-sm leading-relaxed text-[#1A2744]">
+              <strong className="text-[#1B3A6B]">Journaliste ou acteur associatif</strong> qui
+              travaille avec cette information
+            </p>
+          </div>
+          <div className="flex items-start gap-3 rounded-lg border border-[#E0E6F0] bg-white p-5">
+            <span className="mt-0.5 text-[#F2A900]" aria-hidden="true">&rarr;</span>
+            <p className="text-sm leading-relaxed text-[#1A2744]">
+              <strong className="text-[#1B3A6B]">&Eacute;lu ou fonctionnaire</strong> interpell&eacute;
+              par la question de la lisibilit&eacute;
+            </p>
+          </div>
+          <div className="flex items-start gap-3 rounded-lg border border-[#E0E6F0] bg-white p-5">
+            <span className="mt-0.5 text-[#F2A900]" aria-hidden="true">&rarr;</span>
+            <p className="text-sm leading-relaxed text-[#1A2744]">
+              <strong className="text-[#1B3A6B]">Builder ou strat&egrave;ge</strong> qui se demande
+              si c&rsquo;est reproductible ailleurs
+            </p>
+          </div>
         </div>
       </section>
 

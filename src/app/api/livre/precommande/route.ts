@@ -114,13 +114,14 @@ export async function POST(request: Request) {
 
     const resend = getResend();
 
-    // Add contact — no custom properties (must be pre-defined in Resend audience)
-    // The email tag 'livre-precommande' identifies preorder contacts
     await resendCall(() =>
       resend.contacts.create({
         email,
         firstName,
         unsubscribed: false,
+        properties: {
+          source: 'livre-precommande',
+        },
       }),
     );
 

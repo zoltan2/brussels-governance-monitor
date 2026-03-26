@@ -45,11 +45,11 @@ export function Search() {
 
   useEffect(() => {
     if (open && !pagefind) {
-      // Dynamically load pagefind (served via API route from public/pagefind/)
+      // Dynamically load pagefind (Vercel rewrites /pagefind/* → /api/pagefind/*)
       // @ts-expect-error -- pagefind is generated at build time, no TS declarations
-      import(/* webpackIgnore: true */ '/api/pagefind/pagefind.js')
+      import(/* webpackIgnore: true */ '/pagefind/pagefind.js')
         .then((pf) => {
-          pf.init({ bundlePath: '/api/pagefind/' });
+          pf.init();
           setPagefind(pf);
         })
         .catch((err) => {

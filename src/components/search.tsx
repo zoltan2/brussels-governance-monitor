@@ -49,11 +49,11 @@ export function Search() {
       // @ts-expect-error -- pagefind is generated at build time, no TS declarations
       import(/* webpackIgnore: true */ '/api/pagefind/pagefind.js')
         .then((pf) => {
-          pf.init();
+          pf.init({ bundlePath: '/api/pagefind/' });
           setPagefind(pf);
         })
-        .catch(() => {
-          // Pagefind not available (dev mode or not yet indexed)
+        .catch((err) => {
+          console.error('Pagefind load error:', err);
         });
     }
   }, [open, pagefind]);

@@ -19,6 +19,7 @@ import type { DossierCard as DossierCardType, SectorCard as SectorCardType } fro
 import type { LocalizedRadarEntry } from '@/lib/radar';
 import { buildMetadata } from '@/lib/metadata';
 import { SupportCtaHome } from '@/components/support-cta';
+import { BookBanner } from '@/components/book-banner';
 import {
   Radio,
   BookOpen,
@@ -120,6 +121,8 @@ export default async function HomePage({
       <DomainsPreview domainCards={recentDomains} locale={locale} totalCount={domainCards.length} />
 
       <SectorsPreview sectorCards={recentSectors} totalCount={sectorCards.length} />
+
+      <BookBanner />
 
       <SupportCtaHome />
 

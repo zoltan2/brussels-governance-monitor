@@ -1,5 +1,113 @@
 [
   {
+    "date": "2026-03-27",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "budget",
+    "descriptions": {
+      "fr": "Deutsche Bank accorde 250M EUR à la Région (3 ans) — première banque internationale, signal de confiance. Total nouvelles lignes : 300M EUR (+ Belfius 50M).",
+      "nl": "Deutsche Bank verleent 250M EUR aan het Gewest (3 jaar) — eerste internationale bank, vertrouwenssignaal. Totaal nieuwe kredietlijnen: 300M EUR (+ Belfius 50M).",
+      "en": "Deutsche Bank grants €250M credit line to the Region (3 years) — first international bank, confidence signal. Total new lines: €300M (+ Belfius €50M).",
+      "de": "Deutsche Bank gewährt dem Gewest 250M EUR (3 Jahre) — erste internationale Bank, Vertrauenssignal. Neue Kreditlinien gesamt: 300M EUR (+ Belfius 50M)."
+    },
+    "summaries": {
+      "fr": "Budget : Deutsche Bank 250M EUR, confiance retrouvée",
+      "nl": "Begroting: Deutsche Bank 250M EUR, vertrouwen hersteld",
+      "en": "Budget: Deutsche Bank €250M, restored confidence",
+      "de": "Haushalt: Deutsche Bank 250M EUR, wiederhergestelltes Vertrauen"
+    }
+  },
+  {
+    "date": "2026-03-27",
+    "type": "corrected",
+    "section": "domains",
+    "targetSlug": "security",
+    "descriptions": {
+      "fr": "Correction : 200 militaires déployés (pas 100). ~600 personnes en rotation. Accord Quintin (MR) + Francken (N-VA). Missions : sites juifs, FIPA, police ferroviaire.",
+      "nl": "Correctie: 200 militairen ingezet (niet 100). ~600 personen in rotatie. Akkoord Quintin (MR) + Francken (N-VA). Missies: Joodse sites, FIPA, spoorwegpolitie.",
+      "en": "Correction: 200 soldiers deployed (not 100). ~600 personnel in rotation. Quintin (MR) + Francken (N-VA) agreement. Missions: Jewish sites, FIPA, railway police.",
+      "de": "Korrektur: 200 Soldaten im Einsatz (nicht 100). ~600 Personen in Rotation. Abkommen Quintin (MR) + Francken (N-VA). Einsätze: jüdische Einrichtungen, FIPA, Bahnpolizei."
+    },
+    "summaries": {
+      "fr": "Sécurité : correction 200 militaires (pas 100)",
+      "nl": "Veiligheid: correctie 200 militairen (niet 100)",
+      "en": "Security: correction 200 soldiers (not 100)",
+      "de": "Sicherheit: Korrektur 200 Soldaten (nicht 100)"
+    }
+  },
+  {
+    "date": "2026-03-27",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "economy",
+    "descriptions": {
+      "fr": "Hub.brussels : coupes confirmées par le ministre Hublet (BX1). Budget international 10,2M EUR, économies 6M EUR d'ici 2029 (⅔), 33 bureaux menacés. Visit Brussels : trajectoire 22→8M EUR d'ici 2029, ~90 postes sur 160.",
+      "nl": "Hub.brussels: besparingen bevestigd door minister Hublet (BX1). Internationaal budget 10,2M EUR, besparingen 6M EUR tegen 2029 (⅔), 33 kantoren bedreigd. Visit Brussels: traject 22→8M EUR tegen 2029, ~90 banen van 160.",
+      "en": "Hub.brussels: cuts confirmed by Minister Hublet (BX1). International budget €10.2M, savings €6M by 2029 (⅔), 33 offices threatened. Visit Brussels: trajectory €22→8M by 2029, ~90 of 160 jobs at risk.",
+      "de": "Hub.brussels: Kürzungen bestätigt durch Minister Hublet (BX1). Internationales Budget 10,2M EUR, Einsparungen 6M EUR bis 2029 (⅔), 33 Büros bedroht. Visit Brussels: Entwicklung 22→8M EUR bis 2029, ~90 von 160 Stellen gefährdet."
+    },
+    "summaries": {
+      "fr": "Économie : Hub.brussels confirmé, Visit Brussels trajectoire",
+      "nl": "Economie: Hub.brussels bevestigd, Visit Brussels traject",
+      "en": "Economy: Hub.brussels confirmed, Visit Brussels trajectory",
+      "de": "Wirtschaft: Hub.brussels bestätigt, Visit Brussels Entwicklung"
+    }
+  },
+  {
+    "date": "2026-03-27",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "mobility",
+    "descriptions": {
+      "fr": "LEZ 1er avril : amendes 350 EUR/an Euro 5/2 confirmées. Groen bloque les exceptions BIM (30 % des Bruxellois). PS/Vooruit les réclamaient. « Champ de mines ». Cadre réformé visé pour janvier 2027.",
+      "nl": "LEZ 1 april: boetes 350 EUR/jaar Euro 5/2 bevestigd. Groen blokkeert BIM-vrijstellingen (30 % Brusselaars). PS/Vooruit eisten ze. « Mijnenveld ». Hervormd kader beoogd voor januari 2027.",
+      "en": "LEZ April 1: €350/year fines Euro 5/2 confirmed. Groen blocks BIM exceptions (30% of Brussels residents). PS/Vooruit demanded them. 'Minefield'. Reformed framework targeted for January 2027.",
+      "de": "LEZ 1. April: Bußgelder 350 EUR/Jahr Euro 5/2 bestätigt. Groen blockiert BIM-Ausnahmen (30 % der Brüsseler). PS/Vooruit forderten sie. « Minenfeld ». Reformierter Rahmen für Januar 2027 anvisiert."
+    },
+    "summaries": {
+      "fr": "Mobilité : LEZ fracture Groen/PS sur exceptions sociales",
+      "nl": "Mobiliteit: LEZ breuk Groen/PS over sociale uitzonderingen",
+      "en": "Mobility: LEZ Groen/PS fracture over social exceptions",
+      "de": "Mobilität: LEZ-Bruch Groen/PS über Sozialausnahmen"
+    }
+  },
+  {
+    "date": "2026-03-27",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "institutional",
+    "descriptions": {
+      "fr": "2e fracture coalition (jour 43) : LEZ exceptions sociales BIM. Groen bloque, PS/Vooruit réclament. Plus profond que le Bois de la Cambre (jour 37).",
+      "nl": "2e coalitiebreuk (dag 43): LEZ sociale BIM-uitzonderingen. Groen blokkeert, PS/Vooruit eisen. Dieper dan Ter Kamerenbos (dag 37).",
+      "en": "2nd coalition fracture (day 43): LEZ social BIM exceptions. Groen blocks, PS/Vooruit demand. Deeper than Bois de la Cambre (day 37).",
+      "de": "2. Koalitionsbruch (Tag 43): LEZ soziale BIM-Ausnahmen. Groen blockiert, PS/Vooruit fordern. Tiefer als Ter Kamerenbos (Tag 37)."
+    },
+    "summaries": {
+      "fr": "Institutionnel : 2e fracture coalition LEZ",
+      "nl": "Institutioneel: 2e coalitiebreuk LEZ",
+      "en": "Institutional: 2nd coalition fracture LEZ",
+      "de": "Institutionell: 2. Koalitionsbruch LEZ"
+    }
+  },
+  {
+    "date": "2026-03-27",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "cleanliness",
+    "descriptions": {
+      "fr": "Réforme déchets enrichie : sacs oranges bihebdo (quartiers denses). Impact RH : 65 éboueurs réaffectables, 250+ postes vacants, risque ⅓ tournées. Mise en œuvre pas avant 2027.",
+      "nl": "Afvalhervorming verrijkt: oranje zakken tweewekelijks (dichte wijken). HR-impact: 65 werknemers herplaatsbaar, 250+ vacatures, risico ⅓ rondes. Invoering niet vóór 2027.",
+      "en": "Waste reform enriched: orange bags biweekly (dense neighborhoods). HR impact: 65 workers reassignable, 250+ vacancies, risk of losing ⅓ routes. Implementation not before 2027.",
+      "de": "Abfallreform ergänzt: orangene Säcke zweiwöchentlich (dichte Viertel). Personal-Auswirkung: 65 Arbeiter umsetzbar, 250+ Vakanzen, Risiko ⅓ Routen. Umsetzung nicht vor 2027."
+    },
+    "summaries": {
+      "fr": "Propreté : réforme enrichie, impact RH",
+      "nl": "Netheid: verrijkte hervorming, HR-impact",
+      "en": "Cleanliness: enriched reform, HR impact",
+      "de": "Sauberkeit: ergänzte Reform, Personal-Auswirkung"
+    }
+  },
+  {
     "date": "2026-03-26",
     "type": "updated",
     "section": "dossiers",

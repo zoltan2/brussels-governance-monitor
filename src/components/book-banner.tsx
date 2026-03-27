@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export function BookBanner() {
@@ -40,13 +41,13 @@ export function BookBanner() {
                 vide avec l&rsquo;IA, et ce que &ccedil;a
                 r&eacute;v&egrave;le sur nos d&eacute;mocraties.
               </p>
-              <a
+              <Link
                 href="/livre"
                 className="mt-5 inline-flex items-center gap-1.5 rounded-lg border border-brand-700 bg-brand-700 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-900"
               >
                 Pr&eacute;commander
                 <ArrowRight size={14} aria-hidden={true} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -2057,5 +2057,22 @@
     "close": "Schließen",
     "open": "Barrierefreiheit",
     "fontScale": "Textgröße"
+  },
+  "graph": {
+    "title": "Karte der Brüsseler Regierungsführung",
+    "accessibleListTitle": "Textliste der Knoten und Verbindungen",
+    "connections": "Verbindungen",
+    "viewPage": "Vollständige Seite anzeigen",
+    "close": "Schließen",
+    "status": {
+      "ongoing": "Laufend",
+      "blocked": "Blockiert",
+      "delayed": "Verzögert",
+      "resolved": "Gelöst"
+    },
+    "type": {
+      "domain": "Bereich",
+      "dossier": "Dossier"
+    }
   }
 }

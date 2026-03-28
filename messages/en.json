@@ -2057,5 +2057,22 @@
     "close": "Close",
     "open": "Accessibility",
     "fontScale": "Text size"
+  },
+  "graph": {
+    "title": "Brussels governance map",
+    "accessibleListTitle": "Text list of nodes and connections",
+    "connections": "Connections",
+    "viewPage": "View full page",
+    "close": "Close",
+    "status": {
+      "ongoing": "Ongoing",
+      "blocked": "Blocked",
+      "delayed": "Delayed",
+      "resolved": "Resolved"
+    },
+    "type": {
+      "domain": "Domain",
+      "dossier": "Dossier"
+    }
   }
 }

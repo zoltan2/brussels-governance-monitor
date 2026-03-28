@@ -2058,5 +2058,22 @@
     "close": "Fermer",
     "open": "Accessibilité",
     "fontScale": "Taille du texte"
+  },
+  "graph": {
+    "title": "Carte de la gouvernance bruxelloise",
+    "accessibleListTitle": "Liste textuelle des nœuds et connexions",
+    "connections": "Connexions",
+    "viewPage": "Voir la fiche complète",
+    "close": "Fermer",
+    "status": {
+      "ongoing": "En cours",
+      "blocked": "Bloqué",
+      "delayed": "Retardé",
+      "resolved": "Résolu"
+    },
+    "type": {
+      "domain": "Domaine",
+      "dossier": "Dossier"
+    }
   }
 }

@@ -19,6 +19,8 @@ export interface DomainCard {
   changeType?: string;
   changeSummary?: string;
   summaryFalc?: string;
+  graphPosition?: { x: number; y: number };
+  graphShortLabel?: string;
   draft: boolean;
   content: string;
   permalink: string;
@@ -193,6 +195,8 @@ export interface DossierCard {
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
   dprCommitment?: string;
+  graphPosition?: { x: number; y: number };
+  graphShortLabel?: string;
   lastModified: string;
   draft: boolean;
   content: string;

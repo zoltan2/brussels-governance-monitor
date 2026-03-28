@@ -39,6 +39,8 @@ const domainCards = defineCollection({
       changeType: s.enum(['new', 'updated', 'status-change', 'data-refresh']).optional(),
       changeSummary: s.string().optional(),
       summaryFalc: s.string().max(200).optional(),
+      graphPosition: s.object({ x: s.number(), y: s.number() }).optional(),
+      graphShortLabel: s.string().max(30).optional(),
       draft: s.boolean().default(false),
       content: s.mdx(),
     })
@@ -400,6 +402,8 @@ const dossierCards = defineCollection({
         .default([]),
       confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']),
       dprCommitment: s.string().optional(),
+      graphPosition: s.object({ x: s.number(), y: s.number() }).optional(),
+      graphShortLabel: s.string().max(30).optional(),
       lastModified: s.isodate(),
       draft: s.boolean().default(false),
       content: s.mdx(),

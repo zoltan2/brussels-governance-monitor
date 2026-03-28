@@ -27,6 +27,7 @@ import { CollapsibleMetrics } from '@/components/collapsible-metrics';
 import { CollapsibleSources } from '@/components/collapsible-sources';
 import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { BGMMapLoader } from '@/components/bgm-map-loader';
 
 
 export const dynamicParams = false;
@@ -216,6 +217,8 @@ function DomainDetail({
         <div className="mb-4">
           <DomainTags domain={card.slug} locale={locale} />
         </div>
+
+        <BGMMapLoader locale={locale} mode="domain-detail" focusSlug={card.domain} />
 
         {/* FALC — collapsible, closed by default */}
         {card.summaryFalc && (

@@ -7,6 +7,7 @@ import { getDomainCards } from '@/lib/content';
 import { DomainCard } from '@/components/domain-card';
 import { routing } from '@/i18n/routing';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { BGMMapLoader } from '@/components/bgm-map-loader';
 import { formatDate } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
 import type { Locale } from '@/i18n/routing';
@@ -91,6 +92,8 @@ function DomainsView({
             </p>
           )}
         </div>
+
+        <BGMMapLoader locale={locale} mode="domains" />
 
         <div className="grid gap-6 md:grid-cols-2">
           {domainCards.map((card) => (

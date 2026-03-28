@@ -20,6 +20,7 @@ import type { LocalizedRadarEntry } from '@/lib/radar';
 import { buildMetadata } from '@/lib/metadata';
 import { SupportCtaHome } from '@/components/support-cta';
 import { BookBanner } from '@/components/book-banner';
+import { BGMMapLoader } from '@/components/bgm-map-loader';
 import {
   Radio,
   BookOpen,
@@ -115,6 +116,8 @@ export default async function HomePage({
       />
 
       <DashboardCta />
+
+      <BGMMapLoader locale={locale} mode="homepage" />
 
       <DossiersPreview dossierCards={recentDossiers} locale={locale} totalCount={dossierCards.length} />
 

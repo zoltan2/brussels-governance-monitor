@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
+'use client';
+
 import dynamic from 'next/dynamic';
 import { generateGraphData } from '@/lib/graph';
 import { useTranslations } from 'next-intl';

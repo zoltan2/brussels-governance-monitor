@@ -107,18 +107,23 @@ export default async function DataPage({
 
   for (const card of domainCards) {
     if (card.metrics.length === 0) continue;
-    const rows: MetricRow[] = card.metrics.map((m) => ({
-      domain: card.title.split(':')[0]?.trim() ?? card.title,
-      domainTitle: card.title,
-      label: m.label,
-      value: m.value,
-      unit: m.unit || '',
-      source: m.source,
-      sourceUrl: card.sources[0]?.url ?? '',
-      date: m.date,
-      confidence: card.confidenceLevel,
-      cardType: 'domain',
-    }));
+    const rows: MetricRow[] = card.metrics.map((m) => {
+      const matchedSource = card.sources.find((s) =>
+        m.source && s.label.toLowerCase().includes(m.source.split('—')[0].trim().toLowerCase().slice(0, 20))
+      );
+      return {
+        domain: card.title.split(':')[0]?.trim() ?? card.title,
+        domainTitle: card.title,
+        label: m.label,
+        value: m.value,
+        unit: m.unit || '',
+        source: m.source,
+        sourceUrl: matchedSource?.url ?? card.sources[0]?.url ?? '',
+        date: m.date,
+        confidence: card.confidenceLevel,
+        cardType: 'domain',
+      };
+    });
     groupMap.set(card.domain, {
       domainKey: card.domain,
       domainTitle: card.title.split(':')[0]?.trim() ?? card.title,
@@ -132,18 +137,23 @@ export default async function DataPage({
   for (const card of dossierCards) {
     if (card.metrics.length === 0) continue;
     const parentKey = card.relatedDomains[0] ?? 'institutional';
-    const rows: MetricRow[] = card.metrics.map((m) => ({
-      domain: card.title.split(':')[0]?.trim() ?? card.title,
-      domainTitle: card.title,
-      label: m.label,
-      value: m.value,
-      unit: m.unit || '',
-      source: m.source,
-      sourceUrl: card.sources[0]?.url ?? '',
-      date: m.date,
-      confidence: card.confidenceLevel,
-      cardType: 'dossier',
-    }));
+    const rows: MetricRow[] = card.metrics.map((m) => {
+      const matchedSource = card.sources.find((s) =>
+        m.source && s.label.toLowerCase().includes(m.source.split('—')[0].trim().toLowerCase().slice(0, 20))
+      );
+      return {
+        domain: card.title.split(':')[0]?.trim() ?? card.title,
+        domainTitle: card.title,
+        label: m.label,
+        value: m.value,
+        unit: m.unit || '',
+        source: m.source,
+        sourceUrl: matchedSource?.url ?? card.sources[0]?.url ?? '',
+        date: m.date,
+        confidence: card.confidenceLevel,
+        cardType: 'dossier',
+      };
+    });
     const dossierSection: DossierSection = {
       title: card.title.split(':')[0]?.trim() ?? card.title,
       slug: card.slug,

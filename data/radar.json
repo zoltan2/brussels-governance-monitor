@@ -1,6 +1,34 @@
 {
-  "lastVeille": "2026-03-28",
+  "lastVeille": "2026-03-29",
   "entries": [
+    {
+      "id": "2026-03-29-ais-saint-josse-parquet",
+      "date": "2026-03-22",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["housing"],
+      "source": {
+        "label": "BX1 — Audit AIS Saint-Josse transmis au parquet (27 mars 2026)",
+        "url": "https://bx1.be",
+        "accessedAt": "2026-03-29"
+      },
+      "nextStep": {
+        "fr": "Enquête parquetale en cours. Résultats de l'audit non publics (données personnelles). Impact sur les 24 AIS à surveiller.",
+        "nl": "Gerechtelijk onderzoek lopende. Auditresultaten niet openbaar (persoonsgegevens). Impact op de 24 SVK's opvolgen.",
+        "en": "Prosecution investigation ongoing. Audit results not public (personal data). Monitor impact on all 24 social letting agencies.",
+        "de": "Staatsanwaltschaftliche Ermittlung läuft. Audit nicht öffentlich (Datenschutz). Auswirkungen auf alle 24 SVK beobachten."
+      },
+      "descriptions": {
+        "fr": "Audit AIS Saint-Josse : soupçons de fraudes dans l'attribution de logements. Dossier transmis au parquet de Bruxelles (fév. 2026). Bruxelles Logement dépose plainte et se constitue partie civile.",
+        "nl": "Audit SVK Sint-Joost: vermoedens van fraude bij woningtoewijzing. Dossier overgemaakt aan parket Brussel (feb. 2026). Brussel Huisvesting dient klacht in en stelt zich burgerlijke partij.",
+        "en": "AIS Saint-Josse audit: suspected fraud in housing allocation. File referred to Brussels prosecutor (Feb 2026). Bruxelles Logement files complaint and becomes civil party.",
+        "de": "Audit SVK Sint-Joost: Betrugsverdacht bei Wohnungszuweisung. Akte an Brüsseler Staatsanwaltschaft übergeben (Feb. 2026). Bruxelles Logement erstattet Klage und wird Zivilpartei."
+      },
+      "promotedTo": null,
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-28-lez-suspension-amendes",
       "date": "2026-03-27",

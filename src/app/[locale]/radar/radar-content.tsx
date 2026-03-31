@@ -204,7 +204,15 @@ function SignalCard({
             {labels.seeCard}
           </Link>
         )}
-        {signal.promotedTo && promotedSection !== 'dossiers' && promotedSection !== 'communes' && (
+        {signal.promotedTo && promotedSection === 'sectors' && (
+          <Link
+            href={{ pathname: '/sectors/[slug]', params: { slug: signal.promotedTo } }}
+            className="font-medium text-teal-700 underline underline-offset-2 hover:text-teal-900"
+          >
+            {labels.seeCard}
+          </Link>
+        )}
+        {signal.promotedTo && promotedSection !== 'dossiers' && promotedSection !== 'communes' && promotedSection !== 'sectors' && (
           <Link
             href={{ pathname: '/domains/[slug]', params: { slug: signal.promotedTo } }}
             className="font-medium text-teal-700 underline underline-offset-2 hover:text-teal-900"

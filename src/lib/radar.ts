@@ -29,7 +29,7 @@ const radarEntrySchema = z.object({
   nextStep: i18nString.optional(),
   descriptions: i18nString,
   promotedTo: z.string().nullable(),
-  promotedSection: z.enum(['domains', 'dossiers', 'communes']).optional(),
+  promotedSection: z.enum(['domains', 'dossiers', 'communes', 'sectors']).optional(),
   archivedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
   period: z.string().optional(),
 });
@@ -53,7 +53,7 @@ export interface LocalizedRadarEntry {
   nextStep?: string;
   description: string;
   promotedTo: string | null;
-  promotedSection?: 'domains' | 'dossiers' | 'communes';
+  promotedSection?: 'domains' | 'dossiers' | 'communes' | 'sectors';
   archivedAt: string | null;
   period?: string;
 }

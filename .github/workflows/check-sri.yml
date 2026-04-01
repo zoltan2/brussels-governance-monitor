@@ -8,7 +8,8 @@ on:
 
 permissions:
   issues: write
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   check-sri:
@@ -29,15 +30,54 @@ jobs:
           node scripts/check-sri.mjs --fix 2>&1 | tee sri-output.txt
         continue-on-error: true
 
-      - name: Create issue on mismatch
+      - name: Auto-fix and create PR on mismatch
         if: steps.sri.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Extract new hash from output
+          NEW_HASH=$(grep 'integrity=' sri-output.txt | sed 's/.*integrity="\(sha384-[^"]*\)".*/\1/')
+          if [ -z "$NEW_HASH" ]; then
+            echo "Could not extract new hash from output"
+            exit 1
+          fi
+
+          echo "New hash: $NEW_HASH"
+
+          # Update layout.tsx
+          sed -i "s|integrity=\"sha384-[A-Za-z0-9+/=]*\"|integrity=\"$NEW_HASH\"|" src/app/\[locale\]/layout.tsx
+
+          # Verify the fix
+          node scripts/check-sri.mjs
+          if [ $? -ne 0 ]; then
+            echo "Fix verification failed"
+            exit 1
+          fi
+
+          # Create branch and PR
+          BRANCH="fix/sri-hash-$(date +%Y%m%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add src/app/\[locale\]/layout.tsx
+          git commit -m "fix: update Umami SRI hash after upstream script change"
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --title "fix: update Umami SRI hash" \
+            --body "Automated fix — Umami updated their analytics script. SRI hash updated to restore analytics tracking." \
+            --head "$BRANCH"
+
+          gh pr merge "$BRANCH" --squash --delete-branch --auto
+
+      - name: Create issue if auto-fix fails
+        if: steps.sri.outcome == 'failure' && failure()
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             const output = fs.readFileSync('sri-output.txt', 'utf-8');
 
-            // Check if an open issue already exists
             const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -53,13 +93,12 @@ jobs:
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: 'SRI mismatch: Umami script hash has changed',
+              title: 'SRI mismatch: auto-fix failed — manual update needed',
               labels: ['sri-mismatch'],
               body: [
-                '## Umami SRI Hash Mismatch',
+                '## Umami SRI Hash Mismatch — Auto-fix Failed',
                 '',
-                'The daily SRI check detected that the Umami analytics script has been updated.',
-                'The `integrity` attribute in `src/app/[locale]/layout.tsx` no longer matches the remote script.',
+                'The daily SRI check detected a hash change and the automated PR failed.',
                 '**Analytics is currently blocked by the browser.**',
                 '',
                 '### Output',
@@ -67,11 +106,9 @@ jobs:
                 output,
                 '```',
                 '',
-                '### Fix',
-                '1. Run `npm run check:sri -- --fix` to get the new hash',
+                '### Manual Fix',
+                '1. Run `node scripts/check-sri.mjs --fix` to get the new hash',
                 '2. Update the `integrity="sha384-..."` attribute in `src/app/[locale]/layout.tsx`',
                 '3. Commit, push, close this issue',
-                '',
-                '*This issue was created automatically by the [SRI check workflow](https://github.com/' + context.repo.owner + '/' + context.repo.repo + '/actions/workflows/check-sri.yml).*',
               ].join('\n'),
             });

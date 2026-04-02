@@ -1,6 +1,118 @@
 {
-  "lastVeille": "2026-03-31",
+  "lastVeille": "2026-04-02",
   "entries": [
+    {
+      "id": "2026-04-02-ing-500m-credit",
+      "date": "2026-04-01",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["budget"],
+      "source": {
+        "label": "La Libre — Bruxelles obtient une ligne de crédit de 500M EUR auprès d'ING (1er avril 2026)",
+        "url": "https://www.lalibre.be/regions/bruxelles/2026/04/01/bruxelles-obtient-une-ligne-de-credit-de-500-millions-deuros-aupres-ding-pour-renforcer-sa-tresorerie-J6L7C7IUV5DEJM7JQFOHLNGJ5M/",
+        "accessedAt": "2026-04-02"
+      },
+      "nextStep": {
+        "fr": "Surveiller utilisation des 800M EUR de lignes. Rating S&P prochaine revue attendue S2 2026.",
+        "nl": "Gebruik van 800M EUR kredietlijnen opvolgen. S&P-rating volgende beoordeling verwacht H2 2026.",
+        "en": "Monitor use of EUR 800M credit lines. S&P rating next review expected H2 2026.",
+        "de": "Nutzung der 800 Mio. EUR Kreditlinien überwachen. S&P-Rating nächste Überprüfung H2 2026 erwartet."
+      },
+      "descriptions": {
+        "fr": "ING accorde 500M EUR de ligne de crédit (2 ans renouvelable). Total trésorerie : 800M EUR. Retour d'ING après retrait de ~1 Mrd fin 2025.",
+        "nl": "ING verleent 500M EUR kredietlijn (2 jaar hernieuwbaar). Totaal thesaurie: 800M EUR. Terugkeer ING na intrekking ~1 Mrd eind 2025.",
+        "en": "ING grants EUR 500M credit line (2 years renewable). Total treasury: EUR 800M. ING returns after ~1B withdrawal end 2025.",
+        "de": "ING gewährt 500 Mio. EUR Kreditlinie (2 Jahre erneuerbar). Gesamttresorie: 800 Mio. EUR. Rückkehr ING nach ~1 Mrd. Rückzug Ende 2025."
+      },
+      "promotedTo": "budget",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-04-02-airbnb-90pct-illegaal",
+      "date": "2026-04-01",
+      "confidence": "estimated",
+      "status": "active",
+      "cards": ["housing"],
+      "source": {
+        "label": "BRUZZ — 9 op 10 Airbnb-woningen in Brussel staan niet geregistreerd (1er avril 2026)",
+        "url": "https://www.bruzz.be/actua/stedenbouw/9-op-10-airbnb-woningen-brussel-staan-niet-geregistreerd-2026-04-01",
+        "accessedAt": "2026-04-02"
+      },
+      "nextStep": {
+        "fr": "Réforme réglementation Airbnb annoncée par Dilliès. Surveiller ordonnance et impact sur le parc locatif.",
+        "nl": "Hervorming Airbnb-regelgeving aangekondigd door Dilliès. Ordonnantie en impact op huurmarkt opvolgen.",
+        "en": "Airbnb regulation reform announced by Dilliès. Monitor ordinance and impact on rental market.",
+        "de": "Airbnb-Regelreform von Dilliès angekündigt. Verordnung und Auswirkungen auf Mietmarkt überwachen."
+      },
+      "descriptions": {
+        "fr": "Enquête BRUZZ : ~2 500 Airbnb illégaux sur 2 788 (90 %). 515 récupérés par la Ville (Maes). Dilliès promet réforme.",
+        "nl": "Onderzoek BRUZZ: ~2 500 illegale Airbnb's van 2 788 (90 %). 515 teruggebracht door Stad (Maes). Dilliès belooft hervorming.",
+        "en": "BRUZZ investigation: ~2,500 illegal Airbnbs out of 2,788 (90%). 515 recovered by City (Maes). Dilliès promises reform.",
+        "de": "BRUZZ-Untersuchung: ~2 500 illegale Airbnbs von 2 788 (90 %). 515 zurückgebracht durch Stadt (Maes). Dilliès verspricht Reform."
+      },
+      "promotedTo": "housing",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-04-02-militaires-gares-metro",
+      "date": "2026-04-03",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["security"],
+      "source": {
+        "label": "BX1 — Militaires dans les gares et stations de métro dès vendredi (31 mars 2026)",
+        "url": "https://bx1.be/categories/societe/des-militaires-patrouilleront-dans-les-gares-et-les-stations-de-metro-a-partir-de-vendredi/",
+        "accessedAt": "2026-04-02"
+      },
+      "nextStep": {
+        "fr": "Vote codex Défense au Parlement fédéral. Évaluation après 3 mois (réduction à 90 militaires?).",
+        "nl": "Stemming Defensiecodex in federaal parlement. Evaluatie na 3 maanden (vermindering naar 90 militairen?).",
+        "en": "Defence codex vote in federal parliament. Evaluation after 3 months (reduction to 90 soldiers?).",
+        "de": "Abstimmung Verteidigungskodex im föderalen Parlament. Bewertung nach 3 Monaten (Reduzierung auf 90 Soldaten?)."
+      },
+      "descriptions": {
+        "fr": "45 militaires supplémentaires dans gares et métros dès le 3 avril. Total ~245 en rue. Flou juridique : codex Défense non voté.",
+        "nl": "45 extra militairen in stations en metro vanaf 3 april. Totaal ~245 op straat. Juridische leemte: Defensiecodex niet gestemd.",
+        "en": "45 additional soldiers in stations and metro from 3 April. Total ~245 on streets. Legal void: Defence codex not voted.",
+        "de": "45 zusätzliche Soldaten in Bahnhöfen und Metro ab 3. April. Gesamt ~245 auf der Straße. Rechtslücke: Verteidigungskodex nicht verabschiedet."
+      },
+      "promotedTo": "security",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
+    {
+      "id": "2026-04-02-chomage-3e-vague",
+      "date": "2026-04-01",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["social", "employment"],
+      "source": {
+        "label": "BX1 — 11 215 Bruxellois perdront leur chômage ce 1er avril (1er avril 2026)",
+        "url": "https://bx1.be/categories/news/11-215-bruxellois-perdront-leur-chomage-ce-1er-avril-la-plus-importante-vague-dexclusions/",
+        "accessedAt": "2026-04-02"
+      },
+      "nextStep": {
+        "fr": "Chiffres CPAS définitifs mi-avril. 4e vague prévue 1er juillet. Surveiller saturation services sociaux.",
+        "nl": "Definitieve OCMW-cijfers medio april. 4e golf voorzien 1 juli. Verzadiging sociale diensten opvolgen.",
+        "en": "Final CPAS figures mid-April. 4th wave planned 1 July. Monitor social services saturation.",
+        "de": "Endgültige ÖSHZ-Zahlen Mitte April. 4. Welle geplant 1. Juli. Sättigung Sozialdienste überwachen."
+      },
+      "descriptions": {
+        "fr": "3e vague réforme chômage : 11 215 Bruxellois exclus (plus importante vague). 41,5 % vers CPAS. Cumul : ~33 085 depuis janvier.",
+        "nl": "3e golf werkloosheidshervorming: 11 215 Brusselaars uitgesloten (grootste golf). 41,5 % naar OCMW. Cumul: ~33 085 sinds januari.",
+        "en": "3rd wave unemployment reform: 11,215 Brussels residents excluded (largest wave). 41.5% to CPAS. Cumulative: ~33,085 since January.",
+        "de": "3. Welle Arbeitslosenreform: 11 215 Brüsseler ausgeschlossen (größte Welle). 41,5 % zum ÖSHZ. Kumuliert: ~33 085 seit Januar."
+      },
+      "promotedTo": "social",
+      "promotedSection": "domains",
+      "archivedAt": null,
+      "period": "gouvernement-2026"
+    },
     {
       "id": "2026-03-31-amboldi-demission-actiris",
       "date": "2026-03-28",

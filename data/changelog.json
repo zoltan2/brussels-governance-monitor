@@ -1,5 +1,77 @@
 [
   {
+    "date": "2026-04-02",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "budget",
+    "descriptions": {
+      "fr": "ING accorde une ligne de crédit de 500M EUR (2 ans renouvelable). Total trésorerie court terme : 800M EUR (ING + Deutsche Bank + Belfius).",
+      "nl": "ING verleent kredietlijn van 500M EUR (2 jaar hernieuwbaar). Totaal thesaurie kort termijn: 800M EUR (ING + Deutsche Bank + Belfius).",
+      "en": "ING grants EUR 500M credit line (2 years renewable). Total short-term treasury: EUR 800M (ING + Deutsche Bank + Belfius).",
+      "de": "ING gewährt Kreditlinie von 500 Mio. EUR (2 Jahre erneuerbar). Gesamttresorie kurzfristig: 800 Mio. EUR (ING + Deutsche Bank + Belfius)."
+    },
+    "summaries": {
+      "fr": "ING 500M EUR, total trésorerie 800M",
+      "nl": "ING 500M EUR, totaal thesaurie 800M",
+      "en": "ING EUR 500M, total treasury 800M",
+      "de": "ING 500 Mio. EUR, Gesamttresorie 800M"
+    }
+  },
+  {
+    "date": "2026-04-02",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "security",
+    "descriptions": {
+      "fr": "45 militaires supplémentaires dans les gares et métros dès le 3 avril. Total ~245 en rue. Flou juridique : codex Défense non voté. Enquête fraudes ex-directrice académie de police.",
+      "nl": "45 extra militairen in stations en metro vanaf 3 april. Totaal ~245 op straat. Juridische leemte: Defensiecodex niet gestemd. Fraude-onderzoek ex-directrice politieacademie.",
+      "en": "45 additional soldiers in stations and metro from 3 April. Total ~245 on streets. Legal grey area: Defence codex not voted. Fraud investigation ex-director police academy.",
+      "de": "45 zusätzliche Soldaten in Bahnhöfen und Metro ab 3. April. Gesamt ~245 auf der Straße. Rechtliche Grauzone: Verteidigungskodex nicht verabschiedet. Betrugsermittlung Ex-Direktorin Polizeiakademie."
+    },
+    "summaries": {
+      "fr": "Militaires gares/métro, fraudes académie police",
+      "nl": "Militairen stations/metro, fraude politieacademie",
+      "en": "Military stations/metro, police academy fraud",
+      "de": "Militär Bahnhöfe/Metro, Betrug Polizeiakademie"
+    }
+  },
+  {
+    "date": "2026-04-02",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "housing",
+    "descriptions": {
+      "fr": "Airbnb : 90 % des 2 788 logements illégaux (BRUZZ). 515 récupérés (Maes). Audit Foyer Anderlechtois : lacunes gouvernance, comité de dérogation illégal.",
+      "nl": "Airbnb: 90 % van 2 788 woningen illegaal (BRUZZ). 515 teruggebracht (Maes). Audit Foyer Anderlechtois: bestuurstekortkomingen, illegaal afwijkingscomité.",
+      "en": "Airbnb: 90% of 2,788 properties illegal (BRUZZ). 515 recovered (Maes). Foyer Anderlechtois audit: governance gaps, illegal derogation committee.",
+      "de": "Airbnb: 90 % der 2 788 Wohnungen illegal (BRUZZ). 515 zurückgebracht (Maes). Audit Foyer Anderlechtois: Governance-Mängel, illegaler Abweichungsausschuss."
+    },
+    "summaries": {
+      "fr": "Airbnb 90 % illégal, audit Foyer Anderlechtois",
+      "nl": "Airbnb 90 % illegaal, audit Foyer Anderlechtois",
+      "en": "Airbnb 90% illegal, Foyer Anderlechtois audit",
+      "de": "Airbnb 90 % illegal, Audit Foyer Anderlechtois"
+    }
+  },
+  {
+    "date": "2026-04-02",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "social",
+    "descriptions": {
+      "fr": "3e vague réforme chômage (1er avril) : 11 215 Bruxellois exclus, 41,5 % vers les CPAS. Cumul jan.-avr. : ~33 085 exclusions.",
+      "nl": "3e golf werkloosheidshervorming (1 april): 11 215 Brusselaars uitgesloten, 41,5 % naar OCMW. Cumul jan.-apr.: ~33 085 uitsluitingen.",
+      "en": "3rd wave unemployment reform (1 April): 11,215 Brussels residents excluded, 41.5% to CPAS. Cumulative Jan-Apr: ~33,085 exclusions.",
+      "de": "3. Welle Arbeitslosenreform (1. April): 11 215 Brüsseler ausgeschlossen, 41,5 % zum ÖSHZ. Kumuliert Jan.-Apr.: ~33 085 Ausschlüsse."
+    },
+    "summaries": {
+      "fr": "Chômage 3e vague : 11 215 exclusions BXL",
+      "nl": "Werkloosheid 3e golf: 11 215 uitsluitingen BXL",
+      "en": "Unemployment 3rd wave: 11,215 exclusions BXL",
+      "de": "Arbeitslosigkeit 3. Welle: 11 215 Ausschlüsse BXL"
+    }
+  },
+  {
     "date": "2026-03-31",
     "type": "updated",
     "section": "domains",

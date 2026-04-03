@@ -169,7 +169,7 @@ export default async function LocaleLayout({
             defer
             src="https://cloud.umami.is/script.js"
             data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-            integrity="sha384-8V70s72So30Ur7Q8MV4VCTdVh5ofqHCGOFOIZTyhtqmZgXObdptgB87UbvqxThs4"
+            integrity="sha384-yRsxKUe1uwvKWyAzDiU58FsIbO8orQJUzy1kPcDQAfAuaczzL5MxTlI4K/AABHhq"
             crossOrigin="anonymous"
           />
         )}

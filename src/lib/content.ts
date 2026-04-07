@@ -14,7 +14,7 @@ export interface DomainCard {
   sectors: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
-  metrics: Array<{ label: string; value: string; unit?: string; source: string; date: string }>;
+  metrics: Array<{ label: string; value: string; unit?: string; source: string; url?: string; date: string }>;
   lastModified: string;
   changeType?: string;
   changeSummary?: string;
@@ -189,7 +189,7 @@ export interface DossierCard {
   relatedCommunes: string[];
   relatedFormationEvents: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
-  metrics: Array<{ label: string; value: string; unit?: string; source: string; date: string }>;
+  metrics: Array<{ label: string; value: string; unit?: string; source: string; url?: string; date: string }>;
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
   dprCommitment?: string;
@@ -227,7 +227,7 @@ export interface CommuneCard {
     type: 'official' | 'media' | 'opendata' | 'citizen' | 'regional';
     accessedAt: string;
   }>;
-  keyFigures: Array<{ label: string; value: string; unit?: string; source: string; date: string }>;
+  keyFigures: Array<{ label: string; value: string; unit?: string; source: string; url?: string; date: string }>;
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
   draft: boolean;
   lastModified: string;

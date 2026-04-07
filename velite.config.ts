@@ -13,6 +13,7 @@ const metricSchema = s.object({
   value: s.string(),
   unit: s.string().optional(),
   source: s.string(),
+  url: s.string().url().optional(),
   date: s.isodate(),
 });
 

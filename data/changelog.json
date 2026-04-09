@@ -1,6 +1,42 @@
 [
   {
     "date": "2026-04-09",
+    "type": "added",
+    "section": "dossiers",
+    "targetSlug": "enseignement",
+    "descriptions": {
+      "fr": "Nouveau dossier transversal « Enseignement obligatoire à Bruxelles » : impact du plan d'économies FWB (86,7 M EUR 2026, grève 9 avril, collectif Mars Attacks) et des coupes Vlaamse sur les coachs OKAN (−2/3, 394 élèves bruxellois impactés). La Région n'a aucune compétence directe mais en subit les conséquences.",
+      "nl": "Nieuw transversaal dossier 'Leerplichtonderwijs in Brussel': impact van het FWB-besparingsplan (86,7 M EUR 2026, staking 9 april, Mars Attacks-collectief) en de Vlaamse besparingen op OKAN-coaches (−2/3, 394 Brusselse leerlingen getroffen). Het Gewest heeft geen directe bevoegdheid maar ondergaat de gevolgen.",
+      "en": "New transversal dossier 'Compulsory education in Brussels': impact of the FWB savings plan (€86.7M 2026, 9 April strike, Mars Attacks collective) and Flemish cuts on OKAN coaches (−2/3, 394 Brussels students impacted). The Region has no direct competence but bears the consequences.",
+      "de": "Neues transversales Dossier 'Pflichtschulunterricht in Brüssel': Auswirkungen des FWB-Sparplans (86,7 Mio. EUR 2026, Streik 9. April, Mars Attacks-Kollektiv) und flämische Kürzungen bei OKAN-Coaches (−2/3, 394 betroffene Brüsseler Schüler). Die Region hat keine direkte Zuständigkeit, trägt aber die Folgen."
+    },
+    "summaries": {
+      "fr": "Dossier Enseignement : FWB 86,7 M, OKAN −2/3, grève 9 avril",
+      "nl": "Dossier Onderwijs: FWB 86,7 M, OKAN −2/3, staking 9 april",
+      "en": "Education dossier: FWB €86.7M, OKAN −2/3, strike 9 April",
+      "de": "Bildungsdossier: FWB 86,7 Mio., OKAN −2/3, Streik 9. April"
+    }
+  },
+  {
+    "date": "2026-04-09",
+    "type": "added",
+    "section": "dossiers",
+    "targetSlug": "petite-enfance",
+    "descriptions": {
+      "fr": "Nouveau dossier transversal « Petite enfance à Bruxelles » : écart de couverture 16 % (Anderlecht) à 67 % (Etterbeek), 11 200 places manquantes FWB, triple lasagne institutionnelle (ONE, Opgroeien, Iriscare). Coupes FWB −74 M EUR compensées partiellement par fonds d'urgence ONE 43 M EUR.",
+      "nl": "Nieuw transversaal dossier 'Kinderopvang in Brussel': dekkingsgraadkloof van 16 % (Anderlecht) tot 67 % (Etterbeek), 11 200 ontbrekende plaatsen FWB, drievoudige institutionele lasagne (ONE, Opgroeien, Iriscare). FWB-besparingen −74 M EUR deels gecompenseerd door ONE-noodfonds 43 M EUR.",
+      "en": "New transversal dossier 'Early childhood in Brussels': coverage gap from 16% (Anderlecht) to 67% (Etterbeek), 11,200 missing places in FWB, triple institutional lasagna (ONE, Opgroeien, Iriscare). FWB cuts −€74M partially offset by ONE emergency fund €43M.",
+      "de": "Neues transversales Dossier 'Kinderbetreuung in Brüssel': Abdeckungskluft von 16 % (Anderlecht) bis 67 % (Etterbeek), 11.200 fehlende Plätze FWB, dreifache institutionelle Lasagne (ONE, Opgroeien, Iriscare). FWB-Kürzungen −74 Mio. EUR teilweise durch ONE-Notfallfonds 43 Mio. EUR kompensiert."
+    },
+    "summaries": {
+      "fr": "Dossier Petite enfance : 16-67 %, triple lasagne, −74 M FWB",
+      "nl": "Dossier Kinderopvang: 16-67 %, drievoudige lasagne, −74 M FWB",
+      "en": "Early childhood dossier: 16-67%, triple lasagna, −€74M FWB",
+      "de": "Dossier Kinderbetreuung: 16-67 %, dreifache Lasagne, −74 Mio. FWB"
+    }
+  },
+  {
+    "date": "2026-04-09",
     "type": "updated",
     "section": "domains",
     "targetSlug": "institutional",

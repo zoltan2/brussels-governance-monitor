@@ -7,8 +7,8 @@ dossierType: social
 phase: in-progress
 crisisImpact: reduced
 decisionLevel: mixed
-summary: "Un enfant sur deux à Bruxelles dépend de la Fédération Wallonie-Bruxelles pour sa scolarité obligatoire, l'autre de la Communauté flamande. Ces deux niveaux de pouvoir — sur lesquels la Région n'a aucune prise — imposent en 2026 des économies simultanées : 86,7 M EUR dans l'enseignement obligatoire FWB, coupes de deux tiers sur les coachs OKAN côté flamand. La grève du 9 avril 2026 illustre une crise sociale qui s'installe dans les murs des écoles bruxelloises."
-estimatedBudget: "86,7 M EUR économies FWB 2026 (enseignement obligatoire) + 2/3 réduction coachs OKAN côté Vlaamse"
+summary: "92 % des enfants bruxellois de 3-17 ans sont scolarisés dans un réseau des Communautés (majoritairement FWB, environ un cinquième en Vlaamse Gemeenschap). Ces deux niveaux de pouvoir — sur lesquels la Région n'a aucune prise — imposent en 2026 des économies simultanées : 86,7 M EUR dans l'enseignement obligatoire FWB, et 63,5 M EUR dans le secondaire flamand (révisés à la baisse le 15 mars). La grève du 9 avril 2026 illustre une crise sociale qui s'installe dans les murs des écoles bruxelloises."
+estimatedBudget: "86,7 M EUR économies FWB 2026 (enseignement obligatoire) + 63,5 M EUR économies Vlaamse secondaire 2026 (révisé à la baisse le 15 mars par la ministre Demir)"
 stakeholders:
   - "Fédération Wallonie-Bruxelles (gouvernement Glatigny MR/Les Engagés)"
   - "Vlaamse Gemeenschap (enseignement néerlandophone)"
@@ -57,6 +57,18 @@ sources:
   - label: "Onderwijscentrum Brussel (OCB)"
     url: "https://www.onderwijscentrumbrussel.be/"
     accessedAt: "2026-04-09"
+  - label: "IBSA — Environ 3 000 ménages bruxellois scolarisent leurs enfants en FWB et Vlaamse Gemeenschap (août 2025)"
+    url: "https://ibsa.brussels/actualites/environ-3000-menages-bruxellois-scolarisent-leurs-enfants-a-la-fois-en-communaute-flamande-et-en-federation-wallonie-bruxelles"
+    accessedAt: "2026-04-09"
+  - label: "perspective.brussels — Panorama de l'école à Bruxelles : les acteurs de l'enseignement"
+    url: "https://perspective.brussels/fr/be-ecole/panorama-de-lecole-bruxelles/les-acteurs-de-lenseignement-bruxelles"
+    accessedAt: "2026-04-09"
+  - label: "businessam.be — Les économies prévues dans l'enseignement secondaire flamand s'avèrent nettement moins importantes (mars 2026)"
+    url: "https://fr.businessam.be/les-economies-prevues-dans-lenseignement-secondaire-saverent-nettement-moins-importantes/"
+    accessedAt: "2026-04-09"
+  - label: "BX1 — Le gouvernement de la FWB annonce des économies tous azimuts"
+    url: "https://bx1.be/categories/economie/le-gouvernement-de-la-fwb-annonce-des-economies-tous-azimuts/"
+    accessedAt: "2026-04-09"
 metrics:
   - label: "Économies FWB — enseignement obligatoire 2026"
     value: "86,7"
@@ -76,10 +88,16 @@ metrics:
     source: "La DH / Gouvernement FWB"
     url: "https://www.dhnet.be/actu/belgique/2025/10/10/la-federation-wallonie-bruxelles-doit-faire-des-economies-voici-les-mesures-qui-ont-ete-prises-5JSX7A2F6JEUBHNKYCENIOJHRA/"
     date: "2025-10-10"
-  - label: "Réduction coachs OKAN (Vlaamse, Bruxelles)"
-    value: "-2/3"
-    unit: "des moyens alloués à l'accompagnement des primo-arrivants"
-    source: "BRUZZ / VGC (20 mars 2026)"
+  - label: "Économies Vlaamse Gemeenschap — secondaire 2026 (révisé)"
+    value: "63,5"
+    unit: "millions EUR (révisé à la baisse le 15 mars 2026, initialement 150 M EUR)"
+    source: "businessam.be / cabinet Demir (N-VA)"
+    url: "https://fr.businessam.be/les-economies-prevues-dans-lenseignement-secondaire-saverent-nettement-moins-importantes/"
+    date: "2026-03-15"
+  - label: "Coachs OKAN — Sint-Guido Instituut (Bruxelles)"
+    value: "4 → 1 ETP"
+    unit: "réduction par école documentée par BRUZZ (20 mars 2026)"
+    source: "BRUZZ / VGC"
     url: "https://www.bruzz.be/actua/onderwijs/nederlandstalig-onderwijs-brussel-hard-getroffen-door-besparingen-op-okan-coaches-2026-03-20"
     date: "2026-03-20"
   - label: "Élèves OKAN — enseignement secondaire néerlandophone Bruxelles"
@@ -112,6 +130,18 @@ metrics:
     source: "La DH / Bruxelles Today"
     url: "https://www.bruxellestoday.be/education/etudes-couteront-plus-cher-2026.html"
     date: "2026-01-01"
+  - label: "Enfants bruxellois 3-17 ans dans les réseaux des Communautés"
+    value: "92%"
+    unit: "des enfants scolarisés en 2023-2024 (FWB + Vlaamse, reste = privé/international/domicile)"
+    source: "perspective.brussels — Panorama de l'école à Bruxelles"
+    url: "https://perspective.brussels/fr/be-ecole/panorama-de-lecole-bruxelles/les-acteurs-de-lenseignement-bruxelles"
+    date: "2024-06-30"
+  - label: "Ménages bruxellois mélangeant FWB et Vlaamse Gemeenschap"
+    value: "~2 897"
+    unit: "ménages (2,5 % du total) — données IBSA au 1er janvier 2021"
+    source: "IBSA (publié août 2025)"
+    url: "https://ibsa.brussels/actualites/environ-3000-menages-bruxellois-scolarisent-leurs-enfants-a-la-fois-en-communaute-flamande-et-en-federation-wallonie-bruxelles"
+    date: "2021-01-01"
 alerts:
   - label: "Grève générale de l'enseignement FWB — 9 avril 2026"
     severity: critical
@@ -124,13 +154,21 @@ draft: false
 
 ## Pourquoi ce dossier concerne directement les Bruxellois
 
-À Bruxelles, l'école de votre enfant est gérée par la **Fédération Wallonie-Bruxelles** (si elle est francophone) ou par la **Communauté flamande** (si elle est néerlandophone). La **Région de Bruxelles-Capitale** — celle pour laquelle votre famille paie des impôts régionaux — n'a quasiment aucun pouvoir sur l'enseignement obligatoire. C'est la première anomalie de la « lasagne institutionnelle » pour les parents bruxellois : le gouvernement bruxellois ne peut pas empêcher les économies décidées à Bruxelles-ville au Parlement de la FWB, ni celles décidées à Bruxelles-Botanique au Parlement flamand.
+À Bruxelles, l'école de votre enfant est gérée par la **Fédération Wallonie-Bruxelles** (si elle est francophone) ou par la **Communauté flamande** (si elle est néerlandophone). La **Région de Bruxelles-Capitale** — celle pour laquelle votre famille paie des impôts régionaux — n'a quasiment aucun pouvoir sur l'enseignement obligatoire. C'est la première anomalie de la « lasagne institutionnelle » pour les parents bruxellois : le gouvernement bruxellois ne peut pas empêcher les économies décidées à Bruxelles-ville au Parlement de la FWB, ni celles décidées au Parlement flamand.
+
+**Combien d'enfants dans chaque réseau ?** Selon perspective.brussels (Panorama de l'école à Bruxelles, 2023-2024), **92 %** des enfants bruxellois âgés de 3 à 17 ans sont scolarisés dans un réseau organisé ou subventionné par une des Communautés (FWB ou Vlaamse Gemeenschap) ; les 8 % restants fréquentent des écoles privées, européennes, internationales ou sont scolarisés à domicile. L'**enseignement néerlandophone** à Bruxelles compte environ **53 600 élèves** en 2024-2025 — soit **environ un enfant sur cinq** scolarisé dans le réseau des Communautés (VGC / GO! Scholengroep Brussel). La grande majorité des autres fréquente le réseau FWB.
+
+**Combien de ménages mélangent les deux réseaux ?** Selon l'IBSA (données 1er janvier 2021, publiées en août 2025), sur 128 903 ménages bruxellois avec au moins un enfant de 3-17 ans :
+- **96 % (124 013 ménages)** scolarisent leurs enfants dans un **seul** système ;
+- **2,5 % (2 897 ménages)** mélangent FWB et Vlaamse Gemeenschap ;
+- **1 % (1 286)** FWB + autre système (privé, européen, international) ;
+- **0,5 % (660)** Vlaamse + autre système.
 
 En 2026, ces deux niveaux de pouvoir — sur lesquels la Région bruxelloise n'a pas de levier — imposent simultanément des économies qui touchent :
 - les profs et directions bruxellois (secondaire, primaire, spécialisé) ;
 - les élèves francophones (fin de la gratuité en P1-P3, hausse du minerval) ;
-- les élèves néerlandophones primo-arrivants (coachs OKAN réduits des deux tiers) ;
-- les étudiants du supérieur (+ 359 € de minerval par an).
+- les élèves néerlandophones primo-arrivants (réduction du financement des coachs OKAN, voir section dédiée plus bas) ;
+- les étudiants du supérieur (+ 359 € de minerval par an, côté FWB).
 
 ## Volet Fédération Wallonie-Bruxelles (enseignement francophone)
 
@@ -175,9 +213,19 @@ Source : [RTBF, « Mars Attacks : la riposte des écoles »](https://www.rtbf.be
 
 ## Volet Communauté flamande (enseignement néerlandophone)
 
-### Coupes sur les coachs OKAN : un élève primo-arrivant sur deux perd son accompagnement
+### Le plan budgétaire Demir : 63,5 M EUR sur le secondaire (révisé à la baisse)
 
-Le **20 mars 2026**, la Vlaamse Gemeenschapscommissie (VGC) a tenu un débat sur l'impact du budget flamand 2026 sur l'enseignement néerlandophone à Bruxelles. Le principal point de friction : la **réduction de deux tiers** des moyens alloués aux **coachs OKAN** (Onthaalklas Anderstalige Nieuwkomers), qui accompagnent les élèves primo-arrivants dans leur transition vers l'enseignement ordinaire.
+Le **15 mars 2026**, la ministre flamande de l'Éducation **Zuhal Demir (N-VA)** a annoncé une **révision à la baisse** des économies prévues dans l'enseignement secondaire flamand : le montant est ramené de **150 M EUR à 63,5 M EUR** (−57,7 %), à la suite notamment d'une inscription plus faible que prévue en septième année et de moindres dépenses sur les professeurs spécialisés. Les mesures maintenues incluent :
+
+- Une **réduction de 10 %** du financement supplémentaire pour les classes à effectifs réduits ;
+- Une **coupe de 2,5 %** sur les budgets de fonctionnement des « school communities » ;
+- Une réduction du financement alloué aux **coachs de transition OKAN** (Onthaalklas Anderstalige Nieuwkomers), sans pourcentage global officiellement communiqué par le cabinet Demir.
+
+Source : [businessam.be — Les économies prévues dans l'enseignement secondaire s'avèrent nettement moins importantes](https://fr.businessam.be/les-economies-prevues-dans-lenseignement-secondaire-saverent-nettement-moins-importantes/).
+
+### Impact concret dans les écoles bruxelloises OKAN
+
+Le **20 mars 2026**, cinq jours après l'annonce de Demir, la Vlaamse Gemeenschapscommissie (VGC) a tenu un débat sur l'impact concret des coupes sur l'enseignement néerlandophone à Bruxelles. Le point de friction : la réduction des moyens alloués aux coachs OKAN, qui accompagnent les élèves primo-arrivants dans leur transition vers l'enseignement ordinaire. BRUZZ documente le détail des réductions par école bruxelloise — des chiffres publiés après la révision Demir mais non remis en cause par celle-ci :
 
 **Les écoles bruxelloises directement impactées :**
 

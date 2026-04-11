@@ -203,8 +203,9 @@ export default function BGMQuiz() {
   const encodedText = encodeURIComponent(shareText)
   const encodedUrl = encodeURIComponent(quizUrl)
 
+  const linkedInText = encodeURIComponent(`${shareText}\n\n${quizUrl}`)
   const shareLinks = {
-    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+    linkedin: `https://www.linkedin.com/feed/?shareActive=true&text=${linkedInText}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
     x: `https://x.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`,
   }

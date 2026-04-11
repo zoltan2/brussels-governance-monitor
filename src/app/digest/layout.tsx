@@ -36,8 +36,6 @@ export default function DigestLayout({
             defer
             src="https://cloud.umami.is/script.js"
             data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-            integrity="sha384-ckbqtAAgLdGrs/32fjeIA0vWwWc0azXG9iFz8wBZ3uowq/ui41/0Qv4HrV37O47i"
-            crossOrigin="anonymous"
           />
         )}
         <script

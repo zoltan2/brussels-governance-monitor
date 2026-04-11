@@ -65,8 +65,9 @@ function localizeSlug(slug: string, locale: string): string {
 
 /** Send Umami custom event (no-op if Umami not loaded) */
 function track(event: string, data?: Record<string, string | number>) {
-  if (typeof window !== 'undefined' && typeof (window as Record<string, unknown>).umami !== 'undefined') {
-    (window as Record<string, { track: (event: string, data?: Record<string, string | number>) => void }>).umami.track(event, data)
+  if (typeof window !== 'undefined' && 'umami' in window) {
+    const w = window as unknown as { umami: { track: (e: string, d?: Record<string, string | number>) => void } }
+    w.umami.track(event, data)
   }
 }
 

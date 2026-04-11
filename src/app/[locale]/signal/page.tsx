@@ -19,9 +19,9 @@ export async function generateMetadata({
   const { locale } = await params;
   return buildMetadata({
     locale,
-    title: 'Le Signal — Newsletter hebdomadaire',
+    title: 'Le Signal — Newsletter hebdomadaire sur LinkedIn',
     description:
-      'Chaque lundi, Le Signal résume l\'essentiel de la gouvernance bruxelloise : décisions, budgets, dossiers, signaux faibles. Gratuit, sur LinkedIn.',
+      'Chaque lundi, Le Signal résume la gouvernance bruxelloise en 2 minutes. Gratuit, sur LinkedIn.',
     path: '/signal',
   });
 }
@@ -50,26 +50,24 @@ export default async function SignalPage({
         {/* Hero */}
         <div className="mb-10">
           <div className="mb-3 text-xs uppercase tracking-widest text-neutral-400">
-            Newsletter hebdomadaire
+            Chaque lundi sur LinkedIn
           </div>
           <h1 className="text-3xl font-bold text-neutral-900 sm:text-4xl">
             Le Signal
           </h1>
           <p className="mt-3 text-lg leading-relaxed text-neutral-600">
-            Chaque lundi, un résumé clair et sourcé de ce qui s&apos;est passé dans la
-            gouvernance bruxelloise. Pas de bruit, pas d&apos;opinion — les faits, les
-            chiffres, les décisions qui comptent.
+            Bruxelles a 19 communes, 6 gouvernements et des centaines de décisions
+            chaque semaine. Personne n&apos;a le temps de tout suivre.
+            <br />
+            <strong className="text-neutral-900">C&apos;est exactement pour ça que Le Signal existe.</strong>
           </p>
         </div>
 
         {/* CTA principal */}
         <div className="mb-10 rounded-xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
           <div className="text-center">
-            <p className="mb-1 text-sm font-medium text-neutral-900">
-              Gratuit. Chaque lundi. Sur LinkedIn.
-            </p>
-            <p className="mb-5 text-xs text-neutral-500">
-              Rejoignez les professionnels qui suivent Bruxelles de près.
+            <p className="mb-4 text-sm text-neutral-600">
+              2 minutes de lecture. Chaque lundi matin. Gratuit.
             </p>
             <a
               href={LINKEDIN_SUBSCRIBE_URL}
@@ -85,49 +83,54 @@ export default async function SignalPage({
           </div>
         </div>
 
-        {/* Ce que contient Le Signal */}
+        {/* Ce que c'est */}
         <div className="mb-10">
           <h2 className="mb-4 text-lg font-semibold text-neutral-900">
-            Ce que vous recevez chaque lundi
+            Le Signal, c&apos;est quoi ?
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
-              <div className="mb-2 text-sm font-medium text-neutral-900">
-                Les faits de la semaine
-              </div>
-              <p className="text-xs leading-relaxed text-neutral-500">
-                Décisions du gouvernement, votes au Parlement, arrêtés publiés au Moniteur
-                — résumés en langage clair.
-              </p>
-            </div>
-            <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
-              <div className="mb-2 text-sm font-medium text-neutral-900">
-                Les signaux à surveiller
-              </div>
-              <p className="text-xs leading-relaxed text-neutral-500">
-                Tendances émergentes, dossiers qui bougent, alertes sur les 13 domaines
-                suivis par BGM.
-              </p>
-            </div>
-            <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
-              <div className="mb-2 text-sm font-medium text-neutral-900">
-                Un chiffre clé
-              </div>
-              <p className="text-xs leading-relaxed text-neutral-500">
-                Budget, emploi, logement, mobilité — un indicateur mis en contexte pour
-                comprendre l&apos;évolution de Bruxelles.
-              </p>
-            </div>
-            <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
-              <div className="mb-2 text-sm font-medium text-neutral-900">
-                Sources vérifiées
-              </div>
-              <p className="text-xs leading-relaxed text-neutral-500">
-                Chaque fait est tracé jusqu&apos;à sa source officielle. 323 sources
-                surveillées en 4 langues.
-              </p>
-            </div>
-          </div>
+          <p className="text-sm leading-relaxed text-neutral-600">
+            Une newsletter publiée chaque lundi sur LinkedIn par le
+            Brussels Governance Monitor. Pas d&apos;opinion, pas de jargon
+            — un résumé factuel de ce qui s&apos;est passé dans la semaine à
+            Bruxelles, avec les sources pour aller plus loin.
+          </p>
+        </div>
+
+        {/* Format */}
+        <div className="mb-10">
+          <h2 className="mb-4 text-lg font-semibold text-neutral-900">
+            Ce que vous y trouvez
+          </h2>
+          <ul className="space-y-3 text-sm text-neutral-600">
+            <li className="flex items-start gap-2.5">
+              <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-brand-800" />
+              <span>
+                <strong className="font-medium text-neutral-900">Le fait marquant</strong> —
+                la décision ou l&apos;événement qui a le plus d&apos;impact sur Bruxelles cette semaine
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-brand-800" />
+              <span>
+                <strong className="font-medium text-neutral-900">Les signaux faibles</strong> —
+                ce qui bouge en coulisse et pourrait devenir important
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-brand-800" />
+              <span>
+                <strong className="font-medium text-neutral-900">Le chiffre</strong> —
+                une donnée mise en contexte pour comprendre la tendance
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-brand-800" />
+              <span>
+                <strong className="font-medium text-neutral-900">Les liens</strong> —
+                vers les fiches BGM mises à jour, pour approfondir à votre rythme
+              </span>
+            </li>
+          </ul>
         </div>
 
         {/* Pour qui */}
@@ -135,42 +138,36 @@ export default async function SignalPage({
           <h2 className="mb-4 text-lg font-semibold text-neutral-900">
             Pour qui ?
           </h2>
-          <ul className="space-y-3 text-sm text-neutral-600">
-            <li className="flex items-start gap-2.5">
-              <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-brand-800" />
-              <span>
-                <strong className="font-medium text-neutral-900">Professionnels du secteur public</strong> —
-                cabinets, administrations, parastataux
-              </span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-brand-800" />
-              <span>
-                <strong className="font-medium text-neutral-900">Société civile</strong> —
-                associations, ONG, syndicats, fédérations
-              </span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-brand-800" />
-              <span>
-                <strong className="font-medium text-neutral-900">Journalistes et chercheurs</strong> —
-                qui couvrent ou étudient Bruxelles
-              </span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-brand-800" />
-              <span>
-                <strong className="font-medium text-neutral-900">Citoyens engagés</strong> —
-                qui veulent comprendre comment leur ville est gouvernée
-              </span>
-            </li>
-          </ul>
+          <p className="mb-3 text-sm leading-relaxed text-neutral-600">
+            Pour tous ceux qui ont besoin de comprendre Bruxelles sans y consacrer
+            des heures :
+          </p>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {[
+              'Cabinets et administrations',
+              'Associations et ONG',
+              'Journalistes et chercheurs',
+              'Entreprises actives à Bruxelles',
+              'Fédérations professionnelles',
+              'Citoyens engagés',
+            ].map((label) => (
+              <div
+                key={label}
+                className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-neutral-700"
+              >
+                {label}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* CTA secondaire */}
-        <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-6 text-center">
-          <p className="mb-4 text-sm text-neutral-600">
-            2 minutes de lecture. Zéro spam. Désabonnement en un clic.
+        <div className="mb-10 rounded-xl border border-neutral-200 bg-neutral-50 p-6 text-center">
+          <p className="mb-1 text-sm font-medium text-neutral-900">
+            Rejoignez les professionnels qui suivent Bruxelles de près
+          </p>
+          <p className="mb-4 text-xs text-neutral-500">
+            Zéro spam. Désabonnement en un clic.
           </p>
           <a
             href={LINKEDIN_SUBSCRIBE_URL}
@@ -183,13 +180,23 @@ export default async function SignalPage({
             </svg>
             Recevoir Le Signal chaque lundi
           </a>
-          <p className="mt-4 text-xs text-neutral-400">
-            Aussi disponible : la{' '}
-            <a href={`/${locale}/subscribe`} className="underline hover:text-neutral-600">
-              newsletter email
-            </a>{' '}
-            pour un suivi personnalisé par domaine et par dossier.
+        </div>
+
+        {/* Séparation + digest email */}
+        <div className="border-t border-neutral-100 pt-8 text-center">
+          <p className="mb-1 text-xs uppercase tracking-widest text-neutral-400">
+            Vous préférez l&apos;email ?
           </p>
+          <p className="mb-3 text-sm text-neutral-600">
+            Notre digest email vous permet de choisir vos domaines, dossiers et communes
+            — vous ne recevez que ce qui vous concerne.
+          </p>
+          <a
+            href={`/${locale}/subscribe`}
+            className="inline-flex items-center gap-1 text-sm font-medium text-brand-800 hover:underline"
+          >
+            Configurer le digest email →
+          </a>
         </div>
       </div>
     </section>

@@ -94,7 +94,7 @@ export default function BGMQuiz() {
 
   useEffect(() => {
     let cancelled = false
-    fetch('/quiz-data.json', { cache: 'no-store' })
+    fetch(`/quiz-data-${locale}.json`, { cache: 'no-store' })
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`)
         const ct = r.headers.get('content-type') ?? ''

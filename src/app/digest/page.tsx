@@ -120,7 +120,7 @@ export default function DigestIndexPage() {
                 <a
                   key={code}
                   href={`/digest/${code}/${year}/w${weekNum}`}
-                  className="rounded-md border border-brand-700 bg-brand-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-brand-800"
+                  className="rounded-md border border-brand-700 bg-brand-900 px-3 py-1.5 text-sm font-medium text-neutral-50 hover:bg-brand-800"
                 >
                   {lang.native_name}
                 </a>

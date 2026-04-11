@@ -139,7 +139,7 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
   const pillClass = (selected: boolean) =>
     `cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
       selected
-        ? 'border-brand-600 bg-brand-900 text-white'
+        ? 'border-brand-600 bg-brand-900 text-neutral-50'
         : 'border-neutral-300 bg-neutral-50 text-neutral-600 hover:border-neutral-400'
     }`;
 

@@ -151,7 +151,7 @@ function LevelsOfPowerView() {
             <p className="mb-4 text-neutral-600">{t('whoDecidesWhat.description')}</p>
             <Link
               href="/explainers/who-decides-what"
-              className="inline-block rounded-md bg-brand-800 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-900"
+              className="inline-block rounded-md bg-brand-800 px-5 py-2.5 text-sm font-medium text-neutral-50 transition-colors hover:bg-brand-900"
             >
               {t('whoDecidesWhat.cta')}
             </Link>

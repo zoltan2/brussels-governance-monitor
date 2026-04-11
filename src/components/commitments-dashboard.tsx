@@ -159,7 +159,7 @@ export function CommitmentsDashboard({
       {sortedYears.map((year) => (
         <div key={year} className="mb-8">
           <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-neutral-900">
-            <span className="rounded bg-brand-800 px-2 py-0.5 text-xs font-bold text-white">
+            <span className="rounded bg-brand-800 px-2 py-0.5 text-xs font-bold text-neutral-50">
               {year}
             </span>
             <span className="text-xs font-normal text-neutral-500">

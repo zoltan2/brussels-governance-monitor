@@ -104,7 +104,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
                 href={`/digest/${code}/${year}/${week}`}
                 className={`rounded px-2 py-0.5 text-xs font-medium ${
                   isActive
-                    ? 'bg-brand-900 text-white'
+                    ? 'bg-brand-900 text-neutral-50'
                     : 'text-neutral-600 hover:text-brand-900'
                 }`}
               >

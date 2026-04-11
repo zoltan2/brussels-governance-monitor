@@ -14,7 +14,7 @@ export default function NotFound() {
       <p className="mb-8 text-sm text-neutral-500">{t('description')}</p>
       <Link
         href="/"
-        className="rounded-md bg-brand-900 px-4 py-2 text-sm font-medium text-white hover:bg-brand-800"
+        className="rounded-md bg-brand-900 px-4 py-2 text-sm font-medium text-neutral-50 hover:bg-brand-800"
       >
         {t('backHome')}
       </Link>

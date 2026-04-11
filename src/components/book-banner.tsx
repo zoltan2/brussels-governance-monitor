@@ -43,7 +43,7 @@ export function BookBanner() {
               </p>
               <Link
                 href="/livre"
-                className="mt-5 inline-flex items-center gap-1.5 rounded-lg border border-brand-700 bg-brand-700 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-900"
+                className="mt-5 inline-flex items-center gap-1.5 rounded-lg border border-brand-700 bg-brand-700 px-5 py-2.5 text-sm font-medium text-neutral-50 transition-colors hover:bg-brand-900"
               >
                 Pr&eacute;commander
                 <ArrowRight size={14} aria-hidden={true} />

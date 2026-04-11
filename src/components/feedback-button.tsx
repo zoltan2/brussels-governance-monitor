@@ -160,7 +160,7 @@ export function FeedbackButton({ cardTitle, cardType, cardSlug, context, labels 
             <button
               type="submit"
               disabled={status === 'submitting' || !message.trim()}
-              className="rounded-md bg-brand-900 px-4 py-1.5 text-xs font-medium text-white transition-colors hover:bg-brand-800 disabled:opacity-50"
+              className="rounded-md bg-brand-900 px-4 py-1.5 text-xs font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:opacity-50"
             >
               {status === 'submitting' ? labels.submitting : labels.submit}
             </button>

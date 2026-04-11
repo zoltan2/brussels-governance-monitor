@@ -337,7 +337,7 @@ function DashboardCta() {
             </div>
             <Link
               href="/dashboard"
-              className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-brand-700 px-5 py-2 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-700 hover:text-white"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-brand-700 px-5 py-2 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50"
             >
               {t('viewDashboard')}
               <ArrowRight size={14} aria-hidden={true} />
@@ -612,7 +612,7 @@ function QuizPromo() {
           </div>
           <Link
             href="/quiz"
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-brand-700 px-5 py-2.5 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-700 hover:text-white"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-brand-700 px-5 py-2.5 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50"
           >
             {t('quizCta')}
             <ArrowRight size={14} aria-hidden={true} />

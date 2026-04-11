@@ -9,6 +9,8 @@ interface FeedbackButtonProps {
   cardTitle: string;
   cardType: string;
   cardSlug: string;
+  /** Optional structured context included in the feedback email (e.g. quiz question details) */
+  context?: string;
   labels: {
     button: string;
     title: string;
@@ -31,7 +33,7 @@ interface FeedbackButtonProps {
   };
 }
 
-export function FeedbackButton({ cardTitle, cardType, cardSlug, labels }: FeedbackButtonProps) {
+export function FeedbackButton({ cardTitle, cardType, cardSlug, context, labels }: FeedbackButtonProps) {
   const [open, setOpen] = useState(false);
   const [feedbackType, setFeedbackType] = useState('error');
   const [message, setMessage] = useState('');
@@ -55,6 +57,7 @@ export function FeedbackButton({ cardTitle, cardType, cardSlug, labels }: Feedba
           message: message.trim(),
           email: email.trim() || undefined,
           url: window.location.href,
+          ...(context ? { context } : {}),
         }),
       });
 

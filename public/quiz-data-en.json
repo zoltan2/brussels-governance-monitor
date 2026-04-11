@@ -1,0 +1,904 @@
+{
+  "generatedAt": "2026-04-11T13:01:24.255Z",
+  "locale": "en",
+  "poolSize": 56,
+  "questionsPerSession": 10,
+  "questions": [
+    {
+      "id": "domain-budget-0",
+      "source": "domain",
+      "domain": "Budget",
+      "question": "By what year does the Brussels regional government aim to return to a balanced budget?",
+      "options": [
+        "2026",
+        "2027",
+        "2029",
+        "2031"
+      ],
+      "correct": 2,
+      "explanation": "The coalition agreement and budget strategy explicitly target a return to balanced budget by 2029, with a savings trajectory of approximately EUR 1.2 billion. This ambitious fiscal goal reflects the government's commitment to address the current deficit of EUR 957 million.",
+      "sourceSlug": "/en/domains/budget",
+      "sourceTitle": "Regional budget: targeting balance by 2029"
+    },
+    {
+      "id": "domain-budget-1",
+      "source": "domain",
+      "domain": "Budget",
+      "question": "What is the main source of financial pressure on Brussels municipalities between 2025-2029?",
+      "options": [
+        "New regional taxes imposed on local authorities",
+        "Additional charges from decisions by other government levels totaling EUR 1.718 billion",
+        "Reduced subsidies from the European Union",
+        "Increased staff salaries mandated by regional government"
+      ],
+      "correct": 1,
+      "explanation": "Brulocalis identified EUR 1.718 billion in transferred charges from other government decisions, with only 26.7% compensation, leaving municipalities to cover EUR 1.258 billion. Key drivers include statutory pensions, police funding, tax reform impacts, and social assistance costs.",
+      "sourceSlug": "/en/domains/budget",
+      "sourceTitle": "Regional budget: targeting balance by 2029"
+    },
+    {
+      "id": "domain-cleanliness-0",
+      "source": "domain",
+      "domain": "Cleanliness",
+      "question": "According to 2025 data, what percentage of illegal dumping fines in Brussels were issued to non-residents?",
+      "options": [
+        "approximately 25%",
+        "approximately 37%",
+        "approximately 50%",
+        "approximately 61%"
+      ],
+      "correct": 1,
+      "explanation": "36.7% of the 7,731 fines issued in Brussels in 2025 were given to non-residents, a phenomenon called 'waste tourism' driven by the significantly lower cost of rubbish bags in Brussels compared to surrounding municipalities. This highlights a key governance challenge the Region is addressing.",
+      "sourceSlug": "/en/domains/cleanliness",
+      "sourceTitle": "Cleanliness: regional brigades and immediate fine collection"
+    },
+    {
+      "id": "domain-cleanliness-1",
+      "source": "domain",
+      "domain": "Cleanliness",
+      "question": "How much will producers (packaging industry and tobacco sector) pay annually to the Brussels Region under the Extended Producer Responsibility agreement?",
+      "options": [
+        "€26.7 million per year",
+        "€51.4 million per year",
+        "€27.5 million per year",
+        "€12 million per year"
+      ],
+      "correct": 1,
+      "explanation": "Producers will pay €51.4 million per year to Brussels under the Extended Producer Responsibility ordinance approved in March 2026, with 54% directed to municipalities for litter clean-up and 46% to the Region for regional cleanliness policies. This represents a significant funding source for waste management efforts.",
+      "sourceSlug": "/en/domains/cleanliness",
+      "sourceTitle": "Cleanliness: regional brigades and immediate fine collection"
+    },
+    {
+      "id": "domain-climate-0",
+      "source": "domain",
+      "domain": "Climate",
+      "question": "What is the annual pass price for the Low Emission Zone (LEZ) in Brussels under the 2026 coalition agreement?",
+      "options": [
+        "EUR 200",
+        "EUR 350",
+        "EUR 80",
+        "EUR 100"
+      ],
+      "correct": 1,
+      "explanation": "The coalition agreement set the LEZ annual pass at EUR 350 (with a reduced social rate of EUR 200). This measure maintains the existing LEZ schedule while adjusting financial parameters to be less restrictive than previous enforcement mechanisms.",
+      "sourceSlug": "/en/domains/climate",
+      "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending"
+    },
+    {
+      "id": "domain-climate-1",
+      "source": "domain",
+      "domain": "Climate",
+      "question": "Which measure did the Brussels coalition agreement replace Renolution with as of February 2026?",
+      "options": [
+        "Tax credits for energy renovation",
+        "Zero-interest loans for energy renovation",
+        "Direct government funding for solar panels",
+        "Mandatory energy audits for all buildings"
+      ],
+      "correct": 1,
+      "explanation": "Renolution was replaced by zero-interest loans totaling EUR 200 million to fund energy renovation projects. However, observers note this shift represents an ambiguous signal for climate action, as the impact on actual energy renovation rates remains uncertain compared to the previous program.",
+      "sourceSlug": "/en/domains/climate",
+      "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending"
+    },
+    {
+      "id": "domain-digital-0",
+      "source": "domain",
+      "domain": "Digital",
+      "question": "According to the Brussels Governance Monitor data, what percentage of Brussels residents aged 16-74 have advanced digital skills as of 2025?",
+      "options": [
+        "60%",
+        "65%",
+        "75%",
+        "86%"
+      ],
+      "correct": 1,
+      "explanation": "Brussels leads Belgium with 65% of its population having advanced digital skills, ahead of Flanders (61%) and Wallonia (60%). This strong foundation supports the region's ambition to become an AI capital and improve digital inclusion across all communities.",
+      "sourceSlug": "/en/domains/digital",
+      "sourceTitle": "Digital: bridging the digital divide and administrative simplification"
+    },
+    {
+      "id": "domain-digital-1",
+      "source": "domain",
+      "domain": "Digital",
+      "question": "Which policy initiative aims to prevent citizens from repeatedly providing the same personal information to Brussels administration?",
+      "options": [
+        "Digital inclusion plan",
+        "Public Digital Spaces",
+        "Only once principle",
+        "Smart city strategy"
+      ],
+      "correct": 2,
+      "explanation": "The 'Only once' principle ensures that once citizens provide data to Brussels administration, they won't be asked for it again. This cornerstone of administrative simplification reduces bureaucratic burden and improves citizen experience with government services.",
+      "sourceSlug": "/en/domains/digital",
+      "sourceTitle": "Digital: bridging the digital divide and administrative simplification"
+    },
+    {
+      "id": "domain-economy-0",
+      "source": "domain",
+      "domain": "Economy",
+      "question": "What is the primary purpose of the Urban Free Zone planned for the Port of Brussels and Audi Forest site?",
+      "options": [
+        "To reduce property taxes and streamline business registration while supporting economic recovery in these areas",
+        "To create a tourist destination with cultural attractions and entertainment venues",
+        "To relocate the regional government offices and administrative services",
+        "To establish housing developments for Brussels residents"
+      ],
+      "correct": 0,
+      "explanation": "The Urban Free Zone uses three strategic levers—tax reduction, fast-track administration, and dedicated employment support—to counter the construction crisis and encourage business investment in these key industrial sites. This initiative demonstrates Brussels' effort to restore economic momentum through targeted incentives.",
+      "sourceSlug": "/en/domains/economy",
+      "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital"
+    },
+    {
+      "id": "domain-economy-1",
+      "source": "domain",
+      "domain": "Economy",
+      "question": "How did the federal government's hotel VAT increase from 6% to 12% (effective March 1, 2026) impact Brussels compared to other Belgian regions?",
+      "options": [
+        "Brussels was exempted from the increase due to its status as the capital",
+        "Brussels was disproportionately affected because it accounts for the majority of the country's tourist and business overnight stays",
+        "All Belgian regions were equally affected by the tax increase",
+        "Only Brussels hotels in the city center were subject to the new rate"
+      ],
+      "correct": 1,
+      "explanation": "Since Brussels hosts most of Belgium's hotel guests for tourism and business, the VAT increase creates a significant competitive disadvantage for the region. The Brussels Hotels Association estimated an additional EUR 8.50 cost per night, illustrating why regional free zone measures are crucial to offset such federal fiscal pressures.",
+      "sourceSlug": "/en/domains/economy",
+      "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital"
+    },
+    {
+      "id": "domain-education-0",
+      "source": "domain",
+      "domain": "Education",
+      "question": "What percentage of Brussels children attend Dutch-language education daily?",
+      "options": [
+        "Approximately 10%",
+        "Approximately 20%",
+        "Approximately 30%",
+        "Approximately 40%"
+      ],
+      "correct": 1,
+      "explanation": "The VGC (Dutch-speaking Community authority) manages education for approximately 100,000 students daily, representing over 20% of Brussels children. This highlights the significant Dutch-speaking education sector that requires coordination with French-speaking policies in Brussels.",
+      "sourceSlug": "/en/domains/education",
+      "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions"
+    },
+    {
+      "id": "domain-education-1",
+      "source": "domain",
+      "domain": "Education",
+      "question": "When will the VGC assume full management of Dutch-speaking out-of-school care in Brussels?",
+      "options": [
+        "January 2025",
+        "September 2026",
+        "December 2027",
+        "June 2028"
+      ],
+      "correct": 1,
+      "explanation": "The BOA transition to VGC management takes effect in September 2026, ending the current transition phase that began in 2021. This represents a significant governance shift in how childcare and out-of-school activities are organized for Dutch-speaking families in Brussels.",
+      "sourceSlug": "/en/domains/education",
+      "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions"
+    },
+    {
+      "id": "domain-employment-0",
+      "source": "domain",
+      "domain": "Employment",
+      "question": "What is the Brussels Region's target employment rate by the end of the current parliamentary term, and how much of an increase does this represent from 2025 levels?",
+      "options": [
+        "65% employment rate, an increase of 1.1 percentage points",
+        "70% employment rate, an increase of 6.1 percentage points",
+        "75% employment rate, an increase of 11 percentage points",
+        "68% employment rate, an increase of 4.1 percentage points"
+      ],
+      "correct": 1,
+      "explanation": "The Regional Policy Declaration sets a 70% employment target versus the 2025 level of 63.9%, requiring a gain of more than 6 points. This ambitious goal responds directly to Brussels' structural employment challenges documented in the content.",
+      "sourceSlug": "/en/domains/employment",
+      "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism"
+    },
+    {
+      "id": "domain-employment-1",
+      "source": "domain",
+      "domain": "Employment",
+      "question": "According to the Itinera Institute study (2006-2022), how did women's employment in Brussels perform compared to other Belgian regions over this 16-year period?",
+      "options": [
+        "Increased by 11.9%, matching Wallonia's performance",
+        "Increased by 20.6%, outpacing Flanders' growth",
+        "Showed zero progress at 0%, while other regions saw significant gains",
+        "Decreased by 5.8%, worsening faster than men's employment"
+      ],
+      "correct": 2,
+      "explanation": "Brussels is the only Belgian region where women's employment made zero progress between 2006 and 2022, while Flanders grew +20.6% and Wallonia +11.9%. This stagnation is a critical structural challenge highlighted in the governance agenda.",
+      "sourceSlug": "/en/domains/employment",
+      "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism"
+    },
+    {
+      "id": "domain-housing-0",
+      "source": "domain",
+      "domain": "Housing",
+      "question": "According to the 2026 Coalition Agreement, how much funding has been allocated to the SLRB (Brussels Housing Company) to address the housing crisis?",
+      "options": [
+        "EUR 200 million",
+        "EUR 320 million",
+        "EUR 400 million",
+        "EUR 560 million"
+      ],
+      "correct": 2,
+      "explanation": "The agreement announced a EUR 400 million injection into the SLRB as part of a comprehensive housing package. This represents a major commitment to unlock housing solutions in Brussels, where over 62,000 households are waiting for accommodation.",
+      "sourceSlug": "/en/domains/housing",
+      "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units"
+    },
+    {
+      "id": "domain-housing-1",
+      "source": "domain",
+      "domain": "Housing",
+      "question": "What percentage of homes for sale in Brussels have the worst energy performance labels (EPC F or G), according to a March 2026 analysis?",
+      "options": [
+        "22%",
+        "26%",
+        "29%",
+        "32%"
+      ],
+      "correct": 3,
+      "explanation": "Brussels has the highest proportion of energy-inefficient homes among Belgium's three regions, with 32% carrying the poorest energy labels. This underscores why the Regional government set 2033 as the deadline for all homes to reach at least EPC label E.",
+      "sourceSlug": "/en/domains/housing",
+      "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units"
+    },
+    {
+      "id": "domain-institutional-0",
+      "source": "domain",
+      "domain": "Institutional",
+      "question": "According to the 2024 VUB/BRIO Language Barometer, how has Dutch language proficiency in Brussels changed over the past 25 years?",
+      "options": [
+        "It has declined from 33% to 22.3%",
+        "It has remained stable at around 30%",
+        "It has increased from 22% to 33%",
+        "It has declined from 81% to 22.3%"
+      ],
+      "correct": 0,
+      "explanation": "The Taalbarometer documents a significant 10.7-point drop in Dutch proficiency, reflecting broader linguistic shifts in Brussels where English now surpasses Dutch as the second most-known language—a key concern for an officially bilingual region.",
+      "sourceSlug": "/en/domains/institutional",
+      "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars"
+    },
+    {
+      "id": "domain-institutional-1",
+      "source": "domain",
+      "domain": "Institutional",
+      "question": "In the new Cocof government, employment and vocational training oversight are assigned to different ministers. What concern did the opposition raise about this arrangement?",
+      "options": [
+        "That it violates the principle of ministerial accountability",
+        "That it contradicts OECD recommendations favouring integration of these functions",
+        "That it increases administrative costs unnecessarily",
+        "That it prevents French-speakers from accessing training programs"
+      ],
+      "correct": 1,
+      "explanation": "Opposition figures cited OECD best practices recommending that employment and training policies be integrated under unified oversight, rather than split between Actiris and Bruxelles Formation under separate ministerial control.",
+      "sourceSlug": "/en/domains/institutional",
+      "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars"
+    },
+    {
+      "id": "domain-mobility-0",
+      "source": "domain",
+      "domain": "Mobility",
+      "question": "According to the 2026 Coalition Agreement on mobility, what will replace the frozen Metro 3 project?",
+      "options": [
+        "A new bus rapid transit system",
+        "A tram completing the loop of the existing network",
+        "An extension of the S-train suburban rail network",
+        "A road vignette system for vehicle access"
+      ],
+      "correct": 1,
+      "explanation": "The agreement freezes Metro 3 for 10 years and redirects investment towards completing a tram loop rather than building a new metro extension. This represents a major shift in Brussels' public transport strategy.",
+      "sourceSlug": "/en/domains/mobility",
+      "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained"
+    },
+    {
+      "id": "domain-mobility-1",
+      "source": "domain",
+      "domain": "Mobility",
+      "question": "What significant change occurred in Brussels road fatalities between 2024 and 2025?",
+      "options": [
+        "Deaths decreased from 20 to 10",
+        "Deaths remained stable at 10 per year",
+        "Deaths doubled from 10 to 20",
+        "Deaths increased by 50% to 15"
+      ],
+      "correct": 2,
+      "explanation": "The Vias Institute reported that Brussels recorded 20 traffic deaths in 2025, compared with only 10 in 2024—a doubling in just one year. This alarming trend underlies the regional government's new 'Vision Zero' commitment to eliminate road fatalities.",
+      "sourceSlug": "/en/domains/mobility",
+      "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained"
+    },
+    {
+      "id": "domain-security-0",
+      "source": "domain",
+      "domain": "Security",
+      "question": "According to the 2024 safe.brussels report, what trend does Brussels' overall crime rate show?",
+      "options": [
+        "Declining, despite population growth",
+        "Rising sharply across all crime categories",
+        "Stable but concerning for specific offences",
+        "Exploding due to drug-related incidents"
+      ],
+      "correct": 0,
+      "explanation": "The crime rate per 1,000 inhabitants fell from 137.5 in 2014 to 131.01 in 2024, a decline masked by rising specific phenomena like drug offences and sexual violence. This nuanced picture justifies the Regional Policy Declaration's targeted approach rather than panic-driven measures.",
+      "sourceSlug": "/en/domains/security",
+      "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate"
+    },
+    {
+      "id": "domain-security-1",
+      "source": "domain",
+      "domain": "Security",
+      "question": "How much funding has the Brussels-Capital Region committed to improve security at its major train stations?",
+      "options": [
+        "€5.7 million for Midi station only",
+        "€10 million for Midi and Nord stations",
+        "€15.4 million across all transport hubs",
+        "€19 million for station and police coordination"
+      ],
+      "correct": 1,
+      "explanation": "The Regional Policy Declaration allocates €10 million specifically for securing Midi and Nord stations in coordination with police zones and SNCB. The minister-president's first field visit to Gare du Midi highlighted the need for improved coordination among the multiple actors operating at these sites.",
+      "sourceSlug": "/en/domains/security",
+      "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate"
+    },
+    {
+      "id": "domain-social-0",
+      "source": "domain",
+      "domain": "Social",
+      "question": "According to the 2026 Coalition Agreement, how much funding was allocated to improve security and services at Brussels' Midi and Nord train stations?",
+      "options": [
+        "EUR 5 million",
+        "EUR 10 million",
+        "EUR 20 million",
+        "EUR 60 million"
+      ],
+      "correct": 1,
+      "explanation": "The agreement dedicated EUR 10 million specifically for cameras, police presence, cleaning, and support for vulnerable people at these two major stations. This reflects the coalition's focus on security and social support in key public spaces.",
+      "sourceSlug": "/en/domains/social",
+      "sourceTitle": "Social affairs: EUR 10M for stations, drug commissioner, services protected"
+    },
+    {
+      "id": "domain-social-1",
+      "source": "domain",
+      "domain": "Social",
+      "question": "In Brussels-Capital Region, how many people are estimated to be affected by the federal unemployment benefits reform (limiting benefits to two years) between January 2026 and July 2027?",
+      "options": [
+        "Approximately 15,000 people",
+        "Approximately 42,000 people",
+        "Approximately 100,000 people",
+        "Approximately 185,700 people"
+      ],
+      "correct": 1,
+      "explanation": "Brussels is expected to see approximately 42,000 affected residents according to Actiris estimates, which is significant because Brussels accounts for about 10% of Belgium's population but concentrates a third of those without identifiable income from this reform.",
+      "sourceSlug": "/en/domains/social",
+      "sourceTitle": "Social affairs: EUR 10M for stations, drug commissioner, services protected"
+    },
+    {
+      "id": "domain-urban-planning-0",
+      "source": "domain",
+      "domain": "Urban Planning",
+      "question": "What is the main goal of the 'planning amnesty' measure introduced in Brussels's urban planning reforms?",
+      "options": [
+        "To reduce the backlog of infringement cases and provide legal certainty to property owners",
+        "To completely eliminate all heritage protection restrictions in Brussels",
+        "To speed up the approval of new construction projects in green zones",
+        "To remove all building permits issued before 2020"
+      ],
+      "correct": 0,
+      "explanation": "The planning amnesty is a regularisation mechanism for historic violations that aims to reduce the administrative backlog and give property owners legal certainty. This reform is part of Brussels's broader effort to streamline urban planning processes.",
+      "sourceSlug": "/en/domains/urban-planning",
+      "sourceTitle": "Urban Planning: faster permits and planning amnesty"
+    },
+    {
+      "id": "domain-urban-planning-1",
+      "source": "domain",
+      "domain": "Urban Planning",
+      "question": "In the February 2026 Brussels Parliament vote on brownfields, what was the outcome regarding green zone protection?",
+      "options": [
+        "All 9 green zones were given permanent protection from construction",
+        "3 sites were permanently preserved and 18 months of moratorium applied to remaining sites, as per the coalition compromise",
+        "Construction was banned on all brownfields larger than 0.5 hectares permanently",
+        "The vote was rejected and no protection measures were adopted"
+      ],
+      "correct": 1,
+      "explanation": "The Brussels Parliament approved a compromise from the coalition agreement: 3 sites (Wiels, Avijl, Donderberg) received permanent protection, while 18 other sites got an 18-month moratorium. This reflects the tension between development and environmental preservation in Brussels governance.",
+      "sourceSlug": "/en/domains/urban-planning",
+      "sourceTitle": "Urban Planning: faster permits and planning amnesty"
+    },
+    {
+      "id": "dossier-accessibilite-pmr-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "According to 2024 data, what percentage of Belgium's disability allowance recipients live in the Brussels-Capital Region?",
+      "options": [
+        "4.7%",
+        "9.1%",
+        "2.7%",
+        "52.4%"
+      ],
+      "correct": 1,
+      "explanation": "The Brussels-Capital Region accounts for 9.1% of Belgium's 253,866 disability allowance recipients, representing approximately 23,100 people. This figure shows Brussels's significant role in disability support despite being one of Belgium's smaller regions.",
+      "sourceSlug": "/en/dossiers/accessibilite-pmr",
+      "sourceTitle": "Accessibility and disability in Brussels: transport, employment and data"
+    },
+    {
+      "id": "dossier-acs-0",
+      "source": "dossier",
+      "domain": "Employment",
+      "question": "How many subsidised contract worker positions were actively filled in Brussels by 2024, and what explains the decline from 2017?",
+      "options": [
+        "Approximately 6,700 positions; many were not filled within the mandatory 6-month deadline imposed since 2015",
+        "Approximately 8,500 positions; funding was redirected to other employment schemes",
+        "Approximately 10,000 positions; the scheme remained stable throughout this period",
+        "Approximately 5,200 positions; the regional government eliminated half of all positions"
+      ],
+      "correct": 0,
+      "explanation": "The content shows a significant drop from ~10,000 positions in 2017 to ~6,700 in 2024, directly caused by the 2015 reform's strict 6-month deadline for filling vacancies. This illustrates the real operational challenges facing the scheme.",
+      "sourceSlug": "/en/dossiers/acs",
+      "sourceTitle": "Subsidised Contract Workers: the weakened pillar of Brussels non-profit employment"
+    },
+    {
+      "id": "dossier-acs-1",
+      "source": "dossier",
+      "domain": "Employment",
+      "question": "What is the 'ACS differential' that weakens Brussels non-profit employers?",
+      "options": [
+        "The gap between the regional premium paid to subsidised workers and the actual salary costs employers must cover, because sector agreements provide higher salaries than the premium recognizes",
+        "The difference in funding levels between Brussels and Flanders' employment support schemes",
+        "The regional tax exemption that applies only to employers with over 100 subsidised workers",
+        "The disparity in employment rates between subsidised and non-subsidised workers in the non-profit sector"
+      ],
+      "correct": 0,
+      "explanation": "The ACS differential is a structural funding gap where employers must pay full salaries but the subsidy doesn't cover sector-level agreements or prior experience. Understanding this concept reveals why Brussels non-profits—especially smaller organizations—struggle financially despite the subsidy.",
+      "sourceSlug": "/en/dossiers/acs",
+      "sourceTitle": "Subsidised Contract Workers: the weakened pillar of Brussels non-profit employment"
+    },
+    {
+      "id": "dossier-assemblees-citoyennes-0",
+      "source": "dossier",
+      "domain": "Institutional",
+      "question": "Since 2019, how many recommendations have been generated by the six completed deliberative commissions in the Brussels Parliament?",
+      "options": [
+        "Approximately 100 recommendations",
+        "Approximately 205 recommendations",
+        "Approximately 350 recommendations",
+        "Approximately 500 recommendations"
+      ],
+      "correct": 1,
+      "explanation": "The six deliberative commissions on topics ranging from 5G to urban noise produced over 205 recommendations in total between 2021 and 2024. These recommendations are transmitted to parliamentary committees for follow-up by elected representatives.",
+      "sourceSlug": "/en/dossiers/assemblees-citoyennes",
+      "sourceTitle": "Citizens' assemblies: 6 commissions completed, 205+ recommendations, 7th in preparation"
+    },
+    {
+      "id": "dossier-bien-etre-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "According to the 2023 EU-SILC survey, how do Brussels residents rate their life satisfaction compared to other Belgian regions?",
+      "options": [
+        "Brussels scores highest at 7.8/10, above both Flanders and Wallonia",
+        "Brussels scores 7.5/10, matching Wallonia but below Flanders at 7.8/10",
+        "Brussels scores lowest at 7.5/10, significantly below Flanders and Wallonia",
+        "Brussels and Flanders both score 7.8/10, above Wallonia at 7.5/10"
+      ],
+      "correct": 1,
+      "explanation": "IBSA Focus No. 77 shows Brussels at 7.5/10, equal to Wallonia but trailing Flanders. Health, decent living standards, social relationships, suitable housing, and work ability are identified as key drivers of life satisfaction in the region.",
+      "sourceSlug": "/en/dossiers/bien-etre",
+      "sourceTitle": "Well-being and quality of life in Brussels: indicators, rankings and challenges"
+    },
+    {
+      "id": "dossier-data-centers-ia-energie-0",
+      "source": "dossier",
+      "domain": "Climate",
+      "question": "What percentage of Belgium's national electricity consumption was used by data centres in 2023?",
+      "options": [
+        "2%",
+        "4%",
+        "7%",
+        "10%"
+      ],
+      "correct": 1,
+      "explanation": "Belgium's data centres consumed 3.2 TWh in 2023, representing 4% of national electricity—twice the European average. This high concentration highlights Belgium's emerging role as a major digital infrastructure hub in Europe.",
+      "sourceSlug": "/en/dossiers/data-centers-ia-energie",
+      "sourceTitle": "Data centres and AI: impact on the Brussels energy system"
+    },
+    {
+      "id": "dossier-data-centers-ia-energie-1",
+      "source": "dossier",
+      "domain": "Climate",
+      "question": "According to projections, what could be the maximum share of AI energy consumption in data centres by 2030?",
+      "options": [
+        "15%",
+        "25%",
+        "35-50%",
+        "60-70%"
+      ],
+      "correct": 2,
+      "explanation": "AI accounted for approximately 15% of data centre energy consumption in 2024, but this share is projected to reach 35-50% by 2030. This dramatic increase reflects the rapid expansion of artificial intelligence applications globally.",
+      "sourceSlug": "/en/dossiers/data-centers-ia-energie",
+      "sourceTitle": "Data centres and AI: impact on the Brussels energy system"
+    },
+    {
+      "id": "dossier-enseignement-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "In Brussels, which level of government has virtually no power over compulsory education decisions?",
+      "options": [
+        "The Brussels-Capital Region",
+        "The Wallonia-Brussels Federation",
+        "The Flemish Community",
+        "The Federal Government"
+      ],
+      "correct": 0,
+      "explanation": "Despite Brussels residents paying regional taxes to the Brussels-Capital Region, compulsory education is managed by the FWB (for francophone schools) and the Flemish Community (for Dutch-speaking schools). This institutional setup means the Brussels government cannot prevent education budget cuts decided by these other authorities.",
+      "sourceSlug": "/en/dossiers/enseignement",
+      "sourceTitle": "Compulsory education in Brussels: the impact of FWB and Flemish Community budget cuts"
+    },
+    {
+      "id": "dossier-enseignement-1",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "What percentage of Brussels children aged 3-17 attend schools organised or subsidised by either the FWB or Flemish Community?",
+      "options": [
+        "75%",
+        "85%",
+        "92%",
+        "98%"
+      ],
+      "correct": 2,
+      "explanation": "According to the Panorama of School in Brussels (2023-2024), 92% of Brussels children in this age group attend community-run or community-subsidised schools, while the remaining 8% attend private, European, international schools or are home-schooled. This shows the Communities' dominant role in Brussels education.",
+      "sourceSlug": "/en/dossiers/enseignement",
+      "sourceTitle": "Compulsory education in Brussels: the impact of FWB and Flemish Community budget cuts"
+    },
+    {
+      "id": "dossier-faillites-a-bruxelles-0",
+      "source": "dossier",
+      "domain": "Economy",
+      "question": "In 2025, how much higher was the bankruptcy increase in Brussels-Capital Region compared to Flanders?",
+      "options": [
+        "5.4 percentage points",
+        "7.8 percentage points",
+        "13.2 percentage points",
+        "20 percentage points"
+      ],
+      "correct": 0,
+      "explanation": "Brussels saw a 13.2% increase in bankruptcies while Flanders recorded +7.8%, making the difference 5.4 percentage points. This shows Brussels was disproportionately affected compared to other Belgian regions.",
+      "sourceSlug": "/en/dossiers/faillites-a-bruxelles",
+      "sourceTitle": "Bankruptcies in Brussels: overview, sectors and regional mechanisms"
+    },
+    {
+      "id": "dossier-fusion-polices-0",
+      "source": "dossier",
+      "domain": "Security",
+      "question": "What is unique about Brussels in the national police zone merger reform that is being voted on before summer 2026?",
+      "options": [
+        "Brussels is the only region where the merger is mandatory, while it is voluntary elsewhere in the country",
+        "Brussels will merge 6 zones into 3 zones, while other regions merge into 1 zone each",
+        "Brussels is the only region refusing to participate in the federal merger process",
+        "Brussels will implement the merger immediately after the vote, without a transition period"
+      ],
+      "correct": 0,
+      "explanation": "The Interior Minister confirmed that reducing 176 to ~60 police zones across the country is a national reform, but Brussels' merger is explicitly described as 'the only mandatory case.' This distinction is central to the conflict of interest motion, which argues the reform is being 'imposed' on Brussels while remaining voluntary elsewhere.",
+      "sourceSlug": "/en/dossiers/fusion-polices",
+      "sourceTitle": "Police zone merger: from 6 to 1, vote expected before summer 2026"
+    },
+    {
+      "id": "dossier-good-move-0",
+      "source": "dossier",
+      "domain": "Mobility",
+      "question": "What is the main change in focus for Brussels's new Regional Mobility Plan compared to Good Move?",
+      "options": [
+        "Smaller traffic-calmed cells centered on school zones instead of neighbourhood-wide cells",
+        "Complete removal of all traffic restrictions across Brussels",
+        "Expansion of car-free zones to cover entire neighbourhoods",
+        "Elimination of public transport improvements in favor of road expansion"
+      ],
+      "correct": 0,
+      "explanation": "The new plan maintains the philosophy of calmed traffic but shifts from broad neighbourhood cells to smaller, school-focused zones. This represents a scaling back of Good Move's more prescriptive approach while keeping safety improvements around schools.",
+      "sourceSlug": "/en/dossiers/good-move",
+      "sourceTitle": "Good Move: new regional plan to succeed it"
+    },
+    {
+      "id": "dossier-good-move-1",
+      "source": "dossier",
+      "domain": "Mobility",
+      "question": "What significant road safety challenge does Brussels face as the new mobility plan is being implemented?",
+      "options": [
+        "Increased cycling accidents due to expanded bike lanes",
+        "Traffic deaths doubled in 2025 compared to 2022-2024 averages, contradicting Vision Zero targets",
+        "More pedestrian injuries in newly created school zones",
+        "Higher speeds on roads reopened after Good Move restrictions"
+      ],
+      "correct": 1,
+      "explanation": "Brussels recorded 20 traffic deaths in 2025, doubling the average of 10 deaths per year from 2022-2024, which directly conflicts with the Vision Zero safety objective. This data highlights the complexity of balancing mobility reform with road safety outcomes.",
+      "sourceSlug": "/en/dossiers/good-move",
+      "sourceTitle": "Good Move: new regional plan to succeed it"
+    },
+    {
+      "id": "dossier-lez-0",
+      "source": "dossier",
+      "domain": "Climate",
+      "question": "Under the February 2026 government agreement, what is the annual cost for owners of non-compliant vehicles to legally drive in Brussels' Low Emission Zone?",
+      "options": [
+        "150 EUR",
+        "200 EUR (social rate) or 350 EUR (standard rate)",
+        "500 EUR",
+        "Free with a warning letter"
+      ],
+      "correct": 1,
+      "explanation": "The new agreement introduced an annual pass system as an alternative to fines, with a social rate of 200 EUR and standard rate of 350 EUR. This represents a significant shift in the LEZ penalty system, moving from fines alone to a more flexible compliance option.",
+      "sourceSlug": "/en/dossiers/lez",
+      "sourceTitle": "LEZ: maintained with annual pass and reduced fines"
+    },
+    {
+      "id": "dossier-lez-1",
+      "source": "dossier",
+      "domain": "Climate",
+      "question": "Since Brussels' Low Emission Zone was introduced in 2018, what percentage reduction has been achieved in nitrogen oxide (NOx) pollution?",
+      "options": [
+        "33%",
+        "55%",
+        "60%",
+        "75%"
+      ],
+      "correct": 1,
+      "explanation": "The LEZ has delivered measurable environmental gains, with NOx reduced by 55%, particulate matter by 33%, and black carbon by 60%. These results demonstrate the zone's effectiveness in improving air quality for Brussels residents, which is central to understanding why legal challenges focus on weakening protections.",
+      "sourceSlug": "/en/dossiers/lez",
+      "sourceTitle": "LEZ: maintained with annual pass and reduced fines"
+    },
+    {
+      "id": "dossier-metro-3-0",
+      "source": "dossier",
+      "domain": "Mobility",
+      "question": "According to the government agreement of February 2026, what major infrastructure project replaces the frozen Metro 3?",
+      "options": [
+        "A new bus rapid transit system",
+        "A tram completing the loop of the existing network",
+        "An extension of the commuter rail network",
+        "Underground tunnels for pedestrian access"
+      ],
+      "correct": 1,
+      "explanation": "The agreement redirects billions of euros from the underground Metro 3 project to a surface tramway that will complete the existing tram network loop. This represents a fundamental shift in Brussels' public transport strategy.",
+      "sourceSlug": "/en/dossiers/metro-3",
+      "sourceTitle": "Metro 3: project frozen for 10 years, replaced by tram"
+    },
+    {
+      "id": "dossier-metro-3-1",
+      "source": "dossier",
+      "domain": "Mobility",
+      "question": "By what percentage did the estimated cost of the Metro 3 project increase from initial estimates to the Court of Audit's final assessment?",
+      "options": [
+        "77%",
+        "177%",
+        "377%",
+        "477%"
+      ],
+      "correct": 3,
+      "explanation": "The Court of Audit found the total cost to be 4.76 billion EUR compared to initial estimates under 1 billion EUR—a 477% cost overrun. This massive escalation, combined with a 15-year delay and concerns about financial sustainability, was the key factor that led decision-makers to freeze the project.",
+      "sourceSlug": "/en/dossiers/metro-3",
+      "sourceTitle": "Metro 3: project frozen for 10 years, replaced by tram"
+    },
+    {
+      "id": "dossier-mobilite-partagee-0",
+      "source": "dossier",
+      "domain": "Mobility",
+      "question": "As of March 2025, approximately how many free-floating shared vehicles (e-scooters and bicycles combined) are operating in Brussels?",
+      "options": [
+        "8,500 vehicles",
+        "15,700 vehicles",
+        "11,500 vehicles",
+        "20,200 vehicles"
+      ],
+      "correct": 1,
+      "explanation": "The shared mobility market in Brussels comprises approximately 15,700 free-floating vehicles: ~9,200 electric e-scooters and ~6,500 bicycles. This figure illustrates the scale of micro-mobility in the region and the regulatory challenge it presents.",
+      "sourceSlug": "/en/dossiers/mobilite-partagee",
+      "sourceTitle": "Shared mobility in Brussels: e-scooters, bicycles, taxis and the battle over concessions"
+    },
+    {
+      "id": "dossier-mobilite-partagee-1",
+      "source": "dossier",
+      "domain": "Mobility",
+      "question": "When will the Villo! bicycle-sharing concession agreement with JCDecaux expire?",
+      "options": [
+        "December 2025",
+        "September 2026",
+        "December 2026",
+        "June 2027"
+      ],
+      "correct": 1,
+      "explanation": "The agreement signed in November 2008 expires in September 2026 after nearly 17 years of operation. This deadline is critical because the regional government must decide on the future of docked bicycle systems—a choice with significant implications for Brussels' mobility landscape.",
+      "sourceSlug": "/en/dossiers/mobilite-partagee",
+      "sourceTitle": "Shared mobility in Brussels: e-scooters, bicycles, taxis and the battle over concessions"
+    },
+    {
+      "id": "dossier-petite-enfance-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "According to recent surveys, how many Brussels parents describe finding a nursery place as 'difficult or very difficult'?",
+      "options": [
+        "About one in three parents",
+        "About two in three parents",
+        "About four in five parents",
+        "Almost all parents"
+      ],
+      "correct": 1,
+      "explanation": "The Ligue des Familles survey shows that two parents in three struggle with nursery access in Brussels. This stark figure demonstrates why early childhood care has become a major governance challenge affecting families across the region.",
+      "sourceSlug": "/en/dossiers/petite-enfance",
+      "sourceTitle": "Early childhood in Brussels: nurseries, waiting lists and triple institutional authority"
+    },
+    {
+      "id": "dossier-petite-enfance-1",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "How many different institutional authorities decide on nursery approvals and funding in Brussels?",
+      "options": [
+        "One unified regional authority",
+        "Two authorities (francophone and Dutch-language)",
+        "Three main authorities, plus municipalities and other bodies",
+        "Four completely separate systems with no coordination"
+      ],
+      "correct": 2,
+      "explanation": "ONE (for francophone), Opgroeien (for Dutch-language), and Iriscare (for bicommunal structures) each operate independently, plus municipalities and community commissions add further layers. This fragmentation means separate waiting lists and unequal coverage depending on where families live.",
+      "sourceSlug": "/en/dossiers/petite-enfance",
+      "sourceTitle": "Early childhood in Brussels: nurseries, waiting lists and triple institutional authority"
+    },
+    {
+      "id": "dossier-pfas-0",
+      "source": "dossier",
+      "domain": "Climate",
+      "question": "As of 2025, how many parcels in Brussels-Capital Region show confirmed PFAS contamination in soil or groundwater?",
+      "options": [
+        "47 parcels",
+        "55 parcels",
+        "82 parcels",
+        "108 parcels"
+      ],
+      "correct": 2,
+      "explanation": "Brussels Environment's systematic analysis campaigns since 2021 have identified 82 contaminated parcels total: 47 in soil and 55 in groundwater. This widespread contamination reflects the pervasive use of PFAS in consumer and industrial products across the region.",
+      "sourceSlug": "/en/dossiers/pfas",
+      "sourceTitle": "PFAS in Brussels: soil and water contamination"
+    },
+    {
+      "id": "dossier-pfas-1",
+      "source": "dossier",
+      "domain": "Climate",
+      "question": "What is the main challenge with TFA (trifluoroacetic acid) in Brussels's drinking water?",
+      "options": [
+        "It is present in only one reservoir and affects less than 10% of analyses",
+        "It exceeds the PFAS standard in all 6 reservoirs, and standard activated carbon filters cannot remove it",
+        "It has been completely eliminated by Vivaqua since 2024",
+        "It only affects groundwater, not water distributed to residents"
+      ],
+      "correct": 1,
+      "explanation": "TFA is detected in all 6 Brussels reservoirs, with 97% of analyses exceeding the standard. Unlike other PFAS compounds, standard activated carbon filters cannot capture TFA—only expensive reverse osmosis technology works. This presents a significant technical and financial challenge for water treatment.",
+      "sourceSlug": "/en/dossiers/pfas",
+      "sourceTitle": "PFAS in Brussels: soil and water contamination"
+    },
+    {
+      "id": "dossier-plan-securite-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "According to the Brussels Security Observatory report from 2024, which type of offence showed the most significant increase between 2023 and 2024?",
+      "options": [
+        "Criminal offences in general",
+        "Drug offences",
+        "Firearm incidents",
+        "Homicides"
+      ],
+      "correct": 1,
+      "explanation": "Drug offences increased by 33% from 2023 to 2024, making it the fastest-growing category. This surge directly explains why the new regional security plan prioritizes an integrated drugs strategy and the creation of an anti-drugs commissioner role.",
+      "sourceSlug": "/en/dossiers/plan-securite",
+      "sourceTitle": "Security plan: anti-drugs commissioner, 10M EUR for stations and police zone merger"
+    },
+    {
+      "id": "dossier-reforme-administration-0",
+      "source": "dossier",
+      "domain": "Budget",
+      "question": "According to the Regional Policy Declaration of February 2026, how many major pillars will the Brussels regional administration be reorganized into?",
+      "options": [
+        "2 pillars focused on operations and policy",
+        "4 pillars including shared services, core missions, infrastructure, and land management",
+        "6 pillars aligned with the 6th Reform of the State",
+        "8 pillars corresponding to the main policy domains"
+      ],
+      "correct": 1,
+      "explanation": "The reform aims to consolidate approximately 25 regional entities into 4 major pillars, each with distinct functions ranging from shared support services to infrastructure management. This restructuring is central to achieving projected savings of 250-300 million EUR by 2029.",
+      "sourceSlug": "/en/dossiers/reforme-administration",
+      "sourceTitle": "Reform of the regional administration: from 25 entities to 4 pillars"
+    },
+    {
+      "id": "dossier-rse-0",
+      "source": "dossier",
+      "domain": "Economy",
+      "question": "What is the target percentage of Brussels regional subsidies that should go to 'exemplary' businesses by 2030 under the Shifting Economy strategy?",
+      "options": [
+        "50%",
+        "75%",
+        "100%",
+        "80%"
+      ],
+      "correct": 2,
+      "explanation": "The Shifting Economy strategy, adopted in 2022, explicitly aims for 100% of regional subsidies to go exclusively to businesses committed to environmental and social action by 2030. This ambitious goal highlights the region's commitment to making sustainability a core condition for economic support.",
+      "sourceSlug": "/en/dossiers/rse",
+      "sourceTitle": "Economic Transition: Shifting Economy, Labels and Sustainability Reporting"
+    },
+    {
+      "id": "dossier-seniors-a-bruxelles-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "What percentage of Brussels' population is aged 65 and over, and how does this compare to the Belgian average?",
+      "options": [
+        "13% in Brussels vs. 20% in Belgium",
+        "20% in Brussels vs. 13% in Belgium",
+        "15% in Brussels vs. 18% in Belgium",
+        "10% in Brussels vs. 15% in Belgium"
+      ],
+      "correct": 0,
+      "explanation": "Brussels currently has a lower share of seniors (13%) than the Belgian average (20%), though projections show this gap will narrow significantly by 2071. Understanding Brussels' demographic profile is essential for evaluating regional policy priorities on elderly care.",
+      "sourceSlug": "/en/dossiers/seniors-a-bruxelles",
+      "sourceTitle": "Seniors in Brussels: housing, autonomy and data"
+    },
+    {
+      "id": "dossier-slrb-0",
+      "source": "dossier",
+      "domain": "Housing",
+      "question": "What is the main financial challenge that the Brussels public housing authority (SLRB) is addressing through asset sales?",
+      "options": [
+        "Reducing a debt of approximately 197 million EUR",
+        "Funding the construction of 1,000 new housing units",
+        "Paying employee salaries at the 16 social housing companies",
+        "Covering energy renovation costs for all Brussels buildings"
+      ],
+      "correct": 0,
+      "explanation": "The SLRB's debt of EUR 197 million requires consolidation. The government approved asset sales (Ariane site, Palais site, and ~200 social housing units) expected to yield EUR 73 million in 2026 to reduce this debt burden.",
+      "sourceSlug": "/en/dossiers/slrb",
+      "sourceTitle": "SLRB: 1,000+ public housing units and financial consolidation"
+    },
+    {
+      "id": "dossier-slrb-1",
+      "source": "dossier",
+      "domain": "Housing",
+      "question": "How many households are currently waiting for social housing in Brussels?",
+      "options": [
+        "Approximately 16,000",
+        "Over 62,000",
+        "Around 46,000",
+        "Roughly 3,800"
+      ],
+      "correct": 1,
+      "explanation": "With over 62,000 households on the waiting list, social housing in Brussels faces structural pressure. The announced 1,000+ new units represent only a modest response to this significant demand, making it a key issue to monitor.",
+      "sourceSlug": "/en/dossiers/slrb",
+      "sourceTitle": "SLRB: 1,000+ public housing units and financial consolidation"
+    },
+    {
+      "id": "dossier-vivaqua-0",
+      "source": "dossier",
+      "domain": "Budget",
+      "question": "In February 2026, by how much did Brussels water tariffs increase, and what was the monthly cost impact per person according to Vivaqua?",
+      "options": [
+        "12.5% increase, approximately EUR 1.70/month per person",
+        "10% increase, approximately EUR 2.50/month per person",
+        "15% increase, approximately EUR 1.70/month per person",
+        "12.5% increase, approximately EUR 3.00/month per person"
+      ],
+      "correct": 0,
+      "explanation": "The tariff increase came into effect on 1 January 2026 and reflected Vivaqua's financial difficulties. This question illustrates the direct impact of water company management challenges on household budgets in Brussels.",
+      "sourceSlug": "/en/dossiers/vivaqua",
+      "sourceTitle": "Vivaqua: financial consolidation announced"
+    }
+  ]
+}

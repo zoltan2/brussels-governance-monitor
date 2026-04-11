@@ -14,6 +14,7 @@ const feedbackSchema = z.object({
   message: z.string().min(1).max(2000),
   email: z.string().email().optional(),
   url: z.string().url().max(500),
+  context: z.string().max(2000).optional(),
 });
 
 const FEEDBACK_RECIPIENT = 'feedback@brusselsgovernance.be';
@@ -36,7 +37,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { cardTitle, cardType, cardSlug, feedbackType, message, email, url } = parsed.data;
+    const { cardTitle, cardType, cardSlug, feedbackType, message, email, url, context } = parsed.data;
 
     if (!process.env.RESEND_API_KEY) {
       // In development or if Resend not configured, log and accept
@@ -55,6 +56,7 @@ export async function POST(request: Request) {
           `Card: ${cardTitle} (${cardType}/${cardSlug})`,
           `URL: ${url}`,
           email ? `Reply to: ${email}` : 'No reply email provided',
+          ...(context ? ['', 'Context:', context] : []),
           '',
           'Message:',
           message,

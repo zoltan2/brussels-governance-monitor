@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { setRequestLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import QuizLoader from '@/components/quiz/quiz-loader';
@@ -17,11 +18,11 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'quiz' });
   return buildMetadata({
     locale,
-    title: 'Quiz — Brussels Governance Monitor',
-    description:
-      'Testez vos connaissances sur la gouvernance bruxelloise : 10 questions tirées de l\'actualité et des 13 domaines suivis par BGM.',
+    title: t('pageTitle'),
+    description: t('pageDescription'),
     path: '/quiz',
   });
 }
@@ -34,15 +35,16 @@ export default async function QuizPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations({ locale, namespace: 'quiz' });
+
   return (
     <main className="mx-auto max-w-2xl px-4 py-12 sm:px-6">
       <div className="mb-8">
         <h1 className="text-2xl font-medium text-neutral-900">
-          Connaissez-vous vraiment Bruxelles ?
+          {t('pageTitle')}
         </h1>
         <p className="mt-2 text-sm leading-relaxed text-neutral-500">
-          10 questions sur la gouvernance bruxelloise — tirées de l&apos;actualité récente et des
-          13 domaines suivis par BGM. Questions régénérées à chaque mise à jour du site.
+          {t('pageDescription')}
         </p>
       </div>
 

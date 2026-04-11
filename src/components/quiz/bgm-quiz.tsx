@@ -7,6 +7,7 @@
  */
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useTranslations, useLocale } from 'next-intl'
 
 const LETTERS = ['A', 'B', 'C', 'D'] as const
 
@@ -35,13 +36,12 @@ interface MissedItem {
   sourceTitle: string
 }
 
-function scoreLabel(score: number, total: number): string {
-  const pct = score / total
-  if (pct < 0.3) return 'Citoyen curieux'
-  if (pct < 0.5) return 'Observateur en formation'
-  if (pct < 0.7) return 'Citoyen informé'
-  if (pct < 0.9) return 'Analyste bruxellois'
-  return 'Expert BGM'
+function scoreLabel(pct: number, t: (key: string) => string): string {
+  if (pct < 0.3) return t('citizenCurious')
+  if (pct < 0.5) return t('observerTraining')
+  if (pct < 0.7) return t('citizenInformed')
+  if (pct < 0.9) return t('brusselsAnalyst')
+  return t('expertBGM')
 }
 
 function reportMailto(q: QuizQuestion): string {
@@ -52,7 +52,15 @@ function reportMailto(q: QuizQuestion): string {
   return `mailto:hello@governance.brussels?subject=${subject}&body=${body}`
 }
 
+/** Replace /fr/ prefix in sourceSlug with the current locale */
+function localizeSlug(slug: string, locale: string): string {
+  return slug.replace(/^\/fr\//, `/${locale}/`)
+}
+
 export default function BGMQuiz() {
+  const t = useTranslations('quiz')
+  const locale = useLocale()
+
   const [data, setData] = useState<QuizData | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [current, setCurrent] = useState(0)
@@ -75,16 +83,15 @@ export default function BGMQuiz() {
       .then((d: QuizData) => {
         if (cancelled) return
         if (!d.questions || d.questions.length === 0) {
-          setError('Le quiz n\u2019est pas encore disponible. Réessayez plus tard.')
+          setError(t('errorUnavailable'))
           return
         }
         setData(d)
       })
       .catch(() => {
-        if (!cancelled) setError('Impossible de charger le quiz.')
+        if (!cancelled) setError(t('errorLoad'))
       })
-    return () => { cancelled = true }
-  }, [])
+  }, [t])
 
   const q: QuizQuestion | null = data ? data.questions[current] : null
   const total = data?.questions.length ?? 0
@@ -127,14 +134,14 @@ export default function BGMQuiz() {
   }, [])
 
   const copyLinkedIn = useCallback(() => {
-    const text = `J'ai testé mes connaissances sur la gouvernance bruxelloise — ${score}/${total}.\n\nBruxelles : 19 communes, 6 niveaux de gouvernement, des centaines de décisions chaque semaine. Brussels Governance Monitor surveille tout ça en 4 langues.\n\nhttps://governance.brussels`
+    const text = t('linkedInShareText', { score: String(score), total: String(total) })
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2500)
     })
-  }, [score, total])
+  }, [score, total, t])
 
-  // ─── Chargement / erreur ───────────────────────────────────────────────
+  // ─── Chargement / erreur ────────���──────────────────────────────────────
   if (error) {
     return (
       <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
@@ -146,26 +153,25 @@ export default function BGMQuiz() {
     return (
       <div className="flex items-center gap-2 py-8 text-sm text-neutral-400">
         <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-        Chargement du quiz…
+        {t('loading')}
       </div>
     )
   }
 
-  // ─── Résultat ──────────────────────────────────────────────────────────
+  // ��── Résultat ─────��────────────────────────────────────────────────────
   if (phase === 'result') {
     return (
-      <div ref={topRef} className="mx-auto max-w-xl py-6">
+      <div ref={topRef} className="scroll-mt-24 mx-auto max-w-xl py-6">
         <div className="mb-6 text-center">
-          <div className="mb-1 text-xs uppercase tracking-widest text-neutral-400">Votre score</div>
+          <div className="mb-1 text-xs uppercase tracking-widest text-neutral-400">{t('yourScore')}</div>
           <div className="text-5xl font-medium tabular-nums text-neutral-900">
             {score}/{total}
           </div>
           <div className="mt-1 text-sm font-medium text-teal-700">
-            {scoreLabel(score, total)}
+            {scoreLabel(score / total, t)}
           </div>
           <p className="mt-4 text-sm leading-relaxed text-neutral-500">
-            Bruxelles a 19 communes, 6 gouvernements qui se superposent, et des centaines de
-            décisions qui affectent votre quotidien. BGM surveille tout ça pour vous.
+            {t('resultDescription')}
           </p>
         </div>
 
@@ -173,30 +179,30 @@ export default function BGMQuiz() {
 
         <div className="grid grid-cols-2 gap-3">
           <a
-            href="/fr/signal"
-            className="col-span-1 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-50"
+            href={`/${locale}/signal`}
+            className="col-span-1 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
           >
-            <div className="text-sm font-medium text-neutral-900">Le Signal</div>
-            <div className="mt-0.5 text-xs text-neutral-400">Newsletter hebdo</div>
+            <div className="text-sm font-medium text-neutral-900">{t('newsletter')}</div>
+            <div className="mt-0.5 text-xs text-neutral-400">{t('newsletterDesc')}</div>
           </a>
 
           <button
             onClick={copyLinkedIn}
-            className="col-span-1 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-left transition hover:bg-neutral-50"
+            className="col-span-1 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-left transition hover:bg-neutral-100"
           >
-            <div className="text-sm font-medium text-neutral-900">Partager sur LinkedIn</div>
+            <div className="text-sm font-medium text-neutral-900">{t('shareLinkedIn')}</div>
             <div className="mt-0.5 text-xs text-neutral-400">
-              {copied ? 'Copié dans le presse-papiers' : 'Copier le texte de partage'}
+              {copied ? t('copiedClipboard') : t('copyShareText')}
             </div>
           </button>
 
           <a
-            href="/fr/domaines"
-            className="col-span-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-50"
+            href={`/${locale}/domaines`}
+            className="col-span-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
           >
-            <div className="text-sm font-medium text-neutral-900">Explorer les 13 domaines</div>
+            <div className="text-sm font-medium text-neutral-900">{t('explore13Domains')}</div>
             <div className="mt-0.5 text-xs text-neutral-400">
-              Mobilité, logement, budget, emploi, culture — governance.brussels
+              {t('explore13DomainsDesc')}
             </div>
           </a>
         </div>
@@ -204,7 +210,7 @@ export default function BGMQuiz() {
         {missed.length > 0 && (
           <div className="mt-6">
             <div className="mb-3 text-xs uppercase tracking-widest text-neutral-400">
-              À approfondir
+              {t('toDeepen')}
             </div>
             {missed.map((m, i) => (
               <div
@@ -215,10 +221,10 @@ export default function BGMQuiz() {
                   {m.question.length > 65 ? m.question.slice(0, 65) + '\u2026' : m.question}
                 </span>
                 <a
-                  href={m.sourceSlug}
+                  href={localizeSlug(m.sourceSlug, locale)}
                   className="shrink-0 text-xs text-teal-700 hover:underline"
                 >
-                  Lire →
+                  {t('readLink')}
                 </a>
               </div>
             ))}
@@ -227,20 +233,20 @@ export default function BGMQuiz() {
 
         <button
           onClick={restart}
-          className="mt-6 w-full rounded-lg border border-neutral-200 bg-neutral-50 py-2.5 text-sm text-neutral-500 transition hover:bg-neutral-50"
+          className="mt-6 w-full rounded-lg border border-neutral-200 bg-neutral-50 py-2.5 text-sm text-neutral-500 transition hover:bg-neutral-100"
         >
-          Recommencer
+          {t('restart')}
         </button>
       </div>
     )
   }
 
-  // ─── Quiz ──────────────────────────────────────────────────────────────
+  // ─── Quiz ─────��────────────────────────────────��───────────────────────
   const progress = ((current + 1) / total) * 100
-  const sourceLabel = q.source === 'domain' ? 'Domaine' : 'Dossier'
+  const sourceLabel = q.source === 'domain' ? t('sourceDomain') : t('sourceDossier')
 
   return (
-    <div ref={topRef} className="mx-auto max-w-xl py-6">
+    <div ref={topRef} className="scroll-mt-24 mx-auto max-w-xl py-6">
       {/* Progress */}
       <div className="mb-5 h-px bg-neutral-100">
         <div
@@ -252,7 +258,7 @@ export default function BGMQuiz() {
       {/* Meta */}
       <div className="mb-2 flex items-center gap-2">
         <span className="text-xs uppercase tracking-widest text-neutral-400">
-          Question {current + 1} / {total}
+          {t('questionOf', { current: String(current + 1), total: String(total) })}
         </span>
         <span
           className={`rounded px-2 py-0.5 text-xs font-medium ${
@@ -273,7 +279,7 @@ export default function BGMQuiz() {
       {/* Options */}
       <div className="flex flex-col gap-2.5">
         {q.options.map((opt, idx) => {
-          let variant = 'border-neutral-200 bg-neutral-50 hover:border-neutral-300 hover:bg-neutral-50'
+          let variant = 'border-neutral-200 bg-neutral-50 hover:border-neutral-300 hover:bg-neutral-100'
           if (answered !== null) {
             if (idx === q.correct) {
               variant = 'border-teal-500 bg-teal-50'
@@ -313,24 +319,24 @@ export default function BGMQuiz() {
         <div className="mt-4 rounded-lg border border-neutral-100 bg-neutral-50 px-4 py-3">
           <p className="text-sm leading-relaxed text-neutral-600">
             <strong className="font-medium text-neutral-900">
-              {answered === q.correct ? 'Correct. ' : 'Pas tout à fait. '}
+              {answered === q.correct ? t('correct') + ' ' : t('incorrect') + ' '}
             </strong>
             {q.explanation}
           </p>
           <div className="mt-2 flex items-center justify-between">
             <a
-              href={q.sourceSlug}
+              href={localizeSlug(q.sourceSlug, locale)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-xs text-teal-700 hover:underline"
             >
-              Lire sur governance.brussels — {q.sourceTitle}
+              {t('readOnBGM', { title: q.sourceTitle })}
             </a>
             <a
               href={reportMailto(q)}
               className="text-xs text-neutral-400 hover:text-neutral-600 hover:underline"
             >
-              Signaler une erreur
+              {t('reportError')}
             </a>
           </div>
         </div>
@@ -342,7 +348,7 @@ export default function BGMQuiz() {
           onClick={handleNext}
           className="mt-4 w-full rounded-lg border border-blue-800 py-3 text-sm font-medium text-blue-800 transition hover:bg-blue-50"
         >
-          {current + 1 < total ? 'Question suivante' : 'Voir mon résultat'}
+          {current + 1 < total ? t('nextQuestion') : t('showResult')}
         </button>
       )}
     </div>

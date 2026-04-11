@@ -325,17 +325,45 @@ export default function BGMQuiz() {
 
         {/* CTAs */}
         <div className="grid grid-cols-2 gap-3">
+          {/* Le Signal — FR only */}
+          {locale === 'fr' && (
+            <a
+              href={`/${locale}/signal`}
+              className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
+            >
+              <div className="text-sm font-medium text-neutral-900">{t('signalTitle')}</div>
+              <div className="mt-0.5 text-xs text-neutral-400">{t('signalDesc')}</div>
+            </a>
+          )}
+
+          {/* Podcast — FR + NL */}
+          {(locale === 'fr' || locale === 'nl') && (
+            <a
+              href={locale === 'fr'
+                ? 'https://podcast.governance.brussels/@lebriefingbgm'
+                : 'https://podcast.governance.brussels/@debriefingbgm'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
+            >
+              <div className="text-sm font-medium text-neutral-900">{t('podcastTitle')}</div>
+              <div className="mt-0.5 text-xs text-neutral-400">{t('podcastDesc')}</div>
+            </a>
+          )}
+
+          {/* Digest email — all locales */}
           <a
             href={`/${locale}/subscribe`}
-            className="col-span-1 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
+            className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
           >
-            <div className="text-sm font-medium text-neutral-900">{t('newsletter')}</div>
-            <div className="mt-0.5 text-xs text-neutral-400">{t('newsletterDesc')}</div>
+            <div className="text-sm font-medium text-neutral-900">{t('digestTitle')}</div>
+            <div className="mt-0.5 text-xs text-neutral-400">{t('digestDesc')}</div>
           </a>
 
+          {/* Explorer les domaines — all locales */}
           <a
             href={`/${locale}/domaines`}
-            className="col-span-1 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
+            className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
           >
             <div className="text-sm font-medium text-neutral-900">{t('explore13Domains')}</div>
             <div className="mt-0.5 text-xs text-neutral-400">

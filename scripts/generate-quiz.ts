@@ -89,6 +89,7 @@ Règles :
 - Questions factuelles, précises, accessibles au grand public
 - Une seule bonne réponse, index "correct" = 0, 1, 2 ou 3
 - Distracteurs plausibles (pas de mauvaises réponses évidentes)
+- JAMAIS de pourcentages, proportions ou chiffres révélateurs entre parenthèses dans les options — ils donnent la réponse. Place ces détails dans l'explication (affichée APRÈS le choix)
 - Explication orientée vers la lecture du contenu source
 - Jamais de jargon sans explication
 - PAS de noms de politiciens — utilise les rôles institutionnels
@@ -124,6 +125,7 @@ Regels:
 - Feitelijke, nauwkeurige vragen, toegankelijk voor het grote publiek
 - Eén juist antwoord, index "correct" = 0, 1, 2 of 3
 - Plausibele afleiders (geen voor de hand liggende foute antwoorden)
+- NOOIT percentages, verhoudingen of onthullende cijfers tussen haakjes in de opties — ze geven het antwoord weg. Vermeld deze details in de uitleg (getoond NA de keuze)
 - Uitleg gericht op het lezen van de broninhoud
 - Nooit jargon zonder uitleg
 - GEEN namen van politici — gebruik institutionele functies
@@ -159,6 +161,7 @@ Rules:
 - Factual, precise questions, accessible to the general public
 - One correct answer, index "correct" = 0, 1, 2 or 3
 - Plausible distractors (no obviously wrong answers)
+- NEVER include percentages, proportions or revealing figures in parentheses in options — they give away the answer. Put these details in the explanation (shown AFTER the choice)
 - Explanation oriented toward reading the source content
 - Never use jargon without explanation
 - NO politician names — use institutional roles
@@ -194,6 +197,7 @@ Regeln:
 - Sachliche, präzise Fragen, zugänglich für die breite Öffentlichkeit
 - Eine richtige Antwort, Index "correct" = 0, 1, 2 oder 3
 - Plausible Distraktoren (keine offensichtlich falschen Antworten)
+- NIEMALS Prozentsätze, Verhältnisse oder verräterische Zahlen in Klammern in den Optionen — sie verraten die Antwort. Diese Details gehören in die Erklärung (angezeigt NACH der Wahl)
 - Erklärung auf das Lesen des Quellinhalts ausgerichtet
 - Niemals Fachjargon ohne Erklärung
 - KEINE Politikernamen — verwenden Sie institutionelle Funktionen

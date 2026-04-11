@@ -253,6 +253,8 @@ export const routing = defineRouting({
       en: '/support',
       de: '/unterstuetzen',
     },
+    '/quiz': '/quiz',
+    '/signal': '/signal',
   },
 });
 

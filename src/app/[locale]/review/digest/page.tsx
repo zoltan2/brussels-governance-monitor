@@ -466,7 +466,7 @@ export default function DigestReviewPage() {
             <button
               onClick={handleSave}
               disabled={status === 'saving' || status === 'approving'}
-              className="rounded-md bg-neutral-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-700 disabled:opacity-50"
+              className="rounded-md bg-neutral-800 px-4 py-2 text-sm font-medium text-neutral-50 transition-colors hover:bg-neutral-700 disabled:opacity-50"
             >
               {status === 'saving' ? 'Sauvegarde...' : 'Sauvegarder'}
             </button>

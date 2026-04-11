@@ -22,7 +22,7 @@ export default function Error({
       <p className="mb-8 text-sm text-neutral-500">{t('description')}</p>
       <button
         onClick={() => reset()}
-        className="rounded-md bg-brand-900 px-4 py-2 text-sm font-medium text-white hover:bg-brand-800"
+        className="rounded-md bg-brand-900 px-4 py-2 text-sm font-medium text-neutral-50 hover:bg-brand-800"
       >
         {t('retry')}
       </button>

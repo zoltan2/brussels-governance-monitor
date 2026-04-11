@@ -80,7 +80,7 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
         <button
           type="submit"
           disabled={status === 'submitting' || !email.trim()}
-          className="shrink-0 rounded-md bg-brand-900 px-4 py-1.5 text-xs font-medium text-white transition-colors hover:bg-brand-800 disabled:opacity-50"
+          className="shrink-0 rounded-md bg-brand-900 px-4 py-1.5 text-xs font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:opacity-50"
         >
           {status === 'submitting' ? labels.submitting : labels.submit}
         </button>

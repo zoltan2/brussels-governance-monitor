@@ -86,7 +86,7 @@ export function LoginForm({ locale, labels }: LoginFormProps) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-md bg-brand-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-900 disabled:opacity-50"
+        className="w-full rounded-md bg-brand-800 px-4 py-2 text-sm font-medium text-neutral-50 transition-colors hover:bg-brand-900 disabled:opacity-50"
       >
         {loading ? '...' : labels.submit}
       </button>

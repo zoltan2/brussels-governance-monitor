@@ -151,7 +151,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
             onClick={() => { setActiveFilter(f.key); setExpanded(false); }}
             className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
               activeFilter === f.key
-                ? 'border-brand-700 bg-brand-700 text-white'
+                ? 'border-brand-700 bg-brand-700 text-neutral-50'
                 : 'border-neutral-200 bg-neutral-50 text-neutral-600 hover:bg-neutral-50'
             }`}
             aria-pressed={activeFilter === f.key}
@@ -372,7 +372,7 @@ function SuggestSourceForm({ labels }: { labels: SuggestLabels }) {
           <button
             type="submit"
             disabled={status === 'submitting' || !url.trim()}
-            className="rounded-md bg-brand-900 px-4 py-1.5 text-xs font-medium text-white transition-colors hover:bg-brand-800 disabled:opacity-50"
+            className="rounded-md bg-brand-900 px-4 py-1.5 text-xs font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:opacity-50"
           >
             {status === 'submitting' ? labels.suggestSubmitting : labels.suggestSubmit}
           </button>

@@ -98,6 +98,9 @@ export function Footer() {
                   <span className="sr-only"> ({t('newTab')})</span>
                 </a>
               )}
+              <Link href="/quiz" className="hover:text-neutral-700">
+                {t('quiz')}
+              </Link>
             </nav>
           </div>
 

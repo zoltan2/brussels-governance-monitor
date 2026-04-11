@@ -128,6 +128,9 @@ export function Header() {
           <Link href="/dashboard" className="inline-flex h-5 items-center text-sm text-neutral-600 hover:text-neutral-900">
             {t('dashboard')}
           </Link>
+          <Link href="/quiz" className="inline-flex h-5 items-center text-sm text-neutral-600 hover:text-neutral-900">
+            {t('quiz')}
+          </Link>
 
           {/* Explorer dropdown */}
           <div ref={dropdownRef} className="relative">
@@ -265,6 +268,9 @@ export function Header() {
             </Link>
             <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
               {t('dashboard')}
+            </Link>
+            <Link href="/quiz" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
+              {t('quiz')}
             </Link>
 
             <hr aria-hidden="true" className="border-neutral-100" />

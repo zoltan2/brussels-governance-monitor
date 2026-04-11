@@ -124,6 +124,8 @@ export default async function HomePage({
 
       <BookBanner />
 
+      <QuizPromo />
+
       <SupportCtaHome />
 
       <SubscribeSection dossierOptions={getAllDossierTopicOptions(locale as Locale).map((d) => ({ id: d.topicId, label: d.label }))} />
@@ -586,5 +588,37 @@ function CommemorationBanner({ locale }: { locale: string }) {
       <p className="text-sm font-semibold text-slate-800">{text.title}</p>
       <p className="mt-1 text-sm leading-relaxed text-slate-700">{text.body}</p>
     </div>
+  );
+}
+
+// ──��───────────────────────────────────────────
+// Quiz promo (between Book and Support)
+// ─────────���────────────���───────────────────────
+
+function QuizPromo() {
+  const t = useTranslations('home');
+
+  return (
+    <section className="py-8">
+      <div className="mx-auto max-w-5xl px-4">
+        <div className="flex flex-col items-center gap-4 rounded-lg border border-neutral-200 bg-neutral-50 px-6 py-8 text-center sm:flex-row sm:text-left">
+          <div className="flex-1">
+            <h2 className="text-base font-semibold text-neutral-900">
+              {t('quizTitle')}
+            </h2>
+            <p className="mt-1 text-sm text-neutral-500">
+              {t('quizSubtitle')}
+            </p>
+          </div>
+          <Link
+            href="/quiz"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-brand-700 px-5 py-2.5 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-700 hover:text-white"
+          >
+            {t('quizCta')}
+            <ArrowRight size={14} aria-hidden={true} />
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }

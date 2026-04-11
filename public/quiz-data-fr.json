@@ -1,5 +1,6 @@
 {
-  "generatedAt": "2026-04-11T12:34:54.620Z",
+  "generatedAt": "2026-04-11T20:51:41.565Z",
+  "locale": "fr",
   "poolSize": 57,
   "questionsPerSession": 10,
   "questions": [
@@ -7,15 +8,15 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "En quelle année le gouvernement bruxellois vise-t-il un retour à l'équilibre budgétaire ?",
+      "question": "Quel est l'objectif principal fixé par l'accord de gouvernement bruxellois du 12 février 2026 concernant les finances régionales ?",
       "options": [
-        "2026",
-        "2027",
-        "2029",
-        "2030"
+        "Retour à l'équilibre budgétaire en 2029",
+        "Réduction du déficit à 500 millions EUR en 2026",
+        "Augmentation des taxes régionales pour financer les investissements",
+        "Suppression de tous les postes de la fonction publique régionale"
       ],
-      "correct": 2,
-      "explanation": "L'accord de gouvernement fixe clairement 2029 comme objectif pour atteindre l'équilibre budgétaire, après une trajectoire d'économies d'environ 1,2 milliard EUR. Découvrez comment cette trajectoire budgétaire ambitieuse se concrétise sur Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "L'accord de gouvernement fixe explicitement une trajectoire d'équilibre budgétaire en 2029, avec environ 1,2 milliard EUR d'économies à réaliser. Cet engagement ambitieux structure toute la politique budgétaire régionale des années à venir.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029"
     },
@@ -23,15 +24,15 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Selon le rapport de Brulocalis en mars 2026, quel montant de charges supplémentaires pèse sur les communes bruxelloises sans compensation suffisante ?",
+      "question": "Parmi les mesures budgétaires annoncées en février 2026, laquelle concerne directement le système fiscal bruxellois ?",
       "options": [
-        "726 millions EUR",
-        "1,258 milliard EUR",
-        "1,718 milliard EUR",
-        "2,5 milliards EUR"
+        "L'introduction d'une City Tax sur les hébergements touristiques",
+        "La baisse d'un point de l'impôt des personnes physiques régional",
+        "La création d'une taxe au kilomètre pour les véhicules",
+        "L'augmentation des droits d'enregistrement pour tous les biens immobiliers"
       ],
       "correct": 1,
-      "explanation": "Brulocalis a chiffré à 1,718 milliard EUR les charges totales (2025-2029), mais seuls 26,7 % seraient compensés, laissant 1,258 milliard EUR à charge des pouvoirs locaux. Cette répartition des défis budgétaires entre niveaux de pouvoir est décortiquée en détail sur Brussels Governance Monitor.",
+      "explanation": "Le gouvernement a annoncé une baisse d'un point de l'impôt des personnes physiques (IPP) régional, profitant ainsi directement aux travailleurs bruxellois. Cette mesure s'inscrit dans un cadre d'équilibre budgétaire sans création de nouvelles taxes.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029"
     },
@@ -39,15 +40,15 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Quel phénomène explique l'augmentation des dépôts sauvages à Bruxelles signalée en 2025 ?",
+      "question": "Selon la Déclaration de Politique Régionale de février 2026, quel est le principal objectif de la création de brigades régionales de propreté à Bruxelles ?",
       "options": [
-        "Le « tourisme des déchets » : des habitants des communes voisines viennent déposer leurs déchets à Bruxelles car les sacs-poubelle y sont dix fois moins chers",
-        "L'insuffisance des conteneurs souterrains dans les quartiers denses",
-        "L'absence de caméras intelligentes de surveillance",
-        "La fermeture temporaire de l'Agence Bruxelles-Propreté"
+        "Coordonner les agents régionaux et communaux pour améliorer la lutte contre les dépôts sauvages",
+        "Remplacer entièrement les services municipaux de nettoyage",
+        "Installer exclusivement des caméras intelligentes dans tous les quartiers",
+        "Augmenter le prix des sacs-poubelle pour les non-résidents"
       ],
       "correct": 0,
-      "explanation": "En 2025, 36,7 % des contrevenants pour dépôts sauvages étaient des non-résidents, attirés par les tarifs bien plus avantageux des sacs-poubelle bruxellois. Ce phénomène montre comment les différences régionales de prix peuvent créer des problèmes transfrontaliers.",
+      "explanation": "Les brigades régionales visent à coordonner les efforts entre niveaux de gouvernement. Cette approche intégrée, combinée aux caméras intelligentes et à la perception immédiate des amendes, constitue la stratégie régionale face au phénomène des dépôts clandestins.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes"
     },
@@ -55,15 +56,15 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Combien d'euros les producteurs de plastique et de tabac doivent-ils verser annuellement à Bruxelles en vertu de la responsabilité élargie des producteurs ?",
+      "question": "Qu'est-ce que le mécanisme de « responsabilité élargie des producteurs » (REP) approuvé par le Parlement bruxellois en mars 2026 ?",
       "options": [
-        "26,7 millions d'euros",
-        "51,4 millions d'euros",
-        "12 millions d'euros",
-        "75 millions d'euros"
+        "Une obligation pour les producteurs de plastique et d'emballages de financer les politiques de nettoyage des déchets",
+        "Un système d'amende pénale contre les citoyens qui jettent leurs déchets",
+        "Une interdiction pure et simple de vendre des produits en plastique à usage unique",
+        "Un accord qui transfère toute la responsabilité du nettoyage aux communes bruxelloises"
       ],
-      "correct": 1,
-      "explanation": "L'accord approuvé en mars 2026 impose aux producteurs une contribution annuelle de 51,4 millions d'euros : 26,7 M€ dès 2026. Cet argent finance le nettoyage des déchets sauvages et les politiques régionales de propreté, illustrant comment faire payer les pollueurs contribue à la transition écologique.",
+      "correct": 0,
+      "explanation": "La REP est un principe européen de responsabilité partagée : les producteurs financent directement la gestion des déchets qu'ils génèrent. À Bruxelles, cela représente un apport significatif pour les politiques régionales et communales de propreté, incluant le nettoyage des déchets sauvages.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes"
     },
@@ -71,15 +72,15 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climat",
-      "question": "Selon l'accord de gouvernement de février 2026, quel est le tarif annuel du pass pour la LEZ (Low Emission Zone) à Bruxelles ?",
+      "question": "Selon l'accord de gouvernement de février 2026, qu'a-t-on fait du programme Renolution, qui encourageait la rénovation énergétique des bâtiments bruxellois ?",
       "options": [
-        "250 EUR",
-        "350 EUR",
-        "450 EUR",
-        "500 EUR"
+        "Il a été remplacé par un dispositif de prêts à taux zéro",
+        "Il a été maintenu sans modification",
+        "Il a été supprimé sans alternative proposée",
+        "Il a été fusionné avec le programme LEZ"
       ],
-      "correct": 1,
-      "explanation": "Le pass annuel est fixé à 350 EUR (avec un tarif social réduit à 200 EUR). Cette mesure fait partie des ajustements financiers de la LEZ annoncés dans le nouvel accord de gouvernement.",
+      "correct": 0,
+      "explanation": "L'accord prévoit le remplacement de Renolution par des prêts à taux zéro doté de 200 millions EUR. Cette substitution suscite des questionnements sur sa capacité à maintenir la dynamique de transition énergétique, d'où l'intérêt de suivre cet enjeu via Brussels Governance Monitor.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens"
     },
@@ -87,15 +88,15 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climat",
-      "question": "Quel programme de rénovation énergétique a été remplacé par des prêts à taux zéro dans l'accord de gouvernement de 2026 ?",
+      "question": "En mars 2026, le gouvernement bruxellois a annoncé un recours contre une décision judiciaire d'octobre 2025. Contre quel type de restriction ce recours est-il dirigé ?",
       "options": [
-        "PACE",
-        "Renolution",
-        "GIEP",
-        "Vivaqua"
+        "Un gel des constructions dans les zones vertes",
+        "Une interdiction de la Low Emission Zone (LEZ)",
+        "Une limitation des prêts énergétiques",
+        "Une suspension des réseaux de chaleur urbains"
       ],
-      "correct": 1,
-      "explanation": "Renolution, le programme antérieur de soutien à la rénovation, a été remplacé par des prêts à taux zéro dotés de 200 millions d'euros. Ce changement suscite des interrogations quant à son impact réel sur la transition énergétique bruxelloise.",
+      "correct": 0,
+      "explanation": "La Région a introduit un recours contre le gel des constructions en zones vertes imposé par arrêt judiciaire, au motif de clarté juridique. Cette action suscite des critiques environnementales et montre les tensions entre développement urbain et protection des espaces verts—un débat clé à suivre pour comprendre la gouvernance bruxelloise.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens"
     },
@@ -103,15 +104,15 @@
       "id": "domain-digital-0",
       "source": "domain",
       "domain": "Numérique",
-      "question": "Quel est le nom du guichet unique numérique lancé par la Région de Bruxelles-Capitale pour simplifier les démarches administratives ?",
+      "question": "Quel est le principal objectif du principe « only once » présenté dans la DPR numérique de Bruxelles ?",
       "options": [
-        "IRISbox",
-        "Easy Brussels",
-        "Paradigm",
-        "BeCentral"
+        "Ne demander aux citoyens que des données qu'ils n'ont jamais communiquées à l'administration",
+        "Limiter à une seule visite les déplacements aux guichets administratifs",
+        "Réduire de moitié le nombre de formulaires administratifs régionaux",
+        "Permettre aux citoyens de ne remplir un formulaire qu'une seule fois dans leur vie"
       ],
-      "correct": 1,
-      "explanation": "Easy Brussels est l'agence de simplification administrative qui propose un guichet unique numérique pour les démarches régionales. IRISbox est complémentaire mais reste une plateforme de services en ligne à moderniser.",
+      "correct": 0,
+      "explanation": "Le principe « only once » signifie que l'administration ne doit pas redemander des données qu'elle possède déjà. C'est un pilier de la simplification administrative numérique en Région bruxelloise, implanté notamment via IRISbox et Easy Brussels.",
       "sourceSlug": "/fr/domaines/digital",
       "sourceTitle": "Numérique : fracture digitale et simplification administrative"
     },
@@ -119,15 +120,15 @@
       "id": "domain-digital-1",
       "source": "domain",
       "domain": "Numérique",
-      "question": "Quel événement a directement impacté la stratégie d'innovation « capitale de l'IA » de Bruxelles en 2026 ?",
+      "question": "Qu'a décidé le gouvernement régional concernant Innoviris, le principal levier de financement de l'innovation à Bruxelles, en 2026 ?",
       "options": [
-        "L'ouverture du data center KevlinX BRU01",
-        "Le gel des nouveaux projets de financement à Innoviris",
-        "L'extension du portail open data régional",
-        "La mise en place du principe « only once »"
+        "Fermer définitivement l'agence et transférer ses compétences aux universités",
+        "Suspendre tous les nouveaux projets de recherche et réduire son budget annuel",
+        "Doubler les crédits pour accélérer le positionnement de Bruxelles en capital de l'IA",
+        "Maintenir les projets en cours mais arrêter le financement des secteurs non-technologiques"
       ],
       "correct": 1,
-      "explanation": "Innoviris, le principal levier régional de financement de la recherche et l'innovation, a suspendu tous les nouveaux projets en 2026 avec une réduction budgétaire de 20 %. Cela interrompt directement le pipeline d'innovation pour les universités et PME technologiques bruxelloises.",
+      "explanation": "Le gel total des nouveaux projets d'Innoviris depuis mars 2026 interrompt le financement de la recherche publique pour au moins un an, impactant directement l'ambition de faire de Bruxelles une capitale de l'IA. Les projets déjà sélectionnés en 2025 continuent, mais aucun nouvel appel d'offres n'est lancé.",
       "sourceSlug": "/fr/domaines/digital",
       "sourceTitle": "Numérique : fracture digitale et simplification administrative"
     },
@@ -138,12 +139,12 @@
       "question": "Selon la Déclaration de Politique Régionale de février 2026, sur quels deux sites la Zone Franche Urbaine de Bruxelles doit-elle être créée ?",
       "options": [
         "Le Port de Bruxelles et le site Audi Forest",
-        "Le site Audi Forest et Schuman",
-        "Le Port de Bruxelles et le Heysel",
-        "Mediapark et Kanal"
+        "Le Port de Bruxelles et le site de Kanal",
+        "Le site Audi Forest et le Heysel",
+        "Schuman et Mediapark"
       ],
       "correct": 0,
-      "explanation": "La Zone Franche Urbaine repose sur deux pilliers géographiques : le Port de Bruxelles pour la logistique et l'industrie, et Audi Forest pour la reconversion après la fermeture de l'usine. Cette stratégie vise à relancer l'activité économique face à la crise du secteur de la construction.",
+      "explanation": "La Zone Franche Urbaine est explicitement prévue sur deux sites complémentaires : le Port (vocation logistique et industrielle) et Audi Forest (reconversion après fermeture de l'usine). Cette initiative vise à relancer l'activité économique face à la crise du secteur de la construction.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA"
     },
@@ -151,15 +152,15 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Économie",
-      "question": "Quel secteur économique a enregistré un nombre record de faillites en Belgique au 1er semestre 2025 ?",
+      "question": "Quels sont les trois leviers d'action prévus par la région pour développer la Zone Franche Urbaine ?",
       "options": [
-        "Le secteur hôtelier",
-        "La construction",
-        "L'industrie de l'IA",
-        "Le commerce de détail"
+        "Levier fiscal, levier administratif et levier humain",
+        "Levier fiscal, levier environnemental et levier technologique",
+        "Levier administratif, levier social et levier culturel",
+        "Levier humain, levier immobilier et levier touristique"
       ],
-      "correct": 1,
-      "explanation": "Avec 1 443 faillites dans la construction au 1er semestre 2025 (soit +10 % sur un an), ce secteur a atteint un record historique. À Bruxelles, la construction est le deuxième secteur le plus touché avec 405 faillites en 2024, ce qui explique pourquoi le gouvernement priorise des mesures de relance économique.",
+      "correct": 0,
+      "explanation": "Les trois leviers sont : fiscal (allègement du précompte immobilier et droits d'enregistrement), administratif (guichet unique Fast-Track) et humain (cellule spéciale Actiris). Cette approche multidimensionnelle vise à créer un environnement attractif pour les entreprises et les travailleurs.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA"
     },
@@ -167,15 +168,15 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Quel pourcentage d'enfants bruxellois fréquentent l'enseignement néerlandophone selon le document ?",
+      "question": "Qui reprendra la gestion complète de l'accueil extrascolaire néerlandophone à Bruxelles à partir de septembre 2026 ?",
       "options": [
-        "Plus de 30%",
-        "Plus de 20%",
-        "Moins de 15%",
-        "Environ 10%"
+        "La Communauté flamande (VGC)",
+        "La Région de Bruxelles-Capitale",
+        "La Communauté française (FWB)",
+        "Les 19 communes bruxelloises"
       ],
-      "correct": 1,
-      "explanation": "La VGC gère environ 100 000 élèves, soit plus de 20% des enfants bruxellois. Ce chiffre illustre l'importance du bilinguisme à Bruxelles et justifie les investissements coordonnés entre Cocof et VGC.",
+      "correct": 0,
+      "explanation": "Le décret BOA transitera vers la VGC en septembre 2026, qui gérera alors l'ensemble de la politique, du cadre de reconnaissance et du budget pour l'accueil extrascolaire néerlandophone. C'est un exemple concret de la répartition des compétences communautaires à Bruxelles.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC"
     },
@@ -183,15 +184,15 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "À partir de quelle date la VGC reprendra-t-elle la gestion complète de l'accueil extrascolaire néerlandophone à Bruxelles ?",
+      "question": "Selon la Déclaration de Politique Régionale, quels sont les trois partenaires régionaux et communautaires coordonnés pour créer de nouvelles places en crèche à Bruxelles ?",
       "options": [
-        "Janvier 2025",
-        "Septembre 2026",
-        "Août 2026",
-        "Février 2026"
+        "ONE, Opgroeien et les écoles communales",
+        "ONE, Opgroeien et Bruxelles Formation",
+        "La Cocof, la VGC et Actiris",
+        "La FWB, la Vlaamse Gemeenschap et les milieux d'accueil privés"
       ],
-      "correct": 1,
-      "explanation": "Le décret BOA prévoit une transition jusqu'en août 2026, avec la reprise complète par la VGC en septembre 2026. Cette transition affecte la politique, le budget et les critères de qualité de l'accueil extrascolaire bruxellois.",
+      "correct": 0,
+      "explanation": "Le plan d'investissement en crèches s'appuie sur une coordination entre ONE (francophone), Opgroeien (néerlandophone) et la Région. Cette collaboration illustre comment les gouvernances communautaires doivent se coordonner pour les politiques bruxelloises de petite enfance.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC"
     },
@@ -199,15 +200,15 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Quel est l'objectif de taux d'emploi fixé par la Région de Bruxelles-Capitale pour la fin de cette législature ?",
+      "question": "Selon la Déclaration de Politique Régionale de 2026, quelles mesures sont introduites pour améliorer l'accès à l'emploi des demandeurs d'emploi à Bruxelles ?",
       "options": [
-        "60 %",
-        "65 %",
-        "70 %",
-        "75 %"
+        "Un bilan de compétences obligatoire et une évaluation linguistique à l'inscription, avec formation bilingue si nécessaire",
+        "Une augmentation directe des salaires minimums et une réduction du temps de travail",
+        "Un versement d'allocations sans conditions et une suppression des contrôles de disponibilité",
+        "Une relocalisation obligatoire vers les régions avec meilleur emploi"
       ],
-      "correct": 2,
-      "explanation": "La Déclaration de Politique Régionale du 13 février 2026 vise un taux d'emploi de 70 % en fin de législature, contre 63,9 % en 2025. Découvrez comment Bruxelles entend relever ce défi structurel majeur.",
+      "correct": 0,
+      "explanation": "La DPR mise sur l'activation renforcée : chaque demandeur d'emploi doit passer un bilan de compétences obligatoire, et le bilinguisme (français-néerlandais) est reconnu comme levier clé d'accès à l'emploi à Bruxelles. Cette approche diagnostique et capacitaire reflète les défis structurels bruxellois révélés par les études d'Itinera Institute.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme"
     },
@@ -215,15 +216,15 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Selon l'étude Itinera Institute (2006-2022), quel est le taux d'emploi structurel réel à Bruxelles pour les 18-64 ans ?",
+      "question": "Quel est le principal défi genré révélé par l'étude Itinera Institute (2006-2022) sur l'emploi à Bruxelles ?",
       "options": [
-        "~45 %",
-        "~55 %",
-        "~65 %",
-        "~74 %"
+        "Le taux d'emploi des femmes n'a pas progressé, tandis qu'il augmentait en Flandre et en Wallonie",
+        "Les femmes bruxelloises gagnent moins de 30 % par rapport aux hommes",
+        "Les femmes refusent systématiquement les offres d'emploi en raison de discriminations",
+        "Le chômage des femmes est entièrement dû à un manque de formation professionnelle"
       ],
-      "correct": 1,
-      "explanation": "Le taux d'emploi structurel bruxellois est d'environ 55 %, bien en dessous de la moyenne européenne de 74,1 % et des autres régions belges. Ce chiffre révèle l'ampleur du défi que détaille le Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "Entre 2006 et 2022, le taux d'emploi des femmes à Bruxelles est resté stagnant (0 % de progression), un phénomène unique : en Flandre et Wallonie, il augmentait respectivement de 20,6 % et 11,9 %. Cette stagnation genrée, associée à une dégradation pour les hommes (−5,8 %), révèle un blocage structurel spécifique à Bruxelles — notamment lié à l'infrastructure de garde d'enfants insuffisante.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme"
     },
@@ -231,15 +232,15 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Logement",
-      "question": "Selon l'accord de gouvernement de février 2026, quel est le montant injecté dans la SLRB (Société de Logement de la Région de Bruxelles-Capitale) pour lutter contre la crise du logement ?",
+      "question": "Quel mécanisme remplace le programme Renolution à partir de 2027 pour aider les Bruxellois à rénover leurs logements ?",
       "options": [
-        "400 millions EUR",
-        "200 millions EUR",
-        "160 millions EUR",
-        "56 millions EUR"
+        "Des prêts à taux zéro",
+        "Des subventions directes sans condition de remboursement",
+        "Un système d'échanges de crédits carbone",
+        "Des bons d'achat auprès d'entreprises de construction"
       ],
       "correct": 0,
-      "explanation": "L'accord de février 2026 prévoit un déblocage massif de 400 millions EUR pour la SLRB, accompagné de 1 000+ logements publics sur la législature. Ce montant majeur illustre l'ampleur de l'engagement régional face à la crise structurelle du logement à Bruxelles.",
+      "explanation": "L'accord de gouvernement de février 2026 remplace les primes Renolution par des prêts à taux zéro, dotés d'une enveloppe de 66 millions EUR par an. Cette transition suscite toutefois des inquiétudes quant à l'accessibilité pour les ménages modestes.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics"
     },
@@ -247,15 +248,15 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
-      "question": "En 2025, combien de communes bruxelloises affichaient un loyer moyen supérieur à 1 000 euros par mois ?",
+      "question": "Quelle est la situation inédite concernant les loyers moyens dans les 19 communes de Bruxelles en 2025 ?",
       "options": [
-        "5 communes",
-        "10 communes",
-        "19 communes",
-        "Aucune"
+        "Elles affichent toutes un loyer moyen supérieur à 1 000 euros par mois",
+        "Elles ont toutes diminué leurs loyers de plus de 5 %",
+        "Seules trois communes dépassent le seuil de 1 000 euros",
+        "Les loyers y sont plus bas qu'en Flandre et en Wallonie"
       ],
-      "correct": 2,
-      "explanation": "Fait inédit : les 19 communes bruxelloises affichent toutes un loyer moyen au-dessus de 1 000 €, avec Jette comme commune la moins chère à 1 036 €/mois. Cette hausse généralisée (+3,7% en un an) reflète la tension croissante du marché locatif bruxellois.",
+      "correct": 0,
+      "explanation": "Pour la première fois, les 19 communes bruxelloises affichent toutes un loyer moyen dépassant 1 000 euros, Jette étant la moins chère à 1 036 euros. Cette généralisation de la hausse reflète une crise structurelle du logement en Région bruxelloise.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics"
     },
@@ -263,15 +264,15 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Selon le Taalbarometer 2024, quel pourcentage de la population bruxelloise ne maîtrise aucune des trois langues principales (français, néerlandais, anglais) ?",
+      "question": "Selon la réforme institutionnelle présentée, comment sont organisées les compétences en matière d'emploi et de formation professionnelle à la Cocof ?",
       "options": [
-        "3 %",
-        "6,5 %",
-        "10,5 %",
-        "22,3 %"
+        "Elles sont fusionnées sous un seul ministre pour garantir la cohérence",
+        "Elles sont séparées et confiées à deux ministres de partis différents",
+        "Elles relèvent exclusivement du Parlement bruxellois sans ministre dédié",
+        "Elles sont gérées conjointement par Actiris et Bruxelles Formation sans tutelle ministérielle"
       ],
-      "correct": 2,
-      "explanation": "Le Taalbarometer documente une évolution inquiétante : 10,5 % de la population bruxelloise ne parle ni français, ni néerlandais, ni anglais en 2024, contre 3 % en 2000. Ce chiffre monte à 25 % parmi les non-européens, justifiant directement le Masterplan Bilinguisme annoncé dans la Déclaration de Politique Régionale.",
+      "correct": 1,
+      "explanation": "La réforme confie l'Emploi & Économie à un ministre (Les Engagés) et la Formation professionnelle à un autre (MR), plaçant ainsi Actiris et Bruxelles Formation sous des tutelles différentes. Cette scission est critiquée par l'opposition, notamment pour ne pas suivre les recommandations de l'OCDE en faveur de l'intégration.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers"
     },
@@ -279,15 +280,15 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "La réforme institutionnelle bruxelloise fusionne 25 structures en combien de piliers ?",
+      "question": "Quel diagnostic linguistique majeur ressort du Taalbarometer sur 25 ans de suivi de Bruxelles ?",
       "options": [
-        "2 piliers",
-        "3 piliers",
-        "4 piliers",
-        "6 piliers"
+        "La maîtrise du français a augmenté tandis que celle du néerlandais s'est effondrée",
+        "Le néerlandais reste la deuxième langue la plus connue après le français",
+        "Le néerlandais a été dépassé par l'anglais comme deuxième langue connue, et 10,5 % de la population ne maîtrise aucune des trois langues principales",
+        "L'anglais est devenu la langue dominante, éclipsant complètement le français et le néerlandais"
       ],
       "correct": 2,
-      "explanation": "Le titre de la réforme l'indique clairement : les 25 structures administratives sont regroupées en 4 piliers. Cette restructuration majeure vise à simplifier la gouvernance complexe de Bruxelles-Capitale et à améliorer l'efficacité des services régionaux.",
+      "explanation": "Entre 2000 et 2024, l'anglais a dépassé le néerlandais comme deuxième langue connue à Bruxelles. Parallèlement, la part de population ne parlant ni français, ni néerlandais, ni anglais a triplé. Ce diagnostic justifie directement l'annonce d'un Masterplan Bilinguisme dans la Déclaration de Politique Régionale.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers"
     },
@@ -295,15 +296,15 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Selon l'accord de gouvernement de février 2026, quel est le tarif annuel du pass pour la LEZ (Zone à Faibles Émissions) à Bruxelles ?",
+      "question": "Selon l'accord de gouvernement de février 2026, quel projet de transport en commun remplace le Métro 3 gelé ?",
       "options": [
-        "150 EUR",
-        "200 EUR",
-        "350 EUR",
-        "500 EUR"
+        "Un tramway complétant la boucle du réseau existant",
+        "Une extension de bus haute capacité vers Bordet",
+        "Un S-train reliant Bruxelles aux communes périphériques",
+        "Un funiculaire souterrain sous l'avenue de Stalingrad"
       ],
-      "correct": 2,
-      "explanation": "Le pass annuel coûte 350 EUR (ou 200 EUR au tarif social). Cette mesure s'accompagne aussi d'une réduction importante des amendes, passées de 350 à 80 EUR par infraction.",
+      "correct": 0,
+      "explanation": "Le gel du Métro 3 pour 10 ans s'accompagne d'une réorientation vers le tramway, notamment le Tram 15 (Gare du Nord – Tour & Taxis). Cette décision redéfinit les priorités d'investissement régional en mobilité.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue"
     },
@@ -311,15 +312,15 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Quel projet de transport majeur a été gelé pour 10 ans dans l'accord de gouvernement bruxellois de 2026 ?",
+      "question": "Quel est le nouveau montant annuel du pass LEZ (Zone à Faibles Émissions) décidé dans l'accord de gouvernement ?",
       "options": [
-        "Le Tram 15 reliant la Gare du Nord à Tour & Taxis",
-        "Le Métro 3 en direction de Bordet",
-        "Le réaménagement de l'avenue de Stalingrad",
-        "Les travaux STIB aux stations Constitution et Palais du Midi"
+        "100 EUR",
+        "200 EUR",
+        "350 EUR",
+        "500 EUR"
       ],
-      "correct": 1,
-      "explanation": "Le Métro 3, initialement prévu pour s'étendre vers Bordet à un coût de 4,76 milliards EUR, a été gelé. Les investissements sont réorientés vers le tramway, notamment le Tram 15 qui reste maintenu.",
+      "correct": 2,
+      "explanation": "Le pass annuel LEZ est fixé à 350 EUR au tarif normal, avec un tarif social réduit à 200 EUR. Parallèlement, l'amende par infraction a été réduite de 350 à 80 EUR pour favoriser l'accessibilité.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue"
     },
@@ -327,15 +328,15 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Selon le rapport safe.brussels de 2024, quel phénomène criminel a connu la plus forte augmentation à Bruxelles entre 2023 et 2024 ?",
+      "question": "Quel est le principal objectif de la création d'un commissaire régional anti-drogues à Bruxelles ?",
       "options": [
-        "Les infractions liées aux drogues (+33 %)",
-        "Les homicides (+40 % sur 10 ans)",
-        "Les vols et extorsions (-19 %)",
-        "Les incidents par armes à feu (92 cas)"
+        "Mettre en place une autorité dédiée qui s'inspire du dispositif fédéral existant",
+        "Remplacer entièrement les zones de police dans la lutte contre les stupéfiants",
+        "Augmenter immédiatement les arrestations liées aux drogues de 50 %",
+        "Gérer seul la prévention sans intervention des services de police"
       ],
       "correct": 0,
-      "explanation": "Les infractions liées aux drogues ont augmenté de 33 % en un an, ce qui justifie directement la création d'un commissaire anti-drogues annoncée dans la Déclaration de Politique Régionale.",
+      "explanation": "La Déclaration de Politique Régionale envisage un commissaire anti-drogues comme une autorité dédiée fonctionnant en miroir du dispositif fédéral. Cette fonction s'inscrit dans une approche intégrée combinant prévention, réduction des risques et répression, non comme remplacement des zones de police.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable"
     },
@@ -343,15 +344,15 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Combien d'euros sont investis pour sécuriser les gares bruxelloises dans le programme gouvernemental ?",
+      "question": "Quel organe le ministre-président a-t-il convoqué le 4 mars 2026 suite aux frappes en Iran ?",
       "options": [
-        "5,7 millions EUR",
-        "10 millions EUR",
-        "15,4 millions EUR",
-        "157 millions EUR"
+        "Le Conseil de défense nationale",
+        "Le Conseil régional de sécurité (CORES)",
+        "La Commission de coordination de la police fédérale",
+        "L'assemblée des 19 bourgmestres seuls, sans acteurs de sécurité"
       ],
       "correct": 1,
-      "explanation": "Un investissement de 10 millions EUR est prévu pour la sécurisation des gares du Midi et du Nord, avec coordination des zones de police et la SNCB. C'est une des priorités concrètes de la nouvelle Déclaration de Politique Régionale.",
+      "explanation": "Le Conseil régional de sécurité a été activé et a rassemblé les 19 bourgmestres bruxellois, les corpschefs de zone de police, le procureur du Roi et des représentants de l'OCAM. Cette réunion a marqué la première activation du CORES sous le nouveau gouvernement régional.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable"
     },
@@ -359,15 +360,15 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Selon l'accord de gouvernement de février 2026, combien d'euros sont alloués à la sécurisation des gares du Midi et du Nord ?",
+      "question": "Selon l'accord de gouvernement de février 2026, quel est l'un des trois nouveaux mécanismes mis en place pour lutter contre les discriminations à Bruxelles ?",
       "options": [
-        "5 millions EUR",
-        "10 millions EUR",
-        "20 millions EUR",
-        "60 millions EUR"
+        "Un testing des pratiques discriminatoires sur le marché locatif",
+        "Une interdiction totale de la location aux personnes étrangères",
+        "Un contrôle obligatoire des salaires par secteur d'activité",
+        "Une révision annuelle des contrats de travail de tous les résidents"
       ],
-      "correct": 1,
-      "explanation": "L'accord prévoit exactement 10 millions EUR pour améliorer la sécurité, installer des caméras, renforcer la police et aider les personnes en situation précaire dans ces deux gares majeures de Bruxelles.",
+      "correct": 0,
+      "explanation": "La Déclaration de politique régionale prévoit un testing discriminations logement comme mécanisme de contrôle des pratiques discriminatoires sur le marché locatif, inscrit dans le plan anti-discrimination régional. Découvrez comment Bruxelles entend mettre en œuvre ce dispositif sur Brussels Governance Monitor.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : 10M pour les gares, commissaire drogue, services protégés"
     },
@@ -375,15 +376,15 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Selon l'étude Vivalis (mars 2025), quel pourcentage des personnes exclues du chômage après 2 à 8 ans d'inoccupation risquent de se retrouver sans revenu identifiable ?",
+      "question": "Quel est le rôle du « Médibus » prévu dans la DPR pour la santé à Bruxelles ?",
       "options": [
-        "10 à 20 %",
-        "21 %",
-        "42 %",
-        "72 %"
+        "Proposer des formations médicales continues aux professionnels de santé",
+        "Assurer le transport gratuit des patients vers les hôpitaux bruxellois",
+        "Fournir un accès aux soins aux populations éloignées des services médicaux dans les quartiers mal desservis",
+        "Coordonner les urgences médicales entre les différents hôpitaux"
       ],
       "correct": 2,
-      "explanation": "L'étude montre que 42 % des exclus n'auraient pas de revenus identifiables, bien au-delà de ce que le gouvernement fédéral avait prévu. Ce chiffre alerte sur l'impact réel de la réforme du chômage sur les CPAS bruxellois.",
+      "explanation": "Le Médibus est un bus médical mobile destiné à atteindre les populations éloignées des soins dans les quartiers mal desservis. C'est un outil d'équité d'accès aux services de santé qui illustre l'approche Health in All Policies adoptée par Bruxelles.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : 10M pour les gares, commissaire drogue, services protégés"
     },
@@ -391,15 +392,15 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Quel est l'objectif principal de la Région de Bruxelles-Capitale concernant les délais de délivrance des permis d'urbanisme ?",
+      "question": "Quel est le principal objectif du « Guichet unique Fast-Track » mis en place pour le Port de Bruxelles et le site Audi Forest ?",
       "options": [
-        "Diviser par deux le temps de traitement",
-        "Supprimer complètement les permis d'urbanisme",
-        "Augmenter les tarifs pour réduire les demandes",
-        "Transférer toutes les demandes au niveau fédéral"
+        "Centraliser en un seul point d'entrée toutes les demandes de permis (urbanisme, environnement, aides)",
+        "Accélérer uniquement les permis d'environnement sans traiter les demandes d'urbanisme",
+        "Réduire le nombre de permis de construction à octroyer dans ces zones",
+        "Créer une commission spécialisée chargée de rejeter les projets non durables"
       ],
       "correct": 0,
-      "explanation": "La Déclaration de Politique Régionale vise à accélérer significativement les procédures via la digitalisation complète et la création de guichets uniques. Cette réforme facilite notamment les projets de logement et les rénovations énergétiques.",
+      "explanation": "Ce guichet unique vise à simplifier et accélérer les démarches administratives en regroupant les différentes demandes en un seul endroit, plutôt que de les disperser auprès de plusieurs services. C'est un élément clé de la modernisation de l'urbanisme bruxellois.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique"
     },
@@ -407,15 +408,15 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Combien de friches bruxelloises bénéficieront d'un moratoire de 18 mois sur la construction, selon le compromis de l'accord de gouvernement ?",
+      "question": "Selon l'accord de gouvernement bruxellois, combien de friches sont « sacralisées » (c'est-à-dire entièrement protégées de la construction) ?",
       "options": [
-        "3 friches",
-        "4 friches",
         "9 friches",
-        "Plus de 10 friches"
+        "3 friches",
+        "Toutes les friches de plus de 0,5 hectare",
+        "Aucune — le moratoire s'applique à tous les sites"
       ],
       "correct": 1,
-      "explanation": "Le compromis gouvernemental prévoit 3 friches sacralisées (Wiels, Avijl, Donderberg) et un moratoire de 18 mois sur les autres sites comme Keyenbempt, Calevoet, Josaphat et Meylemeersch. Cette approche équilibre protection environnementale et développement urbain.",
+      "explanation": "Le compromis gouvernemental désigne 3 friches comme sacralisées : Wiels, Avijl et Donderberg. Les autres sites sont soumis à un moratoire temporaire de 18 mois, ce qui constitue une protection moins permanente qu'une sacralisation complète.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique"
     },
@@ -423,15 +424,15 @@
       "id": "dossier-accessibilite-pmr-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Selon les données 2024, quel pourcentage de la population belge âgée de 18 ans et plus bénéficie d'allocations aux personnes handicapées ?",
+      "question": "Selon l'ordonnance de 2016, quel est l'engagement institutionnel majeur de la Région bruxelloise concernant le handicap dans ses politiques publiques ?",
       "options": [
-        "1,2 %",
-        "2,7 %",
-        "4,1 %",
-        "5,9 %"
+        "Appliquer le handistreaming, c'est-à-dire intégrer systématiquement le handicap dans toutes les politiques régionales, y compris les marchés publics et subsides",
+        "Créer un ministère dédié exclusivement à l'accessibilité et aux droits des personnes handicapées",
+        "Atteindre un quota minimum de 10 % de personnes handicapées dans tous les services publics régionaux",
+        "Financer uniquement des associations spécialisées dans l'emploi et le transport adapté"
       ],
-      "correct": 1,
-      "explanation": "La Belgique compte 253 866 bénéficiaires d'allocations aux personnes handicapées, représentant 2,7 % de la population de 18 ans et plus. Bruxelles concentre environ 23 100 de ces bénéficiaires, soit 9,1 % du total national.",
+      "correct": 0,
+      "explanation": "L'ordonnance handistreaming du 8 décembre 2016 impose à la Région bruxelloise une prise en compte systématique du handicap, transversalement, dans toutes ses politiques. C'est un cadre légal fondateur que le Brussels Governance Monitor analyse en détail dans son suivi des politiques régionales.",
       "sourceSlug": "/fr/dossiers/accessibilite-pmr",
       "sourceTitle": "Accessibilité et handicap à Bruxelles : transport, emploi et données"
     },
@@ -439,15 +440,15 @@
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Emploi",
-      "question": "En 2024, combien de postes ACS actifs sont estimés à Bruxelles ?",
+      "question": "Quel changement majeur a marqué la réforme ACS de 2015 en Région bruxelloise ?",
       "options": [
-        "Environ 10 000 postes",
-        "Environ 6 700 postes",
-        "Environ 3 500 postes",
-        "Environ 15 000 postes"
+        "Le passage d'un soutien structurel du secteur social vers une politique d'activation des chômeurs",
+        "La suppression complète du dispositif ACS au profit d'un nouveau système de subsides directs",
+        "L'augmentation de 50% de la prime régionale pour tous les travailleurs ACS",
+        "Le transfert de la gestion des ACS du secteur non marchand vers les entreprises privées"
       ],
-      "correct": 1,
-      "explanation": "Le nombre est passé de 10 000 postes en 2017 à environ 6 700 en 2024, principalement parce que les postes vacants ne sont pas remplacés dans les 6 mois impartis. Cette baisse illustre la fragilisation du dispositif décrite dans le rapport.",
+      "correct": 0,
+      "explanation": "La réforme de 2015 a réorienté les ACS : les postes ne sont plus vus comme des emplois permanents dans le secteur social, mais comme des tremplins vers l'emploi durable. Ce changement philosophique explique les tensions actuelles entre la Région et les employeurs du non-marchand, qui dépendent structurellement de ces postes.",
       "sourceSlug": "/fr/dossiers/acs",
       "sourceTitle": "ACS : le pilier fragilisé de l'emploi non marchand bruxellois"
     },
@@ -455,15 +456,15 @@
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Emploi",
-      "question": "Quel changement majeur la réforme ACS de 2015 a-t-elle introduit ?",
+      "question": "Qu'est-ce que le « différentiel ACS » identifié comme problème central par les employeurs non marchands ?",
       "options": [
-        "L'augmentation automatique des salaires ACS",
-        "Un passage d'un soutien structurel du secteur vers une logique d'activation des chômeurs",
-        "La suppression complète du dispositif ACS",
-        "L'extension du dispositif à tous les secteurs marchands"
+        "La différence de salaire entre les travailleurs ACS en Bruxelles et en Flandre",
+        "L'écart entre le coût réel des salaires ACS et la couverture offerte par la prime régionale",
+        "La variation du nombre de postes ACS d'une année à l'autre",
+        "Le délai de 6 mois imposé pour pourvoir un poste vacant"
       ],
       "correct": 1,
-      "explanation": "La réforme de 2015 a transformé l'ACS en instrument de politique active de l'emploi, où le poste doit servir de tremplin vers un emploi durable, plutôt que de soutenir structurellement le secteur non marchand. Cette philosophie nouvelle crée des tensions documentées par le Brussels Governance Monitor.",
+      "explanation": "Le différentiel ACS est un sous-financement structurel : les employeurs doivent offrir aux travailleurs ACS les mêmes salaires que le personnel ordinaire, mais la prime régionale ne couvre pas l'intégralité du coût. Cet écart fragilise particulièrement les petites structures du secteur social.",
       "sourceSlug": "/fr/dossiers/acs",
       "sourceTitle": "ACS : le pilier fragilisé de l'emploi non marchand bruxellois"
     },
@@ -471,15 +472,15 @@
       "id": "dossier-assemblees-citoyennes-0",
       "source": "dossier",
       "domain": "Institutionnel",
-      "question": "Combien de citoyens tirés au sort participent à chaque commission délibérative du Parlement bruxellois ?",
+      "question": "Comment les citoyens sont-ils sélectionnés pour participer aux commissions délibératives du Parlement bruxellois ?",
       "options": [
-        "25 citoyens",
-        "45 citoyens",
-        "65 citoyens",
-        "100 citoyens"
+        "Par double tirage au sort à partir des numéros de registre national",
+        "Par candidature volontaire via la plateforme democratie.brussels",
+        "Par désignation des parlementaires bruxellois",
+        "Par élection directe organisée dans chaque commune"
       ],
-      "correct": 1,
-      "explanation": "Les commissions délibératives réunissent exactement 45 citoyens tirés au sort parmi les résidents bruxellois âgés de 16 ans et plus, aux côtés de 15 parlementaires. Ce dispositif permet une véritable délibération entre citoyens ordinaires et élus pendant 4 à 5 jours.",
+      "correct": 0,
+      "explanation": "Le règlement du Parlement bruxellois prévoit un double tirage au sort parmi les résidents bruxellois âgés de 16 ans et plus, garantissant une sélection aléatoire et représentative. Cette transparence est assurée par la plateforme democratie.brussels.",
       "sourceSlug": "/fr/dossiers/assemblees-citoyennes",
       "sourceTitle": "Assemblées citoyennes : 6 commissions achevées, 205+ recommandations, 7e en préparation"
     },
@@ -487,15 +488,15 @@
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Selon le Baromètre national du bonheur (UGent/NN, janvier 2026), comment Bruxelles se classe-t-elle par rapport aux autres régions belges ?",
+      "question": "Selon les recherches récentes, quel est le facteur le plus déterminant pour la satisfaction de vie des Bruxellois ?",
       "options": [
-        "En deuxième position, derrière la Flandre",
-        "En première position avec un score de 6,62/10",
-        "En troisième position, derrière la Wallonie",
-        "À égalité avec la Flandre"
+        "La santé physique et mentale",
+        "Le niveau de revenus et la richesse personnelle",
+        "La qualité du logement et de l'habitat",
+        "L'accès à des activités culturelles et de loisirs"
       ],
-      "correct": 1,
-      "explanation": "Bruxelles arrive en tête des trois régions belges avec un score de 6,62/10, légèrement devant la Flandre (6,61/10). Ce résultat contraste avec d'autres indicateurs et montre une dynamique positive malgré les incertitudes économiques.",
+      "correct": 0,
+      "explanation": "L'IBSA a identifié la santé (physique et mentale) comme le facteur le plus déterminant de la satisfaction de vie, suivi du niveau de vie décent, des relations sociales et du logement. Ce résultat souligne l'importance du bien-être global au-delà des seuls critères matériels.",
       "sourceSlug": "/fr/dossiers/bien-etre",
       "sourceTitle": "Bien-être et qualité de vie à Bruxelles : indicateurs, classements et enjeux"
     },
@@ -503,15 +504,15 @@
       "id": "dossier-data-centers-ia-energie-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "En 2024, quelle part de la consommation énergétique mondiale des data centers était due à l'intelligence artificielle ?",
+      "question": "Pourquoi la Belgique attire-t-elle de plus en plus d'investissements en data centers malgré sa petite taille ?",
       "options": [
-        "Environ 5 %",
-        "Environ 15 %",
-        "Environ 35 %",
-        "Environ 60 %"
+        "Parce que les grands hubs européens historiques arrivent à saturation et redirigent les investissements vers la Belgique",
+        "Parce que la Belgique offre l'électricité la moins chère d'Europe",
+        "Parce que le gouvernement belge subventionne directement la construction de data centers",
+        "Parce que la Belgique dispose de plus de ressources en eau que ses voisins européens"
       ],
-      "correct": 1,
-      "explanation": "L'IA représentait 15 % de la consommation des data centers en 2024, mais ce chiffre devrait atteindre 35 à 50 % d'ici 2030. Ce phénomène explique pourquoi les systèmes énergétiques mondiaux doivent se préparer à une demande croissante liée aux usages quotidiens de l'IA.",
+      "correct": 0,
+      "explanation": "La saturation des hubs historiques comme Francfort, Londres, Amsterdam, Paris et Dublin redirige les flux d'investissement vers la Belgique. Découvrez comment Bruxelles s'inscrit dans cette dynamique européenne en consultant le Brussels Governance Monitor.",
       "sourceSlug": "/fr/dossiers/data-centers-ia-energie",
       "sourceTitle": "Data centers et IA : impact sur le système énergétique bruxellois"
     },
@@ -519,15 +520,15 @@
       "id": "dossier-data-centers-ia-energie-1",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Quel est le premier grand data center opérationnel en Région bruxelloise depuis janvier 2026 ?",
+      "question": "Quel est le statut de la question des data centers dans la Déclaration de Politique Régionale bruxelloise de février 2026 ?",
       "options": [
-        "Google Saint-Ghislain",
-        "Microsoft Azure Zaventem",
-        "KevlinX BRU01",
-        "BDIA Infrastructure"
+        "Elle bénéficie d'une stratégie dédiée avec des objectifs chiffrés",
+        "Elle n'y est pas mentionnée de manière spécifique, bien que transition numérique et énergie-climat y soient traitées",
+        "Elle figure comme priorité absolue du gouvernement régional",
+        "Elle est entièrement déléguée à la gestion communale sans rôle régional"
       ],
-      "correct": 2,
-      "explanation": "KevlinX BRU01, situé à Neder-Over-Heembeek, est le premier grand data center bruxellois avec une capacité cible de 32 MW. Son arrivée marque un tournant pour la Région, attirant désormais des investissements hyperscale jusque-là concentrés en Wallonie et en Flandre.",
+      "correct": 1,
+      "explanation": "La DPR de février 2026 ne contient aucune référence spécifique aux data centers : transition numérique et stratégie énergie-climat y sont abordées séparément, sans lien avec l'impact énergétique croissant du secteur numérique. Le Brussels Governance Monitor examine cette lacune et ses implications.",
       "sourceSlug": "/fr/dossiers/data-centers-ia-energie",
       "sourceTitle": "Data centers et IA : impact sur le système énergétique bruxellois"
     },
@@ -535,15 +536,15 @@
       "id": "dossier-enseignement-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Quel pourcentage d'enfants bruxellois scolarisés dans les réseaux des Communautés (FWB ou Vlaamse Gemeenschap) fréquentent l'enseignement néerlandophone ?",
+      "question": "Pourquoi la Région de Bruxelles-Capitale ne peut-elle pas intervenir directement dans les décisions d'économies en matière d'enseignement obligatoire ?",
       "options": [
-        "Environ 10 %",
-        "Environ 20 %",
-        "Environ 35 %",
-        "Environ 50 %"
+        "Parce que l'enseignement obligatoire est géré par les Communautés (FWB et Vlaamse Gemeenschap), sur lesquelles la Région bruxelloise n'a pas de pouvoir",
+        "Parce que le budget de l'enseignement est entièrement financé par le gouvernement fédéral belge",
+        "Parce que les décisions d'économies doivent être approuvées par le Parlement européen",
+        "Parce que les impôts régionaux bruxellois ne financent que les transports et la culture"
       ],
-      "correct": 1,
-      "explanation": "Selon les données présentées, environ 53 600 élèves suivent l'enseignement néerlandophone, ce qui représente environ un enfant sur cinq scolarisé dans les réseaux des Communautés. Cela montre la diversité linguistique de Bruxelles et l'importance du bilinguisme dans la gouvernance scolaire régionale.",
+      "correct": 0,
+      "explanation": "C'est la structure de la « lasagne institutionnelle » : à Bruxelles, les écoles francophones dépendent de la FWB et les néerlandophones de la Vlaamse Gemeenschap. Le gouvernement bruxellois ne peut pas bloquer leurs coupes budgétaires, même si elles affectent directement les familles qui paient des impôts régionaux.",
       "sourceSlug": "/fr/dossiers/enseignement",
       "sourceTitle": "Enseignement obligatoire à Bruxelles : l'impact des économies FWB et Vlaamse Gemeenschap"
     },
@@ -551,15 +552,15 @@
       "id": "dossier-enseignement-1",
       "source": "dossier",
       "domain": "Social",
-      "question": "En 2026, quel impact direct les économies de la Fédération Wallonie-Bruxelles auront-elles sur le temps de travail des enseignants du secondaire supérieur ?",
+      "question": "Quel changement majeur est prévu pour le statut professionnel des nouveaux enseignants à partir de 2027 dans l'enseignement francophone ?",
       "options": [
-        "Réduction de 2 heures de classe par semaine",
-        "Augmentation de 2 heures de classe par semaine",
-        "Suppression de 4 jours de congés annuels",
-        "Baisse de 20 % des salaires bruts"
+        "Ils devront passer un examen d'aptitude renouvelable chaque année",
+        "La nomination définitive sera remplacée par un contrat à durée indéterminée sans garantie d'emploi historique",
+        "Ils seront employés uniquement pour des contrats temporaires de 3 ans maximum",
+        "Ils perdront l'accès à l'assurance maladie professionnelle"
       ],
       "correct": 1,
-      "explanation": "Les enseignants du secondaire supérieur passeront de 20 à 22 heures de classe par semaine, une augmentation destinée à aligner leur charge sur celle du secondaire inférieur. Cette mesure d'économies affecte directement les conditions de travail et l'emploi dans les écoles bruxelloises.",
+      "explanation": "Le nouveau contrat « CDI-E » (contrat à durée indéterminée modèle écoles) change le modèle historique de sécurité d'emploi. Découvrez comment cette réforme affecte la stabilité du métier d'enseignant et l'attractivité de la profession dans le dossier complet.",
       "sourceSlug": "/fr/dossiers/enseignement",
       "sourceTitle": "Enseignement obligatoire à Bruxelles : l'impact des économies FWB et Vlaamse Gemeenschap"
     },
@@ -567,15 +568,15 @@
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Économie",
-      "question": "En 2025, quel secteur bruxellois affiche un déséquilibre frappant : il représente seulement 6 % des PME mais concentre 17 % des faillites ?",
+      "question": "Quel est le rôle principal du Centre pour Entreprises en difficulté (CEd) en Région de Bruxelles-Capitale ?",
       "options": [
-        "La construction",
-        "L'horeca",
-        "Le commerce de détail",
-        "Les services informatiques"
+        "Fournir un diagnostic gratuit et orienter les entreprises en difficulté",
+        "Prendre en charge l'intégralité des frais de réorganisation judiciaire",
+        "Accorder des primes directes aux entreprises de construction",
+        "Offrir un accompagnement post-faillite sous forme de coaching et mentorat"
       ],
-      "correct": 1,
-      "explanation": "L'horeca bruxellois est disproportionnément touché par les faillites, avec une durée de vie des concepts réduite de 7-10 ans à 3-5 ans actuellement. Cette surreprésentation des faillites dans ce secteur révèle des fragilités structurelles que le Brussels Governance Monitor documente pour éclairer les politiques régionales.",
+      "correct": 0,
+      "explanation": "Le CEd, opéré par hub.brussels, propose un diagnostic gratuit et une orientation aux entreprises en difficulté. C'est un point d'entrée clé du dispositif régional d'accompagnement pour identifier les risques avant qu'une faillite ne se prononce.",
       "sourceSlug": "/fr/dossiers/faillites-a-bruxelles",
       "sourceTitle": "Faillites à Bruxelles : état des lieux, secteurs et dispositifs régionaux"
     },
@@ -583,15 +584,15 @@
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Sécurité",
-      "question": "Combien de zones de police bruxelloises seraient fusionnées en une seule selon le projet fédéral ?",
+      "question": "Quel mécanisme constitutionnel a été déclenché par la motion de conflit d'intérêt déposée au Parlement bruxellois le 13 mars 2026 ?",
       "options": [
-        "De 3 à 1",
-        "De 6 à 1",
-        "De 12 à 1",
-        "De 176 à 60"
+        "Une période de concertation de 60 jours entre le Parlement bruxellois et la Chambre fédérale",
+        "Un référendum obligatoire auprès des citoyens bruxellois",
+        "L'annulation immédiate du projet de fusion des zones de police",
+        "Une nouvelle commission d'enquête parlementaire fédérale"
       ],
-      "correct": 1,
-      "explanation": "Bruxelles compte actuellement 6 zones de police distinctes. Le projet fédéral prévoit leur fusion en une unique zone bruxelloise, ce qui en ferait un cas unique en Belgique puisque la fusion est volontaire ailleurs dans le pays.",
+      "correct": 0,
+      "explanation": "Cette période de concertation force un dialogue interinstitutionnel mais ne bloque pas définitivement le projet. C'est un exemple concret de comment les institutions bruxelloises peuvent influencer les décisions fédérales qui les concernent — un sujet clé du Brussels Governance Monitor.",
       "sourceSlug": "/fr/dossiers/fusion-polices",
       "sourceTitle": "Fusion des zones de police : de 6 à 1, vote avant l'été 2026"
     },
@@ -599,15 +600,15 @@
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel est le principal changement apporté aux zones de circulation apaisée dans le nouveau Plan Régional de Mobilité ?",
+      "question": "Quel est le principal changement géographique prévu dans le nouveau Plan Régional de Mobilité par rapport à Good Move ?",
       "options": [
-        "Les mailles seront centrées sur les zones écoles plutôt que sur les quartiers entiers",
-        "Les mailles seront supprimées dans toutes les communes bruxelloises",
-        "Les mailles seront élargies pour couvrir des surfaces plus grandes",
-        "Les mailles seront remplacées par des autoroutes urbaines"
+        "Les mailles seront réduites en taille et centrées autour des zones écoles",
+        "Les mailles seront agrandies pour couvrir des quartiers entiers",
+        "Les mailles seront supprimées au profit d'une circulation libre en centre-ville",
+        "Les mailles seront déplacées exclusivement dans les communes périphériques"
       ],
       "correct": 0,
-      "explanation": "L'accord de février 2026 prévoit des mailles plus petites et recentrées sur les zones écoles pour améliorer la sécurité routière et la qualité de vie autour des établissements scolaires, marquant une réduction d'échelle par rapport à Good Move.",
+      "explanation": "L'accord de février 2026 prévoit explicitement des mailles plus petites centrées sur les zones écoles, ce qui marque une différence d'échelle par rapport au plan Good Move. Cette focalisation sur la sécurité routière et la qualité de vie autour des établissements scolaires constitue un recentrage stratégique du plan.",
       "sourceSlug": "/fr/dossiers/good-move",
       "sourceTitle": "Good Move : un nouveau plan régional lui succèdera"
     },
@@ -615,15 +616,15 @@
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Combien de budget supplémentaire annuel la Région consacrera-t-elle à la réfection des voiries et de l'espace public ?",
+      "question": "Quel élément du plan Good Move sera retiré suite à l'accord de gouvernement de février 2026 ?",
       "options": [
-        "20 millions d'euros par an",
-        "40 millions d'euros par an",
-        "60 millions d'euros par an",
-        "80 millions d'euros par an"
+        "Le principe des mailles de quartier",
+        "Les bollards contestés par les automobilistes et certains commerçants",
+        "Le développement du réseau cyclable",
+        "L'amélioration du transport public"
       ],
       "correct": 1,
-      "explanation": "L'accord prévoit une augmentation du budget annuel voiries de 40 millions d'euros pour améliorer l'état des chaussées et de l'espace public bruxellois, un enjeu majeur pour l'acceptabilité du nouveau plan.",
+      "explanation": "Les bollards — des potelets ou bornes de circulation — seront retirés car ils ont suscité des contestations auprès des automobilistes et de certains commerçants. Cette suppression illustre comment le nouveau plan entend réduire le caractère contraignant de Good Move tout en conservant sa philosophie de circulation apaisée.",
       "sourceSlug": "/fr/dossiers/good-move",
       "sourceTitle": "Good Move : un nouveau plan régional lui succèdera"
     },
@@ -631,15 +632,15 @@
       "id": "dossier-lez-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Selon l'accord de gouvernement de février 2026, quel est le tarif annuel pour qu'un propriétaire de véhicule non conforme puisse circuler légalement à Bruxelles ?",
+      "question": "Selon l'accord de gouvernement du 12 février 2026, quel est le nouveau tarif du pass annuel permettant aux propriétaires de véhicules non conformes de circuler légalement dans la LEZ ?",
       "options": [
-        "150 EUR",
-        "200 EUR (tarif social) ou 350 EUR (tarif standard)",
-        "400 EUR",
-        "500 EUR"
+        "350 EUR (ou 200 EUR au tarif social)",
+        "80 EUR par infraction",
+        "15 à 50 EUR par mois",
+        "Gratuit pour les véhicules diesel Euro 5"
       ],
-      "correct": 1,
-      "explanation": "Le nouvel accord introduit un système de pass annuel à 350 EUR, avec un tarif social réduit à 200 EUR. Cette mesure atténue significativement l'impact financier de la LEZ sur les automobilistes tout en maintenant la zone.",
+      "correct": 0,
+      "explanation": "Le pass annuel a été fixé à 350 EUR avec un tarif social réduit à 200 EUR. Cette mesure atténue significativement l'impact financier de la LEZ sur les automobilistes tout en maintenant la zone en vigueur. Pour en savoir plus sur les modalités concrètes, consultez Brussels Governance Monitor.",
       "sourceSlug": "/fr/dossiers/lez",
       "sourceTitle": "LEZ : maintenue avec pass annuel et amendes réduites"
     },
@@ -647,15 +648,15 @@
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Climat",
-      "question": "De combien de pourcents les émissions de NOx (oxydes d'azote) ont-elles diminué depuis la mise en place de la LEZ en 2018 ?",
+      "question": "Quel est le rôle du Conseil d'État dans le processus décisionnel concernant les réductions d'amendes LEZ ?",
       "options": [
-        "25 %",
-        "33 %",
-        "55 %",
-        "60 %"
+        "Émettre un avis critique sur les propositions législatives avant leur adoption",
+        "Fixer directement le montant des amendes à appliquer",
+        "Percevoir les amendes auprès des contrevenants",
+        "Accorder une exemption automatique aux véhicules Euro 5"
       ],
-      "correct": 2,
-      "explanation": "Selon Bruxelles Environnement, les résultats environnementaux de la LEZ sont mesurables : −55 % de NOx, −33 % de particules fines et −60 % de carbone suie. Ces chiffres montrent l'efficacité réelle du dispositif sur la qualité de l'air.",
+      "correct": 0,
+      "explanation": "Le Conseil d'État a rendu un avis critique estimant que les réductions d'amendes violaient le principe de standstill (non-régression des protections de santé). Cet avis consultatif alerte sur les risques juridiques mais ne lie pas le gouvernement. Découvrez comment la gouvernance bruxelloise gère ces arbitrages complexes sur Brussels Governance Monitor.",
       "sourceSlug": "/fr/dossiers/lez",
       "sourceTitle": "LEZ : maintenue avec pass annuel et amendes réduites"
     },
@@ -663,15 +664,15 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Selon l'accord de gouvernement de février 2026, quel projet remplace le Métro 3 gelé pour 10 ans ?",
+      "question": "Selon l'accord de gouvernement du 12 février 2026, quel est le sort réservé au projet Métro 3 ?",
       "options": [
-        "Un bus articulé à haut rendement",
-        "Un tramway complétant la boucle du réseau existant",
-        "Une extension de la ligne de train régional",
-        "Un funiculaire souterrain"
+        "Il est gelé pour une période de 10 ans et remplacé par un tram",
+        "Il est annulé définitivement et aucun projet alternatif n'est prévu",
+        "Il est maintenu dans sa forme initiale malgré les surcoûts",
+        "Il est réducé à une ligne de tram sans modifications du réseau existant"
       ],
-      "correct": 1,
-      "explanation": "L'accord réoriente les investissements massifs du métro souterrain vers un tramway de surface, une réorientation majeure de la stratégie de transport public bruxelloise depuis des décennies.",
+      "correct": 0,
+      "explanation": "L'accord acte une réorientation majeure : Métro 3 est suspendu pour 10 ans tandis qu'un tram complétant la boucle du réseau existant le remplace. Cette décision redéploie des milliards d'euros du métro souterrain vers le tramway de surface, marquant un tournant décisif pour les transports bruxellois.",
       "sourceSlug": "/fr/dossiers/metro-3",
       "sourceTitle": "Métro 3 : projet gelé 10 ans, remplacement par tram"
     },
@@ -679,15 +680,15 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "De combien le coût estimé du projet Métro 3 a-t-il augmenté selon le rapport de la Cour des comptes ?",
+      "question": "Quel élément a directement conduit les négociateurs à geler le projet Métro 3 lors des discussions de gouvernement ?",
       "options": [
-        "De 50 %",
-        "De 150 %",
-        "De 277 %",
-        "De 477 %"
+        "Un rapport de la Cour des comptes révélant une dérive budgétaire massive et une soutenabilité financière compromise",
+        "L'opposition unanime des communes riveraines de la ligne proposée",
+        "L'impossibilité technique de construire un tunnel sous le Palais du Midi",
+        "Un refus du gouvernement fédéral de participer au cofinancement via Beliris"
       ],
-      "correct": 3,
-      "explanation": "Les estimations initiales (moins d'1 milliard EUR) ont explosé à 4,76 milliards EUR selon la Cour des comptes, une dérive historique qui a directement motivé le gel du projet par les négociateurs.",
+      "correct": 0,
+      "explanation": "La Cour des comptes a établi que le coût total s'élevait bien au-delà des estimations initiales, avec un retard de 15 ans et une soutenabilité fortement compromise. Ce rapport a constitué l'argument décisif dans les négociations, poussant à la décision de geler le projet et de réorienter les investissements.",
       "sourceSlug": "/fr/dossiers/metro-3",
       "sourceTitle": "Métro 3 : projet gelé 10 ans, remplacement par tram"
     },
@@ -695,15 +696,15 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "En mars 2025, combien de trottinettes électriques en free-floating circulaient approximativement à Bruxelles ?",
+      "question": "Quel événement juridique a marqué un tournant majeur dans la régulation des trottinettes électriques à Bruxelles en avril 2024 ?",
       "options": [
-        "Environ 5 000",
-        "Environ 6 500",
-        "Environ 9 200",
-        "Environ 15 700"
+        "Le Conseil d'État a suspendu les plafonds de flotte imposés par le gouvernement",
+        "Le gouvernement a sélectionné Bolt et Dott comme seuls opérateurs autorisés",
+        "Lime a obtenu une licence valide pour continuer ses activités",
+        "L'arrêté du gouvernement a fixé une limite de 6 000 trottinettes par opérateur"
       ],
-      "correct": 2,
-      "explanation": "Le marché bruxellois compte environ 9 200 trottinettes électriques en free-floating, auxquelles s'ajoutent 6 500 vélos partagés. Ces chiffres illustrent la croissance rapide de la micro-mobilité et les défis de régulation que le gouvernement régional doit relever.",
+      "correct": 0,
+      "explanation": "En avril 2024, le Conseil d'État a jugé que la motivation juridique des plafonds était insuffisante et les a suspendus, ouvrant la porte à un contentieux prolongé. Cette décision illustre comment la gouvernance bruxelloise doit concilier régulation et contrôle juridique.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée à Bruxelles : trottinettes, vélos, taxis et la bataille des concessions"
     },
@@ -711,15 +712,15 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quand la concession Villo! de JCDecaux arrive-t-elle à expiration ?",
+      "question": "Depuis quand la concession Villo! (système de vélos en stations fixes) doit-elle prendre fin à Bruxelles ?",
       "options": [
-        "Décembre 2025",
-        "Septembre 2026",
-        "Décembre 2026",
-        "Mars 2027"
+        "En novembre 2024, après 15 ans de service",
+        "En septembre 2026, après près de 17 ans de service",
+        "En décembre 2025, suite à une révision gouvernementale",
+        "En janvier 2027, selon le nouvel appel d'offres lancé"
       ],
       "correct": 1,
-      "explanation": "La convention signée en novembre 2008 entre la Région et JCDecaux arrive à échéance en septembre 2026, après près de 17 ans d'exploitation. Cette transition majeure soulève des questions importantes sur l'avenir des stations de vélos à Bruxelles et les scénarios envisagés par la gouvernance régionale.",
+      "explanation": "La convention Villo! entre la Région et JCDecaux, signée en 2008, expire en septembre 2026. Le gouvernement doit alors décider du modèle post-concession (stations, free-floating, hybride ou public), mais aucune décision n'a encore été annoncée — un enjeu majeur de gouvernance urbaine.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée à Bruxelles : trottinettes, vélos, taxis et la bataille des concessions"
     },
@@ -727,15 +728,15 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Selon la Ligue des Familles, combien de parents bruxellois qualifient la recherche d'une place en crèche de « difficile ou très difficile » ?",
+      "question": "Combien d'autorités institutionnelles différentes sont responsables de l'agrément et du financement des crèches à Bruxelles ?",
       "options": [
-        "Un parent sur trois",
-        "Deux parents sur trois",
-        "La moitié des parents",
-        "Quatre parents sur cinq"
+        "Trois autorités (ONE, Opgroeien, Iriscare)",
+        "Une seule : la Région de Bruxelles-Capitale",
+        "Deux : l'État fédéral et la Région",
+        "Quatre : les communes, la Région, et deux communautés"
       ],
-      "correct": 1,
-      "explanation": "Cette statistique illustre l'ampleur réelle du problème d'accès aux crèches à Bruxelles. Elle montre que ce n'est pas un problème marginal, mais une difficulté systémique qui touche la majorité des familles bruxelloises.",
+      "correct": 0,
+      "explanation": "La gouvernance des crèches bruxelloises est fragmentée entre l'ONE (pour le secteur francophone), Opgroeien (pour le secteur néerlandophone) et Iriscare (pour les structures bicommunales). Cette triple autorité crée des listes d'attente séparées et des budgets cloisonnés — un enjeu central de gouvernance bruxelloise.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
       "sourceTitle": "Petite enfance à Bruxelles : crèches, listes d'attente et triple autorité institutionnelle"
     },
@@ -743,15 +744,15 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Social",
-      "question": "Quel est l'écart de taux de couverture en places de crèche entre Etterbeek et Anderlecht ?",
+      "question": "Quel est le rôle spécifique d'Iriscare dans l'accueil de la petite enfance à Bruxelles ?",
       "options": [
-        "Environ 20 %",
-        "Environ 35 %",
-        "Environ 51 %",
-        "Environ 70 %"
+        "Délivrer les autorisations pour les structures bicommunales (francophones + néerlandophones)",
+        "Organiser directement toutes les crèches publiques bruxelloises",
+        "Financer exclusivement les crèches en milieu rural",
+        "Contrôler les tarifs des crèches privées indépendantes"
       ],
-      "correct": 2,
-      "explanation": "Etterbeek dispose de 67 % de couverture quand Anderlecht n'en a que 16 %, soit un écart de 51 %. Cet écart massive révèle comment le hasard du code postal détermine l'accès à la petite enfance — un enjeu d'équité territoriale majeur à Bruxelles.",
+      "correct": 0,
+      "explanation": "Iriscare, dépendant de la COCOM (Commission communautaire commune), est la seule autorité issue d'un niveau de pouvoir strictement bruxellois. Elle autorise les structures bicommunales — une piste de gouvernance plus unifiée que le système fragmenté ONE/Opgroeien.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
       "sourceTitle": "Petite enfance à Bruxelles : crèches, listes d'attente et triple autorité institutionnelle"
     },
@@ -759,15 +760,15 @@
       "id": "dossier-pfas-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Pourquoi les PFAS sont-ils surnommés « polluants éternels » ?",
+      "question": "Pourquoi les PFAS sont-ils surnommés les « polluants éternels » ?",
       "options": [
-        "Parce qu'ils sont produits continuellement par les usines bruxelloises",
+        "Parce qu'ils sont produits depuis plus d'un siècle sans interruption",
         "Parce qu'ils sont des composés chimiques quasi indestructibles qui persistent dans l'environnement",
-        "Parce qu'ils ont été découverts il y a plus de 100 ans",
-        "Parce qu'ils contaminent uniquement les eaux souterraines profondes"
+        "Parce qu'ils contaminent tous les continents de la Terre",
+        "Parce qu'ils proviennent d'usines qui ne ferment jamais"
       ],
       "correct": 1,
-      "explanation": "Les PFAS sont appelés « polluants éternels » en raison de leur nature chimique quasi indestructible. Contrairement à d'autres polluants, ils ne se dégradent pratiquement pas dans la nature, d'où leur persistance alarmante dans les sols et eaux.",
+      "explanation": "Les PFAS résistent à la dégradation naturelle en raison de leur structure chimique extrêmement stable. Cette persistance explique leur accumulation dans les sols, les eaux et les organismes vivants — un enjeu majeur que Brussels Governance Monitor documente pour éclairer la gouvernance bruxelloise.",
       "sourceSlug": "/fr/dossiers/pfas",
       "sourceTitle": "PFAS à Bruxelles : contamination des sols et des eaux"
     },
@@ -775,15 +776,15 @@
       "id": "dossier-pfas-1",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Quel est le problème spécifique détecté dans l'eau potable distribuée par Vivaqua à Bruxelles ?",
+      "question": "Quel est le principal problème de qualité détecté dans l'eau potable distribuée à Bruxelles ?",
       "options": [
-        "La présence de PFOS provenant de l'usine 3M en Flandre",
-        "Des concentrations extrêmes de mousse anti-incendie dans les 6 réservoirs",
-        "Des dépassements de normes dues au TFA (acide trifluoroacétique) que les filtres classiques ne peuvent pas éliminer",
-        "L'impossibilité de respecter la norme ancienne de 50 ng/L depuis 2024"
+        "Une contamination par des mousses anti-incendie provenant du site Sicli",
+        "Le dépassement systématique de la norme pour le TFA dans les réservoirs d'alimentation",
+        "L'impossibilité de traiter l'eau avec des filtres à charbon actif standard",
+        "La présence de perchlorate à des niveaux toxiques pour les nourrissons"
       ],
-      "correct": 2,
-      "explanation": "Le TFA est détecté dans les 6 réservoirs bruxellois, avec 97% des analyses dépassant la nouvelle norme de 500 ng/L. Les filtres à charbon actif classiques sont inefficaces : seule l'osmose inverse peut le capter. Découvrez comment Bruxelles-Environnement gère ce défi sanitaire.",
+      "correct": 1,
+      "explanation": "Le TFA (acide trifluoroacétique) est détecté dans les 6 réservoirs bruxellois, et 97 % des analyses dépassent la norme récemment entrée en vigueur. Contrairement au site Sicli localisé, ce problème affecte l'ensemble de la Région — une question clé pour la gouvernance de l'eau bruxelloise.",
       "sourceSlug": "/fr/dossiers/pfas",
       "sourceTitle": "PFAS à Bruxelles : contamination des sols et des eaux"
     },
@@ -791,15 +792,15 @@
       "id": "dossier-plan-securite-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Combien de millions d'euros sont investis par la Région de Bruxelles-Capitale pour sécuriser les gares du Midi et du Nord ?",
+      "question": "Quel est le rôle principal de Bruxelles Prévention & Sécurité (BPS) dans la gouvernance de la sécurité à Bruxelles ?",
       "options": [
-        "5 millions EUR",
-        "10 millions EUR",
-        "15 millions EUR",
-        "20 millions EUR"
+        "Coordonner la politique de sécurité et de prévention au niveau régional avec les zones de police et communes",
+        "Gérer directement la sécurité des gares et transports publics",
+        "Appliquer la loi fédérale en matière de lutte contre les drogues",
+        "Remplacer les zones de police locales dans leurs fonctions opérationnelles"
       ],
-      "correct": 1,
-      "explanation": "L'accord de gouvernement de février 2026 consacre 10 millions EUR à la sécurisation de ces deux gares majeures. Ce financement vise à mieux coordonner les multiples acteurs de sécurité présents sur ces sites stratégiques de la capitale.",
+      "correct": 0,
+      "explanation": "BPS est l'organisme régional de coordination entre la Région, ses 6 zones de police et ses 19 communes. Ce rôle de coordination devient clé dans un contexte où la fusion des zones de police est en cours au niveau fédéral.",
       "sourceSlug": "/fr/dossiers/plan-securite",
       "sourceTitle": "Plan sécurité : commissaire anti-drogues, 10M EUR gares et fusion des zones de police"
     },
@@ -807,15 +808,15 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Budget",
-      "question": "Selon la réforme annoncée en février 2026, en combien de grands piliers l'administration régionale bruxelloise doit-elle être restructurée ?",
+      "question": "Selon la réforme de l'administration régionale bruxelloise annoncée en 2026, combien de grands piliers remplaceront les ~25 entités régionales actuelles ?",
       "options": [
-        "2 piliers",
         "4 piliers",
         "6 piliers",
-        "8 piliers"
+        "8 piliers",
+        "2 piliers"
       ],
-      "correct": 1,
-      "explanation": "La déclaration de politique régionale du 13 février 2026 prévoit de passer d'environ 25 entités régionales à 4 grands piliers. Cette restructuration vise à générer des économies substantielles et à simplifier le fonctionnement de l'administration bruxelloise d'ici 2029.",
+      "correct": 0,
+      "explanation": "La déclaration de politique régionale du 13 février 2026 annonce le passage de ~25 entités à 4 grands piliers : un service de support commun, les missions organiques, infrastructure.brussels, et une plateforme foncière. Découvrez comment cette restructuration vise à moderniser la gouvernance bruxelloise sur Brussels Governance Monitor.",
       "sourceSlug": "/fr/dossiers/reforme-administration",
       "sourceTitle": "Réforme de l'administration régionale : de 25 entités à 4 piliers"
     },
@@ -823,15 +824,15 @@
       "id": "dossier-rse-0",
       "source": "dossier",
       "domain": "Économie",
-      "question": "Selon la stratégie Shifting Economy adoptée par Bruxelles en 2022, quel est l'objectif fixé pour 2030 concernant les aides économiques régionales ?",
+      "question": "Depuis mars 2024, quel mécanisme automatique récompense les entreprises bruxelloises qui détiennent un label environnemental ou social reconnu ?",
       "options": [
-        "50 % des aides doivent aller à des entreprises durables",
-        "100 % des aides doivent aller exclusivement aux entreprises exemplaires",
-        "75 % des aides doivent soutenir la transition environnementale",
-        "Toutes les entreprises bruxelloises doivent obtenir un label"
+        "Le mécanisme d'exemplarite, qui applique des majorations automatiques sur les aides régionales",
+        "Un système de points cumulables permettant d'accéder à des crédits d'impôt",
+        "Une prime annuelle versée directement par Bruxelles Environnement",
+        "Un accès prioritaire aux marchés publics régionaux"
       ],
-      "correct": 1,
-      "explanation": "La Shifting Economy vise une réorientation complète des aides vers les entreprises engagées dans une démarche durable. Découvrez comment Bruxelles Gouvernance Monitor suit la progression de cet objectif ambitieux et les défis actuels de sa mise en œuvre.",
+      "correct": 0,
+      "explanation": "Le mécanisme d'exemplarite vérifie automatiquement si une entreprise figure au registre des labels agréés lors de sa demande d'aide (investissement, recrutement, etc.) et applique une majoration sans démarche supplémentaire. C'est le cœur opérationnel de la Shifting Economy pour valoriser les entreprises exemplaires.",
       "sourceSlug": "/fr/dossiers/rse",
       "sourceTitle": "Transition économique : Shifting Economy, labels et reporting durabilité"
     },
@@ -839,15 +840,15 @@
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Quel pourcentage de la population bruxelloise a 65 ans ou plus en 2025 ?",
+      "question": "Quel changement majeur les nouvelles normes d'agrément des maisons de repos à Bruxelles, entrées en vigueur en septembre 2024, ont-elles introduit ?",
       "options": [
-        "19 %",
-        "13 %",
-        "26 %",
-        "20 %"
+        "Le passage d'un modèle centré sur les soins à un modèle centré sur le résident",
+        "L'obligation pour tous les établissements de devenir publics",
+        "La suppression de tous les lits en secteur privé commercial",
+        "L'introduction d'une durée d'agrément limitée à 3 ans au lieu de 6 ans"
       ],
-      "correct": 1,
-      "explanation": "Bruxelles compte environ 163 000 personnes de 65+ ans, soit 13 % de sa population régionale. Cette proportion est actuellement inférieure à la moyenne belge (20 %), mais devrait atteindre 19 % d'ici 2071 selon les projections du Bureau fédéral du Plan.",
+      "correct": 0,
+      "explanation": "Cette réforme réoriente la gouvernance des maisons de repos bruxelloises vers l'autonomie, la participation et la qualité de vie des résidents, plutôt que sur la seule prestation de soins. Découvrez comment cette réforme redéfinit le cadre institutionnel des établissements d'aînés dans le Brussels Governance Monitor.",
       "sourceSlug": "/fr/dossiers/seniors-a-bruxelles",
       "sourceTitle": "Seniors à Bruxelles : hébergement, autonomie et données"
     },
@@ -855,15 +856,15 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Combien de logements publics et solidaires la Région bruxelloise s'engage-t-elle à créer selon l'accord de gouvernement de février 2026 ?",
+      "question": "Quel est le rôle principal de la SLRB dans le système du logement social bruxellois ?",
       "options": [
-        "500 logements avec une enveloppe de 200 millions EUR",
-        "1 000+ logements avec une enveloppe de 400 millions EUR",
-        "2 000 logements avec une enveloppe de 600 millions EUR",
-        "750 logements avec une enveloppe de 300 millions EUR"
+        "Gérer directement tous les logements sociaux de la région",
+        "Coordonner la politique du logement social et superviser les sociétés immobilières qui gèrent le parc",
+        "Construire exclusivement de nouveaux logements sans rénover l'existant",
+        "Attribuer individuellement les logements aux demandeurs sans intermédiaire"
       ],
       "correct": 1,
-      "explanation": "L'accord du 12 février 2026 prévoit explicitement 1 000+ logements publics sur la législature avec 400 millions EUR, déblocant ainsi les projets gelés depuis juin 2024. Cette mesure répond à l'urgence bruxelloise : plus de 62 000 ménages sont en liste d'attente.",
+      "explanation": "La SLRB coordonne la politique du logement social et supervise 16 Sociétés Immobilières de Service Public (SISP) qui gèrent directement le parc de logements. C'est une structure de gouvernance intermédiaire, pas un gestionnaire direct. Découvrez comment cette organisation fonctionne et ses défis actuels.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB : 1 000+ logements publics et solidification financière"
     },
@@ -871,15 +872,15 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Quel est le montant total de la dette de la SLRB (Société du Logement de la Région de Bruxelles-Capitale) que le gouvernement tente de réduire ?",
+      "question": "Pourquoi les projets d'investissement immobilier de la SLRB ont-ils été gelés entre juin 2024 et février 2026 ?",
       "options": [
-        "73 millions EUR",
-        "197 millions EUR",
-        "400 millions EUR",
-        "52-53 millions EUR"
+        "Manque de terrains disponibles à Bruxelles",
+        "Impossibilité de prendre des engagements budgétaires pluriannuels en période d'affaires courantes",
+        "Refus des SISP de participer aux nouveaux projets",
+        "Absence de demande de logements sociaux de la part des Bruxellois"
       ],
       "correct": 1,
-      "explanation": "La SLRB accumule une dette de 197 millions EUR. Pour l'assainir, le gouvernement vend des actifs comme les sites Ariane et Palais, dont les cessions devraient rapporter 52-53 millions EUR. Cette stratégie de redressement financier est cruciale pour relancer les investissements en logement social.",
+      "explanation": "En affaires courantes, les gouvernements ne peuvent pas s'engager sur des budgets pluriannuels (sur plusieurs années). Cela a bloqué le plan de rénovation, la construction neuve et les arbitrages stratégiques. L'accord de février 2026 a débloqué cette situation. Explorez comment la gouvernance institutionnelle impacte les politiques sociales concrètes.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB : 1 000+ logements publics et solidification financière"
     },
@@ -887,15 +888,15 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Selon le Conseil Supérieur de la Santé, quel est le coût sanitaire annuel estimé du bruit aérien à Bruxelles ?",
+      "question": "Depuis quelle année existe une interdiction de survol du Château Royal de Laeken ?",
       "options": [
-        "Environ 500 millions EUR",
-        "Plus de 1 milliard EUR",
-        "Environ 25 millions EUR",
-        "Environ 5,4 milliards EUR"
+        "Depuis 1954",
+        "Depuis 1997",
+        "Depuis 2004",
+        "Depuis 2023"
       ],
-      "correct": 1,
-      "explanation": "Ce coût sanitaire considérable illustre l'impact réel du conflit entre l'aéroport et la qualité de vie des 670 600 Bruxellois exposés au bruit. Découvrez comment cette tension se manifeste dans les politiques de gouvernance bruxelloises.",
+      "correct": 0,
+      "explanation": "Cette zone d'exclusion de 1 500 m autour du Château Royal, en vigueur depuis 1954, n'a jamais été remise en question et contraint les trajectoires aériennes à contourner Laeken, reportant ainsi les nuisances sur les communes voisines.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol de Bruxelles : 40 ans de conflit, 450 000 riverains"
     },
@@ -903,15 +904,15 @@
       "id": "dossier-vivaqua-0",
       "source": "dossier",
       "domain": "Budget",
-      "question": "Selon le régulateur bruxellois BRUGEL, quel est le montant des créances non recouvrées auprès des consommateurs de Vivaqua ?",
+      "question": "Selon l'accord de gouvernement de février 2026, quel est le principal objectif de la création d'un fonds de déconsolidation pour Vivaqua ?",
       "options": [
-        "35 millions EUR",
-        "73 millions EUR",
-        "180 millions EUR",
-        "220 millions EUR"
+        "Financer la rénovation urgente du réseau d'égouts",
+        "Sortir la dette de Vivaqua du budget régional",
+        "Couvrir les impayés des consommateurs bruxellois",
+        "Réduire les tarifs de l'eau pour les ménages vulnérables"
       ],
       "correct": 1,
-      "explanation": "BRUGEL a identifié 73M EUR d'impayés, un problème majeur de gestion qui contribue à la pression tarifaire. Ces chiffres montrent l'importance des défaillances administratives au-delà des seuls enjeux techniques du réseau.",
+      "explanation": "Le fonds de déconsolidation est un mécanisme financier permettant d'extraire la dette de Vivaqua de la comptabilité régionale, afin de ne pas la comptabiliser directement dans le budget de la Région. Cela représente un changement majeur dans la gestion financière de l'intercommunale.",
       "sourceSlug": "/fr/dossiers/vivaqua",
       "sourceTitle": "Vivaqua : solidification financière annoncée"
     }

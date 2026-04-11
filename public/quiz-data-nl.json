@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T13:01:48.696Z",
+  "generatedAt": "2026-04-11T20:54:05.373Z",
   "locale": "nl",
   "poolSize": 57,
   "questionsPerSession": 10,
@@ -8,15 +8,15 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Met welk bedrag is het gewestelijk tekort van Brussel in de begroting 2026 teruggebracht?",
+      "question": "Wat is één van de hoofddoelstellingen van het regeerakkoord dat op 12 februari 2026 werd gesloten voor het Brussels Hoofdstedelijk Gewest?",
       "options": [
-        "857 miljoen EUR",
-        "957 miljoen EUR",
-        "1,057 miljoen EUR",
-        "1,2 miljard EUR"
+        "Invoering van een nieuwe City Tax om extra inkomsten te genereren",
+        "Terugkeer naar begrotingsevenwicht in 2029 via besparingsmaatregelen en nieuwe inkomsten",
+        "Onmiddellijke opheffing van de aanwervingsstop bij de gewestelijke overheidsdiensten",
+        "Verhoging van alle facultatieve subsidies om de economie te stimuleren"
       ],
       "correct": 1,
-      "explanation": "De regering-Dilliès heeft het tekort teruggebracht tot 957 miljoen EUR in 2026, een belangrijke stap op weg naar het begrotingsevenwicht dat in 2029 nagestreefd wordt.",
+      "explanation": "Het regeerakkoord stelt expliciet een traject vast naar begrotingsevenwicht in 2029, bestaande uit ongeveer 80% bezuinigingen en 20% nieuwe inkomsten. Dit is een kernverbintenis van de regering-Dilliès.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029"
     },
@@ -24,15 +24,15 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "In welk jaar streeft de Brusselse regering naar begrotingsevenwicht volgens het regeerakkoord?",
+      "question": "Welke administratieve hervorming is voorzien in het regeerakkoord van februari 2026?",
       "options": [
-        "2027",
-        "2028",
-        "2029",
-        "2030"
+        "Splitsing van 4 gewestelijke structuren in 25 afzonderlijke entiteiten",
+        "Fusie van 25 gewestelijke structuren tot 4 entiteiten (pijlers) met kostenbesparing",
+        "Verdubbeling van het aantal gewestelijke diensten om efficiënter te worden",
+        "Overdracht van alle gewestelijke taken naar de gemeenten"
       ],
-      "correct": 2,
-      "explanation": "Het regeerakkoord voorziet een traject van ongeveer 1,2 miljard EUR aan besparingen over meerdere jaren, met als eindstation begrotingsevenwicht in 2029.",
+      "correct": 1,
+      "explanation": "De administratieve hervorming voorziet in het samenbrengen van 25 gewestelijke structuren tot slechts 4 pijlers, wat naar verwachting de operationele kosten aanzienlijk zal verlagen. Dit is onderdeel van de budgettaire discipline.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029"
     },
@@ -40,15 +40,15 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Hoeveel procent van de mensen die in 2025 in Brussel zwerfvuil dumpen, komen niet uit Brussel zelf?",
+      "question": "Welke maatregel heeft het Brussels Gewest ingevoerd om sluikstorten met slimme camera's te kunnen bestrijden?",
       "options": [
-        "Ongeveer 25%",
-        "Ongeveer 36,7%",
-        "Ongeveer 50%",
-        "Ongeveer 61%"
+        "Installatie van versnipperaars in alle wijken",
+        "Oprichting van regionale netheid-brigades met gecoördineerde agenten",
+        "Verhoging van de prijs van vuilniszakken in randgemeenten",
+        "Verbod op de verkoop van lachgasflessen voor recreatief gebruik"
       ],
       "correct": 1,
-      "explanation": "Dit verschijnsel wordt 'afvaltoerisme' genoemd: bewoners uit randgemeenten dumpen hun afval in Brussel omdat vuilniszakken hier tien keer goedkoper zijn. Een belangrijk argument voor strengere controles met slimme camera's.",
+      "explanation": "De GBV voorziet in regionale netheid-brigades die samengesteld zijn uit gewestelijke en gemeentelijke agenten, ondersteund door slimme camera's in risicogebieden. Dit is een kernonderdeel van de coördinatie tegen onwettige stortingen.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning"
     },
@@ -56,15 +56,15 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Welk bedrag per jaar betalen kunststofproducenten aan het Brussels Gewest voor het opruimen van hun verpakkingsafval?",
+      "question": "Wat is het doel van de 'Uitgebreide Producentenverantwoordelijkheid' (UPV) die het Brussels Parlement in maart 2026 heeft goedgekeurd?",
       "options": [
-        "26,7 miljoen euro",
-        "51,4 miljoen euro",
-        "12 miljoen euro",
-        "36,7 miljoen euro"
+        "Het verplichten van gemeenten om gratis vuilniszakken uit te delen aan burgers",
+        "Het laten betalen door producenten van verpakkingen en wegwerpproducten voor opruiming en properheidsbeleid",
+        "Het invoeren van een verplichte wekelijkse huishoudens-controle op afvalsortering",
+        "Het uitbreiden van de bevoegdheden van Net Brussel naar alle Belgische gewesten"
       ],
       "correct": 1,
-      "explanation": "Dit geld komt uit de 'uitgebreide producentenverantwoordelijkheid': producenten van wegwerpplastics, blikjes en sigarettenverpakkingen dragen bij aan de schoonmaakkosten, zoals vastgelegd in de ordonnantie van 13 maart 2026.",
+      "explanation": "De UPV-ordonnantie zorgt ervoor dat producenten van kunststofverpakkingen en andere wegwerpproducten financieel bijdragen aan zwerfvuilopruiming en regionaal properheidsbeleid. Dit volgt uit de Europese SUP-richtlijn van 2020.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning"
     },
@@ -72,15 +72,15 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klimaat",
-      "question": "Wat is het belangrijkste verschil in het Brusselse klimaatbeleid volgens het regeerakkoord van februari 2026?",
+      "question": "Welke maatregel vervangt het Renolution-programma volgens het regeerakkoord van februari 2026?",
       "options": [
-        "De LEZ wordt afgeschaft en vervangen door een nieuw systeem",
-        "Renolution wordt vervangen door renteloze leningen voor energierenovatie",
-        "Er worden nieuwe CO2-doelstellingen vastgesteld voor 2030",
-        "De groene zones worden volledig opengesteld voor bouwprojecten"
+        "Renteloze leningen voor energetische renovatie",
+        "Directe subsidies voor huiseigenaren",
+        "Verplichte energieaudits voor alle gebouwen",
+        "Uitbreiding van de LEZ naar alle buurten"
       ],
-      "correct": 1,
-      "explanation": "Het regeerakkoord vervangt het Renolution-programma door renteloze leningen van 200 miljoen euro, maar stelt geen nieuwe klimaatdoelstellingen vast. Dit wordt gezien als een dubbelzinnig signaal voor het klimaattraject van het Gewest.",
+      "correct": 0,
+      "explanation": "Het regeerakkoord stelt renteloze leningen ter waarde van 200 miljoen EUR voor in plaats van het bestaande Renolution-systeem, hoewel klimaatexperts dit als een dubbelzinnig signaal zien voor het klimaattraject van Brussel.",
       "sourceSlug": "/nl/domeinen/climate",
       "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen in afwachting"
     },
@@ -88,15 +88,15 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klimaat",
-      "question": "Welke gemeente in Brussel nam in december 2025 als eerste het initiatief om bepaalde belastingen af te schaffen voor zonnepanelen?",
+      "question": "Wat was de reden die de Brusselse regering officieel aanvoerde bij het aanspannen van beroep tegen de bouwstop in groene zones?",
       "options": [
-        "Anderlecht",
-        "Brussel-Stad",
-        "Ixelles",
-        "Schaarbeek"
+        "Het streven naar juridische helderheid",
+        "De behoefte aan meer woningbouw",
+        "Het verminderen van milieuregels",
+        "De economische crisis in de bouwsector"
       ],
-      "correct": 1,
-      "explanation": "Brussel-Stad schreef de belasting op Tijdelijke Inname van de Openbare Weg (OTVP) kwijt voor kleine zonnepanelen tot 5 m². Dit maakt het gemakkelijker voor burgers om hernieuwbare energie te gebruiken op hun gebouwen.",
+      "correct": 0,
+      "explanation": "De regering zei juridische helderheid na te streven, maar milieuverenigingen zien dit beroep als een achteruitgang van de bescherming van groene ruimtes in het Gewest.",
       "sourceSlug": "/nl/domeinen/climate",
       "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen in afwachting"
     },
@@ -104,15 +104,15 @@
       "id": "domain-digital-0",
       "source": "domain",
       "domain": "Digitaal",
-      "question": "Welk digitaal uniek loket heeft de Brusselse overheid opgericht om administratieve procedures voor burgers te vereenvoudigen?",
+      "question": "Welke instelling fungeert als technische operator van de smart city-strategie in het Brussels Hoofdstedelijk Gewest?",
       "options": [
-        "IRISbox",
         "Easy Brussels",
-        "Paradigm",
-        "BeCentral"
+        "Paradigm (CIRB)",
+        "IRISbox",
+        "Innoviris"
       ],
       "correct": 1,
-      "explanation": "Easy Brussels is het gewestelijke agentschap dat burgers helpt administratieve procedures online in te dienen. IRISbox is een ander platform dat moderernisering nodig heeft, terwijl Paradigm een informaticacentrum is.",
+      "explanation": "Paradigm is het gewestelijk informaticacentrum en technische operator van de smart city-strategie. Easy Brussels en IRISbox zijn specifiek gericht op administratieve vereenvoudiging, terwijl Innoviris het onderzoeks- en innovatiefonds is.",
       "sourceSlug": "/nl/domeinen/digital",
       "sourceTitle": "Digitaal: digitale kloof en administratieve vereenvoudiging"
     },
@@ -120,15 +120,15 @@
       "id": "domain-digital-1",
       "source": "domain",
       "domain": "Digitaal",
-      "question": "Met hoeveel procent is het budget van Innoviris, het gewestelijk onderzoeks- en innovatiefonds, in 2026 verminderd?",
+      "question": "Wat is het doel van het 'Only once-principe' dat in de GBV wordt genoemd?",
       "options": [
-        "ongeveer 10%",
-        "ongeveer 20%",
-        "ongeveer 30%",
-        "ongeveer 40%"
+        "Datacenters maar één keer per jaar controleren",
+        "Burgers niet opnieuw om dezelfde gegevens vragen die de overheid al bezit",
+        "Digitale trainingen maar één keer per persoon aanbieden",
+        "Open data slechts eenmaal per jaar publiceren"
       ],
       "correct": 1,
-      "explanation": "De budgetvermindering van ongeveer 20% heeft geleid tot een bevriezing van alle nieuwe O&O-projecten in 2026, wat direct de ambitie om Brussel als AI-hoofdstad te positioneren schaadt.",
+      "explanation": "Het 'Only once-principe' is een kernidee van administratieve vereenvoudiging: als de overheid gegevens al heeft, hoeft een burger deze niet opnieuw in te dienen. Dit bespaart tijd en frustratie.",
       "sourceSlug": "/nl/domeinen/digital",
       "sourceTitle": "Digitaal: digitale kloof en administratieve vereenvoudiging"
     },
@@ -136,15 +136,15 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Economie",
-      "question": "Hoeveel tijd moet je gemiddeld wachten op een bouwvergunning in Brussel?",
+      "question": "Wat zijn de twee hoofdlocaties waar de Stedelijke Vrijhandelszone in Brussel wordt opgericht?",
       "options": [
-        "ongeveer 2 jaar",
-        "ongeveer 7 jaar",
-        "ongeveer 4 jaar",
-        "ongeveer 10 jaar"
+        "De Haven van Brussel en de Audi Forest-site",
+        "De Haven van Brussel en het Mediapark",
+        "De Audi Forest-site en de Heizel",
+        "Het Schuman-district en de Bempt"
       ],
-      "correct": 1,
-      "explanation": "De gemiddelde termijn bedraagt ongeveer 7 jaar, wat veel langer is dan in andere steden. Dit is één van de redenen waarom de regering een Stedelijke Vrijhandelszone wil opzetten om bouwprojecten sneller mogelijk te maken.",
+      "correct": 0,
+      "explanation": "De vrijhandelszone bestaat uit twee delen: de Haven voor logistieke en industriële activiteiten, en de Audi Forest-site voor industriële reconversie na de fabriekssluiting. Dit is een centraal beleidsinstrument in de Gewestelijke Beleidsverklaring van 2026.",
       "sourceSlug": "/nl/domeinen/economy",
       "sourceTitle": "Economie: Stedelijke Vrijhandelszone (Haven + Audi Forest), hoofdstad van AI"
     },
@@ -152,15 +152,15 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Economie",
-      "question": "Wat gebeurde er op 1 maart 2026 met de belastingen op hotelboekingen in België?",
+      "question": "Welke drie hefbomen zet de regering in om de Stedelijke Vrijhandelszone aantrekkelijk te maken voor bedrijven?",
       "options": [
-        "De btw daalde van 12% naar 6%",
-        "De btw steeg van 6% naar 12%",
-        "De btw werd helemaal afgeschaft",
-        "De btw bleef onveranderd op 9%"
+        "Fiscale maatregelen, administratieve vereenvoudiging en ondersteuning voor werknemers",
+        "Subsidies, internationale handelsakkoorden en digitale infrastructuur",
+        "Belastingverlaging, bouwvergunningen en trainingen voor scholing",
+        "Gratis grondgebruik, bankfinanciering en marketingcampagnes"
       ],
-      "correct": 1,
-      "explanation": "De federale regering verhoogde de btw op hotelnachten van 6% naar 12%, wat een flinke meerkost betekent voor toeristen en zakelijke gasten. Dit raakt Brussel bijzonder hard omdat de stad veel overnachtingen aantrekt.",
+      "correct": 0,
+      "explanation": "De regering werkt met drie hefbomen: een fiscale hefboom (verlaging onroerende voorheffing en registratierechten), een administratieve hefboom (uniek loket Fast-Track), en een menselijke hefboom (speciale Actiris-cel voor beroepsontwikkeling). Deze integrale aanpak illustreert het streven om Brussel economisch aantrekkelijker te maken.",
       "sourceSlug": "/nl/domeinen/economy",
       "sourceTitle": "Economie: Stedelijke Vrijhandelszone (Haven + Audi Forest), hoofdstad van AI"
     },
@@ -168,15 +168,15 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Onderwijs",
-      "question": "Hoeveel procent van de Brusselse kinderen volgt Nederlandstalig onderwijs via de VGC?",
+      "question": "Welke instelling neemt vanaf september 2026 de volledige regie over van de Nederlandstalige buitenschoolse opvang in Brussel?",
       "options": [
-        "meer dan 20%",
-        "ongeveer 15%",
-        "minder dan 10%",
-        "ongeveer 30%"
+        "De Vlaamse Gemeenschap (VGC)",
+        "Het Brussels Hoofdstedelijk Gewest",
+        "De Franstalige Gemeenschap (FWB)",
+        "Opgroeien"
       ],
       "correct": 0,
-      "explanation": "De VGC volgt meer dan 100.000 leerlingen in Brussel, wat neerkomt op meer dan 20% van de Brusselse kinderen. Dit toont het belang van het Nederlandstalige onderwijsaanbod in het tweetalige Brussel.",
+      "explanation": "Het BOA-decreet voorziet in een overgangsfase tot augustus 2026, waarna de VGC beleid, kwaliteitskader, budgetten en coördinatie van de Nederlandstalige buitenschoolse opvang volledig overneemt. Dit toont hoe onderwijs en opvang in Brussel tussen verschillende instanties verdeeld zijn.",
       "sourceSlug": "/nl/domeinen/education",
       "sourceTitle": "Onderwijs: kinderopvangplaatsen, schooluitval en spanningen Cocof/VGC"
     },
@@ -184,15 +184,15 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Onderwijs",
-      "question": "Welke organisatie neemt vanaf september 2026 de volledige regie over van de Nederlandstalige buitenschoolse opvang in Brussel?",
+      "question": "Welke twee gemeenschapsinstituties zijn verantwoordelijk voor het coördineren van het Franstalige en Nederlandstalige onderwijsbeleid in Brussel?",
       "options": [
-        "VGC",
-        "ONE",
-        "Opgroeien",
-        "Cocof"
+        "Cocof en VGC",
+        "ONE en Opgroeien",
+        "FWB en VDAB Brussel",
+        "Bruxelles Formation en Actiris Jeunes"
       ],
       "correct": 0,
-      "explanation": "Het BOA-decreet voorziet dat de VGC vanaf september 2026 het beleid, budget en coördinatie van Nederlandstalige buitenschoolse opvang overneemt. Dit is een belangrijke verschuiving in bestuurlijke verantwoordelijkheden.",
+      "explanation": "Cocof behartigt de Franstalige onderwijsbevoegdheden en VGC de Nederlandstalige. Coördinatie tussen deze twee is essentieel omdat Brussel officieel tweetalig is en beide onderwijsnetten parallel bestaan. Dit illustreert de complexe bestuurlijke structuur van het Brusselse onderwijs.",
       "sourceSlug": "/nl/domeinen/education",
       "sourceTitle": "Onderwijs: kinderopvangplaatsen, schooluitval en spanningen Cocof/VGC"
     },
@@ -200,15 +200,15 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Werkgelegenheid",
-      "question": "Wat is de werkzaamheidsgraad die Brussel volgens de Gewestelijke Beleidsverklaring van 2026 tegen het einde van de legislatuur wil bereiken?",
+      "question": "Welke maatregel heeft de Brusselse regering opgenomen in de Gewestelijke Beleidsverklaring om werkzoekenden beter voor te bereiden op de arbeidsmarkt?",
       "options": [
-        "60%",
-        "65%",
-        "70%",
-        "75%"
+        "Verplichte competentiebalans en taalkundige evaluatie bij inschrijving",
+        "Automatische uitkeringen voor alle ingeschreven werkzoekenden",
+        "Verplichte verhuizing naar gemeenten met meer jobs",
+        "Gratis huisvestingsprogramma's voor werklozen"
       ],
-      "correct": 2,
-      "explanation": "De ambitieuze doelstelling is 70%, een stijging van meer dan 6 punten ten opzichte van de 63,9% in 2025. Dit is onderdeel van de nieuwe werkgelegenheidsagenda van het Gewest.",
+      "correct": 0,
+      "explanation": "De regering zet in op versterkte activering door elke werkzoekende een competentiebalans op te leggen en hun taalvaardigheid in Frans en Nederlands te evalueren. Dit moet tweetaligheid als hefboom voor werk bevorderen.",
       "sourceSlug": "/nl/domeinen/employment",
       "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid"
     },
@@ -216,15 +216,15 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Werkgelegenheid",
-      "question": "Hoeveel ingeschreven werkzoekenden telde het Brussels Gewest in maart 2026?",
+      "question": "Wat is een opvallende bevinding uit de Itinera-studie (2006-2022) over de werkgelegenheid van vrouwen in Brussel?",
       "options": [
-        "87 655",
-        "96 113",
-        "98 458",
-        "102 000"
+        "De werkgelegenheid van vrouwen is sterk gestegen, gelijk met Vlaanderen",
+        "De werkgelegenheid van vrouwen is tussen 2006 en 2022 niet vooruitgegaan",
+        "Vrouwen hebben massaal de arbeidsmarkt verlaten door gezinsredenen",
+        "Brussel heeft meer vrouwen aan het werk dan Wallonië"
       ],
       "correct": 1,
-      "explanation": "In maart 2026 waren er 96 113 ingeschreven werkzoekenden (NWWZ), wat een administratieve werkloosheidsgraad van 15,0% vertegenwoordigt. Dit was een terugval van de januaripiek van 98 458 personen.",
+      "explanation": "Brussel is het enige gewest waar de werkgelegenheid van vrouwen tussen 2006 en 2022 gelijk bleef, terwijl deze in Vlaanderen en Wallonië aanzienlijk steeg. Dit wijst op structurele barrières specifiek in Brussel.",
       "sourceSlug": "/nl/domeinen/employment",
       "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid"
     },
@@ -232,15 +232,15 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Hoeveel miljoen euro wordt volgens het regeerakkoord van februari 2026 geïnjecteerd in de BGHM (Brussels Gewest Huisvestingsmaatschappij)?",
+      "question": "Wat vervangt het systeem van Renolution-premies volgens het regeerakkoord van februari 2026?",
       "options": [
-        "200 miljoen EUR",
-        "300 miljoen EUR",
-        "400 miljoen EUR",
-        "500 miljoen EUR"
+        "Directe subsidies aan huiseigenaren zonder voorwaarden",
+        "Renteloze leningen met een totaalbudget tot 2029",
+        "Verplichte renovaties door gemeentelijke diensten",
+        "Belastingkortingen voor energiebesparende woningen"
       ],
-      "correct": 2,
-      "explanation": "Het akkoord kondigt een injectie van 400 miljoen EUR aan voor de BGHM om de huisvestingscrisis aan te pakken. Dit is een van de grootschaligste beleidsmaatregelen uit het regeerakkoord.",
+      "correct": 1,
+      "explanation": "Het regeerakkoord kondigt aan dat Renolution wordt vervangen door renteloze leningen met een enveloppe van 200 miljoen EUR tot 2029. Dit nieuwe systeem gaat in werking vanaf 2027.",
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 400M voor de BGHM, 1 000 publieke woningen"
     },
@@ -248,15 +248,15 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Wat is opvallend aan de gemiddelde huurprijzen in de 19 gemeenten van Brussel in 2025?",
+      "question": "Hoeveel publieke woningen wil het Brussels Hoofdstedelijk Gewest gedurende deze legislatuur realiseren?",
       "options": [
-        "Ze liggen allemaal onder de 1.000 euro per maand",
-        "Ze liggen allemaal boven de 1.000 euro per maand",
-        "Slechts 5 gemeenten overschrijden de 1.000 euro grens",
-        "Ze zijn gedaald met 10% ten opzichte van 2024"
+        "Minimaal 500 woningen",
+        "Minstens 1 000 woningen",
+        "Ongeveer 2 000 woningen",
+        "Ten minste 3 000 woningen"
       ],
       "correct": 1,
-      "explanation": "Alle 19 gemeenten van het Brussels Gewest hebben een gemiddelde huur boven de 1.000 euro per maand bereikt, met Jette als goedkoopste optie op 1.036 euro. Dit toont de schaarste op de hurenmarkt aan.",
+      "explanation": "Het regeerakkoord van 12 februari 2026 belooft de realisatie van 1 000+ publieke woningen gedurende de legislatuur als onderdeel van de massale deblokkering voor huisvesting in Brussel.",
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 400M voor de BGHM, 1 000 publieke woningen"
     },
@@ -264,15 +264,15 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Hoeveel stemmen waren nodig voor de vertrouwensstemming van de regering-Dilliès in het Brussels Parlement op 27 februari?",
+      "question": "Welke twee instellingen voor arbeidsmarkt en beroepsopleiding staan nu onder verschillende ministeriële verantwoordelijkheid in het Brussels Gewest?",
       "options": [
-        "47 stemmen",
-        "51 stemmen",
-        "55 stemmen",
-        "60 stemmen"
+        "Actiris en Bruxelles Formation",
+        "Actiris en het Brussels Arbeidsbureau",
+        "Bruxelles Formation en de Kamer van Koophandel",
+        "Het Nationale Arbeitsamt en Bruxelles Formation"
       ],
-      "correct": 1,
-      "explanation": "De regering-Dilliès haalde 51 stemmen vóór uit een coalitie van zes partijen plus externe steun. Dit getal is cruciaal voor het begrijpen van de politieke draagvlak in het Brussels Gewest.",
+      "correct": 0,
+      "explanation": "Deze scheiding tussen Werk en Beroepsopleiding onder verschillende ministers wordt door oppositiepartijen betwist, omdat internationale adviezen juist integratie aanbevelen.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers"
     },
@@ -280,15 +280,15 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Volgens de Taalbarometer (2024) welke taal is Nederlands nu voorbijgestreefd als tweede bekende taal in Brussel?",
+      "question": "Wat is volgens de Taalbarometer (2024) de grootste verandering in taalkennis onder Brusselaars in de afgelopen 25 jaar?",
       "options": [
-        "Duits",
-        "Engels",
-        "Spaans",
-        "Italiaans"
+        "Het Nederlands is sterk gedaald en het Engels is nu de tweede bekende taal",
+        "Het Frans is volledig verdwenen uit het dagelijks gebruik",
+        "Het aantal gesproken talen is gedaald van 107 naar 72",
+        "Niemand spreekt meer Frans in Brussel"
       ],
-      "correct": 1,
-      "explanation": "Engels (47%) overtreft Nederlands (22,3%) nu als tweede taal, een opvallende verschuiving in 25 jaar. Dit onderstreept de urgentie van het Masterplan Tweetaligheid dat de regering aankondigt.",
+      "correct": 0,
+      "explanation": "Engels heeft Nederlands voorbijgestreefd als tweede bekende taal, wat direct aansluit bij de nieuwe institutionele prioriteit rond tweetaligheid.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers"
     },
@@ -296,15 +296,15 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobiliteit",
-      "question": "Wat gebeurt er volgens het regeerakkoord van februari 2026 met Metro 3?",
+      "question": "Wat is het STOP-principe dat in het nieuwe mobiliteitsbeleid van Brussel wordt gehanteerd?",
       "options": [
-        "Het project wordt volledig stopgezet",
-        "Het wordt voor 10 jaar bevroren en vervangen door een tram die de bestaande lus vervolledigt",
-        "Het wordt versneld afgewerkt naar Bordet",
-        "Het wordt uitgebreid met twee nieuwe stations"
+        "Een hiërarchie waarin voetgangers, fietsers, openbaar vervoer en auto's voorrang krijgen in die volgorde",
+        "Een programma om alle auto's uit Brussel te verbannen binnen tien jaar",
+        "Een systeem waarbij verkeerslichten worden vervangen door bewegingssensoren",
+        "Een verplichting voor alle chauffeurs om hun rijbewijs op te geven"
       ],
-      "correct": 1,
-      "explanation": "Metro 3 wordt niet afgeschaft, maar bevroren voor een decennium. In plaats van de oorspronkelijke uitbreiding naar Bordet wordt geïnvesteerd in een tramverbinding die het huidige netwerk aanvult.",
+      "correct": 0,
+      "explanation": "Het STOP-principe stelt voetgangers voorop, gevolgd door fietsers, openbaar vervoer en ten slotte auto's. Dit leidend beginsel heroriënteert het hele mobiliteitsbeleid van het Gewest.",
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden"
     },
@@ -312,15 +312,15 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobiliteit",
-      "question": "Hoeveel bedraagt de jaarpas voor de Brusselse LEZ (Lage Emissiezone) na de wijzigingen in het regeerakkoord?",
+      "question": "Welke infrastuctuurwerken worden volgens het nieuwe regeerakkoord voortgezet in plaats van Metro 3 uit te breiden?",
       "options": [
-        "150 euro",
-        "250 euro",
-        "350 euro",
-        "500 euro"
+        "De aanleg van twee nieuwe autowegen naar de stad",
+        "Een nieuwe tram die de lus van het bestaande netwerk vervolledigt",
+        "De renovatie van alle bushaltes in het Gewest",
+        "De uitbreiding van het fietsnetwerk naar alle randgemeenten"
       ],
-      "correct": 2,
-      "explanation": "De jaarpas kost 350 euro, met een sociaal tarief van 200 euro. Tegelijk daalde de boete per overtreding van 350 naar 80 euro en werd het plafond van 4 boetes per jaar afgeschaft.",
+      "correct": 1,
+      "explanation": "Metro 3 is bevroren voor 10 jaar, en de geldmiddelen worden heroriënteerd naar een nieuwe tramverbinding. Tram 15 (Noordstation–Tour & Taxis) blijft behouden en andere tramprojecten krijgen prioriteit.",
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden"
     },
@@ -328,15 +328,15 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Hoeveel miljoen euro investeert het Brussels Hoofdstedelijk Gewest in de beveiliging van de stations Brussel-Zuid en Brussel-Noord?",
+      "question": "Welke nieuwe functionaris wordt volgens de Gewestelijke Beleidsverklaring aangesteld om drugs in Brussel aan te pakken?",
       "options": [
-        "5 miljoen euro",
-        "10 miljoen euro",
-        "15 miljoen euro",
-        "20 miljoen euro"
+        "Regionaal drugscommissaris",
+        "Federaal drugsdirecteur",
+        "Gewestelijk antidrugscoördinator",
+        "Stadscommissaris voor openbare orde"
       ],
-      "correct": 1,
-      "explanation": "De Gewestelijke Beleidsverklaring van 13 februari 2026 voorziet 10 miljoen euro voor stationsbeveiliging, in coördinatie met politiezones en de NMBS. Dit is een concrete prioriteit van de huidige regering.",
+      "correct": 0,
+      "explanation": "De regering installeert een regionaal drugscommissaris als specifieke autoriteit, naar het model van het federale systeem. Dit is onderdeel van een geïntegreerd aanpak van preventie tot repressie.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel"
     },
@@ -344,15 +344,15 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Volgens het jaarrapport van safe.brussels over 2024, hoe evolueert het algemene misdaadcijfer per 1.000 inwoners in Brussel over de afgelopen 10 jaar?",
+      "question": "Wat is het voornaamste doel van de 10 miljoen EUR investeringen in stationsbeveiliging?",
       "options": [
-        "Het stijgt aanzienlijk",
-        "Het daalt geleidelijk",
-        "Het blijft volledig stabiel",
-        "Het fluctueert zonder duidelijk patroon"
+        "Het verbouwen van wachthuizen voor treinconducteurs",
+        "Het moderniseren van ticketverkoopsystemen",
+        "Het verbeteren van veiligheid op de stations Brussel-Zuid en -Noord",
+        "Het uitbreiden van winkelruimte in stationsgebouwen"
       ],
-      "correct": 1,
-      "explanation": "Het misdaadcijfer daalde van 137,5 in 2014 naar 131,01 in 2024. Deze daling wordt verklaard door bevolkingsgroei, hoewel specifieke fenomenen zoals drugs en geweld wel toenemen.",
+      "correct": 2,
+      "explanation": "Deze investering is gericht op de fysieke beveiliging van beide hoofdstations, met coördinatie tussen lokale politiezones, NMBS en andere partners — een prioriteit na het eerste terreinbezoek van de minister-president.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel"
     },
@@ -360,15 +360,15 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Hoeveel miljoen euro heeft het Brussels Gewest volgens het regeerakkoord van februari 2026 uitgetrokken voor de beveiliging van de stations Midi en Noord?",
+      "question": "Welke nieuwe functie wordt opgericht volgens het regeerakkoord van februari 2026 om drugsgerelateerde problematiek aan te pakken op gewestelijk niveau?",
       "options": [
-        "5 miljoen euro",
-        "10 miljoen euro",
-        "20 miljoen euro",
-        "60 miljoen euro"
+        "Gewestelijke drugscommissaris",
+        "Federaal coördinator voor drugsbestrijding",
+        "Directeur van de drugspreventiedienst",
+        "Hoofd van de politiële narcoticabrigade"
       ],
-      "correct": 1,
-      "explanation": "Het akkoord voorziet in 10 miljoen euro voor camera's, politie, schoonmaak en begeleiding van kwetsbare personen op deze twee belangrijke knooppunten. Dit moet de veiligheid en hygiëne in de stations verbeteren.",
+      "correct": 0,
+      "explanation": "Het regeerakkoord voorziet in de oprichting van een specifieke functie van gewestelijke drugscommissaris. Dit is een gewestelijk initiatief, niet federaal, en verschillende van andere bestaande functies rond drugszaken.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: 10M voor de stations, drugscommissaris, beschermde diensten"
     },
@@ -376,15 +376,15 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Volgens de studie van Vivalis, hoeveel procent van de uitgesloten werklozen zou zonder identificeerbaar inkomen vallen na de werkloosheidshervorming van 2026?",
+      "question": "In welke drie fasen wordt de werkloosheidshervorming met beperking van uitkeringen tot twee jaar ingevoerd sinds januari 2026?",
       "options": [
-        "10 procent",
-        "21 procent",
-        "32 procent",
-        "42 procent"
+        "Op basis van leeftijd: eerst jongeren, dan volwassenen, dan senioren",
+        "Op basis van duur van inactiviteit: eerst langdurig inactieven, daarna korter inactieven",
+        "Op basis van gezinssituatie: eerst alleenstaanden, dan gezinnen, dan zelfstandigen",
+        "Op basis van sector: eerst werklozen uit zwakke sectoren, dan sterke sectoren"
       ],
-      "correct": 3,
-      "explanation": "Vivalis becijferde dat van de 24.700 uitgeslotenen onder 55 jaar in Brussel, 42 procent zonder identificeerbaar inkomen zou vallen. Dit verschilt sterk van de federale verwachting dat slechts één derde naar het OCMW zou gaan.",
+      "correct": 1,
+      "explanation": "De hervorming wordt in drie golven toegepast op basis van inactiviteitsduur: eerst personen met meer dan 20 jaar inactiviteit, vervolgens die met 8-20 jaar, en tenslotte die met 2-8 jaar inactiviteit. Dit toont een gefaseerde aanpak gericht op specifieke groepen.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: 10M voor de stations, drugscommissaris, beschermde diensten"
     },
@@ -392,15 +392,15 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Wat is het belangrijkste doel van de stedenbouwkundige amnestie die in de Gewestelijke Beleidsverklaring is opgenomen?",
+      "question": "Welke verandering stelt de Gewestelijke Beleidsverklaring voor met betrekking tot de Koninklijke Commissie voor Monumenten en Landschappen (KCML)?",
       "options": [
-        "Het aantal dossiers in overtreding verminderen en eigenaars juridisch zekerheid bieden",
-        "Alle illegale bouwwerken onmiddellijk af te breken",
-        "De erfgoedbescherming in Brussel volledig af te schaffen",
-        "Alleen woningbouw in arme wijken toe te staan"
+        "De KCML wordt volledig afgeschaft",
+        "Het eensluidend advies van de KCML wordt vervangen door een eenvoudig advies",
+        "De KCML krijgt meer bevoegdheden om alle bouwprojecten goed te keuren",
+        "De KCML wordt samengevoegd met het stedenbouwkundig departement"
       ],
-      "correct": 0,
-      "explanation": "De amnestie richt zich op regularisatie van oude overtredingen via een conformeringsmechanisme, wat eigenaars rechtszekerheidgeeft zonder erfgoed te gefährden. Dit is een belangrijk onderdeel van de stedenbouwhervorming in Brussel.",
+      "correct": 1,
+      "explanation": "Deze hervorming heeft tot doel renovatieprojecten in beschermde zones te deblokkeren, terwijl erfgoedbescherming behouden blijft. Het is een balans tussen modernisering en erfgoedzorg.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie"
     },
@@ -408,15 +408,15 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Hoeveel van de negen groene zones die Ecolo wilde beschermen tegen bebouwing werden definitief beschermd volgens het regeerakkoord?",
+      "question": "Wat is het doel van de stedenbouwkundige amnestie zoals beschreven in de Gewestelijke Beleidsverklaring?",
       "options": [
-        "Geen enkele zone werd beschermd",
-        "Alle negen zones werden beschermd",
-        "3 terreinen werden definitief beschermd",
-        "6 terreinen werden definitief beschermd"
+        "Het afschaffen van alle bestaande stedenbouwkundige regelgeving",
+        "Het straffeloos toestaan van alle toekomstige bouwoverintredingen",
+        "Het regulariseren van oude overtredingen en eigenaars juridische zekerheid bieden",
+        "Het verplichten van eigenaren om alle oude bouwwerken af te breken"
       ],
       "correct": 2,
-      "explanation": "Het compromis uit het regeerakkoord voorziet in 3 definitief beschermde terreinen (Wiels, Avijl, Donderberg) en een moratorium van 18 maanden op de overige sites. Dit was onderwerp van veel debat in het Brussels Parlement.",
+      "explanation": "De amnestie is een conformeringsmechanisme voor situaties van vóór een bepaalde datum. Dit helpt het aantal illegale dossiers te verminderen en geeft eigenaren rechtsduidelijkheid over hun eigendom.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie"
     },
@@ -424,15 +424,15 @@
       "id": "dossier-accessibilite-pmr-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Hoeveel personen in het Brussels Hoofdstedelijk Gewest ontvangen in 2024 tegemoetkomingen voor personen met een handicap?",
+      "question": "Welke verplichting rust op het Brussels Hoofdstedelijk Gewest volgens de ordonnantie handistreaming van 2016?",
       "options": [
-        "ongeveer 12.500 personen",
-        "ongeveer 23.100 personen",
-        "ongeveer 45.300 personen",
-        "ongeveer 253.866 personen"
+        "Handicap systematisch integreren in alle gewestelijke beleidsmaatregelen, inclusief overheidsopdrachten en subsidies",
+        "Alleen in het onderwijs en openbaar vervoer aandacht besteden aan toegankelijkheid",
+        "Jaarlijks minstens 5% van het gewestelijk budget reserveren voor handicapvoorzieningen",
+        "Een aparte gewestelijke dienst oprichten die uitsluitend verantwoordelijk is voor handistreaming"
       ],
-      "correct": 1,
-      "explanation": "Het Brussels Hoofdstedelijk Gewest vertegenwoordigt 9,1% van de 253.866 begunstigden in België, wat neerkomt op ongeveer 23.100 personen. Dit laat zien dat Brussel een aanzienlijk deel van het ondersteuningssysteem voor personen met een handicap vormt.",
+      "correct": 0,
+      "explanation": "De ordonnantie van 8 december 2016 verplicht het Brussels Hoofdstedelijk Gewest tot systematische integratie van handicap in alle beleidsmaatregelen — dit is handistreaming. Dit rechtskader vormt de juridische basis voor wat in de praktijk nog vaak ontbreekt.",
       "sourceSlug": "/nl/dossiers/accessibilite-pmr",
       "sourceTitle": "Toegankelijkheid en handicap in Brussel: vervoer, tewerkstelling en gegevens"
     },
@@ -440,15 +440,15 @@
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Werkgelegenheid",
-      "question": "Hoeveel GESCO-posten waren er eind 2017 nog actief bij Brusselse werkgevers?",
+      "question": "Wat is het kernprobleem van het 'GESCO-differentieel' dat BRUXEO aankaart?",
       "options": [
-        "ongeveer 6.700 posten",
-        "ongeveer 10.000 posten",
-        "ongeveer 15.000 posten",
-        "ongeveer 2.500 posten"
+        "Werkgevers moeten GESCO-werknemers dezelfde lonen bieden, maar de gewestelijke premie dekt niet de volledige kost",
+        "De gewestelijke premie is hoger dan de lonen die non-profitorganisaties kunnen betalen",
+        "Actiris weigert GESCO-posten in te vullen binnen de verplichte termijn van 6 maanden",
+        "GESCO-werknemers krijgen minder vakantiedagen dan gewoon personeel in dezelfde sector"
       ],
-      "correct": 1,
-      "explanation": "In 2017 waren er ongeveer 10.000 gesubsidieerde posten verdeeld over 1.312 werkgevers. Het aantal daalde later naar 6.700 omdat niet alle posten tijdig werden ingevuld binnen de verplichte 6-maanden termijn.",
+      "correct": 0,
+      "explanation": "Het GESCO-differentieel beschrijft een structureel financieringsprobleem: hoewel werkgevers gelijke arbeidsvoorwaarden moeten garanderen, compenseert de subsidie dit niet volledig. Dit maakt vooral kleine organisaties kwetsbaar.",
       "sourceSlug": "/nl/dossiers/acs",
       "sourceTitle": "GESCO's: de verzwakte pijler van de Brusselse non-profittewerkstelling"
     },
@@ -456,15 +456,15 @@
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Werkgelegenheid",
-      "question": "Wat is het kernprobleem van het 'GESCO-differentieel' volgens BRUXEO?",
+      "question": "Welke filosofische verschuiving vond plaats met de hervorming van GESCO's in 2015?",
       "options": [
-        "GESCO-werknemers verdienen meer dan gewone werknemers",
-        "werkgevers moeten dezelfde lonen betalen maar krijgen onvoldoende subsidie",
-        "de gewestelijke premie is te hoog gestegen",
-        "Actiris weigert GESCO-werknemers te registreren"
+        "Van structurele steun aan de sociale sector naar activeringsbeleid voor werklozen",
+        "Van activering van werklozen naar structurele steun voor non-profitorganisaties",
+        "Van tewerkstelling voor mensen met handicap naar tewerkstelling voor jongeren",
+        "Van gewestelijk beheer naar federaal beheer van de subsidiering"
       ],
-      "correct": 1,
-      "explanation": "BRUXEO wijst erop dat werkgevers GESCO-werknemers dezelfde lonen en voorwaarden moeten bieden als ander personeel, maar de gewestelijke premie dekt deze volledige kost niet. Dit verschil drukt vooral zwaar op kleine, subsidieafhankelijke organisaties.",
+      "correct": 0,
+      "explanation": "In 2015 verschoof het doel van GESCO's: niet langer als permanente jobs voor de non-profitsector, maar als 'springplank' naar duurzame werk. Dit creëerde spanningen, want veel GESCO-posten vervullen essentiële permanente functies in zorg en kinderopvang.",
       "sourceSlug": "/nl/dossiers/acs",
       "sourceTitle": "GESCO's: de verzwakte pijler van de Brusselse non-profittewerkstelling"
     },
@@ -472,15 +472,15 @@
       "id": "dossier-assemblees-citoyennes-0",
       "source": "dossier",
       "domain": "Institutioneel",
-      "question": "Hoeveel aanbevelingen hebben de zes afgeronde deliberatieve commissies van het Brussels Parlement samen geformuleerd?",
+      "question": "Hoe worden de 45 burgers geselecteerd die deelnemen aan een deliberatieve commissie van het Brussels Parlement?",
       "options": [
-        "Ongeveer 150 aanbevelingen",
-        "Ongeveer 205 aanbevelingen",
-        "Ongeveer 250 aanbevelingen",
-        "Ongeveer 300 aanbevelingen"
+        "Via een dubbele loting op basis van rijksregisternummers onder inwoners van 16 jaar en ouder",
+        "Via openbare sollicitaties waarbij burgers zich vrijwillig aanmelden",
+        "Via benoeming door de gemeenteraden van de negentien Brusselse gemeenten",
+        "Via een steekproef onder deelnemers aan vorige burgerinitiativen"
       ],
-      "correct": 1,
-      "explanation": "De zes commissies over thema's zoals 5G, dakloosheid en biodiversiteit hebben samen meer dan 205 aanbevelingen opgesteld. Deze worden doorgestuurd naar de bevoegde parlementaire commissies voor opvolging.",
+      "correct": 0,
+      "explanation": "Het reglement van het Brussels Parlement voorziet in een dubbele loting om ervoor te zorgen dat de samenstelling representatief is. Dit transparante selectiemechanisme wordt ondersteund door het platform democratie.brussels.",
       "sourceSlug": "/nl/dossiers/assemblees-citoyennes",
       "sourceTitle": "Burgerbijeenkomsten: 6 commissies afgerond, 205+ aanbevelingen, 7e in voorbereiding"
     },
@@ -488,15 +488,15 @@
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Volgens de Nationale Geluksbarometer van UGent en NN (januari 2026) scoort het Brussels Hoofdstedelijk Gewest op welk gebied het best onder de drie Belgische gewesten?",
+      "question": "Welke factor identificeert het IBSA (Institut Bruxellois de Statistique et d'Analyse) als de meest bepalende voor levenstevredenheid in Brussel?",
       "options": [
-        "Subjectief geluk met 6,62/10",
-        "Levenstevredenheid met 7,8/10",
-        "Werkgelegenheid voor jongeren",
-        "Mentale gezondheid"
+        "Een fatsoenlijke levensstandaard en adequate materiële omstandigheden",
+        "Gezondheid, zowel fysiek als mentaal",
+        "Het onderhouden van sociale relaties en deelname aan activiteiten",
+        "De mogelijkheid om te werken"
       ],
-      "correct": 0,
-      "explanation": "Brussel scoort 6,62/10 voor subjectief geluk, net boven Vlaanderen (6,61/10). Dit maakt Brussel voor het eerst sinds 2017 het gelukkigste gewest van België volgens deze meting.",
+      "correct": 1,
+      "explanation": "Gezondheid bleek volgens Focus nr. 77 van het IBSA (gebaseerd op EU-SILC 2023) de cruciale pijler voor welzijn in Brussel. Dit onderstreept waarom gezondheidsbeleid zo belangrijk is voor de levenskwaliteit van Brusselaars.",
       "sourceSlug": "/nl/dossiers/bien-etre",
       "sourceTitle": "Welzijn en levenskwaliteit in Brussel: indicatoren, rankings en uitdagingen"
     },
@@ -504,15 +504,15 @@
       "id": "dossier-data-centers-ia-energie-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Hoeveel elektriciteit verbruikten Belgische datacenters in 2023 in verhouding tot het totale nationale verbruik?",
+      "question": "Welke instantie zal expliciet ingaan op de groeiende energievraag van datacenters in het federale beleidsplan?",
       "options": [
-        "2% van het nationaal verbruik",
-        "4% van het nationaal verbruik",
-        "7% van het nationaal verbruik",
-        "10% van het nationaal verbruik"
+        "Het Elia-netwerkontwikkelingsplan 2028-2038",
+        "De Gewestelijke Beleidsverklaring van het Brussels Hoofdstedelijk Gewest",
+        "Het Internationaal Energieagentschap",
+        "De Belgian Digital Infrastructure Association"
       ],
-      "correct": 1,
-      "explanation": "België verbruikte 3,2 TWh voor datacenters in 2023, wat gelijk staat aan 4% van het nationaal verbruik — dubbel zoveel als het Europees gemiddelde. Dit maakt België een toonaangevende datacenter-hub in Europa.",
+      "correct": 0,
+      "explanation": "Het federale Elia-netwerkontwikkelingsplan zal deze kwestie expliciet behandelen, terwijl de Brusselse beleidsverklaring van februari 2026 datacenters nog niet specifiek adresseert. Dit toont aan hoe gewest en federaal niveau anders omgaan met dezelfde groeiende uitdaging.",
       "sourceSlug": "/nl/dossiers/data-centers-ia-energie",
       "sourceTitle": "Datacenters en AI: impact op het Brusselse energiesysteem"
     },
@@ -520,15 +520,15 @@
       "id": "dossier-data-centers-ia-energie-1",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Welk percentage van het huidige energieverbruik van datacenters gaat naar kunstmatige intelligentie?",
+      "question": "Welke verschuiving vindt plaats in het energieverbruik van kunstmatige intelligentie tussen training en gebruik?",
       "options": [
-        "Ongeveer 5%",
-        "Ongeveer 15%",
-        "Ongeveer 35%",
-        "Ongeveer 50%"
+        "Training verbruikt nu meer energie dan inferentie, omgekeerd van vroeger",
+        "Inferentie (dagelijks gebruik door miljardenuitzoekers) verbruikt nu meer energie dan training",
+        "Training en inferentie verbruiken gelijkmatig energie",
+        "Kunstmatige intelligentie verbruikt tegenwoordig minder energie dan vijf jaar geleden"
       ],
       "correct": 1,
-      "explanation": "AI vertegenwoordigt in 2024 ongeveer 15% van het datacenterverbruik, maar dit aandeel zal naar verwachting tot 35-50% stijgen tegen 2030, vooral vanwege het dagelijks gebruik (inferentie) door miljoenen gebruikers.",
+      "explanation": "Een belangrijk inzicht: het zijn de zoekopdrachten van miljoenen dagelijkse gebruikers die het energiesysteem het meest belasten, niet het trainen van de modellen zelf. Dit richt de aandacht op de operationele impact van AI op de infrastruc­tuur.",
       "sourceSlug": "/nl/dossiers/data-centers-ia-energie",
       "sourceTitle": "Datacenters en AI: impact op het Brusselse energiesysteem"
     },
@@ -536,15 +536,15 @@
       "id": "dossier-enseignement-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welke twee Gemeenschappen bepalen het onderwijs in Brussel, terwijl het Brusselse Gewest daar vrijwel geen macht over heeft?",
+      "question": "Welke twee onderwijsnetten hebben bevoegdheid over het leerplichtonderwijs in Brussel, zonder inmenging van het Brussels Hoofdstedelijk Gewest?",
       "options": [
-        "De Federatie Wallonië-Brussel en de Vlaamse Gemeenschap",
-        "Het Waals Gewest en het Vlaamse Gewest",
-        "De Federatie Wallonië-Brussel en het Europese Parlement",
-        "De Vlaamse Gemeenschap en het Waals Parlement"
+        "Het FWB-net en het Vlaamse Gemeenschapsnet",
+        "Het Brussels Onderwijs en het Federale Onderwijs",
+        "Het Europese Onderwijs en het Internationale Onderwijs",
+        "Het Particuliere Onderwijs en het Gemeenschapsonderwijs"
       ],
       "correct": 0,
-      "explanation": "Dit toont een belangrijk probleem: Brusselse ouders betalen gewestelijke belastingen maar hebben geen inspraak over het onderwijs van hun kinderen. Dit is wat het dossier een 'institutionele lasagne' noemt.",
+      "explanation": "Dit is de kern van de 'institutionele lasagne': Brussel betaalt gewestelijke belastingen maar heeft geen macht over de besparingen die de twee Gemeenschappen in hun eigen parlementen nemen. Het is een unieke situatie die rechtstreeks Brusselse gezinnen treft.",
       "sourceSlug": "/nl/dossiers/enseignement",
       "sourceTitle": "Leerplichtonderwijs in Brussel: de impact van de besparingen FWB en Vlaamse Gemeenschap"
     },
@@ -552,15 +552,15 @@
       "id": "dossier-enseignement-1",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Hoeveel Brusselse kinderen (van 3 tot 17 jaar) volgen onderwijs in de netten van de Gemeenschappen (FWB of Vlaamse Gemeenschap)?",
+      "question": "Welke twee bevoegdheidsniveaus leggen in 2026 gelijktijdig besparingen op het onderwijs op?",
       "options": [
-        "Ongeveer 75%",
-        "Ongeveer 92%",
-        "Ongeveer 60%",
-        "Ongeveer 85%"
+        "De Federale regering en het Brussels Hoofdstedelijk Gewest",
+        "De Federatie Wallonië-Brussel en de Vlaamse Gemeenschap",
+        "Het Vlaams Parlement en de Brusselse Gemeenteraad",
+        "De Europese Commissie en de Belgische Senaat"
       ],
       "correct": 1,
-      "explanation": "92% van de Brusselse kinderen zit in scholen die door FWB of de Vlaamse Gemeenschap worden beheerd. Dit toont hoe groot de invloed van deze instellingen op Brussel is.",
+      "explanation": "Dit gelijktijdige moment van besparingen is problematisch omdat het Brussels Hoofdstedelijk Gewest geen hefboom heeft om deze maatregelen tegen te houden, ondanks dat Brusselse gezinnen er volledig door worden geraakt.",
       "sourceSlug": "/nl/dossiers/enseignement",
       "sourceTitle": "Leerplichtonderwijs in Brussel: de impact van de besparingen FWB en Vlaamse Gemeenschap"
     },
@@ -568,15 +568,15 @@
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Economie",
-      "question": "Met welk percentage zijn de faillissementen in Brussel in 2025 gestegen in vergelijking met 2024?",
+      "question": "Welke organisatie biedt ondernemers in Brussel gratis diagnose en doorverwijzing aan wanneer hun bedrijf in moeilijkheden komt?",
       "options": [
-        "7,8 %",
-        "13,2 %",
-        "5,9 %",
-        "3,0 %"
+        "Centre pour Entreprises en difficulté (CEd) via hub.brussels",
+        "Gewest via GRP bemiddeling",
+        "Revival by Pulse Foundation",
+        "JobYourself via Reload Yourself"
       ],
-      "correct": 1,
-      "explanation": "Brussel noteerde een stijging van 13,2 % — de sterkste gewestelijke toename in België. Dit illustreert de bijzondere economische druk waarmee het gewest wordt geconfronteerd.",
+      "correct": 0,
+      "explanation": "Het CEd is het eerste aanspreekpunt voor gratis diagnose en doorverwijzing van ondernemingen in nood. Dit is een belangrijk preventief instrument dat deel uitmaakt van het gewestelijke steunnetwerk.",
       "sourceSlug": "/nl/dossiers/faillites-a-bruxelles",
       "sourceTitle": "Faillissementen in Brussel: stand van zaken, sectoren en gewestelijke maatregelen"
     },
@@ -584,15 +584,15 @@
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Veiligheid",
-      "question": "Hoeveel politiezones zal het Brussels Hoofdstedelijk Gewest hebben na de fusie die voor stemming staat in de zomer van 2026?",
+      "question": "Hoeveel politiezones zullen er in het hele land overblijven na de hervorming van de politieorganisatie?",
       "options": [
-        "1 zone",
-        "3 zones",
-        "6 zones",
-        "12 zones"
+        "ongeveer 60",
+        "ongeveer 100",
+        "ongeveer 176",
+        "ongeveer 19"
       ],
       "correct": 0,
-      "explanation": "De fusie voorziet in de samenvoeging van de huidige 6 Brusselse politiezones tot één enkele gewestelijke zone, wat uniek is in België omdat fusies elders vrijwillig zijn.",
+      "explanation": "De minister van Binnenlandse Zaken bevestigde dat het nationale hervorming het aantal politiezones verminderdt van 176 naar ongeveer 60. Dit gebeurt in het hele land, terwijl Brussel het enige verplichte geval is.",
       "sourceSlug": "/nl/dossiers/fusion-polices",
       "sourceTitle": "Fusie van politiezones: van 6 naar 1, stemming voor de zomer van 2026"
     },
@@ -600,15 +600,15 @@
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Welke drie concrete veranderingen voorziet het regeringsakkoord van februari 2026 voor het nieuwe mobiliteitsplan?",
+      "question": "Welk belangrijk principe uit het huidige Good Move-plan blijft behouden in het nieuwe Gewestelijk Mobiliteitsplan volgens het regeringsakkoord van februari 2026?",
       "options": [
-        "Verwijdering van paaltjes, kleinere mazen rond scholen, en een jaarlijks budget van +40 miljoen euro voor wegen",
-        "Verwijdering van paaltjes, uitbreiding van grote mazen, en gratis openbaar vervoer voor scholieren",
-        "Verdubbeling van autoloze zondagen, nieuwe fietssnelwegen, en subsidies voor elektrische auto's",
-        "Sluiting van alle wijkmazen, invoering van betaald parkeren, en halvering van het wegenbugget"
+        "Het STOP-principe en de filosofie van verkeersluwe circulatie",
+        "De invoering van autoloze dagen in het hele gewest",
+        "De verwijdering van alle paaltjes in de stad",
+        "De afschaffing van het openbaar vervoer in wijkmazen"
       ],
       "correct": 0,
-      "explanation": "Het akkoord introduceert drie hoofdpunten: het verwijderen van de omstreden paaltjes, het maken van kleinere mazen speciaal rond schoolgebouwen voor veiligheid, en een aanzienlijke financiële injectie voor het herstel van wegen en openbare ruimte.",
+      "explanation": "Het nieuwe plan verkleint weliswaar de schaal en het dwingende karakter, maar behoudt expliciet de fundamentele filosofie van verkeersluwe circulatie en het STOP-principe. Dit is een cruciaal punt waar regering en burgercomité het oneens zijn.",
       "sourceSlug": "/nl/dossiers/good-move",
       "sourceTitle": "Good Move: nieuw gewestelijk plan volgt op"
     },
@@ -616,15 +616,15 @@
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wat is volgens het Burgercomité Nee aan het plan Good Move het kernprobleem van het nieuwe plan?",
+      "question": "Wat is één van de concrete aanpassingen die het nieuwe Gewestelijk Mobiliteitsplan introduceert ten opzichte van Good Move?",
       "options": [
-        "Het voorziet niet in voldoende financiering voor openbaar vervoer",
-        "Het behoudt de fundamentele principes van Good Move, dus een naamsverandering verandert de filosofie niet",
-        "Het maakt de mazen te klein, wat de verkeersveiligheid vermindert",
-        "Het verwijdert alle paaltjes te snel zonder voldoende evaluatie"
+        "Kleinere mazen gericht op schoolzones voor verkeersveiligheid en leefkwaliteit",
+        "De afschaffing van alle bestaande wijkmazen in Brussel",
+        "Een verdubbeling van het aantal autoloze dagen per jaar",
+        "De invoering van tolheffing voor auto's in het centrum"
       ],
-      "correct": 1,
-      "explanation": "Het burgercomité stelt dat de herziening vooral semantisch is: de kernfilosofie van wijkmazen en verkeersluwe circulatie blijft onveranderd, dus een nieuwe naam lost de geïdentificeerde problemen niet op.",
+      "correct": 0,
+      "explanation": "Het akkoord voorziet specifiek in kleinere mazen rond schoolgebouwen, plus verwijdering van de omstreden paaltjes en één extra autoloze zondag per jaar. Deze aanpassingen moeten de tegenstand tegen Good Move adresseren.",
       "sourceSlug": "/nl/dossiers/good-move",
       "sourceTitle": "Good Move: nieuw gewestelijk plan volgt op"
     },
@@ -632,15 +632,15 @@
       "id": "dossier-lez-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Hoeveel moet een eigenaar van een niet-conform voertuig volgens het regeerakkoord van 12 februari 2026 jaarlijks betalen om legaal in de LEZ van Brussel te rijden?",
+      "question": "Wat is volgens het regeringsakkoord van februari 2026 de belangrijkste verandering voor eigenaren van niet-conforme voertuigen in de LEZ?",
       "options": [
-        "200 EUR voor iedereen",
-        "350 EUR (of 200 EUR met sociaal tarief)",
-        "80 EUR per overtreding",
-        "Niets, de LEZ is afgeschaft"
+        "Ze kunnen een jaarlijkse pas kopen om legaal te rijden in de LEZ",
+        "Ze krijgen een eenmalige compensatie van de regering",
+        "Ze worden volledig uitgesloten van het Brussels grondgebied",
+        "Ze hoeven geen belastingen meer te betalen op hun voertuig"
       ],
-      "correct": 1,
-      "explanation": "Het akkoord voorziet in een jaarlijkse pas van 350 EUR, met een gereduceerd sociaal tarief van 200 EUR. Dit stelt eigenaars van oudere voertuigen in staat om legaal te blijven rijden.",
+      "correct": 0,
+      "explanation": "Het akkoord voorziet in een jaarlijkse pas van 350 EUR (of 200 EUR sociaal tarief) waarmee eigenaren van niet-conforme voertuigen legaal kunnen rijden. Dit verzacht de financiële impact aanzienlijk.",
       "sourceSlug": "/nl/dossiers/lez",
       "sourceTitle": "LEZ: behouden met jaarlijkse pas en verlaagde boetes"
     },
@@ -648,15 +648,15 @@
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Welke milieuverbetering heeft de LEZ sinds 2018 bereikt voor stikstofoxiden (NOx)?",
+      "question": "Welke kritiek uitte de Raad van State op het voorstel om LEZ-boetes te verlagen?",
       "options": [
-        "Een daling van 25%",
-        "Een daling van 55%",
-        "Een daling van 33%",
-        "Een daling van 60%"
+        "De boetes zouden te hoog blijven in vergelijking met andere steden",
+        "Het zou een schending zijn van het grondwettelijke standstill-principe en de gezondheid van Brusselaars niet voldoende beschermen",
+        "De procedure zou te traag verlopen en burgers onvoldoende tijd hebben",
+        "Het zou economisch schadelijk zijn voor het Brusselse bedrijfsleven"
       ],
       "correct": 1,
-      "explanation": "De LEZ heeft sinds de invoering in 2018 geleid tot een daling van 55% van stikstofoxiden, een belangrijke vervuiler voor de luchtkwaliteit in Brussel.",
+      "explanation": "De Raad van State stelde dat lagere boetes een achteruitgang van de gezondheidsbescherming inhouden, wat het standstill-principe schendt, en dat de boetes te laag zijn om 'doeltreffend, evenredig en afschrikkend' te werken.",
       "sourceSlug": "/nl/dossiers/lez",
       "sourceTitle": "LEZ: behouden met jaarlijkse pas en verlaagde boetes"
     },
@@ -664,15 +664,15 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wat gebeurde er met Metro 3 volgens het regeringsakkoord van februari 2026?",
+      "question": "Welke belangrijke verandering brengt het regeringsakkoord van februari 2026 voor het Brusselse openbaar vervoer?",
       "options": [
-        "Het project wordt voor 10 jaar bevroren en vervangen door een tram",
-        "Het project wordt volledig afgeblazen en alle werken stoppen",
-        "Het project gaat door met dezelfde planning en budget",
-        "Het project wordt uitgesteld tot 2030 met aangepaste financiering"
+        "Metro 3 wordt voor 10 jaar bevroren en vervangen door een tramproject",
+        "Metro 3 wordt volledig stopgezet en alle fondsen gaan naar busnetwerk",
+        "Metro 3 wordt versneld afgebouwd en uitgebreid naar drie nieuwe stations",
+        "Metro 3 blijft doorgaan maar wordt uitsluitend privaat gefinancierd"
       ],
       "correct": 0,
-      "explanation": "Het akkoord beslist dat de Noord-Zuidlijn niet verder wordt verlengd onder de grond, maar dat een bovengrondse tram deze rol overneemt. Dit scheelt miljarden euro's aan investeringen.",
+      "explanation": "Het akkoord beslist dat de ondergrondse Metro 3-lijn voor tien jaar wordt opgeschort. In plaats daarvan krijgt Brussel een vervangende tramverbinding die het bestaande netwerk compleet maakt.",
       "sourceSlug": "/nl/dossiers/metro-3",
       "sourceTitle": "Metro 3: project 10 jaar bevroren, vervanging door tram"
     },
@@ -680,15 +680,15 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Hoeveel was de kostenraming voor Metro 3 volgens het rapport van het Rekenhof?",
+      "question": "Waarom werd het Metro 3-project onder druk komen te staan volgens het Rekenhof?",
       "options": [
-        "3,2 miljard EUR",
-        "4,76 miljard EUR",
-        "1 miljard EUR",
-        "5,2 miljard EUR"
+        "De werknemers van de MIVB weigerden langer aan het project te werken",
+        "De initiële kosten waren explosief gestegen en de financiële houdbaarheid raakte in het gedrang",
+        "Brussel verloor zijn toegang tot Europese subsidies door Brexit",
+        "Het project botste op tegenwerkingen van Franse grensregio's"
       ],
       "correct": 1,
-      "explanation": "Het Rekenhof becijferde de totale kosten op 4,76 miljard EUR, tegenover initiale ramingen onder 1 miljard EUR — een stijging van meer dan 475%. Deze explosieve kostenoverschrijding maakte het project financieel onhoudbaar.",
+      "explanation": "Het Rekenhof stelde vast dat de ramingen sterk waren gestegen en dat dit een ernstig probleem vormde voor de financiering. Dit rapport overtuigde onderhandelaars het project in te vriezen.",
       "sourceSlug": "/nl/dossiers/metro-3",
       "sourceTitle": "Metro 3: project 10 jaar bevroren, vervanging door tram"
     },
@@ -696,15 +696,15 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Hoeveel elektrische steps en deelfietsen in free-floating telde Brussel in maart 2025?",
+      "question": "Wat gebeurde er op 25 april 2024 in de juridische strijd over elektrische steps in Brussel?",
       "options": [
-        "Ongeveer 15 700 voertuigen in totaal (~9 200 steps en ~6 500 fietsen)",
-        "Ongeveer 12 000 voertuigen in totaal (~6 000 steps en ~6 000 fietsen)",
-        "Ongeveer 20 000 voertuigen in totaal (~10 000 steps en ~10 000 fietsen)",
-        "Ongeveer 8 500 voertuigen in totaal (~4 000 steps en ~4 500 fietsen)"
+        "De Raad van State schorste de vlootplafonds wegens ontoereikende motivering",
+        "De regering selecteerde Bolt en Dott als enige stepoperatoren",
+        "Lime en Voi kregen een voorlopige schorsing in kort geding",
+        "De nieuwe vergunningsvoorwaarden traden in werking"
       ],
       "correct": 0,
-      "explanation": "De deelmobiliteitsmarkt groeide sterk: ~9 200 steps en ~6 500 fietsen vormen samen de hoofdmassa van voertuigen in free-floating, naast vaste stations als Villo!.",
+      "explanation": "De Raad van State greep in om de juridische motivering van de vlootlimieten aan te kaarten, wat leidde tot een herziening van het regeringsbesluit. Deze uitspraak was een sleutelbeslissing in een langdurig juridisch geschil.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Deelmobiliteit in Brussel: steps, fietsen, taxi's en de strijd om de concessies"
     },
@@ -712,15 +712,15 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wanneer eindigt de concessie van Villo! (JCDecaux) in Brussel en wat gebeurt er dan met de stations?",
+      "question": "Tot wanneer loopt de huidige concessie van Villo! (JCDecaux) in Brussel?",
       "options": [
-        "In september 2026; JCDecaux moet alle stations verwijderen en de openbare ruimte herstellen binnen 7 maanden",
-        "In december 2025; de MIVB neemt automatisch alle stations over",
-        "In maart 2027; de regering verlengt automatisch voor 5 jaar",
-        "In januari 2025; de stations worden omgevormd tot free-floating systemen"
+        "December 2024",
+        "September 2026",
+        "December 2026",
+        "Juni 2027"
       ],
-      "correct": 0,
-      "explanation": "De overeenkomst van 2008 loopt af in september 2026. De ontmantelingsclausule verplicht JCDecaux tot volledige verwijdering, wat de toekomst van vaste fietsenstations in Brussel onzeker maakt.",
+      "correct": 1,
+      "explanation": "De overeenkomst uit 2008 eindigt in september 2026, waarna JCDecaux de stations moet verwijderen. Dit vormt een cruciaal moment voor Brussel Mobiliteit om te beslissen over het toekomstige fietsendeelsysteem.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Deelmobiliteit in Brussel: steps, fietsen, taxi's en de strijd om de concessies"
     },
@@ -728,15 +728,15 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welke dekkingsgraad voor crècheplaten heeft Anderlecht volgens de studie van perspective.brussels uit oktober 2024?",
+      "question": "Welke drie overheden hebben elk hun eigen bevoegdheid over kinderopvang in Brussel?",
       "options": [
-        "Ongeveer 16%",
-        "Ongeveer 26%",
-        "Ongeveer 67%",
-        "Ongeveer 80%"
+        "ONE, Opgroeien, en de Gemeenten",
+        "ONE, Opgroeien, en Iriscare",
+        "VGC, COCOF, en de Gemeenten",
+        "Iriscare, de Federale Regering, en het Gewest"
       ],
-      "correct": 0,
-      "explanation": "Anderlecht heeft met ongeveer 16% de laagste dekkingsgraad van Brussel, terwijl Etterbeek met 67% het best voorzien is. Dit verschil bepaalt voor veel gezinnen of zij na het moederschapsverlof kunnen terugkeren naar werk.",
+      "correct": 1,
+      "explanation": "ONE financiert Franstalige crèches, Opgroeien de Nederlandstalige, en Iriscare geeft vergunningen aan bicommunautaire structuren. Dit verdeelde systeem maakt kinderopvang in Brussel complex.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang in Brussel: crèches, wachtlijsten en drievoudige institutionele bevoegdheid"
     },
@@ -744,15 +744,15 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Hoeveel verschillende overheden zijn verantwoordelijk voor de erkenning en financiering van crèches in Brussel?",
+      "question": "Wat is het belangrijkste probleem met de gescheiden wachtlijsten voor Franstalige en Nederlandstalige kinderopvang?",
       "options": [
-        "2 overheden",
-        "3 overheden",
-        "4 overheden",
-        "5 overheden"
+        "Ouders moeten twee inschrijvingsformulieren invullen",
+        "Gezinnen kunnen maanden wachten in één rij terwijl plaatsen vrijkomen in een rij waar zij niet ingeschreven zijn",
+        "De gemeente bepaalt welke taal het kind moet spreken",
+        "Nederlandstalige crèches zijn altijd voller dan Franstalige"
       ],
       "correct": 1,
-      "explanation": "ONE (Franstalig), Opgroeien (Nederlandstalig) en Iriscare (bicommunautair) zijn de drie hoofdverantwoordelijke overheden. Dit verdeelde bevoegdheid maakt het systeem complex en draagt bij aan ongelijke toegang per taalgebied.",
+      "explanation": "De wachtlijsten zijn volledig gescheiden: een plaats in de Nederlandstalige sector helpt niet als u in de Franstalige rij staat. Dit verergert de toegangsproblemen voor gezinnen.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang in Brussel: crèches, wachtlijsten en drievoudige institutionele bevoegdheid"
     },
@@ -760,15 +760,15 @@
       "id": "dossier-pfas-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Hoeveel percelen in het Brussels Gewest vertonen een bevestigde PFAS-verontreiniging volgens de systematische analysecampagnes sinds 2021?",
+      "question": "Wat is het belangrijkste verschil tussen de gezondheidsdrempels van de Hoge Gezondheidsraad en de huidige wettelijke normen voor PFAS in drinkwater?",
       "options": [
-        "47 percelen",
-        "55 percelen",
-        "82 percelen",
-        "108 percelen"
+        "De gezondheidsdrempels zijn gebaseerd op het voorzorgsbeginsel en aanzienlijk strenger dan de wettelijke normen",
+        "De gezondheidsdrempels gelden alleen voor baby's en jonge kinderen",
+        "De gezondheidsdrempels worden automatisch in de regelgeving toegepast",
+        "De gezondheidsdrempels zijn minder streng omdat ze alleen voor TFA gelden"
       ],
-      "correct": 2,
-      "explanation": "Leefmilieu Brussel heeft tot nu toe 82 percelen met bevestigde PFAS-verontreiniging geïdentificeerd: 47 in de bodem en 55 in het grondwater. Dit toont aan hoe wijdverbreid het probleem in Brussel is.",
+      "correct": 0,
+      "explanation": "De Hoge Gezondheidsraad hanteert maximale gezondheidswaarden op basis van voorzorg (bijvoorbeeld 4 ng/L voor 4 PFAS), terwijl de wettelijke normen veel hoger liggen (100 ng/L). Dit onderscheid tussen gezondheid en kwaliteit is nog niet in de regelgeving verankerd.",
       "sourceSlug": "/nl/dossiers/pfas",
       "sourceTitle": "PFAS in Brussel: bodem- en waterverontreiniging"
     },
@@ -776,15 +776,15 @@
       "id": "dossier-pfas-1",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Wat is het grootste probleem met TFA (trifluorazijnzuur) in het drinkwater van Brussel?",
+      "question": "Waarom kunnen klassieke actiefkoolfilters het TFA-probleem in Brussel niet oplossen?",
       "options": [
-        "Het wordt niet gedetecteerd in de reservoirs",
-        "Klassieke actiefkoolfilters kunnen het niet opvangen, alleen omgekeerde osmose werkt",
-        "Het is alleen aanwezig in het grondwater en niet in drinkwater",
-        "Het wordt volledig gefilterd door Vivaqua voordat het huizen bereikt"
+        "Omdat TFA alleen in de bodem aanwezig is, niet in drinkwater",
+        "Omdat actiefkoolfilters TFA niet kunnen opvangen — alleen omgekeerde osmose werkt",
+        "Omdat TFA pas sinds 2026 wordt gedetecteerd in de waterreservoirs",
+        "Omdat Vivaqua weigert PFAS-vervuiling aan te pakken"
       ],
       "correct": 1,
-      "explanation": "TFA wordt aangetroffen in alle 6 reservoirs met concentraties tot 1.900 ng/L, maar standaard filters werken niet. Dit stelt waterbedrijven voor kostbare uitdagingen bij de zuivering van ons drinkwater.",
+      "explanation": "TFA (trifluorazijnzuur) is een specifieke PFAS-verbinding die in alle 6 Brusselse waterreservoirs is gevonden. Alleen geavanceerde zuiveringstechnologie zoals omgekeerde osmose kan TFA effectief verwijderen, wat duur is.",
       "sourceSlug": "/nl/dossiers/pfas",
       "sourceTitle": "PFAS in Brussel: bodem- en waterverontreiniging"
     },
@@ -792,15 +792,15 @@
       "id": "dossier-plan-securite-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Hoeveel miljoen euro werd voorzien in het regelgevingskader voor de beveiliging van het Zuid- en Noordstation in Brussel?",
+      "question": "Welke nieuwe gewestelijke functie wordt volgens het regeringsakkoord van februari 2026 opgericht om de bestrijding van verdovende middelen in Brussel te coördineren?",
       "options": [
-        "5 miljoen euro",
-        "10 miljoen euro",
-        "15 miljoen euro",
-        "20 miljoen euro"
+        "Gewestelijk drugscommissaris",
+        "Directeur van Brussel Preventie & Veiligheid",
+        "Hoofd van de Federale Drugsbrigade",
+        "Coördinator van het Observatorium voor de veiligheid"
       ],
-      "correct": 1,
-      "explanation": "Het veiligheidsplan voorziet in een investering van 10 miljoen euro voor de beveiliging van beide stations. Dit getuigt van het prioritair belang dat aan de veiligheid in deze belangrijke vervoersknopen wordt gegeven.",
+      "correct": 0,
+      "explanation": "Het regeringsakkoord voorziet in de aanstelling van een gewestelijk drugscommissaris als bevoegde autoriteit voor drugbestrijding, ondersteund door een geïntegreerd drugsplan met preventie, risicovermindering en repressie.",
       "sourceSlug": "/nl/dossiers/plan-securite",
       "sourceTitle": "Veiligheidsplan: drugscommissaris, 10M EUR stations en fusie van de politiezones"
     },
@@ -808,15 +808,15 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Budget",
-      "question": "Hoeveel miljoen euro wil het Brussels Gewest besparen met de hervorming van het bestuur naar 4 pijlers tegen 2029?",
+      "question": "Welke twee entiteiten fuseren in 2026 tot 'Brussel Stedenbouw' volgens de hervorming van het gewestelijk bestuur?",
       "options": [
-        "100 tot 150 miljoen euro",
-        "250 tot 300 miljoen euro",
-        "400 tot 450 miljoen euro",
-        "500 tot 550 miljoen euro"
+        "perspective.brussels en urban.brussels",
+        "Leefmilieu Brussel en Parking.brussels",
+        "urban.brussels en Safe.Brussels",
+        "perspective.brussels en Leefmilieu Brussel"
       ],
-      "correct": 1,
-      "explanation": "De gewestelijke beleidsverklaring van 13 februari 2026 kondigt aan dat de fusie van ~25 entiteiten naar 4 pijlers tegen 2029 een besparing van 250 tot 300 miljoen euro moet opleveren. Dit maakt het één van de grootste herstructureringen van het Brussels bestuur.",
+      "correct": 0,
+      "explanation": "Deze fusie is de eerste concrete operatie van de 'Big Bang'-hervorming en beoogt een geïntegreerde vergunningsprocedure voor stedenbouw en erfgoed. De twee organisaties werden specifiek uitgekozen omdat hun bevoegdheden elkaar aanvullen.",
       "sourceSlug": "/nl/dossiers/reforme-administration",
       "sourceTitle": "Hervorming van het gewestelijk bestuur: van 25 entiteiten naar 4 pijlers"
     },
@@ -824,15 +824,15 @@
       "id": "dossier-rse-0",
       "source": "dossier",
       "domain": "Economie",
-      "question": "Wat is het doel van de Shifting Economy-strategie die het Brussels Hoofdstedelijk Gewest in 2022 heeft aangenomen?",
+      "question": "Welke drie instellingen werken samen aan de uitvoering van het exemplariteitsmechanisme in het Brussels Gewest?",
       "options": [
-        "Ervoor zorgen dat alle gewestelijke economische steun in 2030 alleen naar 'voorbeeldige' bedrijven gaat die ecologisch en sociaal verantwoord werken",
-        "Alle bedrijven in Brussel verplichten om binnen twee jaar een B Corp-certificering te behalen",
-        "Het aantal Ecodynamische labels in Brussel vertienvoudigen zonder verdere voorwaarden",
-        "Alle restaurants en kantines in Brussel omvormen tot Good Food-instellingen"
+        "Leefmilieu Brussel, Brussel Economie en Werkgelegenheid (BEW), en finance&invest.brussels",
+        "hub.brussels, B Lab, en Brupartners",
+        "Leefmilieu Brussel, hub.brussels, en Brupartners",
+        "BEW, finance&invest.brussels, en B Lab"
       ],
       "correct": 0,
-      "explanation": "De Shifting Economy is het strategisch kader dat gewestelijke steun heroriënteert naar bedrijven met een ecologische en sociale aanpak. De ambitieuze doelstelling is dat 100% van de gewestelijke economische steun in 2030 uitsluitend naar zulke 'voorbeeldige' bedrijven gaat.",
+      "explanation": "BEW en Leefmilieu Brussel sturen de Shifting Economy gezamenlijk aan, ondersteund door hub.brussels voor begeleiding en finance&invest.brussels voor financiële instrumenten. Dit partnerschap vormt de kern van de economische transitiestrategie in Brussel.",
       "sourceSlug": "/nl/dossiers/rse",
       "sourceTitle": "Economische transitie: Shifting Economy, labels en duurzaamheidsrapportage"
     },
@@ -840,15 +840,15 @@
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Hoeveel personen van 65 jaar en ouder wonen er momenteel in Brussel?",
+      "question": "Welke nieuwe benadering vormt het kernpunt van de erkenningsnormen voor woonzorgcentra die op 1 september 2024 in werking zijn getreden?",
       "options": [
-        "ongeveer 100.000",
-        "ongeveer 163.000",
-        "ongeveer 250.000",
-        "ongeveer 320.000"
+        "Overgang van een zorggericht model naar een bewonergericht model gericht op autonomie en levenskwaliteit",
+        "Verplichte invoering van digitale zorgdossiers voor alle instellingen",
+        "Centrale controle van alle medicijnverstrekking door externe apothekers",
+        "Afschaffing van alle private woonzorgcentra in het Brussels Hoofdstedelijk Gewest"
       ],
-      "correct": 1,
-      "explanation": "Brussel telt ongeveer 163.000 personen van 65 jaar en ouder, goed voor 13% van de gewestelijke bevolking. Dit aandeel ligt beduidend lager dan het Belgische gemiddelde, maar zal volgens projecties stijgen naar 19% in 2071.",
+      "correct": 0,
+      "explanation": "Deze hervorming markeert een fundamentele verschuiving in hoe ouderenzorg wordt georganiseerd: van zorggericht (wat de instelling doet) naar bewonergericht (wat voor de bewoner betekent). Dit beïnvloedt hoe alle Brusselse woonzorgcentra hun diensten moeten inrichten.",
       "sourceSlug": "/nl/dossiers/seniors-a-bruxelles",
       "sourceTitle": "Ouderen in Brussel: huisvesting, autonomie en gegevens"
     },
@@ -856,15 +856,15 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Hoeveel sociale woningen wil de Brusselse regering tijdens deze legislatuur bouwen, en wat is het daarvoor uitgetrokken budget?",
+      "question": "Welke organisaties beheren rechtstreeks de sociale woningen in het Brussels Gewest?",
       "options": [
-        "1 000+ woningen met een budget van 400 miljoen EUR",
-        "500 woningen met een budget van 200 miljoen EUR",
-        "2 000 woningen met een budget van 600 miljoen EUR",
-        "1 000+ woningen met een budget van 300 miljoen EUR"
+        "De 19 gemeenten van het Brussels Gewest",
+        "16 Openbare Vastgoedmaatschappijen (OVM)",
+        "Privé-vastgoedmaatschappijen onder toezicht van de BGHM",
+        "De BGHM zelf als enige beheerder"
       ],
-      "correct": 0,
-      "explanation": "Het akkoord van 12 februari 2026 voorziet in 1 000+ sociale woningen met 400 miljoen EUR. Dit moet helpen de grote druk op het woningaanbod in Brussel te verlichten, waar meer dan 62 000 gezinnen op de wachtlijst staan.",
+      "correct": 1,
+      "explanation": "De BGHM coördineert het beleid, maar de 16 OVM's beheren het woningpark rechtstreeks. Dit onderscheid is belangrijk voor het begrijpen van de governance-structuur van sociale huisvesting in Brussel.",
       "sourceSlug": "/nl/dossiers/slrb",
       "sourceTitle": "BGHM: 1 000+ sociale woningen en financiële consolidatie"
     },
@@ -872,15 +872,15 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Wat was het belangrijkste gevolg van de financiële crisis van de BGHM tussen juni 2024 en februari 2026?",
+      "question": "Wat was de belangrijkste reden dat grote investeringen in sociale huisvesting tussen juni 2024 en februari 2026 niet konden doorgaan?",
       "options": [
-        "Het renovatieplan en nieuwe bouwprojecten werden bevroren",
-        "Alle werknemers van de OVM's werden ontslagen",
-        "De huurprijzen werden drastisch verhoogd",
-        "De wachtlijst voor sociale woningen werd gesloten"
+        "De BGHM had geen budget beschikbaar voor renovatieprojecten",
+        "Alle bouwmaterialen waren uitverkocht in België",
+        "De BGHM bevond zich in 'lopende zaken', wat het afsluiten van meerjarige begrotingsverbintenissen onmogelijk maakte",
+        "De arbeidsmarkt kon geen vakmensen vrijmaken voor renovatiewerk"
       ],
-      "correct": 0,
-      "explanation": "Door de lopende zaken konden geen grote structurele investeringen worden goedgekeurd, waardoor renovatiewerken en nieuwe bouwprojecten volledig bevroren bleven. Nu die periode voorbij is, kunnen deze projecten eindelijk opnieuw opstarten.",
+      "correct": 2,
+      "explanation": "Lopende zaken betekent dat alleen routinematige werkzaamheden kunnen worden uitgevoerd, geen strategische beslissingen. Dit verklaart waarom renovatieplannen en bouwprojecten bevroren bleven tot februari 2026.",
       "sourceSlug": "/nl/dossiers/slrb",
       "sourceTitle": "BGHM: 1 000+ sociale woningen en financiële consolidatie"
     },
@@ -888,15 +888,15 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Welke route voor vliegtuigen die Brussel overvliegen concentreert 100% van de vluchten op exact dezelfde corridor door gebruik van satellietnavigatie?",
+      "question": "Welke hindercorridor wordt sinds 1954 beschermd door een uitsluitingszone rond het Koninklijk Kasteel van Laken?",
       "options": [
-        "De Kanaalroute langs baan 25R",
-        "De Route Crucke/RNP-07L op baan 07L",
-        "De oostcorridor op baan 01",
-        "De westelijke route op baan 25L"
+        "De kanaalroute langs het centrum en noorden van Brussel",
+        "De route over Sint-Pieters-Woluwe en Kraainem in het oosten",
+        "De route over Koekelberg en Sint-Jans-Molenbeek in het noordwesten",
+        "De route over het Zaventemse industriegebied"
       ],
-      "correct": 1,
-      "explanation": "De RNP-07L-route gebruikt Required Navigation Performance voor rechte naderingen, wat in tegenstelling tot vroegere gebogen routes veel meer concentratie van lawaai oplevert. Dit is een van de meest omstreden procedures sinds de zomer van 2025.",
+      "correct": 0,
+      "explanation": "Een perimeter van 1 500 meter rond het Koninklijk Kasteel verbiedt sinds decennia het overvliegen. Dit verbod dwingt vliegtuigen om Laken heen, waardoor de overlast naar naburige gemeenten wordt afgewenteld. Dit toont hoe beschermingsmechanismen voor bepaalde locaties kunnen bijdragen aan ongelijke verdeling van luchtvaartlawaai.",
       "sourceSlug": "/nl/dossiers/survol-bruxelles",
       "sourceTitle": "Overvliegen van Brussel: 40 jaar conflict, 450 000 omwonenden"
     },
@@ -904,15 +904,15 @@
       "id": "dossier-vivaqua-0",
       "source": "dossier",
       "domain": "Budget",
-      "question": "Met hoeveel procent zijn de watertarieven in Brussel op 1 januari 2026 gestegen?",
+      "question": "Welke nieuwe instelling wordt opgericht om de schuld van Vivaqua uit de gewestbegroting te halen?",
       "options": [
-        "8,5%",
-        "12,5%",
-        "15%",
-        "18%"
+        "Een deconsolidatiefonds",
+        "Een waterkredietbank",
+        "Een schuldsaneringsfonds",
+        "Een gewestelijke garantiefonds"
       ],
-      "correct": 1,
-      "explanation": "De tariefsverhoging bedroeg 12,5%, wat neerkomt op ongeveer 1,70 EUR per maand per persoon volgens Vivaqua. Deze verhoging vond plaats op een moment van grote discussie over het beheer van het watersektor.",
+      "correct": 0,
+      "explanation": "Het regeringsakkoord voorziet in de oprichting van een deconsolidatiefonds, een belangrijk instrument om de miljarden aan schuld van de waterbedrijf uit de openbare begroting te isoleren en beter beheerbaar te maken.",
       "sourceSlug": "/nl/dossiers/vivaqua",
       "sourceTitle": "Vivaqua: financiële consolidatie aangekondigd"
     }

@@ -1,13 +1,15 @@
 'use client'
 
 /**
- * Quiz interactif QCM — lit public/quiz-data.json (généré manuellement).
- * Affiche : questions, feedback immédiat, score final, CTA newsletter + LinkedIn.
- * "Signaler une erreur" par question (mailto).
+ * Quiz interactif QCM — lit public/quiz-data.json (pool ~50 questions).
+ * Tire 10 questions aléatoires par session (Fisher-Yates).
+ * Umami custom events : quiz-start, quiz-answer, quiz-complete.
+ * Feedback via FeedbackButton (API Resend, shared with dossier/domain pages).
  */
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
+import { FeedbackButton } from '@/components/feedback-button'
 
 const LETTERS = ['A', 'B', 'C', 'D'] as const
 
@@ -27,7 +29,19 @@ interface QuizQuestion {
 
 interface QuizData {
   generatedAt: string
+  poolSize: number
+  questionsPerSession: number
   questions: QuizQuestion[]
+}
+
+/** Fisher-Yates shuffle — unbiased random */
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
 }
 
 interface MissedItem {
@@ -44,24 +58,25 @@ function scoreLabel(pct: number, t: (key: string) => string): string {
   return t('expertBGM')
 }
 
-function reportMailto(q: QuizQuestion): string {
-  const subject = encodeURIComponent(`[Quiz BGM] Erreur — ${q.id}`)
-  const body = encodeURIComponent(
-    `Question : ${q.question}\n\nRéponse indiquée : ${q.options[q.correct]}\n\nErreur constatée :\n\n---\nID: ${q.id}\nSource: ${q.sourceSlug}`
-  )
-  return `mailto:hello@governance.brussels?subject=${subject}&body=${body}`
-}
-
 /** Replace /fr/ prefix in sourceSlug with the current locale */
 function localizeSlug(slug: string, locale: string): string {
   return slug.replace(/^\/fr\//, `/${locale}/`)
 }
 
+/** Send Umami custom event (no-op if Umami not loaded) */
+function track(event: string, data?: Record<string, string | number>) {
+  if (typeof window !== 'undefined' && typeof (window as Record<string, unknown>).umami !== 'undefined') {
+    (window as Record<string, { track: (event: string, data?: Record<string, string | number>) => void }>).umami.track(event, data)
+  }
+}
+
 export default function BGMQuiz() {
   const t = useTranslations('quiz')
+  const tFeedback = useTranslations('feedback')
   const locale = useLocale()
 
-  const [data, setData] = useState<QuizData | null>(null)
+  const [pool, setPool] = useState<QuizData | null>(null)
+  const [session, setSession] = useState<QuizQuestion[]>([])
   const [error, setError] = useState<string | null>(null)
   const [current, setCurrent] = useState(0)
   const [phase, setPhase] = useState<Phase>('quiz')
@@ -70,6 +85,12 @@ export default function BGMQuiz() {
   const [missed, setMissed] = useState<MissedItem[]>([])
   const [copied, setCopied] = useState(false)
   const topRef = useRef<HTMLDivElement>(null)
+
+  /** Pick N random questions from the pool */
+  const pickSession = useCallback((data: QuizData): QuizQuestion[] => {
+    const n = data.questionsPerSession ?? 10
+    return shuffle(data.questions).slice(0, n)
+  }, [])
 
   useEffect(() => {
     let cancelled = false
@@ -86,21 +107,25 @@ export default function BGMQuiz() {
           setError(t('errorUnavailable'))
           return
         }
-        setData(d)
+        setPool(d)
+        setSession(pickSession(d))
+        track('quiz-start', { poolSize: d.poolSize })
       })
       .catch(() => {
         if (!cancelled) setError(t('errorLoad'))
       })
-  }, [t])
+    return () => { cancelled = true }
+  }, [t, pickSession])
 
-  const q: QuizQuestion | null = data ? data.questions[current] : null
-  const total = data?.questions.length ?? 0
+  const q: QuizQuestion | null = session.length > 0 ? session[current] : null
+  const total = session.length
 
   const handleAnswer = useCallback(
     (idx: number) => {
       if (answered !== null || !q) return
       setAnswered(idx)
-      if (idx === q.correct) {
+      const isCorrect = idx === q.correct
+      if (isCorrect) {
         setScore((s) => s + 1)
       } else {
         setMissed((m) => [
@@ -108,12 +133,13 @@ export default function BGMQuiz() {
           { question: q.question, sourceSlug: q.sourceSlug, sourceTitle: q.sourceTitle },
         ])
       }
+      track('quiz-answer', { questionId: q.id, correct: isCorrect ? 1 : 0 })
     },
     [answered, q]
   )
 
   const handleNext = useCallback(() => {
-    if (!data) return
+    if (session.length === 0) return
     if (current + 1 < total) {
       setCurrent((c) => c + 1)
       setAnswered(null)
@@ -121,17 +147,20 @@ export default function BGMQuiz() {
     } else {
       setPhase('result')
       topRef.current?.scrollIntoView({ behavior: 'smooth' })
+      track('quiz-complete', { score, total })
     }
-  }, [current, total, data])
+  }, [current, total, session, score])
 
   const restart = useCallback(() => {
+    if (pool) setSession(pickSession(pool))
     setCurrent(0)
     setScore(0)
     setMissed([])
     setAnswered(null)
     setPhase('quiz')
     topRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [])
+    track('quiz-start', { poolSize: pool?.poolSize ?? 0 })
+  }, [pool, pickSession])
 
   const copyLinkedIn = useCallback(() => {
     const text = t('linkedInShareText', { score: String(score), total: String(total) })
@@ -139,9 +168,31 @@ export default function BGMQuiz() {
       setCopied(true)
       setTimeout(() => setCopied(false), 2500)
     })
+    track('quiz-share', { platform: 'linkedin', score, total })
   }, [score, total, t])
 
-  // ─── Chargement / erreur ────────���──────────────────────────────────────
+  const feedbackLabels = {
+    button: tFeedback('button'),
+    title: tFeedback('title'),
+    typeLabel: tFeedback('typeLabel'),
+    types: {
+      error: tFeedback('types.error'),
+      correction: tFeedback('types.correction'),
+      source: tFeedback('types.source'),
+      other: tFeedback('types.other'),
+    },
+    messageLabel: tFeedback('messageLabel'),
+    messagePlaceholder: tFeedback('messagePlaceholder'),
+    emailLabel: tFeedback('emailLabel'),
+    emailPlaceholder: tFeedback('emailPlaceholder'),
+    submit: tFeedback('submit'),
+    submitting: tFeedback('submitting'),
+    success: tFeedback('success'),
+    errorMessage: tFeedback('errorMessage'),
+    cancel: tFeedback('cancel'),
+  }
+
+  // ─── Chargement / erreur ───────────────────────────────────────────────
   if (error) {
     return (
       <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
@@ -149,7 +200,7 @@ export default function BGMQuiz() {
       </div>
     )
   }
-  if (!data || !q) {
+  if (!pool || !q) {
     return (
       <div className="flex items-center gap-2 py-8 text-sm text-neutral-400">
         <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
@@ -158,7 +209,7 @@ export default function BGMQuiz() {
     )
   }
 
-  // ��── Résultat ─────��────────────────────────────────────────────────────
+  // ─── Résultat ──────────────────────────────────────────────────────────
   if (phase === 'result') {
     return (
       <div ref={topRef} className="scroll-mt-24 mx-auto max-w-xl py-6">
@@ -241,7 +292,7 @@ export default function BGMQuiz() {
     )
   }
 
-  // ─── Quiz ─────��────────────────────────────────��───────────────────────
+  // ─── Quiz ──────────────────────────────────────────────────────────────
   const progress = ((current + 1) / total) * 100
   const sourceLabel = q.source === 'domain' ? t('sourceDomain') : t('sourceDossier')
 
@@ -314,7 +365,7 @@ export default function BGMQuiz() {
         })}
       </div>
 
-      {/* Feedback */}
+      {/* Feedback after answer */}
       {answered !== null && (
         <div className="mt-4 rounded-lg border border-neutral-100 bg-neutral-50 px-4 py-3">
           <p className="text-sm leading-relaxed text-neutral-600">
@@ -332,17 +383,33 @@ export default function BGMQuiz() {
             >
               {t('readOnBGM', { title: q.sourceTitle })}
             </a>
-            <a
-              href={reportMailto(q)}
-              className="text-xs text-neutral-400 hover:text-neutral-600 hover:underline"
-            >
-              {t('reportError')}
-            </a>
+          </div>
+          <div className="mt-3">
+            <FeedbackButton
+              cardTitle={q.question}
+              cardType="quiz"
+              cardSlug={q.id}
+              context={[
+                `Question: ${q.question}`,
+                '',
+                ...q.options.map((opt, i) => {
+                  const markers = []
+                  if (i === q.correct) markers.push('CORRECT')
+                  if (i === answered) markers.push('CHOISI')
+                  const suffix = markers.length > 0 ? ` ← ${markers.join(', ')}` : ''
+                  return `  ${LETTERS[i]}) ${opt}${suffix}`
+                }),
+                '',
+                `Explication affichée: ${q.explanation}`,
+                `Source: ${q.sourceTitle} (${q.sourceSlug})`,
+              ].join('\n')}
+              labels={feedbackLabels}
+            />
           </div>
         </div>
       )}
 
-      {/* Suivant */}
+      {/* Next */}
       {answered !== null && (
         <button
           onClick={handleNext}

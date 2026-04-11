@@ -86,7 +86,6 @@ BGM_AUDIT_CONSOLIDÉ_v2_FINAL_pour_Claude_Code.md
 
 # Dev-only scripts
 scripts/test-digest.ts
-scripts/generate-quiz.ts
 wireframe.html
 
 # Working files (not for public repo)
@@ -96,6 +95,5 @@ brussels-898.pdf
 housing/
 src/emails/digest-mockup.html
 
-# Quiz (generated at build time, not committed)
-public/quiz-data.json
+# Quiz generation log (not committed)
 quiz-generation-log.json

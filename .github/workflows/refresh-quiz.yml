@@ -1,0 +1,97 @@
+name: Refresh quiz pool
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'  # chaque lundi à 05:00 UTC (07:00 CEST)
+  workflow_dispatch:       # lancement manuel possible
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    name: Generate quiz questions (4 locales)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Generate quiz pool (FR, NL, EN, DE)
+        run: npx tsx scripts/generate-quiz.ts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit updated quiz data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/quiz-data-*.json
+          if git diff --cached --quiet; then
+            echo "No changes to quiz data"
+          else
+            git commit -m "chore: refresh quiz pool — $(date -u +%Y-W%V)"
+            git push
+          fi
+
+  archive:
+    name: Archive quiz snapshot in bgm-ops
+    needs: generate
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout bgm-ops
+        uses: actions/checkout@v4
+        with:
+          repository: zoltan2/bgm-ops
+          token: ${{ secrets.BGM_OPS_TOKEN }}
+          path: bgm-ops
+
+      - name: Archive quiz data
+        run: |
+          WEEK=$(date -u +%Y-W%V)
+          mkdir -p bgm-ops/data/quiz-archives
+
+          # Build cumulative history entry
+          node -e "
+            const fs = require('fs');
+            const week = '${WEEK}';
+            const histPath = 'bgm-ops/data/quiz-history.json';
+            const history = fs.existsSync(histPath) ? JSON.parse(fs.readFileSync(histPath, 'utf-8')) : { weeks: [] };
+
+            // Remove existing entry for this week (re-run safe)
+            history.weeks = history.weeks.filter(w => w.week !== week);
+
+            const entry = { week, generatedAt: new Date().toISOString(), locales: {} };
+            for (const locale of ['fr', 'nl', 'en', 'de']) {
+              const file = 'public/quiz-data-' + locale + '.json';
+              if (fs.existsSync(file)) {
+                const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
+                entry.locales[locale] = { poolSize: data.poolSize, questions: data.questions };
+              }
+            }
+            history.weeks.push(entry);
+            history.weeks.sort((a, b) => b.week.localeCompare(a.week));
+            fs.writeFileSync(histPath, JSON.stringify(history, null, 2));
+          "
+
+      - name: Commit archive to bgm-ops
+        run: |
+          cd bgm-ops
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/quiz-history.json data/quiz-archives/
+          if git diff --cached --quiet; then
+            echo "No changes to archive"
+          else
+            git commit -m "chore: quiz archive — $(date -u +%Y-W%V)"
+            git push
+          fi

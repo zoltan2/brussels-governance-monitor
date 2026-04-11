@@ -335,7 +335,7 @@ export default function BGMQuiz() {
           </p>
           <a
             href={`/${locale}/support`}
-            className="mt-3 inline-flex items-center gap-2 rounded-lg bg-brand-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-brand-800"
+            className="mt-3 inline-flex items-center gap-2 rounded-lg bg-brand-900 px-5 py-2.5 text-sm font-medium text-neutral-50 transition hover:bg-brand-800"
             onClick={() => track('quiz-donate-click', { score, total })}
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">

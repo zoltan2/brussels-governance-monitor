@@ -70,6 +70,9 @@ const T: Record<string, {
   readMore: string;
   founderTitle: string;
   founderDesc: string;
+  quizTeaser: string;
+  quizCta: string;
+  quizDesc: string;
   feedbackQuestion: string;
   feedbackYes: string;
   feedbackNo: string;
@@ -99,6 +102,9 @@ const T: Record<string, {
     readMore: 'Lire la fiche →',
     founderTitle: 'Fondateur Brussels Governance Monitor',
     founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
+    quizTeaser: 'Connaissez-vous vraiment Bruxelles ?',
+    quizCta: 'Testez vos connaissances',
+    quizDesc: '10 questions sur la gouvernance bruxelloise — un nouveau quiz chaque semaine.',
     feedbackQuestion: 'Ce digest vous a été utile ?',
     feedbackYes: '👍 Oui',
     feedbackNo: '👎 Non',
@@ -128,6 +134,9 @@ const T: Record<string, {
     readMore: 'Lees de fiche →',
     founderTitle: 'Oprichter Brussels Governance Monitor',
     founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
+    quizTeaser: 'Kent u Brussel echt?',
+    quizCta: 'Test uw kennis',
+    quizDesc: '10 vragen over het Brusselse bestuur — elke week een nieuwe quiz.',
     feedbackQuestion: 'Was deze digest nuttig voor u?',
     feedbackYes: '👍 Ja',
     feedbackNo: '👎 Nee',
@@ -157,6 +166,9 @@ const T: Record<string, {
     readMore: 'Read more →',
     founderTitle: 'Founder, Brussels Governance Monitor',
     founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
+    quizTeaser: 'How well do you know Brussels?',
+    quizCta: 'Test your knowledge',
+    quizDesc: '10 questions on Brussels governance — a new quiz every week.',
     feedbackQuestion: 'Was this digest useful?',
     feedbackYes: '👍 Yes',
     feedbackNo: '👎 No',
@@ -186,6 +198,9 @@ const T: Record<string, {
     readMore: 'Weiterlesen →',
     founderTitle: 'Gründer, Brussels Governance Monitor',
     founderDesc: 'Brussels-based business developer & Digital Strategy Advisor',
+    quizTeaser: 'Kennen Sie Brüssel wirklich?',
+    quizCta: 'Testen Sie Ihr Wissen',
+    quizDesc: '10 Fragen zur Brüsseler Governance — jede Woche ein neues Quiz.',
     feedbackQuestion: 'War dieser Digest nützlich?',
     feedbackYes: '👍 Ja',
     feedbackNo: '👎 Nein',
@@ -403,6 +418,19 @@ export function DigestContent({
                     </p>
                     <p style={{ margin: 0, color: '#cbd5e1', fontSize: '15px' }}>
                       {t.welcome}
+                    </p>
+                    <p style={{ margin: '12px 0 0' }}>
+                      <Link
+                        href={`${siteUrl}/${locale}/quiz?utm_source=bgm-digest&utm_medium=email&utm_campaign=quiz&utm_content=header-teaser`}
+                        style={{
+                          color: '#93c5fd',
+                          fontSize: '13px',
+                          textDecoration: 'none',
+                          fontWeight: 500,
+                        }}
+                      >
+                        {t.quizTeaser} →
+                      </Link>
                     </p>
                   </td>
                 </tr>
@@ -749,6 +777,51 @@ export function DigestContent({
             </td>
           </tr>
         )}
+
+        {/* ===== QUIZ CTA ===== */}
+        <tr>
+          <td style={{ padding: '28px 40px 0' }}>
+            <table
+              role="presentation"
+              width="100%"
+              cellPadding={0}
+              cellSpacing={0}
+              style={{
+                backgroundColor: '#f0f4f8',
+                borderRadius: '10px',
+                overflow: 'hidden' as const,
+              }}
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: '20px 24px', textAlign: 'center' as const }}>
+                    <p style={{ margin: '0 0 6px', color: '#1e293b', fontSize: '15px', fontWeight: 600 }}>
+                      {t.quizTeaser}
+                    </p>
+                    <p style={{ margin: '0 0 14px', color: '#64748b', fontSize: '13px' }}>
+                      {t.quizDesc}
+                    </p>
+                    <Link
+                      href={`${siteUrl}/${locale}/quiz?utm_source=bgm-digest&utm_medium=email&utm_campaign=quiz&utm_content=bottom-cta`}
+                      style={{
+                        display: 'inline-block',
+                        padding: '10px 24px',
+                        backgroundColor: '#1e3a5f',
+                        borderRadius: '8px',
+                        color: '#ffffff',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                      }}
+                    >
+                      {t.quizCta} →
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
 
         {/* ===== FEEDBACK ===== */}
         {feedbackYesUrl && feedbackNoUrl && (

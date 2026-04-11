@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * Quiz interactif QCM — lit public/quiz-data.json (pool ~50 questions).
+ * Quiz interactif QCM — lit public/quiz-data-{locale}.json (pool ~50 questions).
  * Tire 10 questions aléatoires par session (Fisher-Yates).
  * Umami custom events : quiz-start, quiz-answer, quiz-complete.
  * Feedback via FeedbackButton (API Resend, shared with dossier/domain pages).
@@ -70,6 +70,40 @@ function track(event: string, data?: Record<string, string | number>) {
   }
 }
 
+// ─── Social share SVG icons ────────────────────────────────────────────────
+function LinkedInIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  )
+}
+
+function FacebookIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  )
+}
+
+function XIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  )
+}
+
+function LinkIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+  )
+}
+
 export default function BGMQuiz() {
   const t = useTranslations('quiz')
   const tFeedback = useTranslations('feedback')
@@ -115,7 +149,7 @@ export default function BGMQuiz() {
         if (!cancelled) setError(t('errorLoad'))
       })
     return () => { cancelled = true }
-  }, [t, pickSession])
+  }, [t, pickSession, locale])
 
   const q: QuizQuestion | null = session.length > 0 ? session[current] : null
   const total = session.length
@@ -162,14 +196,29 @@ export default function BGMQuiz() {
     track('quiz-start', { poolSize: pool?.poolSize ?? 0 })
   }, [pool, pickSession])
 
-  const copyLinkedIn = useCallback(() => {
-    const text = t('linkedInShareText', { score: String(score), total: String(total) })
-    navigator.clipboard.writeText(text).then(() => {
+  // ─── Share URLs ───────────────────────────────────────────────────────────
+  const quizUrl = `https://governance.brussels/${locale}/quiz`
+  const shareText = t('shareText', { score: String(score), total: String(total) })
+  const encodedText = encodeURIComponent(shareText)
+  const encodedUrl = encodeURIComponent(quizUrl)
+
+  const shareLinks = {
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
+    x: `https://x.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`,
+  }
+
+  const handleCopyLink = useCallback(() => {
+    navigator.clipboard.writeText(`${shareText}\n\n${quizUrl}`).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2500)
     })
-    track('quiz-share', { platform: 'linkedin', score, total })
-  }, [score, total, t])
+    track('quiz-share', { platform: 'copy', score, total })
+  }, [shareText, quizUrl, score, total])
+
+  const handleShareClick = useCallback((platform: string) => {
+    track('quiz-share', { platform, score, total })
+  }, [score, total])
 
   const feedbackLabels = {
     button: tFeedback('button'),
@@ -192,7 +241,7 @@ export default function BGMQuiz() {
     cancel: tFeedback('cancel'),
   }
 
-  // ─── Chargement / erreur ───────────────────────────────────────────────
+  // ─── Loading / error ──────────────────────────────────────────────────────
   if (error) {
     return (
       <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
@@ -209,7 +258,7 @@ export default function BGMQuiz() {
     )
   }
 
-  // ─── Résultat ──────────────────────────────────────────────────────────
+  // ─── Result ───────────────────────────────────────────────────────────────
   if (phase === 'result') {
     return (
       <div ref={topRef} className="scroll-mt-24 mx-auto max-w-xl py-6">
@@ -218,7 +267,7 @@ export default function BGMQuiz() {
           <div className="text-5xl font-medium tabular-nums text-neutral-900">
             {score}/{total}
           </div>
-          <div className="mt-1 text-sm font-medium text-teal-700">
+          <div className="mt-1 text-sm font-medium text-status-resolved">
             {scoreLabel(score / total, t)}
           </div>
           <p className="mt-4 text-sm leading-relaxed text-neutral-500">
@@ -228,28 +277,65 @@ export default function BGMQuiz() {
 
         <hr className="my-6 border-neutral-100" />
 
+        {/* Share buttons */}
+        <div className="mb-6">
+          <div className="mb-3 text-xs uppercase tracking-widest text-neutral-400">
+            {t('shareTitle')}
+          </div>
+          <div className="flex gap-2">
+            <a
+              href={shareLinks.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleShareClick('linkedin')}
+              className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+            >
+              <LinkedInIcon />
+              {t('shareLinkedIn')}
+            </a>
+            <a
+              href={shareLinks.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleShareClick('facebook')}
+              className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+            >
+              <FacebookIcon />
+              {t('shareFacebook')}
+            </a>
+            <a
+              href={shareLinks.x}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleShareClick('x')}
+              className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+            >
+              <XIcon />
+              {t('shareX')}
+            </a>
+            <button
+              onClick={handleCopyLink}
+              className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+            >
+              <LinkIcon />
+              {copied ? t('shareCopied') : t('shareCopy')}
+            </button>
+          </div>
+        </div>
+
+        {/* CTAs */}
         <div className="grid grid-cols-2 gap-3">
           <a
-            href={`/${locale}/signal`}
+            href={`/${locale}/subscribe`}
             className="col-span-1 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
           >
             <div className="text-sm font-medium text-neutral-900">{t('newsletter')}</div>
             <div className="mt-0.5 text-xs text-neutral-400">{t('newsletterDesc')}</div>
           </a>
 
-          <button
-            onClick={copyLinkedIn}
-            className="col-span-1 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-left transition hover:bg-neutral-100"
-          >
-            <div className="text-sm font-medium text-neutral-900">{t('shareLinkedIn')}</div>
-            <div className="mt-0.5 text-xs text-neutral-400">
-              {copied ? t('copiedClipboard') : t('copyShareText')}
-            </div>
-          </button>
-
           <a
             href={`/${locale}/domaines`}
-            className="col-span-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
+            className="col-span-1 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
           >
             <div className="text-sm font-medium text-neutral-900">{t('explore13Domains')}</div>
             <div className="mt-0.5 text-xs text-neutral-400">
@@ -273,7 +359,7 @@ export default function BGMQuiz() {
                 </span>
                 <a
                   href={localizeSlug(m.sourceSlug, locale)}
-                  className="shrink-0 text-xs text-teal-700 hover:underline"
+                  className="shrink-0 text-xs text-status-resolved hover:underline"
                 >
                   {t('readLink')}
                 </a>
@@ -292,7 +378,7 @@ export default function BGMQuiz() {
     )
   }
 
-  // ─── Quiz ──────────────────────────────────────────────────────────────
+  // ─── Quiz ─────────────────────────────────────────────────────────────────
   const progress = ((current + 1) / total) * 100
   const sourceLabel = q.source === 'domain' ? t('sourceDomain') : t('sourceDossier')
 
@@ -301,7 +387,7 @@ export default function BGMQuiz() {
       {/* Progress */}
       <div className="mb-5 h-px bg-neutral-100">
         <div
-          className="h-px bg-blue-800 transition-all duration-300"
+          className="h-px bg-brand-800 transition-all duration-300"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -314,7 +400,7 @@ export default function BGMQuiz() {
         <span
           className={`rounded px-2 py-0.5 text-xs font-medium ${
             q.source === 'domain'
-              ? 'bg-blue-50 text-blue-800'
+              ? 'bg-neutral-100 text-brand-800'
               : 'bg-neutral-100 text-neutral-600'
           }`}
         >
@@ -331,11 +417,15 @@ export default function BGMQuiz() {
       <div className="flex flex-col gap-2.5">
         {q.options.map((opt, idx) => {
           let variant = 'border-neutral-200 bg-neutral-50 hover:border-neutral-300 hover:bg-neutral-100'
+          let circleVariant = 'border-neutral-300 text-neutral-500'
+
           if (answered !== null) {
             if (idx === q.correct) {
-              variant = 'border-teal-500 bg-teal-50'
+              variant = 'border-status-resolved bg-neutral-50 ring-1 ring-status-resolved'
+              circleVariant = 'border-status-resolved bg-status-resolved text-white'
             } else if (idx === answered && answered !== q.correct) {
-              variant = 'border-amber-400 bg-amber-50'
+              variant = 'border-status-delayed bg-neutral-50 ring-1 ring-status-delayed'
+              circleVariant = 'border-status-delayed bg-status-delayed text-white'
             } else {
               variant = 'border-neutral-100 bg-neutral-50 opacity-60'
             }
@@ -349,17 +439,11 @@ export default function BGMQuiz() {
               className={`flex items-center gap-3 rounded-lg border px-4 py-3 text-left text-sm transition disabled:cursor-default ${variant}`}
             >
               <span
-                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-medium ${
-                  answered !== null && idx === q.correct
-                    ? 'border-teal-500 bg-teal-500 text-white'
-                    : answered !== null && idx === answered && answered !== q.correct
-                      ? 'border-amber-400 bg-amber-400 text-white'
-                      : 'border-neutral-300 text-neutral-500'
-                }`}
+                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-medium ${circleVariant}`}
               >
                 {LETTERS[idx]}
               </span>
-              <span className="text-neutral-900">{opt}</span>
+              <span className="text-neutral-800">{opt}</span>
             </button>
           )
         })}
@@ -367,7 +451,7 @@ export default function BGMQuiz() {
 
       {/* Feedback after answer */}
       {answered !== null && (
-        <div className="mt-4 rounded-lg border border-neutral-100 bg-neutral-50 px-4 py-3">
+        <div className="mt-4 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3">
           <p className="text-sm leading-relaxed text-neutral-600">
             <strong className="font-medium text-neutral-900">
               {answered === q.correct ? t('correct') + ' ' : t('incorrect') + ' '}
@@ -379,7 +463,7 @@ export default function BGMQuiz() {
               href={localizeSlug(q.sourceSlug, locale)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-teal-700 hover:underline"
+              className="inline-flex items-center gap-1 text-xs text-status-resolved hover:underline"
             >
               {t('readOnBGM', { title: q.sourceTitle })}
             </a>
@@ -413,7 +497,7 @@ export default function BGMQuiz() {
       {answered !== null && (
         <button
           onClick={handleNext}
-          className="mt-4 w-full rounded-lg border border-blue-800 py-3 text-sm font-medium text-blue-800 transition hover:bg-blue-50"
+          className="mt-4 w-full rounded-lg border border-brand-800 py-3 text-sm font-medium text-brand-800 transition hover:bg-neutral-100"
         >
           {current + 1 < total ? t('nextQuestion') : t('showResult')}
         </button>

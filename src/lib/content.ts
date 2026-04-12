@@ -175,7 +175,7 @@ export interface DossierCard {
   shortTitle?: string;
   slug: string;
   locale: Locale;
-  dossierType: 'infrastructure' | 'housing' | 'regulatory' | 'utility' | 'security';
+  dossierType: 'infrastructure' | 'housing' | 'regulatory' | 'utility' | 'security' | 'social' | 'cultural';
   phase: 'announced' | 'planned' | 'in-progress' | 'stalled' | 'completed' | 'cancelled';
   crisisImpact: 'blocked' | 'delayed' | 'reduced' | 'unaffected' | 'resolved';
   blockedSince?: string;

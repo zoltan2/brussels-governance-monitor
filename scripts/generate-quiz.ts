@@ -284,6 +284,25 @@ function truncate(str: string, max = 4000) {
   return str.length > max ? str.slice(0, max) + '\u2026' : str
 }
 
+/**
+ * Shuffle the 4 options of a question and return both the new options array
+ * and the new index of the (still) correct answer. Counters the LLM bias of
+ * placing the correct answer in position A or B (~95% of cases observed).
+ */
+function shuffleOptions(
+  options: [string, string, string, string],
+  correct: number
+): { options: [string, string, string, string]; correct: number } {
+  const correctValue = options[correct]
+  const indices = [0, 1, 2, 3]
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[indices[i], indices[j]] = [indices[j], indices[i]]
+  }
+  const shuffled = indices.map((i) => options[i]) as [string, string, string, string]
+  return { options: shuffled, correct: shuffled.indexOf(correctValue) }
+}
+
 // ─── Generation ─────────────────────────────────────────────────────────────
 async function generateFromContent(
   content: string,
@@ -343,13 +362,18 @@ async function generateFromContent(
         continue
       }
 
+      const shuffled = shuffleOptions(
+        q.options as [string, string, string, string],
+        q.correct
+      )
+
       questions.push({
         id: `${type}-${slug}-${i}`,
         source: type,
         domain: '',
         question: q.question,
-        options: q.options as [string, string, string, string],
-        correct: q.correct,
+        options: shuffled.options,
+        correct: shuffled.correct,
         explanation: q.explanation,
         sourceSlug: `${routePrefix}/${slug}`,
         sourceTitle: title,

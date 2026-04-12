@@ -294,13 +294,13 @@ export default function BGMQuiz() {
           <div className="mb-3 text-xs uppercase tracking-widest text-neutral-400">
             {t('shareTitle')}
           </div>
-          <div className="flex gap-2">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             <a
               href={shareLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleShareClick('linkedin')}
-              className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+              className="flex items-center justify-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
             >
               <LinkedInIcon />
               {t('shareLinkedIn')}
@@ -310,7 +310,7 @@ export default function BGMQuiz() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleShareClick('facebook')}
-              className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+              className="flex items-center justify-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
             >
               <FacebookIcon />
               {t('shareFacebook')}
@@ -320,14 +320,14 @@ export default function BGMQuiz() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleShareClick('x')}
-              className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+              className="flex items-center justify-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
             >
               <XIcon />
               {t('shareX')}
             </a>
             <button
               onClick={handleCopyLink}
-              className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
+              className="flex items-center justify-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
             >
               <LinkIcon />
               {copied ? t('shareCopied') : t('shareCopy')}

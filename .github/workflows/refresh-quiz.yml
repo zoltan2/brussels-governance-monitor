@@ -1,8 +1,10 @@
 name: Refresh quiz pool
 
 on:
-  schedule:
-    - cron: '0 5 * * 1'  # chaque lundi à 05:00 UTC (07:00 CEST)
+  # Cron suspendu — refresh manuel uniquement.
+  # Pour réactiver : décommenter le bloc `schedule` ci-dessous.
+  # schedule:
+  #   - cron: '0 5 * * 1'  # chaque lundi à 05:00 UTC (07:00 CEST)
   workflow_dispatch:       # lancement manuel possible
 
 permissions:

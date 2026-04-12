@@ -446,16 +446,16 @@ export default function BGMQuiz() {
     <div ref={topRef} className="scroll-mt-24 mx-auto max-w-xl py-6">
       {/* Progress header — counter (left) + percentage (right) */}
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-sm font-semibold text-brand-800 dark:text-brand-300 tabular-nums">
+        <span className="text-sm font-semibold text-brand-800 tabular-nums">
           {t('questionOf', { current: String(current + 1), total: String(total) })}
         </span>
-        <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400 tabular-nums">
+        <span className="text-xs font-medium text-neutral-500 tabular-nums">
           {Math.round(progress)}%
         </span>
       </div>
 
       {/* Progress bar */}
-      <div className="mb-4 h-1.5 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700">
+      <div className="mb-4 h-1.5 overflow-hidden rounded-full bg-neutral-200">
         <div
           className="h-full rounded-full bg-brand-800 transition-all duration-300"
           style={{ width: `${progress}%` }}
@@ -467,8 +467,8 @@ export default function BGMQuiz() {
         <span
           className={`rounded px-2 py-0.5 text-xs font-medium ${
             q.source === 'domain'
-              ? 'bg-neutral-100 text-brand-800 dark:bg-neutral-800 dark:text-brand-300'
-              : 'bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300'
+              ? 'bg-neutral-100 text-brand-800'
+              : 'bg-neutral-100 text-neutral-600'
           }`}
         >
           {sourceLabel} — {q.domain}

@@ -2,8 +2,8 @@
   "week": "2026-w15",
   "weekStart": "2026-04-06",
   "created_at": "2026-04-12T20:00:16.765Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "3 domaines, 3 dossiers, 1 secteur mis à jour",
     "nl": "3 domeinen, 3 dossiers, 1 sector bijgewerkt",
@@ -40,5 +40,6 @@
     "dossier-enseignement",
     "dossier-petite-enfance",
     "education"
-  ]
+  ],
+  "sent_at": "2026-04-12T22:27:37.123Z"
 }

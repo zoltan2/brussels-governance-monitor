@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T20:58:29.418Z",
+  "generatedAt": "2026-04-12T09:56:15.292Z",
   "locale": "de",
   "poolSize": 53,
   "questionsPerSession": 10,
@@ -8,15 +8,15 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welche Verwaltungsreform ist ein zentraler Bestandteil des Regierungsabkommens zur Erreichung des Haushaltsgleichgewichts bis 2029?",
+      "question": "Welche Verwaltungsreform ist ein Kernpunkt des Regierungsabkommens zur Sanierung des Brüsseler Haushalts?",
       "options": [
-        "Fusion von 25 regionalen Strukturen zu 4 Einheiten mit angestrebter Kostensenkung",
-        "Auflösung aller regionalen Behörden und Übertragung auf die Gemeinden",
-        "Verdoppelung der Anzahl der regionalen Verwaltungsstellen",
-        "Privatisierung von 50 % der öffentlichen Dienste"
+        "Die Fusion von 25 regionalen Strukturen zu 4 Einheiten mit angestrebter Senkung der Betriebskosten",
+        "Die Verdoppelung der Anzahl regionaler Strukturen zur besseren Kontrolle der Ausgaben",
+        "Die vollständige Auflösung aller regionalen Behörden und deren Verlagerung auf kommunale Ebene",
+        "Die Privatisierung von 50 % der regionalen öffentlichen Dienste"
       ],
       "correct": 0,
-      "explanation": "Die Regierung plant eine Verwaltungsreform, die 25 regionale Strukturen zu 4 Säulen zusammenfasst und damit Betriebskosten erheblich senken soll. Dies ist ein Schlüsselelement des Sparplans, den Sie im Brussels Governance Monitor verfolgen können.",
+      "explanation": "Das Regierungsabkommen vom 12. Februar 2026 sieht die Umstrukturierung von 25 regionalen Strukturen zu 4 sogenannten Säulen vor, um die Betriebskosten um 20 bis 30 % zu senken. Dies ist ein zentrales Instrument zur Rückkehr zum Haushaltsgleichgewicht bis 2029.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029"
     },
@@ -24,15 +24,15 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welcher Ansatz zur Erreichung des Haushaltsgleichgewichts wurde im Regierungsabkommen vom 12. Februar 2026 festgelegt?",
+      "question": "Wie finanziert sich der Sanierungspfad des Brüsseler Regionalbudgets 2026–2029?",
       "options": [
-        "Ausschließlich durch Steuererhöhungen (neue City Tax und Kilometergebühr)",
-        "Durch neue Einnahmen und Steuersenkungen mit Einsparungen als Hauptkomponente",
-        "Durch die Aufnahme von zusätzlichen Schulden bei internationalen Institutionen",
-        "Durch den Verkauf regionaler Vermögenswerte"
+        "Nur durch Einsparungen ohne jegliche Erhöhung der Einnahmen",
+        "Durch Kreditaufnahmen auf internationalen Kapitalmärkten",
+        "Durch eine Mischung aus Ausgabenkürzungen und neuen Einnahmen, ohne neue Steuern einzuführen",
+        "Ausschließlich durch neue Steuern wie City Tax und Kilometergebühren"
       ],
-      "correct": 1,
-      "explanation": "Das Abkommen verzichtet auf neue Steuern, senkt sogar die regionale Einkommensteuer um einen Punkt und setzt stattdessen auf einen Sparplan, bei dem Kürzungen die Hauptrolle spielen. Dieser ausgewogene Ansatz wird in den Governance-Analysen der kommenden Jahre kritisch bewertet.",
+      "correct": 2,
+      "explanation": "Das Regierungsabkommen sieht einen Einsparungspfad vor, der sich aus etwa 80 % Kürzungen und 20 % neuen Einnahmen zusammensetzt. Dabei werden explizit keine neuen Steuern eingeführt – weder City Tax noch Kilometergebühr. Stattdessen werden beispielsweise Registrierungsgebühren angepasst und die regionale Einkommensteuer um einen Punkt gesenkt.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029"
     },
@@ -40,15 +40,15 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Welche neue Institution wurde 2026 vom Brüsseler Parlament eingerichtet, um Empfehlungen zur Sauberkeit des öffentlichen Raums zu formulieren?",
+      "question": "Welche neue Institution wurde im Januar 2026 vom Brüsseler Parlament eingerichtet, um Empfehlungen zur öffentlichen Sauberkeit zu formulieren?",
       "options": [
-        "Eine spezialisierte Schnelleingreifeinheit für illegale Entsorgung",
         "Eine deliberative Kommission mit zufällig ausgewählten Bürgern und Abgeordneten",
-        "Eine regionale Agentur zur Kontrolle von Unterflurcontainern",
-        "Ein Beirat der Verpackungsindustrie zur Abfallvermeidung"
+        "Ein regionaler Kontrollrat für illegale Müllentsorgung",
+        "Eine spezialisierte Abteilung der Brüsseler Reinigungsagentur",
+        "Ein internationales Abfallwirtschaftskomitee"
       ],
-      "correct": 1,
-      "explanation": "Das Brüsseler Parlament beschloss die Einrichtung einer 7. deliberativen Kommission zur Sauberkeit mit 45 zufällig ausgewählten Bürgern und 15 Abgeordneten. Dies ist ein innovatives Format der Bürgerbeteiligung, das im Brussels Governance Monitor dokumentiert ist.",
+      "correct": 0,
+      "explanation": "Das Brüsseler Parlament beschloss die Einrichtung einer 7. deliberativen Kommission mit fünfundvierzig zufällig ausgewählten Bürgern und fünfzehn Abgeordneten. Dies ist ein neues Format der Bürgerbeteiligung an Governance-Entscheidungen zur Abfallwirtschaft.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung"
     },
@@ -56,15 +56,15 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Wofür zahlen Hersteller von Einwegkunststoffen und Tabakprodukten jährlich an die Region Brüssel?",
+      "question": "Wofür zahlen Hersteller von Einwegkunststoffen und Tabakprodukten jährlich Geld an die Region Brüssel?",
       "options": [
-        "Für die Finanzierung von intelligenten Kameras in Risikozonen",
-        "Für die Reform und Reorganisation der Reinigungsagentur",
-        "Für die erweiterte Herstellerverantwortung gemäß der EU-SUP-Richtlinie",
-        "Für die Schulung regionaler Sauberkeitsbrigaden"
+        "Im Rahmen der erweiterten Herstellerverantwortung zur Finanzierung der Sauberheitspolitik",
+        "Für die Forschung zu neuen Recyclingmethoden",
+        "Als Entschädigung für illegale Ablagerungen",
+        "Zur Subventionierung von umweltfreundlichen Verpackungsalternativen"
       ],
-      "correct": 2,
-      "explanation": "Die Verordnung zur erweiterten Herstellerverantwortung (EPR) verpflichtet Hersteller, die Kosten für die Beseitigung ihrer Produkte mitzutragen. Das Geld wird zwischen Gemeinden und Region aufgeteilt, um Sauberkeitspolitik zu finanzieren.",
+      "correct": 0,
+      "explanation": "Das Brüsseler Parlament verabschiedete eine Verordnung zur erweiterten Herstellerverantwortung (EPR), wonach Hersteller Gelder zahlen, die zur Hälfte an Gemeinden und zur Hälfte an die Region für Sauberkeitspolitik gehen. Dies wird durch die EU-SUP-Richtlinie vorgeschrieben.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung"
     },
@@ -72,15 +72,15 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klima",
-      "question": "Was ersetzt das bisherige Renolution-Programm gemäß dem Regierungsabkommen vom Februar 2026?",
+      "question": "Welche Maßnahme hat die Brüsseler Regierung im Regierungsabkommen vom Februar 2026 beschlossen, um die Energiesanierung von Gebäuden zu fördern?",
       "options": [
-        "Zinslose Darlehen für energetische Sanierungen",
-        "Direktzuschüsse für Solaranlagen auf Privatgebäuden",
-        "Ein neues Förderprogramm mit erhöhten CO2-Zielen",
-        "Eine regionale Steuer auf Energieverbrauch"
+        "Zinslose Darlehen im Umfang von 200 Millionen Euro",
+        "Steuervergünstigungen für erneuerbare Energieanlagen",
+        "Verpflichtende Sanierungsquoten für alle Gebäudeeigentümer",
+        "Direkte Zuschüsse für Hausbesitzer ohne Rückzahlungsverpflichtung"
       ],
       "correct": 0,
-      "explanation": "Das Regierungsabkommen ersetzt Renolution durch zinslose Darlehen im Umfang von 200 Millionen Euro. Dies ist ein wichtiger Wechsel bei der Finanzierungsstrategie für Gebäudesanierungen, dessen Auswirkungen noch bewertet werden müssen.",
+      "explanation": "Das Regierungsabkommen ersetzt das frühere Renolution-Programm durch zinslose Darlehen in Höhe von 200 Millionen Euro. Dieser Wechsel wird als zweideutiges Signal für den Klimapfad der Region bewertet.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe"
     },
@@ -88,31 +88,63 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klima",
-      "question": "Welche Rolle spielen Energiegemeinschaften in der Energiepolitik der Region Brüssel-Hauptstadt?",
+      "question": "Welche Brachflächen wurden im Regierungsabkommen vom Februar 2026 konkret zum Schutz vorgesehen?",
       "options": [
-        "Sie sind bereits vollständig implementiert und funktionieren flächendeckend",
-        "Ein rechtlicher Rahmen soll geschaffen werden, um lokale gemeinsame Nutzung von Solarstrom zu ermöglichen",
-        "Sie ersetzen die städtischen Wärmenetze",
-        "Sie sind Teil des Renolution-Programms zur energetischen Sanierung"
+        "Nur die Grünzonen in den Bezirken Uccle und Watermael-Boitsfort",
+        "Die Kanal- und Senne-Uferbereiche",
+        "Wiels, Avijl und Donderberg",
+        "Alle Flächen unter 5000 Quadratmetern in der gesamten Region"
       ],
-      "correct": 1,
-      "explanation": "Die Demokratische Programmerklärung sieht vor, einen rechtlichen Rahmen für erneuerbare Energiegemeinschaften zu schaffen, der die lokale gemeinsame Nutzung von Solarstrom ermöglicht. Dies ist eine noch nicht umgesetzte Verpflichtung mit großem Potenzial für dezentralisierte Energieerzeugung.",
+      "correct": 2,
+      "explanation": "Das Abkommen schützt gezielt die Brachflächen Wiels, Avijl und Donderberg sowie legt ein 18-Monats-Moratorium auf vier weiteren Standorten fest. Diese Maßnahme ist Teil des Engagements für den Schutz von Grünflächen in der Region Brüssel-Hauptstadt.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe"
+    },
+    {
+      "id": "domain-digital-0",
+      "source": "domain",
+      "domain": "Digital",
+      "question": "Welches Prinzip soll verhindern, dass Bürger von der Brüsseler Verwaltung mehrfach nach denselben Informationen gefragt werden?",
+      "options": [
+        "Das \"One-Stop-Shop\"-Prinzip",
+        "Das \"Data Reuse\"-Prinzip",
+        "Das \"Single Entry\"-Prinzip",
+        "Das \"Only once\"-Prinzip"
+      ],
+      "correct": 3,
+      "explanation": "Das \"Only once\"-Prinzip ist ein zentrales Ziel der Verwaltungsvereinfachung in Brüssel. Es besagt, dass Bürger Daten, die der Verwaltung bereits bekannt sind, nicht erneut eingeben müssen. Dies ist Teil der digitalen Modernisierung, die im Brussels Governance Monitor dokumentiert wird.",
+      "sourceSlug": "/de/bereiche/digital",
+      "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung"
+    },
+    {
+      "id": "domain-digital-1",
+      "source": "domain",
+      "domain": "Digital",
+      "question": "Welche Institution ist das regionale IT-Zentrum der Region Brüssel-Hauptstadt und technischer Betreiber der Smart-City-Strategie?",
+      "options": [
+        "Easy Brussels",
+        "IRISbox",
+        "Paradigm (CIRB)",
+        "Innoviris"
+      ],
+      "correct": 2,
+      "explanation": "Paradigm (CIRB) ist das IT-Zentrum der Region Brüssel-Hauptstadt und betreibt die Smart-City-Strategie. Es spielt eine Schlüsselrolle bei der Verwaltung digitaler Infrastrukturen und Datenplattformen, wie sie im Monitor beschrieben werden.",
+      "sourceSlug": "/de/bereiche/digital",
+      "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung"
     },
     {
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Die neue Regionale Politikerklärung plant die Schaffung einer Städtischen Freizone an zwei Standorten in Brüssel. Welcher der folgenden Standorte ist NICHT vorgesehen?",
+      "question": "Welche zwei Standorte sind für die geplante Städtische Freizone in Brüssel vorgesehen?",
       "options": [
-        "Der Hafen Brüssel",
-        "Das Audi Forest-Gelände",
-        "Die Schuman-Gegend",
-        "Das ehemalige Industriegebiet nach einer Werkschließung"
+        "Hafen Brüssel und Audi Forest",
+        "Bempt und Saint-Ghislain",
+        "Neder-Over-Heembeek und Schuman",
+        "Heysel und Kanal"
       ],
-      "correct": 2,
-      "explanation": "Die Städtische Freizone umfasst den Hafen Brüssel und das Audi Forest-Gelände. Schuman wird dagegen als Standort für den GovTech-Hub erwähnt, nicht für die Freizone. Mehr Details finden Sie im Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "Die Regionale Politikerklärung vom 13. Februar 2026 sieht die Schaffung einer Städtischen Freizone an zwei konkreten Standorten vor: dem Hafen Brüssel für logistische und industrielle Zwecke sowie am Audi Forest-Standort für die industrielle Umwandlung nach der Werksschließung. Diese Initiative soll der Bauwirtschaftskrise entgegenwirken.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt"
     },
@@ -120,15 +152,15 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Um die Städtische Freizone attraktiv zu machen, setzt die Regierung auf drei unterschiedliche Hebel. Welcher der folgenden Hebel ist NICHT Teil dieser Strategie?",
+      "question": "Welche drei Hebel setzt die Regionalregierung um, um Unternehmen in der Städtischen Freizone zu unterstützen?",
       "options": [
-        "Ein administrativer Hebel mit Fast-Track-Schalter für Unternehmen",
-        "Ein steuerlicher Hebel zur Senkung bestimmter Abgaben",
-        "Ein personeller Hebel durch eine spezielle Actiris-Zelle",
-        "Ein infrastruktureller Hebel zum Ausbau von Rechenzentren"
+        "Infrastruktur, Marketing und Ausbildung",
+        "Energie, Logistik und digitale Dienste",
+        "Subventionen, Kredite und Beratung",
+        "Steuerlicher, administrativer und personeller Hebel"
       ],
       "correct": 3,
-      "explanation": "Die drei vorgesehenen Hebel sind steuerlich, administrativ und personell. Rechenzentren werden zwar als separate wirtschaftliche Entwicklung erwähnt, sind aber nicht Teil der Freizone-Strategie selbst. Erfahren Sie mehr im Brussels Governance Monitor.",
+      "explanation": "Die Regierung nutzt drei Mechanismen: einen steuerlichen Hebel (Senkung von Grundsteuer und Registrierungsgebühren), einen administrativen Hebel (Fast-Track-Schalter für Genehmigungen) und einen personellen Hebel (spezialisierte Actiris-Zelle für Berufe in der Zone). Dieses Dreisäulenmodell zielt auf praktische und finanzielle Erleichterung ab.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt"
     },
@@ -138,13 +170,13 @@
       "domain": "Bildung",
       "question": "Welche Institution übernimmt ab September 2026 die vollständige Verwaltung der niederländischsprachigen außerschulischen Betreuung in Brüssel?",
       "options": [
-        "Die Flämische Gemeinschaft (FWB)",
+        "Die regionale Brüsseler Regierung",
+        "Die COCOF (Kommission der Französischsprachigen Gemeinschaft)",
         "Die Vlaamse Gemeenschapscommissie (VGC)",
-        "Die Cocof (Französischsprachige Gemeinschaftskommission)",
-        "Das Ministerium für Bildung der Brüsseler Region"
+        "Die Flämische Gemeinschaft (FWB)"
       ],
-      "correct": 1,
-      "explanation": "Das BOA-Dekret überträgt ab September 2026 die Verantwortung für außerschulische Betreuung (Politik, Budget, Anerkennung) vollständig an die VGC. Dies ist ein wichtiger Meilenstein für die niederländischsprachige Bildungsgovernance in Brüssel.",
+      "correct": 2,
+      "explanation": "Das BOA-Dekret regelt die Übergabe der außerschulischen Betreuung (Buitenschoolse Opvang en Activiteiten) von der Region zur VGC. Dieser Übergang zeigt die zunehmende Verantwortung der Gemeinschaften für spezialisierte Bildungsbereiche in Brüssel.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC"
     },
@@ -152,15 +184,15 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Bildung",
-      "question": "Welche zwei Bereiche sind laut der Regionalen Politikerklärung (RPE) Schwerpunkte der Brüsseler Bildungspolitik?",
+      "question": "Welche zwei Aspekte der Bildungsgovernance werden laut der Regionalen Politikerklärung zwischen COCOF und VGC koordiniert?",
       "options": [
-        "Universitätsausbau und internationale Schulen",
-        "Frühe Kindheit (Krippenplätze) und Schulabbruch",
-        "Digitalisierung und Schulgebäude-Renovierung",
-        "Sportförderung und künstlerische Ausbildung"
+        "Busverbindungen und Schulverpflegung",
+        "Schulabbruch-Bekämpfung und Sprachunterricht",
+        "Zweisprachigkeit und Harmonisierung der Bildungspolitik",
+        "Krippenplätze und technische Berufsausbildung"
       ],
-      "correct": 1,
-      "explanation": "Die RPE konzentriert sich auf die Schaffung von Krippenplätzen mit verbesserter finanzieller Zugänglichkeit sowie auf einen koordinierten Aktionsplan gegen Schulabbruch mit Eingliederungsmaßnahmen wie Actiris Jeunes. Diese Bereiche adressieren zentrale Herausforderungen der Brüsseler Gesellschaft.",
+      "correct": 2,
+      "explanation": "Die RPE betont ausdrücklich die Förderung der FR/NL-Zweisprachigkeit und die Harmonisierung der französisch- und niederländischsprachigen Bildungspolitik als zentrale Koordinierungsaufgaben zwischen COCOF und VGC, um Brüssels Zweisprachigkeit zu stärken.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC"
     },
@@ -168,15 +200,15 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welche Maßnahme hat die Regionalregierung Brüssel-Hauptstadt eingeführt, um die Chancen von Arbeitssuchenden auf dem Arbeitsmarkt zu verbessern, insbesondere in Bezug auf Sprachkenntnisse?",
+      "question": "Welche Maßnahme hat die Regionale Politikerklärung vom Februar 2026 eingeführt, um die Chancen von Arbeitssuchenden auf dem Brüsseler Arbeitsmarkt zu verbessern?",
       "options": [
-        "Obligatorische Sprachprüfung bei der Anmeldung und verpflichtende Französisch- oder Niederländisch-Ausbildung für Personen ohne ausreichende Kenntnisse",
-        "Kostenlose Sprachkurse, die vollständig optional sind und von Arbeitssuchenden selbst gewählt werden können",
-        "Ausschließliche Förderung von Englischkenntnissen als internationale Arbeitssprache",
-        "Sprachliche Auswahlverfahren, die Arbeitssuchende von der Arbeitssuche ausschließen, wenn sie die Sprachen nicht sprechen"
+        "Obligatorische Sprachbewertung bei der Anmeldung und verpflichtende Französisch- oder Niederländisch-Schulung bei fehlenden Kenntnissen",
+        "Senkung der Mindestanforderungen für den Zugang zu öffentlichen Stellen",
+        "Verbot der Einstellung von Nicht-EU-Bürgern in bestimmten Sektoren",
+        "Automatische Vermittlung in Industrieberufe ohne vorherige Schulung"
       ],
       "correct": 0,
-      "explanation": "Die Regionalerklärung vom 13. Februar 2026 verankert die obligatorische sprachliche Beurteilung bei der Anmeldung und verpflichtende FR/NL-Ausbildung als zentrale Hebel für besseren Arbeitsmarktzugang. Dies ist ein Kernbestandteil der verstärkten Aktivierungsstrategie in Brüssel.",
+      "explanation": "Die Sprachbewertung und verpflichtende Sprachausbildung sind zentrale Maßnahmen zur Förderung der Zweisprachigkeit als Schlüssel zum Arbeitsmarktzugang in Brüssel. Dies zeigt, wie Governance gezielt strukturelle Hürden adressiert — erfahren Sie mehr über diese Strategie im Brussels Governance Monitor.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit"
     },
@@ -184,63 +216,31 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welcher strukturelle Unterschied zwischen Brüssel und anderen belgischen Regionen wird in der Itinera-Studie (2006–2022) besonders hervorgehoben?",
+      "question": "Welche geografische Besonderheit wird in der Itinera-Studie zu Brüssels Arbeitsmarkt hervorgehoben?",
       "options": [
-        "Brüssel ist die einzige Region, in der sowohl die Frauenbeschäftigung stagnierte als auch die Männerbeschäftigung sank",
-        "Brüssel hat die höchste Frauenbeschäftigungsquote, aber die niedrigste Männerbeschäftigung",
-        "Brüssel verzeichnete konstante Verbesserungen bei der Beschäftigung älterer Arbeitnehmer",
-        "Brüssel profitierte stark von der Zuwanderung und hatte daher ein steigendes Arbeitskräfteangebot"
+        "Brüssel hat eine einheitliche Beschäftigungsquote über alle Gemeinden hinweg",
+        "Keine der 19 Brüsseler Gemeinden erreicht den europäischen Durchschnitt der Beschäftigungsquote",
+        "Die östlichen Gemeinden haben eine signifikant höhere Beschäftigungsquote als die westlichen",
+        "Alle 19 Brüsseler Gemeinden überschreiten den europäischen Durchschnitt der Beschäftigungsquote"
       ],
-      "correct": 0,
-      "explanation": "Die Itinera-Studie zeigt, dass Brüssel zwischen 2006 und 2022 ein einzigartiges doppelt negatives Profil aufwies: Während Flandern und Wallonien Fortschritte bei der Frauenbeschäftigung erzielten, stagnierte diese in Brüssel vollständig, und die Männerbeschäftigung verschlechterte sich sogar. Dieser Befund unterstreicht die Dringlichkeit der ehrgeizigen Beschäftigungsziele der Regionalregierung.",
+      "correct": 1,
+      "explanation": "Diese Feststellung unterstreicht die Tiefe der Brüsseler Beschäftigungskrise: keine einzige Gemeinde erreicht europäische Standards. Der Brussels Governance Monitor dokumentiert solche strukturellen Disparitäten, um evidenzbasierte Politiken zu ermöglichen.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit"
-    },
-    {
-      "id": "domain-housing-0",
-      "source": "domain",
-      "domain": "Wohnen",
-      "question": "Welche Institution ersetzt das bisherige System der Renovierungsprämien (Renolution) durch ein neues Finanzierungsinstrument?",
-      "options": [
-        "Ein zinsloses Darlehensystem mit einem Budget bis 2029",
-        "Ein Zuschusssystem der föderalen Regierung",
-        "Ein privates Kreditvergabeprogramm der Banken",
-        "Ein europäisches Förderprogramm für Energieeffizienz"
-      ],
-      "correct": 0,
-      "explanation": "Das Regierungsabkommen vom Februar 2026 sieht vor, dass Renolution durch zinslose Darlehen ersetzt wird, die ab 2027 mit einem Budget von 66 Millionen EUR pro Jahr zur Verfügung stehen. Dies ist ein wichtiger Systemwechsel in der Brüsseler Wohnungspolitik, den der Monitor verfolgt.",
-      "sourceSlug": "/de/bereiche/housing",
-      "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen"
-    },
-    {
-      "id": "domain-housing-1",
-      "source": "domain",
-      "domain": "Wohnen",
-      "question": "Wie viele Sozialwohnungen sind laut Regierungsabkommen während der Legislaturperiode geplant?",
-      "options": [
-        "Mindestens 1.000 zusätzliche Sozialwohnungen",
-        "Genau 500 neue Sozialwohnungen",
-        "Rund 2.000 renovierte Sozialwohnungen",
-        "Etwa 320 umgebaute Wohnungen"
-      ],
-      "correct": 0,
-      "explanation": "Das Abkommen vom 12. Februar 2026 verpflichtet sich zur Schaffung von über 1.000 Sozialwohnungen während der laufenden Legislaturperiode, um die Strukturkrise auf dem Wohnungsmarkt zu bewältigen. Dies ist eine der Schlüsselmaßnahmen zur Entschärfung der Wohnungsknappheit.",
-      "sourceSlug": "/de/bereiche/housing",
-      "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen"
     },
     {
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Welches institutionelle Modell wird in der Brüsseler Regierungsreform eingeführt?",
+      "question": "Welche institutionelle Struktur wurde bei der Cocof (Frankophonen Brüsseler Gemeinschaft) bei der Verteilung der Ministerrollen besonders kritisiert?",
       "options": [
-        "Die Fusion von 25 verschiedenen Strukturen in 4 Säulen",
-        "Die Auflösung aller regionalen Behörden zugunsten von Bundesstrukturen",
-        "Die Schaffung von 25 neuen unabhängigen Verwaltungseinheiten",
-        "Die Zentralisierung aller Kompetenzen beim Ministerpräsidenten"
+        "Die Übertragung der Haushaltsverantwortung an zwei verschiedene Ministerien",
+        "Die Trennung der Zuständigkeiten für Beschäftigung und Berufsausbildung unter verschiedenen Ministern",
+        "Die Zuweisung aller Wirtschaftskompetenzen an eine einzelne Partei",
+        "Die Kombination von Kultur und Sozialem unter einem Minister"
       ],
-      "correct": 0,
-      "explanation": "Der Titel und Inhalt zeigen, dass die institutionelle Reform eine Fusion von 25 Strukturen in 4 Säulen vorsieht, um die Regierungsführung in Brüssel zu straffen und effizienter zu gestalten.",
+      "correct": 1,
+      "explanation": "Die Trennung der Aufsicht über Actiris und Bruxelles Formation unter verschiedenen Ministern wurde von der Opposition kritisiert, da internationale Empfehlungen (OECD) für eine integrierte Verwaltung sprechen. Dies zeigt, wie institutionelle Strukturentscheidungen langfristige Auswirkungen auf die Effizienz haben.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen"
     },
@@ -248,15 +248,15 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Was zeigt das Sprachbarometer der VUB/BRIO über die Entwicklung der Niederländischkenntnisse in Brüssel zwischen 2000 und 2024?",
+      "question": "Was dokumentiert das VUB/BRIO-Sprachbarometer über die sprachliche Entwicklung Brüssels zwischen 2000 und 2024?",
       "options": [
-        "Sie sind um mehr als 10 Punkte gesunken",
-        "Sie sind um mehr als 20 Punkte gestiegen",
-        "Sie sind konstant geblieben",
-        "Sie sind verdoppelt worden"
+        "Ein Rückgang der Französischkenntnisse und der Niederländischkenntnisse bei gleichzeitigem Anstieg der Englischkenntnisse",
+        "Ein massiver Anstieg der Niederländischkenntnisse durch schulische Reformen",
+        "Ein deutlicher Anstieg der Niederländischkenntnisse und ein Rückgang der Englischkenntnisse",
+        "Eine Stabilisierung aller drei Hauptsprachen trotz erhöhter Migration"
       ],
       "correct": 0,
-      "explanation": "Das Taalbarometer dokumentiert einen Rückgang der Niederländischkenntnisse von etwa 33 % im Jahr 2000 auf 22,3 % im Jahr 2024. Dieser Rückgang ist ein wichtiger Indikator für die Sprachenfrage in der zweisprachigen Region und unterstreicht die Notwendigkeit des Masterplans Zweisprachigkeit.",
+      "explanation": "Das Taalbarometer zeigt, dass sowohl Französisch als auch Niederländisch an Gewicht verloren haben, während Englisch zur zweitbekanntesten Sprache aufgestiegen ist. Dies unterstreicht die Dringlichkeit des neuen Masterplans Zweisprachigkeit und dessen institutionelle Bedeutung für Brüssel.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen"
     },
@@ -264,15 +264,15 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Was ist die Hauptänderung in Brüssels Mobilitätsstrategie bezüglich der Metro 3?",
+      "question": "Welche Maßnahmen sind Teil des neuen Mobilitätsplans 'Good Move', der das bisherige System ablösen soll?",
       "options": [
-        "Die Metro 3 wird vollständig abgebrochen und durch Buslinien ersetzt",
-        "Die Metro 3 wird für 10 Jahre eingefroren und durch eine Straßenbahn ersetzt, die den Ringschluss vervollständigt",
-        "Die Metro 3 wird beschleunigt und soll bereits 2027 eröffnet werden",
-        "Die Metro 3 wird als Hochbahn über der Stadt umgebaut"
+        "Vollständige Abschaffung der Umweltzone LEZ",
+        "Verbot aller Privatfahrzeuge in der Region",
+        "Kleinere Zonen basierend auf Schulperimetern und Straßenbahn statt Metro 3",
+        "Ausbau der Metro 3 bis nach Bordet mit erhöhtem Budget"
       ],
-      "correct": 1,
-      "explanation": "Das Regierungsabkommen vom Februar 2026 markiert eine grundlegende Wende: Statt die Metro 3 nach Bordet zu verlängern, werden die Investitionen in eine Straßenbahn umgelenkt, die das bestehende Netz vervollständigt. Dies ist die strukturell bedeutsamste Entscheidung der neuen Mobilitätspolitik.",
+      "correct": 2,
+      "explanation": "Das Regierungsabkommen vom Februar 2026 sieht einen neuen Regionalen Mobilitätsplan mit kleineren Schulperimeter-Zonen vor und ersetzt Metro 3 durch eine Straßenbahn, die das bestehende Netz vervollständigt. Dies markiert eine grundlegende Neuausrichtung der Brüsseler Mobilitätspolitik.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten"
     },
@@ -280,15 +280,15 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Welche Maßnahmen wurden bei der Umweltzone (LEZ) in Brüssel beschlossen?",
+      "question": "Welche hierarchische Ordnung wird durch das STOP-Prinzip in der Mobilitätspolitik Brüssels vorgegeben?",
       "options": [
-        "Die LEZ wird komplett abgeschafft, um Autofahrer zu entlasten",
-        "Die LEZ wird beibehalten, das Jahresticket kostet 350 EUR (Sozialtarif 200 EUR), und Bußgelder wurden von 350 auf 80 EUR reduziert",
-        "Die LEZ wird auf alle Fahrzeuge ausgedehnt, einschließlich Motorräder und Mopeds",
-        "Die LEZ wird nur noch an Wochenenden durchgesetzt"
+        "Radfahrer > Fußgänger > ÖPNV > Autos",
+        "ÖPNV > Autos > Radfahrer > Fußgänger",
+        "Fußgänger > Radfahrer > ÖPNV > Autos",
+        "Autos > ÖPNV > Radfahrer > Fußgänger"
       ],
-      "correct": 1,
-      "explanation": "Das Regierungsabkommen bewahrt die LEZ, macht sie aber sozialverträglicher: Das Jahresticket kostet 350 EUR mit Sozialtarif von 200 EUR, und das Bußgeld wurde von 350 auf 80 EUR reduziert, mit Aufhebung der jährlichen Obergrenze. Dies zeigt den Balance-Akt zwischen Umweltzielen und Bürgerbeteiligung.",
+      "correct": 2,
+      "explanation": "Das STOP-Prinzip etabliert eine klare Prioritätshierarchie mit Fußgängern an erster Stelle, gefolgt von Radfahrern, öffentlichen Verkehrsmitteln und Autos. Dieses Leitprinzip ist in der Regierungserklärung verankert und soll die zukünftige Gestaltung des Straßenraums leiten.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten"
     },
@@ -296,15 +296,15 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Welche neue Institution hat die Brüsseler Regionalregierung zur Bekämpfung von Drogenkriminalität eingeführt?",
+      "question": "Welche neue Institution hat die Region Brüssel-Hauptstadt gemäß ihrer Politikerklärung vom Februar 2026 zur Bekämpfung von Drogenproblemen geschaffen?",
       "options": [
+        "Eine private Sicherheitsfirma für Drogenprävention in Schulen",
         "Einen regionalen Drogenkommissar mit eigener Behörde",
-        "Eine föderale Drogenpolizeieinheit unter belgischer Kontrolle",
-        "Ein internationales Drogenbekämpfungszentrum mit EU-Partnern",
-        "Eine private Sicherheitsfirma für Drogenprävention in Schulen"
+        "Ein internationales Drogenkontrollzentrum mit Sitz in Brüssel",
+        "Eine föderale Drogenpolizeibrigade unter regionaler Aufsicht"
       ],
-      "correct": 0,
-      "explanation": "Die Regionale Politikerklärung vom 13. Februar 2026 verpflichtet sich zur Schaffung eines regionalen Drogenkommissars als Spiegelbild des föderalen Mechanismus. Dies ist Teil des integrierten regionalen Drogenplans mit Prävention, Schadensminderung und Repression.",
+      "correct": 1,
+      "explanation": "Die Regionale Politikerklärung sieht die Schaffung eines regionalen Drogenkommissars vor — als regionales Spiegelbild des föderalen Mechanismus. Dies ist Teil eines integrierten regionalen Drogenplans mit den Elementen Prävention, Schadensminderung und Repression.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate"
     },
@@ -312,15 +312,15 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Welche zwei Brüsseler Bahnhöfe erhalten eine spezielle Sicherheitsinvestition der Regionalregierung?",
+      "question": "Welche zwei Bahnhöfe erhalten gemäß den RPE-Verpflichtungen eine spezielle Sicherheitsinvestition von 10 Millionen EUR?",
       "options": [
-        "Bahnhof Nord und Bahnhof Ost",
-        "Bahnhof Midi und Bahnhof Zentral",
         "Bahnhof Midi und Bahnhof Nord",
-        "Bahnhof West und Bahnhof Süd"
+        "Bahnhof Süden und Bahnhof Zentral",
+        "Bahnhof West und Bahnhof Hauptstadt",
+        "Bahnhof Norden und Bahnhof Osten"
       ],
-      "correct": 2,
-      "explanation": "Im Kapitel zur Bahnhofssicherheit der RPE werden explizit die Bahnhöfe Midi und Nord erwähnt, die zusammen 10 Millionen EUR für Sicherheitsmaßnahmen erhalten. Der Ministerpräsident besuchte den Südbahnhof (Teil des größeren Sicherheitsnetzes), aber die Hauptinvestitionen konzentrieren sich auf diese zwei Bahnhöfe.",
+      "correct": 0,
+      "explanation": "Die Regionale Politikerklärung vom 13. Februar 2026 sieht eine Investition von 10 Millionen EUR für die Sicherheit in den Bahnhöfen Midi und Nord vor, mit Koordination durch Polizeizonen und die SNCB (belgische Bahn).",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate"
     },
@@ -328,15 +328,15 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Welche neue institutionelle Funktion wurde gemäß dem Regierungsabkommen vom Februar 2026 in der Region Brüssel-Hauptstadt geschaffen, um Drogenpolitik zu koordinieren?",
+      "question": "Welche neue Funktion wurde gemäß dem Regierungsabkommen vom 12. Februar 2026 geschaffen, um Drogenpolitik in Brüssel zu koordinieren?",
       "options": [
-        "Regionaler Drogenbeauftragter",
-        "Direktor für öffentliche Gesundheit",
-        "Koordinator für Suchtprävention",
-        "Leiter der Drogenbekämpfungsbehörde"
+        "Eine Kommission für illegale Substanzen",
+        "Ein föderales Drogenbekämpfungsteam",
+        "Eine Suchtberatungsstelle in jedem Bezirk",
+        "Ein regionaler Drogenbeauftragter"
       ],
-      "correct": 0,
-      "explanation": "Das Regierungsabkommen sieht die Schaffung eines eigenen Postens des Regionalen Drogenbeauftragten vor. Diese neue Funktion soll die Drogenpolitik in Brüssel koordinieren und ist Teil der umfassenden sozialen Maßnahmen des Abkommens.",
+      "correct": 3,
+      "explanation": "Das Regierungsabkommen sieht die Schaffung einer eigenen Position eines regionalen Drogenbeauftragten vor. Dies ist Teil der querschnittlichen sozialen und sicherheitspolitischen Maßnahmen zur besseren Koordination von Drogenpolitik auf regionaler Ebene.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: 10M für Bahnhöfe, Drogenbeauftragter, geschützte Dienste"
     },
@@ -344,15 +344,15 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Was ist das Ziel der im Regierungsabkommen beschriebenen Maßnahme 'Health in All Policies' (HIAP)?",
+      "question": "Welcher Ansatz wird in der Regionalen Programmvereinbarung (DPR) unter dem Begriff 'Health in All Policies' verfolgt?",
       "options": [
-        "Ausschließlich die Prävention von Infektionskrankheiten zu verbessern",
-        "Die Gesundheitsdimension in alle regionalen Politikbereiche wie Städtebau, Mobilität und Wohnungswesen zu integrieren",
-        "Ein neues Krankenhaus in unterversorgten Vierteln zu bauen",
-        "Medizinische Versicherungen für alle Brüsseler bereitzustellen"
+        "Die Konzentration aller Gesundheitsausgaben auf Krankenhäuser",
+        "Die Verlagerung von Prävention auf private Versicherungsunternehmen",
+        "Die Schaffung separater Gesundheitsministerien in jedem Bezirk",
+        "Die Integration der Gesundheitsdimension in alle regionalen Politikbereiche wie Städtebau und Mobilität"
       ],
-      "correct": 1,
-      "explanation": "Health in All Policies ist ein querschnittlicher Ansatz, der Gesundheitsaspekte in verschiedene Politikbereiche integriert – von der Stadtplanung bis zur Mobilität. Dies geht über traditionelle Gesundheitsmaßnahmen hinaus und soll Gesundheit als Gesamtanliegen in der regionalen Governance verankern.",
+      "correct": 3,
+      "explanation": "Health in All Policies (HIAP) ist ein ganzheitlicher Ansatz, der Gesundheitsaspekte systematisch in verschiedene Politikbereiche wie Städtebau, Mobilität und Wohnungswesen integriert. Dies soll Gesundheit als Querschnittsthema in der regionalen Governance verankern.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: 10M für Bahnhöfe, Drogenbeauftragter, geschützte Dienste"
     },
@@ -360,15 +360,15 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Welche Maßnahme zur Beschleunigung von Baugenehmigungen in Brüssel ist Teil der Regionalen Politikerklärung?",
+      "question": "Welche Maßnahme soll gemäß der Regionalen Politikerklärung die Bearbeitung von Baugenehmigungen in Brüssel beschleunigen?",
       "options": [
-        "Vollständige Digitalisierung des Antragsverfahrens über urban.brussels",
-        "Automatische Genehmigung aller Wohnbauprojekte nach 30 Tagen",
-        "Verlagerung aller Genehmigungsverfahren auf föderale Ebene",
-        "Abschaffung aller Umweltprüfungen für Bauprojekte"
+        "Erhöhung der Gebühren für Baugenehmigungen, um mehr Personal einzustellen",
+        "Vollständige Digitalisierung des Antragsverfahrens über urban.brussels und vereinfachte Verfahren für bestimmte Projekte",
+        "Verlagerung aller Genehmigungsverfahren auf die föderale Ebene",
+        "Automatische Genehmigung aller Wohnbauprojekte ohne weitere Prüfung"
       ],
-      "correct": 0,
-      "explanation": "Die Regionalpolitikerklärung sieht eine vollständige Digitalisierung über die Plattform urban.brussels vor, um Bearbeitungszeiten zu halbieren. Dies ist ein Kernmechanismus zur Modernisierung der städtebaulichen Verwaltung in Brüssel.",
+      "correct": 1,
+      "explanation": "Die Regionalpolitische Erklärung sieht eine Halbierung der Bearbeitungsdauer durch Digitalisierung und Fast-Track-Verfahren vor. Dies ist eine Kernreform zur Beschleunigung von Investitionen in Brüssel, wie der Brussels Governance Monitor dokumentiert.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie"
     },
@@ -376,15 +376,15 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Was ist das Ziel der geplanten Reform der Königlichen Kommission für Denkmäler und Landschaften (KCML)?",
+      "question": "Was ist das Ziel der im Regierungsabkommen festgelegten 'städtebaulichen Amnestie'?",
       "options": [
-        "Den Denkmalschutz in Brüssel vollständig abzuschaffen",
-        "Das verbindliche Gutachten durch ein einfaches Gutachten zu ersetzen, um Sanierungsprojekte in Schutzzonen zu ermöglichen",
-        "Alle Entscheidungen über Denkmäler auf die Gemeinden zu übertragen",
-        "Eine neue internationale Kommission mit Sitz in Brüssel zu gründen"
+        "Den Bestand an Verstößen gegen Bauvorschriften abzubauen und Eigentümern Rechtssicherheit zu bieten",
+        "Alle Bußgelder für illegale Bauarbeiten vollständig zu streichen",
+        "Den Denkmalschutz in Brüssel komplett abzuschaffen",
+        "Neue Bauprojekte von Umweltprüfungen zu befreien"
       ],
-      "correct": 1,
-      "explanation": "Die Reform ersetzt das verbindliche Gutachten der KCML durch ein einfaches Gutachten, um Sanierungsprojekte freizugeben, ohne den Denkmalschutz aufzugeben. Dies balanciert Entwicklung und Erhalt aus.",
+      "correct": 0,
+      "explanation": "Die städtebauliche Amnestie ist ein Regularisierungsmechanismus, der alte Verstöße vor einem Stichtag konformitätsmäßig bereinigt. Dies schafft Klarheit für Eigentümer und reduziert das Erbe von Verwaltungsproblemen, ein wichtiges Governance-Instrument, das der Brussels Governance Monitor verfolgt.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie"
     },
@@ -392,15 +392,15 @@
       "id": "dossier-accessibilite-pmr-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welche rechtliche Verpflichtung regelt die systematische Berücksichtigung von Behinderungen in allen Politikbereichen der Region Brüssel-Hauptstadt?",
+      "question": "Welche rechtliche Verpflichtung regelt die systematische Berücksichtigung von Behinderungen in allen regionalen Politikbereichen Brüssels?",
       "options": [
-        "Die Verordnung zum Handistreaming vom 8. Dezember 2016",
-        "Der Europäische Behindertenausweis von 2028",
-        "Der Europäische Barrierefreiheitsakt von Juni 2025",
-        "Die Regionale Politikerklärung vom 13. Februar 2026"
+        "Der Europäische Barrierefreiheitsakt vom Juni 2025",
+        "Die Regionale Politikerklärung vom 13. Februar 2026",
+        "Die Richtlinie zur Beschäftigung von Menschen mit Behinderung von 2019",
+        "Die Verordnung zum Handistreaming vom 8. Dezember 2016"
       ],
-      "correct": 0,
-      "explanation": "Die Verordnung vom 8. Dezember 2016 schreibt der Region Brüssel vor, Behinderungen systematisch in allen regionalen Politikbereichen zu berücksichtigen, einschließlich bei öffentlichen Aufträgen und Subventionen. Dies ist eine wichtige rechtliche Grundlage, die im Bericht mehrfach erwähnt wird.",
+      "correct": 3,
+      "explanation": "Die Verordnung zum Handistreaming vom 8. Dezember 2016 schreibt vor, dass Behinderungen in allen regionalen Politikbereichen, öffentlichen Aufträgen und Subventionen systematisch berücksichtigt werden müssen. Dies ist ein Schlüssel zum Verständnis der Governance-Anforderungen in Brüssel.",
       "sourceSlug": "/de/dossiers/accessibilite-pmr",
       "sourceTitle": "Barrierefreiheit und Behinderung in Brüssel: Verkehr, Beschäftigung und Daten"
     },
@@ -410,13 +410,13 @@
       "domain": "Institutionell",
       "question": "Wie werden die Bürger für die deliberativen Kommissionen des Brüsseler Parlaments ausgewählt?",
       "options": [
-        "Sie melden sich freiwillig an und werden nach einem Bewerbungsverfahren ausgewählt",
-        "Sie werden durch ein doppeltes Losverfahren über die Nationalregisternummern ausgewählt",
-        "Sie werden von Interessenverbänden und Organisationen nominiert",
-        "Sie werden von den Abgeordneten direkt eingeladen"
+        "Sie melden sich freiwillig an und werden von einer Jury ausgewählt",
+        "Sie werden durch ein doppeltes Losverfahren aus dem Nationalregister ausgewählt",
+        "Sie bewerben sich mit einem Motivationsschreiben bei der Gemeinde",
+        "Sie werden von Interessengruppen und Organisationen nominiert"
       ],
       "correct": 1,
-      "explanation": "Die Bürger werden durch ein doppeltes Losverfahren über die Nationalregisternummern unter den Einwohnern ab 16 Jahren ausgewählt. Dies garantiert eine repräsentative Querschnitt der Bevölkerung und ist ein Kernmerkmal deliberativer Demokratie, das Sie im Brussels Governance Monitor nachverfolgen können.",
+      "explanation": "Das doppelte Losverfahren über die Nationalregisternummern stellt sicher, dass die Auswahl zufällig und repräsentativ ist. Dieses demokratische Verfahren wird durch die Plattform democratie.brussels transparent dokumentiert und ermöglicht es durchschnittlichen Bürgern ab 16 Jahren, direkt in Entscheidungsprozesse einzubeziehen.",
       "sourceSlug": "/de/dossiers/assemblees-citoyennes",
       "sourceTitle": "Bürgerversammlungen: 6 Kommissionen abgeschlossen, 205+ Empfehlungen, 7. in Vorbereitung"
     },
@@ -424,15 +424,15 @@
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welcher der folgenden Faktoren wurde vom IBSA als der einflussreichste Bestimmungsfaktor für die Lebenszufriedenheit der Brüsseler identifiziert?",
+      "question": "Laut der Forschung von Sciensano zur Gesundheit in Brüssel 2023-2024: In welcher Region ist das Gebrechlichkeitsrisiko bei älteren Menschen am höchsten?",
       "options": [
-        "Gesundheit (physisch und psychisch)",
-        "Angemessenes Wohnen",
-        "Ein adäquater Lebensstandard",
-        "Die Möglichkeit zu arbeiten"
+        "In der Wallonie",
+        "In Flandern",
+        "In der Region Brüssel-Hauptstadt",
+        "Das Risiko ist in allen Regionen gleich hoch"
       ],
-      "correct": 0,
-      "explanation": "Gemäß Focus Nr. 77 des IBSA (2025) ist Gesundheit der einflussreichste Faktor für die Lebenszufriedenheit, gefolgt von Lebensstandard, sozialen Beziehungen, Wohnen und Arbeit. Dies unterstreicht die zentrale Bedeutung von Gesundheit für das Wohlbefinden in Brüssel.",
+      "correct": 2,
+      "explanation": "Die Gesundheitsbefragung von Sciensano zeigt, dass das Gebrechlichkeitsrisiko bei älteren Menschen in Brüssel am höchsten ist, gefolgt von Wallonien und Flandern. Dies ist ein wichtiger Indikator für die Gesundheitspolitik der Region.",
       "sourceSlug": "/de/dossiers/bien-etre",
       "sourceTitle": "Wohlbefinden und Lebensqualität in Brüssel: Indikatoren, Rankings und Herausforderungen"
     },
@@ -440,15 +440,15 @@
       "id": "dossier-data-centers-ia-energie-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Wie wird die wachsende Nachfrage von Rechenzentren auf föderaler Ebene in Belgien berücksichtigt?",
+      "question": "Wie behandelt die Regionale Politikerklärung (DPR) vom Februar 2026 das Thema Rechenzentren und ihre Energieauswirkungen?",
       "options": [
-        "Sie wird in der Regionalen Politikerklärung (DPR) der Brüssel-Hauptstadt explizit erwähnt",
-        "Sie wird in Elias Netzentwicklungsplan 2028-2038 ausdrücklich berücksichtigt",
-        "Sie wird hauptsächlich durch die belgische Digital Infrastructure Association gesteuert",
-        "Sie wird in separaten Energieplänen der einzelnen Provinzen behandelt"
+        "Sie enthält einen spezifischen Verweis auf Rechenzentren und ihre Energieauswirkungen",
+        "Sie konzentriert sich ausschließlich auf die KI-Infrastruktur und ignoriert traditionelle Rechenzentren",
+        "Sie behandelt digitalen Wandel und Energie-Klima-Strategie getrennt, ohne die energetischen Auswirkungen des digitalen Sektors zu erwähnen",
+        "Sie delegiert alle Fragen zu Rechenzentren vollständig an die föderale Ebene"
       ],
-      "correct": 1,
-      "explanation": "Der föderale Netzentwicklungsplan von Elia 2028-2038 berücksichtigt die Nachfrage der Rechenzentren ausdrücklich. Dies zeigt, dass die Koordination auf föderaler Ebene stattfindet, während die regionale Politikerklärung von Brüssel dieses Thema nicht spezifisch erwähnt — ein Governance-Lücke, die der Brussels Governance Monitor überwachen sollte.",
+      "correct": 2,
+      "explanation": "Die DPR behandelt diese Themen getrennt, ohne ihre Verbindung zu berücksichtigen. Dies zeigt eine Governance-Lücke, die der Brussels Governance Monitor untersucht – eine wichtige Erkenntnis für die regionale Politikgestaltung.",
       "sourceSlug": "/de/dossiers/data-centers-ia-energie",
       "sourceTitle": "Rechenzentren und KI: Auswirkungen auf das Brüsseler Energiesystem"
     },
@@ -456,15 +456,15 @@
       "id": "dossier-data-centers-ia-energie-1",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Welche Verschiebung im Energieverbrauch von künstlicher Intelligenz wird zwischen 2024 und 2030 erwartet?",
+      "question": "Welche Rolle spielt der föderale Netzentwicklungsplan von Elia bei der Berücksichtigung von Rechenzentren?",
       "options": [
-        "Das Training von KI-Modellen wird deutlich mehr Energie verbrauchen als heute",
-        "Die Inferenz (tägliche Nutzung durch Millionen von Nutzern) wird einen grösseren Anteil des KI-Energieverbrauchs ausmachen",
-        "Der Gesamtenergieverbrauch von KI wird stabil bleiben",
-        "Die Rechenzentren werden weniger Energie für KI-Aufgaben benötigen"
+        "Der Plan wird nur regionale Rechenzentren in Brüssel-Hauptstadt erfassen",
+        "Der Plan wurde bereits 2024 genehmigt und kann nicht mehr angepasst werden",
+        "Der Plan von 2028-2038 berücksichtigt die Nachfrage der Rechenzentren ausdrücklich, begleitet durch den föderalen Energieminister",
+        "Der Plan ignoriert Rechenzentren völlig und konzentriert sich nur auf Haushalte"
       ],
-      "correct": 1,
-      "explanation": "Die Inferenz — also die alltägliche Nutzung von KI-Modellen durch Millionen von Anwendern — wird den Energieverbrauch zunehmend dominieren, nicht das Training der Modelle selbst. Dies ist eine wichtige Erkenntnis für die Energieplanung der Region, da sie zeigt, dass die Last eher kontinuierlich als punktuell anfallen wird.",
+      "correct": 2,
+      "explanation": "Der föderale Netzentwicklungsplan 2028-2038 berücksichtigt Rechenzentren explizit und wird vom föderalen Energieminister begleitet. Dies zeigt, dass die föderale Ebene dieses Governance-Thema aktiv adressiert, während die Region noch aufgeholt hat.",
       "sourceSlug": "/de/dossiers/data-centers-ia-energie",
       "sourceTitle": "Rechenzentren und KI: Auswirkungen auf das Brüsseler Energiesystem"
     },
@@ -472,15 +472,15 @@
       "id": "dossier-enseignement-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welche Institution hat KEINE direkte Kontrolle über die Sparmaßnahmen im Brüsseler Pflichtschulunterricht?",
+      "question": "Welche Institution hat praktisch keine Kontrolle über die Sparmaßnahmen im Pflichtschulunterricht in Brüssel, obwohl die Brüsseler Familien dort Steuern zahlen?",
       "options": [
-        "Die Région Brüssel-Hauptstadt",
-        "Die Föderation Wallonie-Brüssel",
         "Die Flämische Gemeinschaft",
-        "Das Parlament der Wallonischen Region"
+        "Die Region Brüssel-Hauptstadt",
+        "Die Föderation Wallonie-Brüssel",
+        "Das belgische Föderalparlament"
       ],
-      "correct": 0,
-      "explanation": "Die Brüsseler Region erhebt zwar regionale Steuern von Familien, hat aber praktisch keine Befugnisse über den Pflichtschulunterricht. Dieser wird von den Gemeinschaften (FWB und Flämische Gemeinschaft) verwaltet — ein Problem der institutionellen Aufteilung in Belgien, das der Brussels Governance Monitor aufdeckt.",
+      "correct": 1,
+      "explanation": "Die Region Brüssel-Hauptstadt verwaltet nicht den Pflichtschulunterricht — dieser wird von der Föderation Wallonie-Brüssel (französischsprachig) und der Flämischen Gemeinschaft (niederländischsprachig) organisiert. Dies ist ein Kernproblem der institutionellen Struktur Brüssels, das der Monitor aufzeigt.",
       "sourceSlug": "/de/dossiers/enseignement",
       "sourceTitle": "Pflichtschulunterricht in Brüssel: die Auswirkungen der Sparmaßnahmen FWB und Flämische Gemeinschaft"
     },
@@ -488,15 +488,15 @@
       "id": "dossier-enseignement-1",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Was ist die institutionelle Besonderheit des Brüsseler Schulsystems?",
+      "question": "Welche Schülergruppe ist von der Finanzierungskürzung für Integrationsprogramme 2026 betroffen?",
       "options": [
-        "Es wird von einer einzigen Behörde für alle Sprachgemeinschaften verwaltet",
-        "Die regionale Regierung und die Gemeinschaften teilen die Verwaltung gleichberechtigt",
-        "Zwei verschiedene Gemeinschaften verwalten und finanzieren den Unterricht je nach Unterrichtssprache, während die Region keine Kontrolle hat",
-        "Brüssel hat ein eigenes unabhängiges Schulsystem, das nicht von den Gemeinschaften abhängt"
+        "Lehrkräfte der Oberstufe des Sekundarunterrichts",
+        "Französischsprachige Schüler in Klasse 1 bis 3",
+        "Niederländischsprachige Neuzugewanderte",
+        "Studenten im Hochschulwesen auf der französischsprachigen Seite"
       ],
       "correct": 2,
-      "explanation": "Das französischsprachige System wird von der Föderation Wallonie-Brüssel verwaltet, das niederländischsprachige von der Flämischen Gemeinschaft. Die Region Brüssel-Hauptstadt kann diese Entscheidungen nicht beeinflussen — ein zentrales Governance-Problem, das der Monitor dokumentiert.",
+      "explanation": "Die Reduktion der Finanzierung der OKAN-Coaches betrifft niederländischsprachige Neuankömmlinge, die Unterstützung beim Spracherwerb und bei der Integration benötigen. Dies zeigt, wie Sparmaßnahmen vulnerable Gruppen treffen können.",
       "sourceSlug": "/de/dossiers/enseignement",
       "sourceTitle": "Pflichtschulunterricht in Brüssel: die Auswirkungen der Sparmaßnahmen FWB und Flämische Gemeinschaft"
     },
@@ -504,15 +504,15 @@
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Wirtschaft",
-      "question": "Welche Institution bietet in der Region Brüssel-Hauptstadt kostenlose Diagnosen und Orientierung für Unternehmen in Schwierigkeiten an?",
+      "question": "Welche Institution in der Region Brüssel-Hauptstadt bietet Unternehmen in Schwierigkeiten kostenlose Diagnose und Orientierung an?",
       "options": [
-        "Centre pour Entreprises en difficulté (CEd)",
-        "Tribunal de Commerce de Bruxelles",
-        "FÖD Wirtschaft",
-        "GraydonCreditsafe"
+        "Service de médiation fédéral",
+        "Chambre de commerce et d'industrie",
+        "Tribunal de commerce de Bruxelles",
+        "Centre pour Entreprises en difficulté (CEd)"
       ],
-      "correct": 0,
-      "explanation": "Das Centre pour Entreprises en difficulté (CEd), betrieben von hub.brussels, ist der offizielle regionale Anlaufpunkt für kostenlose Unternehmensdiagnosen. Der Brussels Governance Monitor dokumentiert dieses Angebot als einen der Schlüsselmechanismen zur Insolvenzprävention in der Region.",
+      "correct": 3,
+      "explanation": "Das CEd, getragen von hub.brussels, ist speziell für die kostenlose Diagnose und Orientierung von Unternehmen in Schwierigkeiten zuständig. Dies ist eine der ersten Anlaufstellen für betroffene Betriebe in Brüssel.",
       "sourceSlug": "/de/dossiers/faillites-a-bruxelles",
       "sourceTitle": "Insolvenzen in Brüssel: Bestandsaufnahme, Branchen und regionale Maßnahmen"
     },
@@ -520,15 +520,15 @@
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Sicherheit",
-      "question": "Was löst die Annahme eines Interessenskonflikts im Brüsseler Parlament beim föderalen Fusionsprojekt der Polizeizonen aus?",
+      "question": "Was ist die Besonderheit der geplanten Polizeifusion in Brüssel im Vergleich zu anderen Regionen Belgiens?",
       "options": [
-        "Eine 60-tägige Konzertierungsphase zwischen dem Brüsseler Parlament und der föderalen Kammer",
-        "Eine sofortige Abstimmung im Plenum der föderalen Kammer",
-        "Eine endgültige Blockade des Fusionsprojekts",
-        "Eine Rückkehr des Gesetzentwurfs an den Ausschuss für Inneres"
+        "Sie ist für Brüssel verpflichtend, während sie in anderen Regionen freiwillig ist",
+        "Sie wird von allen Brüsseler Bürgermeistern unterstützt",
+        "Sie betrifft nur die Bundespolizei, nicht die lokalen Zonen",
+        "Sie soll bereits 2025 umgesetzt werden"
       ],
       "correct": 0,
-      "explanation": "Der verfassungsrechtliche Mechanismus des Interessenskonflikts erzwingt einen interinstitutionellen Dialog und setzt das föderale Gesetzgebungsverfahren für 60 Tage aus. Dies blockiert das Projekt nicht endgültig, verpflichtet aber zu einer Konzertierungsphase.",
+      "explanation": "Die nationale Polizeireform sieht eine Reduzierung der Zonen vor, aber Brüssel ist der einzige Ort, wo die Fusion zwingend vorgeschrieben ist. Im übrigen Land können Gemeinden freiwillig fusionieren. Dies ist ein Kernpunkt der Kritik durch DéFI und Ecolo.",
       "sourceSlug": "/de/dossiers/fusion-polices",
       "sourceTitle": "Fusion der Polizeizonen: von 6 auf 1, Abstimmung vor dem Sommer 2026"
     },
@@ -536,15 +536,15 @@
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche neuen Maßnahmen zur Verkehrssicherheit sind im Regierungsabkommen vom Februar 2026 für Schulzonen vorgesehen?",
+      "question": "Welche neue Maßnahme wurde im Regierungsabkommen vom Februar 2026 für die Verkehrssicherheit rund um Schulen eingeführt?",
       "options": [
-        "Kleinere Verkehrszellen und spezifische Maßnahmen zur Verbesserung der Sicherheit und Lebensqualität rund um Schulgebäude",
-        "Ausschließlich die Entfernung aller Poller in der Nähe von Schulen",
-        "Eine Verdoppelung der Radweginfrastruktur in Schulvierteln",
-        "Die Schließung aller Schulzonen für den motorisierten Verkehr während der Schulzeiten"
+        "Installation von automatischen Blitzern vor allen Schulen",
+        "Kleinere Verkehrszellen speziell um Schulzonen",
+        "Vollständige Sperrung aller Straßen in der Nähe von Schulgebäuden",
+        "Erhöhung der Geschwindigkeitslimits in Schulvierteln"
       ],
-      "correct": 0,
-      "explanation": "Das Abkommen sieht kleinere Zellen um Schulzonen vor, um Verkehrssicherheit und Lebensqualität zu verbessern. Dies war eine Hauptforderung der Opposition gegen Good Move und stellt einen Kompromiss dar, der im Brussels Governance Monitor dokumentiert ist.",
+      "correct": 1,
+      "explanation": "Das Abkommen sieht kleinere Zellen um Schulzonen vor, um Verkehrssicherheit und Lebensqualität rund um Schulgebäude zu verbessern. Dies ist eine gezieltere Maßnahme als die umfassenderen Nachbarschaftszonen des ursprünglichen Good Move.",
       "sourceSlug": "/de/dossiers/good-move",
       "sourceTitle": "Good Move: neuer Regionalplan als Nachfolger"
     },
@@ -552,15 +552,15 @@
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Was war der Hauptgrund für die Blockade von Entscheidungen im Mobilitätsbereich zwischen Juni 2024 und Februar 2026?",
+      "question": "Was war das Hauptproblem, das den Mobilitätsplan Good Move zwischen Juni 2024 und Februar 2026 blockierte?",
       "options": [
-        "Mangelnde finanzielle Mittel des Regionalbudgets für Mobilitätsprojekte",
-        "Uneinigkeit innerhalb der Regierungskoalition über die Zukunft des Plans Good Move und der damit verbundenen Nachbarschaftszonen",
-        "Technische Unfähigkeit, die bereits gebauten Nachbarschaftszonen zu evaluieren",
-        "Weigerung der Gemeinden, überhaupt mit der Region zusammenzuarbeiten"
+        "Mangelnde Unterstützung durch die Europäische Union",
+        "Mangel an Finanzierung für den öffentlichen Nahverkehr",
+        "Entscheidungen über vorrangige Viertel für neue Nachbarschaftszonen konnten nicht getroffen werden",
+        "Technische Unfähigkeit, Radwege zu planen"
       ],
-      "correct": 1,
-      "explanation": "Während dieses Zeitraums konnten keine neuen Nachbarschaftszonen eingeführt werden und die regionale Koordination mit den Gemeinden, die den Plan anfochtenim, war blockiert. Das neue Abkommen zielt darauf ab, diese Blockade durch Anpassungen zu überwinden.",
+      "correct": 2,
+      "explanation": "Laut dem Dokument konnte sich die Regierung nicht auf die vorrangigen Viertel für neue Nachbarschaftszonen einigen, was Investitionen und die regionale Koordination mit den Gemeinden blockierte. Einige Gemeinden wendeten bestehende Zonen weiterhin an, aber keine Ausweitung war möglich.",
       "sourceSlug": "/de/dossiers/good-move",
       "sourceTitle": "Good Move: neuer Regionalplan als Nachfolger"
     },
@@ -568,15 +568,15 @@
       "id": "dossier-lez-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Was ist eine der Hauptänderungen des LEZ-Regimes gemäß dem Regierungsabkommen vom Februar 2026?",
+      "question": "Welche neue Möglichkeit wurde mit dem Regierungsabkommen vom Februar 2026 für Besitzer nicht konformer Fahrzeuge eingeführt?",
       "options": [
-        "Eigentümer nicht konformer Fahrzeuge können einen Jahrespass erwerben, um legal in der LEZ zu fahren",
-        "Die LEZ wird vollständig abgeschafft und durch ein Parkplatzsystem ersetzt",
-        "Alle nicht konformen Fahrzeuge werden sofort aus Brüssel verbannt",
-        "Die Obergrenze von Bußgeldern wird erhöht, um strengere Kontrollen zu ermöglichen"
+        "Eine Verlängerung der Übergangszeit um weitere zwei Jahre",
+        "Eine vollständige Befreiung von LEZ-Kontrollen",
+        "Ein Jahrespass, mit dem sie legal in der LEZ fahren dürfen",
+        "Ein Umtauschprogramm für neue Fahrzeuge"
       ],
-      "correct": 0,
-      "explanation": "Das Regierungsabkommen führt einen Jahrespass ein, der es Eigentümern nicht konformer Fahrzeuge ermöglicht, legal zu fahren – eine Neuerung, die die finanzielle Auswirkung der LEZ deutlich mindert. Dies ist eine wichtige Änderung für die Regierungsführung in Brüssel.",
+      "correct": 2,
+      "explanation": "Das Abkommen führte einen Jahrespass für 350 EUR (oder 200 EUR im Sozialtarif) ein, der Eigentümern nicht konformer Fahrzeuge erlaubt, legal in der LEZ zu fahren. Dies ist eine wesentliche Änderung des LEZ-Regimes, die die finanzielle Belastung für Autofahrer abschwächt.",
       "sourceSlug": "/de/dossiers/lez",
       "sourceTitle": "LEZ: beibehalten mit Jahrespass und reduzierten Bußgeldern"
     },
@@ -584,15 +584,15 @@
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Welche Institution hat ein kritisches Gutachten zur Senkung der LEZ-Bußgelder abgegeben und worauf stützte sie ihre Bedenken?",
+      "question": "Welche Institution hat in ihrem Gutachten Bedenken gegen die Senkung der LEZ-Bußgelder geäußert?",
       "options": [
-        "Der Verfassungsgerichtshof, der die wirtschaftliche Rentabilität des Systems anzweifelte",
-        "Der Staatsrat, der argumentierte, dass niedrigere Bußgelder gegen das verfassungsrechtliche Standstill-Prinzip verstoßen könnten",
-        "Die Europäische Kommission, die strengere Umweltstandards forderte",
-        "Das Brüsseler Parlament, das die Transparenz der Bußgeldverwaltung kritisierte"
+        "Der Staatsrat",
+        "Der Verfassungsgerichtshof",
+        "Das Brüsseler Umweltamt",
+        "Die Europäische Kommission"
       ],
-      "correct": 1,
-      "explanation": "Der Staatsrat warnte, dass die Senkung der Bußgelder einen Rückschritt beim Gesundheitsschutz darstellt und das Standstill-Prinzip verletzt – ein entscheidendes verfassungsrechtliches Risiko für die Umsetzung des Regierungsabkommens.",
+      "correct": 0,
+      "explanation": "Der Staatsrat gab ein kritisches Gutachten ab und argumentierte, dass niedrigere Bußgelder gegen das verfassungsrechtliche Standstill-Prinzip verstoßen und nicht abschreckend genug sind. Dieses Gutachten signalisiert ein ernstes Rechtsrisiko für die Regierungspolitik.",
       "sourceSlug": "/de/dossiers/lez",
       "sourceTitle": "LEZ: beibehalten mit Jahrespass und reduzierten Bußgeldern"
     },
@@ -600,15 +600,15 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche Entscheidung hat das Regierungsabkommen vom 12. Februar 2026 für das Metro-3-Projekt getroffen?",
+      "question": "Welche Entscheidung traf die Brüsseler Regierung im Februar 2026 bezüglich des Metro-3-Projekts?",
       "options": [
-        "Das Projekt wird sofort vollständig abgebrochen und alle Arbeiten eingestellt",
-        "Das Projekt wird für 10 Jahre eingefroren und durch eine Straßenbahn ersetzt",
-        "Das Projekt wird beschleunigt, um Kosten zu sparen",
-        "Das Projekt wird komplett neu geplant mit veränderten Stationen"
+        "Das Projekt wird unverändert fortgesetzt, wie es seit Jahrzehnten geplant war",
+        "Das Projekt wird sofort vollständig eingestellt und durch ein neues Projekt ersetzt",
+        "Das Projekt wird beschleunigt, um schneller fertiggestellt zu werden",
+        "Das Projekt wird für 10 Jahre ausgesetzt und durch eine oberirdische Straßenbahn ersetzt"
       ],
-      "correct": 1,
-      "explanation": "Das Abkommen besiegelt die einschneidendste Entscheidung für Brüssels öffentlichen Nahverkehr: Die Metro 3 wird ausgesetzt und durch eine oberirdische Straßenbahn ersetzt, die die Schleife des bestehenden Netzes vervollständigt. Dies lenkt Investitionen um — von der unterirdischen zur oberirdischen Infrastruktur.",
+      "correct": 3,
+      "explanation": "Das Regierungsabkommen vom 12. Februar 2026 besiegelte eine einschneidende Entscheidung: Metro 3 wird für 10 Jahre eingefroren, und ein Ersatzprojekt mit einer Straßenbahn wird umgesetzt. Dies war notwendig geworden, nachdem der Rechnungshof massive Kostensteigerungen und finanzielle Risiken des ursprünglichen Projekts dokumentiert hatte.",
       "sourceSlug": "/de/dossiers/metro-3",
       "sourceTitle": "Metro 3: Projekt 10 Jahre eingefroren, Ersatz durch Straßenbahn"
     },
@@ -616,15 +616,15 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche Institution hat die ursprüngliche Kostenschätzung für Metro 3 überprüft und erhebliche Abweichungen festgestellt?",
+      "question": "Welche Institution spielte eine Schlüsselrolle bei der Entscheidung, das Metro-3-Projekt einzufrieren?",
       "options": [
-        "Der Staatsrat",
-        "Die Stadtverwaltung Brüssel",
-        "Der Rechnungshof",
-        "Die STIB (Nahverkehrsbetrieb)"
+        "Der Rechnungshof, der alarmierende Kostenüberschreitungen und finanzielle Risiken aufdeckte",
+        "Die Verkehrsgewerkschaften, die mit den Arbeitsbedingungen unzufrieden waren",
+        "Die Stadtrat von Brüssel, die den Abriss des Südpalasts blockierte",
+        "Der Verein ARAU, der die Entscheidung als städtebaulichen Unsinn bezeichnete"
       ],
-      "correct": 2,
-      "explanation": "Der Rechnungshof bezifferte die Gesamtkosten für Metro 3 auf deutlich höhere Summen als ursprünglich geplant und zeigte auch eine erhebliche zeitliche Verzögerung auf. Dieser Bericht führte direkt zur Entscheidung der Verhandlungsführer, das Projekt einzufrieren, da die finanzielle Tragfähigkeit 'ernsthaft gefährdet' war.",
+      "correct": 0,
+      "explanation": "Der Rechnungshof dokumentierte, dass die Kosten des Metro-3-Projekts dramatisch gestiegen waren und die finanzielle Tragfähigkeit ernsthaft gefährdet war. Dieser Bericht führte direkt dazu, dass die Verhandlungsführer das Projekt einfroren und nach Alternativen suchten. Der Brussels Governance Monitor zeigt, wie solche unabhängigen Kontrollinstitutionen wichtige Regierungsentscheidungen beeinflussen.",
       "sourceSlug": "/de/dossiers/metro-3",
       "sourceTitle": "Metro 3: Projekt 10 Jahre eingefroren, Ersatz durch Straßenbahn"
     },
@@ -632,15 +632,15 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche Institution spielte eine zentrale Rolle bei der Überprüfung der Regulierung für E-Scooter-Betreiber in Brüssel und setzte 2024 die Flottenobergrenzen aus?",
+      "question": "Welche Institution hat im April 2024 entschieden, die Flottenobergrenzen für E-Scooter in Brüssel auszusetzen?",
       "options": [
+        "Die STIB (öffentlicher Nahverkehrsbetreiber)",
         "Der Staatsrat",
-        "Das Europäische Parlament",
-        "Die Brüsseler Stadtpolizei",
-        "Der Gemeindeausschuss für Verkehr"
+        "Die Brüsseler Regionalregierung",
+        "Das Brüsseler Gericht erster Instanz"
       ],
-      "correct": 0,
-      "explanation": "Der Staatsrat überprüfte die Regulierung mehrfach und beanstandete im April 2024, dass die Begründung für Flottenobergrenzen unzureichend war. Dies führte zu einer Überarbeitung des Erlasses durch die Regionalregierung und zeigt, wie Gerichte die Regierungsentscheidungen überprüfen.",
+      "correct": 1,
+      "explanation": "Der Staatsrat setzte am 25. April 2024 die Flottenobergrenzen aus und befand die Begründung der Regierung für unzureichend. Dies zeigt, wie wichtig eine solide rechtliche Begründung bei der Regulierung der geteilten Mobilität ist — ein zentrales Thema des Brussels Governance Monitor.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität in Brüssel: E-Scooter, Fahrräder, Taxis und der Kampf um die Konzessionen"
     },
@@ -648,15 +648,15 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Wann endet die aktuelle Konzession für das Villo!-Leihfahrradsystem in Brüssel?",
+      "question": "Bis wann läuft die aktuelle Konzession von Villo! (JCDecaux) für das stationsgebundene Fahrrad-Leihsystem in Brüssel?",
       "options": [
-        "Im September 2024",
-        "Im September 2026",
-        "Im Dezember 2026",
-        "Im Januar 2027"
+        "September 2026",
+        "März 2027",
+        "Dezember 2025",
+        "Dezember 2024"
       ],
-      "correct": 1,
-      "explanation": "Die Konzession mit JCDecaux, die 2008 unterzeichnet wurde, läuft im September 2026 aus. Nach diesem Datum muss die Regionalregierung entscheiden, wie es mit dem stationsgebundenen Leihfahrradsystem weitergehen soll – ein wichtiger Moment für die Zukunft der Brüsseler Mobilität.",
+      "correct": 0,
+      "explanation": "Die Vereinbarung zwischen der Region und JCDecaux endet im September 2026. Nach diesem Termin muss JCDecaux alle Stationen zurückbauen. Die Regierung hat bisher weder eine Ausschreibung noch eine Entscheidung über die Zukunft des Systems angekündigt — ein wichtiges Governance-Thema.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität in Brüssel: E-Scooter, Fahrräder, Taxis und der Kampf um die Konzessionen"
     },
@@ -664,15 +664,15 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welche drei Behörden sind in Brüssel für die Zulassung und Finanzierung von Kinderbetreuungseinrichtungen zuständig?",
+      "question": "Wie viele verschiedene Behörden sind in Brüssel für die Zulassung und Finanzierung von Kinderkrippenplätzen zuständig?",
       "options": [
-        "ONE, Opgroeien und Iriscare",
-        "ONE, VGC und die Gemeinden",
-        "Opgroeien, COCOF und die Regionsregierung",
-        "Iriscare, die Gemeinden und das föderale Ministerium"
+        "Zwei Behörden: eine für Französisch, eine für Niederländisch",
+        "Eine zentrale regionale Behörde",
+        "Fünf unabhängige private Organisationen",
+        "Drei Hauptbehörden plus Gemeinden und weitere Institutionen"
       ],
-      "correct": 0,
-      "explanation": "ONE (Föderation Wallonie-Brüssel) betreut französischsprachige Krippen, Opgroeien (Flämische Gemeinschaft) niederländischsprachige, und Iriscare (GGK) bikommunale Strukturen. Diese fragmentierte Zuständigkeit ist das Kernproblem des Brüsseler Betreuungssystems.",
+      "correct": 3,
+      "explanation": "ONE (Wallonie-Brüssel), Opgroeien (Flämische Gemeinschaft) und Iriscare (GGK) sind die drei Hauptbehörden, zu denen noch Gemeinden, VGC und COCOF kommen. Diese fragmentierte Struktur führt zu getrennten Wartelisten und ungleicher Versorgung je nach Sprachregion und Wohnort.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung in Brüssel: Krippen, Wartelisten und dreifache institutionelle Zuständigkeit"
     },
@@ -680,15 +680,15 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Warum können Eltern in Brüssel gleichzeitig auf getrennten Wartelisten warten, ohne Zugang zu freien Plätzen zu haben?",
+      "question": "Was ist die Besonderheit der Wartelisten für Krippenplätze in Brüssel?",
       "options": [
-        "Weil die Wartelisten nach Sprachgemeinschaft (französisch oder niederländisch) getrennt sind und nicht koordiniert werden",
-        "Weil die Gemeinden alle Plätze für ihre eigenen Bewohner reservieren",
-        "Weil Krippen Kinder nach Alter statt nach Gemeinde aufnehmen",
-        "Weil private Krippen alle öffentlichen Plätze monopolisieren"
+        "Die Wartelisten sind nach Sprache getrennt, sodass freie Plätze in einer Sprache nicht für Familien in der anderen sichtbar sind",
+        "Es gibt eine einzige zentrale Warteliste für alle Familien",
+        "Es gibt keine Wartelisten, alle Familien erhalten automatisch einen Platz",
+        "Wartelisten werden nach Einkommen priorisiert"
       ],
       "correct": 0,
-      "explanation": "Die institutionelle Fragmentierung führt dazu, dass eine Familie in einer französischsprachigen Warteschlange warten kann, während ein Platz in einer niederländischsprachigen Kita frei ist — aber nicht zugänglich, weil die Listen nicht integriert sind. Dies veranschaulicht die Ineffizienz der dreifachen institutionellen Zuständigkeit.",
+      "explanation": "Französischsprachige und niederländischsprachige Krippen haben separate Wartelisten. Eine Familie kann lange in der einen Warteschlange warten, während gleichzeitig Plätze in der anderen verfügbar sind, in die sie nicht eingeschrieben ist. Dies ist ein strukturelles Problem der dreifachen institutionellen Zuständigkeit.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung in Brüssel: Krippen, Wartelisten und dreifache institutionelle Zuständigkeit"
     },
@@ -696,15 +696,15 @@
       "id": "dossier-pfas-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Warum ist die PFAS-Verunreinigung in Brüssel besonders problematisch beim Trinkwasser?",
+      "question": "Warum ist die PFAS-Kontamination in Brüssel ein besonderes Governance-Problem im Vergleich zu Flandern?",
       "options": [
-        "Weil es in allen sechs Reservoirs nachgewiesen wurde und Standard-Aktivkohlefilter nicht wirksam sind",
-        "Weil Vivaqua sich weigert, Maßnahmen gegen PFAS zu ergreifen",
-        "Weil die Europäische Union die Wasserverteilung in Brüssel kontrolliert",
-        "Weil die PFAS-Konzentrationen im Trinkwasser höher sind als in Flandern"
+        "Brüssel hat eine große PFAS-Produktionsfabrik wie die 3M-Fabrik in Flandern",
+        "Die Verunreinigung in Brüssel entstand erst nach 2021 durch neue Industrien",
+        "Brüssel hat strengere Umweltgesetze, die mehr Kontaminationsfälle aufdecken",
+        "In Brüssel gibt es keine PFAS-Produktionsstätte, die Verunreinigung stammt aus verbreiteter Produktnutzung und spezifischen Industriestandorten"
       ],
-      "correct": 0,
-      "explanation": "Das Text hebt hervor, dass TFA in allen sechs Brüsseler Reservoirs vorkommt und dass herkömmliche Aktivkohlefilter unwirksam sind — nur Umkehrosmose funktioniert. Dies macht das Problem technisch und wirtschaftlich komplex. Mehr zum Brussels Governance Monitor erfahren Sie auf dessen Website.",
+      "correct": 3,
+      "explanation": "Im Gegensatz zu Flandern mit seiner bekannten 3M-Fabrik entsteht die PFAS-Kontamination in Brüssel dezentral durch alltägliche Produktnutzung und mehrere Industriestandorte, was die Regulierung komplexer macht. Dies zeigt die Bedeutung systematischer Überwachung durch Institutionen wie Brüssel Umwelt.",
       "sourceSlug": "/de/dossiers/pfas",
       "sourceTitle": "PFAS in Brüssel: Boden- und Wasserverunreinigung"
     },
@@ -712,15 +712,15 @@
       "id": "dossier-pfas-1",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Was ist der wichtigste Unterschied zwischen den Schwellenwerten des Hohen Gesundheitsrats und den geltenden Gesetzen?",
+      "question": "Welche Rolle spielen die Gesundheitsschwellenwerte des Hohen Gesundheitsrats (HGR) in der belgischen Wasserpolitik?",
       "options": [
-        "Der Hohe Gesundheitsrat erlaubt höhere PFAS-Werte im Wasser",
-        "Der Hohe Gesundheitsrat basiert auf dem Vorsorgeprinzip und fordert deutlich strengere Werte, während die geltenden Normen nur 'Qualitätsgrenzwerte' sind",
-        "Der Hohe Gesundheitsrat berücksichtigt nur PFOS und PFOA",
-        "Die Schwellenwerte des Hohen Gesundheitsrats gelten nur für Industriestandorte"
+        "Sie stellen deutlich strengere Grenzwerte dar, die auf dem Vorsorgeprinzip basieren und noch nicht vollständig in die Verordnung übernommen wurden",
+        "Sie gelten nur für Grundwasser, nicht für Trinkwasser",
+        "Sie sind bereits in der Trinkwasserverordnung als bindende Normen festgeschrieben",
+        "Sie werden von der EU-Norm ersetzt und haben keine Auswirkungen auf Brüssel"
       ],
-      "correct": 1,
-      "explanation": "Der Hohe Gesundheitsrat hat 'maximale Gesundheitswerte' auf Basis des Vorsorgeprinzips festgelegt, die strenger sind als die aktuellen Gesetze. Dieser Unterschied zwischen Gesundheitsschutz und bloßen Qualitätsgrenzwerten ist zentral für die Governance-Debatte in Brüssel.",
+      "correct": 0,
+      "explanation": "Der HGR hat gesundheitsbasierte Schwellenwerte entwickelt, die strenger sind als aktuelle Gesetzesvorgaben, doch diese sind noch nicht vollständig in belgische Regelwerke integriert. Inter-Environnement Bruxelles fordert eine nationale Harmonisierung nach diesen Gesundheitskriterien, was ein zentrales Governance-Thema darstellt.",
       "sourceSlug": "/de/dossiers/pfas",
       "sourceTitle": "PFAS in Brüssel: Boden- und Wasserverunreinigung"
     },
@@ -728,15 +728,15 @@
       "id": "dossier-plan-securite-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welche neue regionale Funktion wurde im Brüsseler Sicherheitsplan vom Februar 2026 geschaffen, um die Bekämpfung von Drogendelikten zu koordinieren?",
+      "question": "Welche neue institutionelle Position wurde im Sicherheitsabkommen der Brüsseler Regierung vom Februar 2026 geschaffen?",
       "options": [
-        "Regionaler Drogenkommissar",
-        "Föderaler Drogenbeauftrager für Belgien",
-        "Lokaler Drogenpräventionsrat in jeder Gemeinde",
-        "Spezialisierte Ermittlungsgruppe bei der Bundespolizei"
+        "Bahnhofs-Sicherheitsleiter",
+        "Gemeindlicher Sicherheitsdirektor",
+        "Föderaler Polizeizonen-Koordinator",
+        "Regionaler Drogenkommissar"
       ],
-      "correct": 0,
-      "explanation": "Der regionale Drogenkommissar ist eine neue Behörde, die im Regierungsabkommen vom 12. Februar 2026 verankert ist. Diese Funktion soll als zentrale Koordinationsstelle für Drogenbekämpfung in der Region Brüssel-Hauptstadt dienen und Teil eines integrierten regionalen Drogenplans sein.",
+      "correct": 3,
+      "explanation": "Das Regierungsabkommen vom 12. Februar 2026 sieht vor, einen regionalen Drogenkommissar als zuständige Behörde zur Bekämpfung von Betäubungsmitteln zu ernennen. Diese Position ist Teil eines integrierten regionalen Drogenplans mit Prävention, Risikominderung und Strafverfolgung.",
       "sourceSlug": "/de/dossiers/plan-securite",
       "sourceTitle": "Sicherheitsplan: Drogenkommissar, 10M EUR für Bahnhöfe und Fusion der Polizeizonen"
     },
@@ -744,15 +744,15 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Budget",
-      "question": "Im Rahmen der Reform der Brüsseler Verwaltung soll die Fusion von perspective.brussels und urban.brussels zur neuen Einheit \"Bruxelles Urbanisme\" welches Hauptziel erreichen?",
+      "question": "Die angekündigte Reform der Brüsseler Regionalverwaltung sieht die Zusammenführung von etwa 25 Einheiten in 4 Säulen vor. Welche der folgenden Funktionen gehört zur geplanten Säule 1 (Gemeinsamer Unterstützungsdienst)?",
       "options": [
-        "Die Schaffung einer integrierten Genehmigung, die Zuständigkeiten für Städtebau und Umwelt zusammenführt",
-        "Die Reduzierung der Mitarbeiterzahl um die Hälfte bis 2027",
-        "Die vollständige Verlagerung aller Umweltaufgaben zu Bruxelles Environnement",
-        "Die Auflösung des Denkmalschutzes zugunsten von reiner Territorialentwicklung"
+        "Städtebau und Denkmalschutz",
+        "Infrastrukturverwaltung und Instandhaltung",
+        "Bodenverwaltung und Grundstückskonzessionen",
+        "Personalwesen und Informatik"
       ],
-      "correct": 0,
-      "explanation": "Die geplante Fusion von perspective.brussels und urban.brussels zielt darauf ab, eine integrierte Genehmigungsstelle zu schaffen, die derzeit zwischen Bruxelles Environnement und urban.brussels aufgeteilte Zuständigkeiten zusammenführt. Dies ist die erste konkrete Massnahme der 4-Säulen-Reform, die 2026 umgesetzt werden soll.",
+      "correct": 3,
+      "explanation": "Die Säule 1 bündelt Querschnittsfunktionen wie Personalwesen, Informatik, Finanzen und Statistik. Diese Unterstützungsdienste sind zentral für alle anderen Säulen. Mehr Details zur Reform finden Sie im Brussels Governance Monitor.",
       "sourceSlug": "/de/dossiers/reforme-administration",
       "sourceTitle": "Reform der Regionalverwaltung: von 25 Einheiten zu 4 Säulen"
     },
@@ -760,15 +760,15 @@
       "id": "dossier-rse-0",
       "source": "dossier",
       "domain": "Wirtschaft",
-      "question": "Welche drei Säulen bilden das Fundament der Shifting Economy, der regionalen Strategie für wirtschaftliche Transition in Brüssel?",
+      "question": "Welche drei Säulen bilden das Fundament der Shifting Economy-Strategie in Brüssel?",
       "options": [
-        "Bedingte Förderung, Unternehmensbegleitung und Wertschätzung durch Labels",
-        "Steuererleichterungen, digitale Transformation und internationale Expansion",
-        "Subventionen, Arbeitsplatzschaffung und Infrastrukturinvestitionen",
-        "Regulierung, Kontrolle und Sanktionierung von Umweltverstößen"
+        "Umweltschutz, Arbeitnehmerschutz und Forschungsfinanzierung",
+        "Steuervergünstigungen, digitale Transformation und internationale Expansion",
+        "Bedingte Wirtschaftsförderung, Unternehmensbegleitung und Wertschätzung durch Labels",
+        "Investitionsförderung, Beschäftigungsprämien und Beratungsgutscheine"
       ],
-      "correct": 0,
-      "explanation": "Die Shifting Economy wurde 2022 von der Region Brüssel-Hauptstadt angenommen und ruht auf diesen drei Säulen: Unternehmen erhalten Förderung nur unter ökologischen und sozialen Bedingungen, werden bei ihrer Transition begleitet und erhalten Prämien für anerkannte Labels. Entdecken Sie mehr über diese zukunftsweisende Strategie im Brussels Governance Monitor.",
+      "correct": 2,
+      "explanation": "Die Shifting Economy basiert auf diesen drei Säulen: erstens bedingte Förderung nach ökologischen und sozialen Kriterien, zweitens intensive Begleitung der Unternehmen bei ihrer Transition, und drittens Anerkennung von Vorreitern durch ein Label- und Prämiensystem. Mehr Details finden Sie im Brussels Governance Monitor zur wirtschaftlichen Transition.",
       "sourceSlug": "/de/dossiers/rse",
       "sourceTitle": "Wirtschaftliche Transition: Shifting Economy, Labels und Nachhaltigkeitsberichterstattung"
     },
@@ -776,15 +776,15 @@
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welche grundlegende Ausrichtung kennzeichnet die neuen Zulassungsnormen für Pflegeheime in Brüssel, die am 1. September 2024 in Kraft traten?",
+      "question": "Welche grundlegende Ausrichtung kennzeichnet die neuen Zulassungsnormen für Pflegeheime in Brüssel, die am 1. September 2024 in Kraft getreten sind?",
       "options": [
-        "Den Übergang von einem pflegezentrierten zu einem bewohnerzentrierten Modell mit Fokus auf Autonomie und Lebensqualität",
-        "Eine Reduktion der Bettenkapazität um mindestens 30 Prozent in allen Einrichtungen",
-        "Die Privatisierung aller öffentlichen Pflegeheime in der Region",
-        "Eine Erhöhung der Tagespauschale für private Einrichtungen auf das Niveau öffentlicher Einrichtungen"
+        "Die Vereinheitlichung aller Pflegeheime unter eine Einrichtung namens Iriscare",
+        "Die vollständige Privatisierung des Seniorenpflegesektors",
+        "Den Übergang von einem pflegezentrierten zu einem bewohnerzentrierten Modell",
+        "Den Übergang von einem bewohnerzentrierten zu einem pflegezentrierten Modell"
       ],
-      "correct": 0,
-      "explanation": "Die Reform markiert einen Paradigmenwechsel: weg von reiner medizinischer Versorgung hin zu ganzheitlicher Unterstützung der Bewohner. Dies ist eine Schlüsseländerung der Brüsseler Seniorenpolitik, die im Brussels Governance Monitor dokumentiert wird.",
+      "correct": 2,
+      "explanation": "Die Reform markiert einen Paradigmenwechsel: Weg von reiner Pflege hin zu Autonomie, Teilhabe und Lebensqualität der Bewohner. Mehr Details finden Sie im Brussels Governance Monitor zum Thema Seniorenbetreuung.",
       "sourceSlug": "/de/dossiers/seniors-a-bruxelles",
       "sourceTitle": "Senioren in Brüssel: Unterbringung, Autonomie und Daten"
     },
@@ -792,15 +792,15 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welche Institution koordiniert die Sozialpolitik im Bereich Wohnungsbau in der Region Brüssel-Hauptstadt und beaufsichtigt die Verwaltung von über 62.000 wartenden Haushalten?",
+      "question": "Welche Institution koordiniert die Sozialpolitik im Bereich Wohnungsbau in der Region Brüssel-Hauptstadt und beaufsichtigt die lokalen Wohnungsgesellschaften?",
       "options": [
-        "Die SLRB (Société du Logement de la Région de Bruxelles-Capitale)",
-        "Die regionalen Sociétés Immobilières de Service Public (SISP)",
-        "Das Brüsseler Ministerium für Wohnungsbau",
-        "Der Gemeinderat für Sozialwohnungen"
+        "Das Ministerium für Stadtentwicklung",
+        "Die Gemeindeverwaltungen der 19 Brüsseler Kommunen",
+        "Die regionalen SISP (Sociétés Immobilières de Service Public)",
+        "Die SLRB (Société du Logement de la Région de Bruxelles-Capitale)"
       ],
-      "correct": 0,
-      "explanation": "Die SLRB koordiniert die Gesamtpolitik und beaufsichtigt die 16 SISP, die den Wohnungsbestand direkt verwalten. Dies ist die zentrale Struktureinheit für Sozialwohnungen in Brüssel.",
+      "correct": 3,
+      "explanation": "Die SLRB koordiniert die Sozialpolitik und beaufsichtigt die 16 SISP, die den Wohnungsbestand direkt verwalten. Die SISP sind dezentrale Organisationen, die unter SLRB-Aufsicht tätig sind.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB: 1 000+ Sozialwohnungen und finanzielle Konsolidierung"
     },
@@ -808,15 +808,15 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welche Maßnahmen hat die neue Regierung eingeleitet, um die angespannte Finanzlage der SLRB zu sanieren?",
+      "question": "Welche Maßnahme wurde vom Regierungsabkommen vom Februar 2026 verhindert, während die geschäftsführende Regierung von Juni 2024 bis Februar 2026 amtierte?",
       "options": [
-        "Erhöhung der Mieten für alle Sozialwohnungen",
-        "Verkauf von Vermögenswerten wie Grundstücken und einem Teil des Wohnungsbestands",
-        "Vollständige Auflösung der SLRB und Übergabe an private Unternehmen",
-        "Reduzierung des geplanten Neubaus auf Null"
+        "Die Verabschiedung eines neuen mehrjährigen Sanierungsplans und die Finanzierung neuer Bauprojekte",
+        "Die Beantragung von Fördermitteln auf europäischer Ebene",
+        "Die tägliche Verwaltung und Instandhaltung der bestehenden Wohnungen",
+        "Die Erhebung von Mieten von Mietern"
       ],
-      "correct": 1,
-      "explanation": "Um die Schulden der SLRB abzubauen, verkauft die Regierung mehrere Liegenschaften wie die Standorte Ariane und Palais sowie etwa 200 Sozialwohnungen. Dies ist Teil eines umfassenden Finanzkonsolidierungsplans.",
+      "correct": 0,
+      "explanation": "Während der geschäftsführenden Regierung waren alle strukturellen Investitionen und strategischen Entscheidungen eingefroren. Die laufende Verwaltung konnte fortgesetzt werden, aber neue Bauprojekte und umfassende Sanierungspläne konnten nicht genehmigt werden.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB: 1 000+ Sozialwohnungen und finanzielle Konsolidierung"
     },
@@ -824,15 +824,15 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welcher strukturelle Grund führt dazu, dass Flugzeuge beim Start von Brüssel-Zaventem über dicht besiedelte Brüsseler Stadtviertel fliegen müssen?",
+      "question": "Seit wann existiert der Konflikt zwischen dem Flughafen Zaventem und den Brüsseler Anwohnern wegen Fluglärm?",
       "options": [
-        "Die vorherrschenden Winde zwingen Starts auf der Piste 25R in Richtung Brüssel",
-        "Die Flughafenverwaltung hat sich bewusst für diese Route entschieden, um Kosten zu sparen",
-        "Die Lärmschutzgesetze erlauben nur Starts über städtische Gebiete",
-        "Die anderen Pisten sind zu kurz für große Flugzeuge"
+        "Über 40 Jahre",
+        "Etwa 20 Jahre",
+        "Seit der Eröffnung des Flughafens 1970",
+        "Seit 2004"
       ],
       "correct": 0,
-      "explanation": "Die geografische Lage des Flughafens und die Windmuster bestimmen die Flugrouten: Südwestwinde (die 70 % der Zeit auftreten) zwingen Starts auf der Piste 25R über Brüssel. Dies ist ein strukturelles Problem, das den Konflikt seit über 40 Jahren prägt und im Brussels Governance Monitor dokumentiert ist.",
+      "explanation": "Der Text dokumentiert einen über 40-jährigen Konflikt zwischen den wirtschaftlichen Interessen des Flughafens und der Lebensqualität der Brüsseler Bevölkerung. Dies ist ein strukturelles Dauerproblem, das im Brussels Governance Monitor kritisch analysiert wird.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
       "sourceTitle": "Überflug von Brüssel: 40 Jahre Konflikt, 450 000 betroffene Anwohner"
     },
@@ -840,15 +840,15 @@
       "id": "dossier-vivaqua-0",
       "source": "dossier",
       "domain": "Budget",
-      "question": "Welche Institution in Brüssel kritisierte 2026 die Verwaltung von Vivaqua und wies auf unbezahlte Rechnungen und nicht gerechtfertigte Kosten hin?",
+      "question": "Welche Institution in Brüssel ist für die Regulierung und Kontrolle von Vivaqua zuständig und hat eine kritische Analyse zur Tarifberechnung veröffentlicht?",
       "options": [
-        "Der Brüsseler Regulierer BRUGEL",
-        "Die Regionale Inspektionsbehörde für Wasserwirtschaft",
-        "Der Stadtrat von Brüssel-Stadt",
-        "Die föderale Wasserbehörde Belgiens"
+        "ÖSHZ",
+        "WBP",
+        "IEB",
+        "BRUGEL"
       ],
-      "correct": 0,
-      "explanation": "BRUGEL veröffentlichte eine kritische Analyse zu Vivaqua, in der 73 Millionen EUR unbezahlte Rechnungen und 35 Millionen EUR abgelehnte Kosten identifiziert wurden. Mehr über die Rolle unabhängiger Regulierer in der Brüsseler Wasserpolitik erfahren Sie im Brussels Governance Monitor.",
+      "correct": 3,
+      "explanation": "BRUGEL ist der Brüsseler Regulierer, der die Verwaltung von Vivaqua überwacht und abgelehnte Kosten aus der Tarifberechnung ausschließt. Die IEB ist dagegen ein Beratungsgremium für Wasserpolitik, das strukturelle Schwächen des Kanalisationsnetzes analysiert.",
       "sourceSlug": "/de/dossiers/vivaqua",
       "sourceTitle": "Vivaqua: finanzielle Konsolidierung angekündigt"
     }

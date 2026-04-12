@@ -44,6 +44,16 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
+/**
+ * Shuffle a question's options per session — defense in depth against any
+ * residual generator bias, plus replay value (same question, different layout).
+ */
+function shuffleQuestionOptions(q: QuizQuestion): QuizQuestion {
+  const correctValue = q.options[q.correct]
+  const shuffled = shuffle(q.options) as [string, string, string, string]
+  return { ...q, options: shuffled, correct: shuffled.indexOf(correctValue) }
+}
+
 interface MissedItem {
   question: string
   sourceSlug: string
@@ -121,10 +131,10 @@ export default function BGMQuiz() {
   const [copied, setCopied] = useState(false)
   const topRef = useRef<HTMLDivElement>(null)
 
-  /** Pick N random questions from the pool */
+  /** Pick N random questions from the pool, with options re-shuffled per session */
   const pickSession = useCallback((data: QuizData): QuizQuestion[] => {
     const n = data.questionsPerSession ?? 10
-    return shuffle(data.questions).slice(0, n)
+    return shuffle(data.questions).slice(0, n).map(shuffleQuestionOptions)
   }, [])
 
   useEffect(() => {
@@ -434,24 +444,31 @@ export default function BGMQuiz() {
 
   return (
     <div ref={topRef} className="scroll-mt-24 mx-auto max-w-xl py-6">
-      {/* Progress */}
-      <div className="mb-5 h-px bg-neutral-100">
+      {/* Progress header — counter (left) + percentage (right) */}
+      <div className="mb-2 flex items-center justify-between">
+        <span className="text-sm font-semibold text-brand-800 dark:text-brand-300 tabular-nums">
+          {t('questionOf', { current: String(current + 1), total: String(total) })}
+        </span>
+        <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400 tabular-nums">
+          {Math.round(progress)}%
+        </span>
+      </div>
+
+      {/* Progress bar */}
+      <div className="mb-4 h-1.5 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700">
         <div
-          className="h-px bg-brand-800 transition-all duration-300"
+          className="h-full rounded-full bg-brand-800 transition-all duration-300"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-      {/* Meta */}
-      <div className="mb-2 flex items-center gap-2">
-        <span className="text-xs uppercase tracking-widest text-neutral-400">
-          {t('questionOf', { current: String(current + 1), total: String(total) })}
-        </span>
+      {/* Source badge */}
+      <div className="mb-3 flex items-center gap-2">
         <span
           className={`rounded px-2 py-0.5 text-xs font-medium ${
             q.source === 'domain'
-              ? 'bg-neutral-100 text-brand-800'
-              : 'bg-neutral-100 text-neutral-600'
+              ? 'bg-neutral-100 text-brand-800 dark:bg-neutral-800 dark:text-brand-300'
+              : 'bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300'
           }`}
         >
           {sourceLabel} — {q.domain}

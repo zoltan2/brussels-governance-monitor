@@ -1,28 +1,28 @@
 {
-  "week": "2026-w14",
-  "weekStart": "2026-03-30",
-  "created_at": "2026-04-05T20:00:28.682Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w15",
+  "weekStart": "2026-04-06",
+  "created_at": "2026-04-12T20:00:16.765Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "6 domaines, 1 secteur mis à jour",
-    "nl": "6 domeinen, 1 sector bijgewerkt",
-    "en": "6 domains, 1 sector updated",
-    "de": "6 Bereiche, 1 Sektor aktualisiert"
+    "fr": "3 domaines, 3 dossiers, 1 secteur mis à jour",
+    "nl": "3 domeinen, 3 dossiers, 1 sector bijgewerkt",
+    "en": "3 domains, 3 dossiers, 1 sector updated",
+    "de": "3 Bereiche, 3 Dossiers, 1 Sektor aktualisiert"
   },
   "weeklyNumber": {
-    "value": "11.215",
+    "value": "96 650",
     "label": {
-      "fr": "3e vague de la réforme du chômage : 11 215 exclusions à Bruxelles en un jour, cumul de ~33 085 depuis janvier. Molenbeek et Saint-Josse les plus touchés.",
-      "nl": "3e golf van de werkloosheidshervorming: 11.215 uitsluitingen in Brussel op één dag, cumulatief ~33.085 sinds januari. Molenbeek en Sint-Joost het zwaarst getroffen.",
-      "en": "3rd wave of the unemployment reform: 11,215 exclusions in Brussels in one day, cumulative ~33,085 since January. Molenbeek and Saint-Josse most affected.",
-      "de": "3. Welle der Arbeitsmarktreform: 11.215 Ausschlüsse in Brüssel an einem Tag, insgesamt ~33.085 seit Januar. Molenbeek und Saint-Josse am stärksten betroffen."
+      "fr": "Demandeurs d'emploi (déc. 2025)",
+      "nl": "Demandeurs d'emploi (déc. 2025)",
+      "en": "Demandeurs d'emploi (déc. 2025)",
+      "de": "Demandeurs d'emploi (déc. 2025)"
     },
     "source": {
-      "fr": "SPP Intégration sociale / BX1 (1er avril 2026)",
-      "nl": "POD Maatschappelijke Integratie / BX1 (1 april 2026)",
-      "en": "FPS Social Integration / BX1 (April 1, 2026)",
-      "de": "FÖD Soziale Integration / BX1 (1. April 2026)"
+      "fr": "Actiris",
+      "nl": "Actiris",
+      "en": "Actiris",
+      "de": "Actiris"
     }
   },
   "closingNote": {
@@ -33,13 +33,12 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
-    "budget",
     "employment",
-    "housing",
     "institutional",
-    "security",
     "social",
-    "culture"
-  ],
-  "sent_at": "2026-04-05T21:15:58.009Z"
+    "dossier-bifff",
+    "dossier-enseignement",
+    "dossier-petite-enfance",
+    "education"
+  ]
 }

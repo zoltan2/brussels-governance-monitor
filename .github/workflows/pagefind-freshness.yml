@@ -1,0 +1,57 @@
+name: Pagefind freshness
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'messages/*.json'
+      - 'velite.config.ts'
+      - 'public/pagefind/**'
+
+jobs:
+  check:
+    name: Pagefind index up to date
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify pagefind index was rebuilt alongside content changes
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          changed=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
+
+          content_touched=$(printf '%s\n' "$changed" | grep -E '^(content/|messages/[^/]+\.json$|velite\.config\.ts$)' || true)
+          pagefind_touched=$(printf '%s\n' "$changed" | grep -E '^public/pagefind/' || true)
+
+          if [ -n "$content_touched" ] && [ -z "$pagefind_touched" ]; then
+            {
+              echo "::error::Content affecting the search index changed, but public/pagefind/ was not rebuilt."
+              echo ""
+              echo "Files touched that require a pagefind rebuild:"
+              echo "$content_touched" | sed 's/^/  /'
+              echo ""
+              echo "Fix on your branch:"
+              echo "  rm -rf public/pagefind/"
+              echo "  npm run build"
+              echo "  git add public/pagefind/"
+              echo "  git commit -m 'chore(search): rebuild pagefind index'"
+              echo "  git push"
+            } >&2
+            exit 1
+          fi
+
+          echo "Pagefind freshness check passed."
+          if [ -n "$content_touched" ]; then
+            echo "  content changes: $(printf '%s\n' "$content_touched" | wc -l | tr -d ' ')"
+          fi
+          if [ -n "$pagefind_touched" ]; then
+            echo "  pagefind changes: $(printf '%s\n' "$pagefind_touched" | wc -l | tr -d ' ')"
+          fi
+          exit 0

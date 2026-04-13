@@ -23,7 +23,7 @@ export function proxy(request: NextRequest) {
 export const config = {
   // Match i18n routes + common bot probe paths (dotfiles, wp-*, xmlrpc)
   matcher: [
-    '/((?!api|feed|digest|livre|_next|_vercel|.*\\..*).*)' ,
+    '/((?!api|feed|digest|livre|merci-cafe-numerique|_next|_vercel|.*\\..*).*)' ,
     '/(\\.env.*|xmlrpc\\.php|\\.git.*|wp-.*)',
   ],
 };

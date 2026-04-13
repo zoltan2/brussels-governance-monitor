@@ -93,6 +93,7 @@ Règles :
 - Explication orientée vers la lecture du contenu source
 - Jamais de jargon sans explication
 - PAS de noms de politiciens — utilise les rôles institutionnels
+- TERMINOLOGIE BELGE OBLIGATOIRE : « bourgmestre » (jamais « maire »), « commune » ou « maison communale » (jamais « mairie »), « échevin » (jamais « adjoint au maire »), « tram » (jamais « tramway »)
 `,
   },
   nl: {
@@ -129,6 +130,7 @@ Regels:
 - Uitleg gericht op het lezen van de broninhoud
 - Nooit jargon zonder uitleg
 - GEEN namen van politici — gebruik institutionele functies
+- VERPLICHTE BELGISCHE TERMINOLOGIE: « burgemeester » (nooit « maire »), « gemeente » of « gemeentehuis » (nooit « mairie »), « schepen » (nooit « wethouder »), « tram » (nooit « tramway »)
 `,
   },
   en: {
@@ -165,6 +167,7 @@ Rules:
 - Explanation oriented toward reading the source content
 - Never use jargon without explanation
 - NO politician names — use institutional roles
+- MANDATORY Belgian terminology when referring to local officials and infrastructure: use « bourgmestre » (never "mayor"), « commune » or « maison communale » (never "town hall"), « échevin » (never "deputy mayor"), « tram » (never "tramway")
 `,
   },
   de: {
@@ -201,6 +204,7 @@ Regeln:
 - Erklärung auf das Lesen des Quellinhalts ausgerichtet
 - Niemals Fachjargon ohne Erklärung
 - KEINE Politikernamen — verwenden Sie institutionelle Funktionen
+- BELGISCHE TERMINOLOGIE für lokale Amtsträger und Infrastruktur: « Bürgermeister » (wie in Belgien, nicht die Form anderer Länder), « Gemeinde » oder « Gemeindehaus » (nicht « Rathaus » im Brüsseler Kontext), « Schöffe » (nicht « Beigeordneter »), « Tram » (nicht « Straßenbahn » im Brüsseler Kontext)
 `,
   },
 }

@@ -8,6 +8,7 @@ import { rateLimit } from '@/lib/rate-limit';
 
 const contactSchema = z.object({
   name: z.string().min(1).max(120),
+  email: z.string().email().max(200),
   organization: z.string().max(200).optional().default(''),
   message: z.string().min(1).max(4000),
   source: z.string().max(80).optional().default('website'),
@@ -33,10 +34,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, organization, message, source } = parsed.data;
+    const { name, email, organization, message, source } = parsed.data;
 
     if (!process.env.RESEND_API_KEY) {
-      console.log('[Contact]', { name, organization, source, message });
+      console.log('[Contact]', { name, email, organization, source, message });
       return NextResponse.json({ success: true });
     }
 
@@ -50,10 +51,12 @@ export async function POST(request: Request) {
       resend.emails.send({
         from: EMAIL_FROM,
         to: CONTACT_RECIPIENT,
+        replyTo: email,
         subject,
         text: [
           `Source: ${source}`,
           `Nom: ${name}`,
+          `Email: ${email}`,
           `Organisation: ${organization || '—'}`,
           '',
           'Message:',

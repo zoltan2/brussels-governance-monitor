@@ -44,18 +44,29 @@ const DOSSIERS = [
   },
 ] as const;
 
-const RESOURCES = [
+type Resource = {
+  title: string;
+  subtitle: string;
+  href: string;
+  external: boolean;
+  image?: string;
+  quizPlaceholder?: boolean;
+};
+
+const RESOURCES: readonly Resource[] = [
   {
     title: 'Le Signal',
     subtitle: 'Newsletter FR · 8 éditions',
     href: 'https://www.linkedin.com/newsletters/le-signal-bgm-7430513857359527936/',
     external: true,
+    image: '/merci-cafe/signal-bgm.webp',
   },
   {
     title: 'Le Briefing BGM',
     subtitle: 'Podcast FR et NL · 6 épisodes',
     href: 'https://podcast.governance.brussels',
     external: true,
+    image: '/merci-cafe/briefing-bgm.webp',
   },
   {
     title: 'La Lasagne',
@@ -69,6 +80,7 @@ const RESOURCES = [
     subtitle: '10 questions',
     href: '/fr/quiz',
     external: false,
+    quizPlaceholder: true,
   },
 ] as const;
 
@@ -80,8 +92,39 @@ const STATUS_STYLES: Record<string, string> = {
 export default function MerciCafeNumeriquePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:py-14">
+      {/* 0 — Qui vous parle ce soir */}
+      <section aria-labelledby="presenter">
+        <p
+          id="presenter"
+          className="text-xs font-medium tracking-wide text-[#1B3A6B]/70 uppercase"
+        >
+          Qui vous parle ce soir
+        </p>
+        <div className="mt-4 flex items-center gap-5">
+          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-2 ring-[#1B3A6B]/10 sm:h-24 sm:w-24">
+            <Image
+              src="/merci-cafe/zoltan.webp"
+              alt="Zoltán Jánosi"
+              fill
+              sizes="96px"
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div>
+            <p className="text-xl font-bold text-[#1B3A6B] sm:text-2xl">
+              Zoltán Jánosi
+            </p>
+            <p className="mt-1 text-sm leading-snug text-[#1A2744] sm:text-base">
+              Auteur de Brussels Governance Monitor · Livre{' '}
+              <span className="italic">La Lasagne</span> · Advice That SRL
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* 1 — En-tête */}
-      <section className="text-center">
+      <section className="mt-10 text-center sm:mt-14">
         <p className="text-xs font-medium tracking-wide text-[#1B3A6B]/70 uppercase">
           Café Numérique · Bruxelles · 13 avril 2026
         </p>
@@ -105,7 +148,7 @@ export default function MerciCafeNumeriquePage() {
               'group flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#1B3A6B]/30 hover:shadow-md';
             const body = (
               <>
-                {'image' in resource && resource.image && (
+                {resource.image ? (
                   <div className="relative h-40 w-full overflow-hidden bg-[#F7F8FC]">
                     <Image
                       src={resource.image}
@@ -115,7 +158,18 @@ export default function MerciCafeNumeriquePage() {
                       className="object-cover"
                     />
                   </div>
-                )}
+                ) : resource.quizPlaceholder ? (
+                  <div className="flex h-40 w-full items-center justify-center bg-gradient-to-br from-[#1B3A6B] to-[#0F2140]">
+                    <div className="flex items-baseline gap-1 text-white">
+                      <span className="text-5xl font-black leading-none">
+                        10
+                      </span>
+                      <span className="text-lg font-semibold opacity-80">
+                        ?
+                      </span>
+                    </div>
+                  </div>
+                ) : null}
                 <div className="flex flex-1 flex-col p-5">
                   <p className="text-base font-bold text-[#1B3A6B] sm:text-lg">
                     {resource.title}

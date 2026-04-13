@@ -9,6 +9,7 @@ type State = 'idle' | 'loading' | 'success' | 'error';
 
 export function ContactForm() {
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
   const [message, setMessage] = useState('');
   const [state, setState] = useState<State>('idle');
@@ -25,6 +26,7 @@ export function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: name.trim(),
+          email: email.trim(),
           organization: organization.trim(),
           message: message.trim(),
           source: 'cafe-numerique',
@@ -75,6 +77,26 @@ export function ContactForm() {
           className="w-full rounded-md border border-white/20 bg-white px-3 py-3 text-base text-[#1A2744] placeholder:text-[#4A5568] focus:border-[#F2A900] focus:ring-1 focus:ring-[#F2A900] focus:outline-none"
           placeholder="Votre nom"
           autoComplete="name"
+          disabled={state === 'loading'}
+        />
+      </div>
+
+      <div>
+        <label
+          htmlFor="contact-email"
+          className="mb-1 block text-sm font-medium text-white"
+        >
+          Email
+        </label>
+        <input
+          id="contact-email"
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full rounded-md border border-white/20 bg-white px-3 py-3 text-base text-[#1A2744] placeholder:text-[#4A5568] focus:border-[#F2A900] focus:ring-1 focus:ring-[#F2A900] focus:outline-none"
+          placeholder="vous@exemple.be"
+          autoComplete="email"
           disabled={state === 'loading'}
         />
       </div>

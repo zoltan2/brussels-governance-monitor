@@ -50,9 +50,37 @@ export function ContactForm() {
 
   if (state === 'success') {
     return (
-      <div className="rounded-lg bg-white/10 p-6 text-center">
-        <p className="text-base font-medium text-white">Message reçu.</p>
-        <p className="mt-2 text-sm text-white/80">
+      <div
+        role="status"
+        aria-live="polite"
+        className="rounded-lg border border-[#F2A900]/40 bg-white/10 p-6 text-center"
+      >
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#F2A900]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#0F2140"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-7 w-7"
+            aria-hidden="true"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <p className="mt-4 text-xl font-bold text-white">
+          Message envoyé&nbsp;!
+        </p>
+        <p className="mt-2 text-sm text-white/90">
+          Votre message est bien parti vers{' '}
+          <span className="font-medium text-white">
+            contact@brusselsgovernance.be
+          </span>
+          .
+        </p>
+        <p className="mt-1 text-sm text-white/80">
           Je vous réponds personnellement dans les prochains jours.
         </p>
       </div>

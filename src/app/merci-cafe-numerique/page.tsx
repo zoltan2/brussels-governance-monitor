@@ -137,10 +137,10 @@ export default function MerciCafeNumeriquePage() {
         </p>
       </section>
 
-      {/* 2 — Ressources gratuites */}
+      {/* 2 — Ressources */}
       <section className="mt-12 sm:mt-16">
         <h2 className="text-xl font-bold text-[#1B3A6B] sm:text-2xl">
-          Ressources gratuites
+          Ressources
         </h2>
         <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {RESOURCES.map((resource) => {

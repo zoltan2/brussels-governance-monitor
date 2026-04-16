@@ -27,6 +27,11 @@ const radarEntrySchema = z.object({
     accessedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   }),
   nextStep: i18nString.optional(),
+  // `summary` is the short blurb (~150 chars/locale) rendered on the homepage
+  // under "Signaux en cours de vérification". `descriptions` is the long form
+  // (unbounded) shown on /radar and card detail pages. Homepage falls back to
+  // the first sentence of `descriptions` when `summary` is absent — see
+  // getHomepageBlurb() in src/app/[locale]/page.tsx.
   summary: i18nString.optional(),
   descriptions: i18nString,
   promotedTo: z.string().nullable(),

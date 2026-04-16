@@ -42,8 +42,15 @@ const titles: Record<string, string> = {
   de: 'Brüsseler Regierungsführung — Unabhängige Bürgerüberwachung',
 };
 
+// Max width of the homepage radar blurb. Kept in sync with the editorial
+// target (~150 chars/locale) in veille-workflow.md — 180 leaves headroom for
+// minor locale variance before the fallback truncates.
 const HOMEPAGE_SIGNAL_MAX_CHARS = 180;
 
+// Prefer the editorial `summary` field from radar.json (written per signal
+// in 4 locales, ~150 chars each). If a signal predates the field, fall back
+// to the first sentence of `description`, capped at HOMEPAGE_SIGNAL_MAX_CHARS
+// so legacy long-form entries don't blow up the homepage layout.
 function getHomepageBlurb(summary: string | undefined, description: string): string {
   if (summary) return summary;
   const firstSentenceMatch = description.match(/^[^.!?]+[.!?]/);

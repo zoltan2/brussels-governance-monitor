@@ -111,6 +111,12 @@ sources:
   - label: "Iriscare — Bestandsaufnahme des Pflegebedarfs in den Brüsseler Pflegeheimen (8. April 2026)"
     url: "https://www.iriscare.brussels/fr/2026/04/08/iriscare-cartographie-les-besoins-croissants-en-soins-des-habitants-des-maisons-de-repos-bruxelloises/"
     accessedAt: "2026-04-15"
+  - label: "RTBF — Die Prekarität in Brüssel steigt, Sozialbarometer (15. April 2026)"
+    url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
+    accessedAt: "2026-04-16"
+  - label: "BRUZZ — Brüssel zählt mehr Studenten mit Eingliederungseinkommen als ganz Flandern (15. April 2026)"
+    url: "https://www.bruzz.be/actua/onderwijs/brussel-telt-meer-leefloonstudenten-dan-heel-vlaanderen-2026-04-15"
+    accessedAt: "2026-04-16"
 confidenceLevel: estimated
 metrics:
   - label: "COCOM-Finanzierung"
@@ -119,11 +125,53 @@ metrics:
     url: "https://www.vivalis.brussels/fr/budget"
     date: "2026-02-13"
   - label: "Bezieher des Eingliederungseinkommens"
-    value: "~47 000"
-    unit: "Personen"
-    source: "ÖPD Soziale Eingliederung / BISA / Brulocalis"
-    url: "https://www.mi-is.be/"
-    date: "2024-12-31"
+    value: "47 304"
+    unit: "zum 01.01.2025 (Brüssel) — > Flandern 45 616 trotz 5× kleinerer Bevölkerung"
+    source: "Vivalis — Sozialbarometer 2025"
+    url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
+    date: "2025-01-01"
+  - label: "Armut (monetäres Risiko)"
+    value: "23%"
+    unit: "Brüssel — vs 7 % Flandern, 13 % Wallonien (innerhalb der statistischen Fehlermarge gg. 28 % 2023)"
+    source: "Vivalis — Sozialbarometer 2025"
+    url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
+    date: "2026-04-15"
+  - label: "Eingliederungseinkommen — Anteil 18-64 Jahre"
+    value: "~7%"
+    unit: "vs 3 % 2002 ; >1 Erwachsener/10 in Sint-Jans-Molenbeek und Sint-Joost"
+    source: "Vivalis — Sozialbarometer 2025"
+    url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
+    date: "2025-01-01"
+  - label: "Sozialwohnungen — Warteliste"
+    value: "55 572"
+    unit: "Haushalte (+78 % in 15 Jahren, Wartezeiten > 10 Jahre)"
+    source: "Vivalis — Sozialbarometer 2025"
+    url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
+    date: "2026-04-15"
+  - label: "Menschen ohne Aufenthaltstitel (Schätzung)"
+    value: "~50 000"
+    unit: "≈ 4 % der Brüsseler Bevölkerung"
+    source: "Vivalis — Sozialbarometer 2025"
+    url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
+    date: "2026-04-15"
+  - label: "Kinderarmut"
+    value: "~33%"
+    unit: "1 Brüsseler Kind von 3 lebt in Armut"
+    source: "Vivalis — Sozialbarometer 2025"
+    url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
+    date: "2026-04-15"
+  - label: "2 % Ärmste — Rest nach Miete"
+    value: "~10"
+    unit: "€/Person/Tag (50 %+ des Einkommens gehen in die Miete)"
+    source: "Vivalis — Sozialbarometer 2025"
+    url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
+    date: "2026-04-15"
+  - label: "Studenten mit Eingliederungseinkommen"
+    value: "14 246"
+    unit: "in Brüssel — mehr als ganz Flandern (10 064) ; Wallonien: 18 421"
+    source: "BRUZZ / ÖPD Soziale Eingliederung (15. April 2026)"
+    url: "https://www.bruzz.be/actua/onderwijs/brussel-telt-meer-leefloonstudenten-dan-heel-vlaanderen-2026-04-15"
+    date: "2026-04-15"
   - label: "Obdachlosenpolitik"
     value: "325 Plätze gesichert"
     unit: "Marie-Curie 185 + Evere 40 + Schaerbeek 60 + 40 Semi-Autonomie"
@@ -132,7 +180,8 @@ metrics:
     date: "2026-03-19"
   - label: "Gezählte obdachlose Personen"
     value: "9 777"
-    source: "Bruss'Help (8. Zählung)"
+    unit: "+25 % in 2 Jahren (Sozialbarometer 2025)"
+    source: "Bruss'Help (8. Zählung) / Vivalis"
     url: "https://www.brusshelp.org/publications"
     date: "2024-11-06"
   - label: "Obdachlose Minderjährige"
@@ -224,9 +273,9 @@ metrics:
     source: "RTBF / DH (fév. 2026)"
     url: "https://www.rtbf.be/article/equilibre-budgetaire-en-2029-good-move-primes-renolution-voici-ce-que-contient-l-accord-de-gouvernement-regional-a-bruxelles-11678417"
     date: "2026-02-12"
-lastModified: "2026-04-15"
+lastModified: "2026-04-16"
 changeType: updated
-changeSummary: "Iriscare veröffentlicht die ersten Ergebnisse einer Umfrage bei den 118 Brüsseler Pflegeheimen (8. April 2026): diversifizierte und komplexe Pflegebedarfe (psychische Störungen, kognitive Störungen, Abhängigkeiten, soziale Verletzlichkeiten). Die Generaldirektion fordert, die psychosoziale und soziale Dimension in die Bewertung einzubeziehen."
+changeSummary: "Vivalis-Sozialbarometer 2025 am 15. April 2026 veröffentlicht: Armut 23 % (gg. 7 % Flandern, 13 % Wallonien), 47 304 Eingliederungseinkommen-Bezieher zum 1. Januar 2025 (> Flandern 45 616 trotz 5× kleinerer Bevölkerung), 6 von 10 ärmsten belgischen Gemeinden in Brüssel (Sint-Joost, Sint-Jans-Molenbeek, Anderlecht, Koekelberg, Schaerbeek, Brüssel-Stadt), 55 572 Haushalte auf Warteliste Sozialwohnung (+78 % in 15 Jahren), ~50 000 Menschen ohne Aufenthaltstitel (4 % Bev.), Obdachlose +25 % in 2 Jahren (9 777), 1 Kind von 3 in Armut. BRUZZ-Ergänzung (15. April): 14 246 Brüsseler Studenten mit Eingliederungseinkommen, mehr als ganz Flandern (10 064)."
 summaryFalc: "Die neue Regierung investiert in die Sicherheit der Bahnhöfe und richtet einen Drogenbeauftragten ein. Die Dienste für Obdachlose und Menschen in Schwierigkeiten werden geschützt."
 ---
 
@@ -378,6 +427,51 @@ Quellen: RTBF / Belga, BRUZZ (19.-20. März 2026).
 Das Brüsseler Parlament hat zwischen 2021 und 2024 **sechs deliberative Kommissionen** durchgeführt, darunter eine zur Obdachlosigkeit (2021, ~35 Empfehlungen). In mehreren Gemeinden gibt es Bürgerhaushalte. Der AGORA-Mechanismus (permanente Bürgerversammlung für Klimafragen) ist seit 2024 inaktiv.
 
 Quelle: Brüsseler Parlament, 2021-2026.
+
+## Vivalis-Sozialbarometer 2025 (15. April 2026)
+
+Am **15. April 2026** veröffentlicht das **Observatorium für Gesundheit und Soziales** (Forschungsdienst von Vivalis) den **Sozialbarometer 2025** — Referenzbericht zur Lage der Armut und der sozialen Gesundheitsungleichheiten in der Region Brüssel-Hauptstadt.
+
+**Monetäre Armut**: **23 %** der Brüsseler Bevölkerung sind armutsgefährdet, gegenüber **7 % in Flandern** und **13 % in Wallonien**. Der scheinbare Rückgang gegenüber 2023 (28 %) bleibt innerhalb der statistischen Fehlermarge.
+
+**Eingliederungseinkommen (RIS)**: **47 304 Bezieher zum 1. Januar 2025** — mehr als in Flandern (**45 616**) trotz einer fünfmal kleineren Bevölkerung; Wallonien zählt **77 207**. Bei den 18-64-Jährigen ist der Anteil der Bezieher von **3 % im Jahr 2002 auf fast 7 % im Jahr 2025** gestiegen. In **Sint-Jans-Molenbeek** und **Sint-Joost** erhält **mehr als jeder zehnte Erwachsene** das Eingliederungseinkommen.
+
+**Geographie der Armut**: **sechs der zehn einkommensschwächsten Gemeinden Belgiens** liegen in Brüssel — **Sint-Joost, Sint-Jans-Molenbeek, Anderlecht, Koekelberg, Schaerbeek und Brüssel-Stadt**. Innerhalb der Region variieren die Armutsquoten zwischen den Gemeinden um den doppelten bis dreifachen Wert.
+
+**Kinder**: **1 Brüsseler Kind von 3** lebt in Armut.
+
+**Wohnen** — am stärksten verschlechterter Indikator:
+- **55 572 Haushalte** auf der Warteliste für eine Sozialwohnung (**+78 % in 15 Jahren**), Wartezeiten oft über 10 Jahre
+- **24 %** der Brüsseler leben in ungesunden Wohnungen
+- **30 %** in überbelegten Wohnungen (darunter **50 % der Haushalte mit Kindern**)
+- Die **2 % ärmsten** Haushalte verwenden über **50 % ihres Einkommens für die Miete**, sodass ihnen rund **10 € pro Person und Tag** zum Leben bleiben
+
+**Besonders gefährdete Gruppen**:
+- **~50 000 Menschen ohne Aufenthaltstitel** (≈ **4 % der Bevölkerung**)
+- **9 777 obdachlose oder prekär untergebrachte Personen** (Bruss'Help-Zählung, Nov. 2024), **+25 % in zwei Jahren**
+
+**Gesundheitsungleichheiten**:
+- **Lebenserwartungslücke** von rund **5 Jahren** zwischen den wohlhabendsten und den ärmsten Gemeinden
+- **Diabetes** dreimal häufiger bei den 20 % Ärmsten
+- **1 Brüsseler von 5** zeigt Symptome von Angst oder Depression
+
+Quellen: [RTBF — Die Prekarität in Brüssel steigt, Sozialbarometer-Indikatoren (15. April 2026)](https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138); [Vivalis — Observatorium für Gesundheit und Soziales](https://www.vivalis.brussels/fr/informer-et-communiquer/etudes/etudes-de-lobservatoire). Vertrauen: official.
+
+## Studenten mit Eingliederungseinkommen (15. April 2026)
+
+Am **15. April 2026** veröffentlicht BRUZZ auf Grundlage der Daten des **ÖPD Soziale Eingliederung** die Zahl der volljährigen Studenten, die ihr Studium mit einem vom ÖSHZ (OCMW/CPAS) zugesprochenen **Eingliederungseinkommen (RIS)** fortsetzen:
+
+| Region | Studenten mit Eingliederungseinkommen |
+|--------|----------------------------------------|
+| **Brüssel** | **14 246** |
+| Flandern | 10 064 |
+| Wallonien | 18 421 |
+
+Brüssel zählt damit **mehr Studenten mit Eingliederungseinkommen als ganz Flandern**, obwohl die Bevölkerung etwa fünfmal kleiner ist — direkte Folge der **Armutskonzentration** in der Region (siehe Sozialbarometer 2025 oben). In Flandern ist die Zahl der Studenten mit Eingliederungseinkommen in fünf Jahren um **+14 %** gestiegen (Gent: 1 203 ; Mechelen: 584 ; Antwerpen: 546).
+
+**Institutionelle Erinnerung**: Das vom ÖSHZ zugesprochene Eingliederungseinkommen beträgt derzeit **1 340 € pro Monat** für eine Alleinstehende Person. Volljährige Studenten ohne familiäre Unterstützung können Anspruch haben, unter Vertrag mit Anforderungen an den Studienfortschritt (Arbeitsstunden, Begleitung durch eine Sozialarbeiterin). Die Leistung kann ausgesetzt werden, wenn der Werdegang nicht voranschreitet.
+
+Quelle: [BRUZZ — Brüssel zählt mehr Studenten mit Eingliederungseinkommen als ganz Flandern (15. April 2026)](https://www.bruzz.be/actua/onderwijs/brussel-telt-meer-leefloonstudenten-dan-heel-vlaanderen-2026-04-15). Vertrauen: official (Daten des ÖPD Soziale Eingliederung).
 
 ## Iriscare: 130 Genesungsplätze (April 2026)
 

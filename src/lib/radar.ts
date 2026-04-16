@@ -27,6 +27,7 @@ const radarEntrySchema = z.object({
     accessedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   }),
   nextStep: i18nString.optional(),
+  summary: i18nString.optional(),
   descriptions: i18nString,
   promotedTo: z.string().nullable(),
   promotedSection: z.enum(['domains', 'dossiers', 'communes', 'sectors']).optional(),
@@ -51,6 +52,7 @@ export interface LocalizedRadarEntry {
   cards: string[];
   source: { label: string; url: string | null; accessedAt: string };
   nextStep?: string;
+  summary?: string;
   description: string;
   promotedTo: string | null;
   promotedSection?: 'domains' | 'dossiers' | 'communes' | 'sectors';
@@ -73,6 +75,7 @@ function localize(entry: RadarEntry, locale: Locale): LocalizedRadarEntry {
     cards: entry.cards,
     source: entry.source,
     nextStep: entry.nextStep?.[locale] || entry.nextStep?.fr,
+    summary: entry.summary?.[locale] || entry.summary?.fr,
     description: entry.descriptions[locale] || entry.descriptions.fr,
     promotedTo: entry.promotedTo,
     promotedSection: entry.promotedSection,

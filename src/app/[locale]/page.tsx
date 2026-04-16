@@ -42,6 +42,16 @@ const titles: Record<string, string> = {
   de: 'Brüsseler Regierungsführung — Unabhängige Bürgerüberwachung',
 };
 
+const HOMEPAGE_SIGNAL_MAX_CHARS = 180;
+
+function getHomepageBlurb(summary: string | undefined, description: string): string {
+  if (summary) return summary;
+  const firstSentenceMatch = description.match(/^[^.!?]+[.!?]/);
+  const firstSentence = firstSentenceMatch ? firstSentenceMatch[0] : description;
+  if (firstSentence.length <= HOMEPAGE_SIGNAL_MAX_CHARS) return firstSentence;
+  return firstSentence.slice(0, HOMEPAGE_SIGNAL_MAX_CHARS).trimEnd() + '…';
+}
+
 const descriptions: Record<string, string> = {
   fr: 'Moniteur indépendant de la gouvernance à Bruxelles. Engagements de la DPR, dossiers clés, composition du gouvernement et données ouvertes.',
   nl: 'Onafhankelijke monitor van het Brusselse bestuur. DPR-engagementen, sleuteldossiers, regeringssamenstelling en open data.',
@@ -227,7 +237,7 @@ function FollowColumn({
                   {formatDate(signal.date, locale)}
                 </time>
                 <p className="flex-1 text-sm leading-snug text-neutral-700">
-                  {signal.description}
+                  {getHomepageBlurb(signal.summary, signal.description)}
                 </p>
               </div>
             ))}

@@ -2,6 +2,132 @@
   {
     "date": "2026-04-16",
     "type": "updated",
+    "section": "domains",
+    "targetSlug": "urban-planning",
+    "descriptions": {
+      "fr": "Carte Urbanisme enrichie : ajout d'une section sur le plan strategique (ambitieplan) de la maitre architecte Lisa De Visscher, approuve par le gouvernement bruxellois le 16 avril 2026. Cinq axes : acceleration des procedures (avis BMA en deux fois moins de temps pour les projets >=5 000 m²), logement abordable via cooperatives et partenariats public-prive, resilience de l'espace public (chaleur, verdure, desimpermeabilisation), reconversion des batiments vides, qualite transversale. Update : summary, changeSummary, nouvelle source BRUZZ, nouvelle section dediee dans chaque locale. Traduction FR : « plan strategique de la maitre architecte » (translit. des termes NL bouwmeester/ambitieplan).",
+      "nl": "Kaart Stedenbouw verrijkt: toevoeging van een sectie over het ambitieplan van bouwmeester Lisa De Visscher, goedgekeurd door de Brusselse regering op 16 april 2026. Vijf assen: versnelling van procedures (BMA-advies in de helft van de tijd voor projecten >=5 000 m²), betaalbaar wonen via cooperatieven en publiek-private partnerschappen, veerkrachtige openbare ruimte (hitte, groen, ontharding), herbestemming van leegstaande gebouwen, transversale kwaliteit. Update: summary, changeSummary, nieuwe BRUZZ-bron, eigen sectie in elke taal.",
+      "en": "Urban planning card enriched: added a section on the ambition plan of chief architect Lisa De Visscher, approved by the Brussels government on 16 April 2026. Five axes: streamlining procedures (BMA opinion in half the time for projects >=5,000 m²), affordable housing via cooperatives and public-private partnerships, public space resilience (heat, greenery, de-paving), repurposing of vacant buildings, transversal quality. Update: summary, changeSummary, new BRUZZ source, dedicated section in each locale.",
+      "de": "Karte Städtebau angereichert: Abschnitt zum Ambitionsplan der Bouwmeester Lisa De Visscher hinzugefügt, am 16. April 2026 von der Brüsseler Regierung genehmigt. Fünf Achsen: Verfahren beschleunigen (BMA-Gutachten in der halben Zeit für Projekte >=5 000 m²), bezahlbares Wohnen durch Kooperativen und öffentlich-private Partnerschaften, resiliente öffentliche Räume (Hitze, Grün, Entsiegelung), Umnutzung leerstehender Gebäude, transversale Qualität. Update: summary, changeSummary, neue BRUZZ-Quelle, eigener Abschnitt in jeder Sprache."
+    },
+    "summaries": {
+      "fr": "Urbanisme : plan strategique de la maitre architecte De Visscher approuve (16 avril) — 5 axes dont avis BMA en 2x moins de temps",
+      "nl": "Stedenbouw: ambitieplan van bouwmeester De Visscher goedgekeurd (16 april) — 5 assen met o.a. BMA-advies in 2x minder tijd",
+      "en": "Urban planning: chief architect De Visscher's ambition plan approved (16 April) — 5 axes incl. BMA opinion in half the time",
+      "de": "Städtebau: Ambitionsplan der Bouwmeester De Visscher genehmigt (16. April) — 5 Achsen inkl. BMA-Gutachten in der halben Zeit"
+    }
+  },
+  {
+    "date": "2026-04-17",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "institutional",
+    "descriptions": {
+      "fr": "Carte Institutionnel enrichie : (1) ajout d'une section « Indemnites ministerielles : cumul chez la moitie du gouvernement (17 avril 2026) » — 4 ministres sur 8 cumulent l'indemnite de domesticite (1 250 EUR/mois) : Dillies (MR), Henry (MR), Hublet (Les Engages), De Smedt (Anders) ; Hublet et De Smedt cumulent aussi l'indemnite de logement (400 EUR) ; Hublet reverse son logement a 5 associations d'aide aux sans-abri. Renoncent : Persoons (Vooruit), Laaouej (PS), Lalieux (PS), Van den Brandt (Groen). Dillies : « suppression pas a l'ordre du jour ». Tableau detaille par ministre. (2) Ajout dans la section COCOF : « Nouveau leadership du groupe PS » — Leila Agic (nee 1995, deputee PS depuis 2019, ancienne plus jeune conseillere Molenbeek 2018 et cheffe de groupe PS Jette) remplace Jamal Ikazban, devenu chef du groupe PS au Parlement regional. Priorites : proximite, solidarite, lutte contre les discriminations, droits des femmes, soutien aux familles. Sources : BRUZZ (17 avril), La Libre (15 avril).",
+      "nl": "Kaart Institutioneel verrijkt: (1) toevoeging van een sectie « Ministeriele vergoedingen: cumul bij de helft van de regering (17 april 2026) » — 4 op 8 ministers cumuleren de huishoudvergoeding (1 250 EUR/maand): Dillies (MR), Henry (MR), Hublet (Les Engages), De Smedt (Anders); Hublet en De Smedt cumuleren ook de woonvergoeding (400 EUR); Hublet stort zijn woonvergoeding door aan 5 daklozenverenigingen. Zien af: Persoons (Vooruit), Laaouej (PS), Lalieux (PS), Van den Brandt (Groen). Dillies: « afschaffing niet aan de orde ». Gedetailleerd overzicht per minister. (2) Toevoeging in de COCOF-sectie: « Nieuw leiderschap van de PS-fractie » — Leila Agic (geboren 1995, PS-parlementslid sinds 2019, voormalig jongste gemeenteraadslid Molenbeek 2018 en PS-fractievoorzitter Jette) vervangt Jamal Ikazban, die fractievoorzitter PS in het gewestelijk Parlement werd. Prioriteiten: nabijheid, solidariteit, strijd tegen discriminaties, vrouwenrechten, gezinsondersteuning. Bronnen: BRUZZ (17 april), La Libre (15 april).",
+      "en": "Institutional card enriched: (1) new section 'Ministerial allowances: cumulation by half the government (17 April 2026)' — 4 out of 8 ministers cumulate the household allowance (EUR 1,250/month): Dillies (MR), Henry (MR), Hublet (Les Engages), De Smedt (Anders); Hublet and De Smedt also cumulate the housing allowance (EUR 400); Hublet donates his housing allowance to 5 homeless support organisations. Declining: Persoons (Vooruit), Laaouej (PS), Lalieux (PS), Van den Brandt (Groen). Dillies: 'abolition not on the agenda'. Detailed table per minister. (2) Addition in the COCOF section: 'New PS group leadership' — Leila Agic (born 1995, PS MP since 2019, formerly youngest Molenbeek councillor 2018 and PS group leader Jette) replaces Jamal Ikazban, who has become PS group leader at the regional Parliament. Priorities: proximity, solidarity, anti-discrimination, women's rights, family support. Sources: BRUZZ (17 April), La Libre (15 April).",
+      "de": "Karte Institutionell angereichert: (1) neuer Abschnitt „Ministerzulagen: Kumulation bei der halben Regierung (17. April 2026)“ — 4 von 8 Ministern kumulieren die Haushaltszulage (1 250 EUR/Monat): Dillies (MR), Henry (MR), Hublet (Les Engages), De Smedt (Anders); Hublet und De Smedt kumulieren auch die Wohnzulage (400 EUR); Hublet spendet seine Wohnzulage an 5 Obdachlosenvereine. Verzichten: Persoons (Vooruit), Laaouej (PS), Lalieux (PS), Van den Brandt (Groen). Dillies: „Abschaffung nicht auf der Tagesordnung“. Detaillierte Tabelle pro Minister. (2) Ergänzung im COCOF-Abschnitt: „Neue Führung der PS-Fraktion“ — Leila Agic (geboren 1995, PS-Abgeordnete seit 2019, ehemals jüngstes Gemeinderatsmitglied Molenbeek 2018 und PS-Fraktionsvorsitzende Jette) ersetzt Jamal Ikazban, der Fraktionsvorsitzender der PS im regionalen Parlament geworden ist. Prioritäten: Nähe, Solidarität, Kampf gegen Diskriminierungen, Frauenrechte, Familienunterstützung. Quellen: BRUZZ (17. April), La Libre (15. April)."
+    },
+    "summaries": {
+      "fr": "Institutionnel : indemnites ministerielles (4/8 cumulent domesticite 1 250 EUR) + Leila Agic nouvelle cheffe groupe PS Cocof (15-17 avril)",
+      "nl": "Institutioneel: ministeriele vergoedingen (4/8 cumuleren huishoudvergoeding 1 250 EUR) + Leila Agic nieuwe fractievoorzitter PS Cocof (15-17 april)",
+      "en": "Institutional: ministerial allowances (4/8 cumulate household allowance EUR 1,250) + Leila Agic new PS Cocof group leader (15-17 April)",
+      "de": "Institutionell: Ministerzulagen (4/8 kumulieren Haushaltszulage 1 250 EUR) + Leila Agic neue PS-Fraktionsvorsitzende Cocof (15.-17. April)"
+    }
+  },
+  {
+    "date": "2026-04-17",
+    "type": "updated",
+    "section": "communes",
+    "targetSlug": "bruxelles-ville",
+    "descriptions": {
+      "fr": "Commune Bruxelles-Ville enrichie : (1) ajout d'une section « Hausse des taxes terrasses horeca (conseil communal du 20 avril 2026) » — zone pietonne 45 EUR/m² > 50 m² (+50 %) et 35 EUR/m² ≤ 50 m² (+46 %) ; Grand-Place/Sablon 50 EUR/m² (+28 %) ; hors zone pietonne < 50 m² inchange (19 EUR/m²). Multiplicateurs equipements (ferme ×10). Menu affiche : +200 EUR. Forains Zuidfoor +5 %. Justification : couts d'organisation + transferts de charges Region (blocs de beton). Horeca « regrette », « mauvais signal » apres TVA hoteliere federale. (2) Ajout « Fresque Annie Cordy detruite a Laeken (nuit 14-15 avril) » — incendie de la caserne du parc, fresque 2018 (90 ans Annie Cordy) detruite. Reamenagement deja prevu : buste + nouvelle fresque par Amandine Lesay (validation citoyenne 2021). Echevine Culture Nawal Ben Hamou (PS) regrette la perte. Sources : BRUZZ/L'Avenir/DH (17 avril), La Libre (15 avril).",
+      "nl": "Gemeente Brussel-Stad verrijkt: (1) toevoeging van een sectie « Verhoging horecaterrastaksen (gemeenteraad 20 april 2026) » — voetgangerszone 45 EUR/m² > 50 m² (+50 %) en 35 EUR/m² ≤ 50 m² (+46 %); Grote Markt/Zavel 50 EUR/m² (+28 %); buiten voetgangerszone < 50 m² onveranderd (19 EUR/m²). Uitrustingsmultiplicatoren (gesloten ×10). Getoonde kaart: +200 EUR. Foorkramers Zuidfoor +5 %. Motivering: organisatiekosten + lastenoverdracht Gewest (betonblokken). Horeca « betreurt », « slecht signaal » na federale hotel-btw. (2) Toevoeging « Fresco Annie Cordy in Laken verwoest (nacht 14-15 april) » — brand in het kazerne-gebouw van het park, fresco uit 2018 (90 jaar Annie Cordy) vernield. Herinrichting reeds gepland: buste + nieuwe fresco door Amandine Lesay (burgervalidatie 2021). Cultuurschepen Nawal Ben Hamou (PS) betreurt het verlies. Bronnen: BRUZZ/L'Avenir/DH (17 april), La Libre (15 april).",
+      "en": "City of Brussels municipality enriched: (1) added section 'Horeca terrace tax hike (municipal council 20 April 2026)' — pedestrian zone EUR 45/m² > 50 m² (+50%) and EUR 35/m² ≤ 50 m² (+46%); Grand-Place/Sablon EUR 50/m² (+28%); outside pedestrian zone < 50 m² unchanged (EUR 19/m²). Equipment multipliers (closed ×10). Displayed menu: +EUR 200. Zuidfoor funfair rents +5%. Justification: organisation costs + Region's transfer of charges (concrete blocks). Horeca 'regrets', 'bad signal' after federal hotel VAT. (2) Added 'Annie Cordy mural destroyed in Laeken (night of 14-15 April)' — fire in the park's barracks building, 2018 mural (Annie Cordy's 90th birthday) destroyed. Redesign already planned: bust + new mural by Amandine Lesay (citizen validation 2021). Culture alderman Nawal Ben Hamou (PS) regrets the loss. Sources: BRUZZ/L'Avenir/DH (17 April), La Libre (15 April).",
+      "de": "Gemeinde Stadt Brüssel angereichert: (1) neuer Abschnitt „Erhöhung der Horeca-Terrassensteuern (Gemeinderat 20. April 2026)“ — Fußgängerzone 45 EUR/m² > 50 m² (+50 %) und 35 EUR/m² ≤ 50 m² (+46 %); Großer Markt/Sablon 50 EUR/m² (+28 %); außerhalb der Fußgängerzone < 50 m² unverändert (19 EUR/m²). Ausstattungsmultiplikatoren (geschlossen ×10). Aushangkarte: +200 EUR. Schausteller Zuidfoor +5 %. Begründung: Organisationskosten + Übertragung von Lasten der Region (Betonblöcke). Horeca « bedauert », « schlechtes Signal » nach föderaler Hotel-MwSt. (2) Neu „Annie-Cordy-Wandbild in Laeken zerstört (Nacht 14.-15. April)“ — Brand im Kasernengebäude des Parks, Wandbild von 2018 (90. Geburtstag von Annie Cordy) zerstört. Umgestaltung bereits geplant: Büste + neues Wandbild von Amandine Lesay (Bürgervalidierung 2021). Kulturschöffin Nawal Ben Hamou (PS) bedauert den Verlust. Quellen: BRUZZ/L'Avenir/DH (17. April), La Libre (15. April)."
+    },
+    "summaries": {
+      "fr": "Bruxelles-Ville : hausse taxes terrasses horeca (jusqu'a +50 %, conseil 20 avril) + fresque Annie Cordy detruite a Laeken",
+      "nl": "Brussel-Stad: verhoging horecaterrastaksen (tot +50 %, raad 20 april) + fresco Annie Cordy verwoest in Laken",
+      "en": "City of Brussels: horeca terrace tax hike (up to +50%, council 20 April) + Annie Cordy mural destroyed in Laeken",
+      "de": "Stadt Brüssel: Erhöhung Horeca-Terrassensteuern (bis +50 %, Rat 20. April) + Annie-Cordy-Wandbild in Laeken zerstört"
+    }
+  },
+  {
+    "date": "2026-04-17",
+    "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "lez",
+    "descriptions": {
+      "fr": "Dossier LEZ enrichi : report des amendes annoncé le 17 avril par le ministre De Smedt (Anders). Les amendes n'entreront pas en vigueur le 7 juin, mais « au mieux » le 1er juillet 2026. Justification : travail administratif « encore en cours » et adaptation des systèmes de Bruxelles Fiscalité. L'accord politique du 4 avril reste la référence (pass annuel 350 EUR, social 200 EUR, amende mensuelle 80 EUR, taskforce exemptions avant le 15 juin) ; seul le calendrier bouge. Mise à jour : summary, changeSummary, alerts, section « Accord LEZ du 4 avril : amendes reportées au 1er juillet », chronologie étendue avec le 17 avril. Source : BX1 (17 avril 2026).",
+      "nl": "Dossier LEZ verrijkt: uitstel boetes aangekondigd op 17 april door minister De Smedt (Anders). De boetes treden niet op 7 juni in werking, maar « in het beste geval » op 1 juli 2026. Motivering: administratief werk dat « nog aan de gang is » en aanpassing van de systemen van Brussel Fiscaliteit. Het politiek akkoord van 4 april blijft de referentie (jaarpas 350 EUR, sociaal 200 EUR, maandelijkse boete 80 EUR, taskforce vrijstellingen vóór 15 juni); alleen de kalender schuift op. Update: summary, changeSummary, alerts, sectie « LEZ-akkoord van 4 april: boetes uitgesteld naar 1 juli », chronologie uitgebreid met 17 april. Bron: BX1 (17 april 2026).",
+      "en": "LEZ dossier enriched: fine delay announced on 17 April by Minister De Smedt (Anders). Fines will not enter into force on 7 June but 'at best' on 1 July 2026. Rationale: administrative work 'still underway' and adaptation of Brussels Fiscality systems. The political agreement of 4 April remains the reference (annual pass EUR 350, social EUR 200, monthly fine EUR 80, exemptions taskforce before 15 June); only the timeline shifts. Update: summary, changeSummary, alerts, '4 April LEZ agreement: fines pushed to 1 July' section, timeline extended with 17 April. Source: BX1 (17 April 2026).",
+      "de": "LEZ-Dossier angereichert: Verschiebung der Bußgelder am 17. April von Minister De Smedt (Anders) angekündigt. Die Bußgelder treten nicht am 7. Juni in Kraft, sondern „bestenfalls“ am 1. Juli 2026. Begründung: „noch laufende“ Verwaltungsarbeit und Anpassung der Systeme von Brüssel Steuerwesen. Die politische Einigung vom 4. April bleibt die Referenz (Jahrespass 350 EUR, Sozial 200 EUR, monatliche Buße 80 EUR, Befreiungstaskforce vor dem 15. Juni); nur der Zeitplan verschiebt sich. Update: summary, changeSummary, alerts, Abschnitt „LEZ-Vereinbarung vom 4. April: Bußgelder auf 1. Juli verschoben“, Chronologie um den 17. April erweitert. Quelle: BX1 (17. April 2026)."
+    },
+    "summaries": {
+      "fr": "Amendes LEZ reportées : 7 juin → 1er juillet « au mieux » (annonce De Smedt, 17 avril)",
+      "nl": "LEZ-boetes uitgesteld: 7 juni → 1 juli « in het beste geval » (aankondiging De Smedt, 17 april)",
+      "en": "LEZ fines delayed: 7 June → 1 July 'at best' (De Smedt announcement, 17 April)",
+      "de": "LEZ-Bußgelder verschoben: 7. Juni → 1. Juli „bestenfalls“ (Ankündigung De Smedt, 17. April)"
+    }
+  },
+  {
+    "date": "2026-04-17",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "economy",
+    "descriptions": {
+      "fr": "Carte Économie enrichie : le gouvernement bruxellois a entériné le 16 avril la fermeture de 14 des 33 bureaux à l'étranger de Hub.brussels. Bureaux fermés : Milan, Barcelone, Copenhague, Belgrade, Genève (Europe) ; Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (reste du monde) ; La Havane (précédemment annoncée). Gestion décentralisée : La Haye, Lille, Luxembourg. Bureaux conservés (~19). Économies : 3 à 6 M EUR/an. ~30 salariés concernés. Dilliès : « maintenir 33 bureaux à l'étranger est un luxe que Bruxelles ne peut se permettre ». Mise à jour : summary, changeSummary, metric, nouvelle section « Hub.brussels : 14 fermetures confirmées ». Source : BRUZZ (16 avril 2026).",
+      "nl": "Kaart Economie verrijkt: de Brusselse regering bekrachtigde op 16 april de sluiting van 14 van de 33 buitenlandse kantoren van Hub.brussels. Gesloten: Milaan, Barcelona, Kopenhagen, Belgrado, Genève (Europa); Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (rest van de wereld); Havana (eerder aangekondigd). Gedecentraliseerd beheer: Den Haag, Rijsel, Luxemburg. Behouden (~19). Besparingen: 3 tot 6 M EUR/jaar. ~30 werknemers betrokken. Dilliès: « 33 buitenlandse kantoren openhouden is een luxe die Brussel zich niet kan veroorloven ». Update: summary, changeSummary, metric, nieuwe sectie « Hub.brussels: 14 sluitingen bevestigd ». Bron: BRUZZ (16 april 2026).",
+      "en": "Economy card enriched: the Brussels government formalised on 16 April the closure of 14 of Hub.brussels' 33 foreign offices. Closed: Milan, Barcelona, Copenhagen, Belgrade, Geneva (Europe); Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (rest of world); Havana (previously announced). Decentralised management: The Hague, Lille, Luxembourg. Retained (~19). Savings: EUR 3-6M/year. ~30 employees affected. Dilliès: 'Maintaining 33 foreign offices is a luxury Brussels cannot afford'. Update: summary, changeSummary, metric, new section 'Hub.brussels: 14 closures confirmed'. Source: BRUZZ (16 April 2026).",
+      "de": "Karte Wirtschaft angereichert: Die Brüsseler Regierung formalisierte am 16. April die Schließung von 14 der 33 Auslandsbüros von Hub.brussels. Geschlossen: Mailand, Barcelona, Kopenhagen, Belgrad, Genf (Europa); Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (Rest der Welt); Havanna (zuvor angekündigt). Dezentrale Verwaltung: Den Haag, Lille, Luxemburg. Erhalten (~19). Einsparungen: 3 bis 6 Mio. EUR/Jahr. ~30 Mitarbeiter betroffen. Dilliès: „33 Auslandsbüros zu unterhalten ist ein Luxus, den Brüssel sich nicht leisten kann“. Update: summary, changeSummary, metric, neuer Abschnitt „Hub.brussels: 14 Schließungen bestätigt“. Quelle: BRUZZ (16. April 2026)."
+    },
+    "summaries": {
+      "fr": "Hub.brussels : 14 fermetures confirmées sur 33 (décision 16 avril) — liste précise + gestion décentralisée La Haye/Lille/Luxembourg",
+      "nl": "Hub.brussels: 14 sluitingen op 33 bevestigd (beslissing 16 april) — precieze lijst + gedecentraliseerd beheer Den Haag/Rijsel/Luxemburg",
+      "en": "Hub.brussels: 14 of 33 closures confirmed (decision 16 April) — precise list + decentralised management The Hague/Lille/Luxembourg",
+      "de": "Hub.brussels: 14 von 33 Schließungen bestätigt (Entscheidung 16. April) — genaue Liste + dezentrale Verwaltung Den Haag/Lille/Luxemburg"
+    }
+  },
+  {
+    "date": "2026-04-18",
+    "type": "updated",
+    "section": "communes",
+    "targetSlug": "saint-gilles",
+    "descriptions": {
+      "fr": "Commune Saint-Gilles enrichie : escalade de violences liées à la drogue (15-18 avril 2026). Trois incidents graves en quatre nuits — nuit 15→16 : explosion rue de Bosnie (~10 véhicules endommagés) ; nuit 16→17 : tirs rue Gisbert Combaz (3 impacts vitres, sans victime) ; nuit 17→18 : explosion bar OKLM Chicha rue Théodore Verhaegen (façade détruite, 15 vitres de l'Institut des Filles de Marie soufflées, sans victime). Bourgmestre Jean Spinette (PS) : scène « hallucinante », « gangrène » pour la commune, appel à renforcer la capacité d'enquête (« Bruxelles n'a pas besoin de militaires, mais d'enquêteurs »). Renforcement du dispositif policier, moyens fédéraux supplémentaires. Sources : RTBF, BX1, La DH, L'Avenir (15-18 avril 2026).",
+      "nl": "Gemeente Sint-Gillis verrijkt: escalatie van drugsgerelateerd geweld (15-18 april 2026). Drie ernstige incidenten in vier nachten — nacht 15→16: explosie Bosniëstraat (~10 wagens beschadigd); nacht 16→17: schoten Gisbert Combazstraat (3 inslagen op ramen, geen slachtoffers); nacht 17→18: explosie bar OKLM Chicha in Théodore Verhaegenstraat (gevel vernield, 15 ruiten van Institut des Filles de Marie gesneuveld, geen slachtoffers). Burgemeester Jean Spinette (PS): « hallucinante » scène, « gangreen » voor de gemeente, oproep tot versterking van de onderzoekscapaciteit (« Brussel heeft geen militairen nodig, maar onderzoekers »). Versterking van de politie-inzet, bijkomende federale middelen. Bronnen: RTBF, BX1, La DH, L'Avenir (15-18 april 2026).",
+      "en": "Saint-Gilles municipality enriched: escalation of drug-related violence (15-18 April 2026). Three serious incidents in four nights — night 15→16: explosion on rue de Bosnie (~10 vehicles damaged); night 16→17: gunfire on rue Gisbert Combaz (3 window impacts, no casualties); night 17→18: explosion at OKLM Chicha bar on rue Théodore Verhaegen (façade destroyed, 15 windows of Institut des Filles de Marie shattered, no casualties). Mayor Jean Spinette (PS): 'hallucinatory' scene, 'gangrene' for the municipality, call to reinforce investigative capacity ('Brussels does not need soldiers, but investigators'). Reinforced police deployment, additional federal resources. Sources: RTBF, BX1, La DH, L'Avenir (15-18 April 2026).",
+      "de": "Gemeinde Saint-Gilles angereichert: Eskalation drogenbezogener Gewalt (15.-18. April 2026). Drei schwerwiegende Vorfälle in vier Nächten — Nacht 15.→16.: Explosion in der Bosnienstraße (~10 Fahrzeuge beschädigt); Nacht 16.→17.: Schüsse in der Gisbert-Combaz-Straße (3 Scheibeneinschläge, keine Opfer); Nacht 17.→18.: Explosion der Bar OKLM Chicha in der Théodore-Verhaegen-Straße (Fassade zerstört, 15 Scheiben des Institut des Filles de Marie zerborsten, keine Opfer). Bürgermeister Jean Spinette (PS): „halluzinatorische“ Szene, „Gangrän“ für die Gemeinde, Aufruf zur Verstärkung der Ermittlungskapazität („Brüssel braucht keine Soldaten, sondern Ermittler“). Verstärkte Polizeipräsenz, zusätzliche föderale Mittel. Quellen: RTBF, BX1, La DH, L'Avenir (15.-18. April 2026)."
+    },
+    "summaries": {
+      "fr": "Saint-Gilles : escalade de violences liées à la drogue — 3 incidents en 4 nuits, école touchée, Spinette parle de « gangrène »",
+      "nl": "Sint-Gillis: escalatie van drugsgerelateerd geweld — 3 incidenten in 4 nachten, school geraakt, Spinette spreekt van « gangreen »",
+      "en": "Saint-Gilles: escalation of drug-related violence — 3 incidents in 4 nights, school hit, Spinette calls it 'gangrene'",
+      "de": "Saint-Gilles: Eskalation drogenbezogener Gewalt — 3 Vorfälle in 4 Nächten, Schule getroffen, Spinette spricht von „Gangrän“"
+    }
+  },
+  {
+    "date": "2026-04-18",
+    "type": "updated",
+    "section": "domains",
+    "targetSlug": "security",
+    "descriptions": {
+      "fr": "Carte Sécurité enrichie : nouvelle section « Escalade de violences à Saint-Gilles (15-18 avril 2026) » — 3 incidents en 4 nuits (explosions rue de Bosnie et rue Théodore Verhaegen, tirs rue Gisbert Combaz), école Institut des Filles de Marie touchée. Position du bourgmestre Spinette (PS) en rupture avec la ligne fédérale : « Bruxelles n'a pas besoin de militaires, mais d'enquêteurs et de patrouilles ». Lien établi avec la commune Saint-Gilles. Renforcement du dispositif policier, moyens fédéraux supplémentaires. Mise à jour : summary, changeSummary, sources, section dédiée.",
+      "nl": "Kaart Veiligheid verrijkt: nieuwe sectie « Geweldescalatie in Sint-Gillis (15-18 april 2026) » — 3 incidenten in 4 nachten (explosies Bosnie- en Théodore Verhaegenstraat, schoten Gisbert Combazstraat), school Institut des Filles de Marie geraakt. Standpunt van burgemeester Spinette (PS) breekt met de federale lijn: « Brussel heeft geen militairen nodig, maar onderzoekers en patrouilles ». Link gelegd met de gemeente Sint-Gillis. Versterkte politie-inzet, bijkomende federale middelen. Update: summary, changeSummary, bronnen, eigen sectie.",
+      "en": "Security card enriched: new section 'Escalation of violence in Saint-Gilles (15-18 April 2026)' — 3 incidents in 4 nights (explosions on rue de Bosnie and rue Théodore Verhaegen, gunfire on rue Gisbert Combaz), Institut des Filles de Marie school hit. Mayor Spinette's (PS) stance breaks with the federal line: 'Brussels does not need soldiers, but investigators and patrols'. Link established with the Saint-Gilles municipality. Reinforced police deployment, additional federal resources. Update: summary, changeSummary, sources, dedicated section.",
+      "de": "Karte Sicherheit angereichert: neuer Abschnitt „Gewalteskalation in Saint-Gilles (15.-18. April 2026)“ — 3 Vorfälle in 4 Nächten (Explosionen in der Bosnienstraße und der Théodore-Verhaegen-Straße, Schüsse in der Gisbert-Combaz-Straße), Schule Institut des Filles de Marie getroffen. Position von Bürgermeister Spinette (PS) bricht mit der föderalen Linie: „Brüssel braucht keine Soldaten, sondern Ermittler und Patrouillen“. Verknüpfung mit der Gemeinde Saint-Gilles hergestellt. Verstärkte Polizeipräsenz, zusätzliche föderale Mittel. Update: summary, changeSummary, Quellen, eigener Abschnitt."
+    },
+    "summaries": {
+      "fr": "Sécurité : section dédiée à l'escalade de violences à Saint-Gilles (15-18 avril) ajoutée ; position Spinette vs ligne militaire fédérale",
+      "nl": "Veiligheid: eigen sectie over geweldescalatie in Sint-Gillis (15-18 april) toegevoegd; standpunt Spinette vs federale militaire lijn",
+      "en": "Security: dedicated section on Saint-Gilles violence escalation (15-18 April) added; Spinette's stance vs federal military line",
+      "de": "Sicherheit: eigener Abschnitt zur Gewalteskalation in Saint-Gilles (15.-18. April) hinzugefügt; Position Spinette vs föderale Militärlinie"
+    }
+  },
+  {
+    "date": "2026-04-16",
+    "type": "updated",
     "section": "dossiers",
     "targetSlug": "acs",
     "descriptions": {

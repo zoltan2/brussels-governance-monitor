@@ -7,7 +7,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: regional
-summary: "Bruxelles dispose de deux mécanismes de démocratie participative : les commissions délibératives du Parlement (45 citoyens tirés au sort + 15 députés) et l'assemblée citoyenne permanente pour le climat. Six commissions achevées depuis 2021 (205+ recommandations), la 7e (propreté) tenue en mars 2026. L'assemblée climat a clos son 3e cycle (partage) avec 8 propositions prioritaires ; le bilan 3 ans publié par Bruxelles Environnement le 4 mars 2026 cumule plus d'une centaine de propositions. En parallèle, plusieurs communes ont lancé des budgets participatifs (Ixelles 4e édition 2025-2026, jurys 8-9 avril 2026)."
+summary: "Bruxelles : deux mécanismes de démocratie participative — commissions délibératives du Parlement (45+15 standard, exception alternance 36+12) et assemblée permanente pour le climat. 6 commissions achevées 2021-2023 : 220+ recommandations au total (RTBF), 204 vérifiées hors alternance (non publiée). 7e (propreté) tenue mars 2026. Assemblée climat : 3e cycle (partage) clos, 8 propositions ; bilan 3 ans publié 4 mars 2026 (~100+ propositions). Budgets participatifs communaux (Ixelles 4e édition)."
 estimatedBudget: "Budgets participatifs communaux : ~370 000 EUR/an (Ixelles + WSL)"
 stakeholders:
   - "Parlement bruxellois"
@@ -41,6 +41,27 @@ sources:
   - label: "RTBF — Le Parlement valide la commission sur la propreté (jan. 2026)"
     url: "https://www.rtbf.be/article/le-parlement-bruxellois-valide-la-creation-d-une-commission-deliberative-sur-la-proprete-composee-de-citoyens-et-de-deputes-11666896"
     accessedAt: "2026-02-26"
+  - label: "RTBF — Les commissions délibératives avec des citoyens bruxellois ont-elles été écoutées ensuite par les politiques ? (25 mars 2026, chiffrage par commission et coût ~90 000 € / commission)"
+    url: "https://www.rtbf.be/article/les-commissions-deliberatives-avec-des-citoyens-bruxellois-ont-elles-ete-ecoutees-ensuite-par-les-politiques-11700258"
+    accessedAt: "2026-04-19"
+  - label: "Parlement bruxellois — La commission 5G adopte 43 recommandations (5 juin 2021)"
+    url: "http://www.parlement.brussels/commission-deliberative-consacree-deploiement-de-5g-region-bruxelloise-adopte-43-recommandations/"
+    accessedAt: "2026-04-19"
+  - label: "Parlement bruxellois — La commission biodiversité adopte son rapport (21 mai 2022, 21 recommandations)"
+    url: "http://www.parlement.brussels/commission-deliberative-consacree-a-biodiversite-ville-adopte-rapport/"
+    accessedAt: "2026-04-19"
+  - label: "Ecolo — Commission délibérative bruit : 21 recommandations (juin 2023)"
+    url: "https://ecolo.be/actualites/commission-deliberative-21-recommandations-pour-ameliorer-lambiance-sonore-en-ville/"
+    accessedAt: "2026-04-19"
+  - label: "CBCS — Commissions délibératives : démocratie ou leurre de participation ? (Stéphanie Devlésaver, janvier 2021, citation A. Willaert)"
+    url: "https://cbcs.be/commissions-deliberatives-democratie-ou-leurre-de-participation/"
+    accessedAt: "2026-04-19"
+  - label: "L'Avenir — 148 processus participatifs à Bruxelles depuis 2019 (24 juillet 2025, inventaire perspective.brussels 2023-2024)"
+    url: "https://www.lavenir.net/regions/bruxelles/2025/07/24/148-processus-participatifs-a-bruxelles-depuis-2019-la-participation-change-le-role-des-politiques-en-elus-animateurs-et-cest-tout-aussi-valorisant-ABJ5TBNOSBFK5EVDEF6MXXSQWU/"
+    accessedAt: "2026-04-19"
+  - label: "Moniteur belge — Ordonnance spéciale régionale du 25 avril 2024 instituant la consultation populaire régionale"
+    url: "https://etaamb.openjustice.be/fr/ordonnance-du-25-avril-2024_n2024004154.html"
+    accessedAt: "2026-04-19"
   - label: "BX1 — Commission mixte citoyens-parlementaires sur la propreté"
     url: "https://bx1.be/categories/news/une-commission-mixte-citoyens-parlementaires-sur-la-proprete-sera-creee-a-bruxelles/"
     accessedAt: "2026-02-26"
@@ -76,15 +97,24 @@ metrics:
     value: "6"
     source: "democratie.brussels"
     date: "2026-02-26"
-  - label: "Recommandations (6 commissions)"
-    value: "~205"
-    source: "democratie.brussels / Parlement bruxellois"
-    date: "2026-02-26"
-  - label: "Citoyens tirés au sort par commission"
+  - label: "Recommandations cumulées (6 commissions, total RTBF)"
+    value: "220+"
+    unit: "(204 vérifiées par source primaire : 43 + 97 + 22 + 21 + 21 sur 5 commissions ; alternance : nombre non publié)"
+    source: "RTBF (25 mars 2026)"
+    url: "https://www.rtbf.be/article/les-commissions-deliberatives-avec-des-citoyens-bruxellois-ont-elles-ete-ecoutees-ensuite-par-les-politiques-11700258"
+    date: "2026-03-25"
+  - label: "Citoyens tirés au sort par commission (standard)"
     value: "45"
-    unit: "(+ 15 parlementaires)"
-    source: "Parlement bruxellois"
-    date: "2026-02-26"
+    unit: "+ 15 parlementaires (ratio 25/75) — exception alternance : 36 + 12"
+    source: "democratie.brussels / Parlement bruxellois"
+    url: "https://democratie.brussels/pages/cd"
+    date: "2026-04-19"
+  - label: "Coût moyen par commission délibérative"
+    value: "~90 000"
+    unit: "€ (estimation Parlement bruxellois)"
+    source: "RTBF (25 mars 2026)"
+    url: "https://www.rtbf.be/article/les-commissions-deliberatives-avec-des-citoyens-bruxellois-ont-elles-ete-ecoutees-ensuite-par-les-politiques-11700258"
+    date: "2026-03-25"
   - label: "7e commission (propreté)"
     value: "2026"
     unit: "validée le 23 janvier, sessions au printemps"
@@ -105,9 +135,11 @@ metrics:
     unit: "(+ 9 ambitions, remises au gouvernement juin 2023)"
     source: "participation.brussels"
     date: "2023-06-30"
-  - label: "Processus participatifs depuis 2019"
+  - label: "Processus participatifs à Bruxelles depuis 2019"
     value: "148"
-    source: "L'Avenir (juil. 2025)"
+    unit: "(inventaire perspective.brussels 2023-2024, cartographie publiée mi-juin 2025 ; 2/3 communal, 1/3 régional)"
+    source: "L'Avenir (24 juillet 2025)"
+    url: "https://www.lavenir.net/regions/bruxelles/2025/07/24/148-processus-participatifs-a-bruxelles-depuis-2019-la-participation-change-le-role-des-politiques-en-elus-animateurs-et-cest-tout-aussi-valorisant-ABJ5TBNOSBFK5EVDEF6MXXSQWU/"
     date: "2025-07-24"
   - label: "Propositions cumulées assemblée climat (3 cycles)"
     value: "~100+"
@@ -128,37 +160,37 @@ alerts:
   - label: "8e commission (mobilité) prévue au 2e semestre 2026"
     severity: info
     date: "2026-01-23"
-  - label: "Assemblée climat : arrêté ministériel de pérennisation toujours non adopté au 19 avril 2026 (délai initial : fin 2025)"
+  - label: "Assemblée climat : arrêté ministériel de pérennisation toujours non adopté au 20 avril 2026 (délai initial : fin 2025)"
     severity: warning
-    date: "2026-04-19"
+    date: "2026-04-20"
   - label: "AGORA inactive depuis 2024 — financement non renouvelé"
     severity: warning
     date: "2024-12-31"
 confidenceLevel: official
 dprCommitment: "La DPR prévoit une consultation citoyenne sur la mobilité (commission délibérative) et une feuille de route pour l'assemblée citoyenne pour le climat."
-lastModified: "2026-04-19"
-changeType: updated
-changeSummary: "Mise à jour mi-avril 2026 : (1) 3e cycle de l'assemblée climat (partage) clôturé avec avis publié — 8 propositions prioritaires (plan de visibilité, incubateur, subsides, fédération, bibliothèques, voitures partagées jeunes, hubs énergie, panneaux solaires). (2) Bilan 3 ans publié par Bruxelles Environnement le 4 mars 2026 : ~100+ propositions cumulées (habitat + alimentation + partage). (3) Arrêté ministériel de pérennisation toujours non adopté (délai fin 2025 dépassé). (4) Budget participatif Ixelles 4e édition : jurys les 8-9 avril 2026, résultats finaux en cours de finalisation."
+lastModified: "2026-04-20"
+changeType: data-refresh
+changeSummary: "Audit complet et correctif : (1) Chiffres par commission vérifiés par source primaire : 5G = 43 (parlement.brussels), sans-abrisme = 97 (RTBF), citoyens en crise = 22 (octobre 2021 — précédemment mal daté mai 2022), biodiversité = 21, alternance = non publié (rapport 13 juillet 2022 — précédemment mal daté 2023), bruit = 21 (avril-juin 2023 — précédemment mal daté 2024). Total RTBF : 220+ (204 vérifiées + alternance non chiffré). (2) Composition : standard 45 + 15 mais exception alternance 36 + 12. (3) Citation CBCS corrigée (phrase « performatives sans changement » fabriquée retirée ; citation réelle Alain Willaert conservée). (4) Ordonnance 2024 reclassée : régionale (pas communale) ; AGORA a déposé des amendements, n'a pas porté la proposition. (5) Coût ~90 000 € / commission ajouté (RTBF). (6) Attribution 148 processus corrigée : inventaire perspective.brussels 2023-2024. (7) Citations RTBF ajoutées dans Regards critiques."
 ---
 
 ## Les commissions délibératives du Parlement bruxellois
 
-Depuis décembre 2019, le règlement du Parlement bruxellois (art. 28bis) permet la création de **commissions délibératives** réunissant 45 citoyens tirés au sort et 15 parlementaires. Le dispositif permet aux citoyens de délibérer directement avec leurs élus pendant 4 à 5 jours et de formuler des recommandations transmises à la commission parlementaire compétente.
+Depuis décembre 2019, le règlement du Parlement bruxellois (art. 28bis) permet la création de **commissions délibératives** réunissant un ratio fixe de **¼ de parlementaires et ¾ de citoyens tirés au sort** (source : democratie.brussels). La composition standard est de **45 citoyens + 15 parlementaires** (60 membres au total). Une exception notable : la commission formation en alternance (2022) a été composée de **36 citoyens + 12 parlementaires** (48 membres), sans qu'une justification publique ne soit fournie sur la taille réduite. Le dispositif permet aux citoyens de délibérer directement avec leurs élus pendant 4 à 5 jours et de formuler des recommandations transmises à la commission parlementaire compétente.
 
 Les citoyens sont sélectionnés par double tirage au sort via les numéros de registre national parmi les résidents de la Région bruxelloise âgés de 16 ans et plus. La plateforme democratie.brussels assure la transparence du processus.
 
-### Six commissions achevées (2021–2024)
+### Six commissions achevées (2021–2023)
 
-| Thème | Dates | Recommandations |
-|-------|-------|----------------|
-| La 5G à Bruxelles | avril–juin 2021 | ~20 |
-| Le sans-abrisme | juin–juillet 2021 | ~35 |
-| Le rôle des citoyens en temps de crise | mai 2022 | ~30 |
-| La biodiversité en ville | avril–mai 2022 | ~40 |
-| La formation en alternance | 2023 | ~35 |
-| Le bruit en milieu urbain | 2024 | ~45 |
+| Thème | Dates | Recommandations | Source |
+|-------|-------|----------------|--------|
+| La 5G à Bruxelles | 29 avril – 5 juin 2021 | **43** | [Parlement bruxellois](http://www.parlement.brussels/commission-deliberative-consacree-deploiement-de-5g-region-bruxelloise-adopte-43-recommandations/) |
+| Le sans-abrisme | 24 juin – 17 juillet 2021 | **97** | [RTBF 25 mars 2026](https://www.rtbf.be/article/les-commissions-deliberatives-avec-des-citoyens-bruxellois-ont-elles-ete-ecoutees-ensuite-par-les-politiques-11700258) |
+| Le rôle des citoyens en temps de crise | **octobre 2021** (rapport 30 oct. 2021) | **22** | democratie.brussels / La Libre |
+| La biodiversité en ville | 28 avril – 21 mai 2022 | **21** (22 initialement, 2 fusionnées) | [Parlement bruxellois](http://www.parlement.brussels/commission-deliberative-consacree-a-biodiversite-ville-adopte-rapport/) |
+| La formation en alternance | **10 juin – 13 juillet 2022** (composition exceptionnelle 36+12) | **non publié** | democratie.brussels (page composition) |
+| Le bruit en milieu urbain | **20 avril – 10 juin 2023** | **21** | [Ecolo](https://ecolo.be/actualites/commission-deliberative-21-recommandations-pour-ameliorer-lambiance-sonore-en-ville/) |
 
-**Total : ~205 recommandations**, transmises aux commissions parlementaires compétentes. Le suivi est assuré par les députés, qui doivent rendre compte dans les six mois.
+**Total RTBF (25 mars 2026) : « plus de 220 recommandations »**. Somme vérifiée par source primaire sur 5 commissions (hors alternance, non publiée) : **204**. Les recommandations sont transmises aux commissions parlementaires compétentes. Le suivi est assuré par les députés, qui doivent rendre compte dans les six mois. Coût estimé d'une commission : **~90 000 €** (source : Parlement bruxellois cité par RTBF).
 
 ### 7e commission : la propreté publique (2026)
 
@@ -188,7 +220,7 @@ Distincte des commissions délibératives, l'**assemblée citoyenne pour le clim
 | 2 | Alimentation durable | 2023–2024 | Recommandations en suivi |
 | 3 | Économie de partage et collaboration | 2024–2025 | Avis publié — 8 propositions prioritaires |
 
-Les recommandations du premier cycle ont été remises au gouvernement en juin 2023. La pérennisation de l'assemblée est conditionnée à l'adoption d'un **arrêté ministériel** définissant les modalités précises — initialement attendu avant fin 2025, **toujours non adopté au 19 avril 2026**.
+Les recommandations du premier cycle ont été remises au gouvernement en juin 2023. La pérennisation de l'assemblée est conditionnée à l'adoption d'un **arrêté ministériel** définissant les modalités précises — initialement attendu avant fin 2025, **toujours non adopté au 20 avril 2026**.
 
 ### Les 8 propositions du cycle 3 (économie de partage)
 
@@ -209,7 +241,9 @@ Bruxelles Environnement a publié le 4 mars 2026 un premier bilan synthétique a
 
 ## AGORA : l'initiative citoyenne indépendante
 
-**AGORA** est un mouvement citoyen (non institutionnel) lancé en 2019, inspiré du modèle irlandais. 89 citoyens tirés au sort ont formulé des propositions législatives concrètes, dont une qui a abouti à l'**ordonnance sur les consultations populaires communales** (2024).
+**AGORA** est un mouvement citoyen (non institutionnel) lancé en 2019, explicitement inspiré du **modèle irlandais** (Citizens' Assembly irlandaise de 100 citoyens tirés au sort ayant modifié la Constitution en 2016). À l'automne 2019, AGORA a réuni une première assemblée de **89 citoyens bruxellois** tirés au sort selon des quotas représentatifs de la population (52 % de femmes, représentativité par âge, genre et niveau d'éducation). Le mouvement a organisé au total **quatre assemblées citoyennes** entre 2019 et 2023.
+
+AGORA a plaidé politiquement pour l'institutionnalisation des consultations citoyennes à Bruxelles. En février 2024, plusieurs partis de la majorité régionale (PS, Groen, Ecolo, Vooruit, DéFI) ont déposé une **proposition d'ordonnance spéciale** instaurant la consultation populaire régionale. **AGORA a déposé des amendements** à cette proposition. L'ordonnance a été adoptée les **25 avril 2024** (ordonnance spéciale) et **16 mai 2024** (ordonnance d'organisation) — il s'agit d'une **consultation populaire RÉGIONALE** (pas communale).
 
 **Statut actuel : inactive depuis 2024.** Le financement n'a pas été renouvelé. Aucune mention dans la DPR 2026.
 
@@ -225,25 +259,26 @@ Au total, **148 processus participatifs** ont été organisés à Bruxelles depu
 
 ## Cadre légal : quatre bases distinctes
 
-1. **Règlement du Parlement, art. 28bis** (décembre 2019) — commissions délibératives
-2. **Ordonnance climat** (2022, modifiée 2024) — assemblée citoyenne permanente pour le climat
-3. **Ordonnance consultations populaires** (2024, issue d'AGORA) — consultations communales
+1. **Règlement du Parlement, art. 28bis** (décembre 2019) — commissions délibératives mixtes citoyens-parlementaires
+2. **Ordonnance climat** (2022, modifiée le 7 mars 2024) — assemblée citoyenne permanente pour le climat ; arrêté ministériel de pérennisation prévu avant fin 2025, **non adopté au 20 avril 2026**
+3. **Ordonnance spéciale régionale** du 25 avril 2024 et ordonnance d'organisation du 16 mai 2024 — **consultation populaire régionale** (proposition portée par les partis de la majorité, amendée par AGORA)
 4. **Nouvelle loi communale, art. 258bis** — budgets participatifs communaux
 
 ## Regards critiques
 
 Le CBCS (Centre Bruxellois de documentation sur l'action Sociale) et d'autres observateurs ont documenté plusieurs limites :
 
-- **Suivi insuffisant** : les députés doivent rendre compte dans les six mois, mais le caractère non contraignant des recommandations limite l'impact réel
-- **Risque d'instrumentalisation** : « les commissions pourraient devenir performatives sans changement politique réel » (CBCS)
-- **Concurrence avec l'expertise** : les commissions risquent de recevoir plus d'attention politique que « les avis des Conseils consultatifs et des professionnels de terrain »
-- **Sélection des thèmes** : la 5G a été choisie comme premier thème, repoussant des sujets jugés plus urgents
-- **Impact de la crise politique** : les 613 jours sans gouvernement régional (2024–2026) ont gelé le suivi des recommandations des commissions 4 à 6. Le nouveau gouvernement doit relancer cet accompagnement
+- **Suivi insuffisant et non chiffré** : les députés doivent rendre compte dans les six mois, mais le caractère non contraignant des recommandations limite l'impact réel. En mars 2026, un député interrogé par la RTBF sur le taux de mise en œuvre réel répond : *« C'est extrêmement difficile à dire. Il n'y a pas de statistiques précises. »*
+- **Concurrence avec l'expertise consultative** : *« Le deuxième écueil serait de porter une attention politique plus importante aux délibérations des commissions qu'aux avis des Conseils consultatifs et des professionnels de terrain »* — **Alain Willaert**, coordinateur du CBCS (dans l'analyse de Stéphanie Devlésaver, CBCS, janvier 2021).
+- **Récupération partisane** : *« Les partis essaient de récupérer les idées qui les arrangent »* (député cité par RTBF, 25 mars 2026).
+- **Frustration citoyenne** : *« On nous a fait croire à beaucoup de choses, qu'on pouvait avoir un réel impact sur le changement »* (participante citée par RTBF, 25 mars 2026).
+- **Sélection des thèmes** : la 5G a été choisie comme premier thème, repoussant des sujets jugés plus urgents par d'autres observateurs.
+- **Impact de la crise politique 2024-2026** : les 613 jours sans gouvernement régional (du 9 juin 2024 au 12 février 2026) ont gelé le suivi des recommandations des commissions 4 à 6. Le nouveau gouvernement doit relancer cet accompagnement.
 
 ## Enjeux à suivre
 
 - **Commission propreté** (printemps 2026) : premier test de la nouvelle législature
 - **Commission mobilité** (2e semestre 2026) : lien avec la révision de Good Move
 - **Arrêté ministériel assemblée climat** : pérennisation du dispositif
-- **Suivi des 205+ recommandations** : taux de mise en œuvre réel
+- **Suivi des 220+ recommandations** : taux de mise en œuvre réel — aucune statistique précise disponible selon le Parlement (RTBF, mars 2026)
 - **DPR** : la déclaration de politique régionale prévoit une consultation citoyenne sur la mobilité et une feuille de route pour l'assemblée climat

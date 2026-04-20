@@ -13,6 +13,9 @@ dist/
 # Velite generated
 .velite/
 
+# Preview builds
+.preview/
+
 # Pagefind old locations (committed version is in public/pagefind/)
 .next/static/pagefind/
 
@@ -61,6 +64,9 @@ entites_bruxelles.xlsx
 
 # Design specs & implementation plans (private — stored in bgm-ops)
 docs/superpowers/
+
+# Magazine test fixtures (not real content)
+content/digest/__fixtures__/
 
 # Internal documents (not for public repo)
 docs/SECURITE.md

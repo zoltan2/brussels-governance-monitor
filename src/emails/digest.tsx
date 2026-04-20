@@ -33,6 +33,7 @@ export interface DigestEmailProps {
   siteUrl: string;
   feedbackYesUrl?: string;
   feedbackNoUrl?: string;
+  magazineUrl?: string;
 }
 
 const STATUS_STYLES = {
@@ -73,6 +74,7 @@ const T: Record<string, {
   quizTeaser: string;
   quizCta: string;
   quizDesc: string;
+  magazineLabel: string;
   feedbackQuestion: string;
   feedbackYes: string;
   feedbackNo: string;
@@ -105,6 +107,7 @@ const T: Record<string, {
     quizTeaser: 'Connaissez-vous vraiment Bruxelles ?',
     quizCta: 'Testez vos connaissances',
     quizDesc: '10 questions sur la gouvernance bruxelloise — un nouveau quiz chaque semaine.',
+    magazineLabel: 'Lire en version magazine \u2192',
     feedbackQuestion: 'Ce digest vous a été utile ?',
     feedbackYes: '👍 Oui',
     feedbackNo: '👎 Non',
@@ -137,6 +140,7 @@ const T: Record<string, {
     quizTeaser: 'Kent u Brussel echt?',
     quizCta: 'Test uw kennis',
     quizDesc: '10 vragen over het Brusselse bestuur — elke week een nieuwe quiz.',
+    magazineLabel: 'Lees de magazine-versie \u2192',
     feedbackQuestion: 'Was deze digest nuttig voor u?',
     feedbackYes: '👍 Ja',
     feedbackNo: '👎 Nee',
@@ -169,6 +173,7 @@ const T: Record<string, {
     quizTeaser: 'How well do you know Brussels?',
     quizCta: 'Test your knowledge',
     quizDesc: '10 questions on Brussels governance — a new quiz every week.',
+    magazineLabel: 'Read the magazine edition \u2192',
     feedbackQuestion: 'Was this digest useful?',
     feedbackYes: '👍 Yes',
     feedbackNo: '👎 No',
@@ -201,6 +206,7 @@ const T: Record<string, {
     quizTeaser: 'Kennen Sie Brüssel wirklich?',
     quizCta: 'Testen Sie Ihr Wissen',
     quizDesc: '10 Fragen zur Brüsseler Governance — jede Woche ein neues Quiz.',
+    magazineLabel: 'Magazine-Version lesen \u2192',
     feedbackQuestion: 'War dieser Digest nützlich?',
     feedbackYes: '👍 Ja',
     feedbackNo: '👎 Nein',
@@ -226,6 +232,7 @@ export function generateDigestPlainText({
   closingNote,
   commitmentCount,
   siteUrl,
+  magazineUrl,
 }: DigestEmailProps): string {
   const t = T[locale] || T.fr;
 
@@ -245,6 +252,7 @@ export function generateDigestPlainText({
     weeklyNumber.label,
     weeklyNumber.source,
     '',
+    ...(magazineUrl ? [`${t.magazineLabel} ${magazineUrl}`, ''] : []),
     `${t.commitmentsTitle}: ${commitmentCount} ${t.commitmentsDesc}`,
     `${siteUrl}/${locale}/${t.commitmentsLink}?utm_source=bgm-digest&utm_medium=email&utm_campaign=weekly&utm_content=commitments`,
     '',
@@ -350,6 +358,7 @@ export function DigestContent({
   siteUrl,
   feedbackYesUrl,
   feedbackNoUrl,
+  magazineUrl,
 }: DigestEmailProps) {
   const t = T[locale] || T.fr;
 
@@ -545,6 +554,29 @@ export function DigestContent({
             </table>
           </td>
         </tr>
+
+        {/* ===== MAGAZINE BUTTON (conditional) ===== */}
+        {magazineUrl ? (
+          <tr>
+            <td style={{ padding: '16px 40px 0', textAlign: 'center' as const }}>
+              <Button
+                href={magazineUrl}
+                style={{
+                  display: 'inline-block',
+                  backgroundColor: '#0f172a',
+                  color: '#ffffff',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                  padding: '10px 20px',
+                  borderRadius: '4px',
+                }}
+              >
+                {t.magazineLabel}
+              </Button>
+            </td>
+          </tr>
+        ) : null}
 
         {/* ===== COMMITMENTS ===== */}
         <tr>

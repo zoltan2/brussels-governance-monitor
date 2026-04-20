@@ -141,6 +141,10 @@ export const POST = auth(async function POST(req) {
       de: `BGM Digest #${weekNum} — ${weekOf}`,
     };
 
+    const magazineUrl = digest.magazine
+      ? `https://zoltan2.github.io/brussels-governance-monitor/magazine/s${weekNum}/`
+      : undefined;
+
     const emailProps = {
       locale,
       updates,
@@ -157,6 +161,7 @@ export const POST = auth(async function POST(req) {
       siteUrl,
       feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
       feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
+      magazineUrl,
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -19,7 +19,8 @@
     "generate-digest": "tsx scripts/generate-digest.ts",
     "qr:cafe": "tsx scripts/generate-qr-cafe-numerique.ts",
     "assets:merci-cafe": "tsx scripts/optimize-merci-cafe-assets.ts",
-    "magazine:preview": "tsx scripts/preview-magazine.ts"
+    "magazine:preview": "tsx scripts/preview-magazine.ts",
+    "magazine:build": "tsx scripts/build-magazine.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.87.0",

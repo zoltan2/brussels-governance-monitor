@@ -65,6 +65,9 @@ entites_bruxelles.xlsx
 # Design specs & implementation plans (private — stored in bgm-ops)
 docs/superpowers/
 
+# Magazine build output (deployed to gh-pages branch by CI)
+docs/magazine/
+
 # Magazine test fixtures (not real content)
 content/digest/__fixtures__/
 

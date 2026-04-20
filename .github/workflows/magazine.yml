@@ -1,0 +1,50 @@
+name: Magazine
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/digest/**.fr.mdx'
+      - 'src/lib/magazine/**'
+      - 'scripts/build-magazine.ts'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: magazine-deploy
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build magazine
+        id: build
+        run: |
+          npm run magazine:build
+          if [ ! -d "docs/magazine/latest" ]; then
+            echo "status=skipped" >> "$GITHUB_OUTPUT"
+          else
+            echo "status=built" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy to gh-pages
+        if: steps.build.outputs.status == 'built'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/magazine
+          destination_dir: magazine
+          keep_files: true
+          commit_message: "magazine: publish ${{ github.sha }}"

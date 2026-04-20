@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BGM — Digest S16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; width: 100%; overflow: hidden; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: #f3f1ec;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .viewport { width: 100vw; height: 100vh; overflow: hidden; position: relative; }
+  .track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 700ms cubic-bezier(.77,0,.175,1);
+    will-change: transform;
+  }
+  .page {
+    flex: 0 0 100vw;
+    height: 100vh;
+    position: relative;
+    padding: 8vh 7vw 10vh 7vw;
+    overflow: hidden;
+  }
+
+  .page.light { background: #f3f1ec; color: #1a1a1a; }
+  .page.dark  { background: #111110; color: #e9e6df; }
+
+  /* COVER */
+  .cover { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+  .cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .cover-issue { font-family: 'IBM Plex Mono', monospace; font-weight: 400; font-size: .9vw; letter-spacing: .22em; text-transform: uppercase; opacity: .4; }
+  .cover-meta { font-family: 'IBM Plex Mono', monospace; font-size: .78vw; letter-spacing: .2em; text-transform: uppercase; opacity: .35; text-align: right; line-height: 1.6; }
+  .cover-center { display: flex; flex-direction: column; justify-content: center; flex: 1; }
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 16vw;
+    line-height: .88;
+    letter-spacing: -.03em;
+    margin-left: -.5vw;
+  }
+  .cover-tagline {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2vw;
+    opacity: .7;
+    margin-top: 3vh;
+    max-width: 60%;
+  }
+  .cover-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+  .cover-count {
+    position: absolute;
+    right: 5vw;
+    bottom: 2vh;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 28vw;
+    line-height: .8;
+    opacity: .05;
+    pointer-events: none;
+  }
+  .cover-foot {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .8vw;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    opacity: .45;
+  }
+
+  /* ITEM PAGE */
+  .item { display: grid; grid-template-columns: 55fr 45fr; height: 100%; gap: 0; position: relative; }
+  .col-left {
+    padding-right: 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+  .col-right {
+    padding-left: 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4vh;
+    border-left: 1px solid currentColor;
+    position: relative;
+  }
+  .page.light .col-right { border-left-color: rgba(26,26,26,.1); }
+  .page.dark  .col-right { border-left-color: rgba(233,230,223,.1); }
+
+  .ghost-rank {
+    position: absolute;
+    top: 50%;
+    left: -2vw;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 34vw;
+    line-height: 1;
+    opacity: .05;
+    pointer-events: none;
+    z-index: 1;
+    letter-spacing: -.04em;
+  }
+
+  .category-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: .85vw;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    opacity: .5;
+    margin-bottom: 2.5vh;
+  }
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 5.2vw;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin-bottom: 2.5vh;
+  }
+  .path {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: .95vw;
+    opacity: .45;
+    margin-bottom: 3vh;
+    letter-spacing: -.01em;
+  }
+  a.path--link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: opacity .2s ease;
+  }
+  a.path--link:hover {
+    opacity: .75;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+  a.pill--link {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  a.pill--link:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+  .rule {
+    width: 3vw;
+    height: 1.5px;
+    background: currentColor;
+    opacity: .35;
+    margin-bottom: 3.5vh;
+  }
+  .desc {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    font-size: max(17px, 1.5vw);
+    line-height: 1.65;
+    opacity: .85;
+    max-width: 38vw;
+    letter-spacing: .003em;
+  }
+
+  .stat-block { display: flex; flex-direction: column; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 6.8vw;
+    line-height: 1;
+    letter-spacing: -.03em;
+    margin-bottom: 1.5vh;
+  }
+  .stat-num.small { font-size: 5.4vw; }
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: .8vw;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    opacity: .4;
+  }
+  .pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: .8vw;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+    padding: .9vh 1.2vw;
+    align-self: flex-start;
+  }
+  .page.light .pill { opacity: .55; }
+  .page.dark  .pill { opacity: .45; }
+
+  .callout {
+    border-left: 4px solid currentColor;
+    padding: 2.5vh 2vw;
+    max-width: 36vw;
+  }
+  .page.light .callout { background: rgba(26,26,26,.05); }
+  .page.dark  .callout { background: rgba(233,230,223,.06); }
+  .callout-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: .78vw;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    opacity: .45;
+    margin-bottom: 1.5vh;
+  }
+  .callout-text {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 400;
+    font-size: max(15px, 1.35vw);
+    line-height: 1.65;
+    opacity: .8;
+  }
+
+  .page-meta {
+    position: absolute;
+    bottom: 3vh;
+    left: 7vw;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72vw;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    opacity: .35;
+  }
+
+  /* BACK COVER */
+  .back { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%; }
+  .back-line {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 8vw;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin-bottom: 4vh;
+  }
+  .back-tag {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.6vw;
+    opacity: .6;
+    margin-bottom: 12vh;
+    max-width: 50%;
+  }
+  .back-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .85vw;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    opacity: .4;
+  }
+
+  /* BUSINESS CARD PAGE */
+  .card-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    max-width: 52vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+  }
+  .card-manifesto {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: max(17px, 1.6vw);
+    line-height: 1.65;
+    opacity: .88;
+  }
+  .card-signature {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: max(15px, 1.25vw);
+    opacity: .7;
+    margin-top: -1.5vh;
+  }
+  .card-rule {
+    width: 8vw;
+    height: 1px;
+    background: currentColor;
+    opacity: .3;
+  }
+  .card-publication-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: max(18px, 1.5vw);
+    line-height: 1.3;
+    letter-spacing: -.01em;
+  }
+  .card-publisher {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    font-size: max(14px, 1.05vw);
+    opacity: .7;
+    margin-top: .6vh;
+  }
+  .card-offer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: max(11px, .82vw);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    opacity: .55;
+    line-height: 1.9;
+    max-width: 48vw;
+  }
+  .card-contact {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: max(11px, .8vw);
+    letter-spacing: .08em;
+    opacity: .6;
+  }
+  .card-contact a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity .2s ease;
+  }
+  .card-contact a:hover {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .card-contact-sep {
+    margin: 0 1vw;
+    opacity: .5;
+  }
+
+  /* NAV */
+  .dots {
+    position: fixed;
+    bottom: 3.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 50;
+    mix-blend-mode: difference;
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #888;
+    transition: all .3s ease;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+  .dot.active { background: #fff; width: 22px; border-radius: 3px; }
+
+  .nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 40;
+    mix-blend-mode: difference;
+    color: #fff;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    opacity: .5;
+    transition: opacity .25s ease;
+  }
+  .nav-arrow:hover { opacity: 1; }
+  .nav-arrow.prev { left: 2vw; }
+  .nav-arrow.next { right: 2vw; }
+  .nav-arrow.hidden { opacity: 0; pointer-events: none; }
+
+  @media (max-width: 900px) {
+    .item { grid-template-columns: 1fr; }
+    .col-right { border-left: none; border-top: 1px solid currentColor; padding-left: 0; padding-top: 4vh; margin-top: 4vh; }
+    .page.light .col-right { border-top-color: rgba(26,26,26,.1); }
+    .page.dark  .col-right { border-top-color: rgba(233,230,223,.1); }
+    .headline { font-size: 9vw; }
+    .stat-num { font-size: 13vw; }
+    .stat-num.small { font-size: 10vw; }
+    .desc { max-width: 100%; font-size: 17px; }
+    .callout { max-width: 100%; }
+    .callout-text { font-size: 15px; }
+    .cover-title { font-size: 22vw; }
+    .cover-tagline { font-size: 4.5vw; max-width: 100%; }
+    .back-line { font-size: 14vw; }
+    .back-tag { font-size: 4vw; max-width: 80%; }
+    .ghost-rank { font-size: 60vw; opacity: .04; }
+    .category-tag, .path, .stat-label, .pill, .callout-label, .cover-issue, .cover-meta, .cover-foot, .page-meta, .back-meta { font-size: 11px; }
+    .card { max-width: 86vw; gap: 3vh; }
+    .card-manifesto { font-size: 16px; }
+    .card-signature { font-size: 14px; }
+    .card-publication-name { font-size: 22px; }
+    .card-publisher { font-size: 13px; }
+    .card-offer { font-size: 11px; max-width: 86vw; }
+    .card-contact { font-size: 11px; }
+    .card-contact-sep { margin: 0 8px; }
+  }
+
+  @media print {
+    @page { size: A4 landscape; margin: 0; }
+    html, body { overflow: visible !important; height: auto !important; }
+    .viewport, .track { overflow: visible !important; height: auto !important; transform: none !important; display: block !important; }
+    .page { flex: none !important; width: 100% !important; height: 100vh !important; page-break-after: always; page-break-inside: avoid; }
+    .dots, .nav-arrow { display: none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="viewport">
+    <div class="track" id="track">
+      <section class="page dark">
+        <div class="cover">
+          <div class="cover-top">
+            <span class="cover-issue">Digest S16 · 2026-w16</span>
+            <span class="cover-meta">Brussels Governance Monitor<br>Advice That SRL</span>
+          </div>
+          <div class="cover-center">
+            <h1 class="cover-title">BGM</h1>
+            <p class="cover-tagline">Une semaine bruxelloise, huit signaux.</p>
+          </div>
+          <div class="cover-bottom">
+            <span class="cover-foot">8 signaux · lecture horizontale →</span>
+          </div>
+          <div class="cover-count">08</div>
+        </div>
+      </section>
+
+      <section class="page light">
+        <div class="item">
+          <div class="ghost-rank">01</div>
+          <div class="col-left">
+            <div class="category-tag">Institutionnel · Démocratie</div>
+            <h2 class="headline">Trois Ans, Aucun Arrêté.</h2>
+            <a class="path path--link" href="https://governance.brussels/fr/dossiers/assemblees-citoyennes" target="_blank" rel="noopener noreferrer">/fr/dossiers/assemblees-citoyennes</a>
+            <div class="rule"></div>
+            <p class="desc">Le 4 mars 2026, Bruxelles Environnement publie le bilan de trois années d&#39;Assemblée citoyenne pour le climat : plus de 100 propositions sur l&#39;habitat, l&#39;alimentation, l&#39;économie de partage. Le cycle 3 vient de clôturer avec 8 priorités. L&#39;arrêté ministériel de pérennisation, attendu fin 2025, reste non adopté au 19 avril.</p>
+          </div>
+          <div class="col-right">
+            <div class="stat-block">
+              <div class="stat-num">100</div>
+              <div class="stat-label">Propositions cumulées</div>
+            </div>
+            <a class="pill pill--link" href="https://governance.brussels/fr/dossiers/assemblees-citoyennes" target="_blank" rel="noopener noreferrer">Dossier Assemblées citoyennes</a>
+            <div class="callout">
+              <div class="callout-label">Comment lire ce dossier</div>
+              <p class="callout-text">Lire ce dossier comme un test de cohérence institutionnelle. Trois cycles citoyens, 100+ propositions, zéro pérennisation. Le blocage administratif sur l&#39;arrêté est le vrai sujet — pas le processus lui-même, qui a produit des livrables. Surveiller la décision gouvernementale et l&#39;articulation avec le titre Capitale européenne de la démocratie 2027.</p>
+            </div>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Institutionnel · Démocratie · P.02</div>
+      </section>
+
+      <section class="page dark">
+        <div class="item">
+          <div class="ghost-rank">02</div>
+          <div class="col-left">
+            <div class="category-tag">Mobilité · Institutionnel</div>
+            <h2 class="headline">Reporté Encore.</h2>
+            <a class="path path--link" href="https://governance.brussels/fr/dossiers/lez" target="_blank" rel="noopener noreferrer">/fr/dossiers/lez</a>
+            <div class="rule"></div>
+            <p class="desc">Le 17 avril, le ministre De Smedt (Anders) annonce le report des amendes LEZ au 1er juillet 2026 (initialement 7 juin). L&#39;accord politique du 4 avril reste la référence — pass 350 €, tarif social 200 €, amende mensuelle 80 € — seul le calendrier est ajusté, justifié par un travail administratif « encore en cours ».</p>
+          </div>
+          <div class="col-right">
+            <div class="stat-block">
+              <div class="stat-num">80 €</div>
+              <div class="stat-label">Amende mensuelle reportée au 1er juillet</div>
+            </div>
+            <a class="pill pill--link" href="https://governance.brussels/fr/dossiers/lez" target="_blank" rel="noopener noreferrer">Dossier LEZ</a>
+            <div class="callout">
+              <div class="callout-label">Comment lire ce dossier</div>
+              <p class="callout-text">Le report est technique en apparence, politique en réalité. La LEZ a déjà été suspendue, puis rétablie, puis décalée. À chaque étape, le signal envoyé aux citoyens qui ont respecté le calendrier initial s&#39;abîme. Surveiller si la taskforce exemptions rend son rapport avant le 15 juin comme prévu, et la communication Bruxelles Fiscalité.</p>
+            </div>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Mobilité · Institutionnel · P.03</div>
+      </section>
+
+      <section class="page light">
+        <div class="item">
+          <div class="ghost-rank">03</div>
+          <div class="col-left">
+            <div class="category-tag">Emploi · Budget</div>
+            <h2 class="headline">Douze Millions Récupérés.</h2>
+            <a class="path path--link" href="https://governance.brussels/fr/domaines/employment" target="_blank" rel="noopener noreferrer">/fr/domaines/employment</a>
+            <div class="rule"></div>
+            <p class="desc">Le 16 avril, le gouvernement bruxellois s&#39;accorde sur un budget Actiris adapté. L&#39;effort initial de 40 M€ d&#39;économies est ramené à environ 28 M€. Article 20 ACS préservé, uniformisation à 95 % abandonnée, partenariats Actiris maintenus à 67 M€. La suppression de la prime Activa.brussels est confirmée, remplacement en 2027.</p>
+          </div>
+          <div class="col-right">
+            <div class="stat-block">
+              <div class="stat-num small">28 M€</div>
+              <div class="stat-label">Économies Actiris 2026 ajustées</div>
+            </div>
+            <a class="pill pill--link" href="https://governance.brussels/fr/domaines/employment" target="_blank" rel="noopener noreferrer">Domaine Emploi</a>
+            <div class="callout">
+              <div class="callout-label">Comment lire ce dossier</div>
+              <p class="callout-text">Trois semaines après le rejet de la première mouture et la démission de la directrice générale, le gouvernement a cédé sur les principaux points durs. Activa reste sacrifiée mais Florence Lepoivre (FGTB) la qualifie de « peut-être la mesure la moins problématique ». Lire ce dossier comme une capacité du gouvernement à rétropédaler sous pression syndicale et institutionnelle.</p>
+            </div>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Emploi · Budget · P.04</div>
+      </section>
+
+      <section class="page dark">
+        <div class="item">
+          <div class="ghost-rank">04</div>
+          <div class="col-left">
+            <div class="category-tag">Sécurité · Communal</div>
+            <h2 class="headline">Trois Incidents, Quatre Jours.</h2>
+            <a class="path path--link" href="https://governance.brussels/fr/communes/saint-gilles" target="_blank" rel="noopener noreferrer">/fr/communes/saint-gilles</a>
+            <div class="rule"></div>
+            <p class="desc">Entre le 15 et le 18 avril, Saint-Gilles connaît trois incidents graves : explosion rue de Bosnie (~10 véhicules), tirs rue Gisbert Combaz, explosion du bar OKLM Chicha rue Théodore Verhaegen (façade détruite, 15 vitres de l&#39;Institut des Filles de Marie endommagées). Le bourgmestre Jean Spinette qualifie la situation de « gangrène ».</p>
+          </div>
+          <div class="col-right">
+            <div class="stat-block">
+              <div class="stat-num">3</div>
+              <div class="stat-label">Incidents Saint-Gilles 15-18 avril</div>
+            </div>
+            <a class="pill pill--link" href="https://governance.brussels/fr/communes/saint-gilles" target="_blank" rel="noopener noreferrer">Commune Saint-Gilles</a>
+            <div class="callout">
+              <div class="callout-label">Comment lire ce dossier</div>
+              <p class="callout-text">La demande de Spinette est précise : « Bruxelles n&#39;a pas besoin de militaires, mais d&#39;enquêteurs et de patrouilles. » Lire ce dossier en parallèle du déménagement SIAMU au poste Delta et de l&#39;ordonnance de fermeture nocturne du Quartier Nord — trois mouvements sécuritaires la même semaine, chacun à un échelon différent (Région / SIAMU / COCOF). Surveiller la réponse fédérale.</p>
+            </div>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Sécurité · Communal · P.05</div>
+      </section>
+
+      <section class="page light">
+        <div class="item">
+          <div class="ghost-rank">05</div>
+          <div class="col-left">
+            <div class="category-tag">Économie · Institutionnel</div>
+            <h2 class="headline">Quatorze Bureaux Fermés.</h2>
+            <a class="path path--link" href="https://governance.brussels/fr/domaines/economy" target="_blank" rel="noopener noreferrer">/fr/domaines/economy</a>
+            <div class="rule"></div>
+            <p class="desc">Le 16 avril, le gouvernement entérine la fermeture de 14 des 33 bureaux à l&#39;étranger de Hub.brussels : Milan, Barcelone, Copenhague, Belgrade, Genève, Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver, La Havane. Économies attendues : 3 à 6 M€/an, 30 salariés concernés.</p>
+          </div>
+          <div class="col-right">
+            <div class="stat-block">
+              <div class="stat-num">14</div>
+              <div class="stat-label">Bureaux Hub.brussels supprimés</div>
+            </div>
+            <a class="pill pill--link" href="https://governance.brussels/fr/domaines/economy" target="_blank" rel="noopener noreferrer">Domaine Économie</a>
+            <div class="callout">
+              <div class="callout-label">Comment lire ce dossier</div>
+              <p class="callout-text">La phrase de Dilliès — « Maintenir 33 bureaux à l&#39;étranger est un luxe que Bruxelles ne peut se permettre » — est un marqueur idéologique. Lire ce dossier comme un test du nouveau récit budgétaire : non pas « coupes dans les politiques sociales » mais « désengagement des activités non-essentielles ». Surveiller les dossiers similaires visit.brussels, Finance.brussels, BIE.</p>
+            </div>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Économie · Institutionnel · P.06</div>
+      </section>
+
+      <section class="page dark">
+        <div class="item">
+          <div class="ghost-rank">06</div>
+          <div class="col-left">
+            <div class="category-tag">Social · Éducation</div>
+            <h2 class="headline">Plus Que Toute La Flandre.</h2>
+            <a class="path path--link" href="https://governance.brussels/fr/domaines/social" target="_blank" rel="noopener noreferrer">/fr/domaines/social</a>
+            <div class="rule"></div>
+            <p class="desc">Le 15 avril, des données SPP Intégration sociale révèlent que 14 246 étudiants majeurs poursuivent leurs études avec un revenu d&#39;intégration (RIS) à Bruxelles — plus que dans toute la Flandre (10 064) malgré une population cinq fois moindre. Baromètre social 2025 Vivalis : pauvreté monétaire 23 %, 47 304 bénéficiaires RIS, 55 572 ménages en liste d&#39;attente logement.</p>
+          </div>
+          <div class="col-right">
+            <div class="stat-block">
+              <div class="stat-num small">14 246</div>
+              <div class="stat-label">Étudiants bruxellois au RIS</div>
+            </div>
+            <a class="pill pill--link" href="https://governance.brussels/fr/domaines/social" target="_blank" rel="noopener noreferrer">Domaine Social</a>
+            <div class="callout">
+              <div class="callout-label">Comment lire ce dossier</div>
+              <p class="callout-text">Le chiffre parle à deux niveaux. D&#39;abord, la concentration de précarité étudiante bruxelloise (cinq fois la densité flamande par habitant). Ensuite, un écart d&#39;espérance de vie de ~5 ans entre communes et un diabète 3× plus fréquent chez les 20 % les plus pauvres. À lire avec le dossier enseignement et les 127 refus Samusocial hebdomadaires documentés en S15.</p>
+            </div>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Social · Éducation · P.07</div>
+      </section>
+
+      <section class="page light">
+        <div class="item">
+          <div class="ghost-rank">07</div>
+          <div class="col-left">
+            <div class="category-tag">Institutionnel · Gouvernance</div>
+            <h2 class="headline">Quatre Sur Huit.</h2>
+            <a class="path path--link" href="https://governance.brussels/fr/domaines/institutional" target="_blank" rel="noopener noreferrer">/fr/domaines/institutional</a>
+            <div class="rule"></div>
+            <p class="desc">Le 17 avril, une publication révèle le cumul des indemnités ministérielles : 4 ministres sur 8 cumulent l&#39;indemnité de domesticité (1 250 €/mois) — Dilliès, Henry (MR), Hublet (Les Engagés), De Smedt (Anders). Hublet reverse 400 € à des associations sans-abri. Renoncent : Persoons (Vooruit), Laaouej, Lalieux (PS), Van den Brandt (Groen).</p>
+          </div>
+          <div class="col-right">
+            <div class="stat-block">
+              <div class="stat-num">4</div>
+              <div class="stat-label">Ministres sur 8 cumulant l&#39;indemnité</div>
+            </div>
+            <a class="pill pill--link" href="https://governance.brussels/fr/domaines/institutional" target="_blank" rel="noopener noreferrer">Domaine Institutionnel</a>
+            <div class="callout">
+              <div class="callout-label">Comment lire ce dossier</div>
+              <p class="callout-text">La ligne de partage n&#39;est pas francophone/néerlandophone, elle est droite/gauche-écologistes. Le ministre-président indique qu&#39;une suppression « n&#39;est pas à l&#39;ordre du jour ». Surveiller l&#39;évolution du dossier au Parlement bruxellois, une proposition d&#39;abrogation pourrait venir des bancs de l&#39;opposition ou des partis qui renoncent.</p>
+            </div>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Institutionnel · Gouvernance · P.08</div>
+      </section>
+
+      <section class="page dark">
+        <div class="item">
+          <div class="ghost-rank">08</div>
+          <div class="col-left">
+            <div class="category-tag">Culture · Dossier</div>
+            <h2 class="headline">Soixante Mille.</h2>
+            <a class="path path--link" href="https://governance.brussels/fr/dossiers/bifff" target="_blank" rel="noopener noreferrer">/fr/dossiers/bifff</a>
+            <div class="rule"></div>
+            <p class="desc">La 44e édition du BIFFF a attiré 60 000 spectateurs (+30 %, +12 000 vs édition précédente ~48 000) — record depuis le retour au Heysel post-COVID. La réingénierie sous contrainte (une seule salle, 16 jours, 3 week-ends) a fonctionné comme stratégie de survie ET vecteur de croissance. Palmarès : Corbeau d&#39;Or à Never After Dark (Dave Boyle, Japon).</p>
+          </div>
+          <div class="col-right">
+            <div class="stat-block">
+              <div class="stat-num small">60 000</div>
+              <div class="stat-label">Spectateurs BIFFF 44e édition</div>
+            </div>
+            <a class="pill pill--link" href="https://governance.brussels/fr/dossiers/bifff" target="_blank" rel="noopener noreferrer">Dossier BIFFF</a>
+            <div class="callout">
+              <div class="callout-label">Comment lire ce dossier</div>
+              <p class="callout-text">Le dossier devient un cas d&#39;école bruxellois : survie par la réingénierie, croissance sous contrainte budgétaire, résultat quantifié. À garder comme contre-exemple pour les décisions futures sur les coupes culturelles — non pour plaider le maintien des enveloppes, mais pour documenter que la qualité ne suit pas mécaniquement le budget. Candidature cycle 2027-2030 deadline 11 mai à surveiller.</p>
+            </div>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Culture · Dossier · P.09</div>
+      </section>
+      <section class="page dark">
+        <div class="back">
+          <h2 class="back-line">Retour lundi prochain.</h2>
+          <div class="back-meta">BGM · Digest S16</div>
+        </div>
+      </section>
+
+      <section class="page dark card-page">
+        <div class="card">
+          <p class="card-manifesto">« Mon métier consiste à rendre lisible la complexité institutionnelle de Bruxelles pour des organisations qui dépendent de ses décisions. Le BGM est le prolongement public de ce travail : chaque semaine, transformer la lasagne institutionnelle en grille lisible pour tout Bruxellois qui veut comprendre, sans filtre ni parti pris. »</p>
+          <p class="card-signature">— Zoltán Jánosi</p>
+          <div class="card-rule"></div>
+          <div class="card-publication">
+            <div class="card-publication-name">Brussels Governance Monitor</div>
+            <div class="card-publisher">Édité par Advice That SRL · Bruxelles</div>
+          </div>
+          <div class="card-offer">Conseil en stratégie · Analyse institutionnelle · Veille sur mesure · Accompagnement personnalisé</div>
+          <div class="card-contact">
+            <a href="mailto:contact@brusselsgovernance.be">contact@brusselsgovernance.be</a>
+            <span class="card-contact-sep">·</span>
+            <a href="https://linkedin.com/in/zoltan" target="_blank" rel="noopener noreferrer">linkedin.com/in/zoltan</a>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Colophon</div>
+      </section>
+    </div>
+    <button class="nav-arrow prev" id="prev" aria-label="Page précédente">←</button>
+    <button class="nav-arrow next" id="next" aria-label="Page suivante">→</button>
+    <div class="dots" id="dots"></div>
+  </div>
+<script>
+(() => {
+  const track = document.getElementById('track');
+  const pages = track.querySelectorAll('.page');
+  const total = pages.length;
+  const dotsEl = document.getElementById('dots');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  let idx = 0;
+  let lock = false;
+
+  for (let i = 0; i < total; i++) {
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === 0 ? ' active' : '');
+    b.setAttribute('aria-label', 'Aller à la page ' + (i + 1));
+    b.addEventListener('click', () => go(i));
+    dotsEl.appendChild(b);
+  }
+  const dots = dotsEl.querySelectorAll('.dot');
+
+  function go(i) {
+    idx = Math.max(0, Math.min(total - 1, i));
+    track.style.transform = 'translateX(-' + (idx * 100) + 'vw)';
+    dots.forEach((d, n) => d.classList.toggle('active', n === idx));
+    prevBtn.classList.toggle('hidden', idx === 0);
+    nextBtn.classList.toggle('hidden', idx === total - 1);
+    lock = true;
+    setTimeout(() => { lock = false; }, 720);
+  }
+
+  prevBtn.addEventListener('click', () => go(idx - 1));
+  nextBtn.addEventListener('click', () => go(idx + 1));
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(idx + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(idx - 1); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(total - 1); }
+  });
+
+  let wheelAcc = 0;
+  window.addEventListener('wheel', (e) => {
+    if (lock) return;
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    wheelAcc += delta;
+    if (wheelAcc > 30) { go(idx + 1); wheelAcc = 0; }
+    else if (wheelAcc < -30) { go(idx - 1); wheelAcc = 0; }
+  }, { passive: true });
+
+  let touchStartX = 0;
+  window.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  window.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) { dx < 0 ? go(idx + 1) : go(idx - 1); }
+  }, { passive: true });
+
+  prevBtn.classList.add('hidden');
+})();
+</script>
+</body>
+</html>

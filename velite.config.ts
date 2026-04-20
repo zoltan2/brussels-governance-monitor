@@ -412,6 +412,26 @@ const dossierCards = defineCollection({
 });
 
 // ──────────────────────────────────────────────
+// Magazine block schema (used in digestEntries)
+// ──────────────────────────────────────────────
+const magazineItemSchema = s.object({
+  category: s.string().optional(),
+  headline: s.string().min(1).max(80),
+  path: s.string().optional(),
+  stat: s.string().min(1).max(20),
+  stat_label: s.string().min(1).max(60),
+  pill: s.string().optional(),
+  description: s.string().min(100).max(800),
+  howto: s.string().min(80).max(800),
+});
+
+const magazineSchema = s.object({
+  tagline: s.string().min(1).max(120),
+  closing_line: s.string().min(1).max(120),
+  items: s.array(magazineItemSchema).min(3).max(12),
+});
+
+// ──────────────────────────────────────────────
 // Collection: Digest Entries (weekly multilingual digest pages)
 // ──────────────────────────────────────────────
 const digestEntries = defineCollection({
@@ -425,6 +445,7 @@ const digestEntries = defineCollection({
       auto_translated: s.boolean().default(false),
       redirect_lang: s.enum(['fr', 'nl', 'en', 'de']),
       generated_at: s.isodate(),
+      magazine: magazineSchema.optional(),
       content: s.mdx(),
     })
     .transform((data) => {

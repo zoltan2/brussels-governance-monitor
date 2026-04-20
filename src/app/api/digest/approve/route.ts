@@ -28,6 +28,7 @@ interface PendingDigest {
   closingNote: Record<string, string>;
   commitmentCount: number;
   updatedTopics: string[];
+  magazine?: boolean;
 }
 
 /** Format a date range for the locale */
@@ -171,6 +172,10 @@ export async function POST(request: Request) {
       de: `BGM Digest #${weekNum} — ${weekOf}`,
     };
 
+    const magazineUrl = digest.magazine
+      ? `https://zoltan2.github.io/brussels-governance-monitor/magazine/s${weekNum}/`
+      : undefined;
+
     const emailProps = {
       locale,
       updates,
@@ -187,6 +192,7 @@ export async function POST(request: Request) {
       siteUrl,
       feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
       feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
+      magazineUrl,
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -80,6 +80,10 @@ export const POST = auth(async function POST(req) {
   const unsubToken = generateUnsubscribeToken(adminEmail);
   const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
 
+  const magazineUrl = digest.magazine
+    ? `https://zoltan2.github.io/brussels-governance-monitor/magazine/s${weekNum}/`
+    : undefined;
+
   const emailProps = {
     locale,
     updates,
@@ -96,6 +100,7 @@ export const POST = auth(async function POST(req) {
     siteUrl,
     feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
     feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
+    magazineUrl,
   };
 
   const resend = getResend();

@@ -156,6 +156,11 @@ export async function GET(request: Request) {
       de: `Wöchentliche Zusammenfassung — ${weekOf}`,
     };
 
+    const weekNumStr = digest.week.split('-w')[1];
+    const magazineUrl = digest.magazine
+      ? `https://zoltan2.github.io/brussels-governance-monitor/magazine/s${weekNumStr}/`
+      : undefined;
+
     const emailProps = {
       locale,
       updates,
@@ -172,6 +177,7 @@ export async function GET(request: Request) {
       siteUrl,
       feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
       feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
+      magazineUrl,
     };
 
     emailPayloads.push({

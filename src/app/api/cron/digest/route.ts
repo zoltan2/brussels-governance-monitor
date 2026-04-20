@@ -158,7 +158,7 @@ export async function GET(request: Request) {
 
     const weekNumStr = digest.week.split('-w')[1];
     const magazineUrl = digest.magazine
-      ? `https://zoltan2.github.io/brussels-governance-monitor/magazine/s${weekNumStr}/`
+      ? `https://magazine.governance.brussels/s${weekNumStr}/`
       : undefined;
 
     const emailProps = {

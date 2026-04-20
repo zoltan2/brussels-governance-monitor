@@ -173,7 +173,7 @@ export async function POST(request: Request) {
     };
 
     const magazineUrl = digest.magazine
-      ? `https://zoltan2.github.io/brussels-governance-monitor/magazine/s${weekNum}/`
+      ? `https://magazine.governance.brussels/s${weekNum}/`
       : undefined;
 
     const emailProps = {

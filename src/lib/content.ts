@@ -237,6 +237,23 @@ export interface CommuneCard {
   transparencyTotal: number;
 }
 
+export interface DigestMagazineItem {
+  category?: string;
+  headline: string;
+  path?: string;
+  stat: string;
+  stat_label: string;
+  pill?: string;
+  description: string;
+  howto: string;
+}
+
+export interface DigestMagazine {
+  tagline: string;
+  closing_line: string;
+  items: DigestMagazineItem[];
+}
+
 export interface DigestEntry {
   week: string;
   lang: string;
@@ -244,6 +261,7 @@ export interface DigestEntry {
   auto_translated: boolean;
   redirect_lang: 'fr' | 'nl' | 'en' | 'de';
   generated_at: string;
+  magazine?: DigestMagazine;
   content: string;
   year: string;
   weekNum: string;

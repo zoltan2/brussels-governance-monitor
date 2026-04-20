@@ -12,6 +12,7 @@ import {
   getAdjacentDigestWeeks,
 } from '@/lib/content';
 import { MdxContent } from '@/components/mdx-content';
+import { MagazineLink } from '@/components/magazine-link';
 
 interface DigestPageProps {
   params: Promise<{ lang: string; year: string; week: string }>;
@@ -156,6 +157,16 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
             {langInfo?.name || lang}. Showing the French version.
           </div>
         )}
+
+        {/* Magazine link */}
+        {entry.magazine ? (
+          <div className="mb-8">
+            <MagazineLink
+              weekShort={`s${entry.week.split('-w')[1]}`}
+              lang={lang}
+            />
+          </div>
+        ) : null}
 
         {/* MDX content */}
         <div className="prose-digest">

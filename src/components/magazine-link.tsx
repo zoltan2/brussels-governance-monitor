@@ -6,8 +6,7 @@ interface MagazineLinkProps {
   lang: string;
 }
 
-const MAGAZINE_BASE =
-  'https://zoltan2.github.io/brussels-governance-monitor/magazine';
+const MAGAZINE_BASE = 'https://magazine.governance.brussels';
 
 export function MagazineLink({ weekShort, lang }: MagazineLinkProps) {
   if (lang !== 'fr') return null;

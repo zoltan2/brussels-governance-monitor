@@ -67,10 +67,10 @@ describe('renderMagazine', () => {
     expect(html).toContain('size: A4 landscape');
   });
 
-  it('renders N+2 pages (cover + items + back)', () => {
+  it('renders N+3 pages (cover + items + closing + business card)', () => {
     const html = renderMagazine(draft());
     const pageMatches = html.match(/<section class="page/g) ?? [];
-    expect(pageMatches.length).toBe(5);
+    expect(pageMatches.length).toBe(6);
   });
 
   it('escapes HTML in user-provided fields', () => {
@@ -85,5 +85,40 @@ describe('renderMagazine', () => {
     const d = draft();
     d.magazine = undefined;
     expect(() => renderMagazine(d)).toThrow(/magazine.*undefined/i);
+  });
+
+  it('makes item path clickable with absolute governance.brussels URL (new tab)', () => {
+    const html = renderMagazine(draft());
+    expect(html).toContain(
+      'href="https://governance.brussels/fr/1"',
+    );
+    expect(html).toContain('target="_blank"');
+    expect(html).toContain('rel="noopener noreferrer"');
+    expect(html).toContain('class="path path--link"');
+  });
+
+  it('makes item pill clickable when a path is provided', () => {
+    const html = renderMagazine(draft());
+    expect(html).toContain('class="pill pill--link"');
+    const pillLinkMatches = html.match(/class="pill pill--link"/g) ?? [];
+    expect(pillLinkMatches.length).toBe(3);
+  });
+
+  it('renders non-clickable plain pill when item has no path', () => {
+    const d = draft();
+    d.magazine!.items[2].path = undefined;
+    const html = renderMagazine(d);
+    expect(html).toContain('<div class="pill">Pill 3</div>');
+  });
+
+  it('renders a business card page with manifesto, signature, offer, and contacts', () => {
+    const html = renderMagazine(draft());
+    expect(html).toContain('class="page dark card-page"');
+    expect(html).toContain('Zoltán Jánosi');
+    expect(html).toContain('Brussels Governance Monitor');
+    expect(html).toContain('Advice That SRL');
+    expect(html).toContain('Conseil en stratégie');
+    expect(html).toContain('mailto:contact@brusselsgovernance.be');
+    expect(html).toContain('href="https://linkedin.com/in/zoltan"');
   });
 });

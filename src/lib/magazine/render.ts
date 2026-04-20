@@ -1,5 +1,12 @@
 import type { MagazineDraft } from './types';
-import { escapeHtml, renderItemPage, GOOGLE_FONTS_HREF, MAGAZINE_CSS, MAGAZINE_JS } from './template';
+import {
+  escapeHtml,
+  renderItemPage,
+  renderBusinessCardPage,
+  GOOGLE_FONTS_HREF,
+  MAGAZINE_CSS,
+  MAGAZINE_JS,
+} from './template';
 
 export function renderMagazine(draft: MagazineDraft): string {
   if (!draft.magazine) {
@@ -45,9 +52,10 @@ ${itemPages}
       <section class="page dark">
         <div class="back">
           <h2 class="back-line">${escapeHtml(magazine.closing_line)}</h2>
-          <div class="back-meta">BGM · Digest ${escapeHtml(weekLabel)} · Fin</div>
+          <div class="back-meta">BGM · Digest ${escapeHtml(weekLabel)}</div>
         </div>
       </section>
+${renderBusinessCardPage()}
     </div>
     <button class="nav-arrow prev" id="prev" aria-label="Page précédente">←</button>
     <button class="nav-arrow next" id="next" aria-label="Page suivante">→</button>

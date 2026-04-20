@@ -1,4 +1,5 @@
 import type { MagazineItem } from './types';
+import { AUTHOR } from './author';
 
 export function escapeHtml(s: string): string {
   return s
@@ -11,6 +12,18 @@ export function escapeHtml(s: string): string {
 
 export function renderItemPage(item: MagazineItem, rank: number, theme: 'light' | 'dark'): string {
   const statClass = item.stat.length > 4 ? 'stat-num small' : 'stat-num';
+  const pathHref = item.path ? `${AUTHOR.siteBase}${item.path}` : null;
+  const linkAttrs = `target="_blank" rel="noopener noreferrer"`;
+
+  const pathEl = item.path
+    ? `<a class="path path--link" href="${escapeHtml(pathHref!)}" ${linkAttrs}>${escapeHtml(item.path)}</a>`
+    : '';
+  const pillEl = item.pill
+    ? item.path
+      ? `<a class="pill pill--link" href="${escapeHtml(pathHref!)}" ${linkAttrs}>${escapeHtml(item.pill)}</a>`
+      : `<div class="pill">${escapeHtml(item.pill)}</div>`
+    : '';
+
   return `
       <section class="page ${theme}">
         <div class="item">
@@ -18,7 +31,7 @@ export function renderItemPage(item: MagazineItem, rank: number, theme: 'light' 
           <div class="col-left">
             ${item.category ? `<div class="category-tag">${escapeHtml(item.category)}</div>` : ''}
             <h2 class="headline">${escapeHtml(item.headline)}</h2>
-            ${item.path ? `<div class="path">${escapeHtml(item.path)}</div>` : ''}
+            ${pathEl}
             <div class="rule"></div>
             <p class="desc">${escapeHtml(item.description)}</p>
           </div>
@@ -27,7 +40,7 @@ export function renderItemPage(item: MagazineItem, rank: number, theme: 'light' 
               <div class="${statClass}">${escapeHtml(item.stat)}</div>
               <div class="stat-label">${escapeHtml(item.stat_label)}</div>
             </div>
-            ${item.pill ? `<div class="pill">${escapeHtml(item.pill)}</div>` : ''}
+            ${pillEl}
             <div class="callout">
               <div class="callout-label">Comment lire ce dossier</div>
               <p class="callout-text">${escapeHtml(item.howto)}</p>
@@ -35,6 +48,28 @@ export function renderItemPage(item: MagazineItem, rank: number, theme: 'light' 
           </div>
         </div>
         <div class="page-meta">BGM · ${escapeHtml(item.category ?? '')} · P.${String(rank + 1).padStart(2, '0')}</div>
+      </section>`;
+}
+
+export function renderBusinessCardPage(): string {
+  return `
+      <section class="page dark card-page">
+        <div class="card">
+          <p class="card-manifesto">${escapeHtml(AUTHOR.manifesto)}</p>
+          <p class="card-signature">— ${escapeHtml(AUTHOR.name)}</p>
+          <div class="card-rule"></div>
+          <div class="card-publication">
+            <div class="card-publication-name">${escapeHtml(AUTHOR.publication)}</div>
+            <div class="card-publisher">${escapeHtml(AUTHOR.publisher)}</div>
+          </div>
+          <div class="card-offer">${escapeHtml(AUTHOR.offer)}</div>
+          <div class="card-contact">
+            <a href="mailto:${escapeHtml(AUTHOR.email)}">${escapeHtml(AUTHOR.email)}</a>
+            <span class="card-contact-sep">·</span>
+            <a href="${escapeHtml(AUTHOR.linkedinUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(AUTHOR.linkedinHandle)}</a>
+          </div>
+        </div>
+        <div class="page-meta">BGM · Colophon</div>
       </section>`;
 }
 
@@ -176,6 +211,28 @@ export const MAGAZINE_CSS = `
     margin-bottom: 3vh;
     letter-spacing: -.01em;
   }
+  a.path--link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: opacity .2s ease;
+  }
+  a.path--link:hover {
+    opacity: .75;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+  a.pill--link {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  a.pill--link:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
   .rule {
     width: 3vw;
     height: 1.5px;
@@ -287,6 +344,90 @@ export const MAGAZINE_CSS = `
     opacity: .4;
   }
 
+  /* BUSINESS CARD PAGE */
+  .card-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    max-width: 52vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+  }
+  .card-manifesto {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: max(17px, 1.6vw);
+    line-height: 1.65;
+    opacity: .88;
+  }
+  .card-signature {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: max(15px, 1.25vw);
+    opacity: .7;
+    margin-top: -1.5vh;
+  }
+  .card-rule {
+    width: 8vw;
+    height: 1px;
+    background: currentColor;
+    opacity: .3;
+  }
+  .card-publication-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: max(18px, 1.5vw);
+    line-height: 1.3;
+    letter-spacing: -.01em;
+  }
+  .card-publisher {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    font-size: max(14px, 1.05vw);
+    opacity: .7;
+    margin-top: .6vh;
+  }
+  .card-offer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: max(11px, .82vw);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    opacity: .55;
+    line-height: 1.9;
+    max-width: 48vw;
+  }
+  .card-contact {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: max(11px, .8vw);
+    letter-spacing: .08em;
+    opacity: .6;
+  }
+  .card-contact a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity .2s ease;
+  }
+  .card-contact a:hover {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .card-contact-sep {
+    margin: 0 1vw;
+    opacity: .5;
+  }
+
   /* NAV */
   .dots {
     position: fixed;
@@ -352,6 +493,14 @@ export const MAGAZINE_CSS = `
     .back-tag { font-size: 4vw; max-width: 80%; }
     .ghost-rank { font-size: 60vw; opacity: .04; }
     .category-tag, .path, .stat-label, .pill, .callout-label, .cover-issue, .cover-meta, .cover-foot, .page-meta, .back-meta { font-size: 11px; }
+    .card { max-width: 86vw; gap: 3vh; }
+    .card-manifesto { font-size: 16px; }
+    .card-signature { font-size: 14px; }
+    .card-publication-name { font-size: 22px; }
+    .card-publisher { font-size: 13px; }
+    .card-offer { font-size: 11px; max-width: 86vw; }
+    .card-contact { font-size: 11px; }
+    .card-contact-sep { margin: 0 8px; }
   }
 
   @media print {

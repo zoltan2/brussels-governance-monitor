@@ -11,6 +11,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { AccessibilityToolbar } from '@/components/accessibility-toolbar';
+import { ChatWidget } from '@/components/chat-widget';
 
 import '../globals.css';
 
@@ -195,6 +196,7 @@ export default async function LocaleLayout({
             <Footer />
           </div>
           <AccessibilityToolbar />
+          <ChatWidget />
         </NextIntlClientProvider>
         <Analytics />
       </body>

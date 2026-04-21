@@ -27,7 +27,7 @@ jobs:
 
           changed=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
 
-          content_touched=$(printf '%s\n' "$changed" | grep -E '^(content/|messages/[^/]+\.json$|velite\.config\.ts$)' || true)
+          content_touched=$(printf '%s\n' "$changed" | grep -E '^(content/|messages/[^/]+\.json$|velite\.config\.ts$)' | grep -v '^content/digest/__fixtures__/' || true)
           pagefind_touched=$(printf '%s\n' "$changed" | grep -E '^public/pagefind/' || true)
 
           if [ -n "$content_touched" ] && [ -z "$pagefind_touched" ]; then

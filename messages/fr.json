@@ -551,8 +551,7 @@
       "vercel": "Vercel (hébergement) — Héberge le site web. Région : Paris (CDG1). Traite les logs serveur (adresses IP, en-têtes HTTP). Aucune donnée personnelle n'est stockée au-delà des logs techniques temporaires.",
       "umami": "Umami (statistiques) — Mesure de fréquentation respectueuse de la vie privée. Aucun cookie, aucune donnée personnelle collectée, aucun suivi inter-sites. Hébergement cloud EU.",
       "resend": "Resend (emails) — Envoie les emails de confirmation et les digest hebdomadaires. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
-      "appsignal": "AppSignal (monitoring) — Surveille les erreurs serveur et les performances. Aucune donnée personnelle collectée, aucun cookie, traitement exclusivement côté serveur. Société néerlandaise, hébergement EU.",
-      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Vercel, Umami et AppSignal ; consentement (article 6.1.a) pour Resend.",
+      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Vercel et Umami ; consentement (article 6.1.a) pour Resend.",
       "statusPage": "Page de statut du service : https://status.governance.brussels",
       "transfers": "Transferts hors UE : Resend (États-Unis) et Vercel (logs traités aux États-Unis) bénéficient de clauses contractuelles types (SCCs) et sont certifiés sous le EU-US Data Privacy Framework (DPF). Les DPA sont automatiquement acceptés avec les conditions d'utilisation de chaque service."
     },

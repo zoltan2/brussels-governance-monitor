@@ -3,8 +3,6 @@
 
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import { createHash } from 'node:crypto';
 import {
   getContact,
@@ -16,6 +14,7 @@ import {
 } from '@/lib/resend';
 import { generateConfirmToken } from '@/lib/token';
 import { rateLimit } from '@/lib/rate-limit';
+import { pushLog } from '@/lib/chat-logs';
 import ConfirmEmail from '@/emails/confirm';
 
 export const runtime = 'nodejs';
@@ -28,26 +27,6 @@ const schema = z.object({
   // input fill it. Server silently returns success without touching Resend.
   website: z.string().max(500).optional(),
 });
-
-const LOG_DIR = process.env.VERCEL
-  ? '/tmp'
-  : path.join(process.cwd(), 'logs');
-const LOG_FILE = path.join(LOG_DIR, 'chat-email-gate.jsonl');
-
-/**
- * Structured log — never writes the raw email. A SHA-256 digest lets us count
- * unique email-gate opens per day without storing PII at rest.
- */
-function logEmailGateAsync(entry: Record<string, unknown>): void {
-  if (process.env.VERCEL) {
-    console.log('[chat-email-gate]', JSON.stringify(entry));
-    return;
-  }
-  const line = JSON.stringify(entry) + '\n';
-  fs.mkdir(LOG_DIR, { recursive: true })
-    .then(() => fs.appendFile(LOG_FILE, line))
-    .catch((err) => console.error('[chat-email-gate] log failed:', err));
-}
 
 function emailDigest(email: string): string {
   const secret = process.env.CHAT_SESSION_SECRET ?? 'fallback';
@@ -143,7 +122,7 @@ export async function POST(request: Request) {
       }
     }
 
-    logEmailGateAsync({
+    pushLog('email-gate', {
       ts: new Date().toISOString(),
       email_hash: emailHash,
       opt_in_digest: optInDigest,

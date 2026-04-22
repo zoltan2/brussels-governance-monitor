@@ -1019,7 +1019,14 @@ export function ChatWidget() {
               return;
             }
             e.preventDefault();
-            if (href) router.push(href);
+            if (href) {
+              router.push(href);
+              // On mobile, the widget covers the viewport — close the panel
+              // so the user actually sees the navigated page.
+              if (typeof window !== 'undefined' && window.innerWidth < 640) {
+                setOpen(false);
+              }
+            }
           }}
           className="mx-0.5 inline-flex items-center rounded border border-brand-900/20 bg-brand-900/5 px-1.5 py-0.5 text-xs font-medium text-brand-900 no-underline transition hover:border-brand-900/40 hover:bg-brand-900/10"
         >
@@ -1132,7 +1139,7 @@ export function ChatWidget() {
                 value={state.reason}
                 onChange={(e) => updateDown(i, { reason: e.target.value as Reason })}
                 disabled={state.submitting}
-                className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-2 py-1 text-xs text-neutral-900 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-2 py-1 text-base text-neutral-900 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
               >
                 {REASON_ORDER.map((r) => (
                   <option key={r} value={r}>
@@ -1151,7 +1158,7 @@ export function ChatWidget() {
                 rows={2}
                 maxLength={500}
                 disabled={state.submitting}
-                className="w-full resize-none rounded-md border border-neutral-300 bg-neutral-50 px-2 py-1 text-xs text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full resize-none rounded-md border border-neutral-300 bg-neutral-50 px-2 py-1 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
               />
             </label>
 
@@ -1163,7 +1170,7 @@ export function ChatWidget() {
                 onChange={(e) => updateDown(i, { email: e.target.value })}
                 placeholder={fc.emailPlaceholder}
                 disabled={state.submitting}
-                className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-2 py-1 text-xs text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-2 py-1 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
               />
             </label>
 
@@ -1198,7 +1205,7 @@ export function ChatWidget() {
           trackEvent('chatbot:opened', { locale });
         }}
         aria-label={ui.openAria}
-        className="fixed bottom-6 left-6 z-[9999] flex h-14 w-14 items-center justify-center rounded-full bg-brand-900 text-neutral-50 shadow-lg transition hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:ring-offset-2"
+        className="fixed bottom-4 left-4 z-[9999] flex h-14 w-14 items-center justify-center rounded-full bg-brand-900 text-neutral-50 shadow-lg transition hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:ring-offset-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -1447,7 +1454,7 @@ export function ChatWidget() {
                   required
                   autoComplete="email"
                   disabled={emailSubmitting}
-                  className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm"
                 />
               </label>
 
@@ -1542,7 +1549,7 @@ export function ChatWidget() {
               rows={1}
               placeholder={ui.inputPlaceholder}
               aria-label={ui.inputAria}
-              className="max-h-32 min-h-[38px] flex-1 resize-none rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900"
+              className="max-h-32 min-h-[38px] flex-1 resize-none rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 sm:text-sm"
               disabled={loading}
             />
             <button

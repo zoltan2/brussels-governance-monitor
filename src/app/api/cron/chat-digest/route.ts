@@ -2,16 +2,11 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { NextResponse } from 'next/server';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
+import { readLogs } from '@/lib/chat-logs';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-
-const LOG_DIR = process.env.VERCEL
-  ? '/tmp'
-  : path.join(process.cwd(), 'logs');
 
 type UsageEntry = {
   ts: string;
@@ -41,25 +36,6 @@ type FeedbackEntry = {
   value?: number | null;
   message_count?: number | null;
 };
-
-async function readJsonl<T>(file: string): Promise<T[]> {
-  let raw: string;
-  try {
-    raw = await fs.readFile(path.join(LOG_DIR, file), 'utf-8');
-  } catch {
-    return [];
-  }
-  const out: T[] = [];
-  for (const line of raw.split('\n')) {
-    if (!line.trim()) continue;
-    try {
-      out.push(JSON.parse(line) as T);
-    } catch {
-      /* skip malformed */
-    }
-  }
-  return out;
-}
 
 function withinLastDay(iso: string, now: number): boolean {
   const t = Date.parse(iso);
@@ -108,9 +84,9 @@ export async function GET(request: Request) {
   const isVercel = Boolean(process.env.VERCEL);
 
   const [usage, errors, feedback] = await Promise.all([
-    readJsonl<UsageEntry>('chat-usage.jsonl'),
-    readJsonl<ErrorEntry>('chat-errors.jsonl'),
-    readJsonl<FeedbackEntry>('chat-feedback.jsonl'),
+    readLogs<UsageEntry>('usage'),
+    readLogs<ErrorEntry>('errors'),
+    readLogs<FeedbackEntry>('feedback'),
   ]);
 
   const usage24h = usage.filter((u) => withinLastDay(u.ts, now));
@@ -208,13 +184,15 @@ export async function GET(request: Request) {
   }
   lines.push('');
 
-  if (isVercel) {
-    lines.push('Note : en production (Vercel) les logs sont envoyés sur stdout.');
-    lines.push('Ce digest ne lit que le fichier local /tmp — non persistant entre');
-    lines.push('invocations. Pour un comptage exact : Vercel Logs dashboard,');
-    lines.push('ou brancher un log drain vers Upstash/Logflare/BetterStack.');
+  const redisConfigured = Boolean(process.env.UPSTASH_REDIS_REST_URL);
+  if (isVercel && !redisConfigured) {
+    lines.push('Note : UPSTASH_REDIS_REST_URL n\'est pas configuré — les logs ne');
+    lines.push('persistent pas entre invocations. Ajoute l\'intégration Upstash');
+    lines.push('dans Vercel pour voir un comptage exact.');
+  } else if (redisConfigured) {
+    lines.push('Source : Upstash Redis (chat:* keys).');
   } else {
-    lines.push(`Source : ${LOG_DIR}/chat-*.jsonl (lecture locale).`);
+    lines.push('Source : ./logs/chat-*.jsonl (lecture locale).');
   }
 
   const resend = getResend();

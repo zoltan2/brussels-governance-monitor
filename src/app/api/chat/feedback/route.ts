@@ -3,10 +3,9 @@
 
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
+import { pushLog } from '@/lib/chat-logs';
 
 export const runtime = 'nodejs';
 
@@ -33,22 +32,6 @@ const FEEDBACK_RECIPIENT = 'feedback@brusselsgovernance.be';
 
 // Reasons that warrant an inbox email — not up-votes or silent ratings.
 const EMAILABLE_REASONS = new Set(['wrong', 'irrelevant', 'hallucinated', 'other']);
-
-const LOG_DIR = process.env.VERCEL
-  ? '/tmp'
-  : path.join(process.cwd(), 'logs');
-const LOG_FILE = path.join(LOG_DIR, 'chat-feedback.jsonl');
-
-function logFeedbackAsync(entry: Record<string, unknown>): void {
-  if (process.env.VERCEL) {
-    console.log('[chat-feedback]', JSON.stringify(entry));
-    return;
-  }
-  const line = JSON.stringify(entry) + '\n';
-  fs.mkdir(LOG_DIR, { recursive: true })
-    .then(() => fs.appendFile(LOG_FILE, line))
-    .catch((err) => console.error('[chat-feedback] log failed:', err));
-}
 
 function sanitizeTag(value: string): string {
   return value.replace(/[^a-zA-Z0-9_-]/g, '-').slice(0, 60);
@@ -85,7 +68,7 @@ export async function POST(request: Request) {
       locale,
     } = parsed.data;
 
-    logFeedbackAsync({
+    pushLog('feedback', {
       ts: new Date().toISOString(),
       reason,
       provider,

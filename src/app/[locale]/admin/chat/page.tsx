@@ -3,9 +3,8 @@
 
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import { auth } from '@/auth';
+import { readLogs } from '@/lib/chat-logs';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -59,29 +58,6 @@ type EmailGateEntry = {
   confirmation_sent?: boolean;
 };
 
-const LOG_DIR = process.env.VERCEL
-  ? '/tmp'
-  : path.join(process.cwd(), 'logs');
-
-async function readJsonl<T>(file: string): Promise<T[]> {
-  let raw: string;
-  try {
-    raw = await fs.readFile(path.join(LOG_DIR, file), 'utf-8');
-  } catch {
-    return [];
-  }
-  const out: T[] = [];
-  for (const line of raw.split('\n')) {
-    if (!line.trim()) continue;
-    try {
-      out.push(JSON.parse(line) as T);
-    } catch {
-      /* skip malformed lines silently */
-    }
-  }
-  return out;
-}
-
 function formatTs(iso: string): string {
   return iso.slice(0, 16).replace('T', ' ');
 }
@@ -131,10 +107,10 @@ export default async function AdminChatPage({
   }
 
   const [usageAll, errorsAll, feedbackAll, emailGateAll] = await Promise.all([
-    readJsonl<UsageEntry>('chat-usage.jsonl'),
-    readJsonl<ErrorEntry>('chat-errors.jsonl'),
-    readJsonl<FeedbackEntry>('chat-feedback.jsonl'),
-    readJsonl<EmailGateEntry>('chat-email-gate.jsonl'),
+    readLogs<UsageEntry>('usage'),
+    readLogs<ErrorEntry>('errors'),
+    readLogs<FeedbackEntry>('feedback'),
+    readLogs<EmailGateEntry>('email-gate'),
   ]);
 
   const usage = usageAll.slice(-100).reverse();

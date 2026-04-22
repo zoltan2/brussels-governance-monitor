@@ -4,11 +4,10 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import Anthropic from '@anthropic-ai/sdk';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { rateLimit } from '@/lib/rate-limit';
 import { buildSystemPrompt } from '@/lib/chat-system-prompt';
+import { pushLog } from '@/lib/chat-logs';
 import suggestedAnswersCache from '@/lib/chat-cache/suggested-answers.json';
 
 export const runtime = 'nodejs';
@@ -67,29 +66,8 @@ type UsageContext = {
   cached: boolean;
 };
 
-const LOG_DIR = process.env.VERCEL
-  ? '/tmp'
-  : path.join(process.cwd(), 'logs');
-const USAGE_LOG_FILE = path.join(LOG_DIR, 'chat-usage.jsonl');
-const ERROR_LOG_FILE = path.join(LOG_DIR, 'chat-errors.jsonl');
-
-function emitLogEntry(
-  prefix: string,
-  file: string,
-  entry: Record<string, unknown>,
-): void {
-  if (process.env.VERCEL) {
-    console.log(prefix, JSON.stringify(entry));
-    return;
-  }
-  const line = JSON.stringify(entry) + '\n';
-  fs.mkdir(LOG_DIR, { recursive: true })
-    .then(() => fs.appendFile(file, line))
-    .catch((err) => console.error(`${prefix} log failed:`, err));
-}
-
 function logUsageAsync(ctx: UsageContext): void {
-  emitLogEntry('[chat-usage]', USAGE_LOG_FILE, {
+  pushLog('usage', {
     ts: new Date().toISOString(),
     provider: ctx.provider,
     locale: ctx.locale,
@@ -110,7 +88,7 @@ type ErrorLogContext = {
 };
 
 function logErrorAsync(error: unknown, context: ErrorLogContext): void {
-  emitLogEntry('[chat-error]', ERROR_LOG_FILE, {
+  pushLog('errors', {
     ts: new Date().toISOString(),
     provider: context.provider ?? 'unknown',
     locale: context.locale ?? 'unknown',

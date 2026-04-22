@@ -4,7 +4,7 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { auth } from '@/auth';
-import { readLogs } from '@/lib/chat-logs';
+import { readLogs, isPersistentStoreConfigured } from '@/lib/chat-logs';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -106,6 +106,9 @@ export default async function AdminChatPage({
     redirect(`/${locale}/login`);
   }
 
+  const storeConfigured = isPersistentStoreConfigured();
+  const isVercel = Boolean(process.env.VERCEL);
+
   const [usageAll, errorsAll, feedbackAll, emailGateAll] = await Promise.all([
     readLogs<UsageEntry>('usage'),
     readLogs<ErrorEntry>('errors'),
@@ -170,10 +173,25 @@ export default async function AdminChatPage({
             Télémétrie du chatbot
           </h1>
           <p className="mt-2 text-sm text-neutral-500">
-            Lecture directe des logs JSONL (usage, erreurs, feedback, email-gate).
+            Lecture directe des logs (usage, erreurs, feedback, email-gate).
             Les contenus des messages, emails et commentaires ne sont pas stockés ici —
             uniquement des métadonnées anonymisées (hashes). Le détail des retours
             négatifs arrive par email dans la boîte feedback@brusselsgovernance.be.
+          </p>
+          <p className="mt-1 text-xs text-neutral-400">
+            Source :{' '}
+            {storeConfigured ? (
+              <span className="text-neutral-600">Upstash Redis (chat:* keys)</span>
+            ) : isVercel ? (
+              <span className="text-status-delayed">
+                ⚠ Upstash non configuré — ajouter l&apos;intégration dans Vercel
+                Storage pour peupler cette page (env vars attendues :
+                UPSTASH_REDIS_REST_URL / _TOKEN ou KV_REST_API_URL / _TOKEN).
+                En attendant, utilise Vercel Logs dashboard (filtre `[chat-`).
+              </span>
+            ) : (
+              <span className="text-neutral-600">./logs/chat-*.jsonl (local dev)</span>
+            )}
           </p>
         </div>
 

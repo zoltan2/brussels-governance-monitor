@@ -34,19 +34,29 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'expired' }, { status: 410 });
     }
 
-    const { email, locale, topics } = payload;
+    const { email, locale, topics, source } = payload;
 
     if (!process.env.RESEND_API_KEY) {
       return NextResponse.json({ error: 'service_unavailable' }, { status: 503 });
     }
 
-    // If contact already exists, merge topics instead of ignoring
+    // If contact already exists, merge topics AND sources instead of ignoring.
     const existing = await getContact(email);
     if (existing) {
       const mergedTopics = [...new Set([...existing.topics, ...topics])];
-      if (mergedTopics.length !== existing.topics.length) {
+      const mergedSources = source
+        ? [...new Set([...existing.sources, source])]
+        : existing.sources;
+      const topicsChanged = mergedTopics.length !== existing.topics.length;
+      const sourcesChanged = mergedSources.length !== existing.sources.length;
+      if (topicsChanged || sourcesChanged) {
         const { updateContactPreferences } = await import('@/lib/resend');
-        await updateContactPreferences(email, existing.locale, mergedTopics);
+        await updateContactPreferences(
+          email,
+          existing.locale,
+          mergedTopics,
+          mergedSources,
+        );
       }
       return NextResponse.json({ success: true, topics: mergedTopics, alreadyConfirmed: true });
     }
@@ -74,9 +84,9 @@ export async function POST(request: Request) {
       }),
     );
 
-    // Persist subscriber in Resend Contacts
+    // Persist subscriber in Resend Contacts with their origin tag.
     try {
-      await addContact(email, locale, topics);
+      await addContact(email, locale, topics, source ? [source] : []);
     } catch (err) {
       console.error('Confirm: addContact failed — subscriber received welcome email but was NOT persisted:', email, err);
     }

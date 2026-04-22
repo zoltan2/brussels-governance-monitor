@@ -15,6 +15,12 @@ interface TokenPayload {
   email: string;
   locale: string;
   topics: string[];
+  /**
+   * Optional tag marking where the subscriber signed up (e.g. 'website',
+   * 'chat', 'cafe-numerique'). Propagated to the Resend contact `sources`
+   * property so you can filter contacts by acquisition channel.
+   */
+  source?: string;
 }
 
 export function generateConfirmToken(payload: TokenPayload): string {
@@ -125,7 +131,12 @@ export function verifyConfirmToken(token: string): TokenPayload | null {
   try {
     const data = JSON.parse(Buffer.from(encoded, 'base64url').toString());
     if (data.exp < Date.now()) return null;
-    return { email: data.email, locale: data.locale, topics: data.topics };
+    return {
+      email: data.email,
+      locale: data.locale,
+      topics: data.topics,
+      source: typeof data.source === 'string' ? data.source : undefined,
+    };
   } catch {
     return null;
   }

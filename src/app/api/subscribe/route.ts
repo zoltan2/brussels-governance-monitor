@@ -3,7 +3,13 @@
 
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { getResend, EMAIL_FROM, getContact, updateContactPreferences, resendCall } from '@/lib/resend';
+import {
+  getResend,
+  EMAIL_FROM,
+  getContact,
+  updateContactPreferences,
+  resendCall,
+} from '@/lib/resend';
 import { generateConfirmToken } from '@/lib/token';
 import { rateLimit } from '@/lib/rate-limit';
 import ConfirmEmail from '@/emails/confirm';
@@ -59,9 +65,11 @@ export async function POST(request: Request) {
     // Check if email is already a confirmed subscriber
     const existing = await getContact(email);
     if (existing) {
-      // Merge new topics with existing ones (deduplicated)
+      // Merge new topics with existing ones (deduplicated) and tag 'website'
+      // as a source so repeat sign-ups via the form accumulate cleanly.
       const mergedTopics = [...new Set([...existing.topics, ...topics])];
-      await updateContactPreferences(email, locale, mergedTopics);
+      const mergedSources = [...new Set([...existing.sources, 'website'])];
+      await updateContactPreferences(email, locale, mergedTopics, mergedSources);
       return NextResponse.json({
         success: true,
         alreadySubscribed: true,
@@ -71,7 +79,7 @@ export async function POST(request: Request) {
 
     // New subscriber — send confirmation email
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-    const token = generateConfirmToken({ email, locale, topics });
+    const token = generateConfirmToken({ email, locale, topics, source: 'website' });
     const confirmUrl = `${siteUrl}/${locale}/subscribe/confirm?token=${encodeURIComponent(token)}`;
 
     const resend = getResend();

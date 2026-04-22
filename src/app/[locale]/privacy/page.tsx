@@ -107,8 +107,12 @@ function PrivacyView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('contact.title')}</h2>
           <p>{t('contact.description')}</p>
 
+          <h2 className="text-lg font-semibold text-neutral-900">{t('chatbot.title')}</h2>
+          <p>{t('chatbot.paragraph1')}</p>
+          <p>{t('chatbot.paragraph2')}</p>
+
           <p className="mt-8 text-xs text-neutral-500">
-            {t('lastUpdated', { date: '2026-02-11' })}
+            {t('lastUpdated', { date: '2026-04-21' })}
           </p>
         </div>
       </div>

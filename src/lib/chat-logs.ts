@@ -43,16 +43,36 @@ const LOCAL_LOG_DIR = path.join(process.cwd(), 'logs');
 
 let _redis: Redis | null | undefined;
 
+/**
+ * Resolve Redis credentials. The Vercel ecosystem exposes Upstash under two
+ * naming conventions depending on how it was connected:
+ *   - Upstash Marketplace integration → UPSTASH_REDIS_REST_URL / _TOKEN
+ *   - Vercel Storage → KV                → KV_REST_API_URL / _TOKEN
+ * Accept both so either wiring path works without code changes.
+ */
+function resolveRedisCreds(): { url: string; token: string } | null {
+  const url =
+    process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+  const token =
+    process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+  if (!url || !token) return null;
+  return { url, token };
+}
+
 function getRedis(): Redis | null {
   if (_redis !== undefined) return _redis;
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !token) {
+  const creds = resolveRedisCreds();
+  if (!creds) {
     _redis = null;
     return null;
   }
-  _redis = new Redis({ url, token });
+  _redis = new Redis(creds);
   return _redis;
+}
+
+/** Lets the admin page surface a clear diagnostic when no store is wired. */
+export function isPersistentStoreConfigured(): boolean {
+  return resolveRedisCreds() !== null;
 }
 
 /**

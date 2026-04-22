@@ -184,14 +184,17 @@ export async function addContact(
   email: string,
   locale: string,
   topics: string[],
+  sources: string[] = [],
 ): Promise<void> {
   const resend = getResend();
+  const sanitizedSources = dedupeSources(sources);
   const result = await resendCall(() =>
     resend.contacts.create({
       email,
       properties: {
         locale,
         topics: topics.join(','),
+        sources: sanitizedSources.join(','),
       },
     }),
   );
@@ -204,10 +207,21 @@ export async function addContact(
         properties: {
           locale,
           topics: topics.join(','),
+          sources: sanitizedSources.join(','),
         },
       }),
     );
   }
+}
+
+function dedupeSources(sources: string[]): string[] {
+  return [
+    ...new Set(
+      sources
+        .map((s) => s.trim().toLowerCase())
+        .filter((s) => /^[a-z0-9_-]+$/.test(s)),
+    ),
+  ];
 }
 
 /**
@@ -215,7 +229,7 @@ export async function addContact(
  */
 export async function getContact(
   email: string,
-): Promise<{ locale: string; topics: string[] } | null> {
+): Promise<{ locale: string; topics: string[]; sources: string[] } | null> {
   const resend = getResend();
   const { data: contacts } = await resendCall(() =>
     resend.contacts.list({ limit: 100 }),
@@ -241,31 +255,60 @@ export async function getContact(
     props.topics && typeof props.topics === 'object' && 'value' in props.topics
       ? String(props.topics.value)
       : '';
+  const sourcesStr =
+    props.sources && typeof props.sources === 'object' && 'value' in props.sources
+      ? String(props.sources.value)
+      : '';
 
   return {
     locale,
     topics: topicsStr ? topicsStr.split(',') : [],
+    sources: sourcesStr ? sourcesStr.split(',').filter(Boolean) : [],
   };
 }
 
 /**
- * Update a contact's preferences (locale and topics) in Resend.
+ * Update a contact's preferences (locale, topics, and optionally sources).
+ * Passing `sources` explicitly overwrites the current set; omit to preserve.
  */
 export async function updateContactPreferences(
   email: string,
   locale: string,
   topics: string[],
+  sources?: string[],
 ): Promise<void> {
   const resend = getResend();
+  const properties: Record<string, string> = {
+    locale,
+    topics: topics.join(','),
+  };
+  if (sources !== undefined) {
+    properties.sources = dedupeSources(sources).join(',');
+  }
   await resendCall(() =>
     resend.contacts.update({
       email,
-      properties: {
-        locale,
-        topics: topics.join(','),
-      },
+      properties,
     }),
   );
+}
+
+/**
+ * Add a source tag to an existing contact's `sources` property without
+ * clobbering their topics/locale. No-op if the contact doesn't exist.
+ * Returns whether a new source was actually added (for callers that want to
+ * know if something changed).
+ */
+export async function mergeContactSources(
+  email: string,
+  newSources: string[],
+): Promise<boolean> {
+  const existing = await getContact(email);
+  if (!existing) return false;
+  const merged = dedupeSources([...existing.sources, ...newSources]);
+  if (merged.length === existing.sources.length) return false;
+  await updateContactPreferences(email, existing.locale, existing.topics, merged);
+  return true;
 }
 
 /**
@@ -286,6 +329,7 @@ export interface ActiveContact {
   email: string;
   locale: string;
   topics: string[];
+  sources: string[];
 }
 
 /**
@@ -325,12 +369,17 @@ export async function listActiveContacts(): Promise<ActiveContact[]> {
         (props.topics && typeof props.topics === 'object' && 'value' in props.topics
           ? String(props.topics.value)
           : '');
+      const sourcesStr =
+        (props.sources && typeof props.sources === 'object' && 'value' in props.sources
+          ? String(props.sources.value)
+          : '');
 
       contacts.push({
         id: contact.id,
         email: contact.email,
         locale,
         topics: topicsStr ? topicsStr.split(',') : [],
+        sources: sourcesStr ? sourcesStr.split(',').filter(Boolean) : [],
       });
     }
 

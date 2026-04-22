@@ -3,10 +3,21 @@
 
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { rateLimit } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 
-export async function POST() {
+export async function POST(request: Request) {
+  // Cap checkout-session creation per IP. Prevents bots from spamming the
+  // Stripe dashboard with aborted sessions. 5/min is well above any legit
+  // user's pace and under Stripe's own per-account rate limits.
+  const ip =
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const { allowed } = rateLimit(ip, { max: 5, bucket: 'chat-checkout' });
+  if (!allowed) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
   const secret = process.env.STRIPE_SECRET_KEY;
   const priceId = process.env.STRIPE_PRICE_ID;
 

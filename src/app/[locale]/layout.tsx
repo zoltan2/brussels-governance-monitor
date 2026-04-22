@@ -148,7 +148,7 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} className={inter.variable}>
+    <html lang={locale} className={inter.variable} suppressHydrationWarning>
       <head>
         <link
           rel="alternate"

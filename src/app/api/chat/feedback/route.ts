@@ -11,26 +11,34 @@ import { rateLimit } from '@/lib/rate-limit';
 export const runtime = 'nodejs';
 
 const feedbackSchema = z.object({
-  reason: z.enum(['wrong', 'irrelevant', 'hallucinated', 'other']),
-  userQuestion: z.string().max(500),
-  assistantAnswer: z.string().max(1000),
+  reason: z.enum([
+    'wrong',
+    'irrelevant',
+    'hallucinated',
+    'other',
+    'up',
+    'session-rating',
+  ]),
+  userQuestion: z.string().max(500).optional(),
+  assistantAnswer: z.string().max(1000).optional(),
   comment: z.string().max(500).optional(),
   email: z.string().email().optional(),
+  value: z.number().int().min(1).max(3).optional(),
+  messageCount: z.number().int().min(0).max(100).optional(),
   provider: z.string().max(20),
   locale: z.string().max(10),
 });
 
 const FEEDBACK_RECIPIENT = 'feedback@brusselsgovernance.be';
 
+// Reasons that warrant an inbox email — not up-votes or silent ratings.
+const EMAILABLE_REASONS = new Set(['wrong', 'irrelevant', 'hallucinated', 'other']);
+
 const LOG_DIR = process.env.VERCEL
   ? '/tmp'
   : path.join(process.cwd(), 'logs');
 const LOG_FILE = path.join(LOG_DIR, 'chat-feedback.jsonl');
 
-/**
- * On Vercel: stdout-only (structured prefix), since /tmp is per-invocation.
- * Locally: append to logs/chat-feedback.jsonl so the admin page can read it.
- */
 function logFeedbackAsync(entry: Record<string, unknown>): void {
   if (process.env.VERCEL) {
     console.log('[chat-feedback]', JSON.stringify(entry));
@@ -71,6 +79,8 @@ export async function POST(request: Request) {
       assistantAnswer,
       comment,
       email,
+      value,
+      messageCount,
       provider,
       locale,
     } = parsed.data;
@@ -83,10 +93,22 @@ export async function POST(request: Request) {
       session: 'anonymous',
       has_email: Boolean(email),
       has_comment: Boolean(comment),
+      value: value ?? null,
+      message_count: messageCount ?? null,
     });
 
+    // Only email on negative/ambiguous reasons — not up-votes or session ratings.
+    if (!EMAILABLE_REASONS.has(reason)) {
+      return NextResponse.json({ success: true });
+    }
+
     if (!process.env.RESEND_API_KEY) {
-      console.log('[ChatFeedback]', { reason, provider, locale, hasEmail: Boolean(email) });
+      console.log('[ChatFeedback]', {
+        reason,
+        provider,
+        locale,
+        hasEmail: Boolean(email),
+      });
       return NextResponse.json({ success: true });
     }
 
@@ -101,8 +123,8 @@ export async function POST(request: Request) {
           `Fournisseur : ${provider}`,
           `Locale : ${locale}`,
           '---',
-          `Question : ${userQuestion}`,
-          `Réponse : ${assistantAnswer}`,
+          `Question : ${userQuestion ?? '(non fournie)'}`,
+          `Réponse : ${assistantAnswer ?? '(non fournie)'}`,
           '---',
           `Commentaire : ${comment || '(aucun)'}`,
           `Email : ${email || '(anonyme)'}`,

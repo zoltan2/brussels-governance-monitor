@@ -34,9 +34,12 @@ type ErrorEntry = {
 type FeedbackEntry = {
   ts: string;
   reason?: string;
+  provider?: string;
   locale?: string;
   has_email?: boolean;
   has_comment?: boolean;
+  value?: number | null;
+  message_count?: number | null;
 };
 
 async function readJsonl<T>(file: string): Promise<T[]> {
@@ -130,11 +133,36 @@ export async function GET(request: Request) {
     usage24h.map((u) => u.locale).filter((l): l is string => Boolean(l)),
   );
 
+  // Split feedback by kind for cleaner reporting.
+  const thumbsUp = feedback24h.filter((f) => f.reason === 'up').length;
+  const sessionRatings = feedback24h.filter(
+    (f) => f.reason === 'session-rating',
+  );
+  const problemReports = feedback24h.filter(
+    (f) => f.reason && !['up', 'session-rating'].includes(f.reason),
+  );
+
   const feedbackByReason = new Map<string, number>();
-  for (const f of feedback24h) {
+  for (const f of problemReports) {
     const k = f.reason ?? 'unknown';
     feedbackByReason.set(k, (feedbackByReason.get(k) ?? 0) + 1);
   }
+
+  const ratingBuckets: Record<1 | 2 | 3, number> = { 1: 0, 2: 0, 3: 0 };
+  for (const r of sessionRatings) {
+    if (r.value === 1 || r.value === 2 || r.value === 3) {
+      ratingBuckets[r.value] += 1;
+    }
+  }
+  const avgRating =
+    sessionRatings.length > 0
+      ? (
+          sessionRatings.reduce(
+            (sum, r) => sum + (typeof r.value === 'number' ? r.value : 0),
+            0,
+          ) / sessionRatings.length
+        ).toFixed(2)
+      : null;
 
   const topErrors = errors24h
     .map((e) => e.error ?? 'unknown')
@@ -163,12 +191,20 @@ export async function GET(request: Request) {
     }
   }
   lines.push('');
-  lines.push(`Feedback (24h)     : ${feedback24h.length}`);
+  lines.push(`Feedback total 24h : ${feedback24h.length}`);
+  lines.push(`  👍 utile         : ${thumbsUp}`);
+  lines.push(`  👎 problème      : ${problemReports.length}`);
   if (feedbackByReason.size > 0) {
-    lines.push('Par raison :');
     for (const [reason, count] of feedbackByReason) {
-      lines.push(`  · ${count}× ${reason}`);
+      lines.push(`      · ${count}× ${reason}`);
     }
+  }
+  lines.push(`  ★ CSAT session   : ${sessionRatings.length}`);
+  if (sessionRatings.length > 0) {
+    lines.push(`      😊 satisfait  : ${ratingBuckets[3]}`);
+    lines.push(`      😐 neutre     : ${ratingBuckets[2]}`);
+    lines.push(`      😞 insatisfait: ${ratingBuckets[1]}`);
+    lines.push(`      moyenne      : ${avgRating} / 3`);
   }
   lines.push('');
 
@@ -186,7 +222,7 @@ export async function GET(request: Request) {
     resend.emails.send({
       from: EMAIL_FROM,
       to: adminEmail,
-      subject: `[BGM Chat] Digest 24h — ${usage24h.length} req / ${errors24h.length} err / ${feedback24h.length} fb`,
+      subject: `[BGM Chat] Digest 24h — ${usage24h.length} req / 👍${thumbsUp} 👎${problemReports.length} ★${sessionRatings.length} / ${errors24h.length} err`,
       text: lines.join('\n'),
       tags: [
         { name: 'type', value: 'chat-digest' },

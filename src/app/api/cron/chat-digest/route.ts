@@ -3,7 +3,7 @@
 
 import { NextResponse } from 'next/server';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
-import { readLogs } from '@/lib/chat-logs';
+import { readLogs, isPersistentStoreConfigured } from '@/lib/chat-logs';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -184,11 +184,11 @@ export async function GET(request: Request) {
   }
   lines.push('');
 
-  const redisConfigured = Boolean(process.env.UPSTASH_REDIS_REST_URL);
+  const redisConfigured = isPersistentStoreConfigured();
   if (isVercel && !redisConfigured) {
-    lines.push('Note : UPSTASH_REDIS_REST_URL n\'est pas configuré — les logs ne');
-    lines.push('persistent pas entre invocations. Ajoute l\'intégration Upstash');
-    lines.push('dans Vercel pour voir un comptage exact.');
+    lines.push('Note : aucun store Redis configuré (UPSTASH_REDIS_REST_URL ou');
+    lines.push('KV_REST_API_URL) — les logs ne persistent pas entre invocations.');
+    lines.push('Ajoute l\'intégration Upstash ou Vercel KV pour un comptage exact.');
   } else if (redisConfigured) {
     lines.push('Source : Upstash Redis (chat:* keys).');
   } else {

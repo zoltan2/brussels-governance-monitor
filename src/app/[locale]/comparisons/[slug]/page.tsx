@@ -67,6 +67,7 @@ export default async function ComparisonDetailPage({
     dateModified: card.lastModified,
     url: `${siteUrl}/${locale}/comparisons/${slug}`,
     inLanguage: locale,
+    license: 'https://governance.brussels/legal',
     creator: {
       '@type': 'Organization',
       name: 'Brussels Governance Monitor',

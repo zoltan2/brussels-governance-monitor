@@ -56,14 +56,14 @@ type Resource = {
 const RESOURCES: readonly Resource[] = [
   {
     title: 'Le Signal',
-    subtitle: 'Newsletter FR · 8 éditions',
+    subtitle: 'Newsletter FR · 9 éditions',
     href: 'https://www.linkedin.com/newsletters/le-signal-bgm-7430513857359527936/',
     external: true,
     image: '/merci-cafe/signal-bgm.webp',
   },
   {
     title: 'Le Briefing BGM',
-    subtitle: 'Podcast FR et NL · 6 épisodes',
+    subtitle: 'Podcast FR et NL · 8 épisodes',
     href: 'https://podcast.governance.brussels',
     external: true,
     image: '/merci-cafe/briefing-bgm.webp',

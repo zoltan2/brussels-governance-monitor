@@ -1,105 +1,140 @@
 ---
-title: "Wohnungswesen: SLRB 197M Schulden, Standorte verkauft, Referenzmiete reformiert"
+title: "Wohnungswesen: Wohnungsfonds startet am 1. Juli, Mieten +3,7 %, SLRB 197 Mio. € Schulden"
 slug: housing-sector
 locale: de
 parentDomain: housing
-sector: "Wohnungswesen und sozialer Wohnungsbau"
-frozenMechanisms:
-  - name: "Neues Bauprogramm für Sozialwohnungen"
-    description: "Die neuen Bauprojekte für Sozialwohnungen über die bereits festgelegten hinaus waren eingefroren. Die SLRB/BGHM konnte keine neuen Projektaufrufe starten. Die neue Regierung hat 400M EUR für die SLRB und 1 000+ Sozialwohnungen angekündigt."
-    since: "2024-06-09"
-  - name: "Aktualisierung der Mietregelung"
-    description: "Die geplanten Anpassungen des Brüsseler Mietrechtsrahmens (indikatives Mietpreisraster, Mietpreisregulierung) konnten nicht verabschiedet werden. Die neue Regierung hat eine Reform der Referenzmiete mit Anreizen angekündigt."
-    since: "2024-06-09"
-  - name: "Investitionsplan SLRB/BGHM"
-    description: "Der Mehrjahresinvestitionsplan der SLRB/BGHM für die Sanierung und den Bau von Sozialwohnungen konnte nicht erneuert oder erweitert werden. Die angekündigte Kapitalzufuhr von 400M EUR startet dieses Programm neu."
-    since: "2024-06-09"
-  - name: "Stadterneuerungsverträge"
-    description: "Die neuen Stadterneuerungsverträge, die den Bau bezahlbarer Wohnungen in benachteiligten Quartieren umfassen, konnten nicht gestartet werden. Die neue Regierung kann sie nun wieder aufnehmen."
-    since: "2024-06-09"
+sector: "Wohnungswesen und Sozialwohnungen"
+frozenMechanisms: []
 activeMechanisms:
   - name: "Verwaltung des bestehenden Sozialwohnungsbestands"
-    description: "Die 16 SISP (öffentliche Wohnungsbaugesellschaften) verwalten den bestehenden Sozialwohnungsbestand weiterhin: Wohnungszuweisung, laufende Instandhaltung, Mieteinzug."
+    description: "Die 16 SISP (öffentliche Immobiliengesellschaften) verwalten weiterhin den Bestand: Zuteilung, laufende Instandhaltung, Mieteinzug."
   - name: "Laufende Mietverträge"
-    description: "Die bestehenden Mietverträge, sowohl im sozialen als auch im privaten Sektor, bleiben gemäß der regionalen Gesetzgebung vollumfänglich in Kraft."
+    description: "Bestehende Mietverträge bleiben gemäß der regionalen Gesetzgebung in vollem Umfang in Kraft."
+  - name: "Wohnungsfonds — Ecoréno-Darlehen"
+    description: "Die Ecoréno-Darlehen (energetische Renovierung) wurden am 1. Januar 2026 wieder aufgenommen, mit einer Zinserhöhung."
 impactIndicators:
-  - label: "Haushalte auf der Warteliste für Sozialwohnungen"
+  - label: "Haushalte auf der Sozialwohnungs-Warteliste"
     value: "62 234"
-    source: "SLRB/BGHM — VRT (Feb. 2026)"
-    url: "https://www.slrb-bghm.brussels/"
-    frequency: "jährlich"
-  - label: "Sozialwohnungen in der Region Brüssel"
+    source: "SLRB / VRT (Februar 2026)"
+    url: "https://www.vrt.be/vrtnws/en/2026/02/06/waiting-list-for-social-housing-in-brussels-has-never-been-longe/"
+    frequency: "annuel"
+  - label: "Sozialwohnungen in der Region Brüssel-Hauptstadt"
     value: "~42 000"
     source: "SLRB/BGHM"
-    url: "https://www.slrb-bghm.brussels/"
-    frequency: "jährlich"
-  - label: "Anteil der Sozialwohnungen am Brüsseler Mietbestand"
-    value: "~7,3%"
-    source: "SLRB/BGHM"
-    url: "https://www.slrb-bghm.brussels/"
-    frequency: "jährlich"
-  - label: "Über Agenturen unterzeichnete Mietverträge (2024)"
-    value: "−10 %"
-    source: "Federia — Baromètre des locations 2025"
+    url: "https://slrb-bghm.brussels/"
+    frequency: "annuel"
+  - label: "Wohnungsfonds — Wiederaufnahme Hypothekarkredite"
+    value: "1. Juli 2026"
+    source: "La DH Bruxelles / Staatssekretärin K. Lalieux (23. April 2026)"
+    url: "https://www.dhnet.be/regions/bruxelles/2026/04/23/suspendus-depuis-lete-2025-les-credits-hypothecaires-du-fonds-du-logement-doivent-reprendre-en-juillet-Z7VJSNXN7NHGDAXO6F5OQSQBIQ/"
+    frequency: "ponctuel"
+  - label: "Durchschnittliche Wohnungsmiete (privat, 2025)"
+    value: ">1 300 €/Monat (+5 % im Jahresvergleich)"
+    source: "Federia — Mietbarometer 2025"
+    url: "https://www.federia.immo/fr/thematiques/2025-02-19-barometre-des-locations-2024-les-chiffres-en-wallonie-et-a-bruxelles"
+    frequency: "annuel"
+  - label: "Durchschnittliche Miete alle Typen (2025)"
+    value: "1 376 €/Monat (+3,7 %)"
+    source: "Federia — Mietbarometer 2025"
     url: "https://www.federia.immo/"
-    frequency: "jährlich"
+    frequency: "annuel"
+  - label: "Brüsseler URC-Mietaufschlag gegenüber flämischen URC"
+    value: "+12 %"
+    source: "BISA — Brussels Studies Fact Sheet Nr. 216 (April 2026)"
+    url: "https://ibsa.brussels/sites/default/files/publication/documents/BruS216FR.pdf"
+    frequency: "ponctuel"
+  - label: "Brüsseler URC-Mietaufschlag gegenüber wallonischen URC"
+    value: "+27 %"
+    source: "BISA — Brussels Studies Fact Sheet Nr. 216 (April 2026)"
+    url: "https://ibsa.brussels/sites/default/files/publication/documents/BruS216FR.pdf"
+    frequency: "ponctuel"
+  - label: "SLRB — angesammelte Schulden gegenüber der Region"
+    value: "197 Mio. EUR"
+    source: "BruxellesToday / BX1 (Januar 2026)"
+    url: "https://www.bruxellestoday.be/"
+    frequency: "ponctuel"
+  - label: "Nicht registrierte Airbnb-Wohnungen in Brüssel"
+    value: "9 von 10 Wohnungen"
+    source: "BRUZZ (1. April 2026)"
+    url: "https://www.bruzz.be/actua/stedenbouw/9-op-10-airbnb-woningen-brussel-staan-niet-geregistreerd-2026-04-01"
+    frequency: "ponctuel"
 stakeholders:
   - name: "SLRB/BGHM"
     type: agency
-    url: "https://www.slrb-bghm.brussels/"
-  - name: "SISP (16 öffentliche Wohnungsbaugesellschaften)"
+    url: "https://slrb-bghm.brussels/"
+  - name: "Wohnungsfonds — Fonds du logement"
     type: agency
-    url: "https://www.slrb-bghm.brussels/"
+    url: "https://fonds.brussels/"
+  - name: "SISP (16 öffentliche Immobiliengesellschaften)"
+    type: agency
+    url: "https://slrb-bghm.brussels/"
   - name: "Mietergewerkschaft"
     type: union
     url: "https://www.syndicat-des-locataires.be/"
   - name: "SNPC"
     type: federation
     url: "https://www.snpc.be/"
-humanImpact: "Die SLRB hat Schulden von 197M EUR angehäuft und muss zwei Standorte (Ariane, Palais) für 52-53M EUR verkaufen. 62.234 Haushalte warten auf eine Sozialwohnung. Die Referenzmiete wird mit Anreizen für Vermieter reformiert."
-lastModified: "2026-03-02"
-summaryFalc: "Die SLRB hat Schulden von 197 Millionen Euro und muss zwei Grundstücke verkaufen. Über 62.000 Haushalte warten auf eine Sozialwohnung. Die Regierung reformiert die Referenzmiete und verdoppelt die Be Home-Prämie."
+humanImpact: "Der Wohnungsfonds nimmt seine Hypothekarkredite am 1. Juli 2026 nach 12 Monaten Aussetzung wieder auf. Privatmieten steigen stark (+3,7 %, durchschnittliche Wohnung 1 376 €/Monat) — alle Gemeinden überschreiten die Grenze von 1 000 €. Die SLRB trägt 197 Mio. € Schulden und muss zwei Standorte verkaufen (Ariane, Palais)."
+lastModified: "2026-04-24"
+summaryFalc: "Der Wohnungsfonds wird ab dem 1. Juli 2026 wieder Wohnkredite vergeben. Die Mieten stiegen in einem Jahr um 3,7 %. Die SLRB muss zwei Grundstücke verkaufen, um ihre Schulden zu begleichen."
 ---
 
-## Regierungsabkommen: Angekündigte Maßnahmen
+## Wohnungsfonds: Wiederaufnahme der Hypothekarkredite am 1. Juli 2026
 
-Das Abkommen vom 12. Februar 2026 kündigt eine massive Entsperrung für den Wohnungssektor an:
+Die Hypothekendarlehen des **Wohnungsfonds der Region Brüssel-Hauptstadt** — seit **Sommer 2025** wegen fehlender Finanzierung ausgesetzt (die Banken weigerten sich, den Fonds ohne Regionalregierung und verabschiedeten Haushalt zu finanzieren) — sollen am **1. Juli 2026** wiederaufgenommen werden.
 
-- **SLRB**: Kapitalzufuhr von **400 Millionen EUR**
-- **1.000+ Sozialwohnungen** während der Legislaturperiode
+Ankündigung von **Staatssekretärin für Wohnungswesen Karine Lalieux (PS)** in einem Ausschuss des Brüsseler Parlaments am 23. April 2026. Die Wiederaufnahme hängt von der **regionalen Garantie** auf den Finanzmärkten ab (« Formalität », Kabinett Lalieux). Die **Ecoréno**-Darlehen wurden bereits am 1. Januar 2026 wiederaufgenommen, mit einer Zinserhöhung. Während der Aussetzung waren **25 Mitarbeiter** des Fonds in wirtschaftliche Arbeitslosigkeit versetzt worden.
+
+Quelle: [La DH Bruxelles](https://www.dhnet.be/regions/bruxelles/2026/04/23/suspendus-depuis-lete-2025-les-credits-hypothecaires-du-fonds-du-logement-doivent-reprendre-en-juillet-Z7VJSNXN7NHGDAXO6F5OQSQBIQ/) (23. April 2026).
+
+## Mietmarkt 2025: +3,7 % im Jahresvergleich, alle Gemeinden über 1 000 €
+
+Laut Mietbarometer 2025 (Federia, veröffentlicht Februar 2026) und der ergänzenden BISA-Analyse:
+
+- **Durchschnittliche Miete alle Typen**: **1 376 €/Monat** (+3,7 % im Jahresvergleich)
+- **Durchschnittliche Wohnungsmiete**: **>1 300 €/Monat** (+5 %)
+- Alle 19 Brüsseler Gemeinden überschreiten nun die **1 000 €/Monat**-Marke
+- **−10 %** neue Mietverträge über Agenturen 2024
+
+### Interregionaler Vergleich (BISA Fact Sheet Nr. 216, April 2026)
+
+Erster akademischer Mietvergleich nach **Stadtwohngebiet (URC)**:
+
+- Brüsseler URC: **+12 %** teurer als flämische URC (Antwerpen, Gent)
+- Brüsseler URC: **+27 %** teurer als wallonische URC (Lüttich, Charleroi)
+
+Quellen: [Federia — Mietbarometer 2025](https://www.federia.immo/fr/thematiques/2025-02-19-barometre-des-locations-2024-les-chiffres-en-wallonie-et-a-bruxelles); [BISA — Brussels Studies Fact Sheet Nr. 216](https://ibsa.brussels/sites/default/files/publication/documents/BruS216FR.pdf); [La Libre](https://www.lalibre.be/economie/immo/2026/02/11/le-loyer-moyen-dun-appartement-passe-le-cap-des-1-300-euros-a-bruxelles-les-mesures-prises-par-nawal-ben-hamou-decouragent-les-investisseurs-4TY7FAJYYRBQNC6OB7YYNZKFXQ/).
+
+## SLRB: 197 Mio. EUR Schulden, zwei Standorte verkauft
+
+Die SLRB hat eine **Schuld von 197 Mio. EUR** gegenüber der Region Brüssel angehäuft. Eine Rückzahlungsregelung wurde im Dezember 2025 vereinbart. Folgen:
+
+- **Verkauf des Standorts Ariane** (Sint-Lambrechts-Woluwe, ehemaliges Fedasil-Zentrum) — geschätzt auf ~30 Mio. EUR
+- **Verkauf des Standorts Palais** (Schaerbeek) — geschätzt auf ~22-23 Mio. EUR
+- Beide Standorte waren für die Umwandlung in Sozialwohnungen vorgesehen
+
+Insgesamt muss die SLRB 2026 **73 Mio. EUR an Vermögenswerten** veräußern, einschließlich der Umwandlung von sozialen Mietwohnungen in soziale Eigentumswohnungen.
+
+Quellen: BruxellesToday, « Brüssel opfert Sozialwohnungsprojekte zur Tilgung der SLRB-Schulden »; BX1; DH, « die SLRB muss zahlen » (Januar 2026).
+
+## Lake Side (Tour & Taxis): Genehmigung erteilt (2. April 2026)
+
+**Urban.brussels** erteilte die Genehmigung für das Projekt **Lake Side** (Nextensa) in Tour & Taxis: 670 Wohnungen + 100 Co-Living, **166 soziale/konventionelle Wohnungen**, 7 310 m² öffentliche Einrichtungen, Turm von 127 m. Investition von **555 Mio. EUR** über 8 Jahre (Fertigstellung voraussichtlich 2032). **Proximus** wird ab 2028 seinen Hauptsitz auf dem Gelände einrichten.
+
+Quelle: BX1 / La Libre / L'Avenir / DH / Nextensa (2. April 2026).
+
+## Regierungsabkommen: angekündigte Verpflichtungen
+
+- **SLRB**: Injektion von **400 Mio. EUR** über die Legislatur
+- **1 000+ öffentliche Wohnungen** angekündigt
 - **Be Home verdoppelt**: 160 → **320 EUR/Monat**
-- **Renolution ersetzt** durch **zinslose Darlehen** (200 Millionen EUR bis 2029)
-- **Neo (Heysel)**: wieder gestartet
-- **Brachflächen entschieden**: Wiels/Avijl/Donderberg geschützt, Moratorium 18 Monate auf Keyenbempt/Calevoet/Josaphat/Meylemeersch, Chant des Cailles + Dames Blanches bestätigt
+- **Renolution ersetzt** durch **zinslose Darlehen** (Hülle 200 Mio. EUR bis 2029)
+- **Neo (Heysel) wiederaufgenommen**
+- **Brachflächen abgewogen**: Wiels/Avijl/Donderberg erhalten, 18-monatiges Moratorium auf Keyenbempt/Calevoet/Josaphat/Meylemeersch, Chant des Cailles + Dames Blanches bestätigt
+- **Bettelreglement mit Kindern** (Brüssel-Stadt, 20. April 2026) — Auswirkungen auf die Nutzung des öffentlichen Raums im Pentagon
 
-Diese Zusagen stellen, wenn sie umgesetzt werden, die bedeutendste Investition in den sozialen Wohnungsbau seit einem Jahrzehnt dar. Die 62.234 Haushalte auf der Warteliste und der Bestand von 42.000 Sozialwohnungen bleiben der Ausgangspunkt.
+## Foyer-Anderlechtois-Audit (April 2026)
 
-## Entwicklungen nach dem Abkommen (Februar 2026)
+Ein SLRB-Audit (1. April 2026) deckte mehrere Verfehlungen im **Foyer Anderlechtois** auf: zu operativ involvierter Vorsitzender, keine Mahnungen für Mietrückstände, undurchsichtige Beschaffungsprozesse. Die SLRB beurteilte auch das Abweichungskomitee für die Wohnungsvergabe, das ohne statutarische Grundlage geschaffen wurde, als **rechtswidrig**.
 
-### SLRB: 197 Millionen EUR Schulden
-
-Die SLRB hat **Schulden von 197 Millionen EUR** gegenüber der Region Brüssel angehäuft. Im Dezember 2025 wurde eine Vereinbarung zur Rückzahlung über mehrere Jahre getroffen. Aber zwei unmittelbare Folgen:
-
-- **Verkauf des Standorts Ariane** (Woluwe-Saint-Lambert, derzeit Fedasil-Zentrum) — geschätzt auf ~30M EUR
-- **Verkauf des Standorts Palais** (Schaerbeek) — geschätzt auf ~22-23M EUR
-
-Diese beiden Standorte waren für die Umwandlung in Sozialwohnungen vorgesehen. Ihr Verkauf entspricht **52-53 Millionen EUR**, verschärft aber den Mangel an verfügbaren Grundstücken für die 62.234 Haushalte auf der Warteliste.
-
-Insgesamt muss die SLRB ab 2026 **73 Millionen EUR an Vermögenswerten** veräußern, einschließlich der Umwandlung von sozialen Mietwohnungen in soziale Eigentumswohnungen.
-
-Quellen: BruxellesToday, « Bruxelles sacrifie des projets de logements sociaux pour éponger la dette de la SLRB » ; BX1, « la SLRB va devoir se séparer de deux sites » ; DH, « la SLRB passe à la caisse », Januar 2026.
-
-### Reform der Referenzmiete
-
-Die neue Regierung führt ein System der **freiwilligen Konventionierung** ein: Vermieter, die die Referenzmiete anwenden, erhalten Anreize. Die **Be Home-Prämie** wird von 160 auf **320 EUR/Monat** für konventionierte Vermieter verdoppelt.
-
-Das Referenzraster der Mietpreise, basierend auf Daten von 2017-2020, wird **2026 aktualisiert**.
-
-Quelle: La Libre, « la nouvelle coalition bruxelloise promet des incitants pour le loyer de référence », 21. Februar 2026.
-
-### Zeitplan der Reform
-
-- **15. März 2026**: Grundsätze der Strukturreform der Finanzierung des sozialen Wohnungsbaus
-- **31. Mai 2026**: vollständige Reform verabschiedet
-- **1. Januar 2027**: Inkrafttreten
-
+Quelle: BX1 / DH / L'Avenir (1. April 2026).

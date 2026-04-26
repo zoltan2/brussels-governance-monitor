@@ -11,7 +11,7 @@ import {
   Section,
   Text,
 } from '@react-email/components';
-import { DigestContent, type DigestEmailProps } from './digest';
+import { DARK_MODE_STYLE, DigestContent, type DigestEmailProps } from './digest';
 
 interface DigestPreviewEmailProps extends DigestEmailProps {
   approveUrl: string;
@@ -27,9 +27,14 @@ export default function DigestPreviewEmail({
 }: DigestPreviewEmailProps) {
   return (
     <Html lang="fr">
-      <Head />
+      <Head>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="supported-color-schemes" content="light dark" />
+        <style dangerouslySetInnerHTML={{ __html: DARK_MODE_STYLE }} />
+      </Head>
       <Preview>PREVIEW — Digest à approuver avant lundi 8h</Preview>
       <Body
+        className="bgm-bg-page"
         style={{
           margin: '0',
           padding: '0',
@@ -38,12 +43,12 @@ export default function DigestPreviewEmail({
         }}
       >
         {/* Preview banner */}
-        <Container style={styles.banner}>
-          <Text style={styles.bannerTitle}>PREVIEW</Text>
-          <Text style={styles.bannerText}>
+        <Container className="bgm-bg-closing" style={styles.banner}>
+          <Text className="bgm-text-closing-strong" style={styles.bannerTitle}>PREVIEW</Text>
+          <Text className="bgm-text-closing-strong" style={styles.bannerText}>
             Ce digest sera envoyé lundi 8h CET si vous approuvez.
           </Text>
-          <Text style={styles.bannerSubscribers}>
+          <Text className="bgm-text-closing-mute" style={styles.bannerSubscribers}>
             {subscriberCount} abonné{subscriberCount > 1 ? 's' : ''} recevront ce mail
             (filtré par thèmes suivis).
           </Text>
@@ -63,6 +68,7 @@ export default function DigestPreviewEmail({
           width="100%"
           cellPadding={0}
           cellSpacing={0}
+          className="bgm-bg-page"
           style={{ backgroundColor: '#eef1f6' }}
         >
           <tbody>

@@ -52,6 +52,33 @@ const PHASE_STYLES: Record<string, { badgeBg: string; badgeText: string; badgeBo
   cancelled: { badgeBg: '#f1f5f9', badgeText: '#334155', badgeBorder: '#94a3b8', cardBorder: '#64748b' },
 };
 
+export const DARK_MODE_STYLE = `
+@media (prefers-color-scheme: dark) {
+  .bgm-bg-page { background-color: #0f172a !important; }
+  .bgm-bg-card { background-color: #1e293b !important; }
+  .bgm-bg-section { background-color: #1e293b !important; background-image: none !important; }
+  .bgm-bg-row-alt { background-color: #0f172a !important; }
+  .bgm-bg-closing { background-color: #3a2e1f !important; }
+  .bgm-text-strong { color: #f1f5f9 !important; }
+  .bgm-text-body { color: #cbd5e1 !important; }
+  .bgm-text-mute { color: #94a3b8 !important; }
+  .bgm-text-link { color: #93c5fd !important; }
+  .bgm-text-closing-strong { color: #fde68a !important; }
+  .bgm-text-closing-mute { color: #fbbf24 !important; }
+}
+[data-ogsc] .bgm-bg-page { background-color: #0f172a !important; }
+[data-ogsc] .bgm-bg-card { background-color: #1e293b !important; }
+[data-ogsc] .bgm-bg-section { background-color: #1e293b !important; background-image: none !important; }
+[data-ogsc] .bgm-bg-row-alt { background-color: #0f172a !important; }
+[data-ogsc] .bgm-bg-closing { background-color: #3a2e1f !important; }
+[data-ogsc] .bgm-text-strong { color: #f1f5f9 !important; }
+[data-ogsc] .bgm-text-body { color: #cbd5e1 !important; }
+[data-ogsc] .bgm-text-mute { color: #94a3b8 !important; }
+[data-ogsc] .bgm-text-link { color: #93c5fd !important; }
+[data-ogsc] .bgm-text-closing-strong { color: #fde68a !important; }
+[data-ogsc] .bgm-text-closing-mute { color: #fbbf24 !important; }
+`;
+
 const NEUTRAL_STYLE = { badgeBg: '#f1f5f9', badgeText: '#334155', badgeBorder: '#94a3b8', cardBorder: '#64748b' };
 
 const T: Record<string, {
@@ -369,6 +396,7 @@ export function DigestContent({
       width="640"
       cellPadding={0}
       cellSpacing={0}
+      className="bgm-bg-card"
       style={{
         maxWidth: '640px',
         width: '100%',
@@ -456,6 +484,7 @@ export function DigestContent({
               width="100%"
               cellPadding={0}
               cellSpacing={0}
+              className="bgm-bg-section"
               style={{
                 marginTop: '28px',
                 backgroundColor: '#f0f4f8',
@@ -484,6 +513,7 @@ export function DigestContent({
                       {t.briefLabel}
                     </span>
                     <span
+                      className="bgm-text-body"
                       style={{
                         color: '#334155',
                         fontSize: '14px',
@@ -508,6 +538,7 @@ export function DigestContent({
               width="100%"
               cellPadding={0}
               cellSpacing={0}
+              className="bgm-bg-section"
               style={{
                 background: 'linear-gradient(135deg, #f0f4f8 0%, #e8eef6 100%)',
                 backgroundColor: '#f0f4f8',
@@ -520,6 +551,7 @@ export function DigestContent({
                 <tr>
                   <td style={{ padding: '24px 28px' }}>
                     <p
+                      className="bgm-text-mute"
                       style={{
                         margin: '0 0 10px',
                         color: '#64748b',
@@ -532,6 +564,7 @@ export function DigestContent({
                       {t.weeklyNumberTitle}
                     </p>
                     <p
+                      className="bgm-text-strong"
                       style={{
                         margin: '0 0 6px',
                         color: '#1a2744',
@@ -542,10 +575,10 @@ export function DigestContent({
                     >
                       {weeklyNumber.value}
                     </p>
-                    <p style={{ margin: '0 0 8px', color: '#334155', fontSize: '15px', fontWeight: 500 }}>
+                    <p className="bgm-text-body" style={{ margin: '0 0 8px', color: '#334155', fontSize: '15px', fontWeight: 500 }}>
                       {weeklyNumber.label}
                     </p>
-                    <p style={{ margin: 0, color: '#94a3b8', fontSize: '12px', fontStyle: 'italic' as const }}>
+                    <p className="bgm-text-mute" style={{ margin: 0, color: '#94a3b8', fontSize: '12px', fontStyle: 'italic' as const }}>
                       {weeklyNumber.source}
                     </p>
                   </td>
@@ -586,6 +619,7 @@ export function DigestContent({
               width="100%"
               cellPadding={0}
               cellSpacing={0}
+              className="bgm-bg-section"
               style={{ backgroundColor: '#eff6ff', borderRadius: '8px' }}
             >
               <tbody>
@@ -595,10 +629,10 @@ export function DigestContent({
                       <tbody>
                         <tr>
                           <td>
-                            <p style={{ margin: '0 0 2px', color: '#1e40af', fontSize: '15px', fontWeight: 600 }}>
+                            <p className="bgm-text-strong" style={{ margin: '0 0 2px', color: '#1e40af', fontSize: '15px', fontWeight: 600 }}>
                               {t.commitmentsTitle}
                             </p>
-                            <p style={{ margin: 0, color: '#475569', fontSize: '13px' }}>
+                            <p className="bgm-text-body" style={{ margin: 0, color: '#475569', fontSize: '13px' }}>
                               {commitmentCount} {t.commitmentsDesc}
                             </p>
                           </td>
@@ -651,7 +685,7 @@ export function DigestContent({
           return [
             <tr key={`title-${sectionKey}`}>
               <td style={{ padding: '24px 40px 20px' }}>
-                <p style={{ margin: 0, color: '#1a2744', fontSize: '18px', fontWeight: 700 }}>
+                <p className="bgm-text-strong" style={{ margin: 0, color: '#1a2744', fontSize: '18px', fontWeight: 700 }}>
                   {sectionTitleMap[sectionKey]}
                 </p>
               </td>
@@ -679,6 +713,7 @@ export function DigestContent({
                       width="100%"
                       cellPadding={0}
                       cellSpacing={0}
+                      className={isEven ? 'bgm-bg-row-alt' : 'bgm-bg-card'}
                       style={{
                         backgroundColor: isEven ? '#f8fafc' : '#ffffff',
                         borderRadius: '10px',
@@ -711,6 +746,7 @@ export function DigestContent({
                               </span>
                             )}
                             <p
+                              className="bgm-text-strong"
                               style={{
                                 margin: badgeLabel ? '8px 0 8px' : '0 0 8px',
                                 color: '#1a2744',
@@ -722,6 +758,7 @@ export function DigestContent({
                               {update.title}
                             </p>
                             <p
+                              className="bgm-text-body"
                               style={{
                                 margin: '0 0 12px',
                                 color: '#475569',
@@ -733,6 +770,7 @@ export function DigestContent({
                             </p>
                             <Link
                               href={update.url}
+                              className="bgm-text-link"
                               style={{
                                 color: '#2563eb',
                                 fontSize: '14px',
@@ -769,6 +807,7 @@ export function DigestContent({
                 width="100%"
                 cellPadding={0}
                 cellSpacing={0}
+                className="bgm-bg-closing"
                 style={{
                   backgroundColor: '#fffbeb',
                   borderRadius: '10px',
@@ -780,6 +819,7 @@ export function DigestContent({
                   <tr>
                     <td style={{ padding: '22px 24px' }}>
                       <p
+                        className="bgm-text-closing-strong"
                         style={{
                           margin: '0 0 16px',
                           color: '#78350f',
@@ -793,13 +833,13 @@ export function DigestContent({
                           lineHeight: '1.6',
                         })}
                       </p>
-                      <p style={{ margin: '0 0 2px', color: '#92400e', fontSize: '13px', fontWeight: 600 }}>
+                      <p className="bgm-text-closing-strong" style={{ margin: '0 0 2px', color: '#92400e', fontSize: '13px', fontWeight: 600 }}>
                         Zoltán Jánosi
                       </p>
-                      <p style={{ margin: '0 0 1px', color: '#a16207', fontSize: '12px' }}>
+                      <p className="bgm-text-closing-mute" style={{ margin: '0 0 1px', color: '#a16207', fontSize: '12px' }}>
                         {t.founderTitle}
                       </p>
-                      <p style={{ margin: 0, color: '#a16207', fontSize: '11px', fontStyle: 'italic' as const }}>
+                      <p className="bgm-text-closing-mute" style={{ margin: 0, color: '#a16207', fontSize: '11px', fontStyle: 'italic' as const }}>
                         {t.founderDesc}
                       </p>
                     </td>
@@ -818,6 +858,7 @@ export function DigestContent({
               width="100%"
               cellPadding={0}
               cellSpacing={0}
+              className="bgm-bg-section"
               style={{
                 backgroundColor: '#f0f4f8',
                 borderRadius: '10px',
@@ -827,10 +868,10 @@ export function DigestContent({
               <tbody>
                 <tr>
                   <td style={{ padding: '20px 24px', textAlign: 'center' as const }}>
-                    <p style={{ margin: '0 0 6px', color: '#1e293b', fontSize: '15px', fontWeight: 600 }}>
+                    <p className="bgm-text-strong" style={{ margin: '0 0 6px', color: '#1e293b', fontSize: '15px', fontWeight: 600 }}>
                       {t.quizTeaser}
                     </p>
-                    <p style={{ margin: '0 0 14px', color: '#64748b', fontSize: '13px' }}>
+                    <p className="bgm-text-mute" style={{ margin: '0 0 14px', color: '#64748b', fontSize: '13px' }}>
                       {t.quizDesc}
                     </p>
                     <Link
@@ -869,7 +910,7 @@ export function DigestContent({
                         textAlign: 'center' as const,
                       }}
                     >
-                      <p style={{ margin: '0 0 14px', color: '#475569', fontSize: '14px', fontWeight: 500 }}>
+                      <p className="bgm-text-body" style={{ margin: '0 0 14px', color: '#475569', fontSize: '14px', fontWeight: 500 }}>
                         {t.feedbackQuestion}
                       </p>
                       <table
@@ -917,7 +958,7 @@ export function DigestContent({
                           </tr>
                         </tbody>
                       </table>
-                      <p style={{ margin: '14px 0 0', color: '#94a3b8', fontSize: '13px' }}>
+                      <p className="bgm-text-mute" style={{ margin: '14px 0 0', color: '#94a3b8', fontSize: '13px' }}>
                         {t.feedbackMissing}
                       </p>
                     </td>
@@ -944,28 +985,30 @@ export function DigestContent({
                     <p style={{ margin: '0 0 8px' }}>
                       <Link
                         href={unsubscribeUrl}
+                        className="bgm-text-mute"
                         style={{ color: '#64748b', fontSize: '12px', textDecoration: 'underline' }}
                       >
                         {t.managePrefs}
                       </Link>
-                      <span style={{ color: '#cbd5e1', padding: '0 8px' }}>|</span>
+                      <span className="bgm-text-mute" style={{ color: '#cbd5e1', padding: '0 8px' }}>|</span>
                       <Link
                         href={unsubscribeUrl}
+                        className="bgm-text-mute"
                         style={{ color: '#64748b', fontSize: '12px', textDecoration: 'underline' }}
                       >
                         {t.unsubscribe}
                       </Link>
                     </p>
-                    <p style={{ margin: '0 0 4px', color: '#94a3b8', fontSize: '11px' }}>
+                    <p className="bgm-text-mute" style={{ margin: '0 0 4px', color: '#94a3b8', fontSize: '11px' }}>
                       {t.brand} —{' '}
-                      <Link href={siteUrl} style={{ color: '#94a3b8', textDecoration: 'none' }}>
+                      <Link href={siteUrl} className="bgm-text-mute" style={{ color: '#94a3b8', textDecoration: 'none' }}>
                         governance.brussels
                       </Link>
                     </p>
-                    <p style={{ margin: '0 0 4px', color: '#cbd5e1', fontSize: '11px' }}>
+                    <p className="bgm-text-mute" style={{ margin: '0 0 4px', color: '#cbd5e1', fontSize: '11px' }}>
                       {t.entity}
                     </p>
-                    <p style={{ margin: 0, color: '#cbd5e1', fontSize: '11px' }}>
+                    <p className="bgm-text-mute" style={{ margin: 0, color: '#cbd5e1', fontSize: '11px' }}>
                       {t.disclaimer}
                     </p>
                   </td>
@@ -987,9 +1030,14 @@ export default function DigestEmail(props: DigestEmailProps) {
   const t = T[props.locale] || T.fr;
   return (
     <Html lang={props.locale}>
-      <Head />
+      <Head>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="supported-color-schemes" content="light dark" />
+        <style dangerouslySetInnerHTML={{ __html: DARK_MODE_STYLE }} />
+      </Head>
       <Preview>{t.preview}</Preview>
       <Body
+        className="bgm-bg-page"
         style={{
           margin: '0',
           padding: '0',
@@ -1003,6 +1051,7 @@ export default function DigestEmail(props: DigestEmailProps) {
           width="100%"
           cellPadding={0}
           cellSpacing={0}
+          className="bgm-bg-page"
           style={{ backgroundColor: '#eef1f6' }}
         >
           <tbody>

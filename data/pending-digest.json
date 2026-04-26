@@ -1,28 +1,28 @@
 {
-  "week": "2026-w16",
-  "weekStart": "2026-04-13",
-  "created_at": "2026-04-19T20:00:39.816Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w17",
+  "weekStart": "2026-04-20",
+  "created_at": "2026-04-26T20:00:18.627Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "7 domaines, 4 dossiers, 1 secteur, 1 commune mis à jour",
-    "nl": "7 domeinen, 4 dossiers, 1 sector, 1 gemeente bijgewerkt",
-    "en": "7 domains, 4 dossiers, 1 sector, 1 commune updated",
-    "de": "7 Bereiche, 4 Dossiers, 1 Sektor, 1 Gemeinde aktualisiert"
+    "fr": "6 domaines, 8 dossiers, 11 secteurs, 4 communes mis à jour",
+    "nl": "6 domeinen, 8 dossiers, 11 sectoren, 4 gemeenten bijgewerkt",
+    "en": "6 domains, 8 dossiers, 11 sectors, 4 communes updated",
+    "de": "6 Bereiche, 8 Dossiers, 11 Sektoren, 4 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "~18",
+    "value": "36% des Bruxellois de 16-74 ans (40 % au niveau national)",
     "label": {
-      "fr": "Mois -- délai moyen d'obtention d'un permis d'urbanisme à Bruxelles",
-      "nl": "Maanden -- gemiddelde doorlooptijd voor een stedenbouwkundige vergunning in Brussel",
-      "en": "Months -- average processing time for a planning permit in Brussels",
-      "de": "Monate -- durchschnittliche Bearbeitungszeit für eine Baugenehmigung in Brüssel"
+      "fr": "Population en vulnérabilité numérique",
+      "nl": "Population en vulnérabilité numérique",
+      "en": "Population en vulnérabilité numérique",
+      "de": "Population en vulnérabilité numérique"
     },
     "source": {
-      "fr": "Estimation sectorielle -- UPSI / BVS (enquêtes professionnelles)",
-      "nl": "Sectorschatting -- UPSI / BVS (beroepsenquêtes)",
-      "en": "Sector estimate -- UPSI / BVS (professional surveys)",
-      "de": "Branchenschätzung -- UPSI / BVS (Berufsumfragen)"
+      "fr": "Baromètre de l'inclusion numérique 2024 — Fondation Roi Baudouin (données Statbel 2023)",
+      "nl": "Baromètre de l'inclusion numérique 2024 — Fondation Roi Baudouin (données Statbel 2023)",
+      "en": "Baromètre de l'inclusion numérique 2024 — Fondation Roi Baudouin (données Statbel 2023)",
+      "de": "Baromètre de l'inclusion numérique 2024 — Fondation Roi Baudouin (données Statbel 2023)"
     }
   },
   "closingNote": {
@@ -33,19 +33,33 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
+    "digital",
     "economy",
-    "employment",
+    "housing",
     "institutional",
     "mobility",
-    "security",
     "social",
-    "urban-planning",
-    "dossier-acs",
-    "dossier-bifff",
-    "dossier-good-move",
-    "dossier-lez",
+    "dossier-accessibilite-pmr",
+    "dossier-assemblees-citoyennes",
+    "dossier-enseignement",
+    "dossier-faillites",
+    "dossier-mobilite-partagee",
+    "dossier-survol-bruxelles",
+    "dossier-fusion-polices",
+    "dossier-metro-3",
+    "commerce",
+    "construction",
+    "culture",
+    "education",
+    "environment",
+    "health-social",
+    "horeca",
+    "housing-sector",
     "nonprofit",
-    "commune-bruxelles-ville"
-  ],
-  "sent_at": "2026-04-19T22:19:56.676Z"
+    "transport",
+    "commune-bruxelles-ville",
+    "commune-evere",
+    "commune-koekelberg",
+    "commune-schaerbeek"
+  ]
 }

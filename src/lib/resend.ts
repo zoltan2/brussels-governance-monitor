@@ -188,30 +188,41 @@ export async function addContact(
 ): Promise<void> {
   const resend = getResend();
   const sanitizedSources = dedupeSources(sources);
-  const result = await resendCall(() =>
-    resend.contacts.create({
-      email,
-      properties: {
-        locale,
-        topics: topics.join(','),
-        sources: sanitizedSources.join(','),
-      },
-    }),
+  const properties = {
+    locale,
+    topics: topics.join(','),
+    sources: sanitizedSources.join(','),
+  };
+  const created = await resendCall(() =>
+    resend.contacts.create({ email, properties }),
   );
-
-  // Fallback: if properties were ignored by create, set via update
-  if (result.data) {
-    await resendCall(() =>
-      resend.contacts.update({
-        id: (result.data as { id: string }).id,
-        properties: {
-          locale,
-          topics: topics.join(','),
-          sources: sanitizedSources.join(','),
-        },
-      }),
+  if (created.error) {
+    throw new Error(
+      `Resend contacts.create failed for ${email}: ${formatResendError(created.error)}`,
     );
   }
+  if (!created.data) return;
+
+  const updated = await resendCall(() =>
+    resend.contacts.update({
+      id: (created.data as { id: string }).id,
+      properties,
+    }),
+  );
+  if (updated.error) {
+    throw new Error(
+      `Resend contacts.update (post-create) failed for ${email}: ${formatResendError(updated.error)}`,
+    );
+  }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function formatResendError(err: any): string {
+  if (!err) return 'unknown';
+  const name = err.name ?? 'error';
+  const status = err.statusCode ? ` ${err.statusCode}` : '';
+  const msg = err.message ?? JSON.stringify(err);
+  return `[${name}${status}] ${msg}`;
 }
 
 function dedupeSources(sources: string[]): string[] {
@@ -285,12 +296,17 @@ export async function updateContactPreferences(
   if (sources !== undefined) {
     properties.sources = dedupeSources(sources).join(',');
   }
-  await resendCall(() =>
+  const result = await resendCall(() =>
     resend.contacts.update({
       email,
       properties,
     }),
   );
+  if (result.error) {
+    throw new Error(
+      `Resend contacts.update failed for ${email}: ${formatResendError(result.error)}`,
+    );
+  }
 }
 
 /**

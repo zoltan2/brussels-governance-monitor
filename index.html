@@ -1,11 +1,421 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8" /><title>BGM — Archives magazine</title>
-<style>body{font-family:system-ui;max-width:640px;margin:4rem auto;padding:0 1rem;color:#1a1a1a}h1{font-weight:900}a{color:#1a1a1a;text-decoration:none;border-bottom:1px solid #ccc}a:hover{border-bottom-color:#1a1a1a}li{margin:.6rem 0;list-style:none}</style>
-</head><body>
-<h1>BGM — Magazine</h1>
-<p>Archives hebdomadaires. Dernier numéro : <a href="./latest/">latest</a></p>
-<ul>
-  <li><a href="./s17/">Digest S17</a></li>
-</ul>
-</body></html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BGM Magazine — Brussels Governance Monitor</title>
+<meta name="description" content="Chaque lundi, le digest du Brussels Governance Monitor distille la semaine institutionnelle bruxelloise en huit signaux. Une lecture horizontale, conçue pour cinq minutes — sans bruit ni parti pris." />
+<meta property="og:title" content="BGM Magazine — Brussels Governance Monitor" />
+<meta property="og:description" content="Une semaine bruxelloise, en huit signaux." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://magazine.governance.brussels/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: #f3f1ec;
+    color: #1a1a1a;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 17px;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    background: rgba(243, 241, 236, 0.92);
+    backdrop-filter: saturate(140%) blur(8px);
+    -webkit-backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+    z-index: 10;
+  }
+  .topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.9rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .kicker {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(26, 26, 26, 0.55);
+  }
+  .kicker-right { text-align: right; }
+
+  .hero {
+    padding: 9rem 1.6rem 7rem;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+  }
+  .hero-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .hero-mark {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(6rem, 18vw, 13rem);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.4rem;
+  }
+  .hero-publication {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(26, 26, 26, 0.6);
+    margin-bottom: 2.2rem;
+  }
+  .hero-tagline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+    line-height: 1.18;
+    letter-spacing: -0.005em;
+    margin-bottom: 1.8rem;
+    max-width: 18ch;
+  }
+  .hero-blurb {
+    font-size: 1.08rem;
+    color: rgba(26, 26, 26, 0.78);
+    max-width: 56ch;
+    margin-bottom: 3rem;
+  }
+  .hero-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(26, 26, 26, 0.7);
+    border-bottom: 1px solid rgba(26, 26, 26, 0.25);
+    padding-bottom: 0.35rem;
+    transition: color 200ms, border-color 200ms;
+  }
+  .hero-cue:hover {
+    color: #1a1a1a;
+    border-bottom-color: #1a1a1a;
+  }
+  .hero-cue-arrow { font-size: 0.95rem; }
+
+  main > section + section {
+    border-top: 1px solid rgba(26, 26, 26, 0.08);
+  }
+  .latest-section,
+  .archive,
+  .about,
+  .contact {
+    padding: 4.5rem 1.6rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(26, 26, 26, 0.55);
+    margin-bottom: 2.4rem;
+    font-weight: 400;
+  }
+
+  .latest-kicker {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(26, 26, 26, 0.5);
+    margin-bottom: 1rem;
+  }
+  .latest-card {
+    background: #1a1a1a;
+    color: #f3f1ec;
+    border-radius: 4px;
+    padding: 3rem 3rem 2.2rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .latest-card-rank {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+  }
+  .latest-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .latest-card-meta {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(243, 241, 236, 0.6);
+  }
+  .latest-card-tagline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.45rem;
+    line-height: 1.25;
+  }
+  .latest-card-count {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(243, 241, 236, 0.5);
+  }
+  .latest-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.8rem 1.4rem;
+    border: 1px solid rgba(243, 241, 236, 0.4);
+    border-radius: 999px;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f3f1ec;
+    transition: background 220ms, color 220ms, border-color 220ms;
+    white-space: nowrap;
+  }
+  .latest-card-cta:hover {
+    background: #f3f1ec;
+    color: #1a1a1a;
+    border-color: #f3f1ec;
+  }
+  .latest-card-cta .arrow { font-size: 1rem; }
+
+  .archive-list {
+    list-style: none;
+    border-top: 1px solid rgba(26, 26, 26, 0.12);
+  }
+  .archive-item { border-bottom: 1px solid rgba(26, 26, 26, 0.12); }
+  .archive-link {
+    display: grid;
+    grid-template-columns: 6rem 1fr auto;
+    gap: 2rem;
+    align-items: baseline;
+    padding: 1.4rem 0;
+    transition: background 180ms;
+  }
+  .archive-link:hover { background: rgba(26, 26, 26, 0.03); }
+  .archive-rank {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: -0.02em;
+  }
+  .archive-meta { display: flex; flex-direction: column; gap: 0.3rem; }
+  .archive-dates {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(26, 26, 26, 0.65);
+  }
+  .archive-tagline {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    color: rgba(26, 26, 26, 0.78);
+  }
+  .archive-arrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 1.1rem;
+    color: rgba(26, 26, 26, 0.5);
+    transition: transform 200ms, color 200ms;
+  }
+  .archive-link:hover .archive-arrow {
+    color: #1a1a1a;
+    transform: translateX(4px);
+  }
+  .archive-empty {
+    color: rgba(26, 26, 26, 0.6);
+    font-style: italic;
+  }
+
+  .about-body {
+    font-size: 1.08rem;
+    color: rgba(26, 26, 26, 0.82);
+    max-width: 62ch;
+    margin-bottom: 2rem;
+  }
+  .about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.3);
+    padding-bottom: 0.35rem;
+    transition: border-color 200ms;
+  }
+  .about-cta:hover { border-bottom-color: #1a1a1a; }
+  .about-cta .arrow { font-size: 0.95rem; }
+
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 36rem;
+  }
+  .contact-list li {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1.4rem;
+    align-items: baseline;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+  }
+  .contact-label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(26, 26, 26, 0.55);
+  }
+  .contact-list a {
+    font-family: 'Source Serif 4', Georgia, serif;
+    border-bottom: 1px solid transparent;
+    transition: border-color 200ms;
+  }
+  .contact-list a:hover { border-bottom-color: #1a1a1a; }
+
+  .colophon {
+    border-top: 1px solid rgba(26, 26, 26, 0.08);
+    padding: 2.5rem 1.6rem;
+    background: rgba(26, 26, 26, 0.03);
+  }
+  .colophon-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .colophon-text {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.74rem;
+    line-height: 1.7;
+    letter-spacing: 0.06em;
+    color: rgba(26, 26, 26, 0.55);
+    max-width: 70ch;
+  }
+
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .hero { padding: 5rem 1.2rem 4rem; }
+    .latest-section, .archive, .about, .contact { padding: 3rem 1.2rem; }
+    .latest-card {
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+      padding: 2rem 1.6rem;
+    }
+    .latest-card-cta { justify-self: start; }
+    .archive-link {
+      grid-template-columns: 4rem 1fr auto;
+      gap: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <span class="kicker">Magazine hebdomadaire</span>
+      <span class="kicker kicker-right">Édité par Zoltán Jánosi</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-mark">BGM</div>
+        <p class="hero-publication">Brussels Governance Monitor</p>
+        <h1 class="hero-tagline">Une semaine bruxelloise, en huit signaux.</h1>
+        <p class="hero-blurb">Chaque lundi, le digest du Brussels Governance Monitor distille la semaine institutionnelle bruxelloise en huit signaux. Une lecture horizontale, conçue pour cinq minutes — sans bruit ni parti pris.</p>
+        <a class="hero-cue" href="#dernier-numero">
+          <span>Découvrir</span>
+          <span class="hero-cue-arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="latest-section" id="dernier-numero">
+      <h2 class="section-title">Dernier numéro</h2>
+      
+        <article class="latest">
+          <div class="latest-kicker">À lire cette semaine</div>
+          <div class="latest-card">
+            <div class="latest-card-rank">S17</div>
+            <div class="latest-card-body">
+              <div class="latest-card-meta">20 — 26 avril 2026</div>
+              <p class="latest-card-tagline">Une semaine bruxelloise, huit signaux.</p>
+              <div class="latest-card-count">8 signaux</div>
+            </div>
+            <a class="latest-card-cta" href="./s17/" aria-label="Lire le digest">
+              <span>Lire le digest</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+    </section>
+
+    
+        <section class="archive">
+          <h2 class="section-title">Archives</h2>
+          <p class="archive-empty">Aucun numéro publié pour le moment.</p>
+        </section>
+
+    <section class="about">
+      <h2 class="section-title">Le projet</h2>
+      <p class="about-body">Le Brussels Governance Monitor (BGM) suit en continu treize domaines de gouvernance, vingt et un dossiers transversaux et dix-neuf communes. Le digest hebdomadaire en condense la trajectoire — institutionnelle, sobre, sourcée. Pour la version complète, les fiches détaillées et le radar quotidien, rendez-vous sur le site principal.</p>
+      <a class="about-cta" href="https://governance.brussels" target="_blank" rel="noopener noreferrer">
+        <span>Aller sur governance.brussels</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <section class="contact">
+      <h2 class="section-title">Contact</h2>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-label">Email</span>
+          <a href="mailto:contact@brusselsgovernance.be">contact@brusselsgovernance.be</a>
+        </li>
+        <li>
+          <span class="contact-label">LinkedIn</span>
+          <a href="https://linkedin.com/in/zoltan" target="_blank" rel="noopener noreferrer">linkedin.com/in/zoltan</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="colophon-inner">
+      <p class="colophon-text">BGM est édité par Advice That SRL (Bruxelles). Toute reproduction ou citation doit mentionner la source. Les données et analyses sont publiées sous licence source-available — voir governance.brussels/legal.</p>
+    </div>
+  </footer>
+</body>
+</html>

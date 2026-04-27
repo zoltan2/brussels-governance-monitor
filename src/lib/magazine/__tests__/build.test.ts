@@ -83,6 +83,22 @@ describe('buildMagazine', () => {
     expect(existsSync(join(tmpRoot, 'docs/magazine'))).toBe(false);
   });
 
+  it('lists every digest with a magazine block in the archive index, even when docs/magazine is empty', () => {
+    // Simulates fresh CI checkout: docs/magazine/ does not exist yet, only
+    // content/digest/ carries the source of truth.
+    const olderWeek = FIXTURE_WITH_MAGAZINE.replace('2099-w99', '2099-w98').replace(
+      'Head one.',
+      'Older head.',
+    );
+    writeFileSync(join(tmpRoot, 'content/digest/2099-w98.fr.mdx'), olderWeek);
+    writeFileSync(join(tmpRoot, 'content/digest/2099-w99.fr.mdx'), FIXTURE_WITH_MAGAZINE);
+    buildMagazine({ root: tmpRoot });
+    const index = readFileSync(join(tmpRoot, 'docs/magazine/index.html'), 'utf-8');
+    expect(index).toContain('./s99/');
+    expect(index).toContain('./s98/');
+    expect(index.indexOf('./s99/')).toBeLessThan(index.indexOf('./s98/'));
+  });
+
   it('throws when validation fails', () => {
     const bad = FIXTURE_WITH_MAGAZINE.replace(`headline: "Head one."`, `headline: "   "`);
     writeFileSync(join(tmpRoot, 'content/digest/2099-w99.fr.mdx'), bad);

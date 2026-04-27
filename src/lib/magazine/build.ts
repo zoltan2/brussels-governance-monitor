@@ -28,34 +28,6 @@ function findLatestFrDigest(root: string): string | null {
 
 
 /**
- * Pull rich metadata for a published week by reading its FR digest. Falls back
- * gracefully when the digest no longer exists or cannot be parsed — the index
- * renderer accepts WeekMeta with only `weekShort` + `weekLabel` filled.
- */
-function readWeekMeta(root: string, weekShort: string): WeekMeta {
-  const weekLabel = weekShort.replace(/^s/, 'S');
-  const weekNum = weekShort.replace(/^s/, '');
-  const candidates = readdirSync(join(root, 'content/digest')).filter(
-    (f) => f.endsWith('.fr.mdx') && f.includes(`-w${weekNum}.`),
-  );
-  if (candidates.length === 0) return { weekShort, weekLabel };
-  try {
-    const raw = readFileSync(join(root, 'content/digest', candidates[0]), 'utf-8');
-    const draft = parseDigestMagazine(raw);
-    const dateRange = extractDateRange(raw);
-    return {
-      weekShort,
-      weekLabel,
-      dateRange,
-      tagline: draft.magazine?.tagline,
-      itemCount: draft.magazine?.items.length,
-    };
-  } catch {
-    return { weekShort, weekLabel };
-  }
-}
-
-/**
  * Pull "20 — 26 avril 2026" out of a digest title like
  * `Digest BGM — Semaine 17 (20-26 avril 2026)`.
  */
@@ -67,14 +39,35 @@ function extractDateRange(raw: string): string | undefined {
   return inner[1].replace(/(\d)-(\d)/, '$1 — $2');
 }
 
+// `docs/magazine/` is gitignored and only contains the week being built right
+// now on a fresh CI checkout. Source of truth for "what has been published" is
+// `content/digest/*.fr.mdx` with a `magazine:` block — gh-pages keeps the old
+// directories alive via `keep_files: true`.
 function collectWeeksWithMeta(root: string): WeekMeta[] {
-  const dir = join(root, 'docs/magazine');
+  const dir = join(root, 'content/digest');
   if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .filter((f) => /^s\d+$/.test(f))
-    .sort()
-    .reverse()
-    .map((w) => readWeekMeta(root, w));
+  const weeks: WeekMeta[] = [];
+  for (const file of readdirSync(dir)) {
+    if (!file.endsWith('.fr.mdx') || file.startsWith('__')) continue;
+    try {
+      const raw = readFileSync(join(dir, file), 'utf-8');
+      const draft = parseDigestMagazine(raw);
+      if (!draft.magazine || !draft.weekShort) continue;
+      weeks.push({
+        weekShort: draft.weekShort,
+        weekLabel: draft.weekShort.replace(/^s/, 'S'),
+        dateRange: extractDateRange(raw),
+        tagline: draft.magazine.tagline,
+        itemCount: draft.magazine.items.length,
+      });
+    } catch {
+      // skip unparseable digest
+    }
+  }
+  weeks.sort((a, b) =>
+    b.weekShort.localeCompare(a.weekShort, 'en', { numeric: true }),
+  );
+  return weeks;
 }
 
 export function buildMagazine(opts: BuildOptions): BuildResult {
@@ -110,9 +103,6 @@ export function buildMagazine(opts: BuildOptions): BuildResult {
   writeFileSync(join(weekDir, 'index.html'), html, 'utf-8');
 
   const weeks = collectWeeksWithMeta(opts.root);
-  if (!weeks.some((w) => w.weekShort === draft.weekShort)) {
-    weeks.unshift(readWeekMeta(opts.root, draft.weekShort));
-  }
   writeFileSync(join(magDir, 'index.html'), renderIndexPage(weeks, 'fr'), 'utf-8');
 
   console.log(`[magazine] Built ${draft.weekShort} — ${draft.magazine.items.length} items`);

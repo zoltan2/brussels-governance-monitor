@@ -20,6 +20,7 @@
     "qr:cafe": "tsx scripts/generate-qr-cafe-numerique.ts",
     "assets:merci-cafe": "tsx scripts/optimize-merci-cafe-assets.ts",
     "magazine:preview": "tsx scripts/preview-magazine.ts",
+    "magazine:preview-index": "tsx scripts/preview-magazine-index.ts",
     "magazine:build": "tsx scripts/build-magazine.ts",
     "chat:generate-suggested": "tsx scripts/generate-suggested-answers.ts"
   },

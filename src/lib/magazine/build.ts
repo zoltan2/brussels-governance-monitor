@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { parseDigestMagazine } from './parse';
 import { validateMagazine } from './validate';
 import { renderMagazine } from './render';
+import { renderIndexPage, type WeekMeta } from './index-page';
 import type { MagazineDraft } from './types';
 
 interface BuildOptions {
@@ -25,30 +26,55 @@ function findLatestFrDigest(root: string): string | null {
   return join(dir, files[files.length - 1]);
 }
 
-function collectAllPublishedWeeks(root: string): string[] {
+
+/**
+ * Pull rich metadata for a published week by reading its FR digest. Falls back
+ * gracefully when the digest no longer exists or cannot be parsed — the index
+ * renderer accepts WeekMeta with only `weekShort` + `weekLabel` filled.
+ */
+function readWeekMeta(root: string, weekShort: string): WeekMeta {
+  const weekLabel = weekShort.replace(/^s/, 'S');
+  const weekNum = weekShort.replace(/^s/, '');
+  const candidates = readdirSync(join(root, 'content/digest')).filter(
+    (f) => f.endsWith('.fr.mdx') && f.includes(`-w${weekNum}.`),
+  );
+  if (candidates.length === 0) return { weekShort, weekLabel };
+  try {
+    const raw = readFileSync(join(root, 'content/digest', candidates[0]), 'utf-8');
+    const draft = parseDigestMagazine(raw);
+    const dateRange = extractDateRange(raw);
+    return {
+      weekShort,
+      weekLabel,
+      dateRange,
+      tagline: draft.magazine?.tagline,
+      itemCount: draft.magazine?.items.length,
+    };
+  } catch {
+    return { weekShort, weekLabel };
+  }
+}
+
+/**
+ * Pull "20 — 26 avril 2026" out of a digest title like
+ * `Digest BGM — Semaine 17 (20-26 avril 2026)`.
+ */
+function extractDateRange(raw: string): string | undefined {
+  const titleMatch = raw.match(/^title:\s*"([^"]+)"/m);
+  if (!titleMatch) return undefined;
+  const inner = titleMatch[1].match(/\(([^)]+)\)/);
+  if (!inner) return undefined;
+  return inner[1].replace(/(\d)-(\d)/, '$1 — $2');
+}
+
+function collectWeeksWithMeta(root: string): WeekMeta[] {
   const dir = join(root, 'docs/magazine');
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
     .filter((f) => /^s\d+$/.test(f))
     .sort()
-    .reverse();
-}
-
-function renderIndex(weeks: string[]): string {
-  const items = weeks
-    .map((w) => `  <li><a href="./${w}/">Digest ${w.toUpperCase()}</a></li>`)
-    .join('\n');
-  return `<!DOCTYPE html>
-<html lang="fr">
-<head><meta charset="UTF-8" /><title>BGM — Archives magazine</title>
-<style>body{font-family:system-ui;max-width:640px;margin:4rem auto;padding:0 1rem;color:#1a1a1a}h1{font-weight:900}a{color:#1a1a1a;text-decoration:none;border-bottom:1px solid #ccc}a:hover{border-bottom-color:#1a1a1a}li{margin:.6rem 0;list-style:none}</style>
-</head><body>
-<h1>BGM — Magazine</h1>
-<p>Archives hebdomadaires. Dernier numéro : <a href="./latest/">latest</a></p>
-<ul>
-${items}
-</ul>
-</body></html>`;
+    .reverse()
+    .map((w) => readWeekMeta(root, w));
 }
 
 export function buildMagazine(opts: BuildOptions): BuildResult {
@@ -83,9 +109,11 @@ export function buildMagazine(opts: BuildOptions): BuildResult {
   writeFileSync(join(latestDir, 'index.html'), html, 'utf-8');
   writeFileSync(join(weekDir, 'index.html'), html, 'utf-8');
 
-  const weeks = collectAllPublishedWeeks(opts.root);
-  if (!weeks.includes(draft.weekShort)) weeks.unshift(draft.weekShort);
-  writeFileSync(join(magDir, 'index.html'), renderIndex(weeks), 'utf-8');
+  const weeks = collectWeeksWithMeta(opts.root);
+  if (!weeks.some((w) => w.weekShort === draft.weekShort)) {
+    weeks.unshift(readWeekMeta(opts.root, draft.weekShort));
+  }
+  writeFileSync(join(magDir, 'index.html'), renderIndexPage(weeks, 'fr'), 'utf-8');
 
   console.log(`[magazine] Built ${draft.weekShort} — ${draft.magazine.items.length} items`);
   return { status: 'built', weekShort: draft.weekShort };

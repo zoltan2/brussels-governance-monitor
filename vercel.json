@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "regions": ["cdg1"],
+  "git": {
+    "deploymentEnabled": {
+      "gh-pages": false
+    }
+  },
   "crons": [
     {
       "path": "/api/cron/prepare-digest",

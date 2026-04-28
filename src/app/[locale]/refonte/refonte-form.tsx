@@ -382,11 +382,11 @@ function StrongTextMockup() {
   return (
     <div className="flex h-full w-full items-center justify-center px-4">
       <p className="text-sm leading-tight text-slate-900 md:text-base">
-        Le PRAS bloque.
+        184 nationalités.
         <br />
-        <span className="text-slate-500">Le budget passe</span>
+        <span className="text-slate-500">19 communes.</span>
         <br />
-        en deuxième lecture.
+        Une seule région.
       </p>
     </div>
   );

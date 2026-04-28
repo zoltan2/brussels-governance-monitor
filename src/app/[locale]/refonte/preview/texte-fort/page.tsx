@@ -43,9 +43,9 @@ export default async function TexteFortPreviewPage({
           </p>
 
           <h1 className="mt-8 text-[44px] font-light leading-[1.05] tracking-tight text-slate-900 md:text-[88px] md:leading-[0.98] lg:text-[112px]">
-            <span className="block">Le PRAS bloque.</span>
-            <span className="block text-slate-400">Le budget passe</span>
-            <span className="block">en deuxième lecture.</span>
+            <span className="block">184 nationalités.</span>
+            <span className="block text-slate-400">19 communes.</span>
+            <span className="block">Une seule région.</span>
           </h1>
 
           <div className="mt-12 grid gap-8 border-t border-slate-200 pt-8 md:grid-cols-3">
@@ -87,13 +87,13 @@ export default async function TexteFortPreviewPage({
           </div>
         </div>
 
-        {/* Decorative ghosted week number — typographic accent */}
+        {/* Decorative ghosted number — typographic accent */}
         <span
           aria-hidden
           className="pointer-events-none absolute right-0 top-0 select-none font-mono text-[420px] font-bold leading-none tabular-nums text-slate-100 md:right-12 md:text-[600px]"
           style={{ writingMode: 'horizontal-tb', zIndex: -1 }}
         >
-          17
+          184
         </span>
       </section>
     </PreviewLayout>

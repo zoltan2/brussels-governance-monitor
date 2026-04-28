@@ -255,6 +255,7 @@ export const routing = defineRouting({
     },
     '/quiz': '/quiz',
     '/signal': '/signal',
+    '/refonte': '/refonte',
   },
 });
 

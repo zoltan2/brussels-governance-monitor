@@ -2,14 +2,17 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { setRequestLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { RefonteForm } from './refonte-form';
 
-// Consultation v1 FR uniquement. Les autres locales reçoivent 404.
+// Consultation v1 FR uniquement. On pré-génère tous les locales pour
+// que /nl/, /en/, /de/refonte renvoient un 404 statique propre via
+// notFound() — sinon le runtime hit fait crasher avec 500.
 export function generateStaticParams() {
-  return [{ locale: 'fr' }];
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({

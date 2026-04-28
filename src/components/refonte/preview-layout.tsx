@@ -4,6 +4,37 @@
 import { Link } from '@/i18n/navigation';
 import type { ReactNode } from 'react';
 
+// Élections régionales bruxelloises : 9 juin 2024 → législature 2024-2029.
+// Prochaines élections (= fin de législature) : 6 juin 2029 (premier dimanche
+// de juin, jour des européennes). Source à reconfirmer si on cible une date
+// strictement officielle plutôt que le jour des élections.
+const LEGISLATURE_END = new Date('2029-06-06T00:00:00Z');
+
+function getDaysRemaining(): number {
+  const today = new Date();
+  const ms = LEGISLATURE_END.getTime() - today.getTime();
+  return Math.max(0, Math.ceil(ms / (1000 * 60 * 60 * 24)));
+}
+
+function LegislatureCountdown() {
+  const days = getDaysRemaining();
+  return (
+    <section className="bg-gradient-to-b from-slate-800 to-slate-700 py-16 text-white">
+      <div className="mx-auto max-w-5xl px-4 text-center">
+        <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/60">
+          Législature 2024 — 2029 · Élections régionales le 6 juin 2029
+        </p>
+        <p className="mt-4 font-mono text-7xl font-bold tabular-nums tracking-tight md:text-8xl">
+          {days}
+        </p>
+        <p className="mt-2 text-lg uppercase tracking-[0.22em] text-white/85 md:text-xl">
+          jours avant la fin de la législature
+        </p>
+      </div>
+    </section>
+  );
+}
+
 /**
  * Wrapper for /refonte/preview/* pages.
  *
@@ -52,20 +83,7 @@ export function PreviewLayout({
       {/* HERO SLOT */}
       {children}
 
-      {/* Compteur de crise (conservé du design actuel dans tous les scénarios) */}
-      <section className="bg-gradient-to-b from-slate-800 to-slate-700 py-16 text-white">
-        <div className="mx-auto max-w-5xl px-4 text-center">
-          <p className="text-sm text-white/75">
-            <span className="font-semibold tabular-nums">613</span> jours archivés depuis l&apos;élection régionale du 9 juin 2024.
-          </p>
-          <p className="mt-2 font-mono text-7xl font-bold tabular-nums tracking-tight md:text-8xl">
-            423
-          </p>
-          <p className="mt-2 text-lg uppercase tracking-[0.22em] text-white/85 md:text-xl">
-            jours sans gouvernement régional
-          </p>
-        </div>
-      </section>
+      <LegislatureCountdown />
 
       {/* Domaines (conservé du design actuel) */}
       <section className="border-b border-slate-200 bg-white py-16">

@@ -140,9 +140,18 @@ export async function getVoteStats(recentLimit = 20): Promise<VoteStats> {
 
   const recentHashes = recentIds.length
     ? await Promise.all(
-        recentIds.map((id) => redis.hgetall<Record<string, string>>(`refonte-vote:${id}`)),
+        recentIds.map((id) =>
+          redis.hgetall<Record<string, unknown>>(`refonte-vote:${id}`),
+        ),
       )
     : [];
+
+  // Upstash auto-deserializes booleans/numbers via JSON.parse, donc on doit
+  // accepter les deux formes (boolean réel ou string « true »/« 1 »).
+  const asBool = (v: unknown): boolean =>
+    v === true || v === 'true' || v === '1' || v === 1;
+  const asStr = (v: unknown): string =>
+    typeof v === 'string' ? v : v == null ? '' : String(v);
 
   const recent: VoteRecord[] = recentHashes
     .map((h, i) => {
@@ -150,14 +159,14 @@ export async function getVoteStats(recentLimit = 20): Promise<VoteStats> {
       return {
         id: recentIds[i],
         created_at: Number(h.created_at),
-        axis1: h.axis1 ?? '',
-        axis2: h.axis2 ?? '',
-        axis3: h.axis3 ?? '',
-        axis4: h.axis4 ?? '',
-        axis5: h.axis5 ?? '',
-        comment: h.comment ?? '',
-        email: h.email ?? '',
-        email_optin: h.email_optin === 'true' || h.email_optin === '1',
+        axis1: asStr(h.axis1),
+        axis2: asStr(h.axis2),
+        axis3: asStr(h.axis3),
+        axis4: asStr(h.axis4),
+        axis5: asStr(h.axis5),
+        comment: asStr(h.comment),
+        email: asStr(h.email),
+        email_optin: asBool(h.email_optin),
       };
     })
     .filter((v): v is VoteRecord => v !== null);

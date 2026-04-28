@@ -8,14 +8,22 @@ import { Link } from '@/i18n/navigation';
 
 type Axis1 = 'thermometre' | 'mosaique' | 'texte_fort' | 'multilingue';
 type Axis2 = 'sobre_actuel' | 'sobre_vivant' | 'journalistique' | 'voix_editeur';
-type Axis3 = 'mosaique_multi' | 'disperse' | 'hub_externe';
+type Axis3 =
+  | 'digest'
+  | 'magazine'
+  | 'podcast'
+  | 'quiz'
+  | 'multilingue'
+  | 'plusieurs';
 type Axis4 = 'quotidien' | 'hebdo' | 'evenement' | 'mixte';
+type Axis5 = 'minimal' | 'standard' | 'chiffres' | 'complete';
 
 interface VoteState {
   axis1: Axis1 | null;
   axis2: Axis2 | null;
   axis3: Axis3 | null;
   axis4: Axis4 | null;
+  axis5: Axis5 | null;
   comment: string;
   email: string;
   emailOptIn: boolean;
@@ -26,6 +34,7 @@ const initial: VoteState = {
   axis2: null,
   axis3: null,
   axis4: null,
+  axis5: null,
   comment: '',
   email: '',
   emailOptIn: false,
@@ -175,48 +184,75 @@ export function RefonteForm() {
         </div>
       </Section>
 
-      {/* AXIS 3 — SURFACE ÉCOSYSTÈME */}
+      {/* AXIS 3 — PRODUCTIONS PRÉFÉRÉES */}
       <Section
         index={3}
-        title="Surface écosystème"
-        question="Hors hero, comment surfacer l'écosystème (digest, magazine, podcast, quiz, langues) ?"
+        title="Productions préférées"
+        question="Si tu ne devais en garder qu'une parmi les productions BGM, ce serait laquelle ?"
       >
         <p className="mb-6 text-sm italic text-slate-500">
-          Les 3 aperçus partagent le même hero neutre. Ce qui change est la zone juste en dessous.
+          Question utilisateur, pas designer : on cherche à savoir ce qui te parle le plus. Sert ensuite à choisir quelles productions mettre en avant.
         </p>
         <div className="grid gap-4 md:grid-cols-3">
           <Option
             name="axis3"
-            value="mosaique_multi"
-            checked={vote.axis3 === 'mosaique_multi'}
+            value="digest"
+            checked={vote.axis3 === 'digest'}
             onChange={(v) => setVote({ ...vote, axis3: v as Axis3 })}
-            label="Section dédiée + bandeau multilingue"
-            description="Une bande horizontale dédiée, vignettes-cartes des productions + rangée explicite des langues servies aujourd'hui."
-            previewHref="/refonte/preview/surface-mosaique"
+            label="Le digest hebdomadaire"
+            description="Les 8 signaux institutionnels de la semaine, lus en 5 minutes. L'épine dorsale éditoriale."
           >
-            <SurfaceMosaicMockup />
+            <ProductionMockup variant="digest" />
           </Option>
           <Option
             name="axis3"
-            value="disperse"
-            checked={vote.axis3 === 'disperse'}
+            value="magazine"
+            checked={vote.axis3 === 'magazine'}
             onChange={(v) => setVote({ ...vote, axis3: v as Axis3 })}
-            label="Dispersé contextuellement"
-            description="Pas de section dédiée. Chaque format apparaît à sa place naturelle (podcast à côté d'un dossier audio, quiz à côté d'un sujet, etc.)."
-            previewHref="/refonte/preview/surface-disperse"
+            label="Le magazine"
+            description="Les 8 signaux racontés à l'horizontale, 14 pages mises en récit visuel."
           >
-            <SurfaceDisperseMockup />
+            <ProductionMockup variant="magazine" />
           </Option>
           <Option
             name="axis3"
-            value="hub_externe"
-            checked={vote.axis3 === 'hub_externe'}
+            value="podcast"
+            checked={vote.axis3 === 'podcast'}
             onChange={(v) => setVote({ ...vote, axis3: v as Axis3 })}
-            label="Hub renvoyé hors home"
-            description="La home tease 1-2 productions seulement. Le reste vit sur une page dédiée /productions. Allège la home, oblige un clic."
-            previewHref="/refonte/preview/surface-hub"
+            label="Le podcast"
+            description="La semaine racontée à voix haute, 15 minutes, en français et néerlandais."
           >
-            <SurfaceHubMockup />
+            <ProductionMockup variant="podcast" />
+          </Option>
+          <Option
+            name="axis3"
+            value="quiz"
+            checked={vote.axis3 === 'quiz'}
+            onChange={(v) => setVote({ ...vote, axis3: v as Axis3 })}
+            label="Le quiz"
+            description="10 questions sur la gouvernance bruxelloise, en quatre langues."
+          >
+            <ProductionMockup variant="quiz" />
+          </Option>
+          <Option
+            name="axis3"
+            value="multilingue"
+            checked={vote.axis3 === 'multilingue'}
+            onChange={(v) => setVote({ ...vote, axis3: v as Axis3 })}
+            label="Le multilingue"
+            description="Lire BGM dans ma langue. 12 langues actives, cible 79."
+          >
+            <ProductionMockup variant="multilingue" />
+          </Option>
+          <Option
+            name="axis3"
+            value="plusieurs"
+            checked={vote.axis3 === 'plusieurs'}
+            onChange={(v) => setVote({ ...vote, axis3: v as Axis3 })}
+            label="Plusieurs à égalité"
+            description="J'arrive pas à choisir. Plusieurs productions me parlent autant les unes que les autres."
+          >
+            <ProductionMockup variant="plusieurs" />
           </Option>
         </div>
       </Section>
@@ -274,6 +310,59 @@ export function RefonteForm() {
         </div>
       </Section>
 
+      {/* AXIS 5 — STYLE DE CARTE RÉSUMÉ */}
+      <Section
+        index={5}
+        title="Style de carte résumé"
+        question="Quand tu lis une fiche BGM (un domaine, un dossier, une commune), qu'est-ce que tu préfères trouver ?"
+      >
+        <p className="mb-6 text-sm italic text-slate-500">
+          Même fiche (Logement / SLRB) déclinée en 4 densités. La comparaison porte sur la quantité d&apos;information par carte, pas sur le sujet.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Option
+            name="axis5"
+            value="minimal"
+            checked={vote.axis5 === 'minimal'}
+            onChange={(v) => setVote({ ...vote, axis5: v as Axis5 })}
+            label="Minimaliste"
+            description="Titre + 1 phrase d'accroche. Force à cliquer pour le détail. Lecture en une seconde."
+          >
+            <CardSampleMockup variant="minimal" />
+          </Option>
+          <Option
+            name="axis5"
+            value="standard"
+            checked={vote.axis5 === 'standard'}
+            onChange={(v) => setVote({ ...vote, axis5: v as Axis5 })}
+            label="Standard + statut"
+            description="Titre + 2 lignes + indicateur d'état coloré. Bon équilibre. Proche de la home actuelle."
+          >
+            <CardSampleMockup variant="standard" />
+          </Option>
+          <Option
+            name="axis5"
+            value="chiffres"
+            checked={vote.axis5 === 'chiffres'}
+            onChange={(v) => setVote({ ...vote, axis5: v as Axis5 })}
+            label="Synthèse chiffrée"
+            description="Titre + 2 lignes + 3 chiffres clés inline. La carte donne les ordres de grandeur."
+          >
+            <CardSampleMockup variant="chiffres" />
+          </Option>
+          <Option
+            name="axis5"
+            value="complete"
+            checked={vote.axis5 === 'complete'}
+            onChange={(v) => setVote({ ...vote, axis5: v as Axis5 })}
+            label="Synthèse complète"
+            description="Titre + lead + chiffres + dernière mise à jour + tag dossier. La carte fait le travail de l'article."
+          >
+            <CardSampleMockup variant="complete" />
+          </Option>
+        </div>
+      </Section>
+
       {/* GLOBAL COMMENT + EMAIL */}
       <section className="border-t border-slate-200 pt-12">
         <label className="block">
@@ -317,14 +406,24 @@ export function RefonteForm() {
         <button
           type="submit"
           className="mt-10 inline-flex items-center gap-3 rounded bg-slate-900 px-6 py-3 font-mono text-sm uppercase tracking-[0.18em] text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={!vote.axis1 || !vote.axis2 || !vote.axis3 || !vote.axis4}
+          disabled={
+            !vote.axis1 ||
+            !vote.axis2 ||
+            !vote.axis3 ||
+            !vote.axis4 ||
+            !vote.axis5
+          }
         >
           Envoyer mes votes
           <span aria-hidden>→</span>
         </button>
-        {(!vote.axis1 || !vote.axis2 || !vote.axis3 || !vote.axis4) && (
+        {(!vote.axis1 ||
+          !vote.axis2 ||
+          !vote.axis3 ||
+          !vote.axis4 ||
+          !vote.axis5) && (
           <p className="mt-3 text-xs text-slate-500">
-            Choisis une option sur chacun des 4 axes pour activer le bouton.
+            Choisis une option sur chacun des 5 axes pour activer le bouton.
           </p>
         )}
       </section>
@@ -530,71 +629,229 @@ function RhythmSchema({ pattern }: { pattern: RhythmPattern }) {
   );
 }
 
-// ---------- SURFACE THUMBNAILS (axis 3) ----------
+// ---------- PRODUCTION MOCKUPS (axis 3) ----------
 
-function SurfaceMosaicMockup() {
-  return (
-    <div className="flex h-full w-full flex-col justify-center gap-1 px-3">
-      <div className="rounded-sm bg-slate-200 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-500">
-        hero
-      </div>
-      <div className="grid grid-cols-4 gap-1">
-        <div className="h-5 rounded-sm bg-slate-900" />
-        <div className="h-5 rounded-sm bg-amber-200" />
-        <div className="h-5 rounded-sm bg-blue-200" />
-        <div className="h-5 rounded-sm bg-emerald-200" />
-      </div>
-      <div className="rounded-sm border border-dashed border-slate-300 bg-white px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-500">
-        FR · NL · EN · DE · …
-      </div>
-      <div className="rounded-sm bg-slate-100 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-400">
-        suite home
-      </div>
-    </div>
-  );
-}
+type ProductionVariant =
+  | 'digest'
+  | 'magazine'
+  | 'podcast'
+  | 'quiz'
+  | 'multilingue'
+  | 'plusieurs';
 
-function SurfaceDisperseMockup() {
-  return (
-    <div className="flex h-full w-full flex-col justify-center gap-1 px-3">
-      <div className="rounded-sm bg-slate-200 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-500">
-        hero
-      </div>
-      <div className="rounded-sm bg-slate-100 p-1.5">
-        <div className="h-1 w-3/4 rounded-full bg-slate-400" />
-        <div className="mt-1 flex items-center gap-1">
-          <span className="rounded-sm bg-blue-200 px-1 font-mono text-[7px] text-blue-800">PODCAST</span>
-          <div className="h-1 flex-1 rounded-full bg-slate-300" />
-        </div>
-      </div>
-      <div className="rounded-sm bg-slate-100 p-1.5">
-        <div className="h-1 w-2/3 rounded-full bg-slate-400" />
-        <div className="mt-1 flex items-center gap-1">
-          <span className="rounded-sm bg-emerald-200 px-1 font-mono text-[7px] text-emerald-800">QUIZ</span>
-          <div className="h-1 flex-1 rounded-full bg-slate-300" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SurfaceHubMockup() {
-  return (
-    <div className="flex h-full w-full flex-col justify-center gap-1 px-3">
-      <div className="rounded-sm bg-slate-200 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-500">
-        hero
-      </div>
-      <div className="flex items-center justify-between rounded-sm bg-slate-100 px-2 py-1">
-        <span className="font-mono text-[8px] text-slate-600">Digest S17 →</span>
-      </div>
-      <div className="flex items-center justify-between rounded-sm border border-slate-900 bg-white px-2 py-1">
-        <span className="font-mono text-[8px] uppercase tracking-wider text-slate-900">
-          Tout l&apos;écosystème
+function ProductionMockup({ variant }: { variant: ProductionVariant }) {
+  if (variant === 'digest') {
+    return (
+      <div className="flex h-full w-full flex-col justify-center bg-slate-900 p-4 text-white">
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-300">
+          Digest hebdo · S17
         </span>
-        <span className="font-mono text-[8px] text-slate-900">↗</span>
+        <p className="mt-2 text-sm leading-tight">8 signaux pour comprendre la semaine.</p>
+        <span className="mt-3 font-mono text-[10px] uppercase tracking-wider text-white/50">
+          ~5 min · FR / NL / EN / DE
+        </span>
       </div>
-      <div className="rounded-sm bg-slate-100 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-400">
-        suite home
+    );
+  }
+  if (variant === 'magazine') {
+    return (
+      <div className="flex h-full w-full flex-col justify-center bg-amber-50 p-4">
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-amber-700">
+          Magazine #17
+        </span>
+        <p className="mt-2 text-sm leading-tight text-slate-900">
+          Les 8 signaux à l&apos;horizontale, 14 pages.
+        </p>
+        <span className="mt-3 font-mono text-[10px] uppercase tracking-wider text-amber-700/60">
+          magazine.governance.brussels
+        </span>
+      </div>
+    );
+  }
+  if (variant === 'podcast') {
+    return (
+      <div className="flex h-full w-full flex-col justify-center bg-blue-950 p-4 text-white">
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-blue-200">
+          Podcast · FR + NL
+        </span>
+        <p className="mt-2 text-sm leading-tight">Le briefing : la semaine en 15 minutes.</p>
+        <div className="mt-3 flex items-center gap-2">
+          <span className="flex h-5 w-5 items-center justify-center rounded-full border border-white/30">
+            <span aria-hidden className="ml-0.5 border-y-[3px] border-l-[5px] border-y-transparent border-l-white" />
+          </span>
+          <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
+            Écouter
+          </span>
+        </div>
+      </div>
+    );
+  }
+  if (variant === 'quiz') {
+    return (
+      <div className="flex h-full w-full flex-col justify-center border border-emerald-200 bg-white p-4">
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-emerald-700">
+          Quiz · 4 langues
+        </span>
+        <p className="mt-2 text-sm leading-tight text-slate-900">
+          10 questions sur Bruxelles.
+        </p>
+        <span className="mt-3 font-mono text-[10px] uppercase tracking-wider text-slate-500">
+          224 questions · pool aléatoire
+        </span>
+      </div>
+    );
+  }
+  if (variant === 'multilingue') {
+    return (
+      <div className="flex h-full w-full flex-col justify-center bg-white p-4">
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">
+          Lisible aujourd&apos;hui en
+        </span>
+        <p className="mt-2 font-mono text-3xl font-bold leading-none tabular-nums text-slate-900">
+          12<span className="ml-1 text-base text-slate-400">/79</span>
+        </p>
+        <div className="mt-2 flex flex-wrap gap-1">
+          {['FR', 'NL', 'EN', 'DE', 'IT', 'ES', '+6'].map((l) => (
+            <span
+              key={l}
+              className="rounded border border-slate-300 px-1.5 py-0.5 font-mono text-[9px] text-slate-600"
+            >
+              {l}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  // plusieurs
+  return (
+    <div className="flex h-full w-full flex-col justify-center bg-slate-50 p-4">
+      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">
+        À égalité
+      </span>
+      <div className="mt-3 grid grid-cols-3 gap-1">
+        <span className="rounded-sm bg-slate-900 py-1 text-center font-mono text-[8px] uppercase tracking-wider text-white">
+          Digest
+        </span>
+        <span className="rounded-sm bg-amber-100 py-1 text-center font-mono text-[8px] uppercase tracking-wider text-amber-800">
+          Mag
+        </span>
+        <span className="rounded-sm bg-blue-100 py-1 text-center font-mono text-[8px] uppercase tracking-wider text-blue-800">
+          Podcast
+        </span>
+        <span className="rounded-sm bg-emerald-100 py-1 text-center font-mono text-[8px] uppercase tracking-wider text-emerald-800">
+          Quiz
+        </span>
+        <span className="col-span-2 rounded-sm border border-dashed border-slate-300 py-1 text-center font-mono text-[8px] uppercase tracking-wider text-slate-500">
+          12 langues
+        </span>
+      </div>
+    </div>
+  );
+}
+
+// ---------- CARD SAMPLE MOCKUPS (axis 5) ----------
+
+type CardVariant = 'minimal' | 'standard' | 'chiffres' | 'complete';
+
+function CardSampleMockup({ variant }: { variant: CardVariant }) {
+  // Same fact (Logement / SLRB) at 4 densities.
+  if (variant === 'minimal') {
+    return (
+      <div className="flex h-full w-full flex-col justify-center border-l-2 border-slate-900 bg-white p-4">
+        <h4 className="text-sm font-semibold tracking-tight text-slate-900">
+          Logement social : SLRB en panne.
+        </h4>
+        <span className="mt-2 font-mono text-[10px] uppercase tracking-wider text-slate-400">
+          Voir le dossier →
+        </span>
+      </div>
+    );
+  }
+  if (variant === 'standard') {
+    return (
+      <div className="flex h-full w-full flex-col justify-center bg-white p-4">
+        <div className="mb-2 flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-amber-500" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">
+            Logement
+          </span>
+        </div>
+        <h4 className="text-sm font-semibold leading-tight tracking-tight text-slate-900">
+          SLRB : la pression monte sur le logement social.
+        </h4>
+        <p className="mt-1.5 text-[11px] leading-snug text-slate-600">
+          Aucune livraison annoncée pour 2026. Le ministre est interpellé en commission.
+        </p>
+      </div>
+    );
+  }
+  if (variant === 'chiffres') {
+    return (
+      <div className="flex h-full w-full flex-col justify-center bg-white p-4">
+        <div className="mb-2 flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-amber-500" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">
+            Logement
+          </span>
+        </div>
+        <h4 className="text-sm font-semibold leading-tight tracking-tight text-slate-900">
+          SLRB : la pression monte.
+        </h4>
+        <div className="mt-2 grid grid-cols-3 gap-2 border-t border-slate-100 pt-2">
+          <div>
+            <span className="block font-mono text-sm font-bold tabular-nums text-slate-900">39 000</span>
+            <span className="block font-mono text-[8px] uppercase tracking-wider text-slate-400">demandes</span>
+          </div>
+          <div>
+            <span className="block font-mono text-sm font-bold tabular-nums text-slate-900">0</span>
+            <span className="block font-mono text-[8px] uppercase tracking-wider text-slate-400">livraison 26</span>
+          </div>
+          <div>
+            <span className="block font-mono text-sm font-bold tabular-nums text-slate-900">18 ans</span>
+            <span className="block font-mono text-[8px] uppercase tracking-wider text-slate-400">attente</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  // complete
+  return (
+    <div className="flex h-full w-full flex-col justify-between bg-white p-4">
+      <div>
+        <div className="mb-1.5 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-amber-500" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500">
+              Logement
+            </span>
+          </div>
+          <span className="rounded-sm bg-slate-100 px-1.5 font-mono text-[8px] uppercase tracking-wider text-slate-700">
+            Dossier SLRB
+          </span>
+        </div>
+        <h4 className="text-sm font-semibold leading-tight tracking-tight text-slate-900">
+          SLRB : la pression monte.
+        </h4>
+        <p className="mt-1 text-[10px] leading-snug text-slate-600">
+          Aucune livraison annoncée pour 2026. Interpellation en commission.
+        </p>
+      </div>
+      <div>
+        <div className="grid grid-cols-3 gap-1.5 border-t border-slate-100 pt-1.5">
+          <span className="font-mono text-[9px] tabular-nums text-slate-700">
+            <strong className="text-slate-900">39 000</strong> dem.
+          </span>
+          <span className="font-mono text-[9px] tabular-nums text-slate-700">
+            <strong className="text-slate-900">0</strong> livr. 26
+          </span>
+          <span className="font-mono text-[9px] tabular-nums text-slate-700">
+            <strong className="text-slate-900">18a</strong> attente
+          </span>
+        </div>
+        <span className="mt-1.5 block font-mono text-[8px] uppercase tracking-wider text-slate-400">
+          Mis à jour 27/04/26
+        </span>
       </div>
     </div>
   );

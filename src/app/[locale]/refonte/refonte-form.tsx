@@ -210,11 +210,11 @@ export function RefonteForm() {
             checked={vote.axis2 === 'voix_editeur'}
             onChange={(v) => setVote({ ...vote, axis2: v as Axis2 })}
             label="Voix éditeur identifiée"
-            description="Première personne, point de vue assumé. Très distinctif, très clivant en Belgique. Engage personnellement."
+            description="Nous de modestie, point de vue assumé. Très distinctif, très clivant en Belgique. Engage la rédaction."
           >
             <ToneSampleCopy
-              title="Ce budget que je suis depuis novembre"
-              lead="On entame la deuxième lecture cette semaine. J'ai relu les amendements : les arbitrages-clé sont sur la sécurité et le logement. Voici ce que j'en lis."
+              title="Ce budget que nous suivons depuis novembre"
+              lead="Nous entamons la deuxième lecture cette semaine. Nous avons relu les amendements : les arbitrages-clé sont sur la sécurité et le logement. Voici ce que nous en lisons."
             />
           </Option>
         </div>

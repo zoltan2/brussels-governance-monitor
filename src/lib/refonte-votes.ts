@@ -96,3 +96,85 @@ export async function getVoteCount(): Promise<number> {
   const total = await redis.get<number>('refonte-vote:counter:total');
   return total ?? 0;
 }
+
+const AXIS_OPTIONS: Record<string, readonly string[]> = {
+  axis1: ['thermometre', 'mosaique', 'texte_fort', 'multilingue'],
+  axis2: ['sobre_actuel', 'sobre_vivant', 'journalistique', 'voix_editeur'],
+  axis3: ['digest', 'magazine', 'podcast', 'quiz', 'multilingue', 'plusieurs'],
+  axis4: ['quotidien', 'hebdo', 'evenement', 'mixte'],
+  axis5: ['minimal', 'standard', 'chiffres', 'complete'],
+} as const;
+
+export interface VoteRecord extends RefonteVote {
+  id: string;
+  created_at: number;
+}
+
+export interface VoteStats {
+  total: number;
+  recent: VoteRecord[];
+  breakdown: Record<string, Record<string, number>>;
+  storeConfigured: boolean;
+}
+
+/**
+ * Lit total + N derniers votes + breakdown par axe.
+ * Pour l'admin page et la synthèse finale.
+ */
+export async function getVoteStats(recentLimit = 20): Promise<VoteStats> {
+  const redis = getRedis();
+  if (!redis) {
+    return { total: 0, recent: [], breakdown: {}, storeConfigured: false };
+  }
+
+  const [total, recentIds] = await Promise.all([
+    redis.get<number>('refonte-vote:counter:total'),
+    redis.zrange<string[]>('refonte-votes:by_date', 0, recentLimit - 1, {
+      rev: true,
+    }),
+  ]);
+
+  const recentHashes = recentIds.length
+    ? await Promise.all(
+        recentIds.map((id) => redis.hgetall<Record<string, string>>(`refonte-vote:${id}`)),
+      )
+    : [];
+
+  const recent: VoteRecord[] = recentHashes
+    .map((h, i) => {
+      if (!h) return null;
+      return {
+        id: recentIds[i],
+        created_at: Number(h.created_at),
+        axis1: h.axis1 ?? '',
+        axis2: h.axis2 ?? '',
+        axis3: h.axis3 ?? '',
+        axis4: h.axis4 ?? '',
+        axis5: h.axis5 ?? '',
+        comment: h.comment ?? '',
+        email_optin: h.email_optin === 'true' || h.email_optin === '1',
+        has_email: h.has_email === 'true' || h.has_email === '1',
+      };
+    })
+    .filter((v): v is VoteRecord => v !== null);
+
+  // Lit tous les compteurs en parallèle pour reconstituer le breakdown.
+  const breakdownEntries = Object.entries(AXIS_OPTIONS).flatMap(([axis, options]) =>
+    options.map((opt) => ({ axis, opt, key: `refonte-vote:counter:${axis}:${opt}` })),
+  );
+  const counts = await Promise.all(
+    breakdownEntries.map((e) => redis.get<number>(e.key)),
+  );
+  const breakdown: Record<string, Record<string, number>> = {};
+  breakdownEntries.forEach((e, i) => {
+    breakdown[e.axis] ??= {};
+    breakdown[e.axis][e.opt] = counts[i] ?? 0;
+  });
+
+  return {
+    total: total ?? 0,
+    recent,
+    breakdown,
+    storeConfigured: true,
+  };
+}

@@ -175,13 +175,51 @@ export function RefonteForm() {
         </div>
       </Section>
 
-      {/* AXIS 3 — SURFACE ÉCOSYSTÈME (stub) */}
-      <SectionStub
+      {/* AXIS 3 — SURFACE ÉCOSYSTÈME */}
+      <Section
         index={3}
         title="Surface écosystème"
-        question="Hors hero, comment surfacer digest / magazine / podcast / quiz / langues ?"
-        note="3 mini-mockups à intégrer (mosaïque + bandeau multilingue · dispersé contextuellement · hub renvoyé hors home)."
-      />
+        question="Hors hero, comment surfacer l'écosystème (digest, magazine, podcast, quiz, langues) ?"
+      >
+        <p className="mb-6 text-sm italic text-slate-500">
+          Les 3 aperçus partagent le même hero neutre. Ce qui change est la zone juste en dessous.
+        </p>
+        <div className="grid gap-4 md:grid-cols-3">
+          <Option
+            name="axis3"
+            value="mosaique_multi"
+            checked={vote.axis3 === 'mosaique_multi'}
+            onChange={(v) => setVote({ ...vote, axis3: v as Axis3 })}
+            label="Section dédiée + bandeau multilingue"
+            description="Une bande horizontale dédiée, vignettes-cartes des productions + rangée explicite des langues servies aujourd'hui."
+            previewHref="/refonte/preview/surface-mosaique"
+          >
+            <SurfaceMosaicMockup />
+          </Option>
+          <Option
+            name="axis3"
+            value="disperse"
+            checked={vote.axis3 === 'disperse'}
+            onChange={(v) => setVote({ ...vote, axis3: v as Axis3 })}
+            label="Dispersé contextuellement"
+            description="Pas de section dédiée. Chaque format apparaît à sa place naturelle (podcast à côté d'un dossier audio, quiz à côté d'un sujet, etc.)."
+            previewHref="/refonte/preview/surface-disperse"
+          >
+            <SurfaceDisperseMockup />
+          </Option>
+          <Option
+            name="axis3"
+            value="hub_externe"
+            checked={vote.axis3 === 'hub_externe'}
+            onChange={(v) => setVote({ ...vote, axis3: v as Axis3 })}
+            label="Hub renvoyé hors home"
+            description="La home tease 1-2 productions seulement. Le reste vit sur une page dédiée /productions. Allège la home, oblige un clic."
+            previewHref="/refonte/preview/surface-hub"
+          >
+            <SurfaceHubMockup />
+          </Option>
+        </div>
+      </Section>
 
       {/* AXIS 4 — RYTHME */}
       <Section
@@ -279,14 +317,14 @@ export function RefonteForm() {
         <button
           type="submit"
           className="mt-10 inline-flex items-center gap-3 rounded bg-slate-900 px-6 py-3 font-mono text-sm uppercase tracking-[0.18em] text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={!vote.axis1 || !vote.axis2 || !vote.axis4}
+          disabled={!vote.axis1 || !vote.axis2 || !vote.axis3 || !vote.axis4}
         >
           Envoyer mes votes
           <span aria-hidden>→</span>
         </button>
-        {(!vote.axis1 || !vote.axis2 || !vote.axis4) && (
+        {(!vote.axis1 || !vote.axis2 || !vote.axis3 || !vote.axis4) && (
           <p className="mt-3 text-xs text-slate-500">
-            Itération en cours&nbsp;: axes 1, 2 et 4 actifs (axe 3 reste en stub). Choisis une option sur chacun pour activer le bouton.
+            Choisis une option sur chacun des 4 axes pour activer le bouton.
           </p>
         )}
       </section>
@@ -487,6 +525,76 @@ function RhythmSchema({ pattern }: { pattern: RhythmPattern }) {
       <div className="flex justify-between font-mono text-[8px] uppercase tracking-[0.2em] text-slate-400">
         <span>S1 · L M M J V S D</span>
         <span>S2 · L M M J V S D</span>
+      </div>
+    </div>
+  );
+}
+
+// ---------- SURFACE THUMBNAILS (axis 3) ----------
+
+function SurfaceMosaicMockup() {
+  return (
+    <div className="flex h-full w-full flex-col justify-center gap-1 px-3">
+      <div className="rounded-sm bg-slate-200 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-500">
+        hero
+      </div>
+      <div className="grid grid-cols-4 gap-1">
+        <div className="h-5 rounded-sm bg-slate-900" />
+        <div className="h-5 rounded-sm bg-amber-200" />
+        <div className="h-5 rounded-sm bg-blue-200" />
+        <div className="h-5 rounded-sm bg-emerald-200" />
+      </div>
+      <div className="rounded-sm border border-dashed border-slate-300 bg-white px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-500">
+        FR · NL · EN · DE · …
+      </div>
+      <div className="rounded-sm bg-slate-100 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-400">
+        suite home
+      </div>
+    </div>
+  );
+}
+
+function SurfaceDisperseMockup() {
+  return (
+    <div className="flex h-full w-full flex-col justify-center gap-1 px-3">
+      <div className="rounded-sm bg-slate-200 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-500">
+        hero
+      </div>
+      <div className="rounded-sm bg-slate-100 p-1.5">
+        <div className="h-1 w-3/4 rounded-full bg-slate-400" />
+        <div className="mt-1 flex items-center gap-1">
+          <span className="rounded-sm bg-blue-200 px-1 font-mono text-[7px] text-blue-800">PODCAST</span>
+          <div className="h-1 flex-1 rounded-full bg-slate-300" />
+        </div>
+      </div>
+      <div className="rounded-sm bg-slate-100 p-1.5">
+        <div className="h-1 w-2/3 rounded-full bg-slate-400" />
+        <div className="mt-1 flex items-center gap-1">
+          <span className="rounded-sm bg-emerald-200 px-1 font-mono text-[7px] text-emerald-800">QUIZ</span>
+          <div className="h-1 flex-1 rounded-full bg-slate-300" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SurfaceHubMockup() {
+  return (
+    <div className="flex h-full w-full flex-col justify-center gap-1 px-3">
+      <div className="rounded-sm bg-slate-200 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-500">
+        hero
+      </div>
+      <div className="flex items-center justify-between rounded-sm bg-slate-100 px-2 py-1">
+        <span className="font-mono text-[8px] text-slate-600">Digest S17 →</span>
+      </div>
+      <div className="flex items-center justify-between rounded-sm border border-slate-900 bg-white px-2 py-1">
+        <span className="font-mono text-[8px] uppercase tracking-wider text-slate-900">
+          Tout l&apos;écosystème
+        </span>
+        <span className="font-mono text-[8px] text-slate-900">↗</span>
+      </div>
+      <div className="rounded-sm bg-slate-100 px-2 py-0.5 text-center font-mono text-[8px] uppercase tracking-wider text-slate-400">
+        suite home
       </div>
     </div>
   );

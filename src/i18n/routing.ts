@@ -260,6 +260,9 @@ export const routing = defineRouting({
     '/refonte/preview/thermometre': '/refonte/preview/thermometre',
     '/refonte/preview/texte-fort': '/refonte/preview/texte-fort',
     '/refonte/preview/multilingue': '/refonte/preview/multilingue',
+    '/refonte/preview/surface-mosaique': '/refonte/preview/surface-mosaique',
+    '/refonte/preview/surface-disperse': '/refonte/preview/surface-disperse',
+    '/refonte/preview/surface-hub': '/refonte/preview/surface-hub',
   },
 });
 

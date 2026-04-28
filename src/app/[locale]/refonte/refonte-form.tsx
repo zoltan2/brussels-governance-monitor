@@ -183,13 +183,58 @@ export function RefonteForm() {
         note="3 mini-mockups à intégrer (mosaïque + bandeau multilingue · dispersé contextuellement · hub renvoyé hors home)."
       />
 
-      {/* AXIS 4 — RYTHME (stub) */}
-      <SectionStub
+      {/* AXIS 4 — RYTHME */}
+      <Section
         index={4}
         title="Rythme"
         question="À quelle fréquence la home doit-elle changer ?"
-        note="4 schémas SVG temporels à intégrer (quotidien · hebdo · sur événement · mixte)."
-      />
+      >
+        <p className="mb-6 text-sm italic text-slate-500">
+          Chaque schéma représente deux semaines. Un point coloré = la home a bougé ce jour-là.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Option
+            name="axis4"
+            value="quotidien"
+            checked={vote.axis4 === 'quotidien'}
+            onChange={(v) => setVote({ ...vote, axis4: v as Axis4 })}
+            label="Quotidien"
+            description="Un objet bouge tous les jours (fait du jour, phrase qui tourne, compteur live). Coût éditorial élevé."
+          >
+            <RhythmSchema pattern="daily" />
+          </Option>
+          <Option
+            name="axis4"
+            value="hebdo"
+            checked={vote.axis4 === 'hebdo'}
+            onChange={(v) => setVote({ ...vote, axis4: v as Axis4 })}
+            label="Hebdomadaire"
+            description="Synchrone avec digest/magazine/podcast (chaque lundi). Soutenable, prévisible."
+          >
+            <RhythmSchema pattern="weekly" />
+          </Option>
+          <Option
+            name="axis4"
+            value="evenement"
+            checked={vote.axis4 === 'evenement'}
+            onChange={(v) => setVote({ ...vote, axis4: v as Axis4 })}
+            label="Sur événement"
+            description="Change seulement quand quelque chose mérite. Authentique mais peut sembler dormant entre."
+          >
+            <RhythmSchema pattern="event" />
+          </Option>
+          <Option
+            name="axis4"
+            value="mixte"
+            checked={vote.axis4 === 'mixte'}
+            onChange={(v) => setVote({ ...vote, axis4: v as Axis4 })}
+            label="Mixte"
+            description="Couche quotidienne légère (compteur, phrase) sur fond hebdo cadencé sur les productions."
+          >
+            <RhythmSchema pattern="mixed" />
+          </Option>
+        </div>
+      </Section>
 
       {/* GLOBAL COMMENT + EMAIL */}
       <section className="border-t border-slate-200 pt-12">
@@ -234,14 +279,14 @@ export function RefonteForm() {
         <button
           type="submit"
           className="mt-10 inline-flex items-center gap-3 rounded bg-slate-900 px-6 py-3 font-mono text-sm uppercase tracking-[0.18em] text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={!vote.axis1 || !vote.axis2}
+          disabled={!vote.axis1 || !vote.axis2 || !vote.axis4}
         >
           Envoyer mes votes
           <span aria-hidden>→</span>
         </button>
-        {(!vote.axis1 || !vote.axis2) && (
+        {(!vote.axis1 || !vote.axis2 || !vote.axis4) && (
           <p className="mt-3 text-xs text-slate-500">
-            Itération en cours&nbsp;: axes 1 et 2 actifs. Choisis une option sur chacun pour activer le bouton.
+            Itération en cours&nbsp;: axes 1, 2 et 4 actifs (axe 3 reste en stub). Choisis une option sur chacun pour activer le bouton.
           </p>
         )}
       </section>
@@ -363,6 +408,68 @@ function Option({
           <span aria-hidden>↗</span>
         </Link>
       )}
+    </div>
+  );
+}
+
+// ---------- RHYTHM SCHEMA (axis 4) ----------
+
+type RhythmPattern = 'daily' | 'weekly' | 'event' | 'mixed';
+
+const DAYS_LABELS = ['L', 'M', 'M', 'J', 'V', 'S', 'D', 'L', 'M', 'M', 'J', 'V', 'S', 'D'];
+
+function RhythmSchema({ pattern }: { pattern: RhythmPattern }) {
+  // Each cell represents one day across two consecutive weeks.
+  // 'big' = significant change. 'small' = subtle/light change. 'none' = no change.
+  const cells: Array<'big' | 'small' | 'none'> = (() => {
+    switch (pattern) {
+      case 'daily':
+        return Array(14).fill('big');
+      case 'weekly':
+        // Mondays only (positions 0 and 7)
+        return DAYS_LABELS.map((_, i) => (i === 0 || i === 7 ? 'big' : 'none'));
+      case 'event':
+        // Irregular sparse events (3 across 14 days)
+        return DAYS_LABELS.map((_, i) =>
+          i === 2 || i === 9 || i === 12 ? 'big' : 'none',
+        );
+      case 'mixed':
+        // Mondays big + every other day small
+        return DAYS_LABELS.map((_, i) =>
+          i === 0 || i === 7 ? 'big' : 'small',
+        );
+    }
+  })();
+
+  return (
+    <div className="flex h-full w-full flex-col justify-center px-4">
+      <div className="flex items-end gap-1.5">
+        {cells.map((c, i) => (
+          <div
+            key={i}
+            className={`flex flex-1 flex-col items-center gap-1 ${
+              i === 7 ? 'border-l border-slate-200 pl-1.5' : ''
+            }`}
+          >
+            <span
+              className={
+                c === 'big'
+                  ? 'h-3 w-3 rounded-full bg-slate-900'
+                  : c === 'small'
+                    ? 'h-1.5 w-1.5 rounded-full bg-slate-400'
+                    : 'h-1 w-1 rounded-full bg-slate-200'
+              }
+            />
+            <span className="font-mono text-[8px] leading-none text-slate-400">
+              {DAYS_LABELS[i]}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 flex justify-between font-mono text-[8px] uppercase tracking-[0.2em] text-slate-400">
+        <span>Semaine 1</span>
+        <span>Semaine 2</span>
+      </div>
     </div>
   );
 }

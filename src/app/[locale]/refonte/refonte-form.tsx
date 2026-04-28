@@ -418,57 +418,75 @@ type RhythmPattern = 'daily' | 'weekly' | 'event' | 'mixed';
 
 const DAYS_LABELS = ['L', 'M', 'M', 'J', 'V', 'S', 'D', 'L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
+interface BarShape {
+  // Height fraction of max (0 — 1).
+  h: number;
+  // Color intensity: 'strong' | 'soft' | 'faint'.
+  c: 'strong' | 'soft' | 'faint';
+}
+
 function RhythmSchema({ pattern }: { pattern: RhythmPattern }) {
-  // Each cell represents one day across two consecutive weeks.
-  // 'big' = significant change. 'small' = subtle/light change. 'none' = no change.
-  const cells: Array<'big' | 'small' | 'none'> = (() => {
+  const bars: BarShape[] = (() => {
     switch (pattern) {
       case 'daily':
-        return Array(14).fill('big');
+        // Tous les jours, toutes les barres sont fortes et hautes.
+        return DAYS_LABELS.map(() => ({ h: 1, c: 'strong' as const }));
       case 'weekly':
-        // Mondays only (positions 0 and 7)
-        return DAYS_LABELS.map((_, i) => (i === 0 || i === 7 ? 'big' : 'none'));
-      case 'event':
-        // Irregular sparse events (3 across 14 days)
+        // Seuls les lundis (positions 0 et 7) ont une barre, le reste est imperceptible.
         return DAYS_LABELS.map((_, i) =>
-          i === 2 || i === 9 || i === 12 ? 'big' : 'none',
+          i === 0 || i === 7
+            ? { h: 1, c: 'strong' as const }
+            : { h: 0.08, c: 'faint' as const },
         );
+      case 'event':
+        // 3 pics irréguliers sur 14 jours, hauteurs variées.
+        return DAYS_LABELS.map((_, i) => {
+          if (i === 2) return { h: 0.85, c: 'strong' as const };
+          if (i === 9) return { h: 1, c: 'strong' as const };
+          if (i === 12) return { h: 0.6, c: 'strong' as const };
+          return { h: 0.08, c: 'faint' as const };
+        });
       case 'mixed':
-        // Mondays big + every other day small
+        // Lundis forts + chaque autre jour une pulsation moyenne.
         return DAYS_LABELS.map((_, i) =>
-          i === 0 || i === 7 ? 'big' : 'small',
+          i === 0 || i === 7
+            ? { h: 1, c: 'strong' as const }
+            : { h: 0.35, c: 'soft' as const },
         );
     }
   })();
 
+  const captions: Record<RhythmPattern, string> = {
+    daily: 'Tous les jours',
+    weekly: 'Le lundi, et seulement le lundi',
+    event: 'Quand un événement le mérite',
+    mixed: 'Ancrage lundi + pulse quotidien léger',
+  };
+
   return (
-    <div className="flex h-full w-full flex-col justify-center px-4">
-      <div className="flex items-end gap-1.5">
-        {cells.map((c, i) => (
+    <div className="flex h-full w-full flex-col justify-between px-4 py-3">
+      <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-slate-700">
+        {captions[pattern]}
+      </p>
+      <div className="flex h-16 items-end gap-[3px]">
+        {bars.map((b, i) => (
           <div
             key={i}
-            className={`flex flex-1 flex-col items-center gap-1 ${
-              i === 7 ? 'border-l border-slate-200 pl-1.5' : ''
-            }`}
-          >
-            <span
-              className={
-                c === 'big'
-                  ? 'h-3 w-3 rounded-full bg-slate-900'
-                  : c === 'small'
-                    ? 'h-1.5 w-1.5 rounded-full bg-slate-400'
-                    : 'h-1 w-1 rounded-full bg-slate-200'
-              }
-            />
-            <span className="font-mono text-[8px] leading-none text-slate-400">
-              {DAYS_LABELS[i]}
-            </span>
-          </div>
+            className={`flex-1 rounded-sm ${
+              b.c === 'strong'
+                ? 'bg-slate-900'
+                : b.c === 'soft'
+                  ? 'bg-slate-400'
+                  : 'bg-slate-200'
+            } ${i === 7 ? 'ml-1 border-l border-dashed border-slate-300 pl-1' : ''}`}
+            style={{ height: `${b.h * 100}%` }}
+            aria-hidden
+          />
         ))}
       </div>
-      <div className="mt-3 flex justify-between font-mono text-[8px] uppercase tracking-[0.2em] text-slate-400">
-        <span>Semaine 1</span>
-        <span>Semaine 2</span>
+      <div className="flex justify-between font-mono text-[8px] uppercase tracking-[0.2em] text-slate-400">
+        <span>S1 · L M M J V S D</span>
+        <span>S2 · L M M J V S D</span>
       </div>
     </div>
   );

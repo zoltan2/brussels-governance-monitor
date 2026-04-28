@@ -4,7 +4,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
-import { Link } from '@/i18n/navigation';
+import { PreviewLayout } from '@/components/refonte/preview-layout';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -35,37 +35,7 @@ export default async function MosaiquePreviewPage({
   setRequestLocale(locale);
 
   return (
-    <div className="bg-slate-50 text-slate-900">
-      {/* Preview ribbon — sticky reminder this is a preview */}
-      <div className="sticky top-0 z-30 border-b border-slate-200 bg-amber-50 px-4 py-2.5 text-center text-xs">
-        <span className="font-mono uppercase tracking-[0.18em] text-amber-900">
-          Aperçu · Hero mosaïque éditoriale
-        </span>
-        <span className="mx-3 text-amber-700/60">·</span>
-        <Link
-          href="/refonte"
-          className="font-mono uppercase tracking-[0.18em] text-amber-900 underline-offset-4 hover:underline"
-        >
-          ← Retour au vote
-        </Link>
-      </div>
-
-      {/* Minimal nav placeholder (simulates BGM nav without rendering it real) */}
-      <nav className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <span className="font-mono text-sm font-semibold tracking-tight text-slate-900">
-            Brussels Governance Monitor
-          </span>
-          <span className="hidden gap-6 font-mono text-xs uppercase tracking-[0.18em] text-slate-500 md:flex">
-            <span>Domaines</span>
-            <span>Dossiers</span>
-            <span>Communes</span>
-            <span>Comprendre</span>
-          </span>
-        </div>
-      </nav>
-
-      {/* HERO — MOSAÏQUE ÉDITORIALE */}
+    <PreviewLayout optionLabel="mosaïque éditoriale">
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-12 md:py-20">
           <div className="mb-8 flex items-baseline justify-between">
@@ -203,74 +173,6 @@ export default async function MosaiquePreviewPage({
           </div>
         </div>
       </section>
-
-      {/* SECTION SOUS LE HERO — Compteur de crise (existant, conservé tel quel dans le redesign) */}
-      <section className="bg-gradient-to-b from-slate-800 to-slate-700 py-16 text-white">
-        <div className="mx-auto max-w-5xl px-4 text-center">
-          <p className="text-sm text-white/75">
-            <span className="font-semibold tabular-nums">613</span> jours archivés depuis l&apos;élection régionale du 9 juin 2024.
-          </p>
-          <p className="mt-2 font-mono text-7xl font-bold tabular-nums tracking-tight md:text-8xl">
-            423
-          </p>
-          <p className="mt-2 text-lg uppercase tracking-[0.22em] text-white/85 md:text-xl">
-            jours sans gouvernement régional
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION — Domaines (placeholder simple, conservée du design actuel) */}
-      <section className="border-b border-slate-200 bg-white py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <header className="mb-8 flex items-baseline justify-between">
-            <h2 className="text-2xl tracking-tight text-slate-900 md:text-3xl">
-              Treize domaines, suivis en continu
-            </h2>
-            <span className="font-mono text-xs uppercase tracking-[0.22em] text-slate-400">
-              Échantillon
-            </span>
-          </header>
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              { d: 'Mobilité', m: 'Good Move suspendu, contentieux en cours', s: 'amber' },
-              { d: 'Logement', m: 'SLRB : 39 000 demandes, 0 livraisons 2026', s: 'amber' },
-              { d: 'Sécurité', m: 'Fusion zones de police annoncée pour 2027', s: 'blue' },
-            ].map((c) => (
-              <article
-                key={c.d}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-6 transition hover:border-slate-400"
-              >
-                <span
-                  className={`inline-flex h-2 w-2 rounded-full ${
-                    c.s === 'amber' ? 'bg-amber-500' : 'bg-blue-600'
-                  }`}
-                />
-                <h3 className="mt-3 text-lg tracking-tight text-slate-900">{c.d}</h3>
-                <p className="mt-2 text-sm text-slate-600">{c.m}</p>
-                <span className="mt-4 inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">
-                  Voir le domaine →
-                </span>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PIED — retour au vote */}
-      <footer className="border-t border-slate-200 bg-slate-50 px-6 py-12 text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.22em] text-slate-500">
-          Fin de l&apos;aperçu
-        </p>
-        <p className="mt-3 max-w-xl mx-auto text-sm text-slate-700">
-          Cet aperçu simule la home BGM avec un hero en mosaïque éditoriale. Le reste de la page (compteur de crise, sections domaines, etc.) ne change pas.
-        </p>
-        <Link
-          href="/refonte"
-          className="mt-6 inline-flex items-center gap-2 rounded border border-slate-900 bg-white px-5 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-slate-900 transition hover:bg-slate-900 hover:text-white"
-        >
-          ← Retour au vote
-        </Link>
-      </footer>
-    </div>
+    </PreviewLayout>
   );
 }

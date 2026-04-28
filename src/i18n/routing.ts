@@ -256,6 +256,10 @@ export const routing = defineRouting({
     '/quiz': '/quiz',
     '/signal': '/signal',
     '/refonte': '/refonte',
+    '/refonte/preview/mosaique': '/refonte/preview/mosaique',
+    '/refonte/preview/thermometre': '/refonte/preview/thermometre',
+    '/refonte/preview/texte-fort': '/refonte/preview/texte-fort',
+    '/refonte/preview/multilingue': '/refonte/preview/multilingue',
   },
 });
 

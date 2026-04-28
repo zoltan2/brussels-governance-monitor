@@ -4,6 +4,7 @@
 'use client';
 
 import { useState, type FormEvent, type ReactNode } from 'react';
+import { Link } from '@/i18n/navigation';
 
 type Axis1 = 'thermometre' | 'mosaique' | 'texte_fort' | 'multilingue';
 type Axis2 = 'sobre_actuel' | 'sobre_vivant' | 'journalistique' | 'voix_editeur';
@@ -69,6 +70,7 @@ export function RefonteForm() {
             onChange={(v) => setVote({ ...vote, axis1: v as Axis1 })}
             label="Thermomètre institutionnel"
             description="Une jauge composite qui mesure « l'état du fonctionnement institutionnel BXL », alimentée par la veille."
+            previewHref="/refonte/preview/thermometre"
           >
             <ThermometerMockup />
           </Option>
@@ -90,6 +92,7 @@ export function RefonteForm() {
             onChange={(v) => setVote({ ...vote, axis1: v as Axis1 })}
             label="Texte fort"
             description="Pas d'image, juste une phrase éditoriale énorme qui change avec l'actualité."
+            previewHref="/refonte/preview/texte-fort"
           >
             <StrongTextMockup />
           </Option>
@@ -100,6 +103,7 @@ export function RefonteForm() {
             onChange={(v) => setVote({ ...vote, axis1: v as Axis1 })}
             label="Hero multilingue"
             description="Le multilingue lui-même est le héros : compteur de langues servies + phrase rotative."
+            previewHref="/refonte/preview/multilingue"
           >
             <MultilingualMockup />
           </Option>
@@ -291,15 +295,16 @@ function Option({
         <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
       </label>
       {previewHref && (
-        <a
-          href={previewHref}
+        <Link
+          // Locale-prefixed path is registered in routing.ts; cast keeps Option reusable.
+          href={previewHref as Parameters<typeof Link>[0]['href']}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-flex w-fit items-center gap-2 rounded border border-slate-300 bg-white px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-700 transition hover:border-slate-900 hover:bg-slate-900 hover:text-white"
+          className="mt-4 inline-flex w-fit items-center gap-2 rounded border-2 border-slate-900 bg-slate-900 px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-slate-900"
         >
           Voir l&apos;aperçu pleine page
           <span aria-hidden>↗</span>
-        </a>
+        </Link>
       )}
     </div>
   );

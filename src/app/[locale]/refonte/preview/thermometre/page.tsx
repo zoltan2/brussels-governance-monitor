@@ -29,7 +29,7 @@ export async function generateMetadata({
 const VALUE = 62;
 
 const SUB_INDICATORS = [
-  { label: 'Crise gouvernementale', delta: '−18', detail: '423 jours sans gouvernement régional' },
+  { label: 'Formation gouvernementale', delta: '−18', detail: 'Aucun exécutif régional installé depuis juin 2024' },
   { label: 'Dossiers gelés', delta: '−12', detail: '7 dossiers majeurs suspendus' },
   { label: 'Retards budgétaires', delta: '−6', detail: 'Budget 2026 en deuxième lecture' },
   { label: 'Engagements DPR', delta: '−2', detail: '4 sur 16 engagements activés' },

@@ -43,9 +43,9 @@ export default async function TexteFortPreviewPage({
           </p>
 
           <h1 className="mt-8 text-[44px] font-light leading-[1.05] tracking-tight text-slate-900 md:text-[88px] md:leading-[0.98] lg:text-[112px]">
-            <span className="block">423 jours</span>
-            <span className="block text-slate-400">sans gouvernement</span>
-            <span className="block">régional.</span>
+            <span className="block">Le PRAS bloque.</span>
+            <span className="block text-slate-400">Le budget passe</span>
+            <span className="block">en deuxième lecture.</span>
           </h1>
 
           <div className="mt-12 grid gap-8 border-t border-slate-200 pt-8 md:grid-cols-3">
@@ -53,7 +53,7 @@ export default async function TexteFortPreviewPage({
               <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-slate-400">
                 Cette semaine
               </span>
-              Le budget 2026 passe en deuxième lecture, le PRAS bloque, Vivalis publie son tableau de bord. Huit signaux dans le digest.
+              Vivalis publie son tableau de bord. La fusion des zones de police annoncée pour 2027. Huit signaux dans le digest.
             </p>
             <p className="text-sm text-slate-600">
               <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-slate-400">
@@ -87,13 +87,13 @@ export default async function TexteFortPreviewPage({
           </div>
         </div>
 
-        {/* Decorative ghosted number — typographic accent */}
+        {/* Decorative ghosted week number — typographic accent */}
         <span
           aria-hidden
           className="pointer-events-none absolute right-0 top-0 select-none font-mono text-[420px] font-bold leading-none tabular-nums text-slate-100 md:right-12 md:text-[600px]"
           style={{ writingMode: 'horizontal-tb', zIndex: -1 }}
         >
-          423
+          17
         </span>
       </section>
     </PreviewLayout>

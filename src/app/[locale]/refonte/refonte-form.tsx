@@ -381,10 +381,12 @@ function MosaicMockup() {
 function StrongTextMockup() {
   return (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <p className="font-serif text-base leading-tight text-slate-900 md:text-lg">
-        Aujourd&apos;hui à Bruxelles&nbsp;:
+      <p className="text-sm leading-tight text-slate-900 md:text-base">
+        Le PRAS bloque.
         <br />
-        <span className="text-slate-500">423 jours</span> sans gouvernement régional.
+        <span className="text-slate-500">Le budget passe</span>
+        <br />
+        en deuxième lecture.
       </p>
     </div>
   );

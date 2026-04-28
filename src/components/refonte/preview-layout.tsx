@@ -16,6 +16,9 @@ function getDaysRemaining(): number {
   return Math.max(0, Math.ceil(ms / (1000 * 60 * 60 * 24)));
 }
 
+// Garde le gradient slate-* sur la section : l'override globals.css
+// `.dark section[class*="from-slate"]` le swap vers neutral-200 en dark mode,
+// donc la countdown reste lisible dans les deux thèmes.
 function LegislatureCountdown() {
   const days = getDaysRemaining();
   return (
@@ -50,9 +53,9 @@ export function PreviewLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="bg-slate-50 text-slate-900">
+    <div className="bg-neutral-50 text-neutral-900">
       {/* Sticky « aperçu » ribbon */}
-      <div className="sticky top-0 z-30 border-b border-slate-200 bg-amber-50 px-4 py-2.5 text-center text-xs">
+      <div className="sticky top-0 z-30 border-b border-neutral-200 bg-amber-50 px-4 py-2.5 text-center text-xs">
         <span className="font-mono uppercase tracking-[0.18em] text-amber-900">
           Aperçu · Hero {optionLabel}
         </span>
@@ -66,12 +69,12 @@ export function PreviewLayout({
       </div>
 
       {/* Nav placeholder (simulates BGM nav without rendering it real) */}
-      <nav className="border-b border-slate-200 bg-white">
+      <nav className="border-b border-neutral-200 bg-neutral-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <span className="font-mono text-sm font-semibold tracking-tight text-slate-900">
+          <span className="font-mono text-sm font-semibold tracking-tight text-neutral-900">
             Brussels Governance Monitor
           </span>
-          <span className="hidden gap-6 font-mono text-xs uppercase tracking-[0.18em] text-slate-500 md:flex">
+          <span className="hidden gap-6 font-mono text-xs uppercase tracking-[0.18em] text-neutral-500 md:flex">
             <span>Domaines</span>
             <span>Dossiers</span>
             <span>Communes</span>
@@ -86,13 +89,13 @@ export function PreviewLayout({
       <LegislatureCountdown />
 
       {/* Domaines (conservé du design actuel) */}
-      <section className="border-b border-slate-200 bg-white py-16">
+      <section className="border-b border-neutral-200 bg-neutral-50 py-16">
         <div className="mx-auto max-w-7xl px-6">
           <header className="mb-8 flex items-baseline justify-between">
-            <h2 className="text-2xl tracking-tight text-slate-900 md:text-3xl">
+            <h2 className="text-2xl tracking-tight text-neutral-900 md:text-3xl">
               Treize domaines, suivis en continu
             </h2>
-            <span className="font-mono text-xs uppercase tracking-[0.22em] text-slate-400">
+            <span className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-400">
               Échantillon
             </span>
           </header>
@@ -104,16 +107,16 @@ export function PreviewLayout({
             ].map((c) => (
               <article
                 key={c.d}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-6 transition hover:border-slate-400"
+                className="rounded-lg border border-neutral-200 bg-neutral-100 p-6 transition hover:border-neutral-400"
               >
                 <span
                   className={`inline-flex h-2 w-2 rounded-full ${
                     c.s === 'amber' ? 'bg-amber-500' : 'bg-blue-600'
                   }`}
                 />
-                <h3 className="mt-3 text-lg tracking-tight text-slate-900">{c.d}</h3>
-                <p className="mt-2 text-sm text-slate-600">{c.m}</p>
-                <span className="mt-4 inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">
+                <h3 className="mt-3 text-lg tracking-tight text-neutral-900">{c.d}</h3>
+                <p className="mt-2 text-sm text-neutral-600">{c.m}</p>
+                <span className="mt-4 inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500">
                   Voir le domaine →
                 </span>
               </article>
@@ -123,16 +126,16 @@ export function PreviewLayout({
       </section>
 
       {/* Pied — retour au vote */}
-      <footer className="border-t border-slate-200 bg-slate-50 px-6 py-12 text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.22em] text-slate-500">
+      <footer className="border-t border-neutral-200 bg-neutral-50 px-6 py-12 text-center">
+        <p className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
           Fin de l&apos;aperçu
         </p>
-        <p className="mt-3 max-w-xl mx-auto text-sm text-slate-700">
+        <p className="mt-3 max-w-xl mx-auto text-sm text-neutral-700">
           Cet aperçu simule la home BGM avec un hero en {optionLabel.toLowerCase()}. Le reste de la page (compteur de crise, sections domaines, etc.) ne change pas selon l&apos;option du hero.
         </p>
         <Link
           href="/refonte"
-          className="mt-6 inline-flex items-center gap-2 rounded border border-slate-900 bg-white px-5 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-slate-900 transition hover:bg-slate-900 hover:text-white"
+          className="mt-6 inline-flex items-center gap-2 rounded border border-neutral-900 bg-neutral-50 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-neutral-900 transition hover:bg-neutral-900 hover:text-neutral-50"
         >
           ← Retour au vote
         </Link>

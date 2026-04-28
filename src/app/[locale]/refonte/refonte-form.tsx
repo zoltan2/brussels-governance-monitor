@@ -110,13 +110,70 @@ export function RefonteForm() {
         </div>
       </Section>
 
-      {/* AXIS 2 — TON ÉDITORIAL (stub) */}
-      <SectionStub
+      {/* AXIS 2 — TON ÉDITORIAL */}
+      <Section
         index={2}
         title="Ton éditorial"
-        question="À quel point la home s'autorise-t-elle à respirer ?"
-        note="Sample copy pour les 4 tons à intégrer dans la prochaine itération (sobre actuel · sobre + vivant · journalistique factuel · voix éditeur identifiée)."
-      />
+        question="Pour la home (pas forcément pour les fiches), à quel point la voix s'autorise-t-elle à respirer ?"
+      >
+        <p className="mb-6 text-sm italic text-slate-500">
+          Même fait illustré dans les 4 tons : « Le budget régional 2026 passe en deuxième lecture au Parlement bruxellois ».
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Option
+            name="axis2"
+            value="sobre_actuel"
+            checked={vote.axis2 === 'sobre_actuel'}
+            onChange={(v) => setVote({ ...vote, axis2: v as Axis2 })}
+            label="Sobre institutionnel actuel"
+            description="On ne change rien. Voix institutionnelle, sourcing strict, aucun verbe affirmé. Option « refus du changement »."
+          >
+            <ToneSampleCopy
+              title="Le projet de budget 2026 entre en deuxième lecture"
+              lead="Le Parlement bruxellois examine cette semaine le projet de budget 2026 du gouvernement régional sortant. Vote prévu en mai."
+            />
+          </Option>
+          <Option
+            name="axis2"
+            value="sobre_vivant"
+            checked={vote.axis2 === 'sobre_vivant'}
+            onChange={(v) => setVote({ ...vote, axis2: v as Axis2 })}
+            label="Sobre + vivant"
+            description="Sourcing et règles inchangés mais titres plus saillants, leads mieux écrits, verbes forts à la place des participes."
+          >
+            <ToneSampleCopy
+              title="Budget 2026 : le Parlement reprend la main"
+              lead="Après un premier passage tendu, le projet de budget revient devant les députés cette semaine. Vote attendu en mai."
+            />
+          </Option>
+          <Option
+            name="axis2"
+            value="journalistique"
+            checked={vote.axis2 === 'journalistique'}
+            onChange={(v) => setVote({ ...vote, axis2: v as Axis2 })}
+            label="Journalistique factuel"
+            description="Angles affirmés, leads, accroches narratives. Pas militant, pas timide. Modèle Le Monde / Reuters."
+          >
+            <ToneSampleCopy
+              title="Budget 2026 : deuxième lecture sous tension au Parlement bruxellois"
+              lead="Le projet du gouvernement sortant est contesté sur trois lignes — sécurité, mobilité, logement. Vote serré attendu en mai."
+            />
+          </Option>
+          <Option
+            name="axis2"
+            value="voix_editeur"
+            checked={vote.axis2 === 'voix_editeur'}
+            onChange={(v) => setVote({ ...vote, axis2: v as Axis2 })}
+            label="Voix éditeur identifiée"
+            description="Première personne, point de vue assumé. Très distinctif, très clivant en Belgique. Engage personnellement."
+          >
+            <ToneSampleCopy
+              title="Ce budget que je suis depuis novembre"
+              lead="On entame la deuxième lecture cette semaine. J'ai relu les amendements : les arbitrages-clé sont sur la sécurité et le logement. Voici ce que j'en lis."
+            />
+          </Option>
+        </div>
+      </Section>
 
       {/* AXIS 3 — SURFACE ÉCOSYSTÈME (stub) */}
       <SectionStub
@@ -177,14 +234,14 @@ export function RefonteForm() {
         <button
           type="submit"
           className="mt-10 inline-flex items-center gap-3 rounded bg-slate-900 px-6 py-3 font-mono text-sm uppercase tracking-[0.18em] text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={!vote.axis1}
+          disabled={!vote.axis1 || !vote.axis2}
         >
           Envoyer mes votes
           <span aria-hidden>→</span>
         </button>
-        {!vote.axis1 && (
+        {(!vote.axis1 || !vote.axis2) && (
           <p className="mt-3 text-xs text-slate-500">
-            Itération en cours&nbsp;: seul l&apos;axe 1 est actif. Choisis une option ci-dessus pour activer le bouton.
+            Itération en cours&nbsp;: axes 1 et 2 actifs. Choisis une option sur chacun pour activer le bouton.
           </p>
         )}
       </section>
@@ -306,6 +363,24 @@ function Option({
           <span aria-hidden>↗</span>
         </Link>
       )}
+    </div>
+  );
+}
+
+// ---------- TONE SAMPLE (axis 2) ----------
+
+function ToneSampleCopy({ title, lead }: { title: string; lead: string }) {
+  return (
+    <div className="flex h-full w-full flex-col justify-center px-4 text-left">
+      <p className="mb-1 font-mono text-[9px] uppercase tracking-[0.22em] text-slate-400">
+        Exemple, comme rendu sur la home
+      </p>
+      <h4 className="text-sm leading-tight tracking-tight text-slate-900 md:text-base">
+        {title}
+      </h4>
+      <p className="mt-1.5 text-[11px] leading-snug text-slate-600 md:text-xs">
+        {lead}
+      </p>
     </div>
   );
 }

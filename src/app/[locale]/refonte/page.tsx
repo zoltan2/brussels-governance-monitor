@@ -2,13 +2,14 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { setRequestLocale } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { RefonteForm } from './refonte-form';
 
+// Consultation v1 FR uniquement. Les autres locales reçoivent 404.
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+  return [{ locale: 'fr' }];
 }
 
 export async function generateMetadata({
@@ -35,6 +36,7 @@ export default async function RefontePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  if (locale !== 'fr') notFound();
   setRequestLocale(locale);
 
   return (

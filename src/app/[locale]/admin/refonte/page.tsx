@@ -105,11 +105,16 @@ export default async function AdminRefontePage({
         </div>
         <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">
-            Avec email opt-in
+            Emails fournis · opt-in
           </p>
           <p className="mt-2 font-mono text-4xl font-bold tabular-nums text-slate-900">
-            {stats.recent.filter((r) => r.email_optin).length}
-            <span className="ml-2 text-base text-slate-400">/ {stats.recent.length} récents</span>
+            {stats.recent.filter((r) => r.email).length}
+            <span className="ml-2 text-base text-slate-400">
+              · {stats.recent.filter((r) => r.email_optin).length} opt-in
+            </span>
+          </p>
+          <p className="mt-1 text-xs text-slate-500">
+            sur {stats.recent.length} récents
           </p>
         </div>
         <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
@@ -203,7 +208,7 @@ export default async function AdminRefontePage({
                     Card
                   </th>
                   <th className="px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-slate-500">
-                    Email
+                    Email · opt-in
                   </th>
                   <th className="px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-slate-500">
                     Commentaire
@@ -231,8 +236,34 @@ export default async function AdminRefontePage({
                     <td className="px-3 py-2 text-slate-700">
                       {OPTION_LABELS[v.axis5] ?? v.axis5}
                     </td>
-                    <td className="px-3 py-2 text-center">
-                      {v.email_optin ? '✓' : v.has_email ? '~' : '—'}
+                    <td className="px-3 py-2 text-xs">
+                      {v.email ? (
+                        <span className="flex items-center gap-2">
+                          <a
+                            href={`mailto:${v.email}`}
+                            className="font-mono text-slate-700 hover:underline"
+                          >
+                            {v.email}
+                          </a>
+                          {v.email_optin ? (
+                            <span
+                              title="opt-in newsletter accepté"
+                              className="rounded bg-emerald-100 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-emerald-800"
+                            >
+                              opt-in
+                            </span>
+                          ) : (
+                            <span
+                              title="email fourni sans opt-in newsletter"
+                              className="rounded bg-amber-100 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-amber-800"
+                            >
+                              no opt-in
+                            </span>
+                          )}
+                        </span>
+                      ) : (
+                        <span className="text-slate-300">—</span>
+                      )}
                     </td>
                     <td className="px-3 py-2 max-w-md text-slate-600">
                       {v.comment || (

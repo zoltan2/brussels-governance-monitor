@@ -24,8 +24,12 @@ export interface RefonteVote {
   axis4: string;
   axis5: string;
   comment: string;
+  /** Email saisi par le votant. Vide si pas fourni. Visible uniquement
+   * dans /admin/refonte (auth-gated, privé éditeur). */
+  email: string;
+  /** L'utilisateur a coché « je veux suivre la suite ». N'est `true`
+   * que si email a aussi été fourni. */
   email_optin: boolean;
-  has_email: boolean;
 }
 
 let _redis: Redis | null | undefined;
@@ -152,8 +156,8 @@ export async function getVoteStats(recentLimit = 20): Promise<VoteStats> {
         axis4: h.axis4 ?? '',
         axis5: h.axis5 ?? '',
         comment: h.comment ?? '',
+        email: h.email ?? '',
         email_optin: h.email_optin === 'true' || h.email_optin === '1',
-        has_email: h.has_email === 'true' || h.has_email === '1',
       };
     })
     .filter((v): v is VoteRecord => v !== null);

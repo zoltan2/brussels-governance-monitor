@@ -61,13 +61,16 @@ export async function POST(req: NextRequest) {
   }
 
   const { email, emailOptIn, comment, ...axes } = parsed.data;
-  const hasEmail = Boolean(email && email.length > 0);
+  const trimmedEmail = (email ?? '').trim();
+  const hasEmail = trimmedEmail.length > 0;
 
   const vote: RefonteVote = {
     ...axes,
     comment,
+    // Email persisté dans Redis pour visibilité dans /admin/refonte (privé,
+    // auth-gated). Vide si pas fourni.
+    email: trimmedEmail,
     email_optin: emailOptIn && hasEmail,
-    has_email: hasEmail,
   };
 
   let voteId: string;
@@ -82,9 +85,9 @@ export async function POST(req: NextRequest) {
   }
 
   // Resend opt-in — best effort, ne bloque pas le vote
-  if (hasEmail && emailOptIn && email) {
+  if (hasEmail && emailOptIn) {
     try {
-      await addContact(email, 'fr', [], ['refonte']);
+      await addContact(trimmedEmail, 'fr', [], ['refonte']);
     } catch (err) {
       console.error('[refonte-vote] Resend opt-in failed (non-fatal):', err);
     }

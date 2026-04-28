@@ -79,6 +79,7 @@ export function RefonteForm() {
             onChange={(v) => setVote({ ...vote, axis1: v as Axis1 })}
             label="Mosaïque éditoriale"
             description="Pas un objet unique : 4 productions du moment en grand (digest, magazine, podcast, quiz)."
+            previewHref="/refonte/preview/mosaique"
           >
             <MosaicMockup />
           </Option>
@@ -245,6 +246,7 @@ function Option({
   label,
   description,
   children,
+  previewHref,
 }: {
   name: string;
   value: string;
@@ -253,39 +255,53 @@ function Option({
   label: string;
   description: string;
   children: ReactNode;
+  previewHref?: string;
 }) {
   return (
-    <label
-      className={`group relative flex cursor-pointer flex-col rounded-lg border-2 bg-white p-5 transition ${
+    <div
+      className={`group relative flex flex-col rounded-lg border-2 bg-white p-5 transition ${
         checked
           ? 'border-slate-900 shadow-sm'
           : 'border-slate-200 hover:border-slate-400'
       }`}
     >
-      <input
-        type="radio"
-        name={name}
-        value={value}
-        checked={checked}
-        onChange={() => onChange(value)}
-        className="sr-only"
-      />
-      <div className="mb-4 flex h-40 items-center justify-center overflow-hidden rounded bg-slate-50">
-        {children}
-      </div>
-      <div className="flex items-start justify-between gap-3">
-        <h3 className="font-serif text-lg text-slate-900">{label}</h3>
-        <span
-          aria-hidden
-          className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${
-            checked ? 'border-slate-900 bg-slate-900' : 'border-slate-300 bg-white'
-          }`}
+      <label className="cursor-pointer">
+        <input
+          type="radio"
+          name={name}
+          value={value}
+          checked={checked}
+          onChange={() => onChange(value)}
+          className="sr-only"
+        />
+        <div className="mb-4 flex h-40 items-center justify-center overflow-hidden rounded bg-slate-50">
+          {children}
+        </div>
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-lg text-slate-900">{label}</h3>
+          <span
+            aria-hidden
+            className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${
+              checked ? 'border-slate-900 bg-slate-900' : 'border-slate-300 bg-white'
+            }`}
+          >
+            {checked && <span className="h-2 w-2 rounded-full bg-white" />}
+          </span>
+        </div>
+        <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
+      </label>
+      {previewHref && (
+        <a
+          href={previewHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex w-fit items-center gap-2 rounded border border-slate-300 bg-white px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-700 transition hover:border-slate-900 hover:bg-slate-900 hover:text-white"
         >
-          {checked && <span className="h-2 w-2 rounded-full bg-white" />}
-        </span>
-      </div>
-      <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
-    </label>
+          Voir l&apos;aperçu pleine page
+          <span aria-hidden>↗</span>
+        </a>
+      )}
+    </div>
   );
 }
 

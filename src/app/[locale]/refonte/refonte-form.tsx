@@ -40,24 +40,60 @@ const initial: VoteState = {
   emailOptIn: false,
 };
 
+type SubmitState =
+  | { status: 'idle' }
+  | { status: 'submitting' }
+  | { status: 'success' }
+  | { status: 'error'; message: string };
+
 export function RefonteForm() {
   const [vote, setVote] = useState<VoteState>(initial);
-  const [submitted, setSubmitted] = useState(false);
+  const [submitState, setSubmitState] = useState<SubmitState>({ status: 'idle' });
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Iteration 1: log to console only. API route + Upstash come next.
-    console.log('[refonte vote]', vote);
-    setSubmitted(true);
+    setSubmitState({ status: 'submitting' });
+
+    try {
+      const res = await fetch('/api/refonte-vote', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(vote),
+      });
+
+      if (res.ok) {
+        setSubmitState({ status: 'success' });
+        return;
+      }
+
+      const data = (await res.json().catch(() => ({}))) as { error?: string; message?: string };
+      const message =
+        data.message ??
+        (data.error === 'already_voted'
+          ? 'Tu as déjà voté depuis ce navigateur.'
+          : data.error === 'invalid_payload'
+            ? "Une option sélectionnée n'est pas reconnue. Recharge la page et réessaie."
+            : data.error === 'storage_unavailable'
+              ? 'Le serveur de votes est temporairement indisponible. Réessaie dans une minute.'
+              : 'Erreur inconnue. Réessaie dans une minute.');
+      setSubmitState({ status: 'error', message });
+    } catch (err) {
+      console.error('[refonte-form] submit failed:', err);
+      setSubmitState({
+        status: 'error',
+        message: 'Impossible de joindre le serveur. Vérifie ta connexion et réessaie.',
+      });
+    }
   }
 
-  if (submitted) {
+  if (submitState.status === 'success') {
     return (
       <section className="rounded-lg border border-slate-200 bg-slate-50 p-8 text-center">
-        <h2 className="font-serif text-2xl text-slate-900">Merci.</h2>
+        <h2 className="text-2xl text-slate-900">Merci.</h2>
         <p className="mt-3 text-slate-700">
-          Ton vote a été enregistré (en console pour cette itération de dev).
-          La synthèse sera publiée à la clôture de la consultation.
+          Ton vote a été enregistré. La synthèse — quantitatifs, thèmes des
+          commentaires et décisions assumées par axe — sera publiée à la
+          clôture de la consultation.
         </p>
       </section>
     );
@@ -407,6 +443,7 @@ export function RefonteForm() {
           type="submit"
           className="mt-10 inline-flex items-center gap-3 rounded bg-slate-900 px-6 py-3 font-mono text-sm uppercase tracking-[0.18em] text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={
+            submitState.status === 'submitting' ||
             !vote.axis1 ||
             !vote.axis2 ||
             !vote.axis3 ||
@@ -414,7 +451,7 @@ export function RefonteForm() {
             !vote.axis5
           }
         >
-          Envoyer mes votes
+          {submitState.status === 'submitting' ? 'Envoi…' : 'Envoyer mes votes'}
           <span aria-hidden>→</span>
         </button>
         {(!vote.axis1 ||
@@ -424,6 +461,14 @@ export function RefonteForm() {
           !vote.axis5) && (
           <p className="mt-3 text-xs text-slate-500">
             Choisis une option sur chacun des 5 axes pour activer le bouton.
+          </p>
+        )}
+        {submitState.status === 'error' && (
+          <p
+            role="alert"
+            className="mt-4 rounded border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900"
+          >
+            {submitState.message}
           </p>
         )}
       </section>

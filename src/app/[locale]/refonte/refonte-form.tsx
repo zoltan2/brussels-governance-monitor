@@ -382,7 +382,7 @@ function StrongTextMockup() {
   return (
     <div className="flex h-full w-full items-center justify-center px-4">
       <p className="text-sm leading-tight text-slate-900 md:text-base">
-        184 nationalités.
+        186 nationalités.
         <br />
         <span className="text-slate-500">19 communes.</span>
         <br />

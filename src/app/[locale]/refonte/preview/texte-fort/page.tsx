@@ -43,7 +43,7 @@ export default async function TexteFortPreviewPage({
           </p>
 
           <h1 className="mt-8 text-[44px] font-light leading-[1.05] tracking-tight text-slate-900 md:text-[88px] md:leading-[0.98] lg:text-[112px]">
-            <span className="block">184 nationalités.</span>
+            <span className="block">186 nationalités.</span>
             <span className="block text-slate-400">19 communes.</span>
             <span className="block">Une seule région.</span>
           </h1>
@@ -93,7 +93,7 @@ export default async function TexteFortPreviewPage({
           className="pointer-events-none absolute right-0 top-0 select-none font-mono text-[420px] font-bold leading-none tabular-nums text-slate-100 md:right-12 md:text-[600px]"
           style={{ writingMode: 'horizontal-tb', zIndex: -1 }}
         >
-          184
+          186
         </span>
       </section>
     </PreviewLayout>

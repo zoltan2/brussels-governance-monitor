@@ -25,7 +25,7 @@
     "chat:generate-suggested": "tsx scripts/generate-suggested-answers.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.87.0",
+    "@anthropic-ai/sdk": "^0.91.1",
     "@appsignal/nodejs": "^3.7.4",
     "@react-email/components": "^1.0.7",
     "@types/node": "^25.2.1",

@@ -5,12 +5,18 @@
 
 import * as runtime from 'react/jsx-runtime';
 import { useMemo } from 'react';
+import { CpasThreeAuthorities } from '@/components/dossiers/cpas-three-authorities';
+import { CpasMoneyFlow } from '@/components/dossiers/cpas-money-flow';
+import { CpasProceduresTracker } from '@/components/dossiers/cpas-procedures-tracker';
 
 interface MdxContentProps {
   code: string;
 }
 
 const sharedComponents = {
+  CpasThreeAuthorities,
+  CpasMoneyFlow,
+  CpasProceduresTracker,
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2 className="mb-3 mt-10 border-b border-neutral-200 pb-2 text-lg font-bold text-neutral-900" {...props} />
   ),

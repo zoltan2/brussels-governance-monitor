@@ -81,7 +81,7 @@ const STATUS_TONE: Record<CpasMoneyFlowStatus, string> = {
   ongoing: 'border-brand-600/40 bg-brand-600/10 text-brand-700',
   announced: 'border-brand-600/40 bg-brand-600/10 text-brand-700',
   litigation: 'border-amber-300 bg-amber-50 text-amber-800',
-  removed: 'border-neutral-400 bg-neutral-100 text-neutral-700 line-through decoration-neutral-400',
+  removed: 'border-neutral-400 bg-neutral-100 text-neutral-700',
   pending: 'border-amber-300 bg-amber-50 text-amber-800',
 };
 
@@ -114,7 +114,7 @@ export function CpasMoneyFlow({
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0 text-sm font-semibold text-neutral-900">{row.source}</div>
               <span
-                className={`shrink-0 rounded-full border px-2 py-0.5 text-[11px] font-medium ${STATUS_TONE[row.status]}`}
+                className={`shrink-0 whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] font-medium ${STATUS_TONE[row.status]}`}
               >
                 {labels.status[row.status]}
               </span>
@@ -148,7 +148,7 @@ export function CpasMoneyFlow({
                 <td className="px-4 py-2.5 text-neutral-700">{row.amount}</td>
                 <td className="px-4 py-2.5">
                   <span
-                    className={`inline-block rounded-full border px-2 py-0.5 text-[11px] font-medium ${STATUS_TONE[row.status]}`}
+                    className={`inline-block whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] font-medium ${STATUS_TONE[row.status]}`}
                   >
                     {labels.status[row.status]}
                   </span>

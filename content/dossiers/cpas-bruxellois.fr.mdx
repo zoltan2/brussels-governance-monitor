@@ -226,8 +226,9 @@ metrics:
     unit: "M€ (national, 2026 et 2027) → 342 M€ en 2029 ; cumul ~631 M€ ; impact réel projeté ~1 Mrd €"
     date: "2025-11-17"
     id: "cpas-234-vs-300"
-    claim: "La compensation fédérale 2026 pour la réforme du chômage est chiffrée à 300 M€ par la Cour des comptes (relayée par UVCW), à 234 M€ par le SPP IS dans la décision du gouvernement. L'écart d'environ 22 % n'a pas été réconcilié publiquement."
+    claim: "La compensation fédérale pour la réforme du chômage est chiffrée à 300 M€ (Cour des comptes / UVCW) contre 234 M€ dans la décision gouvernementale : écart de 22 % non réconcilié publiquement."
     proofStatus: "contested"
+    robustness: 65
     proofSources:
       - label: "UVCW — Réforme du chômage : compensations octroyées aux CPAS"
         url: "https://www.uvcw.be/insertion/actus/art-9826"
@@ -243,7 +244,13 @@ metrics:
       - date: "2026-05-02"
         badge: "initial"
         title: "Ajout initial du claim de tension"
-        description: "Documentation simultanée des deux chiffrages divergents. Reste « contested » tant que l'écart de 22 % n'est pas réconcilié publiquement par une source institutionnelle commune (Cour des comptes ou SPP IS revenant sur sa projection)."
+        description: >
+          Documentation simultanée des deux chiffrages divergents (UVCW/Cour des comptes
+          vs SPP IS). Score robustesse fixé explicitement à 65 : le constat de divergence
+          institutionnelle est lui-même certain et bien sourcé ; proofStatus contested
+          reflète le statut des chiffres sous-jacents, pas la qualité de la documentation.
+          La formule dérivée aurait produit 40, ce qui aurait signalé une information fragile
+          à tort.
   - label: "Compensation fédérale annoncée (chiffrage SPP IS / gouvernement)"
     value: "234"
     unit: "M€ (national, hypothèse hautes de retour à l'emploi)"

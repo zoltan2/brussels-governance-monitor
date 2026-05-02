@@ -498,6 +498,18 @@ const dossierCards = defineCollection({
       title: s.string().max(120),
       shortTitle: s.string().max(50).optional(),
       slug: s.string(),
+      // Slugs localisés pour SEO per-locale (spec 2026-05-03). Optionnel,
+      // rétro-compat : si absent pour une locale, fallback sur `slug` global.
+      // Convention : ASCII strict `[a-z0-9-]`, ≤ 60 chars. Unicité par locale
+      // garantie par `refineUniqueLocalizedSlugs` au niveau collection.
+      localizedSlugs: s
+        .object({
+          fr: s.string().optional(),
+          nl: s.string().optional(),
+          en: s.string().optional(),
+          de: s.string().optional(),
+        })
+        .optional(),
       locale: localeEnum,
       dossierType: s.enum(['infrastructure', 'housing', 'regulatory', 'utility', 'security', 'social', 'cultural']),
       phase: s.enum(['announced', 'planned', 'in-progress', 'stalled', 'completed', 'cancelled']),

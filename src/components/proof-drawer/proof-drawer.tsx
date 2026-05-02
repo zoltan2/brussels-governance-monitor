@@ -30,7 +30,54 @@ const TAG_CLASSES: Record<ProofSourceType, string> = {
 };
 
 const ALL_TABS: Tab[] = ['narrative', 'data', 'histoire'];
-const DISABLED_TABS = new Set<Tab>(['data', 'histoire']);
+const DISABLED_TABS = new Set<Tab>(['histoire']);
+
+// JSON syntax highlighting for the Data tab.
+// Token order in the regex matters: `key` must match before `string` because
+// a key is a string followed by `:`. Numbers handle scientific notation.
+// `(?:[^"\\]|\\.)*` correctly handles escaped chars inside JSON strings.
+const JSON_TOKEN_RE = new RegExp(
+  [
+    '("(?:[^"\\\\]|\\\\.)*"\\s*:)',
+    '("(?:[^"\\\\]|\\\\.)*")',
+    '(-?\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?)',
+    '(true|false|null)',
+    '([{}\\[\\],])',
+    '(\\s+)',
+  ].join('|'),
+  'g',
+);
+
+const JSON_TOKEN_CLASSES = {
+  key: 'text-blue-700',
+  string: 'text-emerald-700',
+  number: 'text-amber-700',
+  bool: 'text-violet-700',
+  punct: 'text-slate-500',
+} as const;
+
+type JsonTokenKind = keyof typeof JSON_TOKEN_CLASSES | 'whitespace';
+
+interface JsonToken {
+  kind: JsonTokenKind;
+  value: string;
+}
+
+function tokenizeJson(input: string): JsonToken[] {
+  const tokens: JsonToken[] = [];
+  let m: RegExpExecArray | null;
+  JSON_TOKEN_RE.lastIndex = 0;
+  while ((m = JSON_TOKEN_RE.exec(input)) !== null) {
+    const [, k, s, n, b, p, w] = m;
+    if (k) tokens.push({ kind: 'key', value: k });
+    else if (s) tokens.push({ kind: 'string', value: s });
+    else if (n) tokens.push({ kind: 'number', value: n });
+    else if (b) tokens.push({ kind: 'bool', value: b });
+    else if (p) tokens.push({ kind: 'punct', value: p });
+    else if (w) tokens.push({ kind: 'whitespace', value: w });
+  }
+  return tokens;
+}
 
 export function ProofDrawer({ id, metric, open, tab, onTabChange }: ProofDrawerProps) {
   const score = deriveRobustness(metric);
@@ -123,17 +170,16 @@ export function ProofDrawer({ id, metric, open, tab, onTabChange }: ProofDrawerP
           >
             Narratif
           </TabButton>
-          {/* Onglets désactivés en 2a — voir spec phase 2b/2c avant de réactiver */}
           <TabButton
             current={tab}
             value="data"
             tabId={tabIds.data}
             panelId={panelIds.data}
-            disabled
             onClick={onTabChange}
           >
             Data brute
           </TabButton>
+          {/* Onglet `histoire` désactivé en 2b — voir spec phase 2c avant de réactiver */}
           <TabButton
             current={tab}
             value="histoire"
@@ -154,6 +200,17 @@ export function ProofDrawer({ id, metric, open, tab, onTabChange }: ProofDrawerP
             tabIndex={0}
           >
             <NarrativeTab metric={metric} />
+          </div>
+        )}
+
+        {tab === 'data' && (
+          <div
+            role="tabpanel"
+            id={panelIds.data}
+            aria-labelledby={tabIds.data}
+            tabIndex={0}
+          >
+            <DataTab metric={metric} />
           </div>
         )}
       </div>
@@ -275,5 +332,30 @@ function NarrativeTab({ metric }: { metric: InstrumentedMetric }) {
         );
       })}
     </ol>
+  );
+}
+
+function DataTab({ metric }: { metric: InstrumentedMetric }) {
+  // Phase 2b — sérialisation brute du métrique entier. Promesse de transparence
+  // éditoriale. Aucune transformation, aucun filtrage. Velite n'injecte pas de
+  // champs internes au niveau métrique (vérifié runtime spec §4.1) ; un test
+  // de régression dans proof-drawer.render.test.tsx catch toute introduction
+  // future de _raw / _meta / _id par Velite.
+  const json = JSON.stringify(metric, null, 2);
+  const tokens = tokenizeJson(json);
+
+  return (
+    <pre className="overflow-x-auto rounded bg-slate-900/5 p-3 text-xs font-mono leading-relaxed">
+      <code>
+        {tokens.map((token, idx) => {
+          if (token.kind === 'whitespace') return token.value;
+          return (
+            <span key={idx} className={JSON_TOKEN_CLASSES[token.kind]}>
+              {token.value}
+            </span>
+          );
+        })}
+      </code>
+    </pre>
   );
 }

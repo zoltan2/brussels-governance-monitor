@@ -3,10 +3,10 @@
 
 // @vitest-environment jsdom
 
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import * as matchers from 'vitest-axe/matchers';
 import { axe } from 'vitest-axe';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { AxeMatchers } from 'vitest-axe/matchers';
 import { ProofDrawer } from './proof-drawer';
 import type { InstrumentedMetric } from './types';
@@ -147,5 +147,126 @@ describe('ProofDrawer a11y (axe-core via jsdom)', () => {
     );
     expect(container.querySelector('[role="dialog"]')).toBeNull();
     expect(container.querySelector('[role="region"]')).not.toBeNull();
+  });
+});
+
+describe('ProofDrawer phase 2b — data tab', () => {
+  afterEach(cleanup);
+
+  it('has no axe violations when open on data tab', async () => {
+    const { container } = render(
+      <ProofDrawer
+        id="test-data-axe"
+        metric={fixture}
+        open={true}
+        tab="data"
+        onTabChange={() => {}}
+      />,
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('renders the metric JSON in the data tab', () => {
+    const { container } = render(
+      <ProofDrawer
+        id="test-data-content"
+        metric={fixture}
+        open={true}
+        tab="data"
+        onTabChange={() => {}}
+      />,
+    );
+    const code = container.querySelector('pre code');
+    expect(code).not.toBeNull();
+    expect(code?.textContent).toContain('"cpas-234-vs-300"');
+    expect(code?.textContent).toContain('"robustness": 65');
+    expect(code?.textContent).toContain('"proofStatus"');
+    expect(code?.textContent).toContain('"contested"');
+  });
+
+  it('applies token classes (key, string, number, bool, punct)', () => {
+    const { container } = render(
+      <ProofDrawer
+        id="test-data-tokens"
+        metric={fixture}
+        open={true}
+        tab="data"
+        onTabChange={() => {}}
+      />,
+    );
+    expect(container.querySelector('span.text-blue-700')).not.toBeNull(); // key
+    expect(container.querySelector('span.text-emerald-700')).not.toBeNull(); // string
+    expect(container.querySelector('span.text-amber-700')).not.toBeNull(); // number
+    expect(container.querySelector('span.text-violet-700')).not.toBeNull(); // bool (false)
+    expect(container.querySelector('span.text-slate-500')).not.toBeNull(); // punct
+  });
+
+  it('does NOT render <a> in the data tab (URLs are plain text)', () => {
+    const { container } = render(
+      <ProofDrawer
+        id="test-data-no-link"
+        metric={fixture}
+        open={true}
+        tab="data"
+        onTabChange={() => {}}
+      />,
+    );
+    const dataPanel = container.querySelector('[id$="-panel-data"]');
+    expect(dataPanel).not.toBeNull();
+    expect(dataPanel?.querySelectorAll('a').length).toBe(0);
+  });
+
+  it('does NOT leak Velite internal fields (_raw, _meta, _id) in JSON output', () => {
+    // Garde-fou post-review §4.1 : si Velite introduit des champs internes au
+    // niveau métrique dans une future version, ce test catch immédiatement.
+    const { container } = render(
+      <ProofDrawer
+        id="test-data-no-leak"
+        metric={fixture}
+        open={true}
+        tab="data"
+        onTabChange={() => {}}
+      />,
+    );
+    const code = container.querySelector('pre code');
+    expect(code?.textContent).not.toContain('_raw');
+    expect(code?.textContent).not.toContain('_meta');
+    expect(code?.textContent).not.toContain('"_id"');
+  });
+
+  it('arrow Right cycles narrative → data (now both enabled)', () => {
+    const onTabChange = vi.fn();
+    const { container } = render(
+      <ProofDrawer
+        id="test-arrow-right"
+        metric={fixture}
+        open={true}
+        tab="narrative"
+        onTabChange={onTabChange}
+      />,
+    );
+    const tablist = container.querySelector('[role="tablist"]');
+    fireEvent.keyDown(tablist!, { key: 'ArrowRight' });
+    expect(onTabChange).toHaveBeenCalledWith('data');
+  });
+
+  it('arrow Left from narrative wraps to data (skipping disabled histoire)', () => {
+    // Post-review §8.1 : couvrir l'autre direction. enabledTabs = ['narrative', 'data']
+    // (histoire reste disabled en 2b). ArrowLeft depuis narrative wrappe en arrière
+    // sur le dernier enabled = data. Le tab disabled "histoire" est silencieusement
+    // skippé puisqu'il n'est pas dans enabledTabs.
+    const onTabChange = vi.fn();
+    const { container } = render(
+      <ProofDrawer
+        id="test-arrow-left"
+        metric={fixture}
+        open={true}
+        tab="narrative"
+        onTabChange={onTabChange}
+      />,
+    );
+    const tablist = container.querySelector('[role="tablist"]');
+    fireEvent.keyDown(tablist!, { key: 'ArrowLeft' });
+    expect(onTabChange).toHaveBeenCalledWith('data');
   });
 });

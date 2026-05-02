@@ -4,9 +4,21 @@
 /**
  * Redirections 301 permanentes pour la migration des slugs dossiers.
  *
- * À chaque ajout/modification d'un slug localisé dans le frontmatter d'un
- * dossier (`localizedSlugs.{locale}`), ajouter une entrée ici qui redirige
- * l'ancienne URL vers la nouvelle.
+ * ╔══════════════════════════════════════════════════════════════════════╗
+ * ║ ⚠ RÈGLE ÉDITORIALE MANDATORY                                          ║
+ * ║                                                                        ║
+ * ║ Toute modification de `localizedSlugs.{locale}` dans le frontmatter   ║
+ * ║ d'un dossier MDX qui change l'URL effective DOIT être accompagnée     ║
+ * ║ d'une entrée ici dans LE MÊME COMMIT.                                 ║
+ * ║                                                                        ║
+ * ║ Sinon : les URLs externes (bookmarks, partages LinkedIn/X, citations  ║
+ * ║ presse) qui pointent vers l'ancienne URL renvoient 404 silencieusement.║
+ * ║ Pas d'erreur build, pas d'avertissement runtime, pas d'alerte.        ║
+ * ║                                                                        ║
+ * ║ Voir : mémoire `feedback_localized_slugs_redirect_pairing.md`         ║
+ * ║ pour les 3 cas (ajout, renommage slug localisé, renommage canonique)  ║
+ * ║ et la checklist PR.                                                   ║
+ * ╚══════════════════════════════════════════════════════════════════════╝
  *
  * Format : `from` = ancienne URL absolue (avec préfixe locale), `to` =
  * nouvelle URL absolue. Les redirections sont toutes permanentes (HTTP 301).

@@ -502,6 +502,13 @@ const dossierCards = defineCollection({
       // rétro-compat : si absent pour une locale, fallback sur `slug` global.
       // Convention : ASCII strict `[a-z0-9-]`, ≤ 60 chars. Unicité par locale
       // garantie par `refineUniqueLocalizedSlugs` au niveau collection.
+      //
+      // ⚠ MANDATORY (mémoire feedback_localized_slugs_redirect_pairing.md) :
+      // toute modification d'un slug localisé qui change l'URL effective
+      // DOIT être accompagnée d'une entrée 301 correspondante dans
+      // `src/lib/redirects-301.ts` dans le même commit. Sinon les URLs
+      // externes (bookmarks, partages LinkedIn/X, citations presse) qui
+      // pointent vers l'ancienne URL renverront 404 silencieusement.
       localizedSlugs: s
         .object({
           fr: s.string().optional(),

@@ -11,6 +11,7 @@ import { CpasProceduresTracker } from '@/components/dossiers/cpas-procedures-tra
 import { Claim } from '@/components/mdx/claim';
 import { MetricsProvider } from '@/components/proof-drawer/metrics-context';
 import type { Metric } from '@/components/proof-drawer/types';
+import { Signal, Essentiel, Complet } from '@/components/dossier/density/density-layer';
 
 interface MdxContentProps {
   code: string;
@@ -22,6 +23,9 @@ const sharedComponents = {
   CpasMoneyFlow,
   CpasProceduresTracker,
   Claim,
+  Signal,
+  Essentiel,
+  Complet,
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2 className="mb-3 mt-10 border-b border-neutral-200 pb-2 text-lg font-bold text-neutral-900" {...props} />
   ),

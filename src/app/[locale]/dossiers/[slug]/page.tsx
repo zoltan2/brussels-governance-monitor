@@ -20,6 +20,8 @@ import { buildMetadata } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
+import { DensityProvider } from '@/components/dossier/density/density-context';
+import { DensityToggle } from '@/components/dossier/density/density-toggle';
 import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
@@ -332,12 +334,15 @@ function DossierDetail({
           </div>
         )}
 
-        {/* MDX content */}
+        {/* MDX content with density toggle (phase 3a) */}
         <div
           className="mt-8"
           {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}
         >
-          <MdxContent code={card.content} metrics={card.metrics} />
+          <DensityProvider>
+            <DensityToggle />
+            <MdxContent code={card.content} metrics={card.metrics} />
+          </DensityProvider>
         </div>
 
         {/* Related domains */}

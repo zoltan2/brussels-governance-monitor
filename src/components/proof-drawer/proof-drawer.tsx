@@ -29,17 +29,66 @@ const TAG_CLASSES: Record<ProofSourceType, string> = {
   contested: 'bg-rose-50 text-rose-700 border-rose-200',
 };
 
+const ALL_TABS: Tab[] = ['narrative', 'data', 'histoire'];
+const DISABLED_TABS = new Set<Tab>(['data', 'histoire']);
+
 export function ProofDrawer({ id, metric, open, tab, onTabChange }: ProofDrawerProps) {
   const score = deriveRobustness(metric);
+
+  const tabIds: Record<Tab, string> = {
+    narrative: `${id}-tab-narrative`,
+    data: `${id}-tab-data`,
+    histoire: `${id}-tab-histoire`,
+  };
+  const panelIds: Record<Tab, string> = {
+    narrative: `${id}-panel-narrative`,
+    data: `${id}-panel-data`,
+    histoire: `${id}-panel-histoire`,
+  };
+
+  const enabledTabs = ALL_TABS.filter((t) => !DISABLED_TABS.has(t));
+
+  function handleTablistKeydown(e: React.KeyboardEvent<HTMLDivElement>) {
+    const currentIdx = enabledTabs.indexOf(tab);
+    let nextIdx = currentIdx;
+
+    switch (e.key) {
+      case 'ArrowLeft':
+        nextIdx = currentIdx === 0 ? enabledTabs.length - 1 : currentIdx - 1;
+        break;
+      case 'ArrowRight':
+        nextIdx = currentIdx === enabledTabs.length - 1 ? 0 : currentIdx + 1;
+        break;
+      case 'Home':
+        nextIdx = 0;
+        break;
+      case 'End':
+        nextIdx = enabledTabs.length - 1;
+        break;
+      default:
+        return;
+    }
+
+    // Guard (spec §3.3): si un seul tab est enabled (cas de phase 2e), Left/Right wrappent
+    // sur le même index. Ne PAS preventDefault dans ce cas — sinon le scroll horizontal
+    // natif du navigateur serait bloqué inutilement quand l'utilisateur a le focus sur le tablist.
+    if (nextIdx === currentIdx) return;
+
+    e.preventDefault();
+    const nextTab = enabledTabs[nextIdx];
+    onTabChange(nextTab);
+    // Focus the newly selected tab so screen readers announce
+    document.getElementById(tabIds[nextTab])?.focus();
+  }
 
   return (
     /*
       role="region" intentionnel — drawer inline non-modal, pas de focus trap.
-      NE JAMAIS upgrader vers role="dialog" sans implémenter phase 2e :
-      focus trap, ESC handler, retour focus au trigger, aria-live region pour
-      les changements d'onglet, audit axe-core complet. Un changement de role
-      sans 2e casserait l'EAA conformance (Acte européen sur l'accessibilité,
-      en vigueur 28 juin 2025 — obligation légale pour BGM).
+      NE JAMAIS upgrader vers role="dialog" sans implémenter focus trap, retour
+      focus complet incluant focus trap (lib externe ou implem custom risquée).
+      Phase 2e a ajouté : ESC handler + retour focus + tablist conforme + audit
+      axe-core. Le passage à dialog reste hors scope tant qu'on n'a pas un cas
+      d'usage justifiant un comportement modal.
     */
     <section
       id={id}
@@ -59,20 +108,54 @@ export function ProofDrawer({ id, metric, open, tab, onTabChange }: ProofDrawerP
           {metric.claim}
         </p>
 
-        <div role="tablist" aria-label="Vues du fil de preuves" className="flex gap-1 border-b border-slate-200">
-          <TabButton current={tab} value="narrative" onClick={onTabChange}>
+        <div
+          role="tablist"
+          aria-label="Vues du fil de preuves"
+          onKeyDown={handleTablistKeydown}
+          className="flex gap-1 border-b border-slate-200"
+        >
+          <TabButton
+            current={tab}
+            value="narrative"
+            tabId={tabIds.narrative}
+            panelId={panelIds.narrative}
+            onClick={onTabChange}
+          >
             Narratif
           </TabButton>
           {/* Onglets désactivés en 2a — voir spec phase 2b/2c avant de réactiver */}
-          <TabButton current={tab} value="data" disabled onClick={onTabChange}>
+          <TabButton
+            current={tab}
+            value="data"
+            tabId={tabIds.data}
+            panelId={panelIds.data}
+            disabled
+            onClick={onTabChange}
+          >
             Data brute
           </TabButton>
-          <TabButton current={tab} value="histoire" disabled onClick={onTabChange}>
+          <TabButton
+            current={tab}
+            value="histoire"
+            tabId={tabIds.histoire}
+            panelId={panelIds.histoire}
+            disabled
+            onClick={onTabChange}
+          >
             Historique
           </TabButton>
         </div>
 
-        {tab === 'narrative' && <NarrativeTab metric={metric} />}
+        {tab === 'narrative' && (
+          <div
+            role="tabpanel"
+            id={panelIds.narrative}
+            aria-labelledby={tabIds.narrative}
+            tabIndex={0}
+          >
+            <NarrativeTab metric={metric} />
+          </div>
+        )}
       </div>
     </section>
   );
@@ -105,12 +188,16 @@ function RobustnessBar({ score }: { score: number }) {
 function TabButton({
   current,
   value,
+  tabId,
+  panelId,
   disabled,
   onClick,
   children,
 }: {
   current: Tab;
   value: Tab;
+  tabId: string;
+  panelId: string;
   disabled?: boolean;
   onClick: (tab: Tab) => void;
   children: React.ReactNode;
@@ -120,7 +207,10 @@ function TabButton({
     <button
       type="button"
       role="tab"
+      id={tabId}
       aria-selected={active}
+      aria-controls={panelId}
+      tabIndex={active ? 0 : -1}
       disabled={disabled}
       onClick={() => onClick(value)}
       className={`-mb-px border-b-2 px-3 py-1.5 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 ${

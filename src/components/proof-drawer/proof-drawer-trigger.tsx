@@ -24,6 +24,7 @@ export function ProofDrawerTrigger({ metric, children }: ProofDrawerTriggerProps
   const [tab, setTab] = useState<Tab>('narrative');
   const triggerRef = useRef<HTMLButtonElement>(null);
   const drawerId = useId();
+  const prevOpenRef = useRef(open);
 
   useEffect(() => {
     const node = triggerRef.current;
@@ -39,6 +40,39 @@ export function ProofDrawerTrigger({ metric, children }: ProofDrawerTriggerProps
     node.addEventListener('proof:open', handler);
     return () => node.removeEventListener('proof:open', handler);
   }, []);
+
+  // Phase 2e — ESC handler attached when drawer is open. No e.stopPropagation()
+  // (spec §4.1, post-review): drawer is inline within a dossier page with no
+  // known parent that consumes ESC. If a parent modal is added later and needs
+  // to claim ESC first, add stopPropagation conditionally then. WAI-ARIA APG
+  // recommends not stopping propagation prematurely.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        if (typeof window !== 'undefined') {
+          window.history.replaceState(
+            null,
+            '',
+            window.location.pathname + window.location.search,
+          );
+        }
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  // Phase 2e — focus return to trigger on any close (ESC, click re-toggle, hash sync).
+  // Idempotent: if focus is already on the trigger (e.g. user closed via re-click),
+  // .focus() is a no-op.
+  useEffect(() => {
+    if (prevOpenRef.current === true && open === false) {
+      triggerRef.current?.focus();
+    }
+    prevOpenRef.current = open;
+  }, [open]);
 
   const handleClick = () => {
     setOpen((prev) => {

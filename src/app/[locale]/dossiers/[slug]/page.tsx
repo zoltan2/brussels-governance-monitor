@@ -184,8 +184,10 @@ function DossierDetail({
         {card.draft && <DraftBanner />}
         {isFallback && <FallbackBanner targetLocale={locale} />}
 
-        {/* Header + badges */}
+        {/* Header + badges + density toggle (phase 3a) */}
+        <DensityProvider>
         <h1 className="mt-4 mb-3 text-3xl font-bold text-neutral-900">{card.title}</h1>
+        <DensityToggle />
 
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <span
@@ -339,10 +341,7 @@ function DossierDetail({
           className="mt-8"
           {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}
         >
-          <DensityProvider>
-            <DensityToggle />
-            <MdxContent code={card.content} metrics={card.metrics} />
-          </DensityProvider>
+          <MdxContent code={card.content} metrics={card.metrics} />
         </div>
 
         {/* Related domains */}
@@ -497,6 +496,7 @@ function DossierDetail({
             }}
           />
         </div>
+        </DensityProvider>
       </div>
     </article>
   );

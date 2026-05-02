@@ -24,26 +24,32 @@ import { useDensity } from './density-context';
 export function DensityToggle() {
   const { density, setDensity } = useDensity();
 
+  // Wrap dans un <div> au lieu de mettre sticky sur <fieldset> directement.
+  // Raison : Chromium a des bugs historiques avec position:sticky sur fieldset
+  // (le rendering spécial du fieldset peut empêcher le stick de s'activer).
+  // Le <fieldset> reste à l'intérieur pour la sémantique radiogroup.
   return (
-    <fieldset
-      className="sticky top-0 z-10 -mx-4 mb-6 flex items-center gap-2 border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-white/80"
-      aria-label="Profondeur de lecture"
-    >
-      <legend className="sr-only">Profondeur de lecture</legend>
-      <span aria-hidden="true" className="text-xs font-medium uppercase tracking-wide text-slate-500">
-        Lecture
-      </span>
-      <div className="flex gap-1" role="radiogroup">
-        {ALL_DENSITIES.map((d) => (
-          <DensityRadio
-            key={d}
-            value={d}
-            current={density}
-            onChange={setDensity}
-          />
-        ))}
-      </div>
-    </fieldset>
+    <div className="sticky top-16 z-30 -mx-4 mb-6 border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+      <fieldset
+        className="flex items-center gap-2"
+        aria-label="Profondeur de lecture"
+      >
+        <legend className="sr-only">Profondeur de lecture</legend>
+        <span aria-hidden="true" className="text-xs font-medium uppercase tracking-wide text-slate-500">
+          Lecture
+        </span>
+        <div className="flex gap-1" role="radiogroup">
+          {ALL_DENSITIES.map((d) => (
+            <DensityRadio
+              key={d}
+              value={d}
+              current={density}
+              onChange={setDensity}
+            />
+          ))}
+        </div>
+      </fieldset>
+    </div>
   );
 }
 

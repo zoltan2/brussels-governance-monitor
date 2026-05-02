@@ -59,17 +59,38 @@ export function buildMetadata({
   description,
   path,
   ogParams,
+  localizedPaths,
+  noindex,
 }: {
   locale: string;
   title: string;
   description: string;
   path?: string;
   ogParams?: string;
+  /**
+   * Per-locale path overrides for hreflang alternates. When provided, takes
+   * precedence over `path` for the alternates mapping. Use case: dossiers
+   * with localized slugs where each locale has a different URL slug
+   * (spec 2026-05-03 §3.7).
+   *
+   * Example: { fr: '/dossiers/cpas-bruxellois', nl: '/dossiers/ocmw-brussel', ... }
+   * The current locale's path is also used for the canonical URL.
+   */
+  localizedPaths?: Partial<Record<Locale, string>>;
+  /**
+   * If true, emit `<meta name="robots" content="noindex, follow">`. Used for
+   * fallback locale pages (content rendered from FR while native translation
+   * is missing) to avoid duplicate content penalty (spec 2026-05-03 §3.7).
+   */
+  noindex?: boolean;
 }): Metadata {
-  // Resolve canonical URL using localized pathnames
-  const resolvedPath = path
-    ? getPathname({ locale: locale as Locale, href: pathToHref(path) })
-    : `/${locale}`;
+  // Canonical URL: prefer localizedPaths override for current locale, else getPathname
+  const currentLocalePath = localizedPaths?.[locale as Locale];
+  const resolvedPath = currentLocalePath
+    ? `/${locale}${currentLocalePath}`
+    : path
+      ? getPathname({ locale: locale as Locale, href: pathToHref(path) })
+      : `/${locale}`;
   const url = `${siteUrl}${resolvedPath}`;
 
   const imageUrl = ogParams
@@ -79,23 +100,30 @@ export function buildMetadata({
   const truncatedDescription =
     description.length > 160 ? description.slice(0, 157) + '...' : description;
 
-  // Build hreflang alternates for all locales + x-default
+  // Build hreflang alternates: prefer localizedPaths per-locale, else getPathname
   const languages: Record<string, string> = {};
   for (const l of routing.locales) {
-    if (path) {
+    const localizedPath = localizedPaths?.[l];
+    if (localizedPath) {
+      languages[l] = `${siteUrl}/${l}${localizedPath}`;
+    } else if (path) {
       languages[l] = `${siteUrl}${getPathname({ locale: l, href: pathToHref(path) })}`;
     } else {
       languages[l] = `${siteUrl}/${l}`;
     }
   }
   // x-default → French version (primary Brussels audience)
-  languages['x-default'] = path
-    ? `${siteUrl}${getPathname({ locale: 'fr' as Locale, href: pathToHref(path) })}`
-    : `${siteUrl}/fr`;
+  const frPath = localizedPaths?.fr;
+  languages['x-default'] = frPath
+    ? `${siteUrl}/fr${frPath}`
+    : path
+      ? `${siteUrl}${getPathname({ locale: 'fr' as Locale, href: pathToHref(path) })}`
+      : `${siteUrl}/fr`;
 
   return {
     title,
     description: truncatedDescription,
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
     alternates: {
       canonical: url,
       languages,

@@ -4,7 +4,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
-import { getDossierCard } from '@/lib/content';
+import { getDossierCard, getDossierByLocalizedSlug, getLocalizedSlug } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { isScrollyEnabled, SCROLLY_ENABLED_DOSSIERS } from '@/lib/scrolly-allowlist';
 import { MdxContent } from '@/components/mdx-content';
@@ -28,12 +28,16 @@ interface ScrollyPageParams {
  * Spec: bgm-ops/specs/2026-05-02-option-d-scrolly-cpas-pilot.md §5
  */
 export async function generateStaticParams(): Promise<ScrollyPageParams[]> {
+  // Spec scrolly D §5 + spec slugs localisés §3.3 : pour chaque dossier
+  // allowlistée scrolly, émet 1 URL par locale native, AVEC le slug localisé
+  // de cette locale (ou fallback canonique si localizedSlugs absent).
   const params: ScrollyPageParams[] = [];
-  for (const slug of SCROLLY_ENABLED_DOSSIERS) {
+  for (const canonicalSlug of SCROLLY_ENABLED_DOSSIERS) {
     for (const locale of routing.locales) {
-      const result = getDossierCard(slug, locale as Locale);
+      const result = getDossierCard(canonicalSlug, locale as Locale);
       if (result && !result.isFallback) {
-        params.push({ locale, slug });
+        const slugForLocale = getLocalizedSlug(result.card, locale as Locale);
+        params.push({ locale, slug: slugForLocale });
       }
     }
   }
@@ -46,21 +50,23 @@ export async function generateMetadata({
   params: Promise<ScrollyPageParams>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  if (!isScrollyEnabled(slug)) return {};
 
-  const result = getDossierCard(slug, locale as Locale);
+  // Spec §3.3 + scrolly D §3.4 : lookup par slug localisé puis check allowlist
+  // sur le slug CANONIQUE (l'allowlist est indexée par slug canonique).
+  const result = getDossierByLocalizedSlug(slug, locale as Locale);
   if (!result || result.isFallback) return {};
+  if (!isScrollyEnabled(result.card.slug)) return {};
   const { card } = result;
 
+  // Canonical pointe vers la structurée AVEC le slug localisé natif de la locale courante
   const canonicalUrl = `https://governance.brussels/${locale}/dossiers/${slug}`;
 
   return {
     title: `${card.title} — vue immersive`,
     description: card.summary,
-    // Spec §7.1: noindex initial during pilot, switch to index after validation
+    // Spec D §7.1: noindex initial during pilot, switch to index after validation
     robots: { index: false, follow: false },
     alternates: {
-      // Spec §7.1+§7.3: canonical points to structured page (decision review at 6-12 months)
       canonical: canonicalUrl,
     },
     openGraph: {
@@ -86,13 +92,11 @@ export default async function ScrollyPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  // Spec §3.4: 404 for non-allowlisted slugs
-  if (!isScrollyEnabled(slug)) notFound();
-
-  const result = getDossierCard(slug, locale as Locale);
-  // Belt and suspenders (spec §5): require native translation, never render
-  // FR fallback in NL/EN/DE scrolly context.
+  // Spec §3.3 + scrolly D §3.4 : lookup par slug localisé d'abord, puis check
+  // allowlist sur slug canonique. Belt and suspenders : require native translation.
+  const result = getDossierByLocalizedSlug(slug, locale as Locale);
   if (!result || result.isFallback) notFound();
+  if (!isScrollyEnabled(result.card.slug)) notFound();
   const { card } = result;
 
   return (

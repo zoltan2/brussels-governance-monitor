@@ -16,37 +16,30 @@ vi.mock('next/navigation', () => ({
 }));
 
 // Mock content lib
+const cpasFrCard = {
+  slug: 'cpas-bruxellois',
+  locale: 'fr' as const,
+  title: 'CPAS bruxellois',
+  summary: 'summary text',
+  lastModified: '2026-05-02',
+  content: 'mdx content',
+  metrics: [],
+};
+
 vi.mock('@/lib/content', () => ({
   getDossierCard: vi.fn((slug: string, locale: string) => {
     if (slug !== 'cpas-bruxellois') return null;
-    if (locale === 'fr') {
-      return {
-        card: {
-          slug: 'cpas-bruxellois',
-          locale: 'fr',
-          title: 'CPAS bruxellois',
-          summary: 'summary text',
-          lastModified: '2026-05-02',
-          content: 'mdx content',
-          metrics: [],
-        },
-        isFallback: false,
-      };
-    }
-    // For other locales, return fr fallback (isFallback: true)
-    return {
-      card: {
-        slug: 'cpas-bruxellois',
-        locale: 'fr',
-        title: 'CPAS bruxellois',
-        summary: 'summary text',
-        lastModified: '2026-05-02',
-        content: 'mdx content',
-        metrics: [],
-      },
-      isFallback: true,
-    };
+    if (locale === 'fr') return { card: cpasFrCard, isFallback: false };
+    return { card: cpasFrCard, isFallback: true };
   }),
+  // Spec slugs localisés : la page utilise désormais getDossierByLocalizedSlug
+  getDossierByLocalizedSlug: vi.fn((slugFromUrl: string, locale: string) => {
+    if (slugFromUrl !== 'cpas-bruxellois') return null;
+    if (locale === 'fr') return { card: cpasFrCard, isFallback: false };
+    return { card: cpasFrCard, isFallback: true };
+  }),
+  // generateStaticParams uses getLocalizedSlug to compute the URL slug per locale
+  getLocalizedSlug: vi.fn((card: { slug: string }) => card.slug),
 }));
 
 // Routing mock — minimal locales

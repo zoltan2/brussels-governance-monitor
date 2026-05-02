@@ -7,6 +7,8 @@ import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
 import {
   getDossierCard,
+  getDossierByLocalizedSlug,
+  getLocalizedSlug,
   getAllDossierSlugs,
   getDomainCard,
   getSectorCard,
@@ -33,8 +35,21 @@ import { Breadcrumb } from '@/components/breadcrumb';
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  const slugs = getAllDossierSlugs();
-  return routing.locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+  // Spec 2026-05-03 §3.3 : émet 1 URL par locale × dossier, avec le slug
+  // localisé natif quand disponible, sinon fallback sur le slug canonique.
+  // Cela génère les bons paths statiques : /nl/dossiers/ocmw-brussel pour
+  // une éventuelle traduction NL, /nl/dossiers/cpas-bruxellois sinon.
+  const canonicalSlugs = getAllDossierSlugs();
+  const params: Array<{ locale: string; slug: string }> = [];
+  for (const canonicalSlug of canonicalSlugs) {
+    const frResult = getDossierCard(canonicalSlug, 'fr' as Locale);
+    if (!frResult) continue;
+    const { card } = frResult;
+    for (const locale of routing.locales) {
+      params.push({ locale, slug: getLocalizedSlug(card, locale) });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({
@@ -43,15 +58,27 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const result = getDossierCard(slug, locale as Locale);
+  // Lookup par slug localisé (peut être l'ancien canonique pour rétro-compat
+  // ou le nouveau slug natif d'une locale)
+  const result = getDossierByLocalizedSlug(slug, locale as Locale);
   if (!result) return {};
 
-  const { card } = result;
+  const { card, isFallback } = result;
+
+  // Construit les paths localisés pour les hreflang alternates
+  const localizedPaths: Partial<Record<Locale, string>> = {};
+  for (const l of routing.locales) {
+    localizedPaths[l] = `/dossiers/${getLocalizedSlug(card, l)}`;
+  }
+
   return buildMetadata({
     locale,
     title: card.title,
     description: card.summary,
-    path: `/dossiers/${slug}`,
+    localizedPaths,
+    // Spec §3.7 : noindex sur fallback locale (contenu FR servi sous NL/EN/DE)
+    // pour éviter duplicate content. Bascule auto à `index` quand traduction native existe.
+    noindex: isFallback,
     ogParams: `title=${encodeURIComponent(card.title)}&type=dossier&date=${card.lastModified}&confidence=${card.confidenceLevel}${card.metrics.length > 0 ? `&stats=${encodeURIComponent(JSON.stringify(card.metrics.slice(0, 3).map((m) => ({ label: m.label, value: `${m.value}${m.unit ? ` ${m.unit}` : ''}` }))))}` : ''}`,
   });
 }
@@ -73,7 +100,9 @@ export default async function DossierDetailPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const result = getDossierCard(slug, locale as Locale);
+  // Spec §3.3 : lookup par slug localisé (URL slug peut être différent du
+  // slug canonique si dossier instrumenté avec localizedSlugs)
+  const result = getDossierByLocalizedSlug(slug, locale as Locale);
   if (!result) notFound();
 
   const { card, isFallback } = result;
@@ -210,7 +239,7 @@ function DossierDetail({
               est nouvelle et pas encore reconnue par les typed routes Next.js. */}
           {isScrollyEnabled(card.slug) && (
             <a
-              href={`/${locale}/dossiers/${card.slug}/scrolly`}
+              href={`/${locale}/dossiers/${getLocalizedSlug(card, locale as Locale)}/scrolly`}
               className="inline-flex items-center gap-1.5 rounded-full border border-brand-300 bg-brand-50 px-3 py-1 text-sm font-medium text-brand-800 transition-colors hover:bg-brand-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
               aria-label="Ouvrir la vue immersive scrollytelling de ce dossier"
             >

@@ -9,7 +9,12 @@ const sourceSchema = s.object({
 });
 
 // Source in a proof chain — used for the "narrative" tab of a proof drawer.
-// `type` maps to the visual tag class in the prototype: primaire / analyse / relayé / contesté.
+// `type` is rendered by the React component as the corresponding CSS class:
+//   'primary'   → .proof-tag.primaire   (vert  — source législative ou données officielles)
+//   'analysis'  → .proof-tag.analyse    (bleu  — analyse sectorielle)
+//   'relay'     → .proof-tag.relaye     (violet — presse relayant une info primaire)
+//   'contested' → .proof-tag.conteste   (rose  — information sous litige)
+// Color is applied by the rendering component, not stored here.
 const proofSourceSchema = s.object({
   label: s.string(),
   url: s.string().url(),
@@ -19,7 +24,13 @@ const proofSourceSchema = s.object({
 });
 
 // Revision entry — used for the "historique" tab of a proof drawer.
-// `badge` maps to .hb-ajout / .hb-maj / .hb-alerte / .hb-attendu in the prototype.
+// CSS class mapping rendered by the component:
+//   'initial'  → .hb-ajout    (teal   — ajout initial du claim)
+//   'update'   → .hb-maj      (bleu   — révision factuelle, contenu changé)
+//   'alert'    → .hb-alerte   (rose   — événement de litige ou contestation)
+//   'expected' → .hb-attendu  (violet — mise à jour attendue NON arrivée à temps, rare ;
+//                                       pour une mise à jour future "live", utiliser le champ
+//                                       `nextUpdate` de la métrique, pas une revisions[] manuelle)
 const revisionSchema = s.object({
   date: s.isodate(),
   badge: s.enum(['initial', 'update', 'alert', 'expected']),
@@ -29,25 +40,104 @@ const revisionSchema = s.object({
   newRobustness: s.number().optional(),
 });
 
-const metricSchema = s.object({
-  label: s.string(),
-  value: s.string(),
-  unit: s.string().optional(),
-  source: s.string(),
-  url: s.string().url().optional(),
-  date: s.isodate(),
-  // ── Proof-drawer instrumentation (all optional, backward-compatible) ──
-  // `id` = stable claim ID, used as data-proof="{id}" in the rendered HTML
-  id: s.string().optional(),
-  // `claim` = short affirmation text shown in the robustness bar (distinct from `label`)
-  claim: s.string().optional(),
-  // `robustness` = 0-100 score. If omitted, derive from confidenceLevel + proofStatus + sources.
-  robustness: s.number().optional(),
-  proofStatus: s.enum(['stable', 'confirmed_declared', 'projection_pending', 'contested']).optional(),
-  bgmAlert: s.boolean().default(false),
-  proofSources: s.array(proofSourceSchema).default([]),
-  revisions: s.array(revisionSchema).default([]),
-});
+// Collection-level helper — enforces unique `id` values within a single document's
+// metrics array. Called by `.refine()` on each consumer collection (domainCards.metrics,
+// dossierCards.metrics, communeCards.keyFigures). Without this, two metrics sharing an
+// `id` would silently route Ask BGM and shareable URLs to the first DOM match.
+const refineUniqueMetricIds = (metrics: Array<{ id?: string }>) => {
+  const ids = metrics.map((m) => m.id).filter((id): id is string => !!id);
+  return new Set(ids).size === ids.length;
+};
+
+const metricSchema = s
+  .object({
+    label: s.string(),
+    value: s.string(),
+    unit: s.string().optional(),
+    // `source` is OPTIONAL in v2: required only when `id` is absent (legacy metric).
+    // For instrumented metrics (with `id`), the canonical primary source lives in
+    // `proofSources[i]` where type === 'primary' (enforced by refine 2).
+    source: s.string().optional(),
+    url: s.string().url().optional(),
+    date: s.isodate(),
+    // ── Proof-drawer instrumentation ──
+    // `id` = stable claim ID, used as data-proof="{id}" in the rendered HTML
+    // and as key in the Ask BGM auditMapping. Convention: kebab-case, ASCII, ≤40 chars,
+    // unique within a single document (enforced by refineUniqueMetricIds at collection level).
+    id: s.string().optional(),
+    // `claim` = short, self-contained affirmation displayed in the robustness bar of the
+    // proof drawer (distinct from `label`, which is a column-style label).
+    claim: s.string().optional(),
+    /**
+     * Robustness score 0-100 for the proof drawer.
+     *
+     * PRECEDENCE RULE: if `robustness` is provided explicitly by the editor, the
+     * component MUST use it as-is, without recalculating. The explicit value always
+     * wins over derivation. Use case: editorial decisions argued from a specific
+     * institutional event (e.g. UVCW arrêt 25 janvier justifies 55% independent of
+     * the formula).
+     *
+     * If OMITTED, the component derives the value via the indicative formula:
+     *   base = { stable: 85, confirmed_declared: 80, projection_pending: 60, contested: 45 }[proofStatus] ?? 60
+     *   + 5 per `proofSources` entry of type 'primary' (cap +10)
+     *   - 10 if `proofSources` contains at least one entry of type 'contested'
+     *   - 5 if `bgmAlert === true`
+     *   clamped to [0, 100]
+     *
+     * No min/max constraint at the schema level — the component handles clamping.
+     * (A `.refine()` on 0-100 may be added later if drift is observed.)
+     */
+    robustness: s.number().optional(),
+    proofStatus: s.enum(['stable', 'confirmed_declared', 'projection_pending', 'contested']).optional(),
+    bgmAlert: s.boolean().default(false),
+    /**
+     * Text displayed by the Pulse banner and chapter dot when `bgmAlert: true`.
+     * REQUIRED whenever `bgmAlert: true` (enforced by refine 5 — no silent alerts).
+     */
+    alertText: s.string().optional(),
+    /**
+     * Free-form pointer to the next expected update (e.g. "indicators.be T2 2026").
+     *
+     * RENDERING CONVENTION (component-side, no Velite build-time transform):
+     * - The editor writes ONLY `nextUpdate` to signal an expected forthcoming update.
+     * - The React component reads `nextUpdate` and renders a dedicated `hb-attendu`
+     *   tile at the head/tail of the `revisions[]` timeline. This tile is NOT in
+     *   the array.
+     * - The editor MUST NOT also write a manual `revisions[].badge: 'expected'` entry
+     *   for the same information (would cause double display). The `expected` badge
+     *   in `revisions[]` is reserved for past expected updates that DID NOT arrive
+     *   on time and need an explicit historical record (rare).
+     */
+    nextUpdate: s.string().optional(),
+    proofSources: s.array(proofSourceSchema).default([]),
+    revisions: s.array(revisionSchema).default([]),
+  })
+  // Refine 1 — `claim` required when `id` is provided
+  .refine((m) => !m.id || !!m.claim, {
+    message: '`claim` is required when `id` is provided',
+    path: ['claim'],
+  })
+  // Refine 2 — `proofSources` must contain at least one primary entry when `id` is provided
+  .refine((m) => !m.id || m.proofSources.some((src) => src.type === 'primary'), {
+    message: 'When `id` is provided, `proofSources` must contain at least one entry of type "primary"',
+    path: ['proofSources'],
+  })
+  // Refine 3 — `source` required for legacy (non-instrumented) metrics
+  .refine((m) => !!m.id || !!m.source, {
+    message: '`source` is required for non-instrumented metrics (i.e. when `id` is not provided)',
+    path: ['source'],
+  })
+  // Refine 4 — symmetric: `id` required when `proofSources` is non-empty
+  // (no orphan proof chains: a chain must be addressable by Ask BGM and shareable via URL hash)
+  .refine((m) => m.proofSources.length === 0 || !!m.id, {
+    message: '`id` is required when `proofSources` is non-empty (no orphan proof chains)',
+    path: ['id'],
+  })
+  // Refine 5 — `alertText` required when `bgmAlert: true` (no silent alerts in BGM)
+  .refine((m) => !m.bgmAlert || !!m.alertText, {
+    message: '`alertText` is required when `bgmAlert: true` (silent alerts forbidden by BGM credibility policy)',
+    path: ['alertText'],
+  });
 
 // ──────────────────────────────────────────────
 // Collection: Domain Cards (MVP — Budget, Mobility)
@@ -67,7 +157,9 @@ const domainCards = defineCollection({
       sectors: s.array(s.string()).default([]),
       sources: s.array(sourceSchema),
       confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']),
-      metrics: s.array(metricSchema).default([]),
+      metrics: s.array(metricSchema).default([]).refine(refineUniqueMetricIds, {
+        message: 'Metric `id` values must be unique within a single document',
+      }),
       lastModified: s.isodate(),
       changeType: s.enum(['new', 'updated', 'status-change', 'data-refresh']).optional(),
       changeSummary: s.string().optional(),
@@ -369,7 +461,9 @@ const communeCards = defineCollection({
         .default([]),
       relatedSectors: s.array(s.string()).default([]),
       sources: s.array(communeSourceSchema),
-      keyFigures: s.array(metricSchema).default([]),
+      keyFigures: s.array(metricSchema).default([]).refine(refineUniqueMetricIds, {
+        message: 'keyFigures `id` values must be unique within a single commune card',
+      }),
       alerts: s
         .array(
           s.object({
@@ -421,7 +515,9 @@ const dossierCards = defineCollection({
       relatedCommunes: s.array(s.string()).default([]),
       relatedFormationEvents: s.array(s.string()).default([]),
       sources: s.array(sourceSchema),
-      metrics: s.array(metricSchema).default([]),
+      metrics: s.array(metricSchema).default([]).refine(refineUniqueMetricIds, {
+        message: 'Metric `id` values must be unique within a single dossier',
+      }),
       alerts: s
         .array(
           s.object({

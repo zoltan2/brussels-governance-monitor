@@ -183,6 +183,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // ── Dossiers ──────────────────────────────────────────────────
+  // NOTE: Routes /dossiers/[slug]/scrolly (vue immersive, allowlist CPAS) sont
+  // intentionnellement exclues du sitemap. Elles portent un canonical → page
+  // structurée et un meta robots noindex (spec D §7.1).
   for (const slug of getAllDossierSlugs()) {
     const result = getDossierCard(slug, 'fr' as Locale);
     addLocalizedEntries(

@@ -20,8 +20,7 @@ import { buildMetadata } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
-import { DensityProvider } from '@/components/dossier/density/density-context';
-import { DensityToggle } from '@/components/dossier/density/density-toggle';
+import { isScrollyEnabled } from '@/lib/scrolly-allowlist';
 import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
@@ -184,10 +183,8 @@ function DossierDetail({
         {card.draft && <DraftBanner />}
         {isFallback && <FallbackBanner targetLocale={locale} />}
 
-        {/* Header + badges + density toggle (phase 3a) */}
-        <DensityProvider>
+        {/* Header + badges */}
         <h1 className="mt-4 mb-3 text-3xl font-bold text-neutral-900">{card.title}</h1>
-        <DensityToggle />
 
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <span
@@ -208,6 +205,32 @@ function DossierDetail({
           >
             {t(`confidence.${card.confidenceLevel}`)}
           </span>
+          {/* Vue immersive (scrolly) — pilote, dossier dans l'allowlist uniquement.
+              Utilise <a> standard (pas le Link i18n) parce que la route /scrolly
+              est nouvelle et pas encore reconnue par les typed routes Next.js. */}
+          {isScrollyEnabled(card.slug) && (
+            <a
+              href={`/${locale}/dossiers/${card.slug}/scrolly`}
+              className="inline-flex items-center gap-1.5 rounded-full border border-brand-300 bg-brand-50 px-3 py-1 text-sm font-medium text-brand-800 transition-colors hover:bg-brand-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+              aria-label="Ouvrir la vue immersive scrollytelling de ce dossier"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="h-3.5 w-3.5"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Vue immersive
+              <span className="text-[10px] uppercase tracking-wide opacity-60">bêta</span>
+            </a>
+          )}
         </div>
 
         {/* Blocked counter */}
@@ -496,7 +519,6 @@ function DossierDetail({
             }}
           />
         </div>
-        </DensityProvider>
       </div>
     </article>
   );

@@ -12,6 +12,7 @@ import { Claim } from '@/components/mdx/claim';
 import { MetricsProvider } from '@/components/proof-drawer/metrics-context';
 import type { Metric } from '@/components/proof-drawer/types';
 import { Signal, Essentiel, Complet } from '@/components/dossier/density/density-layer';
+import { SignalLead } from '@/components/dossier/density/signal-lead';
 
 interface MdxContentProps {
   code: string;
@@ -26,6 +27,7 @@ const sharedComponents = {
   Signal,
   Essentiel,
   Complet,
+  SignalLead,
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2 className="mb-3 mt-10 border-b border-neutral-200 pb-2 text-lg font-bold text-neutral-900" {...props} />
   ),

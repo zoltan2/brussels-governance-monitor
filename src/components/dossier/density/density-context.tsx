@@ -18,7 +18,10 @@ interface DensityContextValue {
   setDensity: (next: Density) => void;
 }
 
-const DensityContext = createContext<DensityContextValue | null>(null);
+// Exported (post-D2 spec) so `<SignalLead>` can probe presence of a provider:
+// without provider (= structured page) → render null; with provider (= scrolly
+// page) → render with .d-signal class.
+export const DensityContext = createContext<DensityContextValue | null>(null);
 
 interface DensityProviderProps {
   children: ReactNode;

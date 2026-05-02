@@ -8,6 +8,27 @@ const sourceSchema = s.object({
   accessedAt: s.isodate(),
 });
 
+// Source in a proof chain — used for the "narrative" tab of a proof drawer.
+// `type` maps to the visual tag class in the prototype: primaire / analyse / relayé / contesté.
+const proofSourceSchema = s.object({
+  label: s.string(),
+  url: s.string().url(),
+  type: s.enum(['primary', 'analysis', 'relay', 'contested']),
+  description: s.string().optional(),
+  accessedAt: s.isodate().optional(),
+});
+
+// Revision entry — used for the "historique" tab of a proof drawer.
+// `badge` maps to .hb-ajout / .hb-maj / .hb-alerte / .hb-attendu in the prototype.
+const revisionSchema = s.object({
+  date: s.isodate(),
+  badge: s.enum(['initial', 'update', 'alert', 'expected']),
+  title: s.string(),
+  description: s.string(),
+  oldRobustness: s.number().optional(),
+  newRobustness: s.number().optional(),
+});
+
 const metricSchema = s.object({
   label: s.string(),
   value: s.string(),
@@ -15,6 +36,17 @@ const metricSchema = s.object({
   source: s.string(),
   url: s.string().url().optional(),
   date: s.isodate(),
+  // ── Proof-drawer instrumentation (all optional, backward-compatible) ──
+  // `id` = stable claim ID, used as data-proof="{id}" in the rendered HTML
+  id: s.string().optional(),
+  // `claim` = short affirmation text shown in the robustness bar (distinct from `label`)
+  claim: s.string().optional(),
+  // `robustness` = 0-100 score. If omitted, derive from confidenceLevel + proofStatus + sources.
+  robustness: s.number().optional(),
+  proofStatus: s.enum(['stable', 'confirmed_declared', 'projection_pending', 'contested']).optional(),
+  bgmAlert: s.boolean().default(false),
+  proofSources: s.array(proofSourceSchema).default([]),
+  revisions: s.array(revisionSchema).default([]),
 });
 
 // ──────────────────────────────────────────────

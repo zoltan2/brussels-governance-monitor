@@ -337,7 +337,7 @@ function DossierDetail({
           className="mt-8"
           {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}
         >
-          <MdxContent code={card.content} />
+          <MdxContent code={card.content} metrics={card.metrics} />
         </div>
 
         {/* Related domains */}

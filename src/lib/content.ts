@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Locale } from '@/i18n/routing';
+import type { Metric } from '@/components/proof-drawer/types';
 
 export interface DomainCard {
   title: string;
@@ -14,7 +15,7 @@ export interface DomainCard {
   sectors: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
-  metrics: Array<{ label: string; value: string; unit?: string; source: string; url?: string; date: string }>;
+  metrics: Metric[];
   lastModified: string;
   changeType?: string;
   changeSummary?: string;
@@ -189,7 +190,7 @@ export interface DossierCard {
   relatedCommunes: string[];
   relatedFormationEvents: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
-  metrics: Array<{ label: string; value: string; unit?: string; source: string; url?: string; date: string }>;
+  metrics: Metric[];
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
   dprCommitment?: string;

@@ -1,14 +1,14 @@
 {
   "week": "2026-w18",
   "weekStart": "2026-04-27",
-  "created_at": "2026-05-03T20:00:24.378Z",
+  "created_at": "2026-05-03T21:20:25.058Z",
   "approved": false,
   "sent": false,
   "summary": {
-    "fr": "1 dossier mis à jour",
-    "nl": "1 dossier bijgewerkt",
-    "en": "1 dossier updated",
-    "de": "1 Dossier aktualisiert"
+    "fr": "1 domaine, 3 dossiers mis à jour",
+    "nl": "1 domein, 3 dossiers bijgewerkt",
+    "en": "1 domain, 3 dossiers updated",
+    "de": "1 Bereich, 3 Dossiers aktualisiert"
   },
   "weeklyNumber": {
     "value": "16",
@@ -33,6 +33,9 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
-    "dossier-bim-bruxelles"
+    "housing",
+    "dossier-bim-bruxelles",
+    "dossier-seniors",
+    "dossier-slrb"
   ]
 }

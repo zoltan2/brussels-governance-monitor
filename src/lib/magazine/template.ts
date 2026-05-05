@@ -76,6 +76,13 @@ export function renderBusinessCardPage(): string {
 export const GOOGLE_FONTS_HREF =
   'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap';
 
+export function umamiSnippet(): string {
+  const id = process.env.UMAMI_WEBSITE_ID;
+  if (!id) return '';
+  return `<link rel="preconnect" href="https://cloud.umami.is" />
+<script defer src="https://cloud.umami.is/script.js" data-website-id="${escapeHtml(id)}"></script>`;
+}
+
 export const MAGAZINE_CSS = `
   *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; width: 100%; overflow: hidden; }

@@ -6,6 +6,7 @@ import {
   GOOGLE_FONTS_HREF,
   MAGAZINE_CSS,
   MAGAZINE_JS,
+  umamiSnippet,
 } from './template';
 
 export function renderMagazine(draft: MagazineDraft): string {
@@ -28,6 +29,7 @@ export function renderMagazine(draft: MagazineDraft): string {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="${GOOGLE_FONTS_HREF}" rel="stylesheet" />
 <style>${MAGAZINE_CSS}</style>
+${umamiSnippet()}
 </head>
 <body>
   <div class="viewport">

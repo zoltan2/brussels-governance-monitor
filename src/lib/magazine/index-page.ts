@@ -10,7 +10,7 @@
  * means populating STRINGS[locale] and writing the file at e.g.
  * `docs/magazine/nl/index.html`.
  */
-import { escapeHtml, GOOGLE_FONTS_HREF } from './template';
+import { escapeHtml, GOOGLE_FONTS_HREF, umamiSnippet } from './template';
 import { AUTHOR } from './author';
 
 export type IndexLocale = 'fr' | 'nl' | 'en' | 'de';
@@ -142,6 +142,7 @@ ${archive
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="${GOOGLE_FONTS_HREF}" rel="stylesheet" />
 <style>${INDEX_CSS}</style>
+${umamiSnippet()}
 </head>
 <body>
   <header class="topbar">

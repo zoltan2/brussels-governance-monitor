@@ -5,12 +5,29 @@
 
 import * as runtime from 'react/jsx-runtime';
 import { useMemo } from 'react';
+import { CpasThreeAuthorities } from '@/components/dossiers/cpas-three-authorities';
+import { CpasMoneyFlow } from '@/components/dossiers/cpas-money-flow';
+import { CpasProceduresTracker } from '@/components/dossiers/cpas-procedures-tracker';
+import { Claim } from '@/components/mdx/claim';
+import { MetricsProvider } from '@/components/proof-drawer/metrics-context';
+import type { Metric } from '@/components/proof-drawer/types';
+import { Signal, Essentiel, Complet } from '@/components/dossier/density/density-layer';
+import { SignalLead } from '@/components/dossier/density/signal-lead';
 
 interface MdxContentProps {
   code: string;
+  metrics?: Metric[];
 }
 
 const sharedComponents = {
+  CpasThreeAuthorities,
+  CpasMoneyFlow,
+  CpasProceduresTracker,
+  Claim,
+  Signal,
+  Essentiel,
+  Complet,
+  SignalLead,
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2 className="mb-3 mt-10 border-b border-neutral-200 pb-2 text-lg font-bold text-neutral-900" {...props} />
   ),
@@ -65,12 +82,15 @@ const sharedComponents = {
   ),
 };
 
-export function MdxContent({ code }: MdxContentProps) {
+export function MdxContent({ code, metrics = [] }: MdxContentProps) {
+  // IMPORTANT: depend on [code] only — `metrics` flows through MetricsProvider,
+  // not into the compiled MDX module. Re-evaluating new Function(code) on every
+  // metrics change would be expensive and unnecessary.
   const element = useMemo(() => {
     const fn = new Function(code);
     const Component = fn({ ...runtime }).default;
     return <Component components={sharedComponents} />;
   }, [code]);
 
-  return element;
+  return <MetricsProvider metrics={metrics}>{element}</MetricsProvider>;
 }

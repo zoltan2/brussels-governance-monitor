@@ -19,6 +19,7 @@ import {
   getComparisonCard,
   getCommuneCard,
   getDossierCard,
+  getLocalizedSlug,
   getArchivePage,
 } from '@/lib/content';
 import type { Locale } from '@/i18n/routing';
@@ -183,14 +184,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // ── Dossiers ──────────────────────────────────────────────────
-  for (const slug of getAllDossierSlugs()) {
-    const result = getDossierCard(slug, 'fr' as Locale);
-    addLocalizedEntries(
-      entries,
-      { pathname: '/dossiers/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.7 },
-      contentDate(result?.card.lastModified)
-    );
+  // NOTE: Routes /dossiers/[slug]/scrolly (vue immersive, allowlist CPAS) sont
+  // intentionnellement exclues du sitemap. Elles portent un canonical → page
+  // structurée et un meta robots noindex (spec D §7.1).
+  // Spec slugs localisés (2026-05-03) §3.6 : émet une entrée par locale avec
+  // le slug localisé natif (ou fallback canonique), avec alternates languages
+  // qui pointent vers les slugs localisés de chaque langue.
+  for (const canonicalSlug of getAllDossierSlugs()) {
+    const result = getDossierCard(canonicalSlug, 'fr' as Locale);
+    if (!result) continue;
+    const { card } = result;
+    const lastModified = contentDate(card.lastModified);
+
+    // Construit la map localized slugs : chaque locale → URL absolue
+    const alternates: Record<string, string> = {};
+    for (const l of locales) {
+      const slugForLocale = getLocalizedSlug(card, l);
+      alternates[l] = `${siteUrl}/${l}/dossiers/${slugForLocale}`;
+    }
+    alternates['x-default'] = alternates['fr'];
+
+    // Émet 1 entrée par locale avec son slug localisé
+    for (const locale of locales) {
+      const slugForLocale = getLocalizedSlug(card, locale);
+      entries.push({
+        url: `${siteUrl}/${locale}/dossiers/${slugForLocale}`,
+        lastModified,
+        changeFrequency: 'weekly',
+        priority: 0.7,
+        alternates: { languages: alternates },
+      });
+    }
   }
 
   // ── Archives ────────────────────────────────────────────────

@@ -301,3 +301,18 @@ footer nav a:hover {
     scroll-behavior: auto !important;
   }
 }
+
+
+/*
+  Density layer visibility — phase 3a
+  CRITIQUE : utiliser display: none, JAMAIS opacity ou visibility.
+  Le Briefing Builder (phase 3b) filtrera par getComputedStyle().display.
+  Un changement vers opacity casserait silencieusement l'export markdown.
+  Sélecteurs explicites (pas :where()) pour éviter toute incertitude sur le
+  pipeline CSS Next.js + Tailwind v4 + PostCSS.
+*/
+[data-density="signal"] .d-essentiel,
+[data-density="signal"] .d-complet { display: none; }
+[data-density="essentiel"] .d-signal,
+[data-density="essentiel"] .d-complet { display: none; }
+[data-density="complet"] .d-signal { display: none; }

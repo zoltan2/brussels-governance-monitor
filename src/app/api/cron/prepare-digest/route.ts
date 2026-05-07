@@ -127,7 +127,7 @@ export async function GET(request: Request) {
       const m = firstUpdated.metrics[0];
       weeklyNumberValue = `${m.value}${m.unit ? ` ${m.unit}` : ''}`;
       weeklyNumberLabelFr = m.label;
-      weeklyNumberSourceFr = m.source;
+      weeklyNumberSourceFr = m.source ?? m.proofSources[0]?.label ?? '';
     }
   }
 

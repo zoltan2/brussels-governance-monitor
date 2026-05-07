@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Locale } from '@/i18n/routing';
+import type { Metric } from '@/components/proof-drawer/types';
 
 export interface DomainCard {
   title: string;
@@ -14,7 +15,7 @@ export interface DomainCard {
   sectors: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
-  metrics: Array<{ label: string; value: string; unit?: string; source: string; url?: string; date: string }>;
+  metrics: Metric[];
   lastModified: string;
   changeType?: string;
   changeSummary?: string;
@@ -174,6 +175,15 @@ export interface DossierCard {
   title: string;
   shortTitle?: string;
   slug: string;
+  // Slugs localisés pour SEO per-locale (spec 2026-05-03). Optionnel.
+  // Si absent pour une locale, fallback sur `slug` global. Le `slug` reste
+  // la clé d'identification interne (allowlist scrolly, cross-refs, etc.).
+  localizedSlugs?: {
+    fr?: string;
+    nl?: string;
+    en?: string;
+    de?: string;
+  };
   locale: Locale;
   dossierType: 'infrastructure' | 'housing' | 'regulatory' | 'utility' | 'security' | 'social' | 'cultural';
   phase: 'announced' | 'planned' | 'in-progress' | 'stalled' | 'completed' | 'cancelled';
@@ -189,7 +199,7 @@ export interface DossierCard {
   relatedCommunes: string[];
   relatedFormationEvents: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
-  metrics: Array<{ label: string; value: string; unit?: string; source: string; url?: string; date: string }>;
+  metrics: Metric[];
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
   dprCommitment?: string;
@@ -972,6 +982,95 @@ export function getDossierCard(
 export function getAllDossierSlugs(): string[] {
   const { dossierCards } = getCollections();
   return [...new Set(dossierCards.map((c) => c.slug))];
+}
+
+/**
+ * Returns the URL slug to use for a dossier in a given locale.
+ * Falls back to the canonical `slug` if no localized slug exists for that locale.
+ *
+ * Spec 2026-05-03 §3.2.
+ */
+export function getLocalizedSlug(card: DossierCard, locale: Locale): string {
+  return card.localizedSlugs?.[locale] ?? card.slug;
+}
+
+/**
+ * Pure reverse lookup over an explicit array of dossiers. Testable without
+ * mocking Velite collections.
+ */
+export function findDossierByLocalizedSlug(
+  dossiers: DossierCard[],
+  slugFromUrl: string,
+  locale: Locale,
+): { card: DossierCard; isFallback: boolean } | null {
+  const native = dossiers.find(
+    (c) => c.locale === locale && getLocalizedSlug(c, locale) === slugFromUrl,
+  );
+  if (native) return { card: native, isFallback: false };
+
+  const frFallback = dossiers.find(
+    (c) => c.locale === 'fr' && getLocalizedSlug(c, 'fr') === slugFromUrl,
+  );
+  if (frFallback) return { card: frFallback, isFallback: true };
+
+  return null;
+}
+
+/**
+ * Reverse lookup: given a URL slug seen in `/[locale]/dossiers/[slug]`, find
+ * the dossier card. Used by the public route handler.
+ *
+ * Resolution order:
+ * 1. Native dossier (locale matches AND effective slug matches)
+ * 2. FR fallback (FR dossier whose effective slug matches when no native exists)
+ *
+ * Returns null if no match in either step.
+ *
+ * Distinct from `getDossierCard(slug, locale)` which uses the canonical `slug`
+ * as input (for cross-refs, allowlist, etc.) — this helper accepts whatever
+ * appears in the URL.
+ *
+ * Spec 2026-05-03 §3.2.
+ */
+export function getDossierByLocalizedSlug(
+  slugFromUrl: string,
+  locale: Locale,
+): { card: DossierCard; isFallback: boolean } | null {
+  return findDossierByLocalizedSlug(
+    getCollections().dossierCards as DossierCard[],
+    slugFromUrl,
+    locale,
+  );
+}
+
+/**
+ * Cross-document validation: ensure no two dossiers in the same locale resolve
+ * to the same URL slug. Catches editor mistakes like adding the same
+ * `localizedSlugs.nl` to two different dossiers — would silently break routing.
+ *
+ * Pure function (takes dossiers as input). Throws on collision.
+ *
+ * Spec 2026-05-03 §3.1 (refine collection-level, runtime variant since Velite
+ * does not natively support cross-document refines).
+ */
+export function validateLocalizedSlugs(dossiers: DossierCard[]): void {
+  const seen: Record<string, Map<string, string>> = {
+    fr: new Map(),
+    nl: new Map(),
+    en: new Map(),
+    de: new Map(),
+  };
+  for (const d of dossiers) {
+    if (!seen[d.locale]) continue;
+    const effectiveSlug = getLocalizedSlug(d, d.locale);
+    const previousSlug = seen[d.locale].get(effectiveSlug);
+    if (previousSlug && previousSlug !== d.slug) {
+      throw new Error(
+        `[localized-slugs] Collision dans la locale "${d.locale}": les dossiers "${previousSlug}" et "${d.slug}" résolvent tous deux vers /${d.locale}/dossiers/${effectiveSlug}. Vérifiez localizedSlugs dans leur frontmatter.`,
+      );
+    }
+    seen[d.locale].set(effectiveSlug, d.slug);
+  }
 }
 
 /**

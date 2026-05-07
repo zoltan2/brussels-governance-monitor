@@ -1,6 +1,102 @@
 {
-  "lastVeille": "2026-05-03",
+  "lastVeille": "2026-05-07",
   "entries": [
+    {
+      "id": "2026-05-07-greve-nationale-12-mai-mobility",
+      "date": "2026-05-07",
+      "confidence": "official",
+      "status": "active",
+      "cards": ["mobility", "economy"],
+      "source": {
+        "label": "Euronews — Brussels Airport : ~50 % de vols annulés le 12 mai 2026 (29 avr. 2026)",
+        "url": "https://www.euronews.com/travel/2026/04/29/brussels-airport-warns-a-large-number-of-flights-will-be-cancelled-next-month-amid-strikes",
+        "accessedAt": "2026-05-07"
+      },
+      "summary": {
+        "fr": "Grève nationale 12 mai : Brussels Airport annule ~50 % des vols au départ — ~60 000 passagers impactés. 9e perturbation sociale à Brussels Airport depuis début 2025.",
+        "nl": "Nationale staking 12 mei: Brussels Airport annuleert ~50 % van de vertrekkende vluchten — ~60 000 passagiers getroffen. 9de sociale verstoring op Brussels Airport sinds begin 2025.",
+        "en": "National strike 12 May: Brussels Airport cancels ~50% of departing flights — ~60,000 passengers affected. 9th social disruption at Brussels Airport since early 2025.",
+        "de": "Nationaler Streik 12. Mai: Brussels Airport annulliert ~50 % der Abflüge — ~60 000 Passagiere betroffen. 9. Störung durch Arbeitskämpfe am Brussels Airport seit Anfang 2025."
+      },
+      "descriptions": {
+        "fr": "Les trois grandes confédérations syndicales belges (ACV-CSC, ABVV-FGTB, ACLVB-CGSLB) ont appelé à une grève nationale interprofessionnelle le 12 mai 2026. Brussels Airport a officiellement demandé aux compagnies aériennes d'annuler environ 50 % de leurs vols au départ, avec un impact estimé à 60 000 passagiers. Les transports publics (trains, bus, métro) sont également perturbés à l'échelle nationale. En parallèle, Brussels Airlines a annoncé une perte EBIT ajustée de 55 M EUR au premier trimestre 2026 (malgré +11 % de vols), en raison de la hausse du prix du kérosène liée à la crise au Moyen-Orient.",
+        "nl": "De drie grote Belgische vakbondsconfederaties (ACV-CSC, ABVV-FGTB, ACLVB-CGSLB) riepen op tot een interprofessionele nationale staking op 12 mei 2026. Brussels Airport vroeg luchtvaartmaatschappijen officieel om ongeveer 50 % van hun vertrekkende vluchten te annuleren, met een verwachte impact van 60 000 passagiers. Het openbaar vervoer (treinen, bussen, metro) is ook nationaal verstoord. Brussels Airlines meldde ook een gecorrigeerd EBIT-verlies van 55 miljoen EUR in K1 2026 (ondanks +11 % meer vluchten), door hogere kerosinekosten door de Midden-Oostencrisis.",
+        "en": "Belgium's three main trade union confederations (ACV-CSC, ABVV-FGTB, ACLVB-CGSLB) called a national interprofessional strike for 12 May 2026. Brussels Airport officially asked airlines to cancel approximately 50% of their departing flights, with an estimated impact of 60,000 passengers. Public transport (trains, buses, metro) is also disrupted nationwide. Brussels Airlines separately reported an adjusted EBIT loss of EUR 55 million in Q1 2026 (despite +11% more flights), due to higher fuel costs driven by the Middle East crisis.",
+        "de": "Die drei großen belgischen Gewerkschaftskonfederationen (ACV-CSC, ABVV-FGTB, ACLVB-CGSLB) riefen für den 12. Mai 2026 zu einem nationalen interprofessionellen Streik auf. Brussels Airport forderte Fluggesellschaften offiziell auf, rund 50 % ihrer Abflüge zu annullieren, mit einem geschätzten Einfluss auf 60 000 Passagiere. Der öffentliche Verkehr (Züge, Busse, Metro) ist ebenfalls landesweit betroffen. Brussels Airlines meldete zudem einen bereinigten EBIT-Verlust von 55 Mio. EUR in Q1 2026 (trotz +11 % mehr Flüge), aufgrund gestiegener Kerosinkosten durch die Nahostkrise."
+      },
+      "nextStep": {
+        "fr": "Vérifier le déroulement effectif de la grève le 12 mai. Si taux de perturbation confirmé → V2 pour cartes mobility/economy.",
+        "nl": "Het verloop van de staking op 12 mei opvolgen. Als verstoring bevestigd → V2 voor kaarten mobility/economy.",
+        "en": "Track the actual unfolding of the strike on 12 May. If disruption confirmed → V2 for mobility/economy cards.",
+        "de": "Den tatsächlichen Verlauf des Streiks am 12. Mai verfolgen. Bei bestätigter Störung → V2 für Karten mobility/economy."
+      },
+      "promotedTo": "",
+      "archivedAt": null
+    },
+    {
+      "id": "2026-05-07-port-bruxelles-hublet",
+      "date": "2026-05-07",
+      "confidence": "unconfirmed",
+      "status": "active",
+      "cards": ["economy"],
+      "source": {
+        "label": "La Libre — Le Port de Bruxelles, « belle endormie » que Hublet veut réveiller (7 mai 2026)",
+        "url": "https://www.lalibre.be/belgique/societe/2026/05/07/le-port-de-bruxelles-cette-belle-endormie-que-le-ministre-laurent-hublet-veut-reveiller-I67KYQKGH5EZ7AYWIOXQPCXHOA/",
+        "accessedAt": "2026-05-07"
+      },
+      "summary": {
+        "fr": "Port de Bruxelles : 5,41 Mt de trafic en 2025 (−13 % vs 2024), quais centenaires dégradés. Hublet annonce une approche « pro-business » — aucun communiqué officiel à ce stade.",
+        "nl": "Haven van Brussel: 5,41 Mt trafiek in 2025 (−13 % t.o.v. 2024), eeuwenoude kaden in slechte staat. Hublet kondigt « pro-business »-aanpak aan — geen officieel communiqué.",
+        "en": "Port of Brussels: 5.41 Mt traffic in 2025 (−13% vs 2024), century-old quays deteriorating. Hublet announces 'pro-business' approach — no official communiqué yet.",
+        "de": "Port de Bruxelles: 5,41 Mt Verkehr 2025 (−13 % ggü. 2024), jahrhundertealte Kais verfallen. Hublet kündigt « pro-business »-Ansatz an — noch kein offizielles Kommuniqué."
+      },
+      "descriptions": {
+        "fr": "Selon La Libre du 7 mai 2026, le ministre bruxellois de l'Économie Laurent Hublet souhaite réveiller le Port de Bruxelles. Le port a traité 5,41 millions de tonnes en 2025, un recul de 13 % par rapport à 2024. Les infrastructures sont vieillissantes : quais centenaires dégradés, écluse de Molenbeek traitant seulement 3 bateaux par heure, barrières de sable installées rue de Molenbeek en raison de risques de glissement. Sites prioritaires : quai de Hembeek (21 000 m² vacant) et Schaerbeek Formation à Haren (accès ferroviaire Anvers depuis 2024). Déclaration via presse — aucun communiqué officiel du Port de Bruxelles.",
+        "nl": "Volgens La Libre van 7 mei 2026 wil de Brusselse Economieminister Laurent Hublet de Haven van Brussel wakker schudden. De haven verwerkte 5,41 miljoen ton in 2025, een daling van 13 % t.o.v. 2024. De infrastructuur veroudert: eeuwenoude kaden aangetast, sluis van Molenbeek verwerkt slechts 3 boten per uur, zandbarricades geplaatst door glijgevaar. Prioritaire sites: kaai van Hembeek (21 000 m² leeg) en Schaarbeek-Vorming in Haren (spoorwegverbinding Antwerpen sinds 2024). Verklaring via pers — geen officieel communiqué van de Haven.",
+        "en": "According to La Libre on 7 May 2026, Brussels Economy Minister Laurent Hublet wants to revive the Port of Brussels. The port handled 5.41 million tonnes in 2025, down 13% from 2024. Infrastructure is ageing: century-old quays deteriorating, Molenbeek lock handling only 3 vessels per hour, sand barriers installed in Rue de Molenbeek due to landslide risk. Priority sites: Quai de Hembeek (21,000 m² vacant) and Schaerbeek Formation in Haren (rail access to Antwerp since 2024). Ministerial declaration via press — no official communiqué from the Port.",
+        "de": "Laut La Libre vom 7. Mai 2026 möchte Brüsseler Wirtschaftsminister Laurent Hublet den Port de Bruxelles reaktivieren. Der Hafen hat 2025 5,41 Millionen Tonnen umgeschlagen, −13 % gegenüber 2024. Die Infrastruktur altert: jahrhundertealte Kais verfallen, Molenbeek-Schleuse verarbeitet nur 3 Schiffe pro Stunde, Sandbarrieren in der Rue de Molenbeek wegen Rutschgefahr. Prioritäre Sites: Kai von Hembeek (21 000 m² leer) und Schaerbeek Formation in Haren (Eisenbahnverbindung Antwerpen seit 2024). Erklärung via Presse — kein offizielles Kommuniqué des Hafens."
+      },
+      "nextStep": {
+        "fr": "Chercher un communiqué officiel ou un plan d'action du Port de Bruxelles. Si décision officielle → V2 pour carte economy.",
+        "nl": "Zoeken naar officieel communiqué of actieplan van de Haven van Brussel. Bij officiële beslissing → V2 voor kaart economy.",
+        "en": "Look for an official communiqué or action plan from the Port of Brussels. If official decision → V2 for economy card.",
+        "de": "Nach offiziellem Kommuniqué oder Aktionsplan des Hafens suchen. Bei offizieller Entscheidung → V2 für economy-Karte."
+      },
+      "promotedTo": "",
+      "archivedAt": null
+    },
+    {
+      "id": "2026-05-07-quartier-brabant-fermeture-nocturne",
+      "date": "2026-05-07",
+      "confidence": "unconfirmed",
+      "status": "active",
+      "cards": ["security"],
+      "source": {
+        "label": "BRUZZ — Quartier Brabant : 1 mois de fermeture nocturne, moins de vols et de déchets (5 mai 2026)",
+        "url": "https://www.bruzz.be/actua/veiligheid/brabantwijk-na-een-maand-nachtsluiting-minder-diefstal-en-zwerfvuil-meer-rust-2026-05-05",
+        "accessedAt": "2026-05-07"
+      },
+      "summary": {
+        "fr": "Quartier Brabant (Schaerbeek) : 1 mois de fermeture nocturne obligatoire — vols violents −37 %, agressions nocturnes 20 %→11,5 %, plaintes propreté −50 %. Évaluation complète fin mai.",
+        "nl": "Quartier Brabant (Schaarbeek): 1 maand verplichte nachtsluiting — gewelddadige diefstallen −37 %, nachtagressie 20 %→11,5 %, netheidsklachten −50 %. Volledige evaluatie eind mei.",
+        "en": "Quartier Brabant (Schaerbeek): 1 month mandatory night closure — violent thefts −37%, night assaults 20%→11.5%, cleanliness complaints −50%. Full evaluation late May.",
+        "de": "Quartier Brabant (Schaerbeek): 1 Monat Pflicht-Nachtschließung — Gewaltdiebstahl −37 %, Nachtangriffe 20 %→11,5 %, Sauberkeitsbeschwerden −50 %. Vollbewertung Ende Mai."
+      },
+      "descriptions": {
+        "fr": "Depuis le 1er avril 2026, le quartier Brabant à Schaerbeek est soumis à une fermeture nocturne obligatoire (ordonnance communale). Après un mois, le bourgmestre ff Martin De Brabant (MR) présente des résultats : vols violents (braquages) −37 % en avril vs Q1 2026 ; agressions nocturnes (1h-6h) passées de 20 % à 11,5 % des faits ; plaintes pour propreté −50 % dans les 19 premiers jours d'avril vs mars. Seuls 2 établissements ont enfreint l'ordonnance. Le bourgmestre qualifie lui-même la période d'observation de « courte » — évaluation complète prévue fin mai. Mesure communale (Schaerbeek), non encore évaluée par la Région bruxelloise.",
+        "nl": "Depuis 1 april 2026 is het Quartier Brabant in Schaarbeek onderworpen aan een verplichte nachtsluiting (gemeentelijke ordonnantie). Na een maand presenteert waarnemend burgemeester Martin De Brabant (MR) resultaten: gewelddadige diefstallen −37 % in april t.o.v. K1 2026; nachtelijke agressie (1u-6u) van 20 % naar 11,5 % van de feiten; netheidsklachten −50 % in eerste 19 aprildagen vs maart. Slechts 2 etablissementen overtraden de ordonnantie. De burgemeester zelf noemt de observatieperiode 'kort' — volledige evaluatie gepland eind mei. Gemeentelijke maatregel (Schaarbeek), nog niet geëvalueerd door het Brussels Gewest.",
+        "en": "Since 1 April 2026, the Quartier Brabant in Schaerbeek has been subject to mandatory night closure (municipal ordinance). After one month, acting Mayor Martin De Brabant (MR) reports: violent thefts (robberies) −37% in April vs Q1 2026; night-time assaults (1am-6am) from 20% down to 11.5% of incidents; cleanliness complaints −50% in first 19 April days vs March. Only 2 establishments violated the ordinance. The mayor himself calls the observation period 'short' — full evaluation planned for late May. Municipal measure (Schaerbeek), not yet assessed by the Brussels Region.",
+        "de": "Seit dem 1. April 2026 unterliegt das Quartier Brabant in Schaerbeek einer obligatorischen Nachtschließung (Gemeindeordnung). Nach einem Monat präsentiert amtierender Bürgermeister Martin De Brabant (MR) Ergebnisse: Gewaltdiebstahl (Raubüberfälle) −37 % im April vs. Q1 2026; Nachtangriffe (1-6 Uhr) von 20 % auf 11,5 % der Fälle gesunken; Sauberkeitsbeschwerden −50 % in ersten 19 Apriltagen vs. März. Nur 2 Betriebe verstießen gegen die Verordnung. Der Bürgermeister selbst nennt den Beobachtungszeitraum 'kurz' — vollständige Bewertung Ende Mai geplant. Kommunale Maßnahme (Schaerbeek), noch nicht vom Brüsseler Gewest bewertet."
+      },
+      "nextStep": {
+        "fr": "Suivre l'évaluation officielle fin mai 2026 à Schaerbeek. Si résultats confirmés par la Région → V2 pour carte security.",
+        "nl": "Officiële evaluatie eind mei 2026 in Schaarbeek opvolgen. Bij bevestiging door het Gewest → V2 voor kaart security.",
+        "en": "Follow official evaluation late May 2026 in Schaerbeek. If results confirmed by the Region → V2 for security card.",
+        "de": "Offizielle Bewertung Ende Mai 2026 in Schaerbeek verfolgen. Bei Bestätigung durch das Gewest → V2 für security-Karte."
+      },
+      "promotedTo": "",
+      "archivedAt": null
+    },
     {
       "id": "2026-05-03-slrb-plan-social-gandhi-2",
       "date": "2026-05-03",

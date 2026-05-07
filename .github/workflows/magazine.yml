@@ -31,6 +31,8 @@ jobs:
 
       - name: Build magazine
         id: build
+        env:
+          UMAMI_WEBSITE_ID: ${{ vars.UMAMI_WEBSITE_ID }}
         run: |
           npm run magazine:build
           if [ ! -d "docs/magazine/latest" ]; then

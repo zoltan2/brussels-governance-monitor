@@ -568,6 +568,31 @@ function SubscribeSection({
   );
 }
 
+// ---------- 9 mai — Fête de l'Iris ----------
+
+const irisTexts: Record<string, { title: string; body: string; link: string }> = {
+  fr: {
+    title: 'Fête de l’Iris — 9 mai 2026',
+    body: 'La Région de Bruxelles-Capitale fête ses 37 ans. Née le 9 mai 1989 d’un compromis communautaire, elle célèbre aujourd’hui l’Iris, sa fleur emblème. Édition 2026 : format réduit, discours de fond au Parlement.',
+    link: 'Carte Institutionnel →',
+  },
+  nl: {
+    title: 'Irisfeest — 9 mei 2026',
+    body: 'Het Brussels Hoofdstedelijk Gewest viert zijn 37e verjaardag. Opgericht op 9 mei 1989 via een communautair compromis, viert het vandaag de Iris, zijn emblematische bloem. Editie 2026 : beperkt format, inhoudelijke toespraken in het Parlement.',
+    link: 'Kaart Institutioneel →',
+  },
+  en: {
+    title: 'Iris Festival — 9 May 2026',
+    body: 'The Brussels Capital Region turns 37. Born on 9 May 1989 from a community compromise, it celebrates today the Iris, its emblematic flower. 2026 edition: reduced format, substantive speeches in Parliament.',
+    link: 'Institutional card →',
+  },
+  de: {
+    title: 'Irisfest — 9. Mai 2026',
+    body: 'Die Region Brüssel-Hauptstadt feiert ihren 37. Geburtstag. Am 9. Mai 1989 aus einem Gemeinschaftskompromiss entstanden, feiert sie heute die Iris, ihre Symbolblume. Ausgabe 2026 : reduziertes Format, grundlegende Reden im Parlament.',
+    link: 'Karte Institutionell →',
+  },
+};
+
 // ---------- 22 mars — 10e anniversaire attentats ----------
 
 const commemorationTexts: Record<string, { title: string; body: string }> = {
@@ -590,15 +615,32 @@ const commemorationTexts: Record<string, { title: string; body: string }> = {
 };
 
 function CommemorationBanner({ locale }: { locale: string }) {
-  // Always render on March 22 — for SSG, this is build-time.
-  // Since the site rebuilds daily via Vercel deploy, this is accurate.
+  // Renders on specific calendar dates. Site rebuilds daily via Vercel deploy.
   const now = new Date();
-  const isCommemorationDay =
-    now.getMonth() === 2 && now.getDate() === 22; // March = month 2 (0-indexed)
+  const month = now.getMonth(); // 0-indexed
+  const day = now.getDate();
+
+  const isCommemorationDay = month === 2 && day === 22; // March 22
+  const isIrisDay = month === 4 && day === 9;           // May 9
+
+  if (isIrisDay) {
+    const text = irisTexts[locale] ?? irisTexts.fr;
+    return (
+      <div className="mx-auto mt-6 max-w-5xl border-l-4 border-blue-700 bg-blue-50 px-6 py-5">
+        <p className="text-sm font-semibold text-blue-900">{text.title}</p>
+        <p className="mt-1 text-sm leading-relaxed text-blue-800">
+          {text.body}{' '}
+          <Link href={{ pathname: '/domains/[slug]', params: { slug: 'institutional' } }} className="underline underline-offset-2 hover:text-blue-900">
+            {text.link}
+          </Link>
+        </p>
+      </div>
+    );
+  }
 
   if (!isCommemorationDay) return null;
 
-  const text = commemorationTexts[locale] || commemorationTexts.fr;
+  const text = commemorationTexts[locale] ?? commemorationTexts.fr;
 
   return (
     <div className="mx-auto mt-6 max-w-5xl border-l-4 border-slate-700 bg-slate-50 px-6 py-5">

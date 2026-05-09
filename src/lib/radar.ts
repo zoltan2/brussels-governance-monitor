@@ -99,7 +99,7 @@ export function getVeilleSourceCount(): number {
 
 export function getActiveSignals(locale: Locale, limit?: number): LocalizedRadarEntry[] {
   const active = parsed.entries
-    .filter((e) => e.status === 'active')
+    .filter((e) => e.status === 'active' || e.status === 'confirmed')
     .sort((a, b) => b.date.localeCompare(a.date))
     .map((e) => localize(e, locale));
   return limit ? active.slice(0, limit) : active;

@@ -1,0 +1,114 @@
+name: Content Lint
+
+on:
+  pull_request:
+    paths:
+      - 'content/**'
+
+jobs:
+  content-lint:
+    name: Editorial content checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed content files
+        run: |
+          git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'content/' \
+            | grep '\.mdx$' > /tmp/changed_content.txt || true
+          echo "Changed MDX files:"
+          cat /tmp/changed_content.txt
+          echo "---"
+
+      - name: Temporal phrases check
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          grep -v '^#' scripts/content-lint/temporal-patterns.txt \
+            | grep -v '^[[:space:]]*$' > /tmp/patterns_clean.txt
+          VIOLATIONS=""
+          while IFS= read -r file; do
+            if [ ! -f "$file" ]; then continue; fi
+            MATCHES=$(grep -n -E -f /tmp/patterns_clean.txt "$file" || true)
+            if [ -n "$MATCHES" ]; then
+              VIOLATIONS="$VIOLATIONS\n--- $file ---\n$MATCHES"
+            fi
+          done < /tmp/changed_content.txt
+          if [ -n "$VIOLATIONS" ]; then
+            echo "FAIL: Temporal phrases found (content-integrity Rule 1)"
+            printf "%b\n" "$VIOLATIONS"
+            echo ""
+            echo "Remplacer par des dates absolues (ex: 'avant le 15 juin 2026' plutôt que 'prochainement')."
+            exit 1
+          fi
+          echo "OK: No temporal phrases"
+
+      - name: Sources vides
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          SCOPED_DIRS="content/domain-cards content/dossiers content/sector-cards content/solution-cards content/comparison-cards"
+          VIOLATIONS=""
+          while IFS= read -r file; do
+            if [ ! -f "$file" ]; then continue; fi
+            IN_SCOPE=0
+            for dir in $SCOPED_DIRS; do
+              case "$file" in $dir/*) IN_SCOPE=1; break;; esac
+            done
+            if [ "$IN_SCOPE" = "0" ]; then continue; fi
+            FM=$(awk 'NR==1{if(/^---$/) f=1; next} f && /^---$/{exit} f{print}' "$file")
+            if echo "$FM" | grep -qE 'sources:\s*\[\]'; then
+              VIOLATIONS="$VIOLATIONS\n$file"
+            fi
+          done < /tmp/changed_content.txt
+          if [ -n "$VIOLATIONS" ]; then
+            echo "FAIL: Sources vides (sources: []) dans les fichiers suivants :"
+            printf "%b\n" "$VIOLATIONS"
+            echo ""
+            echo "Ajouter au moins une source avec label + url + accessedAt."
+            exit 1
+          fi
+          echo "OK: No empty sources"
+
+      - name: lastModified mis à jour
+        if: ${{ !contains(github.event.pull_request.labels.*.name, 'skip-lastmodified-check') }}
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          SCOPED_DIRS="content/domain-cards content/dossiers content/sector-cards content/solution-cards content/comparison-cards"
+          VIOLATIONS=""
+          while IFS= read -r file; do
+            if [ ! -f "$file" ]; then continue; fi
+            IN_SCOPE=0
+            for dir in $SCOPED_DIRS; do
+              case "$file" in $dir/*) IN_SCOPE=1; break;; esac
+            done
+            if [ "$IN_SCOPE" = "0" ]; then continue; fi
+            LM_HEAD=$(awk 'NR==1{if(/^---$/) f=1; next} f && /^---$/{exit} f{print}' "$file" \
+              | grep '^lastModified:' | head -1 \
+              | sed 's/lastModified:\s*//' | tr -d '"' | tr -d "'")
+            LM_BASE=$(git show "origin/${{ github.base_ref }}:$file" 2>/dev/null \
+              | awk 'NR==1{if(/^---$/) f=1; next} f && /^---$/{exit} f{print}' \
+              | grep '^lastModified:' | head -1 \
+              | sed 's/lastModified:\s*//' | tr -d '"' | tr -d "'")
+            if [ -z "$LM_HEAD" ]; then continue; fi
+            if [ "$LM_HEAD" = "$LM_BASE" ]; then
+              VIOLATIONS="$VIOLATIONS\n$file (lastModified: $LM_HEAD — inchangé)"
+            fi
+          done < /tmp/changed_content.txt
+          if [ -n "$VIOLATIONS" ]; then
+            echo "FAIL: lastModified non mis à jour dans les fichiers suivants :"
+            printf "%b\n" "$VIOLATIONS"
+            echo ""
+            echo "Mettre à jour lastModified à la date du jour dans le frontmatter."
+            echo "Pour les migrations bulk, ajouter le label 'skip-lastmodified-check' à la PR."
+            exit 1
+          fi
+          echo "OK: All lastModified dates updated"

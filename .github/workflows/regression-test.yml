@@ -1,0 +1,88 @@
+name: Regression Test
+
+on:
+  workflow_run:
+    workflows: ["Smoke Test"]
+    types: [completed]
+    branches: [main]
+
+jobs:
+  regression:
+    name: Site health regression checks
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Locale availability
+        run: |
+          BASE="https://governance.brussels"
+          for ROUTE in "/nl" "/en" "/de"; do
+            HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L --max-time 30 "$BASE$ROUTE")
+            if [ "$HTTP" = "000" ]; then
+              echo "FAIL: curl error on $BASE$ROUTE (network error or timeout)"; exit 1
+            fi
+            if [ "$HTTP" != "200" ]; then
+              echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
+            fi
+            echo "OK: $BASE$ROUTE → $HTTP"
+          done
+
+      - name: Key pages availability
+        run: |
+          BASE="https://governance.brussels"
+          # metro-3 est le dossier de référence stable (projet décennal, slug canonique)
+          for ROUTE in "/fr/recherche" "/fr/radar" "/fr/quiz" "/fr/dossiers/metro-3"; do
+            HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L --max-time 30 "$BASE$ROUTE")
+            if [ "$HTTP" = "000" ]; then
+              echo "FAIL: curl error on $BASE$ROUTE (network error or timeout)"; exit 1
+            fi
+            if [ "$HTTP" != "200" ]; then
+              echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
+            fi
+            echo "OK: $BASE$ROUTE → $HTTP"
+          done
+
+      - name: Sitemap and robots
+        run: |
+          BASE="https://governance.brussels"
+          for ROUTE in "/sitemap.xml" "/robots.txt"; do
+            HTTP=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 "$BASE$ROUTE")
+            if [ "$HTTP" = "000" ]; then
+              echo "FAIL: curl error on $BASE$ROUTE (network error or timeout)"; exit 1
+            fi
+            if [ "$HTTP" != "200" ]; then
+              echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
+            fi
+            echo "OK: $BASE$ROUTE → $HTTP"
+          done
+
+      - name: 404 handling
+        run: |
+          HTTP=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 \
+            "https://governance.brussels/fr/404test-inexistant")
+          if [ "$HTTP" != "404" ]; then
+            echo "FAIL: expected 404 on nonexistent page, got $HTTP"; exit 1
+          fi
+          echo "OK: 404 handler returns $HTTP"
+
+      - name: Security headers
+        run: |
+          HEADER=$(curl -sI --max-time 30 "https://governance.brussels/fr" \
+            | grep -i "x-content-type-options" | tr -d '\r')
+          if [ -z "$HEADER" ]; then
+            echo "FAIL: X-Content-Type-Options header missing on /fr"; exit 1
+          fi
+          echo "OK: $HEADER"
+
+      - name: API health
+        run: |
+          HTTP=$(curl -s -o /tmp/health_body --max-time 30 -w "%{http_code}" \
+            "https://governance.brussels/api/health")
+          BODY=$(cat /tmp/health_body)
+          if [ "$HTTP" != "200" ]; then
+            echo "FAIL: /api/health returned $HTTP"; exit 1
+          fi
+          echo "$BODY" | jq -e '.status == "ok"' > /dev/null 2>&1 || {
+            echo "FAIL: /api/health body unexpected: $BODY"; exit 1
+          }
+          echo "OK: /api/health → $HTTP, body: $BODY"

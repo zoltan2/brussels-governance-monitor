@@ -344,8 +344,8 @@ function renderFormattedText(
   lines.forEach((line, lineIdx) => {
     if (lineIdx > 0) result.push(<br key={`br-${lineIdx}`} />);
 
-    // Split on **bold** and *italic* markers
-    const parts = line.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/);
+    // Split on **bold**, *italic*, and bare https?:// URLs
+    const parts = line.split(/(\*\*[^*]+\*\*|\*[^*]+\*|https?:\/\/[^\s]+)/);
     parts.forEach((part, partIdx) => {
       const key = `${lineIdx}-${partIdx}`;
       if (part.startsWith('**') && part.endsWith('**')) {
@@ -359,6 +359,12 @@ function renderFormattedText(
           <em key={key} style={{ ...baseStyle, fontStyle: 'italic' }}>
             {part.slice(1, -1)}
           </em>,
+        );
+      } else if (part.startsWith('http://') || part.startsWith('https://')) {
+        result.push(
+          <a key={key} href={part} style={{ ...baseStyle, color: '#d97706', textDecoration: 'underline' }}>
+            {part}
+          </a>,
         );
       } else if (part) {
         result.push(<span key={key}>{part}</span>);

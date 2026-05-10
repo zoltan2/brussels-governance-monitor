@@ -50,7 +50,7 @@ jobs:
         run: |
           BASE="https://governance.brussels"
           for ROUTE in "/" "/fr" "/fr/data"; do
-            HTTP=$(curl -o /dev/null -s -w "%{http_code}" "$BASE$ROUTE")
+            HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L "$BASE$ROUTE")
             if [ "$HTTP" != "200" ]; then
               echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
             fi

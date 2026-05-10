@@ -1,42 +1,42 @@
 {
-  "week": "2026-w18",
-  "weekStart": "2026-04-27",
-  "created_at": "2026-05-03T21:20:25.058Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w19",
+  "weekStart": "2026-05-04",
+  "created_at": "2026-05-10T21:03:27.897Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "1 domaine, 3 dossiers mis à jour",
-    "nl": "1 domein, 3 dossiers bijgewerkt",
-    "en": "1 domain, 3 dossiers updated",
-    "de": "1 Bereich, 3 Dossiers aktualisiert"
+    "fr": "5 domaines mis à jour",
+    "nl": "5 domeinen bijgewerkt",
+    "en": "5 domains updated",
+    "de": "5 Bereiche aktualisiert"
   },
   "weeklyNumber": {
-    "value": "62 234",
+    "value": "12 % (était 6 %)",
     "label": {
-      "fr": "Ménages en attente d'un logement social à Bruxelles",
-      "nl": "Gezinnen op de wachtlijst voor een sociale woning in Brussel",
-      "en": "Households on the waiting list for social housing in Brussels",
-      "de": "Haushalte auf der Warteliste für eine Sozialwohnung in Brüssel"
+      "fr": "TVA nuitées hôtel (depuis 1er mars 2026)",
+      "nl": "TVA nuitées hôtel (depuis 1er mars 2026)",
+      "en": "TVA nuitées hôtel (depuis 1er mars 2026)",
+      "de": "TVA nuitées hôtel (depuis 1er mars 2026)"
     },
     "source": {
-      "fr": "SLRB / VRT NWS (février 2026, situation fin 2025)",
-      "nl": "BGHM / VRT NWS (februari 2026, situatie eind 2025)",
-      "en": "SLRB / VRT NWS (February 2026, end-2025 situation)",
-      "de": "SLRB / VRT NWS (Februar 2026, Stand Ende 2025)"
+      "fr": "Accord budgétaire fédéral",
+      "nl": "Accord budgétaire fédéral",
+      "en": "Accord budgétaire fédéral",
+      "de": "Accord budgétaire fédéral"
     }
   },
   "closingNote": {
-    "fr": "Bonne semaine à tous. La consultation participative pour la refonte de la homepage est ouverte : votez les axes que vous voulez voir prioritaires sur https://governance.brussels/fr/refonte . Trois minutes, anonyme, votre voix compte. Merci !",
+    "fr": "Bonne semaine à tous.",
     "nl": "Een goede week gewenst.",
     "en": "Wishing you all a good week.",
     "de": "Allen eine gute Woche."
   },
   "commitmentCount": 16,
   "updatedTopics": [
-    "housing",
-    "dossier-bim-bruxelles",
-    "dossier-seniors",
-    "dossier-slrb"
-  ],
-  "sent_at": "2026-05-03T21:36:49.616Z"
+    "economy",
+    "institutional",
+    "mobility",
+    "security",
+    "urban-planning"
+  ]
 }

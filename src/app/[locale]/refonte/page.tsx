@@ -58,7 +58,7 @@ export default async function RefontePage({
 
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-700 md:text-lg">
           Plutôt que d&apos;imposer un choix, on préfère ouvrir la réflexion.
-          Tu es invité·e à te positionner sur quatre axes structurants — pas
+          Tu es invité·e à te positionner sur cinq axes structurants — pas
           sur des maquettes finalisées, mais sur des orientations claires.
         </p>
 

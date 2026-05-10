@@ -31,7 +31,7 @@ jobs:
         run: |
           BASE="https://governance.brussels"
           # metro-3 est le dossier de référence stable (projet décennal, slug canonique)
-          for ROUTE in "/fr/recherche" "/fr/radar" "/fr/quiz" "/fr/dossiers/metro-3"; do
+          for ROUTE in "/fr/domains" "/fr/radar" "/fr/quiz" "/fr/dossiers/metro-3"; do
             HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L --max-time 30 "$BASE$ROUTE")
             if [ "$HTTP" = "000" ]; then
               echo "FAIL: curl error on $BASE$ROUTE (network error or timeout)"; exit 1

@@ -29,6 +29,10 @@ jobs:
           if [ ! -s /tmp/changed_content.txt ]; then
             echo "No MDX files changed, skipping"; exit 0
           fi
+          if [ ! -s scripts/content-lint/temporal-patterns.txt ]; then
+            echo "ERROR: scripts/content-lint/temporal-patterns.txt manquant ou vide — check désactivé"
+            exit 1
+          fi
           grep -v '^#' scripts/content-lint/temporal-patterns.txt \
             | grep -v '^[[:space:]]*$' > /tmp/patterns_clean.txt
           VIOLATIONS=""

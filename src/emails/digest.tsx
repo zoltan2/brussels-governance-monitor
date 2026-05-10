@@ -55,7 +55,7 @@ const PHASE_STYLES: Record<string, { badgeBg: string; badgeText: string; badgeBo
 export const DARK_MODE_STYLE = `
 @media (prefers-color-scheme: dark) {
   .bgm-bg-page { background-color: #0f172a !important; }
-  .bgm-bg-card { background-color: #1e293b !important; }
+  .bgm-bg-card { background-color: #1e293b !important; border-color: #334155 !important; }
   .bgm-bg-section { background-color: #1e293b !important; background-image: none !important; }
   .bgm-bg-row-alt { background-color: #0f172a !important; }
   .bgm-bg-closing { background-color: #3a2e1f !important; }
@@ -65,9 +65,13 @@ export const DARK_MODE_STYLE = `
   .bgm-text-link { color: #93c5fd !important; }
   .bgm-text-closing-strong { color: #fde68a !important; }
   .bgm-text-closing-mute { color: #fbbf24 !important; }
+  .bgm-magazine-btn { background-color: #1e3a5f !important; }
+  .bgm-feedback-btn { color: #cbd5e1 !important; border-color: #475569 !important; }
+  .bgm-badge { background-color: #334155 !important; color: #cbd5e1 !important; border-color: #475569 !important; }
+  .bgm-divider { border-top-color: #334155 !important; }
 }
 [data-ogsc] .bgm-bg-page { background-color: #0f172a !important; }
-[data-ogsc] .bgm-bg-card { background-color: #1e293b !important; }
+[data-ogsc] .bgm-bg-card { background-color: #1e293b !important; border-color: #334155 !important; }
 [data-ogsc] .bgm-bg-section { background-color: #1e293b !important; background-image: none !important; }
 [data-ogsc] .bgm-bg-row-alt { background-color: #0f172a !important; }
 [data-ogsc] .bgm-bg-closing { background-color: #3a2e1f !important; }
@@ -77,6 +81,10 @@ export const DARK_MODE_STYLE = `
 [data-ogsc] .bgm-text-link { color: #93c5fd !important; }
 [data-ogsc] .bgm-text-closing-strong { color: #fde68a !important; }
 [data-ogsc] .bgm-text-closing-mute { color: #fbbf24 !important; }
+[data-ogsc] .bgm-magazine-btn { background-color: #1e3a5f !important; }
+[data-ogsc] .bgm-feedback-btn { color: #cbd5e1 !important; border-color: #475569 !important; }
+[data-ogsc] .bgm-badge { background-color: #334155 !important; color: #cbd5e1 !important; border-color: #475569 !important; }
+[data-ogsc] .bgm-divider { border-top-color: #334155 !important; }
 `;
 
 const NEUTRAL_STYLE = { badgeBg: '#f1f5f9', badgeText: '#334155', badgeBorder: '#94a3b8', cardBorder: '#64748b' };
@@ -340,6 +348,9 @@ function renderFormattedText(
 ): React.ReactNode[] {
   const lines = text.split('\n');
   const result: React.ReactNode[] = [];
+  // Exclude color from inline children — let them inherit from the parent <p>'s class rule
+  // so that dark mode overrides (bgm-text-closing-strong !important) can cascade down.
+  const { color: _color, ...baseWithoutColor } = baseStyle;
 
   lines.forEach((line, lineIdx) => {
     if (lineIdx > 0) result.push(<br key={`br-${lineIdx}`} />);
@@ -350,13 +361,13 @@ function renderFormattedText(
       const key = `${lineIdx}-${partIdx}`;
       if (part.startsWith('**') && part.endsWith('**')) {
         result.push(
-          <strong key={key} style={{ ...baseStyle, fontWeight: 700 }}>
+          <strong key={key} style={{ ...baseWithoutColor, fontWeight: 700 }}>
             {part.slice(2, -2)}
           </strong>,
         );
       } else if (part.startsWith('*') && part.endsWith('*')) {
         result.push(
-          <em key={key} style={{ ...baseStyle, fontStyle: 'italic' }}>
+          <em key={key} style={{ ...baseWithoutColor, fontStyle: 'italic' }}>
             {part.slice(1, -1)}
           </em>,
         );
@@ -600,6 +611,7 @@ export function DigestContent({
             <td style={{ padding: '16px 40px 0', textAlign: 'center' as const }}>
               <Button
                 href={magazineUrl}
+                className="bgm-magazine-btn"
                 style={{
                   display: 'inline-block',
                   backgroundColor: '#0f172a',
@@ -672,7 +684,7 @@ export function DigestContent({
         {/* ===== DIVIDER ===== */}
         <tr>
           <td style={{ padding: '28px 40px 0' }}>
-            <div style={{ borderTop: '1px solid #e2e8f0', height: 0 }} />
+            <div className="bgm-divider" style={{ borderTop: '1px solid #e2e8f0', height: 0 }} />
           </td>
         </tr>
 
@@ -737,6 +749,7 @@ export function DigestContent({
                           <td style={{ padding: '20px 22px' }}>
                             {badgeLabel && (
                               <span
+                                className="bgm-badge"
                                 style={{
                                   display: 'inline-block',
                                   backgroundColor: colors.badgeBg,
@@ -800,7 +813,7 @@ export function DigestContent({
         {/* ===== DIVIDER ===== */}
         <tr>
           <td style={{ padding: '8px 40px 0' }}>
-            <div style={{ borderTop: '1px solid #e2e8f0', height: 0 }} />
+            <div className="bgm-divider" style={{ borderTop: '1px solid #e2e8f0', height: 0 }} />
           </td>
         </tr>
 
@@ -910,6 +923,7 @@ export function DigestContent({
                 <tbody>
                   <tr>
                     <td
+                      className="bgm-divider"
                       style={{
                         borderTop: '1px solid #e2e8f0',
                         paddingTop: '24px',
@@ -930,6 +944,7 @@ export function DigestContent({
                             <td style={{ paddingRight: '10px' }}>
                               <Link
                                 href={feedbackYesUrl}
+                                className="bgm-feedback-btn"
                                 style={{
                                   display: 'inline-block',
                                   padding: '8px 20px',
@@ -947,6 +962,7 @@ export function DigestContent({
                             <td>
                               <Link
                                 href={feedbackNoUrl}
+                                className="bgm-feedback-btn"
                                 style={{
                                   display: 'inline-block',
                                   padding: '8px 20px',
@@ -982,6 +998,7 @@ export function DigestContent({
               <tbody>
                 <tr>
                   <td
+                    className="bgm-divider"
                     style={{
                       borderTop: '1px solid #e2e8f0',
                       paddingTop: '20px',

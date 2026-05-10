@@ -1,0 +1,27 @@
+# Patterns de phrases temporelles relatives interdites (content-integrity.md Rule 1)
+# Format : un pattern par ligne, grep -E compatible
+# NOTE: \b = word boundary — GNU grep uniquement (ubuntu-latest). Non supporté par BSD grep (macOS).
+
+# Français
+prochainement
+récemment
+dans les? (prochains?|prochaines?)
+dans l'attente
+en attente de
+bientôt
+à venir\b
+dans [0-9]+ (jour|semaine|mois)
+d'ici (quelques|plusieurs)
+
+# Néerlandais
+binnenkort
+in afwachting
+
+# Allemand
+demnächst
+bald\b
+
+# Anglais
+soon\b
+in the coming (days|weeks|months)
+upcoming\b

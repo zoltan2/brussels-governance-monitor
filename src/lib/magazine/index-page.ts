@@ -49,9 +49,9 @@ const STRINGS: Partial<Record<IndexLocale, IndexStrings>> = {
     pageTitle: 'BGM Magazine — Brussels Governance Monitor',
     publicationKicker: 'Magazine hebdomadaire',
     publisherTag: 'Édité par Zoltán Jánosi',
-    heroTagline: 'Une semaine bruxelloise, en huit signaux.',
+    heroTagline: 'Une semaine bruxelloise, distillée.',
     heroBlurb:
-      'Chaque lundi, le digest du Brussels Governance Monitor distille la semaine institutionnelle bruxelloise en huit signaux. Une lecture horizontale, conçue pour cinq minutes — sans bruit ni parti pris.',
+      'Chaque lundi, le digest du Brussels Governance Monitor distille la semaine institutionnelle bruxelloise en quelques signaux clés. Une lecture horizontale, conçue pour cinq minutes — sans bruit ni parti pris.',
     scrollCue: 'Découvrir',
     latestSection: 'Dernier numéro',
     latestKicker: 'À lire cette semaine',

@@ -23,9 +23,13 @@ jobs:
           [ -n "$VERCEL_TEAM_ID" ] && QUERY="$QUERY&teamId=$VERCEL_TEAM_ID"
 
           while [ $ELAPSED -lt $TIMEOUT ]; do
-            RESPONSE=$(curl -s \
+            RESPONSE=$(curl -s --max-time 30 \
               "https://api.vercel.com/v6/deployments?$QUERY" \
               -H "Authorization: Bearer $VERCEL_TOKEN")
+            if [ -z "$RESPONSE" ]; then
+              echo "WARN: Vercel API unreachable, retrying in 15s..."
+              sleep 15; ELAPSED=$((ELAPSED + 15)); continue
+            fi
             if echo "$RESPONSE" | jq -e '.error' > /dev/null 2>&1; then
               echo "VERCEL API ERROR: $(echo "$RESPONSE" | jq -r '.error.message')"
               exit 1
@@ -50,7 +54,7 @@ jobs:
         run: |
           BASE="https://governance.brussels"
           for ROUTE in "/" "/fr" "/fr/data"; do
-            HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L "$BASE$ROUTE")
+            HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L --max-time 30 "$BASE$ROUTE")
             if [ "$HTTP" != "200" ]; then
               echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
             fi
@@ -59,7 +63,7 @@ jobs:
 
       - name: Pagefind probe
         run: |
-          HTTP=$(curl -o /dev/null -s -w "%{http_code}" "https://governance.brussels/pagefind/pagefind.js")
+          HTTP=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 "https://governance.brussels/pagefind/pagefind.js")
           if [ "$HTTP" != "200" ]; then
             echo "FAIL: pagefind.js returned $HTTP (search index may not be served)"; exit 1
           fi

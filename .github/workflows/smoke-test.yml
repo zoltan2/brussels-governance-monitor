@@ -1,0 +1,66 @@
+name: Smoke Test
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  smoke:
+    name: Post-deploy smoke test
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+      COMMIT_SHA: ${{ github.sha }}
+
+    steps:
+      - name: Wait for Vercel deployment
+        run: |
+          TIMEOUT=300
+          ELAPSED=0
+          QUERY="projectId=$VERCEL_PROJECT_ID&limit=5"
+          [ -n "$VERCEL_TEAM_ID" ] && QUERY="$QUERY&teamId=$VERCEL_TEAM_ID"
+
+          while [ $ELAPSED -lt $TIMEOUT ]; do
+            RESPONSE=$(curl -s \
+              "https://api.vercel.com/v6/deployments?$QUERY" \
+              -H "Authorization: Bearer $VERCEL_TOKEN")
+            if echo "$RESPONSE" | jq -e '.error' > /dev/null 2>&1; then
+              echo "VERCEL API ERROR: $(echo "$RESPONSE" | jq -r '.error.message')"
+              exit 1
+            fi
+            STATE=$(echo "$RESPONSE" \
+              | jq -r --arg sha "$COMMIT_SHA" \
+                '.deployments[] | select(.meta.githubCommitSha == $sha) | .readyState' \
+              | head -1)
+            if [ "$STATE" = "READY" ]; then echo "Deployment ready"; break; fi
+            if [ "$STATE" = "ERROR" ] || [ "$STATE" = "CANCELED" ]; then
+              echo "VERCEL BUILD FAILED: state=$STATE"; exit 1
+            fi
+            sleep 15
+            ELAPSED=$((ELAPSED + 15))
+          done
+          if [ $ELAPSED -ge $TIMEOUT ]; then
+            echo "WEBHOOK DROP SUSPECTED — no Vercel deployment found for SHA $COMMIT_SHA after ${TIMEOUT}s"
+            exit 1
+          fi
+
+      - name: HTTP availability checks
+        run: |
+          BASE="https://governance.brussels"
+          for ROUTE in "/" "/fr" "/fr/data"; do
+            HTTP=$(curl -o /dev/null -s -w "%{http_code}" "$BASE$ROUTE")
+            if [ "$HTTP" != "200" ]; then
+              echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
+            fi
+            echo "OK: $BASE$ROUTE → $HTTP"
+          done
+
+      - name: Pagefind probe
+        run: |
+          HTTP=$(curl -o /dev/null -s -w "%{http_code}" "https://governance.brussels/pagefind/pagefind.js")
+          if [ "$HTTP" != "200" ]; then
+            echo "FAIL: pagefind.js returned $HTTP (search index may not be served)"; exit 1
+          fi
+          echo "OK: pagefind.js → $HTTP"

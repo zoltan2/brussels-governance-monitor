@@ -4,10 +4,10 @@ shortTitle: "Fusion des polices"
 slug: fusion-polices
 locale: fr
 dossierType: security
-phase: planned
+phase: in-progress
 crisisImpact: resolved
 decisionLevel: federal
-summary: "Le gouvernement fédéral a approuvé en deuxième lecture (23 déc. 2025) un avant-projet de loi fusionnant les 6 zones de police bruxelloises en une zone unique, avec un budget de 65M EUR. Le ministre Quintin a présenté le projet en commission Intérieur de la Chambre (10 fév. 2026). Vote attendu avant l'été 2026."
+summary: "La loi fusionnant les 6 zones de police bruxelloises en une seule a été votée en plénière Chambre le 11 mai 2026. Implémentation avant le 1er janvier 2028. Recours à la Cour constitutionnelle déposé simultanément par 4 bourgmestres (Berchem-Sainte-Agathe, Forest, Ganshoren, Woluwe-Saint-Lambert)."
 estimatedBudget: "65 M EUR sur 5 ans"
 stakeholders:
   - "Gouvernement fédéral (Intérieur)"
@@ -98,6 +98,9 @@ sources:
   - label: "BRUZZ Politiek — Kamercommissie geeft groen licht voor fusie Brusselse politiezones (21 avril 2026)"
     url: "https://www.bruzz.be/actua/veiligheid/kamercommissie-zet-licht-op-groen-voor-de-fusie-van-de-brusselse-politiezones-2026-04-21"
     accessedAt: "2026-04-24"
+  - label: "BRUZZ — Brusselse burgemeesters vechten fusie van politiezones aan bij Grondwettelijk Hof (11 mai 2026)"
+    url: "https://www.bruzz.be/actua/veiligheid/brusselse-burgemeesters-vechten-fusie-van-politiezones-aan-bij-grondwettelijk-hof-2026-05-11"
+    accessedAt: "2026-05-11"
 metrics:
   - label: "Zones de police actuelles"
     value: "6"
@@ -113,11 +116,17 @@ metrics:
     source: "MR (argumentaire)"
     date: "2025-01-01"
   - label: "Mise en œuvre visée"
-    value: "1er janv."
-    unit: "2027"
-    source: "Gouvernement fédéral"
-    date: "2025-12-23"
+    value: "Avant 1er janv."
+    unit: "2028"
+    source: "Loi fédérale votée 11 mai 2026 (18 mois max. après publication)"
+    date: "2026-05-11"
 alerts:
+  - label: "Recours à la Cour constitutionnelle : Berchem-Sainte-Agathe, Forest, Ganshoren, Woluwe-Saint-Lambert (11 mai 2026)"
+    severity: warning
+    date: "2026-05-11"
+  - label: "Loi adoptée en plénière Chambre (11 mai 2026) — implémentation avant le 1er janvier 2028"
+    severity: info
+    date: "2026-05-11"
   - label: "Commission Intérieur Chambre : 2e lecture adoptée (21 avr. 2026, 9 pour / 3 contre / 3 abst.)"
     severity: info
     date: "2026-04-21"
@@ -127,9 +136,6 @@ alerts:
   - label: "Projet présenté en commission Intérieur de la Chambre (10 fév. 2026)"
     severity: info
     date: "2026-02-10"
-  - label: "Vote parlementaire attendu avant l'été 2026"
-    severity: warning
-    date: "2026-02-10"
   - label: "DPR Bruxelles : loyauté fédérale si le Parlement vote la fusion"
     severity: info
     date: "2026-02-13"
@@ -138,10 +144,31 @@ alerts:
     date: "2026-03-13"
 confidenceLevel: official
 dprCommitment: "Si le Parlement fédéral vote favorablement la fusion des zones de police, la Région s'inscrira dans le principe de loyauté fédérale et mettra cette zone unique sur pied."
-lastModified: "2026-04-24"
+lastModified: "2026-05-11"
 changeType: updated
-changeSummary: "Commission Intérieur de la Chambre adopte en 2e lecture le projet de fusion des 6 zones (21 avril 2026). Vote : 9 pour (majorité Arizona), 3 contre (PS + PVDA), 3 abstentions (VB + Groen-Ecolo). Texte transmis à la plénière Chambre."
+changeSummary: "Loi votée en plénière Chambre le 11 mai 2026. Recours simultané à la Cour constitutionnelle déposé par Berchem-Sainte-Agathe (Lamouline, Les Engagés), Forest, Ganshoren et Woluwe-Saint-Lambert (Spaepens, PS). D'autres communes en délibération (Koekelberg, Auderghem, Woluwe-Saint-Pierre, Evere). Implémentation avant le 1er janvier 2028."
 ---
+
+## Loi adoptée — Recours à la Cour constitutionnelle (11 mai 2026)
+
+Le **11 mai 2026**, la **Chambre des représentants** a adopté en **séance plénière** la loi fusionnant les six zones de police bruxelloises en une zone unique. La loi impose l'implémentation **avant le 1er janvier 2028** (18 mois maximum après sa publication au Moniteur belge).
+
+**Recours à la Cour constitutionnelle :** simultanément au vote, plusieurs bourgmestres ont déposé un recours :
+
+| Commune | Bourgmestre | Parti |
+|---------|-------------|-------|
+| Berchem-Sainte-Agathe | Christian Lamouline | Les Engagés |
+| Forest | Charles Spaepens | PS |
+| Ganshoren | Charles Spaepens | PS |
+| Woluwe-Saint-Lambert | Charles Spaepens | PS |
+
+D'autres communes en délibération : **Koekelberg, Auderghem, Woluwe-Saint-Pierre, Evere**.
+
+**Argument central :** Lamouline dénonce la sous-représentation structurelle des petites communes dans la future zone unique — sa commune ne disposerait que de **1,4 %** des voix dans les décisions de la zone fusionnée.
+
+**Paradoxe politique :** Les Engagés votent la loi au niveau fédéral tout en contestant son application localement via leurs bourgmestres.
+
+Source : BRUZZ Politiek (11 mai 2026).
 
 ## Commission Intérieur Chambre : 2e lecture adoptée (21 avril 2026)
 
@@ -240,8 +267,9 @@ Le gouvernement fédéral a adopté en deuxième lecture, le 23 décembre 2025, 
 - **4 mars 2026** : projet approuvé en commission Intérieur de la Chambre (majorité fédérale)
 - **13 mars 2026** : motion de conflit d'intérêt DéFI/Ecolo prise en considération au Parlement bruxellois → concertation 60 jours
 - **21 avril 2026** : Commission Intérieur Chambre adopte en **2e lecture** (9-3-3) — texte transmis à la plénière
-- **Avant l'été 2026** : vote parlementaire attendu (objectif Quintin), sous réserve de la procédure de conflit d'intérêt
-- **~1 an après le vote** : entrée en vigueur de la zone unique bruxelloise (objectif 2027)
+- **11 mai 2026** : vote en **séance plénière** Chambre — loi adoptée
+- **11 mai 2026** : recours à la **Cour constitutionnelle** déposé par 4 bourgmestres bruxellois
+- **Avant le 1er janvier 2028** : implémentation obligatoire (18 mois max. après publication de la loi)
 
 ## Positions des acteurs
 
@@ -258,7 +286,7 @@ Le gouvernement fédéral a adopté en deuxième lecture, le 23 décembre 2025, 
 
 ## Enjeux à suivre
 
-- **Vote parlementaire** : le calendrier reste incertain ; un rejet ou un amendement significatif modifierait le projet
+- **Recours à la Cour constitutionnelle** : la Cour devra statuer sur la constitutionnalité de la loi ; un arrêt d'annulation suspendrait l'implémentation
 - **Antennes locales** : le modèle de police de proximité dans une zone unique n'est pas encore défini
 - **Norme KUL** : la révision du financement est attendue depuis 26 ans ; son résultat conditionne la viabilité de la zone unique
 - **Transition du personnel** : le statut des ~6 500 agents et ~1 000 civils des 6 zones actuelles devra être harmonisé

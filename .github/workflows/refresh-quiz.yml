@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: actions/setup-node@v4
         with:
@@ -48,10 +48,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Checkout bgm-ops
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: zoltan2/bgm-ops
           token: ${{ secrets.BGM_OPS_TOKEN }}

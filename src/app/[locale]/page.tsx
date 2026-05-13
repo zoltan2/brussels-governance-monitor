@@ -33,6 +33,7 @@ import {
   FolderOpen,
   LayoutGrid,
   Building2,
+  MessageSquare,
 } from 'lucide-react';
 
 const titles: Record<string, string> = {
@@ -124,6 +125,8 @@ export default async function HomePage({
         anchor={latestUpdate.anchor}
         locale={locale}
       />
+
+      <RefontePromo locale={locale} />
 
       <TwoColumnSection
         signals={radarSignals}
@@ -565,6 +568,35 @@ function SubscribeSection({
         <SubscribeForm dossierOptions={dossierOptions} />
       </div>
     </section>
+  );
+}
+
+// ──────────────────────────────────────────────
+// Refonte survey promo (FR only, ephemeral — remove when survey closes)
+// ──────────────────────────────────────────────
+
+function RefontePromo({ locale }: { locale: string }) {
+  if (locale !== 'fr') return null;
+  return (
+    <div className="mx-auto max-w-5xl px-4 pt-4">
+      <div className="flex flex-col gap-3 rounded-lg border border-brand-200 bg-brand-50/30 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:p-5">
+        <div className="flex items-start gap-3">
+          <MessageSquare size={18} className="mt-0.5 shrink-0 text-neutral-500" aria-hidden={true} />
+          <div>
+            <p className="text-sm font-semibold text-neutral-900">Aidez-nous à améliorer le site</p>
+            <p className="mt-0.5 text-xs text-neutral-600">Sondage de 5 questions · 2 minutes · résultats publics</p>
+          </div>
+        </div>
+        <Link
+          href="/refonte"
+          aria-label="Participer au sondage sur la refonte du site"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-brand-700 px-4 py-2 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50"
+        >
+          Participer
+          <ArrowRight size={14} aria-hidden={true} />
+        </Link>
+      </div>
+    </div>
   );
 }
 

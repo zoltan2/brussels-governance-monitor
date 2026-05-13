@@ -5,7 +5,6 @@ import { getRedirectsConfig } from './src/lib/redirects-301';
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ['@appsignal/nodejs'],
   async redirects() {
     // 301 permanents pour la migration des slugs localisés (spec 2026-05-03 §3.4-3.5).
     // Table dans src/lib/redirects-301.ts. Initialement vide ; se remplit dossier par

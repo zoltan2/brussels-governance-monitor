@@ -95,7 +95,6 @@ function PrivacyView() {
             <li>{t('thirdParties.vercel')}</li>
             <li>{t('thirdParties.umami')}</li>
             <li>{t('thirdParties.resend')}</li>
-            <li>{t('thirdParties.appsignal')}</li>
           </ul>
           <p className="text-xs text-neutral-500">{t('thirdParties.legalBasis')}</p>
           <p className="text-xs text-neutral-500">{t('thirdParties.transfers')}</p>

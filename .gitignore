@@ -16,9 +16,6 @@ dist/
 # Preview builds
 .preview/
 
-# Pagefind old locations (committed version is in public/pagefind/)
-.next/static/pagefind/
-
 # Environment
 .env
 .env.local
@@ -55,6 +52,7 @@ coverage/
 # Claude Code
 .claude/
 CLAUDE.md
+.superpowers/
 
 # Local analyses (never committed)
 .local/

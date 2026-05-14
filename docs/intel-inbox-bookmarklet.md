@@ -157,4 +157,79 @@ Si un contributeur perd son bookmarklet ou si le token est compromis :
 
 ## E2E smoke test (production)
 
-Voir section ci-dessous.
+### 1. Déployer sur Vercel et confirmer INBOX_SECRET
+
+1. Merge la PR `feat/intel-inbox` sur `main`
+2. Dans le dashboard Vercel → **Settings → Environment Variables**
+   - Ajouter `INBOX_SECRET` (scope : Production + Preview)
+   - Valeur : le secret généré à l'étape 1 du plan (ou régénérer si perdu)
+3. Déclencher un redéploiement (le merge suffit si Vercel webhook est actif)
+4. Vérifier que le déploiement est `Ready` avant de continuer
+
+### 2. Générer un bookmarklet personnel
+
+```bash
+cd ~/Dev/BXL
+node scripts/gen-bookmarklet.mjs Zoltan
+```
+
+Copier le `javascript:...` affiché.
+
+### 3. Installer dans le navigateur
+
+**Chrome / Brave :**
+1. Afficher la barre des favoris (`Cmd+Shift+B`)
+2. Clic droit → **Ajouter une page…**
+3. Nom : `BGM Intel`
+4. URL : coller le `javascript:...` généré
+5. Enregistrer
+
+**Firefox :**
+1. `Ctrl+D` → choisir la barre des favoris
+2. Modifier l'URL du favori créé → coller le `javascript:...`
+
+### 4. Tester sur rtbf.be
+
+1. Ouvrir `https://www.rtbf.be/article/...` (n'importe quel article sur Bruxelles)
+2. Sélectionner un paragraphe de texte
+3. Cliquer sur le favori `BGM Intel`
+4. Le panel doit apparaître (coin supérieur droit) avec :
+   - Le titre de la page
+   - Le texte sélectionné affiché en gris sous le textarea
+   - Ton prénom pré-rempli
+5. Ajouter une note, cliquer **Envoyer**
+6. Le bouton passe à `Envoi…` (désactivé, protection anti-double-clic)
+7. Après ~1s : `✅ Envoyé !` → le panel se ferme automatiquement
+
+### 5. Vérifier l'email
+
+- Vérifier `feedback@brusselsgovernance.be` (ou l'adresse `ADMIN_EMAIL`)
+- L'email doit avoir pour sujet : `[Intel] {titre de l'article} — Zoltan`
+- Corps : URL, contributeur, timestamp Europe/Brussels, note, texte sélectionné
+
+### 6. Tester la protection double-clic
+
+1. Ouvrir une nouvelle page, cliquer sur le bookmarklet
+2. Cliquer **Envoyer** deux fois rapidement
+3. Le bouton doit être désactivé après le premier clic → un seul email reçu
+
+### 7. Tester le rejet de token en production (curl)
+
+```bash
+# Doit retourner 401
+curl -s -o /dev/null -w "%{http_code}" -X POST https://governance.brussels/api/intel-inbox \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer mauvais-token" \
+  -d '{"url":"https://rtbf.be","title":"Test"}'
+
+# Doit retourner 401 (sans token)
+curl -s -o /dev/null -w "%{http_code}" -X POST https://governance.brussels/api/intel-inbox \
+  -H "Content-Type: application/json" \
+  -d '{"url":"https://rtbf.be","title":"Test"}'
+
+# Doit retourner 200 (avec le bon token)
+curl -s -X POST https://governance.brussels/api/intel-inbox \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $INBOX_SECRET" \
+  -d '{"url":"https://rtbf.be/article/test","title":"Test prod","contributor":"Zoltan"}'
+```

@@ -54,6 +54,12 @@ coverage/
 CLAUDE.md
 .superpowers/
 
+# Ghostcrab MCP (local SQLite memory — never commit)
+.ghostcrab/
+data/ghostcrab.sqlite
+data/ghostcrab-backend.log
+data/ghostcrab-backend.pid
+
 # Local analyses (never committed)
 .local/
 

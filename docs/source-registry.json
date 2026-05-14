@@ -1,5 +1,5 @@
 {
-  "description": "Registre des sources surveillées par BGM. 270 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités : P0 (critique) → P4 (radar).",
+  "description": "Registre des sources surveillées par BGM. 323 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
   "lastUpdated": "2026-03-07",
   "stats": {
     "total": 323,
@@ -32,7 +32,8 @@
       "tier": "editorial",
       "domaines": [
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-002",
@@ -54,7 +55,8 @@
         "budget",
         "institutional",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-003",
@@ -74,7 +76,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-004",
@@ -97,7 +100,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-005",
@@ -117,7 +121,8 @@
       "tier": "editorial",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-006",
@@ -137,7 +142,8 @@
       "tier": "editorial",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-007",
@@ -156,7 +162,8 @@
       "tier": "editorial",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-008",
@@ -179,7 +186,8 @@
         "budget",
         "employment",
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-009",
@@ -204,7 +212,8 @@
         "employment",
         "housing",
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-010",
@@ -224,7 +233,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-011",
@@ -247,7 +257,8 @@
         "housing",
         "mobility",
         "urban-planning"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-012",
@@ -269,7 +280,8 @@
         "budget",
         "institutional",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-013",
@@ -289,7 +301,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-014",
@@ -308,7 +321,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-015",
@@ -325,7 +339,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-016",
@@ -345,7 +360,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-017",
@@ -365,7 +381,8 @@
       "domaines": [
         "budget",
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-018",
@@ -385,7 +402,8 @@
       "tier": "editorial",
       "domaines": [
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-133",
@@ -404,7 +422,8 @@
       "tier": "editorial",
       "domaines": [
         "budget"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "_comment": "=== P0 — NOUVELLES SOURCES CRITIQUES ===",
@@ -439,7 +458,8 @@
         "institutional",
         "mobility",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-020",
@@ -460,7 +480,8 @@
       "domaines": [
         "budget",
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-021",
@@ -480,7 +501,8 @@
       "tier": "editorial",
       "domaines": [
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-022",
@@ -499,7 +521,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-023",
@@ -516,7 +539,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-024",
@@ -538,7 +562,8 @@
         "budget",
         "institutional",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-025",
@@ -557,7 +582,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-026",
@@ -576,7 +602,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-027",
@@ -593,7 +620,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-028",
@@ -610,7 +638,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P1 — HAUTE PRIORITE : INSTITUTIONNEL ===",
@@ -637,7 +666,8 @@
         "budget",
         "institutional",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-030",
@@ -654,7 +684,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-031",
@@ -676,7 +707,8 @@
         "education",
         "institutional",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-032",
@@ -696,7 +728,8 @@
       "tier": "editorial",
       "domaines": [
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-033",
@@ -716,7 +749,8 @@
       "tier": "editorial",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "_comment": "=== P1 — HAUTE PRIORITE : PRESSE FR ===",
@@ -738,7 +772,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-035",
@@ -757,7 +792,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-036",
@@ -781,7 +817,8 @@
         "budget",
         "economy",
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-037",
@@ -798,7 +835,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-038",
@@ -813,7 +851,8 @@
       "enabled": true,
       "notes": "Trimestriel coopératif. Investigation BXL/Belgique. Paywall partiel.",
       "tier": "editorial",
-      "domaines": []
+      "domaines": [],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-039",
@@ -830,7 +869,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-040",
@@ -847,7 +887,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-041",
@@ -867,7 +908,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-042",
@@ -891,7 +933,8 @@
         "mobility",
         "social",
         "urban-planning"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-043",
@@ -918,7 +961,8 @@
         "housing",
         "urban-planning",
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P1 — HAUTE PRIORITE : PRESSE NL ===",
@@ -942,7 +986,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-045",
@@ -966,7 +1011,8 @@
         "budget",
         "economy",
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-046",
@@ -983,7 +1029,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-047",
@@ -1000,7 +1047,8 @@
       "enabled": true,
       "notes": "Hebdomadaire de référence NL. Investigation. Paywall.",
       "tier": "editorial",
-      "domaines": []
+      "domaines": [],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-048",
@@ -1015,7 +1063,8 @@
       "enabled": true,
       "notes": "Web coopératif NL. Investigation politique/économique. Paywall.",
       "tier": "editorial",
-      "domaines": []
+      "domaines": [],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-049",
@@ -1030,7 +1079,8 @@
       "enabled": true,
       "notes": "Documentaires d'investigation VRT. Gratuit sur VRT MAX.",
       "tier": "editorial",
-      "domaines": []
+      "domaines": [],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-050",
@@ -1047,7 +1097,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-051",
@@ -1064,7 +1115,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-052",
@@ -1081,7 +1133,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-053",
@@ -1101,7 +1154,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P1 — HAUTE PRIORITE : PRESSE EN ===",
@@ -1125,7 +1179,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-055",
@@ -1142,7 +1197,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-056",
@@ -1159,7 +1215,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-057",
@@ -1179,7 +1236,8 @@
       "domaines": [
         "budget",
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P2 — PRIORITE MOYENNE : INSTITUTIONNEL ===",
@@ -1204,7 +1262,8 @@
       "tier": "editorial",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-059",
@@ -1224,7 +1283,8 @@
       "tier": "editorial",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-060",
@@ -1243,7 +1303,8 @@
       "tier": "editorial",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-061",
@@ -1264,7 +1325,8 @@
       "domaines": [
         "budget",
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-062",
@@ -1286,7 +1348,8 @@
         "education",
         "institutional",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "_comment": "=== P2 — PRIORITE MOYENNE : PRESSE FR ===",
@@ -1310,7 +1373,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-064",
@@ -1329,7 +1393,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-065",
@@ -1346,7 +1411,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-066",
@@ -1363,7 +1429,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-067",
@@ -1388,7 +1455,8 @@
         "budget",
         "economy",
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-068",
@@ -1409,7 +1477,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-069",
@@ -1426,7 +1495,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-070",
@@ -1443,7 +1513,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-071",
@@ -1460,7 +1531,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-072",
@@ -1477,7 +1549,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-073",
@@ -1497,7 +1570,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-074",
@@ -1514,7 +1588,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P2 — PRIORITE MOYENNE : PRESSE NL ===",
@@ -1538,7 +1613,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-076",
@@ -1555,7 +1631,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-077",
@@ -1574,7 +1651,8 @@
       "tier": "editorial",
       "domaines": [
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-078",
@@ -1596,7 +1674,8 @@
         "budget",
         "economy",
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-079",
@@ -1616,7 +1695,8 @@
       "domaines": [
         "economy",
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-080",
@@ -1633,7 +1713,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-081",
@@ -1652,7 +1733,8 @@
       "tier": "editorial",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-082",
@@ -1669,7 +1751,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-083",
@@ -1686,7 +1769,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-084",
@@ -1703,7 +1787,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-085",
@@ -1725,7 +1810,8 @@
         "budget",
         "employment",
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-086",
@@ -1742,7 +1828,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P2 — PRIORITE MOYENNE : PRESSE EN ===",
@@ -1764,7 +1851,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-088",
@@ -1781,7 +1869,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-089",
@@ -1798,7 +1887,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-090",
@@ -1815,7 +1905,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-091",
@@ -1832,7 +1923,8 @@
       "tier": "editorial",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-092",
@@ -1849,7 +1941,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-093",
@@ -1866,7 +1959,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-094",
@@ -1883,7 +1977,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-095",
@@ -1900,7 +1995,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P2 — PRIORITE MOYENNE : PRESSE DE ===",
@@ -1922,7 +2018,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-097",
@@ -1939,7 +2036,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P3 — COMPLEMENTAIRE : FR ===",
@@ -1961,7 +2059,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-099",
@@ -1978,7 +2077,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-100",
@@ -1995,7 +2095,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-101",
@@ -2012,7 +2113,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-102",
@@ -2029,7 +2131,8 @@
       "tier": "editorial",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-103",
@@ -2048,7 +2151,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-104",
@@ -2065,7 +2169,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-105",
@@ -2082,7 +2187,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-106",
@@ -2099,7 +2205,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P3 — COMPLEMENTAIRE : NL ===",
@@ -2121,7 +2228,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-108",
@@ -2138,7 +2246,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-109",
@@ -2158,7 +2267,8 @@
       "domaines": [
         "education",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-110",
@@ -2179,7 +2289,8 @@
       "domaines": [
         "economy",
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-111",
@@ -2194,7 +2305,8 @@
       "enabled": true,
       "notes": "Fonds investigation NL. Projets financés.",
       "tier": "editorial",
-      "domaines": []
+      "domaines": [],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-112",
@@ -2211,7 +2323,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-113",
@@ -2228,7 +2341,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-114",
@@ -2247,7 +2361,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-115",
@@ -2264,7 +2379,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-116",
@@ -2281,7 +2397,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-117",
@@ -2298,7 +2415,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-118",
@@ -2315,7 +2433,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-119",
@@ -2332,7 +2451,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-120",
@@ -2352,7 +2472,8 @@
       "domaines": [
         "budget",
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-121",
@@ -2369,7 +2490,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P3 — COMPLEMENTAIRE : EN ===",
@@ -2391,7 +2513,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-123",
@@ -2408,7 +2531,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-124",
@@ -2425,7 +2549,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-125",
@@ -2444,7 +2569,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-126",
@@ -2461,7 +2587,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-127",
@@ -2478,7 +2605,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-128",
@@ -2495,7 +2623,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-129",
@@ -2512,7 +2641,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-130",
@@ -2529,7 +2659,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-131",
@@ -2546,7 +2677,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "_comment": "=== P4 — MARGINAL ===",
@@ -2568,7 +2700,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "CBCS — Centre bruxellois de coordination sociopolitique",
@@ -2588,7 +2721,8 @@
       "id": "watch-134",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "ETUI — European Trade Union Institute",
@@ -2607,7 +2741,8 @@
       "id": "watch-135",
       "domaines": [
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "UITP — Union Internationale des Transports Publics",
@@ -2627,7 +2762,8 @@
       "id": "watch-136",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "EuroCities — Réseau des grandes villes européennes",
@@ -2644,7 +2780,8 @@
       "id": "watch-137",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Climate Action Network Europe (CAN)",
@@ -2664,7 +2801,8 @@
       "id": "watch-138",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "EEB — European Environmental Bureau",
@@ -2684,7 +2822,8 @@
       "id": "watch-139",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Friends of Europe",
@@ -2701,7 +2840,8 @@
       "id": "watch-140",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Transparency International EU",
@@ -2721,7 +2861,8 @@
       "domaines": [
         "budget",
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Belgien.info — Journal germanophone Belgique",
@@ -2738,7 +2879,8 @@
       "id": "watch-142",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "EU Reporter",
@@ -2755,7 +2897,8 @@
       "id": "watch-143",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Commissioner.brussels — Profil international de Bruxelles",
@@ -2772,7 +2915,8 @@
       "id": "watch-144",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "PICUM — Platform for International Cooperation on Undocumented Migrants",
@@ -2791,7 +2935,8 @@
       "id": "watch-145",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Ville de Bruxelles — Site officiel",
@@ -2811,7 +2956,8 @@
       "id": "watch-146",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "EEAS — Service européen pour l'action extérieure",
@@ -2829,7 +2975,8 @@
       "id": "watch-147",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "La Gazette de Bruxelles",
@@ -2847,7 +2994,8 @@
       "id": "watch-148",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "RMDP — Réseau Médias de Proximité",
@@ -2865,7 +3013,8 @@
       "id": "watch-149",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "EU DisinfoLab",
@@ -2883,7 +3032,8 @@
       "id": "watch-150",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Freedom House",
@@ -2901,7 +3051,8 @@
       "id": "watch-151",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "FEPS — Foundation for European Progressive Studies",
@@ -2919,7 +3070,8 @@
       "id": "watch-152",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "ECDPM — European Centre for Development Policy Management",
@@ -2937,7 +3089,8 @@
       "id": "watch-153",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "GMF — German Marshall Fund (Bureau BXL)",
@@ -2955,7 +3108,8 @@
       "id": "watch-154",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Carnegie Europe",
@@ -2973,7 +3127,8 @@
       "id": "watch-155",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "International Crisis Group",
@@ -2991,7 +3146,8 @@
       "id": "watch-156",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "SPF Affaires Étrangères (BE)",
@@ -3009,7 +3165,8 @@
       "id": "watch-157",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Enabel — Agence belge de développement",
@@ -3027,7 +3184,8 @@
       "id": "watch-158",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Belgian Consular Union — Ambassades en Belgique",
@@ -3045,7 +3203,8 @@
       "id": "watch-159",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "OTAN / NATO — Siège Bruxelles",
@@ -3063,7 +3222,8 @@
       "id": "watch-160",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Institutions UE — Portail général",
@@ -3081,7 +3241,8 @@
       "id": "watch-161",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "IOM — Organisation Internationale pour les Migrations (BXL)",
@@ -3099,7 +3260,8 @@
       "id": "watch-162",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "UNEP/UNFPA — Antennes ONU Bruxelles",
@@ -3117,7 +3279,8 @@
       "id": "watch-163",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Eurocontrol — Sécurité navigation aérienne",
@@ -3135,7 +3298,8 @@
       "id": "watch-164",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "U.S. Mission to the EU",
@@ -3153,7 +3317,8 @@
       "id": "watch-165",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Mission chinoise auprès de l'UE",
@@ -3171,7 +3336,8 @@
       "id": "watch-166",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Ambassade de France en Belgique",
@@ -3189,7 +3355,8 @@
       "id": "watch-167",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Ambassade du Brésil à Bruxelles",
@@ -3207,7 +3374,8 @@
       "id": "watch-168",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Ambassade RDC à Bruxelles",
@@ -3225,7 +3393,8 @@
       "id": "watch-169",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Délégation générale du Québec à Bruxelles",
@@ -3243,7 +3412,8 @@
       "id": "watch-170",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Human Rights Watch — Bureau EU",
@@ -3261,7 +3431,8 @@
       "id": "watch-171",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Amnesty International EU",
@@ -3279,7 +3450,8 @@
       "id": "watch-172",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Greenpeace EU",
@@ -3297,7 +3469,8 @@
       "id": "watch-173",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "WWF European Policy Office",
@@ -3315,7 +3488,8 @@
       "id": "watch-174",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Oxfam International (Bureau BXL)",
@@ -3333,7 +3507,8 @@
       "id": "watch-175",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Save the Children EU",
@@ -3351,7 +3526,8 @@
       "id": "watch-176",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Reporters Without Borders / RSF",
@@ -3369,7 +3545,8 @@
       "id": "watch-177",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "CONCORD — Confédération européenne ONG développement",
@@ -3387,7 +3564,8 @@
       "id": "watch-178",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Search for Common Ground (Bureau BXL)",
@@ -3405,7 +3583,8 @@
       "id": "watch-179",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "EPLO — European Peacebuilding Liaison Office",
@@ -3423,7 +3602,8 @@
       "id": "watch-180",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "ILGA-Europe — Droits LGBTIQ+",
@@ -3441,7 +3621,8 @@
       "id": "watch-181",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "International Campaign for Tibet — Europe",
@@ -3459,7 +3640,8 @@
       "id": "watch-182",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "ECIPE — European Centre for International Political Economy",
@@ -3477,7 +3659,8 @@
       "id": "watch-183",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "EIAS — European Institute for Asian Studies",
@@ -3495,7 +3678,8 @@
       "id": "watch-184",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "MEDEA — Institut de coopération méditerranéenne",
@@ -3513,7 +3697,8 @@
       "id": "watch-185",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Lisbon Council — Compétitivité économique",
@@ -3531,7 +3716,8 @@
       "id": "watch-186",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "SDA — Security & Defence Agenda",
@@ -3549,7 +3735,8 @@
       "id": "watch-187",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Brookings Institution",
@@ -3567,7 +3754,8 @@
       "id": "watch-188",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "CSR Europe — Réseau responsabilité sociale entreprises",
@@ -3585,7 +3773,8 @@
       "id": "watch-189",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "EFC — European Foundation Centre",
@@ -3603,7 +3792,8 @@
       "id": "watch-190",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "College of Europe",
@@ -3621,7 +3811,8 @@
       "id": "watch-191",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "UIA — Union of International Associations",
@@ -3639,7 +3830,8 @@
       "id": "watch-192",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "EuroBrussels — Répertoire emploi EU",
@@ -3657,7 +3849,8 @@
       "id": "watch-193",
       "domaines": [
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Association Hubs Brussels",
@@ -3675,7 +3868,8 @@
       "id": "watch-194",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "European Youth Forum",
@@ -3693,7 +3887,8 @@
       "id": "watch-195",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "IFJ — International Federation of Journalists",
@@ -3711,7 +3906,8 @@
       "id": "watch-196",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Education International",
@@ -3729,7 +3925,8 @@
       "id": "watch-197",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "AmCham EU — Chambre de commerce américaine",
@@ -3747,7 +3944,8 @@
       "id": "watch-198",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "CGTN — China Global Television Network (Bureau BXL)",
@@ -3766,7 +3964,8 @@
       "id": "watch-199",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Xinhua News Agency (Bureau BXL)",
@@ -3785,7 +3984,8 @@
       "id": "watch-200",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Global Times (Bureau BXL)",
@@ -3804,7 +4004,8 @@
       "id": "watch-201",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "CMG/CRI — China Media Group (Siège européen BXL)",
@@ -3823,7 +4024,8 @@
       "id": "watch-202",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "China Media Project (Analyses)",
@@ -3841,7 +4043,8 @@
       "id": "watch-203",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Vox Europ",
@@ -3859,7 +4062,8 @@
       "id": "watch-204",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "European Newsroom",
@@ -3877,7 +4081,8 @@
       "id": "watch-205",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "AEJ Belgium / Maison du MédiaLab",
@@ -3895,7 +4100,8 @@
       "id": "watch-206",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Konrad-Adenauer-Stiftung (Bureau BXL)",
@@ -3913,7 +4119,8 @@
       "id": "watch-207",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Vivre à Bruxelles — Guide des 19 communes",
@@ -3931,7 +4138,8 @@
       "id": "watch-208",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Archives de la Ville de Bruxelles",
@@ -3949,7 +4157,8 @@
       "id": "watch-209",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Centre Culturel Congolais",
@@ -3967,7 +4176,8 @@
       "id": "watch-210",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Annuaire Afro-Belge (Brukmer)",
@@ -3985,7 +4195,8 @@
       "id": "watch-211",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "Diaspora for Development",
@@ -4003,7 +4214,8 @@
       "id": "watch-212",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "World Cities Culture Forum — Brussels",
@@ -4021,7 +4233,8 @@
       "id": "watch-213",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "African Union Media Fellowship (EEAS)",
@@ -4039,7 +4252,8 @@
       "id": "watch-214",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "brussels.info — Embassies Guide",
@@ -4057,7 +4271,8 @@
       "id": "watch-215",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "embassies.info Belgium",
@@ -4075,7 +4290,8 @@
       "id": "watch-216",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "Expat Info Desk — Brussels Newspapers",
@@ -4093,7 +4309,8 @@
       "id": "watch-217",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "name": "BRUXEO — Confédération patronale du social profit bruxellois",
@@ -4115,7 +4332,8 @@
       "domaines": [
         "employment",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "name": "7sur7 — Actualité Belgique",
@@ -4132,7 +4350,8 @@
       "id": "watch-219",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-234",
@@ -4149,7 +4368,8 @@
       "enabled": true,
       "notes": "Flux RSS actualité Belgique — complète RTBF Bruxelles (watch-015)",
       "tier": "editorial",
-      "domaines": []
+      "domaines": [],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-235",
@@ -4166,7 +4386,8 @@
       "enabled": true,
       "notes": "Flux RSS toute l'info RTBF",
       "tier": "editorial",
-      "domaines": []
+      "domaines": [],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-236",
@@ -4188,7 +4409,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-237",
@@ -4210,7 +4432,8 @@
       "tier": "editorial",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-238",
@@ -4232,7 +4455,8 @@
       "tier": "editorial",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-239",
@@ -4255,7 +4479,8 @@
       "domaines": [
         "housing",
         "urban-planning"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-240",
@@ -4274,7 +4499,8 @@
       "tier": "editorial",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-241",
@@ -4293,7 +4519,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-242",
@@ -4312,7 +4539,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-243",
@@ -4331,7 +4559,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-244",
@@ -4346,7 +4575,8 @@
       "enabled": false,
       "notes": "Bloqué (RSS 403 + direct 403). Désactivé 2026-02-17.",
       "tier": "editorial",
-      "domaines": []
+      "domaines": [],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-245",
@@ -4366,7 +4596,8 @@
       "domaines": [
         "housing",
         "urban-planning"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-246",
@@ -4390,7 +4621,8 @@
         "institutional",
         "security",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-247",
@@ -4411,7 +4643,8 @@
       "domaines": [
         "budget",
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-248",
@@ -4431,7 +4664,8 @@
       "tier": "editorial",
       "domaines": [
         "security"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-249",
@@ -4450,7 +4684,8 @@
       "tier": "editorial",
       "domaines": [
         "cleanliness"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-250",
@@ -4471,7 +4706,8 @@
       "domaines": [
         "economy",
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-251",
@@ -4492,7 +4728,8 @@
       "domaines": [
         "budget",
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-252",
@@ -4513,7 +4750,8 @@
       "domaines": [
         "budget",
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-253",
@@ -4533,7 +4771,8 @@
       "domaines": [
         "housing",
         "urban-planning"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-254",
@@ -4553,7 +4792,8 @@
       "tier": "editorial",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-255",
@@ -4572,7 +4812,8 @@
       "tier": "editorial",
       "domaines": [
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-256",
@@ -4593,7 +4834,8 @@
       "domaines": [
         "economy",
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-257",
@@ -4612,7 +4854,8 @@
       "tier": "editorial",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-258",
@@ -4633,7 +4876,8 @@
       "domaines": [
         "budget",
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-259",
@@ -4653,7 +4897,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-260",
@@ -4673,7 +4918,8 @@
       "tier": "radar",
       "domaines": [
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-261",
@@ -4693,7 +4939,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-262",
@@ -4713,7 +4960,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-263",
@@ -4732,7 +4980,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-264",
@@ -4753,7 +5002,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-265",
@@ -4778,7 +5028,8 @@
         "climate",
         "institutional",
         "urban-planning"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-266",
@@ -4803,7 +5054,8 @@
         "cleanliness",
         "institutional",
         "security"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-267",
@@ -4825,7 +5077,8 @@
       "tier": "editorial",
       "domaines": [
         "urban-planning"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-268",
@@ -4844,7 +5097,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-269",
@@ -4865,7 +5119,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-270",
@@ -4886,7 +5141,8 @@
       "domaines": [
         "education",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-271",
@@ -4905,7 +5161,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-272",
@@ -4924,7 +5181,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-273",
@@ -4943,7 +5201,8 @@
       "tier": "editorial",
       "domaines": [
         "security"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-274",
@@ -4964,7 +5223,8 @@
       "domaines": [
         "institutional",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-275",
@@ -4985,7 +5245,8 @@
       "domaines": [
         "education",
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-276",
@@ -5006,7 +5267,8 @@
       "domaines": [
         "education",
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-277",
@@ -5025,7 +5287,8 @@
       "tier": "radar",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-278",
@@ -5044,7 +5307,8 @@
       "tier": "editorial",
       "domaines": [
         "digital"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-279",
@@ -5067,7 +5331,8 @@
         "budget",
         "employment",
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-280",
@@ -5086,7 +5351,8 @@
       "tier": "editorial",
       "domaines": [
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-281",
@@ -5105,7 +5371,8 @@
       "tier": "editorial",
       "domaines": [
         "budget"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-282",
@@ -5128,7 +5395,8 @@
         "education",
         "institutional",
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-283",
@@ -5147,7 +5415,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-284",
@@ -5170,7 +5439,8 @@
         "budget",
         "employment",
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P0"
     },
     {
       "id": "watch-285",
@@ -5196,7 +5466,8 @@
         "mobility",
         "urban-planning",
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-286",
@@ -5216,7 +5487,8 @@
       "tier": "editorial",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-287",
@@ -5236,7 +5508,8 @@
       "tier": "editorial",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-288",
@@ -5256,7 +5529,8 @@
       "tier": "editorial",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-289",
@@ -5276,7 +5550,8 @@
       "tier": "editorial",
       "domaines": [
         "mobility"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-290",
@@ -5296,7 +5571,8 @@
       "tier": "editorial",
       "domaines": [
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-291",
@@ -5316,7 +5592,8 @@
       "tier": "editorial",
       "domaines": [
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-292",
@@ -5338,7 +5615,8 @@
       "domaines": [
         "urban-planning",
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-293",
@@ -5358,7 +5636,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-294",
@@ -5378,7 +5657,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-295",
@@ -5398,7 +5678,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-296",
@@ -5418,7 +5699,8 @@
       "tier": "editorial",
       "domaines": [
         "employment"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-297",
@@ -5438,7 +5720,8 @@
       "tier": "editorial",
       "domaines": [
         "security"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-298",
@@ -5458,7 +5741,8 @@
       "tier": "editorial",
       "domaines": [
         "security"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-299",
@@ -5478,7 +5762,8 @@
       "tier": "editorial",
       "domaines": [
         "security"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-300",
@@ -5498,7 +5783,8 @@
       "tier": "editorial",
       "domaines": [
         "digital"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-301",
@@ -5518,7 +5804,8 @@
       "tier": "editorial",
       "domaines": [
         "digital"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-302",
@@ -5538,7 +5825,8 @@
       "tier": "editorial",
       "domaines": [
         "digital"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-303",
@@ -5558,7 +5846,8 @@
       "tier": "editorial",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-304",
@@ -5578,7 +5867,8 @@
       "tier": "editorial",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-305",
@@ -5598,7 +5888,8 @@
       "tier": "editorial",
       "domaines": [
         "education"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-306",
@@ -5618,7 +5909,8 @@
       "tier": "editorial",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-307",
@@ -5639,7 +5931,8 @@
       "tier": "editorial",
       "domaines": [
         "housing"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-308",
@@ -5659,7 +5952,8 @@
       "tier": "editorial",
       "domaines": [
         "education"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-309",
@@ -5680,7 +5974,8 @@
       "domaines": [
         "economy",
         "urban-planning"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-310",
@@ -5700,7 +5995,8 @@
       "tier": "editorial",
       "domaines": [
         "education"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-311",
@@ -5720,7 +6016,8 @@
       "tier": "editorial",
       "domaines": [
         "economy"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-312",
@@ -5741,7 +6038,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-313",
@@ -5762,7 +6060,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-314",
@@ -5783,7 +6082,8 @@
       "tier": "editorial",
       "domaines": [
         "social"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-315",
@@ -5803,7 +6103,8 @@
       "tier": "editorial",
       "domaines": [
         "climate"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-316",
@@ -5823,7 +6124,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-317",
@@ -5843,7 +6145,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-318",
@@ -5863,7 +6166,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-319",
@@ -5883,7 +6187,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-320",
@@ -5903,7 +6208,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-321",
@@ -5923,7 +6229,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-322",
@@ -5943,7 +6250,8 @@
       "tier": "editorial",
       "domaines": [
         "institutional"
-      ]
+      ],
+      "document_trust_tier": "P1"
     },
     {
       "id": "watch-323",
@@ -5963,7 +6271,8 @@
       "tier": "editorial",
       "domaines": [
         "urban-planning"
-      ]
+      ],
+      "document_trust_tier": "P1"
     }
   ]
 }

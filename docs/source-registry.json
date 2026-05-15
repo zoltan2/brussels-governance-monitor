@@ -1,8 +1,8 @@
 {
-  "description": "Registre des sources surveillées par BGM. 323 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
-  "lastUpdated": "2026-03-07",
+  "description": "Registre des sources surveillées par BGM. 324 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
+  "lastUpdated": "2026-05-15",
   "stats": {
-    "total": 323,
+    "total": 324,
     "byType": {
       "institutional": 87,
       "press": 106,
@@ -11,7 +11,7 @@
       "agency": 4,
       "research": 43,
       "think-tank": 21,
-      "ngo": 41
+      "ngo": 42
     }
   },
   "sources": [
@@ -6271,6 +6271,26 @@
       "tier": "editorial",
       "domaines": [
         "urban-planning"
+      ],
+      "document_trust_tier": "P1"
+    },
+    {
+      "id": "watch-324",
+      "name": "GERFA",
+      "url": "http://www.gerfa.be/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P3",
+      "category": "governance",
+      "cardsAffected": [],
+      "frequency": "monthly",
+      "enabled": true,
+      "fetchMode": "html",
+      "radarCategory": "associations-reseaux",
+      "notes": "Association FR « Une autre façon de penser le service public ». Publications épisodiques : statuts du personnel des communes et provinces, mémorandums, diagnostics, assistance juridique. Pas de RSS (SPA AngularJS), HTTPS cert invalide → HTTP. Portée Belgique francophone — filtrer angle BXL / 19 communes. Source militante : recoupement obligatoire.",
+      "tier": "radar",
+      "domaines": [
+        "institutional"
       ],
       "document_trust_tier": "P1"
     }

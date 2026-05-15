@@ -57,6 +57,8 @@ CLAUDE.md
 # Ghostcrab MCP (local SQLite memory — never commit)
 .ghostcrab/
 data/ghostcrab.sqlite
+data/ghostcrab.sqlite-shm
+data/ghostcrab.sqlite-wal
 data/ghostcrab-backend.log
 data/ghostcrab-backend.pid
 

@@ -66,7 +66,12 @@ export async function POST(request: Request) {
 
     if (!process.env.RESEND_API_KEY) {
       console.log('[intel-inbox]', { url, title, contributor, note, selectedText });
-      return NextResponse.json({ success: true }, { headers: CORS_HEADERS });
+      const ctaUrl: string | undefined = process.env.INBOX_CTA_URL || undefined;
+      const ctaLabel: string | undefined = process.env.INBOX_CTA_LABEL || undefined;
+      return NextResponse.json(
+        { success: true, ...(ctaUrl && ctaLabel ? { ctaUrl, ctaLabel } : {}) },
+        { headers: CORS_HEADERS },
+      );
     }
 
     const resend = getResend();
@@ -85,7 +90,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Failed to send' }, { status: 500, headers: CORS_HEADERS });
     }
 
-    return NextResponse.json({ success: true }, { headers: CORS_HEADERS });
+    const ctaUrl: string | undefined = process.env.INBOX_CTA_URL || undefined;
+    const ctaLabel: string | undefined = process.env.INBOX_CTA_LABEL || undefined;
+    return NextResponse.json(
+      { success: true, ...(ctaUrl && ctaLabel ? { ctaUrl, ctaLabel } : {}) },
+      { headers: CORS_HEADERS },
+    );
   } catch {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500, headers: CORS_HEADERS });
   }

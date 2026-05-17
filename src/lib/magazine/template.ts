@@ -268,12 +268,12 @@ export const MAGAZINE_CSS = `
   .stat-num {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: clamp(56px, 9vw, 160px);
+    font-size: clamp(56px, 6.8vw, 160px);
     line-height: 1;
     letter-spacing: -.03em;
     margin-bottom: 1.5vh;
   }
-  .stat-num.small { font-size: clamp(48px, 7vw, 130px); }
+  .stat-num.small { font-size: clamp(48px, 5.4vw, 130px); }
   .stat-label {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
@@ -336,7 +336,7 @@ export const MAGAZINE_CSS = `
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-style: italic;
-    font-size: clamp(48px, 9vw, 160px);
+    font-size: clamp(48px, 8vw, 160px);
     line-height: 1.05;
     letter-spacing: -.02em;
     margin-bottom: 4vh;

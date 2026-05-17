@@ -161,11 +161,11 @@ describe('renderMagazine', () => {
   it('bounds vw-based headlines and stats with explicit clamp() tokens', () => {
     const html = renderMagazine(draft());
     expect(html).toContain('clamp(36px, 5.2vw, 96px)');     // .headline
-    expect(html).toContain('clamp(56px, 9vw, 160px)');      // .stat-num
-    expect(html).toContain('clamp(48px, 7vw, 130px)');      // .stat-num.small
+    expect(html).toContain('clamp(56px, 6.8vw, 160px)');    // .stat-num
+    expect(html).toContain('clamp(48px, 5.4vw, 130px)');    // .stat-num.small
     expect(html).toContain('clamp(80px, 16vw, 280px)');     // .cover-title
     expect(html).toContain('clamp(18px, 2vw, 36px)');       // .cover-tagline
-    expect(html).toContain('clamp(48px, 9vw, 160px)');      // .back-line
+    expect(html).toContain('clamp(48px, 8vw, 160px)');      // .back-line
     expect(html).toContain('clamp(120px, 28vw, 480px)');    // .cover-count
     expect(html).toContain('clamp(160px, 34vw, 600px)');    // .ghost-rank
   });

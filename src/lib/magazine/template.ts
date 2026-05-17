@@ -10,7 +10,12 @@ export function escapeHtml(s: string): string {
     .replace(/'/g, '&#39;');
 }
 
-export function renderItemPage(item: MagazineItem, rank: number, theme: 'light' | 'dark'): string {
+export function renderItemPage(
+  item: MagazineItem,
+  rank: number,
+  theme: 'light' | 'dark',
+  isOdd: boolean,
+): string {
   const statClass = item.stat.length > 4 ? 'stat-num small' : 'stat-num';
   const pathHref = item.path ? `${AUTHOR.siteBase}${item.path}` : null;
   const linkAttrs = `target="_blank" rel="noopener noreferrer"`;
@@ -25,7 +30,7 @@ export function renderItemPage(item: MagazineItem, rank: number, theme: 'light' 
     : '';
 
   return `
-      <section class="page ${theme}">
+      <section class="page ${theme}${isOdd ? ' page-odd' : ''}">
         <div class="item">
           <div class="ghost-rank">${String(rank).padStart(2, '0')}</div>
           <div class="col-left">

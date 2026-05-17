@@ -130,4 +130,15 @@ describe('renderMagazine', () => {
     expect(backIdx).toBeGreaterThan(0);
     expect(cardIdx).toBeLessThan(backIdx);
   });
+
+  it('marks odd item pages with .page-odd class (cover excluded)', () => {
+    const html = renderMagazine(draft());
+    // 3 items in fixture → items at rank 1, 2, 3 → odd ranks are 1 and 3
+    const oddMatches = html.match(/class="page [^"]*page-odd/g) ?? [];
+    expect(oddMatches.length).toBe(2);
+    // The cover (first <section class="page dark">) must NOT have .page-odd
+    const coverSection = html.match(/<section class="page dark"[^>]*>\s*<div class="cover"/);
+    expect(coverSection).not.toBeNull();
+    expect(coverSection![0]).not.toContain('page-odd');
+  });
 });

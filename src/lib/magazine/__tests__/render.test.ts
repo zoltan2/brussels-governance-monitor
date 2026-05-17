@@ -207,4 +207,14 @@ describe('renderMagazine', () => {
     expect(html).toContain('height: 6px;');
     expect(html).toContain('border-radius: 50%;');
   });
+
+  it('introduces .page-week rule with absolute top-left positioning', () => {
+    const html = renderMagazine(draft());
+    expect(html).toContain('.page-week {');
+    // The clamp() value we introduce for the badge is unique enough to act as fingerprint.
+    expect(html).toContain('clamp(10px, 0.8vw, 12px)');
+    // Anchoring tokens for the position.
+    expect(html).toContain('top: 2.5vh;');
+    expect(html).toContain('left: 7vw;');
+  });
 });

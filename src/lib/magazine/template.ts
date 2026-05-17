@@ -319,6 +319,20 @@ export const MAGAZINE_CSS = `
     opacity: .8;
   }
 
+  .page-week {
+    position: absolute;
+    top: 2.5vh;
+    left: 7vw;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: clamp(10px, 0.8vw, 12px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 3;
+  }
+
   .page-meta {
     position: absolute;
     bottom: 3vh;

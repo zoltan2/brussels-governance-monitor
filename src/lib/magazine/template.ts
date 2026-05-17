@@ -15,6 +15,7 @@ export function renderItemPage(
   rank: number,
   theme: 'light' | 'dark',
   isOdd: boolean,
+  weekBadge: string,
 ): string {
   const statClass = item.stat.length > 4 ? 'stat-num small' : 'stat-num';
   const pathHref = item.path ? `${AUTHOR.siteBase}${item.path}` : null;
@@ -31,6 +32,7 @@ export function renderItemPage(
 
   return `
       <section class="page ${theme}${isOdd ? ' page-odd' : ''}">
+        ${isOdd ? `<div class="page-week">${escapeHtml(weekBadge)}</div>` : ''}
         <div class="item">
           <div class="ghost-rank">${String(rank).padStart(2, '0')}</div>
           <div class="col-left">

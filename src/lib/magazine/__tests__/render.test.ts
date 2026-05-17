@@ -131,6 +131,13 @@ describe('renderMagazine', () => {
     expect(cardIdx).toBeLessThan(backIdx);
   });
 
+  it('renders a week-number badge inside each odd item page', () => {
+    const html = renderMagazine(draft());
+    // Fixture week is "2026-w15" / weekShort "s15" → label expected: "S15 · 2026-W15"
+    const badgeMatches = html.match(/class="page-week"[^>]*>S15 · 2026-W15</g) ?? [];
+    expect(badgeMatches.length).toBe(2); // 2 odd pages out of 3
+  });
+
   it('marks odd item pages with .page-odd class (cover excluded)', () => {
     const html = renderMagazine(draft());
     // 3 items in fixture → items at rank 1, 2, 3 → odd ranks are 1 and 3

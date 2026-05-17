@@ -15,12 +15,14 @@ export function renderMagazine(draft: MagazineDraft): string {
   }
   const { magazine, weekShort, week } = draft;
   const weekLabel = weekShort.replace(/^s/, 'S');
+  const weekUpper = week.replace(/-w/, '-W');
+  const weekBadge = `${weekLabel} · ${weekUpper}`;
   const itemPages = magazine.items
     .map((item, i) => {
       const rank = i + 1;
       const isOdd = rank % 2 === 1;
       const theme: 'light' | 'dark' = i % 2 === 0 ? 'light' : 'dark';
-      return renderItemPage(item, rank, theme, isOdd);
+      return renderItemPage(item, rank, theme, isOdd, weekBadge);
     })
     .join('\n');
 

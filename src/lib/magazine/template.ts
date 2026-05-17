@@ -498,10 +498,52 @@ export const MAGAZINE_CSS = `
     .col-right { gap: 2.5vh; }
   }
 
-  /* Zone 3 — fallback vertical (narrow OR short OR portrait).
-     Layout rewrites land in the next task (Task 7); here we only declare the breakpoint. */
+  /* Zone 3 — fallback vertical (narrow OR short OR portrait). */
   @media (max-width: 900px), (max-height: 700px), (orientation: portrait) {
-    /* Filled in Task 7 */
+    /* Layout flip: vertical scrolling, horizontal pagination disabled */
+    .viewport { width: 100vw; height: auto; overflow: visible; }
+    .track {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      transform: none;
+      transition: none;
+    }
+    .page {
+      flex: none;
+      width: 100vw;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      padding: 5vh 6vw 6vh 6vw;
+    }
+    /* Item column-stack: right column moves under left, separator becomes top border */
+    .item { grid-template-columns: 1fr; gap: 4vh; }
+    .col-right {
+      border-left: none;
+      border-top: 1px solid currentColor;
+      padding-left: 0;
+      padding-top: 4vh;
+    }
+    .page.light .col-right { border-top-color: rgba(26,26,26,.1); }
+    .page.dark  .col-right { border-top-color: rgba(233,230,223,.1); }
+    /* Body overflow protection: full-bleed text where base layout uses fixed max-widths */
+    .desc { max-width: 100%; }
+    .callout { max-width: 100%; }
+    .cover-tagline { max-width: 100%; }
+    /* Decorative element */
+    .ghost-rank { font-size: 60vw; opacity: .04; }
+    /* Back-tag was 1.6vw → ~6px at 375px — protect with clamp */
+    .back-tag { font-size: clamp(14px, 4vw, 22px); max-width: 80%; }
+    /* Business card slide */
+    .card { max-width: 86vw; gap: 3vh; }
+    .card-publication-name { font-size: clamp(22px, 4vw, 28px); }
+    .card-offer { max-width: 86vw; }
+    .card-contact-sep { margin: 0 8px; }
+    /* Hide horizontal-mode affordances */
+    .nav-arrow { display: none; }
+    .dots { display: none; }
   }
 
   @media print {

@@ -168,6 +168,18 @@ describe('renderMagazine', () => {
     expect(html).toContain('@media (max-width: 900px), (max-height: 700px), (orientation: portrait)');
   });
 
+  it('rewrites layout to vertical under zone 3 (token presence)', () => {
+    const html = renderMagazine(draft());
+    expect(html).toContain('@media (max-width: 900px), (max-height: 700px), (orientation: portrait)');
+    // Distinctive declarations that only appear under zone 3:
+    expect(html).toContain('flex-direction: column');
+    expect(html).toContain('min-height: 100vh');
+    expect(html).toContain('grid-template-columns: 1fr');
+    // The "transform: none" + "transition: none" combo on .track is unique to zone 3:
+    expect(html).toContain('transform: none');
+    expect(html).toContain('transition: none');
+  });
+
   it('bounds vw-based headlines and stats with explicit clamp() tokens', () => {
     const html = renderMagazine(draft());
     expect(html).toContain('clamp(36px, 5.2vw, 96px)');     // .headline

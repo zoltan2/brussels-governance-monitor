@@ -148,4 +148,13 @@ describe('renderMagazine', () => {
     expect(coverSection).not.toBeNull();
     expect(coverSection![0]).not.toContain('page-odd');
   });
+
+  it('introduces clamp() tokens for body text', () => {
+    const html = renderMagazine(draft());
+    expect(html).toContain('clamp(13px, 1.15vw, 17px)');   // .desc
+    expect(html).toContain('clamp(12px, 1.0vw, 15px)');    // .callout-text
+    expect(html).toContain('clamp(10px, 0.75vw, 12px)');   // .callout-label / .page-meta
+    expect(html).toContain('clamp(11px, 0.85vw, 14px)');   // .stat-label
+    expect(html).toContain('clamp(11px, 0.85vw, 13px)');   // .path / .pill
+  });
 });

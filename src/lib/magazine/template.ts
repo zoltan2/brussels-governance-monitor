@@ -220,7 +220,7 @@ export const MAGAZINE_CSS = `
   .path {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
-    font-size: .95vw;
+    font-size: clamp(11px, 0.85vw, 13px);
     opacity: .45;
     margin-bottom: 3vh;
     letter-spacing: -.01em;
@@ -257,7 +257,7 @@ export const MAGAZINE_CSS = `
   .desc {
     font-family: 'Source Serif 4', serif;
     font-weight: 300;
-    font-size: max(17px, 1.5vw);
+    font-size: clamp(13px, 1.15vw, 17px);
     line-height: 1.65;
     opacity: .85;
     max-width: 38vw;
@@ -277,7 +277,7 @@ export const MAGAZINE_CSS = `
   .stat-label {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
-    font-size: .8vw;
+    font-size: clamp(11px, 0.85vw, 14px);
     letter-spacing: .22em;
     text-transform: uppercase;
     opacity: .4;
@@ -285,7 +285,7 @@ export const MAGAZINE_CSS = `
   .pill {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
-    font-size: .8vw;
+    font-size: clamp(11px, 0.85vw, 13px);
     letter-spacing: .22em;
     text-transform: uppercase;
     border: 1px solid currentColor;
@@ -305,7 +305,7 @@ export const MAGAZINE_CSS = `
   .callout-label {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
-    font-size: .78vw;
+    font-size: clamp(10px, 0.75vw, 12px);
     letter-spacing: .22em;
     text-transform: uppercase;
     opacity: .45;
@@ -314,7 +314,7 @@ export const MAGAZINE_CSS = `
   .callout-text {
     font-family: 'Source Serif 4', serif;
     font-weight: 400;
-    font-size: max(15px, 1.35vw);
+    font-size: clamp(12px, 1.0vw, 15px);
     line-height: 1.65;
     opacity: .8;
   }
@@ -324,7 +324,7 @@ export const MAGAZINE_CSS = `
     bottom: 3vh;
     left: 7vw;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: .72vw;
+    font-size: clamp(10px, 0.75vw, 12px);
     letter-spacing: .22em;
     text-transform: uppercase;
     opacity: .35;

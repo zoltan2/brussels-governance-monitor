@@ -158,6 +158,16 @@ describe('renderMagazine', () => {
     expect(html).toContain('clamp(11px, 0.85vw, 13px)');   // .path / .pill
   });
 
+  it('declares the three-zone responsive backbone', () => {
+    const html = renderMagazine(draft());
+    // Zone 1 — base padding for .page (preserved as the "généreux" landscape default)
+    expect(html).toContain('padding: 8vh 7vw 10vh 7vw');
+    // Zone 2 — small landscape (square-ish) media query, exact form
+    expect(html).toContain('@media (min-aspect-ratio: 4/5) and (max-aspect-ratio: 4/3) and (min-width: 900px)');
+    // Zone 3 — fallback vertical media query, exact form
+    expect(html).toContain('@media (max-width: 900px), (max-height: 700px), (orientation: portrait)');
+  });
+
   it('bounds vw-based headlines and stats with explicit clamp() tokens', () => {
     const html = renderMagazine(draft());
     expect(html).toContain('clamp(36px, 5.2vw, 96px)');     // .headline

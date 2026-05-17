@@ -490,31 +490,18 @@ export const MAGAZINE_CSS = `
   .nav-arrow.next { right: 2vw; }
   .nav-arrow.hidden { opacity: 0; pointer-events: none; }
 
-  @media (max-width: 900px) {
-    .item { grid-template-columns: 1fr; }
-    .col-right { border-left: none; border-top: 1px solid currentColor; padding-left: 0; padding-top: 4vh; margin-top: 4vh; }
-    .page.light .col-right { border-top-color: rgba(26,26,26,.1); }
-    .page.dark  .col-right { border-top-color: rgba(233,230,223,.1); }
-    .headline { font-size: 9vw; }
-    .stat-num { font-size: 13vw; }
-    .stat-num.small { font-size: 10vw; }
-    .desc { max-width: 100%; font-size: 17px; }
-    .callout { max-width: 100%; }
-    .callout-text { font-size: 15px; }
-    .cover-title { font-size: 22vw; }
-    .cover-tagline { font-size: 4.5vw; max-width: 100%; }
-    .back-line { font-size: 14vw; }
-    .back-tag { font-size: 4vw; max-width: 80%; }
-    .ghost-rank { font-size: 60vw; opacity: .04; }
-    .category-tag, .path, .stat-label, .pill, .callout-label, .cover-issue, .cover-meta, .cover-foot, .page-meta, .back-meta { font-size: 11px; }
-    .card { max-width: 86vw; gap: 3vh; }
-    .card-manifesto { font-size: 16px; }
-    .card-signature { font-size: 14px; }
-    .card-publication-name { font-size: 22px; }
-    .card-publisher { font-size: 13px; }
-    .card-offer { font-size: 11px; max-width: 86vw; }
-    .card-contact { font-size: 11px; }
-    .card-contact-sep { margin: 0 8px; }
+  /* Zone 2 — small landscape (square-ish viewports) */
+  @media (min-aspect-ratio: 4/5) and (max-aspect-ratio: 4/3) and (min-width: 900px) {
+    .page { padding: 5vh 5vw 7vh 5vw; }
+    .item { gap: 0; }
+    .col-left, .col-right { padding-right: 2vw; padding-left: 2vw; }
+    .col-right { gap: 2.5vh; }
+  }
+
+  /* Zone 3 — fallback vertical (narrow OR short OR portrait).
+     Layout rewrites land in the next task (Task 7); here we only declare the breakpoint. */
+  @media (max-width: 900px), (max-height: 700px), (orientation: portrait) {
+    /* Filled in Task 7 */
   }
 
   @media print {

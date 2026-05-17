@@ -121,4 +121,13 @@ describe('renderMagazine', () => {
     expect(html).toContain('mailto:contact@brusselsgovernance.be');
     expect(html).toContain('href="https://linkedin.com/in/zoltan"');
   });
+
+  it('places business card page before the closing "À lundi" page', () => {
+    const html = renderMagazine(draft());
+    const cardIdx = html.indexOf('class="page dark card-page"');
+    const backIdx = html.indexOf('class="back-line"');
+    expect(cardIdx).toBeGreaterThan(0);
+    expect(backIdx).toBeGreaterThan(0);
+    expect(cardIdx).toBeLessThan(backIdx);
+  });
 });

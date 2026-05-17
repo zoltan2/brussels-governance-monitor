@@ -51,13 +51,13 @@ ${umamiSnippet()}
         </div>
       </section>
 ${itemPages}
+${renderBusinessCardPage()}
       <section class="page dark">
         <div class="back">
           <h2 class="back-line">${escapeHtml(magazine.closing_line)}</h2>
           <div class="back-meta">BGM · Digest ${escapeHtml(weekLabel)}</div>
         </div>
       </section>
-${renderBusinessCardPage()}
     </div>
     <button class="nav-arrow prev" id="prev" aria-label="Page précédente">←</button>
     <button class="nav-arrow next" id="next" aria-label="Page suivante">→</button>

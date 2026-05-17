@@ -2,8 +2,8 @@
   "week": "2026-w20",
   "weekStart": "2026-05-11",
   "created_at": "2026-05-17T20:00:01.526Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "8 domaines, 4 dossiers mis à jour",
     "nl": "8 domeinen, 4 dossiers bijgewerkt",
@@ -45,5 +45,6 @@
     "dossier-seniors",
     "dossier-survol-bruxelles",
     "dossier-metro-3"
-  ]
+  ],
+  "sent_at": "2026-05-17T20:10:55.535Z"
 }

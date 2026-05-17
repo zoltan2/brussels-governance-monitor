@@ -1,43 +1,49 @@
 {
-  "week": "2026-w19",
-  "weekStart": "2026-05-04",
-  "created_at": "2026-05-10T21:39:41.074Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w20",
+  "weekStart": "2026-05-11",
+  "created_at": "2026-05-17T19:01:20.001Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "5 domaines mis à jour",
-    "nl": "5 domeinen bijgewerkt",
-    "en": "5 domains updated",
-    "de": "5 Bereiche aktualisiert"
+    "fr": "8 domaines, 4 dossiers mis à jour",
+    "nl": "8 domeinen, 4 dossiers bijgewerkt",
+    "en": "8 domains, 4 dossiers updated",
+    "de": "8 Bereiche, 4 Dossiers aktualisiert"
   },
   "weeklyNumber": {
-    "value": "-37 %",
+    "value": "Budget 2026 voté en plénière (53/32)",
     "label": {
-      "fr": "Baisse des vols violents — Quartier Brabant (Schaerbeek)",
-      "nl": "Daling gewelddadige diefstallen — Brabantwijk (Schaarbeek)",
-      "en": "Drop in violent thefts — Quartier Brabant (Schaerbeek)",
-      "de": "Rückgang der Gewaltdiebstähle — Quartier Brabant (Schaerbeek)"
+      "fr": "Régime budgétaire",
+      "nl": "Régime budgétaire",
+      "en": "Régime budgétaire",
+      "de": "Régime budgétaire"
     },
     "source": {
-      "fr": "Bilan 1 mois fermeture nocturne — bourgmestre De Brabant (MR), mai 2026",
-      "nl": "Balans 1 maand nachtsluiting — burgemeester De Brabant (MR), mei 2026",
-      "en": "1-month night closure assessment — Mayor De Brabant (MR), May 2026",
-      "de": "1 Monat Nachtschließung Bilanz — Bürgermeister De Brabant (MR), Mai 2026"
+      "fr": "Parlement bruxellois — séance plénière (27 mars 2026)",
+      "nl": "Parlement bruxellois — séance plénière (27 mars 2026)",
+      "en": "Parlement bruxellois — séance plénière (27 mars 2026)",
+      "de": "Parlement bruxellois — séance plénière (27 mars 2026)"
     }
   },
   "closingNote": {
-    "fr": "Bonne semaine à tous. La homepage BGM va changer — et c'est vous qui décidez. Trois minutes, anonyme : https://governance.brussels/fr/refonte",
+    "fr": "Bonne semaine à tous.",
     "nl": "Een goede week gewenst.",
     "en": "Wishing you all a good week.",
     "de": "Allen eine gute Woche."
   },
   "commitmentCount": 16,
   "updatedTopics": [
+    "budget",
     "economy",
-    "institutional",
+    "education",
+    "employment",
+    "housing",
     "mobility",
-    "security",
-    "urban-planning"
-  ],
-  "sent_at": "2026-05-10T21:41:27.505Z"
+    "social",
+    "urban-planning",
+    "dossier-fusion-polices",
+    "dossier-seniors",
+    "dossier-survol-bruxelles",
+    "dossier-metro-3"
+  ]
 }

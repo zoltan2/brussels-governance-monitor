@@ -129,7 +129,7 @@ export const MAGAZINE_CSS = `
   .cover-title {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 16vw;
+    font-size: clamp(80px, 16vw, 280px);
     line-height: .88;
     letter-spacing: -.03em;
     margin-left: -.5vw;
@@ -138,7 +138,7 @@ export const MAGAZINE_CSS = `
     font-family: 'Source Serif 4', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 2vw;
+    font-size: clamp(18px, 2vw, 36px);
     opacity: .7;
     margin-top: 3vh;
     max-width: 60%;
@@ -150,7 +150,7 @@ export const MAGAZINE_CSS = `
     bottom: 2vh;
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 28vw;
+    font-size: clamp(120px, 28vw, 480px);
     line-height: .8;
     opacity: .05;
     pointer-events: none;
@@ -192,7 +192,7 @@ export const MAGAZINE_CSS = `
     transform: translateY(-50%);
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 34vw;
+    font-size: clamp(160px, 34vw, 600px);
     line-height: 1;
     opacity: .05;
     pointer-events: none;
@@ -212,7 +212,7 @@ export const MAGAZINE_CSS = `
   .headline {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 5.2vw;
+    font-size: clamp(36px, 5.2vw, 96px);
     line-height: 1.05;
     letter-spacing: -.02em;
     margin-bottom: 2.5vh;
@@ -268,12 +268,12 @@ export const MAGAZINE_CSS = `
   .stat-num {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 6.8vw;
+    font-size: clamp(56px, 9vw, 160px);
     line-height: 1;
     letter-spacing: -.03em;
     margin-bottom: 1.5vh;
   }
-  .stat-num.small { font-size: 5.4vw; }
+  .stat-num.small { font-size: clamp(48px, 7vw, 130px); }
   .stat-label {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
@@ -336,7 +336,7 @@ export const MAGAZINE_CSS = `
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-style: italic;
-    font-size: 8vw;
+    font-size: clamp(48px, 9vw, 160px);
     line-height: 1.05;
     letter-spacing: -.02em;
     margin-bottom: 4vh;

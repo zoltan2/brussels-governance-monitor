@@ -475,7 +475,11 @@ export function DigestContent({
                     </p>
                     <p style={{ margin: '12px 0 0' }}>
                       <Link
-                        href={`${siteUrl}/${locale}/quiz?utm_source=bgm-digest&utm_medium=email&utm_campaign=quiz&utm_content=header-teaser`}
+                        href={
+                          locale === 'fr'
+                            ? `${siteUrl}/fr/refonte?utm_source=bgm-digest&utm_medium=email&utm_campaign=refonte&utm_content=header-teaser`
+                            : `${siteUrl}/${locale}/quiz?utm_source=bgm-digest&utm_medium=email&utm_campaign=quiz&utm_content=header-teaser`
+                        }
                         style={{
                           color: '#93c5fd',
                           fontSize: '13px',
@@ -483,7 +487,10 @@ export function DigestContent({
                           fontWeight: 500,
                         }}
                       >
-                        {t.quizTeaser} →
+                        {locale === 'fr'
+                          ? 'Et si vous décidiez de la prochaine homepage ?'
+                          : t.quizTeaser}{' '}
+                        →
                       </Link>
                     </p>
                   </td>

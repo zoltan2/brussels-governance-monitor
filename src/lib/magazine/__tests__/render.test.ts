@@ -197,4 +197,14 @@ describe('renderMagazine', () => {
     expect(html).toContain('clamp(120px, 28vw, 480px)');    // .cover-count
     expect(html).toContain('clamp(160px, 34vw, 600px)');    // .ghost-rank
   });
+
+  it('styles dots as discreet always-visible progress indicators (token presence)', () => {
+    const html = renderMagazine(draft());
+    // The .dot.active rule's opacity:1 is the unique signal "active = full bright".
+    expect(html).toContain('.dot.active { opacity: 1 }');
+    // The default 6px circle dot is a distinctive shape token.
+    expect(html).toContain('width: 6px;');
+    expect(html).toContain('height: 6px;');
+    expect(html).toContain('border-radius: 50%;');
+  });
 });

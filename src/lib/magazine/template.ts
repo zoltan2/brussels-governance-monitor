@@ -445,25 +445,27 @@ export const MAGAZINE_CSS = `
   /* NAV */
   .dots {
     position: fixed;
-    bottom: 3.5vh;
+    bottom: 2.5vh;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
-    z-index: 50;
-    mix-blend-mode: difference;
+    gap: 8px;
+    z-index: 10;
+    pointer-events: auto;
   }
   .dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #888;
-    transition: all .3s ease;
-    cursor: pointer;
+    background: currentColor;
+    opacity: 0.35;
     border: none;
     padding: 0;
+    cursor: pointer;
+    transition: opacity 200ms ease;
   }
-  .dot.active { background: #fff; width: 22px; border-radius: 3px; }
+  .dot:hover { opacity: 0.7 }
+  .dot.active { opacity: 1 }
 
   .nav-arrow {
     position: fixed;

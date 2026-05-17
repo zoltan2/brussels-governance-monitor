@@ -611,6 +611,24 @@ export const MAGAZINE_JS = `
     if (Math.abs(dx) > 50) { dx < 0 ? go(idx + 1) : go(idx - 1); }
   }, { passive: true });
 
+  // Stale-transform mitigation: clear inline transform when entering vertical mode,
+  // restore when re-entering horizontal mode. Inline style beats CSS specificity.
+  // Depends on track (const) and idx (let), both declared at the top of this IIFE.
+  const verticalMq = window.matchMedia('(max-width: 900px), (max-height: 700px), (orientation: portrait)');
+  function syncMode(e) {
+    if (e.matches) {
+      track.style.transform = '';
+    } else {
+      track.style.transform = 'translateX(-' + (idx * 100) + 'vw)';
+    }
+  }
+  if (typeof verticalMq.addEventListener === 'function') {
+    verticalMq.addEventListener('change', syncMode);
+  } else if (typeof verticalMq.addListener === 'function') {
+    verticalMq.addListener(syncMode); // Safari < 14 fallback
+  }
+  syncMode(verticalMq);
+
   prevBtn.classList.add('hidden');
 })();
 `;

@@ -168,6 +168,12 @@ describe('renderMagazine', () => {
     expect(html).toContain('@media (max-width: 900px), (max-height: 700px), (orientation: portrait)');
   });
 
+  it('inlines a matchMedia listener that resets transform on vertical/horizontal crossing', () => {
+    const html = renderMagazine(draft());
+    expect(html).toContain("matchMedia('(max-width: 900px), (max-height: 700px), (orientation: portrait)')");
+    expect(html).toMatch(/track\.style\.transform\s*=\s*['"]['"]/)
+  });
+
   it('rewrites layout to vertical under zone 3 (token presence)', () => {
     const html = renderMagazine(draft());
     expect(html).toContain('@media (max-width: 900px), (max-height: 700px), (orientation: portrait)');

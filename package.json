@@ -25,9 +25,9 @@
     "chat:generate-suggested": "tsx scripts/generate-suggested-answers.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.95.2",
+    "@anthropic-ai/sdk": "^0.96.0",
     "@react-email/components": "^1.0.12",
-    "@types/node": "^25.7.0",
+    "@types/node": "^25.8.0",
     "@types/react": "^19.2.13",
     "@upstash/redis": "^1.38.0",
     "@vercel/analytics": "^1.6.1",
@@ -39,7 +39,7 @@
     "lucide-react": "^0.577.0",
     "next": "^16.2.6",
     "next-auth": "^5.0.0-beta.31",
-    "next-intl": "^4.11.2",
+    "next-intl": "^4.12.0",
     "postcss": "^8.5.14",
     "prettier": "^3.8.3",
     "react": "^19.2.6",
@@ -61,7 +61,7 @@
     "jsdom": "^27.4.0",
     "pagefind": "^1.5.2",
     "qrcode": "^1.5.4",
-    "tsx": "^4.21.0",
+    "tsx": "^4.22.1",
     "vitest": "^3.2.4",
     "vitest-axe": "^0.1.0"
   }

@@ -517,6 +517,7 @@ export const MAGAZINE_CSS = `
   /* Zone 3 — fallback vertical (narrow OR short OR portrait). */
   @media (max-width: 900px), (max-height: 700px), (orientation: portrait) {
     /* Layout flip: vertical scrolling, horizontal pagination disabled */
+    html, body { overflow: visible; height: auto; }
     .viewport { width: 100vw; height: auto; overflow: visible; }
     .track {
       display: flex;

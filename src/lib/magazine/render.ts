@@ -15,8 +15,15 @@ export function renderMagazine(draft: MagazineDraft): string {
   }
   const { magazine, weekShort, week } = draft;
   const weekLabel = weekShort.replace(/^s/, 'S');
+  const weekUpper = week.replace(/-w/, '-W');
+  const weekBadge = `${weekLabel} · ${weekUpper}`;
   const itemPages = magazine.items
-    .map((item, i) => renderItemPage(item, i + 1, i % 2 === 0 ? 'light' : 'dark'))
+    .map((item, i) => {
+      const rank = i + 1;
+      const isOdd = rank % 2 === 1;
+      const theme: 'light' | 'dark' = i % 2 === 0 ? 'light' : 'dark';
+      return renderItemPage(item, rank, theme, isOdd, weekBadge);
+    })
     .join('\n');
 
   return `<!DOCTYPE html>
@@ -51,13 +58,13 @@ ${umamiSnippet()}
         </div>
       </section>
 ${itemPages}
+${renderBusinessCardPage()}
       <section class="page dark">
         <div class="back">
           <h2 class="back-line">${escapeHtml(magazine.closing_line)}</h2>
           <div class="back-meta">BGM · Digest ${escapeHtml(weekLabel)}</div>
         </div>
       </section>
-${renderBusinessCardPage()}
     </div>
     <button class="nav-arrow prev" id="prev" aria-label="Page précédente">←</button>
     <button class="nav-arrow next" id="next" aria-label="Page suivante">→</button>

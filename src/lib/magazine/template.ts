@@ -10,7 +10,13 @@ export function escapeHtml(s: string): string {
     .replace(/'/g, '&#39;');
 }
 
-export function renderItemPage(item: MagazineItem, rank: number, theme: 'light' | 'dark'): string {
+export function renderItemPage(
+  item: MagazineItem,
+  rank: number,
+  theme: 'light' | 'dark',
+  isOdd: boolean,
+  weekBadge: string,
+): string {
   const statClass = item.stat.length > 4 ? 'stat-num small' : 'stat-num';
   const pathHref = item.path ? `${AUTHOR.siteBase}${item.path}` : null;
   const linkAttrs = `target="_blank" rel="noopener noreferrer"`;
@@ -25,7 +31,8 @@ export function renderItemPage(item: MagazineItem, rank: number, theme: 'light' 
     : '';
 
   return `
-      <section class="page ${theme}">
+      <section class="page ${theme}${isOdd ? ' page-odd' : ''}">
+        ${isOdd ? `<div class="page-week">${escapeHtml(weekBadge)}</div>` : ''}
         <div class="item">
           <div class="ghost-rank">${String(rank).padStart(2, '0')}</div>
           <div class="col-left">
@@ -122,7 +129,7 @@ export const MAGAZINE_CSS = `
   .cover-title {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 16vw;
+    font-size: clamp(80px, 16vw, 280px);
     line-height: .88;
     letter-spacing: -.03em;
     margin-left: -.5vw;
@@ -131,7 +138,7 @@ export const MAGAZINE_CSS = `
     font-family: 'Source Serif 4', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 2vw;
+    font-size: clamp(18px, 2vw, 36px);
     opacity: .7;
     margin-top: 3vh;
     max-width: 60%;
@@ -143,7 +150,7 @@ export const MAGAZINE_CSS = `
     bottom: 2vh;
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 28vw;
+    font-size: clamp(120px, 28vw, 480px);
     line-height: .8;
     opacity: .05;
     pointer-events: none;
@@ -185,7 +192,7 @@ export const MAGAZINE_CSS = `
     transform: translateY(-50%);
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 34vw;
+    font-size: clamp(160px, 34vw, 600px);
     line-height: 1;
     opacity: .05;
     pointer-events: none;
@@ -205,7 +212,7 @@ export const MAGAZINE_CSS = `
   .headline {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 5.2vw;
+    font-size: clamp(36px, 5.2vw, 96px);
     line-height: 1.05;
     letter-spacing: -.02em;
     margin-bottom: 2.5vh;
@@ -213,7 +220,7 @@ export const MAGAZINE_CSS = `
   .path {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
-    font-size: .95vw;
+    font-size: clamp(11px, 0.85vw, 13px);
     opacity: .45;
     margin-bottom: 3vh;
     letter-spacing: -.01em;
@@ -250,7 +257,7 @@ export const MAGAZINE_CSS = `
   .desc {
     font-family: 'Source Serif 4', serif;
     font-weight: 300;
-    font-size: max(17px, 1.5vw);
+    font-size: clamp(13px, 1.15vw, 17px);
     line-height: 1.65;
     opacity: .85;
     max-width: 38vw;
@@ -261,16 +268,16 @@ export const MAGAZINE_CSS = `
   .stat-num {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 6.8vw;
+    font-size: clamp(56px, 6.8vw, 160px);
     line-height: 1;
     letter-spacing: -.03em;
     margin-bottom: 1.5vh;
   }
-  .stat-num.small { font-size: 5.4vw; }
+  .stat-num.small { font-size: clamp(48px, 5.4vw, 130px); }
   .stat-label {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
-    font-size: .8vw;
+    font-size: clamp(11px, 0.85vw, 14px);
     letter-spacing: .22em;
     text-transform: uppercase;
     opacity: .4;
@@ -278,7 +285,7 @@ export const MAGAZINE_CSS = `
   .pill {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
-    font-size: .8vw;
+    font-size: clamp(11px, 0.85vw, 13px);
     letter-spacing: .22em;
     text-transform: uppercase;
     border: 1px solid currentColor;
@@ -298,7 +305,7 @@ export const MAGAZINE_CSS = `
   .callout-label {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
-    font-size: .78vw;
+    font-size: clamp(10px, 0.75vw, 12px);
     letter-spacing: .22em;
     text-transform: uppercase;
     opacity: .45;
@@ -307,9 +314,23 @@ export const MAGAZINE_CSS = `
   .callout-text {
     font-family: 'Source Serif 4', serif;
     font-weight: 400;
-    font-size: max(15px, 1.35vw);
+    font-size: clamp(12px, 1.0vw, 15px);
     line-height: 1.65;
     opacity: .8;
+  }
+
+  .page-week {
+    position: absolute;
+    top: 2.5vh;
+    left: 7vw;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: clamp(10px, 0.8vw, 12px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 3;
   }
 
   .page-meta {
@@ -317,7 +338,7 @@ export const MAGAZINE_CSS = `
     bottom: 3vh;
     left: 7vw;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: .72vw;
+    font-size: clamp(10px, 0.75vw, 12px);
     letter-spacing: .22em;
     text-transform: uppercase;
     opacity: .35;
@@ -329,7 +350,7 @@ export const MAGAZINE_CSS = `
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-style: italic;
-    font-size: 8vw;
+    font-size: clamp(48px, 8vw, 160px);
     line-height: 1.05;
     letter-spacing: -.02em;
     margin-bottom: 4vh;
@@ -438,25 +459,27 @@ export const MAGAZINE_CSS = `
   /* NAV */
   .dots {
     position: fixed;
-    bottom: 3.5vh;
+    bottom: 2.5vh;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
-    z-index: 50;
-    mix-blend-mode: difference;
+    gap: 8px;
+    z-index: 10;
+    pointer-events: auto;
   }
   .dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #888;
-    transition: all .3s ease;
-    cursor: pointer;
+    background: currentColor;
+    opacity: 0.35;
     border: none;
     padding: 0;
+    cursor: pointer;
+    transition: opacity 200ms ease;
   }
-  .dot.active { background: #fff; width: 22px; border-radius: 3px; }
+  .dot:hover { opacity: 0.7 }
+  .dot.active { opacity: 1 }
 
   .nav-arrow {
     position: fixed;
@@ -483,31 +506,61 @@ export const MAGAZINE_CSS = `
   .nav-arrow.next { right: 2vw; }
   .nav-arrow.hidden { opacity: 0; pointer-events: none; }
 
-  @media (max-width: 900px) {
-    .item { grid-template-columns: 1fr; }
-    .col-right { border-left: none; border-top: 1px solid currentColor; padding-left: 0; padding-top: 4vh; margin-top: 4vh; }
+  /* Zone 2 — small landscape (square-ish viewports) */
+  @media (min-aspect-ratio: 4/5) and (max-aspect-ratio: 4/3) and (min-width: 900px) {
+    .page { padding: 5vh 5vw 7vh 5vw; }
+    .item { gap: 0; }
+    .col-left, .col-right { padding-right: 2vw; padding-left: 2vw; }
+    .col-right { gap: 2.5vh; }
+  }
+
+  /* Zone 3 — fallback vertical (narrow OR short OR portrait). */
+  @media (max-width: 900px), (max-height: 700px), (orientation: portrait) {
+    /* Layout flip: vertical scrolling, horizontal pagination disabled */
+    html, body { overflow: visible; height: auto; }
+    .viewport { width: 100vw; height: auto; overflow: visible; }
+    .track {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      transform: none;
+      transition: none;
+    }
+    .page {
+      flex: none;
+      width: 100vw;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      padding: 5vh 6vw 6vh 6vw;
+    }
+    /* Item column-stack: right column moves under left, separator becomes top border */
+    .item { grid-template-columns: 1fr; gap: 4vh; }
+    .col-right {
+      border-left: none;
+      border-top: 1px solid currentColor;
+      padding-left: 0;
+      padding-top: 4vh;
+    }
     .page.light .col-right { border-top-color: rgba(26,26,26,.1); }
     .page.dark  .col-right { border-top-color: rgba(233,230,223,.1); }
-    .headline { font-size: 9vw; }
-    .stat-num { font-size: 13vw; }
-    .stat-num.small { font-size: 10vw; }
-    .desc { max-width: 100%; font-size: 17px; }
+    /* Body overflow protection: full-bleed text where base layout uses fixed max-widths */
+    .desc { max-width: 100%; }
     .callout { max-width: 100%; }
-    .callout-text { font-size: 15px; }
-    .cover-title { font-size: 22vw; }
-    .cover-tagline { font-size: 4.5vw; max-width: 100%; }
-    .back-line { font-size: 14vw; }
-    .back-tag { font-size: 4vw; max-width: 80%; }
+    .cover-tagline { max-width: 100%; }
+    /* Decorative element */
     .ghost-rank { font-size: 60vw; opacity: .04; }
-    .category-tag, .path, .stat-label, .pill, .callout-label, .cover-issue, .cover-meta, .cover-foot, .page-meta, .back-meta { font-size: 11px; }
+    /* Back-tag was 1.6vw → ~6px at 375px — protect with clamp */
+    .back-tag { font-size: clamp(14px, 4vw, 22px); max-width: 80%; }
+    /* Business card slide */
     .card { max-width: 86vw; gap: 3vh; }
-    .card-manifesto { font-size: 16px; }
-    .card-signature { font-size: 14px; }
-    .card-publication-name { font-size: 22px; }
-    .card-publisher { font-size: 13px; }
-    .card-offer { font-size: 11px; max-width: 86vw; }
-    .card-contact { font-size: 11px; }
+    .card-publication-name { font-size: clamp(22px, 4vw, 28px); }
+    .card-offer { max-width: 86vw; }
     .card-contact-sep { margin: 0 8px; }
+    /* Hide horizontal-mode affordances */
+    .nav-arrow { display: none; }
+    .dots { display: none; }
   }
 
   @media print {
@@ -574,6 +627,24 @@ export const MAGAZINE_JS = `
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 50) { dx < 0 ? go(idx + 1) : go(idx - 1); }
   }, { passive: true });
+
+  // Stale-transform mitigation: clear inline transform when entering vertical mode,
+  // restore when re-entering horizontal mode. Inline style beats CSS specificity.
+  // Depends on track (const) and idx (let), both declared at the top of this IIFE.
+  const verticalMq = window.matchMedia('(max-width: 900px), (max-height: 700px), (orientation: portrait)');
+  function syncMode(e) {
+    if (e.matches) {
+      track.style.transform = '';
+    } else {
+      track.style.transform = 'translateX(-' + (idx * 100) + 'vw)';
+    }
+  }
+  if (typeof verticalMq.addEventListener === 'function') {
+    verticalMq.addEventListener('change', syncMode);
+  } else if (typeof verticalMq.addListener === 'function') {
+    verticalMq.addListener(syncMode); // Safari < 14 fallback
+  }
+  syncMode(verticalMq);
 
   prevBtn.classList.add('hidden');
 })();

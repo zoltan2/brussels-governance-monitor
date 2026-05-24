@@ -1,28 +1,28 @@
 {
-  "week": "2026-w20",
-  "weekStart": "2026-05-11",
-  "created_at": "2026-05-17T20:00:01.526Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w21",
+  "weekStart": "2026-05-18",
+  "created_at": "2026-05-24T20:00:58.181Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "8 domaines, 4 dossiers mis à jour",
-    "nl": "8 domeinen, 4 dossiers bijgewerkt",
-    "en": "8 domains, 4 dossiers updated",
-    "de": "8 Bereiche, 4 Dossiers aktualisiert"
+    "fr": "10 domaines, 9 dossiers, 1 secteur, 1 commune mis à jour",
+    "nl": "10 domeinen, 9 dossiers, 1 sector, 1 gemeente bijgewerkt",
+    "en": "10 domains, 9 dossiers, 1 sector, 1 commune updated",
+    "de": "10 Bereiche, 9 Dossiers, 1 Sektor, 1 Gemeinde aktualisiert"
   },
   "weeklyNumber": {
-    "value": "65 M €",
+    "value": "Budget 2026 voté en plénière (53/32)",
     "label": {
-      "fr": "Budget de transition pour la fusion des 6 zones de police bruxelloises",
-      "nl": "Overgangsbudget voor de fusie van de 6 Brusselse politiezones",
-      "en": "Transition budget for the merger of Brussels' 6 police zones",
-      "de": "Übergangsbudget für die Fusion der 6 Brüsseler Polizeizonen"
+      "fr": "Régime budgétaire",
+      "nl": "Régime budgétaire",
+      "en": "Régime budgétaire",
+      "de": "Régime budgétaire"
     },
     "source": {
-      "fr": "Loi fédérale votée le 13 mai 2026 (Chambre des représentants)",
-      "nl": "Federale wet aangenomen op 13 mei 2026 (Kamer van volksvertegenwoordigers)",
-      "en": "Federal law adopted 13 May 2026 (Chamber of Representatives)",
-      "de": "Bundesgesetz angenommen am 13. Mai 2026 (Abgeordnetenkammer)"
+      "fr": "Parlement bruxellois — séance plénière (27 mars 2026)",
+      "nl": "Parlement bruxellois — séance plénière (27 mars 2026)",
+      "en": "Parlement bruxellois — séance plénière (27 mars 2026)",
+      "de": "Parlement bruxellois — séance plénière (27 mars 2026)"
     }
   },
   "closingNote": {
@@ -38,13 +38,20 @@
     "education",
     "employment",
     "housing",
+    "institutional",
     "mobility",
+    "security",
     "social",
     "urban-planning",
+    "dossier-acs",
+    "dossier-faillites",
     "dossier-fusion-polices",
     "dossier-seniors",
+    "dossier-slrb",
     "dossier-survol-bruxelles",
-    "dossier-metro-3"
-  ],
-  "sent_at": "2026-05-17T20:10:55.535Z"
+    "dossier-titres-services-economie-sociale",
+    "dossier-vivaqua",
+    "dossier-metro-3",
+    "commune-anderlecht"
+  ]
 }

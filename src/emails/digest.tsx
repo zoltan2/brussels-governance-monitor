@@ -52,41 +52,6 @@ const PHASE_STYLES: Record<string, { badgeBg: string; badgeText: string; badgeBo
   cancelled: { badgeBg: '#f1f5f9', badgeText: '#334155', badgeBorder: '#94a3b8', cardBorder: '#64748b' },
 };
 
-export const DARK_MODE_STYLE = `
-@media (prefers-color-scheme: dark) {
-  .bgm-bg-page { background-color: #0f172a !important; }
-  .bgm-bg-card { background-color: #1e293b !important; border-color: #334155 !important; }
-  .bgm-bg-section { background-color: #1e293b !important; background-image: none !important; }
-  .bgm-bg-row-alt { background-color: #0f172a !important; }
-  .bgm-bg-closing { background-color: #3a2e1f !important; }
-  .bgm-text-strong { color: #f1f5f9 !important; }
-  .bgm-text-body { color: #cbd5e1 !important; }
-  .bgm-text-mute { color: #94a3b8 !important; }
-  .bgm-text-link { color: #93c5fd !important; }
-  .bgm-text-closing-strong { color: #fde68a !important; }
-  .bgm-text-closing-mute { color: #fbbf24 !important; }
-  .bgm-magazine-btn { background-color: #1e3a5f !important; }
-  .bgm-feedback-btn { color: #cbd5e1 !important; border-color: #475569 !important; }
-  .bgm-badge { background-color: #334155 !important; color: #cbd5e1 !important; border-color: #475569 !important; }
-  .bgm-divider { border-top-color: #334155 !important; }
-}
-[data-ogsc] .bgm-bg-page { background-color: #0f172a !important; }
-[data-ogsc] .bgm-bg-card { background-color: #1e293b !important; border-color: #334155 !important; }
-[data-ogsc] .bgm-bg-section { background-color: #1e293b !important; background-image: none !important; }
-[data-ogsc] .bgm-bg-row-alt { background-color: #0f172a !important; }
-[data-ogsc] .bgm-bg-closing { background-color: #3a2e1f !important; }
-[data-ogsc] .bgm-text-strong { color: #f1f5f9 !important; }
-[data-ogsc] .bgm-text-body { color: #cbd5e1 !important; }
-[data-ogsc] .bgm-text-mute { color: #94a3b8 !important; }
-[data-ogsc] .bgm-text-link { color: #93c5fd !important; }
-[data-ogsc] .bgm-text-closing-strong { color: #fde68a !important; }
-[data-ogsc] .bgm-text-closing-mute { color: #fbbf24 !important; }
-[data-ogsc] .bgm-magazine-btn { background-color: #1e3a5f !important; }
-[data-ogsc] .bgm-feedback-btn { color: #cbd5e1 !important; border-color: #475569 !important; }
-[data-ogsc] .bgm-badge { background-color: #334155 !important; color: #cbd5e1 !important; border-color: #475569 !important; }
-[data-ogsc] .bgm-divider { border-top-color: #334155 !important; }
-`;
-
 const NEUTRAL_STYLE = { badgeBg: '#f1f5f9', badgeText: '#334155', badgeBorder: '#94a3b8', cardBorder: '#64748b' };
 
 const T: Record<string, {
@@ -428,7 +393,7 @@ export function DigestContent({
         <tr>
           <td
             style={{
-              background: 'linear-gradient(135deg, #1a2744 0%, #1e3a5f 100%)',
+              backgroundImage: 'linear-gradient(135deg, #1a2744 0%, #1e3a5f 100%)',
               backgroundColor: '#1a2744',
               padding: '32px 40px 28px',
             }}
@@ -564,7 +529,7 @@ export function DigestContent({
               cellSpacing={0}
               className="bgm-bg-section"
               style={{
-                background: 'linear-gradient(135deg, #f0f4f8 0%, #e8eef6 100%)',
+                backgroundImage: 'linear-gradient(135deg, #f0f4f8 0%, #e8eef6 100%)',
                 backgroundColor: '#f0f4f8',
                 borderRadius: '10px',
                 borderLeft: '5px solid #2563eb',
@@ -1061,9 +1026,9 @@ export default function DigestEmail(props: DigestEmailProps) {
   return (
     <Html lang={props.locale}>
       <Head>
-        <meta name="color-scheme" content="light dark" />
-        <meta name="supported-color-schemes" content="light dark" />
-        <style dangerouslySetInnerHTML={{ __html: DARK_MODE_STYLE }} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="only light" />
+        <meta name="supported-color-schemes" content="light" />
       </Head>
       <Preview>{t.preview}</Preview>
       <Body

@@ -1,28 +1,28 @@
 {
-  "week": "2026-w21",
-  "weekStart": "2026-05-18",
-  "created_at": "2026-05-24T20:00:58.181Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w22",
+  "weekStart": "2026-05-25",
+  "created_at": "2026-05-25T18:24:28.842Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "10 domaines, 9 dossiers, 1 secteur, 1 commune mis à jour",
-    "nl": "10 domeinen, 9 dossiers, 1 sector, 1 gemeente bijgewerkt",
-    "en": "10 domains, 9 dossiers, 1 sector, 1 commune updated",
-    "de": "10 Bereiche, 9 Dossiers, 1 Sektor, 1 Gemeinde aktualisiert"
+    "fr": "Aucune mise à jour cette semaine.",
+    "nl": "Geen updates deze week.",
+    "en": "No updates this week.",
+    "de": "Keine Aktualisierungen diese Woche."
   },
   "weeklyNumber": {
-    "value": "735",
+    "value": "16",
     "label": {
-      "fr": "Emplois menacés — titres-services d’insertion à Bruxelles",
-      "nl": "Bedreigde banen — dienstencheques-inschakeling in Brussel",
-      "en": "Jobs at risk — Brussels insertion service vouchers",
-      "de": "Bedrohte Stellen — Brüsseler Eingliederungs-Dienstleistungsschecks"
+      "fr": "Engagements chiffrés de la DPR",
+      "nl": "Engagements chiffrés de la DPR",
+      "en": "Engagements chiffrés de la DPR",
+      "de": "Engagements chiffrés de la DPR"
     },
     "source": {
-      "fr": "FeBISP, mai 2026",
-      "nl": "FeBISP, mei 2026",
-      "en": "FeBISP, May 2026",
-      "de": "FeBISP, Mai 2026"
+      "fr": "Brussels Governance Monitor",
+      "nl": "Brussels Governance Monitor",
+      "en": "Brussels Governance Monitor",
+      "de": "Brussels Governance Monitor"
     }
   },
   "closingNote": {
@@ -32,27 +32,5 @@
     "de": "Allen eine gute Woche."
   },
   "commitmentCount": 16,
-  "updatedTopics": [
-    "budget",
-    "economy",
-    "education",
-    "employment",
-    "housing",
-    "institutional",
-    "mobility",
-    "security",
-    "social",
-    "urban-planning",
-    "dossier-acs",
-    "dossier-faillites",
-    "dossier-fusion-polices",
-    "dossier-seniors",
-    "dossier-slrb",
-    "dossier-survol-bruxelles",
-    "dossier-titres-services-economie-sociale",
-    "dossier-vivaqua",
-    "dossier-metro-3",
-    "commune-anderlecht"
-  ],
-  "sent_at": "2026-05-24T20:59:43.346Z"
+  "updatedTopics": []
 }

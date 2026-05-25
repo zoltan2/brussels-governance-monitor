@@ -11,7 +11,7 @@ import {
   Section,
   Text,
 } from '@react-email/components';
-import { DARK_MODE_STYLE, DigestContent, type DigestEmailProps } from './digest';
+import { DigestContent, type DigestEmailProps } from './digest';
 
 interface DigestPreviewEmailProps extends DigestEmailProps {
   approveUrl: string;
@@ -28,9 +28,9 @@ export default function DigestPreviewEmail({
   return (
     <Html lang="fr">
       <Head>
-        <meta name="color-scheme" content="light dark" />
-        <meta name="supported-color-schemes" content="light dark" />
-        <style dangerouslySetInnerHTML={{ __html: DARK_MODE_STYLE }} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="only light" />
+        <meta name="supported-color-schemes" content="light" />
       </Head>
       <Preview>PREVIEW — Digest à approuver avant lundi 8h</Preview>
       <Body

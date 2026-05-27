@@ -183,6 +183,15 @@ sources:
   - label: "BX1 — Evere: Vivaqua and STIB works block a whole neighbourhood (19 May 2026)"
     url: "https://bx1.be/categories/news/evere-des-travaux-de-vivaqua-et-la-stib-bloquent-tout-un-quartier-et-font-souffrir-les-commercants/"
     accessedAt: "2026-05-19"
+  - label: "RTBF — Brussels and Wallonia raise per-kilometre lorry charges from 1 July (26 May 2026)"
+    url: "https://www.rtbf.be/article/le-1er-juillet-bruxelles-et-la-wallonie-augmentent-les-tarifs-de-la-redevance-kilometrique-11730137"
+    accessedAt: "2026-05-27"
+  - label: "BRUZZ Mobiliteit — Brussels raises per-km lorry charge again (26 May 2026)"
+    url: "https://www.bruzz.be/actua/mobiliteit/brussel-verhoogt-opnieuw-tarieven-kilometerheffing-2026-05-26"
+    accessedAt: "2026-05-27"
+  - label: "BRUZZ Mobiliteit — Tram lines 8 and 93 suspended June–August 2026 (26 May 2026)"
+    url: "https://www.bruzz.be/actua/mobiliteit/tramlijnen-8-en-93-van-juni-tot-eind-augustus-onderbroken-door-werken-2026-05-26"
+    accessedAt: "2026-05-27"
 confidenceLevel: estimated
 metrics:
   - label: "Metro 3 (new phases)"
@@ -406,9 +415,27 @@ metrics:
     source: "La DH (16 May 2026)"
     url: "https://www.dhnet.be/regions/bruxelles/bruxelles-mobilite/2026/05/16/attention-vous-ne-pouvez-plus-passer-en-voiture-dans-cette-rue-bien-connue-de-bruxelles-des-cameras-infligeront-bientot-des-amendes-de-58-SAJITPSMXJD7JGASTEYFOCV2AI/"
     date: "2026-05-16"
-lastModified: "2026-05-19"
+  - label: "Per-km lorry charge — Brussels range (motorways)"
+    value: "0.017–0.267"
+    unit: "€/km, indexed from 1 July 2026"
+    source: "Viapass / RTBF / BRUZZ (26 May 2026)"
+    url: "https://www.rtbf.be/article/le-1er-juillet-bruxelles-et-la-wallonie-augmentent-les-tarifs-de-la-redevance-kilometrique-11730137"
+    date: "2026-05-26"
+  - label: "Per-km lorry charge — Brussels range (local/regional roads)"
+    value: "0.024–0.390"
+    unit: "€/km, indexed from 1 July 2026"
+    source: "Viapass / RTBF / BRUZZ (26 May 2026)"
+    url: "https://www.bruzz.be/actua/mobiliteit/brussel-verhoogt-opnieuw-tarieven-kilometerheffing-2026-05-26"
+    date: "2026-05-26"
+  - label: "STIB — trams 8 and 93 (Bailli↔Legrand)"
+    value: "1 Jun → 28 Aug"
+    unit: "suspended for track renewal"
+    source: "STIB / BRUZZ Mobiliteit (26 May 2026)"
+    url: "https://www.bruzz.be/actua/mobiliteit/tramlijnen-8-en-93-van-juni-tot-eind-augustus-onderbroken-door-werken-2026-05-26"
+    date: "2026-05-26"
+lastModified: "2026-05-27"
 changeType: updated
-changeSummary: "Woman found dead in the metro tunnel between Heysel and Roi Baudouin on the night of 15-16 May. Rue du Bailli (Ixelles) closed to cars from avenue Louise: ANPR cameras coming, fines of €58 — system already in place on rue Royale and chaussée d'Ixelles. Combined Vivaqua + STIB works block a neighbourhood in Evere, local shopkeepers in difficulty."
+changeSummary: "Per-kilometre lorry charge: indexation from 1 July 2026 announced by Viapass (26 May). Brussels rates remain 0.017–0.267 €/km on motorways and 0.024–0.390 €/km on local and regional roads. Wallonia adds +5.7% on average; Flanders adds a CO2 parameter for the first time (5 emission classes). Separately, STIB suspends trams 8 and 93 between Bailli and Legrand from 1 June to 28 August for track renewal — bus 96 extended to Legrand."
 summaryFalc: "A new mobility plan will succeed Good Move. Metro 3 is frozen for 10 years. The low emission zone stays but the penalty system is reformed."
 ---
 
@@ -739,3 +766,23 @@ Source: [La DH (16 May 2026)](https://www.dhnet.be/regions/bruxelles/bruxelles-m
 **Combined Vivaqua and STIB works** have been blocking access to a whole neighbourhood in **Evere** for several weeks, with a heavy impact on local **shopkeepers** according to BX1. A concrete illustration of the interdependence of works (pipes + roadways + tram) that comes up regularly in the `vivaqua` dossier (road collapses 2025-2026, tariff increase). To set alongside the regional arbitrage of 18 May 2026 reallocating the municipal water dotation (€15.7M/year) to a recapitalisation of Vivaqua (€180M) — see `institutional` card and `vivaqua` dossier.
 
 Source: [BX1 (19 May 2026)](https://bx1.be/categories/news/evere-des-travaux-de-vivaqua-et-la-stib-bloquent-tout-un-quartier-et-font-souffrir-les-commercants/). Confidence: official.
+
+## Per-kilometre lorry charge: indexation on 1 July 2026
+
+On 26 May 2026, **Viapass** — the body that coordinates Belgium's per-kilometre lorry charge — announced the regional tariffs applicable from **1 July 2026**. In Brussels, as last year, the change is limited to **indexation**. The range is structurally unchanged: from **€0.017/km to €0.267/km** on Brussels motorways, and from **€0.024/km to €0.390/km** on local and regional roads (excl. VAT).
+
+The charge, in force since April 2016, applies to **lorries over 3.5 tonnes** and depends on weight, Euro emission standard and region. **Wallonia** is increasing its tariff by an average **+5.7%** this year. **Flanders** is adding, for the first time, a **CO2 parameter** (five emission classes, zero-emission vehicles exempt), in line with a European obligation already applied by Germany, Austria and Denmark. Brussels has not introduced this CO2 parameter at this stage.
+
+Sources: [RTBF (26 May 2026)](https://www.rtbf.be/article/le-1er-juillet-bruxelles-et-la-wallonie-augmentent-les-tarifs-de-la-redevance-kilometrique-11730137) ; [BRUZZ Mobiliteit (26 May 2026)](https://www.bruzz.be/actua/mobiliteit/brussel-verhoogt-opnieuw-tarieven-kilometerheffing-2026-05-26). Confidence: official (Viapass announcement).
+
+## STIB: trams 8 and 93 suspended between Bailli and Legrand (1 June → 28 August 2026)
+
+STIB announced on 26 May that **tram lines 8 and 93** will be **suspended between the Bailli and Legrand stops** from **1 June to 28 August 2026** for **track renewal** on this Ixelles section. During the period:
+
+- **Tram 8**: limited to Louise–Bailli + Legrand–Roodebeek (two separate stubs).
+- **Tram 93**: limited to Stade–Bailli.
+- **Bus 96**: extended from Janson stop to Legrand, via Bailli and avenue Louise. The connection with tram 81 at Trinité no longer applies — riders are asked to alight at Janson and walk.
+
+The works fit into the gradual renewal of STIB's surface network and precede the announced refurbishment of the Stéphanie, Bailli, Vleurgat, Abbaye and Legrand stops (PRM accessibility + arrival of T4000 trams on line 8).
+
+Source: [BRUZZ Mobiliteit (26 May 2026)](https://www.bruzz.be/actua/mobiliteit/tramlijnen-8-en-93-van-juni-tot-eind-augustus-onderbroken-door-werken-2026-05-26). Confidence: official (STIB communiqué).

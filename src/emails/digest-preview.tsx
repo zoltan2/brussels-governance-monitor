@@ -34,7 +34,6 @@ export default function DigestPreviewEmail({
       </Head>
       <Preview>PREVIEW — Digest à approuver avant lundi 8h</Preview>
       <Body
-        className="bgm-bg-page"
         style={{
           margin: '0',
           padding: '0',
@@ -43,12 +42,12 @@ export default function DigestPreviewEmail({
         }}
       >
         {/* Preview banner */}
-        <Container className="bgm-bg-closing" style={styles.banner}>
-          <Text className="bgm-text-closing-strong" style={styles.bannerTitle}>PREVIEW</Text>
-          <Text className="bgm-text-closing-strong" style={styles.bannerText}>
+        <Container style={styles.banner}>
+          <Text style={styles.bannerTitle}>PREVIEW</Text>
+          <Text style={styles.bannerText}>
             Ce digest sera envoyé lundi 8h CET si vous approuvez.
           </Text>
-          <Text className="bgm-text-closing-mute" style={styles.bannerSubscribers}>
+          <Text style={styles.bannerSubscribers}>
             {subscriberCount} abonné{subscriberCount > 1 ? 's' : ''} recevront ce mail
             (filtré par thèmes suivis).
           </Text>
@@ -68,7 +67,6 @@ export default function DigestPreviewEmail({
           width="100%"
           cellPadding={0}
           cellSpacing={0}
-          className="bgm-bg-page"
           style={{ backgroundColor: '#eef1f6' }}
         >
           <tbody>

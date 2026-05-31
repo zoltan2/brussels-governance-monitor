@@ -19,6 +19,7 @@ export interface DomainCard {
   lastModified: string;
   changeType?: string;
   changeSummary?: string;
+  digestHeadline?: string;
   summaryFalc?: string;
   draft: boolean;
   content: string;
@@ -131,6 +132,8 @@ export interface SectorCard {
   }>;
   stakeholders: Array<{ name: string; type: string; url?: string }>;
   humanImpact?: string;
+  changeSummary?: string;
+  digestHeadline?: string;
   draft: boolean;
   lastModified: string;
   content: string;
@@ -203,6 +206,8 @@ export interface DossierCard {
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
   dprCommitment?: string;
+  changeSummary?: string;
+  digestHeadline?: string;
   lastModified: string;
   draft: boolean;
   content: string;
@@ -239,6 +244,9 @@ export interface CommuneCard {
   }>;
   keyFigures: Array<{ label: string; value: string; unit?: string; source: string; url?: string; date: string }>;
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
+  changeType?: string;
+  changeSummary?: string;
+  digestHeadline?: string;
   draft: boolean;
   lastModified: string;
   content: string;

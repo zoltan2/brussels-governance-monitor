@@ -27,6 +27,40 @@ function withUtm(url: string, campaign: string, content: string): string {
   return `${url}${sep}utm_source=bgm-digest&utm_medium=email&utm_campaign=${encodeURIComponent(campaign)}&utm_content=${encodeURIComponent(content)}`;
 }
 
+/** Localized short category labels for the card eyebrow (domains). */
+const DOMAIN_LABELS: Record<string, Record<string, string>> = {
+  fr: { budget: 'BUDGET', mobility: 'MOBILITÉ', employment: 'EMPLOI', housing: 'LOGEMENT', climate: 'CLIMAT', social: 'SOCIAL', security: 'SÉCURITÉ', economy: 'ÉCONOMIE', cleanliness: 'PROPRETÉ', institutional: 'INSTITUTIONNEL', 'urban-planning': 'URBANISME', digital: 'NUMÉRIQUE', education: 'ENSEIGNEMENT' },
+  nl: { budget: 'BEGROTING', mobility: 'MOBILITEIT', employment: 'WERK', housing: 'HUISVESTING', climate: 'KLIMAAT', social: 'SOCIAAL', security: 'VEILIGHEID', economy: 'ECONOMIE', cleanliness: 'NETHEID', institutional: 'INSTITUTIONEEL', 'urban-planning': 'STEDENBOUW', digital: 'DIGITAAL', education: 'ONDERWIJS' },
+  en: { budget: 'BUDGET', mobility: 'MOBILITY', employment: 'EMPLOYMENT', housing: 'HOUSING', climate: 'CLIMATE', social: 'SOCIAL', security: 'SECURITY', economy: 'ECONOMY', cleanliness: 'CLEANLINESS', institutional: 'INSTITUTIONAL', 'urban-planning': 'URBAN PLANNING', digital: 'DIGITAL', education: 'EDUCATION' },
+  de: { budget: 'HAUSHALT', mobility: 'MOBILITÄT', employment: 'BESCHÄFTIGUNG', housing: 'WOHNEN', climate: 'KLIMA', social: 'SOZIALES', security: 'SICHERHEIT', economy: 'WIRTSCHAFT', cleanliness: 'SAUBERKEIT', institutional: 'INSTITUTIONELL', 'urban-planning': 'STÄDTEBAU', digital: 'DIGITAL', education: 'BILDUNG' },
+};
+const SECTION_LABELS: Record<string, { dossier: string; sector: string; commune: string }> = {
+  fr: { dossier: 'DOSSIER', sector: 'SECTEUR', commune: 'COMMUNE' },
+  nl: { dossier: 'DOSSIER', sector: 'SECTOR', commune: 'GEMEENTE' },
+  en: { dossier: 'DOSSIER', sector: 'SECTOR', commune: 'COMMUNE' },
+  de: { dossier: 'DOSSIER', sector: 'SEKTOR', commune: 'GEMEINDE' },
+};
+
+/**
+ * Split a fresh summary into a punchy headline + body for the digest card.
+ * - A manual `digestHeadline` always wins (kept short by schema); body = full text.
+ * - Else: use the first sentence if it is short enough; otherwise truncate at a word
+ *   boundary (~110 chars) with an ellipsis. Never repeats the static card title.
+ */
+export function leadSplit(text: string, manual?: string): { headline: string; body: string } {
+  const t = (text || '').trim();
+  if (manual && manual.trim()) return { headline: manual.trim(), body: t };
+  if (!t) return { headline: '', body: '' };
+  const sentEnd = t.search(/(?<=[.!?])\s/);
+  if (sentEnd >= 0 && sentEnd + 1 <= 120) {
+    return { headline: t.slice(0, sentEnd + 1).trim(), body: t.slice(sentEnd + 1).trim() };
+  }
+  const space = t.lastIndexOf(' ', 110);
+  const at = space > 40 ? space : Math.min(t.length, 110);
+  if (at >= t.length) return { headline: t, body: '' };
+  return { headline: t.slice(0, at).trim() + '…', body: t.slice(at).trim() };
+}
+
 /**
  * Collect all updated content across domains, dossiers, sectors, and communes.
  * Returns updates grouped by locale with topic identifiers for subscriber filtering.
@@ -46,14 +80,18 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
       if (c.lastModified < cutoff) continue;
       topicSet.add(c.domain);
       if (locale === 'fr') frCounts.domains++;
+      const fresh = (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
+        ? c.changeSummary
+        : c.summary;
+      const { headline, body } = leadSplit(fresh, c.digestHeadline);
       updates.push({
         title: c.title,
         domain: c.domain,
         section: 'domains',
         status: c.status,
-        summary: (c.changeSummary && !c.changeSummary.toLowerCase().includes('domain card'))
-          ? c.changeSummary
-          : c.summary,
+        category: (DOMAIN_LABELS[locale] || DOMAIN_LABELS.fr)[c.domain] || '',
+        headline,
+        summary: body,
         url: campaign
           ? withUtm(`${siteUrl}/${locale}/domains/${c.slug}`, campaign, c.domain)
           : `${siteUrl}/${locale}/domains/${c.slug}`,
@@ -67,12 +105,16 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
       const topic = DOSSIER_SLUG_TO_TOPIC[c.slug] || `dossier-${c.slug}`;
       topicSet.add(topic);
       if (locale === 'fr') frCounts.dossiers++;
+      const fresh = c.changeSummary || c.summary;
+      const { headline, body } = leadSplit(fresh, c.digestHeadline);
       updates.push({
         title: c.title,
         domain: topic,
         section: 'dossiers',
         phase: c.phase,
-        summary: c.summary,
+        category: (SECTION_LABELS[locale] || SECTION_LABELS.fr).dossier,
+        headline,
+        summary: body,
         url: campaign
           ? withUtm(`${siteUrl}/${locale}/dossiers/${c.slug}`, campaign, topic)
           : `${siteUrl}/${locale}/dossiers/${c.slug}`,
@@ -85,11 +127,15 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
       if (c.lastModified < cutoff) continue;
       topicSet.add(c.slug);
       if (locale === 'fr') frCounts.sectors++;
+      const fresh = c.changeSummary || c.humanImpact || c.title;
+      const { headline, body } = leadSplit(fresh, c.digestHeadline);
       updates.push({
         title: c.title,
         domain: c.slug,
         section: 'sectors',
-        summary: c.humanImpact || c.title,
+        category: (SECTION_LABELS[locale] || SECTION_LABELS.fr).sector,
+        headline,
+        summary: body,
         url: campaign
           ? withUtm(`${siteUrl}/${locale}/sectors/${c.slug}`, campaign, c.slug)
           : `${siteUrl}/${locale}/sectors/${c.slug}`,
@@ -103,11 +149,16 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
       const topic = `commune-${c.slug}`;
       topicSet.add(topic);
       if (locale === 'fr') frCounts.communes++;
+      const communeName = (c.title.split(':')[0] || c.commune || c.slug).trim();
+      const fresh = c.changeSummary || c.title;
+      const { headline, body } = leadSplit(fresh, c.digestHeadline);
       updates.push({
         title: c.title,
         domain: topic,
         section: 'communes',
-        summary: c.title,
+        category: `${(SECTION_LABELS[locale] || SECTION_LABELS.fr).commune} · ${communeName}`,
+        headline,
+        summary: body,
         url: campaign
           ? withUtm(`${siteUrl}/${locale}/communes/${c.slug}`, campaign, topic)
           : `${siteUrl}/${locale}/communes/${c.slug}`,

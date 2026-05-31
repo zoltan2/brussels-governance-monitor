@@ -163,6 +163,7 @@ const domainCards = defineCollection({
       lastModified: s.isodate(),
       changeType: s.enum(['new', 'updated', 'status-change', 'data-refresh']).optional(),
       changeSummary: s.string().optional(),
+      digestHeadline: s.string().max(120).optional(),
       summaryFalc: s.string().max(200).optional(),
       draft: s.boolean().default(false),
       content: s.mdx(),
@@ -412,6 +413,8 @@ const sectorCards = defineCollection({
         )
         .default([]),
       humanImpact: s.string().optional(),
+      changeSummary: s.string().optional(),
+      digestHeadline: s.string().max(120).optional(),
       draft: s.boolean().default(false),
       lastModified: s.isodate(),
       content: s.mdx(),
@@ -474,6 +477,9 @@ const communeCards = defineCollection({
         )
         .default([]),
       draft: s.boolean().default(false),
+      changeType: s.enum(['added', 'updated', 'corrected', 'removed']).optional(),
+      changeSummary: s.string().optional(),
+      digestHeadline: s.string().optional(),
       lastModified: s.isodate(),
       content: s.mdx(),
     })
@@ -548,6 +554,8 @@ const dossierCards = defineCollection({
         .default([]),
       confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']),
       dprCommitment: s.string().optional(),
+      changeSummary: s.string().optional(),
+      digestHeadline: s.string().max(120).optional(),
       lastModified: s.isodate(),
       draft: s.boolean().default(false),
       content: s.mdx(),

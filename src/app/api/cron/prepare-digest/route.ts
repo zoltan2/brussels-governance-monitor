@@ -113,10 +113,23 @@ export async function GET(request: Request) {
     // Default to 0 if file can't be read
   }
 
-  // 5. Auto-suggest weekly number from first updated domain's metrics
+  // 5. Auto-suggest weekly number from first updated domain's metrics.
+  //    Value = the bare figure (the value box is NOT translated); the descriptive
+  //    text lives in the label/source, which ARE read per-locale from each
+  //    localized card so the legend is properly translated out of the box.
   let weeklyNumberValue = String(commitmentCount);
-  let weeklyNumberLabelFr = 'Engagements chiffrés de la DPR';
-  let weeklyNumberSourceFr = 'Brussels Governance Monitor';
+  const weeklyNumberLabel: Record<string, string> = {
+    fr: 'Engagements chiffrés de la DPR',
+    nl: 'Becijferde beloften van het regeerakkoord',
+    en: 'Quantified pledges from the DPR',
+    de: 'Bezifferte Versprechen des Regierungsabkommens',
+  };
+  const weeklyNumberSource: Record<string, string> = {
+    fr: 'Brussels Governance Monitor',
+    nl: 'Brussels Governance Monitor',
+    en: 'Brussels Governance Monitor',
+    de: 'Brussels Governance Monitor',
+  };
 
   if (totalFrUpdates > 0) {
     const frCards = getDomainCards('fr');
@@ -124,10 +137,19 @@ export async function GET(request: Request) {
       (c) => c.lastModified >= cutoff && c.metrics.length > 0,
     );
     if (firstUpdated && firstUpdated.metrics[0]) {
-      const m = firstUpdated.metrics[0];
-      weeklyNumberValue = `${m.value}${m.unit ? ` ${m.unit}` : ''}`;
-      weeklyNumberLabelFr = m.label;
-      weeklyNumberSourceFr = m.source ?? m.proofSources[0]?.label ?? '';
+      const idx = 0;
+      const m = firstUpdated.metrics[idx];
+      // Bare figure only: append the unit to the value solely when it is a short
+      // symbol (%, M€, €, /an…). A descriptive unit stays out of the big number.
+      const unit = (m.unit ?? '').trim();
+      const isShortUnit = unit.length > 0 && unit.length <= 5;
+      weeklyNumberValue = isShortUnit ? `${m.value} ${unit}` : String(m.value);
+      for (const loc of ['fr', 'nl', 'en', 'de'] as const) {
+        const card = loc === 'fr' ? firstUpdated : getDomainCards(loc).find((c) => c.slug === firstUpdated.slug);
+        const lm = card?.metrics[idx];
+        weeklyNumberLabel[loc] = lm?.label ?? m.label;
+        weeklyNumberSource[loc] = lm?.source ?? lm?.proofSources?.[0]?.label ?? m.source ?? m.proofSources[0]?.label ?? '';
+      }
     }
   }
 
@@ -148,18 +170,8 @@ export async function GET(request: Request) {
     },
     weeklyNumber: {
       value: weeklyNumberValue,
-      label: {
-        fr: weeklyNumberLabelFr,
-        nl: weeklyNumberLabelFr, // Can be refined manually
-        en: weeklyNumberLabelFr,
-        de: weeklyNumberLabelFr,
-      },
-      source: {
-        fr: weeklyNumberSourceFr,
-        nl: weeklyNumberSourceFr,
-        en: weeklyNumberSourceFr,
-        de: weeklyNumberSourceFr,
-      },
+      label: { ...weeklyNumberLabel },
+      source: { ...weeklyNumberSource },
     },
     closingNote: {
       fr: 'Bonne semaine à tous.',
@@ -230,8 +242,8 @@ export async function GET(request: Request) {
         summaryLine: summaryFr,
         weeklyNumber: {
           value: weeklyNumberValue,
-          label: weeklyNumberLabelFr,
-          source: weeklyNumberSourceFr,
+          label: weeklyNumberLabel.fr,
+          source: weeklyNumberSource.fr,
         },
         closingNote: pendingDigest.closingNote.fr,
         commitmentCount,

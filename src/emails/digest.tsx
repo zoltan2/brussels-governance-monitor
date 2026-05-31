@@ -17,6 +17,10 @@ export interface DigestUpdate {
   section: 'domains' | 'dossiers' | 'sectors' | 'communes';
   status?: 'blocked' | 'delayed' | 'ongoing' | 'resolved';
   phase?: 'announced' | 'planned' | 'in-progress' | 'stalled' | 'completed' | 'cancelled';
+  /** Fresh, week-specific lead headline (digestHeadline override, or first sentence of changeSummary). Falls back to title. */
+  headline?: string;
+  /** Localized eyebrow label (e.g. "INSTITUTIONNEL", "COMMUNE · Saint-Josse-ten-Noode"). */
+  category?: string;
   summary: string;
   url: string;
 }
@@ -281,8 +285,10 @@ export function generateDigestPlainText({
         : update.phase
           ? (t.phaseLabels[update.phase] || update.phase)
           : '';
-      lines.push(badgeLabel ? `[${badgeLabel}] ${update.title}` : update.title);
-      lines.push(update.summary);
+      const eyebrow = [update.category, badgeLabel].filter(Boolean).join(' · ');
+      if (eyebrow) lines.push(eyebrow);
+      lines.push(update.headline || update.title);
+      if (update.summary) lines.push(update.summary);
       lines.push(`${t.readMore} ${update.url}`);
       lines.push('');
     }
@@ -709,43 +715,42 @@ export function DigestContent({
                       <tbody>
                         <tr>
                           <td style={{ padding: '20px 22px' }}>
-                            {badgeLabel && (
-                              <span
-                                style={{
-                                  display: 'inline-block',
-                                  backgroundColor: colors.badgeBg,
-                                  color: colors.badgeText,
-                                  fontSize: '11px',
-                                  fontWeight: 700,
-                                  padding: '3px 10px',
-                                  borderRadius: '20px',
-                                  border: `1px solid ${colors.badgeBorder}`,
-                                }}
-                              >
-                                {badgeLabel}
-                              </span>
-                            )}
                             <p
                               style={{
-                                margin: badgeLabel ? '8px 0 8px' : '0 0 8px',
+                                margin: '0 0 8px',
+                                color: colors.badgeText,
+                                fontSize: '11px',
+                                fontWeight: 700,
+                                letterSpacing: '0.08em',
+                                textTransform: 'uppercase' as const,
+                              }}
+                            >
+                              {update.category || sectionTitleMap[sectionKey]}
+                              {badgeLabel ? ` · ${badgeLabel}` : ''}
+                            </p>
+                            <p
+                              style={{
+                                margin: '0 0 8px',
                                 color: '#1a2744',
                                 fontSize: '17px',
                                 fontWeight: 700,
                                 lineHeight: '1.35',
                               }}
                             >
-                              {update.title}
+                              {update.headline || update.title}
                             </p>
-                            <p
-                              style={{
-                                margin: '0 0 12px',
-                                color: '#475569',
-                                fontSize: '14px',
-                                lineHeight: '1.55',
-                              }}
-                            >
-                              {update.summary}
-                            </p>
+                            {update.summary ? (
+                              <p
+                                style={{
+                                  margin: '0 0 12px',
+                                  color: '#475569',
+                                  fontSize: '14px',
+                                  lineHeight: '1.55',
+                                }}
+                              >
+                                {update.summary}
+                              </p>
+                            ) : null}
                             <Link
                               href={update.url}
                               style={{

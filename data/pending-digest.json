@@ -1,28 +1,28 @@
 {
-  "week": "2026-w21",
-  "weekStart": "2026-05-18",
-  "created_at": "2026-05-25T18:37:05.000Z",
+  "week": "2026-w22",
+  "weekStart": "2026-05-25",
+  "created_at": "2026-05-31T20:00:14.763Z",
   "approved": false,
   "sent": false,
   "summary": {
-    "fr": "7 domaines, 3 dossiers mis à jour",
-    "nl": "7 domeinen, 3 dossiers bijgewerkt",
-    "en": "7 domains, 3 dossiers updated",
-    "de": "7 Bereiche, 3 Dossiers aktualisiert"
+    "fr": "4 domaines, 2 dossiers, 2 communes mis à jour",
+    "nl": "4 domeinen, 2 dossiers, 2 gemeenten bijgewerkt",
+    "en": "4 domains, 2 dossiers, 2 communes updated",
+    "de": "4 Bereiche, 2 Dossiers, 2 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "180 M€",
+    "value": "~33% des enfants 0-3 ans (objectif UE : 33%)",
     "label": {
-      "fr": "Recapitalisation de Vivaqua via la suppression de la dotation « eau » aux 19 communes (15,7 M€/an)",
-      "nl": "Herkapitalisatie van Vivaqua via afschaffing van de gewestelijke watertoelage aan de 19 gemeenten (15,7 M€/jaar)",
-      "en": "Vivaqua recapitalisation via abolition of the regional water grant to the 19 municipalities (€15.7M/year)",
-      "de": "Vivaqua-Rekapitalisierung durch Abschaffung der regionalen Wasserzuwendung an die 19 Gemeinden (15,7 M€/Jahr)"
+      "fr": "Taux de couverture crèches",
+      "nl": "Taux de couverture crèches",
+      "en": "Taux de couverture crèches",
+      "de": "Taux de couverture crèches"
     },
     "source": {
-      "fr": "Annonce du gouvernement bruxellois (mai 2026)",
-      "nl": "Aankondiging van de Brusselse Hoofdstedelijke Regering (mei 2026)",
-      "en": "Brussels Government announcement (May 2026)",
-      "de": "Ankündigung der Brüsseler Regierung (Mai 2026)"
+      "fr": "ONE / Opgroeien (2024)",
+      "nl": "ONE / Opgroeien (2024)",
+      "en": "ONE / Opgroeien (2024)",
+      "de": "ONE / Opgroeien (2024)"
     }
   },
   "closingNote": {
@@ -33,19 +33,13 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
-    "budget",
-    "economy",
     "education",
-    "employment",
-    "housing",
     "institutional",
     "mobility",
     "security",
-    "social",
-    "urban-planning",
-    "dossier-fusion-polices",
-    "dossier-metro-3",
-    "dossier-seniors-a-bruxelles"
-  ],
-  "magazine": true
+    "dossier-survol-bruxelles",
+    "dossier-titres-services-economie-sociale",
+    "commune-bruxelles-ville",
+    "commune-saint-josse-ten-noode"
+  ]
 }

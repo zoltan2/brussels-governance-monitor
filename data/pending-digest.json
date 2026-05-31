@@ -2,8 +2,8 @@
   "week": "2026-w22",
   "weekStart": "2026-05-25",
   "created_at": "2026-05-31T20:23:21.137Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "4 domaines, 2 dossiers, 2 communes mis à jour",
     "nl": "4 domeinen, 2 dossiers, 2 gemeenten bijgewerkt",
@@ -41,5 +41,6 @@
     "dossier-titres-services-economie-sociale",
     "commune-bruxelles-ville",
     "commune-saint-josse-ten-noode"
-  ]
+  ],
+  "sent_at": "2026-05-31T21:46:44.613Z"
 }

@@ -8,6 +8,17 @@ on:
       - 'messages/*.json'
       - 'velite.config.ts'
       - 'public/pagefind/**'
+  # Also run on direct pushes to main (e.g. the weekly auto-generated digest,
+  # committed via the prepare-digest API route, which never opens a PR). Without
+  # this, content reaching main outside a PR silently bypasses the guard and the
+  # committed search index goes stale until a later content PR happens to rebuild.
+  push:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'messages/*.json'
+      - 'velite.config.ts'
+      - 'public/pagefind/**'
 
 jobs:
   check:
@@ -20,10 +31,17 @@ jobs:
 
       - name: Verify pagefind index was rebuilt alongside content changes
         env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          # pull_request → base/head of the PR; push → before/after of the push.
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.event.after || github.sha }}
         run: |
           set -euo pipefail
+
+          # On a brand-new branch or force-push, `before` is the zero SHA — fall
+          # back to the parent of HEAD so the diff stays meaningful.
+          if [ -z "$BASE_SHA" ] || [ "$BASE_SHA" = "0000000000000000000000000000000000000000" ]; then
+            BASE_SHA=$(git rev-parse "${HEAD_SHA}^" 2>/dev/null || echo "$HEAD_SHA")
+          fi
 
           changed=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
 
@@ -37,7 +55,7 @@ jobs:
               echo "Files touched that require a pagefind rebuild:"
               echo "$content_touched" | sed 's/^/  /'
               echo ""
-              echo "Fix on your branch:"
+              echo "Fix (in this PR, or a follow-up PR if this ran on a push to main):"
               echo "  rm -rf public/pagefind/"
               echo "  npm run build"
               echo "  git add public/pagefind/"

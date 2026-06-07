@@ -4,6 +4,7 @@
 import createMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
 import { routing } from './i18n/routing';
+import { PROXY_PREFIXES } from './lib/proxy-paths';
 
 const handleI18nRouting = createMiddleware(routing);
 
@@ -13,6 +14,13 @@ const BOT_PROBE = /^\/(\.env|\.git|\.aws|\.docker|wp-|xmlrpc|phpmyadmin|cgi-bin|
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Bypass i18n middleware for server-side proxy routes (defined in src/lib/proxy-paths.ts).
+  // Without this, the middleware would redirect /u/api/send → /fr/u/api/send (307),
+  // silently dropping all proxied requests before the Next.js rewrite can run.
+  if (PROXY_PREFIXES.some((prefix) => pathname.startsWith(`${prefix}/`) || pathname === prefix)) {
+    return NextResponse.next();
+  }
+
   if (BOT_PROBE.test(pathname)) {
     return new NextResponse(null, { status: 404 });
   }
@@ -21,7 +29,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Match i18n routes + common bot probe paths (dotfiles, wp-*, xmlrpc)
+  // Match i18n routes + common bot probe paths (dotfiles, wp-*, xmlrpc).
+  // NOTE: proxy paths are excluded via the runtime check above (PROXY_PREFIXES),
+  // not here — so the matcher intentionally stays broad.
   matcher: [
     '/((?!api|u|feed|digest|livre|merci-cafe-numerique|_next|_vercel|.*\\..*).*)' ,
     '/(\\.env.*|xmlrpc\\.php|\\.git.*|wp-.*)',

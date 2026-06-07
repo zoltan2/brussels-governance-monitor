@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
     // dossier au fur et à mesure des migrations éditoriales.
     return getRedirectsConfig();
   },
+  async rewrites() {
+    // Proxy Umami through our own origin so ad blockers cannot identify it by CDN hostname.
+    // Browser sees requests to /u/… (same-origin); Vercel forwards to cloud.umami.is.
+    return [
+      { source: '/u/script.js', destination: 'https://cloud.umami.is/script.js' },
+      { source: '/u/api/:path*', destination: 'https://cloud.umami.is/api/:path*' },
+    ];
+  },
   async headers() {
     return [
       {
@@ -28,11 +36,11 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://cloud.umami.is", // unsafe-eval: Velite MDX new Function(); wasm-unsafe-eval: Pagefind WASM
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval'", // unsafe-eval: Velite MDX new Function(); wasm-unsafe-eval: Pagefind WASM
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self'",
-              "connect-src 'self' https://cloud.umami.is https://api-gateway.umami.dev",
+              "connect-src 'self'",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",

@@ -7,7 +7,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: regional
-summary: "LEZ-Saga: Nach der Einigung vom 4. April (Jahrespass 350 EUR, Sozialtarif 200 EUR, Bußgeld 80 EUR) kündigt Minister De Smedt (Anders) am 17. April eine erneute Verschiebung an — Bußgelder treten « bestenfalls » am 1. Juli 2026 in Kraft (statt 7. Juni). Reformverordnung angestrebt für 2027."
+summary: "LEZ: Bußgelder von 350 EUR treten ab 1. Juli 2026 für Euro-5-Diesel und Euro-2-Benziner in Kraft (13.000+ betroffene Fahrzeuge). Der Jahrespass (350 EUR, Sozial 200 EUR) und die Gesamtreform sind noch in Ausarbeitung (Verordnung 2027). Verwarnungsschreiben werden seit Januar 2026 versandt."
 stakeholders:
   - "Bruxelles Environnement"
   - "Region Brüssel-Hauptstadt"
@@ -43,6 +43,10 @@ sources:
   - label: "BX1 — LEZ: Bußgelder auf 1. Juli « bestenfalls » verschoben (17. April 2026)"
     url: "https://bx1.be/categories/news/lez-les-amendes-ne-tomberont-finalement-pas-le-7-juin-mais-le-1er-juillet-au-mieux/"
     accessedAt: "2026-04-19"
+  - label: "BRUZZ — Mehr als 13.000 Fahrzeuge riskieren LEZ-Bußgeld ab 1. Juli (5. Juni 2026)"
+    url: "https://www.bruzz.be/actua/mobiliteit/meer-dan-13000-voertuigen-riskeren-vanaf-1-juli-aangepaste-lez-boete-brussel-2026-06-05"
+    type: media
+    accessedAt: "2026-06-07"
 metrics:
   - label: "Einführungsjahr"
     value: "2018"
@@ -58,10 +62,15 @@ metrics:
     unit: "EUR (zuvor 350 EUR)"
     source: "DPR Feb. 2026"
     date: "2026-02-13"
+  - label: "Betroffene Fahrzeuge ab 1. Juli"
+    value: "13.000+"
+    unit: "Diesel Euro 5 + Benzin Euro 2"
+    source: "BRUZZ / Region Brüssel (Juni 2026)"
+    date: "2026-06-05"
 alerts:
-  - label: "Bußgelder auf 1. Juli « bestenfalls » verschoben (Ankündigung De Smedt, 17. April)"
-    severity: info
-    date: "2026-04-17"
+  - label: "Bußgelder von 350 EUR ab 1. Juli 2026 bestätigt — 13.000+ betroffene Fahrzeuge"
+    severity: warning
+    date: "2026-06-05"
   - label: "Staatsrat: kritisches Gutachten zu niedrigeren Bußgeldern (Standstill)"
     severity: warning
     date: "2026-02-28"
@@ -70,9 +79,9 @@ alerts:
     date: "2026-02-13"
 confidenceLevel: official
 dprCommitment: "LEZ-Jahrespass 350 EUR (Sozial 200 EUR), Bußgeld auf 80 EUR/Verstoß gesenkt, Obergrenze von 4 Bußgeldern/Jahr abgeschafft"
-lastModified: "2026-04-17"
+lastModified: "2026-06-07"
 changeType: updated
-changeSummary: "LEZ-Bußgelder erneut verschoben: Am 17. April kündigt Minister De Smedt (Anders) an, dass der 7. Juni nicht gehalten werden kann. Inkrafttreten « bestenfalls » am 1. Juli 2026 — Begründung: laufende Verwaltungsarbeit und Systemanpassung. Die politische Einigung vom 4. April (Pass 350 EUR, Sozial 200 EUR, monatliche Buße 80 EUR, Befreiungstaskforce) bleibt die Referenz."
+changeSummary: "Bestätigung des Inkrafttretens am 1. Juli 2026: Mehr als 13.000 Fahrzeuge (Euro-5-Diesel und Euro-2-Benziner) riskieren ab diesem Datum eine Geldstrafe von 350 EUR gemäß den Regionaldaten. Warnbriefe werden seit dem 1. Januar 2026 verschickt; das Limit bleibt eine Strafe pro drei Monate. Die Gesamtreform (Jahrespass 350 EUR, Sozialpreis 200 EUR, monatliche Strafe 80 EUR) ist noch in Ausarbeitung, ohne veröffentlichte Verordnung. Zuvor: Verzögerung am 17. April angekündigt (7. Juni sei nicht zu schaffen); politische Einigung vom 4. April."
 ---
 
 ## Regierungsabkommen: was sich ändert
@@ -150,7 +159,7 @@ Nach der **ersten Regierungskrise** (2.-4. April, T+50 — siehe Karte Instituti
 
 | Parameter | Wert |
 |-----------|------|
-| Inkrafttreten | **1. Juli 2026 « bestenfalls »** (verschoben vom 7. Juni) |
+| Inkrafttreten | **1. Juli 2026** (bestätigt — verschoben vom 7. Juni) |
 | Jahrespass | **350 EUR** (jährlich indexiert) |
 | Sozialtarif | **200 EUR** (einkommensschwache Haushalte) |
 | Monatliche Geldbuße | **80 EUR** (Gelegenheitsnutzer, ab 2027) |
@@ -168,6 +177,12 @@ Nach der **ersten Regierungskrise** (2.-4. April, T+50 — siehe Karte Instituti
 Eine **LEZ-Taskforce** muss die befreiten Kategorien (BIM, Berufstätige, vulnerable Gruppen) **vor dem 15. Juni** definieren. Die Reformverordnung wird für den **15. Juni** erwartet, Umsetzung in **2027**.
 
 Quellen: [BX1 (17. April 2026)](https://bx1.be/categories/news/lez-les-amendes-ne-tomberont-finalement-pas-le-7-juin-mais-le-1er-juillet-au-mieux/); RTBF, BX1, La Libre, DH (3.-4. April 2026). Vertrauen: official.
+
+## Bestätigung: 13.000+ betroffene Fahrzeuge ab 1. Juli 2026 (5. Juni 2026)
+
+Laut Daten der Region Brüssel riskieren **mehr als 13.000 Fahrzeuge** (Euro-5-Diesel und Euro-2-Benziner) ab **1. Juli 2026** ein **Bußgeld von 350 EUR**. Verwarnungsschreiben werden seit dem 1. Januar 2026 an die betroffenen Halter versandt. Das geltende Limit bleibt **ein Bußgeld pro drei Monate**. Die Gesamtreform (Jahrespass 350 EUR, Sozialtarif 200 EUR, monatliche Geldbuße 80 EUR für Gelegenheitsnutzer) ist noch in Ausarbeitung, und bis zu diesem Datum wurde keine Verordnung veröffentlicht.
+
+Quelle: BRUZZ / Region Brüssel, 5. Juni 2026.
 
 ## Zu beobachtende Punkte
 

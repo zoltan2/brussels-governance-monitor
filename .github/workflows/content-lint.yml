@@ -38,7 +38,8 @@ jobs:
           VIOLATIONS=""
           while IFS= read -r file; do
             if [ ! -f "$file" ]; then continue; fi
-            MATCHES=$(grep -n -E -f /tmp/patterns_clean.txt "$file" || true)
+            # Exclude url: YAML fields — external URLs may contain temporal words in their slug
+            MATCHES=$(grep -n -E -f /tmp/patterns_clean.txt "$file" | grep -v ':[[:space:]]*url:' || true)
             if [ -n "$MATCHES" ]; then
               VIOLATIONS="$VIOLATIONS\n--- $file ---\n$MATCHES"
             fi

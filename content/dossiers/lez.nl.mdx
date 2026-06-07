@@ -7,7 +7,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: regional
-summary: "LEZ-saga: na het akkoord van 4 april (jaarpas 350 EUR, sociaal tarief 200 EUR, boete 80 EUR) kondigt minister De Smedt (Anders) op 17 april een nieuw uitstel aan — boetes treden « in het beste geval » op 1 juli 2026 in werking (vs 7 juni). Ordonnantie beoogd 2027."
+summary: "LEZ: de boetes van 350 EUR treden op 1 juli 2026 in werking voor Euro 5-diesels en Euro 2-benzines (13 000+ betrokken voertuigen). De jaarpas (350 EUR, sociaal 200 EUR) en de globale hervorming zijn nog in uitwerking (ordonnantie 2027). Waarschuwingsbrieven worden verstuurd sinds januari 2026."
 stakeholders:
   - "Leefmilieu Brussel"
   - "Brussels Hoofdstedelijk Gewest"
@@ -43,6 +43,10 @@ sources:
   - label: "BX1 — LEZ: boetes uitgesteld naar 1 juli « in het beste geval » (17 april 2026)"
     url: "https://bx1.be/categories/news/lez-les-amendes-ne-tomberont-finalement-pas-le-7-juin-mais-le-1er-juillet-au-mieux/"
     accessedAt: "2026-04-19"
+  - label: "BRUZZ — Meer dan 13.000 voertuigen riskeren LEZ-boete vanaf 1 juli (5 juni 2026)"
+    url: "https://www.bruzz.be/actua/mobiliteit/meer-dan-13000-voertuigen-riskeren-vanaf-1-juli-aangepaste-lez-boete-brussel-2026-06-05"
+    type: media
+    accessedAt: "2026-06-07"
 metrics:
   - label: "Jaar van invoering"
     value: "2018"
@@ -58,10 +62,15 @@ metrics:
     unit: "EUR (tegenover 350 EUR voorheen)"
     source: "DPR feb. 2026"
     date: "2026-02-13"
+  - label: "Betrokken voertuigen op 1 juli"
+    value: "13 000+"
+    unit: "diesel Euro 5 + benzine Euro 2"
+    source: "BRUZZ / Brussels Gewest (juni 2026)"
+    date: "2026-06-05"
 alerts:
-  - label: "Boetes uitgesteld naar 1 juli « in het beste geval » (aankondiging De Smedt, 17 april)"
-    severity: info
-    date: "2026-04-17"
+  - label: "Boetes van 350 EUR bevestigd op 1 juli 2026 — 13 000+ voertuigen betrokken"
+    severity: warning
+    date: "2026-06-05"
   - label: "Raad van State: kritisch advies over lagere boetes (standstill)"
     severity: warning
     date: "2026-02-28"
@@ -70,9 +79,9 @@ alerts:
     date: "2026-02-13"
 confidenceLevel: official
 dprCommitment: "Jaarlijkse LEZ-pas 350 EUR (sociaal 200 EUR), boete verlaagd naar 80 EUR/overtreding, plafond van 4 boetes/jaar afgeschaft"
-lastModified: "2026-04-17"
+lastModified: "2026-06-07"
 changeType: updated
-changeSummary: "Uitstel LEZ-boetes: minister De Smedt (Anders) kondigt op 17 april aan dat 7 juni niet haalbaar is. Inwerkingtreding « in het beste geval » op 1 juli 2026 — motivering: administratief werk nog aan de gang en systeemaanpassingen. Het politiek akkoord van 4 april (pas 350 EUR, sociaal 200 EUR, maandelijks 80 EUR, taskforce vrijstellingen) blijft de referentie."
+changeSummary: "Bevestiging van inwerkingtreding op 1 juli 2026: meer dan 13.000 voertuigen (Euro 5 diesel en Euro 2 benzine) riskeren op die datum een boete van 350 EUR, volgens cijfers van het Gewest. Waarschuwingsbrieven worden verstuurd sinds 1 januari 2026; het plafond blijft één boete per drie maanden. De globale hervorming (jaarpas 350 EUR, sociaal 200 EUR, maandboete 80 EUR) is nog in uitwerking, zonder gepubliceerd besluit. Eerder: uitstel aangekondigd op 17 april (7 juni zou niet haalbaar zijn); politiek akkoord van 4 april."
 ---
 
 ## Regeringsakkoord: wat verandert er
@@ -150,7 +159,7 @@ Na de **eerste regeringscrisis** (2-4 april, D+50 — zie kaart Institutioneel) 
 
 | Parameter | Waarde |
 |-----------|--------|
-| Datum inwerkingtreding | **1 juli 2026 « in het beste geval »** (uitgesteld vanaf 7 juni) |
+| Datum inwerkingtreding | **1 juli 2026** (bevestigd — uitgesteld vanaf 7 juni) |
 | Jaarpas | **350 EUR** (jaarlijks geïndexeerd) |
 | Sociaal tarief | **200 EUR** (bescheiden huishoudens) |
 | Maandelijkse boete | **80 EUR** (occasionele gebruikers, vanaf 2027) |
@@ -168,6 +177,12 @@ Na de **eerste regeringscrisis** (2-4 april, D+50 — zie kaart Institutioneel) 
 Een **LEZ-taskforce** moet de vrijgestelde categorieën definiëren (BIM, professionelen, kwetsbare groepen) **vóór 15 juni**. De hervormingsordonnantie wordt verwacht voor **15 juni**, met uitvoering in **2027**.
 
 Bronnen: [BX1 (17 april 2026)](https://bx1.be/categories/news/lez-les-amendes-ne-tomberont-finalement-pas-le-7-juin-mais-le-1er-juillet-au-mieux/); RTBF, BX1, La Libre, DH (3-4 april 2026). Betrouwbaarheid: official.
+
+## Bevestiging: 13.000+ voertuigen betrokken op 1 juli 2026 (5 juni 2026)
+
+Volgens cijfers van het Brussels Gewest riskeren **meer dan 13.000 voertuigen** (Euro 5-diesels en Euro 2-benzines) een boete van **350 EUR** vanaf **1 juli 2026**. Waarschuwingsbrieven worden verstuurd aan de betrokken eigenaars sinds 1 januari 2026. Het huidige plafond blijft **één boete per drie maanden**. De globale hervorming (jaarpas 350 EUR, sociaal tarief 200 EUR, maandelijkse boete 80 EUR voor occasionele gebruikers) is nog in uitwerking en er werd tot op heden geen besluit gepubliceerd.
+
+Bron: BRUZZ / Brussels Gewest, 5 juni 2026.
 
 ## Op te volgen aandachtspunten
 

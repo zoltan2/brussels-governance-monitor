@@ -127,7 +127,7 @@
     {
       "id": "watch-006",
       "name": "STIB/MIVB — Actualités",
-      "url": "https://www.stib-mivb.be/travel/new-on-the-network",
+      "url": "https://mivb.prezly.com/",
       "type": "institutional",
       "lang": "multi",
       "priority": "P0",
@@ -143,7 +143,9 @@
       "domaines": [
         "mobility"
       ],
-      "document_trust_tier": "P0"
+      "document_trust_tier": "P0",
+      "fetchMode": "rss",
+      "rssUrl": "https://mivb.prezly.com/feed"
     },
     {
       "id": "watch-007",
@@ -168,7 +170,7 @@
     {
       "id": "watch-008",
       "name": "Statbel — Statistiques régionales Bruxelles",
-      "url": "https://statbel.fgov.be/fr/themes/datalab/bruxelles",
+      "url": "https://statbel.fgov.be/fr/themes/emploi-formation/marche-du-travail/emploi-et-chomage",
       "type": "institutional",
       "lang": "multi",
       "priority": "P0",
@@ -218,7 +220,7 @@
     {
       "id": "watch-010",
       "name": "Bruss'Help — Publications",
-      "url": "https://www.brusshelp.org/publications",
+      "url": "https://brusshelp.org/index.php/fr/missions/analyse/etudes-et-analyse",
       "type": "institutional",
       "lang": "fr",
       "priority": "P0",
@@ -239,7 +241,7 @@
     {
       "id": "watch-011",
       "name": "perspective.brussels — Publications",
-      "url": "https://perspective.brussels/fr/actualites-publications/publications",
+      "url": "https://perspective.brussels/fr/publications",
       "type": "institutional",
       "lang": "multi",
       "priority": "P0",
@@ -345,7 +347,7 @@
     {
       "id": "watch-016",
       "name": "Observatoire de la Santé et du Social",
-      "url": "https://www.ccc-ggc.brussels/fr/observatoire-de-la-sante-et-du-social/publications",
+      "url": "https://www.vivalis.brussels/fr/informer-et-communiquer/publications-et-materiel-de-communication/publications-et-materiel-de-communication",
       "type": "institutional",
       "lang": "fr",
       "priority": "P0",
@@ -464,7 +466,7 @@
     {
       "id": "watch-020",
       "name": "BRUGEL — Régulateur bruxellois énergie et eau",
-      "url": "https://www.brugel.brussels/publication/actualites-16",
+      "url": "https://brugel.brussels/actualites",
       "type": "institutional",
       "lang": "multi",
       "priority": "P0",
@@ -486,7 +488,7 @@
     {
       "id": "watch-021",
       "name": "SLRB-BGHM — Société du Logement de la Région de Bruxelles-Capitale",
-      "url": "https://www.slrb-bghm.brussels/fr/publications",
+      "url": "https://slrb-bghm.brussels/fr/actualites",
       "type": "institutional",
       "lang": "multi",
       "priority": "P0",

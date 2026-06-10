@@ -127,7 +127,7 @@
     {
       "id": "watch-006",
       "name": "STIB/MIVB — Actualités",
-      "url": "https://www.stib-mivb.be/travel/new-on-the-network",
+      "url": "https://mivb.prezly.com/",
       "type": "institutional",
       "lang": "multi",
       "priority": "P0",
@@ -143,7 +143,9 @@
       "domaines": [
         "mobility"
       ],
-      "document_trust_tier": "P0"
+      "document_trust_tier": "P0",
+      "fetchMode": "rss",
+      "rssUrl": "https://mivb.prezly.com/feed"
     },
     {
       "id": "watch-007",
@@ -345,7 +347,7 @@
     {
       "id": "watch-016",
       "name": "Observatoire de la Santé et du Social",
-      "url": "https://www.ccc-ggc.brussels/fr/observatoire-de-la-sante-et-du-social/publications",
+      "url": "https://www.vivalis.brussels/fr/informer-et-communiquer/publications-et-materiel-de-communication/publications-et-materiel-de-communication",
       "type": "institutional",
       "lang": "fr",
       "priority": "P0",

@@ -7,7 +7,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: regional
-summary: "LEZ : les amendes de 350 EUR entreront bien en vigueur le 1er juillet 2026 pour les diesels Euro 5 et essences Euro 2 (13 000+ véhicules concernés). Le pass annuel (350 EUR, social 200 EUR) et la réforme globale restent en cours d'ordonnance (2027). Les lettres d'avertissement sont envoyées depuis janvier 2026."
+summary: "Le 11 juin 2026, le gouvernement a approuvé en première lecture deux scénarios d'exemption de la LEZ pour les bénéficiaires de l'intervention majorée (BIM), envoyés au Conseil d'État. Les amendes de 350 EUR entrent en vigueur le 1er juillet 2026 pour les diesels Euro 5 et essences Euro 2 (13 000+ véhicules concernés). La réforme globale (pass annuel 350 EUR) reste prévue pour 2027."
 stakeholders:
   - "Bruxelles Environnement"
   - "Région de Bruxelles-Capitale"
@@ -38,6 +38,14 @@ sources:
     url: "https://www.bruzz.be/actua/mobiliteit/meer-dan-13000-voertuigen-riskeren-vanaf-1-juli-aangepaste-lez-boete-brussel-2026-06-05"
     type: media
     accessedAt: "2026-06-07"
+  - label: "BRUZZ — Brusselse regering onderzoekt vrijstelling op LEZ voor kwetsbare huishoudens (12 juin 2026)"
+    url: "https://www.bruzz.be/actua/politiek/brusselse-regering-onderzoekt-vrijstelling-op-lez-voor-kwetsbare-huishoudens-2026-06-12"
+    type: media
+    accessedAt: "2026-06-12"
+  - label: "BX1 — Le gouvernement bruxellois étudie une exemption de la LEZ pour les ménages vulnérables (12 juin 2026)"
+    url: "https://bx1.be/categories/news/le-gouvernement-bruxellois-etudie-une-exemption-de-la-lez-pour-les-menages-vulnerables/"
+    type: media
+    accessedAt: "2026-06-12"
 metrics:
   - label: "Année de création"
     value: "2018"
@@ -59,6 +67,9 @@ metrics:
     source: "BRUZZ / Région bruxelloise (juin 2026)"
     date: "2026-06-05"
 alerts:
+  - label: "Exemption sociale BIM : deux scénarios en première lecture, deuxième lecture après l'été 2026"
+    severity: info
+    date: "2026-06-11"
   - label: "Amendes 350 EUR confirmées au 1er juillet 2026 — 13 000+ véhicules concernés"
     severity: warning
     date: "2026-06-05"
@@ -70,9 +81,9 @@ alerts:
     date: "2026-02-13"
 confidenceLevel: official
 dprCommitment: "Pass annuel LEZ 350 EUR (social 200 EUR), amende réduite à 80 EUR/infraction, plafond 4 amendes/an supprimé"
-lastModified: "2026-06-07"
+lastModified: "2026-06-12"
 changeType: updated
-changeSummary: "Confirmation de l'entrée en vigueur au 1er juillet 2026 : plus de 13 000 véhicules (diesels Euro 5 et essences Euro 2) risquent des amendes de 350 EUR à cette date, selon les chiffres de la Région. Les lettres d'avertissement ont été envoyées depuis le 1er janvier 2026 ; le plafond reste d'une amende tous les trois mois. La réforme globale (pass annuel 350 EUR, social 200 EUR, amende mensuelle 80 EUR) reste en cours d'élaboration, sans arrêté publié. Précédemment : report annoncé le 17 avril (le 7 juin ne serait pas tenu) ; accord politique du 4 avril."
+changeSummary: "Vers une LEZ à deux vitesses sociales : le gouvernement bruxellois a approuvé le 11 juin, en première lecture, deux scénarios d'exemption pour les bénéficiaires de l'intervention majorée (le statut BIM, qui concerne environ trois Bruxellois sur dix) — soit une exemption totale, soit une exemption réservée aux BIM bruxellois qui travaillent et ont au moins trois personnes à charge. Les textes partent au Conseil d'État ; deuxième lecture après l'été, le gouvernement reste divisé. Pendant ce temps, le calendrier répressif se poursuit : plus de 13 000 diesels Euro 5 et essences Euro 2 déjà avertis risquent une amende de 350 EUR dès le 1er juillet."
 ---
 
 ## Accord de gouvernement : ce qui change
@@ -167,10 +178,23 @@ Selon les données de la Région bruxelloise, **plus de 13 000 véhicules** (die
 
 Source : BRUZZ / Région bruxelloise, 5 juin 2026.
 
+## Exemption sociale BIM : deux scénarios en première lecture (11 juin 2026)
+
+Le conseil des ministres du **11 juin 2026** a approuvé en **première lecture** deux projets d'arrêté introduisant une correction sociale de la LEZ, en amont de la réforme globale prévue pour début 2027 :
+
+1. **Exemption totale** pour tous les titulaires de plaque bénéficiant de l'**intervention majorée** (BIM) — ils pourraient entrer dans la Région avec n'importe quel véhicule ;
+2. **Exemption conditionnelle** : réservée aux titulaires BIM **domiciliés à Bruxelles**, **ayant un emploi** et comptant **au moins trois personnes fiscalement à charge**.
+
+Les deux textes sont transmis au **Conseil d'État**, à l'**Autorité de protection des données** et aux organes d'avis. La **deuxième lecture** est attendue **après l'été 2026** ; une troisième lecture est possible, le gouvernement restant divisé sur la mesure. La secrétaire d'État au Climat résume l'arbitrage : la qualité de l'air reste « une priorité absolue », mais « beaucoup de ménages ne peuvent pas simplement acheter une voiture électrique neuve à 40 000 euros ».
+
+Cette correction sociale est **distincte** de la réforme globale de la LEZ (pass annuel 350 EUR, etc.), toujours en chantier pour début 2027. À noter : la qualité BIM, déjà au cœur du dossier `bim-bruxelles` (environ 30 % des Bruxellois), deviendrait ici pour la première fois un critère d'accès routier.
+
+Sources : BRUZZ, BX1, La DH, L'Avenir (12 juin 2026). Confiance : unconfirmed (première lecture, textes non publiés).
+
 ## Enjeux à suivre
 
 - **Santé publique** : la qualité de l'air à Bruxelles reste inférieure aux recommandations de l'OMS dans plusieurs zones
-- **Justice sociale** : le pass annuel et le tarif social visent à atténuer l'impact sur les ménages à faibles revenus — les exceptions BIM (30 % des Bruxellois) restent bloquées par Groen
+- **Justice sociale** : le pass annuel et le tarif social visent à atténuer l'impact sur les ménages à faibles revenus — deux scénarios d'exemption BIM (30 % des Bruxellois) sont en première lecture depuis le 11 juin 2026
 - **Cohérence climatique** : la suspension des amendes pose la question de la crédibilité de la LEZ comme instrument de transition
 - **Calendrier de durcissement** : la confirmation ou la révision du calendrier 2025-2030 reste à décider
 - **Sécurité juridique** : le Conseil d'État a averti que le principe de standstill interdit de réduire la protection environnementale — des recours sont probables

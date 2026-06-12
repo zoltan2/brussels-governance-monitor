@@ -7,7 +7,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "En mars 2025, environ 9 200 trottinettes et 6 500 vélos partagés circulent à Bruxelles, dans un cadre réglementaire en pleine turbulence juridique. La concession Villo! (360 stations, JCDecaux) expire en septembre 2026 sans successeur identifié. Les taxis entament une transition zéro émission reportée à 2027, tandis que la Cour du travail a requalifié un chauffeur Uber en salarié."
+summary: "Le 11 juin 2026, le gouvernement bruxellois a décidé d'interdire les trottinettes électriques en libre-service à partir du 1er janvier 2027 — fin d'un marché d'environ 9 200 engins exploités par Bolt et Dott, dont les autorisations expirent fin 2026. La concession Villo! (360 stations, JCDecaux) expire en septembre 2026 sans successeur identifié. Les taxis poursuivent une transition zéro émission reportée à 2027."
 estimatedBudget: "Non consolidé — concession Villo! (coût public 1 000-4 000 EUR/vélo/an), prime Bruxell'Air (~3M EUR/an)"
 stakeholders:
   - "Bruxelles Mobilité"
@@ -119,6 +119,21 @@ sources:
   - label: "BRUZZ — Bolt lance ses e-steps Bolt7 avec navigation GPS et IA (22 avril 2026)"
     url: "https://www.bruzz.be/actua/mobiliteit/bolt-lanceert-e-steps-met-ingebouwde-navigatie-en-ai-toepassingen-2026-04-22"
     accessedAt: "2026-04-23"
+  - label: "La Libre — Bruxelles interdit les trottinettes partagées sur son territoire (11 juin 2026)"
+    url: "https://www.lalibre.be/belgique/mobilite/2026/06/11/grand-changement-dans-le-secteur-de-la-mobilite-bruxelles-interdit-les-trottinettes-partagees-sur-son-territoire-IRS4BZDEPFFS3H6MJT23AUASK4/"
+    accessedAt: "2026-06-12"
+  - label: "BRUZZ — Geen deelsteps meer in Brussel vanaf 2027 (11 juin 2026)"
+    url: "https://www.bruzz.be/actua/mobiliteit/geen-deelsteps-meer-brussel-vanaf-2027-2026-06-11"
+    accessedAt: "2026-06-12"
+  - label: "La Libre — La CSC alerte sur 60 emplois menacés chez Dott (11 juin 2026)"
+    url: "https://www.lalibre.be/belgique/mobilite/2026/06/11/on-ne-peut-pas-resoudre-un-probleme-de-mobilite-en-creant-un-probleme-social-majeur-WYVOPMUG6VFD3PCAWD5THFBAEM/"
+    accessedAt: "2026-06-12"
+  - label: "L'Avenir — Bolt « profondément déçu » par la fin des trottinettes partagées (11 juin 2026)"
+    url: "https://www.lavenir.net/regions/bruxelles/2026/06/11/fin-des-trottinettes-partagees-a-bruxelles-bolt-se-dit-profondement-decu-et-assure-que-cela-poussera-les-utilisateurs-vers-des-trottinettes-privees-RDU23X6UNFD2PGGZIIAJNPXHKI/"
+    accessedAt: "2026-06-12"
+  - label: "RTBF — Trottinettes interdites en 2027 : que disent les statistiques des accidents ? (12 juin 2026)"
+    url: "https://www.rtbf.be/article/trottinettes-electriques-en-libre-service-interdites-a-bruxelles-en-2027-que-disent-les-statistiques-des-accidents-11739334"
+    accessedAt: "2026-06-12"
 metrics:
   - label: "Trottinettes partagées en circulation (mars 2025)"
     value: "~9 200"
@@ -163,10 +178,13 @@ metrics:
     url: "https://www.bruzz.be/actua/mobiliteit/bolt-lanceert-e-steps-met-ingebouwde-navigatie-en-ai-toepassingen-2026-04-22"
     date: "2026-04-22"
 alerts:
+  - label: "Interdiction des trottinettes en libre-service au 1er janvier 2027 — décision du gouvernement du 11 juin 2026"
+    severity: warning
+    date: "2027-01-01"
   - label: "Concession Villo! expire en septembre 2026 — aucun successeur identifié"
     severity: warning
     date: "2026-09-01"
-  - label: "Licences Bolt/Dott trottinettes expirent fin 2026 — nouvel appel d'offres requis"
+  - label: "Licences Bolt/Dott trottinettes expirent fin 2026 — le nouveau marché public exclura les trottinettes partagées"
     severity: info
     date: "2026-12-31"
   - label: "+62 % d'accidents de trottinettes au Q1 2025 (national)"
@@ -177,7 +195,24 @@ alerts:
     date: "2025-06-13"
 confidenceLevel: official
 dprCommitment: "La DPR du 13 février 2026 ne mentionne pas la mobilité partagée en tant que politique publique. Ni Villo!, ni les trottinettes, ni les VTC, ni le MaaS ne sont cités. Les mesures indirectes (nouveau Plan Régional de Mobilité succédant à Good Move, maintien de la LEZ, 2e dimanche sans voiture) ne constituent pas un cadre spécifique pour la mobilité partagée."
-lastModified: "2026-04-23"
+lastModified: "2026-06-12"
+---
+
+## Interdiction des trottinettes partagées au 1ᵉʳ janvier 2027
+
+Le **11 juin 2026**, le gouvernement bruxellois a décidé d'interdire les trottinettes électriques en libre-service sur le territoire régional à compter du **1ᵉʳ janvier 2027**. Les autorisations des deux opérateurs actuels, Bolt et Dott, expirent fin 2026 ; le nouveau marché public régional n'inclura plus de trottinettes partagées. Les vélos partagés ne sont pas visés par la décision.
+
+Deux motifs sont avancés par la ministre de la Mobilité : la **sécurité routière** (risque de blessure plus élevé qu'à vélo, trottoirs encombrés au détriment des personnes à mobilité réduite) et la **lutte contre la criminalité** — le parquet de Bruxelles avait pointé l'usage de ces engins dans le trafic de drogue. Selon les chiffres de l'institut Vias relayés par La Libre, les accidents de trottinettes électriques ont fait 2 149 blessés et 13 morts en Belgique en 2025, contre 1 652 blessés et 4 morts en 2024.
+
+Réactions :
+
+- La **CSC-ACV** alerte sur jusqu'à 60 emplois menacés chez Dott d'ici fin 2026 et dénonce une « décision brutale et socialement irresponsable, prise sans concertation suffisante » ;
+- **Bolt**, qui venait de déployer 1 200 trottinettes de nouvelle génération, se dit « profondément déçu » et estime que l'interdiction poussera les utilisateurs vers des trottinettes privées ;
+- L'institut **Vias** juge la décision « compréhensible » mais rappelle qu'elle ne règle pas la question des trottinettes privées bon marché ;
+- Un expert en mobilité interrogé par BRUZZ estime que le modèle londonien (encadrement strict plutôt qu'interdiction) aurait été préférable.
+
+La décision met fin, par extinction, au contentieux ouvert depuis 2023 sur les licences (voir chronologie ci-dessous). Confiance : unconfirmed (annonce gouvernementale relayée par la presse, arrêté non publié au Moniteur à ce stade).
+
 ---
 
 ## État des lieux

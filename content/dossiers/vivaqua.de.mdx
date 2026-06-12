@@ -7,7 +7,7 @@ dossierType: utility
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: regional
-summary: "Das Abkommen vom Februar 2026 sieht die finanzielle Konsolidierung von Vivaqua vor. Der mehrjährige Investitionsplan (~1,3 Milliarden EUR) zur Erneuerung des Wassernetzes kann wieder aufgenommen werden."
+summary: "Am 11. Juni 2026 hat die Brüsseler Regierung die Grundsatzentscheidung getroffen, 180 Millionen EUR in Vivaqua einzubringen: Die Region wird Aktionärin mit 49 % und zieht erstmals in den Verwaltungsrat ein. Hydria überträgt Vivaqua fünf Regenwasserbecken und 40 km Sammler. Der mehrjährige Investitionsplan (~1,3 Milliarden EUR) zur Erneuerung des Netzes kann wieder aufgenommen werden."
 estimatedBudget: "~1,3 Milliarden EUR geplante Investitionen"
 stakeholders:
   - "Vivaqua"
@@ -50,6 +50,15 @@ sources:
   - label: "BX1 — Évere : travaux Vivaqua et STIB bloquent un quartier (19 mai 2026)"
     url: "https://bx1.be/categories/news/evere-des-travaux-de-vivaqua-et-la-stib-bloquent-tout-un-quartier-et-font-souffrir-les-commercants/"
     accessedAt: "2026-05-19"
+  - label: "BX1 — Die Region bringt 180 Millionen in Vivaqua ein und wird Aktionärin mit 49 % (12. Juni 2026)"
+    url: "https://bx1.be/categories/news/la-region-bruxelloise-injecte-180-millions-dans-vivaqua-et-devient-actionnaire-a-49/"
+    accessedAt: "2026-06-12"
+  - label: "BRUZZ — Brussels Gewest investeert 180 miljoen in Vivaqua (12. Juni 2026)"
+    url: "https://www.bruzz.be/actua/politiek/brussels-gewest-investeert-180-miljoen-vivaqua-en-wordt-voor-49-procent-aandeelhouder-2026-06-12"
+    accessedAt: "2026-06-12"
+  - label: "RTBF — Die Brüsseler Region bringt 180 Millionen in Vivaqua ein (12. Juni 2026)"
+    url: "https://www.rtbf.be/article/la-region-bruxelloise-injecte-180-millions-dans-vivaqua-et-devient-actionnaire-a-49-11739364"
+    accessedAt: "2026-06-12"
 metrics:
   - label: "Netzlänge"
     value: "~4 200"
@@ -66,11 +75,16 @@ metrics:
     unit: "Jahre"
     source: "Vivaqua"
     date: "2025-01-01"
-  - label: "Rekapitalisierung (DPR)"
+  - label: "Rekapitalisierung (Grundsatzentscheidung)"
     value: "180"
     unit: "M EUR"
-    source: "DPR Feb. 2026"
-    date: "2026-02-13"
+    source: "Brüsseler Regierung (11. Juni 2026)"
+    date: "2026-06-11"
+  - label: "Regionale Kapitalbeteiligung"
+    value: "49"
+    unit: "%"
+    source: "Brüsseler Regierung (11. Juni 2026)"
+    date: "2026-06-11"
   - label: "Kanäle mit dringendem Sanierungsbedarf"
     value: "220"
     unit: "km"
@@ -91,6 +105,9 @@ metrics:
     source: "BRUGEL (2026)"
     date: "2026-02-01"
 alerts:
+  - label: "Grundsatzentscheidung vom 11. Juni 2026: 180 Mio. EUR Kapitalzufuhr, Region wird Aktionärin mit 49 %"
+    severity: info
+    date: "2026-06-11"
   - label: "DPR: finanzielle Konsolidierung von Vivaqua angekündigt"
     severity: info
     date: "2026-02-13"
@@ -102,9 +119,9 @@ alerts:
     date: "2026-02-22"
 confidenceLevel: official
 dprCommitment: "Finanzielle Konsolidierung von Vivaqua"
-lastModified: "2026-05-19"
+lastModified: "2026-06-12"
 changeType: updated
-changeSummary: "Rekapitalisierung Vivaqua angekündigt mit 180 Mio. € (Kabinett Minister für Lokale Gewalten, 18. Mai 2026), finanziert durch die strukturelle Streichung der « Wasser »-Dotation für die Brüsseler Gemeinden (15,7 Mio. €/Jahr entzogen). Vivaqua + STIB-Bauarbeiten blockieren ein Viertel in Evere, Geschäfte in Schwierigkeiten (BX1, 19. Mai). IEB-Stellungnahme (Nov. 2025) bleibt Referenz: Sozialtarif, Überläufe 10 Mm³/Jahr, 15 % flämisches Abwasser."
+changeSummary: "Die Region wird Aktionärin von Vivaqua: Die Brüsseler Regierung hat am 11. Juni beschlossen, 180 Millionen EUR in die Wassergesellschaft einzubringen und 49 % ihres Kapitals zu übernehmen — mit, erstmals, einem Sitz im Verwaltungsrat. Erklärtes Ziel: bezahlbare Wasserrechnungen mit den dringenden Investitionen in ein alterndes Kanalnetz (220 km sanierungsbedürftig) in Einklang bringen. Weitere Klärung: Hydria, die für die Abwasserreinigung zuständige Regionaleinrichtung, überträgt Vivaqua fünf Regenwasserbecken und 40 km Sammler — Vivaqua wird künftig das gesamte Kanalisationsnetz verwalten. Die Konstruktion nähert Brüssel dem flämischen Modell (De Watergroep) und dem wallonischen Modell (SWDE) an."
 ---
 
 ## Regierungsabkommen: was sich ändert
@@ -197,6 +214,18 @@ Ende April 2026 kündigt **Bruxelles Pouvoirs Locaux** den 19 Brüsseler Gemeind
 Siehe auch: Karte `institutional` (Abschnitt Wasser-Dotation) und Karte `mobility` (Abschnitt Vivaqua + STIB-Bauarbeiten Evere).
 
 Quelle: [La DH Bruxelles — 16 Mio. € weniger für die Gemeinden (18. Mai 2026)](https://www.dhnet.be/regions/bruxelles/2026/05/18/16-millions-deuros-par-an-en-moins-pour-les-communes-bruxelloises-une-douche-froide-selon-le-ptb-des-services-a-la-population-risquent-den-patir-QCORTIHZHREWRHC54QAPFQQCWY/). Konfidenz: official.
+
+## Die Region als Aktionärin mit 49 %: Grundsatzentscheidung (11. Juni 2026)
+
+Am **11. Juni 2026** hat der Brüsseler Ministerrat die **Grundsatzentscheidung** getroffen, **180 Millionen EUR** Kapital in Vivaqua einzubringen. Die Region wird damit **Aktionärin mit 49 %** des Interkommunalverbands — bisher vollständig im Besitz der Gemeinden — und erhält **erstmals einen Sitz im Verwaltungsrat**, also ein direktes Aufsichtsrecht über die von BRUGEL im Februar 2026 kritisierte Verwaltung.
+
+Die Regierung präsentiert die Operation als Annäherung an das Modell der anderen Regionen: **De Watergroep** in Flandern und die **SWDE** in der Wallonie, zwei Wassergesellschaften mit regionaler Beteiligung. Die Staatssekretärin für Klima erklärt, sie wolle « bezahlbare Rechnungen mit den dringenden Investitionen » in das Kanalnetz in Einklang bringen; der Präsident von Vivaqua räumt ein, dass die Herausforderungen « erheblich » sind, vor allem bei den Kanälen.
+
+Ergänzende Entscheidung zur Klärung der Rollen: **Hydria** überträgt Vivaqua **fünf Regenwasserbecken und 40 km Sammler**. Hydria konzentriert sich künftig auf die **Reinigung** des Abwassers; Vivaqua übernimmt — neben der Produktion und Verteilung von Trinkwasser — die Verwaltung **sämtlicher Regenwasserbecken und des gesamten Kanalisationsnetzes**.
+
+Diese Entscheidung konkretisiert die am 18. Mai 2026 angekündigte Rekapitalisierung (finanziert unter anderem durch die Aufhebung der « Wasser »-Dotation für die Gemeinden, siehe vorhergehenden Abschnitt) und das Versprechen der « finanziellen Konsolidierung » des Regierungsabkommens vom Februar 2026.
+
+Quellen: BX1, BRUZZ, RTBF (12. Juni 2026). Konfidenz: unconfirmed (von der Regierung kommunizierte Grundsatzentscheidung, Texte nicht veröffentlicht).
 
 ## Evere: Vivaqua + STIB-Bauarbeiten blockieren ein Viertel (19. Mai 2026)
 

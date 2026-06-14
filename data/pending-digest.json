@@ -1,28 +1,28 @@
 {
-  "week": "2026-w23",
-  "weekStart": "2026-06-01",
-  "created_at": "2026-06-07T20:00:03.390Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w24",
+  "weekStart": "2026-06-08",
+  "created_at": "2026-06-14T20:00:11.699Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "6 domaines, 1 dossier, 1 commune mis à jour",
-    "nl": "6 domeinen, 1 dossier, 1 gemeente bijgewerkt",
-    "en": "6 domains, 1 dossier, 1 commune updated",
-    "de": "6 Bereiche, 1 Dossier, 1 Gemeinde aktualisiert"
+    "fr": "7 domaines, 7 dossiers, 3 communes mis à jour",
+    "nl": "7 domeinen, 7 dossiers, 3 gemeenten bijgewerkt",
+    "en": "7 domains, 7 dossiers, 3 communes updated",
+    "de": "7 Bereiche, 7 Dossiers, 3 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "13 000+ ",
+    "value": "-47%",
     "label": {
-      "fr": "Véhicules diesel Euro 5 + essence Euro 2 à l'amende LEZ dès le 1er juillet",
-      "nl": "Voertuigen riskeren vanaf 1 juli aangepaste LEZ-boete",
-      "en": "Euro 5 diesel and Euro 2 petrol vehicles facing LEZ fines from July 1.",
-      "de": "Dieselfahrzeuge der Euro-5-Norm und Benzinfahrzeuge der Euro-2-Norm müssen ab dem 1. Juli mit LEZ-Bußgeldern rechnen."
+      "fr": "Objectif réduction CO2 2030",
+      "nl": "Doelstelling CO2-reductie 2030",
+      "en": "2030 CO2 reduction target",
+      "de": "CO2-Reduktionsziel 2030"
     },
     "source": {
-      "fr": "Ministre bruxellois des Finances",
-      "nl": "Brussels minister van Financiën ",
-      "en": "Brussels Minister of Finance",
-      "de": "Brüsseler Finanzminister"
+      "fr": "Bruxelles Environnement / PACE (adopté mai 2023)",
+      "nl": "Leefmilieu Brussel / LKEP (aangenomen mei 2023)",
+      "en": "Brussels Environment / PACE (adopted May 2023)",
+      "de": "Brüssel Umwelt / PACE (verabschiedet Mai 2023)"
     }
   },
   "closingNote": {
@@ -33,14 +33,22 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
-    "education",
+    "climate",
+    "economy",
     "employment",
     "housing",
-    "institutional",
     "mobility",
+    "security",
     "social",
-    "dossier-titres-services-economie-sociale",
-    "commune-anderlecht"
-  ],
-  "sent_at": "2026-06-07T22:13:46.297Z"
+    "dossier-lez",
+    "dossier-mobilite-partagee",
+    "dossier-pfas",
+    "dossier-rse",
+    "dossier-slrb",
+    "dossier-vivaqua",
+    "dossier-metro-3",
+    "commune-bruxelles-ville",
+    "commune-molenbeek-saint-jean",
+    "commune-saint-josse-ten-noode"
+  ]
 }

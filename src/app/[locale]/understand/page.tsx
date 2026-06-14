@@ -73,6 +73,7 @@ function UnderstandContent() {
     { href: '/explainers/communities-in-brussels' as const, title: t('communitiesTitle'), desc: t('communitiesDesc') },
     { href: '/explainers/federal-and-brussels' as const, title: t('federalTitle'), desc: t('federalDesc') },
     { href: '/explainers/who-decides-what' as const, title: t('whoDecidesTitle'), desc: t('whoDecidesDesc') },
+    { href: '/explainers/vice-gouverneur' as const, title: t('viceGouverneurTitle'), desc: t('viceGouverneurDesc') },
   ];
 
   const follow = [

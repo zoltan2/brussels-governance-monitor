@@ -117,6 +117,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: '/explainers/communities-in-brussels' },
     { href: '/explainers/federal-and-brussels' },
     { href: '/explainers/who-decides-what' },
+    { href: '/explainers/vice-gouverneur' },
     { href: '/data' },
     { href: '/editorial' },
     { href: '/methodology' },

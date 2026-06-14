@@ -184,6 +184,12 @@ export const routing = defineRouting({
       en: '/explainers/who-decides-what',
       de: '/erklaerungen/wer-entscheidet-was',
     },
+    '/explainers/vice-gouverneur': {
+      fr: '/comprendre/vice-gouverneur',
+      nl: '/begrijpen/vicegouverneur',
+      en: '/explainers/vice-governor',
+      de: '/erklaerungen/vizegouverneur',
+    },
     '/how-to-read': {
       fr: '/comment-lire-ce-site',
       nl: '/hoe-deze-site-lezen',

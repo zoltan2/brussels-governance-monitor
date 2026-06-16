@@ -67,6 +67,18 @@ sources:
   - label: "RTBF — Data center BRU01 à Neder-Over-Heembeek"
     url: "https://www.rtbf.be/article/bruxelles-le-futur-data-center-de-neder-over-heembeek-consommera-l-energie-de-plus-de-115-000-belges-11631254"
     accessedAt: "2026-02-23"
+  - label: "European Commission — Data centre rating scheme (EED), call for feedback (27 March 2026)"
+    url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
+    accessedAt: "2026-06-16"
+  - label: "Data Center Dynamics — First aggregate EED results: 6.4 GW IT capacity in the EU (2026)"
+    url: "https://www.datacenterdynamics.com/en/news/european-commission-releases-aggregate-eed-data-center-data-operators-report-64gw-of-installed-capacity-across-the-eu/"
+    accessedAt: "2026-06-16"
+  - label: "BX1 — Innoviris budget cuts spark controversy (7 April 2026)"
+    url: "https://bx1.be/categories/news/les-coupes-budgetaires-chez-innoviris-provoquent-la-polemique/"
+    accessedAt: "2026-06-16"
+  - label: "Elia — Network hosting capacity (map, March 2026)"
+    url: "https://www.elia.be/fr/clients/raccordement/capacite-d-accueil-du-reseau"
+    accessedAt: "2026-06-16"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -93,16 +105,23 @@ metrics:
     unit: "depuis 2022"
     source: "Elia / BCG"
     date: "2025-10-01"
+  - label: "PUE moyen UE (reporting EED)"
+    value: "1,36"
+    unit: "776 data centers · 6,4 GW IT · 16,7 TWh (2023-2024)"
+    source: "Commission européenne (EED)"
+    date: "2024-12-31"
 alerts:
-  - label: "Plan réseau Elia 2028-2038 : traitement explicite de la demande data centers"
+  - label: "Elia: hosting-capacity map published (March 2026); federal plan 2028-2038 will explicitly address data centre demand"
     severity: info
-    date: "2026-02-23"
-  - label: "Reporting EED : premiers résultats data centers belges attendus (non encore publics)"
+    date: "2026-06-16"
+  - label: "EED reporting: first aggregate EU results published (2023-2024); rating scheme expected around 10 June 2026"
     severity: info
-    date: "2026-02-23"
+    date: "2026-06-16"
 confidenceLevel: estimated
 dprCommitment: "No specific mention of data centres has been identified in the Brussels Regional Policy Declaration (DPR) of February 2026. The digital transition and the energy-climate strategy are addressed separately, with no cross-reference to the energy impact of the digital sector."
-lastModified: "2026-02-23"
+lastModified: "2026-06-16"
+changeType: updated
+changeSummary: "The European Commission publishes the first aggregate results of the EED data centre reporting (2023-2024): 776 sites, 6.4 GW of IT capacity, 16.7 TWh, average PUE 1.36; a rating and labelling scheme is expected around 10 June 2026. Innoviris: 2026 budget cut from EUR 39M to EUR 30M (−20%), all new projects frozen, two open letters from ULB/VUB researchers. Elia publishes its network hosting-capacity map (March 2026)."
 ---
 
 ## Key figures
@@ -173,6 +192,8 @@ Data centre grid connection requests submitted to Elia have **increased ninefold
 - **Flexible connections** (curtailment possible during congestion peaks)
 - The objective: to prevent data centres from displacing other industrial users
 
+On **17 March 2026**, Elia published a **network hosting-capacity map** (updated on 9 April 2026), making it possible to locate the zones still available for connection. The operator also plans to **quadruple its investments in Wallonia** by 2030 (about **EUR 2.6 billion** over 2026-2030). The **federal development plan 2028-2038**, drawn up with the Regions, will explicitly address data centre demand.
+
 The European Central Bank notes that "national electricity markets are more vulnerable to AI-related pressures than gas markets" (Economic Bulletin 2/2025). Belgium, which imports a share of its electricity, is particularly exposed. The Belgian electricity mix comprised **29.8%** renewables in 2024 (Elia).
 
 ## Energy consumption per AI query
@@ -193,7 +214,7 @@ Efficiency gains are rapid: Google reports **33 times** less energy per Gemini q
 
 The Google data centre in Saint-Ghislain consumes approximately **1.39 billion litres of industrial water** per year (2022). The site primarily uses grey water from the industrial canal for cooling, rather than drinking water. The new Farciennes site will use air cooling (lower water consumption). For BRU01 in Brussels, no water consumption data is available.
 
-The **European Energy Efficiency Directive (EED)** has required annual reporting since September 2024 for data centres with more than 500 kW of IT capacity: PUE, water consumption, share of renewables, waste heat recovery. The first Belgian results have not yet been made public.
+The **European Energy Efficiency Directive (EED)** has required annual reporting since September 2024 for data centres with more than 500 kW of IT capacity: PUE, water consumption, share of renewables, waste heat recovery. In 2026 the European Commission published the **first aggregate results at EU level** (2023-2024 data): **776 data centres**, **6.4 GW** of installed IT capacity, **16.7 TWh** consumed and a **weighted average PUE of 1.36**. The country-level breakdown remains limited and no Brussels figures are available; the next reporting deadline was **15 May 2026** for full-year 2025 data. A **rating and labelling scheme** for data centres (draft Delegated Regulation registered on **26 March 2026**, call for feedback opened on 27 March) is to be adopted **around 10 June 2026**, with an electronic label automatically generated by the European database from **15 August 2027**.
 
 The **Climate Neutral Data Centre Pact (CNDCP)** is a voluntary commitment targeting climate neutrality for European data centres by 2030. Belgian operator LCL is a signatory.
 
@@ -210,11 +231,21 @@ The **Climate Neutral Data Centre Pact (CNDCP)** is a voluntary commitment targe
 
 ## Issues to monitor
 
-- **Elia network plan 2028–2038**: will it include capacity caps for data centres? What allocation for the Brussels-Capital Region? (Decision expected 2026–2027)
-- **EED reporting**: publication of the first reporting results from Belgian data centres (since September 2024, results not yet public)
+- **Elia network plan 2028–2038**: will it include capacity caps for data centres? What allocation for the Brussels-Capital Region? (Hosting-capacity map published in March 2026; decision on caps expected 2026–2027)
+- **EED reporting**: first aggregate EU results published in 2026 (2023-2024); the Belgian and Brussels breakdown remains unavailable; rating and labelling scheme expected around 10 June 2026, automatic label from 15 August 2027
 - **AI Factory Antenna**: Belgium has been selected as an "Antenna" (rather than a full Factory) within the European AI Factories programme, via imec. Operational launch to be confirmed
 - **BRU01 occupancy**: actual BRU01 consumption will be a key indicator of the impact of data centres on the Brussels electricity grid
 - **Waste heat recovery**: the Google Farciennes project (via Igretec) sets a precedent. The Brussels-Capital Region has no equivalent obligation for data centres
+
+## Recent developments (March-June 2026)
+
+**Innoviris freeze (March-April 2026)**: the main regional research-funding body sees its budget **cut from EUR 39M to EUR 30M** (−20%) and **freezes all new R&D projects in 2026** — no new calls, all windows closed. Ongoing agreements are honoured and applications already submitted will be reviewed for possible funding in 2027. **Two open letters** signed by **hundreds of researchers** (one of them carried by about 120 ULB and VUB researchers) denounce an unprecedented decision. The minister-president's office says it aims to provide 2027 means "equivalent to those of 2026". Direct impact on the Brussels AI ecosystem, which loses its main regional funding window.
+
+**Citizen mobilisation (26 March)**: at an AI forum in Brussels, activists denounced the energy consumption of the KevlinX BRU01 data centre (Neder-Over-Heembeek, 32 MW), estimating that at full capacity it would consume "as much electricity as the city of Namur". The event, described as "discreet" by the press, highlighted the gap between the DPR's "AI capital" ambition and the absence of an urban-planning and energy framework for data centres.
+
+**European EED framework (March-June 2026)**: the European Commission published the first aggregate results of the EED reporting (2023-2024) and, on 27 March, opened a consultation on a **rating and labelling scheme** for data centres, with adoption expected **around 10 June 2026** (details in the "Water and environment" section). In parallel, **Elia** published its **network hosting-capacity map** (17 March 2026).
+
+Sources: BRUZZ (27 March 2026), La DH (26 March 2026), BX1 (7 April 2026), European Commission (EED rating scheme, 27 March 2026), Elia (network hosting capacity, March 2026).
 
 ## What the data does not tell us
 
@@ -222,5 +253,5 @@ The **Climate Neutral Data Centre Pact (CNDCP)** is a voluntary commitment targe
 - **No analysis** by BRUGEL or CREG on the impact of data centres on electricity prices for Brussels households and SMEs
 - **No urban planning framework**: data centres are absent from the Regional Sustainable Development Plan (PRDD) and no specific category exists within Brussels urban planning
 - **Brussels Parliament**: no parliamentary questions relating to data centres have been identified in the online archives (web search; Weblex is not indexed by search engines)
-- **EED results not public**: the first reports from Belgian data centres are not publicly accessible
+- **EED country breakdown limited**: the Commission published aggregate EU results (2023-2024), but the Belgian and Brussels detail remains publicly unavailable
 - **Taxation**: no specific tax regime for data centres in the Brussels-Capital Region has been identified

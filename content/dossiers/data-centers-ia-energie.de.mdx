@@ -67,6 +67,18 @@ sources:
   - label: "RTBF — Data center BRU01 à Neder-Over-Heembeek"
     url: "https://www.rtbf.be/article/bruxelles-le-futur-data-center-de-neder-over-heembeek-consommera-l-energie-de-plus-de-115-000-belges-11631254"
     accessedAt: "2026-02-23"
+  - label: "Europäische Kommission — Bewertungsschema für Rechenzentren (EED), Aufruf zur Stellungnahme (27. März 2026)"
+    url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
+    accessedAt: "2026-06-16"
+  - label: "Data Center Dynamics — Erste aggregierte EED-Ergebnisse: 6,4 GW IT-Kapazität in der EU (2026)"
+    url: "https://www.datacenterdynamics.com/en/news/european-commission-releases-aggregate-eed-data-center-data-operators-report-64gw-of-installed-capacity-across-the-eu/"
+    accessedAt: "2026-06-16"
+  - label: "BX1 — Innoviris-Budgetkürzungen sorgen für Kontroverse (7. April 2026)"
+    url: "https://bx1.be/categories/news/les-coupes-budgetaires-chez-innoviris-provoquent-la-polemique/"
+    accessedAt: "2026-06-16"
+  - label: "Elia — Aufnahmekapazität des Netzes (Karte, März 2026)"
+    url: "https://www.elia.be/fr/clients/raccordement/capacite-d-accueil-du-reseau"
+    accessedAt: "2026-06-16"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -93,16 +105,23 @@ metrics:
     unit: "depuis 2022"
     source: "Elia / BCG"
     date: "2025-10-01"
+  - label: "PUE moyen UE (reporting EED)"
+    value: "1,36"
+    unit: "776 data centers · 6,4 GW IT · 16,7 TWh (2023-2024)"
+    source: "Commission européenne (EED)"
+    date: "2024-12-31"
 alerts:
-  - label: "Plan réseau Elia 2028-2038 : traitement explicite de la demande data centers"
+  - label: "Elia: Kapazitätskarte veröffentlicht (März 2026); Bundesplan 2028-2038 behandelt die Rechenzentrumsnachfrage ausdrücklich"
     severity: info
-    date: "2026-02-23"
-  - label: "Reporting EED : premiers résultats data centers belges attendus (non encore publics)"
+    date: "2026-06-16"
+  - label: "EED-Berichterstattung: erste aggregierte EU-Ergebnisse veröffentlicht (2023-2024); Bewertungsschema rund um den 10. Juni 2026 erwartet"
     severity: info
-    date: "2026-02-23"
+    date: "2026-06-16"
 confidenceLevel: estimated
 dprCommitment: "In der Regionalen Politikerklärung (DPR) von Brüssel (Februar 2026) wurde keine spezifische Erwähnung von Rechenzentren festgestellt. Der digitale Wandel und die Energie-Klima-Strategie werden darin getrennt behandelt, ohne Querverweis auf die energetischen Auswirkungen der Digitalisierung."
-lastModified: "2026-02-23"
+lastModified: "2026-06-16"
+changeType: updated
+changeSummary: "Die Europäische Kommission veröffentlicht die ersten aggregierten Ergebnisse der EED-Berichterstattung für Rechenzentren (2023-2024): 776 Standorte, 6,4 GW IT-Kapazität, 16,7 TWh, durchschnittlicher PUE 1,36; ein Bewertungs- und Kennzeichnungsschema wird um den 10. Juni 2026 erwartet. Innoviris: Budget 2026 von 39 auf 30 Millionen Euro gekürzt (−20 %), Einfrierung aller neuen Projekte, zwei offene Briefe von ULB/VUB-Forschenden. Elia veröffentlicht seine Netzaufnahmekapazitätskarte (März 2026)."
 ---
 
 ## Wichtigste Kennzahlen
@@ -173,6 +192,8 @@ Die Netzanschlussanfragen von Rechenzentren bei Elia haben sich **seit 2022 vern
 - **Flexible Anschlüsse** (Abschaltungen bei Spitzenlastzeiten möglich)
 - Ziel: Verhinderung, dass Rechenzentren andere industrielle Nutzer verdrängen
 
+Elia veröffentlichte am **17. März 2026** eine **Netzaufnahmekapazitätskarte** (Stand 9. April 2026), mit der sich die noch anschließbaren Zonen lokalisieren lassen. Der Netzbetreiber plant außerdem, seine **Investitionen in Wallonien bis 2030 zu vervierfachen** (rund **2,6 Milliarden EUR** über 2026-2030). Der **föderale Entwicklungsplan 2028-2038**, gemeinsam mit den Regionen erstellt, wird die Rechenzentrumsnachfrage ausdrücklich behandeln.
+
 Die Europäische Zentralbank stellt fest, dass "die nationalen Strommärkte anfälliger für KI-bedingte Belastungen sind als die Gasmärkte" (Wirtschaftsbericht 2/2025). Belgien, das einen Teil seines Stroms importiert, ist davon besonders betroffen. Der belgische Strommix bestand 2024 zu **29,8 %** aus erneuerbaren Energien (Elia).
 
 ## Stromverbrauch pro KI-Anfrage
@@ -193,7 +214,7 @@ Effizienzgewinne sind schnell: Google berichtet von **33-mal** weniger Energie p
 
 Das Google-Rechenzentrum in Saint-Ghislain verbraucht etwa **1,39 Milliarden Liter Industriewasser** pro Jahr (2022). Der Standort nutzt hauptsächlich Grauwasser aus dem Industriekanal zur Kühlung, kein Trinkwasser. Der neue Standort Farciennes wird Luftkühlung verwenden (geringerer Wasserverbrauch). Für BRU01 in Brüssel sind keine Wasserverbrauchsdaten verfügbar.
 
-Die **europäische Energieeffizienzrichtlinie (EED)** schreibt seit September 2024 eine jährliche Berichterstattung für Rechenzentren mit mehr als 500 kW IT-Leistung vor: PUE, Wasserverbrauch, Anteil erneuerbarer Energien, Abwärmenutzung. Die ersten belgischen Ergebnisse sind noch nicht öffentlich zugänglich.
+Die **europäische Energieeffizienzrichtlinie (EED)** schreibt seit September 2024 eine jährliche Berichterstattung für Rechenzentren mit mehr als 500 kW IT-Leistung vor: PUE, Wasserverbrauch, Anteil erneuerbarer Energien, Abwärmenutzung. Die Europäische Kommission veröffentlichte 2026 die **ersten aggregierten Ergebnisse auf EU-Ebene** (Daten 2023-2024): **776 Rechenzentren**, **6,4 GW** installierte IT-Kapazität, **16,7 TWh** Verbrauch und ein **gewichteter durchschnittlicher PUE von 1,36**. Die Aufschlüsselung nach Ländern bleibt begrenzt, und es liegen keine Brüsseler Zahlen vor; die nächste Berichtsfrist war der **15. Mai 2026** für die Daten des Jahres 2025. Ein **Bewertungs- und Kennzeichnungsschema** für Rechenzentren (Entwurf einer delegierten Verordnung, registriert am **26. März 2026**, Aufruf zur Stellungnahme am 27. März eröffnet) soll **um den 10. Juni 2026** angenommen werden, mit einem elektronischen Label, das ab dem **15. August 2027** automatisch von der europäischen Datenbank erzeugt wird.
 
 Der **Climate Neutral Data Centre Pact (CNDCP)** ist eine freiwillige Verpflichtung zur Klimaneutralität europäischer Rechenzentren bis 2030. Der belgische Betreiber LCL ist Unterzeichner.
 
@@ -210,11 +231,21 @@ Der **Climate Neutral Data Centre Pact (CNDCP)** ist eine freiwillige Verpflicht
 
 ## Zu verfolgende Entwicklungen
 
-- **Elia-Netzplan 2028-2038**: Wird er Kapazitätsobergrenzen für Rechenzentren vorsehen? Welche Zuteilung für die Region Brüssel-Hauptstadt? (Entscheidung für 2026-2027 erwartet)
-- **EED-Berichterstattung**: Veröffentlichung der ersten Berichtsergebnisse belgischer Rechenzentren (seit September 2024, Ergebnisse noch nicht öffentlich)
+- **Elia-Netzplan 2028-2038**: Wird er Kapazitätsobergrenzen für Rechenzentren vorsehen? Welche Zuteilung für die Region Brüssel-Hauptstadt? (Aufnahmekapazitätskarte im März 2026 veröffentlicht; Entscheidung über Obergrenzen für 2026-2027 erwartet)
+- **EED-Berichterstattung**: erste aggregierte EU-Ergebnisse 2026 veröffentlicht (2023-2024); die belgische und Brüsseler Aufschlüsselung bleibt nicht verfügbar; Bewertungs- und Kennzeichnungsschema um den 10. Juni 2026 erwartet, automatisches Label ab dem 15. August 2027
 - **AI Factory Antenna**: Belgien wurde als "Antenna" (und nicht als vollständige Factory) des europäischen AI-Factories-Programms über imec ausgewählt. Operativer Starttermin noch festzulegen
 - **BRU01-Auslastung**: Der tatsächliche Verbrauch von BRU01 wird ein Schlüsselindikator für die Auswirkungen von Rechenzentren auf das Brüsseler Stromnetz sein
 - **Wärmerückgewinnung**: Das Google-Projekt Farciennes (über Igretec) setzt einen Präzedenzfall. Die Region Brüssel-Hauptstadt hat keine vergleichbare Verpflichtung für Rechenzentren
+
+## Jüngste Entwicklungen (März-Juni 2026)
+
+**Innoviris-Einfrierung (März-April 2026)**: Die wichtigste regionale Forschungsförderstelle sieht ihr Budget **von 39 auf 30 Millionen EUR gekürzt** (−20 %) und **friert alle neuen FuE-Projekte 2026 ein** — keine neuen Aufrufe, alle Schalter geschlossen. Laufende Vereinbarungen werden eingehalten, und bereits eingereichte Anträge werden für eine mögliche Finanzierung 2027 geprüft. **Zwei offene Briefe**, unterzeichnet von **Hunderten Forschenden** (einer davon getragen von rund 120 Forschenden der ULB und der VUB), prangern eine historische Premiere an. Das Kabinett des Ministerpräsidenten erklärt, für 2027 Mittel anzustreben, die « denen von 2026 gleichwertig » seien. Direkte Auswirkung auf das Brüsseler KI-Ökosystem, das seinen wichtigsten regionalen Förderschalter verliert.
+
+**Bürgermobilisierung (26. März)**: Bei einem KI-Forum in Brüssel prangerten Aktivisten den Energieverbrauch des Rechenzentrums KevlinX BRU01 (Neder-Over-Heembeek, 32 MW) an und schätzten, dass es bei voller Auslastung « so viel Strom wie die Stadt Namur » verbrauchen würde. Die von der Presse als « diskret » bezeichnete Veranstaltung machte die Kluft zwischen dem DPR-Anspruch « KI-Hauptstadt » und dem Fehlen eines stadtplanerischen und energetischen Rahmens für Rechenzentren deutlich.
+
+**Europäischer EED-Rahmen (März-Juni 2026)**: Die Europäische Kommission veröffentlichte die ersten aggregierten Ergebnisse der EED-Berichterstattung (2023-2024) und eröffnete am 27. März eine Konsultation zu einem **Bewertungs- und Kennzeichnungsschema** für Rechenzentren, dessen Annahme **um den 10. Juni 2026** erwartet wird (Einzelheiten im Abschnitt « Wasser und Umwelt »). Parallel veröffentlichte **Elia** seine **Netzaufnahmekapazitätskarte** (17. März 2026).
+
+Quellen: BRUZZ (27. März 2026), La DH (26. März 2026), BX1 (7. April 2026), Europäische Kommission (EED-Bewertungsschema, 27. März 2026), Elia (Netzaufnahmekapazität, März 2026).
 
 ## Was die Daten nicht zeigen
 
@@ -222,5 +253,5 @@ Der **Climate Neutral Data Centre Pact (CNDCP)** ist eine freiwillige Verpflicht
 - **Keine Analyse** von BRUGEL oder CREG zu den Auswirkungen von Rechenzentren auf die Strompreise für Brüsseler Haushalte und KMU
 - **Kein stadtplanerischer Rahmen**: Rechenzentren fehlen im Regionalen Plan für nachhaltige Entwicklung (PRDD), und es gibt keine spezifische Kategorie in der Brüsseler Raumplanung
 - **Brüsseler Parlament**: In den Online-Archiven wurden keine parlamentarischen Anfragen zu Rechenzentren identifiziert (Websuche; Weblex wird von Suchmaschinen nicht indexiert)
-- **EED-Ergebnisse nicht öffentlich**: Die ersten Berichte belgischer Rechenzentren sind nicht öffentlich zugänglich
+- **EED-Aufschlüsselung nach Ländern begrenzt**: Die Kommission veröffentlichte aggregierte EU-Ergebnisse (2023-2024), doch die belgischen und Brüsseler Detaildaten bleiben öffentlich nicht zugänglich
 - **Besteuerung**: Kein spezifisches Steuerregime für Rechenzentren in der Region Brüssel-Hauptstadt identifiziert

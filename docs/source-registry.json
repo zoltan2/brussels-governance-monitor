@@ -1,10 +1,10 @@
 {
   "description": "Registre des sources surveillées par BGM. 323 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
-  "lastUpdated": "2026-03-07",
+  "lastUpdated": "2026-06-16",
   "stats": {
-    "total": 323,
+    "total": 324,
     "byType": {
-      "institutional": 87,
+      "institutional": 88,
       "press": 106,
       "unknown": 14,
       "legal": 7,
@@ -6275,6 +6275,27 @@
         "urban-planning"
       ],
       "document_trust_tier": "P1"
+    },
+    {
+      "id": "watch-324",
+      "name": "noisemonitoring.brussels — Bruxelles Environnement (bruit des avions / survol)",
+      "url": "https://noisemonitoring.brussels/",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P2",
+      "category": "climate",
+      "cardsAffected": [
+        "climate"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "html",
+      "notes": "Plateforme SARA de Bruxelles Environnement : réseau de mesure du bruit du survol aérien (Brussels Airport) sur le territoire régional. Données acoustiques en quasi temps réel. Pertinent climate/environnement/santé et survol de Bruxelles.",
+      "tier": "editorial",
+      "domaines": [
+        "climate"
+      ],
+      "document_trust_tier": "P0"
     }
   ]
 }

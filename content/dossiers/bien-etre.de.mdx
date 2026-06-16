@@ -7,7 +7,7 @@ dossierType: social
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Die Brüsseler bewerten ihre Lebenszufriedenheit mit 7,5/10 (IBSA/BFP, 2023), unter Flandern (7,8). Armut betrifft 25-33 % der Bevölkerung (EU-SILC), Einsamkeit sank von 9,5 % auf 4,8 % (Q3 2024). Die Lebenserwartung beträgt 82,15 Jahre (2024). Brüssel liegt auf Platz 40 weltweit bei Mercer (2024). Die Luftqualität erfüllt EU-Normen, aber nicht die WHO-Empfehlungen für PM2.5."
+summary: "Die Brüsseler bewerten ihre Lebenszufriedenheit mit 7,5/10 (IBSA/BFP, 2023), doch die Prekarität nimmt zu. Der Sozialbarometer 2025 (Vivalis) misst 23 % Armutsgefährdung oder Ausgrenzung (AROPE), 47 304 EE-Empfänger und 9 777 Wohnungslose (+25 % in zwei Jahren). Die föderale Arbeitslosenreform trifft hart: Allein in der Stadt Brüssel beantragten 3 567 Ausgeschlossene Anfang 2026 Hilfe beim ÖSHZ. Lebenserwartung: 82,15 Jahre (2024)."
 estimatedBudget: "Nicht beziffert — querschnittlich, abhängig von Sozial-, Gesundheits- und Umweltpolitik"
 stakeholders:
   - "IBSA (Brüsseler Institut für Statistik und Analyse)"
@@ -82,6 +82,17 @@ sources:
     url: "https://www.bruzz.be/actua/samenleving/brusselaars-scoren-hoogst-op-vlak-van-geluk-2026-03-09"
     type: media
     accessedAt: "2026-03-09"
+  - label: "Observatorium für Gesundheit und Soziales (Vivalis) — Sozialbarometer 2025 (15. Apr. 2026)"
+    url: "https://www.vivalis.brussels/fr/publication/barometre-social-2025"
+    type: official
+    accessedAt: "2026-06-16"
+  - label: "World Happiness Report 2026 — vollständiges Ranking (19. März 2026)"
+    url: "https://www.happierlivesinstitute.org/2026/03/19/world-happiness-report-2026-full-country-rankings-our-favourite-finding/"
+    accessedAt: "2026-06-16"
+  - label: "L'Avenir — 45 % der Arbeitslosen-Ausgeschlossenen wandten sich an das ÖSHZ der Stadt Brüssel (5. Juni 2026)"
+    url: "https://www.lavenir.net/regions/bruxelles/bruxelles/2026/06/05/45-des-exclus-du-chomage-se-sont-tournes-vers-le-cpas-de-la-ville-de-bruxelles-nous-savions-quun-tsunami-arrivait-IMVYEDHO3NAPBLS5XI7M25USJ4/"
+    type: media
+    accessedAt: "2026-06-16"
 metrics:
   - label: "Lebenszufriedenheit (Brüssel)"
     value: "7,5"
@@ -89,10 +100,15 @@ metrics:
     source: "IBSA Focus Nr. 77 / EU-SILC 2023"
     date: "2025-09-23"
   - label: "Armutsgefährdung oder soziale Ausgrenzung (AROPE)"
-    value: "25-33"
+    value: "23"
     unit: "% der Brüsseler Bevölkerung"
-    source: "EU-SILC / Sozialbarometer"
-    date: "2024-03-08"
+    source: "Sozialbarometer 2025 (Observatorium/Vivalis)"
+    date: "2026-04-15"
+  - label: "Wohnungslose oder schlecht untergebrachte Personen"
+    value: "9 777"
+    unit: "am 6. Nov. 2024 (+25 % in zwei Jahren)"
+    source: "Bruss'Help / Sozialbarometer 2025"
+    date: "2024-11-06"
   - label: "Lebenserwartung bei Geburt"
     value: "82,15"
     unit: "Jahre (Flandern 83,2 — Wallonien 80,6)"
@@ -114,12 +130,18 @@ metrics:
     unit: "% (rückläufig, war 9,5 % in Q3 2023)"
     source: "Statbel IALC Q3 2024"
     date: "2024-12-19"
+  - label: "Arbeitslosen-Ausgeschlossene mit ÖSHZ-Antrag (Stadt Brüssel)"
+    value: "3 567"
+    unit: "Anträge — 2 706 Eingliederungseinkommen bewilligt (76 % der Antragsteller)"
+    source: "ÖSHZ Stadt Brüssel / L'Avenir"
+    date: "2026-05-31"
+    confidenceLevel: estimated
 alerts: []
 confidenceLevel: official
 dprCommitment: "Die RPE erwähnt Lebensqualität als Querschnittsziel ohne eigenes Programm. Die Verpflichtungen sind auf die Bereiche Soziales, Wohnen, Umwelt und Mobilität verteilt."
-lastModified: "2026-03-09"
+lastModified: "2026-06-16"
 changeType: updated
-changeSummary: "Nationaler Glücksbarometer UGent/NN: Brüssel 6,62/10, höchster Wert aller belgischen Regionen"
+changeSummary: "Sozialbarometer 2025 (Vivalis, April 2026): 23 % Armutsgefährdung oder Ausgrenzung, 47 304 Empfänger des Eingliederungseinkommens, 9 777 Wohnungslose (+25 % in zwei Jahren). Die Arbeitslosenreform schlägt sich in realen Zahlen nieder: In der Stadt Brüssel beantragten 3 567 Ausgeschlossene Hilfe beim ÖSHZ, 2 706 erhielten das Eingliederungseinkommen. World Happiness Report 2026: Belgien Platz 14 (6,926)."
 ---
 
 ## Lebenszufriedenheit
@@ -154,17 +176,20 @@ Quelle: DH / UGent / NN (9. März 2026).
 
 ## Einkommen und Armut
 
-Der Sozialbarometer 2023 des Observatoriums für Gesundheit und Soziales dokumentiert eine kontrastreiche sozioökonomische Lage:
+Der **Sozialbarometer 2025** des Observatoriums für Gesundheit und Soziales — Studiendienst von **Vivalis** (GGC-Verwaltung) — veröffentlicht am **15. April 2026**, dokumentiert eine hohe und anhaltende Prekarität:
 
-- **AROPE-Quote** (Armutsgefährdung oder soziale Ausgrenzung): zwischen **25 % und 33 %** der Brüsseler Bevölkerung, relativ stabil
-- Die ärmsten 10 % verfügen über weniger als **985 EUR/Monat** pro Person; die reichsten 10 % überschreiten **4 120 EUR/Monat** — eine größere Kluft als der nationale Durchschnitt
-- Die Zahl der Empfänger des Eingliederungseinkommens stieg innerhalb von **10 Jahren um 58 %** (über 45 000 Personen)
-- **Sechs von zehn Kindern** haben Anspruch auf den Zuschlag zum Kindergeld; in Saint-Josse-ten-Noode erreicht die Quote 80 %
-- Tägliches verfügbares Einkommen nach Wohnkosten: von **9 EUR bis 100 EUR** pro Person je nach Dezil
+- **AROPE-Quote** (Armutsgefährdung oder soziale Ausgrenzung): **23 %** der Brüsseler Bevölkerung, gegenüber 7 % in Flandern und 13 % in Wallonien
+- **47 304 Empfänger** des Eingliederungseinkommens (EE) zum 1. Januar 2025, also rund **7 % der 18- bis 64-Jährigen** (gegenüber 3 % im Jahr 2002); in Gemeinden wie Sint-Jans-Molenbeek und Saint-Josse-ten-Noode bezieht **mehr als eine von zehn** Personen zwischen 18 und 64 Jahren das EE
+- **Sechs der zehn ärmsten Gemeinden Belgiens** nach Einkommen liegen in Brüssel, darunter Saint-Josse-ten-Noode, Anderlecht und Schaerbeek
+- Eine **„unsichtbare Bevölkerung"** von über **50 000 Personen ohne Aufenthaltstitel** (etwa 4 % der Brüsseler Bevölkerung)
 
-Die vierteljährliche IALC-Erhebung (Statbel) weist eine subjektive Armut von **29,4 %** in Brüssel aus (Personen, die angeben, schwer über die Runden zu kommen).
+Der Sozialbarometer 2023 stellte bereits ausgeprägte Einkommenskluften fest (die ärmsten 10 % unter **985 EUR/Monat** pro Person, die reichsten 10 % über **4 120 EUR/Monat**) sowie einen Anspruch auf den Kindergeldzuschlag für **sechs von zehn Brüsseler Kindern** (80 % in Saint-Josse-ten-Noode). Die vierteljährliche IALC-Erhebung (Statbel) misst eine subjektive Armut von **29,4 %** (Personen, die angeben, schwer über die Runden zu kommen).
 
-Quellen: Sozialbarometer 2023 (Vivalis, März 2024); Statbel EU-SILC 2024; IALC Q3 2025.
+### Wohnungslosigkeit
+
+Die von **Bruss'Help** koordinierte Zählung erfasste am **6. November 2024** in Brüssel **9 777 wohnungslose oder schlecht untergebrachte Personen**, ein Anstieg von **25 % in zwei Jahren**. Der Sozialbarometer 2025 betont die anhaltende Verschärfung der Wohnungsnot über das Jahrzehnt.
+
+Quellen: Sozialbarometer 2025 (Observatorium/Vivalis, Apr. 2026); Sozialbarometer 2023 (März 2024); Wohnungslosenzählung Bruss'Help (Nov. 2024); Statbel IALC.
 
 ## Gesundheit und Lebenserwartung
 
@@ -226,9 +251,13 @@ Quellen: König-Baudouin-Stiftung, Barometer der digitalen Inklusion 2024; Bruss
 
 ## Prekarisierung und Arbeitslosenreform
 
-Die föderale Arbeitslosenreform (Begrenzung auf zwei Jahre, in Kraft seit 1. Januar 2026) stellt einen Risikofaktor für das Wohlbefinden in Brüssel dar. Die Vivalis-Studie (März 2025, BKSZ-Daten) projiziert, dass **42 % der ausgeschlossenen Brüsseler unter 55 Jahren innerhalb von sechs Monaten nach dem Ausschluss ohne identifizierbares Einkommen bleiben würden**. Zwischen 2026 und 2027 sind etwa **8 000 Personen** in Brüssel betroffen. Einkommensverlust, administrative Unsicherheit und das Risiko der Nicht-Inanspruchnahme sozialer Rechte sind bekannte Determinanten psychischer Belastung und Isolation — Faktoren, die das IBSA und Sciensano als zentral für die Lebenszufriedenheit und die psychische Gesundheit identifizieren (siehe obige Abschnitte). Die Auswirkungen auf die ÖSHZ und die Datendetails sind in der Domänenkarte Soziales dokumentiert.
+Die föderale Arbeitslosenreform (Begrenzung der Leistungen auf zwei Jahre) trat am **1. Januar 2026** in Kraft, und ihre Auswirkungen sind nun dokumentiert, über die anfänglichen Projektionen hinaus. Die Ausschlüsse erfolgen in Wellen je nach Dauer der Inaktivität: über 20 Jahre ab dem **1. Januar**, 8 bis 20 Jahre am **1. März**, 2 bis 8 Jahre am **1. April 2026**. Auf nationaler Ebene berichtet die Presse von etwa **117 000 Personen**, die zwischen Januar und Juni 2026 ihre Ansprüche verloren haben, nahezu **63 %** der bis Juli 2027 erwarteten Kohorte (etwa 25 000 bereits am 1. Januar). Auf Brüsseler Seite projizierte die Vivalis-Studie (März 2025) rund **8 000 betroffene Personen** und **42 %** der Ausgeschlossenen unter 55 Jahren ohne identifizierbares Einkommen innerhalb von sechs Monaten.
 
-Quellen: Vivalis (März 2025); IBSA Focus Nr. 77; Sciensano GBE 2023-2024.
+**Übertragung auf die Brüsseler ÖSHZ.** Laut dem ÖSHZ der **Stadt Brüssel** (Zahlen zum 31. Mai 2026) stellten **3 567** ausgeschlossene Personen dort einen Antrag — laut ÖSHZ etwa **45 %** der Ausgeschlossenen, die sich meldeten — davon erhielten **2 706** das Eingliederungseinkommen oder eine gleichwertige Hilfe (**76 %** der Antragsteller) und etwa 6 % eine andere Sozialhilfe; nahezu **20 %** hatten seit dem 1. Juli 2025 wieder Arbeit gefunden. Um den als angekündigten „Tsunami" bezeichneten Schock aufzufangen, eröffnete das ÖSHZ drei neue Sozialstellen und stellte 38 zusätzliche Sozialarbeiter ein.
+
+Einkommensverlust, administrative Unsicherheit und das Risiko der Nicht-Inanspruchnahme sozialer Rechte sind bekannte Determinanten psychischer Belastung und Isolation — Faktoren, die das IBSA und Sciensano als zentral für die Lebenszufriedenheit und die psychische Gesundheit identifizieren (siehe obige Abschnitte). Die detaillierten Auswirkungen auf die neunzehn ÖSHZ werden im Dossier Brüsseler ÖSHZ und in der Domänenkarte Soziales verfolgt.
+
+Quellen: L'Avenir / ÖSHZ Stadt Brüssel (5. Juni 2026); LfA (Arbeitslosenreform); Vivalis (März 2025); IBSA Focus Nr. 77; Sciensano GBE 2023-2024. Vertrauen: official zum Rahmen der Reform; unconfirmed zu den Ausschlusszahlen (Pressezahlen und ÖSHZ-Schätzungen).
 
 ## Umwelt und Lebensumfeld
 
@@ -249,9 +278,9 @@ Der Jahresbericht 2024 von Brüssel Umwelt bestätigt eine fortlaufende Verbesse
 
 ### Lärm
 
-Laut dem Zustand der Umwelt 2024 (Daten 2019-2022) sind **55 %** der Brüsseler Fluglärm ausgesetzt, der erhebliche Belästigung verursacht, und **30 %** erleben problematischen Straßenverkehrslärm.
+Laut dem Zustand der Umwelt 2024 (Daten 2019-2022) sind **55 %** der Brüsseler Fluglärm ausgesetzt, der erhebliche Belästigung verursacht, und **30 %** erleben problematischen Straßenverkehrslärm. Brüssel Umwelt veröffentlicht die Messungen des Fluglärms in nahezu Echtzeit über die Plattform **noisemonitoring.brussels** (SARA-Netz).
 
-Quellen: Brüssel Umwelt (Luftqualitätsbericht 2024, Grünflächen 2023, Zustand der Umwelt 2024).
+Quellen: Brüssel Umwelt (Luftqualitätsbericht 2024, Grünflächen 2023, Zustand der Umwelt 2024, noisemonitoring.brussels).
 
 ## Wahrgenommene Sicherheit
 
@@ -279,18 +308,18 @@ Brüssel liegt **weltweit auf Platz 40** von 241 Städten (Rückgang um 4 Plätz
 
 Die OECD bewertet Brüssel in 11 Dimensionen: Einkommen, Beschäftigung, Wohnen, Gesundheit, Zugang zu Dienstleistungen, Umwelt, Bildung, Sicherheit, bürgerschaftliches Engagement, Gemeinschaft und Lebenszufriedenheit. Belgien schneidet beim bürgerschaftlichen Engagement am besten ab (alle Regionen in den Top 20 % der OECD). Die größten regionalen Unterschiede betreffen Beschäftigung und Gesundheit.
 
-### Belgien — World Happiness Report 2025 (nur nationale Ebene)
+### Belgien — World Happiness Report 2026 (nur nationale Ebene)
 
-Belgien liegt **weltweit auf Platz 14** (Score 6,91/10, aufgestiegen von Platz 16). Im Bericht sind keine sub-nationalen Daten verfügbar.
+Belgien liegt **weltweit auf Platz 14** (Score **6,926/10**) im World Happiness Report 2026, veröffentlicht am **19. März 2026** — eine zwischen den Ausgaben stabile Position. Das Ranking, das auf einem gleitenden Dreijahresdurchschnitt beruht, wird weiterhin von den nordischen Ländern dominiert (Finnland 7,764, Island, Dänemark). Im Bericht sind keine sub-nationalen Daten verfügbar.
 
-Quellen: VRT NWS (Dez. 2024) für Mercer; OECD Regional Well-Being (Okt. 2025); World Happiness Report 2025.
+Quellen: VRT NWS (Dez. 2024) für Mercer; OECD Regional Well-Being (Okt. 2025); World Happiness Report 2026 (März 2026).
 
 ## Datenquellen und Aktualisierungshäufigkeit
 
 | Quelle | Herausgeber | Häufigkeit | Nächste erwartete Aktualisierung |
 |--------|-------------|-----------|--------------------------------|
 | Focus Wohlbefinden | IBSA + BFP | Einmalig | Noch festzulegen |
-| Sozialbarometer | Vivalis/GGK | Jährlich | 2026 (Daten 2024) — noch nicht veröffentlicht |
+| Sozialbarometer | Observatorium/Vivalis | Jährlich | **Ausgabe 2025 veröffentlicht am 15.04.2026**; nächste Ausgabe 2026 |
 | EU-SILC | Statbel | Jährlich | Feb. 2027 (Daten 2025) |
 | IALC vierteljährlich | Statbel | Vierteljährlich | Fortlaufend |
 | Gesundheitsbefragung | Sciensano | ~5 Jahre | 2028-2029 |

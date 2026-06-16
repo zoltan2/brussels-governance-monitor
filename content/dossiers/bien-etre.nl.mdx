@@ -7,7 +7,7 @@ dossierType: social
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Brusselaars geven hun levenstevredenheid een 7,5/10 (IBSA/BFP, 2023), lager dan Vlaanderen (7,8). Armoede treft 25-33 % van de bevolking (EU-SILC), eenzaamheid daalde van 9,5 % naar 4,8 % (Q3 2024). De levensverwachting bedraagt 82,15 jaar (2024). Brussel staat 40e op de Mercer-ranking (2024). De luchtkwaliteit voldoet aan EU-normen maar niet aan WHO-aanbevelingen voor PM2.5."
+summary: "Brusselaars geven hun levenstevredenheid een 7,5/10 (IBSA/BFP, 2023), maar de bestaansonzekerheid neemt toe. De Sociaal Barometer 2025 (Observatorium van Vivalis) meet 23 % risico op armoede of uitsluiting (AROPE), 47 304 leefloners en 9 777 dak- of thuislozen (+25 % in twee jaar). De federale werkloosheidshervorming slaat hard toe: alleen al in de Stad Brussel klopten 3 567 uitgeslotenen aan bij het OCMW begin 2026. Levensverwachting: 82,15 jaar (2024)."
 estimatedBudget: "Niet becijferd — transversaal, afhankelijk van sociaal, gezondheids- en milieubeleid"
 stakeholders:
   - "IBSA (Brussels Instituut voor Statistiek en Analyse)"
@@ -82,6 +82,17 @@ sources:
     url: "https://www.bruzz.be/actua/samenleving/brusselaars-scoren-hoogst-op-vlak-van-geluk-2026-03-09"
     type: media
     accessedAt: "2026-03-09"
+  - label: "Observatorium voor Gezondheid en Welzijn (Vivalis) — Sociaal Barometer 2025 (15 apr. 2026)"
+    url: "https://www.vivalis.brussels/fr/publication/barometre-social-2025"
+    type: official
+    accessedAt: "2026-06-16"
+  - label: "World Happiness Report 2026 — volledige ranking (19 maart 2026)"
+    url: "https://www.happierlivesinstitute.org/2026/03/19/world-happiness-report-2026-full-country-rankings-our-favourite-finding/"
+    accessedAt: "2026-06-16"
+  - label: "L'Avenir — 45 % van de werkloosheidsuitgeslotenen wendde zich tot het OCMW van de Stad Brussel (5 juni 2026)"
+    url: "https://www.lavenir.net/regions/bruxelles/bruxelles/2026/06/05/45-des-exclus-du-chomage-se-sont-tournes-vers-le-cpas-de-la-ville-de-bruxelles-nous-savions-quun-tsunami-arrivait-IMVYEDHO3NAPBLS5XI7M25USJ4/"
+    type: media
+    accessedAt: "2026-06-16"
 metrics:
   - label: "Levenstevredenheid (Brussel)"
     value: "7,5"
@@ -89,10 +100,15 @@ metrics:
     source: "IBSA Focus nr. 77 / EU-SILC 2023"
     date: "2025-09-23"
   - label: "Risico op armoede of sociale uitsluiting (AROPE)"
-    value: "25-33"
+    value: "23"
     unit: "% van de Brusselse bevolking"
-    source: "EU-SILC / Sociaal Barometer"
-    date: "2024-03-08"
+    source: "Sociaal Barometer 2025 (Observatorium/Vivalis)"
+    date: "2026-04-15"
+  - label: "Dak- of thuisloze personen"
+    value: "9 777"
+    unit: "op 6 nov. 2024 (+25 % in twee jaar)"
+    source: "Bruss'Help / Sociaal Barometer 2025"
+    date: "2024-11-06"
   - label: "Levensverwachting bij geboorte"
     value: "82,15"
     unit: "jaar (Vlaanderen 83,2 — Wallonië 80,6)"
@@ -114,12 +130,18 @@ metrics:
     unit: "% (dalend, was 9,5 % in Q3 2023)"
     source: "Statbel IALC Q3 2024"
     date: "2024-12-19"
+  - label: "Werkloosheidsuitgeslotenen die OCMW aanspraken (Stad Brussel)"
+    value: "3 567"
+    unit: "aanvragen — 2 706 leeflonen toegekend (76 % van de aanvragers)"
+    source: "OCMW Stad Brussel / L'Avenir"
+    date: "2026-05-31"
+    confidenceLevel: estimated
 alerts: []
 confidenceLevel: official
 dprCommitment: "De GPV vermeldt levenskwaliteit als transversale doelstelling zonder specifiek programma. De engagementen zijn verdeeld over de sociale, huisvestings-, milieu- en mobiliteitsluiken."
-lastModified: "2026-03-09"
+lastModified: "2026-06-16"
 changeType: updated
-changeSummary: "Nationaal geluksbarometer UGent/NN: Brussel 6,62/10, hoogste van de Belgische gewesten"
+changeSummary: "Sociaal Barometer 2025 (Vivalis, april 2026): 23 % risico op armoede of uitsluiting, 47 304 leefloners, 9 777 dak- of thuislozen (+25 % in twee jaar). De werkloosheidshervorming vertaalt zich in reële cijfers: in de Stad Brussel klopten 3 567 uitgeslotenen aan bij het OCMW, 2 706 kregen een leefloon. World Happiness Report 2026: België 14e (6,926)."
 ---
 
 ## Levenstevredenheid
@@ -154,17 +176,20 @@ Bron: DH / UGent / NN (9 maart 2026).
 
 ## Inkomens en armoede
 
-De Sociaal Barometer 2023 van het Observatorium voor Gezondheid en Welzijn documenteert een contrastrijke sociaaleconomische situatie:
+De **Sociaal Barometer 2025** van het Observatorium voor Gezondheid en Welzijn — studiedienst van **Vivalis** (GGC-administratie) — gepubliceerd op **15 april 2026**, documenteert een hoge en aanhoudende bestaansonzekerheid:
 
-- **AROPE-percentage** (risico op armoede of sociale uitsluiting): tussen **25 % en 33 %** van de Brusselse bevolking, relatief stabiel
-- De armste 10 % beschikt over minder dan **985 EUR/maand** per persoon; de rijkste 10 % overschrijdt **4 120 EUR/maand** — een grotere kloof dan het nationale gemiddelde
-- Het aantal begunstigden van het leefloon is met **58 % gestegen in 10 jaar** (meer dan 45 000 personen)
-- **Zes kinderen op tien** hebben recht op de toeslag voor kinderbijslag; in Sint-Joost-ten-Node bereikt het percentage 80 %
-- Dagelijks beschikbaar inkomen na huisvesting: van **9 EUR tot 100 EUR** per persoon naargelang het deciel
+- **AROPE-percentage** (risico op armoede of sociale uitsluiting): **23 %** van de Brusselse bevolking, tegenover 7 % in Vlaanderen en 13 % in Wallonië
+- **47 304 begunstigden** van het leefloon op 1 januari 2025, ofwel ongeveer **7 % van de 18-64-jarigen** (tegenover 3 % in 2002); in gemeenten zoals Sint-Jans-Molenbeek en Sint-Joost-ten-Node ontvangt **meer dan één op de tien** 18-64-jarigen een leefloon
+- **Zes van de tien armste gemeenten van België** qua inkomen liggen in Brussel, waaronder Sint-Joost-ten-Node, Anderlecht en Schaarbeek
+- Een **"onzichtbare bevolking"** geschat op meer dan **50 000 personen zonder verblijfstitel** (ongeveer 4 % van de Brusselse bevolking)
 
-De driemaandelijkse IALC-monitoring (Statbel) wijst op een subjectieve armoede van **29,4 %** in Brussel (personen die aangeven moeilijk rond te komen).
+De Sociaal Barometer 2023 stelde al uitgesproken inkomenskloven vast (de armste 10 % onder **985 EUR/maand** per persoon, de rijkste 10 % boven **4 120 EUR/maand**) en een recht op de kinderbijslagtoeslag voor **zes Brusselse kinderen op tien** (80 % in Sint-Joost-ten-Node). De driemaandelijkse IALC-monitoring (Statbel) meet een subjectieve armoede van **29,4 %** (personen die aangeven moeilijk rond te komen).
 
-Bronnen: Sociaal Barometer 2023 (Vivalis, maart 2024); Statbel EU-SILC 2024; IALC Q3 2025.
+### Dak- en thuisloosheid
+
+De door **Bruss'Help** gecoördineerde telling registreerde **9 777 dak- of thuisloze personen** in Brussel op **6 november 2024**, een stijging van **25 % in twee jaar**. De Sociaal Barometer 2025 wijst op de aanhoudende verergering van de huisvestingsnood over het decennium.
+
+Bronnen: Sociaal Barometer 2025 (Observatorium/Vivalis, apr. 2026); Sociaal Barometer 2023 (maart 2024); daklozentelling Bruss'Help (nov. 2024); Statbel IALC.
 
 ## Gezondheid en levensverwachting
 
@@ -226,9 +251,13 @@ Bronnen: Koning Boudewijnstichting, Barometer Digitale Inclusie 2024; Brussels P
 
 ## Precarisering en werkloosheidshervorming
 
-De federale hervorming van de werkloosheid (beperking tot twee jaar, inwerkingtreding 1 januari 2026) vormt een risicofactor voor het welzijn in Brussel. De studie van Vivalis (maart 2025, KSZ-gegevens) projecteert dat **42 % van de Brusselse uitgeslotenen onder 55 jaar zonder identificeerbaar inkomen zou vallen** in de zes maanden na de uitsluiting. Ongeveer **8 000 personen** zijn betrokken in Brussel tussen 2026 en 2027. Inkomensverlies, administratieve onzekerheid en het risico op non-take-up van sociale rechten zijn bekende determinanten van psychische nood en isolement — factoren die het IBSA en Sciensano als centraal identificeren voor de levenstevredenheid en de geestelijke gezondheid (zie bovenstaande secties). De impact op de OCMW's en de details van de gegevens zijn gedocumenteerd in de domeinkaart Sociaal.
+De federale hervorming van de werkloosheid (beperking van de uitkeringen tot twee jaar) trad in werking op **1 januari 2026** en de gevolgen zijn nu gedocumenteerd, voorbij de aanvankelijke projecties. De uitsluitingen verlopen in golven naargelang de duur van inactiviteit: meer dan 20 jaar vanaf **1 januari**, 8 tot 20 jaar op **1 maart**, 2 tot 8 jaar op **1 april 2026**. Op nationaal niveau bericht de pers over ongeveer **117 000 personen** die hun rechten verloren tussen januari en juni 2026, bijna **63 %** van het verwachte cohort tegen juli 2027 (ongeveer 25 000 al op 1 januari). Aan Brusselse kant projecteerde de studie van Vivalis (maart 2025) zo'n **8 000 betrokken personen** en **42 %** uitgeslotenen onder 55 jaar zonder identificeerbaar inkomen binnen de zes maanden.
 
-Bronnen: Vivalis (maart 2025); IBSA Focus nr. 77; Sciensano GE 2023-2024.
+**Overdracht naar de Brusselse OCMW's.** Volgens het OCMW van de **Stad Brussel** (cijfers op 31 mei 2026) dienden **3 567** uitgesloten personen er een aanvraag in — volgens het OCMW ongeveer **45 %** van de uitgeslotenen die zich aanmeldden — waarvan **2 706** een leefloon of een gelijkwaardige steun verkregen (**76 %** van de aanvragers) en ongeveer 6 % een andere sociale steun; bijna **20 %** had sinds 1 juli 2025 opnieuw werk gevonden. Om de schok op te vangen, omschreven als een aangekondigde "tsunami", opende het OCMW drie nieuwe sociale antennes en wierf het 38 extra maatschappelijk werkers aan.
+
+Inkomensverlies, administratieve onzekerheid en het risico op non-take-up van sociale rechten zijn bekende determinanten van psychische nood en isolement — factoren die het IBSA en Sciensano als centraal identificeren voor de levenstevredenheid en de geestelijke gezondheid (zie bovenstaande secties). De gedetailleerde impact op de negentien OCMW's wordt opgevolgd in het dossier Brusselse OCMW's en de domeinkaart Sociaal.
+
+Bronnen: L'Avenir / OCMW Stad Brussel (5 juni 2026); RVA (werkloosheidshervorming); Vivalis (maart 2025); IBSA Focus nr. 77; Sciensano GE 2023-2024. Vertrouwen: official over het kader van de hervorming; unconfirmed over de uitsluitingscijfers (perscijfers en OCMW-ramingen).
 
 ## Leefomgeving
 
@@ -249,9 +278,9 @@ Het jaarverslag 2024 van Leefmilieu Brussel bevestigt een voortdurende verbeteri
 
 ### Geluid
 
-Volgens de Staat van het Leefmilieu 2024 (gegevens 2019-2022) wordt **55 %** van de Brusselaars blootgesteld aan vliegtuiglawaai dat aanzienlijke hinder veroorzaakt, en **30 %** ondervindt problematisch wegverkeerslawaai.
+Volgens de Staat van het Leefmilieu 2024 (gegevens 2019-2022) wordt **55 %** van de Brusselaars blootgesteld aan vliegtuiglawaai dat aanzienlijke hinder veroorzaakt, en **30 %** ondervindt problematisch wegverkeerslawaai. Leefmilieu Brussel publiceert de metingen van het vliegtuiglawaai in bijna-realtime via het platform **noisemonitoring.brussels** (SARA-netwerk).
 
-Bronnen: Leefmilieu Brussel (rapport luchtkwaliteit 2024, groene ruimten 2023, Staat van het Leefmilieu 2024).
+Bronnen: Leefmilieu Brussel (rapport luchtkwaliteit 2024, groene ruimten 2023, Staat van het Leefmilieu 2024, noisemonitoring.brussels).
 
 ## Ervaren veiligheid
 
@@ -279,18 +308,18 @@ Brussel staat **40e wereldwijd** op 241 steden (een daling van 4 plaatsen, vanaf
 
 De OESO evalueert Brussel op 11 dimensies: inkomen, werkgelegenheid, huisvesting, gezondheid, toegang tot diensten, leefomgeving, onderwijs, veiligheid, burgerparticipatie, gemeenschap en levenstevredenheid. België presteert het best op burgerparticipatie (alle regio's in de top 20 % van de OESO). De grootste regionale verschillen betreffen werkgelegenheid en gezondheid.
 
-### België — World Happiness Report 2025 (alleen nationaal niveau)
+### België — World Happiness Report 2026 (alleen nationaal niveau)
 
-België staat **14e wereldwijd** (score 6,91/10, gestegen vanaf de 16e plaats). Er zijn geen sub-nationale gegevens beschikbaar in dit rapport.
+België staat **14e wereldwijd** (score **6,926/10**) in het World Happiness Report 2026, gepubliceerd op **19 maart 2026** — een stabiele positie tussen edities. De ranking, gebaseerd op een voortschrijdend driejarig gemiddelde, blijft gedomineerd door de Noordse landen (Finland 7,764, IJsland, Denemarken). Er zijn geen sub-nationale gegevens beschikbaar in dit rapport.
 
-Bronnen: VRT NWS (dec. 2024) voor Mercer; OESO Regional Well-Being (okt. 2025); World Happiness Report 2025.
+Bronnen: VRT NWS (dec. 2024) voor Mercer; OESO Regional Well-Being (okt. 2025); World Happiness Report 2026 (maart 2026).
 
 ## Databronnen en updatefrequentie
 
 | Bron | Uitgever | Frequentie | Verwachte volgende update |
 |------|----------|-----------|--------------------------|
 | Focus welzijn | IBSA + FPB | Eenmalig | Te bepalen |
-| Sociaal Barometer | Vivalis/GGC | Jaarlijks | 2026 (gegevens 2024) — nog niet gepubliceerd |
+| Sociaal Barometer | Observatorium/Vivalis | Jaarlijks | **Editie 2025 gepubliceerd op 15/04/2026**; volgende editie 2026 |
 | EU-SILC | Statbel | Jaarlijks | Feb. 2027 (gegevens 2025) |
 | IALC driemaandelijks | Statbel | Driemaandelijks | Doorlopend |
 | Gezondheidsenquête | Sciensano | ~5 jaar | 2028-2029 |

@@ -67,6 +67,18 @@ sources:
   - label: "RTBF — Data center BRU01 à Neder-Over-Heembeek"
     url: "https://www.rtbf.be/article/bruxelles-le-futur-data-center-de-neder-over-heembeek-consommera-l-energie-de-plus-de-115-000-belges-11631254"
     accessedAt: "2026-02-23"
+  - label: "Europese Commissie — Ratingschema voor datacenters (EED), oproep tot feedback (27 maart 2026)"
+    url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
+    accessedAt: "2026-06-16"
+  - label: "Data Center Dynamics — Eerste geaggregeerde EED-resultaten: 6,4 GW IT-capaciteit in de EU (2026)"
+    url: "https://www.datacenterdynamics.com/en/news/european-commission-releases-aggregate-eed-data-center-data-operators-report-64gw-of-installed-capacity-across-the-eu/"
+    accessedAt: "2026-06-16"
+  - label: "BX1 — Les coupes budgétaires chez Innoviris provoquent la polémique (7 april 2026)"
+    url: "https://bx1.be/categories/news/les-coupes-budgetaires-chez-innoviris-provoquent-la-polemique/"
+    accessedAt: "2026-06-16"
+  - label: "Elia — Aansluitcapaciteit van het net (kaart, maart 2026)"
+    url: "https://www.elia.be/fr/clients/raccordement/capacite-d-accueil-du-reseau"
+    accessedAt: "2026-06-16"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -93,16 +105,23 @@ metrics:
     unit: "depuis 2022"
     source: "Elia / BCG"
     date: "2025-10-01"
+  - label: "PUE moyen UE (reporting EED)"
+    value: "1,36"
+    unit: "776 data centers · 6,4 GW IT · 16,7 TWh (2023-2024)"
+    source: "Commission européenne (EED)"
+    date: "2024-12-31"
 alerts:
-  - label: "Plan réseau Elia 2028-2038 : traitement explicite de la demande data centers"
+  - label: "Elia: aansluitcapaciteitskaart gepubliceerd (maart 2026); federaal plan 2028-2038 gaat expliciet in op de datacentervraag"
     severity: info
-    date: "2026-02-23"
-  - label: "Reporting EED : premiers résultats data centers belges attendus (non encore publics)"
+    date: "2026-06-16"
+  - label: "EED-rapportage: eerste geaggregeerde EU-resultaten gepubliceerd (2023-2024); ratingschema verwacht rond 10 juni 2026"
     severity: info
-    date: "2026-02-23"
+    date: "2026-06-16"
 confidenceLevel: estimated
 dprCommitment: "Geen specifieke vermelding van datacenters aangetroffen in de Brusselse Gewestelijke Beleidsverklaring (februari 2026). De digitale transitie en de energie-klimaatstrategie worden er afzonderlijk behandeld, zonder kruisverwijzing naar de energetische impact van de digitale sector."
-lastModified: "2026-02-23"
+lastModified: "2026-06-16"
+changeType: updated
+changeSummary: "De Europese Commissie publiceert de eerste geaggregeerde resultaten van de EED-rapportage voor datacenters (2023-2024): 776 sites, 6,4 GW IT-capaciteit, 16,7 TWh, gemiddelde PUE 1,36; een rating- en labelschema wordt verwacht rond 10 juni 2026. Innoviris: budget 2026 teruggebracht van 39 naar 30 miljoen euro (−20%), bevriezing van alle nieuwe projecten, twee open brieven van ULB/VUB-onderzoekers. Elia publiceert zijn aansluitcapaciteitskaart (maart 2026)."
 ---
 
 ## Kerngegevens
@@ -173,6 +192,8 @@ De aansluitingsaanvragen voor datacenters bij Elia zijn **vernegenvouldigd sinds
 - **Flexibele aansluitingen** (onderbrekingen mogelijk bij congestiepiekperiodes)
 - Doelstelling: voorkomen dat datacenters andere industriële gebruikers verdringen
 
+Elia publiceerde op **17 maart 2026** een **aansluitcapaciteitskaart** van het net (bijgewerkt op 9 april 2026), waarmee de nog aansluitbare zones kunnen worden gelokaliseerd. De netbeheerder is bovendien van plan zijn **investeringen in Wallonië te verviervoudigen** tegen 2030 (ongeveer **2,6 miljard EUR** over 2026-2030). Het **federale ontwikkelingsplan 2028-2038**, opgesteld met de Gewesten, zal expliciet ingaan op de datacentervraag.
+
 De Europese Centrale Bank stelt vast dat "nationale elektriciteitsmarkten kwetsbaarder zijn voor AI-gerelateerde druk dan gasmarkten" (economisch bulletin 2/2025). België, dat een deel van zijn elektriciteit invoert, is bijzonder kwetsbaar. De Belgische elektriciteitsmix bestond voor **29,8%** uit hernieuwbare energie in 2024 (Elia).
 
 ## Verbruik per AI-zoekopdracht
@@ -193,7 +214,7 @@ De efficiëntiewinsten zijn aanzienlijk: Google rapporteert **33 keer** minder e
 
 Het Google-datacenter in Saint-Ghislain verbruikt ongeveer **1,39 miljard liter industriewater** per jaar (2022). De site maakt hoofdzakelijk gebruik van grijs water uit het industriekanaal voor koeling, niet van drinkwater. De nieuwe site in Farciennes zal luchtkoeling gebruiken (minder waterverbruik). Voor BRU01 in Brussel zijn geen waterverbruiksgegevens beschikbaar.
 
-De **Europese richtlijn inzake energie-efficiëntie (EED-richtlijn)** verplicht datacenters met meer dan 500 kW IT-capaciteit sinds september 2024 tot jaarlijkse rapportage: PUE, waterverbruik, aandeel hernieuwbare energie, warmteterugwinning. De eerste Belgische resultaten zijn nog niet openbaar.
+De **Europese richtlijn inzake energie-efficiëntie (EED-richtlijn)** verplicht datacenters met meer dan 500 kW IT-capaciteit sinds september 2024 tot jaarlijkse rapportage: PUE, waterverbruik, aandeel hernieuwbare energie, warmteterugwinning. De Europese Commissie publiceerde in 2026 de **eerste geaggregeerde resultaten op EU-niveau** (gegevens 2023-2024): **776 datacenters**, **6,4 GW** geïnstalleerde IT-capaciteit, **16,7 TWh** verbruik en een **gewogen gemiddelde PUE van 1,36**. De uitsplitsing per land blijft beperkt en er is geen Brusselse opsplitsing beschikbaar; de volgende rapportagedeadline lag op **15 mei 2026** voor de gegevens van 2025. Een **rating- en labelschema** voor datacenters (ontwerp van gedelegeerde verordening geregistreerd op **26 maart 2026**, oproep tot feedback geopend op 27 maart) moet **rond 10 juni 2026** worden aangenomen, met een elektronisch label dat vanaf **15 augustus 2027** automatisch door de Europese databank wordt gegenereerd.
 
 Het **Climate Neutral Data Centre Pact (CNDCP)** is een vrijwillig engagement dat streeft naar klimaatneutraliteit van Europese datacenters tegen 2030. De Belgische operator LCL is ondertekenaar.
 
@@ -210,11 +231,21 @@ Het **Climate Neutral Data Centre Pact (CNDCP)** is een vrijwillig engagement da
 
 ## Op te volgen kwesties
 
-- **Elia-netwerkontwikkelingsplan 2028-2038**: zal het capaciteitsplafonds voor datacenters bevatten? Welke toewijzing voor het BHG? (Beslissing verwacht 2026-2027)
-- **EED-rapportage**: publicatie van de eerste rapportageresultaten van Belgische datacenters (sinds september 2024, resultaten nog niet openbaar)
+- **Elia-netwerkontwikkelingsplan 2028-2038**: zal het capaciteitsplafonds voor datacenters bevatten? Welke toewijzing voor het BHG? (Aansluitcapaciteitskaart gepubliceerd in maart 2026; beslissing over plafonds verwacht 2026-2027)
+- **EED-rapportage**: eerste geaggregeerde EU-resultaten gepubliceerd in 2026 (2023-2024); de Belgische en Brusselse uitsplitsing blijft onbeschikbaar; rating- en labelschema verwacht rond 10 juni 2026, automatisch label vanaf 15 augustus 2027
 - **AI Factory Antenna**: België werd geselecteerd als "Antenna" (en niet als volledig Factory) van het Europese AI Factories-programma, via imec. Operationele lancering nog te preciseren
 - **BRU01-bezetting**: het werkelijke verbruik van BRU01 zal een sleutelindicator zijn voor de impact van datacenters op het Brusselse net
 - **Warmteterugwinning**: het Google Farciennes-project (via Igretec) is een precedent. Het BHG heeft geen gelijkwaardige verplichting voor datacenters
+
+## Recente ontwikkelingen (maart-juni 2026)
+
+**Bevriezing Innoviris (maart-april 2026)**: het belangrijkste gewestelijke onderzoeksfinancieringsorgaan ziet zijn budget **teruggebracht van 39 naar 30 miljoen EUR** (−20%) en **bevriest alle nieuwe O&O-projecten in 2026** — geen nieuwe oproepen, alle loketten gesloten. Lopende overeenkomsten worden nagekomen en reeds ingediende aanvragen worden onderzocht voor een mogelijke financiering in 2027. **Twee open brieven** ondertekend door **honderden onderzoekers** (waaronder een gedragen door ongeveer 120 onderzoekers van de ULB en de VUB) hekelen een historische primeur. Het kabinet van de minister-president zegt voor 2027 middelen na te streven die « gelijkwaardig zijn aan die van 2026 ». Rechtstreekse impact op het Brusselse AI-ecosysteem, dat zijn belangrijkste gewestelijke loket verliest.
+
+**Burgermobilisatie (26 maart)**: tijdens een forum over AI in Brussel hekelden militanten het energieverbruik van het datacenter KevlinX BRU01 (Neder-Over-Heembeek, 32 MW), met de schatting dat het op volle capaciteit « evenveel elektriciteit als de stad Namen » zou verbruiken. Het door de pers als « discreet » omschreven evenement bracht de kloof aan het licht tussen de DPR-ambitie « AI-hoofdstad » en het ontbreken van een stedenbouwkundig en energetisch kader voor datacenters.
+
+**Europees EED-kader (maart-juni 2026)**: de Europese Commissie publiceerde de eerste geaggregeerde resultaten van de EED-rapportage (2023-2024) en opende op 27 maart een consultatie over een **rating- en labelschema** voor datacenters, waarvan de aanname **rond 10 juni 2026** wordt verwacht (details in de sectie « Water en milieu »). Daarnaast publiceerde **Elia** zijn **aansluitcapaciteitskaart** van het net (17 maart 2026).
+
+Bronnen: BRUZZ (27 maart 2026), La DH (26 maart 2026), BX1 (7 april 2026), Europese Commissie (EED-ratingschema, 27 maart 2026), Elia (aansluitcapaciteit van het net, maart 2026).
 
 ## Wat de gegevens niet vertellen
 
@@ -222,5 +253,5 @@ Het **Climate Neutral Data Centre Pact (CNDCP)** is een vrijwillig engagement da
 - **Geen analyse** van BRUGEL of de CREG over de impact van datacenters op de elektriciteitsprijzen voor Brusselse huishoudens en kmo's
 - **Geen stedenbouwkundig kader**: datacenters zijn afwezig uit het Gewestelijk Plan voor Duurzame Ontwikkeling (GPDO) en er bestaat geen specifieke categorie in de Brusselse stedenbouwkundige planning
 - **Brussels Parlement**: geen parlementaire vraag over datacenters aangetroffen in de online archieven (webzoekopdracht; Weblex niet geïndexeerd door zoekmachines)
-- **EED-resultaten niet openbaar**: de eerste rapporten van Belgische datacenters zijn niet publiek toegankelijk
+- **EED-uitsplitsing per land beperkt**: de Commissie publiceerde geaggregeerde EU-resultaten (2023-2024), maar de Belgische en Brusselse detailgegevens blijven niet publiek toegankelijk
 - **Fiscaliteit**: geen specifiek fiscaal regime voor datacenters in het BHG vastgesteld

@@ -5,6 +5,8 @@
   "description": "Making Brussels governance visible, verifiable, and understandable",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
+    "prepare": "git config core.hooksPath .githooks 2>/dev/null || true",
+    "preflight": "bash scripts/preflight.sh",
     "velite": "velite",
     "dev": "velite && next dev",
     "build": "velite --clean && next build && pagefind --site .next/server/app --output-path public/pagefind",

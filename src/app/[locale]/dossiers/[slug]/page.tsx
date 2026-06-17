@@ -30,6 +30,7 @@ import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { DossierFaq } from '@/components/dossier/dossier-faq';
 
 
 export const dynamicParams = false;
@@ -169,6 +170,7 @@ function DossierDetail({
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
+  const tFaq = useTranslations('faq');
 
   // Blocked days counter (use fixed build date to avoid impure Date.now() in render)
   const buildDate = new Date();
@@ -395,6 +397,9 @@ function DossierDetail({
         >
           <MdxContent code={card.content} metrics={card.metrics} />
         </div>
+
+        {/* FAQ (conditional: renders null when card.faq is empty) */}
+        <DossierFaq faq={card.faq} title={tFaq('title')} />
 
         {/* Related domains */}
         {relatedDomainCards.length > 0 && (

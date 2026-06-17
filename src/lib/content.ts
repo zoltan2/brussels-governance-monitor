@@ -206,6 +206,11 @@ export interface DossierCard {
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
   dprCommitment?: string;
+  faq: Array<{
+    q: string;
+    a: string;
+    sources: Array<{ label: string; url: string; accessedAt: string }>;
+  }>;
   changeSummary?: string;
   digestHeadline?: string;
   lastModified: string;

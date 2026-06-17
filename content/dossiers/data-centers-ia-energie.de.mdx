@@ -19,6 +19,8 @@ stakeholders:
   - "Microsoft"
   - "BDIA"
   - "citydev.brussels"
+  - "Paradigm"
+  - "ISIT-be"
 relatedDomains:
   - climate
   - economy
@@ -79,6 +81,12 @@ sources:
   - label: "Elia — Aufnahmekapazität des Netzes (Karte, März 2026)"
     url: "https://www.elia.be/fr/clients/raccordement/capacite-d-accueil-du-reseau"
     accessedAt: "2026-06-16"
+  - label: "be.brussels — Verantwortungsvolle Digitalisierung (Paradigm)"
+    url: "https://be.brussels/fr/propos-de-la-region/valeurs-budget-et-strategie/catalogue-des-services-numeriques-regionaux/ameliorer-la-vie-en-region-bruxelloise/numerique-responsable"
+    accessedAt: "2026-06-17"
+  - label: "Region Brüssel-Hauptstadt — Leitfaden digitale Öko-Gesten (PDF, 16 Blätter)"
+    url: "https://admin.be.brussels/en/bhg/document/download/4361"
+    accessedAt: "2026-06-17"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -110,6 +118,17 @@ metrics:
     unit: "776 data centers · 6,4 GW IT · 16,7 TWh (2023-2024)"
     source: "Commission européenne (EED)"
     date: "2024-12-31"
+  - label: "Globale Digitalisierung — Anteil an THG"
+    value: "~4 %"
+    unit: "der weltweiten Emissionen (Risiko +60 % bis 2050)"
+    source: "be.brussels — Verantwortungsvolle Digitalisierung"
+    date: "2026-06-17"
+  - label: "Paradigm — Hardware-Fußabdruck (PC 4→6 Jahre)"
+    value: "−36 %"
+    unit: "pro Jahr; ~230 t vermieden bei Ausweitung auf die Verwaltungen"
+    source: "be.brussels — Verantwortungsvolle Digitalisierung"
+    date: "2026-06-17"
+    confidenceLevel: official
 alerts:
   - label: "Elia: Kapazitätskarte veröffentlicht (März 2026); Bundesplan 2028-2038 behandelt die Rechenzentrumsnachfrage ausdrücklich"
     severity: info
@@ -119,9 +138,9 @@ alerts:
     date: "2026-06-16"
 confidenceLevel: estimated
 dprCommitment: "In der Regionalen Politikerklärung (DPR) von Brüssel (Februar 2026) wurde keine spezifische Erwähnung von Rechenzentren festgestellt. Der digitale Wandel und die Energie-Klima-Strategie werden darin getrennt behandelt, ohne Querverweis auf die energetischen Auswirkungen der Digitalisierung."
-lastModified: "2026-06-16"
+lastModified: "2026-06-17"
 changeType: updated
-changeSummary: "Die Europäische Kommission veröffentlicht die ersten aggregierten Ergebnisse der EED-Berichterstattung für Rechenzentren (2023-2024): 776 Standorte, 6,4 GW IT-Kapazität, 16,7 TWh, durchschnittlicher PUE 1,36; ein Bewertungs- und Kennzeichnungsschema wird um den 10. Juni 2026 erwartet. Innoviris: Budget 2026 von 39 auf 30 Millionen Euro gekürzt (−20 %), Einfrierung aller neuen Projekte, zwei offene Briefe von ULB/VUB-Forschenden. Elia veröffentlicht seine Netzaufnahmekapazitätskarte (März 2026)."
+changeSummary: "Neuer Abschnitt zur regionalen Politik der verantwortungsvollen Digitalisierung, koordiniert von Paradigm: Verlängerung der Lebensdauer der Hardware (PC von 4 auf 6 Jahre, −36 % Fußabdruck, ~230 Tonnen pro Jahr vermieden bei Ausweitung auf die Verwaltungen), Wiederaufbereitung (Recycle IT, ISIT-be), Charta für verantwortungsvolle Digitalisierung und Plan zur digitalen Aneignung. Die globale Digitalisierung macht ~4 % der Treibhausgasemissionen aus (Risiko +60 % bis 2050). Die Abstimmung zwischen dieser Sparsamkeit und dem Wachstum der Rechenzentren fehlt in den regionalen Plänen."
 ---
 
 ## Wichtigste Kennzahlen
@@ -131,6 +150,7 @@ changeSummary: "Die Europäische Kommission veröffentlicht die ersten aggregier
 - **4,6 TWh**: jährlicher Stromverbrauch der Region Brüssel-Hauptstadt (als Vergleichspunkt)
 - **32 MW**: Zielkapazität von KevlinX BRU01, dem ersten grossen Rechenzentrum in der Region Brüssel-Hauptstadt (seit Januar 2026 in Betrieb)
 - **x9**: Neunfacher Anstieg der Netzanschlussanfragen von Rechenzentren bei Elia seit 2022
+- **~4 %**: Anteil der globalen Digitalisierung an den Treibhausgasemissionen (Risiko +60 % bis 2050) — dem die Region eine Politik der **verantwortungsvollen Digitalisierung** entgegensetzt (Paradigm)
 
 ## Abdeckung in der DPR
 
@@ -217,6 +237,23 @@ Das Google-Rechenzentrum in Saint-Ghislain verbraucht etwa **1,39 Milliarden Lit
 Die **europäische Energieeffizienzrichtlinie (EED)** schreibt seit September 2024 eine jährliche Berichterstattung für Rechenzentren mit mehr als 500 kW IT-Leistung vor: PUE, Wasserverbrauch, Anteil erneuerbarer Energien, Abwärmenutzung. Die Europäische Kommission veröffentlichte 2026 die **ersten aggregierten Ergebnisse auf EU-Ebene** (Daten 2023-2024): **776 Rechenzentren**, **6,4 GW** installierte IT-Kapazität, **16,7 TWh** Verbrauch und ein **gewichteter durchschnittlicher PUE von 1,36**. Die Aufschlüsselung nach Ländern bleibt begrenzt, und es liegen keine Brüsseler Zahlen vor; die nächste Berichtsfrist war der **15. Mai 2026** für die Daten des Jahres 2025. Ein **Bewertungs- und Kennzeichnungsschema** für Rechenzentren (Entwurf einer delegierten Verordnung, registriert am **26. März 2026**, Aufruf zur Stellungnahme am 27. März eröffnet) soll **um den 10. Juni 2026** angenommen werden, mit einem elektronischen Label, das ab dem **15. August 2027** automatisch von der europäischen Datenbank erzeugt wird.
 
 Der **Climate Neutral Data Centre Pact (CNDCP)** ist eine freiwillige Verpflichtung zur Klimaneutralität europäischer Rechenzentren bis 2030. Der belgische Betreiber LCL ist Unterzeichner.
+
+## Regionale Antwort: verantwortungsvolle Digitalisierung
+
+Angesichts des wachsenden ökologischen Fußabdrucks der Digitalisierung entwickelt die Region eine Politik der **verantwortungsvollen Digitalisierung** — Sparsamkeit, Kreislaufwirtschaft, Inklusion — koordiniert von **Paradigm** (der regionalen Digitalverwaltung, vormals CIRB).
+
+**Der Befund.** Laut der Region macht die globale digitale Infrastruktur etwa **4 % der Treibhausgasemissionen** aus, ein Anteil, der ohne Maßnahmen bis **2050 um 60 % steigen könnte**.
+
+**Die regionalen Maßnahmen.**
+
+- **Verlängerung der Lebensdauer der Hardware**: Paradigm verlängerte die Nutzungsdauer seiner Computer von **4 auf 6 Jahre** und senkte so seinen jährlichen Fußabdruck um etwa **36 %**. Auf alle Brüsseler Verwaltungen ausgeweitet, würde diese einzige Geste rund **230 Tonnen** vermiedener Emissionen pro Jahr bedeuten.
+- **Wiederaufbereitung und Kreislaufwirtschaft**: das Projekt **Recycle IT** erfasst die Akteure der IT-Wiederaufbereitung; die Region stützt sich auch auf **ISIT-be** (Belgisches Institut für verantwortungsvolle Digitalisierung).
+- **Strategische Rahmen**: eine **Charta für eine verantwortungsvolle Digitalisierung**, ein **Plan zur digitalen Aneignung** (Aspekt Inklusion / Bekämpfung der digitalen Kluft) und die Einbindung der Digitalisierung in den **Regionalen Luft-Klima-Energie-Plan (PACE, 2023)**.
+- **Bürgersensibilisierung**: ein **Leitfaden digitale Öko-Gesten** (16 Blätter) für die breite Öffentlichkeit.
+
+**Der blinde Fleck.** Diese Sparsamkeitspolitik betrifft in erster Linie die **Hardware und die Nutzung** durch Verwaltungen und Bürger. Sie behandelt nicht den **Stromverbrauch der Rechenzentren**, die in der Region angesiedelt sind (siehe oben): die Abstimmung zwischen dem Anspruch « KI-Hauptstadt », dem Wachstum der Rechenzentren und dem Ziel der verantwortungsvollen Digitalisierung fehlt in den regionalen Plänen.
+
+Quellen: [be.brussels — Verantwortungsvolle Digitalisierung](https://be.brussels/fr/propos-de-la-region/valeurs-budget-et-strategie/catalogue-des-services-numeriques-regionaux/ameliorer-la-vie-en-region-bruxelloise/numerique-responsable); [Leitfaden digitale Öko-Gesten (PDF)](https://admin.be.brussels/en/bhg/document/download/4361). Vertrauen: official (regionale institutionelle Quelle).
 
 ## Zuständigkeitsverteilung
 

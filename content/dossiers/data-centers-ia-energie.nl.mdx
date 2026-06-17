@@ -19,6 +19,8 @@ stakeholders:
   - "Microsoft"
   - "BDIA"
   - "citydev.brussels"
+  - "Paradigm"
+  - "ISIT-be"
 relatedDomains:
   - climate
   - economy
@@ -79,6 +81,12 @@ sources:
   - label: "Elia — Aansluitcapaciteit van het net (kaart, maart 2026)"
     url: "https://www.elia.be/fr/clients/raccordement/capacite-d-accueil-du-reseau"
     accessedAt: "2026-06-16"
+  - label: "be.brussels — Verantwoord digitaal (Paradigm)"
+    url: "https://be.brussels/fr/propos-de-la-region/valeurs-budget-et-strategie/catalogue-des-services-numeriques-regionaux/ameliorer-la-vie-en-region-bruxelloise/numerique-responsable"
+    accessedAt: "2026-06-17"
+  - label: "Brussels Hoofdstedelijk Gewest — Gids digitale ecogebaren (PDF, 16 fiches)"
+    url: "https://admin.be.brussels/en/bhg/document/download/4361"
+    accessedAt: "2026-06-17"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -110,6 +118,17 @@ metrics:
     unit: "776 data centers · 6,4 GW IT · 16,7 TWh (2023-2024)"
     source: "Commission européenne (EED)"
     date: "2024-12-31"
+  - label: "Mondiale digitale sector — aandeel BKG"
+    value: "~4 %"
+    unit: "van de wereldwijde uitstoot (risico +60 % tegen 2050)"
+    source: "be.brussels — Verantwoord digitaal"
+    date: "2026-06-17"
+  - label: "Paradigm — materiaalvoetafdruk (pc 4→6 jaar)"
+    value: "−36 %"
+    unit: "per jaar; ~230 t vermeden indien veralgemeend naar de administraties"
+    source: "be.brussels — Verantwoord digitaal"
+    date: "2026-06-17"
+    confidenceLevel: official
 alerts:
   - label: "Elia: aansluitcapaciteitskaart gepubliceerd (maart 2026); federaal plan 2028-2038 gaat expliciet in op de datacentervraag"
     severity: info
@@ -119,9 +138,9 @@ alerts:
     date: "2026-06-16"
 confidenceLevel: estimated
 dprCommitment: "Geen specifieke vermelding van datacenters aangetroffen in de Brusselse Gewestelijke Beleidsverklaring (februari 2026). De digitale transitie en de energie-klimaatstrategie worden er afzonderlijk behandeld, zonder kruisverwijzing naar de energetische impact van de digitale sector."
-lastModified: "2026-06-16"
+lastModified: "2026-06-17"
 changeType: updated
-changeSummary: "De Europese Commissie publiceert de eerste geaggregeerde resultaten van de EED-rapportage voor datacenters (2023-2024): 776 sites, 6,4 GW IT-capaciteit, 16,7 TWh, gemiddelde PUE 1,36; een rating- en labelschema wordt verwacht rond 10 juni 2026. Innoviris: budget 2026 teruggebracht van 39 naar 30 miljoen euro (−20%), bevriezing van alle nieuwe projecten, twee open brieven van ULB/VUB-onderzoekers. Elia publiceert zijn aansluitcapaciteitskaart (maart 2026)."
+changeSummary: "Nieuwe sectie over het gewestelijke beleid van verantwoord digitaal, gecoördineerd door Paradigm: verlenging van de levensduur van het materiaal (pc's van 4 naar 6 jaar, −36 % voetafdruk, ~230 ton vermeden per jaar indien veralgemeend naar de administraties), reconditionering (Recycle IT, ISIT-be), Handvest Verantwoord Digitaal en Plan voor Digitale Toe-eigening. De mondiale digitale sector is goed voor ~4 % van de broeikasgasuitstoot (risico +60 % tegen 2050). De afstemming tussen deze soberheid en de groei van de datacenters ontbreekt in de gewestelijke plannen."
 ---
 
 ## Kerngegevens
@@ -131,6 +150,7 @@ changeSummary: "De Europese Commissie publiceert de eerste geaggregeerde resulta
 - **4,6 TWh** : jaarlijks elektriciteitsverbruik van het Brussels Hoofdstedelijk Gewest (ter vergelijking)
 - **32 MW** : doelcapaciteit van KevlinX BRU01, het eerste grote datacenter in het Brussels Hoofdstedelijk Gewest (operationeel sinds januari 2026)
 - **x9** : vervijfvoudiging van aansluitingsaanvragen voor datacenters bij Elia sinds 2022
+- **~4 %** : aandeel van de mondiale digitale sector in de broeikasgasuitstoot (risico +60 % tegen 2050) — waartegenover het Gewest een beleid van **verantwoord digitaal** ontwikkelt (Paradigm)
 
 ## Vermelding in de GBV
 
@@ -217,6 +237,23 @@ Het Google-datacenter in Saint-Ghislain verbruikt ongeveer **1,39 miljard liter 
 De **Europese richtlijn inzake energie-efficiëntie (EED-richtlijn)** verplicht datacenters met meer dan 500 kW IT-capaciteit sinds september 2024 tot jaarlijkse rapportage: PUE, waterverbruik, aandeel hernieuwbare energie, warmteterugwinning. De Europese Commissie publiceerde in 2026 de **eerste geaggregeerde resultaten op EU-niveau** (gegevens 2023-2024): **776 datacenters**, **6,4 GW** geïnstalleerde IT-capaciteit, **16,7 TWh** verbruik en een **gewogen gemiddelde PUE van 1,36**. De uitsplitsing per land blijft beperkt en er is geen Brusselse opsplitsing beschikbaar; de volgende rapportagedeadline lag op **15 mei 2026** voor de gegevens van 2025. Een **rating- en labelschema** voor datacenters (ontwerp van gedelegeerde verordening geregistreerd op **26 maart 2026**, oproep tot feedback geopend op 27 maart) moet **rond 10 juni 2026** worden aangenomen, met een elektronisch label dat vanaf **15 augustus 2027** automatisch door de Europese databank wordt gegenereerd.
 
 Het **Climate Neutral Data Centre Pact (CNDCP)** is een vrijwillig engagement dat streeft naar klimaatneutraliteit van Europese datacenters tegen 2030. De Belgische operator LCL is ondertekenaar.
+
+## Gewestelijk antwoord: verantwoord digitaal
+
+Tegenover de groeiende milieuvoetafdruk van het digitale ontwikkelt het Gewest een beleid van **verantwoord digitaal** — soberheid, circulaire economie, inclusie — gecoördineerd door **Paradigm** (de gewestelijke digitale administratie, voorheen CIRB).
+
+**De vaststelling.** Volgens het Gewest is de mondiale digitale infrastructuur goed voor ongeveer **4 % van de broeikasgasuitstoot**, een aandeel dat zonder actie met **60 % zou kunnen stijgen tegen 2050**.
+
+**De gewestelijke maatregelen.**
+
+- **Verlenging van de levensduur van het materiaal**: Paradigm bracht de gebruiksduur van zijn computers van **4 naar 6 jaar**, wat de jaarlijkse voetafdruk met ongeveer **36 %** verminderde. Veralgemeend naar alle Brusselse administraties zou dit ene gebaar zo'n **230 ton** vermeden uitstoot per jaar betekenen.
+- **Reconditionering en circulaire economie**: het project **Recycle IT** brengt de actoren van de IT-reconditionering in kaart; het Gewest steunt ook op **ISIT-be** (Belgisch Instituut voor Verantwoord Digitaal).
+- **Strategische kaders**: een **Handvest voor een Verantwoord Digitaal**, een **Plan voor Digitale Toe-eigening** (luik inclusie / strijd tegen de digitale kloof) en de integratie van het digitale in het **Gewestelijk Lucht-Klimaat-Energieplan (PACE, 2023)**.
+- **Burgersensibilisering**: een **Gids digitale ecogebaren** (16 fiches) voor het grote publiek.
+
+**De blinde vlek.** Dit soberheidsbeleid betreft in de eerste plaats het **materiaal en de gebruiken** van administraties en burgers. Het behandelt niet het **elektriciteitsverbruik van de datacenters** die in het Gewest gevestigd zijn (zie hierboven): de afstemming tussen de ambitie « AI-hoofdstad », de groei van de datacenters en de doelstelling van verantwoord digitaal ontbreekt in de gewestelijke plannen.
+
+Bronnen: [be.brussels — Verantwoord digitaal](https://be.brussels/fr/propos-de-la-region/valeurs-budget-et-strategie/catalogue-des-services-numeriques-regionaux/ameliorer-la-vie-en-region-bruxelloise/numerique-responsable); [Gids digitale ecogebaren (PDF)](https://admin.be.brussels/en/bhg/document/download/4361). Vertrouwen: official (gewestelijke institutionele bron).
 
 ## Bevoegdheidsverdeling
 

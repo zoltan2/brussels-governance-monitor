@@ -19,6 +19,8 @@ stakeholders:
   - "Microsoft"
   - "BDIA"
   - "citydev.brussels"
+  - "Paradigm"
+  - "ISIT-be"
 relatedDomains:
   - climate
   - economy
@@ -79,6 +81,12 @@ sources:
   - label: "Elia — Capacité d'accueil du réseau (carte, mars 2026)"
     url: "https://www.elia.be/fr/clients/raccordement/capacite-d-accueil-du-reseau"
     accessedAt: "2026-06-16"
+  - label: "be.brussels — Numérique responsable (Paradigm)"
+    url: "https://be.brussels/fr/propos-de-la-region/valeurs-budget-et-strategie/catalogue-des-services-numeriques-regionaux/ameliorer-la-vie-en-region-bruxelloise/numerique-responsable"
+    accessedAt: "2026-06-17"
+  - label: "Région de Bruxelles-Capitale — Guide des éco-gestes numériques (PDF, 16 fiches)"
+    url: "https://admin.be.brussels/en/bhg/document/download/4361"
+    accessedAt: "2026-06-17"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -110,6 +118,17 @@ metrics:
     unit: "776 data centers · 6,4 GW IT · 16,7 TWh (2023-2024)"
     source: "Commission européenne (EED)"
     date: "2024-12-31"
+  - label: "Numérique mondial — part des GES"
+    value: "~4 %"
+    unit: "des émissions mondiales (risque +60 % d'ici 2050)"
+    source: "be.brussels — Numérique responsable"
+    date: "2026-06-17"
+  - label: "Paradigm — empreinte matériel (PC 4→6 ans)"
+    value: "−36 %"
+    unit: "par an ; ~230 t évitées si généralisé aux administrations bruxelloises"
+    source: "be.brussels — Numérique responsable"
+    date: "2026-06-17"
+    confidenceLevel: official
 alerts:
   - label: "Elia : carte de capacité d'accueil publiée (mars 2026) ; plan fédéral 2028-2038 traitera explicitement la demande data centers"
     severity: info
@@ -119,9 +138,9 @@ alerts:
     date: "2026-06-16"
 confidenceLevel: estimated
 dprCommitment: "Aucune mention spécifique des data centers identifiée dans la DPR bruxelloise (février 2026). La transition numérique et la stratégie énergie-climat y sont abordées séparément, sans référence croisée à l'impact énergétique du numérique."
-lastModified: "2026-06-16"
+lastModified: "2026-06-17"
 changeType: updated
-changeSummary: "La Commission européenne publie les premiers résultats agrégés du reporting EED des data centers (2023-2024) : 776 sites, 6,4 GW de capacité IT, 16,7 TWh, PUE moyen 1,36 ; un schéma de notation/labellisation est attendu vers le 10 juin 2026. Innoviris : budget 2026 ramené de 39 à 30 millions d'euros (−20 %), gel de tous les nouveaux projets, deux lettres ouvertes de chercheurs ULB/VUB. Elia publie sa carte de capacité d'accueil du réseau (mars 2026)."
+changeSummary: "Nouvelle section sur la politique régionale de numérique responsable, coordonnée par Paradigm : allongement de la durée de vie du matériel (PC 4→6 ans, −36 % d'empreinte, ~230 tonnes évitées par an si généralisé aux administrations), reconditionnement (Recycle IT, ISIT-be), Charte Numérique Responsable et Plan d'Appropriation du Numérique. Le numérique mondial pèse ~4 % des émissions de gaz à effet de serre (risque +60 % d'ici 2050). L'articulation entre cette sobriété et la croissance des data centers reste absente des plans régionaux."
 ---
 
 ## Données clés
@@ -131,6 +150,7 @@ changeSummary: "La Commission européenne publie les premiers résultats agrég�
 - **4,6 TWh** : consommation électrique annuelle de la Région de Bruxelles-Capitale (point de comparaison)
 - **32 MW** : capacité cible de KevlinX BRU01, premier grand data center en Région bruxelloise (opérationnel depuis janvier 2026)
 - **x9** : multiplication des demandes de raccordement data centers chez Elia depuis 2022
+- **~4 %** : part du numérique mondial dans les émissions de gaz à effet de serre (risque +60 % d'ici 2050) — face à laquelle la Région développe une politique de **numérique responsable** (Paradigm)
 
 ## Couverture dans la DPR
 
@@ -217,6 +237,23 @@ Le data center Google de Saint-Ghislain consomme environ **1,39 milliard de litr
 La **directive européenne sur l'efficacité énergétique (EED)** impose depuis septembre 2024 un reporting annuel pour les data centers de plus de 500 kW IT : PUE, consommation d'eau, part de renouvelable, récupération de chaleur. La Commission européenne a publié en 2026 les **premiers résultats agrégés à l'échelle de l'UE** (données 2023-2024) : **776 data centers**, **6,4 GW** de capacité IT installée, **16,7 TWh** consommés et un **PUE moyen pondéré de 1,36**. Le détail par pays reste limité et aucune ventilation bruxelloise n'est disponible ; l'échéance suivante de reporting était fixée au **15 mai 2026** pour les données 2025. Un **schéma de notation et de labellisation** des data centers (projet de règlement délégué enregistré le **26 mars 2026**, appel à commentaires ouvert le 27 mars) doit être adopté **vers le 10 juin 2026**, avec un label électronique généré automatiquement par la base de données européenne à partir du **15 août 2027**.
 
 Le **Climate Neutral Data Centre Pact (CNDCP)** est un engagement volontaire visant la neutralité climatique des data centers européens d'ici 2030. L'opérateur belge LCL est signataire.
+
+## Réponse régionale : numérique responsable
+
+Face à l'empreinte environnementale croissante du numérique, la Région développe une politique de **numérique responsable** — sobriété, économie circulaire, inclusion — coordonnée par **Paradigm** (l'administration numérique régionale, ex-CIRB).
+
+**Le constat.** Selon la Région, les infrastructures numériques mondiales représentent environ **4 % des émissions de gaz à effet de serre**, une part qui pourrait augmenter de **60 % d'ici 2050** sans action.
+
+**Les mesures régionales.**
+
+- **Allongement de la durée de vie du matériel** : Paradigm a porté la durée d'usage de ses ordinateurs de **4 à 6 ans**, réduisant son empreinte annuelle d'environ **36 %**. Généralisé à l'ensemble des administrations bruxelloises, ce seul geste représenterait quelque **230 tonnes** d'émissions évitées par an.
+- **Reconditionnement et économie circulaire** : le projet **Recycle IT** recense les acteurs du reconditionnement informatique ; la Région s'appuie aussi sur l'**ISIT-be** (Institut Belge du Numérique Responsable).
+- **Cadres stratégiques** : une **Charte pour un Numérique Responsable**, un **Plan d'Appropriation du Numérique** (volet inclusion / lutte contre la fracture numérique) et l'intégration du numérique dans le **Plan régional Air-Climat-Énergie (PACE, 2023)**.
+- **Sensibilisation citoyenne** : un **Guide des éco-gestes numériques** (16 fiches) destiné au grand public.
+
+**L'angle mort.** Cette politique de sobriété porte d'abord sur le **matériel et les usages** des administrations et des citoyens. Elle ne traite pas de la **consommation électrique des data centers** implantés en Région (voir plus haut) : l'articulation entre l'ambition « capitale de l'IA », la croissance des data centers et l'objectif de numérique responsable reste absente des plans régionaux.
+
+Sources : [be.brussels — Numérique responsable](https://be.brussels/fr/propos-de-la-region/valeurs-budget-et-strategie/catalogue-des-services-numeriques-regionaux/ameliorer-la-vie-en-region-bruxelloise/numerique-responsable) ; [Guide des éco-gestes numériques (PDF)](https://admin.be.brussels/en/bhg/document/download/4361). Confiance : official (source institutionnelle régionale).
 
 ## Répartition des compétences
 

@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import { matter } from '../frontmatter';
 import type { MagazineDraft, Magazine } from './types';
 
 export function parseDigestMagazine(raw: string): MagazineDraft {

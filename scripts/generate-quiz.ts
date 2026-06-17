@@ -8,12 +8,12 @@
  *   npx tsx scripts/generate-quiz.ts          # toutes les locales
  *   npx tsx scripts/generate-quiz.ts --locale fr   # une seule locale
  *
- * Dépendances : tsx, gray-matter, @anthropic-ai/sdk, dotenv
+ * Dépendances : tsx, js-yaml (via src/lib/frontmatter), @anthropic-ai/sdk, dotenv
  */
 
 import fs from 'fs'
 import path from 'path'
-import matter from 'gray-matter'
+import { matter } from '../src/lib/frontmatter'
 import dotenv from 'dotenv'
 import Anthropic from '@anthropic-ai/sdk'
 

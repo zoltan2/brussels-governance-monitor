@@ -160,6 +160,15 @@ const domainCards = defineCollection({
       metrics: s.array(metricSchema).default([]).refine(refineUniqueMetricIds, {
         message: 'Metric `id` values must be unique within a single document',
       }),
+      faq: s
+        .array(
+          s.object({
+            q: s.string().max(150),
+            a: s.string().max(600),
+            sources: s.array(sourceSchema).default([]),
+          }),
+        )
+        .default([]),
       lastModified: s.isodate(),
       changeType: s.enum(['new', 'updated', 'status-change', 'data-refresh']).optional(),
       changeSummary: s.string().optional(),
@@ -554,6 +563,15 @@ const dossierCards = defineCollection({
         .default([]),
       confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']),
       dprCommitment: s.string().optional(),
+      faq: s
+        .array(
+          s.object({
+            q: s.string().max(150),
+            a: s.string().max(600),
+            sources: s.array(sourceSchema).default([]),
+          }),
+        )
+        .default([]),
       changeSummary: s.string().optional(),
       digestHeadline: s.string().max(120).optional(),
       lastModified: s.isodate(),

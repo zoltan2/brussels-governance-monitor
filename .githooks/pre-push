@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Versioned pre-push hook. Installé via `core.hooksPath=.githooks` (npm prepare).
+# Délègue au garde-fou partagé. Bypass : SKIP_PREFLIGHT=1 git push  /  git push --no-verify
+exec "$(git rev-parse --show-toplevel)/scripts/preflight.sh"

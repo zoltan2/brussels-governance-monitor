@@ -86,8 +86,8 @@ export const GOOGLE_FONTS_HREF =
 export function umamiSnippet(): string {
   const id = process.env.UMAMI_WEBSITE_ID;
   if (!id) return '';
-  return `<link rel="preconnect" href="https://cloud.umami.is" />
-<script defer src="https://cloud.umami.is/script.js" data-website-id="${escapeHtml(id)}"></script>`;
+  return `<link rel="preconnect" href="https://analytics.governance.brussels" />
+<script defer src="https://analytics.governance.brussels/script.js" data-website-id="${escapeHtml(id)}"></script>`;
 }
 
 export const MAGAZINE_CSS = `

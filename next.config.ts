@@ -17,9 +17,9 @@ const nextConfig: NextConfig = {
     // so the i18n middleware (src/proxy.ts) bypasses locale-prefixing for these paths.
     // Forgetting that step causes a 307 redirect loop that silently drops all proxied requests.
     return [
-      // /u/* → Umami analytics (bypasses ad blocker filter lists targeting cloud.umami.is)
-      { source: '/u/script.js', destination: 'https://cloud.umami.is/script.js' },
-      { source: '/u/api/:path*', destination: 'https://cloud.umami.is/api/:path*' },
+      // /u/* → Umami analytics (self-hosted; bypasses ad blocker filter lists)
+      { source: '/u/script.js', destination: 'https://analytics.governance.brussels/script.js' },
+      { source: '/u/api/:path*', destination: 'https://analytics.governance.brussels/api/:path*' },
     ];
   },
   async headers() {

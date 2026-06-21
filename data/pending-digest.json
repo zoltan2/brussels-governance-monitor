@@ -1,28 +1,28 @@
 {
-  "week": "2026-w24",
-  "weekStart": "2026-06-08",
-  "created_at": "2026-06-14T20:00:11.699Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w25",
+  "weekStart": "2026-06-15",
+  "created_at": "2026-06-21T20:00:48.263Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "7 domaines, 7 dossiers, 3 communes mis à jour",
-    "nl": "7 domeinen, 7 dossiers, 3 gemeenten bijgewerkt",
-    "en": "7 domains, 7 dossiers, 3 communes updated",
-    "de": "7 Bereiche, 7 Dossiers, 3 Gemeinden aktualisiert"
+    "fr": "10 domaines, 8 dossiers, 3 communes mis à jour",
+    "nl": "10 domeinen, 8 dossiers, 3 gemeenten bijgewerkt",
+    "en": "10 domains, 8 dossiers, 3 communes updated",
+    "de": "10 Bereiche, 8 Dossiers, 3 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "-47%",
+    "value": "Budget 2026 voté en plénière (53/32)",
     "label": {
-      "fr": "Objectif réduction CO2 2030",
-      "nl": "Doelstelling CO2-reductie 2030",
-      "en": "2030 CO2 reduction target",
-      "de": "CO2-Reduktionsziel 2030"
+      "fr": "Régime budgétaire",
+      "nl": "Budgettair regime",
+      "en": "Budget regime",
+      "de": "Haushaltsregime"
     },
     "source": {
-      "fr": "Bruxelles Environnement / PACE (adopté mai 2023)",
-      "nl": "Leefmilieu Brussel / LKEP (aangenomen mei 2023)",
-      "en": "Brussels Environment / PACE (adopted May 2023)",
-      "de": "Brüssel Umwelt / PACE (verabschiedet Mai 2023)"
+      "fr": "Parlement bruxellois — séance plénière (27 mars 2026)",
+      "nl": "Brussels Parlement — plenaire vergadering (27 maart 2026)",
+      "en": "Brussels Parliament — plenary session (27 March 2026)",
+      "de": "Brüsseler Parlament — Plenarsitzung (27. März 2026)"
     }
   },
   "closingNote": {
@@ -33,23 +33,26 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
-    "climate",
+    "budget",
     "economy",
+    "education",
     "employment",
     "housing",
+    "institutional",
     "mobility",
     "security",
     "social",
-    "dossier-lez",
-    "dossier-mobilite-partagee",
-    "dossier-pfas",
-    "dossier-rse",
+    "urban-planning",
+    "dossier-bien-etre",
+    "dossier-data-centers",
+    "dossier-plan-securite",
     "dossier-slrb",
-    "dossier-vivaqua",
+    "dossier-titres-services-economie-sociale",
+    "dossier-vice-gouverneur",
     "dossier-metro-3",
-    "commune-bruxelles-ville",
+    "dossier-petite-enfance",
+    "commune-anderlecht",
     "commune-molenbeek-saint-jean",
-    "commune-saint-josse-ten-noode"
-  ],
-  "sent_at": "2026-06-14T22:28:37.808Z"
+    "commune-uccle"
+  ]
 }

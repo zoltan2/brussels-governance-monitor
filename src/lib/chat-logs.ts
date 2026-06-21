@@ -20,6 +20,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { Redis } from '@upstash/redis';
+import type { DatabaseSync } from 'node:sqlite';
+import { getDb, isDbConfigured } from './db';
 
 export type LogStream = 'usage' | 'errors' | 'feedback' | 'email-gate';
 
@@ -72,7 +74,7 @@ function getRedis(): Redis | null {
 
 /** Lets the admin page surface a clear diagnostic when no store is wired. */
 export function isPersistentStoreConfigured(): boolean {
-  return resolveRedisCreds() !== null;
+  return isDbConfigured() || resolveRedisCreds() !== null;
 }
 
 /**
@@ -89,6 +91,12 @@ export function pushLog(
   // `npm run dev` both see the event. This is the fallback observability
   // path when the persistent store is unavailable or inspection is needed.
   console.log(`[chat-${stream}]`, payload);
+
+  const db = getDb();
+  if (db) {
+    pushLogSqlite(db, stream, entry);
+    return;
+  }
 
   const redis = getRedis();
   if (redis) {
@@ -120,6 +128,9 @@ export async function readLogs<T>(
   stream: LogStream,
   limit = MAX_ENTRIES_PER_STREAM,
 ): Promise<T[]> {
+  const db = getDb();
+  if (db) return readLogsSqlite<T>(db, stream, limit);
+
   const redis = getRedis();
   if (redis) {
     const key = STREAM_TO_KEY[stream];
@@ -161,4 +172,56 @@ export async function readLogs<T>(
     }
   }
   return out;
+}
+
+// ---------------------------------------------------------------------------
+// SQLite backend (self-hosted). One row per log entry; the Redis LPUSH + LTRIM
+// pair becomes an INSERT plus a periodic prune (run by a systemd timer rather
+// than on the hot path).
+// ---------------------------------------------------------------------------
+
+export function pushLogSqlite(
+  db: DatabaseSync,
+  stream: LogStream,
+  entry: Record<string, unknown>,
+): void {
+  db.prepare(
+    'INSERT INTO chat_logs (stream, payload, created_at) VALUES (?, ?, ?)',
+  ).run(stream, JSON.stringify(entry), Date.now());
+}
+
+/** Most-recent `limit` entries of a stream, returned chronological (oldest
+ * first) to stay drop-in compatible with the existing admin code. */
+export function readLogsSqlite<T>(
+  db: DatabaseSync,
+  stream: LogStream,
+  limit = MAX_ENTRIES_PER_STREAM,
+): T[] {
+  const rows = db
+    .prepare(
+      'SELECT payload FROM chat_logs WHERE stream = ? ORDER BY id DESC LIMIT ?',
+    )
+    .all(stream, limit) as Array<{ payload: string }>;
+  const out: T[] = [];
+  for (const row of rows) {
+    try {
+      out.push(JSON.parse(row.payload) as T);
+    } catch {
+      /* skip malformed */
+    }
+  }
+  return out.reverse();
+}
+
+/** Deletes all but the latest `keep` entries of a stream (the LTRIM cap). */
+export function pruneLogsSqlite(
+  db: DatabaseSync,
+  stream: LogStream,
+  keep = MAX_ENTRIES_PER_STREAM,
+): void {
+  db.prepare(
+    `DELETE FROM chat_logs WHERE stream = ? AND id NOT IN (
+       SELECT id FROM chat_logs WHERE stream = ? ORDER BY id DESC LIMIT ?
+     )`,
+  ).run(stream, stream, keep);
 }

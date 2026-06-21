@@ -16,6 +16,8 @@
  */
 import { Redis } from '@upstash/redis';
 import { randomUUID } from 'node:crypto';
+import type { DatabaseSync } from 'node:sqlite';
+import { getDb, isDbConfigured } from './db';
 
 export interface RefonteVote {
   axis1: string;
@@ -54,7 +56,7 @@ function getRedis(): Redis | null {
 }
 
 export function isVoteStoreConfigured(): boolean {
-  return resolveRedisCreds() !== null;
+  return isDbConfigured() || resolveRedisCreds() !== null;
 }
 
 /**
@@ -62,6 +64,9 @@ export function isVoteStoreConfigured(): boolean {
  * vers stdout (utile en dev/local sans Redis). Retourne l'UUID du vote.
  */
 export async function recordVote(vote: RefonteVote): Promise<string> {
+  const db = getDb();
+  if (db) return recordVoteSqlite(db, vote);
+
   const id = randomUUID();
   const created_at = Date.now();
   const redis = getRedis();
@@ -95,6 +100,8 @@ export async function recordVote(vote: RefonteVote): Promise<string> {
  * Retourne 0 si pas de redis ou pas encore de vote.
  */
 export async function getVoteCount(): Promise<number> {
+  const db = getDb();
+  if (db) return getVoteCountSqlite(db);
   const redis = getRedis();
   if (!redis) return 0;
   const total = await redis.get<number>('refonte-vote:counter:total');
@@ -126,6 +133,8 @@ export interface VoteStats {
  * Pour l'admin page et la synthèse finale.
  */
 export async function getVoteStats(recentLimit = 20): Promise<VoteStats> {
+  const db = getDb();
+  if (db) return getVoteStatsSqlite(db, recentLimit);
   const redis = getRedis();
   if (!redis) {
     return { total: 0, recent: [], breakdown: {}, storeConfigured: false };
@@ -190,4 +199,81 @@ export async function getVoteStats(recentLimit = 20): Promise<VoteStats> {
     breakdown,
     storeConfigured: true,
   };
+}
+
+// ---------------------------------------------------------------------------
+// SQLite backend (self-hosted). Synchronous `node:sqlite`. Selected over Redis
+// when a DB is configured (see db.ts / DB_PATH). The 7 Redis ops per vote
+// (HSET + ZADD + 6×INCR) collapse to a single INSERT; reads are plain SQL
+// aggregates over a bounded vote set.
+// ---------------------------------------------------------------------------
+
+const INSERT_VOTE_SQL = `INSERT INTO refonte_votes
+  (id, axis1, axis2, axis3, axis4, axis5, comment, email, email_optin, created_at)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+export function recordVoteSqlite(db: DatabaseSync, vote: RefonteVote): string {
+  const id = randomUUID();
+  db.prepare(INSERT_VOTE_SQL).run(
+    id,
+    vote.axis1,
+    vote.axis2,
+    vote.axis3,
+    vote.axis4,
+    vote.axis5,
+    vote.comment,
+    vote.email,
+    vote.email_optin ? 1 : 0,
+    Date.now(),
+  );
+  return id;
+}
+
+export function getVoteCountSqlite(db: DatabaseSync): number {
+  const row = db
+    .prepare('SELECT COUNT(*) AS n FROM refonte_votes')
+    .get() as { n: number };
+  return row.n;
+}
+
+export function getVoteStatsSqlite(
+  db: DatabaseSync,
+  recentLimit = 20,
+): VoteStats {
+  const total = getVoteCountSqlite(db);
+
+  // rowid tiebreaker so votes sharing a millisecond keep insertion order.
+  const recentRows = db
+    .prepare(
+      'SELECT * FROM refonte_votes ORDER BY created_at DESC, rowid DESC LIMIT ?',
+    )
+    .all(recentLimit) as Array<Record<string, unknown>>;
+
+  const recent: VoteRecord[] = recentRows.map((r) => ({
+    id: String(r.id),
+    created_at: Number(r.created_at),
+    axis1: String(r.axis1),
+    axis2: String(r.axis2),
+    axis3: String(r.axis3),
+    axis4: String(r.axis4),
+    axis5: String(r.axis5),
+    comment: String(r.comment),
+    email: String(r.email),
+    email_optin: r.email_optin === 1,
+  }));
+
+  // Breakdown: pre-seed every known option at 0, then overlay GROUP BY counts.
+  // `axis` is an internal allowlist key (axis1..axis5), never user input, so
+  // interpolating it as a column identifier is safe.
+  const breakdown: Record<string, Record<string, number>> = {};
+  for (const [axis, options] of Object.entries(AXIS_OPTIONS)) {
+    breakdown[axis] = {};
+    for (const opt of options) breakdown[axis][opt] = 0;
+    const rows = db
+      .prepare(`SELECT ${axis} AS v, COUNT(*) AS n FROM refonte_votes GROUP BY ${axis}`)
+      .all() as Array<{ v: string; n: number }>;
+    for (const row of rows) breakdown[axis][row.v] = row.n;
+  }
+
+  return { total, recent, breakdown, storeConfigured: true };
 }

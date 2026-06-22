@@ -199,7 +199,9 @@ export default async function LocaleLayout({
           <AccessibilityToolbar />
           <ChatWidget />
         </NextIntlClientProvider>
-        <Analytics />
+        {/* Vercel Web Analytics : actif sur Vercel uniquement. En self-host
+            (SELF_HOST=1, posé par le Dockerfile) on ne le rend pas. */}
+        {process.env.SELF_HOST !== '1' && <Analytics />}
       </body>
     </html>
   );

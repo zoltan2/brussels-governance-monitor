@@ -6,6 +6,15 @@ import type { MetadataRoute } from 'next';
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
 
+  // Self-hosted deployments (staging on Hetzner) must never be indexed: same
+  // content as the Vercel production domain would create duplicate-content
+  // competition. SELF_HOST is set at build and runtime for those images only.
+  if (process.env.SELF_HOST === '1') {
+    return {
+      rules: [{ userAgent: '*', disallow: '/' }],
+    };
+  }
+
   return {
     rules: [
       {

@@ -1,0 +1,15 @@
+# Build context Docker : on n'envoie que le source. Le builder régénère tout.
+node_modules
+.next
+.git
+.env*
+_audit
+.velite
+
+# Divers
+Dockerfile
+.dockerignore
+npm-debug.log*
+.DS_Store
+*.log
+coverage

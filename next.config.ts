@@ -4,7 +4,17 @@ import { getRedirectsConfig } from './src/lib/redirects-301';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
+// Self-host Docker (SELF_HOST=1, posé par le Dockerfile AU BUILD) : image
+// autonome `.next/standalone` + images non optimisées (pas de sharp dans le
+// runner). Sur Vercel, SELF_HOST est absent → ces clés restent undefined et le
+// comportement de prod (build Vercel, optimisation d'images) est INCHANGÉ.
+const selfHostConfig: NextConfig =
+  process.env.SELF_HOST === '1'
+    ? { output: 'standalone', images: { unoptimized: true } }
+    : {};
+
 const nextConfig: NextConfig = {
+  ...selfHostConfig,
   async redirects() {
     // 301 permanents pour la migration des slugs localisés (spec 2026-05-03 §3.4-3.5).
     // Table dans src/lib/redirects-301.ts. Initialement vide ; se remplit dossier par

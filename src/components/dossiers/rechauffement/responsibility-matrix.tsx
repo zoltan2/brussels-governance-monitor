@@ -2,15 +2,23 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { ReactElement } from 'react';
-import { COMPETENCES, POWER_LEVELS } from './data/competences';
+import {
+  COMPETENCES,
+  POWER_LEVEL_KEYS,
+  POWER_LEVEL_LABELS,
+  MATRIX_CAPTION,
+  THEME_COL_LABEL,
+  EMPTY_CELL_LABEL,
+  type Locale,
+} from './data/competences';
 
 const CAPTION_ID = 'rechauffement-responsibility-matrix-caption';
 
 /** Cellule vide : affichage neutre avec indication d'accessibilite */
-function EmptyCell(): ReactElement {
+function EmptyCell({ ariaLabel }: { ariaLabel: string }): ReactElement {
   return (
     <span
-      aria-label="Non competent"
+      aria-label={ariaLabel}
       className="text-neutral-300"
     >
       -
@@ -18,7 +26,16 @@ function EmptyCell(): ReactElement {
   );
 }
 
-export function RechauffementResponsibilityMatrix(): ReactElement {
+export function RechauffementResponsibilityMatrix({
+  locale = 'fr',
+}: {
+  locale?: Locale;
+}): ReactElement {
+  const levels = POWER_LEVEL_LABELS[locale] ?? POWER_LEVEL_LABELS.fr;
+  const caption = MATRIX_CAPTION[locale] ?? MATRIX_CAPTION.fr;
+  const themeColLabel = THEME_COL_LABEL[locale] ?? THEME_COL_LABEL.fr;
+  const emptyCellLabel = EMPTY_CELL_LABEL[locale] ?? EMPTY_CELL_LABEL.fr;
+
   return (
     <figure
       aria-labelledby={CAPTION_ID}
@@ -28,22 +45,26 @@ export function RechauffementResponsibilityMatrix(): ReactElement {
         id={CAPTION_ID}
         className="border-b border-neutral-200 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-500"
       >
-        Matrice de responsabilite : 5 niveaux de pouvoir par theme climatique a Bruxelles
+        {caption}
       </figcaption>
 
       {/* Mobile : cartes empilees par theme */}
       <ul className="divide-y divide-neutral-200 sm:hidden">
         {COMPETENCES.map((theme) => (
           <li key={theme.id} className="px-4 py-3">
-            <div className="mb-2 text-sm font-semibold text-neutral-900">{theme.label}</div>
+            <div className="mb-2 text-sm font-semibold text-neutral-900">
+              {theme.label[locale] ?? theme.label.fr}
+            </div>
             <dl className="space-y-1">
-              {POWER_LEVELS.map((level) => {
-                const cell = theme.cells[level];
+              {POWER_LEVEL_KEYS.map((key) => {
+                const cell = theme.cells[key][locale] ?? theme.cells[key].fr;
                 return (
-                  <div key={level} className="flex gap-2 text-xs">
-                    <dt className="w-28 shrink-0 font-medium text-neutral-500">{level}</dt>
+                  <div key={key} className="flex gap-2 text-xs">
+                    <dt className="w-28 shrink-0 font-medium text-neutral-500">{levels[key]}</dt>
                     <dd className="text-neutral-700">
-                      {cell ? cell : <span className="text-neutral-300" aria-label="Non competent">-</span>}
+                      {cell ? cell : (
+                        <span className="text-neutral-300" aria-label={emptyCellLabel}>-</span>
+                      )}
                     </dd>
                   </div>
                 );
@@ -59,11 +80,11 @@ export function RechauffementResponsibilityMatrix(): ReactElement {
           <thead className="bg-neutral-50 text-left text-xs font-semibold uppercase tracking-wide text-neutral-500">
             <tr>
               <th scope="col" className="px-4 py-2.5">
-                Theme
+                {themeColLabel}
               </th>
-              {POWER_LEVELS.map((level) => (
-                <th key={level} scope="col" className="px-4 py-2.5">
-                  {level}
+              {POWER_LEVEL_KEYS.map((key) => (
+                <th key={key} scope="col" className="px-4 py-2.5">
+                  {levels[key]}
                 </th>
               ))}
             </tr>
@@ -78,13 +99,13 @@ export function RechauffementResponsibilityMatrix(): ReactElement {
                   scope="row"
                   className="px-4 py-2.5 text-left text-xs font-semibold text-neutral-700 whitespace-nowrap"
                 >
-                  {theme.label}
+                  {theme.label[locale] ?? theme.label.fr}
                 </th>
-                {POWER_LEVELS.map((level) => {
-                  const cell = theme.cells[level];
+                {POWER_LEVEL_KEYS.map((key) => {
+                  const cell = theme.cells[key][locale] ?? theme.cells[key].fr;
                   return (
-                    <td key={level} className="px-4 py-2.5 text-xs text-neutral-600">
-                      {cell ? cell : <EmptyCell />}
+                    <td key={key} className="px-4 py-2.5 text-xs text-neutral-600">
+                      {cell ? cell : <EmptyCell ariaLabel={emptyCellLabel} />}
                     </td>
                   );
                 })}

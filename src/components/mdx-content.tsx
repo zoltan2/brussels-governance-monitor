@@ -9,6 +9,7 @@ import { CpasThreeAuthorities } from '@/components/dossiers/cpas-three-authoriti
 import { CpasMoneyFlow } from '@/components/dossiers/cpas-money-flow';
 import { CpasProceduresTracker } from '@/components/dossiers/cpas-procedures-tracker';
 import { RechauffementChantiersTable } from '@/components/dossiers/rechauffement/chantiers-table';
+import { RechauffementHeatCounters } from '@/components/dossiers/rechauffement/heat-counters';
 import { Claim } from '@/components/mdx/claim';
 import { MetricsProvider } from '@/components/proof-drawer/metrics-context';
 import type { Metric } from '@/components/proof-drawer/types';
@@ -25,6 +26,7 @@ const sharedComponents = {
   CpasMoneyFlow,
   CpasProceduresTracker,
   RechauffementChantiersTable,
+  RechauffementHeatCounters,
   Claim,
   Signal,
   Essentiel,

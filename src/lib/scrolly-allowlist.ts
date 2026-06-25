@@ -16,7 +16,7 @@
  *
  * Spec: bgm-ops/specs/2026-05-02-option-d-scrolly-cpas-pilot.md §3.4
  */
-export const SCROLLY_ENABLED_DOSSIERS: ReadonlySet<string> = new Set(['cpas-bruxellois']);
+export const SCROLLY_ENABLED_DOSSIERS: ReadonlySet<string> = new Set(['cpas-bruxellois', 'rechauffement-bruxelles']);
 
 export function isScrollyEnabled(slug: string | null | undefined): boolean {
   if (typeof slug !== 'string') return false;

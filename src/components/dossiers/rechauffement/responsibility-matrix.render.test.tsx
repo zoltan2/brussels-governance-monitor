@@ -38,8 +38,8 @@ describe('RechauffementResponsibilityMatrix', () => {
     const { container } = render(<RechauffementResponsibilityMatrix />);
     const text = container.textContent ?? '';
     expect(text).toMatch(/canicule/i);
-    expect(text).toMatch(/Ecoles/i);
-    expect(text).toMatch(/canopee/i);
+    expect(text).toMatch(/[ÉE]coles/i);
+    expect(text).toMatch(/canop[eé]e/i);
     expect(text).toMatch(/Voitures/i);
     expect(text).toMatch(/isolation/i);
     expect(text).toMatch(/Eau/i);
@@ -53,8 +53,8 @@ describe('RechauffementResponsibilityMatrix', () => {
     // Regional/Voitures: LEZ, Good Move
     expect(text).toMatch(/LEZ/);
     expect(text).toMatch(/Good Move/);
-    // Federal/Travail: Code du bien-etre au travail
-    expect(text).toMatch(/bien-etre au travail/i);
+    // Federal/Travail: Code du bien-être au travail
+    expect(text).toMatch(/bien-[eê]tre au travail/i);
     // Communautaire/Ecoles: FWB et VGC
     expect(text).toMatch(/FWB/);
     expect(text).toMatch(/VGC/);

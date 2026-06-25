@@ -19,29 +19,29 @@ export type CompetenceTheme = {
 export const COMPETENCES: CompetenceTheme[] = [
   {
     id: 'canicule',
-    label: 'Plan canicule (sante)',
+    label: 'Plan canicule (santé)',
     cells: {
       UE: null,
-      Federal: 'Alerte ozone-chaleur (SPF Sante, RMG)',
+      Federal: 'Alerte ozone-chaleur (SPF Santé, RMG)',
       Communautaire: 'Plan forte chaleur, maisons de repos (Cocom/Vivalis)',
       Regional: 'Coordination adaptation (Bruxelles Environnement)',
-      Communal: 'Terrain : ecoles, CPAS, eau',
+      Communal: 'Terrain : écoles, CPAS, eau',
     },
   },
   {
     id: 'ecoles',
-    label: 'Ecoles',
+    label: 'Écoles',
     cells: {
       UE: null,
       Federal: null,
-      Communautaire: 'Batiments et calendrier scolaires (FWB et VGC)',
+      Communautaire: 'Bâtiments et calendrier scolaires (FWB et VGC)',
       Regional: null,
       Communal: 'Pouvoirs organisateurs, fermetures',
     },
   },
   {
     id: 'canopee',
-    label: 'Arbres et canopee',
+    label: 'Arbres et canopée',
     cells: {
       UE: null,
       Federal: null,
@@ -54,8 +54,8 @@ export const COMPETENCES: CompetenceTheme[] = [
     id: 'voitures',
     label: 'Voitures et LEZ',
     cells: {
-      UE: 'Normes d\'emissions (Fit for 55)',
-      Federal: 'Fiscalite automobile, immatriculation',
+      UE: 'Normes d\'émissions (Fit for 55)',
+      Federal: 'Fiscalité automobile, immatriculation',
       Communautaire: null,
       Regional: 'LEZ, Good Move',
       Communal: 'Stationnement, voiries locales',
@@ -63,10 +63,10 @@ export const COMPETENCES: CompetenceTheme[] = [
   },
   {
     id: 'batiments',
-    label: 'Batiments et isolation',
+    label: 'Bâtiments et isolation',
     cells: {
-      UE: 'Directive performance energetique',
-      Federal: 'Energie, normes produits',
+      UE: 'Directive performance énergétique',
+      Federal: 'Énergie, normes produits',
       Communautaire: null,
       Regional: 'PEB, Renolution, urbanisme',
       Communal: 'Permis, logement communal',
@@ -80,7 +80,7 @@ export const COMPETENCES: CompetenceTheme[] = [
       Federal: null,
       Communautaire: null,
       Regional: 'Plan Eau, Vivaqua et Hydria (Bruxelles Environnement)',
-      Communal: 'Egouttage local',
+      Communal: 'Égouttage local',
     },
   },
   {
@@ -88,7 +88,7 @@ export const COMPETENCES: CompetenceTheme[] = [
     label: 'Sans-abris',
     cells: {
       UE: null,
-      Federal: 'Securite sociale ; Fedasil (asile)',
+      Federal: 'Sécurité sociale ; Fedasil (asile)',
       Communautaire: "Aide aux personnes, Samusocial, Bruss'help (Cocom)",
       Regional: 'Financement',
       Communal: 'CPAS',
@@ -98,10 +98,10 @@ export const COMPETENCES: CompetenceTheme[] = [
     id: 'travail',
     label: 'Travail (chaleur)',
     cells: {
-      UE: 'Directive sante-securite au travail',
-      Federal: 'Code du bien-etre au travail (seuils)',
+      UE: 'Directive santé-sécurité au travail',
+      Federal: 'Code du bien-être au travail (seuils)',
       Communautaire: null,
-      Regional: 'Actiris, economie',
+      Regional: 'Actiris, économie',
       Communal: null,
     },
   },

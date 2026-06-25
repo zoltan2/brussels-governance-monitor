@@ -43,43 +43,43 @@ export type HeatMapData = {
 export const HEAT_COUNTERS: HeatCounter[] = [
   {
     id: 'ecart-temperature',
-    valeur: 'jusqu\'a +10 °C',
-    label: 'ilot de chaleur, la nuit en conditions extremes',
-    detail: '+3 °C le jour et +4,5 °C a 23h en moyenne (etude VITO 2018)',
+    valeur: 'jusqu\'à +10 °C',
+    label: 'îlot de chaleur, la nuit en conditions extrêmes',
+    detail: '+3 °C le jour et +4,5 °C à 23h en moyenne (étude VITO 2018)',
     confiance: 'official',
   },
   {
     id: 'jours-canicule',
     valeur: '~20 jours',
-    label: 'par an au-dela de 30 °C en 2070-2100',
-    detail: 'scenario RCP8.5, contre ~4,5/an aujourd\'hui (IRM / CORDEX.be)',
+    label: 'par an au-delà de 30 °C en 2070-2100',
+    detail: 'scénario RCP8.5, contre ~4,5/an aujourd\'hui (IRM / CORDEX.be)',
     confiance: 'official',
   },
   {
     id: 'arbres-abattage',
     valeur: 'plus de 62 000',
-    label: 'arbres a haute tige autorises a l\'abattage',
-    detail: 'permis 2010-2022 hors foret de Soignes, pour 3 254 replantes ; selon Help4Trees et IEB ; les permis ne mesurent pas les abattages reels',
+    label: 'arbres à haute tige autorisés à l\'abattage',
+    detail: 'permis 2010-2022 hors forêt de Soignes, pour 3 254 replantés ; selon Help4Trees et IEB ; les permis ne mesurent pas les abattages réels',
     confiance: 'unconfirmed',
   },
   {
     id: 'piscine-exterieure',
     valeur: '0',
-    label: 'piscine exterieure a Bruxelles',
+    label: 'piscine extérieure à Bruxelles',
     detail: 'depuis la fermeture de Flow en mai 2025',
     confiance: 'official',
   },
   {
     id: 'surmortalite-2022',
     valeur: '+2 291',
-    label: 'deces lors de l\'ete 2022 (surmortalite)',
-    detail: 'pire ete en vingt ans en Belgique (Sciensano) ; Bruxelles region la plus touchee a l\'ete 2025',
+    label: 'décès lors de l\'été 2022 (surmortalité)',
+    detail: 'pire été en vingt ans en Belgique (Sciensano) ; Bruxelles région la plus touchée à l\'été 2025',
     confiance: 'official',
   },
 ];
 
 export const HEAT_MAP: HeatMapData = {
-  titre: 'Quartiers les plus exposes a la chaleur (justice climatique)',
+  titre: 'Quartiers les plus exposés à la chaleur (justice climatique)',
   captionId: 'rechauffement-heat-map-caption',
   quartiers: [
     {
@@ -105,6 +105,6 @@ export const HEAT_MAP: HeatMapData = {
     },
   ],
   legende:
-    'densite Statbel (01/2026), revenus Statbel (2023) ; les quartiers les plus mineralises et les plus pauvres concentrent l\'ilot de chaleur',
+    'densité Statbel (01/2026), revenus Statbel (2023) ; les quartiers les plus minéralisés et les plus pauvres concentrent l\'îlot de chaleur',
   confiance: 'official',
 };

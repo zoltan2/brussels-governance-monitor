@@ -56,7 +56,7 @@ describe('RechauffementChantiersTable', () => {
       expect(surrounding).toMatch(/M€/);
     }
     // "1 000" ou "1000" doit apparaitre avec "~" ou "selon"
-    const idx1000 = text.search(/1[\s ]?000/);
+    const idx1000 = text.search(/1[\s ]?000/);
     if (idx1000 !== -1) {
       const surrounding = text.slice(Math.max(0, idx1000 - 10), idx1000 + 20);
       expect(surrounding).toMatch(/~|selon/i);
@@ -74,11 +74,23 @@ describe('RechauffementChantiersTable', () => {
 
   it('contient la note de bas de tableau sur les arbres abattus', () => {
     const { container } = render(<RechauffementChantiersTable />);
-    expect(container.textContent).toMatch(/62[\s ]?000|Help4Trees|IEB/i);
+    expect(container.textContent).toMatch(/62[\s ]?000|Help4Trees|IEB/i);
   });
 
   it('a pas de violations axe', async () => {
     const { container } = render(<RechauffementChantiersTable />);
     expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('avec locale="nl" affiche des libelles NL connus', () => {
+    const { container } = render(<RechauffementChantiersTable locale="nl" />);
+    const text = container.textContent ?? '';
+    // Noms propres NL
+    expect(text).toMatch(/Schaarbeek/i);
+    // Libelle de confiance NL
+    expect(text).toMatch(/geschat/i);
+    // Note de bas NL
+    expect(text).toMatch(/Help4Trees|IEB/i);
+    expect(text).toMatch(/62[\s ]?000/);
   });
 });

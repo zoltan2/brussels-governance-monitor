@@ -107,4 +107,23 @@ describe('RechauffementHeatCounters', () => {
     const { container } = render(<RechauffementHeatCounters />);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it('locale="nl" affiche les traductions neerlandaises', () => {
+    const { container } = render(<RechauffementHeatCounters locale="nl" />);
+    const text = container.textContent ?? '';
+    // Compteur 1 : hitte-eiland
+    expect(text).toMatch(/hitte-eiland/i);
+    // Compteur 3 : velvergunningen
+    expect(text).toMatch(/velvergunningen/i);
+    // Compteur 4 : openluchtzwembad
+    expect(text).toMatch(/openluchtzwembad/i);
+    // Communes : NL noms
+    expect(text).toMatch(/Sint-Joost-ten-Node/i);
+    expect(text).toMatch(/Sint-Jans-Molenbeek/i);
+    expect(text).toMatch(/Schaarbeek/i);
+    // Legende : Statbel toujours present
+    expect(text).toMatch(/Statbel/i);
+    // Confiance : NL
+    expect(text).toMatch(/officieel/i);
+  });
 });

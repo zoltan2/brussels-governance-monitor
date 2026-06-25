@@ -9,7 +9,7 @@ export type HeatCounter = {
   /** Identifiant court pour les tests */
   id: string;
   /** Valeur toujours qualifiee, jamais un chiffre nu */
-  valeur: string;
+  valeur: Record<Locale, string>;
   /** Labels courts affiches sous la valeur, par locale */
   label: Record<Locale, string>;
   /** Detail et source, par locale */
@@ -69,7 +69,7 @@ export const CONFIANCE_LABELS: Record<Locale, Record<HeatConfiance, string>> = {
 export const HEAT_COUNTERS: HeatCounter[] = [
   {
     id: 'ecart-temperature',
-    valeur: "jusqu'à +10 °C",
+    valeur: { fr: "jusqu'à +10 °C", nl: 'tot +10 °C', en: 'up to +10 °C', de: 'bis zu +10 °C' },
     label: {
       fr: 'îlot de chaleur, la nuit en conditions extrêmes',
       nl: "stedelijk hitte-eiland, 's nachts in extreme omstandigheden",
@@ -86,7 +86,7 @@ export const HEAT_COUNTERS: HeatCounter[] = [
   },
   {
     id: 'jours-canicule',
-    valeur: '~20 jours',
+    valeur: { fr: '~20 jours', nl: '~20 dagen', en: '~20 days', de: '~20 Tage' },
     label: {
       fr: 'par an au-delà de 30 °C en 2070-2100',
       nl: 'per jaar boven 30 °C in 2070-2100',
@@ -103,7 +103,7 @@ export const HEAT_COUNTERS: HeatCounter[] = [
   },
   {
     id: 'arbres-abattage',
-    valeur: 'plus de 62 000',
+    valeur: { fr: 'plus de 62 000', nl: 'meer dan 62 000', en: 'more than 62,000', de: 'über 62 000' },
     label: {
       fr: "arbres à haute tige autorisés à l'abattage",
       nl: 'hoogstammige bomen met toegestane velvergunningen',
@@ -120,7 +120,7 @@ export const HEAT_COUNTERS: HeatCounter[] = [
   },
   {
     id: 'piscine-exterieure',
-    valeur: '0',
+    valeur: { fr: '0', nl: '0', en: '0', de: '0' },
     label: {
       fr: 'piscine extérieure en service à Bruxelles',
       nl: 'openluchtzwembad in gebruik in Brussel',
@@ -137,7 +137,7 @@ export const HEAT_COUNTERS: HeatCounter[] = [
   },
   {
     id: 'surmortalite-2022',
-    valeur: '+2 291',
+    valeur: { fr: '+2 291', nl: '+2 291', en: '+2 291', de: '+2 291' },
     label: {
       fr: "décès lors de l'été 2022 (surmortalité)",
       nl: "overlijdens tijdens de zomer van 2022 (oversterfte)",

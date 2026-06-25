@@ -86,14 +86,15 @@ export function RechauffementHeatCounters({ locale = 'fr' }: { locale?: Locale }
           {HEAT_COUNTERS.map((counter) => {
             const label = counter.label[locale] ?? counter.label.fr;
             const detail = counter.detail[locale] ?? counter.detail.fr;
+            const valeur = counter.valeur[locale] ?? counter.valeur.fr;
             return (
               <li key={counter.id} className="px-4 py-4">
                 <div className="flex items-start justify-between gap-2">
                   <span
                     className="text-xl font-bold leading-tight text-blue-900"
-                    aria-label={`${counter.valeur} : ${label}`}
+                    aria-label={`${valeur} : ${label}`}
                   >
-                    {counter.valeur}
+                    {valeur}
                   </span>
                   <span
                     className={`shrink-0 whitespace-nowrap rounded-full border px-2 py-0.5 text-[10px] font-medium ${CONFIANCE_TONE[counter.confiance]}`}

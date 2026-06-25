@@ -8,6 +8,7 @@ import { useMemo } from 'react';
 import { CpasThreeAuthorities } from '@/components/dossiers/cpas-three-authorities';
 import { CpasMoneyFlow } from '@/components/dossiers/cpas-money-flow';
 import { CpasProceduresTracker } from '@/components/dossiers/cpas-procedures-tracker';
+import { RechauffementChantiersTable } from '@/components/dossiers/rechauffement/chantiers-table';
 import { Claim } from '@/components/mdx/claim';
 import { MetricsProvider } from '@/components/proof-drawer/metrics-context';
 import type { Metric } from '@/components/proof-drawer/types';
@@ -23,6 +24,7 @@ const sharedComponents = {
   CpasThreeAuthorities,
   CpasMoneyFlow,
   CpasProceduresTracker,
+  RechauffementChantiersTable,
   Claim,
   Signal,
   Essentiel,

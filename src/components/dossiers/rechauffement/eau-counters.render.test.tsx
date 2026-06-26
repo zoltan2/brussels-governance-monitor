@@ -75,6 +75,8 @@ describe('RechauffementEauCounters', () => {
 
   it('locale="nl" affiche les traductions neerlandaises', () => {
     const { container } = render(<RechauffementEauCounters locale="nl" />);
-    expect(container.textContent ?? '').toMatch(/bronnen|Vivaqua/i);
+    const text = container.textContent ?? '';
+    expect(text).toMatch(/grondwaterwinningen/i);
+    expect(text).toMatch(/overstromingsrisicozone/i);
   });
 });

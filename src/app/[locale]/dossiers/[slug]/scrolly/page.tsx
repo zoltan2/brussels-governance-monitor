@@ -100,7 +100,7 @@ export default async function ScrollyPage({
   const { card } = result;
 
   return (
-    <article className="min-h-screen bg-white">
+    <article className="min-h-screen bg-neutral-50">
       <ScrollyHeader slug={slug} locale={locale} lastModified={card.lastModified} />
       <DensityProvider>
         <div className="mx-auto max-w-3xl px-4 pb-24">

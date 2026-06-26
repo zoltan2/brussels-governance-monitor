@@ -47,8 +47,8 @@ const CONFIANCE_ARIA_PREFIX: Record<Locale, string> = {
 
 const CONFIANCE_TONE: Record<HeatConfiance, string> = {
   official: 'border-neutral-300 bg-neutral-50 text-neutral-700',
-  estimated: 'border-amber-300 bg-amber-50 text-amber-800',
-  unconfirmed: 'border-slate-300 bg-slate-100 text-slate-600',
+  estimated: 'border-status-delayed/50 bg-neutral-50 text-status-delayed',
+  unconfirmed: 'border-neutral-300 bg-neutral-100 text-neutral-600',
 };
 
 /** Largeur relative de la barre de densite (max = 23 266, arrondie a 24 000) */
@@ -78,7 +78,7 @@ export function CountersRow({
   return (
     <figure
       aria-labelledby={captionId}
-      className="overflow-hidden rounded-lg border border-neutral-200 bg-white"
+      className="overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50"
     >
       <figcaption
         id={captionId}
@@ -96,7 +96,7 @@ export function CountersRow({
             <li key={counter.id} className="px-4 py-4">
               <div className="flex items-start justify-between gap-2">
                 <span
-                  className="text-xl font-bold leading-tight text-blue-900"
+                  className="text-xl font-bold leading-tight text-brand-900"
                   aria-label={`${valeur} : ${label}`}
                 >
                   {valeur}
@@ -138,11 +138,11 @@ export function RechauffementHeatCounters({ locale = 'fr' }: { locale?: Locale }
       {/* Section 2 : encadre quartiers les plus chauds */}
       <figure
         aria-labelledby={HEAT_MAP.captionId}
-        className="overflow-hidden rounded-lg border border-amber-200 bg-amber-50"
+        className="overflow-hidden rounded-lg border border-status-delayed/30 bg-neutral-50"
       >
         <figcaption
           id={HEAT_MAP.captionId}
-          className="border-b border-amber-200 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-amber-800"
+          className="border-b border-status-delayed/30 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-status-delayed"
         >
           {heatMapTitre}
         </figcaption>
@@ -160,7 +160,7 @@ export function RechauffementHeatCounters({ locale = 'fr' }: { locale?: Locale }
                     <span className="shrink-0 text-xs text-neutral-600">{q.densite}</span>
                   </div>
                   {q.note && (
-                    <p className="mt-0.5 text-[11px] text-amber-700">
+                    <p className="mt-0.5 text-[11px] text-neutral-500">
                       {q.note[locale] ?? q.note.fr}
                     </p>
                   )}
@@ -168,10 +168,10 @@ export function RechauffementHeatCounters({ locale = 'fr' }: { locale?: Locale }
                   <div
                     role="img"
                     aria-label={`${densiteAriaPfx} ${communeName} : ${q.densite}`}
-                    className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-amber-100"
+                    className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-neutral-200"
                   >
                     <div
-                      className="h-2 rounded-full bg-amber-500"
+                      className="h-2 rounded-full bg-status-delayed"
                       style={{ width: `${barWidth}%` }}
                     />
                   </div>

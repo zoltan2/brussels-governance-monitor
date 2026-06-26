@@ -135,8 +135,8 @@ const LABELS: Record<Locale, Labels> = {
 
 const CONFIANCE_TONE: Record<ChantierConfiance, string> = {
   official: 'border-neutral-300 bg-neutral-50 text-neutral-700',
-  estimated: 'border-amber-300 bg-amber-50 text-amber-800',
-  unconfirmed: 'border-slate-300 bg-slate-100 text-slate-600',
+  estimated: 'border-status-delayed/50 bg-neutral-50 text-status-delayed',
+  unconfirmed: 'border-neutral-300 bg-neutral-100 text-neutral-600',
 };
 
 const CONFIANCE_ARIA_PREFIX: Record<Locale, string> = {
@@ -148,7 +148,7 @@ const CONFIANCE_ARIA_PREFIX: Record<Locale, string> = {
 
 const TYPE_ROW_TONE: Record<ChantierType, string> = {
   'polemique': '',
-  'contre-exemple': 'bg-blue-50/40',
+  'contre-exemple': 'bg-brand-900/5',
 };
 
 export function RechauffementChantiersTable({ locale = 'fr' }: { locale?: Locale }): ReactElement {
@@ -158,7 +158,7 @@ export function RechauffementChantiersTable({ locale = 'fr' }: { locale?: Locale
   return (
     <figure
       aria-labelledby={CAPTION_ID}
-      className="my-8 overflow-hidden rounded-lg border border-neutral-200 bg-white"
+      className="my-8 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50"
     >
       <figcaption
         id={CAPTION_ID}

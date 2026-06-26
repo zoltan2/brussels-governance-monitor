@@ -39,7 +39,7 @@ export function RechauffementResponsibilityMatrix({
   return (
     <figure
       aria-labelledby={CAPTION_ID}
-      className="my-8 overflow-hidden rounded-lg border border-neutral-200 bg-white"
+      className="my-8 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50"
     >
       <figcaption
         id={CAPTION_ID}

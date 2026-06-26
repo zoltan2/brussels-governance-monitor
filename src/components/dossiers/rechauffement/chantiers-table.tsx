@@ -139,6 +139,13 @@ const CONFIANCE_TONE: Record<ChantierConfiance, string> = {
   unconfirmed: 'border-slate-300 bg-slate-100 text-slate-600',
 };
 
+const CONFIANCE_ARIA_PREFIX: Record<Locale, string> = {
+  fr: 'Niveau de confiance :',
+  nl: 'Betrouwbaarheidsniveau:',
+  en: 'Confidence level:',
+  de: 'Vertrauensniveau:',
+};
+
 const TYPE_ROW_TONE: Record<ChantierType, string> = {
   'polemique': '',
   'contre-exemple': 'bg-blue-50/40',
@@ -174,6 +181,7 @@ export function RechauffementChantiersTable({ locale = 'fr' }: { locale?: Locale
               </div>
               <span
                 className={`shrink-0 whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] font-medium ${CONFIANCE_TONE[row.confiance]}`}
+                aria-label={`${CONFIANCE_ARIA_PREFIX[locale] ?? CONFIANCE_ARIA_PREFIX.fr} ${labels.confiance[row.confiance]}`}
               >
                 {labels.confiance[row.confiance]}
               </span>
@@ -224,6 +232,7 @@ export function RechauffementChantiersTable({ locale = 'fr' }: { locale?: Locale
                 <td className="px-4 py-2.5">
                   <span
                     className={`inline-block whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] font-medium ${CONFIANCE_TONE[row.confiance]}`}
+                    aria-label={`${CONFIANCE_ARIA_PREFIX[locale] ?? CONFIANCE_ARIA_PREFIX.fr} ${labels.confiance[row.confiance]}`}
                   >
                     {labels.confiance[row.confiance]}
                   </span>

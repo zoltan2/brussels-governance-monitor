@@ -93,4 +93,16 @@ describe('RechauffementChantiersTable', () => {
     expect(text).toMatch(/Help4Trees|IEB/i);
     expect(text).toMatch(/62[\s ]?000/);
   });
+
+  it('les badges de confiance portent un aria-label contextuel en FR (locale par defaut)', () => {
+    const { container } = render(<RechauffementChantiersTable />);
+    const badge = container.querySelector('[aria-label*="Niveau de confiance"]');
+    expect(badge).toBeTruthy();
+  });
+
+  it('les badges de confiance portent un aria-label contextuel en EN (locale="en")', () => {
+    const { container } = render(<RechauffementChantiersTable locale="en" />);
+    const badge = container.querySelector('[aria-label*="Confidence level"]');
+    expect(badge).toBeTruthy();
+  });
 });

@@ -6,6 +6,7 @@ import {
   HEAT_COUNTERS,
   HEAT_MAP,
   CONFIANCE_LABELS,
+  type HeatCounter,
   type HeatConfiance,
   type Locale,
 } from './data/heat';
@@ -59,57 +60,80 @@ function parseHabitants(densite: string): number {
   return clean ? parseInt(clean[0], 10) : 0;
 }
 
+export function CountersRow({
+  counters,
+  caption,
+  captionId,
+  locale,
+}: {
+  counters: HeatCounter[];
+  caption: Record<Locale, string>;
+  captionId: string;
+  locale: Locale;
+}): ReactElement {
+  const confianceLabel = CONFIANCE_LABELS[locale] ?? CONFIANCE_LABELS.fr;
+  const countersCaption = caption[locale] ?? caption.fr;
+  const confianceAriaPfx = CONFIANCE_ARIA_PREFIX[locale] ?? CONFIANCE_ARIA_PREFIX.fr;
+
+  return (
+    <figure
+      aria-labelledby={captionId}
+      className="overflow-hidden rounded-lg border border-neutral-200 bg-white"
+    >
+      <figcaption
+        id={captionId}
+        className="border-b border-neutral-200 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-500"
+      >
+        {countersCaption}
+      </figcaption>
+
+      <ul className="grid grid-cols-1 divide-y divide-neutral-100 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-5 lg:divide-y-0">
+        {counters.map((counter) => {
+          const label = counter.label[locale] ?? counter.label.fr;
+          const detail = counter.detail[locale] ?? counter.detail.fr;
+          const valeur = counter.valeur[locale] ?? counter.valeur.fr;
+          return (
+            <li key={counter.id} className="px-4 py-4">
+              <div className="flex items-start justify-between gap-2">
+                <span
+                  className="text-xl font-bold leading-tight text-blue-900"
+                  aria-label={`${valeur} : ${label}`}
+                >
+                  {valeur}
+                </span>
+                <span
+                  className={`shrink-0 whitespace-nowrap rounded-full border px-2 py-0.5 text-[10px] font-medium ${CONFIANCE_TONE[counter.confiance]}`}
+                  aria-label={`${confianceAriaPfx} ${confianceLabel[counter.confiance]}`}
+                >
+                  {confianceLabel[counter.confiance]}
+                </span>
+              </div>
+              <p className="mt-1 text-sm font-medium text-neutral-800">{label}</p>
+              <p className="mt-1 text-[11px] leading-relaxed text-neutral-500">{detail}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </figure>
+  );
+}
+
 export function RechauffementHeatCounters({ locale = 'fr' }: { locale?: Locale }): ReactElement {
   const confianceLabel = CONFIANCE_LABELS[locale] ?? CONFIANCE_LABELS.fr;
-  const countersCaption = COUNTERS_CAPTION[locale] ?? COUNTERS_CAPTION.fr;
   const communesAria = COMMUNES_ARIA[locale] ?? COMMUNES_ARIA.fr;
   const densiteAriaPfx = DENSITE_ARIA_PREFIX[locale] ?? DENSITE_ARIA_PREFIX.fr;
-  const confianceAriaPfx = CONFIANCE_ARIA_PREFIX[locale] ?? CONFIANCE_ARIA_PREFIX.fr;
   const heatMapTitre = HEAT_MAP.titre[locale] ?? HEAT_MAP.titre.fr;
   const heatMapLegende = HEAT_MAP.legende[locale] ?? HEAT_MAP.legende.fr;
 
   return (
     <div className="my-8 space-y-6">
       {/* Section 1 : rangee de compteurs */}
-      <figure
-        aria-labelledby={COUNTERS_CAPTION_ID}
-        className="overflow-hidden rounded-lg border border-neutral-200 bg-white"
-      >
-        <figcaption
-          id={COUNTERS_CAPTION_ID}
-          className="border-b border-neutral-200 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-500"
-        >
-          {countersCaption}
-        </figcaption>
-
-        <ul className="grid grid-cols-1 divide-y divide-neutral-100 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-5 lg:divide-y-0">
-          {HEAT_COUNTERS.map((counter) => {
-            const label = counter.label[locale] ?? counter.label.fr;
-            const detail = counter.detail[locale] ?? counter.detail.fr;
-            const valeur = counter.valeur[locale] ?? counter.valeur.fr;
-            return (
-              <li key={counter.id} className="px-4 py-4">
-                <div className="flex items-start justify-between gap-2">
-                  <span
-                    className="text-xl font-bold leading-tight text-blue-900"
-                    aria-label={`${valeur} : ${label}`}
-                  >
-                    {valeur}
-                  </span>
-                  <span
-                    className={`shrink-0 whitespace-nowrap rounded-full border px-2 py-0.5 text-[10px] font-medium ${CONFIANCE_TONE[counter.confiance]}`}
-                    aria-label={`${confianceAriaPfx} ${confianceLabel[counter.confiance]}`}
-                  >
-                    {confianceLabel[counter.confiance]}
-                  </span>
-                </div>
-                <p className="mt-1 text-sm font-medium text-neutral-800">{label}</p>
-                <p className="mt-1 text-[11px] leading-relaxed text-neutral-500">{detail}</p>
-              </li>
-            );
-          })}
-        </ul>
-      </figure>
+      <CountersRow
+        counters={HEAT_COUNTERS}
+        caption={COUNTERS_CAPTION}
+        captionId={COUNTERS_CAPTION_ID}
+        locale={locale}
+      />
 
       {/* Section 2 : encadre quartiers les plus chauds */}
       <figure

@@ -31,9 +31,11 @@ import { CardSubscribe } from '@/components/card-subscribe';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { DossierFaq } from '@/components/dossier/dossier-faq';
+import { WhatChangedBanner } from '@/components/what-changed-banner';
 
 
 export const dynamicParams = false;
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   // Spec 2026-05-03 §3.3 : émet 1 URL par locale × dossier, avec le slug
@@ -171,6 +173,7 @@ function DossierDetail({
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
   const tFaq = useTranslations('faq');
+  const tw = useTranslations('whatChanged');
 
   // Blocked days counter (use fixed build date to avoid impure Date.now() in render)
   const buildDate = new Date();
@@ -289,6 +292,25 @@ function DossierDetail({
             labels={{ cite: tShare('cite'), standard: tShare('standard'), academic: tShare('academic'), copy: tShare('copy'), copied: tShare('citationCopied'), exportBibtex: tShare('exportBibtex'), close: tShare('close') }}
           />
         </div>
+
+        <WhatChangedBanner
+          changeSummary={card.changeSummary}
+          changeSummaryDate={card.changeSummaryDate}
+          labels={{
+            updated: tw('updated'),
+            readMore: tw('readMore'),
+            readLess: tw('readLess'),
+            types: {
+              new: tw('types.new'),
+              updated: tw('types.updated'),
+              'status-change': tw('types.status-change'),
+              'data-refresh': tw('types.data-refresh'),
+              added: tw('types.added'),
+              corrected: tw('types.corrected'),
+              removed: tw('types.removed'),
+            },
+          }}
+        />
 
         {/* Summary */}
         <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.summary}</p>

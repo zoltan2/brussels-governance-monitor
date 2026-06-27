@@ -19,6 +19,7 @@ export interface DomainCard {
   lastModified: string;
   changeType?: string;
   changeSummary?: string;
+  changeSummaryDate?: string;
   digestHeadline?: string;
   summaryFalc?: string;
   draft: boolean;
@@ -133,6 +134,7 @@ export interface SectorCard {
   stakeholders: Array<{ name: string; type: string; url?: string }>;
   humanImpact?: string;
   changeSummary?: string;
+  changeSummaryDate?: string;
   digestHeadline?: string;
   draft: boolean;
   lastModified: string;
@@ -212,6 +214,7 @@ export interface DossierCard {
     sources: Array<{ label: string; url: string; accessedAt: string }>;
   }>;
   changeSummary?: string;
+  changeSummaryDate?: string;
   digestHeadline?: string;
   lastModified: string;
   draft: boolean;
@@ -251,6 +254,7 @@ export interface CommuneCard {
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
   changeType?: string;
   changeSummary?: string;
+  changeSummaryDate?: string;
   digestHeadline?: string;
   draft: boolean;
   lastModified: string;

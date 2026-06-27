@@ -316,3 +316,20 @@ footer nav a:hover {
 [data-density="essentiel"] .d-signal,
 [data-density="essentiel"] .d-complet { display: none; }
 [data-density="complet"] .d-signal { display: none; }
+
+/* WhatChangedBanner — zero-JS clamp + expand via native <details> */
+.wc-summary { list-style: none; cursor: pointer; }
+.wc-summary::-webkit-details-marker { display: none; }
+.wc-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+details[open] .wc-clamp { -webkit-line-clamp: unset; }
+/* Display controlled here only — do NOT add Tailwind display utilities to these
+   spans, or the equal-specificity `.block` utility would clash by source order. */
+.wc-more { display: block; margin-top: 0.25rem; }
+.wc-less { display: none; margin-top: 0.25rem; }
+details[open] .wc-more { display: none; }
+details[open] .wc-less { display: block; }

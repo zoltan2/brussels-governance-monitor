@@ -26,7 +26,7 @@ export interface PublicationsBandViewProps {
   locale: string;
   langs: string[];
   latestCompleteWeek: string | null;
-  magazine: { href: string } | null;
+  magazine: { tagline: string; href: string } | null;
   subscribeHref: string;
   labels: PublicationsBandLabels;
 }
@@ -89,19 +89,22 @@ export function PublicationsBandView({
           })}
         </ul>
 
-        {/* Primary action (dominant despite position): subscribe. */}
+        {/* Primary action: subscribe. Outline pattern (site idiom) — legible in
+            light AND dark (brand fills go pale in dark; outline avoids the washout). */}
         <div className="mt-6">
           <a
             href={subscribeHref}
-            className="inline-block rounded-lg bg-brand-900 px-5 py-2.5 text-sm font-bold text-neutral-50 transition-colors hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-brand-700 px-5 py-2.5 text-sm font-bold text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
           >
             {labels.subscribe}
           </a>
         </div>
 
-        {/* Tertiary: magazine (FR for now), hidden entirely if no data. */}
+        {/* Tertiary: magazine (FR for now), hidden entirely if no data.
+            Real tagline of the week + the magazine's standing slogan/link. */}
         {magazine && (
-          <p className="mt-4 text-sm">
+          <p className="mt-4 text-sm leading-relaxed text-neutral-600">
+            <span className="italic">« {magazine.tagline} »</span>{' '}
             <a href={magazine.href} className="font-medium text-brand-700 underline hover:text-brand-900">
               {labels.magazineCta}
             </a>
@@ -122,10 +125,10 @@ export function PublicationsBand({ locale }: { locale: string }) {
   const frEntry = getDigestEntry(latestCompleteWeek, 'fr');
   // Magazine is FR-only for now (other languages come later) and only shown when
   // that week actually has a magazine block.
-  const magazine =
-    locale === 'fr' && frEntry?.entry?.magazine
-      ? { href: `https://magazine.governance.brussels/s${weekNum}/` }
-      : null;
+  const mag = locale === 'fr' ? frEntry?.entry?.magazine : null;
+  const magazine = mag?.tagline
+    ? { tagline: mag.tagline, href: `https://magazine.governance.brussels/s${weekNum}/` }
+    : null;
 
   return (
     <PublicationsBandView

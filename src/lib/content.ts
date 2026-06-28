@@ -3,6 +3,7 @@
 
 import type { Locale } from '@/i18n/routing';
 import type { Metric } from '@/components/proof-drawer/types';
+import { computeRecentDigestLangs, type RecentDigestLangs } from '@/lib/digest-langs';
 
 export interface DomainCard {
   title: string;
@@ -1161,6 +1162,19 @@ export function getAllDigestWeeks(): string[] {
 export function getAllDigestLangs(): string[] {
   const { digestEntries } = getCollections();
   return [...new Set(digestEntries.map((e) => e.lang))];
+}
+
+/**
+ * Languages + latest complete week for the Publications band. See
+ * {@link computeRecentDigestLangs}: union over the 2 most recent COMPLETE weeks
+ * (core-4 present). Thin Velite adapter over the unit-tested pure function.
+ */
+export function getRecentDigestLangs(windowSize = 2): RecentDigestLangs {
+  const { digestEntries } = getCollections();
+  return computeRecentDigestLangs(
+    digestEntries.map((e) => ({ week: e.week, lang: e.lang })),
+    windowSize,
+  );
 }
 
 /**

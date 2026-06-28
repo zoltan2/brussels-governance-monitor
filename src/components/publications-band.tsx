@@ -58,20 +58,23 @@ export function PublicationsBandView({
         <p className="text-xs font-bold uppercase tracking-widest text-brand-700">{labels.eyebrow}</p>
         <h2 className="mt-1 text-2xl font-bold text-neutral-900 sm:text-3xl">{title}</h2>
 
-        {/* Proof grid: core = links, extras = non-clickable proof. All carry lang=. */}
-        <ul className="mt-4 flex flex-wrap gap-2" aria-label={title}>
+        {/* Grid: the 4 core (fr/nl/en/de) are real LINKS with a clear interactive
+            affordance (brand-bordered pill, hover fill, pointer, focus ring; current
+            locale = filled). The 7 extras are muted PROOF text: no pill border, no hover,
+            visibly non-clickable. All carry lang= for screen-reader pronunciation. */}
+        <ul className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2" aria-label={title}>
           {ordered.map((lang) => {
             const current = lang === locale;
-            const base =
-              'inline-block rounded-full border px-3 py-1 text-sm';
             if (isCore(lang)) {
               return (
                 <li key={lang}>
                   <a
                     href={`/digest/${lang}/${weekPath}`}
                     lang={lang}
-                    className={`${base} border-brand-700/30 text-brand-800 transition-colors hover:bg-brand-900/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 ${
-                      current ? 'bg-brand-900/10 font-semibold' : ''
+                    className={`inline-block rounded-full border px-3 py-1 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 ${
+                      current
+                        ? 'border-brand-700 bg-brand-700 text-neutral-50'
+                        : 'border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-neutral-50'
                     }`}
                   >
                     {nativeName(lang)}
@@ -81,7 +84,7 @@ export function PublicationsBandView({
             }
             return (
               <li key={lang}>
-                <span lang={lang} className={`${base} border-neutral-300 text-neutral-600`}>
+                <span lang={lang} className="px-1 py-1 text-sm text-neutral-500">
                   {nativeName(lang)}
                 </span>
               </li>
@@ -89,25 +92,28 @@ export function PublicationsBandView({
           })}
         </ul>
 
-        {/* Primary action: subscribe. Outline pattern (site idiom) — legible in
-            light AND dark (brand fills go pale in dark; outline avoids the washout). */}
+        {/* Primary action: subscribe. SOLID neutral fill = the only real button, dominant
+            and dark-safe: neutral-900 (fill) and neutral-50 (text) both swap, so it stays
+            ~21:1 in light AND dark. A brand fill would go pale/washed-out in dark. */}
         <div className="mt-6">
           <a
             href={subscribeHref}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-brand-700 px-5 py-2.5 text-sm font-bold text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-50 transition-colors hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
           >
             {labels.subscribe}
           </a>
         </div>
 
-        {/* Tertiary: magazine (FR for now), hidden entirely if no data.
-            Real tagline of the week + the magazine's standing slogan/link. */}
+        {/* Tertiary: magazine (FR for now), hidden if no data. ONE discreet muted line:
+            label/link FIRST, then the week's tagline inline. Never louder than S'abonner:
+            small, secondary-text token, no hero italic. tagline + link from the same issue. */}
         {magazine && (
-          <p className="mt-4 text-sm leading-relaxed text-neutral-600">
-            <span className="italic">« {magazine.tagline} »</span>{' '}
-            <a href={magazine.href} className="font-medium text-brand-700 underline hover:text-brand-900">
+          <p className="mt-4 text-sm text-neutral-500">
+            <a href={magazine.href} className="font-medium text-brand-700 hover:underline">
               {labels.magazineCta}
             </a>
+            {' · '}
+            <span>« {magazine.tagline} »</span>
           </p>
         )}
       </div>

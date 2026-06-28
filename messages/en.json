@@ -1,4 +1,24 @@
 {
+  "publications": {
+    "eyebrow": "Publications",
+    "title": "The weekly digest, in {count} languages",
+    "subscribe": "Subscribe",
+    "magazineCta": "The magazine: Brussels re-read and verified"
+  },
+  "whatChanged": {
+    "updated": "Updated",
+    "readMore": "Read what changed",
+    "readLess": "Show less",
+    "types": {
+      "new": "New",
+      "updated": "Updated",
+      "status-change": "Status change",
+      "data-refresh": "Data refreshed",
+      "added": "Added",
+      "corrected": "Corrected",
+      "removed": "Removed"
+    }
+  },
   "metadata": {
     "title": "Brussels Governance Monitor",
     "description": "Making Brussels governance visible, verifiable, and understandable"
@@ -30,7 +50,7 @@
     "archived": "days without a regional government",
     "closed": "It's over.",
     "pivot": "Now, Brussels can act.",
-    "explanation": "A 7-party government has been sworn in. This site documents the implementation of their commitments — same rigor, same sources, same independence.",
+    "explanation": "A 7-party government has been sworn in. This site documents the implementation of their commitments (same rigor, same sources, same independence).",
     "valueProp": "Observe. Verify. Document."
   },
   "domains": {

@@ -3,6 +3,7 @@
 
 import type { Locale } from '@/i18n/routing';
 import type { Metric } from '@/components/proof-drawer/types';
+import { computeRecentDigestLangs, type RecentDigestLangs } from '@/lib/digest-langs';
 
 export interface DomainCard {
   title: string;
@@ -19,6 +20,7 @@ export interface DomainCard {
   lastModified: string;
   changeType?: string;
   changeSummary?: string;
+  changeSummaryDate?: string;
   digestHeadline?: string;
   summaryFalc?: string;
   draft: boolean;
@@ -133,6 +135,7 @@ export interface SectorCard {
   stakeholders: Array<{ name: string; type: string; url?: string }>;
   humanImpact?: string;
   changeSummary?: string;
+  changeSummaryDate?: string;
   digestHeadline?: string;
   draft: boolean;
   lastModified: string;
@@ -212,6 +215,7 @@ export interface DossierCard {
     sources: Array<{ label: string; url: string; accessedAt: string }>;
   }>;
   changeSummary?: string;
+  changeSummaryDate?: string;
   digestHeadline?: string;
   lastModified: string;
   draft: boolean;
@@ -251,6 +255,7 @@ export interface CommuneCard {
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
   changeType?: string;
   changeSummary?: string;
+  changeSummaryDate?: string;
   digestHeadline?: string;
   draft: boolean;
   lastModified: string;
@@ -1161,6 +1166,19 @@ export function getAllDigestWeeks(): string[] {
 export function getAllDigestLangs(): string[] {
   const { digestEntries } = getCollections();
   return [...new Set(digestEntries.map((e) => e.lang))];
+}
+
+/**
+ * Languages + latest complete week for the Publications band. See
+ * {@link computeRecentDigestLangs}: union over the 2 most recent COMPLETE weeks
+ * (core-4 present). Thin Velite adapter over the unit-tested pure function.
+ */
+export function getRecentDigestLangs(windowSize = 2): RecentDigestLangs {
+  const { digestEntries } = getCollections();
+  return computeRecentDigestLangs(
+    digestEntries.map((e) => ({ week: e.week, lang: e.lang })),
+    windowSize,
+  );
 }
 
 /**

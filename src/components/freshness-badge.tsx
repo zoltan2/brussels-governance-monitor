@@ -3,15 +3,11 @@
 
 import { useTranslations } from 'next-intl';
 
+import { daysSince } from '@/lib/freshness';
+
 interface FreshnessBadgeProps {
   lastModified: string;
   locale: string;
-}
-
-function daysSince(dateStr: string): number {
-  const date = new Date(dateStr);
-  const now = new Date();
-  return Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
 }
 
 export function FreshnessBadge({ lastModified, locale }: FreshnessBadgeProps) {

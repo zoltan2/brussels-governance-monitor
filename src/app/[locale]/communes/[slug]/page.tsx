@@ -20,9 +20,11 @@ import { CardSubscribe } from '@/components/card-subscribe';
 import { TransparencyGrid } from '@/components/transparency-grid';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { WhatChangedBanner } from '@/components/what-changed-banner';
 
 
 export const dynamicParams = false;
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   const slugs = getAllCommuneSlugs();
@@ -119,6 +121,7 @@ function CommuneDetail({
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
+  const tw = useTranslations('whatChanged');
 
   // Resolve related domain cards
   const relatedDomainCards = card.relatedDomains
@@ -189,6 +192,26 @@ function CommuneDetail({
             labels={{ cite: tShare('cite'), standard: tShare('standard'), academic: tShare('academic'), copy: tShare('copy'), copied: tShare('citationCopied'), exportBibtex: tShare('exportBibtex'), close: tShare('close') }}
           />
         </div>
+
+        <WhatChangedBanner
+          changeSummary={card.changeSummary}
+          changeSummaryDate={card.changeSummaryDate}
+          changeType={card.changeType}
+          labels={{
+            updated: tw('updated'),
+            readMore: tw('readMore'),
+            readLess: tw('readLess'),
+            types: {
+              new: tw('types.new'),
+              updated: tw('types.updated'),
+              'status-change': tw('types.status-change'),
+              'data-refresh': tw('types.data-refresh'),
+              added: tw('types.added'),
+              corrected: tw('types.corrected'),
+              removed: tw('types.removed'),
+            },
+          }}
+        />
 
         {/* Transparency grid */}
         <div className="mb-8">

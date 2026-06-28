@@ -23,7 +23,7 @@ export function LatestUpdateBar({ date, description, summary, section, targetSlu
       <time dateTime={date} className="shrink-0 text-xs font-medium tabular-nums text-neutral-500">
         {formatDate(date, locale)}
       </time>
-      <span className="shrink-0 text-xs text-neutral-300" aria-hidden="true">&mdash;</span>
+      <span className="shrink-0 text-xs text-neutral-300" aria-hidden="true">:</span>
       <span className="min-w-0 flex-1 truncate text-xs text-neutral-600">{summary || description}</span>
       {linkHref && (
         <span className="shrink-0 text-xs text-brand-700" aria-hidden="true">&rarr;</span>

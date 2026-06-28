@@ -11,6 +11,7 @@ import { getDomainCards, getSectorCards, getDossierCards, getAllDossierTopicOpti
 import { getActiveSignals, getVeilleSourceCount } from '@/lib/radar';
 import { getLatestUpdate } from '@/lib/changelog';
 import { LatestUpdateBar } from '@/components/latest-update-bar';
+import { PublicationsBand } from '@/components/publications-band';
 import { GovernmentTable } from '@/components/government-table';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
@@ -125,6 +126,8 @@ export default async function HomePage({
         anchor={latestUpdate.anchor}
         locale={locale}
       />
+
+      <PublicationsBand locale={locale} />
 
       <RefontePromo locale={locale} />
 

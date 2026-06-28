@@ -2,8 +2,8 @@
   "week": "2026-w26",
   "weekStart": "2026-06-22",
   "created_at": "2026-06-28T20:00:31.640Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "5 domaines, 5 dossiers, 2 communes mis à jour",
     "nl": "5 domeinen, 5 dossiers, 2 gemeenten bijgewerkt",
@@ -45,5 +45,6 @@
     "dossier-slrb",
     "commune-saint-josse-ten-noode",
     "commune-schaerbeek"
-  ]
+  ],
+  "sent_at": "2026-06-28T23:02:07.751Z"
 }

@@ -10,14 +10,14 @@ const LABELS = {
   eyebrow: 'Publications',
   title: 'Le digest hebdomadaire, en {count} langues',
   subscribe: "S'abonner",
-  magazinePrefix: 'Aussi : le magazine, grand format — en FR',
+  magazineCta: 'Le magazine de la semaine : quelques pages, en un clin d’œil',
 };
 
 const BASE = {
   locale: 'fr',
   langs: ['fr', 'nl', 'en', 'de', 'ar', 'tr'],
   latestCompleteWeek: '2026-w26',
-  magazine: { tagline: 'La ville qui suffoque', href: 'https://magazine.governance.brussels/latest/' },
+  magazine: { href: 'https://magazine.governance.brussels/s26/' },
   subscribeHref: '#subscribe',
   labels: LABELS,
 };
@@ -54,10 +54,13 @@ describe('PublicationsBandView', () => {
     expect(container.querySelector('[lang="tr"]')).toBeTruthy();
   });
 
-  it('renders the subscribe CTA and the magazine link', () => {
+  it('renders the subscribe CTA and the magazine link with the simplified copy', () => {
     const { getByText, container } = render(<PublicationsBandView {...BASE} />);
     expect(getByText("S'abonner")).toBeTruthy();
-    expect(container.querySelector('a[href="https://magazine.governance.brussels/latest/"]')).toBeTruthy();
+    const mag = container.querySelector('a[href="https://magazine.governance.brussels/s26/"]');
+    expect(mag).toBeTruthy();
+    expect(mag?.textContent).toContain('quelques pages');
+    expect(mag?.textContent).not.toContain('—'); // no em-dash in new content
   });
 
   it('hides the magazine sub-block when no magazine data', () => {

@@ -19,14 +19,14 @@ export interface PublicationsBandLabels {
   eyebrow: string;
   title: string; // contains "{count}"
   subscribe: string;
-  magazinePrefix: string;
+  magazineCta: string;
 }
 
 export interface PublicationsBandViewProps {
   locale: string;
   langs: string[];
   latestCompleteWeek: string | null;
-  magazine: { tagline: string; href: string } | null;
+  magazine: { href: string } | null;
   subscribeHref: string;
   labels: PublicationsBandLabels;
 }
@@ -53,7 +53,7 @@ export function PublicationsBandView({
   const title = labels.title.replace('{count}', String(langs.length));
 
   return (
-    <section className="border-y border-neutral-200 bg-slate-50">
+    <section className="border-y border-neutral-200 bg-neutral-50">
       <div className="mx-auto max-w-5xl px-4 py-10">
         <p className="text-xs font-bold uppercase tracking-widest text-brand-700">{labels.eyebrow}</p>
         <h2 className="mt-1 text-2xl font-bold text-neutral-900 sm:text-3xl">{title}</h2>
@@ -81,7 +81,7 @@ export function PublicationsBandView({
             }
             return (
               <li key={lang}>
-                <span lang={lang} className={`${base} border-neutral-300 text-neutral-500`}>
+                <span lang={lang} className={`${base} border-neutral-300 text-neutral-600`}>
                   {nativeName(lang)}
                 </span>
               </li>
@@ -93,19 +93,18 @@ export function PublicationsBandView({
         <div className="mt-6">
           <a
             href={subscribeHref}
-            className="inline-block rounded-lg bg-brand-800 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+            className="inline-block rounded-lg bg-brand-900 px-5 py-2.5 text-sm font-bold text-neutral-50 transition-colors hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
           >
             {labels.subscribe}
           </a>
         </div>
 
-        {/* Tertiary: magazine (FR), hidden entirely if no data. */}
+        {/* Tertiary: magazine (FR for now), hidden entirely if no data. */}
         {magazine && (
-          <p className="mt-4 text-sm text-neutral-600">
+          <p className="mt-4 text-sm">
             <a href={magazine.href} className="font-medium text-brand-700 underline hover:text-brand-900">
-              {labels.magazinePrefix}
+              {labels.magazineCta}
             </a>
-            {magazine.tagline ? <span className="text-neutral-500"> — « {magazine.tagline} »</span> : null}
           </p>
         )}
       </div>
@@ -121,10 +120,12 @@ export function PublicationsBand({ locale }: { locale: string }) {
 
   const weekNum = latestCompleteWeek.split('-w')[1];
   const frEntry = getDigestEntry(latestCompleteWeek, 'fr');
-  const tagline = frEntry?.entry?.magazine?.tagline ?? null;
-  const magazine = tagline
-    ? { tagline, href: `https://magazine.governance.brussels/s${weekNum}/` }
-    : null;
+  // Magazine is FR-only for now (other languages come later) and only shown when
+  // that week actually has a magazine block.
+  const magazine =
+    locale === 'fr' && frEntry?.entry?.magazine
+      ? { href: `https://magazine.governance.brussels/s${weekNum}/` }
+      : null;
 
   return (
     <PublicationsBandView
@@ -137,7 +138,7 @@ export function PublicationsBand({ locale }: { locale: string }) {
         eyebrow: t('eyebrow'),
         title: t('title'),
         subscribe: t('subscribe'),
-        magazinePrefix: t('magazinePrefix'),
+        magazineCta: t('magazineCta'),
       }}
     />
   );

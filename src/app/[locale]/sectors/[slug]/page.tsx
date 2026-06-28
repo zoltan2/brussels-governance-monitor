@@ -19,9 +19,11 @@ import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { WhatChangedBanner } from '@/components/what-changed-banner';
 
 
 export const dynamicParams = false;
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   const slugs = getAllSectorSlugs();
@@ -111,6 +113,7 @@ function SectorDetail({
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
+  const tw = useTranslations('whatChanged');
 
   return (
     <article className="py-12">
@@ -142,6 +145,25 @@ function SectorDetail({
             labels={{ cite: tShare('cite'), standard: tShare('standard'), academic: tShare('academic'), copy: tShare('copy'), copied: tShare('citationCopied'), exportBibtex: tShare('exportBibtex'), close: tShare('close') }}
           />
         </div>
+
+        <WhatChangedBanner
+          changeSummary={card.changeSummary}
+          changeSummaryDate={card.changeSummaryDate}
+          labels={{
+            updated: tw('updated'),
+            readMore: tw('readMore'),
+            readLess: tw('readLess'),
+            types: {
+              new: tw('types.new'),
+              updated: tw('types.updated'),
+              'status-change': tw('types.status-change'),
+              'data-refresh': tw('types.data-refresh'),
+              added: tw('types.added'),
+              corrected: tw('types.corrected'),
+              removed: tw('types.removed'),
+            },
+          }}
+        />
 
         {card.humanImpact && (
           <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.humanImpact}</p>

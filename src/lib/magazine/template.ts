@@ -583,6 +583,14 @@ export const MAGAZINE_JS = `
   let idx = 0;
   let lock = false;
 
+  // Vertical fallback mode (narrow / short / portrait). The CSS switches to native
+  // vertical scrolling and hides the arrows + dots in this mode. The JS pager MUST
+  // stand down too: otherwise its horizontal translateX() slides the (now vertical)
+  // column off-screen, and preventDefault() on the scroll keys blocks native
+  // scrolling — freezing the magazine on the cover. Mirror the CSS breakpoint exactly.
+  const verticalMq = window.matchMedia('(max-width: 900px), (max-height: 700px), (orientation: portrait)');
+  const isVertical = () => verticalMq.matches;
+
   for (let i = 0; i < total; i++) {
     const b = document.createElement('button');
     b.className = 'dot' + (i === 0 ? ' active' : '');
@@ -593,6 +601,7 @@ export const MAGAZINE_JS = `
   const dots = dotsEl.querySelectorAll('.dot');
 
   function go(i) {
+    if (isVertical()) return; // pager disabled in vertical mode (native scroll handles it)
     idx = Math.max(0, Math.min(total - 1, i));
     track.style.transform = 'translateX(-' + (idx * 100) + 'vw)';
     dots.forEach((d, n) => d.classList.toggle('active', n === idx));
@@ -606,6 +615,7 @@ export const MAGAZINE_JS = `
   nextBtn.addEventListener('click', () => go(idx + 1));
 
   window.addEventListener('keydown', (e) => {
+    if (isVertical()) return; // let native scrolling (arrows / space / page keys) work
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(idx + 1); }
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(idx - 1); }
     else if (e.key === 'Home') { go(0); }
@@ -614,7 +624,7 @@ export const MAGAZINE_JS = `
 
   let wheelAcc = 0;
   window.addEventListener('wheel', (e) => {
-    if (lock) return;
+    if (isVertical() || lock) return; // native vertical scroll in fallback mode
     const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
     wheelAcc += delta;
     if (wheelAcc > 30) { go(idx + 1); wheelAcc = 0; }
@@ -624,6 +634,7 @@ export const MAGAZINE_JS = `
   let touchStartX = 0;
   window.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
   window.addEventListener('touchend', (e) => {
+    if (isVertical()) return; // native vertical scroll in fallback mode
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 50) { dx < 0 ? go(idx + 1) : go(idx - 1); }
   }, { passive: true });
@@ -631,7 +642,6 @@ export const MAGAZINE_JS = `
   // Stale-transform mitigation: clear inline transform when entering vertical mode,
   // restore when re-entering horizontal mode. Inline style beats CSS specificity.
   // Depends on track (const) and idx (let), both declared at the top of this IIFE.
-  const verticalMq = window.matchMedia('(max-width: 900px), (max-height: 700px), (orientation: portrait)');
   function syncMode(e) {
     if (e.matches) {
       track.style.transform = '';
@@ -646,6 +656,6 @@ export const MAGAZINE_JS = `
   }
   syncMode(verticalMq);
 
-  prevBtn.classList.add('hidden');
+  if (!isVertical()) prevBtn.classList.add('hidden');
 })();
 `;

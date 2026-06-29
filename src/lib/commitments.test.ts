@@ -110,7 +110,8 @@ describe('commitmentSchema validation', () => {
   });
 
   it('accepts a commitment without dataPoints', () => {
-    const { dataPoints: _, ...withoutDataPoints } = validBase as typeof validBase & { dataPoints?: unknown };
+    const withoutDataPoints: Record<string, unknown> = { ...validBase };
+    delete withoutDataPoints.dataPoints;
     expect(() => commitmentSchema.parse(withoutDataPoints)).not.toThrow();
   });
 });

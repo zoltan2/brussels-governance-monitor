@@ -503,29 +503,6 @@ function Section({
   );
 }
 
-function SectionStub({
-  index,
-  title,
-  question,
-  note,
-}: {
-  index: number;
-  title: string;
-  question: string;
-  note: string;
-}) {
-  return (
-    <section className="rounded border border-dashed border-neutral-300 bg-neutral-50 p-6">
-      <p className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
-        Axe {index} sur 5 — à intégrer
-      </p>
-      <h2 className="mt-1 font-serif text-2xl text-neutral-900">{title}</h2>
-      <p className="mt-2 text-neutral-700">{question}</p>
-      <p className="mt-4 text-sm italic text-neutral-500">{note}</p>
-    </section>
-  );
-}
-
 function Option({
   name,
   value,

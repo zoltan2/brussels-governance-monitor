@@ -16,6 +16,8 @@ const LABELS = {
 const BASE = {
   locale: 'fr',
   langs: ['fr', 'nl', 'en', 'de', 'ar', 'tr'],
+  // Every listed lang has an actual digest for the linked week → all clickable.
+  linkableLangs: ['fr', 'nl', 'en', 'de', 'ar', 'tr'],
   latestCompleteWeek: '2026-w26',
   magazine: {
     tagline: 'Trois ans de blocage dénoués en une soirée, un permis de métro relancé.',
@@ -29,7 +31,9 @@ afterEach(() => cleanup());
 
 describe('PublicationsBandView', () => {
   it('renders nothing when there is no complete week', () => {
-    const { container } = render(<PublicationsBandView {...BASE} latestCompleteWeek={null} langs={[]} />);
+    const { container } = render(
+      <PublicationsBandView {...BASE} latestCompleteWeek={null} langs={[]} linkableLangs={[]} />,
+    );
     expect(container.firstChild).toBeNull();
   });
 
@@ -38,31 +42,33 @@ describe('PublicationsBandView', () => {
     expect(getByText('Le digest hebdomadaire, en 6 langues')).toBeTruthy();
   });
 
-  it('renders the 4 core langs as links to /digest/{lang}/{year}/{week}', () => {
+  it('renders EVERY language that has a digest this week as a link to /digest/{lang}/{year}/{week}', () => {
     const { container } = render(<PublicationsBandView {...BASE} />);
-    for (const lang of ['fr', 'nl', 'en', 'de']) {
+    for (const lang of ['fr', 'nl', 'en', 'de', 'ar', 'tr']) {
       const a = container.querySelector(`a[href="/digest/${lang}/2026/w26"]`);
-      expect(a, `core ${lang} should be a link`).toBeTruthy();
+      expect(a, `${lang} should be a link`).toBeTruthy();
       expect(a?.getAttribute('lang')).toBe(lang);
     }
   });
 
-  it('renders extra langs as proof (NOT links), still with a lang attribute', () => {
-    const { container } = render(<PublicationsBandView {...BASE} />);
-    // no digest link for an extra lang
-    expect(container.querySelector('a[href*="/digest/ar/"]')).toBeNull();
-    expect(container.querySelector('a[href*="/digest/tr/"]')).toBeNull();
-    // but a lang-tagged element exists for it
-    expect(container.querySelector('[lang="ar"]')).toBeTruthy();
-    expect(container.querySelector('[lang="tr"]')).toBeTruthy();
+  it('renders a union-only lang (no digest for the linked week) as non-link proof text', () => {
+    // 'es' is in the band (carried by another recent week) but absent from this week.
+    const { container } = render(
+      <PublicationsBandView
+        {...BASE}
+        langs={[...BASE.langs, 'es']}
+        linkableLangs={BASE.linkableLangs}
+      />,
+    );
+    expect(container.querySelector('a[href*="/digest/es/"]')).toBeNull();
+    // still announced with a lang attribute for screen readers
+    expect(container.querySelector('[lang="es"]')).toBeTruthy();
   });
 
   it('renders the subscribe CTA + magazine real tagline + slogan link (no em-dash)', () => {
     const { getByText, container } = render(<PublicationsBandView {...BASE} />);
     expect(getByText("S'abonner")).toBeTruthy();
-    // real tagline of the week is shown
     expect(getByText(/Trois ans de blocage/)).toBeTruthy();
-    // slogan link to the magazine
     const mag = container.querySelector('a[href="https://magazine.governance.brussels/s26/"]');
     expect(mag).toBeTruthy();
     expect(mag?.textContent).toContain('Bruxelles relue et vérifiée');

@@ -25,6 +25,9 @@ export interface PublicationsBandLabels {
 export interface PublicationsBandViewProps {
   locale: string;
   langs: string[];
+  /** Subset of `langs` that actually have a digest for `latestCompleteWeek`
+   *  (exact, non-fallback). Only these render as clickable links. */
+  linkableLangs: string[];
   latestCompleteWeek: string | null;
   magazine: { tagline: string; href: string } | null;
   subscribeHref: string;
@@ -35,6 +38,7 @@ export interface PublicationsBandViewProps {
 export function PublicationsBandView({
   locale,
   langs,
+  linkableLangs,
   latestCompleteWeek,
   magazine,
   subscribeHref,
@@ -58,14 +62,15 @@ export function PublicationsBandView({
         <p className="text-xs font-bold uppercase tracking-widest text-brand-700">{labels.eyebrow}</p>
         <h2 className="mt-1 text-2xl font-bold text-neutral-900 sm:text-3xl">{title}</h2>
 
-        {/* Grid: the 4 core (fr/nl/en/de) are real LINKS with a clear interactive
-            affordance (brand-bordered pill, hover fill, pointer, focus ring; current
-            locale = filled). The 7 extras are muted PROOF text: no pill border, no hover,
-            visibly non-clickable. All carry lang= for screen-reader pronunciation. */}
+        {/* Grid: every language that actually has this week's digest is a real LINK
+            (brand-bordered pill, hover fill, pointer, focus ring; current locale = filled).
+            A language carried only by the union over an earlier week (no digest for the
+            linked week) stays muted, non-clickable PROOF text to avoid a fallback-to-FR
+            page under a foreign-language URL. All carry lang= for screen-reader pronunciation. */}
         <ul className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2" aria-label={title}>
           {ordered.map((lang) => {
             const current = lang === locale;
-            if (isCore(lang)) {
+            if (linkableLangs.includes(lang)) {
               return (
                 <li key={lang}>
                   <a
@@ -127,6 +132,12 @@ export function PublicationsBand({ locale }: { locale: string }) {
   const { langs, latestCompleteWeek } = getRecentDigestLangs(2);
   if (!latestCompleteWeek || langs.length === 0) return null;
 
+  // A language is clickable only when it has an actual (non-fallback) digest for
+  // the linked week; getDigestEntry falls back to FR, so guard on isFallback.
+  const linkableLangs = langs.filter(
+    (l) => getDigestEntry(latestCompleteWeek, l)?.isFallback === false,
+  );
+
   const weekNum = latestCompleteWeek.split('-w')[1];
   const frEntry = getDigestEntry(latestCompleteWeek, 'fr');
   // Magazine is FR-only for now (other languages come later) and only shown when
@@ -140,6 +151,7 @@ export function PublicationsBand({ locale }: { locale: string }) {
     <PublicationsBandView
       locale={locale}
       langs={langs}
+      linkableLangs={linkableLangs}
       latestCompleteWeek={latestCompleteWeek}
       magazine={magazine}
       subscribeHref="#subscribe"

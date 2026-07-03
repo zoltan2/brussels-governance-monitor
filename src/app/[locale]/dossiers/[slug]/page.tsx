@@ -14,6 +14,7 @@ import {
   getSectorCard,
   getCommuneCard,
   getFormationEvents,
+  sortAlertsByDateDesc,
 } from '@/lib/content';
 import { DOSSIER_SLUG_TO_TOPIC } from '@/lib/resend';
 import { routing, type Locale } from '@/i18n/routing';
@@ -370,7 +371,7 @@ function DossierDetail({
               {t('alerts')}
             </h2>
             <ul className="space-y-2">
-              {card.alerts.map((alert) => (
+              {sortAlertsByDateDesc(card.alerts).map((alert) => (
                 <li
                   key={`${alert.date}-${alert.label}`}
                   className={`rounded-lg border p-3 text-sm ${

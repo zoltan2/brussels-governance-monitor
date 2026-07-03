@@ -17,6 +17,11 @@ export interface DomainCard {
   sources: Array<{ label: string; url: string; accessedAt: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
   metrics: Metric[];
+  faq: Array<{
+    q: string;
+    a: string;
+    sources: Array<{ label: string; url: string; accessedAt: string }>;
+  }>;
   lastModified: string;
   changeType?: string;
   changeSummary?: string;
@@ -1000,6 +1005,15 @@ export function getDossierCard(
 export function getAllDossierSlugs(): string[] {
   const { dossierCards } = getCollections();
   return [...new Set(dossierCards.map((c) => c.slug))];
+}
+
+/**
+ * Sorts an alerts array (dossier or commune cards) by `date` descending,
+ * most recent first. Frontmatter order is not chronological, so both
+ * dossier and commune detail pages must apply this before rendering.
+ */
+export function sortAlertsByDateDesc<T extends { date: string }>(alerts: T[]): T[] {
+  return [...alerts].sort((a, b) => b.date.localeCompare(a.date));
 }
 
 /**

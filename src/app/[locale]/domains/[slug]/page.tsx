@@ -28,6 +28,7 @@ import { CollapsibleSources } from '@/components/collapsible-sources';
 import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { WhatChangedBanner } from '@/components/what-changed-banner';
+import { DossierFaq } from '@/components/dossier/dossier-faq';
 
 
 export const dynamicParams = false;
@@ -141,6 +142,7 @@ function DomainDetail({
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
+  const tFaq = useTranslations('faq');
   const tw = useTranslations('whatChanged');
 
   const falcLabels: Record<string, string> = {
@@ -284,6 +286,9 @@ function DomainDetail({
         <div className="mt-4" data-mdx-content {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}>
           <MdxContent code={card.content} />
         </div>
+
+        {/* ── FAQ (conditional: renders null when card.faq is empty) ── */}
+        <DossierFaq faq={card.faq} title={tFaq('title')} />
 
         {/* ── HERITAGE CONTEXT — mini callout linking to archive ── */}
         <HeritageCallout slug={card.slug} locale={locale} type="domain" />

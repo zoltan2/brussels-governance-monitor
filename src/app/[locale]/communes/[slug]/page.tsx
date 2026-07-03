@@ -5,7 +5,13 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
-import { getCommuneCard, getAllCommuneSlugs, getDomainCard, getSectorCard } from '@/lib/content';
+import {
+  getCommuneCard,
+  getAllCommuneSlugs,
+  getDomainCard,
+  getSectorCard,
+  sortAlertsByDateDesc,
+} from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
@@ -252,7 +258,7 @@ function CommuneDetail({
               {t('alerts')}
             </h2>
             <ul className="space-y-2">
-              {card.alerts.map((alert) => (
+              {sortAlertsByDateDesc(card.alerts).map((alert) => (
                 <li
                   key={`${alert.date}-${alert.label}`}
                   className={`rounded-lg border p-3 text-sm ${

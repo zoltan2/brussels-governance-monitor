@@ -1,22 +1,22 @@
 {
-  "week": "2026-w26",
-  "weekStart": "2026-06-22",
-  "created_at": "2026-06-28T20:00:31.640Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w27",
+  "weekStart": "2026-06-29",
+  "created_at": "2026-07-05T20:00:40.376Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "5 domaines, 5 dossiers, 2 communes mis à jour",
-    "nl": "5 domeinen, 5 dossiers, 2 gemeenten bijgewerkt",
-    "en": "5 domains, 5 dossiers, 2 communes updated",
-    "de": "5 Bereiche, 5 Dossiers, 2 Gemeinden aktualisiert"
+    "fr": "8 domaines, 4 dossiers, 2 communes mis à jour",
+    "nl": "8 domeinen, 4 dossiers, 2 gemeenten bijgewerkt",
+    "en": "8 domains, 4 dossiers, 2 communes updated",
+    "de": "8 Bereiche, 4 Dossiers, 2 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "352 200",
+    "value": "+0,4 %",
     "label": {
-      "fr": "Emploi salarié — résidents bruxellois (fin 2025)",
-      "nl": "Loontrekkende werkgelegenheid — Brusselse inwoners (eind 2025)",
-      "en": "Salaried employment — Brussels residents (end 2025)",
-      "de": "Lohnabhängige Beschäftigung — Brüsseler Einwohner (Ende 2025)"
+      "fr": "Croissance de l'activité marchande (2025, IBSA)",
+      "nl": "Groei van de marktactiviteit (2025, BISA)",
+      "en": "Market activity growth (2025, IBSA)",
+      "de": "Wachstum der Marktaktivität (2025, IBSA)"
     },
     "source": {
       "fr": "IBSA / L'Avenir (18 juin 2026)",
@@ -33,18 +33,19 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
+    "economy",
     "employment",
     "housing",
+    "institutional",
     "mobility",
     "security",
     "social",
-    "dossier-commissaire-europe",
-    "dossier-lez",
-    "dossier-rechauffement-bruxelles",
+    "urban-planning",
+    "dossier-acs",
+    "dossier-activa",
     "dossier-reforme-administration",
     "dossier-slrb",
-    "commune-saint-josse-ten-noode",
-    "commune-schaerbeek"
-  ],
-  "sent_at": "2026-06-28T23:02:07.751Z"
+    "commune-anderlecht",
+    "commune-saint-josse-ten-noode"
+  ]
 }

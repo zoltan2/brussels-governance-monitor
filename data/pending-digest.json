@@ -2,8 +2,8 @@
   "week": "2026-w27",
   "weekStart": "2026-06-29",
   "created_at": "2026-07-05T20:00:40.376Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "8 domaines, 4 dossiers, 2 communes mis à jour",
     "nl": "8 domeinen, 4 dossiers, 2 gemeenten bijgewerkt",
@@ -47,5 +47,6 @@
     "dossier-slrb",
     "commune-anderlecht",
     "commune-saint-josse-ten-noode"
-  ]
+  ],
+  "sent_at": "2026-07-05T20:11:58.253Z"
 }

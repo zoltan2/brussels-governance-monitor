@@ -1,28 +1,28 @@
 {
-  "week": "2026-w27",
-  "weekStart": "2026-06-29",
-  "created_at": "2026-07-05T20:00:40.376Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w28",
+  "weekStart": "2026-07-06",
+  "created_at": "2026-07-12T20:01:49.445Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "8 domaines, 4 dossiers, 2 communes mis à jour",
-    "nl": "8 domeinen, 4 dossiers, 2 gemeenten bijgewerkt",
-    "en": "8 domains, 4 dossiers, 2 communes updated",
-    "de": "8 Bereiche, 4 Dossiers, 2 Gemeinden aktualisiert"
+    "fr": "8 domaines, 5 dossiers, 2 secteurs, 1 commune mis à jour",
+    "nl": "8 domeinen, 5 dossiers, 2 sectoren, 1 gemeente bijgewerkt",
+    "en": "8 domains, 5 dossiers, 2 sectors, 1 commune updated",
+    "de": "8 Bereiche, 5 Dossiers, 2 Sektoren, 1 Gemeinde aktualisiert"
   },
   "weeklyNumber": {
-    "value": "+0,4 %",
+    "value": "-47%",
     "label": {
-      "fr": "Croissance de l'activité marchande (2025, IBSA)",
-      "nl": "Groei van de marktactiviteit (2025, BISA)",
-      "en": "Market activity growth (2025, IBSA)",
-      "de": "Wachstum der Marktaktivität (2025, IBSA)"
+      "fr": "Objectif réduction CO2 2030",
+      "nl": "Doelstelling CO2-reductie 2030",
+      "en": "2030 CO2 reduction target",
+      "de": "CO2-Reduktionsziel 2030"
     },
     "source": {
-      "fr": "IBSA / L'Avenir (18 juin 2026)",
-      "nl": "BISA / L'Avenir (18 juni 2026)",
-      "en": "IBSA / L'Avenir (18 June 2026)",
-      "de": "IBSA / L'Avenir (18. Juni 2026)"
+      "fr": "Bruxelles Environnement / PACE (adopté mai 2023)",
+      "nl": "Leefmilieu Brussel / LKEP (aangenomen mei 2023)",
+      "en": "Brussels Environment / PACE (adopted May 2023)",
+      "de": "Brüssel Umwelt / PACE (verabschiedet Mai 2023)"
     }
   },
   "closingNote": {
@@ -33,20 +33,22 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
+    "climate",
     "economy",
-    "employment",
     "housing",
     "institutional",
     "mobility",
     "security",
     "social",
     "urban-planning",
-    "dossier-acs",
-    "dossier-activa",
+    "dossier-fusion-polices",
     "dossier-reforme-administration",
+    "dossier-seniors",
     "dossier-slrb",
+    "dossier-metro-3",
+    "construction",
+    "housing-sector",
     "commune-anderlecht",
-    "commune-saint-josse-ten-noode"
-  ],
-  "sent_at": "2026-07-05T20:11:58.253Z"
+    "employment"
+  ]
 }

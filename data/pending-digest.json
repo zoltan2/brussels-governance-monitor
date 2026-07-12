@@ -2,8 +2,8 @@
   "week": "2026-w28",
   "weekStart": "2026-07-06",
   "created_at": "2026-07-12T20:01:49.445Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "8 domaines, 5 dossiers, 2 secteurs, 1 commune mis à jour",
     "nl": "8 domeinen, 5 dossiers, 2 sectoren, 1 gemeente bijgewerkt",
@@ -50,5 +50,6 @@
     "housing-sector",
     "commune-anderlecht",
     "employment"
-  ]
+  ],
+  "sent_at": "2026-07-12T21:47:25.846Z"
 }

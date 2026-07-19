@@ -1,28 +1,28 @@
 {
-  "week": "2026-w28",
-  "weekStart": "2026-07-06",
-  "created_at": "2026-07-12T20:01:49.445Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w29",
+  "weekStart": "2026-07-13",
+  "created_at": "2026-07-19T19:00:01.286Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "8 domaines, 5 dossiers, 2 secteurs, 1 commune mis à jour",
-    "nl": "8 domeinen, 5 dossiers, 2 sectoren, 1 gemeente bijgewerkt",
-    "en": "8 domains, 5 dossiers, 2 sectors, 1 commune updated",
-    "de": "8 Bereiche, 5 Dossiers, 2 Sektoren, 1 Gemeinde aktualisiert"
+    "fr": "7 domaines, 4 dossiers mis à jour",
+    "nl": "7 domeinen, 4 dossiers bijgewerkt",
+    "en": "7 domains, 4 dossiers updated",
+    "de": "7 Bereiche, 4 Dossiers aktualisiert"
   },
   "weeklyNumber": {
-    "value": "159",
+    "value": "Budget 2026 voté en plénière (53/32)",
     "label": {
-      "fr": "Décès supplémentaires pendant la canicule de juin",
-      "nl": " Extra overlijdens tijdens de hittegolf van juni",
-      "en": "Excess deaths during the June heatwave",
-      "de": "Zusätzliche Todesfälle während der Junihitzewelle"
+      "fr": "Régime budgétaire",
+      "nl": "Budgettair regime",
+      "en": "Budget regime",
+      "de": "Haushaltsregime"
     },
     "source": {
-      "fr": "Sciensano, analyse du 8 juillet 2026",
-      "nl": "Sciensano, analyse van 8 juli 2026",
-      "en": "Sciensano, analysis of 8 July 2026",
-      "de": "Sciensano, Analyse vom 8. Juli 2026"
+      "fr": "Parlement bruxellois — séance plénière (27 mars 2026)",
+      "nl": "Brussels Parlement — plenaire vergadering (27 maart 2026)",
+      "en": "Brussels Parliament — plenary session (27 March 2026)",
+      "de": "Brüsseler Parlament — Plenarsitzung (27. März 2026)"
     }
   },
   "closingNote": {
@@ -33,23 +33,16 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
+    "budget",
     "climate",
     "economy",
+    "education",
+    "employment",
     "housing",
-    "institutional",
     "mobility",
-    "security",
-    "social",
-    "urban-planning",
-    "dossier-fusion-polices",
-    "dossier-reforme-administration",
-    "dossier-seniors",
+    "dossier-foyer-anderlechtois",
     "dossier-slrb",
-    "dossier-metro-3",
-    "construction",
-    "housing-sector",
-    "commune-anderlecht",
-    "employment"
-  ],
-  "sent_at": "2026-07-12T21:47:25.846Z"
+    "dossier-novacity-ii",
+    "dossier-metro-3"
+  ]
 }

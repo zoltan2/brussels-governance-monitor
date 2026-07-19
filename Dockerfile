@@ -26,6 +26,10 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # variable doit exister AU BUILD pour que <Analytics /> ne soit pas compilé
 # dans le bundle (pas seulement absent au runtime).
 ENV SELF_HOST=1
+# NEXT_PUBLIC_* est inliné par Next.js au build, pas lu au runtime : le
+# .env du VPS ne suffit pas, chat-widget.tsx checke cette variable côté
+# client et ne rend rien si elle n'est pas 'true' à la compilation.
+ENV NEXT_PUBLIC_CHATBOT_ENABLED=true
 RUN npm run build
 
 # ---- runner : image finale minimale, .next/standalone + assets explicites ----

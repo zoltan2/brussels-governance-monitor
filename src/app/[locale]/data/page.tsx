@@ -212,7 +212,7 @@ export default async function DataPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd).replace(/</g, '\\u003c') }}
       />
       <DataView groups={groups} allRows={allRows} />
     </>

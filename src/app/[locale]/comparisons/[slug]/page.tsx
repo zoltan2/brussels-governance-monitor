@@ -79,7 +79,7 @@ export default async function ComparisonDetailPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       <ComparisonDetail card={card} locale={locale} isFallback={isFallback} siteUrl={siteUrl} />
     </>

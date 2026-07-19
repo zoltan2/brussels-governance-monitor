@@ -8,6 +8,7 @@ import { generateUnsubscribeToken } from '@/lib/token';
 import { collectDigestUpdates, filterUpdatesForSubscriber } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
+import { isValidCronAuth } from '@/lib/cron-auth';
 
 const SUPPORTED_DIGEST_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
 const BATCH_SIZE = 50;
@@ -44,10 +45,7 @@ function formatWeekRange(date: Date, locale: string): string {
  * - If no pending-digest.json → nothing to do
  */
 export async function GET(request: Request) {
-  const authHeader = request.headers.get('authorization');
-  const cronSecret = process.env.CRON_SECRET;
-
-  if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
+  if (!isValidCronAuth(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

@@ -109,7 +109,7 @@ export default async function DomainDetailPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} relatedDossiers={relatedDossiers} relatedSectors={relatedSectors} relatedComparisons={relatedComparisons} relatedGlossary={relatedGlossary} siteUrl={siteUrl} />
     </>

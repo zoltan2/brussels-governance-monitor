@@ -97,6 +97,13 @@ const PAYWALL: Record<string, PaywallCopy> = {
   },
 };
 
+const UNLOCK_CONFIRM: Record<string, string> = {
+  fr: 'Paiement confirmé — l’assistant est débloqué pour 90 jours. Merci pour votre soutien.',
+  nl: 'Betaling bevestigd — de assistent is 90 dagen ontgrendeld. Bedankt voor uw steun.',
+  en: 'Payment confirmed — the assistant is unlocked for 90 days. Thank you for your support.',
+  de: 'Zahlung bestätigt — der Assistent ist 90 Tage lang freigeschaltet. Vielen Dank für Ihre Unterstützung.',
+};
+
 type ChoiceCopy = {
   title: string;
   subtitle: string;
@@ -528,6 +535,7 @@ export function ChatWidget() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [paywallState, setPaywallState] = useState<PaywallState>('free');
+  const [justUnlocked, setJustUnlocked] = useState(false);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [feedback, setFeedback] = useState<Record<number, FeedbackState>>({});
   const [showRating, setShowRating] = useState(false);
@@ -570,6 +578,8 @@ export function ChatWidget() {
     if (hasUnlockParam) {
       writeAccess({ unlocked: true, expires: Date.now() + ACCESS_TTL_MS });
       setPaywallState('unlocked');
+      setOpen(true);
+      setJustUnlocked(true);
       return;
     }
 
@@ -1271,6 +1281,11 @@ export function ChatWidget() {
         paywallState !== 'choice' &&
         paywallState !== 'email-form' ? (
           <div className="space-y-3">
+            {justUnlocked && (
+              <p className="rounded-md border border-brand-900/20 bg-brand-900/5 px-3 py-2 text-sm text-brand-900">
+                {UNLOCK_CONFIRM[locale] ?? UNLOCK_CONFIRM.fr}
+              </p>
+            )}
             <p className="text-sm text-neutral-500">{ui.emptyPrompt}</p>
             <ul className="space-y-2">
               {suggestions.map((q) => (

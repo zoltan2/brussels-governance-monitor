@@ -30,6 +30,13 @@ ENV SELF_HOST=1
 # .env du VPS ne suffit pas, chat-widget.tsx checke cette variable côté
 # client et ne rend rien si elle n'est pas 'true' à la compilation.
 ENV NEXT_PUBLIC_CHATBOT_ENABLED=true
+# Sans ça, les pages générées statiquement au build (canonical, OG, hreflang)
+# figent le fallback code 'http://localhost:3000' — cassé en prod. Le domaine
+# de staging n'a pas besoin de sa propre valeur : son robots.txt reste
+# noindex (voir robots.ts), et un canonical qui pointe vers le domaine
+# canonique est justement le comportement correct si une page de staging
+# fuitait quand même dans un crawl.
+ENV NEXT_PUBLIC_SITE_URL=https://governance.brussels
 RUN npm run build
 
 # ---- runner : image finale minimale, .next/standalone + assets explicites ----

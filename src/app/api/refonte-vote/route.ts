@@ -18,6 +18,7 @@ import { z } from 'zod';
 import { cookies } from 'next/headers';
 import { recordVote, type RefonteVote } from '@/lib/refonte-votes';
 import { addContact } from '@/lib/resend';
+import { rateLimit } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 
@@ -36,6 +37,15 @@ const COOKIE_NAME = 'refonte_voted';
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 90; // 90 jours
 
 export async function POST(req: NextRequest) {
+  // Le cookie ci-dessous est un frein pour l'utilisateur de bonne foi, pas
+  // une vraie protection anti-abus (effaçable, ignoré par un script) — d'où
+  // le rate-limit IP en plus, comme sur les autres routes publiques.
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const { allowed } = rateLimit(ip, { bucket: 'refonte-vote' });
+  if (!allowed) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
   // Re-soumission évidente — refus
   const cookieStore = await cookies();
   if (cookieStore.get(COOKIE_NAME)?.value === '1') {

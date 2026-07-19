@@ -7,23 +7,5 @@
       "gh-pages": false,
       "content/veille-2026-06-25": false
     }
-  },
-  "crons": [
-    {
-      "path": "/api/cron/prepare-digest",
-      "schedule": "0 20 * * 0"
-    },
-    {
-      "path": "/api/cron/digest",
-      "schedule": "0 7 * * 1"
-    },
-    {
-      "path": "/api/cron/chat-digest",
-      "schedule": "0 8 * * *"
-    },
-    {
-      "path": "/api/cron/contacts-healthcheck",
-      "schedule": "30 6 * * *"
-    }
-  ]
+  }
 }

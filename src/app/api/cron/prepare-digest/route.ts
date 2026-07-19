@@ -8,6 +8,7 @@ import { getResend, EMAIL_FROM, listActiveContacts, resendCall } from '@/lib/res
 import { generateDigestApprovalToken, generateUnsubscribeToken } from '@/lib/token';
 import { collectDigestUpdates, generateSummaryLine } from '@/lib/digest-updates';
 import DigestPreviewEmail from '@/emails/digest-preview';
+import { isValidCronAuth } from '@/lib/cron-auth';
 
 interface PendingDigest {
   week: string;
@@ -68,10 +69,7 @@ function formatWeekRange(date: Date, locale: string): string {
  * 4. Sends preview email to admin
  */
 export async function GET(request: Request) {
-  const authHeader = request.headers.get('authorization');
-  const cronSecret = process.env.CRON_SECRET;
-
-  if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
+  if (!isValidCronAuth(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

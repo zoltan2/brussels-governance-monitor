@@ -182,7 +182,7 @@ export default async function LocaleLayout({
       <body className="min-h-screen bg-neutral-50 text-neutral-900 antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">

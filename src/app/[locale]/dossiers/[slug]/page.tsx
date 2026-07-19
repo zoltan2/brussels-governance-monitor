@@ -150,7 +150,7 @@ export default async function DossierDetailPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       <DossierDetail card={card} locale={locale as Locale} isFallback={isFallback} siteUrl={siteUrl} />
     </>

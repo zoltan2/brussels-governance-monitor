@@ -5,6 +5,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { DonateMonthlyButtons } from '@/components/donate-monthly-buttons';
 import { buildMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 
@@ -41,7 +42,6 @@ export async function generateMetadata({
 }
 
 const DONATE_ONCE_URL = 'https://donate.stripe.com/3cI6oG72qdqma76dWe3wQ01';
-const DONATE_MONTHLY_URL = 'https://donate.stripe.com/8x2fZg86ubie932aK23wQ02';
 
 const stripeLocaleMap: Record<string, string> = {
   fr: 'fr',
@@ -55,13 +55,6 @@ function getDonateOnceUrl(locale: string): string {
   return `${DONATE_ONCE_URL}?locale=${stripeLocale}`;
 }
 
-function getDonateMonthlyUrl(locale: string, amountCents?: number): string {
-  const stripeLocale = stripeLocaleMap[locale] || 'fr';
-  const params = new URLSearchParams({ locale: stripeLocale });
-  if (amountCents) params.set('prefilled_amount', String(amountCents));
-  return `${DONATE_MONTHLY_URL}?${params.toString()}`;
-}
-
 export default async function SupportPage({
   params,
 }: {
@@ -71,21 +64,16 @@ export default async function SupportPage({
   setRequestLocale(locale);
 
   return (
-    <SupportView
-      locale={locale}
-      donateOnceUrl={getDonateOnceUrl(locale)}
-      donateMonthlyUrl={(cents?: number) => getDonateMonthlyUrl(locale, cents)}
-    />
+    <SupportView locale={locale} donateOnceUrl={getDonateOnceUrl(locale)} />
   );
 }
 
 function SupportView({
+  locale,
   donateOnceUrl,
-  donateMonthlyUrl,
 }: {
   locale: string;
   donateOnceUrl: string;
-  donateMonthlyUrl: (cents?: number) => string;
 }) {
   const t = useTranslations('support');
   const tb = useTranslations('breadcrumb');
@@ -158,19 +146,7 @@ function SupportView({
           <div className="rounded-lg border border-brand-700/30 bg-brand-900/5 p-5 text-center">
             <h3 className="mb-1 text-sm font-semibold text-neutral-800">{t('monthlyTitle')}</h3>
             <p className="mb-4 text-xs text-neutral-500">{t('monthlySubtitle')}</p>
-            <div className="mb-3 flex justify-center gap-2">
-              {[500, 1000, 2000].map((cents) => (
-                <a
-                  key={cents}
-                  href={donateMonthlyUrl(cents)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-md border border-brand-800 px-4 py-2 text-xs font-medium text-brand-800 transition-colors hover:bg-brand-800 hover:text-neutral-50"
-                >
-                  {cents / 100} €/{t('month')}
-                </a>
-              ))}
-            </div>
+            <DonateMonthlyButtons locale={locale} />
           </div>
         </div>
         <p className="mb-10 text-center text-xs text-neutral-500">

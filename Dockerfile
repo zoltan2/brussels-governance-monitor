@@ -37,6 +37,10 @@ ENV NEXT_PUBLIC_CHATBOT_ENABLED=true
 # canonique est justement le comportement correct si une page de staging
 # fuitait quand même dans un crawl.
 ENV NEXT_PUBLIC_SITE_URL=https://governance.brussels
+# layout.tsx only renders the Umami <script> when this var is truthy at
+# build time — without it here, tracking is silently absent from every
+# statically-generated page (cf. tech_nextjs_public_env_build_time_selfhost).
+ENV NEXT_PUBLIC_UMAMI_WEBSITE_ID=e42598c7-0c04-4c2f-b7c3-e1c5e0b2b6bc
 RUN npm run build
 
 # ---- runner : image finale minimale, .next/standalone + assets explicites ----

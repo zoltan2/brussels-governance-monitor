@@ -7,7 +7,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: regional
-summary: "Im Jahr 2025 wurden in der Region Brüssel-Hauptstadt 2.208 Unternehmen für insolvent erklärt (+13,2 % in einem Jahr). Das Baugewerbe, die Gastronomie und der Transportsektor sind am stärksten betroffen. Die Region verfügt über Begleitmaßnahmen (CEd, hub.brussels, PRJ), doch deren Kapazität angesichts des Ausmaßes des Phänomens bleibt zu dokumentieren."
+summary: "Im Jahr 2025 wurden in der Region Brüssel-Hauptstadt 2.208 Unternehmen für insolvent erklärt (+13,2 % in einem Jahr), und das 1. Halbjahr 2026 markiert einen neuen nationalen Rekord. Das Baugewerbe, die Gastronomie und der Transportsektor sind am stärksten betroffen, veranschaulicht durch die Insolvenzen von Ziegler und der GH-Gruppe (Gérald Hibert). Die Region verfügt über Begleitmaßnahmen (CEd, hub.brussels, PRJ), doch deren Kapazität angesichts des Ausmaßes des Phänomens bleibt zu dokumentieren."
 estimatedBudget: "Non consolidé — budget régional prévention faillites non publié séparément"
 stakeholders:
   - "hub.brussels"
@@ -51,6 +51,18 @@ sources:
   - label: "BRUZZ Stedenbouw — Immobilien-Tycoon Gérald Hibert (GH Group) erhält weiteren Monat (20. April 2026)"
     url: "https://www.bruzz.be/actua/stedenbouw/vastgoedtycoon-gerald-hibert-krijgt-nog-maand-extra-om-faillissement-af-te-wenden-2026-04-20"
     accessedAt: "2026-04-23"
+  - label: "La Libre — Insolvenzen steigen in Belgien, historischer Rekord im ersten Halbjahr 2026 (1. Juli 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/07/01/faillites-en-hausse-en-belgique-un-record-historique-au-premier-semestre-2026-MLYNT5EMJJCHZO5OCIRO2PW7SI/"
+    accessedAt: "2026-07-20"
+  - label: "La Libre — Belgisches Transportunternehmen Ziegler meldet Insolvenz an (1. Juni 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/06/01/le-transporteur-belge-ziegler-fait-aveu-de-faillite-AT7JFSUGPBGQBNHQIWBQO7Z4LM/"
+    accessedAt: "2026-07-20"
+  - label: "La Libre — Die Gruppe Gérald Hibert meldet Insolvenz für 21 ihrer Gesellschaften an (25. Juni 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/06/25/le-groupe-gerald-hibert-fait-aveu-de-faillite-pour-21-de-ses-societes-UYNC5KDRMVG7HHFHLRXNEX6LKQ/"
+    accessedAt: "2026-07-20"
+  - label: "La Libre — Unternehmensgericht Brüssel: Verwalter zieht Insolvenzantrag für letzte Gesellschaft von Gérald Hibert zurück (30. Juni 2026)"
+    url: "https://www.lalibre.be/dernieres-depeches/2026/06/30/tribunal-de-lentreprise-bruxelles-ladministrateur-retire-sa-demande-de-faillite-pour-la-derniere-societe-de-gerald-hibert-3OU7EKQ4RZCVFJQIT4U2OLWHMM/"
+    accessedAt: "2026-07-20"
 metrics:
   - label: "Insolvenzen in der Region Brüssel (2025)"
     value: "2 208"
@@ -91,10 +103,34 @@ metrics:
     source: "BRUZZ Stedenbouw (20. April 2026)"
     url: "https://www.bruzz.be/actua/stedenbouw/vastgoedtycoon-gerald-hibert-krijgt-nog-maand-extra-om-faillissement-af-te-wenden-2026-04-20"
     date: "2026-04-22"
+  - label: "Insolvenzen in Belgien (1. Halbjahr 2026)"
+    value: "6 267"
+    unit: "(+4 %, historischer Rekord)"
+    source: "Graydon, via La Libre (1. Juli 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/07/01/faillites-en-hausse-en-belgique-un-record-historique-au-premier-semestre-2026-MLYNT5EMJJCHZO5OCIRO2PW7SI/"
+    date: "2026-07-01"
+  - label: "Insolvenzen in der Region Brüssel (1. Halbjahr 2026)"
+    value: "~1 092"
+    unit: "(+3,8 %, durch Primärquelle Graydon/Statbel zu bestätigen)"
+    source: "21News, unter Berufung auf Graydon (2. Juli 2026)"
+    url: "https://www.21news.be/nombre-record-de-faillites-au-premier-semestre-deja-6-267-entreprises-ont-mis-la-cle-sous-la-porte-le-transport-en-chute-libre/"
+    date: "2026-07-02"
+  - label: "Bedrohte Arbeitsplätze — Insolvenz Ziegler (Transport, Brüsseler Hauptsitz)"
+    value: "~500"
+    unit: "der belgischen Belegschaft (Mehrheit)"
+    source: "La Libre / VRT NWS (1. Juni 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/06/01/le-transporteur-belge-ziegler-fait-aveu-de-faillite-AT7JFSUGPBGQBNHQIWBQO7Z4LM/"
+    date: "2026-06-01"
 alerts:
   - label: "MwSt.-Erhöhung Hotelgewerbe 6 % → 12 % am 1. März 2026 — Auswirkungen auf die Brüsseler Gastronomie"
     severity: warning
     date: "2026-03-01"
+  - label: "Insolvenz des Transportunternehmens Ziegler, ~500 belgische Arbeitsplätze bedroht"
+    severity: warning
+    date: "2026-06-01"
+  - label: "Historischer Rekord an Insolvenzen in Belgien im 1. Halbjahr 2026"
+    severity: warning
+    date: "2026-07-01"
 confidenceLevel: official
 dprCommitment: "Die Regierungserklärung (DPR) vom 13. Februar 2026 erwähnt die Schaffung einer Urbanen Freihandelszone (Hafen von Brüssel + Standort Audi Forest) mit drei Hebeln: steuerlich, administrativ und personell. hub.brussels wird für die internationalen Wirtschaftsmissionen bestätigt. Insolvenzen, das CEd oder ein spezifisches Programm zur Unterstützung von Unternehmen in Schwierigkeiten werden nicht ausdrücklich erwähnt."
 faq:
@@ -125,7 +161,9 @@ faq:
       - label: "FÖD Wirtschaft, Analyse der KMU-Insolvenzen und Arbeitsplatzverluste"
         url: "https://economie.fgov.be/fr/themes/entreprises/pme-et-independants-en/faillites-et-pertes-demplois/analyse-de-la-repartition-des"
         accessedAt: "2026-06-17"
-lastModified: "2026-04-23"
+lastModified: "2026-07-20"
+changeType: updated
+changeSummary: "Das erste Halbjahr 2026 markiert einen neuen nationalen Insolvenzrekord (6.267 Unternehmen, +4 %), wobei Brüssel von der Presse mit rund 1.092 Insolvenzen (+3,8 %, durch eine Primärquelle zu bestätigen) genannt wird. Der Fall GH Group / Gérald Hibert fand Ende Juni seinen Abschluss: 21 der 22 Gesellschaften der Gruppe erkannten am 25. Juni die Insolvenz an, während die letzte Einheit, Sogefibel, am 30. Juni zu einem gerichtlichen Reorganisationsverfahren wechselte. Am 1. Juni 2026 meldete das Transportunternehmen Ziegler (Neder-Over-Heembeek) Insolvenz an, wodurch die Mehrheit seiner rund 500 belgischen Arbeitsplätze gefährdet ist."
 ---
 
 ## Bestandsaufnahme
@@ -137,6 +175,8 @@ Auf nationaler Ebene wurden 2025 **11.837 Insolvenzen** ausgesprochen, ein Ansti
 Für das Jahr 2024 verzeichnet der FÖD Wirtschaft **11.063 insolvente KMU** in Belgien (Unternehmen mit weniger als 250 Beschäftigten), die den Verlust von **25.784 Arbeitsplätzen** verursachten. Brüssel machte 1.922 dieser Insolvenzen (17,4 %) und 3.843 Arbeitsplatzverluste (14,9 %) aus, mit einem Durchschnitt von 2 verlorenen Arbeitsplätzen pro Insolvenz.
 
 **Methodischer Hinweis**: Das Unternehmensgericht Brüssel spricht mitunter gerichtliche Auflösungen statt Insolvenzen im eigentlichen Sinne aus. Die offiziellen Statistiken von Statbel erfassen nur Insolvenzen, was die tatsächliche Zahl der Geschäftsaufgaben unterschätzen kann. Die Zahlen von GraydonCreditsafe (2 208 Insolvenzen im Jahr 2025) und von Statbel (2 184) weichen aufgrund unterschiedlicher Methodiken geringfügig voneinander ab.
+
+**Erstes Halbjahr 2026: neuer Rekord.** Laut Graydon wurden im ersten Halbjahr 2026 in Belgien **6 267 Unternehmen** für insolvent erklärt, ein Anstieg von **4 %** und ein historischer Rekord. Flandern verzeichnet den größten Teil des Anstiegs (3 684 Insolvenzen, ebenfalls ein Rekord), während die Wallonie leicht zurückging (1 341, -1 %). Für Brüssel nennt die Presse eine Zahl von etwa **1 092 Insolvenzen** (+3,8 %), die vor einer endgültigen Verwendung durch eine Primärveröffentlichung von Graydon oder Statbel zu bestätigen ist.
 
 ## Am stärksten betroffene Branchen
 
@@ -177,7 +217,15 @@ Am **20. April 2026** hat das Brüsseler Unternehmensgericht **GH Group** (Brüs
 
 Das Hibert-Dossier veranschaulicht die Exposition des Brüsseler Immobilienmarkts gegenüber Insolvenzen mittlerer bis großer Größe — ein Segment, das in den konsolidierten Statistiken von Statbel / GraydonCreditsafe schlecht dokumentiert ist, die nach Anzahl der Entitäten zählen, ohne den wirtschaftlichen oder vermögensmäßigen Fußabdruck zu messen.
 
-Quelle: [BRUZZ Stedenbouw, 20. April 2026](https://www.bruzz.be/actua/stedenbouw/vastgoedtycoon-gerald-hibert-krijgt-nog-maand-extra-om-faillissement-af-te-wenden-2026-04-20). Vertrauen: unconfirmed (Presse; Revetas-Beträge zu konsolidieren).
+**Auflösung (25.-30. Juni 2026).** Am **25. Juni 2026** erkannten **21 der 22 Gesellschaften** der GH-Gruppe vor dem Brüsseler Unternehmensgericht die Voraussetzungen für die Insolvenz an. Für die letzte Einheit, **Sogefibel**, zog der vorläufige Verwalter am **30. Juni** den Insolvenzantrag zurück, zugunsten eines Verfahrens der **gerichtlichen Reorganisation (PRJ)**; die Gläubigerbanken (ING, BNP Paribas Fortis, KBC) gaben an, sich das Recht vorzubehalten, erneut die Insolvenz dieser Gesellschaft zu beantragen, sollte die PRJ scheitern.
+
+Quellen: [BRUZZ Stedenbouw, 20. April 2026](https://www.bruzz.be/actua/stedenbouw/vastgoedtycoon-gerald-hibert-krijgt-nog-maand-extra-om-faillissement-af-te-wenden-2026-04-20) ; [La Libre, 25. Juni 2026](https://www.lalibre.be/economie/entreprises-startup/2026/06/25/le-groupe-gerald-hibert-fait-aveu-de-faillite-pour-21-de-ses-societes-UYNC5KDRMVG7HHFHLRXNEX6LKQ/) ; [La Libre, 30. Juni 2026](https://www.lalibre.be/dernieres-depeches/2026/06/30/tribunal-de-lentreprise-bruxelles-ladministrateur-retire-sa-demande-de-faillite-pour-la-derniere-societe-de-gerald-hibert-3OU7EKQ4RZCVFJQIT4U2OLWHMM/) ; [DH, 25. Juni 2026](https://www.dhnet.be/dernieres-depeches/2026/06/25/tribunal-de-lentreprise-bruxelles-aveu-de-faillite-pour-21-societes-du-groupe-gh-et-un-souhait-de-prj-pour-sogefibel-P6EVOL3AONAORBQLGOLJY2LZKU/). Vertrauen: official (Insolvenzanerkennungen vom Gericht bestätigt) ; Revetas-Beträge bleiben unconfirmed (nur Presse).
+
+## Bemerkenswerter Fall: Insolvenz des Transportunternehmens Ziegler (Juni 2026)
+
+Am **1. Juni 2026** meldete das belgische Transportunternehmen **Ziegler** mit Hauptsitz in Neder-Over-Heembeek (Stadt Brüssel) beim französischsprachigen Unternehmensgericht Brüssel Insolvenz an. Die Mehrheit der **~500 belgischen Arbeitsplätze** der Gruppe ist bedroht. Ziegler ist eines der größten belgischen Transport- und Logistikunternehmen mit einer Familiengeschichte, die bis 1908 zurückreicht.
+
+Quellen: [La Libre, 1. Juni 2026](https://www.lalibre.be/economie/entreprises-startup/2026/06/01/le-transporteur-belge-ziegler-fait-aveu-de-faillite-AT7JFSUGPBGQBNHQIWBQO7Z4LM/) ; [VRT NWS, 1. Juni 2026](https://www.vrt.be/vrtnws/en/2026/06/01/transport-firm-ziegler-is-bankrupt-majority-of-500-jobs-in-belg/) ; [L'Avenir, 1. Juni 2026](https://www.lavenir.net/regions/bruxelles/2026/06/01/seisme-dans-leconomie-bruxelloise-le-transporteur-ziegler-a-fait-aveu-de-faillite-6H7B7UFJCRHIJGWJ4WOXGP4QPQ/). Vertrauen: official (Insolvenzanmeldung vom Gericht bestätigt).
 
 ## Regionale Maßnahmen
 

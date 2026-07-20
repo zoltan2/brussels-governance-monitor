@@ -7,7 +7,7 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: regional
-summary: "En 2025, 2 208 entreprises ont été déclarées en faillite en Région bruxelloise (+13,2 % en un an). La construction, l'horeca et le transport sont les secteurs les plus touchés. La Région dispose de dispositifs d'accompagnement (CEd, hub.brussels, PRJ), mais leur capacité face à l'ampleur du phénomène reste à documenter."
+summary: "En 2025, 2 208 entreprises ont été déclarées en faillite en Région bruxelloise (+13,2 % en un an), et le 1er semestre 2026 marque un nouveau record national. La construction, l'horeca et le transport sont les secteurs les plus touchés, illustrés par les faillites de Ziegler et du groupe GH (Gérald Hibert). La Région dispose de dispositifs d'accompagnement (CEd, hub.brussels, PRJ), mais leur capacité face à l'ampleur du phénomène reste à documenter."
 estimatedBudget: "Non consolidé — budget régional prévention faillites non publié séparément"
 stakeholders:
   - "hub.brussels"
@@ -51,6 +51,18 @@ sources:
   - label: "BRUZZ Stedenbouw — Gérald Hibert (GH Group) obtient un sursis d'un mois (20 avril 2026)"
     url: "https://www.bruzz.be/actua/stedenbouw/vastgoedtycoon-gerald-hibert-krijgt-nog-maand-extra-om-faillissement-af-te-wenden-2026-04-20"
     accessedAt: "2026-04-23"
+  - label: "La Libre — Faillites en hausse en Belgique, un record historique au premier semestre 2026 (1er juillet 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/07/01/faillites-en-hausse-en-belgique-un-record-historique-au-premier-semestre-2026-MLYNT5EMJJCHZO5OCIRO2PW7SI/"
+    accessedAt: "2026-07-20"
+  - label: "La Libre — Le transporteur belge Ziegler fait aveu de faillite (1er juin 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/06/01/le-transporteur-belge-ziegler-fait-aveu-de-faillite-AT7JFSUGPBGQBNHQIWBQO7Z4LM/"
+    accessedAt: "2026-07-20"
+  - label: "La Libre — Le groupe Gérald Hibert fait aveu de faillite pour 21 de ses sociétés (25 juin 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/06/25/le-groupe-gerald-hibert-fait-aveu-de-faillite-pour-21-de-ses-societes-UYNC5KDRMVG7HHFHLRXNEX6LKQ/"
+    accessedAt: "2026-07-20"
+  - label: "La Libre — Tribunal de l'entreprise Bruxelles : l'administrateur retire sa demande de faillite pour la dernière société de Gérald Hibert (30 juin 2026)"
+    url: "https://www.lalibre.be/dernieres-depeches/2026/06/30/tribunal-de-lentreprise-bruxelles-ladministrateur-retire-sa-demande-de-faillite-pour-la-derniere-societe-de-gerald-hibert-3OU7EKQ4RZCVFJQIT4U2OLWHMM/"
+    accessedAt: "2026-07-20"
 metrics:
   - label: "Faillites en Région bruxelloise (2025)"
     value: "2 208"
@@ -97,6 +109,24 @@ metrics:
     source: "FeBISP"
     url: "https://bx1.be/categories/news/735-emplois-menaces-a-bruxelles-dans-les-titres-services-les-syndicats-se-rassembleront-devant-le-siege-des-engages-ce-mercredi/"
     date: "2026-05-20"
+  - label: "Faillites en Belgique (1er semestre 2026)"
+    value: "6 267"
+    unit: "(+4 %, record historique)"
+    source: "Graydon, via La Libre (1er juillet 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/07/01/faillites-en-hausse-en-belgique-un-record-historique-au-premier-semestre-2026-MLYNT5EMJJCHZO5OCIRO2PW7SI/"
+    date: "2026-07-01"
+  - label: "Faillites en Région bruxelloise (1er semestre 2026)"
+    value: "~1 092"
+    unit: "(+3,8 %, à confirmer par source primaire Graydon/Statbel)"
+    source: "21News, citant Graydon (2 juillet 2026)"
+    url: "https://www.21news.be/nombre-record-de-faillites-au-premier-semestre-deja-6-267-entreprises-ont-mis-la-cle-sous-la-porte-le-transport-en-chute-libre/"
+    date: "2026-07-02"
+  - label: "Emplois menacés — faillite Ziegler (transport, siège bruxellois)"
+    value: "~500"
+    unit: "sur les effectifs belges (majorité)"
+    source: "La Libre / VRT NWS (1er juin 2026)"
+    url: "https://www.lalibre.be/economie/entreprises-startup/2026/06/01/le-transporteur-belge-ziegler-fait-aveu-de-faillite-AT7JFSUGPBGQBNHQIWBQO7Z4LM/"
+    date: "2026-06-01"
 alerts:
   - label: "Hausse TVA hôtellerie 6 % → 12 % au 1er mars 2026 — impact sur l'horeca bruxellois"
     severity: warning
@@ -104,6 +134,12 @@ alerts:
   - label: "4 entreprises sociales d'insertion titres-services au bord de la faillite (mai 2026)"
     severity: warning
     date: "2026-05-20"
+  - label: "Faillite du transporteur Ziegler, ~500 emplois belges menacés"
+    severity: warning
+    date: "2026-06-01"
+  - label: "Record historique de faillites en Belgique au 1er semestre 2026"
+    severity: warning
+    date: "2026-07-01"
 confidenceLevel: official
 dprCommitment: "La DPR du 13 février 2026 mentionne la création d'une Zone Franche Urbaine (Port de Bruxelles + site Audi Forest), avec trois leviers : fiscal, administratif et humain. hub.brussels est confirmé pour les missions économiques internationales. Pas de mention explicite des faillites, du CEd, ni de programme spécifique de soutien aux entreprises en difficulté."
 faq:
@@ -134,7 +170,9 @@ faq:
       - label: "SPF Économie, analyse faillites et pertes d'emplois des PME"
         url: "https://economie.fgov.be/fr/themes/entreprises/pme-et-independants-en/faillites-et-pertes-demplois/analyse-de-la-repartition-des"
         accessedAt: "2026-06-17"
-lastModified: "2026-05-20"
+lastModified: "2026-07-20"
+changeType: updated
+changeSummary: "Le premier semestre 2026 marque un nouveau record national de faillites (6 267 entreprises, +4 %), Bruxelles étant citée par la presse à environ 1 092 faillites (+3,8 %, à confirmer par source primaire). Le dossier GH Group / Gérald Hibert s'est dénoué fin juin : 21 des 22 sociétés du groupe ont reconnu la faillite le 25 juin, tandis que la dernière entité, Sogefibel, a basculé le 30 juin vers une procédure de réorganisation judiciaire. Le 1er juin 2026, le transporteur Ziegler (Neder-Over-Heembeek) a fait aveu de faillite, mettant en danger la majorité de ses ~500 emplois belges."
 ---
 
 ## État des lieux
@@ -146,6 +184,8 @@ Au niveau national, **11 837 faillites** ont été prononcées en 2025, en hauss
 Pour l'année 2024, le SPF Économie recense **11 063 PME** en faillite en Belgique (entreprises de moins de 250 salariés), entraînant la perte de **25 784 emplois**. Bruxelles représentait 1 922 de ces faillites (17,4 %) et 3 843 pertes d'emploi (14,9 %), avec une moyenne de 2 emplois perdus par faillite.
 
 **Point méthodologique** : le tribunal de l'entreprise de Bruxelles prononce parfois des dissolutions judiciaires plutôt que des faillites stricto sensu. Les statistiques officielles de Statbel ne comptabilisent que les faillites, ce qui peut sous-estimer le nombre réel de cessations d'activité. Les chiffres de GraydonCreditsafe (2 208 faillites en 2025) et de Statbel (2 184) diffèrent légèrement en raison de méthodologies distinctes.
+
+**Premier semestre 2026 : nouveau record.** Selon Graydon, **6 267 entreprises** ont été déclarées en faillite en Belgique au premier semestre 2026, soit une hausse de **4 %** et un record historique. La Flandre concentre l'essentiel de la hausse (3 684 faillites, également un record), tandis que la Wallonie recule légèrement (1 341, -1 %). Pour Bruxelles, la presse cite un chiffre d'environ **1 092 faillites** (+3,8 %), à confirmer par une publication Graydon ou Statbel primaire avant de le considérer comme définitif.
 
 ## Secteurs les plus touchés
 
@@ -186,7 +226,15 @@ Le **20 avril 2026**, le tribunal de l'entreprise de Bruxelles a accordé à **G
 
 Le dossier Hibert illustre l'exposition du marché immobilier bruxellois aux faillites de tailles intermédiaires-majeures — un segment peu documenté dans les statistiques consolidées de Statbel / GraydonCreditsafe, qui comptent en nombre d'entités sans mesurer l'empreinte économique ou patrimoniale.
 
-Source : [BRUZZ Stedenbouw, 20 avril 2026](https://www.bruzz.be/actua/stedenbouw/vastgoedtycoon-gerald-hibert-krijgt-nog-maand-extra-om-faillissement-af-te-wenden-2026-04-20). Confiance : unconfirmed (presse ; montants Revetas à consolider).
+**Dénouement (25-30 juin 2026).** Le **25 juin 2026**, **21 des 22 sociétés** du groupe GH ont reconnu devant le tribunal de l'entreprise de Bruxelles les conditions de la faillite. Pour la dernière entité, **Sogefibel**, l'administrateur provisoire a retiré le **30 juin** sa demande de faillite au profit d'une procédure de **réorganisation judiciaire (PRJ)** ; les banques créancières (ING, BNP Paribas Fortis, KBC) ont indiqué se réserver le droit de redemander la faillite de cette société si la PRJ n'aboutit pas.
+
+Sources : [BRUZZ Stedenbouw, 20 avril 2026](https://www.bruzz.be/actua/stedenbouw/vastgoedtycoon-gerald-hibert-krijgt-nog-maand-extra-om-faillissement-af-te-wenden-2026-04-20) ; [La Libre, 25 juin 2026](https://www.lalibre.be/economie/entreprises-startup/2026/06/25/le-groupe-gerald-hibert-fait-aveu-de-faillite-pour-21-de-ses-societes-UYNC5KDRMVG7HHFHLRXNEX6LKQ/) ; [La Libre, 30 juin 2026](https://www.lalibre.be/dernieres-depeches/2026/06/30/tribunal-de-lentreprise-bruxelles-ladministrateur-retire-sa-demande-de-faillite-pour-la-derniere-societe-de-gerald-hibert-3OU7EKQ4RZCVFJQIT4U2OLWHMM/) ; [DH, 25 juin 2026](https://www.dhnet.be/dernieres-depeches/2026/06/25/tribunal-de-lentreprise-bruxelles-aveu-de-faillite-pour-21-societes-du-groupe-gh-et-un-souhait-de-prj-pour-sogefibel-P6EVOL3AONAORBQLGOLJY2LZKU/). Confiance : official (aveux de faillite actés par le tribunal) ; montants Revetas restent unconfirmed (presse uniquement).
+
+## Cas notable : faillite du transporteur Ziegler (juin 2026)
+
+Le **1er juin 2026**, le transporteur belge **Ziegler**, dont le siège se situe à Neder-Over-Heembeek (Ville de Bruxelles), a fait aveu de faillite devant le tribunal de l'entreprise francophone de Bruxelles. La majorité des **~500 emplois belges** du groupe sont menacés. Ziegler est l'un des plus importants transporteurs belges de fret et de logistique, avec une histoire familiale remontant à 1908.
+
+Source : [La Libre, 1er juin 2026](https://www.lalibre.be/economie/entreprises-startup/2026/06/01/le-transporteur-belge-ziegler-fait-aveu-de-faillite-AT7JFSUGPBGQBNHQIWBQO7Z4LM/) ; [VRT NWS, 1er juin 2026](https://www.vrt.be/vrtnws/en/2026/06/01/transport-firm-ziegler-is-bankrupt-majority-of-500-jobs-in-belg/) ; [L'Avenir, 1er juin 2026](https://www.lavenir.net/regions/bruxelles/2026/06/01/seisme-dans-leconomie-bruxelloise-le-transporteur-ziegler-a-fait-aveu-de-faillite-6H7B7UFJCRHIJGWJ4WOXGP4QPQ/). Confiance : official (aveu de faillite acté par le tribunal).
 
 ## Dispositifs régionaux
 

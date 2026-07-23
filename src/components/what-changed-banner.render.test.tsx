@@ -21,6 +21,7 @@ const LABELS = {
   updated: 'Mis à jour',
   readMore: 'Lire ce qui a changé',
   readLess: 'Réduire',
+  viewHistory: "Voir l'historique",
   types: { 'status-change': 'Changement de statut', updated: 'Mis à jour' },
 };
 const NOW = new Date('2026-06-27T10:00:00Z');
@@ -84,5 +85,41 @@ describe('WhatChangedBanner', () => {
       <WhatChangedBanner changeSummary={long} changeSummaryDate="2026-06-25" labels={LABELS} now={NOW} />,
     );
     expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('renders no history link when historyHref is not provided', () => {
+    const { container } = render(
+      <WhatChangedBanner changeSummary="Court." changeSummaryDate="2026-06-25" labels={LABELS} now={NOW} />,
+    );
+    expect(container.querySelector('a')).toBeNull();
+  });
+
+  it('renders a history link with the given href when historyHref is provided', () => {
+    const { container, getByText } = render(
+      <WhatChangedBanner
+        changeSummary="Court."
+        changeSummaryDate="2026-06-25"
+        historyHref="/fr/changelog?slug=security&section=domains"
+        labels={LABELS}
+        now={NOW}
+      />,
+    );
+    const link = container.querySelector('a');
+    expect(link).toBeTruthy();
+    expect(link?.getAttribute('href')).toBe('/fr/changelog?slug=security&section=domains');
+    expect(getByText(/Voir l'historique/)).toBeTruthy();
+  });
+
+  it('renders no history link when the whole banner is gated out (old date), even with historyHref set', () => {
+    const { container } = render(
+      <WhatChangedBanner
+        changeSummary="Vieux."
+        changeSummaryDate="2026-05-18"
+        historyHref="/fr/changelog?slug=security&section=domains"
+        labels={LABELS}
+        now={NOW}
+      />,
+    );
+    expect(container.firstChild).toBeNull();
   });
 });

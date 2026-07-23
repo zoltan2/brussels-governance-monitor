@@ -153,6 +153,7 @@ function SectorDetail({
             updated: tw('updated'),
             readMore: tw('readMore'),
             readLess: tw('readLess'),
+            viewHistory: tw('viewHistory'),
             types: {
               new: tw('types.new'),
               updated: tw('types.updated'),

@@ -3,10 +3,6 @@
   "framework": "nextjs",
   "regions": ["cdg1"],
   "git": {
-    "deploymentEnabled": {
-      "main": false,
-      "gh-pages": false,
-      "content/veille-2026-06-25": false
-    }
+    "deploymentEnabled": false
   }
 }

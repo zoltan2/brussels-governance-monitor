@@ -52,6 +52,10 @@ coverage/
 # Claude Code
 .claude/
 CLAUDE.md
+AGENT.md
+memory/
+context/
+journal/
 .superpowers/
 
 # Ghostcrab MCP (local SQLite memory — never commit)

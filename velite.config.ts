@@ -212,6 +212,9 @@ const solutionCards = defineCollection({
       summaryFalc: s.string().max(200).optional(),
       draft: s.boolean().default(false),
       lastModified: s.isodate(),
+      changeType: s.enum(['added', 'updated', 'corrected', 'removed']).optional(),
+      changeSummary: s.string().optional(),
+      changeSummaryDate: s.isodate().optional(),
       content: s.mdx(),
     })
     .transform((data) => ({
@@ -423,6 +426,7 @@ const sectorCards = defineCollection({
         )
         .default([]),
       humanImpact: s.string().optional(),
+      changeType: s.enum(['added', 'updated', 'corrected', 'removed']).optional(),
       changeSummary: s.string().optional(),
       changeSummaryDate: s.isodate().optional(),
       digestHeadline: s.string().max(120).optional(),
@@ -575,6 +579,7 @@ const dossierCards = defineCollection({
           }),
         )
         .default([]),
+      changeType: s.enum(['added', 'updated', 'corrected', 'removed']).optional(),
       changeSummary: s.string().optional(),
       changeSummaryDate: s.isodate().optional(),
       digestHeadline: s.string().max(120).optional(),
@@ -673,6 +678,9 @@ const comparisonCards = defineCollection({
       caveat: s.string().optional(),
       draft: s.boolean().default(false),
       lastModified: s.isodate(),
+      changeType: s.enum(['added', 'updated', 'corrected', 'removed']).optional(),
+      changeSummary: s.string().optional(),
+      changeSummaryDate: s.isodate().optional(),
       content: s.mdx(),
     })
     .transform((data) => ({

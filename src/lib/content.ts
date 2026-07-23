@@ -48,6 +48,9 @@ export interface SolutionCard {
   summaryFalc?: string;
   draft: boolean;
   lastModified: string;
+  changeType?: string;
+  changeSummary?: string;
+  changeSummaryDate?: string;
   content: string;
   permalink: string;
 }
@@ -139,6 +142,7 @@ export interface SectorCard {
   }>;
   stakeholders: Array<{ name: string; type: string; url?: string }>;
   humanImpact?: string;
+  changeType?: string;
   changeSummary?: string;
   changeSummaryDate?: string;
   digestHeadline?: string;
@@ -161,6 +165,9 @@ export interface ComparisonCard {
   caveat?: string;
   draft: boolean;
   lastModified: string;
+  changeType?: string;
+  changeSummary?: string;
+  changeSummaryDate?: string;
   content: string;
   permalink: string;
 }
@@ -219,6 +226,7 @@ export interface DossierCard {
     a: string;
     sources: Array<{ label: string; url: string; accessedAt: string }>;
   }>;
+  changeType?: string;
   changeSummary?: string;
   changeSummaryDate?: string;
   digestHeadline?: string;

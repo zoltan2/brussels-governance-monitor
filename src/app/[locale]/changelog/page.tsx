@@ -5,7 +5,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { Breadcrumb } from '@/components/breadcrumb';
-import { getChangelog } from '@/lib/changelog';
+import { Link } from '@/i18n/navigation';
+import { getChangelog, isFilterableSection, resolveCardTitle } from '@/lib/changelog';
 import { formatDate } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
 import type { Locale } from '@/i18n/routing';
@@ -47,15 +48,35 @@ export async function generateMetadata({
 
 export default async function ChangelogPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ slug?: string; section?: string }>;
 }) {
   const { locale } = await params;
+  const { slug, section } = await searchParams;
   setRequestLocale(locale);
 
   const entries = getChangelog(locale as Locale);
 
-  return <ChangelogView entries={entries} locale={locale} />;
+  let filtered = false;
+  let filteredEntries = entries;
+  let filteredTitle: string | null = null;
+
+  if (isFilterableSection(section) && slug) {
+    filtered = true;
+    filteredEntries = entries.filter((e) => e.targetSlug === slug && e.section === section);
+    filteredTitle = resolveCardTitle(section, slug, locale as Locale);
+  }
+
+  return (
+    <ChangelogView
+      entries={filteredEntries}
+      locale={locale}
+      filtered={filtered}
+      filteredTitle={filteredTitle}
+    />
+  );
 }
 
 const typeBadgeClasses: Record<ChangelogEntry['type'], string> = {
@@ -65,7 +86,17 @@ const typeBadgeClasses: Record<ChangelogEntry['type'], string> = {
   removed: 'bg-neutral-200 text-neutral-600',
 };
 
-function ChangelogView({ entries, locale }: { entries: ChangelogEntry[]; locale: string }) {
+function ChangelogView({
+  entries,
+  locale,
+  filtered,
+  filteredTitle,
+}: {
+  entries: ChangelogEntry[];
+  locale: string;
+  filtered: boolean;
+  filteredTitle: string | null;
+}) {
   const t = useTranslations('changelog');
   const tb = useTranslations('breadcrumb');
 
@@ -80,41 +111,54 @@ function ChangelogView({ entries, locale }: { entries: ChangelogEntry[]; locale:
         <h1 className="mb-2 text-2xl font-bold text-neutral-900">{t('pageTitle')}</h1>
         <p className="mb-8 text-sm text-neutral-500">{t('pageSubtitle')}</p>
 
+        {filtered && (
+          <div className="mb-6 flex flex-wrap items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 p-3 text-sm text-neutral-700">
+            <span>{t('filteredFor', { title: filteredTitle || t('genericCard') })}</span>
+            <Link href="/changelog" className="font-medium text-brand-700 hover:underline">
+              {t('viewAll')}
+            </Link>
+          </div>
+        )}
+
         <SupportCtaChangelog />
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
-            <caption className="sr-only">{t('pageTitle')}</caption>
-            <thead>
-              <tr className="border-b border-neutral-200 text-neutral-500">
-                <th scope="col" className="pb-2 pr-4 font-medium">{t('date')}</th>
-                <th scope="col" className="pb-2 pr-4 font-medium">{t('type')}</th>
-                <th scope="col" className="pb-2 pr-4 font-medium">{t('section')}</th>
-                <th scope="col" className="pb-2 font-medium">{t('description')}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {entries.map((entry, i) => (
-                <tr key={i}>
-                  <td className="py-2.5 pr-4 align-top whitespace-nowrap text-neutral-500">
-                    <time dateTime={entry.date}>{formatDate(entry.date, locale)}</time>
-                  </td>
-                  <td className="py-2.5 pr-4 align-top">
-                    <span
-                      className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-medium ${typeBadgeClasses[entry.type]}`}
-                    >
-                      {t(`types.${entry.type}`)}
-                    </span>
-                  </td>
-                  <td className="py-2.5 pr-4 align-top whitespace-nowrap text-neutral-500">
-                    {t(`sections.${entry.section}`)}
-                  </td>
-                  <td className="py-2.5 align-top text-neutral-700">{entry.description}</td>
+        {filtered && entries.length === 0 ? (
+          <p className="text-sm text-neutral-500">{t('noEntriesForCard')}</p>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs">
+              <caption className="sr-only">{t('pageTitle')}</caption>
+              <thead>
+                <tr className="border-b border-neutral-200 text-neutral-500">
+                  <th scope="col" className="pb-2 pr-4 font-medium">{t('date')}</th>
+                  <th scope="col" className="pb-2 pr-4 font-medium">{t('type')}</th>
+                  <th scope="col" className="pb-2 pr-4 font-medium">{t('section')}</th>
+                  <th scope="col" className="pb-2 font-medium">{t('description')}</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {entries.map((entry, i) => (
+                  <tr key={i}>
+                    <td className="py-2.5 pr-4 align-top whitespace-nowrap text-neutral-500">
+                      <time dateTime={entry.date}>{formatDate(entry.date, locale)}</time>
+                    </td>
+                    <td className="py-2.5 pr-4 align-top">
+                      <span
+                        className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-medium ${typeBadgeClasses[entry.type]}`}
+                      >
+                        {t(`types.${entry.type}`)}
+                      </span>
+                    </td>
+                    <td className="py-2.5 pr-4 align-top whitespace-nowrap text-neutral-500">
+                      {t(`sections.${entry.section}`)}
+                    </td>
+                    <td className="py-2.5 align-top text-neutral-700">{entry.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </section>
   );

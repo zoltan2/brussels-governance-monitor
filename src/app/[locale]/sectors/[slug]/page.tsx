@@ -149,6 +149,8 @@ function SectorDetail({
         <WhatChangedBanner
           changeSummary={card.changeSummary}
           changeSummaryDate={card.changeSummaryDate}
+          changeType={card.changeType}
+          historyHref={`/${locale}/changelog?slug=${card.slug}&section=sectors`}
           labels={{
             updated: tw('updated'),
             readMore: tw('readMore'),

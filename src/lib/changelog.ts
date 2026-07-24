@@ -11,6 +11,7 @@ import {
   getSolutionCard,
   getComparisonCard,
 } from '@/lib/content';
+import type { FilterableSection } from './filterable-sections';
 import changelogData from '../../data/changelog.json';
 
 const changelogEntrySchema = z.object({
@@ -107,20 +108,11 @@ export function getLatestUpdate(locale: Locale): LatestUpdate {
   return { ...entry, href };
 }
 
-export const FILTERABLE_SECTIONS = [
-  'domains',
-  'sectors',
-  'communes',
-  'dossiers',
-  'solutions',
-  'comparisons',
-] as const;
-
-export type FilterableSection = (typeof FILTERABLE_SECTIONS)[number];
-
-export function isFilterableSection(value: string | undefined): value is FilterableSection {
-  return !!value && (FILTERABLE_SECTIONS as readonly string[]).includes(value);
-}
+export {
+  FILTERABLE_SECTIONS,
+  isFilterableSection,
+  type FilterableSection,
+} from './filterable-sections';
 
 /**
  * Resolve a card's title for the filtered changelog view. Returns null if the

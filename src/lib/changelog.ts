@@ -3,6 +3,15 @@
 
 import { z } from 'zod';
 import type { Locale } from '@/i18n/routing';
+import {
+  getDomainCard,
+  getSectorCard,
+  getCommuneCard,
+  getDossierCard,
+  getSolutionCard,
+  getComparisonCard,
+} from '@/lib/content';
+import type { FilterableSection } from './filterable-sections';
 import changelogData from '../../data/changelog.json';
 
 const changelogEntrySchema = z.object({
@@ -97,4 +106,40 @@ export function getLatestUpdate(locale: Locale): LatestUpdate {
   const base = SECTION_ROUTES[entry.section];
   const href = base && entry.targetSlug ? `${base}/${entry.targetSlug}` : null;
   return { ...entry, href };
+}
+
+export {
+  FILTERABLE_SECTIONS,
+  isFilterableSection,
+  type FilterableSection,
+} from './filterable-sections';
+
+/**
+ * Resolve a card's title for the filtered changelog view. Returns null if the
+ * slug doesn't exist in the given section's collection (renamed/removed card).
+ * Deliberately independent from changelog entry filtering: a card removed
+ * from its collection (entries with `type: 'removed'`) can have legitimate
+ * historical entries with no matching Velite card — callers must keep
+ * showing those entries and fall back to a generic title, not hide the
+ * entries because the card is gone.
+ */
+export function resolveCardTitle(
+  section: FilterableSection,
+  slug: string,
+  locale: Locale,
+): string | null {
+  switch (section) {
+    case 'domains':
+      return getDomainCard(slug, locale)?.card.title ?? null;
+    case 'sectors':
+      return getSectorCard(slug, locale)?.card.title ?? null;
+    case 'communes':
+      return getCommuneCard(slug, locale)?.card.title ?? null;
+    case 'dossiers':
+      return getDossierCard(slug, locale)?.card.title ?? null;
+    case 'solutions':
+      return getSolutionCard(slug, locale)?.card.title ?? null;
+    case 'comparisons':
+      return getComparisonCard(slug, locale)?.card.title ?? null;
+  }
 }

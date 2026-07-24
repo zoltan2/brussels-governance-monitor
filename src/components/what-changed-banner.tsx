@@ -7,6 +7,7 @@ interface WhatChangedBannerLabels {
   updated: string;
   readMore: string;
   readLess: string;
+  viewHistory: string;
   types: Record<string, string>;
 }
 
@@ -14,6 +15,8 @@ interface WhatChangedBannerProps {
   changeSummary?: string;
   changeSummaryDate?: string;
   changeType?: string;
+  /** Already locale-prefixed by the caller, e.g. `/fr/changelog?slug=x&section=domains`. */
+  historyHref?: string;
   labels: WhatChangedBannerLabels;
   /** Test seam; production callers omit it. */
   now?: Date;
@@ -23,6 +26,7 @@ export function WhatChangedBanner({
   changeSummary,
   changeSummaryDate,
   changeType,
+  historyHref,
   labels,
   now,
 }: WhatChangedBannerProps) {
@@ -58,6 +62,14 @@ export function WhatChangedBanner({
         </details>
       ) : (
         <p className="text-sm leading-relaxed text-neutral-900">{summary}</p>
+      )}
+      {historyHref && (
+        <a
+          href={historyHref}
+          className="mt-2 inline-block text-xs font-semibold text-status-delayed hover:underline"
+        >
+          {labels.viewHistory} →
+        </a>
       )}
     </aside>
   );

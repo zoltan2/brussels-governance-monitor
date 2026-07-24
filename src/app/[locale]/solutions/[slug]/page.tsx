@@ -17,6 +17,7 @@ import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FalcSummary } from '@/components/falc-summary';
 import { FreshnessBadge } from '@/components/freshness-badge';
+import { WhatChangedBanner } from '@/components/what-changed-banner';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { Breadcrumb } from '@/components/breadcrumb';
 
@@ -113,6 +114,7 @@ function SolutionDetail({
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
   const tSub = useTranslations('cardSubscribe');
+  const tw = useTranslations('whatChanged');
 
   return (
     <article className="py-12">
@@ -160,6 +162,28 @@ function SolutionDetail({
             labels={{ cite: tShare('cite'), standard: tShare('standard'), academic: tShare('academic'), copy: tShare('copy'), copied: tShare('citationCopied'), exportBibtex: tShare('exportBibtex'), close: tShare('close') }}
           />
         </div>
+
+        <WhatChangedBanner
+          changeSummary={card.changeSummary}
+          changeSummaryDate={card.changeSummaryDate}
+          changeType={card.changeType}
+          historyHref={`/${locale}/changelog?slug=${card.slug}&section=solutions`}
+          labels={{
+            updated: tw('updated'),
+            readMore: tw('readMore'),
+            readLess: tw('readLess'),
+            viewHistory: tw('viewHistory'),
+            types: {
+              new: tw('types.new'),
+              updated: tw('types.updated'),
+              'status-change': tw('types.status-change'),
+              'data-refresh': tw('types.data-refresh'),
+              added: tw('types.added'),
+              corrected: tw('types.corrected'),
+              removed: tw('types.removed'),
+            },
+          }}
+        />
 
         <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
           <div className="rounded-lg bg-neutral-50 p-4">

@@ -9,6 +9,7 @@
     "updated": "Mis à jour",
     "readMore": "Lire ce qui a changé",
     "readLess": "Réduire",
+    "viewHistory": "Voir l'historique",
     "types": {
       "new": "Nouveau",
       "updated": "Mis à jour",
@@ -1744,6 +1745,9 @@
   "changelog": {
     "title": "Dernières mises à jour",
     "viewAll": "Voir tout l'historique",
+    "filteredFor": "Historique de {title}",
+    "noEntriesForCard": "Aucune modification enregistrée pour cette fiche pour l'instant.",
+    "genericCard": "cette fiche",
     "pageTitle": "Historique des modifications",
     "pageSubtitle": "Toutes les mises à jour du contenu du site.",
     "date": "Date",

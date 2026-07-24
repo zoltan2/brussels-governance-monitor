@@ -1,11 +1,14 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
+import { Suspense } from 'react';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { Breadcrumb } from '@/components/breadcrumb';
-import { getChangelog } from '@/lib/changelog';
+import { getChangelog, resolveCardTitle } from '@/lib/changelog';
+import { isFilterableSection } from '@/lib/filterable-sections';
+import { ChangelogFilterClient } from '@/components/changelog-filter-client';
 import { formatDate } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
 import type { Locale } from '@/i18n/routing';
@@ -45,6 +48,11 @@ export async function generateMetadata({
   });
 }
 
+interface Row {
+  entry: ChangelogEntry;
+  resolvedTitle: string | null;
+}
+
 export default async function ChangelogPage({
   params,
 }: {
@@ -54,8 +62,15 @@ export default async function ChangelogPage({
   setRequestLocale(locale);
 
   const entries = getChangelog(locale as Locale);
+  const rows: Row[] = entries.map((entry) => ({
+    entry,
+    resolvedTitle:
+      isFilterableSection(entry.section) && entry.targetSlug
+        ? resolveCardTitle(entry.section, entry.targetSlug, locale as Locale)
+        : null,
+  }));
 
-  return <ChangelogView entries={entries} locale={locale} />;
+  return <ChangelogView rows={rows} locale={locale} />;
 }
 
 const typeBadgeClasses: Record<ChangelogEntry['type'], string> = {
@@ -65,7 +80,7 @@ const typeBadgeClasses: Record<ChangelogEntry['type'], string> = {
   removed: 'bg-neutral-200 text-neutral-600',
 };
 
-function ChangelogView({ entries, locale }: { entries: ChangelogEntry[]; locale: string }) {
+function ChangelogView({ rows, locale }: { rows: Row[]; locale: string }) {
   const t = useTranslations('changelog');
   const tb = useTranslations('breadcrumb');
 
@@ -79,6 +94,10 @@ function ChangelogView({ entries, locale }: { entries: ChangelogEntry[]; locale:
 
         <h1 className="mb-2 text-2xl font-bold text-neutral-900">{t('pageTitle')}</h1>
         <p className="mb-8 text-sm text-neutral-500">{t('pageSubtitle')}</p>
+
+        <Suspense fallback={null}>
+          <ChangelogFilterClient />
+        </Suspense>
 
         <SupportCtaChangelog />
 
@@ -94,8 +113,14 @@ function ChangelogView({ entries, locale }: { entries: ChangelogEntry[]; locale:
               </tr>
             </thead>
             <tbody className="divide-y divide-neutral-100">
-              {entries.map((entry, i) => (
-                <tr key={i}>
+              {rows.map(({ entry, resolvedTitle }, i) => (
+                <tr
+                  key={i}
+                  data-changelog-row
+                  data-target-slug={entry.targetSlug ?? ''}
+                  data-section={entry.section}
+                  data-title={resolvedTitle ?? ''}
+                >
                   <td className="py-2.5 pr-4 align-top whitespace-nowrap text-neutral-500">
                     <time dateTime={entry.date}>{formatDate(entry.date, locale)}</time>
                   </td>

@@ -220,10 +220,12 @@ function DomainDetail({
           changeSummary={card.changeSummary}
           changeSummaryDate={card.changeSummaryDate}
           changeType={card.changeType}
+          historyHref={`/${locale}/changelog?slug=${card.slug}&section=domains`}
           labels={{
             updated: tw('updated'),
             readMore: tw('readMore'),
             readLess: tw('readLess'),
+            viewHistory: tw('viewHistory'),
             types: {
               new: tw('types.new'),
               updated: tw('types.updated'),

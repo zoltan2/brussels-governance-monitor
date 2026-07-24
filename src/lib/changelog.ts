@@ -117,10 +117,11 @@ export {
 /**
  * Resolve a card's title for the filtered changelog view. Returns null if the
  * slug doesn't exist in the given section's collection (renamed/removed card).
- * Deliberately independent from changelog entry filtering: a removed card
- * (`changeType: 'removed'`) can have legitimate historical entries with no
- * matching Velite card — callers must keep showing those entries and fall
- * back to a generic title, not hide the entries because the card is gone.
+ * Deliberately independent from changelog entry filtering: a card removed
+ * from its collection (entries with `type: 'removed'`) can have legitimate
+ * historical entries with no matching Velite card — callers must keep
+ * showing those entries and fall back to a generic title, not hide the
+ * entries because the card is gone.
  */
 export function resolveCardTitle(
   section: FilterableSection,

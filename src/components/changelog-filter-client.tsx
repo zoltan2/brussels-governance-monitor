@@ -55,10 +55,23 @@ export function ChangelogFilterClient() {
 
   if (!filter) return null;
 
+  // Belt-and-braces reset: this page is fully static (no `searchParams` read
+  // server-side), and navigating from a filtered URL to the same static
+  // route with the query string removed doesn't reliably re-run the effect
+  // above (the router has nothing new to render, so `useSearchParams()`
+  // subscribers aren't guaranteed to re-fire). Clearing the filter directly
+  // on click makes "view all" correct regardless of that router behavior.
+  const clearFilter = () => {
+    document.querySelectorAll<HTMLTableRowElement>('[data-changelog-row]').forEach((row) => {
+      row.hidden = false;
+    });
+    setFilter(null);
+  };
+
   return (
     <div className="mb-6 flex flex-wrap items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 p-3 text-sm text-neutral-700">
       <span>{t('filteredFor', { title: filter.title })}</span>
-      <Link href="/changelog" className="font-medium text-brand-700 hover:underline">
+      <Link href="/changelog" onClick={clearFilter} className="font-medium text-brand-700 hover:underline">
         {t('viewAll')}
       </Link>
       {filter.matchCount === 0 && (

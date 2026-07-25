@@ -91,7 +91,140 @@ function addLocalizedEntries(
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
+  // Real "last substantive update" signal for the homepage: the most recent
+  // lastModified across all content, not a fake "now" (wastes crawl budget)
+  // nor a permanently frozen launch date (homepage content actually changes).
+  let latestContentUpdate = SITE_LAUNCH;
+  function trackDate(date: Date) {
+    if (date > latestContentUpdate) latestContentUpdate = date;
+  }
+
+  // ── Domains ───────────────────────────────────────────────────
+  for (const slug of getAllDomainSlugs()) {
+    const result = getDomainCard(slug, 'fr' as Locale);
+    const lastModified = contentDate(result?.card.lastModified);
+    trackDate(lastModified);
+    addLocalizedEntries(
+      entries,
+      { pathname: '/domains/[slug]', params: { slug } },
+      { changeFrequency: 'weekly', priority: 0.8 },
+      lastModified
+    );
+  }
+
+  // ── Sectors ───────────────────────────────────────────────────
+  for (const slug of getAllSectorSlugs()) {
+    const result = getSectorCard(slug, 'fr' as Locale);
+    const lastModified = contentDate(result?.card.lastModified);
+    trackDate(lastModified);
+    addLocalizedEntries(
+      entries,
+      { pathname: '/sectors/[slug]', params: { slug } },
+      { changeFrequency: 'weekly', priority: 0.7 },
+      lastModified
+    );
+  }
+
+  // ── Comparisons ───────────────────────────────────────────────
+  for (const slug of getAllComparisonSlugs()) {
+    const result = getComparisonCard(slug, 'fr' as Locale);
+    const lastModified = contentDate(result?.card.lastModified);
+    trackDate(lastModified);
+    addLocalizedEntries(
+      entries,
+      { pathname: '/comparisons/[slug]', params: { slug } },
+      { changeFrequency: 'weekly', priority: 0.7 },
+      lastModified
+    );
+  }
+
+  // ── Communes ──────────────────────────────────────────────────
+  for (const slug of getAllCommuneSlugs()) {
+    const result = getCommuneCard(slug, 'fr' as Locale);
+    const lastModified = contentDate(result?.card.lastModified);
+    trackDate(lastModified);
+    addLocalizedEntries(
+      entries,
+      { pathname: '/communes/[slug]', params: { slug } },
+      { changeFrequency: 'weekly', priority: 0.7 },
+      lastModified
+    );
+  }
+
+  // ── Dossiers ──────────────────────────────────────────────────
+  // NOTE: Routes /dossiers/[slug]/scrolly (vue immersive, allowlist CPAS) sont
+  // intentionnellement exclues du sitemap. Elles portent un canonical → page
+  // structurée et un meta robots noindex (spec D §7.1).
+  // Spec slugs localisés (2026-05-03) §3.6 : émet une entrée par locale avec
+  // le slug localisé natif (ou fallback canonique), avec alternates languages
+  // qui pointent vers les slugs localisés de chaque langue.
+  for (const canonicalSlug of getAllDossierSlugs()) {
+    const result = getDossierCard(canonicalSlug, 'fr' as Locale);
+    if (!result) continue;
+    const { card } = result;
+    const lastModified = contentDate(card.lastModified);
+    trackDate(lastModified);
+
+    // Construit la map localized slugs : chaque locale → URL absolue
+    const alternates: Record<string, string> = {};
+    for (const l of locales) {
+      const slugForLocale = getLocalizedSlug(card, l);
+      alternates[l] = `${siteUrl}/${l}/dossiers/${slugForLocale}`;
+    }
+    alternates['x-default'] = alternates['fr'];
+
+    // Émet 1 entrée par locale avec son slug localisé
+    for (const locale of locales) {
+      const slugForLocale = getLocalizedSlug(card, locale);
+      entries.push({
+        url: `${siteUrl}/${locale}/dossiers/${slugForLocale}`,
+        lastModified,
+        changeFrequency: 'weekly',
+        priority: 0.7,
+        alternates: { languages: alternates },
+      });
+    }
+  }
+
+  // ── Archives ────────────────────────────────────────────────
+  for (const slug of getAllArchiveSlugs()) {
+    const result = getArchivePage(slug, 'fr' as Locale);
+    const lastModified = contentDate(result?.page.lastModified);
+    trackDate(lastModified);
+    addLocalizedEntries(
+      entries,
+      { pathname: '/archives/[slug]', params: { slug } },
+      { changeFrequency: 'monthly', priority: 0.5 },
+      lastModified
+    );
+  }
+
+  // ── Digest pages (outside locale routing) ─────────────────────
+  // These don't use the i18n routing system, so no hreflang alternates.
+  const digestWeeks = getAllDigestWeeks();
+  const digestLangs = getAllDigestLangs();
+  for (const week of digestWeeks) {
+    const [year, w] = week.split('-');
+    for (const lang of digestLangs) {
+      const result = getDigestEntry(week, lang);
+      const digestDate = result?.entry.generated_at
+        ? new Date(result.entry.generated_at)
+        : SITE_LAUNCH;
+      trackDate(digestDate);
+      entries.push({
+        url: `${siteUrl}/digest/${lang}/${year}/${w}`,
+        lastModified: digestDate,
+        changeFrequency: 'weekly',
+        priority: 0.5,
+      });
+    }
+  }
+
   // ── Static pages ──────────────────────────────────────────────
+  // Homepage uses latestContentUpdate (computed above from real content
+  // dates): it surfaces fresh veille/digest content, so a frozen launch
+  // date would understate its actual freshness. Everything else here is
+  // genuinely static (legal, methodology...), so it keeps SITE_LAUNCH.
   const staticPaths: { href: Href; priority?: number; changeFrequency?: 'daily' | 'weekly' }[] = [
     { href: '/', priority: 1.0, changeFrequency: 'daily' },
     { href: '/domains' },
@@ -137,116 +270,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     addLocalizedEntries(entries, href, {
       changeFrequency: changeFrequency ?? 'weekly',
       priority: priority ?? 0.7,
-    }, SITE_LAUNCH);
-  }
-
-  // ── Domains ───────────────────────────────────────────────────
-  for (const slug of getAllDomainSlugs()) {
-    const result = getDomainCard(slug, 'fr' as Locale);
-    addLocalizedEntries(
-      entries,
-      { pathname: '/domains/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.8 },
-      contentDate(result?.card.lastModified)
-    );
-  }
-
-  // ── Sectors ───────────────────────────────────────────────────
-  for (const slug of getAllSectorSlugs()) {
-    const result = getSectorCard(slug, 'fr' as Locale);
-    addLocalizedEntries(
-      entries,
-      { pathname: '/sectors/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.7 },
-      contentDate(result?.card.lastModified)
-    );
-  }
-
-  // ── Comparisons ───────────────────────────────────────────────
-  for (const slug of getAllComparisonSlugs()) {
-    const result = getComparisonCard(slug, 'fr' as Locale);
-    addLocalizedEntries(
-      entries,
-      { pathname: '/comparisons/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.7 },
-      contentDate(result?.card.lastModified)
-    );
-  }
-
-  // ── Communes ──────────────────────────────────────────────────
-  for (const slug of getAllCommuneSlugs()) {
-    const result = getCommuneCard(slug, 'fr' as Locale);
-    addLocalizedEntries(
-      entries,
-      { pathname: '/communes/[slug]', params: { slug } },
-      { changeFrequency: 'weekly', priority: 0.7 },
-      contentDate(result?.card.lastModified)
-    );
-  }
-
-  // ── Dossiers ──────────────────────────────────────────────────
-  // NOTE: Routes /dossiers/[slug]/scrolly (vue immersive, allowlist CPAS) sont
-  // intentionnellement exclues du sitemap. Elles portent un canonical → page
-  // structurée et un meta robots noindex (spec D §7.1).
-  // Spec slugs localisés (2026-05-03) §3.6 : émet une entrée par locale avec
-  // le slug localisé natif (ou fallback canonique), avec alternates languages
-  // qui pointent vers les slugs localisés de chaque langue.
-  for (const canonicalSlug of getAllDossierSlugs()) {
-    const result = getDossierCard(canonicalSlug, 'fr' as Locale);
-    if (!result) continue;
-    const { card } = result;
-    const lastModified = contentDate(card.lastModified);
-
-    // Construit la map localized slugs : chaque locale → URL absolue
-    const alternates: Record<string, string> = {};
-    for (const l of locales) {
-      const slugForLocale = getLocalizedSlug(card, l);
-      alternates[l] = `${siteUrl}/${l}/dossiers/${slugForLocale}`;
-    }
-    alternates['x-default'] = alternates['fr'];
-
-    // Émet 1 entrée par locale avec son slug localisé
-    for (const locale of locales) {
-      const slugForLocale = getLocalizedSlug(card, locale);
-      entries.push({
-        url: `${siteUrl}/${locale}/dossiers/${slugForLocale}`,
-        lastModified,
-        changeFrequency: 'weekly',
-        priority: 0.7,
-        alternates: { languages: alternates },
-      });
-    }
-  }
-
-  // ── Archives ────────────────────────────────────────────────
-  for (const slug of getAllArchiveSlugs()) {
-    const result = getArchivePage(slug, 'fr' as Locale);
-    addLocalizedEntries(
-      entries,
-      { pathname: '/archives/[slug]', params: { slug } },
-      { changeFrequency: 'monthly', priority: 0.5 },
-      contentDate(result?.page.lastModified)
-    );
-  }
-
-  // ── Digest pages (outside locale routing) ─────────────────────
-  // These don't use the i18n routing system, so no hreflang alternates.
-  const digestWeeks = getAllDigestWeeks();
-  const digestLangs = getAllDigestLangs();
-  for (const week of digestWeeks) {
-    const [year, w] = week.split('-');
-    for (const lang of digestLangs) {
-      const result = getDigestEntry(week, lang);
-      const digestDate = result?.entry.generated_at
-        ? new Date(result.entry.generated_at)
-        : SITE_LAUNCH;
-      entries.push({
-        url: `${siteUrl}/digest/${lang}/${year}/${w}`,
-        lastModified: digestDate,
-        changeFrequency: 'weekly',
-        priority: 0.5,
-      });
-    }
+    }, href === '/' ? latestContentUpdate : SITE_LAUNCH);
   }
 
   return entries;

@@ -1,28 +1,28 @@
 {
-  "week": "2026-w29",
-  "weekStart": "2026-07-13",
-  "created_at": "2026-07-19T19:00:01.286Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w30",
+  "weekStart": "2026-07-20",
+  "created_at": "2026-07-26T19:00:15.467Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "7 domaines, 4 dossiers mis à jour",
-    "nl": "7 domeinen, 4 dossiers bijgewerkt",
-    "en": "7 domains, 4 dossiers updated",
-    "de": "7 Bereiche, 4 Dossiers aktualisiert"
+    "fr": "10 domaines, 8 dossiers, 6 secteurs, 17 communes mis à jour",
+    "nl": "10 domeinen, 8 dossiers, 6 sectoren, 17 gemeenten bijgewerkt",
+    "en": "10 domains, 8 dossiers, 6 sectors, 17 communes updated",
+    "de": "10 Bereiche, 8 Dossiers, 6 Sektoren, 17 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "18%",
+    "value": "Budget 2026 voté en plénière (53/32)",
     "label": {
-      "fr": "Jeunes bruxellois sortis du secondaire sans diplôme (contre 12% au niveau national)",
-      "nl": "Jonge Brusselaars die het secundair onderwijs zonder diploma verlieten (tegenover 12% op nationaal niveau)",
-      "en": "Young Brussels residents who left secondary school without a diploma (vs. 12% nationally)",
-      "de": "Junge Brüsseler, die die Sekundarschule ohne Abschluss verlassen haben (gegenüber 12 % landesweit)"
+      "fr": "Régime budgétaire",
+      "nl": "Budgettair regime",
+      "en": "Budget regime",
+      "de": "Haushaltsregime"
     },
     "source": {
-      "fr": "IBSA — Focus décrochage scolaire, 16 juillet 2026",
-      "nl": "IBSA — Focus schooluitval, 16 juli 2026",
-      "en": "IBSA — School dropout focus report, 16 July 2026",
-      "de": "IBSA — Fokusbericht Schulabbruch, 16. Juli 2026"
+      "fr": "Parlement bruxellois — séance plénière (27 mars 2026)",
+      "nl": "Brussels Parlement — plenaire vergadering (27 maart 2026)",
+      "en": "Brussels Parliament — plenary session (27 March 2026)",
+      "de": "Brüsseler Parlament — Plenarsitzung (27. März 2026)"
     }
   },
   "closingNote": {
@@ -34,16 +34,46 @@
   "commitmentCount": 16,
   "updatedTopics": [
     "budget",
+    "cleanliness",
     "climate",
+    "digital",
     "economy",
-    "education",
-    "employment",
-    "housing",
+    "institutional",
     "mobility",
-    "dossier-foyer-anderlechtois",
+    "security",
+    "social",
+    "urban-planning",
+    "dossier-accessibilite-pmr",
+    "dossier-bim-bruxelles",
+    "dossier-enseignement",
+    "dossier-faillites",
+    "dossier-rse",
+    "dossier-seniors",
     "dossier-slrb",
-    "dossier-novacity-ii",
+    "dossier-survol-bruxelles",
+    "commerce",
+    "culture",
+    "education",
+    "environment",
+    "horeca",
+    "commune-anderlecht",
+    "commune-auderghem",
+    "commune-berchem-sainte-agathe",
+    "commune-bruxelles-ville",
+    "commune-etterbeek",
+    "commune-evere",
+    "commune-forest",
+    "commune-ganshoren",
+    "commune-ixelles",
+    "commune-molenbeek-saint-jean",
+    "commune-saint-gilles",
+    "commune-saint-josse-ten-noode",
+    "commune-schaerbeek",
+    "commune-uccle",
+    "commune-watermael-boitsfort",
+    "commune-woluwe-saint-lambert",
+    "commune-woluwe-saint-pierre",
+    "dossier-mobilite-partagee",
     "dossier-metro-3"
-  ],
-  "sent_at": "2026-07-19T23:02:07.030Z"
+  ]
 }

@@ -1,14 +1,14 @@
 {
   "week": "2026-w31",
   "weekStart": "2026-07-27",
-  "created_at": "2026-08-02T19:00:05.405Z",
+  "created_at": "2026-08-02T21:28:49.876Z",
   "approved": false,
   "sent": false,
   "summary": {
-    "fr": "1 domaine, 1 dossier mis à jour",
-    "nl": "1 domein, 1 dossier bijgewerkt",
-    "en": "1 domain, 1 dossier updated",
-    "de": "1 Bereich, 1 Dossier aktualisiert"
+    "fr": "5 domaines, 2 dossiers, 1 secteur mis à jour",
+    "nl": "5 domeinen, 2 dossiers, 1 sector bijgewerkt",
+    "en": "5 domains, 2 dossiers, 1 sector updated",
+    "de": "5 Bereiche, 2 Dossiers, 1 Sektor aktualisiert"
   },
   "weeklyNumber": {
     "value": "10",
@@ -33,7 +33,13 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
+    "cleanliness",
+    "employment",
+    "institutional",
+    "mobility",
     "security",
-    "dossier-plan-securite"
+    "dossier-mobilite-partagee",
+    "dossier-plan-securite",
+    "transport"
   ]
 }

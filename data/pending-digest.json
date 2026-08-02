@@ -1,80 +1,39 @@
 {
-  "week": "2026-w30",
-  "weekStart": "2026-07-20",
-  "created_at": "2026-07-26T19:00:15.467Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w31",
+  "weekStart": "2026-07-27",
+  "created_at": "2026-08-02T19:00:05.405Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "10 domaines, 8 dossiers, 6 secteurs, 17 communes mis à jour",
-    "nl": "10 domeinen, 8 dossiers, 6 sectoren, 17 gemeenten bijgewerkt",
-    "en": "10 domains, 8 dossiers, 6 sectors, 17 communes updated",
-    "de": "10 Bereiche, 8 Dossiers, 6 Sektoren, 17 Gemeinden aktualisiert"
+    "fr": "1 domaine, 1 dossier mis à jour",
+    "nl": "1 domein, 1 dossier bijgewerkt",
+    "en": "1 domain, 1 dossier updated",
+    "de": "1 Bereich, 1 Dossier aktualisiert"
   },
   "weeklyNumber": {
-    "value": "14",
+    "value": "10",
     "label": {
-      "fr": "Présidences d'organismes publics régionaux attribuées le 23 juillet, sur environ 150 mandats à pourvoir",
-      "nl": "Voorzitterschappen van gewestelijke overheidsinstellingen toegekend op 23 juli, op ongeveer 150 in te vullen mandaten",
-      "en": "Chairs of regional public bodies allocated on 23 July, out of around 150 mandates to be filled",
-      "de": "Vorsitze regionaler öffentlicher Einrichtungen am 23. Juli vergeben, von rund 150 zu besetzenden Mandaten"
+      "fr": "Investissement sécurisation gares",
+      "nl": "Investering stationsbeveiliging",
+      "en": "Station security investment",
+      "de": "Investition Bahnhofssicherheit"
     },
     "source": {
-      "fr": "Conseil des ministres du 23 juillet 2026",
-      "nl": "Ministerraad van 23 juli 2026",
-      "en": "Ministerial council of 23 July 2026",
-      "de": "Ministerrat vom 23. Juli 2026"
+      "fr": "DPR ch. 7 (fév. 2026)",
+      "nl": "GBV hst. 7 (feb. 2026)",
+      "en": "RPD ch. 7 (Feb 2026)",
+      "de": "RPE Kap. 7 (Feb. 2026)"
     }
   },
   "closingNote": {
-    "fr": "Une semaine de déblocages de dernière minute avant la coupure d'été. Pour respirer un peu : Remco Evenepoel a terminé deuxième du Tour de France, une place qu'il est allé chercher jusqu'à l'Alpe d'Huez. Ce digest tombe aussi le lendemain de mon anniversaire, l'occasion de vous remercier simplement de le lire. Et si vous voulez prolonger, deux rendez-vous quotidiens : Stuut, le mot du jour de la gouvernance bruxelloise (https://stuut.governance.brussels), et Amai !, cinq chiffres à deviner !\n(https://amai.governance.brussels). Bonne semaine à tous.",
-    "nl": "Een week van deblokkeringen op het nippertje, vlak voor de zomerstop. Even op adem komen: Remco Evenepoel eindigde tweede in de Tour de France, een plaats die hij tot op Alpe d'Huez is gaan halen. Dit digest verschijnt ook op mijn verjaardag, een goede gelegenheid om u gewoon te bedanken dat u het leest. \nEn wie wil doorgaan: een dagelijkse afspraak, Amai !, vijf cijfers raden, (https://amai.governance.brussels). Een goede week gewenst.",
-    "en": "A week of last-minute unblockings just before the summer break. For a breath of fresh air: Remco Evenepoel finished second in the Tour de France, a place he chased all the way to Alpe d'Huez. This digest also lands on my birthday, which is a good reason simply to thank you for reading it. And if you want to keep going, one daily fixture: Amai!, five numbers to guess (https://amai.governance.brussels). \nWishing you all a good week.",
-    "de": "Eine Woche der Entsperrungen in letzter Minute, kurz vor der Sommerpause. Zum Durchatmen: Remco Evenepoel wurde Zweiter der Tour de France, ein Platz, den er sich bis nach Alpe d'Huez erkämpft hat. Dieses Digest erscheint zudem an meinem Geburtstag, ein guter Anlass, Ihnen einfach fürs Lesen zu danken. Und wer weitermachen möchte: eine tägliche Termine Amai !, fünf Zahlen zu erraten (https://amai.governance.brussels). \nAllen eine gute Woche."
+    "fr": "Bonne semaine à tous.",
+    "nl": "Een goede week gewenst.",
+    "en": "Wishing you all a good week.",
+    "de": "Allen eine gute Woche."
   },
   "commitmentCount": 16,
   "updatedTopics": [
-    "budget",
-    "cleanliness",
-    "climate",
-    "digital",
-    "economy",
-    "institutional",
-    "mobility",
     "security",
-    "social",
-    "urban-planning",
-    "dossier-accessibilite-pmr",
-    "dossier-bim-bruxelles",
-    "dossier-enseignement",
-    "dossier-faillites",
-    "dossier-rse",
-    "dossier-seniors",
-    "dossier-slrb",
-    "dossier-survol-bruxelles",
-    "commerce",
-    "culture",
-    "education",
-    "environment",
-    "horeca",
-    "commune-anderlecht",
-    "commune-auderghem",
-    "commune-berchem-sainte-agathe",
-    "commune-bruxelles-ville",
-    "commune-etterbeek",
-    "commune-evere",
-    "commune-forest",
-    "commune-ganshoren",
-    "commune-ixelles",
-    "commune-molenbeek-saint-jean",
-    "commune-saint-gilles",
-    "commune-saint-josse-ten-noode",
-    "commune-schaerbeek",
-    "commune-uccle",
-    "commune-watermael-boitsfort",
-    "commune-woluwe-saint-lambert",
-    "commune-woluwe-saint-pierre",
-    "dossier-mobilite-partagee",
-    "dossier-metro-3"
-  ],
-  "sent_at": "2026-07-26T20:23:37.438Z"
+    "dossier-plan-securite"
+  ]
 }

@@ -2,8 +2,8 @@
   "week": "2026-w31",
   "weekStart": "2026-07-27",
   "created_at": "2026-08-02T21:28:49.876Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "5 domaines, 2 dossiers, 1 secteur mis à jour",
     "nl": "5 domeinen, 2 dossiers, 1 sector bijgewerkt",
@@ -41,5 +41,6 @@
     "dossier-mobilite-partagee",
     "dossier-plan-securite",
     "transport"
-  ]
+  ],
+  "sent_at": "2026-08-02T21:34:00.650Z"
 }

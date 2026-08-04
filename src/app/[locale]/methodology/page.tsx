@@ -60,6 +60,15 @@ function MethodologyView() {
           {/* Intro */}
           <p className="text-base">{t('intro')}</p>
 
+          {/* Rôle de l'IA — placé haut : conditionne la lecture de tout le reste
+              de la page (AI Act art. 50, exemption par relecture humaine). */}
+          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('ai.title')}</h2>
+            <p>{t('ai.p1')}</p>
+            <p className="mt-2">{t('ai.p2')}</p>
+            <p className="mt-2">{t('ai.p3')}</p>
+          </div>
+
           {/* Mission */}
           <div>
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('mission.title')}</h2>
@@ -331,7 +340,7 @@ function MethodologyView() {
           </div>
 
           <p className="mt-4 text-xs text-neutral-500">
-            {t('lastUpdated', { date: '2026-03-09' })}
+            {t('lastUpdated', { date: '2026-08-04' })}
           </p>
         </div>
       </div>

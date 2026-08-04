@@ -569,12 +569,17 @@
     "thirdParties": {
       "title": "Auftragsverarbeiter und Drittanbieter-Tools",
       "description": "Im Sinne der Transparenz finden Sie hier die vollständige Liste der von dieser Website genutzten externen Dienste:",
-      "vercel": "Vercel (Hosting) — Hostet die Website. Region: Paris (CDG1). Verarbeitet Serverprotokolle (IP-Adressen, HTTP-Header). Keine personenbezogenen Daten werden über die temporären technischen Protokolle hinaus gespeichert.",
-      "umami": "Umami (Statistik) — Datenschutzfreundliche Besuchermessung. Keine Cookies, keine personenbezogenen Daten erhoben, kein seitenübergreifendes Tracking. EU-Cloud-Hosting.",
-      "resend": "Resend (E-Mails) — Versendet Bestätigungs-E-Mails und wöchentliche Zusammenfassungen. Verarbeitet E-Mail-Adressen der Abonnenten. Sitz in den USA mit DSGVO-Konformität (DPA unterzeichnet).",
-      "legalBasis": "Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) für Vercel, Umami und AppSignal; Einwilligung (Art. 6 Abs. 1 lit. a) für Resend.",
+      "hosting": "Hetzner (Hosting): hostet die Website auf einem Server in Nürnberg, Deutschland. Verarbeitet Serverprotokolle (IP-Adressen, HTTP-Header). Keine personenbezogenen Daten werden über die temporären technischen Protokolle hinaus gespeichert.",
+      "cloudflare": "Cloudflare (CDN und DDoS-Schutz): filtert und verteilt den Datenverkehr über seine europäischen Standorte. Verarbeitet die IP-Adressen der Besucher während der Anfrage. US-Unternehmen, zertifiziert unter dem EU-US Data Privacy Framework.",
+      "umami": "Umami (Statistik): datenschutzfreundliche Besuchermessung, selbst gehostet auf unserem eigenen Server in Deutschland. Keine Cookies, keine personenbezogenen Daten erhoben, kein seitenübergreifendes Tracking.",
+      "resend": "Resend (E-Mails): versendet Bestätigungs-E-Mails und wöchentliche Zusammenfassungen. Verarbeitet E-Mail-Adressen der Abonnenten. Sitz in den USA mit DSGVO-Konformität (DPA unterzeichnet).",
+      "legalBasis": "Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) für Hetzner, Cloudflare und Umami; Einwilligung (Art. 6 Abs. 1 lit. a) für Resend.",
       "statusPage": "Statusseite des Dienstes: https://status.governance.brussels",
-      "transfers": "Übermittlungen außerhalb der EU: Resend (USA) und Vercel (Logs in den USA verarbeitet) verfügen über Standardvertragsklauseln (SCCs) und sind unter dem EU-US Data Privacy Framework (DPF) zertifiziert. Die DPAs werden automatisch mit den Nutzungsbedingungen jedes Dienstes akzeptiert."
+      "transfers": "Übermittlungen außerhalb der EU: Hosting und Statistiken der Website bleiben in Deutschland. Resend (USA) und Cloudflare (US-Unternehmen) verfügen über Standardvertragsklauseln (SCCs) und sind unter dem EU-US Data Privacy Framework (DPF) zertifiziert. Die DPAs werden automatisch mit den Nutzungsbedingungen jedes Dienstes akzeptiert."
+    },
+    "games": {
+      "title": "Tägliche Spiele (Stuut und Amai)",
+      "description": "BGM veröffentlicht zwei tägliche Spiele zur Brüsseler Governance: Le Stuut du jour (stuut.governance.brussels), ein Wortspiel, und Amai ! (amai.governance.brussels), ein Zahlenspiel. Es ist kein Konto erforderlich und es wird kein Cookie gesetzt. Ihr Spielstand, Ihre Spielstatistiken und Ihre Sprachpräferenz werden ausschließlich im lokalen Speicher Ihres Browsers auf Ihrem Gerät abgelegt: Sie werden nie an den Server übertragen und Sie können sie jederzeit löschen, indem Sie die Websitedaten Ihres Browsers leeren. Die Besuchermessung beider Spiele läuft über dieselbe selbst gehostete Umami-Instanz wie die Hauptwebsite, anonym."
     },
     "cookies": {
       "title": "Cookies",
@@ -707,7 +712,7 @@
     },
     "hosting": {
       "title": "Hosting",
-      "description": "Die Website wird von Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, Vereinigte Staaten, gehostet. Bereitstellungsregion: CDG1 (Paris, Frankreich)."
+      "description": "Die Website wird von Hetzner Online GmbH, Industriestrasse 25, 91710 Gunzenhausen, Deutschland, auf einem Server in Nürnberg gehostet. Auslieferung und DDoS-Schutz erfolgen über Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, Vereinigte Staaten."
     },
     "intellectual": {
       "title": "Geistiges Eigentum",
@@ -740,6 +745,12 @@
   "methodology": {
     "title": "Unsere Methode",
     "intro": "Brussels Governance Monitor dokumentiert die Regierungsführung der Region Brüssel-Hauptstadt: politische Verpflichtungen, Haushaltsentscheidungen, institutionelle Reformen. Sein Zweck ist weder politisch noch aktivistisch, sondern bürgerlich: institutionelle Informationen, die oft verstreut oder schwer zugänglich sind, lesbar, überprüfbar und anfechtbar zu machen.",
+    "ai": {
+      "title": "Was die KI hier tut, und was nicht",
+      "p1": "Der Brussels Governance Monitor wird von einer einzigen Person erstellt. Täglich mehr als 300 öffentliche Quellen zu verfolgen, in vier Sprachen, über dreizehn Bereiche, elf Sektoren und neunzehn Gemeinden, übersteigt das, was rein manuelle Arbeit in diesem Umfang zulässt. Künstliche Intelligenz wird daher als Produktionswerkzeug eingesetzt: Sie überwacht die Quellen, erkennt Änderungen, bereitet die Übersetzungen vor und übernimmt die erste Formatierung.",
+      "p2": "Sie entscheidet nichts. Die Auswahl dessen, was veröffentlicht wird, die Lektüre der amtlichen Dokumente, die Zuordnung von Status und Vertrauensniveau, die endgültige Formulierung und die Entscheidung, keine Schlussfolgerung zu ziehen, liegen in einer einzigen redaktionellen Verantwortung, menschlich und namentlich, getragen von Zoltán Jánosi. Jede Information durchläuft vor der Veröffentlichung das weiter unten auf dieser Seite beschriebene Prüfprotokoll: Primärquelle aufgefunden, Abrufdatum dokumentiert, ausdrückliches Ergebnis.",
+      "p3": "Diese Aufgabenteilung wird offengelegt und nicht verschwiegen. Ohne automatisierte Unterstützung gäbe es diese Abdeckung nicht; ohne systematische menschliche Prüfung wäre sie nicht verlässlich. Die wenigen Inhalte, die dieser Prüfung entgehen, etwa die Digest-Ausgaben in den Sprachen jenseits der vier Sprachen der Website, tragen einen ausdrücklichen Hinweis."
+    },
     "mission": {
       "title": "Was BGM dokumentiert",
       "what": "was entschieden oder versprochen wurde,",
@@ -1920,6 +1931,8 @@
     "editorialSummary": "Keine Politikernamen, quellenbasierte Vertrauensstufen, institutioneller Ton. Jede Tatsache wird überprüft und zugeordnet.",
     "methodologyTitle": "Methodik",
     "methodologySummary": "Offizielle Quellen, Eurostat-Daten, Überprüfungsprozess, explizite Vertrauensstufen.",
+    "aiTitle": "KI und redaktionelle Verantwortung",
+    "aiSummary": "Der BGM wird von einer einzigen Person erstellt und nutzt künstliche Intelligenz, um Quellen zu überwachen, Übersetzungen vorzubereiten und die erste Formatierung zu übernehmen. Die redaktionellen Entscheidungen, die Lektüre der amtlichen Dokumente und die abschließende Prüfung bleiben menschlich und namentlich.",
     "accessibilityTitle": "Barrierefreiheit",
     "accessibilitySummary": "WCAG 2.2 Stufe AA-Konformität. Dunkelmodus, hoher Kontrast, Sprachsynthese, Tastaturnavigation, Screenreader.",
     "sourceTitle": "Quellcode",
@@ -1928,15 +1941,17 @@
     "securityTitle": "Schutz der Besucher",
     "securityIntro": "BGM sammelt während Ihres Besuchs keine persönlichen Daten. Dies sind die konkreten technischen Entscheidungen, die wir zum Schutz Ihrer Sicherheit getroffen haben.",
     "securityNoTracker": "Keine Werbetracker, keine Drittanbieter-Cookies, kein Datenweiterverkauf.",
-    "securityAnalytics": "Anonyme Besucheranalyse über Umami (in Europa gehostet, DSGVO-konform) + Vercel Analytics (Web Vitals, Leistung) — keine IP-Adressen, kein Fingerprinting.",
+    "securityAnalytics": "Anonyme Besucheranalyse über Umami, selbst gehostet auf unserem eigenen Server in Deutschland: keine IP-Adressen gespeichert, kein Fingerprinting, keine Cookies.",
     "securitySri": "Jedes externe Skript ist durch einen kryptografischen Fingerabdruck gesichert: Nur von uns überprüfter Code kann auf Ihrem Gerät ausgeführt werden.",
     "securityHttps": "Pflichtmäßig verschlüsselte Verbindung (HTTPS) mit strengen Sicherheitsheadern.",
-    "securityHosting": "Europäisches Hosting (Paris), Monitoring in den Niederlanden — kein Datentransfer außerhalb der EU.",
+    "securityHosting": "Hosting in Deutschland (Nürnberg, Hetzner), Auslieferung über die europäischen Standorte von Cloudflare. Navigationsdaten werden weder verkauft noch zu Werbezwecken weitergegeben.",
     "aboutTitle": "Wer steht hinter dem BGM",
     "aboutText": "Der Brussels Governance Monitor ist ein Projekt von Zoltán Jánosi, Kommunikationsstratege mit Sitz in Brüssel. Die Website wird von Advice That SRL gehostet. Sie ist keiner politischen Partei, keinem Medium und keiner Interessengruppe angeschlossen.",
     "aboutLink": "Mehr erfahren →",
     "fundingTitle": "Finanzierung",
     "fundingText": "Dieses Projekt wird von Advice That SRL (Brüssel) entwickelt und gepflegt. Es wird derzeit selbst finanziert. Kein Werbetreibender, keine politische Partei und keine öffentliche Einrichtung trägt zur Finanzierung dieser Website bei. Das Projekt ist offen für öffentliche oder philanthropische Finanzierung, die mit seiner redaktionellen Unabhängigkeit vereinbar ist. Kontaktieren Sie uns, wenn Sie diese Initiative unterstützen möchten.",
+    "gamesTitle": "Tägliche Spiele",
+    "gamesText": "Zwei tägliche Spiele ergänzen das Monitoring: Le Stuut du jour (ein Wort, sechs Versuche) und Amai ! (fünf Zahlen einordnen). Sie folgen denselben Regeln wie der Rest der Website: kein Konto, keine Cookies, keine erhobenen personenbezogenen Daten. Ihr Spielstand bleibt in Ihrem Browser und die Besuchsstatistiken laufen über unser selbst gehostetes Umami.",
     "correctionTitle": "Korrekturpolitik",
     "correctionText": "Jeder gemeldete Sachfehler wird innerhalb von 48 Stunden korrigiert und im Änderungsprotokoll dokumentiert.",
     "correctionLink": "Änderungsprotokoll ansehen",

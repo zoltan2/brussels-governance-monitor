@@ -87,6 +87,18 @@ export default async function TransparencyPage({
             </Link>
           </div>
 
+          {/* IA et responsabilité éditoriale */}
+          <div className="rounded-lg border border-neutral-200 p-6">
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('aiTitle')}</h2>
+            <p className="mb-3 text-sm text-neutral-600">{t('aiSummary')}</p>
+            <Link
+              href="/methodology"
+              className="text-sm font-medium text-brand-700 hover:text-brand-900"
+            >
+              {t('readMore')}
+            </Link>
+          </div>
+
           {/* Accessibilité */}
           <div className="rounded-lg border border-neutral-200 p-6">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('accessibilityTitle')}</h2>

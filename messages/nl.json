@@ -745,6 +745,12 @@
   "methodology": {
     "title": "Onze methode",
     "intro": "Brussels Governance Monitor documenteert het bestuur van het Brussels Hoofdstedelijk Gewest: politieke engagementen, begrotingsbeslissingen, institutionele hervormingen. Het doel is niet politiek, niet militant, maar burgerlijk: institutionele informatie die vaak verspreid of moeilijk toegankelijk is, leesbaar, verifieerbaar en betwistbaar maken.",
+    "ai": {
+      "title": "Wat AI hier doet, en wat niet",
+      "p1": "Brussels Governance Monitor wordt door één persoon gemaakt. Elke dag meer dan 300 openbare bronnen opvolgen, in vier talen, over dertien domeinen, elf sectoren en negentien gemeenten, gaat verder dan wat volledig handwerk op deze schaal toelaat. Artificiële intelligentie wordt daarom als productiemiddel ingezet: ze bewaakt de bronnen, spoort wijzigingen op, bereidt de vertalingen voor en zet de eerste vormgeving op.",
+      "p2": "Ze beslist niets. De keuze van wat gepubliceerd wordt, het lezen van de officiële documenten, het toekennen van statussen en betrouwbaarheidsniveaus, de uiteindelijke formulering en de beslissing om geen conclusie te trekken, vallen onder één redactionele verantwoordelijkheid, menselijk en met naam, gedragen door Zoltán Jánosi. Elke informatie doorloopt het verificatieprotocol dat verderop op deze pagina beschreven staat voordat ze gepubliceerd wordt: primaire bron teruggevonden, raadplegingsdatum gedocumenteerd, expliciet resultaat.",
+      "p3": "Die taakverdeling wordt opgenomen, niet verborgen. Zonder geautomatiseerde ondersteuning zou deze dekkingsgraad niet bestaan; zonder systematische menselijke nalezing zou ze niet betrouwbaar zijn. De zeldzame inhoud die aan die nalezing ontsnapt, zoals de versies van de digest in de talen buiten de vier van de site, draagt een uitdrukkelijke vermelding."
+    },
     "mission": {
       "title": "Wat BGM documenteert",
       "what": "wat er beslist of beloofd is,",
@@ -1928,6 +1934,8 @@
     "editorialSummary": "Geen politicusnamen, brongebaseerde betrouwbaarheidsniveaus, institutionele toon. Elk feit wordt geverifieerd en toegeschreven.",
     "methodologyTitle": "Methodologie",
     "methodologySummary": "Officiële bronnen, Eurostat-gegevens, verificatieproces, expliciete betrouwbaarheidsniveaus.",
+    "aiTitle": "AI en redactionele verantwoordelijkheid",
+    "aiSummary": "De BGM wordt door één persoon gemaakt en gebruikt artificiële intelligentie om bronnen te bewaken, vertalingen voor te bereiden en de eerste vormgeving op te zetten. De redactionele beslissingen, het lezen van de officiële documenten en de eindcontrole blijven menselijk en met naam.",
     "accessibilityTitle": "Toegankelijkheid",
     "accessibilitySummary": "WCAG 2.2 niveau AA-conformiteit. Donkere modus, hoog contrast, spraaksynthese, toetsenbordnavigatie, schermlezers.",
     "sourceTitle": "Broncode",

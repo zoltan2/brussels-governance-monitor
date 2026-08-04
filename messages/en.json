@@ -745,6 +745,12 @@
   "methodology": {
     "title": "Our method",
     "intro": "Brussels Governance Monitor documents the governance of the Brussels-Capital Region: political commitments, budgetary decisions, institutional reforms. Its purpose is neither political nor activist, but civic: to make institutional information that is often scattered or hard to access readable, verifiable and contestable.",
+    "ai": {
+      "title": "What AI does here, and what it does not",
+      "p1": "Brussels Governance Monitor is produced by one person. Monitoring more than 300 public sources every day, in four languages, across thirteen domains, eleven sectors and nineteen municipalities, exceeds what fully manual work allows at this scale. Artificial intelligence is therefore used as a production tool: it watches the sources, detects changes, prepares translations and drafts the initial formatting.",
+      "p2": "It decides nothing. The choice of what is published, the reading of official documents, the assignment of statuses and confidence levels, the final wording and the decision not to conclude fall under a single editorial responsibility, human and named, assumed by Zoltán Jánosi. Every piece of information goes through the verification protocol described further down this page before publication: primary source located, consultation date documented, explicit outcome.",
+      "p3": "This division of labour is stated rather than hidden. Without automated assistance, this level of coverage would not exist; without systematic human review, it would not be reliable. The rare content that escapes that review, such as the digest editions in languages beyond the site's four, carries an explicit notice."
+    },
     "mission": {
       "title": "What BGM documents",
       "what": "what has been decided or promised,",
@@ -1925,6 +1931,8 @@
     "editorialSummary": "No politician names, sourced confidence levels, institutional tone. Every fact is verified and attributed.",
     "methodologyTitle": "Methodology",
     "methodologySummary": "Official sources, Eurostat data, verification process, explicit confidence levels.",
+    "aiTitle": "AI and editorial responsibility",
+    "aiSummary": "BGM is produced by one person and uses artificial intelligence to watch sources, prepare translations and draft the initial formatting. Editorial decisions, the reading of official documents and final verification remain human and named.",
     "accessibilityTitle": "Accessibility",
     "accessibilitySummary": "WCAG 2.2 Level AA conformance. Dark mode, high contrast, text-to-speech, keyboard navigation, screen readers.",
     "sourceTitle": "Source code",

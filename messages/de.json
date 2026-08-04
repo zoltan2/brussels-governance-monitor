@@ -745,6 +745,12 @@
   "methodology": {
     "title": "Unsere Methode",
     "intro": "Brussels Governance Monitor dokumentiert die Regierungsführung der Region Brüssel-Hauptstadt: politische Verpflichtungen, Haushaltsentscheidungen, institutionelle Reformen. Sein Zweck ist weder politisch noch aktivistisch, sondern bürgerlich: institutionelle Informationen, die oft verstreut oder schwer zugänglich sind, lesbar, überprüfbar und anfechtbar zu machen.",
+    "ai": {
+      "title": "Was die KI hier tut, und was nicht",
+      "p1": "Der Brussels Governance Monitor wird von einer einzigen Person erstellt. Täglich mehr als 300 öffentliche Quellen zu verfolgen, in vier Sprachen, über dreizehn Bereiche, elf Sektoren und neunzehn Gemeinden, übersteigt das, was rein manuelle Arbeit in diesem Umfang zulässt. Künstliche Intelligenz wird daher als Produktionswerkzeug eingesetzt: Sie überwacht die Quellen, erkennt Änderungen, bereitet die Übersetzungen vor und übernimmt die erste Formatierung.",
+      "p2": "Sie entscheidet nichts. Die Auswahl dessen, was veröffentlicht wird, die Lektüre der amtlichen Dokumente, die Zuordnung von Status und Vertrauensniveau, die endgültige Formulierung und die Entscheidung, keine Schlussfolgerung zu ziehen, liegen in einer einzigen redaktionellen Verantwortung, menschlich und namentlich, getragen von Zoltán Jánosi. Jede Information durchläuft vor der Veröffentlichung das weiter unten auf dieser Seite beschriebene Prüfprotokoll: Primärquelle aufgefunden, Abrufdatum dokumentiert, ausdrückliches Ergebnis.",
+      "p3": "Diese Aufgabenteilung wird offengelegt und nicht verschwiegen. Ohne automatisierte Unterstützung gäbe es diese Abdeckung nicht; ohne systematische menschliche Prüfung wäre sie nicht verlässlich. Die wenigen Inhalte, die dieser Prüfung entgehen, etwa die Digest-Ausgaben in den Sprachen jenseits der vier Sprachen der Website, tragen einen ausdrücklichen Hinweis."
+    },
     "mission": {
       "title": "Was BGM dokumentiert",
       "what": "was entschieden oder versprochen wurde,",
@@ -1925,6 +1931,8 @@
     "editorialSummary": "Keine Politikernamen, quellenbasierte Vertrauensstufen, institutioneller Ton. Jede Tatsache wird überprüft und zugeordnet.",
     "methodologyTitle": "Methodik",
     "methodologySummary": "Offizielle Quellen, Eurostat-Daten, Überprüfungsprozess, explizite Vertrauensstufen.",
+    "aiTitle": "KI und redaktionelle Verantwortung",
+    "aiSummary": "Der BGM wird von einer einzigen Person erstellt und nutzt künstliche Intelligenz, um Quellen zu überwachen, Übersetzungen vorzubereiten und die erste Formatierung zu übernehmen. Die redaktionellen Entscheidungen, die Lektüre der amtlichen Dokumente und die abschließende Prüfung bleiben menschlich und namentlich.",
     "accessibilityTitle": "Barrierefreiheit",
     "accessibilitySummary": "WCAG 2.2 Stufe AA-Konformität. Dunkelmodus, hoher Kontrast, Sprachsynthese, Tastaturnavigation, Screenreader.",
     "sourceTitle": "Quellcode",

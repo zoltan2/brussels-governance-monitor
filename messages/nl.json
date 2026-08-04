@@ -569,12 +569,17 @@
     "thirdParties": {
       "title": "Onderaannemers en tools van derden",
       "description": "In het kader van transparantie vindt u hier de volledige lijst van externe diensten die door deze site worden gebruikt:",
-      "vercel": "Vercel (hosting) — Host de website. Regio: Parijs (CDG1). Verwerkt serverlogs (IP-adressen, HTTP-headers). Geen persoonsgegevens worden opgeslagen buiten tijdelijke technische logs.",
-      "umami": "Umami (statistieken) — Privacyvriendelijke bezoekersmetingen. Geen cookies, geen persoonsgegevens verzameld, geen cross-site tracking. EU cloud hosting.",
-      "resend": "Resend (e-mails) — Verstuurt bevestigings-e-mails en wekelijkse samenvattingen. Verwerkt e-mailadressen van abonnees. Gevestigd in de Verenigde Staten met AVG-naleving (DPA ondertekend).",
-      "legalBasis": "Rechtsgrond: gerechtvaardigd belang (artikel 6.1.f AVG) voor Vercel, Umami en AppSignal; toestemming (artikel 6.1.a) voor Resend.",
+      "hosting": "Hetzner (hosting): host de website op een server in Neurenberg, Duitsland. Verwerkt serverlogs (IP-adressen, HTTP-headers). Geen persoonsgegevens worden opgeslagen buiten tijdelijke technische logs.",
+      "cloudflare": "Cloudflare (CDN en DDoS-bescherming): filtert en verdeelt het verkeer vanaf zijn Europese aanwezigheidspunten. Verwerkt de IP-adressen van bezoekers tijdens de aanvraag. Amerikaans bedrijf, gecertificeerd onder het EU-US Data Privacy Framework.",
+      "umami": "Umami (statistieken): privacyvriendelijke bezoekersmetingen, zelf gehost op onze eigen server in Duitsland. Geen cookies, geen persoonsgegevens verzameld, geen cross-site tracking.",
+      "resend": "Resend (e-mails): verstuurt bevestigings-e-mails en wekelijkse samenvattingen. Verwerkt e-mailadressen van abonnees. Gevestigd in de Verenigde Staten met AVG-naleving (DPA ondertekend).",
+      "legalBasis": "Rechtsgrond: gerechtvaardigd belang (artikel 6.1.f AVG) voor Hetzner, Cloudflare en Umami; toestemming (artikel 6.1.a) voor Resend.",
       "statusPage": "Statuspagina van de dienst: https://status.governance.brussels",
-      "transfers": "Doorgifte buiten de EU: Resend (VS) en Vercel (logs verwerkt in de VS) beschikken over standaardcontractbepalingen (SCCs) en zijn gecertificeerd onder het EU-VS Data Privacy Framework (DPF). De DPA's worden automatisch aanvaard met de gebruiksvoorwaarden van elke dienst."
+      "transfers": "Doorgifte buiten de EU: de hosting van de site en de statistieken blijven in Duitsland. Resend (VS) en Cloudflare (Amerikaans bedrijf) beschikken over standaardcontractbepalingen (SCCs) en zijn gecertificeerd onder het EU-VS Data Privacy Framework (DPF). De DPA's worden automatisch aanvaard met de gebruiksvoorwaarden van elke dienst."
+    },
+    "games": {
+      "title": "Dagelijkse spellen (Stuut en Amai)",
+      "description": "BGM publiceert twee dagelijkse spellen over het Brusselse bestuur: Le Stuut du jour (stuut.governance.brussels), een woordspel, en Amai ! (amai.governance.brussels), een cijferspel. Er is geen account nodig en er wordt geen cookie geplaatst. Uw voortgang, uw spelstatistieken en uw taalvoorkeur worden uitsluitend bewaard in de lokale opslag van uw browser, op uw toestel: ze worden nooit naar de server verstuurd en u kunt ze op elk moment wissen door de sitegegevens van uw browser te verwijderen. De bezoekersmeting van beide spellen verloopt via dezelfde zelf gehoste Umami-instantie als de hoofdsite, volledig anoniem."
     },
     "cookies": {
       "title": "Cookies",
@@ -707,7 +712,7 @@
     },
     "hosting": {
       "title": "Hosting",
-      "description": "De site wordt gehost door Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, Verenigde Staten. Implementatieregio: CDG1 (Parijs, Frankrijk)."
+      "description": "De site wordt gehost door Hetzner Online GmbH, Industriestrasse 25, 91710 Gunzenhausen, Duitsland, op een server in Neurenberg. De distributie en de DDoS-bescherming worden verzorgd door Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, Verenigde Staten."
     },
     "intellectual": {
       "title": "Intellectuele eigendom",
@@ -1931,15 +1936,17 @@
     "securityTitle": "Bescherming van bezoekers",
     "securityIntro": "BGM verzamelt geen persoonlijke gegevens tijdens uw bezoek. Dit zijn de concrete keuzes die we hebben gemaakt om uw veiligheid te beschermen.",
     "securityNoTracker": "Geen advertentietrackers, geen cookies van derden, geen doorverkoop van gegevens.",
-    "securityAnalytics": "Anonieme bezoekersanalyse via Umami (gehost in Europa, AVG-conform) + Vercel Analytics (Web Vitals, prestaties) — geen IP-adres, geen fingerprinting.",
+    "securityAnalytics": "Anonieme bezoekersanalyse via Umami, zelf gehost op onze eigen server in Duitsland: geen IP-adressen bewaard, geen fingerprinting, geen cookies.",
     "securitySri": "Elk extern script is vergrendeld met een cryptografische vingerafdruk: alleen door ons gecontroleerde code kan op uw apparaat worden uitgevoerd.",
     "securityHttps": "Verplichte versleutelde verbinding (HTTPS) met strikte beveiligingsheaders.",
-    "securityHosting": "Europese hosting (Parijs), monitoring in Nederland — geen gegevensoverdracht buiten de EU.",
+    "securityHosting": "Hosting in Duitsland (Neurenberg, Hetzner), verkeer verdeeld via de Europese aanwezigheidspunten van Cloudflare. Navigatiegegevens worden niet doorverkocht of voor reclamedoeleinden doorgegeven.",
     "aboutTitle": "Wie zit er achter de BGM",
     "aboutText": "De Brussels Governance Monitor is een project opgericht door Zoltán Jánosi, communicatiestrateeg gevestigd in Brussel. De site wordt gehost door Advice That SRL. Het is niet gelieerd aan enige politieke partij, media of belangengroep.",
     "aboutLink": "Meer weten →",
     "fundingTitle": "Financiering",
     "fundingText": "Dit project wordt ontwikkeld en onderhouden door Advice That SRL (Brussel). Het wordt momenteel zelf gefinancierd. Geen adverteerder, politieke partij of publieke instelling draagt bij aan de financiering van deze website. Het project staat open voor publieke of filantropische financiering die verenigbaar is met zijn redactionele onafhankelijkheid. Neem contact met ons op als u dit initiatief wilt steunen.",
+    "gamesTitle": "Dagelijkse spellen",
+    "gamesText": "Twee dagelijkse spellen vullen de monitoring aan: Le Stuut du jour (één woord, zes pogingen) en Amai ! (vijf cijfers te situeren). Ze volgen dezelfde regels als de rest van de site: geen account, geen cookies, geen persoonsgegevens verzameld. Uw voortgang blijft in uw browser en de bezoekersstatistieken verlopen via onze zelf gehoste Umami.",
     "correctionTitle": "Correctiebeleid",
     "correctionText": "Elke gemelde feitelijke fout wordt binnen 48 uur gecorrigeerd en gedocumenteerd in het wijzigingslogboek.",
     "correctionLink": "Bekijk het wijzigingslogboek",

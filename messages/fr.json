@@ -569,12 +569,17 @@
     "thirdParties": {
       "title": "Sous-traitants et outils tiers",
       "description": "Dans un souci de transparence, voici la liste complète des services tiers utilisés par ce site :",
-      "vercel": "Vercel (hébergement) — Héberge le site web. Région : Paris (CDG1). Traite les logs serveur (adresses IP, en-têtes HTTP). Aucune donnée personnelle n'est stockée au-delà des logs techniques temporaires.",
-      "umami": "Umami (statistiques) — Mesure de fréquentation respectueuse de la vie privée. Aucun cookie, aucune donnée personnelle collectée, aucun suivi inter-sites. Hébergement cloud EU.",
-      "resend": "Resend (emails) — Envoie les emails de confirmation et les digest hebdomadaires. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
-      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Vercel, Umami et AppSignal ; consentement (article 6.1.a) pour Resend.",
+      "hosting": "Hetzner (hébergement) : héberge le site sur un serveur situé à Nuremberg, en Allemagne. Traite les logs serveur (adresses IP, en-têtes HTTP). Aucune donnée personnelle n'est stockée au-delà des logs techniques temporaires.",
+      "cloudflare": "Cloudflare (CDN et protection anti-DDoS) : filtre et distribue le trafic depuis ses points de présence européens. Traite les adresses IP des visiteurs pendant la requête. Société américaine, certifiée sous le EU-US Data Privacy Framework.",
+      "umami": "Umami (statistiques) : mesure de fréquentation respectueuse de la vie privée, auto-hébergée sur notre propre serveur en Allemagne. Aucun cookie, aucune donnée personnelle collectée, aucun suivi inter-sites.",
+      "resend": "Resend (emails) : envoie les emails de confirmation et les digest hebdomadaires. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
+      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Hetzner, Cloudflare et Umami ; consentement (article 6.1.a) pour Resend.",
       "statusPage": "Page de statut du service : https://status.governance.brussels",
-      "transfers": "Transferts hors UE : Resend (États-Unis) et Vercel (logs traités aux États-Unis) bénéficient de clauses contractuelles types (SCCs) et sont certifiés sous le EU-US Data Privacy Framework (DPF). Les DPA sont automatiquement acceptés avec les conditions d'utilisation de chaque service."
+      "transfers": "Transferts hors UE : l'hébergement du site et les statistiques restent en Allemagne. Resend (États-Unis) et Cloudflare (société américaine) bénéficient de clauses contractuelles types (SCCs) et sont certifiés sous le EU-US Data Privacy Framework (DPF). Les DPA sont automatiquement acceptés avec les conditions d'utilisation de chaque service."
+    },
+    "games": {
+      "title": "Jeux quotidiens (Stuut et Amai)",
+      "description": "Le BGM publie deux jeux quotidiens sur la gouvernance bruxelloise : Le Stuut du jour (stuut.governance.brussels), un jeu de mots, et Amai ! (amai.governance.brussels), un jeu de chiffres. Aucun compte n'est nécessaire et aucun cookie n'est déposé. Votre progression, vos statistiques de jeu et votre préférence de langue sont conservées uniquement dans le stockage local de votre navigateur, sur votre appareil : elles ne sont jamais transmises au serveur et vous pouvez les effacer à tout moment en vidant les données de site de votre navigateur. La mesure d'audience de ces deux jeux passe par la même instance Umami auto-hébergée que le site principal, de façon anonyme."
     },
     "cookies": {
       "title": "Cookies",
@@ -707,7 +712,7 @@
     },
     "hosting": {
       "title": "Hébergement",
-      "description": "Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis. Région de déploiement : CDG1 (Paris, France)."
+      "description": "Le site est hébergé par Hetzner Online GmbH, Industriestrasse 25, 91710 Gunzenhausen, Allemagne, sur un serveur situé à Nuremberg. La distribution et la protection anti-DDoS sont assurées par Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis."
     },
     "intellectual": {
       "title": "Propriété intellectuelle",
@@ -1931,15 +1936,17 @@
     "securityTitle": "Protection des visiteurs",
     "securityIntro": "Le BGM ne collecte aucune donnée personnelle lors de votre navigation. Voici les choix concrets que nous avons faits pour protéger votre sécurité.",
     "securityNoTracker": "Aucun tracker publicitaire, aucun cookie tiers, aucune revente de données.",
-    "securityAnalytics": "Analyse de fréquentation anonyme via Umami (hébergé en Europe, conforme RGPD) + Vercel Analytics (Web Vitals, performances) — aucune adresse IP, aucun fingerprinting.",
+    "securityAnalytics": "Analyse de fréquentation anonyme via Umami, auto-hébergé sur notre propre serveur en Allemagne : aucune adresse IP conservée, aucun fingerprinting, aucun cookie.",
     "securitySri": "Chaque script externe est verrouillé par empreinte cryptographique : seul le code que nous avons vérifié peut s'exécuter sur votre appareil.",
     "securityHttps": "Connexion chiffrée obligatoire (HTTPS) avec en-têtes de sécurité stricts.",
-    "securityHosting": "Hébergement européen (Paris), monitoring aux Pays-Bas — aucun transfert de données hors UE.",
+    "securityHosting": "Hébergement en Allemagne (Nuremberg, Hetzner), trafic distribué par les points de présence européens de Cloudflare. Aucune donnée de navigation n'est revendue ni transmise à des fins publicitaires.",
     "aboutTitle": "Qui est derrière le BGM",
     "aboutText": "Le Brussels Governance Monitor est un projet créé par Zoltán Jánosi, stratège en communication basé à Bruxelles. Le site est hébergé par Advice That SRL. Il n'est affilié à aucun parti politique, média ou groupe d'intérêt.",
     "aboutLink": "En savoir plus →",
     "fundingTitle": "Financement",
     "fundingText": "Ce projet est développé et maintenu par Advice That SRL (Bruxelles). Il est actuellement autofinancé. Aucun annonceur, parti politique ou institution publique ne contribue au financement de ce site. Le projet est ouvert à des financements publics ou philanthropiques compatibles avec son indépendance éditoriale. Si vous souhaitez soutenir cette initiative, contactez-nous.",
+    "gamesTitle": "Jeux quotidiens",
+    "gamesText": "Deux jeux quotidiens complètent le monitoring : Le Stuut du jour (un mot, six essais) et Amai ! (cinq chiffres à situer). Ils suivent les mêmes règles que le reste du site : aucun compte, aucun cookie, aucune donnée personnelle collectée. Votre progression reste dans votre navigateur et les statistiques de fréquentation passent par notre Umami auto-hébergé.",
     "correctionTitle": "Politique de correction",
     "correctionText": "Toute erreur factuelle signalée est corrigée sous 48h et documentée dans le journal des modifications.",
     "correctionLink": "Voir le journal des modifications",

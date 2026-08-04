@@ -159,6 +159,12 @@ export default async function TransparencyPage({
             <p className="text-sm text-neutral-600">{t('fundingText')}</p>
           </div>
 
+          {/* Jeux quotidiens */}
+          <div className="rounded-lg border border-neutral-200 p-6">
+            <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('gamesTitle')}</h2>
+            <p className="text-sm text-neutral-600">{t('gamesText')}</p>
+          </div>
+
           {/* Politique de correction */}
           <div className="rounded-lg border border-neutral-200 p-6">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('correctionTitle')}</h2>

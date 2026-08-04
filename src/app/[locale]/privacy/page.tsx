@@ -92,13 +92,17 @@ function PrivacyView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('thirdParties.title')}</h2>
           <p>{t('thirdParties.description')}</p>
           <ul className="ml-4 list-disc space-y-2">
-            <li>{t('thirdParties.vercel')}</li>
+            <li>{t('thirdParties.hosting')}</li>
+            <li>{t('thirdParties.cloudflare')}</li>
             <li>{t('thirdParties.umami')}</li>
             <li>{t('thirdParties.resend')}</li>
           </ul>
           <p className="text-xs text-neutral-500">{t('thirdParties.legalBasis')}</p>
           <p className="text-xs text-neutral-500">{t('thirdParties.transfers')}</p>
           <p className="text-xs text-neutral-500">{t('thirdParties.statusPage')}</p>
+
+          <h2 className="text-lg font-semibold text-neutral-900">{t('games.title')}</h2>
+          <p>{t('games.description')}</p>
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('cookies.title')}</h2>
           <p>{t('cookies.description')}</p>
@@ -111,7 +115,7 @@ function PrivacyView() {
           <p>{t('chatbot.paragraph2')}</p>
 
           <p className="mt-8 text-xs text-neutral-500">
-            {t('lastUpdated', { date: '2026-04-21' })}
+            {t('lastUpdated', { date: '2026-08-03' })}
           </p>
         </div>
       </div>

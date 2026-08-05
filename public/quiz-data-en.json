@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T21:11:50.060Z",
+  "generatedAt": "2026-08-05T21:13:00.476Z",
   "locale": "en",
-  "poolSize": 63,
+  "poolSize": 67,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1089,368 +1089,460 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "According to the government agreement of February 2026, what replaces the frozen Metro 3 project as Brussels' major public transport investment?",
+      "question": "What does the Parliament's special committee recommend for any major regional infrastructure project?",
       "options": [
-        "An extension of the existing bus rapid transit network",
-        "Upgraded metro services on existing lines only",
-        "A tram completing the loop of the existing network",
-        "A light rail line connecting to neighbouring regions"
+        "A single governance structure, held within one administration",
+        "A regional referendum before the works are launched",
+        "A full delegation of project ownership to the federal level",
+        "A legal cap on the budget from the preliminary design stage"
       ],
-      "correct": 2,
-      "explanation": "The agreement explicitly states that Metro 3 is replaced by a tram that completes the loop of the existing tram network. This represents a fundamental shift in investment strategy from underground metro to surface tram infrastructure.",
+      "correct": 0,
+      "explanation": "An identified project director would be accountable to the government and to Parliament. The recommendations are grouped into six strands, after eight months of work and more than fifty hearings.",
       "sourceSlug": "/en/dossiers/metro-3",
-      "sourceTitle": "Metro 3: project frozen for 10 years, replaced by tram",
+      "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:e10db2590c2bc439fd29ef9b315135c8",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:253a9a187963e31058d47d72e5e6d559",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What institutional body's report on cost overruns directly triggered the decision to freeze Metro 3?",
+      "question": "What discrepancy does BGM flag between the Metro 3 text voted in plenary in July 2026 and the one adopted by the special committee?",
       "options": [
-        "The Court of Audit",
-        "The Beliris cooperation agreement committee",
-        "The Brussels Parliament's special Metro 3 commission",
-        "The Council of State"
+        "24 recommendations voted against 22 in committee",
+        "22 recommendations voted against 24 in committee",
+        "18 recommendations voted against 24 in committee",
+        "30 recommendations voted against 22 in committee"
       ],
       "correct": 0,
-      "explanation": "The Court of Audit's report revealed massive cost overruns and concluded that the project's financial sustainability was 'seriously compromised', which directly led negotiators to freeze the project during government formation talks.",
+      "explanation": "No source consulted explains the origin of that gap, which may stem from amendments tabled in plenary. BGM flags the discrepancy rather than passing over it in silence.",
       "sourceSlug": "/en/dossiers/metro-3",
-      "sourceTitle": "Metro 3: project frozen for 10 years, replaced by tram",
+      "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:e10db2590c2bc439fd29ef9b315135c8",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:253a9a187963e31058d47d72e5e6d559",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "Under the Brussels government decree of 13 July 2023, which of the following represents the maximum number of e-scooters that a single licence holder can operate?",
+      "question": "What effect does the Council of State ruling of July 2026, annulling the shared mobility licences in Brussels, have on the ban on shared scooters?",
       "options": [
-        "4,000 e-scooters",
-        "8,000 e-scooters",
-        "10,000 e-scooters",
-        "6,000 e-scooters"
+        "It brings it forward by four months, through the courts",
+        "It postpones it by four months, through the courts",
+        "It annuls it, leaving it without purpose for operators",
+        "It leaves it unchanged, without altering the timetable"
       ],
-      "correct": 3,
-      "explanation": "The regulation establishes a cap of 6,000 e-scooters per licence. This fleet limitation was intended to manage the shared mobility market, though the Council of State temporarily suspended these caps in April 2024 before they were later upheld.",
+      "correct": 0,
+      "explanation": "The ban set for 1 January 2027 is not called into question, but the vehicles must leave public space by 1 September 2026. The appeal came from Lime, the operator excluded when the licences were awarded.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
-      "sourceTitle": "Shared mobility in Brussels: e-scooters, bicycles, taxis and the battle over concessions",
+      "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-02-24",
-        "sourceContentHash": "sha256:8894513b8288947b5ea1034e544e59e8",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:9de24f25b7d163b5bc58dff1f69da8b5",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What is the current status of the Villo! bicycle-sharing concession agreement with JCDecaux?",
+      "question": "Which service does the annulment of the shared mobility licences in Brussels remove, even though the government wanted to keep it?",
       "options": [
-        "It has already been terminated and replaced by free-floating services only",
-        "It was renewed for another 10 years in 2024",
-        "It expires in September 2026 after nearly 17 years of operation",
-        "It was extended indefinitely with performance improvements required"
+        "Free-floating shared bicycles",
+        "Free-floating shared scooters",
+        "The fixed-docking bicycles of the Villo concession",
+        "Shared electrically assisted mopeds"
       ],
-      "correct": 2,
-      "explanation": "The Villo! concession agreement, signed in November 2008, ends in September 2026. The Brussels government has commissioned a comparative study but has not yet announced a decision on whether to maintain docking stations, transition to free-floating bikes, or adopt a hybrid model.",
+      "correct": 0,
+      "explanation": "The Villo concession, which uses fixed docking stations, is not covered by the ruling. The authorities are working on a new regulatory framework for shared bicycles.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
-      "sourceTitle": "Shared mobility in Brussels: e-scooters, bicycles, taxis and the battle over concessions",
+      "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-02-24",
-        "sourceContentHash": "sha256:8894513b8288947b5ea1034e544e59e8",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:9de24f25b7d163b5bc58dff1f69da8b5",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-novacity-ii-0",
+      "source": "dossier",
+      "domain": "Housing",
+      "question": "Which heating method does the NovaCity II programme adopt for its housing units?",
+      "options": [
+        "A geothermal heat pump system, free of fossil fuel",
+        "A collective high-efficiency natural gas boiler room",
+        "A connection to the existing district heating network",
+        "Individual condensing boilers for each unit"
+      ],
+      "correct": 0,
+      "explanation": "The system is complemented by solar panels, aiming for net zero energy housing. The 117 subsidised units will be passive and dual-aspect, each with a private terrace of at least 7.5 square metres.",
+      "sourceSlug": "/en/dossiers/novacity-ii",
+      "sourceTitle": "NovaCity II",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:a56f229260e92a4b5ae5c341c9e7ae92",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
-      "domain": "Social",
-      "question": "In Brussels, which authority is responsible for approving and funding Dutch-language nurseries?",
+      "domain": "Education",
+      "question": "What gap in childcare place coverage separates the Brussels municipalities?",
       "options": [
-        "Opgroeien (formerly Kind en Gezin)",
-        "Iriscare",
-        "ONE (Office de la Naissance et de l'Enfance)",
-        "The Brussels municipalities"
+        "67% in Etterbeek against 16% in Anderlecht",
+        "45% in Etterbeek against 38% in Anderlecht",
+        "80% in Etterbeek against 60% in Anderlecht",
+        "30% in Etterbeek against 25% in Anderlecht"
       ],
       "correct": 0,
-      "explanation": "Opgroeien, representing the Flemish Community, handles approval and funding of Dutch-language nurseries in Brussels, while ONE manages francophone structures. This division of authority across language communities is a defining feature of Brussels governance.",
+      "explanation": "Two parents in three describe the search for a place as difficult or very difficult, according to the Ligue des Familles. The postcode largely determines whether returning to work after maternity leave is possible.",
       "sourceSlug": "/en/dossiers/petite-enfance",
-      "sourceTitle": "Early childhood in Brussels: nurseries, waiting lists and triple institutional authority",
+      "sourceTitle": "Early childhood",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:c6cf957429b98305a4a282f2d254b2ba",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:d9b98024e2d8630b658a4d211639a2aa",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
-      "domain": "Social",
-      "question": "Why do separate waiting lists for francophone and Dutch-language nurseries create a practical problem for Brussels families?",
+      "domain": "Education",
+      "question": "Which authority issues the licences for bicommunal nurseries in Brussels?",
       "options": [
-        "They require families to speak both languages to apply",
-        "They are managed by the same authority, causing confusion",
-        "Families can wait months in one queue while a place opens in another queue they are not registered on",
-        "They prevent families from moving between communes"
+        "Iriscare, for the Common Community Commission",
+        "ONE, for the Wallonia-Brussels Federation",
+        "Opgroeien, for the Flemish Community",
+        "Brussels Economy and Employment, for the Region"
       ],
-      "correct": 2,
-      "explanation": "Since waiting lists are kept separately by language community and institution, a family waiting for a francophone place has no access to an available Dutch-language place unless they have registered on that separate list. This structural fragmentation directly impacts families' ability to return to work after maternity leave.",
+      "correct": 0,
+      "explanation": "It is the only authority belonging to a strictly Brussels level of power. French-speaking nurseries depend on ONE and Dutch-speaking ones on Opgroeien, each under its own budget.",
       "sourceSlug": "/en/dossiers/petite-enfance",
-      "sourceTitle": "Early childhood in Brussels: nurseries, waiting lists and triple institutional authority",
+      "sourceTitle": "Early childhood",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:c6cf957429b98305a4a282f2d254b2ba",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:d9b98024e2d8630b658a4d211639a2aa",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-pfas-0",
       "source": "dossier",
       "domain": "Climate",
-      "question": "Why is TFA (trifluoroacetic acid) a particular challenge for Brussels drinking water suppliers compared to other PFAS contaminants?",
+      "question": "Where does the PFAS contamination found in the Brussels Region come from?",
       "options": [
-        "It is produced by a major factory in Brussels, unlike other PFAS sources",
-        "Standard activated carbon filters cannot remove it, requiring more expensive treatment methods like reverse osmosis",
-        "It has been regulated in Brussels since 2024, making it illegal to distribute",
-        "It is only found in the Daussoulx-Boitsfort reservoir and nowhere else in the Region"
+        "From the diffuse use of products and from specific industrial sites",
+        "From a production plant located within the Region",
+        "From a single discharge into the canal in 2021",
+        "From agricultural spreading in the outskirts"
       ],
-      "correct": 1,
-      "explanation": "TFA's resistance to standard filtration methods creates a significant technical and cost problem for water treatment. This distinction is crucial for understanding why Brussels faces a unique drinking water challenge even though Vivaqua confirms other PFAS standards are met.",
+      "correct": 0,
+      "explanation": "No PFAS production plant exists in the Brussels Region, unlike in Flanders. Around 3,500 sites are inventoried as potentially contaminated, notably because of firefighting foams.",
       "sourceSlug": "/en/dossiers/pfas",
-      "sourceTitle": "PFAS in Brussels: soil and water contamination",
+      "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
-        "sourceContentHash": "sha256:7fed17034e8718f9a061272829219657",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-12",
+        "sourceContentHash": "sha256:2acf1e70f011e41df50ab7c4b739acac",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-pfas-1",
       "source": "dossier",
       "domain": "Climate",
-      "question": "What is the key difference between the health thresholds recommended by the Superior Health Council and the current legal drinking water standards in Brussels?",
+      "question": "What precautionary measure accompanies the perimeter set around the former Sicli site in Uccle?",
       "options": [
-        "There is no difference; they use the same methodology and numerical values",
-        "The Superior Health Council only applies to Flanders, not to Brussels",
-        "The legal standards are based on precaution while the Superior Health Council uses industry data",
-        "The Superior Health Council recommends stricter thresholds based on the precautionary principle rather than just minimum quality requirements"
+        "A ban on eating fruit, vegetables and eggs from the perimeter",
+        "A total ban on road access for local residents",
+        "An obligation to connect homes to the sewer network",
+        "The closure of the schools inside the perimeter"
       ],
-      "correct": 3,
-      "explanation": "The Superior Health Council's 'maximum health values' represent a precautionary approach with much stricter limits than current legal 'quality limits.' Understanding this distinction helps explain why civil society organisations like Inter-Environnement Bruxelles call for regulatory reform based on public health rather than minimum compliance.",
+      "correct": 0,
+      "explanation": "The safety perimeter extends over 100 metres. On the industrial site, the standard is exceeded up to 708 times in the soil and 1,058 times in the groundwater.",
       "sourceSlug": "/en/dossiers/pfas",
-      "sourceTitle": "PFAS in Brussels: soil and water contamination",
+      "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
-        "sourceContentHash": "sha256:7fed17034e8718f9a061272829219657",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-12",
+        "sourceContentHash": "sha256:2acf1e70f011e41df50ab7c4b739acac",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-plan-securite-0",
       "source": "dossier",
-      "domain": "Social",
-      "question": "According to the new Brussels security plan, which of the following is a newly created institutional role to address drug-related crime?",
+      "domain": "Security",
+      "question": "What does the minister-president's first field visit to Brussels-South station reveal?",
       "options": [
-        "Federal Railway Police director",
-        "Regional anti-drugs commissioner",
-        "SNCB security coordinator",
-        "Bruxelles Prévention & Sécurité director"
+        "A need for coordination between security actors",
+        "A lack of surveillance cameras in the station",
+        "Insufficient federal police staffing levels",
+        "A failure to maintain the railway infrastructure"
       ],
-      "correct": 1,
-      "explanation": "The government agreement of 12 February 2026 introduced a dedicated regional anti-drugs commissioner as a new authority specifically focused on combating narcotics in Brussels. This represents a structural innovation in how the region coordinates its drug enforcement efforts.",
+      "correct": 0,
+      "explanation": "Six police zones, the federal railway police, SNCB security and Stib guards all operate on the same site. That is what the 10 million euros earmarked for the South and North stations are about.",
       "sourceSlug": "/en/dossiers/plan-securite",
-      "sourceTitle": "Security plan: anti-drugs commissioner, 10M EUR for stations and police zone merger",
+      "sourceTitle": "Security Plan",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:8df82b93168a2ba425fa84894f2863f4",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:e18552764a3cc7e36757577b971bf047",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-rechauffement-bruxelles-0",
+      "source": "dossier",
+      "domain": "Climate",
+      "question": "When is the temperature gap between central Brussels and its outskirts most dangerous?",
+      "options": [
+        "At night, when the temperature no longer falls back",
+        "In the middle of the day, at peak sunshine",
+        "In the early morning, before sunrise",
+        "In the late afternoon, as offices empty"
+      ],
+      "correct": 0,
+      "explanation": "The night-time gap reaches 4.5 degrees on average and up to 10 degrees during extreme episodes. When the body does not recover at night, excess mortality sets in, particularly among elderly and isolated people.",
+      "sourceSlug": "/en/dossiers/rechauffement-bruxelles",
+      "sourceTitle": "Brussels warming",
+      "provenance": {
+        "sourceLastModified": "2026-06-26",
+        "sourceContentHash": "sha256:f9578db8a0bee9857b060e97e89db1fd",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
-      "domain": "Budget",
-      "question": "Under the Brussels administration reform announced in February 2026, which functions are being pooled together in the 'Shared support service' pillar?",
+      "domain": "Institutional",
+      "question": "What is the numerical target of the reform regrouping the Brussels regional administration?",
       "options": [
-        "Human resources, IT, finance, budget, and statistics",
-        "Public transport construction, parking management, and infrastructure maintenance",
-        "Land management, social housing coordination, and property development",
-        "Urban planning, housing, and environmental operations"
+        "Moving from about 25 entities to 4 major pillars",
+        "Moving from about 40 entities to 10 major pillars",
+        "Moving from about 15 entities to 2 major pillars",
+        "Moving from about 60 entities to 12 major pillars"
       ],
       "correct": 0,
-      "explanation": "Pillar 1 consolidates cross-cutting administrative functions that support all regional entities. Understanding these transversal services is key to grasping how the reform aims to reduce duplication and improve efficiency across the Brussels administration.",
+      "explanation": "The stated goal is 250 to 300 million euros in savings by 2029. The four pillars cover shared support functions, organic missions, infrastructure.brussels and a land platform.",
       "sourceSlug": "/en/dossiers/reforme-administration",
-      "sourceTitle": "Reform of the regional administration: from 25 entities to 4 pillars",
+      "sourceTitle": "Admin Reform",
       "provenance": {
-        "sourceLastModified": "2026-03-09",
-        "sourceContentHash": "sha256:6663b19cf5e74c8fab69fe96eaf3a39b",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-07",
+        "sourceContentHash": "sha256:08f63f6fb4e5b8f0ed14e8c02f8e0dd1",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-rse-0",
       "source": "dossier",
       "domain": "Economy",
-      "question": "Which two Brussels institutions jointly lead the Shifting Economy strategy adopted in 2022?",
+      "question": "What target does the regional Shifting Economy strategy set for 2030?",
       "options": [
-        "hub.brussels and finance&invest.brussels",
-        "Brussels Economy and Employment (BEE) and Brupartners",
-        "Brupartners and Brussels Environment",
-        "Brussels Environment and Brussels Economy and Employment (BEE)"
+        "Reserving 100% of subsidies for exemplary businesses",
+        "Reserving 50% of subsidies for exemplary businesses",
+        "Cutting 30% of regional economic subsidies",
+        "Doubling the total budget for business subsidies"
       ],
-      "correct": 3,
-      "explanation": "The Shifting Economy is jointly led by Brussels Environment and Brussels Economy and Employment (BEE), with additional support from hub.brussels and finance&invest.brussels. Understanding the governance structure helps clarify how the Region coordinates its economic transition efforts.",
+      "correct": 0,
+      "explanation": "The exemplarity mechanism increases subsidies for labelled businesses, from 2.5% up to 45% when they are combined. Verification is automatic when the application is made, with no extra step.",
       "sourceSlug": "/en/dossiers/rse",
-      "sourceTitle": "Economic Transition: Shifting Economy, Labels and Sustainability Reporting",
+      "sourceTitle": "CSR / Green Transition",
       "provenance": {
-        "sourceLastModified": "2026-03-03",
-        "sourceContentHash": "sha256:da8c341afb9b430b77375d8402d4b175",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:b126480b0e82fddc3e8496c42b30b3f2",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "What was the main shift in approach introduced by the new accreditation standards for nursing homes in Brussels, effective since September 2024?",
+      "question": "How does the share of seniors receiving the guaranteed income for elderly persons (GRAPA) compare between regions?",
       "options": [
-        "From public sector management to mandatory private commercial operation",
-        "From unlimited accreditation periods to a maximum of 6 years per facility",
-        "From a care-centred model to a resident-centred model focusing on autonomy and quality of life",
-        "From individual care plans to standardized treatment protocols for all residents"
+        "Three times higher in Brussels than in Flanders",
+        "Twice as low in Brussels as in Flanders",
+        "Identical in Brussels and in Flanders since 2020",
+        "Four times lower in Brussels than in Wallonia"
       ],
-      "correct": 2,
-      "explanation": "The 2024 accreditation standards represent a fundamental reform in how Brussels nursing homes must operate, prioritizing residents' autonomy and participation rather than purely medical care delivery. This reflects evolving best practices in elderly care governance.",
+      "correct": 0,
+      "explanation": "13% of Brussels residents aged 65 and over receive GRAPA, against 4% in Flanders and 5% in Wallonia. The gap between municipalities runs from 4% in Woluwe-Saint-Pierre to 26% in Saint-Josse-ten-Noode.",
       "sourceSlug": "/en/dossiers/seniors-a-bruxelles",
-      "sourceTitle": "Seniors in Brussels: housing, autonomy and data",
+      "sourceTitle": "Seniors",
       "provenance": {
-        "sourceLastModified": "2026-02-22",
-        "sourceContentHash": "sha256:3f9b9074a9b1df43ee0ac380a75ddd57",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:7e56e0c020cb4a4aff8e736fb38fc0b9",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Housing",
-      "question": "What was the main reason that major renovation and construction projects for Brussels social housing were frozen between June 2024 and February 2026?",
+      "question": "What are the 61 million euros unlocked for the SLRB in July 2026 for?",
       "options": [
-        "A caretaker government period prevented new investment decisions from being made",
-        "The Brussels Region was implementing a new social housing allocation policy",
-        "The SLRB lacked sufficient funding to proceed with any projects",
-        "An audit of social housing providers revealed systemic governance failures"
+        "The strategic plan for sustainable renovation of the social stock",
+        "The purchase of land intended for new construction",
+        "The early repayment of the debt owed to the Region",
+        "The pay-scale upgrade for the companies' staff"
       ],
       "correct": 0,
-      "explanation": "The caretaker government period created a legal and political deadlock that prevented structural investment decisions. Once the new government agreement was signed on 12 February 2026, this blockage was lifted, unblocking multi-year renovation and construction plans.",
+      "explanation": "The plan covers 2026-2035, with 219 projects planned and 117 already under way. The SLRB is the regional institution responsible for renovating the social housing stock.",
       "sourceSlug": "/en/dossiers/slrb",
-      "sourceTitle": "SLRB: 1,000+ public housing units and financial consolidation",
+      "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:d870ab78f792a4fe834d446b7ae193e5",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:530c9a52fca929d5facb79d4cf2662ea",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Housing",
-      "question": "Which of the following best describes how the SLRB plans to address its financial debt through asset disposals?",
+      "question": "Which means is the government adopting to restore the SLRB's finances?",
       "options": [
-        "Converting SISP-managed buildings into private rental properties",
-        "Selling social housing units directly to tenants to generate immediate revenue",
-        "Leasing public assets to private developers for long-term income",
-        "Selling land sites and some social housing units to reduce debt to the Regional government"
+        "The sale of assets, including about 200 social housing units",
+        "A general rent increase of 3% a year",
+        "A loan guaranteed by the 19 Brussels municipalities",
+        "The merger of the 16 approved property companies"
       ],
-      "correct": 3,
-      "explanation": "The government decided to sell several assets including the Ariane and Palais land sites, plus approximately 200 social housing units. These disposals aim to reduce the SLRB's debt to the Brussels Region while a deconsolidation fund will help remove this debt from the regional budget.",
+      "correct": 0,
+      "explanation": "The Ariane site in Woluwe-Saint-Lambert and the Palais site in Schaerbeek are concerned. These disposals aim to reduce the SLRB's debt, alongside an envelope of 400 million euros for more than a thousand public housing units.",
       "sourceSlug": "/en/dossiers/slrb",
-      "sourceTitle": "SLRB: 1,000+ public housing units and financial consolidation",
+      "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:d870ab78f792a4fe834d446b7ae193e5",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:530c9a52fca929d5facb79d4cf2662ea",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
-      "domain": "Mobility",
-      "question": "Why does Brussels Airport's runway 25R primarily direct aircraft over densely populated areas of Brussels?",
+      "domain": "Climate",
+      "question": "Why do take-offs mainly occur over Brussels?",
       "options": [
-        "Because the Royal Castle exclusion zone forces all traffic through the city center",
-        "Because prevailing south-westerly winds require take-offs towards Brussels on this runway",
-        "Because European aviation regulations mandate this flight path",
-        "Because it is the longest runway and can handle the most traffic"
+        "The prevailing south-west winds require runway 25R",
+        "The prevailing north winds require runway 01 towards the east",
+        "The length of the runways rules out any take-off eastwards",
+        "An agreement between regions has set this split since 1995"
       ],
-      "correct": 1,
-      "explanation": "The structural geography of the airport means south-westerly winds (which occur about 70% of the time) naturally require aircraft to take off on runway 25R in a direction that overflies central and northern Brussels. This technical constraint has been at the core of the 40-year conflict between airport operations and residents' quality of life.",
+      "correct": 0,
+      "explanation": "These winds blow 70% of the time, which sends take-offs over densely populated neighbourhoods. The Superior Health Council puts the health cost at more than one billion euros a year.",
       "sourceSlug": "/en/dossiers/survol-bruxelles",
-      "sourceTitle": "Brussels Overflight: 40 Years of Conflict, 450,000 Affected Residents",
+      "sourceTitle": "Aircraft overflight",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:7be34d0a7f03f2c887e21ca1fa946cea",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:8b477bddd7e75f9a6932f33fec427f84",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-titres-services-economie-sociale-0",
+      "source": "dossier",
+      "domain": "Employment",
+      "question": "Which combination does a 2024 decree make incompatible for social insertion organisations?",
+      "options": [
+        "The service voucher contract and an aid linked to an insertion mandate",
+        "The service voucher contract and a subsidised contractual agent post",
+        "The insertion mandate and a municipal employment subsidy",
+        "The service voucher contract and a first-job agreement"
+      ],
+      "correct": 0,
+      "explanation": "Thirteen Brussels organisations had combined the two for years and lose their economic model on 1 January 2027. FeBISP points to up to 735 jobs at risk, while the competent cabinet puts the figure at 347.",
+      "sourceSlug": "/en/dossiers/titres-services-economie-sociale",
+      "sourceTitle": "Service Vouchers / Social Economy",
+      "provenance": {
+        "sourceLastModified": "2026-06-18",
+        "sourceContentHash": "sha256:4b382e18ea1ff60477f518e94b092924",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-vice-gouverneur-0",
+      "source": "dossier",
+      "domain": "Institutional",
+      "question": "Which mission does the vice-governor of Brussels carry out?",
+      "options": [
+        "Overseeing compliance with the laws on the use of languages",
+        "Coordinating emergency planning for the district",
+        "Exercising supervision over the nineteen municipal budgets",
+        "Chairing the conference of Brussels mayors"
+      ],
+      "correct": 0,
+      "explanation": "Brussels has had no governor since the sixth state reform, its security duties being carried out by a senior official. The language check covers the nineteen municipalities and the nineteen CPASs.",
+      "sourceSlug": "/en/dossiers/vice-gouverneur",
+      "sourceTitle": "Vice-governor",
+      "provenance": {
+        "sourceLastModified": "2026-06-15",
+        "sourceContentHash": "sha256:a9d106aa8e20a9afd8a32e3a39b6efef",
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-vivaqua-0",
       "source": "dossier",
-      "domain": "Budget",
-      "question": "What is the main purpose of the deconsolidation fund created by the Brussels government agreement of February 2026?",
+      "domain": "Climate",
+      "question": "What does the regulator BRUGEL criticise in Vivaqua's management?",
       "options": [
-        "To cover the costs of sewer network renovations",
-        "To remove Vivaqua's debt from the regional budget",
-        "To collect unpaid water bills from households",
-        "To finance the integration of Hydria into Vivaqua"
+        "High unpaid bills and costs deemed unjustified",
+        "Systematic under-billing of large consumers",
+        "A delay in publishing its certified annual accounts",
+        "Excessive outsourcing of network maintenance"
       ],
-      "correct": 1,
-      "explanation": "The deconsolidation fund is a specific financial mechanism designed to separate Vivaqua's debt from the regional budget, allowing the Region to provide a recapitalisation while managing its fiscal position separately. This is a key structural innovation in the government agreement.",
+      "correct": 0,
+      "explanation": "The regulator notes 73 million euros in uncollected receivables and 35 million in spending excluded from the tariff calculation. Water tariffs rose by 12.5% on 1 January 2026, against a debt close to one billion.",
       "sourceSlug": "/en/dossiers/vivaqua",
-      "sourceTitle": "Vivaqua: financial consolidation announced",
+      "sourceTitle": "Vivaqua",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
+        "sourceLastModified": "2026-06-12",
         "sourceContentHash": "sha256:bf7352c06cb51b633cecbae734ae7079",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     }
   ]

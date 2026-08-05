@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T19:55:16.062Z",
+  "generatedAt": "2026-08-05T19:56:16.035Z",
   "locale": "fr",
-  "poolSize": 62,
+  "poolSize": 64,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -948,164 +948,210 @@
       }
     },
     {
+      "id": "dossier-foire-du-midi-0",
+      "source": "dossier",
+      "domain": "Culture",
+      "question": "Qui organise la Foire du Midi, malgré son parcours en bordure de plusieurs communes ?",
+      "options": [
+        "La Ville de Bruxelles, seule et exclusivement",
+        "La Ville de Bruxelles, avec Anderlecht et Saint-Gilles",
+        "La Région, via son administration économique",
+        "Une intercommunale réunissant les trois communes"
+      ],
+      "correct": 0,
+      "explanation": "Le boulevard du Midi longe la frontière administrative d'Anderlecht et de Saint-Gilles, mais aucune de ces communes n'est co-organisatrice. La foire est pilotée par l'échevinat des Affaires économiques de la Ville.",
+      "sourceSlug": "/fr/dossiers/foire-du-midi",
+      "sourceTitle": "Foire du Midi",
+      "provenance": {
+        "sourceLastModified": "2026-07-09",
+        "sourceContentHash": "sha256:adbc4f37ff38c084f94d2c1d9edf457e",
+        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
+      "id": "dossier-foyer-anderlechtois-0",
+      "source": "dossier",
+      "domain": "Logement",
+      "question": "Que prévoient les recommandations votées après la commission d'enquête sur le logement social ?",
+      "options": [
+        "L'interdiction de toute intervention individuelle d'un administrateur",
+        "La suppression pure et simple des sociétés de logement social",
+        "Le transfert des attributions vers les collèges communaux",
+        "La publication nominative de toutes les listes d'attente"
+      ],
+      "correct": 0,
+      "explanation": "Les 26 recommandations sont rédigées pour l'ensemble du secteur, sans nommer la société concernée. Elles ferment aussi l'accès à la Banque de données régionale aux mandataires politiques et renforcent la protection des lanceurs d'alerte.",
+      "sourceSlug": "/fr/dossiers/foyer-anderlechtois",
+      "sourceTitle": "Foyer anderlechtois",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:361f55c09f501263858ec79387f8e06e",
+        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Sécurité",
-      "question": "Quel mécanisme constitutionnel a été déclenché par la motion de conflit d'intérêt au Parlement bruxellois le 13 mars 2026 ?",
+      "question": "Quel argument central les communes opposent-elles à la fusion des zones de police ?",
       "options": [
-        "Une consultation obligatoire de tous les bourgmestres bruxellois",
-        "Un vote immédiat en séance plénière du Parlement bruxellois",
-        "Un blocage définitif du projet de fusion des zones de police",
-        "Une période de concertation de 60 jours entre le Parlement bruxellois et la Chambre fédérale"
+        "La sous-représentation structurelle des petites communes",
+        "Le coût de la transition, laissé à charge des communes",
+        "La perte du pouvoir de police administrative du bourgmestre",
+        "L'absence de garantie sur le maintien des commissariats"
       ],
-      "correct": 3,
-      "explanation": "Cette période de dialogue force une phase de concertation interinstitutionnelle sans bloquer définitivement le projet. C'est un mécanisme de « freinage » démocratique : le Parlement régional et fédéral doivent se reparler avant de continuer. Découvrez comment fonctionne réellement la gouvernance bruxelloise sur Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "Berchem-Sainte-Agathe ne disposerait que de 1,4 % des voix dans la zone fusionnée. Brulocalis a déposé un recours collectif, doublé de recours individuels de plusieurs bourgmestres.",
       "sourceSlug": "/fr/dossiers/fusion-polices",
-      "sourceTitle": "Fusion des zones de police : de 6 à 1, vote avant l'été 2026",
+      "sourceTitle": "Fusion des polices",
       "provenance": {
-        "sourceLastModified": "2026-03-15",
-        "sourceContentHash": "sha256:4d0c2a8002b39203b740570fa74cfbee",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-12",
+        "sourceContentHash": "sha256:29d2b4b36d2658e23e269f224138979e",
+        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel est le principal changement géographique annoncé dans le nouveau Plan Régional de Mobilité par rapport à Good Move ?",
+      "question": "Autour de quoi le plan régional de mobilité appelé à succéder à Good Move recentre-t-il ses mailles ?",
       "options": [
-        "Les mailles seront agrandies pour couvrir plusieurs communes à la fois",
-        "Les mailles s'étendront à l'ensemble de la Région sans exception",
-        "Les mailles seront centrées sur les zones écoles plutôt que sur les quartiers entiers",
-        "Les mailles seront supprimées au profit d'une circulation libre"
+        "Les zones écoles",
+        "Les gares régionales",
+        "Les zones commerciales",
+        "Les parcs et espaces verts"
       ],
-      "correct": 2,
-      "explanation": "L'accord de février 2026 prévoit des mailles plus petites ciblées sur les zones écoles pour améliorer la sécurité routière et la qualité de vie autour des établissements scolaires. C'est une réduction du périmètre par rapport à Good Move, qui organisait la circulation par quartiers entiers.",
+      "correct": 0,
+      "explanation": "L'accord de gouvernement prévoit des mailles plus petites, le retrait des bollards contestés et une deuxième journée sans voiture par an. La philosophie de circulation apaisée est conservée, à une échelle réduite.",
       "sourceSlug": "/fr/dossiers/good-move",
-      "sourceTitle": "Good Move : un nouveau plan régional lui succèdera",
+      "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-03-13",
-        "sourceContentHash": "sha256:4c349ae232352de28e18dc09369d0f66",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-16",
+        "sourceContentHash": "sha256:fa4d437e93f72e7fb62708ff1512273b",
+        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel élément du plan Good Move sera explicitement retiré selon l'accord de gouvernement ?",
+      "question": "À partir de quand un nouveau plan de mobilité doit-il entrer en vigueur, selon le calendrier annoncé ?",
       "options": [
-        "Les bollards de fermeture des rues",
-        "Le transport public gratuit",
-        "L'interdiction de circuler les dimanches",
-        "Le réseau cyclable régional"
+        "À partir de 2030",
+        "À partir de 2026",
+        "À partir de 2027",
+        "À partir de 2028"
       ],
       "correct": 0,
-      "explanation": "L'accord prévoit le retrait des bollards contestés par les automobilistes et certains commerçants. C'est un point de contentieux majeur qui revient régulièrement dans les critiques contre Good Move, notamment de la part du Comité citoyen Non au plan Good Move.",
+      "explanation": "L'évaluation doit être finalisée fin 2026, suivie d'une période de corrections possibles entre 2027 et 2030. Le nom officiel du futur plan n'a pas été communiqué.",
       "sourceSlug": "/fr/dossiers/good-move",
-      "sourceTitle": "Good Move : un nouveau plan régional lui succèdera",
+      "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-03-13",
-        "sourceContentHash": "sha256:4c349ae232352de28e18dc09369d0f66",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-16",
+        "sourceContentHash": "sha256:fa4d437e93f72e7fb62708ff1512273b",
+        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-lez-0",
       "source": "dossier",
-      "domain": "Climat",
-      "question": "Selon l'accord de gouvernement du 12 février 2026, quel est le tarif annuel permettant aux propriétaires de véhicules non conformes de circuler légalement à Bruxelles ?",
+      "domain": "Mobilité",
+      "question": "Qu'advient-il du plafond d'amendes annuelles dans le nouveau régime de la zone de basses émissions ?",
       "options": [
-        "350 EUR (ou 200 EUR tarif social)",
-        "Un pass gratuit avec amende réduite",
-        "200 EUR pour tous les automobilistes",
-        "80 EUR par infraction"
+        "Il est supprimé, alors que l'amende unitaire baisse",
+        "Il est doublé, tout comme l'amende unitaire",
+        "Il est maintenu, avec une amende unitaire inchangée",
+        "Il est divisé par deux, avec une amende unitaire majorée"
       ],
       "correct": 0,
-      "explanation": "L'accord introduit un système de pass annuel à 350 EUR, avec un tarif social réduit à 200 EUR. Cela atténue l'impact financier de la LEZ pour les automobilistes ayant des véhicules non conformes.",
+      "explanation": "L'amende par infraction passe de 350 à 80 euros, mais le plafond de quatre amendes par an disparaît. Un pass annuel à 350 euros, ou 200 euros au tarif social, permet de circuler légalement.",
       "sourceSlug": "/fr/dossiers/lez",
-      "sourceTitle": "LEZ : maintenue avec pass annuel et amendes réduites",
+      "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
+        "sourceLastModified": "2026-06-25",
         "sourceContentHash": "sha256:0759a4e03a755130d6a5deec8d84c255",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-lez-1",
       "source": "dossier",
-      "domain": "Climat",
-      "question": "Quel est le principal reproche formulé par le Conseil d'État concernant la réduction des amendes LEZ proposée ?",
+      "domain": "Mobilité",
+      "question": "Sur quel principe constitutionnel le Conseil d'État fonde-t-il sa critique de la réduction des amendes ?",
       "options": [
-        "Elle favoriserait injustement les propriétaires de véhicules neufs",
-        "Elle augmenterait les coûts administratifs de Bruxelles Fiscalité",
-        "Elle rendrait impossible l'atteinte de l'objectif zéro diesel en 2030",
-        "Elle violerait le principe constitutionnel de standstill en réduisant la protection de la santé"
+        "Le principe de standstill en matière de santé",
+        "Le principe d'égalité devant l'impôt régional",
+        "Le principe de proportionnalité des sanctions",
+        "Le principe de sécurité juridique des usagers"
       ],
-      "correct": 3,
-      "explanation": "Le Conseil d'État juge que réduire les amendes constitue un recul en matière de protection environnementale et sanitaire, ce qui contredit le principe de standstill inscrit dans la Constitution. Cet avis soulève un risque juridique réel pour le gouvernement.",
+      "correct": 0,
+      "explanation": "La réduction des amendes constitue selon lui un recul de la protection de la santé des Bruxellois. Il juge également les montants proposés trop bas pour être efficaces, proportionnés et dissuasifs.",
       "sourceSlug": "/fr/dossiers/lez",
-      "sourceTitle": "LEZ : maintenue avec pass annuel et amendes réduites",
+      "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
+        "sourceLastModified": "2026-06-25",
         "sourceContentHash": "sha256:0759a4e03a755130d6a5deec8d84c255",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Selon l'accord de gouvernement de février 2026, qu'est-ce qui remplace le projet de Métro 3 gelé pour 10 ans ?",
+      "question": "Que recommande la commission spéciale du Parlement pour tout grand projet d'infrastructure régionale ?",
       "options": [
-        "Une extension de bus rapide en surface",
-        "Un téléphérique reliant le centre à la périphérie",
-        "Un tram complétant la boucle du réseau existant",
-        "Un prolongement de la ligne de métro existante vers le nord"
+        "Une gouvernance unique, réunie dans une seule administration",
+        "Un référendum régional préalable au lancement des travaux",
+        "Une délégation complète de la maîtrise d'ouvrage au fédéral",
+        "Un plafonnement légal du budget dès l'avant-projet retenu"
       ],
-      "correct": 2,
-      "explanation": "L'accord acte un réinvestissement majeur : plutôt que de poursuivre le métro souterrain coûteux, la Région oriente les milliards vers un tram de surface, choix structurant pour les décennies programmées.",
+      "correct": 0,
+      "explanation": "Un directeur de projet identifié serait responsable devant le gouvernement et le Parlement. Les recommandations sont regroupées en six axes, après huit mois de travaux et plus de cinquante auditions.",
       "sourceSlug": "/fr/dossiers/metro-3",
-      "sourceTitle": "Métro 3 : projet gelé 10 ans, remplacement par tram",
+      "sourceTitle": "Métro 3",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:e8954361510bc0a1a3ac11c59a0d01a7",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:a0d5934749296f54c1c817caf82dbc6e",
+        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Pourquoi le projet Métro 3 a-t-il été gelé en février 2026 ?",
+      "question": "Quel écart BGM signale-t-il entre le texte voté en plénière et celui de la commission spéciale ?",
       "options": [
-        "En raison d'une dérive budgétaire excessive pointée par la Cour des comptes et d'un retard accumulé",
-        "À cause de l'opposition unanime des associations de riverains",
-        "Suite à la découverte de vestiges archéologiques majeurs sous le tracé",
-        "Faute de cofinancement fédéral disponible"
+        "24 recommandations votées contre 22 en commission",
+        "22 recommandations votées contre 24 en commission",
+        "18 recommandations votées contre 24 en commission",
+        "30 recommandations votées contre 22 en commission"
       ],
       "correct": 0,
-      "explanation": "La Cour des comptes a chiffré le coût total bien au-delà des estimations initiales et pointé un retard de 15 ans. Ce rapport accablant a directement amené les négociateurs gouvernementaux à geler le projet, mettant fin à des décennies d'investissements sans aboutissement.",
+      "explanation": "Aucune source consultée ne détaille l'origine de cet écart, qui pourrait provenir d'amendements déposés en plénière. BGM signale la divergence plutôt que de la passer sous silence.",
       "sourceSlug": "/fr/dossiers/metro-3",
-      "sourceTitle": "Métro 3 : projet gelé 10 ans, remplacement par tram",
+      "sourceTitle": "Métro 3",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:e8954361510bc0a1a3ac11c59a0d01a7",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:a0d5934749296f54c1c817caf82dbc6e",
+        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {

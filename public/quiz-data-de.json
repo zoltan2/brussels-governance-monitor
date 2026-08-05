@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T21:16:24.078Z",
+  "generatedAt": "2026-08-05T21:18:25.184Z",
   "locale": "de",
-  "poolSize": 55,
+  "poolSize": 63,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -606,299 +606,483 @@
       "id": "dossier-accessibilite-pmr-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welche rechtliche Verpflichtung regelt die systematische Berücksichtigung von Behinderungen in allen regionalen Politikbereichen Brüssels?",
+      "question": "Welche Verpflichtung legt die Verordnung zum Handistreaming der Region Brüssel auf?",
       "options": [
-        "Der Europäische Barrierefreiheitsakt vom Juni 2025",
-        "Die Regionale Politikerklärung vom 13. Februar 2026",
-        "Die Richtlinie zur Beschäftigung von Menschen mit Behinderung von 2019",
-        "Die Verordnung zum Handistreaming vom 8. Dezember 2016"
+        "Behinderung in allen ihren Politikbereichen zu berücksichtigen",
+        "Eine Quote angepasster Wohnungen je Gemeinde vorzusehen",
+        "In jeder Gemeinde eine Aufnahmeeinrichtung zu finanzieren",
+        "Den öffentlichen Verkehr vor Ende 2028 barrierefrei zu machen"
       ],
-      "correct": 3,
-      "explanation": "Die Verordnung zum Handistreaming vom 8. Dezember 2016 schreibt vor, dass Behinderungen in allen regionalen Politikbereichen, öffentlichen Aufträgen und Subventionen systematisch berücksichtigt werden müssen. Dies ist ein Schlüssel zum Verständnis der Governance-Anforderungen in Brüssel.",
+      "correct": 0,
+      "explanation": "Die Verordnung vom 8. Dezember 2016 erfasst auch öffentliche Aufträge und Subventionen und verpflichtet die Regierung, dem Parlament einen Zwischenbericht und einen Bericht zum Ende der Legislaturperiode vorzulegen.",
       "sourceSlug": "/de/dossiers/accessibilite-pmr",
-      "sourceTitle": "Barrierefreiheit und Behinderung in Brüssel: Verkehr, Beschäftigung und Daten",
+      "sourceTitle": "Barrierefreiheit PRM",
       "provenance": {
-        "sourceLastModified": "2026-03-18",
-        "sourceContentHash": "sha256:5327a0b950d4f13caee90b1ea94cc34a",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:bf9b170ba2eb784218504f758494e3cb",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-acs-0",
+      "source": "dossier",
+      "domain": "Beschäftigung",
+      "question": "Auf welchem doppelten Hebel beruht das System der subventionierten Vertragsbediensteten (ACS)?",
+      "options": [
+        "Einer regionalen Prämie und einer Senkung der Arbeitgeberbeiträge",
+        "Einem zinslosen Darlehen und einer Befreiung vom Steuervorabzug",
+        "Einer Ausbildungsbeihilfe und einem vierteljährlichen Dienstleistungsscheck",
+        "Einer Gemeindedotation und einer Erstattung von Fahrtkosten"
+      ],
+      "correct": 0,
+      "explanation": "Die Senkung der Arbeitgebersozialbeiträge geht bis auf 0,56 %. Die Stellen sind für bei Actiris eingeschriebene Arbeitsuchende bestimmt, unter Bedingungen zu Dauer der Arbeitslosigkeit, Alter oder Behinderung.",
+      "sourceSlug": "/de/dossiers/acs",
+      "sourceTitle": "ACS",
+      "provenance": {
+        "sourceLastModified": "2026-07-05",
+        "sourceContentHash": "sha256:c2d95a117449f47fac13f2ed85a20620",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-acs-1",
+      "source": "dossier",
+      "domain": "Beschäftigung",
+      "question": "Was führte die Reform von 2015 für eine subventionierte ACS-Stelle ein, die frei wird?",
+      "options": [
+        "Eine Frist von 6 Monaten zur Besetzung, sonst geht sie verloren",
+        "Eine automatische Übernahme der Stelle durch eine andere Vereinigung",
+        "Eine verpflichtende Prüfung des Arbeitgebers alle 3 Haushaltsjahre",
+        "Eine Ausschreibung im Belgischen Staatsblatt"
+      ],
+      "correct": 0,
+      "explanation": "Diese Frist ist nicht verlängerbar. Sie erklärt die Kluft zwischen den 10.000 subventionierten Stellen Ende 2017 und den für 2024 geschätzten 6.700 aktiven Stellen.",
+      "sourceSlug": "/de/dossiers/acs",
+      "sourceTitle": "ACS",
+      "provenance": {
+        "sourceLastModified": "2026-07-05",
+        "sourceContentHash": "sha256:c2d95a117449f47fac13f2ed85a20620",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-activa-0",
+      "source": "dossier",
+      "domain": "Beschäftigung",
+      "question": "Was ist das Prinzip der Arbeitsbeihilfe, die im Rahmen von Activa.brussels gezahlt wird?",
+      "options": [
+        "Der Arbeitgeber zieht sie vom Nettolohn ab, der unverändert bleibt",
+        "Der Arbeitnehmer erhält sie zusätzlich zu seinem üblichen Lohn",
+        "Die Gemeinde zahlt sie direkt an die Ausbildungseinrichtung",
+        "Sie ersetzt den Lohn während der Probezeit vollständig"
+      ],
+      "correct": 0,
+      "explanation": "Der Standardbetrag beläuft sich auf 15.900 Euro über 30 Monate und auf 23.400 Euro über 36 Monate für die Zielgruppen « Plus » und mit verminderter Eignung. Ein Ausbildungsanreiz kann hinzukommen.",
+      "sourceSlug": "/de/dossiers/activa",
+      "sourceTitle": "Activa.brussels",
+      "provenance": {
+        "sourceLastModified": "2026-07-05",
+        "sourceContentHash": "sha256:0fb6a433d426e7158d37771f6613f31f",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-assemblees-citoyennes-0",
       "source": "dossier",
       "domain": "Institutionell",
-      "question": "Wie werden die Bürger für die deliberativen Kommissionen des Brüsseler Parlaments ausgewählt?",
+      "question": "Welches Verhältnis legt die Geschäftsordnung des Brüsseler Parlaments für eine deliberative Kommission fest?",
       "options": [
-        "Sie melden sich freiwillig an und werden von einer Jury ausgewählt",
-        "Sie werden durch ein doppeltes Losverfahren aus dem Nationalregister ausgewählt",
-        "Sie bewerben sich mit einem Motivationsschreiben bei der Gemeinde",
-        "Sie werden von Interessengruppen und Organisationen nominiert"
+        "Drei Viertel Bürger und ein Viertel Abgeordnete",
+        "Zwei Drittel Bürger und ein Drittel Abgeordnete",
+        "Die Hälfte Bürger und die Hälfte Abgeordnete",
+        "Ein Drittel Bürger und zwei Drittel Abgeordnete"
       ],
-      "correct": 1,
-      "explanation": "Das doppelte Losverfahren über die Nationalregisternummern stellt sicher, dass die Auswahl zufällig und repräsentativ ist. Dieses demokratische Verfahren wird durch die Plattform democratie.brussels transparent dokumentiert und ermöglicht es durchschnittlichen Bürgern ab 16 Jahren, direkt in Entscheidungsprozesse einzubeziehen.",
+      "correct": 0,
+      "explanation": "Die Standardzusammensetzung umfasst 45 Bürger und 15 Abgeordnete. Die Bürger werden durch ein doppeltes Losverfahren unter den Brüsseler Einwohnern ab sechzehn Jahren ausgewählt.",
       "sourceSlug": "/de/dossiers/assemblees-citoyennes",
-      "sourceTitle": "Bürgerversammlungen: 6 Kommissionen abgeschlossen, 205+ Empfehlungen, 7. in Vorbereitung",
+      "sourceTitle": "Bürgerversammlungen",
       "provenance": {
-        "sourceLastModified": "2026-02-26",
-        "sourceContentHash": "sha256:843bc03d191b38bc184824f4d6193471",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-20",
+        "sourceContentHash": "sha256:d77de6d7719c6851b867c6399b6f1a5d",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Laut der Forschung von Sciensano zur Gesundheit in Brüssel 2023-2024: In welcher Region ist das Gebrechlichkeitsrisiko bei älteren Menschen am höchsten?",
+      "question": "Welchen Faktor nennt das IBSA in seinem Fokus von 2025 als entscheidend für die Lebenszufriedenheit der Brüsseler?",
       "options": [
-        "In der Wallonie",
-        "In Flandern",
-        "In der Region Brüssel-Hauptstadt",
-        "Das Risiko ist in allen Regionen gleich hoch"
+        "Die Gesundheit, körperlich wie psychisch",
+        "Das erreichte Bildungsniveau",
+        "Die Größe der bewohnten Wohnung",
+        "Die Dauer der täglichen Wege"
       ],
-      "correct": 2,
-      "explanation": "Die Gesundheitsbefragung von Sciensano zeigt, dass das Gebrechlichkeitsrisiko bei älteren Menschen in Brüssel am höchsten ist, gefolgt von Wallonien und Flandern. Dies ist ein wichtiger Indikator für die Gesundheitspolitik der Region.",
+      "correct": 0,
+      "explanation": "Die Brüsseler bewerten ihre Lebenszufriedenheit im Schnitt mit 7,5 von 10, gleichauf mit Wallonien und unter Flandern. Es folgen der Lebensstandard, die sozialen Beziehungen, die Wohnung und die Möglichkeit zu arbeiten.",
       "sourceSlug": "/de/dossiers/bien-etre",
-      "sourceTitle": "Wohlbefinden und Lebensqualität in Brüssel: Indikatoren, Rankings und Herausforderungen",
+      "sourceTitle": "Wohlbefinden",
       "provenance": {
-        "sourceLastModified": "2026-03-09",
-        "sourceContentHash": "sha256:d833140bc026f017cb1db80a508e5a8c",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:a5e0e3de79439e210699476f79c8974a",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-bifff-0",
+      "source": "dossier",
+      "domain": "Kultur",
+      "question": "Welches Format wählte das BIFFF für seine 44. Ausgabe im April 2026 unter Budgetdruck?",
+      "options": [
+        "Einen einzigen Saal, über 16 Tage am Stück",
+        "Drei gleichzeitige Säle, über 5 Programmtage",
+        "Eine Tour durch die 19 Gemeinden, über 2 Wochen",
+        "Eine vollständig digitale Ausgabe, über 10 Zugangstage"
+      ],
+      "correct": 0,
+      "explanation": "Ziel war es, die Fixkosten zu senken und zugleich drei besucherstarke Wochenenden abzudecken. Die Wette ging auf: 60.000 Zuschauer, ein Plus von 30 % und ein Rekord seit der Rückkehr zum Heysel.",
+      "sourceSlug": "/de/dossiers/bifff",
+      "sourceTitle": "BIFFF",
+      "provenance": {
+        "sourceLastModified": "2026-04-19",
+        "sourceContentHash": "sha256:2608328d3212f8bf16943a116e48e6cc",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-bim-bruxelles-0",
+      "source": "dossier",
+      "domain": "Soziales",
+      "question": "Welchen Unterschied zwischen Brüsseler Gemeinden zeigte der BIM-Status bei Minderjährigen im Januar 2021?",
+      "options": [
+        "48 % in Molenbeek-Saint-Jean gegenüber 9 % in Woluwe-Saint-Pierre",
+        "33 % in Molenbeek-Saint-Jean gegenüber 25 % in Woluwe-Saint-Pierre",
+        "19 % in Molenbeek-Saint-Jean gegenüber 13 % in Woluwe-Saint-Pierre",
+        "90 % in Molenbeek-Saint-Jean gegenüber 30 % in Woluwe-Saint-Pierre"
+      ],
+      "correct": 0,
+      "explanation": "Dieses Gefälle von 1 zu 5 ist auf belgischer Ebene einzigartig, zwischen angrenzenden Gemeinden mit weniger als 100.000 Einwohnern. Der Status ist föderal, wird vom LIKIV verwaltet und von den Krankenkassen gewährt.",
+      "sourceSlug": "/de/dossiers/bim-bruxelles",
+      "sourceTitle": "BIM Brüssel",
+      "provenance": {
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:1d923f0e735d4082143532627e5da751",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-commissaire-europe-0",
+      "source": "dossier",
+      "domain": "Institutionell",
+      "question": "Was geschieht mit den Bediensteten des regionalen Kommissariats für Europa nach dessen Abschaffung?",
+      "options": [
+        "Sie werden in die Verwaltung Brüssel International übernommen",
+        "Sie wechseln zur belgischen Ständigen Vertretung",
+        "Sie werden zum Brüsseler Parlament versetzt",
+        "Sie werden zur Europäischen Kommission abgeordnet"
+      ],
+      "correct": 0,
+      "explanation": "Die Abschaffung ist Teil der Reform, die die Regionalverwaltung zu vier Säulen zusammenführt. Laut Regierung bleiben alle Aufgaben und Aufträge erhalten; der eigentliche Einsatz ist der politische Zugang auf hoher Ebene.",
+      "sourceSlug": "/de/dossiers/commissaire-europe",
+      "sourceTitle": "Kommissar für Europa",
+      "provenance": {
+        "sourceLastModified": "2026-06-26",
+        "sourceContentHash": "sha256:1b15378973ae9835d56fc2c88b9d7972",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-cpas-bruxellois-0",
+      "source": "dossier",
+      "domain": "Soziales",
+      "question": "Welche institutionelle Besonderheit kennzeichnet die Brüsseler ÖSHZ?",
+      "options": [
+        "Sie hängen zugleich vom Föderalstaat, der GGK und den Gemeinden ab",
+        "Sie hängen ausschließlich von der Region Brüssel-Hauptstadt ab",
+        "Sie sind in einer einzigen regionalen Struktur zusammengefasst",
+        "Sie werden zu gleichen Teilen von den neunzehn Gemeinden finanziert"
+      ],
+      "correct": 0,
+      "explanation": "Der Föderalstaat legt den Rahmen fest und finanziert den Großteil der individuellen Hilfe, die GGK übt die organische Aufsicht aus, Region und Gemeinden ergänzen. Zieht der Föderalstaat eine Subvention zurück, zahlt die Gemeinde.",
+      "sourceSlug": "/de/dossiers/cpas-bruxellois",
+      "sourceTitle": "Brüsseler ÖSHZ",
+      "provenance": {
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:397b1429a934eb278eef1e61f285c57d",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-data-centers-ia-energie-0",
       "source": "dossier",
-      "domain": "Klima",
-      "question": "Wie behandelt die Regionale Politikerklärung (DPR) vom Februar 2026 das Thema Rechenzentren und ihre Energieauswirkungen?",
+      "domain": "Digital",
+      "question": "Welche Umkehr hat sich beim Energieverbrauch der künstlichen Intelligenz vollzogen?",
       "options": [
-        "Sie enthält einen spezifischen Verweis auf Rechenzentren und ihre Energieauswirkungen",
-        "Sie konzentriert sich ausschließlich auf die KI-Infrastruktur und ignoriert traditionelle Rechenzentren",
-        "Sie behandelt digitalen Wandel und Energie-Klima-Strategie getrennt, ohne die energetischen Auswirkungen des digitalen Sektors zu erwähnen",
-        "Sie delegiert alle Fragen zu Rechenzentren vollständig an die föderale Ebene"
+        "Die Inferenz wiegt inzwischen schwerer als das Training",
+        "Das Training wiegt inzwischen schwerer als die Inferenz",
+        "Die Speicherung wiegt inzwischen schwerer als die Berechnung",
+        "Die Kühlung wiegt inzwischen schwerer als die Berechnung"
       ],
-      "correct": 2,
-      "explanation": "Die DPR behandelt diese Themen getrennt, ohne ihre Verbindung zu berücksichtigen. Dies zeigt eine Governance-Lücke, die der Brussels Governance Monitor untersucht – eine wichtige Erkenntnis für die regionale Politikgestaltung.",
+      "correct": 0,
+      "explanation": "Der tägliche Einsatz der Modelle macht 60 bis 70 % der von künstlicher Intelligenz verbrauchten Energie aus, gegenüber 20 bis 30 % für das Training. Es sind die Anfragen der Nutzer, die das Energiesystem belasten.",
       "sourceSlug": "/de/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Rechenzentren und KI: Auswirkungen auf das Brüsseler Energiesystem",
+      "sourceTitle": "Rechenzentren & KI",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:6d0e6be99d4808ffce12de6310de1c4d",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:b5b2bc865305c9c71187eaeeaf37a69d",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-data-centers-ia-energie-1",
       "source": "dossier",
-      "domain": "Klima",
-      "question": "Welche Rolle spielt der föderale Netzentwicklungsplan von Elia bei der Berücksichtigung von Rechenzentren?",
+      "domain": "Digital",
+      "question": "Was sieht die Regionale Politikerklärung zu Rechenzentren vor?",
       "options": [
-        "Der Plan wird nur regionale Rechenzentren in Brüssel-Hauptstadt erfassen",
-        "Der Plan wurde bereits 2024 genehmigt und kann nicht mehr angepasst werden",
-        "Der Plan von 2028-2038 berücksichtigt die Nachfrage der Rechenzentren ausdrücklich, begleitet durch den föderalen Energieminister",
-        "Der Plan ignoriert Rechenzentren völlig und konzentriert sich nur auf Haushalte"
+        "Nichts, sie enthält dazu keinen spezifischen Verweis",
+        "Ein Moratorium für jede neue regionale Ansiedlung",
+        "Eine regionale Steuer auf den Stromverbrauch",
+        "Eine Pflicht zur Rückgewinnung der erzeugten Wärme"
       ],
-      "correct": 2,
-      "explanation": "Der föderale Netzentwicklungsplan 2028-2038 berücksichtigt Rechenzentren explizit und wird vom föderalen Energieminister begleitet. Dies zeigt, dass die föderale Ebene dieses Governance-Thema aktiv adressiert, während die Region noch aufgeholt hat.",
+      "correct": 0,
+      "explanation": "Der digitale Wandel und die Energie- und Klimastrategie werden dort getrennt behandelt, ohne Erwähnung der Energiewirkung des Sektors. Auf föderaler Ebene wird der Netzentwicklungsplan von Elia 2028-2038 diesen Bedarf ausdrücklich behandeln.",
       "sourceSlug": "/de/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Rechenzentren und KI: Auswirkungen auf das Brüsseler Energiesystem",
+      "sourceTitle": "Rechenzentren & KI",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:6d0e6be99d4808ffce12de6310de1c4d",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:b5b2bc865305c9c71187eaeeaf37a69d",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-enseignement-0",
       "source": "dossier",
-      "domain": "Soziales",
-      "question": "Welche Institution hat praktisch keine Kontrolle über die Sparmaßnahmen im Pflichtschulunterricht in Brüssel, obwohl die Brüsseler Familien dort Steuern zahlen?",
+      "domain": "Bildung",
+      "question": "Wer organisiert den Pflichtunterricht, den Brüsseler Kinder besuchen?",
       "options": [
-        "Die Flämische Gemeinschaft",
-        "Die Region Brüssel-Hauptstadt",
-        "Die Föderation Wallonie-Brüssel",
-        "Das belgische Föderalparlament"
+        "Die Föderation Wallonie-Brüssel oder die Flämische Gemeinschaft",
+        "Die Region Brüssel-Hauptstadt, über ihre Verwaltung",
+        "Die neunzehn Gemeinden, jede für ihr Gebiet",
+        "Die Gemeinsame Gemeinschaftskommission, kurz GGK"
       ],
-      "correct": 1,
-      "explanation": "Die Region Brüssel-Hauptstadt verwaltet nicht den Pflichtschulunterricht — dieser wird von der Föderation Wallonie-Brüssel (französischsprachig) und der Flämischen Gemeinschaft (niederländischsprachig) organisiert. Dies ist ein Kernproblem der institutionellen Struktur Brüssels, das der Monitor aufzeigt.",
+      "correct": 0,
+      "explanation": "Die Region, für die die Familien regionale Steuern zahlen, hat über den Pflichtunterricht so gut wie keine Befugnis. Sie kann weder die im Parlament der Föderation noch die im Flämischen Parlament beschlossenen Einsparungen verhindern.",
       "sourceSlug": "/de/dossiers/enseignement",
-      "sourceTitle": "Pflichtschulunterricht in Brüssel: die Auswirkungen der Sparmaßnahmen FWB und Flämische Gemeinschaft",
+      "sourceTitle": "Unterricht",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
+        "sourceLastModified": "2026-07-20",
         "sourceContentHash": "sha256:9ee69bcad192ec60e93588f3ca87dced",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-enseignement-1",
       "source": "dossier",
-      "domain": "Soziales",
-      "question": "Welche Schülergruppe ist von der Finanzierungskürzung für Integrationsprogramme 2026 betroffen?",
+      "domain": "Bildung",
+      "question": "Welcher Anteil der Brüsseler Haushalte mit Kindern mischt das französischsprachige und das niederländischsprachige Netz?",
       "options": [
-        "Lehrkräfte der Oberstufe des Sekundarunterrichts",
-        "Französischsprachige Schüler in Klasse 1 bis 3",
-        "Niederländischsprachige Neuzugewanderte",
-        "Studenten im Hochschulwesen auf der französischsprachigen Seite"
+        "2,5 %",
+        "96 %",
+        "12 %",
+        "24 %"
       ],
-      "correct": 2,
-      "explanation": "Die Reduktion der Finanzierung der OKAN-Coaches betrifft niederländischsprachige Neuankömmlinge, die Unterstützung beim Spracherwerb und bei der Integration benötigen. Dies zeigt, wie Sparmaßnahmen vulnerable Gruppen treffen können.",
+      "correct": 0,
+      "explanation": "Von den 128.903 vom IBSA erfassten Haushalten beschulen 96 % ihre Kinder in einem einzigen System. Rund 2.897 Haushalte kombinieren die beiden Gemeinschaften.",
       "sourceSlug": "/de/dossiers/enseignement",
-      "sourceTitle": "Pflichtschulunterricht in Brüssel: die Auswirkungen der Sparmaßnahmen FWB und Flämische Gemeinschaft",
+      "sourceTitle": "Unterricht",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
+        "sourceLastModified": "2026-07-20",
         "sourceContentHash": "sha256:9ee69bcad192ec60e93588f3ca87dced",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Wirtschaft",
-      "question": "Welche Institution in der Region Brüssel-Hauptstadt bietet Unternehmen in Schwierigkeiten kostenlose Diagnose und Orientierung an?",
+      "question": "Wie steht der Anstieg der Brüsseler Insolvenzen 2025 im Vergleich zu den anderen Regionen da?",
       "options": [
-        "Service de médiation fédéral",
-        "Chambre de commerce et d'industrie",
-        "Tribunal de commerce de Bruxelles",
-        "Centre pour Entreprises en difficulté (CEd)"
+        "Es ist der stärkste regionale Anstieg des Landes",
+        "Es ist die einzige Region mit einem Rückgang im letzten Jahr",
+        "Es ist der schwächste Anstieg der drei Regionen",
+        "Es ist ein Anstieg wie in Flandern"
       ],
-      "correct": 3,
-      "explanation": "Das CEd, getragen von hub.brussels, ist speziell für die kostenlose Diagnose und Orientierung von Unternehmen in Schwierigkeiten zuständig. Dies ist eine der ersten Anlaufstellen für betroffene Betriebe in Brüssel.",
+      "correct": 0,
+      "explanation": "Die Brüsseler Insolvenzen nehmen um 13,2 % zu, gegenüber 7,8 % in Flandern und einem Rückgang von 3 % in Wallonien. Das Baugewerbe und das Gastgewerbe zählen zu den am stärksten betroffenen Sektoren.",
       "sourceSlug": "/de/dossiers/faillites-a-bruxelles",
-      "sourceTitle": "Insolvenzen in Brüssel: Bestandsaufnahme, Branchen und regionale Maßnahmen",
+      "sourceTitle": "Insolvenzen",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:037a1acc605627b77308dffdbb206347",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:52e6cd1cce0d8cd31a921209ec963365",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-foyer-anderlechtois-0",
+      "source": "dossier",
+      "domain": "Wohnen",
+      "question": "Was sehen die Empfehlungen vor, die das Brüsseler Parlament nach dem Untersuchungsausschuss zum Sozialwohnungswesen verabschiedet hat?",
+      "options": [
+        "Das Verbot jeder individuellen Einmischung eines Verwaltungsratsmitglieds",
+        "Die schlichte Abschaffung der Sozialwohnungsgesellschaften",
+        "Die Übertragung der Zuweisungen an die Gemeindekollegien",
+        "Die namentliche Veröffentlichung aller Wartelisten"
+      ],
+      "correct": 0,
+      "explanation": "Die 26 Empfehlungen sind für den gesamten Sektor formuliert, ohne die betroffene Gesellschaft zu nennen. Sie sperren zudem politischen Mandatsträgern den Zugang zur Regionalen Datenbank und stärken den Schutz von Hinweisgebern.",
+      "sourceSlug": "/de/dossiers/foyer-anderlechtois",
+      "sourceTitle": "Foyer anderlechtois",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:68b276fb29a9f82fbd530f0757d45569",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Sicherheit",
-      "question": "Was ist die Besonderheit der geplanten Polizeifusion in Brüssel im Vergleich zu anderen Regionen Belgiens?",
+      "question": "Welches zentrale Argument setzen die Gemeinden der Fusion der Polizeizonen entgegen?",
       "options": [
-        "Sie ist für Brüssel verpflichtend, während sie in anderen Regionen freiwillig ist",
-        "Sie wird von allen Brüsseler Bürgermeistern unterstützt",
-        "Sie betrifft nur die Bundespolizei, nicht die lokalen Zonen",
-        "Sie soll bereits 2025 umgesetzt werden"
+        "Die strukturelle Unterrepräsentation der kleinen Gemeinden",
+        "Die Kosten des Übergangs, die den Gemeinden bleiben",
+        "Den Verlust der Verwaltungspolizeigewalt des Bürgermeisters",
+        "Das Fehlen einer Garantie für den Erhalt der Polizeiwachen"
       ],
       "correct": 0,
-      "explanation": "Die nationale Polizeireform sieht eine Reduzierung der Zonen vor, aber Brüssel ist der einzige Ort, wo die Fusion zwingend vorgeschrieben ist. Im übrigen Land können Gemeinden freiwillig fusionieren. Dies ist ein Kernpunkt der Kritik durch DéFI und Ecolo.",
+      "explanation": "Sint-Agatha-Berchem hätte nur 1,4 % der Stimmen in der fusionierten Zone. Brulocalis hat eine Sammelklage eingereicht, ergänzt durch Einzelklagen mehrerer Bürgermeister.",
       "sourceSlug": "/de/dossiers/fusion-polices",
-      "sourceTitle": "Fusion der Polizeizonen: von 6 auf 1, Abstimmung vor dem Sommer 2026",
+      "sourceTitle": "Polizeizonen-Fusion",
       "provenance": {
-        "sourceLastModified": "2026-03-15",
-        "sourceContentHash": "sha256:8348742ddce7da960b238325f00b47f5",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-12",
+        "sourceContentHash": "sha256:f70e8ff83bedcfe3e80984603e994a28",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche neue Maßnahme wurde im Regierungsabkommen vom Februar 2026 für die Verkehrssicherheit rund um Schulen eingeführt?",
+      "question": "Worum herum legt der regionale Mobilitätsplan, der Good Move nachfolgen soll, seine Zellen neu an?",
       "options": [
-        "Installation von automatischen Blitzern vor allen Schulen",
-        "Kleinere Verkehrszellen speziell um Schulzonen",
-        "Vollständige Sperrung aller Straßen in der Nähe von Schulgebäuden",
-        "Erhöhung der Geschwindigkeitslimits in Schulvierteln"
+        "Um die Schulzonen",
+        "Um die regionalen Bahnhöfe",
+        "Um die Geschäftszonen",
+        "Um die Parks und Grünflächen"
       ],
-      "correct": 1,
-      "explanation": "Das Abkommen sieht kleinere Zellen um Schulzonen vor, um Verkehrssicherheit und Lebensqualität rund um Schulgebäude zu verbessern. Dies ist eine gezieltere Maßnahme als die umfassenderen Nachbarschaftszonen des ursprünglichen Good Move.",
+      "correct": 0,
+      "explanation": "Das Regierungsabkommen sieht kleinere Zellen, die Entfernung der umstrittenen Poller und einen zweiten autofreien Tag pro Jahr vor. Die Philosophie des beruhigten Verkehrs bleibt erhalten, in kleinerem Maßstab.",
       "sourceSlug": "/de/dossiers/good-move",
-      "sourceTitle": "Good Move: neuer Regionalplan als Nachfolger",
+      "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-03-13",
-        "sourceContentHash": "sha256:f0c3c83ebf34cfc26c353a38aaa18c2f",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-16",
+        "sourceContentHash": "sha256:744a0ee3f5402add628f9bb981b93ba8",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Was war das Hauptproblem, das den Mobilitätsplan Good Move zwischen Juni 2024 und Februar 2026 blockierte?",
+      "question": "Ab wann soll der Mobilitätsplan, der Good Move nachfolgen soll, in Brüssel in Kraft treten?",
       "options": [
-        "Mangelnde Unterstützung durch die Europäische Union",
-        "Mangel an Finanzierung für den öffentlichen Nahverkehr",
-        "Entscheidungen über vorrangige Viertel für neue Nachbarschaftszonen konnten nicht getroffen werden",
-        "Technische Unfähigkeit, Radwege zu planen"
+        "Ab 2030",
+        "Ab 2026",
+        "Ab 2027",
+        "Ab 2028"
       ],
-      "correct": 2,
-      "explanation": "Laut dem Dokument konnte sich die Regierung nicht auf die vorrangigen Viertel für neue Nachbarschaftszonen einigen, was Investitionen und die regionale Koordination mit den Gemeinden blockierte. Einige Gemeinden wendeten bestehende Zonen weiterhin an, aber keine Ausweitung war möglich.",
+      "correct": 0,
+      "explanation": "Die Bewertung soll Ende 2026 abgeschlossen sein, gefolgt von einem Zeitraum möglicher Korrekturen zwischen 2027 und 2030. Der offizielle Name des künftigen Plans wurde nicht mitgeteilt.",
       "sourceSlug": "/de/dossiers/good-move",
-      "sourceTitle": "Good Move: neuer Regionalplan als Nachfolger",
+      "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-03-13",
-        "sourceContentHash": "sha256:f0c3c83ebf34cfc26c353a38aaa18c2f",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-16",
+        "sourceContentHash": "sha256:744a0ee3f5402add628f9bb981b93ba8",
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-lez-0",
       "source": "dossier",
-      "domain": "Klima",
-      "question": "Welche neue Möglichkeit wurde mit dem Regierungsabkommen vom Februar 2026 für Besitzer nicht konformer Fahrzeuge eingeführt?",
+      "domain": "Mobilität",
+      "question": "Was geschieht mit der jährlichen Obergrenze für Bußgelder in der neuen Regelung der Umweltzone (LEZ)?",
       "options": [
-        "Eine Verlängerung der Übergangszeit um weitere zwei Jahre",
-        "Eine vollständige Befreiung von LEZ-Kontrollen",
-        "Ein Jahrespass, mit dem sie legal in der LEZ fahren dürfen",
-        "Ein Umtauschprogramm für neue Fahrzeuge"
+        "Sie wird abgeschafft, während das einzelne Bußgeld sinkt",
+        "Sie wird verdoppelt, ebenso wie das einzelne Bußgeld",
+        "Sie bleibt bestehen, bei unverändertem einzelnem Bußgeld",
+        "Sie wird halbiert, bei erhöhtem einzelnem Bußgeld"
       ],
-      "correct": 2,
-      "explanation": "Das Abkommen führte einen Jahrespass für 350 EUR (oder 200 EUR im Sozialtarif) ein, der Eigentümern nicht konformer Fahrzeuge erlaubt, legal in der LEZ zu fahren. Dies ist eine wesentliche Änderung des LEZ-Regimes, die die finanzielle Belastung für Autofahrer abschwächt.",
+      "correct": 0,
+      "explanation": "Das Bußgeld je Verstoß sinkt von 350 auf 80 Euro, doch die Obergrenze von vier Bußgeldern pro Jahr entfällt. Ein Jahrespass zu 350 Euro, oder 200 Euro zum Sozialtarif, erlaubt das legale Fahren.",
       "sourceSlug": "/de/dossiers/lez",
-      "sourceTitle": "LEZ: beibehalten mit Jahrespass und reduzierten Bußgeldern",
+      "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
+        "sourceLastModified": "2026-06-25",
         "sourceContentHash": "sha256:b16fb8a71c09fd1966adc741cf4fb425",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-lez-1",
       "source": "dossier",
-      "domain": "Klima",
-      "question": "Welche Institution hat in ihrem Gutachten Bedenken gegen die Senkung der LEZ-Bußgelder geäußert?",
+      "domain": "Mobilität",
+      "question": "Auf welchen verfassungsrechtlichen Grundsatz stützt der Staatsrat seine Kritik an der Senkung der Bußgelder der Brüsseler Umweltzone (LEZ)?",
       "options": [
-        "Der Staatsrat",
-        "Der Verfassungsgerichtshof",
-        "Das Brüsseler Umweltamt",
-        "Die Europäische Kommission"
+        "Auf das Standstill-Prinzip im Bereich Gesundheit",
+        "Auf die Gleichheit vor der regionalen Steuer",
+        "Auf die Verhältnismäßigkeit der Sanktionen",
+        "Auf die Rechtssicherheit der Verkehrsteilnehmer"
       ],
       "correct": 0,
-      "explanation": "Der Staatsrat gab ein kritisches Gutachten ab und argumentierte, dass niedrigere Bußgelder gegen das verfassungsrechtliche Standstill-Prinzip verstoßen und nicht abschreckend genug sind. Dieses Gutachten signalisiert ein ernstes Rechtsrisiko für die Regierungspolitik.",
+      "explanation": "Die Senkung der Bußgelder stellt aus seiner Sicht einen Rückschritt beim Gesundheitsschutz der Brüsseler dar. Er hält die vorgeschlagenen Beträge zudem für zu niedrig, um wirksam, verhältnismäßig und abschreckend zu sein.",
       "sourceSlug": "/de/dossiers/lez",
-      "sourceTitle": "LEZ: beibehalten mit Jahrespass und reduzierten Bußgeldern",
+      "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
+        "sourceLastModified": "2026-06-25",
         "sourceContentHash": "sha256:b16fb8a71c09fd1966adc741cf4fb425",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {

@@ -76,6 +76,7 @@ Un pool dont la taille tomberait sous la moitié de l'existant n'est pas écrit 
 
 Elles reprennent le prompt v2 de `scripts/generate-quiz.ts`, à garder synchronisées si l'un des deux change.
 
+- **DATÉE** : tout fait qui vaut à un moment donné (un chiffre, une édition, un jugement, une enquête, un vote) porte **sa date ou sa période dans la question**. « son édition confrontée à la contrainte budgétaire » ne dit pas laquelle : écrire « sa 44e édition, en avril 2026 ». Une question non datée devient fausse en vieillissant, alors que le pool, lui, reste en ligne
 - **AUTONOME** : la question **et ses options** doivent se comprendre **seules**, hors de tout contexte. Nommer explicitement ce dont on parle (quel plan, quelle réforme, quels producteurs, quel arrêt, quelle commune) et ce que désigne une réponse. « Les trois canaux hors-ligne » ne veut rien dire : écrire « le guichet, le téléphone et le courrier ». Jamais « ce dispositif », « l'arrêt », « la réforme » sans dire lequel
 - **JAMAIS LA SUITE D'UNE AUTRE QUESTION** : le lecteur tire dix questions au hasard dans le pool et ne verra pas les autres questions de la même fiche. Aucune ne peut dépendre d'une précédente
 - une question porte sur **un fait différent** de l'unité

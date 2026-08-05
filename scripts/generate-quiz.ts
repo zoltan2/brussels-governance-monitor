@@ -107,6 +107,7 @@ Règles :
 - Jamais de jargon sans explication
 - PAS de noms de politiciens — utilise les rôles institutionnels
 - TERMINOLOGIE BELGE OBLIGATOIRE : « bourgmestre » (jamais « maire »), « commune » ou « maison communale » (jamais « mairie »), « échevin » (jamais « adjoint au maire »), « tram » (jamais « tramway »)
+- DATÉE : tout fait qui vaut à un moment donné (un chiffre, une édition, un jugement, une enquête, un vote) porte sa date ou sa période DANS la question. « son édition confrontée à la contrainte budgétaire » ne dit pas laquelle : écrire « sa 44e édition, en avril 2026 ». Une question non datée devient fausse en vieillissant
 - AUTONOME : la question ET ses options doivent se comprendre SEULES, hors de tout contexte. Nommer explicitement ce dont on parle (quel plan, quelle réforme, quels producteurs, quel arrêt, quelle commune) et ce que désigne une réponse (« les trois canaux » ne dit rien : écrire « le guichet, le téléphone et le courrier »). Jamais « ce dispositif », « l'arrêt », « la réforme » sans dire lequel
 - JAMAIS LA SUITE D'UNE AUTRE QUESTION : le lecteur tire 10 questions au hasard dans le pool, il ne verra pas les autres questions de la même fiche. Aucune ne doit dépendre d'une précédente
 - LONGUEUR COMPARABLE : les 4 options doivent faire à peu près la même longueur. Une bonne réponse visiblement plus longue et plus détaillée que les autres se repère sans réfléchir
@@ -149,6 +150,7 @@ Regels:
 - Nooit jargon zonder uitleg
 - GEEN namen van politici — gebruik institutionele functies
 - VERPLICHTE BELGISCHE TERMINOLOGIE: « burgemeester » (nooit « maire »), « gemeente » of « gemeentehuis » (nooit « mairie »), « schepen » (nooit « wethouder »), « tram » (nooit « tramway »)
+- GEDATEERD: elk feit dat op een bepaald moment geldt (een cijfer, een editie, een vonnis, een enquête, een stemming) draagt zijn datum of periode IN de vraag. "zijn editie onder budgettaire druk" zegt niet welke: schrijf "zijn 44e editie, in april 2026". Een ongedateerde vraag wordt na verloop van tijd onjuist
 - ZELFSTANDIG: de vraag EN de opties moeten ALLEEN begrijpelijk zijn, buiten elke context. Noem uitdrukkelijk waarover het gaat (welk plan, welke hervorming, welke producenten, welk arrest, welke gemeente) en wat een antwoord aanduidt ("de drie kanalen" zegt niets: schrijf "het loket, de telefoon en de post"). Nooit "deze maatregel", "het arrest", "de hervorming" zonder te zeggen welke
 - NOOIT HET VERVOLG OP EEN ANDERE VRAAG: de lezer krijgt 10 willekeurige vragen uit de pool en ziet de andere vragen van dezelfde fiche niet. Geen enkele vraag mag van een vorige afhangen
 - VERGELIJKBARE LENGTE: de 4 opties moeten ongeveer even lang zijn. Een juist antwoord dat zichtbaar langer en gedetailleerder is dan de andere valt zonder nadenken op
@@ -191,6 +193,7 @@ Rules:
 - Never use jargon without explanation
 - NO politician names — use institutional roles
 - MANDATORY Belgian terminology when referring to local officials and infrastructure: use « bourgmestre » (never "mayor"), « commune » or « maison communale » (never "town hall"), « échevin » (never "deputy mayor"), « tram » (never "tramway")
+- DATED: any fact that holds at a given moment (a figure, an edition, a ruling, a survey, a vote) carries its date or period INSIDE the question. "its edition under budget pressure" does not say which one: write "its 44th edition, in April 2026". An undated question becomes wrong as it ages
 - SELF-CONTAINED: the question AND its options must make sense ON THEIR OWN, outside any context. Name explicitly what is being discussed (which plan, which reform, which producers, which ruling, which municipality) and what an answer refers to ("the three channels" says nothing: write "the counter, the phone and the post"). Never "this scheme", "the ruling", "the reform" without saying which one
 - NEVER A FOLLOW-UP TO ANOTHER QUESTION: the reader draws 10 random questions from the pool and will not see the other questions from the same card. None may depend on a previous one
 - COMPARABLE LENGTH: the 4 options must be roughly the same length. A correct answer visibly longer and more detailed than the others is spotted without thinking
@@ -233,6 +236,7 @@ Regeln:
 - Niemals Fachjargon ohne Erklärung
 - KEINE Politikernamen — verwenden Sie institutionelle Funktionen
 - BELGISCHE TERMINOLOGIE für lokale Amtsträger und Infrastruktur: « Bürgermeister » (wie in Belgien, nicht die Form anderer Länder), « Gemeinde » oder « Gemeindehaus » (nicht « Rathaus » im Brüsseler Kontext), « Schöffe » (nicht « Beigeordneter »), « Tram » (nicht « Straßenbahn » im Brüsseler Kontext)
+- DATIERT: Jede Tatsache, die zu einem bestimmten Zeitpunkt gilt (eine Zahl, eine Ausgabe, ein Urteil, eine Umfrage, eine Abstimmung), trägt ihr Datum oder ihren Zeitraum IN der Frage. "seine Ausgabe unter Budgetdruck" sagt nicht welche: schreiben Sie "seine 44. Ausgabe, im April 2026". Eine undatierte Frage wird mit der Zeit falsch
 - EIGENSTÄNDIG: Die Frage UND ihre Optionen müssen FÜR SICH ALLEIN verständlich sein, außerhalb jedes Kontexts. Ausdrücklich benennen, wovon die Rede ist (welcher Plan, welche Reform, welche Hersteller, welches Urteil, welche Gemeinde) und worauf eine Antwort verweist ("die drei Kanäle" sagt nichts: schreiben Sie "der Schalter, das Telefon und die Post"). Niemals "diese Maßnahme", "das Urteil", "die Reform", ohne zu sagen welche
 - NIEMALS DIE FORTSETZUNG EINER ANDEREN FRAGE: Der Leser zieht 10 zufällige Fragen aus dem Pool und sieht die übrigen Fragen derselben Karte nicht. Keine darf von einer vorherigen abhängen
 - VERGLEICHBARE LÄNGE: Die 4 Optionen müssen ungefähr gleich lang sein. Eine richtige Antwort, die sichtbar länger und ausführlicher ist als die anderen, fällt ohne Nachdenken auf

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T19:54:22.112Z",
+  "generatedAt": "2026-08-05T19:55:16.062Z",
   "locale": "fr",
-  "poolSize": 59,
+  "poolSize": 62,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -764,118 +764,187 @@
       }
     },
     {
+      "id": "dossier-bim-bruxelles-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "Quel écart le statut BIM révèle-t-il entre communes bruxelloises chez les mineurs ?",
+      "options": [
+        "48 % à Molenbeek-Saint-Jean contre 9 % à Woluwe-Saint-Pierre",
+        "33 % à Molenbeek-Saint-Jean contre 25 % à Woluwe-Saint-Pierre",
+        "19 % à Molenbeek-Saint-Jean contre 13 % à Woluwe-Saint-Pierre",
+        "90 % à Molenbeek-Saint-Jean contre 30 % à Woluwe-Saint-Pierre"
+      ],
+      "correct": 0,
+      "explanation": "Ce gradient de 1 à 5 est singulier à l'échelle belge, entre communes contiguës de moins de 100 000 habitants. Le statut relève du fédéral, géré par l'INAMI et octroyé par les mutuelles.",
+      "sourceSlug": "/fr/dossiers/bim-bruxelles",
+      "sourceTitle": "BIM Bruxelles",
+      "provenance": {
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:9409f265ec121816e71f69d6f1173a62",
+        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
+      "id": "dossier-commissaire-europe-0",
+      "source": "dossier",
+      "domain": "Institutionnel",
+      "question": "Que deviennent les agents du commissariat régional à l'Europe après sa suppression ?",
+      "options": [
+        "Ils sont repris au sein de Bruxelles International",
+        "Ils rejoignent la représentation permanente belge",
+        "Ils sont transférés vers le Parlement bruxellois",
+        "Ils sont détachés auprès de la Commission européenne"
+      ],
+      "correct": 0,
+      "explanation": "La suppression s'inscrit dans la réforme regroupant l'administration régionale en quatre piliers. Selon le gouvernement, toutes les tâches et missions sont maintenues ; l'enjeu réel porte sur l'accès politique de haut niveau.",
+      "sourceSlug": "/fr/dossiers/commissaire-europe",
+      "sourceTitle": "Commissaire à l'Europe",
+      "provenance": {
+        "sourceLastModified": "2026-06-26",
+        "sourceContentHash": "sha256:35ad6a9ad697808fed3bf6f875d5d2c2",
+        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
+      "id": "dossier-cpas-bruxellois-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "Quelle particularité institutionnelle caractérise les CPAS bruxellois ?",
+      "options": [
+        "Ils dépendent de trois autorités sans coordination native",
+        "Ils sont regroupés en une seule structure régionale unique",
+        "Ils relèvent exclusivement de la tutelle de la Région",
+        "Ils sont financés à parts égales par les dix-neuf communes"
+      ],
+      "correct": 0,
+      "explanation": "Le fédéral définit le cadre et finance l'essentiel de l'aide individuelle, la Cocom exerce la tutelle organique, la Région et les communes complètent. Quand le fédéral retire une subvention, c'est la commune qui paie.",
+      "sourceSlug": "/fr/dossiers/cpas-bruxellois",
+      "sourceTitle": "CPAS bruxellois",
+      "provenance": {
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:d5e1a87a40bb4beac88f1388b242533c",
+        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
       "id": "dossier-data-centers-ia-energie-0",
       "source": "dossier",
-      "domain": "Climat",
-      "question": "Pourquoi la Belgique est-elle devenue une destination attractive pour les investissements en data centers ces dernières années ?",
+      "domain": "Numérique",
+      "question": "Quel renversement s'est produit dans la consommation énergétique liée à l'intelligence artificielle ?",
       "options": [
-        "Les data centers belges consomment moins d'énergie que ceux des autres pays européens",
-        "Les hubs historiques européens comme Francfort, Londres et Amsterdam sont saturés et redirigent les investissements vers la Belgique",
-        "La Belgique a construit plus de data centers que tous les autres pays européens réunis",
-        "La Belgique offre l'électricité la moins chère d'Europe"
+        "L'inférence pèse désormais plus lourd que l'entraînement",
+        "L'entraînement pèse désormais plus lourd que l'inférence",
+        "Le stockage pèse désormais plus lourd que le calcul",
+        "Le refroidissement pèse désormais plus lourd que le calcul"
       ],
-      "correct": 1,
-      "explanation": "La saturation des grands hubs historiques européens crée une opportunité pour la Belgique. Ce mécanisme de redirection des investissements est crucial pour comprendre pourquoi Bruxelles accueille désormais des projets comme BRU01.",
+      "correct": 0,
+      "explanation": "L'usage quotidien des modèles représente 60 à 70 % de l'énergie consommée par l'intelligence artificielle, contre 20 à 30 % pour l'entraînement. Ce sont les requêtes des utilisateurs qui pèsent sur le système énergétique.",
       "sourceSlug": "/fr/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Data centers et IA : impact sur le système énergétique bruxellois",
+      "sourceTitle": "Data Centers & IA",
       "provenance": {
-        "sourceLastModified": "2026-03-28",
-        "sourceContentHash": "sha256:8378873cdfeb5e44d97d12da4cb4b328",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:8b865c16c3627fc661f45d0b9d314836",
+        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-data-centers-ia-energie-1",
       "source": "dossier",
-      "domain": "Climat",
-      "question": "Selon la Déclaration de Politique Régionale de février 2026, comment les enjeux énergétiques des data centers sont-ils intégrés à la stratégie bruxelloise ?",
+      "domain": "Numérique",
+      "question": "Que prévoit la Déclaration de politique régionale au sujet des centres de données ?",
       "options": [
-        "Ils sont gérés exclusivement au niveau fédéral sans implication régionale",
-        "Ils sont coordonnés directement par la BDIA dans le cadre régional",
-        "Ils sont explicitement traités dans un chapitre dédié aux impacts du numérique",
-        "Ils ne font l'objet d'aucune référence spécifique ; transition numérique et stratégie énergie-climat y sont traitées séparément"
+        "Rien, elle ne contient aucune référence spécifique",
+        "Un moratoire sur toute nouvelle implantation régionale",
+        "Une taxe régionale assise sur la consommation électrique",
+        "Une obligation de récupération de la chaleur produite"
       ],
-      "correct": 3,
-      "explanation": "Cette absence de lien explicite entre data centers et politique énergétique régionale soulève une question de gouvernance : c'est précisément le type de lacune que Brussels Governance Monitor aide à identifier et à éclairer.",
+      "correct": 0,
+      "explanation": "La transition numérique et la stratégie énergie-climat y sont traitées séparément, sans mention de l'impact énergétique du secteur. Au fédéral, le plan de développement du réseau Elia 2028-2038 abordera explicitement cette demande.",
       "sourceSlug": "/fr/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Data centers et IA : impact sur le système énergétique bruxellois",
+      "sourceTitle": "Data Centers & IA",
       "provenance": {
-        "sourceLastModified": "2026-03-28",
-        "sourceContentHash": "sha256:8378873cdfeb5e44d97d12da4cb4b328",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:8b865c16c3627fc661f45d0b9d314836",
+        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-enseignement-0",
       "source": "dossier",
-      "domain": "Social",
-      "question": "Pourquoi la Région de Bruxelles-Capitale ne peut-elle pas intervenir directement pour bloquer les économies décidées dans l'enseignement obligatoire ?",
+      "domain": "Enseignement",
+      "question": "Qui organise l'enseignement obligatoire fréquenté par les enfants bruxellois ?",
       "options": [
-        "Parce que le budget régional est trop limité pour financer l'école",
-        "Parce que les écoles bruxelloises refusent de collaborer avec les institutions régionales",
-        "Parce que l'enseignement obligatoire à Bruxelles est géré par les Communautés (FWB et Vlaamse Gemeenschap), sur lesquelles la Région n'a pas de pouvoir",
-        "Parce que l'enseignement obligatoire est entièrement financé par l'État belge fédéral"
+        "La Fédération Wallonie-Bruxelles ou la Communauté flamande",
+        "La Région de Bruxelles-Capitale, via son administration",
+        "Les dix-neuf communes, chacune pour son territoire",
+        "La Commission communautaire commune, dite Cocom"
       ],
-      "correct": 2,
-      "explanation": "C'est une particularité de la « lasagne institutionnelle » bruxelloise : les parents paient des impôts régionaux, mais le gouvernement régional n'a presque aucun pouvoir sur les écoles. Les décisions budgétaires sont prises à Bruxelles-ville par les parlements de la FWB (pour le francophone) et de la Vlaamse Gemeenschap (pour le néerlandophone).",
+      "correct": 0,
+      "explanation": "La Région, pour laquelle les familles paient des impôts régionaux, n'a quasiment aucun pouvoir sur l'enseignement obligatoire. Elle ne peut empêcher ni les économies votées au Parlement de la Fédération, ni celles votées au Parlement flamand.",
       "sourceSlug": "/fr/dossiers/enseignement",
-      "sourceTitle": "Enseignement obligatoire à Bruxelles : l'impact des économies FWB et Vlaamse Gemeenschap",
+      "sourceTitle": "Enseignement",
       "provenance": {
-        "sourceLastModified": "2026-04-10",
+        "sourceLastModified": "2026-07-20",
         "sourceContentHash": "sha256:a1939f30d5139d5c059ed7f64734cbfa",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-enseignement-1",
       "source": "dossier",
-      "domain": "Social",
-      "question": "Quel changement majeur affecte le statut d'emploi des nouveaux enseignants à partir de 2027 dans l'enseignement francophone bruxellois ?",
+      "domain": "Enseignement",
+      "question": "Quelle part des ménages bruxellois avec enfants mélange les réseaux francophone et néerlandophone ?",
       "options": [
-        "Ils sont obligés de suivre une formation supplémentaire de trois ans",
-        "Ils bénéficient d'une augmentation de salaire compensant les économies",
-        "Ils perdent le droit à la nomination définitive, remplacée par un nouveau contrat à durée indéterminée sans la sécurité d'emploi historique",
-        "Ils passent d'un contrat temporaire à un contrat de fonctionnaire titularisé"
+        "2,5 %",
+        "96 %",
+        "12 %",
+        "24 %"
       ],
-      "correct": 2,
-      "explanation": "La réforme remplace la nomination définitive — qui offrait une sécurité d'emploi historique — par un nouveau contrat « CDI-E » (contrat à durée indéterminée modèle écoles). Cette mesure affecte directement la stabilité professionnelle des nouveaux enseignants bruxellois et illustre l'impact concret des économies annoncées.",
+      "correct": 0,
+      "explanation": "Sur 128 903 ménages recensés par l'IBSA, 96 % scolarisent leurs enfants dans un seul système. Environ 2 897 ménages combinent les deux Communautés.",
       "sourceSlug": "/fr/dossiers/enseignement",
-      "sourceTitle": "Enseignement obligatoire à Bruxelles : l'impact des économies FWB et Vlaamse Gemeenschap",
+      "sourceTitle": "Enseignement",
       "provenance": {
-        "sourceLastModified": "2026-04-10",
+        "sourceLastModified": "2026-07-20",
         "sourceContentHash": "sha256:a1939f30d5139d5c059ed7f64734cbfa",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Économie",
-      "question": "Quel secteur économique bruxellois montre le plus grand déséquilibre entre son poids dans les PME et sa part dans les faillites ?",
+      "question": "Comment la progression des faillites bruxelloises se situe-t-elle par rapport aux autres régions ?",
       "options": [
-        "La construction",
-        "L'industrie manufacturière",
-        "Le commerce",
-        "L'horeca"
+        "C'est la plus forte progression régionale du pays",
+        "C'est la seule région en recul sur l'année écoulée",
+        "C'est la progression la plus faible des trois régions",
+        "C'est une progression identique à celle de la Flandre"
       ],
-      "correct": 3,
-      "explanation": "L'horeca représente seulement 6 % des PME bruxelloises mais concentre 17 % des faillites, révélant une fragilité structurelle du secteur. Ce déséquilibre fait de l'horeca un cas d'étude particulier pour comprendre les vulnérabilités spécifiques à Bruxelles.",
+      "correct": 0,
+      "explanation": "Les faillites bruxelloises augmentent de 13,2 %, contre 7,8 % en Flandre et un recul de 3 % en Wallonie. La construction et l'horeca figurent parmi les secteurs les plus touchés.",
       "sourceSlug": "/fr/dossiers/faillites-a-bruxelles",
-      "sourceTitle": "Faillites à Bruxelles : état des lieux, secteurs et dispositifs régionaux",
+      "sourceTitle": "Faillites",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:94b217eece76c141c89b57f8670d3ef4",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:054c0d3e788a9218d2ba9eda7ebd9500",
+        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {

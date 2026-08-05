@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T19:43:07.444Z",
+  "generatedAt": "2026-08-05T19:47:26.934Z",
   "locale": "fr",
   "poolSize": 57,
   "questionsPerSession": 10,
@@ -192,184 +192,184 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Économie",
-      "question": "Selon la Déclaration de Politique Régionale de février 2026, sur combien de sites la Zone Franche Urbaine bruxelloise doit-elle être créée ?",
+      "question": "Vers quelle commune Orange Belgique déplace-t-il le siège qu'il occupe à Evere ?",
       "options": [
-        "Deux sites : le Port de Bruxelles et le site Audi Forest",
-        "Trois sites incluant Schuman et Mediapark",
-        "Un seul site au Port de Bruxelles",
-        "Quatre sites répartis entre nord et sud de Bruxelles"
+        "Diegem, en Brabant flamand",
+        "Zaventem, en Brabant flamand",
+        "Machelen, en Brabant flamand",
+        "Vilvorde, en Brabant flamand"
       ],
       "correct": 0,
-      "explanation": "La Zone Franche Urbaine prévue par le gouvernement régional combine deux espaces distincts : le Port de Bruxelles pour la logistique et l'industrie, et le site Audi Forest pour la reconversion après la fermeture de l'usine automobile. Cette double approche vise à revitaliser des zones stratégiques de la capitale.",
+      "explanation": "Environ 1 400 employés sont concernés, pour un déménagement prévu fin 2028. L'opérateur invoque la fin de son bail et l'inadaptation du bâtiment, et écarte explicitement une motivation fiscale.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:3f59dfa4fbf1348fb6b61ccc0aee2ad3",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:099ac0dfc446618422b10fda40037fa7",
+        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Économie",
-      "question": "Selon l'accord de gouvernement de février 2026, quel délai moyen d'obtention d'un permis de bâtir est constaté à Bruxelles avant réforme ?",
+      "question": "Que reproche le tribunal de première instance au règlement-taxe de la Ville de Bruxelles sur les surfaces de bureaux ?",
       "options": [
-        "Environ 2 ans",
-        "Environ 7 ans",
-        "Environ 5 ans",
-        "Environ 12 ans"
+        "Une violation du principe constitutionnel d'égalité",
+        "Un dépassement de la compétence fiscale communale",
+        "Une absence de publication au Moniteur belge",
+        "Une rétroactivité contraire à la sécurité juridique"
       ],
-      "correct": 1,
-      "explanation": "Ce délai exceptionnellement long (~7 ans) explique en partie la crise du secteur de la construction à Bruxelles, où les faillites ont atteint un record historique en 2025. Les mesures administratives de la Zone Franche Urbaine, notamment le guichet unique Fast-Track, visent précisément à accélérer ces procédures et relancer l'activité de construction dans la région.",
+      "correct": 0,
+      "explanation": "Le tribunal relève l'absence de justification objective à distinguer les surfaces de bureaux des autres usages. La taxe est passée de 9,58 à 24 euros par mètre carré et par an entre 2021 et 2026.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:3f59dfa4fbf1348fb6b61ccc0aee2ad3",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:099ac0dfc446618422b10fda40037fa7",
+        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Qui reprendra la gestion complète de l'accueil extrascolaire néerlandophone à Bruxelles à partir de septembre 2026 ?",
+      "question": "Quelle part des jeunes bruxellois sort de l'enseignement secondaire sans certificat ni qualification, selon l'IBSA ?",
       "options": [
-        "L'ONE et Opgroeien",
-        "La Cocof",
-        "La VGC",
-        "La Région de Bruxelles-Capitale"
+        "18 %",
+        "12 %",
+        "26 %",
+        "22 %"
       ],
-      "correct": 2,
-      "explanation": "Le décret BOA, en vigueur depuis 2021, prévoit une transition jusqu'à septembre 2026. À cette date, la VGC (Commission communautaire flamande) reprendra entièrement la politique, la reconnaissance locale et le budget de l'accueil extrascolaire néerlandophone. Cela marque une clarification importante de la gouvernance de l'enfance à Bruxelles.",
+      "correct": 0,
+      "explanation": "La moyenne nationale s'établit à 12 %, contre 16 % à Anvers et 22 % à Charleroi. Le chiffre bruxellois reste stable par rapport aux années précédentes.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-03-02",
-        "sourceContentHash": "sha256:217906eec96d603530ea34cf3e7672c2",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:b9cc3fe4f31299844aa4b9e438e515d0",
+        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Quel est le rôle principal de la Région de Bruxelles-Capitale en matière d'enseignement ?",
+      "question": "Qu'est-ce qui remplacera le test oral ouvrant la priorité d'inscription dans l'enseignement secondaire néerlandophone bruxellois ?",
       "options": [
-        "Intervenir via des structures spécialisées comme la Cocof et la VGC, et soutenir la formation professionnelle",
-        "Gérer directement les écoles primaires et secondaires",
-        "Assurer le transport des élèves vers les écoles",
-        "Fixer les programmes scolaires pour toutes les communautés"
+        "Une attestation officielle de niveau B2",
+        "Un entretien devant un jury de 3 personnes",
+        "Un certificat délivré à la fin de la 6e primaire",
+        "Une épreuve écrite organisée par le réseau"
       ],
       "correct": 0,
-      "explanation": "L'enseignement à Bruxelles relève principalement des Communautés (FWB et Vlaamse Gemeenschap). La Région intervient indirectement via la Cocof pour le francophone, la VGC pour le néerlandophone, et directement via Actiris, Bruxelles Formation et VDAB Brussel pour la formation professionnelle et l'insertion des jeunes.",
+      "explanation": "La mesure relève de la Communauté flamande et s'applique aux inscriptions pour l'année scolaire 2027-2028. Dans le réseau VGC, 65 % des places de première année secondaire sont réservées à ce public prioritaire.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-03-02",
-        "sourceContentHash": "sha256:217906eec96d603530ea34cf3e7672c2",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:b9cc3fe4f31299844aa4b9e438e515d0",
+        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Selon la Déclaration de Politique Régionale de février 2026, quelle mesure obligatoire est imposée à tous les chercheurs d'emploi bruxellois pour renforcer leur activation ?",
+      "question": "Quel taux d'emploi la Déclaration de politique régionale fixe-t-elle comme objectif de fin de législature ?",
       "options": [
-        "Une formation en informatique de 3 mois",
-        "Un stage en entreprise rémunéré",
-        "Une évaluation médicale annuelle",
-        "Un bilan de compétences obligatoire"
+        "70 %",
+        "63,9 %",
+        "74,1 %",
+        "80 %"
       ],
-      "correct": 3,
-      "explanation": "La DPR prévoit un bilan de compétences obligatoire pour tous les demandeurs d'emploi, complété par une évaluation linguistique à l'inscription et une formation en français ou néerlandais si nécessaire. Cette mesure vise à identifier les forces de chacun et lever les barrières linguistiques à l'emploi à Bruxelles.",
+      "correct": 0,
+      "explanation": "Le niveau atteint en 2025 s'établit à 63,9 % selon Statbel, soit un gain nécessaire de plus de six points sur une seule législature.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-04-10",
-        "sourceContentHash": "sha256:fa0afc804b0495140df90887aadc32cc",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:17bdd8eb1d7931921f225e1cba05a961",
+        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Quel est le phénomène structurel qui distingue particulièrement Bruxelles des autres régions belges entre 2006 et 2022 ?",
+      "question": "Que devient principalement le chômage des jeunes bruxellois, selon l'étude de l'Itinera Institute ?",
       "options": [
-        "La création d'emplois industriels massifs",
-        "La dégradation simultanée du taux d'emploi des hommes et l'absence de progression pour les femmes",
-        "La réduction de l'inactivité féminine de plus de 20 %",
-        "L'augmentation du taux d'emploi des jeunes de plus de 15 points"
+        "De l'inactivité, hors du marché du travail",
+        "De l'emploi salarié dans les communes voisines",
+        "De la formation en alternance subventionnée",
+        "De l'emploi indépendant à titre complémentaire"
       ],
-      "correct": 1,
-      "explanation": "Selon l'étude Itinera, Bruxelles est la seule région belge où le taux d'emploi des femmes n'a pas progressé et celui des hommes s'est dégradé sur cette période — un double-négatif unique. En Flandre et Wallonie, les taux ont augmenté. Ce profil révèle des obstacles structurels profonds à l'emploi bruxellois.",
+      "correct": 0,
+      "explanation": "Seuls environ 25 % des 18-24 ans bruxellois sont en emploi, contre environ 40 % en Flandre, et 34,4 % de la population en âge de travailler est inactive.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-04-10",
-        "sourceContentHash": "sha256:fa0afc804b0495140df90887aadc32cc",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:17bdd8eb1d7931921f225e1cba05a961",
+        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Logement",
-      "question": "Quel mécanisme remplace le programme Renolution pour soutenir les rénovations énergétiques à Bruxelles à partir de 2027 ?",
+      "question": "Sur quelle base le gouvernement bruxellois a-t-il désigné un commissaire spécial au Foyer anderlechtois ?",
       "options": [
-        "Une obligation légale de rénover imposée aux propriétaires",
-        "Un crédit d'impôt régional automatique",
-        "Des prêts à taux zéro",
-        "Des subventions directes sans conditions de revenu"
+        "L'article 78 du Code bruxellois du logement",
+        "L'article 12 de l'ordonnance sur la tutelle",
+        "L'article 45 du Code du développement territorial",
+        "L'article 90 de la nouvelle loi communale"
       ],
-      "correct": 2,
-      "explanation": "L'accord de gouvernement de février 2026 remplace le système de primes Renolution par des prêts à taux zéro, avec une enveloppe de 200 millions EUR jusqu'en 2029. Cependant, cette transition suscite des inquiétudes chez les experts : un prêt, même sans intérêts, exige une capacité de remboursement que les ménages modestes pourraient ne pas avoir.",
+      "correct": 0,
+      "explanation": "La désignation vaut pour une durée de quatre mois. Le lendemain, le Parlement a approuvé les 26 recommandations de la commission d'enquête par 51 voix pour, 24 contre et 6 abstentions.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:265602e73b46b4ac0cf11eab5387ae4d",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:c04b15c1511f2799e05e9c6d911ba98c",
+        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
-      "question": "Quel est le seuil de loyer au-delà duquel on peut présumer un abus depuis mai 2025 en Région bruxelloise ?",
+      "question": "Que cherchent à obtenir les quatre associations qui ont introduit un recours en référé contre la SLRB ?",
       "options": [
-        "Une hausse de loyer sans préavis de 3 mois",
-        "Un augmentation annuelle supérieure à 5 %",
-        "Tout loyer dépassant 2 000 euros par mois",
-        "20 % au-dessus du loyer de référence"
+        "Le blocage de la vente de deux immeubles publics",
+        "La suspension des attributions de logements sociaux",
+        "L'annulation du contrat de gestion de la société",
+        "La publication des listes d'attente par commune"
       ],
-      "correct": 3,
-      "explanation": "Depuis le 1er mai 2025, un loyer situé plus de 20 % au-dessus du loyer de référence constitue une présomption d'abus. Ce mécanisme vise à lutter contre les abus dans un contexte de forte hausse des loyers : selon le baromètre Federia 2025, tous les loyers moyens communaux dépassent désormais 1 000 euros mensuels.",
+      "correct": 0,
+      "explanation": "Les associations invoquent les 62 234 ménages inscrits sur liste d'attente pour un logement social. La vente du site Ariane et d'un immeuble rue des Palais avait été décidée en janvier 2026 pour des raisons budgétaires.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:265602e73b46b4ac0cf11eab5387ae4d",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:c04b15c1511f2799e05e9c6d911ba98c",
+        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {

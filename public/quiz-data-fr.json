@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T19:56:16.035Z",
+  "generatedAt": "2026-08-05T20:00:31.791Z",
   "locale": "fr",
-  "poolSize": 64,
+  "poolSize": 66,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1158,184 +1158,230 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel événement juridique majeur a marqué le marché des trottinettes électriques à Bruxelles en avril 2024 ?",
+      "question": "Quel effet l'arrêt du Conseil d'État produit-il sur l'interdiction des trottinettes partagées ?",
       "options": [
-        "Le Conseil d'État a suspendu les plafonds de flotte fixés par le gouvernement",
-        "Les drop zones obligatoires ont été supprimées par décision judiciaire",
-        "Lime a remporté l'appel d'offres contre Bolt et Dott",
-        "Le gouvernement a interdit l'ensemble des opérateurs de trottinettes"
+        "Il l'avance de quatre mois, par voie judiciaire",
+        "Il la reporte de quatre mois, par voie judiciaire",
+        "Il l'annule, la rendant sans objet pour les opérateurs",
+        "Il la maintient telle quelle, sans modifier le calendrier"
       ],
       "correct": 0,
-      "explanation": "Le 25 avril 2024, le Conseil d'État a jugé que la motivation du gouvernement pour les plafonds de flotte était insuffisante et les a suspendus, bien que les drop zones aient été validées. Cet événement a façonné la saga juridique entre opérateurs et gouvernement, détaillée dans le Brussels Governance Monitor.",
+      "explanation": "L'interdiction fixée au 1er janvier 2027 n'est pas remise en cause, mais les engins doivent quitter l'espace public au 1er septembre 2026. Le recours émanait de Lime, opérateur écarté lors de l'attribution des licences.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
-      "sourceTitle": "Mobilité partagée à Bruxelles : trottinettes, vélos, taxis et la bataille des concessions",
+      "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-02-24",
-        "sourceContentHash": "sha256:2c745d29053d71cf8d3ef26b654fb2b9",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:07fc02e62063e6b0b0b1921083a12c94",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel système de vélos en station arrive à la fin de sa concession en 2026 ?",
+      "question": "Quelle offre l'arrêt supprime-t-il alors que le gouvernement souhaitait la maintenir ?",
       "options": [
-        "Lime Bikes",
-        "TIER Cargo",
-        "GO Sharing",
-        "Villo!"
+        "Les vélos partagés en flotte libre",
+        "Les trottinettes partagées en flotte libre",
+        "Les vélos à ancrage fixe de la concession Villo",
+        "Les scooters partagés à assistance électrique"
       ],
-      "correct": 3,
-      "explanation": "Villo!, géré par JCDecaux depuis 2008, verra sa convention avec la Région expirer en septembre 2026. Le gouvernement doit décider entre maintien de stations, passage au free-floating ou autres scénarios. Cette transition est un enjeu majeur de gouvernance bruxelloise suivi par le Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "La concession Villo, à ancrage fixe, n'est pas concernée par l'arrêt. Les autorités travaillent à un nouveau cadre réglementaire pour les vélos partagés.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
-      "sourceTitle": "Mobilité partagée à Bruxelles : trottinettes, vélos, taxis et la bataille des concessions",
+      "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-02-24",
-        "sourceContentHash": "sha256:2c745d29053d71cf8d3ef26b654fb2b9",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:07fc02e62063e6b0b0b1921083a12c94",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
+      "id": "dossier-novacity-ii-0",
+      "source": "dossier",
+      "domain": "Logement",
+      "question": "Quel mode de chauffage le programme NovaCity II retient-il pour ses logements ?",
+      "options": [
+        "La géothermie par pompes à chaleur, sans combustible fossile",
+        "Une chaufferie collective au gaz naturel à haut rendement",
+        "Un raccordement au réseau de chaleur urbain existant",
+        "Des chaudières individuelles à condensation par logement"
+      ],
+      "correct": 0,
+      "explanation": "Le dispositif est complété par des panneaux solaires, pour un objectif de logements à énergie nette zéro. Les 117 logements conventionnés seront passifs et traversants, avec une terrasse privative d'au moins 7,5 mètres carrés.",
+      "sourceSlug": "/fr/dossiers/novacity-ii",
+      "sourceTitle": "NovaCity II",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:3cc64915bc7775cb67a611c94ce9052b",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
-      "domain": "Social",
-      "question": "Combien d'autorités institutionnelles différentes gèrent l'agrément et le financement des crèches à Bruxelles ?",
+      "domain": "Enseignement",
+      "question": "Quel écart de couverture en places d'accueil sépare les communes bruxelloises ?",
       "options": [
-        "Trois : ONE, Opgroeien et Iriscare",
-        "Plus de quatre : communes, VGC, COCOF et autres",
-        "Deux : la Communauté française et la Communauté flamande",
-        "Une seule : la Région de Bruxelles-Capitale"
+        "67 % à Etterbeek contre 16 % à Anderlecht",
+        "45 % à Etterbeek contre 38 % à Anderlecht",
+        "80 % à Etterbeek contre 60 % à Anderlecht",
+        "30 % à Etterbeek contre 25 % à Anderlecht"
       ],
       "correct": 0,
-      "explanation": "L'ONE gère les crèches francophones, Opgroeien les néerlandophones, et Iriscare les structures bicommunales. Cette fragmentation institutionnelle crée des listes d'attente séparées et des parcours différents selon la langue et la commune, ce qui explique les inégalités majeures d'accès.",
+      "explanation": "Deux parents sur trois qualifient la recherche d'une place de difficile ou très difficile, selon la Ligue des Familles. Le code postal détermine en grande partie la possibilité de reprendre le travail après un congé de maternité.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
-      "sourceTitle": "Petite enfance à Bruxelles : crèches, listes d'attente et triple autorité institutionnelle",
+      "sourceTitle": "Petite enfance",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:2cbd975b2af68231caedf1d30aa1face",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:8d1beb6c9e9f7c62fc92eb7edc581ce7",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
-      "domain": "Social",
-      "question": "Quelle est la principale conséquence de cette répartition des compétences entre trois autorités pour les familles bruxelloises ?",
+      "domain": "Enseignement",
+      "question": "Quelle autorité délivre les autorisations aux crèches bicommunales à Bruxelles ?",
       "options": [
-        "Seules les communes peuvent décider des tarifs appliqués aux familles",
-        "Les enfants ne peuvent fréquenter qu'une seule type de crèche pendant toute leur enfance",
-        "Les tarifs des crèches augmentent chaque année sans contrôle",
-        "Les listes d'attente sont séparées selon la langue, créant des places inutilisées dans un circuit pendant qu'on attend ailleurs"
+        "Iriscare, pour la Commission communautaire commune",
+        "L'ONE, pour la Fédération Wallonie-Bruxelles",
+        "Opgroeien, pour la Communauté flamande",
+        "Bruxelles Économie et Emploi, pour la Région"
       ],
-      "correct": 3,
-      "explanation": "Vous pouvez attendre des mois dans une file francophone (ONE) alors qu'une place se libère dans une file néerlandophone (Opgroeien) à laquelle vous n'êtes pas inscrit. Cette fragmentation en trois systèmes parallèles aggrave les inégalités d'accès plutôt que de les résoudre.",
+      "correct": 0,
+      "explanation": "C'est la seule autorité relevant d'un niveau de pouvoir strictement bruxellois. Les crèches francophones dépendent de l'ONE et les néerlandophones d'Opgroeien, chacune sous son propre budget.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
-      "sourceTitle": "Petite enfance à Bruxelles : crèches, listes d'attente et triple autorité institutionnelle",
+      "sourceTitle": "Petite enfance",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:2cbd975b2af68231caedf1d30aa1face",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:8d1beb6c9e9f7c62fc92eb7edc581ce7",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-pfas-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Pourquoi les PFAS sont-ils surnommés les « polluants éternels » ?",
+      "question": "D'où provient la contamination aux PFAS constatée en Région bruxelloise ?",
       "options": [
-        "Parce qu'aucun traitement médical ne peut éliminer leur présence du corps humain",
-        "Parce qu'ils sont des composés chimiques quasi indestructibles qui persistent dans l'environnement",
-        "Parce qu'ils contaminent tous les continents de la Terre",
-        "Parce qu'ils sont produits depuis plus d'un siècle sans interruption"
+        "De l'usage diffus de produits et de sites industriels ciblés",
+        "D'une usine de production implantée dans la Région",
+        "D'un rejet unique survenu dans le canal en 2021",
+        "De l'épandage agricole pratiqué dans la périphérie"
       ],
-      "correct": 1,
-      "explanation": "Les PFAS sont extrêmement résistants à la dégradation naturelle, d'où leur surnom. Cette persistance rend leur gestion environnementale particulièrement complexe et justifie l'approche de précaution adoptée par Bruxelles-Environnement depuis 2021.",
+      "correct": 0,
+      "explanation": "Aucune usine de production de PFAS n'existe en Région bruxelloise, contrairement à la Flandre. Environ 3 500 sites sont recensés comme potentiellement contaminés, notamment du fait des mousses anti-incendie.",
       "sourceSlug": "/fr/dossiers/pfas",
-      "sourceTitle": "PFAS à Bruxelles : contamination des sols et des eaux",
+      "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
-        "sourceContentHash": "sha256:1cb75774719d5b0b2bf342014eb98a7b",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-12",
+        "sourceContentHash": "sha256:4e6283194d0905433fcc8936e4354c06",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-pfas-1",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Quel est le principal problème identifié dans l'eau potable distribuée à Bruxelles concernant les PFAS ?",
+      "question": "Quelle mesure de précaution accompagne le périmètre établi autour de l'ancien site Sicli à Uccle ?",
       "options": [
-        "L'eau de Vivaqua ne peut pas être consommée à cause des résidus de mousses anti-incendie",
-        "La norme européenne de 100 ng/L pour 20 PFAS est dépassée dans tous les réservoirs",
-        "Les normes belges sont plus strictes que les recommandations du Conseil Supérieur de la Santé",
-        "Une contamination au TFA détectée dans les 6 réservoirs, pour laquelle les filtres classiques sont inefficaces"
+        "L'interdiction de consommer fruits, légumes et œufs du lieu",
+        "L'interdiction totale d'accès à la voirie pour les riverains",
+        "L'obligation de raccorder les habitations au réseau d'égouts",
+        "La fermeture des écoles situées dans le périmètre concerné"
       ],
-      "correct": 3,
-      "explanation": "Le TFA (acide trifluoroacétique) pose un défi technique spécifique : seule l'osmose inverse peut le capter efficacement, contrairement aux filtres à charbon actif conventionnels. Ce problème illustre pourquoi Brussels Governance Monitor suit de près cette question d'eau potable.",
+      "correct": 0,
+      "explanation": "Le périmètre de sécurité s'étend sur 100 mètres. Sur le site industriel, la norme est dépassée jusqu'à 708 fois dans le sol et 1 058 fois dans les eaux souterraines.",
       "sourceSlug": "/fr/dossiers/pfas",
-      "sourceTitle": "PFAS à Bruxelles : contamination des sols et des eaux",
+      "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
-        "sourceContentHash": "sha256:1cb75774719d5b0b2bf342014eb98a7b",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-12",
+        "sourceContentHash": "sha256:4e6283194d0905433fcc8936e4354c06",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-plan-securite-0",
       "source": "dossier",
-      "domain": "Social",
-      "question": "Selon l'accord de gouvernement de février 2026, quel nouvel acteur régional a été créé pour coordonner la lutte contre les stupéfiants à Bruxelles ?",
+      "domain": "Sécurité",
+      "question": "Que révèle la première visite de terrain du ministre-président à la gare du Midi ?",
       "options": [
-        "Un département spécialisé au sein de safe.brussels",
-        "Un commissaire régional anti-drogues",
-        "Une agence fédérale de contrôle des substances",
-        "Une unité de police spéciale dans chaque zone"
+        "Un besoin de coordination entre acteurs de sécurité",
+        "Un manque de caméras de surveillance dans la gare",
+        "Une insuffisance des effectifs de la police fédérale",
+        "Un défaut d'entretien des infrastructures ferroviaires"
       ],
-      "correct": 1,
-      "explanation": "L'accord de gouvernement du 12 février 2026 consacre un chapitre entier à la sécurité et crée la fonction de commissaire régional anti-drogues. Cette autorité dédiée s'inscrit dans une approche intégrée (prévention, réduction des risques, répression) visant à mieux coordonner la lutte contre les drogues à l'échelle régionale bruxelloise.",
+      "correct": 0,
+      "explanation": "Six zones de police, la police fédérale des chemins de fer, la sécurité de la SNCB et des gardiens de la Stib interviennent sur le même site. C'est l'enjeu des 10 millions d'euros prévus pour les gares du Midi et du Nord.",
       "sourceSlug": "/fr/dossiers/plan-securite",
-      "sourceTitle": "Plan sécurité : commissaire anti-drogues, 10M EUR gares et fusion des zones de police",
+      "sourceTitle": "Plan Sécurité",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:fe190b326837748bd6d0198fd9884f85",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:5486f9570d244ee61caf2de5c6af4d07",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
+      "id": "dossier-rechauffement-bruxelles-0",
+      "source": "dossier",
+      "domain": "Climat",
+      "question": "À quel moment l'écart de température entre le centre de Bruxelles et sa périphérie est-il le plus dangereux ?",
+      "options": [
+        "La nuit, quand la température ne redescend plus",
+        "En milieu de journée, au pic d'ensoleillement",
+        "Au petit matin, avant le lever du soleil",
+        "En fin d'après-midi, à la sortie des bureaux"
+      ],
+      "correct": 0,
+      "explanation": "L'écart nocturne atteint 4,5 degrés en moyenne et jusqu'à 10 degrés lors des épisodes extrêmes. Quand le corps ne récupère pas la nuit, la surmortalité s'installe, en particulier chez les personnes âgées et isolées.",
+      "sourceSlug": "/fr/dossiers/rechauffement-bruxelles",
+      "sourceTitle": "Réchauffement de Bruxelles",
+      "provenance": {
+        "sourceLastModified": "2026-06-26",
+        "sourceContentHash": "sha256:62ebd8b89adcae7f2f70f64d5215e82d",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
-      "domain": "Budget",
-      "question": "Selon la réforme de l'administration régionale bruxelloise annoncée en février 2026, combien de grands piliers vont remplacer la structure existante d'environ 25 entités ?",
+      "domain": "Institutionnel",
+      "question": "Quelle est la cible chiffrée de la réforme regroupant l'administration régionale bruxelloise ?",
       "options": [
-        "8 piliers",
-        "6 piliers",
-        "2 piliers",
-        "4 piliers"
+        "Passer d'environ 25 entités à 4 grands piliers",
+        "Passer d'environ 40 entités à 10 grands piliers",
+        "Passer d'environ 15 entités à 2 grands piliers",
+        "Passer d'environ 60 entités à 12 grands piliers"
       ],
-      "correct": 3,
-      "explanation": "La déclaration de politique régionale du 13 février 2026 annonce une restructuration majeure passant de ~25 entités à 4 grands piliers : un service de support commun, les missions organiques, infrastructure.brussels, et une plateforme foncière. Cette réforme vise à générer d'importantes économies d'ici 2029.",
+      "correct": 0,
+      "explanation": "L'objectif affiché est de 250 à 300 millions d'euros d'économies d'ici 2029. Les quatre piliers couvrent le support commun, les missions organiques, infrastructure.brussels et une plateforme foncière.",
       "sourceSlug": "/fr/dossiers/reforme-administration",
-      "sourceTitle": "Réforme de l'administration régionale : de 25 entités à 4 piliers",
+      "sourceTitle": "Réforme administration",
       "provenance": {
-        "sourceLastModified": "2026-03-09",
-        "sourceContentHash": "sha256:71ed205ea98cb0060b5a56288749aaed",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-07",
+        "sourceContentHash": "sha256:b2c369a95a12b97c261db66b865597b0",
+        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {

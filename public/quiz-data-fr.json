@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T19:49:08.056Z",
+  "generatedAt": "2026-08-05T19:54:22.112Z",
   "locale": "fr",
-  "poolSize": 57,
+  "poolSize": 59,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -606,115 +606,161 @@
       "id": "dossier-accessibilite-pmr-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Selon l'ordonnance de 2016, quel est le principal mécanisme que la Région bruxelloise doit appliquer pour garantir la prise en compte du handicap dans ses politiques ?",
+      "question": "Quelle obligation l'ordonnance handistreaming impose-t-elle à la Région bruxelloise ?",
       "options": [
-        "Le handistreaming, c'est-à-dire l'intégration systématique du handicap dans toutes les politiques régionales",
-        "L'établissement de quotas d'emploi obligatoires uniquement dans les entreprises privées",
-        "La création d'un ministère dédié exclusivement à l'accessibilité et au handicap",
-        "L'obligation de consacrer au moins 10 % du budget régional aux questions de handicap"
+        "Prendre en compte le handicap dans toutes ses politiques",
+        "Réserver un quota de logements adaptés par commune",
+        "Financer un centre d'accueil dans chaque commune",
+        "Rendre les transports accessibles avant la fin 2028"
       ],
       "correct": 0,
-      "explanation": "L'ordonnance handistreaming du 8 décembre 2016 impose à la Région bruxelloise la prise en compte systématique du handicap dans toutes les politiques, y compris les marchés publics et subsides. Ce mécanisme transversal contraste avec l'absence de section dédiée dans la Déclaration de Politique Régionale de février 2026.",
+      "explanation": "L'ordonnance du 8 décembre 2016 couvre aussi les marchés publics et les subsides, et impose au gouvernement de transmettre au Parlement un rapport intermédiaire et un rapport de fin de législature.",
       "sourceSlug": "/fr/dossiers/accessibilite-pmr",
-      "sourceTitle": "Accessibilité et handicap à Bruxelles : transport, emploi et données",
+      "sourceTitle": "Accessibilité PMR",
       "provenance": {
-        "sourceLastModified": "2026-03-18",
-        "sourceContentHash": "sha256:db00c812974213c3fc8cdf269a67fec8",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:64587a31ea545d7e26faea22096f7de6",
+        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Emploi",
-      "question": "Quel événement majeur a permis à la Région de Bruxelles-Capitale de reprendre le contrôle du dispositif ACS ?",
+      "question": "Sur quel double levier repose le dispositif des agents contractuels subventionnés ?",
       "options": [
-        "La mobilisation du secteur non marchand en février 2026",
-        "La création du dispositif ACS en 1987 comme outil de lutte contre le chômage",
-        "La réforme de 2015 lancée par Actiris pour moderniser le secteur non marchand",
-        "La 6e réforme de l'État en 2014, qui a transféré la compétence emploi du fédéral vers les Régions"
+        "Une prime régionale et une réduction des cotisations patronales",
+        "Un prêt à taux zéro et une exonération de précompte mobilier",
+        "Une allocation de formation et un chèque-service trimestriel",
+        "Une dotation communale et un remboursement de frais de route"
       ],
-      "correct": 3,
-      "explanation": "La 6e réforme de l'État en 2014 a transféré la responsabilité des ACS du niveau fédéral vers les Régions. C'est ce transfert qui a donné à Bruxelles la pleine maîtrise du mécanisme, contrairement à auparavant.",
+      "correct": 0,
+      "explanation": "La réduction des cotisations sociales patronales est ramenée à 0,56 %. Les postes sont destinés aux demandeurs d'emploi inscrits chez Actiris, sous conditions de durée de chômage, d'âge ou de handicap.",
       "sourceSlug": "/fr/dossiers/acs",
-      "sourceTitle": "ACS : le pilier fragilisé de l'emploi non marchand bruxellois",
+      "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-03-06",
+        "sourceLastModified": "2026-07-05",
         "sourceContentHash": "sha256:a44ac2fc8945de4c6750ad61a6a5538e",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Emploi",
-      "question": "Quel est le principal problème identifié par les employeurs du secteur non marchand concernant le financement des postes ACS ?",
+      "question": "Qu'a introduit la réforme de 2015 pour un poste subventionné devenu vacant ?",
       "options": [
-        "La prime régionale ACS ne couvre pas l'intégralité du coût salarial, même si les travailleurs ACS doivent recevoir les mêmes salaires que le personnel ordinaire",
-        "Les syndicats refusent de négocier les conditions de travail pour les travailleurs ACS",
-        "Le dispositif ACS n'offre aucune réduction des cotisations sociales aux employeurs",
-        "Les postes ACS sont systématiquement perdus après 6 mois s'ils ne sont pas pourvus"
+        "Un délai de 6 mois pour le pourvoir, sinon il est perdu",
+        "Une reprise automatique du poste par une autre association",
+        "Un audit obligatoire de l'employeur tous les 3 exercices",
+        "Une mise en concurrence publiée au Moniteur belge"
       ],
       "correct": 0,
-      "explanation": "Le « différentiel ACS » est le cœur du problème : les employeurs doivent financer eux-mêmes la différence entre ce que verse la prime régionale et les salaires réels convenus sectoriellement. Cette charge fragile les petites structures.",
+      "explanation": "Ce délai n'est pas extensible. C'est ce qui explique l'écart entre les 10 000 postes subsidiés fin 2017 et les 6 700 postes actifs estimés en 2024.",
       "sourceSlug": "/fr/dossiers/acs",
-      "sourceTitle": "ACS : le pilier fragilisé de l'emploi non marchand bruxellois",
+      "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-03-06",
+        "sourceLastModified": "2026-07-05",
         "sourceContentHash": "sha256:a44ac2fc8945de4c6750ad61a6a5538e",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
+      "id": "dossier-activa-0",
+      "source": "dossier",
+      "domain": "Emploi",
+      "question": "Quel est le principe de l'allocation de travail versée dans le cadre d'Activa.brussels ?",
+      "options": [
+        "L'employeur la déduit du salaire net, inchangé pour le travailleur",
+        "Le travailleur la perçoit en plus de sa rémunération habituelle",
+        "La commune la verse directement à l'organisme de formation",
+        "Elle remplace intégralement le salaire pendant la période d'essai"
+      ],
+      "correct": 0,
+      "explanation": "Le montant standard atteint 15 900 euros sur 30 mois, porté à 23 400 euros sur 36 mois pour les publics dits « Plus » et à aptitude réduite. Un incitant à la formation peut s'y ajouter.",
+      "sourceSlug": "/fr/dossiers/activa",
+      "sourceTitle": "Activa.brussels",
+      "provenance": {
+        "sourceLastModified": "2026-07-05",
+        "sourceContentHash": "sha256:74082e71b75454530321941447e448f3",
+        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-assemblees-citoyennes-0",
       "source": "dossier",
       "domain": "Institutionnel",
-      "question": "Quel est le mécanisme de sélection des citoyens qui participent aux commissions délibératives du Parlement bruxellois ?",
+      "question": "Quel ratio le règlement du Parlement bruxellois fixe-t-il pour une commission délibérative ?",
       "options": [
-        "Une candidature volontaire suivie d'un entretien de sélection",
-        "Un vote électoral ouvert à tous les résidents bruxellois",
-        "Un double tirage au sort via les numéros de registre national",
-        "Une nomination par les partis politiques représentés au Parlement"
+        "Trois quarts de citoyens et un quart de parlementaires",
+        "Deux tiers de citoyens et un tiers de parlementaires",
+        "La moitié de citoyens et la moitié de parlementaires",
+        "Un tiers de citoyens et deux tiers de parlementaires"
       ],
-      "correct": 2,
-      "explanation": "Les citoyens sont sélectionnés par double tirage au sort parmi les résidents bruxellois âgés de 16 ans et plus, ce qui garantit une représentativité aléatoire. Ce processus transparent est assuré par la plateforme democratie.brussels.",
+      "correct": 0,
+      "explanation": "La composition standard réunit 45 citoyens et 15 parlementaires. Les citoyens sont sélectionnés par double tirage au sort parmi les résidents bruxellois âgés de seize ans et plus.",
       "sourceSlug": "/fr/dossiers/assemblees-citoyennes",
-      "sourceTitle": "Assemblées citoyennes : 6 commissions achevées, 205+ recommandations, 7e en préparation",
+      "sourceTitle": "Assemblées citoyennes",
       "provenance": {
-        "sourceLastModified": "2026-03-28",
-        "sourceContentHash": "sha256:e904c947a044b738385ed6ac6fbe1f35",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-20",
+        "sourceContentHash": "sha256:8a04b0c0a1f0c7e4bf52245b598a8024",
+        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Selon le Baromètre national du bonheur 2026 (UGent/NN), parmi les trois régions belges, comment se classe Bruxelles en termes de bonheur subjectif ?",
+      "question": "Quel facteur l'IBSA identifie-t-il comme le plus déterminant de la satisfaction de vie des Bruxellois ?",
       "options": [
-        "En deuxième position, derrière la Flandre",
-        "À égalité avec la Flandre et la Wallonie",
-        "En troisième position, derrière la Wallonie",
-        "En première position, légèrement devant la Flandre"
+        "La santé, physique et mentale",
+        "Le niveau de diplôme obtenu",
+        "La taille du logement occupé",
+        "La durée des trajets quotidiens"
       ],
-      "correct": 3,
-      "explanation": "Bruxelles arrive en tête avec 6,62/10, suivie très légèrement par la Flandre (6,61/10). Ce résultat contraste avec d'autres domaines et montre l'importance de consulter des sources fiables comme le Brussels Governance Monitor pour comprendre la qualité de vie bruxelloise de manière nuancée.",
+      "correct": 0,
+      "explanation": "Les Bruxellois attribuent une note moyenne de 7,5 sur 10 à leur satisfaction dans la vie, identique à la Wallonie et inférieure à la Flandre. Suivent le niveau de vie, les relations sociales, le logement et la possibilité de travailler.",
       "sourceSlug": "/fr/dossiers/bien-etre",
-      "sourceTitle": "Bien-être et qualité de vie à Bruxelles : indicateurs, classements et enjeux",
+      "sourceTitle": "Bien-être",
       "provenance": {
-        "sourceLastModified": "2026-03-09",
-        "sourceContentHash": "sha256:71e15ac2be42c7c928b88303ba4097b0",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:78a0e10cdb120ab8434bc06200867190",
+        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
+      "id": "dossier-bifff-0",
+      "source": "dossier",
+      "domain": "Culture",
+      "question": "Quel format le BIFFF a-t-il adopté pour son édition confrontée à la contrainte budgétaire ?",
+      "options": [
+        "Une seule salle mobilisée, sur 16 jours en continu",
+        "Trois salles simultanées, sur 5 jours de programmation",
+        "Une tournée dans les 19 communes, sur 2 semaines",
+        "Une édition entièrement en ligne, sur 10 jours d'accès"
+      ],
+      "correct": 0,
+      "explanation": "L'objectif était de réduire les coûts fixes tout en couvrant trois week-ends de forte fréquentation. Le pari a été tenu : 60 000 spectateurs, soit une hausse de 30 % et un record depuis le retour au Heysel.",
+      "sourceSlug": "/fr/dossiers/bifff",
+      "sourceTitle": "BIFFF",
+      "provenance": {
+        "sourceLastModified": "2026-04-19",
+        "sourceContentHash": "sha256:4c0021f60d5f3e84c3d430f91226af41",
+        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {

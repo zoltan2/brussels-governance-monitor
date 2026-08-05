@@ -58,6 +58,16 @@ export interface QuizData {
   locale: Locale
   poolSize: number
   questionsPerSession: number
+  /**
+   * Nombre de questions du pool relues par un humain, au sens de
+   * `data/quiz-review-state.json`.
+   *
+   * Sert à l'affichage : tant que ce nombre est inférieur à `poolSize`, le
+   * quiz porte une mention indiquant que des questions sont générées et non
+   * encore relues (art. 50 du règlement (UE) 2024/1689). La mention disparaît
+   * d'elle-même quand tout est validé, sans intervention dans le code.
+   */
+  reviewedCount?: number
   questions: QuizQuestion[]
 }
 

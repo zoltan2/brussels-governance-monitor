@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T21:01:19.010Z",
+  "generatedAt": "2026-08-05T21:04:16.356Z",
   "locale": "nl",
-  "poolSize": 57,
+  "poolSize": 63,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -606,345 +606,483 @@
       "id": "dossier-accessibilite-pmr-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welke verplichting stelt de ordonnantie handistreaming van 8 december 2016 aan het Brussels Hoofdstedelijk Gewest?",
+      "question": "Welke verplichting legt de handistreaming-ordonnantie op aan het Brussels Gewest?",
       "options": [
-        "Handicap systematisch integreren in alle gewestelijke beleidsmaatregelen, inclusief overheidsopdrachten en subsidies",
-        "Een aparte begroting toewijzen exclusief voor diensten voor personen met een handicap",
-        "Jaarlijks minstens 5% van de werknemers aanwerven met een handicap",
-        "Alle metrostations binnen twee jaar toegankelijk maken"
+        "Handicap meenemen in al zijn beleidsmaatregelen",
+        "Een quotum aangepaste woningen per gemeente voorbehouden",
+        "In elke gemeente een opvangcentrum financieren",
+        "Het openbaar vervoer toegankelijk maken vóór eind 2028"
       ],
       "correct": 0,
-      "explanation": "De ordonnantie verplicht het gewest tot handistreaming — het systematisch integreren van handicap in beleidsmaatregelen. Dit wordt ook wel 'mainstreaming' genoemd en vereist een holistisch benadering, niet alleen aparte maatregelen.",
+      "explanation": "De ordonnantie van 8 december 2016 dekt ook de overheidsopdrachten en de subsidies, en verplicht de regering om het Parlement een tussentijds rapport en een eindrapport van de legislatuur te bezorgen.",
       "sourceSlug": "/nl/dossiers/accessibilite-pmr",
-      "sourceTitle": "Toegankelijkheid en handicap in Brussel: vervoer, tewerkstelling en gegevens",
+      "sourceTitle": "Toegankelijkheid PBM",
       "provenance": {
-        "sourceLastModified": "2026-03-18",
-        "sourceContentHash": "sha256:0cf0ee857f45f3f5d4b4a23f872bcaea",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:4824d3480ed39dbfcc41f68a89a338a9",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Werkgelegenheid",
-      "question": "Welke belangrijke bevoegdheidsverschuiving vond plaats bij de 6e staatshervorming in 2014?",
+      "question": "Op welke dubbele hefboom steunt het stelsel van de gesubsidieerde contractuelen (GESCO)?",
       "options": [
-        "Het Brussels Gewest verloor controle over Actiris aan het federale niveau",
-        "De sociale zekerheid werd volledig overgedragen naar de lokale besturen",
-        "De werkgelegenheidsbevoegdheid en GESCO's gingen van federaal naar gewestelijk niveau",
-        "De subsidies voor non-profitorganisaties werden centraal beheerd vanuit Vlaanderen"
+        "Een gewestelijke premie en een verlaging van de patronale bijdragen",
+        "Een renteloze lening en een vrijstelling van roerende voorheffing",
+        "Een opleidingsuitkering en een driemaandelijkse dienstencheque",
+        "Een gemeentelijke dotatie en een terugbetaling van reiskosten"
       ],
-      "correct": 2,
-      "explanation": "Deze staatshervorming gaf het Brussels Gewest voor het eerst volledige verantwoordelijkheid over het GESCO-stelsel, wat nodig was voor echte hervorming.",
+      "correct": 0,
+      "explanation": "De verlaging van de patronale socialezekerheidsbijdragen gaat tot 0,56 %. De posten zijn bestemd voor werkzoekenden die bij Actiris zijn ingeschreven, onder voorwaarden van werkloosheidsduur, leeftijd of handicap.",
       "sourceSlug": "/nl/dossiers/acs",
-      "sourceTitle": "GESCO's: de verzwakte pijler van de Brusselse non-profittewerkstelling",
+      "sourceTitle": "GESCO",
       "provenance": {
-        "sourceLastModified": "2026-03-06",
+        "sourceLastModified": "2026-07-05",
         "sourceContentHash": "sha256:16da17efceb8a8d97417b455cfd85b02",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Werkgelegenheid",
-      "question": "Wat beschrijft het 'GESCO-differentieel' dat BRUXEO aankaart?",
+      "question": "Wat voerde de hervorming van 2015 in voor een gesubsidieerde post (GESCO) die vacant wordt?",
       "options": [
-        "Het percentage werkzoekenden dat niet in aanmerking komt voor GESCO-posten",
-        "Het verschil in lonen tussen GESCO-werknemers en werknemers in het publieke ambt",
-        "De vertraging bij het invullen van vacatures binnen de wettelijke termijn",
-        "De kloof tussen de gewestelijke premie en de werkelijke loonkosten voor GESCO-werknemers"
+        "Een termijn van 6 maanden om hem in te vullen, anders gaat hij verloren",
+        "Een automatische overname van de post door een andere vereniging",
+        "Een verplichte audit van de werkgever om de 3 boekjaren",
+        "Een mededinging bekendgemaakt in het Belgisch Staatsblad"
       ],
-      "correct": 3,
-      "explanation": "Dit kernprobleem toont hoe werkgevers het gat tussen subsidie en werkelijke kosten moeten opvangen, wat vooral kleinere organisaties belast.",
+      "correct": 0,
+      "explanation": "Die termijn is niet verlengbaar. Dat verklaart het verschil tussen de 10 000 gesubsidieerde posten eind 2017 en de 6 700 actieve posten die voor 2024 worden geraamd.",
       "sourceSlug": "/nl/dossiers/acs",
-      "sourceTitle": "GESCO's: de verzwakte pijler van de Brusselse non-profittewerkstelling",
+      "sourceTitle": "GESCO",
       "provenance": {
-        "sourceLastModified": "2026-03-06",
+        "sourceLastModified": "2026-07-05",
         "sourceContentHash": "sha256:16da17efceb8a8d97417b455cfd85b02",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-activa-0",
+      "source": "dossier",
+      "domain": "Werkgelegenheid",
+      "question": "Wat is het principe van de werkuitkering die in het kader van Activa.brussels wordt toegekend?",
+      "options": [
+        "De werkgever trekt ze af van het nettoloon, dat ongewijzigd blijft",
+        "De werknemer ontvangt ze bovenop zijn gebruikelijke loon",
+        "De gemeente stort ze rechtstreeks aan de opleidingsinstelling",
+        "Ze vervangt het loon volledig tijdens de proefperiode"
+      ],
+      "correct": 0,
+      "explanation": "Het standaardbedrag bedraagt 15 900 euro over 30 maanden, en 23 400 euro over 36 maanden voor de doelgroepen « Plus » en met verminderde geschiktheid. Een opleidingsincentive kan daarbij komen.",
+      "sourceSlug": "/nl/dossiers/activa",
+      "sourceTitle": "Activa.brussels",
+      "provenance": {
+        "sourceLastModified": "2026-07-05",
+        "sourceContentHash": "sha256:3a9c06f29138339ce713a5834d252471",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-assemblees-citoyennes-0",
       "source": "dossier",
       "domain": "Institutioneel",
-      "question": "Hoe worden de burgers geselecteerd die deelnemen aan de deliberatieve commissies van het Brussels Parlement?",
+      "question": "Welke verhouding legt het reglement van het Brussels Parlement vast voor een deliberatieve commissie?",
       "options": [
-        "Via een dubbele loting op basis van rijksregisternummers onder alle inwoners van 16 jaar en ouder",
-        "Via vrijwillige inschrijving op het platform democratie.brussels",
-        "Via aanbeveling door parlementsleden en maatschappelijke organisaties",
-        "Via een combinatie van loting en een kennistest over bestuur"
+        "Drie kwart burgers en een kwart parlementsleden",
+        "Twee derde burgers en een derde parlementsleden",
+        "De helft burgers en de helft parlementsleden",
+        "Een derde burgers en twee derde parlementsleden"
       ],
       "correct": 0,
-      "explanation": "De dubbele loting garandeert dat elke inwoner gelijke kansen heeft om geselecteerd te worden, wat het deliberatieve karakter van deze commissies versterkt. Dit proces wordt transparant beheerd via democratie.brussels.",
+      "explanation": "De standaardsamenstelling brengt 45 burgers en 15 parlementsleden samen. De burgers worden geselecteerd door een dubbele loting onder de Brusselse inwoners van zestien jaar en ouder.",
       "sourceSlug": "/nl/dossiers/assemblees-citoyennes",
-      "sourceTitle": "Burgerbijeenkomsten: 6 commissies afgerond, 205+ aanbevelingen, 7e in voorbereiding",
+      "sourceTitle": "Burgerassemblees",
       "provenance": {
-        "sourceLastModified": "2026-02-26",
-        "sourceContentHash": "sha256:04b363904b2ce5d5c5b09a933f2776bb",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-20",
+        "sourceContentHash": "sha256:82d58fdcf97e7a84f901752dd1c9a9ea",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welke factor identificeert het IBSA als de meest bepalende voor levenstevredenheid van Brusselaars?",
+      "question": "Welke factor wijst het BISA in zijn Focus van 2025 aan als de meest bepalende voor de levenstevredenheid van de Brusselaars?",
       "options": [
-        "Het onderhouden van sociale relaties",
-        "Gezondheid (fysiek en mentaal)",
-        "De mogelijkheid om te werken",
-        "Een aangepaste huisvesting"
+        "De gezondheid, fysiek en mentaal",
+        "Het behaalde diplomaniveau",
+        "De grootte van de bewoonde woning",
+        "De duur van de dagelijkse verplaatsingen"
       ],
-      "correct": 1,
-      "explanation": "Het IBSA benadrukt in Focus nr. 77 dat gezondheid de meest bepalende factor is voor levenstevredenheid, gevolgd door levensstandaard, sociale relaties, huisvesting en werkgelegenheid. Dit onderstreept hoe fysiek en mentaal welzijn centraal staat in het Brussels welzijnsbeleid.",
+      "correct": 0,
+      "explanation": "De Brusselaars geven hun tevredenheid over het leven gemiddeld 7,5 op 10, gelijk aan Wallonië en lager dan Vlaanderen. Daarna volgen de levensstandaard, de sociale relaties, de woning en de mogelijkheid om te werken.",
       "sourceSlug": "/nl/dossiers/bien-etre",
-      "sourceTitle": "Welzijn en levenskwaliteit in Brussel: indicatoren, rankings en uitdagingen",
+      "sourceTitle": "Welzijn",
       "provenance": {
-        "sourceLastModified": "2026-03-09",
-        "sourceContentHash": "sha256:c499658e9360e52d6b8e9246253e5dc9",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:81267904e8b7d82a898e3870207336fa",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-bifff-0",
+      "source": "dossier",
+      "domain": "Cultuur",
+      "question": "Welk formaat koos het BIFFF voor zijn 44e editie, in april 2026, onder budgettaire druk?",
+      "options": [
+        "Eén enkele zaal, gedurende 16 dagen aan één stuk",
+        "Drie gelijktijdige zalen, gedurende 5 programmadagen",
+        "Een rondgang door de 19 gemeenten, gedurende 2 weken",
+        "Een volledig online editie, gedurende 10 dagen toegang"
+      ],
+      "correct": 0,
+      "explanation": "Het doel was de vaste kosten te drukken en tegelijk drie drukbezochte weekends te bestrijken. De gok werd gewonnen: 60 000 toeschouwers, een stijging van 30 % en een record sinds de terugkeer naar de Heizel.",
+      "sourceSlug": "/nl/dossiers/bifff",
+      "sourceTitle": "BIFFF",
+      "provenance": {
+        "sourceLastModified": "2026-04-19",
+        "sourceContentHash": "sha256:7d8b542c7088ba53b1006a1b3c507eb6",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-bim-bruxelles-0",
+      "source": "dossier",
+      "domain": "Sociaal",
+      "question": "Welk verschil tussen Brusselse gemeenten bracht het VT-statuut bij minderjarigen aan het licht in januari 2021?",
+      "options": [
+        "48 % in Sint-Jans-Molenbeek tegenover 9 % in Sint-Pieters-Woluwe",
+        "33 % in Sint-Jans-Molenbeek tegenover 25 % in Sint-Pieters-Woluwe",
+        "19 % in Sint-Jans-Molenbeek tegenover 13 % in Sint-Pieters-Woluwe",
+        "90 % in Sint-Jans-Molenbeek tegenover 30 % in Sint-Pieters-Woluwe"
+      ],
+      "correct": 0,
+      "explanation": "Die verhouding van 1 op 5 is uniek op Belgische schaal, tussen aangrenzende gemeenten van minder dan 100 000 inwoners. Het statuut is een federale bevoegdheid, beheerd door het RIZIV en toegekend door de ziekenfondsen.",
+      "sourceSlug": "/nl/dossiers/bim-bruxelles",
+      "sourceTitle": "VT Brussel",
+      "provenance": {
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:a0f69c55c12cd5cf646efff91039bd18",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-commissaire-europe-0",
+      "source": "dossier",
+      "domain": "Institutioneel",
+      "question": "Wat gebeurt er met de medewerkers van het gewestelijk commissariaat voor Europa na de afschaffing ervan?",
+      "options": [
+        "Ze worden opgenomen binnen Brussel Internationaal",
+        "Ze vervoegen de Belgische permanente vertegenwoordiging",
+        "Ze worden overgeheveld naar het Brussels Parlement",
+        "Ze worden gedetacheerd bij de Europese Commissie"
+      ],
+      "correct": 0,
+      "explanation": "De afschaffing kadert in de hervorming die het gewestelijk bestuur in vier pijlers hergroepeert. Volgens de regering blijven alle taken en opdrachten behouden; de echte inzet is de politieke toegang op hoog niveau.",
+      "sourceSlug": "/nl/dossiers/commissaire-europe",
+      "sourceTitle": "Commissaris voor Europa",
+      "provenance": {
+        "sourceLastModified": "2026-06-26",
+        "sourceContentHash": "sha256:6796f38ff46d2252633bae6e3e13bc65",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-cpas-bruxellois-0",
+      "source": "dossier",
+      "domain": "Sociaal",
+      "question": "Welke institutionele bijzonderheid kenmerkt de Brusselse OCMW's?",
+      "options": [
+        "Ze hangen tegelijk af van het federale niveau, de GGC en de gemeenten",
+        "Ze hangen uitsluitend af van het Brussels Hoofdstedelijk Gewest",
+        "Ze zijn gebundeld in één enkele gewestelijke structuur",
+        "Ze worden in gelijke delen gefinancierd door de negentien gemeenten"
+      ],
+      "correct": 0,
+      "explanation": "Het federale niveau bepaalt het kader en financiert het grootste deel van de individuele steun, de GGC oefent de organieke voogdij uit, het Gewest en de gemeenten vullen aan. Wanneer het federale niveau een subsidie intrekt, is het de gemeente die betaalt.",
+      "sourceSlug": "/nl/dossiers/cpas-bruxellois",
+      "sourceTitle": "Brusselse OCMW's",
+      "provenance": {
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:cfd678f6432603d7104e6e1ca37505cd",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-data-centers-ia-energie-0",
       "source": "dossier",
-      "domain": "Klimaat",
-      "question": "Welke instelling zal expliciet ingaan op de groeiende vraag van datacenters in het Belgische elektriciteitsnetwerk?",
+      "domain": "Digitaal",
+      "question": "Welke omslag heeft zich voorgedaan in het energieverbruik van kunstmatige intelligentie?",
       "options": [
-        "De Gewestelijke Beleidsverklaring van het Brussels Hoofdstedelijk Gewest",
-        "Het Elia-netwerkontwikkelingsplan 2028-2038",
-        "De Belgian Digital Infrastructure Association",
-        "Het Internationaal Energieagentschap"
+        "De inferentie weegt voortaan zwaarder door dan de training",
+        "De training weegt voortaan zwaarder door dan de inferentie",
+        "De opslag weegt voortaan zwaarder door dan de berekening",
+        "De koeling weegt voortaan zwaarder door dan de berekening"
       ],
-      "correct": 1,
-      "explanation": "Het Elia-netwerkontwikkelingsplan zal op federaal niveau de impact van datacenters op het energienetwerk adresseren, terwijl de Gewestelijke Beleidsverklaring dit onderwerp nog niet specifiek behandelt.",
+      "correct": 0,
+      "explanation": "Het dagelijkse gebruik van de modellen staat voor 60 tot 70 % van de energie die kunstmatige intelligentie verbruikt, tegenover 20 tot 30 % voor de training. Het zijn de vragen van de gebruikers die op het energiesysteem wegen.",
       "sourceSlug": "/nl/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Datacenters en AI: impact op het Brusselse energiesysteem",
+      "sourceTitle": "Datacenters & AI",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:a398bec6dc7bbb3a740eac72a99566fe",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:c0cc232b316656ce9eb545084fd52a9c",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-data-centers-ia-energie-1",
       "source": "dossier",
-      "domain": "Klimaat",
-      "question": "Waar bevindt zich BRU01, het eerste grote datacenter van KevlinX in Brussel?",
+      "domain": "Digitaal",
+      "question": "Wat voorziet de gewestelijke beleidsverklaring over datacenters?",
       "options": [
-        "Ternat, aan de rand van het Gewest",
-        "Zaventem, nabij de luchthaven",
-        "Sint-Gillis, in het historische centrum",
-        "Neder-Over-Heembeek, op de Galilei-site van citydev.brussels"
+        "Niets, ze bevat geen enkele specifieke verwijzing",
+        "Een moratorium op elke nieuwe gewestelijke vestiging",
+        "Een gewestelijke belasting op het elektriciteitsverbruik",
+        "Een verplichting tot recuperatie van de geproduceerde warmte"
       ],
-      "correct": 3,
-      "explanation": "BRU01 is operationeel sinds januari 2026 op de Galilei-site van citydev.brussels aan de Antoon Van Oss-laan in Neder-Over-Heembeek en markeert een belangrijke stap in de digitalisering van het Brussels Gewest.",
+      "correct": 0,
+      "explanation": "De digitale transitie en de energie-klimaatstrategie worden er afzonderlijk behandeld, zonder vermelding van de energie-impact van de sector. Op federaal niveau zal het ontwikkelingsplan van het Elia-net 2028-2038 die vraag uitdrukkelijk behandelen.",
       "sourceSlug": "/nl/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Datacenters en AI: impact op het Brusselse energiesysteem",
+      "sourceTitle": "Datacenters & AI",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:a398bec6dc7bbb3a740eac72a99566fe",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:c0cc232b316656ce9eb545084fd52a9c",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-enseignement-0",
       "source": "dossier",
-      "domain": "Sociaal",
-      "question": "Welke instantie heeft rechtstreekse bevoegdheid over het leerplichtonderwijs in Brussel?",
+      "domain": "Onderwijs",
+      "question": "Wie organiseert het leerplichtonderwijs dat Brusselse kinderen volgen?",
       "options": [
-        "De Federatie Wallonië-Brussel en de Vlaamse Gemeenschap",
-        "Het Belgische federale parlement",
-        "Het Brussels Hoofdstedelijk Gewest",
-        "De gemeente Brussel"
+        "De Federatie Wallonië-Brussel of de Vlaamse Gemeenschap",
+        "Het Brussels Hoofdstedelijk Gewest, via zijn administratie",
+        "De negentien gemeenten, elk voor hun grondgebied",
+        "De Gemeenschappelijke Gemeenschapscommissie, de GGC"
       ],
       "correct": 0,
-      "explanation": "Het Brussels Hoofdstedelijk Gewest, waarvoor Brusselse gezinnen gewestelijke belastingen betalen, heeft vrijwel geen macht over het onderwijs. Het Franstalig onderwijs valt onder de Federatie Wallonië-Brussel, het Nederlandstalig onder de Vlaamse Gemeenschap.",
+      "explanation": "Het Gewest, waarvoor de gezinnen gewestelijke belastingen betalen, heeft nagenoeg geen bevoegdheid over het leerplichtonderwijs. Het kan noch de besparingen tegenhouden die het Parlement van de Federatie stemt, noch die welke het Vlaams Parlement stemt.",
       "sourceSlug": "/nl/dossiers/enseignement",
-      "sourceTitle": "Leerplichtonderwijs in Brussel: de impact van de besparingen FWB en Vlaamse Gemeenschap",
+      "sourceTitle": "Onderwijs",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
+        "sourceLastModified": "2026-07-20",
         "sourceContentHash": "sha256:54bd282b78543012092e3676d88afea8",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-enseignement-1",
       "source": "dossier",
-      "domain": "Sociaal",
-      "question": "Welke hervorming in het Franstalig onderwijs betreft de werkzekerheid van nieuw aangestelde leerkrachten?",
+      "domain": "Onderwijs",
+      "question": "Welk aandeel van de Brusselse gezinnen met kinderen combineert het Franstalige en het Nederlandstalige net?",
       "options": [
-        "Onmiddellijke ontslag bij ziekteverlof langer dan 6 maanden",
-        "Afschaffing van ziekteverlof na 30 dagen",
-        "Verplichte verhoging van lesuren naar 24 per week",
-        "Vervanging van vaste benoeming door een nieuw contract zonder historische werkzekerheid"
+        "2,5 %",
+        "96 %",
+        "12 %",
+        "24 %"
       ],
-      "correct": 3,
-      "explanation": "Vanaf 2027 zullen nieuwe leerkrachten in het FWB-net een contract van onbepaalde duur volgens het schoolmodel ('CDI-E') krijgen in plaats van de traditionele vaste benoeming. Dit verandert hun rechtspositie aanzienlijk.",
+      "correct": 0,
+      "explanation": "Van de 128 903 gezinnen die het BISA telt, schoolt 96 % de kinderen in één enkel systeem. Ongeveer 2 897 gezinnen combineren de twee Gemeenschappen.",
       "sourceSlug": "/nl/dossiers/enseignement",
-      "sourceTitle": "Leerplichtonderwijs in Brussel: de impact van de besparingen FWB en Vlaamse Gemeenschap",
+      "sourceTitle": "Onderwijs",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
+        "sourceLastModified": "2026-07-20",
         "sourceContentHash": "sha256:54bd282b78543012092e3676d88afea8",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Economie",
-      "question": "Welke instelling biedt in het Brussels Hoofdstedelijk Gewest gratis diagnose en doorverwijzing aan ondernemingen in moeilijkheden via het Centre pour Entreprises en difficulté (CEd)?",
+      "question": "Hoe verhoudt de toename van de Brusselse faillissementen in 2025 zich tot de andere gewesten?",
       "options": [
-        "hub.brussels",
-        "Réseau Entreprendre Bruxelles",
-        "Pulse Foundation",
-        "JobYourself"
+        "Het is de sterkste gewestelijke toename van het land",
+        "Het is het enige gewest dat het voorbije jaar terugloopt",
+        "Het is de zwakste toename van de drie gewesten",
+        "Het is een toename die gelijk is aan die van Vlaanderen"
       ],
       "correct": 0,
-      "explanation": "Het CEd wordt geëxploiteerd door hub.brussels en biedt gratis diagnose en doorverwijzing. Dit is een laagdrempelig toegangspunt voor bedrijven die in problemen verkeren.",
+      "explanation": "De Brusselse faillissementen nemen toe met 13,2 %, tegenover 7,8 % in Vlaanderen en een terugloop van 3 % in Wallonië. De bouw en de horeca behoren tot de zwaarst getroffen sectoren.",
       "sourceSlug": "/nl/dossiers/faillites-a-bruxelles",
-      "sourceTitle": "Faillissementen in Brussel: stand van zaken, sectoren en gewestelijke maatregelen",
+      "sourceTitle": "Faillissementen",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:64f633eaef6dc566b74d4ef1176ce027",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:cfe4b1a9fb026f0f7da6b9aaf855303f",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-foyer-anderlechtois-0",
+      "source": "dossier",
+      "domain": "Huisvesting",
+      "question": "Wat voorzien de aanbevelingen die het Brussels Parlement heeft gestemd na de onderzoekscommissie over de sociale huisvesting?",
+      "options": [
+        "Het verbod op elke individuele tussenkomst van een bestuurder",
+        "De zuivere afschaffing van de sociale huisvestingsmaatschappijen",
+        "De overdracht van de toewijzingen naar de gemeentecolleges",
+        "De publicatie met naam van alle wachtlijsten"
+      ],
+      "correct": 0,
+      "explanation": "De 26 aanbevelingen zijn geschreven voor de hele sector, zonder de betrokken maatschappij te noemen. Ze sluiten ook de toegang tot de gewestelijke gegevensbank af voor politieke mandatarissen en versterken de bescherming van klokkenluiders.",
+      "sourceSlug": "/nl/dossiers/foyer-anderlechtois",
+      "sourceTitle": "Anderlechtse Haard",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:9cf8e682600b50051c11983734f41cd5",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Veiligheid",
-      "question": "Welk grondwettelijk mechanisme werd in werking gesteld toen het Brussels Parlement op 13 maart 2026 een motie van belangenconflict indiende tegen het fusieproject?",
+      "question": "Welk centraal argument stellen de gemeenten tegenover de fusie van de politiezones?",
       "options": [
-        "Een rechtstreekse verwijzing naar het Grondwettelijk Hof voor toetsing",
-        "Een periode van 60 dagen overleg tussen het Brussels Parlement en de federale Kamer, waardoor de federale procedure wordt opgeschort",
-        "Een automatische uitstelling van alle stemmingen tot het volgende regeringsjaar",
-        "Een definitief veto van het Brussels Parlement tegen alle federale wetgeving"
+        "De structurele ondervertegenwoordiging van de kleine gemeenten",
+        "De kostprijs van de overgang, ten laste van de gemeenten",
+        "Het verlies van de bestuurlijke politiebevoegdheid van de burgemeester",
+        "Het ontbreken van een waarborg voor het behoud van de commissariaten"
       ],
-      "correct": 1,
-      "explanation": "Dit overlegmechanisme blokkeert het project niet definitief, maar dwingt interinstitutioneel overleg af — een belangrijke waarborg in de Belgische staatsstructuur die ook illustreert hoe het Brussels Gewest invloed kan uitoefenen op federale beslissingen.",
+      "correct": 0,
+      "explanation": "Sint-Agatha-Berchem zou slechts 1,4 % van de stemmen hebben in de gefuseerde zone. Brulocalis heeft een collectief beroep ingediend, aangevuld met individuele beroepen van verschillende burgemeesters.",
       "sourceSlug": "/nl/dossiers/fusion-polices",
-      "sourceTitle": "Fusie van politiezones: van 6 naar 1, stemming voor de zomer van 2026",
+      "sourceTitle": "Fusie politiezones",
       "provenance": {
-        "sourceLastModified": "2026-03-15",
-        "sourceContentHash": "sha256:bf3d3e84c34a807265f6fe84c68f1c30",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-12",
+        "sourceContentHash": "sha256:788df1a652ed61324963ef495d9f78c1",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wat is één van de belangrijkste veranderingen die het nieuwe Gewestelijk Mobiliteitsplan aankondigde op 12 februari 2026?",
+      "question": "Waarrond hertekent het gewestelijk mobiliteitsplan dat Good Move moet opvolgen zijn mazen?",
       "options": [
-        "Afschaffing van het openbaar vervoer in Brussel",
-        "Verplichte elektrische auto's voor alle inwoners",
-        "Sluiting van alle schoolgebouwen in wijkmazen",
-        "Verwijdering van de paaltjes die automobilisten en handelaars betwistten"
+        "De schoolzones",
+        "De gewestelijke stations",
+        "De handelszones",
+        "De parken en groene ruimten"
       ],
-      "correct": 3,
-      "explanation": "Het regeringsakkoord voorziet inderdaad in verwijdering van de omstreden paaltjes, een concreet respons op verzet uit de praktijk. Dit toont hoe het nieuwe plan naar bepaalde kritiekpunten luistert.",
+      "correct": 0,
+      "explanation": "Het regeerakkoord voorziet kleinere mazen, de verwijdering van de betwiste bollards en een tweede autoloze dag per jaar. De filosofie van verkeersluwe wijken blijft behouden, op kleinere schaal.",
       "sourceSlug": "/nl/dossiers/good-move",
-      "sourceTitle": "Good Move: nieuw gewestelijk plan volgt op",
+      "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-03-13",
-        "sourceContentHash": "sha256:6c82b94b686d0cf39d42bcbce9158632",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-16",
+        "sourceContentHash": "sha256:0f303aa5a0bf61a732e718608ab13c6b",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "In welke grote Brusselse kwestie sinds 2021-2022 dreigt een gemeente nu met juridische stappen tegen het Gewest?",
+      "question": "Vanaf wanneer moet het mobiliteitsplan dat Good Move in Brussel moet opvolgen in werking treden?",
       "options": [
-        "Over de sluiting van de Broustinlaan in Jette als onderdeel van een Good Move-maas",
-        "Over de bouw van nieuwe fietssnelwegen in Sint-Joost-ten-Node",
-        "Over de stopzetting van buslijnen in de zuidelijke rand",
-        "Over de invoering van betaald parkeren in alle gemeenten"
+        "Vanaf 2030",
+        "Vanaf 2026",
+        "Vanaf 2027",
+        "Vanaf 2028"
       ],
       "correct": 0,
-      "explanation": "Jette stelt dat de testfase van de afsluiting van de Broustinlaan ruimschoots is overschreden en ziet geen draagvlak meer onder bewoners. Dit conflict illustreert de praktische uitdagingen van wijkmazen.",
+      "explanation": "De evaluatie moet eind 2026 afgerond zijn, gevolgd door een periode van mogelijke correcties tussen 2027 en 2030. De officiële naam van het toekomstige plan is niet meegedeeld.",
       "sourceSlug": "/nl/dossiers/good-move",
-      "sourceTitle": "Good Move: nieuw gewestelijk plan volgt op",
+      "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-03-13",
-        "sourceContentHash": "sha256:6c82b94b686d0cf39d42bcbce9158632",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-16",
+        "sourceContentHash": "sha256:0f303aa5a0bf61a732e718608ab13c6b",
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-lez-0",
       "source": "dossier",
-      "domain": "Klimaat",
-      "question": "Wat is een belangrijk juridisch risico dat de Raad van State heeft geïdentificeerd bij de verlaging van LEZ-boetes?",
+      "domain": "Mobiliteit",
+      "question": "Wat gebeurt er met het jaarlijkse boeteplafond in het nieuwe regime van de lage-emissiezone (LEZ)?",
       "options": [
-        "Het overtreedt internationale milieuregels van de Europese Unie",
-        "Het leidt tot ongrondwettige staatsteun voor voertuigfabrikanten",
-        "Het veroorzaakt een onwettige belastingverlaging voor automobilisten",
-        "Het schendt het grondwettelijke standstill-principe dat gezondheidsscherming waarborgt"
+        "Het wordt afgeschaft, terwijl de boete per overtreding daalt",
+        "Het wordt verdubbeld, net als de boete per overtreding",
+        "Het blijft behouden, met een onveranderde boete per overtreding",
+        "Het wordt gehalveerd, met een verhoogde boete per overtreding"
       ],
-      "correct": 3,
-      "explanation": "De Raad van State oordeelde dat lagere boetes een teruggang van gezondheidsbescherming vormen, wat in strijd is met constitutionele verplichting. Dit advies toont de spanning tussen beleid en rechtsstaat.",
+      "correct": 0,
+      "explanation": "De boete per overtreding daalt van 350 naar 80 euro, maar het plafond van vier boetes per jaar verdwijnt. Een jaarpas van 350 euro, of 200 euro aan sociaal tarief, laat toe legaal te rijden.",
       "sourceSlug": "/nl/dossiers/lez",
-      "sourceTitle": "LEZ: behouden met jaarlijkse pas en verlaagde boetes",
+      "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
+        "sourceLastModified": "2026-06-25",
         "sourceContentHash": "sha256:717ac9dec5bee8eb13c941e357d89098",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-lez-1",
       "source": "dossier",
-      "domain": "Klimaat",
-      "question": "Welke nieuwe financiële mogelijkheid biedt het regeringsakkoord van februari 2026 aan eigenaren van niet-conforme voertuigen?",
+      "domain": "Mobiliteit",
+      "question": "Op welk grondwettelijk beginsel steunt de Raad van State zijn kritiek op de verlaging van de boetes van de Brusselse lage-emissiezone (LEZ)?",
       "options": [
-        "Een subsidie van de regering voor het kopen van een elektrische auto",
-        "Een jaarlijkse pas waarmee zij legaal mogen rijden in de LEZ",
-        "Een eenmalige teruggave van alle eerder betaalde LEZ-boetes",
-        "Een verzekering die LEZ-boetes automatisch dekt"
+        "Het standstill-beginsel inzake gezondheid",
+        "Het gelijkheidsbeginsel inzake gewestbelasting",
+        "Het evenredigheidsbeginsel van de sancties",
+        "Het rechtszekerheidsbeginsel voor de gebruikers"
       ],
-      "correct": 1,
-      "explanation": "Het akkoord voorziet in een jaarlijkse pas (350 EUR, sociaal tarief 200 EUR) voor voertuigen die niet aan LEZ-normen voldoen. Dit is een nieuw systeem dat eigenaren flexibiliteit geeft.",
+      "correct": 0,
+      "explanation": "De verlaging van de boetes vormt volgens hem een achteruitgang van de gezondheidsbescherming van de Brusselaars. Hij oordeelt ook dat de voorgestelde bedragen te laag zijn om doeltreffend, evenredig en ontradend te zijn.",
       "sourceSlug": "/nl/dossiers/lez",
-      "sourceTitle": "LEZ: behouden met jaarlijkse pas en verlaagde boetes",
+      "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
+        "sourceLastModified": "2026-06-25",
         "sourceContentHash": "sha256:717ac9dec5bee8eb13c941e357d89098",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {

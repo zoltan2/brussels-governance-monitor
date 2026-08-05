@@ -17,7 +17,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import { LOCALES, readPool, type QuizQuestion } from './quiz-provenance'
+import { LOCALES, detectLeaks, readPool, type QuizQuestion } from './quiz-provenance'
 
 const PATTERNS_FILE = path.join(process.cwd(), 'scripts/content-lint/temporal-patterns.txt')
 
@@ -34,11 +34,6 @@ interface Violation {
  *  jugement humain et ne doit pas bloquer une intégration. La structure et les
  *  phrases temporelles, elles, sont des règles fermes. */
 const LEAK_SEVERITY: 'warn' = 'warn'
-
-/** Écart absolu minimal avant de signaler une option « trop longue ». Sans ce
- *  plancher, une bonne réponse de 6 signes contre 3 en médiane déclenche une
- *  alerte qui n'a aucun sens. */
-const LEAK_MIN_DELTA = 25
 
 function loadTemporalPatterns(): RegExp[] {
   if (!fs.existsSync(PATTERNS_FILE)) {
@@ -109,33 +104,8 @@ for (const locale of LOCALES) {
     }
 
     // ── Fuite de réponse ──
-    const good = q.options[q.correct] ?? ''
-    const others = q.options.filter((_, i) => i !== q.correct)
-
-    // la bonne option nettement plus longue que les autres
-    const median = [...others.map((o) => o.length)].sort((a, b) => a - b)[
-      Math.floor(others.length / 2)
-    ] ?? 0
-    if (median > 0 && good.length > median * 1.8 && good.length - median >= LEAK_MIN_DELTA) {
-      violations.push({
-        locale,
-        id: q.id,
-        rule: 'fuite de réponse',
-        severity: LEAK_SEVERITY,
-        detail: `bonne option ${good.length} signes contre ${median} en médiane`,
-      })
-    }
-
-    // la bonne option est la seule à contenir un chiffre
-    const hasDigit = (s: string) => /\d/.test(s)
-    if (hasDigit(good) && others.every((o) => !hasDigit(o))) {
-      violations.push({
-        locale,
-        id: q.id,
-        rule: 'fuite de réponse',
-        severity: LEAK_SEVERITY,
-        detail: 'seule la bonne option contient un chiffre',
-      })
+    for (const detail of detectLeaks(q)) {
+      violations.push({ locale, id: q.id, rule: 'fuite de réponse', severity: LEAK_SEVERITY, detail })
     }
   }
 }

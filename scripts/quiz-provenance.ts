@@ -22,7 +22,7 @@ export type Locale = (typeof LOCALES)[number]
 /** Version du prompt. À incrémenter à CHAQUE modification d'un prompt de
  *  LOCALE_CONFIG : c'est un motif légitime de régénération, et sans ce champ
  *  on ne sait pas sous quelle règle une question a été produite. */
-export const PROMPT_VERSION = 'v1'
+export const PROMPT_VERSION = 'v2'
 
 /** Longueur de troncature du corps envoyé au modèle. Doit rester alignée sur
  *  truncate() dans generate-quiz.ts, sinon les hashes ne correspondent pas. */
@@ -266,4 +266,42 @@ export function isReviewed(q: QuizQuestion, state: ReviewState, locale: Locale):
   if (!entry) return false
   if (entry.status !== 'approved' && entry.status !== 'edited') return false
   return entry.reviewedHash === hashQuestion(q)
+}
+
+// ─── Détection de fuite de réponse ──────────────────────────────────────────
+
+/** Écart absolu minimal avant de signaler une option « trop longue ». Sans ce
+ *  plancher, une bonne réponse de 6 signes contre 3 en médiane déclenche une
+ *  alerte qui n'a aucun sens. */
+export const LEAK_MIN_DELTA = 25
+
+/** Facteur de longueur au-delà duquel la bonne option se remarque. */
+export const LEAK_LENGTH_RATIO = 1.8
+
+/**
+ * Indices qu'une question livre sa réponse par la forme plutôt que par le fond.
+ *
+ * Ce sont des heuristiques, pas des preuves : elles servent à relancer la
+ * génération et à alerter un relecteur, jamais à bloquer une intégration.
+ * Partagé entre le lint et le générateur pour que les deux jugent pareil.
+ */
+export function detectLeaks(q: QuizQuestion): string[] {
+  const out: string[] = []
+  const good = q.options[q.correct] ?? ''
+  const others = q.options.filter((_, i) => i !== q.correct)
+  if (others.length === 0) return out
+
+  const lengths = others.map((o) => o.length).sort((a, b) => a - b)
+  const median = lengths[Math.floor(lengths.length / 2)] ?? 0
+
+  if (median > 0 && good.length > median * LEAK_LENGTH_RATIO && good.length - median >= LEAK_MIN_DELTA) {
+    out.push(`bonne option ${good.length} signes contre ${median} en médiane`)
+  }
+
+  const hasDigit = (str: string) => /\d/.test(str)
+  if (hasDigit(good) && others.every((o) => !hasDigit(o))) {
+    out.push('seule la bonne option contient un chiffre')
+  }
+
+  return out
 }

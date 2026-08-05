@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T19:47:26.934Z",
+  "generatedAt": "2026-08-05T19:49:08.056Z",
   "locale": "fr",
   "poolSize": 57,
   "questionsPerSession": 10,
@@ -376,230 +376,230 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Selon le Taalbarometer 2024, quel changement linguistique majeur s'est opéré à Bruxelles ces 25 dernières années ?",
+      "question": "Quelle sanction la commission bruxelloise de déontologie a-t-elle prononcée contre des mandataires locaux ?",
       "options": [
-        "Le nombre de langues parlées a diminué de moitié",
-        "La connaissance du néerlandais a augmenté dans les écoles francophones",
-        "L'anglais a dépassé le néerlandais comme deuxième langue connue",
-        "Le français est devenu moins parlé que le néerlandais"
+        "Des amendes de 10 % à 40 % d'une rémunération mensuelle",
+        "Une inéligibilité de 6 ans à tout mandat public local",
+        "Une publication nominative au Moniteur belge pendant 1 an",
+        "Un remboursement intégral des 12 derniers mois perçus"
       ],
-      "correct": 2,
-      "explanation": "L'anglais est passé de 33 % de connaissance en 2000 à 47 % en 2024, tandis que le néerlandais a reculé de 33 % à 22,3 %. Ce diagnostic justifie directement le Masterplan Bilinguisme annoncé dans la Déclaration de Politique Régionale.",
+      "correct": 0,
+      "explanation": "Vingt mandataires ont été sanctionnés pour défaut de transparence sur leurs rémunérations. La cellule avait recensé 305 mandataires en défaut, dont 27 le restaient après rappels ciblés.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:bd33fb8ec69842c1b9bfb89c6e517d1d",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:1583d5f2f0e339fdd0de18374146aaf4",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Quelle réforme institutionnelle fondamentale est annoncée dans la DPR concernant la gouvernance bruxelloise ?",
+      "question": "Quel blocage institutionnel pèse sur l'engagement de réforme administrative du gouvernement bruxellois ?",
       "options": [
-        "L'intégration complète d'Actiris et Bruxelles Formation sous une seule tutelle",
-        "La suppression du Parlement francophone bruxellois",
-        "La fusion de 25 structures en 4 piliers",
-        "La création d'une présidence tournante mensuelle du gouvernement"
+        "Le renouvellement des conseils d'administration régionaux",
+        "La désignation du greffier du Parlement bruxellois",
+        "L'adoption du règlement d'ordre intérieur du gouvernement",
+        "La nomination des receveurs des dix-neuf communes"
       ],
-      "correct": 2,
-      "explanation": "Le titre de la réforme annonce la consolidation de 25 structures administratives en 4 piliers. Cette restructuration vise à simplifier la gouvernance régionale complexe et est un élément central du mandat du gouvernement Dilliès.",
+      "correct": 0,
+      "explanation": "Ces conseils sont restés bloqués depuis le changement de législature. Le gouvernement n'est de nouveau pas parvenu à s'accorder le 21 juillet 2026, le dossier revenant après les vacances parlementaires.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:bd33fb8ec69842c1b9bfb89c6e517d1d",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:1583d5f2f0e339fdd0de18374146aaf4",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Selon l'accord de gouvernement de février 2026, quel projet de transport en commun remplace l'extension du Métro 3 ?",
+      "question": "Quel tarif la réforme de la zone de basses émissions prévoit-elle pour le pass annuel ?",
       "options": [
-        "Une ligne de bus rapide vers Bordet",
-        "Un développement accéléré des S-trains",
-        "Une extension du réseau cyclable régional",
-        "Un prolongement du tram complétant la boucle du réseau existant"
+        "350 euros, indexés",
+        "80 euros, indexés",
+        "200 euros, indexés",
+        "500 euros, indexés"
       ],
-      "correct": 3,
-      "explanation": "Le gel du Métro 3 pour 10 ans réoriente l'investissement vers le tram, notamment le Tram 15 (Gare du Nord – Tour & Taxis) et un tram complétant la boucle existante. Cette décision remodèle profondément la stratégie de mobilité bruxelloise.",
+      "correct": 0,
+      "explanation": "Le pass mensuel s'élève à 80 euros et le tarif social à 200 euros. Le pass annuel est renouvelable jusqu'à cinq années consécutives.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:4cd826a83ec394dd94b3b15d02afb685",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:16aa9d0d7e25a51e4f9c26b041c85a56",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Quels sont les nouveaux tarifs de la Zone à Circulation Limitée (LEZ) à partir de l'accord de 2026 ?",
+      "question": "Qui peut bénéficier du tarif social prévu par la réforme de la zone de basses émissions ?",
       "options": [
-        "Pass annuel à 350 EUR avec tarif social à 200 EUR, amende réduite à 80 EUR par infraction",
-        "Pass annuel unique à 200 EUR pour tous",
-        "Pass annuel à 500 EUR avec suppression totale des amendes",
-        "Pass journalier obligatoire à 15 EUR sans tarif social"
+        "Les Bruxellois bénéficiaires de l'intervention majorée",
+        "Tout bénéficiaire de l'intervention majorée du pays",
+        "Les habitants des dix-neuf communes, sans condition",
+        "Les navetteurs disposant d'un abonnement de train"
       ],
       "correct": 0,
-      "explanation": "L'accord maintient la LEZ mais en améliore l'accessibilité : le pass annuel passe à 350 EUR (200 EUR en tarif social), et les amendes sont réduites de 350 à 80 EUR, sans limite annuelle de contraventions. Cette réforme vise à rendre le dispositif plus équitable.",
+      "explanation": "Un habitant de Wallonie ou de Flandre bénéficiant du même statut doit s'acquitter du plein tarif de 350 euros. Une exemption complète existe notamment pour les Bruxellois concernés ayant au moins trois personnes à charge.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:4cd826a83ec394dd94b3b15d02afb685",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:16aa9d0d7e25a51e4f9c26b041c85a56",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Quel est le principal objectif de la création d'un commissaire régional anti-drogues à Bruxelles ?",
+      "question": "Pourquoi la Région bruxelloise se constitue-t-elle partie civile contre des hooligans brugeois ?",
       "options": [
-        "Remplacer complètement les forces de police locales dans la lutte contre les drogues",
-        "Mettre en place une autorité dédiée qui coordonne prévention, réduction des risques et répression",
-        "Augmenter uniquement les arrestations de consommateurs",
-        "Centraliser tous les budgets fédéraux de lutte contre la drogue"
+        "Pour faire reconnaître un préjudice propre à la Région",
+        "Pour obtenir une indemnisation au nom des victimes",
+        "Pour demander l'interdiction de stade des prévenus",
+        "Pour contester la compétence du tribunal correctionnel"
       ],
-      "correct": 1,
-      "explanation": "Le rapport 2024 de safe.brussels montre une hausse de 33% des infractions liées aux drogues entre 2023 et 2024, justifiant cette approche intégrée en chaîne. Cette fonction s'inscrit dans la Déclaration de Politique Régionale pour répondre à cette tendance spécifique.",
+      "correct": 0,
+      "explanation": "La Région invoque l'atteinte à son image, à ses politiques d'égalité des chances et la mobilisation exceptionnelle de moyens publics. Les faits visés remontent au 4 mai 2025 à Molenbeek-Saint-Jean.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:5be912644ef0bde4109c5681ca113611",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:b70393ad006a8a4c0bfa3bbeca8ed222",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Quels sont les deux sites de gares bruxellois identifiés comme prioritaires pour un investissement de 10 millions EUR en matière de sécurisation ?",
+      "question": "Qu'est-ce qui distingue les violences de Molenbeek des chants entonnés lors du match Anderlecht-Bruges ?",
       "options": [
-        "La gare Centrale et la gare de l'Est",
-        "La gare du Midi et la gare du Nord",
-        "La gare du Midi et la gare Centrale",
-        "La gare du Nord et la gare de Bruxelles-Chapelle"
+        "Des violences physiques, lors d'un épisode antérieur et séparé",
+        "Une sanction administrative prononcée par la commune",
+        "Une procédure ouverte devant le tribunal de police",
+        "Un classement sans suite décidé par le parquet"
       ],
-      "correct": 1,
-      "explanation": "Ces deux gares majeures font l'objet d'une sécurisation coordonnée avec les zones de police et la SNCB. La première visite de terrain du ministre-président à la gare du Midi le 17 février a d'ailleurs souligné la nécessité d'améliorer la coordination entre les acteurs présents.",
+      "correct": 0,
+      "explanation": "Les faits du 4 mai 2025 impliquent des agressions de commerçants et d'habitants pris pour cible en raison de leur origine réelle ou supposée, avec plusieurs blessés graves.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:5be912644ef0bde4109c5681ca113611",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:b70393ad006a8a4c0bfa3bbeca8ed222",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Selon l'accord de gouvernement de février 2026, quel est l'un des principaux objectifs des 10 millions d'euros alloués aux gares du Midi et du Nord ?",
+      "question": "Quelle part des résidents des maisons de repos bruxelloises présente un trouble neurocognitif sévère, selon Iriscare ?",
       "options": [
-        "Construire de nouveaux bâtiments administratifs et commerciaux",
-        "Financer la formation du personnel ferroviaire",
-        "Augmenter la capacité de transport et les horaires de train",
-        "Sécuriser les gares par l'installation de caméras, la présence policière et l'accompagnement des personnes précaires"
+        "38 %",
+        "19 %",
+        "13 %",
+        "33 %"
       ],
-      "correct": 3,
-      "explanation": "L'accord prévoit explicitement des investissements en caméras, police, nettoyage et accompagnement des personnes en situation de précarité dans ces deux gares majeures. Ce projet illustre l'approche combinant sécurité et action sociale que le nouvel accord souhaite promouvoir.",
+      "correct": 0,
+      "explanation": "L'enquête porte sur 66 maisons de repos, soit 56 % du parc bruxellois. Plus d'un tiers des résidents cumulent plusieurs de ces besoins en même temps.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : 10M pour les gares, commissaire drogue, services protégés",
       "provenance": {
-        "sourceLastModified": "2026-04-06",
-        "sourceContentHash": "sha256:6239783781180b59aabda5f157e3a1db",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:e84ecb97366df70921d720a1343a8d08",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Parmi les engagements listés dans la Déclaration de Politique Régionale (DPR), lequel vise à intégrer une dimension transversale dans toutes les politiques régionales ?",
+      "question": "Que préconise Iriscare au vu de la diversification des besoins en maison de repos ?",
       "options": [
-        "La création d'un commissaire régional aux drogues",
-        "La structuration régionale de l'aide alimentaire",
-        "La Health in All Policies (HIAP), qui intègre la santé dans l'urbanisme, la mobilité et le logement",
-        "Le testing des discriminations dans le logement"
+        "Une approche pluridisciplinaire combinant plusieurs expertises",
+        "Une réduction du nombre de lits par établissement",
+        "Un transfert de la compétence vers les communes",
+        "Une fermeture des unités spécialisées en démence"
       ],
-      "correct": 2,
-      "explanation": "La Health in All Policies (HIAP) est une approche transversale qui incorpore la dimension santé dans plusieurs domaines politiques régionaux. Cet exemple montre comment la gouvernance bruxelloise cherche à créer des synergies entre secteurs plutôt que des silos isolés.",
+      "correct": 0,
+      "explanation": "L'agence appelle à combiner expertise en santé mentale, accompagnement du handicap et soins aux aînés, et à adapter les moyens alloués au secteur.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : 10M pour les gares, commissaire drogue, services protégés",
       "provenance": {
-        "sourceLastModified": "2026-04-06",
-        "sourceContentHash": "sha256:6239783781180b59aabda5f157e3a1db",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:e84ecb97366df70921d720a1343a8d08",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Selon la Déclaration de Politique Régionale, quel est l'objectif principal de la réforme de la Commission Royale des Monuments et Sites (CRMS) ?",
+      "question": "Quel document n'est plus exigé pour un logement touristique constituant la résidence principale du loueur ?",
       "options": [
-        "Remplacer l'avis conforme par un avis simple pour débloquer les projets de rénovation en zones protégées",
-        "Augmenter le nombre de monuments classés dans la région",
-        "Accélérer uniquement les permis de construction neuve dans les quartiers anciens",
-        "Supprimer complètement la protection du patrimoine historique à Bruxelles"
+        "L'attestation de conformité urbanistique",
+        "Le certificat de performance énergétique",
+        "L'accord écrit du syndic de copropriété",
+        "Le permis de changement d'affectation"
       ],
       "correct": 0,
-      "explanation": "La réforme vise à transformer l'avis conforme (obligatoire et bloquant) en avis simple (consultatif), permettant ainsi une meilleure fluidité des projets sans sacrifier la protection patrimoniale. C'est un équilibre entre modernisation et préservation du patrimoine bruxellois.",
+      "explanation": "Ce document communal était le principal obstacle procédural à l'enregistrement des locations de courte durée. La mesure entre en vigueur le 1er janvier 2027.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:34cc0a35ee83cddf404202ea4d0af137",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:2ca0341fc2809fc6377f036778674aaa",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Le Parlement bruxellois a voté en février 2026 sur la gestion des friches. Quel compromis a été retenu concernant les sites verts ?",
+      "question": "Que prévoit l'attestation de sécurité simplifiée instaurée pour les logements touristiques ?",
       "options": [
-        "La construction immédiate autorisée sur tous les sites sans restriction",
-        "L'interdiction totale et définitive de toute construction sur les zones vertes",
-        "Un moratoire de 18 mois sur l'ensemble des friches et 3 sites sacralisés",
-        "Un moratoire de 3 ans exclusivement sur les friches de plus de 1 hectare"
+        "Une vérification écrite de 4 éléments, plafonnée à 150 euros",
+        "Une visite communale annuelle facturée 300 euros",
+        "Un contrôle par un organisme agréé tous les 5 ans",
+        "Une déclaration sur l'honneur renouvelée tous les 2 ans"
       ],
-      "correct": 2,
-      "explanation": "Le compromis inclut la sacralisation de 3 friches (Wiels, Avijl, Donderberg) et un moratoire de 18 mois sur d'autres sites stratégiques. Cette approche reflète le consensus de la majorité gouvernementale bruxelloise pour concilier développement et protection environnementale.",
+      "correct": 0,
+      "explanation": "La vérification porte sur les installations électrique, gaz et chauffage, ainsi que sur la présence d'un extincteur.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:34cc0a35ee83cddf404202ea4d0af137",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:2ca0341fc2809fc6377f036778674aaa",
+        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {

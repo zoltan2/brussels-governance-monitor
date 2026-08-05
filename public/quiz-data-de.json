@@ -1,559 +1,605 @@
 {
-  "generatedAt": "2026-04-12T09:56:15.292Z",
+  "generatedAt": "2026-08-05T21:16:24.078Z",
   "locale": "de",
-  "poolSize": 53,
+  "poolSize": 55,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welche Verwaltungsreform ist ein Kernpunkt des Regierungsabkommens zur Sanierung des Brüsseler Haushalts?",
+      "question": "Bis zu welchem Datum bleibt Belfius laut dem im Juli 2026 genehmigten Auftrag Bankier der Region Brüssel?",
       "options": [
-        "Die Fusion von 25 regionalen Strukturen zu 4 Einheiten mit angestrebter Senkung der Betriebskosten",
-        "Die Verdoppelung der Anzahl regionaler Strukturen zur besseren Kontrolle der Ausgaben",
-        "Die vollständige Auflösung aller regionalen Behörden und deren Verlagerung auf kommunale Ebene",
-        "Die Privatisierung von 50 % der regionalen öffentlichen Dienste"
+        "Bis zum 30. Juni 2031",
+        "Bis zum 31. Dezember 2029",
+        "Bis zum 30. Juni 2028",
+        "Bis zum 31. Dezember 2033"
       ],
       "correct": 0,
-      "explanation": "Das Regierungsabkommen vom 12. Februar 2026 sieht die Umstrukturierung von 25 regionalen Strukturen zu 4 sogenannten Säulen vor, um die Betriebskosten um 20 bis 30 % zu senken. Dies ist ein zentrales Instrument zur Rückkehr zum Haushaltsgleichgewicht bis 2029.",
+      "explanation": "Der Vertrag tritt am 1. Januar 2027 in Kraft und kann in gegenseitigem Einvernehmen zweimal um ein Jahr verlängert werden. Die verfügbare Kreditlinie steigt von 50 auf 250 Millionen Euro.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-04-02",
-        "sourceContentHash": "sha256:6553ed854abe850bf919998e78422e75",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:5d3cf9ecb8c65ae4665568751755057d",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Wie finanziert sich der Sanierungspfad des Brüsseler Regionalbudgets 2026–2029?",
+      "question": "Wovon hängt der Erhalt der Kreditlinie von 250 Millionen Euro ab, die der Bankier der Region Brüssel gewährt?",
       "options": [
-        "Nur durch Einsparungen ohne jegliche Erhöhung der Einnahmen",
-        "Durch Kreditaufnahmen auf internationalen Kapitalmärkten",
-        "Durch eine Mischung aus Ausgabenkürzungen und neuen Einnahmen, ohne neue Steuern einzuführen",
-        "Ausschließlich durch neue Steuern wie City Tax und Kilometergebühren"
+        "Von der Einhaltung des mehrjährigen Haushaltspfads",
+        "Von der Bewertung durch eine Ratingagentur",
+        "Von der vorherigen Zustimmung des Brüsseler Parlaments",
+        "Vom Verkauf regionaler Immobilien"
       ],
-      "correct": 2,
-      "explanation": "Das Regierungsabkommen sieht einen Einsparungspfad vor, der sich aus etwa 80 % Kürzungen und 20 % neuen Einnahmen zusammensetzt. Dabei werden explizit keine neuen Steuern eingeführt – weder City Tax noch Kilometergebühr. Stattdessen werden beispielsweise Registrierungsgebühren angepasst und die regionale Einkommensteuer um einen Punkt gesenkt.",
+      "correct": 0,
+      "explanation": "Das regionale Defizit soll bis 2029 schrittweise auf null zurückgeführt werden, mit einer Obergrenze von 957 Millionen Euro für das Haushaltsjahr 2026.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-04-02",
-        "sourceContentHash": "sha256:6553ed854abe850bf919998e78422e75",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:5d3cf9ecb8c65ae4665568751755057d",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Welche neue Institution wurde im Januar 2026 vom Brüsseler Parlament eingerichtet, um Empfehlungen zur öffentlichen Sauberkeit zu formulieren?",
+      "question": "Wie verteilt sich der Ertrag der erweiterten Herstellerverantwortung für Einwegkunststoff, die das Brüsseler Parlament verabschiedet hat, zwischen der Region und den Gemeinden?",
       "options": [
-        "Eine deliberative Kommission mit zufällig ausgewählten Bürgern und Abgeordneten",
-        "Ein regionaler Kontrollrat für illegale Müllentsorgung",
-        "Eine spezialisierte Abteilung der Brüsseler Reinigungsagentur",
-        "Ein internationales Abfallwirtschaftskomitee"
+        "54 % an die Gemeinden, 46 % an die Region",
+        "46 % an die Gemeinden, 54 % an die Region",
+        "70 % an die Gemeinden, 30 % an die Region",
+        "50 % an die Gemeinden, 50 % an die Region"
       ],
       "correct": 0,
-      "explanation": "Das Brüsseler Parlament beschloss die Einrichtung einer 7. deliberativen Kommission mit fünfundvierzig zufällig ausgewählten Bürgern und fünfzehn Abgeordneten. Dies ist ein neues Format der Bürgerbeteiligung an Governance-Entscheidungen zur Abfallwirtschaft.",
+      "explanation": "Die Ordonnanz setzt das interregionale Abkommen über Einwegkunststoff um. Die Hersteller zahlen der Region 51,4 Millionen Euro pro Jahr, davon 26,7 Millionen bereits 2026.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-03-27",
-        "sourceContentHash": "sha256:bdbb92f1251f984752b5651e254518a0",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:740175392acb4b7a3c018b039c1cf603",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Wofür zahlen Hersteller von Einwegkunststoffen und Tabakprodukten jährlich Geld an die Region Brüssel?",
+      "question": "Welches Beteiligungsinstrument hat das Brüsseler Parlament zur Sauberkeit des öffentlichen Raums geschaffen?",
       "options": [
-        "Im Rahmen der erweiterten Herstellerverantwortung zur Finanzierung der Sauberheitspolitik",
-        "Für die Forschung zu neuen Recyclingmethoden",
-        "Als Entschädigung für illegale Ablagerungen",
-        "Zur Subventionierung von umweltfreundlichen Verpackungsalternativen"
+        "Eine deliberative Kommission aus Bürgern und Abgeordneten",
+        "Ein regionales Referendum in den neunzehn Gemeinden",
+        "Einen Beirat aus Vertretern der Gemeinden",
+        "Eine öffentliche Untersuchung für die Anwohner des Fünfecks"
       ],
       "correct": 0,
-      "explanation": "Das Brüsseler Parlament verabschiedete eine Verordnung zur erweiterten Herstellerverantwortung (EPR), wonach Hersteller Gelder zahlen, die zur Hälfte an Gemeinden und zur Hälfte an die Region für Sauberkeitspolitik gehen. Dies wird durch die EU-SUP-Richtlinie vorgeschrieben.",
+      "explanation": "Fünfundvierzig per Losverfahren ausgewählte Bürger und fünfzehn Abgeordnete erarbeiten dort Empfehlungen. Es ist die erste deliberative Kommission der Legislaturperiode.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-03-27",
-        "sourceContentHash": "sha256:bdbb92f1251f984752b5651e254518a0",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:740175392acb4b7a3c018b039c1cf603",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klima",
-      "question": "Welche Maßnahme hat die Brüsseler Regierung im Regierungsabkommen vom Februar 2026 beschlossen, um die Energiesanierung von Gebäuden zu fördern?",
+      "question": "Durch welches Instrument ersetzt das Regierungsabkommen vom Februar 2026 Renolution?",
       "options": [
-        "Zinslose Darlehen im Umfang von 200 Millionen Euro",
-        "Steuervergünstigungen für erneuerbare Energieanlagen",
-        "Verpflichtende Sanierungsquoten für alle Gebäudeeigentümer",
-        "Direkte Zuschüsse für Hausbesitzer ohne Rückzahlungsverpflichtung"
+        "Durch zinslose Darlehen mit Mitteln von 200 Millionen Euro",
+        "Durch eine einmalige Prämie von höchstens 200 Euro je Wohnung",
+        "Durch eine regionale Steuergutschrift über 4 Haushaltsjahre",
+        "Durch einen Garantiefonds mit Mitteln von 400 Millionen Euro"
       ],
       "correct": 0,
-      "explanation": "Das Regierungsabkommen ersetzt das frühere Renolution-Programm durch zinslose Darlehen in Höhe von 200 Millionen Euro. Dieser Wechsel wird als zweideutiges Signal für den Klimapfad der Region bewertet.",
+      "explanation": "Die Regionale Politikerklärung legt über den bestehenden PACE hinaus kein neues CO2-Ziel fest, wodurch der Klimapfad offen bleibt.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:b366884858f019ce557884848f395e85",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:c301e1e9b59e573d072f84e8f3ad2b78",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klima",
-      "question": "Welche Brachflächen wurden im Regierungsabkommen vom Februar 2026 konkret zum Schutz vorgesehen?",
+      "question": "Was stellt der Jahresbericht 2025 von Brüssel Umwelt zur Luftqualität fest?",
       "options": [
-        "Nur die Grünzonen in den Bezirken Uccle und Watermael-Boitsfort",
-        "Die Kanal- und Senne-Uferbereiche",
-        "Wiels, Avijl und Donderberg",
-        "Alle Flächen unter 5000 Quadratmetern in der gesamten Region"
+        "Alle Messstationen halten die geltenden europäischen Normen ein",
+        "Keine Messstation hält die geltenden europäischen Normen ein",
+        "Nur die Stationen abseits stark befahrener Achsen werden gemessen",
+        "Die Normen werden nur während der Wintermonate eingehalten"
       ],
-      "correct": 2,
-      "explanation": "Das Abkommen schützt gezielt die Brachflächen Wiels, Avijl und Donderberg sowie legt ein 18-Monats-Moratorium auf vier weiteren Standorten fest. Diese Maßnahme ist Teil des Engagements für den Schutz von Grünflächen in der Region Brüssel-Hauptstadt.",
+      "correct": 0,
+      "explanation": "Entlang stark befahrener Achsen bestehen jedoch weiterhin Überschreitungen, gemessen an den künftigen europäischen Normen von 2030 und den Empfehlungen der Weltgesundheitsorganisation.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:b366884858f019ce557884848f395e85",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:c301e1e9b59e573d072f84e8f3ad2b78",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-digital-0",
       "source": "domain",
       "domain": "Digital",
-      "question": "Welches Prinzip soll verhindern, dass Bürger von der Brüsseler Verwaltung mehrfach nach denselben Informationen gefragt werden?",
+      "question": "Was stellt der Verfassungsgerichtshof in seinem Urteil zur Ordonnanz Brüssel Digital klar?",
       "options": [
-        "Das \"One-Stop-Shop\"-Prinzip",
-        "Das \"Data Reuse\"-Prinzip",
-        "Das \"Single Entry\"-Prinzip",
-        "Das \"Only once\"-Prinzip"
+        "Schalter, Telefon und Post bleiben alle drei verpflichtend",
+        "Die Verwaltungen dürfen nur einen der drei Kanäle behalten",
+        "Die physischen Schalter dürfen nach einer Übergangszeit schließen",
+        "Die Ordonnanz wird in allen ihren Artikeln für nichtig erklärt"
       ],
-      "correct": 3,
-      "explanation": "Das \"Only once\"-Prinzip ist ein zentrales Ziel der Verwaltungsvereinfachung in Brüssel. Es besagt, dass Bürger Daten, die der Verwaltung bereits bekannt sind, nicht erneut eingeben müssen. Dies ist Teil der digitalen Modernisierung, die im Brussels Governance Monitor dokumentiert wird.",
+      "correct": 0,
+      "explanation": "Die Nichtigkeitsklage wurde abgewiesen, doch ein Argument der unverhältnismäßigen Belastung kann nicht angeführt werden, um einen dieser drei Offline-Kanäle abzuschaffen.",
       "sourceSlug": "/de/bereiche/digital",
       "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung",
       "provenance": {
-        "sourceLastModified": "2026-03-28",
-        "sourceContentHash": "sha256:0c91b5d09a9f5f26f20129dc5f3ba08c",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:f34dc783bf429ea7edac15c2c3192202",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-digital-1",
       "source": "domain",
       "domain": "Digital",
-      "question": "Welche Institution ist das regionale IT-Zentrum der Region Brüssel-Hauptstadt und technischer Betreiber der Smart-City-Strategie?",
+      "question": "Welche Frist lässt die Ordonnanz Brüssel Digital, um bestehende Verwaltungsverfahren in Einklang zu bringen?",
       "options": [
-        "Easy Brussels",
-        "IRISbox",
-        "Paradigm (CIRB)",
-        "Innoviris"
+        "60 Monate",
+        "6 Monate",
+        "12 Monate",
+        "24 Monate"
       ],
-      "correct": 2,
-      "explanation": "Paradigm (CIRB) ist das IT-Zentrum der Region Brüssel-Hauptstadt und betreibt die Smart-City-Strategie. Es spielt eine Schlüsselrolle bei der Verwaltung digitaler Infrastrukturen und Datenplattformen, wie sie im Monitor beschrieben werden.",
+      "correct": 0,
+      "explanation": "Neue Verwaltungsverfahren haben 6 Monate Zeit, gegenüber 60 Monaten für die Anpassung bereits bestehender Verfahren.",
       "sourceSlug": "/de/bereiche/digital",
       "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung",
       "provenance": {
-        "sourceLastModified": "2026-03-28",
-        "sourceContentHash": "sha256:0c91b5d09a9f5f26f20129dc5f3ba08c",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:f34dc783bf429ea7edac15c2c3192202",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Welche zwei Standorte sind für die geplante Städtische Freizone in Brüssel vorgesehen?",
+      "question": "In welche Gemeinde verlegt Orange Belgium den Hauptsitz, den es in Evere belegt?",
       "options": [
-        "Hafen Brüssel und Audi Forest",
-        "Bempt und Saint-Ghislain",
-        "Neder-Over-Heembeek und Schuman",
-        "Heysel und Kanal"
+        "Diegem, in Flämisch-Brabant",
+        "Zaventem, in Flämisch-Brabant",
+        "Machelen, in Flämisch-Brabant",
+        "Vilvoorde, in Flämisch-Brabant"
       ],
       "correct": 0,
-      "explanation": "Die Regionale Politikerklärung vom 13. Februar 2026 sieht die Schaffung einer Städtischen Freizone an zwei konkreten Standorten vor: dem Hafen Brüssel für logistische und industrielle Zwecke sowie am Audi Forest-Standort für die industrielle Umwandlung nach der Werksschließung. Diese Initiative soll der Bauwirtschaftskrise entgegenwirken.",
+      "explanation": "Rund 1.400 Beschäftigte sind betroffen, der Umzug ist für Ende 2028 geplant. Der Betreiber verweist auf das Ende seines Mietvertrags und auf das ungeeignete Gebäude und schließt ein steuerliches Motiv ausdrücklich aus.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:6b16915843018a6acf0894dc74770017",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:98b7d4daaf597bfd332ea824a9622b2b",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Welche drei Hebel setzt die Regionalregierung um, um Unternehmen in der Städtischen Freizone zu unterstützen?",
+      "question": "Was wirft das Gericht erster Instanz im Juni 2026 der Steuerverordnung der Stadt Brüssel auf Büroflächen vor?",
       "options": [
-        "Infrastruktur, Marketing und Ausbildung",
-        "Energie, Logistik und digitale Dienste",
-        "Subventionen, Kredite und Beratung",
-        "Steuerlicher, administrativer und personeller Hebel"
+        "Einen Verstoß gegen den verfassungsrechtlichen Gleichheitsgrundsatz",
+        "Eine Überschreitung der kommunalen Steuerhoheit",
+        "Eine fehlende Veröffentlichung im Belgischen Staatsblatt",
+        "Eine Rückwirkung entgegen der Rechtssicherheit"
       ],
-      "correct": 3,
-      "explanation": "Die Regierung nutzt drei Mechanismen: einen steuerlichen Hebel (Senkung von Grundsteuer und Registrierungsgebühren), einen administrativen Hebel (Fast-Track-Schalter für Genehmigungen) und einen personellen Hebel (spezialisierte Actiris-Zelle für Berufe in der Zone). Dieses Dreisäulenmodell zielt auf praktische und finanzielle Erleichterung ab.",
+      "correct": 0,
+      "explanation": "Das Gericht stellt fest, dass eine objektive Rechtfertigung fehlt, um Büroflächen von anderen Nutzungen zu unterscheiden. Die Steuer stieg zwischen 2021 und 2026 von 9,58 auf 24 Euro pro Quadratmeter und Jahr.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:6b16915843018a6acf0894dc74770017",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:98b7d4daaf597bfd332ea824a9622b2b",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Bildung",
-      "question": "Welche Institution übernimmt ab September 2026 die vollständige Verwaltung der niederländischsprachigen außerschulischen Betreuung in Brüssel?",
+      "question": "Welcher Anteil der Brüsseler Jugendlichen verließ die Sekundarschule 2024-2025 ohne Abschluss und ohne Qualifikation, laut IBSA?",
       "options": [
-        "Die regionale Brüsseler Regierung",
-        "Die COCOF (Kommission der Französischsprachigen Gemeinschaft)",
-        "Die Vlaamse Gemeenschapscommissie (VGC)",
-        "Die Flämische Gemeinschaft (FWB)"
+        "18 %",
+        "12 %",
+        "26 %",
+        "22 %"
       ],
-      "correct": 2,
-      "explanation": "Das BOA-Dekret regelt die Übergabe der außerschulischen Betreuung (Buitenschoolse Opvang en Activiteiten) von der Region zur VGC. Dieser Übergang zeigt die zunehmende Verantwortung der Gemeinschaften für spezialisierte Bildungsbereiche in Brüssel.",
+      "correct": 0,
+      "explanation": "Der nationale Durchschnitt liegt bei 12 %, gegenüber 16 % in Antwerpen und 22 % in Charleroi. Der Brüsseler Wert bleibt gegenüber den Vorjahren stabil.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-03-02",
-        "sourceContentHash": "sha256:0b04796f6a54bb62ea97d0f5e729c0f8",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:56bcf506953b52d666f4bece4f46d0ed",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Bildung",
-      "question": "Welche zwei Aspekte der Bildungsgovernance werden laut der Regionalen Politikerklärung zwischen COCOF und VGC koordiniert?",
+      "question": "Was ersetzt den mündlichen Test, der Vorrang bei der Einschreibung im niederländischsprachigen Sekundarunterricht in Brüssel eröffnet?",
       "options": [
-        "Busverbindungen und Schulverpflegung",
-        "Schulabbruch-Bekämpfung und Sprachunterricht",
-        "Zweisprachigkeit und Harmonisierung der Bildungspolitik",
-        "Krippenplätze und technische Berufsausbildung"
+        "Eine offizielle Bescheinigung des Niveaus B2",
+        "Ein Gespräch vor einer Jury aus 3 Personen",
+        "Ein Zeugnis am Ende des 6. Grundschuljahres",
+        "Eine schriftliche Prüfung des Schulnetzes"
       ],
-      "correct": 2,
-      "explanation": "Die RPE betont ausdrücklich die Förderung der FR/NL-Zweisprachigkeit und die Harmonisierung der französisch- und niederländischsprachigen Bildungspolitik als zentrale Koordinierungsaufgaben zwischen COCOF und VGC, um Brüssels Zweisprachigkeit zu stärken.",
+      "correct": 0,
+      "explanation": "Die Maßnahme fällt in die Zuständigkeit der Flämischen Gemeinschaft und gilt für die Einschreibungen für das Schuljahr 2027-2028. Im VGC-Netz sind 65 % der Plätze im ersten Sekundarjahr für diese vorrangige Gruppe reserviert.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-03-02",
-        "sourceContentHash": "sha256:0b04796f6a54bb62ea97d0f5e729c0f8",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:56bcf506953b52d666f4bece4f46d0ed",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welche Maßnahme hat die Regionale Politikerklärung vom Februar 2026 eingeführt, um die Chancen von Arbeitssuchenden auf dem Brüsseler Arbeitsmarkt zu verbessern?",
+      "question": "Welche Beschäftigungsquote setzt die Regionale Politikerklärung als Ziel bis zum Ende der Legislaturperiode?",
       "options": [
-        "Obligatorische Sprachbewertung bei der Anmeldung und verpflichtende Französisch- oder Niederländisch-Schulung bei fehlenden Kenntnissen",
-        "Senkung der Mindestanforderungen für den Zugang zu öffentlichen Stellen",
-        "Verbot der Einstellung von Nicht-EU-Bürgern in bestimmten Sektoren",
-        "Automatische Vermittlung in Industrieberufe ohne vorherige Schulung"
+        "70 %",
+        "63,9 %",
+        "74,1 %",
+        "80 %"
       ],
       "correct": 0,
-      "explanation": "Die Sprachbewertung und verpflichtende Sprachausbildung sind zentrale Maßnahmen zur Förderung der Zweisprachigkeit als Schlüssel zum Arbeitsmarktzugang in Brüssel. Dies zeigt, wie Governance gezielt strukturelle Hürden adressiert — erfahren Sie mehr über diese Strategie im Brussels Governance Monitor.",
+      "explanation": "Das 2025 erreichte Niveau liegt laut Statbel bei 63,9 %, was einen Zuwachs von mehr als sechs Punkten in einer einzigen Legislaturperiode erfordert.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-04-08",
-        "sourceContentHash": "sha256:40b82d698e5c8b9ebcbdac7bc03bc7b9",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:914edaa2bb8cbb738e51829751482287",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welche geografische Besonderheit wird in der Itinera-Studie zu Brüssels Arbeitsmarkt hervorgehoben?",
+      "question": "Worin mündet die Arbeitslosigkeit junger Brüsseler laut der Studie des Itinera Institute hauptsächlich?",
       "options": [
-        "Brüssel hat eine einheitliche Beschäftigungsquote über alle Gemeinden hinweg",
-        "Keine der 19 Brüsseler Gemeinden erreicht den europäischen Durchschnitt der Beschäftigungsquote",
-        "Die östlichen Gemeinden haben eine signifikant höhere Beschäftigungsquote als die westlichen",
-        "Alle 19 Brüsseler Gemeinden überschreiten den europäischen Durchschnitt der Beschäftigungsquote"
+        "In Nichterwerbstätigkeit, außerhalb des Arbeitsmarkts",
+        "In abhängige Beschäftigung in den Nachbargemeinden",
+        "In subventionierte duale Ausbildung",
+        "In selbständige Tätigkeit im Nebenberuf"
       ],
-      "correct": 1,
-      "explanation": "Diese Feststellung unterstreicht die Tiefe der Brüsseler Beschäftigungskrise: keine einzige Gemeinde erreicht europäische Standards. Der Brussels Governance Monitor dokumentiert solche strukturellen Disparitäten, um evidenzbasierte Politiken zu ermöglichen.",
+      "correct": 0,
+      "explanation": "Nur etwa 25 % der Brüsseler zwischen 18 und 24 Jahren sind erwerbstätig, gegenüber etwa 40 % in Flandern, und 34,4 % der Bevölkerung im erwerbsfähigen Alter sind nicht erwerbstätig.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-04-08",
-        "sourceContentHash": "sha256:40b82d698e5c8b9ebcbdac7bc03bc7b9",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:914edaa2bb8cbb738e51829751482287",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-housing-0",
+      "source": "domain",
+      "domain": "Wohnen",
+      "question": "Auf welcher Grundlage hat die Brüsseler Regierung einen Sonderkommissar beim Foyer anderlechtois eingesetzt?",
+      "options": [
+        "Artikel 78 des Brüsseler Wohngesetzbuchs",
+        "Artikel 12 der Ordonnanz über die Aufsicht",
+        "Artikel 45 des Gesetzbuchs über die Raumentwicklung",
+        "Artikel 90 des neuen Gemeindegesetzes"
+      ],
+      "correct": 0,
+      "explanation": "Die Einsetzung gilt für vier Monate. Am Tag darauf billigte das Parlament die 26 Empfehlungen des Untersuchungsausschusses mit 51 Ja-Stimmen, 24 Nein-Stimmen und 6 Enthaltungen.",
+      "sourceSlug": "/de/bereiche/housing",
+      "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:23c0ced326d641409b112cec38a4961c",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-housing-1",
+      "source": "domain",
+      "domain": "Wohnen",
+      "question": "Was wollen die vier Vereinigungen erreichen, die ein Eilverfahren gegen die SLRB angestrengt haben?",
+      "options": [
+        "Die Blockierung des Verkaufs zweier öffentlicher Gebäude",
+        "Die Aussetzung der Zuweisung von Sozialwohnungen",
+        "Die Nichtigerklärung des Geschäftsführungsvertrags",
+        "Die Veröffentlichung der Wartelisten je Gemeinde"
+      ],
+      "correct": 0,
+      "explanation": "Die Vereinigungen verweisen auf die 62.234 Haushalte auf der Warteliste für eine Sozialwohnung. Der Verkauf des Standorts Ariane und eines Gebäudes in der Rue des Palais war im Januar 2026 aus Haushaltsgründen beschlossen worden.",
+      "sourceSlug": "/de/bereiche/housing",
+      "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:23c0ced326d641409b112cec38a4961c",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Welche institutionelle Struktur wurde bei der Cocof (Frankophonen Brüsseler Gemeinschaft) bei der Verteilung der Ministerrollen besonders kritisiert?",
+      "question": "Welche Sanktion hat die Brüsseler Deontologiekommission im Juli 2026 gegen lokale Mandatsträger verhängt?",
       "options": [
-        "Die Übertragung der Haushaltsverantwortung an zwei verschiedene Ministerien",
-        "Die Trennung der Zuständigkeiten für Beschäftigung und Berufsausbildung unter verschiedenen Ministern",
-        "Die Zuweisung aller Wirtschaftskompetenzen an eine einzelne Partei",
-        "Die Kombination von Kultur und Sozialem unter einem Minister"
+        "Geldbußen von 10 % bis 40 % einer Monatsvergütung",
+        "Eine Unwählbarkeit von 6 Jahren für jedes lokale Mandat",
+        "Eine namentliche Veröffentlichung im Staatsblatt für 1 Jahr",
+        "Eine vollständige Rückzahlung der letzten 12 Monate"
       ],
-      "correct": 1,
-      "explanation": "Die Trennung der Aufsicht über Actiris und Bruxelles Formation unter verschiedenen Ministern wurde von der Opposition kritisiert, da internationale Empfehlungen (OECD) für eine integrierte Verwaltung sprechen. Dies zeigt, wie institutionelle Strukturentscheidungen langfristige Auswirkungen auf die Effizienz haben.",
+      "correct": 0,
+      "explanation": "Zwanzig Mandatsträger wurden wegen fehlender Transparenz über ihre Vergütungen sanktioniert. Die Zelle hatte 305 säumige Mandatsträger erfasst, von denen 27 auch nach gezielten Erinnerungen säumig blieben.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:027cf45a55203c351a23ecdd0e3e3bdb",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:f117698617694e0a283419c4b7bcf2e2",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Was dokumentiert das VUB/BRIO-Sprachbarometer über die sprachliche Entwicklung Brüssels zwischen 2000 und 2024?",
+      "question": "Welche institutionelle Blockade lastet auf der Zusage der Brüsseler Regierung zur Verwaltungsreform?",
       "options": [
-        "Ein Rückgang der Französischkenntnisse und der Niederländischkenntnisse bei gleichzeitigem Anstieg der Englischkenntnisse",
-        "Ein massiver Anstieg der Niederländischkenntnisse durch schulische Reformen",
-        "Ein deutlicher Anstieg der Niederländischkenntnisse und ein Rückgang der Englischkenntnisse",
-        "Eine Stabilisierung aller drei Hauptsprachen trotz erhöhter Migration"
+        "Die Erneuerung der regionalen Verwaltungsräte",
+        "Die Ernennung des Greffiers des Brüsseler Parlaments",
+        "Die Annahme der Geschäftsordnung der Regierung",
+        "Die Ernennung der Einnehmer der neunzehn Gemeinden"
       ],
       "correct": 0,
-      "explanation": "Das Taalbarometer zeigt, dass sowohl Französisch als auch Niederländisch an Gewicht verloren haben, während Englisch zur zweitbekanntesten Sprache aufgestiegen ist. Dies unterstreicht die Dringlichkeit des neuen Masterplans Zweisprachigkeit und dessen institutionelle Bedeutung für Brüssel.",
+      "explanation": "Diese Räte sind seit dem Wechsel der Legislaturperiode blockiert. Die Regierung konnte sich am 21. Juli 2026 erneut nicht einigen, sodass das Dossier nach der Parlamentspause zurückkehrt.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:027cf45a55203c351a23ecdd0e3e3bdb",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:f117698617694e0a283419c4b7bcf2e2",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Welche Maßnahmen sind Teil des neuen Mobilitätsplans 'Good Move', der das bisherige System ablösen soll?",
+      "question": "Welchen Preis sieht die Reform der Umweltzone (LEZ) für den Jahrespass vor?",
       "options": [
-        "Vollständige Abschaffung der Umweltzone LEZ",
-        "Verbot aller Privatfahrzeuge in der Region",
-        "Kleinere Zonen basierend auf Schulperimetern und Straßenbahn statt Metro 3",
-        "Ausbau der Metro 3 bis nach Bordet mit erhöhtem Budget"
+        "350 Euro, indexiert",
+        "80 Euro, indexiert",
+        "200 Euro, indexiert",
+        "500 Euro, indexiert"
       ],
-      "correct": 2,
-      "explanation": "Das Regierungsabkommen vom Februar 2026 sieht einen neuen Regionalen Mobilitätsplan mit kleineren Schulperimeter-Zonen vor und ersetzt Metro 3 durch eine Straßenbahn, die das bestehende Netz vervollständigt. Dies markiert eine grundlegende Neuausrichtung der Brüsseler Mobilitätspolitik.",
+      "correct": 0,
+      "explanation": "Der Monatspass kostet 80 Euro und der Sozialtarif 200 Euro. Der Jahrespass ist bis zu fünf aufeinanderfolgende Jahre verlängerbar.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:e028df321ec40a752fa94b93ca543399",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:89830dbf7a671d552a0b9d9a8aefb70e",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Welche hierarchische Ordnung wird durch das STOP-Prinzip in der Mobilitätspolitik Brüssels vorgegeben?",
+      "question": "Wer kann den Sozialtarif in Anspruch nehmen, den die Reform der Umweltzone (LEZ) vorsieht?",
       "options": [
-        "Radfahrer > Fußgänger > ÖPNV > Autos",
-        "ÖPNV > Autos > Radfahrer > Fußgänger",
-        "Fußgänger > Radfahrer > ÖPNV > Autos",
-        "Autos > ÖPNV > Radfahrer > Fußgänger"
+        "Brüsseler mit dem BIM-Status",
+        "Alle Personen im Land mit dem BIM-Status",
+        "Die Einwohner der neunzehn Gemeinden, ohne Bedingung",
+        "Pendler mit einem Zugabonnement"
       ],
-      "correct": 2,
-      "explanation": "Das STOP-Prinzip etabliert eine klare Prioritätshierarchie mit Fußgängern an erster Stelle, gefolgt von Radfahrern, öffentlichen Verkehrsmitteln und Autos. Dieses Leitprinzip ist in der Regierungserklärung verankert und soll die zukünftige Gestaltung des Straßenraums leiten.",
+      "correct": 0,
+      "explanation": "Eine Person aus Wallonien oder Flandern mit demselben Status zahlt den vollen Tarif von 350 Euro. Eine vollständige Befreiung besteht unter anderem für betroffene Brüsseler mit mindestens drei unterhaltsberechtigten Personen.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:e028df321ec40a752fa94b93ca543399",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:89830dbf7a671d552a0b9d9a8aefb70e",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Welche neue Institution hat die Region Brüssel-Hauptstadt gemäß ihrer Politikerklärung vom Februar 2026 zur Bekämpfung von Drogenproblemen geschaffen?",
+      "question": "Warum tritt die Region Brüssel im Verfahren gegen Brügger Hooligans als Zivilpartei auf?",
       "options": [
-        "Eine private Sicherheitsfirma für Drogenprävention in Schulen",
-        "Einen regionalen Drogenkommissar mit eigener Behörde",
-        "Ein internationales Drogenkontrollzentrum mit Sitz in Brüssel",
-        "Eine föderale Drogenpolizeibrigade unter regionaler Aufsicht"
+        "Um einen eigenen Schaden der Region anerkennen zu lassen",
+        "Um eine Entschädigung im Namen der Opfer zu erhalten",
+        "Um ein Stadionverbot für die Angeklagten zu beantragen",
+        "Um die Zuständigkeit des Korrektionalgerichts zu bestreiten"
       ],
-      "correct": 1,
-      "explanation": "Die Regionale Politikerklärung sieht die Schaffung eines regionalen Drogenkommissars vor — als regionales Spiegelbild des föderalen Mechanismus. Dies ist Teil eines integrierten regionalen Drogenplans mit den Elementen Prävention, Schadensminderung und Repression.",
+      "correct": 0,
+      "explanation": "Die Region verweist auf die Schädigung ihres Ansehens und ihrer Chancengleichheitspolitik sowie auf den außergewöhnlichen Einsatz öffentlicher Mittel. Die Taten gehen auf den 4. Mai 2025 in Molenbeek-Saint-Jean zurück.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:a652e22ac980b9a8060ca4a0dabfe69c",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:2e1482b39e34b4654865bc0b69a70524",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Welche zwei Bahnhöfe erhalten gemäß den RPE-Verpflichtungen eine spezielle Sicherheitsinvestition von 10 Millionen EUR?",
+      "question": "Was zeigen die Daten des Brüsseler Sicherheitsobservatoriums zu den in Brüssel erfassten Straftaten?",
       "options": [
-        "Bahnhof Midi und Bahnhof Nord",
-        "Bahnhof Süden und Bahnhof Zentral",
-        "Bahnhof West und Bahnhof Hauptstadt",
-        "Bahnhof Norden und Bahnhof Osten"
+        "Rund 157.000 pro Jahr, stabil über zehn Jahre",
+        "Rund 157.000 pro Jahr, mit einem Anstieg von 40 %",
+        "Rund 92.000 pro Jahr, mit einem Rückgang von 12 %",
+        "Rund 34.000 pro Jahr, stabil über fünf Jahre"
       ],
       "correct": 0,
-      "explanation": "Die Regionale Politikerklärung vom 13. Februar 2026 sieht eine Investition von 10 Millionen EUR für die Sicherheit in den Bahnhöfen Midi und Nord vor, mit Koordination durch Polizeizonen und die SNCB (belgische Bahn).",
+      "explanation": "Der Bericht verzeichnet dagegen einen Anstieg von 33 % bei Drogendelikten zwischen 2023 und 2024, 92 Vorfälle mit Schusswaffen und 34 Tötungsdelikte, ein Plus von 40 % über zehn Jahre.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:a652e22ac980b9a8060ca4a0dabfe69c",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:2e1482b39e34b4654865bc0b69a70524",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Welche neue Funktion wurde gemäß dem Regierungsabkommen vom 12. Februar 2026 geschaffen, um Drogenpolitik in Brüssel zu koordinieren?",
+      "question": "Welcher Anteil der Bewohner Brüsseler Pflegeheime hat eine schwere neurokognitive Störung, laut der Iriscare-Erhebung vom Juli 2026?",
       "options": [
-        "Eine Kommission für illegale Substanzen",
-        "Ein föderales Drogenbekämpfungsteam",
-        "Eine Suchtberatungsstelle in jedem Bezirk",
-        "Ein regionaler Drogenbeauftragter"
+        "38 %",
+        "19 %",
+        "13 %",
+        "33 %"
       ],
-      "correct": 3,
-      "explanation": "Das Regierungsabkommen sieht die Schaffung einer eigenen Position eines regionalen Drogenbeauftragten vor. Dies ist Teil der querschnittlichen sozialen und sicherheitspolitischen Maßnahmen zur besseren Koordination von Drogenpolitik auf regionaler Ebene.",
+      "correct": 0,
+      "explanation": "Die Erhebung umfasst 66 Pflegeheime, das sind 56 % des Brüsseler Bestands. Mehr als ein Drittel der Bewohner vereint mehrere dieser Bedarfe zugleich.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: 10M für Bahnhöfe, Drogenbeauftragter, geschützte Dienste",
       "provenance": {
-        "sourceLastModified": "2026-04-06",
-        "sourceContentHash": "sha256:fbb504eba4fca9358ab13eeab5ec0ae1",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:b92a0dc1863ec4a741041e883bd2d972",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Welcher Ansatz wird in der Regionalen Programmvereinbarung (DPR) unter dem Begriff 'Health in All Policies' verfolgt?",
+      "question": "Was empfiehlt Iriscare angesichts der wachsenden Vielfalt der Bedarfe in den Pflegeheimen?",
       "options": [
-        "Die Konzentration aller Gesundheitsausgaben auf Krankenhäuser",
-        "Die Verlagerung von Prävention auf private Versicherungsunternehmen",
-        "Die Schaffung separater Gesundheitsministerien in jedem Bezirk",
-        "Die Integration der Gesundheitsdimension in alle regionalen Politikbereiche wie Städtebau und Mobilität"
+        "Einen multidisziplinären Ansatz mit mehreren Fachkompetenzen",
+        "Eine Verringerung der Bettenzahl je Einrichtung",
+        "Eine Übertragung der Zuständigkeit an die Gemeinden",
+        "Eine Schließung der spezialisierten Demenzabteilungen"
       ],
-      "correct": 3,
-      "explanation": "Health in All Policies (HIAP) ist ein ganzheitlicher Ansatz, der Gesundheitsaspekte systematisch in verschiedene Politikbereiche wie Städtebau, Mobilität und Wohnungswesen integriert. Dies soll Gesundheit als Querschnittsthema in der regionalen Governance verankern.",
+      "correct": 0,
+      "explanation": "Die Einrichtung ruft dazu auf, Expertise in psychischer Gesundheit, Begleitung bei Behinderung und Altenpflege zu verbinden und die Mittel für den Sektor anzupassen.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: 10M für Bahnhöfe, Drogenbeauftragter, geschützte Dienste",
       "provenance": {
-        "sourceLastModified": "2026-04-06",
-        "sourceContentHash": "sha256:fbb504eba4fca9358ab13eeab5ec0ae1",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:b92a0dc1863ec4a741041e883bd2d972",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Welche Maßnahme soll gemäß der Regionalen Politikerklärung die Bearbeitung von Baugenehmigungen in Brüssel beschleunigen?",
+      "question": "Welches Dokument ist für eine Touristenunterkunft, die der Hauptwohnsitz des Vermieters ist, nicht mehr erforderlich?",
       "options": [
-        "Erhöhung der Gebühren für Baugenehmigungen, um mehr Personal einzustellen",
-        "Vollständige Digitalisierung des Antragsverfahrens über urban.brussels und vereinfachte Verfahren für bestimmte Projekte",
-        "Verlagerung aller Genehmigungsverfahren auf die föderale Ebene",
-        "Automatische Genehmigung aller Wohnbauprojekte ohne weitere Prüfung"
+        "Die städtebauliche Konformitätsbescheinigung",
+        "Der Energieausweis des Gebäudes",
+        "Die schriftliche Zustimmung des Syndikus",
+        "Die Genehmigung zur Nutzungsänderung"
       ],
-      "correct": 1,
-      "explanation": "Die Regionalpolitische Erklärung sieht eine Halbierung der Bearbeitungsdauer durch Digitalisierung und Fast-Track-Verfahren vor. Dies ist eine Kernreform zur Beschleunigung von Investitionen in Brüssel, wie der Brussels Governance Monitor dokumentiert.",
+      "correct": 0,
+      "explanation": "Dieses kommunale Dokument war das wichtigste Verfahrenshindernis für die Registrierung von Kurzzeitvermietungen. Die Maßnahme tritt am 1. Januar 2027 in Kraft.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:238297515177b74568896293b061a0ec",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:2973033f214732f804a4c06957373a19",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Was ist das Ziel der im Regierungsabkommen festgelegten 'städtebaulichen Amnestie'?",
+      "question": "Was sieht die vereinfachte Sicherheitsbescheinigung vor, die in Brüssel für von Privatpersonen vermietete Touristenunterkünfte eingeführt wird?",
       "options": [
-        "Den Bestand an Verstößen gegen Bauvorschriften abzubauen und Eigentümern Rechtssicherheit zu bieten",
-        "Alle Bußgelder für illegale Bauarbeiten vollständig zu streichen",
-        "Den Denkmalschutz in Brüssel komplett abzuschaffen",
-        "Neue Bauprojekte von Umweltprüfungen zu befreien"
+        "Eine schriftliche Prüfung der Anlagen, gedeckelt auf 150 Euro",
+        "Einen jährlichen Besuch der Gemeinde für 300 Euro",
+        "Eine Kontrolle durch eine zugelassene Stelle alle 5 Jahre",
+        "Eine Ehrenerklärung, die alle 2 Jahre erneuert wird"
       ],
       "correct": 0,
-      "explanation": "Die städtebauliche Amnestie ist ein Regularisierungsmechanismus, der alte Verstöße vor einem Stichtag konformitätsmäßig bereinigt. Dies schafft Klarheit für Eigentümer und reduziert das Erbe von Verwaltungsproblemen, ein wichtiges Governance-Instrument, das der Brussels Governance Monitor verfolgt.",
+      "explanation": "Die Prüfung betrifft vier Elemente: die Elektro-, Gas- und Heizungsanlagen sowie das Vorhandensein eines Feuerlöschers.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:238297515177b74568896293b061a0ec",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:2973033f214732f804a4c06957373a19",
+        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
@@ -1223,6 +1269,5 @@
         "promptVersion": "v1"
       }
     }
-  ],
-  "reviewedCount": 53
+  ]
 }

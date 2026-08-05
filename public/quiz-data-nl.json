@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T21:04:16.356Z",
+  "generatedAt": "2026-08-05T21:07:20.410Z",
   "locale": "nl",
-  "poolSize": 63,
+  "poolSize": 67,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1089,368 +1089,460 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wat is het belangrijkste verschil tussen het oorspronkelijke Metro 3-project en de nieuwe plannen volgens het regeringsakkoord van februari 2026?",
+      "question": "Wat beveelt de bijzondere commissie van het Brussels Parlement aan voor elk groot gewestelijk infrastructuurproject?",
       "options": [
-        "Metro 3 wordt versneld aangelegd in plaats van vertraagd",
-        "Metro 3 wordt volledig geschrapt en vervangen door een bovengrondse tram die de bestaande tramnetwerklus aanvult",
-        "Metro 3 gaat nog dieper onder de grond liggen voor veiligheidsredenen",
-        "Metro 3 wordt alleen in noord-zuid richting aangelegd in plaats van oost-west"
+        "Een eengemaakt bestuur, verenigd binnen één administratie",
+        "Een gewestelijk referendum vóór de start van de werken",
+        "Een volledige delegatie van het bouwheerschap aan het federale niveau",
+        "Een wettelijk budgetplafond vanaf het gekozen voorontwerp"
       ],
-      "correct": 1,
-      "explanation": "Het akkoord bevriest Metro 3 voor 10 jaar en stelt een tram voor als vervanger. Deze tram voltooit de bestaande tramnetwerklus in plaats van een dure ondergrondse verlenging aan te leggen.",
+      "correct": 0,
+      "explanation": "Een geïdentificeerde projectdirecteur zou verantwoording afleggen aan de regering en het Parlement. De aanbevelingen zijn gebundeld in zes assen, na acht maanden werk en meer dan vijftig hoorzittingen.",
       "sourceSlug": "/nl/dossiers/metro-3",
-      "sourceTitle": "Metro 3: project 10 jaar bevroren, vervanging door tram",
+      "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:c202d683bfedd01d14573b968c102577",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:308a487edd53bc94f665d92c29158c9c",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Welke instelling speelde een cruciale rol bij het bevriezen van Metro 3 door een rapport over de financiële houdbaarheid uit te brengen?",
+      "question": "Welk verschil signaleert BGM tussen de tekst over Metro 3 die in juli 2026 in plenaire vergadering werd gestemd en die welke de bijzondere commissie had goedgekeurd?",
       "options": [
-        "De Raad van State",
-        "De Gemeenschappelijke Commissie van Beliris",
-        "De MIVB (openbaartransportmaatschappij)",
-        "Het Rekenhof"
+        "24 gestemde aanbevelingen tegenover 22 in de commissie",
+        "22 gestemde aanbevelingen tegenover 24 in de commissie",
+        "18 gestemde aanbevelingen tegenover 24 in de commissie",
+        "30 gestemde aanbevelingen tegenover 22 in de commissie"
       ],
-      "correct": 3,
-      "explanation": "Het Rekenhof publiceerde een rapport dat aantoonde dat de kostenoverschrijding ernstig was en de financiële houdbaarheid in gevaar bracht, wat onderhandelaars ertoe bracht het project te bevriezen.",
+      "correct": 0,
+      "explanation": "Geen enkele geraadpleegde bron licht de oorsprong van dat verschil toe, dat kan voortkomen uit amendementen die in plenaire vergadering werden ingediend. BGM signaleert de discrepantie liever dan ze te verzwijgen.",
       "sourceSlug": "/nl/dossiers/metro-3",
-      "sourceTitle": "Metro 3: project 10 jaar bevroren, vervanging door tram",
+      "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:c202d683bfedd01d14573b968c102577",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:308a487edd53bc94f665d92c29158c9c",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wat gebeurde er op 25 april 2024 in de juridische strijd rond deelmobiliteit in Brussel?",
+      "question": "Welk effect heeft het arrest van de Raad van State van juli 2026, dat de vergunningen voor deelmobiliteit in Brussel vernietigt, op het verbod op deelsteps?",
       "options": [
-        "De Raad van State schorste de vlootplafonds voor elektrische steps wegens ontoereikende motivering",
-        "De regering selecteerde Bolt en Dott als enige stepoperatoren",
-        "De Bodaz-vergunning verviel en Lime moest stoppen",
-        "Lime en Voi kregen een voorlopige schorsing in kort geding"
+        "Het vervroegt het met vier maanden, langs gerechtelijke weg",
+        "Het stelt het met vier maanden uit, langs gerechtelijke weg",
+        "Het vernietigt het, waardoor het zonder voorwerp valt",
+        "Het laat het ongewijzigd, zonder de kalender aan te passen"
       ],
       "correct": 0,
-      "explanation": "De Raad van State greep in omdat de gewestregering onvoldoende had gemotiveerd waarom bepaalde vlootplafonds nodig waren. Dit was een kantelpunt in de lange juridische strijd om deelmobiliteit.",
+      "explanation": "Het verbod dat op 1 januari 2027 is vastgelegd, wordt niet betwist, maar de voertuigen moeten de openbare ruimte op 1 september 2026 verlaten. Het beroep kwam van Lime, de operator die bij de toekenning van de vergunningen buiten de boot viel.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
-      "sourceTitle": "Deelmobiliteit in Brussel: steps, fietsen, taxi's en de strijd om de concessies",
+      "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-02-24",
-        "sourceContentHash": "sha256:332b707e81be02321027e0c7ac167e87",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:b3d5cc5bd6b7cb87f9733e5d1c8de46e",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wat is geplanned voor september 2026 met betrekking tot Villo! in Brussel?",
+      "question": "Welk aanbod verdwijnt door de vernietiging van de vergunningen voor deelmobiliteit in Brussel, terwijl de regering het wilde behouden?",
       "options": [
-        "Een nieuwe concessie met JCDecaux voor nog eens 17 jaar",
-        "De vloot wordt uitgebreid van 5 000 naar 10 000 fietsen",
-        "De overeenkomst tussen het Gewest en JCDecaux loopt af",
-        "Het systeem wordt omgezet in volledig free-floating zonder vaste stations"
+        "De deelfietsen in vrije vloot",
+        "De deelsteps in vrije vloot",
+        "De fietsen met vaste stations van de concessie Villo",
+        "De deelscooters met elektrische ondersteuning"
       ],
-      "correct": 2,
-      "explanation": "De concessie die in 2008 is ondertekend, eindigt in september 2026. JCDecaux zal de stations moeten ontmantelen, maar tot nu toe is geen nieuwe aanbesteding aangekondigd door de regering.",
+      "correct": 0,
+      "explanation": "De concessie Villo, met vaste stations, valt niet onder het arrest. De overheid werkt aan een nieuw regelgevend kader voor de deelfietsen.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
-      "sourceTitle": "Deelmobiliteit in Brussel: steps, fietsen, taxi's en de strijd om de concessies",
+      "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-02-24",
-        "sourceContentHash": "sha256:332b707e81be02321027e0c7ac167e87",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:b3d5cc5bd6b7cb87f9733e5d1c8de46e",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-novacity-ii-0",
+      "source": "dossier",
+      "domain": "Huisvesting",
+      "question": "Welke verwarmingswijze kiest het programma NovaCity II voor zijn woningen?",
+      "options": [
+        "Geothermische verwarming met warmtepompen, zonder fossiele brandstof",
+        "Een collectieve stookplaats op aardgas met hoog rendement",
+        "Een aansluiting op het bestaande stadswarmtenet",
+        "Individuele condensatieketels per woning"
+      ],
+      "correct": 0,
+      "explanation": "Het systeem wordt aangevuld met zonnepanelen, met als doel woningen met een netto-energieverbruik van nul. De 117 geconventioneerde woningen worden passief en dubbel georiënteerd, met een privéterras van minstens 7,5 vierkante meter.",
+      "sourceSlug": "/nl/dossiers/novacity-ii",
+      "sourceTitle": "NovaCity II",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:fb658b09a78be41cd8657bd22b36be14",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
-      "domain": "Sociaal",
-      "question": "Welke drie overheden zijn verantwoordelijk voor het erkennen en financieren van crèches in Brussel?",
+      "domain": "Onderwijs",
+      "question": "Welk verschil in dekkingsgraad van opvangplaatsen scheidt de Brusselse gemeenten?",
       "options": [
-        "ONE, Opgroeien en Iriscare",
-        "Opgroeien, Iriscare en de Brusselse gemeenten",
-        "ONE, Opgroeien en de Brusselse gemeenten",
-        "ONE, VGC en COCOF"
+        "67 % in Etterbeek tegenover 16 % in Anderlecht",
+        "45 % in Etterbeek tegenover 38 % in Anderlecht",
+        "80 % in Etterbeek tegenover 60 % in Anderlecht",
+        "30 % in Etterbeek tegenover 25 % in Anderlecht"
       ],
       "correct": 0,
-      "explanation": "ONE beheerst de Franstalige crèches (via Federatie Wallonië-Brussel), Opgroeien de Nederlandstalige (via Vlaamse Gemeenschap), en Iriscare verleent vergunningen voor bicommunautaire structuren onder Brussels gezag.",
+      "explanation": "Twee ouders op drie noemen de zoektocht naar een plaats moeilijk of zeer moeilijk, volgens de Ligue des Familles. De postcode bepaalt in grote mate of iemand na een moederschapsverlof weer aan het werk kan.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
-      "sourceTitle": "Kinderopvang in Brussel: crèches, wachtlijsten en drievoudige institutionele bevoegdheid",
+      "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:eec6fe30593693ea058d4d90b2da429a",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:33b7d5974f2a91fe4e82a5f91949b184",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
-      "domain": "Sociaal",
-      "question": "Wat is een belangrijk gevolg van de gescheiden wachtlijsten voor Franstalige en Nederlandstalige crèches in Brussel?",
+      "domain": "Onderwijs",
+      "question": "Welke overheid verleent de vergunningen aan de bicommunautaire crèches in Brussel?",
       "options": [
-        "Gezinnen moeten automatisch kiezen tussen Frans of Nederlands onderwijs",
-        "Een gezin kan maanden wachten in één rij terwijl een plaats vrijkomt in een andere rij waar zij niet ingeschreven zijn",
-        "Alle crèches worden beheerd door dezelfde gemeente",
-        "De gemeente bepaalt het dagtarief volgens het gezinsinkomen"
+        "Iriscare, voor de Gemeenschappelijke Gemeenschapscommissie",
+        "De ONE, voor de Federatie Wallonië-Brussel",
+        "Opgroeien, voor de Vlaamse Gemeenschap",
+        "Brussel Economie en Werkgelegenheid, voor het Gewest"
       ],
-      "correct": 1,
-      "explanation": "De twee gescheiden administratieve systemen veroorzaken inefficiëntie: ouders kunnen niet flexibel tussen aanboden wisselen, ook al is er plaatsgebrek in de ene rij en beschikbaarheid in de andere.",
+      "correct": 0,
+      "explanation": "Het is de enige overheid die tot een strikt Brussels bevoegdheidsniveau behoort. De Franstalige crèches hangen af van de ONE en de Nederlandstalige van Opgroeien, elk met een eigen budget.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
-      "sourceTitle": "Kinderopvang in Brussel: crèches, wachtlijsten en drievoudige institutionele bevoegdheid",
+      "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:eec6fe30593693ea058d4d90b2da429a",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:33b7d5974f2a91fe4e82a5f91949b184",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-pfas-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Wat is het belangrijkste verschil tussen de gezondheidswaarden van de Hoge Gezondheidsraad en de wettelijke EU-normen voor PFAS in drinkwater?",
+      "question": "Waar komt de PFAS-verontreiniging in het Brussels Gewest vandaan?",
       "options": [
-        "De HGR stelt geen normen voor PFAS vast, alleen de EU",
-        "De HGR-waarden zijn gebaseerd op het voorzorgsbeginsel en aanzienlijk strenger dan de wettelijke normen",
-        "Er is geen verschil; HGR en EU hanteren dezelfde drempels",
-        "De EU-normen zijn gebaseerd op het voorzorgsbeginsel en strenger dan de HGR-waarden"
+        "Van diffuus gebruik van producten en van gerichte industriële sites",
+        "Van een productiefabriek gevestigd in het Gewest",
+        "Van één enkele lozing in het kanaal in 2021",
+        "Van landbouwbemesting in de rand rond Brussel"
       ],
-      "correct": 1,
-      "explanation": "De Hoge Gezondheidsraad adviseert veel strengere drempels dan de wettelijke normen omdat die gericht zijn op maximale gezondheid, niet alleen wettelijke conformiteit. Dit illustreert de spanning tussen regelgeving en volksgezondheid.",
+      "correct": 0,
+      "explanation": "In het Brussels Gewest bestaat geen enkele PFAS-productiefabriek, in tegenstelling tot Vlaanderen. Ongeveer 3 500 sites zijn geïnventariseerd als mogelijk verontreinigd, onder meer door blusschuim.",
       "sourceSlug": "/nl/dossiers/pfas",
-      "sourceTitle": "PFAS in Brussel: bodem- en waterverontreiniging",
+      "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
-        "sourceContentHash": "sha256:b492c0316e22dfc9b2d3b38fa3564dd2",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-12",
+        "sourceContentHash": "sha256:48ffa43a00c9d1ecc378423423bc164d",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-pfas-1",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Welke chemische stof veroorzaakt specifiek een probleem in de zes Brusselse waterreservoirs, terwijl de andere PFAS-normen niet worden overschreden?",
+      "question": "Welke voorzorgsmaatregel gaat samen met de perimeter rond de voormalige site Sicli in Ukkel?",
       "options": [
-        "PFOA",
-        "TFA (trifluorazijnzuur)",
-        "Perchloraat",
-        "PFOS"
+        "Het verbod om fruit, groenten en eieren uit de perimeter te eten",
+        "Een volledig toegangsverbod tot de straat voor de omwonenden",
+        "De verplichting om de woningen op het rioolnet aan te sluiten",
+        "De sluiting van de scholen binnen de betrokken perimeter"
       ],
-      "correct": 1,
-      "explanation": "TFA wordt in alle zes reservoirs gedetecteerd en vormt een unieke uitdaging omdat klassieke actiefkoolfilters het niet kunnen verwijderen — alleen omgekeerde osmose helpt, wat kostbaar is. Dit illustreert hoe één enkele verontreiniging grote infrastructurale gevolgen kan hebben.",
+      "correct": 0,
+      "explanation": "De veiligheidsperimeter beslaat 100 meter. Op de industriële site wordt de norm tot 708 keer overschreden in de bodem en 1 058 keer in het grondwater.",
       "sourceSlug": "/nl/dossiers/pfas",
-      "sourceTitle": "PFAS in Brussel: bodem- en waterverontreiniging",
+      "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
-        "sourceContentHash": "sha256:b492c0316e22dfc9b2d3b38fa3564dd2",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-12",
+        "sourceContentHash": "sha256:48ffa43a00c9d1ecc378423423bc164d",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-plan-securite-0",
       "source": "dossier",
-      "domain": "Sociaal",
-      "question": "Welke nieuwe gewestelijke functie wordt ingesteld volgens het veiligheidsplan van februari 2026?",
+      "domain": "Veiligheid",
+      "question": "Wat brengt het eerste terreinbezoek van de minister-president aan het Zuidstation aan het licht?",
       "options": [
-        "Voorzitter van de zes politiezones",
-        "Gewestelijk drugscommissaris",
-        "Coördinator van de Brusselse brandweer",
-        "Directeur van het Noordstation"
+        "Een nood aan coördinatie tussen de veiligheidsactoren",
+        "Een tekort aan bewakingscamera's in het station",
+        "Een ontoereikend personeelsbestand van de federale politie",
+        "Een gebrekkig onderhoud van de spoorweginfrastructuur"
       ],
-      "correct": 1,
-      "explanation": "De drugscommissaris is een bevoegde autoriteit voor de bestrijding van verdovende middelen en maakt deel uit van het geïntegreerd gewestelijk drugsplan. Deze functie moet helpen de toegenomen drugsinbreuken aan te pakken.",
+      "correct": 0,
+      "explanation": "Zes politiezones, de spoorwegpolitie, de veiligheidsdienst van de NMBS en bewakingsagenten van de MIVB treden op dezelfde site op. Dat is de inzet van de 10 miljoen euro die voor het Zuid- en het Noordstation is voorzien.",
       "sourceSlug": "/nl/dossiers/plan-securite",
-      "sourceTitle": "Veiligheidsplan: drugscommissaris, 10M EUR stations en fusie van de politiezones",
+      "sourceTitle": "Veiligheidsplan",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:f57649d05bea7f596894ca360e6bfe19",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:36d24b2f3f0ec790d2bc51ec612b912b",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-rechauffement-bruxelles-0",
+      "source": "dossier",
+      "domain": "Klimaat",
+      "question": "Op welk moment is het temperatuurverschil tussen het centrum van Brussel en de rand het gevaarlijkst?",
+      "options": [
+        "'s Nachts, wanneer de temperatuur niet meer zakt",
+        "Midden op de dag, op de piek van de zonneschijn",
+        "In de vroege ochtend, vóór zonsopgang",
+        "Op het einde van de namiddag, bij het verlaten van de kantoren"
+      ],
+      "correct": 0,
+      "explanation": "Het nachtelijke verschil bedraagt gemiddeld 4,5 graden en loopt tijdens extreme episodes op tot 10 graden. Wanneer het lichaam 's nachts niet herstelt, ontstaat oversterfte, vooral bij oudere en alleenstaande mensen.",
+      "sourceSlug": "/nl/dossiers/rechauffement-bruxelles",
+      "sourceTitle": "Opwarming van Brussel",
+      "provenance": {
+        "sourceLastModified": "2026-06-26",
+        "sourceContentHash": "sha256:3a46bf4601cb28af57ac274e3c9b833a",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
-      "domain": "Budget",
-      "question": "Welke twee entiteiten zullen in 2026 samengevoegd worden tot 'Brussel Stedenbouw' volgens de hervorming van het Brussels bestuur?",
+      "domain": "Institutioneel",
+      "question": "Wat is het becijferde doel van de hervorming die het Brusselse gewestelijke bestuur hergroepeert?",
       "options": [
-        "perspective.brussels en Safe.Brussels",
-        "perspective.brussels en urban.brussels",
-        "Leefmilieu Brussel en Parking.brussels",
-        "urban.brussels en Brussel Mobiliteit"
+        "Van ongeveer 25 entiteiten naar 4 grote pijlers gaan",
+        "Van ongeveer 40 entiteiten naar 10 grote pijlers gaan",
+        "Van ongeveer 15 entiteiten naar 2 grote pijlers gaan",
+        "Van ongeveer 60 entiteiten naar 12 grote pijlers gaan"
       ],
-      "correct": 1,
-      "explanation": "Deze eerste fusie bundelt territoriale ontwikkeling en stedenbouw onder één dak, wat een geïntegreerde vergunningsprocedure mogelijk maakt. Dit is de eerste concrete stap van de 'Big Bang'-hervorming.",
+      "correct": 0,
+      "explanation": "Het aangekondigde doel is 250 tot 300 miljoen euro besparingen tegen 2029. De vier pijlers dekken de gemeenschappelijke ondersteuning, de organieke opdrachten, infrastructure.brussels en een grondplatform.",
       "sourceSlug": "/nl/dossiers/reforme-administration",
-      "sourceTitle": "Hervorming van het gewestelijk bestuur: van 25 entiteiten naar 4 pijlers",
+      "sourceTitle": "Hervorming bestuur",
       "provenance": {
-        "sourceLastModified": "2026-03-09",
-        "sourceContentHash": "sha256:ea10f695a325f452d1871ae0a278acf3",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-07",
+        "sourceContentHash": "sha256:deba004f24d9e1b2c81d3f6d9b0d8a7d",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-rse-0",
       "source": "dossier",
       "domain": "Economie",
-      "question": "Welke drie instellingen werken samen om de Shifting Economy in Brussel uit te voeren?",
+      "question": "Welke doelstelling legt de gewestelijke strategie Shifting Economy vast voor 2030?",
       "options": [
-        "hub.brussels, finance&invest.brussels, en de Europese Commissie",
-        "Brussel Economie en Werkgelegenheid, Brupartners, en het Federaal Agentschap voor Ondernemingen",
-        "Leefmilieu Brussel, finance&invest.brussels, en Brupartners",
-        "Leefmilieu Brussel, Brussel Economie en Werkgelegenheid, en hub.brussels"
+        "100 % van de steun voorbehouden aan voorbeeldige ondernemingen",
+        "50 % van de steun voorbehouden aan voorbeeldige ondernemingen",
+        "30 % van de gewestelijke economische steun schrappen",
+        "Het totale budget voor ondernemingssteun verdubbelen"
       ],
-      "correct": 3,
-      "explanation": "Leefmilieu Brussel en BEW sturen de strategie gezamenlijk aan, terwijl hub.brussels bedrijfsbegeleiding en finance&invest.brussels financiële ondersteuning verzorgen. Dit partnerschap is essentieel voor het slagen van de economische transitie.",
+      "correct": 0,
+      "explanation": "Het exemplariteitsmechanisme verhoogt de steun aan gelabelde ondernemingen, van 2,5 % tot 45 % bij cumulatie. De controle gebeurt automatisch bij de aanvraag, zonder bijkomende stap.",
       "sourceSlug": "/nl/dossiers/rse",
-      "sourceTitle": "Economische transitie: Shifting Economy, labels en duurzaamheidsrapportage",
+      "sourceTitle": "MVO / Transitie",
       "provenance": {
-        "sourceLastModified": "2026-03-03",
-        "sourceContentHash": "sha256:c9c8642f72eb488d2f82b3b850db18cd",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:ea0fb63e924f9bd63d49aad0c0842393",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welke nieuwe benadering staat centraal in de erkenningsnormen voor woonzorgcentra die sinds september 2024 van kracht zijn in Brussel?",
+      "question": "Hoe verhoudt het aandeel senioren dat de inkomensgarantie voor ouderen (IGO) ontvangt zich tussen de gewesten?",
       "options": [
-        "Een uitsluitend op hygiëne en veiligheid gericht model",
-        "Een medisch model gericht op behandeling en ziekteverpleging",
-        "Een kostenbespaaringsmodel met nadruk op efficiëntie",
-        "Een bewonergericht model met focus op autonomie, participatie en levenskwaliteit"
+        "Drie keer hoger in Brussel dan in Vlaanderen",
+        "Twee keer lager in Brussel dan in Vlaanderen",
+        "Gelijk in Brussel en in Vlaanderen sinds 2020",
+        "Vier keer lager in Brussel dan in Wallonië"
       ],
-      "correct": 3,
-      "explanation": "De nieuwe erkenningsnormen markeren een verschuiving van een traditioneel zorggericht model naar een bewonergericht model. Dit weerspiegelt een modernere visie op ouderenzorg in Brussel.",
+      "correct": 0,
+      "explanation": "13 % van de Brusselse 65-plussers ontvangt de IGO, tegenover 4 % in Vlaanderen en 5 % in Wallonië. Het verschil tussen gemeenten loopt van 4 % in Sint-Pieters-Woluwe tot 26 % in Sint-Joost-ten-Node.",
       "sourceSlug": "/nl/dossiers/seniors-a-bruxelles",
-      "sourceTitle": "Ouderen in Brussel: huisvesting, autonomie en gegevens",
+      "sourceTitle": "Senioren",
       "provenance": {
-        "sourceLastModified": "2026-02-22",
-        "sourceContentHash": "sha256:64e691a3d3c516eb7cb2c27a36bfa612",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:e2fd88329d26c74fc75da46142b39155",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Welke instantie coördineert het beleid inzake sociale huisvesting in het Brussels Gewest en houdt toezicht op de Openbare Vastgoedmaatschappijen?",
+      "question": "Waarvoor dienen de 61 miljoen euro die in juli 2026 voor de BGHM zijn vrijgemaakt?",
       "options": [
-        "De Brussels Governance Monitor (BGHM)",
-        "De Directie Publieke Ruimte van het Gewest",
-        "De Brussels Hoofdstedelijke Regering",
-        "De 16 individuele Openbare Vastgoedmaatschappijen gezamenlijk"
+        "Voor het strategisch plan voor duurzame renovatie van het sociale park",
+        "Voor de aankoop van gronden bestemd voor nieuwbouw",
+        "Voor de vervroegde terugbetaling van de schuld aan het Gewest",
+        "Voor de baremieke opwaardering van het personeel van de maatschappijen"
       ],
       "correct": 0,
-      "explanation": "De BGHM is de centrale coördinatieinstelling voor sociale huisvesting in Brussel en stuurt 16 OVM's aan. Dit is essentieel om te begrijpen hoe het woningbeleid in Brussel georganiseerd is.",
+      "explanation": "Het plan loopt over 2026-2035, met 219 geplande projecten waarvan er 117 al in uitvoering zijn. De BGHM is de gewestelijke instelling die instaat voor de renovatie van het sociale woningpark.",
       "sourceSlug": "/nl/dossiers/slrb",
-      "sourceTitle": "BGHM: 1 000+ sociale woningen en financiële consolidatie",
+      "sourceTitle": "BGHM",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:70744ded1f62b1bd7a27193ca500a78f",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:d03b61a4bb2183189a8d5665a7777264",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Welke twee activa stelde de regering voor te verkopen om de schuld van de BGHM af te lossen?",
+      "question": "Welk middel kiest de regering om de financiën van de BGHM te saneren?",
       "options": [
-        "Een deel van het woningpark in Anderlecht en de centrale kantoren van de BGHM",
-        "De Site Ariane in Sint-Lambrechts-Woluwe en de Site Palais in Schaarbeek",
-        "De Site Palais in Schaarbeek en het renovatieplan voor verouderde gebouwen",
-        "De Site Ariane in Sint-Lambrechts-Woluwe en een aantal sociale woningen uit het bestaande park"
+        "De verkoop van activa, waaronder ongeveer 200 sociale woningen",
+        "Een algemene huurverhoging van 3 % per jaar",
+        "Een lening gewaarborgd door de 19 Brusselse gemeenten",
+        "De fusie van de 16 erkende vastgoedmaatschappijen"
       ],
-      "correct": 1,
-      "explanation": "Het regeringsakkoord voorziet in de verkoop van beide terreinen om schulden af te lossen, aangevuld met de verkoop van ongeveer 200 bestaande sociale woningen. Dit is onderdeel van de financiële consolidatiestrategie.",
+      "correct": 0,
+      "explanation": "De sites Ariane in Sint-Lambrechts-Woluwe en Paleizen in Schaarbeek zijn betrokken. Die verkopen moeten de schuld van de BGHM verlagen, naast een enveloppe van 400 miljoen euro voor meer dan duizend openbare woningen.",
       "sourceSlug": "/nl/dossiers/slrb",
-      "sourceTitle": "BGHM: 1 000+ sociale woningen en financiële consolidatie",
+      "sourceTitle": "BGHM",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:70744ded1f62b1bd7a27193ca500a78f",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:d03b61a4bb2183189a8d5665a7777264",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
-      "domain": "Mobiliteit",
-      "question": "Welke historische maatregel rond het Koninklijk Kasteel van Laken heeft indirect gevolgen voor de verdeling van vliegtuiglawaai over Brussel?",
+      "domain": "Klimaat",
+      "question": "Waarom vinden de opstijgingen hoofdzakelijk boven Brussel plaats?",
       "options": [
-        "Een verbod sinds 1954 dat overvliegen binnen een straal van 1 500 meter rond het kasteel verbiedt, waardoor vliegtrajecten worden omgeleid naar naburige gemeenten",
-        "Een maximumsnelheid voor vliegtuigen die het kasteel naderen, wat extra circuits veroorzaakt boven andere wijken",
-        "Een nachtvliegverbod dat alleen geldt voor de zone rond het kasteel",
-        "Een verplichte hoogteverhoging boven het kasteel die ervoor zorgt dat lawaai naar lager gelegen gebieden verspreidt"
+        "De overheersende zuidwestenwinden leggen baan 25R op",
+        "De overheersende noordenwinden leggen baan 01 naar het oosten op",
+        "De lengte van de banen verhindert elk opstijgen naar het oosten",
+        "Een akkoord tussen de gewesten legt die verdeling vast sinds 1995"
       ],
       "correct": 0,
-      "explanation": "Dit verbod uit 1954 dwingt vliegtuigen om Laken heen te vliegen, waardoor de overlast wordt afgewenteld op naburige gemeenten. Dit illustreert hoe institutionele beschermingsmaatregelen voor bepaalde gebieden gevolgen hebben voor de verdeling van lasten in het Gewest.",
+      "explanation": "Die winden waaien 70 % van de tijd, wat de opstijgingen boven dichtbevolkte wijken stuurt. De Hoge Gezondheidsraad raamt de gezondheidskosten op meer dan een miljard euro per jaar.",
       "sourceSlug": "/nl/dossiers/survol-bruxelles",
-      "sourceTitle": "Overvliegen van Brussel: 40 jaar conflict, 450 000 omwonenden",
+      "sourceTitle": "Overvliegen Brussel",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:1e9df86f5dcf27e74b3425ac1b59bfa3",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:e45fadba0159c763f5091a38551a773e",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-titres-services-economie-sociale-0",
+      "source": "dossier",
+      "domain": "Werkgelegenheid",
+      "question": "Welke combinatie maakt een uitvoeringsbesluit van 2024 onverenigbaar voor de invoegorganisaties?",
+      "options": [
+        "Het dienstenchequecontract en steun verbonden aan een invoeglastgeving",
+        "Het dienstenchequecontract en een post als gesubsidieerde contractueel",
+        "De invoeglastgeving en een gemeentelijke tewerkstellingssubsidie",
+        "Het dienstenchequecontract en een startbaanovereenkomst"
+      ],
+      "correct": 0,
+      "explanation": "Dertien Brusselse organisaties combineerden beide al jaren en verliezen hun economisch model op 1 januari 2027. FeBISP spreekt van tot 735 bedreigde banen, het bevoegde kabinet houdt het op 347.",
+      "sourceSlug": "/nl/dossiers/titres-services-economie-sociale",
+      "sourceTitle": "Dienstencheques / Sociale economie",
+      "provenance": {
+        "sourceLastModified": "2026-06-18",
+        "sourceContentHash": "sha256:92613be9f903f358de670e7fcd9474b6",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-vice-gouverneur-0",
+      "source": "dossier",
+      "domain": "Institutioneel",
+      "question": "Welke opdracht oefent de vicegouverneur van Brussel uit?",
+      "options": [
+        "Toezien op de naleving van de wetten op het gebruik van de talen",
+        "De noodplanning van het arrondissement coördineren",
+        "Het toezicht uitoefenen op de begrotingen van de negentien gemeenten",
+        "De conferentie van de Brusselse burgemeesters voorzitten"
+      ],
+      "correct": 0,
+      "explanation": "Brussel heeft geen gouverneur meer sinds de zesde staatshervorming; zijn veiligheidsopdrachten worden uitgeoefend door een hoge ambtenaar. De taalcontrole betreft de negentien gemeenten en de negentien OCMW's.",
+      "sourceSlug": "/nl/dossiers/vice-gouverneur",
+      "sourceTitle": "Vicegouverneur",
+      "provenance": {
+        "sourceLastModified": "2026-06-15",
+        "sourceContentHash": "sha256:47c6a73762fb3e9f315d8310cde8e309",
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-vivaqua-0",
       "source": "dossier",
-      "domain": "Budget",
-      "question": "Welke twee organisaties worden volgens het regeringsakkoord van februari 2026 samengevoegd binnen de watervoorziening van Brussel?",
+      "domain": "Klimaat",
+      "question": "Wat verwijt de regulator BRUGEL aan het beheer van Vivaqua?",
       "options": [
-        "Vivaqua en BRUGEL",
-        "BRUGEL en het OCMW",
-        "Vivaqua en Hydria",
-        "Hydria en RWZI"
+        "Hoge onbetaalde facturen en kosten die niet verantwoord worden geacht",
+        "Een stelselmatige onderfacturering van de grootverbruikers",
+        "Een laattijdige publicatie van de gecertificeerde jaarrekeningen",
+        "Een overmatige uitbesteding van het onderhoud van het net"
       ],
-      "correct": 2,
-      "explanation": "Hydria, het bedrijf dat zich bezighoudt met waterrecyclage, wordt geïntegreerd binnen Vivaqua. Dit is onderdeel van de financiële consolidatie die het akkoord voorziet, samen met een herkapitalisatie van 180 miljoen euro.",
+      "correct": 0,
+      "explanation": "De regulator wijst op 73 miljoen euro niet-geïnde vorderingen en 35 miljoen euro uitgaven die buiten de tariefberekening vallen. De watertarieven stegen op 1 januari 2026 met 12,5 %, bij een schuld die de miljard nadert.",
       "sourceSlug": "/nl/dossiers/vivaqua",
-      "sourceTitle": "Vivaqua: financiële consolidatie aangekondigd",
+      "sourceTitle": "Vivaqua",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
+        "sourceLastModified": "2026-06-12",
         "sourceContentHash": "sha256:0b8178cdb4ed530602412f1a21f39858",
-        "generatedAt": "2026-04-12T09:51:39.108Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T21:09:41.511Z",
+  "generatedAt": "2026-08-05T21:11:50.060Z",
   "locale": "en",
-  "poolSize": 57,
+  "poolSize": 63,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -606,345 +606,483 @@
       "id": "dossier-accessibilite-pmr-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "According to the handistreaming ordinance of 2016, which of the following is NOT a requirement for Brussels-Capital Region policies?",
+      "question": "What obligation does the handistreaming ordinance place on the Brussels Region?",
       "options": [
-        "Considering disability aspects in public procurement and subsidies",
-        "Creating a dedicated budget allocation for disability services in every government ministry",
-        "Submitting an interim report to Parliament on progress",
-        "Systematically incorporating disability into all regional policies"
+        "To factor disability into all of its policies",
+        "To reserve a quota of adapted housing per municipality",
+        "To fund a reception centre in every municipality",
+        "To make public transport accessible before the end of 2028"
       ],
-      "correct": 1,
-      "explanation": "The 2016 handistreaming ordinance requires systematic incorporation of disability across policies and parliamentary reporting, but does not mandate a dedicated budget line in every ministry. The content highlights the absence of specific budgets in the current Regional Policy Declaration as a gap, not a legal requirement.",
+      "correct": 0,
+      "explanation": "The ordinance of 8 December 2016 also covers public procurement and subsidies, and requires the government to submit an interim report and an end-of-term report to Parliament.",
       "sourceSlug": "/en/dossiers/accessibilite-pmr",
-      "sourceTitle": "Accessibility and disability in Brussels: transport, employment and data",
+      "sourceTitle": "Accessibility PRM",
       "provenance": {
-        "sourceLastModified": "2026-03-18",
-        "sourceContentHash": "sha256:38684f61c6878a20e415717334285477",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:8b9bb7817fe15b7c596d7c27ab15471b",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Employment",
-      "question": "What is the main philosophical shift that occurred in the ACS scheme following the 2015 reform?",
+      "question": "What twofold mechanism underpins the subsidised contractual agents (ACS) scheme?",
       "options": [
-        "The scheme introduced mandatory university degrees for all subsidised contract workers",
-        "The scheme was completely eliminated and replaced with direct government employment in non-profits",
-        "The scheme shifted focus exclusively toward subsidising positions in local authorities rather than non-profits",
-        "The scheme changed from structural support for the social sector to an activation policy aimed at helping unemployed people transition to sustainable employment"
+        "A regional premium and a reduction in employer contributions",
+        "A zero-interest loan and an exemption from withholding tax",
+        "A training allowance and a quarterly service voucher",
+        "A municipal grant and a reimbursement of travel costs"
       ],
-      "correct": 3,
-      "explanation": "The 2015 reform marked a deliberate philosophical change in how ACS positions were understood, moving away from providing permanent jobs in the social sector toward treating positions as stepping stones for jobseekers. This shift has created tension with non-profits who argue their positions fulfill essential, permanent functions.",
+      "correct": 0,
+      "explanation": "The reduction in employer social security contributions brings them down to 0.56%. Positions are intended for jobseekers registered with Actiris, subject to conditions of unemployment duration, age or disability.",
       "sourceSlug": "/en/dossiers/acs",
-      "sourceTitle": "Subsidised Contract Workers: the weakened pillar of Brussels non-profit employment",
+      "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-03-06",
+        "sourceLastModified": "2026-07-05",
         "sourceContentHash": "sha256:4f85abfade655cc10e4b22652e10dc71",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Employment",
-      "question": "According to the content, what is the 'ACS differential' problem identified by non-profit employers?",
+      "question": "What did the 2015 reform introduce for a subsidised ACS position that falls vacant?",
       "options": [
-        "Employers must pay ACS workers the same salaries as regular staff, but the regional premium does not fully cover these costs, forcing employers to absorb the difference",
-        "There is a wage gap between ACS workers and those employed in the public administration sector",
-        "The ACS scheme provides different subsidy levels depending on the size of the non-profit organization",
-        "Different regions of Belgium receive unequal amounts of ACS funding from the federal government"
+        "A 6-month deadline to fill it, failing which it is lost",
+        "An automatic transfer of the position to another association",
+        "A compulsory audit of the employer every 3 financial years",
+        "A competitive procedure published in the Belgian Official Gazette"
       ],
       "correct": 0,
-      "explanation": "The ACS differential reveals a structural underfunding issue: non-profit agreements establish higher salary scales than those the ACS premium recognizes, and new benefits apply without supplementary budget. This particularly weakens smaller, subsidy-dependent organizations—read more about how this affects the sector's sustainability.",
+      "explanation": "That deadline cannot be extended. It explains the gap between the 10,000 subsidised positions at the end of 2017 and the 6,700 active positions estimated in 2024.",
       "sourceSlug": "/en/dossiers/acs",
-      "sourceTitle": "Subsidised Contract Workers: the weakened pillar of Brussels non-profit employment",
+      "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-03-06",
+        "sourceLastModified": "2026-07-05",
         "sourceContentHash": "sha256:4f85abfade655cc10e4b22652e10dc71",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-activa-0",
+      "source": "dossier",
+      "domain": "Employment",
+      "question": "What is the principle of the work allowance paid under Activa.brussels?",
+      "options": [
+        "The employer deducts it from the net salary, unchanged for the worker",
+        "The worker receives it on top of their usual pay",
+        "The municipality pays it directly to the training body",
+        "It fully replaces the salary during the trial period"
+      ],
+      "correct": 0,
+      "explanation": "The standard amount reaches 15,900 euros over 30 months, rising to 23,400 euros over 36 months for the « Plus » and reduced-capacity groups. A training incentive may be added.",
+      "sourceSlug": "/en/dossiers/activa",
+      "sourceTitle": "Activa.brussels",
+      "provenance": {
+        "sourceLastModified": "2026-07-05",
+        "sourceContentHash": "sha256:06f6aa38c8b4d1734dd1db6757ee4a67",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-assemblees-citoyennes-0",
       "source": "dossier",
       "domain": "Institutional",
-      "question": "How are citizens selected to participate in the Brussels Parliament's deliberative commissions?",
+      "question": "What ratio do the Brussels Parliament's rules set for a deliberative commission?",
       "options": [
-        "Through a public election held across all 19 Brussels municipalities",
-        "By nomination from local community organizations and civil society groups",
-        "Through a double random draw using national register numbers from residents aged 16 and over",
-        "Through a voluntary application process open to all Brussels residents"
+        "Three quarters citizens and one quarter MPs",
+        "Two thirds citizens and one third MPs",
+        "Half citizens and half MPs",
+        "One third citizens and two thirds MPs"
       ],
-      "correct": 2,
-      "explanation": "The deliberative commissions use a random selection process to ensure representative participation. This democratic mechanism is designed to include ordinary citizens regardless of their political knowledge or activism level, making it distinct from self-selected participation methods.",
+      "correct": 0,
+      "explanation": "The standard composition brings together 45 citizens and 15 MPs. The citizens are selected by a double draw by lot among Brussels residents aged sixteen and over.",
       "sourceSlug": "/en/dossiers/assemblees-citoyennes",
-      "sourceTitle": "Citizens' assemblies: 6 commissions completed, 205+ recommendations, 7th in preparation",
+      "sourceTitle": "Citizen Assemblies",
       "provenance": {
-        "sourceLastModified": "2026-02-26",
-        "sourceContentHash": "sha256:bc8e673b12359ac92e2f1a53f8b067d2",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-20",
+        "sourceContentHash": "sha256:baf2ffe8f49103808eccdee1483241e3",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "According to research on Brussels residents' well-being, which of the following is identified as the most influential factor affecting life satisfaction?",
+      "question": "Which factor does IBSA identify, in its 2025 Focus, as the most decisive for Brussels residents' life satisfaction?",
       "options": [
-        "Housing affordability",
-        "Employment opportunities",
-        "Physical and mental health",
-        "Access to public transportation"
+        "Health, both physical and mental",
+        "The level of qualification obtained",
+        "The size of the dwelling occupied",
+        "The length of daily commutes"
       ],
-      "correct": 2,
-      "explanation": "The IBSA Focus survey based on EU-SILC 2023 data identifies health (both physical and mental) as the primary determinant of life satisfaction, followed by standard of living, social relationships, housing, and work. This finding highlights why Brussels governance should prioritize health and well-being policies.",
+      "correct": 0,
+      "explanation": "Brussels residents give their life satisfaction an average score of 7.5 out of 10, identical to Wallonia and lower than Flanders. Then come living standards, social relations, housing and the ability to work.",
       "sourceSlug": "/en/dossiers/bien-etre",
-      "sourceTitle": "Well-being and quality of life in Brussels: indicators, rankings and challenges",
+      "sourceTitle": "Well-being",
       "provenance": {
-        "sourceLastModified": "2026-03-09",
-        "sourceContentHash": "sha256:3a8453ba58ef5a162ca5ed1948a1f54a",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:a36ca92d02094fe3cc01d49bba96ba29",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-bifff-0",
+      "source": "dossier",
+      "domain": "Culture",
+      "question": "What format did the BIFFF adopt for its 44th edition, in April 2026, under budgetary pressure?",
+      "options": [
+        "A single screening room, over 16 continuous days",
+        "Three simultaneous rooms, over 5 days of programming",
+        "A tour of the 19 municipalities, over 2 weeks",
+        "A fully online edition, over 10 days of access"
+      ],
+      "correct": 0,
+      "explanation": "The aim was to cut fixed costs while covering three busy weekends. The bet paid off: 60,000 spectators, a 30% rise and a record since the return to the Heysel.",
+      "sourceSlug": "/en/dossiers/bifff",
+      "sourceTitle": "BIFFF",
+      "provenance": {
+        "sourceLastModified": "2026-04-19",
+        "sourceContentHash": "sha256:3ae6c971492b558af51ef2aa6472aed2",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-bim-bruxelles-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "What gap between Brussels municipalities did the BIM status reveal among minors in January 2021?",
+      "options": [
+        "48% in Molenbeek-Saint-Jean against 9% in Woluwe-Saint-Pierre",
+        "33% in Molenbeek-Saint-Jean against 25% in Woluwe-Saint-Pierre",
+        "19% in Molenbeek-Saint-Jean against 13% in Woluwe-Saint-Pierre",
+        "90% in Molenbeek-Saint-Jean against 30% in Woluwe-Saint-Pierre"
+      ],
+      "correct": 0,
+      "explanation": "This one-to-five gradient is singular on a Belgian scale, between adjoining municipalities of fewer than 100,000 inhabitants. The status is a federal matter, managed by INAMI and granted by the health insurance funds.",
+      "sourceSlug": "/en/dossiers/bim-bruxelles",
+      "sourceTitle": "BIM Brussels",
+      "provenance": {
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:410a5036dedfcb0eca3ef654ad310c1f",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-commissaire-europe-0",
+      "source": "dossier",
+      "domain": "Institutional",
+      "question": "What becomes of the staff of the regional Commissioner to Europe's office once it is abolished?",
+      "options": [
+        "They are absorbed into Brussels International",
+        "They join the Belgian permanent representation",
+        "They are transferred to the Brussels Parliament",
+        "They are seconded to the European Commission"
+      ],
+      "correct": 0,
+      "explanation": "The abolition is part of the reform regrouping the regional administration into four pillars. According to the government, all tasks and missions are maintained; the real issue is high-level political access.",
+      "sourceSlug": "/en/dossiers/commissaire-europe",
+      "sourceTitle": "Commissioner to Europe",
+      "provenance": {
+        "sourceLastModified": "2026-06-26",
+        "sourceContentHash": "sha256:2ab67a356b7ce85ecd50697d182ad5ca",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-cpas-bruxellois-0",
+      "source": "dossier",
+      "domain": "Social",
+      "question": "What institutional feature characterises the Brussels CPASs?",
+      "options": [
+        "They depend on the federal level, Cocom and the municipalities at once",
+        "They depend solely on the Brussels-Capital Region",
+        "They are merged into a single regional structure",
+        "They are funded in equal shares by the nineteen municipalities"
+      ],
+      "correct": 0,
+      "explanation": "The federal level sets the framework and funds most individual assistance, Cocom exercises organic supervision, and the Region and the municipalities top it up. When the federal level withdraws a subsidy, the municipality pays.",
+      "sourceSlug": "/en/dossiers/cpas-bruxellois",
+      "sourceTitle": "Brussels CPASs",
+      "provenance": {
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:1c28b5d2371c0a56aad13bf4ef779a48",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-data-centers-ia-energie-0",
       "source": "dossier",
-      "domain": "Climate",
-      "question": "Why is Belgium becoming an increasingly attractive location for major data centre investments?",
+      "domain": "Digital",
+      "question": "What reversal has occurred in the energy consumption linked to artificial intelligence?",
       "options": [
-        "Belgium has implemented special tax incentives exclusively for data centre operators",
-        "The Belgian government has prioritized data centres in its Regional Policy Declaration",
-        "The Brussels-Capital Region has the lowest electricity prices in Europe",
-        "Established data centre hubs in other European cities are reaching capacity and redirecting investment towards Belgium"
+        "Inference now weighs more heavily than training",
+        "Training now weighs more heavily than inference",
+        "Storage now weighs more heavily than computation",
+        "Cooling now weighs more heavily than computation"
       ],
-      "correct": 3,
-      "explanation": "The content explains that saturation of established hubs like Frankfurt, London, Amsterdam, Paris, and Dublin is redirecting investment towards Belgium. This geographic shift is driving the rapid growth of the Belgian data centre sector, now accounting for twice the European average share of national electricity consumption.",
+      "correct": 0,
+      "explanation": "The day-to-day use of models accounts for 60 to 70% of the energy consumed by artificial intelligence, against 20 to 30% for training. It is user queries that weigh on the energy system.",
       "sourceSlug": "/en/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Data centres and AI: impact on the Brussels energy system",
+      "sourceTitle": "Data Centers & AI",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:ce90bf745b8320625b78e8bc9815cdda",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:7d824d960180a54a55649663a3fc17ce",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-data-centers-ia-energie-1",
       "source": "dossier",
-      "domain": "Climate",
-      "question": "How is the energy demand from artificial intelligence within data centres expected to change between 2024 and 2030?",
+      "domain": "Digital",
+      "question": "What does the Regional Policy Declaration provide for on data centres?",
       "options": [
-        "AI energy consumption will decrease as models become more efficient",
-        "AI will account for a stable proportion of data centre energy use throughout this period",
-        "AI's share of data centre energy consumption is projected to roughly double or triple, while the type of energy use will shift from model training to user queries",
-        "AI energy consumption will be phased out in favor of traditional computing methods"
+        "Nothing, it contains no specific reference to them",
+        "A moratorium on any new regional facility",
+        "A regional tax based on electricity consumption",
+        "An obligation to recover the heat produced"
       ],
-      "correct": 2,
-      "explanation": "The content indicates that AI's share of data centre energy consumption could grow from approximately 15% in 2024 to 35-50% by 2030. Crucially, the composition of this energy use is shifting: inference (everyday user queries) now dominates over training, meaning millions of daily user interactions increasingly drive energy demand rather than the initial model construction.",
+      "correct": 0,
+      "explanation": "The digital transition and the energy-climate strategy are dealt with separately there, with no mention of the sector's energy impact. At federal level, the Elia grid development plan for 2028-2038 will address that demand explicitly.",
       "sourceSlug": "/en/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Data centres and AI: impact on the Brussels energy system",
+      "sourceTitle": "Data Centers & AI",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:ce90bf745b8320625b78e8bc9815cdda",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-17",
+        "sourceContentHash": "sha256:7d824d960180a54a55649663a3fc17ce",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-enseignement-0",
       "source": "dossier",
-      "domain": "Social",
-      "question": "Which institution has virtually no power over compulsory education decisions in Brussels, even though Brussels residents pay taxes to it?",
+      "domain": "Education",
+      "question": "Who organises the compulsory education attended by Brussels children?",
       "options": [
-        "The Brussels-Capital Region government",
-        "The European Commission",
-        "The Wallonia-Brussels Federation Parliament",
-        "The Flemish Community Parliament"
+        "The Wallonia-Brussels Federation or the Flemish Community",
+        "The Brussels-Capital Region, through its administration",
+        "The nineteen municipalities, each for its own territory",
+        "The Common Community Commission, known as Cocom"
       ],
       "correct": 0,
-      "explanation": "Brussels residents pay regional taxes to the Brussels-Capital Region, yet education is managed by the Communities (FWB for francophone schools, Flemish Community for Dutch-language schools). This institutional separation means the Brussels government cannot prevent education cuts decided by these Communities.",
+      "explanation": "The Region, for which families pay regional taxes, has virtually no power over compulsory education. It can prevent neither the savings voted in the Federation's Parliament nor those voted in the Flemish Parliament.",
       "sourceSlug": "/en/dossiers/enseignement",
-      "sourceTitle": "Compulsory education in Brussels: the impact of FWB and Flemish Community budget cuts",
+      "sourceTitle": "Education",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
+        "sourceLastModified": "2026-07-20",
         "sourceContentHash": "sha256:67866ba286838a3fee6a7f1cecfb153d",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-enseignement-1",
       "source": "dossier",
-      "domain": "Social",
-      "question": "In the FWB's 2026-2027 school year reforms, what change is being made to upper secondary teachers' classroom teaching requirements?",
+      "domain": "Education",
+      "question": "What share of Brussels households with children mixes the French-speaking and Dutch-speaking school networks?",
       "options": [
-        "Their teaching hours will be eliminated in favor of administrative work",
-        "They will teach 22 hours per week instead of 20 hours",
-        "They will teach 18 hours per week instead of 20 hours",
-        "They will teach 20 hours per week instead of 22 hours"
+        "2.5%",
+        "96%",
+        "12%",
+        "24%"
       ],
-      "correct": 1,
-      "explanation": "Upper secondary teachers are moving from 20 to 22 hours of classroom teaching per week, aligning them with lower secondary teachers. This mechanically reduces temporary teaching positions available in Brussels schools, as fewer hours remain to distribute among staff.",
+      "correct": 0,
+      "explanation": "Of the 128,903 households counted by IBSA, 96% educate their children within a single system. About 2,897 households combine the two Communities.",
       "sourceSlug": "/en/dossiers/enseignement",
-      "sourceTitle": "Compulsory education in Brussels: the impact of FWB and Flemish Community budget cuts",
+      "sourceTitle": "Education",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
+        "sourceLastModified": "2026-07-20",
         "sourceContentHash": "sha256:67866ba286838a3fee6a7f1cecfb153d",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Economy",
-      "question": "Which Brussels institution provides free assessment and referral services for businesses in difficulty through the Centre pour Entreprises en difficulté (CEd)?",
+      "question": "How does the rise in Brussels bankruptcies in 2025 compare with the other regions?",
       "options": [
-        "The FPS Economy",
-        "Réseau Entreprendre Bruxelles",
-        "hub.brussels",
-        "The Brussels Enterprise Court"
+        "It is the strongest regional increase in the country",
+        "It is the only region declining over the past year",
+        "It is the weakest increase of the three regions",
+        "It is an increase identical to that of Flanders"
       ],
-      "correct": 2,
-      "explanation": "hub.brussels operates the CEd, offering free assessment and referral to struggling businesses. This is one of several regional support mechanisms available, though the number of cases handled relative to total bankruptcies is not yet publicly documented.",
+      "correct": 0,
+      "explanation": "Brussels bankruptcies rose by 13.2%, against 7.8% in Flanders and a fall of 3% in Wallonia. Construction and the hospitality sector are among the hardest hit.",
       "sourceSlug": "/en/dossiers/faillites-a-bruxelles",
-      "sourceTitle": "Bankruptcies in Brussels: overview, sectors and regional mechanisms",
+      "sourceTitle": "Bankruptcies",
       "provenance": {
-        "sourceLastModified": "2026-02-23",
-        "sourceContentHash": "sha256:e3f453ec536b6a7ea69f6269c544db88",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:6d722a2a39782465b79794deafc21feb",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-foyer-anderlechtois-0",
+      "source": "dossier",
+      "domain": "Housing",
+      "question": "What do the recommendations voted by the Brussels Parliament after the committee of inquiry into social housing provide for?",
+      "options": [
+        "A ban on any individual intervention by a board member",
+        "The outright abolition of the social housing companies",
+        "The transfer of allocations to the municipal executives",
+        "The publication of all waiting lists with names"
+      ],
+      "correct": 0,
+      "explanation": "The 26 recommendations are written for the sector as a whole, without naming the company concerned. They also close access to the regional database for political office-holders and strengthen whistleblower protection.",
+      "sourceSlug": "/en/dossiers/foyer-anderlechtois",
+      "sourceTitle": "Foyer anderlechtois",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:c2c77330532e62a03fbb0a0efd2b476c",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Security",
-      "question": "What constitutional mechanism was triggered when a conflict of interest motion was filed against the police zone merger project in the Brussels Parliament on 13 March 2026?",
+      "question": "What central argument do the municipalities make against merging the police zones?",
       "options": [
-        "A dissolution of the current police zone structure",
-        "A 60-day consultation period between the Brussels Parliament and the federal Chamber",
-        "An immediate suspension of all police operations in Brussels",
-        "A mandatory referendum among all Brussels municipalities"
+        "The structural under-representation of the small municipalities",
+        "The cost of the transition, left to the municipalities",
+        "The loss of the mayor's administrative policing power",
+        "The absence of any guarantee that police stations will remain"
       ],
-      "correct": 1,
-      "explanation": "The conflict of interest motion triggered a 60-day consultation period, which is a constitutional mechanism that suspends the federal legislative procedure and forces inter-institutional dialogue—though it does not definitively block the project. This allows time for institutional actors to address concerns before proceeding.",
+      "correct": 0,
+      "explanation": "Berchem-Sainte-Agathe would hold only 1.4% of the votes in the merged zone. Brulocalis has filed a collective appeal, alongside individual appeals from several mayors.",
       "sourceSlug": "/en/dossiers/fusion-polices",
-      "sourceTitle": "Police zone merger: from 6 to 1, vote expected before summer 2026",
+      "sourceTitle": "Police Zone Merger",
       "provenance": {
-        "sourceLastModified": "2026-03-15",
-        "sourceContentHash": "sha256:96912b5cccfd1b5fe95f3e2ed1385bf1",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-12",
+        "sourceContentHash": "sha256:aa947733879be94da7cc06dd645f61f5",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What is the main structural change in the new Regional Mobility Plan compared to Good Move?",
+      "question": "What does the regional mobility plan set to succeed Good Move refocus its cells around?",
       "options": [
-        "All bollards will be permanently removed from Brussels streets",
-        "Public transport will be eliminated in favor of cycling infrastructure",
-        "Circulation cells will be centered on school zones instead of neighborhoods",
-        "The plan will focus only on car-free Sundays throughout the year"
+        "School zones",
+        "Regional railway stations",
+        "Commercial areas",
+        "Parks and green spaces"
       ],
-      "correct": 2,
-      "explanation": "The new plan maintains the philosophy of calmed traffic but reorganizes its basic unit: instead of neighbourhood-wide cells, it will create smaller cells focused specifically on school zones to improve road safety and quality of life around schools. This represents a fundamental shift in scale and scope from the original Good Move approach.",
+      "correct": 0,
+      "explanation": "The government agreement provides for smaller cells, the removal of the contested bollards and a second car-free day per year. The traffic-calming philosophy is kept, on a reduced scale.",
       "sourceSlug": "/en/dossiers/good-move",
-      "sourceTitle": "Good Move: new regional plan to succeed it",
+      "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-03-13",
-        "sourceContentHash": "sha256:408cea3f9341e272f6f0adfa4496bdd0",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-16",
+        "sourceContentHash": "sha256:ed09fbd83471eecda35a96ad2b1ea0f6",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What was the main consequence of the government transition period between June 2024 and February 2026 for Brussels mobility policy?",
+      "question": "From when must the mobility plan set to succeed Good Move take effect in Brussels?",
       "options": [
-        "All existing neighbourhood cells were immediately dismantled and removed",
-        "All 19 communes agreed to expand the neighbourhood cell program",
-        "No new regional mobility decisions could be made, blocking expansion and investment while some communes maintained existing cells",
-        "The Brussels government completed the official evaluation of all deployed cells"
+        "From 2030",
+        "From 2026",
+        "From 2027",
+        "From 2028"
       ],
-      "correct": 2,
-      "explanation": "During this blocked period, key decisions on priority neighbourhoods, cycling infrastructure investments, regional coordination, and official evaluations were frozen. Some communes continued applying existing cells, but no new rollout could proceed, creating a governance standstill on mobility policy that lasted nearly two years.",
+      "correct": 0,
+      "explanation": "The evaluation must be completed by the end of 2026, followed by a period of possible corrections between 2027 and 2030. The official name of the future plan has not been announced.",
       "sourceSlug": "/en/dossiers/good-move",
-      "sourceTitle": "Good Move: new regional plan to succeed it",
+      "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-03-13",
-        "sourceContentHash": "sha256:408cea3f9341e272f6f0adfa4496bdd0",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-04-16",
+        "sourceContentHash": "sha256:ed09fbd83471eecda35a96ad2b1ea0f6",
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-lez-0",
       "source": "dossier",
-      "domain": "Climate",
-      "question": "Under the February 2026 government agreement, what financial options are available to owners of non-compliant vehicles to legally drive in Brussels?",
+      "domain": "Mobility",
+      "question": "What happens to the annual cap on fines under the new low-emission zone (LEZ) regime?",
       "options": [
-        "They can purchase an annual pass or pay a reduced fine per infraction",
-        "They must pay a one-time registration fee of 80 EUR",
-        "They must replace their vehicle within a year to avoid penalties",
-        "They can only drive during designated hours without additional payment"
+        "It is removed, while the per-offence fine falls",
+        "It is doubled, as is the per-offence fine",
+        "It is kept, with the per-offence fine unchanged",
+        "It is halved, with an increased per-offence fine"
       ],
       "correct": 0,
-      "explanation": "The agreement introduced an annual pass (350 EUR, or 200 EUR at social rate) as an alternative to paying fines per infraction, which were reduced from 350 EUR to 80 EUR. This creates flexibility for vehicle owners rather than forcing them to upgrade their cars.",
+      "explanation": "The fine per offence falls from 350 to 80 euros, but the cap of four fines a year disappears. An annual pass at 350 euros, or 200 euros at the social rate, allows drivers to circulate legally.",
       "sourceSlug": "/en/dossiers/lez",
-      "sourceTitle": "LEZ: maintained with annual pass and reduced fines",
+      "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
+        "sourceLastModified": "2026-06-25",
         "sourceContentHash": "sha256:4c45395a507e3cac8c3490a5e7982fb4",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-lez-1",
       "source": "dossier",
-      "domain": "Climate",
-      "question": "What legal concern did the Council of State raise about reducing LEZ fines?",
+      "domain": "Mobility",
+      "question": "On which constitutional principle does the Council of State base its criticism of the reduced fines in the Brussels low-emission zone (LEZ)?",
       "options": [
-        "The fines are too high and burden low-income drivers unfairly",
-        "The enforcement mechanism lacks sufficient technology to track violators",
-        "The regional government lacks authority to modify fine structures",
-        "Lower fines violate the constitutional standstill principle, which protects public health achievements"
+        "The standstill principle in matters of health",
+        "The principle of equality before regional taxation",
+        "The principle of proportionality of penalties",
+        "The principle of legal certainty for users"
       ],
-      "correct": 3,
-      "explanation": "The Council of State argued that reducing fines represents a regression in health protection for Brussels residents, violating the standstill principle. This legal opinion references a previous Constitutional Court ruling that annulled a similar LEZ postponement, indicating real constitutional risk for the current government approach.",
+      "correct": 0,
+      "explanation": "The reduction in fines amounts, in its view, to a rollback of health protection for Brussels residents. It also considers the proposed amounts too low to be effective, proportionate and dissuasive.",
       "sourceSlug": "/en/dossiers/lez",
-      "sourceTitle": "LEZ: maintained with annual pass and reduced fines",
+      "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
+        "sourceLastModified": "2026-06-25",
         "sourceContentHash": "sha256:4c45395a507e3cac8c3490a5e7982fb4",
-        "generatedAt": "2026-04-12T09:53:48.745Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {

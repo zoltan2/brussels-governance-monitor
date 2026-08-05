@@ -18,7 +18,14 @@
       "correct": 1,
       "explanation": "The coalition agreement explicitly commits to merging 25 regional structures into 4 pillars (entities), with a target of 20-30% reduction in operational costs. This administrative reform is a key mechanism to achieve the balanced budget goal by 2029.",
       "sourceSlug": "/en/domains/budget",
-      "sourceTitle": "Regional budget: targeting balance by 2029"
+      "sourceTitle": "Regional budget: targeting balance by 2029",
+      "provenance": {
+        "sourceLastModified": "2026-04-02",
+        "sourceContentHash": "sha256:b90ebbf7db9340c80fbe892910341f00",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-budget-1",
@@ -34,7 +41,14 @@
       "correct": 0,
       "explanation": "The coalition agreement explicitly states 'No new taxes — no City Tax, no kilometre charge,' ruling out both a City Tax and a kilometre charge. The other options reflect actual commitments: a one-point income tax reduction and a raised registration duty threshold for property transactions.",
       "sourceSlug": "/en/domains/budget",
-      "sourceTitle": "Regional budget: targeting balance by 2029"
+      "sourceTitle": "Regional budget: targeting balance by 2029",
+      "provenance": {
+        "sourceLastModified": "2026-04-02",
+        "sourceContentHash": "sha256:b90ebbf7db9340c80fbe892910341f00",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-cleanliness-0",
@@ -50,7 +64,14 @@
       "correct": 1,
       "explanation": "The Brussels Parliament established a 7th deliberative committee on public cleanliness comprising 45 randomly selected citizens and 15 MPs to formulate recommendations on waste management. This innovative democratic structure represents a new approach to citizen participation in governance.",
       "sourceSlug": "/en/domains/cleanliness",
-      "sourceTitle": "Cleanliness: regional brigades and immediate fine collection"
+      "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
+      "provenance": {
+        "sourceLastModified": "2026-03-27",
+        "sourceContentHash": "sha256:194dda235a1123ce2ae2d5896a414042",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-cleanliness-1",
@@ -66,7 +87,14 @@
       "correct": 0,
       "explanation": "The RPD commits to deploying underground containers and compactors in high-density neighbourhoods and installing smart cameras to monitor areas prone to illegal dumping. This dual approach combines preventive infrastructure with technological enforcement to address the cleanliness challenges identified by citizens.",
       "sourceSlug": "/en/domains/cleanliness",
-      "sourceTitle": "Cleanliness: regional brigades and immediate fine collection"
+      "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
+      "provenance": {
+        "sourceLastModified": "2026-03-27",
+        "sourceContentHash": "sha256:194dda235a1123ce2ae2d5896a414042",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-climate-0",
@@ -82,7 +110,14 @@
       "correct": 3,
       "explanation": "The coalition agreement of February 2026 replaced Renolution with zero-interest loans, though experts note this change creates ambiguous signals for the climate trajectory since it lacks a dedicated energy transition budget.",
       "sourceSlug": "/en/domains/climate",
-      "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending"
+      "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
+      "provenance": {
+        "sourceLastModified": "2026-03-26",
+        "sourceContentHash": "sha256:0e7fee42670d33846c929b41eab1bc11",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-climate-1",
@@ -98,7 +133,14 @@
       "correct": 2,
       "explanation": "The government filed an appeal in March 2026 citing 'legal clarity' as the stated reason, though the appeal concerns a broader legal framework than the specific brownfield sites protected in the coalition agreement, which has drawn criticism from environmental associations.",
       "sourceSlug": "/en/domains/climate",
-      "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending"
+      "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
+      "provenance": {
+        "sourceLastModified": "2026-03-26",
+        "sourceContentHash": "sha256:0e7fee42670d33846c929b41eab1bc11",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-digital-0",
@@ -114,7 +156,14 @@
       "correct": 1,
       "explanation": "BeCentral is a partner organisation for attracting technology companies to Brussels as part of the 'AI capital' strategy, not a key implementing agency. The three key agencies are Paradigm (CIRB), Easy Brussels, and IRISbox, which directly deliver digital services and administrative simplification.",
       "sourceSlug": "/en/domains/digital",
-      "sourceTitle": "Digital: bridging the digital divide and administrative simplification"
+      "sourceTitle": "Digital: bridging the digital divide and administrative simplification",
+      "provenance": {
+        "sourceLastModified": "2026-03-28",
+        "sourceContentHash": "sha256:c7e59fabbd2c38d0c378fd8105c44857",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-digital-1",
@@ -130,7 +179,14 @@
       "correct": 0,
       "explanation": "The 'Only once' principle is a core administrative simplification measure designed to avoid redundant data collection and improve the citizen experience. It reflects a commitment to using information the administration already possesses rather than repeatedly requesting the same data from citizens.",
       "sourceSlug": "/en/domains/digital",
-      "sourceTitle": "Digital: bridging the digital divide and administrative simplification"
+      "sourceTitle": "Digital: bridging the digital divide and administrative simplification",
+      "provenance": {
+        "sourceLastModified": "2026-03-28",
+        "sourceContentHash": "sha256:c7e59fabbd2c38d0c378fd8105c44857",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-economy-0",
@@ -146,7 +202,14 @@
       "correct": 3,
       "explanation": "The Urban Free Zone strategy relies on a tax lever (property tax and registration rights reduction), an administrative lever (single Fast-Track window), and a human lever (dedicated Actiris cell for jobs). This three-pronged approach aims to attract businesses and counter the construction sector crisis.",
       "sourceSlug": "/en/domains/economy",
-      "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital"
+      "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:e9599ad5e0ee5b1d4708aac538c921f4",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-economy-1",
@@ -162,7 +225,14 @@
       "correct": 1,
       "explanation": "Effective 1 March 2026, the federal government raised hotel VAT from 6% to 12%, directly impacting Brussels, which accounts for the majority of Belgium's tourist and business overnight stays. This was partially offset by a VAT reduction on soft drinks in hospitality establishments.",
       "sourceSlug": "/en/domains/economy",
-      "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital"
+      "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:e9599ad5e0ee5b1d4708aac538c921f4",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-education-0",
@@ -178,7 +248,14 @@
       "correct": 3,
       "explanation": "The VGC will assume complete responsibility for Dutch-speaking out-of-school care management, including policy, accreditation, budgets and coordination. This transition concludes a five-year phase that began when the BOA decree came into force in 2021.",
       "sourceSlug": "/en/domains/education",
-      "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions"
+      "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions",
+      "provenance": {
+        "sourceLastModified": "2026-03-02",
+        "sourceContentHash": "sha256:e3ec2e5343c2e42a1eb134654811a138",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-education-1",
@@ -194,7 +271,14 @@
       "correct": 2,
       "explanation": "Cocof exercises transferred competences specific to French-speaking education, particularly in continuing education and lifelong learning domains. Education in Brussels is primarily under the Communities (FWB and Flemish Community), with the Region intervening through specialized bodies like Cocof and VGC.",
       "sourceSlug": "/en/domains/education",
-      "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions"
+      "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions",
+      "provenance": {
+        "sourceLastModified": "2026-03-02",
+        "sourceContentHash": "sha256:e3ec2e5343c2e42a1eb134654811a138",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-employment-0",
@@ -210,7 +294,14 @@
       "correct": 0,
       "explanation": "The Regional Policy Declaration of February 2026 sets an ambitious 70% employment rate target for Brussels. This represents a significant challenge given the current structural employment rate of approximately 55% documented by the Itinera Institute study, revealing the scale of Brussels' labour market gap compared to other Belgian regions.",
       "sourceSlug": "/en/domains/employment",
-      "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism"
+      "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
+      "provenance": {
+        "sourceLastModified": "2026-04-08",
+        "sourceContentHash": "sha256:b5ffb5a0bfb5d8a4a4d5efbdf3d9bccb",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-employment-1",
@@ -226,7 +317,14 @@
       "correct": 1,
       "explanation": "The Itinera study reveals that Brussels is the only region where women's employment made zero progress and men's employment actually worsened during this period. In contrast, both Flanders and Wallonia saw employment gains across gender groups, highlighting Brussels' distinctive structural challenge in the labour market.",
       "sourceSlug": "/en/domains/employment",
-      "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism"
+      "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
+      "provenance": {
+        "sourceLastModified": "2026-04-08",
+        "sourceContentHash": "sha256:b5ffb5a0bfb5d8a4a4d5efbdf3d9bccb",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-housing-0",
@@ -242,7 +340,14 @@
       "correct": 2,
       "explanation": "The Coalition Agreement replaces Renolution premiums with zero-interest loans from 2027 onwards, with an envelope of EUR 66 million per year. This shift is designed to unlock housing financing but has raised concerns about accessibility for lower-income households, as noted by tax law experts.",
       "sourceSlug": "/en/domains/housing",
-      "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units"
+      "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:227d62ef59f0641e15a5d62a334dc16f",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-housing-1",
@@ -258,7 +363,14 @@
       "correct": 1,
       "explanation": "Brussels regulations require all homes to reach at least EPC label E by 2033. This deadline is significant because it creates pressure on renovation timelines, particularly in the context of the transition from premium support to zero-interest loans, which some industry experts fear may delay renovations.",
       "sourceSlug": "/en/domains/housing",
-      "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units"
+      "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:227d62ef59f0641e15a5d62a334dc16f",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-institutional-0",
@@ -274,7 +386,14 @@
       "correct": 1,
       "explanation": "The institutional reform places Actiris (employment) under one minister and Bruxelles Formation (vocational training) under another, a split that has drawn criticism from opposition parties who cite international recommendations for integration of these functions.",
       "sourceSlug": "/en/domains/institutional",
-      "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars"
+      "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
+      "provenance": {
+        "sourceLastModified": "2026-04-09",
+        "sourceContentHash": "sha256:9f4015b5db242fd9ccdb80bcc58c501a",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-institutional-1",
@@ -290,7 +409,14 @@
       "correct": 2,
       "explanation": "The delay in publishing the Dutch-language Regional Policy Declaration highlighted ongoing bilingualism challenges, particularly relevant given that Dutch proficiency has fallen from one-third to under one-quarter of the population since 2000, reflecting a structural language shift in Brussels.",
       "sourceSlug": "/en/domains/institutional",
-      "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars"
+      "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
+      "provenance": {
+        "sourceLastModified": "2026-04-09",
+        "sourceContentHash": "sha256:9f4015b5db242fd9ccdb80bcc58c501a",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-mobility-0",
@@ -306,7 +432,14 @@
       "correct": 2,
       "explanation": "The agreement freezes Metro 3 for 10 years and redirects investment towards a tram line, marking a significant shift in Brussels' mobility strategy. This decision ends the original Metro 3 extension project and prioritizes completing the existing tram network loop instead.",
       "sourceSlug": "/en/domains/mobility",
-      "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained"
+      "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:5f866550a5348bcf3165f88d94da9af3",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-mobility-1",
@@ -322,7 +455,14 @@
       "correct": 1,
       "explanation": "The STOP principle establishes a clear hierarchy where pedestrians come first, followed by cyclists, then public transport, and finally cars. This reflects a fundamental reorientation of Brussels' mobility governance toward more sustainable and human-centered transport planning.",
       "sourceSlug": "/en/domains/mobility",
-      "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained"
+      "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:5f866550a5348bcf3165f88d94da9af3",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-security-0",
@@ -338,7 +478,14 @@
       "correct": 2,
       "explanation": "CORES brings together the 19 Brussels mayors, 6 police zone chiefs, the King's Prosecutor and OCAM representatives to coordinate regional security. The council was activated in March 2026 following international security concerns, demonstrating its role as a coordination mechanism rather than an investigative or judicial body.",
       "sourceSlug": "/en/domains/security",
-      "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate"
+      "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:1b260a1cd75a28f6596606fe4fb00e97",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-security-1",
@@ -354,7 +501,14 @@
       "correct": 3,
       "explanation": "The RPD establishes a regional anti-drug commissioner and an integrated regional drug plan using a chain approach covering prevention, harm reduction, and enforcement. This mirrors the federal mechanism and responds to the significant rise in drug-related offences noted in the 2024 crime data.",
       "sourceSlug": "/en/domains/security",
-      "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate"
+      "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:1b260a1cd75a28f6596606fe4fb00e97",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-social-0",
@@ -370,7 +524,14 @@
       "correct": 2,
       "explanation": "The Coalition Agreement specifically dedicates EUR 10 million for security measures at the Midi and Nord stations, including cameras, police, cleaning services, and support for vulnerable people. This reflects the region's commitment to social security integration at major transport hubs.",
       "sourceSlug": "/en/domains/social",
-      "sourceTitle": "Social affairs: EUR 10M for stations, drug commissioner, services protected"
+      "sourceTitle": "Social affairs: EUR 10M for stations, drug commissioner, services protected",
+      "provenance": {
+        "sourceLastModified": "2026-04-06",
+        "sourceContentHash": "sha256:8bc219997685f705fca8b88137760b28",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-social-1",
@@ -386,7 +547,14 @@
       "correct": 2,
       "explanation": "HIAP is a cross-cutting approach that embeds health dimensions into broader regional policies beyond traditional healthcare. It recognizes that factors like urban design, transportation systems, and housing quality significantly impact public health outcomes.",
       "sourceSlug": "/en/domains/social",
-      "sourceTitle": "Social affairs: EUR 10M for stations, drug commissioner, services protected"
+      "sourceTitle": "Social affairs: EUR 10M for stations, drug commissioner, services protected",
+      "provenance": {
+        "sourceLastModified": "2026-04-06",
+        "sourceContentHash": "sha256:8bc219997685f705fca8b88137760b28",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-urban-planning-0",
@@ -402,7 +570,14 @@
       "correct": 3,
       "explanation": "The planning amnesty creates a compliance mechanism for situations predating a cut-off date, aiming to reduce infringement backlogs and provide legal certainty to property owners. This is distinct from speeding up future permits or changing heritage protections.",
       "sourceSlug": "/en/domains/urban-planning",
-      "sourceTitle": "Urban Planning: faster permits and planning amnesty"
+      "sourceTitle": "Urban Planning: faster permits and planning amnesty",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:f87810c7c05ccc3a6cfd1723f251cd1e",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "domain-urban-planning-1",
@@ -418,7 +593,14 @@
       "correct": 1,
       "explanation": "The CRMS reform removes the binding nature of the Commission's opinion, replacing it with advisory input. This aims to unblock renovation projects in heritage areas while maintaining heritage protection—balancing development speed with cultural preservation.",
       "sourceSlug": "/en/domains/urban-planning",
-      "sourceTitle": "Urban Planning: faster permits and planning amnesty"
+      "sourceTitle": "Urban Planning: faster permits and planning amnesty",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:f87810c7c05ccc3a6cfd1723f251cd1e",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-accessibilite-pmr-0",
@@ -434,7 +616,14 @@
       "correct": 1,
       "explanation": "The 2016 handistreaming ordinance requires systematic incorporation of disability across policies and parliamentary reporting, but does not mandate a dedicated budget line in every ministry. The content highlights the absence of specific budgets in the current Regional Policy Declaration as a gap, not a legal requirement.",
       "sourceSlug": "/en/dossiers/accessibilite-pmr",
-      "sourceTitle": "Accessibility and disability in Brussels: transport, employment and data"
+      "sourceTitle": "Accessibility and disability in Brussels: transport, employment and data",
+      "provenance": {
+        "sourceLastModified": "2026-03-18",
+        "sourceContentHash": "sha256:38684f61c6878a20e415717334285477",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-acs-0",
@@ -450,7 +639,14 @@
       "correct": 3,
       "explanation": "The 2015 reform marked a deliberate philosophical change in how ACS positions were understood, moving away from providing permanent jobs in the social sector toward treating positions as stepping stones for jobseekers. This shift has created tension with non-profits who argue their positions fulfill essential, permanent functions.",
       "sourceSlug": "/en/dossiers/acs",
-      "sourceTitle": "Subsidised Contract Workers: the weakened pillar of Brussels non-profit employment"
+      "sourceTitle": "Subsidised Contract Workers: the weakened pillar of Brussels non-profit employment",
+      "provenance": {
+        "sourceLastModified": "2026-03-06",
+        "sourceContentHash": "sha256:4f85abfade655cc10e4b22652e10dc71",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-acs-1",
@@ -466,7 +662,14 @@
       "correct": 0,
       "explanation": "The ACS differential reveals a structural underfunding issue: non-profit agreements establish higher salary scales than those the ACS premium recognizes, and new benefits apply without supplementary budget. This particularly weakens smaller, subsidy-dependent organizations—read more about how this affects the sector's sustainability.",
       "sourceSlug": "/en/dossiers/acs",
-      "sourceTitle": "Subsidised Contract Workers: the weakened pillar of Brussels non-profit employment"
+      "sourceTitle": "Subsidised Contract Workers: the weakened pillar of Brussels non-profit employment",
+      "provenance": {
+        "sourceLastModified": "2026-03-06",
+        "sourceContentHash": "sha256:4f85abfade655cc10e4b22652e10dc71",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-assemblees-citoyennes-0",
@@ -482,7 +685,14 @@
       "correct": 2,
       "explanation": "The deliberative commissions use a random selection process to ensure representative participation. This democratic mechanism is designed to include ordinary citizens regardless of their political knowledge or activism level, making it distinct from self-selected participation methods.",
       "sourceSlug": "/en/dossiers/assemblees-citoyennes",
-      "sourceTitle": "Citizens' assemblies: 6 commissions completed, 205+ recommendations, 7th in preparation"
+      "sourceTitle": "Citizens' assemblies: 6 commissions completed, 205+ recommendations, 7th in preparation",
+      "provenance": {
+        "sourceLastModified": "2026-02-26",
+        "sourceContentHash": "sha256:bc8e673b12359ac92e2f1a53f8b067d2",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-bien-etre-0",
@@ -498,7 +708,14 @@
       "correct": 2,
       "explanation": "The IBSA Focus survey based on EU-SILC 2023 data identifies health (both physical and mental) as the primary determinant of life satisfaction, followed by standard of living, social relationships, housing, and work. This finding highlights why Brussels governance should prioritize health and well-being policies.",
       "sourceSlug": "/en/dossiers/bien-etre",
-      "sourceTitle": "Well-being and quality of life in Brussels: indicators, rankings and challenges"
+      "sourceTitle": "Well-being and quality of life in Brussels: indicators, rankings and challenges",
+      "provenance": {
+        "sourceLastModified": "2026-03-09",
+        "sourceContentHash": "sha256:3a8453ba58ef5a162ca5ed1948a1f54a",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-data-centers-ia-energie-0",
@@ -514,7 +731,14 @@
       "correct": 3,
       "explanation": "The content explains that saturation of established hubs like Frankfurt, London, Amsterdam, Paris, and Dublin is redirecting investment towards Belgium. This geographic shift is driving the rapid growth of the Belgian data centre sector, now accounting for twice the European average share of national electricity consumption.",
       "sourceSlug": "/en/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Data centres and AI: impact on the Brussels energy system"
+      "sourceTitle": "Data centres and AI: impact on the Brussels energy system",
+      "provenance": {
+        "sourceLastModified": "2026-02-23",
+        "sourceContentHash": "sha256:ce90bf745b8320625b78e8bc9815cdda",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-data-centers-ia-energie-1",
@@ -530,7 +754,14 @@
       "correct": 2,
       "explanation": "The content indicates that AI's share of data centre energy consumption could grow from approximately 15% in 2024 to 35-50% by 2030. Crucially, the composition of this energy use is shifting: inference (everyday user queries) now dominates over training, meaning millions of daily user interactions increasingly drive energy demand rather than the initial model construction.",
       "sourceSlug": "/en/dossiers/data-centers-ia-energie",
-      "sourceTitle": "Data centres and AI: impact on the Brussels energy system"
+      "sourceTitle": "Data centres and AI: impact on the Brussels energy system",
+      "provenance": {
+        "sourceLastModified": "2026-02-23",
+        "sourceContentHash": "sha256:ce90bf745b8320625b78e8bc9815cdda",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-enseignement-0",
@@ -546,7 +777,14 @@
       "correct": 0,
       "explanation": "Brussels residents pay regional taxes to the Brussels-Capital Region, yet education is managed by the Communities (FWB for francophone schools, Flemish Community for Dutch-language schools). This institutional separation means the Brussels government cannot prevent education cuts decided by these Communities.",
       "sourceSlug": "/en/dossiers/enseignement",
-      "sourceTitle": "Compulsory education in Brussels: the impact of FWB and Flemish Community budget cuts"
+      "sourceTitle": "Compulsory education in Brussels: the impact of FWB and Flemish Community budget cuts",
+      "provenance": {
+        "sourceLastModified": "2026-04-09",
+        "sourceContentHash": "sha256:67866ba286838a3fee6a7f1cecfb153d",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-enseignement-1",
@@ -562,7 +800,14 @@
       "correct": 1,
       "explanation": "Upper secondary teachers are moving from 20 to 22 hours of classroom teaching per week, aligning them with lower secondary teachers. This mechanically reduces temporary teaching positions available in Brussels schools, as fewer hours remain to distribute among staff.",
       "sourceSlug": "/en/dossiers/enseignement",
-      "sourceTitle": "Compulsory education in Brussels: the impact of FWB and Flemish Community budget cuts"
+      "sourceTitle": "Compulsory education in Brussels: the impact of FWB and Flemish Community budget cuts",
+      "provenance": {
+        "sourceLastModified": "2026-04-09",
+        "sourceContentHash": "sha256:67866ba286838a3fee6a7f1cecfb153d",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-faillites-a-bruxelles-0",
@@ -578,7 +823,14 @@
       "correct": 2,
       "explanation": "hub.brussels operates the CEd, offering free assessment and referral to struggling businesses. This is one of several regional support mechanisms available, though the number of cases handled relative to total bankruptcies is not yet publicly documented.",
       "sourceSlug": "/en/dossiers/faillites-a-bruxelles",
-      "sourceTitle": "Bankruptcies in Brussels: overview, sectors and regional mechanisms"
+      "sourceTitle": "Bankruptcies in Brussels: overview, sectors and regional mechanisms",
+      "provenance": {
+        "sourceLastModified": "2026-02-23",
+        "sourceContentHash": "sha256:e3f453ec536b6a7ea69f6269c544db88",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-fusion-polices-0",
@@ -594,7 +846,14 @@
       "correct": 1,
       "explanation": "The conflict of interest motion triggered a 60-day consultation period, which is a constitutional mechanism that suspends the federal legislative procedure and forces inter-institutional dialogue—though it does not definitively block the project. This allows time for institutional actors to address concerns before proceeding.",
       "sourceSlug": "/en/dossiers/fusion-polices",
-      "sourceTitle": "Police zone merger: from 6 to 1, vote expected before summer 2026"
+      "sourceTitle": "Police zone merger: from 6 to 1, vote expected before summer 2026",
+      "provenance": {
+        "sourceLastModified": "2026-03-15",
+        "sourceContentHash": "sha256:96912b5cccfd1b5fe95f3e2ed1385bf1",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-good-move-0",
@@ -610,7 +869,14 @@
       "correct": 2,
       "explanation": "The new plan maintains the philosophy of calmed traffic but reorganizes its basic unit: instead of neighbourhood-wide cells, it will create smaller cells focused specifically on school zones to improve road safety and quality of life around schools. This represents a fundamental shift in scale and scope from the original Good Move approach.",
       "sourceSlug": "/en/dossiers/good-move",
-      "sourceTitle": "Good Move: new regional plan to succeed it"
+      "sourceTitle": "Good Move: new regional plan to succeed it",
+      "provenance": {
+        "sourceLastModified": "2026-03-13",
+        "sourceContentHash": "sha256:408cea3f9341e272f6f0adfa4496bdd0",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-good-move-1",
@@ -626,7 +892,14 @@
       "correct": 2,
       "explanation": "During this blocked period, key decisions on priority neighbourhoods, cycling infrastructure investments, regional coordination, and official evaluations were frozen. Some communes continued applying existing cells, but no new rollout could proceed, creating a governance standstill on mobility policy that lasted nearly two years.",
       "sourceSlug": "/en/dossiers/good-move",
-      "sourceTitle": "Good Move: new regional plan to succeed it"
+      "sourceTitle": "Good Move: new regional plan to succeed it",
+      "provenance": {
+        "sourceLastModified": "2026-03-13",
+        "sourceContentHash": "sha256:408cea3f9341e272f6f0adfa4496bdd0",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-lez-0",
@@ -642,7 +915,14 @@
       "correct": 0,
       "explanation": "The agreement introduced an annual pass (350 EUR, or 200 EUR at social rate) as an alternative to paying fines per infraction, which were reduced from 350 EUR to 80 EUR. This creates flexibility for vehicle owners rather than forcing them to upgrade their cars.",
       "sourceSlug": "/en/dossiers/lez",
-      "sourceTitle": "LEZ: maintained with annual pass and reduced fines"
+      "sourceTitle": "LEZ: maintained with annual pass and reduced fines",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:4c45395a507e3cac8c3490a5e7982fb4",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-lez-1",
@@ -658,7 +938,14 @@
       "correct": 3,
       "explanation": "The Council of State argued that reducing fines represents a regression in health protection for Brussels residents, violating the standstill principle. This legal opinion references a previous Constitutional Court ruling that annulled a similar LEZ postponement, indicating real constitutional risk for the current government approach.",
       "sourceSlug": "/en/dossiers/lez",
-      "sourceTitle": "LEZ: maintained with annual pass and reduced fines"
+      "sourceTitle": "LEZ: maintained with annual pass and reduced fines",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:4c45395a507e3cac8c3490a5e7982fb4",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-metro-3-0",
@@ -674,7 +961,14 @@
       "correct": 2,
       "explanation": "The agreement explicitly states that Metro 3 is replaced by a tram that completes the loop of the existing tram network. This represents a fundamental shift in investment strategy from underground metro to surface tram infrastructure.",
       "sourceSlug": "/en/dossiers/metro-3",
-      "sourceTitle": "Metro 3: project frozen for 10 years, replaced by tram"
+      "sourceTitle": "Metro 3: project frozen for 10 years, replaced by tram",
+      "provenance": {
+        "sourceLastModified": "2026-03-26",
+        "sourceContentHash": "sha256:e10db2590c2bc439fd29ef9b315135c8",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-metro-3-1",
@@ -690,7 +984,14 @@
       "correct": 0,
       "explanation": "The Court of Audit's report revealed massive cost overruns and concluded that the project's financial sustainability was 'seriously compromised', which directly led negotiators to freeze the project during government formation talks.",
       "sourceSlug": "/en/dossiers/metro-3",
-      "sourceTitle": "Metro 3: project frozen for 10 years, replaced by tram"
+      "sourceTitle": "Metro 3: project frozen for 10 years, replaced by tram",
+      "provenance": {
+        "sourceLastModified": "2026-03-26",
+        "sourceContentHash": "sha256:e10db2590c2bc439fd29ef9b315135c8",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-mobilite-partagee-0",
@@ -706,7 +1007,14 @@
       "correct": 3,
       "explanation": "The regulation establishes a cap of 6,000 e-scooters per licence. This fleet limitation was intended to manage the shared mobility market, though the Council of State temporarily suspended these caps in April 2024 before they were later upheld.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
-      "sourceTitle": "Shared mobility in Brussels: e-scooters, bicycles, taxis and the battle over concessions"
+      "sourceTitle": "Shared mobility in Brussels: e-scooters, bicycles, taxis and the battle over concessions",
+      "provenance": {
+        "sourceLastModified": "2026-02-24",
+        "sourceContentHash": "sha256:8894513b8288947b5ea1034e544e59e8",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-mobilite-partagee-1",
@@ -722,7 +1030,14 @@
       "correct": 2,
       "explanation": "The Villo! concession agreement, signed in November 2008, ends in September 2026. The Brussels government has commissioned a comparative study but has not yet announced a decision on whether to maintain docking stations, transition to free-floating bikes, or adopt a hybrid model.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
-      "sourceTitle": "Shared mobility in Brussels: e-scooters, bicycles, taxis and the battle over concessions"
+      "sourceTitle": "Shared mobility in Brussels: e-scooters, bicycles, taxis and the battle over concessions",
+      "provenance": {
+        "sourceLastModified": "2026-02-24",
+        "sourceContentHash": "sha256:8894513b8288947b5ea1034e544e59e8",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-petite-enfance-0",
@@ -738,7 +1053,14 @@
       "correct": 0,
       "explanation": "Opgroeien, representing the Flemish Community, handles approval and funding of Dutch-language nurseries in Brussels, while ONE manages francophone structures. This division of authority across language communities is a defining feature of Brussels governance.",
       "sourceSlug": "/en/dossiers/petite-enfance",
-      "sourceTitle": "Early childhood in Brussels: nurseries, waiting lists and triple institutional authority"
+      "sourceTitle": "Early childhood in Brussels: nurseries, waiting lists and triple institutional authority",
+      "provenance": {
+        "sourceLastModified": "2026-04-09",
+        "sourceContentHash": "sha256:c6cf957429b98305a4a282f2d254b2ba",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-petite-enfance-1",
@@ -754,7 +1076,14 @@
       "correct": 2,
       "explanation": "Since waiting lists are kept separately by language community and institution, a family waiting for a francophone place has no access to an available Dutch-language place unless they have registered on that separate list. This structural fragmentation directly impacts families' ability to return to work after maternity leave.",
       "sourceSlug": "/en/dossiers/petite-enfance",
-      "sourceTitle": "Early childhood in Brussels: nurseries, waiting lists and triple institutional authority"
+      "sourceTitle": "Early childhood in Brussels: nurseries, waiting lists and triple institutional authority",
+      "provenance": {
+        "sourceLastModified": "2026-04-09",
+        "sourceContentHash": "sha256:c6cf957429b98305a4a282f2d254b2ba",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-pfas-0",
@@ -770,7 +1099,14 @@
       "correct": 1,
       "explanation": "TFA's resistance to standard filtration methods creates a significant technical and cost problem for water treatment. This distinction is crucial for understanding why Brussels faces a unique drinking water challenge even though Vivaqua confirms other PFAS standards are met.",
       "sourceSlug": "/en/dossiers/pfas",
-      "sourceTitle": "PFAS in Brussels: soil and water contamination"
+      "sourceTitle": "PFAS in Brussels: soil and water contamination",
+      "provenance": {
+        "sourceLastModified": "2026-03-04",
+        "sourceContentHash": "sha256:7fed17034e8718f9a061272829219657",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-pfas-1",
@@ -786,7 +1122,14 @@
       "correct": 3,
       "explanation": "The Superior Health Council's 'maximum health values' represent a precautionary approach with much stricter limits than current legal 'quality limits.' Understanding this distinction helps explain why civil society organisations like Inter-Environnement Bruxelles call for regulatory reform based on public health rather than minimum compliance.",
       "sourceSlug": "/en/dossiers/pfas",
-      "sourceTitle": "PFAS in Brussels: soil and water contamination"
+      "sourceTitle": "PFAS in Brussels: soil and water contamination",
+      "provenance": {
+        "sourceLastModified": "2026-03-04",
+        "sourceContentHash": "sha256:7fed17034e8718f9a061272829219657",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-plan-securite-0",
@@ -802,7 +1145,14 @@
       "correct": 1,
       "explanation": "The government agreement of 12 February 2026 introduced a dedicated regional anti-drugs commissioner as a new authority specifically focused on combating narcotics in Brussels. This represents a structural innovation in how the region coordinates its drug enforcement efforts.",
       "sourceSlug": "/en/dossiers/plan-securite",
-      "sourceTitle": "Security plan: anti-drugs commissioner, 10M EUR for stations and police zone merger"
+      "sourceTitle": "Security plan: anti-drugs commissioner, 10M EUR for stations and police zone merger",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:8df82b93168a2ba425fa84894f2863f4",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-reforme-administration-0",
@@ -818,7 +1168,14 @@
       "correct": 0,
       "explanation": "Pillar 1 consolidates cross-cutting administrative functions that support all regional entities. Understanding these transversal services is key to grasping how the reform aims to reduce duplication and improve efficiency across the Brussels administration.",
       "sourceSlug": "/en/dossiers/reforme-administration",
-      "sourceTitle": "Reform of the regional administration: from 25 entities to 4 pillars"
+      "sourceTitle": "Reform of the regional administration: from 25 entities to 4 pillars",
+      "provenance": {
+        "sourceLastModified": "2026-03-09",
+        "sourceContentHash": "sha256:6663b19cf5e74c8fab69fe96eaf3a39b",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-rse-0",
@@ -834,7 +1191,14 @@
       "correct": 3,
       "explanation": "The Shifting Economy is jointly led by Brussels Environment and Brussels Economy and Employment (BEE), with additional support from hub.brussels and finance&invest.brussels. Understanding the governance structure helps clarify how the Region coordinates its economic transition efforts.",
       "sourceSlug": "/en/dossiers/rse",
-      "sourceTitle": "Economic Transition: Shifting Economy, Labels and Sustainability Reporting"
+      "sourceTitle": "Economic Transition: Shifting Economy, Labels and Sustainability Reporting",
+      "provenance": {
+        "sourceLastModified": "2026-03-03",
+        "sourceContentHash": "sha256:da8c341afb9b430b77375d8402d4b175",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-seniors-a-bruxelles-0",
@@ -850,7 +1214,14 @@
       "correct": 2,
       "explanation": "The 2024 accreditation standards represent a fundamental reform in how Brussels nursing homes must operate, prioritizing residents' autonomy and participation rather than purely medical care delivery. This reflects evolving best practices in elderly care governance.",
       "sourceSlug": "/en/dossiers/seniors-a-bruxelles",
-      "sourceTitle": "Seniors in Brussels: housing, autonomy and data"
+      "sourceTitle": "Seniors in Brussels: housing, autonomy and data",
+      "provenance": {
+        "sourceLastModified": "2026-02-22",
+        "sourceContentHash": "sha256:3f9b9074a9b1df43ee0ac380a75ddd57",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-slrb-0",
@@ -866,7 +1237,14 @@
       "correct": 0,
       "explanation": "The caretaker government period created a legal and political deadlock that prevented structural investment decisions. Once the new government agreement was signed on 12 February 2026, this blockage was lifted, unblocking multi-year renovation and construction plans.",
       "sourceSlug": "/en/dossiers/slrb",
-      "sourceTitle": "SLRB: 1,000+ public housing units and financial consolidation"
+      "sourceTitle": "SLRB: 1,000+ public housing units and financial consolidation",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:d870ab78f792a4fe834d446b7ae193e5",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-slrb-1",
@@ -882,7 +1260,14 @@
       "correct": 3,
       "explanation": "The government decided to sell several assets including the Ariane and Palais land sites, plus approximately 200 social housing units. These disposals aim to reduce the SLRB's debt to the Brussels Region while a deconsolidation fund will help remove this debt from the regional budget.",
       "sourceSlug": "/en/dossiers/slrb",
-      "sourceTitle": "SLRB: 1,000+ public housing units and financial consolidation"
+      "sourceTitle": "SLRB: 1,000+ public housing units and financial consolidation",
+      "provenance": {
+        "sourceLastModified": "2026-04-05",
+        "sourceContentHash": "sha256:d870ab78f792a4fe834d446b7ae193e5",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-survol-bruxelles-0",
@@ -898,7 +1283,14 @@
       "correct": 1,
       "explanation": "The structural geography of the airport means south-westerly winds (which occur about 70% of the time) naturally require aircraft to take off on runway 25R in a direction that overflies central and northern Brussels. This technical constraint has been at the core of the 40-year conflict between airport operations and residents' quality of life.",
       "sourceSlug": "/en/dossiers/survol-bruxelles",
-      "sourceTitle": "Brussels Overflight: 40 Years of Conflict, 450,000 Affected Residents"
+      "sourceTitle": "Brussels Overflight: 40 Years of Conflict, 450,000 Affected Residents",
+      "provenance": {
+        "sourceLastModified": "2026-03-26",
+        "sourceContentHash": "sha256:7be34d0a7f03f2c887e21ca1fa946cea",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     },
     {
       "id": "dossier-vivaqua-0",
@@ -914,7 +1306,14 @@
       "correct": 1,
       "explanation": "The deconsolidation fund is a specific financial mechanism designed to separate Vivaqua's debt from the regional budget, allowing the Region to provide a recapitalisation while managing its fiscal position separately. This is a key structural innovation in the government agreement.",
       "sourceSlug": "/en/dossiers/vivaqua",
-      "sourceTitle": "Vivaqua: financial consolidation announced"
+      "sourceTitle": "Vivaqua: financial consolidation announced",
+      "provenance": {
+        "sourceLastModified": "2026-03-04",
+        "sourceContentHash": "sha256:bf7352c06cb51b633cecbae734ae7079",
+        "generatedAt": "2026-04-12T09:53:48.745Z",
+        "model": "claude-haiku-4-5-20251001",
+        "promptVersion": "v1"
+      }
     }
   ]
 }

@@ -24,7 +24,17 @@ CHANGED_ALL="$(git diff --name-only "$RANGE" 2>/dev/null || true)"
 [ -z "$CHANGED_ALL" ] && { echo "preflight: aucun changement vs $BASE — OK"; exit 0; }
 
 CHANGED_MDX="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^content/.*\.mdx$' || true)"
+CHANGED_QUIZ="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^public/quiz-data-.*\.json$' || true)"
 rc=0
+
+# 0) Pools de quiz : mêmes règles éditoriales que les fiches (ils vivent hors
+#    de content/, donc le content lint ne les voit pas).
+if [ -n "$CHANGED_QUIZ" ]; then
+  if ! npx tsx scripts/quiz-lint.ts; then
+    echo "❌ quiz-lint a trouvé des erreurs bloquantes"
+    rc=1
+  fi
+fi
 
 # 1) Phrases temporelles relatives (content-integrity Rule 1)
 PATTERNS="scripts/content-lint/temporal-patterns.txt"

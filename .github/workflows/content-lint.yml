@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - 'content/**'
+      # Le pool de quiz vit dans public/ mais porte des affirmations
+      # éditoriales : il doit passer les mêmes règles que les fiches.
+      - 'public/quiz-data-*.json'
+      - 'scripts/quiz-lint.ts'
 
 jobs:
   content-lint:
@@ -117,3 +121,22 @@ jobs:
             exit 1
           fi
           echo "OK: All lastModified dates updated"
+
+  quiz-lint:
+    name: Quiz pool checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Structure et phrases temporelles bloquent ; les soupçons de fuite de
+      # réponse sont affichés comme avertissements et demandent un arbitrage.
+      - name: Lint des pools de quiz
+        run: npm run quiz:lint

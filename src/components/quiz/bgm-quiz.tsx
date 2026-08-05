@@ -32,6 +32,8 @@ interface QuizData {
   poolSize: number
   questionsPerSession: number
   questions: QuizQuestion[]
+  /** Questions relues, synchronisé depuis data/quiz-review-state.json. */
+  reviewedCount?: number
 }
 
 /** Fisher-Yates shuffle — unbiased random */
@@ -285,6 +287,21 @@ export default function BGMQuiz() {
   }
 
   // ─── Result ───────────────────────────────────────────────────────────────
+  /**
+   * Mention « généré, non encore relu ».
+   *
+   * Pilotée par la donnée : le pool porte `reviewedCount`, synchronisé depuis
+   * data/quiz-review-state.json par npm run quiz:sync-notice. La mention
+   * disparaît d'elle-même quand toutes les questions sont validées, sans
+   * toucher au code. Art. 50 du règlement (UE) 2024/1689.
+   */
+  const aiNotice =
+    pool && (pool.reviewedCount ?? 0) < pool.questions.length ? (
+      <p className="mt-6 border-t border-neutral-200 pt-4 text-xs text-neutral-500">
+        {t('aiNotice')}
+      </p>
+    ) : null
+
   if (phase === 'result') {
     return (
       <div ref={topRef} className="scroll-mt-24 mx-auto max-w-xl py-6">
@@ -448,6 +465,8 @@ export default function BGMQuiz() {
         >
           {t('restart')}
         </button>
+
+        {aiNotice}
       </div>
     )
   }
@@ -583,6 +602,8 @@ export default function BGMQuiz() {
           {current + 1 < total ? t('nextQuestion') : t('showResult')}
         </button>
       )}
+
+      {aiNotice}
     </div>
   )
 }

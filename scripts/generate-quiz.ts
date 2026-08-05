@@ -18,6 +18,7 @@ import dotenv from 'dotenv'
 import Anthropic from '@anthropic-ai/sdk'
 import type { QuizData, QuizQuestion } from './quiz-provenance'
 import {
+  detectLeaks,
   MIN_BODY_CHARS,
   PROMPT_VERSION,
   assessPool,
@@ -106,6 +107,9 @@ Règles :
 - Jamais de jargon sans explication
 - PAS de noms de politiciens — utilise les rôles institutionnels
 - TERMINOLOGIE BELGE OBLIGATOIRE : « bourgmestre » (jamais « maire »), « commune » ou « maison communale » (jamais « mairie »), « échevin » (jamais « adjoint au maire »), « tram » (jamais « tramway »)
+- LONGUEUR COMPARABLE : les 4 options doivent faire à peu près la même longueur. Une bonne réponse visiblement plus longue et plus détaillée que les autres se repère sans réfléchir
+- PARITÉ DES CHIFFRES : si la bonne réponse contient un chiffre, une date ou un montant, au moins deux distracteurs doivent aussi en contenir. Une option isolée par sa forme est une réponse offerte
+- AUCUNE formulation temporelle relative (« actuel », « actuellement », « récemment », « bientôt », « prochainement », « à venir ») : le contenu est lu des mois après sa rédaction. Dater explicitement
 `,
   },
   nl: {
@@ -143,6 +147,9 @@ Regels:
 - Nooit jargon zonder uitleg
 - GEEN namen van politici — gebruik institutionele functies
 - VERPLICHTE BELGISCHE TERMINOLOGIE: « burgemeester » (nooit « maire »), « gemeente » of « gemeentehuis » (nooit « mairie »), « schepen » (nooit « wethouder »), « tram » (nooit « tramway »)
+- VERGELIJKBARE LENGTE: de 4 opties moeten ongeveer even lang zijn. Een juist antwoord dat zichtbaar langer en gedetailleerder is dan de andere valt zonder nadenken op
+- CIJFERPARITEIT: als het juiste antwoord een cijfer, datum of bedrag bevat, moeten minstens twee afleiders er ook een bevatten. Een optie die door haar vorm opvalt, is een weggegeven antwoord
+- GEEN relatieve tijdsaanduidingen (« binnenkort », « recent », « in afwachting »): de inhoud wordt maanden later gelezen. Datum expliciet vermelden
 `,
   },
   en: {
@@ -180,6 +187,9 @@ Rules:
 - Never use jargon without explanation
 - NO politician names — use institutional roles
 - MANDATORY Belgian terminology when referring to local officials and infrastructure: use « bourgmestre » (never "mayor"), « commune » or « maison communale » (never "town hall"), « échevin » (never "deputy mayor"), « tram » (never "tramway")
+- COMPARABLE LENGTH: the 4 options must be roughly the same length. A correct answer visibly longer and more detailed than the others is spotted without thinking
+- DIGIT PARITY: if the correct answer contains a figure, date or amount, at least two distractors must contain one too. An option that stands out by its shape is an answer given away
+- NO relative time wording ("currently", "recently", "soon", "upcoming", "in the coming weeks"): the content is read months after it is written. State explicit dates
 `,
   },
   de: {
@@ -217,6 +227,9 @@ Regeln:
 - Niemals Fachjargon ohne Erklärung
 - KEINE Politikernamen — verwenden Sie institutionelle Funktionen
 - BELGISCHE TERMINOLOGIE für lokale Amtsträger und Infrastruktur: « Bürgermeister » (wie in Belgien, nicht die Form anderer Länder), « Gemeinde » oder « Gemeindehaus » (nicht « Rathaus » im Brüsseler Kontext), « Schöffe » (nicht « Beigeordneter »), « Tram » (nicht « Straßenbahn » im Brüsseler Kontext)
+- VERGLEICHBARE LÄNGE: Die 4 Optionen müssen ungefähr gleich lang sein. Eine richtige Antwort, die sichtbar länger und ausführlicher ist als die anderen, fällt ohne Nachdenken auf
+- ZAHLENPARITÄT: Enthält die richtige Antwort eine Zahl, ein Datum oder einen Betrag, müssen mindestens zwei Ablenker ebenfalls eine enthalten. Eine Option, die durch ihre Form heraussticht, ist eine verschenkte Antwort
+- KEINE relativen Zeitangaben (« demnächst », « bald », « kürzlich »): Der Inhalt wird Monate später gelesen. Datum ausdrücklich nennen
 `,
   },
 }
@@ -311,6 +324,18 @@ const MODEL = 'claude-haiku-4-5-20251001'
  *  a produit les 4 questions allemandes manquantes d'avril 2026. */
 const MAX_ATTEMPTS = 3
 
+/** Erreurs qui se reproduiront à l'identique sur tous les appels suivants. */
+function isFatalApiError(err: Error): boolean {
+  const m = err.message.toLowerCase()
+  return (
+    m.includes('credit balance') ||
+    m.includes('authentication') ||
+    m.includes('invalid x-api-key') ||
+    m.includes('permission') ||
+    m.includes('rate limit')
+  )
+}
+
 async function generateFromContent(
   content: string,
   title: string,
@@ -322,16 +347,39 @@ async function generateFromContent(
   provenance: Provenance
 ): Promise<QuizQuestion[]> {
   let lastError: Error | null = null
+  let best: { questions: QuizQuestion[]; leaks: number } | null = null
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     try {
-      return await attemptGeneration(content, title, slug, type, count, locale, log, provenance)
+      const questions = await attemptGeneration(
+        content, title, slug, type, count, locale, log, provenance
+      )
+      const leaks = questions.reduce((n, q) => n + detectLeaks(q).length, 0)
+
+      // Zéro fuite : on prend et on s'arrête là.
+      if (leaks === 0) return questions
+
+      // Sinon on garde la meilleure variante et on retente : une fuite de
+      // réponse n'est pas une erreur de format, ça ne justifie pas d'échouer,
+      // mais ça vaut une deuxième chance.
+      if (!best || leaks < best.leaks) best = { questions, leaks }
+      if (attempt < MAX_ATTEMPTS) {
+        console.warn(`      ${leaks} fuite(s) de réponse détectée(s), nouvelle tentative`)
+      }
     } catch (err) {
       lastError = err as Error
+      // Crédit épuisé, clé invalide, quota : la cause est identique pour tous
+      // les appels suivants. Réessayer 489 fois ne sert qu'à masquer le motif.
+      if (isFatalApiError(lastError)) throw lastError
       if (attempt < MAX_ATTEMPTS) {
         console.warn(`      tentative ${attempt}/${MAX_ATTEMPTS} échouée (${lastError.message}), on réessaie`)
       }
     }
+  }
+
+  if (best) {
+    console.warn(`      conservé avec ${best.leaks} fuite(s) après ${MAX_ATTEMPTS} tentatives`)
+    return best.questions
   }
 
   throw lastError ?? new Error('échec inconnu')
@@ -525,6 +573,13 @@ async function generateForLocale(
       console.error(`    ÉCHEC ${unit.slug} — ${(err as Error).message}`)
       // On conserve l'ancienne question plutôt que de perdre la couverture.
       questions.push(...(reusable.get(unitKey) ?? []))
+      // Crédit épuisé ou clé invalide : toutes les unités suivantes
+      // échoueront pareil. On arrête tout de suite plutôt que d'aligner des
+      // centaines d'appels voués à l'échec.
+      if (isFatalApiError(err as Error)) {
+        console.error('    ⛔ Erreur fatale côté API, arrêt de la génération.')
+        throw err
+      }
     }
   }
 
@@ -565,8 +620,31 @@ async function main() {
 
   for (const locale of targetLocales) {
     console.log(`\n── ${locale.toUpperCase()} ──────────────────────────────────────`)
-    const result = await generateForLocale(locale, generationLog, onlyStale)
+    let result
+    try {
+      result = await generateForLocale(locale, generationLog, onlyStale)
+    } catch (err) {
+      console.error(
+        `\nGénération interrompue : ${(err as Error).message}\n` +
+          'Aucun pool n\'a été modifié.'
+      )
+      process.exit(1)
+    }
     const outPath = path.join(process.cwd(), `public/quiz-data-${locale}.json`)
+
+    // Garde-fou : un pool vide ou effondré ne remplace jamais un pool existant.
+    // Sans ça, une panne d'API généralisée écrase le contenu servi par du vide.
+    const previous = readPool(locale)
+    const floor = previous ? Math.floor(previous.questions.length * 0.5) : 1
+    if (result.data.questions.length < Math.max(floor, 1)) {
+      console.error(
+        `  ⛔ ${locale} : ${result.data.questions.length} question(s) produites contre ` +
+          `${previous?.questions.length ?? 0} existantes. Pool NON écrit, contenu préservé.`
+      )
+      allFailures.push(`${locale}:pool-effondre`)
+      continue
+    }
+
     fs.writeFileSync(outPath, JSON.stringify(result.data, null, 2) + '\n')
 
     console.log(

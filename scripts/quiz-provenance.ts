@@ -22,7 +22,7 @@ export type Locale = (typeof LOCALES)[number]
 /** Version du prompt. À incrémenter à CHAQUE modification d'un prompt de
  *  LOCALE_CONFIG : c'est un motif légitime de régénération, et sans ce champ
  *  on ne sait pas sous quelle règle une question a été produite. */
-export const PROMPT_VERSION = 'v2'
+export const PROMPT_VERSION = 'v3'
 
 /** Longueur de troncature du corps envoyé au modèle. Doit rester alignée sur
  *  truncate() dans generate-quiz.ts, sinon les hashes ne correspondent pas. */

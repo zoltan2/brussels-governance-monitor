@@ -107,6 +107,8 @@ Règles :
 - Jamais de jargon sans explication
 - PAS de noms de politiciens — utilise les rôles institutionnels
 - TERMINOLOGIE BELGE OBLIGATOIRE : « bourgmestre » (jamais « maire »), « commune » ou « maison communale » (jamais « mairie »), « échevin » (jamais « adjoint au maire »), « tram » (jamais « tramway »)
+- AUTONOME : la question ET ses options doivent se comprendre SEULES, hors de tout contexte. Nommer explicitement ce dont on parle (quel plan, quelle réforme, quels producteurs, quel arrêt, quelle commune) et ce que désigne une réponse (« les trois canaux » ne dit rien : écrire « le guichet, le téléphone et le courrier »). Jamais « ce dispositif », « l'arrêt », « la réforme » sans dire lequel
+- JAMAIS LA SUITE D'UNE AUTRE QUESTION : le lecteur tire 10 questions au hasard dans le pool, il ne verra pas les autres questions de la même fiche. Aucune ne doit dépendre d'une précédente
 - LONGUEUR COMPARABLE : les 4 options doivent faire à peu près la même longueur. Une bonne réponse visiblement plus longue et plus détaillée que les autres se repère sans réfléchir
 - PARITÉ DES CHIFFRES : si la bonne réponse contient un chiffre, une date ou un montant, au moins deux distracteurs doivent aussi en contenir. Une option isolée par sa forme est une réponse offerte
 - AUCUNE formulation temporelle relative (« actuel », « actuellement », « récemment », « bientôt », « prochainement », « à venir ») : le contenu est lu des mois après sa rédaction. Dater explicitement
@@ -147,6 +149,8 @@ Regels:
 - Nooit jargon zonder uitleg
 - GEEN namen van politici — gebruik institutionele functies
 - VERPLICHTE BELGISCHE TERMINOLOGIE: « burgemeester » (nooit « maire »), « gemeente » of « gemeentehuis » (nooit « mairie »), « schepen » (nooit « wethouder »), « tram » (nooit « tramway »)
+- ZELFSTANDIG: de vraag EN de opties moeten ALLEEN begrijpelijk zijn, buiten elke context. Noem uitdrukkelijk waarover het gaat (welk plan, welke hervorming, welke producenten, welk arrest, welke gemeente) en wat een antwoord aanduidt ("de drie kanalen" zegt niets: schrijf "het loket, de telefoon en de post"). Nooit "deze maatregel", "het arrest", "de hervorming" zonder te zeggen welke
+- NOOIT HET VERVOLG OP EEN ANDERE VRAAG: de lezer krijgt 10 willekeurige vragen uit de pool en ziet de andere vragen van dezelfde fiche niet. Geen enkele vraag mag van een vorige afhangen
 - VERGELIJKBARE LENGTE: de 4 opties moeten ongeveer even lang zijn. Een juist antwoord dat zichtbaar langer en gedetailleerder is dan de andere valt zonder nadenken op
 - CIJFERPARITEIT: als het juiste antwoord een cijfer, datum of bedrag bevat, moeten minstens twee afleiders er ook een bevatten. Een optie die door haar vorm opvalt, is een weggegeven antwoord
 - GEEN relatieve tijdsaanduidingen (« binnenkort », « recent », « in afwachting »): de inhoud wordt maanden later gelezen. Datum expliciet vermelden
@@ -187,6 +191,8 @@ Rules:
 - Never use jargon without explanation
 - NO politician names — use institutional roles
 - MANDATORY Belgian terminology when referring to local officials and infrastructure: use « bourgmestre » (never "mayor"), « commune » or « maison communale » (never "town hall"), « échevin » (never "deputy mayor"), « tram » (never "tramway")
+- SELF-CONTAINED: the question AND its options must make sense ON THEIR OWN, outside any context. Name explicitly what is being discussed (which plan, which reform, which producers, which ruling, which municipality) and what an answer refers to ("the three channels" says nothing: write "the counter, the phone and the post"). Never "this scheme", "the ruling", "the reform" without saying which one
+- NEVER A FOLLOW-UP TO ANOTHER QUESTION: the reader draws 10 random questions from the pool and will not see the other questions from the same card. None may depend on a previous one
 - COMPARABLE LENGTH: the 4 options must be roughly the same length. A correct answer visibly longer and more detailed than the others is spotted without thinking
 - DIGIT PARITY: if the correct answer contains a figure, date or amount, at least two distractors must contain one too. An option that stands out by its shape is an answer given away
 - NO relative time wording ("currently", "recently", "soon", "upcoming", "in the coming weeks"): the content is read months after it is written. State explicit dates
@@ -227,6 +233,8 @@ Regeln:
 - Niemals Fachjargon ohne Erklärung
 - KEINE Politikernamen — verwenden Sie institutionelle Funktionen
 - BELGISCHE TERMINOLOGIE für lokale Amtsträger und Infrastruktur: « Bürgermeister » (wie in Belgien, nicht die Form anderer Länder), « Gemeinde » oder « Gemeindehaus » (nicht « Rathaus » im Brüsseler Kontext), « Schöffe » (nicht « Beigeordneter »), « Tram » (nicht « Straßenbahn » im Brüsseler Kontext)
+- EIGENSTÄNDIG: Die Frage UND ihre Optionen müssen FÜR SICH ALLEIN verständlich sein, außerhalb jedes Kontexts. Ausdrücklich benennen, wovon die Rede ist (welcher Plan, welche Reform, welche Hersteller, welches Urteil, welche Gemeinde) und worauf eine Antwort verweist ("die drei Kanäle" sagt nichts: schreiben Sie "der Schalter, das Telefon und die Post"). Niemals "diese Maßnahme", "das Urteil", "die Reform", ohne zu sagen welche
+- NIEMALS DIE FORTSETZUNG EINER ANDEREN FRAGE: Der Leser zieht 10 zufällige Fragen aus dem Pool und sieht die übrigen Fragen derselben Karte nicht. Keine darf von einer vorherigen abhängen
 - VERGLEICHBARE LÄNGE: Die 4 Optionen müssen ungefähr gleich lang sein. Eine richtige Antwort, die sichtbar länger und ausführlicher ist als die anderen, fällt ohne Nachdenken auf
 - ZAHLENPARITÄT: Enthält die richtige Antwort eine Zahl, ein Datum oder einen Betrag, müssen mindestens zwei Ablenker ebenfalls eine enthalten. Eine Option, die durch ihre Form heraussticht, ist eine verschenkte Antwort
 - KEINE relativen Zeitangaben (« demnächst », « bald », « kürzlich »): Der Inhalt wird Monate später gelesen. Datum ausdrücklich nennen

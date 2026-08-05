@@ -13,6 +13,7 @@ import {
 } from '@/lib/content';
 import { MdxContent } from '@/components/mdx-content';
 import { MagazineLink } from '@/components/magazine-link';
+import { getDigestNotice } from '@/lib/digest-notice';
 
 interface DigestPageProps {
   params: Promise<{ lang: string; year: string; week: string }>;
@@ -144,7 +145,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
             <>
               <span>&middot;</span>
               <span className="rounded bg-amber-50 px-1.5 py-0.5 text-amber-700">
-                Auto-translated
+                {getDigestNotice(lang).badge}
               </span>
             </>
           )}
@@ -177,13 +178,12 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
         <div className="mt-10 space-y-3 border-t border-neutral-200 pt-6">
           {entry.auto_translated && (
             <p className="text-xs text-neutral-500">
-              This content was automatically translated. The original version
-              is in French.{' '}
+              {getDigestNotice(lang).disclaimer}{' '}
               <Link
                 href={`/digest/fr/${year}/${week}`}
                 className="text-brand-700 underline"
               >
-                Read the French version
+                {getDigestNotice(lang).readFrench}
               </Link>
               .
             </p>

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T21:18:25.184Z",
+  "generatedAt": "2026-08-05T21:20:07.472Z",
   "locale": "de",
-  "poolSize": 63,
+  "poolSize": 67,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1089,368 +1089,460 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche Entscheidung traf die Brüsseler Regierung im Februar 2026 bezüglich des Metro-3-Projekts?",
+      "question": "Was empfiehlt der Sonderausschuss des Brüsseler Parlaments für jedes große regionale Infrastrukturprojekt?",
       "options": [
-        "Das Projekt wird unverändert fortgesetzt, wie es seit Jahrzehnten geplant war",
-        "Das Projekt wird sofort vollständig eingestellt und durch ein neues Projekt ersetzt",
-        "Das Projekt wird beschleunigt, um schneller fertiggestellt zu werden",
-        "Das Projekt wird für 10 Jahre ausgesetzt und durch eine oberirdische Straßenbahn ersetzt"
+        "Eine einheitliche Steuerung innerhalb einer einzigen Verwaltung",
+        "Ein regionales Referendum vor dem Beginn der Arbeiten",
+        "Eine vollständige Übertragung der Bauherrschaft an den Föderalstaat",
+        "Eine gesetzliche Budgetobergrenze ab dem gewählten Vorentwurf"
       ],
-      "correct": 3,
-      "explanation": "Das Regierungsabkommen vom 12. Februar 2026 besiegelte eine einschneidende Entscheidung: Metro 3 wird für 10 Jahre eingefroren, und ein Ersatzprojekt mit einer Straßenbahn wird umgesetzt. Dies war notwendig geworden, nachdem der Rechnungshof massive Kostensteigerungen und finanzielle Risiken des ursprünglichen Projekts dokumentiert hatte.",
+      "correct": 0,
+      "explanation": "Ein namentlich benannter Projektdirektor wäre gegenüber Regierung und Parlament rechenschaftspflichtig. Die Empfehlungen sind in sechs Achsen gebündelt, nach acht Monaten Arbeit und mehr als fünfzig Anhörungen.",
       "sourceSlug": "/de/dossiers/metro-3",
-      "sourceTitle": "Metro 3: Projekt 10 Jahre eingefroren, Ersatz durch Straßenbahn",
+      "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:a053ab595ffab0020f10b007786b64c4",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:21d662416867fe6c36a48f7f8385e09b",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche Institution spielte eine Schlüsselrolle bei der Entscheidung, das Metro-3-Projekt einzufrieren?",
+      "question": "Welchen Unterschied meldet BGM zwischen dem im Juli 2026 im Plenum verabschiedeten Text zu Metro 3 und dem vom Sonderausschuss angenommenen Text?",
       "options": [
-        "Der Rechnungshof, der alarmierende Kostenüberschreitungen und finanzielle Risiken aufdeckte",
-        "Die Verkehrsgewerkschaften, die mit den Arbeitsbedingungen unzufrieden waren",
-        "Die Stadtrat von Brüssel, die den Abriss des Südpalasts blockierte",
-        "Der Verein ARAU, der die Entscheidung als städtebaulichen Unsinn bezeichnete"
+        "24 verabschiedete Empfehlungen gegenüber 22 im Ausschuss",
+        "22 verabschiedete Empfehlungen gegenüber 24 im Ausschuss",
+        "18 verabschiedete Empfehlungen gegenüber 24 im Ausschuss",
+        "30 verabschiedete Empfehlungen gegenüber 22 im Ausschuss"
       ],
       "correct": 0,
-      "explanation": "Der Rechnungshof dokumentierte, dass die Kosten des Metro-3-Projekts dramatisch gestiegen waren und die finanzielle Tragfähigkeit ernsthaft gefährdet war. Dieser Bericht führte direkt dazu, dass die Verhandlungsführer das Projekt einfroren und nach Alternativen suchten. Der Brussels Governance Monitor zeigt, wie solche unabhängigen Kontrollinstitutionen wichtige Regierungsentscheidungen beeinflussen.",
+      "explanation": "Keine konsultierte Quelle erläutert den Ursprung dieses Unterschieds, der auf im Plenum eingebrachte Änderungsanträge zurückgehen könnte. BGM meldet die Abweichung, statt sie zu verschweigen.",
       "sourceSlug": "/de/dossiers/metro-3",
-      "sourceTitle": "Metro 3: Projekt 10 Jahre eingefroren, Ersatz durch Straßenbahn",
+      "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:a053ab595ffab0020f10b007786b64c4",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:21d662416867fe6c36a48f7f8385e09b",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche Institution hat im April 2024 entschieden, die Flottenobergrenzen für E-Scooter in Brüssel auszusetzen?",
+      "question": "Welche Wirkung hat das Urteil des Staatsrats vom Juli 2026, das die Lizenzen für geteilte Mobilität in Brüssel annulliert, auf das Verbot geteilter E-Scooter?",
       "options": [
-        "Die STIB (öffentlicher Nahverkehrsbetreiber)",
-        "Der Staatsrat",
-        "Die Brüsseler Regionalregierung",
-        "Das Brüsseler Gericht erster Instanz"
+        "Es zieht es um vier Monate vor, auf gerichtlichem Weg",
+        "Es verschiebt es um vier Monate, auf gerichtlichem Weg",
+        "Es hebt es auf und macht es für die Betreiber gegenstandslos",
+        "Es lässt es unverändert, ohne den Zeitplan anzupassen"
       ],
-      "correct": 1,
-      "explanation": "Der Staatsrat setzte am 25. April 2024 die Flottenobergrenzen aus und befand die Begründung der Regierung für unzureichend. Dies zeigt, wie wichtig eine solide rechtliche Begründung bei der Regulierung der geteilten Mobilität ist — ein zentrales Thema des Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "Das für den 1. Januar 2027 festgelegte Verbot wird nicht in Frage gestellt, doch die Fahrzeuge müssen den öffentlichen Raum bis zum 1. September 2026 verlassen. Die Klage kam von Lime, dem bei der Lizenzvergabe ausgeschlossenen Betreiber.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
-      "sourceTitle": "Geteilte Mobilität in Brüssel: E-Scooter, Fahrräder, Taxis und der Kampf um die Konzessionen",
+      "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-02-24",
-        "sourceContentHash": "sha256:bd3666cde68dcfd5b8966e63ae4fd48e",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:6d925358111eb8c64a5cef7b0c600331",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Bis wann läuft die aktuelle Konzession von Villo! (JCDecaux) für das stationsgebundene Fahrrad-Leihsystem in Brüssel?",
+      "question": "Welches Angebot streicht die Annullierung der Lizenzen für geteilte Mobilität in Brüssel, obwohl die Regierung es erhalten wollte?",
       "options": [
-        "September 2026",
-        "März 2027",
-        "Dezember 2025",
-        "Dezember 2024"
+        "Die Leihfahrräder im Free-Floating",
+        "Die E-Scooter im Free-Floating",
+        "Die Fahrräder mit festen Stationen der Konzession Villo",
+        "Die geteilten Motorroller mit Elektroantrieb"
       ],
       "correct": 0,
-      "explanation": "Die Vereinbarung zwischen der Region und JCDecaux endet im September 2026. Nach diesem Termin muss JCDecaux alle Stationen zurückbauen. Die Regierung hat bisher weder eine Ausschreibung noch eine Entscheidung über die Zukunft des Systems angekündigt — ein wichtiges Governance-Thema.",
+      "explanation": "Die Konzession Villo mit ihren festen Stationen ist vom Urteil nicht betroffen. Die Behörden arbeiten an einem neuen Regelungsrahmen für Leihfahrräder.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
-      "sourceTitle": "Geteilte Mobilität in Brüssel: E-Scooter, Fahrräder, Taxis und der Kampf um die Konzessionen",
+      "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-02-24",
-        "sourceContentHash": "sha256:bd3666cde68dcfd5b8966e63ae4fd48e",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:6d925358111eb8c64a5cef7b0c600331",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-novacity-ii-0",
+      "source": "dossier",
+      "domain": "Wohnen",
+      "question": "Welche Heizungsart wählt das Programm NovaCity II für seine Wohnungen?",
+      "options": [
+        "Ein Geothermie-Wärmepumpensystem ohne fossile Brennstoffe",
+        "Eine kollektive Gasheizzentrale mit hohem Wirkungsgrad",
+        "Einen Anschluss an das bestehende Fernwärmenetz",
+        "Individuelle Brennwertkessel je Wohnung"
+      ],
+      "correct": 0,
+      "explanation": "Ergänzt wird das System durch Solarpaneele, mit dem Ziel von Wohnungen mit einem Nettoenergieverbrauch von null. Die 117 konventionierten Wohnungen werden passiv und durchgehend orientiert sein, mit einer privaten Terrasse von mindestens 7,5 Quadratmetern.",
+      "sourceSlug": "/de/dossiers/novacity-ii",
+      "sourceTitle": "NovaCity II",
+      "provenance": {
+        "sourceLastModified": "2026-07-19",
+        "sourceContentHash": "sha256:e146756cba0dd2a03b6b44432e679a76",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
-      "domain": "Soziales",
-      "question": "Wie viele verschiedene Behörden sind in Brüssel für die Zulassung und Finanzierung von Kinderkrippenplätzen zuständig?",
+      "domain": "Bildung",
+      "question": "Welcher Unterschied bei der Abdeckungsrate mit Betreuungsplätzen trennt die Brüsseler Gemeinden?",
       "options": [
-        "Zwei Behörden: eine für Französisch, eine für Niederländisch",
-        "Eine zentrale regionale Behörde",
-        "Fünf unabhängige private Organisationen",
-        "Drei Hauptbehörden plus Gemeinden und weitere Institutionen"
+        "67 % in Etterbeek gegenüber 16 % in Anderlecht",
+        "45 % in Etterbeek gegenüber 38 % in Anderlecht",
+        "80 % in Etterbeek gegenüber 60 % in Anderlecht",
+        "30 % in Etterbeek gegenüber 25 % in Anderlecht"
       ],
-      "correct": 3,
-      "explanation": "ONE (Wallonie-Brüssel), Opgroeien (Flämische Gemeinschaft) und Iriscare (GGK) sind die drei Hauptbehörden, zu denen noch Gemeinden, VGC und COCOF kommen. Diese fragmentierte Struktur führt zu getrennten Wartelisten und ungleicher Versorgung je nach Sprachregion und Wohnort.",
+      "correct": 0,
+      "explanation": "Zwei von drei Eltern bezeichnen die Suche nach einem Platz als schwierig oder sehr schwierig, laut der Ligue des Familles. Die Postleitzahl entscheidet weitgehend darüber, ob nach dem Mutterschaftsurlaub eine Rückkehr in den Beruf möglich ist.",
       "sourceSlug": "/de/dossiers/petite-enfance",
-      "sourceTitle": "Kleinkindbetreuung in Brüssel: Krippen, Wartelisten und dreifache institutionelle Zuständigkeit",
+      "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:d1804fcf37466e91b21fd9946447b5b5",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:ba987c625013475eda43b935816d14ee",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
-      "domain": "Soziales",
-      "question": "Was ist die Besonderheit der Wartelisten für Krippenplätze in Brüssel?",
+      "domain": "Bildung",
+      "question": "Welche Behörde erteilt in Brüssel die Genehmigungen für die bikommunalen Kinderkrippen?",
       "options": [
-        "Die Wartelisten sind nach Sprache getrennt, sodass freie Plätze in einer Sprache nicht für Familien in der anderen sichtbar sind",
-        "Es gibt eine einzige zentrale Warteliste für alle Familien",
-        "Es gibt keine Wartelisten, alle Familien erhalten automatisch einen Platz",
-        "Wartelisten werden nach Einkommen priorisiert"
+        "Iriscare, für die Gemeinsame Gemeinschaftskommission",
+        "Das ONE, für die Föderation Wallonie-Brüssel",
+        "Opgroeien, für die Flämische Gemeinschaft",
+        "Brüssel Wirtschaft und Beschäftigung, für die Region"
       ],
       "correct": 0,
-      "explanation": "Französischsprachige und niederländischsprachige Krippen haben separate Wartelisten. Eine Familie kann lange in der einen Warteschlange warten, während gleichzeitig Plätze in der anderen verfügbar sind, in die sie nicht eingeschrieben ist. Dies ist ein strukturelles Problem der dreifachen institutionellen Zuständigkeit.",
+      "explanation": "Es ist die einzige Behörde, die einer streng Brüsseler Machtebene angehört. Die französischsprachigen Krippen hängen vom ONE ab und die niederländischsprachigen von Opgroeien, jede mit eigenem Budget.",
       "sourceSlug": "/de/dossiers/petite-enfance",
-      "sourceTitle": "Kleinkindbetreuung in Brüssel: Krippen, Wartelisten und dreifache institutionelle Zuständigkeit",
+      "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-04-09",
-        "sourceContentHash": "sha256:d1804fcf37466e91b21fd9946447b5b5",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-16",
+        "sourceContentHash": "sha256:ba987c625013475eda43b935816d14ee",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-pfas-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Warum ist die PFAS-Kontamination in Brüssel ein besonderes Governance-Problem im Vergleich zu Flandern?",
+      "question": "Woher stammt die in der Region Brüssel festgestellte PFAS-Belastung?",
       "options": [
-        "Brüssel hat eine große PFAS-Produktionsfabrik wie die 3M-Fabrik in Flandern",
-        "Die Verunreinigung in Brüssel entstand erst nach 2021 durch neue Industrien",
-        "Brüssel hat strengere Umweltgesetze, die mehr Kontaminationsfälle aufdecken",
-        "In Brüssel gibt es keine PFAS-Produktionsstätte, die Verunreinigung stammt aus verbreiteter Produktnutzung und spezifischen Industriestandorten"
+        "Aus diffuser Produktnutzung und aus einzelnen Industriestandorten",
+        "Aus einem Produktionswerk innerhalb der Region",
+        "Aus einer einzigen Einleitung in den Kanal 2021",
+        "Aus der landwirtschaftlichen Ausbringung im Umland"
       ],
-      "correct": 3,
-      "explanation": "Im Gegensatz zu Flandern mit seiner bekannten 3M-Fabrik entsteht die PFAS-Kontamination in Brüssel dezentral durch alltägliche Produktnutzung und mehrere Industriestandorte, was die Regulierung komplexer macht. Dies zeigt die Bedeutung systematischer Überwachung durch Institutionen wie Brüssel Umwelt.",
+      "correct": 0,
+      "explanation": "In der Region Brüssel besteht anders als in Flandern kein PFAS-Produktionswerk. Rund 3.500 Standorte sind als potenziell belastet erfasst, unter anderem wegen Feuerlöschschäumen.",
       "sourceSlug": "/de/dossiers/pfas",
-      "sourceTitle": "PFAS in Brüssel: Boden- und Wasserverunreinigung",
+      "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
-        "sourceContentHash": "sha256:0af5f3dcc9329dd9fc0202fe7e91be0a",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-12",
+        "sourceContentHash": "sha256:487fdc29cfd2ed37ffec12d171e67dcd",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-pfas-1",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Welche Rolle spielen die Gesundheitsschwellenwerte des Hohen Gesundheitsrats (HGR) in der belgischen Wasserpolitik?",
+      "question": "Welche Vorsichtsmaßnahme begleitet den Sicherheitsbereich rund um den ehemaligen Standort Sicli in Uccle?",
       "options": [
-        "Sie stellen deutlich strengere Grenzwerte dar, die auf dem Vorsorgeprinzip basieren und noch nicht vollständig in die Verordnung übernommen wurden",
-        "Sie gelten nur für Grundwasser, nicht für Trinkwasser",
-        "Sie sind bereits in der Trinkwasserverordnung als bindende Normen festgeschrieben",
-        "Sie werden von der EU-Norm ersetzt und haben keine Auswirkungen auf Brüssel"
+        "Das Verbot, Obst, Gemüse und Eier aus dem Bereich zu verzehren",
+        "Ein vollständiges Zugangsverbot zur Straße für Anwohner",
+        "Die Pflicht, die Wohnhäuser an das Abwassernetz anzuschließen",
+        "Die Schließung der Schulen innerhalb des Bereichs"
       ],
       "correct": 0,
-      "explanation": "Der HGR hat gesundheitsbasierte Schwellenwerte entwickelt, die strenger sind als aktuelle Gesetzesvorgaben, doch diese sind noch nicht vollständig in belgische Regelwerke integriert. Inter-Environnement Bruxelles fordert eine nationale Harmonisierung nach diesen Gesundheitskriterien, was ein zentrales Governance-Thema darstellt.",
+      "explanation": "Der Sicherheitsbereich erstreckt sich über 100 Meter. Auf dem Industriegelände wird die Norm im Boden bis zu 708-fach und im Grundwasser bis zu 1.058-fach überschritten.",
       "sourceSlug": "/de/dossiers/pfas",
-      "sourceTitle": "PFAS in Brüssel: Boden- und Wasserverunreinigung",
+      "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
-        "sourceContentHash": "sha256:0af5f3dcc9329dd9fc0202fe7e91be0a",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-12",
+        "sourceContentHash": "sha256:487fdc29cfd2ed37ffec12d171e67dcd",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-plan-securite-0",
       "source": "dossier",
-      "domain": "Soziales",
-      "question": "Welche neue institutionelle Position wurde im Sicherheitsabkommen der Brüsseler Regierung vom Februar 2026 geschaffen?",
+      "domain": "Sicherheit",
+      "question": "Was zeigt der erste Feldbesuch des Ministerpräsidenten am Südbahnhof?",
       "options": [
-        "Bahnhofs-Sicherheitsleiter",
-        "Gemeindlicher Sicherheitsdirektor",
-        "Föderaler Polizeizonen-Koordinator",
-        "Regionaler Drogenkommissar"
+        "Einen Bedarf an Koordinierung zwischen den Sicherheitsakteuren",
+        "Einen Mangel an Überwachungskameras im Bahnhof",
+        "Eine unzureichende Personalstärke der föderalen Polizei",
+        "Einen Instandhaltungsmangel der Bahninfrastruktur"
       ],
-      "correct": 3,
-      "explanation": "Das Regierungsabkommen vom 12. Februar 2026 sieht vor, einen regionalen Drogenkommissar als zuständige Behörde zur Bekämpfung von Betäubungsmitteln zu ernennen. Diese Position ist Teil eines integrierten regionalen Drogenplans mit Prävention, Risikominderung und Strafverfolgung.",
+      "correct": 0,
+      "explanation": "Sechs Polizeizonen, die Bundesbahnpolizei, die SNCB-Sicherheit und Stib-Bewacher sind am selben Ort im Einsatz. Darum geht es bei den 10 Millionen Euro, die für die Bahnhöfe Midi und Nord vorgesehen sind.",
       "sourceSlug": "/de/dossiers/plan-securite",
-      "sourceTitle": "Sicherheitsplan: Drogenkommissar, 10M EUR für Bahnhöfe und Fusion der Polizeizonen",
+      "sourceTitle": "Sicherheitsplan",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:88efd8b325b860f30f9dee115baa1213",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:2c95d073b81e3b102f0c1776322c0092",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-rechauffement-bruxelles-0",
+      "source": "dossier",
+      "domain": "Klima",
+      "question": "Zu welchem Zeitpunkt ist der Temperaturunterschied zwischen dem Brüsseler Zentrum und seiner Peripherie am gefährlichsten?",
+      "options": [
+        "Nachts, wenn die Temperatur nicht mehr absinkt",
+        "Mitten am Tag, auf dem Höhepunkt der Sonneneinstrahlung",
+        "Am frühen Morgen, vor dem Sonnenaufgang",
+        "Am späten Nachmittag, beim Verlassen der Büros"
+      ],
+      "correct": 0,
+      "explanation": "Der nächtliche Unterschied erreicht im Schnitt 4,5 Grad und bei extremen Ereignissen bis zu 10 Grad. Wenn sich der Körper nachts nicht erholt, setzt Übersterblichkeit ein, insbesondere bei älteren und isolierten Menschen.",
+      "sourceSlug": "/de/dossiers/rechauffement-bruxelles",
+      "sourceTitle": "Erwärmung Brüssels",
+      "provenance": {
+        "sourceLastModified": "2026-06-26",
+        "sourceContentHash": "sha256:92f733f938ffec7677b66f5df4085e4b",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
-      "domain": "Budget",
-      "question": "Die angekündigte Reform der Brüsseler Regionalverwaltung sieht die Zusammenführung von etwa 25 Einheiten in 4 Säulen vor. Welche der folgenden Funktionen gehört zur geplanten Säule 1 (Gemeinsamer Unterstützungsdienst)?",
+      "domain": "Institutionell",
+      "question": "Was ist das bezifferte Ziel der Reform, die die Brüsseler Regionalverwaltung zusammenführt?",
       "options": [
-        "Städtebau und Denkmalschutz",
-        "Infrastrukturverwaltung und Instandhaltung",
-        "Bodenverwaltung und Grundstückskonzessionen",
-        "Personalwesen und Informatik"
+        "Von rund 25 Einheiten auf 4 große Säulen zu kommen",
+        "Von rund 40 Einheiten auf 10 große Säulen zu kommen",
+        "Von rund 15 Einheiten auf 2 große Säulen zu kommen",
+        "Von rund 60 Einheiten auf 12 große Säulen zu kommen"
       ],
-      "correct": 3,
-      "explanation": "Die Säule 1 bündelt Querschnittsfunktionen wie Personalwesen, Informatik, Finanzen und Statistik. Diese Unterstützungsdienste sind zentral für alle anderen Säulen. Mehr Details zur Reform finden Sie im Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "Das erklärte Ziel sind Einsparungen von 250 bis 300 Millionen Euro bis 2029. Die vier Säulen umfassen die gemeinsame Unterstützung, die organischen Aufgaben, infrastructure.brussels und eine Grundstücksplattform.",
       "sourceSlug": "/de/dossiers/reforme-administration",
-      "sourceTitle": "Reform der Regionalverwaltung: von 25 Einheiten zu 4 Säulen",
+      "sourceTitle": "Verwaltungsreform",
       "provenance": {
-        "sourceLastModified": "2026-03-09",
-        "sourceContentHash": "sha256:a2b0932d30265429359b67f8fc192439",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-07",
+        "sourceContentHash": "sha256:f2eecdda83083acc49fa1518af8be698",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-rse-0",
       "source": "dossier",
       "domain": "Wirtschaft",
-      "question": "Welche drei Säulen bilden das Fundament der Shifting Economy-Strategie in Brüssel?",
+      "question": "Welches Ziel setzt die regionale Strategie Shifting Economy für 2030?",
       "options": [
-        "Umweltschutz, Arbeitnehmerschutz und Forschungsfinanzierung",
-        "Steuervergünstigungen, digitale Transformation und internationale Expansion",
-        "Bedingte Wirtschaftsförderung, Unternehmensbegleitung und Wertschätzung durch Labels",
-        "Investitionsförderung, Beschäftigungsprämien und Beratungsgutscheine"
+        "100 % der Förderung vorbildlichen Unternehmen vorzubehalten",
+        "50 % der Förderung vorbildlichen Unternehmen vorzubehalten",
+        "30 % der regionalen Wirtschaftsförderung zu streichen",
+        "Das Gesamtbudget der Unternehmensförderung zu verdoppeln"
       ],
-      "correct": 2,
-      "explanation": "Die Shifting Economy basiert auf diesen drei Säulen: erstens bedingte Förderung nach ökologischen und sozialen Kriterien, zweitens intensive Begleitung der Unternehmen bei ihrer Transition, und drittens Anerkennung von Vorreitern durch ein Label- und Prämiensystem. Mehr Details finden Sie im Brussels Governance Monitor zur wirtschaftlichen Transition.",
+      "correct": 0,
+      "explanation": "Der Vorbildlichkeitsmechanismus erhöht die Förderung zertifizierter Unternehmen um 2,5 % bis zu 45 % bei Kumulierung. Die Prüfung erfolgt automatisch bei der Antragstellung, ohne zusätzlichen Schritt.",
       "sourceSlug": "/de/dossiers/rse",
-      "sourceTitle": "Wirtschaftliche Transition: Shifting Economy, Labels und Nachhaltigkeitsberichterstattung",
+      "sourceTitle": "CSR / Wirtschaftstransition",
       "provenance": {
-        "sourceLastModified": "2026-03-03",
-        "sourceContentHash": "sha256:b900ec47dd082e27cb4452ed516cf931",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:8620b3614192b6123e760e645b75a7db",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welche grundlegende Ausrichtung kennzeichnet die neuen Zulassungsnormen für Pflegeheime in Brüssel, die am 1. September 2024 in Kraft getreten sind?",
+      "question": "Wie verhält sich der Anteil der Senioren, die die Einkommensgarantie für ältere Personen (GRAPA) beziehen, zwischen den Regionen?",
       "options": [
-        "Die Vereinheitlichung aller Pflegeheime unter eine Einrichtung namens Iriscare",
-        "Die vollständige Privatisierung des Seniorenpflegesektors",
-        "Den Übergang von einem pflegezentrierten zu einem bewohnerzentrierten Modell",
-        "Den Übergang von einem bewohnerzentrierten zu einem pflegezentrierten Modell"
+        "Dreimal höher in Brüssel als in Flandern",
+        "Halb so hoch in Brüssel wie in Flandern",
+        "Gleich hoch in Brüssel und in Flandern seit 2020",
+        "Viermal niedriger in Brüssel als in Wallonien"
       ],
-      "correct": 2,
-      "explanation": "Die Reform markiert einen Paradigmenwechsel: Weg von reiner Pflege hin zu Autonomie, Teilhabe und Lebensqualität der Bewohner. Mehr Details finden Sie im Brussels Governance Monitor zum Thema Seniorenbetreuung.",
+      "correct": 0,
+      "explanation": "13 % der Brüsseler ab 65 Jahren beziehen die GRAPA, gegenüber 4 % in Flandern und 5 % in Wallonien. Der Abstand zwischen den Gemeinden reicht von 4 % in Woluwe-Saint-Pierre bis 26 % in Saint-Josse-ten-Noode.",
       "sourceSlug": "/de/dossiers/seniors-a-bruxelles",
-      "sourceTitle": "Senioren in Brüssel: Unterbringung, Autonomie und Daten",
+      "sourceTitle": "Senioren",
       "provenance": {
-        "sourceLastModified": "2026-02-22",
+        "sourceLastModified": "2026-07-26",
         "sourceContentHash": "sha256:266815a3f9b95f2a7c76d0c61cecba81",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welche Institution koordiniert die Sozialpolitik im Bereich Wohnungsbau in der Region Brüssel-Hauptstadt und beaufsichtigt die lokalen Wohnungsgesellschaften?",
+      "question": "Wofür dienen die 61 Millionen Euro, die im Juli 2026 für die SLRB freigegeben wurden?",
       "options": [
-        "Das Ministerium für Stadtentwicklung",
-        "Die Gemeindeverwaltungen der 19 Brüsseler Kommunen",
-        "Die regionalen SISP (Sociétés Immobilières de Service Public)",
-        "Die SLRB (Société du Logement de la Région de Bruxelles-Capitale)"
+        "Für den Strategischen Plan zur nachhaltigen Sanierung des Bestands",
+        "Für den Ankauf von Grundstücken für Neubauten",
+        "Für die vorzeitige Rückzahlung der Schuld an die Region",
+        "Für die Aufwertung der Gehaltstabellen des Personals"
       ],
-      "correct": 3,
-      "explanation": "Die SLRB koordiniert die Sozialpolitik und beaufsichtigt die 16 SISP, die den Wohnungsbestand direkt verwalten. Die SISP sind dezentrale Organisationen, die unter SLRB-Aufsicht tätig sind.",
+      "correct": 0,
+      "explanation": "Der Plan umfasst den Zeitraum 2026-2035, mit 219 vorgesehenen Projekten, von denen 117 bereits im Bau sind. Die SLRB ist die regionale Einrichtung, die für die Sanierung des Sozialwohnungsbestands zuständig ist.",
       "sourceSlug": "/de/dossiers/slrb",
-      "sourceTitle": "SLRB: 1 000+ Sozialwohnungen und finanzielle Konsolidierung",
+      "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:9d536a01729a8907257e7d682ba73c77",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:82ad74959009d8a7bf00e72452f74d50",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welche Maßnahme wurde vom Regierungsabkommen vom Februar 2026 verhindert, während die geschäftsführende Regierung von Juni 2024 bis Februar 2026 amtierte?",
+      "question": "Welches Mittel wählt die Regierung, um die Finanzen der SLRB zu sanieren?",
       "options": [
-        "Die Verabschiedung eines neuen mehrjährigen Sanierungsplans und die Finanzierung neuer Bauprojekte",
-        "Die Beantragung von Fördermitteln auf europäischer Ebene",
-        "Die tägliche Verwaltung und Instandhaltung der bestehenden Wohnungen",
-        "Die Erhebung von Mieten von Mietern"
+        "Den Verkauf von Vermögen, darunter rund 200 Sozialwohnungen",
+        "Eine allgemeine Mieterhöhung von 3 % pro Jahr",
+        "Eine von den 19 Brüsseler Gemeinden verbürgte Anleihe",
+        "Die Fusion der 16 zugelassenen Wohnungsgesellschaften"
       ],
       "correct": 0,
-      "explanation": "Während der geschäftsführenden Regierung waren alle strukturellen Investitionen und strategischen Entscheidungen eingefroren. Die laufende Verwaltung konnte fortgesetzt werden, aber neue Bauprojekte und umfassende Sanierungspläne konnten nicht genehmigt werden.",
+      "explanation": "Betroffen sind die Standorte Ariane in Woluwe-Saint-Lambert und Palais in Schaerbeek. Diese Verkäufe sollen die Schuld der SLRB senken, parallel zu einem Paket von 400 Millionen Euro für mehr als tausend öffentliche Wohnungen.",
       "sourceSlug": "/de/dossiers/slrb",
-      "sourceTitle": "SLRB: 1 000+ Sozialwohnungen und finanzielle Konsolidierung",
+      "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:9d536a01729a8907257e7d682ba73c77",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:82ad74959009d8a7bf00e72452f74d50",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
-      "domain": "Mobilität",
-      "question": "Seit wann existiert der Konflikt zwischen dem Flughafen Zaventem und den Brüsseler Anwohnern wegen Fluglärm?",
+      "domain": "Klima",
+      "question": "Warum finden die Starts überwiegend über Brüssel statt?",
       "options": [
-        "Über 40 Jahre",
-        "Etwa 20 Jahre",
-        "Seit der Eröffnung des Flughafens 1970",
-        "Seit 2004"
+        "Die vorherrschenden Südwestwinde erzwingen die Piste 25R",
+        "Die vorherrschenden Nordwinde erzwingen die Piste 01 nach Osten",
+        "Die Länge der Pisten schließt jeden Start nach Osten aus",
+        "Ein Abkommen zwischen den Regionen legt dies seit 1995 fest"
       ],
       "correct": 0,
-      "explanation": "Der Text dokumentiert einen über 40-jährigen Konflikt zwischen den wirtschaftlichen Interessen des Flughafens und der Lebensqualität der Brüsseler Bevölkerung. Dies ist ein strukturelles Dauerproblem, das im Brussels Governance Monitor kritisch analysiert wird.",
+      "explanation": "Diese Winde wehen 70 % der Zeit, was die Starts über dicht besiedelte Viertel lenkt. Der Hohe Gesundheitsrat schätzt die Gesundheitskosten auf mehr als eine Milliarde Euro pro Jahr.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
-      "sourceTitle": "Überflug von Brüssel: 40 Jahre Konflikt, 450 000 betroffene Anwohner",
+      "sourceTitle": "Fluglärm Brüssel",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:6fc0bdee05c16f5dc06c1b8769199401",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:c364612ee828f524717a216f3165707e",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-titres-services-economie-sociale-0",
+      "source": "dossier",
+      "domain": "Beschäftigung",
+      "question": "Welche Kumulierung erklärt ein Erlass von 2024 für die Eingliederungsunternehmen für unvereinbar?",
+      "options": [
+        "Den Dienstleistungsscheckvertrag und eine Beihilfe aus einem Eingliederungsmandat",
+        "Den Dienstleistungsscheckvertrag und eine Stelle als subventionierter Vertragsbediensteter",
+        "Das Eingliederungsmandat und eine kommunale Beschäftigungssubvention",
+        "Den Dienstleistungsscheckvertrag und einen Erstbeschäftigungsvertrag"
+      ],
+      "correct": 0,
+      "explanation": "Dreizehn Brüsseler Organisationen kombinierten beides seit Jahren und verlieren ihr Wirtschaftsmodell am 1. Januar 2027. Die FeBISP spricht von bis zu 735 bedrohten Arbeitsplätzen, das zuständige Kabinett nennt 347.",
+      "sourceSlug": "/de/dossiers/titres-services-economie-sociale",
+      "sourceTitle": "Dienstleistungsschecks / Soziale Eingliederungswirtschaft",
+      "provenance": {
+        "sourceLastModified": "2026-06-18",
+        "sourceContentHash": "sha256:136ce4d2bada5a756b20f9c45328842d",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-vice-gouverneur-0",
+      "source": "dossier",
+      "domain": "Institutionell",
+      "question": "Welchen Auftrag übt der Vizegouverneur von Brüssel aus?",
+      "options": [
+        "Über die Einhaltung der Gesetze zum Sprachengebrauch zu wachen",
+        "Die Notfallplanung des Verwaltungsbezirks zu koordinieren",
+        "Die Aufsicht über die Haushalte der neunzehn Gemeinden zu führen",
+        "Der Konferenz der Brüsseler Bürgermeister vorzusitzen"
+      ],
+      "correct": 0,
+      "explanation": "Brüssel hat seit der sechsten Staatsreform keinen Gouverneur mehr, seine Sicherheitsaufgaben werden von einem hohen Beamten wahrgenommen. Die Sprachenkontrolle betrifft die neunzehn Gemeinden und die neunzehn ÖSHZ.",
+      "sourceSlug": "/de/dossiers/vice-gouverneur",
+      "sourceTitle": "Vizegouverneur",
+      "provenance": {
+        "sourceLastModified": "2026-06-15",
+        "sourceContentHash": "sha256:6543158be72b6d37319049c3ead96048",
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-vivaqua-0",
       "source": "dossier",
-      "domain": "Budget",
-      "question": "Welche Institution in Brüssel ist für die Regulierung und Kontrolle von Vivaqua zuständig und hat eine kritische Analyse zur Tarifberechnung veröffentlicht?",
+      "domain": "Klima",
+      "question": "Was wirft der Regulierer BRUGEL der Geschäftsführung von Vivaqua vor?",
       "options": [
-        "ÖSHZ",
-        "WBP",
-        "IEB",
-        "BRUGEL"
+        "Hohe unbezahlte Rechnungen und als nicht gerechtfertigt bewertete Kosten",
+        "Eine systematische Unterfakturierung der Großverbraucher",
+        "Eine verspätete Veröffentlichung der geprüften Jahresabschlüsse",
+        "Eine übermäßige Auslagerung der Netzinstandhaltung"
       ],
-      "correct": 3,
-      "explanation": "BRUGEL ist der Brüsseler Regulierer, der die Verwaltung von Vivaqua überwacht und abgelehnte Kosten aus der Tarifberechnung ausschließt. Die IEB ist dagegen ein Beratungsgremium für Wasserpolitik, das strukturelle Schwächen des Kanalisationsnetzes analysiert.",
+      "correct": 0,
+      "explanation": "Der Regulierer verzeichnet 73 Millionen Euro nicht eingezogener Forderungen und 35 Millionen Euro an Ausgaben, die aus der Tarifberechnung ausgeschlossen wurden. Die Wassertarife stiegen am 1. Januar 2026 um 12,5 %, bei einer Schuld nahe einer Milliarde.",
       "sourceSlug": "/de/dossiers/vivaqua",
-      "sourceTitle": "Vivaqua: finanzielle Konsolidierung angekündigt",
+      "sourceTitle": "Vivaqua",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
+        "sourceLastModified": "2026-06-12",
         "sourceContentHash": "sha256:ca4c2cc16238f7e1cb842457f339a4c0",
-        "generatedAt": "2026-04-12T09:56:15.292Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
       }
     }
   ]

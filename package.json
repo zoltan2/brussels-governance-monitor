@@ -28,7 +28,9 @@
     "quiz:status": "tsx scripts/quiz-status.ts",
     "quiz:lint": "tsx scripts/quiz-lint.ts",
     "quiz:generate": "tsx scripts/generate-quiz.ts",
-    "quiz:generate:stale": "tsx scripts/generate-quiz.ts --only-stale"
+    "quiz:generate:stale": "tsx scripts/generate-quiz.ts --only-stale",
+    "quiz:manual:dump": "tsx scripts/quiz-manual.ts dump",
+    "quiz:manual:apply": "tsx scripts/quiz-manual.ts apply"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.106.0",

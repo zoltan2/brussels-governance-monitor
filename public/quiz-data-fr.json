@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-12T09:49:08.700Z",
+  "generatedAt": "2026-08-05T19:43:07.444Z",
   "locale": "fr",
   "poolSize": 57,
   "questionsPerSession": 10,
@@ -8,184 +8,184 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Quel est l'objectif principal du gouvernement bruxellois en matière d'équilibre budgétaire ?",
+      "question": "Jusqu'à quelle date Belfius reste-t-il le banquier de la Région bruxelloise, selon le marché approuvé en juillet 2026 ?",
       "options": [
-        "Atteindre l'équilibre budgétaire en 2029",
-        "Réduire le déficit à zéro en 2026",
-        "Augmenter les recettes fiscales de 20 % par an",
-        "Maintenir un déficit stable de 957 millions EUR"
+        "Jusqu'au 30 juin 2031",
+        "Jusqu'au 31 décembre 2029",
+        "Jusqu'au 30 juin 2028",
+        "Jusqu'au 31 décembre 2033"
       ],
       "correct": 0,
-      "explanation": "L'accord de gouvernement du 12 février 2026 fixe explicitement le retour à l'équilibre budgétaire pour 2029. Cette trajectoire repose sur environ 1,2 milliard EUR d'économies réparties entre coupes budgétaires et nouvelles recettes.",
+      "explanation": "Le contrat prend effet le 1er janvier 2027 et peut être prolongé deux fois un an par accord mutuel. La ligne de crédit disponible passe de 50 à 250 millions d'euros.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-04-02",
-        "sourceContentHash": "sha256:c6ddf2dd0a14441569416734c4f46e9e",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:f9a88142d11a049e9785f1de502387cc",
+        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Quelle mesure administrative majeure a été prévue pour réduire les coûts de fonctionnement régional ?",
+      "question": "À quoi le maintien de la ligne de crédit accordée à la Région est-il conditionné ?",
       "options": [
-        "La fusion de 25 structures régionales en 4 entités avec réduction des coûts opérationnels",
-        "La suppression de 30 % des emplois de la fonction publique",
-        "Le transfert de toutes les missions aux communes bruxelloises",
-        "La privatisation de tous les services publics régionaux"
+        "Au respect de la trajectoire budgétaire pluriannuelle",
+        "À la notation attribuée par une agence financière",
+        "À l'accord préalable du Parlement bruxellois",
+        "À la vente d'actifs immobiliers régionaux"
       ],
       "correct": 0,
-      "explanation": "L'accord de gouvernement prévoit une réforme administrative structurelle : fusionner 25 structures régionales en 4 piliers, réduisant ainsi les coûts opérationnels de 20 à 30 %. Cette réorganisation est distincte du gel des embauches maintenu pour toute la législature.",
+      "explanation": "Le déficit régional doit être ramené progressivement à zéro à l'horizon 2029, avec un plafond de 957 millions d'euros fixé pour l'exercice 2026.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-04-02",
-        "sourceContentHash": "sha256:c6ddf2dd0a14441569416734c4f46e9e",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:f9a88142d11a049e9785f1de502387cc",
+        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Selon la Déclaration de Politique Régionale de février 2026, quel est l'un des principaux dispositifs créés pour lutter contre les dépôts sauvages à Bruxelles ?",
+      "question": "Comment se répartissent les montants de la responsabilité élargie des producteurs votée par le Parlement bruxellois ?",
       "options": [
-        "L'interdiction complète des conteneurs souterrains en zones denses",
-        "Des brigades régionales de propreté coordonnant agents régionaux et communaux",
-        "Un programme d'export des déchets vers les régions voisines",
-        "Une taxe supplémentaire sur les sacs-poubelle des non-résidents"
+        "54 % aux communes, 46 % à la Région",
+        "46 % aux communes, 54 % à la Région",
+        "70 % aux communes, 30 % à la Région",
+        "50 % aux communes, 50 % à la Région"
       ],
-      "correct": 1,
-      "explanation": "La création de brigades régionales de propreté est un engagement clé de la DPR pour renforcer la coordination et l'intervention. Ce dispositif s'accompagne du déploiement de caméras intelligentes dans les zones à risque, formant une stratégie régionale globale de nettoyage.",
+      "correct": 0,
+      "explanation": "L'ordonnance transpose l'accord interrégional sur le plastique à usage unique. Les producteurs verseront 51,4 millions d'euros par an à la Région, dont 26,7 millions dès 2026.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-03-27",
-        "sourceContentHash": "sha256:a2699db04369f20f253aa6cc6581dd5d",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:44aaa6d9eb52155d68481f1fecf55f77",
+        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Quel mécanisme financier a été approuvé par le Parlement bruxellois en mars 2026 pour financer la lutte contre les déchets sauvages ?",
+      "question": "Quel dispositif participatif le Parlement bruxellois a-t-il créé sur la propreté de l'espace public ?",
       "options": [
-        "Une augmentation du prix des sacs-poubelle pour tous les résidents",
-        "La responsabilité élargie des producteurs, imposant une contribution financière de l'industrie de l'emballage et du tabac",
-        "Une amende automatique versée par les communes défaillantes",
-        "Un prélèvement obligatoire sur les entreprises de collecte privées"
+        "Une commission délibérative associant citoyens et parlementaires",
+        "Un référendum régional organisé dans les dix-neuf communes",
+        "Un conseil consultatif composé de représentants communaux",
+        "Une enquête publique ouverte aux habitants du Pentagone"
       ],
-      "correct": 1,
-      "explanation": "L'ordonnance transposant l'accord de coopération sur la responsabilité élargie des producteurs (REP) fait payer les producteurs pour les impacts de leurs emballages et produits. Une partie revient aux communes pour le nettoyage, l'autre à la Région pour ses politiques de propreté, créant ainsi un financement pérenne basé sur le pollueur-payeur.",
+      "correct": 0,
+      "explanation": "Quarante-cinq citoyens tirés au sort et quinze parlementaires y formulent des recommandations. C'est la première commission délibérative de la législature.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-03-27",
-        "sourceContentHash": "sha256:a2699db04369f20f253aa6cc6581dd5d",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-02",
+        "sourceContentHash": "sha256:44aaa6d9eb52155d68481f1fecf55f77",
+        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climat",
-      "question": "Selon l'accord de gouvernement de février 2026, quel programme de rénovation énergétique a été remplacé et par quel mécanisme ?",
+      "question": "Par quel dispositif l'accord de gouvernement de février 2026 remplace-t-il Renolution ?",
       "options": [
-        "Renolution a été remplacé par un système d'obligation de rénovation obligatoire",
-        "Renolution a été remplacé par des subventions directes aux propriétaires",
-        "Renolution a été remplacé par des prêts à taux zéro de 200 millions EUR",
-        "Renolution a été remplacé par des crédits d'impôt régionaux"
+        "Par des prêts à taux zéro dotés de 200 millions d'euros",
+        "Par une prime unique plafonnée à 200 euros par logement",
+        "Par un crédit d'impôt régional étalé sur 4 exercices",
+        "Par un fonds de garantie doté de 400 millions d'euros"
       ],
-      "correct": 2,
-      "explanation": "Le remplacement de Renolution par des prêts à taux zéro est un signal ambigu pour la trajectoire climatique de Bruxelles, car contrairement à Renolution, ces prêts n'incluent pas de budget dédié spécifiquement à la transition énergétique. Pour en savoir plus sur l'impact réel de ce changement, découvrez l'analyse complète sur Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "La Déclaration de politique régionale ne fixe aucun nouvel objectif CO2 au-delà du PACE existant, ce qui laisse la trajectoire climatique en suspens.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:c824522da2f518f715f37dd6e64a5d2f",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:afc6ab82711c4ed81c2a285dd974f547",
+        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climat",
-      "question": "Quel enjeu clé d'adaptation au changement climatique a été identifié comme gravement sous-financé dans la gestion de l'eau bruxelloise ?",
+      "question": "Que conclut le rapport annuel 2025 de Bruxelles Environnement sur la qualité de l'air ?",
       "options": [
-        "La suppression des surverses dans le Canal",
-        "La GIEP (Gestion Intégrée des Eaux Pluviales)",
-        "La fusion des entreprises de distribution d'eau",
-        "Le traitement quaternaire des eaux usées"
+        "Toutes les stations respectent les normes européennes actuelles",
+        "Aucune station ne respecte les normes européennes actuelles",
+        "Seules les stations éloignées des axes routiers sont mesurées",
+        "Les normes ne sont respectées que durant la période hivernale"
       ],
-      "correct": 1,
-      "explanation": "Selon l'avis de l'Institut Bruxellois d'Environnement (IEB) de novembre 2025, la GIEP est identifiée comme un levier crucial pour adapter Bruxelles aux impacts climatiques, mais elle reste totalement sous-financée comparée aux budgets alloués aux réseaux de tuyauterie traditionnels. Brussels Governance Monitor décrypte ces priorités mal alignées.",
+      "correct": 0,
+      "explanation": "Des dépassements persistent toutefois le long des axes routiers denses, au regard des futures normes européennes de 2030 et des recommandations de l'Organisation mondiale de la santé.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:c824522da2f518f715f37dd6e64a5d2f",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-08-05",
+        "sourceContentHash": "sha256:afc6ab82711c4ed81c2a285dd974f547",
+        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-digital-0",
       "source": "domain",
       "domain": "Numérique",
-      "question": "Quel est l'objectif principal du principe « only once » présenté dans la simplification administrative bruxelloise ?",
+      "question": "Que précise la Cour constitutionnelle dans son arrêt sur l'ordonnance Bruxelles Numérique ?",
       "options": [
-        "Autoriser chaque citoyen à ne remplir qu'un seul dossier administratif dans sa vie",
-        "Ne plus redemander aux citoyens des données déjà connues de l'administration",
-        "Réduire le nombre de formulaires papier distribués dans les maisons communales",
-        "Limiter à une seule visite par an les démarches auprès des guichets publics"
+        "Les trois canaux hors-ligne sont cumulatifs et obligatoires",
+        "Les administrations peuvent choisir un seul canal hors-ligne",
+        "Les guichets physiques peuvent fermer après une transition",
+        "L'ordonnance est annulée dans l'ensemble de ses articles"
       ],
-      "correct": 1,
-      "explanation": "Le principe « only once » est un mécanisme d'efficacité administrative qui évite aux citoyens de fournir plusieurs fois les mêmes informations. Découvrez comment Bruxelles modernise ses services publics sur Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "Le recours en annulation a été rejeté, mais un argument de charge disproportionnée ne peut être invoqué pour supprimer l'un des trois canaux.",
       "sourceSlug": "/fr/domaines/digital",
       "sourceTitle": "Numérique : fracture digitale et simplification administrative",
       "provenance": {
-        "sourceLastModified": "2026-03-28",
-        "sourceContentHash": "sha256:29839772c2cc7f8a5771ab588e7e25e6",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:ddc4b93e305cee269e583ed8582964f0",
+        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "domain-digital-1",
       "source": "domain",
       "domain": "Numérique",
-      "question": "Quel est le rôle de Paradigm (CIRB) dans la stratégie numérique de la Région de Bruxelles-Capitale ?",
+      "question": "Quel délai l'ordonnance Bruxelles Numérique laisse-t-elle pour mettre en conformité les procédures administratives existantes ?",
       "options": [
-        "Former les travailleurs sociaux à la médiation numérique",
-        "Gérer l'accès au wifi public dans les Espaces Publics Numériques",
-        "Financer les projets de recherche en intelligence artificielle des universités",
-        "Opérer techniquement la stratégie smart city et gérer l'informatique régionale"
+        "60 mois",
+        "6 mois",
+        "12 mois",
+        "24 mois"
       ],
-      "correct": 3,
-      "explanation": "Paradigm est le centre informatique régional et l'opérateur technique clé de la transformation digitale bruxelloise. En savoir plus sur les structures et les acteurs de la gouvernance numérique régionale : consultez Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "Les nouvelles procédures administratives disposent de 6 mois, contre 60 mois pour la mise en conformité des procédures déjà en place.",
       "sourceSlug": "/fr/domaines/digital",
       "sourceTitle": "Numérique : fracture digitale et simplification administrative",
       "provenance": {
-        "sourceLastModified": "2026-03-28",
-        "sourceContentHash": "sha256:29839772c2cc7f8a5771ab588e7e25e6",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:ddc4b93e305cee269e583ed8582964f0",
+        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {

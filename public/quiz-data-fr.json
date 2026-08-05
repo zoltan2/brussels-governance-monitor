@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T20:00:31.791Z",
+  "generatedAt": "2026-08-05T20:01:30.474Z",
   "locale": "fr",
-  "poolSize": 66,
+  "poolSize": 68,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1388,138 +1388,184 @@
       "id": "dossier-rse-0",
       "source": "dossier",
       "domain": "Économie",
-      "question": "Depuis mars 2024, comment fonctionne le mécanisme d'exemplarité mis en place par la Région de Bruxelles-Capitale ?",
+      "question": "Quel objectif la stratégie régionale Shifting Economy fixe-t-elle pour 2030 ?",
       "options": [
-        "Seules les entreprises avec le label Ecodynamique bénéficient de majorations sur les aides",
-        "Les majorations s'appliquent uniquement aux entreprises qui cumulent au moins trois labels différents",
-        "Les entreprises doivent demander manuellement une majoration après avoir obtenu un label reconnu",
-        "Les entreprises labellisées reçoivent automatiquement des majorations sur leurs aides régionales selon le type de label détenu"
+        "Réserver 100 % des aides aux entreprises exemplaires",
+        "Réserver 50 % des aides aux entreprises exemplaires",
+        "Supprimer 30 % des aides économiques régionales",
+        "Doubler le budget total des aides aux entreprises"
       ],
-      "correct": 3,
-      "explanation": "Le mécanisme est automatique : le système de BEE vérifie directement si l'entreprise figure au registre des labels agréés et applique la majoration sans démarche supplémentaire. Cela simplifie l'accès aux bénéfices de la transition pour les entreprises exemplaires.",
+      "correct": 0,
+      "explanation": "Le mécanisme d'exemplarité majore les aides des entreprises labellisées, de 2,5 % jusqu'à 45 % en cas de cumul. La vérification est automatique lors de la demande, sans démarche supplémentaire.",
       "sourceSlug": "/fr/dossiers/rse",
-      "sourceTitle": "Transition économique : Shifting Economy, labels et reporting durabilité",
+      "sourceTitle": "RSE / Transition éco.",
       "provenance": {
-        "sourceLastModified": "2026-03-03",
-        "sourceContentHash": "sha256:c63f02470a5eb9a5714819c2c0229e05",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:6d9fb4ee75583afe7f899719dd9265fb",
+        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Quel est le principal changement apporté par la réforme des normes d'agrément des maisons de repos à Bruxelles entrée en vigueur en septembre 2024 ?",
+      "question": "Comment la part de seniors percevant la garantie de revenus se compare-t-elle entre régions ?",
       "options": [
-        "Le passage d'un modèle centré sur les soins à un modèle centré sur le résident",
-        "L'augmentation obligatoire des salaires du personnel soignant",
-        "L'obligation pour tous les établissements de devenir publics",
-        "La réduction du nombre de maisons de repos autorisées par commune"
+        "Trois fois plus élevée à Bruxelles qu'en Flandre",
+        "Deux fois moins élevée à Bruxelles qu'en Flandre",
+        "Identique à Bruxelles et en Flandre depuis 2020",
+        "Quatre fois moins élevée à Bruxelles qu'en Wallonie"
       ],
       "correct": 0,
-      "explanation": "Cette réforme marque un tournant majeur : les maisons de repos doivent désormais privilégier l'autonomie, la participation et la qualité de vie des résidents plutôt que de se concentrer uniquement sur les soins médicaux. Découvrez tous les détails de cette transformation dans Brussels Governance Monitor.",
+      "explanation": "13 % des Bruxellois de 65 ans et plus perçoivent la GRAPA, contre 4 % en Flandre et 5 % en Wallonie. L'écart entre communes va de 4 % à Woluwe-Saint-Pierre à 26 % à Saint-Josse-ten-Noode.",
       "sourceSlug": "/fr/dossiers/seniors-a-bruxelles",
-      "sourceTitle": "Seniors à Bruxelles : hébergement, autonomie et données",
+      "sourceTitle": "Seniors",
       "provenance": {
-        "sourceLastModified": "2026-02-22",
-        "sourceContentHash": "sha256:ac50b304dab46ad956eb173db661a6dc",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:1b48b80eb7dab2b37029be3beacffeaa",
+        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Quel organisme coordonne la politique du logement social en Région bruxelloise et supervise les sociétés immobilières de service public ?",
+      "question": "À quoi servent les 61 millions d'euros débloqués pour la SLRB en juillet 2026 ?",
       "options": [
-        "Les 19 communes de Bruxelles",
-        "La SLRB (Société du Logement de la Région de Bruxelles-Capitale)",
-        "Le gouvernement régional bruxellois",
-        "L'Office fédéral du logement social"
+        "Au plan stratégique de rénovation durable du parc social",
+        "À l'achat de terrains destinés à de nouvelles constructions",
+        "Au remboursement anticipé de la dette envers la Région",
+        "À la revalorisation barémique du personnel des sociétés"
       ],
-      "correct": 1,
-      "explanation": "La SLRB est l'institution clé qui coordonne la politique du logement social et supervise les 16 Sociétés Immobilières de Service Public (SISP) chargées de gérer directement le parc de logements bruxellois. Découvrez son rôle structurant dans le Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "Le plan couvre la période 2026-2035, avec 219 projets prévus et 117 déjà en chantier. La SLRB est l'institution régionale chargée de la rénovation du parc de logements sociaux.",
       "sourceSlug": "/fr/dossiers/slrb",
-      "sourceTitle": "SLRB : 1 000+ logements publics et solidification financière",
+      "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:9dae4a332928e297e60c418aa14105d1",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:103727368bf0191d6dd4beb9cf4d59c8",
+        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Pourquoi l'accord de gouvernement de février 2026 a-t-il déblocké des projets de rénovation et de construction qui étaient gelés depuis juin 2024 ?",
+      "question": "Quel moyen le gouvernement retient-il pour assainir les finances de la SLRB ?",
       "options": [
-        "Parce que les SISP ont refusé de continuer la gestion courante sans investissements",
-        "Parce que les financements européens pour le logement ont été libérés",
-        "Parce que la fin des affaires courantes a permis au gouvernement régional de s'engager sur des budgets pluriannuels structurants",
-        "Parce que les propriétaires privés se sont retirés du marché du logement"
+        "La vente d'actifs, dont environ 200 logements sociaux",
+        "Une hausse générale des loyers de 3 % par an",
+        "Un emprunt garanti par les 19 communes bruxelloises",
+        "La fusion des 16 sociétés immobilières agréées"
       ],
-      "correct": 2,
-      "explanation": "En période d'affaires courantes, les gouvernements ne peuvent engager que les dépenses de fonctionnement courant. Avec la formation du gouvernement, les investissements structurels pluriannuels — comme les plans de rénovation — deviennent à nouveau possibles. C'est un mécanisme central de gouvernance régionale à suivre sur le Brussels Governance Monitor.",
+      "correct": 0,
+      "explanation": "Les sites Ariane à Woluwe-Saint-Lambert et Palais à Schaerbeek sont concernés. Ces cessions visent à réduire la dette de la SLRB, en parallèle d'une enveloppe de 400 millions d'euros pour plus de mille logements publics.",
       "sourceSlug": "/fr/dossiers/slrb",
-      "sourceTitle": "SLRB : 1 000+ logements publics et solidification financière",
+      "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-04-05",
-        "sourceContentHash": "sha256:9dae4a332928e297e60c418aa14105d1",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-26",
+        "sourceContentHash": "sha256:103727368bf0191d6dd4beb9cf4d59c8",
+        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
-      "domain": "Mobilité",
-      "question": "Pourquoi la route Crucke/RNP-07L, activée en 2025 comme procédure temporaire, est-elle particulièrement controversée comparée aux anciennes approches ?",
+      "domain": "Climat",
+      "question": "Pourquoi les décollages surviennent-ils majoritairement au-dessus de Bruxelles ?",
       "options": [
-        "Elle survole directement le Château Royal de Laeken, violant une interdiction historique",
-        "Elle augmente le nombre total de vols de plus de 50 % chaque mois",
-        "Elle impose des décollages uniquement par vents forts, sans alternative",
-        "Elle utilise la navigation satellite pour concentrer tous les vols sur un même corridor exact, amplifiant les nuisances"
+        "Les vents dominants de sud-ouest imposent la piste 25R",
+        "Les vents dominants du nord imposent la piste 01 vers l'est",
+        "La longueur des pistes interdit tout décollage vers l'est",
+        "Un accord entre régions fixe cette répartition depuis 1995"
       ],
-      "correct": 3,
-      "explanation": "Contrairement aux anciennes approches courbes qui dispersaient les trajectoires, la RNP-07L utilise la performance de navigation requise pour tracer des approches rectilignes concentrant 100 % des vols au même endroit. Cela explique pourquoi 96 % de ces vols violent les normes bruxelloises de bruit — un problème de *concentration* plutôt que de *volume*.",
+      "correct": 0,
+      "explanation": "Ces vents soufflent 70 % du temps, ce qui envoie les décollages au-dessus de quartiers densément peuplés. Le Conseil supérieur de la santé estime le coût sanitaire à plus d'un milliard d'euros par an.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
-      "sourceTitle": "Survol de Bruxelles : 40 ans de conflit, 450 000 riverains",
+      "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-03-26",
-        "sourceContentHash": "sha256:d3d031386356ceda4fb9d2354f3bcee5",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-07-20",
+        "sourceContentHash": "sha256:6a8b5f83f00dc738cde78709efa4e7fa",
+        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
+      "id": "dossier-titres-services-economie-sociale-0",
+      "source": "dossier",
+      "domain": "Emploi",
+      "question": "Quel cumul un arrêté de 2024 rend-il incompatible pour les structures d'insertion ?",
+      "options": [
+        "Le contrat titres-services et une aide liée à un mandat d'insertion",
+        "Le contrat titres-services et un poste d'agent contractuel subventionné",
+        "Le mandat d'insertion et une subvention communale à l'emploi",
+        "Le contrat titres-services et une convention de premier emploi"
+      ],
+      "correct": 0,
+      "explanation": "Treize organisations bruxelloises combinaient les deux depuis des années et perdent leur modèle économique au 1er janvier 2027. La FeBISP évoque jusqu'à 735 emplois menacés, le cabinet compétent avance 347.",
+      "sourceSlug": "/fr/dossiers/titres-services-economie-sociale",
+      "sourceTitle": "Titres-services / Économie sociale",
+      "provenance": {
+        "sourceLastModified": "2026-06-18",
+        "sourceContentHash": "sha256:4327dcd8bb09e6a12b321e79f8f5b1ed",
+        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
+      }
+    },
+    {
+      "id": "dossier-vice-gouverneur-0",
+      "source": "dossier",
+      "domain": "Institutionnel",
+      "question": "Quelle mission le vice-gouverneur de Bruxelles exerce-t-il ?",
+      "options": [
+        "Veiller au respect des lois sur l'emploi des langues",
+        "Coordonner la planification d'urgence de l'arrondissement",
+        "Exercer la tutelle sur les budgets des dix-neuf communes",
+        "Présider la conférence des bourgmestres bruxellois"
+      ],
+      "correct": 0,
+      "explanation": "Bruxelles n'a plus de gouverneur depuis la sixième réforme de l'État, ses missions de sécurité étant exercées par un haut fonctionnaire. Le contrôle linguistique porte sur les dix-neuf communes et les dix-neuf CPAS.",
+      "sourceSlug": "/fr/dossiers/vice-gouverneur",
+      "sourceTitle": "Vice-gouverneur",
+      "provenance": {
+        "sourceLastModified": "2026-06-15",
+        "sourceContentHash": "sha256:c240c692844cc338798f54d8762489c4",
+        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     },
     {
       "id": "dossier-vivaqua-0",
       "source": "dossier",
-      "domain": "Budget",
-      "question": "Selon l'accord de gouvernement de février 2026, quel mécanisme financier a été créé pour améliorer la situation budgétaire de Vivaqua ?",
+      "domain": "Climat",
+      "question": "Que reproche le régulateur BRUGEL à la gestion de Vivaqua ?",
       "options": [
-        "Un fonds de déconsolidation destiné à sortir la dette de Vivaqua du budget régional",
-        "Une taxe supplémentaire sur les consommateurs d'eau pour rembourser les dettes",
-        "Un prêt sans intérêt accordé par la Flandre pour réduire les déficits",
-        "Une privatisation partielle de Vivaqua auprès d'investisseurs étrangers"
+        "Des impayés élevés et des coûts jugés non justifiés",
+        "Une sous-facturation systématique des gros consommateurs",
+        "Un retard de publication de ses comptes annuels certifiés",
+        "Une sous-traitance excessive de l'entretien du réseau"
       ],
       "correct": 0,
-      "explanation": "Le fonds de déconsolidation est un instrument clé de l'accord : il permet de retirer la dette de Vivaqua (environ 1 milliard EUR) des comptes régionaux. Ce mécanisme s'accompagne d'une recapitalisation de 180 millions EUR et d'objectifs d'économies précis — autant d'enjeux détaillés dans le Brussels Governance Monitor.",
+      "explanation": "Le régulateur relève 73 millions d'euros de créances non recouvrées et 35 millions de dépenses exclues du calcul tarifaire. Les tarifs de l'eau ont augmenté de 12,5 % au 1er janvier 2026, pour une dette proche du milliard.",
       "sourceSlug": "/fr/dossiers/vivaqua",
-      "sourceTitle": "Vivaqua : solidification financière annoncée",
+      "sourceTitle": "Vivaqua",
       "provenance": {
-        "sourceLastModified": "2026-03-04",
-        "sourceContentHash": "sha256:fd306a547c0f4f175690b2c197a74010",
-        "generatedAt": "2026-04-12T09:49:08.700Z",
-        "model": "claude-haiku-4-5-20251001",
-        "promptVersion": "v1"
+        "sourceLastModified": "2026-06-12",
+        "sourceContentHash": "sha256:631cfdd9e2003efd1984e53f28970e32",
+        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v2"
       }
     }
   ]

@@ -24,14 +24,14 @@
         "sourceContentHash": "sha256:f9a88142d11a049e9785f1de502387cc",
         "generatedAt": "2026-08-05T19:43:07.444Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "À quoi le maintien de la ligne de crédit accordée à la Région est-il conditionné ?",
+      "question": "À quoi est conditionné le maintien de la ligne de crédit de 250 millions d'euros accordée à la Région bruxelloise par son banquier ?",
       "options": [
         "Au respect de la trajectoire budgétaire pluriannuelle",
         "À la notation attribuée par une agence financière",
@@ -47,14 +47,14 @@
         "sourceContentHash": "sha256:f9a88142d11a049e9785f1de502387cc",
         "generatedAt": "2026-08-05T19:43:07.444Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Comment se répartissent les montants de la responsabilité élargie des producteurs votée par le Parlement bruxellois ?",
+      "question": "Comment se répartit, entre la Région et les communes, le produit de la responsabilité élargie des producteurs de plastique à usage unique votée par le Parlement bruxellois ?",
       "options": [
         "54 % aux communes, 46 % à la Région",
         "46 % aux communes, 54 % à la Région",
@@ -70,7 +70,7 @@
         "sourceContentHash": "sha256:44aaa6d9eb52155d68481f1fecf55f77",
         "generatedAt": "2026-08-05T19:43:07.444Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -93,7 +93,7 @@
         "sourceContentHash": "sha256:44aaa6d9eb52155d68481f1fecf55f77",
         "generatedAt": "2026-08-05T19:43:07.444Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -116,7 +116,7 @@
         "sourceContentHash": "sha256:afc6ab82711c4ed81c2a285dd974f547",
         "generatedAt": "2026-08-05T19:43:07.444Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -139,7 +139,7 @@
         "sourceContentHash": "sha256:afc6ab82711c4ed81c2a285dd974f547",
         "generatedAt": "2026-08-05T19:43:07.444Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -148,13 +148,13 @@
       "domain": "Numérique",
       "question": "Que précise la Cour constitutionnelle dans son arrêt sur l'ordonnance Bruxelles Numérique ?",
       "options": [
-        "Les trois canaux hors-ligne sont cumulatifs et obligatoires",
-        "Les administrations peuvent choisir un seul canal hors-ligne",
+        "Le guichet, le téléphone et le courrier restent tous obligatoires",
+        "Les administrations peuvent n'en conserver qu'un seul des trois",
         "Les guichets physiques peuvent fermer après une transition",
         "L'ordonnance est annulée dans l'ensemble de ses articles"
       ],
       "correct": 0,
-      "explanation": "Le recours en annulation a été rejeté, mais un argument de charge disproportionnée ne peut être invoqué pour supprimer l'un des trois canaux.",
+      "explanation": "Le recours en annulation a été rejeté, mais un argument de charge disproportionnée ne peut être invoqué pour supprimer l'un de ces trois canaux hors-ligne.",
       "sourceSlug": "/fr/domaines/digital",
       "sourceTitle": "Numérique : fracture digitale et simplification administrative",
       "provenance": {
@@ -162,7 +162,7 @@
         "sourceContentHash": "sha256:ddc4b93e305cee269e583ed8582964f0",
         "generatedAt": "2026-08-05T19:43:07.444Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -185,7 +185,7 @@
         "sourceContentHash": "sha256:ddc4b93e305cee269e583ed8582964f0",
         "generatedAt": "2026-08-05T19:43:07.444Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -208,14 +208,14 @@
         "sourceContentHash": "sha256:099ac0dfc446618422b10fda40037fa7",
         "generatedAt": "2026-08-05T19:47:26.934Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Économie",
-      "question": "Que reproche le tribunal de première instance au règlement-taxe de la Ville de Bruxelles sur les surfaces de bureaux ?",
+      "question": "Que reproche le tribunal de première instance, en juin 2026, au règlement-taxe de la Ville de Bruxelles sur les surfaces de bureaux ?",
       "options": [
         "Une violation du principe constitutionnel d'égalité",
         "Un dépassement de la compétence fiscale communale",
@@ -231,14 +231,14 @@
         "sourceContentHash": "sha256:099ac0dfc446618422b10fda40037fa7",
         "generatedAt": "2026-08-05T19:47:26.934Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Quelle part des jeunes bruxellois sort de l'enseignement secondaire sans certificat ni qualification, selon l'IBSA ?",
+      "question": "Quelle part des jeunes bruxellois est sortie du secondaire sans certificat ni qualification en 2024-2025, selon l'IBSA ?",
       "options": [
         "18 %",
         "12 %",
@@ -254,7 +254,7 @@
         "sourceContentHash": "sha256:b9cc3fe4f31299844aa4b9e438e515d0",
         "generatedAt": "2026-08-05T19:47:26.934Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -277,7 +277,7 @@
         "sourceContentHash": "sha256:b9cc3fe4f31299844aa4b9e438e515d0",
         "generatedAt": "2026-08-05T19:47:26.934Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -300,7 +300,7 @@
         "sourceContentHash": "sha256:17bdd8eb1d7931921f225e1cba05a961",
         "generatedAt": "2026-08-05T19:47:26.934Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -323,7 +323,7 @@
         "sourceContentHash": "sha256:17bdd8eb1d7931921f225e1cba05a961",
         "generatedAt": "2026-08-05T19:47:26.934Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -346,7 +346,7 @@
         "sourceContentHash": "sha256:c04b15c1511f2799e05e9c6d911ba98c",
         "generatedAt": "2026-08-05T19:47:26.934Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -369,14 +369,14 @@
         "sourceContentHash": "sha256:c04b15c1511f2799e05e9c6d911ba98c",
         "generatedAt": "2026-08-05T19:47:26.934Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Quelle sanction la commission bruxelloise de déontologie a-t-elle prononcée contre des mandataires locaux ?",
+      "question": "Quelle sanction la commission bruxelloise de déontologie a-t-elle prononcée en juillet 2026 contre des mandataires locaux ?",
       "options": [
         "Des amendes de 10 % à 40 % d'une rémunération mensuelle",
         "Une inéligibilité de 6 ans à tout mandat public local",
@@ -392,7 +392,7 @@
         "sourceContentHash": "sha256:1583d5f2f0e339fdd0de18374146aaf4",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -415,7 +415,7 @@
         "sourceContentHash": "sha256:1583d5f2f0e339fdd0de18374146aaf4",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -438,7 +438,7 @@
         "sourceContentHash": "sha256:16aa9d0d7e25a51e4f9c26b041c85a56",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -461,7 +461,7 @@
         "sourceContentHash": "sha256:16aa9d0d7e25a51e4f9c26b041c85a56",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -484,22 +484,22 @@
         "sourceContentHash": "sha256:b70393ad006a8a4c0bfa3bbeca8ed222",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Qu'est-ce qui distingue les violences de Molenbeek des chants entonnés lors du match Anderlecht-Bruges ?",
+      "question": "Que montrent les données de l'Observatoire bruxellois de la sécurité sur les faits judiciaires enregistrés à Bruxelles ?",
       "options": [
-        "Des violences physiques, lors d'un épisode antérieur et séparé",
-        "Une sanction administrative prononcée par la commune",
-        "Une procédure ouverte devant le tribunal de police",
-        "Un classement sans suite décidé par le parquet"
+        "Environ 157 000 par an, stables sur dix ans",
+        "Environ 157 000 par an, en hausse de 40 %",
+        "Environ 92 000 par an, en baisse de 12 %",
+        "Environ 34 000 par an, stables sur cinq ans"
       ],
       "correct": 0,
-      "explanation": "Les faits du 4 mai 2025 impliquent des agressions de commerçants et d'habitants pris pour cible en raison de leur origine réelle ou supposée, avec plusieurs blessés graves.",
+      "explanation": "Le rapport relève en revanche une hausse de 33 % des infractions liées aux stupéfiants entre 2023 et 2024, 92 incidents impliquant des armes à feu et 34 homicides, en progression de 40 % sur dix ans.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
@@ -507,14 +507,14 @@
         "sourceContentHash": "sha256:b70393ad006a8a4c0bfa3bbeca8ed222",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Quelle part des résidents des maisons de repos bruxelloises présente un trouble neurocognitif sévère, selon Iriscare ?",
+      "question": "Quelle part des résidents des maisons de repos bruxelloises présente un trouble neurocognitif sévère, selon l'enquête Iriscare de juillet 2026 ?",
       "options": [
         "38 %",
         "19 %",
@@ -530,7 +530,7 @@
         "sourceContentHash": "sha256:e84ecb97366df70921d720a1343a8d08",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -553,7 +553,7 @@
         "sourceContentHash": "sha256:e84ecb97366df70921d720a1343a8d08",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -576,22 +576,22 @@
         "sourceContentHash": "sha256:2ca0341fc2809fc6377f036778674aaa",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Que prévoit l'attestation de sécurité simplifiée instaurée pour les logements touristiques ?",
+      "question": "Que prévoit l'attestation de sécurité simplifiée instaurée à Bruxelles pour les logements touristiques loués par des particuliers ?",
       "options": [
-        "Une vérification écrite de 4 éléments, plafonnée à 150 euros",
+        "Une vérification écrite des installations, plafonnée à 150 euros",
         "Une visite communale annuelle facturée 300 euros",
         "Un contrôle par un organisme agréé tous les 5 ans",
         "Une déclaration sur l'honneur renouvelée tous les 2 ans"
       ],
       "correct": 0,
-      "explanation": "La vérification porte sur les installations électrique, gaz et chauffage, ainsi que sur la présence d'un extincteur.",
+      "explanation": "La vérification porte sur quatre éléments : les installations électrique, gaz et chauffage, ainsi que la présence d'un extincteur.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
@@ -599,7 +599,7 @@
         "sourceContentHash": "sha256:2ca0341fc2809fc6377f036778674aaa",
         "generatedAt": "2026-08-05T19:49:08.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -622,7 +622,7 @@
         "sourceContentHash": "sha256:64587a31ea545d7e26faea22096f7de6",
         "generatedAt": "2026-08-05T19:54:22.112Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -645,7 +645,7 @@
         "sourceContentHash": "sha256:a44ac2fc8945de4c6750ad61a6a5538e",
         "generatedAt": "2026-08-05T19:54:22.112Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -668,7 +668,7 @@
         "sourceContentHash": "sha256:a44ac2fc8945de4c6750ad61a6a5538e",
         "generatedAt": "2026-08-05T19:54:22.112Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -691,7 +691,7 @@
         "sourceContentHash": "sha256:74082e71b75454530321941447e448f3",
         "generatedAt": "2026-08-05T19:54:22.112Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -714,14 +714,14 @@
         "sourceContentHash": "sha256:8a04b0c0a1f0c7e4bf52245b598a8024",
         "generatedAt": "2026-08-05T19:54:22.112Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Quel facteur l'IBSA identifie-t-il comme le plus déterminant de la satisfaction de vie des Bruxellois ?",
+      "question": "Quel facteur l'IBSA identifie-t-il comme le plus déterminant de la satisfaction de vie des Bruxellois, dans son Focus de 2025 ?",
       "options": [
         "La santé, physique et mentale",
         "Le niveau de diplôme obtenu",
@@ -737,14 +737,14 @@
         "sourceContentHash": "sha256:78a0e10cdb120ab8434bc06200867190",
         "generatedAt": "2026-08-05T19:54:22.112Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-bifff-0",
       "source": "dossier",
       "domain": "Culture",
-      "question": "Quel format le BIFFF a-t-il adopté pour son édition confrontée à la contrainte budgétaire ?",
+      "question": "Quel format le BIFFF a-t-il adopté pour sa 44e édition, en avril 2026, sous contrainte budgétaire ?",
       "options": [
         "Une seule salle mobilisée, sur 16 jours en continu",
         "Trois salles simultanées, sur 5 jours de programmation",
@@ -760,14 +760,14 @@
         "sourceContentHash": "sha256:4c0021f60d5f3e84c3d430f91226af41",
         "generatedAt": "2026-08-05T19:54:22.112Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-bim-bruxelles-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Quel écart le statut BIM révèle-t-il entre communes bruxelloises chez les mineurs ?",
+      "question": "Quel écart le statut BIM révélait-il entre communes bruxelloises chez les mineurs en janvier 2021 ?",
       "options": [
         "48 % à Molenbeek-Saint-Jean contre 9 % à Woluwe-Saint-Pierre",
         "33 % à Molenbeek-Saint-Jean contre 25 % à Woluwe-Saint-Pierre",
@@ -783,7 +783,7 @@
         "sourceContentHash": "sha256:9409f265ec121816e71f69d6f1173a62",
         "generatedAt": "2026-08-05T19:55:16.062Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -806,7 +806,7 @@
         "sourceContentHash": "sha256:35ad6a9ad697808fed3bf6f875d5d2c2",
         "generatedAt": "2026-08-05T19:55:16.062Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -815,9 +815,9 @@
       "domain": "Social",
       "question": "Quelle particularité institutionnelle caractérise les CPAS bruxellois ?",
       "options": [
-        "Ils dépendent de trois autorités sans coordination native",
+        "Ils dépendent du fédéral, de la Cocom et des communes à la fois",
+        "Ils dépendent uniquement de la Région de Bruxelles-Capitale",
         "Ils sont regroupés en une seule structure régionale unique",
-        "Ils relèvent exclusivement de la tutelle de la Région",
         "Ils sont financés à parts égales par les dix-neuf communes"
       ],
       "correct": 0,
@@ -829,7 +829,7 @@
         "sourceContentHash": "sha256:d5e1a87a40bb4beac88f1388b242533c",
         "generatedAt": "2026-08-05T19:55:16.062Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -852,7 +852,7 @@
         "sourceContentHash": "sha256:8b865c16c3627fc661f45d0b9d314836",
         "generatedAt": "2026-08-05T19:55:16.062Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -875,7 +875,7 @@
         "sourceContentHash": "sha256:8b865c16c3627fc661f45d0b9d314836",
         "generatedAt": "2026-08-05T19:55:16.062Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -898,7 +898,7 @@
         "sourceContentHash": "sha256:a1939f30d5139d5c059ed7f64734cbfa",
         "generatedAt": "2026-08-05T19:55:16.062Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -921,14 +921,14 @@
         "sourceContentHash": "sha256:a1939f30d5139d5c059ed7f64734cbfa",
         "generatedAt": "2026-08-05T19:55:16.062Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Économie",
-      "question": "Comment la progression des faillites bruxelloises se situe-t-elle par rapport aux autres régions ?",
+      "question": "Comment la progression des faillites bruxelloises en 2025 se situe-t-elle par rapport aux autres régions ?",
       "options": [
         "C'est la plus forte progression régionale du pays",
         "C'est la seule région en recul sur l'année écoulée",
@@ -944,7 +944,7 @@
         "sourceContentHash": "sha256:054c0d3e788a9218d2ba9eda7ebd9500",
         "generatedAt": "2026-08-05T19:55:16.062Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -967,14 +967,14 @@
         "sourceContentHash": "sha256:adbc4f37ff38c084f94d2c1d9edf457e",
         "generatedAt": "2026-08-05T19:56:16.035Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Que prévoient les recommandations votées après la commission d'enquête sur le logement social ?",
+      "question": "Que prévoient les recommandations votées par le Parlement bruxellois après la commission d'enquête sur le logement social ?",
       "options": [
         "L'interdiction de toute intervention individuelle d'un administrateur",
         "La suppression pure et simple des sociétés de logement social",
@@ -990,7 +990,7 @@
         "sourceContentHash": "sha256:361f55c09f501263858ec79387f8e06e",
         "generatedAt": "2026-08-05T19:56:16.035Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1013,7 +1013,7 @@
         "sourceContentHash": "sha256:29d2b4b36d2658e23e269f224138979e",
         "generatedAt": "2026-08-05T19:56:16.035Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1036,14 +1036,14 @@
         "sourceContentHash": "sha256:fa4d437e93f72e7fb62708ff1512273b",
         "generatedAt": "2026-08-05T19:56:16.035Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "À partir de quand un nouveau plan de mobilité doit-il entrer en vigueur, selon le calendrier annoncé ?",
+      "question": "À partir de quand le plan de mobilité appelé à succéder à Good Move doit-il entrer en vigueur à Bruxelles ?",
       "options": [
         "À partir de 2030",
         "À partir de 2026",
@@ -1059,7 +1059,7 @@
         "sourceContentHash": "sha256:fa4d437e93f72e7fb62708ff1512273b",
         "generatedAt": "2026-08-05T19:56:16.035Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1082,14 +1082,14 @@
         "sourceContentHash": "sha256:0759a4e03a755130d6a5deec8d84c255",
         "generatedAt": "2026-08-05T19:56:16.035Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Sur quel principe constitutionnel le Conseil d'État fonde-t-il sa critique de la réduction des amendes ?",
+      "question": "Sur quel principe constitutionnel le Conseil d'État fonde-t-il sa critique de la réduction des amendes de la zone de basses émissions bruxelloise ?",
       "options": [
         "Le principe de standstill en matière de santé",
         "Le principe d'égalité devant l'impôt régional",
@@ -1105,7 +1105,7 @@
         "sourceContentHash": "sha256:0759a4e03a755130d6a5deec8d84c255",
         "generatedAt": "2026-08-05T19:56:16.035Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1128,14 +1128,14 @@
         "sourceContentHash": "sha256:a0d5934749296f54c1c817caf82dbc6e",
         "generatedAt": "2026-08-05T19:56:16.035Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel écart BGM signale-t-il entre le texte voté en plénière et celui de la commission spéciale ?",
+      "question": "Quel écart BGM signale-t-il entre le texte sur le Métro 3 voté en plénière en juillet 2026 et celui adopté par la commission spéciale ?",
       "options": [
         "24 recommandations votées contre 22 en commission",
         "22 recommandations votées contre 24 en commission",
@@ -1151,14 +1151,14 @@
         "sourceContentHash": "sha256:a0d5934749296f54c1c817caf82dbc6e",
         "generatedAt": "2026-08-05T19:56:16.035Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel effet l'arrêt du Conseil d'État produit-il sur l'interdiction des trottinettes partagées ?",
+      "question": "Quel effet l'arrêt du Conseil d'État de juillet 2026, annulant les licences de mobilité partagée à Bruxelles, produit-il sur l'interdiction des trottinettes partagées ?",
       "options": [
         "Il l'avance de quatre mois, par voie judiciaire",
         "Il la reporte de quatre mois, par voie judiciaire",
@@ -1174,14 +1174,14 @@
         "sourceContentHash": "sha256:07fc02e62063e6b0b0b1921083a12c94",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quelle offre l'arrêt supprime-t-il alors que le gouvernement souhaitait la maintenir ?",
+      "question": "Quelle offre l'annulation des licences de mobilité partagée à Bruxelles supprime-t-elle, alors que le gouvernement souhaitait la maintenir ?",
       "options": [
         "Les vélos partagés en flotte libre",
         "Les trottinettes partagées en flotte libre",
@@ -1197,7 +1197,7 @@
         "sourceContentHash": "sha256:07fc02e62063e6b0b0b1921083a12c94",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1220,7 +1220,7 @@
         "sourceContentHash": "sha256:3cc64915bc7775cb67a611c94ce9052b",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1243,7 +1243,7 @@
         "sourceContentHash": "sha256:8d1beb6c9e9f7c62fc92eb7edc581ce7",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1266,7 +1266,7 @@
         "sourceContentHash": "sha256:8d1beb6c9e9f7c62fc92eb7edc581ce7",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1289,7 +1289,7 @@
         "sourceContentHash": "sha256:4e6283194d0905433fcc8936e4354c06",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1298,7 +1298,7 @@
       "domain": "Climat",
       "question": "Quelle mesure de précaution accompagne le périmètre établi autour de l'ancien site Sicli à Uccle ?",
       "options": [
-        "L'interdiction de consommer fruits, légumes et œufs du lieu",
+        "L'interdiction de consommer fruits, légumes et œufs du périmètre",
         "L'interdiction totale d'accès à la voirie pour les riverains",
         "L'obligation de raccorder les habitations au réseau d'égouts",
         "La fermeture des écoles situées dans le périmètre concerné"
@@ -1312,7 +1312,7 @@
         "sourceContentHash": "sha256:4e6283194d0905433fcc8936e4354c06",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1335,7 +1335,7 @@
         "sourceContentHash": "sha256:5486f9570d244ee61caf2de5c6af4d07",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1358,7 +1358,7 @@
         "sourceContentHash": "sha256:62ebd8b89adcae7f2f70f64d5215e82d",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1381,7 +1381,7 @@
         "sourceContentHash": "sha256:b2c369a95a12b97c261db66b865597b0",
         "generatedAt": "2026-08-05T20:00:31.791Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1404,7 +1404,7 @@
         "sourceContentHash": "sha256:6d9fb4ee75583afe7f899719dd9265fb",
         "generatedAt": "2026-08-05T20:01:30.474Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1427,7 +1427,7 @@
         "sourceContentHash": "sha256:1b48b80eb7dab2b37029be3beacffeaa",
         "generatedAt": "2026-08-05T20:01:30.474Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1450,7 +1450,7 @@
         "sourceContentHash": "sha256:103727368bf0191d6dd4beb9cf4d59c8",
         "generatedAt": "2026-08-05T20:01:30.474Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1473,7 +1473,7 @@
         "sourceContentHash": "sha256:103727368bf0191d6dd4beb9cf4d59c8",
         "generatedAt": "2026-08-05T20:01:30.474Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1496,7 +1496,7 @@
         "sourceContentHash": "sha256:6a8b5f83f00dc738cde78709efa4e7fa",
         "generatedAt": "2026-08-05T20:01:30.474Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1519,7 +1519,7 @@
         "sourceContentHash": "sha256:4327dcd8bb09e6a12b321e79f8f5b1ed",
         "generatedAt": "2026-08-05T20:01:30.474Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1542,7 +1542,7 @@
         "sourceContentHash": "sha256:c240c692844cc338798f54d8762489c4",
         "generatedAt": "2026-08-05T20:01:30.474Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     },
     {
@@ -1565,7 +1565,7 @@
         "sourceContentHash": "sha256:631cfdd9e2003efd1984e53f28970e32",
         "generatedAt": "2026-08-05T20:01:30.474Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v2"
+        "promptVersion": "v3"
       }
     }
   ],

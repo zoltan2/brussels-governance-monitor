@@ -16,6 +16,18 @@ import path from 'path'
 import { matter } from '../src/lib/frontmatter'
 import dotenv from 'dotenv'
 import Anthropic from '@anthropic-ai/sdk'
+import type { QuizData, QuizQuestion } from './quiz-provenance'
+import {
+  MIN_BODY_CHARS,
+  PROMPT_VERSION,
+  assessPool,
+  hashBody,
+  readPool,
+  readUnits,
+  unitKeyOf,
+  unitsToRegenerate,
+  type Provenance,
+} from './quiz-provenance'
 
 // ─── Chargement de la clé API ───────────────────────────────────────────────
 const envPaths = [
@@ -238,25 +250,10 @@ const DOMAIN_LABELS: Record<Locale, Record<string, string>> = {
 }
 
 // ─── Types ──────────────────────────────────────────────────────────────────
-export interface QuizQuestion {
-  id: string
-  source: 'domain' | 'dossier'
-  domain: string
-  question: string
-  options: [string, string, string, string]
-  correct: number
-  explanation: string
-  sourceSlug: string
-  sourceTitle: string
-}
-
-export interface QuizData {
-  generatedAt: string
-  locale: string
-  poolSize: number
-  questionsPerSession: number
-  questions: QuizQuestion[]
-}
+// QuizQuestion et QuizData vivent dans quiz-provenance.ts : ce sont les mêmes
+// structures que celles lues par quiz-status.ts et par la passe de backfill.
+// Les dupliquer ici avait fait diverger le champ `locale` (string vs union).
+export type { QuizQuestion, QuizData } from './quiz-provenance'
 
 interface GenerationLogEntry {
   id: string
@@ -308,6 +305,12 @@ function shuffleOptions(
 }
 
 // ─── Generation ─────────────────────────────────────────────────────────────
+const MODEL = 'claude-haiku-4-5-20251001'
+/** Nombre de tentatives par unité avant d'abandonner. Une réponse du modèle
+ *  peut être invalide ponctuellement ; abandonner au premier échec est ce qui
+ *  a produit les 4 questions allemandes manquantes d'avril 2026. */
+const MAX_ATTEMPTS = 3
+
 async function generateFromContent(
   content: string,
   title: string,
@@ -315,7 +318,34 @@ async function generateFromContent(
   type: 'domain' | 'dossier',
   count: number,
   locale: Locale,
-  log: GenerationLogEntry[]
+  log: GenerationLogEntry[],
+  provenance: Provenance
+): Promise<QuizQuestion[]> {
+  let lastError: Error | null = null
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      return await attemptGeneration(content, title, slug, type, count, locale, log, provenance)
+    } catch (err) {
+      lastError = err as Error
+      if (attempt < MAX_ATTEMPTS) {
+        console.warn(`      tentative ${attempt}/${MAX_ATTEMPTS} échouée (${lastError.message}), on réessaie`)
+      }
+    }
+  }
+
+  throw lastError ?? new Error('échec inconnu')
+}
+
+async function attemptGeneration(
+  content: string,
+  title: string,
+  slug: string,
+  type: 'domain' | 'dossier',
+  count: number,
+  locale: Locale,
+  log: GenerationLogEntry[],
+  provenance: Provenance
 ): Promise<QuizQuestion[]> {
   const config = LOCALE_CONFIG[locale]
   const prompt = config.prompt(title, truncate(content), count)
@@ -334,7 +364,7 @@ async function generateFromContent(
 
   try {
     const response = await client.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+      model: MODEL,
       max_tokens: count * 500,
       messages: [{ role: 'user', content: prompt }],
     })
@@ -381,6 +411,7 @@ async function generateFromContent(
         explanation: q.explanation,
         sourceSlug: `${routePrefix}/${slug}`,
         sourceTitle: title,
+        provenance,
       })
     }
 
@@ -396,58 +427,121 @@ async function generateFromContent(
 }
 
 // ─── Generate for one locale ────────────────────────────────────────────────
-async function generateForLocale(locale: Locale, log: GenerationLogEntry[]): Promise<QuizData> {
+
+interface LocaleResult {
+  data: QuizData
+  regenerated: number
+  reused: number
+  skippedThin: string[]
+  failures: string[]
+}
+
+/**
+ * Génère (ou régénère) le pool d'une locale.
+ *
+ * En mode incrémental, seules les unités dont la source a changé sont
+ * envoyées au modèle ; les questions dont la source n'a pas bougé sont
+ * reprises telles quelles, avec leur provenance intacte. C'est ce qui rend la
+ * relecture soutenable : quelques questions par semaine au lieu de 224.
+ */
+async function generateForLocale(
+  locale: Locale,
+  log: GenerationLogEntry[],
+  onlyStale: boolean
+): Promise<LocaleResult> {
   const labels = DOMAIN_LABELS[locale]
+  const units = readUnits(locale)
+
+  let targets: Set<string> | null = null
+  const reusable = new Map<string, QuizQuestion[]>()
+
+  if (onlyStale) {
+    const pool = readPool(locale)
+    if (!pool) {
+      console.log('  Pas de pool existant, génération complète.')
+    } else {
+      const statuses = assessPool(pool as QuizData, units)
+      targets = unitsToRegenerate(statuses, units)
+      const staleIds = new Set(
+        statuses.filter((st) => st.freshness !== 'fresh').map((st) => st.id)
+      )
+      for (const q of pool.questions) {
+        if (staleIds.has(q.id)) continue
+        const key = unitKeyOf(q)
+        if (!reusable.has(key)) reusable.set(key, [])
+        reusable.get(key)!.push(q)
+      }
+      const reusedCount = [...reusable.values()].reduce((a, v) => a + v.length, 0)
+      console.log(`  Incrémental : ${targets.size} unité(s) à régénérer, ${reusedCount} question(s) reprises`)
+    }
+  }
+
   const questions: QuizQuestion[] = []
+  const skippedThin: string[] = []
+  const failures: string[] = []
+  let regenerated = 0
 
-  // Domains
-  const domains = readLocaleMDX(CONTENT_DIRS.domains, locale)
-  console.log(`  Domains: ${domains.length} ${locale.toUpperCase()} files`)
+  const ordered = [...units.entries()].sort(([a], [b]) => a.localeCompare(b))
 
-  for (const d of domains) {
-    const title = (d.frontmatter.title as string) ?? d.slug
-    const domainSlug = (d.frontmatter.domain as string) ?? d.slug
+  for (const [unitKey, unit] of ordered) {
+    if (targets && !targets.has(unitKey)) {
+      questions.push(...(reusable.get(unitKey) ?? []))
+      continue
+    }
+
+    // Une unité trop mince produit des questions anecdotiques ou des doublons.
+    if (unit.body.trim().length < MIN_BODY_CHARS) {
+      skippedThin.push(unitKey)
+      console.log(`    THIN ${unit.slug} (${unit.body.trim().length} signes) — aucune question`)
+      continue
+    }
+
+    const count =
+      unit.type === 'domain'
+        ? QUESTIONS_PER_DOMAIN
+        : RICH_DOSSIERS.has(unit.slug)
+          ? 2
+          : QUESTIONS_PER_DOSSIER
+
+    const provenance: Provenance = {
+      sourceLastModified: unit.lastModified,
+      sourceContentHash: unit.contentHash,
+      generatedAt: new Date().toISOString(),
+      model: MODEL,
+      promptVersion: PROMPT_VERSION,
+    }
+
     try {
       const qs = await generateFromContent(
-        d.content, title, d.slug, 'domain', QUESTIONS_PER_DOMAIN, locale, log
+        unit.body, unit.title, unit.slug, unit.type, count, locale, log, provenance
       )
+      const domainSlug = unit.type === 'domain' ? unit.slug : ''
       qs.forEach((q) => (q.domain = labels[domainSlug] ?? domainSlug))
       questions.push(...qs)
-      console.log(`    OK ${title} (${qs.length}q)`)
+      regenerated += qs.length
+      console.log(`    OK ${unit.title} (${qs.length}q)`)
     } catch (err) {
-      console.warn(`    SKIP ${d.slug} — ${(err as Error).message}`)
+      failures.push(unitKey)
+      console.error(`    ÉCHEC ${unit.slug} — ${(err as Error).message}`)
+      // On conserve l'ancienne question plutôt que de perdre la couverture.
+      questions.push(...(reusable.get(unitKey) ?? []))
     }
   }
 
-  // Dossiers
-  const dossiers = readLocaleMDX(CONTENT_DIRS.dossiers, locale)
-  console.log(`  Dossiers: ${dossiers.length} ${locale.toUpperCase()} files`)
-
-  for (const d of dossiers) {
-    const title = (d.frontmatter.title as string) ?? d.slug
-    const domainSlug =
-      Array.isArray(d.frontmatter.relatedDomains) && d.frontmatter.relatedDomains.length > 0
-        ? (d.frontmatter.relatedDomains[0] as string)
-        : ''
-    const count = RICH_DOSSIERS.has(d.slug) ? 2 : QUESTIONS_PER_DOSSIER
-    try {
-      const qs = await generateFromContent(
-        d.content, title, d.slug, 'dossier', count, locale, log
-      )
-      qs.forEach((q) => (q.domain = labels[domainSlug] ?? domainSlug))
-      questions.push(...qs)
-      console.log(`    OK ${title} (${qs.length}q)`)
-    } catch (err) {
-      console.warn(`    SKIP ${d.slug} — ${(err as Error).message}`)
-    }
-  }
+  questions.sort((a, b) => a.id.localeCompare(b.id))
 
   return {
-    generatedAt: new Date().toISOString(),
-    locale,
-    poolSize: questions.length,
-    questionsPerSession: 10,
-    questions,
+    data: {
+      generatedAt: new Date().toISOString(),
+      locale,
+      poolSize: questions.length,
+      questionsPerSession: 10,
+      questions,
+    },
+    regenerated,
+    reused: questions.length - regenerated,
+    skippedThin,
+    failures,
   }
 }
 
@@ -455,32 +549,56 @@ async function generateForLocale(locale: Locale, log: GenerationLogEntry[]): Pro
 async function main() {
   const args = process.argv.slice(2)
   const localeFlag = args.indexOf('--locale')
+  const onlyStale = args.includes('--only-stale')
   const targetLocales: Locale[] =
     localeFlag !== -1 && args[localeFlag + 1]
       ? [args[localeFlag + 1] as Locale]
       : [...LOCALES]
 
-  console.log(`Generating quiz pool for: ${targetLocales.join(', ')}\n`)
+  console.log(
+    `Génération du pool de quiz : ${targetLocales.join(', ')}` +
+      (onlyStale ? ' (incrémental, sources modifiées uniquement)' : ' (complète)') +
+      '\n'
+  )
   const generationLog: GenerationLogEntry[] = []
+  const allFailures: string[] = []
 
   for (const locale of targetLocales) {
     console.log(`\n── ${locale.toUpperCase()} ──────────────────────────────────────`)
-    const data = await generateForLocale(locale, generationLog)
+    const result = await generateForLocale(locale, generationLog, onlyStale)
     const outPath = path.join(process.cwd(), `public/quiz-data-${locale}.json`)
-    fs.writeFileSync(outPath, JSON.stringify(data, null, 2))
-    console.log(`  Pool: ${data.poolSize} questions → quiz-data-${locale}.json`)
+    fs.writeFileSync(outPath, JSON.stringify(result.data, null, 2) + '\n')
+
+    console.log(
+      `  Pool : ${result.data.poolSize} questions ` +
+        `(${result.regenerated} régénérées, ${result.reused} reprises) → quiz-data-${locale}.json`
+    )
+    if (result.skippedThin.length) {
+      console.log(`  Unités trop minces, sans question : ${result.skippedThin.join(', ')}`)
+    }
+    for (const f of result.failures) allFailures.push(`${locale}:${f}`)
   }
 
-  // Write log
   const logPath = path.join(process.cwd(), 'quiz-generation-log.json')
   fs.writeFileSync(
     logPath,
     JSON.stringify({ generatedAt: new Date().toISOString(), entries: generationLog }, null, 2)
   )
-  console.log(`\nLog → quiz-generation-log.json (${generationLog.length} entries)`)
+  console.log(`\nJournal → quiz-generation-log.json (${generationLog.length} entrées)`)
+
+  // Un échec d'unité ne doit JAMAIS passer inaperçu : c'est ainsi que quatre
+  // questions allemandes ont manqué pendant quatre mois sans que personne ne
+  // le sache.
+  if (allFailures.length) {
+    console.error(
+      `\n${allFailures.length} unité(s) en échec après ${MAX_ATTEMPTS} tentatives :\n  ` +
+        allFailures.join('\n  ')
+    )
+    process.exit(1)
+  }
 }
 
 main().catch((err) => {
-  console.error('Quiz generation error:', err)
+  console.error('Erreur de génération du quiz :', err)
   process.exit(1)
 })

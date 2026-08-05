@@ -165,6 +165,20 @@ export default function BGMQuiz() {
   const q: QuizQuestion | null = session.length > 0 ? session[current] : null
   const total = session.length
 
+  /**
+   * Question affichée, avec son rang dans la session.
+   *
+   * Sans cet événement, seules les questions RÉPONDUES sont mesurées : une
+   * question affichée puis abandonnée est invisible, le taux de réussite est
+   * biaisé à la hausse, et on ne sait pas à quel rang les gens décrochent.
+   * Avec 71 % d'abandon mesuré entre avril et août 2026, c'est la donnée qui
+   * manquait le plus.
+   */
+  useEffect(() => {
+    if (!q || phase !== 'quiz') return
+    track('quiz-question-shown', { questionId: q.id, rank: current + 1 })
+  }, [q, current, phase])
+
   const handleAnswer = useCallback(
     (idx: number) => {
       if (answered !== null || !q) return

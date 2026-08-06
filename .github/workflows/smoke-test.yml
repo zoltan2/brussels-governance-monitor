@@ -1,58 +1,71 @@
 name: Smoke Test
 
+# Vérifie que la PRODUCTION sert bien le commit qui vient d'être déployé.
+#
+# Le déclencheur n'est pas `push` : depuis le passage à Hetzner, pousser sur
+# main ne déploie rien directement. `Deploy image` publie l'image sur GHCR,
+# puis un timer systemd (bgm-deploy, OnUnitActiveSec=5min) la tire sur le VPS.
+# Un smoke test lancé au push testait donc l'ANCIENNE version, quand il ne
+# cherchait pas un déploiement Vercel qui n'existe plus.
 on:
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ["Deploy image"]
+    types: [completed]
+  workflow_dispatch:
 
 jobs:
   smoke:
     name: Post-deploy smoke test
     runs-on: ubuntu-latest
+    # Inutile de sonder la prod si l'image n'a pas été publiée.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-      VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
-      COMMIT_SHA: ${{ github.sha }}
+      BASE: https://governance.brussels
+      EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
 
     steps:
-      - name: Wait for Vercel deployment
+      - name: Wait for the VPS to serve this commit
         run: |
-          TIMEOUT=300
+          # Le timer tourne toutes les 5 min, plus le pull de l'image et le
+          # redémarrage du conteneur : 15 min couvrent le cas normal sans
+          # laisser un job pendu indéfiniment.
+          TIMEOUT=900
+          INTERVAL=20
           ELAPSED=0
-          QUERY="projectId=$VERCEL_PROJECT_ID&limit=5"
-          [ -n "$VERCEL_TEAM_ID" ] && QUERY="$QUERY&teamId=$VERCEL_TEAM_ID"
+
+          if [ -z "$EXPECTED_SHA" ]; then
+            echo "Déclenchement manuel sans commit de référence : on vérifie"
+            echo "seulement que la prod répond, pas quelle version elle sert."
+            exit 0
+          fi
+
+          echo "Commit attendu en production : $EXPECTED_SHA"
 
           while [ $ELAPSED -lt $TIMEOUT ]; do
-            RESPONSE=$(curl -s --max-time 30 \
-              "https://api.vercel.com/v6/deployments?$QUERY" \
-              -H "Authorization: Bearer $VERCEL_TOKEN")
-            if [ -z "$RESPONSE" ]; then
-              echo "WARN: Vercel API unreachable, retrying in 15s..."
-              sleep 15; ELAPSED=$((ELAPSED + 15)); continue
+            BODY=$(curl -s --max-time 30 "$BASE/api/health" || true)
+            SERVED=$(echo "$BODY" | jq -r '.version // empty' 2>/dev/null || true)
+
+            if [ "$SERVED" = "$EXPECTED_SHA" ]; then
+              echo "OK: la production sert $SERVED (après ${ELAPSED}s)"
+              exit 0
             fi
-            if echo "$RESPONSE" | jq -e '.error' > /dev/null 2>&1; then
-              echo "VERCEL API ERROR: $(echo "$RESPONSE" | jq -r '.error.message')"
-              exit 1
-            fi
-            STATE=$(echo "$RESPONSE" \
-              | jq -r --arg sha "$COMMIT_SHA" \
-                '.deployments[] | select(.meta.githubCommitSha == $sha) | .readyState' \
-              | head -1)
-            if [ "$STATE" = "READY" ]; then echo "Deployment ready"; break; fi
-            if [ "$STATE" = "ERROR" ] || [ "$STATE" = "CANCELED" ]; then
-              echo "VERCEL BUILD FAILED: state=$STATE"; exit 1
-            fi
-            sleep 15
-            ELAPSED=$((ELAPSED + 15))
+
+            # `unknown` = image construite sans BUILD_SHA, ou version antérieure
+            # à l'introduction du champ. On continue d'attendre plutôt que
+            # d'échouer : le VPS n'a peut-être pas encore tiré la nouvelle.
+            echo "en attente… servi=${SERVED:-<absent>} (${ELAPSED}s/${TIMEOUT}s)"
+            sleep $INTERVAL
+            ELAPSED=$((ELAPSED + INTERVAL))
           done
-          if [ $ELAPSED -ge $TIMEOUT ]; then
-            echo "WEBHOOK DROP SUSPECTED — no Vercel deployment found for SHA $COMMIT_SHA after ${TIMEOUT}s"
-            exit 1
-          fi
+
+          echo "ÉCHEC : après ${TIMEOUT}s la production sert encore '${SERVED:-<absent>}'"
+          echo "au lieu de $EXPECTED_SHA."
+          echo "Pistes : timer bgm-deploy arrêté sur le VPS, pull GHCR en échec,"
+          echo "ou conteneur qui ne redémarre pas. Vérifier bgm-deploy.service."
+          exit 1
 
       - name: HTTP availability checks
         run: |
-          BASE="https://governance.brussels"
           for ROUTE in "/" "/fr" "/fr/data"; do
             HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L --max-time 30 "$BASE$ROUTE")
             if [ "$HTTP" != "200" ]; then
@@ -63,7 +76,7 @@ jobs:
 
       - name: Pagefind probe
         run: |
-          HTTP=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 "https://governance.brussels/pagefind/pagefind.js")
+          HTTP=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 "$BASE/pagefind/pagefind.js")
           if [ "$HTTP" != "200" ]; then
             echo "FAIL: pagefind.js returned $HTTP (search index may not be served)"; exit 1
           fi

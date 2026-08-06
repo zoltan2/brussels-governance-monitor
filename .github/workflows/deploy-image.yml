@@ -54,5 +54,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          # Cuit le commit dans l'image, exposé ensuite par /api/health. C'est
+          # ce qui permet au smoke test de savoir si le VPS a déjà tiré cette
+          # image ou s'il sert encore la précédente.
+          build-args: |
+            BUILD_SHA=${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max

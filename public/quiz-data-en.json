@@ -838,13 +838,13 @@
       "domain": "Digital",
       "question": "What reversal has occurred in the worldwide energy consumption of artificial intelligence, according to the 2024 data?",
       "options": [
-        "Inference now weighs more heavily than training",
-        "Training now weighs more heavily than inference",
-        "Storage now weighs more heavily than computation",
-        "Cooling now weighs more heavily than computation"
+        "Inference now consumes more than training",
+        "Training now consumes more than inference",
+        "Storage now consumes more than computation",
+        "Cooling now consumes more than computation"
       ],
       "correct": 0,
-      "explanation": "The day-to-day use of models accounts for 60 to 70% of the energy consumed by artificial intelligence, against 20 to 30% for training. It is user queries that weigh on the energy system.",
+      "explanation": "The day-to-day use of models accounts for 60 to 70% of the energy consumed by artificial intelligence, against 20 to 30% for training. It is user queries that put pressure on the energy system.",
       "sourceSlug": "/en/dossiers/data-centers-ia-energie",
       "sourceTitle": "Data Centers & AI",
       "provenance": {
@@ -936,7 +936,7 @@
         "It is an increase identical to that of Flanders"
       ],
       "correct": 0,
-      "explanation": "Brussels bankruptcies rose by 13.2%, against 7.8% in Flanders and a fall of 3% in Wallonia. Construction and the hospitality sector are among the hardest hit.",
+      "explanation": "Brussels bankruptcies rose by 13.2%, against 7.8% in Flanders and a fall of 3% in Wallonia. Construction and the hospitality sector were among the hardest hit.",
       "sourceSlug": "/en/dossiers/faillites-a-bruxelles",
       "sourceTitle": "Bankruptcies",
       "provenance": {
@@ -997,7 +997,7 @@
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What does the regional mobility plan set to succeed Good Move, provided for in the Brussels government agreement of 12 February 2026, refocus its cells around?",
+      "question": "Around what does the regional mobility plan set to succeed Good Move, provided for in the Brussels government agreement of 12 February 2026, refocus its neighbourhood cells?",
       "options": [
         "School zones",
         "Regional railway stations",
@@ -1051,7 +1051,7 @@
         "It is halved, with an increased per-offence fine"
       ],
       "correct": 0,
-      "explanation": "The fine per offence falls from 350 to 80 euros, but the cap of four fines a year disappears. An annual pass at 350 euros, or 200 euros at the social rate, allows drivers to circulate legally.",
+      "explanation": "The fine per offence falls from 350 to 80 euros, but the cap of four fines a year disappears. An annual pass at 350 euros, or 200 euros at the social rate, allows drivers to drive legally.",
       "sourceSlug": "/en/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
@@ -1091,13 +1091,13 @@
       "domain": "Mobility",
       "question": "What does the Brussels Parliament's special Metro 3 committee recommend, in its conclusions of 9 July 2026, for any major regional infrastructure project?",
       "options": [
-        "A single governance structure, held within one administration",
+        "A single governance structure, brought together within one administration",
         "A regional referendum before the works are launched",
         "A full delegation of project ownership to the federal level",
         "A legal cap on the budget from the preliminary design stage"
       ],
       "correct": 0,
-      "explanation": "An identified project director would be accountable to the government and to Parliament. The recommendations are grouped into six strands, after eight months of work and more than fifty hearings.",
+      "explanation": "A clearly designated project director would be accountable to the government and to Parliament. The recommendations are grouped into six strands, after eight months of work and more than fifty hearings.",
       "sourceSlug": "/en/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 36
+  "reviewedCount": 48
 }

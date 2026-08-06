@@ -1,1573 +1,1720 @@
 {
-  "updatedAt": "2026-08-05T00:00:00.000Z",
+  "updatedAt": "2026-08-06T00:00:00.000Z",
   "entries": {
     "fr:domain-budget-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:bbfcbd8f4e97e678c5d308507825b48b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:474b7659e58d59110c974295d46da1ce"
     },
     "fr:domain-budget-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:49065c47ec2e1be5b42e8cd066f6253e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:05932cec60ac657566502324e602503f",
+      "note": "Relecture : banquier nommé (Belfius) et marché daté, la question ne dépend plus de la précédente."
     },
     "fr:domain-cleanliness-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:00146148a6bdef5daeef2f0c6ad4af45",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8f3eb99baa76abaa6ee9d81ffaac204b",
+      "note": "Relecture : vote de l'ordonnance daté (13 mars 2026)."
     },
     "fr:domain-cleanliness-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:14bb5c28ab89ed6e0db47dcacf342cf4",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d81901201ecc60b06e9ce9dbc56185f7",
+      "note": "Relecture : création de la commission datée (23 janvier 2026)."
     },
     "fr:domain-climate-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2a5a53b383b2d08b4fd364a5354b909f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:fa0c777decc60a66a5d5558fc2366960"
     },
     "fr:domain-climate-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0a78d51a87c641f51c219bde72f25fa3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:db55761cdb09ad37d814d80c2cfae8ab"
     },
     "fr:domain-digital-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7cf36c0777c311a8e1a381cb99a41582",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d8c7cf98fba184e62f59c7dbda91cae8",
+      "note": "Relecture : arrêt identifié et daté (n° 126/2025, 25 septembre 2025)."
     },
     "fr:domain-digital-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7b96c4c8de52bcf5a2c66da36a86c4b9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:0af41f053041030b62b5ab4dad3b86cc"
     },
     "fr:domain-economy-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b2d4d2b71332d2bd235d2af9eacda5ab",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ba63462833b12a7c9df6d1e1bef5bc07",
+      "note": "Relecture : annonce datée (18 juillet 2026), verbe au passé."
     },
     "fr:domain-economy-1": {
-      "status": "pending",
-      "reviewedAt": "2026-04-13",
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5b5455da50ea034202edacee72dc560d",
-      "note": "Relue le 13/04/2026, puis modifiée mécaniquement le 05/08/2026 pour retirer une formulation temporelle interdite par le content lint. Le fait n'a pas changé. À re-valider."
+      "reviewedHash": "sha256:2c11d7af20b64e902ba16c205ae5e384"
     },
     "fr:domain-education-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:39d26b00f1f7ba4e45b294ff5a170ce9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e75bd2c1aeab5305dcbefe7c8a758e0b"
     },
     "fr:domain-education-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:32f9d9fc7d9aed29355edf1f8ba2dceb",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c61c496143f2482660e647f9420a6bf0",
+      "note": "Relecture : entrée en vigueur datée dans la question (inscriptions 2027-2028)."
     },
     "fr:domain-employment-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:290fed8edec1731cf5e4dee2a1766eff",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c5170eccc7c40325e374981a12fddbda",
+      "note": "Relecture : Déclaration de politique régionale datée (février 2026)."
     },
     "fr:domain-employment-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ca55818215453e99bec5a326e5e33f94",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:973a320a5725cadd6d8e0849f1e3799c",
+      "note": "Relecture : étude identifiée et période des données précisée ; question et options reformulées, « que devient le chômage » désignait mal les jeunes eux-mêmes."
     },
     "fr:domain-housing-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:95f04f6cb100810fa3683d7405b7b98d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:dd101f2b6966bf019f7b33daf36e60a5",
+      "note": "Relecture : désignation datée (16 juillet 2026) ; « le lendemain » remplacé par sa date dans l'explication."
     },
     "fr:domain-housing-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:55790ff82c90d71af7c5cfb4c9ee1734",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f21ee0621d3fdacd406b3d0cec0a6cb4",
+      "note": "Relecture : recours en référé daté (13 juillet 2026)."
     },
     "fr:domain-institutional-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5a5829540db7d0a9711be3449bf1dbb6",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:630715b76416c59d462f78cb36c3f4af"
     },
     "fr:domain-institutional-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:456073ad7ad7ad1096361b798f2e5bf1",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d9ad0442795e1b341d5ba940c3363936",
+      "note": "Relecture : blocage situé dans le temps (juillet 2026)."
     },
     "fr:domain-mobility-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:acebf0abd6e7e3fec6fd657252370d4d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:404ec46e37bb937ace301a8ce4ad43c6",
+      "note": "Relecture : réforme LEZ datée (accord du 16 juillet 2026)."
     },
     "fr:domain-mobility-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:88eedc6ece7b722b5a0a47c057849204",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8de25ac1c421e10f6ea4e715d150d58b",
+      "note": "Relecture : même réforme datée, la question ne dépend plus de la précédente."
     },
     "fr:domain-security-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9c760ed65adfe00bcaba5a43a807a904",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:79a725ef85d0da77023e252bf9249315",
+      "note": "Relecture : annonce datée (10 juillet 2026), verbe au passé."
     },
     "fr:domain-security-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:cadebec66f95fd9c1c3d1917b5180e8f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:4efd8592f7aa55458110f706735f0051",
+      "note": "Relecture : rapport annuel identifié et daté (publié le 22 décembre 2025)."
     },
     "fr:domain-social-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b15081dc7e7e743378b302cbbba62e43",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:78f8acd2b022111d3ce009938a73a39c"
     },
     "fr:domain-social-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0d3e4a8e24684a15e3cc64cd004246c3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c02948d9f5338d53f041b85221d62e43",
+      "note": "Relecture : enquête Iriscare nommée et datée, la question ne dépend plus de la précédente."
     },
     "fr:domain-urban-planning-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:dced210e27e213f30610f28793e73cd0",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:25cf55371126ffc4707e3221ec7ddcd4",
+      "note": "Relecture : mesure située à Bruxelles et datée (réforme du 9 juillet 2026)."
     },
     "fr:domain-urban-planning-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:faeccc823fc921baebb31b0a789d6d2a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:df5a30944494ccff340d9aa2d7470b5b",
+      "note": "Relecture : instauration datée (9 juillet 2026)."
     },
     "fr:dossier-accessibilite-pmr-0": {
-      "status": "pending",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:723778123181ce231484860ab8a90440",
-      "note": "Relue le 13/04/2026, puis modifiée mécaniquement le 05/08/2026 pour retirer une formulation temporelle interdite par le content lint. Le fait n'a pas changé. À re-valider."
+      "reviewedHash": "sha256:6c649d261cb4e7dbaae41af76858eb30",
+      "note": "Relecture : ordonnance datée dans la question (8 décembre 2016)."
     },
     "fr:dossier-acs-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:aa06626693b733971da9cdac3177dd8d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ade1d7382f6afe5552b5df416bdf9df1",
+      "note": "Relecture : dispositif situé (bruxellois) et sigle ACS explicité. Explication corrigée le même jour, à l'occasion de la relecture néerlandaise : ce sont les cotisations patronales qui tombent à 0,56 %, pas la réduction."
     },
     "fr:dossier-acs-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ba5c60cd5c245a5cf241c749425f614b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f2ecf91f3ce37d91e0007214ef780958",
+      "note": "Relecture : réforme nommée et datée (ACS bruxellois, mars 2015), la question ne dépend plus de la précédente."
     },
     "fr:dossier-assemblees-citoyennes-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f363eb4a70768cdf7a866522e0720539",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:1f3e410c63b8133abb0613d91bde69d9"
     },
     "fr:dossier-bien-etre-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:df6aee485aa4db65391e3e24cdc1be8d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cb135993178fd036fcc2c2bbf1a2ac95"
     },
     "fr:dossier-data-centers-ia-energie-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:465eed5acbfd002c8930a53a83de4659",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:19fe237156acedb57c10d9494e6d770d",
+      "note": "Relecture : renversement situé à l'échelle mondiale et rattaché aux données 2024."
     },
     "fr:dossier-data-centers-ia-energie-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c56cf4bb85df3fb101a83c21c1b9145e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8112780ce18f4a1ed8c59451744feeee",
+      "note": "Relecture : DPR identifiée et datée (13 février 2026)."
     },
     "fr:dossier-enseignement-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3913ec645df7168881ad8d45b37ddc77",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:7a6dbde75dbd3302a57599e2f5c20cf3"
     },
     "fr:dossier-enseignement-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f0b38314e73d76bd45a55c955d9a080d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:39ad4725365108ed255d0b72d0aa681b",
+      "note": "Relecture : source et date de référence dans la question (IBSA, 1er janvier 2021)."
     },
     "fr:dossier-faillites-a-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:980bc0db3ce54f6d4ab6157a066fb670",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c12873775e3a7a0d1c0e60bdf49de0ff"
     },
     "fr:dossier-fusion-polices-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f2c158e60da9c92992997d4b717ebdfa",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:336f8d5dfadfdc738626f798f541a2e8",
+      "note": "Relecture : fusion précisée (six zones bruxelloises en une) et vote daté (13 mai 2026)."
     },
     "fr:dossier-good-move-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0656ef0fc4ebc1ea04d082cc4c1ea6f3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:61454b4a0cb282bf3c3bd55e24a76099",
+      "note": "Relecture : accord de gouvernement daté (12 février 2026)."
     },
     "fr:dossier-good-move-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:04fa6e80c93db1dc246eb304b3cc7a4f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:5ed825f017fe1768f97e6803d89d2155",
+      "note": "Relecture : calendrier rattaché à son annonce (avril 2026)."
     },
     "fr:dossier-lez-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:60b51aa2229bbd070742c42fcd72c65a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ddcaba526aed2681b0d1ede9c53a7bdb",
+      "note": "Relecture : « nouveau régime » remplacé par sa source datée (accord de février 2026)."
     },
     "fr:dossier-lez-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2dd2ffa76db1f698f89da019df183753",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:2f50ded905b94ebc037d95c534b276c2",
+      "note": "Relecture : avis du Conseil d'État daté (février 2026)."
     },
     "fr:dossier-metro-3-0": {
-      "status": "pending",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0a2a6705f43a7b698368c4acdb685bd9",
-      "note": "Relue le 13/04/2026, puis modifiée mécaniquement le 05/08/2026 pour retirer une formulation temporelle interdite par le content lint. Le fait n'a pas changé. À re-valider."
+      "reviewedHash": "sha256:a96124f3e8e2df3a623dd86394eb9f33",
+      "note": "Relecture : commission nommée (Métro 3, Parlement bruxellois) et conclusions datées du 9 juillet 2026."
     },
     "fr:dossier-metro-3-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b926ce7f7967d25682c5ea43c14f0fef",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:841213fa964e25f1e8066957785b28ba",
+      "note": "Relecture : autoréférence au site retirée de la question et de l'explication, les deux votes sont datés. L'incertitude sur l'origine de l'écart reste signalée telle quelle."
     },
     "fr:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b9ed157cf98b07e1ee74cf7130f06a83",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:645c5372d0652f21e554db40f40200b4"
     },
     "fr:dossier-mobilite-partagee-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0207235805ad7ea199940c922a0e048d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:82ae755cf33e55aa5b891e4f09c0da8a",
+      "note": "Relecture : arrêt daté (Conseil d'État, 29 juillet 2026), la question ne dépend plus de la précédente."
     },
     "fr:dossier-petite-enfance-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d1bd4b5c43336c2fd1d6a01588083634",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ec6a1bd56a5e2e3e69b4c057889f00fd",
+      "note": "Relecture : source et date des taux (perspective.brussels, octobre 2024)."
     },
     "fr:dossier-petite-enfance-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:579acdaed9808846eda75f72f344c981",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cf974af591fc9580c313baecfd4bab7e"
     },
     "fr:dossier-pfas-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3c17f3ad2b8ba4ee41b4e2252ed82946",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d7457cd4c703b719c0f37e992799b395"
     },
     "fr:dossier-pfas-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:220782b01184d9ddea9d3cf7f35992f5",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:590c8fa96eef4c109016c6c8a0c94ffb",
+      "note": "Relecture : périmètre rattaché aux analyses publiées en septembre 2025."
     },
     "fr:dossier-plan-securite-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6133a246bdb7d76587190901d2b5e3b8",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c4d6596853dddb2c735f55969fac6bb5",
+      "note": "Relecture : visite datée (17 février 2026) et ministre-président situé (bruxellois)."
     },
     "fr:dossier-reforme-administration-0": {
-      "status": "pending",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:43b8a8320dc5cf222d22eeec9188640d",
-      "note": "Relue le 13/04/2026, puis modifiée mécaniquement le 05/08/2026 pour retirer une formulation temporelle interdite par le content lint. Le fait n'a pas changé. À re-valider."
+      "reviewedHash": "sha256:b6702cdd91febdd66ce91be587d50030",
+      "note": "Relecture : réforme rattachée à la DPR de février 2026."
     },
     "fr:dossier-rse-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:35a9d2f336ea980c788a8658362215f9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:03cb269b3328d18854bf83be2b82e9c9",
+      "note": "Relecture : validée telle quelle. « Shifting Economy » est un nom propre bruxellois, il identifie la Région à lui seul."
     },
     "fr:dossier-seniors-a-bruxelles-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:25300b15f1df0e82d91bd032ce61cb4f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:87ec6eb701e621c9f14a0236c6a78442",
+      "note": "Relecture : dispositif nommé (GRAPA) et données datées (janvier 2022)."
     },
     "fr:dossier-slrb-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:110ed46f55e27f297dec63cd8d2f4338",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:9717450e0e532bf17de33742ec234def"
     },
     "fr:dossier-slrb-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:135e8748fcbed0fb6a541f6aa167dca2",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:bb3516a7e83ba0d77ecdd42bdf250c4f",
+      "note": "Relecture : gouvernement situé (bruxellois) et décision datée (janvier 2026)."
     },
     "fr:dossier-survol-bruxelles-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:1a44e6e3ea3078075fbc13de033c4ac0",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:a7239b535c533e00596678e82ba80217",
+      "note": "Relecture : aéroport nommé, la question parlait de pistes sans dire lesquelles."
     },
     "fr:dossier-vivaqua-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:90219d329fcdf142ba93403354ef2715",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d6abf354b3bec8916a1f3eed10a8ef9e",
+      "note": "Relecture : constats datés (rendus publics en février 2026)."
     },
     "nl:domain-budget-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5e5b9a26c9e4b2cebaff405304b9fc84",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:0402aa2faf8afa5ec5e30d9b7d44c6cf"
     },
     "nl:domain-budget-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:18b4ab863fb7e91e60581f7080baea6a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cc9c72d49a64ebe716d954fb77ad4da0",
+      "note": "Relecture NL : distracteur corrigé, « financieel agentschap » ne désigne pas une agence de notation."
     },
     "nl:domain-cleanliness-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3bc4bb36d4228ccd4f8ff8386a41930d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:867b00e649c183d3be170dfac3988d71"
     },
     "nl:domain-cleanliness-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:36c511e86da3acdb0fcab8a290d491ba",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8f35360d15a1ae21ad19250a81564ad3"
     },
     "nl:domain-climate-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b67e7947eca76ac0c3fa362e24eed25d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:91824c71a18258ac3b22d22766eaff2e"
     },
     "nl:domain-climate-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:dd3afe68c72185553150ca658952cf3e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:b201776fd25fb8d1df6e9289d3c30816"
     },
     "nl:domain-digital-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ce8394f5d0fb865aca1e0657a04c71fe",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:dca301b20ea148704f57f376230703c4"
     },
     "nl:domain-digital-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:73d4861236cf672481774fa39afad5d8",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c2cfb90ef0c58cd02821e21431002f00",
+      "note": "Relecture NL : question reformulée, la construction « laat ... om ... te brengen » n'est pas grammaticale."
     },
     "nl:domain-economy-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f72775cc42deaa19edbfa25443b7b4ad",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:5817650609cd8936842f9930bfad2567"
     },
     "nl:domain-economy-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6197bb6fd6a4a327db4454a55ba963c1",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:b95c3e2945f7fdd9e5a22d33b2eba351"
     },
     "nl:domain-education-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e6713a7234a502bc1d28e31381229674",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f08fe29e427d1a57f6c950ed09d23ec2"
     },
     "nl:domain-education-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:03fcbde6eaf1f0e473669a8b5494ae31",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:55a7f3cdb9bbd4c990f7ce1a256807b1"
     },
     "nl:domain-employment-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0f650ee478ab2b7bc6dc1c2f25a217e0",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:96d9fee7dacc9a54c54c38d8dfa98cf0"
     },
     "nl:domain-employment-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6717e152a13e5dc44929773039aec0b1",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:6ace6f03d51ea5f09adab35601afaef3",
+      "note": "Relecture NL : question et options reformulées avec « belanden in », la tournure calquée du français ne tenait pas."
     },
     "nl:domain-housing-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:eb4c492394e329c09adc89d1aeadc568",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f01590659c85d024ce552c5f9eb072e8"
     },
     "nl:domain-housing-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6fad330cbe46bc32bb17bde5fb606712",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:73f5a82a805d9c81ac32d41502da6fc1"
     },
     "nl:domain-institutional-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:66f68f8cacfacf4af020df94574b16c9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d08ce5a95f8ad53d9cea04bf997791a5"
     },
     "nl:domain-institutional-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:906542795d1fa96f0dcdf12b23f0a79d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:eae4f33af2adf7b4f6214d4694f6d496"
     },
     "nl:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:35589f23ed6d6fc7d1c1968a1b203e4b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:2db199f45ac26e13ba2e6cfa80b06501"
     },
     "nl:domain-mobility-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f1fa1c6d5a094c233f05388ba724db33",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:62143c5f7d03e1f6c0db3c1d96e94833"
     },
     "nl:domain-security-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7f765991fc2843f9c7f399316ff2c301",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f1e5dce65c09097dc763f4d5532b0290"
     },
     "nl:domain-security-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0051e0bc4bb00ae963fa0a389593176a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d84809183e34a55bcb24ae8138fa192b",
+      "note": "Relecture NL : « moorden » remplacé par « moord en doodslag », la statistique d'homicides couvre les deux."
     },
     "nl:domain-social-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f35c24942c7ae3fe1021e36177a804be",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:9bef73379590ef7a30e720716b402c9b"
     },
     "nl:domain-social-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e1109c1ae356789f58b6476aac327ec7",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f58886fb559048d7af00bd204cbd2203"
     },
     "nl:domain-urban-planning-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0b6c21255f2a6f2e00b46c1ae92a8081",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:75431f3e65ac6927eeab119d3f58f5f8",
+      "note": "Relecture NL : syntaxe calquée du français reprise, « niet meer verplicht » et « de verhuurder zelf »."
     },
     "nl:domain-urban-planning-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:43e3d5ea71a20994236cea04b4afa1e3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:af5af58cfdee4f68209aa6974e483b93",
+      "note": "Relecture NL : « Wat houdt X in dat ... » coupait le verbe séparable de sa relative ; gallicismes « geplafonneerd op » et « gefactureerd aan » retirés des options."
     },
     "nl:dossier-accessibilite-pmr-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2bd6fd97838975763a916aba4e0abd24",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:db5f2183b77de3681c8d266a7971ad10",
+      "note": "Relecture NL : « meenemen in het beleid » relève de la note de service, remplacé par « rekening houden met »."
     },
     "nl:dossier-acs-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:26bdc0818dbedf28fefb0f0059406447",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ba987daa77d7efa5fb00d7f2dfaaaad7",
+      "note": "Relecture NL : « dubbele hefboom » est un calque, remplacé par « twee pijlers ». Surtout, l'explication disait que la réduction vaut 0,56 % alors que la source dit que les cotisations tombent à 0,56 % : corrigé en FR, NL et DE, l'anglais était déjà juste."
     },
     "nl:dossier-acs-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:fe0cb683e5396a8bef84a0aa73d8af5d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:91d5d08028317ee40af1914324d37fc5",
+      "note": "Relecture NL : « mededinging » désigne la concurrence économique, remplacé par « oproep tot mededinging »."
     },
     "nl:dossier-assemblees-citoyennes-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2cd94d81888131128a2f289b89874293",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:683d9112e9a693487a9ef204dee50bb6"
     },
     "nl:dossier-bien-etre-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0d56c99549d8b6296f1c29fc2bc99868",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8e5227d66914f4589cbdfbb3cb21c2b8"
     },
     "nl:dossier-data-centers-ia-energie-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:884f7cb2accc92637a53c6f19eaae693",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:19825e43bcc3dc8c2b2f68bb72629d73"
     },
     "nl:dossier-data-centers-ia-energie-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ff01f5a3afc144ae98ae2a50f6e15ec6",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:6ec115446ae0fa78ec2235c1f3fb18d7"
     },
     "nl:dossier-enseignement-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:610b346ba3c0bd439b51596e507b8789",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:25f5990686d484b73283058d35b0b4b1"
     },
     "nl:dossier-enseignement-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ae5a696711af73e3cce49ced55b67d8f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c3043c2953167f6965ee2f190bff4944",
+      "note": "Relecture NL : « scholen » veut dire former, pas scolariser ; remplacé par « laten schoollopen »."
     },
     "nl:dossier-faillites-a-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:283dc4347c4d16d81ea8cff3a129a9dc",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f7a99f9b132d9b82121a7b5f0b56f6d8"
     },
     "nl:dossier-fusion-polices-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:84f7e4d02c6ea238197329bc0135ec69",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:74268e971e7c40ef913ab99f9c549802"
     },
     "nl:dossier-good-move-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7a91e87c5c1bbcaa664eaf251d0b70b7",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:42855f042b0d39cec8f1359af476fbc6"
     },
     "nl:dossier-good-move-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e602541219518fc64feefdf20eb0bf77",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:48d6fa7629f150b8af7f564f512c9688"
     },
     "nl:dossier-lez-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:95bdcbcaade8ee0637ef5ba5d4727523",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:96828cbc16991b77fc4b341c3e000883",
+      "note": "Relecture NL : « laat toe te » est un calque de « permet de », remplacé par « maakt het mogelijk om »."
     },
     "nl:dossier-lez-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:afa58fc4d1af49fa20f324c3d07f517b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ac7f215a0f6aba60f6ed797eb24f445a"
     },
     "nl:dossier-metro-3-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:dc7ba995e3b934e9df368c7f1efb1efe",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:35e6eac8632dea30813fb841e4d29675",
+      "note": "Relecture NL : « geïdentificeerde projectdirecteur » calquait le français, remplacé par « duidelijk aangewezen »."
     },
     "nl:dossier-metro-3-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3524118b7a7a53b08cbfc87b70108f69",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:a9c8b5fb9be81aca4ae33f503c225975"
     },
     "nl:dossier-mobilite-partagee-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:4580d130247bb90822c37f86fb686c62",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c4701a110157d55e000dd8c007d049f2",
+      "note": "Relecture NL : « zonder voorwerp vallen » corrigé en « wordt », et « pour les opérateurs » restitué."
     },
     "nl:dossier-mobilite-partagee-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:56bfe969965ab545cbc1f39b7e82a51c",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:07fe708c41f6cf7bc58e6658fcf70796",
+      "note": "Relecture NL : « in vrije vloot » est un calque, remplacé par « zonder vaste standplaats », qui s'oppose au « met vaste stations » de Villo."
     },
     "nl:dossier-petite-enfance-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:584717d6b4cba8a922d3fff394b0018e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:dbfbbc116a831283996028a403723e51",
+      "note": "Relecture NL : « Twee ouders op drie » calquait le français, corrigé en « Twee op de drie ouders »."
     },
     "nl:dossier-petite-enfance-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d4176e76c67a4ab696da35dfcd557273",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:02499db8fc4872773474244957dc1f15"
     },
     "nl:dossier-pfas-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:a955ff91ec5d1c9d9a2105e44cec8f01",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:7ec415d2aeea29ca48a68b53668319dd"
     },
     "nl:dossier-pfas-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:adbb1bc8b7dd2af0037217656adef333",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:2b7cb10108b32677b61c1d0fbd5ffed5"
     },
     "nl:dossier-plan-securite-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:a934b16be19300851882c988a5c71879",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f8bf83914a84cfbcbe60d6e9e874363a"
     },
     "nl:dossier-reforme-administration-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d04e5b8b8198b656a4ae6303096182c3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:fcc2dab2f6b59fd9da679f1f52ae9ee8"
     },
     "nl:dossier-rse-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f2fccf0f744c71d47641665c3a5dfa04",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:429b938946a838c1cbccda0fc770c634"
     },
     "nl:dossier-seniors-a-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9e00af396785ccbdd63dca4b486c117d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:26d719fa56e92ff8ac27cea4b11fda25"
     },
     "nl:dossier-slrb-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ab7d3b8eed71e43d52239aa277a5b144",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:55766a7a252dd8a87906cf96c0682695",
+      "note": "Relecture NL : « het sociale park » complété en « het sociale woningpark », terme de la fiche BGHM."
     },
     "nl:dossier-slrb-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ab892709600e5b4582d29d50a8d861a4",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ee1813cea3fb97273790a074da0f45d3"
     },
     "nl:dossier-survol-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e2df6c91cd8864a206ad91f0342eeb4e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d8bb5b669e664545eef8e3afb293a252"
     },
     "nl:dossier-vivaqua-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0f003b9595b873123afbea34662135fb",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:4a0bf59fa8356284656212a7708774ab"
     },
     "en:domain-budget-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:60c4dc78ce3fa3fa59df634339cd20b2",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:69f92e11628d6979c54635f623e0ad2a"
     },
     "en:domain-budget-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e81087cd1fe901a32d9f84253e267066",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:0ceeaae66dc98390c9193db26d317c23",
+      "note": "Relecture EN : « financial agency » ne désigne pas une agence de notation ; question reformulée, la préposition finale atterrissait vingt-cinq mots après son sujet."
     },
     "en:domain-cleanliness-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:84d1ba0230320bc3c7be563fd160f01d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:fa55ed1bfb27e275dcfef33cad7473da"
     },
     "en:domain-cleanliness-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b600b6822caa7259757288fddb2e7404",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:48e00b35454298f4221f1f177eeb3035",
+      "note": "Relecture EN : « public inquiry » désigne une commission d'enquête, pas une enquête publique ; et « the Pentagon » sans glose évoque le ministère américain."
     },
     "en:domain-climate-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ba48527ea9094c7745f91a23c70d087d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:6cc334dff2009afe1d7962d7e8cedc28"
     },
     "en:domain-climate-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:51899edca8e4a0cc5e2dd0959b025a49",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c6bd20d9e1d4b9f5badb7075a5d07779"
     },
     "en:domain-digital-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8e9cd13066156586b8b875187b93e021",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:1a0d62e44279cd4c18e50c0ce0e232b0"
     },
     "en:domain-digital-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0c65b6ce1533f428a4c89fbf8729c11a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:05d127ddd1cda275a9a9b7f178cb92eb"
     },
     "en:domain-economy-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:99ef6137a17a1103c09f053c9e59af3c",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:b247cf33590fd13d131f7f91b2221bdf"
     },
     "en:domain-economy-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d846a75fdea08585f7bb00d5ef20b09e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f17c0d1d644abc361fce852cce01ce59"
     },
     "en:domain-education-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ed2f4a18f3e5aa91d9bca8a25bbd954c",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:5dcd7dd6b94b700f6033ea54ba682f20"
     },
     "en:domain-education-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f207885f280cdee87baf60034f27d44d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e1ff30f8ce5ed4fdf816b30c6ce543d6"
     },
     "en:domain-employment-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c6df55de37f4ebb7131c6fd995e6ed35",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:2d6535bf7a289fc0d0f56e1bf0db2d6f"
     },
     "en:domain-employment-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9331e1af0ffa2a2911965775e62dc9c1",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:60103702bb9f9b1a7108a22525994a15"
     },
     "en:domain-housing-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:4dc065fd1f83a08d1130ee14aec446e1",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:7fdb0f61ca6fd1f9745889c59a8e0bc3"
     },
     "en:domain-housing-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:132c3c9dd41078d9671b617d8f5a4d6a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:aa802db999f36205c16c262b35bb28ca",
+      "note": "Relecture EN : question reformulée, le verbe était séparé de son sujet par quinze mots."
     },
     "en:domain-institutional-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:61aeb92fcb93eb543b88b973d9b31b1a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e94a6a1ba8cbb7a310a03a50c8249569"
     },
     "en:domain-institutional-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5aa977baf0b69e84c841f9c9670127b3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:85ba3bd77384e178e445411024b00e0a"
     },
     "en:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3765dcea0f1c4ca4c5a89932f1e86004",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8bb198a6c0f6454af8b553012275c563"
     },
     "en:domain-mobility-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:43fb47b5b3bb8cee8458ab05d0059cac",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c95e16c6c3187cad4d4d21ea6a9a5c74",
+      "note": "Relecture EN : « increased allowance » corrigé en « increased healthcare reimbursement », aligné sur la glose du BIM déjà employée dans ce pool ; « dependents » corrigé en « dependants », orthographe britannique."
     },
     "en:domain-security-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ac3fd121ca296e368d42d9f9ac787f7b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:71c8a17635cbc4362c5d9557fde947d0"
     },
     "en:domain-security-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6cabd6bcecfeac4626cab3d37178ec7c",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:2c22260b86d511125b69d6d4604e6589"
     },
     "en:domain-social-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:789e4b9951fd851fc27937c6f5ccfbc9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e2e8dca67aa3cdfab2361ef7a8ad4e08"
     },
     "en:domain-social-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ed6fce83b57e842dff04c1eb86910659",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d8c21b5aea49676f337042fd43e8f1e4"
     },
     "en:domain-urban-planning-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:390a6eaac5f768d60a72fcaac820ca55",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:4458105d65c14ce6d2d83f8b6b28fbb0"
     },
     "en:domain-urban-planning-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6ab2c78c2885353771a50d6907250990",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:1638696145989b0205d569674e10f19a",
+      "note": "Relecture EN : question reformulée, le verbe « involve » atterrissait en bout de chaîne."
     },
     "en:dossier-accessibilite-pmr-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2b49486fe65fdcb060580d9244cbd762",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e315a1fd256a3e0b49c037585a52bbbb"
     },
     "en:dossier-acs-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0a967388c562b79c0bc2d0bb660b986b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8f7c5189df7b067d5743ce6022496c77"
     },
     "en:dossier-acs-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:623d663a272940f412dee904d992ffcb",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:60250e487c8f15c945aef1b1ee705013"
     },
     "en:dossier-assemblees-citoyennes-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:60790b599b0f008438ea4df7d94a9a42",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cd8ba0e83755707712560d62440c621b"
     },
     "en:dossier-bien-etre-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8ec4e6132554e87b797cfbcf863bd6a5",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:216e988fea0e5adcb48c06860ef2edcb"
     },
     "en:dossier-data-centers-ia-energie-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d224331c17f9f40027f79776c172946b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:6fcbe55e2bb15d27015ef5cd8bf6c2ac",
+      "note": "Relecture EN : « weigh more heavily » veut dire peser dans une décision, pas consommer ; corrigé sur les quatre options et dans l'explication."
     },
     "en:dossier-data-centers-ia-energie-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e819feb4e084bebccf2250c59e430774",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:7293b5df5e19a98e55441dd74c50f716"
     },
     "en:dossier-enseignement-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:df1b126de55fba82cdda856a5043130d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:4919f0cf822d670bf8c3c4df32d47d48"
     },
     "en:dossier-enseignement-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:24a13cd55053f794231440884f24ea08",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:24b6518f174d84d261ca0a00818495aa"
     },
     "en:dossier-faillites-a-bruxelles-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6bfdf5bc2a28203422a6f71ba47e2797",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:b0fbdb80f1bcbd1052bbe580f8e0bf6c",
+      "note": "Relecture EN : temps accordés dans l'explication, le français est au présent des deux côtés."
     },
     "en:dossier-fusion-polices-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8e50c43df1ad03ba2dcd0ea9fa2d2f7a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:17f36e8cde3eda6318e1cd4cdaca2fb7"
     },
     "en:dossier-good-move-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:81f203fdc9e0e72eefcff384056c62dc",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:102b58d1001cc6d461b8a40229da025c",
+      "note": "Relecture EN : question reformulée, la préposition atterrissait après vingt-cinq mots."
     },
     "en:dossier-good-move-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3283430b0b86abebc9c20d4f5843c844",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c6d0209dace49054d96ae6cf472a8c13"
     },
     "en:dossier-lez-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b5c3dd18e6b11026c2e6961737aa2574",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:9dfbe071e7e9bf752508133e0005da06",
+      "note": "Relecture EN : « circulate » est un calque de circuler, remplacé par « drive »."
     },
     "en:dossier-lez-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:469374e78cb9a00cd40a2b3eec0265df",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cefa2d5c0892286c1540b8785317e4b4"
     },
     "en:dossier-metro-3-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:94d636ebfefabc75296bab73eae0d35a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:301eb2fbbd054a825790298ae612831c",
+      "note": "Relecture EN : « held within » et « an identified project director », deux calques du français."
     },
     "en:dossier-metro-3-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:eb5f47860932e7d40f0b1cbc27022de6",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ccb4330d9c65de19e084672aaefdf38a",
+      "note": "Relecture EN : « voted against 22 » se lit comme un vote contre ; remplacé par « adopted, compared with »."
     },
     "en:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5f640107b5a8373495cd030bc0159a43",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:dfdc60db2290c304491bf8755900a444"
     },
     "en:dossier-mobilite-partagee-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:1c3f007a7e6e74aeb369b7167921f2ed",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:15fc1045b6caacce8d94071f48096f49"
     },
     "en:dossier-petite-enfance-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:111bf81920c6c9ee368572bf8520fd56",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:dde48b6f568a54c03f706c1bbd3d207a"
     },
     "en:dossier-petite-enfance-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b95576676907da801d7dbe11ffb0d6b5",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:12aaeb399e640d0a40ef22ccddadbd04"
     },
     "en:dossier-pfas-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:732bace84d764887b5cc16f7e21ad172",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d39a5d81bbf429429098e741a1b95395"
     },
     "en:dossier-pfas-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2516c8c1408e99d6cc0809430d9efe66",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:573d833a2f830102c1adc80048774241"
     },
     "en:dossier-plan-securite-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b454a1e9f8528a5101ff3827fc21d9cb",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:36d0b12b4f2e7c395b6093218fdd3082"
     },
     "en:dossier-reforme-administration-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:37cdb3a87d0a220bd29f9b24045ed749",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:2d76e9638e4dcc09969456598092c05a",
+      "note": "Relecture EN : « organic missions » aligné sur « core missions », le nom que la fiche anglaise donne à ce pilier."
     },
     "en:dossier-rse-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:99333b4ebeba2d65bb240aa24e54b880",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:1c19f45e4d0adc9042e041652ad7bcc4"
     },
     "en:dossier-seniors-a-bruxelles-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b66d803f8edc9f214ed5c7eef3c98c08",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:afcc896dc0120a8938371fb0a2bbf8e5",
+      "note": "Relecture EN : « twice as low » n'existe pas en anglais, remplacé par « half as high »."
     },
     "en:dossier-slrb-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:81f42819d44ec6efa826b531fff230a0",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:67795c66839ec689e3cad2a3525ef569",
+      "note": "Relecture EN : « the social stock » complété en « the social housing stock », même tronquage que celui corrigé en néerlandais."
     },
     "en:dossier-slrb-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f70f0d1b423c83bec45d2f2fc96fdd16",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8bf75400babcff1ae91b537f0101f88c",
+      "note": "Relecture EN : « Which means » remplacé par « What method » ; « are concerned » est un calque de sont concernés."
     },
     "en:dossier-survol-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ee77ae2dc3b7aab27053c91f3e8d0ed9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cdc4ce7fe8c2caa400de011ce55a7379"
     },
     "en:dossier-vivaqua-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8d51f22105d629011b2cb72e028f2649",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:85b5dd51f3c897715e5f49a7ead00a5e"
     },
     "de:domain-budget-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:cfcfa45cf2ebacb3b20611e378f20ae5",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c9d6d9771550df25b17cd3ea17938925"
     },
     "de:domain-budget-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7824e8c07e267deab2f2f7066d9b1990",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:5c00693e9c57859daeb42ce807dbaecd"
     },
     "de:domain-cleanliness-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d12962544a2ebc37dab76d088b6f3adc",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:784bce4ab4dd5c3d949d077e418617d9"
     },
     "de:domain-cleanliness-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:61c564cb0be975c8e058bcc67f89c951",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:3386d48ca7093bb24e89f45342731877"
     },
     "de:domain-climate-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:702edda1b2a34088841694b5d03cf878",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:bed9dd302da51750380b60d2e93c6981"
     },
     "de:domain-climate-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:41def32aae5cdcbd05e72109eee2b5e2",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:4c99b170f892f5c3dfe614ed77f1b153"
     },
     "de:domain-digital-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0fc28bd2c22171e50643fa1b1c2323a7",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:5e98cf984975ad1b82516b3130a0f92c"
     },
     "de:domain-digital-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:cd8da837ad73907ae4ab8d0831781f0d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:dbca3249e71780cbd561a25d1da2279e",
+      "note": "Relecture DE : « lässt ... um ... zu » n'est pas grammatical, et « in Einklang bringen » restait sans complément. Même calque que celui corrigé en néerlandais sur cette même question."
     },
     "de:domain-economy-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7a4a0c67fa0eacbadc966f5bd8a6dba9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c371b8328ccab881ec972ddd3dbd7109"
     },
     "de:domain-economy-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9af245481f7ab7991f6e4c05490fc9a6",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:b007f8039d4bd6c8c596215fa29fa1e2"
     },
     "de:domain-education-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6d39d50a37890ea891fbc8918981ca50",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:60100933c4d8f5098f193fa19590c71c"
     },
     "de:domain-education-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:263b68dd9cfa5503aff072e52c099dff",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:df47a896725a2ac41e4e7ad64a1e56d9",
+      "note": "Relecture DE : génitif « des Schulnetzes » remplacé par l'agent, le réseau organise l'épreuve, il ne la possède pas."
     },
     "de:domain-employment-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:74b55b030e3d9c4c761f18806689d41a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cfda059c162b5e7113dbab546ee77c79"
     },
     "de:domain-employment-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b5a0b5501432e02ead720331eefab96f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e318640a2020823961d66f20f43b4771",
+      "note": "Relecture DE : « Was werden ... ? » remplacé par « Was wird aus ... ? », la tournure allemande."
     },
     "de:domain-institutional-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:414c778c020308e9aeee3a45b472387c",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:0c4e66622d2952e0bda8c2b221ab6c9f",
+      "note": "Relecture DE : « Die Zelle » reprend son nom, « die Zelle „Transparenz“ », comme dans la fiche allemande."
     },
     "de:domain-institutional-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0f09d42fc80f87235dfae3058fb0606c",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e24d54cdcdb2a8dccccd23dbfb2044c2"
     },
     "de:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b832fea9d35db81ea49db135a5d54fc3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c5e429585bbb0558376106baca6433ea"
     },
     "de:domain-mobility-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:4cffad49a6cf7b79c7085c6ff0142f9a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ee2fd9ab462ab491d5465146089800e4"
     },
     "de:domain-security-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:63f24ab7f532b361644ca21a15cd1e64",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:a6c61f5d56c9f552e3bc69d8fb505d40"
     },
     "de:domain-security-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:11c08d89b224bdbfbbd38789e56d9a9b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:6c686dbf0151d7b41ff41c03efd08e8e"
     },
     "de:domain-social-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ad47128a5081e12d7f94a0c93c507ff2",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:3e0b43b9dde0cb455b29fd829993cc20"
     },
     "de:domain-social-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:bc11fbd9f0ef638b1f00ad39f120acf5",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cca78f089b25af30b296afbb2d4cbee1",
+      "note": "Relecture DE : « Einrichtung » désignait Iriscare et un établissement de soins dans la même question ; l'agence est nommée."
     },
     "de:domain-urban-planning-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6f5af452a428f6ddda451d1600e42aa3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:6946f76a741907ca47048a50cf6d4d36",
+      "note": "Relecture DE : faux ami, un Syndikus est un juriste d'entreprise ; le syndic est le Hausverwalter."
     },
     "de:domain-urban-planning-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e494db2250e40c10bfa174283c9fef94",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:01486c733dc9b38423f611b2f252ab56",
+      "note": "Relecture DE : faux ami, une Ehrenerklärung rétablit l'honneur ; et « gedeckelt » relève du registre parlé."
     },
     "de:dossier-accessibilite-pmr-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:381425bbbb2c9d9acc5189da750a3cb6",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:1ce85105ebfae48092d8b852a97474ef"
     },
     "de:dossier-assemblees-citoyennes-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:958a84948a8513a5d2965a3f7b3f90e0",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f7924a38e8dc7527bedd96cea4ca7ee0"
     },
     "de:dossier-bien-etre-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5702d738865734e9c87efa9607ab44ec",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:b63ab255dfec26d8a305690f622d8cb6",
+      "note": "Relecture DE : superlatif restitué, sans lui plusieurs options conviendraient."
     },
     "de:dossier-data-centers-ia-energie-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9da6ef5cafbef5329290904e36fa96b1",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:44aec39e8f49c761d6f8f83d2cddb0f6",
+      "note": "Relecture DE : « schwerer wiegen » vaut pour un argument, pas pour une consommation ; même calque que celui corrigé en anglais."
     },
     "de:dossier-data-centers-ia-energie-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f166a3c7328dc84cd391b84418c94523",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:234311896d85872f786d0a2275de31ac"
     },
     "de:dossier-enseignement-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:feb54bae8ef05ba2b2668e11353aa01e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:7ec4664464284eae1acbdc2dc0b3d26a"
     },
     "de:dossier-enseignement-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c23c3822d3a7ffe47296f5c14b887b8f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:384a362e3bc754ba289a2511b364a8b2"
     },
     "de:dossier-faillites-a-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:39ded5f6591d3c889b0f09a16a10fdb2",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e6f3a4539731cb671c828d1682cc321e"
     },
     "de:dossier-fusion-polices-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d546d65479971686516562d1dc970afd",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:870058ba71438247b12e56d982b5c922",
+      "note": "Relecture DE : seul toponyme néerlandais du pool allemand, aligné sur la forme française employée partout ailleurs."
     },
     "de:dossier-good-move-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:dbc53ce2a98858d7469a66f840c52c0d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:1753fae558c35174bc5cee8fb35a0376"
     },
     "de:dossier-good-move-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:20aba1ea580c70c72c253f6f374b09f3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:fb3696b64a3bc1572f716016a6c88a7e"
     },
     "de:dossier-lez-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0d7afe21d74169d7e421a909d33adfa4",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:2adcbe524ed8ac94fa02b03f2b4ad320"
     },
     "de:dossier-lez-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5dfdd4614924ca653eb714e80be8c002",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ea04b1e95b24dc6b222357c28a8260ff"
     },
     "de:dossier-metro-3-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7d3e4dc91b88d7ad241928359a8742d9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:4f61e9a9d86eb9367e6d8101553c05a9"
     },
     "de:dossier-metro-3-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6a9c1c8377e6d5d4e646cef6d5764a7a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:2f6cefa812a5d27515fe19b032c8c3f7"
     },
     "de:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9d9dc23d4f974672657570b84db532f3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:4849c696861c970daeead34f0fe1e7da"
     },
     "de:dossier-mobilite-partagee-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:502db0aec71ae1112d436596bbebcde8",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ab8216dd6d60e08bbcaa75fc25449112"
     },
     "de:dossier-petite-enfance-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:cf29d33ad1f63f17f5a529b5a9c65078",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:38ccb8650853331bd5a1ed99f40c79e4"
     },
     "de:dossier-petite-enfance-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:bb9e74425d6e650ae61a38bb37bdbfd7",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ed72d85fa050c107a899581e8e09aefd"
     },
     "de:dossier-pfas-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e7239e844eb0344a69a54f9f068ce0ac",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:114ed1302638c0b7eb429d850e2ea204"
     },
     "de:dossier-pfas-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:44c1f2ef000e3b889a56481fbf7046e2",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e0715f009d2dce1504761d2515dc2a75"
     },
     "de:dossier-plan-securite-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2f0f8523ac75cfd9ff6ede3c53e6314f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8ef894b7645f1fe4b63394261e674cc1",
+      "note": "Relecture DE : « Bahnhöfe Midi und Nord » aligné sur le Südbahnhof de la question, et « Bundesbahnpolizei » sur le niveau fédéral belge, employé par les options de la même question."
     },
     "de:dossier-reforme-administration-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7d7610a618d4ad9c183b7d8681e66921",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:7cdcd501b90c78a6b8feaf5bd526aa87"
     },
     "de:dossier-rse-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:bb82618718f4d5e963c1973ba5d92332",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:88e025e34f005bbb809bbb0a6b071a4c",
+      "note": "Relecture DE : « Vorbildlichkeitsmechanismus » n'existe pas dans le corpus, qui écrit Exemplarität onze fois."
     },
     "de:dossier-seniors-a-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:39cb6bc2b9a92205f31cb2c036652178",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:9ea4f4be908b5ed8e922b7ffad7f1369"
     },
     "de:dossier-slrb-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:4ebcbe24819d5e1306e09f45080879ce",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:316d99f7eff827e5a49faa5a4c074bd2",
+      "note": "Relecture DE : « des Bestands » complété en « des Sozialwohnungsbestands », même tronquage qu'en néerlandais et en anglais sur cette question."
     },
     "de:dossier-slrb-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d17d8d5af571be86416baa7e9014b070",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:3085119add8a7970186b2c26509e5266"
     },
     "de:dossier-survol-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:bc1c966936355db8634b43976e70ac9e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:6e855d78361585d37a9d692ceada43a3"
     },
     "de:dossier-vivaqua-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:589cde24f3182abe93f346c380138d64",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d3e68a263a3c4c3b7499e8cd4ea8c7f8"
+    },
+    "fr:dossier-activa-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:66a08972cc046cec50e1118f8fd01f55"
+    },
+    "fr:dossier-bifff-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:33bb9637d20293f522f48473c9c864fe"
+    },
+    "fr:dossier-bim-bruxelles-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:4010d4527ca502b933135af3619bd3f5",
+      "note": "Relecture : sigle BIM développé, il ne disait rien seul."
+    },
+    "fr:dossier-commissaire-europe-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:d0be1048d651e0641a876fe4ab6a70cc",
+      "note": "Relecture : suppression datée (prévue au 1er juillet 2026)."
+    },
+    "fr:dossier-cpas-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:f9e7a55d57d4ad20256e5ac2f187bb59"
+    },
+    "fr:dossier-foire-du-midi-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:f23be5f1c199d9d424c5f67d6d2ac0d0"
+    },
+    "fr:dossier-foyer-anderlechtois-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:5d205825fa7395e27bb52a19bd925fc2",
+      "note": "Relecture : vote daté (17 juillet 2026) et nombre de recommandations dans la question."
+    },
+    "fr:dossier-novacity-ii-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:cb7e239eb20f1844f9be5136f60de595",
+      "note": "Relecture : projet situé (quartier des Trèfles à Anderlecht)."
+    },
+    "fr:dossier-rechauffement-bruxelles-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:b9de6982115f788fecd5c8f5c56efe05"
+    },
+    "fr:dossier-titres-services-economie-sociale-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:48ea8b44e96960ec0f6b98cadb2dd055",
+      "note": "Relecture : arrêté situé (bruxellois)."
+    },
+    "fr:dossier-vice-gouverneur-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:85b4707f0ca9df9ee9ee7cee70354589"
+    },
+    "nl:dossier-activa-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:d6c6a0561a370affe28e8c32f40e5732",
+      "note": "Relecture NL : guillemets français remplacés, seule question du pool à en porter."
+    },
+    "nl:dossier-bifff-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:6c66659f48e8b34e3725414958199ea6"
+    },
+    "nl:dossier-bim-bruxelles-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:680ee8dfda24a3ae435389cd69aa542e"
+    },
+    "nl:dossier-commissaire-europe-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:5c59a4f3d3ee2fd0cd74140d9ac7a1d0"
+    },
+    "nl:dossier-cpas-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:2a9d103f9e331663be85e1e8e378bbd9"
+    },
+    "nl:dossier-foyer-anderlechtois-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:c7eb82c65c5cf238da161978f23790c9",
+      "note": "Relecture NL : « zuivere afschaffing » calquait « pure et simple », remplacé par « regelrechte »."
+    },
+    "nl:dossier-novacity-ii-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:6b79bb119fbd2c27e09f17a4c1ba52be"
+    },
+    "nl:dossier-rechauffement-bruxelles-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:a301df11e83be4a2c3e87ef097e52595"
+    },
+    "nl:dossier-titres-services-economie-sociale-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:33a58257bbf0510394b343485abbab01"
+    },
+    "nl:dossier-vice-gouverneur-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:a85cb1bfe9ad38c76f3079a4b8aff431"
+    },
+    "en:dossier-activa-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:453d275794ef237078fab5d1b32bf8c2",
+      "note": "Relecture EN : guillemets français remplacés, seule question du pool à en porter."
+    },
+    "en:dossier-bifff-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:3266c41c8d9a30f25a4fb10319224411",
+      "note": "Relecture EN : « rooms » et « screening room » désignaient la même chose dans une même question."
+    },
+    "en:dossier-bim-bruxelles-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:ca7ba96ed6d3785ab0ad15e13baedd24"
+    },
+    "en:dossier-commissaire-europe-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:08901a3af78ec2da90fc741d8261fd02",
+      "note": "Relecture EN : deux génitifs empilés, « Commissioner to Europe's office »."
+    },
+    "en:dossier-cpas-bruxellois-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:249c05ea14e48ed3ab92e60026d98804",
+      "note": "Relecture EN : « CPASs » ; le sigle reste invariable en anglais."
+    },
+    "en:dossier-foyer-anderlechtois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:846a82fd8300407cba8b1c93e1795e86"
+    },
+    "en:dossier-novacity-ii-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:eab201b436b250f211e2cc4fb95da255"
+    },
+    "en:dossier-rechauffement-bruxelles-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:03fcbce20579423c7bc6e17fbef0dc96"
+    },
+    "en:dossier-titres-services-economie-sociale-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:1651907f54074a4c65ff09c4f6b7c43a",
+      "note": "Relecture EN : « an aid » ; aid ne se compte pas ainsi en anglais."
+    },
+    "en:dossier-vice-gouverneur-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:3d4abb077ad03374eafb9cf141c39f52",
+      "note": "Relecture EN : « CPASs » aligné sur le singulier invariable déjà adopté pour dossier-cpas-bruxellois-0."
+    },
+    "de:domain-housing-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:3be5c32ff514e5083c52fa5509c229ba"
+    },
+    "de:domain-housing-1": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:fc41e96fc25753a4cdae76c878540649"
+    },
+    "de:dossier-acs-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:3e8c4220cde53d35ba74c9859bfe97b1"
+    },
+    "de:dossier-acs-1": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:829b6a76ed91be4682a3155081c7224b"
+    },
+    "de:dossier-activa-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:02b6e1455faa61251ac2784994789890",
+      "note": "Relecture DE : guillemets français remplacés par les guillemets allemands."
+    },
+    "de:dossier-bifff-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:e5e70634e96d367274bf0e94d6fe032f"
+    },
+    "de:dossier-bim-bruxelles-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:9c682a5f906c87604c25d24038bb3957"
+    },
+    "de:dossier-commissaire-europe-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:326b85c2c0aea1e4a66dc570b185b7a2",
+      "note": "Relecture DE : « Einsatz » est une mise de jeu ou un déploiement, pas un enjeu."
+    },
+    "de:dossier-cpas-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:7d5c23489d95fb8b699d92ff452868eb"
+    },
+    "de:dossier-foyer-anderlechtois-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:1dafbe0b04e1ea53f5d6a40923f674c6",
+      "note": "Relecture DE : « schlichte Abschaffung » calquait « pure et simple », remplacé par « ersatzlose »."
+    },
+    "de:dossier-novacity-ii-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:b215d15e309ccdfbfbd9f1b7dd83d7aa"
+    },
+    "de:dossier-rechauffement-bruxelles-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:e797567fcd1917ce403617fb39164e0b"
+    },
+    "de:dossier-titres-services-economie-sociale-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:44068ed786300da3f89821c8762645df"
+    },
+    "de:dossier-vice-gouverneur-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:30322e149a4df0dc16f9fe9b6208065b"
     }
   }
 }

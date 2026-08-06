@@ -1175,31 +1175,29 @@
     },
     "de:domain-employment-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:74b55b030e3d9c4c761f18806689d41a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cfda059c162b5e7113dbab546ee77c79"
     },
     "de:domain-employment-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b5a0b5501432e02ead720331eefab96f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e318640a2020823961d66f20f43b4771",
+      "note": "Relecture DE : « Was werden ... ? » remplacé par « Was wird aus ... ? », la tournure allemande."
     },
     "de:domain-institutional-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:414c778c020308e9aeee3a45b472387c",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:0c4e66622d2952e0bda8c2b221ab6c9f",
+      "note": "Relecture DE : « Die Zelle » reprend son nom, « die Zelle „Transparenz“ », comme dans la fiche allemande."
     },
     "de:domain-institutional-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0f09d42fc80f87235dfae3058fb0606c",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e24d54cdcdb2a8dccccd23dbfb2044c2"
     },
     "de:domain-mobility-0": {
       "status": "approved",
@@ -1658,6 +1656,18 @@
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:3d4abb077ad03374eafb9cf141c39f52",
       "note": "Relecture EN : « CPASs » aligné sur le singulier invariable déjà adopté pour dossier-cpas-bruxellois-0."
+    },
+    "de:domain-housing-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:3be5c32ff514e5083c52fa5509c229ba"
+    },
+    "de:domain-housing-1": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:fc41e96fc25753a4cdae76c878540649"
     }
   }
 }

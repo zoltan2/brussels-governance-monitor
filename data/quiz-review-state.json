@@ -162,53 +162,51 @@
       "note": "Relecture : enquête Iriscare nommée et datée, la question ne dépend plus de la précédente."
     },
     "fr:domain-urban-planning-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:dced210e27e213f30610f28793e73cd0",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:25cf55371126ffc4707e3221ec7ddcd4",
+      "note": "Relecture : mesure située à Bruxelles et datée (réforme du 9 juillet 2026)."
     },
     "fr:domain-urban-planning-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:faeccc823fc921baebb31b0a789d6d2a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:df5a30944494ccff340d9aa2d7470b5b",
+      "note": "Relecture : instauration datée (9 juillet 2026)."
     },
     "fr:dossier-accessibilite-pmr-0": {
-      "status": "pending",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:723778123181ce231484860ab8a90440",
-      "note": "Relue le 13/04/2026, puis modifiée mécaniquement le 05/08/2026 pour retirer une formulation temporelle interdite par le content lint. Le fait n'a pas changé. À re-valider."
+      "reviewedHash": "sha256:6c649d261cb4e7dbaae41af76858eb30",
+      "note": "Relecture : ordonnance datée dans la question (8 décembre 2016)."
     },
     "fr:dossier-acs-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:aa06626693b733971da9cdac3177dd8d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:5576ce1549d1048aaf52c8e0ef1928f9",
+      "note": "Relecture : dispositif situé (bruxellois) et sigle ACS explicité."
     },
     "fr:dossier-acs-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ba5c60cd5c245a5cf241c749425f614b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f2ecf91f3ce37d91e0007214ef780958",
+      "note": "Relecture : réforme nommée et datée (ACS bruxellois, mars 2015), la question ne dépend plus de la précédente."
     },
     "fr:dossier-assemblees-citoyennes-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f363eb4a70768cdf7a866522e0720539",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:1f3e410c63b8133abb0613d91bde69d9"
     },
     "fr:dossier-bien-etre-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:df6aee485aa4db65391e3e24cdc1be8d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cb135993178fd036fcc2c2bbf1a2ac95"
     },
     "fr:dossier-data-centers-ia-energie-0": {
       "status": "approved",
@@ -1560,6 +1558,38 @@
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:589cde24f3182abe93f346c380138d64",
       "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+    },
+    "fr:dossier-activa-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:66a08972cc046cec50e1118f8fd01f55"
+    },
+    "fr:dossier-bifff-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:33bb9637d20293f522f48473c9c864fe"
+    },
+    "fr:dossier-bim-bruxelles-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:4010d4527ca502b933135af3619bd3f5",
+      "note": "Relecture : sigle BIM développé, il ne disait rien seul."
+    },
+    "fr:dossier-commissaire-europe-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:d0be1048d651e0641a876fe4ab6a70cc",
+      "note": "Relecture : suppression datée (prévue au 1er juillet 2026)."
+    },
+    "fr:dossier-cpas-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:f9e7a55d57d4ad20256e5ac2f187bb59"
     }
   }
 }

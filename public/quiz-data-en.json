@@ -353,7 +353,7 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Housing",
-      "question": "What were the four associations that brought summary proceedings against the SLRB on 13 July 2026 seeking to obtain?",
+      "question": "What do the four associations that brought summary proceedings against the SLRB on 13 July 2026 want to obtain?",
       "options": [
         "A block on the sale of two public buildings",
         "A suspension of social housing allocations",
@@ -447,13 +447,13 @@
       "domain": "Mobility",
       "question": "Who can benefit from the social rate introduced by the low-emission zone (LEZ) reform agreed on 16 July 2026?",
       "options": [
-        "Brussels residents receiving the increased allowance",
-        "Anyone in the country receiving the increased allowance",
+        "Brussels residents receiving increased healthcare reimbursement",
+        "Anyone in the country receiving increased healthcare reimbursement",
         "Residents of the nineteen municipalities, with no conditions",
         "Commuters holding a train season ticket"
       ],
       "correct": 0,
-      "explanation": "A resident of Wallonia or Flanders with the same status pays the full rate of 350 euros. A full exemption exists in particular for eligible Brussels residents with at least three dependents.",
+      "explanation": "A resident of Wallonia or Flanders with the same status pays the full rate of 350 euros. A full exemption exists in particular for eligible Brussels residents with at least three dependants.",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 12
+  "reviewedCount": 24
 }

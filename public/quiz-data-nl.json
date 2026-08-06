@@ -560,7 +560,7 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Welk document is in Brussel sinds de hervorming van 9 juli 2026 niet langer vereist voor een toeristisch logies dat de hoofdverblijfplaats van de verhuurder is?",
+      "question": "Welk document is sinds de hervorming van 9 juli 2026 in Brussel niet meer verplicht voor een toeristisch logies dat de hoofdverblijfplaats van de verhuurder zelf is?",
       "options": [
         "Het stedenbouwkundig conformiteitsattest",
         "Het energieprestatiecertificaat",
@@ -568,7 +568,7 @@
         "De vergunning voor bestemmingswijziging"
       ],
       "correct": 0,
-      "explanation": "Dit gemeentelijke document was de voornaamste procedurele hindernis voor de registratie van kortetermijnverhuur. De maatregel treedt in werking op 1 januari 2027.",
+      "explanation": "Dit gemeentelijke document was het voornaamste procedurele struikelblok voor de registratie van kortetermijnverhuur. De maatregel treedt in werking op 1 januari 2027.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
@@ -583,10 +583,10 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Wat houdt het vereenvoudigde veiligheidsattest in dat op 9 juli 2026 in Brussel werd ingevoerd voor toeristische logies verhuurd door particulieren?",
+      "question": "Wat omvat het vereenvoudigde veiligheidsattest dat op 9 juli 2026 in Brussel werd ingevoerd voor toeristische logies die particulieren verhuren?",
       "options": [
-        "Een schriftelijke controle van de installaties, geplafonneerd op 150 euro",
-        "Een jaarlijks gemeentelijk bezoek, gefactureerd aan 300 euro",
+        "Een schriftelijke controle van de installaties, met een maximum van 150 euro",
+        "Een jaarlijks gemeentelijk bezoek dat 300 euro kost",
         "Een controle door een erkende instelling om de 5 jaar",
         "Een verklaring op eer die om de 2 jaar wordt hernieuwd"
       ],
@@ -608,7 +608,7 @@
       "domain": "Sociaal",
       "question": "Welke verplichting legt de handistreaming-ordonnantie van 8 december 2016 op aan het Brussels Gewest?",
       "options": [
-        "Handicap meenemen in al zijn beleidsmaatregelen",
+        "Rekening houden met handicap in al zijn beleid",
         "Een quotum aangepaste woningen per gemeente voorbehouden",
         "In elke gemeente een opvangcentrum financieren",
         "Het openbaar vervoer toegankelijk maken vóór eind 2028"
@@ -629,7 +629,7 @@
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Werkgelegenheid",
-      "question": "Op welke dubbele hefboom steunt het Brusselse stelsel van de gesubsidieerde contractuelen (GESCO)?",
+      "question": "Op welke twee pijlers steunt het Brusselse stelsel van de gesubsidieerde contractuelen (GESCO)?",
       "options": [
         "Een gewestelijke premie en een verlaging van de patronale bijdragen",
         "Een renteloze lening en een vrijstelling van roerende voorheffing",
@@ -637,7 +637,7 @@
         "Een gemeentelijke dotatie en een terugbetaling van reiskosten"
       ],
       "correct": 0,
-      "explanation": "De verlaging van de patronale socialezekerheidsbijdragen gaat tot 0,56 %. De posten zijn bestemd voor werkzoekenden die bij Actiris zijn ingeschreven, onder voorwaarden van werkloosheidsduur, leeftijd of handicap.",
+      "explanation": "De patronale socialezekerheidsbijdragen worden teruggebracht tot 0,56 %. De posten zijn bestemd voor werkzoekenden die bij Actiris zijn ingeschreven, onder voorwaarden van werkloosheidsduur, leeftijd of handicap.",
       "sourceSlug": "/nl/dossiers/acs",
       "sourceTitle": "GESCO",
       "provenance": {
@@ -657,7 +657,7 @@
         "Een termijn van 6 maanden om hem in te vullen, anders gaat hij verloren",
         "Een automatische overname van de post door een andere vereniging",
         "Een verplichte audit van de werkgever om de 3 boekjaren",
-        "Een mededinging bekendgemaakt in het Belgisch Staatsblad"
+        "Een oproep tot mededinging, bekendgemaakt in het Belgisch Staatsblad"
       ],
       "correct": 0,
       "explanation": "Die termijn is niet verlengbaar. Dat verklaart het verschil tussen de 10 000 gesubsidieerde posten eind 2017 en de 6 700 actieve posten die voor 2024 worden geraamd.",
@@ -683,7 +683,7 @@
         "Ze vervangt het loon volledig tijdens de proefperiode"
       ],
       "correct": 0,
-      "explanation": "Het standaardbedrag bedraagt 15 900 euro over 30 maanden, en 23 400 euro over 36 maanden voor de doelgroepen « Plus » en met verminderde geschiktheid. Een opleidingsincentive kan daarbij komen.",
+      "explanation": "Het standaardbedrag bedraagt 15 900 euro over 30 maanden, en 23 400 euro over 36 maanden voor de zogenaamde 'Plus'-doelgroepen en voor personen met verminderde geschiktheid. Een opleidingsincentive kan daarbij komen.",
       "sourceSlug": "/nl/dossiers/activa",
       "sourceTitle": "Activa.brussels",
       "provenance": {
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 24
+  "reviewedCount": 36
 }

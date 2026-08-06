@@ -892,52 +892,46 @@
     },
     "en:domain-urban-planning-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:390a6eaac5f768d60a72fcaac820ca55",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:4458105d65c14ce6d2d83f8b6b28fbb0"
     },
     "en:domain-urban-planning-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6ab2c78c2885353771a50d6907250990",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:1638696145989b0205d569674e10f19a",
+      "note": "Relecture EN : question reformulée, le verbe « involve » atterrissait en bout de chaîne."
     },
     "en:dossier-accessibilite-pmr-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2b49486fe65fdcb060580d9244cbd762",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e315a1fd256a3e0b49c037585a52bbbb"
     },
     "en:dossier-acs-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0a967388c562b79c0bc2d0bb660b986b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8f7c5189df7b067d5743ce6022496c77"
     },
     "en:dossier-acs-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:623d663a272940f412dee904d992ffcb",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:60250e487c8f15c945aef1b1ee705013"
     },
     "en:dossier-assemblees-citoyennes-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:60790b599b0f008438ea4df7d94a9a42",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cd8ba0e83755707712560d62440c621b"
     },
     "en:dossier-bien-etre-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8ec4e6132554e87b797cfbcf863bd6a5",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:216e988fea0e5adcb48c06860ef2edcb"
     },
     "en:dossier-data-centers-ia-energie-0": {
       "status": "approved",
@@ -1624,6 +1618,40 @@
       "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:a85cb1bfe9ad38c76f3079a4b8aff431"
+    },
+    "en:dossier-activa-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:453d275794ef237078fab5d1b32bf8c2",
+      "note": "Relecture EN : guillemets français remplacés, seule question du pool à en porter."
+    },
+    "en:dossier-bifff-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:3266c41c8d9a30f25a4fb10319224411",
+      "note": "Relecture EN : « rooms » et « screening room » désignaient la même chose dans une même question."
+    },
+    "en:dossier-bim-bruxelles-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:ca7ba96ed6d3785ab0ad15e13baedd24"
+    },
+    "en:dossier-commissaire-europe-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:08901a3af78ec2da90fc741d8261fd02",
+      "note": "Relecture EN : deux génitifs empilés, « Commissioner to Europe's office »."
+    },
+    "en:dossier-cpas-bruxellois-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:249c05ea14e48ed3ab92e60026d98804",
+      "note": "Relecture EN : « CPASs » ; le sigle reste invariable en anglais."
     }
   }
 }

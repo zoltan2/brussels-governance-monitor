@@ -713,38 +713,34 @@
     },
     "nl:dossier-seniors-a-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9e00af396785ccbdd63dca4b486c117d",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:26d719fa56e92ff8ac27cea4b11fda25"
     },
     "nl:dossier-slrb-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ab7d3b8eed71e43d52239aa277a5b144",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:55766a7a252dd8a87906cf96c0682695",
+      "note": "Relecture NL : « het sociale park » complété en « het sociale woningpark », terme de la fiche BGHM."
     },
     "nl:dossier-slrb-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ab892709600e5b4582d29d50a8d861a4",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ee1813cea3fb97273790a074da0f45d3"
     },
     "nl:dossier-survol-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e2df6c91cd8864a206ad91f0342eeb4e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d8bb5b669e664545eef8e3afb293a252"
     },
     "nl:dossier-vivaqua-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0f003b9595b873123afbea34662135fb",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:4a0bf59fa8356284656212a7708774ab"
     },
     "en:domain-budget-0": {
       "status": "approved",
@@ -1636,6 +1632,18 @@
       "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:a301df11e83be4a2c3e87ef097e52595"
+    },
+    "nl:dossier-titres-services-economie-sociale-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:33a58257bbf0510394b343485abbab01"
+    },
+    "nl:dossier-vice-gouverneur-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:a85cb1bfe9ad38c76f3079a4b8aff431"
     }
   }
 }

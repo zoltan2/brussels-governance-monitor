@@ -1139,7 +1139,7 @@
       "options": [
         "Het vervroegt het met vier maanden, langs gerechtelijke weg",
         "Het stelt het met vier maanden uit, langs gerechtelijke weg",
-        "Het vernietigt het, waardoor het zonder voorwerp valt",
+        "Het vernietigt het, waardoor het voor de operatoren zonder voorwerp wordt",
         "Het laat het ongewijzigd, zonder de kalender aan te passen"
       ],
       "correct": 0,
@@ -1160,8 +1160,8 @@
       "domain": "Mobiliteit",
       "question": "Welk aanbod verdwijnt door de vernietiging van de vergunningen voor deelmobiliteit in Brussel, uitgesproken door de Raad van State op 29 juli 2026, terwijl de regering het wilde behouden?",
       "options": [
-        "De deelfietsen in vrije vloot",
-        "De deelsteps in vrije vloot",
+        "De deelfietsen zonder vaste standplaats",
+        "De deelsteps zonder vaste standplaats",
         "De fietsen met vaste stations van de concessie Villo",
         "De deelscooters met elektrische ondersteuning"
       ],
@@ -1212,7 +1212,7 @@
         "30 % in Etterbeek tegenover 25 % in Anderlecht"
       ],
       "correct": 0,
-      "explanation": "Twee ouders op drie noemen de zoektocht naar een plaats moeilijk of zeer moeilijk, volgens de Ligue des Familles. De postcode bepaalt in grote mate of iemand na een moederschapsverlof weer aan het werk kan.",
+      "explanation": "Twee op de drie ouders noemen de zoektocht naar een plaats moeilijk of zeer moeilijk, volgens de Ligue des Familles. De postcode bepaalt in grote mate of iemand na een moederschapsverlof weer aan het werk kan.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang",
       "provenance": {
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 48
+  "reviewedCount": 60
 }

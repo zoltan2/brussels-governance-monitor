@@ -55,6 +55,15 @@ ENV SELF_HOST=1
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 
+# Commit dont cette image est issue, exposé par /api/health. C'est le seul
+# moyen de savoir QUELLE version le VPS sert : le déploiement est asynchrone,
+# un timer systemd tire l'image toutes les 5 minutes, donc un job GitHub ne
+# peut pas déduire de son propre succès que la prod est à jour.
+# Déclaré ici, dans le runner, et pas dans le builder : sinon chaque commit
+# invaliderait le cache de npm ci et de next build.
+ARG BUILD_SHA=unknown
+ENV BUILD_SHA=${BUILD_SHA}
+
 # Utilisateur non-root.
 RUN groupadd --system --gid 1001 nodejs \
   && useradd --system --uid 1001 --gid nodejs nextjs

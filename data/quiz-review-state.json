@@ -1258,52 +1258,47 @@
     },
     "de:dossier-assemblees-citoyennes-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:958a84948a8513a5d2965a3f7b3f90e0",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:f7924a38e8dc7527bedd96cea4ca7ee0"
     },
     "de:dossier-bien-etre-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5702d738865734e9c87efa9607ab44ec",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:b63ab255dfec26d8a305690f622d8cb6",
+      "note": "Relecture DE : superlatif restitué, sans lui plusieurs options conviendraient."
     },
     "de:dossier-data-centers-ia-energie-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9da6ef5cafbef5329290904e36fa96b1",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:44aec39e8f49c761d6f8f83d2cddb0f6",
+      "note": "Relecture DE : « schwerer wiegen » vaut pour un argument, pas pour une consommation ; même calque que celui corrigé en anglais."
     },
     "de:dossier-data-centers-ia-energie-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f166a3c7328dc84cd391b84418c94523",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:234311896d85872f786d0a2275de31ac"
     },
     "de:dossier-enseignement-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:feb54bae8ef05ba2b2668e11353aa01e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:7ec4664464284eae1acbdc2dc0b3d26a"
     },
     "de:dossier-enseignement-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c23c3822d3a7ffe47296f5c14b887b8f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:384a362e3bc754ba289a2511b364a8b2"
     },
     "de:dossier-faillites-a-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:39ded5f6591d3c889b0f09a16a10fdb2",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e6f3a4539731cb671c828d1682cc321e"
     },
     "de:dossier-fusion-polices-0": {
       "status": "approved",
@@ -1681,6 +1676,38 @@
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:02b6e1455faa61251ac2784994789890",
       "note": "Relecture DE : guillemets français remplacés par les guillemets allemands."
+    },
+    "de:dossier-bifff-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:e5e70634e96d367274bf0e94d6fe032f"
+    },
+    "de:dossier-bim-bruxelles-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:9c682a5f906c87604c25d24038bb3957"
+    },
+    "de:dossier-commissaire-europe-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:326b85c2c0aea1e4a66dc570b185b7a2",
+      "note": "Relecture DE : « Einsatz » est une mise de jeu ou un déploiement, pas un enjeu."
+    },
+    "de:dossier-cpas-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:7d5c23489d95fb8b699d92ff452868eb"
+    },
+    "de:dossier-foyer-anderlechtois-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:1dafbe0b04e1ea53f5d6a40923f674c6",
+      "note": "Relecture DE : « schlichte Abschaffung » calquait « pure et simple », remplacé par « ersatzlose »."
     }
   }
 }

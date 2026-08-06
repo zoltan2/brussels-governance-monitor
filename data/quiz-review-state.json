@@ -1,89 +1,83 @@
 {
-  "updatedAt": "2026-08-05T00:00:00.000Z",
+  "updatedAt": "2026-08-06T00:00:00.000Z",
   "entries": {
     "fr:domain-budget-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:bbfcbd8f4e97e678c5d308507825b48b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:474b7659e58d59110c974295d46da1ce"
     },
     "fr:domain-budget-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:49065c47ec2e1be5b42e8cd066f6253e",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:05932cec60ac657566502324e602503f",
+      "note": "Relecture : banquier nommé (Belfius) et marché daté, la question ne dépend plus de la précédente."
     },
     "fr:domain-cleanliness-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:00146148a6bdef5daeef2f0c6ad4af45",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8f3eb99baa76abaa6ee9d81ffaac204b",
+      "note": "Relecture : vote de l'ordonnance daté (13 mars 2026)."
     },
     "fr:domain-cleanliness-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:14bb5c28ab89ed6e0db47dcacf342cf4",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d81901201ecc60b06e9ce9dbc56185f7",
+      "note": "Relecture : création de la commission datée (23 janvier 2026)."
     },
     "fr:domain-climate-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2a5a53b383b2d08b4fd364a5354b909f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:fa0c777decc60a66a5d5558fc2366960"
     },
     "fr:domain-climate-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0a78d51a87c641f51c219bde72f25fa3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:db55761cdb09ad37d814d80c2cfae8ab"
     },
     "fr:domain-digital-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7cf36c0777c311a8e1a381cb99a41582",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d8c7cf98fba184e62f59c7dbda91cae8",
+      "note": "Relecture : arrêt identifié et daté (n° 126/2025, 25 septembre 2025)."
     },
     "fr:domain-digital-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7b96c4c8de52bcf5a2c66da36a86c4b9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:0af41f053041030b62b5ab4dad3b86cc"
     },
     "fr:domain-economy-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b2d4d2b71332d2bd235d2af9eacda5ab",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ba63462833b12a7c9df6d1e1bef5bc07",
+      "note": "Relecture : annonce datée (18 juillet 2026), verbe au passé."
     },
     "fr:domain-economy-1": {
-      "status": "pending",
-      "reviewedAt": "2026-04-13",
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5b5455da50ea034202edacee72dc560d",
-      "note": "Relue le 13/04/2026, puis modifiée mécaniquement le 05/08/2026 pour retirer une formulation temporelle interdite par le content lint. Le fait n'a pas changé. À re-valider."
+      "reviewedHash": "sha256:2c11d7af20b64e902ba16c205ae5e384"
     },
     "fr:domain-education-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:39d26b00f1f7ba4e45b294ff5a170ce9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:e75bd2c1aeab5305dcbefe7c8a758e0b"
     },
     "fr:domain-education-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:32f9d9fc7d9aed29355edf1f8ba2dceb",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c61c496143f2482660e647f9420a6bf0",
+      "note": "Relecture : entrée en vigueur datée dans la question (inscriptions 2027-2028)."
     },
     "fr:domain-employment-0": {
       "status": "approved",

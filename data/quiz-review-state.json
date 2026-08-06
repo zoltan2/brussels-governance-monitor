@@ -1067,39 +1067,37 @@
       "reviewedHash": "sha256:1c19f45e4d0adc9042e041652ad7bcc4"
     },
     "en:dossier-seniors-a-bruxelles-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b66d803f8edc9f214ed5c7eef3c98c08",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:afcc896dc0120a8938371fb0a2bbf8e5",
+      "note": "Relecture EN : « twice as low » n'existe pas en anglais, remplacé par « half as high »."
     },
     "en:dossier-slrb-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:81f42819d44ec6efa826b531fff230a0",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:67795c66839ec689e3cad2a3525ef569",
+      "note": "Relecture EN : « the social stock » complété en « the social housing stock », même tronquage que celui corrigé en néerlandais."
     },
     "en:dossier-slrb-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f70f0d1b423c83bec45d2f2fc96fdd16",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:8bf75400babcff1ae91b537f0101f88c",
+      "note": "Relecture EN : « Which means » remplacé par « What method » ; « are concerned » est un calque de sont concernés."
     },
     "en:dossier-survol-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ee77ae2dc3b7aab27053c91f3e8d0ed9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cdc4ce7fe8c2caa400de011ce55a7379"
     },
     "en:dossier-vivaqua-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8d51f22105d629011b2cb72e028f2649",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:85b5dd51f3c897715e5f49a7ead00a5e"
     },
     "de:domain-budget-0": {
       "status": "approved",
@@ -1656,6 +1654,20 @@
       "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:03fcbce20579423c7bc6e17fbef0dc96"
+    },
+    "en:dossier-titres-services-economie-sociale-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:1651907f54074a4c65ff09c4f6b7c43a",
+      "note": "Relecture EN : « an aid » ; aid ne se compte pas ainsi en anglais."
+    },
+    "en:dossier-vice-gouverneur-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:3d4abb077ad03374eafb9cf141c39f52",
+      "note": "Relecture EN : « CPASs » aligné sur le singulier invariable déjà adopté pour dossier-cpas-bruxellois-0."
     }
   }
 }

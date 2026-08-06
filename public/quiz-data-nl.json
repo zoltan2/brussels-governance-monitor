@@ -307,12 +307,12 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Werkgelegenheid",
-      "question": "Wat worden werkloze Brusselse jongeren hoofdzakelijk, volgens de studie van het Itinera Institute over de werkzaamheidsgraad in België op basis van administratieve gegevens 2006-2022?",
+      "question": "Waarin belanden werkloze Brusselse jongeren hoofdzakelijk, volgens de studie van het Itinera Institute over de werkzaamheidsgraad in België, op basis van administratieve gegevens uit 2006-2022?",
       "options": [
-        "Niet-actieven, buiten de arbeidsmarkt",
-        "Loontrekkenden in de omliggende gemeenten",
-        "Leerlingen in gesubsidieerd alternerend leren",
-        "Zelfstandigen in bijberoep"
+        "In inactiviteit, buiten de arbeidsmarkt",
+        "In loonarbeid in de omliggende gemeenten",
+        "In gesubsidieerd alternerend leren",
+        "In zelfstandige activiteit in bijberoep"
       ],
       "correct": 0,
       "explanation": "Slechts ongeveer 25 % van de Brusselse 18-24-jarigen is aan het werk, tegenover ongeveer 40 % in Vlaanderen, en 34,4 % van de bevolking op arbeidsleeftijd is inactief.",
@@ -499,7 +499,7 @@
         "Ongeveer 34 000 per jaar, stabiel over vijf jaar"
       ],
       "correct": 0,
-      "explanation": "Het rapport stelt daarentegen een stijging van 33 % vast van de drugsgerelateerde misdrijven tussen 2023 en 2024, 92 incidenten met vuurwapens en 34 moorden, een toename van 40 % over tien jaar.",
+      "explanation": "Het rapport stelt daarentegen een stijging van 33 % vast van de drugsgerelateerde misdrijven tussen 2023 en 2024, 92 incidenten met vuurwapens en 34 gevallen van moord en doodslag, een toename van 40 % over tien jaar.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel",
       "provenance": {
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 12
+  "reviewedCount": 24
 }

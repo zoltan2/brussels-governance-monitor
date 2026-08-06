@@ -345,45 +345,44 @@
     },
     "fr:dossier-rse-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:35a9d2f336ea980c788a8658362215f9",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:03cb269b3328d18854bf83be2b82e9c9",
+      "note": "Relecture : validée telle quelle. « Shifting Economy » est un nom propre bruxellois, il identifie la Région à lui seul."
     },
     "fr:dossier-seniors-a-bruxelles-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:25300b15f1df0e82d91bd032ce61cb4f",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:87ec6eb701e621c9f14a0236c6a78442",
+      "note": "Relecture : dispositif nommé (GRAPA) et données datées (janvier 2022)."
     },
     "fr:dossier-slrb-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:110ed46f55e27f297dec63cd8d2f4338",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:9717450e0e532bf17de33742ec234def"
     },
     "fr:dossier-slrb-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:135e8748fcbed0fb6a541f6aa167dca2",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:bb3516a7e83ba0d77ecdd42bdf250c4f",
+      "note": "Relecture : gouvernement situé (bruxellois) et décision datée (janvier 2026)."
     },
     "fr:dossier-survol-bruxelles-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:1a44e6e3ea3078075fbc13de033c4ac0",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:a7239b535c533e00596678e82ba80217",
+      "note": "Relecture : aéroport nommé, la question parlait de pistes sans dire lesquelles."
     },
     "fr:dossier-vivaqua-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:90219d329fcdf142ba93403354ef2715",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:d6abf354b3bec8916a1f3eed10a8ef9e",
+      "note": "Relecture : constats datés (rendus publics en février 2026)."
     },
     "nl:domain-budget-0": {
       "status": "approved",
@@ -1611,6 +1610,19 @@
       "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:b9de6982115f788fecd5c8f5c56efe05"
+    },
+    "fr:dossier-titres-services-economie-sociale-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:48ea8b44e96960ec0f6b98cadb2dd055",
+      "note": "Relecture : arrêté situé (bruxellois)."
+    },
+    "fr:dossier-vice-gouverneur-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:85b4707f0ca9df9ee9ee7cee70354589"
     }
   }
 }

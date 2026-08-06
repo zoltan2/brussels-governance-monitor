@@ -1201,66 +1201,60 @@
     },
     "de:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b832fea9d35db81ea49db135a5d54fc3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:c5e429585bbb0558376106baca6433ea"
     },
     "de:domain-mobility-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:4cffad49a6cf7b79c7085c6ff0142f9a",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:ee2fd9ab462ab491d5465146089800e4"
     },
     "de:domain-security-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:63f24ab7f532b361644ca21a15cd1e64",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:a6c61f5d56c9f552e3bc69d8fb505d40"
     },
     "de:domain-security-1": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:11c08d89b224bdbfbbd38789e56d9a9b",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:6c686dbf0151d7b41ff41c03efd08e8e"
     },
     "de:domain-social-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ad47128a5081e12d7f94a0c93c507ff2",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:3e0b43b9dde0cb455b29fd829993cc20"
     },
     "de:domain-social-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:bc11fbd9f0ef638b1f00ad39f120acf5",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:cca78f089b25af30b296afbb2d4cbee1",
+      "note": "Relecture DE : « Einrichtung » désignait Iriscare et un établissement de soins dans la même question ; l'agence est nommée."
     },
     "de:domain-urban-planning-0": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6f5af452a428f6ddda451d1600e42aa3",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:6946f76a741907ca47048a50cf6d4d36",
+      "note": "Relecture DE : faux ami, un Syndikus est un juriste d'entreprise ; le syndic est le Hausverwalter."
     },
     "de:domain-urban-planning-1": {
-      "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e494db2250e40c10bfa174283c9fef94",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:01486c733dc9b38423f611b2f252ab56",
+      "note": "Relecture DE : faux ami, une Ehrenerklärung rétablit l'honneur ; et « gedeckelt » relève du registre parlé."
     },
     "de:dossier-accessibilite-pmr-0": {
       "status": "approved",
-      "reviewedAt": "2026-04-13",
+      "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:381425bbbb2c9d9acc5189da750a3cb6",
-      "note": "Relecture manuelle du pool initial, le lendemain de sa génération. Entrée créée rétroactivement le 2026-08-05."
+      "reviewedHash": "sha256:1ce85105ebfae48092d8b852a97474ef"
     },
     "de:dossier-assemblees-citoyennes-0": {
       "status": "approved",
@@ -1668,6 +1662,25 @@
       "reviewedAt": "2026-08-06",
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:fc41e96fc25753a4cdae76c878540649"
+    },
+    "de:dossier-acs-0": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:3e8c4220cde53d35ba74c9859bfe97b1"
+    },
+    "de:dossier-acs-1": {
+      "status": "approved",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:829b6a76ed91be4682a3155081c7224b"
+    },
+    "de:dossier-activa-0": {
+      "status": "edited",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:02b6e1455faa61251ac2784994789890",
+      "note": "Relecture DE : guillemets français remplacés par les guillemets allemands."
     }
   }
 }

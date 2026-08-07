@@ -115,6 +115,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* iOS (WebKit — donc aussi Brave et Firefox sur iPhone) zoome la page à la
+   mise au point d'un champ dont la police fait moins de 16 px, et ne dézoome
+   pas au flou : la page reste agrandie et décalée, entête rognée à gauche et à
+   droite. On impose donc un plancher de 16 px sur mobile.
+   `max()` préserve le réglage de taille de texte de la barre d'accessibilité
+   (--font-scale sur <html>), donc pas de régression WCAG 1.4.4. Interdiction
+   formelle d'utiliser `maximum-scale=1`, qui casserait le zoom utilisateur. */
+@media (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: max(1rem, 16px);
+  }
+}
+
 /* Search highlight — ensure <mark> is accessible and visible in both modes */
 mark {
   background-color: oklch(0.9 0.1 90);

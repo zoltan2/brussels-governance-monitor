@@ -4,6 +4,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { useLocale, useTranslations } from 'next-intl';
 
 interface SearchResult {
@@ -160,7 +161,12 @@ export function Search() {
         </kbd>
       </button>
 
-      {open && (
+      {/* Portail vers <body> : l'entête porte `backdrop-blur`, et un
+          `backdrop-filter` crée un bloc conteneur pour les descendants
+          `position: fixed`. Rendu sur place, `inset-0` se calerait sur
+          l'entête au lieu de la fenêtre — le dialogue s'affichait alors
+          dans le menu mobile, rogné (bug iOS Brave). */}
+      {open && createPortal(
         <div
           ref={dialogRef}
           className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 pt-[15vh]"
@@ -194,7 +200,7 @@ export function Search() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t('placeholder')}
-                className="flex-1 border-none py-3 text-sm text-neutral-900 placeholder:text-neutral-500"
+                className="flex-1 border-none py-3 text-base text-neutral-900 placeholder:text-neutral-500 sm:text-sm"
               />
               <button
                 type="button"
@@ -248,7 +254,8 @@ export function Search() {
               </div>
             )}
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );

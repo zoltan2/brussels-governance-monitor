@@ -63,25 +63,25 @@ function HowToReadView() {
             <p className="mb-3">{t('statusIntro')}</p>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="rounded-lg border border-neutral-200 p-4">
-                <span className="inline-block rounded-full bg-status-blocked px-2.5 py-0.5 text-xs font-medium text-white">
+                <span className="inline-block rounded-full bg-status-blocked px-2.5 py-0.5 text-xs font-medium text-neutral-50">
                   {t('statusBlocked')}
                 </span>
                 <p className="mt-2 text-xs">{t('statusBlockedDesc')}</p>
               </div>
               <div className="rounded-lg border border-neutral-200 p-4">
-                <span className="inline-block rounded-full bg-status-delayed px-2.5 py-0.5 text-xs font-medium text-white">
+                <span className="inline-block rounded-full bg-status-delayed px-2.5 py-0.5 text-xs font-medium text-neutral-50">
                   {t('statusDelayed')}
                 </span>
                 <p className="mt-2 text-xs">{t('statusDelayedDesc')}</p>
               </div>
               <div className="rounded-lg border border-neutral-200 p-4">
-                <span className="inline-block rounded-full bg-status-ongoing px-2.5 py-0.5 text-xs font-medium text-white">
+                <span className="inline-block rounded-full bg-status-ongoing px-2.5 py-0.5 text-xs font-medium text-neutral-50">
                   {t('statusOngoing')}
                 </span>
                 <p className="mt-2 text-xs">{t('statusOngoingDesc')}</p>
               </div>
               <div className="rounded-lg border border-neutral-200 p-4">
-                <span className="inline-block rounded-full bg-status-resolved px-2.5 py-0.5 text-xs font-medium text-white">
+                <span className="inline-block rounded-full bg-status-resolved px-2.5 py-0.5 text-xs font-medium text-neutral-50">
                   {t('statusResolved')}
                 </span>
                 <p className="mt-2 text-xs">{t('statusResolvedDesc')}</p>

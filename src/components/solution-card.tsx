@@ -7,11 +7,11 @@ import type { SolutionCard as SolutionCardType } from '@/lib/content';
 import { cn } from '@/lib/utils';
 
 const feasibilityStyles: Record<string, string> = {
-  high: 'bg-feasibility-high text-white',
-  medium: 'bg-feasibility-medium text-white',
-  low: 'bg-feasibility-low text-white',
-  'very-low': 'bg-feasibility-very-low text-white',
-  'near-zero': 'bg-feasibility-near-zero text-white',
+  high: 'bg-feasibility-high text-neutral-50',
+  medium: 'bg-feasibility-medium text-neutral-50',
+  low: 'bg-feasibility-low text-neutral-50',
+  'very-low': 'bg-feasibility-very-low text-neutral-50',
+  'near-zero': 'bg-feasibility-near-zero text-neutral-50',
 };
 
 interface SolutionCardProps {
@@ -77,7 +77,7 @@ export function SolutionCard({ card }: SolutionCardProps) {
             <ul className="mt-1 space-y-1">
               {card.risks.map((risk) => (
                 <li key={risk} className="flex items-start gap-1.5 text-sm text-neutral-600">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-neutral-400" />
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-neutral-500" />
                   {risk}
                 </li>
               ))}

@@ -279,7 +279,7 @@ export default function BGMQuiz() {
   }
   if (!pool || !q) {
     return (
-      <div className="flex items-center gap-2 py-8 text-sm text-neutral-400">
+      <div className="flex items-center gap-2 py-8 text-sm text-neutral-500">
         <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
         {t('loading')}
       </div>
@@ -306,7 +306,7 @@ export default function BGMQuiz() {
     return (
       <div ref={topRef} className="scroll-mt-24 mx-auto max-w-xl py-6">
         <div className="mb-6 text-center">
-          <div className="mb-1 text-xs uppercase tracking-widest text-neutral-400">{t('yourScore')}</div>
+          <div className="mb-1 text-xs uppercase tracking-widest text-neutral-500">{t('yourScore')}</div>
           <div className="text-5xl font-medium tabular-nums text-neutral-900">
             {score}/{total}
           </div>
@@ -322,7 +322,7 @@ export default function BGMQuiz() {
 
         {/* Share buttons */}
         <div className="mb-6">
-          <div className="mb-3 text-xs uppercase tracking-widest text-neutral-400">
+          <div className="mb-3 text-xs uppercase tracking-widest text-neutral-500">
             {t('shareTitle')}
           </div>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -395,7 +395,7 @@ export default function BGMQuiz() {
               className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
             >
               <div className="text-sm font-medium text-neutral-900">{t('signalTitle')}</div>
-              <div className="mt-0.5 text-xs text-neutral-400">{t('signalDesc')}</div>
+              <div className="mt-0.5 text-xs text-neutral-500">{t('signalDesc')}</div>
             </a>
           )}
 
@@ -410,7 +410,7 @@ export default function BGMQuiz() {
               className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
             >
               <div className="text-sm font-medium text-neutral-900">{t('podcastTitle')}</div>
-              <div className="mt-0.5 text-xs text-neutral-400">{t('podcastDesc')}</div>
+              <div className="mt-0.5 text-xs text-neutral-500">{t('podcastDesc')}</div>
             </a>
           )}
 
@@ -420,7 +420,7 @@ export default function BGMQuiz() {
             className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
           >
             <div className="text-sm font-medium text-neutral-900">{t('digestTitle')}</div>
-            <div className="mt-0.5 text-xs text-neutral-400">{t('digestDesc')}</div>
+            <div className="mt-0.5 text-xs text-neutral-500">{t('digestDesc')}</div>
           </a>
 
           {/* Explorer les domaines — all locales */}
@@ -429,7 +429,7 @@ export default function BGMQuiz() {
             className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
           >
             <div className="text-sm font-medium text-neutral-900">{t('explore13Domains')}</div>
-            <div className="mt-0.5 text-xs text-neutral-400">
+            <div className="mt-0.5 text-xs text-neutral-500">
               {t('explore13DomainsDesc')}
             </div>
           </a>
@@ -437,7 +437,7 @@ export default function BGMQuiz() {
 
         {missed.length > 0 && (
           <div className="mt-6">
-            <div className="mb-3 text-xs uppercase tracking-widest text-neutral-400">
+            <div className="mb-3 text-xs uppercase tracking-widest text-neutral-500">
               {t('toDeepen')}
             </div>
             {missed.map((m, i) => (
@@ -522,10 +522,10 @@ export default function BGMQuiz() {
           if (answered !== null) {
             if (idx === q.correct) {
               variant = 'border-status-resolved bg-neutral-50 ring-1 ring-status-resolved'
-              circleVariant = 'border-status-resolved bg-status-resolved text-white'
+              circleVariant = 'border-status-resolved bg-status-resolved text-neutral-50'
             } else if (idx === answered && answered !== q.correct) {
               variant = 'border-status-delayed bg-neutral-50 ring-1 ring-status-delayed'
-              circleVariant = 'border-status-delayed bg-status-delayed text-white'
+              circleVariant = 'border-status-delayed bg-status-delayed text-neutral-50'
             } else {
               variant = 'border-neutral-100 bg-neutral-50 opacity-60'
             }

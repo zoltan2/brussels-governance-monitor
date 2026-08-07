@@ -44,25 +44,25 @@ export default async function TexteFortPreviewPage({
 
           <h1 className="mt-8 text-[44px] font-light leading-[1.05] tracking-tight text-neutral-900 md:text-[88px] md:leading-[0.98] lg:text-[112px]">
             <span className="block">186 nationalités.</span>
-            <span className="block text-neutral-400">19 communes.</span>
+            <span className="block text-neutral-500">19 communes.</span>
             <span className="block">Une seule région.</span>
           </h1>
 
           <div className="mt-12 grid gap-8 border-t border-neutral-200 pt-8 md:grid-cols-3">
             <p className="text-sm text-neutral-600">
-              <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-400">
+              <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500">
                 Cette semaine
               </span>
               Vivalis publie son tableau de bord. La fusion des zones de police annoncée pour 2027. Huit signaux dans le digest.
             </p>
             <p className="text-sm text-neutral-600">
-              <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-400">
+              <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500">
                 Au compteur
               </span>
               7 dossiers majeurs gelés. 4 engagements DPR sur 16 activés. 39 000 demandes de logement social en attente.
             </p>
             <p className="text-sm text-neutral-600">
-              <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-400">
+              <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500">
                 À lire en cinq minutes
               </span>
               Le digest hebdomadaire, en français — disponible aussi en néerlandais, anglais, allemand, et neuf autres langues.

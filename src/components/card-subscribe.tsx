@@ -75,7 +75,7 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder={labels.emailPlaceholder}
           required
-          className="min-w-0 flex-1 rounded-md border border-neutral-300 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+          className="min-w-0 flex-1 rounded-md border border-neutral-500 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
         />
         <button
           type="submit"

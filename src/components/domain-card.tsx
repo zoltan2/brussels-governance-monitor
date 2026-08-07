@@ -8,10 +8,10 @@ import { formatDate } from '@/lib/utils';
 import { cn } from '@/lib/utils';
 
 const statusStyles: Record<string, string> = {
-  blocked: 'bg-status-blocked text-white',
-  delayed: 'bg-status-delayed text-white',
-  ongoing: 'bg-status-ongoing text-white',
-  resolved: 'bg-status-resolved text-white',
+  blocked: 'bg-status-blocked text-neutral-50',
+  delayed: 'bg-status-delayed text-neutral-50',
+  ongoing: 'bg-status-ongoing text-neutral-50',
+  resolved: 'bg-status-resolved text-neutral-50',
 };
 
 const confidenceStyles: Record<string, string> = {

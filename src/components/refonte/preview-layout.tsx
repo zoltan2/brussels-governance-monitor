@@ -95,7 +95,7 @@ export function PreviewLayout({
             <h2 className="text-2xl tracking-tight text-neutral-900 md:text-3xl">
               Treize domaines, suivis en continu
             </h2>
-            <span className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-400">
+            <span className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
               Échantillon
             </span>
           </header>

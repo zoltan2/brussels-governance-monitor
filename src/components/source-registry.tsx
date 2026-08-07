@@ -167,7 +167,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
           <select
             value={activeDomain}
             onChange={(e) => { setActiveDomain(e.target.value); setExpanded(false); }}
-            className="w-full rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 focus-visible:border-brand-500 focus-visible:ring-1 focus-visible:ring-brand-500"
+            className="w-full rounded-lg border border-neutral-500 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 focus-visible:border-brand-500 focus-visible:ring-1 focus-visible:ring-brand-500"
             aria-label={labels.domainFilter ?? 'Domain'}
           >
             <option value="all">{labels.domainFilter ?? 'Domain'} — {labels.all}</option>
@@ -188,7 +188,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
           onChange={(e) => { setQuery(e.target.value); setExpanded(false); }}
           placeholder={labels.search}
           aria-label={labels.search}
-          className="w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:border-brand-500 focus-visible:ring-1 focus-visible:ring-brand-500"
+          className="w-full rounded-lg border border-neutral-500 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:border-brand-500 focus-visible:ring-1 focus-visible:ring-brand-500"
         />
       </div>
 
@@ -334,7 +334,7 @@ function SuggestSourceForm({ labels }: { labels: SuggestLabels }) {
               placeholder={labels.suggestUrlPlaceholder}
               required
               maxLength={500}
-              className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500"
+              className="w-full rounded-md border border-neutral-500 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500"
             />
           </div>
 
@@ -349,7 +349,7 @@ function SuggestSourceForm({ labels }: { labels: SuggestLabels }) {
               placeholder={labels.suggestCommentPlaceholder}
               rows={2}
               maxLength={500}
-              className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500"
+              className="w-full rounded-md border border-neutral-500 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500"
             />
           </div>
 

@@ -66,7 +66,7 @@ export default async function MultilinguePreviewPage({
               <p className="mt-2 text-2xl tracking-tight text-neutral-500 md:text-3xl">
                 langues
               </p>
-              <p className="mt-3 font-mono text-xs uppercase tracking-[0.22em] text-neutral-400">
+              <p className="mt-3 font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
                 / 79 en cible
               </p>
               <a
@@ -89,13 +89,13 @@ export default async function MultilinguePreviewPage({
                     key={l.code}
                     className="flex items-baseline justify-between gap-3 border-b border-neutral-100 pb-3"
                   >
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-400 tabular-nums">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500 tabular-nums">
                       {l.code}
                     </span>
                     <span className="flex-1 text-right text-base text-neutral-900 md:text-lg">
                       {l.phrase}
                     </span>
-                    <span className="hidden font-mono text-[10px] text-neutral-400 sm:inline">
+                    <span className="hidden font-mono text-[10px] text-neutral-500 sm:inline">
                       {l.native}
                     </span>
                   </li>

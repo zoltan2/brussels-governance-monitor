@@ -1149,7 +1149,7 @@ export function ChatWidget() {
                 value={state.reason}
                 onChange={(e) => updateDown(i, { reason: e.target.value as Reason })}
                 disabled={state.submitting}
-                className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-2 py-1 text-base text-neutral-900 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
+                className="w-full rounded-md border border-neutral-500 bg-neutral-50 px-2 py-1 text-base text-neutral-900 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
               >
                 {REASON_ORDER.map((r) => (
                   <option key={r} value={r}>
@@ -1168,7 +1168,7 @@ export function ChatWidget() {
                 rows={2}
                 maxLength={500}
                 disabled={state.submitting}
-                className="w-full resize-none rounded-md border border-neutral-300 bg-neutral-50 px-2 py-1 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
+                className="w-full resize-none rounded-md border border-neutral-500 bg-neutral-50 px-2 py-1 text-base text-neutral-900 placeholder:text-neutral-500 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
               />
             </label>
 
@@ -1180,7 +1180,7 @@ export function ChatWidget() {
                 onChange={(e) => updateDown(i, { email: e.target.value })}
                 placeholder={fc.emailPlaceholder}
                 disabled={state.submitting}
-                className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-2 py-1 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
+                className="w-full rounded-md border border-neutral-500 bg-neutral-50 px-2 py-1 text-base text-neutral-900 placeholder:text-neutral-500 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
               />
             </label>
 
@@ -1469,7 +1469,7 @@ export function ChatWidget() {
                   required
                   autoComplete="email"
                   disabled={emailSubmitting}
-                  className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm"
+                  className="w-full rounded-md border border-neutral-500 bg-neutral-50 px-3 py-2 text-base text-neutral-900 placeholder:text-neutral-500 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm"
                 />
               </label>
 
@@ -1497,7 +1497,7 @@ export function ChatWidget() {
                   checked={emailOptIn}
                   onChange={(e) => setEmailOptIn(e.target.checked)}
                   disabled={emailSubmitting}
-                  className="mt-0.5 h-4 w-4 rounded border-neutral-300 text-brand-900 focus:ring-brand-900"
+                  className="mt-0.5 h-4 w-4 rounded border-neutral-500 text-brand-900 focus:ring-brand-900"
                 />
                 <span>
                   {ef.digestLabel}
@@ -1564,7 +1564,7 @@ export function ChatWidget() {
               rows={1}
               placeholder={ui.inputPlaceholder}
               aria-label={ui.inputAria}
-              className="max-h-32 min-h-[38px] flex-1 resize-none rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 sm:text-sm"
+              className="max-h-32 min-h-[38px] flex-1 resize-none rounded-md border border-neutral-500 bg-neutral-50 px-3 py-2 text-base text-neutral-900 placeholder:text-neutral-500 focus:border-brand-900 focus:outline-none focus:ring-1 focus:ring-brand-900 sm:text-sm"
               disabled={loading}
             />
             <button

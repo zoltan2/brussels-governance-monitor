@@ -10,7 +10,7 @@ interface StatusEntry {
 }
 
 const STATUS_DOT_COLORS: Record<string, string> = {
-  'not-started': 'bg-neutral-400',
+  'not-started': 'bg-neutral-500',
   announced: 'bg-brand-600',
   'in-legislation': 'bg-indigo-600',
   implemented: 'bg-teal-600',
@@ -37,7 +37,7 @@ export function CommitmentTimeline({
           <div className="relative z-10 mt-1.5 flex shrink-0">
             <div
               className={`h-[11px] w-[11px] rounded-full border-2 border-white ${
-                STATUS_DOT_COLORS[entry.status] || 'bg-neutral-400'
+                STATUS_DOT_COLORS[entry.status] || 'bg-neutral-500'
               }`}
             />
           </div>

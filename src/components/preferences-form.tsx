@@ -203,7 +203,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
           id="pref-locale"
           value={locale}
           onChange={(e) => setLocale(e.target.value)}
-          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
+          className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm text-neutral-900 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
         >
           {LOCALE_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -337,7 +337,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
       <button
         type="submit"
         disabled={state === 'saving' || topics.length === 0}
-        className="w-full rounded-md bg-brand-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-md bg-brand-900 px-4 py-2.5 text-sm font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {state === 'saving' ? t('saving') : t('save')}
       </button>

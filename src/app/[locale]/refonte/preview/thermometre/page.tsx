@@ -62,7 +62,7 @@ export default async function ThermometrePreviewPage({
                 <span className="font-mono text-[80px] font-bold leading-none tabular-nums text-neutral-900 md:text-[140px]">
                   {VALUE}
                 </span>
-                <span className="font-mono text-2xl text-neutral-400">/ 100</span>
+                <span className="font-mono text-2xl text-neutral-500">/ 100</span>
               </div>
               <p className="mt-3 max-w-md text-base text-neutral-700 md:text-lg">
                 Indice composite calculé chaque semaine à partir de la veille — crise gouvernementale, dossiers gelés, retards budgétaires, engagements DPR.
@@ -80,7 +80,7 @@ export default async function ThermometrePreviewPage({
                     style={{ left: `calc(${VALUE}% - 2px)` }}
                   />
                 </div>
-                <div className="mt-2 flex justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400">
+                <div className="mt-2 flex justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500">
                   <span>Crise institutionnelle</span>
                   <span>Fonctionnement normal</span>
                 </div>
@@ -96,14 +96,14 @@ export default async function ThermometrePreviewPage({
                     <div
                       key={i}
                       className={`flex-1 rounded-t ${
-                        i === SPARKLINE.length - 1 ? 'bg-neutral-900' : 'bg-neutral-300'
+                        i === SPARKLINE.length - 1 ? 'bg-neutral-900' : 'bg-neutral-500'
                       }`}
                       style={{ height: `${(v / 100) * 100}%` }}
                       title={`S${i + 6}: ${v}`}
                     />
                   ))}
                 </div>
-                <div className="mt-2 flex justify-between font-mono text-[10px] text-neutral-400">
+                <div className="mt-2 flex justify-between font-mono text-[10px] text-neutral-500">
                   <span>S06</span>
                   <span>S17</span>
                 </div>
@@ -128,7 +128,7 @@ export default async function ThermometrePreviewPage({
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-400">
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500">
                 Méthodologie →
               </p>
             </div>

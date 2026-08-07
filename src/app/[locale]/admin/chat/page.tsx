@@ -178,7 +178,7 @@ export default async function AdminChatPage({
             uniquement des métadonnées anonymisées (hashes). Le détail des retours
             négatifs arrive par email dans la boîte feedback@brusselsgovernance.be.
           </p>
-          <p className="mt-1 text-xs text-neutral-400">
+          <p className="mt-1 text-xs text-neutral-500">
             Source :{' '}
             {storeConfigured ? (
               <span className="text-neutral-600">Upstash Redis (chat:* keys)</span>

@@ -316,7 +316,7 @@ export default function DigestReviewPage() {
                 value={numberValue}
                 onChange={(e) => setNumberValue(e.target.value)}
                 disabled={isSent}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -326,7 +326,7 @@ export default function DigestReviewPage() {
                 value={numberLabelFr}
                 onChange={(e) => setNumberLabelFr(e.target.value)}
                 disabled={isSent}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -337,7 +337,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setNumberLabelNl(e.target.value)}
                 disabled={isSent}
                 placeholder={numberLabelFr || 'NL — vide = copie FR'}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -348,7 +348,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setNumberLabelEn(e.target.value)}
                 disabled={isSent}
                 placeholder={numberLabelFr || 'EN — empty = copy FR'}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -359,7 +359,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setNumberLabelDe(e.target.value)}
                 disabled={isSent}
                 placeholder={numberLabelFr || 'DE — leer = Kopie FR'}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -369,7 +369,7 @@ export default function DigestReviewPage() {
                 value={numberSourceFr}
                 onChange={(e) => setNumberSourceFr(e.target.value)}
                 disabled={isSent}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -380,7 +380,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setNumberSourceNl(e.target.value)}
                 disabled={isSent}
                 placeholder={numberSourceFr || 'NL — vide = copie FR'}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -391,7 +391,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setNumberSourceEn(e.target.value)}
                 disabled={isSent}
                 placeholder={numberSourceFr || 'EN — empty = copy FR'}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -402,7 +402,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setNumberSourceDe(e.target.value)}
                 disabled={isSent}
                 placeholder={numberSourceFr || 'DE — leer = Kopie FR'}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
           </div>
@@ -424,7 +424,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setClosingNoteFr(e.target.value)}
                 disabled={isSent}
                 rows={4}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -434,7 +434,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setClosingNoteNl(e.target.value)}
                 disabled={isSent}
                 rows={4}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -444,7 +444,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setClosingNoteEn(e.target.value)}
                 disabled={isSent}
                 rows={4}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
             <div>
@@ -454,7 +454,7 @@ export default function DigestReviewPage() {
                 onChange={(e) => setClosingNoteDe(e.target.value)}
                 disabled={isSent}
                 rows={4}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm disabled:bg-neutral-100"
+                className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm disabled:bg-neutral-100"
               />
             </div>
           </div>

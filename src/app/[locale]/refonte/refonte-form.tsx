@@ -410,7 +410,7 @@ export function RefonteForm() {
             onChange={(e) => setVote({ ...vote, comment: e.target.value })}
             rows={4}
             placeholder="Optionnel. Tu peux préciser un axe (ex : « le hero multilingue m'a parlé parce que… »)."
-            className="mt-3 w-full rounded border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none"
+            className="mt-3 w-full rounded border border-neutral-500 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-500 focus:border-neutral-900 focus:outline-none"
           />
         </label>
 
@@ -423,14 +423,14 @@ export function RefonteForm() {
             value={vote.email}
             onChange={(e) => setVote({ ...vote, email: e.target.value })}
             placeholder="ton@email.be"
-            className="w-full max-w-md rounded border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none"
+            className="w-full max-w-md rounded border border-neutral-500 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-500 focus:border-neutral-900 focus:outline-none"
           />
           <label className="flex items-start gap-3 text-sm text-neutral-700">
             <input
               type="checkbox"
               checked={vote.emailOptIn}
               onChange={(e) => setVote({ ...vote, emailOptIn: e.target.checked })}
-              className="mt-1 h-4 w-4 rounded border-neutral-300 text-neutral-900 focus:ring-neutral-900"
+              className="mt-1 h-4 w-4 rounded border-neutral-500 text-neutral-900 focus:ring-neutral-900"
             />
             <span>
               Je veux recevoir l&apos;article de synthèse quand la consultation
@@ -635,7 +635,7 @@ function RhythmSchema({ pattern }: { pattern: RhythmPattern }) {
               b.c === 'strong'
                 ? 'bg-neutral-900'
                 : b.c === 'soft'
-                  ? 'bg-neutral-400'
+                  ? 'bg-neutral-500'
                   : 'bg-neutral-200'
             } ${i === 7 ? 'ml-1 border-l border-dashed border-neutral-300 pl-1' : ''}`}
             style={{ height: `${b.h * 100}%` }}
@@ -643,7 +643,7 @@ function RhythmSchema({ pattern }: { pattern: RhythmPattern }) {
           />
         ))}
       </div>
-      <div className="flex justify-between font-mono text-[8px] uppercase tracking-[0.2em] text-neutral-400">
+      <div className="flex justify-between font-mono text-[8px] uppercase tracking-[0.2em] text-neutral-500">
         <span>S1 · L M M J V S D</span>
         <span>S2 · L M M J V S D</span>
       </div>
@@ -730,7 +730,7 @@ function ProductionMockup({ variant }: { variant: ProductionVariant }) {
           Lisible aujourd&apos;hui en
         </span>
         <p className="mt-2 font-mono text-3xl font-bold leading-none tabular-nums text-neutral-900">
-          12<span className="ml-1 text-base text-neutral-400">/79</span>
+          12<span className="ml-1 text-base text-neutral-500">/79</span>
         </p>
         <div className="mt-2 flex flex-wrap gap-1">
           {['FR', 'NL', 'EN', 'DE', 'IT', 'ES', '+6'].map((l) => (
@@ -784,7 +784,7 @@ function CardSampleMockup({ variant }: { variant: CardVariant }) {
         <h4 className="text-sm font-semibold tracking-tight text-neutral-900">
           Logement social : SLRB en panne.
         </h4>
-        <span className="mt-2 font-mono text-[10px] uppercase tracking-wider text-neutral-400">
+        <span className="mt-2 font-mono text-[10px] uppercase tracking-wider text-neutral-500">
           Voir le dossier →
         </span>
       </div>
@@ -823,15 +823,15 @@ function CardSampleMockup({ variant }: { variant: CardVariant }) {
         <div className="mt-2 grid grid-cols-3 gap-2 border-t border-neutral-100 pt-2">
           <div>
             <span className="block font-mono text-sm font-bold tabular-nums text-neutral-900">39 000</span>
-            <span className="block font-mono text-[8px] uppercase tracking-wider text-neutral-400">demandes</span>
+            <span className="block font-mono text-[8px] uppercase tracking-wider text-neutral-500">demandes</span>
           </div>
           <div>
             <span className="block font-mono text-sm font-bold tabular-nums text-neutral-900">0</span>
-            <span className="block font-mono text-[8px] uppercase tracking-wider text-neutral-400">livraison 26</span>
+            <span className="block font-mono text-[8px] uppercase tracking-wider text-neutral-500">livraison 26</span>
           </div>
           <div>
             <span className="block font-mono text-sm font-bold tabular-nums text-neutral-900">18 ans</span>
-            <span className="block font-mono text-[8px] uppercase tracking-wider text-neutral-400">attente</span>
+            <span className="block font-mono text-[8px] uppercase tracking-wider text-neutral-500">attente</span>
           </div>
         </div>
       </div>
@@ -871,7 +871,7 @@ function CardSampleMockup({ variant }: { variant: CardVariant }) {
             <strong className="text-neutral-900">18a</strong> attente
           </span>
         </div>
-        <span className="mt-1.5 block font-mono text-[8px] uppercase tracking-wider text-neutral-400">
+        <span className="mt-1.5 block font-mono text-[8px] uppercase tracking-wider text-neutral-500">
           Mis à jour 27/04/26
         </span>
       </div>
@@ -884,7 +884,7 @@ function CardSampleMockup({ variant }: { variant: CardVariant }) {
 function ToneSampleCopy({ title, lead }: { title: string; lead: string }) {
   return (
     <div className="flex h-full w-full flex-col justify-center px-4 text-left">
-      <p className="mb-1 font-mono text-[9px] uppercase tracking-[0.22em] text-neutral-400">
+      <p className="mb-1 font-mono text-[9px] uppercase tracking-[0.22em] text-neutral-500">
         Exemple, comme rendu sur la home
       </p>
       <h4 className="text-sm leading-tight tracking-tight text-neutral-900 md:text-base">
@@ -920,7 +920,7 @@ function ThermometerMockup() {
           style={{ left: `${value}%` }}
         />
       </div>
-      <div className="mt-1 flex justify-between font-mono text-[9px] text-neutral-400">
+      <div className="mt-1 flex justify-between font-mono text-[9px] text-neutral-500">
         <span>Crise</span>
         <span>Fonctionnel</span>
       </div>
@@ -988,7 +988,7 @@ function MultilingualMockup() {
         <span className="ml-1 font-mono text-[10px] uppercase tracking-wider text-neutral-500">
           langues servies
         </span>
-        <span className="ml-2 font-mono text-[10px] text-neutral-400">/ 79 cible</span>
+        <span className="ml-2 font-mono text-[10px] text-neutral-500">/ 79 cible</span>
       </div>
       <div className="flex flex-wrap gap-1">
         {langs.map((l) => (

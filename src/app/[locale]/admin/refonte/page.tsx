@@ -109,7 +109,7 @@ export default async function AdminRefontePage({
           </p>
           <p className="mt-2 font-mono text-4xl font-bold tabular-nums text-neutral-900">
             {stats.recent.filter((r) => r.email).length}
-            <span className="ml-2 text-base text-neutral-400">
+            <span className="ml-2 text-base text-neutral-500">
               · {stats.recent.filter((r) => r.email_optin).length} opt-in
             </span>
           </p>
@@ -123,7 +123,7 @@ export default async function AdminRefontePage({
           </p>
           <p className="mt-2 font-mono text-4xl font-bold tabular-nums text-neutral-900">
             {stats.recent.filter((r) => r.comment.length > 0).length}
-            <span className="ml-2 text-base text-neutral-400">/ {stats.recent.length} récents</span>
+            <span className="ml-2 text-base text-neutral-500">/ {stats.recent.length} récents</span>
           </p>
         </div>
       </section>

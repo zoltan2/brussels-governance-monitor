@@ -42,7 +42,7 @@ export default async function MosaiquePreviewPage({
             <p className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
               Cette semaine sur BGM · Semaine 17, avril 2026
             </p>
-            <p className="hidden font-mono text-xs uppercase tracking-[0.22em] text-neutral-400 md:block">
+            <p className="hidden font-mono text-xs uppercase tracking-[0.22em] text-neutral-500 md:block">
               5 productions
             </p>
           </div>
@@ -137,7 +137,7 @@ export default async function MosaiquePreviewPage({
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-700">
                   Tester →
                 </span>
-                <span className="font-mono text-[10px] tracking-tight text-neutral-400">
+                <span className="font-mono text-[10px] tracking-tight text-neutral-500">
                   10 questions
                 </span>
               </div>
@@ -152,7 +152,7 @@ export default async function MosaiquePreviewPage({
                 <span className="ml-3 font-mono text-sm text-neutral-900">
                   12 langues
                 </span>
-                <span className="ml-2 font-mono text-[10px] text-neutral-400">/ 79 cible</span>
+                <span className="ml-2 font-mono text-[10px] text-neutral-500">/ 79 cible</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {['FR', 'NL', 'EN', 'DE', 'IT', 'ES', 'PT', 'AR', 'TR', 'UK', 'PL', 'RO'].map(
@@ -165,7 +165,7 @@ export default async function MosaiquePreviewPage({
                     </span>
                   ),
                 )}
-                <span className="font-mono text-[10px] tracking-[0.18em] text-neutral-400">
+                <span className="font-mono text-[10px] tracking-[0.18em] text-neutral-500">
                   /digest →
                 </span>
               </div>

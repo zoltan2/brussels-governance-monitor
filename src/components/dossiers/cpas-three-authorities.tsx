@@ -208,7 +208,7 @@ export function CpasThreeAuthorities({ locale = 'fr' }: { locale?: Locale }) {
       <span className="sr-only">{labels.arrowLabel}</span>
 
       <div className="mt-4 rounded-md border border-brand-700 bg-brand-900 p-3 text-center sm:mt-2 sm:p-4">
-        <p className="text-sm font-semibold leading-snug text-white">
+        <p className="text-sm font-semibold leading-snug text-neutral-50">
           {labels.centerStatement}
         </p>
       </div>

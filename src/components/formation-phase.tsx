@@ -52,7 +52,7 @@ export function FormationPhase({
                       : isPast
                         ? isDark
                           ? 'bg-white/30'
-                          : 'bg-neutral-400'
+                          : 'bg-neutral-500'
                         : isDark
                           ? 'bg-white/10'
                           : 'bg-neutral-200'

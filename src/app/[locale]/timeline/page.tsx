@@ -55,11 +55,13 @@ export default async function TimelinePage({
 
 const PHASES = ['exploration', 'negotiation', 'agreement', 'government'] as const;
 
+// Tokens adaptatifs uniquement : amber/indigo/slate ne basculent pas en sombre
+// (une pastille bg-slate-800 était invisible sur fond sombre).
 const PHASE_COLORS: Record<string, string> = {
-  exploration: 'bg-amber-500',
+  exploration: 'bg-status-delayed',
   negotiation: 'bg-brand-600',
-  agreement: 'bg-indigo-600',
-  government: 'bg-slate-800',
+  agreement: 'bg-status-resolved',
+  government: 'bg-neutral-700',
 };
 
 const RESULT_COLORS: Record<string, string> = {
@@ -70,16 +72,18 @@ const RESULT_COLORS: Record<string, string> = {
   success: 'bg-teal-100 text-teal-800',
 };
 
+// Idem : ces fonds portent du texte text-neutral-50, qui s'inverse en sombre.
+// Ils doivent donc s'inverser aussi, sinon le libellé devient illisible.
 const EVENT_TYPE_COLORS: Record<string, string> = {
-  designation: 'bg-slate-700',
+  designation: 'bg-neutral-700',
   consultation: 'bg-brand-700',
-  proposal: 'bg-indigo-600',
-  blockage: 'bg-amber-700',
+  proposal: 'bg-brand-600',
+  blockage: 'bg-status-delayed',
   resignation: 'bg-neutral-600',
   citizen: 'bg-brand-700',
-  budget: 'bg-amber-700',
+  budget: 'bg-status-delayed',
   initiative: 'bg-brand-800',
-  agreement: 'bg-teal-700',
+  agreement: 'bg-status-resolved',
 };
 
 const CHAPTER_STATUS_COLORS: Record<string, string> = {
@@ -132,7 +136,7 @@ function TimelineView({
                         isActive
                           ? PHASE_COLORS[phase]
                           : isPast
-                            ? 'bg-neutral-400'
+                            ? 'bg-neutral-500'
                             : 'bg-neutral-200'
                       }`}
                     />
@@ -226,7 +230,7 @@ function TimelineView({
                               <div className="relative z-10 mt-1.5 flex shrink-0">
                                 <div
                                   className={`h-[15px] w-[15px] rounded-full border-2 border-white ${
-                                    EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-400'
+                                    EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-500'
                                   }`}
                                 />
                               </div>
@@ -236,8 +240,8 @@ function TimelineView({
                                     {formatDate(event.date, locale)}
                                   </span>
                                   <span
-                                    className={`inline-flex w-fit rounded px-1.5 py-0.5 text-[10px] font-medium text-white ${
-                                      EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-400'
+                                    className={`inline-flex w-fit rounded px-1.5 py-0.5 text-[10px] font-medium text-neutral-50 ${
+                                      EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-500'
                                     }`}
                                   >
                                     {t(`eventTypes.${event.eventType}`)}
@@ -344,7 +348,7 @@ function TimelineView({
                             <div className="relative z-10 mt-1.5 flex shrink-0">
                               <div
                                 className={`h-[15px] w-[15px] rounded-full border-2 border-white ${
-                                  EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-400'
+                                  EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-500'
                                 }`}
                               />
                             </div>
@@ -356,8 +360,8 @@ function TimelineView({
                                   {formatDate(event.date, locale)}
                                 </span>
                                 <span
-                                  className={`inline-flex w-fit rounded px-1.5 py-0.5 text-[10px] font-medium text-white ${
-                                    EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-400'
+                                  className={`inline-flex w-fit rounded px-1.5 py-0.5 text-[10px] font-medium text-neutral-50 ${
+                                    EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-500'
                                   }`}
                                 >
                                   {t(`eventTypes.${event.eventType}`)}

@@ -125,25 +125,25 @@ function MethodologyView() {
             <p className="mb-3">{t('statuses.description')}</p>
             <div className="grid grid-cols-2 gap-2">
               <div className="rounded-lg border border-neutral-200 p-3">
-                <span className="inline-block rounded-full bg-status-blocked px-2 py-0.5 text-xs font-medium text-white">
+                <span className="inline-block rounded-full bg-status-blocked px-2 py-0.5 text-xs font-medium text-neutral-50">
                   blocked
                 </span>
                 <p className="mt-1.5 text-xs">{t('statuses.blocked')}</p>
               </div>
               <div className="rounded-lg border border-neutral-200 p-3">
-                <span className="inline-block rounded-full bg-status-delayed px-2 py-0.5 text-xs font-medium text-white">
+                <span className="inline-block rounded-full bg-status-delayed px-2 py-0.5 text-xs font-medium text-neutral-50">
                   delayed
                 </span>
                 <p className="mt-1.5 text-xs">{t('statuses.delayed')}</p>
               </div>
               <div className="rounded-lg border border-neutral-200 p-3">
-                <span className="inline-block rounded-full bg-status-ongoing px-2 py-0.5 text-xs font-medium text-white">
+                <span className="inline-block rounded-full bg-status-ongoing px-2 py-0.5 text-xs font-medium text-neutral-50">
                   ongoing
                 </span>
                 <p className="mt-1.5 text-xs">{t('statuses.ongoing')}</p>
               </div>
               <div className="rounded-lg border border-neutral-200 p-3">
-                <span className="inline-block rounded-full bg-status-resolved px-2 py-0.5 text-xs font-medium text-white">
+                <span className="inline-block rounded-full bg-status-resolved px-2 py-0.5 text-xs font-medium text-neutral-50">
                   resolved
                 </span>
                 <p className="mt-1.5 text-xs">{t('statuses.resolved')}</p>

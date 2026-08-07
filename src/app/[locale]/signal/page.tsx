@@ -49,7 +49,7 @@ export default async function SignalPage({
 
         {/* Hero */}
         <div className="mb-10">
-          <div className="mb-3 text-xs uppercase tracking-widest text-neutral-400">
+          <div className="mb-3 text-xs uppercase tracking-widest text-neutral-500">
             Chaque lundi sur LinkedIn
           </div>
           <h1 className="text-3xl font-bold text-neutral-900 sm:text-4xl">
@@ -184,7 +184,7 @@ export default async function SignalPage({
 
         {/* Séparation + digest email */}
         <div className="border-t border-neutral-100 pt-8 text-center">
-          <p className="mb-1 text-xs uppercase tracking-widest text-neutral-400">
+          <p className="mb-1 text-xs uppercase tracking-widest text-neutral-500">
             Vous préférez l&apos;email ?
           </p>
           <p className="mb-3 text-sm text-neutral-600">

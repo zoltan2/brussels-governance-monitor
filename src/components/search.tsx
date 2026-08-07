@@ -143,7 +143,7 @@ export function Search() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs text-neutral-500 transition-colors hover:bg-neutral-100"
+        className="inline-flex items-center gap-1.5 rounded-md border border-neutral-500 bg-neutral-50 px-2.5 py-1 text-xs text-neutral-500 transition-colors hover:bg-neutral-100"
         aria-label={t('placeholder')}
       >
         <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -199,7 +199,7 @@ export function Search() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="min-h-[24px] min-w-[24px] rounded border border-neutral-200 px-2 py-1 text-[10px] text-neutral-500"
+                className="min-h-[24px] min-w-[24px] rounded border border-neutral-500 px-2 py-1 text-[10px] text-neutral-500"
                 aria-label={t('close')}
               >
                 ESC

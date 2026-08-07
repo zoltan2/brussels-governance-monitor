@@ -18,7 +18,7 @@
   --color-neutral-200: oklch(0.92 0 0);
   --color-neutral-300: oklch(0.87 0 0);
   --color-neutral-400: oklch(0.7 0 0);
-  --color-neutral-500: oklch(0.55 0 0);
+  --color-neutral-500: oklch(0.51 0 0); /* 0.55 donnait 4.32:1 sur bg-neutral-100 */
   --color-neutral-600: oklch(0.45 0 0);
   --color-neutral-700: oklch(0.37 0 0);
   --color-neutral-800: oklch(0.27 0 0);
@@ -28,7 +28,7 @@
   --color-status-blocked: oklch(0.37 0 0);
   --color-status-delayed: oklch(0.48 0.15 75);
   --color-status-ongoing: oklch(0.48 0.12 250);
-  --color-status-resolved: oklch(0.5 0.1 195);
+  --color-status-resolved: oklch(0.48 0.1 195); /* 0.50 donnait 4.41:1 sur bg-neutral-200 */
 
   /* Feasibility colors */
   --color-feasibility-high: oklch(0.55 0.12 250);
@@ -43,17 +43,20 @@
   --color-brand-900: oklch(0.85 0.05 250);
   --color-brand-800: oklch(0.78 0.06 250);
   --color-brand-700: oklch(0.7 0.07 250);
-  --color-brand-600: oklch(0.6 0.08 250);
+  --color-brand-600: oklch(0.63 0.08 250);
 
   --color-neutral-50: oklch(0.15 0 0);
   --color-neutral-100: oklch(0.18 0 0);
   --color-neutral-200: oklch(0.22 0 0);
   --color-neutral-300: oklch(0.3 0 0);
-  --color-neutral-400: oklch(0.4 0 0);
-  --color-neutral-500: oklch(0.55 0 0);
-  --color-neutral-600: oklch(0.65 0 0);
-  --color-neutral-700: oklch(0.75 0 0);
-  --color-neutral-800: oklch(0.85 0 0);
+  /* 400-800 relevés pour WCAG : sur fond sombre, un même écart de L rend
+     moins de contraste que sur fond clair. Ratios sur bg-neutral-50 :
+     400 = 3.57 (1.4.11), 500 = 5.62 (1.4.3 AA), 600 = 7.64 (AAA). */
+  --color-neutral-400: oklch(0.52 0 0);
+  --color-neutral-500: oklch(0.63 0 0);
+  --color-neutral-600: oklch(0.71 0 0);
+  --color-neutral-700: oklch(0.78 0 0);
+  --color-neutral-800: oklch(0.86 0 0);
   --color-neutral-900: oklch(0.93 0 0);
 
   --color-status-blocked: oklch(0.7 0 0);
@@ -86,6 +89,11 @@
   --color-neutral-100: oklch(0.08 0 0);
   --color-neutral-900: oklch(1 0 0);
   --color-neutral-800: oklch(0.97 0 0);
+  /* Sans ces trois lignes, le texte secondaire restait à 4.32:1 en sombre :
+     le mode « contraste élevé » ne tenait pas sa promesse AAA. */
+  --color-neutral-700: oklch(0.82 0 0);
+  --color-neutral-600: oklch(0.75 0 0);
+  --color-neutral-500: oklch(0.68 0 0);
 }
 
 /* Font scaling — controlled by --font-scale on <html> */
@@ -140,16 +148,16 @@ mark {
     --color-brand-900: oklch(0.85 0.05 250);
     --color-brand-800: oklch(0.78 0.06 250);
     --color-brand-700: oklch(0.7 0.07 250);
-    --color-brand-600: oklch(0.6 0.08 250);
+    --color-brand-600: oklch(0.63 0.08 250);
     --color-neutral-50: oklch(0.15 0 0);
     --color-neutral-100: oklch(0.18 0 0);
     --color-neutral-200: oklch(0.22 0 0);
     --color-neutral-300: oklch(0.3 0 0);
-    --color-neutral-400: oklch(0.4 0 0);
-    --color-neutral-500: oklch(0.55 0 0);
-    --color-neutral-600: oklch(0.65 0 0);
-    --color-neutral-700: oklch(0.75 0 0);
-    --color-neutral-800: oklch(0.85 0 0);
+    --color-neutral-400: oklch(0.52 0 0);
+    --color-neutral-500: oklch(0.63 0 0);
+    --color-neutral-600: oklch(0.71 0 0);
+    --color-neutral-700: oklch(0.78 0 0);
+    --color-neutral-800: oklch(0.86 0 0);
     --color-neutral-900: oklch(0.93 0 0);
     --color-status-blocked: oklch(0.7 0 0);
     --color-status-delayed: oklch(0.65 0.15 75);

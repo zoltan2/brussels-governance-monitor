@@ -196,7 +196,7 @@ export function RechauffementChantiersTable({ locale = 'fr' }: { locale?: Locale
               <span className="font-medium">{labels.mobile.arbres} :</span> {row.arbres}
             </p>
             <p className="mt-1 text-xs text-neutral-600 italic">{row.polemique}</p>
-            <p className="mt-1 text-[11px] text-neutral-400">{row.source}</p>
+            <p className="mt-1 text-[11px] text-neutral-500">{row.source}</p>
           </li>
         ))}
       </ul>

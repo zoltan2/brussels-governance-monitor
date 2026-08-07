@@ -114,7 +114,7 @@ export function FeedbackButton({ cardTitle, cardType, cardSlug, context, labels 
               id="feedback-type"
               value={feedbackType}
               onChange={(e) => setFeedbackType(e.target.value)}
-              className="w-full rounded-md border border-neutral-300 px-3 py-1.5 text-sm text-neutral-900"
+              className="w-full rounded-md border border-neutral-500 px-3 py-1.5 text-sm text-neutral-900"
             >
               <option value="error">{labels.types.error}</option>
               <option value="correction">{labels.types.correction}</option>
@@ -134,7 +134,7 @@ export function FeedbackButton({ cardTitle, cardType, cardSlug, context, labels 
               placeholder={labels.messagePlaceholder}
               rows={3}
               required
-              className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500"
+              className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500"
             />
           </div>
 
@@ -148,7 +148,7 @@ export function FeedbackButton({ cardTitle, cardType, cardSlug, context, labels 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={labels.emailPlaceholder}
-              className="w-full rounded-md border border-neutral-300 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500"
+              className="w-full rounded-md border border-neutral-500 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500"
             />
           </div>
 

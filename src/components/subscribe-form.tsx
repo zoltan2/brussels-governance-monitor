@@ -172,7 +172,7 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t('emailPlaceholder')}
-          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
+          className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
         />
       </div>
 
@@ -269,7 +269,7 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
       <button
         type="submit"
         disabled={state === 'loading' || totalSelected === 0}
-        className="w-full rounded-md bg-brand-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-md bg-brand-900 px-4 py-2.5 text-sm font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {state === 'loading' ? t('submitting') : t('submit')}
       </button>

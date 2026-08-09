@@ -2,8 +2,8 @@
   "week": "2026-w32",
   "weekStart": "2026-08-03",
   "created_at": "2026-08-09T19:00:28.614Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "8 domaines, 5 dossiers, 1 secteur, 2 communes mis à jour",
     "nl": "8 domeinen, 5 dossiers, 1 sector, 2 gemeenten bijgewerkt",
@@ -49,5 +49,6 @@
     "nonprofit",
     "commune-schaerbeek",
     "commune-uccle"
-  ]
+  ],
+  "sent_at": "2026-08-09T20:13:33.718Z"
 }

@@ -41,6 +41,9 @@ export function Search() {
   const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Lecture d'une API navigateur au montage : la valeur ne peut pas être
+    // connue au rendu serveur, donc l'effet est ici le seul point d'entrée.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMac(navigator.platform.toUpperCase().includes('MAC'));
   }, []);
 

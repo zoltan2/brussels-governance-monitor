@@ -551,6 +551,10 @@ export function ChatWidget() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
+  // Lecture de localStorage et de l'URL au montage : l'état du paywall ne peut
+  // pas être calculé au rendu serveur, donc les setState de cet effet sont le
+  // seul point d'entrée. Refonte éventuelle vers useSyncExternalStore à part.
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -600,6 +604,7 @@ export function ChatWidget() {
       setPaywallState('choice');
     }
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     if (open) inputRef.current?.focus();

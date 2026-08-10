@@ -34,7 +34,7 @@
     "quiz:manual:apply": "tsx scripts/quiz-manual.ts apply"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.115.0",
+    "@anthropic-ai/sdk": "^0.116.0",
     "@react-email/components": "^1.0.12",
     "@types/node": "^25.9.5",
     "@types/react": "^19.2.18",

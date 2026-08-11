@@ -38,7 +38,7 @@ export function LoginForm({ locale, labels }: LoginFormProps) {
       setError(true);
       setLoading(false);
     } else {
-      router.push(`/${locale}/review`);
+      router.push(`/${locale}/admin`);
       router.refresh();
     }
   }

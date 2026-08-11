@@ -9,6 +9,8 @@ import { collectSummaryChanges } from '@/lib/change-summary';
 import { Verdict } from '@/components/admin/content/verdict';
 import { ChainStateBanner } from '@/components/admin/content/chain-state';
 import { ContentChanges } from '@/components/admin/content/content-changes';
+import { ActionBar } from '@/components/admin/content/action-bar';
+import { Published } from '@/components/admin/content/published';
 
 export const dynamic = 'force-dynamic';
 
@@ -49,7 +51,7 @@ export default async function ContentDecisionPage({
 }: {
   params: Promise<{ locale: string; number: string }>;
 }) {
-  const { number } = await params;
+  const { locale, number } = await params;
   const parsed = Number(number);
   if (!Number.isInteger(parsed) || parsed <= 0) notFound();
 
@@ -60,28 +62,34 @@ export default async function ContentDecisionPage({
 
   return (
     <div className="mx-auto max-w-3xl space-y-5 pb-32">
-      {data.checks ? (
-        <Verdict
-          pr={data.pr}
-          checks={data.checks}
-          truncated={data.files.truncated}
-          now={data.now}
-        />
+      {data.pr.mergedAt ? (
+        <Published mergedAt={data.pr.mergedAt} files={data.files.files} />
       ) : (
-        <section
-          aria-labelledby="verdict-titre"
-          className="rounded-lg border border-amber-500 bg-amber-50/60 p-6"
-        >
-          <h1 id="verdict-titre" className="text-2xl font-bold text-neutral-900">
-            État des contrôles indisponible
-          </h1>
-          <p className="mt-2 text-sm text-neutral-600">
-            {data.pr.title} · GitHub n&apos;a pas répondu à la demande de contrôles.
-            Vérifier sur GitHub avant de publier.
-          </p>
-        </section>
+        <>
+          {data.checks ? (
+            <Verdict
+              pr={data.pr}
+              checks={data.checks}
+              truncated={data.files.truncated}
+              now={data.now}
+            />
+          ) : (
+            <section
+              aria-labelledby="verdict-titre"
+              className="rounded-lg border border-amber-500 bg-amber-50/60 p-6"
+            >
+              <h1 id="verdict-titre" className="text-2xl font-bold text-neutral-900">
+                État des contrôles indisponible
+              </h1>
+              <p className="mt-2 text-sm text-neutral-600">
+                {data.pr.title} · GitHub n&apos;a pas répondu à la demande de contrôles.
+                Vérifier sur GitHub avant de publier.
+              </p>
+            </section>
+          )}
+          <ChainStateBanner state={chainState(data.digest, data.now)} />
+        </>
       )}
-      <ChainStateBanner state={chainState(data.digest, data.now)} />
 
       <section className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
         <h2 className="sr-only">Description de la veille</h2>
@@ -114,6 +122,18 @@ export default async function ContentDecisionPage({
           <div>{data.files.files.length} fichiers au total</div>
         </dl>
       </details>
+
+      {/* Sans état de contrôles, on ne peut pas juger : pas de barre plutôt
+          qu'une barre qui autoriserait à l'aveugle. */}
+      {!data.pr.mergedAt && data.checks && (
+        <ActionBar
+          number={data.pr.number}
+          sha={data.pr.sha}
+          checks={data.checks}
+          truncated={data.files.truncated}
+          locale={locale}
+        />
+      )}
     </div>
   );
 }

@@ -17,29 +17,46 @@ const broken: CheckState = { passed: 2, pending: 0, failed: ['Content lint'], to
 
 describe('ActionBar', () => {
   it('active la publication quand tout est vert', () => {
-    render(<ActionBar number={1} sha="abc1234" checks={green} truncated={false} locale="fr" />);
+    render(<ActionBar number={1} sha="abc1234" checks={green} truncated={false} fileRefusal={null} locale="fr" />);
     expect(screen.getByRole('button', { name: /publier/i }).hasAttribute('disabled')).toBe(false);
   });
 
   it('désactive et explique tant que les contrôles tournent', () => {
-    render(<ActionBar number={1} sha="abc1234" checks={running} truncated={false} locale="fr" />);
+    render(<ActionBar number={1} sha="abc1234" checks={running} truncated={false} fileRefusal={null} locale="fr" />);
     expect(screen.getByRole('button', { name: /contrôles/i }).hasAttribute('disabled')).toBe(true);
   });
 
   it('désactive quand un contrôle échoue', () => {
-    render(<ActionBar number={1} sha="abc1234" checks={broken} truncated={false} locale="fr" />);
+    render(<ActionBar number={1} sha="abc1234" checks={broken} truncated={false} fileRefusal={null} locale="fr" />);
     expect(screen.getByRole('button').hasAttribute('disabled')).toBe(true);
   });
 
   it('désactive quand la liste de fichiers est tronquée, même tout vert', () => {
-    render(<ActionBar number={1} sha="abc1234" checks={green} truncated={true} locale="fr" />);
+    render(<ActionBar number={1} sha="abc1234" checks={green} truncated={true} fileRefusal={null} locale="fr" />);
     expect(screen.getByRole('button').hasAttribute('disabled')).toBe(true);
+  });
+
+  it('désactive quand un fichier est hors périmètre, même tout vert', () => {
+    // La route répond 403 sur ce cas : le bouton ne doit pas inviter au clic.
+    render(
+      <ActionBar
+        number={1}
+        sha="abc1234"
+        checks={green}
+        truncated={false}
+        fileRefusal="Fichiers hors périmètre : src/app/page.tsx"
+        locale="fr"
+      />,
+    );
+    const bouton = screen.getByRole('button');
+    expect(bouton.hasAttribute('disabled')).toBe(true);
+    expect(bouton.textContent).toMatch(/hors périmètre/i);
   });
 
   it('un bouton désactivé ne dit jamais « Publier maintenant »', () => {
     for (const checks of [running, broken, { ...green, missing: ['Content lint'] }]) {
       const { unmount } = render(
-        <ActionBar number={1} sha="abc1234" checks={checks} truncated={false} locale="fr" />,
+        <ActionBar number={1} sha="abc1234" checks={checks} truncated={false} fileRefusal={null} locale="fr" />,
       );
       const bouton = screen.getByRole('button');
       expect(bouton.hasAttribute('disabled')).toBe(true);
@@ -63,7 +80,7 @@ describe('ActionBar, auto-rafraîchissement', () => {
   });
 
   it('redemande la page tant que des contrôles tournent', () => {
-    render(<ActionBar number={1} sha="abc1234" checks={running} truncated={false} locale="fr" />);
+    render(<ActionBar number={1} sha="abc1234" checks={running} truncated={false} fileRefusal={null} locale="fr" />);
     expect(refresh).not.toHaveBeenCalled();
     vi.advanceTimersByTime(20_000);
     expect(refresh).toHaveBeenCalledTimes(1);
@@ -72,14 +89,14 @@ describe('ActionBar, auto-rafraîchissement', () => {
   });
 
   it('ne redemande rien quand plus rien ne tourne', () => {
-    render(<ActionBar number={1} sha="abc1234" checks={green} truncated={false} locale="fr" />);
+    render(<ActionBar number={1} sha="abc1234" checks={green} truncated={false} fileRefusal={null} locale="fr" />);
     vi.advanceTimersByTime(60_000);
     expect(refresh).not.toHaveBeenCalled();
   });
 
   it('nettoie l\'intervalle au démontage', () => {
     const { unmount } = render(
-      <ActionBar number={1} sha="abc1234" checks={running} truncated={false} locale="fr" />,
+      <ActionBar number={1} sha="abc1234" checks={running} truncated={false} fileRefusal={null} locale="fr" />,
     );
     unmount();
     vi.advanceTimersByTime(60_000);

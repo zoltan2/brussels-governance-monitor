@@ -15,12 +15,15 @@ export function ActionBar({
   sha,
   checks,
   truncated,
+  fileRefusal,
   locale,
 }: {
   number: number;
   sha: string;
   checks: CheckState;
   truncated: boolean;
+  /** Message de la liste blanche, ou `null`. Vient de `fileSetRefusal`. */
+  fileRefusal: string | null;
   locale: string;
 }) {
   const router = useRouter();
@@ -43,10 +46,13 @@ export function ActionBar({
     checks.failed.length > 0 ||
     checks.pending > 0 ||
     checks.missing.length > 0 ||
-    truncated;
+    truncated ||
+    fileRefusal !== null;
 
   const label = truncated
     ? 'Publication indisponible'
+    : fileRefusal
+    ? 'Fichiers hors périmètre'
     : checks.failed.length > 0
       ? 'Contrôles en échec'
       : checks.pending > 0

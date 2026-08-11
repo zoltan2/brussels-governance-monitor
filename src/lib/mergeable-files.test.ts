@@ -4,6 +4,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   isMergeableFileSet,
+  fileSetRefusal,
   ALLOWED_PREFIXES,
   ALLOWED_DATA_FILES,
 } from '@/lib/mergeable-files';
@@ -21,6 +22,30 @@ describe('isMergeableFileSet', () => {
         'data/changelog.json',
       ]),
     ).toBe(true);
+  });
+
+  it('accepte les 293 fichiers de la PR de veille réelle 2026-08-09', () => {
+    // Formes relevées sur `git diff --name-only
+    // origin/main...origin/content/veille-2026-08-09` : 254 artefacts
+    // pagefind, 36 fiches de contenu en quatre langues, 3 fichiers data. Une
+    // liste blanche qui se durcit sans passer ici bloquerait toute veille.
+    const reelles = [
+      'content/commune-cards/schaerbeek.fr.mdx',
+      'content/commune-cards/schaerbeek.nl.mdx',
+      'content/commune-cards/schaerbeek.en.mdx',
+      'content/commune-cards/schaerbeek.de.mdx',
+      'content/domain-cards/mobility.fr.mdx',
+      'content/dossiers/vice-gouverneur.fr.mdx',
+      'data/radar.json',
+      'data/commitments.json',
+      'data/changelog.json',
+      'public/pagefind/pagefind-entry.json',
+      'public/pagefind/fr_9c1a2b.pf_meta',
+      'public/pagefind/fragment/fr_1a2b3c.pf_fragment',
+      'public/pagefind/index/fr_4d5e6f.pf_index',
+    ];
+    expect(isMergeableFileSet(reelles)).toBe(true);
+    expect(fileSetRefusal(reelles)).toBeNull();
   });
 
   it('refuse du code applicatif', () => {
@@ -99,5 +124,53 @@ describe('isMergeableFileSet', () => {
   it('les fichiers data/ autorisés sont nommés un par un, jamais par préfixe', () => {
     expect(ALLOWED_DATA_FILES).not.toContain('data/pending-digest.json');
     expect(ALLOWED_DATA_FILES.every((f) => f.endsWith('.json'))).toBe(true);
+  });
+});
+
+describe('fileSetRefusal', () => {
+  // Cette fonction est lue à DEUX endroits — la page-décision et la route de
+  // fusion. Un écran qui dit « Prêt à publier » là où la route répond 403
+  // est le défaut qu'elle existe pour fermer.
+  it('ne refuse rien sur ce qu\'une vraie veille touche', () => {
+    expect(
+      fileSetRefusal([
+        'content/domain-cards/x.fr.mdx',
+        'messages/fr.json',
+        'data/radar.json',
+      ]),
+    ).toBeNull();
+  });
+
+  it('nomme le fichier hors périmètre', () => {
+    const message = fileSetRefusal(['content/x.fr.mdx', 'src/app/page.tsx']);
+    expect(message).toMatch(/hors périmètre/i);
+    expect(message).toContain('src/app/page.tsx');
+    // Le fichier légitime n'est pas accusé.
+    expect(message).not.toContain('content/x.fr.mdx');
+  });
+
+  it('cite cinq coupables au plus et compte le reste', () => {
+    const paths = Array.from({ length: 9 }, (_, i) => `src/a${i}.ts`);
+    const message = fileSetRefusal(paths);
+    expect(message).toContain('src/a4.ts');
+    expect(message).not.toContain('src/a5.ts');
+    expect(message).toContain('et 4 autres');
+  });
+
+  it('refuse un ensemble vide sans prétendre nommer un fichier', () => {
+    expect(fileSetRefusal([])).toBe('La PR ne touche aucun fichier');
+  });
+
+  it('dit la même chose qu\'isMergeableFileSet, jamais l\'inverse', () => {
+    const cas = [
+      ['content/x.fr.mdx'],
+      ['data/pending-digest.json'],
+      ['public/pagefind/evil.js'],
+      [],
+      ['messages/fr.json', 'src/app/page.tsx'],
+    ];
+    for (const paths of cas) {
+      expect(fileSetRefusal(paths) === null).toBe(isMergeableFileSet(paths));
+    }
   });
 });

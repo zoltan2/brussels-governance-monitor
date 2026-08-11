@@ -11,7 +11,7 @@ import {
   CONTENT_BRANCH_PREFIX,
   normalizeRepo,
 } from '@/lib/github-pr';
-import { isMergeableFileSet } from '@/lib/mergeable-files';
+import { fileSetRefusal } from '@/lib/mergeable-files';
 
 const schema = z.object({
   number: z.number().int().positive(),
@@ -88,24 +88,11 @@ export const POST = auth(async function POST(req) {
       { status: 422 },
     );
   }
-  // On juge d'abord l'ensemble — c'est ce qui active le garde « aucun fichier »
-  // — puis on ne détaille les coupables que pour le message d'erreur.
-  const paths = files.map((f) => f.path);
-  if (!isMergeableFileSet(paths)) {
-    const rejected = paths.filter((p) => !isMergeableFileSet([p]));
-    // Nommer les coupables : un 403 aveugle sur une PR de 1480 fichiers est
-    // indiagnosticable.
-    return NextResponse.json(
-      {
-        error:
-          rejected.length === 0
-            ? 'La PR ne touche aucun fichier'
-            : `Fichiers hors périmètre : ${rejected.slice(0, 5).join(', ')}${
-                rejected.length > 5 ? ` (et ${rejected.length - 5} autres)` : ''
-              }`,
-      },
-      { status: 403 },
-    );
+  // Même fonction que la page-décision : le verdict affiché et le refus du
+  // serveur ne peuvent plus diverger.
+  const refusal = fileSetRefusal(files.map((f) => f.path));
+  if (refusal) {
+    return NextResponse.json({ error: refusal }, { status: 403 });
   }
 
   // 3. Les contrôles, relus côté serveur.

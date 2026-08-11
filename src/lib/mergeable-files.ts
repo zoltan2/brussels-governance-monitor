@@ -58,6 +58,28 @@ const PAGEFIND_NAMED = new Set([
   'public/pagefind/pagefind-entry.json',
 ]);
 
+/**
+ * Message décrivant pourquoi cet ensemble est refusé, ou `null` s'il passe.
+ *
+ * Écrit UNE fois et consommé par la route de fusion comme par la
+ * page-décision : sans cela l'écran annonçait « Prêt à publier », bouton
+ * actif, et la route répondait 403 au clic. Un verdict qui ne dit pas la même
+ * chose que le serveur ne vaut rien.
+ *
+ * Nommer les coupables : un refus aveugle sur une PR de 1480 fichiers est
+ * indiagnosticable. On en cite cinq au plus, le reste est compté.
+ */
+export function fileSetRefusal(paths: string[]): string | null {
+  if (isMergeableFileSet(paths)) return null;
+  // `isMergeableFileSet` reste l'autorité : c'est elle qui refuse aussi
+  // l'ensemble vide, cas où il n'y a aucun chemin à nommer.
+  const rejected = paths.filter((p) => !isMergeableFileSet([p]));
+  if (rejected.length === 0) return 'La PR ne touche aucun fichier';
+  return `Fichiers hors périmètre : ${rejected.slice(0, 5).join(', ')}${
+    rejected.length > 5 ? ` (et ${rejected.length - 5} autres)` : ''
+  }`;
+}
+
 export function isMergeableFileSet(paths: string[]): boolean {
   if (paths.length === 0) return false;
 

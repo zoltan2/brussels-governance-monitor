@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { getContentPr, getPrFiles, getCheckState, type CheckState } from '@/lib/github-pr';
 import { chainState, readDigestSnapshot } from '@/lib/publication-deadlines';
 import { collectSummaryChanges } from '@/lib/change-summary';
+import { fileSetRefusal } from '@/lib/mergeable-files';
 import { Verdict } from '@/components/admin/content/verdict';
 import { ChainStateBanner } from '@/components/admin/content/chain-state';
 import { ContentChanges } from '@/components/admin/content/content-changes';
@@ -38,12 +39,17 @@ async function load(number: number) {
     checks = null; // l'écran affichera « état des contrôles indisponible »
   }
 
+  // Même fonction que la route de fusion : sans ce calcul, une PR touchant un
+  // fichier hors périmètre affichait « Prêt à publier », bouton actif, et
+  // recevait un 403 au clic.
+  const fileRefusal = fileSetRefusal(files.files.map((f) => f.path));
+
   const frenchPaths = files.files
     .filter((f) => f.path.startsWith('content/') && f.path.endsWith('.fr.mdx'))
     .map((f) => f.path);
   const summaries = await collectSummaryChanges(frenchPaths, pr.baseSha, pr.sha);
 
-  return { pr, files, checks, digest, summaries, now: new Date() };
+  return { pr, files, checks, digest, summaries, fileRefusal, now: new Date() };
 }
 
 export default async function ContentDecisionPage({
@@ -71,6 +77,7 @@ export default async function ContentDecisionPage({
               pr={data.pr}
               checks={data.checks}
               truncated={data.files.truncated}
+              fileRefusal={data.fileRefusal}
               now={data.now}
             />
           ) : (
@@ -131,6 +138,7 @@ export default async function ContentDecisionPage({
           sha={data.pr.sha}
           checks={data.checks}
           truncated={data.files.truncated}
+          fileRefusal={data.fileRefusal}
           locale={locale}
         />
       )}

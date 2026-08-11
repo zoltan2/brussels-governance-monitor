@@ -8,6 +8,7 @@ import { Verdict } from './verdict';
 import { ChainStateBanner } from './chain-state';
 import { ContentChanges } from './content-changes';
 import { chainState } from '@/lib/publication-deadlines';
+import { fileSetRefusal } from '@/lib/mergeable-files';
 import type { ContentPr, CheckState, PrFile } from '@/lib/github-pr';
 import type { DigestSnapshot } from '@/lib/publication-deadlines';
 import type { SummaryChange } from '@/lib/change-summary';
@@ -33,6 +34,7 @@ describe('Verdict', () => {
         pr={pr}
         checks={checks}
         truncated={false}
+        fileRefusal={null}
         now={new Date('2026-08-09T10:00:00Z')}
       />,
     );
@@ -46,6 +48,7 @@ describe('Verdict', () => {
         pr={pr}
         checks={checks}
         truncated={false}
+        fileRefusal={null}
         now={new Date('2026-08-09T10:00:00Z')}
       />,
     );
@@ -59,6 +62,7 @@ describe('Verdict', () => {
         pr={pr}
         checks={checks}
         truncated={false}
+        fileRefusal={null}
         now={new Date('2026-08-09T10:00:00Z')}
       />,
     );
@@ -80,6 +84,7 @@ describe('Verdict', () => {
         pr={pr}
         checks={checks}
         truncated={false}
+        fileRefusal={null}
         now={new Date('2026-08-09T10:00:00Z')}
       />,
     );
@@ -100,10 +105,28 @@ describe('Verdict', () => {
         pr={pr}
         checks={checks}
         truncated={true}
+        fileRefusal={null}
         now={new Date('2026-08-09T10:00:00Z')}
       />,
     );
     expect(screen.getByText(/liste de fichiers incomplète/i)).toBeDefined();
+    expect(screen.queryByText(/Prêt à publier/i)).toBeNull();
+  });
+
+  it('annonce le fichier hors périmètre, pas « prêt », même tout vert', () => {
+    // Le défaut : « Prêt à publier », bouton actif, 403 au clic. Le verdict
+    // doit nommer le fichier en cause.
+    const checks: CheckState = { passed: 3, pending: 0, failed: [], total: 3, missing: [] };
+    render(
+      <Verdict
+        pr={pr}
+        checks={checks}
+        truncated={false}
+        fileRefusal={fileSetRefusal(['content/x.fr.mdx', 'src/app/page.tsx'])}
+        now={new Date('2026-08-09T10:00:00Z')}
+      />,
+    );
+    expect(screen.getByText(/src\/app\/page\.tsx/)).toBeDefined();
     expect(screen.queryByText(/Prêt à publier/i)).toBeNull();
   });
 
@@ -114,6 +137,7 @@ describe('Verdict', () => {
         pr={pr}
         checks={checks}
         truncated={false}
+        fileRefusal={null}
         now={new Date('2026-08-09T10:00:00Z')}
       />,
     );

@@ -18,11 +18,14 @@ export function Verdict({
   pr,
   checks,
   truncated,
+  fileRefusal,
   now,
 }: {
   pr: ContentPr;
   checks: CheckState;
   truncated: boolean;
+  /** Message de la liste blanche, ou `null`. Vient de `fileSetRefusal`. */
+  fileRefusal: string | null;
   now: Date;
 }) {
   // `missing` compte autant que `failed` : une PR sans aucun contrôle exécuté
@@ -30,12 +33,19 @@ export function Verdict({
   // route refusera. Le verdict doit dire la même chose que le serveur.
   // `truncated` compte aussi : sans lui, l'écran annonçait « Prêt à publier »
   // pendant que la route répondait 422.
+  // `fileRefusal` de même : une PR touchant un fichier hors périmètre
+  // annonçait « Prêt à publier », bouton actif, et recevait un 403 au clic.
   const blocked =
-    checks.failed.length > 0 || checks.missing.length > 0 || truncated;
+    checks.failed.length > 0 ||
+    checks.missing.length > 0 ||
+    truncated ||
+    fileRefusal !== null;
   const running = checks.pending > 0;
 
   const headline = truncated
     ? 'Publication indisponible : liste de fichiers incomplète'
+    : fileRefusal
+    ? `Publication impossible. ${fileRefusal}`
     : checks.failed.length > 0
     ? `Bloqué : ${checks.failed.join(', ')}`
     : running

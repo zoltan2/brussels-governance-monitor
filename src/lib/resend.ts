@@ -349,8 +349,49 @@ export interface ActiveContact {
 }
 
 /**
+ * Count active (not unsubscribed) contacts, without fetching their
+ * properties. Un appel par page de 100, là où listActiveContacts en fait un
+ * de plus PAR CONTACT pour lire ses propriétés.
+ *
+ * L'écart n'est pas cosmétique : throttle() impose 600 ms entre deux appels
+ * Resend, donc lister 91 abonnés actifs coûte 92 appels, soit 55 secondes.
+ * C'est ce qui bloquait la tuile Abonnés de /admin sur son fallback.
+ *
+ * Rend null en cas d'erreur, pour que l'appelant distingue une panne d'un
+ * carnet d'adresses réellement vide.
+ */
+export async function countActiveContacts(): Promise<number | null> {
+  const resend = getResend();
+  let count = 0;
+  let cursor: string | undefined;
+
+  for (;;) {
+    const options: { limit: number; after?: string } = { limit: 100 };
+    if (cursor) options.after = cursor;
+
+    const { data, error } = await resendCall(() =>
+      resend.contacts.list(options),
+    );
+    if (error || !data) return null;
+
+    for (const contact of data.data) {
+      if (!contact.unsubscribed) count++;
+    }
+
+    if (!data.has_more) break;
+    cursor = data.data[data.data.length - 1].id;
+  }
+
+  return count;
+}
+
+/**
  * List all active (not unsubscribed) contacts with their properties.
  * Paginates through all contacts (cursor-based, max 100 per page).
+ *
+ * ⚠️ Un appel API par contact, espacés de 600 ms : compter des dizaines de
+ * secondes. Réservé aux envois de digest, qui ont besoin de la locale et des
+ * thèmes de chaque abonné. Pour un simple total, countActiveContacts().
  */
 export async function listActiveContacts(): Promise<ActiveContact[]> {
   const resend = getResend();

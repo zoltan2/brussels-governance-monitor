@@ -1,12 +1,17 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { listActiveContacts } from '@/lib/resend';
+import { countActiveContacts } from '@/lib/resend';
 import { Tile, TileStat, TileUnavailable } from './tile';
 
+/**
+ * countActiveContacts et non listActiveContacts : cette dernière fait un
+ * appel API par contact, espacés de 600 ms, soit près d'une minute pour
+ * quatre-vingt-dix abonnés. C'est ce qui bloquait la tuile sur son fallback.
+ */
 async function loadActiveCount(): Promise<number | null> {
   try {
-    return (await listActiveContacts()).length;
+    return await countActiveContacts();
   } catch {
     return null;
   }

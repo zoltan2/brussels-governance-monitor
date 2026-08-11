@@ -3,7 +3,14 @@
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getContentPr, getPrFiles, getCheckState, type CheckState } from '@/lib/github-pr';
+import {
+  getContentPr,
+  getPrFiles,
+  getCheckState,
+  publishablePrProblem,
+  type CheckState,
+  type ContentPr,
+} from '@/lib/github-pr';
 import { chainState, readDigestSnapshot } from '@/lib/publication-deadlines';
 import { collectSummaryChanges } from '@/lib/change-summary';
 import { fileSetRefusal } from '@/lib/mergeable-files';
@@ -23,9 +30,31 @@ export function generateMetadata(): Metadata {
  * Toute lecture d'horloge et tout appel réseau vivent ici, jamais dans le
  * rendu : `react-hooks/purity` interdit `new Date()` pendant le rendu.
  */
-async function load(number: number) {
+type LoadResult =
+  | { kind: 'missing' }
+  | { kind: 'refused'; reason: string }
+  | {
+      kind: 'ok';
+      pr: ContentPr;
+      files: Awaited<ReturnType<typeof getPrFiles>>;
+      checks: CheckState | null;
+      digest: Awaited<ReturnType<typeof readDigestSnapshot>>;
+      summaries: Awaited<ReturnType<typeof collectSummaryChanges>>;
+      fileRefusal: string | null;
+      now: Date;
+    };
+
+async function load(number: number): Promise<LoadResult> {
   const pr = await getContentPr(number);
-  if (!pr) return null;
+  if (!pr) return { kind: 'missing' };
+
+  // Origine, préfixe de branche, branche cible : le même contrat que la liste
+  // et la route de fusion. Sans ce garde, cette page affichait n'importe
+  // quelle PR ouverte — y compris une PR de fork, dont le titre et le corps
+  // sont écrits par un inconnu — dans l'habillage de confiance de l'admin.
+  const reason = publishablePrProblem(pr, process.env.GITHUB_REPO ?? '');
+  if (reason) return { kind: 'refused', reason };
+
   // Les contrôles requis dépendent des chemins touchés : il faut donc les
   // fichiers avant de pouvoir juger les contrôles.
   const [files, digest] = await Promise.all([
@@ -49,7 +78,16 @@ async function load(number: number) {
     .map((f) => f.path);
   const summaries = await collectSummaryChanges(frenchPaths, pr.baseSha, pr.sha);
 
-  return { pr, files, checks, digest, summaries, fileRefusal, now: new Date() };
+  return {
+    kind: 'ok',
+    pr,
+    files,
+    checks,
+    digest,
+    summaries,
+    fileRefusal,
+    now: new Date(),
+  };
 }
 
 export default async function ContentDecisionPage({
@@ -62,7 +100,23 @@ export default async function ContentDecisionPage({
   if (!Number.isInteger(parsed) || parsed <= 0) notFound();
 
   const data = await load(parsed);
-  if (!data) notFound();
+  if (data.kind === 'missing') notFound();
+
+  // On ne rend NI le titre NI le corps d'une PR refusée : ce sont deux
+  // chaînes écrites par un inconnu quand la PR vient d'un fork.
+  if (data.kind === 'refused') {
+    return (
+      <div className="mx-auto max-w-3xl">
+        <h1 className="text-2xl font-bold text-neutral-900">
+          Cette PR n&apos;est pas publiable depuis cet écran
+        </h1>
+        <p className="mt-2 text-neutral-600">
+          {data.reason}. Seules les PR de veille ouvertes depuis ce dépôt et
+          visant <code>main</code> sont publiables ici.
+        </p>
+      </div>
+    );
+  }
 
   const repo = process.env.GITHUB_REPO ?? '';
 

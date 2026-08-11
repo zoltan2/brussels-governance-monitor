@@ -137,6 +137,39 @@ function toPr(raw: RawPr): ContentPr {
 }
 
 /**
+ * « Cette PR a-t-elle le droit d'être publiée depuis l'écran d'admin ? »
+ * Rend la RAISON du refus, ou `null` si elle passe.
+ *
+ * Écrit UNE fois et lu par les trois surfaces — la liste, la page-décision et
+ * la route de fusion. Auparavant le contrat était écrit deux fois de deux
+ * façons et absent de la troisième : `getContentPr` ne filtrait rien, donc
+ * `/fr/admin/content/<n>` affichait n'importe quelle PR ouverte, y compris
+ * une PR de fork au titre et au corps contrôlés par un inconnu, dans
+ * l'habillage de confiance de l'admin.
+ *
+ * `repo` est accepté sous n'importe laquelle des formes que `normalizeRepo`
+ * anticipe : on ne compare jamais une brute à une normalisée.
+ */
+export function publishablePrProblem(
+  pr: Pick<ContentPr, 'headRepo' | 'branch' | 'baseRef'>,
+  repo: string,
+): string | null {
+  // LA garde décisive : la branche doit venir de NOTRE dépôt. Sur une PR de
+  // fork, `branch` est le nom choisi par un inconnu — vérifier le nom seul ne
+  // vérifie rien. `headRepo` vaut `null` quand le fork a été supprimé.
+  if (pr.headRepo === null || pr.headRepo.toLowerCase() !== normalizeRepo(repo)) {
+    return 'PR extérieure au dépôt';
+  }
+  if (!pr.branch.startsWith(CONTENT_BRANCH_PREFIX)) {
+    return 'Branche hors périmètre';
+  }
+  if (pr.baseRef !== 'main') {
+    return 'Branche cible inattendue';
+  }
+  return null;
+}
+
+/**
  * Lit un fichier à une référence donnée. Renvoie `null` si le fichier
  * n'existe pas à cette référence, ce qui est le cas nominal pour une fiche
  * créée par la veille : elle n'a pas d'état antérieur.
@@ -170,25 +203,10 @@ export async function listContentPrs(): Promise<ContentPr[]> {
   });
   if (!res.ok) return [];
   const raw = (await res.json()) as RawPr[];
-  // Trois filtres, pas un.
-  // 1. Le préfixe réel est `content/veille-`, vérifié sur les PR #387 et
-  //    suivantes. Un préfixe `veille/` ne correspondrait à rien et l'écran
-  //    resterait vide en permanence, sans erreur.
-  // 2. Le dépôt d'origine doit être le nôtre. Sans ce second filtre,
-  //    n'importe quel inconnu fait apparaître sa PR sur l'écran d'admin,
-  //    dans l'habillage de confiance du site.
-  // 3. La branche cible doit être `main`. Sans ce troisième filtre, une PR
-  //    ouverte par erreur (ou par malveillance) vers une autre branche
-  //    apparaîtrait quand même sur l'écran, dans l'habillage d'une veille
-  //    normale.
-  return raw
-    .filter(
-      (p) =>
-        p.head.ref.startsWith(CONTENT_BRANCH_PREFIX) &&
-        p.head.repo?.full_name.toLowerCase() === repo &&
-        p.base.ref === 'main',
-    )
-    .map(toPr);
+  // Les trois filtres — origine, préfixe de branche, branche cible — vivent
+  // dans `publishablePrProblem`, partagée avec la page-décision et la route
+  // de fusion.
+  return raw.map(toPr).filter((p) => publishablePrProblem(p, repo) === null);
 }
 
 export async function getContentPr(number: number): Promise<ContentPr | null> {

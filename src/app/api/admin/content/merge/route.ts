@@ -8,8 +8,7 @@ import {
   getContentPr,
   getPrFiles,
   getCheckState,
-  CONTENT_BRANCH_PREFIX,
-  normalizeRepo,
+  publishablePrProblem,
 } from '@/lib/github-pr';
 import { fileSetRefusal } from '@/lib/mergeable-files';
 
@@ -56,20 +55,11 @@ export const POST = auth(async function POST(req) {
   if (!pr) {
     return NextResponse.json({ error: 'PR introuvable' }, { status: 404 });
   }
-  // LA garde décisive : la branche doit venir de NOTRE dépôt. Sur une PR de
-  // fork, `pr.branch` est le nom choisi par un inconnu — vérifier le nom seul
-  // ne vérifie rien. GitHub est insensible à la casse sur `owner/name`, et
-  // `GITHUB_REPO` peut porter un `.git`, une URL complète ou une barre
-  // finale : on compare deux valeurs normalisées, jamais une brute à une
-  // normalisée.
-  if (pr.headRepo?.toLowerCase() !== normalizeRepo(repo)) {
-    return NextResponse.json({ error: 'PR extérieure au dépôt' }, { status: 403 });
-  }
-  if (!pr.branch.startsWith(CONTENT_BRANCH_PREFIX)) {
-    return NextResponse.json({ error: 'Branche hors périmètre' }, { status: 403 });
-  }
-  if (pr.baseRef !== 'main') {
-    return NextResponse.json({ error: 'Branche cible inattendue' }, { status: 403 });
+  // Origine, préfixe de branche, branche cible : le même contrat que la liste
+  // et la page-décision, écrit une seule fois.
+  const problem = publishablePrProblem(pr, repo);
+  if (problem) {
+    return NextResponse.json({ error: problem }, { status: 403 });
   }
   if (pr.sha !== sha) {
     return NextResponse.json(

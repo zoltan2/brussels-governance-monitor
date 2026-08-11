@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getContentPr, getPrFiles, getCheckState, type CheckState } from '@/lib/github-pr';
 import { chainState, readDigestSnapshot } from '@/lib/publication-deadlines';
+import { collectSummaryChanges } from '@/lib/change-summary';
 import { Verdict } from '@/components/admin/content/verdict';
 import { ChainStateBanner } from '@/components/admin/content/chain-state';
 import { ContentChanges } from '@/components/admin/content/content-changes';
@@ -34,7 +35,13 @@ async function load(number: number) {
   } catch {
     checks = null; // l'écran affichera « état des contrôles indisponible »
   }
-  return { pr, files, checks, digest, now: new Date() };
+
+  const frenchPaths = files.files
+    .filter((f) => f.path.startsWith('content/') && f.path.endsWith('.fr.mdx'))
+    .map((f) => f.path);
+  const summaries = await collectSummaryChanges(frenchPaths, pr.baseSha, pr.sha);
+
+  return { pr, files, checks, digest, summaries, now: new Date() };
 }
 
 export default async function ContentDecisionPage({
@@ -83,7 +90,11 @@ export default async function ContentDecisionPage({
         </p>
       </section>
 
-      <ContentChanges files={data.files.files} truncated={data.files.truncated} />
+      <ContentChanges
+        files={data.files.files}
+        truncated={data.files.truncated}
+        summaries={data.summaries}
+      />
 
       <a
         href={`https://github.com/${repo}/pull/${data.pr.number}`}

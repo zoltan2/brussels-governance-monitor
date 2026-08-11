@@ -10,6 +10,7 @@ import { ContentChanges } from './content-changes';
 import { chainState } from '@/lib/publication-deadlines';
 import type { ContentPr, CheckState, PrFile } from '@/lib/github-pr';
 import type { DigestSnapshot } from '@/lib/publication-deadlines';
+import type { SummaryChange } from '@/lib/change-summary';
 
 const pr: ContentPr = {
   number: 400,
@@ -167,8 +168,18 @@ describe('ContentChanges', () => {
     { path: 'public/pagefind/fragment/x.pf_fragment', status: 'added', additions: 1, deletions: 0 },
   ];
 
+  const summaries: SummaryChange[] = [
+    {
+      path: 'content/domain-cards/mobilite.fr.mdx',
+      label: 'domain-cards/mobilite',
+      before: 'Le budget était de 12 millions.',
+      after: 'Le budget passe à 18 millions.',
+      numbers: ['18'],
+    },
+  ];
+
   it('ne montre que les fiches françaises', () => {
-    render(<ContentChanges files={files} truncated={false} />);
+    render(<ContentChanges files={files} truncated={false} summaries={summaries} />);
     // `getByText(/mobilite/)` trouverait deux nœuds : la fiche française et
     // sa traduction néerlandaise dans le <details>. Viser la chaîne exacte.
     expect(screen.getByText('domain-cards/mobilite')).toBeDefined();
@@ -176,7 +187,7 @@ describe('ContentChanges', () => {
   });
 
   it('avertit quand la liste est tronquée', () => {
-    render(<ContentChanges files={files} truncated={true} />);
+    render(<ContentChanges files={files} truncated={true} summaries={summaries} />);
     expect(screen.getByText(/liste incomplète/i)).toBeDefined();
   });
 });

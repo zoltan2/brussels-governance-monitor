@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { PrFile } from '@/lib/github-pr';
+import type { SummaryChange } from '@/lib/change-summary';
 
 function isFrenchContent(path: string): boolean {
   return path.startsWith('content/') && path.endsWith('.fr.mdx');
@@ -17,9 +18,11 @@ function isTranslation(path: string): boolean {
 export function ContentChanges({
   files,
   truncated,
+  summaries,
 }: {
   files: PrFile[];
   truncated: boolean;
+  summaries: SummaryChange[];
 }) {
   const french = files.filter((f) => isFrenchContent(f.path));
   const translations = files.filter((f) => isTranslation(f.path));
@@ -39,14 +42,28 @@ export function ContentChanges({
       )}
 
       <ul className="mt-3 space-y-2">
-        {french.map((f) => (
-          <li key={f.path} className="text-sm">
-            <span className="font-medium text-neutral-900">
-              {f.path.replace(/^content\//, '').replace(/\.fr\.mdx$/, '')}
-            </span>
-            <span className="ml-2 text-neutral-600">
-              +{f.additions} −{f.deletions}
-            </span>
+        {summaries.map((s) => (
+          <li key={s.path} className="border-t border-neutral-200 pt-3">
+            <p className="font-medium text-neutral-900">{s.label}</p>
+
+            {s.before && (
+              <p className="mt-1 text-sm text-neutral-600">
+                <span className="font-medium">Avant : </span>
+                {s.before}
+              </p>
+            )}
+            <p className="mt-1 text-sm text-neutral-900">
+              <span className="font-medium">
+                {s.before ? 'Après : ' : 'Résumé : '}
+              </span>
+              {s.after ?? 'aucun résumé de changement'}
+            </p>
+
+            {s.numbers.length > 0 && (
+              <p className="mt-1 text-sm text-neutral-600">
+                Chiffres nouveaux : {s.numbers.join(', ')}
+              </p>
+            )}
           </li>
         ))}
       </ul>

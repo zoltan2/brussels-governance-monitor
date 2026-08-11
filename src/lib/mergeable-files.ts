@@ -41,7 +41,10 @@ export const ALLOWED_DATA_FILES = [
  * `script-src 'self'` parfaitement satisfaite. Les artefacts JS sont donc
  * nommés un par un.
  */
-const PAGEFIND_DATA = /\.(pf_fragment|pf_index|pf_meta|pagefind)$/;
+const PAGEFIND_DATA = /\.(pf_fragment|pf_index|pf_meta)$/;
+// Les cinq `.pagefind` légitimes sont des binaires wasm, un par langue. Le
+// suffixe seul acceptait `evil.js.pagefind` : on nomme donc la forme entière.
+const PAGEFIND_WASM = /^public\/pagefind\/wasm\.[a-z_]+\.pagefind$/;
 const PAGEFIND_NAMED = new Set([
   'public/pagefind/pagefind.js',
   'public/pagefind/pagefind-ui.js',
@@ -66,7 +69,7 @@ export function isMergeableFileSet(paths: string[]): boolean {
     // restriction, `messages/evil.js` passait.
     if (p.startsWith('messages/') && !/^messages\/[^/]+\.json$/.test(p)) return false;
     if (p.startsWith('public/pagefind/')) {
-      return PAGEFIND_DATA.test(p) || PAGEFIND_NAMED.has(p);
+      return PAGEFIND_DATA.test(p) || PAGEFIND_WASM.test(p) || PAGEFIND_NAMED.has(p);
     }
     return true;
   });

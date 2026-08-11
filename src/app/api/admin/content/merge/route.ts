@@ -88,15 +88,21 @@ export const POST = auth(async function POST(req) {
       { status: 422 },
     );
   }
-  const rejected = files.map((f) => f.path).filter((p) => !isMergeableFileSet([p]));
-  if (rejected.length > 0) {
+  // On juge d'abord l'ensemble — c'est ce qui active le garde « aucun fichier »
+  // — puis on ne détaille les coupables que pour le message d'erreur.
+  const paths = files.map((f) => f.path);
+  if (!isMergeableFileSet(paths)) {
+    const rejected = paths.filter((p) => !isMergeableFileSet([p]));
     // Nommer les coupables : un 403 aveugle sur une PR de 1480 fichiers est
     // indiagnosticable.
     return NextResponse.json(
       {
-        error: `Fichiers hors périmètre : ${rejected.slice(0, 5).join(', ')}${
-          rejected.length > 5 ? ` (et ${rejected.length - 5} autres)` : ''
-        }`,
+        error:
+          rejected.length === 0
+            ? 'La PR ne touche aucun fichier'
+            : `Fichiers hors périmètre : ${rejected.slice(0, 5).join(', ')}${
+                rejected.length > 5 ? ` (et ${rejected.length - 5} autres)` : ''
+              }`,
       },
       { status: 403 },
     );

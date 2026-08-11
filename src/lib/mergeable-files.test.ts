@@ -63,6 +63,26 @@ describe('isMergeableFileSet', () => {
     expect(isMergeableFileSet(['public/pagefind/evil.json'])).toBe(false);
   });
 
+  it('refuse une extension composée sous public/pagefind', () => {
+    // `.pagefind` en suffixe seul acceptait `evil.js.pagefind`.
+    expect(isMergeableFileSet(['public/pagefind/evil.js.pagefind'])).toBe(false);
+    expect(isMergeableFileSet(['public/pagefind/evil.pagefind'])).toBe(false);
+    expect(isMergeableFileSet(['public/pagefind/wasm.fr.pagefind'])).toBe(true);
+  });
+
+  it('restreint messages/ au JSON, et à la racine', () => {
+    // Une régression sur cette ligne laissait passer `messages/evil.js`.
+    expect(isMergeableFileSet(['messages/evil.js'])).toBe(false);
+    expect(isMergeableFileSet(['messages/sub/fr.json'])).toBe(false);
+    expect(isMergeableFileSet(['messages/fr.json'])).toBe(true);
+  });
+
+  it('compare les chemins en tenant compte de la casse', () => {
+    // Une comparaison insensible à la casse laissait passer d'autres arbres.
+    expect(isMergeableFileSet(['Content/domain-cards/x.fr.mdx'])).toBe(false);
+    expect(isMergeableFileSet(['SRC/app/page.tsx'])).toBe(false);
+  });
+
   it('refuse une remontée de chemin', () => {
     expect(isMergeableFileSet(['content/../src/app/page.tsx'])).toBe(false);
   });

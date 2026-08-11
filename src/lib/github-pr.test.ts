@@ -88,7 +88,7 @@ describe('getCheckState', () => {
         ),
     ) as unknown as typeof fetch;
 
-    const state = await getCheckState('abc1234');
+    const state = await getCheckState('abc1234', ['data/radar.json']);
     expect(state.passed).toBe(1);
     expect(state.pending).toBe(1);
     expect(state.failed).toEqual(['Pagefind freshness']);
@@ -109,8 +109,9 @@ describe('getCheckState', () => {
         ),
     ) as unknown as typeof fetch;
 
-    const state = await getCheckState('abc1234');
+    const state = await getCheckState('abc1234', ['data/radar.json']);
     expect(state.failed).toEqual([]);
     expect(state.passed).toBe(2);
+    expect(state.missing).toEqual(['Lint, Typecheck & Build']);
   });
 });

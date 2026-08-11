@@ -69,6 +69,8 @@ export interface CheckState {
   pending: number;
   failed: string[];
   total: number;
+  /** Contrôles requis qui n'ont pas réussi. Vide = feu vert. */
+  missing: string[];
 }
 
 /**
@@ -244,10 +246,6 @@ export async function getPrFiles(number: number): Promise<PrFiles> {
  *
  * Deux des trois sont conditionnés par `paths:` : les exiger toujours
  * bloquerait une veille qui ne touche pas ces chemins.
- *
- * Fonction pure, indépendante de `getCheckState` : c'est à l'appelant (tâche
- * 8) de croiser la liste rendue ici avec l'état des contrôles pour décider ce
- * qui manque encore.
  */
 const CHECK_ALWAYS = 'Lint, Typecheck & Build'; // ci.yml, aucun filtre de chemin
 const CHECK_CONTENT = 'Editorial content checks'; // content-lint.yml
@@ -283,7 +281,7 @@ export function requiredChecksFor(paths: string[]): string[] {
   return required;
 }
 
-export async function getCheckState(sha: string): Promise<CheckState> {
+export async function getCheckState(sha: string, paths: string[]): Promise<CheckState> {
   const { token, repo } = config();
 
   const runs: Array<{ name: string; status: string; conclusion: string | null }> = [];
@@ -308,6 +306,7 @@ export async function getCheckState(sha: string): Promise<CheckState> {
   }
 
   const failed: string[] = [];
+  const succeeded = new Set<string>();
   let passed = 0;
   let pending = 0;
 
@@ -320,10 +319,13 @@ export async function getCheckState(sha: string): Promise<CheckState> {
       run.conclusion === 'skipped'
     ) {
       passed++;
+      succeeded.add(run.name);
     } else {
       failed.push(run.name);
     }
   }
 
-  return { passed, pending, failed, total: runs.length };
+  const missing = requiredChecksFor(paths).filter((name) => !succeeded.has(name));
+
+  return { passed, pending, failed, total: runs.length, missing };
 }

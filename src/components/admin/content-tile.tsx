@@ -22,7 +22,13 @@ export async function ContentTile({ locale }: { locale: string }) {
     >
       <TileStat
         value={count === null ? 'Indisponible' : String(count)}
-        label={count === 1 ? 'veille en attente' : 'veilles en attente'}
+        label={
+          count === null
+            ? 'impossible de joindre GitHub'
+            : count === 1
+              ? 'veille en attente'
+              : 'veilles en attente'
+        }
       />
     </Tile>
   );

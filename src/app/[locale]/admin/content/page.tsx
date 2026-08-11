@@ -4,7 +4,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { listContentPrs } from '@/lib/github-pr';
+import { listContentPrs, type ContentPr } from '@/lib/github-pr';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,8 +18,33 @@ export default async function ContentIndexPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const prs = await listContentPrs();
 
+  // `listContentPrs` lève si la configuration GitHub manque. Sans ce garde,
+  // l'admin reçoit une page 500 générique au lieu d'un message actionnable —
+  // alors que la tuile du tableau de bord, elle, dégrade proprement.
+  let prs: ContentPr[] | null = null;
+  try {
+    prs = await listContentPrs();
+  } catch {
+    prs = null;
+  }
+
+  if (prs === null) {
+    return (
+      <div className="mx-auto max-w-3xl">
+        <h1 className="text-2xl font-bold text-neutral-900">
+          Liste des veilles indisponible
+        </h1>
+        <p className="mt-2 text-neutral-600">
+          Impossible de joindre GitHub. Vérifier la configuration du serveur,
+          puis recharger. En attendant, la fusion reste possible depuis GitHub.
+        </p>
+      </div>
+    );
+  }
+
+  // `redirect()` lève une exception de contrôle interne à Next : elle doit
+  // rester HORS de tout try/catch, sinon la page devient blanche.
   // Le cas réel est zéro ou un. On évite d'imposer une liste pour un élément.
   if (prs.length === 1) {
     redirect(`/${locale}/admin/content/${prs[0].number}`);

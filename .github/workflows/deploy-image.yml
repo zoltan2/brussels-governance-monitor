@@ -61,3 +61,56 @@ jobs:
             BUILD_SHA=${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      # Sans cette étape, un build en échec est totalement silencieux : le
+      # smoke test est conditionné à un build réussi, donc il est sauté, et
+      # le VPS ne trouvant pas de nouvelle image écrit « déploiement sain ».
+      # Le site continue alors de servir l'ancienne version sans que rien ne
+      # le signale.
+      #
+      # cancelled() autant que failure() : ce workflow porte
+      # cancel-in-progress, et sept runs ont été annulés en seize secondes le
+      # 2026-08-09 par une rafale de commits de bot. Une annulation est en
+      # général bénigne, un run ultérieur publie l'image, mais elle doit être
+      # visible : c'est elle qui fait disparaître un commit sans trace.
+      - name: Notify on failure or cancellation
+        if: failure() || cancelled()
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ETAT: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          if [ -z "${RESEND_API_KEY:-}" ] || [ -z "${ADMIN_EMAIL:-}" ]; then
+            echo "Secrets Resend absents, aucune alerte envoyée."
+            exit 0
+          fi
+
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ "$ETAT" = "cancelled" ]; then
+            SUJET="[BGM] build de l'image annulé"
+            TEXTE="Le build de l'image a été annulé sur ${{ github.sha }}, probablement par un commit plus récent sur main. En général bénin : le run suivant publie l'image. À vérifier si aucun autre build n'a suivi.
+
+          $RUN_URL"
+          else
+            SUJET="[BGM] build de l'image en ÉCHEC"
+            TEXTE="Le build de l'image a échoué sur ${{ github.sha }}. Aucune nouvelle image n'a été publiée : le site sert toujours la version précédente.
+
+          $RUN_URL"
+          fi
+
+          CODE="$(curl -s -o /tmp/resend.out -w '%{http_code}' \
+            -X POST 'https://api.resend.com/emails' \
+            -H "Authorization: Bearer $RESEND_API_KEY" \
+            -H 'Content-Type: application/json' \
+            -d "$(jq -n --arg to "$ADMIN_EMAIL" --arg subject "$SUJET" --arg text "$TEXTE" \
+              '{from:"BGM Deploy <noreply@mail.brusselsgovernance.be>", to:[$to], subject:$subject, text:$text}')")"
+
+          # Un échec d'envoi doit être visible : resendCall() ne lève jamais
+          # sur 4xx/5xx ailleurs dans le projet, et une alerte perdue en
+          # silence est pire que pas d'alerte du tout.
+          if [ "$CODE" != "200" ]; then
+            echo "Resend a renvoyé $CODE : $(cat /tmp/resend.out)"
+            exit 1
+          fi
+          echo "Alerte envoyée ($ETAT)."

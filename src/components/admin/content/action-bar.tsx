@@ -89,18 +89,29 @@ export function ActionBar({
   async function publish() {
     setBusy(true);
     setError(null);
-    const res = await fetch('/api/admin/content/merge', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ number, sha }),
-    });
-    if (res.ok) {
-      router.refresh();
-    } else {
-      const body = (await res.json().catch(() => ({}))) as { error?: string };
-      setError(body.error ?? 'La publication a échoué.');
+    // `fetch` lui-même rejette sur une coupure réseau — le mode d'usage cible
+    // est le téléphone. Sans ce `catch`, `setBusy(false)` n'était jamais
+    // atteint : le bouton restait « Publication… », désactivé, muet, jusqu'au
+    // rechargement. Le `finally` est la seule façon de le garantir.
+    try {
+      const res = await fetch('/api/admin/content/merge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ number, sha }),
+      });
+      if (res.ok) {
+        router.refresh();
+      } else {
+        const body = (await res.json().catch(() => ({}))) as { error?: string };
+        setError(body.error ?? 'La publication a échoué.');
+      }
+    } catch {
+      setError(
+        'Réseau injoignable. La veille n\'a pas été publiée : vérifier la connexion, puis réessayer.',
+      );
+    } finally {
+      setBusy(false);
     }
-    setBusy(false);
   }
 
   // Le <header> du site porte `backdrop-filter`, qui casse `position: fixed`

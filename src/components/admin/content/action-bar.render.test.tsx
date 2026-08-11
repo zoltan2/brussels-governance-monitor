@@ -3,7 +3,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, act } from '@testing-library/react';
+import { render, screen, act, fireEvent, waitFor } from '@testing-library/react';
 import { ActionBar } from './action-bar';
 import type { CheckState } from '@/lib/github-pr';
 
@@ -65,6 +65,69 @@ describe('ActionBar', () => {
       expect(bouton.textContent).not.toMatch(/Publier maintenant/);
       unmount();
     }
+  });
+});
+
+describe('ActionBar, publication', () => {
+  const originalFetch = globalThis.fetch;
+  afterEach(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  it('ne laisse pas le bouton bloqué quand le réseau coupe', async () => {
+    // Le mode d'usage cible est le téléphone. `fetch` rejette, `setBusy(false)`
+    // n'était jamais atteint : bouton « Publication… » désactivé et muet
+    // jusqu'au rechargement.
+    globalThis.fetch = vi.fn(async () => {
+      throw new TypeError('Failed to fetch');
+    }) as unknown as typeof fetch;
+
+    render(
+      <ActionBar number={1} sha="abc1234" checks={green} truncated={false} fileRefusal={null} locale="fr" />,
+    );
+    const bouton = screen.getByRole('button', { name: /publier/i });
+    fireEvent.click(bouton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/réseau injoignable/i)).toBeDefined();
+    });
+    expect(screen.getByRole('button', { name: /publier/i }).hasAttribute('disabled')).toBe(false);
+    expect(refresh).not.toHaveBeenCalled();
+  });
+
+  it('rend le bouton après un refus du serveur, avec le message du serveur', async () => {
+    globalThis.fetch = vi.fn(
+      async () =>
+        new Response(JSON.stringify({ error: 'Fichiers hors périmètre : src/x.ts' }), {
+          status: 403,
+        }),
+    ) as unknown as typeof fetch;
+
+    render(
+      <ActionBar number={1} sha="abc1234" checks={green} truncated={false} fileRefusal={null} locale="fr" />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: /publier/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText(/src\/x\.ts/)).toBeDefined();
+    });
+    expect(screen.getByRole('button', { name: /publier/i }).hasAttribute('disabled')).toBe(false);
+  });
+
+  it('rafraîchit la page après une fusion réussie', async () => {
+    refresh.mockClear();
+    globalThis.fetch = vi.fn(
+      async () => new Response(JSON.stringify({ ok: true }), { status: 200 }),
+    ) as unknown as typeof fetch;
+
+    render(
+      <ActionBar number={1} sha="abc1234" checks={green} truncated={false} fileRefusal={null} locale="fr" />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: /publier/i }));
+
+    await waitFor(() => {
+      expect(refresh).toHaveBeenCalledTimes(1);
+    });
   });
 });
 

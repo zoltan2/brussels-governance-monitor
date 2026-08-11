@@ -56,10 +56,11 @@ describe('requiredChecksFor', () => {
     expect(requiredChecksFor(['data/radar.json'])).toEqual(['Lint, Typecheck & Build']);
   });
 
-  it('ajoute les deux contrôles conditionnels dès qu\'il y a du contenu', () => {
+  it('ajoute les trois contrôles conditionnels dès qu\'il y a du contenu', () => {
     expect(requiredChecksFor(['content/domain-cards/x.fr.mdx'])).toEqual([
       'Lint, Typecheck & Build',
       'Editorial content checks',
+      'Quiz pool checks',
       'Pagefind index up to date',
     ]);
   });

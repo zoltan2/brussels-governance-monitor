@@ -170,13 +170,17 @@ export async function listContentPrs(): Promise<ContentPr[]> {
   });
   if (!res.ok) return [];
   const raw = (await res.json()) as RawPr[];
-  // Deux filtres, pas un.
+  // Trois filtres, pas un.
   // 1. Le préfixe réel est `content/veille-`, vérifié sur les PR #387 et
   //    suivantes. Un préfixe `veille/` ne correspondrait à rien et l'écran
   //    resterait vide en permanence, sans erreur.
   // 2. Le dépôt d'origine doit être le nôtre. Sans ce second filtre,
   //    n'importe quel inconnu fait apparaître sa PR sur l'écran d'admin,
   //    dans l'habillage de confiance du site.
+  // 3. La branche cible doit être `main`. Sans ce troisième filtre, une PR
+  //    ouverte par erreur (ou par malveillance) vers une autre branche
+  //    apparaîtrait quand même sur l'écran, dans l'habillage d'une veille
+  //    normale.
   return raw
     .filter(
       (p) =>
@@ -244,11 +248,15 @@ export async function getPrFiles(number: number): Promise<PrFiles> {
  * `check-runs`. Relevés le 2026-08-11 dans `.github/workflows/`. Si un
  * workflow est renommé, cette liste doit suivre.
  *
- * Deux des trois sont conditionnés par `paths:` : les exiger toujours
- * bloquerait une veille qui ne touche pas ces chemins.
+ * Trois des quatre sont conditionnés par `paths:` : les exiger toujours
+ * bloquerait une veille qui ne touche pas ces chemins. « Editorial content
+ * checks » et « Quiz pool checks » partagent le même déclencheur, donc la
+ * même branche conditionnelle : ce sont les deux jobs d'un même workflow,
+ * `content-lint.yml`, qui se déclenchent toujours ensemble.
  */
 const CHECK_ALWAYS = 'Lint, Typecheck & Build'; // ci.yml, aucun filtre de chemin
-const CHECK_CONTENT = 'Editorial content checks'; // content-lint.yml
+const CHECK_CONTENT = 'Editorial content checks'; // content-lint.yml, job content-lint
+const CHECK_QUIZ = 'Quiz pool checks'; // content-lint.yml, job quiz-lint
 const CHECK_PAGEFIND = 'Pagefind index up to date'; // pagefind-freshness.yml
 
 /** Contrôles requis pour CE jeu de fichiers, selon les filtres `paths:`. */
@@ -263,7 +271,10 @@ export function requiredChecksFor(paths: string[]): string[] {
         p === 'scripts/quiz-lint.ts',
     )
   ) {
-    required.push(CHECK_CONTENT);
+    // `content-lint.yml` déclenche `content-lint` (Editorial content checks)
+    // ET `quiz-lint` (Quiz pool checks) sous le même `paths:`, sans `if:`
+    // propre à l'un ou l'autre job : ils partent toujours ensemble.
+    required.push(CHECK_CONTENT, CHECK_QUIZ);
   }
 
   if (

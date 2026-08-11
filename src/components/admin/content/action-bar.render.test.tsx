@@ -3,7 +3,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import { ActionBar } from './action-bar';
 import type { CheckState } from '@/lib/github-pr';
 
@@ -14,6 +14,8 @@ vi.mock('next/navigation', () => ({ useRouter: () => ({ refresh }) }));
 const green: CheckState = { passed: 3, pending: 0, failed: [], total: 3, missing: [] };
 const running: CheckState = { passed: 2, pending: 1, failed: [], total: 3, missing: ['Content lint'] };
 const broken: CheckState = { passed: 2, pending: 0, failed: ['Content lint'], total: 3, missing: ['Content lint'] };
+// GitHub n'a pas encore créé les contrôles : rien ne tourne, rien n'a réussi.
+const pasEncoreCree: CheckState = { passed: 0, pending: 0, failed: [], total: 0, missing: ['Lint, Typecheck & Build'] };
 
 describe('ActionBar', () => {
   it('active la publication quand tout est vert', () => {
@@ -82,16 +84,78 @@ describe('ActionBar, auto-rafraîchissement', () => {
   it('redemande la page tant que des contrôles tournent', () => {
     render(<ActionBar number={1} sha="abc1234" checks={running} truncated={false} fileRefusal={null} locale="fr" />);
     expect(refresh).not.toHaveBeenCalled();
-    vi.advanceTimersByTime(20_000);
+    act(() => { vi.advanceTimersByTime(20_000); });
     expect(refresh).toHaveBeenCalledTimes(1);
-    vi.advanceTimersByTime(20_000);
+    act(() => { vi.advanceTimersByTime(20_000); });
     expect(refresh).toHaveBeenCalledTimes(2);
+  });
+
+  it('sonde AUSSI quand aucun contrôle n\'existe encore — le cas d\'arrivée le plus fréquent', () => {
+    // On ouvre le lien avant que GitHub ait créé les contrôles : `pending`
+    // vaut 0 et `missing` n'est pas vide. Conditionner le sondage à
+    // `pending > 0` laissait l'écran figé, bouton gris, sans rien qui invite
+    // à recharger.
+    render(
+      <ActionBar
+        number={1}
+        sha="abc1234"
+        checks={pasEncoreCree}
+        truncated={false}
+        fileRefusal={null}
+        locale="fr"
+      />,
+    );
+    act(() => { vi.advanceTimersByTime(20_000); });
+    expect(refresh).toHaveBeenCalledTimes(1);
   });
 
   it('ne redemande rien quand plus rien ne tourne', () => {
     render(<ActionBar number={1} sha="abc1234" checks={green} truncated={false} fileRefusal={null} locale="fr" />);
-    vi.advanceTimersByTime(60_000);
+    act(() => { vi.advanceTimersByTime(60_000); });
     expect(refresh).not.toHaveBeenCalled();
+  });
+
+  it('plafonne le sondage à quinze minutes, puis invite à recharger', () => {
+    // Sans plafond, un contrôle coincé consomme le quota horaire GitHub —
+    // vingt-quatre appels par rendu — jusqu'à ce qu'on ferme l'onglet.
+    render(
+      <ActionBar
+        number={1}
+        sha="abc1234"
+        checks={running}
+        truncated={false}
+        fileRefusal={null}
+        locale="fr"
+      />,
+    );
+    expect(screen.queryByText(/quinze minutes/i)).toBeNull();
+
+    act(() => { vi.advanceTimersByTime(15 * 60_000); });
+    expect(refresh).toHaveBeenCalledTimes(45); // 15 min / 20 s
+
+    // Une heure de plus : plus un seul appel.
+    act(() => { vi.advanceTimersByTime(60 * 60_000); });
+    expect(refresh).toHaveBeenCalledTimes(45);
+
+    // Et l'écran ne redevient pas figé et muet.
+    expect(screen.getByText(/quinze minutes/i)).toBeDefined();
+    expect(screen.getByRole('button', { name: /recharger/i })).toBeDefined();
+  });
+
+  it('n\'invite pas à recharger tant que le plafond n\'est pas atteint', () => {
+    render(
+      <ActionBar
+        number={1}
+        sha="abc1234"
+        checks={running}
+        truncated={false}
+        fileRefusal={null}
+        locale="fr"
+      />,
+    );
+    act(() => { vi.advanceTimersByTime(14 * 60_000); });
+    expect(screen.queryByText(/quinze minutes/i)).toBeNull();
+    expect(refresh).toHaveBeenCalledTimes(42);
   });
 
   it('nettoie l\'intervalle au démontage', () => {

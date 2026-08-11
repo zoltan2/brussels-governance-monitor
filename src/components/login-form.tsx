@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 interface LoginFormProps {
-  locale: string;
+  destination: string;
   labels: {
     email: string;
     password: string;
@@ -17,7 +17,7 @@ interface LoginFormProps {
   };
 }
 
-export function LoginForm({ locale, labels }: LoginFormProps) {
+export function LoginForm({ destination, labels }: LoginFormProps) {
   const router = useRouter();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ export function LoginForm({ locale, labels }: LoginFormProps) {
       setError(true);
       setLoading(false);
     } else {
-      router.push(`/${locale}/admin`);
+      router.push(destination);
       router.refresh();
     }
   }

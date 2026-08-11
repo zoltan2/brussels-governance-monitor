@@ -24,7 +24,8 @@ export default async function AdminLayout({
 
   const session = await auth();
   if (!session) {
-    redirect(`/${locale}/login`);
+    const target = `/${locale}/admin`;
+    redirect(`/${locale}/login?callbackUrl=${encodeURIComponent(target)}`);
   }
 
   return (

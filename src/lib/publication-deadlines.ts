@@ -41,22 +41,38 @@ export interface ChainState {
   urgent: boolean;
 }
 
+/**
+ * L'instantané couvre-t-il une semaine déjà révolue ?
+ *
+ * `pending-digest.json` SURVIT à l'envoi : mesuré, il porte encore
+ * `{approved: true, sent: true}` plusieurs jours après. Sans cette borne, le
+ * bandeau crierait « ne sera pas dans l'email » six jours sur sept, et une
+ * alarme permanente n'alerte plus de rien.
+ *
+ * `prepare-digest` écrit `weekStart` = lundi de la semaine ÉCOULÉE (vérifié :
+ * `weekStart: 2026-08-03` pour un `created_at` du dimanche 2026-08-09). La
+ * borne tombe donc le lundi à 00:00 UTC — l'un des deux jours où l'essentiel
+ * des PR de contenu sont fusionnées, d'où l'importance de nommer ce cas.
+ */
+export function isSnapshotStale(
+  digest: DigestSnapshot | null,
+  now: Date,
+): boolean {
+  if (!digest) return false;
+  const start = Date.parse(`${digest.weekStart}T00:00:00Z`);
+  if (Number.isNaN(start)) return false;
+  return now.getTime() >= start + 7 * 24 * 3_600_000;
+}
+
 export function emailPhase(
   digest: DigestSnapshot | null,
   now: Date,
 ): EmailPhase {
   if (!digest) return 'unknown';
 
-  // `pending-digest.json` SURVIT à l'envoi : mesuré, il porte encore
-  // `{approved: true, sent: true}` plusieurs jours après. Sans cette borne,
-  // le bandeau crierait « ne sera pas dans l'email » six jours sur sept, et
-  // une alarme permanente n'alerte plus de rien.
-  const start = Date.parse(`${digest.weekStart}T00:00:00Z`);
-  if (!Number.isNaN(start) && now.getTime() >= start + 7 * 24 * 3_600_000) {
-    // Le brouillon couvre une semaine révolue : le prochain digest n'est pas
-    // encore préparé, donc cette veille y sera.
-    return 'open';
-  }
+  // Le brouillon couvre une semaine révolue : le prochain digest n'est pas
+  // encore préparé, donc cette veille y sera.
+  if (isSnapshotStale(digest, now)) return 'open';
 
   // `approved` suffit : le lot part chez Resend dans la même requête.
   return digest.approved || digest.sent ? 'committed' : 'open';
@@ -77,8 +93,16 @@ export function chainState(
   const email = emailPhase(digest, now);
   const mdxFrozen = isDigestMdxFrozen(now);
 
-  const emailDetail =
-    email === 'open'
+  // Trois cas, pas deux. Sur un instantané périmé et déjà parti, réutiliser le
+  // message de `'open'` ferait affirmer « pas encore approuvé » à un écran qui
+  // vient de lire `approved: true, sent: true` : la phase est juste, la phrase
+  // ment. On nomme donc le cas séparément.
+  const staleAndGone =
+    email === 'open' && isSnapshotStale(digest, now) && Boolean(digest?.approved || digest?.sent);
+
+  const emailDetail = staleAndGone
+    ? 'Le digest de la semaine écoulée est déjà parti. Cette veille rejoindra celui de la semaine prochaine.'
+    : email === 'open'
       ? 'Le digest de la semaine n\'est pas encore approuvé : cette veille sera dans l\'email des abonnés.'
       : email === 'committed'
         ? 'Le digest est déjà approuvé et remis à l\'expéditeur. Cette veille ne sera pas dans l\'email de cette semaine, elle rejoindra celui de la semaine prochaine.'

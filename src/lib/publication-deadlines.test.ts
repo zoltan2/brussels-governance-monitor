@@ -2,7 +2,12 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, it, expect } from 'vitest';
-import { emailPhase, isDigestMdxFrozen, chainState } from './publication-deadlines';
+import {
+  emailPhase,
+  isDigestMdxFrozen,
+  chainState,
+  isSnapshotStale,
+} from './publication-deadlines';
 
 // Semaine 33 : lundi 2026-08-10 → dimanche 2026-08-16.
 const w33 = (approved: boolean, sent: boolean) => ({
@@ -96,5 +101,54 @@ describe('chainState', () => {
     const s = chainState(w33ouvert, new Date('2026-08-09T23:00:00Z'));
     expect(s.email).toBe('open');
     expect(s.mdxFrozen).toBe(true);
+  });
+});
+
+describe('chainState, instantané périmé — le lundi', () => {
+  // L'instantané RÉEL de la semaine 32, tel que `data/pending-digest.json` le
+  // porte : `weekStart` est le lundi de la semaine ÉCOULÉE, et le fichier
+  // survit à l'envoi. La borne des sept jours tombe donc lundi 00:00 UTC, et
+  // le lundi est l'un des deux jours où l'essentiel des PR sont fusionnées.
+  const w32Parti = {
+    approved: true,
+    sent: true,
+    week: '2026-w32',
+    weekStart: '2026-08-03',
+  };
+  const lundi = new Date('2026-08-10T09:00:00Z');
+
+  it('reconnaît que l\'instantané couvre une semaine révolue', () => {
+    expect(isSnapshotStale(w32Parti, lundi)).toBe(true);
+    // La veille au soir, la semaine court encore.
+    expect(isSnapshotStale(w32Parti, new Date('2026-08-09T20:00:00Z'))).toBe(false);
+  });
+
+  it('garde la phase « open » : cette veille ira dans l\'email suivant', () => {
+    expect(emailPhase(w32Parti, lundi)).toBe('open');
+    expect(chainState(w32Parti, lundi).email).toBe('open');
+  });
+
+  it('n\'affirme JAMAIS « pas encore approuvé » sur un instantané qui dit l\'inverse', () => {
+    const s = chainState(w32Parti, lundi);
+    expect(s.emailDetail).not.toMatch(/pas encore approuvé/i);
+    expect(s.emailDetail).toMatch(/déjà parti/i);
+    expect(s.emailDetail).toMatch(/semaine prochaine/i);
+  });
+
+  it('garde le message « pas encore approuvé » quand l\'instantané périmé n\'était pas parti', () => {
+    // Semaine révolue ET jamais approuvée : rien n'est parti, la phrase
+    // d'origine reste vraie. Le troisième cas ne doit pas la manger.
+    const s = chainState({ ...w32Parti, approved: false, sent: false }, lundi);
+    expect(s.email).toBe('open');
+    expect(s.emailDetail).toMatch(/pas encore approuvé/i);
+  });
+
+  it('ne change rien au cas nominal d\'un instantané de la semaine en cours', () => {
+    const s = chainState(
+      { approved: false, sent: false, week: '2026-w33', weekStart: '2026-08-10' },
+      new Date('2026-08-12T09:00:00Z'),
+    );
+    expect(s.emailDetail).toMatch(/pas encore approuvé/i);
+    expect(s.emailDetail).not.toMatch(/déjà parti/i);
   });
 });

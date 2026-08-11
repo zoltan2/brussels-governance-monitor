@@ -11,6 +11,13 @@ export interface SummaryChange {
   after: string | null;
   /** Nombres présents dans la version nouvelle et absents de l'ancienne. */
   numbers: string[];
+  /**
+   * La fiche n'a pas pu être lue — quota, panne, chemin refusé. À afficher :
+   * « résumé illisible » n'est PAS « aucun résumé », et les confondre rend un
+   * panneau de relecture silencieusement vide indiscernable d'une veille sans
+   * résumé.
+   */
+  unreadable: boolean;
 }
 
 /** Bornes de l'en-tête YAML, au tout début du fichier uniquement. */
@@ -66,10 +73,27 @@ export async function collectSummaryChanges(
 ): Promise<SummaryChange[]> {
   const changes = await Promise.all(
     paths.map(async (path) => {
-      const [oldMdx, newMdx] = await Promise.all([
-        readFileAtRef(path, baseSha),
-        readFileAtRef(path, headSha),
-      ]);
+      // `readFileAtRef` rend `null` sur 404 — cas nominal d'une fiche créée
+      // par la veille, qui n'a pas d'état antérieur — et LÈVE sur tout autre
+      // échec. On remonte le drapeau par fiche plutôt que de laisser une
+      // panne se lire comme un silence éditorial.
+      let oldMdx: string | null;
+      let newMdx: string | null;
+      try {
+        [oldMdx, newMdx] = await Promise.all([
+          readFileAtRef(path, baseSha),
+          readFileAtRef(path, headSha),
+        ]);
+      } catch {
+        return {
+          path,
+          label: labelFor(path),
+          before: null,
+          after: null,
+          numbers: [],
+          unreadable: true,
+        };
+      }
 
       const oldNumbers = new Set(oldMdx ? extractNumbers(oldMdx) : []);
       const newNumbers = newMdx ? extractNumbers(newMdx) : [];
@@ -80,6 +104,7 @@ export async function collectSummaryChanges(
         before: oldMdx ? extractSummary(oldMdx) : null,
         after: newMdx ? extractSummary(newMdx) : null,
         numbers: newNumbers.filter((n) => !oldNumbers.has(n)),
+        unreadable: false,
       };
     }),
   );

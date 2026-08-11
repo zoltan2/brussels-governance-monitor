@@ -8,6 +8,7 @@ import {
   requiredChecksFor,
   listContentPrs,
   getContentPr,
+  readFileAtRef,
   publishablePrProblem,
   normalizeRepo,
 } from './github-pr';
@@ -224,6 +225,61 @@ describe('getContentPr', () => {
     expect(found?.headRepo).toBe(REPO);
     expect(found?.baseSha).toBe('b'.repeat(40));
     expect(found?.body).toBe('');
+  });
+});
+
+describe('readFileAtRef', () => {
+  function contents(mdx: string) {
+    return new Response(
+      JSON.stringify({ content: Buffer.from(mdx).toString('base64'), encoding: 'base64' }),
+      { status: 200 },
+    );
+  }
+
+  it('rend le contenu décodé', async () => {
+    globalThis.fetch = vi.fn(async () => contents('bonjour')) as unknown as typeof fetch;
+    expect(await readFileAtRef('content/x.fr.mdx', 'abc')).toBe('bonjour');
+  });
+
+  it('rend null sur 404 : une fiche créée n\'a pas d\'état antérieur', async () => {
+    globalThis.fetch = vi.fn(
+      async () => new Response('{}', { status: 404 }),
+    ) as unknown as typeof fetch;
+    expect(await readFileAtRef('content/x.fr.mdx', 'abc')).toBeNull();
+  });
+
+  it('lève sur un 403 de quota plutôt que de se taire', async () => {
+    globalThis.fetch = vi.fn(
+      async () => new Response('{}', { status: 403 }),
+    ) as unknown as typeof fetch;
+    await expect(readFileAtRef('content/x.fr.mdx', 'abc')).rejects.toThrow(/403/);
+  });
+
+  it('refuse un chemin détournant la référence lue, sans appeler GitHub', async () => {
+    // `encodeURI` n'encode ni `?`, ni `&`, ni `=` : `mobilite?ref=main&x=.fr.mdx`
+    // ferait lire `main` des deux côtés, donc afficher « aucun changement »
+    // sur une fiche modifiée — sur le seul contrôle humain de l'écran.
+    const appel = vi.fn(async () => contents('jamais'));
+    globalThis.fetch = appel as unknown as typeof fetch;
+    for (const chemin of [
+      'content/mobilite?ref=main&x=.fr.mdx',
+      'content/../src/app/page.tsx',
+      'content/x#.fr.mdx',
+    ]) {
+      await expect(readFileAtRef(chemin, 'abc')).rejects.toThrow(/chemin refusé/);
+    }
+    expect(appel).not.toHaveBeenCalled();
+  });
+
+  it('encode les segments, sans laisser fuir le nom dans la requête', async () => {
+    let vu = '';
+    globalThis.fetch = vi.fn(async (url: string | URL | Request) => {
+      vu = String(url);
+      return contents('ok');
+    }) as unknown as typeof fetch;
+    await readFileAtRef('content/domain-cards/mobility.fr.mdx', 'refs/heads/main');
+    expect(vu).toContain('/contents/content/domain-cards/mobility.fr.mdx?ref=');
+    expect(vu).toContain(encodeURIComponent('refs/heads/main'));
   });
 });
 

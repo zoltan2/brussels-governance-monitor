@@ -173,6 +173,11 @@ export function publishablePrProblem(
  * Lit un fichier à une référence donnée. Renvoie `null` si le fichier
  * n'existe pas à cette référence, ce qui est le cas nominal pour une fiche
  * créée par la veille : elle n'a pas d'état antérieur.
+ *
+ * LÈVE sur tout autre échec. Rendre `null` sur un 403 de quota faisait
+ * afficher « aucun résumé de changement » et zéro chiffre nouveau pour
+ * TOUTES les fiches, strictement indiscernable d'une veille sans résumé — sur
+ * le seul panneau que la spec désigne comme réellement relu.
  */
 export async function readFileAtRef(path: string, ref: string): Promise<string | null> {
   const { token, repo } = config();
@@ -182,16 +187,25 @@ export async function readFileAtRef(path: string, ref: string): Promise<string |
   // référence lue : `mobilite?ref=main&x=.fr.mdx` ferait lire `main` des deux
   // côtés, donc afficher « aucun changement » sur une fiche modifiée. C'est
   // le seul contrôle humain de l'écran ; on le protège.
-  if (!/^[A-Za-z0-9._/-]+$/.test(path) || path.includes('..')) return null;
+  // Un chemin refusé n'est pas un fichier absent : on lève, pour que la fiche
+  // s'affiche « illisible » au lieu de « aucun résumé ».
+  if (!/^[A-Za-z0-9._/-]+$/.test(path) || path.includes('..')) {
+    throw new Error(`chemin refusé : ${path}`);
+  }
 
   const encoded = path.split('/').map(encodeURIComponent).join('/');
   const res = await fetch(`${API}/repos/${repo}/contents/${encoded}?ref=${encodeURIComponent(ref)}`, {
     headers: headers(token),
     cache: 'no-store',
   });
-  if (!res.ok) return null;
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    throw new Error(`contents/${path}: GitHub a répondu ${res.status}`);
+  }
   const body = (await res.json()) as { content?: string; encoding?: string };
-  if (!body.content || body.encoding !== 'base64') return null;
+  if (!body.content || body.encoding !== 'base64') {
+    throw new Error(`contents/${path}: réponse sans contenu base64`);
+  }
   return Buffer.from(body.content, 'base64').toString('utf8');
 }
 

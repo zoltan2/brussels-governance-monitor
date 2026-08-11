@@ -113,5 +113,42 @@ describe('collectSummaryChanges', () => {
     const [c] = await collectSummaryChanges(['content/dossiers/y.fr.mdx'], 'base', 'head');
     expect(c.before).toBeNull();
     expect(c.after).toBe('Nouvelle fiche.');
+    // Un 404 sur la base est le cas NOMINAL : ce n'est pas une panne.
+    expect(c.unreadable).toBe(false);
+  });
+
+  it('marque la fiche illisible quand la lecture échoue, sans se taire', async () => {
+    // Un 403 de quota faisait afficher « aucun résumé de changement » et zéro
+    // chiffre nouveau, indiscernable d'une veille sans résumé.
+    vi.doMock('./github-pr', () => ({
+      readFileAtRef: vi.fn(async () => {
+        throw new Error('contents/x: GitHub a répondu 403');
+      }),
+    }));
+    const { collectSummaryChanges } = await import('./change-summary');
+    const [c] = await collectSummaryChanges(['content/dossiers/y.fr.mdx'], 'base', 'head');
+    expect(c.unreadable).toBe(true);
+    expect(c.after).toBeNull();
+    expect(c.numbers).toEqual([]);
+    // Le drapeau ne remplace pas la fiche : on sait toujours de laquelle il
+    // s'agit.
+    expect(c.label).toBe('dossiers/y');
+  });
+
+  it('n\'abandonne pas les fiches lisibles quand une seule échoue', async () => {
+    vi.doMock('./github-pr', () => ({
+      readFileAtRef: vi.fn(async (p: string) => {
+        if (p.includes('casse')) throw new Error('403');
+        return '---\nchangeSummary: "Fiche lisible."\n---\n';
+      }),
+    }));
+    const { collectSummaryChanges } = await import('./change-summary');
+    const changes = await collectSummaryChanges(
+      ['content/dossiers/casse.fr.mdx', 'content/dossiers/ok.fr.mdx'],
+      'base',
+      'head',
+    );
+    expect(changes.map((c) => c.unreadable)).toEqual([true, false]);
+    expect(changes[1].after).toBe('Fiche lisible.');
   });
 });

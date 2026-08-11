@@ -46,18 +46,30 @@ export function ContentChanges({
           <li key={s.path} className="border-t border-neutral-200 pt-3">
             <p className="font-medium text-neutral-900">{s.label}</p>
 
-            {s.before && (
-              <p className="mt-1 text-sm text-neutral-600">
-                <span className="font-medium">Avant : </span>
-                {s.before}
+            {/* « Illisible » n'est pas « aucun résumé » : une panne de lecture
+                affichée en silence est indiscernable d'une veille sans
+                résumé, sur le seul panneau réellement relu. */}
+            {s.unreadable ? (
+              <p className="mt-1 rounded border border-amber-500 bg-amber-50/60 p-2 text-sm text-neutral-900">
+                Résumé illisible : GitHub n&apos;a pas rendu cette fiche.
+                Vérifier sur GitHub avant de publier.
               </p>
+            ) : (
+              <>
+                {s.before && (
+                  <p className="mt-1 text-sm text-neutral-600">
+                    <span className="font-medium">Avant : </span>
+                    {s.before}
+                  </p>
+                )}
+                <p className="mt-1 text-sm text-neutral-900">
+                  <span className="font-medium">
+                    {s.before ? 'Après : ' : 'Résumé : '}
+                  </span>
+                  {s.after ?? 'aucun résumé de changement'}
+                </p>
+              </>
             )}
-            <p className="mt-1 text-sm text-neutral-900">
-              <span className="font-medium">
-                {s.before ? 'Après : ' : 'Résumé : '}
-              </span>
-              {s.after ?? 'aucun résumé de changement'}
-            </p>
 
             {s.numbers.length > 0 && (
               <p className="mt-1 text-sm text-neutral-600">

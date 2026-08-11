@@ -199,6 +199,7 @@ describe('ContentChanges', () => {
       before: 'Le budget était de 12 millions.',
       after: 'Le budget passe à 18 millions.',
       numbers: ['18'],
+      unreadable: false,
     },
   ];
 
@@ -213,5 +214,39 @@ describe('ContentChanges', () => {
   it('avertit quand la liste est tronquée', () => {
     render(<ContentChanges files={files} truncated={true} summaries={summaries} />);
     expect(screen.getByText(/liste incomplète/i)).toBeDefined();
+  });
+
+  it('dit « illisible », jamais « aucun résumé », quand la lecture a échoué', () => {
+    // Les deux états sont strictement indiscernables si l'écran se tait : un
+    // 403 de quota rendait le panneau vide pour TOUTES les fiches.
+    const illisible: SummaryChange[] = [
+      {
+        path: 'content/domain-cards/mobilite.fr.mdx',
+        label: 'domain-cards/mobilite',
+        before: null,
+        after: null,
+        numbers: [],
+        unreadable: true,
+      },
+    ];
+    render(<ContentChanges files={files} truncated={false} summaries={illisible} />);
+    expect(screen.getByText(/résumé illisible/i)).toBeDefined();
+    expect(screen.queryByText(/aucun résumé de changement/i)).toBeNull();
+  });
+
+  it('dit « aucun résumé » quand la fiche est bien lue mais sans changeSummary', () => {
+    const sansResume: SummaryChange[] = [
+      {
+        path: 'content/domain-cards/mobilite.fr.mdx',
+        label: 'domain-cards/mobilite',
+        before: null,
+        after: null,
+        numbers: [],
+        unreadable: false,
+      },
+    ];
+    render(<ContentChanges files={files} truncated={false} summaries={sansResume} />);
+    expect(screen.getByText(/aucun résumé de changement/i)).toBeDefined();
+    expect(screen.queryByText(/résumé illisible/i)).toBeNull();
   });
 });

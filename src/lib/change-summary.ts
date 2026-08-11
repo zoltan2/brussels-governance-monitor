@@ -41,13 +41,18 @@ export function extractSummary(mdx: string): string | null {
  */
 export function extractNumbers(text: string): string[] {
   const withoutIsoDates = text.replace(/\d{4}-\d{2}-\d{2}/g, ' ');
-  // La virgule est exclue du séparateur : « En 2024, 12 communes » donnait
-  // le jeton soudé « 2024, 12 », qui change dès que l'un des deux bouge et
-  // produit un faux « chiffre nouveau ».
-  const found = withoutIsoDates.match(/\d[\d ]*[\d]|\d/g) ?? [];
-  return found
-    .map((n) => n.trim())
-    .filter((n) => n.length > 0);
+  // Trois formes coexistent dans le contenu réel, et deux versions
+  // antérieures de cette fonction en cassaient une :
+  //   - milliers séparés par une espace : « 1 250 000 » reste un seul jeton ;
+  //   - décimale à la virgule : « 7,4 % », « +60,9 % » — la virgule fait
+  //     partie du nombre **seulement** si un chiffre la suit immédiatement ;
+  //   - énumération : « En 2024, 12 communes » — virgule suivie d'une espace,
+  //     donc deux jetons, jamais « 2024, 12 » soudé.
+  // Sans la décimale, un passage de « 3,1 % » à « 1,3 % » ne signalait AUCUN
+  // chiffre nouveau : une fausse assurance, exactement ce que ce panneau doit
+  // éviter.
+  const found = withoutIsoDates.match(/\d+(?: \d{3})*(?:,\d+)?/g) ?? [];
+  return found.filter((n) => n.length > 0);
 }
 
 function labelFor(path: string): string {

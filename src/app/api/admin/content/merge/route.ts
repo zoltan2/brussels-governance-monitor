@@ -51,7 +51,14 @@ export const POST = auth(async function POST(req) {
   }
 
   // 1. La PR existe, vient d'une branche de veille, et n'a pas bougé.
-  const pr = await getContentPr(number);
+  // `getContentPr` LÈVE sur tout statut autre que 404 : un 403 de quota ne
+  // doit pas se lire « PR introuvable », et surtout pas traverser en 500.
+  let pr;
+  try {
+    pr = await getContentPr(number);
+  } catch {
+    return NextResponse.json({ error: 'GitHub injoignable' }, { status: 502 });
+  }
   if (!pr) {
     return NextResponse.json({ error: 'PR introuvable' }, { status: 404 });
   }

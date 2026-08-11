@@ -32,6 +32,7 @@ export function generateMetadata(): Metadata {
  */
 type LoadResult =
   | { kind: 'missing' }
+  | { kind: 'unavailable' }
   | { kind: 'refused'; reason: string }
   | {
       kind: 'ok';
@@ -45,7 +46,19 @@ type LoadResult =
     };
 
 async function load(number: number): Promise<LoadResult> {
-  const pr = await getContentPr(number);
+  // Deux échecs distincts, deux écrans distincts. `getContentPr` ne rend
+  // `null` que sur un vrai 404 ; il LÈVE sur tout autre statut, et `config()`
+  // lève quand la configuration GitHub manque. Sans ce partage, un 403 de
+  // quota produisait une page « introuvable » qui affirmait l'inexistence
+  // d'une PR, et une configuration absente partait dans la frontière
+  // d'erreur générique — alors que les trois autres surfaces du module
+  // disent toutes « indisponible ».
+  let pr;
+  try {
+    pr = await getContentPr(number);
+  } catch {
+    return { kind: 'unavailable' };
+  }
   if (!pr) return { kind: 'missing' };
 
   // Origine, préfixe de branche, branche cible : le même contrat que la liste
@@ -56,11 +69,16 @@ async function load(number: number): Promise<LoadResult> {
   if (reason) return { kind: 'refused', reason };
 
   // Les contrôles requis dépendent des chemins touchés : il faut donc les
-  // fichiers avant de pouvoir juger les contrôles.
-  const [files, digest] = await Promise.all([
-    getPrFiles(number),
-    readDigestSnapshot(),
-  ]);
+  // fichiers avant de pouvoir juger les contrôles. Une coupure ici mérite le
+  // même « GitHub injoignable » : sans la liste des fichiers, la page ne peut
+  // juger ni la liste blanche ni les contrôles requis.
+  let files;
+  let digest;
+  try {
+    [files, digest] = await Promise.all([getPrFiles(number), readDigestSnapshot()]);
+  } catch {
+    return { kind: 'unavailable' };
+  }
   let checks: CheckState | null = null;
   try {
     checks = await getCheckState(pr.sha, files.files.map((f) => f.path));
@@ -101,6 +119,22 @@ export default async function ContentDecisionPage({
 
   const data = await load(parsed);
   if (data.kind === 'missing') notFound();
+
+  // Aligné sur les trois autres surfaces — la tuile, l'aiguillage et l'état
+  // des contrôles disent tous « indisponible ». Ne jamais affirmer qu'une PR
+  // n'existe pas quand on n'a pas pu la lire.
+  if (data.kind === 'unavailable') {
+    return (
+      <div className="mx-auto max-w-3xl">
+        <h1 className="text-2xl font-bold text-neutral-900">GitHub injoignable</h1>
+        <p className="mt-2 text-neutral-600">
+          Impossible de lire l&apos;état de cette veille. Vérifier la
+          configuration du serveur et le quota d&apos;API, puis recharger. En
+          attendant, la fusion reste possible depuis GitHub.
+        </p>
+      </div>
+    );
+  }
 
   // On ne rend NI le titre NI le corps d'une PR refusée : ce sont deux
   // chaînes écrites par un inconnu quand la PR vient d'un fork.

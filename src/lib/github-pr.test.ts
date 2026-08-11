@@ -7,6 +7,7 @@ import {
   getCheckState,
   requiredChecksFor,
   listContentPrs,
+  getContentPr,
   publishablePrProblem,
   normalizeRepo,
 } from './github-pr';
@@ -170,6 +171,59 @@ describe('listContentPrs', () => {
     process.env.GITHUB_REPO = 'https://github.com/Zoltan2/Brussels-Governance-Monitor.git';
     stub([rawPr()]);
     expect(await listContentPrs()).toHaveLength(1);
+  });
+});
+
+describe('getContentPr', () => {
+  // `null` doit signifier « cette PR n'existe pas », et rien d'autre. Avaler
+  // tout `!res.ok` en `null` faisait rendre « page introuvable » sur un 403 de
+  // quota : la page affirmait l'inexistence d'une PR qu'elle n'avait pas lue.
+  it('rend null sur un vrai 404', async () => {
+    globalThis.fetch = vi.fn(
+      async () => new Response('{"message":"Not Found"}', { status: 404 }),
+    ) as unknown as typeof fetch;
+    expect(await getContentPr(999)).toBeNull();
+  });
+
+  it('lève sur un 403 de quota plutôt que de faire croire à une absence', async () => {
+    globalThis.fetch = vi.fn(
+      async () => new Response('{"message":"rate limit"}', { status: 403 }),
+    ) as unknown as typeof fetch;
+    await expect(getContentPr(400)).rejects.toThrow(/403/);
+  });
+
+  it('lève sur un 500', async () => {
+    globalThis.fetch = vi.fn(
+      async () => new Response('boum', { status: 500 }),
+    ) as unknown as typeof fetch;
+    await expect(getContentPr(400)).rejects.toThrow();
+  });
+
+  it('lève quand la configuration GitHub manque', async () => {
+    delete process.env.GITHUB_TOKEN;
+    await expect(getContentPr(400)).rejects.toThrow(/GITHUB_TOKEN/);
+  });
+
+  it('rend la PR complète, avec le dépôt d\'origine et le commit de base', async () => {
+    globalThis.fetch = vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({
+            number: 400,
+            title: 'veille',
+            body: null,
+            created_at: '2026-08-09T06:00:00Z',
+            merged_at: null,
+            head: { ref: 'content/veille-2026-08-09', sha: 'a'.repeat(40), repo: { full_name: REPO } },
+            base: { sha: 'b'.repeat(40), ref: 'main' },
+          }),
+          { status: 200 },
+        ),
+    ) as unknown as typeof fetch;
+    const found = await getContentPr(400);
+    expect(found?.headRepo).toBe(REPO);
+    expect(found?.baseSha).toBe('b'.repeat(40));
+    expect(found?.body).toBe('');
   });
 });
 

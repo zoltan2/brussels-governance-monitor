@@ -209,13 +209,23 @@ export async function listContentPrs(): Promise<ContentPr[]> {
   return raw.map(toPr).filter((p) => publishablePrProblem(p, repo) === null);
 }
 
+/**
+ * `null` signifie « cette PR n'existe pas », et RIEN d'autre. Avaler tout
+ * `!res.ok` en `null` faisait rendre un 404 « page introuvable » sur un 403 de
+ * quota : l'écran affirmait l'inexistence d'une PR qu'il n'avait pas pu lire,
+ * seule surface du module à mentir là où la tuile, l'aiguillage et l'état des
+ * contrôles disent tous « indisponible ». Même motif que `src/lib/github.ts`.
+ */
 export async function getContentPr(number: number): Promise<ContentPr | null> {
   const { token, repo } = config();
   const res = await fetch(`${API}/repos/${repo}/pulls/${number}`, {
     headers: headers(token),
     cache: 'no-store',
   });
-  if (!res.ok) return null;
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    throw new Error(`pulls/${number}: GitHub a répondu ${res.status}`);
+  }
   return toPr((await res.json()) as RawPr);
 }
 

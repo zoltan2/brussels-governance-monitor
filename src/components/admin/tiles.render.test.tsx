@@ -11,12 +11,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-vi.mock('@/lib/umami', () => ({ getUmamiSummary: vi.fn() }));
+vi.mock('@/lib/traffic-status', () => ({ readTrafficStatus: vi.fn() }));
 vi.mock('@/lib/infra-status', () => ({ readInfraStatus: vi.fn() }));
 vi.mock('@/lib/resend', () => ({ listActiveContacts: vi.fn() }));
 vi.mock('@/lib/refonte-votes', () => ({ getVoteStats: vi.fn() }));
 
-import { getUmamiSummary } from '@/lib/umami';
+import { readTrafficStatus } from '@/lib/traffic-status';
 import { readInfraStatus } from '@/lib/infra-status';
 import { listActiveContacts } from '@/lib/resend';
 import { getVoteStats } from '@/lib/refonte-votes';
@@ -30,19 +30,34 @@ beforeEach(() => {
 });
 
 describe('TrafficTile', () => {
-  it('affiche les chiffres quand Umami répond', async () => {
-    vi.mocked(getUmamiSummary).mockResolvedValue({
+  it("affiche les chiffres de l'instantané", async () => {
+    vi.mocked(readTrafficStatus).mockResolvedValue({
+      generatedAt: new Date(Date.now() - 2 * 3_600_000).toISOString(),
+      days: 7,
       visitors: 4415,
       pageviews: 15171,
       topPages: [{ path: '/fr', views: 900 }],
     });
     render(await TrafficTile());
     expect(screen.getByText('4415')).toBeDefined();
+    expect(screen.getByText('visiteurs sur 7 jours')).toBeDefined();
     expect(screen.getByText('/fr')).toBeDefined();
   });
 
-  it('affiche « Indisponible » quand Umami ne répond pas', async () => {
-    vi.mocked(getUmamiSummary).mockResolvedValue(null);
+  it("date l'instantané pour qu'un chiffre figé se voie", async () => {
+    vi.mocked(readTrafficStatus).mockResolvedValue({
+      generatedAt: new Date(Date.now() - 3 * 24 * 3_600_000).toISOString(),
+      days: 7,
+      visitors: 10,
+      pageviews: 20,
+      topPages: [],
+    });
+    render(await TrafficTile());
+    expect(screen.getByText('relevé il y a 3 j')).toBeDefined();
+  });
+
+  it('affiche « Indisponible » sans instantané', async () => {
+    vi.mocked(readTrafficStatus).mockResolvedValue(null);
     render(await TrafficTile());
     expect(screen.getByText(/Indisponible/)).toBeDefined();
   });

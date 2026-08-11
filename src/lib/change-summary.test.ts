@@ -84,8 +84,8 @@ describe('collectSummaryChanges', () => {
     vi.doMock('./github-pr', () => ({
       readFileAtRef: vi.fn(async (_p: string, ref: string) =>
         ref === 'base'
-          ? '---\nchangeSummary: "Le budget est de 12 millions."\n---\n'
-          : '---\nchangeSummary: "Le budget passe à 18 millions."\n---\n',
+          ? '---\nchangeSummary: "Le budget de 12 millions couvre 5 communes."\n---\n'
+          : '---\nchangeSummary: "Le budget de 18 millions couvre 5 communes."\n---\n',
       ),
     }));
     const { collectSummaryChanges } = await import('./change-summary');
@@ -94,8 +94,11 @@ describe('collectSummaryChanges', () => {
       'base',
       'head',
     );
-    expect(c.before).toBe('Le budget est de 12 millions.');
-    expect(c.after).toBe('Le budget passe à 18 millions.');
+    expect(c.before).toBe('Le budget de 12 millions couvre 5 communes.');
+    expect(c.after).toBe('Le budget de 18 millions couvre 5 communes.');
+    // Le « 5 » est présent des deux côtés : il ne doit PAS être signalé.
+    // C'est ce chiffre partagé qui rend le filtre observable — sans lui, un
+    // code qui ne filtrerait rien passerait ce test sans broncher.
     expect(c.numbers).toEqual(['18']);
     expect(c.label).toBe('domain-cards/x');
   });

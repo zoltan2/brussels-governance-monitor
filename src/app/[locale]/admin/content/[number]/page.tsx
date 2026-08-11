@@ -1,0 +1,108 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { getContentPr, getPrFiles, getCheckState, type CheckState } from '@/lib/github-pr';
+import { chainState, readDigestSnapshot } from '@/lib/publication-deadlines';
+import { Verdict } from '@/components/admin/content/verdict';
+import { ChainStateBanner } from '@/components/admin/content/chain-state';
+import { ContentChanges } from '@/components/admin/content/content-changes';
+
+export const dynamic = 'force-dynamic';
+
+export function generateMetadata(): Metadata {
+  return { title: 'Publication', robots: { index: false, follow: false } };
+}
+
+/**
+ * Toute lecture d'horloge et tout appel réseau vivent ici, jamais dans le
+ * rendu : `react-hooks/purity` interdit `new Date()` pendant le rendu.
+ */
+async function load(number: number) {
+  const pr = await getContentPr(number);
+  if (!pr) return null;
+  // Les contrôles requis dépendent des chemins touchés : il faut donc les
+  // fichiers avant de pouvoir juger les contrôles.
+  const [files, digest] = await Promise.all([
+    getPrFiles(number),
+    readDigestSnapshot(),
+  ]);
+  let checks: CheckState | null = null;
+  try {
+    checks = await getCheckState(pr.sha, files.files.map((f) => f.path));
+  } catch {
+    checks = null; // l'écran affichera « état des contrôles indisponible »
+  }
+  return { pr, files, checks, digest, now: new Date() };
+}
+
+export default async function ContentDecisionPage({
+  params,
+}: {
+  params: Promise<{ locale: string; number: string }>;
+}) {
+  const { number } = await params;
+  const parsed = Number(number);
+  if (!Number.isInteger(parsed) || parsed <= 0) notFound();
+
+  const data = await load(parsed);
+  if (!data) notFound();
+
+  const repo = process.env.GITHUB_REPO ?? '';
+
+  return (
+    <div className="mx-auto max-w-3xl space-y-5 pb-32">
+      {data.checks ? (
+        <Verdict
+          pr={data.pr}
+          checks={data.checks}
+          truncated={data.files.truncated}
+          now={data.now}
+        />
+      ) : (
+        <section
+          aria-labelledby="verdict-titre"
+          className="rounded-lg border border-amber-500 bg-amber-50/60 p-6"
+        >
+          <h1 id="verdict-titre" className="text-2xl font-bold text-neutral-900">
+            État des contrôles indisponible
+          </h1>
+          <p className="mt-2 text-sm text-neutral-600">
+            {data.pr.title} · GitHub n&apos;a pas répondu à la demande de contrôles.
+            Vérifier sur GitHub avant de publier.
+          </p>
+        </section>
+      )}
+      <ChainStateBanner state={chainState(data.digest, data.now)} />
+
+      <section className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+        <h2 className="sr-only">Description de la veille</h2>
+        <p className="whitespace-pre-line text-base leading-relaxed text-neutral-900">
+          {data.pr.body}
+        </p>
+      </section>
+
+      <ContentChanges files={data.files.files} truncated={data.files.truncated} />
+
+      <a
+        href={`https://github.com/${repo}/pull/${data.pr.number}`}
+        className="inline-block text-sm underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ouvrir sur GitHub
+      </a>
+
+      <details className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+        <summary className="cursor-pointer text-sm text-neutral-600">Détails techniques</summary>
+        <dl className="mt-3 space-y-1 text-sm text-neutral-600">
+          <div>PR #{data.pr.number}</div>
+          <div>Branche {data.pr.branch}</div>
+          <div>Commit {data.pr.sha.slice(0, 7)}</div>
+          <div>{data.files.files.length} fichiers au total</div>
+        </dl>
+      </details>
+    </div>
+  );
+}

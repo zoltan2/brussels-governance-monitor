@@ -9,6 +9,7 @@ import { InfraTile } from '@/components/admin/infra-tile';
 import { SubscribersTile } from '@/components/admin/subscribers-tile';
 import { DigestTile } from '@/components/admin/digest-tile';
 import { DraftsTile } from '@/components/admin/drafts-tile';
+import { ContentTile } from '@/components/admin/content-tile';
 import { ChatTile } from '@/components/admin/chat-tile';
 import { RefonteTile } from '@/components/admin/refonte-tile';
 import { GamesTile } from '@/components/admin/games-tile';
@@ -56,6 +57,9 @@ export default async function AdminHubPage({
         </Suspense>
         <Suspense fallback={<TileSkeleton title="Brouillons" />}>
           <DraftsTile locale={locale} />
+        </Suspense>
+        <Suspense fallback={<TileSkeleton title="Veilles à publier" />}>
+          <ContentTile locale={locale} />
         </Suspense>
         <Suspense fallback={<TileSkeleton title="Chat" />}>
           <ChatTile locale={locale} />

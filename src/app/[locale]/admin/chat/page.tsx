@@ -2,8 +2,6 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
-import { auth } from '@/auth';
 import { readLogs, isPersistentStoreConfigured } from '@/lib/chat-logs';
 
 export const dynamic = 'force-dynamic';
@@ -94,18 +92,8 @@ function ratingEmoji(value: number | null | undefined): string {
   return '—';
 }
 
-export default async function AdminChatPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
-  const session = await auth();
-  if (!session) {
-    redirect(`/${locale}/login`);
-  }
-
+export default async function AdminChatPage() {
+  // Session vérifiée une seule fois par src/app/[locale]/admin/layout.tsx.
   const storeConfigured = isPersistentStoreConfigured();
   const isVercel = Boolean(process.env.VERCEL);
 

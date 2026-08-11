@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { auth } from '@/auth';
-import { redirect } from 'next/navigation';
 import { getVoteStats } from '@/lib/refonte-votes';
 import type { Metadata } from 'next';
 
@@ -60,15 +58,8 @@ function formatTs(ts: number): string {
   });
 }
 
-export default async function AdminRefontePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const session = await auth();
-  if (!session) redirect(`/${locale}/login`);
-
+export default async function AdminRefontePage() {
+  // Session vérifiée une seule fois par src/app/[locale]/admin/layout.tsx.
   const stats = await getVoteStats(50);
 
   return (

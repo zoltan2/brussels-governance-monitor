@@ -13,12 +13,12 @@ import { render, screen } from '@testing-library/react';
 
 vi.mock('@/lib/traffic-status', () => ({ readTrafficStatus: vi.fn() }));
 vi.mock('@/lib/infra-status', () => ({ readInfraStatus: vi.fn() }));
-vi.mock('@/lib/resend', () => ({ listActiveContacts: vi.fn() }));
+vi.mock('@/lib/resend', () => ({ countActiveContacts: vi.fn() }));
 vi.mock('@/lib/refonte-votes', () => ({ getVoteStats: vi.fn() }));
 
 import { readTrafficStatus } from '@/lib/traffic-status';
 import { readInfraStatus } from '@/lib/infra-status';
-import { listActiveContacts } from '@/lib/resend';
+import { countActiveContacts } from '@/lib/resend';
 import { getVoteStats } from '@/lib/refonte-votes';
 import { TrafficTile } from './traffic-tile';
 import { InfraTile } from './infra-tile';
@@ -87,15 +87,26 @@ describe('InfraTile', () => {
 
 describe('SubscribersTile', () => {
   it('accorde le libellé au singulier', async () => {
-    vi.mocked(listActiveContacts).mockResolvedValue([
-      { id: '1', email: 'a@b.c', locale: 'fr', topics: [], sources: [] },
-    ]);
+    vi.mocked(countActiveContacts).mockResolvedValue(1);
     render(await SubscribersTile());
     expect(screen.getByText('abonné actif')).toBeDefined();
   });
 
+  it('affiche le total au pluriel', async () => {
+    vi.mocked(countActiveContacts).mockResolvedValue(91);
+    render(await SubscribersTile());
+    expect(screen.getByText('91')).toBeDefined();
+    expect(screen.getByText('abonnés actifs')).toBeDefined();
+  });
+
+  it('distingue une panne Resend d\'un carnet vide', async () => {
+    vi.mocked(countActiveContacts).mockResolvedValue(null);
+    render(await SubscribersTile());
+    expect(screen.getByText(/Indisponible/)).toBeDefined();
+  });
+
   it('affiche « Indisponible » quand Resend lève', async () => {
-    vi.mocked(listActiveContacts).mockRejectedValue(new Error('boom'));
+    vi.mocked(countActiveContacts).mockRejectedValue(new Error('boom'));
     render(await SubscribersTile());
     expect(screen.getByText(/Indisponible/)).toBeDefined();
   });

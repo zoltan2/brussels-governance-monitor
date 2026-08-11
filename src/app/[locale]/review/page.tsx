@@ -3,8 +3,7 @@
 
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { auth, signOut } from '@/auth';
-import { redirect } from 'next/navigation';
+import { signOut } from '@/auth';
 import { getDraftCards } from '@/lib/content';
 import { type Locale } from '@/i18n/routing';
 import { ReviewCard } from '@/components/review-card';
@@ -25,11 +24,7 @@ export default async function ReviewPage({
 }) {
   const { locale } = await params;
 
-  const session = await auth();
-  if (!session) {
-    redirect(`/${locale}/login`);
-  }
-
+  // Session vérifiée une seule fois par src/app/[locale]/review/layout.tsx.
   const t = await getTranslations('review');
   const drafts = getDraftCards(locale as Locale);
 

@@ -17,12 +17,12 @@ function ageLabel(createdAt: string, now: Date): string {
 export function Verdict({
   pr,
   checks,
-  truncated = false,
+  truncated,
   now,
 }: {
   pr: ContentPr;
   checks: CheckState;
-  truncated?: boolean;
+  truncated: boolean;
   now: Date;
 }) {
   // `missing` compte autant que `failed` : une PR sans aucun contrôle exécuté

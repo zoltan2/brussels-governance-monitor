@@ -27,25 +27,95 @@ const pr: ContentPr = {
 describe('Verdict', () => {
   it('annonce « prêt » quand tout est vert', () => {
     const checks: CheckState = { passed: 3, pending: 0, failed: [], total: 3, missing: [] };
-    render(<Verdict pr={pr} checks={checks} now={new Date('2026-08-09T10:00:00Z')} />);
+    render(
+      <Verdict
+        pr={pr}
+        checks={checks}
+        truncated={false}
+        now={new Date('2026-08-09T10:00:00Z')}
+      />,
+    );
     expect(screen.getByText(/Prêt à publier/i)).toBeDefined();
   });
 
   it('nomme le contrôle qui bloque', () => {
     const checks: CheckState = { passed: 2, pending: 0, failed: ['Content lint'], total: 3, missing: ['Content lint'] };
-    render(<Verdict pr={pr} checks={checks} now={new Date('2026-08-09T10:00:00Z')} />);
+    render(
+      <Verdict
+        pr={pr}
+        checks={checks}
+        truncated={false}
+        now={new Date('2026-08-09T10:00:00Z')}
+      />,
+    );
     expect(screen.getByText(/Content lint/)).toBeDefined();
   });
 
   it('affiche la progression tant que les contrôles tournent', () => {
     const checks: CheckState = { passed: 2, pending: 1, failed: [], total: 3, missing: ['Content lint'] };
-    render(<Verdict pr={pr} checks={checks} now={new Date('2026-08-09T10:00:00Z')} />);
+    render(
+      <Verdict
+        pr={pr}
+        checks={checks}
+        truncated={false}
+        now={new Date('2026-08-09T10:00:00Z')}
+      />,
+    );
     expect(screen.getByText(/2\s*\/\s*3/)).toBeDefined();
+  });
+
+  it('annonce les contrôles requis manquants, pas « prêt »', () => {
+    // Une PR de fork n'exécute aucun workflow : zéro échec, et pourtant rien
+    // n'a été vérifié. L'écran ne doit pas dire « prêt ».
+    const checks: CheckState = {
+      passed: 0,
+      pending: 0,
+      failed: [],
+      total: 0,
+      missing: ['Lint, Typecheck & Build'],
+    };
+    render(
+      <Verdict
+        pr={pr}
+        checks={checks}
+        truncated={false}
+        now={new Date('2026-08-09T10:00:00Z')}
+      />,
+    );
+    expect(screen.getByText(/Contrôles manquants/i)).toBeDefined();
+    expect(screen.queryByText(/Prêt à publier/i)).toBeNull();
+  });
+
+  it('annonce la troncature, qui fait refuser le serveur', () => {
+    const checks: CheckState = {
+      passed: 3,
+      pending: 0,
+      failed: [],
+      total: 3,
+      missing: [],
+    };
+    render(
+      <Verdict
+        pr={pr}
+        checks={checks}
+        truncated={true}
+        now={new Date('2026-08-09T10:00:00Z')}
+      />,
+    );
+    expect(screen.getByText(/liste de fichiers incomplète/i)).toBeDefined();
+    expect(screen.queryByText(/Prêt à publier/i)).toBeNull();
   });
 
   it('affiche l\'âge de la PR, jamais montré en v2', () => {
     const checks: CheckState = { passed: 3, pending: 0, failed: [], total: 3, missing: [] };
-    render(<Verdict pr={pr} checks={checks} now={new Date('2026-08-09T10:00:00Z')} />);
+    render(
+      <Verdict
+        pr={pr}
+        checks={checks}
+        truncated={false}
+        now={new Date('2026-08-09T10:00:00Z')}
+      />,
+    );
     expect(screen.getByText(/4 heures/i)).toBeDefined();
   });
 });

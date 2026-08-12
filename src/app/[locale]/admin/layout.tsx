@@ -24,7 +24,18 @@ export default async function AdminLayout({
 
   const session = await auth();
   if (!session) {
-    redirect(`/${locale}/login`);
+    // Repli VOLONTAIRE sur le tableau de bord : une mise en page ne connaît
+    // pas l'URL demandée (pas de `searchParams`, pas de chemin), elle ne peut
+    // donc pas fabriquer un `callbackUrl` profond. Ce n'est pas un oubli.
+    //
+    // Le lien profond appartient à l'ÉMETTEUR du lien. L'email de veille doit
+    // pointer sur
+    //   /{locale}/login?callbackUrl=%2F{locale}%2Fadmin%2Fcontent%2F{numéro}
+    // plutôt que directement sur la page-décision : une session déjà ouverte
+    // est renvoyée sur la cible, et une session expirée y arrive après
+    // connexion. Sans cela, le lien profond ne survit pas à une expiration.
+    const target = `/${locale}/admin`;
+    redirect(`/${locale}/login?callbackUrl=${encodeURIComponent(target)}`);
   }
 
   return (

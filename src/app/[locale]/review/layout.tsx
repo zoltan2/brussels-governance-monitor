@@ -36,7 +36,8 @@ export default async function ReviewLayout({
 
   const session = await auth();
   if (!session) {
-    redirect(`/${locale}/login`);
+    const target = `/${locale}/review`;
+    redirect(`/${locale}/login?callbackUrl=${encodeURIComponent(target)}`);
   }
 
   return (

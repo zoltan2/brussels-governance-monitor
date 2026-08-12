@@ -1,0 +1,117 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
+import type { PrFile } from '@/lib/github-pr';
+import type { SummaryChange } from '@/lib/change-summary';
+
+function isFrenchContent(path: string): boolean {
+  return path.startsWith('content/') && path.endsWith('.fr.mdx');
+}
+
+function isTranslation(path: string): boolean {
+  return (
+    path.startsWith('content/') &&
+    /\.(nl|en|de)\.mdx$/.test(path)
+  );
+}
+
+export function ContentChanges({
+  files,
+  truncated,
+  truncatedReason = 'plafond-atteint',
+  summaries,
+}: {
+  files: PrFile[];
+  truncated: boolean;
+  /**
+   * `page-echouee` (403 de quota, 500…) n'est PAS `plafond-atteint` (plus de
+   * 3000 fichiers). Un message qui ne distingue pas les deux envoie
+   * diagnostiquer au mauvais endroit. Optionnel pour ne pas casser les
+   * appels existants qui ne tronquent jamais.
+   */
+  truncatedReason?: 'page-echouee' | 'plafond-atteint' | null;
+  summaries: SummaryChange[];
+}) {
+  const french = files.filter((f) => isFrenchContent(f.path));
+  const translations = files.filter((f) => isTranslation(f.path));
+
+  return (
+    <section aria-labelledby="changements-titre" className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+      <h2 id="changements-titre" className="font-semibold text-neutral-900">
+        Ce qui change ({french.length} fiches)
+      </h2>
+
+      {truncated && (
+        <p className="mt-2 rounded border border-amber-500 bg-amber-50/60 p-3 text-sm text-neutral-900">
+          {truncatedReason === 'page-echouee' ? (
+            <>
+              Liste incomplète : GitHub n&apos;a pas répondu à une page de la
+              liste des fichiers. La publication depuis cet écran est
+              désactivée, réessayer plus tard ou passer par GitHub.
+            </>
+          ) : (
+            <>
+              Liste incomplète : GitHub a renvoyé plus de fichiers que la
+              limite autorisée. La publication depuis cet écran est
+              désactivée, passer par GitHub.
+            </>
+          )}
+        </p>
+      )}
+
+      <ul className="mt-3 space-y-2">
+        {summaries.map((s) => (
+          <li key={s.path} className="border-t border-neutral-200 pt-3">
+            <p className="font-medium text-neutral-900">{s.label}</p>
+
+            {/* « Illisible » n'est pas « aucun résumé » : une panne de lecture
+                affichée en silence est indiscernable d'une veille sans
+                résumé, sur le seul panneau réellement relu. */}
+            {s.unreadable ? (
+              <p className="mt-1 rounded border border-amber-500 bg-amber-50/60 p-2 text-sm text-neutral-900">
+                Résumé illisible : GitHub n&apos;a pas rendu cette fiche.
+                Vérifier sur GitHub avant de publier.
+              </p>
+            ) : (
+              <>
+                {s.before && (
+                  <p className="mt-1 text-sm text-neutral-600">
+                    <span className="font-medium">Avant : </span>
+                    {s.before}
+                  </p>
+                )}
+                <p className="mt-1 text-sm text-neutral-900">
+                  <span className="font-medium">
+                    {s.before ? 'Après : ' : 'Résumé : '}
+                  </span>
+                  {s.after ?? 'aucun résumé de changement'}
+                </p>
+              </>
+            )}
+
+            {s.numbers.length > 0 && (
+              <p className="mt-1 text-sm text-neutral-600">
+                Chiffres nouveaux : {s.numbers.join(', ')}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+
+      {translations.length > 0 && (
+        <details className="mt-4">
+          <summary className="cursor-pointer text-sm text-neutral-600">
+            {translations.length} fichiers de traduction, dérivés du français
+          </summary>
+          <ul className="mt-2 space-y-1">
+            {translations.map((f) => (
+              <li key={f.path} className="text-xs text-neutral-600">
+                {f.path.replace(/^content\//, '')}
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
+    </section>
+  );
+}

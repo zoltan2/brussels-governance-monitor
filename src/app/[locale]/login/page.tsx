@@ -6,6 +6,7 @@ import { getTranslations } from 'next-intl/server';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
 import { LoginForm } from '@/components/login-form';
+import { safeCallbackPath } from '@/lib/safe-callback';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,14 +19,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function LoginPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ callbackUrl?: string }>;
 }) {
   const { locale } = await params;
+  const { callbackUrl } = await searchParams;
+  const destination = safeCallbackPath(callbackUrl, locale);
 
   const session = await auth();
   if (session) {
-    redirect(`/${locale}/review`);
+    redirect(destination);
   }
 
   const t = await getTranslations('login');
@@ -40,7 +45,7 @@ export default async function LoginPage({
           {t('description')}
         </p>
         <LoginForm
-          locale={locale}
+          destination={destination}
           labels={{
             email: t('email'),
             password: t('password'),

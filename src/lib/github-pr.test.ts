@@ -305,6 +305,23 @@ describe('getPrFiles', () => {
     const result = await getPrFiles(1);
     expect(result.truncated).toBe(true);
   });
+
+  it('signale aussi la troncature quand une page échoue en cours de route', async () => {
+    // Un 403 de quota au milieu de la pagination n'est PAS la même panne
+    // qu'un plafond de 3000 fichiers atteint : le fichier récupéré jusque-là
+    // reste partiel dans les deux cas, mais la cause diffère.
+    let appel = 0;
+    globalThis.fetch = vi.fn(async () => {
+      appel++;
+      if (appel === 2) return new Response('rate limit', { status: 403 });
+      return new Response(JSON.stringify(page(100, 'x')), { status: 200 });
+    }) as unknown as typeof fetch;
+
+    const result = await getPrFiles(1);
+    expect(result.truncated).toBe(true);
+    // La première page a bien été agrégée avant l'échec.
+    expect(result.files).toHaveLength(100);
+  });
 });
 
 describe('requiredChecksFor', () => {

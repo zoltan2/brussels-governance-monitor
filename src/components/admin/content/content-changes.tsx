@@ -18,10 +18,18 @@ function isTranslation(path: string): boolean {
 export function ContentChanges({
   files,
   truncated,
+  truncatedReason = 'plafond-atteint',
   summaries,
 }: {
   files: PrFile[];
   truncated: boolean;
+  /**
+   * `page-echouee` (403 de quota, 500…) n'est PAS `plafond-atteint` (plus de
+   * 3000 fichiers). Un message qui ne distingue pas les deux envoie
+   * diagnostiquer au mauvais endroit. Optionnel pour ne pas casser les
+   * appels existants qui ne tronquent jamais.
+   */
+  truncatedReason?: 'page-echouee' | 'plafond-atteint' | null;
   summaries: SummaryChange[];
 }) {
   const french = files.filter((f) => isFrenchContent(f.path));
@@ -35,9 +43,19 @@ export function ContentChanges({
 
       {truncated && (
         <p className="mt-2 rounded border border-amber-500 bg-amber-50/60 p-3 text-sm text-neutral-900">
-          Liste incomplète : GitHub a renvoyé plus de fichiers que la limite
-          autorisée. La publication depuis cet écran est désactivée, passer par
-          GitHub.
+          {truncatedReason === 'page-echouee' ? (
+            <>
+              Liste incomplète : GitHub n&apos;a pas répondu à une page de la
+              liste des fichiers. La publication depuis cet écran est
+              désactivée, réessayer plus tard ou passer par GitHub.
+            </>
+          ) : (
+            <>
+              Liste incomplète : GitHub a renvoyé plus de fichiers que la
+              limite autorisée. La publication depuis cet écran est
+              désactivée, passer par GitHub.
+            </>
+          )}
         </p>
       )}
 

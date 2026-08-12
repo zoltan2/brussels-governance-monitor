@@ -211,9 +211,34 @@ describe('ContentChanges', () => {
     expect(screen.queryByText(/pf_fragment/)).toBeNull();
   });
 
-  it('avertit quand la liste est tronquée', () => {
-    render(<ContentChanges files={files} truncated={true} summaries={summaries} />);
+  it('avertit du plafond quand la troncature vient d\'un plafond de pages atteint', () => {
+    render(
+      <ContentChanges
+        files={files}
+        truncated={true}
+        truncatedReason="plafond-atteint"
+        summaries={summaries}
+      />,
+    );
     expect(screen.getByText(/liste incomplète/i)).toBeDefined();
+    expect(screen.getByText(/limite autorisée/i)).toBeDefined();
+  });
+
+  it('n\'accuse pas le plafond quand la troncature vient d\'une page qui a échoué', () => {
+    // M15 : une page en échec (403 de quota, 500…) n'a rien à voir avec le
+    // plafond de 3000 fichiers. Le message affirmait auparavant « GitHub a
+    // renvoyé plus de fichiers que la limite autorisée » dans les deux cas,
+    // ce qui est faux ici et envoie diagnostiquer au mauvais endroit.
+    render(
+      <ContentChanges
+        files={files}
+        truncated={true}
+        truncatedReason="page-echouee"
+        summaries={summaries}
+      />,
+    );
+    expect(screen.getByText(/liste incomplète/i)).toBeDefined();
+    expect(screen.queryByText(/limite autorisée/i)).toBeNull();
   });
 
   it('dit « illisible », jamais « aucun résumé », quand la lecture a échoué', () => {

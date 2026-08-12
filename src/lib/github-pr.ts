@@ -62,6 +62,14 @@ export interface PrFile {
 export interface PrFiles {
   files: PrFile[];
   truncated: boolean;
+  /**
+   * Pourquoi la liste est tronquée, ou `null` si elle ne l'est pas.
+   * `page-echouee` (403 de quota, 500…) n'est PAS `plafond-atteint` (plus de
+   * 3000 fichiers, le plafond dur de l'API) : la première panne se résout en
+   * réessayant, la seconde ne se résout que sur GitHub. Un message qui ne
+   * distingue pas les deux envoie diagnostiquer au mauvais endroit.
+   */
+  truncatedReason: 'page-echouee' | 'plafond-atteint' | null;
 }
 
 export interface CheckState {
@@ -252,7 +260,7 @@ export async function getPrFiles(number: number): Promise<PrFiles> {
       headers: headers(token),
       cache: 'no-store',
     });
-    if (!res.ok) return { files, truncated: true };
+    if (!res.ok) return { files, truncated: true, truncatedReason: 'page-echouee' };
 
     const batch = (await res.json()) as Array<{
       filename: string;
@@ -271,12 +279,12 @@ export async function getPrFiles(number: number): Promise<PrFiles> {
     }
 
     // Une page incomplète signifie qu'on a tout vu.
-    if (batch.length < PER_PAGE) return { files, truncated: false };
+    if (batch.length < PER_PAGE) return { files, truncated: false, truncatedReason: null };
   }
 
   // On a épuisé les pages autorisées sans jamais voir de page incomplète :
   // il reste peut-être des fichiers qu'on n'a pas regardés.
-  return { files, truncated: true };
+  return { files, truncated: true, truncatedReason: 'plafond-atteint' };
 }
 
 /**

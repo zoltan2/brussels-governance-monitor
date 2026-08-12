@@ -294,6 +294,7 @@ describe('getPrFiles', () => {
     const result = await getPrFiles(1);
     expect(result.files).toHaveLength(207);
     expect(result.truncated).toBe(false);
+    expect(result.truncatedReason).toBeNull();
   });
 
   it('signale la troncature quand le plafond est atteint', async () => {
@@ -304,6 +305,9 @@ describe('getPrFiles', () => {
 
     const result = await getPrFiles(1);
     expect(result.truncated).toBe(true);
+    // M15 : ce n'est PAS la même panne qu'une page qui échoue — le message
+    // affiché à l'admin doit distinguer les deux causes.
+    expect(result.truncatedReason).toBe('plafond-atteint');
   });
 
   it('signale aussi la troncature quand une page échoue en cours de route', async () => {
@@ -319,6 +323,7 @@ describe('getPrFiles', () => {
 
     const result = await getPrFiles(1);
     expect(result.truncated).toBe(true);
+    expect(result.truncatedReason).toBe('page-echouee');
     // La première page a bien été agrégée avant l'échec.
     expect(result.files).toHaveLength(100);
   });

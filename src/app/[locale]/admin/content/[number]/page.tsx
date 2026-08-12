@@ -202,6 +202,7 @@ export default async function ContentDecisionPage({
       <ContentChanges
         files={data.files.files}
         truncated={data.files.truncated}
+        truncatedReason={data.files.truncatedReason}
         summaries={data.summaries}
       />
 

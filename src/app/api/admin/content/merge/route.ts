@@ -4,14 +4,8 @@
 import { auth } from '@/auth';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import {
-  getContentPr,
-  getPrFiles,
-  getCheckState,
-  publishablePrProblem,
-  normalizeRepo,
-} from '@/lib/github-pr';
-import { fileSetRefusal } from '@/lib/mergeable-files';
+import { getContentPr, getPrFiles, getCheckState, normalizeRepo } from '@/lib/github-pr';
+import { prRefusal, filesRefusal, checksRefusal } from '@/lib/publication-guards';
 
 const schema = z.object({
   number: z.number().int().positive(),
@@ -70,34 +64,24 @@ export const POST = auth(async function POST(req) {
   if (!pr) {
     return NextResponse.json({ error: 'PR introuvable' }, { status: 404 });
   }
-  // Origine, préfixe de branche, branche cible : le même contrat que la liste
-  // et la page-décision, écrit une seule fois.
-  const problem = publishablePrProblem(pr, repo);
-  if (problem) {
-    return NextResponse.json({ error: problem }, { status: 403 });
-  }
-  if (pr.sha !== sha) {
-    return NextResponse.json(
-      { error: 'La branche a changé depuis l\'affichage. Recharger la page.' },
-      { status: 409 },
-    );
+  // Origine, préfixe de branche, branche cible, et commit de tête : le même
+  // contrat que la liste et la page-décision, écrit une seule fois dans
+  // `publication-guards.ts` et testé là-bas en fonction pure.
+  const prProblem = prRefusal(pr, sha, repo);
+  if (prProblem) {
+    return NextResponse.json({ error: prProblem.error }, { status: prProblem.status });
   }
 
   // 2. Les fichiers, en refusant toute liste tronquée : GitHub trie par
   //    chemin, et `src/` arrive après le millier de fichiers pagefind. Une
   //    troncature silencieuse rendrait la liste blanche contournable.
   const { files, truncated } = await getPrFiles(number);
-  if (truncated) {
-    return NextResponse.json(
-      { error: 'Liste de fichiers incomplète, publication refusée' },
-      { status: 422 },
-    );
-  }
-  // Même fonction que la page-décision : le verdict affiché et le refus du
-  // serveur ne peuvent plus diverger.
-  const refusal = fileSetRefusal(files.map((f) => f.path));
-  if (refusal) {
-    return NextResponse.json({ error: refusal }, { status: 403 });
+  const filesProblem = filesRefusal(
+    files.map((f) => f.path),
+    truncated,
+  );
+  if (filesProblem) {
+    return NextResponse.json({ error: filesProblem.error }, { status: filesProblem.status });
   }
 
   // 3. Les contrôles, relus côté serveur.
@@ -113,11 +97,9 @@ export const POST = auth(async function POST(req) {
       { status: 502 },
     );
   }
-  if (checks.pending > 0 || checks.failed.length > 0 || checks.missing.length > 0) {
-    return NextResponse.json(
-      { error: `Contrôles non satisfaits : ${[...checks.failed, ...checks.missing].join(', ')}` },
-      { status: 409 },
-    );
+  const checksProblem = checksRefusal(checks);
+  if (checksProblem) {
+    return NextResponse.json({ error: checksProblem.error }, { status: checksProblem.status });
   }
 
   // 4. La fusion. Le `sha` est transmis à GitHub, qui refuse tout seul si la

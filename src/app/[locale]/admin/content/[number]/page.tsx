@@ -8,6 +8,7 @@ import {
   getPrFiles,
   getCheckState,
   publishablePrProblem,
+  normalizeRepo,
   type CheckState,
   type ContentPr,
 } from '@/lib/github-pr';
@@ -152,7 +153,12 @@ export default async function ContentDecisionPage({
     );
   }
 
-  const repo = process.env.GITHUB_REPO ?? '';
+  // `normalizeRepo` : la lecture (getContentPr, publishablePrProblem) est
+  // déjà normalisée en interne, mais ce lien construit une URL brute — avec
+  // un `.git` final, une URL complète ou une barre finale dans la variable
+  // d'environnement, il pointait vers une page GitHub inexistante alors que
+  // le reste de l'écran s'affichait sans problème.
+  const repo = normalizeRepo(process.env.GITHUB_REPO ?? '');
 
   return (
     <div className="mx-auto max-w-3xl space-y-5 pb-32">

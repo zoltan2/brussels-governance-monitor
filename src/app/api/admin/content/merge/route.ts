@@ -9,6 +9,7 @@ import {
   getPrFiles,
   getCheckState,
   publishablePrProblem,
+  normalizeRepo,
 } from '@/lib/github-pr';
 import { fileSetRefusal } from '@/lib/mergeable-files';
 
@@ -45,10 +46,17 @@ export const POST = auth(async function POST(req) {
   const { number, sha } = parsed.data;
 
   const token = process.env.GITHUB_TOKEN;
-  const repo = process.env.GITHUB_REPO;
-  if (!token || !repo) {
+  const rawRepo = process.env.GITHUB_REPO;
+  if (!token || !rawRepo) {
     return NextResponse.json({ error: 'Configuration GitHub absente' }, { status: 500 });
   }
+  // `GITHUB_REPO` s'écrit souvent avec un `.git`, une barre finale ou une URL
+  // complète — toutes des formes que `normalizeRepo` anticipe. Le chemin de
+  // lecture (github-pr.ts) normalise déjà systématiquement ; l'appel de
+  // fusion ci-dessous interpolait la valeur brute, ce qui faisait échouer la
+  // fusion en 502 avec un message GitHub incompréhensible sur un dépôt lu
+  // sans problème.
+  const repo = normalizeRepo(rawRepo);
 
   // 1. La PR existe, vient d'une branche de veille, et n'a pas bougé.
   // `getContentPr` LÈVE sur tout statut autre que 404 : un 403 de quota ne

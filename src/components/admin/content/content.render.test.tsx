@@ -7,6 +7,7 @@ import { render, screen } from '@testing-library/react';
 import { Verdict } from './verdict';
 import { ChainStateBanner } from './chain-state';
 import { ContentChanges } from './content-changes';
+import { Published } from './published';
 import { chainState } from '@/lib/publication-deadlines';
 import { fileSetRefusal } from '@/lib/mergeable-files';
 import type { ContentPr, CheckState, PrFile } from '@/lib/github-pr';
@@ -273,5 +274,15 @@ describe('ContentChanges', () => {
     render(<ContentChanges files={files} truncated={false} summaries={sansResume} />);
     expect(screen.getByText(/aucun résumé de changement/i)).toBeDefined();
     expect(screen.queryByText(/résumé illisible/i)).toBeNull();
+  });
+});
+
+describe('Published', () => {
+  // M16 : « Published » était le seul état de l'écran sans aucun <h1> — le
+  // titre était un <h2>, ce qui casse la hiérarchie de titres pour un
+  // lecteur d'écran une fois la veille fusionnée.
+  it('porte un titre de niveau h1', () => {
+    render(<Published mergedAt="2026-08-09T10:00:00Z" files={[]} />);
+    expect(screen.getByRole('heading', { level: 1 })).toBeDefined();
   });
 });

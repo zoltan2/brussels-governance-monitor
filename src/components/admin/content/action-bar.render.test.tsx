@@ -102,6 +102,23 @@ describe('ActionBar, publication', () => {
     expect(refresh).not.toHaveBeenCalled();
   });
 
+  it('annonce l\'erreur réseau en role="alert", comme login-form.tsx', async () => {
+    // M16 : le message était un <span> sans role="alert" — un lecteur
+    // d'écran ne l'annonçait pas quand il apparaît après coup, hors focus.
+    globalThis.fetch = vi.fn(async () => {
+      throw new TypeError('Failed to fetch');
+    }) as unknown as typeof fetch;
+
+    render(
+      <ActionBar number={1} sha="abc1234" checks={green} truncated={false} fileRefusal={null} locale="fr" />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: /publier/i }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('alert').textContent).toMatch(/réseau injoignable/i);
+    });
+  });
+
   it('rend le bouton après un refus du serveur, avec le message du serveur', async () => {
     globalThis.fetch = vi.fn(
       async () =>

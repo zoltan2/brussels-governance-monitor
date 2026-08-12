@@ -148,7 +148,11 @@ export function ActionBar({
             Retour
           </a>
           <div className="flex items-center gap-3">
-            {error && <span className="text-sm text-neutral-900">{error}</span>}
+            {error && (
+              <span className="text-sm text-neutral-900" role="alert">
+                {error}
+              </span>
+            )}
             <button
               type="button"
               onClick={publish}

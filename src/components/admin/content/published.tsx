@@ -33,9 +33,11 @@ export function Published({
       aria-labelledby="publie-titre"
       className="rounded-lg border border-brand-700/30 bg-brand-900/5 p-6"
     >
-      <h2 id="publie-titre" className="text-xl font-bold text-neutral-900">
+      {/* M16 : seul état de l'écran sans <h1> — cassait la hiérarchie de
+          titres pour un lecteur d'écran une fois la veille fusionnée. */}
+      <h1 id="publie-titre" className="text-xl font-bold text-neutral-900">
         Publié le {brusselsTime(mergedAt)}
-      </h2>
+      </h1>
       <p className="mt-2 text-sm text-neutral-600">
         {cards} fiches mises à jour.{' '}
         {hasRadar

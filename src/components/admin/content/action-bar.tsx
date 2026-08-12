@@ -141,7 +141,10 @@ export function ActionBar({
           </p>
         )}
         <div className="flex items-center justify-between gap-4">
-          <a href={`/${locale}/admin/content`} className="text-sm underline">
+          {/* `/admin/content` redirige aussitôt sur cette page dans le cas
+              nominal (une seule veille en attente) : le bouton ne ferait
+              rien. `/admin` est la cible qui ramène réellement ailleurs. */}
+          <a href={`/${locale}/admin`} className="text-sm underline">
             Retour
           </a>
           <div className="flex items-center gap-3">

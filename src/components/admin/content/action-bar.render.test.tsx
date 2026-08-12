@@ -18,6 +18,13 @@ const broken: CheckState = { passed: 2, pending: 0, failed: ['Content lint'], to
 const pasEncoreCree: CheckState = { passed: 0, pending: 0, failed: [], total: 0, missing: ['Lint, Typecheck & Build'] };
 
 describe('ActionBar', () => {
+  it('le lien Retour cible le tableau de bord, pas la liste des veilles', () => {
+    // `/admin/content` redirige aussitôt sur la page courante dans le cas
+    // nominal (une seule veille en attente) : le bouton ne faisait rien.
+    render(<ActionBar number={1} sha="abc1234" checks={green} truncated={false} fileRefusal={null} locale="fr" />);
+    expect(screen.getByRole('link', { name: /retour/i }).getAttribute('href')).toBe('/fr/admin');
+  });
+
   it('active la publication quand tout est vert', () => {
     render(<ActionBar number={1} sha="abc1234" checks={green} truncated={false} fileRefusal={null} locale="fr" />);
     expect(screen.getByRole('button', { name: /publier/i }).hasAttribute('disabled')).toBe(false);

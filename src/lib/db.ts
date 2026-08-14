@@ -14,31 +14,14 @@ import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 
-const MIGRATIONS = `
-CREATE TABLE IF NOT EXISTS refonte_votes (
-  id          TEXT PRIMARY KEY,
-  axis1       TEXT NOT NULL,
-  axis2       TEXT NOT NULL,
-  axis3       TEXT NOT NULL,
-  axis4       TEXT NOT NULL,
-  axis5       TEXT NOT NULL,
-  comment     TEXT NOT NULL DEFAULT '',
-  email       TEXT NOT NULL DEFAULT '',
-  email_optin INTEGER NOT NULL DEFAULT 0,
-  created_at  INTEGER NOT NULL
-);
-CREATE INDEX IF NOT EXISTS idx_refonte_votes_created ON refonte_votes(created_at);
+/**
+ * Le schéma n'est plus défini ici. Depuis le Sprint 1 B-Sides, la seule
+ * autorité est le runner de `src/lib/bsides/migrate.ts`, appliqué par une
+ * étape de déploiement explicite. Deux mécanismes croyant chacun posséder le
+ * schéma produiraient deux endroits où se tromper (spec §5).
+ */
 
-CREATE TABLE IF NOT EXISTS chat_logs (
-  id         INTEGER PRIMARY KEY AUTOINCREMENT,
-  stream     TEXT NOT NULL,
-  payload    TEXT NOT NULL,
-  created_at INTEGER NOT NULL
-);
-CREATE INDEX IF NOT EXISTS idx_chat_logs_stream ON chat_logs(stream, id);
-`;
-
-/** Opens a SQLite database at `path` and applies the schema (idempotent). */
+/** Opens a SQLite database at `path`. Le schéma appartient au runner. */
 export function createDb(path: string): DatabaseSync {
   if (path !== ':memory:') {
     mkdirSync(dirname(path), { recursive: true });
@@ -46,7 +29,10 @@ export function createDb(path: string): DatabaseSync {
   const db = new DatabaseSync(path);
   db.exec('PRAGMA journal_mode = WAL');
   db.exec('PRAGMA busy_timeout = 5000');
-  db.exec(MIGRATIONS);
+  // SQLite désactive les clés étrangères par défaut, et le réglage vaut par
+  // connexion : sans cette ligne, toutes les FK du domaine seraient
+  // décoratives — y compris la protection de l'acteur du journal d'audit.
+  db.exec('PRAGMA foreign_keys = ON');
   return db;
 }
 

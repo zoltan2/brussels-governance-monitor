@@ -3,10 +3,14 @@ import os from 'node:os';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createDb } from './db';
+import { runMigrations } from './bsides/migrate';
+
+const MIGRATIONS_DIR = path.join(process.cwd(), 'src/lib/bsides/migrations');
 
 describe('createDb', () => {
   it('creates the refonte_votes table', () => {
     const db = createDb(':memory:');
+    runMigrations(db, MIGRATIONS_DIR);
     const row = db
       .prepare(
         "SELECT name FROM sqlite_master WHERE type='table' AND name='refonte_votes'",
@@ -17,6 +21,7 @@ describe('createDb', () => {
 
   it('creates the chat_logs table', () => {
     const db = createDb(':memory:');
+    runMigrations(db, MIGRATIONS_DIR);
     const row = db
       .prepare(
         "SELECT name FROM sqlite_master WHERE type='table' AND name='chat_logs'",

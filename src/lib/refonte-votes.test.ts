@@ -1,11 +1,15 @@
 import { describe, it, expect } from 'vitest';
+import { join } from 'node:path';
 import { createDb } from './db';
+import { runMigrations } from './bsides/migrate';
 import {
   recordVoteSqlite,
   getVoteCountSqlite,
   getVoteStatsSqlite,
   type RefonteVote,
 } from './refonte-votes';
+
+const MIGRATIONS_DIR = join(process.cwd(), 'src/lib/bsides/migrations');
 
 const sampleVote = (over: Partial<RefonteVote> = {}): RefonteVote => ({
   axis1: 'thermometre',
@@ -22,6 +26,7 @@ const sampleVote = (over: Partial<RefonteVote> = {}): RefonteVote => ({
 describe('refonte-votes SQLite backend', () => {
   it('records a vote and counts it', () => {
     const db = createDb(':memory:');
+    runMigrations(db, MIGRATIONS_DIR);
     recordVoteSqlite(db, sampleVote());
     recordVoteSqlite(db, sampleVote());
     expect(getVoteCountSqlite(db)).toBe(2);
@@ -29,6 +34,7 @@ describe('refonte-votes SQLite backend', () => {
 
   it('returns a unique id per vote', () => {
     const db = createDb(':memory:');
+    runMigrations(db, MIGRATIONS_DIR);
     const id1 = recordVoteSqlite(db, sampleVote());
     const id2 = recordVoteSqlite(db, sampleVote());
     expect(id1).not.toBe(id2);
@@ -37,6 +43,7 @@ describe('refonte-votes SQLite backend', () => {
 
   it('round-trips email_optin as a real boolean in stats', () => {
     const db = createDb(':memory:');
+    runMigrations(db, MIGRATIONS_DIR);
     recordVoteSqlite(db, sampleVote({ email: 'a@b.be', email_optin: true }));
     const { recent } = getVoteStatsSqlite(db, 10);
     expect(recent[0].email_optin).toBe(true);
@@ -45,6 +52,7 @@ describe('refonte-votes SQLite backend', () => {
 
   it('returns recent votes newest-first', () => {
     const db = createDb(':memory:');
+    runMigrations(db, MIGRATIONS_DIR);
     recordVoteSqlite(db, sampleVote({ comment: 'first' }));
     recordVoteSqlite(db, sampleVote({ comment: 'second' }));
     const { recent } = getVoteStatsSqlite(db, 10);
@@ -53,6 +61,7 @@ describe('refonte-votes SQLite backend', () => {
 
   it('aggregates a breakdown per axis option', () => {
     const db = createDb(':memory:');
+    runMigrations(db, MIGRATIONS_DIR);
     recordVoteSqlite(db, sampleVote({ axis1: 'thermometre' }));
     recordVoteSqlite(db, sampleVote({ axis1: 'thermometre' }));
     recordVoteSqlite(db, sampleVote({ axis1: 'mosaique' }));

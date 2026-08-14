@@ -1,4 +1,9 @@
 import { describe, it, expect, beforeAll } from 'vitest';
+import { join } from 'node:path';
+import { getDb } from './db';
+import { runMigrations } from './bsides/migrate';
+
+const MIGRATIONS_DIR = join(process.cwd(), 'src/lib/bsides/migrations');
 
 // Isolated file: DB_PATH is set before the modules are imported, so their
 // lazy getDb() singleton resolves to an in-memory SQLite backend. Verifies the
@@ -9,6 +14,10 @@ describe('store selection via DB_PATH', () => {
     process.env.DB_PATH = ':memory:';
     delete process.env.UPSTASH_REDIS_REST_URL;
     delete process.env.KV_REST_API_URL;
+    // Le schéma n'est plus créé par createDb : le runner l'applique
+    // explicitement sur le singleton avant que les tests n'écrivent.
+    const db = getDb();
+    if (db) runMigrations(db, MIGRATIONS_DIR);
   });
 
   it('recordVote persists to SQLite and getVoteCount reflects it', async () => {

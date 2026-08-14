@@ -6,7 +6,7 @@
 -- métier créerait un chemin d'escalade (spec §7).
 CREATE TABLE admin_users (
   id                   TEXT PRIMARY KEY,
-  email                TEXT NOT NULL UNIQUE,
+  email                TEXT NOT NULL COLLATE NOCASE UNIQUE,
   password_hash        TEXT NOT NULL,
   password_algo        TEXT NOT NULL CHECK (password_algo IN ('scrypt', 'bcrypt')),
   display_name         TEXT NOT NULL,

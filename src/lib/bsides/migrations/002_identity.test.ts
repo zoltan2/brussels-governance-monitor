@@ -39,6 +39,16 @@ describe('002_identity', () => {
     db.close();
   });
 
+  it('refuse deux comptes dont les emails ne diffèrent que par la casse', () => {
+    const db = migrated();
+    const ins = db.prepare(
+      'INSERT INTO admin_users (id, email, password_hash, password_algo, display_name, created_at) VALUES (?,?,?,?,?,?)',
+    );
+    ins.run('u1', 'zoltan@bgm.be', 'h', 'scrypt', 'A', 0);
+    expect(() => ins.run('u2', 'Zoltan@BGM.be', 'h', 'scrypt', 'B', 0)).toThrow();
+    db.close();
+  });
+
   it('interdit de supprimer un compte cité dans le journal', () => {
     const db = migrated();
     db.prepare(

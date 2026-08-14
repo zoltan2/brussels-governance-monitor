@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { PERMISSIONS, can, ROLES, PERSONAL_FIELDS } from './schema';
+import { PERMISSIONS, can, ROLES, PERSONAL_FIELDS, OPERATIONS, type Operation } from './schema';
 
 describe('matrice de permissions', () => {
   it('refuse par défaut : un rôle sans droit explicite est rejeté', () => {
@@ -34,5 +34,18 @@ describe('matrice de permissions', () => {
     expect(PERSONAL_FIELDS.has('email')).toBe(true);
     expect(PERSONAL_FIELDS.has('legal_name')).toBe(true);
     expect(PERSONAL_FIELDS.has('crm_status')).toBe(false);
+  });
+
+  it('refuse les opérations inconnues', () => {
+    expect(can(['SUPER_ADMIN'], 'operation.inexistante' as Operation)).toBe(false);
+  });
+
+  it('chaque couple rôle × opération donne le verdict déclaré, refus compris', () => {
+    for (const op of OPERATIONS) {
+      for (const role of ROLES) {
+        const attendu = PERMISSIONS[op].includes(role);
+        expect({ op, role, verdict: can([role], op) }).toEqual({ op, role, verdict: attendu });
+      }
+    }
   });
 });

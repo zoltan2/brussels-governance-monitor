@@ -6,14 +6,28 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 describe("empaquetage de l'image", () => {
-  it('copie chaque fichier de migration du dépôt', () => {
+  it("copie les migrations à l'emplacement que le runner lira", () => {
     const dockerfile = readFileSync(join(process.cwd(), 'Dockerfile'), 'utf8');
-    expect(dockerfile).toMatch(/COPY .*src\/lib\/bsides\/migrations/);
+    // Source ET destination : un `COPY .../migrations ./mauvais-dossier`
+    // passerait un test qui ne vérifie que la source, alors que le runner
+    // (MIGRATIONS_DIR par défaut = process.cwd()/migrations) ne trouverait
+    // rien à l'exécution.
+    expect(dockerfile).toMatch(
+      /COPY[^\n]*src\/lib\/bsides\/migrations\/\*\.sql\s+\.\/migrations\/?\b/,
+    );
   });
 
-  it('copie le runner bundlé', () => {
+  it('copie les trois scripts bundlés à la racine du runner', () => {
     const dockerfile = readFileSync(join(process.cwd(), 'Dockerfile'), 'utf8');
-    expect(dockerfile).toMatch(/COPY .*migrate\.js/);
+    for (const script of ['migrate.js', 'seed-admin.js', 'verify-admin.js']) {
+      // Chaque script doit avoir SA PROPRE ligne COPY vers SA destination :
+      // une seule assertion couvrant `migrate.js` laisserait disparaître
+      // silencieusement `seed-admin.js` ou `verify-admin.js`, ce qui ferait
+      // échouer la bascule au pire moment (vérification du compte, tâche 13).
+      expect(dockerfile, `le COPY de ${script} manque ou ne cible pas ./${script}`).toMatch(
+        new RegExp(`COPY[^\\n]*dist/${script}\\s+\\./${script}\\b`),
+      );
+    }
   });
 
   it('numérote les migrations sans trou ni doublon', () => {

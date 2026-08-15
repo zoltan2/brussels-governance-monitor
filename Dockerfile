@@ -89,7 +89,10 @@ COPY --from=builder --chown=nextjs:nodejs /app/src/assets/fonts ./src/assets/fon
 
 # Migrations B-Sides. Le tracing de Next ne suit que le JavaScript : sans ce
 # COPY, les .sql seraient absents de l'image et le runner ne trouverait rien.
-COPY --from=builder --chown=nextjs:nodejs /app/src/lib/bsides/migrations ./migrations
+# Glob restreint aux .sql : le dossier source contient aussi les .test.ts
+# colocalisés (002_identity.test.ts, 003_domain.test.ts), qui n'ont rien à
+# faire dans l'image de production.
+COPY --from=builder --chown=nextjs:nodejs /app/src/lib/bsides/migrations/*.sql ./migrations/
 COPY --from=builder --chown=nextjs:nodejs /app/dist/migrate.js ./migrate.js
 COPY --from=builder --chown=nextjs:nodejs /app/dist/seed-admin.js ./seed-admin.js
 COPY --from=builder --chown=nextjs:nodejs /app/dist/verify-admin.js ./verify-admin.js

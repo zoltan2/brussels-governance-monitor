@@ -4,7 +4,7 @@
 -- Identité commune (spec §6.1). Champs légaux jamais exposés publiquement.
 CREATE TABLE bsides_people (
   id             TEXT PRIMARY KEY,
-  email          TEXT UNIQUE,
+  email          TEXT UNIQUE COLLATE NOCASE,
   legal_name     TEXT,
   display_name   TEXT,
   phone          TEXT,

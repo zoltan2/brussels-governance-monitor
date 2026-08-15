@@ -40,6 +40,44 @@ describe('003_domain', () => {
     db.close();
   });
 
+  it('refuse deux personnes dont les emails ne diffèrent que par la casse', () => {
+    const db = migrated();
+    const ins = db.prepare(
+      'INSERT INTO bsides_people (id, email, created_at, updated_at) VALUES (?,?,?,?)',
+    );
+    ins.run('p1', 'artiste@x.be', 0, 0);
+    expect(() => ins.run('p2', 'Artiste@X.be', 0, 0)).toThrow();
+    db.close();
+  });
+
+  it('refuse une recommandation sans recommandeur artiste ni personne', () => {
+    const db = migrated();
+    db.prepare('INSERT INTO bsides_people (id, created_at, updated_at) VALUES (?,?,?)').run('p1', 0, 0);
+    db.prepare(
+      'INSERT INTO bsides_artist_profiles (id, person_id, slug, crm_status, created_at, updated_at) VALUES (?,?,?,?,?,?)',
+    ).run('a1', 'p1', 's', 'discovered', 0, 0);
+    expect(() =>
+      db.prepare(
+        'INSERT INTO bsides_artist_recommendations (id, recommended_profile_id, by_artist_profile_id, by_person_id, created_at) VALUES (?,?,?,?,?)',
+      ).run('r1', 'a1', null, null, 0),
+    ).toThrow();
+    db.close();
+  });
+
+  it('accepte une recommandation avec un seul recommandeur renseigné', () => {
+    const db = migrated();
+    db.prepare('INSERT INTO bsides_people (id, created_at, updated_at) VALUES (?,?,?)').run('p1', 0, 0);
+    db.prepare(
+      'INSERT INTO bsides_artist_profiles (id, person_id, slug, crm_status, created_at, updated_at) VALUES (?,?,?,?,?,?)',
+    ).run('a1', 'p1', 's', 'discovered', 0, 0);
+    const ins = db.prepare(
+      'INSERT INTO bsides_artist_recommendations (id, recommended_profile_id, by_artist_profile_id, by_person_id, created_at) VALUES (?,?,?,?,?)',
+    );
+    expect(() => ins.run('r-par-artiste', 'a1', 'a1', null, 0)).not.toThrow();
+    expect(() => ins.run('r-par-personne', 'a1', null, 'p1', 0)).not.toThrow();
+    db.close();
+  });
+
   it('accepte les types d\'œuvre non visuels', () => {
     const db = migrated();
     const ins = db.prepare(
@@ -89,19 +127,58 @@ describe('003_domain', () => {
       insert.run('s-ok', 'a1', ...Object.values(critères), 0),
     ).not.toThrow();
 
-    // Chaque critère, dépassé d'un point, est rejeté. Une boucle plutôt qu'un
-    // seul cas : une borne oubliée sur un critère passerait sinon inaperçue.
+    // Chaque critère, dépassé d'un point au-dessus de son maximum, est rejeté.
+    // Une boucle plutôt qu'un seul cas : une borne oubliée sur un critère
+    // passerait sinon inaperçue.
     for (const [nom, max] of Object.entries(critères)) {
       const valeurs = { ...critères, [nom]: max + 1 };
       expect(() =>
-        insert.run(`s-${nom}`, 'a1', ...Object.values(valeurs), 0),
+        insert.run(`s-${nom}-haut`, 'a1', ...Object.values(valeurs), 0),
         `le critère ${nom} devrait refuser ${max + 1}`,
+      ).toThrow();
+    }
+
+    // Même chose sous le minimum (-1). Une CHECK qui n'aurait gardé que la
+    // borne haute (`<= max` au lieu de `BETWEEN 0 AND max`) passerait la
+    // boucle précédente sans être détectée : il faut éprouver les deux bornes.
+    for (const nom of Object.keys(critères)) {
+      const valeurs = { ...critères, [nom]: -1 };
+      expect(() =>
+        insert.run(`s-${nom}-bas`, 'a1', ...Object.values(valeurs), 0),
+        `le critère ${nom} devrait refuser -1`,
       ).toThrow();
     }
     db.close();
   });
 
-  it('refuse un booléen hors 0/1 et accepte un total absent', () => {
+  it('refuse un booléen hors 0/1 pour chacun des trois indicateurs', () => {
+    const db = migrated();
+    db.prepare('INSERT INTO bsides_people (id, created_at, updated_at) VALUES (?,?,?)').run('p1', 0, 0);
+    db.prepare(
+      'INSERT INTO bsides_artist_profiles (id, person_id, slug, crm_status, created_at, updated_at) VALUES (?,?,?,?,?,?)',
+    ).run('a1', 'p1', 's', 'discovered', 0, 0);
+    const base =
+      'INSERT INTO bsides_artist_scores (id, artist_profile_id, artistic_quality, originality, brussels_connection, storytelling, b_sides_fit, portfolio_quality, communication, reliability, homepage_test, proud_to_present, tells_something, created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+    const insert = db.prepare(base);
+
+    const booléens = { homepage_test: 0, proud_to_present: 0, tells_something: 0 } as const;
+
+    // Chaque indicateur, mis à 2, est rejeté. Une boucle plutôt que trois cas
+    // recopiés : un indicateur oublié dans la CHECK passerait sinon inaperçu.
+    for (const nom of Object.keys(booléens) as (keyof typeof booléens)[]) {
+      const valeurs = { ...booléens, [nom]: 2 };
+      expect(() =>
+        insert.run(
+          `s-${nom}`, 'a1', 5, 5, 5, 5, 5, 3, 3, 3,
+          valeurs.homepage_test, valeurs.proud_to_present, valeurs.tells_something, 0,
+        ),
+        `l'indicateur ${nom} devrait refuser 2`,
+      ).toThrow();
+    }
+    db.close();
+  });
+
+  it('accepte un total absent', () => {
     const db = migrated();
     db.prepare('INSERT INTO bsides_people (id, created_at, updated_at) VALUES (?,?,?)').run('p1', 0, 0);
     db.prepare(
@@ -109,11 +186,6 @@ describe('003_domain', () => {
     ).run('a1', 'p1', 's', 'discovered', 0, 0);
     const base =
       'INSERT INTO bsides_artist_scores (id, artist_profile_id, artistic_quality, originality, brussels_connection, storytelling, b_sides_fit, portfolio_quality, communication, reliability';
-
-    expect(() =>
-      db.prepare(`${base}, homepage_test, created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`)
-        .run('s1', 'a1', 5, 5, 5, 5, 5, 3, 3, 3, 2, 0),
-    ).toThrow();
 
     // calculated_total nullable : la formule de pondération n'est pas tranchée.
     expect(() =>

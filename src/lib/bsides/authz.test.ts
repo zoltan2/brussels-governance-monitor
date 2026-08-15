@@ -8,7 +8,6 @@ import type { DatabaseSync } from 'node:sqlite';
 import { join } from 'node:path';
 import { createDb } from '@/lib/db';
 import { runMigrations } from './migrate';
-import { OPERATIONS, ROLES, PERMISSIONS, can } from './schema';
 import { createUser } from './repositories/admin-users';
 
 const DIR = join(process.cwd(), 'src/lib/bsides/migrations');
@@ -25,25 +24,11 @@ function dbVide(): DatabaseSync {
   return createDb(':memory:');
 }
 
-describe('matrice parcourue exhaustivement', () => {
-  it('chaque couple rôle × opération donne le verdict déclaré, refus compris', () => {
-    for (const op of OPERATIONS) {
-      for (const role of ROLES) {
-        const attendu = PERMISSIONS[op].includes(role);
-        expect({ op, role, verdict: can([role], op) }).toEqual({
-          op, role, verdict: attendu,
-        });
-      }
-    }
-  });
-
-  it('aucune opération n\'est ouverte à tous les rôles sans le déclarer', () => {
-    for (const op of OPERATIONS) {
-      expect(PERMISSIONS[op].length).toBeGreaterThan(0);
-    }
-  });
-});
-
+// La matrice 17×6 (chaque couple rôle × opération) est exhaustivement
+// éprouvée dans `schema.test.ts`, qu'elle exerce (revue de branche du
+// 2026-08-15, B-4) — elle vivait ici en double, à la virgule près, ce qui
+// n'éprouvait rien de spécifique à `requireRole`. Ce fichier ne garde que les
+// tests de la garde elle-même.
 vi.mock('@/auth', () => ({ auth: vi.fn() }));
 // Mock PARTIEL : `createDb` reste réel, utilisé par `dbPrête()`/`dbVide()`
 // ci-dessus pour fabriquer de vraies bases `:memory:`. Seul `getDb` — le

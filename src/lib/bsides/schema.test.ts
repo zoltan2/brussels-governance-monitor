@@ -51,4 +51,13 @@ describe('matrice de permissions', () => {
       }
     }
   });
+
+  // Repris de `authz.test.ts` (revue de branche du 2026-08-15, B-4) : ce test
+  // éprouve `PERMISSIONS`, donc `schema.ts` — sa place naturelle, pas celle de
+  // la garde `requireRole`.
+  it('n\'ouvre aucune opération à tous les rôles sans le déclarer', () => {
+    for (const op of OPERATIONS) {
+      expect(PERMISSIONS[op].length).toBeGreaterThan(0);
+    }
+  });
 });

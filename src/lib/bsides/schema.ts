@@ -80,8 +80,16 @@ export function can(roles: readonly Role[], op: Operation): boolean {
  */
 export const RESTRICTED_FIELDS: Record<string, readonly Role[]> = {
   internal_notes: ['SUPER_ADMIN', 'CURATOR'],
-  // Sprint 4 : minimum_price n'est lisible que par SUPER_ADMIN et FINANCE (§25).
-  minimum_price: ['SUPER_ADMIN', 'FINANCE'],
+  // Sprint 4 : `offers.artist_minimum_eur` (spec §6.7 verbatim, ligne 356), pas
+  // `minimum_price` — ce nom n'existe nulle part dans la spec maîtresse et
+  // n'aurait jamais correspondu à la colonne que le Sprint 4 créera. La
+  // clé précédente aurait donc laissé cette valeur en clair : le champ le
+  // plus confidentiel du projet (§6.7 ligne 390 : « must never be exposed
+  // to the public API » ; §25 ligne 971 : jamais vers Brevo). Lisible par
+  // SUPER_ADMIN et FINANCE seulement (§33 : FINANCE couvre « commissions »,
+  // CURATOR explicitement « no financial configuration »). Colonne pas
+  // encore migrée : voir `RESTRICTED_FIELDS_SPRINT4` dans schema.test.ts.
+  artist_minimum_eur: ['SUPER_ADMIN', 'FINANCE'],
 } as const;
 
 /** Champs dont la VALEUR ne doit jamais entrer dans un diff d'audit (R14).
@@ -97,15 +105,36 @@ export const PERSONAL_FIELDS: ReadonlySet<string> = new Set([
   'legal_name',
   'display_name',
   'phone',
-  'address',
+  // `address` (sans suffixe) n'a jamais existé : `bsides_people` (§6.1,
+  // migration 002) porte `address_line1` / `address_line2`, tous deux déjà
+  // ci-dessous, et le futur `billing address` / `shipping address` du §17
+  // (checkout) se nommerait `billing_address` / `shipping_address`, pas
+  // `address` nu. Retiré : une entrée qui ne correspond à aucune colonne,
+  // présente ou future, ne protège rien (même défaut que `minimum_price`
+  // dans `RESTRICTED_FIELDS`, trouvé pendant le même audit).
   'address_line1',
   'address_line2',
   'postal_code',
   'city',
   'country',
+  // `iban` / `vat_number` : aucune occurrence dans la spec maîtresse (grep
+  // vérifié) — ni colonne migrée, ni nom de colonne futur nommé nulle part,
+  // pas même au §20 (Commission and artist payouts), qui ne détaille aucun
+  // schéma. Gardés par prudence (ce sont des données bancaires/fiscales
+  // plausibles pour un futur module payout) mais NON vérifiables : voir
+  // `PERSONAL_FIELDS_UNCONFIRMED` dans schema.test.ts, à trancher quand ce
+  // module sera spécifié.
   'iban',
   'vat_number',
   'internal_notes',
+  // `password_hash` (admin_users, migration 002) : colonne réelle et très
+  // sensible, absente des deux listes jusqu'ici. `recordAudit` s'applique
+  // génériquement à tout `objectType` (voir auth.ts, qui journalise déjà
+  // des lignes `admin_users`) : rien n'empêche un futur repository de
+  // gestion des comptes de journaliser un diff complet de la ligne. Ajoutée
+  // en défense en profondeur, avant qu'un tel repository n'existe plutôt
+  // qu'après une fuite.
+  'password_hash',
 ]);
 
 /**

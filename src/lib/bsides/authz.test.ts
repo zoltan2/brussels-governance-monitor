@@ -91,4 +91,17 @@ describe('requireRole', () => {
       roles: ['CURATOR'],
     });
   });
+
+  it('refuse un rôle réel mais insuffisant pour l\'opération', async () => {
+    const db = dbPrête();
+    const id = createUser(db, {
+      email: 'analyste@bgm.be', passwordHash: 'h', algo: 'scrypt',
+      displayName: 'An', roles: ['ANALYST'],
+    });
+    vi.mocked(getDb).mockReturnValue(db);
+    authMock.mockResolvedValue({ user: { id } } as Session);
+    await expect(requireRole('artists.write')).rejects.toThrow(ForbiddenError);
+    // Contre-épreuve : le même utilisateur passe sur une opération qu'il a.
+    await expect(requireRole('artists.read')).resolves.toMatchObject({ userId: id });
+  });
 });

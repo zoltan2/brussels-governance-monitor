@@ -4,6 +4,7 @@
 import { randomUUID } from 'node:crypto';
 import type { DatabaseSync } from 'node:sqlite';
 import type { Role } from '../schema';
+import { withTransaction } from '../tx';
 
 export interface AdminUserRow {
   id: string;
@@ -16,12 +17,15 @@ export interface AdminUserRow {
 }
 
 export function findByEmail(db: DatabaseSync, email: string): AdminUserRow | null {
+  // `email` porte `COLLATE NOCASE` et un index dédié depuis la migration
+  // d'identité : envelopper de `lower()` ici serait redondant avec la
+  // collation ET empêcherait SQLite d'utiliser l'index.
   const row = db
     .prepare(
       `SELECT id, email, password_hash, password_algo, display_name, is_active,
               sessions_valid_after
          FROM admin_users
-        WHERE lower(email) = lower(?) AND deleted_at IS NULL`,
+        WHERE email = ? AND deleted_at IS NULL`,
     )
     .get(email);
   return (row as AdminUserRow | undefined) ?? null;
@@ -43,13 +47,17 @@ export function createUser(
 ): string {
   const id = randomUUID();
   const now = Math.floor(Date.now() / 1000);
-  db.prepare(
-    `INSERT INTO admin_users
-       (id, email, password_hash, password_algo, display_name, created_at)
-     VALUES (?, ?, ?, ?, ?, ?)`,
-  ).run(id, input.email, input.passwordHash, input.algo, input.displayName, now);
-  const ins = db.prepare('INSERT INTO admin_user_roles (user_id, role) VALUES (?, ?)');
-  for (const role of input.roles) ins.run(id, role);
+  // Transaction composable (`../tx`) : un échec en cours de boucle sur les
+  // rôles ne doit pas laisser un compte créé avec des rôles partiels.
+  withTransaction(db, () => {
+    db.prepare(
+      `INSERT INTO admin_users
+         (id, email, password_hash, password_algo, display_name, created_at)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+    ).run(id, input.email, input.passwordHash, input.algo, input.displayName, now);
+    const ins = db.prepare('INSERT INTO admin_user_roles (user_id, role) VALUES (?, ?)');
+    for (const role of input.roles) ins.run(id, role);
+  });
   return id;
 }
 

@@ -105,31 +105,36 @@ describe('003_domain', () => {
     db.close();
   });
 
-  it('refuse une recommandation sans recommandeur artiste ni personne', () => {
+  it('refuse une recommandation sans aucune des trois sources renseignées', () => {
     const db = migrated();
     db.prepare('INSERT INTO bsides_people (id, created_at, updated_at) VALUES (?,?,?)').run('p1', 0, 0);
     db.prepare(
       'INSERT INTO bsides_artist_profiles (id, person_id, slug, crm_status, created_at, updated_at) VALUES (?,?,?,?,?,?)',
     ).run('a1', 'p1', 's', 'FOUND', 0, 0);
+    // Les trois sources nulles à la fois — profil, personne, texte libre.
     expect(() =>
       db.prepare(
-        'INSERT INTO bsides_artist_recommendations (id, recommended_profile_id, by_artist_profile_id, by_person_id, created_at) VALUES (?,?,?,?,?)',
-      ).run('r1', 'a1', null, null, 0),
+        'INSERT INTO bsides_artist_recommendations (id, recommended_profile_id, by_artist_profile_id, by_person_id, source_text, created_at) VALUES (?,?,?,?,?,?)',
+      ).run('r1', 'a1', null, null, null, 0),
     ).toThrow();
     db.close();
   });
 
-  it('accepte une recommandation avec un seul recommandeur renseigné', () => {
+  it('accepte une recommandation dès qu\'une seule des trois sources est renseignée', () => {
     const db = migrated();
     db.prepare('INSERT INTO bsides_people (id, created_at, updated_at) VALUES (?,?,?)').run('p1', 0, 0);
     db.prepare(
       'INSERT INTO bsides_artist_profiles (id, person_id, slug, crm_status, created_at, updated_at) VALUES (?,?,?,?,?,?)',
     ).run('a1', 'p1', 's', 'FOUND', 0, 0);
     const ins = db.prepare(
-      'INSERT INTO bsides_artist_recommendations (id, recommended_profile_id, by_artist_profile_id, by_person_id, created_at) VALUES (?,?,?,?,?)',
+      'INSERT INTO bsides_artist_recommendations (id, recommended_profile_id, by_artist_profile_id, by_person_id, source_text, created_at) VALUES (?,?,?,?,?,?)',
     );
-    expect(() => ins.run('r-par-artiste', 'a1', 'a1', null, 0)).not.toThrow();
-    expect(() => ins.run('r-par-personne', 'a1', null, 'p1', 0)).not.toThrow();
+    expect(() => ins.run('r-par-artiste', 'a1', 'a1', null, null, 0)).not.toThrow();
+    expect(() => ins.run('r-par-personne', 'a1', null, 'p1', null, 0)).not.toThrow();
+    // Le cas nominal du sourcing « un artiste en amène cinq » : un nom écrit
+    // à la main, sans fiche artiste ni fiche personne.
+    expect(() => ins.run('r-par-texte-libre', 'a1', null, null, 'Jean Dupont, vu au vernissage', 0))
+      .not.toThrow();
     db.close();
   });
 

@@ -159,8 +159,13 @@ CREATE TABLE bsides_artist_scores (
 );
 CREATE INDEX idx_artist_scores_profile ON bsides_artist_scores(artist_profile_id, created_at);
 
--- §6.4 artist_recommendations. Recommandeur artiste OU personne, jamais les
--- deux nuls. `source_text` porte le nom de la spec.
+-- §6.4 artist_recommendations. Trois sources possibles pour le recommandeur —
+-- profil artiste, personne, ou `source_text` — jamais les trois nulles à la
+-- fois. Une première version de cette contrainte n'en connaissait que deux
+-- (`by_artist_profile_id`, `by_person_id`) et rejetait donc le cas le plus
+-- fréquent du sourcing « un artiste en amène cinq » : celui où le recommandeur
+-- n'a pas de fiche, seulement un nom noté à la main dans `source_text`.
+-- Corrigé le 2026-08-15, avant toute application sur base persistante.
 CREATE TABLE bsides_artist_recommendations (
   id                     TEXT PRIMARY KEY,
   recommended_profile_id TEXT NOT NULL REFERENCES bsides_artist_profiles(id) ON DELETE RESTRICT,
@@ -168,7 +173,7 @@ CREATE TABLE bsides_artist_recommendations (
   by_person_id           TEXT REFERENCES bsides_people(id) ON DELETE RESTRICT,
   source_text            TEXT,
   created_at             INTEGER NOT NULL,
-  CHECK (by_artist_profile_id IS NOT NULL OR by_person_id IS NOT NULL)
+  CHECK (by_artist_profile_id IS NOT NULL OR by_person_id IS NOT NULL OR source_text IS NOT NULL)
 );
 CREATE INDEX idx_recommendations_recommended
   ON bsides_artist_recommendations(recommended_profile_id);

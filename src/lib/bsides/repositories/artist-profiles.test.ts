@@ -114,41 +114,72 @@ describe('artist-profiles', () => {
     db.close();
   });
 
-  it('erasePerson emporte aussi les notes internes du profil et le portrait', () => {
+  it('erasePerson emporte TOUTES les colonnes nominatives du profil, sans casser le slug ni l\'attribution des œuvres', () => {
     const { db, actor } = ctx();
     const p = createPerson(db, { email: 'a@x.be', firstName: 'A', lastName: 'Nom' });
     db.prepare(
       'INSERT INTO bsides_person_media (id, person_id, media_type, variant_role, storage_path, display_order, created_at) VALUES (?,?,?,?,?,?,?)',
     ).run('pm1', p, 'IMAGE', 'master', 'portraits/pm1.jpg', 0, 0);
     const a = createProfile(db, {
-      personId: p, slug: 'a', crmStatus: 'FOUND', actorUserId: actor, internalNotes: 'secret',
+      personId: p, slug: 'jean-dupont', crmStatus: 'FOUND', actorUserId: actor,
+      artistName: 'Jean Dupont', internalNotes: 'secret',
     });
     db.prepare('UPDATE bsides_artist_profiles SET portrait_media_id = ? WHERE id = ?')
       .run('pm1', a);
 
-    // Un master d'œuvre du même artiste : il ne doit PAS tomber. Droits
-    // contractuels, régime de conservation opposé (§36) — c'est la raison
-    // d'être des deux tables de médias.
+    // Un master d'œuvre du même artiste, avec sa mention de droit nominative :
+    // il ne doit PAS tomber, ni perdre son attribution. Droits contractuels,
+    // régime de conservation opposé (§36) — c'est la raison d'être des deux
+    // tables de médias, et de la survie du profil lui-même.
     db.prepare(
       'INSERT INTO bsides_works (id, artist_profile_id, slug, title, work_type, created_at, updated_at) VALUES (?,?,?,?,?,?,?)',
-    ).run('w1', a, 'w', 'T', 'PAINTING', 0, 0);
+    ).run('w1', a, 'w', 'Titre de l\'œuvre', 'PAINTING', 0, 0);
     db.prepare(
-      'INSERT INTO bsides_work_media (id, work_id, media_type, variant_role, storage_path, display_order, created_at) VALUES (?,?,?,?,?,?,?)',
-    ).run('m1', 'w1', 'IMAGE', 'master', 'masters/m1.tif', 0, 0);
+      `INSERT INTO bsides_work_media
+         (id, work_id, media_type, variant_role, storage_path, copyright_credit, display_order, created_at)
+       VALUES (?,?,?,?,?,?,?,?)`,
+    ).run('m1', 'w1', 'IMAGE', 'master', 'masters/m1.tif', '© Jean Dupont', 0, 0);
 
     erasePerson(db, p, actor);
 
-    expect(
-      db.prepare('SELECT internal_notes, portrait_media_id FROM bsides_artist_profiles WHERE id = ?').get(a),
-    ).toEqual({ internal_notes: null, portrait_media_id: null });
+    // Toutes les colonnes nominatives du profil, en un seul relevé : une
+    // colonne oubliée doit faire échouer ce test, pas passer inaperçue — c'est
+    // exactement ainsi qu'`artist_name` et `slug` avaient été manqués la
+    // première fois (le test précédent n'en vérifiait que deux).
+    const profil = db
+      .prepare('SELECT artist_name, slug, internal_notes, portrait_media_id FROM bsides_artist_profiles WHERE id = ?')
+      .get(a) as { artist_name: string | null; slug: string; internal_notes: string | null; portrait_media_id: string | null };
+    expect(profil.artist_name).toBeNull();
+    expect(profil.internal_notes).toBeNull();
+    expect(profil.portrait_media_id).toBeNull();
+    // Le slug ne peut pas être NULL (NOT NULL UNIQUE) : il doit devenir un nom
+    // figé, dérivé de l'id de la ligne — jamais du nom de la personne, jamais
+    // devinable, jamais l'ancien slug public.
+    expect(profil.slug).toBe(`erased-${a}`);
+    expect(profil.slug).not.toBe('jean-dupont');
+    expect(profil.slug).not.toContain('jean');
+    expect(profil.slug).not.toContain('dupont');
+
     expect(db.prepare('SELECT COUNT(*) c FROM bsides_person_media WHERE person_id = ?').get(p))
       .toEqual({ c: 0 });
+
+    // L'œuvre et son média survivent intégralement — titre, attribution à ce
+    // même profil, ET la mention de droit nominative sur le média : c'est le
+    // contenu éditorial et contractuel que l'effacement ne doit PAS toucher.
+    const oeuvre = db.prepare('SELECT artist_profile_id, title FROM bsides_works WHERE id = ?').get('w1');
+    expect(oeuvre).toEqual({ artist_profile_id: a, title: 'Titre de l\'œuvre' });
+    const media = db.prepare('SELECT copyright_credit FROM bsides_work_media WHERE id = ?').get('m1');
+    expect(media).toEqual({ copyright_credit: '© Jean Dupont' });
     expect(db.prepare('SELECT COUNT(*) c FROM bsides_work_media').get()).toEqual({ c: 1 });
 
     // Un effacement qui ne couvrirait pas ces champs serait partiel — donc
-    // pire qu'absent, puisqu'il se croirait fait.
+    // pire qu'absent, puisqu'il se croirait fait. Le nom d'usage et l'ancien
+    // slug ne doivent plus apparaître nulle part dans la vue CRM.
     const restes = listForRole(db, ['CURATOR']);
-    expect(JSON.stringify(restes)).not.toContain('secret');
+    const dump = JSON.stringify(restes);
+    expect(dump).not.toContain('secret');
+    expect(dump).not.toContain('Jean Dupont');
+    expect(dump).not.toContain('jean-dupont');
     db.close();
   });
 });

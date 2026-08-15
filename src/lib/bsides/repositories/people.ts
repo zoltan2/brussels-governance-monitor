@@ -39,7 +39,7 @@ export function erasePerson(db: DatabaseSync, personId: string, actorUserId: str
     db.prepare(
       `UPDATE bsides_people
           SET email = NULL, legal_name = NULL, display_name = NULL, phone = NULL,
-              internal_notes = NULL, deleted_at = ?, updated_at = ?
+              country = NULL, internal_notes = NULL, deleted_at = ?, updated_at = ?
         WHERE id = ?`,
     ).run(now, now, personId);
     recordAudit(db, {

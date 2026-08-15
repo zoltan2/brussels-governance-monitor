@@ -55,7 +55,7 @@ describe('artist-profiles', () => {
     db.close();
   });
 
-  it('ne laisse ni profil ni trace quand la mutation échoue', () => {
+  it('rejette une clé étrangère invalide, sans profil ni trace', () => {
     const { db, actor } = ctx();
     expect(() =>
       createProfile(db, { personId: 'fantome', slug: 'x', crmStatus: 'discovered', actorUserId: actor }),
@@ -64,12 +64,41 @@ describe('artist-profiles', () => {
     db.close();
   });
 
+  it('défait la mutation quand seul l\'audit échoue', () => {
+    const { db } = ctx();
+    const p = createPerson(db, { email: 'a@x.be', legalName: 'A' });
+    // La personne existe : l'INSERT du profil réussira. C'est l'audit qui
+    // échouera, sur un acteur qui n'existe pas — la preuve que la mutation
+    // métier et son audit partagent le même sort, même quand c'est l'audit
+    // qui échoue en second.
+    expect(() =>
+      createProfile(db, {
+        personId: p, slug: 'a', crmStatus: 'discovered', actorUserId: 'acteur-fantome',
+      }),
+    ).toThrow();
+    // Le profil ne doit PAS subsister : c'est ce que withTransaction garantit.
+    expect(db.prepare('SELECT COUNT(*) c FROM bsides_artist_profiles').get()).toEqual({ c: 0 });
+    expect(db.prepare('SELECT COUNT(*) c FROM bsides_audit_log').get()).toEqual({ c: 0 });
+    db.close();
+  });
+
   it('erasePerson efface les données personnelles et laisse une trace', () => {
     const { db, actor } = ctx();
-    const p = createPerson(db, { email: 'a@x.be', legalName: 'A', internalNotes: 'n' });
+    const p = createPerson(db, {
+      email: 'a@x.be', legalName: 'A', displayName: 'A. Artiste', phone: '+32', country: 'BE',
+      internalNotes: 'n',
+    });
     erasePerson(db, p, actor);
-    const row = db.prepare('SELECT email, legal_name, internal_notes FROM bsides_people WHERE id = ?').get(p);
-    expect(row).toEqual({ email: null, legal_name: null, internal_notes: null });
+    const row = db
+      .prepare(
+        `SELECT email, legal_name, display_name, phone, country, internal_notes
+           FROM bsides_people WHERE id = ?`,
+      )
+      .get(p);
+    expect(row).toEqual({
+      email: null, legal_name: null, display_name: null, phone: null, country: null,
+      internal_notes: null,
+    });
     const trace = db.prepare("SELECT COUNT(*) c FROM bsides_audit_log WHERE action = 'person.erased'").get();
     expect(trace).toEqual({ c: 1 });
     db.close();

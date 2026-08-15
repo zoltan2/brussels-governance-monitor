@@ -59,6 +59,44 @@ describe('artist-profiles', () => {
     db.close();
   });
 
+  it('ne journalise pas le slug en clair : il est dérivé du nom, et le journal est immuable', () => {
+    const { db, actor } = ctx();
+    const p = createPerson(db, {
+      email: 'sr@x.be', firstName: 'Salomé', lastName: 'Rey', displayName: 'Salomé Rey',
+    });
+    // Le slug que le Sprint 2 fabriquera depuis le nom : `slugifier('Salomé
+    // Rey')`. C'est la seule valeur nominative qui entrait dans
+    // `bsides_audit_log`, table sans UPDATE ni DELETE — donc la seule que
+    // `erasePerson` ne pouvait pas rattraper.
+    const a = createProfile(db, {
+      personId: p, slug: 'salome-rey', crmStatus: 'FOUND', actorUserId: actor,
+    });
+
+    const audit = db
+      .prepare("SELECT before, after FROM bsides_audit_log WHERE action = 'artist.created'")
+      .get() as { before: string; after: string };
+
+    expect(audit.after).not.toContain('salome-rey');
+    expect(audit.after).not.toContain('salome');
+    expect(JSON.parse(audit.after).slug).toBe('[modifié]');
+    // Contre-épreuve : le NOM du champ reste journalisé, et la colonne non
+    // personnelle du même diff reste en clair. Sans elle, un `maskPersonal`
+    // qui viderait l'objet entier — ou un `createProfile` qui cesserait
+    // d'écrire `after` — passerait les trois assertions ci-dessus.
+    expect(Object.keys(JSON.parse(audit.after)).sort()).toEqual(['crm_status', 'slug']);
+    expect(JSON.parse(audit.after).crm_status).toBe('FOUND');
+
+    // Et l'effacement, lui, reste sans effet sur le journal : c'est bien en
+    // AMONT que la valeur devait être arrêtée.
+    erasePerson(db, p, actor);
+    const apres = db
+      .prepare("SELECT after FROM bsides_audit_log WHERE action = 'artist.created'")
+      .get() as { after: string };
+    expect(apres.after).not.toContain('salome');
+    expect(a).toBeTruthy();
+    db.close();
+  });
+
   it('rejette une clé étrangère invalide, sans profil ni trace', () => {
     const { db, actor } = ctx();
     expect(() =>

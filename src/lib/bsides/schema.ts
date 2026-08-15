@@ -127,6 +127,25 @@ export const PERSONAL_FIELDS: ReadonlySet<string> = new Set([
   'iban',
   'vat_number',
   'internal_notes',
+  // `slug` (bsides_artist_profiles, migration 003) : DÉRIVÉ DU NOM. Le Sprint 2
+  // le fabrique depuis le nom d'artiste (`slugifier('Salomé Rey')` →
+  // `'salome-rey'`), et `createProfile` le journalise déjà en clair —
+  // `after: { crm_status, slug }` (artist-profiles.ts:55) — dans
+  // `bsides_audit_log`, table qui n'accepte ni UPDATE ni DELETE. Après un
+  // `erasePerson`, qui met `artist_name` à NULL et réécrit le slug en
+  // `'erased-' || id`, le nom de la personne survivait donc pour toujours dans
+  // le journal, à l'endroit précis dont le §8 promet qu'il ne porte « aucune
+  // copie éternelle de la donnée ».
+  //
+  // Effet collatéral assumé : `bsides_works.slug` et `bsides_collections.slug`
+  // — non nominatifs, eux — seront masqués aussi, `maskPersonal` travaillant
+  // sur le NOM du champ sans connaître sa table. Le coût est nul : un diff
+  // d'audit porte déjà `object_type` et `object_id`, qui identifient la ligne
+  // sans ambiguïté ; le slug n'y ajoutait qu'une commodité de lecture. Faire
+  // dépendre le masquage de la table demanderait de passer `objectType` à
+  // `maskPersonal`, c'est-à-dire d'ouvrir une exception par table — le
+  // mécanisme exact qui laisse passer la table oubliée.
+  'slug',
   // `password_hash` (admin_users, migration 002) : colonne réelle et très
   // sensible, absente des deux listes jusqu'ici. `recordAudit` s'applique
   // génériquement à tout `objectType` (voir auth.ts, qui journalise déjà

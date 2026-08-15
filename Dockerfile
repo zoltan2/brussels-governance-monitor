@@ -42,6 +42,14 @@ ENV NEXT_PUBLIC_SITE_URL=https://governance.brussels
 # statically-generated page (cf. tech_nextjs_public_env_build_time_selfhost).
 ENV NEXT_PUBLIC_UMAMI_WEBSITE_ID=e42598c7-0c04-4c2f-b7c3-e1c5e0b2b6bc
 RUN npm run build
+# Runner de migrations B-Sides, bundlé en scripts autonomes : le runner final
+# n'a ni tsx ni devDependencies. esbuild est une devDependency épinglée
+# (package.json) installée par `npm ci` ci-dessus — npx ne va donc rien
+# chercher sur le réseau ici.
+RUN npx esbuild scripts/bsides/migrate.ts scripts/bsides/seed-admin.ts \
+      scripts/bsides/verify-admin.ts \
+      --bundle --platform=node --target=node22 --outdir=dist \
+      --external:node:*
 
 # ---- runner : image finale minimale, .next/standalone + assets explicites ----
 FROM node:22-slim AS runner
@@ -78,6 +86,13 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 #   src/assets/fonts -> sinon la route OG plante en ENOENT (readFile sur un
 #   chemin dynamique process.cwd()/src/assets/fonts non tracé par standalone).
 COPY --from=builder --chown=nextjs:nodejs /app/src/assets/fonts ./src/assets/fonts
+
+# Migrations B-Sides. Le tracing de Next ne suit que le JavaScript : sans ce
+# COPY, les .sql seraient absents de l'image et le runner ne trouverait rien.
+COPY --from=builder --chown=nextjs:nodejs /app/src/lib/bsides/migrations ./migrations
+COPY --from=builder --chown=nextjs:nodejs /app/dist/migrate.js ./migrate.js
+COPY --from=builder --chown=nextjs:nodejs /app/dist/seed-admin.js ./seed-admin.js
+COPY --from=builder --chown=nextjs:nodejs /app/dist/verify-admin.js ./verify-admin.js
 
 USER nextjs
 EXPOSE 3000

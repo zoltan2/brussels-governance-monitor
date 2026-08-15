@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
 import { getResend, EMAIL_FROM, addContact, getContact, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
+import { clientIp } from '@/lib/client-ip';
 import WelcomeEmail from '@/emails/welcome';
 
 const welcomeSubjects: Record<string, string> = {
@@ -16,7 +17,7 @@ const welcomeSubjects: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = clientIp(request.headers);
     const { allowed } = rateLimit(ip);
     if (!allowed) {
       return NextResponse.json({ error: 'too_many_requests' }, { status: 429 });

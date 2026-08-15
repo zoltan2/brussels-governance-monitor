@@ -14,6 +14,7 @@ import {
 } from '@/lib/resend';
 import { generateConfirmToken } from '@/lib/token';
 import { rateLimit } from '@/lib/rate-limit';
+import { clientIp } from '@/lib/client-ip';
 import { pushLog } from '@/lib/chat-logs';
 import ConfirmEmail from '@/emails/confirm';
 
@@ -38,8 +39,7 @@ function emailDigest(email: string): string {
 
 export async function POST(request: Request) {
   try {
-    const ip =
-      request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = clientIp(request.headers);
     const { allowed } = rateLimit(ip, { max: 5, bucket: 'chat-email-gate' });
     if (!allowed) {
       return NextResponse.json({ error: 'Too many requests' }, { status: 429 });

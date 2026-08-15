@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { rateLimit } from '@/lib/rate-limit';
 import { routing } from '@/i18n/routing';
+import { clientIp } from '@/lib/client-ip';
 
 export const runtime = 'nodejs';
 
@@ -16,8 +17,7 @@ const PRICE_IDS: Record<string, string | undefined> = {
 
 export async function POST(request: Request) {
   // Cap checkout-session creation per IP. Mirrors /api/chat/checkout.
-  const ip =
-    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const ip = clientIp(request.headers);
   const { allowed } = rateLimit(ip, { max: 5, bucket: 'donate-checkout' });
   if (!allowed) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 });

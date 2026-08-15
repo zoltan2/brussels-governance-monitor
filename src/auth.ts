@@ -4,6 +4,7 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
+import { clientIp } from '@/lib/client-ip';
 
 // Simple in-memory rate limiter for login attempts
 const loginAttempts = new Map<string, { count: number; resetAt: number }>();
@@ -29,7 +30,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, request) {
-        const ip = request?.headers?.get?.('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+        const ip = request?.headers ? clientIp(request.headers) : 'unknown';
         if (isRateLimited(ip)) return null;
 
         const adminEmail = process.env.ADMIN_EMAIL;

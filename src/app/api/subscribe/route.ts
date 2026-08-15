@@ -12,6 +12,7 @@ import {
 } from '@/lib/resend';
 import { generateConfirmToken } from '@/lib/token';
 import { rateLimit } from '@/lib/rate-limit';
+import { clientIp } from '@/lib/client-ip';
 import ConfirmEmail from '@/emails/confirm';
 
 const subscribeSchema = z.object({
@@ -24,7 +25,7 @@ const subscribeSchema = z.object({
 export async function POST(request: Request) {
   try {
     // Rate limiting
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = clientIp(request.headers);
     const { allowed, remaining } = rateLimit(ip);
     if (!allowed) {
       return NextResponse.json(

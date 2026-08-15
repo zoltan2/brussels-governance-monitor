@@ -28,6 +28,28 @@ describe('password', () => {
     expect(await verifyPassword('x', 'pas-un-hash', 'scrypt')).toBe(false);
   });
 
+  // Revue de branche du 2026-08-15, mineur #8 : `p` n'a pas de plafond
+  // mémoire (contrairement à `N`/`r`, contraints par `maxmem`) — un `p` élevé
+  // relu depuis la colonne coûte des dizaines de fois le temps nominal.
+  it('refuse un hash dont p dépasse la borne, sans jamais calculer le coût correspondant', async () => {
+    const salt = Buffer.alloc(16).toString('base64');
+    const derivee = Buffer.alloc(64).toString('base64');
+    const hashHostile = `scrypt$16384$8$999$${salt}$${derivee}`;
+    expect(await verifyPassword('peu importe', hashHostile, 'scrypt')).toBe(false);
+  });
+
+  it('refuse aussi N et r hors bornes (défense en profondeur, au-delà du seul maxmem de Node)', async () => {
+    const salt = Buffer.alloc(16).toString('base64');
+    const derivee = Buffer.alloc(64).toString('base64');
+    expect(await verifyPassword('x', `scrypt$99999999$8$1$${salt}$${derivee}`, 'scrypt')).toBe(false);
+    expect(await verifyPassword('x', `scrypt$16384$999$1$${salt}$${derivee}`, 'scrypt')).toBe(false);
+  });
+
+  it('accepte toujours les paramètres nominaux produits par hashPassword', async () => {
+    const h = await hashPassword('un mot de passe correct');
+    expect(await verifyPassword('un mot de passe correct', h, 'scrypt')).toBe(true);
+  });
+
   it('expose la longueur minimale exigée', () => {
     expect(MIN_PASSWORD_LENGTH).toBe(12);
   });

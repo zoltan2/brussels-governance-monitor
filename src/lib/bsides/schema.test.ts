@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
 import { describe, expect, it } from 'vitest';
 import { PERMISSIONS, can, ROLES, PERSONAL_FIELDS, OPERATIONS, type Operation } from './schema';
 

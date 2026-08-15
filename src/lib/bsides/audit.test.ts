@@ -21,8 +21,8 @@ function dbWithActor(): DatabaseSync {
 
 describe('maskPersonal', () => {
   it('remplace la valeur des champs personnels, garde le nom', () => {
-    expect(maskPersonal({ crm_status: 'qualified', email: 'x@y.z' })).toEqual({
-      crm_status: 'qualified',
+    expect(maskPersonal({ crm_status: 'SCORED', email: 'x@y.z' })).toEqual({
+      crm_status: 'SCORED',
       email: '[modifié]',
     });
   });
@@ -37,7 +37,7 @@ describe('recordAudit', () => {
       objectType: 'bsides_people',
       objectId: 'p1',
       before: { crm_status: 'contacted', email: 'avant@x.be' },
-      after: { crm_status: 'qualified', email: 'apres@x.be' },
+      after: { crm_status: 'SCORED', email: 'apres@x.be' },
     });
     const row = db.prepare('SELECT before, after FROM bsides_audit_log').get() as {
       before: string; after: string;

@@ -88,6 +88,12 @@ export const RESTRICTED_FIELDS: Record<string, readonly Role[]> = {
  * Le nom du champ est journalisé, sa valeur remplacée par un marqueur. */
 export const PERSONAL_FIELDS: ReadonlySet<string> = new Set([
   'email',
+  'first_name',
+  'last_name',
+  // `legal_name` n'existe plus en base depuis l'alignement sur le §6.1
+  // (first_name / last_name). Le nom reste dans l'ensemble : masquer un champ
+  // disparu ne coûte rien, l'oublier après une réintroduction coûterait une
+  // fuite dans le journal d'audit.
   'legal_name',
   'display_name',
   'phone',
@@ -102,17 +108,38 @@ export const PERSONAL_FIELDS: ReadonlySet<string> = new Set([
   'internal_notes',
 ]);
 
+/**
+ * Statuts CRM — spec §6.2, verbatim, MAJUSCULES comprises.
+ *
+ * Une version antérieure en avait inventé dix-neuf autres en minuscules
+ * (`discovered`, `researching`, `qualified`…). Le compte tombait juste, les
+ * valeurs non : c'est le genre d'écart qu'un résumé produit et qu'un test de
+ * cardinalité ne voit pas. La casse fait partie de la valeur.
+ */
 export const CRM_STATUSES = [
-  'discovered', 'researching', 'qualified', 'shortlisted', 'contacted',
-  'responded', 'meeting_scheduled', 'negotiating', 'agreed', 'onboarding',
-  'active', 'paused', 'declined', 'rejected', 'unreachable', 'withdrawn',
-  'alumni', 'blacklisted', 'archived',
+  'FOUND', 'REVIEW_PENDING', 'REVIEWED', 'SCORED', 'SHORTLISTED',
+  'CONTACT_READY', 'CONTACTED', 'FOLLOWUP_1', 'FOLLOWUP_2', 'RESPONDED',
+  'INTERESTED', 'MEETING', 'SELECTED', 'ONBOARDING', 'ACTIVE', 'AMBASSADOR',
+  'NOT_NOW', 'DECLINED', 'ARCHIVED',
 ] as const;
 export type CrmStatus = (typeof CRM_STATUSES)[number];
 
+/** Types d'œuvre — spec §6.5, verbatim. */
 export const WORK_TYPES = [
-  'PAINTING', 'DRAWING', 'PRINT', 'PHOTOGRAPH', 'SCULPTURE', 'INSTALLATION',
-  'TEXTILE', 'CERAMIC', 'MIXED_MEDIA', 'DIGITAL', 'VIDEO', 'SOUND', 'MUSIC',
-  'TEXT', 'PERFORMANCE',
+  'ILLUSTRATION', 'PAINTING', 'PHOTOGRAPHY', 'SCULPTURE', 'CERAMIC', 'PRINT',
+  'DIGITAL', 'MUSIC', 'SOUND', 'TEXT', 'PERFORMANCE', 'INSTALLATION',
+  'MIXED', 'OTHER',
 ] as const;
 export type WorkType = (typeof WORK_TYPES)[number];
+
+/** Natures de média — spec §6.6 (« image, audio preview, video, document or
+ * 360 asset »). Vaut pour les médias d'œuvre comme pour ceux de personne. */
+export const MEDIA_TYPES = [
+  'IMAGE', 'AUDIO_PREVIEW', 'VIDEO', 'DOCUMENT', 'ASSET_360',
+] as const;
+export type MediaType = (typeof MEDIA_TYPES)[number];
+
+/** Master conservé / variantes responsives — spec §35. Axe distinct de
+ * `MEDIA_TYPES` : une version antérieure les confondait dans un seul champ. */
+export const VARIANT_ROLES = ['master', 'variant'] as const;
+export type VariantRole = (typeof VARIANT_ROLES)[number];

@@ -39,6 +39,19 @@ describe('matrice de permissions', () => {
     expect(PERSONAL_FIELDS.has('crm_status')).toBe(false);
   });
 
+  it('couvre chaque colonne personnelle du §6.1, nom par nom', () => {
+    // L'état civil du §6.1 est first_name / last_name, pas un legal_name
+    // fusionné : un champ absent d'ici passerait en clair dans le journal
+    // d'audit.
+    for (const champ of [
+      'first_name', 'last_name', 'display_name', 'email', 'phone',
+      'country', 'city', 'address_line1', 'address_line2', 'postal_code',
+      'internal_notes',
+    ]) {
+      expect(PERSONAL_FIELDS.has(champ), `${champ} devrait être personnel`).toBe(true);
+    }
+  });
+
   it('refuse les opérations inconnues', () => {
     expect(can(['SUPER_ADMIN'], 'operation.inexistante' as Operation)).toBe(false);
   });

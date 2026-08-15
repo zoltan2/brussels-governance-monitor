@@ -10,18 +10,19 @@ import { RESTRICTED_FIELDS, type CrmStatus, type Role } from '../schema';
 /**
  * Colonnes servies à TOUS les rôles ayant `artists.read`.
  *
- * `pe.display_name` en fait partie : une liste d'artistes sans nom d'artiste
- * n'est pas une liste, et l'écran du Sprint 2 ne pourrait pas s'en servir. Le
- * nom d'usage est la donnée la moins sensible du dossier — c'est `legal_name`
- * et `internal_notes` qui sont protégés, pas le nom sous lequel un artiste
- * expose son travail.
+ * `pe.display_name` et `p.artist_name` en font partie : une liste d'artistes
+ * sans nom n'est pas une liste, et l'écran du Sprint 2 ne pourrait pas s'en
+ * servir. Le nom d'usage est la donnée la moins sensible du dossier — ce sont
+ * l'état civil (`first_name` / `last_name`) et `internal_notes` qui sont
+ * protégés, pas le nom sous lequel un artiste expose son travail.
  */
 const COLONNES_PUBLIQUES =
-  'p.id, p.slug, p.crm_status, p.created_at, p.updated_at, pe.display_name';
+  'p.id, p.slug, p.artist_name, p.crm_status, p.created_at, p.updated_at, pe.display_name';
 
 export interface ArtistProfileView {
   id: string;
   slug: string;
+  artist_name: string | null;
   crm_status: CrmStatus;
   created_at: number;
   updated_at: number;
@@ -31,16 +32,23 @@ export interface ArtistProfileView {
 
 export function createProfile(
   db: DatabaseSync,
-  input: { personId: string; slug: string; crmStatus: CrmStatus; actorUserId: string },
+  input: {
+    personId: string; slug: string; crmStatus: CrmStatus; actorUserId: string;
+    artistName?: string; internalNotes?: string;
+  },
 ): string {
   const id = randomUUID();
   const now = Math.floor(Date.now() / 1000);
   withTransaction(db, () => {
     db.prepare(
       `INSERT INTO bsides_artist_profiles
-         (id, person_id, slug, crm_status, created_at, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?)`,
-    ).run(id, input.personId, input.slug, input.crmStatus, now, now);
+         (id, person_id, artist_name, slug, crm_status, internal_notes,
+          created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).run(
+      id, input.personId, input.artistName ?? null, input.slug, input.crmStatus,
+      input.internalNotes ?? null, now, now,
+    );
     recordAudit(db, {
       actorUserId: input.actorUserId, action: 'artist.created',
       objectType: 'bsides_artist_profiles', objectId: id,
@@ -83,8 +91,10 @@ export function listForRole(db: DatabaseSync, roles: readonly Role[]): ArtistPro
   // effet de bord, sans que personne ne l'ait décidé.
   const voitLesNotes = roles.some((r) => RESTRICTED_FIELDS.internal_notes.includes(r));
 
+  // `p.internal_notes` : les notes internes vivent sur le PROFIL (spec §6.2),
+  // pas sur la personne — le §6.1 ne les y place pas.
   const sql = voitLesNotes
-    ? `SELECT ${COLONNES_PUBLIQUES}, pe.internal_notes
+    ? `SELECT ${COLONNES_PUBLIQUES}, p.internal_notes
          FROM bsides_artist_profiles p
          JOIN bsides_people pe ON pe.id = p.person_id
         ORDER BY p.created_at`

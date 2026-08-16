@@ -47,7 +47,14 @@ export async function requireRole(
   if (!db) throw new ModuleNotReadyError();
   // Contrôlé AVANT la session : sans les tables, `rolesOf` lèverait une erreur
   // SQL brute au lieu d'un refus lisible (R34).
-  if (!schemaState(db).ready) throw new ModuleNotReadyError();
+  //
+  // Barre HAUTE et volontairement distincte de celle de la connexion
+  // (`authorizeCredentials` dans `src/auth.ts`, qui s'appuie sur
+  // `identityReady`) : une Server Action B-Sides touche potentiellement
+  // n'importe quelle table du domaine, pas seulement l'identité. Voir le
+  // commentaire de `moduleReady` dans `schema-version.ts` pour le détail de
+  // cette distinction et le scénario qui l'a rendue nécessaire.
+  if (!schemaState(db).moduleReady) throw new ModuleNotReadyError();
 
   const session = await auth();
   const userId = session?.user?.id;

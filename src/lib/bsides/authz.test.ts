@@ -6,11 +6,26 @@ import type { Mock } from 'vitest';
 import type { Session } from 'next-auth';
 import type { DatabaseSync } from 'node:sqlite';
 import { join } from 'node:path';
+import { mkdtempSync, copyFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { createDb } from '@/lib/db';
 import { runMigrations } from './migrate';
 import { createUser } from './repositories/admin-users';
 
 const DIR = join(process.cwd(), 'src/lib/bsides/migrations');
+
+/** Base migrée jusqu'à la SEULE migration 002 (identité) : `identityReady`
+ * vrai, `moduleReady` faux — voir le même helper dans `src/auth.test.ts`
+ * pour la justification complète du procédé (copie des vrais fichiers 001 et
+ * 002, sans faux fichier ni constante modifiée). */
+function dbIdentitéSeule(): DatabaseSync {
+  const dossier = mkdtempSync(join(tmpdir(), 'bsides-authz-identity-only-'));
+  copyFileSync(join(DIR, '001_baseline.sql'), join(dossier, '001_baseline.sql'));
+  copyFileSync(join(DIR, '002_identity.sql'), join(dossier, '002_identity.sql'));
+  const db = createDb(':memory:');
+  runMigrations(db, dossier);
+  return db;
+}
 
 /** Base migrée, module B-Sides opérationnel. */
 function dbPrête(): DatabaseSync {
@@ -60,6 +75,23 @@ describe('requireRole', () => {
 
   it('refuse quand la base est en retard, sans parler de permissions', async () => {
     vi.mocked(getDb).mockReturnValue(dbVide());
+    authMock.mockResolvedValue({ user: { id: 'u1' } } as Session);
+    await expect(requireRole('artists.read')).rejects.toThrow(ModuleNotReadyError);
+  });
+
+  // Contre-épreuve du correctif Sprint 2 (revue de branche, 2026-08-15 bis) :
+  // `authorizeCredentials` (src/auth.ts) a été assoupli pour accepter une
+  // connexion dès que les tables d'identité existent (`identityReady`), même
+  // si le reste du module ne l'est pas. `requireRole()`, LUI, doit rester
+  // strict : il garde `moduleReady`, à dessein — une Server Action B-Sides
+  // peut toucher n'importe quelle table de domaine, pas seulement
+  // l'identité. Ce test échouerait si quelqu'un « harmonisait » par erreur
+  // les deux gardes sur `identityReady` : avec une base migrée jusqu'à la
+  // 002 seule (identité prête, domaine absent), les opérations B-Sides
+  // doivent rester refusées, avec l'erreur MODULE, pas une erreur de droits.
+  it("refuse toujours les opérations B-Sides quand l'identité est prête mais pas tout le module (barre haute intentionnelle)", async () => {
+    const db = dbIdentitéSeule();
+    vi.mocked(getDb).mockReturnValue(db);
     authMock.mockResolvedValue({ user: { id: 'u1' } } as Session);
     await expect(requireRole('artists.read')).rejects.toThrow(ModuleNotReadyError);
   });

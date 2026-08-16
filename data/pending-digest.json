@@ -2,8 +2,8 @@
   "week": "2026-w33",
   "weekStart": "2026-08-10",
   "created_at": "2026-08-16T19:00:00.307Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "4 domaines, 5 dossiers, 4 communes mis à jour",
     "nl": "4 domeinen, 5 dossiers, 4 gemeenten bijgewerkt",
@@ -46,5 +46,6 @@
     "commune-bruxelles-ville",
     "commune-saint-josse-ten-noode",
     "commune-schaerbeek"
-  ]
+  ],
+  "sent_at": "2026-08-16T19:23:36.153Z"
 }

@@ -1,28 +1,28 @@
 {
-  "week": "2026-w32",
-  "weekStart": "2026-08-03",
-  "created_at": "2026-08-09T19:00:28.614Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w33",
+  "weekStart": "2026-08-10",
+  "created_at": "2026-08-16T19:00:00.307Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "8 domaines, 5 dossiers, 1 secteur, 2 communes mis à jour",
-    "nl": "8 domeinen, 5 dossiers, 1 sector, 2 gemeenten bijgewerkt",
-    "en": "8 domains, 5 dossiers, 1 sector, 2 communes updated",
-    "de": "8 Bereiche, 5 Dossiers, 1 Sektor, 2 Gemeinden aktualisiert"
+    "fr": "4 domaines, 5 dossiers, 4 communes mis à jour",
+    "nl": "4 domeinen, 5 dossiers, 4 gemeenten bijgewerkt",
+    "en": "4 domains, 5 dossiers, 4 communes updated",
+    "de": "4 Bereiche, 5 Dossiers, 4 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "146",
+    "value": "352 200",
     "label": {
-      "fr": "éditions de la Foire du Midi",
-      "nl": "edities van de Zuidfoor",
-      "en": "editions of the Foire du Midi",
-      "de": "Ausgaben der Foire du Midi"
+      "fr": "Emploi salarié — résidents bruxellois (fin 2025)",
+      "nl": "Loontrekkende werkgelegenheid — Brusselse inwoners (eind 2025)",
+      "en": "Salaried employment — Brussels residents (end 2025)",
+      "de": "Lohnabhängige Beschäftigung — Brüsseler Einwohner (Ende 2025)"
     },
     "source": {
-      "fr": "18 juillet – 23 août 2026 · ~130 attractions",
-      "nl": "18 juli – 23 augustus 2026 · ~130 attracties",
-      "en": "18 July – 23 August 2026 · ~130 attractions",
-      "de": "18. Juli – 23. August 2026 · ~130 Attraktionen"
+      "fr": "IBSA / L'Avenir (18 juin 2026)",
+      "nl": "BISA / L'Avenir (18 juni 2026)",
+      "en": "IBSA / L'Avenir (18 June 2026)",
+      "de": "IBSA / L'Avenir (18. Juni 2026)"
     }
   },
   "closingNote": {
@@ -33,22 +33,18 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
-    "budget",
-    "climate",
-    "digital",
-    "economy",
-    "institutional",
+    "employment",
     "mobility",
     "security",
     "social",
     "dossier-cpas-bruxellois",
     "dossier-mobilite-partagee",
-    "dossier-plan-securite",
+    "dossier-slrb",
     "dossier-survol-bruxelles",
-    "dossier-vice-gouverneur",
-    "nonprofit",
-    "commune-schaerbeek",
-    "commune-uccle"
-  ],
-  "sent_at": "2026-08-09T20:13:33.718Z"
+    "dossier-vivaqua",
+    "commune-berchem-sainte-agathe",
+    "commune-bruxelles-ville",
+    "commune-saint-josse-ten-noode",
+    "commune-schaerbeek"
+  ]
 }

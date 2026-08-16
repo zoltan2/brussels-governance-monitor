@@ -11,7 +11,7 @@
 import type { DatabaseSync } from 'node:sqlite';
 
 /** Version attendue par le code présent. À incrémenter avec chaque migration. */
-export const EXPECTED_SCHEMA_VERSION = 3;
+export const EXPECTED_SCHEMA_VERSION = 4;
 
 export interface SchemaState {
   current: number;

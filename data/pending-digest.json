@@ -2,8 +2,8 @@
   "week": "2026-w34",
   "weekStart": "2026-08-17",
   "created_at": "2026-08-23T19:00:17.282Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "8 domaines, 1 dossier, 4 communes mis à jour",
     "nl": "8 domeinen, 1 dossier, 4 gemeenten bijgewerkt",
@@ -46,5 +46,6 @@
     "commune-bruxelles-ville",
     "commune-schaerbeek",
     "commune-uccle"
-  ]
+  ],
+  "sent_at": "2026-08-23T20:14:51.571Z"
 }

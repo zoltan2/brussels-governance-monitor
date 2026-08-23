@@ -1,28 +1,28 @@
 {
-  "week": "2026-w33",
-  "weekStart": "2026-08-10",
-  "created_at": "2026-08-16T19:00:00.307Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w34",
+  "weekStart": "2026-08-17",
+  "created_at": "2026-08-23T19:00:17.282Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "4 domaines, 5 dossiers, 4 communes mis à jour",
-    "nl": "4 domeinen, 5 dossiers, 4 gemeenten bijgewerkt",
-    "en": "4 domains, 5 dossiers, 4 communes updated",
-    "de": "4 Bereiche, 5 Dossiers, 4 Gemeinden aktualisiert"
+    "fr": "8 domaines, 1 dossier, 4 communes mis à jour",
+    "nl": "8 domeinen, 1 dossier, 4 gemeenten bijgewerkt",
+    "en": "8 domains, 1 dossier, 4 communes updated",
+    "de": "8 Bereiche, 1 Dossier, 4 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "352 200",
+    "value": "75",
     "label": {
-      "fr": "Emploi salarié — résidents bruxellois (fin 2025)",
-      "nl": "Loontrekkende werkgelegenheid — Brusselse inwoners (eind 2025)",
-      "en": "Salaried employment — Brussels residents (end 2025)",
-      "de": "Lohnabhängige Beschäftigung — Brüsseler Einwohner (Ende 2025)"
+      "fr": "Bonbonnes N₂O collectées (2025)",
+      "nl": "Ingezamelde N₂O-flessen (2025)",
+      "en": "N₂O cylinders collected (2025)",
+      "de": "Gesammelte N₂O-Flaschen (2025)"
     },
     "source": {
-      "fr": "IBSA / L'Avenir (18 juin 2026)",
-      "nl": "BISA / L'Avenir (18 juni 2026)",
-      "en": "IBSA / L'Avenir (18 June 2026)",
-      "de": "IBSA / L'Avenir (18. Juni 2026)"
+      "fr": "Bruxelles-Propreté (10 fév. 2026)",
+      "nl": "Net Brussel (10 feb. 2026)",
+      "en": "Bruxelles-Propreté (10 Feb 2026)",
+      "de": "Brüssel-Sauberkeit (10. Feb. 2026)"
     }
   },
   "closingNote": {
@@ -33,19 +33,18 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
-    "employment",
+    "cleanliness",
+    "economy",
+    "education",
+    "institutional",
     "mobility",
     "security",
     "social",
-    "dossier-cpas-bruxellois",
-    "dossier-mobilite-partagee",
-    "dossier-slrb",
+    "urban-planning",
     "dossier-survol-bruxelles",
-    "dossier-vivaqua",
-    "commune-berchem-sainte-agathe",
+    "commune-anderlecht",
     "commune-bruxelles-ville",
-    "commune-saint-josse-ten-noode",
-    "commune-schaerbeek"
-  ],
-  "sent_at": "2026-08-16T19:23:36.153Z"
+    "commune-schaerbeek",
+    "commune-uccle"
+  ]
 }

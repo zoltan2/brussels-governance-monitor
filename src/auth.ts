@@ -56,10 +56,15 @@ export async function authorizeAdmin(
   const debut = Date.now();
 
   /* LE LIMITEUR EXISTANT NE CHANGE PAS — sa fenêtre de quinze minutes est
-     correcte. Ce qui change, c'est l'IP qu'on lui donne : `clientIp` en amont
-     rend le comptage incontournable. Auparavant il comptait sur la PREMIÈRE
-     valeur de `x-forwarded-for`, celle que le client envoie : cinq tentatives
-     par quart d'heure devenaient illimitées en faisant tourner l'en-tête. */
+     correcte. Ce qui change, c'est l'IP qu'on lui donne.
+
+     DÉFENSE EN PROFONDEUR, ET NON FERMETURE D'UNE FAILLE VIVANTE. La lecture
+     précédente prenait la PREMIÈRE valeur de `x-forwarded-for`. Derrière notre
+     Caddy, qui réécrit l'en-tête avec `{client_ip}` — une valeur unique — la
+     première valait la dernière, et le comptage était déjà juste. Ce qui
+     change : `clientIp` reste correct le jour où cette configuration bougerait,
+     puisque le comportement par défaut de Caddy est d'AJOUTER au lieu de
+     remplacer, et qu'alors la première valeur serait celle du client. */
   if (isRateLimited(ip)) return rendreAprèsPlancher(null, debut);
 
   const adminEmail = process.env.ADMIN_EMAIL;

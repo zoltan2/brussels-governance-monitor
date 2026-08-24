@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
+import { clientIp } from '@/lib/client-ip';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -33,7 +34,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: CORS_HEADERS });
     }
 
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+    const ip = clientIp(request.headers);
     const { allowed } = rateLimit(ip, { bucket: 'intel-inbox' });
     if (!allowed) {
       return NextResponse.json({ error: 'Too many requests' }, { status: 429, headers: CORS_HEADERS });

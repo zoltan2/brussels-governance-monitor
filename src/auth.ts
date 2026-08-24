@@ -4,6 +4,7 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
+import { clientIp } from '@/lib/client-ip';
 
 // Simple in-memory rate limiter for login attempts
 const loginAttempts = new Map<string, { count: number; resetAt: number }>();
@@ -21,6 +22,64 @@ function isRateLimited(ip: string): boolean {
   return entry.count > MAX_ATTEMPTS;
 }
 
+export interface AdminConnecte {
+  id: string;
+  email: string;
+  name: string;
+}
+
+/** Durée plancher de toute tentative, succès comme échec. Choisie au-dessus du
+ *  pire chemin réel — un `bcrypt.compare` au coût 10 — pour qu'aucune branche ne
+ *  puisse être distinguée à la durée. */
+const PLANCHER_MS = 600;
+
+async function rendreAprèsPlancher<T>(valeur: T, depuis: number): Promise<T> {
+  const reste = PLANCHER_MS - (Date.now() - depuis);
+  if (reste > 0) await new Promise((r) => setTimeout(r, reste));
+  return valeur;
+}
+
+/**
+ * PAS DE LEURRE, PAS DE BRANCHE : on fait TOUJOURS le `bcrypt.compare`.
+ *
+ * La version précédente retournait avant toute vérification quand l'adresse ne
+ * correspondait pas. Un leurre au mauvais algorithme n'aurait rien corrigé — le
+ * hash de BGM est un bcrypt, dont le coût est inscrit dans le hash lui-même.
+ * Comparer contre le hash RÉEL, quelle que soit l'adresse, égalise les durées
+ * par construction et ne peut pas se désynchroniser d'un paramètre.
+ */
+export async function authorizeAdmin(
+  email: string | undefined,
+  password: string | undefined,
+  ip: string,
+): Promise<AdminConnecte | null> {
+  const debut = Date.now();
+
+  /* LE LIMITEUR EXISTANT NE CHANGE PAS — sa fenêtre de quinze minutes est
+     correcte. Ce qui change, c'est l'IP qu'on lui donne : `clientIp` en amont
+     rend le comptage incontournable. Auparavant il comptait sur la PREMIÈRE
+     valeur de `x-forwarded-for`, celle que le client envoie : cinq tentatives
+     par quart d'heure devenaient illimitées en faisant tourner l'en-tête. */
+  if (isRateLimited(ip)) return rendreAprèsPlancher(null, debut);
+
+  const adminEmail = process.env.ADMIN_EMAIL;
+  const adminHash = process.env.ADMIN_PASSWORD_HASH;
+  if (!adminEmail || !adminHash) {
+    console.error('[auth] ADMIN_EMAIL ou ADMIN_PASSWORD_HASH absente : connexion impossible');
+    return rendreAprèsPlancher(null, debut);
+  }
+
+  const emailOk = email === adminEmail;
+  const motDePasseOk = await bcrypt.compare(password ?? '', adminHash);
+
+  if (!emailOk || !motDePasseOk) {
+    console.warn(`[auth] échec de connexion depuis ${ip}`);
+    return rendreAprèsPlancher(null, debut);
+  }
+  console.info(`[auth] connexion réussie depuis ${ip}`);
+  return rendreAprèsPlancher({ id: '1', email: adminEmail, name: 'Admin' }, debut);
+}
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
@@ -29,22 +88,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, request) {
-        const ip = request?.headers?.get?.('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
-        if (isRateLimited(ip)) return null;
-
-        const adminEmail = process.env.ADMIN_EMAIL;
-        const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH;
-
-        if (!adminEmail || !adminPasswordHash) return null;
-        if (credentials?.email !== adminEmail) return null;
-
-        const isValid = await bcrypt.compare(
-          credentials.password as string,
-          adminPasswordHash,
+        return authorizeAdmin(
+          credentials?.email as string | undefined,
+          credentials?.password as string | undefined,
+          clientIp(request?.headers ?? new Headers()),
         );
-        if (!isValid) return null;
-
-        return { id: '1', email: adminEmail, name: 'Admin' };
       },
     }),
   ],

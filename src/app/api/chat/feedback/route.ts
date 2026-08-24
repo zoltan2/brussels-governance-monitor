@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import { pushLog } from '@/lib/chat-logs';
+import { clientIp } from '@/lib/client-ip';
 
 export const runtime = 'nodejs';
 
@@ -39,8 +40,7 @@ function sanitizeTag(value: string): string {
 
 export async function POST(request: Request) {
   try {
-    const ip =
-      request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = clientIp(request.headers);
     const { allowed } = rateLimit(ip);
     if (!allowed) {
       return NextResponse.json({ error: 'Too many requests' }, { status: 429 });

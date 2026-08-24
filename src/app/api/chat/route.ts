@@ -9,6 +9,7 @@ import { rateLimit } from '@/lib/rate-limit';
 import { buildSystemPrompt } from '@/lib/chat-system-prompt';
 import { pushLog } from '@/lib/chat-logs';
 import suggestedAnswersCache from '@/lib/chat-cache/suggested-answers.json';
+import { clientIp } from '@/lib/client-ip';
 
 export const runtime = 'nodejs';
 
@@ -31,20 +32,6 @@ type Tier = z.infer<typeof bodySchema>['tier'];
 // changes or prompt tweaks via `npm run chat:generate-suggested`.
 type SuggestedCache = Record<string, Record<string, Record<string, string>>>;
 const SUGGESTED_CACHE = suggestedAnswersCache as SuggestedCache;
-
-function extractIp(request: Request): string {
-  const xff = request.headers.get('x-forwarded-for');
-  if (xff) {
-    const first = xff.split(',')[0]?.trim();
-    if (first) return first;
-  }
-  const xri = request.headers.get('x-real-ip');
-  if (xri) {
-    const trimmed = xri.trim();
-    if (trimmed) return trimmed;
-  }
-  return 'unknown';
-}
 
 function sessionHash(ip: string): string {
   const secret = process.env.CHAT_SESSION_SECRET ?? 'fallback';
@@ -207,7 +194,7 @@ function lookupCachedAnswer(
 }
 
 export async function POST(request: Request) {
-  const ip = extractIp(request);
+  const ip = clientIp(request.headers);
   const { allowed } = rateLimit(ip, { max: 10, bucket: 'chat' });
   if (!allowed) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 });

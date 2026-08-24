@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
+import { clientIp } from '@/lib/client-ip';
 
 const preorderSchema = z.object({
   firstName: z.string().min(1).max(100),
@@ -79,8 +80,7 @@ Tu peux aussi soutenir BGM directement&nbsp;:<br>
 
 export async function POST(request: Request) {
   try {
-    const ip =
-      request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = clientIp(request.headers);
     const { allowed, remaining } = rateLimit(ip);
     if (!allowed) {
       return NextResponse.json(

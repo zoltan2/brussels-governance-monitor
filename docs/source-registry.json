@@ -276,14 +276,15 @@
       ],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Impact sur les communes, CPAS, finances communales",
+      "notes": "Impact sur les communes, CPAS, finances communales Challenge anti-bot JS depuis le 2026-07-26 : aucune route sans JavaScript (sitemap, robots, RSS servent la même page). Récupérée par navigateur piloté.",
       "tier": "editorial",
       "domaines": [
         "budget",
         "institutional",
         "social"
       ],
-      "document_trust_tier": "P0"
+      "document_trust_tier": "P0",
+      "fetchMode": "browser"
     },
     {
       "id": "watch-013",
@@ -6226,8 +6227,8 @@
       ],
       "frequency": "weekly",
       "enabled": true,
-      "fetchMode": "html",
-      "notes": "ASBL au service des 19 communes + 19 CPAS. Magazine Trait d'Union, guides, analyses juridiques. Source institutionnelle riche.",
+      "fetchMode": "browser",
+      "notes": "ASBL au service des 19 communes + 19 CPAS. Magazine Trait d'Union, guides, analyses juridiques. Source institutionnelle riche. Challenge anti-bot JS depuis le 2026-07-26 : aucune route sans JavaScript (sitemap, robots, RSS servent la même page). Récupérée par navigateur piloté.",
       "tier": "editorial",
       "domaines": [
         "institutional"

@@ -223,3 +223,41 @@ export async function mergeReviewPr(
     body: { merge_method: 'squash', sha: params.sha },
   });
 }
+
+export interface ReviewFile {
+  content: string;
+  /** Sha du blob, jeton de concurrence optimiste : s'il a bougé depuis le
+   *  chargement de la page, un régénérateur CLI ou un push direct est passé
+   *  entretemps et le lot doit être refusé plutôt qu'écraser. */
+  sha: string;
+}
+
+/** Lit un des cinq fichiers de la relecture sur `main`. */
+export async function readReviewFile(
+  ctx: GitHubContext,
+  path: string,
+): Promise<ReviewFile> {
+  if (!QUIZ_REVIEW_PATHS.includes(path)) {
+    throw new Error(`Chemin interdit pour ce module : ${path}`);
+  }
+  const data = await call<{ content: string; sha: string }>(
+    ctx,
+    `/contents/${path}?ref=main`,
+  );
+  return {
+    content: Buffer.from(data.content, 'base64').toString('utf-8'),
+    sha: data.sha,
+  };
+}
+
+/** Chemins touchés par une PR de relecture, pour la garde de liste blanche. */
+export async function reviewPrFiles(
+  ctx: GitHubContext,
+  number: number,
+): Promise<string[]> {
+  const files = await call<Array<{ filename: string }>>(
+    ctx,
+    `/pulls/${number}/files?per_page=100`,
+  );
+  return files.map((f) => f.filename);
+}

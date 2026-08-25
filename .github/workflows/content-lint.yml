@@ -140,3 +140,9 @@ jobs:
       # réponse sont affichés comme avertissements et demandent un arbitrage.
       - name: Lint des pools de quiz
         run: npm run quiz:lint
+
+      # `reviewedCount` décide seul de l'affichage de la mention de l'article
+      # 50, et rien ne le vérifiait : une valeur trop haute efface la mention
+      # sur des questions jamais relues.
+      - name: Compteurs de relecture conformes à l'état
+        run: npm run quiz:review:check

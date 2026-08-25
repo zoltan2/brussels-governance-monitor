@@ -1,6 +1,42 @@
 [
   {
     "date": "2026-08-22",
+    "type": "added",
+    "section": "comparisons",
+    "targetSlug": "cabinets-communaux",
+    "descriptions": {
+      "fr": "Nouvelle carte comparative sur les cabinets des collèges dans les dix-neuf communes, d'après le relevé officiel de Bruxelles Pouvoirs locaux arrêté au 25 septembre 2025. L'écart va de zéro poste à Auderghem à vingt-trois à Ixelles. Rapporté à la population, il va d'un poste pour 2 100 habitants à Saint-Josse-ten-Noode à un pour plus de 21 000 à Evere et à Uccle. Trois modèles se dégagent : aucun cabinet, le bourgmestre seul, ou un cadre réparti par échevin ou par liste.",
+      "nl": "Nieuwe vergelijkende fiche over de kabinetten van de colleges in de negentien gemeenten, op basis van het officiële overzicht van Brussel Plaatselijke Besturen afgesloten op 25 september 2025. De spreiding gaat van nul posten in Oudergem tot drieëntwintig in Elsene. Afgezet tegen de bevolking gaat ze van één post per 2 100 inwoners in Sint-Joost-ten-Node tot één per meer dan 21 000 in Evere en Ukkel. Drie modellen tekenen zich af: geen kabinet, alleen de burgemeester, of een kader verdeeld per schepen of per lijst.",
+      "en": "New comparison card on college cabinets across the nineteen communes, based on the official Brussels Local Authorities survey as at 25 September 2025. The range runs from zero posts in Auderghem to twenty-three in Ixelles. Set against population, it runs from one post per 2,100 inhabitants in Saint-Josse-ten-Noode to one per more than 21,000 in Evere and Uccle. Three models emerge: no cabinet, the mayor alone, or an establishment distributed per alderman or per list.",
+      "de": "Neue Vergleichskarte zu den Kabinetten der Kollegien in den neunzehn Gemeinden, auf Grundlage der offiziellen Erhebung von Brüssel Lokale Behörden zum 25. September 2025. Die Spanne reicht von null Stellen in Auderghem bis dreiundzwanzig in Ixelles. Auf die Bevölkerung bezogen reicht sie von einer Stelle je 2 100 Einwohner in Saint-Josse-ten-Noode bis zu einer je mehr als 21 000 in Evere und Uccle. Drei Modelle zeichnen sich ab: kein Kabinett, nur der Bürgermeister, oder ein je Schöffe oder je Liste verteilter Stellenplan."
+    }
+  },
+  {
+    "date": "2026-08-22",
+    "type": "updated",
+    "section": "communes",
+    "targetSlug": null,
+    "descriptions": {
+      "fr": "Les dix-neuf fiches communes reçoivent deux chiffres clés comparables : le cadre autorisé des cabinets du collège, et le nombre d'habitants par poste. La source est identique partout, le relevé de Bruxelles Pouvoirs locaux au 25 septembre 2025. Quatre totaux résultent d'une addition BGM des postes énumérés par la source, signalée comme telle. Bruxelles-Ville et Jette ne reçoivent pas de total : la première fonctionne au système de points, la seconde autorise une mutualisation dont le barème rend le total indéterminable.",
+      "nl": "De negentien gemeentefiches krijgen twee vergelijkbare kerncijfers: het toegestane kader van de kabinetten van het college, en het aantal inwoners per post. De bron is overal dezelfde, het overzicht van Brussel Plaatselijke Besturen op 25 september 2025. Vier totalen zijn het resultaat van een optelling door BGM van de door de bron opgesomde posten, als zodanig gesignaleerd. Stad Brussel en Jette krijgen geen totaal: de eerste werkt met een puntensysteem, de tweede laat een mutualisering toe waarvan de schaal het totaal onbepaalbaar maakt.",
+      "en": "The nineteen commune cards receive two comparable key figures: the authorised establishment of the college cabinets, and the number of inhabitants per post. The source is the same everywhere, the Brussels Local Authorities survey as at 25 September 2025. Four totals result from a BGM addition of the posts listed by the source, flagged as such. The City of Brussels and Jette receive no total: the first uses a points system, the second allows pooling whose scale makes the total indeterminable.",
+      "de": "Die neunzehn Gemeindekarten erhalten zwei vergleichbare Kennzahlen: den genehmigten Stellenplan der Kollegiumskabinette und die Zahl der Einwohner je Stelle. Die Quelle ist überall dieselbe, die Erhebung von Brüssel Lokale Behörden zum 25. September 2025. Vier Gesamtzahlen ergeben sich aus einer BGM-Addition der von der Quelle aufgeführten Stellen und sind als solche gekennzeichnet. Die Stadt Brüssel und Jette erhalten keine Gesamtzahl: die erste arbeitet mit einem Punktesystem, die zweite erlaubt eine Bündelung, deren Staffelung die Gesamtzahl unbestimmbar macht."
+    }
+  },
+  {
+    "date": "2026-08-22",
+    "type": "added",
+    "section": "glossary",
+    "targetSlug": "cabinet-communal",
+    "descriptions": {
+      "fr": "Nouvelle entrée de glossaire : le cabinet communal, équipe de collaborateurs mise à la disposition d'un bourgmestre ou d'un échevin en application de l'article 21bis de la Nouvelle loi communale. L'entrée explique la distinction entre cadre autorisé et effectif réellement en poste, et pourquoi un total de postes additionne des fonctions de niveaux très différents.",
+      "nl": "Nieuw glossariumitem: het gemeentelijk kabinet, ploeg medewerkers ter beschikking gesteld van een burgemeester of schepen in toepassing van artikel 21bis van de Nieuwe Gemeentewet. Het item legt het onderscheid uit tussen toegestaan kader en werkelijk ingevulde bezetting, en waarom een totaal aan posten functies van zeer uiteenlopende niveaus samentelt.",
+      "en": "New glossary entry: the municipal cabinet, a team of staff placed at the disposal of a mayor or alderman under article 21bis of the New Municipal Act. The entry explains the distinction between the authorised establishment and the staff actually in post, and why a total of posts adds up roles of very different levels.",
+      "de": "Neuer Glossareintrag: das gemeindliche Kabinett, ein Team von Mitarbeitenden, das einem Bürgermeister oder Schöffen nach Artikel 21bis des Neuen Gemeindegesetzes zur Verfügung gestellt wird. Der Eintrag erläutert die Unterscheidung zwischen genehmigtem Stellenplan und tatsächlich besetzten Stellen sowie warum eine Gesamtzahl von Stellen Funktionen sehr unterschiedlicher Ebenen addiert."
+    }
+  },
+  {
+    "date": "2026-08-22",
     "type": "updated",
     "section": "domains",
     "targetSlug": "mobility",

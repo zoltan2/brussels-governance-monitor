@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-06T00:00:00.000Z",
+  "updatedAt": "2026-08-25",
   "entries": {
     "fr:domain-budget-0": {
       "status": "approved",
@@ -15,18 +15,16 @@
       "note": "Relecture : banquier nommé (Belfius) et marché daté, la question ne dépend plus de la précédente."
     },
     "fr:domain-cleanliness-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8f3eb99baa76abaa6ee9d81ffaac204b",
-      "note": "Relecture : vote de l'ordonnance daté (13 mars 2026)."
+      "reviewedHash": "sha256:114770a3dbaa55250097f7ac77adbfed"
     },
     "fr:domain-cleanliness-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d81901201ecc60b06e9ce9dbc56185f7",
-      "note": "Relecture : création de la commission datée (23 janvier 2026)."
+      "reviewedHash": "sha256:ae025ecd6763db4bd1608e0ee3c5b02e"
     },
     "fr:domain-climate-0": {
       "status": "approved",
@@ -41,43 +39,40 @@
       "reviewedHash": "sha256:db55761cdb09ad37d814d80c2cfae8ab"
     },
     "fr:domain-digital-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d8c7cf98fba184e62f59c7dbda91cae8",
-      "note": "Relecture : arrêt identifié et daté (n° 126/2025, 25 septembre 2025)."
+      "reviewedHash": "sha256:34c4bec54a82d613ef332495b819efce"
     },
     "fr:domain-digital-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0af41f053041030b62b5ab4dad3b86cc"
+      "reviewedHash": "sha256:8de740b384b97d77bd66d95a20c45e4c"
     },
     "fr:domain-economy-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ba63462833b12a7c9df6d1e1bef5bc07",
-      "note": "Relecture : annonce datée (18 juillet 2026), verbe au passé."
+      "reviewedHash": "sha256:49fb47f1238be947ec9d7345552fba4c"
     },
     "fr:domain-economy-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2c11d7af20b64e902ba16c205ae5e384"
+      "reviewedHash": "sha256:adb74afcc31b8415dab25fd2c56cc177"
     },
     "fr:domain-education-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e75bd2c1aeab5305dcbefe7c8a758e0b"
+      "reviewedHash": "sha256:06feeba3d31ee888a0790c6a2960c0ae"
     },
     "fr:domain-education-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c61c496143f2482660e647f9420a6bf0",
-      "note": "Relecture : entrée en vigueur datée dans la question (inscriptions 2027-2028)."
+      "reviewedHash": "sha256:d4ed26a52c9efa79f5799deacae1381e"
     },
     "fr:domain-employment-0": {
       "status": "edited",
@@ -109,71 +104,63 @@
     },
     "fr:domain-institutional-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:630715b76416c59d462f78cb36c3f4af"
+      "reviewedHash": "sha256:bdb81a13557042ea9334c40d63867394"
     },
     "fr:domain-institutional-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d9ad0442795e1b341d5ba940c3363936",
-      "note": "Relecture : blocage situé dans le temps (juillet 2026)."
+      "reviewedHash": "sha256:7292c68263ead6b01e3bfc3b651a4d9f"
     },
     "fr:domain-mobility-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:404ec46e37bb937ace301a8ce4ad43c6",
-      "note": "Relecture : réforme LEZ datée (accord du 16 juillet 2026)."
+      "reviewedHash": "sha256:2747e1fc6bd962775bc7057cbf401848"
     },
     "fr:domain-mobility-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8de25ac1c421e10f6ea4e715d150d58b",
-      "note": "Relecture : même réforme datée, la question ne dépend plus de la précédente."
+      "reviewedHash": "sha256:a034e413b7d85f11c8b1ea2ee084dc0f"
     },
     "fr:domain-security-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:79a725ef85d0da77023e252bf9249315",
-      "note": "Relecture : annonce datée (10 juillet 2026), verbe au passé."
+      "reviewedHash": "sha256:ca525cc39f4f0d67f8ecbd86437c4e4f"
     },
     "fr:domain-security-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:4efd8592f7aa55458110f706735f0051",
-      "note": "Relecture : rapport annuel identifié et daté (publié le 22 décembre 2025)."
+      "reviewedHash": "sha256:64cc0468098f308bb564eedce0ef1442"
     },
     "fr:domain-social-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:78f8acd2b022111d3ce009938a73a39c"
+      "reviewedHash": "sha256:4d7fc014b466c473bd941b35973e901e"
     },
     "fr:domain-social-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c02948d9f5338d53f041b85221d62e43",
-      "note": "Relecture : enquête Iriscare nommée et datée, la question ne dépend plus de la précédente."
+      "reviewedHash": "sha256:e48d33fb1a21c19b0efaced7b27a5fe1"
     },
     "fr:domain-urban-planning-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:25cf55371126ffc4707e3221ec7ddcd4",
-      "note": "Relecture : mesure située à Bruxelles et datée (réforme du 9 juillet 2026)."
+      "reviewedHash": "sha256:cf2a7a3f704c28c4f62cde3498078940"
     },
     "fr:domain-urban-planning-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:df5a30944494ccff340d9aa2d7470b5b",
-      "note": "Relecture : instauration datée (9 juillet 2026)."
+      "reviewedHash": "sha256:d4da6e7daf0b1064c37a67474b7d9132"
     },
     "fr:dossier-accessibilite-pmr-0": {
       "status": "edited",
@@ -292,16 +279,15 @@
     },
     "fr:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:645c5372d0652f21e554db40f40200b4"
+      "reviewedHash": "sha256:7eca454fc2d24b6b46a4ca6483de9bc1"
     },
     "fr:dossier-mobilite-partagee-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:82ae755cf33e55aa5b891e4f09c0da8a",
-      "note": "Relecture : arrêt daté (Conseil d'État, 29 juillet 2026), la question ne dépend plus de la précédente."
+      "reviewedHash": "sha256:c3486b385eee68cf3a5e7599f78cb392"
     },
     "fr:dossier-petite-enfance-0": {
       "status": "edited",
@@ -371,11 +357,10 @@
       "note": "Relecture : gouvernement situé (bruxellois) et décision datée (janvier 2026)."
     },
     "fr:dossier-survol-bruxelles-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:a7239b535c533e00596678e82ba80217",
-      "note": "Relecture : aéroport nommé, la question parlait de pistes sans dire lesquelles."
+      "reviewedHash": "sha256:d3b160b498630d93ae5cf9e864006f7e"
     },
     "fr:dossier-vivaqua-0": {
       "status": "edited",
@@ -399,15 +384,15 @@
     },
     "nl:domain-cleanliness-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:867b00e649c183d3be170dfac3988d71"
+      "reviewedHash": "sha256:0a19eeece5093f3fc2cc0c5450375fd8"
     },
     "nl:domain-cleanliness-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8f35360d15a1ae21ad19250a81564ad3"
+      "reviewedHash": "sha256:186ffb4b54ecc554f7c039466857ab1e"
     },
     "nl:domain-climate-0": {
       "status": "approved",
@@ -423,40 +408,39 @@
     },
     "nl:domain-digital-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:dca301b20ea148704f57f376230703c4"
+      "reviewedHash": "sha256:f6b95eb92f7e3ce1eecc1f4f1c6ab54c"
     },
     "nl:domain-digital-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c2cfb90ef0c58cd02821e21431002f00",
-      "note": "Relecture NL : question reformulée, la construction « laat ... om ... te brengen » n'est pas grammaticale."
+      "reviewedHash": "sha256:bb060fb9dcc308ba6402b1d612e07d5a"
     },
     "nl:domain-economy-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5817650609cd8936842f9930bfad2567"
+      "reviewedHash": "sha256:c3c8bb545a73e4914a587219484a5cd0"
     },
     "nl:domain-economy-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b95c3e2945f7fdd9e5a22d33b2eba351"
+      "reviewedHash": "sha256:f8e4798342ecf853fb922f073d356e81"
     },
     "nl:domain-education-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f08fe29e427d1a57f6c950ed09d23ec2"
+      "reviewedHash": "sha256:1bea9452af170cd3e6e08afeae4a270e"
     },
     "nl:domain-education-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:55a7f3cdb9bbd4c990f7ce1a256807b1"
+      "reviewedHash": "sha256:97b43edf4b1802257488a1d1ea3320e1"
     },
     "nl:domain-employment-0": {
       "status": "approved",
@@ -485,66 +469,63 @@
     },
     "nl:domain-institutional-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d08ce5a95f8ad53d9cea04bf997791a5"
+      "reviewedHash": "sha256:6fbaacbcce9738d45df9abb5b7fe9a15"
     },
     "nl:domain-institutional-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:eae4f33af2adf7b4f6214d4694f6d496"
+      "reviewedHash": "sha256:f3693c9bf17386ff42ab35d5feaa172d"
     },
     "nl:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2db199f45ac26e13ba2e6cfa80b06501"
+      "reviewedHash": "sha256:8e04faf5010c70523eff642f598461c5"
     },
     "nl:domain-mobility-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:62143c5f7d03e1f6c0db3c1d96e94833"
+      "reviewedHash": "sha256:92923aa3d466c8793f95affb4a7348fa"
     },
     "nl:domain-security-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f1e5dce65c09097dc763f4d5532b0290"
+      "reviewedHash": "sha256:b5d3ba01e032a09799ec08e0cdf06353"
     },
     "nl:domain-security-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d84809183e34a55bcb24ae8138fa192b",
-      "note": "Relecture NL : « moorden » remplacé par « moord en doodslag », la statistique d'homicides couvre les deux."
+      "reviewedHash": "sha256:0623c3b3cb6a6f772760049d403f9d72"
     },
     "nl:domain-social-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9bef73379590ef7a30e720716b402c9b"
+      "reviewedHash": "sha256:56ac9151d7d30b81db544ab539ca799b"
     },
     "nl:domain-social-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f58886fb559048d7af00bd204cbd2203"
+      "reviewedHash": "sha256:7d320c6ee2a3311e744abd30216ea7cc"
     },
     "nl:domain-urban-planning-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:75431f3e65ac6927eeab119d3f58f5f8",
-      "note": "Relecture NL : syntaxe calquée du français reprise, « niet meer verplicht » et « de verhuurder zelf »."
+      "reviewedHash": "sha256:5c26450936503d38f36e06fc9f29c86a"
     },
     "nl:domain-urban-planning-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:af5af58cfdee4f68209aa6974e483b93",
-      "note": "Relecture NL : « Wat houdt X in dat ... » coupait le verbe séparable de sa relative ; gallicismes « geplafonneerd op » et « gefactureerd aan » retirés des options."
+      "reviewedHash": "sha256:c5ae692353f50248921044ca3559946d"
     },
     "nl:dossier-accessibilite-pmr-0": {
       "status": "edited",
@@ -655,18 +636,16 @@
       "reviewedHash": "sha256:a9c8b5fb9be81aca4ae33f503c225975"
     },
     "nl:dossier-mobilite-partagee-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c4701a110157d55e000dd8c007d049f2",
-      "note": "Relecture NL : « zonder voorwerp vallen » corrigé en « wordt », et « pour les opérateurs » restitué."
+      "reviewedHash": "sha256:e7ac44af745feb6543ba3a9e8d3bc306"
     },
     "nl:dossier-mobilite-partagee-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:07fe708c41f6cf7bc58e6658fcf70796",
-      "note": "Relecture NL : « in vrije vloot » est un calque, remplacé par « zonder vaste standplaats », qui s'oppose au « met vaste stations » de Villo."
+      "reviewedHash": "sha256:f8a06c1da4782f8d1f21dc09158c9368"
     },
     "nl:dossier-petite-enfance-0": {
       "status": "edited",
@@ -732,9 +711,9 @@
     },
     "nl:dossier-survol-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d8bb5b669e664545eef8e3afb293a252"
+      "reviewedHash": "sha256:fa765ea72f51399badffbd243351a16c"
     },
     "nl:dossier-vivaqua-0": {
       "status": "approved",
@@ -757,16 +736,15 @@
     },
     "en:domain-cleanliness-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:fa55ed1bfb27e275dcfef33cad7473da"
+      "reviewedHash": "sha256:eebeac6589862ad7556f55a050a511a0"
     },
     "en:domain-cleanliness-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:48e00b35454298f4221f1f177eeb3035",
-      "note": "Relecture EN : « public inquiry » désigne une commission d'enquête, pas une enquête publique ; et « the Pentagon » sans glose évoque le ministère américain."
+      "reviewedHash": "sha256:73e2f0267c65b002d92cd36a5d1c686d"
     },
     "en:domain-climate-0": {
       "status": "approved",
@@ -782,39 +760,39 @@
     },
     "en:domain-digital-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:1a0d62e44279cd4c18e50c0ce0e232b0"
+      "reviewedHash": "sha256:22d7ae2e2a5686d99567a99c27cde7cd"
     },
     "en:domain-digital-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:05d127ddd1cda275a9a9b7f178cb92eb"
+      "reviewedHash": "sha256:e170057f71058535c6c2fdc41dbcc97b"
     },
     "en:domain-economy-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b247cf33590fd13d131f7f91b2221bdf"
+      "reviewedHash": "sha256:47e96752e19d323e4c1a2e855f7464e2"
     },
     "en:domain-economy-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f17c0d1d644abc361fce852cce01ce59"
+      "reviewedHash": "sha256:9d376d76ea4fa1b80355f1214dfec081"
     },
     "en:domain-education-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5dcd7dd6b94b700f6033ea54ba682f20"
+      "reviewedHash": "sha256:efc6f90f39ad9a7fa2a3f73908109c25"
     },
     "en:domain-education-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e1ff30f8ce5ed4fdf816b30c6ce543d6"
+      "reviewedHash": "sha256:5308adb80904d63e7fd09288c16deb97"
     },
     "en:domain-employment-0": {
       "status": "approved",
@@ -843,65 +821,63 @@
     },
     "en:domain-institutional-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e94a6a1ba8cbb7a310a03a50c8249569"
+      "reviewedHash": "sha256:ec1411d753f4e6eb661ee1c258e6064c"
     },
     "en:domain-institutional-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:85ba3bd77384e178e445411024b00e0a"
+      "reviewedHash": "sha256:e06cba5385f3a3e773c9a8eaa6957342"
     },
     "en:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8bb198a6c0f6454af8b553012275c563"
+      "reviewedHash": "sha256:a6fc92c2eba9b85d7cadb8094b61b695"
     },
     "en:domain-mobility-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c95e16c6c3187cad4d4d21ea6a9a5c74",
-      "note": "Relecture EN : « increased allowance » corrigé en « increased healthcare reimbursement », aligné sur la glose du BIM déjà employée dans ce pool ; « dependents » corrigé en « dependants », orthographe britannique."
+      "reviewedHash": "sha256:ffd6b5cff4e3a71fa3b77c49d193a94d"
     },
     "en:domain-security-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:71c8a17635cbc4362c5d9557fde947d0"
+      "reviewedHash": "sha256:2c1aabcb3236c4e9efbd26098c10398d"
     },
     "en:domain-security-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2c22260b86d511125b69d6d4604e6589"
+      "reviewedHash": "sha256:512bbcf885ba26ee1508a109d8d3c523"
     },
     "en:domain-social-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e2e8dca67aa3cdfab2361ef7a8ad4e08"
+      "reviewedHash": "sha256:c655ded4c20da65a2a129584e0f2936a"
     },
     "en:domain-social-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d8c21b5aea49676f337042fd43e8f1e4"
+      "reviewedHash": "sha256:088fdbb6779e008e295d8612568eab46"
     },
     "en:domain-urban-planning-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:4458105d65c14ce6d2d83f8b6b28fbb0"
+      "reviewedHash": "sha256:b285f9dc5995ef14038e7a9d0f849b69"
     },
     "en:domain-urban-planning-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:1638696145989b0205d569674e10f19a",
-      "note": "Relecture EN : question reformulée, le verbe « involve » atterrissait en bout de chaîne."
+      "reviewedHash": "sha256:21407b2a3003d43ae27a83064ae1ca80"
     },
     "en:dossier-accessibilite-pmr-0": {
       "status": "approved",
@@ -1013,15 +989,15 @@
     },
     "en:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:dfdc60db2290c304491bf8755900a444"
+      "reviewedHash": "sha256:0c0cd10259aa88eacd5d517002635ef5"
     },
     "en:dossier-mobilite-partagee-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:15fc1045b6caacce8d94071f48096f49"
+      "reviewedHash": "sha256:4ef59773068e64de3193c7880fc66e81"
     },
     "en:dossier-petite-enfance-0": {
       "status": "approved",
@@ -1089,9 +1065,9 @@
     },
     "en:dossier-survol-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:cdc4ce7fe8c2caa400de011ce55a7379"
+      "reviewedHash": "sha256:87ba77064359df0fc8066777c0419794"
     },
     "en:dossier-vivaqua-0": {
       "status": "approved",
@@ -1113,15 +1089,15 @@
     },
     "de:domain-cleanliness-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:784bce4ab4dd5c3d949d077e418617d9"
+      "reviewedHash": "sha256:4c4f817ea2f5b5703159e9af67d24133"
     },
     "de:domain-cleanliness-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3386d48ca7093bb24e89f45342731877"
+      "reviewedHash": "sha256:bf6e1532553160746ab4f5cd3d7575fc"
     },
     "de:domain-climate-0": {
       "status": "approved",
@@ -1137,41 +1113,39 @@
     },
     "de:domain-digital-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5e98cf984975ad1b82516b3130a0f92c"
+      "reviewedHash": "sha256:f8d707e4382f87155dcb928b39cb7c51"
     },
     "de:domain-digital-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:dbca3249e71780cbd561a25d1da2279e",
-      "note": "Relecture DE : « lässt ... um ... zu » n'est pas grammatical, et « in Einklang bringen » restait sans complément. Même calque que celui corrigé en néerlandais sur cette même question."
+      "reviewedHash": "sha256:0313ffaf16e8ac9036af62464ae213ff"
     },
     "de:domain-economy-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c371b8328ccab881ec972ddd3dbd7109"
+      "reviewedHash": "sha256:5ac9651f88593fbac22489f3a39dccb0"
     },
     "de:domain-economy-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b007f8039d4bd6c8c596215fa29fa1e2"
+      "reviewedHash": "sha256:dc4984f220f22d638244b5ffe0f19e5e"
     },
     "de:domain-education-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:60100933c4d8f5098f193fa19590c71c"
+      "reviewedHash": "sha256:9219bc2f6fee4b517f97e27bbe549f76"
     },
     "de:domain-education-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:df47a896725a2ac41e4e7ad64a1e56d9",
-      "note": "Relecture DE : génitif « des Schulnetzes » remplacé par l'agent, le réseau organise l'épreuve, il ne la possède pas."
+      "reviewedHash": "sha256:749493bdc24cbf9e470ef50a614149b4"
     },
     "de:domain-employment-0": {
       "status": "approved",
@@ -1187,68 +1161,64 @@
       "note": "Relecture DE : « Was werden ... ? » remplacé par « Was wird aus ... ? », la tournure allemande."
     },
     "de:domain-institutional-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0c4e66622d2952e0bda8c2b221ab6c9f",
-      "note": "Relecture DE : « Die Zelle » reprend son nom, « die Zelle „Transparenz“ », comme dans la fiche allemande."
+      "reviewedHash": "sha256:6ae35277151fc9c24a6da9b78dab3a03"
     },
     "de:domain-institutional-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e24d54cdcdb2a8dccccd23dbfb2044c2"
+      "reviewedHash": "sha256:613f7481aeed08513eba5ac2fdd1cd45"
     },
     "de:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c5e429585bbb0558376106baca6433ea"
+      "reviewedHash": "sha256:f8423676c27481398eb8920ec87014fa"
     },
     "de:domain-mobility-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ee2fd9ab462ab491d5465146089800e4"
+      "reviewedHash": "sha256:a60db0752356515242c804cb70441872"
     },
     "de:domain-security-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:a6c61f5d56c9f552e3bc69d8fb505d40"
+      "reviewedHash": "sha256:5deead8cde59afd5f7e7452557ea84bc"
     },
     "de:domain-security-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6c686dbf0151d7b41ff41c03efd08e8e"
+      "reviewedHash": "sha256:2187d3a7d53a4f310a4d259806da551a"
     },
     "de:domain-social-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3e0b43b9dde0cb455b29fd829993cc20"
+      "reviewedHash": "sha256:60788a7e7a68d3c100e36f1c7e63e093"
     },
     "de:domain-social-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:cca78f089b25af30b296afbb2d4cbee1",
-      "note": "Relecture DE : « Einrichtung » désignait Iriscare et un établissement de soins dans la même question ; l'agence est nommée."
+      "reviewedHash": "sha256:589148fdb30906a45a02626b3981e227"
     },
     "de:domain-urban-planning-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6946f76a741907ca47048a50cf6d4d36",
-      "note": "Relecture DE : faux ami, un Syndikus est un juriste d'entreprise ; le syndic est le Hausverwalter."
+      "reviewedHash": "sha256:5b368717ebc52e56bb28f08000b7a57b"
     },
     "de:domain-urban-planning-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:01486c733dc9b38423f611b2f252ab56",
-      "note": "Relecture DE : faux ami, une Ehrenerklärung rétablit l'honneur ; et « gedeckelt » relève du registre parlé."
+      "reviewedHash": "sha256:613e7472227fc5938f74d9b2534ca3a2"
     },
     "de:dossier-accessibilite-pmr-0": {
       "status": "approved",
@@ -1345,15 +1315,15 @@
     },
     "de:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:4849c696861c970daeead34f0fe1e7da"
+      "reviewedHash": "sha256:e5e6d472fd1a13eea2d0c403bf2dd21e"
     },
     "de:dossier-mobilite-partagee-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ab8216dd6d60e08bbcaa75fc25449112"
+      "reviewedHash": "sha256:59822f4422870d002831bac1a526b5b3"
     },
     "de:dossier-petite-enfance-0": {
       "status": "approved",
@@ -1420,9 +1390,9 @@
     },
     "de:dossier-survol-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6e855d78361585d37a9d692ceada43a3"
+      "reviewedHash": "sha256:1e1413c5347867d22dcf11bb9186ad1e"
     },
     "de:dossier-vivaqua-0": {
       "status": "approved",
@@ -1458,9 +1428,9 @@
     },
     "fr:dossier-cpas-bruxellois-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f9e7a55d57d4ad20256e5ac2f187bb59"
+      "reviewedHash": "sha256:882366f9423dd120803a3ff451d854f3"
     },
     "fr:dossier-foire-du-midi-0": {
       "status": "approved",
@@ -1497,9 +1467,9 @@
     },
     "fr:dossier-vice-gouverneur-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:85b4707f0ca9df9ee9ee7cee70354589"
+      "reviewedHash": "sha256:2ff9e2a24bcf6b790e1a4aa34ffd2fdd"
     },
     "nl:dossier-activa-0": {
       "status": "edited",
@@ -1528,9 +1498,9 @@
     },
     "nl:dossier-cpas-bruxellois-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2a9d103f9e331663be85e1e8e378bbd9"
+      "reviewedHash": "sha256:9768b8bc6f2c6bef862b921c30256b98"
     },
     "nl:dossier-foyer-anderlechtois-0": {
       "status": "edited",
@@ -1559,9 +1529,9 @@
     },
     "nl:dossier-vice-gouverneur-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:a85cb1bfe9ad38c76f3079a4b8aff431"
+      "reviewedHash": "sha256:f454fe0add66f0733f6d972d9d605d3f"
     },
     "en:dossier-activa-0": {
       "status": "edited",
@@ -1591,11 +1561,10 @@
       "note": "Relecture EN : deux génitifs empilés, « Commissioner to Europe's office »."
     },
     "en:dossier-cpas-bruxellois-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:249c05ea14e48ed3ab92e60026d98804",
-      "note": "Relecture EN : « CPASs » ; le sigle reste invariable en anglais."
+      "reviewedHash": "sha256:a76221a24e0fbcfa52b72003afa833ea"
     },
     "en:dossier-foyer-anderlechtois-0": {
       "status": "approved",
@@ -1623,11 +1592,10 @@
       "note": "Relecture EN : « an aid » ; aid ne se compte pas ainsi en anglais."
     },
     "en:dossier-vice-gouverneur-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3d4abb077ad03374eafb9cf141c39f52",
-      "note": "Relecture EN : « CPASs » aligné sur le singulier invariable déjà adopté pour dossier-cpas-bruxellois-0."
+      "reviewedHash": "sha256:333ec22f1373fac8a6af685d7469b172"
     },
     "de:domain-housing-0": {
       "status": "approved",
@@ -1681,9 +1649,9 @@
     },
     "de:dossier-cpas-bruxellois-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:7d5c23489d95fb8b699d92ff452868eb"
+      "reviewedHash": "sha256:b724e9985100fab41af2363e55e0967a"
     },
     "de:dossier-foyer-anderlechtois-0": {
       "status": "edited",
@@ -1712,9 +1680,9 @@
     },
     "de:dossier-vice-gouverneur-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-25",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:30322e149a4df0dc16f9fe9b6208065b"
+      "reviewedHash": "sha256:ba6b59035379723abb32032ec545a0e8"
     }
   }
 }

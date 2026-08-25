@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Ende Juli 2026 schlossen die Parteien der Brüsseler Regionalmehrheit die Verteilung der Mandate in den Verwaltungsräten der regionalen Einrichtungen ab. Um wie viele Mandate ging es laut dem von La Libre eingesehenen Mandatskataster?",
+      "question": "Am 18. Juni 2026 hob der Verfassungsgerichtshof die Brüsseler Ordonnanz von 2024 auf, die es erlaubte, für Güter des UNESCO-Welterbes eine Öffnung für die Öffentlichkeit von bis zu fünfzehn Tagen im Jahr vorzuschreiben. Mit welcher Begründung?",
       "options": [
-        "Rund 280 Mandate",
-        "Rund 150 Mandate",
-        "Rund 60 Mandate",
-        "Rund 500 Mandate"
+        "Der Text schützt Eigentumsrecht und Privatsphäre nicht ausreichend",
+        "Die Region ist für das UNESCO-Welterbe nicht zuständig",
+        "Das angeführte Erbe-Ziel hat keinen rechtlichen Wert",
+        "Die Region konnte die Kosten der Öffnung nicht tragen"
       ],
       "correct": 0,
-      "explanation": "Die Zahl 150 kursierte nach dem Ministerrat vom 23. Juli 2026, der vierzehn Vorsitze vergab: sie deckte nur einen Teil der Bewegung ab. Keine amtliche Veröffentlichung erfasst diese Mandate bis heute.",
+      "explanation": "Die Legitimität des Erbe-Ziels erkennt der Gerichtshof durchaus an. Konkret bleibt das Palais Stoclet, ein privates Jugendstilhaus in Woluwe-Saint-Pierre, für die Öffentlichkeit geschlossen. Die Klage kam von der Gesellschaft der Erben der Familie Stoclet.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
         "sourceLastModified": "2026-08-22",
         "sourceContentHash": "sha256:f5471a90bb2e7afd827c1f03a869ec04",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "generatedAt": "2026-08-25T13:00:00.000Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 44
+  "reviewedCount": 67
 }

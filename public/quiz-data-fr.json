@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Fin juillet 2026, les partis de la majorité régionale bruxelloise ont bouclé la redistribution des mandats dans les conseils d'administration des institutions régionales. Combien de mandats étaient en jeu, selon le cadastre des mandats consulté par La Libre ?",
+      "question": "Le 18 juin 2026, la Cour constitutionnelle a annulé l'ordonnance bruxelloise de 2024 qui permettait d'imposer l'ouverture au public des biens classés au patrimoine mondial de l'UNESCO, jusqu'à quinze jours par an. Quel motif a-t-elle retenu ?",
       "options": [
-        "Quelque 280 mandats",
-        "Quelque 150 mandats",
-        "Quelque 60 mandats",
-        "Quelque 500 mandats"
+        "Le texte ne garantit pas assez le droit de propriété et la vie privée",
+        "La Région n'est pas compétente en matière de patrimoine mondial de l'UNESCO",
+        "L'objectif patrimonial invoqué est dépourvu de valeur juridique",
+        "Le coût de l'ouverture ne pouvait pas être supporté par la Région"
       ],
       "correct": 0,
-      "explanation": "Le chiffre de 150 avait circulé après le conseil des ministres du 23 juillet 2026, qui avait attribué quatorze présidences : il ne couvrait qu'une partie du mouvement. Aucune publication officielle ne recense ces mandats à ce jour.",
+      "explanation": "La Cour reconnaît pourtant la légitimité de l'objectif patrimonial. Concrètement, le Palais Stoclet, demeure Art nouveau privée de Woluwe-Saint-Pierre, reste fermé au public. Le recours émanait de la société des ayants droit de la famille Stoclet.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
         "sourceLastModified": "2026-08-22",
         "sourceContentHash": "sha256:9286cf72dbf72563da3a2dd4f5040b80",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "generatedAt": "2026-08-25T13:00:00.000Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1569,5 +1569,5 @@
       }
     }
   ],
-  "reviewedCount": 45
+  "reviewedCount": 68
 }

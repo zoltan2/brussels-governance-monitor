@@ -251,9 +251,19 @@ export interface ReviewState {
   entries: Record<string, ReviewEntry>
 }
 
-/** Hash du texte visible d'une question : ce qu'un relecteur a réellement lu. */
+/**
+ * Hash du texte visible d'une question : ce qu'un relecteur a réellement lu.
+ *
+ * Le séparateur est un octet NUL, écrit en séquence d'échappement et non en
+ * caractère brut : jusqu'au 2026-08-25 il traînait ici sous forme d'octet nu,
+ * ce qui rendait le fichier binaire aux yeux de grep et le séparateur
+ * indiscernable d'une espace à l'œil. Le remplacer par une espace ne lève
+ * aucune erreur : `isReviewed` renvoie simplement `false` partout et les 269
+ * relectures enregistrées disparaissent en silence. Verrouillé par
+ * `scripts/__tests__/quiz-provenance.test.ts`.
+ */
 export function hashQuestion(q: QuizQuestion): string {
-  const payload = [q.question, ...q.options, q.explanation].join(' ')
+  const payload = [q.question, ...q.options, q.explanation].join('\u0000')
   return 'sha256:' + crypto.createHash('sha256').update(payload, 'utf-8').digest('hex').slice(0, 32)
 }
 

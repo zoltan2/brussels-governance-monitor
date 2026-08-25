@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Eind juli 2026 rondden de partijen van de Brusselse gewestelijke meerderheid de verdeling van de mandaten in de raden van bestuur van de gewestelijke instellingen af. Over hoeveel mandaten ging het, volgens het mandatenkadaster dat La Libre inkeek?",
+      "question": "Op 18 juni 2026 vernietigde het Grondwettelijk Hof de Brusselse ordonnantie van 2024 die toeliet om voor goederen van het UNESCO-werelderfgoed een openstelling voor het publiek op te leggen, tot vijftien dagen per jaar. Welke reden gaf het Hof?",
       "options": [
-        "Ongeveer 280 mandaten",
-        "Ongeveer 150 mandaten",
-        "Ongeveer 60 mandaten",
-        "Ongeveer 500 mandaten"
+        "De tekst waarborgt het eigendomsrecht en de privacy onvoldoende",
+        "Het Gewest is niet bevoegd voor het werelderfgoed van UNESCO",
+        "De ingeroepen erfgoeddoelstelling heeft geen juridische waarde",
+        "Het Gewest kon de kosten van de openstelling niet dragen"
       ],
       "correct": 0,
-      "explanation": "Het cijfer van 150 circuleerde na de ministerraad van 23 juli 2026, die veertien voorzitterschappen toewees: het dekte slechts een deel van de beweging. Geen enkele officiële publicatie inventariseert deze mandaten tot op heden.",
+      "explanation": "Het Hof erkent de legitimiteit van de erfgoeddoelstelling wel degelijk. Concreet blijft het Stocletpaleis, een private art-nouveauwoning in Sint-Pieters-Woluwe, gesloten voor het publiek. Het beroep kwam van de vennootschap van de rechthebbenden van de familie Stoclet.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
         "sourceLastModified": "2026-08-22",
         "sourceContentHash": "sha256:6c6df83ec794d19a5089537b818793cc",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "generatedAt": "2026-08-25T13:00:00.000Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 44
+  "reviewedCount": 67
 }

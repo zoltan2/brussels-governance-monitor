@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutional",
-      "question": "In late July 2026, the parties of the Brussels regional majority completed the share-out of board seats in the regional institutions. How many seats were at stake, according to the register of offices consulted by La Libre?",
+      "question": "On 18 June 2026 the Constitutional Court annulled the 2024 Brussels ordinance that allowed the government to require UNESCO world heritage properties to open to the public for up to fifteen days a year. On what ground?",
       "options": [
-        "Some 280 seats",
-        "Some 150 seats",
-        "Some 60 seats",
-        "Some 500 seats"
+        "The text does not sufficiently protect property rights and privacy",
+        "The Region has no competence over UNESCO world heritage",
+        "The heritage objective invoked carries no legal weight",
+        "The Region could not bear the cost of the opening"
       ],
       "correct": 0,
-      "explanation": "The figure of 150 circulated after the cabinet meeting of 23 July 2026, which allocated fourteen chairs: it covered only part of the movement. No official publication lists these seats to date.",
+      "explanation": "The Court did accept that the heritage objective was legitimate. In practice the Palais Stoclet, a private Art Nouveau house in Woluwe-Saint-Pierre, stays closed to the public. The appeal came from the company of the Stoclet family's heirs.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
         "sourceLastModified": "2026-08-22",
         "sourceContentHash": "sha256:05c49176efd73a06feece4b76490b5ff",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "generatedAt": "2026-08-25T13:00:00.000Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 44
+  "reviewedCount": 67
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T09:22:22.115Z",
+  "generatedAt": "2026-08-25T09:23:25.928Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Quelle particularité institutionnelle caractérise les CPAS bruxellois ?",
+      "question": "Selon les chiffres du SPP Intégration sociale pour le premier semestre 2026, quelle part des demandes de revenu d'intégration introduites par des personnes exclues du chômage a été refusée ?",
       "options": [
-        "Ils dépendent du fédéral, de la Cocom et des communes à la fois",
-        "Ils dépendent uniquement de la Région de Bruxelles-Capitale",
-        "Ils sont regroupés en une seule structure régionale unique",
-        "Ils sont financés à parts égales par les dix-neuf communes"
+        "17 %",
+        "34 %",
+        "53 %",
+        "8 %"
       ],
       "correct": 0,
-      "explanation": "Le fédéral définit le cadre et finance l'essentiel de l'aide individuelle, la Cocom exerce la tutelle organique, la Région et les communes complètent. Quand le fédéral retire une subvention, c'est la commune qui paie.",
+      "explanation": "Soit environ 9 000 refus sur 52 600 demandes, le motif principal étant des revenus du ménage jugés trop élevés. Le taux de recours, de 43,9 % à Bruxelles, surestime donc la couverture réelle des personnes en fin de droits.",
       "sourceSlug": "/fr/dossiers/cpas-bruxellois",
       "sourceTitle": "CPAS bruxellois",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:d5e1a87a40bb4beac88f1388b242533c",
-        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:c4f03963c6c1c273d9e9ef69f8b24790",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel effet l'arrêt du Conseil d'État de juillet 2026, annulant les licences de mobilité partagée à Bruxelles, produit-il sur l'interdiction des trottinettes partagées ?",
+      "question": "Déposée le 18 juin 2026 sur democratie.brussels, la pétition pour garder les trottinettes partagées à Bruxelles a franchi le seuil qui oblige le Parlement bruxellois à s'en saisir. Quel est ce seuil ?",
       "options": [
-        "Il l'avance de quatre mois, par voie judiciaire",
-        "Il la reporte de quatre mois, par voie judiciaire",
-        "Il l'annule, la rendant sans objet pour les opérateurs",
-        "Il la maintient telle quelle, sans modifier le calendrier"
+        "1 000 signatures",
+        "500 signatures",
+        "5 000 signatures",
+        "15 000 signatures"
       ],
       "correct": 0,
-      "explanation": "L'interdiction fixée au 1er janvier 2027 n'est pas remise en cause, mais les engins doivent quitter l'espace public au 1er septembre 2026. Le recours émanait de Lime, opérateur écarté lors de l'attribution des licences.",
+      "explanation": "Elle comptait 1 595 signatures au 12 août 2026, ce qui en faisait l'initiative la plus signée de la plateforme. Franchir le seuil garantit un débat, mais n'oblige pas la majorité à changer de position et ne suspend pas l'interdiction prévue au 1er janvier 2027.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:07fc02e62063e6b0b0b1921083a12c94",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:800d8f8d7acee68673e3a68cccc6f1f8",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1181,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quelle offre l'annulation des licences de mobilité partagée à Bruxelles, prononcée par le Conseil d'État le 29 juillet 2026, supprime-t-elle alors que le gouvernement souhaitait la maintenir ?",
+      "question": "L'arrêt du Conseil d'État du 29 juillet 2026 a annulé les licences de mobilité partagée attribuées à Bruxelles en 2023. Qui avait introduit le recours à l'origine de cette annulation ?",
       "options": [
-        "Les vélos partagés en flotte libre",
-        "Les trottinettes partagées en flotte libre",
-        "Les vélos à ancrage fixe de la concession Villo",
-        "Les scooters partagés à assistance électrique"
+        "Lime, l'opérateur écarté lors de l'attribution de 2023",
+        "Bolt, l'un des deux opérateurs retenus en 2023",
+        "La fédération des associations cyclistes bruxelloises",
+        "La commune de Schaerbeek, au nom des riverains"
       ],
       "correct": 0,
-      "explanation": "La concession Villo, à ancrage fixe, n'est pas concernée par l'arrêt. Les autorités travaillent à un nouveau cadre réglementaire pour les vélos partagés.",
+      "explanation": "Le requérant victorieux pourrait devenir bénéficiaire du régime transitoire en préparation, aux côtés des opérateurs déjà en place. L'interdiction des trottinettes partagées en flotte libre reste fixée au 1er janvier 2027.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:07fc02e62063e6b0b0b1921083a12c94",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:800d8f8d7acee68673e3a68cccc6f1f8",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Pourquoi les décollages de Brussels Airport (Zaventem) surviennent-ils majoritairement au-dessus de Bruxelles ?",
+      "question": "Le 11 août 2026, quarante-deux familles de Dilbeek, Lennik et Roosdaal ont assigné l'État belge à propos de la route aérienne RNP 07L de Brussels Airport. Quelle est la particularité de cette route ?",
       "options": [
-        "Les vents dominants de sud-ouest imposent la piste 25R",
-        "Les vents dominants du nord imposent la piste 01 vers l'est",
-        "La longueur des pistes interdit tout décollage vers l'est",
-        "Un accord entre régions fixe cette répartition depuis 1995"
+        "Elle fait débuter la descente vers la piste 07L très à l'ouest de l'aéroport",
+        "Elle concentre les décollages vers le sud-est, au-dessus de la forêt de Soignes",
+        "Elle réserve la piste 07L aux vols de nuit, entre minuit et six heures du matin",
+        "Elle détourne les avions cargo au-dessus du canal et du port de Bruxelles"
       ],
       "correct": 0,
-      "explanation": "Ces vents soufflent 70 % du temps, ce qui envoie les décollages au-dessus de quartiers densément peuplés. Le Conseil supérieur de la santé estime le coût sanitaire à plus d'un milliard d'euros par an.",
+      "explanation": "Guidée par satellite, elle fait ensuite survoler le nord-ouest de la Région, dont Molenbeek-Saint-Jean, Koekelberg et Berchem-Sainte-Agathe. Mise en place comme test en 2025, elle a été prolongée jusqu'en octobre 2026.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:6a8b5f83f00dc738cde78709efa4e7fa",
-        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "sourceLastModified": "2026-08-23",
+        "sourceContentHash": "sha256:0d3401bc55ef2edc97b84ce0a1b1a80d",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1526,21 +1526,21 @@
       "id": "dossier-vice-gouverneur-0",
       "source": "dossier",
       "domain": "Institutionnel",
-      "question": "Quelle mission le vice-gouverneur de Bruxelles exerce-t-il ?",
+      "question": "Bruxelles dispose d'un vice-gouverneur, mais d'aucun gouverneur. Qu'est devenue la fonction de gouverneur ?",
       "options": [
-        "Veiller au respect des lois sur l'emploi des langues",
-        "Coordonner la planification d'urgence de l'arrondissement",
-        "Exercer la tutelle sur les budgets des dix-neuf communes",
-        "Présider la conférence des bourgmestres bruxellois"
+        "Elle a été supprimée par la sixième réforme de l'État, en 2014",
+        "Elle a été fusionnée avec celle de ministre-président en 1995",
+        "Elle est restée vacante depuis la scission de la province de Brabant",
+        "Elle a été transférée au bourgmestre de la Ville de Bruxelles en 2001"
       ],
       "correct": 0,
-      "explanation": "Bruxelles n'a plus de gouverneur depuis la sixième réforme de l'État, ses missions de sécurité étant exercées par un haut fonctionnaire. Le contrôle linguistique porte sur les dix-neuf communes et les dix-neuf CPAS.",
+      "explanation": "Ses missions de sécurité, de planification d'urgence et de gestion de crise sont exercées depuis lors par un haut fonctionnaire. Le vice-gouverneur, lui, veille au respect des lois linguistiques dans les 19 communes et les 19 CPAS de l'arrondissement.",
       "sourceSlug": "/fr/dossiers/vice-gouverneur",
       "sourceTitle": "Vice-gouverneur",
       "provenance": {
-        "sourceLastModified": "2026-06-15",
-        "sourceContentHash": "sha256:c240c692844cc338798f54d8762489c4",
-        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:21ccaf42204d4cc122e4ccb1c585b959",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

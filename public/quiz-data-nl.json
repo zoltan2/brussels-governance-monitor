@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T21:07:20.410Z",
+  "generatedAt": "2026-08-25T09:26:26.715Z",
   "locale": "nl",
   "poolSize": 67,
   "questionsPerSession": 10,
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Hoe wordt de opbrengst van de uitgebreide producentenverantwoordelijkheid voor kunststof voor eenmalig gebruik, op 13 maart 2026 goedgekeurd door het Brussels Parlement, verdeeld tussen het Gewest en de gemeenten?",
+      "question": "Het Stationsplan, op 18 juni 2026 goedgekeurd voor de netheid rond het Noord- en het Zuidstation, beschikt over welk jaarbudget?",
       "options": [
-        "54 % voor de gemeenten, 46 % voor het Gewest",
-        "46 % voor de gemeenten, 54 % voor het Gewest",
-        "70 % voor de gemeenten, 30 % voor het Gewest",
-        "50 % voor de gemeenten, 50 % voor het Gewest"
+        "Tien miljoen euro per jaar",
+        "Twee miljoen euro per jaar",
+        "Vijfentwintig miljoen euro per jaar",
+        "Vijftig miljoen euro per jaar"
       ],
       "correct": 0,
-      "explanation": "De ordonnantie zet het interregionale akkoord over kunststof voor eenmalig gebruik om. De producenten storten 51,4 miljoen euro per jaar aan het Gewest, waarvan 26,7 miljoen al in 2026.",
+      "explanation": "Twee proefoperaties gingen de uitrol vooraf: het Zuidstation op 16 juli 2026 en het Noordstation op 21 augustus 2026. Ze moeten het verschil becijferen tussen een uitzonderlijke schoonmaakactie en doorlopend onderhoud.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:99c82a2ba05f9cc4a2c58749a97ca9fa",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:1e7184520f7752983d339f1568539322",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Welk participatief instrument heeft het Brussels Parlement op 23 januari 2026 opgericht rond de netheid van de openbare ruimte?",
+      "question": "Welk aandeel van de mensen die in 2025 door de Stad Brussel werden beboet voor sluikstorten, woonde niet in de gemeente?",
       "options": [
-        "Een deliberatieve commissie met burgers en parlementsleden",
-        "Een gewestelijk referendum in de negentien gemeenten",
-        "Een adviesraad samengesteld uit gemeentelijke vertegenwoordigers",
-        "Een openbaar onderzoek opengesteld voor de inwoners van de Vijfhoek"
+        "36,7 %",
+        "12,4 %",
+        "58,2 %",
+        "21,9 %"
       ],
       "correct": 0,
-      "explanation": "Vijfenveertig gelote burgers en vijftien parlementsleden formuleren er aanbevelingen. Het is de eerste deliberatieve commissie van de legislatuur.",
+      "explanation": "Dat zijn 2 837 overtreders op 7 731 boetes, een fenomeen dat afvaltoerisme wordt genoemd. Een vuilniszak kost in Brussel ongeveer tien keer minder dan in de randgemeenten.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:99c82a2ba05f9cc4a2c58749a97ca9fa",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:1e7184520f7752983d339f1568539322",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -146,21 +146,21 @@
       "id": "domain-digital-0",
       "source": "domain",
       "domain": "Digitaal",
-      "question": "Wat verduidelijkt het Grondwettelijk Hof in zijn arrest nr. 126/2025 van 25 september 2025 over de ordonnantie Brussel Digitaal?",
+      "question": "Volgens de cijfers die het BISA, het Brussels Instituut voor Statistiek en Analyse, op 4 augustus 2026 publiceerde, welk aandeel van de Brusselse ondernemingen met meer dan 250 werknemers gebruikte in 2025 minstens één technologie voor kunstmatige intelligentie?",
       "options": [
-        "Het loket, de telefoon en de post blijven alle drie verplicht",
-        "De besturen mogen er slechts één van de drie behouden",
-        "De fysieke loketten mogen sluiten na een overgangsperiode",
-        "De ordonnantie wordt in al haar artikelen vernietigd"
+        "Zeventig procent",
+        "Vijfentwintig procent",
+        "Veertig procent",
+        "Negentig procent"
       ],
       "correct": 0,
-      "explanation": "Het annulatieberoep werd verworpen, maar een argument van onevenredige last kan niet worden ingeroepen om een van deze drie offlinekanalen af te schaffen.",
+      "explanation": "Tegenover vijfentwintig procent bij de ondernemingen met 2 tot 9 werknemers, die het Brusselse weefsel domineren. Het Gewest ligt boven het Europese gemiddelde van 19,95 % maar onder het Belgische, dat rond een derde schommelt.",
       "sourceSlug": "/nl/domeinen/digital",
       "sourceTitle": "Digitaal: digitale kloof en administratieve vereenvoudiging",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:702f2e02fcf7045e1db096a58e34a628",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:00b5c052bdd0d74e239b2d82e13d6925",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -169,21 +169,21 @@
       "id": "domain-digital-1",
       "source": "domain",
       "domain": "Digitaal",
-      "question": "Binnen welke termijn moeten bestaande administratieve procedures in overeenstemming worden gebracht met de ordonnantie Brussel Digitaal?",
+      "question": "Wat betekent het only once-beginsel inzake administratieve vereenvoudiging in de Brusselse gewestelijke beleidsverklaring van 13 februari 2026?",
       "options": [
-        "60 maanden",
-        "6 maanden",
-        "12 maanden",
-        "24 maanden"
+        "Gegevens die de administratie al heeft, niet opnieuw aan de burger vragen",
+        "Elke administratieve stap beperken tot één enkel papieren formulier",
+        "Per gezin en per kalenderjaar slechts één premieaanvraag toestaan",
+        "Een officieel document slechts eenmaal afleveren, zonder duplicaat"
       ],
       "correct": 0,
-      "explanation": "Nieuwe administratieve procedures krijgen 6 maanden, tegenover 60 maanden voor het in overeenstemming brengen van reeds bestaande procedures.",
+      "explanation": "Het beginsel wordt gedragen door het uniek loket Easy Brussels en door het platform IRISbox voor onlineaanvragen. Het vult het luik digitale inclusie van de verklaring aan, gericht op wie ver van het digitale staat.",
       "sourceSlug": "/nl/domeinen/digital",
       "sourceTitle": "Digitaal: digitale kloof en administratieve vereenvoudiging",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:702f2e02fcf7045e1db096a58e34a628",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:00b5c052bdd0d74e239b2d82e13d6925",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Economie",
-      "question": "Naar welke gemeente kondigde Orange Belgique op 18 juli 2026 aan de hoofdzetel te verplaatsen die het in Evere betrekt?",
+      "question": "Welk aandeel van de Brusselse zelfstandigen was in 2025 tussen 18 en 29 jaar oud, volgens het Rijksinstituut voor de Sociale Verzekeringen der Zelfstandigen?",
       "options": [
-        "Diegem, in Vlaams-Brabant",
-        "Zaventem, in Vlaams-Brabant",
-        "Machelen, in Vlaams-Brabant",
-        "Vilvoorde, in Vlaams-Brabant"
+        "14,5 %",
+        "11,2 %",
+        "22,8 %",
+        "8,3 %"
       ],
       "correct": 0,
-      "explanation": "Ongeveer 1 400 werknemers zijn betrokken, voor een verhuizing gepland eind 2028. De operator verwijst naar het aflopen van zijn huurcontract en naar het ongeschikte gebouw, en sluit een fiscale motivering uitdrukkelijk uit.",
+      "explanation": "Dat zijn 18 174 personen, tegenover 11,2 % op nationaal niveau. Hun aantal steeg met 32,6 % tussen 2015 en 2025, terwijl het aantal werkzoekenden onder 25 jaar op één jaar met 17 % toenam.",
       "sourceSlug": "/nl/domeinen/economy",
       "sourceTitle": "Economie: Stedelijke Vrijhandelszone (Haven + Audi Forest), hoofdstad van AI",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:9ff4c4276b5ef9b932f5a5753fe12eb7",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:cc63de5f286c4dbc6fff7457d5e3e012",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Economie",
-      "question": "Wat verwijt de rechtbank van eerste aanleg in juni 2026 aan het belastingreglement van de Stad Brussel op kantooroppervlakten?",
+      "question": "Op 22 juni 2026 oordeelde de Nederlandstalige rechtbank van eerste aanleg te Brussel dat het belastingreglement van de Stad Brussel op kantooroppervlakten in strijd is met welk beginsel?",
       "options": [
-        "Een schending van het grondwettelijke gelijkheidsbeginsel",
-        "Een overschrijding van de gemeentelijke fiscale bevoegdheid",
-        "Een ontbrekende bekendmaking in het Belgisch Staatsblad",
-        "Een retroactiviteit die de rechtszekerheid aantast"
+        "Met het grondwettelijke gelijkheidsbeginsel",
+        "Met het Europese staatssteunrecht",
+        "Met het vrije verkeer van diensten",
+        "Met het verbod op dubbele belasting"
       ],
       "correct": 0,
-      "explanation": "De rechtbank stelt vast dat een objectieve rechtvaardiging ontbreekt om kantooroppervlakten van andere gebruiken te onderscheiden. De belasting steeg tussen 2021 en 2026 van 9,58 naar 24 euro per vierkante meter per jaar.",
+      "explanation": "De rechtbank vond geen objectieve rechtvaardiging om kantooroppervlakten anders te behandelen dan andere bestemmingen, voor de aanslagjaren 2022 tot 2025. De belasting steeg tussen 2021 en 2026 van 9,58 naar 24 euro per vierkante meter per jaar.",
       "sourceSlug": "/nl/domeinen/economy",
       "sourceTitle": "Economie: Stedelijke Vrijhandelszone (Haven + Audi Forest), hoofdstad van AI",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:9ff4c4276b5ef9b932f5a5753fe12eb7",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:cc63de5f286c4dbc6fff7457d5e3e012",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Onderwijs",
-      "question": "Welk aandeel van de Brusselse jongeren verliet het secundair onderwijs zonder getuigschrift of kwalificatie in 2024-2025, volgens het BISA?",
+      "question": "Op 19 augustus 2026 liet de onderwijsminister van de Federatie Wallonië-Brussel weten dat de afschaffing van de vaste benoeming van leerkrachten er niet komt. Welk obstakel haalde zij aan?",
       "options": [
-        "18 %",
-        "12 %",
-        "26 %",
-        "22 %"
+        "De meerkost aan werkgeversbijdragen, die de federale overheid niet wilde verlagen",
+        "Het unanieme verzet van de inrichtende machten van het vrije onderwijs",
+        "Een arrest van het Grondwettelijk Hof uit het voorjaar van 2026",
+        "De weigering van de Brusselse gemeenten om de hervorming toe te passen"
       ],
       "correct": 0,
-      "explanation": "Het nationale gemiddelde bedraagt 12 %, tegenover 16 % in Antwerpen en 22 % in Charleroi. Het Brusselse cijfer blijft stabiel ten opzichte van de voorgaande jaren.",
+      "explanation": "De bijdragevoet zou stijgen van 5,26 % voor vastbenoemde leerkrachten naar 23,62 % onder contract, een meerkost die tegen 2070 op 400 miljoen euro wordt geraamd. Het contract van onbepaalde duur blijft voorzien voor het schooljaar 2027.",
       "sourceSlug": "/nl/domeinen/education",
       "sourceTitle": "Onderwijs: kinderopvangplaatsen, schooluitval en spanningen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:c588f7437f3e30a5b785fc150ef8fc7d",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:6c8fe67a635ea9a705418b1e0b2929d7",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Onderwijs",
-      "question": "Wat vervangt vanaf de inschrijvingen voor het schooljaar 2027-2028 de mondelinge taaltest die voorrang geeft bij inschrijving in het Nederlandstalig secundair onderwijs in Brussel?",
+      "question": "Welk aandeel van de Brusselse jongeren verliet het secundair onderwijs zonder getuigschrift of kwalificatie, volgens de BISA-focus van 16 juli 2026 over het schooljaar 2024-2025?",
       "options": [
-        "Een officieel attest van niveau B2",
-        "Een gesprek voor een jury van 3 personen",
-        "Een getuigschrift uitgereikt op het einde van het 6e leerjaar",
-        "Een schriftelijke proef georganiseerd door het net"
+        "18 %",
+        "12 %",
+        "26 %",
+        "8 %"
       ],
       "correct": 0,
-      "explanation": "De maatregel valt onder de Vlaamse Gemeenschap en geldt voor de inschrijvingen voor het schooljaar 2027-2028. In het VGC-net is 65 % van de plaatsen in het eerste jaar secundair voorbehouden voor deze voorrangsgroep.",
+      "explanation": "Tegenover 12 % op nationaal niveau, 16 % in Antwerpen en 22 % in Charleroi. Het instituut geeft aan over geen betrouwbare statistiek te beschikken over volledig ongeschoolde leerlingen in het Brussels Gewest.",
       "sourceSlug": "/nl/domeinen/education",
       "sourceTitle": "Onderwijs: kinderopvangplaatsen, schooluitval en spanningen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:c588f7437f3e30a5b785fc150ef8fc7d",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:6c8fe67a635ea9a705418b1e0b2929d7",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Welke sanctie heeft de Brusselse deontologische commissie in juli 2026 uitgesproken tegen lokale mandatarissen?",
+      "question": "Eind juli 2026 rondden de partijen van de Brusselse gewestelijke meerderheid de verdeling van de mandaten in de raden van bestuur van de gewestelijke instellingen af. Over hoeveel mandaten ging het, volgens het mandatenkadaster dat La Libre inkeek?",
       "options": [
-        "Boetes van 10 % tot 40 % van een maandvergoeding",
-        "Een onverkiesbaarheid van 6 jaar voor elk lokaal mandaat",
-        "Een bekendmaking met naam in het Belgisch Staatsblad gedurende 1 jaar",
-        "Een volledige terugbetaling van de 12 laatst ontvangen maanden"
+        "Ongeveer 280 mandaten",
+        "Ongeveer 150 mandaten",
+        "Ongeveer 60 mandaten",
+        "Ongeveer 500 mandaten"
       ],
       "correct": 0,
-      "explanation": "Twintig mandatarissen werden gesanctioneerd wegens gebrek aan transparantie over hun vergoedingen. De cel had 305 mandatarissen in gebreke geteld, van wie er 27 in gebreke bleven na gerichte herinneringen.",
+      "explanation": "Het cijfer van 150 circuleerde na de ministerraad van 23 juli 2026, die veertien voorzitterschappen toewees: het dekte slechts een deel van de beweging. Geen enkele officiële publicatie inventariseert deze mandaten tot op heden.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:4fa464b61c00d7a3ba893ca0f703f656",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:6c6df83ec794d19a5089537b818793cc",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Welke institutionele blokkering weegt in juli 2026 op de belofte van bestuurlijke hervorming van de Brusselse regering?",
+      "question": "Een buurtbewoner van Laken stapte naar de Vaste Commissie voor Taaltoezicht omdat het dossier van het openbaar onderzoek over de renovatie van het station Bockstael uitsluitend in het Nederlands was opgesteld. Wat besliste de commissie?",
       "options": [
-        "De vernieuwing van de gewestelijke raden van bestuur",
-        "De aanstelling van de griffier van het Brussels Parlement",
-        "De goedkeuring van het huishoudelijk reglement van de regering",
-        "De benoeming van de ontvangers van de negentien gemeenten"
+        "Dat zijn klacht gegrond was en hij de documenten in het Frans moest krijgen",
+        "Dat het openbaar onderzoek volledig tweetalig moest worden overgedaan",
+        "Dat de NMBS als federaal bedrijf buiten de taalwetgeving viel",
+        "Dat alleen de betrokken gemeente bevoegd was om het dossier te vertalen"
       ],
       "correct": 0,
-      "explanation": "Die raden bleven geblokkeerd sinds de wissel van legislatuur. De regering raakte het op 21 juli 2026 opnieuw niet eens, waardoor het dossier na het parlementaire reces terugkeert.",
+      "explanation": "Zijn vraag om uitstel in de overlegcommissie werd toch verworpen, en de vergunning werd eveneens enkel in het Nederlands afgeleverd. Omdat het beroep bij de Raad van State niet schorsend is, startten de werken in augustus 2026.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:4fa464b61c00d7a3ba893ca0f703f656",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:6c6df83ec794d19a5089537b818793cc",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobiliteit",
-      "question": "Welk tarief voorziet de hervorming van de lage-emissiezone (LEZ), waarover de Brusselse regering het op 16 juli 2026 eens werd, voor de jaarpas?",
+      "question": "De overgangsregeling voor gedeelde mobiliteit die de Brusselse regering op 21 augustus 2026 aankondigde, legt een plafond vast voor deelfietsen in het hele Gewest. Hoeveel bedraagt dat plafond?",
       "options": [
-        "350 euro, geïndexeerd",
-        "80 euro, geïndexeerd",
-        "200 euro, geïndexeerd",
-        "500 euro, geïndexeerd"
+        "7 500 fietsen",
+        "2 500 fietsen",
+        "4 800 fietsen",
+        "12 000 fietsen"
       ],
       "correct": 0,
-      "explanation": "De maandpas bedraagt 80 euro en het sociaal tarief 200 euro. De jaarpas is hernieuwbaar tot vijf opeenvolgende jaren.",
+      "explanation": "Daarbovenop geldt een plafond van 2 500 fietsen per operator, om verzadiging van de verplichte dropzones te vermijden. Een overheidsopdracht moet tegen mei 2028 twee licenties van elk 4 800 fietsen toewijzen; het verbod op deelsteps blijft op 1 januari 2027.",
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:ce360bf43535639a17ca7f7a66254d19",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:1e7516f5fb9d0be1511855c3bdcbab77",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobiliteit",
-      "question": "Wie kan het sociaal tarief genieten dat de hervorming van de lage-emissiezone (LEZ) van 16 juli 2026 invoert?",
+      "question": "In augustus 2026 schreven de drie verenigingen van gebruikers van het openbaar vervoer een open brief over het vastgoedproject NOR.Bruxsels, voor het Noordstation. Wat verwijten zij de voorgestelde aanleg?",
       "options": [
-        "Brusselaars met de verhoogde tegemoetkoming",
-        "Iedereen in het land met de verhoogde tegemoetkoming",
-        "De inwoners van de negentien gemeenten, zonder voorwaarde",
-        "Pendelaars die over een treinabonnement beschikken"
+        "Hij zou de overstap tussen trein, bus, tram en metro verslechteren",
+        "Hij zou de stationshal een groot deel van het jaar daglicht ontnemen",
+        "Hij zou het Noordstation meer dan twee jaar sluiten voor reizigers",
+        "Hij zou de helft van de fietsenstallingen van het station schrappen"
       ],
       "correct": 0,
-      "explanation": "Een inwoner van Wallonië of Vlaanderen met hetzelfde statuut betaalt het volle tarief van 350 euro. Een volledige vrijstelling bestaat onder meer voor betrokken Brusselaars met minstens drie personen ten laste.",
+      "explanation": "Ze spreken van een antimodaal knooppunt en viseren twee punten: de opsplitsing van de bushaltes en de plaats van de eindhalte van de toekomstige tram 15. Het project voorziet vier torens, 533 woningen en 77 460 m² kantoren; de vergunning is niet afgeleverd.",
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:ce360bf43535639a17ca7f7a66254d19",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:1e7516f5fb9d0be1511855c3bdcbab77",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Waarom kondigde het Brussels Gewest op 10 juli 2026 aan zich burgerlijke partij te stellen tegen Brugse hooligans?",
+      "question": "De handelszaken in de Noordwijk moeten sinds april 2026 sluiten tussen 1 en 6 uur, in Schaarbeek en Sint-Joost-ten-Node. Wat zeggen de verslagen van de auditeurs van de Raad van State van 10 augustus 2026?",
       "options": [
-        "Om een eigen schade van het Gewest te laten erkennen",
-        "Om een schadevergoeding namens de slachtoffers te bekomen",
-        "Om een stadionverbod voor de beklaagden te vragen",
-        "Om de bevoegdheid van de correctionele rechtbank te betwisten"
+        "Ze verwerpen de hoogdringendheid in beide beroepen tegen de maatregel",
+        "Ze vernietigen de nachtsluiting in beide betrokken gemeenten",
+        "Ze schorsen de maatregel tot het definitieve arrest van de Raad van State",
+        "Ze verwijzen beide beroepen door naar het Grondwettelijk Hof"
       ],
       "correct": 0,
-      "explanation": "Het Gewest verwijst naar de aantasting van zijn imago en van zijn beleid inzake gelijke kansen, en naar de uitzonderlijke inzet van openbare middelen. De feiten dateren van 4 mei 2025 in Sint-Jans-Molenbeek.",
+      "explanation": "Een auditeursverslag is geen arrest: de auditeur onderzoekt en stelt voor, het rechtscollege beslist en kan ervan afwijken. De maatregel, aangenomen in maart 2026, werd in juni verlengd tot eind september 2026.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:69d8c6ebbf3d1236f32e145d8ad9c1c5",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:62194220b7063578e7afd3da21421d62",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Wat toont het jaarverslag van het Brussels Observatorium voor de veiligheid, gepubliceerd op 22 december 2025, over de in Brussel geregistreerde gerechtelijke feiten?",
+      "question": "Politiezone Zuid, waarvan het vroegere hoofdcommissariaat in de Demosthenesstraat in de nacht van 21 op 22 augustus 2026 werd beschoten, bestrijkt welke gemeenten?",
       "options": [
-        "Ongeveer 157 000 per jaar, stabiel over tien jaar",
-        "Ongeveer 157 000 per jaar, met een stijging van 40 %",
-        "Ongeveer 92 000 per jaar, met een daling van 12 %",
-        "Ongeveer 34 000 per jaar, stabiel over vijf jaar"
+        "Anderlecht, Sint-Gillis en Vorst",
+        "Anderlecht, Sint-Jans-Molenbeek en Koekelberg",
+        "Sint-Gillis, Vorst en Ukkel",
+        "Anderlecht, Sint-Gillis en Elsene"
       ],
       "correct": 0,
-      "explanation": "Het rapport stelt daarentegen een stijging van 33 % vast van de drugsgerelateerde misdrijven tussen 2023 en 2024, 92 incidenten met vuurwapens en 34 gevallen van moord en doodslag, een toename van 40 % over tien jaar.",
+      "explanation": "Het gebouw wordt geleidelijk leeggemaakt sinds de opening van het commissariaat in de Tweestationsstraat en de gemeente wil het verkopen. Het was gesloten op het moment van de schoten en er vielen geen gewonden.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:69d8c6ebbf3d1236f32e145d8ad9c1c5",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:62194220b7063578e7afd3da21421d62",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Welk aandeel van de bewoners van de Brusselse rusthuizen heeft een ernstige neurocognitieve stoornis, volgens de Iriscare-enquête van juli 2026?",
+      "question": "De Brussels Deal, opgezet in 2022, financierde tweeduizend opvangplaatsen in Brussel voor verzoekers om internationale bescherming. Hoeveel capaciteit haalde de federale overheid er in 2026 weg?",
       "options": [
-        "38 %",
-        "19 %",
-        "13 %",
-        "33 %"
+        "Duizend plaatsen, in twee keer: 300 eind juni en 700 op 16 juli",
+        "Vijfhonderd plaatsen, in één keer geschrapt op 16 juli",
+        "Tweeduizend plaatsen, het volledige dispositief, al eind juni",
+        "Driehonderd plaatsen, de enige schijf bevestigd eind juli"
       ],
       "correct": 0,
-      "explanation": "De enquête betreft 66 rusthuizen, oftewel 56 % van het Brusselse aanbod. Meer dan een derde van de bewoners combineert meerdere van die noden tegelijk.",
+      "explanation": "Het dispositief vertegenwoordigde 42 miljoen euro per jaar. De betoging van 18 augustus 2026 op het Albertinaplein leverde geen uitstel op: de sluitingen blijven voorzien vóór de winter.",
       "sourceSlug": "/nl/domeinen/social",
-      "sourceTitle": "Sociaal: 10M voor de stations, drugscommissaris, beschermde diensten",
+      "sourceTitle": "Sociaal: duizend opvangplaatsen geschrapt, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:2861c6485330348a8910d6c26713820c",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:91654f40fa674ce069021c3c84bab9cd",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Wat beveelt Iriscare aan in zijn onderzoek van juli 2026 over de Brusselse rusthuizen, gezien de toenemende verscheidenheid van de zorgnoden?",
+      "question": "Onder welke overheid valt Samusocial, de belangrijkste operator van de noodopvang in Brussel?",
       "options": [
-        "Een multidisciplinaire aanpak die meerdere expertises combineert",
-        "Een vermindering van het aantal bedden per instelling",
-        "Een overdracht van de bevoegdheid naar de gemeenten",
-        "Een sluiting van de gespecialiseerde dementie-eenheden"
+        "Onder de GGC, de Brusselse bicommunautaire overheid",
+        "Onder de federale overheid, via het opvangagentschap Fedasil",
+        "Onder het Brussels Hoofdstedelijk Gewest, via Bruss'Help",
+        "Onder de Federatie Wallonië-Brussel, via de jeugdhulp"
       ],
       "correct": 0,
-      "explanation": "Het agentschap roept op om expertise in geestelijke gezondheid, begeleiding bij handicap en ouderenzorg te combineren, en om de middelen voor de sector aan te passen.",
+      "explanation": "De opvangplaatsen die in 2026 werden geschrapt, vallen daarentegen onder de federale overheid. Een weigering bij Samusocial verwijst dus niet naar een federaal loket, maar naar de straat, naar een gemeentelijk OCMW of naar de verenigingssector.",
       "sourceSlug": "/nl/domeinen/social",
-      "sourceTitle": "Sociaal: 10M voor de stations, drugscommissaris, beschermde diensten",
+      "sourceTitle": "Sociaal: duizend opvangplaatsen geschrapt, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:2861c6485330348a8910d6c26713820c",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:91654f40fa674ce069021c3c84bab9cd",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Welk document is sinds de hervorming van 9 juli 2026 in Brussel niet meer verplicht voor een toeristisch logies dat de hoofdverblijfplaats van de verhuurder zelf is?",
+      "question": "Het openbaar onderzoek dat op 28 augustus 2026 startte over de verkavelingsvergunning voor de Josaphatsite, tussen Evere en Meiser, gaat over hoeveel woningen?",
       "options": [
-        "Het stedenbouwkundig conformiteitsattest",
-        "Het energieprestatiecertificaat",
-        "Het schriftelijke akkoord van de syndicus",
-        "De vergunning voor bestemmingswijziging"
+        "537 woningen",
+        "240 woningen",
+        "780 woningen",
+        "1 050 woningen"
       ],
       "correct": 0,
-      "explanation": "Dit gemeentelijke document was het voornaamste procedurele struikelblok voor de registratie van kortetermijnverhuur. De maatregel treedt in werking op 1 januari 2027.",
+      "explanation": "De aanvraag komt van de Maatschappij voor Stedelijke Inrichting, een gewestelijke overheidsoperator, op een terrein van ongeveer 24 hectare. Een verkavelingsvergunning regelt de percelen en de wegenis: bouwen vergt een aparte aanvraag en een nieuw openbaar onderzoek.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:f5afd0b124467b26f03e2e75761d96c3",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:4d25cc36601fb1860ee3fed3405e3cff",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Wat omvat het vereenvoudigde veiligheidsattest dat op 9 juli 2026 in Brussel werd ingevoerd voor toeristische logies die particulieren verhuren?",
+      "question": "Het Brusselse besluit van 9 juli 2026 over toeristische logies schrapt het stedenbouwkundig conformiteitsattest voor woningen die de hoofdverblijfplaats van de verhuurder zijn. Waardoor wordt het vervangen?",
       "options": [
-        "Een schriftelijke controle van de installaties, met een maximum van 150 euro",
-        "Een jaarlijks gemeentelijk bezoek dat 300 euro kost",
-        "Een controle door een erkende instelling om de 5 jaar",
-        "Een verklaring op eer die om de 2 jaar wordt hernieuwd"
+        "Door een vereenvoudigd veiligheidsattest, geplafonneerd op 150 euro",
+        "Door een verklaring op eer van de verhuurder, zonder kosten of controle",
+        "Door een verplicht gemeentelijk bezoek om de drie jaar, aan 300 euro",
+        "Door een inschrijving in het gewestelijke register van logies, aan 75 euro"
       ],
       "correct": 0,
-      "explanation": "De controle betreft vier elementen: de elektrische installatie, de gasinstallatie, de verwarming en de aanwezigheid van een brandblusser.",
+      "explanation": "De schriftelijke controle slaat op vier elementen: de elektriciteits-, gas- en verwarmingsinstallatie en de aanwezigheid van een brandblusser. De maatregel treedt in werking op 1 januari 2027.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:f5afd0b124467b26f03e2e75761d96c3",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:4d25cc36601fb1860ee3fed3405e3cff",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welke institutionele bijzonderheid kenmerkt de Brusselse OCMW's?",
+      "question": "Volgens de cijfers van de POD Maatschappelijke Integratie voor de eerste helft van 2026, welk aandeel van de aanvragen voor een leefloon door uit de werkloosheid uitgesloten personen werd geweigerd?",
       "options": [
-        "Ze hangen tegelijk af van het federale niveau, de GGC en de gemeenten",
-        "Ze hangen uitsluitend af van het Brussels Hoofdstedelijk Gewest",
-        "Ze zijn gebundeld in één enkele gewestelijke structuur",
-        "Ze worden in gelijke delen gefinancierd door de negentien gemeenten"
+        "17 %",
+        "34 %",
+        "53 %",
+        "8 %"
       ],
       "correct": 0,
-      "explanation": "Het federale niveau bepaalt het kader en financiert het grootste deel van de individuele steun, de GGC oefent de organieke voogdij uit, het Gewest en de gemeenten vullen aan. Wanneer het federale niveau een subsidie intrekt, is het de gemeente die betaalt.",
+      "explanation": "Dat zijn ongeveer 9 000 weigeringen op 52 600 aanvragen, meestal omdat het gezinsinkomen te hoog werd bevonden. De aanvraaggraad van 43,9 % in Brussel overschat dus de werkelijke dekking van wie zijn rechten verliest.",
       "sourceSlug": "/nl/dossiers/cpas-bruxellois",
       "sourceTitle": "Brusselse OCMW's",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:cfd678f6432603d7104e6e1ca37505cd",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:2f67947616b4ca677074af9df89cf4d1",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1135,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Welk effect heeft het arrest van de Raad van State van juli 2026, dat de vergunningen voor deelmobiliteit in Brussel vernietigt, op het verbod op deelsteps?",
+      "question": "De petitie om de deelsteps in Brussel te behouden, ingediend op 18 juni 2026 op democratie.brussels, haalde de drempel die het Brussels Parlement verplicht zich erover te buigen. Hoe hoog ligt die drempel?",
       "options": [
-        "Het vervroegt het met vier maanden, langs gerechtelijke weg",
-        "Het stelt het met vier maanden uit, langs gerechtelijke weg",
-        "Het vernietigt het, waardoor het voor de operatoren zonder voorwerp wordt",
-        "Het laat het ongewijzigd, zonder de kalender aan te passen"
+        "1 000 handtekeningen",
+        "500 handtekeningen",
+        "5 000 handtekeningen",
+        "15 000 handtekeningen"
       ],
       "correct": 0,
-      "explanation": "Het verbod dat op 1 januari 2027 is vastgelegd, wordt niet betwist, maar de voertuigen moeten de openbare ruimte op 1 september 2026 verlaten. Het beroep kwam van Lime, de operator die bij de toekenning van de vergunningen buiten de boot viel.",
+      "explanation": "Ze telde 1 595 handtekeningen op 12 augustus 2026, het meest ondertekende initiatief van het platform. De drempel halen garandeert een debat, maar verplicht de meerderheid niet van standpunt te veranderen en schorst het verbod van 1 januari 2027 niet.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:b3d5cc5bd6b7cb87f9733e5d1c8de46e",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:d269e26f677df19ac2dca02b28e1e5c8",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Welk aanbod verdwijnt door de vernietiging van de vergunningen voor deelmobiliteit in Brussel, uitgesproken door de Raad van State op 29 juli 2026, terwijl de regering het wilde behouden?",
+      "question": "Het arrest van de Raad van State van 29 juli 2026 vernietigde de licenties voor gedeelde mobiliteit die in 2023 in Brussel werden toegekend. Wie had het beroep ingediend dat tot die vernietiging leidde?",
       "options": [
-        "De deelfietsen zonder vaste standplaats",
-        "De deelsteps zonder vaste standplaats",
-        "De fietsen met vaste stations van de concessie Villo",
-        "De deelscooters met elektrische ondersteuning"
+        "Lime, de operator die bij de toekenning van 2023 werd geweerd",
+        "Bolt, een van de twee operatoren die in 2023 werden geselecteerd",
+        "De federatie van Brusselse fietsersverenigingen",
+        "De gemeente Schaarbeek, namens de buurtbewoners"
       ],
       "correct": 0,
-      "explanation": "De concessie Villo, met vaste stations, valt niet onder het arrest. De overheid werkt aan een nieuw regelgevend kader voor de deelfietsen.",
+      "explanation": "De winnende verzoeker zou begunstigde kunnen worden van de overgangsregeling in voorbereiding, naast de operatoren die al actief zijn. Het verbod op deelsteps in vrije vloot blijft vastgelegd op 1 januari 2027.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:b3d5cc5bd6b7cb87f9733e5d1c8de46e",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:d269e26f677df19ac2dca02b28e1e5c8",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Waarom vinden de opstijgingen vanaf Brussels Airport (Zaventem) hoofdzakelijk boven Brussel plaats?",
+      "question": "Op 11 augustus 2026 daagden tweeënveertig gezinnen uit Dilbeek, Lennik en Roosdaal de Belgische Staat voor de rechter over de vliegroute RNP 07L van Brussels Airport. Wat kenmerkt die route?",
       "options": [
-        "De overheersende zuidwestenwinden leggen baan 25R op",
-        "De overheersende noordenwinden leggen baan 01 naar het oosten op",
-        "De lengte van de banen verhindert elk opstijgen naar het oosten",
-        "Een akkoord tussen de gewesten legt die verdeling vast sinds 1995"
+        "De daling naar baan 07L begint ver ten westen van de luchthaven",
+        "Ze bundelt de opstijgingen naar het zuidoosten, boven het Zoniënwoud",
+        "Ze houdt baan 07L voor van middernacht tot zes uur voor nachtvluchten",
+        "Ze leidt de vrachtvliegtuigen om boven het kanaal en de haven van Brussel"
       ],
       "correct": 0,
-      "explanation": "Die winden waaien 70 % van de tijd, wat de opstijgingen boven dichtbevolkte wijken stuurt. De Hoge Gezondheidsraad raamt de gezondheidskosten op meer dan een miljard euro per jaar.",
+      "explanation": "De route wordt door satellieten geleid en voert daarna over het noordwesten van het Gewest, onder meer Sint-Jans-Molenbeek, Koekelberg en Sint-Agatha-Berchem. Ingevoerd als test in 2025, werd ze verlengd tot oktober 2026.",
       "sourceSlug": "/nl/dossiers/survol-bruxelles",
       "sourceTitle": "Overvliegen Brussel",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:e45fadba0159c763f5091a38551a773e",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-08-23",
+        "sourceContentHash": "sha256:a77a5e048eb541b9813f7905f92e32e6",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1503,21 +1503,21 @@
       "id": "dossier-vice-gouverneur-0",
       "source": "dossier",
       "domain": "Institutioneel",
-      "question": "Welke opdracht oefent de vicegouverneur van Brussel uit?",
+      "question": "Brussel heeft een vicegouverneur, maar geen gouverneur. Wat is er met het ambt van gouverneur gebeurd?",
       "options": [
-        "Toezien op de naleving van de wetten op het gebruik van de talen",
-        "De noodplanning van het arrondissement coördineren",
-        "Het toezicht uitoefenen op de begrotingen van de negentien gemeenten",
-        "De conferentie van de Brusselse burgemeesters voorzitten"
+        "Het werd afgeschaft door de zesde staatshervorming, in 2014",
+        "Het werd in 1995 samengevoegd met dat van minister-president",
+        "Het bleef vacant sinds de splitsing van de provincie Brabant",
+        "Het ging in 2001 over naar de burgemeester van de Stad Brussel"
       ],
       "correct": 0,
-      "explanation": "Brussel heeft geen gouverneur meer sinds de zesde staatshervorming; zijn veiligheidsopdrachten worden uitgeoefend door een hoge ambtenaar. De taalcontrole betreft de negentien gemeenten en de negentien OCMW's.",
+      "explanation": "De opdrachten inzake veiligheid, noodplanning en crisisbeheer worden sindsdien uitgeoefend door een hoge ambtenaar. De vicegouverneur waakt over de naleving van de taalwetten in de 19 gemeenten en de 19 OCMW's van het arrondissement.",
       "sourceSlug": "/nl/dossiers/vice-gouverneur",
       "sourceTitle": "Vicegouverneur",
       "provenance": {
-        "sourceLastModified": "2026-06-15",
-        "sourceContentHash": "sha256:47c6a73762fb3e9f315d8310cde8e309",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:ec74f4fd3a8d60b096e5e1f5e88a1db6",
+        "generatedAt": "2026-08-25T09:26:26.715Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 67
+  "reviewedCount": 44
 }

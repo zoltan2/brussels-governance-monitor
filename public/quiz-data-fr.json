@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T20:01:30.474Z",
+  "generatedAt": "2026-08-25T09:23:25.928Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Comment se répartit, entre la Région et les communes, le produit de la responsabilité élargie des producteurs de plastique à usage unique votée le 13 mars 2026 par le Parlement bruxellois ?",
+      "question": "Le Plan Gares, approuvé le 18 juin 2026 pour la propreté des abords des gares du Nord et du Midi, est doté de quel budget annuel ?",
       "options": [
-        "54 % aux communes, 46 % à la Région",
-        "46 % aux communes, 54 % à la Région",
-        "70 % aux communes, 30 % à la Région",
-        "50 % aux communes, 50 % à la Région"
+        "Dix millions d'euros par an",
+        "Deux millions d'euros par an",
+        "Vingt-cinq millions d'euros par an",
+        "Cinquante millions d'euros par an"
       ],
       "correct": 0,
-      "explanation": "L'ordonnance transpose l'accord interrégional sur le plastique à usage unique. Les producteurs verseront 51,4 millions d'euros par an à la Région, dont 26,7 millions dès 2026.",
+      "explanation": "Deux opérations pilotes ont précédé le déploiement : la gare du Midi le 16 juillet 2026 et la gare du Nord le 21 août 2026. Elles servent à chiffrer l'écart entre un coup de balai exceptionnel et l'entretien continu.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:44aaa6d9eb52155d68481f1fecf55f77",
-        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:eadceada62757b99f98c1baf0a394cb2",
+        "generatedAt": "2026-08-25T09:20:47.707Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Quel dispositif participatif le Parlement bruxellois a-t-il créé le 23 janvier 2026 sur la propreté de l'espace public ?",
+      "question": "Selon les données de la Ville de Bruxelles pour 2025, quelle part des personnes verbalisées pour dépôt clandestin n'habitait pas la commune ?",
       "options": [
-        "Une commission délibérative associant citoyens et parlementaires",
-        "Un référendum régional organisé dans les dix-neuf communes",
-        "Un conseil consultatif composé de représentants communaux",
-        "Une enquête publique ouverte aux habitants du Pentagone"
+        "36,7 %",
+        "12,4 %",
+        "58,2 %",
+        "21,9 %"
       ],
       "correct": 0,
-      "explanation": "Quarante-cinq citoyens tirés au sort et quinze parlementaires y formulent des recommandations. C'est la première commission délibérative de la législature.",
+      "explanation": "Soit 2 837 contrevenants sur 7 731 amendes, un phénomène appelé « tourisme des déchets ». Le prix du sac-poubelle est environ dix fois moins élevé à Bruxelles que dans les communes de la périphérie.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:44aaa6d9eb52155d68481f1fecf55f77",
-        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:eadceada62757b99f98c1baf0a394cb2",
+        "generatedAt": "2026-08-25T09:20:47.707Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -146,21 +146,21 @@
       "id": "domain-digital-0",
       "source": "domain",
       "domain": "Numérique",
-      "question": "Que précise la Cour constitutionnelle dans son arrêt n° 126/2025 du 25 septembre 2025 sur l'ordonnance Bruxelles Numérique ?",
+      "question": "Selon les chiffres publiés le 4 août 2026 par l'IBSA, l'Institut bruxellois de statistique et d'analyse, quelle part des entreprises bruxelloises de plus de 250 salariés utilisait au moins une technologie d'intelligence artificielle en 2025 ?",
       "options": [
-        "Le guichet, le téléphone et le courrier restent tous obligatoires",
-        "Les administrations peuvent n'en conserver qu'un seul des trois",
-        "Les guichets physiques peuvent fermer après une transition",
-        "L'ordonnance est annulée dans l'ensemble de ses articles"
+        "Septante pour cent",
+        "Vingt-cinq pour cent",
+        "Quarante pour cent",
+        "Nonante pour cent"
       ],
       "correct": 0,
-      "explanation": "Le recours en annulation a été rejeté, mais un argument de charge disproportionnée ne peut être invoqué pour supprimer l'un de ces trois canaux hors-ligne.",
+      "explanation": "Contre vingt-cinq pour cent chez les entreprises de 2 à 9 salariés, qui forment l'essentiel du tissu bruxellois. La Région dépasse la moyenne européenne de 19,95 % mais reste sous la moyenne belge, proche d'un tiers.",
       "sourceSlug": "/fr/domaines/digital",
       "sourceTitle": "Numérique : fracture digitale et simplification administrative",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:ddc4b93e305cee269e583ed8582964f0",
-        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:4c42e15a0b9c6e29f334332f6759fc5f",
+        "generatedAt": "2026-08-25T09:20:47.707Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -169,21 +169,21 @@
       "id": "domain-digital-1",
       "source": "domain",
       "domain": "Numérique",
-      "question": "Quel délai l'ordonnance Bruxelles Numérique laisse-t-elle pour mettre en conformité les procédures administratives existantes ?",
+      "question": "Dans la Déclaration de politique régionale bruxelloise du 13 février 2026, que désigne le principe « only once » en matière de simplification administrative ?",
       "options": [
-        "60 mois",
-        "6 mois",
-        "12 mois",
-        "24 mois"
+        "Ne plus redemander au citoyen des données que l'administration détient déjà",
+        "Limiter chaque démarche administrative à un seul formulaire papier",
+        "N'autoriser qu'une seule demande de prime par ménage et par année civile",
+        "Ne délivrer un document officiel qu'une seule fois, sans duplicata possible"
       ],
       "correct": 0,
-      "explanation": "Les nouvelles procédures administratives disposent de 6 mois, contre 60 mois pour la mise en conformité des procédures déjà en place.",
+      "explanation": "Ce principe est porté par le guichet unique Easy Brussels et par la plateforme de démarches en ligne IRISbox. Il complète le volet inclusion numérique de la déclaration, destiné aux publics éloignés du numérique.",
       "sourceSlug": "/fr/domaines/digital",
       "sourceTitle": "Numérique : fracture digitale et simplification administrative",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:ddc4b93e305cee269e583ed8582964f0",
-        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:4c42e15a0b9c6e29f334332f6759fc5f",
+        "generatedAt": "2026-08-25T09:20:47.707Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Économie",
-      "question": "Vers quelle commune Orange Belgique a-t-il annoncé, le 18 juillet 2026, déplacer le siège qu'il occupe à Evere ?",
+      "question": "En 2025, quelle part des indépendants bruxellois avait entre 18 et 29 ans, selon l'Institut national d'assurances sociales pour travailleurs indépendants ?",
       "options": [
-        "Diegem, en Brabant flamand",
-        "Zaventem, en Brabant flamand",
-        "Machelen, en Brabant flamand",
-        "Vilvorde, en Brabant flamand"
+        "14,5 %",
+        "11,2 %",
+        "22,8 %",
+        "8,3 %"
       ],
       "correct": 0,
-      "explanation": "Environ 1 400 employés sont concernés, pour un déménagement prévu fin 2028. L'opérateur invoque la fin de son bail et l'inadaptation du bâtiment, et écarte explicitement une motivation fiscale.",
+      "explanation": "Soit 18 174 personnes, contre 11,2 % au niveau national. Leur nombre a progressé de 32,6 % entre 2015 et 2025, alors que les demandeurs d'emploi de moins de 25 ans augmentaient de 17 % sur un an.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:099ac0dfc446618422b10fda40037fa7",
-        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:a74189f297b12a55d7a659c1d0bc19ac",
+        "generatedAt": "2026-08-25T09:20:47.707Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Économie",
-      "question": "Que reproche le tribunal de première instance, en juin 2026, au règlement-taxe de la Ville de Bruxelles sur les surfaces de bureaux ?",
+      "question": "Le 22 juin 2026, le tribunal de première instance néerlandophone de Bruxelles a jugé le règlement-taxe de la Ville de Bruxelles sur les surfaces de bureaux contraire à quel principe ?",
       "options": [
-        "Une violation du principe constitutionnel d'égalité",
-        "Un dépassement de la compétence fiscale communale",
-        "Une absence de publication au Moniteur belge",
-        "Une rétroactivité contraire à la sécurité juridique"
+        "Au principe constitutionnel d'égalité",
+        "Au droit européen des aides d'État",
+        "Au principe de libre circulation des services",
+        "À l'interdiction de la double imposition"
       ],
       "correct": 0,
-      "explanation": "Le tribunal relève l'absence de justification objective à distinguer les surfaces de bureaux des autres usages. La taxe est passée de 9,58 à 24 euros par mètre carré et par an entre 2021 et 2026.",
+      "explanation": "Le tribunal n'a trouvé aucune justification objective à traiter les surfaces de bureaux autrement que les autres usages, pour les exercices d'imposition 2022 à 2025. La taxe est passée de 9,58 à 24 euros par mètre carré et par an entre 2021 et 2026.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:099ac0dfc446618422b10fda40037fa7",
-        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:a74189f297b12a55d7a659c1d0bc19ac",
+        "generatedAt": "2026-08-25T09:20:47.707Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Quelle part des jeunes bruxellois est sortie du secondaire sans certificat ni qualification en 2024-2025, selon l'IBSA ?",
+      "question": "Le 19 août 2026, la ministre de l'Enseignement de la Fédération Wallonie-Bruxelles a indiqué que la suppression du régime de nomination des enseignants n'aboutirait pas. Quel obstacle a-t-elle invoqué ?",
       "options": [
-        "18 %",
-        "12 %",
-        "26 %",
-        "22 %"
+        "Le surcoût des cotisations patronales, que le fédéral n'a pas accepté de réduire",
+        "L'opposition unanime des pouvoirs organisateurs de l'enseignement libre",
+        "Un arrêt de la Cour constitutionnelle rendu au printemps 2026",
+        "Le refus des communes bruxelloises d'appliquer la réforme dans leurs écoles"
       ],
       "correct": 0,
-      "explanation": "La moyenne nationale s'établit à 12 %, contre 16 % à Anvers et 22 % à Charleroi. Le chiffre bruxellois reste stable par rapport aux années précédentes.",
+      "explanation": "Le taux de cotisation passerait de 5,26 % pour les enseignants statutaires à 23,62 % sous contrat, soit un surcoût estimé à 400 millions d'euros à l'horizon 2070. Le contrat à durée indéterminée reste prévu pour la rentrée 2027.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:b9cc3fe4f31299844aa4b9e438e515d0",
-        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:2f9bc12c03f32395dcf271ca74afc7b8",
+        "generatedAt": "2026-08-25T09:20:47.707Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "À partir des inscriptions pour l'année scolaire 2027-2028, qu'est-ce qui remplacera le test oral ouvrant la priorité d'inscription dans l'enseignement secondaire néerlandophone bruxellois ?",
+      "question": "Selon le focus de l'IBSA publié le 16 juillet 2026 sur l'année scolaire 2024-2025, quelle part des jeunes Bruxellois est sortie du secondaire sans certificat ni qualification ?",
       "options": [
-        "Une attestation officielle de niveau B2",
-        "Un entretien devant un jury de 3 personnes",
-        "Un certificat délivré à la fin de la 6e primaire",
-        "Une épreuve écrite organisée par le réseau"
+        "18 %",
+        "12 %",
+        "26 %",
+        "8 %"
       ],
       "correct": 0,
-      "explanation": "La mesure relève de la Communauté flamande et s'applique aux inscriptions pour l'année scolaire 2027-2028. Dans le réseau VGC, 65 % des places de première année secondaire sont réservées à ce public prioritaire.",
+      "explanation": "Contre 12 % au niveau national, 16 % à Anvers et 22 % à Charleroi. L'institut précise ne disposer d'aucune statistique fiable sur les élèves totalement déscolarisés en Région bruxelloise.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:b9cc3fe4f31299844aa4b9e438e515d0",
-        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:2f9bc12c03f32395dcf271ca74afc7b8",
+        "generatedAt": "2026-08-25T09:20:47.707Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Quelle sanction la commission bruxelloise de déontologie a-t-elle prononcée en juillet 2026 contre des mandataires locaux ?",
+      "question": "Fin juillet 2026, les partis de la majorité régionale bruxelloise ont bouclé la redistribution des mandats dans les conseils d'administration des institutions régionales. Combien de mandats étaient en jeu, selon le cadastre des mandats consulté par La Libre ?",
       "options": [
-        "Des amendes de 10 % à 40 % d'une rémunération mensuelle",
-        "Une inéligibilité de 6 ans à tout mandat public local",
-        "Une publication nominative au Moniteur belge pendant 1 an",
-        "Un remboursement intégral des 12 derniers mois perçus"
+        "Quelque 280 mandats",
+        "Quelque 150 mandats",
+        "Quelque 60 mandats",
+        "Quelque 500 mandats"
       ],
       "correct": 0,
-      "explanation": "Vingt mandataires ont été sanctionnés pour défaut de transparence sur leurs rémunérations. La cellule avait recensé 305 mandataires en défaut, dont 27 le restaient après rappels ciblés.",
+      "explanation": "Le chiffre de 150 avait circulé après le conseil des ministres du 23 juillet 2026, qui avait attribué quatorze présidences : il ne couvrait qu'une partie du mouvement. Aucune publication officielle ne recense ces mandats à ce jour.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:1583d5f2f0e339fdd0de18374146aaf4",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:9286cf72dbf72563da3a2dd4f5040b80",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Quel blocage institutionnel pèse, en juillet 2026, sur l'engagement de réforme administrative du gouvernement bruxellois ?",
+      "question": "Un riverain de Laeken a saisi la Commission permanente de contrôle linguistique parce que le dossier d'enquête publique sur la rénovation de la gare de Bockstael était rédigé uniquement en néerlandais. Qu'a décidé la commission ?",
       "options": [
-        "Le renouvellement des conseils d'administration régionaux",
-        "La désignation du greffier du Parlement bruxellois",
-        "L'adoption du règlement d'ordre intérieur du gouvernement",
-        "La nomination des receveurs des dix-neuf communes"
+        "Que sa plainte était fondée et qu'il devait recevoir les documents en français",
+        "Que l'enquête publique devait être entièrement recommencée en version bilingue",
+        "Que la SNCB échappait à la législation linguistique en tant qu'entreprise fédérale",
+        "Que la commune concernée était seule compétente pour faire traduire le dossier"
       ],
       "correct": 0,
-      "explanation": "Ces conseils sont restés bloqués depuis le changement de législature. Le gouvernement n'est de nouveau pas parvenu à s'accorder le 21 juillet 2026, le dossier revenant après les vacances parlementaires.",
+      "explanation": "Sa demande de report du dossier en commission de concertation a pourtant été rejetée, et le permis a été délivré lui aussi en néerlandais seulement. Le recours introduit au Conseil d'État n'étant pas suspensif, les travaux ont démarré en août 2026.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:1583d5f2f0e339fdd0de18374146aaf4",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:9286cf72dbf72563da3a2dd4f5040b80",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Quel tarif la réforme de la zone de basses émissions, arrêtée par le gouvernement bruxellois le 16 juillet 2026, prévoit-elle pour le pass annuel ?",
+      "question": "Le régime transitoire pour la mobilité partagée annoncé par le gouvernement bruxellois le 21 août 2026 fixe un plafond de vélos partagés pour l'ensemble de la Région. Quel est ce plafond ?",
       "options": [
-        "350 euros, indexés",
-        "80 euros, indexés",
-        "200 euros, indexés",
-        "500 euros, indexés"
+        "7 500 vélos",
+        "2 500 vélos",
+        "4 800 vélos",
+        "12 000 vélos"
       ],
       "correct": 0,
-      "explanation": "Le pass mensuel s'élève à 80 euros et le tarif social à 200 euros. Le pass annuel est renouvelable jusqu'à cinq années consécutives.",
+      "explanation": "S'y ajoute un plafond de 2 500 vélos par opérateur, pour éviter la saturation des zones de dépôt. Un appel d'offres doit attribuer d'ici mai 2028 deux licences de 4 800 vélos chacune, et l'interdiction des trottinettes partagées reste fixée au 1er janvier 2027.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:16aa9d0d7e25a51e4f9c26b041c85a56",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:b49f04bac24e5df815fd69ee3cfda2ce",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Qui peut bénéficier du tarif social prévu par la réforme de la zone de basses émissions arrêtée le 16 juillet 2026 par le gouvernement bruxellois ?",
+      "question": "En août 2026, les trois associations d'usagers des transports publics ont écrit une lettre ouverte sur le projet immobilier NOR.Bruxsels, devant la gare du Nord. Que reprochent-elles à l'aménagement présenté ?",
       "options": [
-        "Les Bruxellois bénéficiaires de l'intervention majorée",
-        "Tout bénéficiaire de l'intervention majorée du pays",
-        "Les habitants des dix-neuf communes, sans condition",
-        "Les navetteurs disposant d'un abonnement de train"
+        "Il dégraderait les correspondances entre le train, le bus, le tram et le métro",
+        "Il priverait le hall de la gare de lumière naturelle une grande partie de l'année",
+        "Il fermerait la gare du Nord aux voyageurs pendant plus de deux ans de chantier",
+        "Il supprimerait la moitié des emplacements de stationnement vélo de la gare"
       ],
       "correct": 0,
-      "explanation": "Un habitant de Wallonie ou de Flandre bénéficiant du même statut doit s'acquitter du plein tarif de 350 euros. Une exemption complète existe notamment pour les Bruxellois concernés ayant au moins trois personnes à charge.",
+      "explanation": "Elles parlent d'un « nœud antimodal » et visent deux points précis : le fractionnement des arrêts de bus et l'emplacement du terminus du futur tram 15. Le projet prévoit quatre tours, 533 logements et 77 460 m² de bureaux ; le permis n'est pas délivré.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:16aa9d0d7e25a51e4f9c26b041c85a56",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:b49f04bac24e5df815fd69ee3cfda2ce",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Pourquoi la Région bruxelloise a-t-elle annoncé, le 10 juillet 2026, se constituer partie civile contre des hooligans brugeois ?",
+      "question": "Les commerces du quartier Nord doivent fermer entre 1h et 6h depuis avril 2026, à Schaerbeek et à Saint-Josse-ten-Noode. Que disent les rapports des auditeurs du Conseil d'État rendus le 10 août 2026 ?",
       "options": [
-        "Pour faire reconnaître un préjudice propre à la Région",
-        "Pour obtenir une indemnisation au nom des victimes",
-        "Pour demander l'interdiction de stade des prévenus",
-        "Pour contester la compétence du tribunal correctionnel"
+        "Ils écartent l'urgence dans les deux recours dirigés contre la mesure",
+        "Ils annulent la fermeture nocturne dans les deux communes concernées",
+        "Ils suspendent la mesure en attendant l'arrêt définitif du Conseil d'État",
+        "Ils renvoient les deux recours à la Cour constitutionnelle pour examen"
       ],
       "correct": 0,
-      "explanation": "La Région invoque l'atteinte à son image, à ses politiques d'égalité des chances et la mobilisation exceptionnelle de moyens publics. Les faits visés remontent au 4 mai 2025 à Molenbeek-Saint-Jean.",
+      "explanation": "Un rapport d'auditeur n'est pas un arrêt : l'auditeur instruit et propose, la juridiction décide et peut s'en écarter. La mesure, adoptée en mars 2026, a été prolongée en juin jusqu'à la fin septembre 2026.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:b70393ad006a8a4c0bfa3bbeca8ed222",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:f17bf0ae0065d4049c7716b0733fa32f",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Que montre le rapport annuel de l'Observatoire bruxellois de la sécurité, publié le 22 décembre 2025, sur les faits judiciaires enregistrés à Bruxelles ?",
+      "question": "La zone de police Midi, dont l'ancien commissariat central de la rue Démosthène a été visé par des tirs dans la nuit du 21 au 22 août 2026, couvre quelles communes ?",
       "options": [
-        "Environ 157 000 par an, stables sur dix ans",
-        "Environ 157 000 par an, en hausse de 40 %",
-        "Environ 92 000 par an, en baisse de 12 %",
-        "Environ 34 000 par an, stables sur cinq ans"
+        "Anderlecht, Saint-Gilles et Forest",
+        "Anderlecht, Molenbeek-Saint-Jean et Koekelberg",
+        "Saint-Gilles, Forest et Uccle",
+        "Anderlecht, Saint-Gilles et Ixelles"
       ],
       "correct": 0,
-      "explanation": "Le rapport relève en revanche une hausse de 33 % des infractions liées aux stupéfiants entre 2023 et 2024, 92 incidents impliquant des armes à feu et 34 homicides, en progression de 40 % sur dix ans.",
+      "explanation": "Le bâtiment est progressivement vidé depuis l'ouverture du commissariat de la rue des Deux Gares et la commune souhaite le vendre. Il était fermé au moment des tirs et aucun blessé n'a été à déplorer.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:b70393ad006a8a4c0bfa3bbeca8ed222",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:f17bf0ae0065d4049c7716b0733fa32f",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Quelle part des résidents des maisons de repos bruxelloises présente un trouble neurocognitif sévère, selon l'enquête Iriscare de juillet 2026 ?",
+      "question": "Le Brussels Deal, mis en place en 2022, finançait deux mille places d'accueil à Bruxelles pour les demandeurs de protection internationale. Quelle capacité le fédéral a-t-il retirée en 2026 ?",
       "options": [
-        "38 %",
-        "19 %",
-        "13 %",
-        "33 %"
+        "Mille places, en deux temps : 300 à la fin juin puis 700 le 16 juillet",
+        "Cinq cents places, retirées en une seule fois le 16 juillet",
+        "Deux mille places, soit la totalité du dispositif, dès la fin juin",
+        "Trois cents places, seule tranche confirmée à la fin juillet"
       ],
       "correct": 0,
-      "explanation": "L'enquête porte sur 66 maisons de repos, soit 56 % du parc bruxellois. Plus d'un tiers des résidents cumulent plusieurs de ces besoins en même temps.",
+      "explanation": "Le dispositif représentait 42 millions d'euros par an. La mobilisation du 18 août 2026, place de l'Albertine, n'a pas obtenu de report : les fermetures restent prévues avant l'hiver.",
       "sourceSlug": "/fr/domaines/social",
-      "sourceTitle": "Social : 10M pour les gares, commissaire drogue, services protégés",
+      "sourceTitle": "Social : mille places d'accueil supprimées, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:e84ecb97366df70921d720a1343a8d08",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:1d27fb65f9de0ee8a70ca50e8c74fb77",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Que préconise Iriscare, dans son enquête de juillet 2026 sur les maisons de repos bruxelloises, au vu de la diversification des besoins en soins ?",
+      "question": "Le Samusocial, principal opérateur de l'hébergement d'urgence à Bruxelles, relève de quelle autorité ?",
       "options": [
-        "Une approche pluridisciplinaire combinant plusieurs expertises",
-        "Une réduction du nombre de lits par établissement",
-        "Un transfert de la compétence vers les communes",
-        "Une fermeture des unités spécialisées en démence"
+        "De la COCOM, l'autorité bicommunautaire bruxelloise",
+        "Du fédéral, à travers l'agence d'accueil Fedasil",
+        "De la Région de Bruxelles-Capitale, à travers Bruss'Help",
+        "De la Fédération Wallonie-Bruxelles, à travers l'aide à la jeunesse"
       ],
       "correct": 0,
-      "explanation": "L'agence appelle à combiner expertise en santé mentale, accompagnement du handicap et soins aux aînés, et à adapter les moyens alloués au secteur.",
+      "explanation": "Les places d'accueil supprimées en 2026 relèvent en revanche du fédéral. Un refus au Samusocial ne renvoie donc pas vers un guichet fédéral mais vers la rue, vers un CPAS communal ou vers le secteur associatif.",
       "sourceSlug": "/fr/domaines/social",
-      "sourceTitle": "Social : 10M pour les gares, commissaire drogue, services protégés",
+      "sourceTitle": "Social : mille places d'accueil supprimées, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:e84ecb97366df70921d720a1343a8d08",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:1d27fb65f9de0ee8a70ca50e8c74fb77",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Quel document n'est plus exigé à Bruxelles, depuis la réforme du 9 juillet 2026, pour un logement touristique constituant la résidence principale du loueur ?",
+      "question": "L'enquête publique ouverte le 28 août 2026 sur le permis de lotir de la friche Josaphat, entre Evere et Meiser, porte sur combien de logements ?",
       "options": [
-        "L'attestation de conformité urbanistique",
-        "Le certificat de performance énergétique",
-        "L'accord écrit du syndic de copropriété",
-        "Le permis de changement d'affectation"
+        "537 logements",
+        "240 logements",
+        "780 logements",
+        "1 050 logements"
       ],
       "correct": 0,
-      "explanation": "Ce document communal était le principal obstacle procédural à l'enregistrement des locations de courte durée. La mesure entre en vigueur le 1er janvier 2027.",
+      "explanation": "La demande émane de la Société d'Aménagement Urbain, opérateur public régional, sur un terrain d'environ 24 hectares. Un permis de lotir porte sur le découpage des parcelles et les voiries : construire exigera une demande distincte et une nouvelle enquête publique.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:2ca0341fc2809fc6377f036778674aaa",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:4a643fc67eeee8de542ad240e8e55f0e",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Que prévoit l'attestation de sécurité simplifiée instaurée à Bruxelles le 9 juillet 2026 pour les logements touristiques loués par des particuliers ?",
+      "question": "L'arrêté bruxellois du 9 juillet 2026 sur les logements touristiques supprime l'attestation de conformité urbanistique pour les logements qui sont la résidence principale du loueur. Par quoi est-elle remplacée ?",
       "options": [
-        "Une vérification écrite des installations, plafonnée à 150 euros",
-        "Une visite communale annuelle facturée 300 euros",
-        "Un contrôle par un organisme agréé tous les 5 ans",
-        "Une déclaration sur l'honneur renouvelée tous les 2 ans"
+        "Par une attestation de sécurité simplifiée, plafonnée à 150 euros",
+        "Par une déclaration sur l'honneur du loueur, sans coût ni vérification",
+        "Par une visite communale obligatoire tous les trois ans, à 300 euros",
+        "Par une inscription au registre régional des meublés, à 75 euros"
       ],
       "correct": 0,
-      "explanation": "La vérification porte sur quatre éléments : les installations électrique, gaz et chauffage, ainsi que la présence d'un extincteur.",
+      "explanation": "La vérification écrite porte sur quatre éléments : les installations électrique, gaz et chauffage, et la présence d'un extincteur. La mesure entre en vigueur le 1er janvier 2027.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:2ca0341fc2809fc6377f036778674aaa",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:4a643fc67eeee8de542ad240e8e55f0e",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Quelle particularité institutionnelle caractérise les CPAS bruxellois ?",
+      "question": "Selon les chiffres du SPP Intégration sociale pour le premier semestre 2026, quelle part des demandes de revenu d'intégration introduites par des personnes exclues du chômage a été refusée ?",
       "options": [
-        "Ils dépendent du fédéral, de la Cocom et des communes à la fois",
-        "Ils dépendent uniquement de la Région de Bruxelles-Capitale",
-        "Ils sont regroupés en une seule structure régionale unique",
-        "Ils sont financés à parts égales par les dix-neuf communes"
+        "17 %",
+        "34 %",
+        "53 %",
+        "8 %"
       ],
       "correct": 0,
-      "explanation": "Le fédéral définit le cadre et finance l'essentiel de l'aide individuelle, la Cocom exerce la tutelle organique, la Région et les communes complètent. Quand le fédéral retire une subvention, c'est la commune qui paie.",
+      "explanation": "Soit environ 9 000 refus sur 52 600 demandes, le motif principal étant des revenus du ménage jugés trop élevés. Le taux de recours, de 43,9 % à Bruxelles, surestime donc la couverture réelle des personnes en fin de droits.",
       "sourceSlug": "/fr/dossiers/cpas-bruxellois",
       "sourceTitle": "CPAS bruxellois",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:d5e1a87a40bb4beac88f1388b242533c",
-        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:c4f03963c6c1c273d9e9ef69f8b24790",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel effet l'arrêt du Conseil d'État de juillet 2026, annulant les licences de mobilité partagée à Bruxelles, produit-il sur l'interdiction des trottinettes partagées ?",
+      "question": "Déposée le 18 juin 2026 sur democratie.brussels, la pétition pour garder les trottinettes partagées à Bruxelles a franchi le seuil qui oblige le Parlement bruxellois à s'en saisir. Quel est ce seuil ?",
       "options": [
-        "Il l'avance de quatre mois, par voie judiciaire",
-        "Il la reporte de quatre mois, par voie judiciaire",
-        "Il l'annule, la rendant sans objet pour les opérateurs",
-        "Il la maintient telle quelle, sans modifier le calendrier"
+        "1 000 signatures",
+        "500 signatures",
+        "5 000 signatures",
+        "15 000 signatures"
       ],
       "correct": 0,
-      "explanation": "L'interdiction fixée au 1er janvier 2027 n'est pas remise en cause, mais les engins doivent quitter l'espace public au 1er septembre 2026. Le recours émanait de Lime, opérateur écarté lors de l'attribution des licences.",
+      "explanation": "Elle comptait 1 595 signatures au 12 août 2026, ce qui en faisait l'initiative la plus signée de la plateforme. Franchir le seuil garantit un débat, mais n'oblige pas la majorité à changer de position et ne suspend pas l'interdiction prévue au 1er janvier 2027.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:07fc02e62063e6b0b0b1921083a12c94",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:800d8f8d7acee68673e3a68cccc6f1f8",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1181,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quelle offre l'annulation des licences de mobilité partagée à Bruxelles, prononcée par le Conseil d'État le 29 juillet 2026, supprime-t-elle alors que le gouvernement souhaitait la maintenir ?",
+      "question": "L'arrêt du Conseil d'État du 29 juillet 2026 a annulé les licences de mobilité partagée attribuées à Bruxelles en 2023. Qui avait introduit le recours à l'origine de cette annulation ?",
       "options": [
-        "Les vélos partagés en flotte libre",
-        "Les trottinettes partagées en flotte libre",
-        "Les vélos à ancrage fixe de la concession Villo",
-        "Les scooters partagés à assistance électrique"
+        "Lime, l'opérateur écarté lors de l'attribution de 2023",
+        "Bolt, l'un des deux opérateurs retenus en 2023",
+        "La fédération des associations cyclistes bruxelloises",
+        "La commune de Schaerbeek, au nom des riverains"
       ],
       "correct": 0,
-      "explanation": "La concession Villo, à ancrage fixe, n'est pas concernée par l'arrêt. Les autorités travaillent à un nouveau cadre réglementaire pour les vélos partagés.",
+      "explanation": "Le requérant victorieux pourrait devenir bénéficiaire du régime transitoire en préparation, aux côtés des opérateurs déjà en place. L'interdiction des trottinettes partagées en flotte libre reste fixée au 1er janvier 2027.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:07fc02e62063e6b0b0b1921083a12c94",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:800d8f8d7acee68673e3a68cccc6f1f8",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Pourquoi les décollages de Brussels Airport (Zaventem) surviennent-ils majoritairement au-dessus de Bruxelles ?",
+      "question": "Le 11 août 2026, quarante-deux familles de Dilbeek, Lennik et Roosdaal ont assigné l'État belge à propos de la route aérienne RNP 07L de Brussels Airport. Quelle est la particularité de cette route ?",
       "options": [
-        "Les vents dominants de sud-ouest imposent la piste 25R",
-        "Les vents dominants du nord imposent la piste 01 vers l'est",
-        "La longueur des pistes interdit tout décollage vers l'est",
-        "Un accord entre régions fixe cette répartition depuis 1995"
+        "Elle fait débuter la descente vers la piste 07L très à l'ouest de l'aéroport",
+        "Elle concentre les décollages vers le sud-est, au-dessus de la forêt de Soignes",
+        "Elle réserve la piste 07L aux vols de nuit, entre minuit et six heures du matin",
+        "Elle détourne les avions cargo au-dessus du canal et du port de Bruxelles"
       ],
       "correct": 0,
-      "explanation": "Ces vents soufflent 70 % du temps, ce qui envoie les décollages au-dessus de quartiers densément peuplés. Le Conseil supérieur de la santé estime le coût sanitaire à plus d'un milliard d'euros par an.",
+      "explanation": "Guidée par satellite, elle fait ensuite survoler le nord-ouest de la Région, dont Molenbeek-Saint-Jean, Koekelberg et Berchem-Sainte-Agathe. Mise en place comme test en 2025, elle a été prolongée jusqu'en octobre 2026.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:6a8b5f83f00dc738cde78709efa4e7fa",
-        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "sourceLastModified": "2026-08-23",
+        "sourceContentHash": "sha256:0d3401bc55ef2edc97b84ce0a1b1a80d",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1526,21 +1526,21 @@
       "id": "dossier-vice-gouverneur-0",
       "source": "dossier",
       "domain": "Institutionnel",
-      "question": "Quelle mission le vice-gouverneur de Bruxelles exerce-t-il ?",
+      "question": "Bruxelles dispose d'un vice-gouverneur, mais d'aucun gouverneur. Qu'est devenue la fonction de gouverneur ?",
       "options": [
-        "Veiller au respect des lois sur l'emploi des langues",
-        "Coordonner la planification d'urgence de l'arrondissement",
-        "Exercer la tutelle sur les budgets des dix-neuf communes",
-        "Présider la conférence des bourgmestres bruxellois"
+        "Elle a été supprimée par la sixième réforme de l'État, en 2014",
+        "Elle a été fusionnée avec celle de ministre-président en 1995",
+        "Elle est restée vacante depuis la scission de la province de Brabant",
+        "Elle a été transférée au bourgmestre de la Ville de Bruxelles en 2001"
       ],
       "correct": 0,
-      "explanation": "Bruxelles n'a plus de gouverneur depuis la sixième réforme de l'État, ses missions de sécurité étant exercées par un haut fonctionnaire. Le contrôle linguistique porte sur les dix-neuf communes et les dix-neuf CPAS.",
+      "explanation": "Ses missions de sécurité, de planification d'urgence et de gestion de crise sont exercées depuis lors par un haut fonctionnaire. Le vice-gouverneur, lui, veille au respect des lois linguistiques dans les 19 communes et les 19 CPAS de l'arrondissement.",
       "sourceSlug": "/fr/dossiers/vice-gouverneur",
       "sourceTitle": "Vice-gouverneur",
       "provenance": {
-        "sourceLastModified": "2026-06-15",
-        "sourceContentHash": "sha256:c240c692844cc338798f54d8762489c4",
-        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:21ccaf42204d4cc122e4ccb1c585b959",
+        "generatedAt": "2026-08-25T09:23:25.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1569,5 +1569,5 @@
       }
     }
   ],
-  "reviewedCount": 68
+  "reviewedCount": 45
 }

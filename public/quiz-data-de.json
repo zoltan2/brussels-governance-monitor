@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T21:20:07.472Z",
+  "generatedAt": "2026-08-25T09:29:40.218Z",
   "locale": "de",
   "poolSize": 67,
   "questionsPerSession": 10,
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Wie verteilt sich der Ertrag der erweiterten Herstellerverantwortung für Einwegkunststoff, die das Brüsseler Parlament am 13. März 2026 verabschiedet hat, zwischen der Region und den Gemeinden?",
+      "question": "Der am 18. Juni 2026 beschlossene Bahnhofsplan für die Sauberkeit rund um den Nord- und den Südbahnhof verfügt über welches Jahresbudget?",
       "options": [
-        "54 % an die Gemeinden, 46 % an die Region",
-        "46 % an die Gemeinden, 54 % an die Region",
-        "70 % an die Gemeinden, 30 % an die Region",
-        "50 % an die Gemeinden, 50 % an die Region"
+        "Zehn Millionen Euro pro Jahr",
+        "Zwei Millionen Euro pro Jahr",
+        "Fünfundzwanzig Millionen Euro pro Jahr",
+        "Fünfzig Millionen Euro pro Jahr"
       ],
       "correct": 0,
-      "explanation": "Die Ordonnanz setzt das interregionale Abkommen über Einwegkunststoff um. Die Hersteller zahlen der Region 51,4 Millionen Euro pro Jahr, davon 26,7 Millionen bereits 2026.",
+      "explanation": "Zwei Pilotaktionen gingen voraus: der Südbahnhof am 16. Juli 2026 und der Nordbahnhof am 21. August 2026. Sie sollen den Abstand zwischen einer einmaligen Aktion und laufender Pflege beziffern.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:740175392acb4b7a3c018b039c1cf603",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:b178b2f739a28818514f549cf3060cd7",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Welches Beteiligungsinstrument hat das Brüsseler Parlament am 23. Januar 2026 zur Sauberkeit des öffentlichen Raums geschaffen?",
+      "question": "Welcher Anteil der Personen, die 2025 von der Stadt Brüssel wegen wilder Müllablagerung verwarnt wurden, wohnte nicht in der Gemeinde?",
       "options": [
-        "Eine deliberative Kommission aus Bürgern und Abgeordneten",
-        "Ein regionales Referendum in den neunzehn Gemeinden",
-        "Einen Beirat aus Vertretern der Gemeinden",
-        "Eine öffentliche Untersuchung für die Anwohner des Fünfecks"
+        "36,7 %",
+        "12,4 %",
+        "58,2 %",
+        "21,9 %"
       ],
       "correct": 0,
-      "explanation": "Fünfundvierzig per Losverfahren ausgewählte Bürger und fünfzehn Abgeordnete erarbeiten dort Empfehlungen. Es ist die erste deliberative Kommission der Legislaturperiode.",
+      "explanation": "Das sind 2 837 von 7 731 Bußgeldern, ein als Mülltourismus bezeichnetes Phänomen. Ein Müllsack kostet in Brüssel etwa zehnmal weniger als in den Randgemeinden.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:740175392acb4b7a3c018b039c1cf603",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:b178b2f739a28818514f549cf3060cd7",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -146,21 +146,21 @@
       "id": "domain-digital-0",
       "source": "domain",
       "domain": "Digital",
-      "question": "Was stellt der Verfassungsgerichtshof in seinem Urteil Nr. 126/2025 vom 25. September 2025 zur Ordonnanz Brüssel Digital klar?",
+      "question": "Laut den am 4. August 2026 vom IBSA, dem Brüsseler Institut für Statistik und Analyse, veröffentlichten Zahlen: Welcher Anteil der Brüsseler Unternehmen mit mehr als 250 Beschäftigten nutzte 2025 mindestens eine Technologie der künstlichen Intelligenz?",
       "options": [
-        "Schalter, Telefon und Post bleiben alle drei verpflichtend",
-        "Die Verwaltungen dürfen nur einen der drei Kanäle behalten",
-        "Die physischen Schalter dürfen nach einer Übergangszeit schließen",
-        "Die Ordonnanz wird in allen ihren Artikeln für nichtig erklärt"
+        "Siebzig Prozent",
+        "Fünfundzwanzig Prozent",
+        "Vierzig Prozent",
+        "Neunzig Prozent"
       ],
       "correct": 0,
-      "explanation": "Die Nichtigkeitsklage wurde abgewiesen, doch ein Argument der unverhältnismäßigen Belastung kann nicht angeführt werden, um einen dieser drei Offline-Kanäle abzuschaffen.",
+      "explanation": "Gegenüber fünfundzwanzig Prozent bei Unternehmen mit 2 bis 9 Beschäftigten, die das Brüsseler Gefüge prägen. Die Region liegt über dem europäischen Schnitt von 19,95 %, aber unter dem belgischen, der bei rund einem Drittel liegt.",
       "sourceSlug": "/de/bereiche/digital",
       "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:f34dc783bf429ea7edac15c2c3192202",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:51ed9bd328ec2629f8f85d2f1d2c57fe",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -169,21 +169,21 @@
       "id": "domain-digital-1",
       "source": "domain",
       "domain": "Digital",
-      "question": "Innerhalb welcher Frist müssen bestehende Verwaltungsverfahren an die Ordonnanz Brüssel Digital angepasst werden?",
+      "question": "Was bedeutet der Grundsatz only once zur Verwaltungsvereinfachung in der Regionalen Politikerklärung vom 13. Februar 2026?",
       "options": [
-        "60 Monate",
-        "6 Monate",
-        "12 Monate",
-        "24 Monate"
+        "Daten, die der Verwaltung vorliegen, nicht erneut beim Bürger abfragen",
+        "Jeden Verwaltungsschritt auf ein einziges Papierformular beschränken",
+        "Pro Haushalt und Kalenderjahr nur einen Prämienantrag zulassen",
+        "Ein amtliches Dokument nur einmal ausstellen, ohne Zweitschrift"
       ],
       "correct": 0,
-      "explanation": "Neue Verwaltungsverfahren haben 6 Monate Zeit, gegenüber 60 Monaten für die Anpassung bereits bestehender Verfahren.",
+      "explanation": "Getragen wird der Grundsatz vom einheitlichen Schalter Easy Brussels und von der Online-Plattform IRISbox. Er ergänzt den Teil der Erklärung zur digitalen Inklusion für Menschen mit geringem Zugang zum Digitalen.",
       "sourceSlug": "/de/bereiche/digital",
       "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:f34dc783bf429ea7edac15c2c3192202",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:51ed9bd328ec2629f8f85d2f1d2c57fe",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "In welche Gemeinde kündigte Orange Belgium am 18. Juli 2026 an, den Hauptsitz zu verlegen, den es in Evere belegt?",
+      "question": "Welcher Anteil der Brüsseler Selbstständigen war 2025 zwischen 18 und 29 Jahre alt, laut dem föderalen Institut für die soziale Sicherheit der Selbstständigen?",
       "options": [
-        "Diegem, in Flämisch-Brabant",
-        "Zaventem, in Flämisch-Brabant",
-        "Machelen, in Flämisch-Brabant",
-        "Vilvoorde, in Flämisch-Brabant"
+        "14,5 %",
+        "11,2 %",
+        "22,8 %",
+        "8,3 %"
       ],
       "correct": 0,
-      "explanation": "Rund 1.400 Beschäftigte sind betroffen, der Umzug ist für Ende 2028 geplant. Der Betreiber verweist auf das Ende seines Mietvertrags und auf das ungeeignete Gebäude und schließt ein steuerliches Motiv ausdrücklich aus.",
+      "explanation": "Das sind 18 174 Personen, gegenüber 11,2 % auf nationaler Ebene. Ihre Zahl stieg zwischen 2015 und 2025 um 32,6 %, während die Zahl der Arbeitsuchenden unter 25 Jahren binnen eines Jahres um 17 % zunahm.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:98b7d4daaf597bfd332ea824a9622b2b",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:c81803734c16da99e284fe71035d8e87",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Was wirft das Gericht erster Instanz im Juni 2026 der Steuerverordnung der Stadt Brüssel auf Büroflächen vor?",
+      "question": "Am 22. Juni 2026 entschied das niederländischsprachige Gericht erster Instanz in Brüssel, dass die Bürosteuer der Stadt Brüssel gegen welchen Grundsatz verstößt?",
       "options": [
-        "Einen Verstoß gegen den verfassungsrechtlichen Gleichheitsgrundsatz",
-        "Eine Überschreitung der kommunalen Steuerhoheit",
-        "Eine fehlende Veröffentlichung im Belgischen Staatsblatt",
-        "Eine Rückwirkung entgegen der Rechtssicherheit"
+        "Gegen den verfassungsmäßigen Gleichheitsgrundsatz",
+        "Gegen das europäische Beihilferecht",
+        "Gegen die Dienstleistungsfreiheit",
+        "Gegen das Verbot der Doppelbesteuerung"
       ],
       "correct": 0,
-      "explanation": "Das Gericht stellt fest, dass eine objektive Rechtfertigung fehlt, um Büroflächen von anderen Nutzungen zu unterscheiden. Die Steuer stieg zwischen 2021 und 2026 von 9,58 auf 24 Euro pro Quadratmeter und Jahr.",
+      "explanation": "Das Gericht fand keine sachliche Rechtfertigung dafür, Büroflächen anders zu behandeln als andere Nutzungen, für die Steuerjahre 2022 bis 2025. Die Steuer stieg zwischen 2021 und 2026 von 9,58 auf 24 Euro je Quadratmeter und Jahr.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:98b7d4daaf597bfd332ea824a9622b2b",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:c81803734c16da99e284fe71035d8e87",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Bildung",
-      "question": "Welcher Anteil der Brüsseler Jugendlichen verließ die Sekundarschule 2024-2025 ohne Abschluss und ohne Qualifikation, laut IBSA?",
+      "question": "Am 19. August 2026 erklärte die Bildungsministerin der Föderation Wallonie-Brüssel, die Abschaffung der festen Ernennung von Lehrkräften komme nicht zustande. Welches Hindernis nannte sie?",
       "options": [
-        "18 %",
-        "12 %",
-        "26 %",
-        "22 %"
+        "Die Mehrkosten bei den Arbeitgeberbeiträgen, die der Föderalstaat nicht senken wollte",
+        "Den einhelligen Widerstand der Schulträger des freien Unterrichtswesens",
+        "Ein Urteil des Verfassungsgerichtshofs aus dem Frühjahr 2026",
+        "Die Weigerung der Brüsseler Gemeinden, die Reform in ihren Schulen anzuwenden"
       ],
       "correct": 0,
-      "explanation": "Der nationale Durchschnitt liegt bei 12 %, gegenüber 16 % in Antwerpen und 22 % in Charleroi. Der Brüsseler Wert bleibt gegenüber den Vorjahren stabil.",
+      "explanation": "Der Beitragssatz stiege von 5,26 % für statutarische Lehrkräfte auf 23,62 % im Vertragsverhältnis, geschätzte Mehrkosten von 400 Millionen Euro bis 2070. Der unbefristete Vertrag bleibt für das Schuljahr 2027 vorgesehen.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:56bcf506953b52d666f4bece4f46d0ed",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:2c98808b58470fa7807307b14ff1f6da",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Bildung",
-      "question": "Was ersetzt ab den Einschreibungen für das Schuljahr 2027-2028 den mündlichen Test, der Vorrang bei der Einschreibung im niederländischsprachigen Sekundarunterricht in Brüssel eröffnet?",
+      "question": "Welcher Anteil der Brüsseler Jugendlichen verließ die Sekundarschule ohne Abschluss oder Qualifikation, laut dem IBSA-Fokus vom 16. Juli 2026 zum Schuljahr 2024-2025?",
       "options": [
-        "Eine offizielle Bescheinigung des Niveaus B2",
-        "Ein Gespräch vor einer Jury aus 3 Personen",
-        "Ein Zeugnis am Ende des 6. Grundschuljahres",
-        "Eine vom Schulnetz organisierte schriftliche Prüfung"
+        "18 %",
+        "12 %",
+        "26 %",
+        "8 %"
       ],
       "correct": 0,
-      "explanation": "Die Maßnahme fällt in die Zuständigkeit der Flämischen Gemeinschaft und gilt für die Einschreibungen für das Schuljahr 2027-2028. Im VGC-Netz sind 65 % der Plätze im ersten Sekundarjahr für diese vorrangige Gruppe reserviert.",
+      "explanation": "Gegenüber 12 % auf nationaler Ebene, 16 % in Antwerpen und 22 % in Charleroi. Das Institut verfügt nach eigenen Angaben über keine verlässliche Statistik zu vollständig unbeschulten Schülern in der Region.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:56bcf506953b52d666f4bece4f46d0ed",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:2c98808b58470fa7807307b14ff1f6da",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Welche Sanktion hat die Brüsseler Deontologiekommission im Juli 2026 gegen lokale Mandatsträger verhängt?",
+      "question": "Ende Juli 2026 schlossen die Parteien der Brüsseler Regionalmehrheit die Verteilung der Mandate in den Verwaltungsräten der regionalen Einrichtungen ab. Um wie viele Mandate ging es laut dem von La Libre eingesehenen Mandatskataster?",
       "options": [
-        "Geldbußen von 10 % bis 40 % einer Monatsvergütung",
-        "Eine Unwählbarkeit von 6 Jahren für jedes lokale Mandat",
-        "Eine namentliche Veröffentlichung im Staatsblatt für 1 Jahr",
-        "Eine vollständige Rückzahlung der letzten 12 Monate"
+        "Rund 280 Mandate",
+        "Rund 150 Mandate",
+        "Rund 60 Mandate",
+        "Rund 500 Mandate"
       ],
       "correct": 0,
-      "explanation": "Zwanzig Mandatsträger wurden wegen fehlender Transparenz über ihre Vergütungen sanktioniert. Die Zelle „Transparenz“ hatte 305 säumige Mandatsträger erfasst, von denen 27 auch nach gezielten Erinnerungen säumig blieben.",
+      "explanation": "Die Zahl 150 kursierte nach dem Ministerrat vom 23. Juli 2026, der vierzehn Vorsitze vergab: sie deckte nur einen Teil der Bewegung ab. Keine amtliche Veröffentlichung erfasst diese Mandate bis heute.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:f117698617694e0a283419c4b7bcf2e2",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:f5471a90bb2e7afd827c1f03a869ec04",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Welche institutionelle Blockade lastet im Juli 2026 auf der Zusage der Brüsseler Regierung zur Verwaltungsreform?",
+      "question": "Ein Anwohner von Laeken rief die Ständige Kommission für Sprachenkontrolle an, weil die Unterlagen der öffentlichen Untersuchung zur Renovierung des Bahnhofs Bockstael ausschließlich auf Niederländisch verfasst waren. Wie entschied die Kommission?",
       "options": [
-        "Die Erneuerung der regionalen Verwaltungsräte",
-        "Die Ernennung des Greffiers des Brüsseler Parlaments",
-        "Die Annahme der Geschäftsordnung der Regierung",
-        "Die Ernennung der Einnehmer der neunzehn Gemeinden"
+        "Seine Beschwerde sei begründet, er hätte die Unterlagen auf Französisch erhalten müssen",
+        "Die öffentliche Untersuchung müsse vollständig zweisprachig wiederholt werden",
+        "Die föderale Eisenbahngesellschaft unterliege der Sprachgesetzgebung nicht",
+        "Allein die betroffene Gemeinde sei für die Übersetzung der Unterlagen zuständig"
       ],
       "correct": 0,
-      "explanation": "Diese Räte sind seit dem Wechsel der Legislaturperiode blockiert. Die Regierung konnte sich am 21. Juli 2026 erneut nicht einigen, sodass das Dossier nach der Parlamentspause zurückkehrt.",
+      "explanation": "Sein Antrag auf Vertagung im Konzertierungsausschuss wurde dennoch abgelehnt, und die Genehmigung erging ebenfalls nur auf Niederländisch. Da die Klage beim Staatsrat keine aufschiebende Wirkung hat, begannen die Arbeiten im August 2026.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:f117698617694e0a283419c4b7bcf2e2",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:f5471a90bb2e7afd827c1f03a869ec04",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Welchen Preis sieht die Reform der Umweltzone (LEZ), auf die sich die Brüsseler Regierung am 16. Juli 2026 geeinigt hat, für den Jahrespass vor?",
+      "question": "Die am 21. August 2026 von der Brüsseler Regierung angekündigte Übergangsregelung für geteilte Mobilität setzt eine Obergrenze für Leihfahrräder in der gesamten Region. Wie hoch ist sie?",
       "options": [
-        "350 Euro, indexiert",
-        "80 Euro, indexiert",
-        "200 Euro, indexiert",
-        "500 Euro, indexiert"
+        "7 500 Fahrräder",
+        "2 500 Fahrräder",
+        "4 800 Fahrräder",
+        "12 000 Fahrräder"
       ],
       "correct": 0,
-      "explanation": "Der Monatspass kostet 80 Euro und der Sozialtarif 200 Euro. Der Jahrespass ist bis zu fünf aufeinanderfolgende Jahre verlängerbar.",
+      "explanation": "Hinzu kommt eine Grenze von 2 500 Fahrrädern je Betreiber, damit die Pflichtabstellzonen nicht überlaufen. Eine Ausschreibung soll bis Mai 2028 zwei Lizenzen für je 4 800 Fahrräder vergeben; das Verbot geteilter Tretroller bleibt beim 1. Januar 2027.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:89830dbf7a671d552a0b9d9a8aefb70e",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:c828fa728b790fe801befe65b4b86244",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Wer kann den Sozialtarif in Anspruch nehmen, den die Reform der Umweltzone (LEZ) vom 16. Juli 2026 vorsieht?",
+      "question": "Im August 2026 richteten die drei Verbände der Fahrgäste des öffentlichen Verkehrs einen offenen Brief zum Immobilienprojekt NOR.Bruxsels vor dem Nordbahnhof. Was werfen sie der vorgestellten Gestaltung vor?",
       "options": [
-        "Brüsseler mit dem BIM-Status",
-        "Alle Personen im Land mit dem BIM-Status",
-        "Die Einwohner der neunzehn Gemeinden, ohne Bedingung",
-        "Pendler mit einem Zugabonnement"
+        "Sie verschlechtere die Übergänge zwischen Zug, Bus, Straßenbahn und Metro",
+        "Sie nehme der Bahnhofshalle einen großen Teil des Jahres das Tageslicht",
+        "Sie sperre den Nordbahnhof für mehr als zwei Jahre für Reisende",
+        "Sie streiche die Hälfte der Fahrradabstellplätze des Bahnhofs"
       ],
       "correct": 0,
-      "explanation": "Eine Person aus Wallonien oder Flandern mit demselben Status zahlt den vollen Tarif von 350 Euro. Eine vollständige Befreiung besteht unter anderem für betroffene Brüsseler mit mindestens drei unterhaltsberechtigten Personen.",
+      "explanation": "Sie sprechen von einem antimodalen Knotenpunkt und nennen zwei Punkte: die Aufteilung der Bushaltestellen und die Lage der Endhaltestelle der künftigen Straßenbahn 15. Das Projekt sieht vier Türme, 533 Wohnungen und 77 460 m² Büros vor; die Genehmigung liegt nicht vor.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:89830dbf7a671d552a0b9d9a8aefb70e",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:c828fa728b790fe801befe65b4b86244",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Warum kündigte die Region Brüssel am 10. Juli 2026 an, im Verfahren gegen Brügger Hooligans als Zivilpartei aufzutreten?",
+      "question": "Die Geschäfte im Nordviertel müssen seit April 2026 zwischen 1 und 6 Uhr schließen, in Schaerbeek und Saint-Josse-ten-Noode. Was besagen die Berichte der Auditoren des Staatsrats vom 10. August 2026?",
       "options": [
-        "Um einen eigenen Schaden der Region anerkennen zu lassen",
-        "Um eine Entschädigung im Namen der Opfer zu erhalten",
-        "Um ein Stadionverbot für die Angeklagten zu beantragen",
-        "Um die Zuständigkeit des Korrektionalgerichts zu bestreiten"
+        "Sie verneinen die Dringlichkeit in beiden Klagen gegen die Maßnahme",
+        "Sie heben die nächtliche Schließung in beiden Gemeinden auf",
+        "Sie setzen die Maßnahme bis zum endgültigen Urteil aus",
+        "Sie verweisen beide Klagen an den Verfassungsgerichtshof"
       ],
       "correct": 0,
-      "explanation": "Die Region verweist auf die Schädigung ihres Ansehens und ihrer Chancengleichheitspolitik sowie auf den außergewöhnlichen Einsatz öffentlicher Mittel. Die Taten gehen auf den 4. Mai 2025 in Molenbeek-Saint-Jean zurück.",
+      "explanation": "Ein Auditorenbericht ist kein Urteil: der Auditor prüft und schlägt vor, das Gericht entscheidet und kann davon abweichen. Die im März 2026 beschlossene Maßnahme wurde im Juni bis Ende September 2026 verlängert.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:2e1482b39e34b4654865bc0b69a70524",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:ba24ead9fd7277b0ed853857d130c821",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Was zeigt der am 22. Dezember 2025 veröffentlichte Jahresbericht des Brüsseler Sicherheitsobservatoriums zu den in Brüssel erfassten Straftaten?",
+      "question": "Die Polizeizone Midi, deren frühere Hauptwache in der Rue Démosthène in der Nacht vom 21. auf den 22. August 2026 beschossen wurde, umfasst welche Gemeinden?",
       "options": [
-        "Rund 157.000 pro Jahr, stabil über zehn Jahre",
-        "Rund 157.000 pro Jahr, mit einem Anstieg von 40 %",
-        "Rund 92.000 pro Jahr, mit einem Rückgang von 12 %",
-        "Rund 34.000 pro Jahr, stabil über fünf Jahre"
+        "Anderlecht, Saint-Gilles und Forest",
+        "Anderlecht, Molenbeek-Saint-Jean und Koekelberg",
+        "Saint-Gilles, Forest und Uccle",
+        "Anderlecht, Saint-Gilles und Ixelles"
       ],
       "correct": 0,
-      "explanation": "Der Bericht verzeichnet dagegen einen Anstieg von 33 % bei Drogendelikten zwischen 2023 und 2024, 92 Vorfälle mit Schusswaffen und 34 Tötungsdelikte, ein Plus von 40 % über zehn Jahre.",
+      "explanation": "Das Gebäude wird seit der Eröffnung der Wache in der Rue des Deux Gares nach und nach geräumt, die Gemeinde will es verkaufen. Zum Zeitpunkt der Schüsse war es geschlossen, verletzt wurde niemand.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:2e1482b39e34b4654865bc0b69a70524",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:ba24ead9fd7277b0ed853857d130c821",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Welcher Anteil der Bewohner Brüsseler Pflegeheime hat eine schwere neurokognitive Störung, laut der Iriscare-Erhebung vom Juli 2026?",
+      "question": "Der 2022 eingerichtete Brussels Deal finanzierte zweitausend Aufnahmeplätze in Brüssel für Antragsteller auf internationalen Schutz. Wie viel Kapazität zog der Föderalstaat 2026 zurück?",
       "options": [
-        "38 %",
-        "19 %",
-        "13 %",
-        "33 %"
+        "Tausend Plätze, in zwei Schritten: 300 Ende Juni, dann 700 am 16. Juli",
+        "Fünfhundert Plätze, auf einen Schlag gestrichen am 16. Juli",
+        "Zweitausend Plätze, also das gesamte System, bereits Ende Juni",
+        "Dreihundert Plätze, die einzige Ende Juli bestätigte Tranche"
       ],
       "correct": 0,
-      "explanation": "Die Erhebung umfasst 66 Pflegeheime, das sind 56 % des Brüsseler Bestands. Mehr als ein Drittel der Bewohner vereint mehrere dieser Bedarfe zugleich.",
+      "explanation": "Das System entsprach 42 Millionen Euro pro Jahr. Die Kundgebung vom 18. August 2026 auf der Place de l'Albertine erreichte keinen Aufschub: die Schließungen bleiben vor dem Winter vorgesehen.",
       "sourceSlug": "/de/bereiche/social",
-      "sourceTitle": "Soziales: 10M für Bahnhöfe, Drogenbeauftragter, geschützte Dienste",
+      "sourceTitle": "Soziales: Tausend Aufnahmeplätze gestrichen, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:b92a0dc1863ec4a741041e883bd2d972",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:5f164e8a22e4a622e736a0a80aa710ff",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Was empfiehlt Iriscare in seiner Erhebung vom Juli 2026 zu den Brüsseler Pflegeheimen angesichts der wachsenden Vielfalt der Pflegebedarfe?",
+      "question": "Welcher Behörde untersteht Samusocial, der wichtigste Träger der Notunterbringung in Brüssel?",
       "options": [
-        "Einen multidisziplinären Ansatz mit mehreren Fachkompetenzen",
-        "Eine Verringerung der Bettenzahl je Einrichtung",
-        "Eine Übertragung der Zuständigkeit an die Gemeinden",
-        "Eine Schließung der spezialisierten Demenzabteilungen"
+        "Der GGK, der bikommunitären Brüsseler Behörde",
+        "Dem Föderalstaat, über die Aufnahmeagentur Fedasil",
+        "Der Region Brüssel-Hauptstadt, über Bruss'Help",
+        "Der Föderation Wallonie-Brüssel, über die Jugendhilfe"
       ],
       "correct": 0,
-      "explanation": "Iriscare ruft dazu auf, Expertise in psychischer Gesundheit, Begleitung bei Behinderung und Altenpflege zu verbinden und die Mittel für den Sektor anzupassen.",
+      "explanation": "Die 2026 gestrichenen Aufnahmeplätze fallen dagegen in föderale Zuständigkeit. Eine Absage bei Samusocial verweist daher nicht an einen föderalen Schalter, sondern auf die Straße, an ein kommunales ÖSHZ oder an den Vereinssektor.",
       "sourceSlug": "/de/bereiche/social",
-      "sourceTitle": "Soziales: 10M für Bahnhöfe, Drogenbeauftragter, geschützte Dienste",
+      "sourceTitle": "Soziales: Tausend Aufnahmeplätze gestrichen, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:b92a0dc1863ec4a741041e883bd2d972",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:5f164e8a22e4a622e736a0a80aa710ff",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Welches Dokument ist in Brüssel seit der Reform vom 9. Juli 2026 für eine Touristenunterkunft, die der Hauptwohnsitz des Vermieters ist, nicht mehr erforderlich?",
+      "question": "Die am 28. August 2026 eröffnete öffentliche Untersuchung zur Parzellierungsgenehmigung für das Josaphat-Gelände zwischen Evere und Meiser betrifft wie viele Wohnungen?",
       "options": [
-        "Die städtebauliche Konformitätsbescheinigung",
-        "Der Energieausweis des Gebäudes",
-        "Die schriftliche Zustimmung des Hausverwalters",
-        "Die Genehmigung zur Nutzungsänderung"
+        "537 Wohnungen",
+        "240 Wohnungen",
+        "780 Wohnungen",
+        "1 050 Wohnungen"
       ],
       "correct": 0,
-      "explanation": "Dieses kommunale Dokument war das wichtigste Verfahrenshindernis für die Registrierung von Kurzzeitvermietungen. Die Maßnahme tritt am 1. Januar 2027 in Kraft.",
+      "explanation": "Der Antrag kommt von der SAU, dem regionalen öffentlichen Stadtentwicklungsträger, auf einem Gelände von etwa 24 Hektar. Eine Parzellierungsgenehmigung regelt Grundstücke und Wege: Bauen erfordert einen eigenen Antrag und eine neue öffentliche Untersuchung.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:2973033f214732f804a4c06957373a19",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:a82392a7bd67f2c4af00d0786dae1cf5",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Was sieht die vereinfachte Sicherheitsbescheinigung vor, die am 9. Juli 2026 in Brüssel für von Privatpersonen vermietete Touristenunterkünfte eingeführt wurde?",
+      "question": "Der Brüsseler Erlass vom 9. Juli 2026 über touristische Unterkünfte streicht die städtebauliche Konformitätsbescheinigung für Wohnungen, die der Hauptwohnsitz des Vermieters sind. Was tritt an ihre Stelle?",
       "options": [
-        "Eine schriftliche Prüfung der Anlagen, auf 150 Euro begrenzt",
-        "Einen jährlichen Besuch der Gemeinde für 300 Euro",
-        "Eine Kontrolle durch eine zugelassene Stelle alle 5 Jahre",
-        "Eine ehrenwörtliche Erklärung, die alle 2 Jahre erneuert wird"
+        "Eine vereinfachte Sicherheitsbescheinigung, gedeckelt auf 150 Euro",
+        "Eine Ehrenerklärung des Vermieters, ohne Kosten und ohne Kontrolle",
+        "Ein verpflichtender Gemeindebesuch alle drei Jahre, zu 300 Euro",
+        "Eine Eintragung im regionalen Unterkunftsregister, zu 75 Euro"
       ],
       "correct": 0,
-      "explanation": "Die Prüfung betrifft vier Elemente: die Elektro-, Gas- und Heizungsanlagen sowie das Vorhandensein eines Feuerlöschers.",
+      "explanation": "Die schriftliche Prüfung betrifft vier Punkte: Elektro-, Gas- und Heizungsanlage sowie das Vorhandensein eines Feuerlöschers. Die Maßnahme tritt am 1. Januar 2027 in Kraft.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:2973033f214732f804a4c06957373a19",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:a82392a7bd67f2c4af00d0786dae1cf5",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welche institutionelle Besonderheit kennzeichnet die Brüsseler ÖSHZ?",
+      "question": "Laut den Zahlen des Föderalen Öffentlichen Programmierungsdienstes Soziale Eingliederung für das erste Halbjahr 2026: Welcher Anteil der Anträge auf Eingliederungseinkommen von aus der Arbeitslosigkeit ausgeschlossenen Personen wurde abgelehnt?",
       "options": [
-        "Sie hängen zugleich vom Föderalstaat, der GGK und den Gemeinden ab",
-        "Sie hängen ausschließlich von der Region Brüssel-Hauptstadt ab",
-        "Sie sind in einer einzigen regionalen Struktur zusammengefasst",
-        "Sie werden zu gleichen Teilen von den neunzehn Gemeinden finanziert"
+        "17 %",
+        "34 %",
+        "53 %",
+        "8 %"
       ],
       "correct": 0,
-      "explanation": "Der Föderalstaat legt den Rahmen fest und finanziert den Großteil der individuellen Hilfe, die GGK übt die organische Aufsicht aus, Region und Gemeinden ergänzen. Zieht der Föderalstaat eine Subvention zurück, zahlt die Gemeinde.",
+      "explanation": "Das sind rund 9 000 Ablehnungen bei 52 600 Anträgen, meist weil das Haushaltseinkommen als zu hoch galt. Die Antragsquote von 43,9 % in Brüssel überschätzt daher, wie viele Betroffene tatsächlich abgesichert sind.",
       "sourceSlug": "/de/dossiers/cpas-bruxellois",
       "sourceTitle": "Brüsseler ÖSHZ",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:397b1429a934eb278eef1e61f285c57d",
-        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:8d15cabe4d91fec8178e587c57c49059",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1135,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche Wirkung hat das Urteil des Staatsrats vom Juli 2026, das die Lizenzen für geteilte Mobilität in Brüssel annulliert, auf das Verbot geteilter E-Scooter?",
+      "question": "Die am 18. Juni 2026 auf democratie.brussels eingereichte Petition zum Erhalt der geteilten Tretroller in Brüssel überschritt die Schwelle, ab der sich das Brüsseler Parlament damit befassen muss. Wie hoch liegt diese Schwelle?",
       "options": [
-        "Es zieht es um vier Monate vor, auf gerichtlichem Weg",
-        "Es verschiebt es um vier Monate, auf gerichtlichem Weg",
-        "Es hebt es auf und macht es für die Betreiber gegenstandslos",
-        "Es lässt es unverändert, ohne den Zeitplan anzupassen"
+        "1 000 Unterschriften",
+        "500 Unterschriften",
+        "5 000 Unterschriften",
+        "15 000 Unterschriften"
       ],
       "correct": 0,
-      "explanation": "Das für den 1. Januar 2027 festgelegte Verbot wird nicht in Frage gestellt, doch die Fahrzeuge müssen den öffentlichen Raum bis zum 1. September 2026 verlassen. Die Klage kam von Lime, dem bei der Lizenzvergabe ausgeschlossenen Betreiber.",
+      "explanation": "Am 12. August 2026 zählte sie 1 595 Unterschriften und war damit die meistunterzeichnete Initiative der Plattform. Die Schwelle sichert eine Debatte, verpflichtet die Mehrheit aber zu nichts und setzt das Verbot vom 1. Januar 2027 nicht aus.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:6d925358111eb8c64a5cef7b0c600331",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:683a9504ae26d5403f68ab6a4ea16a76",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welches Angebot streicht die vom Staatsrat am 29. Juli 2026 ausgesprochene Annullierung der Lizenzen für geteilte Mobilität in Brüssel, obwohl die Regierung es erhalten wollte?",
+      "question": "Das Urteil des Staatsrats vom 29. Juli 2026 hob die 2023 in Brüssel vergebenen Lizenzen für geteilte Mobilität auf. Wer hatte die Klage eingereicht, die dazu führte?",
       "options": [
-        "Die Leihfahrräder im Free-Floating",
-        "Die E-Scooter im Free-Floating",
-        "Die Fahrräder mit festen Stationen der Konzession Villo",
-        "Die geteilten Motorroller mit Elektroantrieb"
+        "Lime, der bei der Vergabe 2023 übergangene Betreiber",
+        "Bolt, einer der beiden 2023 ausgewählten Betreiber",
+        "Der Verband der Brüsseler Fahrradvereinigungen",
+        "Die Gemeinde Schaerbeek, im Namen der Anwohner"
       ],
       "correct": 0,
-      "explanation": "Die Konzession Villo mit ihren festen Stationen ist vom Urteil nicht betroffen. Die Behörden arbeiten an einem neuen Regelungsrahmen für Leihfahrräder.",
+      "explanation": "Der erfolgreiche Kläger könnte am Ende von der vorbereiteten Übergangsregelung profitieren, neben den bereits tätigen Betreibern. Das Verbot frei abstellbarer geteilter Tretroller bleibt beim 1. Januar 2027.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:6d925358111eb8c64a5cef7b0c600331",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-08-12",
+        "sourceContentHash": "sha256:683a9504ae26d5403f68ab6a4ea16a76",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Warum finden die Starts von Brussels Airport (Zaventem) überwiegend über Brüssel statt?",
+      "question": "Am 11. August 2026 verklagten zweiundvierzig Familien aus Dilbeek, Lennik und Roosdaal den belgischen Staat wegen der Anflugroute RNP 07L nach Brussels Airport. Was zeichnet diese Route aus?",
       "options": [
-        "Die vorherrschenden Südwestwinde erzwingen die Piste 25R",
-        "Die vorherrschenden Nordwinde erzwingen die Piste 01 nach Osten",
-        "Die Länge der Pisten schließt jeden Start nach Osten aus",
-        "Ein Abkommen zwischen den Regionen legt dies seit 1995 fest"
+        "Der Sinkflug zur Piste 07L beginnt weit westlich des Flughafens",
+        "Sie bündelt die Starts nach Südosten, über dem Sonienwald",
+        "Sie hält die Piste 07L von Mitternacht bis sechs Uhr für Nachtflüge frei",
+        "Sie leitet die Frachtflugzeuge über den Kanal und den Hafen von Brüssel"
       ],
       "correct": 0,
-      "explanation": "Diese Winde wehen 70 % der Zeit, was die Starts über dicht besiedelte Viertel lenkt. Der Hohe Gesundheitsrat schätzt die Gesundheitskosten auf mehr als eine Milliarde Euro pro Jahr.",
+      "explanation": "Satellitengeführt überfliegt sie danach den Nordwesten der Region, darunter Molenbeek-Saint-Jean, Koekelberg und Berchem-Sainte-Agathe. Als Test 2025 eingeführt, wurde sie bis Oktober 2026 verlängert.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
       "sourceTitle": "Fluglärm Brüssel",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:c364612ee828f524717a216f3165707e",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-08-23",
+        "sourceContentHash": "sha256:c3eecc7de317738899154aec2d4f974c",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1503,21 +1503,21 @@
       "id": "dossier-vice-gouverneur-0",
       "source": "dossier",
       "domain": "Institutionell",
-      "question": "Welchen Auftrag übt der Vizegouverneur von Brüssel aus?",
+      "question": "Brüssel hat einen Vizegouverneur, aber keinen Gouverneur. Was wurde aus dem Amt des Gouverneurs?",
       "options": [
-        "Über die Einhaltung der Gesetze zum Sprachengebrauch zu wachen",
-        "Die Notfallplanung des Verwaltungsbezirks zu koordinieren",
-        "Die Aufsicht über die Haushalte der neunzehn Gemeinden zu führen",
-        "Der Konferenz der Brüsseler Bürgermeister vorzusitzen"
+        "Es wurde durch die sechste Staatsreform abgeschafft, im Jahr 2014",
+        "Es wurde 1995 mit dem Amt des Ministerpräsidenten zusammengelegt",
+        "Es blieb seit der Teilung der Provinz Brabant unbesetzt",
+        "Es ging 2001 an den Bürgermeister der Stadt Brüssel über"
       ],
       "correct": 0,
-      "explanation": "Brüssel hat seit der sechsten Staatsreform keinen Gouverneur mehr, seine Sicherheitsaufgaben werden von einem hohen Beamten wahrgenommen. Die Sprachenkontrolle betrifft die neunzehn Gemeinden und die neunzehn ÖSHZ.",
+      "explanation": "Seine Aufgaben in Sicherheit, Notfallplanung und Krisenmanagement nimmt seither ein hoher Beamter wahr. Der Vizegouverneur wacht über die Einhaltung der Sprachengesetze in den 19 Gemeinden und 19 ÖSHZ des Bezirks.",
       "sourceSlug": "/de/dossiers/vice-gouverneur",
       "sourceTitle": "Vizegouverneur",
       "provenance": {
-        "sourceLastModified": "2026-06-15",
-        "sourceContentHash": "sha256:6543158be72b6d37319049c3ead96048",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-08-09",
+        "sourceContentHash": "sha256:f50c2d71cfaf89718bb7e6be39cd38a4",
+        "generatedAt": "2026-08-25T09:29:40.218Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1546,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 67
+  "reviewedCount": 44
 }

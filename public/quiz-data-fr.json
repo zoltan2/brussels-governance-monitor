@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T09:20:47.707Z",
+  "generatedAt": "2026-08-25T09:22:22.115Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Quelle sanction la commission bruxelloise de déontologie a-t-elle prononcée en juillet 2026 contre des mandataires locaux ?",
+      "question": "Fin juillet 2026, les partis de la majorité régionale bruxelloise ont bouclé la redistribution des mandats dans les conseils d'administration des institutions régionales. Combien de mandats étaient en jeu, selon le cadastre des mandats consulté par La Libre ?",
       "options": [
-        "Des amendes de 10 % à 40 % d'une rémunération mensuelle",
-        "Une inéligibilité de 6 ans à tout mandat public local",
-        "Une publication nominative au Moniteur belge pendant 1 an",
-        "Un remboursement intégral des 12 derniers mois perçus"
+        "Quelque 280 mandats",
+        "Quelque 150 mandats",
+        "Quelque 60 mandats",
+        "Quelque 500 mandats"
       ],
       "correct": 0,
-      "explanation": "Vingt mandataires ont été sanctionnés pour défaut de transparence sur leurs rémunérations. La cellule avait recensé 305 mandataires en défaut, dont 27 le restaient après rappels ciblés.",
+      "explanation": "Le chiffre de 150 avait circulé après le conseil des ministres du 23 juillet 2026, qui avait attribué quatorze présidences : il ne couvrait qu'une partie du mouvement. Aucune publication officielle ne recense ces mandats à ce jour.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:1583d5f2f0e339fdd0de18374146aaf4",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:9286cf72dbf72563da3a2dd4f5040b80",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Quel blocage institutionnel pèse, en juillet 2026, sur l'engagement de réforme administrative du gouvernement bruxellois ?",
+      "question": "Un riverain de Laeken a saisi la Commission permanente de contrôle linguistique parce que le dossier d'enquête publique sur la rénovation de la gare de Bockstael était rédigé uniquement en néerlandais. Qu'a décidé la commission ?",
       "options": [
-        "Le renouvellement des conseils d'administration régionaux",
-        "La désignation du greffier du Parlement bruxellois",
-        "L'adoption du règlement d'ordre intérieur du gouvernement",
-        "La nomination des receveurs des dix-neuf communes"
+        "Que sa plainte était fondée et qu'il devait recevoir les documents en français",
+        "Que l'enquête publique devait être entièrement recommencée en version bilingue",
+        "Que la SNCB échappait à la législation linguistique en tant qu'entreprise fédérale",
+        "Que la commune concernée était seule compétente pour faire traduire le dossier"
       ],
       "correct": 0,
-      "explanation": "Ces conseils sont restés bloqués depuis le changement de législature. Le gouvernement n'est de nouveau pas parvenu à s'accorder le 21 juillet 2026, le dossier revenant après les vacances parlementaires.",
+      "explanation": "Sa demande de report du dossier en commission de concertation a pourtant été rejetée, et le permis a été délivré lui aussi en néerlandais seulement. Le recours introduit au Conseil d'État n'étant pas suspensif, les travaux ont démarré en août 2026.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:1583d5f2f0e339fdd0de18374146aaf4",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:9286cf72dbf72563da3a2dd4f5040b80",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Quel tarif la réforme de la zone de basses émissions, arrêtée par le gouvernement bruxellois le 16 juillet 2026, prévoit-elle pour le pass annuel ?",
+      "question": "Le régime transitoire pour la mobilité partagée annoncé par le gouvernement bruxellois le 21 août 2026 fixe un plafond de vélos partagés pour l'ensemble de la Région. Quel est ce plafond ?",
       "options": [
-        "350 euros, indexés",
-        "80 euros, indexés",
-        "200 euros, indexés",
-        "500 euros, indexés"
+        "7 500 vélos",
+        "2 500 vélos",
+        "4 800 vélos",
+        "12 000 vélos"
       ],
       "correct": 0,
-      "explanation": "Le pass mensuel s'élève à 80 euros et le tarif social à 200 euros. Le pass annuel est renouvelable jusqu'à cinq années consécutives.",
+      "explanation": "S'y ajoute un plafond de 2 500 vélos par opérateur, pour éviter la saturation des zones de dépôt. Un appel d'offres doit attribuer d'ici mai 2028 deux licences de 4 800 vélos chacune, et l'interdiction des trottinettes partagées reste fixée au 1er janvier 2027.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:16aa9d0d7e25a51e4f9c26b041c85a56",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:b49f04bac24e5df815fd69ee3cfda2ce",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Qui peut bénéficier du tarif social prévu par la réforme de la zone de basses émissions arrêtée le 16 juillet 2026 par le gouvernement bruxellois ?",
+      "question": "En août 2026, les trois associations d'usagers des transports publics ont écrit une lettre ouverte sur le projet immobilier NOR.Bruxsels, devant la gare du Nord. Que reprochent-elles à l'aménagement présenté ?",
       "options": [
-        "Les Bruxellois bénéficiaires de l'intervention majorée",
-        "Tout bénéficiaire de l'intervention majorée du pays",
-        "Les habitants des dix-neuf communes, sans condition",
-        "Les navetteurs disposant d'un abonnement de train"
+        "Il dégraderait les correspondances entre le train, le bus, le tram et le métro",
+        "Il priverait le hall de la gare de lumière naturelle une grande partie de l'année",
+        "Il fermerait la gare du Nord aux voyageurs pendant plus de deux ans de chantier",
+        "Il supprimerait la moitié des emplacements de stationnement vélo de la gare"
       ],
       "correct": 0,
-      "explanation": "Un habitant de Wallonie ou de Flandre bénéficiant du même statut doit s'acquitter du plein tarif de 350 euros. Une exemption complète existe notamment pour les Bruxellois concernés ayant au moins trois personnes à charge.",
+      "explanation": "Elles parlent d'un « nœud antimodal » et visent deux points précis : le fractionnement des arrêts de bus et l'emplacement du terminus du futur tram 15. Le projet prévoit quatre tours, 533 logements et 77 460 m² de bureaux ; le permis n'est pas délivré.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:16aa9d0d7e25a51e4f9c26b041c85a56",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:b49f04bac24e5df815fd69ee3cfda2ce",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Pourquoi la Région bruxelloise a-t-elle annoncé, le 10 juillet 2026, se constituer partie civile contre des hooligans brugeois ?",
+      "question": "Les commerces du quartier Nord doivent fermer entre 1h et 6h depuis avril 2026, à Schaerbeek et à Saint-Josse-ten-Noode. Que disent les rapports des auditeurs du Conseil d'État rendus le 10 août 2026 ?",
       "options": [
-        "Pour faire reconnaître un préjudice propre à la Région",
-        "Pour obtenir une indemnisation au nom des victimes",
-        "Pour demander l'interdiction de stade des prévenus",
-        "Pour contester la compétence du tribunal correctionnel"
+        "Ils écartent l'urgence dans les deux recours dirigés contre la mesure",
+        "Ils annulent la fermeture nocturne dans les deux communes concernées",
+        "Ils suspendent la mesure en attendant l'arrêt définitif du Conseil d'État",
+        "Ils renvoient les deux recours à la Cour constitutionnelle pour examen"
       ],
       "correct": 0,
-      "explanation": "La Région invoque l'atteinte à son image, à ses politiques d'égalité des chances et la mobilisation exceptionnelle de moyens publics. Les faits visés remontent au 4 mai 2025 à Molenbeek-Saint-Jean.",
+      "explanation": "Un rapport d'auditeur n'est pas un arrêt : l'auditeur instruit et propose, la juridiction décide et peut s'en écarter. La mesure, adoptée en mars 2026, a été prolongée en juin jusqu'à la fin septembre 2026.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:b70393ad006a8a4c0bfa3bbeca8ed222",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:f17bf0ae0065d4049c7716b0733fa32f",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Que montre le rapport annuel de l'Observatoire bruxellois de la sécurité, publié le 22 décembre 2025, sur les faits judiciaires enregistrés à Bruxelles ?",
+      "question": "La zone de police Midi, dont l'ancien commissariat central de la rue Démosthène a été visé par des tirs dans la nuit du 21 au 22 août 2026, couvre quelles communes ?",
       "options": [
-        "Environ 157 000 par an, stables sur dix ans",
-        "Environ 157 000 par an, en hausse de 40 %",
-        "Environ 92 000 par an, en baisse de 12 %",
-        "Environ 34 000 par an, stables sur cinq ans"
+        "Anderlecht, Saint-Gilles et Forest",
+        "Anderlecht, Molenbeek-Saint-Jean et Koekelberg",
+        "Saint-Gilles, Forest et Uccle",
+        "Anderlecht, Saint-Gilles et Ixelles"
       ],
       "correct": 0,
-      "explanation": "Le rapport relève en revanche une hausse de 33 % des infractions liées aux stupéfiants entre 2023 et 2024, 92 incidents impliquant des armes à feu et 34 homicides, en progression de 40 % sur dix ans.",
+      "explanation": "Le bâtiment est progressivement vidé depuis l'ouverture du commissariat de la rue des Deux Gares et la commune souhaite le vendre. Il était fermé au moment des tirs et aucun blessé n'a été à déplorer.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:b70393ad006a8a4c0bfa3bbeca8ed222",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:f17bf0ae0065d4049c7716b0733fa32f",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Quelle part des résidents des maisons de repos bruxelloises présente un trouble neurocognitif sévère, selon l'enquête Iriscare de juillet 2026 ?",
+      "question": "Le Brussels Deal, mis en place en 2022, finançait deux mille places d'accueil à Bruxelles pour les demandeurs de protection internationale. Quelle capacité le fédéral a-t-il retirée en 2026 ?",
       "options": [
-        "38 %",
-        "19 %",
-        "13 %",
-        "33 %"
+        "Mille places, en deux temps : 300 à la fin juin puis 700 le 16 juillet",
+        "Cinq cents places, retirées en une seule fois le 16 juillet",
+        "Deux mille places, soit la totalité du dispositif, dès la fin juin",
+        "Trois cents places, seule tranche confirmée à la fin juillet"
       ],
       "correct": 0,
-      "explanation": "L'enquête porte sur 66 maisons de repos, soit 56 % du parc bruxellois. Plus d'un tiers des résidents cumulent plusieurs de ces besoins en même temps.",
+      "explanation": "Le dispositif représentait 42 millions d'euros par an. La mobilisation du 18 août 2026, place de l'Albertine, n'a pas obtenu de report : les fermetures restent prévues avant l'hiver.",
       "sourceSlug": "/fr/domaines/social",
-      "sourceTitle": "Social : 10M pour les gares, commissaire drogue, services protégés",
+      "sourceTitle": "Social : mille places d'accueil supprimées, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:e84ecb97366df70921d720a1343a8d08",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:1d27fb65f9de0ee8a70ca50e8c74fb77",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Que préconise Iriscare, dans son enquête de juillet 2026 sur les maisons de repos bruxelloises, au vu de la diversification des besoins en soins ?",
+      "question": "Le Samusocial, principal opérateur de l'hébergement d'urgence à Bruxelles, relève de quelle autorité ?",
       "options": [
-        "Une approche pluridisciplinaire combinant plusieurs expertises",
-        "Une réduction du nombre de lits par établissement",
-        "Un transfert de la compétence vers les communes",
-        "Une fermeture des unités spécialisées en démence"
+        "De la COCOM, l'autorité bicommunautaire bruxelloise",
+        "Du fédéral, à travers l'agence d'accueil Fedasil",
+        "De la Région de Bruxelles-Capitale, à travers Bruss'Help",
+        "De la Fédération Wallonie-Bruxelles, à travers l'aide à la jeunesse"
       ],
       "correct": 0,
-      "explanation": "L'agence appelle à combiner expertise en santé mentale, accompagnement du handicap et soins aux aînés, et à adapter les moyens alloués au secteur.",
+      "explanation": "Les places d'accueil supprimées en 2026 relèvent en revanche du fédéral. Un refus au Samusocial ne renvoie donc pas vers un guichet fédéral mais vers la rue, vers un CPAS communal ou vers le secteur associatif.",
       "sourceSlug": "/fr/domaines/social",
-      "sourceTitle": "Social : 10M pour les gares, commissaire drogue, services protégés",
+      "sourceTitle": "Social : mille places d'accueil supprimées, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:e84ecb97366df70921d720a1343a8d08",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:1d27fb65f9de0ee8a70ca50e8c74fb77",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Quel document n'est plus exigé à Bruxelles, depuis la réforme du 9 juillet 2026, pour un logement touristique constituant la résidence principale du loueur ?",
+      "question": "L'enquête publique ouverte le 28 août 2026 sur le permis de lotir de la friche Josaphat, entre Evere et Meiser, porte sur combien de logements ?",
       "options": [
-        "L'attestation de conformité urbanistique",
-        "Le certificat de performance énergétique",
-        "L'accord écrit du syndic de copropriété",
-        "Le permis de changement d'affectation"
+        "537 logements",
+        "240 logements",
+        "780 logements",
+        "1 050 logements"
       ],
       "correct": 0,
-      "explanation": "Ce document communal était le principal obstacle procédural à l'enregistrement des locations de courte durée. La mesure entre en vigueur le 1er janvier 2027.",
+      "explanation": "La demande émane de la Société d'Aménagement Urbain, opérateur public régional, sur un terrain d'environ 24 hectares. Un permis de lotir porte sur le découpage des parcelles et les voiries : construire exigera une demande distincte et une nouvelle enquête publique.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:2ca0341fc2809fc6377f036778674aaa",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:4a643fc67eeee8de542ad240e8e55f0e",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Que prévoit l'attestation de sécurité simplifiée instaurée à Bruxelles le 9 juillet 2026 pour les logements touristiques loués par des particuliers ?",
+      "question": "L'arrêté bruxellois du 9 juillet 2026 sur les logements touristiques supprime l'attestation de conformité urbanistique pour les logements qui sont la résidence principale du loueur. Par quoi est-elle remplacée ?",
       "options": [
-        "Une vérification écrite des installations, plafonnée à 150 euros",
-        "Une visite communale annuelle facturée 300 euros",
-        "Un contrôle par un organisme agréé tous les 5 ans",
-        "Une déclaration sur l'honneur renouvelée tous les 2 ans"
+        "Par une attestation de sécurité simplifiée, plafonnée à 150 euros",
+        "Par une déclaration sur l'honneur du loueur, sans coût ni vérification",
+        "Par une visite communale obligatoire tous les trois ans, à 300 euros",
+        "Par une inscription au registre régional des meublés, à 75 euros"
       ],
       "correct": 0,
-      "explanation": "La vérification porte sur quatre éléments : les installations électrique, gaz et chauffage, ainsi que la présence d'un extincteur.",
+      "explanation": "La vérification écrite porte sur quatre éléments : les installations électrique, gaz et chauffage, et la présence d'un extincteur. La mesure entre en vigueur le 1er janvier 2027.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:2ca0341fc2809fc6377f036778674aaa",
-        "generatedAt": "2026-08-05T19:49:08.056Z",
+        "sourceLastModified": "2026-08-22",
+        "sourceContentHash": "sha256:4a643fc67eeee8de542ad240e8e55f0e",
+        "generatedAt": "2026-08-25T09:22:22.115Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

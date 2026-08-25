@@ -12,6 +12,11 @@ export default defineConfig({
     // happy-dom, ARIA partiel) déclarent `// @vitest-environment jsdom` en tête
     // de fichier — `environmentMatchGlobs` a été retiré dans Vitest 4.
     environment: 'node',
+    // `src/auth.test.ts` importe `src/auth.ts`, qui charge next-auth, qui
+    // importe `next/server` en ESM. Hors bundle Next, la résolution échoue
+    // (« Did you mean next/server.js ? ») : les inliner rend le module testable
+    // sans quoi la connexion serait la seule chose non testée du dépôt.
+    server: { deps: { inline: ['next-auth', '@auth/core'] } },
   },
   resolve: {
     alias: {

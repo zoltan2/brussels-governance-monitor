@@ -19,6 +19,7 @@ import { cookies } from 'next/headers';
 import { recordVote, type RefonteVote } from '@/lib/refonte-votes';
 import { addContact } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
+import { clientIp } from '@/lib/client-ip';
 
 export const runtime = 'nodejs';
 
@@ -40,7 +41,7 @@ export async function POST(req: NextRequest) {
   // Le cookie ci-dessous est un frein pour l'utilisateur de bonne foi, pas
   // une vraie protection anti-abus (effaçable, ignoré par un script) — d'où
   // le rate-limit IP en plus, comme sur les autres routes publiques.
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const ip = clientIp(req.headers);
   const { allowed } = rateLimit(ip, { bucket: 'refonte-vote' });
   if (!allowed) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 });

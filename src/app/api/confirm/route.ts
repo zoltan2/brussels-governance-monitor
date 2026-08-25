@@ -6,6 +6,7 @@ import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
 import { getResend, EMAIL_FROM, addContact, getContact, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import WelcomeEmail from '@/emails/welcome';
+import { clientIp } from '@/lib/client-ip';
 
 const welcomeSubjects: Record<string, string> = {
   fr: 'Bienvenue sur Brussels Governance Monitor',
@@ -16,7 +17,7 @@ const welcomeSubjects: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = clientIp(request.headers);
     const { allowed } = rateLimit(ip);
     if (!allowed) {
       return NextResponse.json({ error: 'too_many_requests' }, { status: 429 });

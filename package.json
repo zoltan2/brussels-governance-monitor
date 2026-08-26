@@ -27,6 +27,7 @@
     "chat:generate-suggested": "tsx scripts/generate-suggested-answers.ts",
     "quiz:status": "tsx scripts/quiz-status.ts",
     "quiz:lint": "tsx scripts/quiz-lint.ts",
+    "quiz:review:check": "tsx scripts/quiz-review-check.ts",
     "quiz:sync-notice": "tsx scripts/quiz-sync-notice.ts",
     "quiz:generate": "tsx scripts/generate-quiz.ts",
     "quiz:generate:stale": "tsx scripts/generate-quiz.ts --only-stale",

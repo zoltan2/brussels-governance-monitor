@@ -15,9 +15,37 @@ import fs from 'fs'
 import path from 'path'
 import crypto from 'crypto'
 import { matter } from '../src/lib/frontmatter'
+import {
+  hashQuestionV1,
+  isReviewed as isReviewedShared,
+  isUnderQuota,
+  type QuizQuestionLike,
+  type ReviewEntry as ReviewEntryShared,
+  type ReviewState as ReviewStateShared,
+} from '../src/lib/quiz-review'
 
-export const LOCALES = ['fr', 'nl', 'en', 'de'] as const
-export type Locale = (typeof LOCALES)[number]
+/** Primitives de relecture : une seule implémentation, dans `src/lib/quiz-review.ts`.
+ *  Ré-exportées ici pour les six scripts qui les consomment déjà. */
+export {
+  LOCALES,
+  reviewKey,
+  hashQuestionV1,
+  hashQuestionV2,
+  hashForEntry,
+  computeReviewedCount,
+  quotaFor,
+  isUnderQuota,
+  CURRENT_HASH_VERSION,
+} from '../src/lib/quiz-review'
+export type {
+  Locale,
+  ReviewStatus,
+  ReviewEntry,
+  ReviewState,
+  HashVersion,
+  UnitRef,
+} from '../src/lib/quiz-review'
+import type { Locale, ReviewState, ReviewStatus } from '../src/lib/quiz-review'
 
 /** Version du prompt. À incrémenter à CHAQUE modification d'un prompt de
  *  LOCALE_CONFIG : c'est un motif légitime de régénération, et sans ce champ
@@ -62,7 +90,9 @@ export interface QuizData {
    * Nombre de questions du pool relues par un humain, au sens de
    * `data/quiz-review-state.json`.
    *
-   * Sert à l'affichage : tant que ce nombre est inférieur à `poolSize`, le
+   * Sert à l'affichage : tant que ce nombre est inférieur au NOMBRE DE
+   * QUESTIONS du pool — et non à `poolSize`, qui est un champ distinct que
+   * `bgm-quiz.tsx` n'ouvre jamais —, le
    * quiz porte une mention indiquant que des questions sont générées et non
    * encore relues (art. 50 du règlement (UE) 2024/1689). La mention disparaît
    * d'elle-même quand tout est validé, sans intervention dans le code.
@@ -200,8 +230,15 @@ export function assessPool(pool: QuizData, units: Map<string, Unit>): QuestionSt
   })
 }
 
-/** Clés d'unités à régénérer : sources modifiées, orphelines mises de côté,
- *  plus les unités qui n'ont aucune question dans le pool. */
+/**
+ * Clés d'unités à régénérer.
+ *
+ * Quatre motifs, et le dernier est le moins évident : une unité qui compte
+ * MOINS de questions que son quota. Sans lui, retirer une question du quiz —
+ * ce que fait la page de relecture quand une question est jugée fausse —
+ * ampute le pool de façon monotone et silencieuse, aucun régénérateur ne
+ * reprenant l'unité amputée.
+ */
 export function unitsToRegenerate(
   statuses: QuestionStatus[],
   units: Map<string, Unit>
@@ -210,61 +247,27 @@ export function unitsToRegenerate(
   for (const s of statuses) {
     if (s.freshness === 'stale' || s.freshness === 'unstamped') out.add(s.unitKey)
   }
-  const covered = new Set(statuses.map((s) => s.unitKey))
-  for (const key of units.keys()) {
-    if (!covered.has(key)) out.add(key)
+
+  const counts = new Map<string, number>()
+  for (const s of statuses) counts.set(s.unitKey, (counts.get(s.unitKey) ?? 0) + 1)
+
+  for (const [key, unit] of units) {
+    if (isUnderQuota({ type: unit.type, slug: unit.slug }, counts.get(key) ?? 0)) {
+      out.add(key)
+    }
   }
   return out
 }
 
 // ─── État de relecture ──────────────────────────────────────────────────────
 
-export type ReviewStatus = 'pending' | 'approved' | 'rejected' | 'edited'
-
-export interface ReviewEntry {
-  status: ReviewStatus
-  reviewedAt: string
-  reviewedBy: string
-  /** Hash de la question au moment de la relecture. S'il ne correspond plus au
-   *  hash courant, la question a changé depuis et retombe implicitement en
-   *  attente, sans effacer la trace de la relecture précédente. */
-  reviewedHash: string
-  note?: string
-}
-
 export const REVIEW_STATE_PATH = path.join(process.cwd(), 'data/quiz-review-state.json')
 
-/**
- * Clé d'une question dans l'état de relecture.
- *
- * ⚠️ Les `id` de questions sont IDENTIQUES d'une langue à l'autre
- * (`domain-budget-0` existe en fr, nl, en et de). Indexer sur l'`id` seul fait
- * que la dernière locale écrite écrase les précédentes. La locale fait donc
- * partie de la clé.
- */
-export function reviewKey(locale: Locale, id: string): string {
-  return `${locale}:${id}`
-}
-
-export interface ReviewState {
-  updatedAt: string
-  entries: Record<string, ReviewEntry>
-}
-
-/**
- * Hash du texte visible d'une question : ce qu'un relecteur a réellement lu.
- *
- * Le séparateur est un octet NUL, écrit en séquence d'échappement et non en
- * caractère brut : jusqu'au 2026-08-25 il traînait ici sous forme d'octet nu,
- * ce qui rendait le fichier binaire aux yeux de grep et le séparateur
- * indiscernable d'une espace à l'œil. Le remplacer par une espace ne lève
- * aucune erreur : `isReviewed` renvoie simplement `false` partout et les 269
- * relectures enregistrées disparaissent en silence. Verrouillé par
- * `scripts/__tests__/quiz-provenance.test.ts`.
- */
+/** Hash de relecture, version historique. Voir `src/lib/quiz-review.ts` :
+ *  le séparateur y est un octet NUL écrit en séquence d'échappement, et un
+ *  vecteur figé le verrouille. */
 export function hashQuestion(q: QuizQuestion): string {
-  const payload = [q.question, ...q.options, q.explanation].join('\u0000')
-  return 'sha256:' + crypto.createHash('sha256').update(payload, 'utf-8').digest('hex').slice(0, 32)
+  return hashQuestionV1(q as QuizQuestionLike)
 }
 
 export function readReviewState(): ReviewState {
@@ -281,11 +284,9 @@ export function writeReviewState(state: ReviewState): void {
 
 /** Une question est considérée relue si elle a une entrée `approved` ou
  *  `edited` dont le hash correspond encore au texte courant. */
+/** Délègue au module partagé, qui sait comparer une entrée v1 comme une v2. */
 export function isReviewed(q: QuizQuestion, state: ReviewState, locale: Locale): boolean {
-  const entry = state.entries[reviewKey(locale, q.id)]
-  if (!entry) return false
-  if (entry.status !== 'approved' && entry.status !== 'edited') return false
-  return entry.reviewedHash === hashQuestion(q)
+  return isReviewedShared(q as QuizQuestionLike, state as ReviewStateShared, locale)
 }
 
 // ─── Détection de fuite de réponse ──────────────────────────────────────────

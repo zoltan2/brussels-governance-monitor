@@ -8,6 +8,7 @@ import { createHash } from 'node:crypto';
 import { rateLimit } from '@/lib/rate-limit';
 import { buildSystemPrompt } from '@/lib/chat-system-prompt';
 import { pushLog } from '@/lib/chat-logs';
+import { currentQuestion } from '@/lib/chat-question';
 import suggestedAnswersCache from '@/lib/chat-cache/suggested-answers.json';
 import { clientIp } from '@/lib/client-ip';
 
@@ -219,8 +220,10 @@ export async function POST(request: Request) {
   const locale = parsed.data.locale ?? 'fr';
 
   const session = sessionHash(ip);
-  const firstUser = messages.find((m) => m.role === 'user');
-  const question = (firstUser?.content ?? '').slice(0, 200);
+  // Le widget renvoie tout l'historique : la question du tour en cours est le
+  // dernier message `user`, pas le premier (sinon la télémétrie relogue la
+  // question d'ouverture à chaque tour).
+  const question = currentQuestion(messages);
 
   // Fast path: if the conversation is a single suggested question we already
   // precomputed, serve the cached answer without hitting Anthropic. The widget

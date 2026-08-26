@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Versioned commit-msg hook. Installé via `core.hooksPath=.githooks` (npm prepare).
+#
+# Refuse une directive de saut de CI écrite dans un message de commit.
+#
+# Le 2026-08-26, la phrase de mise en garde « Un [skip ci] glissé dans une note
+# désactiverait les workflows en silence » a voyagé dans le corps d'un commit
+# jusqu'au message de squash de la PR #415. GitHub reconnaît ces marqueurs
+# n'importe où dans le message, corps compris : aucun workflow n'a été déclenché
+# sur main, aucune image publiée, et rien ne l'a signalé — un workflow qui
+# n'existe pas ne peut pas échouer, donc aucune alerte ne part. Le site a servi
+# l'ancien commit jusqu'à ce qu'on aille regarder.
+#
+# Bypass volontaire : `git commit --no-verify`.
+set -uo pipefail
+
+MSG_FILE="${1:-}"
+[ -n "$MSG_FILE" ] && [ -f "$MSG_FILE" ] || exit 0
+
+# Les lignes de commentaire sont retirées par git APRÈS ce hook. Les ignorer
+# ici, sinon le gabarit affiché par un `git commit` sans -m — qui cite parfois
+# le nom d'une branche ou d'un fichier — pourrait déclencher un refus sur du
+# texte que git s'apprête à jeter.
+SANS_COMMENTAIRES="$(grep -vE '^[[:space:]]*#' "$MSG_FILE")"
+
+MARQUEURS="$(printf '%s\n' "$SANS_COMMENTAIRES" \
+  | grep -oiE '\[(skip[ -]ci|ci[ -]skip|no[ -]ci|skip[ -]actions|actions[ -]skip)\]' \
+  | sort -fu | tr '\n' ' ')"
+
+# Forme « trailer », documentée à part par GitHub : en fin de message, précédée
+# de deux lignes vides. On refuse la ligne où qu'elle soit, la position exacte
+# ne changeant rien à l'intention.
+TRAILER="$(printf '%s\n' "$SANS_COMMENTAIRES" | grep -iE '^[[:space:]]*skip-checks:[[:space:]]*true[[:space:]]*$' || true)"
+
+[ -z "$MARQUEURS" ] && [ -z "$TRAILER" ] && exit 0
+
+{
+  echo "commit-msg: directive de saut de CI dans le message — refusé."
+  echo
+  [ -n "$MARQUEURS" ] && echo "  Trouvé : $MARQUEURS"
+  [ -n "$TRAILER" ] && echo "  Trouvé : trailer skip-checks"
+  echo
+  echo "GitHub lit ces marqueurs n'importe où dans le message, corps compris, et"
+  echo "ils survivent à la fusion en squash. Aucun workflow ne part alors sur main :"
+  echo "ni CI, ni build d'image, ni déploiement — et aucune alerte, puisqu'il n'y a"
+  echo "aucun run à voir échouer."
+  echo
+  echo "Pour en PARLER sans la déclencher : « la directive de saut de CI », ou la"
+  echo "même chaîne sans les crochets."
+  echo
+  echo "Saut réellement voulu : git commit --no-verify"
+} >&2
+exit 1

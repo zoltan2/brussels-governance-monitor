@@ -42,6 +42,37 @@ export const QUIZ_REVIEW_PATHS: readonly string[] = [
   ...LOCALES.map((l) => POOL_PATHS[l]),
 ];
 
+export interface CheckState {
+  passed: number;
+  pending: number;
+  failed: string[];
+  /** Nombre de runs connus pour ce sha. Zéro n'est pas un feu vert. */
+  total: number;
+}
+
+/**
+ * Refus lisible sur l'état des contrôles.
+ *
+ * `total === 0` est un refus, pas un feu vert : entre la création de la PR et
+ * l'inscription du premier run par GitHub, il s'écoule quelques secondes
+ * pendant lesquelles « aucun échec » est vrai et ne veut rien dire.
+ *
+ * L'échec prime sur l'attente : « en cours » invite à réessayer, alors qu'une
+ * PR qui porte déjà un échec est condamnée quoi qu'il arrive ensuite.
+ */
+export function checkStateRefusal(checks: CheckState): string | null {
+  if (checks.failed.length > 0) {
+    return `Contrôles en échec : ${checks.failed.join(', ')}`;
+  }
+  if (checks.total === 0) {
+    return 'Contrôles non démarrés';
+  }
+  if (checks.pending > 0) {
+    return 'Contrôles en cours';
+  }
+  return null;
+}
+
 export interface PrRef {
   branch: string;
   headRepo: string | null;

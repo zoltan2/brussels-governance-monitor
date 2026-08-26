@@ -14,7 +14,7 @@ import { auth } from '@/auth';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { sameOriginRefusal } from '@/lib/same-origin';
-import { prRefusal, fileSetRefusal } from '@/lib/quiz-review-guards';
+import { prRefusal, fileSetRefusal, checkStateRefusal } from '@/lib/quiz-review-guards';
 import {
   reviewContext,
   listOpenReviewPrs,
@@ -76,15 +76,9 @@ export const POST = auth(async function POST(req) {
       );
     }
 
-    const checks = await reviewCheckState(ctx, sha);
-    if (checks.pending > 0) {
-      return NextResponse.json({ error: 'Contrôles en cours' }, { status: 409 });
-    }
-    if (checks.failed.length > 0) {
-      return NextResponse.json(
-        { error: `Contrôles en échec : ${checks.failed.join(', ')}` },
-        { status: 409 },
-      );
+    const checksRefusal = checkStateRefusal(await reviewCheckState(ctx, sha));
+    if (checksRefusal) {
+      return NextResponse.json({ error: checksRefusal }, { status: 409 });
     }
 
     const merged = await mergeReviewPr(ctx, { number, sha });

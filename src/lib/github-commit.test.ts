@@ -3,6 +3,7 @@ import {
   commitReviewFiles,
   listOpenReviewPrs,
   mergeReviewPr,
+  reviewCheckState,
   type GitHubContext,
 } from './github-commit';
 
@@ -119,5 +120,65 @@ describe('mergeReviewPr', () => {
     const call = calls.find((c) => c.method === 'PUT')!;
     expect(call.url).toContain('/pulls/42/merge');
     expect(call.body).toMatchObject({ merge_method: 'squash', sha: 'tete-attendue' });
+  });
+});
+
+describe('reviewCheckState', () => {
+  const SHA = 'a'.repeat(40);
+
+  /** GitHub a retiré la permission « Checks » des jetons fine-grained ; seules
+   *  les GitHub Apps lisent encore cette API, et le refus est un 403 même sur
+   *  un dépôt public. Lire `check-runs` condamnerait donc la fusion à un 502
+   *  permanent dès que la page tourne avec un jeton cantonné à ce dépôt. */
+  it('interroge l’API Actions, jamais l’API Checks', async () => {
+    const { ctx, calls } = fakeGitHub({ '/actions/runs': { workflow_runs: [] } });
+    await reviewCheckState(ctx, SHA);
+    expect(calls.some((c) => c.url.includes('check-runs'))).toBe(false);
+    expect(calls[0]!.url).toContain(`/actions/runs?head_sha=${SHA}`);
+  });
+
+  it('compte un workflow terminé en succès', async () => {
+    const { ctx } = fakeGitHub({
+      '/actions/runs': { workflow_runs: [{ name: 'CI', status: 'completed', conclusion: 'success' }] },
+    });
+    expect(await reviewCheckState(ctx, SHA)).toMatchObject({ passed: 1, pending: 0, failed: [] });
+  });
+
+  it('compte un workflow non terminé comme en cours', async () => {
+    const { ctx } = fakeGitHub({
+      '/actions/runs': { workflow_runs: [{ name: 'CI', status: 'in_progress', conclusion: null }] },
+    });
+    expect(await reviewCheckState(ctx, SHA)).toMatchObject({ pending: 1, failed: [] });
+  });
+
+  it('nomme le workflow en échec', async () => {
+    const { ctx } = fakeGitHub({
+      '/actions/runs': {
+        workflow_runs: [{ name: 'Content lint', status: 'completed', conclusion: 'failure' }],
+      },
+    });
+    expect((await reviewCheckState(ctx, SHA)).failed).toEqual(['Content lint']);
+  });
+
+  /** `content-lint.yml` porte un filtre `paths:` : une relecture qui ne
+   *  toucherait pas les pools rendrait un run « skipped », qui n’est pas un
+   *  échec. */
+  it('ne tient ni skipped ni neutral pour un échec', async () => {
+    const { ctx } = fakeGitHub({
+      '/actions/runs': {
+        workflow_runs: [
+          { name: 'Content lint', status: 'completed', conclusion: 'skipped' },
+          { name: 'Pagefind', status: 'completed', conclusion: 'neutral' },
+        ],
+      },
+    });
+    expect((await reviewCheckState(ctx, SHA)).failed).toEqual([]);
+  });
+
+  /** Sans ce compte, une fusion demandée avant que le premier workflow ne
+   *  soit inscrit lit zéro échec comme un feu vert. */
+  it('rend un total nul quand aucun run n’existe pour ce sha', async () => {
+    const { ctx } = fakeGitHub({ '/actions/runs': { workflow_runs: [] } });
+    expect((await reviewCheckState(ctx, SHA)).total).toBe(0);
   });
 });

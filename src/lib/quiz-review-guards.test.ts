@@ -8,6 +8,7 @@ import {
   fileSetRefusal,
   secondSessionRefusal,
   commitMessageFor,
+  checkStateRefusal,
 } from './quiz-review-guards';
 
 const REPO = 'zoltan2/brussels-governance-monitor';
@@ -127,5 +128,39 @@ describe('commitMessageFor', () => {
 
   it('tient sur une seule ligne', () => {
     expect(commitMessageFor({ approved: 2, rejected: 0 }).split('\n')).toHaveLength(1);
+  });
+});
+
+describe('checkStateRefusal', () => {
+  const vert = { passed: 2, pending: 0, failed: [], total: 2 };
+
+  it('laisse passer des contrôles tous verts', () => {
+    expect(checkStateRefusal(vert)).toBeNull();
+  });
+
+  /** L’état nominal d’une PR dont aucun workflow n’est encore inscrit est
+   *  zéro échec — que « aucun échec » lit comme un feu vert. */
+  it('refuse une PR dont aucun contrôle n’a démarré', () => {
+    expect(checkStateRefusal({ passed: 0, pending: 0, failed: [], total: 0 })).toBe(
+      'Contrôles non démarrés',
+    );
+  });
+
+  it('refuse tant qu’un contrôle est en cours', () => {
+    expect(checkStateRefusal({ ...vert, pending: 1, total: 3 })).toBe('Contrôles en cours');
+  });
+
+  it('nomme les contrôles en échec', () => {
+    expect(checkStateRefusal({ ...vert, failed: ['CI', 'Content lint'], total: 4 })).toBe(
+      'Contrôles en échec : CI, Content lint',
+    );
+  });
+
+  /** Un échec doit primer sur une attente : « en cours » invite à réessayer,
+   *  alors que la PR est déjà condamnée. */
+  it('signale l’échec plutôt que l’attente quand les deux sont vrais', () => {
+    expect(checkStateRefusal({ ...vert, pending: 1, failed: ['CI'], total: 4 })).toBe(
+      'Contrôles en échec : CI',
+    );
   });
 });

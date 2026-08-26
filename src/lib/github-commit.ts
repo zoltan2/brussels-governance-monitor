@@ -19,7 +19,7 @@
  * la mise à jour n'est jamais forcée.
  */
 
-import { QUIZ_REVIEW_BRANCH_PREFIX, QUIZ_REVIEW_PATHS } from './quiz-review-guards';
+import { QUIZ_REVIEW_BRANCH_PREFIX, QUIZ_REVIEW_PATHS, type CheckState } from './quiz-review-guards';
 
 const API = 'https://api.github.com';
 
@@ -189,27 +189,45 @@ export async function openReviewPr(
   });
 }
 
-export interface CheckState {
-  passed: number;
-  pending: number;
-  failed: string[];
-}
-
+/**
+ * État de la CI pour un sha, lu par l'API Actions et non par l'API Checks.
+ *
+ * `GET /commits/{sha}/check-runs` serait le bon endpoint, et c'est celui que
+ * lit `github-pr.ts`. Il est inaccessible ici : GitHub a retiré la permission
+ * « Checks » des jetons fine-grained — seules les GitHub Apps y accèdent
+ * encore — et le refus est un 403 même sur un dépôt public. Avec le jeton
+ * cantonné à ce dépôt que la page réclame, `check-runs` bloquerait donc la
+ * fusion en permanence, derrière un 502 qui ne nomme pas la cause.
+ *
+ * `GET /actions/runs?head_sha=` rend la même information sous la permission
+ * « Actions » (lecture), que les jetons fine-grained ont bien.
+ *
+ * Écart assumé : un contrôle qui ne viendrait pas de GitHub Actions — une
+ * vérification de déploiement posée par une application tierce — serait
+ * invisible pour cette garde. Le 2026-08-26, les seuls contrôles du dépôt
+ * sont ceux de `.github/workflows/`. Si un jour il en arrive d'ailleurs,
+ * cette fonction ment par omission et doit être revue.
+ *
+ * Les noms rendus sont ceux des WORKFLOWS (« CI »), pas ceux des jobs
+ * (« Lint, Typecheck & Build ») que rend `check-runs` : toute liste de noms
+ * attendus écrite en face de cette fonction doit suivre cette convention.
+ */
 export async function reviewCheckState(
   ctx: GitHubContext,
   sha: string,
 ): Promise<CheckState> {
   const data = await call<{
-    check_runs: Array<{ name: string; status: string; conclusion: string | null }>;
-  }>(ctx, `/commits/${sha}/check-runs?per_page=100`);
+    workflow_runs?: Array<{ name: string; status: string; conclusion: string | null }>;
+  }>(ctx, `/actions/runs?head_sha=${sha}&per_page=100`);
 
-  const runs = data.check_runs;
+  const runs = data.workflow_runs ?? [];
   return {
     passed: runs.filter((r) => r.conclusion === 'success').length,
     pending: runs.filter((r) => r.status !== 'completed').length,
     failed: runs
       .filter((r) => r.conclusion !== null && r.conclusion !== 'success' && r.conclusion !== 'neutral' && r.conclusion !== 'skipped')
       .map((r) => r.name),
+    total: runs.length,
   };
 }
 

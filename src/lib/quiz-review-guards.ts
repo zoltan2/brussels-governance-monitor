@@ -42,6 +42,54 @@ export const QUIZ_REVIEW_PATHS: readonly string[] = [
   ...LOCALES.map((l) => POOL_PATHS[l]),
 ];
 
+/**
+ * Étiquette écrite dans `reviewedBy`, pour les quatre locales.
+ *
+ * Une CONSTANTE, et surtout pas l'adresse de la session : ce champ atterrit
+ * dans `data/quiz-review-state.json`, versionné dans un dépôt PUBLIC. Une
+ * adresse e-mail y serait publiée dans l'historique git, donc définitivement.
+ * La valeur reprend celle des 269 entrées déjà écrites par le CLI, pour que le
+ * champ reste homogène d'un chemin d'écriture à l'autre.
+ */
+export const REVIEWER_LABEL = 'zoltan';
+
+export interface FileSha {
+  path: string;
+  sha: string;
+}
+
+export interface ShaRefusal {
+  error: string;
+  files: string[];
+}
+
+/**
+ * Concurrence optimiste sur les cinq blobs.
+ *
+ * Un sha ABSENT est refusé au même titre qu'un sha qui a bougé. La version
+ * précédente conditionnait la comparaison à la présence de la clé : un corps
+ * sans `shas` — que le schéma accepte, `z.record` admettant l'objet vide —
+ * sautait la garde entière et réécrivait les quatre pools. Git n'aurait rien
+ * signalé, le commit étant un descendant de `main`.
+ *
+ * Les deux causes sont distinguées parce qu'elles ne se corrigent pas de la
+ * même façon : rechargez la page contre corrigez l'appelant.
+ */
+export function shaRefusal(
+  files: FileSha[],
+  shas: Record<string, string>,
+): ShaRefusal | null {
+  const manquants = files.filter((f) => !shas[f.path]).map((f) => f.path);
+  if (manquants.length > 0) {
+    return { error: 'Sha de référence manquant', files: manquants };
+  }
+  const bouges = files.filter((f) => shas[f.path] !== f.sha).map((f) => f.path);
+  if (bouges.length > 0) {
+    return { error: 'Contenu modifié depuis le chargement', files: bouges };
+  }
+  return null;
+}
+
 export interface CheckState {
   passed: number;
   pending: number;

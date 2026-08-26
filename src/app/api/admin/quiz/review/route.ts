@@ -24,6 +24,8 @@ import {
   poolPathFor,
   commitMessageFor,
   secondSessionRefusal,
+  shaRefusal,
+  REVIEWER_LABEL,
 } from '@/lib/quiz-review-guards';
 import {
   reviewContext,
@@ -87,12 +89,12 @@ export const POST = auth(async function POST(req) {
     // Concurrence : un régénérateur CLI ou un push direct passé depuis
     // l'ouverture de la page déplace le sha du blob. Refuser plutôt
     // qu'écraser — git ne signalerait rien, le commit étant un descendant.
-    const moved = paths.filter((p, i) => shas[p] && shas[p] !== files[i]!.sha);
-    if (moved.length > 0) {
-      return NextResponse.json(
-        { error: 'Contenu modifié depuis le chargement', files: moved },
-        { status: 409 },
-      );
+    const refus = shaRefusal(
+      paths.map((p, i) => ({ path: p, sha: files[i]!.sha })),
+      shas,
+    );
+    if (refus) {
+      return NextResponse.json(refus, { status: 409 });
     }
 
     const state = JSON.parse(files[0]!.content) as ReviewState;
@@ -101,7 +103,9 @@ export const POST = auth(async function POST(req) {
     ) as PoolsByLocale;
 
     const now = new Date().toISOString().slice(0, 10);
-    const reviewer = req.auth.user?.email ?? 'admin';
+    // Constante, jamais l'adresse de session : `reviewedBy` part dans un
+    // dépôt public et son historique ne se réécrit pas.
+    const reviewer = REVIEWER_LABEL;
     const result = applyDecisions({ pools, state, decisions, now, reviewer });
 
     const branch = `${QUIZ_REVIEW_BRANCH_PREFIX}${now}-${Date.now().toString(36)}`;

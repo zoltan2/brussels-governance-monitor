@@ -9,6 +9,8 @@ import {
   secondSessionRefusal,
   commitMessageFor,
   checkStateRefusal,
+  shaRefusal,
+  REVIEWER_LABEL,
 } from './quiz-review-guards';
 
 const REPO = 'zoltan2/brussels-governance-monitor';
@@ -162,5 +164,55 @@ describe('checkStateRefusal', () => {
     expect(checkStateRefusal({ ...vert, pending: 1, failed: ['CI'], total: 4 })).toBe(
       'Contrôles en échec : CI',
     );
+  });
+});
+
+describe('shaRefusal', () => {
+  const fichiers = [
+    { path: 'data/quiz-review-state.json', sha: 'a'.repeat(40) },
+    { path: 'public/quiz-data-fr.json', sha: 'b'.repeat(40) },
+  ];
+  const attendus = {
+    'data/quiz-review-state.json': 'a'.repeat(40),
+    'public/quiz-data-fr.json': 'b'.repeat(40),
+  };
+
+  it('laisse passer quand tous les sha correspondent', () => {
+    expect(shaRefusal(fichiers, attendus)).toBeNull();
+  });
+
+  /** Le défaut : la garde était conditionnée à la présence de la clé, donc un
+   *  corps sans `shas` la sautait entièrement et écrasait les pools sans que
+   *  git ne voie de conflit — le commit est un descendant de main. */
+  it('refuse un lot qui ne porte aucun sha de référence', () => {
+    expect(shaRefusal(fichiers, {})).toEqual({
+      error: 'Sha de référence manquant',
+      files: ['data/quiz-review-state.json', 'public/quiz-data-fr.json'],
+    });
+  });
+
+  it('refuse un sha absent même quand les autres correspondent', () => {
+    const partiel = { 'data/quiz-review-state.json': attendus['data/quiz-review-state.json'] };
+    expect(shaRefusal(fichiers, partiel)).toEqual({
+      error: 'Sha de référence manquant',
+      files: ['public/quiz-data-fr.json'],
+    });
+  });
+
+  it('nomme le fichier dont le sha a bougé', () => {
+    expect(shaRefusal(fichiers, { ...attendus, 'public/quiz-data-fr.json': 'c'.repeat(40) })).toEqual({
+      error: 'Contenu modifié depuis le chargement',
+      files: ['public/quiz-data-fr.json'],
+    });
+  });
+});
+
+describe('REVIEWER_LABEL', () => {
+  /** `data/quiz-review-state.json` est versionné dans un dépôt PUBLIC : ce
+   *  champ part dans l'historique git, définitivement. La route web y écrivait
+   *  l'adresse de session. */
+  it('ne contient pas d’adresse e-mail', () => {
+    expect(REVIEWER_LABEL).not.toMatch(/@/);
+    expect(REVIEWER_LABEL.length).toBeGreaterThan(0);
   });
 });

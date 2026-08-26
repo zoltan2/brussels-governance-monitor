@@ -19,7 +19,12 @@
  * la mise à jour n'est jamais forcée.
  */
 
-import { QUIZ_REVIEW_BRANCH_PREFIX, QUIZ_REVIEW_PATHS, type CheckState } from './quiz-review-guards';
+import {
+  QUIZ_REVIEW_BRANCH_PREFIX,
+  QUIZ_REVIEW_PATHS,
+  type CheckState,
+  type PrFileSet,
+} from './quiz-review-guards';
 
 const API = 'https://api.github.com';
 
@@ -268,14 +273,41 @@ export async function readReviewFile(
   };
 }
 
-/** Chemins touchés par une PR de relecture, pour la garde de liste blanche. */
+/**
+ * Plafond de pagination, aligné sur `github-pr.ts`. Une PR de relecture en
+ * porte cinq ; mille est un garde-fou de boucle, pas une limite attendue.
+ */
+const MAX_PAGES_FICHIERS = 10;
+
+/**
+ * Chemins touchés par une PR de relecture, pour la garde de liste blanche.
+ *
+ * Pagine, et signale la troncature plutôt que de rendre une liste partielle en
+ * la faisant passer pour complète : la version précédente lisait la première
+ * page et s'arrêtait là, si bien qu'un chemin hors périmètre au-delà du
+ * centième fichier échappait à `fileSetRefusal` et que la fusion passait.
+ *
+ * Une page pleine ne prouve pas qu'il en reste : on continue, et c'est la
+ * première page incomplète qui conclut.
+ */
 export async function reviewPrFiles(
   ctx: GitHubContext,
   number: number,
-): Promise<string[]> {
-  const files = await call<Array<{ filename: string }>>(
-    ctx,
-    `/pulls/${number}/files?per_page=100`,
-  );
-  return files.map((f) => f.filename);
+): Promise<PrFileSet> {
+  const paths: string[] = [];
+
+  for (let page = 1; page <= MAX_PAGES_FICHIERS; page++) {
+    const batch = await call<Array<{ filename: string }>>(
+      ctx,
+      `/pulls/${number}/files?per_page=100&page=${page}`,
+    );
+    paths.push(...batch.map((f) => f.filename));
+    if (batch.length < 100) {
+      return { paths, truncated: false };
+    }
+  }
+
+  // Sorti par le plafond, la dernière page étant pleine : il en reste
+  // peut-être, donc on ne peut rien conclure sur le périmètre.
+  return { paths, truncated: true };
 }

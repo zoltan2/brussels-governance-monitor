@@ -4,6 +4,7 @@ import {
   listOpenReviewPrs,
   mergeReviewPr,
   reviewCheckState,
+  reviewPrFiles,
   type GitHubContext,
 } from './github-commit';
 
@@ -180,5 +181,48 @@ describe('reviewCheckState', () => {
   it('rend un total nul quand aucun run n’existe pour ce sha', async () => {
     const { ctx } = fakeGitHub({ '/actions/runs': { workflow_runs: [] } });
     expect((await reviewCheckState(ctx, SHA)).total).toBe(0);
+  });
+});
+
+describe('reviewPrFiles', () => {
+  /** Rend une page par appel, dans l'ordre. */
+  function fakePages(pages: Array<Array<{ filename: string }>>) {
+    let i = 0;
+    const urls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string | URL | Request) => {
+      urls.push(String(url));
+      const body = pages[i++] ?? [];
+      return { ok: true, status: 200, json: async () => body, text: async () => '' } as unknown as Response;
+    });
+    const ctx: GitHubContext = { repo: 'org/repo', token: 'jeton-de-test', fetchImpl: fetchImpl as never };
+    return { ctx, urls };
+  }
+
+  const pleine = (n: number, prefixe: string) =>
+    Array.from({ length: n }, (_, k) => ({ filename: `${prefixe}-${k}.json` }));
+
+  it('s’arrête dès qu’une page n’est pas pleine', async () => {
+    const { ctx, urls } = fakePages([pleine(3, 'a')]);
+    const res = await reviewPrFiles(ctx, 42);
+    expect(res.paths).toHaveLength(3);
+    expect(res.truncated).toBe(false);
+    expect(urls).toHaveLength(1);
+  });
+
+  /** Le défaut : la version précédente lisait la première page et s'arrêtait,
+   *  donc un chemin hors périmètre au-delà du centième était invisible. */
+  it('continue au-delà de la première page pleine', async () => {
+    const { ctx, urls } = fakePages([pleine(100, 'a'), [{ filename: 'src/auth.ts' }]]);
+    const res = await reviewPrFiles(ctx, 42);
+    expect(res.paths).toContain('src/auth.ts');
+    expect(res.truncated).toBe(false);
+    expect(urls).toHaveLength(2);
+    expect(urls[1]).toContain('page=2');
+  });
+
+  it('signale la troncature quand le plafond de pages est atteint', async () => {
+    const { ctx } = fakePages(Array.from({ length: 12 }, (_, p) => pleine(100, `p${p}`)));
+    const res = await reviewPrFiles(ctx, 42);
+    expect(res.truncated).toBe(true);
   });
 });

@@ -67,31 +67,40 @@ describe('prRefusal', () => {
 
 describe('fileSetRefusal', () => {
   it('accepte les cinq chemins du quiz', () => {
-    expect(fileSetRefusal([...QUIZ_REVIEW_PATHS])).toBeNull();
+    expect(fileSetRefusal({ paths: [...QUIZ_REVIEW_PATHS], truncated: false })).toBeNull();
   });
 
   it('accepte un sous-ensemble', () => {
-    expect(fileSetRefusal(['data/quiz-review-state.json', 'public/quiz-data-fr.json'])).toBeNull();
+    expect(fileSetRefusal({ paths: ['data/quiz-review-state.json', 'public/quiz-data-fr.json'], truncated: false })).toBeNull();
   });
 
   it('refuse le fichier qui pilote l’email des abonnés', () => {
-    expect(fileSetRefusal(['data/pending-digest.json'])).toMatch(/hors périmètre/i);
+    expect(fileSetRefusal({ paths: ['data/pending-digest.json'], truncated: false })).toMatch(/hors périmètre/i);
   });
 
   it('refuse un pool d’une locale inexistante', () => {
-    expect(fileSetRefusal(['public/quiz-data-it.json'])).not.toBeNull();
+    expect(fileSetRefusal({ paths: ['public/quiz-data-it.json'], truncated: false })).not.toBeNull();
   });
 
   it('refuse une tentative de sortie de répertoire', () => {
-    expect(fileSetRefusal(['public/../.github/workflows/deploy-image.yml'])).not.toBeNull();
+    expect(fileSetRefusal({ paths: ['public/../.github/workflows/deploy-image.yml'], truncated: false })).not.toBeNull();
   });
 
   it('refuse un lot mêlant un chemin licite et un illicite', () => {
-    expect(fileSetRefusal(['public/quiz-data-fr.json', 'src/auth.ts'])).toMatch(/src\/auth\.ts/);
+    expect(fileSetRefusal({ paths: ['public/quiz-data-fr.json', 'src/auth.ts'], truncated: false })).toMatch(/src\/auth\.ts/);
   });
 
   it('refuse un lot vide : une PR sans fichier n’a rien à fusionner', () => {
-    expect(fileSetRefusal([])).not.toBeNull();
+    expect(fileSetRefusal({ paths: [], truncated: false })).not.toBeNull();
+  });
+
+  /** Une liste blanche qui cesse de regarder n'est plus une liste blanche :
+   *  au-delà du plafond de l'API, un chemin hors périmètre serait invisible et
+   *  la fusion passerait. */
+  it('refuse une liste tronquée, même si tout ce qu’on voit est licite', () => {
+    expect(fileSetRefusal({ paths: [...QUIZ_REVIEW_PATHS], truncated: true })).toMatch(
+      /tronqu/i,
+    );
   });
 });
 

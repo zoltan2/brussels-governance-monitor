@@ -159,11 +159,31 @@ export function prRefusal(pr: PrRef, repo: string): string | null {
   return branchRefusal(pr.branch);
 }
 
-export function fileSetRefusal(paths: string[]): string | null {
-  if (paths.length === 0) {
+export interface PrFileSet {
+  paths: string[];
+  /** Vrai quand GitHub a pu en cacher : la liste n'est plus concluante. */
+  truncated: boolean;
+}
+
+/**
+ * Liste blanche fermée des cinq chemins.
+ *
+ * `truncated` est refusé AVANT tout examen des chemins : une liste blanche qui
+ * cesse de regarder n'en est plus une. Un chemin hors périmètre au-delà du
+ * plafond de l'API serait invisible, et tout ce qu'on aurait vu étant licite,
+ * la fusion passerait.
+ *
+ * Le drapeau est un paramètre et non un appel séparé pour qu'on ne puisse pas
+ * l'oublier : la garde ne se laisse pas invoquer à moitié.
+ */
+export function fileSetRefusal(files: PrFileSet): string | null {
+  if (files.truncated) {
+    return 'Liste des fichiers tronquée : le périmètre ne peut pas être vérifié';
+  }
+  if (files.paths.length === 0) {
     return 'Aucun fichier : une PR de relecture vide n’a rien à fusionner';
   }
-  const outside = paths.filter((p) => !QUIZ_REVIEW_PATHS.includes(p));
+  const outside = files.paths.filter((p) => !QUIZ_REVIEW_PATHS.includes(p));
   if (outside.length > 0) {
     return `Fichiers hors périmètre : ${outside.join(', ')}`;
   }

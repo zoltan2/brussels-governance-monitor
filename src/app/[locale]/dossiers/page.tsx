@@ -4,6 +4,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { getDossierCards } from '@/lib/content';
+import { budgetSummary, budgetLabels } from '@/lib/budget';
 import { buildMetadata } from '@/lib/metadata';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { SuggestDossier } from '@/components/suggest-dossier';
@@ -74,6 +75,7 @@ function DossiersContent({
 }) {
   const t = useTranslations('dossiers');
   const tb = useTranslations('breadcrumb');
+  const bl = budgetLabels(t);
 
   return (
     <>
@@ -90,7 +92,9 @@ function DossiersContent({
         <p className="text-sm text-neutral-500">{t('noData')}</p>
       ) : (
         <div className="grid gap-6 md:grid-cols-2">
-          {dossierCards.map((card) => (
+          {dossierCards.map((card) => {
+            const budget = budgetSummary(card.estimatedBudget, bl);
+            return (
             <Link
               key={card.slug}
               href={{ pathname: '/dossiers/[slug]', params: { slug: card.slug } }}
@@ -108,14 +112,17 @@ function DossiersContent({
               </h2>
               <p className="mb-3 text-sm leading-relaxed text-neutral-600">{card.summary}</p>
               <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-neutral-500">
-                {card.estimatedBudget && (
-                  <span>{t('estimatedBudget')} : {card.estimatedBudget}</span>
+                {budget && (
+                  <span>
+                    {t('estimatedBudget')} : {budget}
+                  </span>
                 )}
                 <span>{t(`decisionLevel.${card.decisionLevel}`)}</span>
                 <span>{t(`dossierType.${card.dossierType}`)}</span>
               </div>
             </Link>
-          ))}
+            );
+          })}
           <SuggestDossier
             labels={{
               title: t('suggest.title'),

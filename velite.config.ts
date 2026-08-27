@@ -510,6 +510,40 @@ const communeCards = defineCollection({
 });
 
 // ──────────────────────────────────────────────
+// Budget (dossier cards) — three accepted shapes
+// ──────────────────────────────────────────────
+// 1. string        — one short amount: "~5,2 milliards EUR (projet suspendu)"
+// 2. BudgetLine[]  — several budget lines, rendered as a financial table
+// 3. { status }    — nothing published; the opacity IS the information
+//
+// The string form stays valid on purpose: it is the natural shape for a single
+// amount, and it keeps a fiche written without knowledge of the structured form
+// from breaking the build. Rendering is handled by `src/components/budget-table.tsx`;
+// list views derive their one-liner via `budgetSummary()` in `src/lib/budget.ts`,
+// so a summary can never drift from the detail shown on the fiche.
+const budgetLineSchema = s.object({
+  label: s.string().max(80),
+  value: s.string().max(60),
+  note: s.string().max(240).optional(),
+  confidence: s.enum(['official', 'estimated', 'unconfirmed']).default('official'),
+});
+
+const budgetSchema = s.union([
+  s.string(),
+  s.array(budgetLineSchema).min(1),
+  s.object({
+    status: s.enum([
+      'unpublished',
+      'not-communicated',
+      'not-quantified',
+      'not-consolidated',
+      'not-applicable',
+    ]),
+    reason: s.string().max(300).optional(),
+  }),
+]);
+
+// ──────────────────────────────────────────────
 // Collection: Dossier Cards (transversal impact layer)
 // ──────────────────────────────────────────────
 const dossierCards = defineCollection({
@@ -546,8 +580,8 @@ const dossierCards = defineCollection({
       blockedSince: s.isodate().optional(),
       decisionLevel: s.enum(['regional', 'communal', 'federal', 'mixed']),
       summary: s.string().max(500),
-      estimatedBudget: s.string().optional(),
-      estimatedCostOfInaction: s.string().optional(),
+      estimatedBudget: budgetSchema.optional(),
+      estimatedCostOfInaction: budgetSchema.optional(),
       stakeholders: s.array(s.string()).default([]),
       relatedDomains: s
         .array(s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional', 'urban-planning', 'digital', 'education']))

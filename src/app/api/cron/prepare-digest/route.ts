@@ -9,6 +9,10 @@ import { generateDigestApprovalToken, generateUnsubscribeToken } from '@/lib/tok
 import { collectDigestUpdates, generateSummaryLine } from '@/lib/digest-updates';
 import DigestPreviewEmail from '@/emails/digest-preview';
 import { isValidCronAuth } from '@/lib/cron-auth';
+import { resolveWeeklyNumber } from '@/lib/weekly-number';
+
+/** Figure pinned ahead of the draft by the Sunday veille. Consumed on first use. */
+const PINNED_NUMBER_PATH = 'data/next-weekly-number.json';
 
 interface PendingDigest {
   week: string;
@@ -184,19 +188,58 @@ export async function GET(request: Request) {
   // 7. Write to GitHub — preserve user edits if same week
   const filePath = 'data/pending-digest.json';
   let existingSha: string | undefined;
+  let prev: { week?: string; sent?: boolean; closingNote?: Record<string, string>; weeklyNumber?: typeof pendingDigest.weeklyNumber } | null = null;
   try {
     const existing = await readGitHubFile(filePath);
     if (existing) {
       existingSha = existing.sha;
-      const prev = JSON.parse(existing.content);
+      prev = JSON.parse(existing.content);
       // If same week, not sent, preserve user-edited fields
-      if (prev.week === week && !prev.sent) {
+      if (prev && prev.week === week && !prev.sent && prev.closingNote) {
         pendingDigest.closingNote = prev.closingNote;
-        pendingDigest.weeklyNumber = prev.weeklyNumber;
       }
     }
   } catch {
     // File doesn't exist yet, that's fine
+  }
+
+  // 7 bis. Resolve the number of the week. A human edit on the review screen
+  //        wins for the current week; otherwise a figure pinned ahead of time
+  //        by the Sunday veille is used, and consumed so it serves once only.
+  let pinnedSha: string | undefined;
+  let pin: unknown = null;
+  try {
+    const pinned = await readGitHubFile(PINNED_NUMBER_PATH);
+    if (pinned) {
+      pinnedSha = pinned.sha;
+      pin = JSON.parse(pinned.content);
+    }
+  } catch {
+    // No pin set for this week, that's the normal case
+  }
+
+  const resolved = resolveWeeklyNumber({
+    previous: prev,
+    week,
+    pin,
+    suggested: pendingDigest.weeklyNumber,
+  });
+  pendingDigest.weeklyNumber = resolved.weeklyNumber;
+  console.log(`prepare-digest: weekly number for ${week} resolved from "${resolved.origin}"`);
+
+  if (resolved.consumePin && pinnedSha) {
+    try {
+      await writeGitHubFile(
+        PINNED_NUMBER_PATH,
+        JSON.stringify({}, null, 2) + '\n',
+        pinnedSha,
+        `chore: consume pinned weekly number for ${week}`,
+      );
+    } catch (err) {
+      // Non-blocking: the digest is still correct, the pin just needs a manual
+      // clear so it does not serve twice.
+      console.error('prepare-digest: could not clear the pinned weekly number:', err);
+    }
   }
 
   await writeGitHubFile(

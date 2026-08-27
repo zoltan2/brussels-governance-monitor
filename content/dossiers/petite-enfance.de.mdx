@@ -8,8 +8,19 @@ phase: stalled
 crisisImpact: delayed
 decisionLevel: mixed
 summary: "In Brüssel variiert die Abdeckungsrate für Krippenplätze von 16 % in Anderlecht bis 67 % in Etterbeek. Drei Behörden teilen sich die Zuständigkeit: die ONE (Französische Gemeinschaft), Opgroeien (Flämische Gemeinschaft) und Iriscare (GGK). Das FWB-Programmdekret, am 5. Juni 2026 verabschiedet, verankert 74 Mio. EUR Kürzungen für die Kleinkindbetreuung, darunter die Abschaffung des MILAC-Systems zur Verbesserung der Betreuung, teilweise kompensiert durch einen ONE-Notfallfonds von 43 Mio. EUR."
-estimatedBudget: "ONE: 43 Mio. EUR Notfall 2026 + 57 Mio. EUR 2027 | FWB: −74 Mio. EUR Kürzungen 2026"
-estimatedCostOfInaction: "11.200 fehlende Plätze in der FWB (ONE-Schätzung); mechanische Bremse für die weibliche Beschäftigung in Brüssel (18 Plätze / 100 Kinder laut Itinera)"
+estimatedBudget:
+  - label: "ONE"
+    value: "43 Mio. EUR Notfall 2026 + 57 Mio. EUR 2027"
+  - label: "FWB"
+    value: "−74 Mio. EUR Kürzungen 2026"
+estimatedCostOfInaction:
+  - label: "Fehlende Plätze in der FWB"
+    value: "11.200"
+    note: "ONE-Schätzung"
+    confidence: estimated
+  - label: "Plätze pro 100 Kinder in Brüssel"
+    value: "18"
+    note: "mechanische Bremse für die weibliche Beschäftigung in Brüssel, laut Itinera"
 stakeholders:
   - "ONE (Office de la Naissance et de l'Enfance, FWB)"
   - "Opgroeien (ex-Kind en Gezin, Flämische Gemeinschaft)"

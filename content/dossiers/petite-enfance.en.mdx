@@ -8,8 +8,19 @@ phase: stalled
 crisisImpact: delayed
 decisionLevel: mixed
 summary: "In Brussels, the coverage rate for nursery places varies from 16% in Anderlecht to 67% in Etterbeek. Three authorities share the competence: ONE (French Community), Opgroeien (Flemish Community) and Iriscare (COCOM). The FWB programme-decree, adopted on 5 June 2026, enacts €74M in cuts to early childhood, including the scrapping of the MILAC system that was meant to raise supervision to 1.5 childcare workers per 7 children, partially offset by a €43M ONE emergency fund."
-estimatedBudget: "ONE: €43M emergency 2026 + €57M 2027 | FWB: −€74M cuts 2026"
-estimatedCostOfInaction: "11,200 missing places in FWB (ONE estimate); mechanical brake on Brussels female employment (18 places / 100 children per Itinera)"
+estimatedBudget:
+  - label: "ONE"
+    value: "€43M emergency 2026 + €57M 2027"
+  - label: "FWB"
+    value: "−€74M cuts 2026"
+estimatedCostOfInaction:
+  - label: "Missing places in FWB"
+    value: "11,200"
+    note: "ONE estimate"
+    confidence: estimated
+  - label: "Places per 100 children in Brussels"
+    value: "18"
+    note: "mechanical brake on Brussels female employment, per Itinera"
 stakeholders:
   - "ONE (Office de la Naissance et de l'Enfance, FWB)"
   - "Opgroeien (formerly Kind en Gezin, Flemish Community)"

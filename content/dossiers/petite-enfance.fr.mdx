@@ -8,8 +8,19 @@ phase: stalled
 crisisImpact: delayed
 decisionLevel: mixed
 summary: "À Bruxelles, le taux de couverture en places de crèche varie de 16 % à Anderlecht à 67 % à Etterbeek. Trois autorités se partagent la compétence : l'ONE (Communauté française), Opgroeien (Communauté flamande) et Iriscare (COCOM). Le décret-programme FWB, adopté le 5 juin 2026, acte 74 M EUR de coupes sur la petite enfance, dont l'abandon du système MILAC qui devait porter l'encadrement à 1,5 puéricultrice pour 7 enfants, partiellement compensées par un fonds d'urgence ONE de 43 M EUR."
-estimatedBudget: "ONE : 43 M EUR urgence 2026 + 57 M EUR 2027 | FWB : −74 M EUR coupes 2026"
-estimatedCostOfInaction: "11 200 places manquantes en FWB (estimation ONE) ; frein mécanique à l'emploi féminin bruxellois (18 places / 100 enfants selon Itinera)"
+estimatedBudget:
+  - label: "ONE"
+    value: "43 M EUR urgence 2026 + 57 M EUR 2027"
+  - label: "FWB"
+    value: "−74 M EUR coupes 2026"
+estimatedCostOfInaction:
+  - label: "Places manquantes en FWB"
+    value: "11 200"
+    note: "estimation ONE"
+    confidence: estimated
+  - label: "Places pour 100 enfants à Bruxelles"
+    value: "18"
+    note: "frein mécanique à l'emploi féminin bruxellois, selon Itinera"
 stakeholders:
   - "ONE (Office de la Naissance et de l'Enfance, FWB)"
   - "Opgroeien (ex-Kind en Gezin, Communauté flamande)"

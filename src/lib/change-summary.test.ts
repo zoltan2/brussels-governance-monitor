@@ -152,3 +152,77 @@ describe('collectSummaryChanges', () => {
     expect(changes[1].after).toBe('Fiche lisible.');
   });
 });
+
+describe('extractNumbers — bruit écarté (veille du 27 août 2026)', () => {
+  it("n'extrait pas l'identifiant numérique d'une URL de source", () => {
+    const mdx = [
+      '  - label: "RTBF — Une fresque en hommage (30 juillet 2026)"',
+      '    url: "https://www.rtbf.be/article/une-fresque-en-hommage-a-driss-atounane-11764332"',
+    ].join('\n');
+    expect(extractNumbers(mdx)).not.toContain('11764332');
+  });
+
+  it("n'extrait pas la cible d'un lien markdown", () => {
+    const prose = 'Sources : [BX1 (26 août 2026)](https://bx1.be/categories/news/xyz-11773596/).';
+    expect(extractNumbers(prose)).not.toContain('11773596');
+  });
+
+  it('garde le libellé chiffré d\'un lien mais jette sa cible', () => {
+    const prose = '[57 fusillades](https://bx1.be/a-11764332/)';
+    const found = extractNumbers(prose);
+    expect(found).toContain('57');
+    expect(found).not.toContain('11764332');
+  });
+
+  it('écarte les dates en toutes lettres dans les quatre langues', () => {
+    expect(extractNumbers('Le 26 août 2026, la Ville a déposé sa demande.')).toEqual([]);
+    expect(extractNumbers('Op 25 augustus 2026 werd het gevonden.')).toEqual([]);
+    expect(extractNumbers('On 21 August 2026 the auditor ruled.')).toEqual([]);
+    expect(extractNumbers('Am 1. September 2026 entfallen die Plätze.')).toEqual([]);
+  });
+
+  it('écarte « 1er septembre 2026 » en entier', () => {
+    expect(extractNumbers('Les places disparaissent le 1er septembre 2026.')).toEqual([]);
+  });
+
+  it('garde une année citée seule, qui porte une information éditoriale', () => {
+    expect(extractNumbers('En 2024, 12 communes ont relevé leurs additionnels.')).toEqual([
+      '2024',
+      '12',
+    ]);
+  });
+
+  it('garde les chiffres éditoriaux voisins d\'une date', () => {
+    const prose =
+      'Le 27 août 2026, le baromètre établit 23,2 % à Bruxelles contre 8,5 % en Flandre.';
+    expect(extractNumbers(prose)).toEqual(['23,2', '8,5']);
+  });
+
+  it('garde un grand nombre à séparateur de milliers hors URL', () => {
+    expect(extractNumbers('97 392 demandeurs d\'emploi au 31 juillet 2026.')).toContain('97 392');
+  });
+});
+
+describe('extractNumbers — dates sans année, heures, doublons', () => {
+  it('écarte une date sans année, portée par le titre de section', () => {
+    expect(extractNumbers('Le 29 juillet, une fresque a été peinte.')).toEqual([]);
+    expect(extractNumbers('Op 25 augustus werd het vastgesteld.')).toEqual([]);
+  });
+
+  it('écarte une heure d\'horloge', () => {
+    expect(extractNumbers('Le 23 juillet, vers 15h20, dans le tram 55.')).toEqual(['55']);
+  });
+
+  it('dédoublonne en conservant l\'ordre d\'apparition', () => {
+    expect(extractNumbers('54 ans, ligne 55, puis 54 à nouveau, puis 12.')).toEqual([
+      '54',
+      '55',
+      '12',
+    ]);
+  });
+
+  it('ne confond pas un mois avec un chiffre voisin non daté', () => {
+    // « 12 » n'est pas suivi d'un mois : il reste relevé.
+    expect(extractNumbers('En mai 2026, 12 communes ont voté.')).toEqual(['12']);
+  });
+});

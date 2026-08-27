@@ -42,12 +42,63 @@ export function extractSummary(mdx: string): string | null {
 }
 
 /**
+ * Mois écrits, dans les quatre langues du site. Sert à écarter les dates en
+ * toutes lettres, dont le quantième et l'année sont du bruit exactement comme
+ * ceux d'une date ISO.
+ */
+const MONTHS = [
+  'janvier|février|fevrier|mars|avril|mai|juin|juillet|août|aout|septembre|octobre|novembre|décembre|decembre',
+  'januari|februari|maart|april|mei|juni|juli|augustus|september|oktober|november|december',
+  'january|february|march|may|june|july|august|october',
+  'januar|februar|märz|marz|mai|juni|juli|august|oktober|dezember',
+].join('|');
+
+/** « 26 août 2026 », « 1er septembre 2026 », « 15 juni 2026 », « August 2026 ». */
+const DATED_YEAR = new RegExp(
+  String.raw`\b(?:\d{1,2}(?:er|e|ste|de|th|st|nd|rd|\.)?\s+)?(?:${MONTHS})\s+\d{4}`,
+  'gi',
+);
+
+/**
+ * « le 29 juillet », « op 25 augustus » : même bruit, sans l'année. Fréquent
+ * dans le corps des fiches, où l'année est portée par le titre de section.
+ */
+const DATED_NO_YEAR = new RegExp(
+  String.raw`\b\d{1,2}(?:er|e|ste|de|th|st|nd|rd|\.)?\s+(?:${MONTHS})\b`,
+  'gi',
+);
+
+/** Heure d'horloge : « vers 15h20 », « om 18u10 ». */
+const CLOCK_TIME = /\b\d{1,2}\s?[hu]\s?\d{2}\b/gi;
+
+/**
  * Relève les nombres éditoriaux : entiers, décimaux, et nombres à
- * séparateur de milliers. Les dates ISO sont écartées, elles changent à
- * chaque veille sans porter d'information à relire.
+ * séparateur de milliers. Sont écartés, dans cet ordre :
+ *
+ *  - les **URL**, parce qu'un identifiant d'article y ressemble à un nombre.
+ *    Constaté sur la veille du 2026-08-27, où le panneau annonçait
+ *    « 11764332 » et « 11773596 » comme chiffres nouveaux : c'étaient les
+ *    identifiants RTBF de deux articles cités en source. Un panneau de
+ *    relecture qui affiche ce genre de jeton apprend à ne plus le lire, ce
+ *    qui est pire que de ne rien afficher ;
+ *  - les **dates ISO**, qui changent à chaque veille sans rien apprendre ;
+ *  - les **dates en toutes lettres**, pour la même raison : « le 26 août
+ *    2026 » produisait « 26 » et « 2026 » à chaque fiche touchée.
+ *
+ * Une année citée seule reste relevée : « En 2024, 12 communes » porte une
+ * information éditoriale, contrairement au quantième d'une date de publication.
  */
 export function extractNumbers(text: string): string[] {
-  const withoutIsoDates = text.replace(/\d{4}-\d{2}-\d{2}/g, ' ');
+  const withoutUrls = text
+    // Cible d'un lien markdown, y compris quand le libellé contient un chiffre.
+    .replace(/\]\([^)\s]*\)/g, ' ')
+    // URL nue, en frontmatter (`url: "https://…"`) comme en prose.
+    .replace(/\bhttps?:\/\/\S+/gi, ' ');
+  const withoutIsoDates = withoutUrls
+    .replace(/\d{4}-\d{2}-\d{2}/g, ' ')
+    .replace(DATED_YEAR, ' ')
+    .replace(DATED_NO_YEAR, ' ')
+    .replace(CLOCK_TIME, ' ');
   // Trois formes coexistent dans le contenu réel, et deux versions
   // antérieures de cette fonction en cassaient une :
   //   - milliers séparés par une espace : « 1 250 000 » reste un seul jeton ;
@@ -59,7 +110,10 @@ export function extractNumbers(text: string): string[] {
   // chiffre nouveau : une fausse assurance, exactement ce que ce panneau doit
   // éviter.
   const found = withoutIsoDates.match(/\d+(?: \d{3})*(?:,\d+)?/g) ?? [];
-  return found.filter((n) => n.length > 0);
+  // Dédoublonné en conservant l'ordre d'apparition : un panneau de relecture
+  // qui annonce « 26, 26, 26, 26 » ne dit rien de plus que « 26 », et noie les
+  // jetons voisins qui, eux, méritaient un regard.
+  return [...new Set(found.filter((n) => n.length > 0))];
 }
 
 function labelFor(path: string): string {

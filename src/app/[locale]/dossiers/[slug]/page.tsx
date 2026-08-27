@@ -28,6 +28,8 @@ import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FreshnessBadge } from '@/components/freshness-badge';
+import { BudgetTable } from '@/components/budget-table';
+import { budgetLabels } from '@/lib/budget';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
@@ -319,29 +321,19 @@ function DossierDetail({
         {/* Summary */}
         <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.summary}</p>
 
-        {/* Budget + Cost of inaction */}
-        {(card.estimatedBudget || card.estimatedCostOfInaction) && (
-          <div className="mb-8 grid gap-3 sm:grid-cols-2">
-            {card.estimatedBudget && (
-              <div className="rounded-lg bg-neutral-50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
-                  {t('estimatedBudget')}
-                </p>
-                <p className="mt-1 text-xl font-bold text-brand-900">{card.estimatedBudget}</p>
-              </div>
-            )}
-            {card.estimatedCostOfInaction && (
-              <div className="rounded-lg border border-amber-200 bg-amber-50/50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">
-                  {t('estimatedCostOfInaction')}
-                </p>
-                <p className="mt-1 text-xl font-bold text-amber-800">
-                  {card.estimatedCostOfInaction}
-                </p>
-              </div>
-            )}
-          </div>
-        )}
+        {/* Budget + Cost of inaction — stacked full width, so a fiche without a
+            cost of inaction no longer leaves half the row empty. */}
+        <BudgetTable
+          heading={t('estimatedBudget')}
+          value={card.estimatedBudget}
+          labels={budgetLabels(t)}
+        />
+        <BudgetTable
+          heading={t('estimatedCostOfInaction')}
+          value={card.estimatedCostOfInaction}
+          labels={budgetLabels(t)}
+          variant="inaction"
+        />
 
         {/* Metrics */}
         {card.metrics.length > 0 && (

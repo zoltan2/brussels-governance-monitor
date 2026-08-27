@@ -4,6 +4,7 @@
 import type { Locale } from '@/i18n/routing';
 import type { Metric } from '@/components/proof-drawer/types';
 import { computeRecentDigestLangs, type RecentDigestLangs } from '@/lib/digest-langs';
+import type { BudgetValue } from '@/lib/budget';
 
 export interface DomainCard {
   title: string;
@@ -209,8 +210,8 @@ export interface DossierCard {
   blockedSince?: string;
   decisionLevel: 'regional' | 'communal' | 'federal' | 'mixed';
   summary: string;
-  estimatedBudget?: string;
-  estimatedCostOfInaction?: string;
+  estimatedBudget?: BudgetValue;
+  estimatedCostOfInaction?: BudgetValue;
   stakeholders: string[];
   relatedDomains: string[];
   relatedSectors: string[];

@@ -3,12 +3,21 @@
 
 import { Link } from '@/i18n/navigation';
 import type { SectorCard, DossierCard, ComparisonCard, GlossaryTerm } from '@/lib/content';
+import { budgetSummary, type BudgetLabels } from '@/lib/budget';
 
 const hubLabels: Record<string, Record<string, string>> = {
   fr: { sectors: 'Secteurs liés', dossiers: 'Dossiers actifs', comparisons: 'Comparaisons internationales', glossary: 'Glossaire lié' },
   nl: { sectors: 'Gerelateerde sectoren', dossiers: 'Actieve dossiers', comparisons: 'Internationale vergelijkingen', glossary: 'Gerelateerd glossarium' },
   en: { sectors: 'Related sectors', dossiers: 'Active dossiers', comparisons: 'International comparisons', glossary: 'Related glossary' },
   de: { sectors: 'Verwandte Sektoren', dossiers: 'Aktive Dossiers', comparisons: 'Internationale Vergleiche', glossary: 'Zugehöriges Glossar' },
+};
+
+// Inline label maps, matching `hubLabels` above: this component predates next-intl wiring.
+const budgetLabels: Record<string, BudgetLabels> = {
+  fr: { unpublished: 'Non publié', notCommunicated: 'Non communiqué', notConsolidated: 'Non consolidé', notQuantified: 'Non chiffré', notApplicable: 'Sans objet', more: (n) => `+${n}` },
+  nl: { unpublished: 'Niet gepubliceerd', notCommunicated: 'Niet meegedeeld', notConsolidated: 'Niet geconsolideerd', notQuantified: 'Niet becijferd', notApplicable: 'Niet van toepassing', more: (n) => `+${n}` },
+  en: { unpublished: 'Not published', notCommunicated: 'Not disclosed', notConsolidated: 'Not consolidated', notQuantified: 'Not quantified', notApplicable: 'Not applicable', more: (n) => `+${n}` },
+  de: { unpublished: 'Nicht veröffentlicht', notCommunicated: 'Nicht bekanntgegeben', notConsolidated: 'Nicht konsolidiert', notQuantified: 'Nicht beziffert', notApplicable: 'Nicht zutreffend', more: (n) => `+${n}` },
 };
 
 const phaseStyles: Record<string, string> = {
@@ -41,6 +50,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
 
   const l = hubLabels[locale] ?? hubLabels.fr;
   const pl = phaseLabels[locale] ?? phaseLabels.fr;
+  const bl = budgetLabels[locale] ?? budgetLabels.fr;
 
   return (
     <nav aria-label="Hub navigation" className="mb-8 rounded-xl border border-neutral-200 bg-neutral-50 p-5">
@@ -71,7 +81,9 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
         ))}
 
         {/* Dossiers */}
-        {dossiers.map((d) => (
+        {dossiers.map((d) => {
+          const budget = budgetSummary(d.estimatedBudget, bl);
+          return (
           <Link
             key={d.slug}
             href={{ pathname: '/dossiers/[slug]', params: { slug: d.slug } }}
@@ -85,11 +97,12 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
             </div>
             <p className="text-sm font-semibold text-brand-800 group-hover:text-brand-900">{d.title}</p>
             <p className="mt-1.5 text-xs leading-relaxed text-neutral-500 line-clamp-2">{d.summary}</p>
-            {d.estimatedBudget && (
-              <p className="mt-2 text-[10px] font-medium text-neutral-500">{d.estimatedBudget}</p>
+            {budget && (
+              <p className="mt-2 text-[10px] font-medium text-neutral-500">{budget}</p>
             )}
           </Link>
-        ))}
+          );
+        })}
 
         {/* Comparisons */}
         {comparisons.map((c) => (

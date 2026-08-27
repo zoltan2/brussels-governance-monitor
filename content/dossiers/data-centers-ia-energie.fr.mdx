@@ -97,6 +97,30 @@ sources:
   - label: "Région de Bruxelles-Capitale — Guide des éco-gestes numériques (PDF, 16 fiches)"
     url: "https://admin.be.brussels/en/bhg/document/download/4361"
     accessedAt: "2026-06-17"
+  - label: "Openpermits — Permis d'environnement 04/IPE/2028807, phase 2 du datacenter de Neder-Over-Heembeek"
+    url: "https://openpermits.brussels/fr/_04/IPE/2028807"
+    accessedAt: "2026-08-27"
+  - label: "Openpermits — Permis d'urbanisme 04/PU/2014327, réaménagement du centre de données"
+    url: "https://openpermits.brussels/fr/_04/PU/2014327"
+    accessedAt: "2026-08-27"
+  - label: "RTBF — La multiplication des data centers fait peser un risque sur le réseau électrique bruxellois (6 août 2026)"
+    url: "https://www.rtbf.be/article/la-multiplication-des-data-centers-fait-peser-un-risque-sur-le-reseau-electrique-bruxellois-11767358"
+    accessedAt: "2026-08-27"
+  - label: "BRUGEL — Avis 408 sur le plan de développement électricité de Sibelga 2026-2030 (28 octobre 2025)"
+    url: "https://brugel.brussels/publication/document/avis/2025/fr/AVIS-408-PDD-SIBELGA-2026-2030-ELECTRICITE.pdf"
+    accessedAt: "2026-08-27"
+  - label: "BRUGEL — Avis 410 sur le plan de développement d'Elia pour la Région bruxelloise 2026-2036 (28 octobre 2025)"
+    url: "https://brugel.brussels/publication/document/avis/2025/fr/AVIS-410-PDD-ELIA-2026-2036.pdf"
+    accessedAt: "2026-08-27"
+  - label: "CREG — Décision (B)3027 modifiant le code de bonne conduite, procédures de raccordement (29 janvier 2026)"
+    url: "https://www.creg.be/fr/publications/decision-b3027"
+    accessedAt: "2026-08-27"
+  - label: "Linklaters Sustainable Futures — Projet révisé de règlement délégué sur le label de durabilité des data centers (2 juillet 2026)"
+    url: "https://sustainablefutures.linklaters.com/post/102ne37/sustainability-labelling-for-european-data-centres"
+    accessedAt: "2026-08-27"
+  - label: "Belnet — AI Factory Antenna belge (BE-AIFA)"
+    url: "https://www.belnet.be/en/news-events/news/ai-factory-antenna-connects-belgian-organisations-european-ai-infrastructure"
+    accessedAt: "2026-08-27"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -139,13 +163,31 @@ metrics:
     source: "be.brussels — Numérique responsable"
     date: "2026-06-17"
     confidenceLevel: official
+  - label: "Data centers recensés"
+    value: "6"
+    unit: "en Région bruxelloise, 12 en périphérie"
+    source: "RTBF"
+    date: "2026-08-06"
+  - label: "Investissements réseau Sibelga 2026-2030"
+    value: "600"
+    unit: "millions EUR"
+    source: "Sibelga, via RTBF"
+    date: "2026-08-06"
+  - label: "Permis phase 2 du data center BRU01"
+    value: "3"
+    unit: "demandes refusées, une octroyée le 8 juillet 2026"
+    source: "Openpermits, base NOVA"
+    date: "2026-07-08"
 alerts:
   - label: "Elia : carte de capacité d'accueil publiée (mars 2026) ; plan fédéral 2028-2038 traitera explicitement la demande data centers"
     severity: info
     date: "2026-06-16"
-  - label: "Reporting EED : premiers résultats agrégés UE publiés (2023-2024) ; schéma de notation attendu vers le 10 juin 2026"
+  - label: "Reporting EED : premiers résultats agrégés UE publiés (2023-2024) ; schéma de notation toujours pas adopté, version révisée publiée le 2 juillet 2026"
     severity: info
-    date: "2026-06-16"
+    date: "2026-08-27"
+  - label: "BRU01 : permis d'environnement de la phase 2 octroyé le 8 juillet 2026, permis d'urbanisme de réaménagement octroyé le 24 août 2026"
+    severity: info
+    date: "2026-08-27"
 confidenceLevel: estimated
 dprCommitment: "Aucune mention spécifique des data centers identifiée dans la DPR bruxelloise (février 2026). La transition numérique et la stratégie énergie-climat y sont abordées séparément, sans référence croisée à l'impact énergétique du numérique."
 faq:
@@ -176,9 +218,9 @@ faq:
       - label: "Commission européenne, schéma de notation des data centers (EED)"
         url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
         accessedAt: "2026-06-17"
-lastModified: "2026-06-17"
+lastModified: "2026-08-27"
 changeType: updated
-changeSummary: "Nouvelle section sur la politique régionale de numérique responsable, coordonnée par Paradigm : allongement de la durée de vie du matériel (PC 4→6 ans, −36 % d'empreinte, ~230 tonnes évitées par an si généralisé aux administrations), reconditionnement (Recycle IT, ISIT-be), Charte Numérique Responsable et Plan d'Appropriation du Numérique. Le numérique mondial pèse ~4 % des émissions de gaz à effet de serre (risque +60 % d'ici 2050). L'articulation entre cette sobriété et la croissance des data centers reste absente des plans régionaux."
+changeSummary: "Le data center de Neder-Over-Heembeek a obtenu le permis d'environnement de sa phase 2 le 8 juillet 2026 et un permis d'urbanisme le 24 août 2026, après trois refus. Les demandes portaient notamment sur la régularisation d'installations de refroidissement non déclarées. Le 6 août 2026, la RTBF a chiffré la pression sur le réseau bruxellois : 6 data centers en Région, 12 en périphérie, 600 millions EUR d'investissements Sibelga sur 2026-2030. BRUGEL avait documenté le risque de congestion en amont dès ses avis du 28 octobre 2025 et demande un examen transparent de la répartition de la réserve disponible. La CREG a réformé les procédures de raccordement le 29 janvier 2026. Le schéma de notation européen des data centers n'est toujours pas adopté : une version révisée a été publiée le 2 juillet 2026, avec une note de A à G et un premier label au 15 août 2027."
 ---
 
 ## Données clés
@@ -188,6 +230,7 @@ changeSummary: "Nouvelle section sur la politique régionale de numérique respo
 - **4,6 TWh** : consommation électrique annuelle de la Région de Bruxelles-Capitale (point de comparaison)
 - **32 MW** : capacité cible de KevlinX BRU01, premier grand data center en Région bruxelloise (opérationnel depuis janvier 2026)
 - **x9** : multiplication des demandes de raccordement data centers chez Elia depuis 2022
+- **6 data centers** en Région bruxelloise et **12** en périphérie (RTBF, août 2026) : BRU01 est le plus grand, pas le seul
 - **~4 %** : part du numérique mondial dans les émissions de gaz à effet de serre (risque +60 % d'ici 2050) — face à laquelle la Région développe une politique de **numérique responsable** (Paradigm)
 
 ## Couverture dans la DPR
@@ -252,6 +295,12 @@ Les demandes de raccordement data centers chez Elia ont été **multipliées par
 
 Elia a publié le **17 mars 2026** une **carte de capacité d'accueil** du réseau (situation actualisée au 9 avril 2026), permettant de localiser les zones encore raccordables. Le gestionnaire prévoit par ailleurs de **quadrupler ses investissements en Wallonie** d'ici 2030 (environ **2,6 milliards EUR** sur 2026-2030). Le **plan de développement fédéral 2028-2038**, élaboré avec les Régions, traitera explicitement la demande des data centers.
 
+**Le régulateur bruxellois a documenté le risque dès octobre 2025.** Dans son avis 408 sur le plan de développement électricité de Sibelga 2026-2030, BRUGEL nomme explicitement « l'arrivée éventuel des datacenters gros consommateurs d'énergie dans le contexte de l'inflation de la demande en capacité pour les besoins de l'intelligence artificielle ». Le régulateur en tire une conséquence directe : « le stress grandissant sur la capacité disponible en amont du réseau de distribution de SIBELGA pourrait impacter directement la puissance mise à disposition sur les points de fourniture ». Il annonce réfléchir aux instruments régulatoires, dont le raccordement flexible, et demande un examen « attentif et transparent » de la manière dont la réserve disponible est répartie aux points de fourniture partagés entre plusieurs opérateurs et clients.
+
+Le 6 août 2026, la RTBF a chiffré la situation : **6 data centers en Région bruxelloise et 12 en périphérie**, pour une consommation équivalente à celle de plusieurs centaines de milliers de ménages. Sibelga annonce **600 millions EUR d'investissements sur 2026-2030** et juge la situation maîtrisée à court terme pour les ménages et les entreprises. Le point de vigilance porte sur la moyenne tension : les data centers se raccordent directement à la haute tension, ce qui peut réduire la capacité restant disponible en aval pour les habitants et les PME. BRUGEL demande une coordination renforcée entre le niveau régional et le niveau fédéral.
+
+Au niveau fédéral, la **CREG** a adopté le **29 janvier 2026** la décision (B)3027, qui modifie le code de bonne conduite et réforme les procédures de raccordement au réseau de transport, « afin de répondre à l'afflux de demandes et à la pression accrue sur la capacité du réseau » : étapes du processus restructurées, délais contraignants pour chaque étape, définition plus stricte des études préalables et de la décision go/no-go. La décision est entrée en vigueur le 9 mars 2026.
+
 La Banque centrale européenne note que "les marchés nationaux de l'électricité sont plus vulnérables aux pressions liées à l'IA que les marchés du gaz" (bulletin économique 2/2025). La Belgique, qui importe une part de son électricité, est particulièrement concernée. Le mix électrique belge était composé à **29,8 %** de renouvelable en 2024 (Elia).
 
 ## Consommation par requête IA
@@ -272,7 +321,7 @@ Les gains d'efficacité sont rapides : Google rapporte **33 fois** moins d'éner
 
 Le data center Google de Saint-Ghislain consomme environ **1,39 milliard de litres d'eau industrielle** par an (2022). Le site utilise principalement de l'eau grise du canal industriel pour le refroidissement, et non de l'eau potable. Le nouveau site de Farciennes utilisera un refroidissement par air (moindre consommation d'eau). Pour BRU01 à Bruxelles, aucune donnée de consommation d'eau n'est disponible.
 
-La **directive européenne sur l'efficacité énergétique (EED)** impose depuis septembre 2024 un reporting annuel pour les data centers de plus de 500 kW IT : PUE, consommation d'eau, part de renouvelable, récupération de chaleur. La Commission européenne a publié en 2026 les **premiers résultats agrégés à l'échelle de l'UE** (données 2023-2024) : **776 data centers**, **6,4 GW** de capacité IT installée, **16,7 TWh** consommés et un **PUE moyen pondéré de 1,36**. Le détail par pays reste limité et aucune ventilation bruxelloise n'est disponible ; l'échéance suivante de reporting était fixée au **15 mai 2026** pour les données 2025. Un **schéma de notation et de labellisation** des data centers (projet de règlement délégué enregistré le **26 mars 2026**, appel à commentaires ouvert le 27 mars) doit être adopté **vers le 10 juin 2026**, avec un label électronique généré automatiquement par la base de données européenne à partir du **15 août 2027**.
+La **directive européenne sur l'efficacité énergétique (EED)** impose depuis septembre 2024 un reporting annuel pour les data centers de plus de 500 kW IT : PUE, consommation d'eau, part de renouvelable, récupération de chaleur. La Commission européenne a publié en 2026 les **premiers résultats agrégés à l'échelle de l'UE** (données 2023-2024) : **776 data centers**, **6,4 GW** de capacité IT installée, **16,7 TWh** consommés et un **PUE moyen pondéré de 1,36**. Le détail par pays reste limité et aucune ventilation bruxelloise n'est disponible ; l'échéance suivante de reporting était fixée au **15 mai 2026** pour les données 2025. Un **schéma de notation et de labellisation** des data centers est en préparation : un projet de règlement délégué a été enregistré le **26 mars 2026** (appel à commentaires ouvert le 27 mars), puis une **version révisée a été publiée le 2 juillet 2026**. Au 27 août 2026, le texte n'est pas adopté : il doit encore passer le contrôle des États membres et du Parlement européen. Il prévoit une note de **A à G** fondée sur le PUE (de ≤ 1,15 pour A à > 1,90 pour G) et sur le WUE (de ≤ 0,10 à > 1,00 litre par kWh), pour les data centers d'au moins **500 kW** de puissance informatique installée. Le premier label électronique est prévu pour le **15 août 2027** et la Commission doit faire rapport pour le 31 décembre 2028.
 
 Le **Climate Neutral Data Centre Pact (CNDCP)** est un engagement volontaire visant la neutralité climatique des data centers européens d'ici 2030. L'opérateur belge LCL est signataire.
 
@@ -307,12 +356,13 @@ Sources : [be.brussels — Numérique responsable](https://be.brussels/fr/propos
 ## Enjeux à suivre
 
 - **Plan réseau Elia 2028-2038** : inclura-t-il des plafonds de capacité pour les data centers ? Quelle allocation pour la RBC ? (Carte de capacité d'accueil publiée en mars 2026 ; décision sur les plafonds attendue 2026-2027)
-- **Reporting EED** : premiers résultats agrégés UE publiés en 2026 (2023-2024) ; la ventilation belge et bruxelloise reste indisponible ; schéma de notation/labellisation attendu vers le 10 juin 2026, label automatique à partir du 15 août 2027
-- **AI Factory Antenna** : la Belgique a été sélectionnée comme "Antenna" (et non Factory complète) du programme européen AI Factories, via imec. Lancement opérationnel à préciser
+- **Reporting EED** : premiers résultats agrégés UE publiés en 2026 (2023-2024) ; la ventilation belge et bruxelloise reste indisponible ; le schéma de notation n'est pas adopté au 27 août 2026, version révisée publiée le 2 juillet 2026, premier label prévu le 15 août 2027
+- **AI Factory Antenna** : la Belgique a été sélectionnée comme "Antenna" (et non Factory complète) du programme européen AI Factories. Le consortium BE-AIFA, coordonné par imec, réunit 23 partenaires des trois Régions et du fédéral, pour un budget de 10 millions EUR cofinancé par EuroHPC et les autorités belges, avec un démarrage début 2026
+- **Phase 2 de BRU01** : le permis d'environnement a été octroyé le 8 juillet 2026 et le permis d'urbanisme le 24 août 2026. Ni l'un ni l'autre ne documente publiquement la puissance électrique visée, ils portent sur le refroidissement et sur le bâti
 - **BRU01 occupation** : la consommation réelle de BRU01 sera un indicateur clé de l'impact des data centers sur le réseau bruxellois
 - **Récupération de chaleur** : le projet Google Farciennes (via Igretec) est un précédent. La RBC n'a pas d'obligation équivalente pour les data centers
 
-## Développements récents (mars-juin 2026)
+## Développements récents (mars-août 2026)
 
 **Gel Innoviris (mars-avril 2026)** : le principal organisme régional de financement de la recherche voit son budget **ramené de 39 à 30 millions EUR** (−20 %) et **suspend tous les nouveaux projets R&D en 2026** — aucun nouvel appel, tous les guichets fermés. Les conventions en cours sont honorées et les demandes déjà déposées seront examinées pour un éventuel financement en 2027. **Deux lettres ouvertes** signées par des **centaines de chercheurs** (dont une portée par environ 120 chercheurs de l'ULB et de la VUB) dénoncent une première historique. Le cabinet du ministre-président indique viser pour 2027 des moyens « équivalents à ceux de 2026 ». Impact direct sur l'écosystème IA bruxellois, qui perd son principal guichet régional.
 
@@ -320,12 +370,18 @@ Sources : [be.brussels — Numérique responsable](https://be.brussels/fr/propos
 
 **Cadre européen EED (mars-juin 2026)** : la Commission européenne a publié les premiers résultats agrégés du reporting EED (2023-2024) et ouvert le 27 mars une consultation sur un **schéma de notation et de labellisation** des data centers, dont l'adoption est attendue **vers le 10 juin 2026** (détails dans la section « Eau et environnement »). En parallèle, **Elia** a publié sa **carte de capacité d'accueil** du réseau (17 mars 2026).
 
-Sources : BRUZZ (27 mars 2026), La DH (26 mars 2026), BX1 (7 avril 2026), Commission européenne (schéma de notation EED, 27 mars 2026), Elia (capacité d'accueil du réseau, mars 2026).
+**Phase 2 de BRU01 : trois refus, puis deux permis (décembre 2025 à août 2026)**. La base régionale des permis documente une séquence qui n'a pas été relayée par la presse. Trois demandes portant sur la « modification du réseau d'installations de refroidissement lié à la construction de la phase 2 du datacenter et régularisation des installations de refroidissement non déclarées » ont été **refusées** : deux en classe 1B, déposées le 23 janvier et le 4 mars 2026 et refusées les 17 février et 27 mars, et une en classe 2 communale, déposée le 16 avril. Une quatrième demande, en classe 2 régionale, a été déposée le 21 avril, soumise à enquête publique du **8 au 22 juin 2026**, puis **octroyée le 8 juillet 2026** avec une validité jusqu'au 12 février 2035. En parallèle, un permis d'urbanisme déposé le 20 décembre 2025, portant sur le réaménagement du centre de données et une mise en conformité des façades, a été **octroyé le 24 août 2026** : il fait passer les surfaces d'activités productives de haute technologie de 17 821 à 18 013 m² et les bureaux de 977 à 1 042 m². Les motifs des trois refus ne sont pas publics et les documents de décision ne sont pas mis en ligne.
+
+**Le réseau bruxellois sous tension (6 août 2026)**. La RTBF a rendu publique la préoccupation de BRUGEL sur la capacité du réseau, déjà formulée dans les avis du régulateur d'octobre 2025 (voir « Impact sur le réseau électrique »). Six data centers sont recensés en Région bruxelloise et douze en périphérie. Sibelga annonce 600 millions EUR d'investissements sur 2026-2030 et estime la situation maîtrisée à court terme.
+
+Sources : BRUZZ (27 mars 2026), La DH (26 mars 2026), BX1 (7 avril 2026), Commission européenne (schéma de notation EED, 27 mars 2026), Elia (capacité d'accueil du réseau, mars 2026), RTBF (6 août 2026), Openpermits, base régionale NOVA (consultée le 27 août 2026), BRUGEL (avis 408 et 410 du 28 octobre 2025), CREG (décision B3027 du 29 janvier 2026).
 
 ## Ce que les données ne disent pas
 
 - **Aucune donnée agrégée** sur les data centers en Région bruxelloise : ni consommation d'énergie, ni consommation d'eau, ni emplois spécifiques au secteur
-- **Aucune analyse** de BRUGEL ou de la CREG sur l'impact des data centers sur les prix de l'électricité pour les ménages et PME bruxellois
+- **Aucune analyse chiffrée** de l'impact des data centers sur les prix de l'électricité pour les ménages et PME bruxellois : BRUGEL documente le risque de congestion en amont (avis 408 et 410 du 28 octobre 2025) mais n'a pas publié d'évaluation tarifaire
+- **Capacité réservée par cabine** : ni Sibelga ni Elia ne publient la capacité déjà réservée au niveau de la distribution bruxelloise. Ces données figurent dans le plan de prévision des consommations à dix ans établi conjointement par Elia et Sibelga, qui n'est pas public ; Elia publie en revanche, pour son propre réseau à haute tension, une carte de capacité d'accueil indiquant la capacité disponible et la capacité réservée
+- **Titulaires et puissances** : la base régionale des permis publie l'objet, la classe et les dates de chaque dossier, jamais le nom de l'exploitant ni la puissance électrique installée
 - **Aucun cadre urbanistique** : les data centers sont absents du Plan régional de développement durable (PRDD) et il n'existe pas de catégorie spécifique dans la planification urbaine bruxelloise
 - **Parlement bruxellois** : aucune question parlementaire relative aux data centers n'a été identifiée dans les archives en ligne (recherche web ; Weblex non indexé par les moteurs de recherche)
 - **Ventilation EED par pays limitée** : la Commission a publié des résultats agrégés à l'échelle de l'UE (2023-2024), mais le détail belge et bruxellois reste indisponible publiquement

@@ -94,17 +94,11 @@ export function checkSummaryFreshness(params: {
     };
   }
 
-  const ageDays = Math.floor((modified - reviewed) / 86_400_000);
-
-  // Un chapeau relu après la date de publication est une incohérence de saisie,
-  // pas une dette : on le signale plutôt que de le laisser passer en négatif.
-  if (ageDays < 0) {
-    return {
-      verdict: 'unparsable',
-      ageDays,
-      reason: `summaryReviewed (${params.summaryReviewed}) est postérieur à lastModified (${params.lastModified}).`,
-    };
-  }
+  // Un chapeau peut être relu sans que la fiche soit republiée : la relecture
+  // est alors postérieure à `lastModified` et l'écart devient négatif. C'est le
+  // cas sain, pas une anomalie, notamment lors d'une reprise éditoriale de fond
+  // qui ne touche pas au corps des fiches. On ramène donc à zéro.
+  const ageDays = Math.max(0, Math.floor((modified - reviewed) / 86_400_000));
 
   if (ageDays > maxAge) {
     return {

@@ -65,13 +65,15 @@ describe('checkSummaryFreshness', () => {
     expect(r.verdict).toBe('unparsable');
   });
 
-  it('signale un chapeau relu après la publication', () => {
+  it('accepte un chapeau relu après la dernière publication de la fiche', () => {
+    // Cas d'une reprise éditoriale qui relit les chapeaux sans republier les
+    // fiches : l'écart est négatif, il est ramené à zéro et le verdict est ok.
     const r = checkSummaryFreshness({
       lastModified: '2026-07-09',
-      summaryReviewed: '2026-07-26',
+      summaryReviewed: '2026-08-30',
     });
-    expect(r.verdict).toBe('unparsable');
-    expect(r.reason).toContain('postérieur');
+    expect(r.verdict).toBe('ok');
+    expect(r.ageDays).toBe(0);
   });
 
   it('ne double pas le message quand lastModified manque', () => {

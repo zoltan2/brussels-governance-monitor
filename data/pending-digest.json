@@ -1,28 +1,28 @@
 {
-  "week": "2026-w34",
-  "weekStart": "2026-08-17",
-  "created_at": "2026-08-23T19:00:17.282Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w35",
+  "weekStart": "2026-08-24",
+  "created_at": "2026-08-30T19:00:02.346Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "8 domaines, 1 dossier, 4 communes mis à jour",
-    "nl": "8 domeinen, 1 dossier, 4 gemeenten bijgewerkt",
-    "en": "8 domains, 1 dossier, 4 communes updated",
-    "de": "8 Bereiche, 1 Dossier, 4 Gemeinden aktualisiert"
+    "fr": "11 domaines, 2 dossiers, 5 communes mis à jour",
+    "nl": "11 domeinen, 2 dossiers, 5 gemeenten bijgewerkt",
+    "en": "11 domains, 2 dossiers, 5 communes updated",
+    "de": "11 Bereiche, 2 Dossiers, 5 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "15 457",
+    "value": "23,2 %",
     "label": {
-      "fr": "Signatures de la pétition contre le survol du nord de Bruxelles, plus du double des quelque 6 500 recensées fin mars",
-      "nl": "Handtekeningen onder de petitie tegen het overvliegen van het noorden van Brussel, meer dan het dubbele van de zowat 6 500 eind maart",
-      "en": "Signatures on the petition against flights over northern Brussels, more than double the roughly 6,500 counted at the end of March",
-      "de": "Unterschriften der Petition gegen den Überflug des Brüsseler Nordens, mehr als doppelt so viele wie die rund 6 500 Ende März"
+      "fr": "Des ménages bruxellois en précarité hydrique en 2024, contre 15,6 % en Wallonie et 8,5 % en Flandre. Bruxelles est la seule région où la proportion augmente depuis 2021",
+      "nl": "Van de Brusselse huishoudens leefde in 2024 in waterarmoede, tegenover 15,6 % in Wallonië en 8,5 % in Vlaanderen. Brussel is het enige gewest waar het aandeel sinds 2021 stijgt",
+      "en": "Of Brussels households were in water poverty in 2024, against 15.6% in Wallonia and 8.5% in Flanders. Brussels is the only region where the share has risen since 2021",
+      "de": "Der Brüsseler Haushalte lebten 2024 in Wasserarmut, gegenüber 15,6 % in Wallonien und 8,5 % in Flandern. Brüssel ist die einzige Region, in der der Anteil seit 2021 steigt"
     },
     "source": {
-      "fr": "Change.org, compteur relevé le 23 août 2026 à 22h",
-      "nl": "Change.org, teller afgelezen op 23 augustus 2026 om 22 uur",
-      "en": "Change.org, counter read on 23 August 2026 at 22:00",
-      "de": "Change.org, Zählerstand am 23. August 2026 um 22 Uhr"
+      "fr": "Baromètre de la précarité hydrique, Fondation Roi Baudouin, ULB et Universiteit Antwerpen, 27 août 2026",
+      "nl": "Barometer waterarmoede, Koning Boudewijnstichting, ULB en Universiteit Antwerpen, 27 augustus 2026",
+      "en": "Water Poverty Barometer, King Baudouin Foundation, ULB and Universiteit Antwerpen, 27 August 2026",
+      "de": "Barometer der Wasserarmut, König-Baudouin-Stiftung, ULB und Universiteit Antwerpen, 27. August 2026"
     }
   },
   "closingNote": {
@@ -33,19 +33,23 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
+    "budget",
     "cleanliness",
+    "climate",
     "economy",
     "education",
+    "employment",
     "institutional",
     "mobility",
     "security",
     "social",
     "urban-planning",
+    "dossier-data-centers",
     "dossier-survol-bruxelles",
-    "commune-anderlecht",
     "commune-bruxelles-ville",
-    "commune-schaerbeek",
-    "commune-uccle"
-  ],
-  "sent_at": "2026-08-23T20:14:51.571Z"
+    "commune-evere",
+    "commune-ganshoren",
+    "commune-jette",
+    "commune-saint-josse-ten-noode"
+  ]
 }

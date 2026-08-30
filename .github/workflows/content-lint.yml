@@ -20,6 +20,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
       - name: Get changed content files
         run: |
           git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'content/' \
@@ -121,6 +128,21 @@ jobs:
             exit 1
           fi
           echo "OK: All lastModified dates updated"
+
+      # Le chapeau `summary` est le seul champ éditorial que rien ne demandait
+      # de relire : `changeSummary` est réécrit chaque veille, `lastModified` et
+      # `sources` sont vérifiés ci-dessus, le chapeau pouvait vieillir derrière
+      # une fiche par ailleurs fraîche. Il alimente pourtant la meta description,
+      # le JSON-LD, le bouton Partager, le prompt du chatbot, l'API publique et
+      # le repli du digest. Constat du 2026-08-30 : douze des treize fiches
+      # domaines avaient un chapeau de plus de nonante jours.
+      - name: Chapeau (summary) relu depuis moins de 90 jours
+        if: ${{ !contains(github.event.pull_request.labels.*.name, 'skip-summary-check') }}
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          npx tsx scripts/content-lint/summary-freshness.ts /tmp/changed_content.txt
 
   quiz-lint:
     name: Quiz pool checks

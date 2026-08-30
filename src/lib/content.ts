@@ -14,6 +14,8 @@ export interface DomainCard {
   status: 'blocked' | 'delayed' | 'ongoing' | 'resolved';
   blockedSince?: string;
   summary: string;
+  /** Date de dernière relecture du chapeau. Voir src/lib/summary-freshness.ts. */
+  summaryReviewed?: string;
   sectors: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
@@ -210,6 +212,8 @@ export interface DossierCard {
   blockedSince?: string;
   decisionLevel: 'regional' | 'communal' | 'federal' | 'mixed';
   summary: string;
+  /** Date de dernière relecture du chapeau. Voir src/lib/summary-freshness.ts. */
+  summaryReviewed?: string;
   estimatedBudget?: BudgetValue;
   estimatedCostOfInaction?: BudgetValue;
   stakeholders: string[];

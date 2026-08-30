@@ -154,6 +154,12 @@ const domainCards = defineCollection({
       status: s.enum(['blocked', 'delayed', 'ongoing', 'resolved']),
       blockedSince: s.isodate().optional(),
       summary: s.string().max(500),
+      // Date de dernière relecture du chapeau `summary`. Contrôlée par
+      // scripts/content-lint/summary-freshness.ts : au-delà de nonante jours
+      // d'écart avec lastModified, une PR qui touche la fiche échoue. Optionnel
+      // au schéma pour ne pas casser une fiche en cours de rédaction ; c'est le
+      // lint, pas Velite, qui traite l'absence comme une dette.
+      summaryReviewed: s.isodate().optional(),
       sectors: s.array(s.string()).default([]),
       sources: s.array(sourceSchema),
       confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']),
@@ -580,6 +586,12 @@ const dossierCards = defineCollection({
       blockedSince: s.isodate().optional(),
       decisionLevel: s.enum(['regional', 'communal', 'federal', 'mixed']),
       summary: s.string().max(500),
+      // Date de dernière relecture du chapeau `summary`. Contrôlée par
+      // scripts/content-lint/summary-freshness.ts : au-delà de nonante jours
+      // d'écart avec lastModified, une PR qui touche la fiche échoue. Optionnel
+      // au schéma pour ne pas casser une fiche en cours de rédaction ; c'est le
+      // lint, pas Velite, qui traite l'absence comme une dette.
+      summaryReviewed: s.isodate().optional(),
       estimatedBudget: budgetSchema.optional(),
       estimatedCostOfInaction: budgetSchema.optional(),
       stakeholders: s.array(s.string()).default([]),

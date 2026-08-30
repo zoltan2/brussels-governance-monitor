@@ -13,6 +13,7 @@
     "start": "next start",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
+    "lint:summaries": "tsx scripts/content-lint/summary-freshness.ts",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,json,md,mdx,css}\"",
     "test": "vitest run",

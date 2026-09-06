@@ -16,7 +16,7 @@ export async function ContentTile({ locale }: { locale: string }) {
 
   return (
     <Tile
-      title="Veilles à publier"
+      title="Contenu à publier"
       href={`/${locale}/admin/content`}
       linkLabel="Voir"
     >

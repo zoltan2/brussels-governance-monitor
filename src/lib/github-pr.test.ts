@@ -92,10 +92,20 @@ describe('publishablePrProblem', () => {
     expect(publishablePrProblem(pr({ branch: 'feat/quelque-chose' }), REPO)).toBe(
       'Branche hors périmètre',
     );
-    // Le préfixe réel est `content/veille-`, pas `veille/`.
+    // Le préfixe réel est `content/`, pas `veille/`.
     expect(publishablePrProblem(pr({ branch: 'veille/2026-08-09' }), REPO)).toBe(
       'Branche hors périmètre',
     );
+  });
+
+  it('accepte une branche de contenu qui n\'est pas une veille', () => {
+    // Régression du 6 septembre 2026 : le préfixe valait `content/veille-`, et
+    // une PR de dossier ou de glossaire passant `isMergeableFileSet` restait
+    // invisible dans l'écran. Le filtre jugeait le nom au lieu du contenu.
+    expect(
+      publishablePrProblem(pr({ branch: 'content/label-datacenters-2026-09-06' }), REPO),
+    ).toBeNull();
+    expect(publishablePrProblem(pr({ branch: 'content/glossaire-pue-wue' }), REPO)).toBeNull();
   });
 
   it('refuse une branche cible autre que main', () => {

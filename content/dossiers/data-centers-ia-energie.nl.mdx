@@ -122,6 +122,14 @@ sources:
   - label: "Belnet — Belgische AI Factory Antenna (BE-AIFA)"
     url: "https://www.belnet.be/en/news-events/news/ai-factory-antenna-connects-belgian-organisations-european-ai-infrastructure"
     accessedAt: "2026-08-27"
+  - label: "Commission européenne — Appel à commentaires, schéma de notation des data centers (27 mars 2026)"
+    url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
+    type: official
+    accessedAt: "2026-09-06"
+  - label: "Règlement délégué (UE) 2024/1364 — base de données européenne sur les data centers"
+    url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32024R1364"
+    type: official
+    accessedAt: "2026-09-06"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -219,10 +227,48 @@ faq:
       - label: "Europese Commissie, ratingschema voor datacenters (EED)"
         url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
         accessedAt: "2026-06-17"
-lastModified: "2026-08-27"
+lastModified: "2026-09-06"
 changeType: updated
-changeSummary: "Het datacenter van Neder-Over-Heembeek kreeg op 8 juli 2026 de milieuvergunning voor zijn fase 2 en op 24 augustus 2026 een stedenbouwkundige vergunning, na drie weigeringen. De aanvragen gingen onder meer over de regularisatie van niet-aangegeven koelinstallaties. Op 6 augustus 2026 becijferde de RTBF de druk op het Brusselse net: 6 datacenters in het Gewest, 12 in de rand, 600 miljoen EUR investeringen van Sibelga over 2026-2030. BRUGEL had het risico op congestie stroomopwaarts al gedocumenteerd in zijn adviezen van 28 oktober 2025 en vraagt een transparant onderzoek van de verdeling van de beschikbare reserve. De CREG hervormde de aansluitingsprocedures op 29 januari 2026. Het Europese ratingschema voor datacenters is nog altijd niet aangenomen: op 2 juli 2026 verscheen een herziene versie, met een score van A tot G en een eerste label op 15 augustus 2027."
+changeSummary: "Het toekomstige Europese label voor datacenters krijgt vorm, en de logica ervan past in één zin: het zal beoordelen zonder te bestraffen. Het ontwerp van gedelegeerde verordening voorziet in zijn herziene versie van 2 juli 2026 geen enkele minimumdrempel en geen enkele sanctie voor een slechte score; een site met een G blijft volkomen in orde. De hefboom is onrechtstreeks, via groene financiering, overheidsopdrachten en de toekomstige Europese verordening over cloud en artificiële intelligentie. Twee nieuwigheden tellen voor Brussel: het watercriterium slaat voortaan op onttrokken zoet water en niet langer op drinkwater alleen, waardoor koeling met kanaalwater meetelt, en het label toont vijf bijkomende indicatoren naast PUE en WUE, waaronder de erkenning van kernenergie. Het eerste label is voorzien op 15 augustus 2027: dat is de datum waarop een openbaar cijfer over waterverbruik zal bestaan voor een site als BRU01."
 ---
+
+## Het Europese label: wat het zal meten, en wat het niet zal bestraffen
+
+Twee indicatoren bepalen de score. De **PUE** zet de totale elektriciteit van de installatie af tegen wat werkelijk naar rekenwerk gaat: hoe dichter bij 1, hoe minder verlies door koeling en omzetting. De **WUE** zet het onttrokken zoete water af tegen diezelfde rekenenergie, in liter per kilowattuur. Beide moeten samen gelezen worden, want ze werken vaak tegen elkaar in: koelen met water spaart elektriciteit en verbruikt water, koelen met lucht doet het omgekeerde.
+
+### Een openbare score, zonder prestatie-eis
+
+De verordening legt **geen enkele minimumdrempel en geen enkele sanctie** op voor een slechte score. Een datacenter met een G blijft volkomen in orde. De hefboom ligt elders en staat uitdrukkelijk in de voorbereidende stukken: het label is bedoeld voor de **toegang tot groene financiering**, voor **overheidsopdrachten** en voor de evaluaties van de toekomstige Europese verordening over cloud en artificiële intelligentie. Het is een markt- en reputatiedwang, geen juridische.
+
+### Het label leeft een jaar en vernieuwt zichzelf
+
+Het wordt automatisch gegenereerd door de Europese databank bij elke rapporteringsperiode, **geldig van 15 augustus van het jaar van afgifte tot 15 augustus van het volgende jaar**, elektronisch afgeleverd aan iedereen die erom vraagt, in alle officiële talen van de Unie. Exploitanten mogen het niet nabootsen of zonder toestemming reproduceren. De score van eenzelfde site kan dus van jaar tot jaar wijzigen, in beide richtingen, zonder enig juridisch gevolg.
+
+### Zeven criteria, niet twee
+
+Naast de PUE en de WUE die de score bepalen, toont het label de herkomst van de verbruikte energie, de bijdrage van de site aan nieuwe productiecapaciteit, haar flexibiliteit tegenover het elektriciteitsnet, haar geschiktheid voor recuperatie van restwarmte, en, toegevoegd in de herziene versie van 2 juli 2026, de erkenning van kernenergie.
+
+### Een definitiewijziging die telt voor Brussel
+
+De herziene versie wijzigt de watermeting: de WUE slaat voortaan op onttrokken **zoet water**, en niet langer op **drinkwater** alleen. Onttrekkingen van niet-drinkbaar water tellen dus mee.
+
+Dat detail verlegt de lijn voor een deel van het Belgische park. De site van Saint-Ghislain koelt hoofdzakelijk met grijs water uit het industriële kanaal, een keuze die onder de oude definitie onzichtbaar bleef en die voortaan meetelt. Omgekeerd blijft luchtkoeling, zoals aangekondigd in Farciennes, bevoordeeld.
+
+### Wat de datum van 15 augustus 2027 voor Brussel betekent
+
+Dit dossier stelt vast dat er geen enkel cijfer over waterverbruik beschikbaar is voor BRU01. **Het eerste label zet een datum op het einde van die leemte**: vanaf 15 augustus 2027 draagt elk Brussels datacenter met minstens 500 kW geïnstalleerd IT-vermogen een openbare score met een waterindicator, vergelijkbaar van site tot site en van land tot land.
+
+Onder die drempel blijft deelname **vrijwillig**, ook voor sites in ontwerp- of bouwfase. Installaties van defensie en civiele bescherming zijn vrijgesteld.
+
+### Twee erkende onzekerheden
+
+Op 6 september 2026 is de tekst niet aangenomen: de herziene versie van 2 juli 2026 moet nog de toetsing door de lidstaten en het Europees Parlement doorstaan, die na de formele aanname door de Commissie twee maanden hebben om bezwaar te maken.
+
+En de termijn voor de herziening door de Commissie verschilt naargelang de gepubliceerde juridische analyses: **31 december 2028** voor de ene, **31 maart 2029** voor de andere. Beide data worden hier vermeld zolang de tekst niet in het Publicatieblad is verschenen.
+
+Zie ook de definities van [PUE](/nl/woordenlijst) en [WUE](/nl/woordenlijst) in de woordenlijst.
+
+Bronnen: ontwerp van gedelegeerde verordening ter aanvulling van richtlijn (EU) 2023/1791, herziene versie van 2 juli 2026; gedelegeerde verordening (EU) 2024/1364; Europese Commissie, oproep tot feedback van 27 maart 2026. Vertrouwen: *estimated*, de tekst is een ontwerp.
 
 ## Kerngegevens
 

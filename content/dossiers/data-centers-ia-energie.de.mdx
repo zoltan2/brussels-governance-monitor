@@ -122,6 +122,14 @@ sources:
   - label: "Belnet — Belgische AI Factory Antenna (BE-AIFA)"
     url: "https://www.belnet.be/en/news-events/news/ai-factory-antenna-connects-belgian-organisations-european-ai-infrastructure"
     accessedAt: "2026-08-27"
+  - label: "Commission européenne — Appel à commentaires, schéma de notation des data centers (27 mars 2026)"
+    url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
+    type: official
+    accessedAt: "2026-09-06"
+  - label: "Règlement délégué (UE) 2024/1364 — base de données européenne sur les data centers"
+    url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32024R1364"
+    type: official
+    accessedAt: "2026-09-06"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -219,10 +227,48 @@ faq:
       - label: "Europäische Kommission, Bewertungsschema für Rechenzentren (EED)"
         url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
         accessedAt: "2026-06-17"
-lastModified: "2026-08-27"
+lastModified: "2026-09-06"
 changeType: updated
-changeSummary: "Das Rechenzentrum in Neder-Over-Heembeek erhielt am 8. Juli 2026 die Umweltgenehmigung für seine Phase 2 und am 24. August 2026 eine städtebauliche Genehmigung, nach drei Ablehnungen. Die Anträge betrafen unter anderem die Regularisierung nicht gemeldeter Kühlanlagen. Am 6. August 2026 bezifferte die RTBF den Druck auf das Brüsseler Netz: 6 Rechenzentren in der Region, 12 im Umland, 600 Millionen EUR Investitionen von Sibelga für 2026-2030. BRUGEL hatte das Risiko einer Überlastung im vorgelagerten Netz bereits in seinen Stellungnahmen vom 28. Oktober 2025 dokumentiert und fordert eine transparente Prüfung der Verteilung der verfügbaren Reserve. Die CREG reformierte die Anschlussverfahren am 29. Januar 2026. Das europäische Bewertungsschema für Rechenzentren ist weiterhin nicht angenommen: Am 2. Juli 2026 erschien eine überarbeitete Fassung, mit einer Bewertung von A bis G und einem ersten Label am 15. August 2027."
+changeSummary: "Das künftige europäische Label für Rechenzentren nimmt Gestalt an, und seine Logik passt in einen Satz: Es wird bewerten, ohne zu sanktionieren. Der Entwurf der delegierten Verordnung sieht in seiner überarbeiteten Fassung vom 2. Juli 2026 weder einen Mindestwert noch eine Strafe für eine schlechte Note vor; ein mit G bewerteter Standort bleibt vollkommen regelkonform. Der Hebel ist indirekt, über grüne Finanzierung, öffentliche Aufträge und die künftige EU-Verordnung zu Cloud und künstlicher Intelligenz. Zwei Neuerungen zählen für Brüssel: Das Wasserkriterium erfasst nun entnommenes Süßwasser statt nur Trinkwasser, wodurch Kanalkühlung einfließt, und das Label zeigt neben PUE und WUE fünf weitere Indikatoren, darunter die Anerkennung der Kernenergie. Das erste Label ist für den 15. August 2027 vorgesehen: Zu diesem Datum wird eine öffentliche Zahl zum Wasserverbrauch für einen Standort wie BRU01 vorliegen."
 ---
+
+## Das EU-Label: was es messen wird, und was es nicht sanktionieren wird
+
+Zwei Kennzahlen tragen die Bewertung. Der **PUE** setzt den gesamten Stromverbrauch der Anlage ins Verhältnis zu dem, was tatsächlich in die Rechenleistung fließt: je näher an 1, desto geringer die Verluste durch Kühlung und Umwandlung. Die **WUE** setzt das entnommene Süßwasser ins Verhältnis zu derselben Rechenenergie, in Liter je Kilowattstunde. Beide sind gemeinsam zu lesen, denn sie wirken oft gegeneinander: Wasserkühlung spart Strom und verbraucht Wasser, Luftkühlung umgekehrt.
+
+### Eine öffentliche Note ohne Leistungsanforderung
+
+Die Verordnung schreibt **keinen Mindestwert und keine Strafe** für eine schlechte Note vor. Ein mit G bewertetes Rechenzentrum bleibt vollkommen regelkonform. Der Hebel liegt anderswo und steht ausdrücklich in den vorbereitenden Arbeiten: Das Label ist für den **Zugang zu grüner Finanzierung**, für **öffentliche Aufträge** und für die Bewertungen der künftigen EU-Verordnung zu Cloud und künstlicher Intelligenz gedacht. Es ist ein Markt- und Reputationszwang, kein rechtlicher.
+
+### Das Label lebt ein Jahr und erneuert sich selbst
+
+Es wird von der europäischen Datenbank bei jedem Berichtszeitraum automatisch erzeugt, **gültig vom 15. August des Ausstellungsjahres bis zum 15. August des Folgejahres**, elektronisch an jede Person ausgehändigt, die es verlangt, in allen Amtssprachen der Union. Betreibern ist es untersagt, es nachzuahmen oder ohne Genehmigung zu vervielfältigen. Die Note eines Standorts kann sich daher von Jahr zu Jahr in beide Richtungen ändern, ohne jede rechtliche Folge.
+
+### Sieben Kriterien, nicht zwei
+
+Neben PUE und WUE, die die Note tragen, zeigt das Label die Herkunft der verbrauchten Energie, den Beitrag des Standorts zu neuen Erzeugungskapazitäten, seine Flexibilität gegenüber dem Stromnetz, seine Eignung zur Abwärmenutzung und, ergänzt in der überarbeiteten Fassung vom 2. Juli 2026, die Anerkennung der Kernenergie.
+
+### Eine Definitionsänderung, die für Brüssel zählt
+
+Die überarbeitete Fassung ändert die Wassermessung: Die WUE erfasst nun entnommenes **Süßwasser** statt nur **Trinkwasser**. Entnahmen von nicht trinkbarem Wasser fließen somit ein.
+
+Dieses Detail verschiebt die Linie für einen Teil des belgischen Bestands. Der Standort Saint-Ghislain kühlt überwiegend mit Grauwasser aus dem Industriekanal, eine Wahl, die unter der alten Definition unsichtbar blieb und nun mitgezählt wird. Umgekehrt bleibt Luftkühlung, wie in Farciennes angekündigt, im Vorteil.
+
+### Was der 15. August 2027 für Brüssel bedeutet
+
+Dieses Dossier hält fest, dass für BRU01 keine Zahl zum Wasserverbrauch vorliegt. **Das erste Label setzt ein Datum auf das Ende dieser Lücke**: Ab dem 15. August 2027 trägt jedes Brüsseler Rechenzentrum mit mindestens 500 kW installierter IT-Leistung eine öffentliche Note mit einem Wasserindikator, vergleichbar von Standort zu Standort und von Land zu Land.
+
+Unterhalb dieser Schwelle bleibt die Teilnahme **freiwillig**, auch für Standorte in Planung oder im Bau. Anlagen der Verteidigung und des Zivilschutzes sind ausgenommen.
+
+### Zwei eingestandene Unsicherheiten
+
+Am 6. September 2026 ist der Text nicht angenommen: Die überarbeitete Fassung vom 2. Juli 2026 muss noch die Prüfung durch die Mitgliedstaaten und das Europäische Parlament bestehen, die nach der förmlichen Annahme durch die Kommission zwei Monate Zeit für Einwände haben.
+
+Und die Frist für die Überprüfung durch die Kommission unterscheidet sich je nach veröffentlichter Rechtsanalyse: **31. Dezember 2028** bei den einen, **31. März 2029** bei den anderen. Beide Daten werden hier genannt, solange der Text nicht im Amtsblatt erschienen ist.
+
+Siehe auch die Definitionen von [PUE](/de/glossar) und [WUE](/de/glossar) im Glossar.
+
+Quellen: Entwurf einer delegierten Verordnung zur Ergänzung der Richtlinie (EU) 2023/1791, überarbeitete Fassung vom 2. Juli 2026; Delegierte Verordnung (EU) 2024/1364; Europäische Kommission, Aufruf zur Stellungnahme vom 27. März 2026. Vertrauen: *estimated*, der Text ist ein Entwurf.
 
 ## Wichtigste Kennzahlen
 

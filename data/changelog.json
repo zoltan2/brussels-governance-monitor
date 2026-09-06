@@ -2,6 +2,42 @@
   {
     "date": "2026-09-06",
     "type": "updated",
+    "section": "dossiers",
+    "targetSlug": "data-centers-ia-energie",
+    "descriptions": {
+      "fr": "Le futur label européen des data centers notera sans sanctionner. Le projet de règlement délégué, révisé le 2 juillet 2026, ne prévoit aucun seuil minimal ni aucune pénalité pour une mauvaise note : un site classé G reste en règle. Le levier passe par la finance verte, les marchés publics et le futur règlement européen sur le cloud et l'intelligence artificielle. Deux nouveautés comptent pour Bruxelles : le critère de l'eau porte désormais sur l'eau douce prélevée et non plus sur la seule eau potable, et le label affichera cinq indicateurs complémentaires en plus du PUE et du WUE, dont la reconnaissance de l'énergie nucléaire. Premier label le 15 août 2027, valable un an et renouvelé automatiquement.",
+      "nl": "Het toekomstige Europese label voor datacenters zal beoordelen zonder te bestraffen. Het op 2 juli 2026 herziene ontwerp van gedelegeerde verordening voorziet geen minimumdrempel en geen sanctie voor een slechte score: een site met een G blijft in orde. De hefboom loopt via groene financiering, overheidsopdrachten en de toekomstige Europese verordening over cloud en artificiële intelligentie. Twee nieuwigheden tellen voor Brussel: het watercriterium slaat voortaan op onttrokken zoet water en niet langer op drinkwater alleen, en het label toont vijf bijkomende indicatoren naast PUE en WUE, waaronder de erkenning van kernenergie. Eerste label op 15 augustus 2027, een jaar geldig en automatisch vernieuwd.",
+      "en": "The forthcoming EU data centre label will rate without penalising. The draft delegated regulation, revised on 2 July 2026, sets no minimum threshold and no penalty for a poor rating: a site graded G remains compliant. The leverage runs through green finance, public procurement and the forthcoming EU regulation on cloud and artificial intelligence. Two changes matter for Brussels: the water criterion now covers freshwater withdrawn rather than potable water alone, and the label will display five further indicators alongside PUE and WUE, including recognition of nuclear energy. First label on 15 August 2027, valid a year and renewed automatically.",
+      "de": "Das künftige EU-Label für Rechenzentren wird bewerten, ohne zu sanktionieren. Der am 2. Juli 2026 überarbeitete Entwurf der delegierten Verordnung sieht weder einen Mindestwert noch eine Strafe für eine schlechte Note vor: Ein mit G bewerteter Standort bleibt regelkonform. Der Hebel läuft über grüne Finanzierung, öffentliche Aufträge und die künftige EU-Verordnung zu Cloud und künstlicher Intelligenz. Zwei Neuerungen zählen für Brüssel: Das Wasserkriterium erfasst nun entnommenes Süßwasser statt nur Trinkwasser, und das Label zeigt neben PUE und WUE fünf weitere Indikatoren, darunter die Anerkennung der Kernenergie. Erstes Label am 15. August 2027, ein Jahr gültig und automatisch erneuert."
+    }
+  },
+  {
+    "date": "2026-09-06",
+    "type": "added",
+    "section": "glossary",
+    "targetSlug": "pue",
+    "descriptions": {
+      "fr": "Nouvelle entrée : le PUE (Power Usage Effectiveness) rapporte l'énergie totale consommée par un data center à celle consommée par ses seuls équipements informatiques. La moyenne pondérée européenne s'établit à 1,36 sur 776 data centers en 2026. L'entrée expose aussi les deux limites de l'indicateur : il ne dit rien de la quantité absolue consommée ni de l'origine de l'électricité.",
+      "nl": "Nieuw lemma: de PUE (Power Usage Effectiveness) zet de totale energie van een datacenter af tegen de energie die alleen de IT-apparatuur verbruikt. Het Europese gewogen gemiddelde bedraagt 1,36 over 776 datacenters in 2026. Het lemma legt ook de twee beperkingen van de indicator uit: hij zegt niets over de absolute hoeveelheid, noch over de herkomst van de elektriciteit.",
+      "en": "New entry: PUE (Power Usage Effectiveness) sets the total energy used by a data centre against the energy used by its IT equipment alone. The European weighted average stands at 1.36 across 776 data centres in 2026. The entry also sets out the indicator's two limits: it says nothing about the absolute quantity consumed, nor about the origin of the electricity.",
+      "de": "Neuer Eintrag: Der PUE (Power Usage Effectiveness) setzt die Gesamtenergie eines Rechenzentrums ins Verhältnis zu jener, die allein die IT-Ausrüstung verbraucht. Der europäische gewichtete Durchschnitt liegt bei 1,36 über 776 Rechenzentren im Jahr 2026. Der Eintrag nennt auch die zwei Grenzen der Kennzahl: Sie sagt nichts über die absolute Menge und nichts über die Herkunft des Stroms."
+    }
+  },
+  {
+    "date": "2026-09-06",
+    "type": "added",
+    "section": "glossary",
+    "targetSlug": "wue",
+    "descriptions": {
+      "fr": "Nouvelle entrée : le WUE (Water Usage Effectiveness) mesure les litres d'eau douce prélevés par kilowattheure consommé par les équipements informatiques d'un data center. L'entrée explique pourquoi il se lit avec le PUE, les deux s'opposant souvent, et signale que la version révisée du projet européen du 2 juillet 2026 a étendu la mesure de l'eau potable à toute eau douce, ce qui fait entrer les refroidissements au canal dans le calcul.",
+      "nl": "Nieuw lemma: de WUE (Water Usage Effectiveness) meet de liters zoet water die worden onttrokken per kilowattuur verbruikt door de IT-apparatuur van een datacenter. Het lemma legt uit waarom hij samen met de PUE gelezen moet worden, omdat beide vaak tegen elkaar in werken, en wijst erop dat de herziene Europese ontwerptekst van 2 juli 2026 de meting uitbreidde van drinkwater naar alle zoet water, waardoor koeling met kanaalwater meetelt.",
+      "en": "New entry: WUE (Water Usage Effectiveness) measures the litres of freshwater withdrawn per kilowatt-hour consumed by a data centre's IT equipment. The entry explains why it must be read alongside PUE, since the two often pull against each other, and notes that the revised EU draft of 2 July 2026 widened the measurement from potable water to all freshwater, bringing canal cooling into the calculation.",
+      "de": "Neuer Eintrag: Die WUE (Water Usage Effectiveness) misst die Liter Süßwasser, die je Kilowattstunde des IT-Verbrauchs eines Rechenzentrums entnommen werden. Der Eintrag erläutert, warum sie gemeinsam mit dem PUE zu lesen ist, da beide oft gegeneinander wirken, und weist darauf hin, dass der überarbeitete EU-Entwurf vom 2. Juli 2026 die Messung von Trinkwasser auf alles Süßwasser ausgeweitet hat, wodurch Kanalkühlung einfließt."
+    }
+  },
+  {
+    "date": "2026-09-06",
+    "type": "updated",
     "section": "domains",
     "targetSlug": "mobility",
     "descriptions": {

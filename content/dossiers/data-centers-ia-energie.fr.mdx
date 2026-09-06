@@ -122,6 +122,14 @@ sources:
   - label: "Belnet — AI Factory Antenna belge (BE-AIFA)"
     url: "https://www.belnet.be/en/news-events/news/ai-factory-antenna-connects-belgian-organisations-european-ai-infrastructure"
     accessedAt: "2026-08-27"
+  - label: "Commission européenne — Appel à commentaires, schéma de notation des data centers (27 mars 2026)"
+    url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
+    type: official
+    accessedAt: "2026-09-06"
+  - label: "Règlement délégué (UE) 2024/1364 — base de données européenne sur les data centers"
+    url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32024R1364"
+    type: official
+    accessedAt: "2026-09-06"
 metrics:
   - label: "Consommation DC belges"
     value: "3,2"
@@ -219,10 +227,48 @@ faq:
       - label: "Commission européenne, schéma de notation des data centers (EED)"
         url: "https://energy.ec.europa.eu/news/rating-scheme-data-centres-eu-commission-launches-call-feedback-2026-03-27_en"
         accessedAt: "2026-06-17"
-lastModified: "2026-08-27"
+lastModified: "2026-09-06"
 changeType: updated
-changeSummary: "Le data center de Neder-Over-Heembeek a obtenu le permis d'environnement de sa phase 2 le 8 juillet 2026 et un permis d'urbanisme le 24 août 2026, après trois refus. Les demandes portaient notamment sur la régularisation d'installations de refroidissement non déclarées. Le 6 août 2026, la RTBF a chiffré la pression sur le réseau bruxellois : 6 data centers en Région, 12 en périphérie, 600 millions EUR d'investissements Sibelga sur 2026-2030. BRUGEL avait documenté le risque de congestion en amont dès ses avis du 28 octobre 2025 et demande un examen transparent de la répartition de la réserve disponible. La CREG a réformé les procédures de raccordement le 29 janvier 2026. Le schéma de notation européen des data centers n'est toujours pas adopté : une version révisée a été publiée le 2 juillet 2026, avec une note de A à G et un premier label au 15 août 2027."
+changeSummary: "Le futur label européen des data centers se précise, et son économie tient en une phrase : il notera sans sanctionner. Le projet de règlement délégué, dans sa version révisée du 2 juillet 2026, ne prévoit aucun seuil minimal à atteindre ni aucune pénalité pour une mauvaise note, et un site classé G reste parfaitement en règle. Le levier est indirect, par la finance verte, les marchés publics et le futur règlement européen sur le cloud et l'intelligence artificielle. Deux nouveautés comptent pour Bruxelles : le critère de l'eau porte désormais sur l'eau douce prélevée et non plus sur la seule eau potable, ce qui fait entrer les refroidissements au canal dans le calcul, et le label affichera cinq indicateurs complémentaires en plus du PUE et du WUE, dont la reconnaissance de l'énergie nucléaire. Le premier label est prévu le 15 août 2027 : c'est la date à laquelle une donnée publique de consommation d'eau existera pour un site comme BRU01."
 ---
+
+## Le label européen : ce qu'il mesurera, et ce qu'il ne sanctionnera pas
+
+Deux indicateurs fondent la note. Le **PUE** rapporte l'électricité totale de l'installation à celle qui sert réellement au calcul : plus il s'approche de 1, moins il y a de pertes en refroidissement et en conversion. Le **WUE** rapporte l'eau douce prélevée à cette même énergie de calcul, en litres par kilowattheure. Les deux se lisent ensemble, parce qu'ils s'opposent souvent : refroidir à l'eau économise de l'électricité et consomme de l'eau, refroidir à l'air fait l'inverse.
+
+### Une note publique, sans exigence de performance
+
+Le règlement n'impose **aucun seuil minimal à atteindre et aucune pénalité** pour une mauvaise note. Un data center classé G reste parfaitement en règle. Le levier est ailleurs, et il est explicite dans les travaux préparatoires : le label est destiné à servir dans l'**accès à la finance verte**, dans les **marchés publics** et dans les évaluations prévues par le futur règlement européen sur le cloud et l'intelligence artificielle. C'est une contrainte de marché et de réputation, pas de droit.
+
+### Le label vit un an et se renouvelle seul
+
+Il est généré automatiquement par la base de données européenne à chaque période de rapportage, **valable du 15 août de l'année de délivrance au 15 août de l'année suivante**, délivré sous forme électronique à toute personne qui en fait la demande, dans toutes les langues officielles de l'Union. Les exploitants ont interdiction de l'imiter ou de le reproduire sans autorisation. La note d'un même site peut donc évoluer d'une année à l'autre, à la hausse comme à la baisse, sans qu'aucune conséquence juridique ne s'y attache.
+
+### Sept critères, pas deux
+
+Outre le PUE et le WUE qui fondent la note, le label affiche l'origine de l'énergie consommée, la contribution du site à de nouvelles capacités de production, sa flexibilité vis-à-vis du réseau électrique, son aptitude à la récupération de chaleur fatale, et, ajout de la version révisée du 2 juillet 2026, la reconnaissance de l'énergie nucléaire.
+
+### Un changement de définition qui compte pour Bruxelles
+
+La version révisée modifie la mesure de l'eau : le WUE porte désormais sur l'**eau douce** prélevée, et non plus sur la seule **eau potable**. Les prélèvements en eau non potable entrent donc dans le calcul.
+
+Ce détail déplace la ligne pour une partie du parc belge. Le site de Saint-Ghislain se refroidit principalement à l'eau grise du canal industriel, un choix qui restait invisible sous l'ancienne définition et qui sera désormais compté. À l'inverse, un refroidissement par air comme celui annoncé à Farciennes reste avantagé.
+
+### Ce que la date du 15 août 2027 signifie pour Bruxelles
+
+Ce dossier constate qu'aucune donnée de consommation d'eau n'est disponible pour BRU01. **Le premier label met une date sur la fin de cette lacune** : à partir du 15 août 2027, tout data center bruxellois d'au moins 500 kW de puissance informatique installée portera une note publique comportant un indicateur d'eau, comparable d'un site à l'autre et d'un pays à l'autre.
+
+En dessous de ce seuil, la participation reste **volontaire**, y compris pour les sites encore en conception ou en chantier. Les installations de défense et de protection civile sont exemptées.
+
+### Deux incertitudes assumées
+
+Au 6 septembre 2026, le texte n'est pas adopté : la version révisée du 2 juillet 2026 doit encore franchir le contrôle des États membres et du Parlement européen, qui disposent de deux mois pour formuler des objections après l'adoption formelle par la Commission.
+
+Et l'échéance du réexamen par la Commission diffère selon les analyses juridiques publiées : le **31 décembre 2028** pour les unes, le **31 mars 2029** pour les autres. Les deux dates sont mentionnées ici tant que le texte n'est pas paru au Journal officiel.
+
+Voir aussi les définitions de [PUE](/fr/glossaire) et [WUE](/fr/glossaire) au glossaire.
+
+Sources : projet de règlement délégué complétant la directive (UE) 2023/1791, version révisée du 2 juillet 2026 ; règlement délégué (UE) 2024/1364 ; Commission européenne, appel à commentaires du 27 mars 2026. Confiance : *estimated*, le texte étant à l'état de projet.
 
 ## Données clés
 

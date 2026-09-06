@@ -26,8 +26,22 @@ const API = 'https://api.github.com';
 const PER_PAGE = 100;
 const MAX_PAGES = 30; // 3000 fichiers, le plafond dur de l'API.
 
-/** Vérifié sur les PR de veille réelles : `content/veille-2026-08-09`. */
-export const CONTENT_BRANCH_PREFIX = 'content/veille-';
+/**
+ * Périmètre des branches présentables dans l'écran de publication.
+ *
+ * Élargi de `content/veille-` à `content/` le 6 septembre 2026. Le préfixe
+ * étroit écartait toute PR de contenu qui n'était pas une veille : une
+ * modification de dossier ou une entrée de glossaire passait pourtant
+ * `isMergeableFileSet`, mais restait invisible avec la mention « Branche hors
+ * périmètre ». Le filtre jugeait le nom, pas le contenu.
+ *
+ * Ce préfixe n'est PAS une garde de sécurité et ne l'a jamais été. Les deux
+ * gardes réelles sont `headRepo`, qui impose que la branche vienne de notre
+ * dépôt, et `isMergeableFileSet`, qui impose que le lot de fichiers reste dans
+ * la liste blanche. L'élargir ne relâche donc rien : il cesse seulement
+ * d'exclure du contenu légitime sur un critère de nommage.
+ */
+export const CONTENT_BRANCH_PREFIX = 'content/';
 
 export interface ContentPr {
   number: number;

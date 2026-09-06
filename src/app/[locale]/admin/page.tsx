@@ -59,7 +59,7 @@ export default async function AdminHubPage({
         <Suspense fallback={<TileSkeleton title="Brouillons" />}>
           <DraftsTile locale={locale} />
         </Suspense>
-        <Suspense fallback={<TileSkeleton title="Veilles à publier" />}>
+        <Suspense fallback={<TileSkeleton title="Contenu à publier" />}>
           <ContentTile locale={locale} />
         </Suspense>
         <Suspense fallback={<TileSkeleton title="Chat" />}>

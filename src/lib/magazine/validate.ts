@@ -1,6 +1,12 @@
 import type { Magazine, ValidationError } from './types';
 
-const STAT_PATTERN = /^[\d\s.,]+[KM€%]*$/;
+// Le `stat` est le grand chiffre affiché sur une carte du magazine. La seule
+// exigence de fond est qu'il commence par un nombre, éventuellement signé :
+// c'est ce qui empêche un mot comme « toutes » d'atterrir en gros caractères.
+// Ce qui suit le nombre est libre (unité, devise, rapport, mois), la longueur
+// étant déjà bornée par le schéma Velite. Une liste blanche d'unités rejetait
+// des valeurs légitimes comme « 131 000 000 EUR », « +82,6 % » ou « 12 sur 26 ».
+const STAT_PATTERN = /^[+\-−]?\d[^\n]*$/;
 
 export function validateMagazine(mag: Magazine): ValidationError[] {
   const errors: ValidationError[] = [];
@@ -21,7 +27,7 @@ export function validateMagazine(mag: Magazine): ValidationError[] {
       errors.push({
         itemIndex: i,
         field: 'stat',
-        reason: `stat "${item.stat}" must be numeric with optional spaces/decimals/units (K, M, €, %)`,
+        reason: `stat "${item.stat}" must start with a number (optionally signed)`,
       });
     }
     if (item.description.length < 100) {

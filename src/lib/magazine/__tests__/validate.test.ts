@@ -61,6 +61,23 @@ describe('validateMagazine', () => {
     expect(validateMagazine(mag).filter((e) => e.field === 'stat')).toEqual([]);
   });
 
+  // Régression 2026-09-06 : ces quatre valeurs, toutes légitimes, étaient
+  // rejetées par une liste blanche d'unités trop étroite.
+  it.each(['131 000 000 EUR', '+82,6 %', '11 janvier 2027', '12 sur 26'])(
+    'accepts the legitimate stat %s',
+    (stat) => {
+      const mag = validFixture();
+      mag.items[0].stat = stat;
+      expect(validateMagazine(mag).filter((e) => e.field === 'stat')).toEqual([]);
+    }
+  );
+
+  it.each(['toutes', '', 'plusieurs'])('still flags the non-numeric stat "%s"', (stat) => {
+    const mag = validFixture();
+    mag.items[0].stat = stat;
+    expect(validateMagazine(mag).find((e) => e.field === 'stat' && e.itemIndex === 0)).toBeDefined();
+  });
+
   it('flags description shorter than 100 chars', () => {
     const mag = validFixture();
     mag.items[2].description = 'Too short.';

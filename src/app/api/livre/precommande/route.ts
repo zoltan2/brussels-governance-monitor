@@ -7,6 +7,7 @@ import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
 import { recordPreorder } from '@/lib/preorder-log';
+import { escapeHtml } from '@/lib/html-escape';
 
 const preorderSchema = z.object({
   firstName: z.string().min(1).max(100),
@@ -14,9 +15,13 @@ const preorderSchema = z.object({
 });
 
 function buildConfirmationEmail(firstName: string): string {
+  const safeName = escapeHtml(firstName);
   return `<!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="x-apple-disable-message-reformatting"></head>
 <body style="margin:0;padding:0;background-color:#F7F8FC;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F7F8FC;">
 <tr><td align="center" style="padding:40px 16px;">
@@ -29,7 +34,7 @@ function buildConfirmationEmail(firstName: string): string {
 
 <!-- Body -->
 <tr><td style="padding:24px 32px 32px;">
-<p style="margin:0 0 16px;font-size:16px;color:#1B3A6B;font-weight:600;">Bonjour ${firstName},</p>
+<p style="margin:0 0 16px;font-size:16px;color:#1B3A6B;font-weight:600;">Bonjour ${safeName},</p>
 
 <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#374151;">
 Ta pr&eacute;commande de <strong>&laquo;&nbsp;La Lasagne&nbsp;&raquo;</strong> est bien enregistr&eacute;e.
@@ -67,8 +72,8 @@ Je construis des outils pour rendre la gouvernance bruxelloise lisible. Si tu tr
 Tu peux aussi soutenir BGM directement&nbsp;:<br>
 <a href="https://governance.brussels/soutenir" style="color:#1B3A6B;text-decoration:underline;">governance.brussels/soutenir</a>
 </p>
-<p style="margin:0;font-size:12px;color:#9ca3af;">
-<a href="https://governance.brussels" style="color:#9ca3af;text-decoration:underline;">governance.brussels</a> &middot; <a href="mailto:contact@brusselsgovernance.be" style="color:#9ca3af;text-decoration:underline;">contact@brusselsgovernance.be</a>
+<p style="margin:0;font-size:12px;color:#6b7280;">
+<a href="https://governance.brussels" style="color:#6b7280;text-decoration:underline;">governance.brussels</a> &middot; <a href="mailto:contact@brusselsgovernance.be" style="color:#6b7280;text-decoration:underline;">contact@brusselsgovernance.be</a>
 </p>
 </td></tr>
 
@@ -85,7 +90,7 @@ export async function POST(request: Request) {
     const { allowed, remaining } = rateLimit(ip);
     if (!allowed) {
       return NextResponse.json(
-        { error: 'Trop de requetes. Reessayez dans une minute.' },
+        { error: 'Trop de requêtes. Réessayez dans une minute.' },
         {
           status: 429,
           headers: { 'Retry-After': '60', 'X-RateLimit-Remaining': String(remaining) },
@@ -98,7 +103,7 @@ export async function POST(request: Request) {
 
     if (!parsed.success) {
       return NextResponse.json(
-        { error: 'Prenom et email valide requis.' },
+        { error: 'Prénom et adresse email valide requis.' },
         { status: 400 },
       );
     }
@@ -108,7 +113,7 @@ export async function POST(request: Request) {
     if (!process.env.RESEND_API_KEY) {
       console.error('Livre preorder: RESEND_API_KEY is not set');
       return NextResponse.json(
-        { error: 'Service email non configure.' },
+        { error: 'Service email non configuré.' },
         { status: 503 },
       );
     }
@@ -181,7 +186,7 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error('Livre preorder: unexpected error:', err);
     return NextResponse.json(
-      { error: 'Erreur interne. Veuillez reessayer.' },
+      { error: 'Erreur interne. Veuillez réessayer.' },
       { status: 500 },
     );
   }

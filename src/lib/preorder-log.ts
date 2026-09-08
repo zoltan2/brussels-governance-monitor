@@ -29,6 +29,7 @@ export interface PreorderRecord extends Preorder {
 }
 
 const ZSET_KEY = 'book-preorders:by_date';
+const NAMES_KEY = 'book-preorders:names';
 
 let _redis: Redis | null | undefined;
 
@@ -75,12 +76,14 @@ export async function recordPreorder(preorder: Preorder): Promise<void> {
     return;
   }
 
-  // `nx` — le score de la première précommande n'est jamais écrasé.
-  await redis.zadd(
-    ZSET_KEY,
-    { nx: true },
-    { score: created_at, member: JSON.stringify({ email, firstName }) },
-  );
+  // Le membre est l'adresse SEULE. Il a d'abord contenu `{email, firstName}`
+  // sérialisé, ce qui faisait dédoublonner Upstash sur le couple : deux
+  // graphies du prénom créaient deux entrées, là où SQLite (adresse en clé
+  // primaire) n'en gardait qu'une. Les deux backends dédoublonnent désormais
+  // pareil. Le prénom vit à côté, dans un hash.
+  await redis.zadd(ZSET_KEY, { nx: true }, { score: created_at, member: email });
+  // `hsetnx` — la première graphie du prénom l'emporte, comme le score.
+  await redis.hsetnx(NAMES_KEY, email, firstName);
 }
 
 /**
@@ -109,17 +112,33 @@ export async function listPreordersSince(
   if (!redis) return [];
 
   // zrange ... withScores rend [membre, score, membre, score, ...].
+  //
+  // Surtout : `@upstash/redis` désérialise déjà tout seul (`parseRecursive`).
+  // La version précédente faisait `JSON.parse(String(rows[i]))` sur un membre
+  // que le SDK avait déjà transformé en objet : `String(objet)` rendait
+  // « [object Object] » et la lecture jetait à tous les coups. Le repli
+  // Upstash n'a donc jamais pu fonctionner. On ne reparse plus rien.
   const rows = await redis.zrange<(string | number)[]>(
     ZSET_KEY,
     sinceMs,
     '+inf',
     { byScore: true, withScores: true },
   );
+  if (rows.length === 0) return [];
+
+  const names = ((await redis.hgetall(NAMES_KEY)) ?? {}) as Record<
+    string,
+    string
+  >;
 
   const out: PreorderRecord[] = [];
   for (let i = 0; i < rows.length; i += 2) {
-    const parsed = JSON.parse(String(rows[i])) as Preorder;
-    out.push({ ...parsed, created_at: Number(rows[i + 1]) });
+    const email = String(rows[i]);
+    out.push({
+      email,
+      firstName: names[email] ?? '',
+      created_at: Number(rows[i + 1]),
+    });
   }
   return out;
 }

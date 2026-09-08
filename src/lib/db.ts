@@ -36,6 +36,15 @@ CREATE TABLE IF NOT EXISTS chat_logs (
   created_at INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_chat_logs_stream ON chat_logs(stream, id);
+
+-- Précommandes du livre. Adresse en clé primaire : la première précommande
+-- l'emporte, un second envoi du formulaire ne crée pas de doublon.
+CREATE TABLE IF NOT EXISTS book_preorders (
+  email      TEXT PRIMARY KEY,
+  first_name TEXT NOT NULL DEFAULT '',
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_book_preorders_created ON book_preorders(created_at);
 `;
 
 /** Opens a SQLite database at `path` and applies the schema (idempotent). */

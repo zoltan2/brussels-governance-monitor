@@ -15,5 +15,6 @@
  *   That's it — the middleware exclusion is automatic.
  */
 export const PROXY_PREFIXES = [
-  '/u', // Umami analytics — proxied to cloud.umami.is to bypass ad blockers
+  '/u', // Umami analytics — proxied to analytics.governance.brussels (self-hosted
+        // depuis le 20/06/2026) pour contourner les bloqueurs de publicité
 ] as const;

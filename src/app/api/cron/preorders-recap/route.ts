@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { isValidCronAuth } from '@/lib/cron-auth';
 import { listPreordersSince, type PreorderRecord } from '@/lib/preorder-log';
+import { escapeHtml } from '@/lib/html-escape';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -26,21 +27,25 @@ const DATE_FMT = new Intl.DateTimeFormat('fr-BE', {
   timeZone: 'Europe/Brussels',
 });
 
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
+function buildRecapEmail(rows: PreorderRecord[], journalDown = false): string {
+  // Le mail EST le détecteur de panne : s'il disparaît quand le journal
+  // casse, un journal cassé produit exactement le même silence qu'une semaine
+  // sans précommande. C'est la récidive du sinistre d'avril, à l'intérieur du
+  // garde-fou censé l'empêcher. Il part donc toujours, en le disant.
+  const alert = journalDown
+    ? `<p style="margin:0 0 24px;padding:16px;background-color:#FEF6E7;border-left:3px solid #F2A900;font-size:14px;line-height:1.6;color:#374151;">
+<strong>Le journal est illisible.</strong> Ce r&eacute;cap ne dit donc rien de la semaine
+&eacute;coul&eacute;e&nbsp;: il ne faut pas lire ce z&eacute;ro comme une absence de pr&eacute;commande.
+Regarder <code>journalctl -u bgm-cron@preorders-recap.service</code>.
+</p>`
+    : '';
 
-function buildRecapEmail(rows: PreorderRecord[]): string {
   const body = rows.length
-    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:0 0 24px;">
+    ? `<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:0 0 24px;">
 <tr>
-<th align="left" style="padding:8px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;border-bottom:1px solid #e5e7eb;">Date</th>
-<th align="left" style="padding:8px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;border-bottom:1px solid #e5e7eb;">Pr&eacute;nom</th>
-<th align="left" style="padding:8px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;border-bottom:1px solid #e5e7eb;">Email</th>
+<th scope="col" align="left" style="padding:8px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;border-bottom:1px solid #e5e7eb;">Date</th>
+<th scope="col" align="left" style="padding:8px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;border-bottom:1px solid #e5e7eb;">Pr&eacute;nom</th>
+<th scope="col" align="left" style="padding:8px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;border-bottom:1px solid #e5e7eb;">Email</th>
 </tr>
 ${rows
   .map(
@@ -58,7 +63,10 @@ Aucune pr&eacute;commande cette semaine. Ce mail part quand m&ecirc;me&nbsp;: s'
 
   return `<!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="x-apple-disable-message-reformatting"></head>
 <body style="margin:0;padding:0;background-color:#F7F8FC;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F7F8FC;">
 <tr><td align="center" style="padding:40px 16px;">
@@ -73,8 +81,8 @@ Aucune pr&eacute;commande cette semaine. Ce mail part quand m&ecirc;me&nbsp;: s'
 <p style="margin:0 0 20px;font-size:22px;font-weight:700;color:#1B3A6B;">
 ${rows.length} pr&eacute;commande${rows.length === 1 ? '' : 's'} cette semaine
 </p>
-${body}
-<p style="margin:0;font-size:12px;line-height:1.5;color:#9ca3af;">
+${alert}${body}
+<p style="margin:0;font-size:12px;line-height:1.5;color:#6b7280;">
 Source&nbsp;: le journal des pr&eacute;commandes, &eacute;crit avant tout appel &agrave; Resend. Il ne d&eacute;pend ni de la cr&eacute;ation de contact ni de la r&eacute;tention de 30&nbsp;jours du journal d'emails.
 </p>
 </td></tr>
@@ -95,15 +103,25 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'RESEND_API_KEY missing' }, { status: 500 });
   }
 
-  const rows = await listPreordersSince(Date.now() - WINDOW_MS);
+  // Une panne du journal ne doit jamais supprimer le mail : voir buildRecapEmail.
+  let rows: PreorderRecord[] = [];
+  let journalDown = false;
+  try {
+    rows = await listPreordersSince(Date.now() - WINDOW_MS);
+  } catch (err) {
+    journalDown = true;
+    console.error('[preorders-recap-FAIL] journal illisible', err);
+  }
 
   const resend = getResend();
   const { error } = await resendCall(() =>
     resend.emails.send({
       from: EMAIL_FROM,
       to: RECIPIENT,
-      subject: `Précommandes « La Lasagne » : ${rows.length} cette semaine`,
-      html: buildRecapEmail(rows),
+      subject: journalDown
+        ? 'Précommandes « La Lasagne » : journal illisible'
+        : `Précommandes « La Lasagne » : ${rows.length} cette semaine`,
+      html: buildRecapEmail(rows, journalDown),
       tags: [{ name: 'type', value: 'preorders-recap' }],
     }),
   );
@@ -111,6 +129,15 @@ export async function GET(request: Request) {
   if (error) {
     console.error('[preorders-recap-FAIL]', error);
     return NextResponse.json({ ok: false, error: String(error) }, { status: 500 });
+  }
+
+  if (journalDown) {
+    // Le mail est parti, mais le cron doit échouer pour que journald en garde
+    // la trace et que le statut systemd ne dise pas « success ».
+    return NextResponse.json(
+      { ok: false, error: 'journal illisible' },
+      { status: 500 },
+    );
   }
 
   return NextResponse.json({ ok: true, count: rows.length });

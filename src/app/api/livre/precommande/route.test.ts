@@ -61,6 +61,32 @@ beforeEach(() => {
 });
 
 describe('POST /api/livre/precommande', () => {
+  it('neutralise le HTML injecté dans le prénom', async () => {
+    // Le prénom accepte 100 caractères libres ET le destinataire est fourni
+    // par le même formulaire public : sans échappement, n'importe qui envoie
+    // du HTML arbitraire depuis un domaine vérifié BGM vers l'adresse de son
+    // choix. Hameçonnage adossé à la réputation d'envoi du projet.
+    await POST(
+      request({
+        firstName: '<a href="https://evil.example">Payer maintenant</a>',
+        email: 'victime@example.be',
+      }),
+    );
+
+    const html = send.mock.calls[0][0].html;
+    expect(html).not.toContain('<a href="https://evil.example"');
+    expect(html).toContain('&lt;a href=');
+  });
+
+  it('rend des messages d’erreur en français correctement accentué', async () => {
+    const res = await POST(request({ firstName: '', email: 'pas-un-email' }));
+    const body = await res.json();
+
+    expect(res.status).toBe(400);
+    expect(body.error).toContain('Prénom');
+    expect(body.error).not.toMatch(/Prenom|requetes|Reessayez|configure\b/);
+  });
+
   it('écrit dans le journal, seule trace qui ne dépende pas de Resend', async () => {
     await POST(request(VALID));
 

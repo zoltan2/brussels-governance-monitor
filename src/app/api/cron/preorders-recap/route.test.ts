@@ -50,12 +50,16 @@ describe('GET /api/cron/preorders-recap', () => {
   });
 
   it('interroge une fenêtre de sept jours', async () => {
+    // L'assertion d'origine comparait `before - since` à exactement 7 jours,
+    // ce qui n'est vrai que si le Date.now() du test et celui de la route
+    // tombent dans la MÊME milliseconde : rouge au hasard en CI. On encadre.
     const before = Date.now();
     await GET(request());
+    const after = Date.now();
 
     const since = listPreordersSince.mock.calls[0][0] as number;
-    expect(before - since).toBeGreaterThanOrEqual(7 * DAY);
-    expect(before - since).toBeLessThan(7 * DAY + 5000);
+    expect(since).toBeGreaterThanOrEqual(before - 7 * DAY);
+    expect(since).toBeLessThanOrEqual(after - 7 * DAY);
   });
 
   it('liste prénom et email de chaque personne de la semaine', async () => {
@@ -83,6 +87,69 @@ describe('GET /api/cron/preorders-recap', () => {
     expect(send).toHaveBeenCalled();
     expect(res.status).toBe(200);
     expect(send.mock.calls[0][0].subject).toContain('0');
+  });
+
+  it('envoie quand même quand le journal est illisible, sinon la panne se cache', async () => {
+    // Le mail EST le détecteur de panne. S'il disparaît quand le journal
+    // casse, un journal cassé produit le même silence qu'une semaine calme :
+    // exactement la récidive du sinistre d'avril, dans le garde-fou.
+    listPreordersSince.mockRejectedValue(new Error('database is locked'));
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const res = await GET(request());
+
+    expect(send).toHaveBeenCalled();
+    // Assertion volontairement précise : /journal/ seul matcherait déjà la
+    // note de provenance en pied de mail, ce serait un faux vert.
+    expect(send.mock.calls[0][0].html).toContain('journal est illisible');
+    expect(send.mock.calls[0][0].subject).toContain('illisible');
+    // 500 pour que systemd et journald enregistrent l'échec du cron.
+    expect(res.status).toBe(500);
+    vi.restoreAllMocks();
+  });
+
+  it('neutralise le HTML dans un prénom', async () => {
+    listPreordersSince.mockResolvedValue([
+      {
+        email: 'x@example.be',
+        firstName: '<a href="https://evil.example">Payer</a>',
+        created_at: Date.now(),
+      },
+    ]);
+
+    await GET(request());
+
+    const html = send.mock.calls[0][0].html;
+    expect(html).not.toContain('<a href="https://evil.example"');
+    expect(html).toContain('&lt;a href=');
+  });
+
+  it('se protège du mode sombre, comme le digest', async () => {
+    await GET(request());
+
+    const html = send.mock.calls[0][0].html;
+    expect(html).toContain('color-scheme');
+    expect(html).toContain('only light');
+  });
+
+  it('expose un vrai tableau de données aux lecteurs d’écran', async () => {
+    listPreordersSince.mockResolvedValue([
+      { email: 'x@example.be', firstName: 'X', created_at: Date.now() },
+    ]);
+
+    await GET(request());
+
+    const html = send.mock.calls[0][0].html;
+    // La table qui porte des <th> ne doit pas être déclarée décorative.
+    expect(html).toMatch(/<table(?![^>]*role="presentation")[^>]*>\s*<tr>\s*<th/);
+    expect(html).toContain('scope="col"');
+  });
+
+  it('n’utilise pas une couleur de texte sous le seuil AA', async () => {
+    await GET(request());
+
+    // #9ca3af mesure 2,54:1 sur blanc. #6b7280 passe à 4,83:1.
+    expect(send.mock.calls[0][0].html).not.toContain('#9ca3af');
   });
 
   it("remonte un échec d'envoi en 500, pour que le cron le signale", async () => {

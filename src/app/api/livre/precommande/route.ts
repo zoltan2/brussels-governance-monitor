@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
+import { recordPreorder } from '@/lib/preorder-log';
 
 const preorderSchema = z.object({
   firstName: z.string().min(1).max(100),
@@ -112,18 +113,48 @@ export async function POST(request: Request) {
       );
     }
 
+    // Le journal d'abord, Resend ensuite. C'est la leçon du 16/04 au 08/09 :
+    // tant que la seule trace vivait chez Resend, une panne silencieuse
+    // effaçait la précommande. Un journal indisponible ne doit pour autant
+    // jamais faire échouer le formulaire de quelqu'un.
+    try {
+      await recordPreorder({ email, firstName });
+    } catch (err) {
+      console.error('[livre-precommande-FAIL] journal indisponible', email, err);
+    }
+
     const resend = getResend();
 
-    await resendCall(() =>
+    // `sources` (pluriel) est la seule clé de ce nom déclarée sur le compte
+    // Resend. Une propriété non déclarée est refusée : c'est le sinistre de
+    // la PR #170, et c'est ce qui a fait disparaître les précommandes du
+    // 16/04 au 08/09. Voir src/app/api/cron/contacts-healthcheck/route.ts.
+    const properties = { sources: 'livre-precommande' };
+
+    const created = await resendCall(() =>
       resend.contacts.create({
         email,
         firstName,
         unsubscribed: false,
-        properties: {
-          source: 'livre-precommande',
-        },
+        properties,
       }),
     );
+
+    if (created.error) {
+      // On n'interrompt pas la précommande pour autant : la personne a fait
+      // sa part, et l'email de confirmation ci-dessous reste la trace qui
+      // permet de la rattraper. Mais le silence, lui, n'est plus permis.
+      console.error('[livre-precommande-FAIL]', email, created.error);
+    } else {
+      // Resend ne persiste pas les propriétés passées à create : il faut les
+      // rejouer en update, comme le fait addContact() dans lib/resend.ts.
+      const updated = await resendCall(() =>
+        resend.contacts.update({ email, properties }),
+      );
+      if (updated.error) {
+        console.error('[livre-precommande-FAIL]', email, updated.error);
+      }
+    }
 
     // Send confirmation email
     const { error: sendError } = await resendCall(() =>

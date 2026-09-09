@@ -646,7 +646,10 @@ const magazineItemSchema = s.object({
   category: s.string().optional(),
   headline: s.string().min(1).max(80),
   path: s.string().optional(),
-  stat: s.string().min(1).max(20),
+  // Le grand chiffre de la carte. La borne haute est un garde-fou d'affichage,
+  // pas une règle éditoriale : elle doit laisser passer une valeur légitime
+  // comme « 131 000 000 EUR » sans faire tomber le build du site.
+  stat: s.string().min(1).max(32),
   stat_label: s.string().min(1).max(60),
   pill: s.string().optional(),
   description: s.string().min(100).max(800),
@@ -656,7 +659,11 @@ const magazineItemSchema = s.object({
 const magazineSchema = s.object({
   tagline: s.string().min(1).max(120),
   closing_line: s.string().min(1).max(120),
-  items: s.array(magazineItemSchema).min(3).max(12),
+  // ⚠️ Contrainte DURE : un dépassement fait échouer `npm run build`, donc la CI
+  // et le déploiement du site entier, pas seulement le magazine. Une semaine
+  // dense peut légitimement porter treize, quinze ou vingt items : le plafond
+  // est une sécurité contre un bloc corrompu, jamais une limite éditoriale.
+  items: s.array(magazineItemSchema).min(3).max(30),
 });
 
 // ──────────────────────────────────────────────

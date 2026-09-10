@@ -35,99 +35,26 @@ jobs:
           cat /tmp/changed_content.txt
           echo "---"
 
-      - name: Temporal phrases check
-        run: |
-          if [ ! -s /tmp/changed_content.txt ]; then
-            echo "No MDX files changed, skipping"; exit 0
-          fi
-          if [ ! -s scripts/content-lint/temporal-patterns.txt ]; then
-            echo "ERROR: scripts/content-lint/temporal-patterns.txt manquant ou vide — check désactivé"
-            exit 1
-          fi
-          grep -v '^#' scripts/content-lint/temporal-patterns.txt \
-            | grep -v '^[[:space:]]*$' > /tmp/patterns_clean.txt
-          VIOLATIONS=""
-          while IFS= read -r file; do
-            if [ ! -f "$file" ]; then continue; fi
-            # Exclude url: YAML fields — external URLs may contain temporal words in their slug
-            MATCHES=$(grep -n -E -f /tmp/patterns_clean.txt "$file" | grep -v ':[[:space:]]*url:' || true)
-            if [ -n "$MATCHES" ]; then
-              VIOLATIONS="$VIOLATIONS\n--- $file ---\n$MATCHES"
-            fi
-          done < /tmp/changed_content.txt
-          if [ -n "$VIOLATIONS" ]; then
-            echo "FAIL: Temporal phrases found (content-integrity Rule 1)"
-            printf "%b\n" "$VIOLATIONS"
-            echo ""
-            echo "Remplacer par des dates absolues (ex: 'avant le 15 juin 2026' plutôt que 'prochainement')."
-            exit 1
-          fi
-          echo "OK: No temporal phrases"
+      # Le module qui garde le contenu doit lui-même être gardé : ces quatre cas
+      # vérifient qu'il attrape une phrase temporelle et des sources vides, qu'il
+      # laisse passer les cas propres, et surtout qu'il échoue FERMÉ si son fichier
+      # de motifs est vide, plutôt que de se taire.
+      - name: Tests du module content-lint
+        run: npx vitest run scripts/content-lint/content-lint.test.ts
 
-      - name: Sources vides
-        run: |
-          if [ ! -s /tmp/changed_content.txt ]; then
-            echo "No MDX files changed, skipping"; exit 0
-          fi
-          SCOPED_DIRS="content/domain-cards content/dossiers content/sector-cards content/solution-cards content/comparison-cards"
-          VIOLATIONS=""
-          while IFS= read -r file; do
-            if [ ! -f "$file" ]; then continue; fi
-            IN_SCOPE=0
-            for dir in $SCOPED_DIRS; do
-              case "$file" in $dir/*) IN_SCOPE=1; break;; esac
-            done
-            if [ "$IN_SCOPE" = "0" ]; then continue; fi
-            FM=$(awk 'NR==1{if(/^---$/) f=1; next} f && /^---$/{exit} f{print}' "$file")
-            if echo "$FM" | grep -qE 'sources:\s*\[\]'; then
-              VIOLATIONS="$VIOLATIONS\n$file"
-            fi
-          done < /tmp/changed_content.txt
-          if [ -n "$VIOLATIONS" ]; then
-            echo "FAIL: Sources vides (sources: []) dans les fichiers suivants :"
-            printf "%b\n" "$VIOLATIONS"
-            echo ""
-            echo "Ajouter au moins une source avec label + url + accessedAt."
-            exit 1
-          fi
-          echo "OK: No empty sources"
-
-      - name: lastModified mis à jour
-        if: ${{ !contains(github.event.pull_request.labels.*.name, 'skip-lastmodified-check') }}
-        run: |
-          if [ ! -s /tmp/changed_content.txt ]; then
-            echo "No MDX files changed, skipping"; exit 0
-          fi
-          SCOPED_DIRS="content/domain-cards content/dossiers content/sector-cards content/solution-cards content/comparison-cards"
-          VIOLATIONS=""
-          while IFS= read -r file; do
-            if [ ! -f "$file" ]; then continue; fi
-            IN_SCOPE=0
-            for dir in $SCOPED_DIRS; do
-              case "$file" in $dir/*) IN_SCOPE=1; break;; esac
-            done
-            if [ "$IN_SCOPE" = "0" ]; then continue; fi
-            LM_HEAD=$(awk 'NR==1{if(/^---$/) f=1; next} f && /^---$/{exit} f{print}' "$file" \
-              | grep '^lastModified:' | head -1 \
-              | sed 's/lastModified:\s*//' | tr -d '"' | tr -d "'")
-            LM_BASE=$(git show "origin/${{ github.base_ref }}:$file" 2>/dev/null \
-              | awk 'NR==1{if(/^---$/) f=1; next} f && /^---$/{exit} f{print}' \
-              | grep '^lastModified:' | head -1 \
-              | sed 's/lastModified:\s*//' | tr -d '"' | tr -d "'")
-            if [ -z "$LM_HEAD" ]; then continue; fi
-            if [ "$LM_HEAD" = "$LM_BASE" ]; then
-              VIOLATIONS="$VIOLATIONS\n$file (lastModified: $LM_HEAD — inchangé)"
-            fi
-          done < /tmp/changed_content.txt
-          if [ -n "$VIOLATIONS" ]; then
-            echo "FAIL: lastModified non mis à jour dans les fichiers suivants :"
-            printf "%b\n" "$VIOLATIONS"
-            echo ""
-            echo "Mettre à jour lastModified à la date du jour dans le frontmatter."
-            echo "Pour les migrations bulk, ajouter le label 'skip-lastmodified-check' à la PR."
-            exit 1
-          fi
-          echo "OK: All lastModified dates updated"
+      # Les trois checks éditoriaux viennent de scripts/content-lint/lib.sh,
+      # source unique partagée avec scripts/preflight.sh. Ils étaient auparavant
+      # réimplémentés ici en YAML et une seconde fois dans preflight : deux copies
+      # d'une même garde finissent par diverger, et c'est arrivé (la copie locale
+      # sautait silencieusement le check temporel quand son fichier de motifs
+      # était vide, là où la CI échouait).
+      #
+      # Le label `skip-lastmodified-check` reste lu ici, car un correctif publié
+      # le même jour que la fiche qu'il corrige ne peut pas faire bouger la date.
+      - name: Phrases temporelles, sources vides, lastModified
+        env:
+          SKIP_LASTMODIFIED: ${{ contains(github.event.pull_request.labels.*.name, 'skip-lastmodified-check') && '1' || '0' }}
+        run: bash scripts/content-lint/run.sh "origin/${{ github.base_ref }}"
 
       # Le chapeau `summary` est le seul champ éditorial que rien ne demandait
       # de relire : `changeSummary` est réécrit chaque veille, `lastModified` et

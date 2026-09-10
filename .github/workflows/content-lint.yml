@@ -8,6 +8,11 @@ on:
       # éditoriales : il doit passer les mêmes règles que les fiches.
       - 'public/quiz-data-*.json'
       - 'scripts/quiz-lint.ts'
+      # Une modification du linter doit faire tourner le linter : sans ces deux
+      # motifs, un refactor du module ou du workflow passait sans être exercé
+      # une seule fois par sa propre PR.
+      - 'scripts/content-lint/**'
+      - '.github/workflows/content-lint.yml'
 
 jobs:
   content-lint:

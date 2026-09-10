@@ -4,6 +4,10 @@
 #   - Content Lint     (.github/workflows/content-lint.yml) : phrases temporelles + sources vides
 #   - Pagefind freshness (.github/workflows/pagefind-freshness.yml) : index régénéré avec le contenu
 #
+# Les checks éditoriaux ne sont PLUS réimplémentés ici : ils viennent de
+# scripts/content-lint/lib.sh, source unique partagée avec la CI. Une garde
+# recopiée par fichier finit toujours par diverger de son original.
+#
 # Appelé automatiquement par .githooks/pre-push. Aussi lançable : `npm run preflight`.
 # Bypass ponctuel : `SKIP_PREFLIGHT=1 git push`  (ou `git push --no-verify`).
 #
@@ -15,6 +19,9 @@ set -uo pipefail
 
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || { echo "preflight: hors dépôt git — skip"; exit 0; }
 cd "$ROOT" || exit 0
+
+# shellcheck source=scripts/content-lint/lib.sh
+. "$ROOT/scripts/content-lint/lib.sh"
 
 BASE="${PREFLIGHT_BASE:-origin/main}"
 git rev-parse --verify -q "$BASE" >/dev/null 2>&1 || { echo "preflight: base '$BASE' introuvable (git fetch ?) — skip"; exit 0; }
@@ -37,34 +44,13 @@ if [ -n "$CHANGED_QUIZ" ]; then
 fi
 
 # 1) Phrases temporelles relatives (content-integrity Rule 1)
-PATTERNS="scripts/content-lint/temporal-patterns.txt"
-if [ -n "$CHANGED_MDX" ] && [ -s "$PATTERNS" ]; then
-  PCLEAN="$(grep -v '^#' "$PATTERNS" | grep -v '^[[:space:]]*$')"
-  while IFS= read -r f; do
-    [ -n "$f" ] && [ -f "$f" ] || continue
-    matches="$(grep -n -E -f <(printf '%s\n' "$PCLEAN") "$f" | grep -v ':[[:space:]]*url:' || true)"
-    if [ -n "$matches" ]; then
-      echo "❌ phrase temporelle interdite (Rule 1) — $f"
-      printf '%s\n' "$matches" | sed 's/^/     /'
-      rc=1
-    fi
-  done < <(printf '%s\n' "$CHANGED_MDX")
-fi
-
 # 2) Sources vides (sources: []) dans les collections sourcées
+#    Les deux viennent du module partagé : même code que la CI, au caractère près.
+#    check_temporal échoue FERMÉ si temporal-patterns.txt est absent ou vide,
+#    là où la copie locale précédente se contentait de sauter le check.
 if [ -n "$CHANGED_MDX" ]; then
-  while IFS= read -r f; do
-    case "$f" in
-      content/domain-cards/*|content/dossiers/*|content/sector-cards/*|content/solution-cards/*|content/comparison-cards/*) ;;
-      *) continue ;;
-    esac
-    [ -f "$f" ] || continue
-    fm="$(awk 'NR==1{if(/^---$/) y=1; next} y && /^---$/{exit} y{print}' "$f")"
-    if printf '%s\n' "$fm" | grep -qE 'sources:[[:space:]]*\[\]'; then
-      echo "❌ sources vides (sources: []) — $f"
-      rc=1
-    fi
-  done < <(printf '%s\n' "$CHANGED_MDX")
+  printf '%s\n' "$CHANGED_MDX" | check_temporal      || rc=1
+  printf '%s\n' "$CHANGED_MDX" | check_empty_sources || rc=1
 fi
 
 # 3) Pagefind freshness : contenu indexable modifié => public/pagefind/ doit l'être aussi

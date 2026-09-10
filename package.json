@@ -35,6 +35,9 @@
     "quiz:manual:dump": "tsx scripts/quiz-manual.ts dump",
     "quiz:manual:apply": "tsx scripts/quiz-manual.ts apply"
   },
+  "engines": {
+    "node": ">=22 <23"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",
     "@react-email/components": "^1.0.12",

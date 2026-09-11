@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: '%s | BGM Digest',
   },
   description:
-    'Weekly summary of Brussels governance — available in 78 languages.',
+    'Weekly summary of Brussels governance, in French, Dutch, English, German and other languages.',
 };
 
 /** Racine de `/digest` et `/digest/feedback`, en anglais. */

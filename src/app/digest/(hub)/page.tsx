@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: 'Weekly Digest — Brussels Governance Monitor',
   description:
-    'Weekly summary of Brussels governance, available in 78 languages. Making governance accessible to all Brussels residents.',
+    'Weekly summary of Brussels governance, in French, Dutch, English, German and other languages. Making governance accessible to all Brussels residents.',
 };
 
 interface LanguageGroup {

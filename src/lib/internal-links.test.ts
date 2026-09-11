@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, expect, it } from 'vitest';
-import { findRouteMismatches, validSegmentsByLocale } from './internal-links';
+import { findLinkProblems, findRouteMismatches, validSegmentsByLocale } from './internal-links';
 
 const LOCALES = ['de', 'en', 'fr', 'nl'] as const;
 
@@ -74,5 +74,69 @@ describe('findRouteMismatches', () => {
 
   it('accepte un segment partagé quand il est valide pour la langue du lien', () => {
     expect(findRouteMismatches('[a](/fr/comprendre) [b](/nl/begrijpen)', PATHNAMES, LOCALES)).toEqual([]);
+  });
+});
+
+describe('findLinkProblems (chemin complet)', () => {
+  const ROUTES = {
+    pathnames: {
+      ...PATHNAMES,
+      '/explainers/levels-of-power': {
+        fr: '/comprendre/niveaux-de-pouvoir',
+        nl: '/begrijpen/machtsniveaus',
+        en: '/explainers/levels-of-power',
+        de: '/erklaerungen/machtebenen',
+      },
+      '/communes/[slug]': { fr: '/communes/[slug]', nl: '/gemeenten/[slug]', en: '/municipalities/[slug]', de: '/gemeinden/[slug]' },
+    },
+    locales: LOCALES,
+    unlocalized: ['/subscribe', '/dossiers/[slug]/scrolly'],
+    slugs: {
+      '/dossiers/[slug]': { fr: new Set(['lez', 'metro-3']), nl: new Set(['lez']) },
+      '/domains/[slug]': { fr: new Set(['budget', 'security']), nl: new Set(['budget']), en: new Set(['budget']), de: new Set(['budget']) },
+      '/communes/[slug]': { fr: new Set(['saint-gilles']), nl: new Set(['saint-gilles']), en: new Set(['saint-gilles']), de: new Set(['saint-gilles']) },
+    },
+    rootEntries: new Set(['digest', 'feed', 'logo.png', 'static']),
+  };
+  const kinds = (content: string, locale?: string) =>
+    findLinkProblems(content, ROUTES, locale).map((p) => [p.link, p.kind, p.suggestion]);
+
+  it("attrape le sous-chemin d'une autre langue sous un premier segment valide", () => {
+    // Le premier segment `comprendre` est valide en français : l'ancien contrôle laissait passer.
+    expect(kinds('[a](/fr/comprendre/machtsniveaus)')).toEqual([
+      ['/fr/comprendre/machtsniveaus', 'wrong-locale-path', '/fr/comprendre/niveaux-de-pouvoir'],
+    ]);
+  });
+
+  it("signale une fiche qui n'existe pas, sans deviner de correction", () => {
+    // Le cas relevé le 2026-09-11 : /xx/dossiers/numerique n'a jamais existé.
+    expect(kinds('[a](/fr/dossiers/numerique) [b](/nl/dossiers/metro-3)')).toEqual([
+      ['/fr/dossiers/numerique', 'unknown-slug', null],
+      ['/nl/dossiers/metro-3', 'unknown-slug', null],
+    ]);
+  });
+
+  it("corrige un lien sans langue vers la langue de la fiche, avec le chemin de cette langue", () => {
+    expect(kinds('[a](/communes/saint-gilles#x)', 'nl')).toEqual([
+      ['/communes/saint-gilles#x', 'no-locale', '/nl/gemeenten/saint-gilles#x'],
+    ]);
+    expect(kinds('[a](/domaines/security)', 'fr')).toEqual([['/domaines/security', 'no-locale', '/fr/domaines/security']]);
+  });
+
+  it("refuse un préfixe de langue que le site n'a pas", () => {
+    expect(kinds('[a](/es/dossiers/lez)', 'fr')).toEqual([['/es/dossiers/lez', 'foreign-prefix', '/fr/dossiers/lez']]);
+  });
+
+  it('laisse passer les routes hors langue, les fichiers publics et les routes non localisées', () => {
+    const ok = '[a](/digest/fr/2026/w36) [b](/logo.png) [c](/fr/subscribe) [d](/nl/dossiers/lez/scrolly) [e](/fr) [f](//cdn.example.com/x) [g](/)';
+    expect(kinds(ok, 'fr')).toEqual([]);
+  });
+
+  it('laisse passer un lien juste avec ancre ou requête', () => {
+    expect(kinds('[a](/de/bereiche/budget#zahlen) [b](/fr/domaines/budget?x=1)')).toEqual([]);
+  });
+
+  it('ne vérifie pas le slug des routes sans collection connue', () => {
+    expect(kinds('[a](/fr/secteurs/inconnu)')).toEqual([]);
   });
 });

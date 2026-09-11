@@ -13,6 +13,10 @@ on:
       # une seule fois par sa propre PR.
       - 'scripts/content-lint/**'
       - 'src/lib/faq-review.ts'
+      # Un changement de la table de routage peut casser des liens dans des
+      # fiches que la PR ne touche pas : il doit relancer le contrôle des liens.
+      - 'src/lib/internal-links.ts'
+      - 'src/i18n/routing.ts'
       - '.github/workflows/content-lint.yml'
 
 jobs:
@@ -89,6 +93,13 @@ jobs:
         env:
           SKIP_FAQ_REVIEW: ${{ contains(github.event.pull_request.labels.*.name, 'skip-faq-check') && '1' || '0' }}
         run: npx tsx scripts/content-lint/faq-check.ts /tmp/changed_content.txt
+
+      # Constat du 2026-09-11 : 30 liens internes utilisaient le segment de
+      # route d'une autre langue (redirection 307) et 4 un segment inventé,
+      # /de/domaenen/, qui renvoyait une 404 en production depuis le 9 août.
+      # Tout le dépôt est vérifié, hors archives du digest.
+      - name: Liens internes sur le segment de route de leur langue
+        run: npx tsx scripts/content-lint/internal-links.ts
 
   quiz-lint:
     name: Quiz pool checks

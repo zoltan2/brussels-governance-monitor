@@ -57,9 +57,14 @@ export function validSegmentsByLocale(
 
 /**
  * Bon segment pour `locale`, quand le segment fautif est celui d'une autre
- * langue ou le segment interne de la même route. Null pour un segment inventé.
+ * langue ou le segment interne de la même route. Null pour un segment inventé,
+ * et null aussi quand plusieurs routes partagent ce segment avec des cibles
+ * différentes : `comprendre` est à la fois explainers et understand, et pour
+ * /en/ les deux corrections sont possibles. Mieux vaut ne rien proposer qu'une
+ * correction fausse.
  */
 function suggestSegment(pathnames: Pathnames, locales: readonly string[], locale: string, bad: string): string | null {
+  const targets = new Set<string>();
   for (const [internal, value] of Object.entries(pathnames)) {
     const family = new Set<string>();
     const internalSeg = firstSegment(internal);
@@ -70,10 +75,10 @@ function suggestSegment(pathnames: Pathnames, locales: readonly string[], locale
     }
     if (family.has(bad)) {
       const target = firstSegment(localized(value, locale) ?? '');
-      if (target) return target;
+      if (target) targets.add(target);
     }
   }
-  return null;
+  return targets.size === 1 ? [...targets][0]! : null;
 }
 
 /**

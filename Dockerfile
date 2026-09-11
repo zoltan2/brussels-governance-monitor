@@ -16,8 +16,8 @@ FROM node:22-slim AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# `npm run build` = velite --clean && next build && pagefind --site
-# .next/server/app --output-path public/pagefind (cf. package.json, inchangé).
+# `npm run build` = velite --clean && next build && node scripts/pagefind-build.mjs,
+# qui génère l'index Pagefind et remplace public/pagefind par exactement son contenu.
 # next build télécharge la police Inter via next/font/google -> réseau requis
 # pendant le build (OK en build Docker standard). Pagefind écrit dans
 # public/pagefind APRÈS next build : c'est pourquoi le runner copie public.

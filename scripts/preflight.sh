@@ -75,7 +75,7 @@ CONTENT_T="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^(content/|messages/[^/]+\.
 PF_T="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^public/pagefind/' || true)"
 if [ -n "$CONTENT_T" ] && [ -z "$PF_T" ]; then
   echo "❌ Pagefind : contenu indexable modifié sans rebuild de public/pagefind/."
-  echo "     → rm -rf public/pagefind/ && npm run build && git add public/pagefind/"
+  echo "     → npm run build && git add -A public/pagefind/   (le build retire lui-même les fichiers périmés)"
   rc=1
 fi
 

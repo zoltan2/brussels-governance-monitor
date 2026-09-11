@@ -56,9 +56,8 @@ jobs:
               echo "$content_touched" | sed 's/^/  /'
               echo ""
               echo "Fix (in this PR, or a follow-up PR if this ran on a push to main):"
-              echo "  rm -rf public/pagefind/"
-              echo "  npm run build"
-              echo "  git add public/pagefind/"
+              echo "  npm run build   (retire aussi les fichiers devenus inutiles)"
+              echo "  git add -A public/pagefind/"
               echo "  git commit -m 'chore(search): rebuild pagefind index'"
               echo "  git push"
             } >&2

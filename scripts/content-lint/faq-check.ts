@@ -41,9 +41,15 @@ const SCOPED_DIRS = ['content/domain-cards', 'content/dossiers'] as const;
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
+/**
+ * Confinement par chemin résolu, pas par préfixe de chaîne : un préfixe laisse
+ * passer `content/dossiers/../../package.json`, qui sortait du périmètre et
+ * était lu (constaté le 2026-09-11). Git ne produit pas de tels chemins, mais
+ * la liste vient de l'appelant, et une garde ne doit pas dépendre de lui.
+ */
 function isInScope(file: string): boolean {
-  const normalised = file.replace(/^\.\//, '');
-  return SCOPED_DIRS.some((dir) => normalised.startsWith(`${dir}/`));
+  const abs = path.resolve(REPO_ROOT, file);
+  return SCOPED_DIRS.some((dir) => abs.startsWith(path.join(REPO_ROOT, dir) + path.sep));
 }
 
 function listAllCards(): string[] {
@@ -59,7 +65,7 @@ function listAllCards(): string[] {
 }
 
 function read(file: string): string | null {
-  const abs = path.join(REPO_ROOT, file);
+  const abs = path.resolve(REPO_ROOT, file);
   return fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null;
 }
 

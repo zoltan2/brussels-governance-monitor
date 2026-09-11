@@ -14,6 +14,8 @@
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "lint:summaries": "tsx scripts/content-lint/summary-freshness.ts",
+    "faq:check": "tsx scripts/content-lint/faq-check.ts",
+    "faq:registry": "tsx scripts/content-lint/faq-check.ts --registry",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,json,md,mdx,css}\"",
     "test": "vitest run",

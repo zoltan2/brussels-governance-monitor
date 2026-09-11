@@ -53,6 +53,16 @@ if [ -n "$CHANGED_MDX" ]; then
   printf '%s\n' "$CHANGED_MDX" | check_empty_sources || rc=1
 fi
 
+# 2 bis) FAQ relue sur les fiches republiées, et questions uniques. Même module
+#    que la CI (scripts/content-lint/faq-check.ts). SKIP_FAQ_REVIEW=1 suspend la
+#    relecture, jamais l'unicité.
+if [ -n "$CHANGED_MDX" ]; then
+  _faq_list="$(mktemp)"
+  printf '%s\n' "$CHANGED_MDX" > "$_faq_list"
+  npx tsx scripts/content-lint/faq-check.ts "$_faq_list" || rc=1
+  rm -f "$_faq_list"
+fi
+
 # 3) Pagefind freshness : contenu indexable modifié => public/pagefind/ doit l'être aussi
 CONTENT_T="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^(content/|messages/[^/]+\.json$|velite\.config\.ts$)' | grep -v '^content/digest/__fixtures__/' || true)"
 PF_T="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^public/pagefind/' || true)"

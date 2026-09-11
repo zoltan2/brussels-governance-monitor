@@ -16,7 +16,6 @@ describe('isMergeableFileSet', () => {
         'content/domain-cards/x.fr.mdx',
         'content/dossiers/y.fr.mdx',
         'messages/fr.json',
-        'public/pagefind/pagefind-entry.json',
         'data/radar.json',
         'data/commitments.json',
         'data/changelog.json',
@@ -24,11 +23,12 @@ describe('isMergeableFileSet', () => {
     ).toBe(true);
   });
 
-  it('accepte les 293 fichiers de la PR de veille réelle 2026-08-09', () => {
+  it('accepte les formes de la PR de veille réelle 2026-08-09, hors pagefind', () => {
     // Formes relevées sur `git diff --name-only
-    // origin/main...origin/content/veille-2026-08-09` : 254 artefacts
-    // pagefind, 36 fiches de contenu en quatre langues, 3 fichiers data. Une
-    // liste blanche qui se durcit sans passer ici bloquerait toute veille.
+    // origin/main...origin/content/veille-2026-08-09` : 36 fiches de contenu
+    // en quatre langues, 3 fichiers data (et 254 artefacts pagefind, qu'une
+    // veille ne produit plus depuis #461). Une liste blanche qui se durcit
+    // sans passer ici bloquerait toute veille.
     const reelles = [
       'content/commune-cards/schaerbeek.fr.mdx',
       'content/commune-cards/schaerbeek.nl.mdx',
@@ -39,10 +39,6 @@ describe('isMergeableFileSet', () => {
       'data/radar.json',
       'data/commitments.json',
       'data/changelog.json',
-      'public/pagefind/pagefind-entry.json',
-      'public/pagefind/fr_9c1a2b.pf_meta',
-      'public/pagefind/fragment/fr_1a2b3c.pf_fragment',
-      'public/pagefind/index/fr_4d5e6f.pf_index',
     ];
     expect(isMergeableFileSet(reelles)).toBe(true);
     expect(fileSetRefusal(reelles)).toBeNull();
@@ -65,34 +61,22 @@ describe('isMergeableFileSet', () => {
     expect(isMergeableFileSet(['data/quiz/questions.json'])).toBe(false);
   });
 
-  it('refuse un JavaScript arbitraire sous public/pagefind', () => {
-    // `search.tsx:53` importe `/pagefind/pagefind.js` dès l'ouverture de la
-    // recherche : un `.js` arbitraire ici s'exécute sur l'origine principale.
-    expect(isMergeableFileSet(['public/pagefind/evil.js'])).toBe(false);
-    expect(isMergeableFileSet(['public/pagefind/sub/evil.js'])).toBe(false);
-  });
-
-  it('accepte les artefacts pagefind légitimes, nommés un par un', () => {
-    expect(
-      isMergeableFileSet([
-        'public/pagefind/pagefind.js',
-        'public/pagefind/pagefind-ui.css',
-        'public/pagefind/pagefind-entry.json',
-        'public/pagefind/fragment/fr_abc123.pf_fragment',
-        'public/pagefind/wasm.fr.pagefind',
-      ]),
-    ).toBe(true);
-  });
-
-  it('refuse un JSON arbitraire sous public/pagefind', () => {
-    expect(isMergeableFileSet(['public/pagefind/evil.json'])).toBe(false);
-  });
-
-  it('refuse une extension composée sous public/pagefind', () => {
-    // `.pagefind` en suffixe seul acceptait `evil.js.pagefind`.
-    expect(isMergeableFileSet(['public/pagefind/evil.js.pagefind'])).toBe(false);
-    expect(isMergeableFileSet(['public/pagefind/evil.pagefind'])).toBe(false);
-    expect(isMergeableFileSet(['public/pagefind/wasm.fr.pagefind'])).toBe(true);
+  it('refuse tout public/pagefind/ depuis #461, artefacts légitimes compris', () => {
+    // L'index est gitignoré et généré par l'image Docker : une PR qui y
+    // touche est anormale. `search.tsx` importe `/pagefind/pagefind.js`, un
+    // `.js` servi là s'exécuterait sur l'origine principale.
+    for (const p of [
+      'public/pagefind/evil.js',
+      'public/pagefind/pagefind.js',
+      'public/pagefind/pagefind-entry.json',
+      'public/pagefind/fragment/fr_abc123.pf_fragment',
+      'public/pagefind/wasm.fr.pagefind',
+    ]) {
+      expect(isMergeableFileSet([p])).toBe(false);
+    }
+    expect(fileSetRefusal(['content/x.fr.mdx', 'public/pagefind/pagefind.js'])).toContain(
+      'public/pagefind/pagefind.js',
+    );
   });
 
   it('restreint messages/ au JSON, et à la racine', () => {

@@ -13,7 +13,7 @@ interface Source {
 }
 
 const labels: Record<string, { showAll: string; showLess: string; title: string; accessedAt: string; lastModified: string }> = {
-  fr: { title: 'Sources', showAll: 'Voir les {n} autres sources', showLess: 'Reduire', accessedAt: 'consulte le {date}', lastModified: 'Derniere mise a jour : {date}' },
+  fr: { title: 'Sources', showAll: 'Voir les {n} autres sources', showLess: 'Réduire', accessedAt: 'consulté le {date}', lastModified: 'Dernière mise à jour : {date}' },
   nl: { title: 'Bronnen', showAll: 'Toon {n} andere bronnen', showLess: 'Inklappen', accessedAt: 'geraadpleegd op {date}', lastModified: 'Laatst bijgewerkt: {date}' },
   en: { title: 'Sources', showAll: 'Show {n} more sources', showLess: 'Show less', accessedAt: 'accessed {date}', lastModified: 'Last updated: {date}' },
   de: { title: 'Quellen', showAll: '{n} weitere Quellen anzeigen', showLess: 'Weniger anzeigen', accessedAt: 'abgerufen am {date}', lastModified: 'Letzte Aktualisierung: {date}' },

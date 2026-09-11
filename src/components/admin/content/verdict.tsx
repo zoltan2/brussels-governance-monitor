@@ -67,6 +67,16 @@ export function Verdict({
       <p className="mt-2 text-sm text-neutral-600">
         {pr.title} · {ageLabel(pr.createdAt, now)}
       </p>
+      {checks.failed.length > 0 && (checks.failureNotes?.length ?? 0) > 0 && (
+        <div className="mt-4">
+          <h2 className="text-sm font-semibold text-neutral-900">Ce que signalent les contrôles</h2>
+          <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-neutral-800">
+            {checks.failureNotes!.map((note, i) => (
+              <li key={i}>{note}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </section>
   );
 }

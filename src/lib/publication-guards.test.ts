@@ -89,7 +89,7 @@ describe('filesRefusal', () => {
   it('laisse passer un ensemble conforme', () => {
     expect(
       filesRefusal(
-        ['content/domain-cards/x.fr.mdx', 'data/radar.json', 'public/pagefind/pagefind-entry.json'],
+        ['content/domain-cards/x.fr.mdx', 'data/radar.json', 'messages/fr.json'],
         false,
       ),
     ).toBeNull();

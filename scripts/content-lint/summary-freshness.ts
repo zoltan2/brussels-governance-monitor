@@ -37,6 +37,7 @@ import {
   checkSummaryFreshness,
   readFrontmatterScalar,
 } from '../../src/lib/summary-freshness';
+import { FrontmatterError } from '../../src/lib/frontmatter';
 
 /** Seules ces collections portent un champ `summary`. Vérifié le 2026-08-30. */
 const SCOPED_DIRS = ['content/domain-cards', 'content/dossiers'] as const;
@@ -73,11 +74,16 @@ function inspect(files: string[]): Row[] {
     const abs = path.join(REPO_ROOT, file);
     if (!fs.existsSync(abs)) continue;
     const content = fs.readFileSync(abs, 'utf8');
-    const result = checkSummaryFreshness({
-      lastModified: readFrontmatterScalar(content, 'lastModified'),
-      summaryReviewed: readFrontmatterScalar(content, 'summaryReviewed'),
-    });
-    rows.push({ file, verdict: result.verdict, ageDays: result.ageDays, reason: result.reason });
+    try {
+      const result = checkSummaryFreshness({
+        lastModified: readFrontmatterScalar(content, 'lastModified'),
+        summaryReviewed: readFrontmatterScalar(content, 'summaryReviewed'),
+      });
+      rows.push({ file, verdict: result.verdict, ageDays: result.ageDays, reason: result.reason });
+    } catch (err) {
+      if (!(err instanceof FrontmatterError)) throw err;
+      rows.push({ file, verdict: 'unparsable', ageDays: null, reason: err.message });
+    }
   }
   return rows;
 }
@@ -140,7 +146,8 @@ function main(): void {
   console.error("l'API publique et le repli du digest : un chapeau périmé y devient faux.");
   console.error('');
   console.error('Relire le texte, puis passer `summaryReviewed` à la date du jour.');
-  console.error("Pour une migration en masse, utiliser le label 'skip-summary-check' sur la PR.");
+  console.error("Migration en masse : label 'skip-summary-check', posé À LA CRÉATION de la PR (ajouté");
+  console.error('après coup, il ne relance pas la CI : fermer puis rouvrir la PR).');
   process.exit(1);
 }
 

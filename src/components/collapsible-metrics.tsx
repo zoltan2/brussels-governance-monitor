@@ -12,10 +12,10 @@ interface Metric {
 }
 
 const labels: Record<string, { showAll: string; showLess: string; title: string }> = {
-  fr: { title: 'Chiffres cles', showAll: 'Voir les {n} autres chiffres', showLess: 'Reduire' },
+  fr: { title: 'Chiffres clés', showAll: 'Voir les {n} autres chiffres', showLess: 'Réduire' },
   nl: { title: 'Kerncijfers', showAll: 'Toon {n} andere cijfers', showLess: 'Inklappen' },
   en: { title: 'Key figures', showAll: 'Show {n} more figures', showLess: 'Show less' },
-  de: { title: 'Schluesselzahlen', showAll: '{n} weitere Zahlen anzeigen', showLess: 'Weniger anzeigen' },
+  de: { title: 'Schlüsselzahlen', showAll: '{n} weitere Zahlen anzeigen', showLess: 'Weniger anzeigen' },
 };
 
 const VISIBLE_COUNT = 5;

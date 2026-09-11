@@ -56,6 +56,22 @@ describe('Verdict', () => {
     expect(screen.getByText(/Content lint/)).toBeDefined();
   });
 
+  it('affiche ce que signalent les contrôles en échec', () => {
+    const checks: CheckState = {
+      passed: 2,
+      pending: 0,
+      failed: ['Editorial content checks'],
+      total: 3,
+      missing: ['Editorial content checks'],
+      failureNotes: ['FAQ à relire : content/dossiers/lez.fr.mdx : faqReviewed absent.'],
+    };
+    render(
+      <Verdict pr={pr} checks={checks} truncated={false} fileRefusal={null} now={new Date('2026-08-09T10:00:00Z')} />,
+    );
+    expect(screen.getByText(/Ce que signalent les contrôles/)).toBeDefined();
+    expect(screen.getByText(/faqReviewed absent/)).toBeDefined();
+  });
+
   it('affiche la progression tant que les contrôles tournent', () => {
     const checks: CheckState = { passed: 2, pending: 1, failed: [], total: 3, missing: ['Content lint'] };
     render(

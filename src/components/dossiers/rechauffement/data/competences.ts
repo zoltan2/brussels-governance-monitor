@@ -42,7 +42,7 @@ export const POWER_LEVEL_LABELS: Record<Locale, Record<PowerLevelKey, string>> =
 
 /** Libelles de la legende/caption par locale */
 export const MATRIX_CAPTION: Record<Locale, string> = {
-  fr: 'Matrice de responsabilite : 5 niveaux de pouvoir par theme climatique a Bruxelles',
+  fr: 'Matrice de responsabilité : 5 niveaux de pouvoir par thème climatique à Bruxelles',
   nl: 'Verantwoordelijkheidsmatrix : 5 machtsniveaus per klimaatthema in Brussel',
   en: 'Responsibility matrix: 5 levels of government per climate theme in Brussels',
   de: 'Verantwortungsmatrix: 5 Regierungsebenen je Klimathema in Brussel',
@@ -50,7 +50,7 @@ export const MATRIX_CAPTION: Record<Locale, string> = {
 
 /** Libelle colonne Theme par locale */
 export const THEME_COL_LABEL: Record<Locale, string> = {
-  fr: 'Theme',
+  fr: 'Thème',
   nl: 'Thema',
   en: 'Theme',
   de: 'Thema',
@@ -58,10 +58,10 @@ export const THEME_COL_LABEL: Record<Locale, string> = {
 
 /** Libelle aria cellule vide par locale */
 export const EMPTY_CELL_LABEL: Record<Locale, string> = {
-  fr: 'Non competent',
+  fr: 'Non compétent',
   nl: 'Niet bevoegd',
   en: 'Not competent',
-  de: 'Nicht zustandig',
+  de: 'Nicht zuständig',
 };
 
 /** Un theme = une ligne de la matrice */
@@ -126,14 +126,14 @@ export const COMPETENCES: CompetenceTheme[] = [
         fr: 'Bâtiments et calendrier scolaires (FWB et VGC)',
         nl: 'Schoolgebouwen en kalender (FWB et VGC)',
         en: 'School buildings and calendar (FWB et VGC)',
-        de: 'Schulgebaude und Kalender (FWB et VGC)',
+        de: 'Schulgebäude und Kalender (FWB und VGC)',
       },
       Regional: { fr: null, nl: null, en: null, de: null },
       Communal: {
         fr: 'Pouvoirs organisateurs, fermetures',
         nl: 'Inrichtende machten, sluitingen',
         en: 'Organising authorities, closures',
-        de: 'Schultrager, Schliessungen',
+        de: 'Schulträger, Schließungen',
       },
     },
   },
@@ -159,7 +159,7 @@ export const COMPETENCES: CompetenceTheme[] = [
         fr: "Arbres communaux, permis d'abattage",
         nl: 'Gemeentebomen, kapvergunning',
         en: 'Municipal trees, felling permits',
-        de: 'Gemeindebaume, Fallgenehmigung',
+        de: 'Gemeindebäume, Fällgenehmigung',
       },
     },
   },
@@ -195,7 +195,7 @@ export const COMPETENCES: CompetenceTheme[] = [
         fr: 'Stationnement, voiries locales',
         nl: 'Parkeren, lokale wegen',
         en: 'Parking, local roads',
-        de: 'Parken, Gemeindestrassen',
+        de: 'Parken, Gemeindestraßen',
       },
     },
   },
@@ -262,7 +262,7 @@ export const COMPETENCES: CompetenceTheme[] = [
         fr: 'Égouttage local',
         nl: 'Lokale riolering',
         en: 'Local sewerage',
-        de: 'Ortliche Kanalisation',
+        de: 'Örtliche Kanalisation',
       },
     },
   },

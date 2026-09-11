@@ -93,6 +93,12 @@ export interface CheckState {
   total: number;
   /** Contrôles requis qui n'ont pas réussi. Vide = feu vert. */
   missing: string[];
+  /**
+   * Pourquoi un contrôle a échoué, tel que la CI l'écrit dans ses annotations
+   * (`::error::`). Purement informatif : la fusion est bloquée par `failed`,
+   * pas par ceci, et une lecture ratée rend simplement une liste vide.
+   */
+  failureNotes?: string[];
 }
 
 /**
@@ -351,7 +357,7 @@ export function requiredChecksFor(paths: string[]): string[] {
 export async function getCheckState(sha: string, paths: string[]): Promise<CheckState> {
   const { token, repo } = config();
 
-  const runs: Array<{ name: string; status: string; conclusion: string | null }> = [];
+  const runs: Array<{ id?: number; name: string; status: string; conclusion: string | null }> = [];
   for (let page = 1; page <= 10; page++) {
     const res = await fetch(`${API}/repos/${repo}/commits/${sha}/check-runs?per_page=100&page=${page}`, {
       headers: headers(token),
@@ -365,7 +371,7 @@ export async function getCheckState(sha: string, paths: string[]): Promise<Check
       throw new Error(`check-runs: GitHub a répondu ${res.status}`);
     }
     const body = (await res.json()) as {
-      check_runs?: Array<{ name: string; status: string; conclusion: string | null }>;
+      check_runs?: Array<{ id?: number; name: string; status: string; conclusion: string | null }>;
     };
     const batch = body.check_runs ?? [];
     runs.push(...batch);
@@ -373,6 +379,7 @@ export async function getCheckState(sha: string, paths: string[]): Promise<Check
   }
 
   const failed: string[] = [];
+  const failedIds: number[] = [];
   const succeeded = new Set<string>();
   let passed = 0;
   let pending = 0;
@@ -389,10 +396,46 @@ export async function getCheckState(sha: string, paths: string[]): Promise<Check
       succeeded.add(run.name);
     } else {
       failed.push(run.name);
+      if (typeof run.id === 'number') failedIds.push(run.id);
     }
   }
 
   const missing = requiredChecksFor(paths).filter((name) => !succeeded.has(name));
+  const failureNotes = failedIds.length > 0 ? await readFailureNotes(failedIds.slice(0, 3)) : [];
 
-  return { passed, pending, failed, total: runs.length, missing };
+  return { passed, pending, failed, total: runs.length, missing, failureNotes };
+}
+
+/** Annotation générique ajoutée par Actions à tout job en échec : elle ne dit rien. */
+const GENERIC_ANNOTATION = /^Process completed with exit code \d+\.?$/;
+const MAX_NOTES = 8;
+
+/**
+ * Messages d'échec posés par la CI (`::error title=…::…`, voir
+ * `scripts/content-lint/faq-check.ts`). Sans eux, l'écran disait « Bloqué :
+ * Editorial content checks » et il fallait ouvrir le journal GitHub pour
+ * apprendre qu'une FAQ n'était pas relue. Ne lève jamais : ces notes
+ * n'autorisent ni ne bloquent rien.
+ */
+async function readFailureNotes(checkRunIds: number[]): Promise<string[]> {
+  const { token, repo } = config();
+  const notes: string[] = [];
+  for (const id of checkRunIds) {
+    try {
+      const res = await fetch(`${API}/repos/${repo}/check-runs/${id}/annotations?per_page=30`, {
+        headers: headers(token),
+        cache: 'no-store',
+      });
+      if (!res.ok) continue;
+      const list = (await res.json()) as Array<{ annotation_level?: string; title?: string | null; message?: string }>;
+      for (const a of Array.isArray(list) ? list : []) {
+        if (a.annotation_level !== 'failure' || !a.message || GENERIC_ANNOTATION.test(a.message.trim())) continue;
+        notes.push(a.title ? `${a.title} : ${a.message}` : a.message);
+        if (notes.length >= MAX_NOTES) return notes;
+      }
+    } catch {
+      // Réseau : on rend ce qu'on a.
+    }
+  }
+  return notes;
 }

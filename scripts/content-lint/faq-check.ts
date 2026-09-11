@@ -29,6 +29,7 @@ import {
   findQuestionCollisions,
   normalizeQuestion,
 } from '../../src/lib/faq-review';
+import { FrontmatterError } from '../../src/lib/frontmatter';
 import { readFrontmatterScalar } from '../../src/lib/summary-freshness';
 
 /**
@@ -40,6 +41,19 @@ import { readFrontmatterScalar } from '../../src/lib/summary-freshness';
 const SCOPED_DIRS = ['content/domain-cards', 'content/dossiers'] as const;
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
+
+/**
+ * Annotation GitHub Actions : l'écran /fr/admin la lit pour dire POURQUOI le
+ * contrôle a échoué (src/lib/github-pr.ts, readFailureNotes). Hors Actions,
+ * rien n'est écrit. Échappement imposé par le format des commandes de workflow.
+ */
+function annotate(title: string, message: string, file?: string): void {
+  if (process.env.GITHUB_ACTIONS !== 'true') return;
+  const esc = (v: string) => v.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+  const prop = (v: string) => esc(v).replace(/:/g, '%3A').replace(/,/g, '%2C');
+  const fileProp = file ? `file=${prop(file)},` : '';
+  console.log(`::error ${fileProp}title=${prop(title)}::${esc(message)}`);
+}
 
 /**
  * Confinement par chemin résolu, pas par préfixe de chaîne : un préfixe laisse
@@ -79,14 +93,29 @@ function identity(file: string, content: string): { slug: string; locale: string
   };
 }
 
+/**
+ * Un frontmatter illisible arrête tout : sa FAQ échapperait sinon au contrôle
+ * d'unicité, et Velite refuserait de toute façon la fiche au build.
+ */
 function collectQuestions(): CardQuestions[] {
   const cards: CardQuestions[] = [];
+  const unreadable: string[] = [];
   for (const file of listAllCards()) {
     const content = read(file);
     if (content === null) continue;
-    const questions = extractFaqQuestions(content);
-    if (questions.length === 0) continue;
-    cards.push({ ...identity(file, content), questions });
+    try {
+      const questions = extractFaqQuestions(content);
+      if (questions.length === 0) continue;
+      cards.push({ ...identity(file, content), questions });
+    } catch (err) {
+      if (!(err instanceof FrontmatterError)) throw err;
+      unreadable.push(`  ${file}\n      ${err.message}`);
+    }
+  }
+  if (unreadable.length > 0) {
+    console.error('ERREUR : frontmatter illisible, FAQ non vérifiable :\n');
+    for (const u of unreadable) console.error(u);
+    process.exit(1);
   }
   return cards;
 }
@@ -109,15 +138,18 @@ function reportCollisions(stream: (msg: string) => void): number {
   assertSeesQuestions(cards);
   const collisions = findQuestionCollisions(cards);
   if (collisions.length === 0) return 0;
-  stream(`Question(s) portée(s) par plusieurs fiches (${collisions.length}) :\n`);
+  stream(`Question(s) posée(s) deux fois (${collisions.length}) :\n`);
   for (const c of collisions) {
     stream(`  [${c.locale}] « ${c.question} »`);
-    stream(`      ${c.slugs.join(', ')}`);
+    const repeated = c.count > c.slugs.length ? ` (${c.count} occurrences, répétée dans une même fiche)` : '';
+    stream(`      ${c.slugs.join(', ')}${repeated}`);
+    annotate('Question en double', `[${c.locale}] « ${c.question} » : ${c.slugs.join(', ')}${repeated}`);
   }
   stream('');
   stream('Une question, une seule fiche : deux fiches qui répondent à la même requête se');
   stream('concurrencent dans les moteurs de recherche. Garder la question sur la fiche');
-  stream("canonique et reformuler l'autre vers une requête distincte.");
+  stream("canonique et reformuler l'autre vers une requête distincte. Dans une même");
+  stream('fiche, supprimer le doublon.');
   return collisions.length;
 }
 
@@ -159,11 +191,17 @@ function main(): void {
     let missing = 0;
     for (const file of cards) {
       const content = read(file);
-      if (content !== null && readFrontmatterScalar(content, 'faqReviewed') === undefined) missing++;
+      if (content === null) continue;
+      try {
+        if (readFrontmatterScalar(content, 'faqReviewed') === undefined) missing++;
+      } catch (err) {
+        if (!(err instanceof FrontmatterError)) throw err;
+        console.log(`${file} : ${err.message}`);
+      }
     }
     console.log(`${cards.length} fiche(s) domaine et dossier, dont ${missing} sans faqReviewed.`);
     console.log("Elles ne seront vérifiées qu'à leur prochaine republication.\n");
-    if (reportCollisions(console.log) === 0) console.log('OK : aucune question portée par deux fiches.');
+    if (reportCollisions(console.log) === 0) console.log('OK : aucune question posée deux fois.');
     console.log('\nMode audit : aucune sortie en erreur.');
     return;
   }
@@ -196,11 +234,16 @@ function main(): void {
         continue;
       }
       checked++;
-      const r = checkFaqReview({
-        lastModified: readFrontmatterScalar(content, 'lastModified'),
-        faqReviewed: readFrontmatterScalar(content, 'faqReviewed'),
-      });
-      if (r.verdict !== 'ok') violations.push({ file, reason: r.reason });
+      try {
+        const r = checkFaqReview({
+          lastModified: readFrontmatterScalar(content, 'lastModified'),
+          faqReviewed: readFrontmatterScalar(content, 'faqReviewed'),
+        });
+        if (r.verdict !== 'ok') violations.push({ file, reason: r.reason });
+      } catch (err) {
+        if (!(err instanceof FrontmatterError)) throw err;
+        violations.push({ file, reason: err.message });
+      }
     }
 
     const deletedNote = deleted > 0 ? `, ${deleted} supprimée(s) ignorée(s)` : '';
@@ -214,19 +257,22 @@ function main(): void {
       for (const v of violations) {
         console.error(`  ${v.file}`);
         console.error(`      ${v.reason}`);
+        annotate('FAQ à relire', `${v.file} : ${v.reason}`, v.file);
       }
       console.error('');
       console.error('Chaque fiche republiée doit dire que sa FAQ a été relue contre son corps,');
       console.error("qu'elle en ait une ou non. Sans FAQ, la date enregistre la décision");
       console.error("« relu, rien à écrire ». Passer faqReviewed à la date du jour après relecture.");
-      console.error("Pour une migration en masse, utiliser le label 'skip-faq-check' sur la PR.");
+      console.error("Coquille ou lien corrigé, sans republication : label 'skip-faq-check', posé À LA");
+      console.error('CRÉATION de la PR (ajouté après coup, il ne relance pas la CI : fermer puis rouvrir');
+      console.error("la PR). En local : SKIP_FAQ_REVIEW=1 git push. Il suspend la relecture, jamais l'unicité.");
       console.error('');
     }
   }
 
   // 2. Unicité, sur tout le dépôt : une collision peut venir de l'une ou l'autre fiche.
   if (reportCollisions(console.error) > 0) failed = true;
-  else console.log('OK : aucune question portée par deux fiches.');
+  else console.log('OK : aucune question posée deux fois.');
 
   if (failed) process.exit(1);
 }

@@ -30,7 +30,8 @@ BASE="${PREFLIGHT_BASE:-origin/main}"
 git rev-parse --verify -q "$BASE" >/dev/null 2>&1 || { echo "preflight: base '$BASE' introuvable (git fetch ?) — skip"; exit 0; }
 
 RANGE="${BASE}...HEAD"
-CHANGED_ALL="$(git diff --name-only "$RANGE" 2>/dev/null || true)"
+# core.quotepath=off : un chemin accentué sortirait cité et échappé, donc introuvable.
+CHANGED_ALL="$(git -c core.quotepath=off diff --name-only "$RANGE" 2>/dev/null || true)"
 [ -z "$CHANGED_ALL" ] && { echo "preflight: aucun changement vs $BASE — OK"; exit 0; }
 
 CHANGED_MDX="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^content/.*\.mdx$' || true)"

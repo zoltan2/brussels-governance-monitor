@@ -72,7 +72,7 @@ export default function LivreLayout({
             </div>
           </header>
 
-          <main className="flex-1">{children}</main>
+          <main className="flex-1" data-pagefind-body="">{children}</main>
 
           <footer className="border-t border-neutral-200 bg-[#F7F8FC]">
             <div className="mx-auto max-w-4xl px-4 py-6 text-center">

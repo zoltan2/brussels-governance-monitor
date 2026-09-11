@@ -204,7 +204,7 @@ function AccessibilityToolbarInner({ labels: t, locale }: { labels: ToolbarLabel
   const hasTTS = typeof window !== 'undefined' && 'speechSynthesis' in window;
 
   return (
-    <div ref={panelRef} className="fixed bottom-4 right-4 z-50 print:hidden" data-hide-print>
+    <div ref={panelRef} className="fixed bottom-4 end-4 z-50 print:hidden" data-hide-print>
       {/* Toggle button */}
       {!open && (
         <button

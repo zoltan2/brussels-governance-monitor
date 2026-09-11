@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import { Breadcrumb } from '@/components/breadcrumb';
 import type { Metadata } from 'next';
+import { SearchExclude } from '@/components/search-exclude';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -37,7 +38,10 @@ export default async function SignalPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  // Page rédigée en français seulement : hors de l'index des autres langues,
+  // où elle passait devant les vraies pages (revue du 2026-09-11).
   return (
+    <SearchExclude when={locale !== 'fr'}>
     <section className="py-12">
       <div className="mx-auto max-w-2xl px-4">
         <Breadcrumb
@@ -200,5 +204,6 @@ export default async function SignalPage({
         </div>
       </div>
     </section>
+    </SearchExclude>
   );
 }

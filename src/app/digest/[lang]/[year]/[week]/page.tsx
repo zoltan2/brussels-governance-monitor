@@ -80,6 +80,12 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
   const langInfo = digestLanguages.find((l) => l.code === lang);
 
   const verifiedLangs = ['fr', 'nl', 'en', 'de'];
+  // L'habillage de la page est en anglais, de gauche à droite : il le déclare
+  // quand la page ne l'est pas. Une édition non traduite affiche le texte
+  // français : il le déclare aussi, et la page sort de l'index de recherche de
+  // la langue demandée, où elle apparaissait comme une page anglaise ou arabe.
+  const chrome = lang === 'en' ? {} : { lang: 'en', dir: 'ltr' as const };
+  const contentLang = isFallback ? { lang: 'fr', dir: 'ltr' as const } : {};
   const availableLangs = getAllDigestLangs();
 
   // Adjacent weeks for prev/next navigation
@@ -94,7 +100,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
   return (
     <>
       {/* Language navigation bar */}
-      <div className="border-b border-neutral-100 bg-neutral-50">
+      <div className="border-b border-neutral-100 bg-neutral-50" data-pagefind-ignore="all" {...chrome}>
         <div className="mx-auto flex max-w-3xl items-center gap-3 px-4 py-2">
           <span className="text-xs text-neutral-500">Read in:</span>
           {verifiedLangs.map((code) => {
@@ -124,14 +130,14 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
         </div>
       </div>
 
-      <article className="mx-auto max-w-3xl px-4 py-10">
+      <article className="mx-auto max-w-3xl px-4 py-10" data-pagefind-ignore={isFallback ? 'all' : undefined}>
         {/* Title */}
-        <h1 className="mb-2 text-2xl font-bold text-neutral-900">
+        <h1 className="mb-2 text-2xl font-bold text-neutral-900" {...contentLang}>
           {entry.title}
         </h1>
 
         {/* Meta line */}
-        <div className="mb-8 flex flex-wrap items-center gap-3 text-xs text-neutral-500">
+        <div className="mb-8 flex flex-wrap items-center gap-3 text-xs text-neutral-500" data-pagefind-ignore="all" {...chrome}>
           {langInfo && (
             <span>
               {langInfo.native_name} ({langInfo.name})
@@ -153,7 +159,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
 
         {/* Fallback banner */}
         {isFallback && (
-          <div className="mb-6 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          <div className="mb-6 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800" {...chrome}>
             This digest is not yet available in{' '}
             {langInfo?.name || lang}. Showing the French version.
           </div>
@@ -170,7 +176,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
         ) : null}
 
         {/* MDX content */}
-        <div className="prose-digest">
+        <div className="prose-digest" {...contentLang}>
           <MdxContent code={entry.content} />
         </div>
 
@@ -188,7 +194,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
               .
             </p>
           )}
-          <p className="text-xs text-neutral-500">
+          <p className="text-xs text-neutral-500" data-pagefind-ignore="all" {...chrome}>
             Source:{' '}
             <a
               href="https://governance.brussels"
@@ -204,7 +210,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
 
         {/* Prev/Next navigation */}
         {(prevUrl || nextUrl) && (
-          <nav className="mt-8 flex items-center justify-between border-t border-neutral-200 pt-6">
+          <nav className="mt-8 flex items-center justify-between border-t border-neutral-200 pt-6" data-pagefind-ignore="all" {...chrome}>
             {prevUrl ? (
               <Link
                 href={prevUrl}

@@ -3,6 +3,17 @@
 
 import type { ContentPr, CheckState } from '@/lib/github-pr';
 
+/**
+ * Noms des contrôles tels que l'éditeur les lit. L'API rend les noms de job
+ * GitHub, en anglais (src/lib/github-pr.ts) ; un nom inconnu passe tel quel.
+ */
+const CHECK_LABELS: Record<string, string> = {
+  'Editorial content checks': 'Contrôles éditoriaux',
+  'Lint, Typecheck & Build': 'Compilation et tests',
+  'Quiz pool checks': 'Contrôles du quiz',
+};
+export const checkLabel = (name: string) => CHECK_LABELS[name] ?? name;
+
 function ageLabel(createdAt: string, now: Date): string {
   const opened = new Date(createdAt).getTime();
   if (Number.isNaN(opened)) return 'date d\'ouverture inconnue';
@@ -47,11 +58,11 @@ export function Verdict({
     : fileRefusal
     ? `Publication impossible. ${fileRefusal}`
     : checks.failed.length > 0
-    ? `Bloqué : ${checks.failed.join(', ')}`
+    ? `Bloqué : ${checks.failed.map(checkLabel).join(', ')}`
     : running
       ? `Contrôles en cours (${checks.passed}/${checks.total})`
       : blocked
-        ? `Contrôles manquants : ${checks.missing.join(', ')}`
+        ? `Contrôles manquants : ${checks.missing.map(checkLabel).join(', ')}`
         : 'Prêt à publier';
 
   return (

@@ -140,3 +140,31 @@ describe('findLinkProblems (chemin complet)', () => {
     expect(kinds('[a](/fr/secteurs/inconnu)')).toEqual([]);
   });
 });
+
+describe('findLinkProblems, formes de lien', () => {
+  const ROUTES = {
+    pathnames: PATHNAMES,
+    locales: LOCALES,
+    slugs: { '/domains/[slug]': { de: new Set(['economy']), fr: new Set(['economy']) } },
+  };
+  const links = (content: string) => findLinkProblems(content, ROUTES, 'de').map((p) => p.link);
+
+  it('voit les formes que la red team a fait passer le 2026-09-11', () => {
+    const content = [
+      '[a](/de/domaenen/economy "Titel")',
+      '[b](</de/domaenen/economy>)',
+      '[c](https://governance.brussels/de/domaenen/economy)',
+      '<a href="/de/domaenen/economy">d</a>',
+      '[r1]: /de/domaenen/economy',
+    ].join('\n');
+    expect(links(content)).toEqual(Array(5).fill('/de/domaenen/economy'));
+  });
+
+  it('ignore un chemin cité dans du code en ligne, et les autres domaines', () => {
+    expect(links('Exemple : `[x](/de/domaenen/economy)` et [y](https://example.com/de/domaenen/x)')).toEqual([]);
+  });
+
+  it('laisse passer les mêmes formes quand le lien est juste', () => {
+    expect(links('[a](/de/bereiche/economy "T") [c](https://governance.brussels/de/bereiche/economy#z)')).toEqual([]);
+  });
+});

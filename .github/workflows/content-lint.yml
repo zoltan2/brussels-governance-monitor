@@ -13,9 +13,15 @@ on:
       # une seule fois par sa propre PR.
       - 'scripts/content-lint/**'
       - 'src/lib/faq-review.ts'
-      # readFrontmatterScalar (faq-check) et la fraîcheur des chapeaux vivent
-      # ici ; le schéma Velite décide des champs que ces gardes lisent.
+      # Parseur du frontmatter des gardes, fraîcheur des chapeaux, date du
+      # résumé ; le schéma Velite décide des champs que ces gardes lisent.
       - 'src/lib/summary-freshness.ts'
+      - 'src/lib/frontmatter.ts'
+      - 'src/lib/change-summary-date.ts'
+      # Liste des vues immersives (garde de liens) et version de js-yaml (parseur
+      # des gardes) : les changer change ce que les gardes acceptent.
+      - 'src/lib/scrolly-allowlist.ts'
+      - 'package-lock.json'
       - 'velite.config.ts'
       # Un changement de la table de routage peut casser des liens dans des
       # fiches que la PR ne touche pas : il doit relancer le contrôle des liens.
@@ -86,6 +92,16 @@ jobs:
             echo "No MDX files changed, skipping"; exit 0
           fi
           npx tsx scripts/content-lint/summary-freshness.ts /tmp/changed_content.txt
+
+      # WhatChangedBanner n'affiche un changeSummary que s'il porte sa date. Le
+      # 2026-09-11, les fiches lez et housing-sector de la veille de la veille
+      # n'avaient pas la date : bandeau vide en ligne, sans aucun signal.
+      - name: changeSummary daté
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          npx tsx scripts/content-lint/change-summary-date.ts /tmp/changed_content.txt "origin/${{ github.base_ref }}"
 
       # La FAQ vieillissait derrière le corps des fiches : sur les douze veilles
       # précédant le 2026-09-11, 35 fiches à FAQ ont été republiées et la FAQ n'a

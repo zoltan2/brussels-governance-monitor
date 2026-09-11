@@ -26,6 +26,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { routing } from '../../src/i18n/routing';
+import { annotate } from './annotate';
+import { readGuardFrontmatter } from '../../src/lib/frontmatter';
+import { SCROLLY_ENABLED_DOSSIERS } from '../../src/lib/scrolly-allowlist';
 import { findLinkProblems, type LinkProblem, type Pathnames, type SiteRoutes } from '../../src/lib/internal-links';
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -40,7 +43,6 @@ const APP = path.join(REPO_ROOT, 'src', 'app');
 const SLUG_SOURCES: Record<string, string> = {
   '/domains/[slug]': 'domain-cards',
   '/dossiers/[slug]': 'dossiers',
-  '/dossiers/[slug]/scrolly': 'dossiers',
   '/sectors/[slug]': 'sector-cards',
   '/communes/[slug]': 'commune-cards',
   '/comparisons/[slug]': 'comparison-cards',
@@ -48,14 +50,36 @@ const SLUG_SOURCES: Record<string, string> = {
   '/archives/[slug]': 'archive-pages',
 };
 
-/** Slugs par langue, depuis les noms de fichiers `slug.locale.mdx` (vérifiés identiques au champ slug le 2026-09-11). */
+/**
+ * Slugs par langue : nom de fichier `slug.locale.mdx` (identique au champ
+ * slug, vérifié le 2026-09-11), plus le slug localisé que la fiche déclare
+ * dans `localizedSlugs` pour sa langue (servi par getLocalizedSlug).
+ */
 function slugsOf(dir: string): Record<string, Set<string>> {
   const out: Record<string, Set<string>> = {};
   const abs = path.join(CONTENT, dir);
   if (!fs.existsSync(abs)) return out;
   for (const name of fs.readdirSync(abs)) {
     const m = name.match(/^(.+)\.([a-z]{2})\.mdx$/);
-    if (m) (out[m[2]!] ??= new Set()).add(m[1]!);
+    if (!m) continue;
+    const set = (out[m[2]!] ??= new Set());
+    set.add(m[1]!);
+    try {
+      const localizedSlugs = readGuardFrontmatter(fs.readFileSync(path.join(abs, name), 'utf8'))?.localizedSlugs;
+      const own = localizedSlugs && typeof localizedSlugs === 'object' ? (localizedSlugs as Record<string, unknown>)[m[2]!] : undefined;
+      if (typeof own === 'string' && own) set.add(own);
+    } catch {
+      // Frontmatter illisible : faq-check le signale ; ici on garde le nom de fichier.
+    }
+  }
+  return out;
+}
+
+/** Vues immersives : seules les fiches de l'allowlist en ont une (500 ou 404 sinon). */
+function scrollySlugs(dossiers: Record<string, ReadonlySet<string>>): Record<string, Set<string>> {
+  const out: Record<string, Set<string>> = {};
+  for (const [locale, set] of Object.entries(dossiers)) {
+    out[locale] = new Set([...set].filter((slug) => SCROLLY_ENABLED_DOSSIERS.has(slug)));
   }
   return out;
 }
@@ -91,6 +115,7 @@ function siteRoutes(): SiteRoutes {
   const pathnames = routing.pathnames as unknown as Pathnames;
   const slugs: SiteRoutes['slugs'] = {};
   for (const [route, dir] of Object.entries(SLUG_SOURCES)) slugs[route] = slugsOf(dir);
+  slugs['/dossiers/[slug]/scrolly'] = scrollySlugs(slugs['/dossiers/[slug]']!);
   return { pathnames, locales: routing.locales, unlocalized: unlocalizedRoutes(pathnames), slugs, rootEntries: rootEntries() };
 }
 
@@ -168,6 +193,9 @@ function main(): void {
 
   console.error(`FAIL : ${blocking.length} lien(s) interne(s) qui ne mènent pas à une page existante de leur langue :\n`);
   print(blocking, console.error);
+  for (const { file, m } of blocking.slice(0, 8)) {
+    annotate('Lien interne à corriger', `${file}:${m.line} ${m.link} : ${REASONS[m.kind]}${m.suggestion ? `, remplacer par ${m.suggestion}` : ''}.`, file);
+  }
   console.error('');
   console.error('Chaque langue a ses propres chemins (domaines, domeinen, domains, bereiche…).');
   console.error("Un chemin d'une autre langue ou sans langue passe par une redirection, un chemin ou");

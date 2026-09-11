@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Garde-fou local AVANT push. Miroir des checks CI de content-lint.yml, qui
 # sinon ne tombent qu'après coup (et restent rouges sur main) : phrases
-# temporelles, sources vides, relecture et unicité des FAQ, liens internes.
+# temporelles, sources vides, relecture et unicité des FAQ, chapeau, date du
+# changeSummary, liens internes, et schémas des trois fichiers data/ d'une
+# veille (validés sinon au seul next build).
 #
 # Le contrôle de fraîcheur de l'index Pagefind a été retiré le 2026-09-11 :
 # public/pagefind/ n'est plus suivi par git, l'image Docker génère l'index au
@@ -67,7 +69,29 @@ if [ -n "$CHANGED_MDX" ]; then
   rm -f "$_faq_list"
 fi
 
-# 2 ter) Liens internes sur le segment de route de leur langue, sur tout le
+# 2 ter) Chapeau relu depuis moins de 90 jours et changeSummary daté. Mêmes
+#    modules que la CI : le pré-vol se dit miroir de la CI, et ces deux
+#    contrôles y manquaient. SKIP_SUMMARY_CHECK=1 suspend le premier (miroir
+#    du label skip-summary-check), jamais le second.
+if [ -n "$CHANGED_MDX" ]; then
+  _cs_list="$(mktemp)"
+  printf '%s\n' "$CHANGED_MDX" > "$_cs_list"
+  if [ "${SKIP_SUMMARY_CHECK:-0}" != "1" ]; then
+    npx tsx scripts/content-lint/summary-freshness.ts "$_cs_list" || rc=1
+  else
+    echo "SKIP : chapeau (SKIP_SUMMARY_CHECK=1)"
+  fi
+  npx tsx scripts/content-lint/change-summary-date.ts "$_cs_list" "$BASE" || rc=1
+  rm -f "$_cs_list"
+fi
+
+# 2 quater) Schémas de data/radar.json, changelog.json, commitments.json :
+#    validés sinon au seul next build, donc en CI après le push.
+if printf '%s\n' "$CHANGED_ALL" | grep -qE '^data/(radar|changelog|commitments)\.json$'; then
+  npx tsx scripts/content-lint/data-schemas.ts || rc=1
+fi
+
+# 2 quinquies) Liens internes sur le segment de route de leur langue, sur tout le
 #    dépôt (hors archives du digest). Relancé aussi quand la table de routage
 #    change. Même module que la CI.
 if [ -n "$CHANGED_MDX" ] || printf '%s\n' "$CHANGED_ALL" | grep -q '^src/i18n/routing\.ts$'; then

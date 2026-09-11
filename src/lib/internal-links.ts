@@ -113,3 +113,201 @@ export function findRouteMismatches(
   });
   return mismatches;
 }
+
+/*
+ * ---------------------------------------------------------------------------
+ * Contrôle du chemin complet.
+ *
+ * `findRouteMismatches` ne regarde que le premier segment, et seulement sous
+ * /fr, /nl, /en, /de. La revue du 2026-09-11 a relevé ce qui lui échappait :
+ * - un sous-chemin d'une autre langue sous un premier segment valide :
+ *   /fr/comprendre/machtsniveaus (le segment néerlandais de l'explainer) ;
+ * - un préfixe de langue que le site n'a pas : /es/…, redirigé vers /fr/es/…
+ *   puis 404 ;
+ * - un lien sans langue : /communes/saint-gilles, redirigé vers le français
+ *   même depuis une fiche néerlandaise ;
+ * - un slug qui n'existe pas : /fr/dossiers/numerique, 404.
+ * ---------------------------------------------------------------------------
+ */
+
+export type LinkProblemKind =
+  /** Chemin d'une autre langue, ou chemin interne : la correction est sûre. */
+  | 'wrong-locale-path'
+  /** Aucune route ne correspond. */
+  | 'unknown-path'
+  /** La route existe, pas la fiche. */
+  | 'unknown-slug'
+  /** Préfixe à deux lettres qui n'est pas une langue du site. */
+  | 'foreign-prefix'
+  /** Lien vers une route du site sans préfixe de langue. */
+  | 'no-locale';
+
+export interface LinkProblem {
+  line: number;
+  /** Lien tel qu'écrit, sans « ]( » ni la parenthèse fermante. */
+  link: string;
+  kind: LinkProblemKind;
+  /** Lien corrigé quand la correction est certaine, sinon null. */
+  suggestion: string | null;
+}
+
+export interface SiteRoutes {
+  pathnames: Pathnames;
+  locales: readonly string[];
+  /**
+   * Routes de `[locale]` absentes de `pathnames` (`/subscribe`,
+   * `/dossiers/[slug]/scrolly`) : next-intl les sert au même chemin dans
+   * toutes les langues.
+   */
+  unlocalized?: readonly string[];
+  /** Slugs existants par route dynamique interne, puis par langue. */
+  slugs?: Record<string, Record<string, ReadonlySet<string>>>;
+  /**
+   * Premiers segments servis hors `[locale]` : `digest`, `feed`, `api`, et les
+   * fichiers et dossiers de `public/`. Un lien vers eux n'a pas de langue.
+   */
+  rootEntries?: ReadonlySet<string>;
+}
+
+interface RoutePattern {
+  internal: string;
+  segments: string[];
+}
+
+const splitPath = (p: string) => p.split('/').filter(Boolean);
+const isParam = (seg: string) => /^\[[^\]]+\]$/.test(seg);
+
+function patternsFor(routes: SiteRoutes, locale: string): RoutePattern[] {
+  const out: RoutePattern[] = [];
+  for (const [internal, value] of Object.entries(routes.pathnames)) {
+    const localizedPath = localized(value, locale);
+    if (localizedPath !== undefined) out.push({ internal, segments: splitPath(localizedPath) });
+  }
+  for (const internal of routes.unlocalized ?? []) out.push({ internal, segments: splitPath(internal) });
+  return out;
+}
+
+/** Paramètres capturés si `segments` correspond au motif, sinon null. */
+function matchPattern(segments: string[], pattern: RoutePattern): Record<string, string> | null {
+  if (segments.length !== pattern.segments.length) return null;
+  const params: Record<string, string> = {};
+  for (let i = 0; i < segments.length; i++) {
+    const p = pattern.segments[i]!;
+    if (isParam(p)) params[p.slice(1, -1)] = segments[i]!;
+    else if (p !== segments[i]) return null;
+  }
+  return params;
+}
+
+function fill(pattern: string, params: Record<string, string>): string {
+  return pattern.replace(/\[([^\]]+)\]/g, (_, name: string) => params[name] ?? `[${name}]`);
+}
+
+/**
+ * Routes internes auxquelles `segments` correspond, avec les paramètres
+ * capturés. Chaque position accepte le segment de n'importe quelle langue ou
+ * de la forme interne de la route : un lien qui mélange les langues
+ * (/fr/comprendre/machtsniveaus, premier segment français, second
+ * néerlandais) se résout aussi. C'est le cas que produisait une correction du
+ * seul premier segment.
+ */
+function resolveAnywhere(segments: string[], routes: SiteRoutes): Map<string, Record<string, string>> {
+  const found = new Map<string, Record<string, string>>();
+  const entries: Array<[string, string[][]]> = [];
+  for (const [internal, value] of Object.entries(routes.pathnames)) {
+    const variants = [internal, ...routes.locales.map((l) => localized(value, l)).filter((v): v is string => !!v)].map(splitPath);
+    entries.push([internal, variants]);
+  }
+  for (const internal of routes.unlocalized ?? []) entries.push([internal, [splitPath(internal)]]);
+
+  for (const [internal, variants] of entries) {
+    if (variants.some((v) => v.length !== segments.length)) continue;
+    const params: Record<string, string> = {};
+    let ok = true;
+    for (let i = 0; i < segments.length && ok; i++) {
+      const allowed = variants.map((v) => v[i]!);
+      const param = allowed.find(isParam);
+      if (param) params[param.slice(1, -1)] = segments[i]!;
+      else ok = allowed.includes(segments[i]!);
+    }
+    if (ok) found.set(internal, params);
+  }
+  return found;
+}
+
+/** Chemin localisé pour `locale`, si la route interne est connue. */
+function localize(routes: SiteRoutes, internal: string, params: Record<string, string>, locale: string): string | null {
+  const value = routes.pathnames[internal];
+  const target = value !== undefined ? localized(value, locale) : routes.unlocalized?.includes(internal) ? internal : undefined;
+  if (target === undefined) return null;
+  const path = fill(target, params);
+  return path === '/' ? `/${locale}` : `/${locale}${path}`;
+}
+
+/** Correction certaine : une seule route interne possible, et un slug existant. */
+function uniqueFix(segments: string[], routes: SiteRoutes, locale: string, suffix: string): string | null {
+  const found = resolveAnywhere(segments, routes);
+  const fixes = new Set<string>();
+  for (const [internal, params] of found) {
+    if (!slugExists(routes, internal, params, locale)) continue;
+    const path = localize(routes, internal, params, locale);
+    if (path) fixes.add(path);
+  }
+  return fixes.size === 1 ? `${[...fixes][0]!}${suffix}` : null;
+}
+
+function slugExists(routes: SiteRoutes, internal: string, params: Record<string, string>, locale: string): boolean {
+  const slug = params.slug;
+  const known = routes.slugs?.[internal]?.[locale];
+  return slug === undefined || known === undefined || known.has(slug);
+}
+
+/**
+ * Liens Markdown internes `](/…)` qui ne mènent pas, sans redirection, à une
+ * page existante de la bonne langue. `fileLocale` (langue de la fiche) sert à
+ * proposer une correction pour un lien sans langue ou d'une langue étrangère.
+ */
+export function findLinkProblems(content: string, routes: SiteRoutes, fileLocale?: string): LinkProblem[] {
+  const problems: LinkProblem[] = [];
+  const locales = new Set(routes.locales);
+
+  content.split('\n').forEach((text, i) => {
+    for (const m of text.matchAll(/\]\((\/[^)\s]*)\)/g)) {
+      const link = m[1]!;
+      if (link.startsWith('//')) continue; // URL relative au protocole : externe.
+      const cut = link.search(/[?#]/);
+      const pathPart = cut === -1 ? link : link.slice(0, cut);
+      const suffix = cut === -1 ? '' : link.slice(cut);
+      const segments = splitPath(pathPart);
+      const first = segments[0];
+      const push = (kind: LinkProblemKind, suggestion: string | null) =>
+        problems.push({ line: i + 1, link, kind, suggestion });
+
+      if (first === undefined) continue; // « / » : redirigé vers la langue du visiteur.
+
+      if (locales.has(first)) {
+        const rest = segments.slice(1);
+        const own = patternsFor(routes, first)
+          .map((pattern) => ({ pattern, params: matchPattern(rest, pattern) }))
+          .filter((x) => x.params !== null);
+        if (own.length > 0) {
+          if (!own.some((x) => slugExists(routes, x.pattern.internal, x.params!, first))) push('unknown-slug', null);
+          continue;
+        }
+        const fix = uniqueFix(rest, routes, first, suffix);
+        push(fix ? 'wrong-locale-path' : 'unknown-path', fix);
+        continue;
+      }
+
+      if (routes.rootEntries?.has(first)) continue;
+
+      if (/^[a-z]{2}$/.test(first)) {
+        push('foreign-prefix', fileLocale ? uniqueFix(segments.slice(1), routes, fileLocale, suffix) : null);
+        continue;
+      }
+
+      push('no-locale', fileLocale ? uniqueFix(segments, routes, fileLocale, suffix) : null);
+    }
+  });
+  return problems;
+}

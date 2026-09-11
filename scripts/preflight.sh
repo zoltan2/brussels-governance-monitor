@@ -63,6 +63,13 @@ if [ -n "$CHANGED_MDX" ]; then
   rm -f "$_faq_list"
 fi
 
+# 2 ter) Liens internes sur le segment de route de leur langue, sur tout le
+#    dépôt (hors archives du digest). Relancé aussi quand la table de routage
+#    change. Même module que la CI.
+if [ -n "$CHANGED_MDX" ] || printf '%s\n' "$CHANGED_ALL" | grep -q '^src/i18n/routing\.ts$'; then
+  npx tsx scripts/content-lint/internal-links.ts || rc=1
+fi
+
 # 3) Pagefind freshness : contenu indexable modifié => public/pagefind/ doit l'être aussi
 CONTENT_T="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^(content/|messages/[^/]+\.json$|velite\.config\.ts$)' | grep -v '^content/digest/__fixtures__/' || true)"
 PF_T="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^public/pagefind/' || true)"

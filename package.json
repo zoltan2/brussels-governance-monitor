@@ -16,6 +16,7 @@
     "lint:summaries": "tsx scripts/content-lint/summary-freshness.ts",
     "faq:check": "tsx scripts/content-lint/faq-check.ts",
     "faq:registry": "tsx scripts/content-lint/faq-check.ts --registry",
+    "lint:links": "tsx scripts/content-lint/internal-links.ts --audit",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,json,md,mdx,css}\"",
     "test": "vitest run",

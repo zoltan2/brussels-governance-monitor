@@ -262,6 +262,30 @@ function slugExists(routes: SiteRoutes, internal: string, params: Record<string,
   return slug === undefined || known === undefined || known.has(slug);
 }
 
+const SITE_ORIGIN = /^https?:\/\/(?:www\.)?governance\.brussels(?=\/|$)/;
+
+/**
+ * Cibles de liens internes d'une ligne, sous toutes les formes rencontrées en
+ * MDX : `[x](/…)`, avec titre (`[x](/… "titre")`) ou chevrons
+ * (`[x](</…>)`), définition de référence (`[r]: /…`), `href="/…"`, et les
+ * mêmes en URL absolue vers governance.brussels, ramenées à leur chemin. Le
+ * code en ligne (`…`) est ignoré : un chemin cité en exemple n'est pas un lien.
+ * Forms relevées par la red team le 2026-09-11 : cinq passaient la garde.
+ */
+function linkTargets(line: string): string[] {
+  const text = line.replace(/`[^`]*`/g, (m) => ' '.repeat(m.length));
+  const out: string[] = [];
+  const add = (target: string) => {
+    const t = target.replace(SITE_ORIGIN, '') || '/';
+    if (t.startsWith('/')) out.push(t);
+  };
+  const url = String.raw`(?:\/|https?:\/\/(?:www\.)?governance\.brussels(?:\/|(?=[\s)>"])))[^\s)>"]*`;
+  for (const m of text.matchAll(new RegExp(String.raw`\]\(\s*<?(${url})>?(?:\s+(?:"[^"]*"|'[^']*'))?\s*\)`, 'g'))) add(m[1]!);
+  for (const m of text.matchAll(new RegExp(String.raw`^\s{0,3}\[[^\]]+\]:\s*<?(${url})>?`, 'g'))) add(m[1]!);
+  for (const m of text.matchAll(new RegExp(String.raw`href=["'](${url})["']`, 'g'))) add(m[1]!);
+  return out;
+}
+
 /**
  * Liens Markdown internes `](/…)` qui ne mènent pas, sans redirection, à une
  * page existante de la bonne langue. `fileLocale` (langue de la fiche) sert à
@@ -271,9 +295,8 @@ export function findLinkProblems(content: string, routes: SiteRoutes, fileLocale
   const problems: LinkProblem[] = [];
   const locales = new Set(routes.locales);
 
-  content.split('\n').forEach((text, i) => {
-    for (const m of text.matchAll(/\]\((\/[^)\s]*)\)/g)) {
-      const link = m[1]!;
+  content.split('\n').forEach((raw, i) => {
+    for (const link of linkTargets(raw)) {
       if (link.startsWith('//')) continue; // URL relative au protocole : externe.
       const cut = link.search(/[?#]/);
       const pathPart = cut === -1 ? link : link.slice(0, cut);

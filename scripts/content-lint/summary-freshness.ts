@@ -38,6 +38,7 @@ import {
   readFrontmatterScalar,
 } from '../../src/lib/summary-freshness';
 import { FrontmatterError } from '../../src/lib/frontmatter';
+import { annotate } from './annotate';
 
 /** Seules ces collections portent un champ `summary`. Vérifié le 2026-08-30. */
 const SCOPED_DIRS = ['content/domain-cards', 'content/dossiers'] as const;
@@ -138,6 +139,7 @@ function main(): void {
   for (const v of violations) {
     console.error(`  ${v.file}`);
     console.error(`      ${v.reason}`);
+    annotate('Chapeau à relire', `${v.file} : ${v.reason}`, v.file);
   }
   console.error('');
   console.error('Le champ `summary` est le chapeau permanent de la fiche : il décrit son état');

@@ -30,6 +30,7 @@ import {
   normalizeQuestion,
 } from '../../src/lib/faq-review';
 import { FrontmatterError } from '../../src/lib/frontmatter';
+import { annotate, safeLine } from './annotate';
 import { readFrontmatterScalar } from '../../src/lib/summary-freshness';
 
 /**
@@ -42,18 +43,7 @@ const SCOPED_DIRS = ['content/domain-cards', 'content/dossiers'] as const;
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
-/**
- * Annotation GitHub Actions : l'écran /fr/admin la lit pour dire POURQUOI le
- * contrôle a échoué (src/lib/github-pr.ts, readFailureNotes). Hors Actions,
- * rien n'est écrit. Échappement imposé par le format des commandes de workflow.
- */
-function annotate(title: string, message: string, file?: string): void {
-  if (process.env.GITHUB_ACTIONS !== 'true') return;
-  const esc = (v: string) => v.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
-  const prop = (v: string) => esc(v).replace(/:/g, '%3A').replace(/,/g, '%2C');
-  const fileProp = file ? `file=${prop(file)},` : '';
-  console.log(`::error ${fileProp}title=${prop(title)}::${esc(message)}`);
-}
+
 
 /**
  * Confinement par chemin résolu, pas par préfixe de chaîne : un préfixe laisse
@@ -140,10 +130,10 @@ function reportCollisions(stream: (msg: string) => void): number {
   if (collisions.length === 0) return 0;
   stream(`Question(s) posée(s) deux fois (${collisions.length}) :\n`);
   for (const c of collisions) {
-    stream(`  [${c.locale}] « ${c.question} »`);
+    stream(`  [${c.locale}] « ${safeLine(c.question)} »`);
     const repeated = c.count > c.slugs.length ? ` (${c.count} occurrences, répétée dans une même fiche)` : '';
     stream(`      ${c.slugs.join(', ')}${repeated}`);
-    annotate('Question en double', `[${c.locale}] « ${c.question} » : ${c.slugs.join(', ')}${repeated}`);
+    annotate('Question en double', `[${c.locale}] « ${safeLine(c.question)} » : ${c.slugs.join(', ')}${repeated}`);
   }
   stream('');
   stream('Une question, une seule fiche : deux fiches qui répondent à la même requête se');
@@ -257,7 +247,7 @@ function main(): void {
       for (const v of violations) {
         console.error(`  ${v.file}`);
         console.error(`      ${v.reason}`);
-        annotate('FAQ à relire', `${v.file} : ${v.reason}`, v.file);
+        annotate('FAQ à relire', `${v.file} : ${v.reason} Correctif sans republication : label skip-faq-check, puis fermer et rouvrir la PR.`, v.file);
       }
       console.error('');
       console.error('Chaque fiche republiée doit dire que sa FAQ a été relue contre son corps,');

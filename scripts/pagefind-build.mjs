@@ -48,9 +48,10 @@ const PAGEFIND_BIN = path.join(REPO, 'node_modules', '.bin', 'pagefind');
 /** Langues du site : chacune doit figurer dans l'index. */
 const SITE_LANGUAGES = ['fr', 'nl', 'en', 'de'];
 /**
- * Pages minimales par langue. Mesure du 2026-09-11 : fr 146, nl 144, de 144,
- * en 478 (les archives du digest déclarent toutes lang="en"). Un build qui ne
- * rend qu'une partie des routes tombe bien en dessous.
+ * Pages minimales par langue. Mesure du 2026-09-11, après que les archives du
+ * digest ont reçu leur vraie langue : fr 176, nl 174, de 174, en 178 (avant :
+ * en 478, toutes les archives déclarant lang="en"). Un build qui ne rend
+ * qu'une partie des routes tombe bien en dessous.
  */
 const MIN_PAGES_PER_LANGUAGE = 100;
 /** En dessous de cette part des pages actuelles, l'index frais est jugé anormal. */

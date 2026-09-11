@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { AccessibilityToolbar } from '@/components/accessibility-toolbar';
-import '../globals.css';
+import '@/app/globals.css';
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -13,22 +12,42 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: 'Weekly Digest | Brussels Governance Monitor',
-    template: '%s | BGM Digest',
-  },
-  description:
-    'Weekly summary of Brussels governance — available in 78 languages.',
-};
-
-export default function DigestLayout({
+/**
+ * Document HTML des pages du digest, hors du site localisé.
+ *
+ * Il était rendu par un layout unique sous `/digest`, avec `<html lang="en">`
+ * pour les 78 langues : la langue réelle ne venait que d'un `<div lang>`
+ * intérieur. Deux conséquences mesurées le 2026-09-11 : un lecteur d'écran
+ * annonçait l'anglais sur une page arabe (WCAG 3.1.1, langue de la page), et
+ * Pagefind, qui lit `<html lang>`, rangeait toutes les archives dans l'index
+ * anglais (478 pages contre 146 en français).
+ *
+ * La langue de la page vient donc du segment `[lang]`. L'habillage (lien
+ * d'évitement, en-tête, pied) reste en anglais et le déclare. Seules les
+ * archives dans une langue du site entrent dans l'index de recherche : les
+ * autres n'ont pas de recherche où apparaître, et créeraient un index par
+ * langue.
+ */
+export function DigestShell({
+  lang,
+  dir = 'ltr',
+  indexed,
   children,
 }: {
+  lang: string;
+  dir?: 'ltr' | 'rtl';
+  /** Faux : la page est exclue de l'index Pagefind. */
+  indexed: boolean;
   children: React.ReactNode;
 }) {
+  // L'habillage est en anglais, de gauche à droite : il le déclare quand la
+  // page ne l'est pas.
+  const chromeLang = lang === 'en' ? undefined : 'en';
+  const chromeDir = dir === 'rtl' ? 'ltr' : undefined;
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang={lang} dir={dir} className={inter.variable}>
+      {/* Rendu par un layout racine : <head> y est légitime, la règle vise les pages. */}
+      {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
         <meta name="theme-color" content="#1e293b" />
         {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
@@ -46,15 +65,20 @@ export default function DigestLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-neutral-50 text-neutral-900 antialiased">
+      <body
+        className="min-h-screen bg-neutral-50 text-neutral-900 antialiased"
+        data-pagefind-ignore={indexed ? undefined : 'all'}
+      >
         <div className="flex min-h-screen flex-col">
           <a
+            lang={chromeLang}
+            dir={chromeDir}
             href="#digest-content"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand-900 focus:px-4 focus:py-2 focus:text-sm focus:text-neutral-50"
           >
             Skip to content
           </a>
-          <header className="border-b border-neutral-200 bg-neutral-50">
+          <header lang={chromeLang} dir={chromeDir} className="border-b border-neutral-200 bg-neutral-50">
             <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
               <a
                 href="https://governance.brussels"
@@ -80,7 +104,7 @@ export default function DigestLayout({
 
           <main id="digest-content" className="flex-1">{children}</main>
 
-          <footer className="border-t border-neutral-200 bg-neutral-50">
+          <footer lang={chromeLang} dir={chromeDir} className="border-t border-neutral-200 bg-neutral-50">
             <div className="mx-auto max-w-3xl px-4 py-6 text-center">
               <p className="text-xs text-neutral-500">
                 Brussels Governance Monitor &mdash; An{' '}
@@ -100,7 +124,9 @@ export default function DigestLayout({
             </div>
           </footer>
         </div>
-        <AccessibilityToolbar locale="en" />
+        <div lang={chromeLang} dir={chromeDir}>
+          <AccessibilityToolbar locale={lang} />
+        </div>
       </body>
     </html>
   );

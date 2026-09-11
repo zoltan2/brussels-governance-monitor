@@ -5,19 +5,32 @@
  *
  * Pourquoi : Pagefind n'efface jamais son dossier de sortie, et nomme ses
  * fragments par empreinte de contenu. Chaque build ajoutait donc de nouveaux
- * fichiers sans retirer les anciens. Le 2026-09-11, 840 fichiers sur 1 910
- * (environ 29 Mo) n'étaient plus référencés par aucun index, servis en ligne et
- * embarqués dans chaque image Docker. Un banc de recherche réel (36 requêtes,
- * 4 langues, 1 644 résultats) a donné des résultats identiques avec et sans eux.
+ * fichiers sans retirer les anciens. Le 2026-09-11, 994 fichiers sur 2 064
+ * n'étaient plus référencés par aucun index, servis en ligne et embarqués dans
+ * chaque image Docker. Un banc de recherche réel (36 requêtes, 4 langues,
+ * 1 647 résultats) a donné des résultats identiques avec et sans eux (PR #460).
  *
  * Pourquoi pas un `rm -rf` avant Pagefind : si la génération échouait ensuite,
  * il n'y aurait plus d'index. Ici, l'index est généré à part, validé, et
  * public/pagefind/ n'est touché qu'ensuite. Un index frais anormal laisse
  * l'ancien intact et fait échouer le build.
  *
+ * Deux gardes contre un index anormal :
+ * - un plancher absolu, par langue du site. Depuis la PR #461, public/pagefind/
+ *   n'est plus suivi par git : l'image Docker part d'un dossier vide, et la
+ *   comparaison avec l'index précédent ne s'y applique jamais. Le plancher, lui,
+ *   s'applique partout, y compris au build de production.
+ * - un ratio par rapport à l'index en place, quand il existe (poste local).
+ *
+ * Ordre d'écriture : fichiers nouveaux ou modifiés d'abord, pagefind-entry.json
+ * en dernier, fichiers périmés retirés seulement ensuite. Les fragments sont
+ * nommés par empreinte : tant que l'ancienne entrée est en place, tout ce
+ * qu'elle référence existe encore. Un arrêt en cours de route laisse donc un
+ * index cohérent, l'ancien ou le nouveau.
+ *
  * Usage : appelé par `npm run build`, après `next build`.
- * PAGEFIND_ALLOW_SHRINK=1 autorise un index frais beaucoup plus petit que
- * l'actuel (suppression massive de pages voulue).
+ * PAGEFIND_ALLOW_SHRINK=1 lève les deux gardes (suppression massive de pages
+ * voulue).
  */
 
 import { spawnSync } from 'node:child_process';
@@ -26,86 +39,126 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const REPO = fs.realpathSync(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'));
 const SITE = path.join(REPO, '.next', 'server', 'app');
-const TARGET = path.join(REPO, 'public', 'pagefind');
+const PUBLIC = path.join(REPO, 'public');
+const TARGET = path.join(PUBLIC, 'pagefind');
+const ENTRY = 'pagefind-entry.json';
 const PAGEFIND_BIN = path.join(REPO, 'node_modules', '.bin', 'pagefind');
+/** Langues du site : chacune doit figurer dans l'index. */
+const SITE_LANGUAGES = ['fr', 'nl', 'en', 'de'];
+/**
+ * Pages minimales par langue. Mesure du 2026-09-11 : fr 146, nl 144, de 144,
+ * en 478 (les archives du digest déclarent toutes lang="en"). Un build qui ne
+ * rend qu'une partie des routes tombe bien en dessous.
+ */
+const MIN_PAGES_PER_LANGUAGE = 100;
 /** En dessous de cette part des pages actuelles, l'index frais est jugé anormal. */
 const MIN_PAGE_RATIO = 0.5;
+const ALLOW_SHRINK = process.env.PAGEFIND_ALLOW_SHRINK === '1';
+
+class BuildError extends Error {}
 
 function fail(message) {
-  console.error(`pagefind-build : ERREUR : ${message}`);
-  console.error('pagefind-build : public/pagefind/ laissé intact.');
-  process.exit(1);
+  throw new BuildError(message);
 }
 
+/** Refuse tout lien symbolique : une copie à travers un lien écrirait hors du dépôt. */
 function listFiles(dir) {
   const out = [];
   if (!fs.existsSync(dir)) return out;
   const walk = (d) => {
     for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
       const abs = path.join(d, entry.name);
+      if (entry.isSymbolicLink()) fail(`lien symbolique refusé : ${abs}`);
       if (entry.isDirectory()) walk(abs);
-      else out.push(path.relative(dir, abs));
+      else if (entry.isFile()) out.push(path.relative(dir, abs));
+      else fail(`entrée inattendue (ni fichier ni dossier) : ${abs}`);
     }
   };
   walk(dir);
   return out.sort();
 }
 
-function totalPages(entryPath) {
+function pagesByLanguage(entryPath) {
   const entry = JSON.parse(fs.readFileSync(entryPath, 'utf8'));
-  const languages = Object.values(entry.languages ?? {});
-  return languages.reduce((n, l) => n + (Number(l.page_count) || 0), 0);
+  const out = {};
+  for (const [lang, info] of Object.entries(entry.languages ?? {})) out[lang] = Number(info.page_count) || 0;
+  return out;
 }
 
-// Garde de confinement : ce script ne supprime que dans public/pagefind/ du dépôt.
-if (!TARGET.startsWith(path.join(REPO, 'public') + path.sep)) fail(`cible inattendue ${TARGET}`);
-if (!fs.existsSync(SITE)) fail(`${SITE} introuvable : lancer next build avant.`);
+const total = (byLang) => Object.values(byLang).reduce((n, c) => n + c, 0);
 
-const fresh = fs.mkdtempSync(path.join(os.tmpdir(), 'pagefind-'));
-try {
-  const run = spawnSync(PAGEFIND_BIN, ['--site', SITE, '--output-path', fresh], { stdio: 'inherit' });
-  if (run.status !== 0) fail(`pagefind a échoué (code ${run.status}).`);
+/**
+ * Garde de confinement : ce script ne supprime que dans public/pagefind/ du
+ * dépôt, sans lien symbolique sur le chemin.
+ */
+function assertTargetContained() {
+  for (const p of [PUBLIC, TARGET]) {
+    if (!fs.existsSync(p)) continue;
+    if (fs.lstatSync(p).isSymbolicLink()) fail(`${p} est un lien symbolique.`);
+    if (fs.realpathSync(p) !== p) fail(`${p} ne se résout pas sur lui-même.`);
+  }
+  if (!TARGET.startsWith(PUBLIC + path.sep)) fail(`cible inattendue ${TARGET}`);
+}
 
-  // Validation de l'index frais avant de toucher à quoi que ce soit.
-  const freshEntry = path.join(fresh, 'pagefind-entry.json');
-  if (!fs.existsSync(freshEntry)) fail('pagefind-entry.json absent de la sortie.');
+function validateFresh(fresh) {
+  const freshEntry = path.join(fresh, ENTRY);
+  if (!fs.existsSync(freshEntry)) fail(`${ENTRY} absent de la sortie.`);
   if (!fs.existsSync(path.join(fresh, 'pagefind.js'))) fail('pagefind.js absent de la sortie.');
-  const freshPages = totalPages(freshEntry);
-  if (freshPages === 0) fail("l'index frais ne contient aucune page.");
+  const byLang = pagesByLanguage(freshEntry);
+  if (total(byLang) === 0) fail("l'index frais ne contient aucune page.");
+  if (ALLOW_SHRINK) return byLang;
 
-  const currentEntry = path.join(TARGET, 'pagefind-entry.json');
-  if (fs.existsSync(currentEntry) && process.env.PAGEFIND_ALLOW_SHRINK !== '1') {
-    const currentPages = totalPages(currentEntry);
-    if (freshPages < currentPages * MIN_PAGE_RATIO) {
+  const short = SITE_LANGUAGES.filter((l) => (byLang[l] ?? 0) < MIN_PAGES_PER_LANGUAGE);
+  if (short.length > 0) {
+    const detail = short.map((l) => `${l} ${byLang[l] ?? 0}`).join(', ');
+    fail(
+      `pages insuffisantes pour ${detail} (plancher ${MIN_PAGES_PER_LANGUAGE} par langue). ` +
+        'Build probablement incomplet. PAGEFIND_ALLOW_SHRINK=1 si la réduction est voulue.',
+    );
+  }
+
+  const currentEntry = path.join(TARGET, ENTRY);
+  if (fs.existsSync(currentEntry)) {
+    const currentPages = total(pagesByLanguage(currentEntry));
+    if (total(byLang) < currentPages * MIN_PAGE_RATIO) {
       fail(
-        `index frais de ${freshPages} pages contre ${currentPages} actuellement. ` +
+        `index frais de ${total(byLang)} pages contre ${currentPages} actuellement. ` +
           'Build probablement incomplet. PAGEFIND_ALLOW_SHRINK=1 si la réduction est voulue.',
       );
     }
   }
+  return byLang;
+}
 
-  // Synchronisation : ajouter ou mettre à jour ce qui est produit, retirer le reste.
-  const keep = new Set(listFiles(fresh));
-  let removed = 0;
-  let written = 0;
+function sync(fresh) {
+  const keep = listFiles(fresh);
+  const keepSet = new Set(keep);
+  const existing = listFiles(TARGET);
   fs.mkdirSync(TARGET, { recursive: true });
-  for (const rel of listFiles(TARGET)) {
-    if (keep.has(rel)) continue;
-    fs.rmSync(path.join(TARGET, rel));
-    removed++;
-  }
-  for (const rel of keep) {
+
+  let written = 0;
+  const copy = (rel) => {
     const src = path.join(fresh, rel);
     const dst = path.join(TARGET, rel);
-    const same = fs.existsSync(dst) && fs.readFileSync(src).equals(fs.readFileSync(dst));
-    if (same) continue;
+    if (fs.existsSync(dst) && fs.readFileSync(src).equals(fs.readFileSync(dst))) return;
     fs.mkdirSync(path.dirname(dst), { recursive: true });
     fs.copyFileSync(src, dst);
     written++;
+  };
+  // 1. Tout sauf l'entrée : l'ancienne entrée ne référence encore que des fichiers présents.
+  for (const rel of keep) if (rel !== ENTRY) copy(rel);
+  // 2. L'entrée, qui bascule l'index.
+  copy(ENTRY);
+  // 3. Seulement maintenant, les fichiers que plus rien ne référence.
+  let removed = 0;
+  for (const rel of existing) {
+    if (keepSet.has(rel)) continue;
+    fs.rmSync(path.join(TARGET, rel));
+    removed++;
   }
-  // Dossiers devenus vides après retrait (du plus profond au plus haut).
+  // 4. Dossiers devenus vides (du plus profond au plus haut).
   const dirs = [];
   const collect = (d) => {
     for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
@@ -118,11 +171,36 @@ try {
   };
   collect(TARGET);
   for (const d of dirs) if (fs.readdirSync(d).length === 0) fs.rmdirSync(d);
+  return { files: keep.length, written, removed };
+}
 
-  console.log(
-    `pagefind-build : ${keep.size} fichier(s) dans l'index (${freshPages} pages), ` +
-      `${written} écrit(s), ${removed} périmé(s) retiré(s).`,
-  );
-} finally {
-  fs.rmSync(fresh, { recursive: true, force: true });
+function main() {
+  assertTargetContained();
+  if (!fs.existsSync(SITE)) fail(`${SITE} introuvable : lancer next build avant.`);
+
+  const fresh = fs.mkdtempSync(path.join(os.tmpdir(), 'pagefind-'));
+  try {
+    const run = spawnSync(PAGEFIND_BIN, ['--site', SITE, '--output-path', fresh], { stdio: 'inherit' });
+    if (run.status !== 0) fail(`pagefind a échoué (${run.error ? run.error.message : `code ${run.status}`}).`);
+    const byLang = validateFresh(fresh);
+    const { files, written, removed } = sync(fresh);
+    const detail = Object.entries(byLang)
+      .map(([l, c]) => `${l} ${c}`)
+      .join(', ');
+    console.log(
+      `pagefind-build : ${files} fichier(s) dans l'index (${total(byLang)} pages : ${detail}), ` +
+        `${written} écrit(s), ${removed} périmé(s) retiré(s).`,
+    );
+  } finally {
+    fs.rmSync(fresh, { recursive: true, force: true });
+  }
+}
+
+try {
+  main();
+} catch (err) {
+  if (!(err instanceof BuildError)) throw err;
+  console.error(`pagefind-build : ERREUR : ${err.message}`);
+  console.error('pagefind-build : public/pagefind/ laissé intact.');
+  process.exitCode = 1;
 }

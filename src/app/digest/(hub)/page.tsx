@@ -87,6 +87,7 @@ export default function DigestIndexPage() {
   }
 
   const [year, weekNum] = latestWeek.split('-w');
+  const soon = digestLanguages.filter((l) => !availableLangs.includes(l.code));
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
@@ -96,8 +97,8 @@ export default function DigestIndexPage() {
         </h1>
         <p className="mt-2 text-sm text-neutral-600">
           Weekly summary of Brussels governance, available in{' '}
-          {digestLanguages.length} languages. Choose your language below to read
-          the latest edition.
+          {digestLanguages.filter((l) => availableLangs.includes(l.code)).length} languages.
+          Choose your language below to read the latest edition.
         </p>
       </div>
 
@@ -120,6 +121,7 @@ export default function DigestIndexPage() {
                 <a
                   key={code}
                   href={`/digest/${code}/${year}/w${weekNum}`}
+                  lang={code}
                   className="rounded-md border border-brand-700 bg-brand-900 px-3 py-1.5 text-sm font-medium text-neutral-50 hover:bg-brand-800"
                 >
                   {lang.native_name}
@@ -129,41 +131,54 @@ export default function DigestIndexPage() {
           </div>
         </div>
 
-        {/* All languages by group */}
-        {groups.map((group) => (
-          <div key={group.label} className="mb-6">
-            <p className="mb-2 text-xs font-medium uppercase tracking-wider text-neutral-500">
-              {group.label}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {group.languages.map((lang) => {
-                const isVerified = ['fr', 'nl', 'en', 'de'].includes(lang.code);
-                if (isVerified) return null;
-                const isAvailable = availableLangs.includes(lang.code);
-                if (!isAvailable) {
-                  return (
-                    <span
-                      key={lang.code}
-                      className="rounded-md border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-500"
-                      title={`${lang.name} — coming soon`}
-                    >
-                      {lang.native_name}
-                    </span>
-                  );
-                }
-                return (
+        {/* Available languages by group. Languages without an edition are listed
+            once, below, under a visible heading: a greyed pill with a title
+            attribute was the only hint, invisible to touch, keyboard and
+            screen readers. */}
+        {groups.map((group) => {
+          const available = group.languages.filter(
+            (lang) => !['fr', 'nl', 'en', 'de'].includes(lang.code) && availableLangs.includes(lang.code),
+          );
+          if (available.length === 0) return null;
+          return (
+            <div key={group.label} className="mb-6">
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-neutral-500">
+                {group.label}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {available.map((lang) => (
                   <a
                     key={lang.code}
                     href={`/digest/${lang.code}/${year}/w${weekNum}`}
-                    className="rounded-md border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-700 hover:border-brand-700 hover:text-brand-900"
+                    lang={lang.code}
+                    dir={lang.rtl ? 'rtl' : undefined}
+                    className="rounded-md border border-neutral-300 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-800 hover:border-brand-700 hover:text-brand-900"
                   >
                     {lang.native_name}
                   </a>
-                );
-              })}
+                ))}
+              </div>
             </div>
+          );
+        })}
+
+        {soon.length > 0 && (
+          <div className="mb-6">
+            <h3 className="mb-2 text-xs font-medium uppercase tracking-wider text-neutral-500">
+              Coming soon ({soon.length} languages)
+            </h3>
+            <p className="text-sm text-neutral-600">
+              {soon.map((lang, i) => (
+                <span key={lang.code}>
+                  <span lang={lang.code} dir={lang.rtl ? 'rtl' : undefined}>
+                    {lang.native_name}
+                  </span>
+                  {i < soon.length - 1 ? ' · ' : ''}
+                </span>
+              ))}
+            </p>
           </div>
-        ))}
+        )}
       </section>
 
       {/* Previous editions */}

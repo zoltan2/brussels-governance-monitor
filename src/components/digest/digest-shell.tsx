@@ -102,7 +102,7 @@ export function DigestShell({
             </div>
           </header>
 
-          <main id="digest-content" className="flex-1">{children}</main>
+          <main id="digest-content" className="flex-1" data-pagefind-body={indexed ? '' : undefined}>{children}</main>
 
           <footer lang={chromeLang} dir={chromeDir} className="border-t border-neutral-200 bg-neutral-50">
             <div className="mx-auto max-w-3xl px-4 py-6 text-center">

@@ -12,6 +12,13 @@ import { DensityProvider } from '@/components/dossier/density/density-context';
 import { DensityToggle } from '@/components/dossier/density/density-toggle';
 import { ScrollyHeader } from '@/components/dossier/scrolly/scrolly-header';
 
+/**
+ * Seules les combinaisons générées existent. Sans cette ligne, un slug hors
+ * allowlist (/fr/dossiers/metro-3/scrolly) était rendu à la demande et
+ * répondait 500 au lieu de 404 (constaté en production le 2026-09-11).
+ */
+export const dynamicParams = false;
+
 interface ScrollyPageParams {
   locale: string;
   slug: string;

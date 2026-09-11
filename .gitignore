@@ -134,3 +134,9 @@ quiz-generation-log.json
 # Chat usage logs (not committed)
 logs/
 .quiz-pending/
+
+# Index de recherche Pagefind : généré par `npm run build`, et par l'image Docker
+# au déploiement. Plus suivi par git depuis le 2026-09-11 : sur Hetzner, la
+# production sert l'index construit dans l'image, jamais une copie commitée
+# (147 fichiers commités répondaient 404 en ligne, empreintes différentes).
+/public/pagefind/

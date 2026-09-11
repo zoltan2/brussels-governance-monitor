@@ -346,20 +346,20 @@ describe('requiredChecksFor', () => {
     expect(requiredChecksFor(['data/radar.json'])).toEqual(['Lint, Typecheck & Build']);
   });
 
-  it('ajoute les trois contrôles conditionnels dès qu\'il y a du contenu', () => {
+  it('ajoute les deux contrôles conditionnels dès qu\'il y a du contenu', () => {
     expect(requiredChecksFor(['content/domain-cards/x.fr.mdx'])).toEqual([
       'Lint, Typecheck & Build',
       'Editorial content checks',
       'Quiz pool checks',
-      'Pagefind index up to date',
     ]);
   });
 
-  it('exige pagefind sans le contrôle éditorial pour une traduction seule', () => {
-    expect(requiredChecksFor(['messages/fr.json'])).toEqual([
-      'Lint, Typecheck & Build',
-      'Pagefind index up to date',
-    ]);
+  it("n'exige plus le contrôle Pagefind, retiré avec l'index commité le 2026-09-11", () => {
+    // Le workflow pagefind-freshness.yml n'existe plus : l'exiger bloquerait
+    // à vie toute fusion depuis /fr/admin, faute de contrôle qui tourne.
+    expect(requiredChecksFor(['content/dossiers/x.fr.mdx'])).not.toContain('Pagefind index up to date');
+    expect(requiredChecksFor(['messages/fr.json'])).toEqual(['Lint, Typecheck & Build']);
+    expect(requiredChecksFor(['velite.config.ts'])).toEqual(['Lint, Typecheck & Build']);
   });
 });
 

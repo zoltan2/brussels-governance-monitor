@@ -312,7 +312,7 @@ export async function getPrFiles(number: number): Promise<PrFiles> {
  * `check-runs`. Relevés le 2026-08-11 dans `.github/workflows/`. Si un
  * workflow est renommé, cette liste doit suivre.
  *
- * Trois des quatre sont conditionnés par `paths:` : les exiger toujours
+ * Deux des trois sont conditionnés par `paths:` : les exiger toujours
  * bloquerait une veille qui ne touche pas ces chemins. « Editorial content
  * checks » et « Quiz pool checks » partagent le même déclencheur, donc la
  * même branche conditionnelle : ce sont les deux jobs d'un même workflow,
@@ -321,7 +321,10 @@ export async function getPrFiles(number: number): Promise<PrFiles> {
 const CHECK_ALWAYS = 'Lint, Typecheck & Build'; // ci.yml, aucun filtre de chemin
 const CHECK_CONTENT = 'Editorial content checks'; // content-lint.yml, job content-lint
 const CHECK_QUIZ = 'Quiz pool checks'; // content-lint.yml, job quiz-lint
-const CHECK_PAGEFIND = 'Pagefind index up to date'; // pagefind-freshness.yml
+// « Pagefind index up to date » (pagefind-freshness.yml) n'est plus exigé : le
+// workflow a été retiré le 2026-09-11 avec l'index commité. La production sert
+// l'index construit dans l'image Docker, jamais celui du dépôt (147 fichiers
+// commités répondaient 404 en ligne). L'exiger bloquerait toute fusion.
 
 /** Contrôles requis pour CE jeu de fichiers, selon les filtres `paths:`. */
 export function requiredChecksFor(paths: string[]): string[] {
@@ -341,17 +344,6 @@ export function requiredChecksFor(paths: string[]): string[] {
     required.push(CHECK_CONTENT, CHECK_QUIZ);
   }
 
-  if (
-    paths.some(
-      (p) =>
-        p.startsWith('content/') ||
-        /^messages\/[^/]+\.json$/.test(p) ||
-        p === 'velite.config.ts' ||
-        p.startsWith('public/pagefind/'),
-    )
-  ) {
-    required.push(CHECK_PAGEFIND);
-  }
 
   return required;
 }

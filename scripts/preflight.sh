@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# Garde-fou local AVANT push. Miroir de deux checks CI qui, sinon, ne tombent
-# qu'après coup (et restent rouges sur main) :
-#   - Content Lint     (.github/workflows/content-lint.yml) : phrases temporelles + sources vides
-#   - Pagefind freshness (.github/workflows/pagefind-freshness.yml) : index régénéré avec le contenu
+# Garde-fou local AVANT push. Miroir des checks CI de content-lint.yml, qui
+# sinon ne tombent qu'après coup (et restent rouges sur main) : phrases
+# temporelles, sources vides, relecture et unicité des FAQ, liens internes.
+#
+# Le contrôle de fraîcheur de l'index Pagefind a été retiré le 2026-09-11 :
+# public/pagefind/ n'est plus suivi par git, l'image Docker génère l'index au
+# déploiement (la production n'a jamais servi la copie commitée sur Hetzner).
 #
 # Les checks éditoriaux ne sont PLUS réimplémentés ici : ils viennent de
 # scripts/content-lint/lib.sh, source unique partagée avec la CI. Une garde
@@ -70,20 +73,11 @@ if [ -n "$CHANGED_MDX" ] || printf '%s\n' "$CHANGED_ALL" | grep -q '^src/i18n/ro
   npx tsx scripts/content-lint/internal-links.ts || rc=1
 fi
 
-# 3) Pagefind freshness : contenu indexable modifié => public/pagefind/ doit l'être aussi
-CONTENT_T="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^(content/|messages/[^/]+\.json$|velite\.config\.ts$)' | grep -v '^content/digest/__fixtures__/' || true)"
-PF_T="$(printf '%s\n' "$CHANGED_ALL" | grep -E '^public/pagefind/' || true)"
-if [ -n "$CONTENT_T" ] && [ -z "$PF_T" ]; then
-  echo "❌ Pagefind : contenu indexable modifié sans rebuild de public/pagefind/."
-  echo "     → npm run build && git add -A public/pagefind/   (le build retire lui-même les fichiers périmés)"
-  rc=1
-fi
-
 if [ "$rc" != 0 ]; then
   echo ""
   echo "preflight a bloqué le push. Corrige les points ci-dessus,"
   echo "ou bypass ponctuel : SKIP_PREFLIGHT=1 git push   (ou git push --no-verify)"
 else
-  echo "preflight: OK (content-lint + pagefind)"
+  echo "preflight: OK (content-lint)"
 fi
 exit "$rc"

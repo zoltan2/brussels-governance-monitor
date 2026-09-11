@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Metadata } from 'next';
-import digestLanguages from '../../../config/digest-languages.json';
+import digestLanguages from '../../../../config/digest-languages.json';
 import {
   getAllDigestWeeks,
   getAllDigestLangs,

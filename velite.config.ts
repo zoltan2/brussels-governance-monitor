@@ -160,6 +160,9 @@ const domainCards = defineCollection({
       // au schéma pour ne pas casser une fiche en cours de rédaction ; c'est le
       // lint, pas Velite, qui traite l'absence comme une dette.
       summaryReviewed: s.isodate().optional(),
+      // Date de relecture de la FAQ, exigée à chaque republication par
+      // scripts/content-lint/faq-check.ts. Voir src/lib/faq-review.ts.
+      faqReviewed: s.isodate().optional(),
       sectors: s.array(s.string()).default([]),
       sources: s.array(sourceSchema),
       confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']),
@@ -592,6 +595,9 @@ const dossierCards = defineCollection({
       // au schéma pour ne pas casser une fiche en cours de rédaction ; c'est le
       // lint, pas Velite, qui traite l'absence comme une dette.
       summaryReviewed: s.isodate().optional(),
+      // Date de relecture de la FAQ, exigée à chaque republication par
+      // scripts/content-lint/faq-check.ts. Voir src/lib/faq-review.ts.
+      faqReviewed: s.isodate().optional(),
       estimatedBudget: budgetSchema.optional(),
       estimatedCostOfInaction: budgetSchema.optional(),
       stakeholders: s.array(s.string()).default([]),

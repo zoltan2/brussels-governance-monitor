@@ -16,6 +16,7 @@ export interface DomainCard {
   summary: string;
   /** Date de dernière relecture du chapeau. Voir src/lib/summary-freshness.ts. */
   summaryReviewed?: string;
+  faqReviewed?: string;
   sectors: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
@@ -214,6 +215,7 @@ export interface DossierCard {
   summary: string;
   /** Date de dernière relecture du chapeau. Voir src/lib/summary-freshness.ts. */
   summaryReviewed?: string;
+  faqReviewed?: string;
   estimatedBudget?: BudgetValue;
   estimatedCostOfInaction?: BudgetValue;
   stakeholders: string[];

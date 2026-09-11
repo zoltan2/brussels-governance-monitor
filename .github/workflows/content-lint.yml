@@ -12,6 +12,7 @@ on:
       # motifs, un refactor du module ou du workflow passait sans être exercé
       # une seule fois par sa propre PR.
       - 'scripts/content-lint/**'
+      - 'src/lib/faq-review.ts'
       - '.github/workflows/content-lint.yml'
 
 jobs:
@@ -75,6 +76,19 @@ jobs:
             echo "No MDX files changed, skipping"; exit 0
           fi
           npx tsx scripts/content-lint/summary-freshness.ts /tmp/changed_content.txt
+
+      # La FAQ vieillissait derrière le corps des fiches : sur les douze veilles
+      # précédant le 2026-09-11, 35 fiches à FAQ ont été republiées et la FAQ n'a
+      # été touchée que deux fois. Le 2026-09-10, la FAQ LEZ de `mobility`
+      # contredisait le corps de la fiche le jour même. Toute fiche domaine ou
+      # dossier republiée doit donc porter `faqReviewed` au moins égal à sa
+      # `lastModified`, qu'elle ait une FAQ ou non. L'unicité des questions est
+      # vérifiée sur tout le dépôt : une question, une seule fiche, par langue.
+      # Le label suspend la relecture, jamais l'unicité.
+      - name: FAQ relue et questions uniques
+        env:
+          SKIP_FAQ_REVIEW: ${{ contains(github.event.pull_request.labels.*.name, 'skip-faq-check') && '1' || '0' }}
+        run: npx tsx scripts/content-lint/faq-check.ts /tmp/changed_content.txt
 
   quiz-lint:
     name: Quiz pool checks

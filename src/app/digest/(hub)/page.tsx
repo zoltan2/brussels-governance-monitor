@@ -6,6 +6,7 @@ import digestLanguages from '../../../../config/digest-languages.json';
 import {
   getAllDigestWeeks,
   getAllDigestLangs,
+  getDigestEntry,
   getLatestDigestWeek,
 } from '@/lib/content';
 
@@ -72,7 +73,12 @@ function groupLanguages(): LanguageGroup[] {
 export default function DigestIndexPage() {
   const latestWeek = getLatestDigestWeek();
   const allWeeks = getAllDigestWeeks();
-  const availableLangs = getAllDigestLangs();
+  // Les pastilles mènent à la dernière édition : une langue n'est « disponible »
+  // que si cette édition existe dans sa langue. Sinon la page affiche le
+  // français (repli), et l'annonce comptait 78 langues pour 11 éditions réelles.
+  const availableLangs = latestWeek
+    ? getAllDigestLangs().filter((code) => getDigestEntry(latestWeek, code)?.isFallback === false)
+    : [];
   const groups = groupLanguages();
 
   if (!latestWeek) {
@@ -165,7 +171,7 @@ export default function DigestIndexPage() {
         {soon.length > 0 && (
           <div className="mb-6">
             <h3 className="mb-2 text-xs font-medium uppercase tracking-wider text-neutral-500">
-              Coming soon ({soon.length} languages)
+              Not yet available for this edition ({soon.length} languages)
             </h3>
             <p className="text-sm text-neutral-600">
               {soon.map((lang, i) => (

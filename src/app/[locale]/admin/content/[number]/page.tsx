@@ -20,6 +20,7 @@ import { ChainStateBanner } from '@/components/admin/content/chain-state';
 import { ContentChanges } from '@/components/admin/content/content-changes';
 import { ActionBar } from '@/components/admin/content/action-bar';
 import { Published } from '@/components/admin/content/published';
+import { editorialPrBody } from '@/lib/pr-body';
 
 export const dynamic = 'force-dynamic';
 
@@ -193,9 +194,9 @@ export default async function ContentDecisionPage({
       )}
 
       <section className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
-        <h2 className="sr-only">Description de la veille</h2>
+        <h2 className="sr-only">Description de la PR</h2>
         <p className="whitespace-pre-line text-base leading-relaxed text-neutral-900">
-          {data.pr.body}
+          {editorialPrBody(data.pr.body)}
         </p>
       </section>
 

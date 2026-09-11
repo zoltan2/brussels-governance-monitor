@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, expect, it } from 'vitest';
+import { FrontmatterError } from './frontmatter';
 import {
   checkFaqReview,
   extractFaqQuestions,
@@ -48,6 +49,16 @@ describe('checkFaqReview', () => {
   it('accepte une FAQ relue après la republication', () => {
     const r = checkFaqReview({ lastModified: '2026-09-10', faqReviewed: '2026-09-11' });
     expect(r.verdict).toBe('ok');
+  });
+
+  it('refuse une date de relecture postérieure à demain, et tolère demain (fuseau)', () => {
+    // La date atteste une relecture faite. La CI tourne en UTC : entre 22 h et
+    // minuit à Bruxelles, la date locale a un jour d'avance, d'où la marge.
+    const today = '2026-09-11';
+    expect(checkFaqReview({ lastModified: '2026-09-10', faqReviewed: '2026-09-12', today }).verdict).toBe('ok');
+    const r = checkFaqReview({ lastModified: '2026-09-10', faqReviewed: '2026-09-13', today });
+    expect(r.verdict).toBe('future');
+    expect(r.reason).toContain('futur');
   });
 
   it("refuse une FAQ relue ne serait-ce qu'un jour avant la republication", () => {
@@ -131,7 +142,34 @@ describe('extractFaqQuestions', () => {
   });
 });
 
+describe('extractFaqQuestions, parseur YAML', () => {
+  it('lit une question écrite en bloc replié', () => {
+    const file = ['---', 'faq:', '  - q: >-', '      Question sur', '      deux lignes ?', '    a: "R."', '---', ''].join('\n');
+    expect(extractFaqQuestions(file)).toEqual(['Question sur deux lignes ?']);
+  });
+
+  it('lève sur une clé dupliquée plutôt que de choisir en silence', () => {
+    // La lecture ligne à ligne retenait la première, Velite retient la dernière.
+    const file = ['---', 'faqReviewed: "2026-09-01"', 'faqReviewed: "2026-09-11"', '---', ''].join('\n');
+    expect(() => extractFaqQuestions(file)).toThrow(FrontmatterError);
+  });
+
+  it('lève sur un frontmatter YAML invalide', () => {
+    const file = ['---', 'faq:', '  - q: "non fermée', '---', ''].join('\n');
+    expect(() => extractFaqQuestions(file)).toThrow(/illisible/);
+  });
+});
+
 describe('findQuestionCollisions', () => {
+  it('signale une question répétée dans une même fiche', () => {
+    const collisions = findQuestionCollisions([
+      { slug: 'lez', locale: 'fr', questions: ['Où acheter un pass LEZ ?', 'Où acheter un pass LEZ ?'] },
+    ]);
+    expect(collisions).toHaveLength(1);
+    expect(collisions[0]!.slugs).toEqual(['lez']);
+    expect(collisions[0]!.count).toBe(2);
+  });
+
   it('signale une même question portée par deux fiches dans la même langue', () => {
     const collisions = findQuestionCollisions([
       { slug: 'lez', locale: 'fr', questions: ["Qu'est-ce que la zone de basses émissions (LEZ) à Bruxelles ?"] },

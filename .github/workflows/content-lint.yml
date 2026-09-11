@@ -13,6 +13,10 @@ on:
       # une seule fois par sa propre PR.
       - 'scripts/content-lint/**'
       - 'src/lib/faq-review.ts'
+      # readFrontmatterScalar (faq-check) et la fraîcheur des chapeaux vivent
+      # ici ; le schéma Velite décide des champs que ces gardes lisent.
+      - 'src/lib/summary-freshness.ts'
+      - 'velite.config.ts'
       # Un changement de la table de routage peut casser des liens dans des
       # fiches que la PR ne touche pas : il doit relancer le contrôle des liens.
       - 'src/lib/internal-links.ts'
@@ -39,7 +43,9 @@ jobs:
 
       - name: Get changed content files
         run: |
-          git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'content/' \
+          # core.quotepath=off : sans lui, git cite un chemin accentué entre
+          # guillemets avec des échappements octaux, et le fichier n'est plus trouvé.
+          git -c core.quotepath=off diff --name-only origin/${{ github.base_ref }}...HEAD -- 'content/' \
             | grep '\.mdx$' > /tmp/changed_content.txt || true
           echo "Changed MDX files:"
           cat /tmp/changed_content.txt

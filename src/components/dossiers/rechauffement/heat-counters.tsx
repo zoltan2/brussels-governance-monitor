@@ -15,7 +15,7 @@ const COUNTERS_CAPTION_ID = 'rechauffement-heat-counters-caption';
 
 /** Libelles du titre de la section compteurs, par locale */
 const COUNTERS_CAPTION: Record<Locale, string> = {
-  fr: 'Chiffres cles - chaleur urbaine a Bruxelles',
+  fr: 'Chiffres clés : chaleur urbaine à Bruxelles',
   nl: 'Kerncijfers - stedelijke hitte in Brussel',
   en: 'Key figures - urban heat in Brussels',
   de: 'Kennzahlen - städtische Hitze in Brüssel',
@@ -23,7 +23,7 @@ const COUNTERS_CAPTION: Record<Locale, string> = {
 
 /** Libelle aria de la liste des communes, par locale */
 const COMMUNES_ARIA: Record<Locale, string> = {
-  fr: 'Communes les plus exposees a la chaleur',
+  fr: 'Communes les plus exposées à la chaleur',
   nl: 'Gemeenten met de hoogste hitte-blootstelling',
   en: 'Municipalities most exposed to heat',
   de: 'Am stärksten hitzebelastete Gemeinden',
@@ -31,7 +31,7 @@ const COMMUNES_ARIA: Record<Locale, string> = {
 
 /** Libelle aria densite dans la barre, par locale */
 const DENSITE_ARIA_PREFIX: Record<Locale, string> = {
-  fr: 'Densite de',
+  fr: 'Densité de',
   nl: 'Dichtheid van',
   en: 'Density of',
   de: 'Dichte von',

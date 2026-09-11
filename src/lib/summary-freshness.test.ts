@@ -9,6 +9,11 @@ import {
 } from './summary-freshness';
 
 describe('checkSummaryFreshness', () => {
+  it('refuse une date de relecture postérieure à demain', () => {
+    const r = checkSummaryFreshness({ lastModified: '2026-09-10', summaryReviewed: '2026-09-20', today: '2026-09-11' });
+    expect(r.verdict).toBe('future');
+  });
+
   it('accepte un chapeau relu le jour même', () => {
     const r = checkSummaryFreshness({
       lastModified: '2026-08-30',
@@ -136,6 +141,16 @@ describe('readFrontmatterScalar', () => {
 
   it('renvoie undefined sur un fichier sans frontmatter', () => {
     expect(readFrontmatterScalar('# Titre\n\ntexte', 'summaryReviewed')).toBeUndefined();
+  });
+
+  it('lit une date non guillemetée comme une chaîne, pas comme une Date', () => {
+    const f = ['---', 'lastModified: 2026-09-10', '---', ''].join('\n');
+    expect(readFrontmatterScalar(f, 'lastModified')).toBe('2026-09-10');
+  });
+
+  it('lève sur une clé dupliquée', () => {
+    const f = ['---', 'lastModified: "2026-09-01"', 'lastModified: "2026-09-10"', '---', ''].join('\n');
+    expect(() => readFrontmatterScalar(f, 'lastModified')).toThrow(/illisible/);
   });
 
   it('renvoie undefined sur une clé absente', () => {

@@ -31,7 +31,10 @@
 /** Au-delà de cet âge, un chapeau doit être relu avant d'être republié. */
 export const SUMMARY_MAX_AGE_DAYS = 90;
 
-export type SummaryVerdict = 'ok' | 'stale' | 'missing' | 'unparsable';
+import { isFuture } from './faq-review';
+import { readGuardFrontmatter } from './frontmatter';
+
+export type SummaryVerdict = 'ok' | 'stale' | 'missing' | 'unparsable' | 'future';
 
 export interface SummaryFreshness {
   verdict: SummaryVerdict;
@@ -58,6 +61,8 @@ export function checkSummaryFreshness(params: {
   lastModified: string | undefined;
   summaryReviewed: string | undefined;
   maxAgeDays?: number;
+  /** Date du jour AAAA-MM-JJ, injectable pour les tests. Défaut : aujourd'hui en UTC. */
+  today?: string;
 }): SummaryFreshness {
   const maxAge = params.maxAgeDays ?? SUMMARY_MAX_AGE_DAYS;
 
@@ -76,6 +81,14 @@ export function checkSummaryFreshness(params: {
       verdict: 'unparsable',
       ageDays: null,
       reason: `summaryReviewed illisible (${params.summaryReviewed}), format attendu AAAA-MM-JJ.`,
+    };
+  }
+
+  if (isFuture(reviewed, params.today)) {
+    return {
+      verdict: 'future',
+      ageDays: null,
+      reason: `summaryReviewed dans le futur (${params.summaryReviewed}). La date atteste une relecture faite : poser la date du jour.`,
     };
   }
 
@@ -111,19 +124,17 @@ export function checkSummaryFreshness(params: {
   return { verdict: 'ok', ageDays, reason: '' };
 }
 
-/** Extrait une clé scalaire du frontmatter YAML, sans dépendance de parsing. */
+/**
+ * Valeur d'une clé de premier niveau du frontmatter, en chaîne. Undefined si
+ * le fichier n'a pas de frontmatter, si la clé est absente ou si sa valeur
+ * n'est pas un scalaire. Lève `FrontmatterError` sur un YAML invalide ou une
+ * clé dupliquée (voir `readGuardFrontmatter`).
+ */
 export function readFrontmatterScalar(fileContent: string, key: string): string | undefined {
-  const lines = fileContent.split('\n');
-  if (lines[0]?.trim() !== '---') return undefined;
-
-  for (let i = 1; i < lines.length; i++) {
-    const line = lines[i]!;
-    if (line.trim() === '---') break;
-    // Clé de premier niveau uniquement : une clé indentée appartient à un bloc
-    // imbriqué (sources, metrics, faq) et n'est pas celle qu'on cherche.
-    const match = line.match(/^([A-Za-z][A-Za-z0-9_]*):\s*(.*)$/);
-    if (!match || match[1] !== key) continue;
-    return match[2]!.trim().replace(/^["']|["']$/g, '');
-  }
+  const data = readGuardFrontmatter(fileContent);
+  if (!data || !Object.prototype.hasOwnProperty.call(data, key)) return undefined;
+  const value = data[key];
+  if (typeof value === 'string') return value.trim();
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value);
   return undefined;
 }

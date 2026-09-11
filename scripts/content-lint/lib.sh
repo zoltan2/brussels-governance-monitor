@@ -81,7 +81,9 @@ check_lastmodified() {
   if [ -n "$violations" ]; then
     echo "FAIL: lastModified non mis à jour :" >&2
     printf "%b\n" "$violations" >&2
-    echo "Mettre à jour lastModified à la date du jour, ou flag --skip-lastmodified." >&2
+    echo "Mettre à jour lastModified à la date du jour. Correctif sans republication : label" >&2
+    echo "skip-lastmodified-check posé À LA CRÉATION de la PR (après coup : fermer puis rouvrir)," >&2
+    echo "ou --skip-lastmodified en local." >&2
     return 1
   fi
   echo "OK: lastModified à jour"

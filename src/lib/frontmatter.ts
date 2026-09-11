@@ -38,4 +38,38 @@ export function matter(raw: string): ParsedFrontmatter {
   return { data, content: match[2] };
 }
 
+/**
+ * Frontmatter lu par les gardes éditoriales (FAQ, chapeau, lastModified).
+ *
+ * Un vrai parseur YAML plutôt qu'une expression régulière par ligne : la
+ * version ligne à ligne acceptait deux `faqReviewed` dans la même fiche (la
+ * première gagnait, Velite retient la dernière), manquait une question écrite
+ * en bloc `>-`, et lisait une clé mal indentée comme si elle était valide.
+ *
+ * Schéma JSON : les dates non guillemetées restent des chaînes, comme la CI
+ * les compare. Une clé dupliquée ou un YAML invalide lève
+ * `FrontmatterError` : une garde qui ne peut pas lire échoue, elle ne passe pas.
+ *
+ * @returns null si le fichier n'a pas de frontmatter.
+ */
+export class FrontmatterError extends Error {}
+
+export function readGuardFrontmatter(raw: string): Record<string, unknown> | null {
+  const input = raw.charCodeAt(0) === 0xfeff ? raw.slice(1) : raw;
+  const match = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(input);
+  if (!match) return null;
+  let parsed: unknown;
+  try {
+    parsed = yaml.load(match[1], { schema: yaml.JSON_SCHEMA });
+  } catch (err) {
+    const reason = err instanceof Error ? err.message.split('\n')[0] : String(err);
+    throw new FrontmatterError(`frontmatter YAML illisible : ${reason}`);
+  }
+  if (parsed === null || parsed === undefined) return {};
+  if (typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new FrontmatterError("frontmatter YAML illisible : ce n'est pas un dictionnaire de clés");
+  }
+  return parsed as Record<string, unknown>;
+}
+
 export default matter;

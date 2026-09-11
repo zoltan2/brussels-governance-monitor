@@ -28,7 +28,9 @@
  * sans tirer le runtime Next.js.
  */
 
-export type FaqReviewVerdict = 'ok' | 'stale' | 'missing' | 'unparsable';
+import { readGuardFrontmatter } from './frontmatter';
+
+export type FaqReviewVerdict = 'ok' | 'stale' | 'missing' | 'unparsable' | 'future';
 
 export interface FaqReview {
   verdict: FaqReviewVerdict;
@@ -45,12 +47,25 @@ function parseISODate(value: string): number | null {
 }
 
 /**
+ * Une date d'attestation postérieure à demain est une erreur de saisie ou une
+ * relecture promise, pas faite. Un jour de marge : la CI tourne en UTC, et
+ * entre 22 h et minuit à Bruxelles, la date locale a déjà un jour d'avance.
+ */
+export function isFuture(dateMs: number, today?: string): boolean {
+  const base = today ? parseISODate(today) : Date.parse(new Date().toISOString().slice(0, 10) + 'T00:00:00Z');
+  if (base === null || Number.isNaN(base)) return false;
+  return dateMs > base + 86_400_000;
+}
+
+/**
  * Compare la date de relecture de la FAQ à la `lastModified` de la fiche. La
  * relecture doit être le jour même de la republication ou après.
  */
 export function checkFaqReview(params: {
   lastModified: string | undefined;
   faqReviewed: string | undefined;
+  /** Date du jour AAAA-MM-JJ, injectable pour les tests. Défaut : aujourd'hui en UTC. */
+  today?: string;
 }): FaqReview {
   if (!params.faqReviewed) {
     return {
@@ -65,6 +80,13 @@ export function checkFaqReview(params: {
     return {
       verdict: 'unparsable',
       reason: `faqReviewed illisible (${params.faqReviewed}), format attendu AAAA-MM-JJ.`,
+    };
+  }
+
+  if (isFuture(reviewed, params.today)) {
+    return {
+      verdict: 'future',
+      reason: `faqReviewed dans le futur (${params.faqReviewed}). La date atteste une relecture faite : poser la date du jour.`,
     };
   }
 
@@ -107,39 +129,20 @@ export function normalizeQuestion(question: string): string {
     .trim();
 }
 
-function unquote(value: string): string {
-  const v = value.trim();
-  if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
-    return v.slice(1, -1);
-  }
-  return v;
-}
-
 /**
- * Lit les questions du bloc `faq:` du frontmatter, dans leur ordre, sans
- * dépendance de parsing YAML. Ne lit jamais au-delà du frontmatter : le corps
- * MDX peut contenir le motif « q: ».
+ * Questions du bloc `faq:` du frontmatter, dans leur ordre, lues par un vrai
+ * parseur YAML (voir `readGuardFrontmatter`) : une question en bloc `>-` ou
+ * une clé dupliquée ne passent plus inaperçues. Ne lit jamais le corps MDX.
+ * Lève `FrontmatterError` sur un frontmatter invalide.
  */
 export function extractFaqQuestions(fileContent: string): string[] {
-  const lines = fileContent.split('\n');
-  if (lines[0]?.trim() !== '---') return [];
-
+  const data = readGuardFrontmatter(fileContent);
+  const faq = data?.faq;
+  if (!Array.isArray(faq)) return [];
   const questions: string[] = [];
-  let inFaq = false;
-  for (let i = 1; i < lines.length; i++) {
-    const line = lines[i]!;
-    if (line.trim() === '---') break;
-
-    // Une clé de premier niveau ouvre ou ferme le bloc.
-    const topLevel = line.match(/^([A-Za-z][A-Za-z0-9_]*):/);
-    if (topLevel) {
-      inFaq = topLevel[1] === 'faq';
-      continue;
-    }
-    if (!inFaq) continue;
-
-    const q = line.match(/^\s*-\s+q:\s*(.+)$/);
-    if (q) questions.push(unquote(q[1]!));
+  for (const entry of faq) {
+    const q = entry && typeof entry === 'object' ? (entry as Record<string, unknown>).q : undefined;
+    if (typeof q === 'string' && q.trim()) questions.push(q.trim());
   }
   return questions;
 }
@@ -158,22 +161,28 @@ export interface QuestionCollision {
   question: string;
   /** Fiches qui portent la question, triées. */
   slugs: string[];
+  /** Nombre d'occurrences : plus que de fiches quand une fiche la répète. */
+  count: number;
 }
 
-/** Questions portées par au moins deux fiches différentes dans une même langue. */
+/**
+ * Questions posées deux fois dans une même langue : par deux fiches, ou deux
+ * fois par la même fiche (le JSON-LD FAQPage répéterait alors la question).
+ */
 export function findQuestionCollisions(cards: CardQuestions[]): QuestionCollision[] {
-  const byKey = new Map<string, { question: string; locale: string; key: string; slugs: Set<string> }>();
+  const byKey = new Map<string, { question: string; locale: string; key: string; slugs: Set<string>; count: number }>();
   for (const card of cards) {
     for (const question of card.questions) {
       const key = normalizeQuestion(question);
       const mapKey = `${card.locale}\u0000${key}`;
-      const entry = byKey.get(mapKey) ?? { question, locale: card.locale, key, slugs: new Set<string>() };
+      const entry = byKey.get(mapKey) ?? { question, locale: card.locale, key, slugs: new Set<string>(), count: 0 };
       entry.slugs.add(card.slug);
+      entry.count++;
       byKey.set(mapKey, entry);
     }
   }
   return [...byKey.values()]
-    .filter((e) => e.slugs.size > 1)
-    .map((e) => ({ locale: e.locale, key: e.key, question: e.question, slugs: [...e.slugs].sort() }))
+    .filter((e) => e.count > 1)
+    .map((e) => ({ locale: e.locale, key: e.key, question: e.question, slugs: [...e.slugs].sort(), count: e.count }))
     .sort((a, b) => a.locale.localeCompare(b.locale) || a.key.localeCompare(b.key));
 }

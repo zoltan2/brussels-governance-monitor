@@ -386,6 +386,45 @@ describe('getCheckState', () => {
     expect(state.total).toBe(3);
   });
 
+  it("rapporte les annotations d'échec, sans la ligne générique d'Actions", async () => {
+    globalThis.fetch = vi.fn(async (url: string) => {
+      if (String(url).includes('/check-runs/42/annotations')) {
+        return new Response(
+          JSON.stringify([
+            { annotation_level: 'failure', title: 'FAQ à relire', message: 'content/dossiers/lez.fr.mdx : faqReviewed absent.' },
+            { annotation_level: 'failure', title: null, message: 'Process completed with exit code 1.' },
+            { annotation_level: 'warning', title: 'x', message: 'avertissement ignoré' },
+          ]),
+          { status: 200 },
+        );
+      }
+      return new Response(
+        JSON.stringify({
+          check_runs: [{ id: 42, name: 'Editorial content checks', status: 'completed', conclusion: 'failure' }],
+        }),
+        { status: 200 },
+      );
+    }) as unknown as typeof fetch;
+
+    const state = await getCheckState('abc1234', ['content/dossiers/lez.fr.mdx']);
+    expect(state.failed).toEqual(['Editorial content checks']);
+    expect(state.failureNotes).toEqual(['FAQ à relire : content/dossiers/lez.fr.mdx : faqReviewed absent.']);
+  });
+
+  it('rend une liste de notes vide si les annotations sont illisibles, sans lever', async () => {
+    globalThis.fetch = vi.fn(async (url: string) => {
+      if (String(url).includes('/annotations')) return new Response('interdit', { status: 403 });
+      return new Response(
+        JSON.stringify({ check_runs: [{ id: 7, name: 'Editorial content checks', status: 'completed', conclusion: 'failure' }] }),
+        { status: 200 },
+      );
+    }) as unknown as typeof fetch;
+
+    const state = await getCheckState('abc1234', ['content/x.fr.mdx']);
+    expect(state.failed).toEqual(['Editorial content checks']);
+    expect(state.failureNotes).toEqual([]);
+  });
+
   it('compte « neutral » et « skipped » comme réussis, pas comme échecs', async () => {
     globalThis.fetch = vi.fn(
       async () =>

@@ -15,7 +15,6 @@
 export const ALLOWED_PREFIXES = [
   'content/',
   'messages/',
-  'public/pagefind/',
 ] as const;
 
 /**
@@ -33,30 +32,13 @@ export const ALLOWED_DATA_FILES = [
 /**
  * `.github/` est absent exprès : un workflow modifié s'exécuterait.
  *
- * Sous `public/pagefind/`, filtrer par EXTENSION ne marche pas : le dépôt y
- * contient six `.js` légitimes (`pagefind.js` et consorts), et
- * `src/components/search.tsx:53` fait `import('/pagefind/pagefind.js')` dès
- * qu'un visiteur ouvre la recherche. Autoriser `.js` laisserait donc servir
- * du JavaScript arbitraire depuis l'origine principale, sous une CSP
- * `script-src 'self'` parfaitement satisfaite. Les artefacts JS sont donc
- * nommés un par un.
+ * `public/pagefind/` aussi, depuis la PR #461 : l'index de recherche n'est
+ * plus suivi par git, l'image Docker le génère. Une PR qui y ajoute un
+ * fichier le force hors du `.gitignore`, ce qu'aucune veille ne fait. Le
+ * refuser ferme en même temps le risque d'un `.js` arbitraire servi depuis
+ * `/pagefind/`, que `src/components/search.tsx` importe à l'ouverture de la
+ * recherche.
  */
-const PAGEFIND_DATA = /\.(pf_fragment|pf_index|pf_meta)$/;
-// Les cinq `.pagefind` légitimes sont des binaires wasm, un par langue. Le
-// suffixe seul acceptait `evil.js.pagefind` : on nomme donc la forme entière.
-const PAGEFIND_WASM = /^public\/pagefind\/wasm\.[a-z_]+\.pagefind$/;
-const PAGEFIND_NAMED = new Set([
-  'public/pagefind/pagefind.js',
-  'public/pagefind/pagefind-ui.js',
-  'public/pagefind/pagefind-ui.css',
-  'public/pagefind/pagefind-modular-ui.js',
-  'public/pagefind/pagefind-modular-ui.css',
-  'public/pagefind/pagefind-component-ui.js',
-  'public/pagefind/pagefind-component-ui.css',
-  'public/pagefind/pagefind-highlight.js',
-  'public/pagefind/pagefind-worker.js',
-  'public/pagefind/pagefind-entry.json',
-]);
 
 /**
  * Message décrivant pourquoi cet ensemble est refusé, ou `null` s'il passe.
@@ -90,9 +72,6 @@ export function isMergeableFileSet(paths: string[]): boolean {
     // `messages/` sert des traductions JSON et rien d'autre : sans cette
     // restriction, `messages/evil.js` passait.
     if (p.startsWith('messages/') && !/^messages\/[^/]+\.json$/.test(p)) return false;
-    if (p.startsWith('public/pagefind/')) {
-      return PAGEFIND_DATA.test(p) || PAGEFIND_WASM.test(p) || PAGEFIND_NAMED.has(p);
-    }
     return true;
   });
 }

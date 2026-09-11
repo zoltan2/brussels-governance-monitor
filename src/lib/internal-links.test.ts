@@ -15,12 +15,15 @@ const PATHNAMES = {
   '/sectors/[slug]': { fr: '/secteurs/[slug]', nl: '/sectoren/[slug]', en: '/sectors/[slug]', de: '/sektoren/[slug]' },
   '/communes': { fr: '/communes', nl: '/gemeenten', en: '/municipalities', de: '/gemeinden' },
   '/dossiers/[slug]': '/dossiers/[slug]',
+  // Deux routes réelles qui partagent leur segment en français et en néerlandais.
+  '/explainers': { fr: '/comprendre', nl: '/begrijpen', en: '/explainers', de: '/erklaerungen' },
+  '/understand': { fr: '/comprendre', nl: '/begrijpen', en: '/understand', de: '/verstehen' },
 };
 
 describe('validSegmentsByLocale', () => {
   it('prend le premier segment localisé de chaque route, par langue', () => {
     const v = validSegmentsByLocale(PATHNAMES, LOCALES);
-    expect([...v.de!].sort()).toEqual(['bereiche', 'dossiers', 'gemeinden', 'sektoren']);
+    expect([...v.de!].sort()).toEqual(['bereiche', 'dossiers', 'erklaerungen', 'gemeinden', 'sektoren', 'verstehen']);
     expect(v.fr!.has('domaines')).toBe(true);
     expect(v.fr!.has('domains')).toBe(false);
   });
@@ -61,5 +64,15 @@ describe('findRouteMismatches', () => {
     const r = findRouteMismatches('ligne un\n\n[x](/fr/sectors/horeca)', PATHNAMES, LOCALES);
     expect(r[0]!.line).toBe(3);
     expect(r[0]!.suggestion).toBe('/fr/secteurs/horeca');
+  });
+
+  it('ne propose aucune correction pour un segment ambigu', () => {
+    // comprendre = explainers ET understand : pour /en/, les deux sont possibles.
+    const r = findRouteMismatches('[a](/en/comprendre) [b](/de/begrijpen/x)', PATHNAMES, LOCALES);
+    expect(r.map((m) => m.suggestion)).toEqual([null, null]);
+  });
+
+  it('accepte un segment partagé quand il est valide pour la langue du lien', () => {
+    expect(findRouteMismatches('[a](/fr/comprendre) [b](/nl/begrijpen)', PATHNAMES, LOCALES)).toEqual([]);
   });
 });

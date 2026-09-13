@@ -2,8 +2,8 @@
   "week": "2026-w37",
   "weekStart": "2026-09-07",
   "created_at": "2026-09-13T19:00:06.446Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "7 domaines, 10 dossiers, 1 secteur, 2 communes mis à jour",
     "nl": "7 domeinen, 10 dossiers, 1 sector, 2 gemeenten bijgewerkt",
@@ -53,5 +53,6 @@
     "housing-sector",
     "commune-bruxelles-ville",
     "commune-molenbeek-saint-jean"
-  ]
+  ],
+  "sent_at": "2026-09-13T20:05:36.854Z"
 }

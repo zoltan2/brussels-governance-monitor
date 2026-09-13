@@ -9,7 +9,7 @@ import { generateDigestApprovalToken, generateUnsubscribeToken } from '@/lib/tok
 import { collectDigestUpdates, generateSummaryLine } from '@/lib/digest-updates';
 import DigestPreviewEmail from '@/emails/digest-preview';
 import { isValidCronAuth } from '@/lib/cron-auth';
-import { resolveWeeklyNumber } from '@/lib/weekly-number';
+import { resolveWeeklyNumber, weeklyNumberForLocale } from '@/lib/weekly-number';
 
 /** Figure pinned ahead of the draft by the Sunday veille. Consumed on first use. */
 const PINNED_NUMBER_PATH = 'data/next-weekly-number.json';
@@ -281,11 +281,9 @@ export async function GET(request: Request) {
         weekOf,
         unsubscribeUrl,
         summaryLine: summaryFr,
-        weeklyNumber: {
-          value: weeklyNumberValue,
-          label: weeklyNumberLabel.fr,
-          source: weeklyNumberSource.fr,
-        },
+        // The resolved figure (human edit, pin or suggestion), never the raw
+        // suggestion: the preview must match what subscribers will receive.
+        weeklyNumber: weeklyNumberForLocale(pendingDigest.weeklyNumber, 'fr'),
         closingNote: pendingDigest.closingNote.fr,
         commitmentCount,
         siteUrl,

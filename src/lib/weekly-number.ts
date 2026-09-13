@@ -71,3 +71,20 @@ export function resolveWeeklyNumber(params: {
   // 3. Fall back to the automatic suggestion.
   return { weeklyNumber: suggested, origin: 'suggested', consumePin: false };
 }
+
+/**
+ * The figure as one email displays it, with the same French fallback as the
+ * send routes (`approve`, `approve-from-review`, `cron/digest`). The preview
+ * must read the *resolved* number: reading the suggestion instead made the
+ * preview show a figure the subscribers would never receive.
+ */
+export function weeklyNumberForLocale(
+  weeklyNumber: WeeklyNumber,
+  locale: string,
+): { value: string; label: string; source: string } {
+  return {
+    value: weeklyNumber.value,
+    label: weeklyNumber.label[locale] || weeklyNumber.label.fr || '',
+    source: weeklyNumber.source[locale] || weeklyNumber.source.fr || '',
+  };
+}

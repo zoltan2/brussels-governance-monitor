@@ -2,7 +2,12 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, expect, it } from 'vitest';
-import { isUsablePin, resolveWeeklyNumber, type WeeklyNumber } from './weekly-number';
+import {
+  isUsablePin,
+  resolveWeeklyNumber,
+  weeklyNumberForLocale,
+  type WeeklyNumber,
+} from './weekly-number';
 
 const i18n = (s: string) => ({ fr: s, nl: s, en: s, de: s });
 
@@ -102,5 +107,34 @@ describe('resolveWeeklyNumber', () => {
     });
     expect(w36.origin).toBe('suggested');
     expect(w36.weeklyNumber.value).toBe('16');
+  });
+});
+
+describe('weeklyNumberForLocale', () => {
+  it('shows the resolved figure, not the automatic suggestion', () => {
+    // The preview email must display what the pending digest will send:
+    // with a pin, that is the pinned figure.
+    const resolved = resolveWeeklyNumber({
+      previous: { week: '2026-w36', sent: true, weeklyNumber: suggested },
+      week: '2026-w37',
+      pin,
+      suggested,
+    });
+    const out = weeklyNumberForLocale(resolved.weeklyNumber, 'fr');
+    expect(out).toEqual({
+      value: '23,2 %',
+      label: 'Ménages bruxellois en précarité hydrique',
+      source: 'Fondation Roi Baudouin',
+    });
+  });
+
+  it('falls back to French when a locale is missing, as the send routes do', () => {
+    const frOnly: WeeklyNumber = { value: '59', label: { fr: 'Stations' }, source: { fr: 'STIB' } };
+    expect(weeklyNumberForLocale(frOnly, 'nl')).toEqual({ value: '59', label: 'Stations', source: 'STIB' });
+  });
+
+  it('returns empty strings rather than undefined when French is missing too', () => {
+    const empty: WeeklyNumber = { value: '59', label: {}, source: {} };
+    expect(weeklyNumberForLocale(empty, 'fr')).toEqual({ value: '59', label: '', source: '' });
   });
 });

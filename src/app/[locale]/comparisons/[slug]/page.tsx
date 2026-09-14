@@ -39,7 +39,7 @@ export async function generateMetadata({
   return buildMetadata({
     locale,
     title: card.title,
-    description: card.indicator,
+    description: card.methodology,
     path: `/comparisons/${slug}`,
     ogParams: `title=${encodeURIComponent(card.title)}&type=comparison`,
   });
@@ -64,7 +64,9 @@ export default async function ComparisonDetailPage({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: card.title,
-    description: card.indicator,
+    // Google Dataset rich results require a 50-5000 char description;
+    // `indicator` is a short label (as low as 18 chars), `methodology` is prose.
+    description: card.methodology,
     dateModified: card.lastModified,
     url: `${siteUrl}/${locale}/comparisons/${slug}`,
     inLanguage: locale,

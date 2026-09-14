@@ -724,7 +724,8 @@ const comparisonCards = defineCollection({
         url: s.string().url(),
         code: s.string().optional(),
       }),
-      methodology: s.string(),
+      // Rendered as the schema.org Dataset description: Google requires 50-5000 chars.
+      methodology: s.string().min(50).max(5000),
       dataPoints: s
         .array(
           s.object({

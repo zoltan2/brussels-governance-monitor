@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { getSolutionCard, getAllSolutionSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
-import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -78,7 +78,7 @@ export default async function SolutionDetailPage({
     headline: card.title,
     description: card.mechanism,
     dateModified: card.lastModified,
-    url: `${siteUrl}/${locale}/solutions/${slug}`,
+    url: canonicalUrl(locale, `/solutions/${slug}`),
     inLanguage: locale,
     publisher: {
       '@type': 'Organization',
@@ -93,7 +93,7 @@ export default async function SolutionDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <SolutionDetail card={card} locale={locale} isFallback={isFallback} siteUrl={siteUrl} />
+      <SolutionDetail card={card} locale={locale} isFallback={isFallback} />
     </>
   );
 }
@@ -102,12 +102,10 @@ function SolutionDetail({
   card,
   locale,
   isFallback,
-  siteUrl,
 }: {
   card: ReturnType<typeof getSolutionCard> extends { card: infer C } | null ? C : never;
   locale: string;
   isFallback: boolean;
-  siteUrl: string;
 }) {
   const t = useTranslations('solutions');
   const tb = useTranslations('breadcrumb');
@@ -149,13 +147,13 @@ function SolutionDetail({
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
-            url={`${siteUrl}/${locale}/solutions/${card.slug}`}
+            url={canonicalUrl(locale, `/solutions/${card.slug}`)}
             title={card.title}
             description={card.mechanism}
             labels={{ share: tShare('share'), copyLink: tShare('copyLink'), copied: tShare('copied'), shareVia: tShare('shareVia'), email: tShare('email') }}
           />
           <CiteButton
-            url={`${siteUrl}/${locale}/solutions/${card.slug}`}
+            url={canonicalUrl(locale, `/solutions/${card.slug}`)}
             title={card.title}
             date={card.lastModified}
             locale={locale}

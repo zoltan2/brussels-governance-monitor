@@ -185,9 +185,6 @@ export default async function HomePage({
   const shownSlugs = new Set(shown.map((e) => e.slug));
   const shownKeys = new Set(shown.map((e) => `${e.section}:${e.slug}`));
   const allSignals = getActiveSignals(loc);
-  // « Ce qu'on surveille » ne compte que les signaux encore actifs : getActiveSignals
-  // renvoie aussi les confirmés (28 au 16/09/2026), qui ne sont plus sous surveillance.
-  const totalSignals = allSignals.filter((signal) => signal.status === 'active').length;
   // La liste doit tenir la promesse du compteur : uniquement des signaux encore actifs.
   // getActiveSignals renvoie aussi les confirmés, qui ne sont plus sous surveillance.
   const radarSignals = allSignals
@@ -223,7 +220,7 @@ export default async function HomePage({
       : null;
   return (
     <>
-      <Hero sourceCount={veilleSourceCount} cta={getHomepageCta(locale)} />
+      <Hero cta={getHomepageCta(locale)} />
 
       <LatestUpdateBar
         date={latestUpdate.date}
@@ -238,7 +235,7 @@ export default async function HomePage({
       <section className="py-8">
         <div className="mx-auto grid max-w-5xl gap-y-6 px-4 lg:grid-cols-[2fr_1fr] lg:gap-x-0">
           <WhatChanged entries={recentChanges} locale={locale} />
-          <WhatWeWatch signals={radarSignals} total={totalSignals} locale={locale} />
+          <WhatWeWatch signals={radarSignals} locale={locale} sourceCount={veilleSourceCount} />
         </div>
       </section>
 
@@ -326,7 +323,7 @@ function MoreLink({ href, children }: { href: LinkHref; children: ReactNode }) {
 // 1. Hero: what the site does + two actions
 // ──────────────────────────────────────────────
 
-function Hero({ sourceCount, cta }: { sourceCount: number; cta: HomepageCta }) {
+function Hero({ cta }: { cta: HomepageCta }) {
   const t = useTranslations('home');
 
   return (
@@ -370,14 +367,6 @@ function Hero({ sourceCount, cta }: { sourceCount: number; cta: HomepageCta }) {
           </a>
         </div>
 
-        <p className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-white/80">
-          <Eye size={14} className="shrink-0" aria-hidden={true} />
-          <span>Veille active : {sourceCount} sources suivies</span>
-          <span aria-hidden="true">·</span>
-          <Link href="/methodology" className="font-medium text-white underline underline-offset-2 hover:text-white/90">
-            {t('veilleMethod')}
-          </Link>
-        </p>
         </div>
 
         <div className="rounded-lg border border-white/15 bg-white/5 p-5">
@@ -488,68 +477,93 @@ function WhatChanged({ entries, locale }: { entries: RecentChange[]; locale: str
 
 function WhatWeWatch({
   signals,
-  total,
   locale,
+  sourceCount,
 }: {
   signals: LocalizedRadarEntry[];
-  total: number;
   locale: string;
+  sourceCount: number;
 }) {
   const t = useTranslations('home');
   const tr = useTranslations('radar');
 
-  // Mise en page reprise de la page d'accueil en production : la date d'un côté, la
-  // phrase entière de l'autre, qui s'enroule et ne se coupe jamais. Ces résumés sont
-  // des PHRASES de 150 caractères en médiane (q90 : 201) ; serrées sur une ligne,
-  // 97 % perdaient leur fin, c'est-à-dire leur sens. getHomepageBlurb les borne déjà
-  // à 180 caractères côté serveur, donc aucune coupe CSS n'est nécessaire ici.
+  // Bloc restitué à l'identique de la page d'accueil en production (FollowColumn) :
+  // encadré, en-tête de veille avec « Notre méthode », séparateur, titre des signaux,
+  // puis date et phrase entière, « Voir tout le radar » et le garde-fou éditorial.
   //
-  // Deux choses de la production ne sont PAS reprises, pour éviter de les dire deux
-  // fois : l'en-tête « Veille active — N sources consultées », qui ferait doublon avec
-  // le héros et y réintroduirait 325 (toutes sources) au lieu des 248 réellement
-  // suivies ; et le titre « Signaux en cours de vérification », qui répéterait mot pour
-  // mot le pied de ce bloc. On garde en revanche le garde-fou éditorial, absent ici.
+  // La ligne de veille revient ICI et a été retirée du héros, où le prototype l'avait
+  // déplacée : la garder aux deux endroits la dirait deux fois. Seul le chiffre change
+  // par rapport au live, 248 sources suivies et non 325 consultées, parce que 325
+  // comptait aussi les sources scannées au mois.
   //
-  // Le cadre reste léger : filet fin, pas d'encadré, pas de fond. Dans la colonne
-  // étroite (lg) la date passe au-dessus de la phrase ; entre 640 et 1024 px, où le
-  // bloc occupe toute la largeur, les deux tiennent côte à côte.
+  // Les résumés sont des PHRASES de 150 caractères en médiane (q90 : 201), bornées à
+  // 180 côté serveur par getHomepageBlurb : elles s'enroulent, aucune coupe CSS.
   return (
-    <div
-      aria-labelledby="watch-title"
-      className="min-w-0 border-t border-neutral-200 pt-4 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-1"
-    >
-      <h2 id="watch-title" className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+    // lg:pl-6 n'est pas décoratif : la grille parente est en lg:gap-x-0, donc c'est
+    // cette marge qui fait la gouttière. Sans elle, les deux colonnes se touchent et
+    // ce titre vient percuter « Tout l'historique » de la colonne de gauche.
+    <div aria-labelledby="watch-title" className="min-w-0 lg:pl-6">
+      <h2
+        id="watch-title"
+        className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-neutral-500"
+      >
         Ce qu’on surveille
       </h2>
 
-      <ul className="mt-3 space-y-3">
-        {signals.map((signal) => (
-          <li
-            key={signal.id}
-            className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:gap-3 lg:flex-col lg:gap-0.5"
+      <div className="rounded-lg border border-neutral-200 bg-neutral-50">
+        <div className="px-4 pb-3 pt-4">
+          <div className="flex items-center gap-2 text-xs text-neutral-700">
+            <Eye size={14} className="shrink-0 text-neutral-500" aria-hidden={true} />
+            <span className="font-medium">Veille active : {sourceCount} sources suivies</span>
+          </div>
+          <Link
+            href="/methodology"
+            className="mt-1.5 inline-flex items-center gap-1 pl-[22px] text-xs font-medium text-brand-700 hover:text-brand-900"
           >
-            <time dateTime={signal.date} className="shrink-0 text-xs tabular-nums text-neutral-500">
-              {formatDate(signal.date, locale)}
-            </time>
-            <p className="flex-1 text-xs leading-snug text-neutral-700">
-              {getHomepageBlurb(signal.summary, signal.description)}
-            </p>
-          </li>
-        ))}
-      </ul>
+            {t('veilleMethod')}
+            <ArrowRight size={12} aria-hidden={true} />
+          </Link>
+        </div>
 
-      <p className="mt-3 text-xs text-neutral-500">
-        {total} signaux en cours de vérification{' · '}
-        {/* Libellé court pour tenir sur une ligne ; le nom accessible reste complet,
-            et il contient le texte visible (WCAG 2.5.3). */}
-        <Link href="/radar" aria-label={tr('seeAll')} className="font-medium text-brand-700 hover:underline">
-          Radar
-        </Link>
-      </p>
+        <div className="border-t border-neutral-100" />
 
-      <p className="mt-3 border-l-2 border-brand-700/30 pl-3 text-xs text-neutral-500">
-        {t('shieldFootnote')}
-      </p>
+        <h3 className="px-4 pb-2 pt-3 text-sm font-medium text-neutral-500">
+          {t('signalsTitle')}
+        </h3>
+
+        {signals.length === 0 ? (
+          <p className="px-4 pb-4 text-sm text-neutral-500">{tr('noActiveSignals')}</p>
+        ) : (
+          <div className="space-y-3 px-4">
+            {signals.map((signal) => (
+              <div key={signal.id} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-3 lg:flex-col lg:gap-1">
+                <time dateTime={signal.date} className="shrink-0 text-xs tabular-nums text-neutral-500">
+                  {formatDate(signal.date, locale)}
+                </time>
+                <p className="flex-1 text-sm leading-snug text-neutral-700">
+                  {getHomepageBlurb(signal.summary, signal.description)}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="mt-4 border-t border-neutral-100 px-4 py-3">
+          <Link
+            href="/radar"
+            className="inline-flex items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
+          >
+            {tr('seeAll')}
+            <ArrowRight size={12} aria-hidden={true} />
+          </Link>
+        </div>
+
+        <div className="border-t border-neutral-100 px-4 py-3">
+          <div className="border-l-2 border-brand-700/30 pl-3">
+            <p className="text-xs text-neutral-500">{t('shieldFootnote')}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

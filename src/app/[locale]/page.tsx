@@ -51,6 +51,7 @@ import {
   Building2,
   BookOpen,
   Lightbulb,
+  Radio,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -190,10 +191,8 @@ export default async function HomePage({
   const radarSignals = allSignals
     .filter((signal) => signal.status === 'active')
     .filter((signal) => !signal.cards.some((card) => shownSlugs.has(card)))
-    // Deux signaux sur trois lignes valent mieux que trois amputés à une ligne : les
-    // résumés font 150 caractères en médiane. Le troisième reste compté par
-    // `totalSignals` et consultable sur le Radar.
-    .slice(0, 2);
+    // Trois, comme la page d'accueil en production.
+    .slice(0, 3);
   const homeDossiers = byLastModified(dossierCards)
     .filter((card) => !shownKeys.has(`dossiers:${card.slug}`))
     .slice(0, 4);
@@ -233,7 +232,12 @@ export default async function HomePage({
       />
 
       <section className="py-8">
-        <div className="mx-auto grid max-w-5xl gap-y-6 px-4 lg:grid-cols-[2fr_1fr] lg:gap-x-0">
+        {/* La colonne LARGE va à la surveillance, pas aux changements. En production
+            c'est « Suivre » qui occupe le 3fr, parce qu'il porte des phrases de 150
+            caractères, tandis que les changements ne sont que des titres courts.
+            Avec le rapport inverse, le texte des signaux tombait à 224 px et se
+            brisait en cinq lignes de trois mots, pendant que la gauche restait vide. */}
+        <div className="mx-auto grid max-w-5xl gap-y-6 px-4 lg:grid-cols-[2fr_3fr] lg:gap-x-8">
           <WhatChanged entries={recentChanges} locale={locale} />
           <WhatWeWatch signals={radarSignals} locale={locale} sourceCount={veilleSourceCount} />
         </div>
@@ -499,16 +503,21 @@ function WhatWeWatch({
   // Les résumés sont des PHRASES de 150 caractères en médiane (q90 : 201), bornées à
   // 180 côté serveur par getHomepageBlurb : elles s'enroulent, aucune coupe CSS.
   return (
-    // lg:pl-6 n'est pas décoratif : la grille parente est en lg:gap-x-0, donc c'est
-    // cette marge qui fait la gouttière. Sans elle, les deux colonnes se touchent et
-    // ce titre vient percuter « Tout l'historique » de la colonne de gauche.
-    <div aria-labelledby="watch-title" className="min-w-0 lg:pl-6">
-      <h2
-        id="watch-title"
-        className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-neutral-500"
-      >
-        Ce qu’on surveille
-      </h2>
+    // La gouttière vient désormais du lg:gap-x-8 de la grille parente, plus d'une
+    // marge intérieure : sans elle, les colonnes se touchaient et ce titre percutait
+    // « Tout l'historique ».
+    <div aria-labelledby="watch-title" className="min-w-0">
+      {/* Titre de colonne avec son icône, comme en production. Le libellé reste
+          « Ce qu'on surveille » et non « Suivre » : titre choisi en cours de projet. */}
+      <div className="mb-4 flex items-center gap-2">
+        <Radio size={18} className="text-neutral-500" aria-hidden={true} />
+        <h2
+          id="watch-title"
+          className="text-sm font-semibold uppercase tracking-wider text-neutral-500"
+        >
+          Ce qu’on surveille
+        </h2>
+      </div>
 
       <div className="rounded-lg border border-neutral-200 bg-neutral-50">
         <div className="px-4 pb-3 pt-4">
@@ -536,7 +545,7 @@ function WhatWeWatch({
         ) : (
           <div className="space-y-3 px-4">
             {signals.map((signal) => (
-              <div key={signal.id} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-3 lg:flex-col lg:gap-1">
+              <div key={signal.id} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-3">
                 <time dateTime={signal.date} className="shrink-0 text-xs tabular-nums text-neutral-500">
                   {formatDate(signal.date, locale)}
                 </time>

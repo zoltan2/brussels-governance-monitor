@@ -232,14 +232,13 @@ export default async function HomePage({
       />
 
       <section className="py-8">
-        {/* La colonne LARGE va à la surveillance, pas aux changements. En production
-            c'est « Suivre » qui occupe le 3fr, parce qu'il porte des phrases de 150
-            caractères, tandis que les changements ne sont que des titres courts.
-            Avec le rapport inverse, le texte des signaux tombait à 224 px et se
-            brisait en cinq lignes de trois mots, pendant que la gauche restait vide. */}
-        <div className="mx-auto grid max-w-5xl gap-y-6 px-4 lg:grid-cols-[2fr_3fr] lg:gap-x-8">
-          <WhatChanged entries={recentChanges} locale={locale} />
+        {/* La paire de la page d'accueil en production : surveiller à gauche,
+            comprendre à droite. Le 3fr va à la surveillance, qui porte des phrases de
+            150 caractères ; en 2fr son texte tombait à 224 px et se brisait en cinq
+            lignes de trois mots. */}
+        <div className="mx-auto grid max-w-5xl gap-y-8 px-4 lg:grid-cols-[3fr_2fr] lg:gap-x-8">
           <WhatWeWatch signals={radarSignals} locale={locale} sourceCount={veilleSourceCount} />
+          <UnderstandColumn locale={locale} />
         </div>
       </section>
 
@@ -250,6 +249,15 @@ export default async function HomePage({
         magazine={magazine}
         weekNum={weekNum}
       />
+
+      {/* « Ce qui a changé » en pleine largeur, sous les rendez-vous : le haut de page
+          est rendu à la paire du live, et ces titres courts se lisent mieux sur toute
+          la largeur que dans une colonne de 384 px. */}
+      <section className="py-8">
+        <div className="mx-auto max-w-5xl px-4">
+          <WhatChanged entries={recentChanges} locale={locale} />
+        </div>
+      </section>
 
       <DossiersPreview
         cards={homeDossiers}
@@ -268,8 +276,6 @@ export default async function HomePage({
         locale={locale}
         totalCount={sectorCards.length}
       />
-
-      <FirstSteps locale={locale} />
 
       <section id="subscribe" className="bg-neutral-50 py-12">
         <div className="mx-auto max-w-5xl px-4">
@@ -583,7 +589,11 @@ function WhatWeWatch({
 // 9. First steps: explainers + government, at the bottom
 // ──────────────────────────────────────────────
 
-function FirstSteps({ locale }: { locale: string }) {
+// Colonne « Comprendre », reprise de la page d'accueil en production : les quatre
+// explicateurs dans un encadré, puis la table du gouvernement. Elle était jusqu'ici
+// une section pleine largeur reléguée en bas de page, sous le nom « Nouveau ici ? » ;
+// elle remonte face à la surveillance, comme dans le live.
+function UnderstandColumn({ locale }: { locale: string }) {
   const t = useTranslations('home');
 
   const explainers = [
@@ -594,36 +604,46 @@ function FirstSteps({ locale }: { locale: string }) {
   ];
 
   return (
-    <section aria-labelledby="start-title" className="border-t border-neutral-200 py-10">
-      <div className="mx-auto max-w-5xl px-4">
-        <SectionHeader
-          id="start-title"
-          icon={BookOpen}
-          title={t('newHere')}
-          subtitle="Qui décide quoi à Bruxelles, qui gouverne la Région, et comment lire ce site."
-          link={<MoreLink href="/understand">{t('allExplainers')}</MoreLink>}
-        />
-        <div className="grid gap-6 md:grid-cols-2">
-          <ul className="space-y-1 rounded-lg border border-neutral-200 bg-neutral-50 p-2">
-            {explainers.map((exp) => (
-              <li key={exp.href}>
-                <Link
-                  href={exp.href}
-                  className="flex items-center gap-2.5 rounded-md px-2 py-2.5 text-sm text-neutral-800 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
-                >
-                  <exp.Icon size={16} className="shrink-0 text-neutral-500" aria-hidden={true} />
-                  <span className="flex-1">{exp.label}</span>
-                  <ChevronRight size={14} className="text-neutral-500" aria-hidden={true} />
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div>
-            <GovernmentTable locale={locale} inline />
-          </div>
+    <div aria-labelledby="understand-title" className="min-w-0">
+      <div className="mb-4 flex items-center gap-2">
+        <BookOpen size={18} className="text-neutral-500" aria-hidden={true} />
+        <h2
+          id="understand-title"
+          className="text-sm font-semibold uppercase tracking-wider text-neutral-500"
+        >
+          {t('columnUnderstand')}
+        </h2>
+      </div>
+
+      <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
+        <p className="mb-3 text-xs font-medium text-neutral-500">{t('newHere')}</p>
+        <div className="space-y-1">
+          {explainers.map((exp) => (
+            <Link
+              key={exp.href}
+              href={exp.href}
+              className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-neutral-800 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
+            >
+              <exp.Icon size={16} className="shrink-0 text-neutral-500" aria-hidden={true} />
+              {exp.label}
+            </Link>
+          ))}
+        </div>
+        <div className="mt-3 border-t border-neutral-100 pt-3">
+          <Link
+            href="/understand"
+            className="inline-flex items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
+          >
+            {t('allExplainers')}
+            <ArrowRight size={12} aria-hidden={true} />
+          </Link>
         </div>
       </div>
-    </section>
+
+      <div className="mt-4">
+        <GovernmentTable locale={locale} inline />
+      </div>
+    </div>
   );
 }
 

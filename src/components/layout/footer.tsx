@@ -1,21 +1,14 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { useTranslations } from 'next-intl';
-import { useLocale } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { dailyGame } from '@/lib/daily-game';
 
 export function Footer() {
   const t = useTranslations('footer');
   const locale = useLocale();
-
-  const podcastUrl =
-    locale === 'nl'
-      ? 'https://podcast.governance.brussels/@debriefingbgm'
-      : locale === 'fr'
-        ? 'https://podcast.governance.brussels/@lebriefingbgm'
-        : null;
-
+  const game = dailyGame(locale);
   return (
     <footer className="border-t border-neutral-200 bg-neutral-50">
       <div className="mx-auto max-w-5xl px-4 py-10">
@@ -86,18 +79,18 @@ export function Footer() {
               <Link href="/radar" className="hover:text-neutral-700">
                 {t('radar')}
               </Link>
-              {podcastUrl && (
-                <a
-                  href={podcastUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-neutral-700"
-                >
-                  {t('podcast')}
-                  <span className="ml-1 text-neutral-500" aria-hidden="true">&#8599;</span>
-                  <span className="sr-only"> ({t('newTab')})</span>
-                </a>
-              )}
+              {/* PROTOTYPE : le podcast est en pause, le jeu du jour prend sa place.
+                  Le Stuut n'existe qu'en FR, Amai ! prend le relais dans les autres langues. */}
+              <a
+                href={game.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-neutral-700"
+              >
+                {game.name}
+                <span className="ml-1 text-neutral-500" aria-hidden="true">&#8599;</span>
+                <span className="sr-only"> ({t('newTab')})</span>
+              </a>
               <Link href="/quiz" className="hover:text-neutral-700">
                 {t('quiz')}
               </Link>

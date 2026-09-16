@@ -139,9 +139,7 @@ export function CommitmentsDashboard({
     <div>
       <div className="mb-6 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
         <div className="flex flex-wrap items-center gap-4 text-xs text-neutral-500">
-          <span>
-            {t('total', { count: data.commitments.length })}
-          </span>
+          {/* Le compte des engagements est désormais dit par le baromètre, juste au-dessus. */}
           <span>
             {t('source')}:{' '}
             <a

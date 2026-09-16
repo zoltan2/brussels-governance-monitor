@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
+import Image from 'next/image';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
@@ -49,6 +50,16 @@ export default async function SignalPage({
             { label: 'Accueil', href: `/${locale}` },
             { label: 'Le Signal' },
           ]}
+        />
+
+        {/* Visuel du Signal, le même que la carte de la page d'accueil. Décoratif :
+            le titre et le chapeau portent le sens, d'où alt vide. */}
+        <Image
+          src="/merci-cafe/signal-bgm.webp"
+          alt=""
+          width={800}
+          height={450}
+          className="mb-8 w-full rounded-xl border border-neutral-200"
         />
 
         {/* Hero */}

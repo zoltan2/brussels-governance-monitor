@@ -11,6 +11,15 @@
   --color-brand-800: oklch(0.3 0.06 250);
   --color-brand-700: oklch(0.35 0.07 250);
   --color-brand-600: oklch(0.42 0.08 250);
+  /* Pale tints used by callouts (border-brand-200, bg-brand-50/30). Undefined until
+     2026-09: the classes generated nothing and borders fell back to currentColor. */
+  --color-brand-200: oklch(0.88 0.03 250);
+  --color-brand-50: oklch(0.97 0.01 250);
+
+  /* Turquoise du Stuut (jeu quotidien) : la teinte claire du jeu (#15B8A6) ne tient
+     pas 4.5:1 sur fond clair, donc on assombrit en mode clair et on rend la teinte
+     d'origine en mode sombre. Mesuré : 5.4:1 (clair) et 7.56:1 (sombre). */
+  --color-stuut: oklch(0.487 0.085 181.8);
 
   /* Neutral grays */
   --color-neutral-50: oklch(0.98 0 0);
@@ -44,6 +53,9 @@
   --color-brand-800: oklch(0.78 0.06 250);
   --color-brand-700: oklch(0.7 0.07 250);
   --color-brand-600: oklch(0.63 0.08 250);
+  --color-brand-200: oklch(0.32 0.04 250);
+  --color-brand-50: oklch(0.2 0.02 250);
+  --color-stuut: oklch(0.704 0.123 182.5);
 
   --color-neutral-50: oklch(0.15 0 0);
   --color-neutral-100: oklch(0.18 0 0);
@@ -164,6 +176,9 @@ mark {
     --color-brand-800: oklch(0.78 0.06 250);
     --color-brand-700: oklch(0.7 0.07 250);
     --color-brand-600: oklch(0.63 0.08 250);
+    --color-brand-200: oklch(0.32 0.04 250);
+    --color-brand-50: oklch(0.2 0.02 250);
+    --color-stuut: oklch(0.704 0.123 182.5);
     --color-neutral-50: oklch(0.15 0 0);
     --color-neutral-100: oklch(0.18 0 0);
     --color-neutral-200: oklch(0.22 0 0);

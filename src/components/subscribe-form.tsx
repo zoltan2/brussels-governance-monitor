@@ -137,7 +137,8 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
   const totalSelected = topics.length + sectors.length + dossiers.length + communes.length;
 
   const pillClass = (selected: boolean) =>
-    `cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+    // The checkbox is sr-only, so its focus ring is invisible: draw it on the pill (WCAG 2.4.7).
+    `cursor-pointer rounded-full border px-3 py-1 text-xs font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-700 has-[:focus-visible]:ring-offset-2 ${
       selected
         ? 'border-brand-600 bg-brand-900 text-neutral-50'
         : 'border-neutral-300 bg-neutral-50 text-neutral-600 hover:border-neutral-400'
@@ -145,7 +146,7 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="rounded-lg border border-neutral-200 bg-neutral-50 p-6">
-      <h3 className="mb-1 text-lg font-semibold text-neutral-900">{t('title')}</h3>
+      <h2 className="mb-1 text-lg font-semibold text-neutral-900">{t('title')}</h2>
       <p className="mb-4 text-sm text-neutral-500">{t('subtitle')}</p>
 
       {/* Honeypot field — hidden from users, filled by bots */}

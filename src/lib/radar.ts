@@ -97,6 +97,28 @@ export function getVeilleSourceCount(): number {
   return (sourceRegistry as { stats: { total: number } }).stats.total;
 }
 
+/**
+ * Sources réellement en veille éditoriale : tier `editorial`, hors sources désactivées.
+ * `stats.total` (325) additionne la veille éditoriale (250) et le scan mensuel du radar
+ * (75) ; l'annoncer comme « veille active » gonfle le chiffre. Voir docs/source-registry.json.
+ */
+/**
+ * Toutes les sources actives du registre, veille éditoriale et scan mensuel confondus,
+ * hors sources désactivées. À utiliser quand la phrase parle du registre entier
+ * (« X sources, toutes listées »), et non du travail quotidien.
+ */
+export function getActiveSourceCount(): number {
+  const { sources } = sourceRegistry as { sources: { enabled?: boolean }[] };
+  return sources.filter((s) => s.enabled !== false).length;
+}
+
+export function getEditorialSourceCount(): number {
+  const { sources } = sourceRegistry as {
+    sources: { tier?: string; enabled?: boolean }[];
+  };
+  return sources.filter((s) => s.tier === 'editorial' && s.enabled !== false).length;
+}
+
 export function getActiveSignals(locale: Locale, limit?: number): LocalizedRadarEntry[] {
   const active = parsed.entries
     .filter((e) => e.status === 'active' || e.status === 'confirmed')

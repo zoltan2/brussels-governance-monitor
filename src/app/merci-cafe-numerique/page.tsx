@@ -4,6 +4,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ContactForm } from './contact-form';
+import { getActiveSourceCount } from '@/lib/radar';
 
 const DOSSIERS = [
   {
@@ -259,7 +260,7 @@ export default function MerciCafeNumeriquePage() {
             ))}
           </div>
           <p className="mx-auto mt-5 max-w-md text-base leading-relaxed sm:text-lg">
-            BGM surveille Bruxelles en 4 langues. 323 sources. 13 domaines.
+            BGM surveille Bruxelles en 4 langues. {getActiveSourceCount()} sources. 13 domaines.
           </p>
           <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center">
             <Link
@@ -288,7 +289,7 @@ export default function MerciCafeNumeriquePage() {
             <li className="border-l-4 border-[#F2A900] pl-4">
               <p className="text-sm font-semibold text-[#1B3A6B]">Sources</p>
               <p className="mt-1 text-sm text-[#1A2744]">
-                323 sources, toutes listées, aucune anonyme.
+                {getActiveSourceCount()} sources, toutes listées, aucune anonyme.
               </p>
             </li>
             <li className="border-l-4 border-[#F2A900] pl-4">

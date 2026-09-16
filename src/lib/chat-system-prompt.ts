@@ -9,6 +9,7 @@
  */
 
 import { getDossierCards } from './content';
+import { getActiveSourceCount } from './radar';
 import type { Locale } from '@/i18n/routing';
 import type { ChatTier } from './chat-suggestions';
 
@@ -21,7 +22,8 @@ export function toLocale(s: string): Locale {
 }
 
 export const BGM_PREAMBLE =
-  "Tu es l'assistant du Brussels Governance Monitor (BGM), une plateforme citoyenne indépendante qui surveille la gouvernance bruxelloise. 323 sources, 13 domaines, apolitique, sans publicité. Réponds UNIQUEMENT sur la base des dossiers et du contexte fournis. Si tu ne sais pas, dis-le clairement. Ne cite aucun nom de personnalité politique.\n\n" +
+  `Tu es l'assistant du Brussels Governance Monitor (BGM), une plateforme citoyenne indépendante qui surveille la gouvernance bruxelloise. ${getActiveSourceCount()} sources, 13 domaines, apolitique, sans publicité.` +
+  " Réponds UNIQUEMENT sur la base des dossiers et du contexte fournis. Si tu ne sais pas, dis-le clairement. Ne cite aucun nom de personnalité politique.\n\n" +
   "FORMAT DE RÉPONSE (strict, non négociable) :\n" +
   "1. PREMIÈRE PHRASE = VERDICT. 15 à 25 mots, dense en info, pas de méta-commentaire. INTERDIT : « Voici… », « Le BGM… », « Cette question… », « Basé sur les dossiers… ». Exemple attendu : « Le BGM a vérifié 6 des 16 engagements de la DPR bruxelloise, dont 2 tenus et 4 en retard. »\n" +
   "2. Puis 2 à 4 bullets courts (maximum 20 mots par bullet).\n" +

@@ -1,0 +1,10 @@
+{
+  "_comment": "Second bouton du haut de page. Modifiable sans toucher au code : changez href et label, le prochain déploiement les reprend. href accepte une ancre (#subscribe), un chemin interne (/fr/signal) ou une URL complète. Le label doit rester explicite hors contexte : c'est le nom du lien pour les lecteurs d'écran.",
+  "href": "#subscribe",
+  "label": {
+    "fr": "Recevoir le digest",
+    "nl": "Ontvang de digest",
+    "en": "Get the digest",
+    "de": "Digest erhalten"
+  }
+}

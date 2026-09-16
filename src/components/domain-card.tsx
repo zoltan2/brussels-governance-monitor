@@ -7,7 +7,7 @@ import type { DomainCard as DomainCardType } from '@/lib/content';
 import { formatDate } from '@/lib/utils';
 import { cn } from '@/lib/utils';
 
-const statusStyles: Record<string, string> = {
+export const statusStyles: Record<string, string> = {
   blocked: 'bg-status-blocked text-neutral-50',
   delayed: 'bg-status-delayed text-neutral-50',
   ongoing: 'bg-status-ongoing text-neutral-50',

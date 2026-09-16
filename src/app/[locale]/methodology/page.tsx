@@ -7,6 +7,7 @@ import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { getEditorialSourceCount } from '@/lib/radar';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -40,10 +41,14 @@ export default async function MethodologyPage({
   return <MethodologyView />;
 }
 
+// Compteur de sources calculé depuis docs/source-registry.json, jamais écrit en dur.
 function MethodologyView() {
   const t = useTranslations('methodology');
   const tb = useTranslations('breadcrumb');
   const td = useTranslations('domains');
+  // Ces trois phrases décrivent le travail quotidien : elles comptent donc la veille
+  // éditoriale, pas le total du registre, qui inclut 75 sources en scan mensuel.
+  const sourceCount = getEditorialSourceCount();
 
   return (
     <section className="py-12">
@@ -64,7 +69,7 @@ function MethodologyView() {
               de la page (AI Act art. 50, exemption par relecture humaine). */}
           <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('ai.title')}</h2>
-            <p>{t('ai.p1')}</p>
+            <p>{t('ai.p1', { count: sourceCount })}</p>
             <p className="mt-2">{t('ai.p2')}</p>
             <p className="mt-2">{t('ai.p3')}</p>
           </div>
@@ -266,7 +271,7 @@ function MethodologyView() {
             <div className="mt-4 space-y-2">
               <p className="font-medium text-neutral-900">{t('protocol.frequency')}</p>
               <ul className="ml-4 list-disc space-y-1">
-                <li>{t('protocol.frequencyDaily')}</li>
+                <li>{t('protocol.frequencyDaily', { count: sourceCount })}</li>
                 <li>{t('protocol.frequencyBudget')}</li>
                 <li>{t('protocol.frequencyOperational')}</li>
               </ul>
@@ -303,7 +308,7 @@ function MethodologyView() {
           {/* Veille */}
           <div>
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('veille.title')}</h2>
-            <p className="mb-2">{t('veille.description')}</p>
+            <p className="mb-2">{t('veille.description', { count: sourceCount })}</p>
             <p className="text-xs text-neutral-500 italic">{t('veille.process')}</p>
           </div>
 

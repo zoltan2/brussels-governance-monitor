@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { CommitmentsDashboard, type CommitmentsData } from '@/components/commitments-dashboard';
+import { CommitmentsOverview } from '@/components/commitments-overview';
 import { buildMetadata } from '@/lib/metadata';
 import commitmentsData from '@/../data/commitments.json';
 import type { Metadata } from 'next';
@@ -72,6 +73,8 @@ function DashboardContent({ locale }: { locale: string }) {
         <h1 className="mb-2 text-2xl font-bold text-neutral-900">{t('title')}</h1>
         <p className="text-sm text-neutral-500">{t('subtitle')}</p>
       </div>
+
+      <CommitmentsOverview commitments={commitmentsData.commitments} />
 
       <CommitmentsDashboard data={commitmentsData as CommitmentsData} locale={locale} />
     </>

@@ -21,14 +21,17 @@ interface GovernmentTableProps {
 
 export function GovernmentTable({ locale, inline = false }: GovernmentTableProps) {
   const t = useTranslations('home');
+  // Inline, le tableau vit sous un titre de section (« Nouveau ici ? ») : il prend donc
+  // le niveau 3. Seul, en pleine page, il reste un titre de niveau 2.
+  const Heading = inline ? 'h3' : 'h2';
 
   const table = (
     <details className="group rounded-lg border border-neutral-200 bg-neutral-50" {...(inline ? {} : { open: true })}>
       <summary className="flex cursor-pointer list-none items-center justify-between p-5 [&::-webkit-details-marker]:hidden">
         <div>
-          <h2 className={`font-semibold text-neutral-900 ${inline ? 'text-xs' : 'text-sm'}`}>
+          <Heading className={`font-semibold text-neutral-900 ${inline ? 'text-xs' : 'text-sm'}`}>
             {t('governmentTitle')}
-          </h2>
+          </Heading>
           <p className="mt-0.5 text-xs text-neutral-500">{t('governmentSubtitle')}</p>
         </div>
         <svg

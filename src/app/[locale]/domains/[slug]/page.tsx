@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { getDomainCard, getAllDomainSlugs, getLatestVerification, getDossiersForDomain, getSectorsForDomain, getComparisonsForDomain, getGlossaryForDomain } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
-import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -91,7 +91,7 @@ export default async function DomainDetailPage({
     description: card.summary,
     datePublished: card.lastModified,
     dateModified: card.lastModified,
-    url: `${siteUrl}/${locale}/domains/${slug}`,
+    url: canonicalUrl(locale, `/domains/${slug}`),
     inLanguage: locale,
     author: {
       '@type': 'Organization',
@@ -111,7 +111,7 @@ export default async function DomainDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} relatedDossiers={relatedDossiers} relatedSectors={relatedSectors} relatedComparisons={relatedComparisons} relatedGlossary={relatedGlossary} siteUrl={siteUrl} />
+      <DomainDetail card={card} locale={locale} isFallback={isFallback} verification={verification} relatedDossiers={relatedDossiers} relatedSectors={relatedSectors} relatedComparisons={relatedComparisons} relatedGlossary={relatedGlossary} />
     </>
   );
 }
@@ -125,7 +125,6 @@ function DomainDetail({
   relatedSectors,
   relatedComparisons,
   relatedGlossary,
-  siteUrl,
 }: {
   card: ReturnType<typeof getDomainCard> extends { card: infer C } | null ? C : never;
   locale: string;
@@ -135,7 +134,6 @@ function DomainDetail({
   relatedSectors: ReturnType<typeof getSectorsForDomain>;
   relatedComparisons: ReturnType<typeof getComparisonsForDomain>;
   relatedGlossary: ReturnType<typeof getGlossaryForDomain>;
-  siteUrl: string;
 }) {
   const t = useTranslations('domains');
   const tb = useTranslations('breadcrumb');
@@ -202,13 +200,13 @@ function DomainDetail({
           </span>
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
-            url={`${siteUrl}/${locale}/domains/${card.slug}`}
+            url={canonicalUrl(locale, `/domains/${card.slug}`)}
             title={card.title}
             description={card.summary}
             labels={{ share: tShare('share'), copyLink: tShare('copyLink'), copied: tShare('copied'), shareVia: tShare('shareVia'), email: tShare('email') }}
           />
           <CiteButton
-            url={`${siteUrl}/${locale}/domains/${card.slug}`}
+            url={canonicalUrl(locale, `/domains/${card.slug}`)}
             title={card.title}
             date={card.lastModified}
             locale={locale}

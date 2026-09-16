@@ -121,7 +121,11 @@ export function Header() {
           Brussels Governance Monitor
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-4 md:flex">
+        {/* Bascule à lg (1024 px) et non md (768 px) : mesurée, cette barre réclame
+            797 px alors que md n'en offre que 768. À 768 le logo passait sur trois
+            lignes, « Domaines » le percutait et « Français » sortait de l'écran.
+            À 1024 px il reste 99 px de marge. */}
+        <nav aria-label="Main" className="hidden items-center gap-4 lg:flex">
           <Link href="/domains" className="inline-flex h-5 items-center text-sm text-neutral-600 hover:text-neutral-900">
             {t('domains')}
           </Link>
@@ -231,7 +235,7 @@ export function Header() {
           ref={mobileToggleRef}
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 lg:hidden"
           aria-expanded={menuOpen}
           aria-label="Menu"
         >
@@ -249,7 +253,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div ref={mobileMenuRef} className="border-t border-neutral-100 px-4 pb-4 md:hidden">
+        <div ref={mobileMenuRef} className="border-t border-neutral-100 px-4 pb-4 lg:hidden">
           <nav aria-label="Menu" className="flex flex-col pt-3">
             <div className="pb-3">
               <Search />

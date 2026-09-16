@@ -50,6 +50,7 @@ import {
   LayoutGrid,
   Building2,
   BookOpen,
+  Lightbulb,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -107,6 +108,18 @@ const SECTION_LABELS: Record<string, string> = {
   solutions: 'Solution',
 };
 
+// Dans « ce qui a changé », l'icône remplace l'étiquette en majuscules, qui coûtait
+// 80 px par ligne et se lisait moins vite. Même vocabulaire que les en-têtes de
+// section plus bas. Le libellé reste lu par les lecteurs d'écran et s'affiche au survol.
+const SECTION_ICONS: Record<string, LucideIcon> = {
+  domains: LayoutGrid,
+  dossiers: FolderOpen,
+  sectors: Building2,
+  communes: Map,
+  comparisons: Scale,
+  solutions: Lightbulb,
+};
+
 
 type LinkHref = ComponentProps<typeof Link>['href'];
 
@@ -142,7 +155,10 @@ export default async function HomePage({
   const recentRaw = getChangelog(loc)
     .slice(1)
     .filter((e) => isFilterableSection(e.section) && e.targetSlug)
-    .slice(0, 4);
+    // Trois, pas quatre : `shown` se construit sur cette liste déjà découpée, donc la
+    // quatrième fiche n'est pas perdue, elle redevient éligible dans les inventaires
+    // du dessous et réapparaît en carte.
+    .slice(0, 3);
 
   const recentChanges: RecentChange[] = recentRaw.map((e) => ({
     key: `${e.date}-${e.section}-${e.targetSlug}`,
@@ -177,7 +193,10 @@ export default async function HomePage({
   const radarSignals = allSignals
     .filter((signal) => signal.status === 'active')
     .filter((signal) => !signal.cards.some((card) => shownSlugs.has(card)))
-    .slice(0, 3);
+    // Deux signaux sur trois lignes valent mieux que trois amputés à une ligne : les
+    // résumés font 150 caractères en médiane. Le troisième reste compté par
+    // `totalSignals` et consultable sur le Radar.
+    .slice(0, 2);
   const homeDossiers = byLastModified(dossierCards)
     .filter((card) => !shownKeys.has(`dossiers:${card.slug}`))
     .slice(0, 4);
@@ -223,6 +242,14 @@ export default async function HomePage({
         </div>
       </section>
 
+      {/* Les rendez-vous juste après les faits du jour : c'est là qu'on donne suite à
+          ce qu'on vient de lire, avant de dérouler les inventaires. */}
+      <FormatsSection
+        digest={digestHref && weekNum ? { href: digestHref, weekNum, langs } : null}
+        magazine={magazine}
+        weekNum={weekNum}
+      />
+
       <DossiersPreview
         cards={homeDossiers}
         locale={locale}
@@ -239,13 +266,6 @@ export default async function HomePage({
         cards={homeSectors}
         locale={locale}
         totalCount={sectorCards.length}
-      />
-
-      {/* Le fond d'abord (ce qui a changé, dossiers, domaines, secteurs), les rendez-vous ensuite. */}
-      <FormatsSection
-        digest={digestHref && weekNum ? { href: digestHref, weekNum, langs } : null}
-        magazine={magazine}
-        weekNum={weekNum}
       />
 
       <FirstSteps locale={locale} />
@@ -385,11 +405,11 @@ interface RecentChange {
   href: ReturnType<typeof getLinkHref>;
 }
 
-// Deux statuts, deux blocs, deux registres visuels. À gauche, ce qui est vérifié et
-// sourcé : des fiches modifiées, sur le fond de la page. À droite, ce qu'on surveille :
-// encadré à bordure en tirets, chaque signal avec son niveau de confiance. Pas d'ambre
-// ici : dans le baromètre, cette couleur veut déjà dire « Retardé ».
-const WEEK_MS = 7 * 86_400_000;
+// Deux statuts, deux blocs, deux registres. À gauche, ce qui est vérifié et sourcé :
+// des titres de fiches, courts, datés une fois par journée. À droite, ce qu'on
+// surveille : des phrases entières, en annotation de marge, sans date ni cadre.
+// Les deux listes ne fusionnent pas, une mise à jour et un signal n'ont pas le même
+// statut. Pas d'ambre ici : dans le baromètre, cette couleur veut déjà dire « Retardé ».
 
 function SectionTitle({ id, children, link }: { id: string; children: ReactNode; link?: ReactNode }) {
   return (
@@ -403,42 +423,65 @@ function SectionTitle({ id, children, link }: { id: string; children: ReactNode;
 }
 
 function WhatChanged({ entries, locale }: { entries: RecentChange[]; locale: string }) {
-  const shortDate = (iso: string) =>
-    new Date(`${iso}T00:00:00Z`).toLocaleDateString(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  const dayLabel = (iso: string) =>
+    new Date(`${iso}T00:00:00Z`).toLocaleDateString(locale, {
+      day: 'numeric',
+      month: 'long',
+      timeZone: 'UTC',
+    });
 
-  // La page est prérendue : « cette semaine » se mesure depuis l'entrée la plus
-  // récente, jamais depuis la date du build, sinon le titre ment avec le temps.
-  const newest = entries.length > 0 ? Date.parse(`${entries[0].date}T00:00:00Z`) : 0;
-  const allWithinWeek = entries.every((e) => newest - Date.parse(`${e.date}T00:00:00Z`) <= WEEK_MS);
+  // Le changelog publie par lots (médiane de 9 entrées par journée publiée, sur
+  // 112 journées) : les entrées affichées partagent presque toujours la même date.
+  // On la sort donc des lignes, où elle se répétait, pour la poser en intertitre.
+  // Les journées maigres produisent deux ou trois intertitres, sans cas particulier.
+  const jours: { date: string; items: RecentChange[] }[] = [];
+  for (const entry of entries) {
+    const dernier = jours[jours.length - 1];
+    if (dernier && dernier.date === entry.date) dernier.items.push(entry);
+    else jours.push({ date: entry.date, items: [entry] });
+  }
 
   return (
     <div aria-labelledby="changed-title" className="min-w-0">
       <SectionTitle id="changed-title" link={<MoreLink href="/changelog">Tout l’historique</MoreLink>}>
-        {allWithinWeek ? 'Ce qui a changé cette semaine' : 'Ce qui a changé'}
+        Ce qui a changé
       </SectionTitle>
 
-      <ul className="divide-y divide-neutral-200">
-        {entries.map((entry) => (
-          <li key={entry.key} className="flex items-baseline gap-3 py-2 text-sm">
-            <time dateTime={entry.date} className="w-14 shrink-0 text-xs tabular-nums text-neutral-600">
-              {shortDate(entry.date)}
-            </time>
-            <span className="w-20 shrink-0 text-xs font-medium uppercase tracking-wide text-neutral-600">
-              {SECTION_LABELS[entry.section] ?? entry.section}
-            </span>
-            {entry.href ? (
-              <Link
-                href={entry.href}
-                className="min-w-0 truncate font-medium text-neutral-900 hover:text-brand-700 hover:underline"
-              >
-                {entry.title ?? entry.text}
-              </Link>
-            ) : (
-              <span className="min-w-0 truncate font-medium text-neutral-900">{entry.title ?? entry.text}</span>
-            )}
-          </li>
-        ))}
-      </ul>
+      {jours.map((jour) => (
+        <div key={jour.date} className="mt-3 first:mt-0">
+          <time dateTime={jour.date} className="text-xs text-neutral-600">
+            {dayLabel(jour.date)}
+          </time>
+
+          <ul className="mt-1 divide-y divide-neutral-200">
+            {jour.items.map((entry) => {
+              const Icon = SECTION_ICONS[entry.section] ?? FolderOpen;
+              const label = SECTION_LABELS[entry.section] ?? entry.section;
+              const titre = entry.title ?? entry.text;
+              return (
+                <li key={entry.key} className="flex items-baseline gap-2.5 py-2 text-sm">
+                  {/* L'icône est décorative : le type est donné au lecteur d'écran par
+                      le texte masqué, et à la souris par l'infobulle. */}
+                  <span title={label} className="shrink-0 translate-y-0.5">
+                    <Icon size={14} aria-hidden={true} className="text-neutral-600" />
+                  </span>
+                  <span className="sr-only">{label} : </span>
+                  {entry.href ? (
+                    <Link
+                      href={entry.href}
+                      className="min-w-0 font-medium text-neutral-900 hover:text-brand-700 hover:underline"
+                    >
+                      {titre}
+                    </Link>
+                  ) : (
+                    <span className="min-w-0 font-medium text-neutral-900">{titre}</span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 }
@@ -452,12 +495,24 @@ function WhatWeWatch({
   total: number;
   locale: string;
 }) {
+  const t = useTranslations('home');
   const tr = useTranslations('radar');
-  const shortDate = (iso: string) =>
-    new Date(`${iso}T00:00:00Z`).toLocaleDateString(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' });
 
-  // Une annotation en marge, pas un second bloc : filet fin, pas de cadre, pas de fond,
-  // trois lignes au plus. Le statut se dit une fois, en pied, au lieu d'être répété.
+  // Mise en page reprise de la page d'accueil en production : la date d'un côté, la
+  // phrase entière de l'autre, qui s'enroule et ne se coupe jamais. Ces résumés sont
+  // des PHRASES de 150 caractères en médiane (q90 : 201) ; serrées sur une ligne,
+  // 97 % perdaient leur fin, c'est-à-dire leur sens. getHomepageBlurb les borne déjà
+  // à 180 caractères côté serveur, donc aucune coupe CSS n'est nécessaire ici.
+  //
+  // Deux choses de la production ne sont PAS reprises, pour éviter de les dire deux
+  // fois : l'en-tête « Veille active — N sources consultées », qui ferait doublon avec
+  // le héros et y réintroduirait 325 (toutes sources) au lieu des 248 réellement
+  // suivies ; et le titre « Signaux en cours de vérification », qui répéterait mot pour
+  // mot le pied de ce bloc. On garde en revanche le garde-fou éditorial, absent ici.
+  //
+  // Le cadre reste léger : filet fin, pas d'encadré, pas de fond. Dans la colonne
+  // étroite (lg) la date passe au-dessus de la phrase ; entre 640 et 1024 px, où le
+  // bloc occupe toute la largeur, les deux tiennent côte à côte.
   return (
     <div
       aria-labelledby="watch-title"
@@ -467,15 +522,18 @@ function WhatWeWatch({
         Ce qu’on surveille
       </h2>
 
-      <ul className="mt-2 space-y-1.5">
+      <ul className="mt-3 space-y-3">
         {signals.map((signal) => (
-          <li key={signal.id} className="flex items-baseline gap-2 text-xs">
-            <time dateTime={signal.date} className="shrink-0 tabular-nums text-neutral-500">
-              {shortDate(signal.date)}
+          <li
+            key={signal.id}
+            className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:gap-3 lg:flex-col lg:gap-0.5"
+          >
+            <time dateTime={signal.date} className="shrink-0 text-xs tabular-nums text-neutral-500">
+              {formatDate(signal.date, locale)}
             </time>
-            <span className="min-w-0 truncate text-neutral-600">
+            <p className="flex-1 text-xs leading-snug text-neutral-700">
               {getHomepageBlurb(signal.summary, signal.description)}
-            </span>
+            </p>
           </li>
         ))}
       </ul>
@@ -487,6 +545,10 @@ function WhatWeWatch({
         <Link href="/radar" aria-label={tr('seeAll')} className="font-medium text-brand-700 hover:underline">
           Radar
         </Link>
+      </p>
+
+      <p className="mt-3 border-l-2 border-brand-700/30 pl-3 text-xs text-neutral-500">
+        {t('shieldFootnote')}
       </p>
     </div>
   );
@@ -793,10 +855,10 @@ function FormatsSection({
   return (
     <section aria-labelledby="formats-title" className="py-8">
       <div className="mx-auto max-w-5xl px-4">
-        <SectionHeader id="formats-title" title="Nos rendez-vous" />
+        <SectionHeader id="formats-title" title="Restez au courant" />
 
         <RowLabel>
-          <span className="mt-6 block">Chaque semaine</span>
+          <span className="mt-4 block">Chaque semaine</span>
         </RowLabel>
         {/* Deux colonnes dès 390 px : trois cartes empilées coûtaient 630 px sur mobile. */}
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">

@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { getComparisonCard, getAllComparisonSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
-import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -68,7 +68,7 @@ export default async function ComparisonDetailPage({
     // `indicator` is a short label (as low as 18 chars), `methodology` is prose.
     description: card.methodology,
     dateModified: card.lastModified,
-    url: `${siteUrl}/${locale}/comparisons/${slug}`,
+    url: canonicalUrl(locale, `/comparisons/${slug}`),
     inLanguage: locale,
     license: 'https://governance.brussels/legal',
     creator: {
@@ -84,7 +84,7 @@ export default async function ComparisonDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <ComparisonDetail card={card} locale={locale} isFallback={isFallback} siteUrl={siteUrl} />
+      <ComparisonDetail card={card} locale={locale} isFallback={isFallback} />
     </>
   );
 }
@@ -93,12 +93,10 @@ function ComparisonDetail({
   card,
   locale,
   isFallback,
-  siteUrl,
 }: {
   card: ReturnType<typeof getComparisonCard> extends { card: infer C } | null ? C : never;
   locale: string;
   isFallback: boolean;
-  siteUrl: string;
 }) {
   const t = useTranslations('comparisons');
   const tb = useTranslations('breadcrumb');
@@ -123,13 +121,13 @@ function ComparisonDetail({
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
-            url={`${siteUrl}/${locale}/comparisons/${card.slug}`}
+            url={canonicalUrl(locale, `/comparisons/${card.slug}`)}
             title={card.title}
             description={card.indicator}
             labels={{ share: tShare('share'), copyLink: tShare('copyLink'), copied: tShare('copied'), shareVia: tShare('shareVia'), email: tShare('email') }}
           />
           <CiteButton
-            url={`${siteUrl}/${locale}/comparisons/${card.slug}`}
+            url={canonicalUrl(locale, `/comparisons/${card.slug}`)}
             title={card.title}
             date={card.lastModified}
             locale={locale}

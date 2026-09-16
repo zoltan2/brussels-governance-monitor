@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { getSectorCard, getAllSectorSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
-import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -72,7 +72,7 @@ export default async function SectorDetailPage({
     description: card.humanImpact || card.title,
     datePublished: card.lastModified,
     dateModified: card.lastModified,
-    url: `${siteUrl}/${locale}/sectors/${slug}`,
+    url: canonicalUrl(locale, `/sectors/${slug}`),
     inLanguage: locale,
     author: {
       '@type': 'Organization',
@@ -92,7 +92,7 @@ export default async function SectorDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <SectorDetail card={card} locale={locale} isFallback={isFallback} siteUrl={siteUrl} />
+      <SectorDetail card={card} locale={locale} isFallback={isFallback} />
     </>
   );
 }
@@ -101,12 +101,10 @@ function SectorDetail({
   card,
   locale,
   isFallback,
-  siteUrl,
 }: {
   card: ReturnType<typeof getSectorCard> extends { card: infer C } | null ? C : never;
   locale: string;
   isFallback: boolean;
-  siteUrl: string;
 }) {
   const t = useTranslations('sectors');
   const tb = useTranslations('breadcrumb');
@@ -132,13 +130,13 @@ function SectorDetail({
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
-            url={`${siteUrl}/${locale}/sectors/${card.slug}`}
+            url={canonicalUrl(locale, `/sectors/${card.slug}`)}
             title={card.title}
             description={card.humanImpact || card.title}
             labels={{ share: tShare('share'), copyLink: tShare('copyLink'), copied: tShare('copied'), shareVia: tShare('shareVia'), email: tShare('email') }}
           />
           <CiteButton
-            url={`${siteUrl}/${locale}/sectors/${card.slug}`}
+            url={canonicalUrl(locale, `/sectors/${card.slug}`)}
             title={card.title}
             date={card.lastModified}
             locale={locale}

@@ -14,7 +14,7 @@ import {
 } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
-import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -76,7 +76,7 @@ export default async function CommuneDetailPage({
     '@type': 'GovernmentOrganization',
     name: card.title,
     description: `${card.mayor} (${card.mayorParty})`,
-    url: `${siteUrl}/${locale}/communes/${slug}`,
+    url: canonicalUrl(locale, `/communes/${slug}`),
     areaServed: {
       '@type': 'City',
       name: card.title,
@@ -94,7 +94,7 @@ export default async function CommuneDetailPage({
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${siteUrl}/${locale}/communes/${slug}`,
+      '@id': canonicalUrl(locale, `/communes/${slug}`),
       isAccessibleForFree: true,
       isPartOf: { '@type': 'WebSite', '@id': `${siteUrl}/#website` },
     },
@@ -106,7 +106,7 @@ export default async function CommuneDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <CommuneDetail card={card} locale={locale as Locale} isFallback={isFallback} siteUrl={siteUrl} />
+      <CommuneDetail card={card} locale={locale as Locale} isFallback={isFallback} />
     </>
   );
 }
@@ -115,12 +115,10 @@ function CommuneDetail({
   card,
   locale,
   isFallback,
-  siteUrl,
 }: {
   card: ReturnType<typeof getCommuneCard> extends { card: infer C } | null ? C : never;
   locale: Locale;
   isFallback: boolean;
-  siteUrl: string;
 }) {
   const t = useTranslations('communes');
   const tb = useTranslations('breadcrumb');
@@ -185,13 +183,13 @@ function CommuneDetail({
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
-            url={`${siteUrl}/${locale}/communes/${card.slug}`}
+            url={canonicalUrl(locale, `/communes/${card.slug}`)}
             title={card.title}
             description={`${card.mayor} (${card.mayorParty})`}
             labels={{ share: tShare('share'), copyLink: tShare('copyLink'), copied: tShare('copied'), shareVia: tShare('shareVia'), email: tShare('email') }}
           />
           <CiteButton
-            url={`${siteUrl}/${locale}/communes/${card.slug}`}
+            url={canonicalUrl(locale, `/communes/${card.slug}`)}
             title={card.title}
             date={card.lastModified}
             locale={locale}

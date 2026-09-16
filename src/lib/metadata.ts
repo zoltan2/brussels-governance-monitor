@@ -46,6 +46,18 @@ function pathToHref(path: string): Href {
 }
 
 /**
+ * Absolute canonical URL for an internal route path, with the segment LOCALIZED.
+ *
+ * `/domains/budget` in fr gives `<site>/fr/domaines/budget`, never `/fr/domains/budget`,
+ * which only exists as a 307 redirect. Use it anywhere a page URL is published to the
+ * outside: citations, JSON-LD, share links. Hand built template strings drifted from the
+ * routing table on five detail pages (domains, sectors, comparisons, solutions, communes).
+ */
+export function canonicalUrl(locale: string, path: string): string {
+  return `${siteUrl}${getPathname({ locale: locale as Locale, href: pathToHref(path) })}`;
+}
+
+/**
  * Build full page metadata with OpenGraph + Twitter card.
  * Uses the dynamic OG image route for content pages,
  * or the static og-image.png as fallback.

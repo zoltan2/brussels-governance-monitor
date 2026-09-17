@@ -4,15 +4,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { DossierCard } from '@/lib/content';
-
-const phaseStyles: Record<string, string> = {
-  announced: 'border-neutral-400 text-neutral-600',
-  planned: 'border-brand-600 text-brand-700',
-  'in-progress': 'border-status-ongoing text-status-ongoing',
-  stalled: 'border-status-blocked text-status-blocked',
-  completed: 'border-status-resolved text-status-resolved',
-  cancelled: 'border-neutral-400 text-neutral-500',
-};
+import { dossierBadgeClass } from '@/lib/status-badge';
 
 export function RelatedDossiers({ dossiers }: { dossiers: DossierCard[] }) {
   const t = useTranslations('domains');
@@ -37,7 +29,7 @@ export function RelatedDossiers({ dossiers }: { dossiers: DossierCard[] }) {
                   {d.title}
                 </p>
                 <span
-                  className={`shrink-0 rounded-full border px-2 py-0.5 text-xs font-medium ${phaseStyles[d.phase]}`}
+                  className={dossierBadgeClass(d.phase)}
                 >
                   {td(`phase.${d.phase}`)}
                 </span>

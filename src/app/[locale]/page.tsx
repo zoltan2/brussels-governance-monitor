@@ -14,7 +14,7 @@ import { useTranslations } from 'next-intl';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { LatestUpdateBar } from '@/components/latest-update-bar';
 import { GovernmentTable } from '@/components/government-table';
-import { statusStyles as domainStatusStyles } from '@/components/domain-card';
+import { domainBadgeClass, dossierBadgeClass } from '@/lib/status-badge';
 import {
   getDomainCards,
   getSectorCards,
@@ -584,15 +584,6 @@ function UnderstandColumn({ locale }: { locale: string }) {
 // 4. Dossiers (compact cards)
 // ──────────────────────────────────────────────
 
-const phaseStyles: Record<string, string> = {
-  announced: 'border-neutral-400 text-neutral-600',
-  planned: 'border-brand-600 text-brand-700',
-  'in-progress': 'border-status-ongoing text-status-ongoing',
-  stalled: 'border-status-blocked text-status-blocked',
-  completed: 'border-status-resolved text-status-resolved',
-  cancelled: 'border-neutral-400 text-neutral-500',
-};
-
 function KeyFigure({
   value,
   unit,
@@ -668,7 +659,7 @@ function DossiersPreview({
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-sm font-semibold text-neutral-900">{card.title}</h3>
                   <span
-                    className={`shrink-0 rounded-full border px-2 py-0.5 text-xs font-medium ${phaseStyles[card.phase]}`}
+                    className={dossierBadgeClass(card.phase)}
                   >
                     {td(`phase.${card.phase}`)}
                   </span>
@@ -725,7 +716,7 @@ function DomainsPreview({
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-sm font-semibold text-neutral-900">{card.title}</h3>
                   <span
-                    className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${domainStatusStyles[card.status]}`}
+                    className={domainBadgeClass(card.status)}
                   >
                     {tdo(`status.${card.status}`)}
                   </span>

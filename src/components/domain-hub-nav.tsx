@@ -4,6 +4,7 @@
 import { Link } from '@/i18n/navigation';
 import type { SectorCard, DossierCard, ComparisonCard, GlossaryTerm } from '@/lib/content';
 import { budgetSummary, type BudgetLabels } from '@/lib/budget';
+import { dossierBadgeClass } from '@/lib/status-badge';
 
 const hubLabels: Record<string, Record<string, string>> = {
   fr: { sectors: 'Secteurs liés', dossiers: 'Dossiers actifs', comparisons: 'Comparaisons internationales', glossary: 'Glossaire lié' },
@@ -18,15 +19,6 @@ const budgetLabels: Record<string, BudgetLabels> = {
   nl: { unpublished: 'Niet gepubliceerd', notCommunicated: 'Niet meegedeeld', notConsolidated: 'Niet geconsolideerd', notQuantified: 'Niet becijferd', notApplicable: 'Niet van toepassing', more: (n) => `+${n}` },
   en: { unpublished: 'Not published', notCommunicated: 'Not disclosed', notConsolidated: 'Not consolidated', notQuantified: 'Not quantified', notApplicable: 'Not applicable', more: (n) => `+${n}` },
   de: { unpublished: 'Nicht veröffentlicht', notCommunicated: 'Nicht bekanntgegeben', notConsolidated: 'Nicht konsolidiert', notQuantified: 'Nicht beziffert', notApplicable: 'Nicht zutreffend', more: (n) => `+${n}` },
-};
-
-const phaseStyles: Record<string, string> = {
-  announced: 'bg-neutral-100 text-neutral-600',
-  planned: 'bg-brand-50 text-brand-700',
-  'in-progress': 'bg-brand-900/5 text-status-ongoing',
-  stalled: 'bg-amber-50 text-status-blocked',
-  completed: 'bg-teal-50 text-status-resolved',
-  cancelled: 'bg-neutral-50 text-neutral-500',
 };
 
 const phaseLabels: Record<string, Record<string, string>> = {
@@ -91,7 +83,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
           >
             <div className="mb-1 flex items-center gap-2">
               <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{l.dossiers}</span>
-              <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-medium ${phaseStyles[d.phase]}`}>
+              <span className={dossierBadgeClass(d.phase, 'xs')}>
                 {pl[d.phase]}
               </span>
             </div>

@@ -20,6 +20,7 @@ import { DOSSIER_SLUG_TO_TOPIC } from '@/lib/resend';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
 import { buildMetadata } from '@/lib/metadata';
+import { dossierBadgeClass } from '@/lib/status-badge';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -88,15 +89,6 @@ export async function generateMetadata({
     ogParams: `title=${encodeURIComponent(card.title)}&type=dossier&date=${card.lastModified}&confidence=${card.confidenceLevel}${card.metrics.length > 0 ? `&stats=${encodeURIComponent(JSON.stringify(card.metrics.slice(0, 3).map((m) => ({ label: m.label, value: `${m.value}${m.unit ? ` ${m.unit}` : ''}` }))))}` : ''}`,
   });
 }
-
-const phaseStyles: Record<string, string> = {
-  announced: 'border-neutral-400 text-neutral-600',
-  planned: 'border-brand-600 text-brand-700',
-  'in-progress': 'border-status-ongoing text-status-ongoing',
-  stalled: 'border-status-blocked text-status-blocked',
-  completed: 'border-status-resolved text-status-resolved',
-  cancelled: 'border-neutral-400 text-neutral-500',
-};
 
 export default async function DossierDetailPage({
   params,
@@ -225,7 +217,7 @@ function DossierDetail({
 
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <span
-            className={`rounded-full border px-3 py-1 text-sm font-medium ${phaseStyles[card.phase]}`}
+            className={dossierBadgeClass(card.phase, 'lg')}
           >
             {t(`phase.${card.phase}`)}
           </span>

@@ -3,6 +3,9 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+// `/livre` vit hors du segment [locale] : il lui faut le Link brut de Next,
+// qui ne préfixe pas la locale, là où celui de @/i18n/navigation le ferait.
+import NextLink from 'next/link';
 import { dailyGame } from '@/lib/daily-game';
 
 export function Footer() {
@@ -52,6 +55,9 @@ export function Footer() {
               <Link href="/dossiers" className="hover:text-neutral-700">
                 {t('dossiers')}
               </Link>
+              <Link href="/quiz" className="hover:text-neutral-700">
+                {t('quiz')}
+              </Link>
             </nav>
           </div>
 
@@ -91,9 +97,6 @@ export function Footer() {
                 <span className="ml-1 text-neutral-500" aria-hidden="true">&#8599;</span>
                 <span className="sr-only"> ({t('newTab')})</span>
               </a>
-              <Link href="/quiz" className="hover:text-neutral-700">
-                {t('quiz')}
-              </Link>
             </nav>
           </div>
 
@@ -121,6 +124,13 @@ export function Footer() {
               <Link href="/press" className="hover:text-neutral-700">
                 {t('press')}
               </Link>
+              {/* Le prototype d'accueil a retiré le bandeau du livre ; le lien vit
+                  désormais ici, donc sur toutes les pages plutôt que sur une seule.
+                  `/livre` est hors du segment [locale] : NextLink, et non le Link
+                  localisé, qui le réécrirait en /fr/livre. */}
+              <NextLink href="/livre" className="hover:text-neutral-700">
+                {t('book')}
+              </NextLink>
             </nav>
           </div>
         </div>

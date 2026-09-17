@@ -317,7 +317,12 @@ function SectionHeader({
 // La hauteur est posée ici et non sur `linkClass`, partagé par d'autres appels.
 function MoreLink({ href, children }: { href: LinkHref; children: ReactNode }) {
   return (
-    <Link href={href} className={`${linkClass} min-h-[24px]`}>
+    <Link
+      href={href}
+      data-umami-event="accueil-inventaire"
+      data-umami-event-cible={String(href)}
+      className={`${linkClass} min-h-[24px]`}
+    >
       {children}
       <ArrowRight size={14} aria-hidden={true} />
     </Link>
@@ -340,7 +345,11 @@ function Hero({ cta }: { cta: HomepageCta }) {
           <span>
             {t('identity')} {t('identityDetail')}
           </span>
-          <Link href="/about" className="font-medium text-white underline underline-offset-2 hover:text-white/90">
+          <Link
+            href="/about"
+            data-umami-event="accueil-a-propos"
+            className="font-medium text-white underline underline-offset-2 hover:text-white/90"
+          >
             {t('identityLink')}
           </Link>
         </p>
@@ -358,6 +367,7 @@ function Hero({ cta }: { cta: HomepageCta }) {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/dossiers"
+            data-umami-event="accueil-cta-dossiers"
             className="inline-flex items-center gap-1.5 rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
           >
             Explorer les dossiers
@@ -366,6 +376,8 @@ function Hero({ cta }: { cta: HomepageCta }) {
           {/* Second bouton : libellé et destination viennent de data/homepage-cta.json. */}
           <a
             href={cta.href}
+            data-umami-event="accueil-cta-secondaire"
+            data-umami-event-cible={cta.href}
             className="inline-flex items-center rounded-lg border border-white/70 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
           >
             {cta.label}
@@ -443,6 +455,7 @@ function WhatWeWatch({
           </div>
           <Link
             href="/methodology"
+            data-umami-event="accueil-methode"
             className="mt-1.5 inline-flex min-h-[24px] items-center gap-1 pl-[22px] text-xs font-medium text-brand-700 hover:text-brand-900"
           >
             {t('veilleMethod')}
@@ -476,6 +489,7 @@ function WhatWeWatch({
         <div className="mt-4 border-t border-neutral-100 px-4 py-3">
           <Link
             href="/radar"
+            data-umami-event="accueil-radar"
             className="inline-flex min-h-[24px] items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
           >
             {tr('seeAll')}
@@ -536,6 +550,8 @@ function UnderstandColumn({ locale }: { locale: string }) {
             <Link
               key={exp.href}
               href={exp.href}
+              data-umami-event="accueil-explicateur"
+              data-umami-event-fiche={exp.href}
               className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-neutral-800 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
             >
               <exp.Icon size={16} className="shrink-0 text-neutral-500" aria-hidden={true} />
@@ -546,6 +562,7 @@ function UnderstandColumn({ locale }: { locale: string }) {
         <div className="mt-3 border-t border-neutral-100 pt-3">
           <Link
             href="/understand"
+            data-umami-event="accueil-comprendre-tout"
             className="inline-flex min-h-[24px] items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
           >
             {t('allExplainers')}
@@ -640,6 +657,10 @@ function DossiersPreview({
               <Link
                 key={card.slug}
                 href={{ pathname: '/dossiers/[slug]', params: { slug: card.slug } }}
+                // Un seul nom pour les treize cartes, le type et le slug en propriétés.
+                data-umami-event="accueil-fiche"
+                data-umami-event-type="dossier"
+                data-umami-event-slug={card.slug}
                 className={cardClass}
               >
                 <div className="flex items-start justify-between gap-3">
@@ -694,6 +715,9 @@ function DomainsPreview({
               <Link
                 key={card.slug}
                 href={{ pathname: '/domains/[slug]', params: { slug: card.slug } }}
+                data-umami-event="accueil-fiche"
+                data-umami-event-type="domaine"
+                data-umami-event-slug={card.slug}
                 className={cardClass}
               >
                 <div className="flex items-start justify-between gap-3">
@@ -747,6 +771,9 @@ function SectorsPreview({
               <Link
                 key={card.slug}
                 href={{ pathname: '/sectors/[slug]', params: { slug: card.slug } }}
+                data-umami-event="accueil-fiche"
+                data-umami-event-type="secteur"
+                data-umami-event-slug={card.slug}
                 className={cardClass}
               >
                 <h3 className="text-sm font-semibold text-neutral-900">{card.title}</h3>
@@ -876,6 +903,10 @@ function FormatsSection({
                       href={`/digest/${lang}/${digest.weekPath}`}
                       lang={lang}
                       aria-label={`Lire le digest en ${nativeName(lang)}`}
+                      // Un seul nom d'événement pour onze pastilles, la langue en
+                      // propriété : onze noms distincts seraient illisibles dans Umami.
+                      data-umami-event="accueil-digest-langue"
+                      data-umami-event-lang={lang}
                       className={`${pastille} relative z-10 border-brand-700 text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700`}
                     >
                       {lang}
@@ -891,12 +922,12 @@ function FormatsSection({
             }
             link={
               digest ? (
-                <a href={digest.href} className={stretchedLink}>
+                <a href={digest.href} data-umami-event="accueil-digest" className={stretchedLink}>
                   Lire le digest de la semaine {digest.weekNum}
                   <ArrowRight size={14} aria-hidden={true} />
                 </a>
               ) : (
-                <a href="#subscribe" className={stretchedLink}>
+                <a href="#subscribe" data-umami-event="accueil-digest-abonnement" className={stretchedLink}>
                   S’abonner au digest
                 </a>
               )
@@ -940,6 +971,7 @@ function FormatsSection({
                     ? `https://magazine.governance.brussels/s${weekNum}/`
                     : 'https://magazine.governance.brussels/'
                 }
+                data-umami-event="accueil-magazine"
                 className={stretchedLink}
               >
                 {weekNum ? `Lire le magazine, numéro ${weekNum}` : 'Lire le magazine'}
@@ -962,7 +994,7 @@ function FormatsSection({
               />
             }
             link={
-              <Link href="/signal" className={stretchedLink}>
+              <Link href="/signal" data-umami-event="accueil-signal" className={stretchedLink}>
                 Découvrir la newsletter
                 <ArrowRight size={14} aria-hidden={true} />
               </Link>

@@ -5,14 +5,11 @@
 
 import { Suspense, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
-
-declare global {
-  interface Window {
-    umami?: {
-      track: (event: string, data?: Record<string, string>) => void;
-    };
-  }
-}
+// Le type global de window.umami et la garde vivent désormais dans lib/analytics.
+// Celui qui était déclaré ici typait les données en Record<string, string>, plus
+// étroit que l'API réelle : c'est ce qui obligeait le quiz à recaster window pour
+// envoyer des nombres, et donc à recopier sa propre garde.
+import { track } from '@/lib/analytics';
 
 const messages: Record<string, { title: string; subtitle: string; back: string }> = {
   fr: {
@@ -49,7 +46,7 @@ function FeedbackContent() {
   useEffect(() => {
     if (tracked.current || !week || !vote) return;
     tracked.current = true;
-    window.umami?.track(`digest-feedback-${vote}`);
+    track(`digest-feedback-${vote}`);
   }, [week, vote]);
 
   return (

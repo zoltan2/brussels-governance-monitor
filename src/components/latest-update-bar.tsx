@@ -36,6 +36,7 @@ export function LatestUpdateBar({ date, description, summary, section, targetSlu
       <div className="border-b border-neutral-200 bg-neutral-100">
         <Link
           href={linkHref}
+          data-umami-event="accueil-fait-du-jour"
           className="block transition-colors hover:bg-neutral-200 [&_span.text-brand-700]:hover:text-brand-900"
         >
           {content}

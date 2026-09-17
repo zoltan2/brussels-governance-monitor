@@ -10,6 +10,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { FeedbackButton } from '@/components/feedback-button'
+import { track } from '@/lib/analytics'
 
 const LETTERS = ['A', 'B', 'C', 'D'] as const
 
@@ -73,14 +74,6 @@ function scoreLabel(pct: number, t: (key: string) => string): string {
 /** Replace /fr/ prefix in sourceSlug with the current locale */
 function localizeSlug(slug: string, locale: string): string {
   return slug.replace(/^\/fr\//, `/${locale}/`)
-}
-
-/** Send Umami custom event (no-op if Umami not loaded) */
-function track(event: string, data?: Record<string, string | number>) {
-  if (typeof window !== 'undefined' && 'umami' in window) {
-    const w = window as unknown as { umami: { track: (e: string, d?: Record<string, string | number>) => void } }
-    w.umami.track(event, data)
-  }
 }
 
 // ─── Social share SVG icons ────────────────────────────────────────────────

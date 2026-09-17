@@ -58,6 +58,7 @@ export function CommitmentsBarometer({ commitments }: { commitments: CommitmentL
     <Link
       href="/dashboard"
       aria-label={`Baromètre des engagements, ${total} promesses chiffrées. ${summary}. Voir les engagements.`}
+      data-umami-event="accueil-barometre"
       className="group mt-4 block rounded-sm border-t border-white/15 pt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-slate-800"
     >
       <p className="text-xs font-semibold uppercase tracking-wider text-white/75">Baromètre des engagements</p>

@@ -15,6 +15,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
+import { track } from '@/lib/analytics';
 
 interface QuizQuestion {
   id: string;
@@ -136,6 +137,12 @@ export function DailyQuestion({
     if (!question || choice !== null) return;
     setChoice(i);
     saveChoice(dateKey, question.id, i);
+    // `correct` en 0/1 plutôt qu'en booléen : Umami agrège les nombres, et le taux
+    // de bonnes réponses devient une moyenne lisible sans retraitement.
+    track('jeux-question-repondue', {
+      questionId: question.id,
+      correct: i === question.correct ? 1 : 0,
+    });
     // One mechanism only: the focus lands on the verdict, which is read where it is.
     requestAnimationFrame(() => resultRef.current?.focus());
   };
@@ -251,6 +258,7 @@ export function DailyQuestion({
       <div className="mt-auto pt-3">
         <Link
           href="/quiz"
+          data-umami-event="jeux-quiz-complet"
           className="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-900 hover:underline"
         >
           {answered ? 'Continuer avec le quiz complet (10 questions)' : 'Faire le quiz complet (10 questions)'}

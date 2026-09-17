@@ -30,6 +30,10 @@ import { createPortal } from 'react-dom';
 import { X, Gamepad2, ExternalLink } from 'lucide-react';
 import { DailyQuestion } from '@/components/daily-question';
 import { AMAI_URLS, STUUT_URL } from '@/lib/daily-game';
+// Ces actions ne naviguent pas : l'attribut `data-umami-event` n'a rien à annoter,
+// et le panneau vit dans un portail monté après hydratation. L'appel explicite
+// supprime toute dépendance à la liaison d'événements du tracker.
+import { track } from '@/lib/analytics';
 
 const EMBED_HOST = 'governance.brussels';
 
@@ -199,6 +203,9 @@ export function GamesPanel({ locale }: { locale: string }) {
       ),
     );
     setOpen(true);
+    // Le jeu ouvert par défaut part avec l'événement : sans lui, on saurait combien
+    // de fois le panneau s'ouvre sans savoir sur quoi il s'ouvre.
+    track('jeux-ouvert', { jeu: ongletsFor(locale)[0]?.key ?? 'inconnu' });
   }, [locale]);
 
   // Échap ferme, où que soit le focus.
@@ -360,7 +367,10 @@ export function GamesPanel({ locale }: { locale: string }) {
                       aria-selected={choisi}
                       aria-controls={`jeu-panneau-${onglet.key}`}
                       tabIndex={choisi ? 0 : -1}
-                      onClick={() => setActif(i)}
+                      onClick={() => {
+                        setActif(i);
+                        track('jeux-onglet', { jeu: onglet.key });
+                      }}
                       style={
                         choisi && onglet.skin
                           ? {

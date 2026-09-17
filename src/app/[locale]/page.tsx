@@ -713,6 +713,11 @@ function DomainsPreview({
                 data-umami-event-slug={card.slug}
                 className={cardClass}
               >
+                {/* Le chapeau du domaine, comme sur la fiche et comme en production.
+                    Le rendu compact l'avait laissé tomber au profit du seul chiffre :
+                    la section perdait 2 839 caractères indexables face au live, soit
+                    la totalité de l'écart de texte entre le prototype et la prod. */}
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{card.summary}</p>
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-sm font-semibold text-neutral-900">{card.title}</h3>
                   <span

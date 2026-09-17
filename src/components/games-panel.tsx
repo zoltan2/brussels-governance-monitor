@@ -219,8 +219,26 @@ export function GamesPanel({ locale }: { locale: string }) {
     // déjà pointer ailleurs (react-hooks/exhaustive-deps).
     const tab = tabRef.current;
     document.body.style.overflow = 'hidden';
+
+    // Le focus DOIT entrer dans la modale, et le reste de la page DOIT devenir
+    // inerte. Sans cela, `aria-modal="true"` ment : mesuré avant correction, le
+    // focus restait sur <body> et 141 éléments demeuraient focalisables derrière
+    // le panneau, dont toute la navigation. Le piège de focus ne servait à rien,
+    // puisqu'il ne s'arme qu'une fois le focus à l'intérieur.
+    const panneau = panelRef.current;
+    const portail = panneau?.parentElement ?? null;
+    panneau?.querySelector<HTMLElement>('button, a[href]')?.focus();
+
+    const voisins = [...document.body.children].filter(
+      (el): el is HTMLElement => el !== portail && el instanceof HTMLElement,
+    );
+    for (const el of voisins) el.setAttribute('inert', '');
+
     return () => {
       document.body.style.overflow = previous;
+      // L'inertie est levée AVANT de rendre le focus : un élément inerte ne peut
+      // pas le recevoir, et l'onglet fait partie de l'arrière-plan.
+      for (const el of voisins) el.removeAttribute('inert');
       tab?.focus();
     };
   }, [open]);

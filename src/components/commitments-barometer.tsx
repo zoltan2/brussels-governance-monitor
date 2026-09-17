@@ -5,8 +5,9 @@
 //
 // Répartition des engagements DPR par statut, en ruban proportionnel. Une répartition,
 // pas une note : aucune pondération, aucune jauge (le brief baromètre de février 2026
-// excluait les deux). Le verdict en toutes lettres est désormais le titre de la page,
-// ce bloc n'a donc plus à le répéter.
+// excluait les deux). Le verdict en toutes lettres n'est PAS repris ici : le titre de
+// la page d'accueil est éditorial (« La Région bruxelloise, revue et corrigée »), et
+// c'est le chiffre « Mis en œuvre : 0 » de la légende qui porte le fait.
 //
 // Couleurs : rampe ordinale d'une seule teinte pour les statuts de progression, validée
 // avec le validateur dataviz (--ordinal, mode sombre, surfaces #334155 et #1e293b),

@@ -15,7 +15,11 @@ const DAY_MS = 86_400_000;
 
 function daysSince(isoDate: string, now: Date): number {
   const start = Date.parse(`${isoDate}T00:00:00Z`);
-  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  // Tout en UTC, des deux côtés. La version précédente prenait le quantième LOCAL
+  // (getFullYear/getMonth/getDate) et le comparait à un minuit UTC : entre minuit et
+  // 2 h en heure belge, la date locale a déjà changé mais pas la date UTC, et le
+  // compteur avançait d'un jour trop tôt. Attrapé par le test de ce composant.
+  const today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
   return Math.max(0, Math.floor((today - start) / DAY_MS));
 }
 

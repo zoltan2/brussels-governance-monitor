@@ -43,13 +43,3 @@ export function countByStatus(commitments: CommitmentLike[]): Record<CommitmentS
   return counts;
 }
 
-/** Le fait que la page met en titre. Se réécrit seul le jour où une promesse passe. */
-export function implementedHeadline(implemented: number, total: number): string {
-  if (implemented === 0) {
-    return `Aucune des ${total} promesses chiffrées du gouvernement n’est mise en œuvre`;
-  }
-  if (implemented === 1) {
-    return `1 promesse chiffrée sur ${total} est mise en œuvre`;
-  }
-  return `${implemented} promesses chiffrées sur ${total} sont mises en œuvre`;
-}

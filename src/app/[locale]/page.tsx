@@ -15,7 +15,6 @@ import { SubscribeForm } from '@/components/subscribe-form';
 import { LatestUpdateBar } from '@/components/latest-update-bar';
 import { GovernmentTable } from '@/components/government-table';
 import { statusStyles as domainStatusStyles } from '@/components/domain-card';
-import { getLinkHref } from '@/components/latest-update-bar';
 import {
   getDomainCards,
   getSectorCards,
@@ -25,7 +24,7 @@ import {
   getDigestEntry,
 } from '@/lib/content';
 import { getActiveSignals, getEditorialSourceCount } from '@/lib/radar';
-import { getChangelog, getLatestUpdate, isFilterableSection, resolveCardTitle } from '@/lib/changelog';
+import { getLatestUpdate } from '@/lib/changelog';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
@@ -33,6 +32,7 @@ import type { DossierCard as DossierCardType, SectorCard as SectorCardType } fro
 import type { LocalizedRadarEntry } from '@/lib/radar';
 import { buildMetadata } from '@/lib/metadata';
 import { getHomepageCta, type HomepageCta } from '@/lib/homepage-cta';
+import { CORE_DIGEST_LOCALES } from '@/lib/digest-langs';
 import { GovernmentDayCounter } from '@/components/government-day-counter';
 import governmentData from '../../../data/government.json';
 import { CommitmentsBarometer } from '@/components/commitments-barometer';
@@ -50,7 +50,6 @@ import {
   LayoutGrid,
   Building2,
   BookOpen,
-  Lightbulb,
   Radio,
   type LucideIcon,
 } from 'lucide-react';
@@ -89,37 +88,26 @@ export async function generateMetadata({
   });
 }
 
-// Max width of the homepage radar blurb, see veille-workflow.md (~150 chars/locale).
+// Max width of the homepage radar blurb (~150 chars/locale is the editorial target).
+// No cross-reference here: the veille workflow note is a private file, unreachable to
+// a reader of this source-available repository.
 const HOMEPAGE_SIGNAL_MAX_CHARS = 180;
 
-function getHomepageBlurb(summary: string | undefined, description: string): string {
-  if (summary) return summary;
-  const firstSentenceMatch = description.match(/^[^.!?]+[.!?]/);
-  const firstSentence = firstSentenceMatch ? firstSentenceMatch[0] : description;
-  if (firstSentence.length <= HOMEPAGE_SIGNAL_MAX_CHARS) return firstSentence;
-  return firstSentence.slice(0, HOMEPAGE_SIGNAL_MAX_CHARS).trimEnd() + '…';
+function couperAuPlafond(texte: string): string {
+  if (texte.length <= HOMEPAGE_SIGNAL_MAX_CHARS) return texte;
+  return texte.slice(0, HOMEPAGE_SIGNAL_MAX_CHARS).trimEnd() + '…';
 }
 
-const SECTION_LABELS: Record<string, string> = {
-  domains: 'Domaine',
-  dossiers: 'Dossier',
-  sectors: 'Secteur',
-  communes: 'Commune',
-  comparisons: 'Comparaison',
-  solutions: 'Solution',
-};
-
-// Dans « ce qui a changé », l'icône remplace l'étiquette en majuscules, qui coûtait
-// 80 px par ligne et se lisait moins vite. Même vocabulaire que les en-têtes de
-// section plus bas. Le libellé reste lu par les lecteurs d'écran et s'affiche au survol.
-const SECTION_ICONS: Record<string, LucideIcon> = {
-  domains: LayoutGrid,
-  dossiers: FolderOpen,
-  sectors: Building2,
-  communes: Map,
-  comparisons: Scale,
-  solutions: Lightbulb,
-};
+function getHomepageBlurb(summary: string | undefined, description: string): string {
+  // Le plafond s'applique AUX DEUX branches. Il ne gardait auparavant que le repli
+  // sur la description, et `summary` sortait verbatim : mesuré sur data/radar.json,
+  // 56 des 365 signaux actifs ont un résumé français de plus de 180 caractères,
+  // jusqu'à 381. Le bloc de surveillance affirmait le contraire, et c'est sur cette
+  // affirmation que la coupe CSS avait été retirée.
+  if (summary) return couperAuPlafond(summary);
+  const firstSentenceMatch = description.match(/^[^.!?]+[.!?]/);
+  return couperAuPlafond(firstSentenceMatch ? firstSentenceMatch[0] : description);
+}
 
 
 type LinkHref = ComponentProps<typeof Link>['href'];
@@ -149,29 +137,13 @@ export default async function HomePage({
 
   // Une règle par zone de veille, pour qu'un même sujet n'apparaisse jamais deux fois :
   //   barre d'info   = le fait du jour (entrée la plus récente du changelog) ;
-  //   mises à jour   = les fiches modifiées ensuite ;
-  //   radar          = ce qui n'est pas encore confirmé, hors fiches déjà citées ;
-  //   dossiers       = les dossiers suivis, hors ceux que la liste vient de citer.
+  //   radar          = ce qui n'est pas encore confirmé, hors fiche déjà citée ;
+  //   dossiers       = les dossiers suivis, hors celui que la barre vient de citer.
+  //
+  // Depuis le retrait du bloc « ce qui a changé », la barre est le SEUL endroit qui
+  // affiche une entrée du changelog : elle est donc la seule à devoir exclure une
+  // fiche. Exclure les entrées suivantes les ferait disparaître de la page entière.
   const latestUpdate = getLatestUpdate(loc);
-  const recentRaw = getChangelog(loc)
-    .slice(1)
-    .filter((e) => isFilterableSection(e.section) && e.targetSlug)
-    // Trois, pas quatre : `shown` se construit sur cette liste déjà découpée, donc la
-    // quatrième fiche n'est pas perdue, elle redevient éligible dans les inventaires
-    // du dessous et réapparaît en carte.
-    .slice(0, 3);
-
-  const recentChanges: RecentChange[] = recentRaw.map((e) => ({
-    key: `${e.date}-${e.section}-${e.targetSlug}`,
-    date: e.date,
-    section: e.section,
-    text: e.summary || e.description,
-    title:
-      isFilterableSection(e.section) && e.targetSlug
-        ? resolveCardTitle(e.section, e.targetSlug, loc)
-        : null,
-    href: getLinkHref(e.section, e.targetSlug, e.anchor),
-  }));
 
   // Les signaux radar portent les slugs des fiches concernées (`cards`) : le
   // dédoublonnage s'appuie dessus, jamais sur une comparaison de titres.
@@ -181,7 +153,6 @@ export default async function HomePage({
   // une carte à tort.
   const shown = [
     { section: latestUpdate.section, slug: latestUpdate.targetSlug },
-    ...recentRaw.map((e) => ({ section: e.section, slug: e.targetSlug })),
   ].filter((e): e is { section: string; slug: string } => Boolean(e.slug));
   const shownSlugs = new Set(shown.map((e) => e.slug));
   const shownKeys = new Set(shown.map((e) => `${e.section}:${e.slug}`));
@@ -203,7 +174,12 @@ export default async function HomePage({
     .filter((card) => !shownKeys.has(`sectors:${card.slug}`))
     .slice(0, 6);
 
-  // Formats: same data sources as the former PublicationsBand.
+  // Formats: same data sources as PublicationsBand, which this prototype replaces on
+  // the homepage. The component itself still exists and is still rendered on main.
+  // Deux chiffres, deux réalités : `langs` donne les langues des PAGES du digest
+  // (onze au 17/09/2026), CORE_DIGEST_LOCALES celles de l'ENVOI par email (quatre,
+  // la seule liste qu'accepte l'inscription). La carte doit dire les deux sans les
+  // confondre : elle annonçait « par email, en 11 langues », ce qui était faux.
   const { langs, latestCompleteWeek } = getRecentDigestLangs(2);
   const weekNum = latestCompleteWeek?.split('-w')[1] ?? null;
   const digestLang =
@@ -213,6 +189,14 @@ export default async function HomePage({
     : null;
   const mag =
     latestCompleteWeek && locale === 'fr' ? getDigestEntry(latestCompleteWeek, 'fr')?.entry?.magazine : null;
+  // Le sommaire de la semaine, deux titres. Ils sont courts (médiane 25 caractères,
+  // maximum 51) et frappants, donc plus parlants qu'une décoration. Absents neuf
+  // semaines sur trente et une, et hors français : d'où le repli sur une liste vide,
+  // que la carte traite en affichant sa phrase générique.
+  const digestItems: string[] = (mag?.items ?? [])
+    .map((item) => item.headline)
+    .filter((headline): headline is string => Boolean(headline))
+    .slice(0, 2);
   const magazine =
     mag?.tagline && weekNum
       ? { tagline: mag.tagline, href: `https://magazine.governance.brussels/s${weekNum}/` }
@@ -245,19 +229,10 @@ export default async function HomePage({
       {/* Les rendez-vous juste après les faits du jour : c'est là qu'on donne suite à
           ce qu'on vient de lire, avant de dérouler les inventaires. */}
       <FormatsSection
-        digest={digestHref && weekNum ? { href: digestHref, weekNum, langs } : null}
+        digest={digestHref && weekNum ? { href: digestHref, weekNum, langs, items: digestItems } : null}
         magazine={magazine}
         weekNum={weekNum}
       />
-
-      {/* « Ce qui a changé » en pleine largeur, sous les rendez-vous : le haut de page
-          est rendu à la paire du live, et ces titres courts se lisent mieux sur toute
-          la largeur que dans une colonne de 384 px. */}
-      <section className="py-8">
-        <div className="mx-auto max-w-5xl px-4">
-          <WhatChanged entries={recentChanges} locale={locale} />
-        </div>
-      </section>
 
       <DossiersPreview
         cards={homeDossiers}
@@ -320,9 +295,14 @@ function SectionHeader({
   );
 }
 
+// min-h-[24px] : WCAG 2.2 AA, critère 2.5.8 « Target Size (Minimum) ». Mesurés à
+// 390 px, ces liens faisaient 20 px de haut. Ce sont les seules portes de sortie de
+// chaque bloc, sur la largeur où l'on navigue au pouce, et l'exception prévue pour
+// les liens en ligne dans un texte ne s'applique pas : ils sont autonomes.
+// La hauteur est posée ici et non sur `linkClass`, partagé par d'autres appels.
 function MoreLink({ href, children }: { href: LinkHref; children: ReactNode }) {
   return (
-    <Link href={href} className={linkClass}>
+    <Link href={href} className={`${linkClass} min-h-[24px]`}>
       {children}
       <ArrowRight size={14} aria-hidden={true} />
     </Link>
@@ -391,99 +371,11 @@ function Hero({ cta }: { cta: HomepageCta }) {
   );
 }
 
-// ──────────────────────────────────────────────
-// 2. Recent changes (changelog, all card types)
-// ──────────────────────────────────────────────
-
-interface RecentChange {
-  key: string;
-  date: string;
-  section: string;
-  text: string;
-  title: string | null;
-  href: ReturnType<typeof getLinkHref>;
-}
-
 // Deux statuts, deux blocs, deux registres. À gauche, ce qui est vérifié et sourcé :
 // des titres de fiches, courts, datés une fois par journée. À droite, ce qu'on
 // surveille : des phrases entières, en annotation de marge, sans date ni cadre.
 // Les deux listes ne fusionnent pas, une mise à jour et un signal n'ont pas le même
 // statut. Pas d'ambre ici : dans le baromètre, cette couleur veut déjà dire « Retardé ».
-
-function SectionTitle({ id, children, link }: { id: string; children: ReactNode; link?: ReactNode }) {
-  return (
-    <div className="mb-3 flex items-baseline justify-between gap-4 border-b border-neutral-300 pb-2">
-      <h2 id={id} className="text-lg font-semibold text-neutral-900">
-        {children}
-      </h2>
-      {link}
-    </div>
-  );
-}
-
-function WhatChanged({ entries, locale }: { entries: RecentChange[]; locale: string }) {
-  const dayLabel = (iso: string) =>
-    new Date(`${iso}T00:00:00Z`).toLocaleDateString(locale, {
-      day: 'numeric',
-      month: 'long',
-      timeZone: 'UTC',
-    });
-
-  // Le changelog publie par lots (médiane de 9 entrées par journée publiée, sur
-  // 112 journées) : les entrées affichées partagent presque toujours la même date.
-  // On la sort donc des lignes, où elle se répétait, pour la poser en intertitre.
-  // Les journées maigres produisent deux ou trois intertitres, sans cas particulier.
-  const jours: { date: string; items: RecentChange[] }[] = [];
-  for (const entry of entries) {
-    const dernier = jours[jours.length - 1];
-    if (dernier && dernier.date === entry.date) dernier.items.push(entry);
-    else jours.push({ date: entry.date, items: [entry] });
-  }
-
-  return (
-    <div aria-labelledby="changed-title" className="min-w-0">
-      <SectionTitle id="changed-title" link={<MoreLink href="/changelog">Tout l’historique</MoreLink>}>
-        Ce qui a changé
-      </SectionTitle>
-
-      {jours.map((jour) => (
-        <div key={jour.date} className="mt-3 first:mt-0">
-          <time dateTime={jour.date} className="text-xs text-neutral-600">
-            {dayLabel(jour.date)}
-          </time>
-
-          <ul className="mt-1 divide-y divide-neutral-200">
-            {jour.items.map((entry) => {
-              const Icon = SECTION_ICONS[entry.section] ?? FolderOpen;
-              const label = SECTION_LABELS[entry.section] ?? entry.section;
-              const titre = entry.title ?? entry.text;
-              return (
-                <li key={entry.key} className="flex items-baseline gap-2.5 py-2 text-sm">
-                  {/* L'icône est décorative : le type est donné au lecteur d'écran par
-                      le texte masqué, et à la souris par l'infobulle. */}
-                  <span title={label} className="shrink-0 translate-y-0.5">
-                    <Icon size={14} aria-hidden={true} className="text-neutral-600" />
-                  </span>
-                  <span className="sr-only">{label} : </span>
-                  {entry.href ? (
-                    <Link
-                      href={entry.href}
-                      className="min-w-0 font-medium text-neutral-900 hover:text-brand-700 hover:underline"
-                    >
-                      {titre}
-                    </Link>
-                  ) : (
-                    <span className="min-w-0 font-medium text-neutral-900">{titre}</span>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 function WhatWeWatch({
   signals,
@@ -506,8 +398,11 @@ function WhatWeWatch({
   // par rapport au live, 248 sources suivies et non 325 consultées, parce que 325
   // comptait aussi les sources scannées au mois.
   //
-  // Les résumés sont des PHRASES de 150 caractères en médiane (q90 : 201), bornées à
-  // 180 côté serveur par getHomepageBlurb : elles s'enroulent, aucune coupe CSS.
+  // Les résumés sont des PHRASES, pas des titres : leur sens est à la fin, une coupe
+  // à une ligne les décapitait. Mesuré sur data/radar.json : 365 signaux actifs, dont
+  // 250 avec un résumé français et 115 sans. getHomepageBlurb les borne désormais
+  // vraiment à 180 caractères, des deux côtés, ce qui tient en quatre lignes ici :
+  // aucune coupe CSS à ajouter.
   return (
     // La gouttière vient désormais du lg:gap-x-8 de la grille parente, plus d'une
     // marge intérieure : sans elle, les colonnes se touchaient et ce titre percutait
@@ -533,7 +428,7 @@ function WhatWeWatch({
           </div>
           <Link
             href="/methodology"
-            className="mt-1.5 inline-flex items-center gap-1 pl-[22px] text-xs font-medium text-brand-700 hover:text-brand-900"
+            className="mt-1.5 inline-flex min-h-[24px] items-center gap-1 pl-[22px] text-xs font-medium text-brand-700 hover:text-brand-900"
           >
             {t('veilleMethod')}
             <ArrowRight size={12} aria-hidden={true} />
@@ -566,7 +461,7 @@ function WhatWeWatch({
         <div className="mt-4 border-t border-neutral-100 px-4 py-3">
           <Link
             href="/radar"
-            className="inline-flex items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
+            className="inline-flex min-h-[24px] items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
           >
             {tr('seeAll')}
             <ArrowRight size={12} aria-hidden={true} />
@@ -583,11 +478,15 @@ function WhatWeWatch({
   );
 }
 
-// Deux portes sous le haut de page : le digest (lundi 8h, cf. bgm-cron-digest.timer)
-// et le Stuut. Le turquoise reprend le `--teal-deep` du jeu, assez foncé pour le texte.
 // ──────────────────────────────────────────────
-// 9. First steps: explainers + government, at the bottom
+// Colonne « Comprendre », à droite de la surveillance en tête de page
 // ──────────────────────────────────────────────
+//
+// Les deux lignes qui précédaient décrivaient « deux portes sous le haut de page,
+// le digest et le Stuut », et un turquoise repris du jeu : ni les portes ni le
+// turquoise n'existent encore. La numérotation des sections de ce fichier est par
+// ailleurs devenue fausse (1, 9, 4, 5, 6, 7 dans cet ordre, 2, 3 et 8 supprimées) :
+// elle n'est plus un guide de lecture, ces bandeaux nomment donc la section.
 
 // Colonne « Comprendre », reprise de la page d'accueil en production : les quatre
 // explicateurs dans un encadré, puis la table du gouvernement. Elle était jusqu'ici
@@ -632,7 +531,7 @@ function UnderstandColumn({ locale }: { locale: string }) {
         <div className="mt-3 border-t border-neutral-100 pt-3">
           <Link
             href="/understand"
-            className="inline-flex items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
+            className="inline-flex min-h-[24px] items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
           >
             {t('allExplainers')}
             <ArrowRight size={12} aria-hidden={true} />
@@ -864,12 +763,15 @@ function FormatCard({
   title,
   visual,
   children,
+  meta,
   link,
 }: {
   title: string;
   /** Décoratif : le titre et le texte portent le sens. */
   visual: ReactNode;
   children: ReactNode;
+  /** Précision de second rang, hors du `line-clamp` du corps. */
+  meta?: ReactNode;
   link: ReactNode;
 }) {
   return (
@@ -880,6 +782,7 @@ function FormatCard({
       <div className="flex flex-1 flex-col p-3">
         <h4 className="text-sm font-semibold text-neutral-900">{title}</h4>
         <p className="mt-1 line-clamp-3 text-xs leading-snug text-neutral-700">{children}</p>
+        {meta && <p className="mt-1.5 text-[11px] leading-snug text-neutral-600">{meta}</p>}
         <div className="mt-auto pt-2">{link}</div>
       </div>
     </div>
@@ -891,7 +794,9 @@ function FormatsSection({
   magazine,
   weekNum,
 }: {
-  digest: { href: string; weekNum: string; langs: string[] } | null;
+  /** `items` : les titres du sommaire de la semaine. Vide neuf semaines sur trente
+   *  et une, et absent hors français : la carte doit se replier proprement. */
+  digest: { href: string; weekNum: string; langs: string[]; items: string[] } | null;
   magazine: { tagline: string; href: string } | null;
   weekNum: string | null;
 }) {
@@ -909,7 +814,10 @@ function FormatsSection({
             title="Le digest"
             visual={
               <div className="flex h-full flex-wrap content-center gap-1 bg-neutral-100 px-3 py-2">
-                {(digest?.langs ?? ['fr', 'nl', 'en', 'de']).map((lang) => (
+                {/* Les quatre langues d'ENVOI, celles qu'accepte l'inscription. Les onze
+                    langues de LECTURE sur le site sont dites sous le texte. Afficher les
+                    onze ici remplissait trois rangées et laissait croire à onze envois. */}
+                {CORE_DIGEST_LOCALES.map((lang) => (
                   <span
                     key={lang}
                     className="rounded-full border border-neutral-400 px-1.5 text-[11px] font-semibold uppercase leading-4 text-neutral-700"
@@ -918,6 +826,11 @@ function FormatsSection({
                   </span>
                 ))}
               </div>
+            }
+            meta={
+              digest
+                ? `Par email en ${CORE_DIGEST_LOCALES.length} langues, sur le site en ${digest.langs.length}.`
+                : undefined
             }
             link={
               digest ? (
@@ -932,8 +845,19 @@ function FormatsSection({
               )
             }
           >
-            L’essentiel de la semaine par email
-            {digest ? `, en ${digest.langs.length} langues.` : '.'}
+            {digest && digest.items.length > 0 ? (
+              <>
+                {digest.items[0]}
+                {/* Le second titre disparaît sous 640 px : joints, les deux font 83
+                    caractères, dépassent les trois lignes de la carte, et le second se
+                    coupait en plein mot (mesuré à 390 px). */}
+                {digest.items[1] && (
+                  <span className="hidden sm:inline"> · {digest.items[1]}</span>
+                )}
+              </>
+            ) : (
+              'L’essentiel de la semaine, en un email.'
+            )}
           </FormatCard>
 
           <FormatCard
@@ -949,8 +873,19 @@ function FormatsSection({
               </div>
             }
             link={
-              <a href={magazine?.href ?? 'https://magazine.governance.brussels/'} className={stretchedLink}>
-                {magazine && weekNum ? `Lire le magazine, numéro ${weekNum}` : 'Lire le magazine'}
+              // Le numéro ne dépend pas de la langue, seule la tagline est FR. La
+              // vignette annonçait « Semaine 37 » en nl/en/de pendant que le lien
+              // retombait sur le sommaire général : on renvoyait le lecteur ailleurs
+              // que là où on lui promettait d'aller.
+              <a
+                href={
+                  weekNum
+                    ? `https://magazine.governance.brussels/s${weekNum}/`
+                    : 'https://magazine.governance.brussels/'
+                }
+                className={stretchedLink}
+              >
+                {weekNum ? `Lire le magazine, numéro ${weekNum}` : 'Lire le magazine'}
                 <ArrowRight size={14} aria-hidden={true} />
               </a>
             }

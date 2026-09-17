@@ -214,7 +214,7 @@ export default async function HomePage({
       : null;
   return (
     <>
-      <Hero cta={getHomepageCta(locale)} />
+      <Hero cta={getHomepageCta(locale)} locale={locale} />
 
       <LatestUpdateBar
         date={latestUpdate.date}
@@ -333,7 +333,7 @@ function MoreLink({ href, children }: { href: LinkHref; children: ReactNode }) {
 // 1. Hero: what the site does + two actions
 // ──────────────────────────────────────────────
 
-function Hero({ cta }: { cta: HomepageCta }) {
+function Hero({ cta, locale }: { cta: HomepageCta; locale: string }) {
   const t = useTranslations('home');
 
   return (
@@ -356,12 +356,11 @@ function Hero({ cta }: { cta: HomepageCta }) {
 
         {/* Accroche éditoriale. Le verdict chiffré vit dans le panneau, à droite. */}
         <h1 className="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
-          La Région bruxelloise, revue et corrigée
+          {t('protoHeroTitle')}
         </h1>
 
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85">
-          Bienvenue sur Brussels Governance Monitor : on fait le tri entre ce qui est promis, ce qui
-          est annoncé et ce qui est fait, sources à l’appui.
+          {t('protoHeroSubtitle')}
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
@@ -370,7 +369,7 @@ function Hero({ cta }: { cta: HomepageCta }) {
             data-umami-event="accueil-cta-dossiers"
             className="inline-flex items-center gap-1.5 rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
           >
-            Explorer les dossiers
+            {t('protoCtaDossiers')}
             <ArrowRight size={14} aria-hidden={true} />
           </Link>
           {/* Second bouton : libellé et destination viennent de data/homepage-cta.json. */}
@@ -389,7 +388,10 @@ function Hero({ cta }: { cta: HomepageCta }) {
         <div className="rounded-lg border border-white/15 bg-white/5 p-5">
           <GovernmentDayCounter
             oathDate={governmentData.oathDate}
-            oathLabel={formatDate(governmentData.oathDate, 'fr')}
+            // La locale, pas 'fr' en dur : la phrase était traduite mais la date
+            // qu'elle contient restait française (« since the swearing-in of
+            // 14 février 2026 »), ce qui est pire qu'un texte entièrement français.
+            oathLabel={formatDate(governmentData.oathDate, locale)}
           />
           <CommitmentsBarometer commitments={commitmentsData.commitments} />
         </div>
@@ -443,7 +445,7 @@ function WhatWeWatch({
           id="watch-title"
           className="text-sm font-semibold uppercase tracking-wider text-neutral-500"
         >
-          Ce qu’on surveille
+          {t('protoWatchTitle')}
         </h2>
       </div>
 
@@ -451,7 +453,7 @@ function WhatWeWatch({
         <div className="px-4 pb-3 pt-4">
           <div className="flex items-center gap-2 text-xs text-neutral-700">
             <Eye size={14} className="shrink-0 text-neutral-500" aria-hidden={true} />
-            <span className="font-medium">Veille active : {sourceCount} sources suivies</span>
+            <span className="font-medium">{t('protoVeilleActive', { count: sourceCount })}</span>
           </div>
           <Link
             href="/methodology"
@@ -647,7 +649,7 @@ function DossiersPreview({
           id="dossiers-title"
           icon={FolderOpen}
           title={t('dossiersHomeTitle')}
-          subtitle="Les grands dossiers bruxellois, du plus récemment mis à jour au plus ancien."
+          subtitle={t('dossiersHomeSubtitle')}
           link={<MoreLink href="/dossiers">{t('viewAllDossiers', { count: totalCount })}</MoreLink>}
         />
         <div className="grid gap-3 md:grid-cols-2">
@@ -704,7 +706,7 @@ function DomainsPreview({
         <SectionHeader
           id="domains-title"
           icon={LayoutGrid}
-          title="Domaines"
+          title={t('domainsHomeTitle')}
           subtitle={t('domainsHomeSubtitle')}
           link={<MoreLink href="/domains">{t('viewAllDomains', { count: totalCount })}</MoreLink>}
         />
@@ -760,7 +762,7 @@ function SectorsPreview({
         <SectionHeader
           id="sectors-title"
           icon={Building2}
-          title="Secteurs"
+          title={t('sectorsHomeTitle')}
           subtitle={t('sectorsHomeSubtitle')}
           link={<MoreLink href="/sectors">{t('viewAllSectorsCount', { count: totalCount })}</MoreLink>}
         />
@@ -862,18 +864,20 @@ function FormatsSection({
   magazine: { tagline: string; href: string } | null;
   weekNum: string | null;
 }) {
+  const t = useTranslations('home');
+
   return (
     <section aria-labelledby="formats-title" className="py-8">
       <div className="mx-auto max-w-5xl px-4">
-        <SectionHeader id="formats-title" title="Restez au courant" />
+        <SectionHeader id="formats-title" title={t('protoFormatsTitle')} />
 
         <RowLabel>
-          <span className="mt-4 block">Chaque semaine</span>
+          <span className="mt-4 block">{t('protoWeekly')}</span>
         </RowLabel>
         {/* Deux colonnes dès 390 px : trois cartes empilées coûtaient 630 px sur mobile. */}
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
           <FormatCard
-            title="Le digest"
+            title={t('protoDigestName')}
             visualInteractive
             visual={
               <div className="flex h-full flex-wrap content-center gap-1 overflow-y-auto bg-neutral-100 px-3 py-2">
@@ -902,7 +906,7 @@ function FormatsSection({
                       key={lang}
                       href={`/digest/${lang}/${digest.weekPath}`}
                       lang={lang}
-                      aria-label={`Lire le digest en ${nativeName(lang)}`}
+                      aria-label={t('protoDigestLangAria', { lang: nativeName(lang) })}
                       // Un seul nom d'événement pour onze pastilles, la langue en
                       // propriété : onze noms distincts seraient illisibles dans Umami.
                       data-umami-event="accueil-digest-langue"
@@ -917,18 +921,21 @@ function FormatsSection({
             }
             meta={
               digest
-                ? `Par email en ${CORE_DIGEST_LOCALES.length} langues, sur le site en ${digest.langs.length}.`
+                ? t('protoDigestMeta', {
+                    envoi: CORE_DIGEST_LOCALES.length,
+                    lecture: digest.langs.length,
+                  })
                 : undefined
             }
             link={
               digest ? (
                 <a href={digest.href} data-umami-event="accueil-digest" className={stretchedLink}>
-                  Lire le digest de la semaine {digest.weekNum}
+                  {t('protoDigestRead', { week: digest.weekNum })}
                   <ArrowRight size={14} aria-hidden={true} />
                 </a>
               ) : (
                 <a href="#subscribe" data-umami-event="accueil-digest-abonnement" className={stretchedLink}>
-                  S’abonner au digest
+                  {t('protoDigestSubscribe')}
                 </a>
               )
             }
@@ -944,12 +951,12 @@ function FormatsSection({
                 )}
               </>
             ) : (
-              'L’essentiel de la semaine, en un email.'
+              t('protoDigestFallback')
             )}
           </FormatCard>
 
           <FormatCard
-            title="Le magazine"
+            title={t('protoMagazineName')}
             visual={
               <div className="flex h-full flex-col justify-center bg-neutral-100 px-3 py-2">
                 <p className={`${dmSerif.className} text-xl leading-none text-neutral-900`}>Magazine</p>
@@ -974,12 +981,12 @@ function FormatsSection({
                 data-umami-event="accueil-magazine"
                 className={stretchedLink}
               >
-                {weekNum ? `Lire le magazine, numéro ${weekNum}` : 'Lire le magazine'}
+                {weekNum ? t('protoMagazineRead', { week: weekNum }) : t('protoMagazineReadPlain')}
                 <ArrowRight size={14} aria-hidden={true} />
               </a>
             }
           >
-            {magazine ? `« ${magazine.tagline} »` : 'Bruxelles relue et vérifiée.'}
+            {magazine ? `« ${magazine.tagline} »` : t('protoMagazineFallback')}
           </FormatCard>
 
           <FormatCard
@@ -995,12 +1002,12 @@ function FormatsSection({
             }
             link={
               <Link href="/signal" data-umami-event="accueil-signal" className={stretchedLink}>
-                Découvrir la newsletter
+                {t('protoSignalCta')}
                 <ArrowRight size={14} aria-hidden={true} />
               </Link>
             }
           >
-            La newsletter LinkedIn du lundi : la gouvernance bruxelloise en deux minutes.
+            {t('protoSignalTeaser')}
           </FormatCard>
         </div>
       </div>

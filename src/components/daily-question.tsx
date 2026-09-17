@@ -14,6 +14,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { track } from '@/lib/analytics';
 
@@ -93,6 +94,7 @@ export function DailyQuestion({
   locale: string;
   showHeading?: boolean;
 }) {
+  const t = useTranslations('home');
   const rootRef = useRef<HTMLDivElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
@@ -155,12 +157,12 @@ export function DailyQuestion({
       ref={rootRef}
       role="group"
       aria-labelledby={showHeading ? 'daily-question-title' : undefined}
-      aria-label={showHeading ? undefined : 'La question du jour'}
+      aria-label={showHeading ? undefined : t('protoQuestionTitle')}
       className="flex h-full flex-col rounded-lg border border-neutral-200 bg-neutral-50 p-4"
     >
       {showHeading && (
         <h4 id="daily-question-title" className="text-base font-semibold text-neutral-900">
-          La question du jour
+          {t('protoQuestionTitle')}
         </h4>
       )}
 
@@ -168,7 +170,7 @@ export function DailyQuestion({
         {(status === 'idle' || status === 'loading') && (
           <>
             <p role="status" className="sr-only">
-              Chargement de la question du jour…
+              {t('protoQuestionLoading')}
             </p>
             <div className="mt-3 space-y-2" aria-hidden="true">
               <div className="h-4 w-full animate-pulse rounded bg-neutral-200" />
@@ -185,14 +187,14 @@ export function DailyQuestion({
         {status === 'error' && (
           <div className="mt-3">
             <p role="alert" className="text-sm text-neutral-700">
-              La question du jour n’a pas pu être chargée.
+              {t('protoQuestionError')}
             </p>
             <button
               type="button"
               onClick={() => setStatus('idle')}
               className="mt-2 cursor-pointer rounded-md border border-neutral-500 px-3 py-1.5 text-sm font-medium text-neutral-900 transition-colors hover:border-brand-700 hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
             >
-              Réessayer
+              {t('protoRetry')}
             </button>
           </div>
         )}
@@ -203,10 +205,12 @@ export function DailyQuestion({
 
             {!answered && (
               <>
-                <p className="mt-1 text-xs text-neutral-600">
-                  Choisissez une réponse pour voir l’explication.
-                </p>
-                <div role="group" aria-label="Réponses possibles" className="mt-2 grid grid-cols-2 gap-1.5">
+                <p className="mt-1 text-xs text-neutral-600">{t('protoQuestionHint')}</p>
+                <div
+                  role="group"
+                  aria-label={t('protoAnswersGroup')}
+                  className="mt-2 grid grid-cols-2 gap-1.5"
+                >
                   {question.options.map((option, i) => (
                     <button
                       key={option}
@@ -234,12 +238,12 @@ export function DailyQuestion({
                 className="mt-3 rounded-md bg-neutral-100 p-3 focus:outline-none"
               >
                 <p className="text-sm font-semibold text-neutral-900">
-                  {isRight ? 'Bravo, c’est la bonne réponse : ' : 'Pas tout à fait. La bonne réponse est : '}
+                  {isRight ? t('protoAnswerRight') : t('protoAnswerWrong')}
                   {question.options[question.correct]}
                 </p>
                 {!isRight && (
                   <p className="mt-1 text-xs text-neutral-600">
-                    Votre réponse : {question.options[choice]}
+                    {t('protoYourAnswer', { answer: question.options[choice] })}
                   </p>
                 )}
                 <p className="mt-2 text-sm leading-snug text-neutral-700">{question.explanation}</p>
@@ -247,7 +251,7 @@ export function DailyQuestion({
                   href={question.sourceSlug}
                   className="mt-2 inline-flex items-baseline gap-1 text-sm font-medium text-brand-700 hover:text-brand-900 hover:underline"
                 >
-                  Voir la fiche : {question.sourceTitle}
+                  {t('protoSeeCard', { title: question.sourceTitle })}
                 </a>
               </div>
             )}
@@ -261,7 +265,7 @@ export function DailyQuestion({
           data-umami-event="jeux-quiz-complet"
           className="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-900 hover:underline"
         >
-          {answered ? 'Continuer avec le quiz complet (10 questions)' : 'Faire le quiz complet (10 questions)'}
+          {answered ? t('protoQuizContinue') : t('protoQuizFull')}
           <ArrowRight size={14} aria-hidden={true} />
         </Link>
       </div>

@@ -5,8 +5,18 @@
 import { render, cleanup } from '@testing-library/react';
 import * as matchers from 'vitest-axe/matchers';
 import { axe } from 'vitest-axe';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { AxeMatchers } from 'vitest-axe/matchers';
+
+// Le traducteur simulé restitue la clé ET ses valeurs : sans cela, une assertion sur
+// la date rendue passerait pour de mauvaises raisons, la chaîne ayant disparu.
+vi.mock('next-intl', () => ({
+  useTranslations:
+    () =>
+    (key: string, values?: Record<string, unknown>) =>
+      values ? `${key} ${Object.values(values).join(' ')}` : key,
+}));
+
 import { GovernmentDayCounter } from './government-day-counter';
 
 declare module 'vitest' {

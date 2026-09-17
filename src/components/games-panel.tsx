@@ -27,6 +27,7 @@
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslations } from 'next-intl';
 import { X, Gamepad2, ExternalLink } from 'lucide-react';
 import { DailyQuestion } from '@/components/daily-question';
 import { AMAI_URLS, STUUT_URL } from '@/lib/daily-game';
@@ -127,21 +128,24 @@ function MarqueQuestion() {
   );
 }
 
-function ongletsFor(locale: string): Onglet[] {
+// Le traducteur est passé en paramètre : cette fonction vit hors d'un composant et
+// ne peut donc pas appeler useTranslations elle-même. « Amai ! » et « Le Stuut » sont
+// des noms propres et restent intacts dans les quatre langues.
+function ongletsFor(locale: string, t: (key: string) => string): Onglet[] {
   const amai: Onglet = {
     key: 'amai',
     label: 'Amai !',
     titre: 'Amai !',
-    teaser: 'Le chiffre du jour : cinq chiffres à situer.',
+    teaser: t('protoAmaiTeaser'),
     url: AMAI_URLS[locale] ?? AMAI_URLS.en,
     skin: AMAI_SKIN,
     marque: <MarqueAmai />,
   };
   const question: Onglet = {
     key: 'question',
-    label: 'La question',
-    titre: 'La question du jour',
-    teaser: 'Quatre réponses, une explication sourcée.',
+    label: t('protoQuestionLabel'),
+    titre: t('protoQuestionTitle'),
+    teaser: t('protoQuestionTeaser'),
     marque: <MarqueQuestion />,
   };
   // Le Stuut n'existe qu'en français ; ailleurs, Amai ouvre le panneau.
@@ -150,8 +154,8 @@ function ongletsFor(locale: string): Onglet[] {
         {
           key: 'stuut',
           label: 'Le Stuut',
-          titre: 'Le Stuut du jour',
-          teaser: 'Le mot du jour : un mot, six essais.',
+          titre: t('protoStuutTitle'),
+          teaser: t('protoStuutTeaser'),
           url: STUUT_URL,
           skin: STUUT_SKIN,
           marque: <MarqueStuut />,
@@ -163,18 +167,18 @@ function ongletsFor(locale: string): Onglet[] {
 }
 
 function Repli({ onglet }: { onglet: Onglet }) {
+  const t = useTranslations('home');
   return (
     <div className="flex h-full items-center justify-center p-6">
       <p className="max-w-xs rounded-lg border border-dashed border-neutral-400 bg-neutral-100 p-4 text-center text-xs leading-relaxed text-neutral-600">
-        Le jeu ne s’affiche ici que sur governance.brussels : il n’autorise pas les cadres
-        venus d’un autre domaine.{' '}
+        {t('protoGamesFallback')}{' '}
         <a
           href={onglet.url}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-2 inline-flex items-center gap-1 font-medium text-brand-700 hover:underline"
         >
-          Ouvrir {onglet.titre}
+          {t('protoGamesOpen', { game: onglet.titre })}
           <ExternalLink size={12} aria-hidden={true} />
         </a>
       </p>
@@ -190,7 +194,8 @@ export function GamesPanel({ locale }: { locale: string }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const tabRef = useRef<HTMLButtonElement>(null);
   const boutonsRef = useRef<(HTMLButtonElement | null)[]>([]);
-  const onglets = ongletsFor(locale);
+  const t = useTranslations('home');
+  const onglets = ongletsFor(locale, t);
 
   // Le domaine et la date se lisent à l'ouverture, dans le gestionnaire de clic : un
   // setState posé dans un effet déclencherait un rendu en cascade, et une date calculée
@@ -205,8 +210,10 @@ export function GamesPanel({ locale }: { locale: string }) {
     setOpen(true);
     // Le jeu ouvert par défaut part avec l'événement : sans lui, on saurait combien
     // de fois le panneau s'ouvre sans savoir sur quoi il s'ouvre.
-    track('jeux-ouvert', { jeu: ongletsFor(locale)[0]?.key ?? 'inconnu' });
-  }, [locale]);
+    // Seule la CLÉ du jeu part à la mesure, jamais son libellé : un événement Umami
+    // doit rester identique dans les quatre langues pour être agrégeable.
+    track('jeux-ouvert', { jeu: onglets[0]?.key ?? 'inconnu' });
+  }, [locale, onglets]);
 
   // Échap ferme, où que soit le focus.
   useEffect(() => {
@@ -298,7 +305,7 @@ export function GamesPanel({ locale }: { locale: string }) {
         type="button"
         onClick={openPanel}
         aria-expanded={open}
-        aria-label="Jouer"
+        aria-label={t('protoGamesTab')}
         className="group fixed left-0 top-1/2 z-[60] flex -translate-y-1/2 items-center rounded-r-lg bg-brand-900 py-3 pl-2 pr-2 text-neutral-50 shadow-lg transition-colors hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 print:hidden"
       >
         <Gamepad2 size={20} aria-hidden={true} />
@@ -306,7 +313,7 @@ export function GamesPanel({ locale }: { locale: string }) {
           aria-hidden="true"
           className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold transition-[max-width,padding] duration-200 group-hover:max-w-24 group-hover:pl-2 group-focus-visible:max-w-24 group-focus-visible:pl-2"
         >
-          Jouer
+          {t('protoGamesTab')}
         </span>
       </button>
 
@@ -329,7 +336,7 @@ export function GamesPanel({ locale }: { locale: string }) {
               <div className="flex items-start justify-between gap-3 px-4 py-3">
                 <div className="min-w-0">
                   <h2 id="jeux-titre" className="text-base font-semibold text-neutral-900">
-                    Les jeux du jour
+                    {t('protoGamesTitle')}
                   </h2>
                   {/* first-letter, pas capitalize : « Mercredi 16 septembre », pas
                       « Mercredi 16 Septembre ». Le français ne capitalise ni le mois ni le jour. */}
@@ -338,7 +345,7 @@ export function GamesPanel({ locale }: { locale: string }) {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  aria-label="Fermer les jeux du jour"
+                  aria-label={t('protoGamesClose')}
                   className="-mr-1 rounded-md p-1.5 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
                 >
                   <X size={18} aria-hidden={true} />
@@ -347,7 +354,7 @@ export function GamesPanel({ locale }: { locale: string }) {
 
               <div
                 role="tablist"
-                aria-label="Choisir un jeu"
+                aria-label={t('protoGamesChoose')}
                 onKeyDown={naviguerOnglets}
                 // Pas de filet sous la barre : il couperait l'onglet actif du bandeau,
                 // qui porte le même bleu nuit. L'onglet doit sembler attaché à son jeu.

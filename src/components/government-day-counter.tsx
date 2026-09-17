@@ -10,6 +10,7 @@
 // browser fills in the count from the visitor's date right after hydration.
 
 import { useSyncExternalStore } from 'react';
+import { useTranslations } from 'next-intl';
 
 const DAY_MS = 86_400_000;
 
@@ -34,6 +35,7 @@ export function GovernmentDayCounter({
   /** Human-readable date, formatted server-side. */
   oathLabel: string;
 }) {
+  const t = useTranslations('home');
   const days = useSyncExternalStore<number | null>(
     subscribe,
     () => daysSince(oathDate, new Date()),
@@ -42,13 +44,13 @@ export function GovernmentDayCounter({
 
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-wider text-white/75">Gouvernement bruxellois</p>
+      <p className="text-xs font-semibold uppercase tracking-wider text-white/75">
+        {t('protoCounterTitle')}
+      </p>
       <p className="mt-1 min-h-[2.5rem] text-4xl font-extrabold tabular-nums">
         {days ?? <span className="text-white/40">…</span>}
       </p>
-      <p className="mt-1 text-sm text-white/85">
-        jours d’exercice, depuis la prestation de serment du {oathLabel}
-      </p>
+      <p className="mt-1 text-sm text-white/85">{t('protoCounterSince', { date: oathLabel })}</p>
     </div>
   );
 }

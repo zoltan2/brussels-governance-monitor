@@ -39,6 +39,7 @@ const ORDER: CommitmentStatus[] = [
 
 export function CommitmentsBarometer({ commitments }: { commitments: CommitmentLike[] }) {
   const t = useTranslations('dashboard');
+  const th = useTranslations('home');
   const total = commitments.length;
   const counts = countByStatus(commitments);
 
@@ -57,11 +58,13 @@ export function CommitmentsBarometer({ commitments }: { commitments: CommitmentL
   return (
     <Link
       href="/dashboard"
-      aria-label={`Baromètre des engagements, ${total} promesses chiffrées. ${summary}. Voir les engagements.`}
+      aria-label={th('protoBarometerAria', { total, summary })}
       data-umami-event="accueil-barometre"
       className="group mt-4 block rounded-sm border-t border-white/15 pt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-slate-800"
     >
-      <p className="text-xs font-semibold uppercase tracking-wider text-white/75">Baromètre des engagements</p>
+      <p className="text-xs font-semibold uppercase tracking-wider text-white/75">
+        {th('protoBarometerTitle')}
+      </p>
 
       {/* Ruban proportionnel : une largeur par statut, séparée par 2 px de fond. */}
       <div className="mt-2 flex h-3 gap-[2px]" aria-hidden="true">
@@ -95,7 +98,7 @@ export function CommitmentsBarometer({ commitments }: { commitments: CommitmentL
       </ul>
 
       <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-white underline-offset-2 group-hover:underline">
-        Voir les engagements
+        {th('protoBarometerCta')}
         <ArrowRight size={14} aria-hidden={true} />
       </span>
     </Link>

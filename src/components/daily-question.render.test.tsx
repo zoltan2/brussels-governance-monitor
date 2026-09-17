@@ -16,6 +16,15 @@ declare module 'vitest' {
 }
 expect.extend(matchers);
 
+// Le traducteur simulé restitue la clé ET ses valeurs, sinon une assertion sur un
+// texte interpolé passerait pour de mauvaises raisons.
+vi.mock('next-intl', () => ({
+  useTranslations:
+    () =>
+    (key: string, values?: Record<string, unknown>) =>
+      values ? `${key} ${Object.values(values).join(' ')}` : key,
+}));
+
 vi.mock('@/i18n/navigation', () => ({
   Link: ({ href, children, ...rest }: { href: string; children: React.ReactNode }) => (
     <a href={typeof href === 'string' ? href : '#'} {...rest}>
@@ -79,7 +88,7 @@ describe('DailyQuestion', () => {
   it('propose les quatre réponses une fois le pool chargé', async () => {
     const { container } = render(<DailyQuestion locale="fr" />);
     await waitFor(() => {
-      expect(container.querySelectorAll('[aria-label="Réponses possibles"] button').length).toBe(4);
+      expect(container.querySelectorAll('[aria-label="protoAnswersGroup"] button').length).toBe(4);
     });
   });
 
@@ -88,9 +97,9 @@ describe('DailyQuestion', () => {
     // cliquer le premier bouton gagnerait toujours.
     const { container } = render(<DailyQuestion locale="fr" />);
     await waitFor(() => {
-      expect(container.querySelectorAll('[aria-label="Réponses possibles"] button').length).toBe(4);
+      expect(container.querySelectorAll('[aria-label="protoAnswersGroup"] button').length).toBe(4);
     });
-    const libelles = [...container.querySelectorAll('[aria-label="Réponses possibles"] button')].map(
+    const libelles = [...container.querySelectorAll('[aria-label="protoAnswersGroup"] button')].map(
       (b) => b.textContent,
     );
     // Les quatre options sont bien toutes présentes, quel que soit l'ordre tiré.
@@ -102,13 +111,13 @@ describe('DailyQuestion', () => {
   it("remplace les boutons par l'explication après une réponse, en nommant la bonne", async () => {
     const { container } = render(<DailyQuestion locale="fr" />);
     await waitFor(() => {
-      expect(container.querySelectorAll('[aria-label="Réponses possibles"] button').length).toBe(4);
+      expect(container.querySelectorAll('[aria-label="protoAnswersGroup"] button').length).toBe(4);
     });
 
-    fireEvent.click(container.querySelectorAll('[aria-label="Réponses possibles"] button')[0]);
+    fireEvent.click(container.querySelectorAll('[aria-label="protoAnswersGroup"] button')[0]);
 
     // Aucun contrôle désactivé ne doit subsister derrière le verdict.
-    expect(container.querySelector('[aria-label="Réponses possibles"]')).toBeNull();
+    expect(container.querySelector('[aria-label="protoAnswersGroup"]')).toBeNull();
     expect(container.textContent).toContain('19 communes');
     expect(container.textContent).toContain('La Région compte 19 communes depuis 1971.');
   });
@@ -119,13 +128,13 @@ describe('DailyQuestion', () => {
     await waitFor(() => {
       expect(container.querySelector('[role="alert"]')).not.toBeNull();
     });
-    expect(container.textContent).toContain('Réessayer');
+    expect(container.textContent).toContain('protoRetry');
   });
 
   it("n'a aucune violation d'accessibilité, question affichée", async () => {
     const { container } = render(<DailyQuestion locale="fr" />);
     await waitFor(() => {
-      expect(container.querySelectorAll('[aria-label="Réponses possibles"] button').length).toBe(4);
+      expect(container.querySelectorAll('[aria-label="protoAnswersGroup"] button').length).toBe(4);
     });
     expect(await axe(container)).toHaveNoViolations();
   });

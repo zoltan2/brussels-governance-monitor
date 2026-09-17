@@ -17,8 +17,14 @@ declare module 'vitest' {
 }
 expect.extend(matchers);
 
+// Le traducteur simulé restitue la clé ET ses valeurs : le nom accessible est
+// désormais composé par le fichier de messages, et seul ce que le composant y
+// transmet (le total, le résumé) relève encore de son contrat.
 vi.mock('next-intl', () => ({
-  useTranslations: () => (key: string) => key,
+  useTranslations:
+    () =>
+    (key: string, values?: Record<string, unknown>) =>
+      values ? `${key} ${Object.values(values).join(' ')}` : key,
   useLocale: () => 'fr',
 }));
 
@@ -78,7 +84,8 @@ describe('CommitmentsBarometer', () => {
     // n'aurait aucun accès aux chiffres.
     const { container } = render(<CommitmentsBarometer commitments={REPARTITION} />);
     const label = container.querySelector('a')!.getAttribute('aria-label')!;
-    expect(label).toContain('16 promesses chiffrées');
+    expect(label).toContain('protoBarometerAria');
+    expect(label).toContain('16');
     expect(label).toContain('status.implemented : 0');
     expect(label).toContain('status.in-legislation : 10');
   });

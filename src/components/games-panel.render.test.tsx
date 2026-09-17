@@ -60,7 +60,7 @@ import { GamesPanel } from './games-panel';
 
 afterEach(cleanup);
 
-const onglet = () => document.querySelector<HTMLButtonElement>('button[aria-label="Jouer"]')!;
+const onglet = () => document.querySelector<HTMLButtonElement>('button[aria-label="protoGamesTab"]')!;
 
 describe('GamesPanel — onglet et panneau', () => {
   it("expose un onglet nommé, replié à l'ouverture de la page", () => {

@@ -33,6 +33,8 @@ import type { LocalizedRadarEntry } from '@/lib/radar';
 import { buildMetadata } from '@/lib/metadata';
 import { getHomepageCta, type HomepageCta } from '@/lib/homepage-cta';
 import { CORE_DIGEST_LOCALES } from '@/lib/digest-langs';
+// Table des noms natifs réutilisée, jamais recopiée : un doublon divergerait.
+import { nativeName } from '@/components/publications-band';
 import { GovernmentDayCounter } from '@/components/government-day-counter';
 import governmentData from '../../../data/government.json';
 import { CommitmentsBarometer } from '@/components/commitments-barometer';
@@ -184,6 +186,15 @@ export default async function HomePage({
   const weekNum = latestCompleteWeek?.split('-w')[1] ?? null;
   const digestLang =
     latestCompleteWeek && getDigestEntry(latestCompleteWeek, locale)?.isFallback === false ? locale : 'fr';
+  // Règle du 29/06/2026 : toute langue réellement traduite doit être CLIQUABLE depuis
+  // la page d'accueil. Une langue n'est cliquable que si elle a un digest RÉEL pour la
+  // semaine visée : getDigestEntry retombe sur le français, donc on garde sur
+  // `isFallback === false`, sinon on enverrait le lecteur sur une page française sous
+  // une URL étrangère. Même calcul que PublicationsBand, que ce prototype remplace.
+  const linkableLangs = latestCompleteWeek
+    ? langs.filter((l) => getDigestEntry(latestCompleteWeek, l)?.isFallback === false)
+    : [];
+  const weekPath = latestCompleteWeek ? latestCompleteWeek.replace('-w', '/w') : '';
   const digestHref = latestCompleteWeek
     ? `/digest/${digestLang}/${latestCompleteWeek.replace('-w', '/w')}`
     : null;
@@ -229,7 +240,11 @@ export default async function HomePage({
       {/* Les rendez-vous juste après les faits du jour : c'est là qu'on donne suite à
           ce qu'on vient de lire, avant de dérouler les inventaires. */}
       <FormatsSection
-        digest={digestHref && weekNum ? { href: digestHref, weekNum, langs, items: digestItems } : null}
+        digest={
+          digestHref && weekNum
+            ? { href: digestHref, weekNum, langs, linkableLangs, weekPath, items: digestItems }
+            : null
+        }
         magazine={magazine}
         weekNum={weekNum}
       />
@@ -764,19 +779,30 @@ function FormatCard({
   visual,
   children,
   meta,
+  visualInteractive,
   link,
 }: {
   title: string;
-  /** Décoratif : le titre et le texte portent le sens. */
+  /** Décoratif par défaut : le titre et le texte portent le sens. */
   visual: ReactNode;
   children: ReactNode;
   /** Précision de second rang, hors du `line-clamp` du corps. */
   meta?: ReactNode;
+  /**
+   * À activer quand le visuel contient des éléments focalisables. Sans cela, le
+   * conteneur reste `aria-hidden` : les liens disparaîtraient de l'arbre
+   * d'accessibilité tout en restant atteignables au clavier, ce qui est une
+   * non-conformité (un focus qui se pose sur un élément que rien n'annonce).
+   */
+  visualInteractive?: boolean;
   link: ReactNode;
 }) {
   return (
     <div className="relative flex h-full flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 transition-colors hover:border-neutral-400">
-      <div className="h-16 overflow-hidden border-b border-neutral-200" aria-hidden="true">
+      <div
+        className="h-16 overflow-hidden border-b border-neutral-200"
+        aria-hidden={visualInteractive ? undefined : true}
+      >
         {visual}
       </div>
       <div className="flex flex-1 flex-col p-3">
@@ -795,8 +821,17 @@ function FormatsSection({
   weekNum,
 }: {
   /** `items` : les titres du sommaire de la semaine. Vide neuf semaines sur trente
-   *  et une, et absent hors français : la carte doit se replier proprement. */
-  digest: { href: string; weekNum: string; langs: string[]; items: string[] } | null;
+   *  et une, et absent hors français : la carte doit se replier proprement.
+   *  `linkableLangs` : les langues qui ont un digest réel pour `weekPath`, donc les
+   *  seules à rendre cliquables. */
+  digest: {
+    href: string;
+    weekNum: string;
+    langs: string[];
+    linkableLangs: string[];
+    weekPath: string;
+    items: string[];
+  } | null;
   magazine: { tagline: string; href: string } | null;
   weekNum: string | null;
 }) {
@@ -812,19 +847,41 @@ function FormatsSection({
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
           <FormatCard
             title="Le digest"
+            visualInteractive
             visual={
-              <div className="flex h-full flex-wrap content-center gap-1 bg-neutral-100 px-3 py-2">
-                {/* Les quatre langues d'ENVOI, celles qu'accepte l'inscription. Les onze
-                    langues de LECTURE sur le site sont dites sous le texte. Afficher les
-                    onze ici remplissait trois rangées et laissait croire à onze envois. */}
-                {CORE_DIGEST_LOCALES.map((lang) => (
-                  <span
-                    key={lang}
-                    className="rounded-full border border-neutral-400 px-1.5 text-[11px] font-semibold uppercase leading-4 text-neutral-700"
-                  >
-                    {lang}
-                  </span>
-                ))}
+              <div className="flex h-full flex-wrap content-center gap-1 overflow-y-auto bg-neutral-100 px-3 py-2">
+                {/* Chaque langue réellement traduite est un VRAI lien (règle du
+                    29/06/2026, livrée par #319 sur le bandeau que cette carte remplace).
+                    Celles qui n'ont pas de digest pour cette semaine restent inertes,
+                    pour ne pas mener à une page française sous une URL étrangère.
+                    Le code à deux lettres tient dans la carte ; le nom natif est porté
+                    par `lang` et par le nom accessible, pour la prononciation. */}
+                {(digest?.langs ?? CORE_DIGEST_LOCALES).map((lang) => {
+                  const pastille =
+                    'rounded-full border px-1.5 text-[11px] font-semibold uppercase leading-4';
+                  if (!digest?.linkableLangs.includes(lang)) {
+                    return (
+                      <span
+                        key={lang}
+                        lang={lang}
+                        className={`${pastille} border-neutral-400 text-neutral-500`}
+                      >
+                        {lang}
+                      </span>
+                    );
+                  }
+                  return (
+                    <a
+                      key={lang}
+                      href={`/digest/${lang}/${digest.weekPath}`}
+                      lang={lang}
+                      aria-label={`Lire le digest en ${nativeName(lang)}`}
+                      className={`${pastille} relative z-10 border-brand-700 text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700`}
+                    >
+                      {lang}
+                    </a>
+                  );
+                })}
               </div>
             }
             meta={

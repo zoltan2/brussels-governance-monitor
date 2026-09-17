@@ -200,14 +200,6 @@ export default async function HomePage({
     : null;
   const mag =
     latestCompleteWeek && locale === 'fr' ? getDigestEntry(latestCompleteWeek, 'fr')?.entry?.magazine : null;
-  // Le sommaire de la semaine, deux titres. Ils sont courts (médiane 25 caractères,
-  // maximum 51) et frappants, donc plus parlants qu'une décoration. Absents neuf
-  // semaines sur trente et une, et hors français : d'où le repli sur une liste vide,
-  // que la carte traite en affichant sa phrase générique.
-  const digestItems: string[] = (mag?.items ?? [])
-    .map((item) => item.headline)
-    .filter((headline): headline is string => Boolean(headline))
-    .slice(0, 2);
   const magazine =
     mag?.tagline && weekNum
       ? { tagline: mag.tagline, href: `https://magazine.governance.brussels/s${weekNum}/` }
@@ -242,7 +234,7 @@ export default async function HomePage({
       <FormatsSection
         digest={
           digestHref && weekNum
-            ? { href: digestHref, weekNum, langs, linkableLangs, weekPath, items: digestItems }
+            ? { href: digestHref, weekNum, langs, linkableLangs, weekPath }
             : null
         }
         magazine={magazine}
@@ -713,11 +705,6 @@ function DomainsPreview({
                 data-umami-event-slug={card.slug}
                 className={cardClass}
               >
-                {/* Le chapeau du domaine, comme sur la fiche et comme en production.
-                    Le rendu compact l'avait laissé tomber au profit du seul chiffre :
-                    la section perdait 2 839 caractères indexables face au live, soit
-                    la totalité de l'écart de texte entre le prototype et la prod. */}
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{card.summary}</p>
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-sm font-semibold text-neutral-900">{card.title}</h3>
                   <span
@@ -726,6 +713,11 @@ function DomainsPreview({
                     {tdo(`status.${card.status}`)}
                   </span>
                 </div>
+                {/* Le chapeau du domaine, comme sur la fiche et comme en production.
+                    Le rendu compact l'avait laissé tomber au profit du seul chiffre :
+                    la section perdait 2 839 caractères indexables face au live, soit
+                    la totalité de l'écart de texte entre le prototype et la prod. */}
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{card.summary}</p>
                 {m && <KeyFigure value={m.value} unit={m.unit} label={m.label} source={m.source} />}
                 <CardFooter>{tdo('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
               </Link>
@@ -845,9 +837,7 @@ function FormatsSection({
   magazine,
   weekNum,
 }: {
-  /** `items` : les titres du sommaire de la semaine. Vide neuf semaines sur trente
-   *  et une, et absent hors français : la carte doit se replier proprement.
-   *  `linkableLangs` : les langues qui ont un digest réel pour `weekPath`, donc les
+  /** `linkableLangs` : les langues qui ont un digest réel pour `weekPath`, donc les
    *  seules à rendre cliquables. */
   digest: {
     href: string;
@@ -855,7 +845,6 @@ function FormatsSection({
     langs: string[];
     linkableLangs: string[];
     weekPath: string;
-    items: string[];
   } | null;
   magazine: { tagline: string; href: string } | null;
   weekNum: string | null;
@@ -936,19 +925,11 @@ function FormatsSection({
               )
             }
           >
-            {digest && digest.items.length > 0 ? (
-              <>
-                {digest.items[0]}
-                {/* Le second titre disparaît sous 640 px : joints, les deux font 83
-                    caractères, dépassent les trois lignes de la carte, et le second se
-                    coupait en plein mot (mesuré à 390 px). */}
-                {digest.items[1] && (
-                  <span className="hidden sm:inline"> · {digest.items[1]}</span>
-                )}
-              </>
-            ) : (
-              t('protoDigestFallback')
-            )}
+            {/* Ce que contient l'email, et non le titre du numéro de la semaine : un
+                sommaire change tous les lundis et décrit un exemplaire, pas le produit.
+                Les trois éléments cités sont des rubriques réelles de src/emails/digest.tsx
+                (weeklyNumberTitle, commitmentsTitle, et les quatre sections de fiches). */}
+            {t('protoDigestWhat')}
           </FormatCard>
 
           <FormatCard

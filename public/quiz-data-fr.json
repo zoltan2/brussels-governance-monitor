@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T12:51:47.041Z",
+  "generatedAt": "2026-09-18T12:54:32.625Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -950,22 +950,22 @@
     {
       "id": "dossier-foire-du-midi-0",
       "source": "dossier",
-      "domain": "Culture",
-      "question": "Qui organise la Foire du Midi, malgré son parcours en bordure de plusieurs communes ?",
+      "domain": "Foire du Midi",
+      "question": "Quelle information financière sur la Foire du Midi n'est publiée par aucune source officielle ni de presse consultée ?",
       "options": [
-        "La Ville de Bruxelles, seule et exclusivement",
-        "La Ville de Bruxelles, avec Anderlecht et Saint-Gilles",
-        "La Région, via son administration économique",
-        "Une intercommunale réunissant les trois communes"
+        "Le barème des redevances versées par les forains",
+        "Le nombre d'attractions installées chaque année",
+        "Les dates exactes retenues pour chaque édition",
+        "Le nom de l'échevinat qui pilote l'événement"
       ],
       "correct": 0,
-      "explanation": "Le boulevard du Midi longe la frontière administrative d'Anderlecht et de Saint-Gilles, mais aucune de ces communes n'est co-organisatrice. La foire est pilotée par l'échevinat des Affaires économiques de la Ville.",
+      "explanation": "La ventilation des coûts communaux, police, pompiers, propreté et infrastructure, n'est pas publiée davantage. La seule donnée chiffrée disponible est ponctuelle : environ 500 000 euros de compensation versés aux forains lors de l'annulation de 2020. C'est ce que les riverains des communes voisines dénoncent depuis 2024, la Ville percevant les redevances quand les communes limitrophes absorbent une partie des nuisances.",
       "sourceSlug": "/fr/dossiers/foire-du-midi",
       "sourceTitle": "Foire du Midi",
       "provenance": {
         "sourceLastModified": "2026-07-09",
-        "sourceContentHash": "sha256:adbc4f37ff38c084f94d2c1d9edf457e",
-        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "sourceContentHash": "sha256:9399b2d37626f07bda0a81ca80d5a220",
+        "generatedAt": "2026-09-18T12:54:32.625Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -973,22 +973,22 @@
     {
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
-      "domain": "Logement",
-      "question": "Que prévoient les 26 recommandations votées le 17 juillet 2026 par le Parlement bruxellois après la commission d'enquête sur le logement social ?",
+      "domain": "Foyer anderlechtois",
+      "question": "Quel rôle le commissaire spécial a-t-il joué dans la réélection du président du Foyer anderlechtois, le 17 août 2026 ?",
       "options": [
-        "L'interdiction de toute intervention individuelle d'un administrateur",
-        "La suppression pure et simple des sociétés de logement social",
-        "Le transfert des attributions vers les collèges communaux",
-        "La publication nominative de toutes les listes d'attente"
+        "Il a demandé lui-même l'organisation du scrutin",
+        "Il a exercé la présidence à la place du conseil",
+        "Il a suspendu le vote jusqu'à la fin de sa mission",
+        "Il a refusé de convoquer le conseil d'administration"
       ],
       "correct": 0,
-      "explanation": "Les 26 recommandations sont rédigées pour l'ensemble du secteur, sans nommer la société concernée. Elles ferment aussi l'accès à la Banque de données régionale aux mandataires politiques et renforcent la protection des lanceurs d'alerte.",
+      "explanation": "Il souhaitait un nouveau scrutin pour clarifier une situation devenue confuse : retrait temporaire voté le 15 juin, conseil sans quorum le 20 juin, première réélection le 10 juillet par cinq voix sur neuf. Sa mission, établie le 16 juillet pour quatre mois, porte sur la convocation des organes, leur ordre du jour, leur présidence et l'autorisation de signature des actes.",
       "sourceSlug": "/fr/dossiers/foyer-anderlechtois",
       "sourceTitle": "Foyer anderlechtois",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:361f55c09f501263858ec79387f8e06e",
-        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:7cfe2cd17c0907316bccaac978bc44fa",
+        "generatedAt": "2026-09-18T12:54:32.625Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1019,22 +1019,22 @@
     {
       "id": "dossier-good-move-0",
       "source": "dossier",
-      "domain": "Mobilité",
-      "question": "Autour de quoi le plan régional de mobilité appelé à succéder à Good Move, prévu par l'accord de gouvernement bruxellois du 12 février 2026, recentre-t-il ses mailles ?",
+      "domain": "Good Move",
+      "question": "Combien de fois l'évaluation de Good Move a-t-elle été reportée à l'ordre du jour du gouvernement bruxellois, au 10 septembre 2026 ?",
       "options": [
-        "Les zones écoles",
-        "Les gares régionales",
-        "Les zones commerciales",
-        "Les parcs et espaces verts"
+        "Quatre fois depuis début juillet 2026",
+        "Deux fois depuis début juillet 2026",
+        "Six fois depuis début avril 2026",
+        "Trois fois depuis début janvier 2026"
       ],
       "correct": 0,
-      "explanation": "L'accord de gouvernement prévoit des mailles plus petites, le retrait des bollards contestés et une deuxième journée sans voiture par an. La philosophie de circulation apaisée est conservée, à une échelle réduite.",
+      "explanation": "Le report tient à un désaccord sur la méthode. Good Move reste en vigueur jusqu'à l'adoption du plan suivant. Les ordres du jour du gouvernement ne sont pas publics et l'information provient d'une seule rédaction.",
       "sourceSlug": "/fr/dossiers/good-move",
       "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-04-16",
-        "sourceContentHash": "sha256:fa4d437e93f72e7fb62708ff1512273b",
-        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:588fa833debaf0da0d81dab3a2b3eba5",
+        "generatedAt": "2026-09-18T12:54:32.625Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1042,22 +1042,22 @@
     {
       "id": "dossier-good-move-1",
       "source": "dossier",
-      "domain": "Mobilité",
-      "question": "Selon le calendrier précisé en avril 2026 par la ministre bruxelloise de la Mobilité, à partir de quand le plan appelé à succéder à Good Move doit-il entrer en vigueur ?",
+      "domain": "Good Move",
+      "question": "Quels délais l'ordonnance du 13 octobre 2023 sur la planification de la mobilité impose-t-elle avant l'adoption d'un plan régional ?",
       "options": [
-        "À partir de 2030",
-        "À partir de 2026",
-        "À partir de 2027",
-        "À partir de 2028"
+        "Soixante jours d'avis, soixante jours d'enquête publique",
+        "Trente jours d'avis, trente jours d'enquête publique",
+        "Nonante jours d'avis, quarante jours d'enquête publique",
+        "Quinze jours d'avis, cent jours d'enquête publique"
       ],
       "correct": 0,
-      "explanation": "L'évaluation doit être finalisée fin 2026, suivie d'une période de corrections possibles entre 2027 et 2030. Le nom officiel du futur plan n'a pas été communiqué.",
+      "explanation": "La procédure enchaîne l'évaluation du plan en cours, un projet accompagné d'un rapport sur les incidences environnementales, l'avis des communes et des instances consultatives, l'enquête publique, puis l'adoption dans les huit mois suivant la clôture de celle-ci. C'est cette voie légale que la ministre de la Mobilité propose de suivre.",
       "sourceSlug": "/fr/dossiers/good-move",
       "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-04-16",
-        "sourceContentHash": "sha256:fa4d437e93f72e7fb62708ff1512273b",
-        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:588fa833debaf0da0d81dab3a2b3eba5",
+        "generatedAt": "2026-09-18T12:54:32.625Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1065,22 +1065,22 @@
     {
       "id": "dossier-lez-0",
       "source": "dossier",
-      "domain": "Mobilité",
-      "question": "Qu'advient-il du plafond d'amendes annuelles dans le régime de la zone de basses émissions prévu par l'accord de gouvernement bruxellois de février 2026 ?",
+      "domain": "LEZ",
+      "question": "Sur les 1 890 amendes de la zone de basses émissions envoyées depuis juillet 2026, combien avaient été effectivement payées au 6 septembre 2026 ?",
       "options": [
-        "Il est supprimé, alors que l'amende unitaire baisse",
-        "Il est doublé, tout comme l'amende unitaire",
-        "Il est maintenu, avec une amende unitaire inchangée",
-        "Il est divisé par deux, avec une amende unitaire majorée"
+        "Environ 255, soit un peu plus de 13 %",
+        "Environ 940, soit un peu moins de 50 %",
+        "Environ 1 700, soit près de 90 %",
+        "Environ 630, soit un tiers du total"
       ],
       "correct": 0,
-      "explanation": "L'amende par infraction passe de 350 à 80 euros, mais le plafond de quatre amendes par an disparaît. Un pass annuel à 350 euros, ou 200 euros au tarif social, permet de circuler légalement.",
+      "explanation": "Soit 89 152,50 euros encaissés. L'administration précise qu'une partie des délais de paiement court encore et que les amendes les plus récentes n'ont pas toutes été expédiées : c'est un point d'étape, pas un solde. Le premier semestre avait produit 25 905 avertissements, pour un gisement estimé à 29 000 véhicules en Région bruxelloise.",
       "sourceSlug": "/fr/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-06-25",
-        "sourceContentHash": "sha256:0759a4e03a755130d6a5deec8d84c255",
-        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:f907c7bd0f8687f68ba743c42ae168e1",
+        "generatedAt": "2026-09-18T12:54:32.625Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1088,22 +1088,22 @@
     {
       "id": "dossier-lez-1",
       "source": "dossier",
-      "domain": "Mobilité",
-      "question": "Sur quel principe constitutionnel le Conseil d'État a-t-il fondé, dans son avis de février 2026, sa critique de la réduction des amendes de la zone de basses émissions bruxelloise ?",
+      "domain": "LEZ",
+      "question": "À quelle condition un véhicule ancêtre, immatriculé sous plaque O, est-il exempté de la zone de basses émissions bruxelloise ?",
       "options": [
-        "Le principe de standstill en matière de santé",
-        "Le principe d'égalité devant l'impôt régional",
-        "Le principe de proportionnalité des sanctions",
-        "Le principe de sécurité juridique des usagers"
+        "À son seul âge, sans contrôle de son usage réel",
+        "À un plafond de trente jours de circulation par an",
+        "À une inspection technique annuelle spécifique",
+        "À une demande d'exemption renouvelée chaque année"
       ],
       "correct": 0,
-      "explanation": "La réduction des amendes constitue selon lui un recul de la protection de la santé des Bruxellois. Il juge également les montants proposés trop bas pour être efficaces, proportionnés et dissuasifs.",
+      "explanation": "Les caméras à lecture de plaques identifient ces véhicules mais ne contrôlent pas leur usage effectif : un véhicule de collection peu utilisé et un véhicule ancien roulant quotidiennement bénéficient de la même exemption. Leur nombre est passé de 3 936 en 2019 à 13 799 en 2024, et ceux qui roulent cent jours par an ou plus de 17 à 156.",
       "sourceSlug": "/fr/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-06-25",
-        "sourceContentHash": "sha256:0759a4e03a755130d6a5deec8d84c255",
-        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:f907c7bd0f8687f68ba743c42ae168e1",
+        "generatedAt": "2026-09-18T12:54:32.625Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1569,5 +1569,5 @@
       }
     }
   ],
-  "reviewedCount": 40
+  "reviewedCount": 34
 }

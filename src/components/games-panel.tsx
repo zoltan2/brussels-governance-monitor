@@ -3,8 +3,6 @@
 
 'use client';
 
-// PROTOTYPE LOCAL (branche proto/accueil-refonte). Textes FR en dur.
-//
 // Onglet discret au bord gauche, à mi-hauteur : les deux coins bas sont déjà pris
 // (assistant en bas à gauche, accessibilité en bas à droite). Un clic fait glisser un
 // panneau depuis la gauche.

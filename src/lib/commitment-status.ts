@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-// PROTOTYPE LOCAL (branche proto/accueil-refonte).
-//
 // Statut courant d'un engagement DPR = dernière entrée de son statusHistory.
 // Un seul endroit pour ce calcul : le titre de la page d'accueil et le baromètre
 // doivent dire le même chiffre, toujours.

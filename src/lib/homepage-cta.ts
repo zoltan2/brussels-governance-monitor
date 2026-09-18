@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-// PROTOTYPE LOCAL (branche proto/accueil-refonte).
-//
 // Le second bouton du haut de page est un réglage, pas du code : libellé et URL vivent
 // dans data/homepage-cta.json, comme radar.json ou commitments.json. Éditer le fichier
 // suffit, le déploiement suivant reprend la valeur, et git garde la trace du changement.

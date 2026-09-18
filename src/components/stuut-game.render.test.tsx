@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { render, cleanup, fireEvent, screen, waitFor } from '@testing-library/react';
+import { act, render, cleanup, fireEvent, screen, waitFor } from '@testing-library/react';
 import * as matchers from 'vitest-axe/matchers';
 import { axe } from 'vitest-axe';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -42,6 +42,20 @@ function touche(nom: string) {
 function taper(mot: string) {
   for (const l of mot.slice(1)) touche(l);
   touche('Valider l’essai');
+}
+
+/**
+ * Attend qu'un essai soit compté ET que le jeu soit déverrouillé. Le jeu reste
+ * verrouillé jusqu'au setTimeout qui suit la validation (0 ms sans animation) :
+ * une lettre tapée avant est ignorée, comme dans le jeu autonome. Sans cette
+ * seconde attente, la suite complète, plus lente, faisait taper le test pendant
+ * le verrou, et il attendait ensuite un essai qui ne venait jamais.
+ */
+async function attendreFinEssai(n: number) {
+  await waitFor(() => expect(document.querySelectorAll('.sr-only ol li').length).toBe(n));
+  await act(async () => {
+    await new Promise((r) => setTimeout(r, 0));
+  });
 }
 
 beforeEach(() => {
@@ -113,7 +127,7 @@ describe('StuutGame', () => {
     await screen.findByText(/n°95/);
     for (let i = 0; i < 6; i++) {
       taper('CCCCCCC');
-      await waitFor(() => expect(document.querySelectorAll('.sr-only ol li').length).toBe(i + 1));
+      await attendreFinEssai(i + 1);
     }
     expect(await screen.findByText('Celui-là était coriace.')).toBeTruthy();
     expect(screen.getByText(/Même les initiés sèchent parfois/)).toBeTruthy();
@@ -183,7 +197,7 @@ describe('StuutGame', () => {
     const { container } = render(<StuutGame actif />);
     await screen.findByText(/n°95/);
     taper('CANTINE');
-    await waitFor(() => expect(document.querySelectorAll('.sr-only ol li').length).toBe(1));
+    await attendreFinEssai(1);
     expect(await axe(container)).toHaveNoViolations();
 
     taper('CABINET');

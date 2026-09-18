@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T14:23:31.855Z",
+  "generatedAt": "2026-09-18T14:26:03.354Z",
   "locale": "de",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -1158,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Die am 18. Juni 2026 auf democratie.brussels eingereichte Petition zum Erhalt der geteilten Tretroller in Brüssel überschritt die Schwelle, ab der sich das Brüsseler Parlament damit befassen muss. Wie hoch liegt diese Schwelle?",
+      "question": "Bis zu welchem Jahr bleibt die Konzession der Villo-Leihfahrräder bestehen, laut dem Gespräch der regionalen Mobilitätsministerin zum Jahresauftakt am 8. September 2026?",
       "options": [
-        "1 000 Unterschriften",
-        "500 Unterschriften",
-        "5 000 Unterschriften",
-        "15 000 Unterschriften"
+        "Bis 2028",
+        "Bis 2026",
+        "Bis 2030",
+        "Bis 2027"
       ],
       "correct": 0,
-      "explanation": "Am 12. August 2026 zählte sie 1 595 Unterschriften und war damit die meistunterzeichnete Initiative der Plattform. Die Schwelle sichert eine Debatte, verpflichtet die Mehrheit aber zu nichts und setzt das Verbot vom 1. Januar 2027 nicht aus.",
+      "explanation": "Es handelt sich um eine Korrektur: das Dossier nannte zuvor ein Konzessionsende im September 2026 ohne bestimmten Nachfolger. Eine Ausschreibung ist angekündigt, mit dem Ziel, ein Jahresabonnement um 35 Euro und eine Abrechnung je halbe Stunde zu erhalten.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:683a9504ae26d5403f68ab6a4ea16a76",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:22fdadf39c649fad70fcf83914841266",
+        "generatedAt": "2026-09-18T14:26:03.354Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1181,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Das Urteil des Staatsrats vom 29. Juli 2026 hob die 2023 in Brüssel vergebenen Lizenzen für geteilte Mobilität auf. Wer hatte die Klage eingereicht, die dazu führte?",
+      "question": "Welche Wirkung hatte das Urteil des Staatsrats vom 29. Juli 2026 auf das Verbot geteilter Tretroller in Brüssel?",
       "options": [
-        "Lime, der bei der Vergabe 2023 übergangene Betreiber",
-        "Bolt, einer der beiden 2023 ausgewählten Betreiber",
-        "Der Verband der Brüsseler Fahrradvereinigungen",
-        "Die Gemeinde Schaerbeek, im Namen der Anwohner"
+        "Es zog es um vier Monate vor, ohne es infrage zu stellen",
+        "Es hob es auf und öffnete den Markt wieder für zwei Betreiber",
+        "Es verschob es um ein Jahr, bis zu einer neuen Ordonnanz",
+        "Es weitete es auf die fest verankerten Leihfahrräder aus"
       ],
       "correct": 0,
-      "explanation": "Der erfolgreiche Kläger könnte am Ende von der vorbereiteten Übergangsregelung profitieren, neben den bereits tätigen Betreibern. Das Verbot frei abstellbarer geteilter Tretroller bleibt beim 1. Januar 2027.",
+      "explanation": "Das am 11. Juni 2026 beschlossene und auf den 1. Januar 2027 festgelegte Verbot bleibt unberührt: das Urteil hebt die Lizenzen auf, was die Entfernung der Geräte aus dem öffentlichen Raum ab dem 1. September 2026 erzwingt. Für frei abstellbare Leihfahrräder fällt die Wirkung anders aus, da die Regierung dieses Angebot erhalten wollte.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:683a9504ae26d5403f68ab6a4ea16a76",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:22fdadf39c649fad70fcf83914841266",
+        "generatedAt": "2026-09-18T14:26:03.354Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Welcher Unterschied bei der Abdeckungsrate mit Kinderbetreuungsplätzen trennt die Brüsseler Gemeinden laut der Studie von perspective.brussels vom Oktober 2024?",
+      "question": "Welcher Anteil der geprüften niederländischsprachigen Brüsseler Krippen musste sich seit 2022 in Ordnung bringen, laut der am 9. September 2026 veröffentlichten Auswertung der Inspektionsberichte?",
       "options": [
-        "67 % in Etterbeek gegenüber 16 % in Anderlecht",
-        "45 % in Etterbeek gegenüber 38 % in Anderlecht",
-        "80 % in Etterbeek gegenüber 60 % in Anderlecht",
-        "30 % in Etterbeek gegenüber 25 % in Anderlecht"
+        "23 %, also 34 Krippen von 146 geprüften",
+        "10 %, also 15 Krippen von 146 geprüften",
+        "41 %, also 60 Krippen von 146 geprüften",
+        "28 %, also 41 Krippen von 146 geprüften"
       ],
       "correct": 0,
-      "explanation": "Zwei von drei Eltern bezeichnen die Suche nach einem Platz als schwierig oder sehr schwierig, laut der Ligue des Familles. Die Postleitzahl entscheidet weitgehend darüber, ob nach dem Mutterschaftsurlaub eine Rückkehr in den Beruf möglich ist.",
+      "explanation": "Der flämische Durchschnitt liegt bei 10 %, die flämischen Gemeinden rund um Brüssel bei 28 %, Antwerpen und Gent bei 11 %. Eine zweite Zahl wiegt ebenso schwer: nur 30 % der Brüsseler Krippen hatten in drei Jahren mindestens zwei Inspektionen, was nahelegt, diesen Anteil als Untergrenze zu lesen und nicht als Endstand.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:ba987c625013475eda43b935816d14ee",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:4eba1a734ed6d18bfdb9db0f5224833f",
+        "generatedAt": "2026-09-18T14:26:03.354Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Welche Behörde erteilt in Brüssel die Genehmigungen für die bikommunalen Kinderkrippen?",
+      "question": "Warum lassen sich die Inspektionszahlen der niederländischsprachigen Brüsseler Krippen nicht mit denen der französischsprachigen Krippen vergleichen?",
       "options": [
-        "Iriscare, für die Gemeinsame Gemeinschaftskommission",
-        "Das ONE, für die Föderation Wallonie-Brüssel",
-        "Opgroeien, für die Flämische Gemeinschaft",
-        "Brüssel Wirtschaft und Beschäftigung, für die Region"
+        "Drei Behörden prüfen getrennt, jede nach eigenen Kriterien",
+        "Die französischsprachigen Krippen werden gar nicht geprüft",
+        "Die französischsprachigen Berichte erscheinen nur alle fünf Jahre",
+        "Die Region bündelt die Daten, ohne sie nach Netz aufzuschlüsseln"
       ],
       "correct": 0,
-      "explanation": "Es ist die einzige Behörde, die einer streng Brüsseler Machtebene angehört. Die französischsprachigen Krippen hängen vom ONE ab und die niederländischsprachigen von Opgroeien, jede mit eigenem Budget.",
+      "explanation": "Opgroeien prüft das niederländischsprachige Netz, das ONE das französischsprachige und Iriscare die bikommunalen Einrichtungen, jede mit eigenen Berichten und Kriterien. Keine Veröffentlichung führt die drei Regelungen für Brüssel zusammen, und die 23 % sagen daher nichts über den Zustand der französischsprachigen oder bikommunalen Krippen.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:ba987c625013475eda43b935816d14ee",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:4eba1a734ed6d18bfdb9db0f5224833f",
+        "generatedAt": "2026-09-18T14:26:03.354Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutionell",
-      "question": "Was ist das bezifferte Ziel der Reform, die die Brüsseler Regionalverwaltung zusammenführt und in der Regionalen Politikerklärung vom Februar 2026 angekündigt wurde?",
+      "question": "Um wie viel sank der Personalbestand der Region Brüssel seit Januar 2026, laut dem am 12. September 2026 zitierten Minister für Haushalt und Öffentlichen Dienst?",
       "options": [
-        "Von rund 25 Einheiten auf 4 große Säulen zu kommen",
-        "Von rund 40 Einheiten auf 10 große Säulen zu kommen",
-        "Von rund 15 Einheiten auf 2 große Säulen zu kommen",
-        "Von rund 60 Einheiten auf 12 große Säulen zu kommen"
+        "Um mehr als 500 Vollzeitäquivalente",
+        "Um mehr als 1 800 Vollzeitäquivalente",
+        "Um mehr als 120 Vollzeitäquivalente",
+        "Um mehr als 3 000 Vollzeitäquivalente"
       ],
       "correct": 0,
-      "explanation": "Das erklärte Ziel sind Einsparungen von 250 bis 300 Millionen Euro bis 2029. Die vier Säulen umfassen die gemeinsame Unterstützung, die organischen Aufgaben, infrastructure.brussels und eine Grundstücksplattform.",
+      "explanation": "Davon 338 in vier Monaten seit der Verschärfung des Einstellungsstopps im März 2026. Abgänge werden nicht mehr automatisch ersetzt, gezielte Einstellungen bleiben aber möglich, wo der Dienst es erfordert. Der Umfang der Zählung wird nicht präzisiert, und keine amtliche Mitteilung begleitete sie, während die Region rund 12 000 Bedienstete beschäftigt.",
       "sourceSlug": "/de/dossiers/reforme-administration",
       "sourceTitle": "Verwaltungsreform",
       "provenance": {
-        "sourceLastModified": "2026-07-07",
-        "sourceContentHash": "sha256:f2eecdda83083acc49fa1518af8be698",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:ab6144da8f8c2bb58ee499f1057da8c9",
+        "generatedAt": "2026-09-18T14:26:03.354Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Wofür dienen die 61 Millionen Euro, die im Juli 2026 für die SLRB freigegeben wurden?",
+      "question": "Was werfen mehrere Wohnungsgesellschaften öffentlichen Dienstes der SLRB vor, die laut einer Presseinformation vom 11. September 2026 ihre Liquiditäten nicht mehr dort belassen wollen?",
       "options": [
-        "Für den Strategischen Plan zur nachhaltigen Sanierung des Sozialwohnungsbestands",
-        "Für den Ankauf von Grundstücken für Neubauten",
-        "Für die vorzeitige Rückzahlung der Schuld an die Region",
-        "Für die Aufwertung der Gehaltstabellen des Personals"
+        "Sie damit die Schwierigkeiten anderer Gesellschaften auszugleichen",
+        "Diese Beträge in riskante Finanzprodukte anzulegen",
+        "Die Weiterleitung der bei den Mietern erhobenen Mieten zu verzögern",
+        "Auf jede Bewegung eine Verwaltungsgebühr zu erheben"
       ],
       "correct": 0,
-      "explanation": "Der Plan umfasst den Zeitraum 2026-2035, mit 219 vorgesehenen Projekten, von denen 117 bereits im Bau sind. Die SLRB ist die regionale Einrichtung, die für die Sanierung des Sozialwohnungsbestands zuständig ist.",
+      "explanation": "Die SLRB bündelt die Konten der sechzehn Wohnungsgesellschaften öffentlichen Dienstes. Dieser gemeinsame Topf wies ein Defizit von rund 60 Millionen Euro auf, und die Dachgesellschaft hatte im November 2025 aufgehört, ihn aufzufüllen. Diese Spannungen kommen zur Blockierung der 131 Millionen Euro hinzu.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:82ad74959009d8a7bf00e72452f74d50",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:48f3abd31687304f14c7df397b95d0c7",
+        "generatedAt": "2026-09-18T14:26:03.354Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welches Mittel wählte die Brüsseler Regierung im Januar 2026, um die Finanzen der SLRB zu sanieren?",
+      "question": "Auf welchen Termin wurde die Blockierung der 131 Millionen Euro für die SLRB verschoben, laut der Information vom 8. September 2026?",
       "options": [
-        "Den Verkauf von Vermögen, darunter rund 200 Sozialwohnungen",
-        "Eine allgemeine Mieterhöhung von 3 % pro Jahr",
-        "Eine von den 19 Brüsseler Gemeinden verbürgte Anleihe",
-        "Die Fusion der 16 zugelassenen Wohnungsgesellschaften"
+        "Auf das Haushaltskonklave von Anfang Oktober 2026",
+        "Auf die Abstimmung über den Regionalhaushalt im März 2027",
+        "Auf das Ende des Auftrags des Sonderkommissars",
+        "Auf die nächste Anpassung des Haushalts im Juni 2027"
       ],
       "correct": 0,
-      "explanation": "Betroffen sind die Standorte Ariane in Woluwe-Saint-Lambert und Palais in Schaerbeek. Diese Verkäufe sollen die Schuld der SLRB senken, parallel zu einem Paket von 400 Millionen Euro für mehr als tausend öffentliche Wohnungen.",
+      "explanation": "Dort legt die Regierung den Haushalt 2027 fest. Die verlangte Gegenleistung ist die Umsetzung der Empfehlungen des Untersuchungsausschusses zum Foyer anderlechtois in Beschlüsse. Der Betrag entspricht einem Teil der 400 Millionen, die für die Legislaturperiode vorgesehen sind.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:82ad74959009d8a7bf00e72452f74d50",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:48f3abd31687304f14c7df397b95d0c7",
+        "generatedAt": "2026-09-18T14:26:03.354Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Am 11. August 2026 verklagten zweiundvierzig Familien aus Dilbeek, Lennik und Roosdaal den belgischen Staat wegen der Anflugroute RNP 07L nach Brussels Airport. Was zeichnet diese Route aus?",
+      "question": "Wie viele Überschreitungen der Brüsseler Lärmnormen registrierte Brüssel Umwelt zwischen Januar und April 2026?",
       "options": [
-        "Der Sinkflug zur Piste 07L beginnt weit westlich des Flughafens",
-        "Sie bündelt die Starts nach Südosten, über dem Sonienwald",
-        "Sie hält die Piste 07L von Mitternacht bis sechs Uhr für Nachtflüge frei",
-        "Sie leitet die Frachtflugzeuge über den Kanal und den Hafen von Brüssel"
+        "3 815 Überschreitungen",
+        "1 240 Überschreitungen",
+        "8 600 Überschreitungen",
+        "4 758 Überschreitungen"
       ],
       "correct": 0,
-      "explanation": "Satellitengeführt überfliegt sie danach den Nordwesten der Region, darunter Molenbeek-Saint-Jean, Koekelberg und Berchem-Sainte-Agathe. Als Test 2025 eingeführt, wurde sie bis Oktober 2026 verlängert.",
+      "explanation": "Das sind etwa neunhundertfünfzig pro Monat, gegenüber vierhundertsechsundsiebzig pro Monat über zehn Monate im Jahr 2025: das Tempo verdoppelt sich. Ein Lesevorbehalt drängt sich auf, denn rund 80 % der Überschreitungen stammen von einer einzigen Messstation, in Molenbeek-Saint-Jean. Diese Konzentration verortet den Befund, macht die Reihe aber von einem einzigen Messpunkt abhängig.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
       "sourceTitle": "Fluglärm Brüssel",
       "provenance": {
-        "sourceLastModified": "2026-08-23",
-        "sourceContentHash": "sha256:c3eecc7de317738899154aec2d4f974c",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:970f98ba2a88dbadb135a438e601471b",
+        "generatedAt": "2026-09-18T14:26:03.354Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1539,8 +1539,8 @@
       "sourceTitle": "Vizegouverneur",
       "provenance": {
         "sourceLastModified": "2026-08-09",
-        "sourceContentHash": "sha256:f50c2d71cfaf89718bb7e6be39cd38a4",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceContentHash": "sha256:37992b53cf88c64266baed2368798bce",
+        "generatedAt": "2026-09-18T14:26:03.354Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1568,5 +1568,6 @@
         "promptVersion": "v3"
       }
     }
-  ]
+  ],
+  "reviewedCount": 24
 }

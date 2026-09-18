@@ -1,6 +1,6 @@
 {
   "description": "Registre des sources surveillées par BGM. 325 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-18",
   "stats": {
     "total": 325,
     "byType": {
@@ -3192,7 +3192,7 @@
     },
     {
       "name": "Belgian Consular Union — Ambassades en Belgique",
-      "url": "https://belgianconsularunion.be/fr/ambassades-en-belgique/",
+      "url": "https://belgianconsularunion.be/fr/",
       "type": "institutional",
       "lang": "multi",
       "priority": "P4",
@@ -3952,7 +3952,7 @@
     },
     {
       "name": "CGTN — China Global Television Network (Bureau BXL)",
-      "url": "https://news.cgtn.com",
+      "url": "https://www.cgtn.com/europe",
       "type": "press",
       "lang": "en",
       "priority": "P4",
@@ -4154,14 +4154,15 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "culture-communautaire",
-      "notes": "PV conseils communaux, archives numérisées depuis XIXe siècle.",
+      "notes": "PV conseils communaux, archives numérisées depuis XIXe siècle. Chaîne TLS incomplète : le certificat intermédiaire n'est pas servi, le fetch de Node échoue donc avec UNABLE_TO_VERIFY_LEAF_SIGNATURE là où curl et un navigateur aboutissent. Récupérée par navigateur piloté depuis le 2026-09-18.",
       "tier": "radar",
       "enabled": true,
       "id": "watch-209",
       "domaines": [
         "institutional"
       ],
-      "document_trust_tier": "P0"
+      "document_trust_tier": "P0",
+      "fetchMode": "browser"
     },
     {
       "name": "Centre Culturel Congolais",
@@ -4488,7 +4489,7 @@
     {
       "id": "watch-240",
       "name": "BRUZZ Energie",
-      "url": "https://www.bruzz.be/topic/energie",
+      "url": "https://www.bruzz.be/tag/energie",
       "type": "press",
       "lang": "nl",
       "priority": "P2",
@@ -4503,7 +4504,9 @@
       "domaines": [
         "climate"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "fetchMode": "rss",
+      "rssUrl": "https://www.bruzz.be/tag/energie/rss.xml"
     },
     {
       "id": "watch-241",
@@ -4584,7 +4587,7 @@
     {
       "id": "watch-245",
       "name": "IEB enquêtes publiques",
-      "url": "https://ieb.be/spip.php?page=enquetes-publics",
+      "url": "https://www.ieb.be/-Enquetes-publiques-",
       "type": "press",
       "lang": "fr",
       "priority": "P2",
@@ -4821,7 +4824,7 @@
     {
       "id": "watch-256",
       "name": "citydev.brussels — Développement urbain",
-      "url": "https://citydev.brussels/fr/actualites",
+      "url": "https://www.citydev.brussels/fr/actualites",
       "type": "institutional",
       "lang": "multi",
       "priority": "P2",
@@ -4863,7 +4866,7 @@
     {
       "id": "watch-258",
       "name": "finance.brussels — Financement régional",
-      "url": "https://finance.brussels/fr/actualites/",
+      "url": "https://finance.brussels/news/",
       "type": "institutional",
       "lang": "multi",
       "priority": "P2",
@@ -5221,13 +5224,14 @@
       ],
       "frequency": "monthly",
       "enabled": true,
-      "notes": "Organisme régional pour l'égalité des chances. Note : certificat SSL parfois instable.",
+      "notes": "Organisme régional pour l'égalité des chances. Note : certificat SSL parfois instable. Chaîne TLS incomplète : le certificat intermédiaire n'est pas servi, le fetch de Node échoue donc avec UNABLE_TO_VERIFY_LEAF_SIGNATURE là où curl et un navigateur aboutissent. Récupérée par navigateur piloté depuis le 2026-09-18.",
       "tier": "editorial",
       "domaines": [
         "institutional",
         "social"
       ],
-      "document_trust_tier": "P0"
+      "document_trust_tier": "P0",
+      "fetchMode": "browser"
     },
     {
       "id": "watch-275",

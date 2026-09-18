@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T12:39:56.967Z",
+  "generatedAt": "2026-09-18T12:31:17.905Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Jusqu'à quelle date Belfius reste-t-il le banquier de la Région bruxelloise, selon le marché approuvé en juillet 2026 ?",
+      "question": "De combien la Ville de Bruxelles a-t-elle porté ses centimes additionnels au précompte immobilier pour l'exercice 2026, dont les avertissements-extraits de rôle sont partis à compter du 17 août 2026 ?",
       "options": [
-        "Jusqu'au 30 juin 2031",
-        "Jusqu'au 31 décembre 2029",
-        "Jusqu'au 30 juin 2028",
-        "Jusqu'au 31 décembre 2033"
+        "De 2 950 à 3 457 centimes",
+        "De 2 980 à 4 090 centimes",
+        "De 3 090 à 3 890 centimes",
+        "De 2 940 à 3 400 centimes"
       ],
       "correct": 0,
-      "explanation": "Le contrat prend effet le 1er janvier 2027 et peut être prolongé deux fois un an par accord mutuel. La ligne de crédit disponible passe de 50 à 250 millions d'euros.",
+      "explanation": "Soit une hausse de 17,2 %, que la Ville annonce compenser intégralement pour les propriétaires occupant leur bien, par une déduction communale forfaitaire de cent euros et la prime régionale Be-Home. Neuf des dix-neuf communes bruxelloises ont relevé leurs additionnels en 2026.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:f9a88142d11a049e9785f1de502387cc",
-        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "sourceLastModified": "2026-08-30",
+        "sourceContentHash": "sha256:468945fea922705b4278d34bb45e19e6",
+        "generatedAt": "2026-09-18T12:31:17.905Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "À quoi est conditionné le maintien de la ligne de crédit de 250 millions d'euros accordée à la Région bruxelloise par Belfius dans le marché annoncé le 20 juillet 2026 ?",
+      "question": "Après l'ouverture d'une ligne de crédit de 250 millions d'euros auprès de BBVA le 26 août 2026, de quel montant total de lignes de crédit la Région bruxelloise dispose-t-elle ?",
       "options": [
-        "Au respect de la trajectoire budgétaire pluriannuelle",
-        "À la notation attribuée par une agence financière",
-        "À l'accord préalable du Parlement bruxellois",
-        "À la vente d'actifs immobiliers régionaux"
+        "1,25 milliard d'euros sur quatre prestataires",
+        "800 millions d'euros sur trois prestataires",
+        "1,5 milliard d'euros sur cinq prestataires",
+        "950 millions d'euros sur quatre prestataires"
       ],
       "correct": 0,
-      "explanation": "Le déficit régional doit être ramené progressivement à zéro à l'horizon 2029, avec un plafond de 957 millions d'euros fixé pour l'exercice 2026.",
+      "explanation": "Cette ligne auprès de la banque espagnole ne se confond pas avec celle de 250 millions d'euros négociée avec Belfius dans le marché de caissier du 20 juillet 2026 : deux instruments distincts, deux établissements, un montant identique. Une ligne de crédit est une capacité de tirage, pas de la dette.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:f9a88142d11a049e9785f1de502387cc",
-        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "sourceLastModified": "2026-08-30",
+        "sourceContentHash": "sha256:468945fea922705b4278d34bb45e19e6",
+        "generatedAt": "2026-09-18T12:31:17.905Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Le Plan Gares, approuvé le 18 juin 2026 pour la propreté des abords des gares du Nord et du Midi, est doté de quel budget annuel ?",
+      "question": "Combien d'espaces-tri la Région bruxelloise prévoit-elle d'installer sur la législature, selon la réforme de la collecte des déchets présentée le 11 septembre 2026 ?",
       "options": [
-        "Dix millions d'euros par an",
-        "Deux millions d'euros par an",
-        "Vingt-cinq millions d'euros par an",
-        "Cinquante millions d'euros par an"
+        "120, dont 60 dans deux quartiers pilotes",
+        "40, dont 20 dans deux quartiers pilotes",
+        "250, dont 100 dans quatre quartiers pilotes",
+        "80, dont 30 dans un seul quartier pilote"
       ],
       "correct": 0,
-      "explanation": "Deux opérations pilotes ont précédé le déploiement : la gare du Midi le 16 juillet 2026 et la gare du Nord le 21 août 2026. Elles servent à chiffrer l'écart entre un coup de balai exceptionnel et l'entretien continu.",
+      "explanation": "Deux quartiers pilotes en accueilleront trente chacun, où ils remplaceront le ramassage en porte-à-porte pendant la phase de test, et soixante autres traiteront des points noirs et des dépôts clandestins. L'annonce de mars 2026 évoquait cent nouveaux espaces de tri. La réforme est attendue en 2027.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:eadceada62757b99f98c1baf0a394cb2",
-        "generatedAt": "2026-08-25T09:20:47.707Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:a0be7f6244921d62ed069fbb227a6714",
+        "generatedAt": "2026-09-18T12:31:17.905Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Selon les données de la Ville de Bruxelles pour 2025, quelle part des personnes verbalisées pour dépôt clandestin n'habitait pas la commune ?",
+      "question": "Sur quel financement repose la réforme de la collecte des déchets présentée à Bruxelles le 11 septembre 2026 ?",
       "options": [
-        "36,7 %",
-        "12,4 %",
-        "58,2 %",
-        "21,9 %"
+        "Sur la responsabilité élargie des producteurs de plastiques",
+        "Sur une taxe additionnelle levée par les dix-neuf communes",
+        "Sur une hausse du prix des sacs-poubelle réglementaires",
+        "Sur une dotation fédérale affectée à la propreté publique"
       ],
       "correct": 0,
-      "explanation": "Soit 2 837 contrevenants sur 7 731 amendes, un phénomène appelé « tourisme des déchets ». Le prix du sac-poubelle est environ dix fois moins élevé à Bruxelles que dans les communes de la périphérie.",
+      "explanation": "Ce régime, voté par le Parlement bruxellois le 13 mars 2026, doit rapporter 51,4 millions d'euros par an à la Région, dont 54 % reversés aux communes pour le nettoyage des déchets sauvages. La Cour constitutionnelle doit se prononcer sur ce financement fin septembre 2026.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:eadceada62757b99f98c1baf0a394cb2",
-        "generatedAt": "2026-08-25T09:20:47.707Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:a0be7f6244921d62ed069fbb227a6714",
+        "generatedAt": "2026-09-18T12:31:17.905Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climat",
-      "question": "Par quel dispositif l'accord de gouvernement de février 2026 remplace-t-il Renolution ?",
+      "question": "Selon le bilan consolidé publié par Sciensano le 2 septembre 2026, combien de décès supplémentaires la vague de chaleur de juin 2026 a-t-elle causés en Région bruxelloise ?",
       "options": [
-        "Par des prêts à taux zéro dotés de 200 millions d'euros",
-        "Par une prime unique plafonnée à 200 euros par logement",
-        "Par un crédit d'impôt régional étalé sur 4 exercices",
-        "Par un fonds de garantie doté de 400 millions d'euros"
+        "196 décès supplémentaires",
+        "42 décès supplémentaires",
+        "159 décès supplémentaires",
+        "930 décès supplémentaires"
       ],
       "correct": 0,
-      "explanation": "La Déclaration de politique régionale ne fixe aucun nouvel objectif CO2 au-delà du PACE existant, ce qui laisse la trajectoire climatique en suspens.",
+      "explanation": "Ce chiffre a été corrigé deux fois à la hausse, depuis les 159 annoncés le 8 juillet puis les 188 du 17 juillet. La deuxième vague, du 4 au 17 juillet, ajoute 42 décès, et la troisième n'a produit aucune surmortalité bruxelloise. Sciensano invoque la durée de l'épisode, les températures et les concentrations d'ozone.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:afc6ab82711c4ed81c2a285dd974f547",
-        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:2dd3e25685818427a55414f0c5b0662e",
+        "generatedAt": "2026-09-18T12:31:17.905Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climat",
-      "question": "Que conclut le rapport annuel 2025 de Bruxelles Environnement sur la qualité de l'air ?",
+      "question": "Que la Belgique devait-elle remettre à la Commission européenne pour le 1er septembre 2026, en vertu du règlement (UE) 2024/1991 ?",
       "options": [
-        "Toutes les stations respectent les normes européennes actuelles",
-        "Aucune station ne respecte les normes européennes actuelles",
-        "Seules les stations éloignées des axes routiers sont mesurées",
-        "Les normes ne sont respectées que durant la période hivernale"
+        "Son projet de plan national de restauration de la nature",
+        "Son plan national intégré énergie-climat révisé",
+        "Son inventaire national des gaz à effet de serre",
+        "Son programme de réduction des polluants atmosphériques"
       ],
       "correct": 0,
-      "explanation": "Des dépassements persistent toutefois le long des axes routiers denses, au regard des futures normes européennes de 2030 et des recommandations de l'Organisation mondiale de la santé.",
+      "explanation": "L'échéance est passée sans dépôt belge. Le retard bruxellois est double : le plan Renature Brussels est annoncé pour septembre ou octobre 2026, alors que le calendrier publié sur son site officiel prévoyait une adoption en première lecture à l'été 2026. Le plan belge complet n'est pas attendu avant l'été 2027.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:afc6ab82711c4ed81c2a285dd974f547",
-        "generatedAt": "2026-08-05T19:43:07.444Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:2dd3e25685818427a55414f0c5b0662e",
+        "generatedAt": "2026-09-18T12:31:17.905Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Économie",
-      "question": "En 2025, quelle part des indépendants bruxellois avait entre 18 et 29 ans, selon l'Institut national d'assurances sociales pour travailleurs indépendants ?",
+      "question": "Quelle superficie couvre le site d'Audi Brussels à Forest, dont la reprise par Heylen Warehouses a été annoncée le 1er septembre 2026 ?",
       "options": [
-        "14,5 %",
-        "11,2 %",
-        "22,8 %",
-        "8,3 %"
+        "Environ 55 hectares",
+        "Environ 18 hectares",
+        "Environ 120 hectares",
+        "Environ 35 hectares"
       ],
       "correct": 0,
-      "explanation": "Soit 18 174 personnes, contre 11,2 % au niveau national. Leur nombre a progressé de 32,6 % entre 2015 et 2025, alors que les demandeurs d'emploi de moins de 25 ans augmentaient de 17 % sur un an.",
+      "explanation": "C'est le plus grand terrain industriel de la Région. Le projet, provisoirement nommé Rings Park 21, vise au moins trois mille emplois, soit l'effectif d'Audi Brussels avant sa fermeture le 28 février 2025, avec une première activité annoncée pour le début de 2027.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:a74189f297b12a55d7a659c1d0bc19ac",
-        "generatedAt": "2026-08-25T09:20:47.707Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:73cd50bb99c2ba9de179d75da6ba7fc9",
+        "generatedAt": "2026-09-18T12:31:17.905Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Économie",
-      "question": "Le 22 juin 2026, le tribunal de première instance néerlandophone de Bruxelles a jugé le règlement-taxe de la Ville de Bruxelles sur les surfaces de bureaux contraire à quel principe ?",
+      "question": "En 2025, comment les créations d'entreprises à Bruxelles ont-elles évolué par rapport à 2024, selon l'Atlas des Starters publié le 8 septembre 2026 ?",
       "options": [
-        "Au principe constitutionnel d'égalité",
-        "Au droit européen des aides d'État",
-        "Au principe de libre circulation des services",
-        "À l'interdiction de la double imposition"
+        "Elles reculent de 1,47 %, seule Région en baisse",
+        "Elles progressent de 14,76 %, plus forte hausse",
+        "Elles progressent de 0,77 %, au rythme national",
+        "Elles reculent de 0,08 %, au rythme de la Flandre"
       ],
       "correct": 0,
-      "explanation": "Le tribunal n'a trouvé aucune justification objective à traiter les surfaces de bureaux autrement que les autres usages, pour les exercices d'imposition 2022 à 2025. La taxe est passée de 9,58 à 24 euros par mètre carré et par an entre 2021 et 2026.",
+      "explanation": "Bruxelles compte 15 467 créations en 2025, soit 12,1 % du total belge, quand la Wallonie bondit de 14,76 % et que la Flandre reste stable. L'Atlas des Starters est publié par l'UCM, l'Unizo et GraydonCreditsafe, trois acteurs privés, et ne constitue pas une statistique officielle.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:a74189f297b12a55d7a659c1d0bc19ac",
-        "generatedAt": "2026-08-25T09:20:47.707Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:73cd50bb99c2ba9de179d75da6ba7fc9",
+        "generatedAt": "2026-09-18T12:31:17.905Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1569,5 +1569,5 @@
       }
     }
   ],
-  "reviewedCount": 68
+  "reviewedCount": 60
 }

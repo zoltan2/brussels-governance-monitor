@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T14:07:36.217Z",
+  "generatedAt": "2026-09-18T14:11:22.640Z",
   "locale": "en",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -330,7 +330,7 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Housing",
-      "question": "On 3 September 2026, what political condition was attached to the payment of the 131 million euro regional grant for 2026 to the SLRB?",
+      "question": "On 3 September 2026, what political condition was attached to the payment of the 131 million euro regional endowment for 2026 to the SLRB?",
       "options": [
         "The departure of the chair of the Foyer anderlechtois",
         "The sale of two regional public buildings",
@@ -344,7 +344,7 @@
       "provenance": {
         "sourceLastModified": "2026-09-06",
         "sourceContentHash": "sha256:462e09bff29d63727e58dfff74dadcc6",
-        "generatedAt": "2026-09-18T14:02:35.872Z",
+        "generatedAt": "2026-09-18T14:11:22.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -367,7 +367,7 @@
       "provenance": {
         "sourceLastModified": "2026-09-06",
         "sourceContentHash": "sha256:462e09bff29d63727e58dfff74dadcc6",
-        "generatedAt": "2026-09-18T14:02:35.872Z",
+        "generatedAt": "2026-09-18T14:11:22.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "The petition to keep shared scooters in Brussels, filed on 18 June 2026 on democratie.brussels, passed the threshold that forces the Brussels Parliament to take it up. What is that threshold?",
+      "question": "Until what year is the Villo shared-bike concession maintained, according to the regional Mobility Minister's start-of-term interview of 8 September 2026?",
       "options": [
-        "1,000 signatures",
-        "500 signatures",
-        "5,000 signatures",
-        "15,000 signatures"
+        "Until 2028",
+        "Until 2026",
+        "Until 2030",
+        "Until 2027"
       ],
       "correct": 0,
-      "explanation": "It had 1,595 signatures on 12 August 2026, making it the most signed initiative on the platform. Passing the threshold guarantees a debate, but does not oblige the majority to change position and does not suspend the ban set for 1 January 2027.",
+      "explanation": "This is a correction: the dossier previously gave an expiry in September 2026 with no identified successor. A call for applications is announced, with the aim of keeping an annual subscription of around 35 euros and half-hour pricing.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:7ccc38c853858ccc83fc843f5431139f",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:1d15a14979756d7d033be974125b226f",
+        "generatedAt": "2026-09-18T14:10:04.598Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1181,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "The Council of State ruling of 29 July 2026 annulled the shared mobility licences awarded in Brussels in 2023. Who had brought the appeal behind that annulment?",
+      "question": "What effect did the Council of State ruling of 29 July 2026 have on the ban on shared scooters in Brussels?",
       "options": [
-        "Lime, the operator left out of the 2023 award",
-        "Bolt, one of the two operators selected in 2023",
-        "The federation of Brussels cycling associations",
-        "The municipality of Schaerbeek, on behalf of residents"
+        "It brought it forward by four months, without calling it into question",
+        "It annulled it, reopening the market to the two operators",
+        "It postponed it by a year, until a new ordinance is passed",
+        "It extended it to the docked bicycles of the concession"
       ],
       "correct": 0,
-      "explanation": "The successful applicant could end up benefiting from the transitional regime being prepared, alongside the operators already present. The ban on free-floating shared scooters stays set for 1 January 2027.",
+      "explanation": "The ban decided on 11 June 2026 and set for 1 January 2027 is untouched: the ruling annuls the licences, which requires the devices to be removed from public space from 1 September 2026. For free-floating shared bicycles the effect differs, since the government wanted to keep that offer.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:7ccc38c853858ccc83fc843f5431139f",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:1d15a14979756d7d033be974125b226f",
+        "generatedAt": "2026-09-18T14:10:04.598Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Education",
-      "question": "What gap in childcare place coverage separates the Brussels municipalities, according to the perspective.brussels study of October 2024?",
+      "question": "What share of the Dutch-speaking Brussels crèches inspected were served a compliance notice since 2022, according to the analysis of inspection reports published on 9 September 2026?",
       "options": [
-        "67% in Etterbeek against 16% in Anderlecht",
-        "45% in Etterbeek against 38% in Anderlecht",
-        "80% in Etterbeek against 60% in Anderlecht",
-        "30% in Etterbeek against 25% in Anderlecht"
+        "23%, or 34 crèches out of 146 inspected",
+        "10%, or 15 crèches out of 146 inspected",
+        "41%, or 60 crèches out of 146 inspected",
+        "28%, or 41 crèches out of 146 inspected"
       ],
       "correct": 0,
-      "explanation": "Two parents in three describe the search for a place as difficult or very difficult, according to the Ligue des Familles. The postcode largely determines whether returning to work after maternity leave is possible.",
+      "explanation": "The Flemish average stands at 10%, the Flemish periphery at 28%, Antwerp and Ghent at 11%. A second figure weighs as much: only 30% of Brussels crèches had at least two inspections in three years, which invites reading the rate as a floor rather than as a settled total.",
       "sourceSlug": "/en/dossiers/petite-enfance",
       "sourceTitle": "Early childhood",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:d9b98024e2d8630b658a4d211639a2aa",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:855b4f3fdbd89bb641a02aa27972623f",
+        "generatedAt": "2026-09-18T14:10:04.598Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Education",
-      "question": "Which authority issues the licences for bicommunal nurseries in Brussels?",
+      "question": "Why can the non-compliance rate of Dutch-speaking Brussels crèches not be compared with that of French-speaking crèches?",
       "options": [
-        "Iriscare, for the Common Community Commission",
-        "ONE, for the Wallonia-Brussels Federation",
-        "Opgroeien, for the Flemish Community",
-        "Brussels Economy and Employment, for the Region"
+        "Three authorities inspect separately, each with its own criteria",
+        "French-speaking crèches are not inspected at all",
+        "French-speaking reports are published only every five years",
+        "The Region centralises the data without splitting it by network"
       ],
       "correct": 0,
-      "explanation": "It is the only authority belonging to a strictly Brussels level of power. French-speaking nurseries depend on ONE and Dutch-speaking ones on Opgroeien, each under its own budget.",
+      "explanation": "Opgroeien inspects the Dutch-speaking network, ONE the French-speaking network and Iriscare the bicommunal structures, each with its own reports and criteria. No publication consolidates the three regimes for Brussels, so the 23% figure says nothing about the state of French-speaking or bicommunal crèches.",
       "sourceSlug": "/en/dossiers/petite-enfance",
       "sourceTitle": "Early childhood",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:d9b98024e2d8630b658a4d211639a2aa",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:855b4f3fdbd89bb641a02aa27972623f",
+        "generatedAt": "2026-09-18T14:10:04.598Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutional",
-      "question": "What is the numerical target of the reform regrouping the Brussels regional administration, announced in the Regional Policy Declaration of February 2026?",
+      "question": "By how much has the Brussels Region's workforce fallen since the start of 2026, according to the Minister for the Budget and the Public Service quoted on 12 September 2026?",
       "options": [
-        "Moving from about 25 entities to 4 major pillars",
-        "Moving from about 40 entities to 10 major pillars",
-        "Moving from about 15 entities to 2 major pillars",
-        "Moving from about 60 entities to 12 major pillars"
+        "By more than 500 full-time equivalents",
+        "By more than 1,800 full-time equivalents",
+        "By more than 120 full-time equivalents",
+        "By more than 3,000 full-time equivalents"
       ],
       "correct": 0,
-      "explanation": "The stated goal is 250 to 300 million euros in savings by 2029. The four pillars cover shared support functions, the core missions of the regional public service, infrastructure.brussels and a land platform.",
+      "explanation": "338 of them came in the four months since the tightening of the hiring freeze in March 2026. Departures are no longer automatically replaced, but targeted recruitment remains possible where the service requires it. The scope of the count is not specified and no official statement accompanied it, while the Region employs about 12,000 staff.",
       "sourceSlug": "/en/dossiers/reforme-administration",
       "sourceTitle": "Admin Reform",
       "provenance": {
-        "sourceLastModified": "2026-07-07",
-        "sourceContentHash": "sha256:08f63f6fb4e5b8f0ed14e8c02f8e0dd1",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:0e3f6307b1988efd7269af957c3f1241",
+        "generatedAt": "2026-09-18T14:10:04.598Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Housing",
-      "question": "What are the 61 million euros unlocked for the SLRB in July 2026 for?",
+      "question": "What do several public service housing companies hold against the SLRB, which according to a press report of 11 September 2026 refuse to leave their cash with it?",
       "options": [
-        "The strategic plan for sustainable renovation of the social housing stock",
-        "The purchase of land intended for new construction",
-        "The early repayment of the debt owed to the Region",
-        "The pay-scale upgrade for the companies' staff"
+        "Using it to offset the difficulties of other companies",
+        "Placing those amounts in risky financial products",
+        "Delaying the transfer of rents collected from tenants",
+        "Taking a management fee on every movement"
       ],
       "correct": 0,
-      "explanation": "The plan covers 2026-2035, with 219 projects planned and 117 already under way. The SLRB is the regional institution responsible for renovating the social housing stock.",
+      "explanation": "The SLRB pools the accounts of the sixteen public service housing companies. That common fund showed a deficit of around 60 million euros and the SLRB had stopped topping it up in November 2025. These tensions come on top of the blocking of the 131 million euro regional endowment.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:530c9a52fca929d5facb79d4cf2662ea",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:fb8418062b5d71174b5ada12cab8d973",
+        "generatedAt": "2026-09-18T14:10:04.598Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Housing",
-      "question": "What method did the Brussels government adopt, in January 2026, to restore the SLRB's finances?",
+      "question": "To what point was the blocking of the 131 million euro regional endowment for the SLRB referred, according to the information of 8 September 2026?",
       "options": [
-        "The sale of assets, including about 200 social housing units",
-        "A general rent increase of 3% a year",
-        "A loan guaranteed by the 19 Brussels municipalities",
-        "The merger of the 16 approved property companies"
+        "To the budget conclave of early October 2026",
+        "To the vote on the regional budget in March 2027",
+        "To the end of the special commissioner's assignment",
+        "To the next budget review in June 2027"
       ],
       "correct": 0,
-      "explanation": "The Ariane site in Woluwe-Saint-Lambert and the Palais site in Schaerbeek are affected. These disposals aim to reduce the SLRB's debt, alongside an envelope of 400 million euros for more than a thousand public housing units.",
+      "explanation": "That is where the government settles the 2027 budget. The counterpart requested is turning the recommendations of the committee of inquiry into the Foyer anderlechtois into decisions. The amount represents part of the 400 million planned for the legislature.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:530c9a52fca929d5facb79d4cf2662ea",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:fb8418062b5d71174b5ada12cab8d973",
+        "generatedAt": "2026-09-18T14:10:04.598Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climate",
-      "question": "On 11 August 2026, forty-two families from Dilbeek, Lennik and Roosdaal sued the Belgian state over the RNP 07L flight path into Brussels Airport. What is distinctive about that route?",
+      "question": "How many exceedances of the Brussels noise standards did Brussels Environment record between January and April 2026?",
       "options": [
-        "The descent to runway 07L begins far to the west of the airport",
-        "It concentrates take-offs to the south-east, over the Sonian Forest",
-        "It reserves runway 07L for night flights between midnight and six",
-        "It diverts cargo aircraft over the canal and the port of Brussels"
+        "3,815 exceedances",
+        "1,240 exceedances",
+        "8,600 exceedances",
+        "4,758 exceedances"
       ],
       "correct": 0,
-      "explanation": "Satellite-guided, it then takes aircraft over the north-west of the Region, including Molenbeek-Saint-Jean, Koekelberg and Berchem-Sainte-Agathe. Introduced as a test in 2025, it was extended until October 2026.",
+      "explanation": "That is about nine hundred and fifty a month, against four hundred and seventy-six a month over ten months in 2025: the rate doubles. One caveat for readers: about 80% of the exceedances come from a single monitoring station, in Molenbeek-Saint-Jean. That concentration locates the finding but makes the series dependent on one measurement point.",
       "sourceSlug": "/en/dossiers/survol-bruxelles",
       "sourceTitle": "Aircraft overflight",
       "provenance": {
-        "sourceLastModified": "2026-08-23",
-        "sourceContentHash": "sha256:77ba86fc7bbff915976808f65862177c",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:4ecb2d340fa19ee0c8ed1b9272cb5a16",
+        "generatedAt": "2026-09-18T14:10:04.598Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

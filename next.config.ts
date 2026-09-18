@@ -54,19 +54,17 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self'",
-              "connect-src 'self'",
-              // Les deux jeux quotidiens sont encadrés depuis la page d'accueil
-              // (src/components/games-panel.tsx). Sans cette directive, le chargement
-              // des cadres retombe sur `default-src 'self'`, et `'self'` est une
-              // correspondance EXACTE de schéma, hôte et port : un sous-domaine n'en
-              // fait pas partie. Les deux jeux étaient donc bloqués par nous, alors
-              // que le Stuut nous autorise explicitement
-              // (`frame-ancestors 'self' https://governance.brussels`) et qu'Amai
-              // n'impose aucune restriction. Constaté en production le 18/09/2026 :
-              // le panneau affichait un cadre vide.
-              "frame-src 'self' https://stuut.governance.brussels https://amai.governance.brussels",
-              // Ci-dessous : qui peut nous encadrer, NOUS. Rien à voir avec ce que
-              // nous encadrons. À ne pas confondre lors d'un prochain durcissement.
+              // Les deux jeux quotidiens sont joués NATIVEMENT dans le panneau de jeux
+              // (src/components/stuut-game.tsx, amai-game.tsx) et lisent l'API de chaque
+              // jeu. `'self'` est une correspondance EXACTE de schéma, hôte et port : un
+              // sous-domaine n'en fait pas partie, d'où les deux origines explicites.
+              // Sans elles, les jeux afficheraient leur écran d'erreur sans que rien ne
+              // casse ailleurs (src/lib/csp-jeux.test.ts verrouille la liste).
+              "connect-src 'self' https://stuut.governance.brussels https://amai.governance.brussels",
+              // Plus aucun cadre n'est encadré par le site : pas de frame-src, les
+              // cadres retombent sur `default-src 'self'`.
+              // Ci-dessous : qui peut nous encadrer, NOUS. À ne pas confondre avec ce
+              // que nous encadrons lors d'un prochain durcissement.
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",

@@ -16,6 +16,9 @@ export const AMAI_URLS: Record<string, string> = {
   de: 'https://amai.governance.brussels/de.html',
 };
 
+/** API d'Amai, lue directement par le jeu natif du panneau (CORS ouvert à governance.brussels). */
+export const AMAI_API = 'https://amai.governance.brussels';
+
 export interface DailyGame {
   url: string;
   /** Nom propre du jeu, identique dans toutes les langues. */

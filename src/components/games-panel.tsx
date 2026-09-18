@@ -22,21 +22,26 @@
 // fond pour fermer. En plus : le focus revient sur l'onglet à la fermeture et le
 // défilement de la page est bloqué pendant l'ouverture.
 //
-// Cadres : le Stuut autorise `frame-ancestors 'self' https://governance.brussels`, donc
-// PAS localhost. Hors production, on affiche un lien plutôt qu'un cadre vide.
+// JEUX NATIFS, plus de cadres. Le Stuut et Amai sont des composants du site
+// (stuut-game.tsx, amai-game.tsx) qui lisent l'API de chaque jeu : le mot du jour
+// résolu par stuut.governance.brussels/api/jour, les chiffres par
+// amai.governance.brussels/api/daily. Conséquences : aucune directive frame-src,
+// aucune permission à déléguer à un cadre pour le partage, et les jeux marchent
+// aussi en local (les API répondent à tout le monde ; seul le navigateur filtre
+// par CORS, et localhost n'y figure pas : en local, l'écran d'erreur des jeux
+// s'affiche avec un lien vers le jeu autonome).
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
-import { X, Gamepad2, ExternalLink } from 'lucide-react';
+import { X, Gamepad2 } from 'lucide-react';
 import { DailyQuestion } from '@/components/daily-question';
-import { AMAI_URLS, STUUT_URL } from '@/lib/daily-game';
+import { StuutGame } from '@/components/stuut-game';
+import { AmaiGame } from '@/components/amai-game';
 // Ces actions ne naviguent pas : l'attribut `data-umami-event` n'a rien à annoter,
 // et le panneau vit dans un portail monté après hydratation. L'appel explicite
 // supprime toute dépendance à la liaison d'événements du tracker.
 import { track } from '@/lib/analytics';
-
-const EMBED_HOST = 'governance.brussels';
 
 // Identités relevées le 16/09/2026 à la source : stuut.governance.brussels/assets/styles.css
 // (--navy, --teal, --amber, --slate, --ink, --muted) et rendu d'amai.governance.brussels.
@@ -78,8 +83,6 @@ interface Onglet {
   /** Titre plein, dans le bandeau. */
   titre: string;
   teaser: string;
-  /** Absent pour la question du jour, qui est du contenu maison. */
-  url?: string;
   /** Absente pour la question, qui porte les couleurs du site. */
   skin?: Skin;
   marque: ReactNode;
@@ -137,7 +140,6 @@ function ongletsFor(locale: string, t: (key: string) => string): Onglet[] {
     label: 'Amai !',
     titre: 'Amai !',
     teaser: t('protoAmaiTeaser'),
-    url: AMAI_URLS[locale] ?? AMAI_URLS.en,
     skin: AMAI_SKIN,
     marque: <MarqueAmai />,
   };
@@ -156,7 +158,6 @@ function ongletsFor(locale: string, t: (key: string) => string): Onglet[] {
           label: 'Le Stuut',
           titre: t('protoStuutTitle'),
           teaser: t('protoStuutTeaser'),
-          url: STUUT_URL,
           skin: STUUT_SKIN,
           marque: <MarqueStuut />,
         },
@@ -166,29 +167,8 @@ function ongletsFor(locale: string, t: (key: string) => string): Onglet[] {
     : [amai, question];
 }
 
-function Repli({ onglet }: { onglet: Onglet }) {
-  const t = useTranslations('home');
-  return (
-    <div className="flex h-full items-center justify-center p-6">
-      <p className="max-w-xs rounded-lg border border-dashed border-neutral-400 bg-neutral-100 p-4 text-center text-xs leading-relaxed text-neutral-600">
-        {t('protoGamesFallback')}{' '}
-        <a
-          href={onglet.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-2 inline-flex items-center gap-1 font-medium text-brand-700 hover:underline"
-        >
-          {t('protoGamesOpen', { game: onglet.titre })}
-          <ExternalLink size={12} aria-hidden={true} />
-        </a>
-      </p>
-    </div>
-  );
-}
-
 export function GamesPanel({ locale }: { locale: string }) {
   const [open, setOpen] = useState(false);
-  const [canEmbed, setCanEmbed] = useState(false);
   const [dateDuJour, setDateDuJour] = useState('');
   const [actif, setActif] = useState(0);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -197,11 +177,10 @@ export function GamesPanel({ locale }: { locale: string }) {
   const t = useTranslations('home');
   const onglets = ongletsFor(locale, t);
 
-  // Le domaine et la date se lisent à l'ouverture, dans le gestionnaire de clic : un
-  // setState posé dans un effet déclencherait un rendu en cascade, et une date calculée
-  // au rendu serveur serait figée par le prérendu (react-hooks/set-state-in-effect).
+  // La date se lit à l'ouverture, dans le gestionnaire de clic : un setState posé dans
+  // un effet déclencherait un rendu en cascade, et une date calculée au rendu serveur
+  // serait figée par le prérendu (react-hooks/set-state-in-effect).
   const openPanel = useCallback(() => {
-    setCanEmbed(window.location.hostname === EMBED_HOST);
     setDateDuJour(
       new Intl.DateTimeFormat(locale, { weekday: 'long', day: 'numeric', month: 'long' }).format(
         new Date(),
@@ -278,7 +257,7 @@ export function GamesPanel({ locale }: { locale: string }) {
     if (e.key !== 'Tab' || !panelRef.current) return;
     const focusable = [
       ...panelRef.current.querySelectorAll<HTMLElement>(
-        'button, a[href], iframe, [tabindex]:not([tabindex="-1"])',
+        'button, a[href], input, summary, [tabindex]:not([tabindex="-1"])',
       ),
       // Les panneaux inactifs sont masqués : leurs boutons ne doivent pas piéger le focus.
     ].filter((el) => el.offsetParent !== null);
@@ -338,10 +317,10 @@ export function GamesPanel({ locale }: { locale: string }) {
               aria-modal="true"
               aria-labelledby="jeux-titre"
               onKeyDown={trapFocus}
-              // 560 px et non 440 : le Stuut dimensionne ses cases en divisant la
-              // largeur par le nombre de lettres, et son mot du jour peut faire
-              // treize caractères. À 440 px les cases tombaient à 24 px, illisibles.
-              // Mesuré le 18/09/2026 : 440 px donne 28 px de case, 560 px en donne 37.
+              // 560 px et non 440 : le mot du Stuut peut faire treize lettres. Le jeu
+              // natif calcule ses cases sur la largeur réelle du plateau (requête de
+              // conteneur, stuut-game.module.css) ; à 560 px, treize lettres gardent
+              // des cases d'environ 37 px, contre 28 px à 440 px.
               className="flex h-full w-full flex-col overflow-hidden bg-neutral-50 shadow-2xl sm:w-[560px]"
             >
               <div className="flex items-start justify-between gap-3 px-4 py-3">
@@ -446,17 +425,10 @@ export function GamesPanel({ locale }: { locale: string }) {
                   </div>
 
                   <div className="min-h-0 flex-1 overflow-y-auto">
-                    {onglet.url ? (
-                      canEmbed ? (
-                        <iframe
-                          src={onglet.url}
-                          title={onglet.titre}
-                          loading="lazy"
-                          className="h-full w-full border-0 bg-neutral-100"
-                        />
-                      ) : (
-                        <Repli onglet={onglet} />
-                      )
+                    {onglet.key === 'stuut' ? (
+                      <StuutGame actif={i === actif} />
+                    ) : onglet.key === 'amai' ? (
+                      <AmaiGame locale={locale} />
                     ) : (
                       // Carte compacte, PAS étirée sur la hauteur : essayé, et h-full
                       // envoie « Faire le quiz complet » seul tout en bas, à 400 px des

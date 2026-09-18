@@ -1,0 +1,465 @@
+/* SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+   Copyright (c) 2024-2026 Advice That SRL. All rights reserved. */
+
+/* Le Stuut natif, dans le panneau de jeux. Palette reprise de
+   stuut.governance.brussels/assets/styles.css (relevée le 16/09/2026), FIGÉE :
+   le jeu garde son fond nuit en clair comme en sombre, c'est son identité. */
+
+.racine {
+  --navy: #0e1b2a;
+  --navy-2: #14263b;
+  --panel: #172c44;
+  --line: #26405c;
+  --teal: #15b8a6;
+  --teal-deep: #0e8e80;
+  --amber: #d9a04e;
+  --slate: #3a4d63;
+  --ink: #f3f6fa;
+  --muted: #9db0c4;
+  --muted-2: #748a9f;
+
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px 16px 24px;
+  background: var(--navy);
+  color: var(--ink);
+}
+/* Focus reçu par script à la première lettre tapée : aucun anneau autour du jeu
+   entier, le curseur visible est la ligne en cours de saisie. */
+.racine:focus {
+  outline: none;
+}
+
+.entete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.aide summary {
+  cursor: pointer;
+  color: var(--teal);
+  font-weight: 600;
+}
+.aide summary:focus-visible,
+.lien:focus-visible,
+.bouton:focus-visible,
+.touche:focus-visible,
+.carte:focus-visible,
+.champ:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+.aide p {
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.legende {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.legende span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pastille {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+/* ─── Plateau ───────────────────────────────────────────────────────────────
+   Conteneur de requête : la taille d'une case se calcule sur la largeur RÉELLE
+   du plateau (100cqw), plus sur celle de la fenêtre. C'est ce qui manquait au
+   jeu encadré, dont les cases tombaient à 24 px pour un mot de treize lettres. */
+.plateau {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  /* --n (lettres), --rg (interstice) et --cmax (case maximale) sont posés
+     par le composant. */
+  --cs: min(var(--cmax), calc((100cqw - (var(--n) - 1) * var(--rg)) / var(--n)));
+}
+.ligne {
+  display: flex;
+  gap: var(--rg);
+}
+.case {
+  width: var(--cs);
+  height: var(--cs);
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  font-size: calc(var(--cs) * 0.46);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.initiale {
+  border-color: var(--teal);
+}
+.remplie {
+  border-color: var(--muted-2);
+}
+.correct {
+  --c: var(--teal);
+  --t: #06231f;
+}
+.present {
+  --c: var(--amber);
+  --t: #2a1c05;
+}
+.absent {
+  --c: var(--slate);
+  --t: #c3cfdc;
+}
+.revelee {
+  background: var(--c);
+  border-color: var(--c);
+  color: var(--t);
+  animation: retourne 0.5s ease both;
+  animation-delay: calc(var(--i) * 220ms);
+}
+@keyframes retourne {
+  0% {
+    transform: rotateX(0);
+    background: transparent;
+    border-color: var(--line);
+    color: var(--ink);
+  }
+  49.9% {
+    background: transparent;
+    border-color: var(--line);
+    color: var(--ink);
+  }
+  50% {
+    transform: rotateX(90deg);
+    background: var(--c);
+    border-color: var(--c);
+    color: var(--t);
+  }
+  100% {
+    transform: rotateX(0);
+    background: var(--c);
+    border-color: var(--c);
+    color: var(--t);
+  }
+}
+.secoue {
+  animation: secoue 0.4s;
+}
+@keyframes secoue {
+  10%,
+  90% {
+    transform: translateX(-2px);
+  }
+  30%,
+  70% {
+    transform: translateX(4px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+
+/* ─── Message ─────────────────────────────────────────────────────────────── */
+.message {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  max-width: 90%;
+  padding: 9px 14px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--navy);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Clavier ─────────────────────────────────────────────────────────────── */
+.clavier {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.rangee {
+  display: flex;
+  gap: 5px;
+}
+.touche {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 8px;
+  background: var(--navy-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.touche:hover {
+  background: var(--panel);
+}
+.large {
+  flex: 1.9;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+.touche.correct {
+  background: var(--teal);
+  color: #06231f;
+}
+.touche.present {
+  background: var(--amber);
+  color: #2a1c05;
+}
+.touche.absent {
+  background: var(--slate);
+  color: #c3cfdc;
+}
+
+/* ─── Révélation ──────────────────────────────────────────────────────────── */
+.revelation {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--teal);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--panel), var(--navy-2));
+}
+.verdict {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.mot {
+  margin: 4px 0 8px;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.definition {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.carte {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--teal-deep);
+  border-radius: 12px;
+  background: rgba(21, 184, 166, 0.1);
+  text-decoration: none;
+}
+.carte:hover {
+  background: rgba(21, 184, 166, 0.18);
+  border-color: var(--teal);
+}
+.carteCorps {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+.surtitre {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.carteTitre {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--teal);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.bouton:hover {
+  border-color: var(--teal);
+}
+.primaire {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #06231f;
+}
+.primaire:hover {
+  background: var(--teal-deep);
+  color: var(--ink);
+}
+.defi {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+.defi label {
+  display: flex;
+  flex: 1;
+  min-width: 180px;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.champ {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--navy-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+/* ─── Statistiques ────────────────────────────────────────────────────────── */
+.stats {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--navy-2);
+}
+.stats h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.chiffres {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 4px;
+  text-align: center;
+}
+.chiffres div {
+  display: flex;
+  flex: 1;
+  /* dt avant dd dans le document (ordre exigé par HTML), mais le chiffre
+     s'affiche au-dessus de son libellé. */
+  flex-direction: column-reverse;
+}
+.chiffres dd {
+  font-size: 28px;
+  line-height: 1;
+}
+.chiffres dt {
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.repartition {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+}
+.barre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.piste {
+  flex: 1;
+  height: 22px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--navy);
+}
+.remplissage {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  min-width: 26px;
+  padding-right: 8px;
+  border-radius: 5px;
+  background: var(--slate);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+}
+.chaud {
+  background: var(--teal);
+  color: #06231f;
+}
+
+.lien {
+  color: var(--muted);
+  font-size: 12.5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.lien:hover {
+  color: var(--ink);
+}
+.erreur {
+  padding: 24px 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revelee,
+  .secoue {
+    animation: none;
+  }
+}

@@ -32,7 +32,14 @@ function allSource(): string {
     .join('\n');
 }
 
-/** Les liens, mesurés par attribut : le tracker s'en charge, sans JavaScript à nous. */
+/** Les liens, mesurés par attribut : le tracker s'en charge, sans JavaScript à nous.
+ *
+ *  ⚠️ Ce garde est UNIDIRECTIONNEL : il échoue si un nom listé ici disparaît des
+ *  sources, mais reste vert si un événement existe dans le code sans figurer dans
+ *  la liste. Un événement non inscrit n'est donc protégé par rien. C'est ainsi que
+ *  `accueil-digest-abonnement` est resté sans garde jusqu'au 18/09/2026.
+ *  Tout nouvel événement de lien doit être ajouté ici, sans quoi le test ne fait
+ *  que confirmer ce qu'on lui a déjà dit. */
 const EVENEMENTS_LIENS = [
   'accueil-a-propos',
   'accueil-cta-dossiers',
@@ -45,10 +52,12 @@ const EVENEMENTS_LIENS = [
   'accueil-comprendre-tout',
   'accueil-digest',
   'accueil-digest-langue',
+  'accueil-digest-abonnement',
   'accueil-magazine',
   'accueil-signal',
   'accueil-inventaire',
   'accueil-fiche',
+  'accueil-quiz',
   'accueil-inscription',
 ];
 

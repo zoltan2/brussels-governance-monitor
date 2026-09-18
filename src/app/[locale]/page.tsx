@@ -14,6 +14,7 @@ import { useTranslations } from 'next-intl';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { LatestUpdateBar } from '@/components/latest-update-bar';
 import { GovernmentTable } from '@/components/government-table';
+import { SupportCtaHome } from '@/components/support-cta';
 import { domainBadgeClass, dossierBadgeClass } from '@/lib/status-badge';
 import {
   getDomainCards,
@@ -259,6 +260,12 @@ export default async function HomePage({
         totalCount={sectorCards.length}
       />
 
+      {/* Repris de la production sans modification, dans le même ordre : le quiz,
+          puis les chiffres et l'appel au soutien, juste avant « Restez informé ». */}
+      <QuizPromo />
+
+      <SupportCtaHome />
+
       <section id="subscribe" className="bg-neutral-50 py-12">
         <div className="mx-auto max-w-5xl px-4">
           <SubscribeForm
@@ -267,6 +274,42 @@ export default async function HomePage({
         </div>
       </section>
     </>
+  );
+}
+
+// ──────────────────────────────────────────────
+// Quiz (repris tel quel de la production)
+// ──────────────────────────────────────────────
+
+/** Copie conforme du bloc de production. Ne pas le « moderniser » au passage :
+ *  le prototype le reprend à l'identique, clés `home.quiz*` comprises, qui sont
+ *  traduites dans les quatre langues. */
+function QuizPromo() {
+  const t = useTranslations('home');
+
+  return (
+    <section className="py-8">
+      <div className="mx-auto max-w-5xl px-4">
+        <div className="flex flex-col items-center gap-4 rounded-lg border border-neutral-200 bg-neutral-50 px-6 py-8 text-center sm:flex-row sm:text-left">
+          <div className="flex-1">
+            <h2 className="text-base font-semibold text-neutral-900">
+              {t('quizTitle')}
+            </h2>
+            <p className="mt-1 text-sm text-neutral-500">
+              {t('quizSubtitle')}
+            </p>
+          </div>
+          <Link
+            href="/quiz"
+            data-umami-event="accueil-quiz"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-brand-700 px-5 py-2.5 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50"
+          >
+            {t('quizCta')}
+            <ArrowRight size={14} aria-hidden={true} />
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
 

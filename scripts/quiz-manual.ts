@@ -89,6 +89,34 @@ function dump(locale: Locale): void {
   const typeFilter = flag('--type')
   const limit = flag('--limit')
 
+  // Sélection explicite, par-dessus la détection de péremption.
+  //
+  // `unitsToRegenerate` compare le hash du corps TRONQUÉ à `TRUNCATE_AT`, parce
+  // que c'est exactement ce qui part au modèle. Une veille qui AJOUTE en fin
+  // d'une fiche longue ne déplace donc pas ce hash : l'unité reste marquée
+  // fraîche alors que son texte source a changé, et qu'un chiffre récent y
+  // contredit parfois celui, plus ancien, resté dans les 4 000 premiers
+  // caractères. Mesuré le 2026-09-18 sur `dossiers/fusion-polices.fr.mdx`,
+  // allongée de 1 692 caracteres au-dela du seuil : hash inchange, unite non
+  // detectee, question pourtant a revoir.
+  //
+  // Sans ce drapeau, l'outil ne sait pas exprimer « régénère cette unité quand
+  // même ». Ce n'est pas une commodité de confort : c'est le seul moyen de
+  // rattraper une péremption que le hash ne peut structurellement pas voir.
+  const only = flag('--unit')
+  if (only) {
+    const demandees = only
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean)
+    const inconnues = demandees.filter((k) => !units.has(k))
+    if (inconnues.length) {
+      console.error(`${locale} : unité(s) inconnue(s) : ${inconnues.join(', ')}`)
+      process.exit(1)
+    }
+    keys = demandees
+  }
+
   const payload = keys
     .sort()
     .filter((k) => !typeFilter || k.startsWith(`${typeFilter}-`))

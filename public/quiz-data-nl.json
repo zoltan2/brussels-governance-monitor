@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T13:59:54.038Z",
+  "generatedAt": "2026-09-18T15:59:42.437Z",
   "locale": "nl",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Van hoeveel naar hoeveel bracht de Stad Brussel haar aanvullende opcentiemen op de onroerende voorheffing voor het aanslagjaar 2026, waarvan de aanslagbiljetten vanaf 17 augustus 2026 werden verstuurd?",
+      "question": "Welk risiconiveau kent het Federaal Planbureau op 15 september 2026 toe aan de houdbaarheid van de schuld van het Brussels Gewest?",
       "options": [
-        "Van 2 950 naar 3 457 opcentiemen",
-        "Van 2 980 naar 4 090 opcentiemen",
-        "Van 3 090 naar 3 890 opcentiemen",
-        "Van 2 940 naar 3 400 opcentiemen"
+        "Hoog, net als voor Wallonië en de Franse Gemeenschap",
+        "Matig, net als voor Vlaanderen",
+        "Laag, als enige deelstaat in dat geval",
+        "Niet beoordeeld, bij gebrek aan gewestelijke cijfers"
       ],
       "correct": 0,
-      "explanation": "Dat is een stijging met 17,2 %, die de Stad naar eigen zeggen volledig compenseert voor eigenaar-bewoners, via een forfaitaire gemeentelijke aftrek van honderd euro en de gewestelijke Be-Home-premie. Negen van de negentien Brusselse gemeenten verhoogden hun opcentiemen in 2026.",
+      "explanation": "Alleen het Vlaamse risico noemt het Planbureau matig. De analyse herinnert eraan dat de totale Belgische overheidsschuld eind 2025 692 miljard euro bedroeg, oftewel 108 % van het bruto binnenlands product. Geen enkel cijfer dat specifiek op het Brussels Gewest slaat komt in de geraadpleegde bronnen voor, en de analyse zelf werd niet gelezen: het vertrouwen is geschat.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-30",
-        "sourceContentHash": "sha256:06635078dacc9c02110aadbcf0a03e7f",
-        "generatedAt": "2026-09-18T13:31:14.426Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:59b46c6497288342cd6fa0105b7fa14a",
+        "generatedAt": "2026-09-18T15:59:42.437Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Over welk totaalbedrag aan kredietlijnen beschikt het Brussels Gewest na de opening van een kredietlijn van 250 miljoen euro bij BBVA op 26 augustus 2026?",
+      "question": "Hoe evolueerde het aandeel van de deelstaten in de Belgische overheidsschuld tussen 2008 en 2025, volgens de analyse die op 15 september 2026 werd overgenomen?",
       "options": [
-        "1,25 miljard euro bij vier dienstverleners",
-        "800 miljoen euro bij drie dienstverleners",
-        "1,5 miljard euro bij vijf dienstverleners",
-        "950 miljoen euro bij vier dienstverleners"
+        "Van 8,4 % naar 18,4 %",
+        "Van 8,4 % naar 12,1 %",
+        "Van 12,6 % naar 18,4 %",
+        "Van 5,2 % naar 22,7 %"
       ],
       "correct": 0,
-      "explanation": "Die lijn bij de Spaanse bank valt niet samen met de 250 miljoen euro die met Belfius werd onderhandeld in de kassieropdracht van 20 juli 2026: twee afzonderlijke instrumenten, twee instellingen, een identiek bedrag. Een kredietlijn is een opnamecapaciteit, geen schuld.",
+      "explanation": "De totale Belgische overheidsschuld bedroeg eind 2025 692 miljard euro, oftewel 108 % van het bruto binnenlands product. In dat kader acht het Federaal Planbureau het risico op onhoudbaarheid hoog voor het Brussels Gewest, het Waals Gewest en de Franse Gemeenschap, en matig voor de Vlaamse schuld.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-30",
-        "sourceContentHash": "sha256:06635078dacc9c02110aadbcf0a03e7f",
-        "generatedAt": "2026-09-18T13:31:14.426Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:59b46c6497288342cd6fa0105b7fa14a",
+        "generatedAt": "2026-09-18T15:59:42.437Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Hoeveel sorteerruimtes plant het Brussels Gewest over de legislatuur, volgens de hervorming van de afvalophaling die op 11 september 2026 werd voorgesteld?",
+      "question": "Welk jaarlijks investeringsbudget vertegenwoordigt de uitrol van de sorteerruimtes over de legislatuur, volgens de hervorming van de afvalophaling die op 11 september 2026 werd voorgesteld?",
       "options": [
-        "120, waarvan 60 in twee pilootwijken",
-        "40, waarvan 20 in twee pilootwijken",
-        "250, waarvan 100 in vier pilootwijken",
-        "80, waarvan 30 in één pilootwijk"
+        "Vier miljoen euro per jaar",
+        "Tien miljoen euro per jaar",
+        "Eén miljoen euro per jaar",
+        "Vijfentwintig miljoen euro per jaar"
       ],
       "correct": 0,
-      "explanation": "Twee pilootwijken krijgen er elk dertig, waar ze tijdens de testfase de huis-aan-huisophaling vervangen, en zestig andere pakken zwarte punten en sluikstorten aan. De aankondiging van maart 2026 sprak van honderd nieuwe sorteerruimtes. De hervorming wordt in 2027 verwacht.",
+      "explanation": "Het Gewest plant honderdtwintig sorteerruimtes, waarvan dertig in elk van de twee pilootwijken, waar ze tijdens de testfase de huis-aan-huisophaling vervangen. Die wijken zijn nog niet aangeduid: Vorst en Elsene willen zich kandidaat stellen, en elk van de twee geselecteerde wijken telt ongeveer tweeduizend woningen. Het bedrag is geschat en komt van één enkele persbron.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:abc8236ab3bf4d1de5895d2a4b9d8f4e",
-        "generatedAt": "2026-09-18T13:31:14.426Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:fe729a52bc46ba459e2baf0e7cc27e45",
+        "generatedAt": "2026-09-18T15:59:42.437Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Waarop steunt de financiering van de hervorming van de afvalophaling die op 11 september 2026 in Brussel werd voorgesteld?",
+      "question": "Waarover moet het Grondwettelijk Hof zich eind september 2026 uitspreken, wat de financiering van de Brusselse hervorming van de afvalophaling betreft?",
       "options": [
-        "Op de uitgebreide producentenverantwoordelijkheid voor kunststoffen",
-        "Op een aanvullende belasting geheven door de negentien gemeenten",
-        "Op een prijsverhoging van de reglementaire vuilniszakken",
-        "Op een federale dotatie bestemd voor de openbare netheid"
+        "Over de uitgebreide producentenverantwoordelijkheid voor kunststoffen",
+        "Over een aanvullende belasting van de negentien gemeenten",
+        "Over de gereglementeerde prijs van de gewestelijke vuilniszakken",
+        "Over een federale dotatie bestemd voor de openbare netheid"
       ],
       "correct": 0,
-      "explanation": "Die regeling, op 13 maart 2026 goedgekeurd door het Brussels Parlement, moet het Gewest 51,4 miljoen euro per jaar opleveren, waarvan 54 % naar de gemeenten gaat voor het opruimen van zwerfvuil. Het Grondwettelijk Hof spreekt zich eind september 2026 over die financiering uit.",
+      "explanation": "Die regeling financiert de hervorming, die zelf in 2027 wordt verwacht. De aankondiging van maart 2026 sprak van honderd nieuwe sorteerruimtes, tegenover honderdtwintig in het plan van 11 september. Er worden twee soorten zones bepaald volgens criteria zoals de bevolkingsdichtheid of het woningtype, met verschillende ophaalmodaliteiten.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:abc8236ab3bf4d1de5895d2a4b9d8f4e",
-        "generatedAt": "2026-09-18T13:31:14.426Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:fe729a52bc46ba459e2baf0e7cc27e45",
+        "generatedAt": "2026-09-18T15:59:42.437Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klimaat",
-      "question": "Hoeveel extra sterfgevallen veroorzaakte de hittegolf van juni 2026 in het Brussels Gewest, volgens de geconsolideerde balans die Sciensano op 2 september 2026 publiceerde?",
+      "question": "Welke vraag keurde de gemeenteraad van Schaarbeek op 16 september 2026 goed?",
       "options": [
-        "196 extra sterfgevallen",
-        "42 extra sterfgevallen",
-        "159 extra sterfgevallen",
-        "930 extra sterfgevallen"
+        "Fossiele reclame in de openbare ruimte verbieden",
+        "De lage-emissiezone uitbreiden tot bestelwagens",
+        "Een stadstol invoeren aan de ingangen van de gemeente",
+        "Energierenovatie van de gemeentegebouwen opleggen"
       ],
       "correct": 0,
-      "explanation": "Dat cijfer werd tweemaal naar boven bijgesteld, na de 159 van 8 juli en de 188 van 17 juli. De tweede golf, van 4 tot 17 juli, voegt 42 sterfgevallen toe, en de derde leverde geen Brusselse oversterfte op. Sciensano wijst op de duur van de episode, de temperaturen en de ozonconcentraties.",
+      "explanation": "Schaarbeek wordt daarmee de derde Brusselse gemeente die deze vraag stelt, na Sint-Gillis en Jette. De motie viseert onder meer reclame voor auto's en vliegreizen, en vraagt de gewestregering de juridische en politieke mogelijkheden van een gewestelijk verbod te onderzoeken. De informatie komt van één enkele persbron.",
       "sourceSlug": "/nl/domeinen/climate",
       "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen onopgelost",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:cfb2e40ff13857b8c8077bd9c80df8c6",
-        "generatedAt": "2026-09-18T13:31:14.426Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:00e81e68ea2c5c5e1d3519731fe244fb",
+        "generatedAt": "2026-09-18T15:59:42.437Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klimaat",
-      "question": "Wat moest België tegen 1 september 2026 bij de Europese Commissie indienen, op grond van verordening (EU) 2024/1991?",
+      "question": "Wanneer wordt het volledige Belgische natuurherstelplan verwacht, na de gemiste Europese deadline van 1 september 2026?",
       "options": [
-        "Zijn ontwerp van nationaal natuurherstelplan",
-        "Zijn herziene nationaal energie- en klimaatplan",
-        "Zijn nationale inventaris van broeikasgassen",
-        "Zijn programma ter vermindering van luchtverontreinigende stoffen"
+        "Niet vóór de zomer van 2027",
+        "Niet vóór de zomer van 2028",
+        "Vóór het einde van 2026",
+        "In het eerste kwartaal van 2027"
       ],
       "correct": 0,
-      "explanation": "De deadline verstreek zonder Belgische indiening. De Brusselse achterstand is dubbel: het plan Renature Brussels wordt voor september of oktober 2026 aangekondigd, terwijl de op de officiële website gepubliceerde kalender een goedkeuring in eerste lezing voorzag voor de zomer van 2026. Het volledige Belgische plan wordt niet voor de zomer van 2027 verwacht.",
+      "explanation": "Het Brusselse plan wordt voor september of oktober 2026 aangekondigd. De Brusselse achterstand is dubbel, want de kalender op de officiële website van het plan Renature Brussels voorzag een goedkeuring in eerste lezing voor de zomer van 2026. De geraadpleegde bronnen vermelden geen enkele sanctie.",
       "sourceSlug": "/nl/domeinen/climate",
       "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen onopgelost",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:cfb2e40ff13857b8c8077bd9c80df8c6",
-        "generatedAt": "2026-09-18T13:31:14.426Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:00e81e68ea2c5c5e1d3519731fe244fb",
+        "generatedAt": "2026-09-18T15:59:42.437Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Aan welke politieke voorwaarde werd op 3 september 2026 de storting gekoppeld van de gewestelijke dotatie 2026 van 131 miljoen euro aan de BGHM?",
+      "question": "Wat besliste het Grondwettelijk Hof over de Brusselse ordonnantie tegen woekerhuren, volgens de mededeling van 17 september 2026?",
       "options": [
-        "Aan het vertrek van de voorzitter van de Anderlechtse Haard",
-        "Aan de verkoop van twee openbare gewestelijke gebouwen",
-        "Aan de aanstelling van een bijzondere commissaris",
-        "Aan de publicatie van de audit van het agentschap in Sint-Joost"
+        "Het verwierp het beroep tot nietigverklaring ertegen",
+        "Het vernietigde de ordonnantie in haar geheel",
+        "Het schorste de toepassing ervan tot een nieuw onderzoek",
+        "Het verwees de vraag naar het Hof van Justitie van de Unie"
       ],
       "correct": 0,
-      "explanation": "Het kabinet van de staatssecretaris voor Huisvesting bevestigt dat de tijdens de zomer verwachte bedragen niet zijn aangekomen. Zonder die middelen zou de koepel die de zestien openbare vastgoedmaatschappijen superviseert vanaf september 2026 haar facturen niet meer kunnen betalen, terwijl 62 234 huishoudens op een sociale woning wachten.",
+      "explanation": "De ordonnantie trad in werking in mei 2025. Het kabinet van de staatssecretaris voor Huisvesting kondigt een herziening van het indicatieve rooster in twee stappen aan. Geen enkele geraadpleegde bron geeft het nummer van het arrest, en het aantal verzoekers verschilt volgens de redacties: vier federaties uit de vastgoed- en bouwsector volgens La Libre, zeven verenigingen volgens L'Avenir en La DH.",
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 400M voor de BGHM, 1 000 publieke woningen",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:dffc4c00bfb3c75605ac48a6004a8bbf",
-        "generatedAt": "2026-09-18T13:35:23.844Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:9f11115c444678a1bd26d011a1d3b8c1",
+        "generatedAt": "2026-09-18T15:59:42.437Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Met hoeveel daalde het aanbod van Airbnb-woningen voor kortetermijnverhuur in Brussel tussen juni 2025 en juni 2026?",
+      "question": "Met hoeveel mag een huurprijs de referentiehuurprijs niet overschrijden, volgens de Brusselse ordonnantie die sinds mei 2025 van kracht is?",
       "options": [
-        "Met 23 %, van 6 171 naar 4 750 woningen",
-        "Met 9 %, van 6 171 naar 5 600 woningen",
-        "Met 41 %, van 6 171 naar 3 640 woningen",
-        "Met 15 %, van 6 171 naar 5 245 woningen"
+        "Met meer dan 20 %",
+        "Met meer dan 10 %",
+        "Met meer dan 35 %",
+        "Met meer dan 50 %"
       ],
       "correct": 0,
-      "explanation": "De sterkste dalingen doen zich voor in Vorst, min 35,8 %, en Etterbeek, min 34 %. Brussel Fiscaliteit zou ongeveer 1 900 boetes hebben uitgeschreven, voor een geschat bedrag tussen 1,5 en 2 miljoen euro aan gerecupereerde fiscale achterstallen.",
+      "explanation": "De huurder kan de Paritaire Huurcommissie vatten of, in voorkomend geval, de rechter. Het principe was al in oktober 2021 beslist, maar de uitvoering werd uitgesteld om het rooster betrouwbaar te maken. Het is die regeling die het Grondwettelijk Hof heeft bevestigd door het beroep tot nietigverklaring te verwerpen, volgens de mededeling van 17 september 2026.",
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 400M voor de BGHM, 1 000 publieke woningen",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:dffc4c00bfb3c75605ac48a6004a8bbf",
-        "generatedAt": "2026-09-18T13:35:23.844Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:9f11115c444678a1bd26d011a1d3b8c1",
+        "generatedAt": "2026-09-18T15:59:42.437Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1568,6 +1568,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 68
+  ]
 }

@@ -49,9 +49,9 @@ export function deriveRobustness(
  * Aligns with BGM palette (no red/green).
  */
 export function robustnessColorClass(score: number): string {
-  if (score >= 80) return 'text-teal-600';
-  if (score >= 65) return 'text-amber-600';
-  return 'text-rose-600';
+  if (score >= 80) return 'text-status-resolved';
+  if (score >= 65) return 'text-status-delayed';
+  return 'text-status-blocked';
 }
 
 const clamp = (n: number) => Math.max(0, Math.min(100, n));

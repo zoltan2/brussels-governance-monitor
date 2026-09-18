@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { CommitmentSparkline } from '@/components/commitment-sparkline';
 import { CommitmentTimeline } from '@/components/commitment-timeline';
+import { commitmentBadgeClass } from '@/lib/status-badge';
 
 interface StatusEntry {
   date: string;
@@ -54,15 +55,6 @@ function getCurrentStatus(statusHistory: StatusEntry[]): CommitmentStatus {
   if (statusHistory.length === 0) return 'not-started';
   return statusHistory[statusHistory.length - 1].status as CommitmentStatus;
 }
-
-const statusStyles: Record<string, string> = {
-  'not-started': 'bg-neutral-100 text-neutral-600',
-  announced: 'bg-brand-700/20 text-brand-700',
-  'in-legislation': 'bg-indigo-100 text-indigo-700',
-  implemented: 'bg-status-resolved/10 text-status-resolved',
-  delayed: 'bg-status-delayed/10 text-status-delayed',
-  abandoned: 'bg-slate-200 text-slate-500',
-};
 
 const domainStyles: Record<string, string> = {
   budget: 'border-l-amber-500',
@@ -139,9 +131,7 @@ export function CommitmentsDashboard({
     <div>
       <div className="mb-6 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
         <div className="flex flex-wrap items-center gap-4 text-xs text-neutral-500">
-          <span>
-            {t('total', { count: data.commitments.length })}
-          </span>
+          {/* Le compte des engagements est désormais dit par le baromètre, juste au-dessus. */}
           <span>
             {t('source')}:{' '}
             <a
@@ -197,7 +187,7 @@ export function CommitmentsDashboard({
                         </p>
                       </div>
                       <span
-                        className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ${statusStyles[currentStatus]}`}
+                        className={commitmentBadgeClass(currentStatus, 'xs')}
                       >
                         {statusLabels[currentStatus]}
                       </span>

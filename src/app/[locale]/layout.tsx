@@ -7,11 +7,11 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { Analytics } from '@vercel/analytics/react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { AccessibilityToolbar } from '@/components/accessibility-toolbar';
 import { ChatWidget } from '@/components/chat-widget';
+import { GamesPanel } from '@/components/games-panel';
 
 import '../globals.css';
 
@@ -175,7 +175,7 @@ export default async function LocaleLayout({
         )}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=JSON.parse(localStorage.getItem('bgm-a11y')||'{}');if(p.dark){document.documentElement.classList.add('dark');}else{document.documentElement.classList.add('light-forced');}if(p.highContrast)document.documentElement.classList.add('high-contrast');if(p.dyslexicFont){document.documentElement.classList.add('dyslexic-font');var l=document.createElement('link');l.id='dyslexic-font-link';l.rel='stylesheet';l.href='https://fonts.cdnfonts.com/css/opendyslexic';document.head.appendChild(l);}if(p.fontScale)document.documentElement.style.setProperty('--font-scale',String(p.fontScale));}catch(e){}})()`,
+            __html: `(function(){try{var p=JSON.parse(localStorage.getItem('bgm-a11y')||'{}');if(p.dark){document.documentElement.classList.add('dark');}else if(localStorage.getItem('bgm-a11y')){document.documentElement.classList.add('light-forced');}if(p.highContrast)document.documentElement.classList.add('high-contrast');if(p.dyslexicFont)document.documentElement.classList.add('dyslexic-font');if(p.fontScale)document.documentElement.style.setProperty('--font-scale',String(p.fontScale));}catch(e){}})()`,
           }}
         />
       </head>
@@ -198,10 +198,8 @@ export default async function LocaleLayout({
           </div>
           <AccessibilityToolbar />
           <ChatWidget />
+          <GamesPanel locale={locale} />
         </NextIntlClientProvider>
-        {/* Vercel Web Analytics : actif sur Vercel uniquement. En self-host
-            (SELF_HOST=1, posé par le Dockerfile) on ne le rend pas. */}
-        {process.env.SELF_HOST !== '1' && <Analytics />}
       </body>
     </html>
   );

@@ -73,14 +73,9 @@ function applyPrefs(prefs: A11yPrefs) {
     meta.setAttribute('content', prefs.dark ? '#1a1a1a' : '#1e293b');
   }
 
-  // Dynamically load OpenDyslexic font when needed
-  if (prefs.dyslexicFont && !document.getElementById('dyslexic-font-link')) {
-    const link = document.createElement('link');
-    link.id = 'dyslexic-font-link';
-    link.rel = 'stylesheet';
-    link.href = 'https://fonts.cdnfonts.com/css/opendyslexic';
-    document.head.appendChild(link);
-  }
+  // OpenDyslexic est servie en local et déclarée en @font-face dans globals.css :
+  // plus rien à charger ici. L'ancien <link> vers fonts.cdnfonts.com était bloqué
+  // par notre propre CSP, et l'option n'avait donc aucun effet.
 }
 
 function getInitialPrefs(): A11yPrefs {

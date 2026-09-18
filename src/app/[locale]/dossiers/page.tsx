@@ -10,6 +10,7 @@ import { Breadcrumb } from '@/components/breadcrumb';
 import { SuggestDossier } from '@/components/suggest-dossier';
 import { routing, type Locale } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
+import { dossierBadgeClass } from '@/lib/status-badge';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -59,15 +60,6 @@ export default async function DossiersPage({
   );
 }
 
-const phaseStyles: Record<string, string> = {
-  announced: 'border-neutral-400 text-neutral-600',
-  planned: 'border-brand-600 text-brand-700',
-  'in-progress': 'border-status-ongoing text-status-ongoing',
-  stalled: 'border-status-blocked text-status-blocked',
-  completed: 'border-status-resolved text-status-resolved',
-  cancelled: 'border-neutral-400 text-neutral-500',
-};
-
 function DossiersContent({
   dossierCards,
 }: {
@@ -102,7 +94,7 @@ function DossiersContent({
             >
               <div className="mb-3 flex flex-wrap items-center gap-2">
                 <span
-                  className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${phaseStyles[card.phase]}`}
+                  className={dossierBadgeClass(card.phase, 'md')}
                 >
                   {t(`phase.${card.phase}`)}
                 </span>

@@ -9,6 +9,7 @@ import { getDomainCard, getAllDomainSlugs, getLatestVerification, getDossiersFor
 import { routing, type Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { buildMetadata, canonicalUrl } from '@/lib/metadata';
+import { domainBadgeClass } from '@/lib/status-badge';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -57,13 +58,6 @@ export async function generateMetadata({
     ogParams: `title=${encodeURIComponent(card.title)}&type=domain&status=${card.status}&date=${card.lastModified}&confidence=${card.confidenceLevel}${card.metrics.length > 0 ? `&stats=${encodeURIComponent(JSON.stringify(card.metrics.slice(0, 3).map((m) => ({ label: m.label, value: `${m.value}${m.unit ? ` ${m.unit}` : ''}` }))))}` : ''}`,
   });
 }
-
-const statusStyles: Record<string, string> = {
-  blocked: 'bg-status-blocked text-neutral-50',
-  delayed: 'bg-status-delayed text-neutral-50',
-  ongoing: 'bg-status-ongoing text-neutral-50',
-  resolved: 'bg-status-resolved text-neutral-50',
-};
 
 export default async function DomainDetailPage({
   params,
@@ -166,12 +160,7 @@ function DomainDetail({
         <div className="mt-4 mb-4">
           <div className="flex items-start justify-between gap-3">
             <h1 className="text-3xl font-bold text-neutral-900">{card.title}</h1>
-            <span
-              className={cn(
-                'shrink-0 rounded-full px-3 py-1 text-sm font-medium',
-                statusStyles[card.status],
-              )}
-            >
+            <span className={domainBadgeClass(card.status, 'lg')}>
               {t(`status.${card.status}`)}
             </span>
           </div>

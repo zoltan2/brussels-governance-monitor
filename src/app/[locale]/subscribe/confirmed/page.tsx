@@ -94,7 +94,7 @@ function ConfirmedView({
             <>
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-50">
                 <svg
-                  className="h-6 w-6 text-amber-600"
+                  className="h-6 w-6 text-status-delayed"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

@@ -512,7 +512,7 @@ export default function DigestReviewPage() {
             >
               {status === 'approving' ? 'Renvoi...' : 'Renvoyer maintenant'}
             </button>
-            <p className="mt-2 text-xs text-amber-600">
+            <p className="mt-2 text-xs text-status-delayed">
               Annulez d&apos;abord les mails programmés dans le dashboard Resend avant de renvoyer.
             </p>
           </div>

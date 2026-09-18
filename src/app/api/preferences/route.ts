@@ -13,10 +13,18 @@ import {
 } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
 import PreferencesUpdatedEmail from '@/emails/preferences-updated';
+import { rateLimit } from '@/lib/rate-limit';
+import { clientIp } from '@/lib/client-ip';
 
 const VALID_LOCALES = ['fr', 'nl', 'en', 'de'];
 
 export async function GET(request: Request) {
+  // Le jeton est la seule barrière : sans limitation, il est éprouvable en masse.
+  const { allowed } = rateLimit(clientIp(request.headers));
+  if (!allowed) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
   const { searchParams } = new URL(request.url);
   const token = searchParams.get('token');
 
@@ -65,6 +73,11 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const { allowed } = rateLimit(clientIp(request.headers));
+  if (!allowed) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
   let body: { token?: string; topics?: string[]; locale?: string };
   try {
     body = await request.json();

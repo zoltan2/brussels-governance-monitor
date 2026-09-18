@@ -23,9 +23,9 @@ COPY . .
 # pendant le build (OK en build Docker standard). Pagefind écrit dans
 # public/pagefind APRÈS next build : c'est pourquoi le runner copie public.
 ENV NEXT_TELEMETRY_DISABLED=1
-# SELF_HOST=1 dès le build : layout.tsx lit process.env.SELF_HOST, donc la
-# variable doit exister AU BUILD pour que <Analytics /> ne soit pas compilé
-# dans le bundle (pas seulement absent au runtime).
+# SELF_HOST=1 dès le build : next.config.ts le lit pour basculer sur
+# `output: 'standalone'` et `images.unoptimized` (pas de sharp dans le runner).
+# La variable doit donc exister AU BUILD, et pas seulement au runtime.
 ENV SELF_HOST=1
 # NEXT_PUBLIC_* est inliné par Next.js au build, pas lu au runtime : le
 # .env du VPS ne suffit pas, chat-widget.tsx checke cette variable côté
@@ -50,7 +50,8 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-# SELF_HOST=1 -> le layout ne rend pas <Analytics /> (Vercel Web Analytics).
+# Même valeur qu'au build : next.config.ts est relu au démarrage du serveur
+# standalone et doit y résoudre la même configuration qu'à la compilation.
 ENV SELF_HOST=1
 # Écoute sur toutes les interfaces du conteneur, port 3000.
 ENV HOSTNAME=0.0.0.0

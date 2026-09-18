@@ -3,6 +3,8 @@
 
 import { NextResponse } from 'next/server';
 import { getDossierCards } from '@/lib/content';
+import { rateLimit } from '@/lib/rate-limit';
+import { clientIp } from '@/lib/client-ip';
 import type { Locale } from '@/i18n/routing';
 
 export const runtime = 'nodejs';
@@ -21,6 +23,11 @@ function toLocale(s: string | null): Locale {
  * falls back to FR automatically when a translation doesn't exist.
  */
 export async function GET(request: Request) {
+  const { allowed } = rateLimit(clientIp(request.headers));
+  if (!allowed) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
   const { searchParams } = new URL(request.url);
   const locale = toLocale(searchParams.get('locale'));
   const cards = getDossierCards(locale);

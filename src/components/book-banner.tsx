@@ -24,7 +24,7 @@ export function BookBanner() {
 
             {/* Text */}
             <div className="flex-1 text-center sm:text-left">
-              <p className="text-xs font-medium uppercase tracking-wider text-amber-600">
+              <p className="text-xs font-medium uppercase tracking-wider text-status-delayed">
                 Par Zolt&aacute;n J&aacute;nosi
               </p>
               <h2 className="mt-2 text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">

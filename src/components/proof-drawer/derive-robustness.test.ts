@@ -141,21 +141,21 @@ describe('deriveRobustness — fallback formula', () => {
 });
 
 describe('robustnessColorClass', () => {
-  it('returns teal for >=80 (stable)', () => {
-    expect(robustnessColorClass(100)).toBe('text-teal-600');
-    expect(robustnessColorClass(85)).toBe('text-teal-600');
-    expect(robustnessColorClass(80)).toBe('text-teal-600');
+  it('returns the resolved token for >=80 (stable)', () => {
+    expect(robustnessColorClass(100)).toBe('text-status-resolved');
+    expect(robustnessColorClass(85)).toBe('text-status-resolved');
+    expect(robustnessColorClass(80)).toBe('text-status-resolved');
   });
 
   it('returns amber for 65-79 (à confirmer)', () => {
-    expect(robustnessColorClass(79)).toBe('text-amber-600');
-    expect(robustnessColorClass(70)).toBe('text-amber-600');
-    expect(robustnessColorClass(65)).toBe('text-amber-600');
+    expect(robustnessColorClass(79)).toBe('text-status-delayed');
+    expect(robustnessColorClass(70)).toBe('text-status-delayed');
+    expect(robustnessColorClass(65)).toBe('text-status-delayed');
   });
 
-  it('returns rose for <65 (contesté)', () => {
-    expect(robustnessColorClass(64)).toBe('text-rose-600');
-    expect(robustnessColorClass(40)).toBe('text-rose-600');
-    expect(robustnessColorClass(0)).toBe('text-rose-600');
+  it('returns the blocked token for <65 (contesté)', () => {
+    expect(robustnessColorClass(64)).toBe('text-status-blocked');
+    expect(robustnessColorClass(40)).toBe('text-status-blocked');
+    expect(robustnessColorClass(0)).toBe('text-status-blocked');
   });
 });

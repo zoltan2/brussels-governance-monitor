@@ -5,14 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { DomainCard as DomainCardType } from '@/lib/content';
 import { formatDate } from '@/lib/utils';
-import { cn } from '@/lib/utils';
-
-const statusStyles: Record<string, string> = {
-  blocked: 'bg-status-blocked text-neutral-50',
-  delayed: 'bg-status-delayed text-neutral-50',
-  ongoing: 'bg-status-ongoing text-neutral-50',
-  resolved: 'bg-status-resolved text-neutral-50',
-};
+import { domainBadgeClass } from '@/lib/status-badge';
 
 const confidenceStyles: Record<string, string> = {
   official: 'text-brand-700',
@@ -34,12 +27,7 @@ export function DomainCard({ card, locale, headingLevel = 'h3' }: DomainCardProp
     <article className="flex flex-col rounded-lg border border-neutral-200 bg-neutral-50 p-6 transition-shadow hover:shadow-md">
       <div className="mb-3 flex items-start justify-between gap-2">
         <Heading className="text-lg font-semibold text-neutral-900">{card.title}</Heading>
-        <span
-          className={cn(
-            'shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium',
-            statusStyles[card.status],
-          )}
-        >
+        <span className={domainBadgeClass(card.status, 'md')}>
           {t(`status.${card.status}`)}
         </span>
       </div>

@@ -12,7 +12,9 @@ const NATIVE_NAME: Record<string, string> = {
   ar: 'العربية', tr: 'Türkçe', es: 'Español', pt: 'Português',
   pl: 'Polski', ro: 'Română', sw: 'Kiswahili',
 };
-const nativeName = (lang: string) => NATIVE_NAME[lang] ?? lang.toUpperCase();
+/** Nom natif d'une langue du digest. Exporté pour que la page d'accueil du prototype
+ *  n'en recopie pas la table : un doublon finirait par diverger de son original. */
+export const nativeName = (lang: string) => NATIVE_NAME[lang] ?? lang.toUpperCase();
 const isCore = (lang: string) => (CORE_DIGEST_LOCALES as readonly string[]).includes(lang);
 
 export interface PublicationsBandLabels {

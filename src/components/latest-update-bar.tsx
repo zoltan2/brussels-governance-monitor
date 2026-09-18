@@ -19,7 +19,7 @@ export function LatestUpdateBar({ date, description, summary, section, targetSlu
 
   const content = (
     <div className="mx-auto flex min-w-0 max-w-5xl items-center gap-2 px-4 py-2.5">
-      <span className="text-teal-500" aria-hidden="true">&#9679;</span>
+      <span className="text-status-delayed" aria-hidden="true">&#9679;</span>
       <time dateTime={date} className="shrink-0 text-xs font-medium tabular-nums text-neutral-500">
         {formatDate(date, locale)}
       </time>
@@ -33,10 +33,11 @@ export function LatestUpdateBar({ date, description, summary, section, targetSlu
 
   if (linkHref) {
     return (
-      <div className="border-b border-neutral-200 bg-slate-50">
+      <div className="border-b border-neutral-200 bg-neutral-100">
         <Link
           href={linkHref}
-          className="block transition-colors hover:bg-slate-100 [&_span.text-brand-700]:hover:text-brand-900"
+          data-umami-event="accueil-fait-du-jour"
+          className="block transition-colors hover:bg-neutral-200 [&_span.text-brand-700]:hover:text-brand-900"
         >
           {content}
         </Link>
@@ -45,13 +46,13 @@ export function LatestUpdateBar({ date, description, summary, section, targetSlu
   }
 
   return (
-    <div className="border-b border-neutral-200 bg-slate-50">
+    <div className="border-b border-neutral-200 bg-neutral-100">
       {content}
     </div>
   );
 }
 
-function getLinkHref(section: string, slug: string | null, anchor?: string) {
+export function getLinkHref(section: string, slug: string | null, anchor?: string) {
   if (!slug) return null;
   const hash = anchor ? slugify(anchor) : undefined;
   switch (section) {

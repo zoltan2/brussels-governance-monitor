@@ -11,6 +11,15 @@
   --color-brand-800: oklch(0.3 0.06 250);
   --color-brand-700: oklch(0.35 0.07 250);
   --color-brand-600: oklch(0.42 0.08 250);
+  /* Pale tints used by callouts (border-brand-200, bg-brand-50/30). Undefined until
+     2026-09: the classes generated nothing and borders fell back to currentColor. */
+  --color-brand-200: oklch(0.88 0.03 250);
+  --color-brand-50: oklch(0.97 0.01 250);
+
+  /* Turquoise du Stuut (jeu quotidien) : la teinte claire du jeu (#15B8A6) ne tient
+     pas 4.5:1 sur fond clair, donc on assombrit en mode clair et on rend la teinte
+     d'origine en mode sombre. Mesuré : 5.4:1 (clair) et 7.56:1 (sombre). */
+  --color-stuut: oklch(0.487 0.085 181.8);
 
   /* Neutral grays */
   --color-neutral-50: oklch(0.98 0 0);
@@ -44,6 +53,9 @@
   --color-brand-800: oklch(0.78 0.06 250);
   --color-brand-700: oklch(0.7 0.07 250);
   --color-brand-600: oklch(0.63 0.08 250);
+  --color-brand-200: oklch(0.32 0.04 250);
+  --color-brand-50: oklch(0.2 0.02 250);
+  --color-stuut: oklch(0.704 0.123 182.5);
 
   --color-neutral-50: oklch(0.15 0 0);
   --color-neutral-100: oklch(0.18 0 0);
@@ -99,6 +111,44 @@
 /* Font scaling — controlled by --font-scale on <html> */
 html {
   font-size: calc(16px * var(--font-scale, 1));
+}
+
+/* OpenDyslexic, servi en local.
+   L'option « police dyslexique » injectait une feuille de style depuis
+   fonts.cdnfonts.com, que notre propre CSP bloque (style-src 'self'
+   'unsafe-inline', next.config.ts). La classe s'appliquait, le lien
+   s'insérait, et la police n'arrivait jamais : l'option était visible et
+   inopérante pour le public qui en dépend le plus.
+   Servie depuis /fonts, elle passe par font-src 'self', déjà autorisé, donc
+   sans affaiblir la CSP ni exposer l'adresse IP des lecteurs à un tiers.
+   OFL-1.1, antijingoist/opendyslexic. Licence dans public/fonts/OFL.txt. */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
 }
 
 /* Dyslexic-friendly font override */
@@ -164,6 +214,9 @@ mark {
     --color-brand-800: oklch(0.78 0.06 250);
     --color-brand-700: oklch(0.7 0.07 250);
     --color-brand-600: oklch(0.63 0.08 250);
+    --color-brand-200: oklch(0.32 0.04 250);
+    --color-brand-50: oklch(0.2 0.02 250);
+    --color-stuut: oklch(0.704 0.123 182.5);
     --color-neutral-50: oklch(0.15 0 0);
     --color-neutral-100: oklch(0.18 0 0);
     --color-neutral-200: oklch(0.22 0 0);

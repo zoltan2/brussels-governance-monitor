@@ -103,7 +103,7 @@ export function ConfirmClient({ dossierLabels }: { dossierLabels: Record<string,
         <div className="mx-auto max-w-lg px-4">
           <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-50">
-              <svg className="h-6 w-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <svg className="h-6 w-6 text-status-delayed" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>

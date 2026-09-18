@@ -322,7 +322,7 @@ function NarrativeTab({ metric }: { metric: InstrumentedMetric }) {
                     Lire la source
                   </a>
                 ) : (
-                  <span className="text-xs text-amber-600" title="URL invalide ou scheme non autorisé">
+                  <span className="text-xs text-status-delayed" title="URL invalide ou scheme non autorisé">
                     URL invalide
                   </span>
                 )}

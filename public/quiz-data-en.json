@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T14:02:35.872Z",
+  "generatedAt": "2026-09-18T14:05:03.243Z",
   "locale": "en",
   "poolSize": 67,
   "questionsPerSession": 10,
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "Shops in the Quartier Nord have had to close between 1am and 6am since April 2026, in Schaerbeek and Saint-Josse-ten-Noode. What do the Council of State auditors' reports of 10 August 2026 say?",
+      "question": "On 28 August 2026, the Brussels public prosecutor set out the understaffing of his office. How many magistrates are in post, against the number provided for?",
       "options": [
-        "They reject the urgency in both appeals brought against the measure",
-        "They annul the night-time closure in both municipalities concerned",
-        "They suspend the measure pending the final ruling of the court",
-        "They refer both appeals to the Constitutional Court for review"
+        "49 magistrates against 63 provided for",
+        "58 magistrates against 63 provided for",
+        "63 magistrates against 80 provided for",
+        "49 magistrates against 55 provided for"
       ],
       "correct": 0,
-      "explanation": "An auditor's report is not a ruling: the auditor investigates and proposes, the court decides and may depart from it. The measure, adopted in March 2026, was extended in June until the end of September 2026.",
+      "explanation": "That leaves fourteen vacancies. The prosecutor also points to a shortfall of eighty investigators in the federal judicial police, and puts the resources he is asking for at ten million euros. He then dated the start of the wave of shootings to 20 August 2026.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:a8781baa7fab7a8d6e8390db221856b2",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:47e14d02a7d2d13235b945b5018e6d77",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "The Midi police zone, whose former central station on rue Démosthène was shot at during the night of 21 to 22 August 2026, covers which municipalities?",
+      "question": "How long is the term of the Brussels regional anti-drug commissioner, whose taking up of office was announced for the end of September 2026?",
       "options": [
-        "Anderlecht, Saint-Gilles and Forest",
-        "Anderlecht, Molenbeek-Saint-Jean and Koekelberg",
-        "Saint-Gilles, Forest and Uccle",
-        "Anderlecht, Saint-Gilles and Ixelles"
+        "Five years, renewable once",
+        "Three years, renewable twice",
+        "Four years, renewable without limit",
+        "Six years, with no renewal possible"
       ],
       "correct": 0,
-      "explanation": "The building has been gradually emptied since the new station on rue des Deux Gares opened, and the municipality wants to sell it. It was closed when the shots were fired and nobody was injured.",
+      "explanation": "The selection panel had six bilingual members, including the Minister-President, the Brussels public prosecutor and the national drugs commissioner. The French title places « sécurité » before « drogues », which gives the mandate a broader base than the narcotics strand alone. The post replaces neither the prosecutor's office, nor the police services, nor the municipalities.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:a8781baa7fab7a8d6e8390db221856b2",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:47e14d02a7d2d13235b945b5018e6d77",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "The Brussels Deal, set up in 2022, funded two thousand reception places in Brussels for applicants for international protection. How much capacity did the federal level withdraw in 2026?",
+      "question": "How many residential places does the Brussels Region have for people with addictions, in the centres supported by Iriscare, according to the figures published on 11 September 2026?",
       "options": [
-        "One thousand places, in two steps: 300 in late June then 700 on 16 July",
-        "Five hundred places, withdrawn in one go on 16 July",
-        "Two thousand places, the entire scheme, as early as late June",
-        "Three hundred places, the only tranche confirmed in late July"
+        "63 places, unchanged for three years",
+        "128 places, unchanged for three years",
+        "41 places, rising over three years",
+        "95 places, falling over three years"
       ],
       "correct": 0,
-      "explanation": "The scheme represented 42 million euros a year. The demonstration of 18 August 2026 on place de l'Albertine obtained no delay: the closures remain planned before winter.",
+      "explanation": "That is nine crisis places for stays of up to two weeks, ten for short stays and forty-four for long stays. In 2025, a short stay involved an average wait of ten months. Thirty-nine additional places are announced for 2027 and 2028.",
       "sourceSlug": "/en/domains/social",
-      "sourceTitle": "Social affairs: 1,000 reception places cut, Samusocial saturated, CPAS under strain",
+      "sourceTitle": "Social affairs: reception scheme halved, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:28cd90beef1ec05aa1681766c96b3d4d",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:1c1892ce3dd7c28898694fae648dcb3a",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Which authority is Samusocial, the main emergency accommodation operator in Brussels, accountable to?",
+      "question": "The \"Pack Nouveau Départ\" (New Start Pack), approved by the Brussels government on 10 September 2026 for victims of partner violence, creates a single entry point. What step is not required to use it?",
       "options": [
-        "COCOM, the Brussels bicommunity authority",
-        "The federal level, through the reception agency Fedasil",
-        "The Brussels-Capital Region, through Bruss'Help",
-        "The Wallonia-Brussels Federation, through youth care"
+        "Filing a complaint first",
+        "Being registered in a Brussels municipality",
+        "A medical certificate less than three months old",
+        "Prior support from a CPAS"
       ],
       "correct": 0,
-      "explanation": "The reception places cut in 2026, by contrast, are federal. A refusal at Samusocial therefore does not point to a federal desk but to the street, to a municipal CPAS or to the voluntary sector.",
+      "explanation": "The entry point is set up within Olista, a service specialising in domestic violence, to assess each situation and refer victims. The paper brings together thirty-six measures around six priorities, with 520,000 euros for all Brussels levels combined and implementation expected on 1 July 2027.",
       "sourceSlug": "/en/domains/social",
-      "sourceTitle": "Social affairs: 1,000 reception places cut, Samusocial saturated, CPAS under strain",
+      "sourceTitle": "Social affairs: reception scheme halved, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:28cd90beef1ec05aa1681766c96b3d4d",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:1c1892ce3dd7c28898694fae648dcb3a",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "The public inquiry opened on 28 August 2026 into the subdivision permit for the Josaphat site, between Evere and Meiser, covers how many homes?",
+      "question": "What does the masterplan for the Abattoir site in Cureghem provide for, whose approval by the Brussels government was reported on 2 September 2026?",
       "options": [
-        "537 homes",
-        "240 homes",
-        "780 homes",
-        "1,050 homes"
+        "The first permanent open-air swimming pool in Brussels",
+        "The first covered market-gardening hall in the country",
+        "The first fully passive housing stock in the Region",
+        "The first urban freight terminal linked to the canal"
       ],
       "correct": 0,
-      "explanation": "The application comes from the SAU, the regional public urban development corporation, on a site of about 24 hectares. A subdivision permit covers plots and roads: building will require a separate application and a new public inquiry.",
+      "explanation": "The swimming complex is planned on the roof of the Manufacture building, with an outdoor pool, a covered twenty-five metre pool and a learner pool. The announced timetable runs from a tender in 2026 to an opening targeted for 2030, on a site of about ten hectares.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:760a3a5c3b57ab9bdcc9b2492de17997",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:8eb561550e4c2b76f928def3f8230634",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "The Brussels order of 9 July 2026 on tourist accommodation removes the planning compliance certificate for homes that are the host's main residence. What replaces it?",
+      "question": "What does the Regional Policy Declaration of 13 February 2026 provide for regarding the opinion of the CRMS?",
       "options": [
-        "A simplified safety certificate, capped at 150 euros",
-        "A sworn statement by the host, with no cost and no check",
-        "A compulsory municipal visit every three years, at 300 euros",
-        "Registration in the regional register of lettings, at 75 euros"
+        "Replacing the binding opinion with a simple one",
+        "Extending the binding opinion to all protected areas",
+        "Abolishing the commission in favour of urban.brussels",
+        "Making the binding opinion enforceable before the Council of State"
       ],
       "correct": 0,
-      "explanation": "The written check covers four items: the electrical, gas and heating installations and the presence of a fire extinguisher. The measure takes effect on 1 January 2027.",
+      "explanation": "A binding opinion ties the authority that issues the permit; a simple opinion does not. The stated aim is to unblock renovation projects in protected areas without removing heritage protection.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:760a3a5c3b57ab9bdcc9b2492de17997",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:8eb561550e4c2b76f928def3f8230634",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -606,21 +606,21 @@
       "id": "dossier-accessibilite-pmr-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "What obligation does the handistreaming ordinance of 8 December 2016 place on the Brussels Region?",
+      "question": "What did the Brussels Mobility Minister confirm in parliamentary committee on 17 March 2026 about the STIB's Taxibus service?",
       "options": [
-        "To factor disability into all of its policies",
-        "To reserve a quota of adapted housing per municipality",
-        "To fund a reception centre in every municipality",
-        "To make public transport accessible before the end of 2028"
+        "The twelve minibuses will not be renewed, replaced by private taxis",
+        "The monthly cap on trips per user will be doubled",
+        "The service will be free for people receiving benefits",
+        "The service will be opened to the outer municipalities"
       ],
       "correct": 0,
-      "explanation": "The ordinance of 8 December 2016 also covers public procurement and subsidies, and requires the government to submit an interim report and an end-of-term report to Parliament.",
+      "explanation": "The service had already been limited to sixty trips a month per user in July 2025. It made 202,091 trips in 2025, 85% by taxi and 15% by minibus, and the shift to private taxis is announced by the end of 2027. The regional grant rose from 4.7 to 6.7 million euros a year.",
       "sourceSlug": "/en/dossiers/accessibilite-pmr",
       "sourceTitle": "Accessibility PRM",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:8b9bb7817fe15b7c596d7c27ab15471b",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:2c6c98f683d0b29d6c0db7c0a8d2e798",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "According to FPS Social Integration figures for the first half of 2026, what share of integration income claims filed by people excluded from unemployment benefits was refused?",
+      "question": "How does the federal reimbursement of the integration income paid to people in the first wave of unemployment exclusions change, according to the projection presented by Molenbeek-Saint-Jean on 11 September 2026?",
       "options": [
-        "17%",
-        "34%",
-        "53%",
-        "8%"
+        "From 100% in 2026 to 75% in 2029",
+        "From 100% in 2026 to 90% in 2029",
+        "From 85% in 2026 to 60% in 2029",
+        "From 90% in 2026 to 50% in 2029"
       ],
       "correct": 0,
-      "explanation": "That is around 9,000 refusals out of 52,600 claims, mostly because household income was judged too high. The take-up rate of 43.9% in Brussels therefore overstates how many people losing benefits are actually covered.",
+      "explanation": "That is 90% in 2027 and 80% in 2028. The CPAS counted 1,740 files linked to the exclusions on 31 August 2026 and puts at 16.3 million euros the share of the integration income left to its own budget from 2027 to 2029. For the second wave, the federal reimbursement is only 85% from the outset.",
       "sourceSlug": "/en/dossiers/cpas-bruxellois",
       "sourceTitle": "Brussels CPASs",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:3eac2619a2514deaa0f8715fd4d04a32",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:cc6dac797a45fc30e78e2a93515aa016",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -836,21 +836,21 @@
       "id": "dossier-data-centers-ia-energie-0",
       "source": "dossier",
       "domain": "Digital",
-      "question": "What reversal has occurred in the worldwide energy consumption of artificial intelligence, according to the 2024 data?",
+      "question": "What does the future European efficiency label for data centres provide for a facility that receives the worst score?",
       "options": [
-        "Inference now consumes more than training",
-        "Training now consumes more than inference",
-        "Storage now consumes more than computation",
-        "Cooling now consumes more than computation"
+        "No penalty: it remains perfectly compliant",
+        "A fine proportional to its annual consumption",
+        "A ban on expanding its installed capacity",
+        "Mandatory compliance works within two years"
       ],
       "correct": 0,
-      "explanation": "The day-to-day use of models accounts for 60 to 70% of the energy consumed by artificial intelligence, against 20 to 30% for training. It is user queries that put pressure on the energy system.",
+      "explanation": "The regulation sets no minimum threshold to reach. The lever lies elsewhere, and the preparatory work says so explicitly: the label is meant to serve in access to green finance, in public procurement and in the assessments provided for by the future European regulation on cloud and artificial intelligence. It is a market and reputational constraint, not a legal one.",
       "sourceSlug": "/en/dossiers/data-centers-ia-energie",
       "sourceTitle": "Data Centers & AI",
       "provenance": {
-        "sourceLastModified": "2026-06-17",
-        "sourceContentHash": "sha256:7d824d960180a54a55649663a3fc17ce",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:80b0d774f2ad8114203bf4e2ba0983dd",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -859,21 +859,21 @@
       "id": "dossier-data-centers-ia-energie-1",
       "source": "dossier",
       "domain": "Digital",
-      "question": "What does the Brussels Regional Policy Declaration of 13 February 2026 provide for on data centres?",
+      "question": "From what date must every Brussels data centre with at least 500 kW of installed IT capacity carry a public score including a water indicator?",
       "options": [
-        "Nothing, it contains no specific reference to them",
-        "A moratorium on any new regional facility",
-        "A regional tax based on electricity consumption",
-        "An obligation to recover the heat produced"
+        "15 August 2027",
+        "1 January 2027",
+        "31 December 2028",
+        "15 August 2029"
       ],
       "correct": 0,
-      "explanation": "The digital transition and the energy-climate strategy are dealt with separately there, with no mention of the sector's energy impact. At federal level, the Elia grid development plan for 2028-2038 will address that demand explicitly.",
+      "explanation": "Below that threshold participation remains voluntary, including for sites being designed or built, and defence and civil protection installations are exempt. This dossier notes that no water consumption figure is available for BRU01, the Neder-Over-Heembeek data centre: that deadline puts a date on the end of the gap.",
       "sourceSlug": "/en/dossiers/data-centers-ia-energie",
       "sourceTitle": "Data Centers & AI",
       "provenance": {
-        "sourceLastModified": "2026-06-17",
-        "sourceContentHash": "sha256:7d824d960180a54a55649663a3fc17ce",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:80b0d774f2ad8114203bf4e2ba0983dd",
+        "generatedAt": "2026-09-18T14:05:03.243Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

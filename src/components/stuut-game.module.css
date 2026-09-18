@@ -198,11 +198,12 @@
 }
 
 /* ─── Clavier ─────────────────────────────────────────────────────────────── */
-/* Le clavier descend au bas du panneau (margin-top: auto), comme sur le jeu
-   autonome sur téléphone : sur un écran haut, le vide va entre le plateau et le
-   clavier, jamais au-dessus du plateau. Collant en bas quand le contenu défile
-   (aide dépliée, statistiques ouvertes, petit écran) : on ne cherche jamais le
-   clavier en faisant défiler. */
+/* Le jeu se lit de haut en bas, d'un seul bloc : le clavier suit le plateau.
+   PAS de margin-top: auto pour le pousser au bas du panneau : sur grand écran,
+   cela ouvrait un grand vide entre plateau et clavier (écarté le 18/09/2026, même
+   défaut que main{flex:1;justify-content:center} sur le jeu autonome).
+   Collant en bas seulement quand le contenu déborde (aide dépliée, statistiques
+   ouvertes, petit écran) : on ne cherche jamais le clavier en faisant défiler. */
 .clavier {
   position: sticky;
   bottom: 0;
@@ -210,7 +211,6 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
-  margin-top: auto;
   padding: 10px 0 2px;
   background: var(--navy);
 }

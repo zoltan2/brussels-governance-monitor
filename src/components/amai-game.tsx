@@ -157,6 +157,34 @@ const TAGS: Record<string, Record<Langue, string>> = {
 
 const STREAK_KEY = 'amai_streak';
 const LAST_KEY = 'amai_last_played';
+// La partie terminée du jour. Sans elle, recharger la page relançait une partie
+// neuve, et chaque partie rejouée envoyait un résultat de plus à /api/plays, ce qui
+// faussait le « Mieux que X % » de tous les lecteurs (relevé par l'équipe rouge le
+// 18/09/2026, défaut hérité du widget).
+const PARTIE_KEY = 'amai_partie_du_jour';
+
+interface PartieJouee {
+  date: string;
+  reponses: Reponse[];
+  percentile: number | null;
+}
+
+function lirePartieJouee(date: string): PartieJouee | null {
+  try {
+    const p = JSON.parse(localStorage.getItem(PARTIE_KEY) ?? 'null') as PartieJouee | null;
+    return p && p.date === date && Array.isArray(p.reponses) && p.reponses.length === 5 ? p : null;
+  } catch {
+    return null;
+  }
+}
+
+function enregistrerPartieJouee(p: PartieJouee): void {
+  try {
+    localStorage.setItem(PARTIE_KEY, JSON.stringify(p));
+  } catch {
+    // navigation privée : la partie reste jouable, elle ne sera simplement pas retenue
+  }
+}
 
 // Couleurs du jeu. `sourdine` remplace #6A76A8 pour le TEXTE sur fond blanc.
 const NUIT = '#14204F';
@@ -261,6 +289,14 @@ export function AmaiGame({ locale }: { locale: string }) {
         if (!estPartie(d)) throw new Error('réponse inattendue');
         setPartie(d);
         setSerie(lireSerie(d.date));
+        // Déjà jouée aujourd'hui sur cet appareil : on retrouve le score, sans
+        // nouvelle partie ni nouvel envoi au backend.
+        const jouee = lirePartieJouee(d.date);
+        if (jouee) {
+          setReponses(jouee.reponses);
+          setTour(4);
+          setPercentile(jouee.percentile);
+        }
         setEtat('pret');
       })
       .catch(() => {
@@ -301,6 +337,10 @@ export function AmaiGame({ locale }: { locale: string }) {
       return;
     }
     if (!partie) return;
+    // Une seule partie comptée par jour et par appareil : si elle est déjà retenue,
+    // on n'envoie rien de plus au backend (voir PARTIE_KEY).
+    if (lirePartieJouee(partie.date)) return;
+    enregistrerPartieJouee({ date: partie.date, reponses, percentile: null });
     setSerie(enregistrerSerie(partie.date));
     track('jeux-amai-termine', { score });
     // Le jeu reste jouable même si les statistiques échouent.
@@ -310,9 +350,11 @@ export function AmaiGame({ locale }: { locale: string }) {
       body: JSON.stringify({ lang, answers: reponses }),
     })
       .then((r) => (r.ok ? r.json() : null))
-      .then((d: { percentile?: unknown } | null) =>
-        setPercentile(typeof d?.percentile === 'number' ? d.percentile : null),
-      )
+      .then((d: { percentile?: unknown } | null) => {
+        const p = typeof d?.percentile === 'number' ? d.percentile : null;
+        setPercentile(p);
+        enregistrerPartieJouee({ date: partie.date, reponses, percentile: p });
+      })
       .catch(() => setPercentile(null));
   }
 
@@ -320,14 +362,17 @@ export function AmaiGame({ locale }: { locale: string }) {
     if (!partie) return;
     const carres = reponses.map((a) => (a.correct ? '🟨' : '🟦')).join('');
     const texte = `Amai ! ${partie.date} — ${score}/5\n${carres}\nhttps://amai.governance.brussels`;
-    track('jeux-amai-partage', { score });
     const signaler = (v: 'ok' | 'echec') => {
       setCopie(v);
       setTimeout(() => setCopie(''), 2500);
     };
+    // Mesuré seulement après une copie réussie : une tentative ratée n'est pas un partage.
     const p = navigator.clipboard?.writeText(texte);
     if (!p) return signaler('echec');
-    p.then(() => signaler('ok')).catch(() => signaler('echec'));
+    p.then(() => {
+      signaler('ok');
+      track('jeux-amai-partage', { score });
+    }).catch(() => signaler('echec'));
   }
 
   const quip = score >= 4 ? t.quipHigh : score >= 2 ? t.quipMid : t.quipLow;

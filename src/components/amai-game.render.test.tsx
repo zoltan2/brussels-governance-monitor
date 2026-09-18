@@ -99,6 +99,21 @@ describe('AmaiGame', () => {
     expect(screen.getByRole('link', { name: /Baromètre/ }).getAttribute('href')).toBe('/fr/engagements');
   });
 
+  it('retrouve la partie du jour au rechargement, sans la rejouer ni la renvoyer au backend', async () => {
+    // Défaut hérité du widget, relevé par l'équipe rouge le 18/09/2026 : chaque
+    // partie rejouée envoyait un résultat de plus et faussait le percentile.
+    const premier = render(<AmaiGame locale="fr" />);
+    await jouerTout(true);
+    await screen.findByText('Mieux que 72% des lecteurs aujourd\'hui.');
+    premier.unmount();
+
+    render(<AmaiGame locale="fr" />);
+    expect(await screen.findByText(/5\/5/)).toBeTruthy();
+    expect(screen.getByText('Mieux que 72% des lecteurs aujourd\'hui.')).toBeTruthy();
+    expect(screen.queryByRole('button', { name: '+ Plus' })).toBeNull();
+    expect(appels.filter((a) => a.url.endsWith('/api/plays'))).toHaveLength(1);
+  });
+
   it('signale un échec de copie au lieu de ne rien faire', async () => {
     Object.defineProperty(navigator, 'clipboard', { value: undefined, configurable: true });
     render(<AmaiGame locale="fr" />);

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T12:54:32.625Z",
+  "generatedAt": "2026-09-18T12:57:06.876Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -1111,22 +1111,22 @@
     {
       "id": "dossier-metro-3-0",
       "source": "dossier",
-      "domain": "Mobilité",
-      "question": "Que recommande la commission spéciale Métro 3 du Parlement bruxellois, dans ses conclusions du 9 juillet 2026, pour tout grand projet d'infrastructure régionale ?",
+      "domain": "Métro 3",
+      "question": "Qu'une association d'urbanisme bruxelloise a-t-elle annoncé le 9 septembre 2026 avoir établi dans les caves du Palais du Midi ?",
       "options": [
-        "Une gouvernance unique, réunie dans une seule administration",
-        "Un référendum régional préalable au lancement des travaux",
-        "Une délégation complète de la maîtrise d'ouvrage au fédéral",
-        "Un plafonnement légal du budget dès l'avant-projet retenu"
+        "Deux abris anti-aériens construits en 1940 et en 1943",
+        "Une nappe phréatique absente des études de sol",
+        "Une galerie technique datant de l'Exposition de 1935",
+        "Trois caves voûtées classées au patrimoine en 1993"
       ],
       "correct": 0,
-      "explanation": "Un directeur de projet identifié serait responsable devant le gouvernement et le Parlement. Les recommandations sont regroupées en six axes, après huit mois de travaux et plus de cinquante auditions.",
+      "explanation": "L'association les décrit sur 450 mètres carrés, pour une capacité pouvant atteindre 1 500 personnes, et demande un travail archéologique avant la poursuite des travaux en sous-sol. Les rédactions ne rapportent pas la découverte de la même manière : certaines écrivent que l'existence des abris est attestée, une autre parle d'abris possibles.",
       "sourceSlug": "/fr/dossiers/metro-3",
       "sourceTitle": "Métro 3",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:a0d5934749296f54c1c817caf82dbc6e",
-        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:256a0b10fa94204377ccbfaa34a25e01",
+        "generatedAt": "2026-09-18T12:57:06.876Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1134,22 +1134,22 @@
     {
       "id": "dossier-metro-3-1",
       "source": "dossier",
-      "domain": "Mobilité",
-      "question": "Quel écart sépare le texte sur le Métro 3 voté en plénière du Parlement bruxellois le 17 juillet 2026 de celui adopté par sa commission spéciale le 9 juillet ?",
+      "domain": "Métro 3",
+      "question": "Quelle durée de travaux le consortium candidat au tronçon nord du métro 3 a-t-il annoncée en commission parlementaire le 13 mai 2026 ?",
       "options": [
-        "24 recommandations votées contre 22 en commission",
-        "22 recommandations votées contre 24 en commission",
-        "18 recommandations votées contre 24 en commission",
-        "30 recommandations votées contre 22 en commission"
+        "Dix ans, contre six ans au calendrier demandé",
+        "Six ans, contre dix ans au calendrier demandé",
+        "Quinze ans, contre huit ans au calendrier demandé",
+        "Quatre ans, contre trois ans au calendrier demandé"
       ],
       "correct": 0,
-      "explanation": "Aucune source consultée ne détaille l'origine de cet écart, qui pourrait provenir d'amendements déposés en plénière. La divergence est signalée plutôt que passée sous silence.",
+      "explanation": "Le facteur technique bloquant est la nécessité de geler le sol jusqu'à 82 mètres de profondeur pour créer des barrières étanches, un procédé jamais réalisé à cette profondeur dans le monde. La déclaration de politique régionale ayant gelé le projet pour dix ans, une livraison ne serait pas attendue avant le milieu des années 2040.",
       "sourceSlug": "/fr/dossiers/metro-3",
       "sourceTitle": "Métro 3",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:a0d5934749296f54c1c817caf82dbc6e",
-        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:256a0b10fa94204377ccbfaa34a25e01",
+        "generatedAt": "2026-09-18T12:57:06.876Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1157,22 +1157,22 @@
     {
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
-      "domain": "Mobilité",
-      "question": "Déposée le 18 juin 2026 sur democratie.brussels, la pétition pour garder les trottinettes partagées à Bruxelles a franchi le seuil qui oblige le Parlement bruxellois à s'en saisir. Quel est ce seuil ?",
+      "domain": "Mobilité partagée",
+      "question": "Jusqu'à quelle année la concession des vélos partagés Villo est-elle maintenue, selon l'entretien de rentrée de la ministre régionale de la Mobilité du 8 septembre 2026 ?",
       "options": [
-        "1 000 signatures",
-        "500 signatures",
-        "5 000 signatures",
-        "15 000 signatures"
+        "Jusqu'en 2028",
+        "Jusqu'en 2026",
+        "Jusqu'en 2030",
+        "Jusqu'en 2027"
       ],
       "correct": 0,
-      "explanation": "Elle comptait 1 595 signatures au 12 août 2026, ce qui en faisait l'initiative la plus signée de la plateforme. Franchir le seuil garantit un débat, mais n'oblige pas la majorité à changer de position et ne suspend pas l'interdiction prévue au 1er janvier 2027.",
+      "explanation": "C'est une correction : le dossier indiquait auparavant une expiration en septembre 2026 sans successeur identifié. Un appel à candidatures est annoncé, avec l'objectif de conserver un abonnement annuel autour de 35 euros et une tarification à la demi-heure.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:800d8f8d7acee68673e3a68cccc6f1f8",
-        "generatedAt": "2026-08-25T09:23:25.928Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:4614781ce0aeb53009087dc5e4a48ebf",
+        "generatedAt": "2026-09-18T12:57:06.876Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1180,22 +1180,22 @@
     {
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
-      "domain": "Mobilité",
-      "question": "L'arrêt du Conseil d'État du 29 juillet 2026 a annulé les licences de mobilité partagée attribuées à Bruxelles en 2023. Qui avait introduit le recours à l'origine de cette annulation ?",
+      "domain": "Mobilité partagée",
+      "question": "Quel effet l'arrêt du Conseil d'État du 29 juillet 2026 a-t-il eu sur l'interdiction des trottinettes partagées à Bruxelles ?",
       "options": [
-        "Lime, l'opérateur écarté lors de l'attribution de 2023",
-        "Bolt, l'un des deux opérateurs retenus en 2023",
-        "La fédération des associations cyclistes bruxelloises",
-        "La commune de Schaerbeek, au nom des riverains"
+        "Il l'a devancée de quatre mois, sans la remettre en cause",
+        "Il l'a annulée, rouvrant le marché aux deux opérateurs",
+        "Il l'a reportée d'un an, le temps d'une nouvelle ordonnance",
+        "Il l'a étendue aux vélos à ancrage fixe de la concession"
       ],
       "correct": 0,
-      "explanation": "Le requérant victorieux pourrait devenir bénéficiaire du régime transitoire en préparation, aux côtés des opérateurs déjà en place. L'interdiction des trottinettes partagées en flotte libre reste fixée au 1er janvier 2027.",
+      "explanation": "L'interdiction décidée le 11 juin 2026 et fixée au 1er janvier 2027 n'est pas touchée : l'arrêt annule les licences, ce qui impose le retrait des engins de l'espace public dès le 1er septembre 2026. Pour les vélos partagés en flotte libre, l'effet est différent puisque le gouvernement souhaitait maintenir cette offre.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:800d8f8d7acee68673e3a68cccc6f1f8",
-        "generatedAt": "2026-08-25T09:23:25.928Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:4614781ce0aeb53009087dc5e4a48ebf",
+        "generatedAt": "2026-09-18T12:57:06.876Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1226,22 +1226,22 @@
     {
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
-      "domain": "Enseignement",
-      "question": "Quel écart de couverture en places d'accueil de la petite enfance sépare les communes bruxelloises, selon l'étude de perspective.brussels d'octobre 2024 ?",
+      "domain": "Petite enfance",
+      "question": "Quelle part des crèches néerlandophones bruxelloises inspectées a reçu une mise en conformité depuis 2022, selon l'analyse des rapports d'inspection publiée le 9 septembre 2026 ?",
       "options": [
-        "67 % à Etterbeek contre 16 % à Anderlecht",
-        "45 % à Etterbeek contre 38 % à Anderlecht",
-        "80 % à Etterbeek contre 60 % à Anderlecht",
-        "30 % à Etterbeek contre 25 % à Anderlecht"
+        "23 %, soit 34 crèches sur 146 inspectées",
+        "10 %, soit 15 crèches sur 146 inspectées",
+        "41 %, soit 60 crèches sur 146 inspectées",
+        "28 %, soit 41 crèches sur 146 inspectées"
       ],
       "correct": 0,
-      "explanation": "Deux parents sur trois qualifient la recherche d'une place de difficile ou très difficile, selon la Ligue des Familles. Le code postal détermine en grande partie la possibilité de reprendre le travail après un congé de maternité.",
+      "explanation": "La moyenne flamande s'établit à 10 %, la périphérie flamande à 28 %, Anvers et Gand à 11 %. Un second chiffre pèse autant : 30 % seulement des crèches bruxelloises ont connu au moins deux inspections en trois ans, ce qui invite à lire ce taux comme un plancher plutôt que comme un solde.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
       "sourceTitle": "Petite enfance",
       "provenance": {
-        "sourceLastModified": "2026-06-17",
-        "sourceContentHash": "sha256:8d1beb6c9e9f7c62fc92eb7edc581ce7",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:6cc98703be02110781533ed71f47e215",
+        "generatedAt": "2026-09-18T12:57:06.876Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1249,22 +1249,22 @@
     {
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
-      "domain": "Enseignement",
-      "question": "Quelle autorité délivre les autorisations aux crèches bicommunales à Bruxelles ?",
+      "domain": "Petite enfance",
+      "question": "Pourquoi le taux de non-conformité des crèches néerlandophones bruxelloises ne peut-il pas être comparé à celui des crèches francophones ?",
       "options": [
-        "Iriscare, pour la Commission communautaire commune",
-        "L'ONE, pour la Fédération Wallonie-Bruxelles",
-        "Opgroeien, pour la Communauté flamande",
-        "Bruxelles Économie et Emploi, pour la Région"
+        "Trois autorités inspectent séparément, selon leurs propres critères",
+        "Les crèches francophones ne font l'objet d'aucune inspection",
+        "Les rapports francophones ne sont publiés que tous les cinq ans",
+        "La Région centralise les données sans les ventiler par réseau"
       ],
       "correct": 0,
-      "explanation": "C'est la seule autorité relevant d'un niveau de pouvoir strictement bruxellois. Les crèches francophones dépendent de l'ONE et les néerlandophones d'Opgroeien, chacune sous son propre budget.",
+      "explanation": "Opgroeien inspecte le réseau néerlandophone, l'ONE le réseau francophone et Iriscare les structures bicommunales, chacun avec ses propres rapports et critères. Aucune publication ne consolide les trois régimes pour Bruxelles, et le chiffre de 23 % ne dit donc rien de l'état des crèches francophones ou bicommunales.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
       "sourceTitle": "Petite enfance",
       "provenance": {
-        "sourceLastModified": "2026-06-17",
-        "sourceContentHash": "sha256:8d1beb6c9e9f7c62fc92eb7edc581ce7",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:6cc98703be02110781533ed71f47e215",
+        "generatedAt": "2026-09-18T12:57:06.876Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1364,22 +1364,22 @@
     {
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
-      "domain": "Institutionnel",
-      "question": "Quelle est la cible chiffrée de la réforme regroupant l'administration régionale bruxelloise, annoncée dans la Déclaration de politique régionale de février 2026 ?",
+      "domain": "Réforme administration",
+      "question": "De combien l'effectif de la Région bruxelloise a-t-il diminué depuis janvier 2026, selon le ministre du Budget et de la Fonction publique cité le 12 septembre 2026 ?",
       "options": [
-        "Passer d'environ 25 entités à 4 grands piliers",
-        "Passer d'environ 40 entités à 10 grands piliers",
-        "Passer d'environ 15 entités à 2 grands piliers",
-        "Passer d'environ 60 entités à 12 grands piliers"
+        "De plus de 500 équivalents temps plein",
+        "De plus de 1 800 équivalents temps plein",
+        "De plus de 120 équivalents temps plein",
+        "De plus de 3 000 équivalents temps plein"
       ],
       "correct": 0,
-      "explanation": "L'objectif affiché est de 250 à 300 millions d'euros d'économies d'ici 2029. Les quatre piliers couvrent le support commun, les missions organiques, infrastructure.brussels et une plateforme foncière.",
+      "explanation": "Dont 338 en quatre mois depuis le durcissement du moratoire sur les embauches en mars 2026. Les départs ne sont plus remplacés automatiquement, mais des recrutements ciblés restent possibles là où le service l'exige. Le périmètre du décompte n'est pas précisé et aucun communiqué officiel ne l'a accompagné, alors que la Région emploie environ 12 000 agents.",
       "sourceSlug": "/fr/dossiers/reforme-administration",
       "sourceTitle": "Réforme administration",
       "provenance": {
-        "sourceLastModified": "2026-07-07",
-        "sourceContentHash": "sha256:b2c369a95a12b97c261db66b865597b0",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:a2625d0990fa9643dde2a03be5f867e4",
+        "generatedAt": "2026-09-18T12:57:06.876Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1569,5 +1569,5 @@
       }
     }
   ],
-  "reviewedCount": 34
+  "reviewedCount": 27
 }

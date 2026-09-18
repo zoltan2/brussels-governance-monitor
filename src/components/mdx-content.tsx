@@ -72,7 +72,12 @@ const sharedComponents = {
     />
   ),
   table: (props: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-4 overflow-x-auto rounded-lg border border-neutral-200">
+    // tabIndex={0} : une zone défilante doit être atteignable au clavier, sinon
+    // un tableau large est illisible sans souris (axe scrollable-region-focusable,
+    // constaté à 390 px sur toute page MDX portant un tableau). Pas de role="region"
+    // ici : une région sans nom accessible créerait une violation de plus, et ce
+    // composant n'a pas accès aux traductions.
+    <div tabIndex={0} className="my-4 overflow-x-auto rounded-lg border border-neutral-200">
       <table className="w-full text-sm" {...props} />
     </div>
   ),

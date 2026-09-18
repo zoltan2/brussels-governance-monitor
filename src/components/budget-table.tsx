@@ -96,19 +96,31 @@ export function BudgetTable({ heading, value, labels, variant = 'budget' }: Prop
       {parsed.kind === 'lines' && (
         <dl className={`max-w-2xl divide-y rounded-lg border ${SURFACE[variant]}`}>
           {parsed.lines.map((line) => (
-            <div key={`${line.label}-${line.value}`} className="px-4 py-3">
-              <div className="flex items-baseline justify-between gap-4">
-                <dt className="text-sm leading-snug text-neutral-600">{line.label}</dt>
-                <dd
-                  className={`flex shrink-0 items-baseline gap-2 text-sm font-semibold tabular-nums ${AMOUNT[variant]}`}
-                >
+            // `dt` et `dd` doivent être enfants DIRECTS du div enveloppe : le second
+            // div intercalé faisait échouer dlitem et definition-list (12 occurrences
+            // mesurées par axe). La mise en page passe donc sur le div de rangée.
+            <div
+              key={`${line.label}-${line.value}`}
+              className="flex flex-wrap items-baseline justify-between gap-x-4 px-4 py-3"
+            >
+              <dt className="text-sm leading-snug text-neutral-600">{line.label}</dt>
+              {/* La note vit DANS le <dd>. Un <p> frère de dt/dd rompt la règle
+                  « dl > div ne contient que des groupes dt/dd » (axe definition-list) ;
+                  le masquer en aria-hidden ne corrigeait pas la structure, cela ne
+                  faisait que la soustraire au contrôle. */}
+              <dd
+                className={`flex min-w-0 flex-col items-end gap-1 text-sm font-semibold tabular-nums ${AMOUNT[variant]}`}
+              >
+                <span className="flex items-baseline gap-2">
                   <span>{line.value}</span>
                   <ConfidenceBadge confidence={line.confidence} labels={labels} />
-                </dd>
-              </div>
-              {line.note && (
-                <p className="mt-1 text-xs leading-relaxed text-neutral-500">{line.note}</p>
-              )}
+                </span>
+                {line.note && (
+                  <p className="text-right text-xs font-normal leading-relaxed text-neutral-500">
+                    {line.note}
+                  </p>
+                )}
+              </dd>
             </div>
           ))}
         </dl>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T13:35:23.844Z",
+  "generatedAt": "2026-09-18T13:39:34.731Z",
   "locale": "nl",
   "poolSize": 67,
   "questionsPerSession": 10,
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "De handelszaken in de Noordwijk moeten sinds april 2026 sluiten tussen 1 en 6 uur, in Schaarbeek en Sint-Joost-ten-Node. Wat zeggen de verslagen van de auditeurs van de Raad van State van 10 augustus 2026?",
+      "question": "Op 28 augustus 2026 becijferde de procureur des Konings van Brussel de onderbezetting van zijn parket. Hoeveel magistraten zijn er in functie, op de voorziene personeelsformatie?",
       "options": [
-        "Ze verwerpen de hoogdringendheid in beide beroepen tegen de maatregel",
-        "Ze vernietigen de nachtsluiting in beide betrokken gemeenten",
-        "Ze schorsen de maatregel tot het definitieve arrest van de Raad van State",
-        "Ze verwijzen beide beroepen door naar het Grondwettelijk Hof"
+        "49 magistraten op 63 voorziene",
+        "58 magistraten op 63 voorziene",
+        "63 magistraten op 80 voorziene",
+        "49 magistraten op 55 voorziene"
       ],
       "correct": 0,
-      "explanation": "Een auditeursverslag is geen arrest: de auditeur onderzoekt en stelt voor, het rechtscollege beslist en kan ervan afwijken. De maatregel, aangenomen in maart 2026, werd in juni verlengd tot eind september 2026.",
+      "explanation": "Dat zijn veertien vacante plaatsen. De procureur wijst daarnaast op een tekort van tachtig speurders bij de federale gerechtelijke politie, en becijfert de middelen die hij vraagt op tien miljoen euro. Hij dateerde toen het begin van de golf van schietpartijen op 20 augustus 2026.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:62194220b7063578e7afd3da21421d62",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:e808b467388eb3cd46b199b6aeb04db4",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Politiezone Zuid, waarvan het vroegere hoofdcommissariaat in de Demosthenesstraat in de nacht van 21 op 22 augustus 2026 werd beschoten, bestrijkt welke gemeenten?",
+      "question": "Hoelang duurt het mandaat van de gewestelijke drugscommissaris in het Brussels Hoofdstedelijk Gewest, van wie de indiensttreding voor eind september 2026 was aangekondigd?",
       "options": [
-        "Anderlecht, Sint-Gillis en Vorst",
-        "Anderlecht, Sint-Jans-Molenbeek en Koekelberg",
-        "Sint-Gillis, Vorst en Ukkel",
-        "Anderlecht, Sint-Gillis en Elsene"
+        "Vijf jaar, eenmaal hernieuwbaar",
+        "Drie jaar, tweemaal hernieuwbaar",
+        "Vier jaar, onbeperkt hernieuwbaar",
+        "Zes jaar, niet hernieuwbaar"
       ],
       "correct": 0,
-      "explanation": "Het gebouw wordt geleidelijk leeggemaakt sinds de opening van het commissariaat in de Tweestationsstraat en de gemeente wil het verkopen. Het was gesloten op het moment van de schoten en er vielen geen gewonden.",
+      "explanation": "De jury telde zes tweetalige leden, onder wie de minister-president, de procureur des Konings van Brussel en de nationale drugscommissaris. De Franstalige benaming plaatst « sécurité » vóór « drogues », wat het mandaat een bredere basis geeft dan het luik verdovende middelen alleen. De functie vervangt noch het parket, noch de politiediensten, noch de gemeenten.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:62194220b7063578e7afd3da21421d62",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:e808b467388eb3cd46b199b6aeb04db4",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "De Brussels Deal, opgezet in 2022, financierde tweeduizend opvangplaatsen in Brussel voor verzoekers om internationale bescherming. Hoeveel capaciteit haalde de federale overheid er in 2026 weg?",
+      "question": "Hoeveel residentiële plaatsen telt het Brussels Gewest voor personen met een verslaving, in de door Iriscare gesteunde centra, volgens de cijfers van 11 september 2026?",
       "options": [
-        "Duizend plaatsen, in twee keer: 300 eind juni en 700 op 16 juli",
-        "Vijfhonderd plaatsen, in één keer geschrapt op 16 juli",
-        "Tweeduizend plaatsen, het volledige dispositief, al eind juni",
-        "Driehonderd plaatsen, de enige schijf bevestigd eind juli"
+        "63 plaatsen, ongewijzigd sinds drie jaar",
+        "128 plaatsen, ongewijzigd sinds drie jaar",
+        "41 plaatsen, in stijging sinds drie jaar",
+        "95 plaatsen, in daling sinds drie jaar"
       ],
       "correct": 0,
-      "explanation": "Het dispositief vertegenwoordigde 42 miljoen euro per jaar. De betoging van 18 augustus 2026 op het Albertinaplein leverde geen uitstel op: de sluitingen blijven voorzien vóór de winter.",
+      "explanation": "Dat zijn negen crisisplaatsen voor verblijven van hoogstens twee weken, tien voor korte verblijven en vierenveertig voor lange verblijven. In 2025 liet een kort verblijf gemiddeld tien maanden op zich wachten. Negenendertig bijkomende plaatsen zijn aangekondigd voor 2027 en 2028.",
       "sourceSlug": "/nl/domeinen/social",
-      "sourceTitle": "Sociaal: duizend opvangplaatsen geschrapt, Samusocial verzadigd, OCMW's onder druk",
+      "sourceTitle": "Sociaal: opvangsysteem gehalveerd, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:91654f40fa674ce069021c3c84bab9cd",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:55db5cc93745f6123171fe1abd6164f8",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Onder welke overheid valt Samusocial, de belangrijkste operator van de noodopvang in Brussel?",
+      "question": "Het « Pack Nouveau Départ » (pakket Nieuwe Start), op 10 september 2026 goedgekeurd door de Brusselse regering voor slachtoffers van partnergeweld, creëert één centraal aanspreekpunt. Welke stap is niet vereist om er toegang toe te krijgen?",
       "options": [
-        "Onder de GGC, de Brusselse bicommunautaire overheid",
-        "Onder de federale overheid, via het opvangagentschap Fedasil",
-        "Onder het Brussels Hoofdstedelijk Gewest, via Bruss'Help",
-        "Onder de Federatie Wallonië-Brussel, via de jeugdhulp"
+        "Het vooraf indienen van een klacht",
+        "De domiciliëring in een Brusselse gemeente",
+        "Een medisch attest van minder dan drie maanden",
+        "Een voorafgaande begeleiding door een OCMW"
       ],
       "correct": 0,
-      "explanation": "De opvangplaatsen die in 2026 werden geschrapt, vallen daarentegen onder de federale overheid. Een weigering bij Samusocial verwijst dus niet naar een federaal loket, maar naar de straat, naar een gemeentelijk OCMW of naar de verenigingssector.",
+      "explanation": "Het aanspreekpunt wordt opgericht binnen Olista, een dienst gespecialiseerd in intrafamiliaal geweld, die elke situatie moet beoordelen en de slachtoffers moet doorverwijzen. De nota bundelt zesendertig maatregelen rond zes prioriteiten, met 520 000 euro voor alle Brusselse niveaus samen en een uitvoering verwacht op 1 juli 2027.",
       "sourceSlug": "/nl/domeinen/social",
-      "sourceTitle": "Sociaal: duizend opvangplaatsen geschrapt, Samusocial verzadigd, OCMW's onder druk",
+      "sourceTitle": "Sociaal: opvangsysteem gehalveerd, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:91654f40fa674ce069021c3c84bab9cd",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:55db5cc93745f6123171fe1abd6164f8",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Het openbaar onderzoek dat op 28 augustus 2026 startte over de verkavelingsvergunning voor de Josaphatsite, tussen Evere en Meiser, gaat over hoeveel woningen?",
+      "question": "Wat voorziet het masterplan voor de Abattoir-site in Kuregem, waarvan de goedkeuring door de Brusselse regering op 2 september 2026 werd gemeld?",
       "options": [
-        "537 woningen",
-        "240 woningen",
-        "780 woningen",
-        "1 050 woningen"
+        "Het eerste permanente openluchtzwembad van Brussel",
+        "De eerste overdekte hal voor groenteteelt van het land",
+        "Het eerste volledig passieve woningpark van het Gewest",
+        "Het eerste stedelijke vrachtstation aangesloten op het kanaal"
       ],
       "correct": 0,
-      "explanation": "De aanvraag komt van de Maatschappij voor Stedelijke Inrichting, een gewestelijke overheidsoperator, op een terrein van ongeveer 24 hectare. Een verkavelingsvergunning regelt de percelen en de wegenis: bouwen vergt een aparte aanvraag en een nieuw openbaar onderzoek.",
+      "explanation": "Het zwemcomplex is voorzien op het dak van het gebouw Manufacture, met een buitenbad, een overdekt bad van vijfentwintig meter en een leerbad. De aangekondigde kalender loopt van een aanbesteding in 2026 tot een opening gemikt op 2030, op een terrein van ongeveer tien hectare.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:4d25cc36601fb1860ee3fed3405e3cff",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:5d90723c9bb36a817d37295f8e98d753",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Het Brusselse besluit van 9 juli 2026 over toeristische logies schrapt het stedenbouwkundig conformiteitsattest voor woningen die de hoofdverblijfplaats van de verhuurder zijn. Waardoor wordt het vervangen?",
+      "question": "Wat voorziet de gewestelijke beleidsverklaring van 13 februari 2026 over het advies van de KCML?",
       "options": [
-        "Door een vereenvoudigd veiligheidsattest, geplafonneerd op 150 euro",
-        "Door een verklaring op eer van de verhuurder, zonder kosten of controle",
-        "Door een verplicht gemeentelijk bezoek om de drie jaar, aan 300 euro",
-        "Door een inschrijving in het gewestelijke register van logies, aan 75 euro"
+        "Het eensluidend advies vervangen door een gewoon advies",
+        "Het eensluidend advies uitbreiden tot alle beschermde zones",
+        "De commissie afschaffen ten voordele van urban.brussels",
+        "Het eensluidend advies afdwingbaar maken voor de Raad van State"
       ],
       "correct": 0,
-      "explanation": "De schriftelijke controle slaat op vier elementen: de elektriciteits-, gas- en verwarmingsinstallatie en de aanwezigheid van een brandblusser. De maatregel treedt in werking op 1 januari 2027.",
+      "explanation": "Een eensluidend advies bindt de overheid die de vergunning aflevert, een gewoon advies bindt haar niet. Het aangekondigde doel is renovatieprojecten in beschermde zones deblokkeren zonder de erfgoedbescherming af te schaffen.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:4d25cc36601fb1860ee3fed3405e3cff",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:5d90723c9bb36a817d37295f8e98d753",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -606,21 +606,21 @@
       "id": "dossier-accessibilite-pmr-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welke verplichting legt de handistreaming-ordonnantie van 8 december 2016 op aan het Brussels Gewest?",
+      "question": "Wat bevestigde de Brusselse minister van Mobiliteit op 17 maart 2026 in parlementaire commissie over de Taxibus-dienst van de MIVB?",
       "options": [
-        "Rekening houden met handicap in al zijn beleid",
-        "Een quotum aangepaste woningen per gemeente voorbehouden",
-        "In elke gemeente een opvangcentrum financieren",
-        "Het openbaar vervoer toegankelijk maken vóór eind 2028"
+        "De niet-vervanging van de twaalf minibussen, vervangen door privétaxi's",
+        "De verdubbeling van het maandelijkse plafond aan ritten per gebruiker",
+        "De kosteloosheid van de dienst voor wie een uitkering ontvangt",
+        "De openstelling van de dienst voor de randgemeenten"
       ],
       "correct": 0,
-      "explanation": "De ordonnantie van 8 december 2016 dekt ook de overheidsopdrachten en de subsidies, en verplicht de regering om het Parlement een tussentijds rapport en een eindrapport van de legislatuur te bezorgen.",
+      "explanation": "De dienst was in juli 2025 al beperkt tot zestig ritten per maand en per gebruiker. Hij voerde in 2025 202 091 ritten uit, waarvan 85 % per taxi en 15 % per minibus, en de overgang naar privétaxi's is aangekondigd tegen eind 2027. De gewestelijke dotatie steeg van 4,7 naar 6,7 miljoen euro per jaar.",
       "sourceSlug": "/nl/dossiers/accessibilite-pmr",
       "sourceTitle": "Toegankelijkheid PBM",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:4824d3480ed39dbfcc41f68a89a338a9",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:08129d220d21fba1b9f558c10c0e4753",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Volgens de cijfers van de POD Maatschappelijke Integratie voor de eerste helft van 2026, welk aandeel van de aanvragen voor een leefloon door uit de werkloosheid uitgesloten personen werd geweigerd?",
+      "question": "Hoe evolueert de federale terugbetaling van het leefloon dat wordt uitgekeerd aan personen uit de eerste golf van werkloosheidsuitsluitingen, volgens de projectie die Sint-Jans-Molenbeek op 11 september 2026 voorstelde?",
       "options": [
-        "17 %",
-        "34 %",
-        "53 %",
-        "8 %"
+        "Van 100 % in 2026 naar 75 % in 2029",
+        "Van 100 % in 2026 naar 90 % in 2029",
+        "Van 85 % in 2026 naar 60 % in 2029",
+        "Van 90 % in 2026 naar 50 % in 2029"
       ],
       "correct": 0,
-      "explanation": "Dat zijn ongeveer 9 000 weigeringen op 52 600 aanvragen, meestal omdat het gezinsinkomen te hoog werd bevonden. De aanvraaggraad van 43,9 % in Brussel overschat dus de werkelijke dekking van wie zijn rechten verliest.",
+      "explanation": "Dat is 90 % in 2027 en 80 % in 2028. Het OCMW telde 1 740 dossiers verbonden aan de uitsluitingen op 31 augustus 2026 en becijfert op 16,3 miljoen euro het deel van het leefloon dat van 2027 tot 2029 te zijnen laste blijft. Voor de tweede golf bedraagt de federale terugbetaling van meet af aan slechts 85 %.",
       "sourceSlug": "/nl/dossiers/cpas-bruxellois",
       "sourceTitle": "Brusselse OCMW's",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:2f67947616b4ca677074af9df89cf4d1",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:f6ca27f1adddab7e28f655a90ca325d5",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -836,21 +836,21 @@
       "id": "dossier-data-centers-ia-energie-0",
       "source": "dossier",
       "domain": "Digitaal",
-      "question": "Welke omslag heeft zich voorgedaan in het wereldwijde energieverbruik van kunstmatige intelligentie, volgens de gegevens van 2024?",
+      "question": "Wat voorziet het toekomstige Europese efficiëntielabel voor datacenters voor een installatie die de slechtste score zou behalen?",
       "options": [
-        "De inferentie weegt voortaan zwaarder door dan de training",
-        "De training weegt voortaan zwaarder door dan de inferentie",
-        "De opslag weegt voortaan zwaarder door dan de berekening",
-        "De koeling weegt voortaan zwaarder door dan de berekening"
+        "Geen enkele sanctie: ze blijft volkomen in regel",
+        "Een boete evenredig met haar jaarlijkse verbruik",
+        "Een verbod om haar geïnstalleerde capaciteit uit te breiden",
+        "Een verplichte conformiteitsstelling binnen twee jaar"
       ],
       "correct": 0,
-      "explanation": "Het dagelijkse gebruik van de modellen staat voor 60 tot 70 % van de energie die kunstmatige intelligentie verbruikt, tegenover 20 tot 30 % voor de training. Het zijn de vragen van de gebruikers die op het energiesysteem wegen.",
+      "explanation": "De verordening legt geen enkele minimumdrempel op. De hefboom ligt elders, en de voorbereidende werkzaamheden zeggen het uitdrukkelijk: het label moet dienen bij de toegang tot groene financiering, bij overheidsopdrachten en bij de evaluaties voorzien in de toekomstige Europese verordening over cloud en kunstmatige intelligentie. Het is een markt- en reputatiedwang, geen juridische.",
       "sourceSlug": "/nl/dossiers/data-centers-ia-energie",
       "sourceTitle": "Datacenters & AI",
       "provenance": {
-        "sourceLastModified": "2026-06-17",
-        "sourceContentHash": "sha256:c0cc232b316656ce9eb545084fd52a9c",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:067706e951a1d359a1ed94bac433abab",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -859,21 +859,21 @@
       "id": "dossier-data-centers-ia-energie-1",
       "source": "dossier",
       "domain": "Digitaal",
-      "question": "Wat voorziet de Brusselse gewestelijke beleidsverklaring van 13 februari 2026 over datacenters?",
+      "question": "Vanaf welke datum moet elk Brussels datacenter met minstens 500 kW geïnstalleerd IT-vermogen een openbare score met een waterindicator dragen?",
       "options": [
-        "Niets, ze bevat geen enkele specifieke verwijzing",
-        "Een moratorium op elke nieuwe gewestelijke vestiging",
-        "Een gewestelijke belasting op het elektriciteitsverbruik",
-        "Een verplichting tot recuperatie van de geproduceerde warmte"
+        "15 augustus 2027",
+        "1 januari 2027",
+        "31 december 2028",
+        "15 augustus 2029"
       ],
       "correct": 0,
-      "explanation": "De digitale transitie en de energie-klimaatstrategie worden er afzonderlijk behandeld, zonder vermelding van de energie-impact van de sector. Op federaal niveau zal het ontwikkelingsplan van het Elia-net 2028-2038 die vraag uitdrukkelijk behandelen.",
+      "explanation": "Onder die drempel blijft de deelname vrijwillig, ook voor sites in ontwerp of in aanbouw, en installaties van defensie en civiele bescherming zijn vrijgesteld. Dit dossier stelt vast dat geen enkel gegeven over waterverbruik beschikbaar is voor BRU01, het datacenter van Neder-Over-Heembeek: die vervaldag zet een datum op het einde van die leemte.",
       "sourceSlug": "/nl/dossiers/data-centers-ia-energie",
       "sourceTitle": "Datacenters & AI",
       "provenance": {
-        "sourceLastModified": "2026-06-17",
-        "sourceContentHash": "sha256:c0cc232b316656ce9eb545084fd52a9c",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:067706e951a1d359a1ed94bac433abab",
+        "generatedAt": "2026-09-18T13:39:34.731Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

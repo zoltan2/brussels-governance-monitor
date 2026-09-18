@@ -46,10 +46,21 @@ describe('hashQuestion', () => {
   })
 
   /**
-   * Lien avec les données réelles, formulé pour ne pas dépendre d'un compte :
-   * une relecture peut légitimement retomber quand une question est
-   * régénérée, mais elles ne peuvent pas TOUTES tomber d'un coup. C'est
-   * exactement ce que produirait un changement de séparateur.
+   * Lien avec les données réelles. Ce que ce test traque est un changement de
+   * séparateur dans `hashQuestion`, qui ferait tomber TOUTES les
+   * correspondances à zéro, en silence.
+   *
+   * Le seuil est donc « au moins une », et non « une majorité ». La version
+   * précédente exigeait plus de la moitié : elle confondait la régression
+   * technique avec une régénération éditoriale massive, qui est un événement
+   * normal du pipeline. Le 2026-09-18, la régénération intégrale du pool
+   * français a laissé 24 correspondances sur 68 questions estampillées, et ce
+   * test échouait alors que le séparateur n'avait pas bougé.
+   *
+   * La garantie ne s'en trouve pas affaiblie : l'algorithme est verrouillé par
+   * le vecteur figé du premier test, qui ne dépend d'aucune donnée du dépôt, et
+   * par le second, qui interdit l'espace comme séparateur. Celui-ci ne fait que
+   * relier les deux aux données réelles.
    */
   it('les hashes enregistrés correspondent encore au pool français', () => {
     const root = path.join(__dirname, '..', '..')
@@ -68,6 +79,6 @@ describe('hashQuestion', () => {
     expect(
       matching.length,
       'plus aucun hash enregistré ne correspond : le séparateur a changé',
-    ).toBeGreaterThan(stamped.length / 2)
+    ).toBeGreaterThan(0)
   })
 })

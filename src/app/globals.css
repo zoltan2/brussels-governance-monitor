@@ -113,6 +113,44 @@ html {
   font-size: calc(16px * var(--font-scale, 1));
 }
 
+/* OpenDyslexic, servi en local.
+   L'option « police dyslexique » injectait une feuille de style depuis
+   fonts.cdnfonts.com, que notre propre CSP bloque (style-src 'self'
+   'unsafe-inline', next.config.ts). La classe s'appliquait, le lien
+   s'insérait, et la police n'arrivait jamais : l'option était visible et
+   inopérante pour le public qui en dépend le plus.
+   Servie depuis /fonts, elle passe par font-src 'self', déjà autorisé, donc
+   sans affaiblir la CSP ni exposer l'adresse IP des lecteurs à un tiers.
+   OFL-1.1, antijingoist/opendyslexic. Licence dans public/fonts/OFL.txt. */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* Dyslexic-friendly font override */
 .dyslexic-font {
   --font-sans: 'OpenDyslexic', 'Comic Sans MS', ui-sans-serif, sans-serif;

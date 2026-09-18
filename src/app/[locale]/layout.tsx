@@ -176,7 +176,7 @@ export default async function LocaleLayout({
         )}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=JSON.parse(localStorage.getItem('bgm-a11y')||'{}');if(p.dark){document.documentElement.classList.add('dark');}else if(localStorage.getItem('bgm-a11y')){document.documentElement.classList.add('light-forced');}if(p.highContrast)document.documentElement.classList.add('high-contrast');if(p.dyslexicFont){document.documentElement.classList.add('dyslexic-font');var l=document.createElement('link');l.id='dyslexic-font-link';l.rel='stylesheet';l.href='https://fonts.cdnfonts.com/css/opendyslexic';document.head.appendChild(l);}if(p.fontScale)document.documentElement.style.setProperty('--font-scale',String(p.fontScale));}catch(e){}})()`,
+            __html: `(function(){try{var p=JSON.parse(localStorage.getItem('bgm-a11y')||'{}');if(p.dark){document.documentElement.classList.add('dark');}else if(localStorage.getItem('bgm-a11y')){document.documentElement.classList.add('light-forced');}if(p.highContrast)document.documentElement.classList.add('high-contrast');if(p.dyslexicFont)document.documentElement.classList.add('dyslexic-font');if(p.fontScale)document.documentElement.style.setProperty('--font-scale',String(p.fontScale));}catch(e){}})()`,
           }}
         />
       </head>

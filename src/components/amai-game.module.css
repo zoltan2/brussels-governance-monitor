@@ -1,0 +1,98 @@
+/* SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+   Copyright (c) 2024-2026 Advice That SRL. All rights reserved. */
+
+/* Amai ! natif, dans le panneau de jeux. Repris du widget du jeu
+   (zoltan2/amai, widget/AmaiWidget.jsx). Couleurs FIGÉES : le jeu garde son
+   fond nuit en clair comme en sombre. */
+
+.racine {
+  --pageY: 16px;
+  --cardY: 22px;
+  --cardX: 18px;
+  --qMb: 16px;
+  --anchorY: 12px;
+  --anchorMb: 16px;
+  --btnY: 14px;
+  --nextMt: 14px;
+
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--pageY) 16px 24px;
+  background: #14204f;
+  color: #fff;
+}
+
+.fondu {
+  animation: fondu 0.35s ease both;
+}
+@keyframes fondu {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.bouton {
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    filter 0.12s ease;
+  touch-action: manipulation;
+}
+.bouton:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+.bouton:focus-visible,
+.lien:focus-visible {
+  outline: 3px solid #f5c518;
+  outline-offset: 2px;
+}
+
+.tampon {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: #f5c518;
+  color: #14204f;
+  font-weight: 900;
+  font-stretch: 115%;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  transform: rotate(-6deg);
+  animation: tampon 0.4s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+@keyframes tampon {
+  from {
+    transform: rotate(-6deg) scale(2);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(-6deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.lien {
+  display: inline-block;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fondu,
+  .tampon,
+  .bouton {
+    animation: none;
+    transition: none;
+  }
+  .bouton:hover {
+    transform: none;
+  }
+}

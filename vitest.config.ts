@@ -24,6 +24,9 @@ export default defineConfig({
       // Généré au build dans `public/`, donc inexistant en test — et Vite
       // refuse d'importer un fichier de `public/`.
       '/pagefind/pagefind.js': resolve(__dirname, 'src/test/pagefind-stub.ts'),
+      // Résolu par le compilateur de Next seulement : les polices des jeux
+      // (src/lib/fonts-jeux.ts) feraient tomber le test du panneau de jeux.
+      'next/font/google': resolve(__dirname, 'src/test/next-font-stub.ts'),
     },
   },
 });

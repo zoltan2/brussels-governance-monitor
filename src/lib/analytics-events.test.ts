@@ -59,6 +59,9 @@ const EVENEMENTS_LIENS = [
   'accueil-fiche',
   'accueil-quiz',
   'accueil-inscription',
+  // Jeux natifs du panneau : les sorties vers le site.
+  'jeux-stuut-dossier',
+  'jeux-amai-barometre',
 ];
 
 /** Les actions sans navigation, mesurées par appel explicite. */
@@ -67,6 +70,13 @@ const EVENEMENTS_ACTIONS = [
   'jeux-onglet',
   'jeux-question-repondue',
   'jeux-quiz-complet',
+  // Jeux natifs : fin de partie, partage et défi. Ils remplacent les mesures que
+  // chaque jeu faisait dans son propre site Umami quand il était encadré.
+  'jeux-stuut-termine',
+  'jeux-stuut-partage',
+  'jeux-stuut-defi',
+  'jeux-amai-termine',
+  'jeux-amai-partage',
 ];
 
 describe('suivi Umami de la page d’accueil', () => {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T13:43:10.607Z",
+  "generatedAt": "2026-09-18T13:59:54.038Z",
   "locale": "nl",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -1158,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "De petitie om de deelsteps in Brussel te behouden, ingediend op 18 juni 2026 op democratie.brussels, haalde de drempel die het Brussels Parlement verplicht zich erover te buigen. Hoe hoog ligt die drempel?",
+      "question": "Tot welk jaar blijft de concessie van de Villo-deelfietsen behouden, volgens het startgesprek van het werkjaar met de gewestelijke minister van Mobiliteit op 8 september 2026?",
       "options": [
-        "1 000 handtekeningen",
-        "500 handtekeningen",
-        "5 000 handtekeningen",
-        "15 000 handtekeningen"
+        "Tot 2028",
+        "Tot 2026",
+        "Tot 2030",
+        "Tot 2027"
       ],
       "correct": 0,
-      "explanation": "Ze telde 1 595 handtekeningen op 12 augustus 2026, het meest ondertekende initiatief van het platform. De drempel halen garandeert een debat, maar verplicht de meerderheid niet van standpunt te veranderen en schorst het verbod van 1 januari 2027 niet.",
+      "explanation": "Het gaat om een correctie: het dossier vermeldde eerder een afloop in september 2026 zonder geïdentificeerde opvolger. Een oproep tot kandidaten is aangekondigd, met als doel een jaarabonnement rond 35 euro en een tarief per half uur te behouden.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:d269e26f677df19ac2dca02b28e1e5c8",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:2ee84ca70fa5e46027945d02451ff009",
+        "generatedAt": "2026-09-18T13:59:54.038Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1181,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Het arrest van de Raad van State van 29 juli 2026 vernietigde de licenties voor gedeelde mobiliteit die in 2023 in Brussel werden toegekend. Wie had het beroep ingediend dat tot die vernietiging leidde?",
+      "question": "Welk effect had het arrest van de Raad van State van 29 juli 2026 op het verbod op deelsteps in Brussel?",
       "options": [
-        "Lime, de operator die bij de toekenning van 2023 werd geweerd",
-        "Bolt, een van de twee operatoren die in 2023 werden geselecteerd",
-        "De federatie van Brusselse fietsersverenigingen",
-        "De gemeente Schaarbeek, namens de buurtbewoners"
+        "Het vervroegde het met vier maanden, zonder het in vraag te stellen",
+        "Het vernietigde het, waardoor de markt heropende voor twee operatoren",
+        "Het stelde het een jaar uit, tot de stemming van een nieuwe ordonnantie",
+        "Het breidde het uit tot de deelfietsen met vaste verankering"
       ],
       "correct": 0,
-      "explanation": "De winnende verzoeker zou begunstigde kunnen worden van de overgangsregeling in voorbereiding, naast de operatoren die al actief zijn. Het verbod op deelsteps in vrije vloot blijft vastgelegd op 1 januari 2027.",
+      "explanation": "Het verbod, beslist op 11 juni 2026 en vastgelegd op 1 januari 2027, wordt niet geraakt: het arrest vernietigt de licenties, wat de terugtrekking van de toestellen uit de openbare ruimte oplegt vanaf 1 september 2026. Voor de deelfietsen in vrije vloot is het effect anders, aangezien de regering dat aanbod wilde behouden.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-08-12",
-        "sourceContentHash": "sha256:d269e26f677df19ac2dca02b28e1e5c8",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:2ee84ca70fa5e46027945d02451ff009",
+        "generatedAt": "2026-09-18T13:59:54.038Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Welk verschil in dekkingsgraad van kinderopvangplaatsen scheidt de Brusselse gemeenten, volgens de studie van perspective.brussels van oktober 2024?",
+      "question": "Welk aandeel van de geïnspecteerde Nederlandstalige Brusselse crèches kreeg sinds 2022 een verplichting om zich in regel te stellen, volgens de analyse van de inspectieverslagen die op 9 september 2026 werd gepubliceerd?",
       "options": [
-        "67 % in Etterbeek tegenover 16 % in Anderlecht",
-        "45 % in Etterbeek tegenover 38 % in Anderlecht",
-        "80 % in Etterbeek tegenover 60 % in Anderlecht",
-        "30 % in Etterbeek tegenover 25 % in Anderlecht"
+        "23 %, oftewel 34 crèches op 146 geïnspecteerde",
+        "10 %, oftewel 15 crèches op 146 geïnspecteerde",
+        "41 %, oftewel 60 crèches op 146 geïnspecteerde",
+        "28 %, oftewel 41 crèches op 146 geïnspecteerde"
       ],
       "correct": 0,
-      "explanation": "Twee op de drie ouders noemen de zoektocht naar een plaats moeilijk of zeer moeilijk, volgens de Ligue des Familles. De postcode bepaalt in grote mate of iemand na een moederschapsverlof weer aan het werk kan.",
+      "explanation": "Het Vlaamse gemiddelde bedraagt 10 %, de Vlaamse Rand 28 %, Antwerpen en Gent 11 %. Een tweede cijfer weegt even zwaar: slechts 30 % van de Brusselse crèches kende minstens twee inspecties in drie jaar, wat ertoe aanzet dat percentage als een ondergrens te lezen en niet als een saldo.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:33b7d5974f2a91fe4e82a5f91949b184",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:1e763a48784366ac848893fee549b0ba",
+        "generatedAt": "2026-09-18T13:55:42.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Welke overheid verleent de vergunningen aan de bicommunautaire crèches in Brussel?",
+      "question": "Waarom kunnen de inspectiecijfers van de Nederlandstalige Brusselse crèches niet worden vergeleken met die van de Franstalige crèches?",
       "options": [
-        "Iriscare, voor de Gemeenschappelijke Gemeenschapscommissie",
-        "De ONE, voor de Federatie Wallonië-Brussel",
-        "Opgroeien, voor de Vlaamse Gemeenschap",
-        "Brussel Economie en Werkgelegenheid, voor het Gewest"
+        "Drie overheden inspecteren apart, elk met eigen criteria",
+        "De Franstalige crèches worden helemaal niet geïnspecteerd",
+        "De Franstalige verslagen verschijnen maar om de vijf jaar",
+        "Het Gewest centraliseert de gegevens zonder ze per net uit te splitsen"
       ],
       "correct": 0,
-      "explanation": "Het is de enige overheid die tot een strikt Brussels bevoegdheidsniveau behoort. De Franstalige crèches hangen af van de ONE en de Nederlandstalige van Opgroeien, elk met een eigen budget.",
+      "explanation": "Opgroeien inspecteert het Nederlandstalige net, de ONE het Franstalige net en Iriscare de bicommunautaire structuren, elk met eigen verslagen en criteria. Geen enkele publicatie consolideert de drie stelsels voor Brussel, en het cijfer van 23 % zegt dus niets over de toestand van de Franstalige of bicommunautaire crèches.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:33b7d5974f2a91fe4e82a5f91949b184",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:1e763a48784366ac848893fee549b0ba",
+        "generatedAt": "2026-09-18T13:55:42.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutioneel",
-      "question": "Wat is het becijferde doel van de hervorming die het Brusselse gewestelijke bestuur hergroepeert, aangekondigd in de gewestelijke beleidsverklaring van februari 2026?",
+      "question": "Met hoeveel daalde het personeelsbestand van het Brussels Gewest sinds januari 2026, volgens de minister van Begroting en Openbaar Ambt, geciteerd op 12 september 2026?",
       "options": [
-        "Van ongeveer 25 entiteiten naar 4 grote pijlers gaan",
-        "Van ongeveer 40 entiteiten naar 10 grote pijlers gaan",
-        "Van ongeveer 15 entiteiten naar 2 grote pijlers gaan",
-        "Van ongeveer 60 entiteiten naar 12 grote pijlers gaan"
+        "Met meer dan 500 voltijdse equivalenten",
+        "Met meer dan 1 800 voltijdse equivalenten",
+        "Met meer dan 120 voltijdse equivalenten",
+        "Met meer dan 3 000 voltijdse equivalenten"
       ],
       "correct": 0,
-      "explanation": "Het aangekondigde doel is 250 tot 300 miljoen euro besparingen tegen 2029. De vier pijlers dekken de gemeenschappelijke ondersteuning, de organieke opdrachten, infrastructure.brussels en een grondplatform.",
+      "explanation": "Daarvan 338 op vier maanden sinds de verstrenging van het aanwervingsmoratorium in maart 2026. Vertrekkers worden niet meer automatisch vervangen, maar gerichte aanwervingen blijven mogelijk waar de dienst het vereist. De omtrek van de telling wordt niet gepreciseerd en geen enkel officieel bericht ging ermee gepaard, terwijl het Gewest ongeveer 12 000 personeelsleden telt.",
       "sourceSlug": "/nl/dossiers/reforme-administration",
       "sourceTitle": "Hervorming bestuur",
       "provenance": {
-        "sourceLastModified": "2026-07-07",
-        "sourceContentHash": "sha256:b539c5851d8e7f2543e9c6a10eb1a5ba",
-        "generatedAt": "2026-08-25T12:39:57.281Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:c5f6c8163776773ef72ff1b1024d4980",
+        "generatedAt": "2026-09-18T13:55:42.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Waarvoor dienen de 61 miljoen euro die in juli 2026 voor de BGHM zijn vrijgemaakt?",
+      "question": "Wat verwijten verschillende openbare vastgoedmaatschappijen aan de BGHM, die volgens een persbericht van 11 september 2026 weigeren er hun liquiditeiten te laten staan?",
       "options": [
-        "Voor het strategisch plan voor duurzame renovatie van het sociale woningpark",
-        "Voor de aankoop van gronden bestemd voor nieuwbouw",
-        "Voor de vervroegde terugbetaling van de schuld aan het Gewest",
-        "Voor de baremieke opwaardering van het personeel van de maatschappijen"
+        "Dat ze die gebruikt om de moeilijkheden van andere maatschappijen op te vangen",
+        "Dat ze die bedragen op risicovolle financiële producten plaatst",
+        "Dat ze de doorstorting van de bij de huurders geïnde huren vertraagt",
+        "Dat ze op elke beweging een beheerscommissie afhoudt"
       ],
       "correct": 0,
-      "explanation": "Het plan loopt over 2026-2035, met 219 geplande projecten waarvan er 117 al in uitvoering zijn. De BGHM is de gewestelijke instelling die instaat voor de renovatie van het sociale woningpark.",
+      "explanation": "De BGHM groepeert de rekeningen van de zestien openbare vastgoedmaatschappijen. Die gemeenschappelijke pot vertoonde een tekort van ongeveer 60 miljoen euro en de koepelinstelling was er in november 2025 mee gestopt die aan te vullen. Die spanningen komen bovenop de blokkering van de gewestelijke dotatie van 131 miljoen.",
       "sourceSlug": "/nl/dossiers/slrb",
       "sourceTitle": "BGHM",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:d03b61a4bb2183189a8d5665a7777264",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:749d890563a38d73379fa82ad899e546",
+        "generatedAt": "2026-09-18T13:55:42.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Welk middel koos de Brusselse regering in januari 2026 om de financiën van de BGHM te saneren?",
+      "question": "Naar welke termijn werd de blokkering van de 131 miljoen euro gewestelijke dotatie voor de BGHM verwezen, volgens de informatie van 8 september 2026?",
       "options": [
-        "De verkoop van activa, waaronder ongeveer 200 sociale woningen",
-        "Een algemene huurverhoging van 3 % per jaar",
-        "Een lening gewaarborgd door de 19 Brusselse gemeenten",
-        "De fusie van de 16 erkende vastgoedmaatschappijen"
+        "Naar het begrotingsconclaaf van begin oktober 2026",
+        "Naar de stemming van de gewestbegroting van maart 2027",
+        "Naar het einde van de opdracht van de bijzondere commissaris",
+        "Naar de volgende aanpassing van de begroting in juni 2027"
       ],
       "correct": 0,
-      "explanation": "De sites Ariane in Sint-Lambrechts-Woluwe en Paleizen in Schaarbeek zijn betrokken. Die verkopen moeten de schuld van de BGHM verlagen, naast een enveloppe van 400 miljoen euro voor meer dan duizend openbare woningen.",
+      "explanation": "Daar stelt de regering de begroting 2027 vast. De gevraagde tegenprestatie is de omzetting in beslissingen van de aanbevelingen van de onderzoekscommissie over de Anderlechtse Haard. Het bedrag vertegenwoordigt een deel van de 400 miljoen die voor de legislatuur zijn voorzien.",
       "sourceSlug": "/nl/dossiers/slrb",
       "sourceTitle": "BGHM",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:d03b61a4bb2183189a8d5665a7777264",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:749d890563a38d73379fa82ad899e546",
+        "generatedAt": "2026-09-18T13:55:42.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Op 11 augustus 2026 daagden tweeënveertig gezinnen uit Dilbeek, Lennik en Roosdaal de Belgische Staat voor de rechter over de vliegroute RNP 07L van Brussels Airport. Wat kenmerkt die route?",
+      "question": "Hoeveel overschrijdingen van de Brusselse geluidsnormen registreerde Leefmilieu Brussel tussen januari en april 2026?",
       "options": [
-        "De daling naar baan 07L begint ver ten westen van de luchthaven",
-        "Ze bundelt de opstijgingen naar het zuidoosten, boven het Zoniënwoud",
-        "Ze houdt baan 07L voor van middernacht tot zes uur voor nachtvluchten",
-        "Ze leidt de vrachtvliegtuigen om boven het kanaal en de haven van Brussel"
+        "3 815 overschrijdingen",
+        "1 240 overschrijdingen",
+        "8 600 overschrijdingen",
+        "4 758 overschrijdingen"
       ],
       "correct": 0,
-      "explanation": "De route wordt door satellieten geleid en voert daarna over het noordwesten van het Gewest, onder meer Sint-Jans-Molenbeek, Koekelberg en Sint-Agatha-Berchem. Ingevoerd als test in 2025, werd ze verlengd tot oktober 2026.",
+      "explanation": "Dat is ongeveer negenhonderdvijftig per maand, tegenover vierhonderdzesenzeventig per maand over tien maanden in 2025: het ritme verdubbelt. Een leesvoorbehoud dringt zich op, want ongeveer 80 % van de overschrijdingen komt van één enkel meetstation, in Sint-Jans-Molenbeek. Die concentratie situeert de vaststelling, maar maakt de reeks afhankelijk van één meetpunt.",
       "sourceSlug": "/nl/dossiers/survol-bruxelles",
       "sourceTitle": "Overvliegen Brussel",
       "provenance": {
-        "sourceLastModified": "2026-08-23",
-        "sourceContentHash": "sha256:a77a5e048eb541b9813f7905f92e32e6",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:85b46782f0321ba7ffc61440138f5af4",
+        "generatedAt": "2026-09-18T13:55:42.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

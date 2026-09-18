@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-18T13:39:34.731Z",
+  "generatedAt": "2026-09-18T13:43:10.607Z",
   "locale": "nl",
-  "poolSize": 67,
+  "poolSize": 68,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -882,21 +882,21 @@
       "id": "dossier-enseignement-0",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Wie organiseert het leerplichtonderwijs dat Brusselse kinderen volgen?",
+      "question": "Met hoeveel steeg het standaard inschrijvingsgeld van het hoger onderwijs in de Federatie Wallonië-Brussel bij de start van het academiejaar 2026-2027?",
       "options": [
-        "De Federatie Wallonië-Brussel of de Vlaamse Gemeenschap",
-        "Het Brussels Hoofdstedelijk Gewest, via zijn administratie",
-        "De negentien gemeenten, elk voor hun grondgebied",
-        "De Gemeenschappelijke Gemeenschapscommissie, de GGC"
+        "Van 835 naar 1 194 euro per jaar",
+        "Van 835 naar 1 002 euro per jaar",
+        "Van 920 naar 1 194 euro per jaar",
+        "Van 750 naar 1 050 euro per jaar"
       ],
       "correct": 0,
-      "explanation": "Het Gewest, waarvoor de gezinnen gewestelijke belastingen betalen, heeft nagenoeg geen bevoegdheid over het leerplichtonderwijs. Het kan noch de besparingen tegenhouden die het Parlement van de Federatie stemt, noch die welke het Vlaams Parlement stemt.",
+      "explanation": "Dat is een stijging met ongeveer 43 %, voorgesteld als een inhaalbeweging voor de indexering sinds 2011. Ze past in een besparingsplan van 500 miljoen euro over 2026-2029, waarvan 86,7 miljoen op het leerplichtonderwijs weegt vanaf het eerste jaar.",
       "sourceSlug": "/nl/dossiers/enseignement",
       "sourceTitle": "Onderwijs",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:54bd282b78543012092e3676d88afea8",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:8a94fb05525c34cfae5da4d8cb629ecb",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -905,21 +905,21 @@
       "id": "dossier-enseignement-1",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Welk aandeel van de Brusselse gezinnen met kinderen combineerde het Franstalige en het Nederlandstalige net, volgens de BISA-gegevens op 1 januari 2021?",
+      "question": "Welk aandeel van de leerkrachten in het Nederlandstalig Brussels onderwijs beschikte in 2023-2024 over het vereiste bekwaamheidsbewijs, volgens het Vlaams departement Onderwijs?",
       "options": [
-        "2,5 %",
-        "96 %",
-        "12 %",
-        "24 %"
+        "59 %, tegenover 75 % in Vlaanderen",
+        "72 %, tegenover 75 % in Vlaanderen",
+        "84 %, tegenover 91 % in Vlaanderen",
+        "45 %, tegenover 60 % in Vlaanderen"
       ],
       "correct": 0,
-      "explanation": "Van de 128 903 gezinnen die het BISA telt, laat 96 % de kinderen in één enkel systeem schoollopen. Ongeveer 2 897 gezinnen combineren de twee Gemeenschappen.",
+      "explanation": "In 2016 bedroeg dat aandeel in Brussel nog 72 %: het verslechterde met dertien punten op zeven jaar. Dezelfde administratieve gegevens, afgesloten in oktober 2024, tellen 459 ontbrekende leerkrachten in Brussel, van wie 293 in het basisonderwijs, voor 53 613 leerlingen.",
       "sourceSlug": "/nl/dossiers/enseignement",
       "sourceTitle": "Onderwijs",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:54bd282b78543012092e3676d88afea8",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:8a94fb05525c34cfae5da4d8cb629ecb",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -948,24 +948,47 @@
       }
     },
     {
+      "id": "dossier-foire-du-midi-0",
+      "source": "dossier",
+      "domain": "Cultuur",
+      "question": "Welke financiële informatie over de Zuidfoor wordt door geen enkele geraadpleegde officiële bron of persbron gepubliceerd?",
+      "options": [
+        "De schaal van de concessievergoedingen van de foorkramers",
+        "Het aantal attracties dat elk jaar wordt opgesteld",
+        "De exacte data die voor elke editie worden gekozen",
+        "De naam van het schepenambt dat het evenement stuurt"
+      ],
+      "correct": 0,
+      "explanation": "De uitsplitsing van de gemeentelijke kosten, politie, brandweer, netheid en infrastructuur, wordt evenmin gepubliceerd. Het enige beschikbare cijfer is eenmalig: ongeveer 500 000 euro compensatie aan de foorkramers bij de annulering van 2020. Dat is wat de omwonenden van de buurgemeenten sinds 2024 aanklagen, want de Stad Brussel int de vergoedingen terwijl de aangrenzende gemeenten een deel van de hinder opvangen.",
+      "sourceSlug": "/nl/dossiers/foire-du-midi",
+      "sourceTitle": "Zuidfoor",
+      "provenance": {
+        "sourceLastModified": "2026-07-09",
+        "sourceContentHash": "sha256:ccc9e6983aa6987103989e70e0219ecd",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Wat voorzien de 26 aanbevelingen die het Brussels Parlement op 17 juli 2026 heeft gestemd na de onderzoekscommissie over de sociale huisvesting?",
+      "question": "Welke rol speelde de bijzondere commissaris bij de herverkiezing van de voorzitter van de Anderlechtse Haard op 17 augustus 2026?",
       "options": [
-        "Het verbod op elke individuele tussenkomst van een bestuurder",
-        "De regelrechte afschaffing van de sociale huisvestingsmaatschappijen",
-        "De overdracht van de toewijzingen naar de gemeentecolleges",
-        "De publicatie met naam van alle wachtlijsten"
+        "Hij vroeg zelf om de stemming te organiseren",
+        "Hij nam het voorzitterschap over van de raad",
+        "Hij schorste de stemming tot het einde van zijn opdracht",
+        "Hij weigerde de raad van bestuur bijeen te roepen"
       ],
       "correct": 0,
-      "explanation": "De 26 aanbevelingen zijn geschreven voor de hele sector, zonder de betrokken maatschappij te noemen. Ze sluiten ook de toegang tot de gewestelijke gegevensbank af voor politieke mandatarissen en versterken de bescherming van klokkenluiders.",
+      "explanation": "Hij wilde een nieuwe stemming om een verward geworden situatie uit te klaren: een tijdelijke terugtrekking gestemd op 15 juni, een raad zonder quorum op 20 juni, een eerste herverkiezing op 10 juli met vijf stemmen op negen. Zijn opdracht, op 16 juli vastgelegd voor vier maanden, betreft het bijeenroepen van de organen, hun agenda, hun voorzitterschap en de machtiging om akten te ondertekenen.",
       "sourceSlug": "/nl/dossiers/foyer-anderlechtois",
       "sourceTitle": "Anderlechtse Haard",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:9cf8e682600b50051c11983734f41cd5",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:b7ea6c716f65cc589de60b483b2a807d",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -997,21 +1020,21 @@
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Waarrond hertekent het gewestelijk mobiliteitsplan dat Good Move moet opvolgen, voorzien in het Brusselse regeerakkoord van 12 februari 2026, zijn mazen?",
+      "question": "Hoe vaak werd de evaluatie van Good Move uitgesteld op de agenda van de Brusselse regering, op 10 september 2026?",
       "options": [
-        "De schoolzones",
-        "De gewestelijke stations",
-        "De handelszones",
-        "De parken en groene ruimten"
+        "Vier keer sinds begin juli 2026",
+        "Twee keer sinds begin juli 2026",
+        "Zes keer sinds begin april 2026",
+        "Drie keer sinds begin januari 2026"
       ],
       "correct": 0,
-      "explanation": "Het regeerakkoord voorziet kleinere mazen, de verwijdering van de betwiste bollards en een tweede autoloze dag per jaar. De filosofie van verkeersluwe wijken blijft behouden, op kleinere schaal.",
+      "explanation": "Het uitstel komt voort uit een onenigheid over de methode. Good Move blijft van kracht tot het volgende plan wordt aangenomen. De agenda's van de regering zijn niet openbaar en de informatie komt van één enkele redactie.",
       "sourceSlug": "/nl/dossiers/good-move",
       "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-04-16",
-        "sourceContentHash": "sha256:0f303aa5a0bf61a732e718608ab13c6b",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:8dd1228eac2325fa69b4fbeb76092462",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1020,21 +1043,21 @@
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Vanaf wanneer moet het plan dat Good Move moet opvolgen in werking treden, volgens de tijdlijn die de Brusselse minister van Mobiliteit in april 2026 heeft toegelicht?",
+      "question": "Welke termijnen legt de ordonnantie van 13 oktober 2023 over de mobiliteitsplanning op vóór de aanneming van een gewestelijk plan?",
       "options": [
-        "Vanaf 2030",
-        "Vanaf 2026",
-        "Vanaf 2027",
-        "Vanaf 2028"
+        "Zestig dagen advies, zestig dagen openbaar onderzoek",
+        "Dertig dagen advies, dertig dagen openbaar onderzoek",
+        "Negentig dagen advies, veertig dagen openbaar onderzoek",
+        "Vijftien dagen advies, honderd dagen openbaar onderzoek"
       ],
       "correct": 0,
-      "explanation": "De evaluatie moet eind 2026 afgerond zijn, gevolgd door een periode van mogelijke correcties tussen 2027 en 2030. De officiële naam van het toekomstige plan is niet meegedeeld.",
+      "explanation": "De procedure schakelt achtereenvolgens de evaluatie van het lopende plan, een ontwerp vergezeld van een milieueffectenrapport, het advies van de gemeenten en van de betrokken instanties, het openbaar onderzoek, en daarna de aanneming binnen de acht maanden na de sluiting daarvan. Het is die wettelijke weg die de minister van Mobiliteit voorstelt te volgen.",
       "sourceSlug": "/nl/dossiers/good-move",
       "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-04-16",
-        "sourceContentHash": "sha256:0f303aa5a0bf61a732e718608ab13c6b",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:8dd1228eac2325fa69b4fbeb76092462",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1043,21 +1066,21 @@
       "id": "dossier-lez-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wat gebeurt er met het jaarlijkse boeteplafond in de regeling van de lage-emissiezone (LEZ) die het Brusselse regeerakkoord van februari 2026 voorziet?",
+      "question": "Van de 1 890 boetes van de lage-emissiezone die sinds juli 2026 werden verstuurd, hoeveel waren er op 6 september 2026 effectief betaald?",
       "options": [
-        "Het wordt afgeschaft, terwijl de boete per overtreding daalt",
-        "Het wordt verdubbeld, net als de boete per overtreding",
-        "Het blijft behouden, met een onveranderde boete per overtreding",
-        "Het wordt gehalveerd, met een verhoogde boete per overtreding"
+        "Ongeveer 255, iets meer dan 13 %",
+        "Ongeveer 940, iets minder dan 50 %",
+        "Ongeveer 1 700, bijna 90 %",
+        "Ongeveer 630, een derde van het totaal"
       ],
       "correct": 0,
-      "explanation": "De boete per overtreding daalt van 350 naar 80 euro, maar het plafond van vier boetes per jaar verdwijnt. Een jaarpas van 350 euro, of 200 euro aan sociaal tarief, maakt het mogelijk om legaal te rijden.",
+      "explanation": "Dat is 89 152,50 euro geïnd. De administratie preciseert dat een deel van de betalingstermijnen nog loopt en dat de recentste boetes nog niet allemaal zijn verstuurd: het is een tussenstand, geen saldo. Het eerste halfjaar leverde 25 905 waarschuwingen op, voor een geschat bestand van 29 000 voertuigen in het Brussels Gewest.",
       "sourceSlug": "/nl/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-06-25",
-        "sourceContentHash": "sha256:717ac9dec5bee8eb13c941e357d89098",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:4e24578bf79b303265d7d5f0c9893fad",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1066,21 +1089,21 @@
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Op welk grondwettelijk beginsel steunde de Raad van State in zijn advies van februari 2026 zijn kritiek op de verlaging van de boetes van de Brusselse lage-emissiezone (LEZ)?",
+      "question": "Onder welke voorwaarde is een oldtimer vrijgesteld van de Brusselse lage-emissiezone?",
       "options": [
-        "Het standstill-beginsel inzake gezondheid",
-        "Het gelijkheidsbeginsel inzake gewestbelasting",
-        "Het evenredigheidsbeginsel van de sancties",
-        "Het rechtszekerheidsbeginsel voor de gebruikers"
+        "Enkel op zijn leeftijd, zonder controle van het werkelijke gebruik",
+        "Op een plafond van dertig rijdagen per jaar",
+        "Op een specifieke jaarlijkse technische keuring",
+        "Op een elk jaar hernieuwde vrijstellingsaanvraag"
       ],
       "correct": 0,
-      "explanation": "De verlaging van de boetes vormt volgens hem een achteruitgang van de gezondheidsbescherming van de Brusselaars. Hij oordeelt ook dat de voorgestelde bedragen te laag zijn om doeltreffend, evenredig en ontradend te zijn.",
+      "explanation": "De ANPR-camera's identificeren die voertuigen wel, maar controleren hun werkelijke gebruik niet: een weinig gebruikte verzamelwagen en een dagelijks rijdende oude wagen genieten dezelfde vrijstelling. Hun aantal steeg van 3 936 in 2019 naar 13 799 in 2024, en het aantal dat honderd dagen per jaar of meer rijdt van 17 naar 156.",
       "sourceSlug": "/nl/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-06-25",
-        "sourceContentHash": "sha256:717ac9dec5bee8eb13c941e357d89098",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:4e24578bf79b303265d7d5f0c9893fad",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1089,21 +1112,21 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wat beveelt de bijzondere commissie Metro 3 van het Brussels Parlement in haar conclusies van 9 juli 2026 aan voor elk groot gewestelijk infrastructuurproject?",
+      "question": "Wat heeft een Brusselse stedenbouwvereniging op 9 september 2026 naar eigen zeggen vastgesteld in de kelders van het Zuidpaleis?",
       "options": [
-        "Een eengemaakt bestuur, verenigd binnen één administratie",
-        "Een gewestelijk referendum vóór de start van de werken",
-        "Een volledige delegatie van het bouwheerschap aan het federale niveau",
-        "Een wettelijk budgetplafond vanaf het gekozen voorontwerp"
+        "Twee schuilkelders, gebouwd in 1940 en in 1943",
+        "Een grondwaterlaag die in de bodemstudies ontbreekt",
+        "Een technische galerij uit de Wereldtentoonstelling van 1935",
+        "Drie gewelfde kelders, in 1993 als erfgoed beschermd"
       ],
       "correct": 0,
-      "explanation": "Een duidelijk aangewezen projectdirecteur zou verantwoording afleggen aan de regering en het Parlement. De aanbevelingen zijn gebundeld in zes assen, na acht maanden werk en meer dan vijftig hoorzittingen.",
+      "explanation": "De vereniging beschrijft ze op 450 vierkante meter, met een capaciteit tot 1 500 personen, en vraagt archeologisch werk vóór de voortzetting van de ondergrondse werken. De redacties brengen de vondst niet op dezelfde manier: sommige schrijven dat het bestaan van de schuilkelders vaststaat, een andere spreekt van mogelijke schuilkelders.",
       "sourceSlug": "/nl/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:308a487edd53bc94f665d92c29158c9c",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:215824273828ede12a253392e0224cee",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1135,21 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Welk verschil scheidt de tekst over Metro 3 die het Brussels Parlement op 17 juli 2026 in plenaire vergadering goedkeurde van die welke de bijzondere commissie op 9 juli had aangenomen?",
+      "question": "Welke duur van de werken kondigde het consortium dat kandidaat is voor het noordelijke deel van metro 3 aan in parlementaire commissie op 13 mei 2026?",
       "options": [
-        "24 gestemde aanbevelingen tegenover 22 in de commissie",
-        "22 gestemde aanbevelingen tegenover 24 in de commissie",
-        "18 gestemde aanbevelingen tegenover 24 in de commissie",
-        "30 gestemde aanbevelingen tegenover 22 in de commissie"
+        "Tien jaar, tegenover zes jaar in de gevraagde kalender",
+        "Zes jaar, tegenover tien jaar in de gevraagde kalender",
+        "Vijftien jaar, tegenover acht jaar in de gevraagde kalender",
+        "Vier jaar, tegenover drie jaar in de gevraagde kalender"
       ],
       "correct": 0,
-      "explanation": "Geen enkele geraadpleegde bron licht de oorsprong van dat verschil toe, dat kan voortkomen uit amendementen die in plenaire vergadering werden ingediend. De discrepantie wordt gesignaleerd in plaats van verzwegen.",
+      "explanation": "De technische blokkeringsfactor is de noodzaak om de bodem tot 82 meter diepte te bevriezen om waterdichte schermen te maken, een procedé dat nergens ter wereld op die diepte werd uitgevoerd. Omdat de gewestelijke beleidsverklaring het project voor tien jaar heeft bevroren, zou een oplevering niet vóór het midden van de jaren 2040 worden verwacht.",
       "sourceSlug": "/nl/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:308a487edd53bc94f665d92c29158c9c",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:215824273828ede12a253392e0224cee",
+        "generatedAt": "2026-09-18T13:43:10.607Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

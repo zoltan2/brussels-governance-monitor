@@ -2154,7 +2154,19 @@
       "delayed": "Delayed",
       "abandoned": "Abandoned"
     },
-    "minister": "Minister"
+    "minister": "Minister",
+    "sourcePrefix": "Source:",
+    "sourceDocument": "Regional Policy Declaration of 13 February 2026 (parlement.brussels, French version)",
+    "overview": {
+      "verdictNone": "None of the {total} quantified promises has been implemented to date",
+      "verdictSome": "{done, plural, one {# of the {total} quantified promises has been implemented to date} other {# of the {total} quantified promises have been implemented to date}}",
+      "statusCount": "{label}: {count}",
+      "segmentTitle": "{label}: {count} of {total}",
+      "ribbonAria": "Breakdown of the {total} commitments: {summary}",
+      "byDeadline": "By target year",
+      "promises": "{count, plural, one {# promise} other {# promises}}",
+      "deadlineAria": "Target year {year}: {detail}"
+    }
   },
   "subscribePage": {
     "title": "Follow Brussels governance",

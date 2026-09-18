@@ -2176,7 +2176,19 @@
       "delayed": "Vertraagd",
       "abandoned": "Opgegeven"
     },
-    "minister": "Minister"
+    "minister": "Minister",
+    "sourcePrefix": "Bron:",
+    "sourceDocument": "Gewestelijke Beleidsverklaring van 13 februari 2026 (parlement.brussels, Franstalige versie)",
+    "overview": {
+      "verdictNone": "Geen van de {total} becijferde beloften is vandaag uitgevoerd",
+      "verdictSome": "{done, plural, one {# van de {total} becijferde beloften is vandaag uitgevoerd} other {# van de {total} becijferde beloften zijn vandaag uitgevoerd}}",
+      "statusCount": "{label}: {count}",
+      "segmentTitle": "{label}: {count} van {total}",
+      "ribbonAria": "Verdeling van de {total} engagementen: {summary}",
+      "byDeadline": "Per streefjaar",
+      "promises": "{count, plural, one {# belofte} other {# beloften}}",
+      "deadlineAria": "Streefjaar {year}: {detail}"
+    }
   },
   "subscribePage": {
     "title": "Volg het Brusselse bestuur",

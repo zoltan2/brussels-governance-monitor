@@ -2154,7 +2154,19 @@
       "delayed": "Verzögert",
       "abandoned": "Aufgegeben"
     },
-    "minister": "Minister"
+    "minister": "Minister",
+    "sourcePrefix": "Quelle:",
+    "sourceDocument": "Regionale Politikerklärung vom 13. Februar 2026 (parlement.brussels, französische Fassung)",
+    "overview": {
+      "verdictNone": "Keine der {total} bezifferten Zusagen ist bisher umgesetzt",
+      "verdictSome": "{done, plural, one {# der {total} bezifferten Zusagen ist bisher umgesetzt} other {# der {total} bezifferten Zusagen sind bisher umgesetzt}}",
+      "statusCount": "{label}: {count}",
+      "segmentTitle": "{label}: {count} von {total}",
+      "ribbonAria": "Aufteilung der {total} Verpflichtungen: {summary}",
+      "byDeadline": "Nach Zieljahr",
+      "promises": "{count, plural, one {# Zusage} other {# Zusagen}}",
+      "deadlineAria": "Zieljahr {year}: {detail}"
+    }
   },
   "subscribePage": {
     "title": "Verfolgen Sie die Brüsseler Regierungsführung",

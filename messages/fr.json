@@ -2176,7 +2176,19 @@
       "delayed": "Retardé",
       "abandoned": "Abandonné"
     },
-    "minister": "Ministre"
+    "minister": "Ministre",
+    "sourcePrefix": "Source :",
+    "sourceDocument": "DPR du 13 février 2026 (parlement.brussels)",
+    "overview": {
+      "verdictNone": "Aucune des {total} promesses chiffrées n’est mise en œuvre à ce jour",
+      "verdictSome": "{done, plural, one {# promesse chiffrée sur {total} est mise en œuvre à ce jour} other {# promesses chiffrées sur {total} sont mises en œuvre à ce jour}}",
+      "statusCount": "{label} : {count}",
+      "segmentTitle": "{label} : {count} sur {total}",
+      "ribbonAria": "Répartition des {total} engagements : {summary}",
+      "byDeadline": "Échéance par échéance",
+      "promises": "{count, plural, one {# promesse} other {# promesses}}",
+      "deadlineAria": "Échéance {year} : {detail}"
+    }
   },
   "subscribePage": {
     "title": "Suivez la gouvernance bruxelloise",

@@ -47,7 +47,7 @@ export function DonateMonthlyButtons({ locale }: { locale: string }) {
         ))}
       </div>
       {error && (
-        <p className="mt-2 text-center text-xs text-amber-600">
+        <p className="mt-2 text-center text-xs text-status-delayed">
           {t('donateError')}
         </p>
       )}

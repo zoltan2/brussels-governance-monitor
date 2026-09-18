@@ -296,10 +296,17 @@ export function GamesPanel({ locale }: { locale: string }) {
 
   return (
     <>
-      {/* Toujours disponible, à toutes les largeurs. Icône seule au repos : 36 px contre
-          58 px pour l'ancienne étiquette verticale, qui coupait le début de « Explorer
-          les dossiers » (vu à 390, 768 et 1024 px). Le mot se déplie horizontalement au
-          survol et au focus — un texte pivoté à 90° se lit nettement moins vite. */}
+      {/* Toujours disponible, à toutes les largeurs, en onglet centré au bord gauche.
+          Icône seule au repos : 36 px contre 58 px pour l'ancienne étiquette verticale.
+          Le mot se déplie horizontalement au survol et au focus — un texte pivoté à 90°
+          se lit nettement moins vite.
+
+          Ne pas le déplacer en bouton flottant « pour éviter les chevauchements » : c'est
+          un détour déjà pris et mesuré. Sous 1 096 px le contenu occupe toute la largeur,
+          donc TOUT élément flottant recouvre quelque chose. Relevé à 390 px : 7 positions
+          de défilement sur 10 pour cet onglet, et 7 sur 10 pour le bouton du chat, en
+          place de longue date et jamais signalé. Déplacer ne change pas le nombre, cela
+          change seulement ce qui est recouvert. */}
       <button
         ref={tabRef}
         type="button"

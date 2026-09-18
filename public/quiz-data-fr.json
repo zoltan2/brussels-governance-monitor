@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T12:57:06.876Z",
+  "generatedAt": "2026-09-18T12:59:29.515Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -1433,22 +1433,22 @@
     {
       "id": "dossier-slrb-0",
       "source": "dossier",
-      "domain": "Logement",
-      "question": "À quoi servent les 61 millions d'euros débloqués pour la SLRB en juillet 2026 ?",
+      "domain": "SLRB",
+      "question": "Que reprochent à la SLRB plusieurs sociétés immobilières de service public qui, selon une information de presse du 11 septembre 2026, refusent d'y laisser leurs liquidités ?",
       "options": [
-        "Au plan stratégique de rénovation durable du parc social",
-        "À l'achat de terrains destinés à de nouvelles constructions",
-        "Au remboursement anticipé de la dette envers la Région",
-        "À la revalorisation barémique du personnel des sociétés"
+        "De s'en servir pour compenser les difficultés d'autres sociétés",
+        "De placer ces montants sur des produits financiers risqués",
+        "De retarder le versement des loyers perçus auprès des locataires",
+        "De prélever une commission de gestion sur chaque mouvement"
       ],
       "correct": 0,
-      "explanation": "Le plan couvre la période 2026-2035, avec 219 projets prévus et 117 déjà en chantier. La SLRB est l'institution régionale chargée de la rénovation du parc de logements sociaux.",
+      "explanation": "La SLRB regroupe les comptes des seize sociétés immobilières de service public. Ce pot commun présentait un déficit d'environ 60 millions d'euros et la société faîtière avait cessé de le renflouer en novembre 2025. Ces tensions s'ajoutent au blocage de la dotation régionale de 131 millions.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:103727368bf0191d6dd4beb9cf4d59c8",
-        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:a388f67b41842eca049643b9711415b0",
+        "generatedAt": "2026-09-18T12:59:29.515Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1456,22 +1456,22 @@
     {
       "id": "dossier-slrb-1",
       "source": "dossier",
-      "domain": "Logement",
-      "question": "Quel moyen le gouvernement bruxellois a-t-il retenu, en janvier 2026, pour assainir les finances de la SLRB ?",
+      "domain": "SLRB",
+      "question": "À quelle échéance le blocage des 131 millions d'euros de dotation régionale destinés à la SLRB a-t-il été renvoyé, selon l'information du 8 septembre 2026 ?",
       "options": [
-        "La vente d'actifs, dont environ 200 logements sociaux",
-        "Une hausse générale des loyers de 3 % par an",
-        "Un emprunt garanti par les 19 communes bruxelloises",
-        "La fusion des 16 sociétés immobilières agréées"
+        "Au conclave budgétaire de début octobre 2026",
+        "Au vote du budget régional de mars 2027",
+        "À la fin de la mission du commissaire spécial",
+        "Au prochain contrôle budgétaire de juin 2027"
       ],
       "correct": 0,
-      "explanation": "Les sites Ariane à Woluwe-Saint-Lambert et Palais à Schaerbeek sont concernés. Ces cessions visent à réduire la dette de la SLRB, en parallèle d'une enveloppe de 400 millions d'euros pour plus de mille logements publics.",
+      "explanation": "C'est là que le gouvernement arrête le budget 2027. La contrepartie demandée est la traduction en décisions des recommandations de la commission d'enquête sur le Foyer anderlechtois. Le montant représente une part des 400 millions prévus pour la législature.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:103727368bf0191d6dd4beb9cf4d59c8",
-        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:a388f67b41842eca049643b9711415b0",
+        "generatedAt": "2026-09-18T12:59:29.515Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1479,22 +1479,22 @@
     {
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
-      "domain": "Climat",
-      "question": "Le 11 août 2026, quarante-deux familles de Dilbeek, Lennik et Roosdaal ont assigné l'État belge à propos de la route aérienne RNP 07L de Brussels Airport. Quelle est la particularité de cette route ?",
+      "domain": "Survol aérien",
+      "question": "Combien de dépassements des normes bruxelloises de bruit Bruxelles Environnement a-t-il enregistrés entre janvier et avril 2026 ?",
       "options": [
-        "Elle fait débuter la descente vers la piste 07L très à l'ouest de l'aéroport",
-        "Elle concentre les décollages vers le sud-est, au-dessus de la forêt de Soignes",
-        "Elle réserve la piste 07L aux vols de nuit, entre minuit et six heures du matin",
-        "Elle détourne les avions cargo au-dessus du canal et du port de Bruxelles"
+        "3 815 dépassements",
+        "1 240 dépassements",
+        "8 600 dépassements",
+        "4 758 dépassements"
       ],
       "correct": 0,
-      "explanation": "Guidée par satellite, elle fait ensuite survoler le nord-ouest de la Région, dont Molenbeek-Saint-Jean, Koekelberg et Berchem-Sainte-Agathe. Mise en place comme test en 2025, elle a été prolongée jusqu'en octobre 2026.",
+      "explanation": "Soit environ neuf cent cinquante par mois, contre quatre cent septante-six par mois sur dix mois en 2025 : le rythme double. Une réserve de lecture s'impose, environ 80 % des dépassements provenant d'une seule station de mesure, à Molenbeek-Saint-Jean. Cette concentration localise le constat mais rend la série dépendante d'un point de mesure unique.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-08-23",
-        "sourceContentHash": "sha256:0d3401bc55ef2edc97b84ce0a1b1a80d",
-        "generatedAt": "2026-08-25T09:23:25.928Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:9c1f7377f6d80837cfd6dd2d284d001e",
+        "generatedAt": "2026-09-18T12:59:29.515Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1569,5 +1569,5 @@
       }
     }
   ],
-  "reviewedCount": 27
+  "reviewedCount": 24
 }

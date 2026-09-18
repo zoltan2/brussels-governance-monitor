@@ -358,7 +358,7 @@ export function StuutGame({ actif }: { actif: boolean }) {
 
       <div className={s.entete}>
         <span>
-          n°{jour.numero} · {longueur} lettres, six essais
+          n°{jour.numero} · {longueur} lettres
         </span>
         <button type="button" className={s.lien} onClick={() => setVueStats((v) => !v)} aria-expanded={vueStats}>
           Mes statistiques

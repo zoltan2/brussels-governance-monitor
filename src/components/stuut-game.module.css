@@ -198,10 +198,21 @@
 }
 
 /* ─── Clavier ─────────────────────────────────────────────────────────────── */
+/* Le clavier descend au bas du panneau (margin-top: auto), comme sur le jeu
+   autonome sur téléphone : sur un écran haut, le vide va entre le plateau et le
+   clavier, jamais au-dessus du plateau. Collant en bas quand le contenu défile
+   (aide dépliée, statistiques ouvertes, petit écran) : on ne cherche jamais le
+   clavier en faisant défiler. */
 .clavier {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 7px;
+  margin-top: auto;
+  padding: 10px 0 2px;
+  background: var(--navy);
 }
 .rangee {
   display: flex;

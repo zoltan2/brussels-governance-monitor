@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T12:39:57.281Z",
+  "generatedAt": "2026-09-18T13:35:23.844Z",
   "locale": "nl",
   "poolSize": 67,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Tot welke datum blijft Belfius de bankier van het Brussels Gewest, volgens de opdracht die in juli 2026 werd goedgekeurd?",
+      "question": "Van hoeveel naar hoeveel bracht de Stad Brussel haar aanvullende opcentiemen op de onroerende voorheffing voor het aanslagjaar 2026, waarvan de aanslagbiljetten vanaf 17 augustus 2026 werden verstuurd?",
       "options": [
-        "Tot 30 juni 2031",
-        "Tot 31 december 2029",
-        "Tot 30 juni 2028",
-        "Tot 31 december 2033"
+        "Van 2 950 naar 3 457 opcentiemen",
+        "Van 2 980 naar 4 090 opcentiemen",
+        "Van 3 090 naar 3 890 opcentiemen",
+        "Van 2 940 naar 3 400 opcentiemen"
       ],
       "correct": 0,
-      "explanation": "Het contract gaat in op 1 januari 2027 en kan tweemaal met een jaar worden verlengd in onderling akkoord. De beschikbare kredietlijn stijgt van 50 naar 250 miljoen euro.",
+      "explanation": "Dat is een stijging met 17,2 %, die de Stad naar eigen zeggen volledig compenseert voor eigenaar-bewoners, via een forfaitaire gemeentelijke aftrek van honderd euro en de gewestelijke Be-Home-premie. Negen van de negentien Brusselse gemeenten verhoogden hun opcentiemen in 2026.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:87d3a3122c402494bade5f9f0d7e5967",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-30",
+        "sourceContentHash": "sha256:06635078dacc9c02110aadbcf0a03e7f",
+        "generatedAt": "2026-09-18T13:31:14.426Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Waaraan is het behoud gekoppeld van de kredietlijn van 250 miljoen euro die Belfius het Brussels Gewest toekent in de opdracht die op 20 juli 2026 werd aangekondigd?",
+      "question": "Over welk totaalbedrag aan kredietlijnen beschikt het Brussels Gewest na de opening van een kredietlijn van 250 miljoen euro bij BBVA op 26 augustus 2026?",
       "options": [
-        "Aan de naleving van het meerjarige begrotingstraject",
-        "Aan de rating toegekend door een ratingbureau",
-        "Aan de voorafgaande instemming van het Brussels Parlement",
-        "Aan de verkoop van gewestelijk vastgoed"
+        "1,25 miljard euro bij vier dienstverleners",
+        "800 miljoen euro bij drie dienstverleners",
+        "1,5 miljard euro bij vijf dienstverleners",
+        "950 miljoen euro bij vier dienstverleners"
       ],
       "correct": 0,
-      "explanation": "Het gewestelijke tekort moet tegen 2029 stapsgewijs tot nul worden teruggebracht, met een plafond van 957 miljoen euro voor het begrotingsjaar 2026.",
+      "explanation": "Die lijn bij de Spaanse bank valt niet samen met de 250 miljoen euro die met Belfius werd onderhandeld in de kassieropdracht van 20 juli 2026: twee afzonderlijke instrumenten, twee instellingen, een identiek bedrag. Een kredietlijn is een opnamecapaciteit, geen schuld.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:87d3a3122c402494bade5f9f0d7e5967",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-08-30",
+        "sourceContentHash": "sha256:06635078dacc9c02110aadbcf0a03e7f",
+        "generatedAt": "2026-09-18T13:31:14.426Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Het Stationsplan, op 18 juni 2026 goedgekeurd voor de netheid rond het Noord- en het Zuidstation, beschikt over welk jaarbudget?",
+      "question": "Hoeveel sorteerruimtes plant het Brussels Gewest over de legislatuur, volgens de hervorming van de afvalophaling die op 11 september 2026 werd voorgesteld?",
       "options": [
-        "Tien miljoen euro per jaar",
-        "Twee miljoen euro per jaar",
-        "Vijfentwintig miljoen euro per jaar",
-        "Vijftig miljoen euro per jaar"
+        "120, waarvan 60 in twee pilootwijken",
+        "40, waarvan 20 in twee pilootwijken",
+        "250, waarvan 100 in vier pilootwijken",
+        "80, waarvan 30 in één pilootwijk"
       ],
       "correct": 0,
-      "explanation": "Twee proefoperaties gingen de uitrol vooraf: het Zuidstation op 16 juli 2026 en het Noordstation op 21 augustus 2026. Ze moeten het verschil becijferen tussen een uitzonderlijke schoonmaakactie en doorlopend onderhoud.",
+      "explanation": "Twee pilootwijken krijgen er elk dertig, waar ze tijdens de testfase de huis-aan-huisophaling vervangen, en zestig andere pakken zwarte punten en sluikstorten aan. De aankondiging van maart 2026 sprak van honderd nieuwe sorteerruimtes. De hervorming wordt in 2027 verwacht.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:1e7184520f7752983d339f1568539322",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:abc8236ab3bf4d1de5895d2a4b9d8f4e",
+        "generatedAt": "2026-09-18T13:31:14.426Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Welk aandeel van de mensen die in 2025 door de Stad Brussel werden beboet voor sluikstorten, woonde niet in de gemeente?",
+      "question": "Waarop steunt de financiering van de hervorming van de afvalophaling die op 11 september 2026 in Brussel werd voorgesteld?",
       "options": [
-        "36,7 %",
-        "12,4 %",
-        "58,2 %",
-        "21,9 %"
+        "Op de uitgebreide producentenverantwoordelijkheid voor kunststoffen",
+        "Op een aanvullende belasting geheven door de negentien gemeenten",
+        "Op een prijsverhoging van de reglementaire vuilniszakken",
+        "Op een federale dotatie bestemd voor de openbare netheid"
       ],
       "correct": 0,
-      "explanation": "Dat zijn 2 837 overtreders op 7 731 boetes, een fenomeen dat afvaltoerisme wordt genoemd. Een vuilniszak kost in Brussel ongeveer tien keer minder dan in de randgemeenten.",
+      "explanation": "Die regeling, op 13 maart 2026 goedgekeurd door het Brussels Parlement, moet het Gewest 51,4 miljoen euro per jaar opleveren, waarvan 54 % naar de gemeenten gaat voor het opruimen van zwerfvuil. Het Grondwettelijk Hof spreekt zich eind september 2026 over die financiering uit.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:1e7184520f7752983d339f1568539322",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:abc8236ab3bf4d1de5895d2a4b9d8f4e",
+        "generatedAt": "2026-09-18T13:31:14.426Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klimaat",
-      "question": "Door welk instrument vervangt het regeerakkoord van februari 2026 Renolution?",
+      "question": "Hoeveel extra sterfgevallen veroorzaakte de hittegolf van juni 2026 in het Brussels Gewest, volgens de geconsolideerde balans die Sciensano op 2 september 2026 publiceerde?",
       "options": [
-        "Door renteloze leningen met een enveloppe van 200 miljoen euro",
-        "Door een eenmalige premie geplafonneerd op 200 euro per woning",
-        "Door een gewestelijk belastingkrediet gespreid over 4 boekjaren",
-        "Door een waarborgfonds met een enveloppe van 400 miljoen euro"
+        "196 extra sterfgevallen",
+        "42 extra sterfgevallen",
+        "159 extra sterfgevallen",
+        "930 extra sterfgevallen"
       ],
       "correct": 0,
-      "explanation": "De gewestelijke beleidsverklaring legt geen enkele nieuwe CO2-doelstelling vast bovenop het bestaande PACE, waardoor het klimaattraject onbeslist blijft.",
+      "explanation": "Dat cijfer werd tweemaal naar boven bijgesteld, na de 159 van 8 juli en de 188 van 17 juli. De tweede golf, van 4 tot 17 juli, voegt 42 sterfgevallen toe, en de derde leverde geen Brusselse oversterfte op. Sciensano wijst op de duur van de episode, de temperaturen en de ozonconcentraties.",
       "sourceSlug": "/nl/domeinen/climate",
       "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen onopgelost",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:12b3b6a01dc41fd750dce6200ffd42c8",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:cfb2e40ff13857b8c8077bd9c80df8c6",
+        "generatedAt": "2026-09-18T13:31:14.426Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klimaat",
-      "question": "Wat besluit het jaarrapport 2025 van Leefmilieu Brussel over de luchtkwaliteit?",
+      "question": "Wat moest België tegen 1 september 2026 bij de Europese Commissie indienen, op grond van verordening (EU) 2024/1991?",
       "options": [
-        "Alle meetstations voldoen aan de geldende Europese normen",
-        "Geen enkel meetstation voldoet aan de geldende Europese normen",
-        "Enkel de stations ver van drukke verkeersassen worden gemeten",
-        "De normen worden alleen tijdens de winterperiode nageleefd"
+        "Zijn ontwerp van nationaal natuurherstelplan",
+        "Zijn herziene nationaal energie- en klimaatplan",
+        "Zijn nationale inventaris van broeikasgassen",
+        "Zijn programma ter vermindering van luchtverontreinigende stoffen"
       ],
       "correct": 0,
-      "explanation": "Toch blijven er overschrijdingen langs drukke verkeersassen, gemeten aan de toekomstige Europese normen van 2030 en aan de aanbevelingen van de Wereldgezondheidsorganisatie.",
+      "explanation": "De deadline verstreek zonder Belgische indiening. De Brusselse achterstand is dubbel: het plan Renature Brussels wordt voor september of oktober 2026 aangekondigd, terwijl de op de officiële website gepubliceerde kalender een goedkeuring in eerste lezing voorzag voor de zomer van 2026. Het volledige Belgische plan wordt niet voor de zomer van 2027 verwacht.",
       "sourceSlug": "/nl/domeinen/climate",
       "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen onopgelost",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:12b3b6a01dc41fd750dce6200ffd42c8",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:cfb2e40ff13857b8c8077bd9c80df8c6",
+        "generatedAt": "2026-09-18T13:31:14.426Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Economie",
-      "question": "Welk aandeel van de Brusselse zelfstandigen was in 2025 tussen 18 en 29 jaar oud, volgens het Rijksinstituut voor de Sociale Verzekeringen der Zelfstandigen?",
+      "question": "Welke oppervlakte beslaat de site van Audi Brussels in Vorst, waarvan de overname door Heylen Warehouses op 1 september 2026 werd aangekondigd?",
       "options": [
-        "14,5 %",
-        "11,2 %",
-        "22,8 %",
-        "8,3 %"
+        "Ongeveer 55 hectare",
+        "Ongeveer 18 hectare",
+        "Ongeveer 120 hectare",
+        "Ongeveer 35 hectare"
       ],
       "correct": 0,
-      "explanation": "Dat zijn 18 174 personen, tegenover 11,2 % op nationaal niveau. Hun aantal steeg met 32,6 % tussen 2015 en 2025, terwijl het aantal werkzoekenden onder 25 jaar op één jaar met 17 % toenam.",
+      "explanation": "Het is het grootste industriële terrein van het Gewest. Het project, voorlopig Rings Park 21 genoemd, mikt op minstens drieduizend banen, het personeelsbestand van Audi Brussels vóór de sluiting op 28 februari 2025, met een eerste activiteit aangekondigd voor begin 2027.",
       "sourceSlug": "/nl/domeinen/economy",
       "sourceTitle": "Economie: Stedelijke Vrijhandelszone (Haven + Audi Forest), hoofdstad van AI",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:cc63de5f286c4dbc6fff7457d5e3e012",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:8f6b58abe41248b2daab2ce5219982b7",
+        "generatedAt": "2026-09-18T13:31:14.426Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Economie",
-      "question": "Op 22 juni 2026 oordeelde de Nederlandstalige rechtbank van eerste aanleg te Brussel dat het belastingreglement van de Stad Brussel op kantooroppervlakten in strijd is met welk beginsel?",
+      "question": "Hoe evolueerden de oprichtingen van ondernemingen in Brussel in 2025 tegenover 2024, volgens de Starters Atlas van 8 september 2026?",
       "options": [
-        "Met het grondwettelijke gelijkheidsbeginsel",
-        "Met het Europese staatssteunrecht",
-        "Met het vrije verkeer van diensten",
-        "Met het verbod op dubbele belasting"
+        "Ze dalen met 1,47 %, als enige Gewest",
+        "Ze stijgen met 14,76 %, de sterkste toename",
+        "Ze stijgen met 0,77 %, het nationale ritme",
+        "Ze dalen met 0,08 %, het Vlaamse ritme"
       ],
       "correct": 0,
-      "explanation": "De rechtbank vond geen objectieve rechtvaardiging om kantooroppervlakten anders te behandelen dan andere bestemmingen, voor de aanslagjaren 2022 tot 2025. De belasting steeg tussen 2021 en 2026 van 9,58 naar 24 euro per vierkante meter per jaar.",
+      "explanation": "Brussel telt 15 467 oprichtingen in 2025, oftewel 12,1 % van het Belgische totaal, terwijl Wallonië met 14,76 % springt en Vlaanderen stabiel blijft. De Starters Atlas wordt gepubliceerd door UCM, Unizo en GraydonCreditsafe, drie private spelers, en is geen officiële statistiek.",
       "sourceSlug": "/nl/domeinen/economy",
       "sourceTitle": "Economie: Stedelijke Vrijhandelszone (Haven + Audi Forest), hoofdstad van AI",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:cc63de5f286c4dbc6fff7457d5e3e012",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:8f6b58abe41248b2daab2ce5219982b7",
+        "generatedAt": "2026-09-18T13:31:14.426Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Werkgelegenheid",
-      "question": "Welke werkzaamheidsgraad stelt de gewestelijke beleidsverklaring van februari 2026 voorop tegen het einde van de legislatuur?",
+      "question": "Welke enige bepaling sneuvelde in het arrest 96/2026 van 10 september 2026, waarin het Grondwettelijk Hof de beperking in de tijd van de werkloosheidsuitkeringen overeind hield?",
       "options": [
-        "70 %",
-        "63,9 %",
-        "74,1 %",
-        "80 %"
+        "De overgangsregeling, opgetrokken tot minstens twaalf maanden",
+        "De uitsluiting van werklozen ouder dan vijftig jaar",
+        "De afschaffing van de anciënniteitstoeslag",
+        "De termijn om beroep aan te tekenen, teruggebracht tot dertig dagen"
       ],
       "correct": 0,
-      "explanation": "Het niveau in 2025 bedraagt 63,9 % volgens Statbel, wat een winst van meer dan zes punten vergt op één legislatuur.",
+      "explanation": "Het Hof geeft toe dat de hervorming het beschermingsniveau gevoelig verlaagt, maar acht ze redelijk verantwoord. Enkel de regeling sneuvelt die het recht beperkte tot zes, acht of negen maanden voor werklozen die zich op 30 juni 2025 in de derde vergoedingsperiode bevonden: zij moeten voortaan minstens twaalf maanden krijgen.",
       "sourceSlug": "/nl/domeinen/employment",
       "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:440aec325f10c02a486e5b500c34fc30",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:1bb4ff797b774b80699ef71952566e8c",
+        "generatedAt": "2026-09-18T13:35:23.844Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Werkgelegenheid",
-      "question": "Waarin belanden werkloze Brusselse jongeren hoofdzakelijk, volgens de studie van het Itinera Institute over de werkzaamheidsgraad in België, op basis van administratieve gegevens uit 2006-2022?",
+      "question": "Welk aandeel van de 99 458 in Brussel ingeschreven werkzoekenden was in augustus 2026 afhankelijk van een OCMW?",
       "options": [
-        "In inactiviteit, buiten de arbeidsmarkt",
-        "In loonarbeid in de omliggende gemeenten",
-        "In gesubsidieerd alternerend leren",
-        "In zelfstandige activiteit in bijberoep"
+        "35 %, een stijging met 82,6 % op één jaar",
+        "12 %, een stijging met 4,9 % op één jaar",
+        "21 %, een stijging met 17,5 % op één jaar",
+        "48 %, een stijging met 30,4 % op één jaar"
       ],
       "correct": 0,
-      "explanation": "Slechts ongeveer 25 % van de Brusselse 18-24-jarigen is aan het werk, tegenover ongeveer 40 % in Vlaanderen, en 34,4 % van de bevolking op arbeidsleeftijd is inactief.",
+      "explanation": "Dat zijn 34 830 personen. Actiris wijt die beweging aan de federale hervorming: de beperking van de uitkeringen in de tijd doet het aantal inschrijvingen niet dalen, ze verschuift de last van de federale begroting naar die van de negentien Brusselse OCMW's. De administratieve werkloosheidsgraad bereikt 16,0 %, het hoogste niveau sinds december 2020.",
       "sourceSlug": "/nl/domeinen/employment",
       "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:440aec325f10c02a486e5b500c34fc30",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:1bb4ff797b774b80699ef71952566e8c",
+        "generatedAt": "2026-09-18T13:35:23.844Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Op welke wettelijke basis heeft de Brusselse regering op 16 juli 2026 een bijzondere commissaris aangesteld bij de Anderlechtse Haard?",
+      "question": "Aan welke politieke voorwaarde werd op 3 september 2026 de storting gekoppeld van de gewestelijke dotatie 2026 van 131 miljoen euro aan de BGHM?",
       "options": [
-        "Artikel 78 van de Brusselse Huisvestingscode",
-        "Artikel 12 van de ordonnantie op het bestuurlijk toezicht",
-        "Artikel 45 van het Wetboek van Territoriale Ontwikkeling",
-        "Artikel 90 van de nieuwe gemeentewet"
+        "Aan het vertrek van de voorzitter van de Anderlechtse Haard",
+        "Aan de verkoop van twee openbare gewestelijke gebouwen",
+        "Aan de aanstelling van een bijzondere commissaris",
+        "Aan de publicatie van de audit van het agentschap in Sint-Joost"
       ],
       "correct": 0,
-      "explanation": "De aanstelling geldt voor vier maanden. Op 17 juli 2026 keurde het Parlement de 26 aanbevelingen van de onderzoekscommissie goed met 51 stemmen voor, 24 tegen en 6 onthoudingen.",
+      "explanation": "Het kabinet van de staatssecretaris voor Huisvesting bevestigt dat de tijdens de zomer verwachte bedragen niet zijn aangekomen. Zonder die middelen zou de koepel die de zestien openbare vastgoedmaatschappijen superviseert vanaf september 2026 haar facturen niet meer kunnen betalen, terwijl 62 234 huishoudens op een sociale woning wachten.",
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 400M voor de BGHM, 1 000 publieke woningen",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:ec86267a4885a9f5c1edc7c50989b09c",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:dffc4c00bfb3c75605ac48a6004a8bbf",
+        "generatedAt": "2026-09-18T13:35:23.844Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Wat willen de vier verenigingen bereiken die op 13 juli 2026 een kort geding hebben aangespannen tegen de BGHM?",
+      "question": "Met hoeveel daalde het aanbod van Airbnb-woningen voor kortetermijnverhuur in Brussel tussen juni 2025 en juni 2026?",
       "options": [
-        "De blokkering van de verkoop van twee openbare gebouwen",
-        "De opschorting van de toewijzingen van sociale woningen",
-        "De vernietiging van de beheersovereenkomst van de maatschappij",
-        "De publicatie van de wachtlijsten per gemeente"
+        "Met 23 %, van 6 171 naar 4 750 woningen",
+        "Met 9 %, van 6 171 naar 5 600 woningen",
+        "Met 41 %, van 6 171 naar 3 640 woningen",
+        "Met 15 %, van 6 171 naar 5 245 woningen"
       ],
       "correct": 0,
-      "explanation": "De verenigingen verwijzen naar de 62 234 huishoudens die op de wachtlijst voor een sociale woning staan. De verkoop van de site Ariane en van een gebouw in de Paleizenstraat was in januari 2026 beslist om budgettaire redenen.",
+      "explanation": "De sterkste dalingen doen zich voor in Vorst, min 35,8 %, en Etterbeek, min 34 %. Brussel Fiscaliteit zou ongeveer 1 900 boetes hebben uitgeschreven, voor een geschat bedrag tussen 1,5 en 2 miljoen euro aan gerecupereerde fiscale achterstallen.",
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 400M voor de BGHM, 1 000 publieke woningen",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:ec86267a4885a9f5c1edc7c50989b09c",
-        "generatedAt": "2026-08-05T21:01:19.010Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:dffc4c00bfb3c75605ac48a6004a8bbf",
+        "generatedAt": "2026-09-18T13:35:23.844Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Op 18 juni 2026 vernietigde het Grondwettelijk Hof de Brusselse ordonnantie van 2024 die toeliet om voor goederen van het UNESCO-werelderfgoed een openstelling voor het publiek op te leggen, tot vijftien dagen per jaar. Welke reden gaf het Hof?",
+      "question": "Waarom draagt een stuk van de Ring in Neder-Over-Heembeek, dus in het Brussels Hoofdstedelijk Gewest, enkel Nederlandstalige signalisatie?",
       "options": [
-        "De tekst waarborgt het eigendomsrecht en de privacy onvoldoende",
-        "Het Gewest is niet bevoegd voor het werelderfgoed van UNESCO",
-        "De ingeroepen erfgoeddoelstelling heeft geen juridische waarde",
-        "Het Gewest kon de kosten van de openstelling niet dragen"
+        "Het wordt sinds een akkoord van 1991 door het Vlaams Gewest onderhouden",
+        "Het valt sinds een akkoord van 1991 onder de gemeente Wemmel",
+        "Het werd in 1991 bij de faciliteitengemeenten ingedeeld",
+        "Het valt onder de federale overheid, die niet tot tweetaligheid verplicht is"
       ],
       "correct": 0,
-      "explanation": "Het Hof erkent de legitimiteit van de erfgoeddoelstelling wel degelijk. Concreet blijft het Stocletpaleis, een private art-nouveauwoning in Sint-Pieters-Woluwe, gesloten voor het publiek. Het beroep kwam van de vennootschap van de rechthebbenden van de familie Stoclet.",
+      "explanation": "Het interregionale samenwerkingsakkoord van 1991 vertrouwt elk Gewest het beheer toe van korte grenssegmenten die bij de buur liggen. Brussel Mobiliteit herinnert eraan dat het Vlaams Gewest de taalwetgeving moet naleven: op Brusselse bodem geldt de tweetaligheid zonder discussie. Het stuk meet ongeveer 880 meter volgens de pers.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:6c6df83ec794d19a5089537b818793cc",
-        "generatedAt": "2026-08-25T13:00:00.000Z",
+        "sourceLastModified": "2026-09-14",
+        "sourceContentHash": "sha256:74369096e8bea6ea5dd995737e85b863",
+        "generatedAt": "2026-09-18T13:35:23.844Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Een buurtbewoner van Laken stapte naar de Vaste Commissie voor Taaltoezicht omdat het dossier van het openbaar onderzoek over de renovatie van het station Bockstael uitsluitend in het Nederlands was opgesteld. Wat besliste de commissie?",
+      "question": "Welke sanctie sprak de Brusselse deontologische commissie op 4 juli 2026 uit tegen twintig lokale mandatarissen?",
       "options": [
-        "Dat zijn klacht gegrond was en hij de documenten in het Frans moest krijgen",
-        "Dat het openbaar onderzoek volledig tweetalig moest worden overgedaan",
-        "Dat de NMBS als federaal bedrijf buiten de taalwetgeving viel",
-        "Dat alleen de betrokken gemeente bevoegd was om het dossier te vertalen"
+        "Boetes van 10 tot 40 % van een maandvergoeding",
+        "Een onverkiesbaarheid voor afgeleide mandaten gedurende twee jaar",
+        "De terugbetaling van de in 2025 ontvangen vergoedingen",
+        "Een schorsing van het mandaat van drie tot zes maanden"
       ],
       "correct": 0,
-      "explanation": "Zijn vraag om uitstel in de overlegcommissie werd toch verworpen, en de vergunning werd eveneens enkel in het Nederlands afgeleverd. Omdat het beroep bij de Raad van State niet schorsend is, startten de werken in augustus 2026.",
+      "explanation": "De reden is een gebrek aan transparantie over de vergoedingen. De transparantiecel had 305 mandatarissen in gebreke geteld, oftewel 24 % van de onderzochte dossiers; na gerichte herinneringen bleven er zevenentwintig in gebreke. Het is de eerste becijferde en bestraffende balans van dat controlemechanisme.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:6c6df83ec794d19a5089537b818793cc",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-14",
+        "sourceContentHash": "sha256:74369096e8bea6ea5dd995737e85b863",
+        "generatedAt": "2026-09-18T13:35:23.844Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobiliteit",
-      "question": "De overgangsregeling voor gedeelde mobiliteit die de Brusselse regering op 21 augustus 2026 aankondigde, legt een plafond vast voor deelfietsen in het hele Gewest. Hoeveel bedraagt dat plafond?",
+      "question": "Welk beginsel stelde de Raad van State op 9 september 2026 tegenover de Brusselse hervorming van de lage-emissiezone?",
       "options": [
-        "7 500 fietsen",
-        "2 500 fietsen",
-        "4 800 fietsen",
-        "12 000 fietsen"
+        "Het in de Grondwet verankerde standstillbeginsel",
+        "Het beginsel van gelijkheid voor de openbare lasten",
+        "Het beginsel van vrij verkeer van personen",
+        "Het evenredigheidsbeginsel van de sancties"
       ],
       "correct": 0,
-      "explanation": "Daarbovenop geldt een plafond van 2 500 fietsen per operator, om verzadiging van de verplichte dropzones te vermijden. Een overheidsopdracht moet tegen mei 2028 twee licenties van elk 4 800 fietsen toewijzen; het verbod op deelsteps blijft op 1 januari 2027.",
+      "explanation": "Hij verwerpt noch de jaarpas van 350 euro noch het sociaal tarief van 200 euro, maar oordeelt dat de regering onvoldoende aantoont hoe de luchtkwaliteit zou verbeteren terwijl de versoepeling meer vervuilende voertuigen zou toelaten. Het besluit gaat terug in voorbereiding vóór een tweede lezing; de inwerkingtreding blijft gemikt op 2027.",
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:1e7516f5fb9d0be1511855c3bdcbab77",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:9282ee68deff691fdb3e10e35a84188e",
+        "generatedAt": "2026-09-18T13:35:23.844Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobiliteit",
-      "question": "In augustus 2026 schreven de drie verenigingen van gebruikers van het openbaar vervoer een open brief over het vastgoedproject NOR.Bruxsels, voor het Noordstation. Wat verwijten zij de voorgestelde aanleg?",
+      "question": "Welk aandeel van haar ongeveer 2 200 bovengrondse haltes was op 10 september 2026 zelfstandig toegankelijk voor personen met beperkte mobiliteit, volgens de MIVB?",
       "options": [
-        "Hij zou de overstap tussen trein, bus, tram en metro verslechteren",
-        "Hij zou de stationshal een groot deel van het jaar daglicht ontnemen",
-        "Hij zou het Noordstation meer dan twee jaar sluiten voor reizigers",
-        "Hij zou de helft van de fietsenstallingen van het station schrappen"
+        "Ongeveer een kwart van de haltes",
+        "Ongeveer een tiende van de haltes",
+        "Ongeveer drie kwart van de haltes",
+        "Ongeveer de helft van de haltes"
       ],
       "correct": 0,
-      "explanation": "Ze spreken van een antimodaal knooppunt en viseren twee punten: de opsplitsing van de bushaltes en de plaats van de eindhalte van de toekomstige tram 15. Het project voorziet vier torens, 533 woningen en 77 460 m² kantoren; de vergunning is niet afgeleverd.",
+      "explanation": "Sinds 2019 werden ongeveer 500 haltes aan de normen aangepast, en de helft van het bovengrondse net is toegankelijk mits hulp. Daarnaast beschikken 59 van de 69 metro- en premetrostations over liften.",
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:1e7516f5fb9d0be1511855c3bdcbab77",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:9282ee68deff691fdb3e10e35a84188e",
+        "generatedAt": "2026-09-18T13:35:23.844Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1545,6 +1545,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 67
+  ]
 }

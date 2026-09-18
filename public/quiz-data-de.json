@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T12:39:57.901Z",
+  "generatedAt": "2026-09-18T14:14:17.052Z",
   "locale": "de",
   "poolSize": 67,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Bis zu welchem Datum bleibt Belfius laut dem im Juli 2026 genehmigten Auftrag Bankier der Region Brüssel?",
+      "question": "Von welchem auf welchen Wert hob die Stadt Brüssel ihre Zuschlaghundertstel auf die Grundsteuer für das Steuerjahr 2026 an, deren Steuerbescheide ab dem 17. August 2026 versandt wurden?",
       "options": [
-        "Bis zum 30. Juni 2031",
-        "Bis zum 31. Dezember 2029",
-        "Bis zum 30. Juni 2028",
-        "Bis zum 31. Dezember 2033"
+        "Von 2 950 auf 3 457",
+        "Von 2 980 auf 4 090",
+        "Von 3 090 auf 3 890",
+        "Von 2 940 auf 3 400"
       ],
       "correct": 0,
-      "explanation": "Der Vertrag tritt am 1. Januar 2027 in Kraft und kann in gegenseitigem Einvernehmen zweimal um ein Jahr verlängert werden. Die verfügbare Kreditlinie steigt von 50 auf 250 Millionen Euro.",
+      "explanation": "Das ist ein Anstieg um 17,2 %, den die Stadt nach eigenen Angaben für selbstnutzende Eigentümer vollständig ausgleicht, über einen pauschalen kommunalen Abzug von hundert Euro und die regionale Be-Home-Prämie. Neun der neunzehn Brüsseler Gemeinden erhöhten 2026 ihre Zuschlaghundertstel.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:5d3cf9ecb8c65ae4665568751755057d",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-30",
+        "sourceContentHash": "sha256:f8fb1fcf31dfb6bd1996418d11881071",
+        "generatedAt": "2026-09-18T14:14:17.052Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Wovon hängt der Erhalt der Kreditlinie von 250 Millionen Euro ab, die Belfius der Region Brüssel in dem am 20. Juli 2026 angekündigten Auftrag gewährt?",
+      "question": "Über welchen Gesamtbetrag an Kreditlinien verfügt die Region Brüssel nach der Eröffnung einer Kreditlinie von 250 Millionen Euro bei BBVA am 26. August 2026?",
       "options": [
-        "Von der Einhaltung des mehrjährigen Haushaltspfads",
-        "Von der Bewertung durch eine Ratingagentur",
-        "Von der vorherigen Zustimmung des Brüsseler Parlaments",
-        "Vom Verkauf regionaler Immobilien"
+        "1,25 Milliarden Euro bei vier Anbietern",
+        "800 Millionen Euro bei drei Anbietern",
+        "1,5 Milliarden Euro bei fünf Anbietern",
+        "950 Millionen Euro bei vier Anbietern"
       ],
       "correct": 0,
-      "explanation": "Das regionale Defizit soll bis 2029 schrittweise auf null zurückgeführt werden, mit einer Obergrenze von 957 Millionen Euro für das Haushaltsjahr 2026.",
+      "explanation": "Diese Linie bei der spanischen Bank ist nicht identisch mit den 250 Millionen Euro, die mit Belfius im Kassiererauftrag vom 20. Juli 2026 ausgehandelt wurden: zwei getrennte Instrumente, zwei Institute, ein identischer Betrag. Eine Kreditlinie ist eine Ziehungsmöglichkeit, keine Schuld.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:5d3cf9ecb8c65ae4665568751755057d",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-08-30",
+        "sourceContentHash": "sha256:f8fb1fcf31dfb6bd1996418d11881071",
+        "generatedAt": "2026-09-18T14:14:17.052Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Der am 18. Juni 2026 beschlossene Bahnhofsplan für die Sauberkeit rund um den Nord- und den Südbahnhof verfügt über welches Jahresbudget?",
+      "question": "Wie viele Sortierräume plant die Region Brüssel über die Legislaturperiode, laut der am 11. September 2026 vorgestellten Reform der Abfallsammlung?",
       "options": [
-        "Zehn Millionen Euro pro Jahr",
-        "Zwei Millionen Euro pro Jahr",
-        "Fünfundzwanzig Millionen Euro pro Jahr",
-        "Fünfzig Millionen Euro pro Jahr"
+        "120, davon 60 in zwei Pilotvierteln",
+        "40, davon 20 in zwei Pilotvierteln",
+        "250, davon 100 in vier Pilotvierteln",
+        "80, davon 30 in einem einzigen Pilotviertel"
       ],
       "correct": 0,
-      "explanation": "Zwei Pilotaktionen gingen voraus: der Südbahnhof am 16. Juli 2026 und der Nordbahnhof am 21. August 2026. Sie sollen den Abstand zwischen einer einmaligen Aktion und laufender Pflege beziffern.",
+      "explanation": "Zwei Pilotviertel erhalten je dreißig, wo sie während der Testphase die Haus-zu-Haus-Abholung ersetzen, und sechzig weitere sollen Brennpunkte und wilde Müllablagerungen angehen. Die Ankündigung vom März 2026 sprach von hundert neuen Sortierräumen. Die Reform wird 2027 erwartet.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:b178b2f739a28818514f549cf3060cd7",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:19a91e1f9a8e8181b56109c2f689feb0",
+        "generatedAt": "2026-09-18T14:14:17.052Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Welcher Anteil der Personen, die 2025 von der Stadt Brüssel wegen wilder Müllablagerung verwarnt wurden, wohnte nicht in der Gemeinde?",
+      "question": "Worauf beruht die Finanzierung der am 11. September 2026 in Brüssel vorgestellten Reform der Abfallsammlung?",
       "options": [
-        "36,7 %",
-        "12,4 %",
-        "58,2 %",
-        "21,9 %"
+        "Auf der erweiterten Herstellerverantwortung für Kunststoffe",
+        "Auf einer Zusatzsteuer der neunzehn Gemeinden",
+        "Auf einer Preiserhöhung der vorgeschriebenen Müllsäcke",
+        "Auf einer föderalen Zuwendung für die öffentliche Sauberkeit"
       ],
       "correct": 0,
-      "explanation": "Das sind 2 837 von 7 731 Bußgeldern, ein als Mülltourismus bezeichnetes Phänomen. Ein Müllsack kostet in Brüssel etwa zehnmal weniger als in den Randgemeinden.",
+      "explanation": "Diese Regelung, am 13. März 2026 vom Brüsseler Parlament beschlossen, soll der Region 51,4 Millionen Euro pro Jahr einbringen, davon 54 % an die Gemeinden für die Beseitigung wilder Abfälle. Der Verfassungsgerichtshof soll Ende September 2026 über diese Finanzierung entscheiden.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:b178b2f739a28818514f549cf3060cd7",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:19a91e1f9a8e8181b56109c2f689feb0",
+        "generatedAt": "2026-09-18T14:14:17.052Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klima",
-      "question": "Durch welches Instrument ersetzt das Regierungsabkommen vom Februar 2026 Renolution?",
+      "question": "Wie viele zusätzliche Todesfälle verursachte die Hitzewelle vom Juni 2026 in der Region Brüssel, laut der von Sciensano am 2. September 2026 veröffentlichten konsolidierten Bilanz?",
       "options": [
-        "Durch zinslose Darlehen mit Mitteln von 200 Millionen Euro",
-        "Durch eine einmalige Prämie von höchstens 200 Euro je Wohnung",
-        "Durch eine regionale Steuergutschrift über 4 Haushaltsjahre",
-        "Durch einen Garantiefonds mit Mitteln von 400 Millionen Euro"
+        "196 zusätzliche Todesfälle",
+        "42 zusätzliche Todesfälle",
+        "159 zusätzliche Todesfälle",
+        "930 zusätzliche Todesfälle"
       ],
       "correct": 0,
-      "explanation": "Die Regionale Politikerklärung legt über den bestehenden PACE hinaus kein neues CO2-Ziel fest, wodurch der Klimapfad offen bleibt.",
+      "explanation": "Diese Zahl wurde zweimal nach oben korrigiert, nach den 159 vom 8. Juli und den 188 vom 17. Juli. Die zweite Welle, vom 4. bis 17. Juli, fügt 42 Todesfälle hinzu, und die dritte führte zu keiner Brüsseler Übersterblichkeit. Sciensano verweist auf die Dauer der Episode, die Temperaturen und die Ozonkonzentrationen.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:c301e1e9b59e573d072f84e8f3ad2b78",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:47cc47613d1ec91a362728ad7e10e0ad",
+        "generatedAt": "2026-09-18T14:14:17.052Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klima",
-      "question": "Was stellt der Jahresbericht 2025 von Brüssel Umwelt zur Luftqualität fest?",
+      "question": "Was musste Belgien der Europäischen Kommission bis zum 1. September 2026 vorlegen, gemäß der Verordnung (EU) 2024/1991?",
       "options": [
-        "Alle Messstationen halten die geltenden europäischen Normen ein",
-        "Keine Messstation hält die geltenden europäischen Normen ein",
-        "Nur die Stationen abseits stark befahrener Achsen werden gemessen",
-        "Die Normen werden nur während der Wintermonate eingehalten"
+        "Seinen Entwurf eines nationalen Wiederherstellungsplans für die Natur",
+        "Seinen überarbeiteten nationalen Energie- und Klimaplan",
+        "Sein nationales Treibhausgasinventar",
+        "Sein Programm zur Minderung der Luftschadstoffe"
       ],
       "correct": 0,
-      "explanation": "Entlang stark befahrener Achsen bestehen jedoch weiterhin Überschreitungen, gemessen an den künftigen europäischen Normen von 2030 und den Empfehlungen der Weltgesundheitsorganisation.",
+      "explanation": "Die Frist verstrich ohne belgische Vorlage. Der Brüsseler Rückstand ist doppelt: der Plan Renature Brussels wird für September oder Oktober 2026 angekündigt, während der auf seiner offiziellen Website veröffentlichte Zeitplan eine Annahme in erster Lesung für den Sommer 2026 vorsah. Der vollständige belgische Plan wird nicht vor dem Sommer 2027 erwartet.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:c301e1e9b59e573d072f84e8f3ad2b78",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:47cc47613d1ec91a362728ad7e10e0ad",
+        "generatedAt": "2026-09-18T14:14:17.052Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Welcher Anteil der Brüsseler Selbstständigen war 2025 zwischen 18 und 29 Jahre alt, laut dem föderalen Institut für die soziale Sicherheit der Selbstständigen?",
+      "question": "Welche Fläche umfasst das Gelände von Audi Brussels in Forest, dessen Übernahme durch Heylen Warehouses am 1. September 2026 angekündigt wurde?",
       "options": [
-        "14,5 %",
-        "11,2 %",
-        "22,8 %",
-        "8,3 %"
+        "Etwa 55 Hektar",
+        "Etwa 18 Hektar",
+        "Etwa 120 Hektar",
+        "Etwa 35 Hektar"
       ],
       "correct": 0,
-      "explanation": "Das sind 18 174 Personen, gegenüber 11,2 % auf nationaler Ebene. Ihre Zahl stieg zwischen 2015 und 2025 um 32,6 %, während die Zahl der Arbeitsuchenden unter 25 Jahren binnen eines Jahres um 17 % zunahm.",
+      "explanation": "Es ist das größte Industriegelände der Region. Das Projekt, vorläufig Rings Park 21 genannt, zielt auf mindestens dreitausend Arbeitsplätze, den Personalbestand von Audi Brussels vor der Schließung am 28. Februar 2025, mit einer ersten Aktivität angekündigt für Anfang 2027.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:c81803734c16da99e284fe71035d8e87",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:c5ba47de08f925e271ae0a9a5d77f373",
+        "generatedAt": "2026-09-18T14:14:17.052Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Am 22. Juni 2026 entschied das niederländischsprachige Gericht erster Instanz in Brüssel, dass die Bürosteuer der Stadt Brüssel gegen welchen Grundsatz verstößt?",
+      "question": "Wie entwickelten sich die Unternehmensgründungen in Brüssel 2025 gegenüber 2024, laut dem am 8. September 2026 veröffentlichten Starters Atlas?",
       "options": [
-        "Gegen den verfassungsmäßigen Gleichheitsgrundsatz",
-        "Gegen das europäische Beihilferecht",
-        "Gegen die Dienstleistungsfreiheit",
-        "Gegen das Verbot der Doppelbesteuerung"
+        "Sie sinken um 1,47 %, als einzige Region",
+        "Sie steigen um 14,76 %, der stärkste Anstieg",
+        "Sie steigen um 0,77 %, im nationalen Rhythmus",
+        "Sie sinken um 0,08 %, im Rhythmus Flanderns"
       ],
       "correct": 0,
-      "explanation": "Das Gericht fand keine sachliche Rechtfertigung dafür, Büroflächen anders zu behandeln als andere Nutzungen, für die Steuerjahre 2022 bis 2025. Die Steuer stieg zwischen 2021 und 2026 von 9,58 auf 24 Euro je Quadratmeter und Jahr.",
+      "explanation": "Brüssel zählt 15 467 Gründungen im Jahr 2025, also 12,1 % des belgischen Gesamtwerts, während die Wallonie um 14,76 % zulegt und Flandern stabil bleibt. Der Starters Atlas wird von UCM, Unizo und GraydonCreditsafe veröffentlicht, drei privaten Akteuren, und ist keine amtliche Statistik.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:c81803734c16da99e284fe71035d8e87",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:c5ba47de08f925e271ae0a9a5d77f373",
+        "generatedAt": "2026-09-18T14:14:17.052Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1545,6 +1545,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 67
+  ]
 }

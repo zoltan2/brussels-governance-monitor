@@ -25,7 +25,7 @@ import {
 } from '@/lib/content';
 import { getActiveSignals, getEditorialSourceCount } from '@/lib/radar';
 import { getLatestUpdate } from '@/lib/changelog';
-import { formatDate } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import type { DossierCard as DossierCardType, SectorCard as SectorCardType } from '@/lib/content';
@@ -798,6 +798,7 @@ function FormatCard({
   meta,
   visualInteractive,
   link,
+  className,
 }: {
   title: string;
   /** Décoratif par défaut : le titre et le texte portent le sens. */
@@ -813,9 +814,16 @@ function FormatCard({
    */
   visualInteractive?: boolean;
   link: ReactNode;
+  /** Pour qu'une carte occupe deux colonnes tant que la grille n'en a que deux. */
+  className?: string;
 }) {
   return (
-    <div className="relative flex h-full flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 transition-colors hover:border-neutral-400">
+    <div
+      className={cn(
+        'relative flex h-full flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 transition-colors hover:border-neutral-400',
+        className,
+      )}
+    >
       <div
         className="h-16 overflow-hidden border-b border-neutral-200"
         aria-hidden={visualInteractive ? undefined : true}
@@ -966,7 +974,11 @@ function FormatsSection({
             {magazine ? `« ${magazine.tagline} »` : t('protoMagazineFallback')}
           </FormatCard>
 
+          {/* Trois cartes dans une grille à deux colonnes laissaient une cellule vide,
+              mesurée à 362 x 179 px à 768 px et 173 x 215 px à 390 px. La troisième
+              prend donc la rangée entière tant que la grille n'a pas trois colonnes. */}
           <FormatCard
+            className="max-lg:col-span-2"
             title="Le Signal"
             visual={
               <Image

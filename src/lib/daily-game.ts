@@ -23,7 +23,7 @@ export interface DailyGame {
   /**
    * Accroche courte. ⚠ Elle part en français dans les QUATRE langues : un
    * lecteur néerlandophone lit « le chiffre du jour ». Lacune de traduction
-   * réelle, en production, pas un reliquat de maquette — à reprendre avec les
+   * réelle, en production, pas un reliquat de maquette : à reprendre avec les
    * clés i18n du panneau de jeux.
    */
   teaser: string;

@@ -338,7 +338,11 @@ export function GamesPanel({ locale }: { locale: string }) {
               aria-modal="true"
               aria-labelledby="jeux-titre"
               onKeyDown={trapFocus}
-              className="flex h-full w-full flex-col overflow-hidden bg-neutral-50 shadow-2xl sm:w-[440px]"
+              // 560 px et non 440 : le Stuut dimensionne ses cases en divisant la
+              // largeur par le nombre de lettres, et son mot du jour peut faire
+              // treize caractères. À 440 px les cases tombaient à 24 px, illisibles.
+              // Mesuré le 18/09/2026 : 440 px donne 28 px de case, 560 px en donne 37.
+              className="flex h-full w-full flex-col overflow-hidden bg-neutral-50 shadow-2xl sm:w-[560px]"
             >
               <div className="flex items-start justify-between gap-3 px-4 py-3">
                 <div className="min-w-0">

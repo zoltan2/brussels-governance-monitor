@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T14:14:17.052Z",
+  "generatedAt": "2026-09-18T14:17:02.669Z",
   "locale": "de",
   "poolSize": 67,
   "questionsPerSession": 10,
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welche Beschäftigungsquote setzt die Regionale Politikerklärung vom Februar 2026 als Ziel bis zum Ende der Legislaturperiode?",
+      "question": "Welche einzige Bestimmung fiel im Urteil 96/2026 vom 10. September 2026, mit dem der Verfassungsgerichtshof die zeitliche Begrenzung des Arbeitslosengeldes bestätigte?",
       "options": [
-        "70 %",
-        "63,9 %",
-        "74,1 %",
-        "80 %"
+        "Die Übergangsregelung, angehoben auf mindestens zwölf Monate",
+        "Der Ausschluss von Arbeitslosen über fünfzig Jahren",
+        "Die Abschaffung des Zuschlags für ältere Arbeitslose",
+        "Die auf dreißig Tage verkürzte Beschwerdefrist"
       ],
       "correct": 0,
-      "explanation": "Das 2025 erreichte Niveau liegt laut Statbel bei 63,9 %, was einen Zuwachs von mehr als sechs Punkten in einer einzigen Legislaturperiode erfordert.",
+      "explanation": "Der Gerichtshof räumt ein, dass die Reform das Schutzniveau spürbar senkt, hält sie aber für vertretbar begründet. Es fällt allein die Übergangsregelung, die den Anspruch von Arbeitslosen, die sich am 30. Juni 2025 in der dritten Entschädigungsperiode befanden, auf sechs, acht oder neun Monate begrenzte: sie müssen nun mindestens zwölf Monate erhalten.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:914edaa2bb8cbb738e51829751482287",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:ad05b0cea79c603a9e96bf06e3b0eeaf",
+        "generatedAt": "2026-09-18T14:17:02.669Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Was wird laut der Studie des Itinera Institute zur Beschäftigung in Belgien, auf Basis der Verwaltungsdaten 2006-2022, hauptsächlich aus arbeitslosen jungen Brüsselern?",
+      "question": "Welcher Anteil der 99 458 in Brüssel eingeschriebenen Arbeitsuchenden war im August 2026 auf ein ÖSHZ angewiesen?",
       "options": [
-        "Nichterwerbstätige außerhalb des Arbeitsmarkts",
-        "Beschäftigte in den Nachbargemeinden",
-        "Auszubildende in subventionierter dualer Ausbildung",
-        "Selbständige im Nebenberuf"
+        "35 %, ein Anstieg um 82,6 % binnen eines Jahres",
+        "12 %, ein Anstieg um 4,9 % binnen eines Jahres",
+        "21 %, ein Anstieg um 17,5 % binnen eines Jahres",
+        "48 %, ein Anstieg um 30,4 % binnen eines Jahres"
       ],
       "correct": 0,
-      "explanation": "Nur etwa 25 % der Brüsseler zwischen 18 und 24 Jahren sind erwerbstätig, gegenüber etwa 40 % in Flandern, und 34,4 % der Bevölkerung im erwerbsfähigen Alter sind nicht erwerbstätig.",
+      "explanation": "Das sind 34 830 Personen. Actiris führt diese Bewegung auf die föderale Reform zurück: die zeitliche Begrenzung des Arbeitslosengeldes senkt die Zahl der Eingeschriebenen nicht, sie verschiebt die Last vom föderalen Haushalt auf den der neunzehn Brüsseler ÖSHZ. Die administrative Arbeitslosenquote erreicht 16,0 %, den höchsten Stand seit Dezember 2020.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:914edaa2bb8cbb738e51829751482287",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:ad05b0cea79c603a9e96bf06e3b0eeaf",
+        "generatedAt": "2026-09-18T14:17:02.669Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Auf welcher Rechtsgrundlage hat die Brüsseler Regierung am 16. Juli 2026 einen Sonderkommissar beim Foyer anderlechtois eingesetzt?",
+      "question": "An welche politische Bedingung wurde am 3. September 2026 die Auszahlung der 131 Millionen Euro an die SLRB für 2026 geknüpft?",
       "options": [
-        "Artikel 78 des Brüsseler Wohngesetzbuchs",
-        "Artikel 12 der Ordonnanz über die Aufsicht",
-        "Artikel 45 des Gesetzbuchs über die Raumentwicklung",
-        "Artikel 90 des neuen Gemeindegesetzes"
+        "An den Rücktritt des Vorsitzenden des Foyer anderlechtois",
+        "An den Verkauf zweier öffentlicher regionaler Gebäude",
+        "An die Einsetzung eines Sonderkommissars",
+        "An die Veröffentlichung des Audits der Agentur in Saint-Josse"
       ],
       "correct": 0,
-      "explanation": "Die Einsetzung gilt für vier Monate. Am 17. Juli 2026 billigte das Parlament die 26 Empfehlungen des Untersuchungsausschusses mit 51 Ja-Stimmen, 24 Nein-Stimmen und 6 Enthaltungen.",
+      "explanation": "Das Kabinett der Staatssekretärin für Wohnungswesen bestätigt, dass die im Sommer erwarteten Beträge nicht eingegangen sind. Ohne diese Mittel könnte die Dachgesellschaft, die die sechzehn Wohnungsbaugesellschaften öffentlichen Dienstes beaufsichtigt, ab September 2026 ihre Rechnungen nicht mehr begleichen, während 62 234 Haushalte auf eine Sozialwohnung warten.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:23c0ced326d641409b112cec38a4961c",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:289789f4be2697cd3a326fdb1ad98918",
+        "generatedAt": "2026-09-18T14:17:02.669Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Was wollen die vier Vereinigungen erreichen, die am 13. Juli 2026 ein Eilverfahren gegen die SLRB angestrengt haben?",
+      "question": "Um wie viel ging das Angebot an kurzzeitig vermieteten Airbnb-Wohnungen in Brüssel zwischen Juni 2025 und Juni 2026 zurück?",
       "options": [
-        "Die Blockierung des Verkaufs zweier öffentlicher Gebäude",
-        "Die Aussetzung der Zuweisung von Sozialwohnungen",
-        "Die Nichtigerklärung des Geschäftsführungsvertrags",
-        "Die Veröffentlichung der Wartelisten je Gemeinde"
+        "Um 23 %, von 6 171 auf 4 750 Wohnungen",
+        "Um 9 %, von 6 171 auf 5 600 Wohnungen",
+        "Um 41 %, von 6 171 auf 3 640 Wohnungen",
+        "Um 15 %, von 6 171 auf 5 245 Wohnungen"
       ],
       "correct": 0,
-      "explanation": "Die Vereinigungen verweisen auf die 62.234 Haushalte auf der Warteliste für eine Sozialwohnung. Der Verkauf des Standorts Ariane und eines Gebäudes in der Rue des Palais war im Januar 2026 aus Haushaltsgründen beschlossen worden.",
+      "explanation": "Die stärksten Rückgänge betreffen Forest, minus 35,8 %, und Etterbeek, minus 34 %. Bruxelles Fiscalité soll etwa 1 900 Bußgelder verhängt haben, für geschätzte 1,5 bis 2 Millionen Euro an eingetriebenen Steuerrückständen.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:23c0ced326d641409b112cec38a4961c",
-        "generatedAt": "2026-08-05T21:16:24.078Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:289789f4be2697cd3a326fdb1ad98918",
+        "generatedAt": "2026-09-18T14:17:02.669Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Am 18. Juni 2026 hob der Verfassungsgerichtshof die Brüsseler Ordonnanz von 2024 auf, die es erlaubte, für Güter des UNESCO-Welterbes eine Öffnung für die Öffentlichkeit von bis zu fünfzehn Tagen im Jahr vorzuschreiben. Mit welcher Begründung?",
+      "question": "Warum trägt ein Abschnitt des Rings in Neder-Over-Heembeek, also in der Region Brüssel-Hauptstadt, eine ausschließlich niederländischsprachige Beschilderung?",
       "options": [
-        "Der Text schützt Eigentumsrecht und Privatsphäre nicht ausreichend",
-        "Die Region ist für das UNESCO-Welterbe nicht zuständig",
-        "Das angeführte Erbe-Ziel hat keinen rechtlichen Wert",
-        "Die Region konnte die Kosten der Öffnung nicht tragen"
+        "Er wird seit einem Abkommen von 1991 von der Flämischen Region unterhalten",
+        "Er untersteht seit einem Abkommen von 1991 der Gemeinde Wemmel",
+        "Er wurde 1991 den Fazilitätengemeinden zugeordnet",
+        "Er fällt unter den Föderalstaat, der nicht zur Zweisprachigkeit verpflichtet ist"
       ],
       "correct": 0,
-      "explanation": "Die Legitimität des Erbe-Ziels erkennt der Gerichtshof durchaus an. Konkret bleibt das Palais Stoclet, ein privates Jugendstilhaus in Woluwe-Saint-Pierre, für die Öffentlichkeit geschlossen. Die Klage kam von der Gesellschaft der Erben der Familie Stoclet.",
+      "explanation": "Das interregionale Zusammenarbeitsabkommen von 1991 überträgt jeder Region die Verwaltung kurzer Grenzabschnitte, die beim Nachbarn liegen. Bruxelles Mobilité erinnert daran, dass die Flämische Region die Sprachgesetzgebung einhalten muss: auf Brüsseler Boden gilt die Zweisprachigkeit ohne Diskussion. Der Abschnitt misst laut Presse etwa 880 Meter.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:f5471a90bb2e7afd827c1f03a869ec04",
-        "generatedAt": "2026-08-25T13:00:00.000Z",
+        "sourceLastModified": "2026-09-14",
+        "sourceContentHash": "sha256:63255d1b47f2fac96f51d7eb9de40bca",
+        "generatedAt": "2026-09-18T14:17:02.669Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Ein Anwohner von Laeken rief die Ständige Kommission für Sprachenkontrolle an, weil die Unterlagen der öffentlichen Untersuchung zur Renovierung des Bahnhofs Bockstael ausschließlich auf Niederländisch verfasst waren. Wie entschied die Kommission?",
+      "question": "Welche Sanktion verhängte die Brüsseler Deontologiekommission am 4. Juli 2026 gegen zwanzig lokale Mandatsträger?",
       "options": [
-        "Seine Beschwerde sei begründet, er hätte die Unterlagen auf Französisch erhalten müssen",
-        "Die öffentliche Untersuchung müsse vollständig zweisprachig wiederholt werden",
-        "Die föderale Eisenbahngesellschaft unterliege der Sprachgesetzgebung nicht",
-        "Allein die betroffene Gemeinde sei für die Übersetzung der Unterlagen zuständig"
+        "Geldbußen von 10 bis 40 % einer Monatsvergütung",
+        "Eine zweijährige Unwählbarkeit für abgeleitete Mandate",
+        "Die Rückzahlung der 2025 erhaltenen Vergütungen",
+        "Eine Aussetzung des Mandats von drei bis sechs Monaten"
       ],
       "correct": 0,
-      "explanation": "Sein Antrag auf Vertagung im Konzertierungsausschuss wurde dennoch abgelehnt, und die Genehmigung erging ebenfalls nur auf Niederländisch. Da die Klage beim Staatsrat keine aufschiebende Wirkung hat, begannen die Arbeiten im August 2026.",
+      "explanation": "Der Grund ist fehlende Transparenz über die Vergütungen. Die Transparenzstelle hatte 305 säumige Mandatsträger gezählt, also 24 % der geprüften Akten; nach gezielten Erinnerungen blieben siebenundzwanzig säumig. Es ist die erste bezifferte und sanktionierende Bilanz dieses Kontrollmechanismus.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:f5471a90bb2e7afd827c1f03a869ec04",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-14",
+        "sourceContentHash": "sha256:63255d1b47f2fac96f51d7eb9de40bca",
+        "generatedAt": "2026-09-18T14:17:02.669Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Die am 21. August 2026 von der Brüsseler Regierung angekündigte Übergangsregelung für geteilte Mobilität setzt eine Obergrenze für Leihfahrräder in der gesamten Region. Wie hoch ist sie?",
+      "question": "Welches Prinzip hielt der Staatsrat am 9. September 2026 der Brüsseler Reform der Umweltzone entgegen?",
       "options": [
-        "7 500 Fahrräder",
-        "2 500 Fahrräder",
-        "4 800 Fahrräder",
-        "12 000 Fahrräder"
+        "Das in der Verfassung verankerte Standstill-Prinzip",
+        "Den Grundsatz der Gleichheit vor den öffentlichen Lasten",
+        "Den Grundsatz der Freizügigkeit der Personen",
+        "Den Grundsatz der Verhältnismäßigkeit der Sanktionen"
       ],
       "correct": 0,
-      "explanation": "Hinzu kommt eine Grenze von 2 500 Fahrrädern je Betreiber, damit die Pflichtabstellzonen nicht überlaufen. Eine Ausschreibung soll bis Mai 2028 zwei Lizenzen für je 4 800 Fahrräder vergeben; das Verbot geteilter Tretroller bleibt beim 1. Januar 2027.",
+      "explanation": "Er verwirft weder den Jahrespass zu 350 Euro noch den Sozialtarif zu 200 Euro, hält aber fest, dass die Regierung nicht hinreichend darlegt, wie sich die Luftqualität verbessern soll, während die Lockerung mehr belastende Fahrzeuge einfahren ließe. Der Erlass geht vor einer zweiten Lesung zurück in die Vorbereitung, das Inkrafttreten bleibt für 2027 angepeilt.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:c828fa728b790fe801befe65b4b86244",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:e918ea828e995c9e0f29c4244a16a10b",
+        "generatedAt": "2026-09-18T14:17:02.669Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Im August 2026 richteten die drei Verbände der Fahrgäste des öffentlichen Verkehrs einen offenen Brief zum Immobilienprojekt NOR.Bruxsels vor dem Nordbahnhof. Was werfen sie der vorgestellten Gestaltung vor?",
+      "question": "Welcher Anteil der rund 2 200 oberirdischen Haltestellen der STIB war am 10. September 2026 für Menschen mit eingeschränkter Mobilität selbstständig zugänglich?",
       "options": [
-        "Sie verschlechtere die Übergänge zwischen Zug, Bus, Straßenbahn und Metro",
-        "Sie nehme der Bahnhofshalle einen großen Teil des Jahres das Tageslicht",
-        "Sie sperre den Nordbahnhof für mehr als zwei Jahre für Reisende",
-        "Sie streiche die Hälfte der Fahrradabstellplätze des Bahnhofs"
+        "Etwa ein Viertel der Haltestellen",
+        "Etwa ein Zehntel der Haltestellen",
+        "Etwa drei Viertel der Haltestellen",
+        "Etwa die Hälfte der Haltestellen"
       ],
       "correct": 0,
-      "explanation": "Sie sprechen von einem antimodalen Knotenpunkt und nennen zwei Punkte: die Aufteilung der Bushaltestellen und die Lage der Endhaltestelle der künftigen Straßenbahn 15. Das Projekt sieht vier Türme, 533 Wohnungen und 77 460 m² Büros vor; die Genehmigung liegt nicht vor.",
+      "explanation": "Seit 2019 wurden etwa 500 Haltestellen normgerecht umgebaut, und die Hälfte des oberirdischen Netzes ist mit Hilfe zugänglich. Zudem verfügen 59 der 69 Metro- und Premetrostationen über Aufzüge.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:c828fa728b790fe801befe65b4b86244",
-        "generatedAt": "2026-08-25T09:29:40.218Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:e918ea828e995c9e0f29c4244a16a10b",
+        "generatedAt": "2026-09-18T14:17:02.669Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

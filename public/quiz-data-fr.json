@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T15:53:50.153Z",
+  "generatedAt": "2026-09-18T15:56:26.827Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Le 28 août 2026, le procureur du Roi de Bruxelles a chiffré le sous-effectif de son parquet. Combien de magistrats sont en fonction, sur le cadre prévu ?",
+      "question": "De quel montant annuel le fonds fédéral de sécurité et de prévention destiné à Bruxelles est-il doté, selon les informations du 17 septembre 2026 ?",
       "options": [
-        "49 magistrats sur 63 prévus",
-        "58 magistrats sur 63 prévus",
-        "63 magistrats sur 80 prévus",
-        "49 magistrats sur 55 prévus"
+        "55 millions d'euros, dont 35 aux zones de police",
+        "20 millions d'euros, dont 12 aux zones de police",
+        "110 millions d'euros, dont 70 aux zones de police",
+        "35 millions d'euros, dont 20 aux zones de police"
       ],
       "correct": 0,
-      "explanation": "Soit quatorze postes vacants. Le procureur évoque en outre un déficit de quatre-vingts enquêteurs à la police judiciaire fédérale, et chiffre à dix millions d'euros les moyens qu'il réclame. Il datait alors du 20 août 2026 le début de la vague de tirs.",
+      "explanation": "Vingt millions vont aux communes, au titre de la sécurisation des sommets européens et du rôle international de la capitale. Plusieurs millions auraient financé d'autres dépenses, dont un chèque de 828 000 euros à la société régionale du logement social en 2020 et un centre cyber jamais construit. Les sources emploient le conditionnel et ne citent aucune pièce officielle : la confiance est non confirmée.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:71eef8f55a8e63a61286fba8d68d34f0",
-        "generatedAt": "2026-09-18T12:48:36.587Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:ecf6564dbd37bbcdd6b3165f471d55ee",
+        "generatedAt": "2026-09-18T15:56:26.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Quelle est la durée du mandat du commissaire régional à la sécurité et aux drogues en Région de Bruxelles-Capitale, dont l'entrée en fonction était annoncée pour la fin septembre 2026 ?",
+      "question": "Que constate la fiche sécurité, au 8 septembre 2026, sur l'inventaire des caméras en Région bruxelloise ?",
       "options": [
-        "Cinq ans, renouvelable une fois",
-        "Trois ans, renouvelable deux fois",
-        "Quatre ans, renouvelable sans limite",
-        "Six ans, sans renouvellement possible"
+        "Il n'existe aucun cadastre précis du parc",
+        "Le cadastre est tenu par Safe.brussels depuis 2024",
+        "Chaque zone de police publie son propre inventaire",
+        "Un inventaire régional a été arrêté en novembre 2025"
       ],
       "correct": 0,
-      "explanation": "Le jury de sélection comptait six membres bilingues, dont le ministre-président, le procureur du Roi de Bruxelles et la commissaire nationale aux drogues. L'intitulé place « sécurité » avant « drogues », ce qui donne au mandat une assise plus large que le seul volet stupéfiants. La fonction ne se substitue ni au parquet, ni aux services de police, ni aux communes.",
+      "explanation": "Le constat rejoint celui de la Cour des comptes, qui écrivait le 5 novembre 2025 qu'il n'existe pas d'inventaire physique complet des actifs de l'organisme gestionnaire. La capitale compte plus de six mille caméras réparties entre plusieurs administrations et opérateurs. Les décomptes avancés par ailleurs proviennent d'un seul entretien et sont repris comme déclaration, pas comme inventaire.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:71eef8f55a8e63a61286fba8d68d34f0",
-        "generatedAt": "2026-09-18T12:48:36.587Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:ecf6564dbd37bbcdd6b3165f471d55ee",
+        "generatedAt": "2026-09-18T15:56:26.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Combien de places résidentielles la Région bruxelloise compte-t-elle pour les personnes souffrant d'assuétudes, dans les centres soutenus par Iriscare, selon les chiffres publiés le 11 septembre 2026 ?",
+      "question": "Que signale Vivalis le 17 septembre 2026 au sujet du virus du Nil occidental à Bruxelles ?",
       "options": [
-        "63 places, inchangées depuis trois ans",
-        "128 places, inchangées depuis trois ans",
-        "41 places, en hausse depuis trois ans",
-        "95 places, en baisse depuis trois ans"
+        "Deux cas suspects, dont un touriste reparti en Italie",
+        "Deux cas confirmés par analyse de laboratoire",
+        "Huit cas très probables, comme en Flandre",
+        "Un premier foyer identifié dans une commune du nord"
       ],
       "correct": 0,
-      "explanation": "Soit neuf places de crise pour des séjours de deux semaines au plus, dix pour des séjours courts et quarante-quatre pour des séjours longs. En 2025, un séjour court se faisait attendre dix mois en moyenne. Trente-neuf places supplémentaires sont annoncées pour 2027 et 2028.",
+      "explanation": "L'autre personne réside à Bruxelles, se porte bien et ne présente plus de symptômes. En Flandre, le département de la Santé recense huit cas très probables. Les deux cas bruxellois sont qualifiés de suspects et non de confirmés : l'origine est Vivalis, organisme régional, mais l'information n'est relayée que par une seule dépêche de presse.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit de moitié, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:d4ef29e496b8943f0dee84c538225547",
-        "generatedAt": "2026-09-18T12:48:36.587Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:a93e24d8311598dd650b8f00f603a910",
+        "generatedAt": "2026-09-18T15:56:26.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Le Pack Nouveau Départ, approuvé par le gouvernement bruxellois le 10 septembre 2026 pour les victimes de violences entre partenaires, crée un point d'entrée unique. Quelle démarche n'est pas exigée pour y accéder ?",
+      "question": "Comment se répartissent les trente-neuf places d'hébergement supplémentaires annoncées à Bruxelles pour les personnes souffrant d'assuétudes ?",
       "options": [
-        "Le dépôt préalable d'une plainte",
-        "La domiciliation dans une commune bruxelloise",
-        "Un certificat médical de moins de trois mois",
-        "Une prise en charge préalable par un CPAS"
+        "Vingt-quatre en 2027 et quinze en 2028",
+        "Quinze en 2027 et vingt-quatre en 2028",
+        "Dix-neuf en 2027 et vingt en 2028",
+        "Trente-neuf en une seule fois en 2027"
       ],
       "correct": 0,
-      "explanation": "Le point d'entrée est créé au sein d'Olista, service spécialisé dans les violences intrafamiliales, chargé d'évaluer chaque situation et d'orienter les victimes. La note rassemble trente-six mesures autour de six priorités, avec 520 000 euros pour l'ensemble des niveaux bruxellois et une mise en œuvre attendue au 1er juillet 2027.",
+      "explanation": "La capacité actuelle est de soixante-trois places résidentielles dans les centres soutenus par Iriscare, inchangée en 2023, 2024 et 2025. En 2025, un séjour court se faisait attendre dix mois en moyenne, et l'accueil de crise du centre Enaden environ deux mois. La réponse parlementaire elle-même n'était pas consultable en ligne au 13 septembre 2026.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit de moitié, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:d4ef29e496b8943f0dee84c538225547",
-        "generatedAt": "2026-09-18T12:48:36.587Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:a93e24d8311598dd650b8f00f603a910",
+        "generatedAt": "2026-09-18T15:56:26.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Que prévoit le masterplan du site des Abattoirs à Cureghem, dont l'approbation par le gouvernement bruxellois a été rapportée le 2 septembre 2026 ?",
+      "question": "Que demande un collectif d'opposants au conseil communal de Schaerbeek, le 16 septembre 2026, au sujet de la friche Josaphat ?",
       "options": [
-        "La première piscine en plein air permanente de Bruxelles",
-        "La première halle couverte de production maraîchère du pays",
-        "Le premier parc de logements entièrement passifs de la Région",
-        "La première gare de fret urbain raccordée au canal"
+        "Rendre un avis défavorable sur le permis de lotir",
+        "Racheter le terrain à l'opérateur public régional",
+        "Classer l'ensemble du site comme réserve naturelle",
+        "Suspendre l'enquête publique jusqu'en août 2027"
       ],
       "correct": 0,
-      "explanation": "Le complexe de baignade est prévu sur la toiture du bâtiment Manufacture, avec un bassin extérieur, un bassin couvert de vingt-cinq mètres et un bassin d'apprentissage. Le calendrier annoncé va d'un appel d'offres en 2026 à une ouverture visée en 2030, sur un site d'environ dix hectares.",
+      "explanation": "Le collectif demande de rompre avec la position de 2025, lorsque le collège s'était abstenu. L'enquête publique porte sur 537 logements, contre 540 dans la version déposée en 2025. La demande émane de la SAU, la Société d'Aménagement Urbain, opérateur public de la Région, alors que la déclaration de politique régionale du 14 février 2026 gèle le développement du site pendant les dix-huit premiers mois de la législature.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:6d5ef29a38b7907adb6b6474073cd549",
-        "generatedAt": "2026-09-18T12:48:36.587Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:38fe295087cb4cef952267cffcd97863",
+        "generatedAt": "2026-09-18T15:56:26.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Que prévoit la déclaration de politique régionale du 13 février 2026 au sujet de l'avis de la Commission royale des monuments et des sites ?",
+      "question": "Pourquoi les superficies citées pour la friche Josaphat diffèrent-elles selon les sources consultées ?",
       "options": [
-        "Remplacer l'avis conforme par un avis simple",
-        "Étendre l'avis conforme à toutes les zones protégées",
-        "Supprimer la commission au profit d'urban.brussels",
-        "Rendre l'avis conforme opposable au Conseil d'État"
+        "Elles ne désignent pas le même périmètre",
+        "Une partie du terrain a été vendue en septembre",
+        "Les sources emploient des unités différentes",
+        "Le permis a été scindé en deux demandes"
       ],
       "correct": 0,
-      "explanation": "Un avis conforme lie l'autorité qui délivre le permis, un avis simple ne la lie pas. L'objectif affiché est de débloquer les projets de rénovation dans les zones protégées sans supprimer la protection patrimoniale.",
+      "explanation": "Les sources d'août décrivent un terrain d'environ vingt-quatre hectares, celles de septembre le périmètre de la demande de permis, 6,76 hectares. Les rédactions ne donnent pas non plus la même date de clôture de l'enquête publique. Un permis de lotir ne vaut pas autorisation de construire : il porte sur le découpage des parcelles, les voiries et les impétrants, et la construction exigera une demande distincte.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:6d5ef29a38b7907adb6b6474073cd549",
-        "generatedAt": "2026-09-18T12:48:36.587Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:38fe295087cb4cef952267cffcd97863",
+        "generatedAt": "2026-09-18T15:56:26.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -997,21 +997,21 @@
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Sécurité",
-      "question": "Quel argument central les communes bruxelloises opposent-elles à la fusion de leurs six zones de police en une seule, votée à la Chambre le 13 mai 2026 ?",
+      "question": "Quelles communes ont introduit le 17 septembre 2026 un recours contre la fusion des six zones de police bruxelloises ?",
       "options": [
-        "La sous-représentation structurelle des petites communes",
-        "Le coût de la transition, laissé à charge des communes",
-        "La perte du pouvoir de police administrative du bourgmestre",
-        "L'absence de garantie sur le maintien des commissariats"
+        "Auderghem, Woluwe-Saint-Pierre et Koekelberg",
+        "Anderlecht, Saint-Gilles et Forest",
+        "Evere, Schaerbeek et Jette",
+        "Uccle, Ixelles et Etterbeek"
       ],
       "correct": 0,
-      "explanation": "Berchem-Sainte-Agathe ne disposerait que de 1,4 % des voix dans la zone fusionnée. Brulocalis a déposé un recours collectif, doublé de recours individuels de plusieurs bourgmestres.",
+      "explanation": "Les trois communes figuraient parmi les quatre que cette fiche donnait en délibération au moment du vote du 13 mai 2026, aux côtés d'Evere. La bourgmestre d'Auderghem avance deux griefs : une discrimination, la fusion étant imposée aux dix-neuf communes bruxelloises alors qu'elle reste facultative ailleurs dans le pays, et une perte d'autonomie locale, la commune disposant après fusion de moins de 2 % du poids des votes au conseil de police. Ce dernier chiffre est cité par la bourgmestre et non vérifié sur pièce.",
       "sourceSlug": "/fr/dossiers/fusion-polices",
       "sourceTitle": "Fusion des polices",
       "provenance": {
-        "sourceLastModified": "2026-07-12",
+        "sourceLastModified": "2026-09-18",
         "sourceContentHash": "sha256:29d2b4b36d2658e23e269f224138979e",
-        "generatedAt": "2026-08-05T19:56:16.035Z",
+        "generatedAt": "2026-09-18T15:56:26.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,21 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Qu'une association d'urbanisme bruxelloise a-t-elle annoncé le 9 septembre 2026 avoir établi dans les caves du Palais du Midi ?",
+      "question": "Qu'a entamé Beliris le 15 septembre 2026 autour de la gare du Nord ?",
       "options": [
-        "Deux abris anti-aériens construits en 1940 et en 1943",
-        "Une nappe phréatique absente des études de sol",
-        "Une galerie technique datant de l'Exposition de 1935",
-        "Trois caves voûtées classées au patrimoine en 1993"
+        "Le remblayage des fosses excavées, rues de l'Avenir et d'Aerschot",
+        "Le percement du tunnel vers la station Liedts",
+        "La démolition de la dalle de couverture des quais",
+        "L'installation des équipements de la future station"
       ],
       "correct": 0,
-      "explanation": "L'association les décrit sur 450 mètres carrés, pour une capacité pouvant atteindre 1 500 personnes, et demande un travail archéologique avant la poursuite des travaux en sous-sol. Les rédactions ne rapportent pas la découverte de la même manière : certaines écrivent que l'existence des abris est attestée, une autre parle d'abris possibles.",
+      "explanation": "C'est une conséquence de l'arrêt des chantiers du métro 3. La voirie de la rue de l'Avenir doit être rétablie à l'identique avant la fin de l'année 2026 selon Beliris, la revalorisation de la rue d'Aerschot devant s'achever dans le courant de 2027. Le budget total n'est pas communiqué, et ces échéances sont estimées : elles émanent de Beliris et ne sont pas vérifiées sur pièce.",
       "sourceSlug": "/fr/dossiers/metro-3",
       "sourceTitle": "Métro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:256a0b10fa94204377ccbfaa34a25e01",
-        "generatedAt": "2026-09-18T12:57:06.876Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:aaa7da95c1ffe559c48594910283c5e0",
+        "generatedAt": "2026-09-18T15:56:26.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1135,21 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quelle durée de travaux le consortium candidat au tronçon nord du métro 3 a-t-il annoncée en commission parlementaire le 13 mai 2026 ?",
+      "question": "Comment les rédactions rapportent-elles l'existence des deux abris anti-aériens annoncés sous le Palais du Midi le 9 septembre 2026 ?",
       "options": [
-        "Dix ans, contre six ans au calendrier demandé",
-        "Six ans, contre dix ans au calendrier demandé",
-        "Quinze ans, contre huit ans au calendrier demandé",
-        "Quatre ans, contre trois ans au calendrier demandé"
+        "Certaines l'écrivent attestée, une autre parle d'abris possibles",
+        "Toutes la présentent comme confirmée par la Ville",
+        "Toutes la présentent comme une hypothèse non vérifiée",
+        "Aucune ne reprend l'annonce faite par l'association"
       ],
       "correct": 0,
-      "explanation": "Le facteur technique bloquant est la nécessité de geler le sol jusqu'à 82 mètres de profondeur pour créer des barrières étanches, un procédé jamais réalisé à cette profondeur dans le monde. La déclaration de politique régionale ayant gelé le projet pour dix ans, une livraison ne serait pas attendue avant le milieu des années 2040.",
+      "explanation": "L'association décrit deux abris construits en 1940 et en 1943, sur 450 mètres carrés, pour une capacité pouvant atteindre 1 500 personnes, et demande un travail archéologique avant la poursuite des travaux en sous-sol. Elle écrit elle-même qu'il lui manque de nombreuses informations, et surtout des plans précis. Aucune réaction de la STIB ni de Beliris ne figure dans les articles consultés.",
       "sourceSlug": "/fr/dossiers/metro-3",
       "sourceTitle": "Métro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:256a0b10fa94204377ccbfaa34a25e01",
-        "generatedAt": "2026-09-18T12:57:06.876Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:aaa7da95c1ffe559c48594910283c5e0",
+        "generatedAt": "2026-09-18T15:56:26.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

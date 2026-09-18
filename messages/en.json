@@ -573,14 +573,18 @@
       "hosting": "Hetzner (hosting): hosts the website on a server located in Nuremberg, Germany. Processes server logs (IP addresses, HTTP headers). No personal data is stored beyond temporary technical logs.",
       "cloudflare": "Cloudflare (CDN and DDoS protection): filters and delivers traffic from its European points of presence. Processes visitor IP addresses for the duration of the request. US company, certified under the EU-US Data Privacy Framework.",
       "umami": "Umami (analytics): privacy-friendly traffic measurement, self-hosted on our own server in Germany. No cookies, no personal data collected, no cross-site tracking.",
-      "resend": "Resend (email): sends confirmation emails and weekly digests. Processes subscriber email addresses. Based in the United States with GDPR compliance (DPA signed).",
+      "resend": "Resend (email): sends confirmation emails, weekly digests and the daily Stuut. Processes subscriber email addresses. Based in the United States with GDPR compliance (DPA signed).",
       "legalBasis": "Legal basis: legitimate interest (Article 6.1.f GDPR) for Hetzner, Cloudflare and Umami; consent (Article 6.1.a) for Resend.",
       "statusPage": "Service status page: https://status.governance.brussels",
       "transfers": "Transfers outside the EU: site hosting and analytics stay in Germany. Resend (US) and Cloudflare (US company) benefit from Standard Contractual Clauses (SCCs) and are certified under the EU-US Data Privacy Framework (DPF). DPAs are automatically accepted with each service's terms of use."
     },
     "games": {
       "title": "Daily games (Stuut and Amai)",
-      "description": "BGM publishes two daily games about Brussels governance: Le Stuut du jour (stuut.governance.brussels), a word game, and Amai ! (amai.governance.brussels), a number game. No account is required and no cookie is set. Your progress, your game statistics and your language preference are stored only in your browser's local storage, on your own device: they are never sent to the server and you can erase them at any time by clearing your browser's site data. Traffic measurement for both games goes through the same self-hosted Umami instance as the main site, anonymously."
+      "description": "BGM publishes two daily games about Brussels governance: Le Stuut du jour, a word game, and Amai !, a numbers game. You can play them on their own sites (stuut.governance.brussels, amai.governance.brussels) or in this site's games panel. No account is needed and no cookie is set. Your progress, statistics and language preference stay in your browser's local storage, which you can clear at any time. Exception: at the end of an Amai ! game, the game's server records, without any identifier or IP address, the date, the language, the score, the site where the game was played and, for each figure, whether the answer was right; this data is used to place your score among those of other readers. Audience measurement for both games uses the same self-hosted Umami instance as this site, anonymously."
+    },
+    "stuutEmail": {
+      "title": "Le Stuut du jour by email",
+      "description": "If you sign up to receive Le Stuut every morning, on stuut.governance.brussels or from this site's games panel, the Stuut service records your email address, the site you signed up from, the dates of sign-up, confirmation and, where applicable, unsubscription or delivery failure, and the date and outcome of each sending. This data is used solely to send you Le Stuut. Your subscription only becomes active after you click the confirmation link received by email (legal basis: your consent). Emails are sent via Resend. Every daily email contains an unsubscribe link. After you unsubscribe, your address remains recorded, marked as unsubscribed, and receives nothing further; it is permanently deleted on simple request to the contact address below. Your IP address is not recorded by this service: it is only used, in memory and for a few minutes, to limit abuse."
     },
     "cookies": {
       "title": "Cookies",

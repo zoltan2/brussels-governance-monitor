@@ -93,6 +93,26 @@ describe('GamesPanel — onglet et panneau', () => {
     expect(document.activeElement).toBe(onglet());
   });
 
+  it('dans un champ rempli, le premier Échap garde la saisie et le focus dans la modale ; le second ferme', () => {
+    // Constat F6 de l'équipe rouge : Échap dans l'adresse d'inscription fermait tout
+    // le panneau et jetait la saisie.
+    render(<GamesPanel locale="fr" />);
+    fireEvent.click(onglet());
+    const dialog = document.querySelector<HTMLElement>('[role="dialog"]')!;
+    const champ = document.createElement('input');
+    champ.value = 'lecteur@exemple.be';
+    dialog.append(champ);
+    champ.focus();
+
+    fireEvent.keyDown(champ, { key: 'Escape' });
+    expect(document.querySelector('[role="dialog"]')).not.toBeNull();
+    expect(champ.value).toBe('lecteur@exemple.be');
+    expect(document.activeElement).toBe(dialog);
+
+    fireEvent.keyDown(document.activeElement!, { key: 'Escape' });
+    expect(document.querySelector('[role="dialog"]')).toBeNull();
+  });
+
   it('rétablit le défilement de la page à la fermeture', () => {
     render(<GamesPanel locale="fr" />);
     fireEvent.click(onglet());

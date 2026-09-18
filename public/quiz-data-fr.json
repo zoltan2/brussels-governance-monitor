@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T12:45:35.102Z",
+  "generatedAt": "2026-09-18T12:48:36.587Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Les commerces du quartier Nord doivent fermer entre 1h et 6h depuis avril 2026, à Schaerbeek et à Saint-Josse-ten-Noode. Que disent les rapports des auditeurs du Conseil d'État rendus le 10 août 2026 ?",
+      "question": "Le 28 août 2026, le procureur du Roi de Bruxelles a chiffré le sous-effectif de son parquet. Combien de magistrats sont en fonction, sur le cadre prévu ?",
       "options": [
-        "Ils écartent l'urgence dans les deux recours dirigés contre la mesure",
-        "Ils annulent la fermeture nocturne dans les deux communes concernées",
-        "Ils suspendent la mesure en attendant l'arrêt définitif du Conseil d'État",
-        "Ils renvoient les deux recours à la Cour constitutionnelle pour examen"
+        "49 magistrats sur 63 prévus",
+        "58 magistrats sur 63 prévus",
+        "63 magistrats sur 80 prévus",
+        "49 magistrats sur 55 prévus"
       ],
       "correct": 0,
-      "explanation": "Un rapport d'auditeur n'est pas un arrêt : l'auditeur instruit et propose, la juridiction décide et peut s'en écarter. La mesure, adoptée en mars 2026, a été prolongée en juin jusqu'à la fin septembre 2026.",
+      "explanation": "Soit quatorze postes vacants. Le procureur évoque en outre un déficit de quatre-vingts enquêteurs à la police judiciaire fédérale, et chiffre à dix millions d'euros les moyens qu'il réclame. Il datait alors du 20 août 2026 le début de la vague de tirs.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:f17bf0ae0065d4049c7716b0733fa32f",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:71eef8f55a8e63a61286fba8d68d34f0",
+        "generatedAt": "2026-09-18T12:48:36.587Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "La zone de police Midi, dont l'ancien commissariat central de la rue Démosthène a été visé par des tirs dans la nuit du 21 au 22 août 2026, couvre quelles communes ?",
+      "question": "Quelle est la durée du mandat du commissaire régional à la sécurité et aux drogues en Région de Bruxelles-Capitale, dont l'entrée en fonction était annoncée pour la fin septembre 2026 ?",
       "options": [
-        "Anderlecht, Saint-Gilles et Forest",
-        "Anderlecht, Molenbeek-Saint-Jean et Koekelberg",
-        "Saint-Gilles, Forest et Uccle",
-        "Anderlecht, Saint-Gilles et Ixelles"
+        "Cinq ans, renouvelable une fois",
+        "Trois ans, renouvelable deux fois",
+        "Quatre ans, renouvelable sans limite",
+        "Six ans, sans renouvellement possible"
       ],
       "correct": 0,
-      "explanation": "Le bâtiment est progressivement vidé depuis l'ouverture du commissariat de la rue des Deux Gares et la commune souhaite le vendre. Il était fermé au moment des tirs et aucun blessé n'a été à déplorer.",
+      "explanation": "Le jury de sélection comptait six membres bilingues, dont le ministre-président, le procureur du Roi de Bruxelles et la commissaire nationale aux drogues. L'intitulé place « sécurité » avant « drogues », ce qui donne au mandat une assise plus large que le seul volet stupéfiants. La fonction ne se substitue ni au parquet, ni aux services de police, ni aux communes.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:f17bf0ae0065d4049c7716b0733fa32f",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:71eef8f55a8e63a61286fba8d68d34f0",
+        "generatedAt": "2026-09-18T12:48:36.587Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Le Brussels Deal, mis en place en 2022, finançait deux mille places d'accueil à Bruxelles pour les demandeurs de protection internationale. Quelle capacité le fédéral a-t-il retirée en 2026 ?",
+      "question": "Combien de places résidentielles la Région bruxelloise compte-t-elle pour les personnes souffrant d'assuétudes, dans les centres soutenus par Iriscare, selon les chiffres publiés le 11 septembre 2026 ?",
       "options": [
-        "Mille places, en deux temps : 300 à la fin juin puis 700 le 16 juillet",
-        "Cinq cents places, retirées en une seule fois le 16 juillet",
-        "Deux mille places, soit la totalité du dispositif, dès la fin juin",
-        "Trois cents places, seule tranche confirmée à la fin juillet"
+        "63 places, inchangées depuis trois ans",
+        "128 places, inchangées depuis trois ans",
+        "41 places, en hausse depuis trois ans",
+        "95 places, en baisse depuis trois ans"
       ],
       "correct": 0,
-      "explanation": "Le dispositif représentait 42 millions d'euros par an. La mobilisation du 18 août 2026, place de l'Albertine, n'a pas obtenu de report : les fermetures restent prévues avant l'hiver.",
+      "explanation": "Soit neuf places de crise pour des séjours de deux semaines au plus, dix pour des séjours courts et quarante-quatre pour des séjours longs. En 2025, un séjour court se faisait attendre dix mois en moyenne. Trente-neuf places supplémentaires sont annoncées pour 2027 et 2028.",
       "sourceSlug": "/fr/domaines/social",
-      "sourceTitle": "Social : mille places d'accueil supprimées, Samusocial saturé, CPAS sous pression",
+      "sourceTitle": "Social : dispositif d'accueil réduit de moitié, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:1d27fb65f9de0ee8a70ca50e8c74fb77",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:d4ef29e496b8943f0dee84c538225547",
+        "generatedAt": "2026-09-18T12:48:36.587Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Le Samusocial, principal opérateur de l'hébergement d'urgence à Bruxelles, relève de quelle autorité ?",
+      "question": "Le Pack Nouveau Départ, approuvé par le gouvernement bruxellois le 10 septembre 2026 pour les victimes de violences entre partenaires, crée un point d'entrée unique. Quelle démarche n'est pas exigée pour y accéder ?",
       "options": [
-        "De la COCOM, l'autorité bicommunautaire bruxelloise",
-        "Du fédéral, à travers l'agence d'accueil Fedasil",
-        "De la Région de Bruxelles-Capitale, à travers Bruss'Help",
-        "De la Fédération Wallonie-Bruxelles, à travers l'aide à la jeunesse"
+        "Le dépôt préalable d'une plainte",
+        "La domiciliation dans une commune bruxelloise",
+        "Un certificat médical de moins de trois mois",
+        "Une prise en charge préalable par un CPAS"
       ],
       "correct": 0,
-      "explanation": "Les places d'accueil supprimées en 2026 relèvent en revanche du fédéral. Un refus au Samusocial ne renvoie donc pas vers un guichet fédéral mais vers la rue, vers un CPAS communal ou vers le secteur associatif.",
+      "explanation": "Le point d'entrée est créé au sein d'Olista, service spécialisé dans les violences intrafamiliales, chargé d'évaluer chaque situation et d'orienter les victimes. La note rassemble trente-six mesures autour de six priorités, avec 520 000 euros pour l'ensemble des niveaux bruxellois et une mise en œuvre attendue au 1er juillet 2027.",
       "sourceSlug": "/fr/domaines/social",
-      "sourceTitle": "Social : mille places d'accueil supprimées, Samusocial saturé, CPAS sous pression",
+      "sourceTitle": "Social : dispositif d'accueil réduit de moitié, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:1d27fb65f9de0ee8a70ca50e8c74fb77",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:d4ef29e496b8943f0dee84c538225547",
+        "generatedAt": "2026-09-18T12:48:36.587Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "L'enquête publique ouverte le 28 août 2026 sur le permis de lotir de la friche Josaphat, entre Evere et Meiser, porte sur combien de logements ?",
+      "question": "Que prévoit le masterplan du site des Abattoirs à Cureghem, dont l'approbation par le gouvernement bruxellois a été rapportée le 2 septembre 2026 ?",
       "options": [
-        "537 logements",
-        "240 logements",
-        "780 logements",
-        "1 050 logements"
+        "La première piscine en plein air permanente de Bruxelles",
+        "La première halle couverte de production maraîchère du pays",
+        "Le premier parc de logements entièrement passifs de la Région",
+        "La première gare de fret urbain raccordée au canal"
       ],
       "correct": 0,
-      "explanation": "La demande émane de la Société d'Aménagement Urbain, opérateur public régional, sur un terrain d'environ 24 hectares. Un permis de lotir porte sur le découpage des parcelles et les voiries : construire exigera une demande distincte et une nouvelle enquête publique.",
+      "explanation": "Le complexe de baignade est prévu sur la toiture du bâtiment Manufacture, avec un bassin extérieur, un bassin couvert de vingt-cinq mètres et un bassin d'apprentissage. Le calendrier annoncé va d'un appel d'offres en 2026 à une ouverture visée en 2030, sur un site d'environ dix hectares.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:4a643fc67eeee8de542ad240e8e55f0e",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:6d5ef29a38b7907adb6b6474073cd549",
+        "generatedAt": "2026-09-18T12:48:36.587Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "L'arrêté bruxellois du 9 juillet 2026 sur les logements touristiques supprime l'attestation de conformité urbanistique pour les logements qui sont la résidence principale du loueur. Par quoi est-elle remplacée ?",
+      "question": "Que prévoit la déclaration de politique régionale du 13 février 2026 au sujet de l'avis de la Commission royale des monuments et des sites ?",
       "options": [
-        "Par une attestation de sécurité simplifiée, plafonnée à 150 euros",
-        "Par une déclaration sur l'honneur du loueur, sans coût ni vérification",
-        "Par une visite communale obligatoire tous les trois ans, à 300 euros",
-        "Par une inscription au registre régional des meublés, à 75 euros"
+        "Remplacer l'avis conforme par un avis simple",
+        "Étendre l'avis conforme à toutes les zones protégées",
+        "Supprimer la commission au profit d'urban.brussels",
+        "Rendre l'avis conforme opposable au Conseil d'État"
       ],
       "correct": 0,
-      "explanation": "La vérification écrite porte sur quatre éléments : les installations électrique, gaz et chauffage, et la présence d'un extincteur. La mesure entre en vigueur le 1er janvier 2027.",
+      "explanation": "Un avis conforme lie l'autorité qui délivre le permis, un avis simple ne la lie pas. L'objectif affiché est de débloquer les projets de rénovation dans les zones protégées sans supprimer la protection patrimoniale.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:4a643fc67eeee8de542ad240e8e55f0e",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "sourceLastModified": "2026-09-03",
+        "sourceContentHash": "sha256:6d5ef29a38b7907adb6b6474073cd549",
+        "generatedAt": "2026-09-18T12:48:36.587Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1569,5 +1569,5 @@
       }
     }
   ],
-  "reviewedCount": 52
+  "reviewedCount": 46
 }

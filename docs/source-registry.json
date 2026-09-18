@@ -1,6 +1,6 @@
 {
   "description": "Registre des sources surveillées par BGM. 325 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-09-18",
   "stats": {
     "total": 325,
     "byType": {
@@ -2449,8 +2449,8 @@
       "category": "governance",
       "cardsAffected": [],
       "frequency": "weekly",
-      "enabled": true,
-      "notes": "Bimensuel juridique NL. Paywall.",
+      "enabled": false,
+      "notes": "Bimensuel juridique NL. Paywall. Ports 80 et 443 fermés au 2026-09-18, aucune variante de nom d'hôte ne répond. Source désactivée.",
       "tier": "editorial",
       "domaines": [
         "institutional"
@@ -2481,7 +2481,7 @@
     {
       "id": "watch-121",
       "name": "'t Pallieterke / PAL NWS",
-      "url": "https://pallieterke.net/",
+      "url": "https://pal.be/",
       "type": "press",
       "lang": "nl",
       "priority": "P3",
@@ -2489,12 +2489,14 @@
       "cardsAffected": [],
       "frequency": "weekly",
       "enabled": true,
-      "notes": "Hebdo conservateur flamand. Paywall partiel.",
+      "notes": "Hebdo conservateur flamand. Paywall partiel. Le domaine pallieterke.net redirige vers pal.be, mais seulement en HTTP simple : son HTTPS ferme la connexion, ce qui faisait échouer le collecteur. URL corrigée et flux RSS ajouté le 2026-09-18.",
       "tier": "editorial",
       "domaines": [
         "institutional"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "fetchMode": "rss",
+      "rssUrl": "https://pal.be/rss"
     },
     {
       "_comment": "=== P3 — COMPLEMENTAIRE : EN ===",
@@ -2876,9 +2878,9 @@
       "category": "governance",
       "cardsAffected": [],
       "frequency": "weekly",
-      "notes": "Seul média DE couvrant la Belgique. Communauté DE/AT/CH.",
+      "notes": "Seul média DE couvrant la Belgique. Communauté DE/AT/CH. Domaine parqué chez un registrar au 2026-09-18 : le serveur présente un certificat *.ispapi.net et aucune variante de nom d'hôte ne répond. Source désactivée.",
       "tier": "editorial",
-      "enabled": true,
+      "enabled": false,
       "id": "watch-142",
       "domaines": [
         "institutional"
@@ -3401,7 +3403,7 @@
     },
     {
       "name": "Délégation générale du Québec à Bruxelles",
-      "url": "https://www.international.gouv.qc.ca/fr/bruxelles",
+      "url": "https://www.quebec.ca/gouvernement/ministeres-organismes/relations-internationales/representations/delegation-generale-quebec-bruxelles",
       "type": "institutional",
       "lang": "fr",
       "priority": "P4",
@@ -3409,7 +3411,7 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "diplomatie-io",
-      "notes": "Francophonie.",
+      "notes": "Francophonie. Le ministère a déménagé de international.gouv.qc.ca vers le portail quebec.ca. Page de la délégation vérifiée le 2026-09-18 avec l'agent du collecteur : 200, contenu rendu côté serveur.",
       "tier": "radar",
       "enabled": true,
       "id": "watch-170",
@@ -3485,14 +3487,15 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "ong-internationales",
-      "notes": "Biodiversité EU.",
+      "notes": "Biodiversité EU. Rend 403 à l'agent du collecteur, qui se déclare robot, mais répond 200 à un navigateur. Récupérée par navigateur piloté depuis le 2026-09-18.",
       "tier": "radar",
       "enabled": true,
       "id": "watch-174",
       "domaines": [
         "climate"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "fetchMode": "browser"
     },
     {
       "name": "Oxfam International (Bureau BXL)",
@@ -3580,14 +3583,15 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "ong-internationales",
-      "notes": "ONG paix globale. Rue Belliard.",
+      "notes": "ONG paix globale. Rue Belliard. Rend 403 à l'agent du collecteur, qui se déclare robot, mais répond 200 à un navigateur. Récupérée par navigateur piloté depuis le 2026-09-18.",
       "tier": "radar",
       "enabled": true,
       "id": "watch-179",
       "domaines": [
         "social"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "fetchMode": "browser"
     },
     {
       "name": "EPLO — European Peacebuilding Liaison Office",
@@ -3694,9 +3698,9 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "think-tanks",
-      "notes": "Coopération euro-arabe.",
+      "notes": "Coopération euro-arabe. Domaine disparu (NXDOMAIN) au 2026-09-18, plus aucune résolution DNS. Source désactivée.",
       "tier": "radar",
-      "enabled": true,
+      "enabled": false,
       "id": "watch-185",
       "domaines": [
         "institutional"
@@ -3732,9 +3736,9 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "think-tanks",
-      "notes": "Sécurité, défense EU/OTAN.",
+      "notes": "Sécurité, défense EU/OTAN. Domaine disparu (NXDOMAIN) au 2026-09-18, plus aucune résolution DNS. Source désactivée.",
       "tier": "radar",
-      "enabled": true,
+      "enabled": false,
       "id": "watch-187",
       "domaines": [
         "institutional"
@@ -3781,7 +3785,7 @@
     },
     {
       "name": "EFC — European Foundation Centre",
-      "url": "https://www.efc.be",
+      "url": "https://philea.eu/",
       "type": "research",
       "lang": "en",
       "priority": "P4",
@@ -3789,7 +3793,7 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "think-tanks",
-      "notes": "Centre européen des fondations. Philanthropie.",
+      "notes": "Centre européen des fondations. Philanthropie. efc.be redirige vers philea.eu (Philanthropy Europe Association), constaté le 2026-09-18. Le libellé de cette entrée mentionne encore l'EFC et reste à trancher.",
       "tier": "radar",
       "enabled": true,
       "id": "watch-190",
@@ -3865,9 +3869,9 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "associations-reseaux",
-      "notes": "ESAE, FAIB, MAI, UIA — écosystème associations.",
+      "notes": "ESAE, FAIB, MAI, UIA — écosystème associations. Domaine disparu (NXDOMAIN) au 2026-09-18, plus aucune résolution DNS. Source désactivée.",
       "tier": "radar",
-      "enabled": true,
+      "enabled": false,
       "id": "watch-194",
       "domaines": [
         "institutional"
@@ -4059,14 +4063,15 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "medias-etrangers",
-      "notes": "Presse européenne. Reporting influence à Bruxelles.",
+      "notes": "Presse européenne. Reporting influence à Bruxelles. Rend 403 à l'agent du collecteur, qui se déclare robot, mais répond 200 à un navigateur. Récupérée par navigateur piloté depuis le 2026-09-18.",
       "tier": "radar",
       "enabled": true,
       "id": "watch-204",
       "domaines": [
         "institutional"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "fetchMode": "browser"
     },
     {
       "name": "European Newsroom",
@@ -4192,9 +4197,9 @@
       "cardsAffected": [],
       "frequency": "monthly",
       "radarCategory": "culture-communautaire",
-      "notes": "Médias afro-belges. Actualités communes bruxelloises.",
+      "notes": "Médias afro-belges. Actualités communes bruxelloises. Sous-domaine mort au 2026-09-18. Le site parent brukmer.be répond, mais ne comporte aucune section annuaire équivalente : source désactivée plutôt que repointée, pour ne pas changer sa nature.",
       "tier": "radar",
-      "enabled": true,
+      "enabled": false,
       "id": "watch-211",
       "domaines": [
         "social"
@@ -6142,9 +6147,9 @@
         "institutional"
       ],
       "frequency": "monthly",
-      "enabled": true,
+      "enabled": false,
       "fetchMode": "html",
-      "notes": "Mouvement citoyen démocratie par tirage au sort. Élu au Parlement bruxellois 2019. 4 assemblées citoyennes, 220+ propositions. Site Wix, pas de RSS.",
+      "notes": "Mouvement citoyen démocratie par tirage au sort. Élu au Parlement bruxellois 2019. 4 assemblées citoyennes, 220+ propositions. Site Wix, pas de RSS. Le site rend 404 avec un corps de zéro octet au 2026-09-18. Source désactivée.",
       "tier": "editorial",
       "domaines": [
         "institutional"

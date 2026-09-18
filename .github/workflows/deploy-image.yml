@@ -7,11 +7,23 @@ name: Deploy image
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - 'docs/**'
-      - '**/*.md'
-      - '.github/**'
-      - '_audit/**'
+    # `paths` et non `paths-ignore` : GitHub interdit les deux sur un même
+    # événement, et seule la forme `paths` accepte la négation `!`. L'ordre
+    # compte, un motif positif placé après un motif négatif réinclut le chemin.
+    #
+    # docs/** reste exclu, à une exception près. `docs/source-registry.json`
+    # est importé par `src/lib/radar.ts` et par la page /data : il est donc
+    # compilé dans l'image, contrairement au reste de docs/. Tant qu'il tombait
+    # sous 'docs/**', le corriger ne déclenchait aucun déploiement et le site
+    # continuait de servir les anciennes URL sans que rien ne le signale.
+    # 27 commits l'ont touché en douze mois, soit 27 déploiements sautés.
+    paths:
+      - '**'
+      - '!**/*.md'
+      - '!.github/**'
+      - '!_audit/**'
+      - '!docs/**'
+      - 'docs/source-registry.json'
   workflow_dispatch:
 
 concurrency:

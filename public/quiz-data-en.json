@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T16:03:22.483Z",
+  "generatedAt": "2026-09-18T16:04:43.585Z",
   "locale": "en",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "On 28 August 2026, the Brussels public prosecutor set out the understaffing of his office. How many magistrates are in post, against the number provided for?",
+      "question": "What annual amount does the federal security and prevention fund for Brussels hold, according to the information of 17 September 2026?",
       "options": [
-        "49 magistrates against 63 provided for",
-        "58 magistrates against 63 provided for",
-        "63 magistrates against 80 provided for",
-        "49 magistrates against 55 provided for"
+        "55 million euros, 35 million of it for the police zones",
+        "20 million euros, 12 million of it for the police zones",
+        "110 million euros, 70 million of it for the police zones",
+        "35 million euros, 20 million of it for the police zones"
       ],
       "correct": 0,
-      "explanation": "That leaves fourteen vacancies. The prosecutor also points to a shortfall of eighty investigators in the federal judicial police, and puts the resources he is asking for at ten million euros. He then dated the start of the wave of shootings to 20 August 2026.",
+      "explanation": "Twenty million goes to the municipalities, for securing European summits and for the capital's international role. Several million euros are reported to have financed other spending, including a cheque of 828,000 euros to the regional social housing company in 2020 and a cyber centre that was never built. The sources use the conditional and cite no official document: confidence is unconfirmed.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:47e14d02a7d2d13235b945b5018e6d77",
-        "generatedAt": "2026-09-18T14:05:03.243Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:873a95b57dd2a50013e4a6ad90f6a94a",
+        "generatedAt": "2026-09-18T16:04:43.585Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "How long is the term of the Brussels regional anti-drug commissioner, whose taking up of office was announced for the end of September 2026?",
+      "question": "What does the security card note, as at 8 September 2026, about the inventory of cameras in the Brussels Region?",
       "options": [
-        "Five years, renewable once",
-        "Three years, renewable twice",
-        "Four years, renewable without limit",
-        "Six years, with no renewal possible"
+        "There is no precise register of the stock",
+        "The register has been kept by Safe.brussels since 2024",
+        "Each police zone publishes its own inventory",
+        "A regional inventory was completed in November 2025"
       ],
       "correct": 0,
-      "explanation": "The selection panel had six bilingual members, including the Minister-President, the Brussels public prosecutor and the national drugs commissioner. The French title places « sécurité » before « drogues », which gives the mandate a broader base than the narcotics strand alone. The post replaces neither the prosecutor's office, nor the police services, nor the municipalities.",
+      "explanation": "The finding matches that of the Court of Audit, which wrote on 5 November 2025 that no complete physical inventory of the managing body's assets exists. The capital counts more than six thousand cameras spread across several administrations and operators. The counts put forward elsewhere come from a single interview and are reported as a statement, not as an inventory.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:47e14d02a7d2d13235b945b5018e6d77",
-        "generatedAt": "2026-09-18T14:05:03.243Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:873a95b57dd2a50013e4a6ad90f6a94a",
+        "generatedAt": "2026-09-18T16:04:43.585Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "How many residential places does the Brussels Region have for people with addictions, in the centres supported by Iriscare, according to the figures published on 11 September 2026?",
+      "question": "What does Vivalis report on 17 September 2026 about West Nile virus in Brussels?",
       "options": [
-        "63 places, unchanged for three years",
-        "128 places, unchanged for three years",
-        "41 places, rising over three years",
-        "95 places, falling over three years"
+        "Two suspected cases, one a tourist who returned to Italy",
+        "Two cases confirmed by laboratory analysis",
+        "Eight highly probable cases, as in Flanders",
+        "A first cluster identified in a northern municipality"
       ],
       "correct": 0,
-      "explanation": "That is nine crisis places for stays of up to two weeks, ten for short stays and forty-four for long stays. In 2025, a short stay involved an average wait of ten months. Thirty-nine additional places are announced for 2027 and 2028.",
+      "explanation": "The other person lives in Brussels, is well and no longer has symptoms. In Flanders, the health department counts eight highly probable cases. The two Brussels cases are described as suspected and not confirmed: the source is Vivalis, a regional body, but the information is relayed by a single press dispatch.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme halved, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:1c1892ce3dd7c28898694fae648dcb3a",
-        "generatedAt": "2026-09-18T14:05:03.243Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:5f4ee986547ac9f74f395917b1816a1f",
+        "generatedAt": "2026-09-18T16:04:43.585Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "The \"Pack Nouveau Départ\" (New Start Pack), approved by the Brussels government on 10 September 2026 for victims of partner violence, creates a single entry point. What step is not required to use it?",
+      "question": "How are the thirty-nine additional residential places announced in Brussels for people with addictions distributed?",
       "options": [
-        "Filing a complaint first",
-        "Being registered in a Brussels municipality",
-        "A medical certificate less than three months old",
-        "Prior support from a CPAS"
+        "Twenty-four in 2027 and fifteen in 2028",
+        "Fifteen in 2027 and twenty-four in 2028",
+        "Nineteen in 2027 and twenty in 2028",
+        "All thirty-nine at once in 2027"
       ],
       "correct": 0,
-      "explanation": "The entry point is set up within Olista, a service specialising in domestic violence, to assess each situation and refer victims. The paper brings together thirty-six measures around six priorities, with 520,000 euros for all Brussels levels combined and implementation expected on 1 July 2027.",
+      "explanation": "Current capacity is sixty-three residential places in the centres supported by Iriscare, unchanged in 2023, 2024 and 2025. In 2025, a short stay involved an average wait of ten months, and crisis admission at the Enaden centre about two months. The parliamentary answer itself was not available online as at 13 September 2026.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme halved, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:1c1892ce3dd7c28898694fae648dcb3a",
-        "generatedAt": "2026-09-18T14:05:03.243Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:5f4ee986547ac9f74f395917b1816a1f",
+        "generatedAt": "2026-09-18T16:04:43.585Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "What does the masterplan for the Abattoir site in Cureghem provide for, whose approval by the Brussels government was reported on 2 September 2026?",
+      "question": "What does a group of opponents ask of the Schaerbeek municipal council on 16 September 2026 about the Josaphat wasteland?",
       "options": [
-        "The first permanent open-air swimming pool in Brussels",
-        "The first covered market-gardening hall in the country",
-        "The first fully passive housing stock in the Region",
-        "The first urban freight terminal linked to the canal"
+        "To issue an unfavourable opinion on the subdivision permit",
+        "To buy the land back from the regional public operator",
+        "To have the whole site classified as a nature reserve",
+        "To suspend the public inquiry until August 2027"
       ],
       "correct": 0,
-      "explanation": "The swimming complex is planned on the roof of the Manufacture building, with an outdoor pool, a covered twenty-five metre pool and a learner pool. The announced timetable runs from a tender in 2026 to an opening targeted for 2030, on a site of about ten hectares.",
+      "explanation": "The group asks the council to break with its 2025 position, when the executive abstained. The public inquiry covers 537 homes, against 540 in the version filed in 2025. The application comes from the SAU, the regional public urban development corporation, while the Regional Policy Declaration of 14 February 2026 freezes development of the site for the first eighteen months of the parliamentary term.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:8eb561550e4c2b76f928def3f8230634",
-        "generatedAt": "2026-09-18T14:05:03.243Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:788a4e0894f9e733ca3a3a84406539f7",
+        "generatedAt": "2026-09-18T16:04:43.585Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "What does the Regional Policy Declaration of 13 February 2026 provide for regarding the opinion of the CRMS?",
+      "question": "Why do the areas quoted for the Josaphat wasteland differ between the sources consulted?",
       "options": [
-        "Replacing the binding opinion with a simple one",
-        "Extending the binding opinion to all protected areas",
-        "Abolishing the commission in favour of urban.brussels",
-        "Making the binding opinion enforceable before the Council of State"
+        "They do not refer to the same perimeter",
+        "Part of the land was sold in September",
+        "The sources use different units of measure",
+        "The permit was split into two applications"
       ],
       "correct": 0,
-      "explanation": "A binding opinion ties the authority that issues the permit; a simple opinion does not. The stated aim is to unblock renovation projects in protected areas without removing heritage protection.",
+      "explanation": "The August sources describe a site of about twenty-four hectares, those of September the perimeter of the permit application, 6.76 hectares. The newsrooms do not give the same closing date for the public inquiry either. A subdivision permit is not a building consent: it covers plots, roads and utilities, and building will require a separate application.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:8eb561550e4c2b76f928def3f8230634",
-        "generatedAt": "2026-09-18T14:05:03.243Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:788a4e0894f9e733ca3a3a84406539f7",
+        "generatedAt": "2026-09-18T16:04:43.585Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -997,21 +997,21 @@
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Security",
-      "question": "What central argument do the Brussels municipalities make against merging their six police zones into one, voted in the Chamber on 13 May 2026?",
+      "question": "Which municipalities filed a challenge on 17 September 2026 against the merger of the six Brussels police zones?",
       "options": [
-        "The structural under-representation of the small municipalities",
-        "The cost of the transition, left to the municipalities",
-        "The loss of the mayor's administrative policing power",
-        "The absence of any guarantee that police stations will remain"
+        "Auderghem, Woluwe-Saint-Pierre and Koekelberg",
+        "Anderlecht, Saint-Gilles and Forest",
+        "Evere, Schaerbeek and Jette",
+        "Uccle, Ixelles and Etterbeek"
       ],
       "correct": 0,
-      "explanation": "Berchem-Sainte-Agathe would hold only 1.4% of the votes in the merged zone. Brulocalis has filed a collective appeal, alongside individual appeals from several mayors.",
+      "explanation": "The three municipalities were among the four this card listed as deliberating at the time of the vote of 13 May 2026, alongside Evere. The mayor of Auderghem puts forward two grievances: discrimination, the merger being mandatory for the nineteen Brussels municipalities while it remains optional elsewhere in the country, and a loss of local autonomy, the municipality holding less than 2% of the votes on the police council after the merger. That last figure is quoted by the mayor and not verified against documents.",
       "sourceSlug": "/en/dossiers/fusion-polices",
       "sourceTitle": "Police Zone Merger",
       "provenance": {
-        "sourceLastModified": "2026-07-12",
+        "sourceLastModified": "2026-09-18",
         "sourceContentHash": "sha256:aa947733879be94da7cc06dd645f61f5",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "generatedAt": "2026-09-18T16:04:43.585Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,21 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What did a Brussels urban planning association announce on 9 September 2026 that it had established in the cellars of the Palais du Midi?",
+      "question": "What did Beliris begin on 15 September 2026 around Gare du Nord?",
       "options": [
-        "Two air-raid shelters built in 1940 and 1943",
-        "A water table absent from the ground surveys",
-        "A service gallery dating from the 1935 Exhibition",
-        "Three vaulted cellars listed as heritage in 1993"
+        "Backfilling the excavated pits, rue de l'Avenir and rue d'Aerschot",
+        "Boring the tunnel towards Liedts station",
+        "Demolishing the platform covering slab",
+        "Installing the equipment of the future station"
       ],
       "correct": 0,
-      "explanation": "The association describes them over 450 square metres, with a capacity of up to 1,500 people, and asks for archaeological work before underground works continue. Newsrooms do not report the find in the same way: some write that the existence of the shelters is established, another speaks of possible shelters.",
+      "explanation": "It is a consequence of the halt to the metro 3 works. The roadway of rue de l'Avenir is to be restored to its original state before the end of 2026 according to Beliris, with the upgrading of rue d'Aerschot to be completed during 2027. The total budget is not disclosed, and those deadlines are estimated: they come from Beliris and are not verified against documents.",
       "sourceSlug": "/en/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:0d09606449d57a2118d7e052296222b0",
-        "generatedAt": "2026-09-18T14:07:36.217Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:ec7236b97bed4c96b81d68348fb7d9e5",
+        "generatedAt": "2026-09-18T16:04:43.585Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1135,21 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What construction time did the consortium bidding for the northern section of metro 3 announce in parliamentary committee on 13 May 2026?",
+      "question": "How do newsrooms report the existence of the two air-raid shelters announced under the Palais du Midi on 9 September 2026?",
       "options": [
-        "Ten years, against six years in the requested timetable",
-        "Six years, against ten years in the requested timetable",
-        "Fifteen years, against eight years in the requested timetable",
-        "Four years, against three years in the requested timetable"
+        "Some write it is established, another speaks of possible shelters",
+        "All present it as confirmed by the City",
+        "All present it as an unverified hypothesis",
+        "None takes up the association's announcement"
       ],
       "correct": 0,
-      "explanation": "The blocking technical factor is the need to freeze the ground down to 82 metres to create watertight barriers, a method never carried out at that depth anywhere in the world. Since the Regional Policy Declaration froze the project for ten years, delivery would not be expected before the mid-2040s.",
+      "explanation": "The association describes two shelters built in 1940 and 1943, over 450 square metres, with a capacity of up to 1,500 people, and asks for archaeological work before underground works continue. It writes itself that it still lacks a great deal of information, and above all precise plans. No reaction from the STIB or from Beliris appears in the articles consulted.",
       "sourceSlug": "/en/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:0d09606449d57a2118d7e052296222b0",
-        "generatedAt": "2026-09-18T14:07:36.217Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:ec7236b97bed4c96b81d68348fb7d9e5",
+        "generatedAt": "2026-09-18T16:04:43.585Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

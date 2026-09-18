@@ -16,8 +16,19 @@ declare module 'vitest' {
 }
 expect.extend(matchers);
 
+// `@/i18n/navigation` importe `next/navigation` en ESM, introuvable hors bundle Next
+// (même bouchon que games-panel.render.test.tsx). Le lien vie privée du formulaire
+// d'inscription en dépend.
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ href, children, locale, ...rest }: { href: string; locale?: string; children: React.ReactNode }) => (
+    <a href={`/${locale ?? 'fr'}${href === '/privacy' ? '/confidentialite' : href}`} {...rest}>
+      {children}
+    </a>
+  ),
+}));
+
 import { StuutGame } from './stuut-game';
-import { CLE_STATS, STUUT_API_JOUR } from '@/lib/stuut';
+import { CLE_INSCRIT, CLE_INVITATION, CLE_STATS, STUUT_API_INSCRIPTION, STUUT_API_JOUR } from '@/lib/stuut';
 
 const JOUR = {
   jour: '2026-09-18',
@@ -204,6 +215,113 @@ describe('StuutGame', () => {
     await screen.findByText('Tout en finesse.');
     fireEvent.click(screen.getByRole('button', { name: 'Mes statistiques' }));
     fireEvent.click(screen.getByRole('button', { name: 'Défier un ami' }));
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe('StuutGame : inscription au Stuut par e-mail', () => {
+  // Deux adresses distinctes : le mot du jour, et l'inscription. Chaque appel est noté.
+  let appels: { url: string; init?: RequestInit }[] = [];
+  function serveur(inscription: { status: number } = { status: 200 }) {
+    appels = [];
+    globalThis.fetch = vi.fn(async (url: string, init?: RequestInit) => {
+      appels.push({ url, init });
+      if (url === STUUT_API_INSCRIPTION) {
+        return { ok: inscription.status < 400, status: inscription.status, json: async () => ({ ok: inscription.status < 400 }) };
+      }
+      return { ok: true, status: 200, json: async () => JSON.parse(JSON.stringify(JOUR)) };
+    }) as unknown as typeof fetch;
+  }
+  const inscriptions = () => appels.filter((a) => a.url === STUUT_API_INSCRIPTION);
+
+  async function finirPartie() {
+    render(<StuutGame actif />);
+    await screen.findByText(/n°95/);
+    taper('CABINET');
+    await screen.findByText('Du premier coup. Chapeau, vraiment.');
+  }
+
+  beforeEach(() => serveur());
+
+  it("invite à l'inscription en fin de partie, et n'envoie que l'adresse, sans cookie", async () => {
+    await finirPartie();
+    fireEvent.change(screen.getByLabelText('Votre adresse e-mail'), { target: { value: '  lecteur@exemple.be ' } });
+    fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
+
+    expect(await screen.findByText(/Vérifiez votre boîte mail pour confirmer/)).toBeTruthy();
+    expect(inscriptions()).toHaveLength(1);
+    const { init } = inscriptions()[0];
+    expect(init?.method).toBe('POST');
+    expect(init?.credentials).toBe('omit');
+    expect(JSON.parse(String(init?.body))).toEqual({ email: 'lecteur@exemple.be' });
+    expect(localStorage.getItem(CLE_INSCRIT)).toBe('1');
+  });
+
+  it("ne transmet jamais l'adresse à la mesure d'audience", async () => {
+    const mesures: unknown[] = [];
+    window.umami = { track: (...args: unknown[]) => void mesures.push(args) };
+    try {
+      await finirPartie();
+      fireEvent.change(screen.getByLabelText('Votre adresse e-mail'), { target: { value: 'secret@exemple.be' } });
+      fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
+      await screen.findByText(/Vérifiez votre boîte mail/);
+      expect(JSON.stringify(mesures)).not.toContain('secret');
+      expect(JSON.stringify(mesures)).toContain('jeux-stuut-inscription');
+    } finally {
+      delete window.umami;
+    }
+  });
+
+  it("refuse une adresse invalide sans rien envoyer, et l'annonce", async () => {
+    await finirPartie();
+    fireEvent.change(screen.getByLabelText('Votre adresse e-mail'), { target: { value: 'pas-une-adresse' } });
+    fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
+    expect(screen.getByRole('alert').textContent).toBe('Adresse e-mail invalide.');
+    expect(inscriptions()).toHaveLength(0);
+  });
+
+  it('dit « trop de tentatives » sur un 429, pas « réessayez dans un instant »', async () => {
+    serveur({ status: 429 });
+    await finirPartie();
+    fireEvent.change(screen.getByLabelText('Votre adresse e-mail'), { target: { value: 'a@exemple.be' } });
+    fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
+    expect((await screen.findByRole('alert')).textContent).toMatch(/Trop de tentatives/);
+    expect(localStorage.getItem(CLE_INSCRIT)).toBeNull();
+  });
+
+  it("n'invite pas un appareil déjà inscrit", async () => {
+    localStorage.setItem(CLE_INSCRIT, '1');
+    await finirPartie();
+    expect(screen.queryByLabelText('Votre adresse e-mail')).toBeNull();
+  });
+
+  it("n'invite qu'une fois tous les trois jours", async () => {
+    localStorage.setItem(CLE_INVITATION, String(Date.now() - 86_400_000));
+    await finirPartie();
+    expect(screen.queryByLabelText('Votre adresse e-mail')).toBeNull();
+  });
+
+  it("horodate l'invitation affichée", async () => {
+    await finirPartie();
+    expect(Number(localStorage.getItem(CLE_INVITATION))).toBeGreaterThan(Date.now() - 60_000);
+  });
+
+  it("garde l'inscription à portée depuis l'en-tête, même pour un appareil inscrit", async () => {
+    localStorage.setItem(CLE_INSCRIT, '1');
+    render(<StuutGame actif />);
+    await screen.findByText(/n°95/);
+    fireEvent.click(screen.getByRole('button', { name: 'Recevoir par e-mail' }));
+    expect(screen.getByLabelText('Votre adresse e-mail')).toBeTruthy();
+    expect(screen.getByText(/Cet appareil est déjà inscrit/)).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'page vie privée' }).getAttribute('href')).toBe('/fr/confidentialite');
+  });
+
+  it("n'a aucune violation d'accessibilité, formulaire ouvert puis en erreur", async () => {
+    const { container } = render(<StuutGame actif />);
+    await screen.findByText(/n°95/);
+    fireEvent.click(screen.getByRole('button', { name: 'Recevoir par e-mail' }));
+    expect(await axe(container)).toHaveNoViolations();
+    fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
     expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -263,6 +263,41 @@ export function lienInterne(url: string): string {
   return url;
 }
 
+// ─── Inscription au Stuut par e-mail ────────────────────────────────────────
+// Même service que le jeu autonome : stuut-api, avec sa double confirmation par
+// e-mail, son délai d'une heure par adresse et son limiteur par IP. La route
+// accepte governance.brussels depuis le 18/09/2026 (stuut-api, origine-inscription.ts).
+
+export const STUUT_API_INSCRIPTION = `${STUUT_SITE}/api/subscribe`;
+
+/** Mêmes clés que le jeu autonome (newsletter-form.mjs, game.mjs), sur l'origine de BGM. */
+export const CLE_INSCRIT = 'bgm_stuut_subscribed';
+export const CLE_INVITATION = 'bgm_stuut_email_prompt_at';
+
+/** Une invitation en fin de partie tous les trois jours au plus, comme le jeu autonome. */
+export const DELAI_INVITATION_MS = 3 * 86_400_000;
+
+// La même règle que newsletter-flow.mjs : le serveur revalide de toute façon.
+const EMAIL_RE = /^[^@\s<>"']+@[^@\s<>"']+\.[^@\s<>"']+$/;
+
+export function emailValide(v: string): boolean {
+  return EMAIL_RE.test(v) && v.length <= 254;
+}
+
+export function doitInviter({
+  inscrit,
+  derniereInvitation,
+  maintenant,
+}: {
+  inscrit: boolean;
+  derniereInvitation: number | null;
+  maintenant: number;
+}): boolean {
+  if (inscrit) return false;
+  if (derniereInvitation === null || !Number.isFinite(derniereInvitation)) return true;
+  return maintenant - derniereInvitation >= DELAI_INVITATION_MS;
+}
+
 // ─── Affichage ──────────────────────────────────────────────────────────────
 
 /** Interstice entre cases, resserré pour les mots longs (jusqu'à 13 lettres). */

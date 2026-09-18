@@ -3,7 +3,10 @@
 
 import { describe, it, expect } from 'vitest';
 import {
+  DELAI_INVITATION_MS,
   assainirPseudo,
+  doitInviter,
+  emailValide,
   encoderDefi,
   enregistrer,
   estStuutJour,
@@ -119,6 +122,25 @@ describe('Stuut : statistiques', () => {
     expect(lireStats('{pas du json')).toEqual(statsVierges());
     expect(lireStats('{"dist":[1]}')).toEqual(statsVierges());
     expect(lireStats(null)).toEqual(statsVierges());
+  });
+});
+
+describe('Stuut : inscription par e-mail', () => {
+  it("accepte une adresse ordinaire et refuse ce qui n'en est pas une", () => {
+    expect(emailValide('lecteur@exemple.be')).toBe(true);
+    for (const v of ['', 'sans-arobase', 'a@b', 'a b@c.be', '<a@b.be>', `${'x'.repeat(250)}@b.be`]) {
+      expect(emailValide(v), v).toBe(false);
+    }
+  });
+
+  it("n'invite jamais un appareil inscrit, et une fois tous les trois jours au plus", () => {
+    const maintenant = 10 * 86_400_000;
+    expect(doitInviter({ inscrit: true, derniereInvitation: null, maintenant })).toBe(false);
+    expect(doitInviter({ inscrit: false, derniereInvitation: null, maintenant })).toBe(true);
+    expect(doitInviter({ inscrit: false, derniereInvitation: maintenant - 86_400_000, maintenant })).toBe(false);
+    expect(doitInviter({ inscrit: false, derniereInvitation: maintenant - DELAI_INVITATION_MS, maintenant })).toBe(true);
+    // Une valeur corrompue dans le stockage n'empêche pas l'invitation pour toujours.
+    expect(doitInviter({ inscrit: false, derniereInvitation: Number.NaN, maintenant })).toBe(true);
   });
 });
 

@@ -75,6 +75,9 @@ const EVENEMENTS_ACTIONS = [
   'jeux-stuut-termine',
   'jeux-stuut-partage',
   'jeux-stuut-defi',
+  // Inscription au Stuut par e-mail : porte l'emplacement (fin-partie ou entete),
+  // JAMAIS l'adresse.
+  'jeux-stuut-inscription',
   'jeux-amai-termine',
   'jeux-amai-partage',
 ];

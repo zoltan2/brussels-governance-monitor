@@ -377,6 +377,42 @@
   font-size: 14px;
 }
 
+/* ─── Inscription par e-mail ──────────────────────────────────────────────── */
+.inscription {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.inscriptionTitre {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.inscriptionTexte {
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.inscriptionOk {
+  font-size: 14px;
+  color: var(--teal);
+}
+/* L'ambre du jeu, pas le rouge du jeu autonome (#e5776b) : la palette de BGM
+   exclut le rouge et le vert. Ambre sur le panneau : ~6:1. */
+.inscriptionErreur {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--amber);
+}
+.inscriptionLegal {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
 /* ─── Statistiques ────────────────────────────────────────────────────────── */
 .stats {
   padding: 16px;

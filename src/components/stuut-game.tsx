@@ -12,10 +12,9 @@
 // Repris du jeu autonome : plateau, clavier AZERTY, première lettre offerte,
 // leurre du jour, révélation avec définition et lien vers le dossier, partage,
 // défi entre amis (le lien pointe vers le jeu autonome, seul à le lire),
-// statistiques locales.
-// Laissé au jeu autonome : l'inscription au mail quotidien (elle demanderait
-// d'ouvrir /api/subscribe aux requêtes d'une autre origine) et la réception
-// des défis.
+// statistiques locales, inscription au mail quotidien (stuut-inscription.tsx :
+// invitation en fin de partie, et bouton de l'en-tête).
+// Laissé au jeu autonome : la réception des défis.
 //
 // Accessibilité : le plateau est un dessin (aria-hidden) doublé d'une liste
 // textuelle des essais pour les lecteurs d'écran, et chaque essai évalué est
@@ -28,6 +27,8 @@ import { track } from '@/lib/analytics';
 import { policeStuut } from '@/lib/fonts-jeux';
 import {
   CLAVIER,
+  CLE_INSCRIT,
+  CLE_INVITATION,
   CLE_PSEUDO,
   CLE_STATS,
   MAX_ESSAIS,
@@ -36,6 +37,7 @@ import {
   STUUT_SITE,
   assainirPseudo,
   caseMax,
+  doitInviter,
   encoderDefi,
   enregistrer,
   estStuutJour,
@@ -55,6 +57,7 @@ import {
   type StuutStats,
   type Verdict,
 } from '@/lib/stuut';
+import { StuutInscription } from './stuut-inscription';
 import s from './stuut-game.module.css';
 
 type Chargement = { etat: 'chargement' } | { etat: 'erreur' } | { etat: 'pret'; jour: StuutJour };
@@ -80,6 +83,21 @@ function ecrireStockage(cle: string, valeur: string): void {
   }
 }
 
+/**
+ * Décide, une fois par fin de partie, si l'invitation à l'e-mail s'affiche, et
+ * l'horodate si oui. Même règle que le jeu autonome (newsletter-flow.mjs) : jamais
+ * pour un appareil inscrit, et une fois tous les trois jours au plus.
+ */
+function decideInvitation(): boolean {
+  const oui = doitInviter({
+    inscrit: lireStockage(CLE_INSCRIT) === '1',
+    derniereInvitation: lireStockage(CLE_INVITATION) === null ? null : Number(lireStockage(CLE_INVITATION)),
+    maintenant: Date.now(),
+  });
+  if (oui) ecrireStockage(CLE_INVITATION, String(Date.now()));
+  return oui;
+}
+
 /** Sans animation quand l'utilisateur l'a demandé, ou quand rien ne permet de le savoir (tests). */
 function sansAnimation(): boolean {
   return typeof window.matchMedia !== 'function' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -95,6 +113,9 @@ export function StuutGame({ actif }: { actif: boolean }) {
   const [fini, setFini] = useState<ResultatDuJour | null>(null);
   const [stats, setStats] = useState<StuutStats | null>(null);
   const [vueStats, setVueStats] = useState(false);
+  const [inviter, setInviter] = useState(false);
+  const [inscriptionOuverte, setInscriptionOuverte] = useState(false);
+  const [dejaInscrit, setDejaInscrit] = useState(false);
   const [secousse, setSecousse] = useState(0);
   const [message, setMessage] = useState('');
   const [annonce, setAnnonce] = useState('');
@@ -117,7 +138,10 @@ export function StuutGame({ actif }: { actif: boolean }) {
         setStats(st);
         // Déjà joué aujourd'hui sur cet appareil : on retrouve l'écran de
         // résultat, pas un plateau vide rejouable.
-        if (st.today && st.today.day === d.numero - 1) setFini(st.today);
+        if (st.today && st.today.day === d.numero - 1) {
+          setFini(st.today);
+          setInviter(decideInvitation());
+        }
         setDonnees({ etat: 'pret', jour: d });
       })
       .catch(() => {
@@ -155,6 +179,7 @@ export function StuutGame({ actif }: { actif: boolean }) {
       ecrireStockage(CLE_STATS, JSON.stringify(suivantes));
       setStats(suivantes);
       setFini(resultat);
+      setInviter(decideInvitation());
       setAnnonce(`${verdictFinal(resultat)} Le mot était ${jour.mot}.`);
       track('jeux-stuut-termine', { resultat: gagne ? 'gagne' : 'perdu', essais: resultat.n });
     },
@@ -360,10 +385,27 @@ export function StuutGame({ actif }: { actif: boolean }) {
         <span>
           n°{jour.numero} · {longueur} lettres
         </span>
-        <button type="button" className={s.lien} onClick={() => setVueStats((v) => !v)} aria-expanded={vueStats}>
-          Mes statistiques
-        </button>
+        <span className="flex gap-3">
+          {/* Toujours à portée, comme l'enveloppe de l'en-tête du jeu autonome : l'invitation
+              de fin de partie, elle, ne revient qu'une fois tous les trois jours. */}
+          <button
+            type="button"
+            className={s.lien}
+            onClick={() => {
+              setDejaInscrit(lireStockage(CLE_INSCRIT) === '1');
+              setInscriptionOuverte((v) => !v);
+            }}
+            aria-expanded={inscriptionOuverte}
+          >
+            Recevoir par e-mail
+          </button>
+          <button type="button" className={s.lien} onClick={() => setVueStats((v) => !v)} aria-expanded={vueStats}>
+            Mes statistiques
+          </button>
+        </span>
       </div>
+
+      {inscriptionOuverte && <StuutInscription source="entete" dejaInscrit={dejaInscrit} />}
 
       {!fini && (
         <details className={s.aide}>
@@ -566,12 +608,10 @@ export function StuutGame({ actif }: { actif: boolean }) {
             </form>
           )}
 
+          {inviter && <StuutInscription source="fin-partie" dejaInscrit={false} />}
+
           <p className="mt-4 text-sm" style={{ color: '#9DB0C4' }}>
-            Un nouveau mot demain, à minuit.{' '}
-            <a className={s.lien} href={`${STUUT_SITE}/inscription/`} target="_blank" rel="noopener noreferrer">
-              Le Stuut chaque matin par e-mail
-              <ExternalLink size={12} aria-hidden={true} className="ml-1 inline" />
-            </a>
+            Un nouveau mot demain, à minuit.
           </p>
         </div>
       )}

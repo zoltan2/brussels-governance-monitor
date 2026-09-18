@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-18T14:05:03.243Z",
+  "generatedAt": "2026-09-18T14:07:36.217Z",
   "locale": "en",
-  "poolSize": 67,
+  "poolSize": 68,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -882,21 +882,21 @@
       "id": "dossier-enseignement-0",
       "source": "dossier",
       "domain": "Education",
-      "question": "Who organises the compulsory education attended by Brussels children?",
+      "question": "By how much did standard higher education tuition in the Wallonia-Brussels Federation rise for the 2026-2027 academic year?",
       "options": [
-        "The Wallonia-Brussels Federation or the Flemish Community",
-        "The Brussels-Capital Region, through its administration",
-        "The nineteen municipalities, each for its own territory",
-        "The Common Community Commission, known as Cocom"
+        "From 835 to 1,194 euros a year",
+        "From 835 to 1,002 euros a year",
+        "From 920 to 1,194 euros a year",
+        "From 750 to 1,050 euros a year"
       ],
       "correct": 0,
-      "explanation": "The Region, for which families pay regional taxes, has virtually no power over compulsory education. It can prevent neither the savings voted in the Federation's Parliament nor those voted in the Flemish Parliament.",
+      "explanation": "That is a rise of about 43%, presented as catching up on indexation since 2011. It is part of a 500 million euro savings plan for 2026-2029, of which 86.7 million falls on compulsory education from the first year.",
       "sourceSlug": "/en/dossiers/enseignement",
       "sourceTitle": "Education",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:67866ba286838a3fee6a7f1cecfb153d",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:aa3deff7d01f5f3956a5ca5970cb961c",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -905,21 +905,21 @@
       "id": "dossier-enseignement-1",
       "source": "dossier",
       "domain": "Education",
-      "question": "What share of Brussels households with children mixed the French-speaking and Dutch-speaking school networks, according to IBSA data as at 1 January 2021?",
+      "question": "What share of teachers in Dutch-speaking Brussels education held the required qualification in 2023-2024, according to the Flemish education department?",
       "options": [
-        "2.5%",
-        "96%",
-        "12%",
-        "24%"
+        "59%, against 75% in Flanders",
+        "72%, against 75% in Flanders",
+        "84%, against 91% in Flanders",
+        "45%, against 60% in Flanders"
       ],
       "correct": 0,
-      "explanation": "Of the 128,903 households counted by IBSA, 96% educate their children within a single system. About 2,897 households combine the two Communities.",
+      "explanation": "The share stood at 72% in Brussels in 2016: it has fallen by thirteen points in seven years. The same administrative data, closed in October 2024, count 459 missing teachers in Brussels, 293 of them in primary education, for 53,613 pupils.",
       "sourceSlug": "/en/dossiers/enseignement",
       "sourceTitle": "Education",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:67866ba286838a3fee6a7f1cecfb153d",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:aa3deff7d01f5f3956a5ca5970cb961c",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -948,24 +948,47 @@
       }
     },
     {
+      "id": "dossier-foire-du-midi-0",
+      "source": "dossier",
+      "domain": "Culture",
+      "question": "What financial information about the Midi Fair is published by no official or press source consulted?",
+      "options": [
+        "The scale of the concession fees charged",
+        "The number of attractions set up each year",
+        "The exact dates chosen for each edition",
+        "The name of the Alderman's portfolio that runs it"
+      ],
+      "correct": 0,
+      "explanation": "The breakdown of municipal costs, police, fire service, cleanliness and infrastructure, is not published either. The only figure available is a one-off: about 500,000 euros in compensation paid to the operators when the 2020 edition was cancelled. That is what residents of the neighbouring municipalities have criticised since 2024, since the City collects the fees while the adjacent municipalities absorb part of the nuisance.",
+      "sourceSlug": "/en/dossiers/foire-du-midi",
+      "sourceTitle": "Midi Fair",
+      "provenance": {
+        "sourceLastModified": "2026-07-09",
+        "sourceContentHash": "sha256:a5d46c48dc5e7ae766eb5ce1652b0641",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
       "domain": "Housing",
-      "question": "What do the 26 recommendations voted by the Brussels Parliament on 17 July 2026, after the committee of inquiry into social housing, provide for?",
+      "question": "What role did the special commissioner play in the re-election of the chair of the Foyer anderlechtois on 17 August 2026?",
       "options": [
-        "A ban on any individual intervention by a board member",
-        "The outright abolition of the social housing companies",
-        "The transfer of allocations to the municipal executives",
-        "The publication of all waiting lists with names"
+        "He asked for the vote to be held himself",
+        "He took the chair in place of the board",
+        "He suspended the vote until the end of his assignment",
+        "He refused to convene the board"
       ],
       "correct": 0,
-      "explanation": "The 26 recommendations are written for the sector as a whole, without naming the company concerned. They also close access to the regional database for political office-holders and strengthen whistleblower protection.",
+      "explanation": "He wanted a fresh vote to clear up a situation that had become confused: a temporary withdrawal voted on 15 June, a board without a quorum on 20 June, a first re-election on 10 July by five votes out of nine. His assignment, set on 16 July for four months, covers convening the bodies, their agendas, their chairing and the authorisation to sign documents.",
       "sourceSlug": "/en/dossiers/foyer-anderlechtois",
       "sourceTitle": "Foyer anderlechtois",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:c2c77330532e62a03fbb0a0efd2b476c",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-09",
+        "sourceContentHash": "sha256:87dcdcd7a402919720e66bcb140289fb",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -997,21 +1020,21 @@
       "id": "dossier-good-move-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "Around what does the regional mobility plan set to succeed Good Move, provided for in the Brussels government agreement of 12 February 2026, refocus its neighbourhood cells?",
+      "question": "How many times had the evaluation of Good Move been postponed on the Brussels government's agenda, as at 10 September 2026?",
       "options": [
-        "School zones",
-        "Regional railway stations",
-        "Commercial areas",
-        "Parks and green spaces"
+        "Four times since the start of July 2026",
+        "Twice since the start of July 2026",
+        "Six times since the start of April 2026",
+        "Three times since the start of January 2026"
       ],
       "correct": 0,
-      "explanation": "The government agreement provides for smaller cells, the removal of the contested bollards and a second car-free day per year. The traffic-calming philosophy is kept, on a reduced scale.",
+      "explanation": "The postponement stems from a disagreement over method. Good Move remains in force until the next plan is adopted. Government agendas are not public and the information comes from a single newsroom.",
       "sourceSlug": "/en/dossiers/good-move",
       "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-04-16",
-        "sourceContentHash": "sha256:ed09fbd83471eecda35a96ad2b1ea0f6",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:02a2b5308dd645f775f36209024e26d0",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1020,21 +1043,21 @@
       "id": "dossier-good-move-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "According to the timetable set out in April 2026 by the Brussels mobility minister, from when must the plan set to succeed Good Move take effect?",
+      "question": "What time limits does the ordinance of 13 October 2023 on mobility planning impose before a regional plan is adopted?",
       "options": [
-        "From 2030",
-        "From 2026",
-        "From 2027",
-        "From 2028"
+        "Sixty days for opinions, sixty days of public inquiry",
+        "Thirty days for opinions, thirty days of public inquiry",
+        "Ninety days for opinions, forty days of public inquiry",
+        "Fifteen days for opinions, one hundred days of public inquiry"
       ],
       "correct": 0,
-      "explanation": "The evaluation must be completed by the end of 2026, followed by a period of possible corrections between 2027 and 2030. The official name of the future plan has not been announced.",
+      "explanation": "The procedure runs the evaluation of the current plan, a draft accompanied by an environmental impact report, the opinions of the municipalities and the advisory bodies, the public inquiry, then adoption within eight months of its close. That is the legal route the Mobility Minister proposes to follow.",
       "sourceSlug": "/en/dossiers/good-move",
       "sourceTitle": "Good Move",
       "provenance": {
-        "sourceLastModified": "2026-04-16",
-        "sourceContentHash": "sha256:ed09fbd83471eecda35a96ad2b1ea0f6",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:02a2b5308dd645f775f36209024e26d0",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1043,21 +1066,21 @@
       "id": "dossier-lez-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What happens to the annual cap on fines under the low-emission zone (LEZ) regime provided for in the Brussels government agreement of February 2026?",
+      "question": "Of the 1,890 low-emission zone fines sent out since July 2026, how many had actually been paid by 6 September 2026?",
       "options": [
-        "It is removed, while the per-offence fine falls",
-        "It is doubled, as is the per-offence fine",
-        "It is kept, with the per-offence fine unchanged",
-        "It is halved, with an increased per-offence fine"
+        "About 255, a little over 13%",
+        "About 940, a little under 50%",
+        "About 1,700, close to 90%",
+        "About 630, a third of the total"
       ],
       "correct": 0,
-      "explanation": "The fine per offence falls from 350 to 80 euros, but the cap of four fines a year disappears. An annual pass at 350 euros, or 200 euros at the social rate, allows drivers to drive legally.",
+      "explanation": "That is 89,152.50 euros collected. The administration points out that some payment deadlines are still running and that the most recent fines have not all been sent: this is a staging post, not a final balance. The first half-year produced 25,905 warnings, for an estimated pool of 29,000 vehicles in the Brussels Region.",
       "sourceSlug": "/en/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-06-25",
-        "sourceContentHash": "sha256:4c45395a507e3cac8c3490a5e7982fb4",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:052b640ac556a0e4e045b0513eab5229",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1066,21 +1089,21 @@
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "On which constitutional principle did the Council of State base, in its February 2026 opinion, its criticism of the reduced fines in the Brussels low-emission zone (LEZ)?",
+      "question": "On what condition is a classic vehicle exempt from the Brussels low-emission zone?",
       "options": [
-        "The standstill principle in matters of health",
-        "The principle of equality before regional taxation",
-        "The principle of proportionality of penalties",
-        "The principle of legal certainty for users"
+        "On its age alone, with no check on actual use",
+        "On a cap of thirty days of driving a year",
+        "On a specific annual technical inspection",
+        "On an exemption request renewed each year"
       ],
       "correct": 0,
-      "explanation": "The reduction in fines amounts, in its view, to a rollback of health protection for Brussels residents. It also considers the proposed amounts too low to be effective, proportionate and dissuasive.",
+      "explanation": "ANPR cameras identify these vehicles but do not check how much they are used: a rarely driven collector's vehicle and an old vehicle driven daily get the same exemption. Their number rose from 3,936 in 2019 to 13,799 in 2024, and those driving one hundred days a year or more from 17 to 156.",
       "sourceSlug": "/en/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-06-25",
-        "sourceContentHash": "sha256:4c45395a507e3cac8c3490a5e7982fb4",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:052b640ac556a0e4e045b0513eab5229",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1089,21 +1112,21 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What does the Brussels Parliament's special Metro 3 committee recommend, in its conclusions of 9 July 2026, for any major regional infrastructure project?",
+      "question": "What did a Brussels urban planning association announce on 9 September 2026 that it had established in the cellars of the Palais du Midi?",
       "options": [
-        "A single governance structure, brought together within one administration",
-        "A regional referendum before the works are launched",
-        "A full delegation of project ownership to the federal level",
-        "A legal cap on the budget from the preliminary design stage"
+        "Two air-raid shelters built in 1940 and 1943",
+        "A water table absent from the ground surveys",
+        "A service gallery dating from the 1935 Exhibition",
+        "Three vaulted cellars listed as heritage in 1993"
       ],
       "correct": 0,
-      "explanation": "A clearly designated project director would be accountable to the government and to Parliament. The recommendations are grouped into six strands, after eight months of work and more than fifty hearings.",
+      "explanation": "The association describes them over 450 square metres, with a capacity of up to 1,500 people, and asks for archaeological work before underground works continue. Newsrooms do not report the find in the same way: some write that the existence of the shelters is established, another speaks of possible shelters.",
       "sourceSlug": "/en/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:253a9a187963e31058d47d72e5e6d559",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:0d09606449d57a2118d7e052296222b0",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1135,21 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What discrepancy separates the Metro 3 text voted in plenary by the Brussels Parliament on 17 July 2026 from the one adopted by its special committee on 9 July?",
+      "question": "What construction time did the consortium bidding for the northern section of metro 3 announce in parliamentary committee on 13 May 2026?",
       "options": [
-        "24 recommendations adopted, compared with 22 in committee",
-        "22 recommendations adopted, compared with 24 in committee",
-        "18 recommendations adopted, compared with 24 in committee",
-        "30 recommendations adopted, compared with 22 in committee"
+        "Ten years, against six years in the requested timetable",
+        "Six years, against ten years in the requested timetable",
+        "Fifteen years, against eight years in the requested timetable",
+        "Four years, against three years in the requested timetable"
       ],
       "correct": 0,
-      "explanation": "No source consulted explains the origin of that gap, which may stem from amendments tabled in plenary. The discrepancy is flagged rather than passed over in silence.",
+      "explanation": "The blocking technical factor is the need to freeze the ground down to 82 metres to create watertight barriers, a method never carried out at that depth anywhere in the world. Since the Regional Policy Declaration froze the project for ten years, delivery would not be expected before the mid-2040s.",
       "sourceSlug": "/en/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:253a9a187963e31058d47d72e5e6d559",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-10",
+        "sourceContentHash": "sha256:0d09606449d57a2118d7e052296222b0",
+        "generatedAt": "2026-09-18T14:07:36.217Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

@@ -7,7 +7,6 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { Analytics } from '@vercel/analytics/react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { AccessibilityToolbar } from '@/components/accessibility-toolbar';
@@ -201,9 +200,6 @@ export default async function LocaleLayout({
           <ChatWidget />
           <GamesPanel locale={locale} />
         </NextIntlClientProvider>
-        {/* Vercel Web Analytics : actif sur Vercel uniquement. En self-host
-            (SELF_HOST=1, posé par le Dockerfile) on ne le rend pas. */}
-        {process.env.SELF_HOST !== '1' && <Analytics />}
       </body>
     </html>
   );

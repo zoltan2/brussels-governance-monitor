@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T12:31:17.905Z",
+  "generatedAt": "2026-09-18T12:45:35.102Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Quel taux d'emploi la Déclaration de politique régionale de février 2026 fixe-t-elle comme objectif de fin de législature ?",
+      "question": "Dans son arrêt 96/2026 du 10 septembre 2026, la Cour constitutionnelle a validé la limitation dans le temps des allocations de chômage, à une exception près. Laquelle ?",
       "options": [
-        "70 %",
-        "63,9 %",
-        "74,1 %",
-        "80 %"
+        "Le régime transitoire, porté à douze mois minimum",
+        "L'exclusion des travailleurs de plus de cinquante ans",
+        "La suppression du complément d'ancienneté",
+        "Le délai de recours ramené à trente jours"
       ],
       "correct": 0,
-      "explanation": "Le niveau atteint en 2025 s'établit à 63,9 % selon Statbel, soit un gain nécessaire de plus de six points sur une seule législature.",
+      "explanation": "La Cour admet que la réforme réduit sensiblement le niveau de protection, mais la juge raisonnablement justifiée. Seul tombe le régime qui limitait à six, huit ou neuf mois le droit des chômeurs en troisième période d'indemnisation au 30 juin 2025 : ces personnes doivent désormais bénéficier d'au moins douze mois.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:17bdd8eb1d7931921f225e1cba05a961",
-        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:24b313e76b9ed65ce5b52b3c4f6c3252",
+        "generatedAt": "2026-09-18T12:45:35.102Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Selon l'étude « 80 % d'emploi en Belgique » de l'Itinera Institute, fondée sur les données administratives 2006-2022, que deviennent principalement les jeunes Bruxellois au chômage ?",
+      "question": "En août 2026, quelle part des 99 458 demandeurs d'emploi inscrits à Bruxelles dépendait d'un CPAS ?",
       "options": [
-        "Des inactifs, sortis du marché du travail",
-        "Des salariés employés dans les communes voisines",
-        "Des apprentis en formation en alternance subventionnée",
-        "Des indépendants à titre complémentaire"
+        "35 %, en hausse de 82,6 % sur un an",
+        "12 %, en hausse de 4,9 % sur un an",
+        "21 %, en hausse de 17,5 % sur un an",
+        "48 %, en hausse de 30,4 % sur un an"
       ],
       "correct": 0,
-      "explanation": "Seuls environ 25 % des 18-24 ans bruxellois sont en emploi, contre environ 40 % en Flandre, et 34,4 % de la population en âge de travailler est inactive.",
+      "explanation": "Soit 34 830 personnes. Actiris attribue ce mouvement à la réforme fédérale : la limitation des allocations dans le temps ne réduit pas le nombre d'inscrits, elle déplace la charge du budget fédéral vers celui des dix-neuf CPAS bruxellois. Le taux de chômage administratif atteint 16,0 %, son plus haut niveau depuis décembre 2020.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-08-02",
-        "sourceContentHash": "sha256:17bdd8eb1d7931921f225e1cba05a961",
-        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:24b313e76b9ed65ce5b52b3c4f6c3252",
+        "generatedAt": "2026-09-18T12:45:35.102Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Logement",
-      "question": "Sur quelle base légale le gouvernement bruxellois a-t-il désigné, le 16 juillet 2026, un commissaire spécial au Foyer anderlechtois ?",
+      "question": "Le 3 septembre 2026, à quelle condition politique le versement des 131 millions d'euros de dotation régionale 2026 à la SLRB a-t-il été subordonné ?",
       "options": [
-        "L'article 78 du Code bruxellois du logement",
-        "L'article 12 de l'ordonnance sur la tutelle",
-        "L'article 45 du Code du développement territorial",
-        "L'article 90 de la nouvelle loi communale"
+        "Au départ du président du Foyer anderlechtois",
+        "À la vente de deux immeubles publics régionaux",
+        "À la nomination d'un commissaire spécial",
+        "À la publication de l'audit de l'agence de Saint-Josse"
       ],
       "correct": 0,
-      "explanation": "La désignation vaut pour une durée de quatre mois. Le 17 juillet 2026, le Parlement a approuvé les 26 recommandations de la commission d'enquête par 51 voix pour, 24 contre et 6 abstentions.",
+      "explanation": "Le cabinet de la secrétaire d'État au Logement confirme que les montants attendus durant l'été ne sont pas arrivés. Sans ces moyens, la société faîtière qui supervise les seize sociétés immobilières de service public pourrait ne plus honorer ses factures dès septembre 2026, alors que 62 234 ménages attendent un logement social.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:c04b15c1511f2799e05e9c6d911ba98c",
-        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:837a556547d32a01248b80e340402d90",
+        "generatedAt": "2026-09-18T12:45:35.102Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
-      "question": "Que cherchent à obtenir les quatre associations qui ont introduit, le 13 juillet 2026, un recours en référé contre la SLRB ?",
+      "question": "De combien l'offre de logements Airbnb en location de courte durée a-t-elle reculé à Bruxelles entre juin 2025 et juin 2026 ?",
       "options": [
-        "Le blocage de la vente de deux immeubles publics",
-        "La suspension des attributions de logements sociaux",
-        "L'annulation du contrat de gestion de la société",
-        "La publication des listes d'attente par commune"
+        "De 23 %, de 6 171 à 4 750 logements",
+        "De 9 %, de 6 171 à 5 600 logements",
+        "De 41 %, de 6 171 à 3 640 logements",
+        "De 15 %, de 6 171 à 5 245 logements"
       ],
       "correct": 0,
-      "explanation": "Les associations invoquent les 62 234 ménages inscrits sur liste d'attente pour un logement social. La vente du site Ariane et d'un immeuble rue des Palais avait été décidée en janvier 2026 pour des raisons budgétaires.",
+      "explanation": "Les reculs les plus marqués concernent Forest, moins 35,8 %, et Etterbeek, moins 34 %. Bruxelles Fiscalité aurait délivré environ 1 900 amendes, pour un montant estimé entre 1,5 et 2 millions d'euros d'arriérés fiscaux récupérés.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:c04b15c1511f2799e05e9c6d911ba98c",
-        "generatedAt": "2026-08-05T19:47:26.934Z",
+        "sourceLastModified": "2026-09-06",
+        "sourceContentHash": "sha256:837a556547d32a01248b80e340402d90",
+        "generatedAt": "2026-09-18T12:45:35.102Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Le 18 juin 2026, la Cour constitutionnelle a annulé l'ordonnance bruxelloise de 2024 qui permettait d'imposer l'ouverture au public des biens classés au patrimoine mondial de l'UNESCO, jusqu'à quinze jours par an. Quel motif a-t-elle retenu ?",
+      "question": "Pourquoi un tronçon du Ring situé à Neder-Over-Heembeek, donc en Région de Bruxelles-Capitale, porte-t-il une signalisation uniquement néerlandophone ?",
       "options": [
-        "Le texte ne garantit pas assez le droit de propriété et la vie privée",
-        "La Région n'est pas compétente en matière de patrimoine mondial de l'UNESCO",
-        "L'objectif patrimonial invoqué est dépourvu de valeur juridique",
-        "Le coût de l'ouverture ne pouvait pas être supporté par la Région"
+        "Il est entretenu par la Région flamande depuis un accord de 1991",
+        "Il dépend de la commune de Wemmel depuis un accord de 1991",
+        "Il a été classé en zone de facilités linguistiques en 1991",
+        "Il relève du fédéral, qui n'est pas tenu au bilinguisme"
       ],
       "correct": 0,
-      "explanation": "La Cour reconnaît pourtant la légitimité de l'objectif patrimonial. Concrètement, le Palais Stoclet, demeure Art nouveau privée de Woluwe-Saint-Pierre, reste fermé au public. Le recours émanait de la société des ayants droit de la famille Stoclet.",
+      "explanation": "L'accord de coopération interrégional de 1991 confie à chaque Région la gestion de courts segments frontaliers situés chez sa voisine. Bruxelles Mobilité rappelle que la Région flamande reste tenue de respecter les lois linguistiques : sur sol bruxellois, le bilinguisme s'impose sans discussion. Le tronçon mesure environ 880 mètres selon la presse.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:9286cf72dbf72563da3a2dd4f5040b80",
-        "generatedAt": "2026-08-25T13:00:00.000Z",
+        "sourceLastModified": "2026-09-14",
+        "sourceContentHash": "sha256:965cf5f86eb4d0565e69eeb9d1b18600",
+        "generatedAt": "2026-09-18T12:45:35.102Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Un riverain de Laeken a saisi la Commission permanente de contrôle linguistique parce que le dossier d'enquête publique sur la rénovation de la gare de Bockstael était rédigé uniquement en néerlandais. Qu'a décidé la commission ?",
+      "question": "Quelle sanction la commission bruxelloise de déontologie a-t-elle prononcée le 4 juillet 2026 contre vingt mandataires publics locaux ?",
       "options": [
-        "Que sa plainte était fondée et qu'il devait recevoir les documents en français",
-        "Que l'enquête publique devait être entièrement recommencée en version bilingue",
-        "Que la SNCB échappait à la législation linguistique en tant qu'entreprise fédérale",
-        "Que la commune concernée était seule compétente pour faire traduire le dossier"
+        "Des amendes de 10 à 40 % d'une rémunération mensuelle",
+        "Une inéligibilité aux mandats dérivés pendant deux ans",
+        "La restitution des jetons de présence perçus en 2025",
+        "Une suspension de mandat de trois à six mois"
       ],
       "correct": 0,
-      "explanation": "Sa demande de report du dossier en commission de concertation a pourtant été rejetée, et le permis a été délivré lui aussi en néerlandais seulement. Le recours introduit au Conseil d'État n'étant pas suspensif, les travaux ont démarré en août 2026.",
+      "explanation": "Le motif est un défaut de transparence sur les rémunérations. La cellule transparence avait recensé 305 mandataires en défaut, soit 24 % des dossiers examinés ; après des rappels ciblés, vingt-sept restaient en défaut. C'est le premier bilan chiffré et sanctionnant de ce mécanisme de contrôle.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:9286cf72dbf72563da3a2dd4f5040b80",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "sourceLastModified": "2026-09-14",
+        "sourceContentHash": "sha256:965cf5f86eb4d0565e69eeb9d1b18600",
+        "generatedAt": "2026-09-18T12:45:35.102Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Le régime transitoire pour la mobilité partagée annoncé par le gouvernement bruxellois le 21 août 2026 fixe un plafond de vélos partagés pour l'ensemble de la Région. Quel est ce plafond ?",
+      "question": "Quel principe le Conseil d'État a-t-il opposé, le 9 septembre 2026, à la réforme bruxelloise de la zone de basses émissions ?",
       "options": [
-        "7 500 vélos",
-        "2 500 vélos",
-        "4 800 vélos",
-        "12 000 vélos"
+        "Le principe de standstill inscrit dans la Constitution",
+        "Le principe d'égalité devant les charges publiques",
+        "Le principe de libre circulation des personnes",
+        "Le principe de proportionnalité des sanctions"
       ],
       "correct": 0,
-      "explanation": "S'y ajoute un plafond de 2 500 vélos par opérateur, pour éviter la saturation des zones de dépôt. Un appel d'offres doit attribuer d'ici mai 2028 deux licences de 4 800 vélos chacune, et l'interdiction des trottinettes partagées reste fixée au 1er janvier 2027.",
+      "explanation": "Il ne rejette ni le pass annuel à 350 euros ni le tarif social à 200 euros, mais estime que le gouvernement ne démontre pas assez comment la qualité de l'air s'améliorerait alors que l'assouplissement laisserait entrer davantage de véhicules polluants. L'arrêté retourne en préparation avant une deuxième lecture, l'entrée en vigueur restant visée pour 2027.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:b49f04bac24e5df815fd69ee3cfda2ce",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:8d49e9dc6df842e865f13f786a00cca8",
+        "generatedAt": "2026-09-18T12:45:35.102Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "En août 2026, les trois associations d'usagers des transports publics ont écrit une lettre ouverte sur le projet immobilier NOR.Bruxsels, devant la gare du Nord. Que reprochent-elles à l'aménagement présenté ?",
+      "question": "Selon la STIB, quelle part de ses quelque 2 200 arrêts de surface était accessible en autonomie aux personnes à mobilité réduite au 10 septembre 2026 ?",
       "options": [
-        "Il dégraderait les correspondances entre le train, le bus, le tram et le métro",
-        "Il priverait le hall de la gare de lumière naturelle une grande partie de l'année",
-        "Il fermerait la gare du Nord aux voyageurs pendant plus de deux ans de chantier",
-        "Il supprimerait la moitié des emplacements de stationnement vélo de la gare"
+        "Environ un quart des arrêts",
+        "Environ un dixième des arrêts",
+        "Environ trois quarts des arrêts",
+        "Environ la moitié des arrêts"
       ],
       "correct": 0,
-      "explanation": "Elles parlent d'un « nœud antimodal » et visent deux points précis : le fractionnement des arrêts de bus et l'emplacement du terminus du futur tram 15. Le projet prévoit quatre tours, 533 logements et 77 460 m² de bureaux ; le permis n'est pas délivré.",
+      "explanation": "Environ 500 arrêts ont été mis aux normes depuis 2019, et la moitié du réseau de surface est accessible moyennant une aide. Par ailleurs, 59 des 69 stations de métro et de prémétro disposent d'ascenseurs.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:b49f04bac24e5df815fd69ee3cfda2ce",
-        "generatedAt": "2026-08-25T09:22:22.115Z",
+        "sourceLastModified": "2026-09-13",
+        "sourceContentHash": "sha256:8d49e9dc6df842e865f13f786a00cca8",
+        "generatedAt": "2026-09-18T12:45:35.102Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1569,5 +1569,5 @@
       }
     }
   ],
-  "reviewedCount": 60
+  "reviewedCount": 52
 }

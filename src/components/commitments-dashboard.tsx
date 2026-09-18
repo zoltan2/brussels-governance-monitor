@@ -133,14 +133,17 @@ export function CommitmentsDashboard({
         <div className="flex flex-wrap items-center gap-4 text-xs text-neutral-500">
           {/* Le compte des engagements est désormais dit par le baromètre, juste au-dessus. */}
           <span>
-            {t('source')}:{' '}
+            {/* Libellé traduit : `data.source` n'existe qu'en français, et la page
+                néerlandaise affichait « DPR du 13 février 2026 ». Le PDF lié est la
+                version française ; les autres langues le disent. */}
+            {t('sourcePrefix')}{' '}
             <a
               href={data.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-brand-700 underline underline-offset-2"
             >
-              {data.source}
+              {t('sourceDocument')}
             </a>
           </span>
         </div>

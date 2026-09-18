@@ -70,6 +70,10 @@ function DashboardContent({ locale }: { locale: string }) {
       ]} />
 
       <div className="mb-8">
+        {/* Surtitre : l'accueil, Amai et les liens du site renvoient ici sous le nom
+            « Baromètre des engagements », que la page ne portait nulle part. Même
+            libellé, mot pour mot, que le bloc de l'accueil (home.protoBarometerTitle). */}
+        <p className="mb-1 text-xs font-medium uppercase tracking-wider text-brand-700">{t('kicker')}</p>
         <h1 className="mb-2 text-2xl font-bold text-neutral-900">{t('title')}</h1>
         <p className="text-sm text-neutral-500">{t('subtitle')}</p>
       </div>

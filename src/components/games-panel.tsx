@@ -452,6 +452,15 @@ export function GamesPanel({ locale }: { locale: string }) {
                           src={onglet.url}
                           title={onglet.titre}
                           loading="lazy"
+                          // Sans cet attribut, le navigateur REFUSE ces deux permissions
+                          // à un cadre d'origine différente, et il le fait en silence.
+                          // Les deux jeux partagent le score : Amai appelle
+                          // navigator.clipboard.writeText, le Stuut appelle
+                          // navigator.share puis se replie sur le presse-papiers.
+                          // Constaté le 18/09/2026 : « Partager mon score » ne faisait
+                          // rien du tout dans le panneau, sans message ni erreur en
+                          // console, alors qu'il fonctionne en jeu autonome.
+                          allow="clipboard-write; web-share"
                           className="h-full w-full border-0 bg-neutral-100"
                         />
                       ) : (

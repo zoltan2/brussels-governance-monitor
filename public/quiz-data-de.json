@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T14:26:03.354Z",
+  "generatedAt": "2026-09-18T16:07:32.630Z",
   "locale": "de",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Von welchem auf welchen Wert hob die Stadt Brüssel ihre Zuschlaghundertstel auf die Grundsteuer für das Steuerjahr 2026 an, deren Steuerbescheide ab dem 17. August 2026 versandt wurden?",
+      "question": "Wie hoch schätzt das Föderale Planbüro am 15. September 2026 das Risiko ein, dass die öffentliche Schuld der Region Brüssel mittelfristig untragbar wird?",
       "options": [
-        "Von 2 950 auf 3 457",
-        "Von 2 980 auf 4 090",
-        "Von 3 090 auf 3 890",
-        "Von 2 940 auf 3 400"
+        "Hoch, wie für Wallonien und die Französische Gemeinschaft",
+        "Mäßig, wie für Flandern",
+        "Niedrig, als einziger Gliedstaat in dieser Lage",
+        "Nicht bewertet, mangels regionaler Zahlen"
       ],
       "correct": 0,
-      "explanation": "Das ist ein Anstieg um 17,2 %, den die Stadt nach eigenen Angaben für selbstnutzende Eigentümer vollständig ausgleicht, über einen pauschalen kommunalen Abzug von hundert Euro und die regionale Be-Home-Prämie. Neun der neunzehn Brüsseler Gemeinden erhöhten 2026 ihre Zuschlaghundertstel.",
+      "explanation": "Nur das flämische Risiko nennt das Planbüro mäßig. Die Analyse erinnert daran, dass die gesamte belgische Staatsschuld Ende 2025 692 Milliarden Euro betrug, also 108 % des Bruttoinlandsprodukts. Keine Zahl, die eigens die Region Brüssel betrifft, kommt in den konsultierten Quellen vor, und die Analyse selbst wurde nicht gelesen: das Vertrauen ist geschätzt.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-30",
-        "sourceContentHash": "sha256:f8fb1fcf31dfb6bd1996418d11881071",
-        "generatedAt": "2026-09-18T14:14:17.052Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:4f02d97342c59d9ac9b4693c232f3b44",
+        "generatedAt": "2026-09-18T16:07:32.630Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Über welchen Gesamtbetrag an Kreditlinien verfügt die Region Brüssel nach der Eröffnung einer Kreditlinie von 250 Millionen Euro bei BBVA am 26. August 2026?",
+      "question": "Wie entwickelte sich der Anteil der Gliedstaaten an der belgischen Staatsschuld zwischen 2008 und 2025, laut der am 15. September 2026 übernommenen Analyse?",
       "options": [
-        "1,25 Milliarden Euro bei vier Anbietern",
-        "800 Millionen Euro bei drei Anbietern",
-        "1,5 Milliarden Euro bei fünf Anbietern",
-        "950 Millionen Euro bei vier Anbietern"
+        "Von 8,4 % auf 18,4 %",
+        "Von 8,4 % auf 12,1 %",
+        "Von 12,6 % auf 18,4 %",
+        "Von 5,2 % auf 22,7 %"
       ],
       "correct": 0,
-      "explanation": "Diese Linie bei der spanischen Bank ist nicht identisch mit den 250 Millionen Euro, die mit Belfius im Kassiererauftrag vom 20. Juli 2026 ausgehandelt wurden: zwei getrennte Instrumente, zwei Institute, ein identischer Betrag. Eine Kreditlinie ist eine Ziehungsmöglichkeit, keine Schuld.",
+      "explanation": "Die gesamte belgische Staatsschuld betrug Ende 2025 692 Milliarden Euro, also 108 % des Bruttoinlandsprodukts. In diesem Rahmen hält das Föderale Planbüro das Risiko einer untragbaren Schuld für hoch bei der Region Brüssel, der Wallonischen Region und der Französischen Gemeinschaft, und für mäßig bei der flämischen Schuld.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-30",
-        "sourceContentHash": "sha256:f8fb1fcf31dfb6bd1996418d11881071",
-        "generatedAt": "2026-09-18T14:14:17.052Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:4f02d97342c59d9ac9b4693c232f3b44",
+        "generatedAt": "2026-09-18T16:07:32.630Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Wie viele Sortierräume plant die Region Brüssel über die Legislaturperiode, laut der am 11. September 2026 vorgestellten Reform der Abfallsammlung?",
+      "question": "Welches jährliche Investitionsbudget stellt die Einrichtung der Sortierräume über die Legislaturperiode dar, laut der am 11. September 2026 vorgestellten Reform der Abfallsammlung?",
       "options": [
-        "120, davon 60 in zwei Pilotvierteln",
-        "40, davon 20 in zwei Pilotvierteln",
-        "250, davon 100 in vier Pilotvierteln",
-        "80, davon 30 in einem einzigen Pilotviertel"
+        "Vier Millionen Euro pro Jahr",
+        "Zehn Millionen Euro pro Jahr",
+        "Eine Million Euro pro Jahr",
+        "Fünfundzwanzig Millionen Euro pro Jahr"
       ],
       "correct": 0,
-      "explanation": "Zwei Pilotviertel erhalten je dreißig, wo sie während der Testphase die Haus-zu-Haus-Abholung ersetzen, und sechzig weitere sollen Brennpunkte und wilde Müllablagerungen angehen. Die Ankündigung vom März 2026 sprach von hundert neuen Sortierräumen. Die Reform wird 2027 erwartet.",
+      "explanation": "Die Region plant hundertzwanzig Sortierräume, davon dreißig in jedem der beiden Pilotviertel, wo sie während der Testphase die Haus-zu-Haus-Abholung ersetzen. Diese Viertel sind noch nicht bestimmt: Forest und Ixelles wollen sich bewerben, und jedes der beiden ausgewählten zählt etwa zweitausend Wohnungen. Der Betrag ist geschätzt und stammt aus einer einzigen Pressequelle.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:19a91e1f9a8e8181b56109c2f689feb0",
-        "generatedAt": "2026-09-18T14:14:17.052Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:5e57eeb3041e22033baea7347271b7e6",
+        "generatedAt": "2026-09-18T16:07:32.630Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Worauf beruht die Finanzierung der am 11. September 2026 in Brüssel vorgestellten Reform der Abfallsammlung?",
+      "question": "Worüber soll der Verfassungsgerichtshof Ende September 2026 entscheiden, was die Finanzierung der Brüsseler Reform der Abfallsammlung betrifft?",
       "options": [
-        "Auf der erweiterten Herstellerverantwortung für Kunststoffe",
-        "Auf einer Zusatzsteuer der neunzehn Gemeinden",
-        "Auf einer Preiserhöhung der vorgeschriebenen Müllsäcke",
-        "Auf einer föderalen Zuwendung für die öffentliche Sauberkeit"
+        "Über die erweiterte Herstellerverantwortung für Kunststoffe",
+        "Über eine Zusatzsteuer der neunzehn Gemeinden",
+        "Über den geregelten Preis der regionalen Müllsäcke",
+        "Über eine föderale Zuwendung für die öffentliche Sauberkeit"
       ],
       "correct": 0,
-      "explanation": "Diese Regelung, am 13. März 2026 vom Brüsseler Parlament beschlossen, soll der Region 51,4 Millionen Euro pro Jahr einbringen, davon 54 % an die Gemeinden für die Beseitigung wilder Abfälle. Der Verfassungsgerichtshof soll Ende September 2026 über diese Finanzierung entscheiden.",
+      "explanation": "Diese Regelung finanziert die Reform, die selbst für 2027 erwartet wird. Die Ankündigung vom März 2026 sprach von hundert neuen Sortierräumen, gegenüber hundertzwanzig im Plan vom 11. September. Es werden zwei Arten von Zonen festgelegt, nach Kriterien wie der Bevölkerungsdichte oder dem Wohnungstyp, mit unterschiedlichen Sammelmodalitäten.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:19a91e1f9a8e8181b56109c2f689feb0",
-        "generatedAt": "2026-09-18T14:14:17.052Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:5e57eeb3041e22033baea7347271b7e6",
+        "generatedAt": "2026-09-18T16:07:32.630Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klima",
-      "question": "Wie viele zusätzliche Todesfälle verursachte die Hitzewelle vom Juni 2026 in der Region Brüssel, laut der von Sciensano am 2. September 2026 veröffentlichten konsolidierten Bilanz?",
+      "question": "Welche Forderung nahm der Gemeinderat von Schaerbeek am 16. September 2026 an?",
       "options": [
-        "196 zusätzliche Todesfälle",
-        "42 zusätzliche Todesfälle",
-        "159 zusätzliche Todesfälle",
-        "930 zusätzliche Todesfälle"
+        "Ein Verbot fossiler Werbung im öffentlichen Raum",
+        "Eine Ausweitung der Umweltzone auf Lieferwagen",
+        "Die Einführung einer Stadtmaut an den Gemeindegrenzen",
+        "Eine Pflicht zur energetischen Sanierung der Gemeindegebäude"
       ],
       "correct": 0,
-      "explanation": "Diese Zahl wurde zweimal nach oben korrigiert, nach den 159 vom 8. Juli und den 188 vom 17. Juli. Die zweite Welle, vom 4. bis 17. Juli, fügt 42 Todesfälle hinzu, und die dritte führte zu keiner Brüsseler Übersterblichkeit. Sciensano verweist auf die Dauer der Episode, die Temperaturen und die Ozonkonzentrationen.",
+      "explanation": "Schaerbeek ist damit die dritte Brüsseler Gemeinde mit dieser Forderung, nach Saint-Gilles und Jette. Der Antrag zielt unter anderem auf Werbung für Autos und Flugreisen und fordert die Regionalregierung auf, die rechtlichen und politischen Möglichkeiten eines regionalen Verbots zu prüfen. Die Information stammt aus einer einzigen Pressequelle.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:47cc47613d1ec91a362728ad7e10e0ad",
-        "generatedAt": "2026-09-18T14:14:17.052Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:bef91225787d3ec4ed12d14a47b11606",
+        "generatedAt": "2026-09-18T16:07:32.630Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klima",
-      "question": "Was musste Belgien der Europäischen Kommission bis zum 1. September 2026 vorlegen, gemäß der Verordnung (EU) 2024/1991?",
+      "question": "Wann wird der vollständige belgische Wiederherstellungsplan für die Natur erwartet, nachdem die europäische Frist vom 1. September 2026 verstrichen ist?",
       "options": [
-        "Seinen Entwurf eines nationalen Wiederherstellungsplans für die Natur",
-        "Seinen überarbeiteten nationalen Energie- und Klimaplan",
-        "Sein nationales Treibhausgasinventar",
-        "Sein Programm zur Minderung der Luftschadstoffe"
+        "Nicht vor dem Sommer 2027",
+        "Nicht vor dem Sommer 2028",
+        "Vor Ende 2026",
+        "Im ersten Quartal 2027"
       ],
       "correct": 0,
-      "explanation": "Die Frist verstrich ohne belgische Vorlage. Der Brüsseler Rückstand ist doppelt: der Plan Renature Brussels wird für September oder Oktober 2026 angekündigt, während der auf seiner offiziellen Website veröffentlichte Zeitplan eine Annahme in erster Lesung für den Sommer 2026 vorsah. Der vollständige belgische Plan wird nicht vor dem Sommer 2027 erwartet.",
+      "explanation": "Der Brüsseler Plan wird für September oder Oktober 2026 angekündigt. Der Brüsseler Rückstand ist doppelt, denn der auf der offiziellen Website des Plans Renature Brussels veröffentlichte Zeitplan sah eine Annahme in erster Lesung für den Sommer 2026 vor. Die konsultierten Quellen nennen keine Sanktion.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:47cc47613d1ec91a362728ad7e10e0ad",
-        "generatedAt": "2026-09-18T14:14:17.052Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:bef91225787d3ec4ed12d14a47b11606",
+        "generatedAt": "2026-09-18T16:07:32.630Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "An welche politische Bedingung wurde am 3. September 2026 die Auszahlung der 131 Millionen Euro an die SLRB für 2026 geknüpft?",
+      "question": "Was entschied der Verfassungsgerichtshof über die Brüsseler Ordonnanz gegen Mietwucher, laut der Mitteilung vom 17. September 2026?",
       "options": [
-        "An den Rücktritt des Vorsitzenden des Foyer anderlechtois",
-        "An den Verkauf zweier öffentlicher regionaler Gebäude",
-        "An die Einsetzung eines Sonderkommissars",
-        "An die Veröffentlichung des Audits der Agentur in Saint-Josse"
+        "Er wies die Nichtigkeitsklage dagegen zurück",
+        "Er erklärte die Ordonnanz vollständig für nichtig",
+        "Er setzte ihre Anwendung bis zu einer neuen Prüfung aus",
+        "Er verwies die Frage an den Gerichtshof der Union"
       ],
       "correct": 0,
-      "explanation": "Das Kabinett der Staatssekretärin für Wohnungswesen bestätigt, dass die im Sommer erwarteten Beträge nicht eingegangen sind. Ohne diese Mittel könnte die Dachgesellschaft, die die sechzehn Wohnungsbaugesellschaften öffentlichen Dienstes beaufsichtigt, ab September 2026 ihre Rechnungen nicht mehr begleichen, während 62 234 Haushalte auf eine Sozialwohnung warten.",
+      "explanation": "Die Ordonnanz trat im Mai 2025 in Kraft. Das Kabinett der Staatssekretärin für Wohnungswesen kündigt eine Überarbeitung des indikativen Rasters in zwei Schritten an. Keine konsultierte Quelle nennt die Nummer des Entscheids, und die Zahl der Kläger weicht je nach Redaktion ab: vier Verbände aus dem Immobilien- und Bausektor laut La Libre, sieben Vereinigungen laut L'Avenir und La DH.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:289789f4be2697cd3a326fdb1ad98918",
-        "generatedAt": "2026-09-18T14:17:02.669Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:2320d18f79be6a632ac60ca031593b41",
+        "generatedAt": "2026-09-18T16:07:32.630Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Um wie viel ging das Angebot an kurzzeitig vermieteten Airbnb-Wohnungen in Brüssel zwischen Juni 2025 und Juni 2026 zurück?",
+      "question": "Um wie viel darf eine Miete den Referenzmietpreis nicht überschreiten, laut der seit Mai 2025 geltenden Brüsseler Ordonnanz?",
       "options": [
-        "Um 23 %, von 6 171 auf 4 750 Wohnungen",
-        "Um 9 %, von 6 171 auf 5 600 Wohnungen",
-        "Um 41 %, von 6 171 auf 3 640 Wohnungen",
-        "Um 15 %, von 6 171 auf 5 245 Wohnungen"
+        "Um mehr als 20 %",
+        "Um mehr als 10 %",
+        "Um mehr als 35 %",
+        "Um mehr als 50 %"
       ],
       "correct": 0,
-      "explanation": "Die stärksten Rückgänge betreffen Forest, minus 35,8 %, und Etterbeek, minus 34 %. Bruxelles Fiscalité soll etwa 1 900 Bußgelder verhängt haben, für geschätzte 1,5 bis 2 Millionen Euro an eingetriebenen Steuerrückständen.",
+      "explanation": "Der Mieter kann die Paritätische Mietkommission oder gegebenenfalls den Richter anrufen. Das Prinzip war im Oktober 2021 beschlossen worden, seine Umsetzung war jedoch aufgeschoben worden, um das Raster verlässlich zu machen. Es ist diese Regelung, die der Verfassungsgerichtshof mit der Zurückweisung der Nichtigkeitsklage bestätigt hat, laut der Mitteilung vom 17. September 2026.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:289789f4be2697cd3a326fdb1ad98918",
-        "generatedAt": "2026-09-18T14:17:02.669Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:2320d18f79be6a632ac60ca031593b41",
+        "generatedAt": "2026-09-18T16:07:32.630Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1568,6 +1568,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 68
+  ]
 }

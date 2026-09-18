@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-// PROTOTYPE LOCAL (branche proto/accueil-refonte).
-//
 // Les deux jeux quotidiens n'ont pas la même couverture linguistique :
 //   Le Stuut du jour (mots)   → français uniquement (html lang="fr", og:locale fr_BE) ;
 //   Amai ! (chiffres)         → quatre langues, en URL .html (/nl, /en, /de → 404).
@@ -22,7 +20,12 @@ export interface DailyGame {
   url: string;
   /** Nom propre du jeu, identique dans toutes les langues. */
   name: string;
-  /** Accroche courte, en français dans ce prototype. */
+  /**
+   * Accroche courte. ⚠ Elle part en français dans les QUATRE langues : un
+   * lecteur néerlandophone lit « le chiffre du jour ». Lacune de traduction
+   * réelle, en production, pas un reliquat de maquette — à reprendre avec les
+   * clés i18n du panneau de jeux.
+   */
   teaser: string;
 }
 

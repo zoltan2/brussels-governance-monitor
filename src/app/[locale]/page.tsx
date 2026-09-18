@@ -1,10 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-// PROTOTYPE LOCAL (branche proto/accueil-refonte, jamais poussée).
-// Issu de la revue design team du 2026-09-14. Textes FR en dur : ne pas
-// fusionner en l'état, l'i18n et la revue éditoriale restent à faire.
-
 import type { ComponentProps, ReactNode } from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';

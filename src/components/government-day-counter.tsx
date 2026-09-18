@@ -3,8 +3,6 @@
 
 'use client';
 
-// PROTOTYPE LOCAL (branche proto/accueil-refonte). Textes FR en dur.
-//
 // The homepage is prerendered once per deploy: a day count computed at build time
 // would freeze. The server renders a placeholder (null snapshot, no mismatch) and the
 // browser fills in the count from the visitor's date right after hydration.

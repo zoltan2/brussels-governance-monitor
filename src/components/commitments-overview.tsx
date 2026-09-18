@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-// PROTOTYPE LOCAL (branche proto/accueil-refonte). Textes FR en dur.
-//
 // Baromètre complet de la page Engagements, en deux lectures :
 //   1. la répartition des 16 engagements par statut (ruban proportionnel + légende) ;
 //   2. la même répartition, échéance par échéance, qui n'existait nulle part.

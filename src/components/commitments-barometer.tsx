@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-// PROTOTYPE LOCAL (branche proto/accueil-refonte). Textes FR en dur.
-//
 // Répartition des engagements DPR par statut, en ruban proportionnel. Une répartition,
 // pas une note : aucune pondération, aucune jauge (le brief baromètre de février 2026
 // excluait les deux). Le verdict en toutes lettres n'est PAS repris ici : le titre de

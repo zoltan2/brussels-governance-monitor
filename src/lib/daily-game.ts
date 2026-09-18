@@ -9,8 +9,12 @@
 
 export const STUUT_URL = 'https://stuut.governance.brussels';
 
+// Chaque langue vise sa page, jamais la racine : la racine d'Amai est un
+// redirecteur qui choisit la langue d'après le stockage local puis le navigateur.
+// Un lecteur de /fr au navigateur néerlandophone y recevait Amai en néerlandais
+// (relevé par l'équipe design le 18/09/2026). /fr.html répond 200, vérifié le même jour.
 export const AMAI_URLS: Record<string, string> = {
-  fr: 'https://amai.governance.brussels/',
+  fr: 'https://amai.governance.brussels/fr.html',
   nl: 'https://amai.governance.brussels/nl.html',
   en: 'https://amai.governance.brussels/en.html',
   de: 'https://amai.governance.brussels/de.html',
@@ -23,18 +27,11 @@ export interface DailyGame {
   url: string;
   /** Nom propre du jeu, identique dans toutes les langues. */
   name: string;
-  /**
-   * Accroche courte. ⚠ Elle part en français dans les QUATRE langues : un
-   * lecteur néerlandophone lit « le chiffre du jour ». Lacune de traduction
-   * réelle, en production, pas un reliquat de maquette : à reprendre avec les
-   * clés i18n du panneau de jeux.
-   */
-  teaser: string;
 }
 
 /** Le jeu quotidien mis en avant : le Stuut en français, Amai ! dans les autres langues. */
 export function dailyGame(locale: string): DailyGame {
   return locale === 'fr'
-    ? { url: STUUT_URL, name: 'Le Stuut du jour', teaser: 'le mot du jour' }
-    : { url: AMAI_URLS[locale] ?? AMAI_URLS.en, name: 'Amai !', teaser: 'le chiffre du jour' };
+    ? { url: STUUT_URL, name: 'Le Stuut du jour' }
+    : { url: AMAI_URLS[locale] ?? AMAI_URLS.en, name: 'Amai !' };
 }

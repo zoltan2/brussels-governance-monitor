@@ -3,8 +3,6 @@
 
 'use client';
 
-// PROTOTYPE LOCAL (branche proto/accueil-refonte). Textes FR en dur.
-//
 // The homepage is prerendered once per deploy, so the "question of the day" must be
 // picked in the browser from the visitor's date, never at build time. The pool
 // (public/quiz-data-{locale}.json, ~80 KB) is only fetched once the card nears the viewport.

@@ -57,7 +57,7 @@ import {
   type StuutStats,
   type Verdict,
 } from '@/lib/stuut';
-import { StuutInscription } from './stuut-inscription';
+import { StuutInscription, type SourceInscription } from './stuut-inscription';
 import s from './stuut-game.module.css';
 
 type Chargement = { etat: 'chargement' } | { etat: 'erreur' } | { etat: 'pret'; jour: StuutJour };
@@ -115,7 +115,16 @@ export function StuutGame({ actif }: { actif: boolean }) {
   const [vueStats, setVueStats] = useState(false);
   const [inviter, setInviter] = useState(false);
   const [inscriptionOuverte, setInscriptionOuverte] = useState(false);
-  const [dejaInscrit, setDejaInscrit] = useState(false);
+  // L'état d'inscription vit ICI, pas dans chaque formulaire : les deux (en-tête et
+  // fin de partie) doivent le partager. Sinon une inscription par l'en-tête laissait
+  // l'invitation de fin de partie affichée (constat F7 de l'équipe rouge).
+  const [appareilInscrit, setAppareilInscrit] = useState(false);
+  const [reussie, setReussie] = useState<SourceInscription | null>(null);
+  const surInscription = useCallback((source: SourceInscription) => {
+    ecrireStockage(CLE_INSCRIT, '1');
+    setAppareilInscrit(true);
+    setReussie(source);
+  }, []);
   const [secousse, setSecousse] = useState(0);
   const [message, setMessage] = useState('');
   const [annonce, setAnnonce] = useState('');
@@ -392,7 +401,7 @@ export function StuutGame({ actif }: { actif: boolean }) {
             type="button"
             className={s.lien}
             onClick={() => {
-              setDejaInscrit(lireStockage(CLE_INSCRIT) === '1');
+              if (lireStockage(CLE_INSCRIT) === '1') setAppareilInscrit(true);
               setInscriptionOuverte((v) => !v);
             }}
             aria-expanded={inscriptionOuverte}
@@ -405,7 +414,15 @@ export function StuutGame({ actif }: { actif: boolean }) {
         </span>
       </div>
 
-      {inscriptionOuverte && <StuutInscription source="entete" dejaInscrit={dejaInscrit} />}
+      {inscriptionOuverte && (
+        <StuutInscription
+          source="entete"
+          dejaInscrit={appareilInscrit && reussie !== 'entete'}
+          reussie={reussie === 'entete'}
+          focusALOuverture
+          onInscrit={surInscription}
+        />
+      )}
 
       {!fini && (
         <details className={s.aide}>
@@ -608,7 +625,16 @@ export function StuutGame({ actif }: { actif: boolean }) {
             </form>
           )}
 
-          {inviter && <StuutInscription source="fin-partie" dejaInscrit={false} />}
+          {/* Plus d'invitation une fois inscrit par l'en-tête ; la confirmation, elle,
+              reste affichée là où l'inscription a abouti. */}
+          {inviter && reussie !== 'entete' && (
+            <StuutInscription
+              source="fin-partie"
+              dejaInscrit={false}
+              reussie={reussie === 'fin-partie'}
+              onInscrit={surInscription}
+            />
+          )}
 
           <p className="mt-4 text-sm" style={{ color: '#9DB0C4' }}>
             Un nouveau mot demain, à minuit.

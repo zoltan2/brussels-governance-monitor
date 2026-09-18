@@ -196,7 +196,17 @@ export function GamesPanel({ locale }: { locale: string }) {
   useEffect(() => {
     if (!open) return;
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key !== 'Escape') return;
+      // Dans un champ rempli (adresse d'inscription, prénom du défi), le premier
+      // Échap sort seulement du champ : fermer le panneau d'un coup jetait la saisie.
+      // Le second Échap ferme, le panneau reste toujours fermable au clavier.
+      const cible = e.target;
+      if ((cible instanceof HTMLInputElement || cible instanceof HTMLTextAreaElement) && cible.value !== '') {
+        // Le focus reste DANS la modale (sur le dialogue), pas sur <body>.
+        panelRef.current?.focus();
+        return;
+      }
+      setOpen(false);
     }
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
@@ -314,12 +324,15 @@ export function GamesPanel({ locale }: { locale: string }) {
               role="dialog"
               aria-modal="true"
               aria-labelledby="jeux-titre"
+              // Focalisable par script seulement (Échap dans un champ rempli y ramène
+              // le focus), jamais une étape de tabulation.
+              tabIndex={-1}
               onKeyDown={trapFocus}
               // 560 px et non 440 : le mot du Stuut peut faire treize lettres. Le jeu
               // natif calcule ses cases sur la largeur réelle du plateau (requête de
               // conteneur, stuut-game.module.css) ; à 560 px, treize lettres gardent
               // des cases d'environ 37 px, contre 28 px à 440 px.
-              className="flex h-full w-full flex-col overflow-hidden bg-neutral-50 shadow-2xl sm:w-[560px]"
+              className="flex h-full w-full flex-col overflow-hidden bg-neutral-50 shadow-2xl focus:outline-none sm:w-[560px]"
             >
               <div className="flex items-start justify-between gap-3 px-4 py-3">
                 <div className="min-w-0">

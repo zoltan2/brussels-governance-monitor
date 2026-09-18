@@ -20,6 +20,8 @@
  *     le test casse.
  */
 
+import { lienJeuDepuisBgm } from './daily-game';
+
 export const STUUT_SITE = 'https://stuut.governance.brussels';
 export const STUUT_API_JOUR = `${STUUT_SITE}/api/jour`;
 
@@ -171,7 +173,7 @@ export function enregistrer(s: StuutStats, resultat: ResultatDuJour): StuutStats
 
 export function texteResultat(numero: number, r: ResultatDuJour): string {
   const score = r.won ? r.n : 'X';
-  return `Le Stuut du jour n°${numero} : ${score}/${MAX_ESSAIS}\n${r.grid}\n${STUUT_SITE}`;
+  return `Le Stuut du jour n°${numero} : ${score}/${MAX_ESSAIS}\n${r.grid}\n${lienJeuDepuisBgm(`${STUUT_SITE}/`, 'partage')}`;
 }
 
 const PSEUDO_RETIRE = /[^\p{L}\p{N} .,'!?-]/gu;
@@ -245,7 +247,9 @@ export function texteDefi(r: ResultatDuJour, url: string, variante: number): str
 
 /** Le lien de défi pointe vers le jeu AUTONOME, seul à savoir le lire. */
 export function lienDefi(code: string): string {
-  return `${STUUT_SITE}/#d=${code}`;
+  // Marqué utm_source=bgm (avant le fragment, que le jeu autonome lit seul) : la
+  // fiche Umami du Stuut voit ainsi les défis lancés depuis BGM.
+  return lienJeuDepuisBgm(`${STUUT_SITE}/#d=${code}`, 'defi');
 }
 
 /**
@@ -277,11 +281,18 @@ export const CLE_INVITATION = 'bgm_stuut_email_prompt_at';
 /** Une invitation en fin de partie tous les trois jours au plus, comme le jeu autonome. */
 export const DELAI_INVITATION_MS = 3 * 86_400_000;
 
-// La même règle que newsletter-flow.mjs : le serveur revalide de toute façon.
+// La même règle que le serveur (stuut-api, normalize-email.ts), pour qu'une adresse
+// acceptée ici ne soit jamais refusée là-bas avec un message trompeur :
+//   - mêmes caractères interdits (l'apostrophe comprise, refusée aussi par le serveur) ;
+//   - caractères invisibles refusés (espace de largeur nulle, BOM…), acceptés
+//     auparavant et qui donnaient une adresse impossible à livrer ;
+//   - longueur mesurée APRÈS mise en minuscules, comme le serveur : « İ » s'y
+//     allonge, et une adresse de 254 caractères pouvait passer ici puis échouer là.
 const EMAIL_RE = /^[^@\s<>"']+@[^@\s<>"']+\.[^@\s<>"']+$/;
+const INVISIBLES = /[​-‍⁠﻿]/;
 
 export function emailValide(v: string): boolean {
-  return EMAIL_RE.test(v) && v.length <= 254;
+  return EMAIL_RE.test(v) && !INVISIBLES.test(v) && v.toLowerCase().length <= 254;
 }
 
 export function doitInviter({

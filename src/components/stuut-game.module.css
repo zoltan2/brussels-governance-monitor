@@ -347,9 +347,12 @@
   background: var(--teal);
   color: #06231f;
 }
+/* Survol : le texte reste foncé sur un sarcelle plus clair (~8,7:1). L'ancien
+   survol (texte clair sur teal-deep) tombait à 3,7:1, sous le seuil de 4,5:1. */
 .primaire:hover {
-  background: var(--teal-deep);
-  color: var(--ink);
+  background: #3fd0bf;
+  border-color: #3fd0bf;
+  color: #06231f;
 }
 .defi {
   display: flex;
@@ -367,9 +370,11 @@
   font-size: 12.5px;
   color: var(--muted);
 }
+/* Contour en --muted-2 (~4:1 sur le panneau) : --line (1,3:1) ne signalait pas le
+   champ, critère WCAG 1.4.11 (contraste des composants d'interface, 3:1 minimum). */
 .champ {
   padding: 10px 12px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--muted-2);
   border-radius: 10px;
   background: var(--navy-2);
   color: var(--ink);

@@ -114,6 +114,25 @@ describe('AmaiGame', () => {
     expect(appels.filter((a) => a.url.endsWith('/api/plays'))).toHaveLength(1);
   });
 
+  it('partage un lien vers la page de la langue, marqué utm_source=bgm', async () => {
+    let copie = '';
+    Object.defineProperty(navigator, 'clipboard', {
+      value: { writeText: async (t: string) => void (copie = t) },
+      configurable: true,
+    });
+    render(<AmaiGame locale="nl" />);
+    // Jeu en néerlandais : les libellés des boutons changent.
+    for (let i = 0; i < 5; i++) {
+      await screen.findByText(`Question ${i + 1}`);
+      fireEvent.click(screen.getByRole('button', { name: i % 2 === 0 ? '+ Meer' : '− Minder' }));
+      fireEvent.click(screen.getByRole('button', { name: i < 4 ? 'Volgend cijfer' : 'Mijn score bekijken' }));
+    }
+    fireEvent.click(await screen.findByRole('button', { name: 'Mijn score delen' }));
+    await waitFor(() =>
+      expect(copie).toContain('https://amai.governance.brussels/nl.html?utm_source=bgm&utm_medium=jeu&utm_campaign=partage'),
+    );
+  });
+
   it('signale un échec de copie au lieu de ne rien faire', async () => {
     Object.defineProperty(navigator, 'clipboard', { value: undefined, configurable: true });
     render(<AmaiGame locale="fr" />);

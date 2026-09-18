@@ -20,6 +20,23 @@ export const AMAI_URLS: Record<string, string> = {
   de: 'https://amai.governance.brussels/de.html',
 };
 
+/**
+ * Marque un lien vers un jeu autonome partagé DEPUIS BGM (défi, score), pour que la
+ * fiche Umami du jeu sache ce que BGM lui amène. Même convention que les liens du
+ * Stuut vers BGM (public/assets/utm.mjs du dépôt stuut) : source, medium « jeu »,
+ * campagne. Les paramètres se placent AVANT un éventuel fragment (#d=… du défi).
+ *
+ * ⚠ Pour Amai, viser la page de la langue (AMAI_URLS), jamais la racine : le
+ * redirecteur de langue perd la chaîne de requête et ne charge pas Umami.
+ */
+export function lienJeuDepuisBgm(url: string, campagne: 'defi' | 'partage'): string {
+  const coupure = url.indexOf('#');
+  const base = coupure === -1 ? url : url.slice(0, coupure);
+  const fragment = coupure === -1 ? '' : url.slice(coupure);
+  const separateur = base.includes('?') ? '&' : '?';
+  return `${base}${separateur}utm_source=bgm&utm_medium=jeu&utm_campaign=${campagne}${fragment}`;
+}
+
 /** API d'Amai, lue directement par le jeu natif du panneau (CORS ouvert à governance.brussels). */
 export const AMAI_API = 'https://amai.governance.brussels';
 

@@ -13,6 +13,7 @@ import {
   etatTouches,
   evaluer,
   grilleDepuisEvals,
+  lienDefi,
   lienInterne,
   lireStats,
   norm,
@@ -84,10 +85,18 @@ describe('Stuut : compatibilité du lien de défi avec le jeu autonome', () => {
     );
   });
 
-  it('partage le résultat avec le numéro d’édition et un X en cas de défaite', () => {
+  it('partage le résultat avec le numéro d’édition, un X en cas de défaite, et un lien marqué BGM', () => {
     expect(texteResultat(95, { day: 94, won: false, n: 0, grid: '⬛' })).toBe(
-      'Le Stuut du jour n°95 : X/6\n⬛\nhttps://stuut.governance.brussels',
+      'Le Stuut du jour n°95 : X/6\n⬛\nhttps://stuut.governance.brussels/?utm_source=bgm&utm_medium=jeu&utm_campaign=partage',
     );
+  });
+
+  it('marque le lien de défi AVANT le fragment, que le jeu autonome lit seul', () => {
+    expect(lienDefi('ABC')).toBe(
+      'https://stuut.governance.brussels/?utm_source=bgm&utm_medium=jeu&utm_campaign=defi#d=ABC',
+    );
+    // Le jeu autonome lit le défi par location.hash.startsWith("#d=") : intact.
+    expect(new URL(lienDefi('ABC')).hash).toBe('#d=ABC');
   });
 });
 
@@ -131,6 +140,16 @@ describe('Stuut : inscription par e-mail', () => {
     for (const v of ['', 'sans-arobase', 'a@b', 'a b@c.be', '<a@b.be>', `${'x'.repeat(250)}@b.be`]) {
       expect(emailValide(v), v).toBe(false);
     }
+  });
+
+  it('refuse les caractères invisibles, et mesure la longueur comme le serveur, après minuscules', () => {
+    expect(emailValide('a@b.be​')).toBe(false);
+    expect(emailValide('﻿a@b.be')).toBe(false);
+    // « İ » (1 caractère) devient « i̇ » (2) en minuscules : 250 + « @b.be » tient
+    // en majuscules, pas une fois normalisé par le serveur.
+    const long = `${'İ'.repeat(125)}@b.be`;
+    expect(long.length).toBeLessThanOrEqual(254);
+    expect(emailValide(long)).toBe(false);
   });
 
   it("n'invite jamais un appareil inscrit, et une fois tous les trois jours au plus", () => {

@@ -78,6 +78,9 @@ const EVENEMENTS_ACTIONS = [
   // Inscription au Stuut par e-mail : porte l'emplacement (fin-partie ou entete),
   // JAMAIS l'adresse.
   'jeux-stuut-inscription',
+  // Échec d'inscription : emplacement et code de statut seulement (0 = réseau ou
+  // CORS). Sans lui, une API tombée ou un CORS absent ne se verrait nulle part.
+  'jeux-stuut-inscription-echec',
   'jeux-amai-termine',
   'jeux-amai-partage',
 ];

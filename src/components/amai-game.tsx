@@ -23,7 +23,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { track } from '@/lib/analytics';
-import { AMAI_API } from '@/lib/daily-game';
+import { AMAI_API, AMAI_URLS, lienJeuDepuisBgm } from '@/lib/daily-game';
 import { policeAmai } from '@/lib/fonts-jeux';
 import s from './amai-game.module.css';
 
@@ -361,7 +361,9 @@ export function AmaiGame({ locale }: { locale: string }) {
   function partager() {
     if (!partie) return;
     const carres = reponses.map((a) => (a.correct ? '🟨' : '🟦')).join('');
-    const texte = `Amai ! ${partie.date} — ${score}/5\n${carres}\nhttps://amai.governance.brussels`;
+    // Vers la page de la langue, marquée utm_source=bgm : la racine d'Amai est un
+    // redirecteur qui perd la chaîne de requête et ne charge pas Umami.
+    const texte = `Amai ! ${partie.date} — ${score}/5\n${carres}\n${lienJeuDepuisBgm(AMAI_URLS[lang], 'partage')}`;
     const signaler = (v: 'ok' | 'echec') => {
       setCopie(v);
       setTimeout(() => setCopie(''), 2500);

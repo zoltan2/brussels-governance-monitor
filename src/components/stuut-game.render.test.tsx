@@ -222,17 +222,25 @@ describe('StuutGame', () => {
 describe('StuutGame : inscription au Stuut par e-mail', () => {
   // Deux adresses distinctes : le mot du jour, et l'inscription. Chaque appel est noté.
   let appels: { url: string; init?: RequestInit }[] = [];
-  function serveur(inscription: { status: number } = { status: 200 }) {
+  let mesures: unknown[][] = [];
+  function serveur(inscription: { status: number; attente?: Promise<void> } = { status: 200 }) {
     appels = [];
     globalThis.fetch = vi.fn(async (url: string, init?: RequestInit) => {
       appels.push({ url, init });
       if (url === STUUT_API_INSCRIPTION) {
-        return { ok: inscription.status < 400, status: inscription.status, json: async () => ({ ok: inscription.status < 400 }) };
+        if (inscription.attente) await inscription.attente;
+        // Le corps n'est jamais lu par le formulaire : un json() piégé le prouve.
+        return { ok: inscription.status < 400, status: inscription.status, json: async () => { throw new Error('lu'); } };
       }
       return { ok: true, status: 200, json: async () => JSON.parse(JSON.stringify(JOUR)) };
     }) as unknown as typeof fetch;
   }
   const inscriptions = () => appels.filter((a) => a.url === STUUT_API_INSCRIPTION);
+  const champ = () => screen.getByLabelText('Votre adresse e-mail') as HTMLInputElement;
+  const envoyer = (adresse: string) => {
+    fireEvent.change(champ(), { target: { value: adresse } });
+    fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
+  };
 
   async function finirPartie() {
     render(<StuutGame actif />);
@@ -241,77 +249,159 @@ describe('StuutGame : inscription au Stuut par e-mail', () => {
     await screen.findByText('Du premier coup. Chapeau, vraiment.');
   }
 
-  beforeEach(() => serveur());
+  beforeEach(() => {
+    serveur();
+    mesures = [];
+    window.umami = { track: (...args: unknown[]) => void mesures.push(args) };
+  });
+  afterEach(() => {
+    delete window.umami;
+  });
 
-  it("invite à l'inscription en fin de partie, et n'envoie que l'adresse, sans cookie", async () => {
+  it("invite en fin de partie, et n'envoie que l'adresse, sans cookie, avec un délai maximal", async () => {
     await finirPartie();
-    fireEvent.change(screen.getByLabelText('Votre adresse e-mail'), { target: { value: '  lecteur@exemple.be ' } });
-    fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
+    envoyer('  lecteur@exemple.be ');
 
-    expect(await screen.findByText(/Vérifiez votre boîte mail pour confirmer/)).toBeTruthy();
+    expect(await screen.findByText(/C'est noté/)).toBeTruthy();
     expect(inscriptions()).toHaveLength(1);
     const { init } = inscriptions()[0];
     expect(init?.method).toBe('POST');
     expect(init?.credentials).toBe('omit');
+    expect(init?.signal).toBeInstanceOf(AbortSignal);
     expect(JSON.parse(String(init?.body))).toEqual({ email: 'lecteur@exemple.be' });
     expect(localStorage.getItem(CLE_INSCRIT)).toBe('1');
   });
 
-  it("ne transmet jamais l'adresse à la mesure d'audience", async () => {
-    const mesures: unknown[] = [];
-    window.umami = { track: (...args: unknown[]) => void mesures.push(args) };
-    try {
-      await finirPartie();
-      fireEvent.change(screen.getByLabelText('Votre adresse e-mail'), { target: { value: 'secret@exemple.be' } });
-      fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
-      await screen.findByText(/Vérifiez votre boîte mail/);
-      expect(JSON.stringify(mesures)).not.toContain('secret');
-      expect(JSON.stringify(mesures)).toContain('jeux-stuut-inscription');
-    } finally {
-      delete window.umami;
-    }
-  });
-
-  it("refuse une adresse invalide sans rien envoyer, et l'annonce", async () => {
+  it("ne mesure que l'emplacement du formulaire : ni l'adresse, ni son domaine", async () => {
     await finirPartie();
-    fireEvent.change(screen.getByLabelText('Votre adresse e-mail'), { target: { value: 'pas-une-adresse' } });
-    fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
-    expect(screen.getByRole('alert').textContent).toBe('Adresse e-mail invalide.');
-    expect(inscriptions()).toHaveLength(0);
+    envoyer('secret@domaine-prive.be');
+    await screen.findByText(/C'est noté/);
+    const inscription = mesures.filter((m) => m[0] === 'jeux-stuut-inscription');
+    expect(inscription).toEqual([['jeux-stuut-inscription', { source: 'fin-partie' }]]);
+    expect(JSON.stringify(mesures)).not.toMatch(/secret|domaine-prive/);
   });
 
-  it('dit « trop de tentatives » sur un 429, pas « réessayez dans un instant »', async () => {
+  it("donne le focus à la confirmation, annoncée comme un statut, et ne promet pas un e-mail certain", async () => {
+    await finirPartie();
+    envoyer('a@exemple.be');
+    const texte = await screen.findByText(/C'est noté/);
+    expect(document.activeElement).toBe(texte);
+    expect(texte.getAttribute('role')).toBe('status');
+    expect(texte.textContent).toMatch(/Si cette adresse n'était pas encore inscrite/);
+  });
+
+  it("refuse une adresse invalide sans rien envoyer, la signale sur le champ, et l'efface à la correction", async () => {
+    await finirPartie();
+    envoyer('pas-une-adresse');
+    expect(screen.getByText('Adresse e-mail invalide.')).toBeTruthy();
+    expect(inscriptions()).toHaveLength(0);
+    expect(champ().getAttribute('aria-invalid')).toBe('true');
+    const idErreur = champ().getAttribute('aria-describedby');
+    expect(idErreur && document.getElementById(idErreur)?.textContent).toMatch(/invalide/);
+
+    fireEvent.change(champ(), { target: { value: 'pas-une-adresse@' } });
+    expect(champ().getAttribute('aria-invalid')).toBeNull();
+    expect(screen.queryByText('Adresse e-mail invalide.')).toBeNull();
+  });
+
+  it("sur un 429 : message dédié, champ NON marqué invalide, échec mesuré sans l'adresse, pas d'inscription", async () => {
     serveur({ status: 429 });
     await finirPartie();
-    fireEvent.change(screen.getByLabelText('Votre adresse e-mail'), { target: { value: 'a@exemple.be' } });
-    fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
-    expect((await screen.findByRole('alert')).textContent).toMatch(/Trop de tentatives/);
+    envoyer('a@exemple.be');
+    expect(await screen.findByText(/Trop de tentatives/)).toBeTruthy();
+    expect(champ().getAttribute('aria-invalid')).toBeNull();
     expect(localStorage.getItem(CLE_INSCRIT)).toBeNull();
+    expect(mesures.filter((m) => m[0] === 'jeux-stuut-inscription')).toEqual([]);
+    expect(mesures).toContainEqual(['jeux-stuut-inscription-echec', { source: 'fin-partie', statut: 429 }]);
   });
 
-  it("n'invite pas un appareil déjà inscrit", async () => {
+  it("en cas d'échec, propose un lien de repli vers l'inscription du jeu autonome", async () => {
+    serveur({ status: 500 });
+    await finirPartie();
+    envoyer('a@exemple.be');
+    const repli = await screen.findByRole('link', { name: /S'inscrire sur stuut\.governance\.brussels/ });
+    expect(repli.getAttribute('href')).toBe('https://stuut.governance.brussels/inscription/');
+  });
+
+  it("ré-annonce une erreur identique à l'essai suivant", async () => {
+    serveur({ status: 500 });
+    await finirPartie();
+    envoyer('a@exemple.be');
+    const premier = await screen.findByText(/n'a pas abouti/);
+    fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
+    await waitFor(() => expect(screen.getByText(/n'a pas abouti/)).not.toBe(premier));
+  });
+
+  it("désactive le bouton pendant l'envoi : une seule requête", async () => {
+    let liberer = () => {};
+    serveur({ status: 200, attente: new Promise<void>((r) => (liberer = r)) });
+    await finirPartie();
+    envoyer('a@exemple.be');
+    const bouton = screen.getByRole('button', { name: 'Envoi…' });
+    expect((bouton as HTMLButtonElement).disabled).toBe(true);
+    fireEvent.submit(bouton.closest('form')!);
+    liberer();
+    await screen.findByText(/C'est noté/);
+    expect(inscriptions()).toHaveLength(1);
+  });
+
+  it("n'invite pas un appareil inscrit, et n'horodate une invitation que si elle s'affiche", async () => {
     localStorage.setItem(CLE_INSCRIT, '1');
     await finirPartie();
     expect(screen.queryByLabelText('Votre adresse e-mail')).toBeNull();
+    expect(localStorage.getItem(CLE_INVITATION)).toBeNull();
   });
 
-  it("n'invite qu'une fois tous les trois jours", async () => {
+  it("n'invite qu'une fois tous les trois jours, et horodate l'invitation affichée", async () => {
     localStorage.setItem(CLE_INVITATION, String(Date.now() - 86_400_000));
     await finirPartie();
     expect(screen.queryByLabelText('Votre adresse e-mail')).toBeNull();
-  });
-
-  it("horodate l'invitation affichée", async () => {
+    cleanup();
+    localStorage.removeItem(CLE_INVITATION);
+    localStorage.removeItem(CLE_STATS); // sinon la partie est « déjà jouée » : pas de clavier
     await finirPartie();
+    expect(screen.getByLabelText('Votre adresse e-mail')).toBeTruthy();
     expect(Number(localStorage.getItem(CLE_INVITATION))).toBeGreaterThan(Date.now() - 60_000);
   });
 
-  it("garde l'inscription à portée depuis l'en-tête, même pour un appareil inscrit", async () => {
-    localStorage.setItem(CLE_INSCRIT, '1');
+  it("invite aussi quand on retrouve le résultat du jour au rechargement", async () => {
+    localStorage.setItem(
+      CLE_STATS,
+      JSON.stringify({ played: 1, wins: 1, streak: 1, max: 1, dist: [1, 0, 0, 0, 0, 0], lastDay: 94, today: { day: 94, won: true, n: 1, grid: '🟩' } }),
+    );
+    render(<StuutGame actif />);
+    await screen.findByText(/Vous avez déjà joué aujourd’hui/);
+    expect(screen.getByLabelText('Votre adresse e-mail')).toBeTruthy();
+  });
+
+  it("l'en-tête : formulaire toujours à portée, focus dans le champ, frappe qui ne part pas sur le plateau", async () => {
     render(<StuutGame actif />);
     await screen.findByText(/n°95/);
     fireEvent.click(screen.getByRole('button', { name: 'Recevoir par e-mail' }));
-    expect(screen.getByLabelText('Votre adresse e-mail')).toBeTruthy();
+    expect(document.activeElement).toBe(champ());
+    // Le clavier physique du jeu écoute le document : une lettre tapée DANS le champ
+    // ne doit rien écrire sur le plateau.
+    fireEvent.keyDown(champ(), { key: 'j' });
+    expect(document.querySelector('.sr-only p')!.textContent).toMatch(/Saisie en cours : C\./);
+    expect(screen.getByRole('link', { name: 'page vie privée' }).getAttribute('target')).toBe('_blank');
+  });
+
+  it("les deux formulaires partagent l'état : inscrit par l'en-tête, plus d'invitation en fin de partie", async () => {
+    await finirPartie();
+    expect(screen.getAllByLabelText('Votre adresse e-mail')).toHaveLength(1);
+    fireEvent.click(screen.getByRole('button', { name: 'Recevoir par e-mail' }));
+    const [enTete] = screen.getAllByLabelText('Votre adresse e-mail');
+    fireEvent.change(enTete, { target: { value: 'a@exemple.be' } });
+    fireEvent.click(screen.getAllByRole('button', { name: "S'inscrire" })[0]);
+    await screen.findByText(/C'est noté/);
+    expect(screen.queryAllByLabelText('Votre adresse e-mail')).toHaveLength(0);
+  });
+
+  it("dit « déjà inscrit » dans l'en-tête après une inscription en fin de partie", async () => {
+    await finirPartie();
+    envoyer('a@exemple.be');
+    await screen.findByText(/C'est noté/);
+    fireEvent.click(screen.getByRole('button', { name: 'Recevoir par e-mail' }));
     expect(screen.getByText(/Cet appareil est déjà inscrit/)).toBeTruthy();
     expect(screen.getByRole('link', { name: 'page vie privée' }).getAttribute('href')).toBe('/fr/confidentialite');
   });

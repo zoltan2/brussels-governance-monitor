@@ -323,13 +323,22 @@ describe('StuutGame : inscription au Stuut par e-mail', () => {
     expect(repli.getAttribute('href')).toBe('https://stuut.governance.brussels/inscription/');
   });
 
-  it("ré-annonce une erreur identique à l'essai suivant", async () => {
-    serveur({ status: 500 });
+  it("ré-annonce une erreur identique à l'essai suivant (nouveau nœud dans la région live)", async () => {
+    // Le cas sans état intermédiaire : deux formats invalides de suite. Le message ne
+    // disparaît jamais entre les deux ; sans nœud neuf, rien ne serait ré-annoncé.
     await finirPartie();
-    envoyer('a@exemple.be');
-    const premier = await screen.findByText(/n'a pas abouti/);
+    envoyer('pas-une-adresse');
+    const premier = screen.getByText('Adresse e-mail invalide.');
     fireEvent.click(screen.getByRole('button', { name: "S'inscrire" }));
-    await waitFor(() => expect(screen.getByText(/n'a pas abouti/)).not.toBe(premier));
+    expect(screen.getByText('Adresse e-mail invalide.')).not.toBe(premier);
+  });
+
+  it('annule la soumission native du formulaire (aucune navigation)', async () => {
+    await finirPartie();
+    fireEvent.change(champ(), { target: { value: 'a@exemple.be' } });
+    // dispatchEvent rend false quand preventDefault a été appelé.
+    expect(fireEvent.submit(champ().closest('form')!)).toBe(false);
+    await screen.findByText(/C'est noté/);
   });
 
   it("désactive le bouton pendant l'envoi : une seule requête", async () => {

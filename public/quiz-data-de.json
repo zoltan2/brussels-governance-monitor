@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T16:07:32.630Z",
+  "generatedAt": "2026-09-18T16:09:44.799Z",
   "locale": "de",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Am 28. August 2026 bezifferte der Prokurator des Königs von Brüssel die Unterbesetzung seiner Staatsanwaltschaft. Wie viele Magistrate sind im Amt, gemessen am vorgesehenen Bestand?",
+      "question": "Über welchen jährlichen Betrag verfügt der föderale Sicherheits- und Präventionsfonds für Brüssel, laut den Informationen vom 17. September 2026?",
       "options": [
-        "49 Magistrate von 63 vorgesehenen",
-        "58 Magistrate von 63 vorgesehenen",
-        "63 Magistrate von 80 vorgesehenen",
-        "49 Magistrate von 55 vorgesehenen"
+        "55 Millionen Euro, davon 35 für die Polizeizonen",
+        "20 Millionen Euro, davon 12 für die Polizeizonen",
+        "110 Millionen Euro, davon 70 für die Polizeizonen",
+        "35 Millionen Euro, davon 20 für die Polizeizonen"
       ],
       "correct": 0,
-      "explanation": "Das sind vierzehn unbesetzte Stellen. Der Prokurator verweist zudem auf ein Defizit von achtzig Ermittlern bei der föderalen Gerichtspolizei und beziffert die von ihm geforderten Mittel auf zehn Millionen Euro. Den Beginn der Schusswaffenserie datierte er damals auf den 20. August 2026.",
+      "explanation": "Zwanzig Millionen gehen an die Gemeinden, für die Sicherung der europäischen Gipfel und die internationale Rolle der Hauptstadt. Mehrere Millionen sollen andere Ausgaben finanziert haben, darunter ein Scheck über 828 000 Euro an die regionale Wohnungsbaugesellschaft im Jahr 2020 und ein nie gebautes Cyberzentrum. Die Quellen verwenden den Konjunktiv und nennen kein amtliches Schriftstück: das Vertrauen ist unbestätigt.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:80b3e914b456c2104f9031dc62bdc753",
-        "generatedAt": "2026-09-18T14:21:01.756Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:fe807d52cc5557f1c90efc831a16614f",
+        "generatedAt": "2026-09-18T16:09:44.799Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Wie lange läuft das Mandat des Brüsseler Drogenkommissars, dessen Dienstantritt für Ende September 2026 angekündigt war?",
+      "question": "Was stellt die Sicherheitskarte am 8. September 2026 zum Bestand der Kameras in der Region Brüssel fest?",
       "options": [
-        "Fünf Jahre, einmal verlängerbar",
-        "Drei Jahre, zweimal verlängerbar",
-        "Vier Jahre, unbegrenzt verlängerbar",
-        "Sechs Jahre, ohne Verlängerung"
+        "Es besteht kein genaues Kataster des Bestands",
+        "Das Kataster wird seit 2024 von Safe.brussels geführt",
+        "Jede Polizeizone veröffentlicht ihr eigenes Verzeichnis",
+        "Ein regionales Verzeichnis wurde im November 2025 abgeschlossen"
       ],
       "correct": 0,
-      "explanation": "Die Auswahljury zählte sechs zweisprachige Mitglieder, darunter den Ministerpräsidenten, den Prokurator des Königs von Brüssel und die nationale Drogenkommissarin. Die französischsprachige Bezeichnung stellt « sécurité » vor « drogues », was dem Mandat eine breitere Grundlage gibt als allein den Rauschgiftbereich. Die Funktion ersetzt weder die Staatsanwaltschaft noch die Polizeidienste noch die Gemeinden.",
+      "explanation": "Die Feststellung deckt sich mit jener des Rechnungshofs, der am 5. November 2025 schrieb, es gebe kein vollständiges physisches Bestandsverzeichnis der Aktiva der verwaltenden Einrichtung. Die Hauptstadt zählt mehr als sechstausend Kameras, verteilt auf mehrere Verwaltungen und Betreiber. Die anderswo angeführten Zahlen stammen aus einem einzigen Gespräch und werden als Aussage übernommen, nicht als Bestandsverzeichnis.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:80b3e914b456c2104f9031dc62bdc753",
-        "generatedAt": "2026-09-18T14:21:01.756Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:fe807d52cc5557f1c90efc831a16614f",
+        "generatedAt": "2026-09-18T16:09:44.799Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Wie viele stationäre Plätze zählt die Region Brüssel für Menschen mit Suchterkrankungen in den von Iriscare unterstützten Zentren, laut den am 11. September 2026 veröffentlichten Zahlen?",
+      "question": "Was meldet Vivalis am 17. September 2026 zum West-Nil-Virus in Brüssel?",
       "options": [
-        "63 Plätze, seit drei Jahren unverändert",
-        "128 Plätze, seit drei Jahren unverändert",
-        "41 Plätze, seit drei Jahren steigend",
-        "95 Plätze, seit drei Jahren sinkend"
+        "Zwei verdächtige Fälle, darunter ein nach Italien zurückgekehrter Tourist",
+        "Zwei durch Laboranalyse bestätigte Fälle",
+        "Acht sehr wahrscheinliche Fälle, wie in Flandern",
+        "Einen ersten Herd in einer Gemeinde im Norden"
       ],
       "correct": 0,
-      "explanation": "Das sind neun Krisenplätze für Aufenthalte von höchstens zwei Wochen, zehn für Kurzaufenthalte und vierundvierzig für Langzeitaufenthalte. 2025 betrug die Wartezeit für einen Kurzaufenthalt durchschnittlich zehn Monate. Neununddreißig zusätzliche Plätze sind für 2027 und 2028 angekündigt.",
+      "explanation": "Die andere Person wohnt in Brüssel, ist wohlauf und zeigt keine Symptome mehr. In Flandern zählt die Gesundheitsverwaltung acht sehr wahrscheinliche Fälle. Die beiden Brüsseler Fälle gelten als verdächtig und nicht als bestätigt: die Quelle ist Vivalis, eine regionale Einrichtung, doch die Information wird von einer einzigen Pressemeldung übernommen.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem halbiert, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:14c192c5ce3660e446c34ab89608eb52",
-        "generatedAt": "2026-09-18T14:21:01.756Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:9885bb84b34a54613fb189bd41ca6271",
+        "generatedAt": "2026-09-18T16:09:44.799Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Das « Pack Nouveau Départ » (Paket Neustart), am 10. September 2026 von der Brüsseler Regierung für Opfer von Partnergewalt beschlossen, schafft einen einzigen Zugangspunkt. Welcher Schritt ist für den Zugang nicht erforderlich?",
+      "question": "Wie verteilen sich die neununddreißig zusätzlichen Plätze, die in Brüssel für Menschen mit Suchterkrankungen angekündigt sind?",
       "options": [
-        "Eine vorab erstattete Anzeige",
-        "Ein Wohnsitz in einer Brüsseler Gemeinde",
-        "Ein ärztliches Attest, jünger als drei Monate",
-        "Eine vorherige Betreuung durch ein ÖSHZ"
+        "Vierundzwanzig 2027 und fünfzehn 2028",
+        "Fünfzehn 2027 und vierundzwanzig 2028",
+        "Neunzehn 2027 und zwanzig 2028",
+        "Alle neununddreißig auf einmal 2027"
       ],
       "correct": 0,
-      "explanation": "Der Zugangspunkt entsteht bei Olista, einem auf innerfamiliäre Gewalt spezialisierten Dienst, der jede Lage bewerten und die Opfer weiterleiten soll. Die Note bündelt sechsunddreißig Maßnahmen um sechs Prioritäten, mit 520 000 Euro für alle Brüsseler Ebenen zusammen und einer Umsetzung, die für den 1. Juli 2027 erwartet wird.",
+      "explanation": "Die derzeitige Kapazität beträgt dreiundsechzig stationäre Plätze in den von Iriscare unterstützten Zentren, unverändert in den Jahren 2023, 2024 und 2025. 2025 betrug die Wartezeit für einen Kurzaufenthalt durchschnittlich zehn Monate, und für die Krisenaufnahme im Zentrum Enaden etwa zwei Monate. Die parlamentarische Antwort selbst war am 13. September 2026 nicht online abrufbar.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem halbiert, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:14c192c5ce3660e446c34ab89608eb52",
-        "generatedAt": "2026-09-18T14:21:01.756Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:9885bb84b34a54613fb189bd41ca6271",
+        "generatedAt": "2026-09-18T16:09:44.799Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Was sieht der Masterplan für das Abattoir-Gelände in Cureghem vor, dessen Billigung durch die Brüsseler Regierung am 2. September 2026 berichtet wurde?",
+      "question": "Was verlangt ein Kollektiv von Gegnern am 16. September 2026 vom Gemeinderat von Schaerbeek zur Josaphat-Brache?",
       "options": [
-        "Das erste dauerhafte Freibad Brüssels",
-        "Die erste überdachte Gemüsebauhalle des Landes",
-        "Den ersten vollständig passiven Wohnbestand der Region",
-        "Den ersten an den Kanal angebundenen städtischen Frachtbahnhof"
+        "Eine ablehnende Stellungnahme zur Parzellierungsgenehmigung",
+        "Den Rückkauf des Geländes vom regionalen öffentlichen Betreiber",
+        "Die Einstufung des gesamten Geländes als Naturschutzgebiet",
+        "Die Aussetzung der öffentlichen Untersuchung bis August 2027"
       ],
       "correct": 0,
-      "explanation": "Der Badekomplex ist auf dem Dach des Gebäudes Manufacture vorgesehen, mit einem Außenbecken, einem überdachten Becken von fünfundzwanzig Metern und einem Lehrbecken. Der angekündigte Zeitplan reicht von einer Ausschreibung 2026 bis zu einer für 2030 angepeilten Eröffnung, auf einem Gelände von etwa zehn Hektar.",
+      "explanation": "Das Kollektiv fordert einen Bruch mit der Haltung von 2025, als sich das Kollegium enthielt. Die öffentliche Untersuchung betrifft 537 Wohnungen, gegenüber 540 in der 2025 eingereichten Fassung. Der Antrag stammt von der SAU, dem regionalen öffentlichen Stadtentwicklungsträger, während die Regionale Politikerklärung vom 14. Februar 2026 die Entwicklung des Geländes für die ersten achtzehn Monate der Legislaturperiode einfriert.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:598362df771792d7bf135526e19ec0ea",
-        "generatedAt": "2026-09-18T14:21:01.756Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:db92a4d22fdcae5e4c167276a9fc2891",
+        "generatedAt": "2026-09-18T16:09:44.799Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Was sieht die Regionale Politikerklärung vom 13. Februar 2026 zum Gutachten der KCML vor?",
+      "question": "Warum weichen die für die Josaphat-Brache genannten Flächen je nach konsultierter Quelle voneinander ab?",
       "options": [
-        "Das verbindliche Gutachten durch ein einfaches ersetzen",
-        "Das verbindliche Gutachten auf alle Schutzgebiete ausweiten",
-        "Die Kommission zugunsten von urban.brussels abschaffen",
-        "Das verbindliche Gutachten vor dem Staatsrat einklagbar machen"
+        "Sie bezeichnen nicht denselben Umkreis",
+        "Ein Teil des Geländes wurde im September verkauft",
+        "Die Quellen verwenden unterschiedliche Einheiten",
+        "Die Genehmigung wurde in zwei Anträge geteilt"
       ],
       "correct": 0,
-      "explanation": "Ein verbindliches Gutachten bindet die Behörde, die die Genehmigung erteilt, ein einfaches Gutachten bindet sie nicht. Erklärtes Ziel ist es, Renovierungsvorhaben in Schutzgebieten zu entsperren, ohne den Denkmalschutz abzuschaffen.",
+      "explanation": "Die Quellen vom August beschreiben ein Gelände von etwa vierundzwanzig Hektar, jene vom September den Umkreis des Genehmigungsantrags, 6,76 Hektar. Die Redaktionen nennen auch nicht dasselbe Schlussdatum der öffentlichen Untersuchung. Eine Parzellierungsgenehmigung gilt nicht als Baugenehmigung: sie regelt die Parzellen, die Wegeführung und die Versorgungsleitungen, und das Bauen erfordert einen eigenen Antrag.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:598362df771792d7bf135526e19ec0ea",
-        "generatedAt": "2026-09-18T14:21:01.756Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:db92a4d22fdcae5e4c167276a9fc2891",
+        "generatedAt": "2026-09-18T16:09:44.799Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -997,21 +997,21 @@
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Sicherheit",
-      "question": "Welches zentrale Argument setzen die Brüsseler Gemeinden der Fusion ihrer sechs Polizeizonen zu einer einzigen entgegen, die am 13. Mai 2026 in der Kammer verabschiedet wurde?",
+      "question": "Welche Gemeinden reichten am 17. September 2026 eine Klage gegen die Fusion der sechs Brüsseler Polizeizonen ein?",
       "options": [
-        "Die strukturelle Unterrepräsentation der kleinen Gemeinden",
-        "Die Kosten des Übergangs, die den Gemeinden bleiben",
-        "Den Verlust der Verwaltungspolizeigewalt des Bürgermeisters",
-        "Das Fehlen einer Garantie für den Erhalt der Polizeiwachen"
+        "Oudergem, Sint-Pieters-Woluwe und Koekelberg",
+        "Anderlecht, Saint-Gilles und Forest",
+        "Evere, Schaerbeek und Jette",
+        "Uccle, Ixelles und Etterbeek"
       ],
       "correct": 0,
-      "explanation": "Berchem-Sainte-Agathe hätte nur 1,4 % der Stimmen in der fusionierten Zone. Brulocalis hat eine Sammelklage eingereicht, ergänzt durch Einzelklagen mehrerer Bürgermeister.",
+      "explanation": "Die drei Gemeinden gehörten zu den vier, die diese Karte zum Zeitpunkt der Abstimmung vom 13. Mai 2026 als beratend führte, neben Evere. Die Bürgermeisterin von Oudergem führt zwei Beschwerdepunkte an: eine Diskriminierung, da die Fusion den neunzehn Brüsseler Gemeinden auferlegt wird, während sie anderswo im Land freiwillig bleibt, und einen Verlust der lokalen Autonomie, da die Gemeinde nach der Fusion über weniger als 2 % des Stimmgewichts im Polizeirat verfügt. Diese letzte Zahl wird von der Bürgermeisterin angeführt und wurde nicht auf Schriftstücke geprüft.",
       "sourceSlug": "/de/dossiers/fusion-polices",
       "sourceTitle": "Polizeizonen-Fusion",
       "provenance": {
-        "sourceLastModified": "2026-07-12",
+        "sourceLastModified": "2026-09-18",
         "sourceContentHash": "sha256:f70e8ff83bedcfe3e80984603e994a28",
-        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "generatedAt": "2026-09-18T16:09:44.799Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,21 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Was gab eine Brüsseler Städtebauvereinigung am 9. September 2026 an, in den Kellern des Südpalasts festgestellt zu haben?",
+      "question": "Womit begann Beliris am 15. September 2026 rund um den Nordbahnhof?",
       "options": [
-        "Zwei Luftschutzbunker, gebaut 1940 und 1943",
-        "Eine in den Bodengutachten fehlende Grundwasserschicht",
-        "Einen technischen Gang aus der Weltausstellung von 1935",
-        "Drei Gewölbekeller, 1993 unter Denkmalschutz gestellt"
+        "Mit dem Verfüllen der ausgehobenen Gruben in zwei Straßen",
+        "Mit dem Bohren des Tunnels Richtung Station Liedts",
+        "Mit dem Abriss der Überdachungsplatte der Bahnsteige",
+        "Mit dem Einbau der Ausrüstung des künftigen Bahnhofs"
       ],
       "correct": 0,
-      "explanation": "Die Vereinigung beschreibt sie auf 450 Quadratmetern, mit einer Kapazität von bis zu 1 500 Personen, und fordert archäologische Arbeiten vor der Fortsetzung der Arbeiten im Untergrund. Die Redaktionen berichten den Fund nicht auf dieselbe Weise: einige schreiben, die Existenz der Bunker stehe fest, eine andere spricht von möglichen Bunkern.",
+      "explanation": "Es ist eine Folge des Stopps der Metro-3-Baustelle, und es betrifft die Rue de l'Avenir und die Rue d'Aerschot. Die Fahrbahn der Rue de l'Avenir soll laut Beliris vor Ende 2026 im ursprünglichen Zustand wiederhergestellt werden, die Aufwertung der Rue d'Aerschot im Lauf von 2027 abgeschlossen sein. Das Gesamtbudget wird nicht mitgeteilt, und diese Fristen sind geschätzt: sie stammen von Beliris und wurden nicht auf Schriftstücke geprüft.",
       "sourceSlug": "/de/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:3c0eaf5829a3bc1a552b94de03d7b930",
-        "generatedAt": "2026-09-18T14:23:31.855Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:b9707ed576d182625335f5fef8a3ddb2",
+        "generatedAt": "2026-09-18T16:09:44.799Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1135,21 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche Bauzeit kündigte das Konsortium, das sich für den Nordabschnitt der Metro 3 bewirbt, am 13. Mai 2026 im Parlamentsausschuss an?",
+      "question": "Wie berichten die Redaktionen über das Bestehen der beiden am 9. September 2026 unter dem Südpalast angekündigten Luftschutzbunker?",
       "options": [
-        "Zehn Jahre, gegenüber sechs im geforderten Zeitplan",
-        "Sechs Jahre, gegenüber zehn im geforderten Zeitplan",
-        "Fünfzehn Jahre, gegenüber acht im geforderten Zeitplan",
-        "Vier Jahre, gegenüber drei im geforderten Zeitplan"
+        "Einige schreiben, es stehe fest, eine andere spricht von möglichen Bunkern",
+        "Alle stellen es als von der Stadt bestätigt dar",
+        "Alle stellen es als ungeprüfte Vermutung dar",
+        "Keine übernimmt die Ankündigung der Vereinigung"
       ],
       "correct": 0,
-      "explanation": "Der technisch blockierende Faktor ist die Notwendigkeit, den Boden bis 82 Meter Tiefe zu vereisen, um wasserdichte Schirme zu schaffen, ein Verfahren, das in dieser Tiefe weltweit noch nie ausgeführt wurde. Da die Regionale Politikerklärung das Projekt für zehn Jahre eingefroren hat, wäre eine Fertigstellung nicht vor Mitte der 2040er Jahre zu erwarten.",
+      "explanation": "Die Vereinigung beschreibt zwei Bunker, gebaut 1940 und 1943, auf 450 Quadratmetern, mit einer Kapazität von bis zu 1 500 Personen, und fordert archäologische Arbeiten vor der Fortsetzung der Arbeiten im Untergrund. Sie schreibt selbst, dass ihr noch viele Informationen fehlen, und vor allem genaue Pläne. Keine Reaktion der STIB oder von Beliris kommt in den konsultierten Artikeln vor.",
       "sourceSlug": "/de/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:3c0eaf5829a3bc1a552b94de03d7b930",
-        "generatedAt": "2026-09-18T14:23:31.855Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:b9707ed576d182625335f5fef8a3ddb2",
+        "generatedAt": "2026-09-18T16:09:44.799Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

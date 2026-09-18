@@ -10,7 +10,12 @@
 export const STUUT_URL = 'https://stuut.governance.brussels';
 
 export const AMAI_URLS: Record<string, string> = {
-  fr: 'https://amai.governance.brussels/',
+  // fr.html et NON la racine : `/` est le redirecteur de langue d'Amai, qui choisit
+  // d'après son stockage local puis la langue du navigateur. Un lecteur de /fr au
+  // navigateur néerlandais ou anglais recevait donc Amai en NL ou EN, et depuis que
+  // le sélecteur est masqué dans le cadre, sans moyen de revenir au français.
+  // Relevé par l'équipe rouge le 18/09/2026.
+  fr: 'https://amai.governance.brussels/fr.html',
   nl: 'https://amai.governance.brussels/nl.html',
   en: 'https://amai.governance.brussels/en.html',
   de: 'https://amai.governance.brussels/de.html',

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T14:11:22.640Z",
+  "generatedAt": "2026-09-18T16:03:22.483Z",
   "locale": "en",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "By how much did the City of Brussels raise its surcharges on the property tax for the 2026 tax year, with assessment notices sent out from 17 August 2026?",
+      "question": "What level of risk does the Federal Planning Bureau assign, on 15 September 2026, to the sustainability of the Brussels Region's debt?",
       "options": [
-        "From 2,950 to 3,457",
-        "From 2,980 to 4,090",
-        "From 3,090 to 3,890",
-        "From 2,940 to 3,400"
+        "High, as for Wallonia and the French Community",
+        "Moderate, as for Flanders",
+        "Low, the only federated entity in that position",
+        "Not assessed, for lack of regional figures"
       ],
       "correct": 0,
-      "explanation": "That is a rise of 17.2%, which the City says it fully offsets for owner-occupiers through a flat municipal deduction of one hundred euros and the regional Be-Home grant. Nine of the nineteen Brussels municipalities raised their surcharges in 2026.",
+      "explanation": "The Bureau calls only the Flemish risk moderate. The analysis recalls that total Belgian public debt stood at 692 billion euros at the end of 2025, or 108% of gross domestic product. No figure specific to the Brussels Region appears in the sources consulted, and the analysis itself was not read: confidence is estimated.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-30",
-        "sourceContentHash": "sha256:2bc27738eea7975c8883ea0a0b7f7b7e",
-        "generatedAt": "2026-09-18T13:59:54.253Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:f454b2c23b5f6462b3d6f959d8e006e4",
+        "generatedAt": "2026-09-18T16:03:22.483Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "After opening a 250 million euro credit line with BBVA on 26 August 2026, what total amount of credit lines does the Brussels Region hold?",
+      "question": "How did the share of the federated entities in Belgian public debt change between 2008 and 2025, according to the analysis relayed on 15 September 2026?",
       "options": [
-        "1.25 billion euros across four providers",
-        "800 million euros across three providers",
-        "1.5 billion euros across five providers",
-        "950 million euros across four providers"
+        "From 8.4% to 18.4%",
+        "From 8.4% to 12.1%",
+        "From 12.6% to 18.4%",
+        "From 5.2% to 22.7%"
       ],
       "correct": 0,
-      "explanation": "This line with the Spanish bank is not the same as the 250 million euros negotiated with Belfius in the cashier contract of 20 July 2026: two separate instruments, two institutions, an identical amount. A credit line is a drawing capacity, not debt.",
+      "explanation": "Total Belgian public debt stood at 692 billion euros at the end of 2025, or 108% of gross domestic product. It is in that context that the Federal Planning Bureau judges the risk of unsustainability high for the Brussels Region, the Walloon Region and the French Community, and moderate for Flemish debt.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-30",
-        "sourceContentHash": "sha256:2bc27738eea7975c8883ea0a0b7f7b7e",
-        "generatedAt": "2026-09-18T13:59:54.253Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:f454b2c23b5f6462b3d6f959d8e006e4",
+        "generatedAt": "2026-09-18T16:03:22.483Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Cleanliness",
-      "question": "How many sorting spaces does the Brussels Region plan to install over the parliamentary term, under the waste collection reform presented on 11 September 2026?",
+      "question": "What annual investment budget does the roll-out of sorting spaces represent over the parliamentary term, under the waste collection reform presented on 11 September 2026?",
       "options": [
-        "120, including 60 in two pilot neighbourhoods",
-        "40, including 20 in two pilot neighbourhoods",
-        "250, including 100 in four pilot neighbourhoods",
-        "80, including 30 in a single pilot neighbourhood"
+        "Four million euros a year",
+        "Ten million euros a year",
+        "One million euros a year",
+        "Twenty-five million euros a year"
       ],
       "correct": 0,
-      "explanation": "Two pilot neighbourhoods will receive thirty each, where they replace door-to-door collection during the test phase, and sixty more will tackle black spots and illegal dumping. The March 2026 announcement mentioned one hundred new sorting spaces. The reform is expected in 2027.",
+      "explanation": "The Region plans one hundred and twenty sorting spaces, thirty in each of the two pilot neighbourhoods, where they replace door-to-door collection during the test phase. Those neighbourhoods have not been designated yet: Forest and Ixelles intend to put themselves forward, and each of the two selected counts about two thousand dwellings. The amount is estimated and comes from a single press source.",
       "sourceSlug": "/en/domains/cleanliness",
       "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:f3ee165b400a7e76605a90c8ca897776",
-        "generatedAt": "2026-09-18T13:59:54.253Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:52eb0be7528445db9b9ca26af6156518",
+        "generatedAt": "2026-09-18T16:03:22.483Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Cleanliness",
-      "question": "What funding does the waste collection reform presented in Brussels on 11 September 2026 rest on?",
+      "question": "What is the Constitutional Court due to rule on at the end of September 2026, regarding the funding of the Brussels waste collection reform?",
       "options": [
         "Extended producer responsibility for plastics",
         "An additional tax levied by the nineteen municipalities",
-        "A rise in the price of regulation refuse bags",
+        "The regulated price of regional refuse bags",
         "A federal grant earmarked for public cleanliness"
       ],
       "correct": 0,
-      "explanation": "That scheme, voted by the Brussels Parliament on 13 March 2026, is expected to bring the Region 51.4 million euros a year, of which 54% goes back to the municipalities for clearing litter. The Constitutional Court is to rule on this funding at the end of September 2026.",
+      "explanation": "That scheme funds the reform, which is itself expected in 2027. The March 2026 announcement mentioned one hundred new sorting spaces, against one hundred and twenty in the plan presented on 11 September. Two types of zone will be defined according to criteria such as population density or housing type, with different collection arrangements.",
       "sourceSlug": "/en/domains/cleanliness",
       "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:f3ee165b400a7e76605a90c8ca897776",
-        "generatedAt": "2026-09-18T13:59:54.253Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:52eb0be7528445db9b9ca26af6156518",
+        "generatedAt": "2026-09-18T16:03:22.483Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climate",
-      "question": "According to the consolidated assessment published by Sciensano on 2 September 2026, how many excess deaths did the June 2026 heatwave cause in the Brussels Region?",
+      "question": "What request did the Schaerbeek municipal council adopt on 16 September 2026?",
       "options": [
-        "196 excess deaths",
-        "42 excess deaths",
-        "159 excess deaths",
-        "930 excess deaths"
+        "Banning fossil fuel advertising in public space",
+        "Extending the low-emission zone to light commercial vehicles",
+        "Introducing a road toll at the entrances to the municipality",
+        "Requiring energy renovation of municipal buildings"
       ],
       "correct": 0,
-      "explanation": "The figure has been revised upwards twice, from the 159 announced on 8 July and then the 188 of 17 July. The second heatwave, from 4 to 17 July, adds 42 deaths, and the third produced no excess mortality in Brussels. Sciensano points to the length of the episode, the temperatures and the ozone concentrations.",
+      "explanation": "Schaerbeek becomes the third Brussels municipality to make this request, after Saint-Gilles and Jette. The motion targets advertising for cars and air travel in particular, and invites the regional government to study the legal and political scope for a regional ban. The information comes from a single press source.",
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:067a9591a63cb8036afe2178199921ca",
-        "generatedAt": "2026-09-18T13:59:54.253Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:ee22874cd5a51bb134ba99c31b6ea42a",
+        "generatedAt": "2026-09-18T16:03:22.483Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climate",
-      "question": "What was Belgium required to submit to the European Commission by 1 September 2026 under Regulation (EU) 2024/1991?",
+      "question": "When is the full Belgian nature restoration plan expected, after the European deadline of 1 September 2026 was missed?",
       "options": [
-        "Its draft national nature restoration plan",
-        "Its revised national energy and climate plan",
-        "Its national greenhouse gas inventory",
-        "Its programme for reducing air pollutant emissions"
+        "Not before the summer of 2027",
+        "Not before the summer of 2028",
+        "Before the end of 2026",
+        "In the first quarter of 2027"
       ],
       "correct": 0,
-      "explanation": "The deadline passed without a Belgian submission. The Brussels delay is twofold: the Renature Brussels plan is announced for September or October 2026, while the timetable published on its official site provided for adoption at first reading in the summer of 2026. The full Belgian plan is not expected before the summer of 2027.",
+      "explanation": "The Brussels plan is announced for September or October 2026. The Brussels delay is twofold, since the timetable published on the official Renature Brussels site provided for adoption at first reading in the summer of 2026. The sources consulted mention no penalty.",
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:067a9591a63cb8036afe2178199921ca",
-        "generatedAt": "2026-09-18T13:59:54.253Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:ee22874cd5a51bb134ba99c31b6ea42a",
+        "generatedAt": "2026-09-18T16:03:22.483Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Housing",
-      "question": "On 3 September 2026, what political condition was attached to the payment of the 131 million euro regional endowment for 2026 to the SLRB?",
+      "question": "What did the Constitutional Court decide on the Brussels ordinance against excessive rents, according to the communication of 17 September 2026?",
       "options": [
-        "The departure of the chair of the Foyer anderlechtois",
-        "The sale of two regional public buildings",
-        "The appointment of a special commissioner",
-        "The publication of the audit of the Saint-Josse agency"
+        "It dismissed the annulment appeal brought against it",
+        "It annulled the ordinance in its entirety",
+        "It suspended its application pending a fresh examination",
+        "It referred the question to the Court of Justice of the Union"
       ],
       "correct": 0,
-      "explanation": "The office of the State Secretary for Housing confirms that the amounts expected over the summer did not arrive. Without those funds, the body that supervises the sixteen public service housing companies could stop meeting its invoices from September 2026, while 62,234 households are waiting for social housing.",
+      "explanation": "The ordinance came into force in May 2025. The office of the State Secretary for Housing announces a revision of the indicative grid in two stages. No source consulted gives the judgment number, and the number of applicants differs between newsrooms: four federations from the property and construction sector according to La Libre, seven associations according to L'Avenir and La DH.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:462e09bff29d63727e58dfff74dadcc6",
-        "generatedAt": "2026-09-18T14:11:22.640Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:5b3f73b9cec0b1c5d5c1200ae69bad54",
+        "generatedAt": "2026-09-18T16:03:22.483Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Housing",
-      "question": "By how much did the supply of short-term Airbnb rentals fall in Brussels between June 2025 and June 2026?",
+      "question": "By how much may a rent not exceed the reference rent, under the Brussels ordinance in force since May 2025?",
       "options": [
-        "By 23%, from 6,171 to 4,750 units",
-        "By 9%, from 6,171 to 5,600 units",
-        "By 41%, from 6,171 to 3,640 units",
-        "By 15%, from 6,171 to 5,245 units"
+        "By more than 20%",
+        "By more than 10%",
+        "By more than 35%",
+        "By more than 50%"
       ],
       "correct": 0,
-      "explanation": "The sharpest falls are in Forest, down 35.8%, and Etterbeek, down 34%. Bruxelles Fiscalité is reported to have issued about 1,900 fines, for an estimated 1.5 to 2 million euros of recovered tax arrears.",
+      "explanation": "The tenant may bring the matter before the Joint Rental Commission or, where appropriate, the court. The principle had been decided in October 2021, but implementation was deferred to make the grid reliable. It is that scheme the Constitutional Court upheld by dismissing the annulment appeal, according to the communication of 17 September 2026.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:462e09bff29d63727e58dfff74dadcc6",
-        "generatedAt": "2026-09-18T14:11:22.640Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:5b3f73b9cec0b1c5d5c1200ae69bad54",
+        "generatedAt": "2026-09-18T16:03:22.483Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1568,6 +1568,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 68
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T15:59:42.437Z",
+  "generatedAt": "2026-09-18T16:01:42.111Z",
   "locale": "nl",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Op 28 augustus 2026 becijferde de procureur des Konings van Brussel de onderbezetting van zijn parket. Hoeveel magistraten zijn er in functie, op de voorziene personeelsformatie?",
+      "question": "Over welk jaarlijks bedrag beschikt het federale veiligheids- en preventiefonds voor Brussel, volgens de informatie van 17 september 2026?",
       "options": [
-        "49 magistraten op 63 voorziene",
-        "58 magistraten op 63 voorziene",
-        "63 magistraten op 80 voorziene",
-        "49 magistraten op 55 voorziene"
+        "55 miljoen euro, waarvan 35 voor de politiezones",
+        "20 miljoen euro, waarvan 12 voor de politiezones",
+        "110 miljoen euro, waarvan 70 voor de politiezones",
+        "35 miljoen euro, waarvan 20 voor de politiezones"
       ],
       "correct": 0,
-      "explanation": "Dat zijn veertien vacante plaatsen. De procureur wijst daarnaast op een tekort van tachtig speurders bij de federale gerechtelijke politie, en becijfert de middelen die hij vraagt op tien miljoen euro. Hij dateerde toen het begin van de golf van schietpartijen op 20 augustus 2026.",
+      "explanation": "Twintig miljoen gaat naar de gemeenten, voor de beveiliging van de Europese toppen en de internationale rol van de hoofdstad. Verscheidene miljoenen zouden andere uitgaven hebben gefinancierd, waaronder een cheque van 828 000 euro aan de gewestelijke sociale huisvestingsmaatschappij in 2020 en een nooit gebouwd cybercentrum. De bronnen gebruiken de voorwaardelijke wijs en citeren geen enkel officieel stuk: het vertrouwen is onbevestigd.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:e808b467388eb3cd46b199b6aeb04db4",
-        "generatedAt": "2026-09-18T13:39:34.731Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:0a1d3f66dbe7b07b4ba2fb45b2f2e2fb",
+        "generatedAt": "2026-09-18T16:01:42.111Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Hoelang duurt het mandaat van de gewestelijke drugscommissaris in het Brussels Hoofdstedelijk Gewest, van wie de indiensttreding voor eind september 2026 was aangekondigd?",
+      "question": "Wat stelt de veiligheidsfiche op 8 september 2026 vast over de inventaris van de camera's in het Brussels Gewest?",
       "options": [
-        "Vijf jaar, eenmaal hernieuwbaar",
-        "Drie jaar, tweemaal hernieuwbaar",
-        "Vier jaar, onbeperkt hernieuwbaar",
-        "Zes jaar, niet hernieuwbaar"
+        "Er bestaat geen nauwkeurig kadaster van het park",
+        "Het kadaster wordt sinds 2024 door Safe.brussels bijgehouden",
+        "Elke politiezone publiceert haar eigen inventaris",
+        "Een gewestelijke inventaris werd in november 2025 afgesloten"
       ],
       "correct": 0,
-      "explanation": "De jury telde zes tweetalige leden, onder wie de minister-president, de procureur des Konings van Brussel en de nationale drugscommissaris. De Franstalige benaming plaatst « sécurité » vóór « drogues », wat het mandaat een bredere basis geeft dan het luik verdovende middelen alleen. De functie vervangt noch het parket, noch de politiediensten, noch de gemeenten.",
+      "explanation": "De vaststelling sluit aan bij die van het Rekenhof, dat op 5 november 2025 schreef dat er geen volledige fysieke inventaris van de activa van de beherende instelling bestaat. De hoofdstad telt meer dan zesduizend camera's, verdeeld over verschillende administraties en operatoren. De cijfers die elders worden aangevoerd komen uit één enkel gesprek en worden overgenomen als verklaring, niet als inventaris.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:e808b467388eb3cd46b199b6aeb04db4",
-        "generatedAt": "2026-09-18T13:39:34.731Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:0a1d3f66dbe7b07b4ba2fb45b2f2e2fb",
+        "generatedAt": "2026-09-18T16:01:42.111Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Hoeveel residentiële plaatsen telt het Brussels Gewest voor personen met een verslaving, in de door Iriscare gesteunde centra, volgens de cijfers van 11 september 2026?",
+      "question": "Wat meldt Vivalis op 17 september 2026 over het westnijlvirus in Brussel?",
       "options": [
-        "63 plaatsen, ongewijzigd sinds drie jaar",
-        "128 plaatsen, ongewijzigd sinds drie jaar",
-        "41 plaatsen, in stijging sinds drie jaar",
-        "95 plaatsen, in daling sinds drie jaar"
+        "Twee verdachte gevallen, onder wie een naar Italië teruggekeerde toerist",
+        "Twee gevallen bevestigd door laboratoriumanalyse",
+        "Acht zeer waarschijnlijke gevallen, zoals in Vlaanderen",
+        "Een eerste haard in een gemeente in het noorden"
       ],
       "correct": 0,
-      "explanation": "Dat zijn negen crisisplaatsen voor verblijven van hoogstens twee weken, tien voor korte verblijven en vierenveertig voor lange verblijven. In 2025 liet een kort verblijf gemiddeld tien maanden op zich wachten. Negenendertig bijkomende plaatsen zijn aangekondigd voor 2027 en 2028.",
+      "explanation": "De andere persoon woont in Brussel, stelt het goed en vertoont geen symptomen meer. In Vlaanderen telt het departement Zorg acht zeer waarschijnlijke gevallen. De twee Brusselse gevallen worden verdacht genoemd en niet bevestigd: de bron is Vivalis, een gewestelijke instelling, maar de informatie wordt door één enkel persbericht overgenomen.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: opvangsysteem gehalveerd, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:55db5cc93745f6123171fe1abd6164f8",
-        "generatedAt": "2026-09-18T13:39:34.731Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:bd81e1eb8d56c84ea0c7c628222ed5e9",
+        "generatedAt": "2026-09-18T16:01:42.111Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Het « Pack Nouveau Départ » (pakket Nieuwe Start), op 10 september 2026 goedgekeurd door de Brusselse regering voor slachtoffers van partnergeweld, creëert één centraal aanspreekpunt. Welke stap is niet vereist om er toegang toe te krijgen?",
+      "question": "Hoe worden de negenendertig bijkomende opvangplaatsen verdeeld die in Brussel zijn aangekondigd voor personen met een verslaving?",
       "options": [
-        "Het vooraf indienen van een klacht",
-        "De domiciliëring in een Brusselse gemeente",
-        "Een medisch attest van minder dan drie maanden",
-        "Een voorafgaande begeleiding door een OCMW"
+        "Vierentwintig in 2027 en vijftien in 2028",
+        "Vijftien in 2027 en vierentwintig in 2028",
+        "Negentien in 2027 en twintig in 2028",
+        "Negenendertig in één keer in 2027"
       ],
       "correct": 0,
-      "explanation": "Het aanspreekpunt wordt opgericht binnen Olista, een dienst gespecialiseerd in intrafamiliaal geweld, die elke situatie moet beoordelen en de slachtoffers moet doorverwijzen. De nota bundelt zesendertig maatregelen rond zes prioriteiten, met 520 000 euro voor alle Brusselse niveaus samen en een uitvoering verwacht op 1 juli 2027.",
+      "explanation": "De huidige capaciteit bedraagt drieënzestig residentiële plaatsen in de door Iriscare gesteunde centra, ongewijzigd in 2023, 2024 en 2025. In 2025 liet een kort verblijf gemiddeld tien maanden op zich wachten, en de crisisopvang van het centrum Enaden ongeveer twee maanden. Het parlementaire antwoord zelf was op 13 september 2026 niet online raadpleegbaar.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: opvangsysteem gehalveerd, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:55db5cc93745f6123171fe1abd6164f8",
-        "generatedAt": "2026-09-18T13:39:34.731Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:bd81e1eb8d56c84ea0c7c628222ed5e9",
+        "generatedAt": "2026-09-18T16:01:42.111Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Wat voorziet het masterplan voor de Abattoir-site in Kuregem, waarvan de goedkeuring door de Brusselse regering op 2 september 2026 werd gemeld?",
+      "question": "Wat vraagt een collectief van tegenstanders op 16 september 2026 aan de gemeenteraad van Schaarbeek over de Josaphat-site?",
       "options": [
-        "Het eerste permanente openluchtzwembad van Brussel",
-        "De eerste overdekte hal voor groenteteelt van het land",
-        "Het eerste volledig passieve woningpark van het Gewest",
-        "Het eerste stedelijke vrachtstation aangesloten op het kanaal"
+        "Een ongunstig advies uitbrengen over de verkavelingsvergunning",
+        "De grond terugkopen van de gewestelijke openbare operator",
+        "De hele site als natuurreservaat laten beschermen",
+        "Het openbaar onderzoek opschorten tot augustus 2027"
       ],
       "correct": 0,
-      "explanation": "Het zwemcomplex is voorzien op het dak van het gebouw Manufacture, met een buitenbad, een overdekt bad van vijfentwintig meter en een leerbad. De aangekondigde kalender loopt van een aanbesteding in 2026 tot een opening gemikt op 2030, op een terrein van ongeveer tien hectare.",
+      "explanation": "Het collectief vraagt te breken met de houding van 2025, toen het college zich onthield. Het openbaar onderzoek betreft 537 woningen, tegenover 540 in de versie van 2025. De aanvraag komt van de MSI, de Maatschappij voor Stedelijke Inrichting, een gewestelijke openbare operator, terwijl de gewestelijke beleidsverklaring van 14 februari 2026 de ontwikkeling van de site bevriest gedurende de eerste achttien maanden van de legislatuur.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:5d90723c9bb36a817d37295f8e98d753",
-        "generatedAt": "2026-09-18T13:39:34.731Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:31eecf5e4f09891b2f62afb630b8f2d8",
+        "generatedAt": "2026-09-18T16:01:42.111Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Wat voorziet de gewestelijke beleidsverklaring van 13 februari 2026 over het advies van de KCML?",
+      "question": "Waarom verschillen de oppervlaktes die voor de Josaphat-site worden genoemd, naargelang de geraadpleegde bron?",
       "options": [
-        "Het eensluidend advies vervangen door een gewoon advies",
-        "Het eensluidend advies uitbreiden tot alle beschermde zones",
-        "De commissie afschaffen ten voordele van urban.brussels",
-        "Het eensluidend advies afdwingbaar maken voor de Raad van State"
+        "Ze slaan niet op dezelfde omtrek",
+        "Een deel van de grond werd in september verkocht",
+        "De bronnen gebruiken verschillende eenheden",
+        "De vergunning werd in twee aanvragen gesplitst"
       ],
       "correct": 0,
-      "explanation": "Een eensluidend advies bindt de overheid die de vergunning aflevert, een gewoon advies bindt haar niet. Het aangekondigde doel is renovatieprojecten in beschermde zones deblokkeren zonder de erfgoedbescherming af te schaffen.",
+      "explanation": "De bronnen van augustus beschrijven een terrein van ongeveer vierentwintig hectare, die van september de omtrek van de vergunningsaanvraag, 6,76 hectare. De redacties geven evenmin dezelfde sluitingsdatum van het openbaar onderzoek. Een verkavelingsvergunning geldt niet als bouwtoelating: ze regelt de percelen, de wegenis en de nutsleidingen, en bouwen vergt een aparte aanvraag.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:5d90723c9bb36a817d37295f8e98d753",
-        "generatedAt": "2026-09-18T13:39:34.731Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:31eecf5e4f09891b2f62afb630b8f2d8",
+        "generatedAt": "2026-09-18T16:01:42.111Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -997,21 +997,21 @@
       "id": "dossier-fusion-polices-0",
       "source": "dossier",
       "domain": "Veiligheid",
-      "question": "Welk centraal argument stellen de Brusselse gemeenten tegenover de fusie van hun zes politiezones tot één zone, gestemd in de Kamer op 13 mei 2026?",
+      "question": "Welke gemeenten dienden op 17 september 2026 een beroep in tegen de fusie van de zes Brusselse politiezones?",
       "options": [
-        "De structurele ondervertegenwoordiging van de kleine gemeenten",
-        "De kostprijs van de overgang, ten laste van de gemeenten",
-        "Het verlies van de bestuurlijke politiebevoegdheid van de burgemeester",
-        "Het ontbreken van een waarborg voor het behoud van de commissariaten"
+        "Oudergem, Sint-Pieters-Woluwe en Koekelberg",
+        "Anderlecht, Sint-Gillis en Vorst",
+        "Evere, Schaarbeek en Jette",
+        "Ukkel, Elsene en Etterbeek"
       ],
       "correct": 0,
-      "explanation": "Sint-Agatha-Berchem zou slechts 1,4 % van de stemmen hebben in de gefuseerde zone. Brulocalis heeft een collectief beroep ingediend, aangevuld met individuele beroepen van verschillende burgemeesters.",
+      "explanation": "De drie gemeenten behoorden tot de vier die deze fiche in beraad gaf op het ogenblik van de stemming van 13 mei 2026, naast Evere. De burgemeester van Oudergem voert twee grieven aan: een discriminatie, omdat de fusie aan de negentien Brusselse gemeenten wordt opgelegd terwijl ze elders in het land vrijwillig blijft, en een verlies van lokale autonomie, want de gemeente beschikt na de fusie over minder dan 2 % van het stemgewicht in de politieraad. Dat laatste cijfer wordt door de burgemeester aangehaald en is niet op stuk gecontroleerd.",
       "sourceSlug": "/nl/dossiers/fusion-polices",
       "sourceTitle": "Fusie politiezones",
       "provenance": {
-        "sourceLastModified": "2026-07-12",
+        "sourceLastModified": "2026-09-18",
         "sourceContentHash": "sha256:788df1a652ed61324963ef495d9f78c1",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "generatedAt": "2026-09-18T16:01:42.111Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,21 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Wat heeft een Brusselse stedenbouwvereniging op 9 september 2026 naar eigen zeggen vastgesteld in de kelders van het Zuidpaleis?",
+      "question": "Waarmee begon Beliris op 15 september 2026 rond het Noordstation?",
       "options": [
-        "Twee schuilkelders, gebouwd in 1940 en in 1943",
-        "Een grondwaterlaag die in de bodemstudies ontbreekt",
-        "Een technische galerij uit de Wereldtentoonstelling van 1935",
-        "Drie gewelfde kelders, in 1993 als erfgoed beschermd"
+        "Het opvullen van de uitgegraven sleuven, Toekomststraat en Aarschotstraat",
+        "Het boren van de tunnel richting het station Liedts",
+        "De afbraak van de overkappingsplaat van de perrons",
+        "De installatie van de uitrusting van het toekomstige station"
       ],
       "correct": 0,
-      "explanation": "De vereniging beschrijft ze op 450 vierkante meter, met een capaciteit tot 1 500 personen, en vraagt archeologisch werk vóór de voortzetting van de ondergrondse werken. De redacties brengen de vondst niet op dezelfde manier: sommige schrijven dat het bestaan van de schuilkelders vaststaat, een andere spreekt van mogelijke schuilkelders.",
+      "explanation": "Het is een gevolg van de stopzetting van de werf van metro 3. De wegenis van de Toekomststraat moet volgens Beliris vóór het einde van 2026 in de oorspronkelijke staat worden hersteld, de opwaardering van de Aarschotstraat moet in de loop van 2027 klaar zijn. Het totale budget wordt niet meegedeeld, en die termijnen zijn geschat: ze komen van Beliris en zijn niet op stuk gecontroleerd.",
       "sourceSlug": "/nl/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:215824273828ede12a253392e0224cee",
-        "generatedAt": "2026-09-18T13:43:10.607Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:1c296f284d48a0ae8bab26ecd9e4fafb",
+        "generatedAt": "2026-09-18T16:01:42.111Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1135,21 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Welke duur van de werken kondigde het consortium dat kandidaat is voor het noordelijke deel van metro 3 aan in parlementaire commissie op 13 mei 2026?",
+      "question": "Hoe brengen de redacties het bestaan van de twee schuilkelders die op 9 september 2026 onder het Zuidpaleis werden aangekondigd?",
       "options": [
-        "Tien jaar, tegenover zes jaar in de gevraagde kalender",
-        "Zes jaar, tegenover tien jaar in de gevraagde kalender",
-        "Vijftien jaar, tegenover acht jaar in de gevraagde kalender",
-        "Vier jaar, tegenover drie jaar in de gevraagde kalender"
+        "Sommige schrijven dat het vaststaat, een andere spreekt van mogelijke schuilkelders",
+        "Alle brengen het als bevestigd door de Stad",
+        "Alle brengen het als een niet-geverifieerde hypothese",
+        "Geen enkele neemt de aankondiging van de vereniging over"
       ],
       "correct": 0,
-      "explanation": "De technische blokkeringsfactor is de noodzaak om de bodem tot 82 meter diepte te bevriezen om waterdichte schermen te maken, een procedé dat nergens ter wereld op die diepte werd uitgevoerd. Omdat de gewestelijke beleidsverklaring het project voor tien jaar heeft bevroren, zou een oplevering niet vóór het midden van de jaren 2040 worden verwacht.",
+      "explanation": "De vereniging beschrijft twee schuilkelders, gebouwd in 1940 en in 1943, op 450 vierkante meter, met een capaciteit tot 1 500 personen, en vraagt archeologisch werk vóór de voortzetting van de ondergrondse werken. Ze schrijft zelf dat haar nog veel informatie ontbreekt, en vooral nauwkeurige plannen. Geen enkele reactie van de MIVB of van Beliris komt in de geraadpleegde artikels voor.",
       "sourceSlug": "/nl/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:215824273828ede12a253392e0224cee",
-        "generatedAt": "2026-09-18T13:43:10.607Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:1c296f284d48a0ae8bab26ecd9e4fafb",
+        "generatedAt": "2026-09-18T16:01:42.111Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

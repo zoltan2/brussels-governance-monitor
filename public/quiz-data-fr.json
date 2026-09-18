@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T12:59:29.515Z",
+  "generatedAt": "2026-09-18T15:53:50.153Z",
   "locale": "fr",
   "poolSize": 68,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "De combien la Ville de Bruxelles a-t-elle porté ses centimes additionnels au précompte immobilier pour l'exercice 2026, dont les avertissements-extraits de rôle sont partis à compter du 17 août 2026 ?",
+      "question": "Quel niveau de risque le Bureau fédéral du Plan attribue-t-il, le 15 septembre 2026, à la soutenabilité de la dette de la Région bruxelloise ?",
       "options": [
-        "De 2 950 à 3 457 centimes",
-        "De 2 980 à 4 090 centimes",
-        "De 3 090 à 3 890 centimes",
-        "De 2 940 à 3 400 centimes"
+        "Élevé, comme pour la Wallonie et la Communauté française",
+        "Modéré, comme pour la Flandre",
+        "Faible, seule entité fédérée dans ce cas",
+        "Non évalué, faute de données régionales"
       ],
       "correct": 0,
-      "explanation": "Soit une hausse de 17,2 %, que la Ville annonce compenser intégralement pour les propriétaires occupant leur bien, par une déduction communale forfaitaire de cent euros et la prime régionale Be-Home. Neuf des dix-neuf communes bruxelloises ont relevé leurs additionnels en 2026.",
+      "explanation": "Le Bureau ne qualifie de modéré que le risque flamand. L'analyse rappelle que la dette publique belge totale atteignait 692 milliards d'euros fin 2025, soit 108 % du produit intérieur brut. Aucun chiffre propre à la Région bruxelloise ne figure dans les sources consultées, et l'analyse elle-même n'a pas été lue : la confiance est estimée.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-30",
-        "sourceContentHash": "sha256:468945fea922705b4278d34bb45e19e6",
-        "generatedAt": "2026-09-18T12:31:17.905Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:f97d3149bb5c0fce434687d5a5437402",
+        "generatedAt": "2026-09-18T15:53:50.153Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Après l'ouverture d'une ligne de crédit de 250 millions d'euros auprès de BBVA le 26 août 2026, de quel montant total de lignes de crédit la Région bruxelloise dispose-t-elle ?",
+      "question": "Comment la part des entités fédérées dans la dette publique belge a-t-elle évolué entre 2008 et 2025, selon l'analyse relayée le 15 septembre 2026 ?",
       "options": [
-        "1,25 milliard d'euros sur quatre prestataires",
-        "800 millions d'euros sur trois prestataires",
-        "1,5 milliard d'euros sur cinq prestataires",
-        "950 millions d'euros sur quatre prestataires"
+        "De 8,4 % à 18,4 %",
+        "De 8,4 % à 12,1 %",
+        "De 12,6 % à 18,4 %",
+        "De 5,2 % à 22,7 %"
       ],
       "correct": 0,
-      "explanation": "Cette ligne auprès de la banque espagnole ne se confond pas avec celle de 250 millions d'euros négociée avec Belfius dans le marché de caissier du 20 juillet 2026 : deux instruments distincts, deux établissements, un montant identique. Une ligne de crédit est une capacité de tirage, pas de la dette.",
+      "explanation": "La dette publique belge totale atteignait 692 milliards d'euros fin 2025, soit 108 % du produit intérieur brut. C'est dans ce cadre que le Bureau fédéral du Plan juge élevé le risque d'insoutenabilité pour la Région bruxelloise, la Région wallonne et la Communauté française, et modéré celui qui porte sur la dette flamande.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-08-30",
-        "sourceContentHash": "sha256:468945fea922705b4278d34bb45e19e6",
-        "generatedAt": "2026-09-18T12:31:17.905Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:f97d3149bb5c0fce434687d5a5437402",
+        "generatedAt": "2026-09-18T15:53:50.153Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Combien d'espaces-tri la Région bruxelloise prévoit-elle d'installer sur la législature, selon la réforme de la collecte des déchets présentée le 11 septembre 2026 ?",
+      "question": "Quel budget d'investissement annuel le déploiement des espaces-tri représente-t-il sur la législature, selon la réforme de la collecte présentée le 11 septembre 2026 ?",
       "options": [
-        "120, dont 60 dans deux quartiers pilotes",
-        "40, dont 20 dans deux quartiers pilotes",
-        "250, dont 100 dans quatre quartiers pilotes",
-        "80, dont 30 dans un seul quartier pilote"
+        "Quatre millions d'euros par an",
+        "Dix millions d'euros par an",
+        "Un million d'euros par an",
+        "Vingt-cinq millions d'euros par an"
       ],
       "correct": 0,
-      "explanation": "Deux quartiers pilotes en accueilleront trente chacun, où ils remplaceront le ramassage en porte-à-porte pendant la phase de test, et soixante autres traiteront des points noirs et des dépôts clandestins. L'annonce de mars 2026 évoquait cent nouveaux espaces de tri. La réforme est attendue en 2027.",
+      "explanation": "La Région prévoit cent vingt espaces-tri, dont trente dans chacun des deux quartiers pilotes, où ils remplaceront le porte-à-porte pendant la phase de test. Ces quartiers ne sont pas encore désignés : Forest et Ixelles comptent se porter candidates, et chacun des deux retenus compte environ deux mille logements. Le montant est estimé, rapporté par une source de presse unique.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:a0be7f6244921d62ed069fbb227a6714",
-        "generatedAt": "2026-09-18T12:31:17.905Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:6b6cb56ca78bfb6f9912f5d7fddb3778",
+        "generatedAt": "2026-09-18T15:53:50.153Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Sur quel financement repose la réforme de la collecte des déchets présentée à Bruxelles le 11 septembre 2026 ?",
+      "question": "Sur quoi la Cour constitutionnelle doit-elle se prononcer fin septembre 2026, s'agissant du financement de la réforme bruxelloise de la collecte des déchets ?",
       "options": [
         "Sur la responsabilité élargie des producteurs de plastiques",
         "Sur une taxe additionnelle levée par les dix-neuf communes",
-        "Sur une hausse du prix des sacs-poubelle réglementaires",
+        "Sur le prix réglementé des sacs-poubelle régionaux",
         "Sur une dotation fédérale affectée à la propreté publique"
       ],
       "correct": 0,
-      "explanation": "Ce régime, voté par le Parlement bruxellois le 13 mars 2026, doit rapporter 51,4 millions d'euros par an à la Région, dont 54 % reversés aux communes pour le nettoyage des déchets sauvages. La Cour constitutionnelle doit se prononcer sur ce financement fin septembre 2026.",
+      "explanation": "C'est ce régime qui finance la réforme, elle-même attendue en 2027. L'annonce de mars 2026 évoquait cent nouveaux espaces de tri, contre cent vingt dans le plan présenté le 11 septembre. Deux types de zones seront définis selon des critères comme la densité de population ou la typologie de l'habitat, avec des modalités de collecte différentes.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:a0be7f6244921d62ed069fbb227a6714",
-        "generatedAt": "2026-09-18T12:31:17.905Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:6b6cb56ca78bfb6f9912f5d7fddb3778",
+        "generatedAt": "2026-09-18T15:53:50.153Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climat",
-      "question": "Selon le bilan consolidé publié par Sciensano le 2 septembre 2026, combien de décès supplémentaires la vague de chaleur de juin 2026 a-t-elle causés en Région bruxelloise ?",
+      "question": "Quelle demande le conseil communal de Schaerbeek a-t-il adoptée le 16 septembre 2026 ?",
       "options": [
-        "196 décès supplémentaires",
-        "42 décès supplémentaires",
-        "159 décès supplémentaires",
-        "930 décès supplémentaires"
+        "Interdire la publicité pour l'industrie fossile dans l'espace public",
+        "Étendre la zone de basses émissions aux véhicules utilitaires",
+        "Instaurer un péage urbain aux entrées de la commune",
+        "Imposer la rénovation énergétique des bâtiments communaux"
       ],
       "correct": 0,
-      "explanation": "Ce chiffre a été corrigé deux fois à la hausse, depuis les 159 annoncés le 8 juillet puis les 188 du 17 juillet. La deuxième vague, du 4 au 17 juillet, ajoute 42 décès, et la troisième n'a produit aucune surmortalité bruxelloise. Sciensano invoque la durée de l'épisode, les températures et les concentrations d'ozone.",
+      "explanation": "Schaerbeek devient la troisième commune bruxelloise à formuler cette demande, après Saint-Gilles et Jette. La motion vise notamment la publicité pour les voitures et les voyages en avion, et invite le gouvernement régional à étudier les possibilités juridiques et politiques d'une interdiction régionale. L'information provient d'une source de presse unique.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:2dd3e25685818427a55414f0c5b0662e",
-        "generatedAt": "2026-09-18T12:31:17.905Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:e1d2caf7374ca68feb40df0fe1f56ffb",
+        "generatedAt": "2026-09-18T15:53:50.153Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climat",
-      "question": "Que la Belgique devait-elle remettre à la Commission européenne pour le 1er septembre 2026, en vertu du règlement (UE) 2024/1991 ?",
+      "question": "Quand le plan belge complet de restauration de la nature est-il attendu, après l'échéance européenne manquée du 1er septembre 2026 ?",
       "options": [
-        "Son projet de plan national de restauration de la nature",
-        "Son plan national intégré énergie-climat révisé",
-        "Son inventaire national des gaz à effet de serre",
-        "Son programme de réduction des polluants atmosphériques"
+        "Pas avant l'été 2027",
+        "Pas avant l'été 2028",
+        "Avant la fin de 2026",
+        "Au premier trimestre de 2027"
       ],
       "correct": 0,
-      "explanation": "L'échéance est passée sans dépôt belge. Le retard bruxellois est double : le plan Renature Brussels est annoncé pour septembre ou octobre 2026, alors que le calendrier publié sur son site officiel prévoyait une adoption en première lecture à l'été 2026. Le plan belge complet n'est pas attendu avant l'été 2027.",
+      "explanation": "Le plan bruxellois, lui, est annoncé pour septembre ou octobre 2026. Le retard bruxellois est double, puisque le calendrier publié sur le site officiel du plan Renature Brussels prévoyait une adoption en première lecture à l'été 2026. Aucune sanction n'est mentionnée par les sources consultées.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-09-03",
-        "sourceContentHash": "sha256:2dd3e25685818427a55414f0c5b0662e",
-        "generatedAt": "2026-09-18T12:31:17.905Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:e1d2caf7374ca68feb40df0fe1f56ffb",
+        "generatedAt": "2026-09-18T15:53:50.153Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Logement",
-      "question": "Le 3 septembre 2026, à quelle condition politique le versement des 131 millions d'euros de dotation régionale 2026 à la SLRB a-t-il été subordonné ?",
+      "question": "Qu'a décidé la Cour constitutionnelle au sujet de l'ordonnance bruxelloise contre les loyers abusifs, selon la communication du 17 septembre 2026 ?",
       "options": [
-        "Au départ du président du Foyer anderlechtois",
-        "À la vente de deux immeubles publics régionaux",
-        "À la nomination d'un commissaire spécial",
-        "À la publication de l'audit de l'agence de Saint-Josse"
+        "Elle a rejeté le recours en annulation introduit contre elle",
+        "Elle a annulé l'ordonnance dans son intégralité",
+        "Elle a suspendu son application jusqu'à un nouvel examen",
+        "Elle a renvoyé la question à la Cour de justice de l'Union"
       ],
       "correct": 0,
-      "explanation": "Le cabinet de la secrétaire d'État au Logement confirme que les montants attendus durant l'été ne sont pas arrivés. Sans ces moyens, la société faîtière qui supervise les seize sociétés immobilières de service public pourrait ne plus honorer ses factures dès septembre 2026, alors que 62 234 ménages attendent un logement social.",
+      "explanation": "L'ordonnance est entrée en vigueur en mai 2025. Le cabinet de la secrétaire d'État au Logement annonce une révision de la grille indicative en deux étapes. Aucune source consultée ne donne le numéro de l'arrêt, et le nombre de requérants diffère selon les rédactions : quatre fédérations du secteur immobilier et de la construction selon La Libre, sept associations selon L'Avenir et La DH.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:837a556547d32a01248b80e340402d90",
-        "generatedAt": "2026-09-18T12:45:35.102Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:467a0a7f57785825f915433745f7d9e2",
+        "generatedAt": "2026-09-18T15:53:50.153Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
-      "question": "De combien l'offre de logements Airbnb en location de courte durée a-t-elle reculé à Bruxelles entre juin 2025 et juin 2026 ?",
+      "question": "De combien un loyer ne peut-il pas dépasser le loyer de référence, selon l'ordonnance bruxelloise en vigueur depuis mai 2025 ?",
       "options": [
-        "De 23 %, de 6 171 à 4 750 logements",
-        "De 9 %, de 6 171 à 5 600 logements",
-        "De 41 %, de 6 171 à 3 640 logements",
-        "De 15 %, de 6 171 à 5 245 logements"
+        "De plus de 20 %",
+        "De plus de 10 %",
+        "De plus de 35 %",
+        "De plus de 50 %"
       ],
       "correct": 0,
-      "explanation": "Les reculs les plus marqués concernent Forest, moins 35,8 %, et Etterbeek, moins 34 %. Bruxelles Fiscalité aurait délivré environ 1 900 amendes, pour un montant estimé entre 1,5 et 2 millions d'euros d'arriérés fiscaux récupérés.",
+      "explanation": "Le locataire peut saisir la Commission paritaire locative ou, le cas échéant, le juge. Le principe avait été décidé en octobre 2021, mais sa mise en œuvre avait été différée pour fiabiliser la grille. C'est ce dispositif que la Cour constitutionnelle a confirmé en rejetant le recours en annulation, selon la communication du 17 septembre 2026.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:837a556547d32a01248b80e340402d90",
-        "generatedAt": "2026-09-18T12:45:35.102Z",
+        "sourceLastModified": "2026-09-18",
+        "sourceContentHash": "sha256:467a0a7f57785825f915433745f7d9e2",
+        "generatedAt": "2026-09-18T15:53:50.153Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1568,6 +1568,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 68
+  ]
 }

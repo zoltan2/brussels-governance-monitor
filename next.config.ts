@@ -55,6 +55,18 @@ const nextConfig: NextConfig = {
               "img-src 'self' data: https:",
               "font-src 'self'",
               "connect-src 'self'",
+              // Les deux jeux quotidiens sont encadrés depuis la page d'accueil
+              // (src/components/games-panel.tsx). Sans cette directive, le chargement
+              // des cadres retombe sur `default-src 'self'`, et `'self'` est une
+              // correspondance EXACTE de schéma, hôte et port : un sous-domaine n'en
+              // fait pas partie. Les deux jeux étaient donc bloqués par nous, alors
+              // que le Stuut nous autorise explicitement
+              // (`frame-ancestors 'self' https://governance.brussels`) et qu'Amai
+              // n'impose aucune restriction. Constaté en production le 18/09/2026 :
+              // le panneau affichait un cadre vide.
+              "frame-src 'self' https://stuut.governance.brussels https://amai.governance.brussels",
+              // Ci-dessous : qui peut nous encadrer, NOUS. Rien à voir avec ce que
+              // nous encadrons. À ne pas confondre lors d'un prochain durcissement.
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",

@@ -4,7 +4,14 @@
 import { NextResponse } from 'next/server';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { isValidCronAuth } from '@/lib/cron-auth';
-import { listPreordersSince, type PreorderRecord } from '@/lib/preorder-log';
+import {
+  listPreordersBetween,
+  readRecapCursor,
+  recapWindow,
+  saveRecapCursor,
+  RECAP_FIRST_WINDOW_MS,
+  type PreorderRecord,
+} from '@/lib/preorder-log';
 import { escapeHtml } from '@/lib/html-escape';
 
 export const runtime = 'nodejs';
@@ -17,9 +24,12 @@ export const dynamic = 'force-dynamic';
  * trace d'une précommande vivait chez Resend, une panne silencieuse pouvait
  * durer quatre mois sans que rien ne l'indique (16/04 au 08/09/2026). Un
  * récap qui arrive chaque semaine transforme le silence en signal.
+ *
+ * La période couverte part du curseur du récap précédent (voir recapWindow),
+ * pas de « maintenant moins sept jours » : heure d'été, heure d'hiver et
+ * rattrapage systemd ne peuvent plus ni perdre ni doubler une précommande.
  */
 const RECIPIENT = 'contact@brusselsgovernance.be';
-const WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
 
 const DATE_FMT = new Intl.DateTimeFormat('fr-BE', {
   day: '2-digit',
@@ -27,7 +37,24 @@ const DATE_FMT = new Intl.DateTimeFormat('fr-BE', {
   timeZone: 'Europe/Brussels',
 });
 
-function buildRecapEmail(rows: PreorderRecord[], journalDown = false): string {
+const PERIOD_FMT = new Intl.DateTimeFormat('fr-BE', {
+  day: '2-digit',
+  month: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  timeZone: 'Europe/Brussels',
+});
+
+interface Period {
+  after: number;
+  until: number;
+}
+
+function buildRecapEmail(
+  rows: PreorderRecord[],
+  period: Period,
+  journalDown = false,
+): string {
   // Le mail EST le détecteur de panne : s'il disparaît quand le journal
   // casse, un journal cassé produit exactement le même silence qu'une semaine
   // sans précommande. C'est la récidive du sinistre d'avril, à l'intérieur du
@@ -40,20 +67,18 @@ Regarder <code>journalctl -u bgm-cron@preorders-recap.service</code>.
 </p>`
     : '';
 
+  // Une précommande par ligne, ses trois champs empilés : l'ancien tableau à
+  // trois colonnes débordait sous 441 px, le seul mail BGM dans ce cas. La
+  // lecture reste linéaire pour un lecteur d'écran : date, prénom, adresse.
   const body = rows.length
-    ? `<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:0 0 24px;">
-<tr>
-<th scope="col" align="left" style="padding:8px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;border-bottom:1px solid #e5e7eb;">Date</th>
-<th scope="col" align="left" style="padding:8px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;border-bottom:1px solid #e5e7eb;">Pr&eacute;nom</th>
-<th scope="col" align="left" style="padding:8px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;border-bottom:1px solid #e5e7eb;">Email</th>
-</tr>
+    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px;border-top:1px solid #e5e7eb;">
 ${rows
   .map(
-    (r) => `<tr>
-<td style="padding:10px 12px;font-size:14px;color:#374151;border-bottom:1px solid #f3f4f6;">${DATE_FMT.format(new Date(r.created_at))}</td>
-<td style="padding:10px 12px;font-size:14px;color:#1B3A6B;font-weight:600;border-bottom:1px solid #f3f4f6;">${escapeHtml(r.firstName) || '&mdash;'}</td>
-<td style="padding:10px 12px;font-size:14px;color:#374151;border-bottom:1px solid #f3f4f6;"><a href="mailto:${escapeHtml(r.email)}" style="color:#1B3A6B;">${escapeHtml(r.email)}</a></td>
-</tr>`,
+    (r) => `<tr><td style="padding:12px 0;border-bottom:1px solid #f3f4f6;">
+<p style="margin:0;font-size:12px;line-height:1.4;color:#6b7280;">${DATE_FMT.format(new Date(r.created_at))}</p>
+<p style="margin:2px 0 0;font-size:15px;line-height:1.4;font-weight:600;color:#1B3A6B;">${escapeHtml(r.firstName) || '&mdash;'}</p>
+<p style="margin:2px 0 0;font-size:14px;line-height:1.4;color:#374151;word-break:break-all;"><a href="mailto:${escapeHtml(r.email)}" style="color:#1B3A6B;word-break:break-all;">${escapeHtml(r.email)}</a></p>
+</td></tr>`,
   )
   .join('\n')}
 </table>`
@@ -78,8 +103,11 @@ Aucune pr&eacute;commande cette semaine. Ce mail part quand m&ecirc;me&nbsp;: s'
 </td></tr>
 
 <tr><td style="padding:24px 32px 32px;">
-<p style="margin:0 0 20px;font-size:22px;font-weight:700;color:#1B3A6B;">
+<p style="margin:0;font-size:22px;font-weight:700;color:#1B3A6B;">
 ${rows.length} pr&eacute;commande${rows.length === 1 ? '' : 's'} cette semaine
+</p>
+<p style="margin:4px 0 20px;font-size:13px;color:#6b7280;">
+Du ${PERIOD_FMT.format(new Date(period.after))} au ${PERIOD_FMT.format(new Date(period.until))}
 </p>
 ${alert}${body}
 <p style="margin:0;font-size:12px;line-height:1.5;color:#6b7280;">
@@ -104,10 +132,15 @@ export async function GET(request: Request) {
   }
 
   // Une panne du journal ne doit jamais supprimer le mail : voir buildRecapEmail.
+  // La lecture du curseur en fait partie : une base verrouillée l'empêche
+  // aussi, et le mail doit alors partir en le disant.
+  const now = Date.now();
+  let period: Period = { after: now - RECAP_FIRST_WINDOW_MS, until: now };
   let rows: PreorderRecord[] = [];
   let journalDown = false;
   try {
-    rows = await listPreordersSince(Date.now() - WINDOW_MS);
+    period = recapWindow(await readRecapCursor(), now);
+    rows = await listPreordersBetween(period.after, period.until);
   } catch (err) {
     journalDown = true;
     console.error('[preorders-recap-FAIL] journal illisible', err);
@@ -121,7 +154,7 @@ export async function GET(request: Request) {
       subject: journalDown
         ? 'Précommandes « La Lasagne » : journal illisible'
         : `Précommandes « La Lasagne » : ${rows.length} cette semaine`,
-      html: buildRecapEmail(rows, journalDown),
+      html: buildRecapEmail(rows, period, journalDown),
       tags: [{ name: 'type', value: 'preorders-recap' }],
     }),
   );
@@ -133,9 +166,23 @@ export async function GET(request: Request) {
 
   if (journalDown) {
     // Le mail est parti, mais le cron doit échouer pour que journald en garde
-    // la trace et que le statut systemd ne dise pas « success ».
+    // la trace et que le statut systemd ne dise pas « success ». Le curseur
+    // ne bouge pas : le récap suivant reprendra la période non lue.
     return NextResponse.json(
       { ok: false, error: 'journal illisible' },
+      { status: 500 },
+    );
+  }
+
+  // Seulement après un envoi réussi. Si l'écriture échoue, le prochain récap
+  // repartira de l'ancien curseur et recomptera cette période : un doublon
+  // visible vaut mieux qu'une précommande perdue, mais il faut le signaler.
+  try {
+    await saveRecapCursor(period.until);
+  } catch (err) {
+    console.error('[preorders-recap-FAIL] curseur non enregistré', err);
+    return NextResponse.json(
+      { ok: false, error: 'curseur non enregistré', count: rows.length },
       { status: 500 },
     );
   }

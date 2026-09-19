@@ -14,12 +14,13 @@ import {
   getSectorCard,
   getCommuneCard,
   getFormationEvents,
+  getRelatedDossiers,
   sortAlertsByDateDesc,
 } from '@/lib/content';
 import { DOSSIER_SLUG_TO_TOPIC } from '@/lib/resend';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
-import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata, dossierSearchMeta } from '@/lib/metadata';
 import { dossierBadgeClass } from '@/lib/status-badge';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
@@ -36,7 +37,15 @@ import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { DossierFaq } from '@/components/dossier/dossier-faq';
 import { WhatChangedBanner } from '@/components/what-changed-banner';
+import { RelatedDossiers } from '@/components/related-dossiers';
+import { TableOfContents } from '@/components/table-of-contents';
 
+/**
+ * Un seul nom d'événement Umami pour tous les liens internes de la page ; la
+ * famille de lien va dans `type` (related, follow, domain, sector, commune) et
+ * le slug visé dans `cible`. Verrouillé par src/lib/analytics-events.test.ts.
+ */
+const INTERNAL_LINK_EVENT = 'dossier-lien-interne';
 
 export const dynamicParams = false;
 export const revalidate = 86400;
@@ -78,10 +87,14 @@ export async function generateMetadata({
     localizedPaths[l] = `/dossiers/${getLocalizedSlug(card, l)}`;
   }
 
+  // seoTitle / seoDescription : ce que Google affiche, sans toucher au H1.
+  const search = dossierSearchMeta(card);
+
   return buildMetadata({
     locale,
-    title: card.title,
-    description: card.summary,
+    title: search.title,
+    absoluteTitle: search.absoluteTitle,
+    description: search.description,
     localizedPaths,
     // Spec §3.7 : noindex sur fallback locale (contenu FR servi sous NL/EN/DE)
     // pour éviter duplicate content. Bascule auto à `index` quand traduction native existe.
@@ -112,7 +125,9 @@ export default async function DossierDetailPage({
     '@type': 'Article',
     headline: card.title,
     description: card.summary,
-    datePublished: card.lastModified,
+    // Pas de datePublished : le frontmatter ne porte aucune date de première
+    // publication, et lastModified en tiendrait lieu à tort (chaque mise à jour
+    // aurait « republié » le dossier). dateModified seul est exact.
     dateModified: card.lastModified,
     url: `${siteUrl}/${locale}/dossiers/${slug}`,
     inLanguage: locale,
@@ -169,6 +184,7 @@ function DossierDetail({
   const tSub = useTranslations('cardSubscribe');
   const tFaq = useTranslations('faq');
   const tw = useTranslations('whatChanged');
+  const tTopics = useTranslations('subscribe.topics');
 
   // Blocked days counter (use fixed build date to avoid impure Date.now() in render)
   const buildDate = new Date();
@@ -191,6 +207,11 @@ function DossierDetail({
     .map((slug) => getCommuneCard(slug, locale))
     .filter((r): r is NonNullable<typeof r> => r !== null)
     .map((r) => r.card);
+
+  // Fiche domaine à suivre : le premier domaine lié qui existe
+  const followDomain = relatedDomainCards[0] ?? null;
+
+  const relatedDossiers = getRelatedDossiers(card, locale);
 
   // Resolve related formation events
   const allEvents = getFormationEvents(locale);
@@ -313,6 +334,25 @@ function DossierDetail({
         {/* Summary */}
         <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.summary}</p>
 
+        {/* Suivre le sujet : un lien vers la fiche domaine dès le chapeau, pas
+            seulement en pied de page où presque personne ne descend. */}
+        {followDomain && (
+          <p className="-mt-3 mb-6 text-sm">
+            <Link
+              href={{ pathname: '/domains/[slug]', params: { slug: followDomain.slug } }}
+              className="font-medium text-brand-700 underline underline-offset-2 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+              data-umami-event={INTERNAL_LINK_EVENT}
+              data-umami-event-type="follow"
+              data-umami-event-cible={followDomain.slug}
+            >
+              {t('followTopic', { domain: tTopics(followDomain.slug) })}
+              <span aria-hidden="true"> →</span>
+            </Link>
+          </p>
+        )}
+
+        <TableOfContents locale={locale} />
+
         {/* Budget + Cost of inaction — stacked full width, so a fiche without a
             cost of inaction no longer leaves half the row empty. */}
         <BudgetTable
@@ -403,10 +443,14 @@ function DossierDetail({
         {/* MDX content with density toggle (phase 3a) */}
         <div
           className="mt-8"
+          data-mdx-content
           {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}
         >
           <MdxContent code={card.content} metrics={card.metrics} />
         </div>
+
+        {/* Dossiers liés : la suite de lecture, juste après le texte */}
+        <RelatedDossiers dossiers={relatedDossiers} locale={locale} umamiEvent={INTERNAL_LINK_EVENT} />
 
         {/* FAQ (conditional: renders null when card.faq is empty) */}
         <DossierFaq faq={card.faq} title={tFaq('title')} />
@@ -423,6 +467,9 @@ function DossierDetail({
                   key={d.slug}
                   href={{ pathname: '/domains/[slug]', params: { slug: d.slug } }}
                   className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
+                  data-umami-event={INTERNAL_LINK_EVENT}
+                  data-umami-event-type="domain"
+                  data-umami-event-cible={d.slug}
                 >
                   {d.title}
                 </Link>
@@ -443,6 +490,9 @@ function DossierDetail({
                   key={s.slug}
                   href={{ pathname: '/sectors/[slug]', params: { slug: s.slug } }}
                   className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
+                  data-umami-event={INTERNAL_LINK_EVENT}
+                  data-umami-event-type="sector"
+                  data-umami-event-cible={s.slug}
                 >
                   {s.title}
                 </Link>
@@ -463,6 +513,9 @@ function DossierDetail({
                   key={c.slug}
                   href={{ pathname: '/communes/[slug]', params: { slug: c.slug } }}
                   className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
+                  data-umami-event={INTERNAL_LINK_EVENT}
+                  data-umami-event-type="commune"
+                  data-umami-event-cible={c.slug}
                 >
                   {c.title}
                 </Link>

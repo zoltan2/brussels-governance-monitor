@@ -86,6 +86,29 @@ export function truncateDescription(text: string, max = DESCRIPTION_MAX): string
 }
 
 /**
+ * Title and description a dossier shows to search engines.
+ *
+ * `seoTitle` is written to fit Google's ~60 characters on its own, so it goes out
+ * as is (`absoluteTitle`), without the ' | BGM' suffix of the layout template.
+ * Without it, the dossier keeps its `title` and the suffix, as before.
+ * The visible H1 is always `title`; only the search result changes.
+ */
+export function dossierSearchMeta(card: {
+  title: string;
+  summary: string;
+  seoTitle?: string;
+  seoDescription?: string;
+}): { title: string; absoluteTitle: boolean; description: string } {
+  const seoTitle = card.seoTitle?.trim();
+  const seoDescription = card.seoDescription?.trim();
+  return {
+    title: seoTitle || card.title,
+    absoluteTitle: Boolean(seoTitle),
+    description: seoDescription || card.summary,
+  };
+}
+
+/**
  * Build full page metadata with OpenGraph + Twitter card.
  * Uses the dynamic OG image route for content pages,
  * or the static og-image.png as fallback.
@@ -101,6 +124,7 @@ export function buildMetadata({
   ogParams,
   localizedPaths,
   noindex,
+  absoluteTitle,
 }: {
   locale: string;
   title: string;
@@ -123,6 +147,12 @@ export function buildMetadata({
    * is missing) to avoid duplicate content penalty (spec 2026-05-03 §3.7).
    */
   noindex?: boolean;
+  /**
+   * If true, `<title>` is `title` as is, without the ' | BGM' template of the
+   * locale layout. For titles already written to fit search results (dossier
+   * `seoTitle`). OpenGraph and Twitter always carry `title` without suffix.
+   */
+  absoluteTitle?: boolean;
 }): Metadata {
   // Canonical URL: prefer localizedPaths override for current locale, else getPathname
   const currentLocalePath = localizedPaths?.[locale as Locale];
@@ -160,7 +190,7 @@ export function buildMetadata({
       : `${siteUrl}/fr`;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description: truncatedDescription,
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
     alternates: {

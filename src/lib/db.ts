@@ -45,6 +45,14 @@ CREATE TABLE IF NOT EXISTS book_preorders (
   created_at INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_book_preorders_created ON book_preorders(created_at);
+
+-- Curseurs des crons : jusqu'où un envoi périodique a déjà couvert ses
+-- données. Écrit seulement après un envoi réussi.
+CREATE TABLE IF NOT EXISTS cron_cursors (
+  name       TEXT PRIMARY KEY,
+  cursor_ms  INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
 `;
 
 /** Opens a SQLite database at `path` and applies the schema (idempotent). */

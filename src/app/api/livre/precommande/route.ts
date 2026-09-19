@@ -3,16 +3,30 @@
 
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
+import {
+  getResend,
+  EMAIL_FROM,
+  resendCall,
+  getContact,
+  getTopics,
+  mergeContactSources,
+} from '@/lib/resend';
+import { generateConfirmToken } from '@/lib/token';
 import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
 import { recordPreorder } from '@/lib/preorder-log';
 import { escapeHtml } from '@/lib/html-escape';
+import ConfirmEmail from '@/emails/confirm';
 
 const preorderSchema = z.object({
   firstName: z.string().min(1).max(100),
   email: z.string().email(),
+  // Case « recevoir aussi le digest », non cochée par défaut sur /livre.
+  digestOptIn: z.boolean().default(false),
 });
+
+/** Étiquette d'origine portée par le contact, via le jeton de confirmation. */
+const SOURCE = 'livre-precommande';
 
 function buildConfirmationEmail(firstName: string): string {
   const safeName = escapeHtml(firstName);
@@ -84,6 +98,66 @@ Tu peux aussi soutenir BGM directement&nbsp;:<br>
 </html>`;
 }
 
+/**
+ * Inscription au digest, seulement sur case cochée. Jusqu'en septembre 2026
+ * la route créait d'office un contact abonné, sans thème (donc destinataire de
+ * TOUT le digest) et sans aucun lien de désabonnement. Désormais elle passe
+ * par le même double opt-in que /api/subscribe et le chat : un email de
+ * confirmation, puis /api/confirm qui envoie le mail de bienvenue avec son
+ * lien de préférences et crée le contact via addContact(), le seul chemin que
+ * surveille le cron contacts-healthcheck.
+ *
+ * Rend true si un email de confirmation est parti. Une panne ici ne doit
+ * jamais faire échouer la précommande, déjà enregistrée et confirmée.
+ */
+async function requestDigestSubscription(email: string): Promise<boolean> {
+  try {
+    const existing = await getContact(email);
+    if (existing) {
+      // Déjà abonné : on note seulement ce canal d'origine.
+      await mergeContactSources(email, [SOURCE]);
+      return false;
+    }
+
+    // /livre n'existe qu'en français. Tous les thèmes, comme le chat : la
+    // personne a demandé « le digest », et le lien de préférences du mail de
+    // bienvenue lui permet ensuite de filtrer.
+    const locale = 'fr';
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
+    const token = generateConfirmToken({
+      email,
+      locale,
+      topics: getTopics(),
+      source: SOURCE,
+    });
+    const confirmUrl = `${siteUrl}/${locale}/subscribe/confirm?token=${encodeURIComponent(token)}`;
+
+    const resend = getResend();
+    const { error } = await resendCall(() =>
+      resend.emails.send({
+        from: EMAIL_FROM,
+        to: email,
+        subject: 'Confirmez votre inscription — Brussels Governance Monitor',
+        react: ConfirmEmail({ locale, confirmUrl }),
+        tags: [
+          { name: 'type', value: 'confirm' },
+          { name: 'locale', value: locale },
+          { name: 'source', value: SOURCE },
+        ],
+      }),
+    );
+    if (error) {
+      console.error('[livre-precommande-FAIL] confirmation digest', email, error);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error('[livre-precommande-FAIL] inscription digest', email, err);
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const ip = clientIp(request.headers);
@@ -108,7 +182,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { firstName, email } = parsed.data;
+    const { firstName, email, digestOptIn } = parsed.data;
 
     if (!process.env.RESEND_API_KEY) {
       console.error('Livre preorder: RESEND_API_KEY is not set');
@@ -129,37 +203,6 @@ export async function POST(request: Request) {
     }
 
     const resend = getResend();
-
-    // `sources` (pluriel) est la seule clé de ce nom déclarée sur le compte
-    // Resend. Une propriété non déclarée est refusée : c'est le sinistre de
-    // la PR #170, et c'est ce qui a fait disparaître les précommandes du
-    // 16/04 au 08/09. Voir src/app/api/cron/contacts-healthcheck/route.ts.
-    const properties = { sources: 'livre-precommande' };
-
-    const created = await resendCall(() =>
-      resend.contacts.create({
-        email,
-        firstName,
-        unsubscribed: false,
-        properties,
-      }),
-    );
-
-    if (created.error) {
-      // On n'interrompt pas la précommande pour autant : la personne a fait
-      // sa part, et l'email de confirmation ci-dessous reste la trace qui
-      // permet de la rattraper. Mais le silence, lui, n'est plus permis.
-      console.error('[livre-precommande-FAIL]', email, created.error);
-    } else {
-      // Resend ne persiste pas les propriétés passées à create : il faut les
-      // rejouer en update, comme le fait addContact() dans lib/resend.ts.
-      const updated = await resendCall(() =>
-        resend.contacts.update({ email, properties }),
-      );
-      if (updated.error) {
-        console.error('[livre-precommande-FAIL]', email, updated.error);
-      }
-    }
 
     // Send confirmation email
     const { error: sendError } = await resendCall(() =>
@@ -182,7 +225,11 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.json({ success: true });
+    const digestConfirmationSent = digestOptIn
+      ? await requestDigestSubscription(email)
+      : false;
+
+    return NextResponse.json({ success: true, digestConfirmationSent });
   } catch (err) {
     console.error('Livre preorder: unexpected error:', err);
     return NextResponse.json(

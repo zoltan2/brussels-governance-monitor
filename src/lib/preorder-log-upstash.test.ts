@@ -19,6 +19,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 const store = {
   zset: new Map<string, number>(),
   hash: new Map<string, string>(),
+  kv: new Map<string, unknown>(),
 };
 
 const redisMock = {
@@ -39,12 +40,18 @@ const redisMock = {
     return 1;
   }),
   hgetall: vi.fn(async () => Object.fromEntries(store.hash)),
-  zrange: vi.fn(async (_key: string, min: number) => {
+  zrange: vi.fn(async (_key: string, min: number, max: number | string) => {
+    const upper = max === '+inf' ? Infinity : Number(max);
     const out: (string | number)[] = [];
     for (const [member, score] of [...store.zset].sort((a, b) => a[1] - b[1])) {
-      if (score >= min) out.push(member, score);
+      if (score >= min && score <= upper) out.push(member, score);
     }
     return out;
+  }),
+  get: vi.fn(async (key: string) => store.kv.get(key) ?? null),
+  set: vi.fn(async (key: string, value: unknown) => {
+    store.kv.set(key, value);
+    return 'OK';
   }),
 };
 
@@ -54,6 +61,8 @@ vi.mock('@upstash/redis', () => ({
     hsetnx = redisMock.hsetnx;
     hgetall = redisMock.hgetall;
     zrange = redisMock.zrange;
+    get = redisMock.get;
+    set = redisMock.set;
   },
 }));
 
@@ -61,20 +70,26 @@ process.env.UPSTASH_REDIS_REST_URL = 'https://exemple.upstash.io';
 process.env.UPSTASH_REDIS_REST_TOKEN = 'jeton-de-test';
 delete process.env.DB_PATH;
 
-const { recordPreorder, listPreordersSince } = await import('./preorder-log');
+const {
+  recordPreorder,
+  listPreordersBetween,
+  readRecapCursor,
+  saveRecapCursor,
+} = await import('./preorder-log');
 
 const DAY = 24 * 60 * 60 * 1000;
 
 beforeEach(() => {
   store.zset.clear();
   store.hash.clear();
+  store.kv.clear();
 });
 
 describe('journal des précommandes — repli Upstash', () => {
   it('relit ce qui a été écrit', async () => {
     await recordPreorder({ email: 'nathalie@example.be', firstName: 'Nathalie' });
 
-    const rows = await listPreordersSince(Date.now() - 7 * DAY);
+    const rows = await listPreordersBetween(Date.now() - 7 * DAY, Date.now());
 
     expect(rows).toHaveLength(1);
     expect(rows[0].email).toBe('nathalie@example.be');
@@ -88,7 +103,7 @@ describe('journal des précommandes — repli Upstash', () => {
     await recordPreorder({ email: 'marc@example.be', firstName: 'Marc' });
     await recordPreorder({ email: 'marc@example.be', firstName: 'marc' });
 
-    const rows = await listPreordersSince(Date.now() - 7 * DAY);
+    const rows = await listPreordersBetween(Date.now() - 7 * DAY, Date.now());
 
     expect(rows).toHaveLength(1);
     expect(rows[0].firstName).toBe('Marc');
@@ -98,7 +113,7 @@ describe('journal des précommandes — repli Upstash', () => {
     await recordPreorder({ email: 'Alixe@Example.be', firstName: 'Alixe' });
     await recordPreorder({ email: ' alixe@example.be ', firstName: 'Alixe' });
 
-    const rows = await listPreordersSince(Date.now() - 7 * DAY);
+    const rows = await listPreordersBetween(Date.now() - 7 * DAY, Date.now());
 
     expect(rows).toHaveLength(1);
     expect(rows[0].email).toBe('alixe@example.be');
@@ -109,7 +124,7 @@ describe('journal des précommandes — repli Upstash', () => {
     store.hash.set('ancien@example.be', 'Ancien');
     await recordPreorder({ email: 'recent@example.be', firstName: 'Recent' });
 
-    const rows = await listPreordersSince(Date.now() - 7 * DAY);
+    const rows = await listPreordersBetween(Date.now() - 7 * DAY, Date.now());
 
     expect(rows.map((r) => r.email)).toEqual(['recent@example.be']);
   });
@@ -117,9 +132,27 @@ describe('journal des précommandes — repli Upstash', () => {
   it('survit à un prénom manquant dans le hash', async () => {
     store.zset.set('sansnom@example.be', Date.now());
 
-    const rows = await listPreordersSince(Date.now() - 7 * DAY);
+    const rows = await listPreordersBetween(Date.now() - 7 * DAY, Date.now());
 
     expect(rows).toHaveLength(1);
     expect(rows[0].firstName).toBe('');
+  });
+
+  it('exclut la borne gauche et inclut la borne droite de la fenêtre', async () => {
+    store.zset.set('borne-gauche@example.be', 1_000);
+    store.zset.set('borne-droite@example.be', 2_000);
+    store.zset.set('apres@example.be', 2_001);
+
+    const rows = await listPreordersBetween(1_000, 2_000);
+
+    expect(rows.map((r) => r.email)).toEqual(['borne-droite@example.be']);
+  });
+
+  it('conserve le curseur du récap', async () => {
+    expect(await readRecapCursor()).toBeNull();
+
+    await saveRecapCursor(1_790_000_000_000);
+
+    expect(await readRecapCursor()).toBe(1_790_000_000_000);
   });
 });

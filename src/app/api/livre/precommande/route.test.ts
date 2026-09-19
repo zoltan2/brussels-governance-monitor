@@ -16,6 +16,11 @@
  * 2. Elle jetait le résultat de `contacts.create` sans lire `error`. Le
  *    contact n'était donc pas créé, l'email de confirmation partait quand
  *    même, et personne ne pouvait s'en apercevoir.
+ *
+ * Puis, septembre 2026 : ce contact créé d'office abonnait au digest entier
+ * quelqu'un qui n'avait demandé qu'un livre, sans lien de désabonnement. La
+ * route ne crée plus aucun contact elle-même. L'inscription au digest passe
+ * par une case à cocher, puis par le double opt-in standard.
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
@@ -39,9 +44,29 @@ vi.mock('@/lib/preorder-log', () => ({
   recordPreorder: (...args: unknown[]) => recordPreorder(...args),
 }));
 
+const getContact = vi.fn();
+const mergeContactSources = vi.fn();
+vi.mock('@/lib/resend', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/lib/resend')>()),
+  getContact: (...args: unknown[]) => getContact(...args),
+  mergeContactSources: (...args: unknown[]) => mergeContactSources(...args),
+}));
+
+// Le gabarit rend un arbre React opaque : on garde ses arguments à la place.
+vi.mock('@/emails/confirm', () => ({
+  default: (props: { locale: string; confirmUrl: string }) => ({ props }),
+}));
+
 process.env.RESEND_API_KEY = 'test-key';
+process.env.AUTH_SECRET = 'secret-de-test';
 
 const { POST } = await import('./route');
+
+/** Charge utile du jeton de confirmation, lue dans l'URL du mail. */
+function tokenPayload(confirmUrl: string): Record<string, unknown> {
+  const token = decodeURIComponent(new URL(confirmUrl).searchParams.get('token')!);
+  return JSON.parse(Buffer.from(token.split('.')[0], 'base64url').toString());
+}
 
 function request(body: unknown): Request {
   return new Request('https://governance.brussels/api/livre/precommande', {
@@ -58,6 +83,8 @@ beforeEach(() => {
   create.mockReset().mockResolvedValue({ data: { id: 'c1' }, error: null });
   update.mockReset().mockResolvedValue({ data: { id: 'c1' }, error: null });
   send.mockReset().mockResolvedValue({ data: { id: 'e1' }, error: null });
+  getContact.mockReset().mockResolvedValue(null);
+  mergeContactSources.mockReset().mockResolvedValue(true);
 });
 
 describe('POST /api/livre/precommande', () => {
@@ -96,10 +123,10 @@ describe('POST /api/livre/precommande', () => {
     });
   });
 
-  it('journalise même quand Resend refuse le contact', async () => {
+  it('journalise même quand Resend refuse l’envoi', async () => {
     // C'est tout l'intérêt : le sinistre du 16/04 au 08/09 est précisément
     // une panne Resend silencieuse. Le journal doit y survivre.
-    create.mockResolvedValue({
+    send.mockResolvedValue({
       data: null,
       error: { name: 'validation_error', statusCode: 422, message: 'nope' },
     });
@@ -122,57 +149,105 @@ describe('POST /api/livre/precommande', () => {
     vi.restoreAllMocks();
   });
 
-  it("n'étiquette la précommande qu'avec des propriétés déclarées côté Resend", async () => {
-    await POST(request(VALID));
+  it("n'abonne personne au digest sans la case cochée", async () => {
+    // VALID ne porte pas `digestOptIn` : l'absence vaut refus.
+    const res = await POST(request(VALID));
 
-    const declared = ['sources', 'locale', 'topics'];
-    const written = create.mock.calls[0][0].properties ?? {};
-
-    expect(Object.keys(written)).not.toContain('source');
-    for (const key of Object.keys(written)) {
-      expect(declared).toContain(key);
-    }
-    expect(written.sources).toContain('livre-precommande');
-  });
-
-  it("rejoue l'étiquette en update, sans quoi Resend ne la persiste pas", async () => {
-    // Constat du 08/09 : le contact de Céline (créé le 16/04 avec une
-    // propriété passée à create) a `properties: {}` côté Resend. C'est pour
-    // cela que addContact() fait create *puis* update avec les mêmes valeurs.
-    await POST(request(VALID));
-
-    expect(update).toHaveBeenCalled();
-    expect(update.mock.calls[0][0].properties.sources).toContain(
-      'livre-precommande',
-    );
-  });
-
-  it('signale un échec de création de contact au lieu de le passer sous silence', async () => {
-    create.mockResolvedValue({
-      data: null,
-      error: { name: 'validation_error', statusCode: 422, message: 'unknown property' },
+    expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({
+      success: true,
+      digestConfirmationSent: false,
     });
+    expect(create).not.toHaveBeenCalled();
+    expect(update).not.toHaveBeenCalled();
+    expect(getContact).not.toHaveBeenCalled();
+    expect(mergeContactSources).not.toHaveBeenCalled();
+    // Un seul email : la confirmation de précommande.
+    expect(send).toHaveBeenCalledTimes(1);
+    expect(send.mock.calls[0][0].tags).toContainEqual({
+      name: 'type',
+      value: 'livre-precommande',
+    });
+  });
+
+  it("n'abonne personne non plus avec la case décochée", async () => {
+    await POST(request({ ...VALID, digestOptIn: false }));
+
+    expect(create).not.toHaveBeenCalled();
+    expect(send).toHaveBeenCalledTimes(1);
+  });
+
+  it('case cochée : passe par le double opt-in, sans créer de contact', async () => {
+    const res = await POST(request({ ...VALID, digestOptIn: true }));
+
+    expect(await res.json()).toEqual({
+      success: true,
+      digestConfirmationSent: true,
+    });
+    // Le contact n'est créé qu'au clic sur le lien, par /api/confirm et
+    // addContact(), le chemin que surveille contacts-healthcheck.
+    expect(create).not.toHaveBeenCalled();
+    expect(send).toHaveBeenCalledTimes(2);
+
+    const confirm = send.mock.calls[1][0];
+    expect(confirm.to).toBe('nathalie@example.be');
+    expect(confirm.tags).toContainEqual({ name: 'type', value: 'confirm' });
+
+    const { confirmUrl, locale } = confirm.react.props;
+    expect(locale).toBe('fr');
+    expect(confirmUrl).toContain('/fr/subscribe/confirm?token=');
+    const payload = tokenPayload(confirmUrl);
+    expect(payload.email).toBe('nathalie@example.be');
+    expect(payload.source).toBe('livre-precommande');
+    // Des thèmes explicites : un contact sans thème reçoit tout sans l'avoir
+    // choisi, c'était le second défaut de l'ancien contact créé d'office.
+    expect((payload.topics as string[]).length).toBeGreaterThan(0);
+  });
+
+  it('case cochée, déjà abonné : note la source, sans second email', async () => {
+    getContact.mockResolvedValue({
+      locale: 'fr',
+      topics: ['budget'],
+      sources: ['website'],
+    });
+
+    const res = await POST(request({ ...VALID, digestOptIn: true }));
+
+    expect(mergeContactSources).toHaveBeenCalledWith('nathalie@example.be', [
+      'livre-precommande',
+    ]);
+    expect(send).toHaveBeenCalledTimes(1);
+    expect((await res.json()).digestConfirmationSent).toBe(false);
+  });
+
+  it("n'échoue pas la précommande si l'inscription au digest échoue, mais le signale", async () => {
+    send
+      .mockResolvedValueOnce({ data: { id: 'e1' }, error: null })
+      .mockResolvedValueOnce({
+        data: null,
+        error: { name: 'application_error', statusCode: 500, message: 'boom' },
+      });
     const errors = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-    await POST(request(VALID));
+    const res = await POST(request({ ...VALID, digestOptIn: true }));
 
-    expect(errors).toHaveBeenCalled();
-    const logged = errors.mock.calls.flat().join(' ');
-    expect(logged).toContain('livre-precommande-FAIL');
+    expect(res.status).toBe(200);
+    expect((await res.json()).digestConfirmationSent).toBe(false);
+    expect(errors.mock.calls.flat().join(' ')).toContain('livre-precommande-FAIL');
     errors.mockRestore();
   });
 
-  it('envoie quand même la confirmation quand Resend refuse le contact', async () => {
-    create.mockResolvedValue({
+  it("n'envoie pas la confirmation digest si la précommande n'a pas pu être confirmée", async () => {
+    send.mockResolvedValue({
       data: null,
-      error: { name: 'validation_error', statusCode: 422, message: 'unknown property' },
+      error: { name: 'application_error', statusCode: 500, message: 'boom' },
     });
     vi.spyOn(console, 'error').mockImplementation(() => {});
 
-    const res = await POST(request(VALID));
+    const res = await POST(request({ ...VALID, digestOptIn: true }));
 
-    expect(send).toHaveBeenCalled();
-    expect(res.status).toBe(200);
+    expect(res.status).toBe(500);
+    expect(send).toHaveBeenCalledTimes(1);
     vi.restoreAllMocks();
   });
 });

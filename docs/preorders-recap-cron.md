@@ -1,10 +1,17 @@
 # Récap hebdomadaire des précommandes — installation du déclencheur
 
 La route `GET /api/cron/preorders-recap` envoie à `contact@brusselsgovernance.be`
-la liste prénom + email des précommandes du livre des sept derniers jours.
-Elle part **même à zéro précommande** : un silence dans la boîte doit vouloir
-dire « le cron est cassé », jamais « semaine calme ». C'est l'ambiguïté inverse
-qui a laissé passer quatre mois de pertes entre le 16/04 et le 08/09/2026.
+la liste prénom + email des précommandes du livre enregistrées depuis le récap
+précédent. Elle part **même à zéro précommande** : un silence dans la boîte doit
+vouloir dire « le cron est cassé », jamais « semaine calme ». C'est l'ambiguïté
+inverse qui a laissé passer quatre mois de pertes entre le 16/04 et le 08/09/2026.
+
+La période couverte suit un **curseur** (table `cron_cursors` de `bgm.db`,
+ligne `preorders-recap`) : chaque récap couvre de la fin du précédent jusqu'à
+l'instant de l'envoi, puis avance le curseur, seulement si le mail est parti.
+Changement d'heure (169 h ou 167 h entre deux mardis) et rattrapage
+`Persistent=true` ne créent donc ni trou ni doublon. Sans curseur (premier
+passage), le récap couvre les sept derniers jours. Le mail indique la période.
 
 Le code vit dans le dépôt, l'horaire vit sur le VPS.
 
@@ -51,6 +58,11 @@ journalctl -u bgm-cron@preorders-recap.service -n 20
 
 Le test immédiat doit faire arriver un mail « 0 cette semaine » tant que le
 journal est vide. C'est le comportement attendu, pas une erreur.
+
+Attention : un envoi de test **avance le curseur** comme un envoi normal. Les
+précommandes qu'il liste n'apparaîtront donc pas dans le récap du mardi
+suivant, qui reprendra à partir de ce test. Rien n'est perdu, mais tout n'est
+plus dans le même mail.
 
 ## Réinjection de l'historique
 

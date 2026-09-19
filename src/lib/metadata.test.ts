@@ -7,7 +7,7 @@ import { describe, expect, it, vi } from 'vitest';
 // and cannot load under vitest. truncateDescription does not touch it.
 vi.mock('@/i18n/navigation', () => ({ getPathname: () => '/' }));
 
-import { truncateDescription } from './metadata';
+import { buildMetadata, dossierSearchMeta, truncateDescription } from './metadata';
 
 describe('truncateDescription', () => {
   it('leaves a short description untouched', () => {
@@ -35,5 +35,58 @@ describe('truncateDescription', () => {
   it('does not end on dangling punctuation before the ellipsis', () => {
     const text = `${'mot '.repeat(38)}fin, suite de la phrase qui dépasse largement la limite`;
     expect(truncateDescription(text)).not.toMatch(/[,;:]…$/);
+  });
+});
+
+describe('dossierSearchMeta', () => {
+  const card = {
+    title: 'Zone de basses émissions : calendrier, dérogations et amendes à Bruxelles en 2026',
+    summary: 'La LEZ bruxelloise interdit depuis janvier 2026 les diesels Euro 5.',
+  };
+
+  it('keeps the dossier title and summary when no seo fields exist', () => {
+    expect(dossierSearchMeta(card)).toEqual({
+      title: card.title,
+      absoluteTitle: false,
+      description: card.summary,
+    });
+  });
+
+  it('uses seoTitle as an absolute title and seoDescription as description', () => {
+    expect(
+      dossierSearchMeta({
+        ...card,
+        seoTitle: 'LEZ Bruxelles 2026 : calendrier et amendes',
+        seoDescription: 'Ce qui est interdit, depuis quand, et ce que coûte une infraction.',
+      }),
+    ).toEqual({
+      title: 'LEZ Bruxelles 2026 : calendrier et amendes',
+      absoluteTitle: true,
+      description: 'Ce qui est interdit, depuis quand, et ce que coûte une infraction.',
+    });
+  });
+
+  it('takes each field on its own: seoTitle alone keeps the summary', () => {
+    const out = dossierSearchMeta({ ...card, seoTitle: 'LEZ Bruxelles 2026' });
+    expect(out.description).toBe(card.summary);
+    expect(out.absoluteTitle).toBe(true);
+  });
+
+  it('ignores a blank seoTitle rather than printing an empty title', () => {
+    expect(dossierSearchMeta({ ...card, seoTitle: '  ' }).title).toBe(card.title);
+  });
+});
+
+describe('buildMetadata title', () => {
+  it('lets the layout template add its suffix by default', () => {
+    const meta = buildMetadata({ locale: 'fr', title: 'LEZ', description: 'x' });
+    expect(meta.title).toBe('LEZ');
+  });
+
+  it('emits an absolute title when asked, and the same title for OpenGraph and Twitter', () => {
+    const meta = buildMetadata({ locale: 'fr', title: 'LEZ Bruxelles 2026', description: 'x', absoluteTitle: true });
+    expect(meta.title).toEqual({ absolute: 'LEZ Bruxelles 2026' });
+    expect(meta.openGraph?.title).toBe('LEZ Bruxelles 2026');
+    expect(meta.twitter?.title).toBe('LEZ Bruxelles 2026');
   });
 });

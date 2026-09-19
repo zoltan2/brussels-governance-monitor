@@ -3,10 +3,23 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import type { DossierCard } from '@/lib/content';
+import { getLocalizedSlug, type DossierCard } from '@/lib/content';
+import type { Locale } from '@/i18n/routing';
 import { dossierBadgeClass } from '@/lib/status-badge';
 
-export function RelatedDossiers({ dossiers }: { dossiers: DossierCard[] }) {
+/**
+ * `umamiEvent` : nom d'événement Umami posé sur chaque lien, avec `type=related`
+ * et `cible=<slug canonique>` en propriétés. Sans lui, les liens ne sont pas mesurés.
+ */
+export function RelatedDossiers({
+  dossiers,
+  locale,
+  umamiEvent,
+}: {
+  dossiers: DossierCard[];
+  locale: Locale;
+  umamiEvent?: string;
+}) {
   const t = useTranslations('domains');
   const td = useTranslations('dossiers');
 
@@ -21,8 +34,16 @@ export function RelatedDossiers({ dossiers }: { dossiers: DossierCard[] }) {
         {dossiers.map((d) => (
           <li key={d.slug}>
             <Link
-              href={{ pathname: '/dossiers/[slug]', params: { slug: d.slug } }}
-              className="group block rounded-lg bg-neutral-50 p-3 transition-colors hover:bg-neutral-100"
+              // Slug localisé : seules ces URL sont générées (dynamicParams = false)
+              href={{ pathname: '/dossiers/[slug]', params: { slug: getLocalizedSlug(d, locale) } }}
+              className="group block rounded-lg bg-neutral-50 p-3 transition-colors hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+              {...(umamiEvent
+                ? {
+                    'data-umami-event': umamiEvent,
+                    'data-umami-event-type': 'related',
+                    'data-umami-event-cible': d.slug,
+                  }
+                : {})}
             >
               <div className="flex items-start justify-between gap-2">
                 <p className="text-sm font-medium text-brand-700 group-hover:text-brand-900">

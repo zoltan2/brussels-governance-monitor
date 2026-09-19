@@ -562,6 +562,12 @@ const dossierCards = defineCollection({
     .object({
       title: s.string().max(120),
       shortTitle: s.string().max(50).optional(),
+      // Titre et description réservés aux moteurs de recherche. Google coupe le
+      // <title> vers 60 caractères et la description vers 155 : un titre de
+      // dossier de 90 caractères y perd sa fin. Facultatifs : sans eux, la page
+      // garde `title` (suffixé « | BGM ») et `summary`. Le H1 reste `title`.
+      seoTitle: s.string().max(60).optional(),
+      seoDescription: s.string().max(155).optional(),
       slug: s.string(),
       // Slugs localisés pour SEO per-locale (spec 2026-05-03). Optionnel,
       // rétro-compat : si absent pour une locale, fallback sur `slug` global.
@@ -607,6 +613,10 @@ const dossierCards = defineCollection({
       relatedSectors: s.array(s.string()).default([]),
       relatedCommunes: s.array(s.string()).default([]),
       relatedFormationEvents: s.array(s.string()).default([]),
+      // Slugs canoniques des dossiers à proposer sous le texte. Facultatif : s'il
+      // est présent, il remplace la sélection automatique (dossiers qui partagent
+      // un domaine). Voir src/lib/related-dossiers.ts.
+      relatedDossiers: s.array(s.string()).optional(),
       sources: s.array(sourceSchema),
       metrics: s.array(metricSchema).default([]).refine(refineUniqueMetricIds, {
         message: 'Metric `id` values must be unique within a single dossier',

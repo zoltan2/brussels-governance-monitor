@@ -5,6 +5,7 @@ import { routing, type Locale } from '@/i18n/routing';
 import type { Metric } from '@/components/proof-drawer/types';
 import { computeRecentDigestLangs, type RecentDigestLangs } from '@/lib/digest-langs';
 import type { BudgetValue } from '@/lib/budget';
+import { selectRelatedDossiers } from '@/lib/related-dossiers';
 
 export interface DomainCard {
   title: string;
@@ -196,6 +197,10 @@ export interface Verification {
 export interface DossierCard {
   title: string;
   shortTitle?: string;
+  /** Titre pour Google (≤ 60 caractères), affiché tel quel, sans suffixe. Le H1 reste `title`. */
+  seoTitle?: string;
+  /** Description pour Google (≤ 155 caractères). Sans elle, `summary` sert. */
+  seoDescription?: string;
   slug: string;
   // Slugs localisés pour SEO per-locale (spec 2026-05-03). Optionnel.
   // Si absent pour une locale, fallback sur `slug` global. Le `slug` reste
@@ -223,6 +228,8 @@ export interface DossierCard {
   relatedSectors: string[];
   relatedCommunes: string[];
   relatedFormationEvents: string[];
+  /** Slugs canoniques choisis à la main ; remplacent la sélection automatique. */
+  relatedDossiers?: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
   metrics: Metric[];
   alerts: Array<{ label: string; severity: 'info' | 'warning' | 'critical'; date: string }>;
@@ -1127,6 +1134,14 @@ export function validateLocalizedSlugs(dossiers: DossierCard[]): void {
  */
 export function getDossiersForDomain(domain: string, locale: Locale): DossierCard[] {
   return getDossierCards(locale).filter((d) => d.relatedDomains.includes(domain));
+}
+
+/**
+ * Dossiers à proposer sous le texte d'un dossier (bloc « Dossiers liés »).
+ * La règle de sélection vit dans `selectRelatedDossiers`, testable sans Velite.
+ */
+export function getRelatedDossiers(card: DossierCard, locale: Locale): DossierCard[] {
+  return selectRelatedDossiers(card, getDossierCards(locale));
 }
 
 /**

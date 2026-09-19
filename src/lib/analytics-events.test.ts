@@ -62,6 +62,9 @@ const EVENEMENTS_LIENS = [
   // Jeux natifs du panneau : les sorties vers le site.
   'jeux-stuut-dossier',
   'jeux-amai-barometre',
+  // Page dossier : tous les liens internes (dossiers liés, « Suivre le sujet »,
+  // pastilles domaine, secteur, commune), avec `type` et `cible` en propriétés.
+  'dossier-lien-interne',
 ];
 
 /** Les actions sans navigation, mesurées par appel explicite. */

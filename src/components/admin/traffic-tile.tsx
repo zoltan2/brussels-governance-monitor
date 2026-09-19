@@ -3,23 +3,19 @@
 
 import { readTrafficStatus } from '@/lib/traffic-status';
 import { Tile, TileStat, TileUnavailable } from './tile';
-
-/** Ancienneté de l'instantané, en clair. Impure (Date.now), donc calculée
- * hors du rendu et passée au composant sous forme de chaîne. */
-function freshness(iso: string | null): string | null {
-  if (!iso) return null;
-  const ms = Date.now() - Date.parse(iso);
-  if (Number.isNaN(ms)) return null;
-  const hours = Math.floor(ms / 3_600_000);
-  if (hours < 1) return "relevé il y a moins d'une heure";
-  if (hours < 24) return `relevé il y a ${hours} h`;
-  return `relevé il y a ${Math.floor(hours / 24)} j`;
-}
+import {
+  describeFreshness,
+  freshnessClassName,
+} from '@/lib/snapshot-freshness';
 
 async function loadTraffic() {
   const status = await readTrafficStatus();
   if (!status) return null;
-  return { ...status, freshness: freshness(status.generatedAt) };
+  // L'instantané est horaire : au-delà d'un jour, le timer ne tourne plus.
+  return {
+    ...status,
+    freshness: describeFreshness(status.generatedAt, { staleAfterHours: 26 }),
+  };
 }
 
 export async function TrafficTile() {
@@ -58,7 +54,9 @@ export async function TrafficTile() {
         </ul>
       )}
       {traffic.freshness && (
-        <p className="mt-3 text-xs text-neutral-500">{traffic.freshness}</p>
+        <p className={freshnessClassName(traffic.freshness.level)}>
+          {traffic.freshness.label}
+        </p>
       )}
     </Tile>
   );

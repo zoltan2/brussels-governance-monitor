@@ -44,7 +44,22 @@ describe('TrafficTile', () => {
     expect(screen.getByText('/fr')).toBeDefined();
   });
 
-  it("date l'instantané pour qu'un chiffre figé se voie", async () => {
+  it("date l'instantané récent sans alarmer", async () => {
+    vi.mocked(readTrafficStatus).mockResolvedValue({
+      generatedAt: new Date(Date.now() - 2 * 3_600_000).toISOString(),
+      days: 7,
+      visitors: 10,
+      pageviews: 20,
+      topPages: [],
+    });
+    render(await TrafficTile());
+    expect(screen.getByText('relevé il y a 2 h')).toBeDefined();
+  });
+
+  // L'instantané est horaire : trois jours veulent dire que le timer ne tourne
+  // plus. Avant le 19/09/2026 cette tuile affichait « relevé il y a 3 j » du
+  // même gris que le reste.
+  it('signale en ambre un instantané figé', async () => {
     vi.mocked(readTrafficStatus).mockResolvedValue({
       generatedAt: new Date(Date.now() - 3 * 24 * 3_600_000).toISOString(),
       days: 7,
@@ -53,7 +68,8 @@ describe('TrafficTile', () => {
       topPages: [],
     });
     render(await TrafficTile());
-    expect(screen.getByText('relevé il y a 3 j')).toBeDefined();
+    const line = screen.getByText('en retard : dernier relevé il y a 3 j');
+    expect(line.className).toContain('amber');
   });
 
   it('affiche « Indisponible » sans instantané', async () => {

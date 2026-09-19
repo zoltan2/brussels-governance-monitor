@@ -10,9 +10,12 @@ type State = 'idle' | 'loading' | 'success' | 'error';
 export function PreorderForm() {
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
+  // Non cochée par défaut : précommander le livre n'abonne à rien.
+  const [digestOptIn, setDigestOptIn] = useState(false);
   const [state, setState] = useState<State>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [confirmedName, setConfirmedName] = useState('');
+  const [digestConfirmationSent, setDigestConfirmationSent] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -23,7 +26,11 @@ export function PreorderForm() {
       const res = await fetch('/api/livre/precommande', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName: firstName.trim(), email: email.trim() }),
+        body: JSON.stringify({
+          firstName: firstName.trim(),
+          email: email.trim(),
+          digestOptIn,
+        }),
       });
 
       const data = await res.json();
@@ -35,6 +42,7 @@ export function PreorderForm() {
       }
 
       setConfirmedName(firstName.trim());
+      setDigestConfirmationSent(data.digestConfirmationSent === true);
       setState('success');
     } catch {
       setState('error');
@@ -52,6 +60,12 @@ export function PreorderForm() {
           Ta précommande est enregistrée. Un email de confirmation arrive dans
           ta boîte.
         </p>
+        {digestConfirmationSent && (
+          <p className="mt-2 text-sm text-white/80">
+            Pour le digest, un second email te demande de confirmer ton
+            inscription.
+          </p>
+        )}
       </div>
     );
   }
@@ -95,6 +109,21 @@ export function PreorderForm() {
           disabled={state === 'loading'}
         />
       </div>
+
+      <label className="flex items-start gap-3 text-sm text-white/90">
+        <input
+          id="preorder-digest"
+          type="checkbox"
+          checked={digestOptIn}
+          onChange={(e) => setDigestOptIn(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/40 accent-[#F2A900] focus:ring-1 focus:ring-[#F2A900]"
+          disabled={state === 'loading'}
+        />
+        <span>
+          Je veux aussi recevoir le digest hebdomadaire de BGM (un email par
+          semaine au maximum, désabonnement en un clic).
+        </span>
+      </label>
 
       {state === 'error' && (
         <p className="text-sm text-[#F2A900]" role="alert">

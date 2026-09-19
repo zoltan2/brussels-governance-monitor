@@ -3,6 +3,7 @@
 
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { requireAdmin } from '@/lib/require-admin';
 import { TileSkeleton } from '@/components/admin/tile';
 import { TrafficTile } from '@/components/admin/traffic-tile';
 import { InfraTile } from '@/components/admin/infra-tile';
@@ -36,6 +37,7 @@ export default async function AdminHubPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  await requireAdmin(locale);
 
   return (
     <div className="mx-auto max-w-6xl px-4">

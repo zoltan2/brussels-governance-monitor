@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Metadata } from 'next';
+import { requireAdmin } from '@/lib/require-admin';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { listContentPrs, type ContentPr } from '@/lib/github-pr';
@@ -18,6 +19,7 @@ export default async function ContentIndexPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  await requireAdmin(locale);
 
   // `listContentPrs` lève si la configuration GitHub manque. Sans ce garde,
   // l'admin reçoit une page 500 générique au lieu d'un message actionnable —

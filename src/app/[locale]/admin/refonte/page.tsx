@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { getVoteStats } from '@/lib/refonte-votes';
+import { requireAdmin } from '@/lib/require-admin';
 import type { Metadata } from 'next';
 
 export const dynamic = 'force-dynamic';
@@ -59,7 +60,9 @@ function formatTs(ts: number): string {
 }
 
 export default async function AdminRefontePage() {
-  // Session vérifiée une seule fois par src/app/[locale]/admin/layout.tsx.
+  await requireAdmin();
+  // Le layout contrôle aussi la session, mais Next rend la page même quand il
+  // redirige : le contrôle ci-dessus est celui qui protège les données.
   const stats = await getVoteStats(50);
 
   return (

@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Metadata } from 'next';
+import { requireAdmin } from '@/lib/require-admin';
 import { notFound } from 'next/navigation';
 import {
   getContentPr,
@@ -116,6 +117,7 @@ export default async function ContentDecisionPage({
   params: Promise<{ locale: string; number: string }>;
 }) {
   const { locale, number } = await params;
+  await requireAdmin(locale);
   const parsed = Number(number);
   if (!Number.isInteger(parsed) || parsed <= 0) notFound();
 

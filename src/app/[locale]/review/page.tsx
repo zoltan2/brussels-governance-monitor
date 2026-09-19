@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Metadata } from 'next';
+import { requireAdmin } from '@/lib/require-admin';
 import { getTranslations } from 'next-intl/server';
 import { signOut } from '@/auth';
 import { getDraftCards } from '@/lib/content';
@@ -23,8 +24,10 @@ export default async function ReviewPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  await requireAdmin(locale);
 
-  // Session vérifiée une seule fois par src/app/[locale]/review/layout.tsx.
+  // Le layout contrôle aussi la session, mais Next rend la page même quand il
+  // redirige : le contrôle ci-dessus est celui qui protège les données.
   const t = await getTranslations('review');
   const drafts = getDraftCards(locale as Locale);
 

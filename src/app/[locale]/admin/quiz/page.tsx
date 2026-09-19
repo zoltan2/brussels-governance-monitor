@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Metadata } from 'next';
+import { requireAdmin } from '@/lib/require-admin';
 import { QuizReviewList } from '@/components/admin/quiz-review-list';
 import { LOCALES, type ReviewState } from '@/lib/quiz-review';
 import { buildReviewQueue, pendingByLocale } from '@/lib/quiz-review-queue';
@@ -48,6 +49,7 @@ async function loadFromRepo() {
 }
 
 export default async function AdminQuizPage() {
+  await requireAdmin();
   let data: Awaited<ReturnType<typeof loadFromRepo>>;
   try {
     data = await loadFromRepo();

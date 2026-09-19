@@ -30,6 +30,15 @@ describe('selectRelatedDossiers', () => {
     expect(out).toHaveLength(RELATED_DOSSIERS_MAX);
   });
 
+  it('ranks a dossier sharing two domains ahead of a more recent one sharing only one', () => {
+    const out = selectRelatedDossiers(current, [
+      dossier('recent-un-domaine', ['mobility'], '2026-09-19'),
+      dossier('ancien-deux-domaines', ['climate', 'mobility'], '2026-01-01'),
+      dossier('recent-hors-sujet', ['security'], '2026-09-19'),
+    ]);
+    expect(out.map((d) => d.slug)).toEqual(['ancien-deux-domaines', 'recent-un-domaine']);
+  });
+
   it('never returns the current dossier, a draft or a dossier without a shared domain', () => {
     const slugs = selectRelatedDossiers(current, candidates, 10).map((d) => d.slug);
     expect(slugs).not.toContain('lez');
@@ -67,6 +76,14 @@ describe('selectRelatedDossiers', () => {
       candidates,
     );
     expect(out.map((d) => d.slug)).toEqual(['metro-3', 'good-move', 'cpas-bruxellois']);
+  });
+
+  it('keeps relatedDossiers first even over dossiers sharing more domains', () => {
+    const out = selectRelatedDossiers(
+      { ...current, relatedDossiers: ['cpas-bruxellois'] },
+      [...candidates, dossier('deux-domaines', ['mobility', 'climate'], '2026-09-19')],
+    );
+    expect(out.map((d) => d.slug)).toEqual(['cpas-bruxellois']);
   });
 
   it('falls back to the automatic choice when relatedDossiers is empty', () => {

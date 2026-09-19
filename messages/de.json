@@ -967,27 +967,178 @@
       }
     },
     "brusselsParadox": {
-      "title": "Das Brüsseler Paradox: reich am BIP, arm an Einkommen",
-      "subtitle": "Warum die Wirtschaftshauptstadt Belgiens an Mitteln mangelt",
+      "metaTitle": "Ist Brüssel reich oder arm? BIP pro Kopf und Einkommen",
+      "metaDescription": "Brüssel: sechsthöchstes BIP pro Kopf der EU (2024), doch ein Drittel der Einwohner ist von Armut oder Ausgrenzung bedroht. Pendler und Steuern erklären es.",
+      "breadcrumbLabel": "Das Brüsseler Paradox",
+      "title": "Ist Brüssel reich oder arm? Das Brüsseler Paradox erklärt",
+      "subtitle": "Warum eine der produktivsten Regionen der EU so viele Einwohner mit geringem Einkommen zählt",
+      "checked": "Zahlen geprüft am <date>19. September 2026</date>.",
+      "answer": "Beides, je nachdem, was man misst. Betrachtet man, was auf ihrem Gebiet erwirtschaftet wird, ist die Region Brüssel-Hauptstadt eine der reichsten Regionen der Europäischen Union: Ihr BIP pro Kopf erreichte 2024 190 % des EU-Durchschnitts. Betrachtet man die Einkommen der Menschen, die dort leben, ist sie die ärmste der drei belgischen Regionen: 33,6 % ihrer Einwohner waren 2025 von Armut oder sozialer Ausgrenzung bedroht. Die Kluft ergibt sich vor allem aus dem Pendelverkehr. Etwa jeder zweite Arbeitsplatz in Brüssel ist mit einer Person besetzt, die in Flandern oder in der Wallonie wohnt, und die Einkommensteuer folgt der Wohnadresse des Steuerpflichtigen, nicht dem Arbeitsort.",
+      "keyFigures": {
+        "title": "Die wichtigsten Zahlen",
+        "gdpPps": {
+          "value": "190 %",
+          "label": "BIP pro Kopf in KKS, gemessen am EU-Durchschnitt (2024)"
+        },
+        "rank": {
+          "value": "Platz 6",
+          "label": "unter 244 Regionen der EU beim BIP pro Kopf in KKS (2024)"
+        },
+        "gdpShare": {
+          "value": "17,3 %",
+          "label": "des belgischen BIP werden in Brüssel erwirtschaftet (2023)"
+        },
+        "commuters": {
+          "value": "≈ 400.000",
+          "label": "Pendler aus Flandern und der Wallonie (2024)"
+        },
+        "taxableIncome": {
+          "value": "18.529 €",
+          "label": "steuerpflichtiges Nettoeinkommen pro Einwohner (Einkommen 2023)"
+        },
+        "arope": {
+          "value": "33,6 %",
+          "label": "der Einwohner von Armut oder sozialer Ausgrenzung bedroht (2025)"
+        }
+      },
       "gdp": {
-        "title": "19 % des belgischen BIP",
-        "description": "Brüssel erwirtschaftet etwa 19 % des belgischen Bruttoinlandsprodukts, mit nur 10 % der Bevölkerung. Dieser wirtschaftliche Reichtum erklärt sich durch die Konzentration europäischer Institutionen, Unternehmenssitze und Finanzdienstleistungen. Das BIP pro Einwohner in Brüssel ist das höchste des Landes."
+        "title": "Wie hoch ist das BIP pro Kopf in Brüssel?",
+        "p1": "2024 belief sich das BIP pro Kopf der Region Brüssel-Hauptstadt auf 85.300 Euro, gegenüber 52.300 Euro für Belgien insgesamt und 39.900 Euro für die EU (Eurostat, vorläufige Daten, veröffentlicht am 10. Februar 2026). In Kaufkraftstandards (KKS) ausgedrückt, die Preisunterschiede zwischen den Ländern ausgleichen, erreichte es 76.000 KKS, also 190 % des europäischen Durchschnitts. Von den 244 NUTS-2-Regionen der EU lagen nur fünf höher: Eastern and Midland in Irland (268 %), Luxemburg (245 %), Southern in Irland (217 %), Hamburg (196 %) und Prag (192 %).",
+        "p2": "2023 erwirtschaftete Brüssel 17,3 % des belgischen BIP (103,3 Milliarden Euro) mit 10,7 % der Bevölkerung des Landes, so das IBSA, das Brüsseler Statistikinstitut. Sein BIP pro Kopf ist das höchste der elf belgischen NUTS-2-Regionen, vor Wallonisch-Brabant (69.500 Euro im Jahr 2024). Diese Wirtschaftsleistung spiegelt die Konzentration von Unternehmenssitzen, Finanzdienstleistungen, öffentlichen Verwaltungen und internationalen Institutionen wider: Das IBSA zählt zum 31. Dezember 2024 41.775 Beschäftigte der europäischen Institutionen in Brüssel."
+      },
+      "poverty": {
+        "title": "Wenn Brüssel so reich ist, warum sind dann so viele Einwohner arm?",
+        "p1": "Das BIP misst den Wert, der dort erwirtschaftet wird, wo die Arbeit stattfindet. Es sagt nichts darüber aus, wer das daraus entstehende Einkommen erhält. Indikatoren, die vom Wohnort ausgehen, erzählen eine andere Geschichte.",
+        "p2": "Das durchschnittliche steuerpflichtige Nettoeinkommen lag in Brüssel für die Einkommen 2023 bei 18.529 Euro pro Einwohner, gegenüber 24.957 Euro in Flandern, 22.020 Euro in der Wallonie und 23.352 Euro für Belgien (Statbel, Steuerjahr 2024, veröffentlicht am 19. November 2025). Das Medianeinkommen pro Steuererklärung betrug in Brüssel 24.488 Euro, gegenüber 30.100 Euro landesweit. Das verfügbare Einkommen der privaten Haushalte, das Sozialleistungen einbezieht und Steuern abzieht, lag 2024 bei 25.400 Euro pro Einwohner, unter Flandern (30.400 Euro) und der Wallonie (26.000 Euro) (Eurostat, vorläufige Daten).",
+        "p3": "Die Erhebung EU-SILC bestätigt diesen Befund. 2025 waren 33,6 % der Brüsseler von Armut oder sozialer Ausgrenzung bedroht, gegenüber 11,4 % in Flandern, 20,0 % in der Wallonie und 16,5 % in Belgien. Die Armutsgefährdungsquote, die allein auf dem Einkommen beruht, lag in Brüssel bei 23,3 % (Statbel, veröffentlicht am 5. Februar 2026). Im zweiten Quartal 2026 erreichte die ILO-Arbeitslosenquote 12,7 % in Brüssel, 8,0 % in der Wallonie und 4,0 % in Flandern (Statbel, 9. September 2026).",
+        "p4": "Ein Teil des Unterschieds beim steuerpflichtigen Einkommen ist statistisch bedingt: Beamte der europäischen Institutionen zahlen keine belgische Einkommensteuer, ihre Gehälter erscheinen daher nicht in der Steuerstatistik (Statbel). Das erklärt die Armutsquoten nicht, die per Erhebung auf der Grundlage des verfügbaren Einkommens gemessen werden."
+      },
+      "table": {
+        "caption": "Brüssel, Flandern, Wallonie, Belgien: Wirtschaftsleistung und Einkommen im Vergleich",
+        "indicator": "Indikator",
+        "brussels": "Brüssel",
+        "flanders": "Flandern",
+        "wallonia": "Wallonie",
+        "belgium": "Belgien",
+        "rows": {
+          "gdpPps": {
+            "label": "BIP pro Kopf in KKS, in % des EU-Durchschnitts (2024)",
+            "bru": "190",
+            "fla": "119",
+            "wal": "87",
+            "bel": "117"
+          },
+          "disposableIncome": {
+            "label": "Verfügbares Einkommen der privaten Haushalte pro Einwohner, 2024 (€)",
+            "bru": "25.400",
+            "fla": "30.400",
+            "wal": "26.000",
+            "bel": "28.500"
+          },
+          "taxableIncome": {
+            "label": "Steuerpflichtiges Nettoeinkommen pro Einwohner, Einkommen 2023 (€)",
+            "bru": "18.529",
+            "fla": "24.957",
+            "wal": "22.020",
+            "bel": "23.352"
+          },
+          "arope": {
+            "label": "Von Armut oder sozialer Ausgrenzung bedroht, 2025 (%)",
+            "bru": "33,6",
+            "fla": "11,4",
+            "wal": "20,0",
+            "bel": "16,5"
+          },
+          "unemployment": {
+            "label": "ILO-Arbeitslosenquote, zweites Quartal 2026 (%)",
+            "bru": "12,7",
+            "fla": "4,0",
+            "wal": "8,0",
+            "bel": "6,1"
+          }
+        },
+        "sources": "Quellen: Eurostat (BIP in KKS, verfügbares Einkommen der privaten Haushalte, vorläufige Daten für 2024); Statbel (steuerpflichtiges Nettoeinkommen, EU-SILC 2025, Arbeitskräfteerhebung Q2 2026)."
       },
       "commuters": {
-        "title": "360.000 Pendler",
-        "description": "Jeden Tag kommen etwa 360.000 Arbeitnehmer aus Flandern und Wallonien zum Arbeiten nach Brüssel. Sie tragen zum Brüsseler BIP bei, zahlen ihre Einkommensteuer aber in ihrer Wohngemeinde. Brüssel trägt die Infrastrukturkosten, ohne von den entsprechenden Steuereinnahmen zu profitieren."
+        "title": "Wohin fließt das Geld? Pendler und Einkommensteuer",
+        "p1": "2024 arbeiteten 809.900 Menschen im Alter von 15 bis 64 Jahren in der Region Brüssel-Hauptstadt. Davon wohnten 410.100 in Brüssel, 252.200 in Flandern und 147.600 in der Wallonie (Arbeitskräfteerhebung von Statbel, veröffentlicht vom IBSA). Rund 400.000 einpendelnde Beschäftigte besetzen somit etwa 49 % der Arbeitsplätze der Region. Die Verwaltungsdaten des Steunpunt Werk zeichnen für 2024 ein ähnliches Bild: 32,5 % der Menschen, die in Brüssel arbeiten, wohnen in Flandern, 17,8 % in der Wallonie und 48,5 % in Brüssel.",
+        "p2": "Die Löhne dieser Pendler werden im Brüsseler BIP erfasst, ihre Einkommensteuer wird jedoch ihrem Wohnort zugeordnet. Das Sonderfinanzierungsgesetz vom 16. Januar 1989 sieht vor, dass diese Steuer an dem Ort als lokalisiert gilt, an dem der Steuerpflichtige am 1. Januar des Steuerjahres seinen steuerlichen Wohnsitz hatte (Art. 5/1 § 2). Der regionale Anteil der Steuer und die kommunale Zuschlagsteuer gehen daher an die Region und die Gemeinde, in der der Pendler wohnt.",
+        "p3": "Die Nationalbank von Belgien hat das Ausmaß dieser Ströme in einer im Oktober 2025 veröffentlichten Studie gemessen. Zwischen 2010 und 2021 zahlte Brüssel im Durchschnitt jährlich 20 Milliarden Euro mehr an Arbeitseinkommen an Nichtansässige aus, als seine Einwohner außerhalb der Region verdienten. Die Folge: Das verfügbare Einkommen in Brüssel lag 33 % unter seinem BIP, während es in Flandern 4 % und in der Wallonie 15 % darüber lag. Die Bank folgert daraus, dass das regionale BIP kein relevanter Indikator für den Lebensstandard der Einwohner einer Region ist.",
+        "p4": "Die Steuerstatistik spiegelt dies wider: Die Einwohner Brüssels zahlten 5,3 Milliarden Euro der 62,8 Milliarden Euro Einkommensteuer, die auf die Einkommen 2023 geschuldet wurden, also 8,4 % des landesweiten Gesamtbetrags (Berechnung von BGM auf Grundlage von Statbel-Daten)."
       },
-      "income": {
-        "title": "Geringeres verfügbares Einkommen",
-        "description": "Trotz eines hohen BIP liegt das durchschnittliche verfügbare Einkommen pro Einwohner in Brüssel unter dem von Flandern. Armut betrifft 30 % der Brüsseler Bevölkerung. Die regionale Arbeitslosenquote (15,0 % im März 2026) ist die höchste der drei belgischen Regionen."
+      "finances": {
+        "title": "Was bedeutet das für die Finanzen der Region?",
+        "p1": "Die direkten Steuern der privaten Haushalte, zu denen der regionale Anteil der Einkommensteuer gehört, brachten 2024 1,27 Milliarden Euro ein, also 21 % der Einnahmen der Region (Volkswirtschaftliche Gesamtrechnungen, veröffentlicht vom IBSA). Dienstleistungen wie der öffentliche Nahverkehr, die Straßen oder die Sauberkeit dienen allen, die sich tagsüber in der Stadt aufhalten, Pendler eingeschlossen.",
+        "p2": "Das Sonderfinanzierungsgesetz sieht teilweise Ausgleichszahlungen vor. Seit 2017 zahlen die Flämische und die Wallonische Region an Brüssel jährlich 44 Millionen Euro, um einen Teil des Einnahmeverlusts infolge des Nettopendlerstroms auszugleichen (Art. 64quater). Eine weitere Dotation, 2016 auf 159 Millionen Euro festgesetzt und seither indexiert, gleicht teilweise die Anwesenheit von Beamten internationaler Institutionen aus (Art. 64quinquies). Die Höhe dieser Beträge ist regelmäßig Thema institutioneller Verhandlungen.",
+        "p3": "Das Bild ändert sich, wenn alle Steuern berücksichtigt werden, auch die von Unternehmen gezahlten. In ihrer Studie vom Oktober 2025, die sie selbst als experimentell bezeichnet, schätzt die Nationalbank, dass Brüssel insgesamt Nettozahler bei den Transfers zwischen den Regionen war, im Durchschnitt mit 3 Milliarden Euro pro Jahr zwischen 2010 und 2021, vor allem wegen der Steuern von Unternehmen des Finanzsektors."
       },
-      "transfers": {
-        "title": "Die Steuertransfers",
-        "description": "Das belgische Steuersystem verteilt einen Teil der Einnahmen zwischen den Regionen um. Brüssel ist sowohl Nettobeitragszahler zum nationalen BIP als auch Empfänger von Solidaritätsmechanismen. Die Frage der Finanzierung Brüssels — insbesondere der Ausgleich für Pendler — ist ein wiederkehrendes Thema in den institutionellen Verhandlungen."
+      "belgium": {
+        "title": "Ist Belgien ein reiches oder ein armes Land?",
+        "p1": "Im europäischen Vergleich ist Belgien ein Land mit hohem Einkommen. Sein BIP pro Kopf lag 2024 bei 117 % des EU-Durchschnitts in KKS (Eurostat, vorläufige Daten), und seine Quote der von Armut oder sozialer Ausgrenzung bedrohten Menschen betrug 2025 16,5 %, unter dem europäischen Durchschnitt von 20,9 %. Der nationale Durchschnitt verdeckt große regionale Unterschiede: In KKS erreichte das BIP pro Kopf 2024 119 % des EU-Durchschnitts in Flandern, 87 % in der Wallonie und 190 % in Brüssel. In Brüssel beschreiben diese Zahlen eher den Arbeitsort als die Einwohner."
       },
-      "whyMatters": {
-        "title": "Warum das für die Krise wichtig ist",
-        "description": "Das Brüsseler Paradox erklärt, warum die Regierungskrise so hart trifft: Eine strukturell unterfinanzierte Region, die zwei Jahre lang ihre Investitionsfähigkeit verliert, sieht ihre öffentlichen Dienste schneller verfallen als die beiden anderen Regionen."
+      "goFurther": {
+        "title": "Zum Weiterlesen",
+        "economy": "Wirtschaft in Brüssel (Bereich)",
+        "employment": "Beschäftigung in Brüssel (Bereich)",
+        "budget": "Der Regionalhaushalt (Bereich)",
+        "wellbeing": "Wohlbefinden und Lebensqualität in Brüssel (Dossier)",
+        "cpas": "Die 19 Brüsseler ÖSHZ (Dossier)",
+        "commuters": "Pendler (Glossar)",
+        "federal": "Der Föderalstaat und Brüssel",
+        "cosmopolitan": "Kosmopolitisches Brüssel",
+        "overview": "Brüssel im Überblick",
+        "unemployment": "Arbeitslosenquote: Brüssel im Vergleich zu anderen EU-Hauptstadtregionen (Vergleich)"
+      },
+      "method": {
+        "title": "Quellen und Methode",
+        "p1": "Das BIP wird am Ort der Produktion gemessen und dann durch die ansässige Bevölkerung geteilt: Eine Region, die viele Pendler anzieht, weist daher ein hohes BIP pro Kopf aus. Die regionalen Zahlen für 2024 sind vorläufig. Die Zahl der Pendler variiert je nach Quelle leicht: Die Arbeitskräfteerhebung beruht auf einer Stichprobe, das Steunpunt Werk auf Verwaltungsregistern. Die Armutsindikatoren stammen aus der Erhebung EU-SILC und sind mit einer Fehlermarge behaftet: Für 2024 gibt das IBSA ein Konfidenzintervall von 34,3 % bis 40,3 % um die Brüsseler Quote von 37,3 % an.",
+        "sourcesTitle": "Quellen",
+        "sources": {
+          "eurostatGdp": {
+            "label": "Eurostat, nama_10r_2gdp: regionales BIP pro Kopf",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2gdp/default/table"
+          },
+          "eurostatIncome": {
+            "label": "Eurostat, nama_10r_2hhinc: Einkommen der privaten Haushalte nach Region",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2hhinc/default/table"
+          },
+          "eurostatAropeEu": {
+            "label": "Eurostat, ilc_peps01n: Armut oder soziale Ausgrenzung nach Land",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps01n/default/table"
+          },
+          "eurostatAropeRegions": {
+            "label": "Eurostat, ilc_peps11n: Armut oder soziale Ausgrenzung nach Region",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table"
+          },
+          "ibsa": {
+            "label": "IBSA, Mini-Bru 2026 (PDF, auf Englisch)",
+            "url": "https://ibsa.brussels/sites/default/files/publication/documents/Perspective%20Brussels-Mini-Bru%202026%20ENG.pdf"
+          },
+          "statbelTax": {
+            "label": "Statbel, Steuerstatistik der Einkommen 2023",
+            "url": "https://statbel.fgov.be/de/themen/haushalte/steuerpflichtige-einkommen"
+          },
+          "statbelArope": {
+            "label": "Statbel, EU-SILC 2025: Armutsgefährdung oder soziale Ausgrenzung",
+            "url": "https://statbel.fgov.be/de/themen/haushalte/armutsgefaehrdung-und-lebensbedingungen/armutsgefaehrdung-oder-gefaehrdung-durch"
+          },
+          "statbelLfs": {
+            "label": "Statbel, Arbeitskräfteerhebung Q2 2026: Erwerbstätige und Arbeitslose",
+            "url": "https://statbel.fgov.be/de/themen/beschaeftigung-ausbildung/arbeitsmarkt/erwerbstaetigen-und-arbeitslosen"
+          },
+          "steunpuntWerk": {
+            "label": "Steunpunt Werk, Vlaamse Arbeidsrekening 2024",
+            "url": "https://www.steunpuntwerk.be/onderzoeksthemas/lokale-arbeidsmarkten/inzichten-vlaamse-arbeidsrekening"
+          },
+          "nbb": {
+            "label": "Nationalbank von Belgien, Flux et (dés)équilibres régionaux en Belgique, Oktober 2025 (PDF, auf Französisch)",
+            "url": "https://www.nbb.be/doc/ts/publications/other/regions/20251023_regions_doc_fr.pdf"
+          },
+          "financingAct": {
+            "label": "Sonderfinanzierungsgesetz vom 16. Januar 1989 (Justel, französische Fassung)",
+            "url": "https://www.ejustice.just.fgov.be/eli/loi/1989/01/16/1989021010/justel"
+          }
+        }
       }
     },
     "levelsOfPower": {

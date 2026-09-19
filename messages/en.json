@@ -967,27 +967,178 @@
       }
     },
     "brusselsParadox": {
-      "title": "The Brussels paradox: rich in GDP, poor in income",
-      "subtitle": "Why Belgium's economic capital lacks resources",
+      "metaTitle": "Is Brussels rich or poor? GDP per capita vs income",
+      "metaDescription": "Brussels had the EU's 6th-highest GDP per capita in 2024, yet a third of residents risk poverty or exclusion. How commuters and income tax explain it.",
+      "breadcrumbLabel": "The Brussels paradox",
+      "title": "Is Brussels rich or poor? The Brussels paradox explained",
+      "subtitle": "Why one of the EU's most productive regions is home to many low-income residents",
+      "checked": "Figures checked on <date>19 September 2026</date>.",
+      "answer": "Both, depending on what you measure. By what is produced on its territory, the Brussels-Capital Region is one of the richest regions in the European Union: its GDP per capita reached 190% of the EU average in 2024. By the income of the people who live there, it is the poorest of Belgium's three Regions: 33.6% of its residents were at risk of poverty or social exclusion in 2025. The gap comes largely from commuting. About half of the jobs located in Brussels are held by people who live in Flanders or Wallonia, and income tax follows the taxpayer's home address, not the workplace.",
+      "keyFigures": {
+        "title": "Key figures",
+        "gdpPps": {
+          "value": "190%",
+          "label": "GDP per capita in PPS, relative to the EU average (2024)"
+        },
+        "rank": {
+          "value": "6th",
+          "label": "of the EU's 244 regions for GDP per capita in PPS (2024)"
+        },
+        "gdpShare": {
+          "value": "17.3%",
+          "label": "of Belgian GDP produced in Brussels (2023)"
+        },
+        "commuters": {
+          "value": "≈ 400,000",
+          "label": "commuters coming in from Flanders and Wallonia (2024)"
+        },
+        "taxableIncome": {
+          "value": "€18,529",
+          "label": "net taxable income per inhabitant (2023 income)"
+        },
+        "arope": {
+          "value": "33.6%",
+          "label": "of residents at risk of poverty or social exclusion (2025)"
+        }
+      },
       "gdp": {
-        "title": "19% of Belgian GDP",
-        "description": "Brussels produces approximately 19% of Belgium's gross domestic product, with only 10% of the population. This economic wealth is explained by the concentration of European institutions, corporate headquarters, and financial services. Brussels' GDP per capita is the highest in the country."
+        "title": "What is Brussels' GDP per capita?",
+        "p1": "In 2024, GDP per capita in the Brussels-Capital Region was €85,300, against €52,300 for Belgium as a whole and €39,900 for the EU (Eurostat, provisional data published on 10 February 2026). Expressed in purchasing power standards (PPS), which correct for price differences between countries, it was 76,000 PPS, or 190% of the EU average. Among the EU's 244 NUTS 2 regions, only five were higher: Eastern and Midland in Ireland (268%), Luxembourg (245%), Southern in Ireland (217%), Hamburg (196%) and Praha (192%).",
+        "p2": "In 2023, Brussels produced 17.3% of Belgian GDP (€103.3 billion) with 10.7% of the country's population, according to the IBSA, the Brussels statistics institute. Its GDP per capita is the highest of Belgium's eleven NUTS 2 regions, ahead of Walloon Brabant (€69,500 in 2024). This output reflects a concentration of head offices, financial services, public administrations and international institutions: the IBSA counts 41,775 employees of the European institutions in Brussels on 31 December 2024."
+      },
+      "poverty": {
+        "title": "If Brussels is so rich, why are so many residents poor?",
+        "p1": "GDP measures the value produced where the work is done. It says nothing about who receives the resulting income. Measures based on the place of residence tell a different story.",
+        "p2": "Average net taxable income was €18,529 per inhabitant in Brussels for 2023 income, against €24,957 in Flanders, €22,020 in Wallonia and €23,352 for Belgium (Statbel, tax year 2024, published on 19 November 2025). The median income per tax return was €24,488 in Brussels, against €30,100 nationally. Household disposable income, which includes social benefits and deducts taxes, was €25,400 per inhabitant in 2024, below Flanders (€30,400) and Wallonia (€26,000) (Eurostat, provisional).",
+        "p3": "The EU-SILC survey shows the same pattern. In 2025, 33.6% of Brussels residents were at risk of poverty or social exclusion, against 11.4% in Flanders, 20.0% in Wallonia and 16.5% in Belgium. The at-risk-of-poverty rate, based on income alone, was 23.3% in Brussels (Statbel, published on 5 February 2026). In the second quarter of 2026, the ILO unemployment rate was 12.7% in Brussels, 8.0% in Wallonia and 4.0% in Flanders (Statbel, 9 September 2026).",
+        "p4": "One part of the gap in taxable income is statistical: officials of the European institutions do not pay Belgian income tax, so their salaries are absent from the tax statistics (Statbel). This does not explain the poverty rates, which are measured by survey on disposable income."
+      },
+      "table": {
+        "caption": "Brussels, Flanders, Wallonia and Belgium: output and income compared",
+        "indicator": "Indicator",
+        "brussels": "Brussels",
+        "flanders": "Flanders",
+        "wallonia": "Wallonia",
+        "belgium": "Belgium",
+        "rows": {
+          "gdpPps": {
+            "label": "GDP per capita in PPS, % of the EU average (2024)",
+            "bru": "190",
+            "fla": "119",
+            "wal": "87",
+            "bel": "117"
+          },
+          "disposableIncome": {
+            "label": "Household disposable income per inhabitant, 2024 (€)",
+            "bru": "25,400",
+            "fla": "30,400",
+            "wal": "26,000",
+            "bel": "28,500"
+          },
+          "taxableIncome": {
+            "label": "Net taxable income per inhabitant, 2023 income (€)",
+            "bru": "18,529",
+            "fla": "24,957",
+            "wal": "22,020",
+            "bel": "23,352"
+          },
+          "arope": {
+            "label": "At risk of poverty or social exclusion, 2025 (%)",
+            "bru": "33.6",
+            "fla": "11.4",
+            "wal": "20.0",
+            "bel": "16.5"
+          },
+          "unemployment": {
+            "label": "ILO unemployment rate, second quarter of 2026 (%)",
+            "bru": "12.7",
+            "fla": "4.0",
+            "wal": "8.0",
+            "bel": "6.1"
+          }
+        },
+        "sources": "Sources: Eurostat (GDP in PPS, household disposable income, provisional data for 2024); Statbel (net taxable income, EU-SILC 2025, Labour Force Survey Q2 2026)."
       },
       "commuters": {
-        "title": "360,000 commuters",
-        "description": "Every day, approximately 360,000 workers commute to Brussels from Flanders and Wallonia. They contribute to Brussels' GDP but pay their income taxes in their municipality of residence. Brussels bears the infrastructure costs without benefiting from the corresponding tax revenues."
+        "title": "Where does the money go? Commuters and income tax",
+        "p1": "In 2024, 809,900 people aged 15 to 64 worked in the Brussels-Capital Region. Of these, 410,100 lived in Brussels, 252,200 in Flanders and 147,600 in Wallonia (Statbel Labour Force Survey, published by the IBSA). Around 400,000 incoming commuters therefore hold about 49% of the jobs in the Region. Administrative data from Steunpunt Werk give a similar picture for 2024: 32.5% of people working in Brussels live in Flanders, 17.8% in Wallonia and 48.5% in Brussels.",
+        "p2": "These commuters' wages are counted in Brussels' GDP, but their personal income tax is attributed to their home. The Special Financing Act of 16 January 1989 states that personal income tax “is deemed to be located where the taxpayer had their tax domicile on 1 January of the tax year” (art. 5/1, § 2). The regional share of the tax, and the surcharge levied by municipalities, therefore go to the Region and municipality where the commuter lives.",
+        "p3": "The National Bank of Belgium measured the size of these flows in a study published in October 2025. Between 2010 and 2021, Brussels paid out on average €20 billion more per year in labour income to non-residents than its residents earned outside the Region. As a result, disposable income in Brussels was 33% lower than its GDP, while it was 4% higher in Flanders and 15% higher in Wallonia. The Bank concludes that regional GDP is not a relevant indicator of the standard of living of a region's residents.",
+        "p4": "The tax statistics reflect this: Brussels residents paid €5.3 billion of the €62.8 billion in personal income tax due on 2023 income, or 8.4% of the national total (BGM calculation from Statbel data)."
       },
-      "income": {
-        "title": "Lower disposable income",
-        "description": "Despite a high GDP, the average disposable income per capita in Brussels is lower than in Flanders. Poverty affects 30% of the Brussels population. The regional unemployment rate (15.0% in March 2026) is the highest of the three Belgian Regions."
+      "finances": {
+        "title": "What does this mean for the Region's finances?",
+        "p1": "Direct taxes on households, which include the Region's share of personal income tax, brought in €1.27 billion in 2024, or 21% of the Region's receipts (national accounts, published by the IBSA). Services such as public transport, roads and cleaning serve everyone present in the city during the day, including commuters.",
+        "p2": "The Special Financing Act provides partial compensation. Since 2017, the Flemish and Walloon Regions have paid Brussels €44 million per year “to compensate for part of the loss of revenue resulting from the net flow of commuters” (art. 64quater). A separate allocation, set at €159 million in 2016 and indexed since, partly compensates for the presence of officials of international institutions (art. 64quinquies). The level of these amounts is a recurring subject of institutional negotiations.",
+        "p3": "The picture changes when all taxes are counted, including those paid by companies. In its October 2025 study, which it describes as experimental, the National Bank estimates that Brussels as a whole was a net contributor to transfers between Regions, by €3 billion per year on average between 2010 and 2021, mainly because of taxes paid by companies in the financial sector."
       },
-      "transfers": {
-        "title": "Fiscal transfers",
-        "description": "The Belgian tax system redistributes part of the revenue between Regions. Brussels is both a net contributor to national GDP and a beneficiary of solidarity mechanisms. The question of Brussels' funding — particularly compensation for commuters — is a recurring theme in institutional negotiations."
+      "belgium": {
+        "title": "Is Belgium a rich or a poor country?",
+        "p1": "By EU standards, Belgium is a high-income country. Its GDP per capita was 117% of the EU average in PPS in 2024 (Eurostat, provisional), and its rate of risk of poverty or social exclusion was 16.5% in 2025, below the EU average of 20.9%. The national average hides wide regional gaps: in PPS, GDP per capita was 119% of the EU average in Flanders, 87% in Wallonia and 190% in Brussels in 2024. In Brussels, those figures describe the workplace more than the residents."
       },
-      "whyMatters": {
-        "title": "Why this matters for the crisis",
-        "description": "The Brussels paradox explains why the government crisis hits so hard: a structurally underfunded Region that loses its investment capacity for two years sees its public services deteriorate faster than the other two Regions."
+      "goFurther": {
+        "title": "Go further",
+        "economy": "The economy in Brussels (domain card)",
+        "employment": "Employment in Brussels (domain card)",
+        "budget": "The regional budget (domain card)",
+        "wellbeing": "Well-being and quality of life in Brussels (dossier)",
+        "cpas": "The 19 Brussels CPASs (dossier)",
+        "commuters": "Commuters (glossary)",
+        "federal": "The Federal State and Brussels",
+        "cosmopolitan": "Cosmopolitan Brussels",
+        "overview": "Brussels at a glance",
+        "unemployment": "Unemployment rates: Brussels compared to other EU capital regions (comparison)"
+      },
+      "method": {
+        "title": "Sources and method",
+        "p1": "GDP is measured at the place of production and divided by the resident population, so a region that draws many commuters shows a high GDP per capita. 2024 regional figures are provisional. Commuter counts differ slightly by source: the Labour Force Survey is a sample survey, while Steunpunt Werk uses administrative registers. Poverty indicators come from the EU-SILC survey and carry a margin of error: for 2024, the IBSA gives a confidence interval of 34.3% to 40.3% around the Brussels rate of 37.3%.",
+        "sourcesTitle": "Sources",
+        "sources": {
+          "eurostatGdp": {
+            "label": "Eurostat, nama_10r_2gdp: regional GDP per inhabitant",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2gdp/default/table"
+          },
+          "eurostatIncome": {
+            "label": "Eurostat, nama_10r_2hhinc: household income by region",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2hhinc/default/table"
+          },
+          "eurostatAropeEu": {
+            "label": "Eurostat, ilc_peps01n: risk of poverty or social exclusion by country",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps01n/default/table"
+          },
+          "eurostatAropeRegions": {
+            "label": "Eurostat, ilc_peps11n: risk of poverty or social exclusion by region",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table"
+          },
+          "ibsa": {
+            "label": "IBSA, Mini-Bru 2026 (PDF)",
+            "url": "https://ibsa.brussels/sites/default/files/publication/documents/Perspective%20Brussels-Mini-Bru%202026%20ENG.pdf"
+          },
+          "statbelTax": {
+            "label": "Statbel, fiscal statistics on 2023 income",
+            "url": "https://statbel.fgov.be/en/themes/households/taxable-income"
+          },
+          "statbelArope": {
+            "label": "Statbel, EU-SILC 2025: risk of poverty or social exclusion",
+            "url": "https://statbel.fgov.be/en/themes/households/poverty-and-living-conditions/risk-poverty-or-social-exclusion"
+          },
+          "statbelLfs": {
+            "label": "Statbel, Labour Force Survey Q2 2026: employment and unemployment",
+            "url": "https://statbel.fgov.be/en/themes/work-training/labour-market/employment-and-unemployment"
+          },
+          "steunpuntWerk": {
+            "label": "Steunpunt Werk, Vlaamse Arbeidsrekening 2024",
+            "url": "https://www.steunpuntwerk.be/onderzoeksthemas/lokale-arbeidsmarkten/inzichten-vlaamse-arbeidsrekening"
+          },
+          "nbb": {
+            "label": "National Bank of Belgium, Flux et (dés)équilibres régionaux en Belgique, October 2025 (PDF, in French)",
+            "url": "https://www.nbb.be/doc/ts/publications/other/regions/20251023_regions_doc_fr.pdf"
+          },
+          "financingAct": {
+            "label": "Special Financing Act of 16 January 1989 (Justel, French version)",
+            "url": "https://www.ejustice.just.fgov.be/eli/loi/1989/01/16/1989021010/justel"
+          }
+        }
       }
     },
     "levelsOfPower": {

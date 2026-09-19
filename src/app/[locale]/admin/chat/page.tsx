@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Metadata } from 'next';
+import { requireAdmin } from '@/lib/require-admin';
 import { readLogs, isPersistentStoreConfigured } from '@/lib/chat-logs';
 
 export const dynamic = 'force-dynamic';
@@ -93,7 +94,9 @@ function ratingEmoji(value: number | null | undefined): string {
 }
 
 export default async function AdminChatPage() {
-  // Session vérifiée une seule fois par src/app/[locale]/admin/layout.tsx.
+  await requireAdmin();
+  // Le layout contrôle aussi la session, mais Next rend la page même quand il
+  // redirige : le contrôle ci-dessus est celui qui protège les données.
   const storeConfigured = isPersistentStoreConfigured();
   const isVercel = Boolean(process.env.VERCEL);
 

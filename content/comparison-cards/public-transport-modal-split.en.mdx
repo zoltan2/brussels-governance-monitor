@@ -1,71 +1,92 @@
 ---
-title: "Public transport modal split: European capitals compared"
+title: "Share of train and bus in passenger transport: six countries compared"
 slug: public-transport-modal-split
 locale: en
 comparisonType: international
 entities:
-  - name: "Brussels-Capital"
-    code: "BE10"
-  - name: "Wien"
-    code: "AT13"
-  - name: "Hovedstaden"
-    code: "DK01"
-  - name: "Zuid-Holland"
-    code: "NL33"
-  - name: "Berlin"
-    code: "DE30"
-  - name: "Île-de-France"
-    code: "FR10"
-indicator: "Public transport modal share in inland passenger transport"
+  - name: "Belgium"
+    code: "BE"
+  - name: "Austria"
+    code: "AT"
+  - name: "Denmark"
+    code: "DK"
+  - name: "Netherlands"
+    code: "NL"
+  - name: "Germany"
+    code: "DE"
+  - name: "France"
+    code: "FR"
+indicator: "Share of trains, motor coaches, buses and trolley buses in inland passenger transport (passenger-kilometres)"
 sourceDataset:
-  name: "Eurostat — tran_hv_psmod"
+  name: "Eurostat, tran_hv_psmod (modal split of inland passenger transport)"
   url: "https://ec.europa.eu/eurostat/databrowser/product/view/tran_hv_psmod"
   code: "tran_hv_psmod"
-methodology: "Comparison of the modal share of collective transport (buses, trams, metro, trains) in total inland passenger transport (in passenger-kilometres), published by Eurostat at national level. National data serve as a proxy for capital regions, which generally have a higher modal share than the national average due to the density of the public transport supply."
+methodology: "Share of trains and of motor coaches, buses and trolley buses in total passenger-kilometres travelled by passenger car, bus or coach and train, at national level. Eurostat dataset tran_hv_psmod, year 2024, extracted on 19 September 2026 (Eurostat update of 26 August 2026). Only these three modes are covered: tram, metro, walking and cycling are not, and depending on the country urban buses may or may not be included."
 dataPoints:
-  - entity: "BE10"
-    value: "21,7 %"
-    date: "2022-12-31"
-  - entity: "AT13"
-    value: "29,8 %"
-    date: "2022-12-31"
-  - entity: "DK01"
-    value: "14,2 %"
-    date: "2022-12-31"
-  - entity: "NL33"
-    value: "11,4 %"
-    date: "2022-12-31"
-  - entity: "DE30"
-    value: "18,4 %"
-    date: "2022-12-31"
-  - entity: "FR10"
-    value: "19,5 %"
-    date: "2022-12-31"
-caveat: "Modal split data are published at national level, not regional level. Capital regions generally have a higher public transport modal share than the national average. Comparisons are therefore indicative. Moreover, the definition of collective transport and the methods for measuring passenger-kilometres may vary between countries."
-lastModified: "2026-02-10"
+  - entity: "AT"
+    value: "23.8% (estimate)"
+    date: "2024-12-31"
+  - entity: "BE"
+    value: "20.5% (estimate)"
+    date: "2024-12-31"
+  - entity: "FR"
+    value: "17.4%"
+    date: "2024-12-31"
+  - entity: "DK"
+    value: "16.9%"
+    date: "2024-12-31"
+  - entity: "DE"
+    value: "15.9% (estimate)"
+    date: "2024-12-31"
+  - entity: "NL"
+    value: "14.0% (estimate)"
+    date: "2024-12-31"
+caveat: "National, not regional data: they do not describe Brussels. The 2024 values for Belgium, Austria, Germany and the Netherlands are Eurostat estimates; for Belgium, rail has been estimated since 2012 from the trend observed in the Netherlands and Luxembourg. Eurostat also notes that methods differ between countries, particularly for passenger cars."
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "European comparison of train and bus: values, year and method corrected. This page showed 2022 figures that did not match the Eurostat dataset it cited, and described an indicator including tram and metro. Dataset tran_hv_psmod only covers trains and motor coaches, buses and trolley buses, at national level. In 2024, their share was 20.5% in Belgium, 23.8% in Austria and 14.0% in the Netherlands. Passages written before the Brussels government was formed have been removed."
+changeSummaryDate: "2026-09-19"
 ---
 
-## Context
+## What the indicator measures
 
-The public transport modal split measures the proportion of passenger-kilometres travelled by bus, tram, metro and train relative to total inland passenger transport. This indicator, published annually by Eurostat (tran_hv_psmod), enables comparison of collective transport use across European countries. The 2022 data represent the latest complete year available at the time of writing.
+Eurostat publishes the modal split of inland passenger transport every year (dataset tran_hv_psmod). The indicator used here is the share of **trains** and of **motor coaches, buses and trolley buses** in total passenger-kilometres travelled by passenger car, bus or coach and train.
+
+It covers neither tram, nor metro, nor walking, nor cycling. Depending on the country, urban buses may or may not be included. The data are national: they describe Belgium as a whole, not Brussels.
+
+The values below refer to **2024**, the latest year available in the Eurostat update of 26 August 2026.
 
 ## The data compared
 
-Austria stands out clearly with a modal share of 29.8%, the highest among the six selected countries. This result reflects sustained investment in rail infrastructure (OBB) and the excellence of Vienna's public transport network (Wiener Linien), which combines metro, tram and bus into an integrated, affordably priced offering. The introduction of the KlimaTicket at 1,095 euros per year for the entire national network has further boosted the attractiveness of collective transport.
+| Country | Train | Coaches, buses, trolley buses | Train and bus | Car |
+|---|---|---|---|---|
+| Austria | 13.7% | 10.1% | 23.8% | 76.2% |
+| Belgium | 9.7% | 10.8% | 20.5% | 79.5% |
+| France | 11.6% | 5.9% | 17.4% | 82.6% |
+| Denmark | 7.7% | 9.2% | 16.9% | 83.1% |
+| Germany | 10.6% | 5.3% | 15.9% | 84.1% |
+| Netherlands | 11.0% | 3.0% | 14.0% | 86.0% |
 
-Belgium occupies an intermediate position at 21.7%. In Brussels, the STIB/MIVB operates a dense network that pushes the regional modal share well above the national average. The Brussels network carries more than 400 million passengers annually. However, this national figure masks disparities between the capital and the rural areas of Wallonia and Flanders, where the private car remains largely dominant. France (19.5%) and Germany (18.4%) occupy comparable positions, with developed public transport networks in their respective capitals but national modal shares pulled downward by peri-urban and rural territories.
+Austria has the highest share in the panel, 23.8%. Belgium follows with **20.5%**, of which 9.7% by train and 10.8% by bus and coach. In the Netherlands, the share of rail (11.0%) is higher than in Belgium, but buses and coaches account for only 3.0%.
 
-The Netherlands (11.4%) and Denmark (14.2%) show the lowest modal shares in the panel. This counter-intuitive result for two countries renowned for their sustainable mobility is explained by the dominance of cycling in daily travel. In Copenhagen, nearly 30% of commuting trips are made by bicycle, which mechanically reduces the share of public transport without implying greater car use. The same logic applies to the Netherlands, where cycling accounts for approximately 27% of trips.
+In Belgium, this share was 19.3% in 2019, 15.5% in 2020 and 15.1% in 2021, then 20.5% in 2024.
 
-## Implications for Brussels
+The 2024 values for Belgium, Austria, Germany and the Netherlands are Eurostat estimates.
 
-The absence of a fully empowered regional government since June 2024 has direct consequences for public transport investment capacity. The Metro 3 project, intended to connect the north and south of the Region via a new metro line, is frozen due to the lack of political arbitration and budget validation. Investments in tram network extensions and frequency improvements are also on hold.
+## What about Brussels?
 
-Without new transport capacity, Brussels risks seeing its modal share stagnate or even decline, while other European capitals continue their investments. Vienna continues to expand its metro network (U5 line under construction), Berlin is investing in extensions of several U-Bahn and S-Bahn lines, and Paris is completing the Grand Paris Express, the largest transport infrastructure project in Europe. Each year of inaction widens the gap with these benchmark cities.
+The European indicator says nothing about Brussels in particular. For the Region, the available measure is different: according to IBSA's Mini-Bru 2026, **27.0%** of trips made by Brussels residents in 2024 were by metro, tram or bus, and 2.0% by train. This is a share of the number of trips, not of kilometres travelled, taken from the BELDAM surveys and Brussels Mobility: the two figures are not comparable. The detail is in the [Mobility page](/en/domains/mobility).
+
+STIB recorded **396.1 million journeys** in 2025, according to its press release of 27 May 2026.
+
+## Stakes for Brussels
+
+The regional policy declaration of 13 February 2026 provides for running trams, "instead of the metro initially planned", in the tunnels of the Albert-Nord axis near the Gare du Midi. The detail is in the [Metro 3 dossier](/en/dossiers/metro-3).
 
 ## Sources
 
-- Eurostat, Inland passenger transport by mode of transport (tran_hv_psmod), 2022 data, extracted February 2026
-- STIB/MIVB, Annual Report 2023
-- Wiener Linien, Activity Report 2023
-- European Commission, EU Transport in Figures — Statistical Pocketbook 2024
+- [Eurostat, tran_hv_psmod, Modal split of inland passenger transport](https://ec.europa.eu/eurostat/databrowser/product/view/tran_hv_psmod), 2024 data, update of 26 August 2026, extracted on 19 September 2026
+- [Eurostat, modal split metadata (tran_hv_ms)](https://ec.europa.eu/eurostat/cache/metadata/en/tran_hv_ms_esms.htm)
+- [IBSA, Mini-Bru 2026, p. 30 (PDF, French)](https://ibsa.brussels/sites/default/files/publication/documents/Perspective%20Brussels-Mini-Bru%202026%20FR.pdf)
+- [STIB, press release of 27 May 2026](https://stib.prezly.com/pres-de-400-millions-de-voyages-en-2025-et-un-taux-de-couverture-en-hausse)
+- [Regional policy declaration of 13 February 2026 (PDF, Brussels Parliament)](https://www.parlement.brussels/wp-content/uploads/2026/02/Declaration-de-politique-2.pdf)

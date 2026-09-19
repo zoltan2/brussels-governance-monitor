@@ -1,71 +1,92 @@
 ---
-title: "Modaler Anteil des öffentlichen Verkehrs: europäische Hauptstädte im Vergleich"
+title: "Anteil von Zug und Bus am Personenverkehr: sechs Länder im Vergleich"
 slug: public-transport-modal-split
 locale: de
 comparisonType: international
 entities:
-  - name: "Brüssel-Hauptstadt"
-    code: "BE10"
-  - name: "Wien"
-    code: "AT13"
-  - name: "Hovedstaden"
-    code: "DK01"
-  - name: "Zuid-Holland"
-    code: "NL33"
-  - name: "Berlin"
-    code: "DE30"
-  - name: "Île-de-France"
-    code: "FR10"
-indicator: "Modaler Anteil des öffentlichen Verkehrs am Personenverkehr im Inland"
+  - name: "Belgien"
+    code: "BE"
+  - name: "Österreich"
+    code: "AT"
+  - name: "Dänemark"
+    code: "DK"
+  - name: "Niederlande"
+    code: "NL"
+  - name: "Deutschland"
+    code: "DE"
+  - name: "Frankreich"
+    code: "FR"
+indicator: "Anteil von Zügen, Reisebussen, Bussen und Oberleitungsbussen am inländischen Personenverkehr (Personenkilometer)"
 sourceDataset:
-  name: "Eurostat — tran_hv_psmod"
+  name: "Eurostat, tran_hv_psmod (Modal Split des inländischen Personenverkehrs)"
   url: "https://ec.europa.eu/eurostat/databrowser/product/view/tran_hv_psmod"
   code: "tran_hv_psmod"
-methodology: "Vergleich des modalen Anteils des öffentlichen Verkehrs (Busse, Straßenbahnen, U-Bahn, Eisenbahn) am gesamten inländischen Personenverkehr (in Personenkilometern), veröffentlicht von Eurostat auf nationaler Ebene. Die nationalen Daten dienen als Näherungswert für die Hauptstadtregionen, die aufgrund der höheren Dichte des öffentlichen Verkehrsangebots in der Regel einen höheren modalen Anteil aufweisen als der nationale Durchschnitt."
+methodology: "Anteil von Zügen sowie Reisebussen, Bussen und Oberleitungsbussen an den gesamten Personenkilometern mit Pkw, Bus oder Reisebus und Zug, auf nationaler Ebene. Eurostat-Datensatz tran_hv_psmod, Jahr 2024, abgerufen am 19. September 2026 (Eurostat-Aktualisierung vom 26. August 2026). Nur diese drei Verkehrsarten sind erfasst: Straßenbahn, U-Bahn, Fußwege und Radverkehr nicht, und je nach Land können Stadtbusse enthalten sein oder nicht."
 dataPoints:
-  - entity: "BE10"
-    value: "21,7 %"
-    date: "2022-12-31"
-  - entity: "AT13"
-    value: "29,8 %"
-    date: "2022-12-31"
-  - entity: "DK01"
-    value: "14,2 %"
-    date: "2022-12-31"
-  - entity: "NL33"
-    value: "11,4 %"
-    date: "2022-12-31"
-  - entity: "DE30"
-    value: "18,4 %"
-    date: "2022-12-31"
-  - entity: "FR10"
-    value: "19,5 %"
-    date: "2022-12-31"
-caveat: "Die Daten zum modalen Anteil werden auf nationaler Ebene veröffentlicht, nicht auf regionaler Ebene. Hauptstadtregionen weisen in der Regel einen höheren modalen Anteil des öffentlichen Verkehrs auf als der nationale Durchschnitt. Die Vergleiche sind daher indikativ. Darüber hinaus können die Definition des öffentlichen Verkehrs und die Messmethoden für Personenkilometer zwischen den Ländern variieren."
-lastModified: "2026-02-10"
+  - entity: "AT"
+    value: "23,8 % (Schätzung)"
+    date: "2024-12-31"
+  - entity: "BE"
+    value: "20,5 % (Schätzung)"
+    date: "2024-12-31"
+  - entity: "FR"
+    value: "17,4 %"
+    date: "2024-12-31"
+  - entity: "DK"
+    value: "16,9 %"
+    date: "2024-12-31"
+  - entity: "DE"
+    value: "15,9 % (Schätzung)"
+    date: "2024-12-31"
+  - entity: "NL"
+    value: "14,0 % (Schätzung)"
+    date: "2024-12-31"
+caveat: "Nationale, keine regionalen Daten: Sie beschreiben Brüssel nicht. Die Werte 2024 für Belgien, Österreich, Deutschland und die Niederlande sind Schätzungen von Eurostat; für Belgien wird die Bahn seit 2012 anhand der Entwicklung in den Niederlanden und in Luxemburg geschätzt. Eurostat weist zudem darauf hin, dass die Methoden je nach Land voneinander abweichen, vor allem bei den Pkw."
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Europäischer Vergleich von Zug und Bus: Werte, Jahr und Methode korrigiert. Diese Seite zeigte Zahlen für 2022, die nicht mit dem zitierten Eurostat-Datensatz übereinstimmten, und beschrieb einen Indikator mit Straßenbahn und U-Bahn. Der Datensatz tran_hv_psmod umfasst nur Züge sowie Reisebusse, Busse und Oberleitungsbusse, auf nationaler Ebene. 2024 lag ihr Anteil bei 20,5 % in Belgien, 23,8 % in Österreich und 14,0 % in den Niederlanden. Passagen aus der Zeit vor der Bildung der Brüsseler Regierung wurden entfernt."
+changeSummaryDate: "2026-09-19"
 ---
 
-## Kontext
+## Was der Indikator misst
 
-Der modale Anteil des öffentlichen Verkehrs misst den Anteil der Personenkilometer, die mit Bus, Straßenbahn, U-Bahn und Eisenbahn zurückgelegt werden, am gesamten inländischen Personenverkehr. Dieser Indikator, der jährlich von Eurostat (tran_hv_psmod) veröffentlicht wird, ermöglicht einen Vergleich der Nutzung des öffentlichen Verkehrs zwischen europäischen Ländern. Die Daten von 2022 stellen das letzte vollständige verfügbare Jahr zum Zeitpunkt der Erstellung dar.
+Eurostat veröffentlicht jedes Jahr den Modal Split des inländischen Personenverkehrs (Datensatz tran_hv_psmod). Der hier verwendete Indikator ist der Anteil von **Zügen** sowie von **Reisebussen, Bussen und Oberleitungsbussen** an den gesamten Personenkilometern mit Pkw, Bus oder Reisebus und Zug.
+
+Er umfasst weder Straßenbahn noch U-Bahn, weder Fußwege noch Radverkehr. Je nach Land können Stadtbusse enthalten sein oder nicht. Die Daten sind national: Sie beschreiben ganz Belgien, nicht Brüssel.
+
+Die folgenden Werte betreffen **2024**, das letzte verfügbare Jahr in der Eurostat-Aktualisierung vom 26. August 2026.
 
 ## Die verglichenen Daten
 
-Österreich hebt sich deutlich ab mit einem modalen Anteil von 29,8 %, dem höchsten unter den sechs ausgewählten Ländern. Dieses Ergebnis erklärt sich durch anhaltende Investitionen in die Schieneninfrastruktur (ÖBB) und durch die hervorragende Qualität des Wiener öffentlichen Verkehrsnetzes (Wiener Linien), das U-Bahn, Straßenbahn und Bus in einem integrierten und erschwinglichen Angebot vereint. Die Einführung des KlimaTickets für 1 095 Euro pro Jahr für das gesamte nationale Netz hat die Attraktivität des öffentlichen Verkehrs weiter gestärkt.
+| Land | Zug | Reisebusse, Busse, Oberleitungsbusse | Zug und Bus | Pkw |
+|---|---|---|---|---|
+| Österreich | 13,7 % | 10,1 % | 23,8 % | 76,2 % |
+| Belgien | 9,7 % | 10,8 % | 20,5 % | 79,5 % |
+| Frankreich | 11,6 % | 5,9 % | 17,4 % | 82,6 % |
+| Dänemark | 7,7 % | 9,2 % | 16,9 % | 83,1 % |
+| Deutschland | 10,6 % | 5,3 % | 15,9 % | 84,1 % |
+| Niederlande | 11,0 % | 3,0 % | 14,0 % | 86,0 % |
 
-Belgien nimmt mit 21,7 % eine mittlere Position ein. In Brüssel sorgt die STIB/MIVB für ein dichtes Netz, das den regionalen modalen Anteil deutlich über den nationalen Durchschnitt hebt. Das Brüsseler Netz befördert jährlich mehr als 400 Millionen Fahrgäste. Diese nationale Zahl verdeckt jedoch die Unterschiede zwischen der Hauptstadt und den ländlichen Gebieten Walloniens und Flanderns, wo der Privatwagen weitgehend dominant bleibt. Frankreich (19,5 %) und Deutschland (18,4 %) nehmen vergleichbare Positionen ein, mit ausgebauten öffentlichen Verkehrsnetzen in ihren jeweiligen Hauptstädten, aber einem nationalen modalen Anteil, der durch stadt- und landnahe Gebiete nach unten gezogen wird.
+Österreich hat mit 23,8 % den höchsten Anteil im Vergleich. Belgien folgt mit **20,5 %**, davon 9,7 % mit dem Zug und 10,8 % mit Bussen und Reisebussen. In den Niederlanden liegt der Anteil der Bahn (11,0 %) höher als in Belgien, Busse und Reisebusse kommen dort aber nur auf 3,0 %.
 
-Die Niederlande (11,4 %) und Dänemark (14,2 %) zeigen die niedrigsten modalen Anteile im Panel. Dieses kontraintuitive Ergebnis für zwei Länder, die für ihre nachhaltige Mobilität bekannt sind, erklärt sich durch die Dominanz des Fahrrads im täglichen Verkehr. In Kopenhagen werden fast 30 % der Pendelfahrten mit dem Fahrrad zurückgelegt, was den Anteil des öffentlichen Verkehrs mechanisch senkt, ohne dass dies einen vermehrten Autogebrauch bedeutet. Die gleiche Logik gilt für die Niederlande, wo das Fahrrad etwa 27 % der Wege ausmacht.
+In Belgien lag dieser Anteil 2019 bei 19,3 %, 2020 bei 15,5 % und 2021 bei 15,1 %, und danach 2024 bei 20,5 %.
+
+Die Werte 2024 für Belgien, Österreich, Deutschland und die Niederlande sind Schätzungen von Eurostat.
+
+## Und Brüssel?
+
+Der europäische Indikator sagt nichts über Brüssel im Besonderen. Für die Region steht eine andere Messung zur Verfügung: Laut dem Mini-Bru 2026 des IBSA wurden 2024 **27,0 %** der Wege der Brüsseler mit Metro, Straßenbahn oder Bus zurückgelegt und 2,0 % mit dem Zug. Das ist ein Anteil an der Zahl der Wege, nicht an den zurückgelegten Kilometern, aus den BELDAM-Erhebungen und von Brüssel Mobilität: Beide Zahlen sind nicht vergleichbar. Die Einzelheiten stehen auf der [Seite Mobilität](/de/bereiche/mobility).
+
+Die STIB verzeichnete 2025 **396,1 Millionen Fahrten**, laut ihrer Pressemitteilung vom 27. Mai 2026.
 
 ## Herausforderungen für Brüssel
 
-Das Fehlen einer voll handlungsfähigen Regionalregierung seit Juni 2024 hat direkte Auswirkungen auf die Investitionskapazität im öffentlichen Verkehr. Das Projekt Metro 3, das den Norden und Süden der Region über eine neue U-Bahn-Linie verbinden sollte, liegt mangels politischer Entscheidung und Haushaltsfreigabe auf Eis. Investitionen in die Erweiterung des Straßenbahnnetzes und die Verbesserung der Taktfrequenzen sind ebenfalls ausgesetzt.
-
-Ohne neue Verkehrskapazitäten droht der modale Anteil Brüssels zu stagnieren oder gar zurückzugehen, während andere europäische Hauptstädte ihre Investitionen fortsetzen. Wien baut sein U-Bahn-Netz weiter aus (Linie U5 im Bau), Berlin investiert in die Verlängerung mehrerer U-Bahn- und S-Bahn-Linien, und Paris vollendet den Grand Paris Express, das größte Verkehrsinfrastrukturprojekt Europas. Jedes Jahr ohne Handeln vergrößert den Abstand zu diesen Referenzstädten.
+Die regionale Politikerklärung vom 13. Februar 2026 sieht vor, die Tunnel der Achse Albert-Nord am Südbahnhof mit der Straßenbahn zu betreiben, anstelle der ursprünglich geplanten Metro. Die Einzelheiten stehen im [Dossier Metro 3](/de/dossiers/metro-3).
 
 ## Quellen
 
-- Eurostat, Personenverkehr im Inland nach Verkehrsträger (tran_hv_psmod), Daten 2022, extrahiert im Februar 2026
-- STIB/MIVB, Jahresbericht 2023
-- Wiener Linien, Tätigkeitsbericht 2023
-- Europäische Kommission, EU Transport in Figures — Statistical Pocketbook 2024
+- [Eurostat, tran_hv_psmod, Modal split of inland passenger transport](https://ec.europa.eu/eurostat/databrowser/product/view/tran_hv_psmod), Daten 2024, Aktualisierung vom 26. August 2026, abgerufen am 19. September 2026
+- [Eurostat, Metadaten zum Modal Split (tran_hv_ms)](https://ec.europa.eu/eurostat/cache/metadata/en/tran_hv_ms_esms.htm)
+- [IBSA, Mini-Bru 2026, S. 30 (PDF, französisch)](https://ibsa.brussels/sites/default/files/publication/documents/Perspective%20Brussels-Mini-Bru%202026%20FR.pdf)
+- [STIB, Pressemitteilung vom 27. Mai 2026](https://stib.prezly.com/pres-de-400-millions-de-voyages-en-2025-et-un-taux-de-couverture-en-hausse)
+- [Regionale Politikerklärung vom 13. Februar 2026 (PDF, Brüsseler Parlament)](https://www.parlement.brussels/wp-content/uploads/2026/02/Declaration-de-politique-2.pdf)

@@ -1,71 +1,92 @@
 ---
-title: "Part modale des transports publics : capitales européennes comparées"
+title: "Part du train et du bus dans le transport de passagers : six pays comparés"
 slug: public-transport-modal-split
 locale: fr
 comparisonType: international
 entities:
-  - name: "Bruxelles-Capitale"
-    code: "BE10"
-  - name: "Wien"
-    code: "AT13"
-  - name: "Hovedstaden"
-    code: "DK01"
-  - name: "Zuid-Holland"
-    code: "NL33"
-  - name: "Berlin"
-    code: "DE30"
-  - name: "Île-de-France"
-    code: "FR10"
-indicator: "Part modale des transports publics dans le transport intérieur de passagers"
+  - name: "Belgique"
+    code: "BE"
+  - name: "Autriche"
+    code: "AT"
+  - name: "Danemark"
+    code: "DK"
+  - name: "Pays-Bas"
+    code: "NL"
+  - name: "Allemagne"
+    code: "DE"
+  - name: "France"
+    code: "FR"
+indicator: "Part des trains, autobus, autocars et trolleybus dans le transport intérieur de passagers (passagers-kilomètres)"
 sourceDataset:
-  name: "Eurostat — tran_hv_psmod"
+  name: "Eurostat, tran_hv_psmod (répartition modale du transport intérieur de passagers)"
   url: "https://ec.europa.eu/eurostat/databrowser/product/view/tran_hv_psmod"
   code: "tran_hv_psmod"
-methodology: "Comparaison de la part modale des transports collectifs (bus, tramways, métro, trains) dans le transport intérieur total de passagers (en passagers-kilomètres), publiée par Eurostat au niveau national. Les données nationales servent de proxy pour les régions-capitales, qui ont généralement une part modale plus élevée que la moyenne nationale en raison de la densité de l'offre de transport public."
+methodology: "Part des trains et des autobus, autocars et trolleybus dans le total des passagers-kilomètres parcourus en voiture particulière, en autobus ou autocar et en train, au niveau national. Jeu Eurostat tran_hv_psmod, année 2024, extrait le 19 septembre 2026 (mise à jour Eurostat du 26 août 2026). Seuls ces trois modes sont couverts : le tram, le métro, la marche et le vélo n'en font pas partie, et selon les pays les autobus urbains peuvent être inclus ou non."
 dataPoints:
-  - entity: "BE10"
-    value: "21,7 %"
-    date: "2022-12-31"
-  - entity: "AT13"
-    value: "29,8 %"
-    date: "2022-12-31"
-  - entity: "DK01"
-    value: "14,2 %"
-    date: "2022-12-31"
-  - entity: "NL33"
-    value: "11,4 %"
-    date: "2022-12-31"
-  - entity: "DE30"
-    value: "18,4 %"
-    date: "2022-12-31"
-  - entity: "FR10"
-    value: "19,5 %"
-    date: "2022-12-31"
-caveat: "Les données de part modale sont publiées au niveau national et non régional. Les régions-capitales ont généralement une part modale des transports publics plus élevée que la moyenne nationale. Les comparaisons sont donc indicatives. Par ailleurs, la définition des transports collectifs et les méthodes de mesure des passagers-kilomètres peuvent varier entre les pays."
-lastModified: "2026-02-10"
+  - entity: "AT"
+    value: "23,8 % (estimation)"
+    date: "2024-12-31"
+  - entity: "BE"
+    value: "20,5 % (estimation)"
+    date: "2024-12-31"
+  - entity: "FR"
+    value: "17,4 %"
+    date: "2024-12-31"
+  - entity: "DK"
+    value: "16,9 %"
+    date: "2024-12-31"
+  - entity: "DE"
+    value: "15,9 % (estimation)"
+    date: "2024-12-31"
+  - entity: "NL"
+    value: "14,0 % (estimation)"
+    date: "2024-12-31"
+caveat: "Données nationales, et non régionales : elles ne décrivent pas Bruxelles. Les valeurs 2024 de la Belgique, de l'Autriche, de l'Allemagne et des Pays-Bas sont des estimations d'Eurostat ; pour la Belgique, le rail est estimé depuis 2012 d'après l'évolution observée aux Pays-Bas et au Luxembourg. Eurostat signale aussi que les méthodes diffèrent d'un pays à l'autre, en particulier pour les voitures particulières."
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Comparaison européenne du train et du bus : valeurs, année et méthode corrigées. Cette fiche présentait des chiffres 2022 qui ne correspondaient pas au jeu Eurostat cité, et décrivait un indicateur incluant le tram et le métro. Le jeu tran_hv_psmod ne couvre que les trains et les autobus, autocars et trolleybus, au niveau national. En 2024, leur part atteint 20,5 % en Belgique, 23,8 % en Autriche et 14,0 % aux Pays-Bas. Les passages antérieurs à la formation du gouvernement bruxellois sont retirés."
+changeSummaryDate: "2026-09-19"
 ---
 
-## Contexte
+## Ce que mesure l'indicateur
 
-La part modale des transports publics mesure la proportion de passagers-kilomètres effectués en bus, tramway, métro et train par rapport au total du transport intérieur de passagers. Cet indicateur, publié annuellement par Eurostat (tran_hv_psmod), permet de comparer l'utilisation des transports collectifs entre pays européens. Les données de 2022 constituent la dernière année complète disponible au moment de la rédaction.
+Eurostat publie chaque année la répartition modale du transport intérieur de passagers (jeu tran_hv_psmod). L'indicateur retenu ici est la part des **trains** et des **autobus, autocars et trolleybus** dans l'ensemble des passagers-kilomètres parcourus en voiture particulière, en autobus ou autocar et en train.
+
+Il ne couvre ni le tram, ni le métro, ni la marche, ni le vélo. Selon les pays, les autobus urbains peuvent être inclus ou non. Les données sont nationales : elles décrivent la Belgique entière, pas Bruxelles.
+
+Les valeurs ci-dessous portent sur **2024**, dernière année disponible dans la mise à jour Eurostat du 26 août 2026.
 
 ## Les données comparées
 
-L'Autriche se distingue nettement avec une part modale de 29,8 %, la plus élevée parmi les six pays retenus. Ce résultat s'explique par un investissement soutenu dans l'infrastructure ferroviaire (ÖBB) et par l'excellence du réseau de transports publics viennois (Wiener Linien), qui combine métro, tramway et bus dans une offre intégrée et à prix accessible. L'introduction du KlimaTicket à 1 095 euros par an pour l'ensemble du réseau national a encore renforcé l'attractivité du transport collectif.
+| Pays | Train | Autobus, autocars, trolleybus | Train et bus | Voiture |
+|---|---|---|---|---|
+| Autriche | 13,7 % | 10,1 % | 23,8 % | 76,2 % |
+| Belgique | 9,7 % | 10,8 % | 20,5 % | 79,5 % |
+| France | 11,6 % | 5,9 % | 17,4 % | 82,6 % |
+| Danemark | 7,7 % | 9,2 % | 16,9 % | 83,1 % |
+| Allemagne | 10,6 % | 5,3 % | 15,9 % | 84,1 % |
+| Pays-Bas | 11,0 % | 3,0 % | 14,0 % | 86,0 % |
 
-La Belgique se situe en position intermédiaire avec 21,7 %. À Bruxelles, la STIB/MIVB assure un maillage dense qui fait monter la part modale régionale bien au-dessus de la moyenne nationale. Le réseau bruxellois transporte plus de 400 millions de voyageurs par an. Toutefois, ce chiffre national masque les disparités entre la capitale et les zones rurales de Wallonie et de Flandre, où la voiture individuelle reste largement dominante. La France (19,5 %) et l'Allemagne (18,4 %) occupent des positions comparables, avec des réseaux de transport en commun développés dans leurs capitales respectives mais une part modale nationale tirée vers le bas par les territoires périurbains et ruraux.
+L'Autriche a la part la plus élevée du panel, 23,8 %. La Belgique suit avec **20,5 %**, dont 9,7 % pour le train et 10,8 % pour les autobus et autocars. Aux Pays-Bas, la part du train (11,0 %) dépasse celle de la Belgique, mais celle des autobus et autocars n'est que de 3,0 %.
 
-Les Pays-Bas (11,4 %) et le Danemark (14,2 %) affichent les parts modales les plus basses du panel. Ce résultat, contre-intuitif pour deux pays réputés pour leur mobilité durable, s'explique par la prédominance du vélo dans les déplacements quotidiens. À Copenhague, près de 30 % des déplacements domicile-travail s'effectuent à vélo, ce qui réduit mécaniquement la part des transports publics sans pour autant signifier un recours accru à la voiture. La même logique s'applique aux Pays-Bas, où le vélo représente environ 27 % des déplacements.
+En Belgique, cette part était de 19,3 % en 2019, 15,5 % en 2020 et 15,1 % en 2021, puis de 20,5 % en 2024.
+
+Les valeurs 2024 de la Belgique, de l'Autriche, de l'Allemagne et des Pays-Bas sont des estimations d'Eurostat.
+
+## Et Bruxelles ?
+
+L'indicateur européen ne dit rien de Bruxelles en particulier. Pour la Région, la mesure disponible est différente : selon le Mini-Bru 2026 de l'IBSA, **27,0 %** des déplacements des Bruxellois se faisaient en 2024 en métro, tram ou bus, et 2,0 % en train. Il s'agit d'une part du nombre de déplacements, et non des kilomètres parcourus, tirée des enquêtes BELDAM et de Bruxelles Mobilité : les deux chiffres ne sont pas comparables. Le détail figure dans la [fiche Mobilité](/fr/domaines/mobility).
+
+La STIB a enregistré **396,1 millions de voyages** en 2025, selon son communiqué du 27 mai 2026.
 
 ## Enjeux pour Bruxelles
 
-L'absence de gouvernement régional de plein exercice depuis juin 2024 a des conséquences directes sur la capacité d'investissement dans les transports publics. Le projet Metro 3, qui devait relier le nord et le sud de la Région via une nouvelle ligne de métro, est gelé faute d'arbitrage politique et de validation budgétaire. Les investissements dans l'extension du réseau de tramway et l'amélioration des fréquences sont également en suspens.
-
-Sans nouvelles capacités de transport, Bruxelles risque de voir sa part modale stagner, voire reculer, alors que d'autres capitales européennes poursuivent leurs investissements. Vienne continue d'étendre son réseau de métro (ligne U5 en construction), Berlin investit dans le prolongement de plusieurs lignes de U-Bahn et de S-Bahn, et Paris achève le Grand Paris Express, le plus grand projet d'infrastructure de transport en Europe. Chaque année d'inaction creuse l'écart avec ces villes de référence.
+La déclaration de politique régionale du 13 février 2026 prévoit d'exploiter en tramway, « en lieu et place du métro initialement prévu », les tunnels de l'axe Albert-Nord aux abords de la gare du Midi. Le détail figure dans le [dossier Métro 3](/fr/dossiers/metro-3).
 
 ## Sources
 
-- Eurostat, Transport intérieur de passagers par mode de transport (tran_hv_psmod), données 2022, extraites en février 2026
-- STIB/MIVB, Rapport annuel 2023
-- Wiener Linien, Rapport d'activité 2023
-- Commission européenne, EU Transport in Figures — Statistical Pocketbook 2024
+- [Eurostat, tran_hv_psmod, Modal split of inland passenger transport](https://ec.europa.eu/eurostat/databrowser/product/view/tran_hv_psmod), données 2024, mise à jour du 26 août 2026, extraites le 19 septembre 2026
+- [Eurostat, métadonnées de la répartition modale (tran_hv_ms)](https://ec.europa.eu/eurostat/cache/metadata/en/tran_hv_ms_esms.htm)
+- [IBSA, Mini-Bru 2026, p. 30 (PDF)](https://ibsa.brussels/sites/default/files/publication/documents/Perspective%20Brussels-Mini-Bru%202026%20FR.pdf)
+- [STIB, communiqué du 27 mai 2026](https://stib.prezly.com/pres-de-400-millions-de-voyages-en-2025-et-un-taux-de-couverture-en-hausse)
+- [Déclaration de politique régionale du 13 février 2026 (PDF, Parlement bruxellois)](https://www.parlement.brussels/wp-content/uploads/2026/02/Declaration-de-politique-2.pdf)

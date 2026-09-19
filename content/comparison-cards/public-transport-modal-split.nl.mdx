@@ -1,71 +1,92 @@
 ---
-title: "Modaal aandeel openbaar vervoer: Europese hoofdsteden vergeleken"
+title: "Aandeel van trein en bus in het personenvervoer: zes landen vergeleken"
 slug: public-transport-modal-split
 locale: nl
 comparisonType: international
 entities:
-  - name: "Brussels Hoofdstedelijk Gewest"
-    code: "BE10"
-  - name: "Wien"
-    code: "AT13"
-  - name: "Hovedstaden"
-    code: "DK01"
-  - name: "Zuid-Holland"
-    code: "NL33"
-  - name: "Berlin"
-    code: "DE30"
-  - name: "Île-de-France"
-    code: "FR10"
-indicator: "Modaal aandeel openbaar vervoer in het binnenlands personenvervoer"
+  - name: "België"
+    code: "BE"
+  - name: "Oostenrijk"
+    code: "AT"
+  - name: "Denemarken"
+    code: "DK"
+  - name: "Nederland"
+    code: "NL"
+  - name: "Duitsland"
+    code: "DE"
+  - name: "Frankrijk"
+    code: "FR"
+indicator: "Aandeel van treinen, autocars, bussen en trolleybussen in het binnenlands personenvervoer (reizigerskilometers)"
 sourceDataset:
-  name: "Eurostat — tran_hv_psmod"
+  name: "Eurostat, tran_hv_psmod (modale verdeling van het binnenlands personenvervoer)"
   url: "https://ec.europa.eu/eurostat/databrowser/product/view/tran_hv_psmod"
   code: "tran_hv_psmod"
-methodology: "Vergelijking van het modale aandeel van het collectief vervoer (bussen, trams, metro, treinen) in het totale binnenlandse personenvervoer (in passagierskilometers), gepubliceerd door Eurostat op nationaal niveau. De nationale gegevens dienen als proxy voor de hoofdstedelijke regio's, die doorgaans een hoger modaal aandeel hebben dan het nationale gemiddelde vanwege de hogere dichtheid van het openbaarvervoersaanbod."
+methodology: "Aandeel van treinen en van autocars, bussen en trolleybussen in het totaal aantal reizigerskilometers per personenauto, bus of autocar en trein, op nationaal niveau. Eurostat-dataset tran_hv_psmod, jaar 2024, opgehaald op 19 september 2026 (Eurostat-update van 26 augustus 2026). Enkel deze drie vervoerswijzen vallen eronder: tram, metro, te voet gaan en fietsen niet, en naargelang het land kunnen stadsbussen al dan niet zijn meegeteld."
 dataPoints:
-  - entity: "BE10"
-    value: "21,7 %"
-    date: "2022-12-31"
-  - entity: "AT13"
-    value: "29,8 %"
-    date: "2022-12-31"
-  - entity: "DK01"
-    value: "14,2 %"
-    date: "2022-12-31"
-  - entity: "NL33"
-    value: "11,4 %"
-    date: "2022-12-31"
-  - entity: "DE30"
-    value: "18,4 %"
-    date: "2022-12-31"
-  - entity: "FR10"
-    value: "19,5 %"
-    date: "2022-12-31"
-caveat: "De gegevens over het modale aandeel worden op nationaal niveau gepubliceerd, niet op regionaal niveau. Hoofdstedelijke regio's hebben doorgaans een hoger modaal aandeel van het openbaar vervoer dan het nationale gemiddelde. De vergelijkingen zijn daarom indicatief. Bovendien kunnen de definitie van collectief vervoer en de meetmethoden voor passagierskilometers tussen landen verschillen."
-lastModified: "2026-02-10"
+  - entity: "AT"
+    value: "23,8 % (schatting)"
+    date: "2024-12-31"
+  - entity: "BE"
+    value: "20,5 % (schatting)"
+    date: "2024-12-31"
+  - entity: "FR"
+    value: "17,4 %"
+    date: "2024-12-31"
+  - entity: "DK"
+    value: "16,9 %"
+    date: "2024-12-31"
+  - entity: "DE"
+    value: "15,9 % (schatting)"
+    date: "2024-12-31"
+  - entity: "NL"
+    value: "14,0 % (schatting)"
+    date: "2024-12-31"
+caveat: "Nationale, geen regionale gegevens: ze beschrijven Brussel niet. De waarden voor 2024 van België, Oostenrijk, Duitsland en Nederland zijn schattingen van Eurostat; voor België wordt het spoor sinds 2012 geschat op basis van de evolutie in Nederland en Luxemburg. Eurostat wijst er ook op dat de methoden per land verschillen, vooral voor personenauto's."
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Europese vergelijking van trein en bus: waarden, jaar en methode gecorrigeerd. Deze fiche toonde cijfers voor 2022 die niet overeenkwamen met de aangehaalde Eurostat-dataset, en beschreef een indicator met tram en metro. De dataset tran_hv_psmod omvat enkel treinen en autocars, bussen en trolleybussen, op nationaal niveau. In 2024 bedroeg hun aandeel 20,5 % in België, 23,8 % in Oostenrijk en 14,0 % in Nederland. Passages van vóór de vorming van de Brusselse regering zijn geschrapt."
+changeSummaryDate: "2026-09-19"
 ---
 
-## Context
+## Wat de indicator meet
 
-Het modale aandeel van het openbaar vervoer meet het aandeel passagierskilometers afgelegd met bus, tram, metro en trein ten opzichte van het totale binnenlandse personenvervoer. Deze indicator, jaarlijks gepubliceerd door Eurostat (tran_hv_psmod), maakt het mogelijk het gebruik van collectief vervoer tussen Europese landen te vergelijken. De gegevens van 2022 vormen het meest recente volledige jaar dat beschikbaar was op het moment van schrijven.
+Eurostat publiceert elk jaar de modale verdeling van het binnenlands personenvervoer (dataset tran_hv_psmod). De indicator die hier wordt gebruikt, is het aandeel van **treinen** en van **autocars, bussen en trolleybussen** in het totaal aantal reizigerskilometers per personenauto, bus of autocar en trein.
+
+Tram, metro, te voet gaan en fietsen vallen er niet onder. Naargelang het land kunnen stadsbussen al dan niet zijn meegeteld. De gegevens zijn nationaal: ze beschrijven heel België, niet Brussel.
+
+De waarden hieronder hebben betrekking op **2024**, het laatste jaar in de Eurostat-update van 26 augustus 2026.
 
 ## De vergeleken gegevens
 
-Oostenrijk onderscheidt zich duidelijk met een modaal aandeel van 29,8 %, het hoogste van de zes geselecteerde landen. Dit resultaat is te verklaren door aanhoudende investeringen in de spoorweginfrastructuur (ÖBB) en door de uitstekende kwaliteit van het Weense openbaarvervoersnetwerk (Wiener Linien), dat metro, tram en bus combineert in een geïntegreerd en betaalbaar aanbod. De invoering van het KlimaTicket voor 1 095 euro per jaar voor het volledige nationale netwerk heeft de aantrekkelijkheid van het collectief vervoer verder versterkt.
+| Land | Trein | Autocars, bussen, trolleybussen | Trein en bus | Auto |
+|---|---|---|---|---|
+| Oostenrijk | 13,7 % | 10,1 % | 23,8 % | 76,2 % |
+| België | 9,7 % | 10,8 % | 20,5 % | 79,5 % |
+| Frankrijk | 11,6 % | 5,9 % | 17,4 % | 82,6 % |
+| Denemarken | 7,7 % | 9,2 % | 16,9 % | 83,1 % |
+| Duitsland | 10,6 % | 5,3 % | 15,9 % | 84,1 % |
+| Nederland | 11,0 % | 3,0 % | 14,0 % | 86,0 % |
 
-België bevindt zich in een tussenpositie met 21,7 %. In Brussel zorgt de MIVB/STIB voor een dicht netwerk dat het regionale modale aandeel ruim boven het nationale gemiddelde tilt. Het Brusselse netwerk vervoert jaarlijks meer dan 400 miljoen reizigers. Dit nationale cijfer verhult echter de verschillen tussen de hoofdstad en de landelijke gebieden van Wallonië en Vlaanderen, waar de personenwagen grotendeels dominant blijft. Frankrijk (19,5 %) en Duitsland (18,4 %) nemen vergelijkbare posities in, met ontwikkelde openbaarvervoersnetwerken in hun respectieve hoofdsteden, maar een nationaal modaal aandeel dat naar beneden wordt getrokken door voorstedelijke en landelijke gebieden.
+Oostenrijk heeft het hoogste aandeel van het panel, 23,8 %. België volgt met **20,5 %**, waarvan 9,7 % voor de trein en 10,8 % voor bussen en autocars. In Nederland ligt het aandeel van de trein (11,0 %) hoger dan in België, maar bussen en autocars halen er slechts 3,0 %.
 
-Nederland (11,4 %) en Denemarken (14,2 %) tonen de laagste modale aandelen van het panel. Dit contra-intuïtieve resultaat voor twee landen die bekend staan om hun duurzame mobiliteit, wordt verklaard door de dominantie van de fiets in het dagelijkse vervoer. In Kopenhagen wordt bijna 30 % van de woon-werkverplaatsingen met de fiets afgelegd, wat het aandeel van het openbaar vervoer mechanisch verlaagt zonder dat dit een groter gebruik van de auto betekent. Dezelfde logica geldt voor Nederland, waar de fiets ongeveer 27 % van de verplaatsingen vertegenwoordigt.
+In België bedroeg dit aandeel 19,3 % in 2019, 15,5 % in 2020 en 15,1 % in 2021, en daarna 20,5 % in 2024.
+
+De waarden voor 2024 van België, Oostenrijk, Duitsland en Nederland zijn schattingen van Eurostat.
+
+## En Brussel?
+
+De Europese indicator zegt niets over Brussel in het bijzonder. Voor het Gewest is een andere meting beschikbaar: volgens de Mini-Bru 2026 van het BISA gebeurde in 2024 **27,0 %** van de verplaatsingen van de Brusselaars met metro, tram of bus, en 2,0 % met de trein. Dat is een aandeel in het aantal verplaatsingen, niet in de afgelegde kilometers, afkomstig uit de BELDAM-enquêtes en van Brussel Mobiliteit: beide cijfers zijn niet vergelijkbaar. Het detail staat in de [fiche Mobiliteit](/nl/domeinen/mobility).
+
+De MIVB registreerde **396,1 miljoen reizen** in 2025, volgens haar persbericht van 27 mei 2026.
 
 ## Uitdagingen voor Brussel
 
-Het ontbreken van een volwaardige gewestregering sinds juni 2024 heeft directe gevolgen voor het investeringsvermogen in het openbaar vervoer. Het project Metro 3, dat het noorden en zuiden van het Gewest moest verbinden via een nieuwe metrolijn, ligt stil bij gebrek aan politieke arbitrage en begrotingsvalidatie. Investeringen in de uitbreiding van het tramnetwerk en de verbetering van de frequenties staan eveneens on hold.
-
-Zonder nieuwe vervoerscapaciteit dreigt het modale aandeel van Brussel te stagneren of zelfs achteruit te gaan, terwijl andere Europese hoofdsteden hun investeringen voortzetten. Wenen blijft haar metronetwerk uitbreiden (lijn U5 in aanbouw), Berlijn investeert in de verlenging van meerdere U-Bahn- en S-Bahnlijnen, en Parijs voltooit de Grand Paris Express, het grootste vervoersinfrastructuurproject in Europa. Elk jaar zonder actie vergroot de kloof met deze referentiesteden.
+De gewestelijke beleidsverklaring van 13 februari 2026 voorziet erin de tunnels van de as Albert-Noord bij het Zuidstation met de tram te exploiteren, in plaats van met de oorspronkelijk geplande metro. Het detail staat in het [dossier Metro 3](/nl/dossiers/metro-3).
 
 ## Bronnen
 
-- Eurostat, Binnenlands personenvervoer per vervoerwijze (tran_hv_psmod), gegevens 2022, geëxtraheerd in februari 2026
-- MIVB/STIB, Jaarverslag 2023
-- Wiener Linien, Activiteitenverslag 2023
-- Europese Commissie, EU Transport in Figures — Statistical Pocketbook 2024
+- [Eurostat, tran_hv_psmod, Modal split of inland passenger transport](https://ec.europa.eu/eurostat/databrowser/product/view/tran_hv_psmod), gegevens 2024, update van 26 augustus 2026, opgehaald op 19 september 2026
+- [Eurostat, metadata van de modale verdeling (tran_hv_ms)](https://ec.europa.eu/eurostat/cache/metadata/en/tran_hv_ms_esms.htm)
+- [BISA, Mini-Bru 2026, p. 30 (pdf, Franstalig)](https://ibsa.brussels/sites/default/files/publication/documents/Perspective%20Brussels-Mini-Bru%202026%20FR.pdf)
+- [MIVB, persbericht van 27 mei 2026](https://stib.prezly.com/pres-de-400-millions-de-voyages-en-2025-et-un-taux-de-couverture-en-hausse)
+- [Gewestelijke beleidsverklaring van 13 februari 2026 (pdf, Brussels Parlement)](https://www.parlement.brussels/wp-content/uploads/2026/02/Declaration-de-politique-2.pdf)

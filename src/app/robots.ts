@@ -18,47 +18,46 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     };
   }
 
+  // A crawler named in its own group ignores the '*' group entirely, so every
+  // group repeats the shared exclusions.
+  const privatePaths = ['/api/', '/refonte', '/refonte/preview'];
+
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/refonte', '/refonte/preview'],
+        disallow: privatePaths,
       },
+      // Search and agent crawlers fetch pages to cite them with a link: they bring
+      // readers (ChatGPT, Perplexity, Claude, Gemini). Kept open on purpose.
       {
-        userAgent: 'GPTBot',
+        userAgent: [
+          'OAI-SearchBot',
+          'ChatGPT-User',
+          'Claude-SearchBot',
+          'Claude-User',
+          'PerplexityBot',
+          'Perplexity-User',
+          'GoogleOther',
+        ],
         allow: '/',
-        disallow: '/api/',
+        disallow: privatePaths,
       },
+      // Training crawlers feed model weights and send no reader back. Cloudflare
+      // blocks them with a 403 (AI bot policies, "Training" preset, decision of
+      // 19/09/2026); this group says the same thing instead of contradicting it.
       {
-        userAgent: 'ClaudeBot',
-        allow: '/',
-        disallow: '/api/',
-      },
-      {
-        userAgent: 'PerplexityBot',
-        allow: '/',
-        disallow: '/api/',
-      },
-      {
-        userAgent: 'GoogleOther',
-        allow: '/',
-        disallow: '/api/',
-      },
-      {
-        userAgent: 'anthropic-ai',
-        allow: '/',
-        disallow: '/api/',
-      },
-      {
-        userAgent: 'Applebot-Extended',
-        allow: '/',
-        disallow: '/api/',
-      },
-      {
-        userAgent: 'CCBot',
-        allow: '/',
-        disallow: '/api/',
+        userAgent: [
+          'GPTBot',
+          'ClaudeBot',
+          'anthropic-ai',
+          'CCBot',
+          'Amazonbot',
+          'Bytespider',
+          'Applebot-Extended',
+        ],
+        disallow: '/',
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,

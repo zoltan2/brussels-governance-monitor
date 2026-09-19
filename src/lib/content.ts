@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import type { Locale } from '@/i18n/routing';
+import { routing, type Locale } from '@/i18n/routing';
 import type { Metric } from '@/components/proof-drawer/types';
 import { computeRecentDigestLangs, type RecentDigestLangs } from '@/lib/digest-langs';
 import type { BudgetValue } from '@/lib/budget';
@@ -310,6 +310,7 @@ export interface DigestEntry {
   redirect_lang: 'fr' | 'nl' | 'en' | 'de';
   generated_at: string;
   magazine?: DigestMagazine;
+  excerpt: string;
   content: string;
   year: string;
   weekNum: string;
@@ -1179,6 +1180,21 @@ export function getDigestEntry(
   if (fallback) return { entry: fallback, isFallback: true };
 
   return null;
+}
+
+/**
+ * Whether a digest edition is offered to search engines (index + sitemap).
+ *
+ * An untranslated week renders the French text under every language URL, eleven
+ * copies of one page: never indexed. Beyond the four site languages, editions are
+ * machine versions of the French one; they stay readable for subscribers but are
+ * kept out of the index, like they are kept out of Pagefind (`DigestShell`).
+ */
+export function isIndexableDigestEdition(result: {
+  entry: Pick<DigestEntry, 'lang'>;
+  isFallback: boolean;
+}): boolean {
+  return !result.isFallback && routing.locales.includes(result.entry.lang as Locale);
 }
 
 /**

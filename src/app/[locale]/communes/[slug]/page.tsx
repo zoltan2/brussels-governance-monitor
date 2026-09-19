@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
 import {
@@ -47,10 +47,22 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { card } = result;
+  const t = await getTranslations({ locale, namespace: 'communes' });
   return buildMetadata({
     locale,
     title: card.title,
-    description: `${card.mayor} (${card.mayorParty}) — ${card.transparencyScore}/${card.transparencyTotal}`,
+    // Built from the card's own fields only. The previous "Mayor (party) — 4/6"
+    // was the same shape on 76 pages and said nothing a searcher could act on.
+    description: t('metaDescription', {
+      name: (card.title.split(':')[0] || card.commune).trim(),
+      postalCode: card.postalCode,
+      score: card.transparencyScore,
+      total: card.transparencyTotal,
+      mayor: card.mayor,
+      party: card.mayorParty,
+      coalition: card.coalition.join(', '),
+      population: card.population,
+    }),
     path: `/communes/${slug}`,
     ogParams: `title=${encodeURIComponent(card.title)}&type=commune`,
   });

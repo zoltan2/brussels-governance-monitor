@@ -57,6 +57,34 @@ export function canonicalUrl(locale: string, path: string): string {
   return `${siteUrl}${getPathname({ locale: locale as Locale, href: pathToHref(path) })}`;
 }
 
+const DESCRIPTION_MAX = 160;
+/** Below this length, a sentence cut leaves too little to be worth it; cut on a word. */
+const SENTENCE_CUT_MIN = 100;
+
+/**
+ * Shorten a meta description to at most 160 characters without breaking a word.
+ *
+ * Prefers ending on a full sentence when one closes after 100 characters; otherwise
+ * cuts on the last space and adds an ellipsis. The previous hard cut at 157 characters
+ * printed fragments such as "La r..." in search results.
+ */
+export function truncateDescription(text: string, max = DESCRIPTION_MAX): string {
+  const clean = text.replace(/\s+/g, ' ').trim();
+  if (clean.length <= max) return clean;
+
+  const window = clean.slice(0, max);
+  const sentenceEnd = Math.max(
+    window.lastIndexOf('. '),
+    window.lastIndexOf('! '),
+    window.lastIndexOf('? '),
+  );
+  if (sentenceEnd >= SENTENCE_CUT_MIN) return window.slice(0, sentenceEnd + 1);
+
+  const lastSpace = clean.slice(0, max - 1).lastIndexOf(' ');
+  const cut = lastSpace > 0 ? clean.slice(0, lastSpace) : clean.slice(0, max - 1);
+  return `${cut.replace(/[\s,;:.–—-]+$/u, '')}…`;
+}
+
 /**
  * Build full page metadata with OpenGraph + Twitter card.
  * Uses the dynamic OG image route for content pages,
@@ -109,8 +137,7 @@ export function buildMetadata({
     ? `${siteUrl}/${locale}/og?${ogParams}`
     : `${siteUrl}/${locale}/og?title=${encodeURIComponent(title)}`;
 
-  const truncatedDescription =
-    description.length > 160 ? description.slice(0, 157) + '...' : description;
+  const truncatedDescription = truncateDescription(description);
 
   // Build hreflang alternates: prefer localizedPaths per-locale, else getPathname
   const languages: Record<string, string> = {};

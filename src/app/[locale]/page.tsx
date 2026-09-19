@@ -70,6 +70,12 @@ const descriptions: Record<string, string> = {
   de: 'Unabhängiger Monitor der Brüsseler Regierungsführung. DPR-Verpflichtungen, Schlüsseldossiers, Regierungszusammensetzung und offene Daten.',
 };
 
+// Only the four locales from generateStaticParams exist. Without this, a root probe
+// such as /llms-full.txt or /ads.txt reaches this page as locale "llms-full.txt",
+// renders at runtime and fails with a 500 ("static to dynamic") instead of a 404.
+// Crawlers read repeated 5xx as a server in trouble and slow down.
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {

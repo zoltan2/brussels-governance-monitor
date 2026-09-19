@@ -687,6 +687,8 @@ const digestEntries = defineCollection({
       redirect_lang: s.enum(['fr', 'nl', 'en', 'de']),
       generated_at: s.isodate(),
       magazine: magazineSchema.optional(),
+      // Plain-text opening of the edition, for the meta description.
+      excerpt: s.excerpt({ length: 320 }),
       content: s.mdx(),
     })
     .transform((data) => {

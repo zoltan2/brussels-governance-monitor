@@ -17,42 +17,45 @@ entities:
 indicator: "GDP per capita (PPS)"
 sourceDataset:
   name: "Eurostat — nama_10r_2gdp"
-  url: "https://ec.europa.eu/eurostat"
+  url: "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2gdp/default/table"
   code: "nama_10r_2gdp"
 methodology: "Comparison of regional GDP per capita expressed in purchasing power standards (PPS), at NUTS-2 level, based on regional accounts published by Eurostat. PPS neutralise price level differences between countries, enabling a comparison of real purchasing power. GDP is measured at the place of production, not the place of residence of workers — a decisive point for interpreting the Brussels data."
 dataPoints:
   - entity: "BE10"
-    value: "62,200 PPS per capita"
-    date: "2024-12-31"
+    value: "73,100 PPS per capita (190% of EU average)"
+    date: "2023-12-31"
   - entity: "AT13"
-    value: "52,400 PPS per capita"
-    date: "2024-12-31"
+    value: "53,400 PPS per capita (139% of EU average)"
+    date: "2023-12-31"
   - entity: "DE30"
-    value: "42,100 PPS per capita"
-    date: "2024-12-31"
+    value: "48,700 PPS per capita (127% of EU average, provisional)"
+    date: "2023-12-31"
   - entity: "FR10"
-    value: "57,800 PPS per capita"
-    date: "2024-12-31"
+    value: "61,500 PPS per capita (160% of EU average, provisional)"
+    date: "2023-12-31"
   - entity: "NL32"
-    value: "55,300 PPS per capita"
-    date: "2024-12-31"
+    value: "66,100 PPS per capita (172% of EU average)"
+    date: "2023-12-31"
   - entity: "BE10"
-    value: "63,100 PPS per capita"
-    date: "2025-12-31"
+    value: "76,000 PPS per capita (190% of EU average, provisional)"
+    date: "2024-12-31"
   - entity: "AT13"
-    value: "53,200 PPS per capita"
-    date: "2025-12-31"
+    value: "54,600 PPS per capita (137% of EU average)"
+    date: "2024-12-31"
   - entity: "DE30"
-    value: "42,900 PPS per capita"
-    date: "2025-12-31"
+    value: "50,600 PPS per capita (127% of EU average, provisional)"
+    date: "2024-12-31"
   - entity: "FR10"
-    value: "58,500 PPS per capita"
-    date: "2025-12-31"
+    value: "64,000 PPS per capita (160% of EU average, provisional)"
+    date: "2024-12-31"
   - entity: "NL32"
-    value: "56,100 PPS per capita"
-    date: "2025-12-31"
-caveat: "Brussels' GDP per capita is artificially inflated by the commuter effect: approximately 360,000 non-resident workers contribute to regional GDP without being counted in the reference population. This phenomenon, sometimes called the 'Brussels paradox', means that high GDP does not translate into high incomes for residents. The median disposable household income in Brussels is in fact below the Belgian average. This statistical bias affects all capital regions but is particularly pronounced in Brussels due to the compactness of the NUTS-2 territory."
-lastModified: "2026-02-07"
+    value: "69,900 PPS per capita (175% of EU average, provisional)"
+    date: "2024-12-31"
+caveat: "Brussels' GDP per capita is artificially inflated by the commuter effect: approximately 400,000 workers living in Flanders or Wallonia (Labour Force Survey 2024, Statbel, published by IBSA) contribute to regional GDP without being counted in the reference population. This phenomenon, sometimes called the 'Brussels paradox', means that high GDP does not translate into high incomes for residents. The median disposable household income in Brussels is in fact below the Belgian average. This statistical bias affects all capital regions but is particularly pronounced in Brussels due to the compactness of the NUTS-2 territory."
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Correction: Brussels' GDP per capita in 2024 is 76,000 PPS according to Eurostat, not 62,200. The figures for the four other capital regions are corrected from the same source, and Noord-Holland moves up to second place. The figures attributed to 2025 are removed: as of 19 September 2026, Eurostat had published no regional data for that year. The at-risk-of-poverty rate in Brussels was 26.3% in 2024, and approximately 400,000 commuters from Flanders and Wallonia worked there."
+changeSummaryDate: "2026-09-19"
 ---
 
 ## Context
@@ -61,7 +64,7 @@ GDP per capita in purchasing power standards (PPS) is the flagship indicator use
 
 ## The data compared
 
-With a GDP of 62,200 PPS per capita in 2024, Brussels-Capital displays the highest figure among the five compared regions, ahead of Ile-de-France (57,800), Noord-Holland (55,300), Wien (52,400) and Berlin (42,100).
+With a GDP of 76,000 PPS per capita in 2024 (provisional data), or 190% of the EU average, Brussels-Capital displays the highest figure among the five compared regions, ahead of Noord-Holland (69,900), Ile-de-France (64,000), Wien (54,600) and Berlin (50,600).
 
 This ranking places Brussels among the EU's "wealthiest" regions according to Eurostat methodology — a result that starkly contrasts with the socio-economic reality experienced by a large share of its residents.
 
@@ -69,8 +72,8 @@ This ranking places Brussels among the EU's "wealthiest" regions according to Eu
 
 The Brussels-Capital Region's GDP per capita is structurally overvalued due to a major statistical effect:
 
-- **The commuter effect**: every working day, approximately 360,000 people enter the Region to work. Their output is counted in Brussels' GDP, but they do not appear in the denominator (the resident population). The GDP-per-capita ratio is therefore mechanically inflated.
-- **The contrast with incomes**: median disposable household income in Brussels falls below the Belgian average. In 2024, approximately 33% of the Brussels population lives below the at-risk-of-poverty threshold — the highest rate among the three Belgian Regions.
+- **The commuter effect**: in 2024, approximately 400,000 people living in Flanders or Wallonia worked in the Region, close to half of all jobs in Brussels (Labour Force Survey 2024, Statbel, published by IBSA). Their output is counted in Brussels' GDP, but they do not appear in the denominator (the resident population). The GDP-per-capita ratio is therefore mechanically inflated.
+- **The contrast with incomes**: median disposable household income in Brussels falls below the Belgian average. In 2024, 26.3% of the Brussels population lived below the at-risk-of-poverty threshold, the highest rate among the three Belgian Regions (EU-SILC, Statbel, published by Eurostat).
 - **Geographic compactness**: at just 161 km², the Brussels Region excludes nearly all of its functional metropolitan area from its statistical perimeter, unlike regions such as Ile-de-France which include an extensive suburban ring.
 
 ## Comparison with other capitals
@@ -84,11 +87,13 @@ All EU capital regions experience some form of commuter effect, but its magnitud
 
 ## What the comparison reveals
 
-Brussels' GDP per capita illustrates a textbook case of the mismatch between wealth produced in a territory and wealth available to its residents. This situation is compounded by the ongoing governance crisis, which prevents the implementation of adapted redistribution and investment policies.
+Brussels' GDP per capita illustrates a textbook case of the mismatch between wealth produced in a territory and wealth available to its residents.
 
 ## Sources
 
-- Eurostat, Regional accounts — GDP per capita in PPS (nama_10r_2gdp), data extracted January 2026
+- Eurostat, Regional accounts, GDP per capita in PPS (nama_10r_2gdp), 2023 and 2024 data (2024 provisional for most regions), update of 10 February 2026, accessed 19 September 2026
+- Eurostat, EU-SILC, at-risk-of-poverty rate by region (ilc_li41), 2024 data, accessed 19 September 2026
+- IBSA, Mini-Bru 2026, employment by Region of residence and of work in 2024 (Labour Force Survey, Statbel)
 - IBSA, Brussels regional accounts 2025
 - FPS Economy, Tax revenues by municipality — tax year 2024
 - NBB, Interregional commuter flows (2025 study)

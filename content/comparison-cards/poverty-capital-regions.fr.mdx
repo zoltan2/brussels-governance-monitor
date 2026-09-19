@@ -14,12 +14,12 @@ entities:
     code: "DE3"
   - name: "West-Nederland"
     code: "NL3"
-indicator: "Taux de risque de pauvreté ou d'exclusion sociale (AROPE)"
+indicator: "Taux de risque de pauvreté (AROP)"
 sourceDataset:
   name: "Eurostat — ilc_li41"
   url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_li41/default/table"
   code: "ilc_li41"
-methodology: "Comparaison du taux AROPE (At Risk of Poverty or Social Exclusion) au niveau NUTS-1, sur base de l'enquête EU-SILC harmonisée par Eurostat. L'indicateur AROPE combine trois dimensions : le risque de pauvreté monétaire (revenu inférieur à 60 % du revenu médian national), la privation matérielle et sociale sévère, et la très faible intensité de travail. Les données sont publiées au niveau NUTS-1, ce qui signifie que certaines régions de comparaison sont plus larges que la seule ville-capitale."
+methodology: "Comparaison du taux de risque de pauvreté (AROP, At Risk of Poverty) au niveau NUTS-1, sur base de l'enquête EU-SILC harmonisée par Eurostat. Le taux AROP mesure la part de la population dont le revenu disponible équivalent est inférieur à 60 % du revenu médian national. Il ne couvre pas les deux autres dimensions de l'indicateur AROPE (risque de pauvreté ou d'exclusion sociale) : la privation matérielle et sociale sévère et la très faible intensité de travail. Les données sont publiées au niveau NUTS-1, ce qui signifie que certaines régions de comparaison sont plus larges que la seule ville-capitale."
 dataPoints:
   - entity: "BE1"
     value: "28,8 %"
@@ -37,22 +37,25 @@ dataPoints:
     value: "13,6 %"
     date: "2023-12-31"
 caveat: "Les données sont au niveau NUTS-1 et non NUTS-2. Pour Bruxelles (BE1), Berlin (DE3) et l'Île-de-France (FR1), le NUTS-1 correspond de facto à la région-capitale. En revanche, AT1 (Ostösterreich) englobe Wien mais aussi la Basse-Autriche et le Burgenland, et NL3 (West-Nederland) inclut les provinces d'Utrecht, de Hollande-Méridionale et de Noord-Holland — ces valeurs sont donc diluées par rapport à la seule ville-capitale. Le seuil de pauvreté est calculé par rapport au revenu médian national, ce qui peut produire des résultats différents dans les pays à forte disparité régionale."
-lastModified: "2026-02-10"
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Correction : les 28,8 % mesurés à Bruxelles en 2023 sont un taux de risque de pauvreté, et non l'indicateur AROPE. Ce dernier, qui ajoute la privation matérielle et sociale sévère et la très faible intensité de travail, atteignait 38,9 % la même année. Les valeurs des autres régions, issues de la même série Eurostat, restent valables et portent désormais la bonne étiquette."
+changeSummaryDate: "2026-09-19"
 ---
 
 ## Contexte
 
-Le taux AROPE (At Risk of Poverty or Social Exclusion) est l'indicateur de référence de l'Union européenne pour mesurer la précarité socio-économique. Il combine trois dimensions complémentaires : la pauvreté monétaire, la privation matérielle sévère et la très faible intensité de travail du ménage. Eurostat publie ces données au niveau NUTS-1 via l'enquête EU-SILC.
+Le taux de risque de pauvreté (AROP, At Risk of Poverty) mesure la part de la population dont le revenu disponible équivalent est inférieur à 60 % du revenu médian national. C'est la composante monétaire du taux AROPE (risque de pauvreté ou d'exclusion sociale), l'indicateur de référence de l'Union européenne, qui y ajoute la privation matérielle et sociale sévère et la très faible intensité de travail du ménage. Eurostat publie le taux AROP au niveau NUTS-1 via l'enquête EU-SILC (jeu de données ilc_li41). En 2023, le taux AROPE atteignait 38,9 % à Bruxelles (Eurostat, ilc_peps11n).
 
 ## Les données comparées
 
-Avec un taux AROPE de **28,8 %** en 2023, Bruxelles-Capitale se distingue nettement des autres régions-capitales européennes. Le taux bruxellois est :
+Avec un taux de risque de pauvreté (AROP) de **28,8 %** en 2023, Bruxelles-Capitale se distingue nettement des autres régions-capitales européennes. Le taux bruxellois est :
 
 - **Plus du double** de celui de Berlin (13,7 %) et du West-Nederland (13,6 %)
 - **Près du double** de celui de l'Île-de-France (14,8 %)
 - **67 % plus élevé** que celui de l'Ostösterreich (17,3 %), qui inclut pourtant des zones rurales moins favorisées
 
-Près de **3 Bruxellois sur 10** vivent en situation de risque de pauvreté ou d'exclusion sociale — un chiffre qui contraste avec le PIB par habitant le plus élevé de toutes ces régions.
+Près de **3 Bruxellois sur 10** vivaient sous le seuil de risque de pauvreté en 2023 : un chiffre qui contraste avec le PIB par habitant le plus élevé de toutes ces régions.
 
 ## Le paradoxe confirmé
 
@@ -61,7 +64,6 @@ Cette comparaison renforce le « paradoxe bruxellois » déjà visible dans les 
 - **L'effet navetteur** : la richesse produite à Bruxelles bénéficie en grande partie à des non-résidents qui se redistribuent dans les couronnes flamande et wallonne.
 - **La structure démographique** : Bruxelles concentre une population jeune, diverse et en partie peu qualifiée, dans un marché du travail exigeant le bilinguisme.
 - **Le coût du logement** : avec un loyer privé moyen de 1 346 €/mois et un taux de propriétaires de seulement 40 %, le logement absorbe une part disproportionnée des revenus des ménages modestes.
-- **La concentration institutionnelle** : l'absence de gouvernement régional depuis juin 2024 empêche toute réponse politique structurelle à cette précarité.
 
 ## Le poids de la privation matérielle
 
@@ -73,6 +75,7 @@ Le niveau NUTS-1 produit des périmètres inégaux. Pour Bruxelles, Berlin et l'
 
 ## Sources
 
-- Eurostat, EU-SILC — Taux de risque de pauvreté ou d'exclusion sociale par région NUTS-1 (ilc_li41), données 2023, extraites en février 2026
+- Eurostat, EU-SILC, taux de risque de pauvreté par région NUTS-1 (ilc_li41), données 2023, consultées le 19 septembre 2026
+- Eurostat, EU-SILC, taux de risque de pauvreté ou d'exclusion sociale par région (ilc_peps11n), données 2023, consultées le 19 septembre 2026
 - Statbel, EU-SILC 2025 — données régionales belges
 - Observatoire de la Santé et du Social, Baromètre social 2025

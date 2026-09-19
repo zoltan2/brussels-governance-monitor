@@ -7,8 +7,8 @@ dossierType: social
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Brusselaars geven hun levenstevredenheid een 7,5/10 (BISA/BFP, 2023), maar de bestaansonzekerheid neemt toe. De Sociaal Barometer 2025 (Observatorium van Vivalis) meet 23 % risico op armoede of uitsluiting (AROPE), 47 304 leefloners en 9 777 dak- of thuislozen (+25 % in twee jaar). De federale werkloosheidshervorming slaat hard toe: alleen al in de Stad Brussel klopten 3 567 uitgeslotenen aan bij het OCMW begin 2026. Levensverwachting: 82,15 jaar (2024)."
-summaryReviewed: "2026-06-17"
+summary: "Brusselaars geven hun levenstevredenheid een 7,5/10 (BISA/BFP, 2023), maar de bestaansonzekerheid neemt toe. De Sociaal Barometer 2025 (Observatorium van Vivalis) meet 23 % armoederisico (AROP), 47 304 leefloners en 9 777 dak- of thuislozen (+25 % in twee jaar). De federale werkloosheidshervorming slaat hard toe: alleen al in de Stad Brussel klopten 3 567 uitgeslotenen aan bij het OCMW begin 2026. Levensverwachting: 82,15 jaar (2024)."
+summaryReviewed: "2026-09-19"
 estimatedBudget:
   status: not-quantified
   reason: "transversaal, afhankelijk van sociaal, gezondheids- en milieubeleid"
@@ -96,13 +96,22 @@ sources:
     url: "https://www.lavenir.net/regions/bruxelles/bruxelles/2026/06/05/45-des-exclus-du-chomage-se-sont-tournes-vers-le-cpas-de-la-ville-de-bruxelles-nous-savions-quun-tsunami-arrivait-IMVYEDHO3NAPBLS5XI7M25USJ4/"
     type: media
     accessedAt: "2026-06-16"
+  - label: "Statbel, risico op armoede of sociale uitsluiting, EU-SILC 2025 (gepubliceerd op 5 februari 2026)"
+    url: "https://statbel.fgov.be/nl/themas/huishoudens/armoede-en-levensomstandigheden/risico-op-armoede-sociale-uitsluiting"
+    accessedAt: "2026-09-19"
+  - label: "Eurostat, armoederisicograad per regio (ilc_li41)"
+    url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_li41/default/table"
+    accessedAt: "2026-09-19"
+  - label: "Eurostat, risico op armoede of sociale uitsluiting per regio (ilc_peps11n)"
+    url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table"
+    accessedAt: "2026-09-19"
 metrics:
   - label: "Levenstevredenheid (Brussel)"
     value: "7,5"
     unit: "/10 (Vlaanderen 7,8 — Wallonië 7,5)"
     source: "BISA Focus nr. 77 / EU-SILC 2023"
     date: "2025-09-23"
-  - label: "Risico op armoede of sociale uitsluiting (AROPE)"
+  - label: "Armoederisico (AROP)"
     value: "23"
     unit: "% van de Brusselse bevolking"
     source: "Sociaal Barometer 2025 (Observatorium/Vivalis)"
@@ -153,7 +162,7 @@ faq:
         url: "https://www.vivalis.brussels/fr/publication/barometre-social-2025"
         accessedAt: "2026-06-17"
   - q: "Hoe wordt armoede gemeten in het Brussels Gewest?"
-    a: "De referentie-indicator is het AROPE-cijfer (risico op armoede of sociale uitsluiting), afgestemd op de Europese methode en berekend op basis van de EU-SILC-enquête van Statbel. Het Observatorium voor Gezondheid en Welzijn, studiedienst van Vivalis (administratie van de GGC), publiceert het jaarlijks in zijn Sociaal Barometer, samen met het aantal leefloners en de dak- en thuisloosheid."
+    a: "De Europese referentie-indicator is het AROPE-cijfer (risico op armoede of sociale uitsluiting), berekend op basis van de EU-SILC-enquête van Statbel. Het omvat de armoederisicograad (AROP), die enkel op het inkomen steunt, en voegt daar ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit aan toe. Het Observatorium voor Gezondheid en Welzijn, studiedienst van Vivalis (administratie van de GGC), publiceert jaarlijks armoede-indicatoren in zijn Sociaal Barometer, samen met het aantal leefloners en de dak- en thuisloosheid."
     sources:
       - label: "Statbel, EU-SILC-enquête over inkomens en levensomstandigheden"
         url: "https://statbel.fgov.be/fr/survey/enquete-sur-les-revenus-et-les-conditions-de-vie-silc"
@@ -191,9 +200,11 @@ faq:
       - label: "Observatorium voor Gezondheid en Welzijn (Vivalis), Sociaal Barometer 2025"
         url: "https://www.vivalis.brussels/fr/publication/barometre-social-2025"
         accessedAt: "2026-07-04"
-lastModified: "2026-06-16"
-changeType: updated
-changeSummary: "Sociaal Barometer 2025 (Vivalis, april 2026): 23 % risico op armoede of uitsluiting, 47 304 leefloners, 9 777 dak- of thuislozen (+25 % in twee jaar). De werkloosheidshervorming vertaalt zich in reële cijfers: in de Stad Brussel klopten 3 567 uitgeslotenen aan bij het OCMW, 2 706 kregen een leefloon. World Happiness Report 2026: België 14e (6,926)."
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Correctie: 23 % van de Brusselaars liep in 2025 een armoederisico; de ruimere indicator bereikte 33,6 %. Het cijfer van 23 %, uit de Sociaal Barometer 2025 van Vivalis, meet het armoederisico op basis van enkel het inkomen (minder dan 60 % van het nationale mediaaninkomen), en niet het risico op armoede of sociale uitsluiting (AROPE) zoals de fiche vermeldde. Volgens de EU-SILC-enquête 2025 van Statbel bedraagt dit percentage 23,3 % in Brussel, tegenover 7,2 % in Vlaanderen en 13,4 % in Wallonië. Het AROPE-cijfer, dat daar ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit aan toevoegt, bedroeg 33,6 % in Brussel."
+changeSummaryDate: "2026-09-19"
+faqReviewed: "2026-09-19"
 ---
 
 ## Levenstevredenheid
@@ -230,7 +241,7 @@ Bron: DH / UGent / NN (9 maart 2026).
 
 De **Sociaal Barometer 2025** van het Observatorium voor Gezondheid en Welzijn — studiedienst van **Vivalis** (GGC-administratie) — gepubliceerd op **15 april 2026**, documenteert een hoge en aanhoudende bestaansonzekerheid:
 
-- **AROPE-percentage** (risico op armoede of sociale uitsluiting): **23 %** van de Brusselse bevolking, tegenover 7 % in Vlaanderen en 13 % in Wallonië
+- **Armoederisicograad** (AROP, inkomen onder 60 % van het nationale mediaaninkomen): **23 %** van de Brusselse bevolking, tegenover 7 % in Vlaanderen en 13 % in Wallonië (23,3 %, 7,2 % en 13,4 % volgens de EU-SILC-enquête 2025 van Statbel). De ruimere indicator van het risico op armoede of sociale uitsluiting (AROPE), die daar ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit aan toevoegt, bedroeg in 2025 **33,6 %** in Brussel
 - **47 304 begunstigden** van het leefloon op 1 januari 2025, ofwel ongeveer **7 % van de 18-64-jarigen** (tegenover 3 % in 2002); in gemeenten zoals Sint-Jans-Molenbeek en Sint-Joost-ten-Node ontvangt **meer dan één op de tien** 18-64-jarigen een leefloon
 - **Zes van de tien armste gemeenten van België** qua inkomen liggen in Brussel, waaronder Sint-Joost-ten-Node, Anderlecht en Schaarbeek
 - Een **"onzichtbare bevolking"** geschat op meer dan **50 000 personen zonder verblijfstitel** (ongeveer 4 % van de Brusselse bevolking)

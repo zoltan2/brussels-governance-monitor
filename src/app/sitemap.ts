@@ -14,6 +14,7 @@ import {
   getAllDigestWeeks,
   getAllDigestLangs,
   getDigestEntry,
+  isIndexableDigestEdition,
   getDomainCard,
   getSectorCard,
   getComparisonCard,
@@ -200,14 +201,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // ── Digest pages (outside locale routing) ─────────────────────
-  // These don't use the i18n routing system, so no hreflang alternates.
+  // These don't use the i18n routing system, so no hreflang alternates here
+  // (the pages declare their own). Fallback editions and editions outside the
+  // four site languages are noindex: listing them would ask Google to crawl
+  // pages it must drop.
   const digestWeeks = getAllDigestWeeks();
   const digestLangs = getAllDigestLangs();
   for (const week of digestWeeks) {
     const [year, w] = week.split('-');
     for (const lang of digestLangs) {
       const result = getDigestEntry(week, lang);
-      const digestDate = result?.entry.generated_at
+      if (!result || !isIndexableDigestEdition(result)) continue;
+      const digestDate = result.entry.generated_at
         ? new Date(result.entry.generated_at)
         : SITE_LAUNCH;
       trackDate(digestDate);

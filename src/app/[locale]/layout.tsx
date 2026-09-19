@@ -38,7 +38,10 @@ export async function generateMetadata({
   return {
     title: {
       default: metadata.title,
-      template: `%s | ${metadata.title}`,
+      // Short suffix: Google cuts titles around 60 characters, and the full name
+      // (30 characters with the separator) pushed most dossier titles past 85.
+      // The full name still reaches search results through WebSite.name.
+      template: '%s | BGM',
     },
     description: metadata.description,
     metadataBase: new URL(siteUrl),

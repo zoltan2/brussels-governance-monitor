@@ -10,10 +10,12 @@ import {
   getAllDigestWeeks,
   getAllDigestLangs,
   getAdjacentDigestWeeks,
+  isIndexableDigestEdition,
 } from '@/lib/content';
 import { MdxContent } from '@/components/mdx-content';
 import { MagazineLink } from '@/components/magazine-link';
 import { getDigestNotice } from '@/lib/digest-notice';
+import { truncateDescription } from '@/lib/metadata';
 
 interface DigestPageProps {
   params: Promise<{ lang: string; year: string; week: string }>;
@@ -35,6 +37,17 @@ export function generateStaticParams() {
   });
 }
 
+/** Heading and first paragraph of the excerpt, joined as running text. */
+function excerptToDescription(excerpt: string): string {
+  const text = excerpt
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => (/[.!?:…]$/.test(line) ? line : `${line}.`))
+    .join(' ');
+  return truncateDescription(text);
+}
+
 export async function generateMetadata({
   params,
 }: DigestPageProps): Promise<Metadata> {
@@ -46,24 +59,56 @@ export async function generateMetadata({
     return { title: 'Digest not found' };
   }
 
+  const { entry, isFallback } = result;
   const langInfo = digestLanguages.find((l) => l.code === lang);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
+  const pageUrl = (code: string) => `${siteUrl}/digest/${code}/${year}/${week}`;
+  const indexable = isIndexableDigestEdition(result);
+
+  // Auto-translated titles are a bare "BGM Digest — Week 37", identical in seven
+  // languages: the language name tells the tabs and share cards apart.
+  const title =
+    entry.auto_translated && langInfo ? `${entry.title} · ${langInfo.native_name}` : entry.title;
+  const description = excerptToDescription(entry.excerpt);
+
+  const languages: Record<string, string> = {};
+  if (indexable) {
+    for (const code of getAllDigestLangs()) {
+      const edition = getDigestEntry(weekKey, code);
+      if (edition && isIndexableDigestEdition(edition)) languages[code] = pageUrl(code);
+    }
+    if (languages.fr) languages['x-default'] = languages.fr;
+  }
+
+  const imageUrl = `${siteUrl}/${entry.redirect_lang}/og?title=${encodeURIComponent(entry.title)}`;
 
   return {
-    title: result.entry.title,
-    description: `Brussels Governance Monitor — Weekly digest ${week} ${year} (${langInfo?.name || lang})`,
+    // Absolute: the layout template would add "| BGM Digest" to a title that
+    // already starts with "BGM Digest".
+    title: { absolute: title },
+    description,
     alternates: {
-      canonical: `${siteUrl}/digest/${lang}/${year}/${week}`,
+      // A fallback page is the French edition under another URL: point to it.
+      canonical: isFallback ? pageUrl('fr') : pageUrl(lang),
+      ...(indexable ? { languages } : {}),
     },
     openGraph: {
-      title: result.entry.title,
+      title,
+      description,
       type: 'article',
       locale: lang,
+      url: pageUrl(lang),
+      siteName: 'Brussels Governance Monitor',
+      publishedTime: entry.generated_at,
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: entry.title }],
     },
-    robots: {
-      index: true,
-      follow: true,
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [imageUrl],
     },
+    robots: indexable ? { index: true, follow: true } : { index: false, follow: true },
   };
 }
 

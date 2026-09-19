@@ -967,27 +967,178 @@
       }
     },
     "brusselsParadox": {
-      "title": "Le paradoxe bruxellois : riche en PIB, pauvre en revenus",
-      "subtitle": "Pourquoi la capitale économique de la Belgique manque de moyens",
+      "metaTitle": "Bruxelles riche ou pauvre ? PIB par habitant et revenus",
+      "metaDescription": "Bruxelles a le 6e PIB par habitant de l'UE (2024), mais un tiers des habitants risque pauvreté ou exclusion. Navetteurs et impôt : le paradoxe expliqué.",
+      "breadcrumbLabel": "Le paradoxe bruxellois",
+      "title": "Bruxelles est-elle riche ou pauvre ? Le paradoxe bruxellois expliqué",
+      "subtitle": "Pourquoi l'une des régions les plus productives de l'UE compte autant d'habitants aux revenus modestes",
+      "checked": "Chiffres vérifiés le <date>19 septembre 2026</date>.",
+      "answer": "Les deux, selon ce que l'on mesure. Si l'on regarde ce qui est produit sur son territoire, la Région de Bruxelles-Capitale est l'une des plus riches de l'Union européenne : son PIB par habitant atteignait 190 % de la moyenne de l'UE en 2024. Si l'on regarde les revenus de ceux qui y vivent, c'est la plus pauvre des trois Régions belges : 33,6 % de ses habitants étaient exposés au risque de pauvreté ou d'exclusion sociale en 2025. L'écart tient surtout aux navettes domicile-travail. Environ un emploi sur deux situé à Bruxelles est occupé par une personne qui habite en Flandre ou en Wallonie, et l'impôt sur le revenu suit l'adresse du contribuable, pas son lieu de travail.",
+      "keyFigures": {
+        "title": "Les chiffres clés",
+        "gdpPps": {
+          "value": "190 %",
+          "label": "PIB par habitant en SPA, par rapport à la moyenne de l'UE (2024)"
+        },
+        "rank": {
+          "value": "6e",
+          "label": "région sur 244 dans l'UE pour le PIB par habitant en SPA (2024)"
+        },
+        "gdpShare": {
+          "value": "17,3 %",
+          "label": "du PIB belge produit à Bruxelles (2023)"
+        },
+        "commuters": {
+          "value": "≈ 400 000",
+          "label": "navetteurs venus de Flandre et de Wallonie (2024)"
+        },
+        "taxableIncome": {
+          "value": "18 529 €",
+          "label": "de revenu net imposable par habitant (revenus 2023)"
+        },
+        "arope": {
+          "value": "33,6 %",
+          "label": "des habitants exposés au risque de pauvreté ou d'exclusion sociale (2025)"
+        }
+      },
       "gdp": {
-        "title": "19 % du PIB belge",
-        "description": "Bruxelles produit environ 19 % du produit intérieur brut de la Belgique, avec seulement 10 % de la population. Cette richesse économique s'explique par la concentration d'institutions européennes, de sièges sociaux et de services financiers. Le PIB par habitant bruxellois est le plus élevé du pays."
+        "title": "Quel est le PIB par habitant de Bruxelles ?",
+        "p1": "En 2024, le PIB par habitant de la Région de Bruxelles-Capitale s'élevait à 85 300 €, contre 52 300 € pour l'ensemble de la Belgique et 39 900 € pour l'UE (Eurostat, données provisoires publiées le 10 février 2026). Exprimé en standards de pouvoir d'achat (SPA), qui corrigent les écarts de prix entre pays, il atteignait 76 000 SPA, soit 190 % de la moyenne européenne. Parmi les 244 régions NUTS 2 de l'UE, cinq seulement faisaient mieux : Eastern and Midland en Irlande (268 %), le Luxembourg (245 %), Southern en Irlande (217 %), Hambourg (196 %) et Prague (192 %).",
+        "p2": "En 2023, Bruxelles produisait 17,3 % du PIB belge (103,3 milliards d'euros) avec 10,7 % de la population du pays, selon l'IBSA, l'institut bruxellois de statistique. Son PIB par habitant est le plus élevé des onze régions NUTS 2 belges, devant le Brabant wallon (69 500 € en 2024). Cette production reflète la concentration de sièges d'entreprises, de services financiers, d'administrations publiques et d'institutions internationales : l'IBSA recense 41 775 salariés des institutions européennes à Bruxelles au 31 décembre 2024."
+      },
+      "poverty": {
+        "title": "Si Bruxelles est si riche, pourquoi tant d'habitants sont-ils pauvres ?",
+        "p1": "Le PIB mesure la valeur produite là où le travail s'effectue. Il ne dit rien de qui perçoit le revenu qui en découle. Les indicateurs fondés sur le lieu de résidence racontent une autre histoire.",
+        "p2": "Le revenu net imposable moyen s'élevait à 18 529 € par habitant à Bruxelles pour les revenus 2023, contre 24 957 € en Flandre, 22 020 € en Wallonie et 23 352 € pour la Belgique (Statbel, exercice 2024, publié le 19 novembre 2025). Le revenu médian par déclaration atteignait 24 488 € à Bruxelles, contre 30 100 € au niveau national. Le revenu disponible des ménages, qui intègre les allocations et déduit les impôts, était de 25 400 € par habitant en 2024, sous la Flandre (30 400 €) et la Wallonie (26 000 €) (Eurostat, données provisoires).",
+        "p3": "L'enquête EU-SILC confirme ce constat. En 2025, 33,6 % des Bruxellois étaient exposés au risque de pauvreté ou d'exclusion sociale, contre 11,4 % en Flandre, 20,0 % en Wallonie et 16,5 % en Belgique. Le taux de risque de pauvreté, fondé sur le seul revenu, était de 23,3 % à Bruxelles (Statbel, publié le 5 février 2026). Au deuxième trimestre 2026, le taux de chômage BIT atteignait 12,7 % à Bruxelles, 8,0 % en Wallonie et 4,0 % en Flandre (Statbel, 9 septembre 2026).",
+        "p4": "Une partie de l'écart de revenu imposable est statistique : les fonctionnaires des institutions européennes ne paient pas l'impôt belge sur le revenu, et leurs salaires n'apparaissent donc pas dans les statistiques fiscales (Statbel). Cela n'explique pas les taux de pauvreté, mesurés par enquête sur le revenu disponible."
+      },
+      "table": {
+        "caption": "Bruxelles, Flandre, Wallonie, Belgique : production et revenus comparés",
+        "indicator": "Indicateur",
+        "brussels": "Bruxelles",
+        "flanders": "Flandre",
+        "wallonia": "Wallonie",
+        "belgium": "Belgique",
+        "rows": {
+          "gdpPps": {
+            "label": "PIB par habitant en SPA, en % de la moyenne de l'UE (2024)",
+            "bru": "190",
+            "fla": "119",
+            "wal": "87",
+            "bel": "117"
+          },
+          "disposableIncome": {
+            "label": "Revenu disponible des ménages par habitant, 2024 (€)",
+            "bru": "25 400",
+            "fla": "30 400",
+            "wal": "26 000",
+            "bel": "28 500"
+          },
+          "taxableIncome": {
+            "label": "Revenu net imposable par habitant, revenus 2023 (€)",
+            "bru": "18 529",
+            "fla": "24 957",
+            "wal": "22 020",
+            "bel": "23 352"
+          },
+          "arope": {
+            "label": "Risque de pauvreté ou d'exclusion sociale, 2025 (%)",
+            "bru": "33,6",
+            "fla": "11,4",
+            "wal": "20,0",
+            "bel": "16,5"
+          },
+          "unemployment": {
+            "label": "Taux de chômage BIT, deuxième trimestre 2026 (%)",
+            "bru": "12,7",
+            "fla": "4,0",
+            "wal": "8,0",
+            "bel": "6,1"
+          }
+        },
+        "sources": "Sources : Eurostat (PIB en SPA, revenu disponible des ménages, données provisoires pour 2024) ; Statbel (revenu net imposable, EU-SILC 2025, Enquête sur les forces de travail T2 2026)."
       },
       "commuters": {
-        "title": "360 000 navetteurs",
-        "description": "Chaque jour, environ 360 000 travailleurs viennent travailler à Bruxelles depuis la Flandre et la Wallonie. Ils contribuent au PIB bruxellois mais paient leurs impôts sur le revenu dans leur commune de résidence. Bruxelles supporte les coûts d'infrastructure sans bénéficier des recettes fiscales correspondantes."
+        "title": "Où va l'argent ? Navetteurs et impôt sur le revenu",
+        "p1": "En 2024, 809 900 personnes de 15 à 64 ans travaillaient en Région de Bruxelles-Capitale. Parmi elles, 410 100 habitaient Bruxelles, 252 200 la Flandre et 147 600 la Wallonie (Enquête sur les forces de travail de Statbel, publiée par l'IBSA). Environ 400 000 navetteurs entrants occupent donc quelque 49 % des emplois de la Région. Les données administratives du Steunpunt Werk donnent une image proche pour 2024 : 32,5 % des personnes qui travaillent à Bruxelles habitent en Flandre, 17,8 % en Wallonie et 48,5 % à Bruxelles.",
+        "p2": "Les salaires de ces navetteurs sont comptés dans le PIB bruxellois, mais leur impôt des personnes physiques est rattaché à leur domicile. La loi spéciale de financement du 16 janvier 1989 prévoit que cet impôt « est réputé localisé à l'endroit où le contribuable a établi son domicile fiscal au 1er janvier de l'exercice d'imposition » (art. 5/1, § 2). La part régionale de l'impôt et la taxe additionnelle communale reviennent donc à la Région et à la commune où vit le navetteur.",
+        "p3": "La Banque nationale de Belgique a mesuré l'ampleur de ces flux dans une étude publiée en octobre 2025. Entre 2010 et 2021, Bruxelles a versé en moyenne 20 milliards d'euros de plus par an en revenus du travail à des non-résidents que ce que ses habitants ont gagné hors de la Région. Résultat : le revenu disponible à Bruxelles était inférieur de 33 % à son PIB, alors qu'il le dépassait de 4 % en Flandre et de 15 % en Wallonie. La Banque en conclut que le PIB régional n'est pas un indicateur pertinent du niveau de vie des habitants d'une région.",
+        "p4": "Les statistiques fiscales le reflètent : les habitants de Bruxelles ont payé 5,3 milliards d'euros sur les 62,8 milliards d'impôt des personnes physiques dus sur les revenus 2023, soit 8,4 % du total national (calcul BGM à partir des données de Statbel)."
       },
-      "income": {
-        "title": "Revenu disponible inférieur",
-        "description": "Malgré un PIB élevé, le revenu disponible moyen par habitant à Bruxelles est inférieur à celui de la Flandre. La pauvreté touche 30 % de la population bruxelloise. Le taux de chômage régional (15,0 % en mars 2026) est le plus élevé des trois Régions belges."
+      "finances": {
+        "title": "Qu'est-ce que cela change pour les finances de la Région ?",
+        "p1": "Les impôts directs à charge des ménages, qui comprennent la part régionale de l'impôt des personnes physiques, ont rapporté 1,27 milliard d'euros en 2024, soit 21 % des recettes de la Région (comptes nationaux, publiés par l'IBSA). Des services comme les transports publics, les voiries ou la propreté servent toutes les personnes présentes en journée, navetteurs compris.",
+        "p2": "La loi spéciale de financement prévoit des compensations partielles. Depuis 2017, les Régions flamande et wallonne versent à Bruxelles 44 millions d'euros par an « pour compenser une partie de la perte de revenus consécutive au flux net de navetteurs » (art. 64quater). Une autre dotation, fixée à 159 millions d'euros en 2016 et indexée depuis, compense en partie la présence de fonctionnaires des institutions internationales (art. 64quinquies). Le niveau de ces montants revient régulièrement dans les négociations institutionnelles.",
+        "p3": "Le tableau change lorsqu'on compte tous les impôts, y compris ceux payés par les entreprises. Dans son étude d'octobre 2025, qu'elle qualifie d'expérimentale, la Banque nationale estime que Bruxelles, dans son ensemble, était contributrice nette aux transferts entre Régions, à hauteur de 3 milliards d'euros par an en moyenne entre 2010 et 2021, surtout en raison des impôts payés par les entreprises du secteur financier."
       },
-      "transfers": {
-        "title": "Les transferts fiscaux",
-        "description": "Le système fiscal belge redistribue une partie des revenus entre les Régions. Bruxelles est à la fois contributeur net au PIB national et bénéficiaire de mécanismes de solidarité. La question du financement de Bruxelles — et notamment de la compensation pour les navetteurs — est un sujet récurrent des négociations institutionnelles."
+      "belgium": {
+        "title": "La Belgique est-elle un pays riche ou pauvre ?",
+        "p1": "À l'échelle européenne, la Belgique est un pays à revenu élevé. Son PIB par habitant représentait 117 % de la moyenne de l'UE en SPA en 2024 (Eurostat, données provisoires), et son taux de risque de pauvreté ou d'exclusion sociale était de 16,5 % en 2025, sous la moyenne européenne de 20,9 %. La moyenne nationale cache de forts écarts régionaux : en SPA, le PIB par habitant atteignait 119 % de la moyenne de l'UE en Flandre, 87 % en Wallonie et 190 % à Bruxelles en 2024. À Bruxelles, ces chiffres décrivent davantage le lieu de travail que les habitants."
       },
-      "whyMatters": {
-        "title": "Pourquoi c'est important pour la crise",
-        "description": "Le paradoxe bruxellois explique pourquoi la crise gouvernementale frappe si durement : une Région structurellement sous-financée qui perd sa capacité d'investissement pendant deux ans voit ses services publics se dégrader plus vite que les deux autres Régions."
+      "goFurther": {
+        "title": "Pour aller plus loin",
+        "economy": "Économie à Bruxelles (fiche domaine)",
+        "employment": "Emploi à Bruxelles (fiche domaine)",
+        "budget": "Budget régional (fiche domaine)",
+        "wellbeing": "Bien-être et qualité de vie à Bruxelles (dossier)",
+        "cpas": "Les 19 CPAS bruxellois (dossier)",
+        "commuters": "Navetteurs (glossaire)",
+        "federal": "Le Fédéral et Bruxelles",
+        "cosmopolitan": "Bruxelles cosmopolite",
+        "overview": "Bruxelles en bref",
+        "unemployment": "Taux de chômage : Bruxelles face aux autres régions-capitales de l'UE (comparaison)"
+      },
+      "method": {
+        "title": "Sources et méthode",
+        "p1": "Le PIB est mesuré au lieu de production puis divisé par la population résidente : une région qui attire beaucoup de navetteurs affiche donc un PIB par habitant élevé. Les chiffres régionaux de 2024 sont provisoires. Le nombre de navetteurs varie légèrement selon la source : l'Enquête sur les forces de travail repose sur un échantillon, le Steunpunt Werk sur des registres administratifs. Les indicateurs de pauvreté proviennent de l'enquête EU-SILC et comportent une marge d'erreur : pour 2024, l'IBSA donne un intervalle de confiance de 34,3 % à 40,3 % autour du taux bruxellois de 37,3 %.",
+        "sourcesTitle": "Sources",
+        "sources": {
+          "eurostatGdp": {
+            "label": "Eurostat, nama_10r_2gdp : PIB régional par habitant",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2gdp/default/table"
+          },
+          "eurostatIncome": {
+            "label": "Eurostat, nama_10r_2hhinc : revenu des ménages par région",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2hhinc/default/table"
+          },
+          "eurostatAropeEu": {
+            "label": "Eurostat, ilc_peps01n : risque de pauvreté ou d'exclusion sociale par pays",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps01n/default/table"
+          },
+          "eurostatAropeRegions": {
+            "label": "Eurostat, ilc_peps11n : risque de pauvreté ou d'exclusion sociale par région",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table"
+          },
+          "ibsa": {
+            "label": "IBSA, Mini-Bru 2026 (PDF)",
+            "url": "https://ibsa.brussels/sites/default/files/publication/documents/Perspective%20Brussels-Mini-Bru%202026%20FR.pdf"
+          },
+          "statbelTax": {
+            "label": "Statbel, statistiques fiscales des revenus 2023",
+            "url": "https://statbel.fgov.be/fr/themes/menages/revenus-fiscaux"
+          },
+          "statbelArope": {
+            "label": "Statbel, EU-SILC 2025 : risque de pauvreté ou d'exclusion sociale",
+            "url": "https://statbel.fgov.be/fr/themes/menages/pauvrete-et-conditions-de-vie/risque-de-pauvrete-ou-dexclusion-sociale"
+          },
+          "statbelLfs": {
+            "label": "Statbel, Enquête sur les forces de travail T2 2026 : emploi et chômage",
+            "url": "https://statbel.fgov.be/fr/themes/emploi-formation/marche-du-travail/emploi-et-chomage"
+          },
+          "steunpuntWerk": {
+            "label": "Steunpunt Werk, Vlaamse Arbeidsrekening 2024",
+            "url": "https://www.steunpuntwerk.be/onderzoeksthemas/lokale-arbeidsmarkten/inzichten-vlaamse-arbeidsrekening"
+          },
+          "nbb": {
+            "label": "Banque nationale de Belgique, Flux et (dés)équilibres régionaux en Belgique, octobre 2025 (PDF)",
+            "url": "https://www.nbb.be/doc/ts/publications/other/regions/20251023_regions_doc_fr.pdf"
+          },
+          "financingAct": {
+            "label": "Loi spéciale de financement du 16 janvier 1989 (Justel)",
+            "url": "https://www.ejustice.just.fgov.be/eli/loi/1989/01/16/1989021010/justel"
+          }
+        }
       }
     },
     "levelsOfPower": {

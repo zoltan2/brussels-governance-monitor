@@ -967,27 +967,178 @@
       }
     },
     "brusselsParadox": {
-      "title": "De Brusselse paradox: rijk aan BBP, arm aan inkomsten",
-      "subtitle": "Waarom de economische hoofdstad van België een tekort aan middelen heeft",
+      "metaTitle": "Is Brussel rijk of arm? Bbp per inwoner en inkomens",
+      "metaDescription": "Brussel: 6de bbp per inwoner van de EU (2024), maar een derde van de Brusselaars riskeert armoede of uitsluiting. Pendelaars en belasting verklaren het.",
+      "breadcrumbLabel": "De Brusselse paradox",
+      "title": "Is Brussel rijk of arm? De Brusselse paradox uitgelegd",
+      "subtitle": "Waarom een van de productiefste regio's van de EU zoveel inwoners met een bescheiden inkomen telt",
+      "checked": "Cijfers gecontroleerd op <date>19 september 2026</date>.",
+      "answer": "Allebei, afhankelijk van wat je meet. Kijk je naar wat er op zijn grondgebied wordt geproduceerd, dan is het Brussels Hoofdstedelijk Gewest een van de rijkste regio's van de Europese Unie: het bbp per inwoner bedroeg in 2024 190 % van het EU-gemiddelde. Kijk je naar de inkomens van wie er woont, dan is het het armste van de drie Belgische Gewesten: 33,6 % van de inwoners liep in 2025 risico op armoede of sociale uitsluiting. Het verschil komt vooral door het woon-werkverkeer. Ongeveer één op de twee banen in Brussel wordt ingevuld door iemand die in Vlaanderen of Wallonië woont, en de inkomstenbelasting volgt het woonadres van de belastingplichtige, niet de werkplek.",
+      "keyFigures": {
+        "title": "De kerncijfers",
+        "gdpPps": {
+          "value": "190 %",
+          "label": "bbp per inwoner in KKS, ten opzichte van het EU-gemiddelde (2024)"
+        },
+        "rank": {
+          "value": "6de",
+          "label": "regio op 244 in de EU voor het bbp per inwoner in KKS (2024)"
+        },
+        "gdpShare": {
+          "value": "17,3 %",
+          "label": "van het Belgische bbp wordt in Brussel geproduceerd (2023)"
+        },
+        "commuters": {
+          "value": "≈ 400.000",
+          "label": "pendelaars uit Vlaanderen en Wallonië (2024)"
+        },
+        "taxableIncome": {
+          "value": "€ 18.529",
+          "label": "netto belastbaar inkomen per inwoner (inkomsten 2023)"
+        },
+        "arope": {
+          "value": "33,6 %",
+          "label": "van de inwoners loopt risico op armoede of sociale uitsluiting (2025)"
+        }
+      },
       "gdp": {
-        "title": "19 % van het Belgische BBP",
-        "description": "Brussel produceert ongeveer 19 % van het Belgische bruto binnenlands product, met slechts 10 % van de bevolking. Deze economische rijkdom is te verklaren door de concentratie van Europese instellingen, hoofdkantoren en financiële diensten. Het BBP per inwoner in Brussel is het hoogste van het land."
+        "title": "Hoe hoog is het bbp per inwoner van Brussel?",
+        "p1": "In 2024 bedroeg het bbp per inwoner van het Brussels Hoofdstedelijk Gewest 85.300 euro, tegenover 52.300 euro voor België als geheel en 39.900 euro voor de EU (Eurostat, voorlopige cijfers gepubliceerd op 10 februari 2026). Uitgedrukt in koopkrachtstandaarden (KKS), die prijsverschillen tussen landen wegwerken, kwam het uit op 76.000 KKS, of 190 % van het Europese gemiddelde. Van de 244 NUTS 2-regio's van de EU deden er maar vijf beter: Eastern and Midland in Ierland (268 %), Luxemburg (245 %), Southern in Ierland (217 %), Hamburg (196 %) en Praag (192 %).",
+        "p2": "In 2023 produceerde Brussel 17,3 % van het Belgische bbp (103,3 miljard euro) met 10,7 % van de bevolking van het land, volgens het BISA, het Brusselse instituut voor statistiek. Het bbp per inwoner is het hoogste van de elf Belgische NUTS 2-regio's, vóór Waals-Brabant (69.500 euro in 2024). Die productie weerspiegelt de concentratie van hoofdzetels van bedrijven, financiële diensten, overheidsadministraties en internationale instellingen: het BISA telt op 31 december 2024 41.775 werknemers van de Europese instellingen in Brussel."
+      },
+      "poverty": {
+        "title": "Als Brussel zo rijk is, waarom zijn dan zoveel inwoners arm?",
+        "p1": "Het bbp meet de waarde die wordt geproduceerd waar het werk plaatsvindt. Het zegt niets over wie het inkomen ontvangt dat eruit voortvloeit. Indicatoren die uitgaan van de woonplaats vertellen een ander verhaal.",
+        "p2": "Het gemiddelde netto belastbaar inkomen bedroeg in Brussel 18.529 euro per inwoner voor de inkomsten 2023, tegenover 24.957 euro in Vlaanderen, 22.020 euro in Wallonië en 23.352 euro voor België (Statbel, aanslagjaar 2024, gepubliceerd op 19 november 2025). Het mediaaninkomen per aangifte bedroeg 24.488 euro in Brussel, tegenover 30.100 euro op nationaal niveau. Het beschikbaar inkomen van de huishoudens, dat uitkeringen meetelt en belastingen aftrekt, bedroeg in 2024 25.400 euro per inwoner, lager dan in Vlaanderen (30.400 euro) en Wallonië (26.000 euro) (Eurostat, voorlopige cijfers).",
+        "p3": "De EU-SILC-enquête bevestigt dat beeld. In 2025 liep 33,6 % van de Brusselaars risico op armoede of sociale uitsluiting, tegenover 11,4 % in Vlaanderen, 20,0 % in Wallonië en 16,5 % in België. Het armoederisico, dat alleen op het inkomen berust, bedroeg 23,3 % in Brussel (Statbel, gepubliceerd op 5 februari 2026). In het tweede kwartaal van 2026 bedroeg de IAB-werkloosheidsgraad 12,7 % in Brussel, 8,0 % in Wallonië en 4,0 % in Vlaanderen (Statbel, 9 september 2026).",
+        "p4": "Een deel van het verschil in belastbaar inkomen is statistisch: ambtenaren van de Europese instellingen betalen geen Belgische inkomstenbelasting, zodat hun lonen niet in de fiscale statistieken voorkomen (Statbel). Dat verklaart de armoedecijfers niet, die via een enquête naar het beschikbaar inkomen worden gemeten."
+      },
+      "table": {
+        "caption": "Brussel, Vlaanderen, Wallonië, België: productie en inkomens vergeleken",
+        "indicator": "Indicator",
+        "brussels": "Brussel",
+        "flanders": "Vlaanderen",
+        "wallonia": "Wallonië",
+        "belgium": "België",
+        "rows": {
+          "gdpPps": {
+            "label": "Bbp per inwoner in KKS, in % van het EU-gemiddelde (2024)",
+            "bru": "190",
+            "fla": "119",
+            "wal": "87",
+            "bel": "117"
+          },
+          "disposableIncome": {
+            "label": "Beschikbaar inkomen van de huishoudens per inwoner, 2024 (€)",
+            "bru": "25.400",
+            "fla": "30.400",
+            "wal": "26.000",
+            "bel": "28.500"
+          },
+          "taxableIncome": {
+            "label": "Netto belastbaar inkomen per inwoner, inkomsten 2023 (€)",
+            "bru": "18.529",
+            "fla": "24.957",
+            "wal": "22.020",
+            "bel": "23.352"
+          },
+          "arope": {
+            "label": "Risico op armoede of sociale uitsluiting, 2025 (%)",
+            "bru": "33,6",
+            "fla": "11,4",
+            "wal": "20,0",
+            "bel": "16,5"
+          },
+          "unemployment": {
+            "label": "IAB-werkloosheidsgraad, tweede kwartaal 2026 (%)",
+            "bru": "12,7",
+            "fla": "4,0",
+            "wal": "8,0",
+            "bel": "6,1"
+          }
+        },
+        "sources": "Bronnen: Eurostat (bbp in KKS, beschikbaar inkomen van de huishoudens, voorlopige cijfers voor 2024); Statbel (netto belastbaar inkomen, EU-SILC 2025, Enquête naar de Arbeidskrachten K2 2026)."
       },
       "commuters": {
-        "title": "360.000 pendelaars",
-        "description": "Elke dag komen ongeveer 360.000 werknemers in Brussel werken vanuit Vlaanderen en Wallonië. Zij dragen bij aan het Brusselse BBP maar betalen hun inkomstenbelasting in hun woongemeente. Brussel draagt de infrastructuurkosten zonder te profiteren van de bijbehorende fiscale inkomsten."
+        "title": "Waar gaat het geld naartoe? Pendelaars en inkomstenbelasting",
+        "p1": "In 2024 werkten 809.900 mensen van 15 tot 64 jaar in het Brussels Hoofdstedelijk Gewest. Van hen woonden er 410.100 in Brussel, 252.200 in Vlaanderen en 147.600 in Wallonië (Enquête naar de Arbeidskrachten van Statbel, gepubliceerd door het BISA). Ongeveer 400.000 inkomende pendelaars bezetten dus zo'n 49 % van de banen in het Gewest. De administratieve gegevens van het Steunpunt Werk geven voor 2024 een vergelijkbaar beeld: 32,5 % van wie in Brussel werkt, woont in Vlaanderen, 17,8 % in Wallonië en 48,5 % in Brussel.",
+        "p2": "De lonen van die pendelaars worden meegeteld in het Brusselse bbp, maar hun personenbelasting wordt aan hun woonplaats gekoppeld. De bijzondere financieringswet van 16 januari 1989 bepaalt dat de personenbelasting wordt „geacht te zijn gelokaliseerd op de plaats waar de belastingplichtige zijn fiscale woonplaats heeft gevestigd op 1 januari van het aanslagjaar” (art. 5/1, § 2). Het gewestelijke deel van de belasting en de aanvullende gemeentebelasting gaan dus naar het Gewest en de gemeente waar de pendelaar woont.",
+        "p3": "De Nationale Bank van België heeft de omvang van die stromen gemeten in een studie die in oktober 2025 verscheen. Tussen 2010 en 2021 betaalde Brussel gemiddeld 20 miljard euro per jaar meer aan arbeidsinkomen uit aan niet-inwoners dan zijn inwoners buiten het Gewest verdienden. Gevolg: het beschikbaar inkomen in Brussel lag 33 % lager dan het bbp, terwijl het in Vlaanderen 4 % en in Wallonië 15 % hoger lag. De Bank besluit daaruit dat het regionale bbp geen relevante indicator is voor de levensstandaard van de inwoners van een regio.",
+        "p4": "De fiscale statistieken weerspiegelen dat: de inwoners van Brussel betaalden 5,3 miljard euro van de 62,8 miljard euro personenbelasting verschuldigd op de inkomsten 2023, of 8,4 % van het nationale totaal (berekening van BGM op basis van gegevens van Statbel)."
       },
-      "income": {
-        "title": "Lager beschikbaar inkomen",
-        "description": "Ondanks een hoog BBP is het gemiddelde beschikbare inkomen per inwoner in Brussel lager dan in Vlaanderen. Armoede treft 30 % van de Brusselse bevolking. Het gewestelijke werkloosheidspercentage (15,0 % in maart 2026) is het hoogste van de drie Belgische Gewesten."
+      "finances": {
+        "title": "Wat betekent dat voor de financiën van het Gewest?",
+        "p1": "De directe belastingen ten laste van de huishoudens, waaronder het gewestelijke deel van de personenbelasting, brachten in 2024 1,27 miljard euro op, of 21 % van de ontvangsten van het Gewest (nationale rekeningen, gepubliceerd door het BISA). Diensten zoals het openbaar vervoer, de wegen of de netheid komen iedereen ten goede die overdag in de stad is, pendelaars inbegrepen.",
+        "p2": "De bijzondere financieringswet voorziet in gedeeltelijke compensaties. Sinds 2017 betalen het Vlaamse en het Waalse Gewest Brussel 44 miljoen euro per jaar om „een deel van het inkomstenverlies als gevolg van de netto stroom van pendelaars” te compenseren (art. 64quater). Een andere dotatie, in 2016 vastgelegd op 159 miljoen euro en sindsdien geïndexeerd, compenseert gedeeltelijk de aanwezigheid van ambtenaren van de internationale instellingen (art. 64quinquies). De hoogte van die bedragen komt geregeld terug in de institutionele onderhandelingen.",
+        "p3": "Het beeld verandert als alle belastingen worden meegeteld, ook die van bedrijven. In haar studie van oktober 2025, die ze zelf experimenteel noemt, schat de Nationale Bank dat Brussel als geheel netto bijdroeg aan de transfers tussen de Gewesten, met gemiddeld 3 miljard euro per jaar tussen 2010 en 2021, vooral door de belastingen die bedrijven uit de financiële sector betalen."
       },
-      "transfers": {
-        "title": "De fiscale transfers",
-        "description": "Het Belgische belastingstelsel herverdeelt een deel van de inkomsten tussen de Gewesten. Brussel is zowel nettobijdrager aan het nationaal BBP als begunstigde van solidariteitsmechanismen. De kwestie van de financiering van Brussel — en met name de compensatie voor pendelaars — is een terugkerend thema in de institutionele onderhandelingen."
+      "belgium": {
+        "title": "Is België een rijk of een arm land?",
+        "p1": "Op Europese schaal is België een land met een hoog inkomen. Het bbp per inwoner bedroeg in 2024 117 % van het EU-gemiddelde in KKS (Eurostat, voorlopige cijfers), en het percentage mensen met een risico op armoede of sociale uitsluiting lag in 2025 op 16,5 %, onder het Europese gemiddelde van 20,9 %. Het nationale gemiddelde verbergt grote regionale verschillen: in KKS bedroeg het bbp per inwoner in 2024 119 % van het EU-gemiddelde in Vlaanderen, 87 % in Wallonië en 190 % in Brussel. In Brussel beschrijven die cijfers eerder de werkplek dan de inwoners."
       },
-      "whyMatters": {
-        "title": "Waarom dit belangrijk is voor de crisis",
-        "description": "De Brusselse paradox verklaart waarom de regeringscrisis zo hard toeslaat: een structureel ondergefinancierd Gewest dat twee jaar lang zijn investeringscapaciteit verliest, ziet zijn openbare diensten sneller verslechteren dan de twee andere Gewesten."
+      "goFurther": {
+        "title": "Verder lezen",
+        "economy": "Economie in Brussel (domein)",
+        "employment": "Werkgelegenheid in Brussel (domein)",
+        "budget": "Het gewestelijke budget (domein)",
+        "wellbeing": "Welzijn en levenskwaliteit in Brussel (dossier)",
+        "cpas": "De 19 Brusselse OCMW's (dossier)",
+        "commuters": "Pendelaars (woordenlijst)",
+        "federal": "De federale overheid en Brussel",
+        "cosmopolitan": "Kosmopolitisch Brussel",
+        "overview": "Brussel in het kort",
+        "unemployment": "Werkloosheidsgraad: Brussel vergeleken met andere EU-hoofdstedelijke regio's (vergelijking)"
+      },
+      "method": {
+        "title": "Bronnen en methode",
+        "p1": "Het bbp wordt gemeten op de plaats van productie en daarna gedeeld door de inwonende bevolking: een regio die veel pendelaars aantrekt, vertoont dus een hoog bbp per inwoner. De regionale cijfers voor 2024 zijn voorlopig. Het aantal pendelaars verschilt licht naargelang de bron: de Enquête naar de Arbeidskrachten steunt op een steekproef, het Steunpunt Werk op administratieve registers. De armoede-indicatoren komen uit de EU-SILC-enquête en hebben een foutenmarge: voor 2024 geeft het BISA een betrouwbaarheidsinterval van 34,3 % tot 40,3 % rond het Brusselse cijfer van 37,3 %.",
+        "sourcesTitle": "Bronnen",
+        "sources": {
+          "eurostatGdp": {
+            "label": "Eurostat, nama_10r_2gdp: regionaal bbp per inwoner",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2gdp/default/table"
+          },
+          "eurostatIncome": {
+            "label": "Eurostat, nama_10r_2hhinc: inkomen van de huishoudens per regio",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2hhinc/default/table"
+          },
+          "eurostatAropeEu": {
+            "label": "Eurostat, ilc_peps01n: risico op armoede of sociale uitsluiting per land",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps01n/default/table"
+          },
+          "eurostatAropeRegions": {
+            "label": "Eurostat, ilc_peps11n: risico op armoede of sociale uitsluiting per regio",
+            "url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table"
+          },
+          "ibsa": {
+            "label": "BISA, Mini-Bru 2026 (pdf)",
+            "url": "https://bisa.brussels/sites/default/files/publication/documents/Perspective%20Brussels-Mini-Bru%202026%20NL.pdf"
+          },
+          "statbelTax": {
+            "label": "Statbel, fiscale statistieken van de inkomsten 2023",
+            "url": "https://statbel.fgov.be/nl/themas/huishoudens/fiscale-inkomens"
+          },
+          "statbelArope": {
+            "label": "Statbel, EU-SILC 2025: risico op armoede of sociale uitsluiting",
+            "url": "https://statbel.fgov.be/nl/themas/huishoudens/armoede-en-levensomstandigheden/risico-op-armoede-sociale-uitsluiting"
+          },
+          "statbelLfs": {
+            "label": "Statbel, Enquête naar de Arbeidskrachten K2 2026: werkgelegenheid en werkloosheid",
+            "url": "https://statbel.fgov.be/nl/themas/werk-opleiding/arbeidsmarkt/werkgelegenheid-en-werkloosheid"
+          },
+          "steunpuntWerk": {
+            "label": "Steunpunt Werk, Vlaamse Arbeidsrekening 2024",
+            "url": "https://www.steunpuntwerk.be/onderzoeksthemas/lokale-arbeidsmarkten/inzichten-vlaamse-arbeidsrekening"
+          },
+          "nbb": {
+            "label": "Nationale Bank van België, Flux et (dés)équilibres régionaux en Belgique, oktober 2025 (pdf, in het Frans)",
+            "url": "https://www.nbb.be/doc/ts/publications/other/regions/20251023_regions_doc_fr.pdf"
+          },
+          "financingAct": {
+            "label": "Bijzondere financieringswet van 16 januari 1989 (Justel)",
+            "url": "https://www.ejustice.just.fgov.be/eli/wet/1989/01/16/1989021010/justel"
+          }
+        }
       }
     },
     "levelsOfPower": {

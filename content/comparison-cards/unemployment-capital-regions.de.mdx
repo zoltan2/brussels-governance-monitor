@@ -17,42 +17,45 @@ entities:
 indicator: "Regionale Arbeitslosenquote"
 sourceDataset:
   name: "Eurostat — lfst_r_lfu3rt"
-  url: "https://ec.europa.eu/eurostat"
+  url: "https://ec.europa.eu/eurostat/databrowser/view/lfst_r_lfu3rt/default/table"
   code: "lfst_r_lfu3rt"
-methodology: "Vergleich der regionalen Arbeitslosenquoten (Bevölkerung 15–74 Jahre) auf NUTS-2-Ebene, auf Grundlage der von Eurostat harmonisierten Arbeitskräfteerhebung (AKE/LFS). Die Daten umfassen die Hauptstadtregionen von fünf ausgewählten Ländern. Die Vergleichbarkeit wird durch den gemeinsamen methodischen Rahmen der AKE gewährleistet, allerdings unterscheiden sich die Arbeitsmarktstrukturen (öffentliche Beschäftigung, Industriestruktur, Saisonalität) erheblich von Region zu Region."
+methodology: "Vergleich der regionalen Arbeitslosenquoten (Bevölkerung 15–74 Jahre) auf NUTS-2-Ebene, auf Grundlage der von Eurostat harmonisierten Arbeitskräfteerhebung (AKE/LFS). Die Daten umfassen die Hauptstadtregionen von fünf ausgewählten Ländern. Die Vergleichbarkeit wird durch den gemeinsamen methodischen Rahmen der AKE gewährleistet, allerdings unterscheiden sich die Arbeitsmarktstrukturen (öffentliche Beschäftigung, Industriestruktur, Saisonalität) erheblich von Region zu Region. Die Werte sind Jahresdurchschnitte. Für Île-de-France weist Eurostat auf eine vom gemeinsamen Rahmen abweichende Definition und einen Zeitreihenbruch 2024 hin."
 dataPoints:
   - entity: "BE10"
-    value: "12,7 %"
+    value: "11,8 %"
     date: "2024-12-31"
   - entity: "AT13"
-    value: "7,8 %"
+    value: "9,4 %"
     date: "2024-12-31"
   - entity: "DE30"
-    value: "8,6 %"
+    value: "5,6 %"
     date: "2024-12-31"
   - entity: "FR10"
-    value: "7,3 %"
+    value: "8,0 %"
     date: "2024-12-31"
   - entity: "NL32"
-    value: "3,6 %"
+    value: "3,8 %"
     date: "2024-12-31"
   - entity: "BE10"
-    value: "12,4 %"
-    date: "2025-06-30"
+    value: "12,6 %"
+    date: "2025-12-31"
   - entity: "AT13"
-    value: "7,5 %"
-    date: "2025-06-30"
+    value: "9,9 %"
+    date: "2025-12-31"
   - entity: "DE30"
-    value: "8,9 %"
-    date: "2025-06-30"
+    value: "6,5 %"
+    date: "2025-12-31"
   - entity: "FR10"
-    value: "7,1 %"
-    date: "2025-06-30"
+    value: "8,8 %"
+    date: "2025-12-31"
   - entity: "NL32"
-    value: "3,4 %"
-    date: "2025-06-30"
+    value: "3,8 %"
+    date: "2025-12-31"
 caveat: "Die NUTS-2-Abgrenzungen entsprechen nicht immer den tatsächlichen Beschäftigungsräumen. Die Region Brüssel-Hauptstadt (BE10) ist eine kompakte Region von 161 km², die den funktionalen Stadtraum ausschließt, im Gegensatz zu Île-de-France (12 012 km²) oder Noord-Holland (2 670 km²). Die Brüsseler Arbeitslosenquote wird zudem durch spezifische strukturelle Faktoren beeinflusst: sprachliche Diskrepanz zwischen Arbeitskräfteangebot und -nachfrage, Konzentration gering qualifizierter Bevölkerungsgruppen im städtischen Kern und Konkurrenz durch flämische und wallonische Pendler um lokale Arbeitsplätze."
-lastModified: "2026-02-07"
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Korrektur: Die Brüsseler Arbeitslosenquote lag 2024 laut Eurostat bei 11,8 %, nicht bei 12,7 %. 2025 erreichte sie 12,6 %, gegenüber 9,9 % in Wien, 8,8 % in Île-de-France, 6,5 % in Berlin und 3,8 % in Noord-Holland. Alle Werte stammen nun aus derselben Eurostat-Reihe (15-74 Jahre, Jahresdurchschnitte), und die Zahl der Pendler ist auf rund 400 000 korrigiert."
+changeSummaryDate: "2026-09-19"
 ---
 
 ## Kontext
@@ -61,18 +64,17 @@ Die Arbeitslosenquote ist einer der am meisten beachteten Indikatoren zur Bewert
 
 ## Die verglichenen Daten
 
-Von den fünf ausgewählten Hauptstadtregionen weist die Region Brüssel-Hauptstadt mit 12,7 % Ende 2024 die höchste Arbeitslosenquote auf. Diese Quote liegt etwa 1,5-mal höher als in Wien (7,8 %) und Berlin (8,6 %) und ist mehr als dreimal so hoch wie in Noord-Holland (3,6 %).
+Von den fünf ausgewählten Hauptstadtregionen weist die Region Brüssel-Hauptstadt mit 12,6 % im Jahr 2025 (11,8 % im Jahr 2024) die höchste Arbeitslosenquote auf. Diese Quote liegt etwa ein Viertel über der von Wien (9,9 %), ist fast doppelt so hoch wie in Berlin (6,5 %) und mehr als dreimal so hoch wie in Noord-Holland (3,8 %).
 
-Île-de-France hält trotz einer Bevölkerung von über 12 Millionen Einwohnern eine relativ niedrige Quote (7,3 %), was teilweise auf die Vielfalt des Wirtschaftsgefüges und die Einbeziehung suburbaner Gebiete in den NUTS-2-Perimeter zurückzuführen ist.
+Île-de-France weist trotz einer Bevölkerung von über 12 Millionen Einwohnern eine deutlich niedrigere Quote als Brüssel auf (8,8 % im Jahr 2025), was teilweise auf die Vielfalt des Wirtschaftsgefüges und die Einbeziehung suburbaner Gebiete in den NUTS-2-Perimeter zurückzuführen ist.
 
 ## Der Brüsseler Fall
 
 Die hohe Arbeitslosenquote der Region Brüssel-Hauptstadt erklärt sich durch eine Kombination struktureller Faktoren:
 
 - **Sprachliche Diskrepanz**: Viele Stellenangebote verlangen Französisch-Niederländische Zweisprachigkeit, während ein erheblicher Teil der Brüsseler Arbeitssuchenden frankophon oder anderssprachig ist.
-- **Pendlereffekt**: Etwa 360 000 Personen arbeiten in Brüssel, ohne dort zu wohnen, und besetzen einen erheblichen Anteil der qualifizierten Stellen.
+- **Pendlereffekt**: 2024 arbeiteten rund 400 000 Menschen mit Wohnsitz in Flandern oder Wallonien in Brüssel (Arbeitskräfteerhebung, Statbel, veröffentlicht vom IBSA) und besetzten einen erheblichen Anteil der qualifizierten Stellen.
 - **Städtische Konzentration**: Die geografische Kompaktheit der Region (19 Gemeinden, 161 km²) konzentriert gering qualifizierte Bevölkerungsgruppen ohne den Verdünnungseffekt größerer NUTS-2-Regionen.
-- **Regierungskrise**: Das Fehlen einer voll handlungsfähigen Regierung seit Juni 2024 legt die aktive Beschäftigungspolitik und die Investitionen in die Berufsbildung auf Eis.
 
 ## Grenzen des Vergleichs
 
@@ -80,6 +82,7 @@ Die NUTS-2-Nomenklatur erzeugt sehr heterogene geografische Einheiten. Brüssel-
 
 ## Quellen
 
-- Eurostat, Arbeitskräfteerhebung — Arbeitslosenquote nach NUTS-2-Region (lfst_r_lfu3rt), Daten extrahiert im Januar 2026
+- Eurostat, Arbeitskräfteerhebung, Arbeitslosenquote nach NUTS-2-Region, 15-74 Jahre (lfst_r_lfu3rt), Daten 2024 und 2025, Aktualisierung vom 10. September 2026, abgerufen am 19. September 2026
+- IBSA, Mini-Bru 2026, Beschäftigung nach Wohn- und Arbeitsregion 2024 (Arbeitskräfteerhebung, Statbel)
 - IBSA (Brüsseler Institut für Statistik und Analyse), Brüsseler Arbeitsmarkt — Jahresbericht 2025
 - Actiris, Statistischer Jahresbericht 2025

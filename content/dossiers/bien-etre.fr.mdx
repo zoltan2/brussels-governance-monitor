@@ -7,8 +7,8 @@ dossierType: social
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Les Bruxellois attribuent 7,5/10 à leur satisfaction de vie (IBSA/BFP, 2023), mais la précarité s'aggrave. Le Baromètre social 2025 (Observatoire de Vivalis) mesure 23 % de risque de pauvreté ou d'exclusion (AROPE), 47 304 bénéficiaires du RIS et 9 777 personnes sans-abri ou mal logées (+25 % en deux ans). La réforme fédérale du chômage frappe de plein fouet : à la seule Ville de Bruxelles, 3 567 exclus ont sollicité le CPAS début 2026. Espérance de vie : 82,15 ans (2024)."
-summaryReviewed: "2026-06-17"
+summary: "Les Bruxellois attribuent 7,5/10 à leur satisfaction de vie (IBSA/BFP, 2023), mais la précarité s'aggrave. Le Baromètre social 2025 (Observatoire de Vivalis) mesure 23 % de risque de pauvreté (AROP), 47 304 bénéficiaires du RIS et 9 777 personnes sans-abri ou mal logées (+25 % en deux ans). La réforme fédérale du chômage frappe de plein fouet : à la seule Ville de Bruxelles, 3 567 exclus ont sollicité le CPAS début 2026. Espérance de vie : 82,15 ans (2024)."
+summaryReviewed: "2026-09-19"
 estimatedBudget:
   status: not-quantified
   reason: "transversal, dépend des politiques sociales, santé, environnement"
@@ -96,13 +96,22 @@ sources:
     url: "https://www.lavenir.net/regions/bruxelles/bruxelles/2026/06/05/45-des-exclus-du-chomage-se-sont-tournes-vers-le-cpas-de-la-ville-de-bruxelles-nous-savions-quun-tsunami-arrivait-IMVYEDHO3NAPBLS5XI7M25USJ4/"
     type: media
     accessedAt: "2026-06-16"
+  - label: "Statbel, risque de pauvreté ou d'exclusion sociale, EU-SILC 2025 (publié le 5 février 2026)"
+    url: "https://statbel.fgov.be/fr/themes/menages/pauvrete-et-conditions-de-vie/risque-de-pauvrete-ou-dexclusion-sociale"
+    accessedAt: "2026-09-19"
+  - label: "Eurostat, taux de risque de pauvreté par région (ilc_li41)"
+    url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_li41/default/table"
+    accessedAt: "2026-09-19"
+  - label: "Eurostat, taux de risque de pauvreté ou d'exclusion sociale par région (ilc_peps11n)"
+    url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table"
+    accessedAt: "2026-09-19"
 metrics:
   - label: "Satisfaction de vie (Bruxelles)"
     value: "7,5"
     unit: "/10 (Flandre 7,8 — Wallonie 7,5)"
     source: "IBSA Focus n°77 / EU-SILC 2023"
     date: "2025-09-23"
-  - label: "Risque de pauvreté ou exclusion sociale (AROPE)"
+  - label: "Risque de pauvreté (AROP)"
     value: "23"
     unit: "% de la population bruxelloise"
     source: "Baromètre social 2025 (Observatoire/Vivalis)"
@@ -153,7 +162,7 @@ faq:
         url: "https://www.vivalis.brussels/fr/publication/barometre-social-2025"
         accessedAt: "2026-06-17"
   - q: "Comment la pauvreté est-elle mesurée en Région bruxelloise ?"
-    a: "L'indicateur de référence est le taux AROPE (risque de pauvreté ou d'exclusion sociale), aligné sur la méthode européenne et calculé à partir de l'enquête EU-SILC de Statbel. L'Observatoire de la Santé et du Social, service d'études de Vivalis (administration de la Cocom), le publie chaque année dans son Baromètre social, avec le nombre de bénéficiaires du revenu d'intégration et le sans-abrisme."
+    a: "L'indicateur de référence européen est le taux AROPE (risque de pauvreté ou d'exclusion sociale), calculé à partir de l'enquête EU-SILC de Statbel. Il englobe le taux de risque de pauvreté (AROP), fondé sur le seul revenu, et y ajoute la privation matérielle et sociale sévère et la très faible intensité de travail. L'Observatoire de la Santé et du Social, service d'études de Vivalis (administration de la Cocom), publie chaque année dans son Baromètre social des indicateurs de pauvreté, le nombre de bénéficiaires du revenu d'intégration et le sans-abrisme."
     sources:
       - label: "Statbel, enquête EU-SILC sur les revenus et conditions de vie"
         url: "https://statbel.fgov.be/fr/survey/enquete-sur-les-revenus-et-les-conditions-de-vie-silc"
@@ -191,9 +200,11 @@ faq:
       - label: "Observatoire de la Santé et du Social (Vivalis), Baromètre social 2025"
         url: "https://www.vivalis.brussels/fr/publication/barometre-social-2025"
         accessedAt: "2026-07-04"
-lastModified: "2026-06-16"
-changeType: updated
-changeSummary: "Baromètre social 2025 (Vivalis, avril 2026) : 23 % de risque de pauvreté ou d'exclusion, 47 304 bénéficiaires du RIS, 9 777 personnes sans-abri (+25 % en deux ans). La réforme du chômage se traduit en chiffres réels : à la Ville de Bruxelles, 3 567 exclus ont sollicité le CPAS, 2 706 ont obtenu le RIS. World Happiness Report 2026 : Belgique 14e (6,926)."
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Correction : 23 % des Bruxellois sont exposés au risque de pauvreté en 2025 ; l'indicateur plus large atteint 33,6 %. Le chiffre de 23 %, tiré du Baromètre social 2025 de Vivalis, mesure le risque de pauvreté fondé sur le seul revenu (moins de 60 % du revenu médian national), et non le risque de pauvreté ou d'exclusion sociale (AROPE) comme l'indiquait la fiche. Selon l'enquête EU-SILC 2025 de Statbel, ce taux est de 23,3 % à Bruxelles, contre 7,2 % en Flandre et 13,4 % en Wallonie. L'AROPE, qui ajoute la privation matérielle et sociale sévère et la très faible intensité de travail, atteint 33,6 % à Bruxelles."
+changeSummaryDate: "2026-09-19"
+faqReviewed: "2026-09-19"
 ---
 
 ## Satisfaction de vie
@@ -230,7 +241,7 @@ Sources : NN/UGent Nationaal Geluksonderzoek 2026 (communiqué, 9 mars 2026) ; B
 
 Le **Baromètre social 2025** de l'Observatoire de la Santé et du Social — service d'études de **Vivalis** (administration de la Cocom) — publié le **15 avril 2026**, documente une précarité élevée et persistante :
 
-- **Taux AROPE** (risque de pauvreté ou d'exclusion sociale) : **23 %** de la population bruxelloise, contre 7 % en Flandre et 13 % en Wallonie
+- **Taux de risque de pauvreté** (AROP, revenu inférieur à 60 % du revenu médian national) : **23 %** de la population bruxelloise, contre 7 % en Flandre et 13 % en Wallonie (23,3 %, 7,2 % et 13,4 % selon l'enquête EU-SILC 2025 de Statbel). L'indicateur plus large de risque de pauvreté ou d'exclusion sociale (AROPE), qui ajoute la privation matérielle et sociale sévère et la très faible intensité de travail, atteint **33,6 %** à Bruxelles en 2025
 - **47 304 bénéficiaires** du revenu d'intégration sociale (RIS) au 1ᵉʳ janvier 2025, soit environ **7 % des 18-64 ans** (contre 3 % en 2002) ; dans des communes comme Molenbeek-Saint-Jean et Saint-Josse-ten-Noode, **plus d'une personne sur dix** de 18 à 64 ans perçoit le RIS
 - **Six des dix communes les plus pauvres de Belgique** par revenu se situent à Bruxelles, dont Saint-Josse-ten-Noode, Anderlecht et Schaerbeek
 - Une **« population invisible »** estimée à plus de **50 000 personnes sans titre de séjour** (environ 4 % de la population bruxelloise)

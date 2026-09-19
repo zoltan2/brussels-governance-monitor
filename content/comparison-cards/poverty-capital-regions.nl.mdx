@@ -14,12 +14,12 @@ entities:
     code: "DE3"
   - name: "West-Nederland"
     code: "NL3"
-indicator: "Risico op armoede of sociale uitsluiting (AROPE)"
+indicator: "Armoederisicograad (AROP)"
 sourceDataset:
   name: "Eurostat — ilc_li41"
   url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_li41/default/table"
   code: "ilc_li41"
-methodology: "Vergelijking van het AROPE-percentage (At Risk of Poverty or Social Exclusion) op NUTS-1-niveau, op basis van de door Eurostat geharmoniseerde EU-SILC-enquête. De AROPE-indicator combineert drie dimensies: het risico op monetaire armoede (inkomen lager dan 60 % van het nationale mediaaninkomen), ernstige materiële en sociale deprivatie, en een zeer lage werkintensiteit. De gegevens worden gepubliceerd op NUTS-1-niveau, wat betekent dat sommige vergelijkingsregio's groter zijn dan enkel de hoofdstad."
+methodology: "Vergelijking van de armoederisicograad (AROP, At Risk of Poverty) op NUTS-1-niveau, op basis van de door Eurostat geharmoniseerde EU-SILC-enquête. De armoederisicograad meet het aandeel van de bevolking met een equivalent beschikbaar inkomen onder 60 % van het nationale mediaaninkomen. Hij omvat niet de twee andere dimensies van de AROPE-indicator (risico op armoede of sociale uitsluiting): ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit. De gegevens worden gepubliceerd op NUTS-1-niveau, wat betekent dat sommige vergelijkingsregio's groter zijn dan enkel de hoofdstad."
 dataPoints:
   - entity: "BE1"
     value: "28,8 %"
@@ -37,22 +37,25 @@ dataPoints:
     value: "13,6 %"
     date: "2023-12-31"
 caveat: "De gegevens zijn op NUTS-1-niveau en niet op NUTS-2-niveau. Voor Brussel (BE1), Berlin (DE3) en Île-de-France (FR1) komt het NUTS-1-niveau de facto overeen met de hoofdstedelijke regio. Daarentegen omvat AT1 (Ostösterreich) naast Wien ook Neder-Oostenrijk en Burgenland, en NL3 (West-Nederland) omvat de provincies Utrecht, Zuid-Holland en Noord-Holland — deze waarden zijn dus verdund ten opzichte van enkel de hoofdstad. De armoedegrens wordt berekend ten opzichte van het nationale mediaaninkomen, wat in landen met grote regionale verschillen tot afwijkende resultaten kan leiden."
-lastModified: "2026-02-10"
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Correctie: de 28,8 % gemeten in Brussel in 2023 is een armoederisicograad, en niet de AROPE-indicator. Die laatste, die daar ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit aan toevoegt, bedroeg dat jaar 38,9 %. De waarden van de andere regio's, uit dezelfde Eurostat-reeks, blijven geldig en dragen nu het juiste label."
+changeSummaryDate: "2026-09-19"
 ---
 
 ## Context
 
-Het AROPE-percentage (At Risk of Poverty or Social Exclusion) is de referentie-indicator van de Europese Unie om sociaal-economische kwetsbaarheid te meten. Het combineert drie complementaire dimensies: monetaire armoede, ernstige materiële deprivatie en een zeer lage werkintensiteit van het huishouden. Eurostat publiceert deze gegevens op NUTS-1-niveau via de EU-SILC-enquête.
+De armoederisicograad (AROP, At Risk of Poverty) meet het aandeel van de bevolking met een equivalent beschikbaar inkomen onder 60 % van het nationale mediaaninkomen. Het is de monetaire component van het AROPE-percentage (risico op armoede of sociale uitsluiting), de referentie-indicator van de Europese Unie, dat daar ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit van het huishouden aan toevoegt. Eurostat publiceert de armoederisicograad op NUTS-1-niveau via de EU-SILC-enquête (dataset ilc_li41). In 2023 bedroeg het AROPE-percentage in Brussel 38,9 % (Eurostat, ilc_peps11n).
 
 ## De vergeleken gegevens
 
-Met een AROPE-percentage van **28,8 %** in 2023 onderscheidt het Brussels Hoofdstedelijk Gewest zich duidelijk van de andere Europese hoofdstedelijke regio's. Het Brusselse percentage is:
+Met een armoederisicograad (AROP) van **28,8 %** in 2023 onderscheidt het Brussels Hoofdstedelijk Gewest zich duidelijk van de andere Europese hoofdstedelijke regio's. Het Brusselse percentage is:
 
 - **Meer dan het dubbele** van dat van Berlin (13,7 %) en West-Nederland (13,6 %)
 - **Bijna het dubbele** van dat van Île-de-France (14,8 %)
 - **67 % hoger** dan dat van Ostösterreich (17,3 %), dat bovendien minder welvarende landelijke gebieden omvat
 
-Bijna **3 op de 10 Brusselaars** leven in een situatie van risico op armoede of sociale uitsluiting — een cijfer dat contrasteert met het hoogste bbp per inwoner van al deze regio's.
+Bijna **3 op de 10 Brusselaars** leefden in 2023 onder de armoederisicodrempel: een cijfer dat contrasteert met het hoogste bbp per inwoner van al deze regio's.
 
 ## De bevestigde paradox
 
@@ -61,7 +64,6 @@ Deze vergelijking versterkt de « Brusselse paradox » die al zichtbaar was in d
 - **Het pendelaarseffect**: de in Brussel geproduceerde rijkdom komt grotendeels ten goede aan niet-inwoners die zich herverdelen over de Vlaamse en Waalse rand.
 - **De demografische structuur**: Brussel concentreert een jonge, diverse en deels laaggeschoolde bevolking, in een arbeidsmarkt die tweetaligheid vereist.
 - **De woonkosten**: met een gemiddelde privéhuur van 1 346 €/maand en een eigendomsgraad van slechts 40 % absorbeert huisvesting een onevenredig groot deel van het inkomen van bescheiden huishoudens.
-- **De institutionele concentratie**: het ontbreken van een gewestregering sinds juni 2024 verhindert elke structurele beleidsreactie op deze kwetsbaarheid.
 
 ## Het gewicht van materiële deprivatie
 
@@ -73,6 +75,7 @@ Het NUTS-1-niveau levert ongelijke perimeters op. Voor Brussel, Berlin en Île-d
 
 ## Bronnen
 
-- Eurostat, EU-SILC — Risico op armoede of sociale uitsluiting per NUTS-1-regio (ilc_li41), gegevens 2023, geëxtraheerd in februari 2026
+- Eurostat, EU-SILC, armoederisicograad per NUTS-1-regio (ilc_li41), gegevens 2023, geraadpleegd op 19 september 2026
+- Eurostat, EU-SILC, risico op armoede of sociale uitsluiting per regio (ilc_peps11n), gegevens 2023, geraadpleegd op 19 september 2026
 - Statbel, EU-SILC 2025 — Belgische regionale gegevens
 - Observatorium voor Gezondheid en Welzijn, Sociaal Barometer 2025

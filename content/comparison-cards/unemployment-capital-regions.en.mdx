@@ -17,42 +17,45 @@ entities:
 indicator: "Regional unemployment rate"
 sourceDataset:
   name: "Eurostat — lfst_r_lfu3rt"
-  url: "https://ec.europa.eu/eurostat"
+  url: "https://ec.europa.eu/eurostat/databrowser/view/lfst_r_lfu3rt/default/table"
   code: "lfst_r_lfu3rt"
-methodology: "Comparison of regional unemployment rates (population aged 15-74) at NUTS-2 level, based on the Labour Force Survey (LFS) harmonised by Eurostat. The data cover the capital-city regions of five selected countries. Comparability is ensured by the common LFS methodological framework, but labour market structures (public employment, industrial fabric, seasonality) differ significantly between regions."
+methodology: "Comparison of regional unemployment rates (population aged 15-74) at NUTS-2 level, based on the Labour Force Survey (LFS) harmonised by Eurostat. The data cover the capital-city regions of five selected countries. Comparability is ensured by the common LFS methodological framework, but labour market structures (public employment, industrial fabric, seasonality) differ significantly between regions. Values are annual averages. For Île-de-France, Eurostat flags a definition that differs from the common framework and a break in series in 2024."
 dataPoints:
   - entity: "BE10"
-    value: "12.7%"
+    value: "11.8%"
     date: "2024-12-31"
   - entity: "AT13"
-    value: "7.8%"
+    value: "9.4%"
     date: "2024-12-31"
   - entity: "DE30"
-    value: "8.6%"
+    value: "5.6%"
     date: "2024-12-31"
   - entity: "FR10"
-    value: "7.3%"
+    value: "8.0%"
     date: "2024-12-31"
   - entity: "NL32"
-    value: "3.6%"
+    value: "3.8%"
     date: "2024-12-31"
   - entity: "BE10"
-    value: "12.4%"
-    date: "2025-06-30"
+    value: "12.6%"
+    date: "2025-12-31"
   - entity: "AT13"
-    value: "7.5%"
-    date: "2025-06-30"
+    value: "9.9%"
+    date: "2025-12-31"
   - entity: "DE30"
-    value: "8.9%"
-    date: "2025-06-30"
+    value: "6.5%"
+    date: "2025-12-31"
   - entity: "FR10"
-    value: "7.1%"
-    date: "2025-06-30"
+    value: "8.8%"
+    date: "2025-12-31"
   - entity: "NL32"
-    value: "3.4%"
-    date: "2025-06-30"
+    value: "3.8%"
+    date: "2025-12-31"
 caveat: "NUTS-2 boundaries do not always correspond to actual employment basins. Brussels-Capital (BE10) is a compact region of 161 km² that excludes its functional urban area, unlike Île-de-France (12,012 km²) or Noord-Holland (2,670 km²). The Brussels unemployment rate is also influenced by specific structural factors: linguistic mismatch between labour supply and demand, concentration of low-skilled populations in the urban core, and competition from Flemish and Walloon commuters for local jobs."
-lastModified: "2026-02-07"
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Correction: the Brussels unemployment rate was 11.8% in 2024 according to Eurostat, not 12.7%. In 2025, it reached 12.6%, compared with 9.9% in Wien, 8.8% in Île-de-France, 6.5% in Berlin and 3.8% in Noord-Holland. All values now come from the same Eurostat series (aged 15-74, annual averages), and the number of commuters is revised to approximately 400,000."
+changeSummaryDate: "2026-09-19"
 ---
 
 ## Context
@@ -61,18 +64,17 @@ The unemployment rate is one of the most closely watched indicators for assessin
 
 ## The data compared
 
-Among the five capital regions selected, the Brussels-Capital Region has the highest unemployment rate at 12.7% as of end-2024. This rate is approximately 1.5 times higher than Wien (7.8%) and Berlin (8.6%), and more than three times higher than Noord-Holland (3.6%).
+Among the five capital regions selected, the Brussels-Capital Region has the highest unemployment rate at 12.6% in 2025, up from 11.8% in 2024. This rate is about a quarter higher than Wien (9.9%), almost twice that of Berlin (6.5%) and more than three times higher than Noord-Holland (3.8%).
 
-Île-de-France, despite a population of over 12 million, maintains a relatively low rate (7.3%), partly due to the diversity of its economic fabric and the inclusion of suburban zones within its NUTS-2 perimeter.
+Île-de-France, despite a population of over 12 million, has a rate well below that of Brussels (8.8% in 2025), partly due to the diversity of its economic fabric and the inclusion of suburban zones within its NUTS-2 perimeter.
 
 ## The Brussels case
 
 The Brussels-Capital Region's high unemployment rate is explained by a combination of structural factors:
 
 - **Linguistic mismatch**: many job offers require French-Dutch bilingualism, while a significant share of Brussels jobseekers are francophone or allophone.
-- **Commuter effect**: approximately 360,000 people work in Brussels without residing there, occupying a significant share of skilled jobs.
+- **Commuter effect**: in 2024, approximately 400,000 people living in Flanders or Wallonia worked in Brussels (Labour Force Survey, Statbel, published by IBSA), occupying a significant share of skilled jobs.
 - **Urban concentration**: the Region's geographic compactness (19 municipalities, 161 km²) concentrates low-skilled populations without the dilution effect of larger NUTS-2 regions.
-- **Governance crisis**: the absence of a fully empowered government since June 2024 freezes active employment policies and training investments.
 
 ## Limitations of the comparison
 
@@ -80,6 +82,7 @@ The NUTS-2 nomenclature produces highly heterogeneous geographic units. Brussels
 
 ## Sources
 
-- Eurostat, Labour Force Survey — unemployment rate by NUTS-2 region (lfst_r_lfu3rt), data extracted January 2026
+- Eurostat, Labour Force Survey, unemployment rate by NUTS-2 region, aged 15-74 (lfst_r_lfu3rt), 2024 and 2025 data, update of 10 September 2026, accessed 19 September 2026
+- IBSA, Mini-Bru 2026, employment by Region of residence and of work in 2024 (Labour Force Survey, Statbel)
 - IBSA (Brussels Institute for Statistics and Analysis), Brussels labour market — annual report 2025
 - Actiris, Annual statistical report 2025

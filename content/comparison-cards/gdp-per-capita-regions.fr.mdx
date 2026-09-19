@@ -17,42 +17,45 @@ entities:
 indicator: "PIB par habitant (SPA)"
 sourceDataset:
   name: "Eurostat — nama_10r_2gdp"
-  url: "https://ec.europa.eu/eurostat"
+  url: "https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2gdp/default/table"
   code: "nama_10r_2gdp"
 methodology: "Comparaison du PIB régional par habitant exprimé en standards de pouvoir d'achat (SPA), au niveau NUTS-2, sur base des comptes régionaux publiés par Eurostat. Les SPA neutralisent les différences de niveaux de prix entre pays, permettant une comparaison du pouvoir d'achat réel. Le PIB est mesuré au lieu de production, non au lieu de résidence des travailleurs — un point déterminant pour l'interprétation des données bruxelloises."
 dataPoints:
   - entity: "BE10"
-    value: "62 200 SPA par habitant"
-    date: "2024-12-31"
+    value: "73 100 SPA par habitant (190 % de la moyenne de l'UE)"
+    date: "2023-12-31"
   - entity: "AT13"
-    value: "52 400 SPA par habitant"
-    date: "2024-12-31"
+    value: "53 400 SPA par habitant (139 % de la moyenne de l'UE)"
+    date: "2023-12-31"
   - entity: "DE30"
-    value: "42 100 SPA par habitant"
-    date: "2024-12-31"
+    value: "48 700 SPA par habitant (127 % de la moyenne de l'UE, provisoire)"
+    date: "2023-12-31"
   - entity: "FR10"
-    value: "57 800 SPA par habitant"
-    date: "2024-12-31"
+    value: "61 500 SPA par habitant (160 % de la moyenne de l'UE, provisoire)"
+    date: "2023-12-31"
   - entity: "NL32"
-    value: "55 300 SPA par habitant"
-    date: "2024-12-31"
+    value: "66 100 SPA par habitant (172 % de la moyenne de l'UE)"
+    date: "2023-12-31"
   - entity: "BE10"
-    value: "63 100 SPA par habitant"
-    date: "2025-12-31"
+    value: "76 000 SPA par habitant (190 % de la moyenne de l'UE, provisoire)"
+    date: "2024-12-31"
   - entity: "AT13"
-    value: "53 200 SPA par habitant"
-    date: "2025-12-31"
+    value: "54 600 SPA par habitant (137 % de la moyenne de l'UE)"
+    date: "2024-12-31"
   - entity: "DE30"
-    value: "42 900 SPA par habitant"
-    date: "2025-12-31"
+    value: "50 600 SPA par habitant (127 % de la moyenne de l'UE, provisoire)"
+    date: "2024-12-31"
   - entity: "FR10"
-    value: "58 500 SPA par habitant"
-    date: "2025-12-31"
+    value: "64 000 SPA par habitant (160 % de la moyenne de l'UE, provisoire)"
+    date: "2024-12-31"
   - entity: "NL32"
-    value: "56 100 SPA par habitant"
-    date: "2025-12-31"
-caveat: "Le PIB par habitant de Bruxelles est artificiellement gonflé par l'effet navetteur : environ 360 000 travailleurs non-résidents contribuent au PIB régional sans être comptabilisés dans la population de référence. Ce phénomène, parfois appelé 'paradoxe bruxellois', signifie que le PIB élevé ne se traduit pas en revenus élevés pour les habitants. Le revenu disponible médian des ménages bruxellois est en réalité inférieur à la moyenne belge. Ce biais statistique affecte toutes les régions-capitales mais est particulièrement prononcé à Bruxelles en raison de la compacité du territoire NUTS-2."
-lastModified: "2026-02-07"
+    value: "69 900 SPA par habitant (175 % de la moyenne de l'UE, provisoire)"
+    date: "2024-12-31"
+caveat: "Le PIB par habitant de Bruxelles est artificiellement gonflé par l'effet navetteur : environ 400 000 travailleurs domiciliés en Flandre ou en Wallonie (Enquête sur les forces de travail 2024, Statbel, publiée par l'IBSA) contribuent au PIB régional sans être comptabilisés dans la population de référence. Ce phénomène, parfois appelé 'paradoxe bruxellois', signifie que le PIB élevé ne se traduit pas en revenus élevés pour les habitants. Le revenu disponible médian des ménages bruxellois est en réalité inférieur à la moyenne belge. Ce biais statistique affecte toutes les régions-capitales mais est particulièrement prononcé à Bruxelles en raison de la compacité du territoire NUTS-2."
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Correction : le PIB par habitant de Bruxelles en 2024 est de 76 000 SPA selon Eurostat, et non 62 200. Les valeurs des quatre autres régions-capitales sont corrigées à partir de la même source, et Noord-Holland passe au deuxième rang. Les chiffres attribués à 2025 sont retirés : au 19 septembre 2026, Eurostat n'a publié aucune donnée régionale pour cette année. Le taux de risque de pauvreté à Bruxelles était de 26,3 % en 2024, et environ 400 000 navetteurs venus de Flandre et de Wallonie y travaillaient."
+changeSummaryDate: "2026-09-19"
 ---
 
 ## Contexte
@@ -61,7 +64,7 @@ Le PIB par habitant en standards de pouvoir d'achat (SPA) est l'indicateur phare
 
 ## Les données comparées
 
-Avec un PIB de 62 200 SPA par habitant en 2024, Bruxelles-Capitale affiche le chiffre le plus élevé des cinq régions comparées, devant l'Île-de-France (57 800), Noord-Holland (55 300), Wien (52 400) et Berlin (42 100).
+Avec un PIB de 76 000 SPA par habitant en 2024 (donnée provisoire), soit 190 % de la moyenne de l'Union européenne, Bruxelles-Capitale affiche le chiffre le plus élevé des cinq régions comparées, devant Noord-Holland (69 900), l'Île-de-France (64 000), Wien (54 600) et Berlin (50 600).
 
 Ce classement place Bruxelles parmi les régions les plus « riches » de l'Union européenne selon la méthodologie Eurostat — un résultat qui contraste fortement avec la réalité socio-économique vécue par une grande partie de ses habitants.
 
@@ -69,8 +72,8 @@ Ce classement place Bruxelles parmi les régions les plus « riches » de l'Unio
 
 Le PIB par habitant de la Région bruxelloise est structurellement surévalué en raison d'un effet statistique majeur :
 
-- **L'effet navetteur** : chaque jour ouvrable, environ 360 000 personnes entrent dans la Région pour y travailler. Leur production est comptabilisée dans le PIB bruxellois, mais ils ne figurent pas au dénominateur (la population résidente). Le ratio PIB/habitant est donc mécaniquement gonflé.
-- **Le contraste avec les revenus** : le revenu disponible médian des ménages bruxellois se situe en dessous de la moyenne belge. En 2024, environ 33 % de la population bruxelloise vit sous le seuil de risque de pauvreté — le taux le plus élevé des trois Régions belges.
+- **L'effet navetteur** : en 2024, environ 400 000 personnes domiciliées en Flandre ou en Wallonie travaillaient dans la Région, soit près de la moitié des emplois bruxellois (Enquête sur les forces de travail 2024, Statbel, publiée par l'IBSA). Leur production est comptabilisée dans le PIB bruxellois, mais ils ne figurent pas au dénominateur (la population résidente). Le ratio PIB/habitant est donc mécaniquement gonflé.
+- **Le contraste avec les revenus** : le revenu disponible médian des ménages bruxellois se situe en dessous de la moyenne belge. En 2024, 26,3 % de la population bruxelloise vivait sous le seuil de risque de pauvreté, le taux le plus élevé des trois Régions belges (EU-SILC, Statbel, publié par Eurostat).
 - **La compacité géographique** : avec seulement 161 km², la Région bruxelloise exclut de son périmètre statistique la quasi-totalité de sa zone métropolitaine fonctionnelle, contrairement à des régions comme l'Île-de-France qui intègrent une couronne suburbaine étendue.
 
 ## Comparaison avec les autres capitales
@@ -84,11 +87,13 @@ Toutes les régions-capitales de l'UE subissent une forme d'effet navetteur, mai
 
 ## Ce que la comparaison révèle
 
-Le PIB par habitant bruxellois illustre un cas d'école de l'inadéquation entre la richesse produite sur un territoire et la richesse disponible pour ses habitants. Cette situation est aggravée par la crise de gouvernance actuelle, qui empêche la mise en place de politiques de redistribution et d'investissement adaptées.
+Le PIB par habitant bruxellois illustre un cas d'école de l'inadéquation entre la richesse produite sur un territoire et la richesse disponible pour ses habitants.
 
 ## Sources
 
-- Eurostat, Comptes régionaux — PIB par habitant en SPA (nama_10r_2gdp), données extraites en janvier 2026
+- Eurostat, Comptes régionaux, PIB par habitant en SPA (nama_10r_2gdp), données 2023 et 2024 (2024 provisoire pour la plupart des régions), mise à jour du 10 février 2026, consultées le 19 septembre 2026
+- Eurostat, EU-SILC, taux de risque de pauvreté par région (ilc_li41), données 2024, consultées le 19 septembre 2026
+- IBSA, Mini-Bru 2026, emploi selon la Région de résidence et de travail en 2024 (Enquête sur les forces de travail, Statbel)
 - IBSA, Comptes régionaux bruxellois 2025
 - SPF Économie, Revenus fiscaux par commune — exercice 2024
 - BNB, Flux interrégionaux de navetteurs (étude 2025)

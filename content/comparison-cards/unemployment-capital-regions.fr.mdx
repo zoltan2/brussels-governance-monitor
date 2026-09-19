@@ -17,42 +17,45 @@ entities:
 indicator: "Taux de chômage régional"
 sourceDataset:
   name: "Eurostat — lfst_r_lfu3rt"
-  url: "https://ec.europa.eu/eurostat"
+  url: "https://ec.europa.eu/eurostat/databrowser/view/lfst_r_lfu3rt/default/table"
   code: "lfst_r_lfu3rt"
-methodology: "Comparaison des taux de chômage régionaux (population 15-74 ans) au niveau NUTS-2, sur base de l'Enquête sur les forces de travail (EFT/LFS) harmonisée par Eurostat. Les données couvrent les régions-capitales des cinq pays sélectionnés. La comparabilité est assurée par le cadre méthodologique commun de l'EFT, mais les structures du marché du travail (emploi public, tissu industriel, saisonnalité) diffèrent significativement d'une région à l'autre."
+methodology: "Comparaison des taux de chômage régionaux (population 15-74 ans) au niveau NUTS-2, sur base de l'Enquête sur les forces de travail (EFT/LFS) harmonisée par Eurostat. Les données couvrent les régions-capitales des cinq pays sélectionnés. La comparabilité est assurée par le cadre méthodologique commun de l'EFT, mais les structures du marché du travail (emploi public, tissu industriel, saisonnalité) diffèrent significativement d'une région à l'autre. Les valeurs sont des moyennes annuelles. Pour l'Île-de-France, Eurostat signale une définition qui diffère du cadre commun et une rupture de série en 2024."
 dataPoints:
   - entity: "BE10"
-    value: "12,7 %"
+    value: "11,8 %"
     date: "2024-12-31"
   - entity: "AT13"
-    value: "7,8 %"
+    value: "9,4 %"
     date: "2024-12-31"
   - entity: "DE30"
-    value: "8,6 %"
+    value: "5,6 %"
     date: "2024-12-31"
   - entity: "FR10"
-    value: "7,3 %"
+    value: "8,0 %"
     date: "2024-12-31"
   - entity: "NL32"
-    value: "3,6 %"
+    value: "3,8 %"
     date: "2024-12-31"
   - entity: "BE10"
-    value: "12,4 %"
-    date: "2025-06-30"
+    value: "12,6 %"
+    date: "2025-12-31"
   - entity: "AT13"
-    value: "7,5 %"
-    date: "2025-06-30"
+    value: "9,9 %"
+    date: "2025-12-31"
   - entity: "DE30"
-    value: "8,9 %"
-    date: "2025-06-30"
+    value: "6,5 %"
+    date: "2025-12-31"
   - entity: "FR10"
-    value: "7,1 %"
-    date: "2025-06-30"
+    value: "8,8 %"
+    date: "2025-12-31"
   - entity: "NL32"
-    value: "3,4 %"
-    date: "2025-06-30"
+    value: "3,8 %"
+    date: "2025-12-31"
 caveat: "Les périmètres NUTS-2 ne correspondent pas toujours aux bassins d'emploi réels. Bruxelles-Capitale (BE10) est une région compacte de 161 km² qui exclut sa banlieue fonctionnelle, contrairement à l'Île-de-France (12 012 km²) ou au Noord-Holland (2 670 km²). Le taux de chômage bruxellois est également influencé par des facteurs structurels spécifiques : inadéquation linguistique entre l'offre et la demande d'emploi, concentration de populations peu qualifiées en zone urbaine, et concurrence des navetteurs flamands et wallons pour les emplois locaux."
-lastModified: "2026-02-07"
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Correction : le taux de chômage de Bruxelles était de 11,8 % en 2024 selon Eurostat, et non 12,7 %. En 2025, il atteint 12,6 %, contre 9,9 % à Wien, 8,8 % en Île-de-France, 6,5 % à Berlin et 3,8 % en Noord-Holland. Toutes les valeurs proviennent désormais de la même série Eurostat (15-74 ans, moyennes annuelles), et le nombre de navetteurs est porté à environ 400 000."
+changeSummaryDate: "2026-09-19"
 ---
 
 ## Contexte
@@ -61,18 +64,17 @@ Le taux de chômage est l'un des indicateurs les plus scrutés pour évaluer la 
 
 ## Les données comparées
 
-Parmi les cinq régions-capitales retenues, Bruxelles-Capitale affiche le taux de chômage le plus élevé, à 12,7 % fin 2024. Ce taux est environ 1,5 fois supérieur à celui de Wien (7,8 %) et de Berlin (8,6 %), et plus de trois fois supérieur à celui du Noord-Holland (3,6 %).
+Parmi les cinq régions-capitales retenues, Bruxelles-Capitale affiche le taux de chômage le plus élevé, à 12,6 % en 2025, contre 11,8 % en 2024. Ce taux dépasse d'environ un quart celui de Wien (9,9 %), il est près de deux fois supérieur à celui de Berlin (6,5 %) et plus de trois fois supérieur à celui du Noord-Holland (3,8 %).
 
-L'Île-de-France, malgré une population de plus de 12 millions d'habitants, maintient un taux relativement bas (7,3 %), en partie grâce à la diversité de son tissu économique et à l'inclusion de zones suburbaines dans son périmètre NUTS-2.
+L'Île-de-France, malgré une population de plus de 12 millions d'habitants, affiche un taux nettement inférieur à celui de Bruxelles (8,8 % en 2025), en partie grâce à la diversité de son tissu économique et à l'inclusion de zones suburbaines dans son périmètre NUTS-2.
 
 ## Le cas bruxellois
 
 Le taux de chômage élevé de la Région bruxelloise s'explique par une combinaison de facteurs structurels :
 
 - **Inadéquation linguistique** : de nombreuses offres d'emploi exigent le bilinguisme français-néerlandais, alors qu'une part importante des demandeurs d'emploi bruxellois sont francophones ou allophones.
-- **Effet navetteur** : environ 360 000 personnes travaillent à Bruxelles sans y résider, occupant une part significative des emplois qualifiés.
+- **Effet navetteur** : en 2024, environ 400 000 personnes domiciliées en Flandre ou en Wallonie travaillaient à Bruxelles (Enquête sur les forces de travail, Statbel, publiée par l'IBSA), occupant une part significative des emplois qualifiés.
 - **Concentration urbaine** : la compacité géographique de la Région (19 communes, 161 km²) concentre des populations à faible qualification sans l'effet de dilution des régions NUTS-2 plus étendues.
-- **Crise de gouvernance** : l'absence de gouvernement de plein exercice depuis juin 2024 gèle les politiques actives d'emploi et les investissements en formation.
 
 ## Limites de la comparaison
 
@@ -80,6 +82,7 @@ La nomenclature NUTS-2 produit des unités géographiques très hétérogènes. 
 
 ## Sources
 
-- Eurostat, Enquête sur les forces de travail — taux de chômage par région NUTS-2 (lfst_r_lfu3rt), données extraites en janvier 2026
+- Eurostat, Enquête sur les forces de travail, taux de chômage par région NUTS-2, 15-74 ans (lfst_r_lfu3rt), données 2024 et 2025, mise à jour du 10 septembre 2026, consultées le 19 septembre 2026
+- IBSA, Mini-Bru 2026, emploi selon la Région de résidence et de travail en 2024 (Enquête sur les forces de travail, Statbel)
 - IBSA (Institut Bruxellois de Statistique et d'Analyse), Marché du travail bruxellois — rapport annuel 2025
 - Actiris, Rapport statistique annuel 2025

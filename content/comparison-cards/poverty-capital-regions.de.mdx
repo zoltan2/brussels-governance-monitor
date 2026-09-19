@@ -14,12 +14,12 @@ entities:
     code: "DE3"
   - name: "West-Nederland"
     code: "NL3"
-indicator: "Armutsgefährdungs- oder soziale Ausgrenzungsquote (AROPE)"
+indicator: "Armutsgefährdungsquote (AROP)"
 sourceDataset:
   name: "Eurostat — ilc_li41"
   url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_li41/default/table"
   code: "ilc_li41"
-methodology: "Vergleich der AROPE-Quote (At Risk of Poverty or Social Exclusion) auf NUTS-1-Ebene, auf Grundlage der von Eurostat harmonisierten EU-SILC-Erhebung. Der AROPE-Indikator kombiniert drei Dimensionen: das monetäre Armutsrisiko (Einkommen unter 60 % des nationalen Medianeinkommens), schwere materielle und soziale Deprivation sowie eine sehr geringe Erwerbsintensität. Die Daten werden auf NUTS-1-Ebene veröffentlicht, was bedeutet, dass einige Vergleichsregionen größer sind als die Hauptstadt allein."
+methodology: "Vergleich der Armutsgefährdungsquote (AROP, At Risk of Poverty) auf NUTS-1-Ebene, auf Grundlage der von Eurostat harmonisierten EU-SILC-Erhebung. Die Armutsgefährdungsquote misst den Anteil der Bevölkerung, deren verfügbares Äquivalenzeinkommen unter 60 % des nationalen Medianeinkommens liegt. Sie umfasst nicht die beiden anderen Dimensionen des AROPE-Indikators (Armuts- oder Ausgrenzungsgefährdung): schwere materielle und soziale Deprivation sowie eine sehr geringe Erwerbsintensität. Die Daten werden auf NUTS-1-Ebene veröffentlicht, was bedeutet, dass einige Vergleichsregionen größer sind als die Hauptstadt allein."
 dataPoints:
   - entity: "BE1"
     value: "28,8 %"
@@ -37,22 +37,25 @@ dataPoints:
     value: "13,6 %"
     date: "2023-12-31"
 caveat: "Die Daten beziehen sich auf die NUTS-1-Ebene und nicht auf NUTS-2. Für Brüssel (BE1), Berlin (DE3) und Île-de-France (FR1) entspricht NUTS-1 de facto der Hauptstadtregion. Hingegen umfasst AT1 (Ostösterreich) neben Wien auch Niederösterreich und das Burgenland, und NL3 (West-Nederland) schließt die Provinzen Utrecht, Südholland und Noord-Holland ein — diese Werte sind daher im Vergleich zur Hauptstadt allein verdünnt. Die Armutsschwelle wird im Verhältnis zum nationalen Medianeinkommen berechnet, was in Ländern mit großen regionalen Unterschieden zu abweichenden Ergebnissen führen kann."
-lastModified: "2026-02-10"
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Korrektur: Die 2023 in Brüssel gemessenen 28,8 % sind eine Armutsgefährdungsquote, nicht der AROPE-Indikator. Dieser berücksichtigt zusätzlich schwere materielle und soziale Deprivation sowie eine sehr geringe Erwerbsintensität und lag im selben Jahr bei 38,9 %. Die Werte der anderen Regionen aus derselben Eurostat-Reihe bleiben gültig und tragen nun die richtige Bezeichnung."
+changeSummaryDate: "2026-09-19"
 ---
 
 ## Kontext
 
-Die AROPE-Quote (At Risk of Poverty or Social Exclusion) ist der Referenzindikator der Europäischen Union zur Messung sozioökonomischer Verwundbarkeit. Sie kombiniert drei komplementäre Dimensionen: monetäre Armut, schwere materielle Deprivation und eine sehr geringe Erwerbsintensität des Haushalts. Eurostat veröffentlicht diese Daten auf NUTS-1-Ebene über die EU-SILC-Erhebung.
+Die Armutsgefährdungsquote (AROP, At Risk of Poverty) misst den Anteil der Bevölkerung, deren verfügbares Äquivalenzeinkommen unter 60 % des nationalen Medianeinkommens liegt. Sie ist die monetäre Komponente der AROPE-Quote (Armuts- oder Ausgrenzungsgefährdung), des Referenzindikators der Europäischen Union, die zusätzlich schwere materielle und soziale Deprivation sowie eine sehr geringe Erwerbsintensität des Haushalts berücksichtigt. Eurostat veröffentlicht die Armutsgefährdungsquote auf NUTS-1-Ebene über die EU-SILC-Erhebung (Datensatz ilc_li41). 2023 lag die AROPE-Quote in Brüssel bei 38,9 % (Eurostat, ilc_peps11n).
 
 ## Die verglichenen Daten
 
-Mit einer AROPE-Quote von **28,8 %** im Jahr 2023 hebt sich die Region Brüssel-Hauptstadt deutlich von den anderen europäischen Hauptstadtregionen ab. Die Brüsseler Quote ist:
+Mit einer Armutsgefährdungsquote (AROP) von **28,8 %** im Jahr 2023 hebt sich die Region Brüssel-Hauptstadt deutlich von den anderen europäischen Hauptstadtregionen ab. Die Brüsseler Quote ist:
 
 - **Mehr als doppelt so hoch** wie die von Berlin (13,7 %) und West-Nederland (13,6 %)
 - **Fast doppelt so hoch** wie die von Île-de-France (14,8 %)
 - **67 % höher** als die von Ostösterreich (17,3 %), das zudem weniger wohlhabende ländliche Gebiete umfasst
 
-Fast **3 von 10 Brüsselern** leben in einer Situation des Armuts- oder sozialen Ausgrenzungsrisikos — eine Zahl, die im Kontrast zum höchsten BIP pro Kopf aller dieser Regionen steht.
+Fast **3 von 10 Brüsselern** lebten 2023 unter der Armutsgefährdungsschwelle: eine Zahl, die im Kontrast zum höchsten BIP pro Kopf aller dieser Regionen steht.
 
 ## Die bestätigte Paradoxie
 
@@ -61,7 +64,6 @@ Dieser Vergleich verstärkt das „Brüsseler Paradoxon", das bereits in den BIP
 - **Der Pendlereffekt**: Der in Brüssel erzeugte Wohlstand kommt großenteils Nicht-Einwohnern zugute, die sich auf den flämischen und wallonischen Speckgürtel verteilen.
 - **Die demografische Struktur**: Brüssel konzentriert eine junge, vielfältige und teilweise gering qualifizierte Bevölkerung in einem Arbeitsmarkt, der Zweisprachigkeit verlangt.
 - **Die Wohnkosten**: Bei einer durchschnittlichen privaten Miete von 1 346 €/Monat und einer Eigentumsquote von nur 40 % verschlingt das Wohnen einen unverhältnismäßig großen Anteil des Einkommens bescheidener Haushalte.
-- **Die institutionelle Blockade**: Das Fehlen einer Regionalregierung seit Juni 2024 verhindert jede strukturelle politische Antwort auf diese Verwundbarkeit.
 
 ## Das Gewicht der materiellen Deprivation
 
@@ -73,6 +75,7 @@ Die NUTS-1-Ebene erzeugt ungleiche Perimeter. Für Brüssel, Berlin und Île-de-
 
 ## Quellen
 
-- Eurostat, EU-SILC — Armutsgefährdungs- oder soziale Ausgrenzungsquote nach NUTS-1-Region (ilc_li41), Daten 2023, extrahiert im Februar 2026
+- Eurostat, EU-SILC, Armutsgefährdungsquote nach NUTS-1-Region (ilc_li41), Daten 2023, abgerufen am 19. September 2026
+- Eurostat, EU-SILC, Quote der Armuts- oder Ausgrenzungsgefährdung nach Region (ilc_peps11n), Daten 2023, abgerufen am 19. September 2026
 - Statbel, EU-SILC 2025 — Belgische Regionaldaten
 - Observatorium für Gesundheit und Soziales, Sozialbarometer 2025

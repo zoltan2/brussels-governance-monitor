@@ -17,42 +17,45 @@ entities:
 indicator: "Regionale werkloosheidsgraad"
 sourceDataset:
   name: "Eurostat — lfst_r_lfu3rt"
-  url: "https://ec.europa.eu/eurostat"
+  url: "https://ec.europa.eu/eurostat/databrowser/view/lfst_r_lfu3rt/default/table"
   code: "lfst_r_lfu3rt"
-methodology: "Vergelijking van de regionale werkloosheidsgraden (bevolking 15-74 jaar) op NUTS-2-niveau, op basis van de door Eurostat geharmoniseerde Enquête naar de Arbeidskrachten (EAK/LFS). De gegevens bestrijken de hoofdstedelijke regio's van vijf geselecteerde landen. De vergelijkbaarheid wordt gewaarborgd door het gemeenschappelijke methodologische kader van de EAK, maar de arbeidsmarktstructuren (overheidswerk, industrieel weefsel, seizoensgebondenheid) verschillen aanzienlijk van regio tot regio."
+methodology: "Vergelijking van de regionale werkloosheidsgraden (bevolking 15-74 jaar) op NUTS-2-niveau, op basis van de door Eurostat geharmoniseerde Enquête naar de Arbeidskrachten (EAK/LFS). De gegevens bestrijken de hoofdstedelijke regio's van vijf geselecteerde landen. De vergelijkbaarheid wordt gewaarborgd door het gemeenschappelijke methodologische kader van de EAK, maar de arbeidsmarktstructuren (overheidswerk, industrieel weefsel, seizoensgebondenheid) verschillen aanzienlijk van regio tot regio. De waarden zijn jaargemiddelden. Voor Île-de-France vermeldt Eurostat een definitie die afwijkt van het gemeenschappelijke kader en een breuk in de reeks in 2024."
 dataPoints:
   - entity: "BE10"
-    value: "12,7 %"
+    value: "11,8 %"
     date: "2024-12-31"
   - entity: "AT13"
-    value: "7,8 %"
+    value: "9,4 %"
     date: "2024-12-31"
   - entity: "DE30"
-    value: "8,6 %"
+    value: "5,6 %"
     date: "2024-12-31"
   - entity: "FR10"
-    value: "7,3 %"
+    value: "8,0 %"
     date: "2024-12-31"
   - entity: "NL32"
-    value: "3,6 %"
+    value: "3,8 %"
     date: "2024-12-31"
   - entity: "BE10"
-    value: "12,4 %"
-    date: "2025-06-30"
+    value: "12,6 %"
+    date: "2025-12-31"
   - entity: "AT13"
-    value: "7,5 %"
-    date: "2025-06-30"
+    value: "9,9 %"
+    date: "2025-12-31"
   - entity: "DE30"
-    value: "8,9 %"
-    date: "2025-06-30"
+    value: "6,5 %"
+    date: "2025-12-31"
   - entity: "FR10"
-    value: "7,1 %"
-    date: "2025-06-30"
+    value: "8,8 %"
+    date: "2025-12-31"
   - entity: "NL32"
-    value: "3,4 %"
-    date: "2025-06-30"
+    value: "3,8 %"
+    date: "2025-12-31"
 caveat: "De NUTS-2-afbakeningen komen niet altijd overeen met de werkelijke werkgelegenheidsbekkens. Het Brussels Hoofdstedelijk Gewest (BE10) is een compacte regio van 161 km² die het functionele stedelijke gebied uitsluit, in tegenstelling tot Île-de-France (12 012 km²) of Noord-Holland (2 670 km²). De Brusselse werkloosheidsgraad wordt ook beïnvloed door specifieke structurele factoren: taalmismatch tussen vraag en aanbod op de arbeidsmarkt, concentratie van laaggeschoolde bevolking in stedelijk gebied, en concurrentie van Vlaamse en Waalse pendelaars voor lokale banen."
-lastModified: "2026-02-07"
+lastModified: "2026-09-19"
+changeType: corrected
+changeSummary: "Correctie: de Brusselse werkloosheidsgraad bedroeg in 2024 11,8 % volgens Eurostat, en niet 12,7 %. In 2025 bereikte hij 12,6 %, tegenover 9,9 % in Wien, 8,8 % in Île-de-France, 6,5 % in Berlin en 3,8 % in Noord-Holland. Alle waarden komen nu uit dezelfde Eurostat-reeks (15-74 jaar, jaargemiddelden), en het aantal pendelaars is bijgesteld tot ongeveer 400 000."
+changeSummaryDate: "2026-09-19"
 ---
 
 ## Context
@@ -61,18 +64,17 @@ De werkloosheidsgraad is een van de meest gevolgde indicatoren om de economische
 
 ## De vergeleken gegevens
 
-Van de vijf geselecteerde hoofdstedelijke regio's heeft het Brussels Hoofdstedelijk Gewest de hoogste werkloosheidsgraad, met 12,7 % eind 2024. Dit percentage is ongeveer 1,5 keer hoger dan dat van Wien (7,8 %) en Berlin (8,6 %), en meer dan drie keer hoger dan dat van Noord-Holland (3,6 %).
+Van de vijf geselecteerde hoofdstedelijke regio's heeft het Brussels Hoofdstedelijk Gewest de hoogste werkloosheidsgraad, met 12,6 % in 2025, tegenover 11,8 % in 2024. Dit percentage ligt ongeveer een kwart hoger dan dat van Wien (9,9 %), is bijna dubbel zo hoog als dat van Berlin (6,5 %) en meer dan drie keer hoger dan dat van Noord-Holland (3,8 %).
 
-Île-de-France, met meer dan 12 miljoen inwoners, handhaaft een relatief laag percentage (7,3 %), mede dankzij de diversiteit van het economische weefsel en de opname van voorstedelijke gebieden in het NUTS-2-gebied.
+Île-de-France, met meer dan 12 miljoen inwoners, heeft een percentage dat duidelijk lager ligt dan in Brussel (8,8 % in 2025), mede dankzij de diversiteit van het economische weefsel en de opname van voorstedelijke gebieden in het NUTS-2-gebied.
 
 ## Het Brusselse geval
 
 De hoge werkloosheidsgraad van het Brussels Gewest wordt verklaard door een combinatie van structurele factoren:
 
 - **Taalmismatch**: veel vacatures vereisen tweetaligheid Frans-Nederlands, terwijl een aanzienlijk deel van de Brusselse werkzoekenden Franstalig of anderstalig is.
-- **Pendelaarseffect**: ongeveer 360 000 personen werken in Brussel zonder er te wonen, en nemen een aanzienlijk deel van de gekwalificeerde banen in.
+- **Pendelaarseffect**: in 2024 werkten ongeveer 400 000 inwoners van Vlaanderen of Wallonië in Brussel (Enquête naar de arbeidskrachten, Statbel, gepubliceerd door het BISA), en namen een aanzienlijk deel van de gekwalificeerde banen in.
 - **Stedelijke concentratie**: de geografische compactheid van het Gewest (19 gemeenten, 161 km²) concentreert laaggeschoolde bevolkingsgroepen zonder het verdunningseffect van grotere NUTS-2-regio's.
-- **Bestuurscrisis**: het ontbreken van een volwaardige regering sinds juni 2024 bevriest het actieve werkgelegenheidsbeleid en de investeringen in opleiding.
 
 ## Beperkingen van de vergelijking
 
@@ -80,6 +82,7 @@ De NUTS-2-nomenclatuur levert zeer heterogene geografische eenheden op. Het Brus
 
 ## Bronnen
 
-- Eurostat, Enquête naar de Arbeidskrachten — werkloosheidsgraad per NUTS-2-regio (lfst_r_lfu3rt), gegevens geëxtraheerd in januari 2026
+- Eurostat, Enquête naar de Arbeidskrachten, werkloosheidsgraad per NUTS-2-regio, 15-74 jaar (lfst_r_lfu3rt), gegevens 2024 en 2025, update van 10 september 2026, geraadpleegd op 19 september 2026
+- BISA, Mini-Bru 2026, werkgelegenheid volgens gewest van woonplaats en van werk in 2024 (Enquête naar de arbeidskrachten, Statbel)
 - BISA (Brussels Instituut voor Statistiek en Analyse), Brusselse arbeidsmarkt — jaarverslag 2025
 - Actiris, Statistisch jaarverslag 2025

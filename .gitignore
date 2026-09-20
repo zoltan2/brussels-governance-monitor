@@ -1,5 +1,9 @@
 # Dependencies
 node_modules/
+# Sans slash : les worktrees de developpement utilisent un lien symbolique
+# node_modules, que le motif avec slash ne couvre pas. Un `git add -A`
+# imprudent l'aurait committe dans ce depot public (constate le 20/09/2026).
+node_modules
 .pnp
 .pnp.js
 .pnp.cjs

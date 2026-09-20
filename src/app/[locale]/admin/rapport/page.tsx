@@ -228,10 +228,14 @@ function Stat({
     >
       <dt className="text-xs uppercase tracking-wide text-neutral-500">{label}</dt>
       <dd
+        // break-all : un chiffre énorme mais positif (10^308 impressions)
+        // n'est pas une valeur impossible, elle s'affiche telle quelle —
+        // mais sans repli, sa chaîne formatée déborde la carte sur
+        // téléphone. Le nombre reste lisible en entier, juste enveloppé.
         className={
           alarme
-            ? 'mt-1 text-lg font-semibold tabular-nums text-amber-900'
-            : 'mt-1 text-lg font-semibold tabular-nums text-neutral-900'
+            ? 'mt-1 break-all text-lg font-semibold tabular-nums text-amber-900'
+            : 'mt-1 break-all text-lg font-semibold tabular-nums text-neutral-900'
         }
       >
         {value}

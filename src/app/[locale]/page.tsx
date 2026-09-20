@@ -461,8 +461,9 @@ function WhatWeWatch({
   //
   // La ligne de veille revient ICI et a été retirée du héros, où le prototype l'avait
   // déplacée : la garder aux deux endroits la dirait deux fois. Seul le chiffre change
-  // par rapport au live, 248 sources suivies et non 325 consultées, parce que 325
-  // comptait aussi les sources scannées au mois.
+  // par rapport au live : les sources SUIVIES (veille éditoriale) et non les sources
+  // consultées, qui comptaient aussi le scan mensuel. Les deux comptes se lisent à
+  // l'exécution et bougent à chaque ajout : ne pas les recopier en dur.
   //
   // Les résumés sont des PHRASES, pas des titres : leur sens est à la fin, une coupe
   // à une ligne les décapitait. Mesuré sur data/radar.json : 365 signaux actifs, dont

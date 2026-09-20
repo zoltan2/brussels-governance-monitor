@@ -116,8 +116,10 @@ export function getVeilleSourceCount(): number {
 
 /**
  * Sources réellement en veille éditoriale : tier `editorial`, hors sources désactivées.
- * `stats.total` (325) additionne la veille éditoriale (250) et le scan mensuel du radar
- * (75) ; l'annoncer comme « veille active » gonfle le chiffre. Voir docs/source-registry.json.
+ * `stats.total` additionne la veille éditoriale ET le scan mensuel du radar ; l'annoncer
+ * comme « veille active » gonfle le chiffre. Les deux comptes se lisent à l'exécution
+ * (`getEditorialSourceCount`, `getActiveSourceCount`) et bougent à chaque ajout de source :
+ * ne jamais les recopier en dur ici ni ailleurs. Voir docs/source-registry.json.
  */
 /**
  * Toutes les sources actives du registre, veille éditoriale et scan mensuel confondus,

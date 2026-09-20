@@ -79,6 +79,18 @@ export function getRecentChanges(locale: Locale, limit = 5): ChangelogEntry[] {
   return getChangelog(locale).slice(0, limit);
 }
 
+/**
+ * Date de l'entrée la plus récente du changelog, pour le sitemap : calculée
+ * par un max explicite sur tout le tableau plutôt que de faire confiance à
+ * l'ordre du fichier JSON (entries[0]), pour rester correcte même si data/
+ * changelog.json n'est un jour plus trié par date décroissante.
+ */
+export function getLatestChangelogDate(): Date {
+  const parsed = changelogSchema.parse(changelogData);
+  const plusRecente = parsed.reduce((latest, e) => (e.date > latest ? e.date : latest), '');
+  return plusRecente ? new Date(plusRecente) : new Date(0);
+}
+
 export interface LatestUpdate {
   date: string;
   type: 'added' | 'updated' | 'corrected' | 'removed';

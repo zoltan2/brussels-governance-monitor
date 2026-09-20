@@ -120,9 +120,22 @@ describeWithData('sitemap()', () => {
     expect(dateISO(entry!)).toBe('2026-09-19');
   });
 
-  it('/fr/explainers/cocom (sans réécriture connue) garde la date de lancement', async () => {
+  it('un explicatif sans réécriture connue garde la date de lancement', async () => {
+    // Le slug se DÉDUIT de la table, il n'est pas écrit ici. La version
+    // précédente nommait « cocom » ; le 20/09/2026 cet explicatif a reçu une
+    // vraie date de réécriture et le test est tombé, alors que le comportement
+    // qu'il vérifie n'avait pas bougé. Une table éditoriale est faite pour
+    // changer : un test qui fige une de ses valeurs se casse à chaque mise à
+    // jour légitime.
+    const slug = Object.keys(EXPLAINER_LAST_MODIFIED).find(
+      (s) => EXPLAINER_LAST_MODIFIED[s] === SITE_LAUNCH_ISO,
+    );
+    // Si plus aucun explicatif n'est à la date de lancement, il n'y a plus rien
+    // à vérifier ici : le dire, plutôt que passer au vert sans avoir rien testé.
+    expect(slug, 'plus aucun explicatif à SITE_LAUNCH_DATE : ce test ne teste plus rien').toBeDefined();
+
     const entries = await buildSitemap();
-    const entry = findFr(entries, '/explainers/cocom');
+    const entry = findFr(entries, `/explainers/${slug}`);
     expect(entry).toBeDefined();
     expect(dateISO(entry!)).toBe(SITE_LAUNCH_ISO);
   });

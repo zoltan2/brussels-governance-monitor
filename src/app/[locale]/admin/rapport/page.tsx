@@ -798,6 +798,55 @@ function TablesCrawl({ bloc }: { bloc: Bloc<CrawlDonnees> }) {
   );
 }
 
+/** Les deux fenêtres coïncident quand elles couvrent le même jour calendaire
+ * de début et de fin (les fuseaux, eux, restent différents : Pacifique pour
+ * Search Console, UTC pour Umami). Sert à décider si le rapprochement des
+ * deux blocs reste valable cette semaine. */
+function fenetresAlignees(a: FenetreRapport | null, b: FenetreRapport | null): boolean {
+  if (!a?.debut || !a?.fin || !b?.debut || !b?.fin) return false;
+  return a.debut.slice(0, 10) === b.debut.slice(0, 10) && a.fin.slice(0, 10) === b.fin.slice(0, 10);
+}
+
+/**
+ * Un lecteur pressé, le lundi matin, doit savoir d'un coup d'œil s'il peut
+ * rapprocher les chiffres Search Console et Umami : cette phrase vit donc en
+ * tête de « Chiffres clés », avant le premier chiffre, pas en bas de page
+ * dans « À propos de ce relevé ». Quand les fenêtres coïncident, une seule
+ * phrase l'autorise, suivie des deux réserves qui restent vraies même dans
+ * ce cas (retard de Search Console, décalage de fuseau) ; quand elles ne
+ * coïncident pas (collecte partielle, panne d'un bloc), l'avertissement
+ * ambre le dit aussi nettement, jamais à la seule couleur : le texte porte
+ * l'interdiction, la couleur ne fait que la souligner.
+ */
+function SyntheseFenetresComparaison({
+  gsc,
+  umami,
+}: {
+  gsc: FenetreRapport | null;
+  umami: FenetreRapport | null;
+}) {
+  if (fenetresAlignees(gsc, umami)) {
+    return (
+      <p className="mb-4 text-sm text-neutral-700">
+        Search Console et Umami couvrent les mêmes 28 jours : vous pouvez rapprocher leurs
+        chiffres. Search Console publie ses données avec environ trois jours de retard, sa
+        fenêtre s&apos;arrête donc trois jours avant aujourd&apos;hui. Les deux outils
+        découpent leurs journées dans des fuseaux différents, ce qui laisse quelques heures
+        d&apos;écart aux bords de la période.
+      </p>
+    );
+  }
+  return (
+    <p
+      role="alert"
+      className="mb-4 rounded border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900"
+    >
+      Cette semaine, les fenêtres de Search Console et d&apos;Umami ne coïncident pas : ne
+      rapprochez pas leurs chiffres.
+    </p>
+  );
+}
+
 /** Fenêtres et empreintes de script : utiles pour vérifier le relevé, pas
  * pour décider quoi faire cette semaine — donc en dernier, jamais avant les
  * actions ou les chiffres. */
@@ -813,9 +862,9 @@ function SectionAPropos({ rapport }: { rapport: RapportSeo }) {
         Fenêtres d&apos;analyse
       </h3>
       <p className="mb-3 text-sm text-neutral-600">
-        Chaque bloc analyse sa propre période, dans son propre fuseau : ne
-        rapprochez jamais un chiffre Search Console d&apos;un chiffre Umami,
-        leurs fenêtres ne coïncident pas.
+        Chaque bloc analyse sa propre période, listée ci-dessous pour vérifier
+        le relevé. Le rapprochement entre Search Console et Umami est expliqué
+        en tête de la section Chiffres clés, juste au-dessus des chiffres.
       </p>
       <dl className="mb-6 grid gap-3 sm:grid-cols-3">
         <div className="rounded border border-neutral-200 bg-neutral-50 p-3">
@@ -930,6 +979,7 @@ export default async function AdminRapportPage({
 
       <section className="mb-10">
         <h2 className="mb-4 text-xl font-semibold text-neutral-900">Chiffres clés</h2>
+        <SyntheseFenetresComparaison gsc={gsc.fenetre} umami={umami.fenetre} />
         <ChiffresGsc bloc={gsc} freshness={rapport.fraicheur.gsc} />
         <ChiffresUmami bloc={umami} freshness={rapport.fraicheur.umami} />
         <ChiffresCrawl bloc={crawl} freshness={rapport.fraicheur.crawl} />

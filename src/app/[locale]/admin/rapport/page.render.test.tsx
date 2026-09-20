@@ -141,8 +141,81 @@ describe('AdminRapportPage', () => {
     // Date lisible (JJ/MM/AAAA), pas l'ISO complet avec heure.
     expect(fenetreGsc?.textContent).toContain('24/08/2026');
     expect(fenetreGsc?.textContent).not.toContain('T00:00:00');
-    // La phrase qui empêche de rapprocher un chiffre GSC d'un chiffre Umami.
-    expect(screen.getByText(/ne rapprochez jamais un chiffre Search Console/)).toBeDefined();
+    expect(screen.queryByText(/ne rapprochez jamais un chiffre Search Console/)).toBeNull();
+  });
+
+  function syntheseComparaison(): Element | null {
+    return screen
+      .getByText('Chiffres clés', { selector: 'h2' })
+      .closest('section')
+      ?.querySelector('h2 + p') ?? null;
+  }
+
+  // Précision de l'éditeur (2026-09-20) : la question des périodes doit se
+  // comprendre d'un coup d'œil, sans descendre en bas de page ni cliquer.
+  // La phrase de rapprochement (et ses deux réserves) vit donc juste sous le
+  // titre « Chiffres clés », avant le premier chiffre.
+  it('autorise le rapprochement en tête de Chiffres clés quand les fenêtres coïncident, avec ses deux réserves en français simple', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES, {
+          debut: '2026-08-24',
+          fin: '2026-09-20',
+          fuseau: 'America/Los_Angeles',
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES, {
+          debut: '2026-08-24',
+          fin: '2026-09-20',
+          fuseau: 'UTC',
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const synthese = syntheseComparaison();
+    expect(synthese).not.toBeNull();
+    // La permission.
+    expect(synthese?.textContent).toMatch(/mêmes 28 jours.*vous pouvez rapprocher/);
+    // Réserve 1 : le retard de consolidation de Search Console.
+    expect(synthese?.textContent).toMatch(/trois jours de retard/);
+    // Réserve 2 : le décalage de fuseau, sans jargon technique entre
+    // parenthèses.
+    expect(synthese?.textContent).toMatch(/fuseaux différents/);
+    expect(synthese?.textContent).not.toContain('(');
+  });
+
+  // Correctif lisibilité (2026-09-20) : la collecte peut renvoyer des
+  // fenêtres Search Console et Umami qui ne coïncident pas (panne partielle,
+  // désynchronisation). La page doit alors le dire explicitement, en tête de
+  // Chiffres clés, aussi nettement qu'une alerte (ambre, role="alert"),
+  // jamais à la seule couleur.
+  it('affiche un avertissement ambre en tête de Chiffres clés quand les fenêtres ne coïncident pas', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES, {
+          debut: '2026-08-24',
+          fin: '2026-09-20',
+          fuseau: 'America/Los_Angeles',
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES, {
+          debut: '2026-08-20',
+          fin: '2026-09-16',
+          fuseau: 'UTC',
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const synthese = syntheseComparaison();
+    expect(synthese?.textContent).toMatch(/ne coïncident pas/);
+    expect(synthese?.textContent).toMatch(/ne rapprochez pas/);
+    expect(synthese?.getAttribute('role')).toBe('alert');
+    expect(synthese?.className).toContain('amber');
+    expect(synthese?.textContent).not.toMatch(/mêmes 28 jours/);
   });
 
   it("n'invente pas de dates pour une fenêtre absente", async () => {

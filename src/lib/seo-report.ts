@@ -91,10 +91,18 @@ export interface VisiteIa {
   visites: number | null;
 }
 
+export interface PageEntree {
+  chemin: string;
+  visites: number | null;
+  visitesIa: number | null;
+}
+
 export interface UmamiDonnees {
   visites: number | null;
   visitesIa: VisiteIa[];
-  pagesEntree: number | null;
+  // Trié par visites décroissantes, au plus 50 entrées côté producteur
+  // (bloc-umami.mjs) : ce module ne re-trie ni ne tronque, il valide.
+  pagesEntree: PageEntree[];
   profondeur: number | null;
   evenements: number | null;
 }
@@ -151,6 +159,13 @@ function asNumber(value: unknown): number | null {
 
 function asString(value: unknown): string | null {
   return typeof value === 'string' ? value : null;
+}
+
+/** Comme asNumber, mais exige un entier : un comptage d'événements n'est
+ * jamais une fraction, une valeur décimale trahit une source corrompue. */
+function asEntier(value: unknown): number | null {
+  const nombre = asNumber(value);
+  return nombre !== null && Number.isInteger(nombre) ? nombre : null;
 }
 
 function asTotaux(value: unknown): Totaux {
@@ -281,14 +296,34 @@ function asVisitesIa(value: unknown): VisiteIa[] {
   return visites;
 }
 
+/** La règle « page qui reçoit du trafic d'assistants et n'a pas bougé depuis
+ * 90 jours » dépend de cette liste : un chemin manquant rend la ligne
+ * inexploitable (écartée), mais des visites non numériques n'invalident que
+ * ce champ (rendu null), pas la ligne entière. */
+function asPagesEntree(value: unknown): PageEntree[] {
+  if (!Array.isArray(value)) return [];
+  const pages: PageEntree[] = [];
+  for (const ligne of value) {
+    const record = asRecord(ligne);
+    const chemin = asString(record.chemin);
+    if (chemin === null) continue; // pas de chemin, pas de ligne exploitable
+    pages.push({
+      chemin,
+      visites: asNumber(record.visites),
+      visitesIa: asNumber(record.visitesIa),
+    });
+  }
+  return pages;
+}
+
 function asUmamiDonnees(value: unknown): UmamiDonnees {
   const record = asRecord(value);
   return {
     visites: asNumber(record.visites),
     visitesIa: asVisitesIa(record.visitesIa),
-    pagesEntree: asNumber(record.pagesEntree),
+    pagesEntree: asPagesEntree(record.pagesEntree),
     profondeur: asNumber(record.profondeur),
-    evenements: asNumber(record.evenements),
+    evenements: asEntier(record.evenements),
   };
 }
 

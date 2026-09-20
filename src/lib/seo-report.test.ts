@@ -192,4 +192,101 @@ describe('readSeoReport', () => {
     expect(rapport.blocs.umami.status).toBe('ok');
     expect(rapport.blocs.umami.donnees?.visites).toBe(4200);
   });
+
+  it('lit pagesEntree comme un tableau { chemin, visites, visitesIa }', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          pagesEntree: [
+            { chemin: '/fr/dossiers/lez', visites: 420, visitesIa: 97 },
+          ],
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.pagesEntree).toEqual([
+      { chemin: '/fr/dossiers/lez', visites: 420, visitesIa: 97 },
+    ]);
+  });
+
+  it("écarte une entrée de pagesEntree sans chemin, mais rend les visites null sans l'écarter si elles ne sont pas un nombre", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          pagesEntree: [
+            { visites: 100, visitesIa: 10 }, // pas de chemin : écartée
+            { chemin: '/fr/dossiers/acs', visites: 'NaN', visitesIa: 'Infinity' },
+          ],
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    const pages = rapport.blocs.umami.donnees?.pagesEntree ?? [];
+    expect(pages).toHaveLength(1);
+    expect(pages[0]).toEqual({ chemin: '/fr/dossiers/acs', visites: null, visitesIa: null });
+  });
+
+  it('ne plante pas quand pagesEntree est absent ou du mauvais type', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { pagesEntree: 'pas-un-tableau' },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.pagesEntree).toEqual([]);
+  });
+
+  it("rejette un evenements non entier (chaîne, décimal) au lieu d'un zéro inventé", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { evenements: '12' },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.evenements).toBeNull();
+  });
+
+  it("rejette un evenements decimal, un comptage n'étant jamais une fraction", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { evenements: 4.5 },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.evenements).toBeNull();
+  });
+
+  it('lit evenements comme un entier valide', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { evenements: 12 },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.evenements).toBe(12);
+  });
 });

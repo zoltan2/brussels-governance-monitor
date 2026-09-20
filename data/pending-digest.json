@@ -1,28 +1,28 @@
 {
-  "week": "2026-w37",
-  "weekStart": "2026-09-07",
-  "created_at": "2026-09-13T19:00:06.446Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w38",
+  "weekStart": "2026-09-14",
+  "created_at": "2026-09-20T19:00:14.331Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "7 domaines, 10 dossiers, 1 secteur, 2 communes mis à jour",
-    "nl": "7 domeinen, 10 dossiers, 1 sector, 2 gemeenten bijgewerkt",
-    "en": "7 domains, 10 dossiers, 1 sector, 2 communes updated",
-    "de": "7 Bereiche, 10 Dossiers, 1 Sektor, 2 Gemeinden aktualisiert"
+    "fr": "9 domaines, 7 dossiers, 4 secteurs mis à jour",
+    "nl": "9 domeinen, 7 dossiers, 4 sectoren bijgewerkt",
+    "en": "9 domains, 7 dossiers, 4 sectors updated",
+    "de": "9 Bereiche, 7 Dossiers, 4 Sektoren aktualisiert"
   },
   "weeklyNumber": {
-    "value": "59",
+    "value": "328 %",
     "label": {
-      "fr": "Stations de métro et de prémétro équipées d'ascenseurs, sur les 69 du réseau bruxellois, soit 19 de plus qu'il y a dix ans",
-      "nl": "Metro- en premetrostations uitgerust met liften, op de 69 van het Brusselse net, 19 meer dan tien jaar geleden",
-      "en": "Metro and premetro stations equipped with lifts, out of the 69 on the Brussels network, 19 more than ten years ago",
-      "de": "U-Bahn- und Prämetro-Stationen mit Aufzügen, von den 69 des Brüsseler Netzes, 19 mehr als vor zehn Jahren"
+      "fr": "Le niveau que la dette bruxelloise atteindrait en 2031, rapporté aux recettes de la Région, contre 118 % en Flandre, seule entité dont le risque est jugé modéré",
+      "nl": "Het peil dat de Brusselse schuld in 2031 zou bereiken, afgezet tegen de ontvangsten van het Gewest, tegenover 118 % in Vlaanderen, de enige entiteit met een als matig beoordeeld risico",
+      "en": "The level Brussels debt would reach in 2031, measured against the Region's revenue, against 118% in Flanders, the only entity whose risk is deemed moderate",
+      "de": "Der Stand, den die Brüsseler Schuld 2031 erreichen würde, gemessen an den Einnahmen der Region, gegenüber 118 % in Flandern, der einzigen Einheit mit einem als moderat bewerteten Risiko"
     },
     "source": {
-      "fr": "STIB, communiqué du 10 septembre 2026",
-      "nl": "MIVB, persbericht van 10 september 2026",
-      "en": "STIB, press release of 10 September 2026",
-      "de": "STIB, Pressemitteilung vom 10. September 2026"
+      "fr": "Bureau fédéral du Plan, analyse de soutenabilité de la dette des entités fédérées (15 septembre 2026)",
+      "nl": "Federaal Planbureau, analyse van de houdbaarheid van de schuld van de deelentiteiten (15 september 2026)",
+      "en": "Federal Planning Bureau, debt sustainability analysis of the federated entities (15 September 2026)",
+      "de": "Föderales Planbüro, Analyse der Schuldentragfähigkeit der Gliedstaaten (15. September 2026)"
     }
   },
   "closingNote": {
@@ -33,26 +33,25 @@
   },
   "commitmentCount": 16,
   "updatedTopics": [
+    "budget",
     "cleanliness",
-    "economy",
-    "employment",
+    "climate",
+    "housing",
     "institutional",
     "mobility",
     "security",
     "social",
-    "dossier-accessibilite-pmr",
-    "dossier-cpas-bruxellois",
-    "dossier-foyer-anderlechtois",
-    "dossier-good-move",
+    "urban-planning",
+    "dossier-acs",
+    "dossier-bien-etre",
+    "dossier-fusion-polices",
     "dossier-lez",
     "dossier-mobilite-partagee",
-    "dossier-reforme-administration",
-    "dossier-slrb",
+    "dossier-pfas",
     "dossier-metro-3",
-    "dossier-petite-enfance",
-    "housing-sector",
-    "commune-bruxelles-ville",
-    "commune-molenbeek-saint-jean"
-  ],
-  "sent_at": "2026-09-13T20:05:36.854Z"
+    "culture",
+    "horeca",
+    "nonprofit",
+    "transport"
+  ]
 }

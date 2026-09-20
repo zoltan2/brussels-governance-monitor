@@ -5,14 +5,14 @@
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:638e8e93716984350ec09e8256988fe6",
+      "reviewedHash": "sha256:4b276fdbcc7181a754e667eace3d19a9",
       "hashVersion": 2
     },
     "fr:domain-budget-1": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6f85a3e1287d0f9508f4766eb144b96d",
+      "reviewedHash": "sha256:1db0e761808adfe4aa2e19f85d6486e2",
       "hashVersion": 2
     },
     "fr:domain-cleanliness-0": {
@@ -125,30 +125,30 @@
     },
     "fr:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c682fc027a8f784aeb24f69005bfdc31",
+      "reviewedHash": "sha256:891595b499f9cf061d56406184402666",
       "hashVersion": 2
     },
     "fr:domain-mobility-1": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5256816096fba871f5118723705346ca",
+      "reviewedHash": "sha256:aee339bb555f065f6f957983b9cd5378",
       "hashVersion": 2
     },
     "fr:domain-security-0": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:2ff30ee5272eb0c2466632dd9c224022",
+      "reviewedHash": "sha256:07692e3cffad018b67833581380aa2bc",
       "hashVersion": 2
     },
     "fr:domain-security-1": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8ffcedcf1f06cf890496d75db440ab67",
+      "reviewedHash": "sha256:d227cdefc346d93fbe1597e33d3a40e1",
       "hashVersion": 2
     },
     "fr:domain-social-0": {
@@ -187,18 +187,18 @@
       "hashVersion": 2
     },
     "fr:dossier-acs-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ade1d7382f6afe5552b5df416bdf9df1",
-      "note": "Relecture : dispositif situé (bruxellois) et sigle ACS explicité. Explication corrigée le même jour, à l'occasion de la relecture néerlandaise : ce sont les cotisations patronales qui tombent à 0,56 %, pas la réduction."
+      "reviewedHash": "sha256:9852f1eb0dcfada49109344a6f706674",
+      "hashVersion": 2
     },
     "fr:dossier-acs-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f2ecf91f3ce37d91e0007214ef780958",
-      "note": "Relecture : réforme nommée et datée (ACS bruxellois, mars 2015), la question ne dépend plus de la précédente."
+      "reviewedHash": "sha256:37bf070035bf4cab527ae8195d77562c",
+      "hashVersion": 2
     },
     "fr:dossier-assemblees-citoyennes-0": {
       "status": "approved",
@@ -208,9 +208,10 @@
     },
     "fr:dossier-bien-etre-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:cb135993178fd036fcc2c2bbf1a2ac95"
+      "reviewedHash": "sha256:60881763b52eecd4ca50d84beffdec92",
+      "hashVersion": 2
     },
     "fr:dossier-data-centers-ia-energie-0": {
       "status": "approved",
@@ -285,29 +286,28 @@
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8bb6269888096e0249246b8f057bf706",
+      "reviewedHash": "sha256:3413f97fc72a34e9cd460242fdf5ed1b",
       "hashVersion": 2
     },
     "fr:dossier-metro-3-1": {
-      "status": "rejected",
+      "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:38541ebc274aa144f473f2d4c9f1247a",
-      "hashVersion": 2,
-      "note": "pas pertinent"
+      "reviewedHash": "sha256:095cc8b9a137f685495b9d91a75b7eb5",
+      "hashVersion": 2
     },
     "fr:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3659b2902a00b5fcc11848076a676072",
+      "reviewedHash": "sha256:9277cefd3f9d9f3bc79bfd5fb7e868f4",
       "hashVersion": 2
     },
     "fr:dossier-mobilite-partagee-1": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:09c936b9e1a1d735eae989689d40d3a6",
+      "reviewedHash": "sha256:635c3051533bfa0cdf5ead2343af2713",
       "hashVersion": 2
     },
     "fr:dossier-petite-enfance-0": {
@@ -397,14 +397,14 @@
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e4c50a93cbdfbe9abfc021ec337028ea",
+      "reviewedHash": "sha256:e99eba30bce5077c2300371db1c2207c",
       "hashVersion": 2
     },
     "nl:domain-budget-1": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:06bf53e233374dffc3550004b3a99d51",
+      "reviewedHash": "sha256:395cb87f73e1feaf93465d6537c9ef40",
       "hashVersion": 2
     },
     "nl:domain-cleanliness-0": {
@@ -517,30 +517,30 @@
     },
     "nl:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:cc692d1d13bdeba4bbee5e589759f263",
+      "reviewedHash": "sha256:2254d1afed381296c5b3ccad0d343664",
       "hashVersion": 2
     },
     "nl:domain-mobility-1": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0329df43086ed484885721ecbe07b9ab",
+      "reviewedHash": "sha256:adb14d394de855a449b4361b358f182d",
       "hashVersion": 2
     },
     "nl:domain-security-0": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:a3b710424c9e718ac50e7d734e2dd3c0",
+      "reviewedHash": "sha256:f6dea954a3bc3a3c9877dd7926fdaa62",
       "hashVersion": 2
     },
     "nl:domain-security-1": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:305164a8cb2d4aedfd5bbc4f34ad375f",
+      "reviewedHash": "sha256:871c76483c5c3863e9035d39a3f34689",
       "hashVersion": 2
     },
     "nl:domain-social-0": {
@@ -579,18 +579,18 @@
       "hashVersion": 2
     },
     "nl:dossier-acs-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:ba987daa77d7efa5fb00d7f2dfaaaad7",
-      "note": "Relecture NL : « dubbele hefboom » est un calque, remplacé par « twee pijlers ». Surtout, l'explication disait que la réduction vaut 0,56 % alors que la source dit que les cotisations tombent à 0,56 % : corrigé en FR, NL et DE, l'anglais était déjà juste."
+      "reviewedHash": "sha256:d42e3e085901e0c1b4866dcd27d6b9e6",
+      "hashVersion": 2
     },
     "nl:dossier-acs-1": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:91d5d08028317ee40af1914324d37fc5",
-      "note": "Relecture NL : « mededinging » désigne la concurrence économique, remplacé par « oproep tot mededinging »."
+      "reviewedHash": "sha256:083e996645a4437baca06fe775d311fb",
+      "hashVersion": 2
     },
     "nl:dossier-assemblees-citoyennes-0": {
       "status": "approved",
@@ -600,9 +600,10 @@
     },
     "nl:dossier-bien-etre-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8e5227d66914f4589cbdfbb3cb21c2b8"
+      "reviewedHash": "sha256:ba80f6a8cfb7b94d08cf61956834caa5",
+      "hashVersion": 2
     },
     "nl:dossier-data-centers-ia-energie-0": {
       "status": "approved",
@@ -677,29 +678,28 @@
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:45a3b720c83d874f1e2ecd3ee9bc2b4a",
+      "reviewedHash": "sha256:e76b9782d1b4142a4dce7d3acba9cc8c",
       "hashVersion": 2
     },
     "nl:dossier-metro-3-1": {
-      "status": "rejected",
+      "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:88769b3e6c8aa5ec1c60d8eda417dc14",
-      "hashVersion": 2,
-      "note": "pas pertinent"
+      "reviewedHash": "sha256:617645d207b16cdf38f4407a4e0f66ba",
+      "hashVersion": 2
     },
     "nl:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:f7ae03236e00b232da92f681b4afd057",
+      "reviewedHash": "sha256:1fd7adc8820ec0a6fcb92bc37982c50e",
       "hashVersion": 2
     },
     "nl:dossier-mobilite-partagee-1": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:87acfc5b3f0a43b5e593d995dad309ef",
+      "reviewedHash": "sha256:1557e926200b95bc0b8411c8661a5860",
       "hashVersion": 2
     },
     "nl:dossier-petite-enfance-0": {
@@ -784,14 +784,14 @@
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:bb9eec551f7ff3289e78b8d35b8c0c34",
+      "reviewedHash": "sha256:26072df4e96a2693611b64c793023e53",
       "hashVersion": 2
     },
     "en:domain-budget-1": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0d54beaa6e78071d9656b0c9fc92b229",
+      "reviewedHash": "sha256:4505b661bb35f26b9e9505086e71f758",
       "hashVersion": 2
     },
     "en:domain-cleanliness-0": {
@@ -904,30 +904,30 @@
     },
     "en:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:4196190fbe72183abc43472ad6660f2a",
+      "reviewedHash": "sha256:b7b313737f5818e512bcd78a420df7c4",
       "hashVersion": 2
     },
     "en:domain-mobility-1": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5582d7323acb7e37455ba713603a1aa6",
+      "reviewedHash": "sha256:a352afb332f6c2550fb10aae502c0c26",
       "hashVersion": 2
     },
     "en:domain-security-0": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8d4acaeb546475080642d3fa50e03e53",
+      "reviewedHash": "sha256:5fcd5e695c8f7b0f75dcf160427ba25e",
       "hashVersion": 2
     },
     "en:domain-security-1": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:75fae04c45b3b0ad21c545705c323aa5",
+      "reviewedHash": "sha256:15eb01e193a22f0f2a39cc2b274a568d",
       "hashVersion": 2
     },
     "en:domain-social-0": {
@@ -967,15 +967,17 @@
     },
     "en:dossier-acs-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8f7c5189df7b067d5743ce6022496c77"
+      "reviewedHash": "sha256:9f6d19361c367a3de485a931e7e32587",
+      "hashVersion": 2
     },
     "en:dossier-acs-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:60250e487c8f15c945aef1b1ee705013"
+      "reviewedHash": "sha256:d63e327208069434b043db2ace313166",
+      "hashVersion": 2
     },
     "en:dossier-assemblees-citoyennes-0": {
       "status": "approved",
@@ -985,9 +987,10 @@
     },
     "en:dossier-bien-etre-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:216e988fea0e5adcb48c06860ef2edcb"
+      "reviewedHash": "sha256:a185fa4ed64aa61e4373976787811490",
+      "hashVersion": 2
     },
     "en:dossier-data-centers-ia-energie-0": {
       "status": "approved",
@@ -1063,29 +1066,28 @@
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:661fa87020ba1fe37322ec4121b50152",
+      "reviewedHash": "sha256:efd440540a33f349ca441e12c53fce7e",
       "hashVersion": 2
     },
     "en:dossier-metro-3-1": {
-      "status": "rejected",
+      "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c8e1aae2728c50afd9752abfed34775c",
-      "hashVersion": 2,
-      "note": "pas pertinent"
+      "reviewedHash": "sha256:9a262c1b81bfdaacf527946d2976d49f",
+      "hashVersion": 2
     },
     "en:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:fcb4b7b749a1ebaf809c047c26a96f83",
+      "reviewedHash": "sha256:9a0ab05ddd9189128214e6c2bd916815",
       "hashVersion": 2
     },
     "en:dossier-mobilite-partagee-1": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:acdd4d53d17a2acd536d7d6a3c2bd1f7",
+      "reviewedHash": "sha256:18d3e386464ecbdc8a4f6503a969fc25",
       "hashVersion": 2
     },
     "en:dossier-petite-enfance-0": {
@@ -1171,14 +1173,14 @@
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:8025ba6cbf9d4ef5716deff2762bc7f6",
+      "reviewedHash": "sha256:eef097f63685858ae5191e7528d04e39",
       "hashVersion": 2
     },
     "de:domain-budget-1": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6914c156923d2e02001077bdccc9b51d",
+      "reviewedHash": "sha256:429066aefc48bada35de4a3925b9efe4",
       "hashVersion": 2
     },
     "de:domain-cleanliness-0": {
@@ -1277,30 +1279,30 @@
     },
     "de:domain-mobility-0": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:a0ca4ad88246630dc1e2af5ae7de7567",
+      "reviewedHash": "sha256:1002e0a45767c7939bed4b69ff70c517",
       "hashVersion": 2
     },
     "de:domain-mobility-1": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:866c983224a5c0e222ba43ced688e212",
+      "reviewedHash": "sha256:7b2ea41b5301f5f05f7e60cb070e00a8",
       "hashVersion": 2
     },
     "de:domain-security-0": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:9335ee85aea7ac3115e44feb6da41026",
+      "reviewedHash": "sha256:ef2c3b3e1a3e5a7a6a2309f47c32e09f",
       "hashVersion": 2
     },
     "de:domain-security-1": {
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:0cb2689dcca0ee999a60e8e186f6bbfa",
+      "reviewedHash": "sha256:4cd9822e420b3224a27bfd8c71b821b3",
       "hashVersion": 2
     },
     "de:domain-social-0": {
@@ -1345,11 +1347,11 @@
       "reviewedHash": "sha256:f7924a38e8dc7527bedd96cea4ca7ee0"
     },
     "de:dossier-bien-etre-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b63ab255dfec26d8a305690f622d8cb6",
-      "note": "Relecture DE : superlatif restitué, sans lui plusieurs options conviendraient."
+      "reviewedHash": "sha256:80abcf6957519e3ae5f8f9765b025838",
+      "hashVersion": 2
     },
     "de:dossier-data-centers-ia-energie-0": {
       "status": "approved",
@@ -1424,29 +1426,28 @@
       "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:03eb3322679d43f4bdaff4277c9ec0fe",
+      "reviewedHash": "sha256:a0910a762d16e4af6e8ec841ba1c9cfc",
       "hashVersion": 2
     },
     "de:dossier-metro-3-1": {
-      "status": "rejected",
+      "status": "approved",
       "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d95109bd8adba4c61b4f99b46d94f5f5",
-      "hashVersion": 2,
-      "note": "pas pertinent"
+      "reviewedHash": "sha256:543bf1e40fbc6e7b690f510a6eceb0b4",
+      "hashVersion": 2
     },
     "de:dossier-mobilite-partagee-0": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:181c14f2977b265b7ecbb11a015d902a",
+      "reviewedHash": "sha256:0dfe962904d70e8adb318784d7bb4eca",
       "hashVersion": 2
     },
     "de:dossier-mobilite-partagee-1": {
       "status": "approved",
-      "reviewedAt": "2026-09-18",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:c9ec7542e4acdf39ca654bb493823c42",
+      "reviewedHash": "sha256:6007b809112e2755659b4d904e7884aa",
       "hashVersion": 2
     },
     "de:dossier-petite-enfance-0": {
@@ -1747,15 +1748,17 @@
     },
     "de:dossier-acs-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3e8c4220cde53d35ba74c9859bfe97b1"
+      "reviewedHash": "sha256:0d5edb5b04f96d24cb76b2c71a8377f5",
+      "hashVersion": 2
     },
     "de:dossier-acs-1": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-20",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:829b6a76ed91be4682a3155081c7224b"
+      "reviewedHash": "sha256:6529bcb6282dcc81d5aad8fd56cd3505",
+      "hashVersion": 2
     },
     "de:dossier-activa-0": {
       "status": "edited",

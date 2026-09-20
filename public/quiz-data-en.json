@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-09-18T16:04:43.585Z",
+  "generatedAt": "2026-09-20T16:22:26.596Z",
   "locale": "en",
-  "poolSize": 67,
+  "poolSize": 68,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "What level of risk does the Federal Planning Bureau assign, on 15 September 2026, to the sustainability of the Brussels Region's debt?",
+      "question": "According to BX1 (15 September 2026), what debt ratio, as a percentage of regional revenue, is the Brussels Region expected to reach by 2031?",
       "options": [
-        "High, as for Wallonia and the French Community",
-        "Moderate, as for Flanders",
-        "Low, the only federated entity in that position",
-        "Not assessed, for lack of regional figures"
+        "328% of regional revenue",
+        "327% of regional revenue",
+        "158% of regional revenue",
+        "118% of regional revenue"
       ],
       "correct": 0,
-      "explanation": "The Bureau calls only the Flemish risk moderate. The analysis recalls that total Belgian public debt stood at 692 billion euros at the end of 2025, or 108% of gross domestic product. No figure specific to the Brussels Region appears in the sources consulted, and the analysis itself was not read: confidence is estimated.",
+      "explanation": "The Federal Planning Bureau puts Wallonia at 327%, the French Community Federation at 158%, and Flanders, the only entity whose risk is rated moderate, at 118% of its revenue in 2031.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:f454b2c23b5f6462b3d6f959d8e006e4",
-        "generatedAt": "2026-09-18T16:03:22.483Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:383e977e8d263d25906a983240ca40db",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "How did the share of the federated entities in Belgian public debt change between 2008 and 2025, according to the analysis relayed on 15 September 2026?",
+      "question": "From 17 August 2026, the City of Brussels sent out the 2026 property tax assessment notices. What was the municipal surcharge raised to?",
       "options": [
-        "From 8.4% to 18.4%",
-        "From 8.4% to 12.1%",
-        "From 12.6% to 18.4%",
-        "From 5.2% to 22.7%"
+        "3,457",
+        "2,980",
+        "4,090",
+        "3,090"
       ],
       "correct": 0,
-      "explanation": "Total Belgian public debt stood at 692 billion euros at the end of 2025, or 108% of gross domestic product. It is in that context that the Federal Planning Bureau judges the risk of unsustainability high for the Brussels Region, the Walloon Region and the French Community, and moderate for Flemish debt.",
+      "explanation": "The 17.2% increase is presented by the City as fully offset for owner-occupiers, through a flat municipal deduction and the regional Be-Home premium. Saint-Josse-ten-Noode recorded the largest 2026 increase, from 2,980 to 4,090.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:f454b2c23b5f6462b3d6f959d8e006e4",
-        "generatedAt": "2026-09-18T16:03:22.483Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:383e977e8d263d25906a983240ca40db",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -108,13 +108,13 @@
         "Requiring energy renovation of municipal buildings"
       ],
       "correct": 0,
-      "explanation": "Schaerbeek becomes the third Brussels municipality to make this request, after Saint-Gilles and Jette. The motion targets advertising for cars and air travel in particular, and invites the regional government to study the legal and political scope for a regional ban. The information comes from a single press source.",
+      "explanation": "Schaerbeek becomes the third Brussels municipality to make this request, after Saint-Gilles and Jette. The motion targets advertising for cars and air travel in particular, and invites the regional government to study the legal and political options for a regional ban. The information comes from a single press source.",
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:ee22874cd5a51bb134ba99c31b6ea42a",
-        "generatedAt": "2026-09-18T16:03:22.483Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:54740fcd9df13e8e5aa8bfa14fa846e5",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,7 +123,7 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climate",
-      "question": "When is the full Belgian nature restoration plan expected, after the European deadline of 1 September 2026 was missed?",
+      "question": "When is the complete Belgian nature restoration plan expected, after the European deadline of 1 September 2026 was missed?",
       "options": [
         "Not before the summer of 2027",
         "Not before the summer of 2028",
@@ -131,13 +131,13 @@
         "In the first quarter of 2027"
       ],
       "correct": 0,
-      "explanation": "The Brussels plan is announced for September or October 2026. The Brussels delay is twofold, since the timetable published on the official Renature Brussels site provided for adoption at first reading in the summer of 2026. The sources consulted mention no penalty.",
+      "explanation": "The Brussels plan is announced for September or October 2026. The Brussels delay is twofold, since the timetable published on the official Renature Brussels website provided for adoption at first reading in the summer of 2026. No penalty is mentioned by the sources consulted.",
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:ee22874cd5a51bb134ba99c31b6ea42a",
-        "generatedAt": "2026-09-18T16:03:22.483Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:54740fcd9df13e8e5aa8bfa14fa846e5",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobility",
-      "question": "What principle did the Council of State set against the Brussels reform of the low-emission zone on 9 September 2026?",
+      "question": "Which Brussels municipality announced, on 17 and 18 September 2026, that it would not take part in the second regional car-free day of 2 May 2027?",
       "options": [
-        "The standstill principle enshrined in the Constitution",
-        "The principle of equality before public burdens",
-        "The principle of free movement of persons",
-        "The principle of proportionality of penalties"
+        "Woluwe-Saint-Lambert",
+        "Ixelles",
+        "Schaerbeek",
+        "Uccle"
       ],
       "correct": 0,
-      "explanation": "It rejects neither the 350 euro annual pass nor the 200 euro social rate, but finds that the government does not sufficiently show how air quality would improve while the relaxation would let in more polluting vehicles. The order returns to drafting before a second reading, with entry into force still targeted for 2027.",
+      "explanation": "The municipal council cites an estimated organisation cost of EUR 35,000 to 50,000 and the deployment of 70 to 80 police officers; the regional Mobility minister's cabinet disputes the argument on cycling subsidies.",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:07c3b4c1e4d17a05fc01c32463d320d8",
-        "generatedAt": "2026-09-18T14:02:35.872Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:4f36e427279b74fbd9c6c268cfb3ee11",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobility",
-      "question": "According to the STIB, what share of its roughly 2,200 surface stops was accessible without assistance to people with reduced mobility on 10 September 2026?",
+      "question": "According to BRUZZ, which postponement was the delay, on Thursday 10 September 2026, of the Good Move evaluation in the Brussels government?",
       "options": [
-        "About a quarter of the stops",
-        "About a tenth of the stops",
-        "About three quarters of the stops",
-        "About half of the stops"
+        "The fourth",
+        "The second",
+        "The third",
+        "The fifth"
       ],
       "correct": 0,
-      "explanation": "About 500 stops have been brought up to standard since 2019, and half of the surface network is accessible with assistance. In addition, 59 of the 69 metro and pre-metro stations have lifts.",
+      "explanation": "The item has been on the Brussels government's agenda since early July 2026; the Mobility Minister proposes following the legal procedure set out in the ordinance of 13 October 2023 on mobility planning, with Good Move remaining in force until the next plan is adopted.",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:07c3b4c1e4d17a05fc01c32463d320d8",
-        "generatedAt": "2026-09-18T14:02:35.872Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:4f36e427279b74fbd9c6c268cfb3ee11",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "What annual amount does the federal security and prevention fund for Brussels hold, according to the information of 17 September 2026?",
+      "question": "The federal Council of Ministers approved, on 18 September 2026, a six-month extension of the 'Urban Shield' deployment. According to RTBF and BX1, how many soldiers does the contingent in Brussels train stations and metro stations rise to with this extension?",
       "options": [
-        "55 million euros, 35 million of it for the police zones",
-        "20 million euros, 12 million of it for the police zones",
-        "110 million euros, 70 million of it for the police zones",
-        "35 million euros, 20 million of it for the police zones"
+        "About fifty",
+        "About thirty",
+        "Forty-five",
+        "About sixty"
       ],
       "correct": 0,
-      "explanation": "Twenty million goes to the municipalities, for securing European summits and for the capital's international role. Several million euros are reported to have financed other spending, including a cheque of 828,000 euros to the regional social housing company in 2020 and a cyber centre that was never built. The sources use the conditional and cite no official document: confidence is unconfirmed.",
+      "explanation": "The contingent numbered about thirty soldiers at its launch in April 2026. The figure of 45 soldiers, mentioned elsewhere in the card for the 3 April 2026 extension, comes from a different source on a different date and is not reconciled with this one.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:873a95b57dd2a50013e4a6ad90f6a94a",
-        "generatedAt": "2026-09-18T16:04:43.585Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:6145dc5f882ae8c2a9602288166e7858",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "What does the security card note, as at 8 September 2026, about the inventory of cameras in the Brussels Region?",
+      "question": "What number 'hotspot' drug zone, established by police order in the Brussels Region, is the one created at the request of the municipality of Ixelles around rue Gray, rue Marie-Henriette, rue du Levain and rue de la Brasserie, near Flagey (18-19 September 2026)?",
       "options": [
-        "There is no precise register of the stock",
-        "The register has been kept by Safe.brussels since 2024",
-        "Each police zone publishes its own inventory",
-        "A regional inventory was completed in November 2025"
+        "The nineteenth",
+        "The twelfth",
+        "The fifteenth",
+        "The twentieth"
       ],
       "correct": 0,
-      "explanation": "The finding matches that of the Court of Audit, which wrote on 5 November 2025 that no complete physical inventory of the managing body's assets exists. The capital counts more than six thousand cameras spread across several administrations and operators. The counts put forward elsewhere come from a single interview and are reported as a statement, not as an inventory.",
+      "explanation": "The order, signed by the minister-president, bans alcohol consumption on public roads and its takeaway sale between 10pm and 6am, and allows for stepped-up checks and the use of mobile cameras.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:873a95b57dd2a50013e4a6ad90f6a94a",
-        "generatedAt": "2026-09-18T16:04:43.585Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:6145dc5f882ae8c2a9602288166e7858",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -629,21 +629,21 @@
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Employment",
-      "question": "What twofold mechanism underpins the Brussels subsidised contractual agents (ACS) scheme?",
+      "question": "According to the card, how many ACS positions were subsidised by end 2017, across 1,312 employers?",
       "options": [
-        "A regional premium and a reduction in employer contributions",
-        "A zero-interest loan and an exemption from withholding tax",
-        "A training allowance and a quarterly service voucher",
-        "A municipal grant and a reimbursement of travel costs"
+        "Approximately 10,000",
+        "Approximately 6,700",
+        "Approximately 7,000",
+        "Approximately 2,500"
       ],
       "correct": 0,
-      "explanation": "The reduction in employer social security contributions brings them down to 0.56%. Positions are intended for jobseekers registered with Actiris, subject to conditions of unemployment duration, age or disability.",
+      "explanation": "Over 7,000 positions were in non-profits and administrations ('Programme Law' positions) and approximately 2,500 in local authorities; in 2024 the number of active positions is estimated at approximately 6,700, positions not filled within the mandatory six-month deadline imposed since 2015 accounting for the difference.",
       "sourceSlug": "/en/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-07-05",
-        "sourceContentHash": "sha256:4f85abfade655cc10e4b22652e10dc71",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:cb4f68c98c26dc87d8bf559b95e7c1bd",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -652,21 +652,21 @@
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Employment",
-      "question": "What did the Brussels reform of the subsidised contractual agents (ACS) scheme, launched in March 2015, introduce for a position that falls vacant?",
+      "question": "Which institutional reform, in 2014, transferred employment competence, including the ACS scheme, from the federal level to the Regions?",
       "options": [
-        "A 6-month deadline to fill it, failing which it is lost",
-        "An automatic transfer of the position to another association",
-        "A compulsory audit of the employer every 3 financial years",
-        "A competitive procedure published in the Belgian Official Gazette"
+        "The 6th State Reform",
+        "The 5th State Reform",
+        "The 4th State Reform",
+        "The 7th State Reform"
       ],
       "correct": 0,
-      "explanation": "That deadline cannot be extended. It explains the gap between the 10,000 subsidised positions at the end of 2017 and the 6,700 active positions estimated in 2024.",
+      "explanation": "The ACS scheme has existed since 1987, originally created to combat Brussels unemployment; the 6th State Reform gave the Brussels-Capital Region full responsibility for this mechanism.",
       "sourceSlug": "/en/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-07-05",
-        "sourceContentHash": "sha256:4f85abfade655cc10e4b22652e10dc71",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:cb4f68c98c26dc87d8bf559b95e7c1bd",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -721,21 +721,21 @@
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Which factor does IBSA identify, in its 2025 Focus, as the most decisive for Brussels residents' life satisfaction?",
+      "question": "According to the National Happiness Barometer (UGent/NN), a survey of 1,572 respondents in January 2026 published in March 2026, which Belgian region records the highest subjective happiness score?",
       "options": [
-        "Health, both physical and mental",
-        "The level of qualification obtained",
-        "The size of the dwelling occupied",
-        "The length of daily commutes"
+        "The Brussels-Capital Region, at 6.62/10",
+        "Flanders, at 6.61/10",
+        "Wallonia, at 6.36/10",
+        "The national average, at 6.53/10"
       ],
       "correct": 0,
-      "explanation": "Brussels residents give their life satisfaction an average score of 7.5 out of 10, identical to Wallonia and lower than Flanders. Then come living standards, social relations, housing and the ability to work.",
+      "explanation": "For the first time since 2017, active workers no longer score higher than retirees; unemployed people (5.32/10) and those in work incapacity (5.13/10) report the lowest scores.",
       "sourceSlug": "/en/dossiers/bien-etre",
       "sourceTitle": "Well-being",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:a36ca92d02094fe3cc01d49bba96ba29",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:2d42bf5d686458c7a8eacb4d9457b7c6",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,44 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What did Beliris begin on 15 September 2026 around Gare du Nord?",
+      "question": "According to ARAU (9 September 2026), how many air-raid shelters, predating the listed shelter under place du Jeu de Balle, does the association say it has established in the cellars of the Palais du Midi?",
       "options": [
-        "Backfilling the excavated pits, rue de l'Avenir and rue d'Aerschot",
-        "Boring the tunnel towards Liedts station",
-        "Demolishing the platform covering slab",
-        "Installing the equipment of the future station"
+        "Two",
+        "One",
+        "Three",
+        "Four"
       ],
       "correct": 0,
-      "explanation": "It is a consequence of the halt to the metro 3 works. The roadway of rue de l'Avenir is to be restored to its original state before the end of 2026 according to Beliris, with the upgrading of rue d'Aerschot to be completed during 2027. The total budget is not disclosed, and those deadlines are estimated: they come from Beliris and are not verified against documents.",
+      "explanation": "ARAU dates them to 1940 and 1943, over an area of 450 square metres with a capacity of up to 1,500 people, and asks for archaeological work before underground works continue on Metro 3.",
       "sourceSlug": "/en/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:ec7236b97bed4c96b81d68348fb7d9e5",
-        "generatedAt": "2026-09-18T16:04:43.585Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:7610399faec8b4175d37f0c0a06a7f48",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-metro-3-1",
+      "source": "dossier",
+      "domain": "Mobility",
+      "question": "On 15 September 2026, Beliris began backfilling excavated pits around North Station, after the halt of the Metro 3 worksites. Which two streets are involved?",
+      "options": [
+        "Rue du Progrès and rue d'Aerschot",
+        "Rue Gray and rue Marie-Henriette",
+        "Rue Neuve and boulevard Anspach",
+        "Rue de la Loi and rue Belliard"
+      ],
+      "correct": 0,
+      "explanation": "The roadway of rue du Progrès is to be restored identically by the end of 2026 according to Beliris, while the upgrading of rue d'Aerschot is to be completed during 2027; the Albert-North section remains frozen for an indefinite period.",
+      "sourceSlug": "/en/dossiers/metro-3",
+      "sourceTitle": "Metro 3",
+      "provenance": {
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:7610399faec8b4175d37f0c0a06a7f48",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "Until what year is the Villo shared-bike concession maintained, according to the regional Mobility Minister's start-of-term interview of 8 September 2026?",
+      "question": "Which shared e-scooter and bike operator obtained, on 29 July 2026, the annulment by the Council of State of the licences of Bolt, Dott and Voi, on its own appeal?",
       "options": [
-        "Until 2028",
-        "Until 2026",
-        "Until 2030",
-        "Until 2027"
+        "Lime",
+        "Villo",
+        "TIER",
+        "Pony"
       ],
       "correct": 0,
-      "explanation": "This is a correction: the dossier previously gave an expiry in September 2026 with no identified successor. A call for applications is announced, with the aim of keeping an annual subscription of around 35 euros and half-hour pricing.",
+      "explanation": "The annulment led to the announcement, on 21 August 2026, of a transitional regime: shared e-scooters remain available until 1 January 2027, shared bikes until May 2028 with a cap of 2,500 bikes per operator.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:1d15a14979756d7d033be974125b226f",
-        "generatedAt": "2026-09-18T14:10:04.598Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:025fe3e1eedb7f39f53b912b1e31ceb6",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "What effect did the Council of State ruling of 29 July 2026 have on the ban on shared scooters in Brussels?",
+      "question": "On 8 September 2026, the Region announced the Villo contract would be maintained until 2028, alongside a call for candidates. What is the targeted annual subscription price, against 3.50 euros a month as of 19 September 2026?",
       "options": [
-        "It brought it forward by four months, without calling it into question",
-        "It annulled it, reopening the market to the two operators",
-        "It postponed it by a year, until a new ordinance is passed",
-        "It extended it to the docked bicycles of the concession"
+        "35 euros",
+        "50 euros",
+        "20 euros",
+        "70 euros"
       ],
       "correct": 0,
-      "explanation": "The ban decided on 11 June 2026 and set for 1 January 2027 is untouched: the ruling annuls the licences, which requires the devices to be removed from public space from 1 September 2026. For free-floating shared bicycles the effect differs, since the government wanted to keep that offer.",
+      "explanation": "As of 19 September 2026, Villo costs 3.50 euros a month or 1.50 euros for a one-day ticket; the 360 Villo! stations represent around 5,000 docked bicycles, alongside approximately 15,700 free-floating vehicles counted in March 2025.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:1d15a14979756d7d033be974125b226f",
-        "generatedAt": "2026-09-18T14:10:04.598Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:025fe3e1eedb7f39f53b912b1e31ceb6",
+        "generatedAt": "2026-09-20T16:22:26.596Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1545,6 +1568,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 67
+  ]
 }

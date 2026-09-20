@@ -35,6 +35,18 @@ function blocOk<T>(donnees: T, fenetre: RapportSeo['blocs']['gsc']['fenetre'] = 
   };
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function blocEnPanne(status: 'error' | 'blocked' | 'absent', message: string | null): any {
+  return {
+    status,
+    message,
+    generatedAt: null,
+    scriptSha256: null,
+    fenetre: null,
+    donnees: null,
+  };
+}
+
 const DONNEES_GSC_VIDES = {
   totaux: { clics: null, impressions: null, ctr: null, position: null },
   totauxPrecedents: { clics: null, impressions: null, ctr: null, position: null },
@@ -163,5 +175,58 @@ describe('AdminRapportPage', () => {
 
     render(await AdminRapportPage({ params: Promise.resolve({ locale: 'fr' }) }));
     expect(valeurPagesPassees()).toBe('aucune page passée cette semaine');
+  });
+
+  // Relecture : le relecteur avait fusionné les deux branches de
+  // SectionActions (« bloc GSC en panne » et « bloc à jour, liste vide »)
+  // pour qu'elles affichent le même texte, et les 1 031 tests étaient
+  // restés verts. Exactement le défaut que cette section doit éviter : une
+  // panne de Search Console qui se ferait passer pour « aucune action
+  // cette semaine ». Ce test vise le paragraphe de la section Actions
+  // précisément (pas une correspondance générique ailleurs sur la page).
+  it("dit la panne du bloc GSC dans la section Actions, jamais « aucune action »", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocEnPanne('error', 'HTTP 403'),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    render(await AdminRapportPage({ params: Promise.resolve({ locale: 'fr' }) }));
+
+    const sectionActions = screen
+      .getByText('Actions suggérées', { selector: 'h2' })
+      .closest('section');
+    expect(sectionActions).not.toBeNull();
+    const texte = sectionActions?.textContent ?? '';
+    expect(texte).toMatch(/Indisponible/);
+    expect(texte).not.toMatch(/Aucune action cette semaine/);
+  });
+
+  // Relecture : EtatBloc (role="alert") est le seul endroit de la page qui
+  // annonce une panne par du texte plutôt que par la seule couleur — une
+  // exigence d'accessibilité. Le relecteur avait supprimé la bannière
+  // entière sans qu'aucun test ne rougisse.
+  it('annonce une panne et un blocage par une bannière role="alert", pas seulement une couleur', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocEnPanne('error', 'HTTP 403'),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocEnPanne('blocked', 'sonde bloquée'),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    render(await AdminRapportPage({ params: Promise.resolve({ locale: 'fr' }) }));
+
+    const textesAlertes = screen.getAllByRole('alert').map((a) => a.textContent ?? '');
+    expect(
+      textesAlertes.some((t) => t.includes('Search Console') && t.includes('en panne')),
+    ).toBe(true);
+    expect(
+      textesAlertes.some((t) => t.includes('Crawl technique') && t.includes('bloqué')),
+    ).toBe(true);
   });
 });

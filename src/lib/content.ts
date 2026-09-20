@@ -1031,6 +1031,24 @@ export function getAllDossierSlugs(): string[] {
 }
 
 /**
+ * Toutes les fiches domaines republiées (drafts exclus), sans repli FR :
+ * chaque carte porte sa vraie langue. `getDomainCards(locale)` ne convient
+ * pas ici, car son repli FR ferait apparaître une même fiche FR sous deux
+ * langues différentes dans src/lib/a-relire.ts, qui doit distinguer une
+ * fiche réellement absente dans une langue d'une fiche affichée par repli.
+ */
+export function getPublishedDomainCards(): DomainCard[] {
+  const { domainCards } = getCollections();
+  return domainCards.filter((c) => !c.draft);
+}
+
+/** Même raison d'être que getPublishedDomainCards, pour les dossiers. */
+export function getPublishedDossierCards(): DossierCard[] {
+  const { dossierCards } = getCollections();
+  return dossierCards.filter((c) => !c.draft);
+}
+
+/**
  * Sorts an alerts array (dossier or commune cards) by `date` descending,
  * most recent first. Frontmatter order is not chronological, so both
  * dossier and commune detail pages must apply this before rendering.

@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-09-18T16:09:44.799Z",
+  "generatedAt": "2026-09-20T16:24:14.488Z",
   "locale": "de",
-  "poolSize": 67,
+  "poolSize": 68,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Wie hoch schätzt das Föderale Planbüro am 15. September 2026 das Risiko ein, dass die öffentliche Schuld der Region Brüssel mittelfristig untragbar wird?",
+      "question": "Auf welchen Schuldenstand, ausgedrückt als Prozentsatz der regionalen Einnahmen, wird die Region Brüssel laut BX1 (15. September 2026) bis 2031 geschätzt?",
       "options": [
-        "Hoch, wie für Wallonien und die Französische Gemeinschaft",
-        "Mäßig, wie für Flandern",
-        "Niedrig, als einziger Gliedstaat in dieser Lage",
-        "Nicht bewertet, mangels regionaler Zahlen"
+        "328 % der regionalen Einnahmen",
+        "327 % der regionalen Einnahmen",
+        "158 % der regionalen Einnahmen",
+        "118 % der regionalen Einnahmen"
       ],
       "correct": 0,
-      "explanation": "Nur das flämische Risiko nennt das Planbüro mäßig. Die Analyse erinnert daran, dass die gesamte belgische Staatsschuld Ende 2025 692 Milliarden Euro betrug, also 108 % des Bruttoinlandsprodukts. Keine Zahl, die eigens die Region Brüssel betrifft, kommt in den konsultierten Quellen vor, und die Analyse selbst wurde nicht gelesen: das Vertrauen ist geschätzt.",
+      "explanation": "Das Föderale Planbüro beziffert Wallonien auf 327 %, die Föderation Wallonie-Brüssel auf 158 % und Flandern, die einzige Gebietskörperschaft mit einem als mäßig eingestuften Risiko, auf 118 % ihrer Einnahmen im Jahr 2031.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:4f02d97342c59d9ac9b4693c232f3b44",
-        "generatedAt": "2026-09-18T16:07:32.630Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:74cbc4e3e76083bb01d8c8cf57d512eb",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Wie entwickelte sich der Anteil der Gliedstaaten an der belgischen Staatsschuld zwischen 2008 und 2025, laut der am 15. September 2026 übernommenen Analyse?",
+      "question": "Ab dem 17. August 2026 versandte die Stadt Brüssel die Steuerbescheide der Grundsteuer 2026. Auf welchen Wert wurden die kommunalen Zuschlaghundertstel angehoben?",
       "options": [
-        "Von 8,4 % auf 18,4 %",
-        "Von 8,4 % auf 12,1 %",
-        "Von 12,6 % auf 18,4 %",
-        "Von 5,2 % auf 22,7 %"
+        "3.457",
+        "2.980",
+        "4.090",
+        "3.090"
       ],
       "correct": 0,
-      "explanation": "Die gesamte belgische Staatsschuld betrug Ende 2025 692 Milliarden Euro, also 108 % des Bruttoinlandsprodukts. In diesem Rahmen hält das Föderale Planbüro das Risiko einer untragbaren Schuld für hoch bei der Region Brüssel, der Wallonischen Region und der Französischen Gemeinschaft, und für mäßig bei der flämischen Schuld.",
+      "explanation": "Der Anstieg um 17,2 % wird von der Stadt als vollständig ausgeglichen für Eigentümer-Bewohner dargestellt, über einen pauschalen kommunalen Abzug und die regionale Be-Home-Prämie. Saint-Josse-ten-Noode verzeichnete 2026 den stärksten Anstieg, von 2.980 auf 4.090.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:4f02d97342c59d9ac9b4693c232f3b44",
-        "generatedAt": "2026-09-18T16:07:32.630Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:74cbc4e3e76083bb01d8c8cf57d512eb",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Welches Prinzip hielt der Staatsrat am 9. September 2026 der Brüsseler Reform der Umweltzone entgegen?",
+      "question": "Welche Brüsseler Gemeinde kündigte am 17. und 18. September 2026 an, nicht am zweiten regionalen autofreien Sonntag vom 2. Mai 2027 teilzunehmen?",
       "options": [
-        "Das in der Verfassung verankerte Standstill-Prinzip",
-        "Den Grundsatz der Gleichheit vor den öffentlichen Lasten",
-        "Den Grundsatz der Freizügigkeit der Personen",
-        "Den Grundsatz der Verhältnismäßigkeit der Sanktionen"
+        "Woluwe-Saint-Lambert",
+        "Ixelles",
+        "Schaerbeek",
+        "Uccle"
       ],
       "correct": 0,
-      "explanation": "Er verwirft weder den Jahrespass zu 350 Euro noch den Sozialtarif zu 200 Euro, hält aber fest, dass die Regierung nicht hinreichend darlegt, wie sich die Luftqualität verbessern soll, während die Lockerung mehr belastende Fahrzeuge einfahren ließe. Der Erlass geht vor einer zweiten Lesung zurück in die Vorbereitung, das Inkrafttreten bleibt für 2027 angepeilt.",
+      "explanation": "Das Gemeindekollegium führt geschätzte Organisationskosten von 35.000 bis 50.000 Euro und den Einsatz von 70 bis 80 Polizisten an; das Kabinett der regionalen Mobilitätsministerin widerspricht dem Argument zu den Fahrradsubventionen.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:e918ea828e995c9e0f29c4244a16a10b",
-        "generatedAt": "2026-09-18T14:17:02.669Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:8b39998191c3cf82c09a0022d660dbc7",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Welcher Anteil der rund 2 200 oberirdischen Haltestellen der STIB war am 10. September 2026 für Menschen mit eingeschränkter Mobilität selbstständig zugänglich?",
+      "question": "Laut BRUZZ, zum wievielten Mal wurde die Bewertung von Good Move am Donnerstag, dem 10. September 2026, in der Brüsseler Regierung vertagt?",
       "options": [
-        "Etwa ein Viertel der Haltestellen",
-        "Etwa ein Zehntel der Haltestellen",
-        "Etwa drei Viertel der Haltestellen",
-        "Etwa die Hälfte der Haltestellen"
+        "Zum vierten Mal",
+        "Zum zweiten Mal",
+        "Zum dritten Mal",
+        "Zum fünften Mal"
       ],
       "correct": 0,
-      "explanation": "Seit 2019 wurden etwa 500 Haltestellen normgerecht umgebaut, und die Hälfte des oberirdischen Netzes ist mit Hilfe zugänglich. Zudem verfügen 59 der 69 Metro- und Premetrostationen über Aufzüge.",
+      "explanation": "Der Punkt steht seit Anfang Juli 2026 auf der Tagesordnung der Regierung; die Mobilitätsministerin schlägt vor, dem gesetzlichen Verfahren der Verordnung vom 13. Oktober 2023 über die Mobilitätsplanung zu folgen, wobei Good Move bis zur Annahme des nächsten Plans in Kraft bleibt.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:e918ea828e995c9e0f29c4244a16a10b",
-        "generatedAt": "2026-09-18T14:17:02.669Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:8b39998191c3cf82c09a0022d660dbc7",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Über welchen jährlichen Betrag verfügt der föderale Sicherheits- und Präventionsfonds für Brüssel, laut den Informationen vom 17. September 2026?",
+      "question": "Der föderale Ministerrat billigte am 18. September 2026 eine Verlängerung um sechs Monate des Einsatzes „Urban Shield\". Auf wie viele Soldaten steigt laut RTBF und BX1 das Kontingent in den Brüsseler Bahnhöfen und Metrostationen mit dieser Verlängerung?",
       "options": [
-        "55 Millionen Euro, davon 35 für die Polizeizonen",
-        "20 Millionen Euro, davon 12 für die Polizeizonen",
-        "110 Millionen Euro, davon 70 für die Polizeizonen",
-        "35 Millionen Euro, davon 20 für die Polizeizonen"
+        "Auf rund fünfzig",
+        "Auf rund dreißig",
+        "Auf fünfundvierzig",
+        "Auf rund sechzig"
       ],
       "correct": 0,
-      "explanation": "Zwanzig Millionen gehen an die Gemeinden, für die Sicherung der europäischen Gipfel und die internationale Rolle der Hauptstadt. Mehrere Millionen sollen andere Ausgaben finanziert haben, darunter ein Scheck über 828 000 Euro an die regionale Wohnungsbaugesellschaft im Jahr 2020 und ein nie gebautes Cyberzentrum. Die Quellen verwenden den Konjunktiv und nennen kein amtliches Schriftstück: das Vertrauen ist unbestätigt.",
+      "explanation": "Das Kontingent umfasste bei seinem Start im April 2026 rund dreißig Soldaten. Die Zahl von 45 Soldaten, an anderer Stelle der Karte für die Erweiterung vom 3. April 2026 genannt, stammt aus einer anderen Quelle zu einem anderen Zeitpunkt und wird hier nicht mit dieser abgeglichen.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:fe807d52cc5557f1c90efc831a16614f",
-        "generatedAt": "2026-09-18T16:09:44.799Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:628848c925495c41e8f98fd0ace2a172",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Was stellt die Sicherheitskarte am 8. September 2026 zum Bestand der Kameras in der Region Brüssel fest?",
+      "question": "Der wievielte „Hotspot\" gegen Drogen, per Polizeiverordnung in der Region Brüssel eingerichtet, ist jener, den die Gemeinde Ixelles rund um die Rue Gray, die Rue Marie-Henriette, die Rue du Levain und die Rue de la Brasserie, nahe Flagey, beantragt hat (18.-19. September 2026)?",
       "options": [
-        "Es besteht kein genaues Kataster des Bestands",
-        "Das Kataster wird seit 2024 von Safe.brussels geführt",
-        "Jede Polizeizone veröffentlicht ihr eigenes Verzeichnis",
-        "Ein regionales Verzeichnis wurde im November 2025 abgeschlossen"
+        "Der neunzehnte",
+        "Der zwölfte",
+        "Der fünfzehnte",
+        "Der zwanzigste"
       ],
       "correct": 0,
-      "explanation": "Die Feststellung deckt sich mit jener des Rechnungshofs, der am 5. November 2025 schrieb, es gebe kein vollständiges physisches Bestandsverzeichnis der Aktiva der verwaltenden Einrichtung. Die Hauptstadt zählt mehr als sechstausend Kameras, verteilt auf mehrere Verwaltungen und Betreiber. Die anderswo angeführten Zahlen stammen aus einem einzigen Gespräch und werden als Aussage übernommen, nicht als Bestandsverzeichnis.",
+      "explanation": "Die vom Ministerpräsidenten unterzeichnete Verordnung verbietet den Alkoholkonsum auf öffentlichen Straßen sowie den Straßenverkauf zum Mitnehmen zwischen 22 und 6 Uhr und erlaubt verstärkte Kontrollen sowie den Einsatz mobiler Kameras.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:fe807d52cc5557f1c90efc831a16614f",
-        "generatedAt": "2026-09-18T16:09:44.799Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:628848c925495c41e8f98fd0ace2a172",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -629,21 +629,21 @@
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Beschäftigung",
-      "question": "Auf welchem doppelten Hebel beruht das Brüsseler System der subventionierten Vertragsbediensteten (ACS)?",
+      "question": "Wie viele ACS-Stellen wurden laut der Karte Ende 2017 bei 1.312 Arbeitgebern subventioniert?",
       "options": [
-        "Einer regionalen Prämie und einer Senkung der Arbeitgeberbeiträge",
-        "Einem zinslosen Darlehen und einer Befreiung vom Steuervorabzug",
-        "Einer Ausbildungsbeihilfe und einem vierteljährlichen Dienstleistungsscheck",
-        "Einer Gemeindedotation und einer Erstattung von Fahrtkosten"
+        "Etwa 10.000",
+        "Etwa 6.700",
+        "Etwa 7.000",
+        "Etwa 2.500"
       ],
       "correct": 0,
-      "explanation": "Die Arbeitgebersozialbeiträge werden auf 0,56 % gesenkt. Die Stellen sind für bei Actiris eingeschriebene Arbeitsuchende bestimmt, unter Bedingungen zu Dauer der Arbeitslosigkeit, Alter oder Behinderung.",
+      "explanation": "Über 7.000 Stellen entfielen auf VoG und Verwaltungen (Stellen nach dem „Programmgesetz\") und etwa 2.500 auf lokale Behörden; 2024 wird die Zahl der aktiven Stellen auf etwa 6.700 geschätzt, wegen Stellen, die nicht innerhalb der seit 2015 geltenden Frist von sechs Monaten besetzt wurden.",
       "sourceSlug": "/de/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-07-05",
-        "sourceContentHash": "sha256:c2d95a117449f47fac13f2ed85a20620",
-        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:9adb8bbddd211d0875991bda19a7b09e",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -652,21 +652,21 @@
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Beschäftigung",
-      "question": "Was führte die Brüsseler Reform der subventionierten Vertragsbediensteten (ACS), die im März 2015 eingeleitet wurde, für eine frei werdende Stelle ein?",
+      "question": "Welche Staatsreform übertrug 2014 die Zuständigkeit für Beschäftigung, einschließlich des ACS-Systems, von der föderalen auf die regionale Ebene?",
       "options": [
-        "Eine Frist von 6 Monaten zur Besetzung, sonst geht sie verloren",
-        "Eine automatische Übernahme der Stelle durch eine andere Vereinigung",
-        "Eine verpflichtende Prüfung des Arbeitgebers alle 3 Haushaltsjahre",
-        "Eine Ausschreibung im Belgischen Staatsblatt"
+        "Die 6. Staatsreform",
+        "Die 5. Staatsreform",
+        "Die 4. Staatsreform",
+        "Die 7. Staatsreform"
       ],
       "correct": 0,
-      "explanation": "Diese Frist ist nicht verlängerbar. Sie erklärt die Kluft zwischen den 10.000 subventionierten Stellen Ende 2017 und den für 2024 geschätzten 6.700 aktiven Stellen.",
+      "explanation": "Das ACS-System besteht seit 1987, ursprünglich geschaffen zur Bekämpfung der Brüsseler Arbeitslosigkeit; die 6. Staatsreform gab der Region Brüssel-Hauptstadt die volle Verantwortung für dieses Instrument.",
       "sourceSlug": "/de/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-07-05",
-        "sourceContentHash": "sha256:c2d95a117449f47fac13f2ed85a20620",
-        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:9adb8bbddd211d0875991bda19a7b09e",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -721,21 +721,21 @@
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welchen Faktor nennt das IBSA in seinem Fokus von 2025 als den entscheidendsten für die Lebenszufriedenheit der Brüsseler?",
+      "question": "Laut dem Nationalen Glücksbarometer (UGent/NN), einer Befragung von 1.572 Personen im Januar 2026, veröffentlicht im März 2026, welche belgische Region erzielt den höchsten Wert für subjektives Glück?",
       "options": [
-        "Die Gesundheit, körperlich wie psychisch",
-        "Das erreichte Bildungsniveau",
-        "Die Größe der bewohnten Wohnung",
-        "Die Dauer der täglichen Wege"
+        "Die Region Brüssel-Hauptstadt, mit 6,62/10",
+        "Flandern, mit 6,61/10",
+        "Wallonien, mit 6,36/10",
+        "Der nationale Durchschnitt, mit 6,53/10"
       ],
       "correct": 0,
-      "explanation": "Die Brüsseler bewerten ihre Lebenszufriedenheit im Schnitt mit 7,5 von 10, gleichauf mit Wallonien und unter Flandern. Es folgen der Lebensstandard, die sozialen Beziehungen, die Wohnung und die Möglichkeit zu arbeiten.",
+      "explanation": "Erstmals seit 2017 unterscheiden sich Erwerbstätige nicht mehr von Rentnern; Arbeitslose (5,32/10) und Erwerbsunfähige (5,13/10) weisen die niedrigsten Werte auf.",
       "sourceSlug": "/de/dossiers/bien-etre",
       "sourceTitle": "Wohlbefinden",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:a5e0e3de79439e210699476f79c8974a",
-        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:5a9e7043c459d96bdc5d173c90e93919",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,44 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Womit begann Beliris am 15. September 2026 rund um den Nordbahnhof?",
+      "question": "Laut dem ARAU (9. September 2026), wie viele Luftschutzbunker, älter als der unter Denkmalschutz stehende Bunker unter der Place du Jeu de Balle, will die Vereinigung in den Kellern des Palais du Midi nachgewiesen haben?",
       "options": [
-        "Mit dem Verfüllen der ausgehobenen Gruben in zwei Straßen",
-        "Mit dem Bohren des Tunnels Richtung Station Liedts",
-        "Mit dem Abriss der Überdachungsplatte der Bahnsteige",
-        "Mit dem Einbau der Ausrüstung des künftigen Bahnhofs"
+        "Zwei",
+        "Einen",
+        "Drei",
+        "Vier"
       ],
       "correct": 0,
-      "explanation": "Es ist eine Folge des Stopps der Metro-3-Baustelle, und es betrifft die Rue de l'Avenir und die Rue d'Aerschot. Die Fahrbahn der Rue de l'Avenir soll laut Beliris vor Ende 2026 im ursprünglichen Zustand wiederhergestellt werden, die Aufwertung der Rue d'Aerschot im Lauf von 2027 abgeschlossen sein. Das Gesamtbudget wird nicht mitgeteilt, und diese Fristen sind geschätzt: sie stammen von Beliris und wurden nicht auf Schriftstücke geprüft.",
+      "explanation": "Das ARAU datiert sie auf 1940 und 1943, auf einer Fläche von 450 Quadratmetern mit einer Kapazität von bis zu 1 500 Personen, und fordert archäologische Arbeiten vor der Fortsetzung der unterirdischen Arbeiten der Metro 3.",
       "sourceSlug": "/de/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:b9707ed576d182625335f5fef8a3ddb2",
-        "generatedAt": "2026-09-18T16:09:44.799Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:6bc76b8e3759bc305a9e0db21455a187",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-metro-3-1",
+      "source": "dossier",
+      "domain": "Mobilität",
+      "question": "Am 15. September 2026 begann Beliris mit der Verfüllung ausgehobener Gruben rund um den Nordbahnhof, nach dem Stopp der Baustellen der Metro 3. Welche zwei Straßen sind betroffen?",
+      "options": [
+        "Die Rue du Progrès und die Rue d'Aerschot",
+        "Die Rue Gray und die Rue Marie-Henriette",
+        "Die Rue Neuve und der Boulevard Anspach",
+        "Die Rue de la Loi und die Rue Belliard"
+      ],
+      "correct": 0,
+      "explanation": "Die Fahrbahn der Rue du Progrès soll laut Beliris bis Ende 2026 originalgetreu wiederhergestellt werden, die Aufwertung der Rue d'Aerschot soll im Laufe des Jahres 2027 abgeschlossen sein; der Abschnitt Albert-Nord bleibt auf unbestimmte Zeit eingefroren.",
+      "sourceSlug": "/de/dossiers/metro-3",
+      "sourceTitle": "Metro 3",
+      "provenance": {
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:6bc76b8e3759bc305a9e0db21455a187",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Bis zu welchem Jahr bleibt die Konzession der Villo-Leihfahrräder bestehen, laut dem Gespräch der regionalen Mobilitätsministerin zum Jahresauftakt am 8. September 2026?",
+      "question": "Welcher Anbieter von Leih-E-Scootern und Leihfahrrädern erwirkte am 29. Juli 2026 auf eigene Klage die Annullierung der Lizenzen von Bolt, Dott und Voi durch den Staatsrat?",
       "options": [
-        "Bis 2028",
-        "Bis 2026",
-        "Bis 2030",
-        "Bis 2027"
+        "Lime",
+        "Villo",
+        "TIER",
+        "Pony"
       ],
       "correct": 0,
-      "explanation": "Es handelt sich um eine Korrektur: das Dossier nannte zuvor ein Konzessionsende im September 2026 ohne bestimmten Nachfolger. Eine Ausschreibung ist angekündigt, mit dem Ziel, ein Jahresabonnement um 35 Euro und eine Abrechnung je halbe Stunde zu erhalten.",
+      "explanation": "Die Annullierung führte am 21. August 2026 zur Ankündigung einer Übergangsregelung: Leih-E-Scooter bleiben bis zum 1. Januar 2027 verfügbar, Leihfahrräder bis Mai 2028 mit einer Obergrenze von 2 500 Fahrrädern je Betreiber.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:22fdadf39c649fad70fcf83914841266",
-        "generatedAt": "2026-09-18T14:26:03.354Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:ba47cff7ec867357e17c911e229f9cf9",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Welche Wirkung hatte das Urteil des Staatsrats vom 29. Juli 2026 auf das Verbot geteilter Tretroller in Brüssel?",
+      "question": "Am 8. September 2026 kündigte die Region an, dass der Villo-Vertrag bis 2028 bestehen bleibt, zusammen mit einem Bewerbungsaufruf. Um welchen Betrag soll das angestrebte Jahresabonnement liegen, gegenüber 3,50 Euro im Monat am 19. September 2026?",
       "options": [
-        "Es zog es um vier Monate vor, ohne es infrage zu stellen",
-        "Es hob es auf und öffnete den Markt wieder für zwei Betreiber",
-        "Es verschob es um ein Jahr, bis zu einer neuen Ordonnanz",
-        "Es weitete es auf die fest verankerten Leihfahrräder aus"
+        "35 Euro",
+        "50 Euro",
+        "20 Euro",
+        "70 Euro"
       ],
       "correct": 0,
-      "explanation": "Das am 11. Juni 2026 beschlossene und auf den 1. Januar 2027 festgelegte Verbot bleibt unberührt: das Urteil hebt die Lizenzen auf, was die Entfernung der Geräte aus dem öffentlichen Raum ab dem 1. September 2026 erzwingt. Für frei abstellbare Leihfahrräder fällt die Wirkung anders aus, da die Regierung dieses Angebot erhalten wollte.",
+      "explanation": "Am 19. September 2026 kostet Villo 3,50 Euro im Monat oder 1,50 Euro für ein Tagesticket; die 360 Villo!-Stationen stehen für rund 5 000 stationsgebundene Fahrräder, neben rund 15 700 im März 2025 gezählten Free-Floating-Fahrzeugen.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:22fdadf39c649fad70fcf83914841266",
-        "generatedAt": "2026-09-18T14:26:03.354Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:ba47cff7ec867357e17c911e229f9cf9",
+        "generatedAt": "2026-09-20T16:24:14.488Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1545,6 +1568,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 67
+  ]
 }

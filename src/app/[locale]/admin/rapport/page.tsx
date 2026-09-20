@@ -276,34 +276,45 @@ function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
       )}
       {actions !== null && actions.length > 0 && (
         <ul className="space-y-3">
-          {actions.map((action, i) => (
-            <li
-              key={`${action.regle}-${action.url}-${i}`}
-              className="rounded border border-neutral-200 bg-neutral-50 p-4"
-            >
-              <p className="text-sm font-semibold break-words text-neutral-900">
-                {action.titre ?? `${action.regle} : ${chemin(action.url)}`}
-              </p>
-              <p className="mt-1 text-xs text-neutral-500">
-                Règle : {action.regle}
-                {action.priorite !== null ? ` · priorité ${action.priorite}` : ' · priorité indisponible'}
-              </p>
-              <p className="mt-2 text-sm text-neutral-700">{action.preuve}</p>
-              <p className="mt-2 text-sm">
-                <a
-                  href={action.url}
-                  className="break-words text-brand-700 underline-offset-4 hover:underline"
-                >
-                  {chemin(action.url)}
-                </a>
-              </p>
-              {action.fenetre && (
-                <p className="mt-2 text-xs text-neutral-500">
-                  Fenêtre : {formatFenetre(action.fenetre, 'Search Console')}
+          {actions.map((action, i) => {
+            // Un titre qui répète l'URL entière fait doublon avec le lien
+            // affiché juste en dessous : on ne l'écrit qu'une fois.
+            const titreDupliqueLeLien = action.titre !== null && action.titre === action.url;
+            // La collecte n'a pas toujours de fenêtre à donner : tant qu'elle
+            // n'a pas de dates, la ligne reste tue plutôt que d'afficher
+            // « fenêtre indisponible » sous chaque action.
+            const fenetreTexte = action.fenetre?.debut || action.fenetre?.fin
+              ? formatFenetre(action.fenetre, 'Search Console')
+              : null;
+            return (
+              <li
+                key={`${action.regle}-${action.url}-${i}`}
+                className="rounded border border-neutral-200 bg-neutral-50 p-4"
+              >
+                {!titreDupliqueLeLien && (
+                  <p className="text-sm font-semibold break-words text-neutral-900">
+                    {action.titre ?? `${action.regle} : ${chemin(action.url)}`}
+                  </p>
+                )}
+                <p className="mt-1 text-xs text-neutral-500">
+                  Règle : {action.regle}
+                  {action.priorite !== null ? ` · priorité ${action.priorite}` : ' · priorité indisponible'}
                 </p>
-              )}
-            </li>
-          ))}
+                <p className="mt-2 text-sm text-neutral-700">{action.preuve}</p>
+                <p className="mt-2 text-sm">
+                  <a
+                    href={action.url}
+                    className="break-words text-brand-700 underline-offset-4 hover:underline"
+                  >
+                    {chemin(action.url)}
+                  </a>
+                </p>
+                {fenetreTexte && (
+                  <p className="mt-2 text-xs text-neutral-500">Fenêtre : {fenetreTexte}</p>
+                )}
+              </li>
+            );
+          })}
         </ul>
       )}
     </section>

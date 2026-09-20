@@ -328,6 +328,109 @@ describe('AdminRapportPage', () => {
     expect(textesAlertes.join('')).not.toContain('—');
   });
 
+  function sectionActionsListItems(): Element[] {
+    return Array.from(sectionActions()?.querySelectorAll('ul > li') ?? []);
+  }
+
+  it("tait la ligne « Fenêtre » d'une action quand la valeur est indisponible", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'titre-manquant',
+              url: 'https://governance.brussels/fr/page-1',
+              preuve: 'Aucun titre détecté.',
+              titre: null,
+              priorite: 1,
+              fenetre: { debut: null, fin: null, fuseau: null },
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const items = sectionActionsListItems();
+    expect(items).toHaveLength(1);
+    expect(items[0].textContent).not.toMatch(/Fenêtre/);
+  });
+
+  it("affiche la ligne « Fenêtre » d'une action quand la valeur est disponible", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'titre-manquant',
+              url: 'https://governance.brussels/fr/page-1',
+              preuve: 'Aucun titre détecté.',
+              titre: null,
+              priorite: 1,
+              fenetre: {
+                debut: '2026-08-21',
+                fin: '2026-09-17',
+                fuseau: 'America/Los_Angeles',
+              },
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const items = sectionActionsListItems();
+    expect(items[0].textContent).toMatch(/Fenêtre/);
+  });
+
+  it("n'affiche pas deux fois la même URL quand le titre de l'action est l'URL entière", async () => {
+    const url = 'https://governance.brussels/fr/page-tres-longue-a-corriger';
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'titre-manquant',
+              url,
+              preuve: 'Aucun titre détecté.',
+              titre: url,
+              priorite: 1,
+              fenetre: null,
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const item = sectionActionsListItems()[0];
+    // Le titre (premier <p>, en gras) ne doit pas répéter l'URL entière
+    // affichée par ailleurs : combien de fois l'URL apparaît-elle en propre
+    // texte de nœud dans l'action, tous éléments confondus ?
+    const occurrences = Array.from(item.querySelectorAll('p, a')).filter(
+      (el) => el.textContent === url,
+    );
+    expect(occurrences).toHaveLength(0);
+    expect(screen.queryByText(url, { selector: 'p.font-semibold' })).toBeNull();
+    // Le chemin (forme abrégée) reste affiché via le lien.
+    expect(item.querySelector('a')?.textContent).toBe('/fr/page-tres-longue-a-corriger');
+  });
+
   it('affiche un unique verdict de fraîcheur sous le h1, avant le premier chiffre', async () => {
     vi.mocked(readSeoReport).mockResolvedValue({
       blocs: {

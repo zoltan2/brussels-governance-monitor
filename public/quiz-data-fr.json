@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-09-18T15:56:26.827Z",
+  "generatedAt": "2026-09-20T16:17:42.446Z",
   "locale": "fr",
-  "poolSize": 67,
+  "poolSize": 68,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Quel niveau de risque le Bureau fédéral du Plan attribue-t-il, le 15 septembre 2026, à la soutenabilité de la dette de la Région bruxelloise ?",
+      "question": "Selon BX1 (15 septembre 2026), à quel taux d'endettement, en pourcentage des recettes régionales, la Région bruxelloise est-elle attendue en 2031 ?",
       "options": [
-        "Élevé, comme pour la Wallonie et la Communauté française",
-        "Modéré, comme pour la Flandre",
-        "Faible, seule entité fédérée dans ce cas",
-        "Non évalué, faute de données régionales"
+        "328 % des recettes régionales",
+        "327 % des recettes régionales",
+        "158 % des recettes régionales",
+        "118 % des recettes régionales"
       ],
       "correct": 0,
-      "explanation": "Le Bureau ne qualifie de modéré que le risque flamand. L'analyse rappelle que la dette publique belge totale atteignait 692 milliards d'euros fin 2025, soit 108 % du produit intérieur brut. Aucun chiffre propre à la Région bruxelloise ne figure dans les sources consultées, et l'analyse elle-même n'a pas été lue : la confiance est estimée.",
+      "explanation": "Le Bureau fédéral du Plan situe la Wallonie à 327 %, la Fédération Wallonie-Bruxelles à 158 % et la Flandre, seule entité au risque qualifié de modéré, à 118 % de ses recettes en 2031.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:f97d3149bb5c0fce434687d5a5437402",
-        "generatedAt": "2026-09-18T15:53:50.153Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:06ea6f075870c9ea39aff57c93b8c65a",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Comment la part des entités fédérées dans la dette publique belge a-t-elle évolué entre 2008 et 2025, selon l'analyse relayée le 15 septembre 2026 ?",
+      "question": "Le 17 août 2026, la Ville de Bruxelles a envoyé les avertissements-extraits de rôle du précompte immobilier 2026. À combien les centimes additionnels communaux ont-ils été portés ?",
       "options": [
-        "De 8,4 % à 18,4 %",
-        "De 8,4 % à 12,1 %",
-        "De 12,6 % à 18,4 %",
-        "De 5,2 % à 22,7 %"
+        "3 457",
+        "2 980",
+        "4 090",
+        "3 090"
       ],
       "correct": 0,
-      "explanation": "La dette publique belge totale atteignait 692 milliards d'euros fin 2025, soit 108 % du produit intérieur brut. C'est dans ce cadre que le Bureau fédéral du Plan juge élevé le risque d'insoutenabilité pour la Région bruxelloise, la Région wallonne et la Communauté française, et modéré celui qui porte sur la dette flamande.",
+      "explanation": "La hausse, de 17,2 %, est présentée par la Ville comme intégralement compensée pour les propriétaires occupants, via une déduction communale forfaitaire et la prime régionale Be-Home. Saint-Josse-ten-Noode a enregistré la plus forte hausse de 2026, de 2 980 à 4 090.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:f97d3149bb5c0fce434687d5a5437402",
-        "generatedAt": "2026-09-18T15:53:50.153Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:06ea6f075870c9ea39aff57c93b8c65a",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Quel principe le Conseil d'État a-t-il opposé, le 9 septembre 2026, à la réforme bruxelloise de la zone de basses émissions ?",
+      "question": "Quelle commune bruxelloise a annoncé, les 17 et 18 septembre 2026, qu'elle ne participerait pas à la deuxième journée sans voiture régionale du 2 mai 2027 ?",
       "options": [
-        "Le principe de standstill inscrit dans la Constitution",
-        "Le principe d'égalité devant les charges publiques",
-        "Le principe de libre circulation des personnes",
-        "Le principe de proportionnalité des sanctions"
+        "Woluwe-Saint-Lambert",
+        "Ixelles",
+        "Schaerbeek",
+        "Uccle"
       ],
       "correct": 0,
-      "explanation": "Il ne rejette ni le pass annuel à 350 euros ni le tarif social à 200 euros, mais estime que le gouvernement ne démontre pas assez comment la qualité de l'air s'améliorerait alors que l'assouplissement laisserait entrer davantage de véhicules polluants. L'arrêté retourne en préparation avant une deuxième lecture, l'entrée en vigueur restant visée pour 2027.",
+      "explanation": "Le collège invoque un coût d'organisation estimé entre 35 000 et 50 000 euros et la mobilisation de 70 à 80 policiers ; le cabinet de la ministre régionale de la Mobilité conteste l'argument budgétaire avancé sur les subsides au vélo.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:8d49e9dc6df842e865f13f786a00cca8",
-        "generatedAt": "2026-09-18T12:45:35.102Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:e86ca1a9a862f5b443d85ab9a5960ebc",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Selon la STIB, quelle part de ses quelque 2 200 arrêts de surface était accessible en autonomie aux personnes à mobilité réduite au 10 septembre 2026 ?",
+      "question": "Selon BRUZZ, le report du jeudi 10 septembre 2026 de l'évaluation du plan Good Move au gouvernement bruxellois en était le combientième ?",
       "options": [
-        "Environ un quart des arrêts",
-        "Environ un dixième des arrêts",
-        "Environ trois quarts des arrêts",
-        "Environ la moitié des arrêts"
+        "Le quatrième",
+        "Le deuxième",
+        "Le troisième",
+        "Le cinquième"
       ],
       "correct": 0,
-      "explanation": "Environ 500 arrêts ont été mis aux normes depuis 2019, et la moitié du réseau de surface est accessible moyennant une aide. Par ailleurs, 59 des 69 stations de métro et de prémétro disposent d'ascenseurs.",
+      "explanation": "Le point est inscrit à l'ordre du jour du gouvernement bruxellois depuis début juillet 2026 ; la ministre de la Mobilité propose de suivre la procédure légale de l'ordonnance du 13 octobre 2023 sur la planification de la mobilité, Good Move restant en vigueur jusqu'à l'adoption du plan suivant.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:8d49e9dc6df842e865f13f786a00cca8",
-        "generatedAt": "2026-09-18T12:45:35.102Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:e86ca1a9a862f5b443d85ab9a5960ebc",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "De quel montant annuel le fonds fédéral de sécurité et de prévention destiné à Bruxelles est-il doté, selon les informations du 17 septembre 2026 ?",
+      "question": "Le Conseil des ministres fédéral a approuvé, le 18 septembre 2026, une prolongation de six mois du dispositif « Urban Shield ». Selon la RTBF et BX1, à combien de militaires le contingent déployé dans les gares et stations de métro bruxelloises passe-t-il avec cette prolongation ?",
       "options": [
-        "55 millions d'euros, dont 35 aux zones de police",
-        "20 millions d'euros, dont 12 aux zones de police",
-        "110 millions d'euros, dont 70 aux zones de police",
-        "35 millions d'euros, dont 20 aux zones de police"
+        "Une cinquantaine",
+        "Une trentaine",
+        "Quarante-cinq",
+        "Une soixantaine"
       ],
       "correct": 0,
-      "explanation": "Vingt millions vont aux communes, au titre de la sécurisation des sommets européens et du rôle international de la capitale. Plusieurs millions auraient financé d'autres dépenses, dont un chèque de 828 000 euros à la société régionale du logement social en 2020 et un centre cyber jamais construit. Les sources emploient le conditionnel et ne citent aucune pièce officielle : la confiance est non confirmée.",
+      "explanation": "Le contingent comptait une trentaine de militaires à son lancement en avril 2026. Le chiffre de quarante-cinq militaires, cité ailleurs pour l'extension du 3 avril 2026, provient d'une autre source à une autre date et n'est pas réconcilié avec celui-ci.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:ecf6564dbd37bbcdd6b3165f471d55ee",
-        "generatedAt": "2026-09-18T15:56:26.827Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:ba806ccfefedc96a4f2a765c3c69d870",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Que constate la fiche sécurité, au 8 septembre 2026, sur l'inventaire des caméras en Région bruxelloise ?",
+      "question": "Quel est le rang, parmi les zones dites « hotspots » anti-drogue instaurées par arrêté de police en Région bruxelloise, de celle créée à la demande de la commune d'Ixelles autour des rues Gray, Marie-Henriette, du Levain et de la Brasserie, près de Flagey (18-19 septembre 2026) ?",
       "options": [
-        "Il n'existe aucun cadastre précis du parc",
-        "Le cadastre est tenu par Safe.brussels depuis 2024",
-        "Chaque zone de police publie son propre inventaire",
-        "Un inventaire régional a été arrêté en novembre 2025"
+        "La dix-neuvième",
+        "La douzième",
+        "La quinzième",
+        "La vingtième"
       ],
       "correct": 0,
-      "explanation": "Le constat rejoint celui de la Cour des comptes, qui écrivait le 5 novembre 2025 qu'il n'existe pas d'inventaire physique complet des actifs de l'organisme gestionnaire. La capitale compte plus de six mille caméras réparties entre plusieurs administrations et opérateurs. Les décomptes avancés par ailleurs proviennent d'un seul entretien et sont repris comme déclaration, pas comme inventaire.",
+      "explanation": "L'arrêté, signé par le ministre-président, interdit la consommation d'alcool sur la voie publique et sa vente à emporter entre 22h et 6h, et permet des contrôles renforcés et l'usage de caméras mobiles.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:ecf6564dbd37bbcdd6b3165f471d55ee",
-        "generatedAt": "2026-09-18T15:56:26.827Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:ba806ccfefedc96a4f2a765c3c69d870",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -629,21 +629,21 @@
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Emploi",
-      "question": "Sur quel double levier repose le dispositif bruxellois des agents contractuels subventionnés (ACS) ?",
+      "question": "Selon la fiche, combien de postes ACS étaient subsidiés à fin 2017, auprès de 1 312 employeurs ?",
       "options": [
-        "Une prime régionale et une réduction des cotisations patronales",
-        "Un prêt à taux zéro et une exonération de précompte mobilier",
-        "Une allocation de formation et un chèque-service trimestriel",
-        "Une dotation communale et un remboursement de frais de route"
+        "Environ 10 000",
+        "Environ 6 700",
+        "Environ 7 000",
+        "Environ 2 500"
       ],
       "correct": 0,
-      "explanation": "Les cotisations sociales patronales sont ramenées à 0,56 %. Les postes sont destinés aux demandeurs d'emploi inscrits chez Actiris, sous conditions de durée de chômage, d'âge ou de handicap.",
+      "explanation": "Plus de 7 000 postes relevaient des ASBL et administrations (postes « Loi-Programme ») et environ 2 500 des pouvoirs locaux ; en 2024, le nombre de postes actifs est estimé à environ 6 700, les postes non remplacés dans le délai de six mois imposé depuis 2015 expliquant l'écart.",
       "sourceSlug": "/fr/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-07-05",
-        "sourceContentHash": "sha256:a44ac2fc8945de4c6750ad61a6a5538e",
-        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:31769a5a4dcbeb62d10e631763e63097",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -652,21 +652,21 @@
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Emploi",
-      "question": "Qu'a introduit la réforme bruxelloise des agents contractuels subventionnés (ACS), engagée en mars 2015, pour un poste devenu vacant ?",
+      "question": "Quelle réforme institutionnelle, en 2014, a transféré la compétence de l'emploi, et avec elle le dispositif ACS, du fédéral vers les Régions ?",
       "options": [
-        "Un délai de 6 mois pour le pourvoir, sinon il est perdu",
-        "Une reprise automatique du poste par une autre association",
-        "Un audit obligatoire de l'employeur tous les 3 exercices",
-        "Une mise en concurrence publiée au Moniteur belge"
+        "La sixième réforme de l'État",
+        "La cinquième réforme de l'État",
+        "La quatrième réforme de l'État",
+        "La septième réforme de l'État"
       ],
       "correct": 0,
-      "explanation": "Ce délai n'est pas extensible. C'est ce qui explique l'écart entre les 10 000 postes subsidiés fin 2017 et les 6 700 postes actifs estimés en 2024.",
+      "explanation": "Le dispositif ACS existe depuis 1987, créé à l'origine comme outil de lutte contre le chômage bruxellois ; la sixième réforme de l'État a donné à la Région bruxelloise la pleine responsabilité de ce mécanisme.",
       "sourceSlug": "/fr/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-07-05",
-        "sourceContentHash": "sha256:a44ac2fc8945de4c6750ad61a6a5538e",
-        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:31769a5a4dcbeb62d10e631763e63097",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -721,21 +721,21 @@
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Quel facteur l'IBSA identifie-t-il comme le plus déterminant de la satisfaction de vie des Bruxellois, dans son Focus de 2025 ?",
+      "question": "Selon le Baromètre national du bonheur (UGent/NN), enquête menée en janvier 2026 auprès de 1 572 personnes et publiée en mars 2026, quelle région belge affiche le score de bonheur subjectif le plus élevé ?",
       "options": [
-        "La santé, physique et mentale",
-        "Le niveau de diplôme obtenu",
-        "La taille du logement occupé",
-        "La durée des trajets quotidiens"
+        "La Région bruxelloise, avec 6,62/10",
+        "La Flandre, avec 6,61/10",
+        "La Wallonie, avec 6,36/10",
+        "La moyenne nationale, avec 6,53/10"
       ],
       "correct": 0,
-      "explanation": "Les Bruxellois attribuent une note moyenne de 7,5 sur 10 à leur satisfaction dans la vie, identique à la Wallonie et inférieure à la Flandre. Suivent le niveau de vie, les relations sociales, le logement et la possibilité de travailler.",
+      "explanation": "C'est la première fois depuis 2017 que les travailleurs actifs ne se distinguent plus des retraités ; les personnes sans emploi (5,32/10) et en incapacité de travail (5,13/10) affichent les scores les plus bas.",
       "sourceSlug": "/fr/dossiers/bien-etre",
       "sourceTitle": "Bien-être",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:78a0e10cdb120ab8434bc06200867190",
-        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:4e0f37e5537d146475c951ce6281c31f",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,44 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Qu'a entamé Beliris le 15 septembre 2026 autour de la gare du Nord ?",
+      "question": "Selon l'ARAU (9 septembre 2026), combien d'abris anti-aériens, antérieurs à celui classé sous la place du Jeu de Balle, l'association affirme-t-elle avoir attestés dans les caves du Palais du Midi ?",
       "options": [
-        "Le remblayage des fosses excavées, rues de l'Avenir et d'Aerschot",
-        "Le percement du tunnel vers la station Liedts",
-        "La démolition de la dalle de couverture des quais",
-        "L'installation des équipements de la future station"
+        "Deux",
+        "Un",
+        "Trois",
+        "Quatre"
       ],
       "correct": 0,
-      "explanation": "C'est une conséquence de l'arrêt des chantiers du métro 3. La voirie de la rue de l'Avenir doit être rétablie à l'identique avant la fin de l'année 2026 selon Beliris, la revalorisation de la rue d'Aerschot devant s'achever dans le courant de 2027. Le budget total n'est pas communiqué, et ces échéances sont estimées : elles émanent de Beliris et ne sont pas vérifiées sur pièce.",
+      "explanation": "L'ARAU les date de 1940 et 1943, sur une surface totale de 450 mètres carrés pour une capacité pouvant atteindre 1 500 personnes, et demande un travail archéologique avant la poursuite des travaux du Métro 3 en sous-sol.",
       "sourceSlug": "/fr/dossiers/metro-3",
       "sourceTitle": "Métro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:aaa7da95c1ffe559c48594910283c5e0",
-        "generatedAt": "2026-09-18T15:56:26.827Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:edde48570a35f5d853c2fbaa74a2e6ab",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-metro-3-1",
+      "source": "dossier",
+      "domain": "Mobilité",
+      "question": "Le 15 septembre 2026, Beliris a entamé le remblayage de fosses excavées autour de la gare du Nord, après l'arrêt des chantiers du Métro 3. Quelles sont les deux rues concernées ?",
+      "options": [
+        "La rue du Progrès et la rue d'Aerschot",
+        "La rue Gray et la rue Marie-Henriette",
+        "La rue Neuve et le boulevard Anspach",
+        "La rue de la Loi et la rue Belliard"
+      ],
+      "correct": 0,
+      "explanation": "La voirie de la rue du Progrès doit être rétablie à l'identique d'ici la fin de l'année 2026 selon Beliris, la revalorisation de la rue d'Aerschot devant s'achever dans le courant de 2027 ; le tronçon Albert-Nord reste gelé pour une durée indéterminée.",
+      "sourceSlug": "/fr/dossiers/metro-3",
+      "sourceTitle": "Métro 3",
+      "provenance": {
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:edde48570a35f5d853c2fbaa74a2e6ab",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Jusqu'à quelle année la concession des vélos partagés Villo est-elle maintenue, selon l'entretien de rentrée de la ministre régionale de la Mobilité du 8 septembre 2026 ?",
+      "question": "Quel opérateur de trottinettes et vélos partagés a obtenu, le 29 juillet 2026, l'annulation par le Conseil d'État des licences de Bolt, Dott et Voi, sur son propre recours ?",
       "options": [
-        "Jusqu'en 2028",
-        "Jusqu'en 2026",
-        "Jusqu'en 2030",
-        "Jusqu'en 2027"
+        "Lime",
+        "Villo",
+        "TIER",
+        "Pony"
       ],
       "correct": 0,
-      "explanation": "C'est une correction : le dossier indiquait auparavant une expiration en septembre 2026 sans successeur identifié. Un appel à candidatures est annoncé, avec l'objectif de conserver un abonnement annuel autour de 35 euros et une tarification à la demi-heure.",
+      "explanation": "L'annulation a conduit à l'annonce, le 21 août 2026, d'un régime transitoire : trottinettes partagées maintenues jusqu'au 1er janvier 2027, vélos partagés jusqu'en mai 2028 avec un plafond de 2 500 vélos par opérateur.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:4614781ce0aeb53009087dc5e4a48ebf",
-        "generatedAt": "2026-09-18T12:57:06.876Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:5e449784ff916043e68b3db92a9808d4",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel effet l'arrêt du Conseil d'État du 29 juillet 2026 a-t-il eu sur l'interdiction des trottinettes partagées à Bruxelles ?",
+      "question": "Le 8 septembre 2026, la Région a annoncé le maintien du contrat Villo jusqu'en 2028 et un appel à candidatures, avec pour objectif un abonnement annuel autour de quel montant, contre 3,50 euros par mois au 19 septembre 2026 ?",
       "options": [
-        "Il l'a devancée de quatre mois, sans la remettre en cause",
-        "Il l'a annulée, rouvrant le marché aux deux opérateurs",
-        "Il l'a reportée d'un an, le temps d'une nouvelle ordonnance",
-        "Il l'a étendue aux vélos à ancrage fixe de la concession"
+        "35 euros",
+        "50 euros",
+        "20 euros",
+        "70 euros"
       ],
       "correct": 0,
-      "explanation": "L'interdiction décidée le 11 juin 2026 et fixée au 1er janvier 2027 n'est pas touchée : l'arrêt annule les licences, ce qui impose le retrait des engins de l'espace public dès le 1er septembre 2026. Pour les vélos partagés en flotte libre, l'effet est différent puisque le gouvernement souhaitait maintenir cette offre.",
+      "explanation": "Au 19 septembre 2026, Villo coûte 3,50 euros par mois ou 1,50 euro le ticket d'un jour ; les 360 stations Villo! représentent environ 5 000 vélos à ancrage fixe, à côté d'environ 15 700 véhicules en free-floating recensés en mars 2025.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:4614781ce0aeb53009087dc5e4a48ebf",
-        "generatedAt": "2026-09-18T12:57:06.876Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:5e449784ff916043e68b3db92a9808d4",
+        "generatedAt": "2026-09-20T16:17:42.446Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1546,5 +1569,5 @@
       }
     }
   ],
-  "reviewedCount": 67
+  "reviewedCount": 55
 }

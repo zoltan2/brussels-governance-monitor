@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {
   readSeoReport,
   gscMesurePresente,
+  pagesCassees,
   type ActionSuggeree,
   type Bloc,
   type PageCrawl,
@@ -112,9 +113,18 @@ export async function SeoReportTile() {
   const visitesIaListe: VisiteIa[] | null =
     umami.status === 'ok' && umami.donnees ? umami.donnees.visitesIa : null;
 
+  // Red team (2026-09-20) : la tuile annonçait « Alertes techniques 0 »
+  // pendant que la page listait des pages en 404/500, parce que la somme ne
+  // comptait que les blocages Cloudflare et les échecs réseau, jamais les
+  // pages récupérées avec un statut cassé (pagesCassees, partagée avec la
+  // page pour que les deux affichages s'accordent toujours).
   const alertesBrutes =
     crawl.status === 'ok' && crawl.donnees
-      ? sommeStricte([crawl.donnees.bloquees, crawl.donnees.echecs])
+      ? sommeStricte([
+          crawl.donnees.bloquees,
+          crawl.donnees.echecs,
+          crawl.donnees.pages === null ? null : pagesCassees(crawl.donnees.pages).length,
+        ])
       : null;
   const couvertureBasse =
     crawl.status === 'ok' && crawl.donnees ? couvertureFaible(crawl.donnees.pages) : false;
@@ -187,9 +197,16 @@ export async function SeoReportTile() {
           <dd className="text-right tabular-nums text-neutral-700">
             {formatNombre(clicsBelgique)}
             {variation !== null && (
-              <span className="ml-1 text-neutral-400">
+              // Red team (2026-09-20) : clicsBelgiquePrecedents est une
+              // fenêtre de 28 jours, pas « la semaine précédente » — le
+              // chiffre était juste, l'absence d'étiquette laissait croire
+              // à une comparaison semaine sur semaine.
+              <span
+                className="ml-1 text-neutral-400"
+                title="Comparé aux 28 jours précédents"
+              >
                 ({variation >= 0 ? '+' : ''}
-                {variation.toLocaleString('fr-BE')})
+                {variation.toLocaleString('fr-BE')} / 28 j)
               </span>
             )}
           </dd>

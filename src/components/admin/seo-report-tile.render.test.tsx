@@ -14,7 +14,11 @@ import { describe, it, expect, vi } from 'vitest';
 
 vi.mock('@/lib/seo-report', async () => {
   const reel = await vi.importActual<typeof import('@/lib/seo-report')>('@/lib/seo-report');
-  return { readSeoReport: vi.fn(), gscMesurePresente: reel.gscMesurePresente };
+  return {
+    readSeoReport: vi.fn(),
+    gscMesurePresente: reel.gscMesurePresente,
+    pagesCassees: reel.pagesCassees,
+  };
 });
 
 import { readSeoReport, type RapportSeo } from '@/lib/seo-report';
@@ -92,13 +96,21 @@ describe('SeoReportTile', () => {
           profondeur: null,
           evenements: null,
         }),
-        crawl: blocOk({ pages: Array.from({ length: 630 }, (_, i) => ({ url: `/${i}` })), bloquees: 0, echecs: 0 }),
+        crawl: blocOk({
+          pages: Array.from({ length: 630 }, (_, i) => ({ url: `/${i}`, statut: 200 })),
+          bloquees: 0,
+          echecs: 0,
+        }),
       },
       fraicheur: FRAICHEUR_NEUTRE,
     } satisfies RapportSeo);
 
     render(await SeoReportTile());
     expect(screen.getByText(/905/)).toBeDefined();
+    // Red team (2026-09-20) : « clicsBelgiquePrecedents » est une fenêtre
+    // de 28 jours, pas la semaine précédente ; la variation doit le dire,
+    // pas laisser croire à une comparaison semaine sur semaine.
+    expect(screen.getByText(/\+85.*28 j/)).toBeDefined();
     // Point focal : le nombre d'actions, pas un chiffre secondaire.
     expect(screen.getByText('2')).toBeDefined();
     expect(screen.getByText(/actions à traiter cette semaine/)).toBeDefined();
@@ -246,7 +258,7 @@ describe('SeoReportTile', () => {
         gsc: blocEnPanne('absent', null),
         umami: blocEnPanne('absent', null),
         crawl: blocOk({
-          pages: Array.from({ length: 630 }, (_, i) => ({ url: `/${i}` })),
+          pages: Array.from({ length: 630 }, (_, i) => ({ url: `/${i}`, statut: 200 })),
           bloquees: 0,
           echecs: 0,
         }),
@@ -258,5 +270,34 @@ describe('SeoReportTile', () => {
     const ligne = ligneAlertesTechniques();
     expect(ligne?.textContent).toBe('aucune');
     expect(ligne?.className).not.toContain('amber');
+  });
+
+  // Red team (2026-09-20) : rendu vérifié avec un 404 et un 500 dans le
+  // passage technique, bloquées: 0, échecs: 0 — la tuile annonçait
+  // « Alertes techniques 0 » pendant que la page listait ces deux pages
+  // cassées. Le compte ne sommait que bloquées et échecs réseau, jamais
+  // les pages récupérées avec un statut cassé.
+  it('compte les pages cassées (statut connu ≠ 200) dans les alertes techniques, pas seulement bloquées et échecs', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocEnPanne('absent', null),
+        umami: blocEnPanne('absent', null),
+        crawl: blocOk({
+          pages: [
+            ...Array.from({ length: 628 }, (_, i) => ({ url: `/${i}`, statut: 200 })),
+            { url: '/a', statut: 404 },
+            { url: '/b', statut: 500 },
+          ],
+          bloquees: 0,
+          echecs: 0,
+        }),
+      },
+      fraicheur: FRAICHEUR_NEUTRE,
+    } satisfies RapportSeo);
+
+    render(await SeoReportTile());
+    const ligne = ligneAlertesTechniques();
+    expect(ligne?.textContent).toMatch(/2 alertes/);
+    expect(ligne?.className).toContain('amber');
   });
 });

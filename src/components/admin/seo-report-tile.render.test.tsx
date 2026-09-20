@@ -7,12 +7,15 @@
  * seo-report.ts (tâche 8) exige aujourd'hui `{ regle, priorite, titre, url,
  * preuve, fenetre }` sur chaque action, et écarte toute action sans `url`.
  * Les fixtures ci-dessous suivent donc la forme réelle exportée par
- * `@/lib/seo-report`, pas celle du brief.
+ * `@/lib/seo-report`.
  */
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 
-vi.mock('@/lib/seo-report', () => ({ readSeoReport: vi.fn() }));
+vi.mock('@/lib/seo-report', async () => {
+  const reel = await vi.importActual<typeof import('@/lib/seo-report')>('@/lib/seo-report');
+  return { readSeoReport: vi.fn(), gscMesurePresente: reel.gscMesurePresente };
+});
 
 import { readSeoReport, type RapportSeo } from '@/lib/seo-report';
 import { SeoReportTile } from './seo-report-tile';
@@ -40,22 +43,29 @@ function blocEnPanne(status: 'error' | 'blocked' | 'absent', message: string | n
   };
 }
 
+const GSC_VIDE = {
+  totaux: { clics: null, impressions: null, ctr: null, position: null },
+  totauxPrecedents: { clics: null, impressions: null, ctr: null, position: null },
+  clicsBelgique: null,
+  clicsBelgiquePrecedents: null,
+  fenetre: null,
+  pages: [],
+  requetes: [],
+  partRequetes: null,
+  opportunitesTitre: [],
+  actions: [],
+};
+
 const FRAICHEUR_NEUTRE = { gsc: null, umami: null, crawl: null };
 
 describe('SeoReportTile', () => {
-  it('affiche les clics belges et la première action suggérée', async () => {
+  it('affiche le nombre d\'actions comme point focal et rend la première cliquable vers #actions', async () => {
     vi.mocked(readSeoReport).mockResolvedValue({
       blocs: {
         gsc: blocOk({
-          totaux: { clics: null, impressions: null, ctr: null, position: null },
-          totauxPrecedents: { clics: null, impressions: null, ctr: null, position: null },
+          ...GSC_VIDE,
           clicsBelgique: 905,
           clicsBelgiquePrecedents: 820,
-          fenetre: null,
-          pages: [],
-          requetes: [],
-          partRequetes: null,
-          opportunitesTitre: [],
           actions: [
             {
               regle: 'titre-a-revoir',
@@ -63,6 +73,14 @@ describe('SeoReportTile', () => {
               titre: 'Titre à revoir : /fr/dossiers/acs',
               url: '/fr/dossiers/acs',
               preuve: 'CTR sous la médiane de bande',
+              fenetre: null,
+            },
+            {
+              regle: 'page-orpheline',
+              priorite: 2,
+              titre: null,
+              url: '/fr/dossiers/x',
+              preuve: 'aucun lien entrant',
               fenetre: null,
             },
           ],
@@ -74,14 +92,19 @@ describe('SeoReportTile', () => {
           profondeur: null,
           evenements: null,
         }),
-        crawl: blocOk({ pages: [], bloquees: 0, echecs: 0 }),
+        crawl: blocOk({ pages: Array.from({ length: 630 }, (_, i) => ({ url: `/${i}` })), bloquees: 0, echecs: 0 }),
       },
       fraicheur: FRAICHEUR_NEUTRE,
     } satisfies RapportSeo);
 
     render(await SeoReportTile());
     expect(screen.getByText(/905/)).toBeDefined();
-    expect(screen.getByText(/Titre à revoir/)).toBeDefined();
+    // Point focal : le nombre d'actions, pas un chiffre secondaire.
+    expect(screen.getByText('2')).toBeDefined();
+    expect(screen.getByText(/actions à traiter cette semaine/)).toBeDefined();
+    expect(screen.getByText(/Première de 2 actions suggérées/)).toBeDefined();
+    const lien = screen.getByRole('link', { name: /Titre à revoir/ });
+    expect(lien.getAttribute('href')).toBe('/fr/admin/rapport#actions');
   });
 
   it("annonce la panne d'un seul bloc sans masquer les autres", async () => {
@@ -103,33 +126,16 @@ describe('SeoReportTile', () => {
     render(await SeoReportTile());
     expect(screen.getByText(/Search Console : panne/)).toBeDefined();
     expect(screen.getByText(/97/)).toBeDefined();
-    // Le bloc GSC est en panne : ses chiffres ne doivent jamais retomber sur
-    // zéro, ils doivent rester marqués indisponibles.
-    expect(screen.getAllByText(/Indisponible/).length).toBeGreaterThan(0);
-    // La ligne « première action » elle-même doit dire indisponible, pas
-    // « aucune action » : dire « aucune action » alors que le bloc qui les
-    // calcule est en panne laisserait croire à tort qu'il n'y a rien à faire.
-    const ligneAction = screen.getByText('Première action suggérée')
-      .closest('div')
-      ?.querySelector('dd');
-    expect(ligneAction?.textContent).toBe('Indisponible');
+    // Le bloc GSC est en panne : le nombre d'actions ne doit jamais
+    // retomber sur zéro, il doit rester marqué indisponible.
+    expect(screen.getAllByText(/indisponible/).length).toBeGreaterThan(0);
+    expect(screen.queryByRole('link', { name: /admin\/rapport#actions/ })).toBeNull();
   });
 
   it("distingue « aucune action cette semaine » d'une panne du bloc GSC", async () => {
     vi.mocked(readSeoReport).mockResolvedValue({
       blocs: {
-        gsc: blocOk({
-          totaux: { clics: null, impressions: null, ctr: null, position: null },
-          totauxPrecedents: { clics: null, impressions: null, ctr: null, position: null },
-          clicsBelgique: 12,
-          clicsBelgiquePrecedents: null,
-          fenetre: null,
-          pages: [],
-          requetes: [],
-          partRequetes: null,
-          opportunitesTitre: [],
-          actions: [],
-        }),
+        gsc: blocOk({ ...GSC_VIDE, clicsBelgique: 12, actions: [] }),
         umami: blocEnPanne('absent', null),
         crawl: blocEnPanne('absent', null),
       },
@@ -139,6 +145,25 @@ describe('SeoReportTile', () => {
     render(await SeoReportTile());
     expect(screen.getByText(/Aucune action cette semaine/)).toBeDefined();
     expect(screen.queryByText(/panne/)).toBeNull();
+  });
+
+  // Comportement explicitement demandé (relecture design) : un bloc GSC
+  // « ok » mais entièrement vide (aucune mesure) est un payload suspect,
+  // pas une semaine sans action. Sans cette garde, la tuile rassure à tort.
+  it("ne dit « aucune action » que si au moins une mesure Search Console existe, sinon indisponible", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        // status ok, mais AUCUNE mesure (tout null) : payload suspect.
+        gsc: blocOk({ ...GSC_VIDE, actions: [] }),
+        umami: blocEnPanne('absent', null),
+        crawl: blocEnPanne('absent', null),
+      },
+      fraicheur: FRAICHEUR_NEUTRE,
+    } satisfies RapportSeo);
+
+    render(await SeoReportTile());
+    expect(screen.queryByText(/Aucune action cette semaine/)).toBeNull();
+    expect(screen.getAllByText(/indisponible/).length).toBeGreaterThan(0);
   });
 
   function ligneVisitesAssistants(): Element | null | undefined {
@@ -165,10 +190,10 @@ describe('SeoReportTile', () => {
     } satisfies RapportSeo);
 
     render(await SeoReportTile());
-    expect(ligneVisitesAssistants()?.textContent).toBe('Indisponible');
+    expect(ligneVisitesAssistants()?.textContent).toBe('indisponible');
   });
 
-  it("affiche un zéro écrit en toutes lettres quand visitesIa est un tableau vide, pas indisponible", async () => {
+  it("affiche « aucune » quand visitesIa est un tableau vide, pas indisponible", async () => {
     vi.mocked(readSeoReport).mockResolvedValue({
       blocs: {
         gsc: blocEnPanne('absent', null),
@@ -185,8 +210,53 @@ describe('SeoReportTile', () => {
     } satisfies RapportSeo);
 
     render(await SeoReportTile());
-    expect(ligneVisitesAssistants()?.textContent).toBe(
-      "Aucune visite d'assistant cette semaine",
-    );
+    expect(ligneVisitesAssistants()?.textContent).toBe('aucune');
+  });
+
+  function ligneAlertesTechniques(): Element | null | undefined {
+    return screen
+      .getByText('Alertes techniques')
+      .closest('div')
+      ?.querySelector('dd');
+  }
+
+  // Comportement explicitement demandé (relecture design) : une couverture
+  // de crawl nulle est la panne la plus bruyante possible côté technique ;
+  // elle doit s'afficher en alerte même quand bloquées et échecs valent
+  // zéro, jamais comme un « Alertes techniques 0 » calme et gris.
+  it('affiche une alerte ambre quand la couverture du crawl est nulle, jamais un zéro neutre', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocEnPanne('absent', null),
+        umami: blocEnPanne('absent', null),
+        crawl: blocOk({ pages: [], bloquees: 0, echecs: 0 }),
+      },
+      fraicheur: FRAICHEUR_NEUTRE,
+    } satisfies RapportSeo);
+
+    render(await SeoReportTile());
+    const ligne = ligneAlertesTechniques();
+    expect(ligne?.textContent).toMatch(/couverture/);
+    expect(ligne?.className).toContain('amber');
+  });
+
+  it('affiche « aucune » sans ambre quand bloquées et échecs valent zéro et la couverture est bonne', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocEnPanne('absent', null),
+        umami: blocEnPanne('absent', null),
+        crawl: blocOk({
+          pages: Array.from({ length: 630 }, (_, i) => ({ url: `/${i}` })),
+          bloquees: 0,
+          echecs: 0,
+        }),
+      },
+      fraicheur: FRAICHEUR_NEUTRE,
+    } satisfies RapportSeo);
+
+    render(await SeoReportTile());
+    const ligne = ligneAlertesTechniques();
+    expect(ligne?.textContent).toBe('aucune');
+    expect(ligne?.className).not.toContain('amber');
   });
 });

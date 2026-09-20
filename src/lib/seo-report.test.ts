@@ -1,0 +1,588 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
+import { describe, it, expect, vi, beforeAll } from 'vitest';
+
+vi.mock('node:fs/promises', () => ({ readFile: vi.fn() }));
+
+import { readFile } from 'node:fs/promises';
+import { readSeoReport } from './seo-report';
+
+beforeAll(() => {
+  // Meme mecanisme que traffic-status.ts : le repertoire est deduit de
+  // DB_PATH. En dehors du VPS (dev local, CI) la variable est absente ;
+  // ici on la fixe pour exercer le chemin de lecture avec fs mocke.
+  process.env.DB_PATH = '/opt/bgm/data/db.sqlite';
+});
+
+describe('readSeoReport', () => {
+  it("refuse un schéma inconnu au lieu d'afficher des zéros", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({ schemaVersion: 99, status: 'ok', donnees: {} }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.status).toBe('format-inconnu');
+    expect(rapport.blocs.gsc.donnees).toBeNull();
+  });
+
+  it('traite un fichier absent comme une panne, pas comme un rapport vide', async () => {
+    vi.mocked(readFile).mockRejectedValue(
+      Object.assign(new Error('ENOENT'), { code: 'ENOENT' }),
+    );
+    expect((await readSeoReport()).blocs.umami.status).toBe('absent');
+  });
+
+  it('rejette NaN et Infinity rendus en chaîne par Postgres', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { visites: 'NaN', profondeur: 'Infinity' },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.visites).toBeNull();
+    expect(rapport.blocs.umami.donnees?.profondeur).toBeNull();
+  });
+
+  it('rend un statut inconnu illisible plutôt que de le propager', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({ schemaVersion: 1, bloc: 'crawl', status: 'en-cours', donnees: {} }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.crawl.status).toBe('format-inconnu');
+  });
+
+  it('rend un bloc technique bloqué lisible sans planter (donnees: null)', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'blocked',
+        message: 'sonde bloquée par Cloudflare',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: null,
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.crawl.status).toBe('blocked');
+    expect(rapport.blocs.crawl.donnees).toBeNull();
+    expect(rapport.blocs.crawl.message).toBe('sonde bloquée par Cloudflare');
+  });
+
+  it('retient une action complète, dans la forme que produit regles.mjs', async () => {
+    // Forme réelle décidée après relecture : regles.mjs porte désormais un
+    // `url` explicite sur chaque action (regle, priorite, titre, url,
+    // preuve, fenetre), une action non cliquable ne servant à rien.
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          actions: [
+            {
+              regle: 'page-en-erreur',
+              priorite: 1,
+              titre: 'Page en erreur : /fr/x',
+              url: '/fr/x',
+              preuve: 'statut HTTP 500',
+              fenetre: { debut: '2026-08-20', fin: '2026-09-16' },
+            },
+          ],
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.actions).toEqual([
+      {
+        regle: 'page-en-erreur',
+        url: '/fr/x',
+        preuve: 'statut HTTP 500',
+        titre: 'Page en erreur : /fr/x',
+        priorite: 1,
+        fenetre: { debut: '2026-08-20', fin: '2026-09-16', fuseau: null },
+      },
+    ]);
+  });
+
+  it("écarte une action sans url plutôt que d'afficher une tuile vide en silence", async () => {
+    // Verrou de régression : si l'amont (regles.mjs) cessait un jour de
+    // fournir `url`, ce test doit rougir plutôt que de laisser passer une
+    // action non cliquable sans que personne ne le remarque.
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          actions: [
+            {
+              regle: 'page-en-erreur',
+              priorite: 1,
+              titre: 'Page en erreur : /fr/x',
+              preuve: 'statut HTTP 500',
+              fenetre: { debut: '2026-08-20', fin: '2026-09-16' },
+            },
+          ],
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.actions).toHaveLength(0);
+  });
+
+  it('calcule la fraîcheur de chaque bloc avec le seuil de 8 jours', async () => {
+    const ilYA9Jours = new Date(Date.now() - 9 * 24 * 3_600_000).toISOString();
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: ilYA9Jours,
+        donnees: {},
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.fraicheur.gsc?.level).toBe('stale');
+  });
+
+  it('expose le scriptSha256 de chaque bloc, ou null si absent', async () => {
+    const empreinte = 'a'.repeat(64);
+    vi.mocked(readFile).mockImplementation(async (chemin) => {
+      const nom = String(chemin).includes('seo-gsc.json') ? 'gsc' : 'autre';
+      return JSON.stringify({
+        schemaVersion: 1,
+        bloc: nom === 'gsc' ? 'gsc' : 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        // Seul le bloc GSC porte une empreinte dans ce test : le VPS peut
+        // déployer un script plus vieux que le dépôt pour un seul bloc.
+        scriptSha256: nom === 'gsc' ? empreinte : undefined,
+        donnees: {},
+      });
+    });
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.scriptSha256).toBe(empreinte);
+    expect(rapport.blocs.umami.scriptSha256).toBeNull();
+  });
+
+  it("rend illisible un fichier dont le champ bloc ne correspond pas, jamais de chiffres empruntés à un autre bloc", async () => {
+    // seo-gsc.json et seo-crawl.json contiennent tous deux un bloc qui se
+    // déclare "umami" (fichiers mélangés, script en panne à mi-écriture) :
+    // ni l'un ni l'autre ne doit être lu comme s'il portait les bons chiffres.
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { visites: 4200 },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.status).toBe('format-inconnu');
+    expect(rapport.blocs.gsc.donnees).toBeNull();
+    expect(rapport.blocs.crawl.status).toBe('format-inconnu');
+    expect(rapport.blocs.crawl.donnees).toBeNull();
+    expect(rapport.blocs.umami.status).toBe('ok');
+    expect(rapport.blocs.umami.donnees?.visites).toBe(4200);
+  });
+
+  it('lit pagesEntree comme un tableau { chemin, visites, visitesIa }', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          pagesEntree: [
+            { chemin: '/fr/dossiers/lez', visites: 420, visitesIa: 97 },
+          ],
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.pagesEntree).toEqual([
+      { chemin: '/fr/dossiers/lez', visites: 420, visitesIa: 97 },
+    ]);
+  });
+
+  it("écarte une entrée de pagesEntree sans chemin, mais rend les visites null sans l'écarter si elles ne sont pas un nombre", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          pagesEntree: [
+            { visites: 100, visitesIa: 10 }, // pas de chemin : écartée
+            { chemin: '/fr/dossiers/acs', visites: 'NaN', visitesIa: 'Infinity' },
+          ],
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    const pages = rapport.blocs.umami.donnees?.pagesEntree ?? [];
+    expect(pages).toHaveLength(1);
+    expect(pages[0]).toEqual({ chemin: '/fr/dossiers/acs', visites: null, visitesIa: null });
+  });
+
+  it('ne plante pas quand pagesEntree est absent ou du mauvais type', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { pagesEntree: 'pas-un-tableau' },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.pagesEntree).toEqual([]);
+  });
+
+  it("rejette un evenements non entier (chaîne, décimal) au lieu d'un zéro inventé", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { evenements: '12' },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.evenements).toBeNull();
+  });
+
+  it("rejette un evenements decimal, un comptage n'étant jamais une fraction", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { evenements: 4.5 },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.evenements).toBeNull();
+  });
+
+  it('lit la fenêtre au premier niveau du bloc, avec son fuseau (contrat commun)', async () => {
+    // Le contrat JSON commun (contraintes-globales.md) impose `fenetre` au
+    // premier niveau de CHAQUE fichier, pas seulement dans `donnees` du
+    // bloc GSC : Search Console est en heure du Pacifique, Umami en UTC.
+    vi.mocked(readFile).mockImplementation(async (chemin) => {
+      const nom = String(chemin).includes('seo-gsc.json') ? 'gsc' : 'umami';
+      return JSON.stringify({
+        schemaVersion: 1,
+        bloc: nom,
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        fenetre:
+          nom === 'gsc'
+            ? { debut: '2026-08-24', fin: '2026-09-20', fuseau: 'America/Los_Angeles' }
+            : { debut: '2026-08-24', fin: '2026-09-20', fuseau: 'UTC' },
+        donnees: {},
+      });
+    });
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.fenetre).toEqual({
+      debut: '2026-08-24',
+      fin: '2026-09-20',
+      fuseau: 'America/Los_Angeles',
+    });
+    expect(rapport.blocs.umami.fenetre).toEqual({
+      debut: '2026-08-24',
+      fin: '2026-09-20',
+      fuseau: 'UTC',
+    });
+  });
+
+  it("rend la fenêtre d'un bloc null quand elle est absente, jamais une date inventée", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {},
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.crawl.fenetre).toBeNull();
+  });
+
+  it('lit la fenêtre même quand le bloc est en panne ou bloqué (elle décrit la période visée, pas le succès)', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'blocked',
+        message: 'sonde bloquée par Cloudflare',
+        generatedAt: '2026-09-21T04:30:00Z',
+        fenetre: { debut: '2026-08-24', fin: '2026-09-20', fuseau: 'UTC' },
+        donnees: null,
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.crawl.status).toBe('blocked');
+    expect(rapport.blocs.crawl.fenetre).toEqual({
+      debut: '2026-08-24',
+      fin: '2026-09-20',
+      fuseau: 'UTC',
+    });
+  });
+
+  it('lit evenements comme un entier valide', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { evenements: 12 },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.evenements).toBe(12);
+  });
+
+  // La requête SQL de bloc-umami.mjs rend visitesIa via COALESCE(..., '[]')
+  // quand aucune ligne ne correspond : un tableau vide est une absence de
+  // visites CONSTATÉE (un vrai zéro), pas une absence de mesure. Le champ
+  // absent ou du mauvais type reste, lui, une donnée manquante : les deux
+  // cas doivent rester distincts après lecture, jamais confondus.
+  it('distingue visitesIa absent (donnée manquante) d\'un tableau vide (zéro constaté)', async () => {
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {}, // visitesIa absent du JSON
+      }),
+    );
+    const rapport1 = await readSeoReport();
+    expect(rapport1.blocs.umami.donnees?.visitesIa).toBeNull();
+
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { visitesIa: [] }, // COALESCE(..., '[]') côté SQL
+      }),
+    );
+    const rapport2 = await readSeoReport();
+    expect(rapport2.blocs.umami.donnees?.visitesIa).toEqual([]);
+  });
+
+  it("rend visitesIa null quand le champ est du mauvais type, jamais un tableau vide", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { visitesIa: 'pas-un-tableau' },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.visitesIa).toBeNull();
+  });
+
+  // Même principe pour le bloc crawl : `pages` est construit en mémoire par
+  // le script (deploy/seo-report/bloc-crawl côté ops), pas par une requête
+  // SQL, mais la même règle s'applique dès qu'on en affiche un total : un
+  // tableau absent ou du mauvais type reste une donnée manquante, un
+  // tableau vide reste un zéro constaté.
+  it("distingue pages absent (donnée manquante) d'un tableau vide (zéro page constatée)", async () => {
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {}, // pages absent du JSON
+      }),
+    );
+    const rapport1 = await readSeoReport();
+    expect(rapport1.blocs.crawl.donnees?.pages).toBeNull();
+
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { pages: [] },
+      }),
+    );
+    const rapport2 = await readSeoReport();
+    expect(rapport2.blocs.crawl.donnees?.pages).toEqual([]);
+  });
+
+  // La tuile et la page affichent la première action de la liste comme LA
+  // priorité de la semaine : si la liste n'est pas triée, « la première
+  // action » est celle que regles.mjs a écrite en premier, pas la plus
+  // urgente.
+  it('trie les actions par priorité croissante, les priorités absentes en fin de liste', async () => {
+    function action(regle: string, priorite: number | null) {
+      return { regle, priorite, titre: null, url: `/fr/${regle}`, preuve: 'preuve', fenetre: null };
+    }
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          actions: [
+            action('moyenne', 5),
+            action('sans-priorite', null),
+            action('urgente', 1),
+            action('intermediaire', 3),
+          ],
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.actions.map((a) => a.regle)).toEqual([
+      'urgente',
+      'intermediaire',
+      'moyenne',
+      'sans-priorite',
+    ]);
+  });
+
+  // Red team (2026-09-20) : rendu vérifié avec des valeurs corrompues
+  // (« −50 » clics, « −9 » événements, CTR 4 200 %, profondeur 500 %,
+  // position −3,0). Une valeur impossible par définition (compte négatif,
+  // pourcentage au-dessus de cent, position négative) ne peut signifier
+  // qu'une corruption : traitée comme NaN, donnée absente, jamais affichée
+  // telle quelle.
+  it('rejette un compte négatif (clics, impressions, clicsBelgique) comme une corruption', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          totaux: { clics: -50, impressions: -1, ctr: 0.1, position: 3 },
+          clicsBelgique: -50,
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.totaux.clics).toBeNull();
+    expect(rapport.blocs.gsc.donnees?.totaux.impressions).toBeNull();
+    expect(rapport.blocs.gsc.donnees?.clicsBelgique).toBeNull();
+    // Une mesure plausible dans le même objet reste affichée.
+    expect(rapport.blocs.gsc.donnees?.totaux.ctr).toBe(0.1);
+  });
+
+  it("rejette un evenements négatif, même entier, jamais affiché tel quel", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { evenements: -9 },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.evenements).toBeNull();
+  });
+
+  it('rejette un pourcentage au-dessus de cent (CTR, profondeur, part des requêtes)', async () => {
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          totaux: { clics: 10, impressions: 100, ctr: 42, position: 3 },
+          partRequetes: 5,
+        },
+      }),
+    );
+    const rapportGsc = await readSeoReport();
+    expect(rapportGsc.blocs.gsc.donnees?.totaux.ctr).toBeNull();
+    expect(rapportGsc.blocs.gsc.donnees?.partRequetes).toBeNull();
+    // Le reste du même objet, plausible, reste affiché.
+    expect(rapportGsc.blocs.gsc.donnees?.totaux.clics).toBe(10);
+
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { profondeur: 5 },
+      }),
+    );
+    const rapportUmami = await readSeoReport();
+    expect(rapportUmami.blocs.umami.donnees?.profondeur).toBeNull();
+  });
+
+  it('rejette une position de classement négative', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { totaux: { clics: 10, impressions: 100, ctr: 0.1, position: -3 } },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.totaux.position).toBeNull();
+  });
+
+  // « Ne borne pas ce qui est seulement surprenant » : un chiffre énorme
+  // mais positif n'est pas impossible par définition, il reste affiché.
+  it('affiche un chiffre positif inhabituel mais possible sans le borner', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { totaux: { clics: 10, impressions: 1e308, ctr: 0.1, position: 3 } },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.totaux.impressions).toBe(1e308);
+  });
+
+  // Red team (2026-09-20) : la tuile annonçait « Alertes techniques 0 »
+  // pendant que la page listait des pages en 404/500 : le compte de la
+  // tuile ne sommait que bloquées et échecs réseau, jamais les pages
+  // récupérées avec un statut cassé. pagesCassees() est la fonction
+  // partagée qui doit rendre ces deux affichages cohérents.
+  describe('pagesCassees', () => {
+    it('compte les pages dont le statut est connu et différent de 200, jamais celles au statut inconnu', async () => {
+      const { pagesCassees } = await import('./seo-report');
+      const pages = [
+        { url: '/a', statut: 404, canonical: null, titre: null, description: null, hreflang: [] },
+        { url: '/b', statut: 500, canonical: null, titre: null, description: null, hreflang: [] },
+        { url: '/c', statut: 200, canonical: null, titre: null, description: null, hreflang: [] },
+        { url: '/d', statut: null, canonical: null, titre: null, description: null, hreflang: [] },
+      ];
+      expect(pagesCassees(pages).map((p) => p.url)).toEqual(['/a', '/b']);
+    });
+  });
+});

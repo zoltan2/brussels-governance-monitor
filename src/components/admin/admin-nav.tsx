@@ -14,6 +14,7 @@ import Link from 'next/link';
 export function AdminNav({ locale }: { locale: string }) {
   const links = [
     { href: `/${locale}/admin`, label: "Vue d'ensemble" },
+    { href: `/${locale}/admin/rapport`, label: 'Rapport SEO' },
     { href: `/${locale}/admin/chat`, label: 'Chat' },
     { href: `/${locale}/admin/refonte`, label: 'Refonte' },
     { href: `/${locale}/admin/quiz`, label: 'Quiz' },

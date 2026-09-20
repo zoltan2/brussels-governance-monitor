@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, it, expect } from 'vitest';
-import { formatDate, cn } from '../utils';
+import { formatDate, cn, chemin } from '../utils';
 
 describe('formatDate', () => {
   it('formats date in French (Belgian)', () => {
@@ -42,5 +42,15 @@ describe('cn', () => {
 
   it('handles single class', () => {
     expect(cn('only')).toBe('only');
+  });
+});
+
+describe('chemin', () => {
+  it('réduit une URL absolue à son chemin', () => {
+    expect(chemin('https://governance.brussels/fr/dossiers/lez')).toBe('/fr/dossiers/lez');
+  });
+
+  it('rend un chemin déjà relatif tel quel', () => {
+    expect(chemin('/fr/dossiers/acs')).toBe('/fr/dossiers/acs');
   });
 });

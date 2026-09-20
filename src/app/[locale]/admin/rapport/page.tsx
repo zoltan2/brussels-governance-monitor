@@ -6,6 +6,7 @@ import { requireAdmin } from '@/lib/require-admin';
 import {
   readSeoReport,
   gscMesurePresente,
+  pagesCassees,
   type Bloc,
   type CrawlDonnees,
   type FenetreRapport,
@@ -316,7 +317,7 @@ function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: F
         <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Clics Belgique" value={formatNombre(donnees.clicsBelgique)} />
           <Stat
-            label="Clics Belgique, semaine précédente"
+            label="Clics Belgique, 28 jours précédents"
             value={formatNombre(donnees.clicsBelgiquePrecedents)}
           />
           <Stat label="Clics totaux" value={formatNombre(donnees.totaux.clics)} />
@@ -394,6 +395,10 @@ function ChiffresCrawl({
             label="Pages sans hreflang"
             value={compterManquants(donnees.pages, (p) => p.hreflang.length === 0)}
           />
+          <Stat
+            label="Pages au statut inconnu"
+            value={compterManquants(donnees.pages, (p) => p.statut === null)}
+          />
         </dl>
       )}
     </div>
@@ -455,7 +460,7 @@ function TablesGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
               <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
                 <th className="px-3 py-2">Chemin</th>
                 <th className="px-3 py-2 text-right">Clics</th>
-                <th className="px-3 py-2 text-right">Semaine précédente</th>
+                <th className="px-3 py-2 text-right">28 jours précédents</th>
               </tr>
             </thead>
             <tbody>
@@ -551,15 +556,24 @@ function TablesCrawl({ bloc }: { bloc: Bloc<CrawlDonnees> }) {
   const donnees = bloc.donnees;
   const pages = donnees?.pages ?? [];
   if (!donnees) return null;
-  const enErreur = pages.filter((p) => p.statut !== 200);
+  // pagesCassees() exclut les pages au statut inconnu (null) : une page
+  // jamais contrôlée n'est pas prouvée cassée, elle est comptée à part
+  // (Stat « Pages au statut inconnu » dans Chiffres clés).
+  const cassees = pagesCassees(pages);
+  const TRONCATURE = 20;
   return (
     <div className="mb-8">
       <h3 className="mb-1 text-lg font-semibold text-neutral-900">Passage technique</h3>
-      {enErreur.length > 0 && (
+      {cassees.length > 0 && (
         <div className="mt-4">
           <h4 className="mb-1 text-sm font-semibold text-neutral-900">
             Pages sans statut 200
           </h4>
+          {cassees.length > TRONCATURE && (
+            <p className="mb-1 text-xs text-neutral-500">
+              {TRONCATURE} premières sur {cassees.length}.
+            </p>
+          )}
           <TableauEnveloppe>
             <thead>
               <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
@@ -569,7 +583,7 @@ function TablesCrawl({ bloc }: { bloc: Bloc<CrawlDonnees> }) {
               </tr>
             </thead>
             <tbody>
-              {enErreur.slice(0, 20).map((p) => (
+              {cassees.slice(0, TRONCATURE).map((p) => (
                 <tr key={p.url} className="border-t border-neutral-100">
                   <td className="px-3 py-2 break-words text-neutral-800">{chemin(p.url)}</td>
                   <td className="px-3 py-2 text-right tabular-nums text-neutral-700">

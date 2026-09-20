@@ -157,6 +157,16 @@ describe('AdminRapportPage', () => {
     expect(screen.queryByText(/historique/i)).toBeNull();
   });
 
+  // Red team (2026-09-20) : clicsBelgiquePrecedents est une fenêtre de
+  // 28 jours, pas « la semaine précédente » — le chiffre était juste,
+  // l'étiquette était fausse, à au moins trois endroits.
+  it("nomme la fenêtre de comparaison « 28 jours », jamais « semaine précédente »", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+    expect(screen.queryByText(/semaine précédente/i)).toBeNull();
+    expect(screen.getByText(/28 jours précédents/)).toBeDefined();
+  });
+
   function statPagesPassees(): Element | null | undefined {
     return screen
       .getByText('Pages passées', { selector: 'dt' })
@@ -365,5 +375,61 @@ describe('AdminRapportPage', () => {
     expect(screen.getByText(/sha256sum deploy\/seo-report\/bloc-gsc\.mjs/)).toBeDefined();
     expect(screen.getByText(/sha256sum deploy\/seo-report\/bloc-umami\.mjs/)).toBeDefined();
     expect(screen.getByText(/sha256sum deploy\/seo-report\/bloc-crawl\.mjs/)).toBeDefined();
+  });
+
+  function pageCrawl(url: string, statut: number | null) {
+    return { url, statut, canonical: null, titre: 'Titre', description: 'Desc', hreflang: ['fr'] };
+  }
+
+  // Red team (2026-09-20) : la table « Pages sans statut 200 » rangeait
+  // parmi les pages cassées celles dont le statut est inconnu (`null`) —
+  // une page jamais contrôlée n'est pas prouvée cassée.
+  it("distingue une page au statut inconnu d'une page réellement cassée dans la table", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk({
+          pages: [pageCrawl('/a', 404), pageCrawl('/b', null), pageCrawl('/c', 200)],
+          bloquees: 0,
+          echecs: 0,
+        }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(screen.getByText('/a')).toBeDefined();
+    expect(screen.queryByText('/b')).toBeNull();
+    expect(screen.queryByText('/c')).toBeNull();
+    // La page au statut inconnu doit être comptée ailleurs, pas silencieuse.
+    const statutInconnu = screen
+      .getByText('Pages au statut inconnu', { selector: 'dt' })
+      .closest('div')
+      ?.querySelector('dd');
+    expect(statutInconnu?.textContent).toBe('1');
+  });
+
+  // Red team (2026-09-20) : la liste tronque à vingt sans dire combien
+  // restent.
+  it('annonce le reste quand la liste des pages cassées est tronquée à vingt', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk({
+          pages: [
+            ...Array.from({ length: 25 }, (_, i) => pageCrawl(`/cassee-${i}`, 500)),
+            ...Array.from({ length: 600 }, (_, i) => pageCrawl(`/ok-${i}`, 200)),
+          ],
+          bloquees: 0,
+          echecs: 0,
+        }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(screen.getByText(/20 premières sur 25/)).toBeDefined();
   });
 });

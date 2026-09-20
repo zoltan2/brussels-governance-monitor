@@ -58,18 +58,19 @@ export interface OpportuniteTitre {
   bande: string | null;
 }
 
+export interface FenetreRapport {
+  debut: string | null;
+  fin: string | null;
+  fuseau: string | null;
+}
+
 export interface ActionSuggeree {
   regle: string;
   url: string;
   preuve: string;
   titre: string | null;
   priorite: number | null;
-}
-
-export interface FenetreRapport {
-  debut: string | null;
-  fin: string | null;
-  fuseau: string | null;
+  fenetre: FenetreRapport | null;
 }
 
 export interface GscDonnees {
@@ -114,6 +115,10 @@ export interface Bloc<T> {
   status: StatutBloc;
   message: string | null;
   generatedAt: string | null;
+  // Empreinte du script qui a produit ce fichier (contrat JSON commun) :
+  // dépôt et VPS peuvent diverger, la CI ne déployant pas deploy/. Affichée
+  // par la page /fr/admin/rapport pour rendre cet écart visible.
+  scriptSha256: string | null;
   donnees: T | null;
 }
 
@@ -224,7 +229,9 @@ function asOpportunitesTitre(value: unknown): OpportuniteTitre[] {
 }
 
 /** Une action sans règle, URL ou preuve n'est pas exploitable : on l'écarte
- * plutôt que d'afficher un trou dans la tuile. */
+ * plutôt que d'afficher un trou dans la tuile. Une action qu'on ne peut pas
+ * ouvrir d'un clic (pas d'URL) ne sert à rien ; si regles.mjs cesse un jour
+ * de la fournir, ce filtre doit vider la liste plutôt que deviner une URL. */
 function asActions(value: unknown): ActionSuggeree[] {
   if (!Array.isArray(value)) return [];
   const actions: ActionSuggeree[] = [];
@@ -240,6 +247,7 @@ function asActions(value: unknown): ActionSuggeree[] {
       preuve,
       titre: asString(record.titre),
       priorite: asNumber(record.priorite),
+      fenetre: asFenetre(record.fenetre),
     });
   }
   return actions;
@@ -318,7 +326,7 @@ const PARSEURS_DONNEES = {
 // --- Enveloppe commune -------------------------------------------------
 
 function blocIllisible<T>(status: StatutBloc): Bloc<T> {
-  return { status, message: null, generatedAt: null, donnees: null };
+  return { status, message: null, generatedAt: null, scriptSha256: null, donnees: null };
 }
 
 function estStatutConnu(value: unknown): value is StatutConnu {
@@ -328,7 +336,11 @@ function estStatutConnu(value: unknown): value is StatutConnu {
   );
 }
 
-function parseBloc<T>(raw: unknown, parseurDonnees: (v: unknown) => T): Bloc<T> {
+function parseBloc<T>(
+  raw: unknown,
+  nomAttendu: NomBloc,
+  parseurDonnees: (v: unknown) => T,
+): Bloc<T> {
   if (raw === null || typeof raw !== 'object') return blocIllisible('format-inconnu');
   const record = raw as Record<string, unknown>;
 
@@ -337,16 +349,22 @@ function parseBloc<T>(raw: unknown, parseurDonnees: (v: unknown) => T): Bloc<T> 
   // l'afficher illisible que de deviner une correspondance de champs fausse.
   if (record.schemaVersion !== SCHEMA_VERSION) return blocIllisible('format-inconnu');
 
+  // Le champ `bloc` doit correspondre au fichier lu (seo-gsc.json porte
+  // bloc: "gsc", etc.) : un contenu mélangé ou un fichier tronqué au mauvais
+  // endroit ne doit jamais être lu comme s'il portait les bons chiffres.
+  if (record.bloc !== nomAttendu) return blocIllisible('format-inconnu');
+
   if (!estStatutConnu(record.status)) return blocIllisible('format-inconnu');
 
   const generatedAt = asString(record.generatedAt);
   const message = asString(record.message);
+  const scriptSha256 = asString(record.scriptSha256);
   // error/blocked n'ont jamais de donnees exploitables dans le contrat (le
   // crawl bloqué par Cloudflare écrit `donnees: null`) : on ne tente même
   // pas de les parser, ce qui évite tout plantage sur un null inattendu.
   const donnees = record.status === 'ok' ? parseurDonnees(record.donnees) : null;
 
-  return { status: record.status, message, generatedAt, donnees };
+  return { status: record.status, message, generatedAt, scriptSha256, donnees };
 }
 
 async function lireBloc<T>(
@@ -356,7 +374,7 @@ async function lireBloc<T>(
 ): Promise<Bloc<T>> {
   try {
     const contenu = await readFile(join(dir, `seo-${nom}.json`), 'utf8');
-    return parseBloc(JSON.parse(contenu), parseurDonnees);
+    return parseBloc(JSON.parse(contenu), nom, parseurDonnees);
   } catch {
     // Fichier absent (timer jamais passé, ou en panne cette semaine-là) ou
     // JSON illisible : une panne, pas un rapport vide à zéro.

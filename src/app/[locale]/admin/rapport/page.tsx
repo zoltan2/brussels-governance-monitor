@@ -130,14 +130,55 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
+/** Fenêtres d'analyse des trois blocs, côte à côte : le contrat commun met
+ * `fenetre` au premier niveau de chaque fichier, Search Console en heure du
+ * Pacifique, Umami en UTC. Un rapprochement entre un chiffre de l'un et un
+ * chiffre de l'autre est faux si leurs périodes diffèrent sans qu'on le
+ * dise ; les fusionner ou en inventer une commune serait pire que de ne
+ * rien afficher. */
+function SectionFenetres({ rapport }: { rapport: RapportSeo }) {
+  const { gsc, umami, crawl } = rapport.blocs;
+  return (
+    <section className="mb-10">
+      <h2 className="mb-1 text-xl font-semibold text-neutral-900">
+        Fenêtres d&apos;analyse
+      </h2>
+      <p className="mb-3 text-sm text-neutral-600">
+        Chaque bloc analyse sa propre période, dans son propre fuseau.
+      </p>
+      <dl className="grid gap-3 sm:grid-cols-3">
+        <div className="rounded border border-neutral-200 bg-neutral-50 p-3">
+          <dt className="text-xs uppercase tracking-wide text-neutral-500">
+            Search Console
+          </dt>
+          <dd className="mt-1 text-sm font-medium text-neutral-900">
+            {formatFenetre(gsc.fenetre)}
+          </dd>
+        </div>
+        <div className="rounded border border-neutral-200 bg-neutral-50 p-3">
+          <dt className="text-xs uppercase tracking-wide text-neutral-500">Umami</dt>
+          <dd className="mt-1 text-sm font-medium text-neutral-900">
+            {formatFenetre(umami.fenetre)}
+          </dd>
+        </div>
+        <div className="rounded border border-neutral-200 bg-neutral-50 p-3">
+          <dt className="text-xs uppercase tracking-wide text-neutral-500">
+            Passage technique
+          </dt>
+          <dd className="mt-1 text-sm font-medium text-neutral-900">
+            {formatFenetre(crawl.fenetre)}
+          </dd>
+        </div>
+      </dl>
+    </section>
+  );
+}
+
 function SectionGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
   const donnees = bloc.donnees;
   return (
     <section className="mb-10">
-      <h2 className="mb-1 text-xl font-semibold text-neutral-900">Search Console</h2>
-      <p className="mb-3 text-sm text-neutral-600">
-        Fenêtre : {formatFenetre(donnees?.fenetre ?? null)}
-      </p>
+      <h2 className="mb-3 text-xl font-semibold text-neutral-900">Search Console</h2>
       <EtatBloc nom="Search Console" bloc={bloc} />
       <MetaBloc bloc={bloc} />
       {donnees && (
@@ -241,11 +282,7 @@ function SectionUmami({ bloc }: { bloc: Bloc<UmamiDonnees> }) {
   const donnees = bloc.donnees;
   return (
     <section className="mb-10">
-      <h2 className="mb-1 text-xl font-semibold text-neutral-900">Umami</h2>
-      <p className="mb-3 text-sm text-neutral-600">
-        Fenêtre : comptée en UTC, fuseau distinct de Search Console (Pacifique).
-        Ce bloc ne transmet pas ses dates de début et de fin.
-      </p>
+      <h2 className="mb-3 text-xl font-semibold text-neutral-900">Umami</h2>
       <EtatBloc nom="Umami" bloc={bloc} />
       <MetaBloc bloc={bloc} />
       {donnees && (
@@ -452,22 +489,11 @@ export default async function AdminRapportPage({
         </p>
       </header>
 
+      <SectionFenetres rapport={rapport} />
       <SectionGsc bloc={rapport.blocs.gsc} />
       <SectionUmami bloc={rapport.blocs.umami} />
       <SectionCrawl bloc={rapport.blocs.crawl} />
       <SectionActions bloc={rapport.blocs.gsc} />
-
-      <section className="mb-10">
-        <h2 className="mb-3 text-xl font-semibold text-neutral-900">
-          Historique
-        </h2>
-        <p className="text-sm text-neutral-600">
-          Le VPS conserve un historique glissant des rapports hebdomadaires,
-          mais cette page n&apos;a pour l&apos;instant accès qu&apos;au dernier
-          relevé de chaque bloc : aucune lecture de l&apos;historique n&apos;est
-          exposée par <code className="text-xs">readSeoReport()</code>.
-        </p>
-      </section>
 
       {rapport.fraicheur.gsc && (
         <p className={freshnessClassName(rapport.fraicheur.gsc.level)}>

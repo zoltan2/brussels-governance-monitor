@@ -276,6 +276,72 @@ describe('readSeoReport', () => {
     expect(rapport.blocs.umami.donnees?.evenements).toBeNull();
   });
 
+  it('lit la fenêtre au premier niveau du bloc, avec son fuseau (contrat commun)', async () => {
+    // Le contrat JSON commun (contraintes-globales.md) impose `fenetre` au
+    // premier niveau de CHAQUE fichier, pas seulement dans `donnees` du
+    // bloc GSC : Search Console est en heure du Pacifique, Umami en UTC.
+    vi.mocked(readFile).mockImplementation(async (chemin) => {
+      const nom = String(chemin).includes('seo-gsc.json') ? 'gsc' : 'umami';
+      return JSON.stringify({
+        schemaVersion: 1,
+        bloc: nom,
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        fenetre:
+          nom === 'gsc'
+            ? { debut: '2026-08-24', fin: '2026-09-20', fuseau: 'America/Los_Angeles' }
+            : { debut: '2026-08-24', fin: '2026-09-20', fuseau: 'UTC' },
+        donnees: {},
+      });
+    });
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.fenetre).toEqual({
+      debut: '2026-08-24',
+      fin: '2026-09-20',
+      fuseau: 'America/Los_Angeles',
+    });
+    expect(rapport.blocs.umami.fenetre).toEqual({
+      debut: '2026-08-24',
+      fin: '2026-09-20',
+      fuseau: 'UTC',
+    });
+  });
+
+  it("rend la fenêtre d'un bloc null quand elle est absente, jamais une date inventée", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {},
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.crawl.fenetre).toBeNull();
+  });
+
+  it('lit la fenêtre même quand le bloc est en panne ou bloqué (elle décrit la période visée, pas le succès)', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'blocked',
+        message: 'sonde bloquée par Cloudflare',
+        generatedAt: '2026-09-21T04:30:00Z',
+        fenetre: { debut: '2026-08-24', fin: '2026-09-20', fuseau: 'UTC' },
+        donnees: null,
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.crawl.status).toBe('blocked');
+    expect(rapport.blocs.crawl.fenetre).toEqual({
+      debut: '2026-08-24',
+      fin: '2026-09-20',
+      fuseau: 'UTC',
+    });
+  });
+
   it('lit evenements comme un entier valide', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({

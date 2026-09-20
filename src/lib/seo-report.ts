@@ -127,6 +127,12 @@ export interface Bloc<T> {
   // dépôt et VPS peuvent diverger, la CI ne déployant pas deploy/. Affichée
   // par la page /fr/admin/rapport pour rendre cet écart visible.
   scriptSha256: string | null;
+  // Fenêtre d'analyse au premier niveau du contrat commun (pas celle,
+  // spécifique au bloc GSC, nichée dans donnees.fenetre pour dater ses
+  // preuves). Search Console est en heure du Pacifique, Umami en UTC : les
+  // afficher côte à côte évite de rapprocher deux chiffres dont les
+  // périodes ne coïncident pas sans le dire.
+  fenetre: FenetreRapport | null;
   donnees: T | null;
 }
 
@@ -361,7 +367,14 @@ const PARSEURS_DONNEES = {
 // --- Enveloppe commune -------------------------------------------------
 
 function blocIllisible<T>(status: StatutBloc): Bloc<T> {
-  return { status, message: null, generatedAt: null, scriptSha256: null, donnees: null };
+  return {
+    status,
+    message: null,
+    generatedAt: null,
+    scriptSha256: null,
+    fenetre: null,
+    donnees: null,
+  };
 }
 
 function estStatutConnu(value: unknown): value is StatutConnu {
@@ -394,12 +407,17 @@ function parseBloc<T>(
   const generatedAt = asString(record.generatedAt);
   const message = asString(record.message);
   const scriptSha256 = asString(record.scriptSha256);
+  // Fenêtre d'analyse au premier niveau du contrat commun : décrit la
+  // période visée par le relevé, pas son succès. On la lit même quand le
+  // bloc est en panne ou bloqué (la sonde sait quelle fenêtre elle visait
+  // avant d'échouer), jamais quand le format lui-même est illisible.
+  const fenetre = asFenetre(record.fenetre);
   // error/blocked n'ont jamais de donnees exploitables dans le contrat (le
   // crawl bloqué par Cloudflare écrit `donnees: null`) : on ne tente même
   // pas de les parser, ce qui évite tout plantage sur un null inattendu.
   const donnees = record.status === 'ok' ? parseurDonnees(record.donnees) : null;
 
-  return { status: record.status, message, generatedAt, scriptSha256, donnees };
+  return { status: record.status, message, generatedAt, scriptSha256, fenetre, donnees };
 }
 
 async function lireBloc<T>(

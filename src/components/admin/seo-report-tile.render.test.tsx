@@ -24,6 +24,7 @@ function blocOk<T>(donnees: T): any {
     message: null,
     generatedAt: new Date().toISOString(),
     scriptSha256: 'a'.repeat(64),
+    fenetre: null,
     donnees,
   };
 }
@@ -34,6 +35,7 @@ function blocEnPanne(status: 'error' | 'blocked' | 'absent', message: string | n
     message,
     generatedAt: null,
     scriptSha256: null,
+    fenetre: null,
     donnees: null,
   };
 }

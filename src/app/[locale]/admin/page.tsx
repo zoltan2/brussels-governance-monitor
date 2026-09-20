@@ -47,6 +47,11 @@ export default async function AdminHubPage({
       </h1>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* En première rangée : c'est la tuile qui répond « dois-je agir
+         * cette semaine, et sur quoi ? », pas une tuile parmi onze. */}
+        <Suspense fallback={<TileSkeleton title="Rapport SEO hebdomadaire" />}>
+          <SeoReportTile />
+        </Suspense>
         <Suspense fallback={<TileSkeleton title="Trafic" />}>
           <TrafficTile />
         </Suspense>
@@ -76,9 +81,6 @@ export default async function AdminHubPage({
         </Suspense>
         <Suspense fallback={<TileSkeleton title="Jeux" />}>
           <GamesTile />
-        </Suspense>
-        <Suspense fallback={<TileSkeleton title="Rapport SEO hebdomadaire" />}>
-          <SeoReportTile />
         </Suspense>
       </div>
     </div>

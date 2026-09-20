@@ -2,8 +2,8 @@
   "week": "2026-w38",
   "weekStart": "2026-09-14",
   "created_at": "2026-09-20T19:00:14.331Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "9 domaines, 7 dossiers, 4 secteurs mis à jour",
     "nl": "9 domeinen, 7 dossiers, 4 sectoren bijgewerkt",
@@ -53,5 +53,6 @@
     "horeca",
     "nonprofit",
     "transport"
-  ]
+  ],
+  "sent_at": "2026-09-20T20:53:50.967Z"
 }

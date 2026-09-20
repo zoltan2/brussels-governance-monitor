@@ -16,7 +16,19 @@ import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { describeFreshness, type Freshness } from './snapshot-freshness';
 
-const SCHEMA_VERSION = 1;
+// Version acceptée du contrat commun, PAR BLOC : Search Console est monté en
+// version 3 (publieRecemment devient { liste, total } après le premier
+// passage sur données réelles), Umami en version 2 (referents,
+// visitesParChemin), le passage technique reste en version 1, non touché.
+// Trois valeurs différentes, chacune pour son bloc : un fichier resté à
+// l'ancienne version pour un bloc monté depuis (script pas encore
+// redéployé) doit se lire illisible, jamais deviné compatible.
+const SCHEMA_VERSIONS = {
+  gsc: 3,
+  umami: 2,
+  crawl: 1,
+} as const satisfies Record<NomBloc, number>;
+
 // Le rapport est hebdomadaire : passé 8 jours sans relevé, ça doit se voir.
 const STALE_AFTER_HOURS = 192;
 
@@ -58,6 +70,43 @@ export interface OpportuniteTitre {
   bande: string | null;
 }
 
+/** « Ce que vous avez publié » (contrat v3, bloc-gsc.mjs). `clics` et
+ * `impressions` à zéro sont de vrais zéros constatés (une page publiée qui
+ * n'a rien reçu) : ils s'affichent tels quels, comme n'importe quel compte
+ * de ce module. Seul `visitesUmami` peut valoir `null` : cela signifie que
+ * le bloc Umami était en panne cette semaine-là, pas que la page n'a reçu
+ * aucune visite. `datePublication` est un jour calendaire (« 2026-09-18 »),
+ * sans horodatage. */
+export interface PagePubliee {
+  chemin: string;
+  datePublication: string | null;
+  clics: number | null;
+  impressions: number | null;
+  visitesUmami: number | null;
+}
+
+/** `liste` : au plus 15 entrées côté producteur, les pages n'ayant rien reçu
+ * (zéro clic, zéro visite) en tête, le reste par date de publication
+ * décroissante — c'est l'ordre voulu, ce module ne re-trie ni ne tronque, il
+ * valide. `total` est le nombre RÉEL de pages publiées dans la fenêtre (peut
+ * dépasser 15) : ne jamais le déduire de la longueur de `liste`, qui est
+ * plafonnée. */
+export interface PublieRecemment {
+  liste: PagePubliee[];
+  total: number | null;
+}
+
+/** Une requête sur laquelle le site apparaît désormais dans les résultats
+ * (impressions en hausse) sans qu'aucun clic ne soit garanti : le site peut
+ * être classé au-delà de la première page de résultats, vu mais pas encore
+ * lu. */
+export interface RequeteEmergente {
+  requete: string;
+  impressions: number | null;
+  impressionsPrecedentes: number | null;
+  position: number | null;
+}
+
 export interface FenetreRapport {
   debut: string | null;
   fin: string | null;
@@ -84,6 +133,10 @@ export interface GscDonnees {
   partRequetes: number | null;
   opportunitesTitre: OpportuniteTitre[];
   actions: ActionSuggeree[];
+  publieRecemment: PublieRecemment;
+  // Au plus 5 entrées côté producteur : ce module ne re-trie ni ne
+  // tronque, il valide.
+  requetesEmergentes: RequeteEmergente[];
 }
 
 export interface VisiteIa {
@@ -95,6 +148,46 @@ export interface PageEntree {
   chemin: string;
   visites: number | null;
   visitesIa: number | null;
+}
+
+/** Forme commune aux quatre listes de `referents` (contrat v2) : une source
+ * de trafic (site référent, moteur, canal fermé, campagne) et son compte de
+ * visites. */
+export interface SourceVisites {
+  source: string;
+  visites: number | null;
+}
+
+export interface MoteursHorsGoogle {
+  // Au plus 10 entrées côté producteur : ce module ne re-trie ni ne
+  // tronque, il valide.
+  liste: SourceVisites[];
+  // Le total réel des moteurs hors Google, PAS la somme de `liste` (qui est
+  // plafonnée à 10) : les deux ne coïncident pas dès qu'un onzième moteur
+  // existe. Ne jamais recalculer ce total à partir de la liste.
+  total: number | null;
+}
+
+/** « Qui envoie des lecteurs » (contrat v2, bloc-umami.mjs). `null` = la
+ * mesure entière est absente (query en panne, ou version antérieure du
+ * relevé) ; un objet présent dont une sous-liste vaut `[]` est une mesure
+ * réussie qui n'a trouvé aucune ligne (zéro constaté). Les deux ne sont
+ * jamais confondus : `referents: null` ne dit rien, `referents.sansReferent`
+ * dit quelque chose même quand il vaut 0. */
+export interface Referents {
+  moteursHorsGoogle: MoteursHorsGoogle;
+  canauxFermes: SourceVisites[];
+  sitesReferents: SourceVisites[];
+  campagnes: SourceVisites[];
+  // Jamais une liste : le nombre de visites sans le moindre référent HTTP
+  // (accès direct, favori, application). Domine presque toujours les listes
+  // ci-dessus, qui comptent donc pour moins qu'elles n'en ont l'air.
+  sansReferent: number | null;
+}
+
+export interface CheminVisite {
+  chemin: string;
+  visites: number | null;
 }
 
 export interface UmamiDonnees {
@@ -109,6 +202,10 @@ export interface UmamiDonnees {
   pagesEntree: PageEntree[];
   profondeur: number | null;
   evenements: number | null;
+  referents: Referents | null;
+  // Sans plafond, à usage interne (pas affiché tel quel sur la page) : ce
+  // module ne re-trie ni ne tronque, il valide.
+  visitesParChemin: CheminVisite[];
 }
 
 export interface PageCrawl {
@@ -165,9 +262,7 @@ export interface RapportSeo {
 // --- Conversions strictes : jamais de zéro inventé -------------------------
 
 function asRecord(value: unknown): Record<string, unknown> {
-  return value !== null && typeof value === 'object'
-    ? (value as Record<string, unknown>)
-    : {};
+  return value !== null && typeof value === 'object' ? (value as Record<string, unknown>) : {};
 }
 
 /** Rejette les chaînes (dont "NaN" et "Infinity" rendues par Postgres), les
@@ -289,6 +384,62 @@ function asOpportunitesTitre(value: unknown): OpportuniteTitre[] {
   return opportunites;
 }
 
+/** Une page sans chemin n'est pas exploitable (pas de lien à afficher) : on
+ * l'écarte plutôt que d'afficher un trou dans la liste. `clics` et
+ * `impressions` utilisent asCompte (0 est une valeur valide, distincte de
+ * `null`) : c'est exactement ce qui distingue un zéro constaté d'une donnée
+ * absente. */
+function asPagesPubliees(value: unknown): PagePubliee[] {
+  if (!Array.isArray(value)) return [];
+  const pages: PagePubliee[] = [];
+  for (const ligne of value) {
+    const record = asRecord(ligne);
+    const chemin = asString(record.chemin);
+    if (chemin === null) continue;
+    pages.push({
+      chemin,
+      datePublication: asString(record.datePublication),
+      clics: asCompte(record.clics),
+      impressions: asCompte(record.impressions),
+      visitesUmami: asCompte(record.visitesUmami),
+    });
+  }
+  return pages;
+}
+
+/** `{ liste, total }`, jamais un tableau brut (forme réelle depuis le
+ * premier passage sur données réelles : 144 pages publiées dans la fenêtre
+ * rendaient un tableau brut illisible sur téléphone). `total` n'est JAMAIS
+ * déduit de la longueur de `liste`, qui est plafonnée à 15 côté producteur :
+ * les deux peuvent légitimement diverger. */
+function asPublieRecemment(value: unknown): PublieRecemment {
+  const record = asRecord(value);
+  return {
+    liste: asPagesPubliees(record.liste),
+    total: asCompte(record.total),
+  };
+}
+
+/** Une requête émergente sans texte de requête n'est pas exploitable
+ * (rien à afficher ni à chercher) : on l'écarte plutôt que d'afficher une
+ * ligne vide. */
+function asRequetesEmergentes(value: unknown): RequeteEmergente[] {
+  if (!Array.isArray(value)) return [];
+  const requetes: RequeteEmergente[] = [];
+  for (const ligne of value) {
+    const record = asRecord(ligne);
+    const requete = asString(record.requete);
+    if (requete === null) continue;
+    requetes.push({
+      requete,
+      impressions: asCompte(record.impressions),
+      impressionsPrecedentes: asCompte(record.impressionsPrecedentes),
+      position: asPosition(record.position),
+    });
+  }
+  return requetes;
+}
+
 /** Une action sans règle, URL ou preuve n'est pas exploitable : on l'écarte
  * plutôt que d'afficher un trou dans la tuile. Une action qu'on ne peut pas
  * ouvrir d'un clic (pas d'URL) ne sert à rien ; si regles.mjs cesse un jour
@@ -358,6 +509,8 @@ function asGscDonnees(value: unknown): GscDonnees {
     partRequetes: asFractionPourcentage(record.partRequetes),
     opportunitesTitre: asOpportunitesTitre(record.opportunitesTitre),
     actions: asActions(record.actions),
+    publieRecemment: asPublieRecemment(record.publieRecemment),
+    requetesEmergentes: asRequetesEmergentes(record.requetesEmergentes),
   };
 }
 
@@ -397,6 +550,69 @@ function asPagesEntree(value: unknown): PageEntree[] {
   return pages;
 }
 
+/** Une entrée sans source n'est pas exploitable (rien à nommer dans la
+ * liste) : on l'écarte plutôt que d'afficher une ligne vide. */
+function asSourceVisites(value: unknown): SourceVisites | null {
+  const record = asRecord(value);
+  const source = asString(record.source);
+  if (source === null) return null;
+  return { source, visites: asCompte(record.visites) };
+}
+
+/** Au plus 10 entrées côté producteur (contrat v2) : ce module ne re-trie
+ * ni ne tronque, il valide, comme pagesEntree et les autres listes du
+ * contrat commun. */
+function asListeSources(value: unknown): SourceVisites[] {
+  if (!Array.isArray(value)) return [];
+  const items: SourceVisites[] = [];
+  for (const ligne of value) {
+    const entree = asSourceVisites(ligne);
+    if (entree) items.push(entree);
+  }
+  return items;
+}
+
+function asMoteursHorsGoogle(value: unknown): MoteursHorsGoogle {
+  const record = asRecord(value);
+  return {
+    liste: asListeSources(record.liste),
+    // Ne JAMAIS recalculer ce total à partir de `liste`, qui est plafonnée
+    // à 10 : le total réel peut porter sur davantage de moteurs.
+    total: asCompte(record.total),
+  };
+}
+
+/** `null` = la mesure `referents` entière est absente ou du mauvais type
+ * (champ manquant, version antérieure du relevé) : donnée manquante. Un
+ * objet présent, même aux sous-listes vides, est une mesure réussie qui n'a
+ * trouvé aucune ligne pour cette sous-liste (zéro constaté). Les deux ne
+ * sont jamais confondus. */
+function asReferents(value: unknown): Referents | null {
+  if (value === null || typeof value !== 'object') return null;
+  const record = value as Record<string, unknown>;
+  return {
+    moteursHorsGoogle: asMoteursHorsGoogle(record.moteursHorsGoogle),
+    canauxFermes: asListeSources(record.canauxFermes),
+    sitesReferents: asListeSources(record.sitesReferents),
+    campagnes: asListeSources(record.campagnes),
+    sansReferent: asCompte(record.sansReferent),
+  };
+}
+
+/** Sans plafond côté producteur, à usage interne : une entrée sans chemin
+ * n'est pas exploitable, on l'écarte. */
+function asVisitesParChemin(value: unknown): CheminVisite[] {
+  if (!Array.isArray(value)) return [];
+  const items: CheminVisite[] = [];
+  for (const ligne of value) {
+    const record = asRecord(ligne);
+    const chemin = asString(record.chemin);
+    if (chemin === null) continue;
+    items.push({ chemin, visites: asCompte(record.visites) });
+  }
+  return items;
+}
+
 function asUmamiDonnees(value: unknown): UmamiDonnees {
   const record = asRecord(value);
   return {
@@ -405,6 +621,8 @@ function asUmamiDonnees(value: unknown): UmamiDonnees {
     pagesEntree: asPagesEntree(record.pagesEntree),
     profondeur: asFractionPourcentage(record.profondeur),
     evenements: asEntier(record.evenements),
+    referents: asReferents(record.referents),
+    visitesParChemin: asVisitesParChemin(record.visitesParChemin),
   };
 }
 
@@ -475,10 +693,7 @@ function blocIllisible<T>(status: StatutBloc): Bloc<T> {
 }
 
 function estStatutConnu(value: unknown): value is StatutConnu {
-  return (
-    typeof value === 'string' &&
-    (STATUTS_CONNUS as readonly string[]).includes(value)
-  );
+  return typeof value === 'string' && (STATUTS_CONNUS as readonly string[]).includes(value);
 }
 
 function parseBloc<T>(
@@ -489,10 +704,12 @@ function parseBloc<T>(
   if (raw === null || typeof raw !== 'object') return blocIllisible('format-inconnu');
   const record = raw as Record<string, unknown>;
 
-  // Contrat JSON commun, version 1 (contraintes-globales.md). Toute autre
-  // version est un format qu'on ne sait pas encore lire : mieux vaut
-  // l'afficher illisible que de deviner une correspondance de champs fausse.
-  if (record.schemaVersion !== SCHEMA_VERSION) return blocIllisible('format-inconnu');
+  // Contrat JSON commun (contraintes-globales.md), version attendue PAR
+  // BLOC (voir SCHEMA_VERSIONS). Toute autre version, y compris une
+  // ancienne version pour un bloc monté depuis, est un format qu'on ne sait
+  // pas encore lire : mieux vaut l'afficher illisible que de deviner une
+  // correspondance de champs fausse.
+  if (record.schemaVersion !== SCHEMA_VERSIONS[nomAttendu]) return blocIllisible('format-inconnu');
 
   // Le champ `bloc` doit correspondre au fichier lu (seo-gsc.json porte
   // bloc: "gsc", etc.) : un contenu mélangé ou un fichier tronqué au mauvais

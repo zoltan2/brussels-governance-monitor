@@ -37,6 +37,8 @@ const DONNEES_GSC_VIDES: GscDonnees = {
   partRequetes: null,
   opportunitesTitre: [],
   actions: [],
+  publieRecemment: { liste: [], total: null },
+  requetesEmergentes: [],
 };
 
 function rapportAvecActions(actions: ActionSuggeree[]): RapportSeo {
@@ -50,21 +52,62 @@ function rapportAvecActions(actions: ActionSuggeree[]): RapportSeo {
         fenetre: null,
         // Au moins une mesure exploitable, sinon gscMesurePresente rend le
         // bloc indisponible malgré status: 'ok' (voir seo-report.ts).
-        donnees: { ...DONNEES_GSC_VIDES, actions, totaux: { ...DONNEES_GSC_VIDES.totaux, clics: 10 } },
+        donnees: {
+          ...DONNEES_GSC_VIDES,
+          actions,
+          totaux: { ...DONNEES_GSC_VIDES.totaux, clics: 10 },
+        },
       },
-      umami: { status: 'absent', message: null, generatedAt: null, scriptSha256: null, fenetre: null, donnees: null },
-      crawl: { status: 'absent', message: null, generatedAt: null, scriptSha256: null, fenetre: null, donnees: null },
+      umami: {
+        status: 'absent',
+        message: null,
+        generatedAt: null,
+        scriptSha256: null,
+        fenetre: null,
+        donnees: null,
+      },
+      crawl: {
+        status: 'absent',
+        message: null,
+        generatedAt: null,
+        scriptSha256: null,
+        fenetre: null,
+        donnees: null,
+      },
     },
     fraicheur: { gsc: null, umami: null, crawl: null },
   };
 }
 
-function rapportIndisponible(status: 'error' | 'blocked' | 'absent' | 'format-inconnu'): RapportSeo {
+function rapportIndisponible(
+  status: 'error' | 'blocked' | 'absent' | 'format-inconnu',
+): RapportSeo {
   return {
     blocs: {
-      gsc: { status, message: null, generatedAt: null, scriptSha256: null, fenetre: null, donnees: null },
-      umami: { status: 'absent', message: null, generatedAt: null, scriptSha256: null, fenetre: null, donnees: null },
-      crawl: { status: 'absent', message: null, generatedAt: null, scriptSha256: null, fenetre: null, donnees: null },
+      gsc: {
+        status,
+        message: null,
+        generatedAt: null,
+        scriptSha256: null,
+        fenetre: null,
+        donnees: null,
+      },
+      umami: {
+        status: 'absent',
+        message: null,
+        generatedAt: null,
+        scriptSha256: null,
+        fenetre: null,
+        donnees: null,
+      },
+      crawl: {
+        status: 'absent',
+        message: null,
+        generatedAt: null,
+        scriptSha256: null,
+        fenetre: null,
+        donnees: null,
+      },
     },
     fraicheur: { gsc: null, umami: null, crawl: null },
   };
@@ -143,8 +186,22 @@ describe('buildPagesIaPerimees', () => {
           fenetre: null,
           donnees: { ...DONNEES_GSC_VIDES, actions: [action()] },
         },
-        umami: { status: 'absent', message: null, generatedAt: null, scriptSha256: null, fenetre: null, donnees: null },
-        crawl: { status: 'absent', message: null, generatedAt: null, scriptSha256: null, fenetre: null, donnees: null },
+        umami: {
+          status: 'absent',
+          message: null,
+          generatedAt: null,
+          scriptSha256: null,
+          fenetre: null,
+          donnees: null,
+        },
+        crawl: {
+          status: 'absent',
+          message: null,
+          generatedAt: null,
+          scriptSha256: null,
+          fenetre: null,
+          donnees: null,
+        },
       },
       fraicheur: { gsc: null, umami: null, crawl: null },
     };
@@ -167,11 +224,20 @@ describe('buildPagesIaPerimees', () => {
   });
 
   it('associe une action à sa fiche domaine (fr), avec âge calculé sur lastModified', () => {
-    const carte = domainCard({ slug: 'budget', locale: 'fr', lastModified: '2026-06-01', title: 'Budget régional' });
+    const carte = domainCard({
+      slug: 'budget',
+      locale: 'fr',
+      lastModified: '2026-06-01',
+      title: 'Budget régional',
+    });
     const rapport = rapportAvecActions([
       action({ url: '/fr/domaines/budget', preuve: 'preuve X' }),
     ]);
-    const liste = buildPagesIaPerimees(rapport, { domainCards: [carte], dossierCards: [] }, '2026-09-20')!;
+    const liste = buildPagesIaPerimees(
+      rapport,
+      { domainCards: [carte], dossierCards: [] },
+      '2026-09-20',
+    )!;
     expect(liste).toHaveLength(1);
     const el = liste[0];
     expect(el.collection).toBe('domain');
@@ -188,12 +254,16 @@ describe('buildPagesIaPerimees', () => {
   it('associe une action à sa fiche domaine via le mot de chemin néerlandais', () => {
     const carte = domainCard({ slug: 'budget', locale: 'nl', lastModified: '2026-08-01' });
     const rapport = rapportAvecActions([action({ url: '/nl/domeinen/budget' })]);
-    const liste = buildPagesIaPerimees(rapport, { domainCards: [carte], dossierCards: [] }, '2026-09-20')!;
+    const liste = buildPagesIaPerimees(
+      rapport,
+      { domainCards: [carte], dossierCards: [] },
+      '2026-09-20',
+    )!;
     expect(liste[0].collection).toBe('domain');
     expect(liste[0].locale).toBe('nl');
   });
 
-  it('associe une action à sa fiche dossier, slug canonique dans le chemin de fichier même si l\'URL porte un slug localisé', () => {
+  it("associe une action à sa fiche dossier, slug canonique dans le chemin de fichier même si l'URL porte un slug localisé", () => {
     const carte = dossierCard({
       slug: 'lez',
       locale: 'fr',
@@ -201,23 +271,33 @@ describe('buildPagesIaPerimees', () => {
       localizedSlugs: { fr: 'lez-bruxelles' },
     });
     const rapport = rapportAvecActions([action({ url: '/fr/dossiers/lez-bruxelles' })]);
-    const liste = buildPagesIaPerimees(rapport, { domainCards: [], dossierCards: [carte] }, '2026-09-20')!;
+    const liste = buildPagesIaPerimees(
+      rapport,
+      { domainCards: [], dossierCards: [carte] },
+      '2026-09-20',
+    )!;
     expect(liste).toHaveLength(1);
     expect(liste[0].collection).toBe('dossier');
     expect(liste[0].slug).toBe('lez');
     expect(liste[0].cheminFichier).toBe('content/dossiers/lez.fr.mdx');
   });
 
-  it('retombe sur la fiche FR quand aucune fiche ne correspond à la langue de l\'URL', () => {
+  it("retombe sur la fiche FR quand aucune fiche ne correspond à la langue de l'URL", () => {
     const carteFr = domainCard({ slug: 'budget', locale: 'fr', lastModified: '2026-08-01' });
     const rapport = rapportAvecActions([action({ url: '/nl/domeinen/budget' })]);
-    const liste = buildPagesIaPerimees(rapport, { domainCards: [carteFr], dossierCards: [] }, '2026-09-20')!;
+    const liste = buildPagesIaPerimees(
+      rapport,
+      { domainCards: [carteFr], dossierCards: [] },
+      '2026-09-20',
+    )!;
     expect(liste[0].locale).toBe('fr');
     expect(liste[0].slug).toBe('budget');
   });
 
   it("garde le signal d'une page hors domaines/dossiers, sans inventer un âge ou un fichier", () => {
-    const rapport = rapportAvecActions([action({ url: '/fr/secteurs/culture', preuve: 'vue par un assistant' })]);
+    const rapport = rapportAvecActions([
+      action({ url: '/fr/secteurs/culture', preuve: 'vue par un assistant' }),
+    ]);
     const liste = buildPagesIaPerimees(rapport, AUCUNE_CARTE)!;
     expect(liste).toHaveLength(1);
     expect(liste[0].collection).toBe('inconnue');
@@ -258,7 +338,11 @@ describe('buildFaqARelire', () => {
 
   it('exclut une fiche dont la FAQ a été relue le jour même ou après', () => {
     const ok1 = domainCard({ lastModified: '2026-09-10', faqReviewed: '2026-09-10' });
-    const ok2 = domainCard({ slug: 'mobility', lastModified: '2026-09-10', faqReviewed: '2026-09-11' });
+    const ok2 = domainCard({
+      slug: 'mobility',
+      lastModified: '2026-09-10',
+      faqReviewed: '2026-09-11',
+    });
     expect(buildFaqARelire({ domainCards: [ok1, ok2], dossierCards: [] })).toEqual([]);
   });
 
@@ -285,7 +369,11 @@ describe('buildChapeauARelire', () => {
     // Écart pile au seuil : encore correct.
     const surSeuil = domainCard({ lastModified: '2026-09-20', summaryReviewed: '2026-06-22' }); // 90 j
     // Un jour de plus : en faute.
-    const auDelaDuSeuil = domainCard({ slug: 'mobility', lastModified: '2026-09-20', summaryReviewed: '2026-06-21' }); // 91 j
+    const auDelaDuSeuil = domainCard({
+      slug: 'mobility',
+      lastModified: '2026-09-20',
+      summaryReviewed: '2026-06-21',
+    }); // 91 j
     const liste = buildChapeauARelire({ domainCards: [surSeuil, auDelaDuSeuil], dossierCards: [] });
     expect(liste).toHaveLength(1);
     expect(liste[0].slug).toBe('mobility');
@@ -312,7 +400,10 @@ describe('buildChapeauARelire', () => {
 describe('getElementsARelire', () => {
   it('combine les trois listes, en gardant pagesIa distinct de vide quand le rapport manque', () => {
     const carte = domainCard({ summaryReviewed: undefined });
-    const resultat = getElementsARelire(rapportIndisponible('absent'), { domainCards: [carte], dossierCards: [] });
+    const resultat = getElementsARelire(rapportIndisponible('absent'), {
+      domainCards: [carte],
+      dossierCards: [],
+    });
     expect(resultat.pagesIa).toBeNull();
     expect(resultat.chapeau).toHaveLength(1);
     expect(resultat.faq).toHaveLength(1); // pas de faqReviewed non plus par défaut

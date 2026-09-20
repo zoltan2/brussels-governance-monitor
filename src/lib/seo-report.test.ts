@@ -26,16 +26,14 @@ describe('readSeoReport', () => {
   });
 
   it('traite un fichier absent comme une panne, pas comme un rapport vide', async () => {
-    vi.mocked(readFile).mockRejectedValue(
-      Object.assign(new Error('ENOENT'), { code: 'ENOENT' }),
-    );
+    vi.mocked(readFile).mockRejectedValue(Object.assign(new Error('ENOENT'), { code: 'ENOENT' }));
     expect((await readSeoReport()).blocs.umami.status).toBe('absent');
   });
 
   it('rejette NaN et Infinity rendus en chaîne par Postgres', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -78,7 +76,7 @@ describe('readSeoReport', () => {
     // preuve, fenetre), une action non cliquable ne servant à rien.
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 3,
         bloc: 'gsc',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -115,7 +113,7 @@ describe('readSeoReport', () => {
     // action non cliquable sans que personne ne le remarque.
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 3,
         bloc: 'gsc',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -140,7 +138,7 @@ describe('readSeoReport', () => {
     const ilYA9Jours = new Date(Date.now() - 9 * 24 * 3_600_000).toISOString();
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 3,
         bloc: 'gsc',
         status: 'ok',
         generatedAt: ilYA9Jours,
@@ -156,7 +154,9 @@ describe('readSeoReport', () => {
     vi.mocked(readFile).mockImplementation(async (chemin) => {
       const nom = String(chemin).includes('seo-gsc.json') ? 'gsc' : 'autre';
       return JSON.stringify({
-        schemaVersion: 1,
+        // gsc = version 3, umami = version 2 : deux versions différentes,
+        // jamais une seule partagée entre les deux blocs.
+        schemaVersion: nom === 'gsc' ? 3 : 2,
         bloc: nom === 'gsc' ? 'gsc' : 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -171,13 +171,13 @@ describe('readSeoReport', () => {
     expect(rapport.blocs.umami.scriptSha256).toBeNull();
   });
 
-  it("rend illisible un fichier dont le champ bloc ne correspond pas, jamais de chiffres empruntés à un autre bloc", async () => {
+  it('rend illisible un fichier dont le champ bloc ne correspond pas, jamais de chiffres empruntés à un autre bloc', async () => {
     // seo-gsc.json et seo-crawl.json contiennent tous deux un bloc qui se
     // déclare "umami" (fichiers mélangés, script en panne à mi-écriture) :
     // ni l'un ni l'autre ne doit être lu comme s'il portait les bons chiffres.
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -196,14 +196,12 @@ describe('readSeoReport', () => {
   it('lit pagesEntree comme un tableau { chemin, visites, visitesIa }', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
         donnees: {
-          pagesEntree: [
-            { chemin: '/fr/dossiers/lez', visites: 420, visitesIa: 97 },
-          ],
+          pagesEntree: [{ chemin: '/fr/dossiers/lez', visites: 420, visitesIa: 97 }],
         },
       }),
     );
@@ -216,7 +214,7 @@ describe('readSeoReport', () => {
   it("écarte une entrée de pagesEntree sans chemin, mais rend les visites null sans l'écarter si elles ne sont pas un nombre", async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -237,7 +235,7 @@ describe('readSeoReport', () => {
   it('ne plante pas quand pagesEntree est absent ou du mauvais type', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -251,7 +249,7 @@ describe('readSeoReport', () => {
   it("rejette un evenements non entier (chaîne, décimal) au lieu d'un zéro inventé", async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -265,7 +263,7 @@ describe('readSeoReport', () => {
   it("rejette un evenements decimal, un comptage n'étant jamais une fraction", async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -283,7 +281,8 @@ describe('readSeoReport', () => {
     vi.mocked(readFile).mockImplementation(async (chemin) => {
       const nom = String(chemin).includes('seo-gsc.json') ? 'gsc' : 'umami';
       return JSON.stringify({
-        schemaVersion: 1,
+        // gsc = version 3, umami = version 2 : deux versions différentes.
+        schemaVersion: nom === 'gsc' ? 3 : 2,
         bloc: nom,
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -345,7 +344,7 @@ describe('readSeoReport', () => {
   it('lit evenements comme un entier valide', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -361,10 +360,10 @@ describe('readSeoReport', () => {
   // visites CONSTATÉE (un vrai zéro), pas une absence de mesure. Le champ
   // absent ou du mauvais type reste, lui, une donnée manquante : les deux
   // cas doivent rester distincts après lecture, jamais confondus.
-  it('distingue visitesIa absent (donnée manquante) d\'un tableau vide (zéro constaté)', async () => {
+  it("distingue visitesIa absent (donnée manquante) d'un tableau vide (zéro constaté)", async () => {
     vi.mocked(readFile).mockImplementation(async () =>
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -376,7 +375,7 @@ describe('readSeoReport', () => {
 
     vi.mocked(readFile).mockImplementation(async () =>
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -387,10 +386,10 @@ describe('readSeoReport', () => {
     expect(rapport2.blocs.umami.donnees?.visitesIa).toEqual([]);
   });
 
-  it("rend visitesIa null quand le champ est du mauvais type, jamais un tableau vide", async () => {
+  it('rend visitesIa null quand le champ est du mauvais type, jamais un tableau vide', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -442,7 +441,7 @@ describe('readSeoReport', () => {
     }
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 3,
         bloc: 'gsc',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -474,7 +473,7 @@ describe('readSeoReport', () => {
   it('rejette un compte négatif (clics, impressions, clicsBelgique) comme une corruption', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 3,
         bloc: 'gsc',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -492,10 +491,10 @@ describe('readSeoReport', () => {
     expect(rapport.blocs.gsc.donnees?.totaux.ctr).toBe(0.1);
   });
 
-  it("rejette un evenements négatif, même entier, jamais affiché tel quel", async () => {
+  it('rejette un evenements négatif, même entier, jamais affiché tel quel', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -509,7 +508,7 @@ describe('readSeoReport', () => {
   it('rejette un pourcentage au-dessus de cent (CTR, profondeur, part des requêtes)', async () => {
     vi.mocked(readFile).mockImplementation(async () =>
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 3,
         bloc: 'gsc',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -527,7 +526,7 @@ describe('readSeoReport', () => {
 
     vi.mocked(readFile).mockImplementation(async () =>
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 2,
         bloc: 'umami',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -541,7 +540,7 @@ describe('readSeoReport', () => {
   it('rejette une position de classement négative', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 3,
         bloc: 'gsc',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -557,7 +556,7 @@ describe('readSeoReport', () => {
   it('affiche un chiffre positif inhabituel mais possible sans le borner', async () => {
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
-        schemaVersion: 1,
+        schemaVersion: 3,
         bloc: 'gsc',
         status: 'ok',
         generatedAt: '2026-09-21T04:30:00Z',
@@ -566,6 +565,422 @@ describe('readSeoReport', () => {
     );
     const rapport = await readSeoReport();
     expect(rapport.blocs.gsc.donnees?.totaux.impressions).toBe(1e308);
+  });
+
+  // --- Contrat commun, versions PAR BLOC (referents Umami, publieRecemment /
+  // requetesEmergentes Search Console) : gsc = 3, umami = 2, crawl = 1 (non
+  // touché). Trois valeurs différentes, chacune pour son bloc : les
+  // confondre rendrait un bloc entier illisible dès le premier passage réel.
+  // -----------------------------------------------------------------------
+
+  it('accepte schemaVersion 3 pour le bloc gsc et schemaVersion 2 pour le bloc umami', async () => {
+    vi.mocked(readFile).mockImplementation(async (chemin) => {
+      const nom = String(chemin).includes('seo-gsc.json') ? 'gsc' : 'umami';
+      return JSON.stringify({
+        schemaVersion: nom === 'gsc' ? 3 : 2,
+        bloc: nom,
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {},
+      });
+    });
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.status).toBe('ok');
+    expect(rapport.blocs.umami.status).toBe('ok');
+  });
+
+  // Verrou de régression explicite : le bloc GSC est passé de la version 2 à
+  // la version 3 (publieRecemment devient { liste, total }) ; un fichier
+  // resté à la version 2 pour ce bloc (script pas encore redéployé) doit
+  // désormais se lire illisible, jamais deviné compatible.
+  it('rejette désormais schemaVersion 2 pour le bloc gsc, périmé depuis le passage à la version 3', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 2,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {},
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.status).toBe('format-inconnu');
+  });
+
+  // Verrou de régression explicite : le contrat est figé, un fichier resté
+  // en version 1 (script non redéployé) doit se lire illisible plutôt que
+  // d'être accepté à tort, pour gsc comme pour umami.
+  it("rejette désormais schemaVersion 1 pour gsc et umami, c'est le format périmé", async () => {
+    vi.mocked(readFile).mockImplementation(async (chemin) => {
+      const nom = String(chemin).includes('seo-gsc.json') ? 'gsc' : 'umami';
+      return JSON.stringify({
+        schemaVersion: 1,
+        bloc: nom,
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {},
+      });
+    });
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.status).toBe('format-inconnu');
+    expect(rapport.blocs.umami.status).toBe('format-inconnu');
+  });
+
+  it('continue à accepter schemaVersion 1 pour le passage technique, non touché par ce changement', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {},
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.crawl.status).toBe('ok');
+  });
+
+  describe('referents (bloc Umami v2)', () => {
+    function umamiV2(donnees: unknown) {
+      return JSON.stringify({
+        schemaVersion: 2,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees,
+      });
+    }
+
+    // Cas central du contrat : le total n'est pas la somme de la liste
+    // (plafonnée à 10 côté producteur). Une liste dont la somme diffère
+    // volontairement du total prouve que le lecteur restitue le total tel
+    // quel, sans le recalculer.
+    it('lit le total des moteurs hors Google tel quel, jamais recalculé à partir de la liste plafonnée', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        umamiV2({
+          referents: {
+            moteursHorsGoogle: {
+              liste: [
+                { source: 'bing.com', visites: 40 },
+                { source: 'duckduckgo.com', visites: 10 },
+              ],
+              total: 9999, // volontairement très différent de 40 + 10
+            },
+            canauxFermes: [],
+            sitesReferents: [],
+            campagnes: [],
+            sansReferent: 100,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.umami.donnees?.referents?.moteursHorsGoogle.total).toBe(9999);
+      expect(rapport.blocs.umami.donnees?.referents?.moteursHorsGoogle.liste).toEqual([
+        { source: 'bing.com', visites: 40 },
+        { source: 'duckduckgo.com', visites: 10 },
+      ]);
+    });
+
+    it('rend referents null quand la mesure est absente, jamais un objet aux listes vides', async () => {
+      vi.mocked(readFile).mockResolvedValue(umamiV2({})); // referents absent du JSON
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.umami.donnees?.referents).toBeNull();
+    });
+
+    it('distingue referents absent (null) de sous-listes présentes mais vides ([])', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        umamiV2({
+          referents: {
+            moteursHorsGoogle: { liste: [], total: 0 },
+            canauxFermes: [],
+            sitesReferents: [],
+            campagnes: [],
+            sansReferent: 0,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      const referents = rapport.blocs.umami.donnees?.referents;
+      expect(referents).not.toBeNull();
+      expect(referents?.sitesReferents).toEqual([]);
+      expect(referents?.canauxFermes).toEqual([]);
+      expect(referents?.campagnes).toEqual([]);
+      expect(referents?.moteursHorsGoogle.liste).toEqual([]);
+    });
+
+    it('lit sansReferent comme un nombre, jamais une liste', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        umamiV2({
+          referents: {
+            moteursHorsGoogle: { liste: [], total: 0 },
+            canauxFermes: [],
+            sitesReferents: [],
+            campagnes: [],
+            sansReferent: 4200,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.umami.donnees?.referents?.sansReferent).toBe(4200);
+    });
+
+    it('lit sitesReferents, canauxFermes et campagnes comme des listes { source, visites }', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        umamiV2({
+          referents: {
+            moteursHorsGoogle: { liste: [], total: 0 },
+            canauxFermes: [{ source: 'outlook.office.com', visites: 3 }],
+            sitesReferents: [{ source: 'lesoir.be', visites: 88 }],
+            campagnes: [{ source: 'newsletter', visites: 250 }],
+            sansReferent: 10,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      const referents = rapport.blocs.umami.donnees?.referents;
+      expect(referents?.canauxFermes).toEqual([{ source: 'outlook.office.com', visites: 3 }]);
+      expect(referents?.sitesReferents).toEqual([{ source: 'lesoir.be', visites: 88 }]);
+      expect(referents?.campagnes).toEqual([{ source: 'newsletter', visites: 250 }]);
+    });
+
+    it('écarte une entrée sans source, sans planter le reste de la liste', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        umamiV2({
+          referents: {
+            moteursHorsGoogle: { liste: [], total: 0 },
+            canauxFermes: [],
+            sitesReferents: [{ visites: 5 }, { source: 'lesoir.be', visites: 88 }],
+            campagnes: [],
+            sansReferent: 0,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.umami.donnees?.referents?.sitesReferents).toEqual([
+        { source: 'lesoir.be', visites: 88 },
+      ]);
+    });
+
+    it('lit visitesParChemin sans plafond, à usage interne', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        umamiV2({
+          visitesParChemin: [
+            { chemin: '/fr/dossiers/lez', visites: 420 },
+            { chemin: '/fr/dossiers/acs', visites: 12 },
+          ],
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.umami.donnees?.visitesParChemin).toEqual([
+        { chemin: '/fr/dossiers/lez', visites: 420 },
+        { chemin: '/fr/dossiers/acs', visites: 12 },
+      ]);
+    });
+
+    it('rend visitesParChemin vide quand absent, sans planter', async () => {
+      vi.mocked(readFile).mockResolvedValue(umamiV2({}));
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.umami.donnees?.visitesParChemin).toEqual([]);
+    });
+  });
+
+  describe('publieRecemment et requetesEmergentes (bloc GSC v3)', () => {
+    function gscV3(donnees: unknown) {
+      return JSON.stringify({
+        schemaVersion: 3,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees,
+      });
+    }
+
+    // Forme réelle décidée après le premier passage sur données réelles
+    // (144 pages publiées dans la fenêtre) : `publieRecemment` est un objet
+    // { liste, total }, jamais un tableau brut. La liste est plafonnée à 15
+    // côté producteur, les zéros en tête ; `total` dit l'ampleur réelle
+    // (144), que le plafond de la liste ne doit jamais cacher.
+    it('lit publieRecemment comme { liste, total }, jamais un tableau brut', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        gscV3({
+          publieRecemment: {
+            liste: [
+              {
+                chemin: '/fr/dossiers/nouveau',
+                datePublication: '2026-09-18',
+                clics: 0,
+                impressions: 0,
+                visitesUmami: 5,
+              },
+            ],
+            total: 144,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.publieRecemment).toEqual({
+        liste: [
+          {
+            chemin: '/fr/dossiers/nouveau',
+            datePublication: '2026-09-18',
+            clics: 0,
+            impressions: 0,
+            visitesUmami: 5,
+          },
+        ],
+        total: 144,
+      });
+    });
+
+    // Cas central : un zéro constaté (page publiée sans le moindre clic) doit
+    // rester un vrai zéro affichable, jamais confondu avec une donnée
+    // manquante.
+    it('lit un zéro constaté (clics, impressions) comme un vrai zéro, pas une donnée absente', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        gscV3({
+          publieRecemment: {
+            liste: [
+              {
+                chemin: '/fr/dossiers/nouveau',
+                datePublication: '2026-09-18',
+                clics: 0,
+                impressions: 0,
+                visitesUmami: 5,
+              },
+            ],
+            total: 1,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.publieRecemment.liste).toEqual([
+        {
+          chemin: '/fr/dossiers/nouveau',
+          datePublication: '2026-09-18',
+          clics: 0,
+          impressions: 0,
+          visitesUmami: 5,
+        },
+      ]);
+    });
+
+    // Le total n'est PAS la longueur de la liste, plafonnée à 15 : une
+    // liste courte dont le total diffère volontairement prouve que le
+    // lecteur restitue le total tel quel, sans le recalculer.
+    it('lit le total tel quel, jamais recalculé à partir de la longueur de la liste plafonnée', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        gscV3({
+          publieRecemment: {
+            liste: [
+              {
+                chemin: '/fr/a',
+                datePublication: '2026-09-18',
+                clics: 0,
+                impressions: 0,
+                visitesUmami: 0,
+              },
+            ],
+            total: 144,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.publieRecemment.total).toBe(144);
+      expect(rapport.blocs.gsc.donnees?.publieRecemment.liste).toHaveLength(1);
+    });
+
+    // Cas central : visitesUmami peut valoir null (bloc Umami en panne cette
+    // semaine-là), distinct d'un zéro constaté.
+    it('lit visitesUmami null comme une mesure indisponible, distincte du zéro', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        gscV3({
+          publieRecemment: {
+            liste: [
+              {
+                chemin: '/fr/dossiers/nouveau',
+                datePublication: '2026-09-18',
+                clics: 3,
+                impressions: 40,
+                visitesUmami: null,
+              },
+            ],
+            total: 1,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.publieRecemment.liste[0].visitesUmami).toBeNull();
+      expect(rapport.blocs.gsc.donnees?.publieRecemment.liste[0].clics).toBe(3);
+    });
+
+    it('rend publieRecemment { liste: [], total: null } quand absent ou du mauvais type, sans planter', async () => {
+      vi.mocked(readFile).mockResolvedValue(gscV3({ publieRecemment: 'pas-un-objet' }));
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.publieRecemment).toEqual({ liste: [], total: null });
+    });
+
+    it('rend liste vide quand publieRecemment.liste est du mauvais type, sans planter', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        gscV3({ publieRecemment: { liste: 'pas-un-tableau', total: 144 } }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.publieRecemment).toEqual({ liste: [], total: 144 });
+    });
+
+    it('écarte une entrée de publieRecemment.liste sans chemin', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        gscV3({
+          publieRecemment: {
+            liste: [
+              { datePublication: '2026-09-18', clics: 0, impressions: 0, visitesUmami: null },
+            ],
+            total: 1,
+          },
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.publieRecemment.liste).toEqual([]);
+    });
+
+    it('lit requetesEmergentes comme { requete, impressions, impressionsPrecedentes, position }', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        gscV3({
+          requetesEmergentes: [
+            {
+              requete: 'permis environnement bruxelles',
+              impressions: 30,
+              impressionsPrecedentes: 0,
+              position: 14.2,
+            },
+          ],
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.requetesEmergentes).toEqual([
+        {
+          requete: 'permis environnement bruxelles',
+          impressions: 30,
+          impressionsPrecedentes: 0,
+          position: 14.2,
+        },
+      ]);
+    });
+
+    it('écarte une requête émergente sans texte de requête', async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        gscV3({
+          requetesEmergentes: [{ impressions: 30, impressionsPrecedentes: 0, position: 14.2 }],
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.requetesEmergentes).toEqual([]);
+    });
+
+    it('rend requetesEmergentes vide quand absent, sans planter', async () => {
+      vi.mocked(readFile).mockResolvedValue(gscV3({}));
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.requetesEmergentes).toEqual([]);
+    });
   });
 
   // Red team (2026-09-20) : la tuile annonçait « Alertes techniques 0 »

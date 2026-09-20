@@ -9,7 +9,7 @@ import { TrafficTile } from '@/components/admin/traffic-tile';
 import { InfraTile } from '@/components/admin/infra-tile';
 import { SubscribersTile } from '@/components/admin/subscribers-tile';
 import { DigestTile } from '@/components/admin/digest-tile';
-import { DraftsTile } from '@/components/admin/drafts-tile';
+import { ARelireTile } from '@/components/admin/a-relire-tile';
 import { ContentTile } from '@/components/admin/content-tile';
 import { ChatTile } from '@/components/admin/chat-tile';
 import { RefonteTile } from '@/components/admin/refonte-tile';
@@ -64,8 +64,8 @@ export default async function AdminHubPage({
         <Suspense fallback={<TileSkeleton title="Digest en cours" />}>
           <DigestTile locale={locale} />
         </Suspense>
-        <Suspense fallback={<TileSkeleton title="Brouillons" />}>
-          <DraftsTile locale={locale} />
+        <Suspense fallback={<TileSkeleton title="À relire" />}>
+          <ARelireTile locale={locale} />
         </Suspense>
         <Suspense fallback={<TileSkeleton title="Contenu à publier" />}>
           <ContentTile locale={locale} />

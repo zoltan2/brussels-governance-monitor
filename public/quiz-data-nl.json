@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-09-18T16:01:42.111Z",
+  "generatedAt": "2026-09-20T16:20:29.530Z",
   "locale": "nl",
-  "poolSize": 67,
+  "poolSize": 68,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welk risiconiveau kent het Federaal Planbureau op 15 september 2026 toe aan de houdbaarheid van de schuld van het Brussels Gewest?",
+      "question": "Tot welk schuldniveau, uitgedrukt als percentage van de gewestelijke ontvangsten, wordt het Brussels Gewest volgens BX1 (15 september 2026) verwacht te evolueren in 2031?",
       "options": [
-        "Hoog, net als voor Wallonië en de Franse Gemeenschap",
-        "Matig, net als voor Vlaanderen",
-        "Laag, als enige deelstaat in dat geval",
-        "Niet beoordeeld, bij gebrek aan gewestelijke cijfers"
+        "328 % van de gewestelijke ontvangsten",
+        "327 % van de gewestelijke ontvangsten",
+        "158 % van de gewestelijke ontvangsten",
+        "118 % van de gewestelijke ontvangsten"
       ],
       "correct": 0,
-      "explanation": "Alleen het Vlaamse risico noemt het Planbureau matig. De analyse herinnert eraan dat de totale Belgische overheidsschuld eind 2025 692 miljard euro bedroeg, oftewel 108 % van het bruto binnenlands product. Geen enkel cijfer dat specifiek op het Brussels Gewest slaat komt in de geraadpleegde bronnen voor, en de analyse zelf werd niet gelezen: het vertrouwen is geschat.",
+      "explanation": "Het Federaal Planbureau situeert Wallonië op 327 %, de Federatie Wallonië-Brussel op 158 % en Vlaanderen, de enige entiteit met een als matig bestempeld risico, op 118 % van zijn ontvangsten in 2031.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:59b46c6497288342cd6fa0105b7fa14a",
-        "generatedAt": "2026-09-18T15:59:42.437Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:dc721cff487dda1a04a9b3860346eef9",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Hoe evolueerde het aandeel van de deelstaten in de Belgische overheidsschuld tussen 2008 en 2025, volgens de analyse die op 15 september 2026 werd overgenomen?",
+      "question": "Op 17 augustus 2026 verstuurde de Stad Brussel de aanslagbiljetten van de onroerende voorheffing 2026. Tot welk bedrag werden de gemeentelijke opcentiemen verhoogd?",
       "options": [
-        "Van 8,4 % naar 18,4 %",
-        "Van 8,4 % naar 12,1 %",
-        "Van 12,6 % naar 18,4 %",
-        "Van 5,2 % naar 22,7 %"
+        "3.457",
+        "2.980",
+        "4.090",
+        "3.090"
       ],
       "correct": 0,
-      "explanation": "De totale Belgische overheidsschuld bedroeg eind 2025 692 miljard euro, oftewel 108 % van het bruto binnenlands product. In dat kader acht het Federaal Planbureau het risico op onhoudbaarheid hoog voor het Brussels Gewest, het Waals Gewest en de Franse Gemeenschap, en matig voor de Vlaamse schuld.",
+      "explanation": "De stijging van 17,2 % wordt door de Stad voorgesteld als volledig gecompenseerd voor eigenaars-bewoners, via een forfaitaire gemeentelijke aftrek en de gewestelijke Be-Home-premie. Sint-Joost-ten-Node kende in 2026 de sterkste stijging, van 2.980 naar 4.090.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:59b46c6497288342cd6fa0105b7fa14a",
-        "generatedAt": "2026-09-18T15:59:42.437Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:dc721cff487dda1a04a9b3860346eef9",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobiliteit",
-      "question": "Welk beginsel stelde de Raad van State op 9 september 2026 tegenover de Brusselse hervorming van de lage-emissiezone?",
+      "question": "Welke Brusselse gemeente kondigde op 17 en 18 september 2026 aan niet deel te nemen aan de tweede gewestelijke autoloze zondag van 2 mei 2027?",
       "options": [
-        "Het in de Grondwet verankerde standstillbeginsel",
-        "Het beginsel van gelijkheid voor de openbare lasten",
-        "Het beginsel van vrij verkeer van personen",
-        "Het evenredigheidsbeginsel van de sancties"
+        "Woluwe-Saint-Lambert",
+        "Elsene",
+        "Schaarbeek",
+        "Ukkel"
       ],
       "correct": 0,
-      "explanation": "Hij verwerpt noch de jaarpas van 350 euro noch het sociaal tarief van 200 euro, maar oordeelt dat de regering onvoldoende aantoont hoe de luchtkwaliteit zou verbeteren terwijl de versoepeling meer vervuilende voertuigen zou toelaten. Het besluit gaat terug in voorbereiding vóór een tweede lezing; de inwerkingtreding blijft gemikt op 2027.",
+      "explanation": "Het schepencollege voert een geraamde organisatiekost van 35.000 tot 50.000 euro en de inzet van 70 tot 80 politieagenten aan; het kabinet van de gewestelijke minister van Mobiliteit betwist het argument over de fietssubsidies.",
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:9282ee68deff691fdb3e10e35a84188e",
-        "generatedAt": "2026-09-18T13:35:23.844Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:007b2bd863df244d02eabdb6d8eeef4c",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobiliteit",
-      "question": "Welk aandeel van haar ongeveer 2 200 bovengrondse haltes was op 10 september 2026 zelfstandig toegankelijk voor personen met beperkte mobiliteit, volgens de MIVB?",
+      "question": "Volgens BRUZZ, de hoeveelste keer werd het punt over de evaluatie van Good Move op donderdag 10 september 2026 uitgesteld in de Brusselse regering?",
       "options": [
-        "Ongeveer een kwart van de haltes",
-        "Ongeveer een tiende van de haltes",
-        "Ongeveer drie kwart van de haltes",
-        "Ongeveer de helft van de haltes"
+        "De vierde keer",
+        "De tweede keer",
+        "De derde keer",
+        "De vijfde keer"
       ],
       "correct": 0,
-      "explanation": "Sinds 2019 werden ongeveer 500 haltes aan de normen aangepast, en de helft van het bovengrondse net is toegankelijk mits hulp. Daarnaast beschikken 59 van de 69 metro- en premetrostations over liften.",
+      "explanation": "Het punt staat sinds begin juli 2026 op de agenda van de regering; de minister van Mobiliteit stelt voor de wettelijke procedure van de ordonnantie van 13 oktober 2023 over de mobiliteitsplanning te volgen, terwijl Good Move van kracht blijft tot de goedkeuring van het volgende plan.",
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:9282ee68deff691fdb3e10e35a84188e",
-        "generatedAt": "2026-09-18T13:35:23.844Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:007b2bd863df244d02eabdb6d8eeef4c",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Over welk jaarlijks bedrag beschikt het federale veiligheids- en preventiefonds voor Brussel, volgens de informatie van 17 september 2026?",
+      "question": "De federale ministerraad keurde op 18 september 2026 een verlenging met zes maanden van het dispositief 'Urban Shield' goed. Volgens RTBF en BX1, tot hoeveel militairen stijgt het contingent in de Brusselse stations en metrostations met deze verlenging?",
       "options": [
-        "55 miljoen euro, waarvan 35 voor de politiezones",
-        "20 miljoen euro, waarvan 12 voor de politiezones",
-        "110 miljoen euro, waarvan 70 voor de politiezones",
-        "35 miljoen euro, waarvan 20 voor de politiezones"
+        "Een vijftigtal",
+        "Een dertigtal",
+        "Vijfenveertig",
+        "Een zestigtal"
       ],
       "correct": 0,
-      "explanation": "Twintig miljoen gaat naar de gemeenten, voor de beveiliging van de Europese toppen en de internationale rol van de hoofdstad. Verscheidene miljoenen zouden andere uitgaven hebben gefinancierd, waaronder een cheque van 828 000 euro aan de gewestelijke sociale huisvestingsmaatschappij in 2020 en een nooit gebouwd cybercentrum. De bronnen gebruiken de voorwaardelijke wijs en citeren geen enkel officieel stuk: het vertrouwen is onbevestigd.",
+      "explanation": "Het contingent telde een dertigtal militairen bij de start in april 2026. Het cijfer van 45 militairen, elders in de fiche vermeld voor de uitbreiding van 3 april 2026, komt uit een andere bron op een andere datum en wordt hier niet met dit cijfer verzoend.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:0a1d3f66dbe7b07b4ba2fb45b2f2e2fb",
-        "generatedAt": "2026-09-18T16:01:42.111Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:02fde4560cad30bad1b25216c8c452e0",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Wat stelt de veiligheidsfiche op 8 september 2026 vast over de inventaris van de camera's in het Brussels Gewest?",
+      "question": "Het hoeveelste 'hotspot'-gebied tegen drugs, ingesteld bij politiebesluit in het Brussels Gewest, is dat op vraag van de gemeente Elsene rond de Graystraat, de Marie-Henriettelaan, de Gistlaan en de Brouwerijstraat, nabij Flagey (18-19 september 2026)?",
       "options": [
-        "Er bestaat geen nauwkeurig kadaster van het park",
-        "Het kadaster wordt sinds 2024 door Safe.brussels bijgehouden",
-        "Elke politiezone publiceert haar eigen inventaris",
-        "Een gewestelijke inventaris werd in november 2025 afgesloten"
+        "Het negentiende",
+        "Het twaalfde",
+        "Het vijftiende",
+        "Het twintigste"
       ],
       "correct": 0,
-      "explanation": "De vaststelling sluit aan bij die van het Rekenhof, dat op 5 november 2025 schreef dat er geen volledige fysieke inventaris van de activa van de beherende instelling bestaat. De hoofdstad telt meer dan zesduizend camera's, verdeeld over verschillende administraties en operatoren. De cijfers die elders worden aangevoerd komen uit één enkel gesprek en worden overgenomen als verklaring, niet als inventaris.",
+      "explanation": "Het besluit, ondertekend door de minister-president, verbiedt alcoholconsumptie op de openbare weg en de verkoop om mee te nemen tussen 22u en 6u, en maakt verscherpte controles en het gebruik van mobiele camera's mogelijk.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, 10 M EUR stations, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:0a1d3f66dbe7b07b4ba2fb45b2f2e2fb",
-        "generatedAt": "2026-09-18T16:01:42.111Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:02fde4560cad30bad1b25216c8c452e0",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -629,21 +629,21 @@
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Werkgelegenheid",
-      "question": "Op welke twee pijlers steunt het Brusselse stelsel van de gesubsidieerde contractuelen (GESCO)?",
+      "question": "Hoeveel GESCO-posten werden er volgens de fiche eind 2017 gesubsidieerd, bij 1 312 werkgevers?",
       "options": [
-        "Een gewestelijke premie en een verlaging van de patronale bijdragen",
-        "Een renteloze lening en een vrijstelling van roerende voorheffing",
-        "Een opleidingsuitkering en een driemaandelijkse dienstencheque",
-        "Een gemeentelijke dotatie en een terugbetaling van reiskosten"
+        "Ongeveer 10 000",
+        "Ongeveer 6 700",
+        "Ongeveer 7 000",
+        "Ongeveer 2 500"
       ],
       "correct": 0,
-      "explanation": "De patronale socialezekerheidsbijdragen worden teruggebracht tot 0,56 %. De posten zijn bestemd voor werkzoekenden die bij Actiris zijn ingeschreven, onder voorwaarden van werkloosheidsduur, leeftijd of handicap.",
+      "explanation": "Meer dan 7 000 posten bevonden zich bij vzw's en besturen (posten 'Programmawet') en ongeveer 2 500 bij lokale besturen; in 2024 wordt het aantal actieve posten geraamd op ongeveer 6 700, door posten die niet binnen de verplichte termijn van zes maanden werden ingevuld sinds 2015.",
       "sourceSlug": "/nl/dossiers/acs",
       "sourceTitle": "GESCO",
       "provenance": {
-        "sourceLastModified": "2026-07-05",
-        "sourceContentHash": "sha256:16da17efceb8a8d97417b455cfd85b02",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:8742130c014c5af27611653bd6ecbaaa",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -652,21 +652,21 @@
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Werkgelegenheid",
-      "question": "Wat voerde de Brusselse hervorming van de gesubsidieerde contractuelen (GESCO), gestart in maart 2015, in voor een post die vacant wordt?",
+      "question": "Welke staatshervorming droeg in 2014 de bevoegdheid werkgelegenheid, met inbegrip van het GESCO-stelsel, over van het federale naar het gewestelijke niveau?",
       "options": [
-        "Een termijn van 6 maanden om hem in te vullen, anders gaat hij verloren",
-        "Een automatische overname van de post door een andere vereniging",
-        "Een verplichte audit van de werkgever om de 3 boekjaren",
-        "Een oproep tot mededinging, bekendgemaakt in het Belgisch Staatsblad"
+        "De 6e staatshervorming",
+        "De 5e staatshervorming",
+        "De 4e staatshervorming",
+        "De 7e staatshervorming"
       ],
       "correct": 0,
-      "explanation": "Die termijn is niet verlengbaar. Dat verklaart het verschil tussen de 10 000 gesubsidieerde posten eind 2017 en de 6 700 actieve posten die voor 2024 worden geraamd.",
+      "explanation": "Het GESCO-stelsel bestaat sinds 1987, oorspronkelijk gecreëerd als instrument tegen de Brusselse werkloosheid; de 6e staatshervorming gaf het Brussels Gewest de volledige verantwoordelijkheid over dit mechanisme.",
       "sourceSlug": "/nl/dossiers/acs",
       "sourceTitle": "GESCO",
       "provenance": {
-        "sourceLastModified": "2026-07-05",
-        "sourceContentHash": "sha256:16da17efceb8a8d97417b455cfd85b02",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:8742130c014c5af27611653bd6ecbaaa",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -721,21 +721,21 @@
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welke factor wijst het BISA in zijn Focus van 2025 aan als de meest bepalende voor de levenstevredenheid van de Brusselaars?",
+      "question": "Volgens de Nationale Geluksbarometer (UGent/NN), enquête bij 1.572 respondenten in januari 2026 en gepubliceerd in maart 2026, welk Belgisch gewest behaalt de hoogste score voor subjectief geluk?",
       "options": [
-        "De gezondheid, fysiek en mentaal",
-        "Het behaalde diplomaniveau",
-        "De grootte van de bewoonde woning",
-        "De duur van de dagelijkse verplaatsingen"
+        "Het Brussels Hoofdstedelijk Gewest, met 6,62/10",
+        "Vlaanderen, met 6,61/10",
+        "Wallonië, met 6,36/10",
+        "Het nationaal gemiddelde, met 6,53/10"
       ],
       "correct": 0,
-      "explanation": "De Brusselaars geven hun tevredenheid over het leven gemiddeld 7,5 op 10, gelijk aan Wallonië en lager dan Vlaanderen. Daarna volgen de levensstandaard, de sociale relaties, de woning en de mogelijkheid om te werken.",
+      "explanation": "Voor het eerst sinds 2017 scoren werkenden niet langer hoger dan gepensioneerden; werklozen (5,32/10) en arbeidsongeschikten (5,13/10) rapporteren de laagste scores.",
       "sourceSlug": "/nl/dossiers/bien-etre",
       "sourceTitle": "Welzijn",
       "provenance": {
-        "sourceLastModified": "2026-06-16",
-        "sourceContentHash": "sha256:9698868d9888715bf73e284026adafd4",
-        "generatedAt": "2026-08-25T12:39:57.281Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:c3f86c370c6fe00ccf2fc2ee4f2628eb",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,44 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Waarmee begon Beliris op 15 september 2026 rond het Noordstation?",
+      "question": "Volgens het ARAU (9 september 2026), hoeveel schuilkelders, ouder dan de beschermde schuilkelder onder het Vossenplein, zegt de vereniging te hebben vastgesteld in de kelders van het Zuidpaleis?",
       "options": [
-        "Het opvullen van de uitgegraven sleuven, Toekomststraat en Aarschotstraat",
-        "Het boren van de tunnel richting het station Liedts",
-        "De afbraak van de overkappingsplaat van de perrons",
-        "De installatie van de uitrusting van het toekomstige station"
+        "Twee",
+        "Een",
+        "Drie",
+        "Vier"
       ],
       "correct": 0,
-      "explanation": "Het is een gevolg van de stopzetting van de werf van metro 3. De wegenis van de Toekomststraat moet volgens Beliris vóór het einde van 2026 in de oorspronkelijke staat worden hersteld, de opwaardering van de Aarschotstraat moet in de loop van 2027 klaar zijn. Het totale budget wordt niet meegedeeld, en die termijnen zijn geschat: ze komen van Beliris en zijn niet op stuk gecontroleerd.",
+      "explanation": "Het ARAU dateert ze op 1940 en 1943, op een oppervlakte van 450 vierkante meter met een capaciteit tot 1 500 personen, en vraagt archeologisch werk vóór de voortzetting van de ondergrondse werken van metro 3.",
       "sourceSlug": "/nl/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:1c296f284d48a0ae8bab26ecd9e4fafb",
-        "generatedAt": "2026-09-18T16:01:42.111Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:c8fe414d56983350dab39c6d647e3ca7",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-metro-3-1",
+      "source": "dossier",
+      "domain": "Mobiliteit",
+      "question": "Op 15 september 2026 begon Beliris met het opvullen van uitgegraven putten rond het Noordstation, na de stopzetting van de werven van Metro 3. Welke twee straten zijn betrokken?",
+      "options": [
+        "De Vooruitgangsstraat en de Aarschotstraat",
+        "De Graystraat en de Marie-Henriettelaan",
+        "De Nieuwstraat en de Anspachlaan",
+        "De Wetstraat en de Belliardstraat"
+      ],
+      "correct": 0,
+      "explanation": "De rijweg van de Vooruitgangsstraat moet volgens Beliris tegen het einde van 2026 identiek worden hersteld, de herwaardering van de Aarschotstraat moet in de loop van 2027 zijn afgerond; het traject Albert-Noord blijft voor onbepaalde duur bevroren.",
+      "sourceSlug": "/nl/dossiers/metro-3",
+      "sourceTitle": "Metro 3",
+      "provenance": {
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:c8fe414d56983350dab39c6d647e3ca7",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Tot welk jaar blijft de concessie van de Villo-deelfietsen behouden, volgens het startgesprek van het werkjaar met de gewestelijke minister van Mobiliteit op 8 september 2026?",
+      "question": "Welke operator van deelsteps en deelfietsen kreeg op 29 juli 2026, op eigen beroep, de vernietiging door de Raad van State van de vergunningen van Bolt, Dott en Voi?",
       "options": [
-        "Tot 2028",
-        "Tot 2026",
-        "Tot 2030",
-        "Tot 2027"
+        "Lime",
+        "Villo",
+        "TIER",
+        "Pony"
       ],
       "correct": 0,
-      "explanation": "Het gaat om een correctie: het dossier vermeldde eerder een afloop in september 2026 zonder geïdentificeerde opvolger. Een oproep tot kandidaten is aangekondigd, met als doel een jaarabonnement rond 35 euro en een tarief per half uur te behouden.",
+      "explanation": "De vernietiging leidde tot de aankondiging, op 21 augustus 2026, van een overgangsregeling: deelsteps blijven beschikbaar tot 1 januari 2027, deelfietsen tot mei 2028 met een plafond van 2 500 fietsen per operator.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:2ee84ca70fa5e46027945d02451ff009",
-        "generatedAt": "2026-09-18T13:59:54.038Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:faae1bdb035879a0a0b37f1c064dd34a",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Welk effect had het arrest van de Raad van State van 29 juli 2026 op het verbod op deelsteps in Brussel?",
+      "question": "Op 8 september 2026 kondigde het Gewest het behoud van het Villo-contract tot 2028 aan, samen met een oproep tot kandidaten. Rond welk bedrag ligt het beoogde jaarabonnement, tegenover 3,50 euro per maand op 19 september 2026?",
       "options": [
-        "Het vervroegde het met vier maanden, zonder het in vraag te stellen",
-        "Het vernietigde het, waardoor de markt heropende voor twee operatoren",
-        "Het stelde het een jaar uit, tot de stemming van een nieuwe ordonnantie",
-        "Het breidde het uit tot de deelfietsen met vaste verankering"
+        "35 euro",
+        "50 euro",
+        "20 euro",
+        "70 euro"
       ],
       "correct": 0,
-      "explanation": "Het verbod, beslist op 11 juni 2026 en vastgelegd op 1 januari 2027, wordt niet geraakt: het arrest vernietigt de licenties, wat de terugtrekking van de toestellen uit de openbare ruimte oplegt vanaf 1 september 2026. Voor de deelfietsen in vrije vloot is het effect anders, aangezien de regering dat aanbod wilde behouden.",
+      "explanation": "Op 19 september 2026 kost Villo 3,50 euro per maand of 1,50 euro voor een dagticket; de 360 Villo!-stations vertegenwoordigen ongeveer 5 000 fietsen met vast ankeringspunt, naast ongeveer 15 700 voertuigen in free-floating geteld in maart 2025.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:2ee84ca70fa5e46027945d02451ff009",
-        "generatedAt": "2026-09-18T13:59:54.038Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:faae1bdb035879a0a0b37f1c064dd34a",
+        "generatedAt": "2026-09-20T16:20:29.530Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1545,6 +1568,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 67
+  ]
 }

@@ -164,7 +164,7 @@ describe('AdminRapportPage', () => {
     vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
     await rendrePage();
     expect(screen.queryByText(/semaine précédente/i)).toBeNull();
-    expect(screen.getByText(/28 jours précédents/)).toBeDefined();
+    expect(screen.getAllByText(/28 jours précédents/).length).toBeGreaterThan(0);
   });
 
   function statPagesPassees(): Element | null | undefined {
@@ -535,4 +535,148 @@ describe('AdminRapportPage', () => {
     await rendrePage();
     expect(screen.getByText(/20 premières sur 25/)).toBeDefined();
   });
+
+  // Correctif lisibilité (2026-09-20) : l'éditeur lit les chiffres bien
+  // avant d'atteindre « À propos de ce relevé ». Chaque section doit
+  // annoncer sa fenêtre en dates lisibles, sous son propre titre.
+  function fenetresParSection() {
+    // « Search Console », « Umami » et « Passage technique » sont chacun
+    // titre d'un h3 dans Chiffres clés ET d'un h3 dans Détails : on prend le
+    // premier du document (Chiffres clés, lu avant Détails).
+    return {
+      gsc: screen.getAllByRole('heading', { level: 3, name: 'Search Console' })[0]
+        .nextElementSibling,
+      umami: screen.getAllByRole('heading', { level: 3, name: 'Umami' })[0].nextElementSibling,
+      crawl: screen.getAllByRole('heading', { level: 3, name: 'Passage technique' })[0]
+        .nextElementSibling,
+    };
+  }
+
+  it('affiche la fenêtre en dates lisibles sous le titre de chaque section', async () => {
+    const fenetre = { debut: '2026-08-21', fin: '2026-09-17', fuseau: 'America/Los_Angeles' };
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES, fenetre),
+        umami: blocOk(DONNEES_UMAMI_VIDES, { ...fenetre, fuseau: 'UTC' }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES, { ...fenetre, fuseau: 'UTC' }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const { gsc, umami, crawl } = fenetresParSection();
+    expect(gsc?.textContent).toMatch(/28 jours, du 21 août au 17 septembre 2026/);
+    expect(umami?.textContent).toMatch(/28 jours, du 21 août au 17 septembre 2026/);
+    expect(crawl?.textContent).toMatch(/28 jours, du 21 août au 17 septembre 2026/);
+  });
+
+  it("n'affiche aucune phrase de fenêtre sous le titre d'une section dont la fenêtre est indisponible", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+    const { gsc, umami, crawl } = fenetresParSection();
+    expect(gsc?.textContent).not.toMatch(/\d+ jours, du/);
+    expect(umami?.textContent).not.toMatch(/\d+ jours, du/);
+    expect(crawl?.textContent).not.toMatch(/\d+ jours, du/);
+  });
+
+  it('nomme les chiffres clés en français simple, avec une explication sous chaque groupe', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+
+    // Étiquettes qui se comprennent seules.
+    expect(screen.getByText('Clics depuis la Belgique')).toBeDefined();
+    expect(screen.queryByText('CTR', { selector: 'dt' })).toBeNull();
+    expect(screen.getByText('Taux de clic', { selector: 'dt' })).toBeDefined();
+    expect(screen.getByText('Position moyenne dans Google', { selector: 'dt' })).toBeDefined();
+    expect(
+      screen.queryByText('Position moyenne (plus bas = mieux classé)', { selector: 'dt' }),
+    ).toBeNull();
+    expect(
+      screen.getByText('Visites ayant vu au moins deux pages', { selector: 'dt' }),
+    ).toBeDefined();
+    expect(screen.queryByText('Part des visites multi-pages', { selector: 'dt' })).toBeNull();
+
+    // Phrases d'explication en clair.
+    expect(screen.getByText(/comptent le monde entier/)).toBeDefined();
+    expect(screen.getByText(/bruit international/)).toBeDefined();
+    expect(screen.getByText(/1 étant la première place/)).toBeDefined();
+    expect(
+      screen.getByText(/la part des affichages dans les résultats qui ont donné un clic/),
+    ).toBeDefined();
+    expect(screen.getByText(/reparti aussitôt n.y est pas compté/)).toBeDefined();
+  });
+
+  it('affiche les dates de la période de comparaison des clics Belgique (28 jours précédant la fenêtre courante)', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES, {
+          debut: '2026-08-21',
+          fin: '2026-09-17',
+          fuseau: 'America/Los_Angeles',
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    // Les 28 jours précédant le 21 août 2026 : du 24 juillet au 20 août 2026.
+    expect(screen.getByText(/24 juillet au 20 août 2026/)).toBeDefined();
+  });
+
+  it('affiche une phrase de synthèse quand le crawl ne trouve aucune anomalie', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk({
+          pages: Array.from({ length: 628 }, (_, i) => ({
+            url: `https://governance.brussels/fr/${i}`,
+            statut: 200,
+            canonical: null,
+            titre: 'Titre',
+            description: 'Description',
+            hreflang: ['fr'],
+          })),
+          bloquees: 0,
+          echecs: 0,
+        }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(screen.getByText(/628 pages contrôlées, aucune anomalie/)).toBeDefined();
+    // Pas de grille de « aucune » à côté de la phrase de synthèse.
+    expect(screen.queryByText('Bloquées', { selector: 'dt' })).toBeNull();
+    expect(screen.queryByText('Échecs', { selector: 'dt' })).toBeNull();
+  });
+
+  it('liste les anomalies détaillées, y compris les pages cassées, au lieu de la phrase de synthèse', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk({
+          pages: [
+            ...Array.from({ length: 25 }, (_, i) => pageCrawl(`/cassee-${i}`, 500)),
+            ...Array.from({ length: 600 }, (_, i) => pageCrawl(`/ok-${i}`, 200)),
+          ],
+          bloquees: 0,
+          echecs: 0,
+        }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(screen.queryByText(/pages contrôlées, aucune anomalie/)).toBeNull();
+    const cassees = screen
+      .getByText('Pages sans statut 200', { selector: 'dt' })
+      .closest('div')
+      ?.querySelector('dd');
+    expect(cassees?.textContent).toBe('25');
+  });
+
 });

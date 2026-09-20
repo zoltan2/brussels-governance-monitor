@@ -1833,6 +1833,42 @@
     "step3": "Click \"Validate & publish\" to make the card live",
     "step4": "Or \"Reject\" with a reason to archive it"
   },
+  "relecture": {
+    "title": "To review",
+    "intro": "Three signals drawn from the cards and the weekly SEO report, to catch what is ageing before someone else notices.",
+    "total": "{count, plural, one {# item to review} other {# items to review}}",
+    "unavailableCount": "unavailable",
+    "pagesIa": {
+      "title": "Pages cited by AI assistants, not updated",
+      "explain": "Actions from the weekly SEO report carrying the \"page-ia-perimee\" rule.",
+      "unavailable": "SEO report unavailable this week: impossible to check whether pages cited by AI assistants need updating.",
+      "empty": "No page flagged by the SEO report this week: the page-ia-perimee rule found nothing to review.",
+      "count": "{count, plural, one {# page} other {# pages}}"
+    },
+    "faq": {
+      "title": "FAQ lagging behind the card",
+      "explain": "Republished cards whose FAQ has not been reviewed since.",
+      "empty": "No FAQ lagging behind: every republished card carries an FAQ reviewed on or after its last update.",
+      "count": "{count, plural, one {# card} other {# cards}}"
+    },
+    "chapeau": {
+      "title": "Stale summaries",
+      "explain": "Summary reviewed more than {days} days ago, or never reviewed.",
+      "empty": "No stale summary: every summary was reviewed less than {days} days ago.",
+      "count": "{count, plural, one {# card} other {# cards}}"
+    },
+    "item": {
+      "age": "{count, plural, one {# day ago} other {# days ago}}",
+      "ageUnavailable": "age unavailable",
+      "file": "File: {path}",
+      "fileUnavailable": "file not identified",
+      "link": "View the published page",
+      "unknownTitle": "Page not identified",
+      "collectionDomain": "Domain",
+      "collectionDossier": "Dossier",
+      "collectionUnknown": "Page"
+    }
+  },
   "verification": {
     "title": "Latest verification",
     "date": "Verified on {date}",

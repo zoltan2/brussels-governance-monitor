@@ -15,15 +15,20 @@ vi.mock('@/lib/traffic-status', () => ({ readTrafficStatus: vi.fn() }));
 vi.mock('@/lib/infra-status', () => ({ readInfraStatus: vi.fn() }));
 vi.mock('@/lib/resend', () => ({ countActiveContacts: vi.fn() }));
 vi.mock('@/lib/refonte-votes', () => ({ getVoteStats: vi.fn() }));
+vi.mock('@/lib/a-relire', () => ({ chargerElementsARelire: vi.fn() }));
+vi.mock('@/lib/content', () => ({ getDraftCards: vi.fn() }));
 
 import { readTrafficStatus } from '@/lib/traffic-status';
 import { readInfraStatus } from '@/lib/infra-status';
 import { countActiveContacts } from '@/lib/resend';
 import { getVoteStats } from '@/lib/refonte-votes';
+import { chargerElementsARelire } from '@/lib/a-relire';
+import { getDraftCards } from '@/lib/content';
 import { TrafficTile } from './traffic-tile';
 import { InfraTile } from './infra-tile';
 import { SubscribersTile } from './subscribers-tile';
 import { RefonteTile } from './refonte-tile';
+import { ARelireTile } from './a-relire-tile';
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -150,5 +155,50 @@ describe('RefonteTile', () => {
     render(await RefonteTile({ locale: 'fr' }));
     expect(screen.getByText('16')).toBeDefined();
     expect(screen.getByText('votes')).toBeDefined();
+  });
+});
+
+describe('ARelireTile', () => {
+  const ELEMENTS_VIDES = { pagesIa: [], faq: [], chapeau: [] };
+
+  it('additionne les trois listes et les brouillons dans le total', async () => {
+    vi.mocked(chargerElementsARelire).mockResolvedValue({
+      pagesIa: [{}, {}],
+      faq: [{}],
+      chapeau: [{}, {}, {}],
+    } as never);
+    vi.mocked(getDraftCards).mockReturnValue([{}] as never);
+    render(await ARelireTile({ locale: 'fr' }));
+    // 2 + 1 + 3 + 1 = 7
+    expect(screen.getByText('7')).toBeDefined();
+    expect(screen.getByText('éléments à relire')).toBeDefined();
+  });
+
+  it("n'invente pas un zéro pour les pages IA quand le rapport SEO est indisponible", async () => {
+    vi.mocked(chargerElementsARelire).mockResolvedValue({
+      pagesIa: null,
+      faq: [],
+      chapeau: [],
+    } as never);
+    vi.mocked(getDraftCards).mockReturnValue([]);
+    render(await ARelireTile({ locale: 'fr' }));
+    expect(screen.getByText('indisponible')).toBeDefined();
+    // Le total (le grand chiffre du haut) ne doit pas confondre indisponible
+    // avec zéro : il vaut 0 ici car aucune AUTRE liste n'a d'élément, pas
+    // parce que pagesIa vaudrait zéro (affiché « indisponible » juste au-dessus).
+    expect(screen.getByText('0', { selector: '.text-3xl' })).toBeDefined();
+  });
+
+  it('affiche « Indisponible » quand les collections de contenu ne se chargent pas', async () => {
+    vi.mocked(chargerElementsARelire).mockRejectedValue(new Error('velite manquant'));
+    render(await ARelireTile({ locale: 'fr' }));
+    expect(screen.getByText(/Indisponible/)).toBeDefined();
+  });
+
+  it('accorde le libellé au singulier pour un seul élément', async () => {
+    vi.mocked(chargerElementsARelire).mockResolvedValue(ELEMENTS_VIDES as never);
+    vi.mocked(getDraftCards).mockReturnValue([{}] as never);
+    render(await ARelireTile({ locale: 'fr' }));
+    expect(screen.getByText('élément à relire')).toBeDefined();
   });
 });

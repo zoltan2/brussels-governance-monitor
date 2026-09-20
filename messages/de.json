@@ -1833,6 +1833,42 @@
     "step3": "Klicken Sie auf « Validieren & veröffentlichen » um die Karte online zu stellen",
     "step4": "Oder « Ablehnen » mit einem Grund zum Archivieren"
   },
+  "relecture": {
+    "title": "Zu überprüfen",
+    "intro": "Drei Signale aus den Karten und dem wöchentlichen SEO-Bericht, um zu erkennen, was veraltet, bevor es jemand anderes bemerkt.",
+    "total": "{count, plural, one {# zu überprüfendes Element} other {# zu überprüfende Elemente}}",
+    "unavailableCount": "nicht verfügbar",
+    "pagesIa": {
+      "title": "Von KI-Assistenten zitierte, nicht aktualisierte Seiten",
+      "explain": "Maßnahmen aus dem wöchentlichen SEO-Bericht mit der Regel „page-ia-perimee“.",
+      "unavailable": "SEO-Bericht diese Woche nicht verfügbar: nicht überprüfbar, ob von KI-Assistenten zitierte Seiten aktualisiert werden müssen.",
+      "empty": "Keine Seite diese Woche vom SEO-Bericht gemeldet: die Regel page-ia-perimee hat nichts zur Überprüfung gefunden.",
+      "count": "{count, plural, one {# Seite} other {# Seiten}}"
+    },
+    "faq": {
+      "title": "FAQ hinkt der Karte hinterher",
+      "explain": "Neu veröffentlichte Karten, deren FAQ seitdem nicht überprüft wurde.",
+      "empty": "Keine FAQ im Rückstand: jede neu veröffentlichte Karte trägt eine FAQ, die am Tag der letzten Änderung oder danach überprüft wurde.",
+      "count": "{count, plural, one {# Karte} other {# Karten}}"
+    },
+    "chapeau": {
+      "title": "Veraltete Kurzfassungen",
+      "explain": "Kurzfassung vor mehr als {days} Tagen überprüft, oder nie überprüft.",
+      "empty": "Keine veraltete Kurzfassung: alle Kurzfassungen wurden vor weniger als {days} Tagen überprüft.",
+      "count": "{count, plural, one {# Karte} other {# Karten}}"
+    },
+    "item": {
+      "age": "{count, plural, one {vor # Tag} other {vor # Tagen}}",
+      "ageUnavailable": "Alter nicht verfügbar",
+      "file": "Datei: {path}",
+      "fileUnavailable": "Datei nicht identifiziert",
+      "link": "Veröffentlichte Seite ansehen",
+      "unknownTitle": "Seite nicht identifiziert",
+      "collectionDomain": "Bereich",
+      "collectionDossier": "Dossier",
+      "collectionUnknown": "Seite"
+    }
+  },
   "verification": {
     "title": "Letzte Überprüfung",
     "date": "Überprüft am {date}",

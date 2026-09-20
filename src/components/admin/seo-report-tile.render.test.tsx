@@ -140,4 +140,53 @@ describe('SeoReportTile', () => {
     expect(screen.getByText(/Aucune action cette semaine/)).toBeDefined();
     expect(screen.queryByText(/panne/)).toBeNull();
   });
+
+  function ligneVisitesAssistants(): Element | null | undefined {
+    return screen
+      .getByText("Visites d'assistants")
+      .closest('div')
+      ?.querySelector('dd');
+  }
+
+  it("affiche indisponible quand visitesIa est absent, pas un zéro", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocEnPanne('absent', null),
+        umami: blocOk({
+          visites: 500,
+          visitesIa: null, // champ absent ou du mauvais type côté producteur
+          pagesEntree: [],
+          profondeur: null,
+          evenements: null,
+        }),
+        crawl: blocEnPanne('absent', null),
+      },
+      fraicheur: FRAICHEUR_NEUTRE,
+    } satisfies RapportSeo);
+
+    render(await SeoReportTile());
+    expect(ligneVisitesAssistants()?.textContent).toBe('Indisponible');
+  });
+
+  it("affiche un zéro écrit en toutes lettres quand visitesIa est un tableau vide, pas indisponible", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocEnPanne('absent', null),
+        umami: blocOk({
+          visites: 500,
+          visitesIa: [], // COALESCE(..., '[]') : zéro visite constaté
+          pagesEntree: [],
+          profondeur: null,
+          evenements: null,
+        }),
+        crawl: blocEnPanne('absent', null),
+      },
+      fraicheur: FRAICHEUR_NEUTRE,
+    } satisfies RapportSeo);
+
+    render(await SeoReportTile());
+    expect(ligneVisitesAssistants()?.textContent).toBe(
+      "Aucune visite d'assistant cette semaine",
+    );
+  });
 });

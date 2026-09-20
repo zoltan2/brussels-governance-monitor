@@ -127,4 +127,41 @@ describe('AdminRapportPage', () => {
     render(await AdminRapportPage({ params: Promise.resolve({ locale: 'fr' }) }));
     expect(screen.queryByText(/historique/i)).toBeNull();
   });
+
+  function valeurPagesPassees(): string | null | undefined {
+    return screen
+      .getByText('Pages passées', { selector: 'dt' })
+      .closest('div')
+      ?.querySelector('dd')?.textContent;
+  }
+
+  it("affiche indisponible quand pages est absent, pas un zéro", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        // pages absent ou du mauvais type côté producteur : donnée manquante.
+        crawl: blocOk({ pages: null, bloquees: null, echecs: null }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    render(await AdminRapportPage({ params: Promise.resolve({ locale: 'fr' }) }));
+    expect(valeurPagesPassees()).toBe('indisponible');
+  });
+
+  it("affiche un zéro écrit en toutes lettres quand pages est un tableau vide, pas indisponible", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        // Tableau présent et vide : zéro page constatée cette semaine.
+        crawl: blocOk({ pages: [], bloquees: null, echecs: null }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    render(await AdminRapportPage({ params: Promise.resolve({ locale: 'fr' }) }));
+    expect(valeurPagesPassees()).toBe('aucune page passée cette semaine');
+  });
 });

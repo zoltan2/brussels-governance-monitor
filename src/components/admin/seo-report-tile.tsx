@@ -1,7 +1,12 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { readSeoReport, type Bloc, type RapportSeo } from '@/lib/seo-report';
+import {
+  readSeoReport,
+  type Bloc,
+  type RapportSeo,
+  type VisiteIa,
+} from '@/lib/seo-report';
 import { Tile } from './tile';
 import { freshnessClassName, type Freshness } from '@/lib/snapshot-freshness';
 
@@ -56,6 +61,17 @@ function formatNombre(n: number | null): string {
   return n === null ? 'Indisponible' : n.toLocaleString('fr-BE');
 }
 
+/** null = liste absente ou du mauvais type (donnée manquante) : indisponible.
+ * [] = liste présente et vide (COALESCE(..., '[]') côté SQL faute de ligne
+ * correspondante) : un vrai zéro constaté, écrit en toutes lettres pour ne
+ * jamais se confondre avec une panne. [...] = somme stricte habituelle. */
+function ligneVisitesIa(liste: VisiteIa[] | null): string {
+  if (liste === null) return 'Indisponible';
+  if (liste.length === 0) return "Aucune visite d'assistant cette semaine";
+  const total = sommeStricte(liste.map((v) => v.visites));
+  return total === null ? 'Indisponible' : total.toLocaleString('fr-BE');
+}
+
 export async function SeoReportTile() {
   const rapport = await readSeoReport();
   const { gsc, umami, crawl } = rapport.blocs;
@@ -67,14 +83,11 @@ export async function SeoReportTile() {
       ? clicsBelgique - clicsPrecedents
       : null;
 
-  // Visites d'assistants : quand le bloc Umami est à jour, un tableau vide
-  // veut dire « aucune visite d'assistant recensée cette semaine » (un vrai
-  // zéro), pas une donnée manquante. Quand le bloc n'est pas à jour, on ne
-  // sait rien : indisponible.
-  const visitesIa =
-    umami.status === 'ok' && umami.donnees
-      ? sommeStricte(umami.donnees.visitesIa.map((v) => v.visites))
-      : null;
+  // null = bloc pas à jour, ou visitesIa absent/du mauvais type : on ne sait
+  // rien. [] = bloc à jour, visitesIa un tableau vide : zéro constaté. Voir
+  // ligneVisitesIa pour l'affichage des trois cas.
+  const visitesIaListe: VisiteIa[] | null =
+    umami.status === 'ok' && umami.donnees ? umami.donnees.visitesIa : null;
 
   const alertesTechniques =
     crawl.status === 'ok' && crawl.donnees
@@ -120,7 +133,7 @@ export async function SeoReportTile() {
         <div className="flex justify-between gap-3">
           <dt className="text-neutral-600">Visites d&apos;assistants</dt>
           <dd className="text-right tabular-nums text-neutral-900">
-            {formatNombre(visitesIa)}
+            {ligneVisitesIa(visitesIaListe)}
           </dd>
         </div>
         <div className="flex justify-between gap-3">

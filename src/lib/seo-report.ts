@@ -99,7 +99,11 @@ export interface PageEntree {
 
 export interface UmamiDonnees {
   visites: number | null;
-  visitesIa: VisiteIa[];
+  // null = champ absent ou du mauvais type (donnée manquante, indisponible
+  // à l'affichage) ; [] = la requête SQL a répondu par COALESCE(..., '[]')
+  // faute de ligne correspondante (zéro visite d'assistant CONSTATÉ cette
+  // semaine, un vrai zéro, pas une panne).
+  visitesIa: VisiteIa[] | null;
   // Trié par visites décroissantes, au plus 50 entrées côté producteur
   // (bloc-umami.mjs) : ce module ne re-trie ni ne tronque, il valide.
   pagesEntree: PageEntree[];
@@ -114,7 +118,10 @@ export interface PageCrawl {
 }
 
 export interface CrawlDonnees {
-  pages: PageCrawl[];
+  // Même distinction que visitesIa : null = tableau absent ou du mauvais
+  // type (donnée manquante), [] = tableau présent et vide (zéro page
+  // constatée, pas une panne de lecture).
+  pages: PageCrawl[] | null;
   bloquees: number | null;
   echecs: number | null;
 }
@@ -290,8 +297,12 @@ function asGscDonnees(value: unknown): GscDonnees {
   };
 }
 
-function asVisitesIa(value: unknown): VisiteIa[] {
-  if (!Array.isArray(value)) return [];
+/** Distingue un champ absent ou du mauvais type (donnée manquante, `null`)
+ * d'un tableau présent mais vide (zéro constaté, `[]`) : COALESCE(..., '[]')
+ * côté SQL rend `[]` faute de ligne correspondante, ce qui est une mesure,
+ * pas une absence de mesure. Les deux ne doivent jamais se confondre. */
+function asVisitesIa(value: unknown): VisiteIa[] | null {
+  if (!Array.isArray(value)) return null;
   const visites: VisiteIa[] = [];
   for (const ligne of value) {
     const record = asRecord(ligne);
@@ -333,8 +344,10 @@ function asUmamiDonnees(value: unknown): UmamiDonnees {
   };
 }
 
-function asPagesCrawl(value: unknown): PageCrawl[] {
-  if (!Array.isArray(value)) return [];
+/** Même distinction que asVisitesIa : absent ou du mauvais type → null
+ * (donnée manquante) ; tableau présent, même vide → [] (zéro constaté). */
+function asPagesCrawl(value: unknown): PageCrawl[] | null {
+  if (!Array.isArray(value)) return null;
   const pages: PageCrawl[] = [];
   for (const ligne of value) {
     const record = asRecord(ligne);

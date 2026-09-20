@@ -9,6 +9,7 @@ import {
   type CrawlDonnees,
   type FenetreRapport,
   type GscDonnees,
+  type PageCrawl,
   type RapportSeo,
   type StatutBloc,
   type UmamiDonnees,
@@ -280,6 +281,10 @@ function SectionGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
 
 function SectionUmami({ bloc }: { bloc: Bloc<UmamiDonnees> }) {
   const donnees = bloc.donnees;
+  // Rendue en table ci-dessous, ligne par ligne : donnée absente (null) et
+  // tableau vide donnent tous deux « rien à afficher » pour cette table,
+  // la tuile du hub est l'endroit qui distingue les deux à l'affichage.
+  const visitesIa = donnees?.visitesIa ?? [];
   return (
     <section className="mb-10">
       <h2 className="mb-3 text-xl font-semibold text-neutral-900">Umami</h2>
@@ -296,7 +301,7 @@ function SectionUmami({ bloc }: { bloc: Bloc<UmamiDonnees> }) {
             <Stat label="Événements" value={formatNombre(donnees.evenements)} />
           </dl>
 
-          {donnees.visitesIa.length > 0 && (
+          {visitesIa.length > 0 && (
             <div className="mt-6">
               <h3 className="mb-1 text-sm font-semibold text-neutral-900">
                 Visites d&apos;assistants, par source
@@ -309,7 +314,7 @@ function SectionUmami({ bloc }: { bloc: Bloc<UmamiDonnees> }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {donnees.visitesIa.map((v) => (
+                  {visitesIa.map((v) => (
                     <tr key={v.source} className="border-t border-neutral-100">
                       <td className="py-1 pr-2 text-neutral-800">{v.source}</td>
                       <td className="py-1 text-right tabular-nums text-neutral-700">
@@ -357,8 +362,22 @@ function SectionUmami({ bloc }: { bloc: Bloc<UmamiDonnees> }) {
   );
 }
 
+/** null = pages absent ou du mauvais type (donnée manquante) : indisponible.
+ * [] = tableau présent et vide (zéro page constatée) : écrit en toutes
+ * lettres, jamais un « 0 » sec qu'on confondrait avec une panne. */
+function valeurPagesPassees(pages: PageCrawl[] | null): string {
+  if (pages === null) return 'indisponible';
+  if (pages.length === 0) return 'aucune page passée cette semaine';
+  return pages.length.toLocaleString('fr-BE');
+}
+
 function SectionCrawl({ bloc }: { bloc: Bloc<CrawlDonnees> }) {
   const donnees = bloc.donnees;
+  // Les pages elles-mêmes sont rendues en table plus bas : un tableau
+  // absent (donnée manquante) et un tableau vide (zéro page) donnent tous
+  // deux « rien à afficher » pour cette table, seule la valeur du total
+  // ci-dessus doit distinguer les deux cas.
+  const pages = donnees?.pages ?? [];
   return (
     <section className="mb-10">
       <h2 className="mb-1 text-xl font-semibold text-neutral-900">
@@ -369,12 +388,12 @@ function SectionCrawl({ bloc }: { bloc: Bloc<CrawlDonnees> }) {
       {donnees && (
         <>
           <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <Stat label="Pages passées" value={formatNombre(donnees.pages.length)} />
+            <Stat label="Pages passées" value={valeurPagesPassees(donnees.pages)} />
             <Stat label="Bloquées" value={formatNombre(donnees.bloquees)} />
             <Stat label="Échecs" value={formatNombre(donnees.echecs)} />
           </dl>
 
-          {donnees.pages.some((p) => p.statut !== 200) && (
+          {pages.some((p) => p.statut !== 200) && (
             <div className="mt-6">
               <h3 className="mb-1 text-sm font-semibold text-neutral-900">
                 Pages sans statut 200
@@ -388,7 +407,7 @@ function SectionCrawl({ bloc }: { bloc: Bloc<CrawlDonnees> }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {donnees.pages
+                  {pages
                     .filter((p) => p.statut !== 200)
                     .slice(0, 20)
                     .map((p) => (

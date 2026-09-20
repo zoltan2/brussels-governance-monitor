@@ -355,4 +355,80 @@ describe('readSeoReport', () => {
     const rapport = await readSeoReport();
     expect(rapport.blocs.umami.donnees?.evenements).toBe(12);
   });
+
+  // La requête SQL de bloc-umami.mjs rend visitesIa via COALESCE(..., '[]')
+  // quand aucune ligne ne correspond : un tableau vide est une absence de
+  // visites CONSTATÉE (un vrai zéro), pas une absence de mesure. Le champ
+  // absent ou du mauvais type reste, lui, une donnée manquante : les deux
+  // cas doivent rester distincts après lecture, jamais confondus.
+  it('distingue visitesIa absent (donnée manquante) d\'un tableau vide (zéro constaté)', async () => {
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {}, // visitesIa absent du JSON
+      }),
+    );
+    const rapport1 = await readSeoReport();
+    expect(rapport1.blocs.umami.donnees?.visitesIa).toBeNull();
+
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { visitesIa: [] }, // COALESCE(..., '[]') côté SQL
+      }),
+    );
+    const rapport2 = await readSeoReport();
+    expect(rapport2.blocs.umami.donnees?.visitesIa).toEqual([]);
+  });
+
+  it("rend visitesIa null quand le champ est du mauvais type, jamais un tableau vide", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { visitesIa: 'pas-un-tableau' },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.visitesIa).toBeNull();
+  });
+
+  // Même principe pour le bloc crawl : `pages` est construit en mémoire par
+  // le script (deploy/seo-report/bloc-crawl côté ops), pas par une requête
+  // SQL, mais la même règle s'applique dès qu'on en affiche un total : un
+  // tableau absent ou du mauvais type reste une donnée manquante, un
+  // tableau vide reste un zéro constaté.
+  it("distingue pages absent (donnée manquante) d'un tableau vide (zéro page constatée)", async () => {
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {}, // pages absent du JSON
+      }),
+    );
+    const rapport1 = await readSeoReport();
+    expect(rapport1.blocs.crawl.donnees?.pages).toBeNull();
+
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'crawl',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { pages: [] },
+      }),
+    );
+    const rapport2 = await readSeoReport();
+    expect(rapport2.blocs.crawl.donnees?.pages).toEqual([]);
+  });
 });

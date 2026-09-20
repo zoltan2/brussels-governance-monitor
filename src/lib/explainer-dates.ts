@@ -13,9 +13,9 @@
  * Google.
  *
  * Seed le 20/09/2026 avec ce que l'historique git du dépôt sait de façon
- * vérifiable : « brussels-paradox » a été réécrite le 19/09/2026 (PR #509,
- * commit a909b45a's ancêtre 2026-09-19 « réécrire la page paradoxe
- * bruxellois »). Toutes les autres gardent SITE_LAUNCH_DATE faute de mieux :
+ * vérifiable : « brussels-paradox » a été réécrite le 19/09/2026 (commit
+ * 78f85519, PR #509, « réécrire la page paradoxe bruxellois »). Toutes les
+ * autres gardent SITE_LAUNCH_DATE faute de mieux :
  * ce n'est pas une garantie qu'elles n'ont pas changé, seulement l'absence
  * d'une date de réécriture vérifiée à ce jour.
  *

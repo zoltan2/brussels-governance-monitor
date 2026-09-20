@@ -12,9 +12,12 @@ import {
   type FenetreRapport,
   type GscDonnees,
   type PageCrawl,
+  type PagePubliee,
   type RapportSeo,
+  type SourceVisites,
   type StatutBloc,
   type UmamiDonnees,
+  type VisiteIa,
 } from '@/lib/seo-report';
 import { freshnessClassName, pireFraicheurNommee, type Freshness } from '@/lib/snapshot-freshness';
 import { chemin } from '@/lib/utils';
@@ -135,8 +138,18 @@ function formatFenetre(fenetre: FenetreRapport | null, nomBloc: string): string 
 }
 
 const MOIS_FR = [
-  'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-  'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre',
+  'janvier',
+  'février',
+  'mars',
+  'avril',
+  'mai',
+  'juin',
+  'juillet',
+  'août',
+  'septembre',
+  'octobre',
+  'novembre',
+  'décembre',
 ];
 
 interface DateSeule {
@@ -283,9 +296,7 @@ function syntheseAnomaliesCrawl(donnees: CrawlDonnees): SyntheseAnomaliesCrawl |
   ];
 
   const toutesConnues = categories.every((c) => c.n !== null);
-  const total = toutesConnues
-    ? categories.reduce((acc, c) => acc + (c.n as number), 0)
-    : null;
+  const total = toutesConnues ? categories.reduce((acc, c) => acc + (c.n as number), 0) : null;
   const couvertureOk = pages !== null && pages.length > 0 && !couvertureFaible(pages);
 
   if (toutesConnues && total === 0 && couvertureOk) {
@@ -327,16 +338,15 @@ function EtatBloc({ nom, bloc }: { nom: string; bloc: Bloc<unknown> }) {
       className="mb-4 rounded border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900"
     >
       {nom} : {LIBELLES_STATUT[bloc.status]}
-      {bloc.message ? ` (${bloc.message})` : ''}. Les autres blocs restent
-      affichés ci-dessous quand ils sont à jour.
+      {bloc.message ? ` (${bloc.message})` : ''}. Les autres blocs restent affichés ci-dessous quand
+      ils sont à jour.
     </p>
   );
 }
 
 function VerdictFraicheur({ freshness }: { freshness: Freshness | null }) {
   if (!freshness) return <span className="text-neutral-500">fraîcheur indisponible</span>;
-  const classe =
-    freshness.level === 'fresh' ? 'text-neutral-500' : 'font-medium text-amber-700';
+  const classe = freshness.level === 'fresh' ? 'text-neutral-500' : 'font-medium text-amber-700';
   return <span className={classe}>{freshness.label}</span>;
 }
 
@@ -403,6 +413,311 @@ function TableauEnveloppe({ children }: { children: React.ReactNode }) {
   );
 }
 
+// --- « Qui envoie des lecteurs » (referents Umami, contrat v2) -----------
+
+// Cinq lignes au plus par liste, même si le contrat en autorise jusqu'à dix
+// côté producteur : sur téléphone, une liste plus longue que ça n'est plus
+// courte.
+const TRONCATURE_LISTES_REFERENTS = 5;
+
+/** Liste à une colonne (jamais un tableau large) : chaque source avec son
+ * compte de visites, en pile verticale, lisible sur téléphone. */
+function ListeSources({
+  titre,
+  liste,
+  videTexte,
+}: {
+  titre: string;
+  liste: SourceVisites[];
+  videTexte: string;
+}) {
+  return (
+    <div className="mt-4">
+      <h4 className="mb-1 text-sm font-semibold text-neutral-900">{titre}</h4>
+      {liste.length === 0 ? (
+        <p className="text-sm text-neutral-600">{videTexte}</p>
+      ) : (
+        <>
+          {liste.length > TRONCATURE_LISTES_REFERENTS && (
+            <p className="mb-1 text-xs text-neutral-500">
+              {TRONCATURE_LISTES_REFERENTS} premiers sur {liste.length}.
+            </p>
+          )}
+          <ul className="space-y-1">
+            {liste.slice(0, TRONCATURE_LISTES_REFERENTS).map((s) => (
+              <li
+                key={s.source}
+                className="flex justify-between gap-3 rounded border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm"
+              >
+                <span className="break-all text-neutral-800">{s.source}</span>
+                <span className="shrink-0 tabular-nums text-neutral-700">
+                  {formatNombre(s.visites)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </div>
+  );
+}
+
+/** Le total de `referents.moteursHorsGoogle` n'est PAS la somme de sa liste,
+ * plafonnée à dix côté producteur : on affiche le total transmis tel quel,
+ * jamais une somme recalculée à partir de la liste tronquée. */
+function BlocMoteursHorsGoogle({
+  moteurs,
+}: {
+  moteurs: { liste: SourceVisites[]; total: number | null };
+}) {
+  return (
+    <div className="mt-4">
+      <h4 className="mb-1 text-sm font-semibold text-neutral-900">
+        Moteurs de recherche, hors Google
+      </h4>
+      <p className="text-sm text-neutral-700">
+        Total : <span className="font-semibold tabular-nums">{formatNombre(moteurs.total)}</span>
+      </p>
+      {moteurs.liste.length === 0 ? (
+        <p className="mt-1 text-sm text-neutral-600">
+          Détail par moteur indisponible cette semaine.
+        </p>
+      ) : (
+        <>
+          {moteurs.liste.length > TRONCATURE_LISTES_REFERENTS && (
+            <p className="mb-1 mt-2 text-xs text-neutral-500">
+              {TRONCATURE_LISTES_REFERENTS} premiers sur {moteurs.liste.length}.
+            </p>
+          )}
+          <ul className="mt-2 space-y-1">
+            {moteurs.liste.slice(0, TRONCATURE_LISTES_REFERENTS).map((s) => (
+              <li
+                key={s.source}
+                className="flex justify-between gap-3 rounded border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm"
+              >
+                <span className="break-all text-neutral-800">{s.source}</span>
+                <span className="shrink-0 tabular-nums text-neutral-700">
+                  {formatNombre(s.visites)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </div>
+  );
+}
+
+/**
+ * « Qui envoie des lecteurs », sous les chiffres d'Umami (mais hors de la
+ * section « Chiffres clés », qui reste à trois blocs). `referents === null`
+ * (mesure jamais transmise) et un `referents` présent aux listes vides
+ * (zéro constaté) restent deux messages distincts, jamais confondus.
+ *
+ * Deux phrases d'honnêteté obligatoires : la majorité des visites arrivent
+ * sans référent identifiable (avec le nombre), et un canal fermé prouve la
+ * lecture depuis un outil de travail sans jamais dire quelle organisation
+ * le lit.
+ */
+/** `referents.campagnes` ventile TOUS les `utm_source`, pas seulement les
+ * envois du site : un assistant qui marque son propre lien (ex. ChatGPT) y
+ * figure EN PLUS d'apparaître dans « Visites d'assistants » (visitesIa,
+ * Détails plus bas). Nommer ça « campagnes » sans distinction laisserait
+ * croire qu'un assistant est une campagne du site, et inviterait à compter
+ * deux fois le même trafic. Le seul repère vérifiable pour séparer les deux
+ * est la présence de la même source dans visitesIa : une source qui y
+ * figure est déjà comptée comme assistant, ce n'est pas un envoi du site. */
+function sourcesDejaComptéesCommeAssistants(visitesIa: VisiteIa[] | null): Set<string> {
+  return new Set((visitesIa ?? []).map((v) => v.source));
+}
+
+function SectionReferents({ umami }: { umami: Bloc<UmamiDonnees> }) {
+  const disponible = umami.status === 'ok' && !!umami.donnees;
+  const referents = disponible ? umami.donnees!.referents : null;
+  const assistants = disponible
+    ? sourcesDejaComptéesCommeAssistants(umami.donnees!.visitesIa)
+    : new Set<string>();
+  const envoisDuSite = referents
+    ? referents.campagnes.filter((c) => !assistants.has(c.source))
+    : [];
+  const assistantsParLeurLien = referents
+    ? referents.campagnes.filter((c) => assistants.has(c.source))
+    : [];
+
+  return (
+    <section className="mb-10">
+      <h2 className="mb-3 text-xl font-semibold text-neutral-900">Qui envoie des lecteurs</h2>
+      {!disponible && (
+        <p className="text-sm text-neutral-600">
+          indisponible : le bloc Umami n&apos;est pas à jour cette semaine (voir Chiffres clés
+          ci-dessus).
+        </p>
+      )}
+      {disponible && referents === null && (
+        <p className="text-sm text-neutral-600">
+          indisponible : cette mesure n&apos;a pas été transmise cette semaine.
+        </p>
+      )}
+      {disponible && referents !== null && (
+        <>
+          <p className="mb-2 text-sm text-neutral-700">
+            La majorité des visites arrivent sans référent identifiable :{' '}
+            <span className="font-semibold tabular-nums">
+              {formatNombre(referents.sansReferent)}
+            </span>{' '}
+            cette semaine. Les listes ci-dessous comptent donc pour moins qu&apos;elles n&apos;en
+            ont l&apos;air.
+          </p>
+          <ListeSources
+            titre="Sites qui pointent vers governance.brussels"
+            liste={referents.sitesReferents}
+            videTexte="Aucun site référent cette semaine."
+          />
+          <BlocMoteursHorsGoogle moteurs={referents.moteursHorsGoogle} />
+          <ListeSources
+            titre="Canaux fermés"
+            liste={referents.canauxFermes}
+            videTexte="Aucun canal fermé cette semaine."
+          />
+          <p className="mt-2 text-xs text-neutral-500">
+            Un canal fermé prouve qu&apos;un lien a été ouvert depuis un outil de travail, jamais
+            quelle organisation l&apos;a lu : cette liste ne permet pas de le déduire.
+          </p>
+          <ListeSources
+            titre="Ce que vos envois rapportent"
+            liste={envoisDuSite}
+            videTexte="Aucune visite de campagne cette semaine."
+          />
+          {assistantsParLeurLien.length > 0 && (
+            <div className="mt-4">
+              <h4 className="mb-1 text-sm font-semibold text-neutral-900">
+                Assistants comptés une seconde fois, par leur propre lien
+              </h4>
+              <p className="mb-1 text-xs text-neutral-500">
+                Ces sources apparaissent aussi dans « Visites d&apos;assistants » (Détails, plus
+                bas), comptées cette fois par le paramètre de campagne inscrit dans leur propre lien
+                plutôt que par l&apos;en-tête technique renvoyé au clic. Les deux chiffres mesurent
+                le même trafic par deux repères différents : ne les additionnez pas, et ne lisez pas
+                leur écart comme une évolution.
+              </p>
+              <ul className="space-y-1">
+                {assistantsParLeurLien.slice(0, TRONCATURE_LISTES_REFERENTS).map((s) => (
+                  <li
+                    key={s.source}
+                    className="flex justify-between gap-3 rounded border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm"
+                  >
+                    <span className="break-all text-neutral-800">{s.source}</span>
+                    <span className="shrink-0 tabular-nums text-neutral-700">
+                      {formatNombre(s.visites)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </>
+      )}
+    </section>
+  );
+}
+
+// --- « Ce que vous avez publié » (publieRecemment GSC, contrat v2) -------
+
+/** Un zéro constaté (page publiée sans le moindre clic ni la moindre
+ * impression) et une mesure indisponible (`null`, bloc Umami en panne cette
+ * semaine-là) ne se confondent jamais : le zéro reste en ambre, la mesure
+ * indisponible reste en gris, jamais à la seule couleur (le texte diffère
+ * aussi : « 0 » contre « indisponible »). */
+function ValeurConstatee({ valeur, champ }: { valeur: number | null; champ: string }) {
+  if (valeur === null) {
+    return (
+      <dd data-champ={champ} className="mt-0.5 italic text-neutral-400">
+        indisponible
+      </dd>
+    );
+  }
+  if (valeur === 0) {
+    return (
+      <dd data-champ={champ} className="mt-0.5 font-semibold tabular-nums text-amber-700">
+        0
+      </dd>
+    );
+  }
+  return (
+    <dd data-champ={champ} className="mt-0.5 tabular-nums text-neutral-700">
+      {formatNombre(valeur)}
+    </dd>
+  );
+}
+
+/**
+ * « Ce que vous avez publié » : la vraie nouveauté du contrat v2. Les zéros
+ * sont le sujet (une page publiée qui n'a rien reçu) : ils sont mis en
+ * évidence, pas noyés dans la liste. Une colonne, jamais un tableau large :
+ * chaque page est une carte empilée, lisible sur téléphone.
+ */
+function SectionPublications({ gsc }: { gsc: Bloc<GscDonnees> }) {
+  const disponible = gsc.status === 'ok' && !!gsc.donnees;
+  const pages: PagePubliee[] = disponible ? gsc.donnees!.publieRecemment.liste : [];
+  const total = disponible ? gsc.donnees!.publieRecemment.total : null;
+
+  return (
+    <section className="mb-10">
+      <h2 className="mb-3 text-xl font-semibold text-neutral-900">Ce que vous avez publié</h2>
+      <p className="mb-4 text-sm text-neutral-600">
+        Les pages publiées dans la fenêtre du relevé, avec leurs clics, leurs impressions et leurs
+        visites Umami. Un zéro constaté, une page publiée qui n&apos;a encore rien reçu, est ce
+        qu&apos;il faut voir en premier : ces pages arrivent en tête de liste, mises en évidence
+        ci-dessous, distinctes d&apos;une mesure indisponible.
+      </p>
+      {!disponible && (
+        <p className="text-sm text-neutral-600">
+          indisponible : le bloc Search Console n&apos;est pas à jour cette semaine (voir Chiffres
+          clés ci-dessus).
+        </p>
+      )}
+      {disponible && pages.length === 0 && (
+        <p className="text-sm text-neutral-600">Aucune page publiée dans cette fenêtre.</p>
+      )}
+      {disponible && pages.length > 0 && (
+        <>
+          {total !== null && total > pages.length && (
+            <p className="mb-2 text-xs text-neutral-500">
+              {pages.length} affichées sur {formatNombre(total)}.
+            </p>
+          )}
+          <ul className="space-y-3">
+            {pages.map((p) => (
+              <li key={p.chemin} className="rounded border border-neutral-200 bg-neutral-50 p-3">
+                <p className="break-words text-sm font-medium text-neutral-900">
+                  {chemin(p.chemin)}
+                </p>
+                <p className="mt-0.5 text-xs text-neutral-500">
+                  Publié le {formatDateSeule(p.datePublication)}
+                </p>
+                <dl className="mt-2 grid grid-cols-3 gap-2 text-xs">
+                  <div>
+                    <dt className="text-neutral-500">Clics</dt>
+                    <ValeurConstatee champ="clics" valeur={p.clics} />
+                  </div>
+                  <div>
+                    <dt className="text-neutral-500">Impressions</dt>
+                    <ValeurConstatee champ="impressions" valeur={p.impressions} />
+                  </div>
+                  <div>
+                    <dt className="text-neutral-500">Visites (Umami)</dt>
+                    <ValeurConstatee champ="visitesUmami" valeur={p.visitesUmami} />
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </section>
+  );
+}
+
 /** Le contrat commun ne dit pas quel bloc a produit une action donnée
  * (`regle` est un nom libre côté regles.mjs, hors de ce dépôt) : seul le
  * fuseau de sa fenêtre distingue de façon fiable Search Console (heure du
@@ -437,9 +752,8 @@ function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
       <h2 className="mb-3 text-xl font-semibold text-neutral-900">Actions suggérées</h2>
       {actions === null && (
         <p className="text-sm text-neutral-600">
-          indisponible : le bloc Search Console qui les calcule n&apos;est pas à
-          jour ou n&apos;a transmis aucune mesure exploitable cette semaine
-          (voir Chiffres clés ci-dessous).
+          indisponible : le bloc Search Console qui les calcule n&apos;est pas à jour ou n&apos;a
+          transmis aucune mesure exploitable cette semaine (voir Chiffres clés ci-dessous).
         </p>
       )}
       {actions !== null && actions.length === 0 && (
@@ -459,9 +773,10 @@ function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
             // La collecte n'a pas toujours de fenêtre à donner : tant qu'elle
             // n'a pas de dates, la ligne reste tue plutôt que d'afficher
             // « fenêtre indisponible » sous chaque action.
-            const fenetreTexte = action.fenetre?.debut || action.fenetre?.fin
-              ? formatFenetre(action.fenetre, nomBlocAction(action.fenetre?.fuseau ?? null))
-              : null;
+            const fenetreTexte =
+              action.fenetre?.debut || action.fenetre?.fin
+                ? formatFenetre(action.fenetre, nomBlocAction(action.fenetre?.fuseau ?? null))
+                : null;
             return (
               <li
                 key={`${action.regle}-${action.url}-${i}`}
@@ -474,7 +789,9 @@ function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
                 )}
                 <p className="mt-1 text-xs text-neutral-500">
                   Règle : {action.regle}
-                  {action.priorite !== null ? ` · priorité ${action.priorite}` : ' · priorité indisponible'}
+                  {action.priorite !== null
+                    ? ` · priorité ${action.priorite}`
+                    : ' · priorité indisponible'}
                 </p>
                 <p className="mt-2 text-sm text-neutral-700">{accorderPreuve(action.preuve)}</p>
                 <p className="mt-2 text-sm">
@@ -526,7 +843,10 @@ function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: F
               label="Clics Belgique, 28 jours précédents"
               value={formatNombre(donnees.clicsBelgiquePrecedents)}
             />
-            <Stat label="Clics totaux (le monde entier)" value={formatNombre(donnees.totaux.clics)} />
+            <Stat
+              label="Clics totaux (le monde entier)"
+              value={formatNombre(donnees.totaux.clics)}
+            />
             <Stat label="Impressions" value={formatNombre(donnees.totaux.impressions)} />
             <Stat label="Taux de clic" value={formatPourcentFraction(donnees.totaux.ctr)} />
             <Stat
@@ -536,9 +856,9 @@ function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: F
           </dl>
           <ul className="mt-3 space-y-1.5 text-xs text-neutral-600">
             <li>
-              Clics depuis la Belgique : les clics venus de Belgique sur cette période. Les
-              clics totaux comptent le monde entier ; l&apos;écart entre les deux est surtout
-              du bruit international, sans lecteur réel derrière.
+              Clics depuis la Belgique : les clics venus de Belgique sur cette période. Les clics
+              totaux comptent le monde entier ; l&apos;écart entre les deux est surtout du bruit
+              international, sans lecteur réel derrière.
             </li>
             <li>
               Clics Belgique, 28 jours précédents : la période de comparaison
@@ -546,8 +866,8 @@ function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: F
             </li>
             <li>
               Position moyenne dans Google : le rang moyen des pages du site quand elles
-              apparaissent dans les résultats, 1 étant la première place. Une valeur de 6,6
-              signifie sixième ou septième position en moyenne.
+              apparaissent dans les résultats, 1 étant la première place. Une valeur de 6,6 signifie
+              sixième ou septième position en moyenne.
             </li>
             <li>Taux de clic : la part des affichages dans les résultats qui ont donné un clic.</li>
           </ul>
@@ -607,11 +927,7 @@ function ChiffresCrawl({
       <MetaBloc bloc={bloc} freshness={freshness} />
       {donnees && pagesPassees && (
         <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <Stat
-            label="Pages passées"
-            value={pagesPassees.texte}
-            alarme={pagesPassees.alarme}
-          />
+          <Stat label="Pages passées" value={pagesPassees.texte} alarme={pagesPassees.alarme} />
         </dl>
       )}
       {synthese &&
@@ -647,9 +963,9 @@ function TablesGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
             Requêtes les plus cliquées
           </h4>
           <p className="mb-1 text-xs text-neutral-500">
-            Liste couvrant environ {formatPourcentFraction(donnees.partRequetes)} des
-            clics seulement : Search Console anonymise les requêtes rares, cette
-            liste n&apos;est donc pas exhaustive.
+            Liste couvrant environ {formatPourcentFraction(donnees.partRequetes)} des clics
+            seulement : Search Console anonymise les requêtes rares, cette liste n&apos;est donc pas
+            exhaustive.
           </p>
           <TableauEnveloppe>
             <thead>
@@ -682,9 +998,7 @@ function TablesGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
 
       {donnees.pages.length > 0 && (
         <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">
-            Pages les plus cliquées
-          </h4>
+          <h4 className="mb-1 text-sm font-semibold text-neutral-900">Pages les plus cliquées</h4>
           <TableauEnveloppe>
             <thead>
               <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
@@ -709,6 +1023,34 @@ function TablesGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
           </TableauEnveloppe>
         </div>
       )}
+
+      {donnees.requetesEmergentes.length > 0 && (
+        <div className="mt-4">
+          <h4 className="mb-1 text-sm font-semibold text-neutral-900">Requêtes émergentes</h4>
+          <p className="mb-2 text-xs text-neutral-500">
+            Le site apparaît sur ces requêtes, en impressions en hausse, sans qu&apos;aucun clic ne
+            soit garanti : il peut être classé au-delà de la première page de résultats, vu mais pas
+            encore lu.
+          </p>
+          <ul className="space-y-1.5">
+            {donnees.requetesEmergentes.slice(0, 5).map((r) => (
+              <li
+                key={r.requete}
+                className="rounded border border-neutral-200 bg-neutral-50 p-3 text-sm"
+              >
+                <p className="break-words font-medium text-neutral-800">{r.requete}</p>
+                <p className="mt-1 text-xs text-neutral-600">
+                  Impressions : {formatNombre(r.impressions)}
+                  {r.impressionsPrecedentes !== null
+                    ? ` (contre ${formatNombre(r.impressionsPrecedentes)} avant)`
+                    : ''}
+                  {' · '}Position : {formatDecimal(r.position)}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
@@ -721,7 +1063,9 @@ function TablesUmami({ bloc }: { bloc: Bloc<UmamiDonnees> }) {
     <div className="mb-8">
       <h3 className="mb-1 text-lg font-semibold text-neutral-900">Umami</h3>
       {donnees.visitesIa !== null && donnees.visitesIa.length === 0 && (
-        <p className="mt-2 text-sm text-neutral-600">Aucune visite d&apos;assistant cette semaine.</p>
+        <p className="mt-2 text-sm text-neutral-600">
+          Aucune visite d&apos;assistant cette semaine.
+        </p>
       )}
       {visitesIa.length > 0 && (
         <div className="mt-4">
@@ -796,9 +1140,7 @@ function TablesCrawl({ bloc }: { bloc: Bloc<CrawlDonnees> }) {
       <h3 className="mb-1 text-lg font-semibold text-neutral-900">Passage technique</h3>
       {cassees.length > 0 && (
         <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">
-            Pages sans statut 200
-          </h4>
+          <h4 className="mb-1 text-sm font-semibold text-neutral-900">Pages sans statut 200</h4>
           {cassees.length > TRONCATURE && (
             <p className="mb-1 text-xs text-neutral-500">
               {TRONCATURE} premières sur {cassees.length}.
@@ -862,11 +1204,11 @@ function SyntheseFenetresComparaison({
   if (fenetresAlignees(gsc, umami)) {
     return (
       <p className="mb-4 text-sm text-neutral-700">
-        Search Console et Umami couvrent les mêmes 28 jours : vous pouvez rapprocher leurs
-        chiffres. Search Console publie ses données avec environ trois jours de retard, sa
-        fenêtre s&apos;arrête donc trois jours avant aujourd&apos;hui. Les deux outils
-        découpent leurs journées dans des fuseaux différents, ce qui laisse quelques heures
-        d&apos;écart aux bords de la période.
+        Search Console et Umami couvrent les mêmes 28 jours : vous pouvez rapprocher leurs chiffres.
+        Search Console publie ses données avec environ trois jours de retard, sa fenêtre
+        s&apos;arrête donc trois jours avant aujourd&apos;hui. Les deux outils découpent leurs
+        journées dans des fuseaux différents, ce qui laisse quelques heures d&apos;écart aux bords
+        de la période.
       </p>
     );
   }
@@ -888,77 +1230,59 @@ function SectionAPropos({ rapport }: { rapport: RapportSeo }) {
   const { gsc, umami, crawl } = rapport.blocs;
   return (
     <section className="mb-10">
-      <h2 className="mb-3 text-xl font-semibold text-neutral-900">
-        À propos de ce relevé
-      </h2>
+      <h2 className="mb-3 text-xl font-semibold text-neutral-900">À propos de ce relevé</h2>
 
-      <h3 className="mb-1 text-sm font-semibold text-neutral-900">
-        Fenêtres d&apos;analyse
-      </h3>
+      <h3 className="mb-1 text-sm font-semibold text-neutral-900">Fenêtres d&apos;analyse</h3>
       <p className="mb-3 text-sm text-neutral-600">
-        Chaque bloc analyse sa propre période, listée ci-dessous pour vérifier
-        le relevé. Le rapprochement entre Search Console et Umami est expliqué
-        en tête de la section Chiffres clés, juste au-dessus des chiffres.
+        Chaque bloc analyse sa propre période, listée ci-dessous pour vérifier le relevé. Le
+        rapprochement entre Search Console et Umami est expliqué en tête de la section Chiffres
+        clés, juste au-dessus des chiffres.
       </p>
       <dl className="mb-6 grid gap-3 sm:grid-cols-3">
         <div className="rounded border border-neutral-200 bg-neutral-50 p-3">
-          <dt className="text-xs uppercase tracking-wide text-neutral-500">
-            {NOMS_BLOCS.gsc}
-          </dt>
+          <dt className="text-xs uppercase tracking-wide text-neutral-500">{NOMS_BLOCS.gsc}</dt>
           <dd className="mt-1 text-sm font-medium text-neutral-900">
             {formatFenetre(gsc.fenetre, NOMS_BLOCS.gsc)}
           </dd>
         </div>
         <div className="rounded border border-neutral-200 bg-neutral-50 p-3">
-          <dt className="text-xs uppercase tracking-wide text-neutral-500">
-            {NOMS_BLOCS.umami}
-          </dt>
+          <dt className="text-xs uppercase tracking-wide text-neutral-500">{NOMS_BLOCS.umami}</dt>
           <dd className="mt-1 text-sm font-medium text-neutral-900">
             {formatFenetre(umami.fenetre, NOMS_BLOCS.umami)}
           </dd>
         </div>
         <div className="rounded border border-neutral-200 bg-neutral-50 p-3">
-          <dt className="text-xs uppercase tracking-wide text-neutral-500">
-            {NOMS_BLOCS.crawl}
-          </dt>
+          <dt className="text-xs uppercase tracking-wide text-neutral-500">{NOMS_BLOCS.crawl}</dt>
           <dd className="mt-1 text-sm font-medium text-neutral-900">
             {formatFenetre(crawl.fenetre, NOMS_BLOCS.crawl)}
           </dd>
         </div>
       </dl>
 
-      <h3 className="mb-1 text-sm font-semibold text-neutral-900">
-        Empreintes des scripts
-      </h3>
+      <h3 className="mb-1 text-sm font-semibold text-neutral-900">Empreintes des scripts</h3>
       <p className="mb-3 text-sm text-neutral-600">
-        Le dépôt et la machine de production peuvent diverger, la CI ne
-        déployant pas <code className="text-xs">deploy/</code> : comparez
-        avec la commande donnée pour repérer un écart.
+        Le dépôt et la machine de production peuvent diverger, la CI ne déployant pas{' '}
+        <code className="text-xs">deploy/</code> : comparez avec la commande donnée pour repérer un
+        écart.
       </p>
       <dl className="grid gap-3 sm:grid-cols-3">
-        {(
-          [
-            ['gsc', gsc] as const,
-            ['umami', umami] as const,
-            ['crawl', crawl] as const,
-          ]
-        ).map(([cle, bloc]) => (
-          <div key={cle} className="rounded border border-neutral-200 bg-neutral-50 p-3">
-            <dt className="text-xs uppercase tracking-wide text-neutral-500">
-              {NOMS_BLOCS[cle]}
-            </dt>
-            <dd className="mt-1 text-sm text-neutral-900">
-              <EmpreinteScript sha={bloc.scriptSha256} />
-              <p className="mt-1 text-xs text-neutral-500">
-                Valeur attendue :{' '}
-                <code className="text-xs">
-                  sha256sum deploy/seo-report/{SCRIPTS_BLOCS[cle]}
-                </code>{' '}
-                sur le dépôt.
-              </p>
-            </dd>
-          </div>
-        ))}
+        {[['gsc', gsc] as const, ['umami', umami] as const, ['crawl', crawl] as const].map(
+          ([cle, bloc]) => (
+            <div key={cle} className="rounded border border-neutral-200 bg-neutral-50 p-3">
+              <dt className="text-xs uppercase tracking-wide text-neutral-500">
+                {NOMS_BLOCS[cle]}
+              </dt>
+              <dd className="mt-1 text-sm text-neutral-900">
+                <EmpreinteScript sha={bloc.scriptSha256} />
+                <p className="mt-1 text-xs text-neutral-500">
+                  Valeur attendue :{' '}
+                  <code className="text-xs">sha256sum deploy/seo-report/{SCRIPTS_BLOCS[cle]}</code>{' '}
+                  sur le dépôt.
+                </p>
+              </dd>
+            </div>
+          ),
+        )}
       </dl>
     </section>
   );
@@ -988,16 +1312,12 @@ export default async function AdminRapportPage({
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
       <header className="mb-4">
-        <p className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
-          Admin
-        </p>
-        <h1 className="mt-2 text-3xl font-bold text-neutral-900">
-          Rapport SEO hebdomadaire
-        </h1>
+        <p className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">Admin</p>
+        <h1 className="mt-2 text-3xl font-bold text-neutral-900">Rapport SEO hebdomadaire</h1>
         <p className="mt-2 max-w-2xl text-sm text-neutral-600">
-          Trois relevés indépendants (Search Console, Umami, passage technique),
-          déposés une fois par semaine par un travail planifié sur le VPS. Une
-          panne sur l&apos;un n&apos;empêche jamais l&apos;affichage des autres.
+          Trois relevés indépendants (Search Console, Umami, passage technique), déposés une fois
+          par semaine par un travail planifié sur le VPS. Une panne sur l&apos;un n&apos;empêche
+          jamais l&apos;affichage des autres.
         </p>
       </header>
 
@@ -1006,7 +1326,9 @@ export default async function AdminRapportPage({
           {fraicheurGlobale.nom} : {fraicheurGlobale.freshness.label}
         </p>
       ) : (
-        <p className="mb-8 text-xs text-neutral-500">Fraîcheur indisponible pour les trois blocs.</p>
+        <p className="mb-8 text-xs text-neutral-500">
+          Fraîcheur indisponible pour les trois blocs.
+        </p>
       )}
 
       <SectionActions bloc={gsc} />
@@ -1018,6 +1340,10 @@ export default async function AdminRapportPage({
         <ChiffresUmami bloc={umami} freshness={rapport.fraicheur.umami} />
         <ChiffresCrawl bloc={crawl} freshness={rapport.fraicheur.crawl} />
       </section>
+
+      <SectionReferents umami={umami} />
+
+      <SectionPublications gsc={gsc} />
 
       <section className="mb-10">
         <h2 className="mb-4 text-xl font-semibold text-neutral-900">Détails</h2>

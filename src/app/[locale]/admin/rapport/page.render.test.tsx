@@ -62,6 +62,8 @@ const DONNEES_GSC_VIDES = {
   partRequetes: null,
   opportunitesTitre: [],
   actions: [],
+  publieRecemment: { liste: [], total: null },
+  requetesEmergentes: [],
 };
 
 const DONNEES_UMAMI_VIDES = {
@@ -70,6 +72,8 @@ const DONNEES_UMAMI_VIDES = {
   pagesEntree: [],
   profondeur: null,
   evenements: null,
+  referents: null,
+  visitesParChemin: [],
 };
 
 const DONNEES_CRAWL_VIDES = { pages: [], bloquees: null, echecs: null };
@@ -91,13 +95,15 @@ describe('AdminRapportPage', () => {
   // Comportement explicitement demandé (relecture design) : la page doit
   // répondre à « dois-je agir cette semaine ? » en premier, pas en dernier
   // après métadonnées et tableaux.
-  it('range les sections dans l\'ordre des questions : Actions, Chiffres clés, Détails, À propos', async () => {
+  it("range les sections dans l'ordre des questions : Actions, Chiffres clés, Qui envoie des lecteurs, Ce que vous avez publié, Détails, À propos", async () => {
     vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
     await rendrePage();
     const titres = screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent);
     expect(titres).toEqual([
       'Actions suggérées',
       'Chiffres clés',
+      'Qui envoie des lecteurs',
+      'Ce que vous avez publié',
       'Détails',
       'À propos de ce relevé',
     ]);
@@ -145,10 +151,12 @@ describe('AdminRapportPage', () => {
   });
 
   function syntheseComparaison(): Element | null {
-    return screen
-      .getByText('Chiffres clés', { selector: 'h2' })
-      .closest('section')
-      ?.querySelector('h2 + p') ?? null;
+    return (
+      screen
+        .getByText('Chiffres clés', { selector: 'h2' })
+        .closest('section')
+        ?.querySelector('h2 + p') ?? null
+    );
   }
 
   // Précision de l'éditeur (2026-09-20) : la question des périodes doit se
@@ -233,7 +241,7 @@ describe('AdminRapportPage', () => {
   // Red team (2026-09-20) : clicsBelgiquePrecedents est une fenêtre de
   // 28 jours, pas « la semaine précédente » — le chiffre était juste,
   // l'étiquette était fausse, à au moins trois endroits.
-  it("nomme la fenêtre de comparaison « 28 jours », jamais « semaine précédente »", async () => {
+  it('nomme la fenêtre de comparaison « 28 jours », jamais « semaine précédente »', async () => {
     vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
     await rendrePage();
     expect(screen.queryByText(/semaine précédente/i)).toBeNull();
@@ -344,7 +352,7 @@ describe('AdminRapportPage', () => {
     return screen.getByText('Actions suggérées', { selector: 'h2' }).closest('section');
   }
 
-  it("dit la panne du bloc GSC dans la section Actions, jamais « aucune action »", async () => {
+  it('dit la panne du bloc GSC dans la section Actions, jamais « aucune action »', async () => {
     vi.mocked(readSeoReport).mockResolvedValue({
       blocs: {
         gsc: blocEnPanne('error', 'HTTP 403'),
@@ -363,7 +371,7 @@ describe('AdminRapportPage', () => {
   // Comportement explicitement demandé (relecture design) : un bloc GSC
   // « ok » mais entièrement vide (aucune mesure) est un payload suspect,
   // pas une semaine sans action.
-  it("dit indisponible, pas « aucune action », quand le bloc GSC est ok mais sans la moindre mesure", async () => {
+  it('dit indisponible, pas « aucune action », quand le bloc GSC est ok mais sans la moindre mesure', async () => {
     vi.mocked(readSeoReport).mockResolvedValue({
       blocs: {
         gsc: blocOk({ ...DONNEES_GSC_VIDES, actions: [] }),
@@ -391,12 +399,12 @@ describe('AdminRapportPage', () => {
 
     await rendrePage();
     const textesAlertes = screen.getAllByRole('alert').map((a) => a.textContent ?? '');
-    expect(
-      textesAlertes.some((t) => t.includes('Search Console') && t.includes('en panne')),
-    ).toBe(true);
-    expect(
-      textesAlertes.some((t) => t.includes('Crawl technique') && t.includes('bloqué')),
-    ).toBe(true);
+    expect(textesAlertes.some((t) => t.includes('Search Console') && t.includes('en panne'))).toBe(
+      true,
+    );
+    expect(textesAlertes.some((t) => t.includes('Crawl technique') && t.includes('bloqué'))).toBe(
+      true,
+    );
     // Pas de tiret cadratin dans les nouveaux textes.
     expect(textesAlertes.join('')).not.toContain('—');
   });
@@ -712,7 +720,7 @@ describe('AdminRapportPage', () => {
     expect(screen.getAllByText(/Relevé \(heure de Bruxelles\)/).length).toBeGreaterThan(0);
   });
 
-  it('affiche la commande de référence pour vérifier l\'empreinte de chaque script', async () => {
+  it("affiche la commande de référence pour vérifier l'empreinte de chaque script", async () => {
     vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
     await rendrePage();
     expect(screen.getByText(/sha256sum deploy\/seo-report\/bloc-gsc\.mjs/)).toBeDefined();
@@ -919,4 +927,419 @@ describe('AdminRapportPage', () => {
     expect(cassees?.textContent).toBe('25');
   });
 
+  // --- Contrat v2 : « Qui envoie des lecteurs » (referents Umami) ----------
+
+  function sectionReferents(): Element | null {
+    return screen.getByText('Qui envoie des lecteurs', { selector: 'h2' }).closest('section');
+  }
+
+  const REFERENTS_VIDES = {
+    moteursHorsGoogle: { liste: [], total: 0 },
+    canauxFermes: [],
+    sitesReferents: [],
+    campagnes: [],
+    sansReferent: 0,
+  };
+
+  it("affiche indisponible dans « Qui envoie des lecteurs » quand le bloc Umami n'est pas exploitable", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocEnPanne('error', 'HTTP 500'),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(sectionReferents()?.textContent).toMatch(/indisponible/);
+  });
+
+  it('dit indisponible quand « referents » est absent (mesure jamais transmise), jamais « aucun site »', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk({ ...DONNEES_UMAMI_VIDES, referents: null }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+    await rendrePage();
+    const texteAbsent = sectionReferents()?.textContent ?? '';
+    expect(texteAbsent).toMatch(/indisponible/);
+    expect(texteAbsent).not.toMatch(/Aucun site référent/);
+  });
+
+  it('dit « aucun site référent » quand « referents » est présent aux listes vides (zéro constaté)', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk({ ...DONNEES_UMAMI_VIDES, referents: REFERENTS_VIDES }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+    await rendrePage();
+    const texteVide = sectionReferents()?.textContent ?? '';
+    expect(texteVide).toMatch(/Aucun site référent/);
+  });
+
+  // Cas central du contrat : le total ne doit jamais être recalculé à partir
+  // de la liste, plafonnée à 10 côté producteur.
+  it('affiche le total des moteurs hors Google tel quel, jamais recalculé à partir de la liste plafonnée', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk({
+          ...DONNEES_UMAMI_VIDES,
+          referents: {
+            ...REFERENTS_VIDES,
+            moteursHorsGoogle: {
+              liste: [
+                { source: 'bing.com', visites: 40 },
+                { source: 'duckduckgo.com', visites: 10 },
+              ],
+              total: 9999, // volontairement très différent de 40 + 10 = 50
+            },
+          },
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const texte = sectionReferents()?.textContent ?? '';
+    expect(texte).toMatch(/9\s?999/);
+    expect(texte).not.toMatch(/\b50\b/);
+  });
+
+  it('affiche les sites référents, le détail des moteurs et les canaux fermés', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk({
+          ...DONNEES_UMAMI_VIDES,
+          referents: {
+            moteursHorsGoogle: { liste: [{ source: 'bing.com', visites: 40 }], total: 40 },
+            canauxFermes: [{ source: 'outlook.office.com', visites: 3 }],
+            sitesReferents: [{ source: 'lesoir.be', visites: 88 }],
+            campagnes: [{ source: 'newsletter', visites: 250 }],
+            sansReferent: 500,
+          },
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const texte = sectionReferents()?.textContent ?? '';
+    expect(texte).toMatch(/lesoir\.be/);
+    expect(texte).toMatch(/bing\.com/);
+    expect(texte).toMatch(/outlook\.office\.com/);
+    expect(texte).toMatch(/newsletter/);
+  });
+
+  // Correctif du premier passage réel (2026-09-20) : `campagnes` ventile
+  // TOUS les utm_source, y compris des assistants (chatgpt.com) qui
+  // marquent leur propre lien et apparaissent donc AUSSI dans visitesIa.
+  // Un envoi du site (bgm-digest) et un assistant déjà compté ailleurs
+  // (chatgpt.com) ne doivent jamais atterrir dans la même liste « campagnes ».
+  it('sépare ce que le site envoie des assistants qui marquent leur propre lien, déjà comptés ailleurs', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk({
+          ...DONNEES_UMAMI_VIDES,
+          // chatgpt.com apparaît dans visitesIa (déjà compté comme
+          // assistant) : c'est le repère qui permet de le distinguer de
+          // bgm-digest, qui n'y figure pas.
+          visitesIa: [{ source: 'chatgpt.com', visites: 110 }],
+          referents: {
+            moteursHorsGoogle: { liste: [], total: 0 },
+            canauxFermes: [],
+            sitesReferents: [],
+            campagnes: [
+              { source: 'chatgpt.com', visites: 236 },
+              { source: 'bgm-digest', visites: 92 },
+              { source: 'stuut', visites: 45 },
+            ],
+            sansReferent: 10,
+          },
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const texte = sectionReferents()?.textContent ?? '';
+
+    // Les deux envois du site restent sous « Ce que vos envois rapportent ».
+    const envois = screen
+      .getByText('Ce que vos envois rapportent', { selector: 'h4' })
+      .closest('div');
+    expect(envois?.textContent).toMatch(/bgm-digest/);
+    expect(envois?.textContent).toMatch(/stuut/);
+    expect(envois?.textContent).not.toMatch(/chatgpt\.com/);
+
+    // chatgpt.com est affiché séparément, jamais sous « campagnes ».
+    expect(screen.queryByText('Campagnes (newsletter, jeux)', { selector: 'h4' })).toBeNull();
+    const assistantsRecomptes = screen
+      .getByText('Assistants comptés une seconde fois, par leur propre lien', { selector: 'h4' })
+      .closest('div');
+    expect(assistantsRecomptes?.textContent).toMatch(/chatgpt\.com/);
+    expect(assistantsRecomptes?.textContent).not.toMatch(/bgm-digest/);
+
+    // La phrase explique le changement de méthode, à côté du chiffre.
+    expect(texte).toMatch(/même trafic/);
+    expect(texte).toMatch(/ne les additionnez pas/);
+  });
+
+  // Honnêteté obligatoire n°1 : la majorité des visites arrive sans
+  // référent, avec le nombre.
+  it('dit que la majorité des visites arrivent sans référent, avec le nombre', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk({
+          ...DONNEES_UMAMI_VIDES,
+          referents: { ...REFERENTS_VIDES, sansReferent: 4200 },
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const texte = sectionReferents()?.textContent ?? '';
+    expect(texte).toMatch(/sans référent/);
+    expect(texte).toMatch(/4\s?200/);
+  });
+
+  // Honnêteté obligatoire n°2 : un canal fermé prouve la lecture depuis un
+  // outil de travail, jamais quelle organisation le lit. Aucun nom
+  // d'organisation ne doit être inventé ou déduit.
+  it("dit qu'un canal fermé ne révèle jamais quelle organisation le lit", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk({
+          ...DONNEES_UMAMI_VIDES,
+          referents: {
+            ...REFERENTS_VIDES,
+            canauxFermes: [{ source: 'outlook.office.com', visites: 3 }],
+          },
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const texte = sectionReferents()?.textContent ?? '';
+    expect(texte).toMatch(/outil de travail/);
+    expect(texte).toMatch(/jamais quelle organisation/);
+  });
+
+  it('tronque chaque liste à cinq lignes et annonce le reste', async () => {
+    const dixSites = Array.from({ length: 8 }, (_, i) => ({
+      source: `site-${i}.be`,
+      visites: 100 - i,
+    }));
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk({
+          ...DONNEES_UMAMI_VIDES,
+          referents: { ...REFERENTS_VIDES, sitesReferents: dixSites },
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const texte = sectionReferents()?.textContent ?? '';
+    expect(texte).toMatch(/site-0\.be/);
+    expect(texte).not.toMatch(/site-7\.be/);
+    expect(texte).toMatch(/5 premiers sur 8/);
+  });
+
+  // --- Contrat v2 : « Ce que vous avez publié » (publieRecemment GSC) ------
+
+  function sectionPublications(): Element | null {
+    return screen.getByText('Ce que vous avez publié', { selector: 'h2' }).closest('section');
+  }
+
+  function pagePubliee(
+    overrides: Partial<{
+      chemin: string;
+      datePublication: string | null;
+      clics: number | null;
+      impressions: number | null;
+      visitesUmami: number | null;
+    }> = {},
+  ) {
+    return {
+      chemin: '/fr/dossiers/nouveau',
+      datePublication: '2026-09-18',
+      clics: 5,
+      impressions: 40,
+      visitesUmami: 12,
+      ...overrides,
+    };
+  }
+
+  it("affiche indisponible dans « Ce que vous avez publié » quand le bloc Search Console n'est pas exploitable", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocEnPanne('error', 'HTTP 403'),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(sectionPublications()?.textContent).toMatch(/indisponible/);
+  });
+
+  it("dit qu'aucune page n'a été publiée dans la fenêtre quand la liste est vide", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({ ...DONNEES_GSC_VIDES, publieRecemment: { liste: [], total: 0 } }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(sectionPublications()?.textContent).toMatch(/Aucune page publiée/);
+  });
+
+  // Cas central du contrat (forme réelle depuis le premier passage : 144
+  // pages, liste plafonnée à 15) : le total ne doit jamais être caché par le
+  // plafond de la liste affichée, ni recalculé à partir de sa longueur.
+  it('annonce le total réel quand la liste affichée est plus courte, sans le recalculer', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          publieRecemment: { liste: [pagePubliee({ chemin: '/fr/a' })], total: 144 },
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(sectionPublications()?.textContent).toMatch(/1 affichées sur 144/);
+  });
+
+  function ligneClics(chemin: string): Element | null | undefined {
+    return screen
+      .getByText(chemin, { selector: 'p' })
+      .closest('li')
+      ?.querySelector('[data-champ="clics"]');
+  }
+
+  function ligneVisitesUmami(chemin: string): Element | null | undefined {
+    return screen
+      .getByText(chemin, { selector: 'p' })
+      .closest('li')
+      ?.querySelector('[data-champ="visitesUmami"]');
+  }
+
+  // Cas central du contrat : un zéro constaté (page publiée sans le moindre
+  // clic) est LE sujet de cette section, distingué visuellement d'un chiffre
+  // ordinaire, jamais confondu avec une mesure indisponible.
+  it("distingue visuellement un zéro constaté (page sans clic) d'un chiffre ordinaire", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          publieRecemment: {
+            liste: [
+              pagePubliee({ chemin: '/fr/zero', clics: 0, impressions: 0 }),
+              pagePubliee({ chemin: '/fr/normal', clics: 5, impressions: 40 }),
+            ],
+            total: 2,
+          },
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const zero = ligneClics('/fr/zero');
+    const normal = ligneClics('/fr/normal');
+    expect(zero?.textContent).toBe('0');
+    expect(zero?.className).toContain('amber');
+    expect(normal?.textContent).toBe('5');
+    expect(normal?.className).not.toContain('amber');
+  });
+
+  // Cas central du contrat : visitesUmami peut valoir null (bloc Umami en
+  // panne cette semaine-là) et doit s'afficher « indisponible », jamais
+  // confondu avec un zéro constaté.
+  it("affiche visitesUmami indisponible quand il vaut null, distinct d'un zéro constaté", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          publieRecemment: {
+            liste: [
+              pagePubliee({ chemin: '/fr/en-panne', visitesUmami: null }),
+              pagePubliee({ chemin: '/fr/zero-visite', visitesUmami: 0 }),
+            ],
+            total: 2,
+          },
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const enPanne = ligneVisitesUmami('/fr/en-panne');
+    const zeroVisite = ligneVisitesUmami('/fr/zero-visite');
+    expect(enPanne?.textContent).toBe('indisponible');
+    expect(enPanne?.className).not.toContain('amber');
+    expect(zeroVisite?.textContent).toBe('0');
+    expect(zeroVisite?.className).toContain('amber');
+  });
+
+  // --- Contrat v2 : requêtes émergentes (section Search Console) -----------
+
+  it("affiche les requêtes émergentes avec une phrase qui explique ce qu'elles signifient", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          requetesEmergentes: [
+            {
+              requete: 'permis environnement bruxelles',
+              impressions: 30,
+              impressionsPrecedentes: 0,
+              position: 14.2,
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(screen.getByText('permis environnement bruxelles')).toBeDefined();
+    expect(screen.getByText(/classé au-delà de la première page/)).toBeDefined();
+  });
 });

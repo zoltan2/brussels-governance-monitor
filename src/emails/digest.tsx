@@ -299,6 +299,9 @@ export function generateDigestPlainText({
     lines.push('Zoltán Jánosi');
     lines.push(t.founderTitle);
     lines.push(t.founderDesc);
+    // La version texte doit porter le même lien que le HTML : un client qui
+    // n'affiche que le texte ne doit pas perdre la signature.
+    lines.push('https://www.linkedin.com/in/zoltan');
     lines.push('');
   }
 
@@ -446,7 +449,7 @@ export function DigestContent({
                       <Link
                         href={
                           locale === 'fr'
-                            ? `${siteUrl}/fr/refonte?utm_source=bgm-digest&utm_medium=email&utm_campaign=refonte&utm_content=header-teaser`
+                            ? 'https://stuut.governance.brussels/?utm_source=bgm-digest&utm_medium=email&utm_campaign=stuut&utm_content=header-teaser'
                             : `${siteUrl}/${locale}/quiz?utm_source=bgm-digest&utm_medium=email&utm_campaign=quiz&utm_content=header-teaser`
                         }
                         style={{
@@ -457,7 +460,7 @@ export function DigestContent({
                         }}
                       >
                         {locale === 'fr'
-                          ? 'Et si vous décidiez de la prochaine homepage ?'
+                          ? 'Le Stuut du jour vous attend'
                           : t.quizTeaser}{' '}
                         →
                       </Link>
@@ -819,8 +822,20 @@ export function DigestContent({
                       <p style={{ margin: '0 0 1px', color: '#a16207', fontSize: '12px' }}>
                         {t.founderTitle}
                       </p>
-                      <p style={{ margin: 0, color: '#a16207', fontSize: '11px', fontStyle: 'italic' as const }}>
+                      <p style={{ margin: '0 0 6px', color: '#a16207', fontSize: '11px', fontStyle: 'italic' as const }}>
                         {t.founderDesc}
+                      </p>
+                      {/* Profil personnel, donc sous la signature et non dans le pied
+                          institutionnel. Couleur ambre de l'encadré : la palette du
+                          projet n'admet ni rouge ni vert, et le bleu des liens du corps
+                          jurerait ici. */}
+                      <p style={{ margin: 0 }}>
+                        <Link
+                          href="https://www.linkedin.com/in/zoltan"
+                          style={{ color: '#92400e', fontSize: '11px', textDecoration: 'underline' }}
+                        >
+                          linkedin.com/in/zoltan
+                        </Link>
                       </p>
                     </td>
                   </tr>

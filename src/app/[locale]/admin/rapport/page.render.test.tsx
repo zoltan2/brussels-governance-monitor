@@ -141,8 +141,81 @@ describe('AdminRapportPage', () => {
     // Date lisible (JJ/MM/AAAA), pas l'ISO complet avec heure.
     expect(fenetreGsc?.textContent).toContain('24/08/2026');
     expect(fenetreGsc?.textContent).not.toContain('T00:00:00');
-    // La phrase qui empêche de rapprocher un chiffre GSC d'un chiffre Umami.
-    expect(screen.getByText(/ne rapprochez jamais un chiffre Search Console/)).toBeDefined();
+    expect(screen.queryByText(/ne rapprochez jamais un chiffre Search Console/)).toBeNull();
+  });
+
+  function syntheseComparaison(): Element | null {
+    return screen
+      .getByText('Chiffres clés', { selector: 'h2' })
+      .closest('section')
+      ?.querySelector('h2 + p') ?? null;
+  }
+
+  // Précision de l'éditeur (2026-09-20) : la question des périodes doit se
+  // comprendre d'un coup d'œil, sans descendre en bas de page ni cliquer.
+  // La phrase de rapprochement (et ses deux réserves) vit donc juste sous le
+  // titre « Chiffres clés », avant le premier chiffre.
+  it('autorise le rapprochement en tête de Chiffres clés quand les fenêtres coïncident, avec ses deux réserves en français simple', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES, {
+          debut: '2026-08-24',
+          fin: '2026-09-20',
+          fuseau: 'America/Los_Angeles',
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES, {
+          debut: '2026-08-24',
+          fin: '2026-09-20',
+          fuseau: 'UTC',
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const synthese = syntheseComparaison();
+    expect(synthese).not.toBeNull();
+    // La permission.
+    expect(synthese?.textContent).toMatch(/mêmes 28 jours.*vous pouvez rapprocher/);
+    // Réserve 1 : le retard de consolidation de Search Console.
+    expect(synthese?.textContent).toMatch(/trois jours de retard/);
+    // Réserve 2 : le décalage de fuseau, sans jargon technique entre
+    // parenthèses.
+    expect(synthese?.textContent).toMatch(/fuseaux différents/);
+    expect(synthese?.textContent).not.toContain('(');
+  });
+
+  // Correctif lisibilité (2026-09-20) : la collecte peut renvoyer des
+  // fenêtres Search Console et Umami qui ne coïncident pas (panne partielle,
+  // désynchronisation). La page doit alors le dire explicitement, en tête de
+  // Chiffres clés, aussi nettement qu'une alerte (ambre, role="alert"),
+  // jamais à la seule couleur.
+  it('affiche un avertissement ambre en tête de Chiffres clés quand les fenêtres ne coïncident pas', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES, {
+          debut: '2026-08-24',
+          fin: '2026-09-20',
+          fuseau: 'America/Los_Angeles',
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES, {
+          debut: '2026-08-20',
+          fin: '2026-09-16',
+          fuseau: 'UTC',
+        }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const synthese = syntheseComparaison();
+    expect(synthese?.textContent).toMatch(/ne coïncident pas/);
+    expect(synthese?.textContent).toMatch(/ne rapprochez pas/);
+    expect(synthese?.getAttribute('role')).toBe('alert');
+    expect(synthese?.className).toContain('amber');
+    expect(synthese?.textContent).not.toMatch(/mêmes 28 jours/);
   });
 
   it("n'invente pas de dates pour une fenêtre absente", async () => {
@@ -164,7 +237,7 @@ describe('AdminRapportPage', () => {
     vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
     await rendrePage();
     expect(screen.queryByText(/semaine précédente/i)).toBeNull();
-    expect(screen.getByText(/28 jours précédents/)).toBeDefined();
+    expect(screen.getAllByText(/28 jours précédents/).length).toBeGreaterThan(0);
   });
 
   function statPagesPassees(): Element | null | undefined {
@@ -328,6 +401,109 @@ describe('AdminRapportPage', () => {
     expect(textesAlertes.join('')).not.toContain('—');
   });
 
+  function sectionActionsListItems(): Element[] {
+    return Array.from(sectionActions()?.querySelectorAll('ul > li') ?? []);
+  }
+
+  it("tait la ligne « Fenêtre » d'une action quand la valeur est indisponible", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'titre-manquant',
+              url: 'https://governance.brussels/fr/page-1',
+              preuve: 'Aucun titre détecté.',
+              titre: null,
+              priorite: 1,
+              fenetre: { debut: null, fin: null, fuseau: null },
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const items = sectionActionsListItems();
+    expect(items).toHaveLength(1);
+    expect(items[0].textContent).not.toMatch(/Fenêtre/);
+  });
+
+  it("affiche la ligne « Fenêtre » d'une action quand la valeur est disponible", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'titre-manquant',
+              url: 'https://governance.brussels/fr/page-1',
+              preuve: 'Aucun titre détecté.',
+              titre: null,
+              priorite: 1,
+              fenetre: {
+                debut: '2026-08-21',
+                fin: '2026-09-17',
+                fuseau: 'America/Los_Angeles',
+              },
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const items = sectionActionsListItems();
+    expect(items[0].textContent).toMatch(/Fenêtre/);
+  });
+
+  it("n'affiche pas deux fois la même URL quand le titre de l'action est l'URL entière", async () => {
+    const url = 'https://governance.brussels/fr/page-tres-longue-a-corriger';
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'titre-manquant',
+              url,
+              preuve: 'Aucun titre détecté.',
+              titre: url,
+              priorite: 1,
+              fenetre: null,
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const item = sectionActionsListItems()[0];
+    // Le titre (premier <p>, en gras) ne doit pas répéter l'URL entière
+    // affichée par ailleurs : combien de fois l'URL apparaît-elle en propre
+    // texte de nœud dans l'action, tous éléments confondus ?
+    const occurrences = Array.from(item.querySelectorAll('p, a')).filter(
+      (el) => el.textContent === url,
+    );
+    expect(occurrences).toHaveLength(0);
+    expect(screen.queryByText(url, { selector: 'p.font-semibold' })).toBeNull();
+    // Le chemin (forme abrégée) reste affiché via le lien.
+    expect(item.querySelector('a')?.textContent).toBe('/fr/page-tres-longue-a-corriger');
+  });
+
   it('affiche un unique verdict de fraîcheur sous le h1, avant le premier chiffre', async () => {
     vi.mocked(readSeoReport).mockResolvedValue({
       blocs: {
@@ -432,4 +608,148 @@ describe('AdminRapportPage', () => {
     await rendrePage();
     expect(screen.getByText(/20 premières sur 25/)).toBeDefined();
   });
+
+  // Correctif lisibilité (2026-09-20) : l'éditeur lit les chiffres bien
+  // avant d'atteindre « À propos de ce relevé ». Chaque section doit
+  // annoncer sa fenêtre en dates lisibles, sous son propre titre.
+  function fenetresParSection() {
+    // « Search Console », « Umami » et « Passage technique » sont chacun
+    // titre d'un h3 dans Chiffres clés ET d'un h3 dans Détails : on prend le
+    // premier du document (Chiffres clés, lu avant Détails).
+    return {
+      gsc: screen.getAllByRole('heading', { level: 3, name: 'Search Console' })[0]
+        .nextElementSibling,
+      umami: screen.getAllByRole('heading', { level: 3, name: 'Umami' })[0].nextElementSibling,
+      crawl: screen.getAllByRole('heading', { level: 3, name: 'Passage technique' })[0]
+        .nextElementSibling,
+    };
+  }
+
+  it('affiche la fenêtre en dates lisibles sous le titre de chaque section', async () => {
+    const fenetre = { debut: '2026-08-21', fin: '2026-09-17', fuseau: 'America/Los_Angeles' };
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES, fenetre),
+        umami: blocOk(DONNEES_UMAMI_VIDES, { ...fenetre, fuseau: 'UTC' }),
+        crawl: blocOk(DONNEES_CRAWL_VIDES, { ...fenetre, fuseau: 'UTC' }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const { gsc, umami, crawl } = fenetresParSection();
+    expect(gsc?.textContent).toMatch(/28 jours, du 21 août au 17 septembre 2026/);
+    expect(umami?.textContent).toMatch(/28 jours, du 21 août au 17 septembre 2026/);
+    expect(crawl?.textContent).toMatch(/28 jours, du 21 août au 17 septembre 2026/);
+  });
+
+  it("n'affiche aucune phrase de fenêtre sous le titre d'une section dont la fenêtre est indisponible", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+    const { gsc, umami, crawl } = fenetresParSection();
+    expect(gsc?.textContent).not.toMatch(/\d+ jours, du/);
+    expect(umami?.textContent).not.toMatch(/\d+ jours, du/);
+    expect(crawl?.textContent).not.toMatch(/\d+ jours, du/);
+  });
+
+  it('nomme les chiffres clés en français simple, avec une explication sous chaque groupe', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+
+    // Étiquettes qui se comprennent seules.
+    expect(screen.getByText('Clics depuis la Belgique')).toBeDefined();
+    expect(screen.queryByText('CTR', { selector: 'dt' })).toBeNull();
+    expect(screen.getByText('Taux de clic', { selector: 'dt' })).toBeDefined();
+    expect(screen.getByText('Position moyenne dans Google', { selector: 'dt' })).toBeDefined();
+    expect(
+      screen.queryByText('Position moyenne (plus bas = mieux classé)', { selector: 'dt' }),
+    ).toBeNull();
+    expect(
+      screen.getByText('Visites ayant vu au moins deux pages', { selector: 'dt' }),
+    ).toBeDefined();
+    expect(screen.queryByText('Part des visites multi-pages', { selector: 'dt' })).toBeNull();
+
+    // Phrases d'explication en clair.
+    expect(screen.getByText(/comptent le monde entier/)).toBeDefined();
+    expect(screen.getByText(/bruit international/)).toBeDefined();
+    expect(screen.getByText(/1 étant la première place/)).toBeDefined();
+    expect(
+      screen.getByText(/la part des affichages dans les résultats qui ont donné un clic/),
+    ).toBeDefined();
+    expect(screen.getByText(/reparti aussitôt n.y est pas compté/)).toBeDefined();
+  });
+
+  it('affiche les dates de la période de comparaison des clics Belgique (28 jours précédant la fenêtre courante)', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES, {
+          debut: '2026-08-21',
+          fin: '2026-09-17',
+          fuseau: 'America/Los_Angeles',
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    // Les 28 jours précédant le 21 août 2026 : du 24 juillet au 20 août 2026.
+    expect(screen.getByText(/24 juillet au 20 août 2026/)).toBeDefined();
+  });
+
+  it('affiche une phrase de synthèse quand le crawl ne trouve aucune anomalie', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk({
+          pages: Array.from({ length: 628 }, (_, i) => ({
+            url: `https://governance.brussels/fr/${i}`,
+            statut: 200,
+            canonical: null,
+            titre: 'Titre',
+            description: 'Description',
+            hreflang: ['fr'],
+          })),
+          bloquees: 0,
+          echecs: 0,
+        }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(screen.getByText(/628 pages contrôlées, aucune anomalie/)).toBeDefined();
+    // Pas de grille de « aucune » à côté de la phrase de synthèse.
+    expect(screen.queryByText('Bloquées', { selector: 'dt' })).toBeNull();
+    expect(screen.queryByText('Échecs', { selector: 'dt' })).toBeNull();
+  });
+
+  it('liste les anomalies détaillées, y compris les pages cassées, au lieu de la phrase de synthèse', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(DONNEES_GSC_VIDES),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk({
+          pages: [
+            ...Array.from({ length: 25 }, (_, i) => pageCrawl(`/cassee-${i}`, 500)),
+            ...Array.from({ length: 600 }, (_, i) => pageCrawl(`/ok-${i}`, 200)),
+          ],
+          bloquees: 0,
+          echecs: 0,
+        }),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    expect(screen.queryByText(/pages contrôlées, aucune anomalie/)).toBeNull();
+    const cassees = screen
+      .getByText('Pages sans statut 200', { selector: 'dt' })
+      .closest('div')
+      ?.querySelector('dd');
+    expect(cassees?.textContent).toBe('25');
+  });
+
 });

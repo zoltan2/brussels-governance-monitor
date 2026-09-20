@@ -125,6 +125,83 @@ function formatFenetre(fenetre: FenetreRapport | null, nomBloc: string): string 
   return `${debut} → ${fin} (${nommerFuseau(fenetre.fuseau, nomBloc)})`;
 }
 
+const MOIS_FR = [
+  'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
+  'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre',
+];
+
+interface DateSeule {
+  annee: number;
+  mois: number; // 1-12
+  jour: number;
+}
+
+/** Comme formatDateSeule, mais rend des composants numériques exploitables
+ * (calcul de durée, décalage de jours) plutôt qu'une chaîne d'affichage. */
+function parseDateSeule(iso: string | null): DateSeule | null {
+  if (!iso) return null;
+  const correspondance = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso);
+  if (!correspondance) return null;
+  const [, annee, mois, jour] = correspondance;
+  return { annee: Number(annee), mois: Number(mois), jour: Number(jour) };
+}
+
+/** Décale une date calendaire d'un nombre de jours (positif ou négatif), en
+ * UTC pur : une fenêtre est une plage de JOURS dans le fuseau de sa source,
+ * jamais un instant, donc aucune conversion de fuseau n'intervient ici. */
+function decalerJours(date: DateSeule, delta: number): DateSeule {
+  const t = Date.UTC(date.annee, date.mois - 1, date.jour + delta);
+  const d = new Date(t);
+  return { annee: d.getUTCFullYear(), mois: d.getUTCMonth() + 1, jour: d.getUTCDate() };
+}
+
+/** Nombre de jours inclusif entre deux dates calendaires (21 août au
+ * 17 septembre inclus = 28 jours), ou null si l'ordre est invalide. */
+function joursInclusifs(debut: DateSeule, fin: DateSeule): number | null {
+  const t1 = Date.UTC(debut.annee, debut.mois - 1, debut.jour);
+  const t2 = Date.UTC(fin.annee, fin.mois - 1, fin.jour);
+  const diff = Math.round((t2 - t1) / 86_400_000);
+  return diff >= 0 ? diff + 1 : null;
+}
+
+function formatDateLongue(date: DateSeule, avecAnnee: boolean): string {
+  const base = `${date.jour} ${MOIS_FR[date.mois - 1]}`;
+  return avecAnnee ? `${base} ${date.annee}` : base;
+}
+
+/** Fenêtre en dates lisibles, à côté des chiffres qu'elle date : « 28 jours,
+ * du 21 août au 17 septembre 2026 ». Contrairement à formatFenetre (utilisée
+ * dans « À propos de ce relevé » pour la vérification), aucun repli textuel
+ * n'est rendu quand la fenêtre est indisponible : la ligne reste tue, une
+ * période inconnue ne s'affiche pas comme si elle valait la peine d'être lue
+ * à côté des chiffres. */
+function formatFenetreLongue(fenetre: FenetreRapport | null): string | null {
+  const debut = parseDateSeule(fenetre?.debut ?? null);
+  const fin = parseDateSeule(fenetre?.fin ?? null);
+  if (!debut || !fin) return null;
+  const jours = joursInclusifs(debut, fin);
+  const memeAnnee = debut.annee === fin.annee;
+  const texteDebut = formatDateLongue(debut, !memeAnnee);
+  const texteFin = formatDateLongue(fin, true);
+  const prefixe = jours !== null ? `${jours} jours, ` : '';
+  return `${prefixe}du ${texteDebut} au ${texteFin}`;
+}
+
+/** La fenêtre de comparaison (« 28 jours précédents ») n'est pas transmise
+ * par la collecte : elle se déduit du début de la fenêtre courante, les
+ * 28 jours qui le précèdent immédiatement. */
+function formatFenetrePrecedente(fenetre: FenetreRapport | null): string | null {
+  const debut = parseDateSeule(fenetre?.debut ?? null);
+  if (!debut) return null;
+  const finPrecedente = decalerJours(debut, -1);
+  const debutPrecedente = decalerJours(debut, -28);
+  return formatFenetreLongue({
+    debut: `${debutPrecedente.annee}-${String(debutPrecedente.mois).padStart(2, '0')}-${String(debutPrecedente.jour).padStart(2, '0')}`,
+    fin: `${finPrecedente.annee}-${String(finPrecedente.mois).padStart(2, '0')}-${String(finPrecedente.jour).padStart(2, '0')}`,
+    fuseau: fenetre?.fuseau ?? null,
+  });
+}
+
 /** null = pages absent ou du mauvais type (donnée manquante) : indisponible.
  * [] = tableau présent et vide : une couverture nulle est la panne la plus
  * bruyante possible côté crawl (le script tourne, ne trouve presque rien) —
@@ -147,13 +224,78 @@ function valeurPagesPassees(pages: PageCrawl[] | null): { texte: string; alarme:
   return { texte: pages.length.toLocaleString('fr-BE'), alarme: false };
 }
 
-/** null = liste de pages manquante : indisponible. Sinon, compte les pages
- * qui n'ont pas le champ demandé — 0 s'écrit « aucune », jamais un zéro nu,
- * pour ne jamais se confondre avec une donnée non affichée. */
-function compterManquants(pages: PageCrawl[] | null, manque: (p: PageCrawl) => boolean): string {
-  if (pages === null) return 'indisponible';
-  const n = pages.filter(manque).length;
-  return n === 0 ? 'aucune' : n.toLocaleString('fr-BE');
+/** null = liste de pages manquante : donnée manquante. Sinon, le compte brut
+ * de pages qui n'ont pas le champ demandé (0 compris) : la mise en forme
+ * (« aucune », alarme) est décidée par l'appelant, jamais ici. */
+function compterManquantsNombre(
+  pages: PageCrawl[] | null,
+  manque: (p: PageCrawl) => boolean,
+): number | null {
+  return pages === null ? null : pages.filter(manque).length;
+}
+
+interface AnomalieCrawl {
+  label: string;
+  n: number | null;
+}
+
+interface SyntheseAnomaliesCrawl {
+  aucuneAnomalie: boolean;
+  phrase: string;
+  items: { label: string; valeur: string; alarme: boolean }[];
+}
+
+/** Un passage technique « sonde réussie » qui ne trouve rien à redire doit
+ * se lire comme un résultat affirmatif (« 628 pages contrôlées, aucune
+ * anomalie »), pas comme une grille de cartes « aucune » qu'on peut lire
+ * comme un vide. À l'inverse, dès qu'une anomalie existe (y compris les
+ * pages qui ne répondent pas 200, jusque-là absentes de ce résumé), elle est
+ * listée nommément : une phrase rassurante ne doit jamais coexister avec des
+ * pages cassées sous silence. */
+function syntheseAnomaliesCrawl(donnees: CrawlDonnees): SyntheseAnomaliesCrawl | null {
+  const pages = donnees.pages;
+  const categories: AnomalieCrawl[] = [
+    { label: 'Bloquées', n: donnees.bloquees },
+    { label: 'Échecs', n: donnees.echecs },
+    { label: 'Pages sans statut 200', n: pages === null ? null : pagesCassees(pages).length },
+    { label: 'Pages sans titre', n: compterManquantsNombre(pages, (p) => !p.titre) },
+    {
+      label: 'Pages sans description',
+      n: compterManquantsNombre(pages, (p) => !p.description),
+    },
+    {
+      label: 'Pages sans hreflang',
+      n: compterManquantsNombre(pages, (p) => p.hreflang.length === 0),
+    },
+    {
+      label: 'Pages au statut inconnu',
+      n: compterManquantsNombre(pages, (p) => p.statut === null),
+    },
+  ];
+
+  const toutesConnues = categories.every((c) => c.n !== null);
+  const total = toutesConnues
+    ? categories.reduce((acc, c) => acc + (c.n as number), 0)
+    : null;
+  const couvertureOk = pages !== null && pages.length > 0 && !couvertureFaible(pages);
+
+  if (toutesConnues && total === 0 && couvertureOk) {
+    return {
+      aucuneAnomalie: true,
+      phrase: `${pages!.length.toLocaleString('fr-BE')} pages contrôlées, aucune anomalie.`,
+      items: [],
+    };
+  }
+
+  const items = categories
+    .filter((c) => c.n !== 0)
+    .map((c) => ({
+      label: c.label,
+      valeur: c.n === null ? 'indisponible' : c.n.toLocaleString('fr-BE'),
+      alarme: c.n !== null,
+    }));
+
+  return { aucuneAnomalie: false, phrase: '', items };
 }
 
 /** Empreinte tronquée : le dépôt et la machine de production peuvent
@@ -276,62 +418,106 @@ function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
       )}
       {actions !== null && actions.length > 0 && (
         <ul className="space-y-3">
-          {actions.map((action, i) => (
-            <li
-              key={`${action.regle}-${action.url}-${i}`}
-              className="rounded border border-neutral-200 bg-neutral-50 p-4"
-            >
-              <p className="text-sm font-semibold break-words text-neutral-900">
-                {action.titre ?? `${action.regle} : ${chemin(action.url)}`}
-              </p>
-              <p className="mt-1 text-xs text-neutral-500">
-                Règle : {action.regle}
-                {action.priorite !== null ? ` · priorité ${action.priorite}` : ' · priorité indisponible'}
-              </p>
-              <p className="mt-2 text-sm text-neutral-700">{action.preuve}</p>
-              <p className="mt-2 text-sm">
-                <a
-                  href={action.url}
-                  className="break-words text-brand-700 underline-offset-4 hover:underline"
-                >
-                  {chemin(action.url)}
-                </a>
-              </p>
-              {action.fenetre && (
-                <p className="mt-2 text-xs text-neutral-500">
-                  Fenêtre : {formatFenetre(action.fenetre, 'Search Console')}
+          {actions.map((action, i) => {
+            // Un titre qui répète l'URL entière fait doublon avec le lien
+            // affiché juste en dessous : on ne l'écrit qu'une fois.
+            const titreDupliqueLeLien = action.titre !== null && action.titre === action.url;
+            // La collecte n'a pas toujours de fenêtre à donner : tant qu'elle
+            // n'a pas de dates, la ligne reste tue plutôt que d'afficher
+            // « fenêtre indisponible » sous chaque action.
+            const fenetreTexte = action.fenetre?.debut || action.fenetre?.fin
+              ? formatFenetre(action.fenetre, 'Search Console')
+              : null;
+            return (
+              <li
+                key={`${action.regle}-${action.url}-${i}`}
+                className="rounded border border-neutral-200 bg-neutral-50 p-4"
+              >
+                {!titreDupliqueLeLien && (
+                  <p className="text-sm font-semibold break-words text-neutral-900">
+                    {action.titre ?? `${action.regle} : ${chemin(action.url)}`}
+                  </p>
+                )}
+                <p className="mt-1 text-xs text-neutral-500">
+                  Règle : {action.regle}
+                  {action.priorite !== null ? ` · priorité ${action.priorite}` : ' · priorité indisponible'}
                 </p>
-              )}
-            </li>
-          ))}
+                <p className="mt-2 text-sm text-neutral-700">{action.preuve}</p>
+                <p className="mt-2 text-sm">
+                  <a
+                    href={action.url}
+                    className="break-words text-brand-700 underline-offset-4 hover:underline"
+                  >
+                    {chemin(action.url)}
+                  </a>
+                </p>
+                {fenetreTexte && (
+                  <p className="mt-2 text-xs text-neutral-500">Fenêtre : {fenetreTexte}</p>
+                )}
+              </li>
+            );
+          })}
         </ul>
       )}
     </section>
   );
 }
 
+/** Titre + fenêtre lisible, répétés à l'identique en tête des trois sections
+ * de chiffres clés : la période se lit à côté des chiffres qu'elle date,
+ * pas seulement tout en bas de page dans « À propos de ce relevé ». */
+function TitreSection({ titre, fenetre }: { titre: string; fenetre: FenetreRapport | null }) {
+  const fenetreTexte = formatFenetreLongue(fenetre);
+  return (
+    <>
+      <h3 className="mb-1 text-lg font-semibold text-neutral-900">{titre}</h3>
+      {fenetreTexte && <p className="mb-3 text-sm text-neutral-600">{fenetreTexte}</p>}
+    </>
+  );
+}
+
 function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: Freshness | null }) {
   const donnees = bloc.donnees;
+  const fenetrePrecedenteTexte = formatFenetrePrecedente(bloc.fenetre);
   return (
     <div className="mb-8">
-      <h3 className="mb-3 text-lg font-semibold text-neutral-900">Search Console</h3>
+      <TitreSection titre="Search Console" fenetre={bloc.fenetre} />
       <EtatBloc nom={NOMS_BLOCS.gsc} bloc={bloc} />
       <MetaBloc bloc={bloc} freshness={freshness} />
       {donnees && (
-        <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat label="Clics Belgique" value={formatNombre(donnees.clicsBelgique)} />
-          <Stat
-            label="Clics Belgique, 28 jours précédents"
-            value={formatNombre(donnees.clicsBelgiquePrecedents)}
-          />
-          <Stat label="Clics totaux" value={formatNombre(donnees.totaux.clics)} />
-          <Stat label="Impressions" value={formatNombre(donnees.totaux.impressions)} />
-          <Stat label="CTR" value={formatPourcentFraction(donnees.totaux.ctr)} />
-          <Stat
-            label="Position moyenne (plus bas = mieux classé)"
-            value={formatDecimal(donnees.totaux.position)}
-          />
-        </dl>
+        <>
+          <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <Stat label="Clics depuis la Belgique" value={formatNombre(donnees.clicsBelgique)} />
+            <Stat
+              label="Clics Belgique, 28 jours précédents"
+              value={formatNombre(donnees.clicsBelgiquePrecedents)}
+            />
+            <Stat label="Clics totaux (le monde entier)" value={formatNombre(donnees.totaux.clics)} />
+            <Stat label="Impressions" value={formatNombre(donnees.totaux.impressions)} />
+            <Stat label="Taux de clic" value={formatPourcentFraction(donnees.totaux.ctr)} />
+            <Stat
+              label="Position moyenne dans Google"
+              value={formatDecimal(donnees.totaux.position)}
+            />
+          </dl>
+          <ul className="mt-3 space-y-1.5 text-xs text-neutral-600">
+            <li>
+              Clics depuis la Belgique : les clics venus de Belgique sur cette période. Les
+              clics totaux comptent le monde entier ; l&apos;écart entre les deux est surtout
+              du bruit international, sans lecteur réel derrière.
+            </li>
+            <li>
+              Clics Belgique, 28 jours précédents : la période de comparaison
+              {fenetrePrecedenteTexte ? ` (${fenetrePrecedenteTexte})` : ''}.
+            </li>
+            <li>
+              Position moyenne dans Google : le rang moyen des pages du site quand elles
+              apparaissent dans les résultats, 1 étant la première place. Une valeur de 6,6
+              signifie sixième ou septième position en moyenne.
+            </li>
+            <li>Taux de clic : la part des affichages dans les résultats qui ont donné un clic.</li>
+          </ul>
+        </>
       )}
     </div>
   );
@@ -347,18 +533,24 @@ function ChiffresUmami({
   const donnees = bloc.donnees;
   return (
     <div className="mb-8">
-      <h3 className="mb-3 text-lg font-semibold text-neutral-900">Umami</h3>
+      <TitreSection titre="Umami" fenetre={bloc.fenetre} />
       <EtatBloc nom={NOMS_BLOCS.umami} bloc={bloc} />
       <MetaBloc bloc={bloc} freshness={freshness} />
       {donnees && (
-        <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat label="Visites" value={formatNombre(donnees.visites)} />
-          <Stat
-            label="Part des visites multi-pages"
-            value={formatPourcentFraction(donnees.profondeur)}
-          />
-          <Stat label="Événements" value={formatNombre(donnees.evenements)} />
-        </dl>
+        <>
+          <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <Stat label="Visites" value={formatNombre(donnees.visites)} />
+            <Stat
+              label="Visites ayant vu au moins deux pages"
+              value={formatPourcentFraction(donnees.profondeur)}
+            />
+            <Stat label="Événements" value={formatNombre(donnees.evenements)} />
+          </dl>
+          <p className="mt-3 text-xs text-neutral-600">
+            Visites ayant vu au moins deux pages : un lecteur arrivé sur le site puis reparti
+            aussitôt n&apos;y est pas compté.
+          </p>
+        </>
       )}
     </div>
   );
@@ -373,9 +565,10 @@ function ChiffresCrawl({
 }) {
   const donnees = bloc.donnees;
   const pagesPassees = donnees ? valeurPagesPassees(donnees.pages) : null;
+  const synthese = donnees ? syntheseAnomaliesCrawl(donnees) : null;
   return (
     <div className="mb-8">
-      <h3 className="mb-3 text-lg font-semibold text-neutral-900">Passage technique</h3>
+      <TitreSection titre="Passage technique" fenetre={bloc.fenetre} />
       <EtatBloc nom={NOMS_BLOCS.crawl} bloc={bloc} />
       <MetaBloc bloc={bloc} freshness={freshness} />
       {donnees && pagesPassees && (
@@ -385,26 +578,25 @@ function ChiffresCrawl({
             value={pagesPassees.texte}
             alarme={pagesPassees.alarme}
           />
-          <Stat label="Bloquées" value={formatNombre(donnees.bloquees)} />
-          <Stat label="Échecs" value={formatNombre(donnees.echecs)} />
-          <Stat
-            label="Pages sans titre"
-            value={compterManquants(donnees.pages, (p) => !p.titre)}
-          />
-          <Stat
-            label="Pages sans description"
-            value={compterManquants(donnees.pages, (p) => !p.description)}
-          />
-          <Stat
-            label="Pages sans hreflang"
-            value={compterManquants(donnees.pages, (p) => p.hreflang.length === 0)}
-          />
-          <Stat
-            label="Pages au statut inconnu"
-            value={compterManquants(donnees.pages, (p) => p.statut === null)}
-          />
         </dl>
       )}
+      {synthese &&
+        (synthese.aucuneAnomalie ? (
+          <p className="mt-3 text-sm text-neutral-700">{synthese.phrase}</p>
+        ) : (
+          synthese.items.length > 0 && (
+            <dl className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {synthese.items.map((item) => (
+                <Stat
+                  key={item.label}
+                  label={item.label}
+                  value={item.valeur}
+                  alarme={item.alarme}
+                />
+              ))}
+            </dl>
+          )
+        ))}
     </div>
   );
 }
@@ -606,6 +798,55 @@ function TablesCrawl({ bloc }: { bloc: Bloc<CrawlDonnees> }) {
   );
 }
 
+/** Les deux fenêtres coïncident quand elles couvrent le même jour calendaire
+ * de début et de fin (les fuseaux, eux, restent différents : Pacifique pour
+ * Search Console, UTC pour Umami). Sert à décider si le rapprochement des
+ * deux blocs reste valable cette semaine. */
+function fenetresAlignees(a: FenetreRapport | null, b: FenetreRapport | null): boolean {
+  if (!a?.debut || !a?.fin || !b?.debut || !b?.fin) return false;
+  return a.debut.slice(0, 10) === b.debut.slice(0, 10) && a.fin.slice(0, 10) === b.fin.slice(0, 10);
+}
+
+/**
+ * Un lecteur pressé, le lundi matin, doit savoir d'un coup d'œil s'il peut
+ * rapprocher les chiffres Search Console et Umami : cette phrase vit donc en
+ * tête de « Chiffres clés », avant le premier chiffre, pas en bas de page
+ * dans « À propos de ce relevé ». Quand les fenêtres coïncident, une seule
+ * phrase l'autorise, suivie des deux réserves qui restent vraies même dans
+ * ce cas (retard de Search Console, décalage de fuseau) ; quand elles ne
+ * coïncident pas (collecte partielle, panne d'un bloc), l'avertissement
+ * ambre le dit aussi nettement, jamais à la seule couleur : le texte porte
+ * l'interdiction, la couleur ne fait que la souligner.
+ */
+function SyntheseFenetresComparaison({
+  gsc,
+  umami,
+}: {
+  gsc: FenetreRapport | null;
+  umami: FenetreRapport | null;
+}) {
+  if (fenetresAlignees(gsc, umami)) {
+    return (
+      <p className="mb-4 text-sm text-neutral-700">
+        Search Console et Umami couvrent les mêmes 28 jours : vous pouvez rapprocher leurs
+        chiffres. Search Console publie ses données avec environ trois jours de retard, sa
+        fenêtre s&apos;arrête donc trois jours avant aujourd&apos;hui. Les deux outils
+        découpent leurs journées dans des fuseaux différents, ce qui laisse quelques heures
+        d&apos;écart aux bords de la période.
+      </p>
+    );
+  }
+  return (
+    <p
+      role="alert"
+      className="mb-4 rounded border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900"
+    >
+      Cette semaine, les fenêtres de Search Console et d&apos;Umami ne coïncident pas : ne
+      rapprochez pas leurs chiffres.
+    </p>
+  );
+}
+
 /** Fenêtres et empreintes de script : utiles pour vérifier le relevé, pas
  * pour décider quoi faire cette semaine — donc en dernier, jamais avant les
  * actions ou les chiffres. */
@@ -621,9 +862,9 @@ function SectionAPropos({ rapport }: { rapport: RapportSeo }) {
         Fenêtres d&apos;analyse
       </h3>
       <p className="mb-3 text-sm text-neutral-600">
-        Chaque bloc analyse sa propre période, dans son propre fuseau : ne
-        rapprochez jamais un chiffre Search Console d&apos;un chiffre Umami,
-        leurs fenêtres ne coïncident pas.
+        Chaque bloc analyse sa propre période, listée ci-dessous pour vérifier
+        le relevé. Le rapprochement entre Search Console et Umami est expliqué
+        en tête de la section Chiffres clés, juste au-dessus des chiffres.
       </p>
       <dl className="mb-6 grid gap-3 sm:grid-cols-3">
         <div className="rounded border border-neutral-200 bg-neutral-50 p-3">
@@ -738,6 +979,7 @@ export default async function AdminRapportPage({
 
       <section className="mb-10">
         <h2 className="mb-4 text-xl font-semibold text-neutral-900">Chiffres clés</h2>
+        <SyntheseFenetresComparaison gsc={gsc.fenetre} umami={umami.fenetre} />
         <ChiffresGsc bloc={gsc} freshness={rapport.fraicheur.gsc} />
         <ChiffresUmami bloc={umami} freshness={rapport.fraicheur.umami} />
         <ChiffresCrawl bloc={crawl} freshness={rapport.fraicheur.crawl} />

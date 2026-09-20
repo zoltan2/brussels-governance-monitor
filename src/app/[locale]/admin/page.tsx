@@ -15,6 +15,7 @@ import { ChatTile } from '@/components/admin/chat-tile';
 import { RefonteTile } from '@/components/admin/refonte-tile';
 import { GamesTile } from '@/components/admin/games-tile';
 import { QuizTile } from '@/components/admin/quiz-tile';
+import { SeoReportTile } from '@/components/admin/seo-report-tile';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -75,6 +76,9 @@ export default async function AdminHubPage({
         </Suspense>
         <Suspense fallback={<TileSkeleton title="Jeux" />}>
           <GamesTile />
+        </Suspense>
+        <Suspense fallback={<TileSkeleton title="Rapport SEO hebdomadaire" />}>
+          <SeoReportTile />
         </Suspense>
       </div>
     </div>

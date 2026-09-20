@@ -104,6 +104,13 @@ describe('SeoReportTile', () => {
     // Le bloc GSC est en panne : ses chiffres ne doivent jamais retomber sur
     // zéro, ils doivent rester marqués indisponibles.
     expect(screen.getAllByText(/Indisponible/).length).toBeGreaterThan(0);
+    // La ligne « première action » elle-même doit dire indisponible, pas
+    // « aucune action » : dire « aucune action » alors que le bloc qui les
+    // calcule est en panne laisserait croire à tort qu'il n'y a rien à faire.
+    const ligneAction = screen.getByText('Première action suggérée')
+      .closest('div')
+      ?.querySelector('dd');
+    expect(ligneAction?.textContent).toBe('Indisponible');
   });
 
   it("distingue « aucune action cette semaine » d'une panne du bloc GSC", async () => {

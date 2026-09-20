@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-09-18T15:56:26.827Z",
   "locale": "fr",
-  "poolSize": 68,
+  "poolSize": 67,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1132,29 +1132,6 @@
       }
     },
     {
-      "id": "dossier-metro-3-1",
-      "source": "dossier",
-      "domain": "Mobilité",
-      "question": "Comment les rédactions rapportent-elles l'existence des deux abris anti-aériens annoncés sous le Palais du Midi le 9 septembre 2026 ?",
-      "options": [
-        "Certaines l'écrivent attestée, une autre parle d'abris possibles",
-        "Toutes la présentent comme confirmée par la Ville",
-        "Toutes la présentent comme une hypothèse non vérifiée",
-        "Aucune ne reprend l'annonce faite par l'association"
-      ],
-      "correct": 0,
-      "explanation": "L'association décrit deux abris construits en 1940 et en 1943, sur 450 mètres carrés, pour une capacité pouvant atteindre 1 500 personnes, et demande un travail archéologique avant la poursuite des travaux en sous-sol. Elle écrit elle-même qu'il lui manque de nombreuses informations, et surtout des plans précis. Aucune réaction de la STIB ni de Beliris ne figure dans les articles consultés.",
-      "sourceSlug": "/fr/dossiers/metro-3",
-      "sourceTitle": "Métro 3",
-      "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:aaa7da95c1ffe559c48594910283c5e0",
-        "generatedAt": "2026-09-18T15:56:26.827Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilité",
@@ -1569,5 +1546,5 @@
       }
     }
   ],
-  "reviewedCount": 51
+  "reviewedCount": 67
 }

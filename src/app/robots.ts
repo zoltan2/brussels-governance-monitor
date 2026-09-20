@@ -20,7 +20,11 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 
   // A crawler named in its own group ignores the '*' group entirely, so every
   // group repeats the shared exclusions.
-  const privatePaths = ['/api/', '/refonte', '/refonte/preview'];
+  // Les pages d'administration et de relecture sont deja en noindex et
+  // redirigent vers la connexion sans session (#513). La ligne ci-dessous est
+  // une ceinture en plus de la bretelle : elle evite qu'un robot depense son
+  // budget de passage sur des redirections, sous n'importe quelle langue.
+  const privatePaths = ['/api/', '/refonte', '/refonte/preview', '/*/admin', '/*/review', '/*/login'];
 
   return {
     rules: [

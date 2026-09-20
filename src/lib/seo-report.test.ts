@@ -464,4 +464,125 @@ describe('readSeoReport', () => {
       'sans-priorite',
     ]);
   });
+
+  // Red team (2026-09-20) : rendu vérifié avec des valeurs corrompues
+  // (« −50 » clics, « −9 » événements, CTR 4 200 %, profondeur 500 %,
+  // position −3,0). Une valeur impossible par définition (compte négatif,
+  // pourcentage au-dessus de cent, position négative) ne peut signifier
+  // qu'une corruption : traitée comme NaN, donnée absente, jamais affichée
+  // telle quelle.
+  it('rejette un compte négatif (clics, impressions, clicsBelgique) comme une corruption', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          totaux: { clics: -50, impressions: -1, ctr: 0.1, position: 3 },
+          clicsBelgique: -50,
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.totaux.clics).toBeNull();
+    expect(rapport.blocs.gsc.donnees?.totaux.impressions).toBeNull();
+    expect(rapport.blocs.gsc.donnees?.clicsBelgique).toBeNull();
+    // Une mesure plausible dans le même objet reste affichée.
+    expect(rapport.blocs.gsc.donnees?.totaux.ctr).toBe(0.1);
+  });
+
+  it("rejette un evenements négatif, même entier, jamais affiché tel quel", async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { evenements: -9 },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.donnees?.evenements).toBeNull();
+  });
+
+  it('rejette un pourcentage au-dessus de cent (CTR, profondeur, part des requêtes)', async () => {
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          totaux: { clics: 10, impressions: 100, ctr: 42, position: 3 },
+          partRequetes: 5,
+        },
+      }),
+    );
+    const rapportGsc = await readSeoReport();
+    expect(rapportGsc.blocs.gsc.donnees?.totaux.ctr).toBeNull();
+    expect(rapportGsc.blocs.gsc.donnees?.partRequetes).toBeNull();
+    // Le reste du même objet, plausible, reste affiché.
+    expect(rapportGsc.blocs.gsc.donnees?.totaux.clics).toBe(10);
+
+    vi.mocked(readFile).mockImplementation(async () =>
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'umami',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { profondeur: 5 },
+      }),
+    );
+    const rapportUmami = await readSeoReport();
+    expect(rapportUmami.blocs.umami.donnees?.profondeur).toBeNull();
+  });
+
+  it('rejette une position de classement négative', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { totaux: { clics: 10, impressions: 100, ctr: 0.1, position: -3 } },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.totaux.position).toBeNull();
+  });
+
+  // « Ne borne pas ce qui est seulement surprenant » : un chiffre énorme
+  // mais positif n'est pas impossible par définition, il reste affiché.
+  it('affiche un chiffre positif inhabituel mais possible sans le borner', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: { totaux: { clics: 10, impressions: 1e308, ctr: 0.1, position: 3 } },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.totaux.impressions).toBe(1e308);
+  });
+
+  // Red team (2026-09-20) : la tuile annonçait « Alertes techniques 0 »
+  // pendant que la page listait des pages en 404/500 : le compte de la
+  // tuile ne sommait que bloquées et échecs réseau, jamais les pages
+  // récupérées avec un statut cassé. pagesCassees() est la fonction
+  // partagée qui doit rendre ces deux affichages cohérents.
+  describe('pagesCassees', () => {
+    it('compte les pages dont le statut est connu et différent de 200, jamais celles au statut inconnu', async () => {
+      const { pagesCassees } = await import('./seo-report');
+      const pages = [
+        { url: '/a', statut: 404, canonical: null, titre: null, description: null, hreflang: [] },
+        { url: '/b', statut: 500, canonical: null, titre: null, description: null, hreflang: [] },
+        { url: '/c', statut: 200, canonical: null, titre: null, description: null, hreflang: [] },
+        { url: '/d', statut: null, canonical: null, titre: null, description: null, hreflang: [] },
+      ];
+      expect(pagesCassees(pages).map((p) => p.url)).toEqual(['/a', '/b']);
+    });
+  });
 });

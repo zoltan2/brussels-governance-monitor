@@ -184,16 +184,43 @@ function asString(value: unknown): string | null {
  * jamais une fraction, une valeur décimale trahit une source corrompue. */
 function asEntier(value: unknown): number | null {
   const nombre = asNumber(value);
-  return nombre !== null && Number.isInteger(nombre) ? nombre : null;
+  return nombre !== null && Number.isInteger(nombre) && nombre >= 0 ? nombre : null;
+}
+
+/** Un compte (clics, impressions, visites…) n'est jamais négatif : une
+ * valeur négative ne peut signifier qu'une corruption, jamais un « moins
+ * cinquante clics » réel — traitée comme NaN, donnée absente. Aucune borne
+ * haute : un chiffre énorme mais positif reste surprenant, pas impossible,
+ * et s'affiche tel quel (c'est le sens même de ce rapport). */
+function asCompte(value: unknown): number | null {
+  const nombre = asNumber(value);
+  return nombre !== null && nombre >= 0 ? nombre : null;
+}
+
+/** Une position de classement commence à 1 et n'est jamais négative ; au-delà,
+ * toute valeur positive reste plausible (un site mal classé peut apparaître
+ * très loin), donc non bornée en haut. */
+function asPosition(value: unknown): number | null {
+  const nombre = asNumber(value);
+  return nombre !== null && nombre >= 0 ? nombre : null;
+}
+
+/** Une fraction représentant un pourcentage (CTR, profondeur, part des
+ * requêtes) est bornée à [0, 1] par définition : au-delà, ce n'est plus un
+ * pourcentage mesuré, c'est une corruption. Un pourcentage inhabituel mais
+ * plausible (99 %) reste affiché tel quel : seule l'impossibilité borne. */
+function asFractionPourcentage(value: unknown): number | null {
+  const nombre = asNumber(value);
+  return nombre !== null && nombre >= 0 && nombre <= 1 ? nombre : null;
 }
 
 function asTotaux(value: unknown): Totaux {
   const record = asRecord(value);
   return {
-    clics: asNumber(record.clics),
-    impressions: asNumber(record.impressions),
-    ctr: asNumber(record.ctr),
-    position: asNumber(record.position),
+    clics: asCompte(record.clics),
+    impressions: asCompte(record.impressions),
+    ctr: asFractionPourcentage(record.ctr),
+    position: asPosition(record.position),
   };
 }
 
@@ -216,11 +243,11 @@ function asPagesGsc(value: unknown): PageGsc[] {
     if (url === null) continue; // pas d'URL, pas de ligne exploitable
     pages.push({
       url,
-      clics: asNumber(record.clics),
-      impressions: asNumber(record.impressions),
-      ctr: asNumber(record.ctr),
-      position: asNumber(record.position),
-      clicsPrecedents: asNumber(record.clicsPrecedents),
+      clics: asCompte(record.clics),
+      impressions: asCompte(record.impressions),
+      ctr: asFractionPourcentage(record.ctr),
+      position: asPosition(record.position),
+      clicsPrecedents: asCompte(record.clicsPrecedents),
     });
   }
   return pages;
@@ -235,9 +262,9 @@ function asRequetes(value: unknown): RequeteGsc[] {
     if (requete === null) continue;
     requetes.push({
       requete,
-      clics: asNumber(record.clics),
-      impressions: asNumber(record.impressions),
-      position: asNumber(record.position),
+      clics: asCompte(record.clics),
+      impressions: asCompte(record.impressions),
+      position: asPosition(record.position),
     });
   }
   return requetes;
@@ -252,10 +279,10 @@ function asOpportunitesTitre(value: unknown): OpportuniteTitre[] {
     if (url === null) continue;
     opportunites.push({
       url,
-      impressions: asNumber(record.impressions),
-      position: asNumber(record.position),
-      ctr: asNumber(record.ctr),
-      ctrMedianBande: asNumber(record.ctrMedianBande),
+      impressions: asCompte(record.impressions),
+      position: asPosition(record.position),
+      ctr: asFractionPourcentage(record.ctr),
+      ctrMedianBande: asFractionPourcentage(record.ctrMedianBande),
       bande: asString(record.bande),
     });
   }
@@ -323,12 +350,12 @@ function asGscDonnees(value: unknown): GscDonnees {
   return {
     totaux: asTotaux(record.totaux),
     totauxPrecedents: asTotaux(record.totauxPrecedents),
-    clicsBelgique: asNumber(record.clicsBelgique),
-    clicsBelgiquePrecedents: asNumber(record.clicsBelgiquePrecedents),
+    clicsBelgique: asCompte(record.clicsBelgique),
+    clicsBelgiquePrecedents: asCompte(record.clicsBelgiquePrecedents),
     fenetre: asFenetre(record.fenetre),
     pages: asPagesGsc(record.pages),
     requetes: asRequetes(record.requetes),
-    partRequetes: asNumber(record.partRequetes),
+    partRequetes: asFractionPourcentage(record.partRequetes),
     opportunitesTitre: asOpportunitesTitre(record.opportunitesTitre),
     actions: asActions(record.actions),
   };
@@ -345,7 +372,7 @@ function asVisitesIa(value: unknown): VisiteIa[] | null {
     const record = asRecord(ligne);
     const source = asString(record.source);
     if (source === null) continue;
-    visites.push({ source, visites: asNumber(record.visites) });
+    visites.push({ source, visites: asCompte(record.visites) });
   }
   return visites;
 }
@@ -363,8 +390,8 @@ function asPagesEntree(value: unknown): PageEntree[] {
     if (chemin === null) continue; // pas de chemin, pas de ligne exploitable
     pages.push({
       chemin,
-      visites: asNumber(record.visites),
-      visitesIa: asNumber(record.visitesIa),
+      visites: asCompte(record.visites),
+      visitesIa: asCompte(record.visitesIa),
     });
   }
   return pages;
@@ -373,10 +400,10 @@ function asPagesEntree(value: unknown): PageEntree[] {
 function asUmamiDonnees(value: unknown): UmamiDonnees {
   const record = asRecord(value);
   return {
-    visites: asNumber(record.visites),
+    visites: asCompte(record.visites),
     visitesIa: asVisitesIa(record.visitesIa),
     pagesEntree: asPagesEntree(record.pagesEntree),
-    profondeur: asNumber(record.profondeur),
+    profondeur: asFractionPourcentage(record.profondeur),
     evenements: asEntier(record.evenements),
   };
 }
@@ -409,12 +436,22 @@ function asPagesCrawl(value: unknown): PageCrawl[] | null {
   return pages;
 }
 
+/** Pages effectivement cassées : un statut CONNU et différent de 200,
+ * jamais une page au statut inconnu (`null`) — celle-ci n'est pas prouvée
+ * cassée, juste non contrôlée. Confondre les deux range parmi les pages
+ * cassées celles dont on ne sait rien. Partagée par la tuile (le compte
+ * d'alertes) et la page (la table « Pages sans statut 200 ») pour que les
+ * deux affichages s'accordent toujours sur le même chiffre. */
+export function pagesCassees(pages: PageCrawl[]): PageCrawl[] {
+  return pages.filter((p) => p.statut !== null && p.statut !== 200);
+}
+
 function asCrawlDonnees(value: unknown): CrawlDonnees {
   const record = asRecord(value);
   return {
     pages: asPagesCrawl(record.pages),
-    bloquees: asNumber(record.bloquees),
-    echecs: asNumber(record.echecs),
+    bloquees: asCompte(record.bloquees),
+    echecs: asCompte(record.echecs),
   };
 }
 

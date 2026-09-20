@@ -1833,6 +1833,42 @@
     "step3": "Klik op « Valideren & publiceren » om de kaart online te zetten",
     "step4": "Of « Afwijzen » met een reden om te archiveren"
   },
+  "relecture": {
+    "title": "Te herlezen",
+    "intro": "Drie signalen uit de fiches en het wekelijkse SEO-rapport, om te zien wat veroudert voor iemand anders het opmerkt.",
+    "total": "{count, plural, one {# te herlezen element} other {# te herlezen elementen}}",
+    "unavailableCount": "niet beschikbaar",
+    "pagesIa": {
+      "title": "Pagina's die AI-assistenten citeren, niet bijgewerkt",
+      "explain": "Acties uit het wekelijkse SEO-rapport met de regel « page-ia-perimee ».",
+      "unavailable": "SEO-rapport deze week niet beschikbaar: onmogelijk te controleren of pagina's die AI-assistenten citeren moeten worden bijgewerkt.",
+      "empty": "Geen enkele pagina gemeld door het SEO-rapport deze week: de regel page-ia-perimee vond niets te herlezen.",
+      "count": "{count, plural, one {# pagina} other {# pagina's}}"
+    },
+    "faq": {
+      "title": "FAQ achterop bij de fiche",
+      "explain": "Opnieuw gepubliceerde fiches waarvan de FAQ sindsdien niet herlezen is.",
+      "empty": "Geen enkele FAQ achterop: elke opnieuw gepubliceerde fiche heeft een FAQ herlezen op de datum van de laatste wijziging, of erna.",
+      "count": "{count, plural, one {# fiche} other {# fiches}}"
+    },
+    "chapeau": {
+      "title": "Verouderde intro's",
+      "explain": "Intro herlezen meer dan {days} dagen geleden, of nooit herlezen.",
+      "empty": "Geen enkele verouderde intro: alle intro's zijn minder dan {days} dagen geleden herlezen.",
+      "count": "{count, plural, one {# fiche} other {# fiches}}"
+    },
+    "item": {
+      "age": "{count, plural, one {# dag geleden} other {# dagen geleden}}",
+      "ageUnavailable": "leeftijd niet beschikbaar",
+      "file": "Bestand: {path}",
+      "fileUnavailable": "bestand niet geïdentificeerd",
+      "link": "Bekijk de gepubliceerde pagina",
+      "unknownTitle": "Pagina niet geïdentificeerd",
+      "collectionDomain": "Domein",
+      "collectionDossier": "Dossier",
+      "collectionUnknown": "Pagina"
+    }
+  },
   "verification": {
     "title": "Laatste verificatie",
     "date": "Geverifieerd op {date}",

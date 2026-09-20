@@ -1833,6 +1833,42 @@
     "step3": "Cliquez sur « Valider & publier » pour mettre la carte en ligne",
     "step4": "Ou « Rejeter » avec un motif pour l'archiver"
   },
+  "relecture": {
+    "title": "À relire",
+    "intro": "Trois signaux tirés des fiches et du rapport SEO hebdomadaire, pour voir ce qui vieillit avant que quelqu'un d'autre ne le remarque.",
+    "total": "{count, plural, one {# élément à relire} other {# éléments à relire}}",
+    "unavailableCount": "indisponible",
+    "pagesIa": {
+      "title": "Pages citées par les assistants IA, non mises à jour",
+      "explain": "Actions du rapport SEO hebdomadaire portant la règle « page-ia-perimee ».",
+      "unavailable": "Rapport SEO indisponible cette semaine : impossible de vérifier si des pages citées par des assistants IA doivent être mises à jour.",
+      "empty": "Aucune page signalée par le rapport SEO cette semaine : la règle page-ia-perimee n'a rien trouvé à relire.",
+      "count": "{count, plural, one {# page} other {# pages}}"
+    },
+    "faq": {
+      "title": "FAQ en retard sur la fiche",
+      "explain": "Fiches republiées dont la FAQ n'a pas été relue depuis.",
+      "empty": "Aucune FAQ en retard : chaque fiche republiée porte une FAQ relue à la date de sa dernière mise à jour, ou après.",
+      "count": "{count, plural, one {# fiche} other {# fiches}}"
+    },
+    "chapeau": {
+      "title": "Chapeaux périmés",
+      "explain": "Chapeau relu il y a plus de {days} jours, ou jamais relu.",
+      "empty": "Aucun chapeau périmé : tous les chapeaux ont été relus il y a moins de {days} jours.",
+      "count": "{count, plural, one {# fiche} other {# fiches}}"
+    },
+    "item": {
+      "age": "{count, plural, one {il y a # jour} other {il y a # jours}}",
+      "ageUnavailable": "âge indisponible",
+      "file": "Fichier : {path}",
+      "fileUnavailable": "fichier non identifié",
+      "link": "Voir la page publiée",
+      "unknownTitle": "Page non identifiée",
+      "collectionDomain": "Domaine",
+      "collectionDossier": "Dossier",
+      "collectionUnknown": "Page"
+    }
+  },
   "verification": {
     "title": "Dernière vérification",
     "date": "Vérifiée le {date}",

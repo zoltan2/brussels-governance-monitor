@@ -115,6 +115,12 @@ export interface PageCrawl {
   url: string;
   statut: number | null;
   canonical: string | null;
+  // La sonde (analyserPage, bgm-ops) contrôle aussi ces trois champs : les
+  // exposer permet de distinguer « tout va bien » de « pas affiché », sans
+  // quoi une page sans titre ni hreflang se confond avec une page saine.
+  titre: string | null;
+  description: string | null;
+  hreflang: string[];
 }
 
 export interface CrawlDonnees {
@@ -278,7 +284,38 @@ function asActions(value: unknown): ActionSuggeree[] {
       fenetre: asFenetre(record.fenetre),
     });
   }
-  return actions;
+  // Priorité croissante = plus urgent d'abord (convention regles.mjs) ; une
+  // priorité absente ne veut pas dire « urgente », elle va en fin de liste
+  // plutôt que de se retrouver en tête par accident de tri. Tri stable :
+  // l'ordre du producteur départage les ex æquo.
+  return actions
+    .map((action, indexOrigine) => ({ action, indexOrigine }))
+    .sort((a, b) => {
+      if (a.action.priorite === null && b.action.priorite === null) {
+        return a.indexOrigine - b.indexOrigine;
+      }
+      if (a.action.priorite === null) return 1;
+      if (b.action.priorite === null) return -1;
+      return a.action.priorite - b.action.priorite || a.indexOrigine - b.indexOrigine;
+    })
+    .map(({ action }) => action);
+}
+
+/** Un bloc GSC « ok » sans la moindre mesure numérique est un payload
+ * suspect (schéma déformé, ligne vide) : « aucune action cette semaine »
+ * ne doit se dire que si au moins une mesure atteste que Search Console a
+ * effectivement répondu quelque chose d'exploitable. Sinon, indisponible,
+ * même quand le statut dit « ok ». Partagée par la tuile et la page pour
+ * ne pas dupliquer ce jugement à deux endroits. */
+export function gscMesurePresente(donnees: GscDonnees): boolean {
+  return (
+    donnees.totaux.clics !== null ||
+    donnees.totaux.impressions !== null ||
+    donnees.totaux.ctr !== null ||
+    donnees.totaux.position !== null ||
+    donnees.clicsBelgique !== null ||
+    donnees.clicsBelgiquePrecedents !== null
+  );
 }
 
 function asGscDonnees(value: unknown): GscDonnees {
@@ -346,6 +383,13 @@ function asUmamiDonnees(value: unknown): UmamiDonnees {
 
 /** Même distinction que asVisitesIa : absent ou du mauvais type → null
  * (donnée manquante) ; tableau présent, même vide → [] (zéro constaté). */
+/** Filtre au passage : une entrée qui n'est pas une chaîne (hreflang
+ * corrompu) est écartée plutôt que de planter tout le tableau. */
+function asStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((v): v is string => typeof v === 'string');
+}
+
 function asPagesCrawl(value: unknown): PageCrawl[] | null {
   if (!Array.isArray(value)) return null;
   const pages: PageCrawl[] = [];
@@ -357,6 +401,9 @@ function asPagesCrawl(value: unknown): PageCrawl[] | null {
       url,
       statut: asNumber(record.statut),
       canonical: asString(record.canonical),
+      titre: asString(record.titre),
+      description: asString(record.description),
+      hreflang: asStringArray(record.hreflang),
     });
   }
   return pages;

@@ -57,3 +57,23 @@ export function freshnessClassName(level: FreshnessLevel): string {
     ? 'mt-3 text-xs text-neutral-500'
     : 'mt-3 text-xs font-medium text-amber-700';
 }
+
+const GRAVITE_FRAICHEUR: Record<FreshnessLevel, number> = { clock: 2, stale: 1, fresh: 0 };
+
+/** Fraîcheur la plus dégradée parmi plusieurs blocs, avec le nom de celui
+ * qui la porte : une horloge incohérente prime sur un simple retard, qui
+ * prime sur « à jour ». Sans le nom, le bloc fautif se confond avec les
+ * autres dans un verdict unique — partagée pour ne pas juger deux fois
+ * (tuile du hub, page /admin/rapport) avec des priorités différentes. */
+export function pireFraicheurNommee(
+  blocs: { nom: string; freshness: Freshness | null }[],
+): { nom: string; freshness: Freshness } | null {
+  let pire: { nom: string; freshness: Freshness } | null = null;
+  for (const bloc of blocs) {
+    if (!bloc.freshness) continue;
+    if (!pire || GRAVITE_FRAICHEUR[bloc.freshness.level] > GRAVITE_FRAICHEUR[pire.freshness.level]) {
+      pire = { nom: bloc.nom, freshness: bloc.freshness };
+    }
+  }
+  return pire;
+}

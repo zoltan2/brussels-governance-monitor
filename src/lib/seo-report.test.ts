@@ -431,4 +431,37 @@ describe('readSeoReport', () => {
     const rapport2 = await readSeoReport();
     expect(rapport2.blocs.crawl.donnees?.pages).toEqual([]);
   });
+
+  // La tuile et la page affichent la première action de la liste comme LA
+  // priorité de la semaine : si la liste n'est pas triée, « la première
+  // action » est celle que regles.mjs a écrite en premier, pas la plus
+  // urgente.
+  it('trie les actions par priorité croissante, les priorités absentes en fin de liste', async () => {
+    function action(regle: string, priorite: number | null) {
+      return { regle, priorite, titre: null, url: `/fr/${regle}`, preuve: 'preuve', fenetre: null };
+    }
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 1,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        donnees: {
+          actions: [
+            action('moyenne', 5),
+            action('sans-priorite', null),
+            action('urgente', 1),
+            action('intermediaire', 3),
+          ],
+        },
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.gsc.donnees?.actions.map((a) => a.regle)).toEqual([
+      'urgente',
+      'intermediaire',
+      'moyenne',
+      'sans-priorite',
+    ]);
+  });
 });

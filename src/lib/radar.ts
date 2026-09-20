@@ -93,6 +93,23 @@ export function getLastVeille(): string {
   return parsed.lastVeille;
 }
 
+/**
+ * Date de dernier mouvement du radar, pour le sitemap : `lastVeille` (mise à
+ * jour à chaque veille, même quand aucune entrée n'est ajoutée ou retirée),
+ * ou à défaut la date de l'entrée la plus récente si `lastVeille` est absent
+ * — le schéma l'exige aujourd'hui, mais un radar sans lastVeille ne doit pas
+ * pour autant retomber sur une date de lancement figée pendant qu'il change
+ * à chaque veille.
+ */
+export function getRadarLastModifiedDate(): Date {
+  if (parsed.lastVeille) return new Date(parsed.lastVeille);
+  const plusRecente = parsed.entries.reduce(
+    (latest, e) => (e.date > latest ? e.date : latest),
+    '',
+  );
+  return plusRecente ? new Date(plusRecente) : new Date(0);
+}
+
 export function getVeilleSourceCount(): number {
   return (sourceRegistry as { stats: { total: number } }).stats.total;
 }

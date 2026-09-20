@@ -504,6 +504,173 @@ describe('AdminRapportPage', () => {
     expect(item.querySelector('a')?.textContent).toBe('/fr/page-tres-longue-a-corriger');
   });
 
+  // Correctif lisibilité (2026-09-20, lecture du premier rapport réel) :
+  // sans titre fourni, le repli affichait `règle : chemin`, alors que le
+  // chemin est déjà répété juste en dessous par le lien. Une seule des deux
+  // occurrences doit rester.
+  it("sans titre fourni, n'affiche le chemin qu'une fois (dans le lien, pas dans le titre de repli)", async () => {
+    const url = 'https://governance.brussels/fr/page-1';
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'titre-manquant',
+              url,
+              preuve: 'Aucun titre détecté.',
+              titre: null,
+              priorite: 1,
+              fenetre: null,
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const item = sectionActionsListItems()[0];
+    const titre = item.querySelector('p.font-semibold');
+    expect(titre?.textContent).toBe('titre-manquant');
+    expect(titre?.textContent).not.toContain('/fr/page-1');
+    expect(item.querySelector('a')?.textContent).toBe('/fr/page-1');
+  });
+
+  // Correctif lisibilité (2026-09-20) : la fenêtre d'une action venait
+  // toujours étiquetée « Search Console », même pour un relevé UTC (donc pas
+  // Search Console, dont la fenêtre est en heure du Pacifique). Constaté en
+  // production : « 20/09/2026 → 20/09/2026 (UTC, celle de Search Console) »
+  // pour un relevé du passage technique. Cette fenêtre à un seul jour (début
+  // = fin) n'est en plus pas une période : elle doit se lire « Relevé du
+  // 20 septembre 2026 », sans arrow ni nom de bloc.
+  it("n'annonce jamais Search Console pour une fenêtre d'un seul jour, et l'affiche comme un relevé, pas une période", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'trafic-assistants-page-figee',
+              url: 'https://governance.brussels/fr/page-2',
+              preuve: 'Page inchangée depuis 90 jours malgré du trafic.',
+              titre: null,
+              priorite: 2,
+              fenetre: { debut: '2026-09-20', fin: '2026-09-20', fuseau: 'UTC' },
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const item = sectionActionsListItems()[0];
+    expect(item.textContent).toMatch(/Relevé du 20 septembre 2026/);
+    expect(item.textContent).not.toMatch(/→/);
+    expect(item.textContent).not.toMatch(/Search Console/);
+  });
+
+  // Fenêtre multi-jours réellement issue de Search Console (heure du
+  // Pacifique) : elle doit continuer à le dire, l'attribution correcte
+  // n'est retirée que pour les fenêtres qui n'en viennent pas réellement.
+  it('nomme Search Console pour une fenêtre multi-jours en heure du Pacifique', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'titre-manquant',
+              url: 'https://governance.brussels/fr/page-3',
+              preuve: 'Aucun titre détecté.',
+              titre: null,
+              priorite: 1,
+              fenetre: { debut: '2026-08-21', fin: '2026-09-17', fuseau: 'America/Los_Angeles' },
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const item = sectionActionsListItems()[0];
+    expect(item.textContent).toMatch(/Search Console/);
+  });
+
+  // Fenêtre multi-jours en UTC (donc pas Search Console, dont la fenêtre est
+  // en heure du Pacifique) : ne doit pas non plus annoncer Search Console à
+  // tort, même hors du cas à un seul jour couvert par le test précédent.
+  it('ne nomme pas Search Console pour une fenêtre multi-jours en UTC', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'trafic-assistants-page-figee',
+              url: 'https://governance.brussels/fr/page-5',
+              preuve: 'Page inchangée depuis 90 jours malgré du trafic.',
+              titre: null,
+              priorite: 2,
+              fenetre: { debut: '2026-08-24', fin: '2026-09-20', fuseau: 'UTC' },
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const item = sectionActionsListItems()[0];
+    expect(item.textContent).toMatch(/Fenêtre/);
+    expect(item.textContent).not.toMatch(/Search Console/);
+  });
+
+  // Correctif lisibilité (2026-09-20) : « 1 visites d'assistants », accord
+  // fautif constaté dans une preuve d'action réelle.
+  it("accorde le singulier dans la preuve d'une action (« 1 visite d'assistant », pas « 1 visites d'assistants »)", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actions: [
+            {
+              regle: 'trafic-assistants-page-figee',
+              url: 'https://governance.brussels/fr/page-4',
+              preuve: "1 visites d'assistants en 90 jours sans mise à jour.",
+              titre: null,
+              priorite: 3,
+              fenetre: null,
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const item = sectionActionsListItems()[0];
+    expect(item.textContent).toMatch(/1 visite d'assistant en 90 jours/);
+    expect(item.textContent).not.toMatch(/1 visites d'assistants/);
+  });
+
   it('affiche un unique verdict de fraîcheur sous le h1, avant le premier chiffre', async () => {
     vi.mocked(readSeoReport).mockResolvedValue({
       blocs: {

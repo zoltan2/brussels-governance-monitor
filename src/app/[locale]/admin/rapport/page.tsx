@@ -118,8 +118,17 @@ function nommerFuseau(fuseau: string | null, nomBloc: string): string {
   return `${fuseau}, celle de ${nomBloc}`;
 }
 
+/** Un début et une fin identiques ne forment pas une période : c'est un
+ * relevé ponctuel (passage technique quotidien, par exemple), pas une
+ * fenêtre de 28 jours. L'afficher en « J → J (fuseau) » suggérait à tort
+ * une plage, et prêtait le fuseau/nom du bloc appelant même quand le relevé
+ * ne venait pas de lui. On le dit alors simplement, sans nommer de bloc. */
 function formatFenetre(fenetre: FenetreRapport | null, nomBloc: string): string {
   if (!fenetre || (!fenetre.debut && !fenetre.fin)) return 'fenêtre indisponible';
+  if (fenetre.debut && fenetre.fin && fenetre.debut.slice(0, 10) === fenetre.fin.slice(0, 10)) {
+    const date = parseDateSeule(fenetre.debut);
+    if (date) return `Relevé du ${formatDateLongue(date, true)}`;
+  }
   const debut = formatDateSeule(fenetre.debut);
   const fin = formatDateSeule(fenetre.fin);
   return `${debut} → ${fin} (${nommerFuseau(fenetre.fuseau, nomBloc)})`;
@@ -394,6 +403,26 @@ function TableauEnveloppe({ children }: { children: React.ReactNode }) {
   );
 }
 
+/** Le contrat commun ne dit pas quel bloc a produit une action donnée
+ * (`regle` est un nom libre côté regles.mjs, hors de ce dépôt) : seul le
+ * fuseau de sa fenêtre distingue de façon fiable Search Console (heure du
+ * Pacifique) des autres sources (UTC, passage technique compris). Ne
+ * jamais annoncer Search Console à tort : un nom neutre vaut mieux qu'une
+ * fausse attribution constatée en production (relevé UTC affiché comme
+ * « celle de Search Console »). */
+function nomBlocAction(fuseau: string | null): string {
+  return fuseau === 'America/Los_Angeles' ? 'Search Console' : 'la collecte';
+}
+
+/** regles.mjs (hors de ce dépôt) pluralise parfois une preuve libre même
+ * quand le compte vaut 1, ex. « 1 visites d'assistants ». On ne corrige pas
+ * la grammaire d'un texte libre en général (« 1 mois » ne doit pas devenir
+ * « 1 moi ») : seul ce motif précis, constaté en production le 20/09/2026,
+ * est réaccordé. */
+function accorderPreuve(preuve: string): string {
+  return preuve.replace(/\b1 visites d'assistants\b/g, "1 visite d'assistant");
+}
+
 /**
  * Actions suggérées : première section de la page, ancrée pour la tuile
  * (#actions). Un bloc GSC « ok » mais sans la moindre mesure exploitable
@@ -420,13 +449,18 @@ function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
         <ul className="space-y-3">
           {actions.map((action, i) => {
             // Un titre qui répète l'URL entière fait doublon avec le lien
-            // affiché juste en dessous : on ne l'écrit qu'une fois.
+            // affiché juste en dessous : on ne l'écrit qu'une fois. Sans
+            // titre fourni, le repli est le nom de la règle seul (pas
+            // `règle : chemin`) : le chemin vit déjà dans le lien juste en
+            // dessous, l'y répéter dans le titre était le même doublon sous
+            // une autre forme.
             const titreDupliqueLeLien = action.titre !== null && action.titre === action.url;
+            const titreAffiche = action.titre ?? action.regle;
             // La collecte n'a pas toujours de fenêtre à donner : tant qu'elle
             // n'a pas de dates, la ligne reste tue plutôt que d'afficher
             // « fenêtre indisponible » sous chaque action.
             const fenetreTexte = action.fenetre?.debut || action.fenetre?.fin
-              ? formatFenetre(action.fenetre, 'Search Console')
+              ? formatFenetre(action.fenetre, nomBlocAction(action.fenetre?.fuseau ?? null))
               : null;
             return (
               <li
@@ -435,14 +469,14 @@ function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
               >
                 {!titreDupliqueLeLien && (
                   <p className="text-sm font-semibold break-words text-neutral-900">
-                    {action.titre ?? `${action.regle} : ${chemin(action.url)}`}
+                    {titreAffiche}
                   </p>
                 )}
                 <p className="mt-1 text-xs text-neutral-500">
                   Règle : {action.regle}
                   {action.priorite !== null ? ` · priorité ${action.priorite}` : ' · priorité indisponible'}
                 </p>
-                <p className="mt-2 text-sm text-neutral-700">{action.preuve}</p>
+                <p className="mt-2 text-sm text-neutral-700">{accorderPreuve(action.preuve)}</p>
                 <p className="mt-2 text-sm">
                   <a
                     href={action.url}

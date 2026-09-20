@@ -24,6 +24,9 @@ import {
   getArchivePage,
 } from '@/lib/content';
 import type { Locale } from '@/i18n/routing';
+import { getRadarLastModifiedDate } from '@/lib/radar';
+import { getLatestChangelogDate } from '@/lib/changelog';
+import { SITE_LAUNCH_DATE, getExplainerLastModified } from '@/lib/explainer-dates';
 
 type Href = Parameters<typeof getPathname>[0]['href'];
 
@@ -57,9 +60,10 @@ function buildAlternates(href: Href): Record<string, string> {
 /**
  * Site launch date — used as fallback for pages without a known
  * lastModified. Avoids signalling "modified today" on every build,
- * which wastes Google's crawl budget.
+ * which wastes Google's crawl budget. Single source of truth shared with
+ * src/lib/explainer-dates.ts (its own fallback for explainer pages).
  */
-const SITE_LAUNCH = new Date('2026-02-12');
+const SITE_LAUNCH = new Date(SITE_LAUNCH_DATE);
 
 /**
  * Helper: get real lastModified date from a content card.
@@ -228,8 +232,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Static pages ──────────────────────────────────────────────
   // Homepage uses latestContentUpdate (computed above from real content
   // dates): it surfaces fresh veille/digest content, so a frozen launch
-  // date would understate its actual freshness. Everything else here is
-  // genuinely static (legal, methodology...), so it keeps SITE_LAUNCH.
+  // date would understate its actual freshness. /radar and /changelog
+  // read their own real "last moved" date below: both change on every
+  // veille/changelog entry, a frozen SITE_LAUNCH would tell Google they
+  // were abandoned. /explainers/* read src/lib/explainer-dates.ts (not
+  // Velite content, so no card.lastModified to fall back on). Everything
+  // else here is genuinely static (legal, methodology...), so it keeps
+  // SITE_LAUNCH.
   const staticPaths: { href: Href; priority?: number; changeFrequency?: 'daily' | 'weekly' }[] = [
     { href: '/', priority: 1.0, changeFrequency: 'daily' },
     { href: '/domains' },
@@ -271,11 +280,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: '/support' },
   ];
 
+  const EXPLAINERS_PREFIX = '/explainers/';
+
+  /**
+   * Real lastModified for a static route: the homepage surfaces content
+   * freshness, /radar and /changelog track their own JSON source, each
+   * explainer route tracks its seeded rewrite date, and every other static
+   * page (legal, methodology, press...) is genuinely frozen since launch.
+   */
+  function staticLastModified(href: Href): Date {
+    if (href === '/') return latestContentUpdate;
+    if (href === '/radar') return getRadarLastModifiedDate();
+    if (href === '/changelog') return getLatestChangelogDate();
+    if (typeof href === 'string' && href.startsWith(EXPLAINERS_PREFIX)) {
+      const slug = href.slice(EXPLAINERS_PREFIX.length);
+      return getExplainerLastModified(slug);
+    }
+    return SITE_LAUNCH;
+  }
+
   for (const { href, priority, changeFrequency } of staticPaths) {
     addLocalizedEntries(entries, href, {
       changeFrequency: changeFrequency ?? 'weekly',
       priority: priority ?? 0.7,
-    }, href === '/' ? latestContentUpdate : SITE_LAUNCH);
+    }, staticLastModified(href));
   }
 
   return entries;

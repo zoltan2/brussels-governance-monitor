@@ -2,8 +2,9 @@
 # Garde-fou local AVANT push. Miroir des checks CI de content-lint.yml, qui
 # sinon ne tombent qu'après coup (et restent rouges sur main) : phrases
 # temporelles, sources vides, relecture et unicité des FAQ, chapeau, date du
-# changeSummary, liens internes, et schémas des trois fichiers data/ d'une
-# veille (validés sinon au seul next build).
+# changeSummary, liens internes, schémas des trois fichiers data/ d'une
+# veille (validés sinon au seul next build), et date des pages /explainers/
+# dans messages/*.json.
 #
 # Le contrôle de fraîcheur de l'index Pagefind a été retiré le 2026-09-11 :
 # public/pagefind/ n'est plus suivi par git, l'image Docker génère l'index au
@@ -96,6 +97,15 @@ fi
 #    change. Même module que la CI.
 if [ -n "$CHANGED_MDX" ] || printf '%s\n' "$CHANGED_ALL" | grep -q '^src/i18n/routing\.ts$'; then
   npx tsx scripts/content-lint/internal-links.ts || rc=1
+fi
+
+# 2 sexies) Une page /explainers/<slug> n'a pas de lastModified Velite : sa
+#    date sert au sitemap depuis EXPLAINER_LAST_MODIFIED (src/lib/explainer-dates.ts),
+#    tenue à la main. Constat du 20/09/2026 : la table seedée la veille était
+#    déjà fausse un jour après sa création (brussels-overview réécrite sans
+#    que la table bouge). Même module que la CI.
+if printf '%s\n' "$CHANGED_ALL" | grep -qE '^messages/.*\.json$'; then
+  npx tsx scripts/content-lint/explainer-messages-date.ts "$BASE" || rc=1
 fi
 
 if [ "$rc" != 0 ]; then

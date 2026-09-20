@@ -4,6 +4,15 @@ on:
   pull_request:
     paths:
       - 'content/**'
+      # Pages /explainers/ : pas de frontmatter Velite, leur texte vit dans
+      # messages/*.json et leur date de réécriture dans une table tenue à la
+      # main (src/lib/explainer-dates.ts) que rien d'autre ne garde à jour.
+      - 'messages/*.json'
+      - 'src/lib/explainer-dates.ts'
+      - 'src/lib/explainer-messages-date.ts'
+      # (sans le segment [locale] littéral : les crochets sont une classe de
+      # caractères pour le filtre de chemins d'Actions, pas du texte brut.)
+      - 'src/app/**/explainers/**/page.tsx'
       # Le pool de quiz vit dans public/ mais porte des affirmations
       # éditoriales : il doit passer les mêmes règles que les fiches.
       - 'public/quiz-data-*.json'
@@ -122,6 +131,14 @@ jobs:
       # Tout le dépôt est vérifié, hors archives du digest.
       - name: Liens internes sur le segment de route de leur langue
         run: npx tsx scripts/content-lint/internal-links.ts
+
+      # Les pages /explainers/ n'ont pas de lastModified Velite : leur date de
+      # réécriture, servie au sitemap, vient d'une table tenue à la main
+      # (EXPLAINER_LAST_MODIFIED, src/lib/explainer-dates.ts). Constat du
+      # 20/09/2026 : la table seedée la veille était déjà fausse un jour après
+      # sa création (brussels-overview réécrite sans que la table bouge).
+      - name: Date des pages /explainers/ à jour dans messages/*.json
+        run: npx tsx scripts/content-lint/explainer-messages-date.ts "origin/${{ github.base_ref }}"
 
   quiz-lint:
     name: Quiz pool checks

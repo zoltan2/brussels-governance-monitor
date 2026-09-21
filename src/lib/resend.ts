@@ -238,19 +238,64 @@ function dedupeSources(sources: string[]): string[] {
 /**
  * Get a contact's preferences from Resend.
  */
+/**
+ * Retrouve un contact par son adresse, en parcourant TOUTES les pages.
+ *
+ * `getContact` lisait `contacts.list({ limit: 100 })` sans pagination : au-dela
+ * du centieme contact, la detection devenait aleatoire pour tout le monde, et
+ * les branches « deja abonne » de quatre routes cessaient de fonctionner de
+ * facon fiable. Le motif de pagination existait deja dans ce fichier
+ * (`countActiveContacts`, `listActiveContacts`) mais pas ici (audit 21/09).
+ *
+ * Rend `undefined` si la recherche a ECHOUE (panne, quota), `null` si l'adresse
+ * est reellement absente. Un appelant ne doit pas confondre les deux : une
+ * panne n'est pas une absence.
+ */
+async function trouverContact(
+  email: string,
+): Promise<{ id: string; unsubscribed: boolean } | null | undefined> {
+  const resend = getResend();
+  const cible = email.toLowerCase().trim();
+  let cursor: string | undefined;
+
+  for (;;) {
+    const options: { limit: number; after?: string } = { limit: 100 };
+    if (cursor) options.after = cursor;
+
+    const { data, error } = await resendCall(() => resend.contacts.list(options));
+    if (error || !data) return undefined;
+
+    const trouve = data.data.find((c) => c.email?.toLowerCase().trim() === cible);
+    if (trouve) return { id: trouve.id, unsubscribed: Boolean(trouve.unsubscribed) };
+
+    if (!data.has_more || data.data.length === 0) return null;
+    cursor = data.data[data.data.length - 1].id;
+  }
+}
+
+/**
+ * Vrai si l'adresse figure dans le carnet et s'est DESINSCRITE.
+ *
+ * `getContact` filtrait `!c.unsubscribed`, donc une personne desinscrite
+ * revenait `null`, c'est-a-dire « inconnue » : `/api/subscribe` lui renvoyait
+ * alors un nouvel email de confirmation. On reecrivait a quelqu'un qui avait
+ * explicitement demande a ne plus recevoir de messages.
+ *
+ * Rend `false` si la recherche echoue : on ne bloque pas une inscription
+ * legitime sur une panne de lecture.
+ */
+export async function estDesinscrit(email: string): Promise<boolean> {
+  const contact = await trouverContact(email);
+  return contact ? contact.unsubscribed : false;
+}
+
 export async function getContact(
   email: string,
 ): Promise<{ locale: string; topics: string[]; sources: string[] } | null> {
   const resend = getResend();
-  const { data: contacts } = await resendCall(() =>
-    resend.contacts.list({ limit: 100 }),
-  );
-  if (!contacts) return null;
-
-  const contact = contacts.data.find(
-    (c) => c.email === email && !c.unsubscribed,
-  );
-  if (!contact) return null;
+  const trouve = await trouverContact(email);
+  if (!trouve || trouve.unsubscribed) return null;
+  const contact = trouve;
 
   const { data: detail } = await resendCall(() =>
     resend.contacts.get({ id: contact.id }),

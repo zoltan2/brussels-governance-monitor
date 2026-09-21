@@ -23,7 +23,7 @@ const FEEDBACK_RECIPIENT = 'feedback@brusselsgovernance.be';
 export async function POST(request: Request) {
   try {
     const ip = clientIp(request.headers);
-    const { allowed } = rateLimit(ip);
+    const { allowed } = rateLimit(ip, { bucket: 'feedback' });
     if (!allowed) {
       return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
     }
@@ -41,8 +41,19 @@ export async function POST(request: Request) {
     const { cardTitle, cardType, cardSlug, feedbackType, message, email, url, context } = parsed.data;
 
     if (!process.env.RESEND_API_KEY) {
-      // In development or if Resend not configured, log and accept
-      console.log('[Feedback]', { cardType, cardSlug, feedbackType, message, email, url });
+      // Voir src/app/api/contact/route.ts : accepter en developpement, refuser
+      // franchement en production plutot que d'accuser reception d'un message
+      // que personne ne recevra, et ne jamais deverser son contenu en clair.
+      console.log('[Feedback] Resend non configure', {
+        cardType,
+        cardSlug,
+        feedbackType,
+        hasEmail: Boolean(email),
+        longueurMessage: message.length,
+      });
+      if (process.env.NODE_ENV === 'production') {
+        return NextResponse.json({ error: 'Email service not configured' }, { status: 503 });
+      }
       return NextResponse.json({ success: true });
     }
 

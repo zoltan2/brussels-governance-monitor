@@ -41,7 +41,7 @@ function sanitizeTag(value: string): string {
 export async function POST(request: Request) {
   try {
     const ip = clientIp(request.headers);
-    const { allowed } = rateLimit(ip);
+    const { allowed } = rateLimit(ip, { bucket: 'chat-feedback' });
     if (!allowed) {
       return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
     }

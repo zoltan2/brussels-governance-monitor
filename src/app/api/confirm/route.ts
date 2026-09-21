@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
 import { getResend, EMAIL_FROM, addContact, getContact, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
+import { pseudonymeEmail } from '@/lib/log-safe';
 import WelcomeEmail from '@/emails/welcome';
 import { clientIp } from '@/lib/client-ip';
 
@@ -18,7 +19,7 @@ const welcomeSubjects: Record<string, string> = {
 export async function POST(request: Request) {
   try {
     const ip = clientIp(request.headers);
-    const { allowed } = rateLimit(ip);
+    const { allowed } = rateLimit(ip, { bucket: 'confirm' });
     if (!allowed) {
       return NextResponse.json({ error: 'too_many_requests' }, { status: 429 });
     }
@@ -89,7 +90,7 @@ export async function POST(request: Request) {
     try {
       await addContact(email, locale, topics, source ? [source] : []);
     } catch (err) {
-      console.error('Confirm: addContact failed — subscriber received welcome email but was NOT persisted:', email, err);
+      console.error('Confirm: addContact failed — subscriber received welcome email but was NOT persisted:', pseudonymeEmail(email), err);
     }
 
     return NextResponse.json({ success: true, topics });

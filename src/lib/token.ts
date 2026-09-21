@@ -25,7 +25,14 @@ interface TokenPayload {
 
 export function generateConfirmToken(payload: TokenPayload): string {
   const expiry = Date.now() + TOKEN_EXPIRY_HOURS * 60 * 60 * 1000;
-  const data = JSON.stringify({ ...payload, exp: expiry });
+  // `type` manquait ici, et `verifyConfirmToken` ne le controlait donc pas. Or
+  // AUTH_SECRET signe TOUTES les familles de jetons du site : confirmation,
+  // desabonnement (valable un an), approbation de digest. Un jeton de
+  // desabonnement presente a /api/confirm passait la signature et la peremption.
+  // Il finissait par jeter sur un champ absent, donc pas d'exploitation directe
+  // — mais la seule chose qui separait ces domaines etait un plantage fortuit
+  // (audit 21/09).
+  const data = JSON.stringify({ ...payload, type: 'confirm', exp: expiry });
   const encoded = Buffer.from(data).toString('base64url');
   const signature = createHmac('sha256', getSecret()).update(encoded).digest('base64url');
   return `${encoded}.${signature}`;
@@ -130,6 +137,10 @@ export function verifyConfirmToken(token: string): TokenPayload | null {
 
   try {
     const data = JSON.parse(Buffer.from(encoded, 'base64url').toString());
+    // Les jetons emis avant le 21/09/2026 n'ont pas de champ `type` et restent
+    // valables 48 h : on les accepte le temps qu'ils expirent, mais on refuse
+    // tout jeton qui se reclame d'une AUTRE famille.
+    if (data.type !== undefined && data.type !== 'confirm') return null;
     if (data.exp < Date.now()) return null;
     return {
       email: data.email,

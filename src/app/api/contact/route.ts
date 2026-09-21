@@ -20,7 +20,7 @@ const CONTACT_RECIPIENT = 'contact@brusselsgovernance.be';
 export async function POST(request: Request) {
   try {
     const ip = clientIp(request.headers);
-    const { allowed } = rateLimit(ip);
+    const { allowed } = rateLimit(ip, { bucket: 'contact' });
     if (!allowed) {
       return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
     }
@@ -38,7 +38,24 @@ export async function POST(request: Request) {
     const { name, email, organization, message, source } = parsed.data;
 
     if (!process.env.RESEND_API_KEY) {
-      console.log('[Contact]', { name, email, organization, source, message });
+      // En developpement, la configuration manque legitimement : on accepte en
+      // journalisant, sans donnees personnelles.
+      //
+      // En PRODUCTION, cette branche etait un repli qui ment. Si la cle Resend
+      // expirait ou etait revoquee, le site continuait de repondre « message
+      // envoye », aucun mail ne partait, personne ne s'en apercevait, et chaque
+      // soumission empilait nom, adresse et message EN CLAIR dans le journal du
+      // conteneur. Perte de donnees et fuite de donnees simultanees. Une alarme
+      // qui se tait n'est pas une alarme (audit 21/09).
+      console.log('[Contact] Resend non configure', {
+        source,
+        hasEmail: Boolean(email),
+        hasOrganization: Boolean(organization),
+        longueurMessage: message.length,
+      });
+      if (process.env.NODE_ENV === 'production') {
+        return NextResponse.json({ error: 'Email service not configured' }, { status: 503 });
+      }
       return NextResponse.json({ success: true });
     }
 

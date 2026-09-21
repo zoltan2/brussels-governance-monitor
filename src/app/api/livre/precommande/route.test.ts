@@ -154,10 +154,8 @@ describe('POST /api/livre/precommande', () => {
     const res = await POST(request(VALID));
 
     expect(res.status).toBe(200);
-    expect(await res.json()).toEqual({
-      success: true,
-      digestConfirmationSent: false,
-    });
+    // Reponse invariante : elle ne dit jamais si l'adresse etait deja connue.
+    expect(await res.json()).toEqual({ success: true });
     expect(create).not.toHaveBeenCalled();
     expect(update).not.toHaveBeenCalled();
     expect(getContact).not.toHaveBeenCalled();
@@ -180,10 +178,7 @@ describe('POST /api/livre/precommande', () => {
   it('case cochée : passe par le double opt-in, sans créer de contact', async () => {
     const res = await POST(request({ ...VALID, digestOptIn: true }));
 
-    expect(await res.json()).toEqual({
-      success: true,
-      digestConfirmationSent: true,
-    });
+    expect(await res.json()).toEqual({ success: true });
     // Le contact n'est créé qu'au clic sur le lien, par /api/confirm et
     // addContact(), le chemin que surveille contacts-healthcheck.
     expect(create).not.toHaveBeenCalled();
@@ -217,10 +212,13 @@ describe('POST /api/livre/precommande', () => {
       'livre-precommande',
     ]);
     expect(send).toHaveBeenCalledTimes(1);
-    expect((await res.json()).digestConfirmationSent).toBe(false);
+    // Le seul email parti est celui de la precommande : pas de second envoi vers
+    // une adresse deja abonnee. Et la reponse est la meme que pour une adresse
+    // inconnue, sans quoi elle repondrait « cette personne est abonnee ».
+    expect(await res.json()).toEqual({ success: true });
   });
 
-  it("n'échoue pas la précommande si l'inscription au digest échoue, mais le signale", async () => {
+  it("n'échoue pas la précommande si l'inscription au digest échoue, et ne le dit pas au client", async () => {
     send
       .mockResolvedValueOnce({ data: { id: 'e1' }, error: null })
       .mockResolvedValueOnce({
@@ -232,7 +230,9 @@ describe('POST /api/livre/precommande', () => {
     const res = await POST(request({ ...VALID, digestOptIn: true }));
 
     expect(res.status).toBe(200);
-    expect((await res.json()).digestConfirmationSent).toBe(false);
+    // L'echec est signale la ou il sert — le journal serveur — et nulle part
+    // ailleurs : une reponse qui varie selon l'etat du contact enumere le fichier.
+    expect(await res.json()).toEqual({ success: true });
     expect(errors.mock.calls.flat().join(' ')).toContain('livre-precommande-FAIL');
     errors.mockRestore();
   });

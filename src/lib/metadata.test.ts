@@ -7,7 +7,7 @@ import { describe, expect, it, vi } from 'vitest';
 // and cannot load under vitest. truncateDescription does not touch it.
 vi.mock('@/i18n/navigation', () => ({ getPathname: () => '/' }));
 
-import { buildMetadata, dossierSearchMeta, truncateDescription } from './metadata';
+import { buildMetadata, dossierSearchMeta, searchMeta, truncateDescription } from './metadata';
 
 describe('truncateDescription', () => {
   it('leaves a short description untouched', () => {
@@ -88,5 +88,74 @@ describe('buildMetadata title', () => {
     expect(meta.title).toEqual({ absolute: 'LEZ Bruxelles 2026' });
     expect(meta.openGraph?.title).toBe('LEZ Bruxelles 2026');
     expect(meta.twitter?.title).toBe('LEZ Bruxelles 2026');
+  });
+});
+
+/**
+ * `searchMeta` généralise `dossierSearchMeta` aux domaines, secteurs et
+ * comparaisons (21/09/2026). Le piège de cette généralisation est le repli de
+ * description : il n'est pas le même d'une collection à l'autre, et le deviner
+ * aurait produit des descriptions vides sur deux collections sur trois.
+ */
+describe('searchMeta, généralisé aux autres collections', () => {
+  it("prend le repli qu'on lui donne, il ne le devine pas", () => {
+    expect(
+      searchMeta({ title: 'Secteur', fallbackDescription: 'impact humain' }).description,
+    ).toBe('impact humain');
+    expect(
+      searchMeta({ title: 'Comparaison', fallbackDescription: 'méthodologie' }).description,
+    ).toBe('méthodologie');
+  });
+
+  it('rend seoTitle en titre absolu, donc sans le suffixe du gabarit', () => {
+    const out = searchMeta({
+      title: 'Éducation : grève générale FWB, crèches, coupes budgétaires',
+      fallbackDescription: 'repli',
+      seoTitle: 'Éducation à Bruxelles : ce qui change',
+    });
+    expect(out.title).toBe('Éducation à Bruxelles : ce qui change');
+    expect(out.absoluteTitle).toBe(true);
+  });
+
+  it('laisse le titre long au H1 quand seoTitle est absent', () => {
+    const long = 'Éducation : grève générale FWB, crèches, coupes budgétaires';
+    const out = searchMeta({ title: long, fallbackDescription: 'repli' });
+    expect(out.title).toBe(long);
+    expect(out.absoluteTitle).toBe(false);
+  });
+
+  it('traite les deux champs séparément', () => {
+    const out = searchMeta({
+      title: 'T',
+      fallbackDescription: 'repli',
+      seoDescription: 'description courte',
+    });
+    expect(out.title).toBe('T');
+    expect(out.absoluteTitle).toBe(false);
+    expect(out.description).toBe('description courte');
+  });
+
+  it('ignore un champ vide plutôt que de publier du vide', () => {
+    const out = searchMeta({
+      title: 'T',
+      fallbackDescription: 'repli',
+      seoTitle: '   ',
+      seoDescription: '  ',
+    });
+    expect(out.title).toBe('T');
+    expect(out.absoluteTitle).toBe(false);
+    expect(out.description).toBe('repli');
+  });
+
+  it('dossierSearchMeta reste un appel de searchMeta, pas une copie', () => {
+    const card = { title: 'T', summary: 'S', seoTitle: 'Court', seoDescription: 'Desc' };
+    expect(dossierSearchMeta(card)).toEqual(
+      searchMeta({
+        title: 'T',
+        fallbackDescription: 'S',
+        seoTitle: 'Court',
+        seoDescription: 'Desc',
+      }),
+    );
   });
 });

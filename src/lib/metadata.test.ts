@@ -159,3 +159,45 @@ describe('searchMeta, généralisé aux autres collections', () => {
     );
   });
 });
+
+/**
+ * NE JAMAIS DÉCLARER UN HREFLANG VERS UNE LANGUE QUI N'EXISTE PAS.
+ *
+ * Une annotation hreflang qui désigne une URL non-200 est invalide, et Google
+ * peut ignorer tout le groupe de la page. Le 21/09/2026, c'est ce défaut qui a
+ * été corrigé sur l'en-tête HTTP de next-intl, où le x-default pointait vers une
+ * redirection. Le réintroduire en HTML sur une collection partiellement traduite
+ * serait la même faute, au même endroit.
+ */
+describe('alternates restreints aux langues publiées', () => {
+  const base = { title: 'T', description: 'D', path: '/verifications/budget-2026-02-08' };
+
+  it('déclare les quatre langues par défaut', () => {
+    const langs = buildMetadata({ locale: 'fr', ...base }).alternates?.languages ?? {};
+    expect(Object.keys(langs).sort()).toEqual(['de', 'en', 'fr', 'nl', 'x-default']);
+  });
+
+  it("n'en déclare que deux quand la fiche n'existe qu'en deux langues", () => {
+    const langs =
+      buildMetadata({ locale: 'fr', ...base, availableLocales: ['fr', 'nl'] }).alternates
+        ?.languages ?? {};
+    expect(Object.keys(langs).sort()).toEqual(['fr', 'nl', 'x-default']);
+    expect(langs['en']).toBeUndefined();
+    expect(langs['de']).toBeUndefined();
+  });
+
+  it('fait pointer x-default sur le français quand il est publié', () => {
+    const langs =
+      buildMetadata({ locale: 'nl', ...base, availableLocales: ['fr', 'nl'] }).alternates
+        ?.languages ?? {};
+    expect(langs['x-default']).toBe(langs['fr']);
+  });
+
+  it('fait pointer x-default sur la première langue publiée quand le français manque', () => {
+    const langs =
+      buildMetadata({ locale: 'nl', ...base, availableLocales: ['nl', 'en'] }).alternates
+        ?.languages ?? {};
+    expect(langs['x-default']).toBe(langs['nl']);
+    expect(langs['fr']).toBeUndefined();
+  });
+});

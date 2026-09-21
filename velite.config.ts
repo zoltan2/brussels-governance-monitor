@@ -392,7 +392,11 @@ const verifications = defineCollection({
     })
     .transform((data) => ({
       ...data,
-      permalink: `/verifications/${data.cardSlug}-${data.date}`,
+      // `s.isodate()` rend un horodatage complet : sans la coupe, ce permalink
+      // valait `/verifications/budget-2026-02-08T00:00:00.000Z`. Il n'a jamais
+      // ete une URL utilisable, ce qui est reste invisible tant qu'aucune route
+      // ne servait la collection (corrige le 21/09/2026).
+      permalink: `/verifications/${data.cardSlug}-${String(data.date).slice(0, 10)}`,
     })),
 });
 

@@ -1886,7 +1886,13 @@
     "editor": "Geverifieerd door {editor}",
     "contestation": "Deze verificatie werd uitgevoerd door het BGM-team. Elke gedocumenteerde betwisting is welkom.",
     "viewAll": "Bekijk de verificatiegeschiedenis",
-    "noVerification": "Geen verificatie gepubliceerd voor deze kaart."
+    "noVerification": "Geen verificatie gepubliceerd voor deze kaart.",
+    "pageTitle": "Verificatie van {date}",
+    "aboutCard": "Controle van de fiche « {card} »",
+    "backToCard": "Bekijk de fiche",
+    "metaDescription": "Controle van de fiche {card} uitgevoerd op {date} door Brussels Governance Monitor: resultaat, geraadpleegde bronnen en doorgevoerde bijwerkingen.",
+    "whatIsThis": "Een verificatie is een gedateerde controle van een fiche van de site tegen haar bronnen. Ze zegt wat veranderd is, wat niet veranderd is, en wat onzeker blijft.",
+    "readFull": "Lees de verificatie"
   },
   "howToRead": {
     "title": "Hoe deze site lezen",
@@ -1947,7 +1953,8 @@
     "about": "Over ons",
     "radar": "Radar",
     "press": "Pers",
-    "support": "Het project steunen"
+    "support": "Het project steunen",
+    "verifications": "Verificaties"
   },
   "understand": {
     "title": "Begrijpen",

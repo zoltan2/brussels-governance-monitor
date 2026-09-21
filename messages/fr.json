@@ -1886,7 +1886,13 @@
     "editor": "Vérifié par {editor}",
     "contestation": "Cette vérification a été effectuée par l'équipe BGM. Toute contestation documentée est la bienvenue.",
     "viewAll": "Voir l'historique des vérifications",
-    "noVerification": "Aucune vérification publiée pour cette carte."
+    "noVerification": "Aucune vérification publiée pour cette carte.",
+    "pageTitle": "Vérification du {date}",
+    "aboutCard": "Contrôle de la fiche « {card} »",
+    "backToCard": "Voir la fiche",
+    "metaDescription": "Contrôle de la fiche {card} effectué le {date} par Brussels Governance Monitor : résultat, sources consultées et mises à jour appliquées.",
+    "whatIsThis": "Une vérification est un contrôle daté d'une fiche du site contre ses sources. Elle dit ce qui a changé, ce qui n'a pas changé, et ce qui reste incertain.",
+    "readFull": "Lire la vérification"
   },
   "howToRead": {
     "title": "Comment lire ce site",
@@ -1947,7 +1953,8 @@
     "about": "À propos",
     "radar": "Radar",
     "press": "Presse",
-    "support": "Soutenir le projet"
+    "support": "Soutenir le projet",
+    "verifications": "Vérifications"
   },
   "understand": {
     "title": "Comprendre",

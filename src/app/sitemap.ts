@@ -5,6 +5,9 @@ import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
 import { getPathname } from '@/i18n/navigation';
 import {
+  getVerification,
+  getVerificationSlugs,
+  getVerificationLocales,
   getAllDomainSlugs,
   getAllSectorSlugs,
   getAllComparisonSlugs,
@@ -141,6 +144,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { changeFrequency: 'weekly', priority: 0.7 },
       lastModified
     );
+  }
+
+  // ── Vérifications ─────────────────────────────────────────────
+  // Collection PARTIELLEMENT traduite : deux fiches sur quatre n'existent qu'en
+  // français et en néerlandais. `addLocalizedEntries` déclarerait les quatre
+  // langues et leurs alternates, donc des URL qui répondent 404. On construit
+  // donc les entrées locale par locale, avec les alternates réellement publiés.
+  for (const locale of locales) {
+    for (const slug of getVerificationSlugs(locale)) {
+      const verification = getVerification(slug, locale);
+      if (!verification) continue;
+      const lastModified = contentDate(verification.lastModified);
+      trackDate(lastModified);
+      const publiees = getVerificationLocales(slug);
+      const href = { pathname: '/verifications/[slug]', params: { slug } } as Href;
+      entries.push({
+        url: localizedUrl(locale, href),
+        lastModified: lastModified ?? new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.4,
+        alternates: {
+          languages: Object.fromEntries(
+            publiees.map((l: Locale) => [l, localizedUrl(l, href)]),
+          ),
+        },
+      });
+    }
   }
 
   // ── Communes ──────────────────────────────────────────────────

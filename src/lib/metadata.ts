@@ -152,6 +152,7 @@ export function buildMetadata({
   localizedPaths,
   noindex,
   absoluteTitle,
+  availableLocales,
 }: {
   locale: string;
   title: string;
@@ -180,6 +181,21 @@ export function buildMetadata({
    * `seoTitle`). OpenGraph and Twitter always carry `title` without suffix.
    */
   absoluteTitle?: boolean;
+  /**
+   * Locales dans lesquelles la page existe RÉELLEMENT.
+   *
+   * Sans ce paramètre, la boucle des alternates retombe sur `path` pour toute
+   * locale absente de `localizedPaths` et déclare donc un hreflang vers une URL
+   * qui n'existe pas. Sur une collection entièrement traduite c'est sans
+   * conséquence ; sur une collection partielle — les vérifications, dont deux
+   * fiches sur quatre n'existent qu'en français et en néerlandais — cela
+   * publierait un hreflang vers une 404.
+   *
+   * Or une annotation hreflang qui désigne une URL non-200 est invalide, et
+   * Google peut ignorer tout le groupe. C'est exactement le défaut corrigé le
+   * 21/09/2026 sur l'en-tête HTTP de next-intl : ne pas le réintroduire ici.
+   */
+  availableLocales?: Locale[];
 }): Metadata {
   // Canonical URL: prefer localizedPaths override for current locale, else getPathname
   const currentLocalePath = localizedPaths?.[locale as Locale];
@@ -198,7 +214,8 @@ export function buildMetadata({
 
   // Build hreflang alternates: prefer localizedPaths per-locale, else getPathname
   const languages: Record<string, string> = {};
-  for (const l of routing.locales) {
+  const localesPubliees = availableLocales ?? routing.locales;
+  for (const l of localesPubliees) {
     const localizedPath = localizedPaths?.[l];
     if (localizedPath) {
       languages[l] = `${siteUrl}/${l}${localizedPath}`;
@@ -208,13 +225,19 @@ export function buildMetadata({
       languages[l] = `${siteUrl}/${l}`;
     }
   }
-  // x-default → French version (primary Brussels audience)
+  // x-default → French version (primary Brussels audience). Sur une collection
+  // partielle où le français manquerait, on désigne la première langue publiée
+  // plutôt qu'une URL inexistante.
+  if (!localesPubliees.includes('fr')) {
+    languages['x-default'] = languages[localesPubliees[0]];
+  } else {
   const frPath = localizedPaths?.fr;
   languages['x-default'] = frPath
     ? `${siteUrl}/fr${frPath}`
     : path
       ? `${siteUrl}${getPathname({ locale: 'fr' as Locale, href: pathToHref(path) })}`
       : `${siteUrl}/fr`;
+  }
 
   return {
     title: absoluteTitle ? { absolute: title } : title,

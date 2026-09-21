@@ -18,24 +18,36 @@ const MAX_REQUESTS = 5; // default: 5 requests per minute per IP
  * @param opts.bucket optional namespace — keeps route-specific counters independent;
  *                    without it all callers share a single IP bucket.
  */
+const MAX_ENTRIES = 10_000;
+
 export function rateLimit(
   ip: string,
-  opts: { max?: number; bucket?: string } = {},
+  opts: { max?: number; bucket?: string; windowMs?: number } = {},
 ): { allowed: boolean; remaining: number } {
   const max = opts.max ?? MAX_REQUESTS;
+  const windowMs = opts.windowMs ?? WINDOW_MS;
   const key = opts.bucket ? `${opts.bucket}:${ip}` : ip;
   const now = Date.now();
   const entry = store.get(key);
 
-  // Clean up expired entries periodically
-  if (store.size > 10_000) {
+  if (store.size > MAX_ENTRIES) {
     for (const [k, val] of store) {
       if (val.resetAt < now) store.delete(k);
+    }
+    // La purge ci-dessus ne libere QUE des entrees expirees. Avec une fenetre
+    // longue (quota journalier) ou un flot d'adresses distinctes — un prefixe
+    // IPv6 /64 en fournit autant qu'on veut — elle peut ne rien liberer du tout,
+    // et la carte croit alors sans borne jusqu'a l'epuisement du tas.
+    // On impose donc un plafond dur, en evinçant les entrees qui expirent le
+    // plus tot : un abus perd son compteur, jamais la memoire du processus.
+    if (store.size > MAX_ENTRIES) {
+      const parExpiration = [...store.entries()].sort((a, b) => a[1].resetAt - b[1].resetAt);
+      for (const [k] of parExpiration.slice(0, store.size - MAX_ENTRIES)) store.delete(k);
     }
   }
 
   if (!entry || entry.resetAt < now) {
-    store.set(key, { count: 1, resetAt: now + WINDOW_MS });
+    store.set(key, { count: 1, resetAt: now + windowMs });
     return { allowed: true, remaining: max - 1 };
   }
 

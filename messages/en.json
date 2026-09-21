@@ -572,11 +572,14 @@
       "description": "For the sake of transparency, here is the complete list of third-party services used by this site:",
       "hosting": "Hetzner (hosting): hosts the website on a server located in Nuremberg, Germany. Processes server logs (IP addresses, HTTP headers). No personal data is stored beyond temporary technical logs.",
       "cloudflare": "Cloudflare (CDN and DDoS protection): filters and delivers traffic from its European points of presence. Processes visitor IP addresses for the duration of the request. US company, certified under the EU-US Data Privacy Framework.",
-      "umami": "Umami (analytics): privacy-friendly traffic measurement, self-hosted on our own server in Germany. No cookies, no personal data collected, no cross-site tracking.",
+      "umami": "Umami (analytics): privacy-friendly traffic measurement, self-hosted on our own server in Germany. No cookies, no cross-site tracking. Page addresses are recorded without their query string, so no token contained in an email link is ever stored.",
       "resend": "Resend (email): sends confirmation emails, weekly digests and the daily Stuut. Processes subscriber email addresses. Based in the United States with GDPR compliance (DPA signed).",
-      "legalBasis": "Legal basis: legitimate interest (Article 6.1.f GDPR) for Hetzner, Cloudflare and Umami; consent (Article 6.1.a) for Resend.",
+      "stripe": "Stripe (payments): processes donations, book pre-orders and assistant unlocking. Card details are entered on pages hosted by Stripe: the site never sees or stores card data. US company.",
+      "anthropic": "Anthropic (AI assistant): processes the questions put to the BGM assistant in order to generate answers. US company. Questions are not linked to an identity; no personal data is required to use the assistant.",
+      "upstash": "Upstash (database): stores assistant telemetry, consultation votes and the book pre-order register, which contains first name and email address.",
+      "legalBasis": "Legal basis: legitimate interest (GDPR article 6.1.f) for Hetzner, Cloudflare, Umami, Upstash and Anthropic; consent (article 6.1.a) for Resend; performance of a contract (article 6.1.b) for Stripe.",
       "statusPage": "Service status page: https://status.governance.brussels",
-      "transfers": "Transfers outside the EU: site hosting and analytics stay in Germany. Resend (US) and Cloudflare (US company) benefit from Standard Contractual Clauses (SCCs) and are certified under the EU-US Data Privacy Framework (DPF). DPAs are automatically accepted with each service's terms of use."
+      "transfers": "Transfers outside the EU: hosting, analytics and database stay in Europe. Resend, Stripe, Anthropic (United States) and Cloudflare (US company) operate under standard contractual clauses (SCCs) or EU-US Data Privacy Framework (DPF) certification. DPAs are accepted along with each service's terms."
     },
     "games": {
       "title": "Daily games (Stuut and Amai)",
@@ -596,8 +599,8 @@
     },
     "chatbot": {
       "title": "BGM Assistant",
-      "paragraph1": "Questions asked to the BGM assistant are retained to improve the service. They are associated with an anonymised session identifier (non-reversible hash, renewed daily) and are never linked to an identity. No personal data is required to use the assistant.",
-      "paragraph2": "Extended access to the assistant is offered through a voluntary contribution. The system is trust-based — no technical mechanism verifies payment server-side. If you find BGM useful, we rely on your honesty."
+      "paragraph1": "Questions put to the BGM assistant are kept to improve the service, at most the last 10,000 and no longer than 90 days. They are tied to an anonymised session identifier (non-reversible hash, renewed daily) and never to an identity. No personal data is required to use the assistant. Questions are sent to Anthropic (United States) to produce the answer.",
+      "paragraph2": "Extended access to the assistant is offered through a voluntary contribution, processed by Stripe. Since 21 September 2026 the payment is verified server-side with Stripe before access is granted."
     },
     "lastUpdated": "Last updated: {date}"
   },

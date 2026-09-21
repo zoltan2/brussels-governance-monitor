@@ -572,11 +572,14 @@
       "description": "In het kader van transparantie vindt u hier de volledige lijst van externe diensten die door deze site worden gebruikt:",
       "hosting": "Hetzner (hosting): host de website op een server in Neurenberg, Duitsland. Verwerkt serverlogs (IP-adressen, HTTP-headers). Geen persoonsgegevens worden opgeslagen buiten tijdelijke technische logs.",
       "cloudflare": "Cloudflare (CDN en DDoS-bescherming): filtert en verdeelt het verkeer vanaf zijn Europese aanwezigheidspunten. Verwerkt de IP-adressen van bezoekers tijdens de aanvraag. Amerikaans bedrijf, gecertificeerd onder het EU-US Data Privacy Framework.",
-      "umami": "Umami (statistieken): privacyvriendelijke bezoekersmetingen, zelf gehost op onze eigen server in Duitsland. Geen cookies, geen persoonsgegevens verzameld, geen cross-site tracking.",
+      "umami": "Umami (statistieken): privacyvriendelijke bezoekmeting, zelf gehost op onze eigen server in Duitsland. Geen cookies, geen tracking over sites heen. Pagina-adressen worden zonder querystring opgeslagen, zodat geen enkel token uit een e-maillink bewaard blijft.",
       "resend": "Resend (e-mails): verstuurt bevestigings-e-mails, wekelijkse samenvattingen en de dagelijkse Stuut. Verwerkt e-mailadressen van abonnees. Gevestigd in de Verenigde Staten met AVG-naleving (DPA ondertekend).",
-      "legalBasis": "Rechtsgrond: gerechtvaardigd belang (artikel 6.1.f AVG) voor Hetzner, Cloudflare en Umami; toestemming (artikel 6.1.a) voor Resend.",
+      "stripe": "Stripe (betalingen): verwerkt donaties, voorbestellingen van het boek en de ontgrendeling van de assistent. Bankgegevens worden ingevoerd op pagina's van Stripe zelf: de site ziet noch bewaart kaartgegevens. Amerikaans bedrijf.",
+      "anthropic": "Anthropic (AI-assistent): verwerkt de vragen aan de BGM-assistent om de antwoorden te genereren. Amerikaans bedrijf. De vragen worden niet aan een identiteit gekoppeld; er zijn geen persoonsgegevens nodig om de assistent te gebruiken.",
+      "upstash": "Upstash (database): bewaart de telemetrie van de assistent, de stemmen van de raadpleging en het register van voorbestellingen van het boek, dat voornaam en e-mailadres bevat.",
+      "legalBasis": "Rechtsgrond: gerechtvaardigd belang (artikel 6.1.f AVG) voor Hetzner, Cloudflare, Umami, Upstash en Anthropic; toestemming (artikel 6.1.a) voor Resend; uitvoering van de overeenkomst (artikel 6.1.b) voor Stripe.",
       "statusPage": "Statuspagina van de dienst: https://status.governance.brussels",
-      "transfers": "Doorgifte buiten de EU: de hosting van de site en de statistieken blijven in Duitsland. Resend (VS) en Cloudflare (Amerikaans bedrijf) beschikken over standaardcontractbepalingen (SCCs) en zijn gecertificeerd onder het EU-VS Data Privacy Framework (DPF). De DPA's worden automatisch aanvaard met de gebruiksvoorwaarden van elke dienst."
+      "transfers": "Doorgifte buiten de EU: hosting, statistieken en database blijven in Europa. Resend, Stripe, Anthropic (Verenigde Staten) en Cloudflare (Amerikaans bedrijf) werken onder modelcontractbepalingen (SCC's) of EU-US Data Privacy Framework (DPF). De DPA's worden aanvaard met de gebruiksvoorwaarden van elke dienst."
     },
     "games": {
       "title": "Dagelijkse spellen (Stuut en Amai)",
@@ -596,8 +599,8 @@
     },
     "chatbot": {
       "title": "BGM-assistent",
-      "paragraph1": "De vragen die aan de BGM-assistent worden gesteld, worden bewaard ter verbetering van de dienst. Ze worden gekoppeld aan een geanonimiseerde sessie-identificatie (niet-omkeerbare hash, dagelijks vernieuwd) en worden nooit aan een identiteit gekoppeld. Er zijn geen persoonsgegevens vereist om de assistent te gebruiken.",
-      "paragraph2": "Uitgebreide toegang tot de assistent wordt aangeboden via een vrijwillige bijdrage. Het systeem berust op vertrouwen — er is geen technisch mechanisme dat de betaling aan serverzijde verifieert. Als u BGM nuttig vindt, rekenen wij op uw eerlijkheid."
+      "paragraph1": "Vragen aan de BGM-assistent worden bewaard om de dienst te verbeteren, maximaal de laatste 10 000 en niet langer dan 90 dagen. Ze worden gekoppeld aan een geanonimiseerde sessie-identificatie (niet-omkeerbare hash, dagelijks vernieuwd) en nooit aan een identiteit. Er zijn geen persoonsgegevens nodig om de assistent te gebruiken. De vragen worden voor het antwoord doorgegeven aan Anthropic (Verenigde Staten).",
+      "paragraph2": "Uitgebreide toegang tot de assistent wordt aangeboden via een vrijwillige bijdrage, verwerkt door Stripe. Sinds 21 september 2026 wordt de betaling serverzijde bij Stripe geverifieerd voordat de toegang wordt geopend."
     },
     "lastUpdated": "Laatste update: {date}"
   },

@@ -1886,7 +1886,13 @@
     "editor": "Verified by {editor}",
     "contestation": "This verification was performed by the BGM team. Any documented contestation is welcome.",
     "viewAll": "View verification history",
-    "noVerification": "No verification published for this card."
+    "noVerification": "No verification published for this card.",
+    "pageTitle": "Verification of {date}",
+    "aboutCard": "Check of the « {card} » card",
+    "backToCard": "View the card",
+    "metaDescription": "Check of the {card} card carried out on {date} by Brussels Governance Monitor: result, sources consulted and updates applied.",
+    "whatIsThis": "A verification is a dated check of one of the site’s cards against its sources. It states what changed, what did not, and what remains uncertain.",
+    "readFull": "Read the verification"
   },
   "howToRead": {
     "title": "How to read this site",
@@ -1947,7 +1953,8 @@
     "about": "About",
     "radar": "Radar",
     "press": "Press",
-    "support": "Support the project"
+    "support": "Support the project",
+    "verifications": "Verifications"
   },
   "understand": {
     "title": "Understand",

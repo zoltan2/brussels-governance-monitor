@@ -782,6 +782,56 @@ export function getLatestVerification(
 }
 
 /**
+ * Identifiant d'une vérification, DÉRIVÉ et non lu dans le frontmatter.
+ *
+ * Le champ `slug` des fiches est incohérent : `social-2026-03-12.{de,en,nl}.mdx`
+ * porte un suffixe de langue (`social-2026-03-12-nl`) que le français et tous
+ * les `budget-*` n'ont pas. Le défaut est resté invisible tant que rien ne
+ * consommait ce champ, l'encart de fiche passant par `cardSlug` + `locale`.
+ *
+ * Or le `permalink` calculé par le schéma Velite vaut déjà
+ * `/verifications/{cardSlug}-{date}` dans les quatre cas : le champ `slug` se
+ * contredisait donc lui-même. On dérive l'identifiant de la même façon, ce qui
+ * rend la route indépendante d'une donnée écrite à la main, et fait des quatre
+ * langues d'une même vérification les alternates les unes des autres.
+ */
+function idDeVerification(v: Verification): string {
+  // `s.isodate()` rend un horodatage complet (`2026-02-08T00:00:00.000Z`), pas
+  // une date. On ne garde que les dix premiers caractères, sans quoi l'URL
+  // porterait l'heure et le fuseau.
+  return `${v.cardSlug}-${v.date.slice(0, 10)}`;
+}
+
+/**
+ * Une vérification par son identifiant, dans une locale donnée.
+ *
+ * Rend `null` si la fiche n'existe pas dans cette langue : contrairement aux
+ * autres accesseurs, PAS de repli sur le français. Une page de vérification
+ * publiée dans la mauvaise langue serait du français servi sous un drapeau
+ * néerlandais, et sur un registre de contrôle la langue du texte engage la
+ * lecture des sources.
+ */
+export function getVerification(slug: string, locale: Locale): Verification | null {
+  const { verifications } = getCollections();
+  return verifications.find((v) => idDeVerification(v) === slug && v.locale === locale) ?? null;
+}
+
+/** Identifiants de vérification réellement disponibles dans une locale. */
+export function getVerificationSlugs(locale: Locale): string[] {
+  const { verifications } = getCollections();
+  return verifications
+    .filter((v) => v.locale === locale)
+    .map(idDeVerification)
+    .sort();
+}
+
+/** Locales dans lesquelles une vérification existe, pour les alternates. */
+export function getVerificationLocales(slug: string): Locale[] {
+  const { verifications } = getCollections();
+  return verifications.filter((v) => idDeVerification(v) === slug).map((v) => v.locale);
+}
+
+/**
  * Get all verifications for a given card, sorted by date desc.
  */
 export function getCardVerifications(

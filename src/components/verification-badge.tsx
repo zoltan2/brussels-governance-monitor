@@ -3,6 +3,7 @@
 
 import { useTranslations } from 'next-intl';
 import type { Verification } from '@/lib/content';
+import { Link } from '@/i18n/navigation';
 
 interface VerificationBadgeProps {
   verification: Verification;
@@ -59,6 +60,17 @@ export function VerificationBadge({ verification, locale }: VerificationBadgePro
               {t('nextDate', { date: formatLocalDate(verification.nextVerification, locale) })}
             </p>
           )}
+          {/*
+            L'encart resumait la verification sans jamais permettre de la lire.
+            Le `permalink` etait calcule au schema Velite depuis fevrier 2026 et
+            ne menait nulle part : la route a ete ouverte le 21/09/2026.
+          */}
+          <Link
+            href={`/verifications/${verification.slug}` as never}
+            className="mt-2 inline-block text-xs font-medium underline underline-offset-2"
+          >
+            {t('readFull')}
+          </Link>
         </div>
       </div>
     </div>

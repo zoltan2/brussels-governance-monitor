@@ -98,6 +98,15 @@ export const routing = defineRouting({
       en: '/sectors/[slug]',
       de: '/sektoren/[slug]',
     },
+    // Les fiches de vérification existaient depuis février 2026, avec un
+    // `permalink` calculé au schéma, et aucune route ne les servait : elles
+    // répondaient 404. Publiées le 21/09/2026.
+    '/verifications/[slug]': {
+      fr: '/verifications/[slug]',
+      nl: '/verificaties/[slug]',
+      en: '/verifications/[slug]',
+      de: '/ueberpruefungen/[slug]',
+    },
     '/comparisons': {
       fr: '/comparaisons',
       nl: '/vergelijkingen',

@@ -795,7 +795,7 @@ export function getLatestVerification(
  * rend la route indépendante d'une donnée écrite à la main, et fait des quatre
  * langues d'une même vérification les alternates les unes des autres.
  */
-function idDeVerification(v: Verification): string {
+export function idDeVerification(v: Pick<Verification, 'cardSlug' | 'date'>): string {
   // `s.isodate()` rend un horodatage complet (`2026-02-08T00:00:00.000Z`), pas
   // une date. On ne garde que les dix premiers caractères, sans quoi l'URL
   // porterait l'heure et le fuseau.

@@ -60,8 +60,24 @@ const SCOPED_DIRS = [
   'content/archive-pages',
 ] as const;
 
-/** Seule cette collection déclare `seoTitle` au schéma, au 21/09/2026. */
-const SEO_TITLE_DIRS = new Set(['content/dossiers']);
+/**
+ * Collections qui déclarent `seoTitle` au schéma Velite.
+ *
+ * Sert uniquement à adapter le message d'erreur : proposer `seoTitle` à une
+ * collection qui ne l'a pas serait un conseil impossible à suivre, et ne pas le
+ * proposer là où il existe prive le rédacteur de la seule solution.
+ *
+ * ⚑ Cette liste a déjà dérivé une fois, le 21/09/2026 : les champs ont été
+ * étendus aux domaines, secteurs et comparaisons sans qu'elle bouge. Elle est
+ * donc verrouillée par `src/lib/title-length.test.ts`, qui lit
+ * `velite.config.ts` et échoue si les deux divergent.
+ */
+export const SEO_TITLE_DIRS = new Set([
+  'content/dossiers',
+  'content/domain-cards',
+  'content/sector-cards',
+  'content/comparison-cards',
+]);
 
 function collectionOf(file: string): string {
   return file.replace(/^\.\//, '').split('/').slice(0, 2).join('/');

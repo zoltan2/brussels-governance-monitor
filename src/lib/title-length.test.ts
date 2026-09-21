@@ -102,3 +102,44 @@ describe('message rendu à qui casse la règle', () => {
     expect(explainTitleLength(c, false)).not.toContain('seoTitle');
   });
 });
+
+/**
+ * LE TEST QUI EMPÊCHE LA DÉRIVE.
+ *
+ * Le lint tient la liste des collections qui déclarent `seoTitle`, pour adapter
+ * son message : proposer `seoTitle` à une collection qui ne l'a pas serait un
+ * conseil impossible à suivre, et ne pas le proposer là où il existe prive le
+ * rédacteur de la seule solution.
+ *
+ * Cette liste a déjà dérivé une fois. Le 21/09/2026, les deux champs ont été
+ * étendus aux domaines, secteurs et comparaisons, et la liste est restée sur les
+ * seuls dossiers : le lint conseillait « raccourcir le titre » aux 132 fiches
+ * qui venaient justement d'obtenir de quoi faire autrement.
+ *
+ * Le test lit donc `velite.config.ts` et compare. Il ne recopie pas la liste, il
+ * la dérive de la source, comme `csp-jeux.test.ts` le fait pour la CSP.
+ */
+describe('collections qui déclarent seoTitle', () => {
+  it('la liste du lint correspond au schéma Velite', async () => {
+    const { readFileSync } = await import('node:fs');
+    const { SEO_TITLE_DIRS } = await import('../../scripts/content-lint/title-length');
+
+    const config = readFileSync('velite.config.ts', 'utf8');
+
+    // Chaque `defineCollection` porte son `pattern: 'dossier/*.mdx'`. On relève
+    // ceux dont le bloc contient `seoTitle`, en découpant sur les patterns.
+    const blocs = config.split(/pattern: '/).slice(1);
+    const declarees = new Set<string>();
+    for (const bloc of blocs) {
+      const pattern = bloc.slice(0, bloc.indexOf("'"));
+      const dossier = pattern.replace(/\/\*\.mdx$/, '');
+      // Le bloc court jusqu'au pattern suivant, déjà retiré par le split.
+      if (bloc.includes('seoTitle:')) declarees.add(`content/${dossier}`);
+    }
+
+    // Filet : si le découpage casse, la comparaison passerait au vert à vide.
+    expect(declarees.size).toBeGreaterThanOrEqual(4);
+
+    expect([...SEO_TITLE_DIRS].sort()).toEqual([...declarees].sort());
+  });
+});

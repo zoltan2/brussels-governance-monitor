@@ -33,9 +33,29 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { X, Gamepad2 } from 'lucide-react';
-import { DailyQuestion } from '@/components/daily-question';
-import { StuutGame } from '@/components/stuut-game';
-import { AmaiGame } from '@/components/amai-game';
+import dynamic from 'next/dynamic';
+
+// CHARGEMENT DIFFERE. Ces trois jeux etaient importes statiquement, donc
+// embarques dans le chunk servi sur CHAQUE page du site — alors que le panneau
+// est ferme par defaut et que son contenu ne monte qu'a l'ouverture (ligne 314).
+// Avec le widget de chat et Pagefind, ils formaient un chunk unique de 214 Ko
+// bruts (65 Ko compresses) sur le chemin critique de toutes les pages.
+// `next/dynamic` n'etait utilise qu'a UN seul endroit du depot, pour le quiz,
+// ou il fonctionne tres bien (audit 21/09).
+//
+// `ssr: false` : ces jeux lisent une API externe au montage et n'ont rien a
+// rendre cote serveur. Le panneau n'existe de toute facon que dans un portail
+// cree apres hydratation.
+const DailyQuestion = dynamic(
+  () => import('@/components/daily-question').then((m) => m.DailyQuestion),
+  { ssr: false },
+);
+const StuutGame = dynamic(() => import('@/components/stuut-game').then((m) => m.StuutGame), {
+  ssr: false,
+});
+const AmaiGame = dynamic(() => import('@/components/amai-game').then((m) => m.AmaiGame), {
+  ssr: false,
+});
 // Ces actions ne naviguent pas : l'attribut `data-umami-event` n'a rien à annoter,
 // et le panneau vit dans un portail monté après hydratation. L'appel explicite
 // supprime toute dépendance à la liaison d'événements du tracker.

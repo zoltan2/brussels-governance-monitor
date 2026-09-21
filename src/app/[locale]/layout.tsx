@@ -174,6 +174,14 @@ export default async function LocaleLayout({
             data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
             data-host-url="https://governance.brussels/u"
             data-domains="governance.brussels"
+            // Sans cet attribut, le traceur envoie l'URL COMPLETE, chaine de requete
+            // comprise. Or les liens de desabonnement des emails portent un jeton
+            // valable un an (src/lib/token.ts) qui donne lecture de l'adresse et des
+            // themes d'un abonne : chaque clic l'inscrivait dans la base Umami.
+            // Verifie dans le traceur servi : `N = T("exclude-search") === "true"`
+            // puis `N && (e.search = "")`. La suppression n'a lieu que si l'attribut
+            // vaut exactement "true" (audit 21/09).
+            data-exclude-search="true"
           />
         )}
         <script

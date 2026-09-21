@@ -57,6 +57,9 @@ export function DigestShell({
             data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
             data-host-url="https://governance.brussels/u"
             data-domains="governance.brussels"
+            // Voir src/app/[locale]/layout.tsx : sans cet attribut, les jetons
+            // d'abonne portes en chaine de requete partent dans Umami.
+            data-exclude-search="true"
           />
         )}
         <script

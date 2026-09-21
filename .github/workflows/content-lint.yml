@@ -31,6 +31,7 @@ on:
       # Parseur du frontmatter des gardes, fraîcheur des chapeaux, date du
       # résumé ; le schéma Velite décide des champs que ces gardes lisent.
       - 'src/lib/summary-freshness.ts'
+      - 'src/lib/title-length.ts'
       - 'src/lib/frontmatter.ts'
       - 'src/lib/change-summary-date.ts'
       # Liste des vues immersives (garde de liens) et version de js-yaml (parseur
@@ -117,6 +118,18 @@ jobs:
             echo "No MDX files changed, skipping"; exit 0
           fi
           npx tsx scripts/content-lint/change-summary-date.ts /tmp/changed_content.txt "origin/${{ github.base_ref }}"
+
+      # Velite pose bien un s.string().max(120) sur le titre des fiches secteur,
+      # mais il le signale en `info` et laisse passer : les quatre fiches
+      # education, de 125 a 139 caracteres, figurent dans .velite/sectorCards.json.
+      # Un garde-fou qu'on croit actif et qui ne l'est pas est pire qu'un
+      # garde-fou absent. 288 fiches etaient hors budget au 21/09/2026.
+      - name: Titre dans le budget d'un résultat de recherche
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          npx tsx scripts/content-lint/title-length.ts /tmp/changed_content.txt "origin/${{ github.base_ref }}"
 
       # La FAQ vieillissait derrière le corps des fiches : sur les douze veilles
       # précédant le 2026-09-11, 35 fiches à FAQ ont été republiées et la FAQ n'a

@@ -148,6 +148,18 @@ const domainCards = defineCollection({
   schema: s
     .object({
       title: s.string().max(120),
+      // Titre et description réservés aux moteurs de recherche. Google coupe le
+      // <title> vers 60 caractères et la description vers 155. Facultatifs :
+      // sans eux, la page garde `title` (suffixé « | BGM ») et son résumé. Le H1
+      // reste `title`, qui peut donc rester long et énumératif.
+      //
+      // Étendus à cette collection le 21/09/2026 : elle n'avait aucun moyen de
+      // piloter son titre de recherche, alors que le lint de longueur de titre
+      // (scripts/content-lint/title-length.ts) désigne `seoTitle` comme la
+      // porte de sortie. Les 44 fiches secteur, toutes hors budget, en étaient
+      // les premières privées.
+      seoTitle: s.string().max(60).optional(),
+      seoDescription: s.string().max(155).optional(),
       slug: s.string(),
       locale: localeEnum,
       domain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional', 'urban-planning', 'digital', 'education']),
@@ -393,6 +405,18 @@ const sectorCards = defineCollection({
   schema: s
     .object({
       title: s.string().max(120),
+      // Titre et description réservés aux moteurs de recherche. Google coupe le
+      // <title> vers 60 caractères et la description vers 155. Facultatifs :
+      // sans eux, la page garde `title` (suffixé « | BGM ») et son résumé. Le H1
+      // reste `title`, qui peut donc rester long et énumératif.
+      //
+      // Étendus à cette collection le 21/09/2026 : elle n'avait aucun moyen de
+      // piloter son titre de recherche, alors que le lint de longueur de titre
+      // (scripts/content-lint/title-length.ts) désigne `seoTitle` comme la
+      // porte de sortie. Les 44 fiches secteur, toutes hors budget, en étaient
+      // les premières privées.
+      seoTitle: s.string().max(60).optional(),
+      seoDescription: s.string().max(155).optional(),
       slug: s.string(),
       locale: localeEnum,
       parentDomain: s.enum(['budget', 'mobility', 'housing', 'employment', 'climate', 'social', 'security', 'economy', 'cleanliness', 'institutional', 'urban-planning', 'digital', 'education']),
@@ -721,6 +745,18 @@ const comparisonCards = defineCollection({
   schema: s
     .object({
       title: s.string().max(120),
+      // Titre et description réservés aux moteurs de recherche. Google coupe le
+      // <title> vers 60 caractères et la description vers 155. Facultatifs :
+      // sans eux, la page garde `title` (suffixé « | BGM ») et son résumé. Le H1
+      // reste `title`, qui peut donc rester long et énumératif.
+      //
+      // Étendus à cette collection le 21/09/2026 : elle n'avait aucun moyen de
+      // piloter son titre de recherche, alors que le lint de longueur de titre
+      // (scripts/content-lint/title-length.ts) désigne `seoTitle` comme la
+      // porte de sortie. Les 44 fiches secteur, toutes hors budget, en étaient
+      // les premières privées.
+      seoTitle: s.string().max(60).optional(),
+      seoDescription: s.string().max(155).optional(),
       slug: s.string(),
       locale: localeEnum,
       comparisonType: s.enum(['intra-belgian', 'international']),

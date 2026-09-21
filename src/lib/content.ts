@@ -9,6 +9,10 @@ import { selectRelatedDossiers } from '@/lib/related-dossiers';
 
 export interface DomainCard {
   title: string;
+  /** Titre pour Google (≤ 60 caractères), affiché tel quel, sans suffixe. Le H1 reste `title`. */
+  seoTitle?: string;
+  /** Description pour Google (≤ 155 caractères). Sans elle, le repli de la collection sert. */
+  seoDescription?: string;
   slug: string;
   locale: Locale;
   domain: string;
@@ -132,6 +136,10 @@ export interface GlossaryTerm {
 
 export interface SectorCard {
   title: string;
+  /** Titre pour Google (≤ 60 caractères), affiché tel quel, sans suffixe. Le H1 reste `title`. */
+  seoTitle?: string;
+  /** Description pour Google (≤ 155 caractères). Sans elle, le repli de la collection sert. */
+  seoDescription?: string;
   slug: string;
   locale: Locale;
   parentDomain: string;
@@ -159,6 +167,10 @@ export interface SectorCard {
 
 export interface ComparisonCard {
   title: string;
+  /** Titre pour Google (≤ 60 caractères), affiché tel quel, sans suffixe. Le H1 reste `title`. */
+  seoTitle?: string;
+  /** Description pour Google (≤ 155 caractères). Sans elle, le repli de la collection sert. */
+  seoDescription?: string;
   slug: string;
   locale: Locale;
   comparisonType: 'intra-belgian' | 'international';

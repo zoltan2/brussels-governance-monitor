@@ -86,16 +86,25 @@ export function truncateDescription(text: string, max = DESCRIPTION_MAX): string
 }
 
 /**
- * Title and description a dossier shows to search engines.
+ * Title and description a card shows to search engines.
  *
  * `seoTitle` is written to fit Google's ~60 characters on its own, so it goes out
  * as is (`absoluteTitle`), without the ' | BGM' suffix of the layout template.
- * Without it, the dossier keeps its `title` and the suffix, as before.
+ * Without it, the card keeps its `title` and the suffix, as before.
  * The visible H1 is always `title`; only the search result changes.
+ *
+ * Généralisé le 21/09/2026. Les deux champs n'existaient que sur les dossiers,
+ * alors que les fiches secteur sont les pires contrevenantes au budget de titre
+ * (44 sur 44 hors budget, moyenne de 86 à 93 caractères) et n'avaient aucun
+ * moyen de s'en sortir. Le repli de description diffère d'une collection à
+ * l'autre — `summary` pour un domaine, `humanImpact` pour un secteur,
+ * `methodology` pour une comparaison — d'où le paramètre explicite plutôt qu'un
+ * champ deviné.
  */
-export function dossierSearchMeta(card: {
+export function searchMeta(card: {
   title: string;
-  summary: string;
+  /** Description utilisée quand `seoDescription` est absent. */
+  fallbackDescription: string;
   seoTitle?: string;
   seoDescription?: string;
 }): { title: string; absoluteTitle: boolean; description: string } {
@@ -104,8 +113,26 @@ export function dossierSearchMeta(card: {
   return {
     title: seoTitle || card.title,
     absoluteTitle: Boolean(seoTitle),
-    description: seoDescription || card.summary,
+    description: seoDescription || card.fallbackDescription,
   };
+}
+
+/**
+ * Variante dossier, conservée parce que son repli de description est `summary`
+ * et que le gabarit dossier l'appelle avec la fiche entière.
+ */
+export function dossierSearchMeta(card: {
+  title: string;
+  summary: string;
+  seoTitle?: string;
+  seoDescription?: string;
+}): { title: string; absoluteTitle: boolean; description: string } {
+  return searchMeta({
+    title: card.title,
+    fallbackDescription: card.summary,
+    seoTitle: card.seoTitle,
+    seoDescription: card.seoDescription,
+  });
 }
 
 /**

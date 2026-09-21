@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { getSectorCard, getAllSectorSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
-import { buildMetadata, canonicalUrl } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl, searchMeta } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -41,10 +41,18 @@ export async function generateMetadata({
 
   const { card } = result;
   const description = card.humanImpact || card.title;
+  const search = searchMeta({
+    title: card.title,
+    fallbackDescription: description,
+    seoTitle: card.seoTitle,
+    seoDescription: card.seoDescription,
+  });
+
   return buildMetadata({
     locale,
-    title: card.title,
-    description,
+    title: search.title,
+    absoluteTitle: search.absoluteTitle,
+    description: search.description,
     path: `/sectors/${slug}`,
     ogParams: `title=${encodeURIComponent(card.title)}&type=sector`,
   });

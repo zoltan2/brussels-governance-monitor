@@ -7,6 +7,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { messagesPourLeClient } from '@/i18n/client-namespaces';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { AccessibilityToolbar } from '@/components/accessibility-toolbar';
@@ -200,7 +201,15 @@ export default async function LocaleLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
-        <NextIntlClientProvider messages={messages}>
+        {/*
+          Seuls les espaces de noms dont un composant CLIENT a besoin traversent
+          le reseau. Le dictionnaire entier (182 Ko) etait serialise dans chaque
+          page, ou il representait de 61 a 88 % de la charge — pour un contenu
+          presque jamais utilise cote client. Les composants serveur, eux,
+          continuent de lire `messages` en entier : rien ne change a l'ecran.
+          La liste est verrouillee par src/i18n/client-namespaces.test.ts.
+        */}
+        <NextIntlClientProvider messages={messagesPourLeClient(messages)}>
           <div className="flex min-h-screen flex-col">
             <a
               href="#main-content"

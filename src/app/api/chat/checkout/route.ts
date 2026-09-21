@@ -35,7 +35,14 @@ export async function POST(request: Request) {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${siteUrl}/fr?chat_unlocked=1`,
+      // L'URL de retour portait `?chat_unlocked=1`, et le widget accordait
+      // 90 jours d'acces a quiconque arrivait avec ce parametre. Le lien etait
+      // partageable tel quel sur un forum et deverrouillait tout le monde : le
+      // revenu du chatbot etait nul par construction (audit 21/09).
+      // On renvoie maintenant vers une route qui INTERROGE Stripe avec
+      // l'identifiant de session, verifie que le paiement a bien eu lieu, et ne
+      // pose qu'alors un cookie signe. Le parametre d'URL n'accorde plus rien.
+      success_url: `${siteUrl}/api/chat/unlock?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/fr`,
     });
 

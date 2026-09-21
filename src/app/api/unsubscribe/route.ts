@@ -2,9 +2,13 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { NextResponse } from 'next/server';
+import { z } from 'zod';
 import { verifyUnsubscribeToken } from '@/lib/token';
 import { getResend, EMAIL_FROM, removeContact, resendCall } from '@/lib/resend';
 import GoodbyeEmail from '@/emails/goodbye';
+import { rateLimit } from '@/lib/rate-limit';
+import { clientIp } from '@/lib/client-ip';
+import { bodyTooLargeRefusal } from '@/lib/request-guards';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -61,19 +65,49 @@ export async function GET(request: Request) {
   );
 }
 
+/**
+ * Corps du desabonnement.
+ *
+ * Il n'etait pas valide du tout : `feedback` et `rating` etaient pris tels quels
+ * et interpoles dans un email vers l'administrateur. Combine a l'absence de
+ * limitation de debit (seule route POST publique dans ce cas), cela faisait un
+ * amplificateur d'emails : avec un jeton legitime, une boucle expediait deux
+ * envois Resend par appel, epuisait le quota mensuel — donc plus AUCUN email de
+ * confirmation ni de digest ne partait pour personne — et noyait la boite de
+ * l'exploitant (audit 21/09).
+ */
+const unsubscribeSchema = z.object({
+  token: z.string().min(1).max(4096),
+  rating: z.number().int().min(1).max(5).optional(),
+  feedback: z.string().max(2000).optional(),
+  locale: z.string().min(1).max(10).optional(),
+});
+
 export async function POST(request: Request) {
-  let body: { token?: string; rating?: number; feedback?: string; locale?: string };
+  const ip = clientIp(request.headers);
+  const { allowed } = rateLimit(ip, { max: 5, bucket: 'unsubscribe' });
+  if (!allowed) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
+  const tropGros = bodyTooLargeRefusal(request.headers);
+  if (tropGros) {
+    return NextResponse.json({ error: tropGros }, { status: 413 });
+  }
+
+  let brut: unknown;
   try {
-    body = await request.json();
+    brut = await request.json();
   } catch {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
-  const { token, rating, feedback, locale: bodyLocale } = body;
-
-  if (!token) {
-    return NextResponse.json({ error: 'Missing token' }, { status: 400 });
+  const parsed = unsubscribeSchema.safeParse(brut);
+  if (!parsed.success) {
+    return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
   }
+
+  const { token, rating, feedback, locale: bodyLocale } = parsed.data;
 
   const payload = verifyUnsubscribeToken(token);
   if (!payload) {

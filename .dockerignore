@@ -6,6 +6,31 @@ node_modules
 _audit
 .velite
 
+# Repertoires de travail, jamais necessaires au build et jamais servis.
+#
+# Le Dockerfile fait `COPY . .` : tout ce qui n'est pas exclu ici entre dans la
+# couche de l'etage intermediaire. `.local/` pese 420 Mo et contient notamment
+# `.local/analyses/precommandes-lasagne-recuperees.csv`, c'est-a-dire les donnees
+# personnelles des precommandes du livre — non versionnees precisement parce que
+# le depot est public (docs/preorders-recap-cron.md).
+#
+# La CI est epargnee (checkout frais, ces chemins sont gitignores), mais un
+# `docker build` lance depuis le poste les cuisait dans l'image, et
+# `cache-to: type=gha,mode=max` exporte toutes les couches intermediaires.
+# Benefice annexe : 420 Mo de contexte de build en moins (audit 21/09).
+.local
+.ghostcrab
+memory
+context
+journal
+.claude
+.superpowers
+.quiz-pending
+.preview
+.vercel
+logs
+housing
+
 # Divers
 Dockerfile
 .dockerignore

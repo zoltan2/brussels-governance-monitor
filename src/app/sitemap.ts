@@ -278,6 +278,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: '/radar' },
     { href: '/press' },
     { href: '/support' },
+    // Ces trois routes repondent 200, portent un canonique auto-referent et ne
+    // sont pas en noindex : elles etaient simplement absentes du plan de site,
+    // donc decouvertes plus lentement. `/quiz` et `/signal` etaient deja
+    // declarees dans routing.ts ; `/subscribe` y a ete ajoutee le 21/09 en meme
+    // temps que la correction de son canonique (audit 21/09).
+    { href: '/quiz' },
+    { href: '/signal' },
+    { href: '/subscribe' },
   ];
 
   const EXPLAINERS_PREFIX = '/explainers/';

@@ -30,7 +30,16 @@ const schema = z.object({
 });
 
 function emailDigest(email: string): string {
-  const secret = process.env.CHAT_SESSION_SECRET ?? 'fallback';
+  // ECHEC FERME, voir src/app/api/chat/route.ts. Sans secret effectif, le
+  // hachage d'une adresse email est reversible par dictionnaire : l'espace des
+  // adresses ciblees est petit. Le repli silencieux sur une constante publique
+  // transformait une pseudonymisation en illusion (audit 21/09).
+  const secret = process.env.CHAT_SESSION_SECRET;
+  if (!secret) {
+    throw new Error(
+      'CHAT_SESSION_SECRET is required to pseudonymise e-mail addresses. Set it in .env.local.',
+    );
+  }
   return createHash('sha256')
     .update(`${secret}|${email.toLowerCase().trim()}`)
     .digest('hex')
@@ -131,11 +140,13 @@ export async function POST(request: Request) {
       confirmation_sent: confirmationSent,
     });
 
-    return NextResponse.json({
-      success: true,
-      alreadySubscribed,
-      confirmationSent,
-    });
+    // Reponse INDIFFERENCIEE. `alreadySubscribed` revelait si une adresse figure
+    // dans le fichier d'abonnes de BGM : endpoint non authentifie, 5 requetes par
+    // minute et par adresse, parallelisable. Sur un site de surveillance de la
+    // gouvernance, savoir qui est abonne est une information sensible
+    // (journalistes, fonctionnaires). L'information reste dans le journal serveur
+    // ci-dessus, ou elle est utile et non exposee (audit 21/09).
+    return NextResponse.json({ success: true });
   } catch (err) {
     console.error('[chat-email-gate] unexpected error:', err);
     return NextResponse.json(

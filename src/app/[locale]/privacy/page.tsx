@@ -96,6 +96,16 @@ function PrivacyView() {
             <li>{t('thirdParties.cloudflare')}</li>
             <li>{t('thirdParties.umami')}</li>
             <li>{t('thirdParties.resend')}</li>
+            {/*
+              Stripe, Anthropic et Upstash traitent des donnees personnelles et
+              n'etaient pas declares : Stripe les paiements, Anthropic CHAQUE
+              question posee au chatbot, Upstash les prenoms et adresses du
+              registre de precommande (src/lib/preorder-log.ts). La liste se
+              presente comme « complete » : elle ne l'etait pas (audit 21/09).
+            */}
+            <li>{t('thirdParties.stripe')}</li>
+            <li>{t('thirdParties.anthropic')}</li>
+            <li>{t('thirdParties.upstash')}</li>
           </ul>
           <p className="text-xs text-neutral-500">{t('thirdParties.legalBasis')}</p>
           <p className="text-xs text-neutral-500">{t('thirdParties.transfers')}</p>

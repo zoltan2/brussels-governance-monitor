@@ -43,6 +43,33 @@ describe('authorizeAdmin', () => {
     expect(Math.abs(inconnue - connue)).toBeLessThan(120);
   });
 
+  /* LE LIMITEUR NE DOIT COMPTER QUE LES ÉCHECS.
+     Il incrémentait avant toute vérification, donc aussi sur les connexions
+     réussies : après cinq connexions légitimes dans la fenêtre de quinze
+     minutes, l'administrateur se bloquait lui-même. Dix succès d'affilée depuis
+     la même adresse doivent tous passer. */
+  /* Six tentatives, une de plus que le plafond de cinq : c'est exactement la
+     sixième que l'ancienne version refusait. Chaque appel tient le plancher de
+     600 ms, d'où le délai relevé. */
+  it('ne bloque pas l’administrateur après plusieurs connexions réussies', async () => {
+    for (let essai = 0; essai < 6; essai++) {
+      const u = await authorizeAdmin('admin@bgm.be', MDP, '203.0.113.20');
+      expect(u?.email, `connexion réussie n°${essai + 1} refusée`).toBe('admin@bgm.be');
+    }
+  }, 15_000);
+
+  /* Et il doit toujours bloquer ce pour quoi il existe : le bourrage. */
+  it('bloque après cinq échecs depuis la même adresse', async () => {
+    const ip = '203.0.113.21';
+    for (let essai = 0; essai < 5; essai++) {
+      expect(await authorizeAdmin('admin@bgm.be', 'faux', ip)).toBeNull();
+    }
+    // Sixième tentative : même avec le BON mot de passe, l'adresse est écartée.
+    expect(await authorizeAdmin('admin@bgm.be', MDP, ip)).toBeNull();
+    // Une autre adresse n'est pas affectée.
+    expect((await authorizeAdmin('admin@bgm.be', MDP, '203.0.113.22'))?.email).toBe('admin@bgm.be');
+  });
+
   /* Le plancher vaut AUSSI quand la configuration manque : sans lui, un serveur
      mal configuré répondrait instantanément et se signalerait comme tel. */
   it('tient le plancher même sans variables d’environnement', async () => {

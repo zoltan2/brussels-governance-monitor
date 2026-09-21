@@ -7,6 +7,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { messagesPourLeClient } from '@/i18n/client-namespaces';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { AccessibilityToolbar } from '@/components/accessibility-toolbar';
@@ -99,9 +100,14 @@ export default async function LocaleLayout({
     '@graph': [
       {
         '@type': 'WebSite',
+        // Les fiches dossier et commune declarent `isPartOf: { '@id': siteUrl#website }`.
+        // Sans cet identifiant ici, la reference pointait dans le vide et chaque page
+        // faisait naitre un WebSite fantome au lieu de se rattacher au site (audit 21/09).
+        '@id': `${siteUrl}/#website`,
         name: metadata.title,
         description: metadata.description,
-        url: `${siteUrl}/${locale}`,
+        // La racine, pas la version localisee : un seul site, quatre langues.
+        url: siteUrl,
         inLanguage: locale,
         publisher: { '@id': `${siteUrl}/#organization` },
         potentialAction: {
@@ -174,6 +180,14 @@ export default async function LocaleLayout({
             data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
             data-host-url="https://governance.brussels/u"
             data-domains="governance.brussels"
+            // Sans cet attribut, le traceur envoie l'URL COMPLETE, chaine de requete
+            // comprise. Or les liens de desabonnement des emails portent un jeton
+            // valable un an (src/lib/token.ts) qui donne lecture de l'adresse et des
+            // themes d'un abonne : chaque clic l'inscrivait dans la base Umami.
+            // Verifie dans le traceur servi : `N = T("exclude-search") === "true"`
+            // puis `N && (e.search = "")`. La suppression n'a lieu que si l'attribut
+            // vaut exactement "true" (audit 21/09).
+            data-exclude-search="true"
           />
         )}
         <script
@@ -187,7 +201,15 @@ export default async function LocaleLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
-        <NextIntlClientProvider messages={messages}>
+        {/*
+          Seuls les espaces de noms dont un composant CLIENT a besoin traversent
+          le reseau. Le dictionnaire entier (182 Ko) etait serialise dans chaque
+          page, ou il representait de 61 a 88 % de la charge — pour un contenu
+          presque jamais utilise cote client. Les composants serveur, eux,
+          continuent de lire `messages` en entier : rien ne change a l'ecran.
+          La liste est verrouillee par src/i18n/client-namespaces.test.ts.
+        */}
+        <NextIntlClientProvider messages={messagesPourLeClient(messages)}>
           <div className="flex min-h-screen flex-col">
             <a
               href="#main-content"

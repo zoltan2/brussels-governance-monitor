@@ -572,11 +572,14 @@
       "description": "Dans un souci de transparence, voici la liste complète des services tiers utilisés par ce site :",
       "hosting": "Hetzner (hébergement) : héberge le site sur un serveur situé à Nuremberg, en Allemagne. Traite les logs serveur (adresses IP, en-têtes HTTP). Aucune donnée personnelle n'est stockée au-delà des logs techniques temporaires.",
       "cloudflare": "Cloudflare (CDN et protection anti-DDoS) : filtre et distribue le trafic depuis ses points de présence européens. Traite les adresses IP des visiteurs pendant la requête. Société américaine, certifiée sous le EU-US Data Privacy Framework.",
-      "umami": "Umami (statistiques) : mesure de fréquentation respectueuse de la vie privée, auto-hébergée sur notre propre serveur en Allemagne. Aucun cookie, aucune donnée personnelle collectée, aucun suivi inter-sites.",
+      "umami": "Umami (statistiques) : mesure de fréquentation respectueuse de la vie privée, auto-hébergée sur notre propre serveur en Allemagne. Aucun cookie, aucun suivi inter-sites. Les adresses des pages sont enregistrées sans leur chaîne de requête, afin qu'aucun jeton figurant dans un lien d'email ne soit conservé.",
       "resend": "Resend (emails) : envoie les emails de confirmation, les digest hebdomadaires et le Stuut quotidien. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
-      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Hetzner, Cloudflare et Umami ; consentement (article 6.1.a) pour Resend.",
+      "stripe": "Stripe (paiements) : traite les dons, les précommandes du livre et le déverrouillage de l'assistant. La saisie des données bancaires a lieu sur les pages hébergées par Stripe : le site ne voit ni ne stocke aucune donnée de carte. Société américaine.",
+      "anthropic": "Anthropic (assistant IA) : traite les questions posées à l'assistant BGM pour produire les réponses. Société américaine. Les questions ne sont pas liées à une identité ; aucune donnée personnelle n'est requise pour utiliser l'assistant.",
+      "upstash": "Upstash (base de données) : conserve la télémétrie de l'assistant, les votes de consultation et le registre des précommandes du livre, qui contient prénom et adresse email.",
+      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Hetzner, Cloudflare, Umami, Upstash et Anthropic ; consentement (article 6.1.a) pour Resend ; exécution du contrat (article 6.1.b) pour Stripe.",
       "statusPage": "Page de statut du service : https://status.governance.brussels",
-      "transfers": "Transferts hors UE : l'hébergement du site et les statistiques restent en Allemagne. Resend (États-Unis) et Cloudflare (société américaine) bénéficient de clauses contractuelles types (SCCs) et sont certifiés sous le EU-US Data Privacy Framework (DPF). Les DPA sont automatiquement acceptés avec les conditions d'utilisation de chaque service."
+      "transfers": "Transferts hors UE : l'hébergement du site, les statistiques et la base de données restent en Europe. Resend, Stripe, Anthropic (États-Unis) et Cloudflare (société américaine) opèrent sous clauses contractuelles types (SCCs) ou certification EU-US Data Privacy Framework (DPF). Les DPA sont acceptés avec les conditions d'utilisation de chaque service."
     },
     "games": {
       "title": "Jeux quotidiens (Stuut et Amai)",
@@ -596,8 +599,8 @@
     },
     "chatbot": {
       "title": "Assistant BGM",
-      "paragraph1": "Les questions posées à l'assistant BGM sont conservées à des fins d'amélioration du service. Elles sont associées à un identifiant de session anonymisé (hachage non réversible, renouvelé chaque jour) et ne sont jamais liées à une identité. Aucune donnée personnelle n'est requise pour utiliser l'assistant.",
-      "paragraph2": "L'accès étendu à l'assistant est proposé via une contribution volontaire. Le système repose sur la confiance — aucun mécanisme technique ne vérifie le paiement côté serveur. Si vous trouvez BGM utile, nous comptons sur votre honnêteté."
+      "paragraph1": "Les questions posées à l'assistant BGM sont conservées à des fins d'amélioration du service, au maximum les 10 000 dernières, et pas au-delà de 90 jours. Elles sont associées à un identifiant de session anonymisé (hachage non réversible, renouvelé chaque jour) et ne sont jamais liées à une identité. Aucune donnée personnelle n'est requise pour utiliser l'assistant. Les questions sont transmises à Anthropic (États-Unis) pour produire la réponse.",
+      "paragraph2": "L'accès étendu à l'assistant est proposé via une contribution volontaire, traitée par Stripe. Depuis le 21 septembre 2026, le paiement est vérifié côté serveur auprès de Stripe avant l'ouverture de l'accès."
     },
     "lastUpdated": "Dernière mise à jour : {date}"
   },

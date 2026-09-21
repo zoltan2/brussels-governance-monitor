@@ -16,6 +16,7 @@ import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
 import { recordPreorder } from '@/lib/preorder-log';
 import { escapeHtml } from '@/lib/html-escape';
+import { pseudonymeEmail } from '@/lib/log-safe';
 import ConfirmEmail from '@/emails/confirm';
 
 const preorderSchema = z.object({
@@ -148,12 +149,12 @@ async function requestDigestSubscription(email: string): Promise<boolean> {
       }),
     );
     if (error) {
-      console.error('[livre-precommande-FAIL] confirmation digest', email, error);
+      console.error('[livre-precommande-FAIL] confirmation digest', pseudonymeEmail(email), error);
       return false;
     }
     return true;
   } catch (err) {
-    console.error('[livre-precommande-FAIL] inscription digest', email, err);
+    console.error('[livre-precommande-FAIL] inscription digest', pseudonymeEmail(email), err);
     return false;
   }
 }
@@ -161,7 +162,7 @@ async function requestDigestSubscription(email: string): Promise<boolean> {
 export async function POST(request: Request) {
   try {
     const ip = clientIp(request.headers);
-    const { allowed, remaining } = rateLimit(ip);
+    const { allowed, remaining } = rateLimit(ip, { bucket: 'precommande' });
     if (!allowed) {
       return NextResponse.json(
         { error: 'Trop de requêtes. Réessayez dans une minute.' },
@@ -199,7 +200,7 @@ export async function POST(request: Request) {
     try {
       await recordPreorder({ email, firstName });
     } catch (err) {
-      console.error('[livre-precommande-FAIL] journal indisponible', email, err);
+      console.error('[livre-precommande-FAIL] journal indisponible', pseudonymeEmail(email), err);
     }
 
     const resend = getResend();
@@ -225,11 +226,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const digestConfirmationSent = digestOptIn
-      ? await requestDigestSubscription(email)
-      : false;
+    if (digestOptIn) await requestDigestSubscription(email);
 
-    return NextResponse.json({ success: true, digestConfirmationSent });
+    // Reponse INDIFFERENCIEE. `digestConfirmationSent` valait `false` quand le
+    // contact existait deja et `true` quand un email de confirmation partait :
+    // le booleen disait donc si l'adresse visee est abonnee. Meme raisonnement
+    // que sur /api/chat/email-gate (audit 21/09).
+    return NextResponse.json({ success: true });
   } catch (err) {
     console.error('Livre preorder: unexpected error:', err);
     return NextResponse.json(

@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
+import { secretCorrespond } from '@/lib/cron-auth';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -29,15 +30,24 @@ export async function OPTIONS() {
 
 export async function POST(request: Request) {
   try {
-    const token = request.headers.get('authorization')?.replace('Bearer ', '').trim();
-    if (!token || token !== process.env.INBOX_SECRET) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: CORS_HEADERS });
-    }
-
+    // La limitation de debit passe AVANT le controle du jeton. Elle etait apres :
+    // les tentatives de devinette n'etaient donc jamais comptees, alors que la
+    // route publie `Access-Control-Allow-Origin: *` et que n'importe quelle page
+    // web peut donc l'interroger en boucle (audit 21/09).
     const ip = clientIp(request.headers);
     const { allowed } = rateLimit(ip, { bucket: 'intel-inbox' });
     if (!allowed) {
       return NextResponse.json({ error: 'Too many requests' }, { status: 429, headers: CORS_HEADERS });
+    }
+
+    // Comparaison a temps constant, comme src/lib/cron-auth.ts et src/lib/token.ts.
+    // Le `!==` sur chaine court-circuite au premier caractere different. A travers
+    // Cloudflare et Caddy le bruit reseau couvre largement l'ecart, donc
+    // l'exploitation a distance reste improbable : c'est une mise en conformite
+    // avec le reste du depot, pas la fermeture d'une faille demontree.
+    const token = request.headers.get('authorization')?.replace('Bearer ', '').trim();
+    if (!token || !secretCorrespond(token, process.env.INBOX_SECRET)) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: CORS_HEADERS });
     }
 
     const body = await request.json();
@@ -66,7 +76,15 @@ export async function POST(request: Request) {
     if (selectedText) bodyLines.push('', 'Texte sélectionné :', selectedText);
 
     if (!process.env.RESEND_API_KEY) {
-      console.log('[intel-inbox]', { url, title, contributor, note, selectedText });
+      // Meme raisonnement que contact et feedback : pas de contenu en clair dans
+      // le journal. Cette route est authentifiee par jeton, l'appelant est donc
+      // connu : on le laisse accepter en developpement.
+      console.log('[intel-inbox] Resend non configure', {
+        url,
+        title,
+        hasNote: Boolean(note),
+        hasSelection: Boolean(selectedText),
+      });
       const ctaUrl: string | undefined = process.env.INBOX_CTA_URL || undefined;
       const ctaLabel: string | undefined = process.env.INBOX_CTA_LABEL || undefined;
       return NextResponse.json(

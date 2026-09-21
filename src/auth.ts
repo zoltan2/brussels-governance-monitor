@@ -11,15 +11,52 @@ const loginAttempts = new Map<string, { count: number; resetAt: number }>();
 const MAX_ATTEMPTS = 5;
 const WINDOW_MS = 15 * 60 * 1000; // 15 minutes
 
+/** Plafond dur de la carte : au-dela, on evince les entrees les plus anciennes. */
+const MAX_ENTREES = 10_000;
+
+/**
+ * Lecture SEULE de l'etat du limiteur : elle ne compte rien.
+ *
+ * L'ancienne version incrementait ici, donc AVANT toute verification de mot de
+ * passe, et comptait donc aussi les connexions reussies : apres cinq connexions
+ * legitimes en quinze minutes, l'administrateur se bloquait lui-meme.
+ */
 function isRateLimited(ip: string): boolean {
+  const entry = loginAttempts.get(ip);
+  if (!entry || Date.now() > entry.resetAt) return false;
+  return entry.count >= MAX_ATTEMPTS;
+}
+
+/**
+ * Compte un ECHEC, et seulement un echec.
+ *
+ * La carte n'etait jamais purgee : un `set` sans `delete` correspondant. Une
+ * entree ne disparaissait que si la MEME adresse revenait apres expiration.
+ * Avec des adresses distinctes — un prefixe IPv6 /64 en fournit autant qu'on
+ * veut — chaque tentative laissait une centaine d'octets a jamais, jusqu'a
+ * saturer le tas du conteneur : un deni de service a cout nul (audit 21/09).
+ */
+function compterEchec(ip: string): void {
   const now = Date.now();
   const entry = loginAttempts.get(ip);
   if (!entry || now > entry.resetAt) {
     loginAttempts.set(ip, { count: 1, resetAt: now + WINDOW_MS });
-    return false;
+  } else {
+    entry.count++;
   }
-  entry.count++;
-  return entry.count > MAX_ATTEMPTS;
+
+  if (loginAttempts.size <= MAX_ENTREES) return;
+  for (const [cle, valeur] of loginAttempts) {
+    if (valeur.resetAt < now) loginAttempts.delete(cle);
+  }
+  // La purge ci-dessus ne libere que des entrees expirees : sous un flot
+  // d'adresses neuves, elle peut ne rien liberer. D'ou un plafond dur.
+  if (loginAttempts.size > MAX_ENTREES) {
+    const parExpiration = [...loginAttempts.entries()].sort((a, b) => a[1].resetAt - b[1].resetAt);
+    for (const [cle] of parExpiration.slice(0, loginAttempts.size - MAX_ENTREES)) {
+      loginAttempts.delete(cle);
+    }
+  }
 }
 
 export interface AdminConnecte {
@@ -78,6 +115,7 @@ export async function authorizeAdmin(
   const motDePasseOk = await bcrypt.compare(password ?? '', adminHash);
 
   if (!emailOk || !motDePasseOk) {
+    compterEchec(ip);
     console.warn(`[auth] échec de connexion depuis ${ip}`);
     return rendreAprèsPlancher(null, debut);
   }

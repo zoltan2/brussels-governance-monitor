@@ -78,3 +78,26 @@ describe('GovernmentDayCounter', () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 });
+
+/**
+ * LE TEST QUI COMPTE POUR LE PREMIER AFFICHAGE.
+ *
+ * Le composant rendait « … » cote serveur et ne remplissait le nombre qu'apres
+ * hydratation. Les captures d'ecran, les apercus sociaux, les outils qui
+ * n'executent pas de JavaScript et les visiteurs sur connexion lente voyaient
+ * donc un compteur vide.
+ *
+ * Les tests ci-dessus passent par `render()`, c'est-a-dire un rendu CLIENT avec
+ * effets : ils ne distinguaient pas les deux comportements. Celui-ci rend la
+ * sortie SERVEUR et exige le chiffre dedans.
+ */
+describe('rendu serveur', () => {
+  it('ecrit le nombre dans le HTML, sans attendre le JavaScript', async () => {
+    const { renderToString } = await import('react-dom/server');
+    const html = renderToString(
+      <GovernmentDayCounter oathDate={ilYA(219)} oathLabel="14 février 2026" />,
+    );
+    expect(html).toContain('219');
+    expect(html, 'le HTML serveur ne doit plus contenir de remplaçant').not.toContain('…');
+  });
+});

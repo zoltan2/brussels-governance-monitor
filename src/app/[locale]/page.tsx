@@ -76,6 +76,18 @@ const descriptions: Record<string, string> = {
 // Crawlers read repeated 5xx as a server in trouble and slow down.
 export const dynamicParams = false;
 
+// La page d'accueil n'avait AUCUNE revalidation : son HTML etait fige jusqu'au
+// deploiement suivant, et servi avec `s-maxage=31536000` (un an). Deux
+// consequences, constatees le 21/09/2026 :
+//   - le compteur de jours de gouvernement ne pouvait pas etre rendu par le
+//     serveur sans deriver, d'ou le « … » affiche jusqu'a l'hydratation ;
+//   - tout ce que la page presente de « dernier » (signal, evenement) restait
+//     fige entre deux deploiements.
+// Une heure borne la derive sans peser : les pages de detail utilisent deja
+// `revalidate = 86400`, et Cloudflare ne met de toute facon pas encore le HTML
+// en cache (`cf-cache-status: DYNAMIC`).
+export const revalidate = 3600;
+
 export async function generateMetadata({
   params,
 }: {

@@ -7,13 +7,15 @@ import {
   getResend,
   EMAIL_FROM,
   getContact,
-  updateContactPreferences,
+  estDesinscrit,
+  getTopics,
   resendCall,
 } from '@/lib/resend';
 import { generateConfirmToken } from '@/lib/token';
 import { rateLimit } from '@/lib/rate-limit';
 import ConfirmEmail from '@/emails/confirm';
 import { clientIp } from '@/lib/client-ip';
+import { bodyTooLargeRefusal } from '@/lib/request-guards';
 
 const subscribeSchema = z.object({
   email: z.string().email(),
@@ -26,7 +28,7 @@ export async function POST(request: Request) {
   try {
     // Rate limiting
     const ip = clientIp(request.headers);
-    const { allowed, remaining } = rateLimit(ip);
+    const { allowed, remaining } = rateLimit(ip, { bucket: 'subscribe' });
     if (!allowed) {
       return NextResponse.json(
         { error: 'Too many requests' },
@@ -35,6 +37,11 @@ export async function POST(request: Request) {
           headers: { 'Retry-After': '60', 'X-RateLimit-Remaining': String(remaining) },
         },
       );
+    }
+
+    const tropGros = bodyTooLargeRefusal(request.headers);
+    if (tropGros) {
+      return NextResponse.json({ error: tropGros }, { status: 413 });
     }
 
     const body = await request.json();
@@ -47,13 +54,23 @@ export async function POST(request: Request) {
     }
 
     if (!parsed.success) {
-      return NextResponse.json(
-        { error: 'Invalid input', details: parsed.error.flatten() },
-        { status: 400 },
-      );
+      // Le detail du schema exposait la forme exacte des champs, y compris le
+      // nom du champ piege `website` — que le piege existe justement pour
+      // cacher. Un robot lisait la reponse d'erreur et savait quoi laisser vide.
+      return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
     }
 
-    const { email, locale, topics } = parsed.data;
+    const { email, locale } = parsed.data;
+
+    // Liste blanche des themes. Le schema n'imposait ni borne de taille ni
+    // valeurs connues : un tableau de 100 000 chaines d'un Mo etait accepte,
+    // signe dans le jeton, puis recopie dans les etiquettes du contact Resend.
+    // `/api/preferences` filtrait deja correctement ; cette route non.
+    const themesConnus = new Set(getTopics());
+    const topics = parsed.data.topics.filter((t) => themesConnus.has(t));
+    if (topics.length === 0) {
+      return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
+    }
 
     if (!process.env.RESEND_API_KEY) {
       console.error('Subscribe: RESEND_API_KEY is not set');
@@ -63,19 +80,30 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check if email is already a confirmed subscriber
+    // Adresse deja connue : on ne touche RIEN et on repond exactement comme
+    // pour une adresse inconnue.
+    //
+    // Ce que faisait cette branche : elle fusionnait les themes fournis par
+    // l'appelant dans le contact de la victime, ecrivait la langue fournie par
+    // l'appelant, et RENVOYAIT la liste complete de ses themes. Sans jeton, sans
+    // confirmation, et sans qu'aucun email ne la previenne. Trois consequences :
+    //   - on apprenait qu'une adresse donnee est abonnee (enumeration) ;
+    //   - on apprenait a quoi elle s'interesse, donc ses centres d'interet
+    //     politiques, sur un site de surveillance de la gouvernance ;
+    //   - on basculait son digest dans une autre langue.
+    // Toute modification d'un contact existant passe desormais par le circuit a
+    // jeton de `/api/preferences`, qui envoie un accuse (audit 21/09).
     const existing = await getContact(email);
     if (existing) {
-      // Merge new topics with existing ones (deduplicated) and tag 'website'
-      // as a source so repeat sign-ups via the form accumulate cleanly.
-      const mergedTopics = [...new Set([...existing.topics, ...topics])];
-      const mergedSources = [...new Set([...existing.sources, 'website'])];
-      await updateContactPreferences(email, locale, mergedTopics, mergedSources);
-      return NextResponse.json({
-        success: true,
-        alreadySubscribed: true,
-        topics: mergedTopics,
-      });
+      return NextResponse.json({ success: true, requiresConfirmation: true });
+    }
+
+    // Personne desinscrite : on ne lui ecrit PAS. `getContact` filtre les
+    // desinscrits, donc elle revenait « inconnue » et recevait un nouvel email
+    // de confirmation — a quelqu'un qui avait explicitement demande a ne plus
+    // en recevoir. La reponse reste la meme que pour une adresse inconnue.
+    if (await estDesinscrit(email)) {
+      return NextResponse.json({ success: true, requiresConfirmation: true });
     }
 
     // New subscriber — send confirmation email

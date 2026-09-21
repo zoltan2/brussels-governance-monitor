@@ -181,6 +181,12 @@ describe.each(MODES)('mode %s — pastilles pleines : texte neutral-50 sur fond 
     'status-resolved',
     'feasibility-high',
     'feasibility-medium',
+    // `feasibility-low` MANQUAIT a cette liste, et c'etait le seul des cinq a
+    // echouer : 3,80:1 en mode clair, sous le seuil AA de 4,5:1, rendu sur
+    // /fr/solutions. Le test passait donc au vert sur une non-conformite
+    // visible en production. Une liste d'exclusions qu'on ecrit a la main finit
+    // toujours par oublier exactement le cas qui compte (audit 21/09).
+    'feasibility-low',
     'feasibility-very-low',
     'feasibility-near-zero',
   ];

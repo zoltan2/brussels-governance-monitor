@@ -2,9 +2,15 @@
 # Image Docker autonome pour le staging Hetzner (Next.js standalone).
 # Multi-stage : deps -> builder -> runner. Base node:22-slim partout (aligne
 # le runtime sur le dev local Node 22, évite les surprises musl d'Alpine).
+#
+# L'image de base est épinglée PAR EMPREINTE depuis le 21/09/2026. L'étiquette
+# `22-slim` est réécrite à chaque publication amont : deux builds du même commit
+# ne produisaient pas la même image, et une compromission de l'étiquette se
+# serait propagée au déploiement suivant. Dependabot met l'empreinte à jour
+# (écosystème `docker` ajouté dans .github/dependabot.yml).
 
 # ---- deps : dépendances complètes (dev incluses) pour le build ----
-FROM node:22-slim AS deps
+FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS deps
 WORKDIR /app
 # npm ci a besoin du lockfile. On installe TOUT (velite/pagefind/tsx sont en
 # devDependencies et sont requis par le script `build`), donc pas de --omit=dev.
@@ -12,7 +18,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 # ---- builder : exécute le script `build` EXISTANT verbatim ----
-FROM node:22-slim AS builder
+FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -45,7 +51,7 @@ ENV NEXT_PUBLIC_UMAMI_WEBSITE_ID=e42598c7-0c04-4c2f-b7c3-e1c5e0b2b6bc
 RUN npm run build
 
 # ---- runner : image finale minimale, .next/standalone + assets explicites ----
-FROM node:22-slim AS runner
+FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

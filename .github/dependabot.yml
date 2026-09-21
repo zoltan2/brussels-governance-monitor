@@ -20,7 +20,28 @@ updates:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
 
+  # Les actions sont epinglees au SHA de commit depuis le 21/09/2026 : une
+  # etiquette git est deplacable par le mainteneur amont, ou par quiconque
+  # compromet son compte, et `deploy-image.yml` dispose de `packages: write`
+  # — une image verolee publiee sur GHCR serait tiree par le VPS dans les cinq
+  # minutes. Dependabot sait mettre a jour un SHA et maintient le commentaire
+  # de version en face, c'est donc le bon endroit pour suivre les nouveautes.
   - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Brussels
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: chore
+
+  # L'image de base du Dockerfile n'etait mise a jour par personne : ni
+  # Dependabot (l'ecosysteme manquait), ni a la main. Une etiquette `node:22-slim`
+  # est par ailleurs reecrite a chaque publication amont, donc deux builds du
+  # meme commit ne produisaient pas la meme image (audit 21/09).
+  - package-ecosystem: docker
     directory: /
     schedule:
       interval: weekly

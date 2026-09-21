@@ -1,5 +1,11 @@
 name: Regression Test
 
+# Principe du moindre privilege. Sans ce bloc, le GITHUB_TOKEN herite du defaut
+# du depot, qui peut etre `write-all` : un workflow de verification obtenait
+# alors des droits d ecriture dont il n a aucun usage (audit 21/09).
+permissions:
+  contents: read
+
 on:
   workflow_run:
     workflows: ["Smoke Test"]

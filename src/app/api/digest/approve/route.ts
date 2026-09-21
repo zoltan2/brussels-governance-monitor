@@ -2,282 +2,46 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { NextResponse } from 'next/server';
-import { readGitHubFile, writeGitHubFile } from '@/lib/github';
-import { getResend, EMAIL_FROM, listActiveContacts, resendCall } from '@/lib/resend';
-import { verifyDigestApprovalToken, generateUnsubscribeToken } from '@/lib/token';
-import { collectDigestUpdates, filterUpdatesForSubscriber } from '@/lib/digest-updates';
-import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
-import type { Locale } from '@/i18n/routing';
 
-const SUPPORTED_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
-const BATCH_SIZE = 50;
-
-interface PendingDigest {
-  week: string;
-  weekStart?: string;
-  created_at: string;
-  approved: boolean;
-  sent: boolean;
-  sent_at?: string;
-  summary: Record<string, string>;
-  weeklyNumber: {
-    value: string;
-    label: Record<string, string>;
-    source: Record<string, string>;
-  };
-  closingNote: Record<string, string>;
-  commitmentCount: number;
-  updatedTopics: string[];
-  magazine?: boolean;
-}
-
-/** Format a date range for the locale */
-function formatWeekRange(date: Date, locale: string): string {
-  const localeMap: Record<string, string> = {
-    fr: 'fr-BE',
-    nl: 'nl-BE',
-    en: 'en-GB',
-    de: 'de-DE',
-  };
-  const end = new Date(date);
-  const start = new Date(end);
-  start.setDate(start.getDate() - 6);
-
-  const fmt = new Intl.DateTimeFormat(localeMap[locale] || 'fr-BE', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-
-  const startDay = start.getDate();
-  const endFormatted = fmt.format(end);
-  return `${startDay} — ${endFormatted}`;
-}
+export const runtime = 'nodejs';
 
 /**
- * Digest approval endpoint.
- * POST /api/digest/approve  { token: "xxx" }
+ * ROUTE RETIREE le 21/09/2026. Elle ne fait plus rien et ne doit pas revenir.
  *
- * Changed from GET to POST to prevent accidental triggers by prefetch/link scanners.
- * Verifies token, marks approved, sends batch emails with scheduledAt if before Monday 8h CET.
+ * Ce qu'elle faisait : sur presentation d'un jeton, et SANS session, sans garde
+ * d'origine et sans limitation de debit, elle lisait la liste complete des
+ * abonnes, leur expediait le digest par lots, puis ecrivait dans le depot Git.
+ * C'etait le seul `route.ts` a privileges du depot qui n'importait pas `@/auth`.
+ *
+ * Trois defauts se cumulaient :
+ *
+ *  1. Le jeton etait accepte depuis la CHAINE DE REQUETE autant que depuis le
+ *     corps, et `cron/prepare-digest` le placait dans l'URL d'un email. Une URL
+ *     traverse les journaux Caddy, les journaux Cloudflare, l'historique du
+ *     navigateur et l'en-tete `Referer` des sous-requetes same-origin : le
+ *     secret etait recopie dans trois systemes de journalisation.
+ *  2. Le jeton ne liait que la semaine et n'etait pas consomme a l'usage : il
+ *     restait rejouable 24 h durant.
+ *  3. Elle etait ORPHELINE. La page de relecture n'a jamais lu `approve_token`,
+ *     et le client appelle `/api/digest/approve-from-review`, qui fait la meme
+ *     chose derriere une session et une garde d'origine. Le chemin sur ne l'a
+ *     jamais remplacee : il a toujours ete le seul utilise.
+ *
+ * Le fichier est conserve, vide de toute capacite, plutot que supprime : il
+ * documente la decision et evite qu'une route du meme nom soit recreee sans
+ * connaitre cette histoire. Le dossier peut etre supprime sur decision explicite.
  */
-export async function POST(request: Request) {
-  let token: string | null = null;
+const PARTI = {
+  error: 'Gone',
+  detail:
+    "Route retiree. L'approbation du digest passe par /api/digest/approve-from-review, " +
+    'authentifiee par session.',
+};
 
-  // Accept token from JSON body (POST) or query string (legacy GET compat)
-  const contentType = request.headers.get('content-type') || '';
-  if (contentType.includes('application/json')) {
-    const body = await request.json().catch(() => ({}));
-    token = body.token || null;
-  }
-  if (!token) {
-    const { searchParams } = new URL(request.url);
-    token = searchParams.get('token');
-  }
-
-  if (!token) {
-    return NextResponse.json({ error: 'Missing token' }, { status: 400 });
-  }
-
-  if (!process.env.RESEND_API_KEY) {
-    return NextResponse.json({ error: 'RESEND_API_KEY not configured' }, { status: 503 });
-  }
-
-  try {
-
-  // 1. Verify token
-  const payload = verifyDigestApprovalToken(token);
-  if (!payload) {
-    return NextResponse.json({ error: 'Invalid or expired token' }, { status: 401 });
-  }
-
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
-
-  // 2. Read pending digest
-  const filePath = 'data/pending-digest.json';
-  const file = await readGitHubFile(filePath);
-  if (!file) {
-    return NextResponse.json({ error: 'No pending digest found' }, { status: 404 });
-  }
-
-  const digest: PendingDigest = JSON.parse(file.content);
-
-  // 3. Guard: prevent double-approval or double-send
-  if (digest.sent) {
-    return NextResponse.json({ error: 'Digest already sent', week: digest.week }, { status: 409 });
-  }
-
-  if (digest.week !== payload.week) {
-    return NextResponse.json(
-      { error: 'Token week mismatch', tokenWeek: payload.week, digestWeek: digest.week },
-      { status: 400 },
-    );
-  }
-
-  // 4. Mark approved
-  digest.approved = true;
-
-  // 5. Determine scheduledAt — next Monday 8h CET if before that
-  const now = new Date();
-  let scheduledAt: string | undefined;
-
-  const nextMonday8CET = getNextMonday8CET(now);
-  if (now < nextMonday8CET) {
-    scheduledAt = nextMonday8CET.toISOString();
-  }
-  // If after Monday 8h CET, send immediately (no scheduledAt)
-
-  // 6. Calculate cutoff and collect updates
-  const cutoff = digest.weekStart || (() => {
-    const createdAt = new Date(digest.created_at);
-    const sevenDaysAgo = new Date(createdAt);
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-    return sevenDaysAgo.toISOString().split('T')[0];
-  })();
-
-  const { byLocale } = collectDigestUpdates(cutoff, siteUrl, digest.week);
-
-  // 7. Fetch active contacts
-  const contacts = await listActiveContacts();
-
-  // 8. Build email payloads
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const emailPayloads: any[] = [];
-  let skipped = 0;
-
-  for (const contact of contacts) {
-    const locale = SUPPORTED_LOCALES.includes(contact.locale as Locale)
-      ? (contact.locale as Locale)
-      : 'fr';
-
-    const allUpdates = byLocale[locale] || [];
-    const updates = filterUpdatesForSubscriber(allUpdates, contact.topics);
-
-    // Business rule: no email if no matching updates
-    if (updates.length === 0) {
-      skipped++;
-      continue;
-    }
-
-    const createdAt = new Date(digest.created_at);
-    const weekOf = formatWeekRange(createdAt, locale);
-    const weekNum = parseInt(digest.week.split('-w')[1], 10);
-    const unsubToken = generateUnsubscribeToken(contact.email);
-    const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
-
-    const subjectMap: Record<string, string> = {
-      fr: `BGM Digest #${weekNum} — ${weekOf}`,
-      nl: `BGM Digest #${weekNum} — ${weekOf}`,
-      en: `BGM Digest #${weekNum} — ${weekOf}`,
-      de: `BGM Digest #${weekNum} — ${weekOf}`,
-    };
-
-    const magazineUrl = digest.magazine
-      ? `https://magazine.governance.brussels/s${weekNum}/`
-      : undefined;
-
-    const emailProps = {
-      locale,
-      updates,
-      weekOf,
-      unsubscribeUrl,
-      summaryLine: digest.summary[locale] || digest.summary.fr,
-      weeklyNumber: {
-        value: digest.weeklyNumber.value,
-        label: digest.weeklyNumber.label[locale] || digest.weeklyNumber.label.fr,
-        source: digest.weeklyNumber.source[locale] || digest.weeklyNumber.source.fr,
-      },
-      closingNote: digest.closingNote[locale] || digest.closingNote.fr,
-      commitmentCount: digest.commitmentCount,
-      siteUrl,
-      feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
-      feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
-      magazineUrl,
-    };
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const emailPayload: any = {
-      from: EMAIL_FROM,
-      to: contact.email,
-      replyTo: process.env.ADMIN_EMAIL,
-      subject: subjectMap[locale] || subjectMap.fr,
-      react: DigestEmail(emailProps),
-      text: generateDigestPlainText(emailProps),
-      headers: {
-        'List-Unsubscribe': `<${unsubscribeUrl}>`,
-        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-      },
-      tags: [
-        { name: 'type', value: 'digest' },
-        { name: 'locale', value: locale },
-        { name: 'week', value: digest.week },
-      ],
-    };
-
-    if (scheduledAt) {
-      emailPayload.scheduledAt = scheduledAt;
-    }
-
-    emailPayloads.push(emailPayload);
-  }
-
-  // 9. Send in batches
-  const resend = getResend();
-  let sent = 0;
-  const errors: string[] = [];
-
-  for (let i = 0; i < emailPayloads.length; i += BATCH_SIZE) {
-    const batch = emailPayloads.slice(i, i + BATCH_SIZE);
-    try {
-      const { error } = await resendCall(() => resend.batch.send(batch));
-      if (error) {
-        errors.push(`Batch ${Math.floor(i / BATCH_SIZE)}: ${JSON.stringify(error)}`);
-      } else {
-        sent += batch.length;
-      }
-    } catch (err) {
-      errors.push(`Batch ${Math.floor(i / BATCH_SIZE)}: ${String(err)}`);
-    }
-  }
-
-  // 10. Mark sent
-  digest.sent = true;
-  digest.sent_at = now.toISOString();
-
-  await writeGitHubFile(
-    filePath,
-    JSON.stringify(digest, null, 2) + '\n',
-    file.sha,
-    `chore: digest ${digest.week} approved and sent`,
-  );
-
-  // 11. Return success (or redirect to confirmation page)
-  return NextResponse.json({
-    success: true,
-    week: digest.week,
-    sent,
-    skipped,
-    scheduledAt: scheduledAt || 'immediate',
-    errors: errors.length > 0 ? errors : undefined,
-  });
-
-  } catch (err) {
-    console.error('digest/approve: error:', err);
-    return NextResponse.json({ error: 'Failed to approve digest' }, { status: 500 });
-  }
+export async function POST() {
+  return NextResponse.json(PARTI, { status: 410 });
 }
 
-/** Calculate next Monday at 08:00 CET (UTC+1, or UTC+2 in summer). */
-function getNextMonday8CET(now: Date): Date {
-  // CET is UTC+1 (standard), CEST is UTC+2 (summer)
-  // For simplicity, use fixed UTC+1 offset — close enough for scheduling
-  const target = new Date(now);
-  const day = target.getUTCDay();
-
-  // Calculate days until next Monday (1)
-  const daysUntilMonday = day === 0 ? 1 : day === 1 ? 7 : 8 - day;
-  target.setUTCDate(target.getUTCDate() + daysUntilMonday);
-  target.setUTCHours(7, 0, 0, 0); // 8h CET = 7h UTC
-
-  return target;
+export async function GET() {
+  return NextResponse.json(PARTI, { status: 410 });
 }

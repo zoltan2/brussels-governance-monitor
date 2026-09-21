@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 import { getDomainCards } from '@/lib/content';
 import { readGitHubFile, writeGitHubFile } from '@/lib/github';
 import { getResend, EMAIL_FROM, listActiveContacts, resendCall } from '@/lib/resend';
-import { generateDigestApprovalToken, generateUnsubscribeToken } from '@/lib/token';
+import { generateUnsubscribeToken } from '@/lib/token';
 import { collectDigestUpdates, generateSummaryLine } from '@/lib/digest-updates';
 import DigestPreviewEmail from '@/emails/digest-preview';
 import { isValidCronAuth } from '@/lib/cron-auth';
@@ -258,10 +258,21 @@ export async function GET(request: Request) {
     // Non-blocking — just show 0
   }
 
-  // 9. Generate approval token and send preview
-  const token = generateDigestApprovalToken(week);
-  // Approval now requires POST — redirect admin to the review page with the token
-  const approveUrl = `${siteUrl}/fr/review/digest?approve_token=${encodeURIComponent(token)}`;
+  // 9. Envoi de l'apercu.
+  //
+  // Le lien portait `?approve_token=<jeton valable 24 h>`. Ce jeton ouvrait a
+  // lui seul `/api/digest/approve`, qui expediait le digest a TOUTE la liste
+  // d'abonnes et ecrivait dans le depot, sans session ni garde d'origine.
+  // Or une chaine de requete traverse les journaux Caddy, les journaux
+  // Cloudflare, l'historique du navigateur, et — `Referrer-Policy:
+  // strict-origin-when-cross-origin` n'excluant pas le same-origin — l'en-tete
+  // `Referer` de toute sous-requete vers le meme domaine. Un jeton qui traverse
+  // trois systemes de journalisation n'est plus un secret.
+  //
+  // Personne ne lisait ce parametre : la page de relecture ne l'a jamais lu et
+  // le client appelle `/api/digest/approve-from-review`, protege par session.
+  // Le lien mene donc simplement a la page de relecture (audit 21/09).
+  const approveUrl = `${siteUrl}/fr/review/digest`;
   const editUrl = `${siteUrl}/fr/review/digest`;
   const weekOf = formatWeekRange(now, 'fr');
 

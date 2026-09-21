@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { auth } from '@/auth';
+import { sameOriginRefusal } from '@/lib/same-origin';
 import { NextResponse } from 'next/server';
 import { readGitHubFile } from '@/lib/github';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
@@ -39,6 +40,17 @@ function formatWeekRange(date: Date, locale: string): string {
 export const POST = auth(async function POST(req) {
   if (!req.auth) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  // Le cookie de session est SameSite=Lax : il ecarte un site tiers, PAS un
+  // sous-domaine. Le projet en declare cinq, dont magazine.governance.brussels
+  // qui est sur GitHub Pages, hors Cloudflare et sans politique de securite.
+  // Sans cette garde, un formulaire en text/plain publie sur l'un d'eux faisait
+  // reexpedier le digest a toute la liste, ou supprimer un fichier de contenu,
+  // depuis la session ouverte de l'administrateur (audit 21/09).
+  const refusOrigine = sameOriginRefusal(req.headers);
+  if (refusOrigine) {
+    return NextResponse.json({ error: refusOrigine }, { status: 403 });
   }
 
   const adminEmail = process.env.ADMIN_EMAIL;

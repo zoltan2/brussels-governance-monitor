@@ -6,6 +6,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getContentPr, getPrFiles, getCheckState, normalizeRepo } from '@/lib/github-pr';
 import { prRefusal, filesRefusal, checksRefusal } from '@/lib/publication-guards';
+import { sameOriginRefusal } from '@/lib/same-origin';
 
 const schema = z.object({
   number: z.number().int().positive(),
@@ -20,17 +21,16 @@ export const POST = auth(async function POST(req) {
   // un site tiers mais PAS un sous-domaine : `analytics.governance.brussels`
   // existe et sert du logiciel tiers. Et `Request.json()` ignorant le
   // `Content-Type`, un simple <form enctype="text/plain"> fabrique un corps
-  // JSON valide sans déclencher de préflight CORS. Cette garde existait dans
-  // le plan de l'étape 1 et avait disparu ici sans justification.
-  const host = req.headers.get('host');
-  const origin = req.headers.get('origin');
-  const sameOrigin =
-    req.headers.get('sec-fetch-site') === 'same-origin' &&
-    origin !== null &&
-    host !== null &&
-    URL.parse(origin)?.host === host;
-  if (!sameOrigin) {
-    return NextResponse.json({ error: 'Origine non autorisée' }, { status: 403 });
+  // JSON valide sans déclencher de préflight CORS.
+  //
+  // La logique etait recopiee ici alors que `src/lib/same-origin.ts` la porte
+  // deja, mot pour mot. Deux copies d'une regle de securite, c'est une copie de
+  // trop : elles divergent au premier correctif applique a une seule des deux.
+  // On appelle donc le module partage, que `garde-origine.test.ts` verifie sur
+  // toutes les routes a privileges (audit 21/09).
+  const refusOrigine = sameOriginRefusal(req.headers);
+  if (refusOrigine) {
+    return NextResponse.json({ error: refusOrigine }, { status: 403 });
   }
 
   const parsed = schema.safeParse(await req.json().catch(() => null));

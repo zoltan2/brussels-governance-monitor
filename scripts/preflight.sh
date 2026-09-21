@@ -83,6 +83,9 @@ if [ -n "$CHANGED_MDX" ]; then
     echo "SKIP : chapeau (SKIP_SUMMARY_CHECK=1)"
   fi
   npx tsx scripts/content-lint/change-summary-date.ts "$_cs_list" "$BASE" || rc=1
+  # Longueur du titre en resultat de recherche. Le max() du schema Velite ne
+  # bloque pas (il sort en `info`), et 288 fiches etaient hors budget au 21/09.
+  npx tsx scripts/content-lint/title-length.ts "$_cs_list" "$BASE" || rc=1
   rm -f "$_cs_list"
 fi
 

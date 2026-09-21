@@ -10,7 +10,7 @@
 # (écosystème `docker` ajouté dans .github/dependabot.yml).
 
 # ---- deps : dépendances complètes (dev incluses) pour le build ----
-FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS deps
+FROM node:25-slim@sha256:81db02c4b671288a03915da9534dbd54f96d0e7c24d80ccc54f5b36b2e684370 AS deps
 WORKDIR /app
 # npm ci a besoin du lockfile. On installe TOUT (velite/pagefind/tsx sont en
 # devDependencies et sont requis par le script `build`), donc pas de --omit=dev.
@@ -18,7 +18,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 # ---- builder : exécute le script `build` EXISTANT verbatim ----
-FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS builder
+FROM node:25-slim@sha256:81db02c4b671288a03915da9534dbd54f96d0e7c24d80ccc54f5b36b2e684370 AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -51,7 +51,7 @@ ENV NEXT_PUBLIC_UMAMI_WEBSITE_ID=e42598c7-0c04-4c2f-b7c3-e1c5e0b2b6bc
 RUN npm run build
 
 # ---- runner : image finale minimale, .next/standalone + assets explicites ----
-FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS runner
+FROM node:25-slim@sha256:81db02c4b671288a03915da9534dbd54f96d0e7c24d80ccc54f5b36b2e684370 AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

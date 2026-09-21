@@ -55,8 +55,47 @@ describe('robots.txt', () => {
   it("laisse passer les robots qui citent avec un lien, sous toutes les langues sauf l'administration", async () => {
     const { rules } = await robots();
     const citation = groupeDe(rules as Groupe[], 'Claude-SearchBot');
-    expect(citation.allow).toBe('/');
+    expect(citation.allow).toEqual(expect.arrayContaining(['/']));
     expect(citation.disallow).toContain('/*/admin');
+  });
+
+  /**
+   * `/api/v1/` est le format machine du site. Il tombait sous le `Disallow: /api/`
+   * qui vise les routes applicatives. Une regle plus specifique l'emporte sur une
+   * regle plus generale, mais encore faut-il qu'elle soit ecrite : ce test echoue
+   * si l'autorisation disparait d'un groupe ouvert (audit 21/09).
+   */
+  it("ouvre l'API publique dans chaque groupe qui autorise le passage", async () => {
+    const { rules } = await robots();
+    const ouverts = (rules as Groupe[]).filter((groupe) => groupe.allow !== undefined);
+    for (const groupe of ouverts) {
+      expect(groupe.allow).toEqual(expect.arrayContaining(['/api/v1/']));
+    }
+  });
+
+  /**
+   * Chemins qui repondent 200 et n'ont aucune raison d'etre explores. Le piege
+   * corrige le 21/09 : `/refonte` etait ecrit sans prefixe de langue alors que la
+   * route vit sous [locale], donc la regle ne couvrait pas /fr/refonte.
+   */
+  it('exclut les chemins sans valeur de recherche, prefixe de langue compris', async () => {
+    const { rules } = await robots();
+    const ouverts = (rules as Groupe[]).filter((groupe) => groupe.allow !== undefined);
+    for (const groupe of ouverts) {
+      expect(groupe.disallow).toEqual(
+        expect.arrayContaining([
+          '/*/refonte',
+          '/*/og',
+          '/social/queue/',
+          '/*/subscribe/preferences',
+        ]),
+      );
+    }
+    // Les variantes sans prefixe de langue ne doivent pas revenir : elles
+    // donnaient l'illusion d'une protection.
+    for (const groupe of ouverts) {
+      expect(groupe.disallow).not.toContain('/refonte');
+    }
   });
 
   it("ferme la porte aux robots d'entraînement, décision du 19/09/2026", async () => {

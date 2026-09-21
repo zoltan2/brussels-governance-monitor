@@ -34,6 +34,8 @@ export async function generateMetadata({
   };
   return buildMetadata({
     locale,
+    // Sans `path`, le canonique retombait sur `/${locale}`, donc sur l'accueil.
+    path: '/subscribe',
     title: titles[locale] || titles.en,
     description: descriptions[locale] || descriptions.en,
   });

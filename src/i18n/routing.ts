@@ -7,6 +7,16 @@ export const routing = defineRouting({
   locales: ['de', 'en', 'fr', 'nl'],
   defaultLocale: 'fr',
   localePrefix: 'always',
+  // next-intl publiait ses propres annotations hreflang en EN-TETE HTTP, en plus
+  // de celles que les pages publient en HTML via buildMetadata. Les deux se
+  // contredisaient : l'en-tete annoncait un x-default SANS prefixe de langue
+  // (`https://governance.brussels/comprendre/cocof`), qui repond 307, alors que
+  // le HTML annonce la bonne URL en 200. Une annotation hreflang vers une
+  // redirection est invalide et peut faire ignorer tout le groupe, ou faire
+  // indexer l'URL sans prefixe a la place de la canonique. C'est le mecanisme
+  // derriere l'indexation de /comprendre/cocof via une 307 (audit 21/09).
+  // Les pages gardent leurs alternates HTML, qui sont corrects et complets.
+  alternateLinks: false,
   pathnames: {
     '/': '/',
     '/timeline': {
@@ -261,6 +271,12 @@ export const routing = defineRouting({
     },
     '/quiz': '/quiz',
     '/signal': '/signal',
+    // `/subscribe` manquait a cette table. `buildMetadata` resout le chemin via
+    // `getPathname` : sans entree, l'appel sans `path` retombait sur `/${locale}`
+    // et la page d'abonnement des quatre langues declarait la PAGE D'ACCUEIL
+    // comme canonique. Elle ne pouvait donc jamais etre indexee, et tout son
+    // signal etait consolide sur l'accueil (audit 21/09).
+    '/subscribe': '/subscribe',
     '/refonte': '/refonte',
     '/refonte/preview/mosaique': '/refonte/preview/mosaique',
     '/refonte/preview/thermometre': '/refonte/preview/thermometre',

@@ -99,9 +99,14 @@ export default async function LocaleLayout({
     '@graph': [
       {
         '@type': 'WebSite',
+        // Les fiches dossier et commune declarent `isPartOf: { '@id': siteUrl#website }`.
+        // Sans cet identifiant ici, la reference pointait dans le vide et chaque page
+        // faisait naitre un WebSite fantome au lieu de se rattacher au site (audit 21/09).
+        '@id': `${siteUrl}/#website`,
         name: metadata.title,
         description: metadata.description,
-        url: `${siteUrl}/${locale}`,
+        // La racine, pas la version localisee : un seul site, quatre langues.
+        url: siteUrl,
         inLanguage: locale,
         publisher: { '@id': `${siteUrl}/#organization` },
         potentialAction: {

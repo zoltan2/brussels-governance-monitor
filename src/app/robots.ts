@@ -24,13 +24,40 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
   // redirigent vers la connexion sans session (#513). La ligne ci-dessous est
   // une ceinture en plus de la bretelle : elle evite qu'un robot depense son
   // budget de passage sur des redirections, sous n'importe quelle langue.
-  const privatePaths = ['/api/', '/refonte', '/refonte/preview', '/*/admin', '/*/review', '/*/login'];
+  // `/refonte` et `/refonte/preview` etaient ecrits SANS prefixe de langue, alors
+  // que ces routes vivent sous [locale] : la regle ne couvrait pas /fr/refonte,
+  // qui repond bien 200. `/*/refonte` couvre la page et ses apercus (audit 21/09).
+  // `/*/og` : la route d'image sociale sert une URL unique et longue par page,
+  // crawlable pour rien. Les reseaux sociaux ne lisent pas robots.txt pour leurs
+  // apercus, le blocage ne les gene pas.
+  // `/social/queue/` : 540 PNG de file d'attente, references nulle part, servis
+  // publiquement et indexables.
+  const privatePaths = [
+    '/api/',
+    '/*/refonte',
+    '/*/og',
+    '/social/queue/',
+    '/*/admin',
+    '/*/review',
+    '/*/login',
+    // Tunnel d'abonnement : pages transactionnelles sans valeur de recherche, qui
+    // portent en plus un jeton d'abonne en chaine de requete.
+    '/*/subscribe/confirm',
+    '/*/subscribe/confirmed',
+    '/*/subscribe/preferences',
+    '/*/subscribe/unsubscribed',
+  ];
+
+  // L'API publique est le format machine du site (cartes et metriques). Elle
+  // tombait sous le `Disallow: /api/`. Une regle plus specifique l'emporte sur
+  // une regle plus generale, quel que soit leur ordre.
+  const publicApi = ['/api/v1/'];
 
   return {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: ['/', ...publicApi],
         disallow: privatePaths,
       },
       // Search and agent crawlers fetch pages to cite them with a link: they bring
@@ -45,7 +72,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
           'Perplexity-User',
           'GoogleOther',
         ],
-        allow: '/',
+        allow: ['/', ...publicApi],
         disallow: privatePaths,
       },
       // Training crawlers feed model weights and send no reader back. Cloudflare

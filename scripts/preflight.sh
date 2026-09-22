@@ -86,6 +86,10 @@ if [ -n "$CHANGED_MDX" ]; then
   # Longueur du titre en resultat de recherche. Le max() du schema Velite ne
   # bloque pas (il sort en `info`), et 288 fiches etaient hors budget au 21/09.
   npx tsx scripts/content-lint/title-length.ts "$_cs_list" "$BASE" || rc=1
+  # Longueur du chapeau. Meme piege : summary: s.string().max(500) au schema,
+  # signale en `info` par Velite qui publie quand meme. Pas d'echappatoire :
+  # SKIP_SUMMARY_CHECK suspend la relecture du chapeau, pas sa longueur.
+  npx tsx scripts/content-lint/summary-length.ts "$_cs_list" "$BASE" || rc=1
   rm -f "$_cs_list"
 fi
 

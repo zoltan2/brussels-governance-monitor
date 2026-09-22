@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20",
+  "updatedAt": "2026-09-22",
   "entries": {
     "fr:domain-budget-0": {
       "status": "approved",
@@ -1843,6 +1843,34 @@
       "reviewedAt": "2026-09-18",
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:220be216b23d21dcfa7a3cff8847111f",
+      "hashVersion": 2
+    },
+    "fr:dossier-taxis-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-09-22",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:6a9a9c98344a62268f815f5809173dd0",
+      "hashVersion": 2
+    },
+    "nl:dossier-taxis-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-09-22",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:a4e1d93e556099a2dc0eaec06f0b6e34",
+      "hashVersion": 2
+    },
+    "en:dossier-taxis-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-09-22",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:a51686a5fca39c01fc8c6e51062bb4f0",
+      "hashVersion": 2
+    },
+    "de:dossier-taxis-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-09-22",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:d5d7c696516aeb093677487860fd4308",
       "hashVersion": 2
     }
   }

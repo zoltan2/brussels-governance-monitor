@@ -18,6 +18,7 @@
     "faq:registry": "tsx scripts/content-lint/faq-check.ts --registry",
     "lint:links": "tsx scripts/content-lint/internal-links.ts --audit",
     "lint:titles": "tsx scripts/content-lint/title-length.ts",
+    "lint:summary-length": "tsx scripts/content-lint/summary-length.ts",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,json,md,mdx,css}\"",
     "test": "vitest run",

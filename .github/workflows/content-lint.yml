@@ -32,6 +32,7 @@ on:
       # résumé ; le schéma Velite décide des champs que ces gardes lisent.
       - 'src/lib/summary-freshness.ts'
       - 'src/lib/title-length.ts'
+      - 'src/lib/summary-length.ts'
       - 'src/lib/frontmatter.ts'
       - 'src/lib/change-summary-date.ts'
       # Liste des vues immersives (garde de liens) et version de js-yaml (parseur
@@ -130,6 +131,19 @@ jobs:
             echo "No MDX files changed, skipping"; exit 0
           fi
           npx tsx scripts/content-lint/title-length.ts /tmp/changed_content.txt "origin/${{ github.base_ref }}"
+
+      # Meme piege sur le chapeau : summary: s.string().max(500) sur six
+      # collections, signale en `info` par Velite qui publie quand meme. Au
+      # 22/09/2026, des chapeaux atteignaient le double du maximum. Comme pour le
+      # titre, seuls les chapeaux nouveaux ou modifies bloquent. Le label
+      # skip-summary-check ne s'applique pas ici : il suspend la relecture du
+      # chapeau (etape plus haut), pas sa longueur.
+      - name: Chapeau (summary) dans le maximum du schéma
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          npx tsx scripts/content-lint/summary-length.ts /tmp/changed_content.txt "origin/${{ github.base_ref }}"
 
       # La FAQ vieillissait derrière le corps des fiches : sur les douze veilles
       # précédant le 2026-09-11, 35 fiches à FAQ ont été republiées et la FAQ n'a

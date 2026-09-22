@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-20T16:22:26.596Z",
+  "generatedAt": "2026-09-22T21:25:26.968Z",
   "locale": "en",
-  "poolSize": 68,
+  "poolSize": 69,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1495,6 +1495,29 @@
         "sourceLastModified": "2026-09-13",
         "sourceContentHash": "sha256:4ecb2d340fa19ee0c8ed1b9272cb5a16",
         "generatedAt": "2026-09-18T14:10:04.598Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-taxis-bruxellois-0",
+      "source": "dossier",
+      "domain": "Mobility",
+      "question": "In December 2024, the Constitutional Court annulled a provision of the Brussels taxi ordinance of 9 June 2022, for lack of a cooperation agreement between the Regions. Until what date at the latest did the Court maintain the effects of that provision?",
+      "options": [
+        "Until 30 June 2027",
+        "Until 31 December 2025",
+        "Until 1 January 2027",
+        "Until 30 June 2026"
+      ],
+      "correct": 0,
+      "explanation": "Judgment No. 154/2024 of 19 December 2024 maintains the effects until the cooperation agreement, required by the special law since 1993, enters into force, and until 30 June 2027 at the latest. On 9 June 2026, negotiations between the Regions had not begun.",
+      "sourceSlug": "/en/dossiers/taxis-bruxellois",
+      "sourceTitle": "Brussels taxis",
+      "provenance": {
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:33357b8b04c378a264fad914c10df26c",
+        "generatedAt": "2026-09-22T21:25:26.968Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

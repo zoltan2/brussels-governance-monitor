@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-20T16:24:14.488Z",
+  "generatedAt": "2026-09-22T21:25:27.965Z",
   "locale": "de",
-  "poolSize": 68,
+  "poolSize": 69,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1495,6 +1495,29 @@
         "sourceLastModified": "2026-09-13",
         "sourceContentHash": "sha256:970f98ba2a88dbadb135a438e601471b",
         "generatedAt": "2026-09-18T14:26:03.354Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-taxis-bruxellois-0",
+      "source": "dossier",
+      "domain": "Mobilität",
+      "question": "Im Dezember 2024 hat der Verfassungsgerichtshof eine Bestimmung der Brüsseler Taxi-Ordonnanz vom 9. Juni 2022 für nichtig erklärt, weil ein Zusammenarbeitsabkommen zwischen den Regionen fehlt. Bis zu welchem Datum hat er die Folgen dieser Bestimmung spätestens aufrechterhalten?",
+      "options": [
+        "Bis zum 30. Juni 2027",
+        "Bis zum 31. Dezember 2025",
+        "Bis zum 1. Januar 2027",
+        "Bis zum 30. Juni 2026"
+      ],
+      "correct": 0,
+      "explanation": "Der Entscheid Nr. 154/2024 vom 19. Dezember 2024 erhält die Folgen bis zum Inkrafttreten des Zusammenarbeitsabkommens aufrecht, das das Sondergesetz seit 1993 vorschreibt, und spätestens bis zum 30. Juni 2027. Am 9. Juni 2026 hatten die Verhandlungen zwischen den Regionen nicht begonnen.",
+      "sourceSlug": "/de/dossiers/taxis-bruxellois",
+      "sourceTitle": "Brüsseler Taxis",
+      "provenance": {
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:ad63d9b9dc47307246a1344d00f27f22",
+        "generatedAt": "2026-09-22T21:25:27.965Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

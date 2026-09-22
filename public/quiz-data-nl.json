@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-20T16:20:29.530Z",
+  "generatedAt": "2026-09-22T21:25:25.970Z",
   "locale": "nl",
-  "poolSize": 68,
+  "poolSize": 69,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1495,6 +1495,29 @@
         "sourceLastModified": "2026-09-13",
         "sourceContentHash": "sha256:85b46782f0321ba7ffc61440138f5af4",
         "generatedAt": "2026-09-18T13:55:42.593Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-taxis-bruxellois-0",
+      "source": "dossier",
+      "domain": "Mobiliteit",
+      "question": "In december 2024 vernietigde het Grondwettelijk Hof een bepaling van de Brusselse taxiordonnantie van 9 juni 2022, bij gebrek aan een samenwerkingsakkoord tussen de gewesten. Tot welke datum heeft het Hof de gevolgen van die bepaling uiterlijk gehandhaafd?",
+      "options": [
+        "Tot 30 juni 2027",
+        "Tot 31 december 2025",
+        "Tot 1 januari 2027",
+        "Tot 30 juni 2026"
+      ],
+      "correct": 0,
+      "explanation": "Arrest nr. 154/2024 van 19 december 2024 handhaaft de gevolgen tot de inwerkingtreding van het samenwerkingsakkoord, dat de bijzondere wet sinds 1993 oplegt, en uiterlijk tot 30 juni 2027. Op 9 juni 2026 waren de onderhandelingen tussen de gewesten niet gestart.",
+      "sourceSlug": "/nl/dossiers/taxis-bruxellois",
+      "sourceTitle": "Brusselse taxi's",
+      "provenance": {
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:d16c8aa7c2c9307086a17fa814e647ad",
+        "generatedAt": "2026-09-22T21:25:25.970Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

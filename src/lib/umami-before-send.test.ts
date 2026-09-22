@@ -89,4 +89,19 @@ describe('filtre des URL envoyées à Umami', () => {
     const f = charger();
     expect(f('pageview', { title: 'BGM' })).toEqual({ title: 'BGM' });
   });
+
+  it("n'envoie rien pour les pages internes admin, review et login", () => {
+    const f = charger();
+    for (const chemin of ['/fr/admin', '/fr/admin/rapport', '/nl/review', '/en/login', '/de/admin/quiz?x=1']) {
+      expect(f('pageview', { url: `${ORIGINE}${chemin}` })).toBeNull();
+      expect(f('event', { name: 'x', url: `${ORIGINE}${chemin}` })).toBeNull();
+    }
+  });
+
+  it('continue de compter les pages publiques proches de ces noms', () => {
+    const f = charger();
+    for (const chemin of ['/fr/refonte', '/fr/dossiers/administration', '/fr/adminx', '/fr/reviews-du-mois']) {
+      expect(f('pageview', { url: `${ORIGINE}${chemin}` })?.url).toBe(`${ORIGINE}${chemin}`);
+    }
+  });
 });

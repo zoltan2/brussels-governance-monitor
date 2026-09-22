@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-20T16:17:42.446Z",
+  "generatedAt": "2026-09-22T21:25:09.773Z",
   "locale": "fr",
-  "poolSize": 68,
+  "poolSize": 69,
   "questionsPerSession": 10,
   "questions": [
     {
@@ -1495,6 +1495,29 @@
         "sourceLastModified": "2026-09-13",
         "sourceContentHash": "sha256:9c1f7377f6d80837cfd6dd2d284d001e",
         "generatedAt": "2026-09-18T12:59:29.515Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "dossier-taxis-bruxellois-0",
+      "source": "dossier",
+      "domain": "Mobilité",
+      "question": "En décembre 2024, la Cour constitutionnelle a annulé une disposition de l'ordonnance bruxelloise du 9 juin 2022 sur les taxis, faute d'accord de coopération entre les Régions. Jusqu'à quelle date au plus tard a-t-elle maintenu les effets de cette disposition ?",
+      "options": [
+        "Le 30 juin 2027",
+        "Le 31 décembre 2025",
+        "Le 1er janvier 2027",
+        "Le 30 juin 2026"
+      ],
+      "correct": 0,
+      "explanation": "L'arrêt n° 154/2024 du 19 décembre 2024 maintient les effets jusqu'à l'entrée en vigueur de l'accord de coopération, imposé par la loi spéciale depuis 1993, et au plus tard jusqu'au 30 juin 2027. Le 9 juin 2026, les négociations entre Régions n'avaient pas commencé.",
+      "sourceSlug": "/fr/dossiers/taxis-bruxellois",
+      "sourceTitle": "Taxis bruxellois",
+      "provenance": {
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:2c90a31e99dde47bdd5efe9936896964",
+        "generatedAt": "2026-09-22T21:25:09.773Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }

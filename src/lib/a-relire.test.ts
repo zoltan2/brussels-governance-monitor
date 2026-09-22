@@ -409,3 +409,75 @@ describe('getElementsARelire', () => {
     expect(resultat.faq).toHaveLength(1); // pas de faqReviewed non plus par défaut
   });
 });
+
+/**
+ * Régression du 22/09/2026 — l'écran annonçait 180 FAQ en retard et
+ * 180 chapeaux périmés, c'est-à-dire la TOTALITÉ des fiches domaine et
+ * dossier, chacune au motif « illisible ».
+ *
+ * Cause : `s.isodate()` rend `"2026-09-13T00:00:00.000Z"` et non
+ * `"2026-09-13"` ; les vérificateurs exigent `^\d{4}-\d{2}-\d{2}$`, donc
+ * aucune date ne passait et tout tombait en verdict `unparsable`.
+ *
+ * ⚑ POURQUOI LES TESTS EXISTANTS NE L'ONT PAS VU : leurs fixtures écrivent
+ * `lastModified: '2026-09-10'`, une date propre que Velite ne produit jamais.
+ * Les fixtures étaient plus correctes que la réalité. Celles d'ici portent
+ * donc la forme réellement servie.
+ */
+describe('dates Velite (horodatage complet)', () => {
+  const HORODATAGE = (jour: string) => `${jour}T00:00:00.000Z`;
+
+  it('ne signale pas une fiche dont la FAQ est relue, malgré l’horodatage', () => {
+    const cartes = {
+      domainCards: [] as DomainCard[],
+      dossierCards: [
+        dossierCard({
+          lastModified: HORODATAGE('2026-09-10'),
+          faqReviewed: HORODATAGE('2026-09-10'),
+        }),
+      ],
+    };
+    expect(buildFaqARelire(cartes, '2026-09-22')).toHaveLength(0);
+  });
+
+  it('ne signale pas un chapeau relu la veille, malgré l’horodatage', () => {
+    const cartes = {
+      domainCards: [] as DomainCard[],
+      dossierCards: [
+        dossierCard({
+          lastModified: HORODATAGE('2026-09-10'),
+          summaryReviewed: HORODATAGE('2026-09-09'),
+        }),
+      ],
+    };
+    expect(buildChapeauARelire(cartes, '2026-09-22')).toHaveLength(0);
+  });
+
+  /** Le correctif ne doit pas rendre l'écran aveugle : une vraie dette sort. */
+  it('signale toujours un chapeau réellement périmé', () => {
+    const cartes = {
+      domainCards: [] as DomainCard[],
+      dossierCards: [
+        dossierCard({
+          lastModified: HORODATAGE('2026-09-10'),
+          summaryReviewed: HORODATAGE('2026-01-01'),
+        }),
+      ],
+    };
+    const liste = buildChapeauARelire(cartes, '2026-09-22');
+    expect(liste).toHaveLength(1);
+    expect(liste[0].ageDays).toBe(252);
+    expect(liste[0].motif).not.toMatch(/illisible/);
+  });
+
+  /** Et un frontmatter vraiment malformé doit rester détecté. */
+  it('signale encore une date illisible comme illisible', () => {
+    const cartes = {
+      domainCards: [] as DomainCard[],
+      dossierCards: [
+        dossierCard({ lastModified: HORODATAGE('2026-09-10'), summaryReviewed: 'hier' }),
+      ],
+    };
+    expect(buildChapeauARelire(cartes, '2026-09-22')[0].motif).toMatch(/illisible/);
+  });
+});

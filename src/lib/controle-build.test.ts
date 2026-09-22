@@ -154,6 +154,21 @@ describe('comparer', () => {
     ]);
   });
 
+  it('échoue quand une seule page manque alors que la locale en garde d\'autres', () => {
+    // Le cas le plus probable en production : 31 dossiers produits sur 32.
+    // La borne basse ne se déclenche pas ; seul le décompte des manquants
+    // peut faire échouer. Sans ce test, le verdict global pourrait ignorer
+    // les manquants sans qu'aucun autre test ne rougisse.
+    const deuxDossiers = { ...contenu, dossierCards: [...contenu.dossierCards, { slug: 'pfas', locale: 'fr' }] };
+    const attendus = pagesAttendues(deuxDossiers, opts);
+    const produites = toutProduit(attendus);
+    produites.get('/[locale]/dossiers/[slug]')?.delete('/nl/dossiers/cpas');
+    const r = comparer(attendus, produites);
+    expect(r.ok).toBe(false);
+    const nl = r.lignes.find((l) => l.route === '/[locale]/dossiers/[slug]' && l.locale === 'nl');
+    expect(nl).toMatchObject({ attendu: 2, produit: 1, manquants: ['/nl/dossiers/cpas'], sousBorneBasse: false });
+  });
+
   it('échoue quand une route entière est absente du manifeste', () => {
     const attendus = pagesAttendues(contenu, opts);
     const produites = toutProduit(attendus);

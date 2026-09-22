@@ -45,4 +45,35 @@ describe('hôte des analytics', () => {
 
     expect(manquants.map((f) => f.replace(SRC, 'src'))).toEqual([]);
   });
+
+  /**
+   * Né du 22/09/2026. Le traceur était recopié dans quatre layouts ; la
+   * protection des jetons d'abonné n'était posée que sur deux. Un seul
+   * composant le charge désormais, avec son filtre : voir
+   * `src/components/umami-script.tsx` et `src/lib/umami-before-send.ts`.
+   */
+  it('ne charge le traceur que par le composant UmamiScript', () => {
+    const chargeurs = sourceFiles()
+      .filter((f) => readFileSync(f, 'utf8').includes('/u/script.js'))
+      .map((f) => f.replace(SRC, 'src'));
+
+    expect(chargeurs).toEqual(['src/components/umami-script.tsx']);
+  });
+
+  it('pose le filtre des jetons avant le traceur, dans le même composant', () => {
+    const s = readFileSync(join(SRC, 'components/umami-script.tsx'), 'utf8');
+    const filtre = s.indexOf('UMAMI_BEFORE_SEND_SCRIPT }}');
+    const traceur = s.indexOf('src="/u/script.js"');
+    expect(filtre).toBeGreaterThan(-1);
+    expect(traceur).toBeGreaterThan(filtre);
+    expect(s).toContain('data-before-send={UMAMI_BEFORE_SEND}');
+  });
+
+  it("n'utilise plus data-exclude-search, qui effaçait aussi les UTM", () => {
+    const coupables = sourceFiles().filter((f) => {
+      const s = readFileSync(f, 'utf8');
+      return /data-exclude-search\s*=/.test(s);
+    });
+    expect(coupables.map((f) => f.replace(SRC, 'src'))).toEqual([]);
+  });
 });

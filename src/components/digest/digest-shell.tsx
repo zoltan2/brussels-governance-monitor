@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { AccessibilityToolbar } from '@/components/accessibility-toolbar';
 import '@/app/globals.css';
+import { UmamiScript } from '@/components/umami-script';
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -50,18 +51,7 @@ export function DigestShell({
       {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
         <meta name="theme-color" content="#1e293b" />
-        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
-          <script
-            defer
-            src="/u/script.js"
-            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-            data-host-url="https://governance.brussels/u"
-            data-domains="governance.brussels"
-            // Voir src/app/[locale]/layout.tsx : sans cet attribut, les jetons
-            // d'abonne portes en chaine de requete partent dans Umami.
-            data-exclude-search="true"
-          />
-        )}
+        <UmamiScript />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var p=JSON.parse(localStorage.getItem('bgm-a11y')||'{}');if(p.dark){document.documentElement.classList.add('dark');}else{document.documentElement.classList.add('light-forced');}if(p.highContrast)document.documentElement.classList.add('high-contrast');if(p.dyslexicFont)document.documentElement.classList.add('dyslexic-font');if(p.fontScale)document.documentElement.style.setProperty('--font-scale',String(p.fontScale));}catch(e){}})()`,

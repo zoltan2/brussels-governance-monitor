@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import '../globals.css';
+import { UmamiScript } from '@/components/umami-script';
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -36,15 +37,7 @@ export default function LivreLayout({
       <head>
         <meta name="theme-color" content="#1B3A6B" />
         <meta name="color-scheme" content="light" />
-        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
-          <script
-            defer
-            src="/u/script.js"
-            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-            data-host-url="https://governance.brussels/u"
-            data-domains="governance.brussels"
-          />
-        )}
+        <UmamiScript />
       </head>
       <body className="min-h-screen bg-[#F7F8FC] text-neutral-900 antialiased">
         <div className="flex min-h-screen flex-col">

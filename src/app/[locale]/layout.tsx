@@ -15,6 +15,7 @@ import { ChatWidget } from '@/components/chat-widget';
 import { GamesPanel } from '@/components/games-panel';
 
 import '../globals.css';
+import { UmamiScript } from '@/components/umami-script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -173,23 +174,7 @@ export default async function LocaleLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
-          <script
-            defer
-            src="/u/script.js"
-            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-            data-host-url="https://governance.brussels/u"
-            data-domains="governance.brussels"
-            // Sans cet attribut, le traceur envoie l'URL COMPLETE, chaine de requete
-            // comprise. Or les liens de desabonnement des emails portent un jeton
-            // valable un an (src/lib/token.ts) qui donne lecture de l'adresse et des
-            // themes d'un abonne : chaque clic l'inscrivait dans la base Umami.
-            // Verifie dans le traceur servi : `N = T("exclude-search") === "true"`
-            // puis `N && (e.search = "")`. La suppression n'a lieu que si l'attribut
-            // vaut exactement "true" (audit 21/09).
-            data-exclude-search="true"
-          />
-        )}
+        <UmamiScript />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var p=JSON.parse(localStorage.getItem('bgm-a11y')||'{}');if(p.dark){document.documentElement.classList.add('dark');}else if(localStorage.getItem('bgm-a11y')){document.documentElement.classList.add('light-forced');}if(p.highContrast)document.documentElement.classList.add('high-contrast');if(p.dyslexicFont)document.documentElement.classList.add('dyslexic-font');if(p.fontScale)document.documentElement.style.setProperty('--font-scale',String(p.fontScale));}catch(e){}})()`,

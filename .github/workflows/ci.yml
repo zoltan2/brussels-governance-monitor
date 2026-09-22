@@ -40,3 +40,10 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://brussels-governance-monitor.vercel.app
+
+      # `next build` reste vert meme s'il ne pre-rend aucune fiche : avec
+      # `dynamicParams = false`, une page oubliee par generateStaticParams
+      # repond 404 en production. Compare .velite/ a .next/prerender-manifest.json.
+      # Ne lit que des fichiers : aucune variable d'environnement requise.
+      - name: Controle des pages pre-rendues
+        run: npx tsx scripts/controle-apres-build.ts

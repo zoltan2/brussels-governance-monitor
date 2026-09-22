@@ -28,6 +28,7 @@
  */
 
 import { checkFaqReview, type FaqReviewVerdict } from './faq-review';
+import { jourISO } from './velite-date';
 import { checkSummaryFreshness, SUMMARY_MAX_AGE_DAYS } from './summary-freshness';
 import {
   gscMesurePresente,
@@ -274,11 +275,12 @@ export function buildFaqARelire(cartes: Cartes, today?: string): ElementARelire[
   const elements: ElementARelire[] = [];
   for (const spec of specs(cartes)) {
     for (const carte of spec.cartes) {
-      const verdict = checkFaqReview({
-        lastModified: carte.lastModified,
-        faqReviewed: carte.faqReviewed,
-        today,
-      });
+      // ⚑ Velite rend un horodatage complet, jamais `AAAA-MM-JJ`. Sans ce
+      // passage, chaque fiche tombe en verdict `unparsable` et l'écran les
+      // liste TOUTES. Voir src/lib/velite-date.ts.
+      const lastModified = jourISO(carte.lastModified);
+      const faqReviewed = jourISO(carte.faqReviewed);
+      const verdict = checkFaqReview({ lastModified, faqReviewed, today });
       if (verdict.verdict === 'ok') continue;
       elements.push({
         id: identifiant(spec.collection, carte.locale, carte.slug),
@@ -287,7 +289,7 @@ export function buildFaqARelire(cartes: Cartes, today?: string): ElementARelire[
         locale: carte.locale,
         titre: carte.title,
         motif: verdict.reason,
-        ageDays: ageFaq(verdict.verdict, carte.lastModified, carte.faqReviewed, today),
+        ageDays: ageFaq(verdict.verdict, lastModified, faqReviewed, today),
         lien: construireLien(spec.collection, carte.locale, carte),
         cheminFichier: `${spec.dir}/${carte.slug}.${carte.locale}.mdx`,
       });
@@ -306,9 +308,10 @@ export function buildChapeauARelire(cartes: Cartes, today?: string): ElementARel
   const elements: ElementARelire[] = [];
   for (const spec of specs(cartes)) {
     for (const carte of spec.cartes) {
+      // ⚑ Même normalisation que pour la FAQ : voir src/lib/velite-date.ts.
       const verdict = checkSummaryFreshness({
-        lastModified: carte.lastModified,
-        summaryReviewed: carte.summaryReviewed,
+        lastModified: jourISO(carte.lastModified),
+        summaryReviewed: jourISO(carte.summaryReviewed),
         today,
       });
       if (verdict.verdict === 'ok') continue;

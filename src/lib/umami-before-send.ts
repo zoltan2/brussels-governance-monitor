@@ -25,6 +25,14 @@
  * - URL illisible ou erreur : l'envoi est ANNULÉ. Une visite perdue vaut mieux
  *   qu'un jeton enregistré.
  *
+ * Pages internes : les envois qui portent sur `/xx/admin`, `/xx/review` ou
+ * `/xx/login` sont annulés (demande du 20/09/2026, livrée le 22/09). Ces pages
+ * sont sous authentification et ne servent qu'à l'équipe : les compter
+ * gonflait le trafic « direct ». Le traceur n'a pas d'option d'exclusion par
+ * chemin (`data-domains` filtre l'hôte) ; le crochet la fournit, y compris lors
+ * des navigations internes, puisqu'il reçoit l'URL de chaque envoi. `/refonte`,
+ * public, reste mesuré.
+ *
  * Le référent compte autant que l'URL : lors d'une navigation interne, Umami
  * envoie l'URL précédente comme référent. Un lecteur qui quitte sa page de
  * préférences ferait donc partir le jeton par ce champ.
@@ -50,6 +58,7 @@ return x.origin+x.pathname+(s?'?'+s:'');
 window.${UMAMI_BEFORE_SEND}=function(type,p){
 try{
 if(!p||typeof p!=='object'){return p;}
+if(p.url&&/^\\/[a-z]{2}\\/(admin|review|login)(\\/|$)/.test(new URL(p.url,location.href).pathname)){return null;}
 if(p.url){p.url=f(p.url);}
 if(p.referrer){p.referrer=f(p.referrer);}
 return p;

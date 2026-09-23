@@ -20,6 +20,7 @@ import { CardSubscribe } from '@/components/card-subscribe';
 import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { WhatChangedBanner } from '@/components/what-changed-banner';
+import { SupportBanner } from '@/components/support-cta';
 
 
 export const dynamicParams = false;
@@ -177,6 +178,10 @@ function SectorDetail({
         {card.humanImpact && (
           <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.humanImpact}</p>
         )}
+
+        {/* Rappel du soutien à la fin de l'introduction : la fiche secteur n'a
+            pas de sommaire, c'est l'équivalent de l'emplacement des dossiers. */}
+        <SupportBanner position="secteur-haut" className="mb-8" hideOnPrint />
 
         {card.frozenMechanisms.length > 0 && (
           <div className="mb-8">

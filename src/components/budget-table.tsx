@@ -20,13 +20,13 @@ type Props = {
 };
 
 const SURFACE: Record<Variant, string> = {
-  budget: 'border-neutral-150 bg-neutral-50/60 divide-neutral-150',
-  inaction: 'border-amber-200 bg-amber-50/50 divide-amber-200',
+  budget: 'border-neutral-200 bg-neutral-50/60 divide-neutral-200',
+  inaction: 'border-warning-border bg-warning-bg divide-warning-border',
 };
 
 const AMOUNT: Record<Variant, string> = {
   budget: 'text-brand-900',
-  inaction: 'text-amber-800',
+  inaction: 'text-warning-fg',
 };
 
 /**
@@ -47,7 +47,7 @@ function ConfidenceBadge({
   return (
     <span
       className={`shrink-0 rounded px-1.5 py-0.5 font-mono text-xs font-normal uppercase tracking-wide ${
-        isEstimate ? 'bg-slate-100 text-slate-700' : 'bg-amber-50 text-amber-700'
+        isEstimate ? 'bg-neutral-100 text-neutral-700' : 'bg-warning-bg text-warning-fg'
       }`}
     >
       {isEstimate ? labels.estimated : labels.unconfirmed}

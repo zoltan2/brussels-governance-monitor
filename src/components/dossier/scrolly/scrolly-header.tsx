@@ -19,11 +19,11 @@ interface ScrollyHeaderProps {
  */
 export function ScrollyHeader({ slug, locale, lastModified }: ScrollyHeaderProps) {
   return (
-    <div className="border-b border-slate-200 bg-slate-50/60">
+    <div className="border-b border-neutral-200 bg-neutral-100/60">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
         <a
           href={`/${locale}/dossiers/${slug}`}
-          className="inline-flex items-center gap-1.5 text-sm text-slate-600 transition-colors hover:text-brand-700"
+          className="inline-flex items-center gap-1.5 text-sm text-neutral-600 transition-colors hover:text-brand-700"
           aria-label="Retour à la vue détaillée du dossier"
         >
           <svg
@@ -41,7 +41,7 @@ export function ScrollyHeader({ slug, locale, lastModified }: ScrollyHeaderProps
           </svg>
           Vue détaillée
         </a>
-        <div className="text-xs text-slate-500">
+        <div className="text-xs text-neutral-500">
           Mis à jour le {formatDate(lastModified, locale)}
         </div>
       </div>

@@ -71,7 +71,7 @@ function ConfirmedView({
                 {t('successMessage')}
               </p>
               {topicList.length > 0 && (
-                <div className="mt-4 rounded-md bg-slate-50 p-4">
+                <div className="mt-4 rounded-md bg-neutral-100 p-4">
                   <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-neutral-500">
                     {t('successTopics')}
                   </p>
@@ -92,7 +92,7 @@ function ConfirmedView({
 
           {status === 'expired' && (
             <>
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-50">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-warning-bg">
                 <svg
                   className="h-6 w-6 text-status-delayed"
                   fill="none"
@@ -118,9 +118,9 @@ function ConfirmedView({
 
           {(!status || status === 'error') && (
             <>
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100">
                 <svg
-                  className="h-6 w-6 text-slate-600"
+                  className="h-6 w-6 text-neutral-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

@@ -29,7 +29,7 @@ describe('describeFreshness', () => {
   it('signale un instantané figé', () => {
     const old = describeFreshness(hoursAgo(35 * 24), { staleAfterHours: 26, now });
     expect(old).toEqual({ label: 'en retard : dernier relevé il y a 35 j', level: 'stale' });
-    expect(freshnessClassName(old!.level)).toContain('amber');
+    expect(freshnessClassName(old!.level)).toContain('text-warning-fg');
   });
 
   it('bascule exactement au seuil', () => {
@@ -45,7 +45,7 @@ describe('describeFreshness', () => {
       label: 'horloge incohérente : instantané daté du futur',
       level: 'clock',
     });
-    expect(freshnessClassName(future!.level)).toContain('amber');
+    expect(freshnessClassName(future!.level)).toContain('text-warning-fg');
   });
 
   it('tolère une minute de décalage entre horloges', () => {

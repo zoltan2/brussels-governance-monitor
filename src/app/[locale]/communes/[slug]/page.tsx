@@ -273,12 +273,12 @@ function CommuneDetail({
               {sortAlertsByDateDesc(card.alerts).map((alert) => (
                 <li
                   key={`${alert.date}-${alert.label}`}
-                  className={`rounded-lg border p-3 text-sm ${
+                  className={`rounded-lg p-3 text-sm ${
                     alert.severity === 'critical'
-                      ? 'border-amber-300 bg-amber-50'
+                      ? 'border-2 border-warning-strong bg-warning-bg'
                       : alert.severity === 'warning'
-                        ? 'border-amber-200 bg-amber-50/50'
-                        : 'border-neutral-200 bg-neutral-50'
+                        ? 'border border-warning-border bg-warning-bg'
+                        : 'border border-neutral-200 bg-neutral-50'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2">

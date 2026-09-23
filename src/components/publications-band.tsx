@@ -78,7 +78,7 @@ export function PublicationsBandView({
                   <a
                     href={`/digest/${lang}/${weekPath}`}
                     lang={lang}
-                    className={`inline-block rounded-full border px-3 py-1 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 ${
+                    className={`inline-block rounded-full border px-3 py-1 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 ${
                       current
                         ? 'border-brand-700 bg-brand-700 text-neutral-50'
                         : 'border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-neutral-50'
@@ -105,7 +105,7 @@ export function PublicationsBandView({
         <div className="mt-6">
           <a
             href={subscribeHref}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-50 transition-colors hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-50 transition-colors hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
           >
             {labels.subscribe}
           </a>

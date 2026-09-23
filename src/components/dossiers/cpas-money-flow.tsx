@@ -80,9 +80,9 @@ const STATUS_TONE: Record<CpasMoneyFlowStatus, string> = {
   structural: 'border-neutral-300 bg-neutral-50 text-neutral-700',
   ongoing: 'border-brand-600/40 bg-brand-600/10 text-brand-700',
   announced: 'border-brand-600/40 bg-brand-600/10 text-brand-700',
-  litigation: 'border-amber-300 bg-amber-50 text-amber-800',
+  litigation: 'border-warning-border bg-warning-bg text-warning-fg',
   removed: 'border-neutral-400 bg-neutral-100 text-neutral-700',
-  pending: 'border-amber-300 bg-amber-50 text-amber-800',
+  pending: 'border-warning-border bg-warning-bg text-warning-fg',
 };
 
 export function CpasMoneyFlow({
@@ -98,7 +98,7 @@ export function CpasMoneyFlow({
   return (
     <figure
       aria-labelledby={captionId}
-      className="my-8 rounded-lg border border-neutral-200 bg-white"
+      className="my-8 rounded-lg border border-neutral-200 bg-neutral-50"
     >
       <figcaption
         id={captionId}

@@ -11,8 +11,8 @@ interface VerificationBadgeProps {
 }
 
 const resultStyles: Record<Verification['result'], string> = {
-  'no-change': 'bg-teal-50 text-teal-700 border-teal-200',
-  'change-detected': 'bg-amber-50 text-amber-700 border-amber-200',
+  'no-change': 'bg-confirmed-bg text-confirmed-fg border-confirmed-border',
+  'change-detected': 'bg-warning-bg text-warning-fg border-warning-border',
   uncertainty: 'bg-neutral-100 text-neutral-600 border-neutral-300',
   suspended: 'bg-neutral-50 text-neutral-500 border-neutral-200',
 };

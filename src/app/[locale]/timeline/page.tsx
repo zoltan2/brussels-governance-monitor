@@ -56,7 +56,7 @@ export default async function TimelinePage({
 const PHASES = ['exploration', 'negotiation', 'agreement', 'government'] as const;
 
 // Tokens adaptatifs uniquement : amber/indigo/slate ne basculent pas en sombre
-// (une pastille bg-slate-800 était invisible sur fond sombre).
+// (une pastille ardoise 800 était invisible sur fond sombre).
 const PHASE_COLORS: Record<string, string> = {
   exploration: 'bg-status-delayed',
   negotiation: 'bg-brand-600',
@@ -66,10 +66,10 @@ const PHASE_COLORS: Record<string, string> = {
 
 const RESULT_COLORS: Record<string, string> = {
   ongoing: 'bg-brand-700/20 text-brand-800',
-  recommendation: 'bg-indigo-100 text-indigo-800',
-  stalled: 'bg-amber-100 text-amber-800',
+  recommendation: 'bg-info-bg text-info-fg',
+  stalled: 'bg-warning-bg text-warning-fg',
   failed: 'bg-neutral-100 text-neutral-600',
-  success: 'bg-teal-100 text-teal-800',
+  success: 'bg-confirmed-bg text-confirmed-fg',
 };
 
 // Idem : ces fonds portent du texte text-neutral-50, qui s'inverse en sombre.
@@ -88,7 +88,7 @@ const EVENT_TYPE_COLORS: Record<string, string> = {
 
 const CHAPTER_STATUS_COLORS: Record<string, string> = {
   ongoing: 'bg-brand-700/20 text-brand-800',
-  closed: 'bg-teal-100 text-teal-800',
+  closed: 'bg-confirmed-bg text-confirmed-fg',
 };
 
 function TimelineView({
@@ -148,7 +148,7 @@ function TimelineView({
                   >
                     {t(`phases.${phase}`)}
                     {isActive && (
-                      <span className="ml-1 inline-block h-2 w-2 rounded-full bg-amber-500" />
+                      <span className="ml-1 inline-block h-2 w-2 rounded-full bg-warning-strong" />
                     )}
                   </span>
                 </div>
@@ -229,7 +229,7 @@ function TimelineView({
                             >
                               <div className="relative z-10 mt-1.5 flex shrink-0">
                                 <div
-                                  className={`h-[15px] w-[15px] rounded-full border-2 border-white ${
+                                  className={`h-[15px] w-[15px] rounded-full border-2 border-neutral-50 ${
                                     EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-500'
                                   }`}
                                 />
@@ -347,7 +347,7 @@ function TimelineView({
                             {/* Dot */}
                             <div className="relative z-10 mt-1.5 flex shrink-0">
                               <div
-                                className={`h-[15px] w-[15px] rounded-full border-2 border-white ${
+                                className={`h-[15px] w-[15px] rounded-full border-2 border-neutral-50 ${
                                   EVENT_TYPE_COLORS[event.eventType] || 'bg-neutral-500'
                                 }`}
                               />

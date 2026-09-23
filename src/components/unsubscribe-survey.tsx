@@ -43,7 +43,7 @@ export function UnsubscribeSurvey({
               <svg
                 className={`h-7 w-7 ${
                   rating !== null && star <= rating
-                    ? 'fill-amber-400 text-amber-400'
+                    ? 'fill-warning-fg text-warning-fg'
                     : 'fill-none text-neutral-300'
                 }`}
                 viewBox="0 0 24 24"

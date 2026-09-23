@@ -74,7 +74,7 @@ describe('TrafficTile', () => {
     });
     render(await TrafficTile());
     const line = screen.getByText('en retard : dernier relevé il y a 3 j');
-    expect(line.className).toContain('amber');
+    expect(line.className).toContain('text-warning-fg');
   });
 
   it('affiche « Indisponible » sans instantané', async () => {

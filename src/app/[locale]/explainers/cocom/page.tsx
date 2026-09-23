@@ -76,7 +76,7 @@ function CocomView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('competences.title')}</h2>
           <p>{t('competences.description')}</p>
 
-          <div className="rounded-lg border border-amber-200 bg-amber-50/50 p-4">
+          <div className="rounded-lg border border-warning-border bg-warning-bg p-4">
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('crisisImpact.title')}</h2>
             <p>{t('crisisImpact.description')}</p>
           </div>

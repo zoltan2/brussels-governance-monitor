@@ -8,8 +8,8 @@ import type { ChangelogEntry } from '@/lib/changelog';
 
 const typeBadgeClasses: Record<ChangelogEntry['type'], string> = {
   added: 'bg-brand-700/20 text-brand-800',
-  updated: 'bg-slate-100 text-slate-700',
-  corrected: 'bg-amber-100 text-amber-800',
+  updated: 'bg-neutral-100 text-neutral-700',
+  corrected: 'bg-warning-bg text-warning-fg',
   removed: 'bg-neutral-200 text-neutral-600',
 };
 

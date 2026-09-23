@@ -9,7 +9,7 @@ type Role = 'minister-president' | 'minister' | 'state-secretary' | 'parliament-
 
 const roleBadgeClasses: Record<Role, string> = {
   'minister-president': 'bg-brand-700/20 text-brand-800',
-  minister: 'bg-slate-100 text-slate-700',
+  minister: 'bg-neutral-100 text-neutral-700',
   'state-secretary': 'bg-neutral-100 text-neutral-600',
   'parliament-vp': 'bg-neutral-100 text-neutral-600',
 };
@@ -69,8 +69,8 @@ export function GovernmentTable({ locale, inline = false }: GovernmentTableProps
                     {member.name}
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-amber-700">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-100 text-xs font-bold">
+                  <span className="inline-flex items-center gap-1 text-sm font-medium text-warning-fg">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-warning-bg text-xs font-bold">
                       ?
                     </span>
                     {t('governmentUnknown')}

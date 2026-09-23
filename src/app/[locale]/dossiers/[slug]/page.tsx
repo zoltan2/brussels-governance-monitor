@@ -261,7 +261,7 @@ function DossierDetail({
           {isScrollyEnabled(card.slug) && (
             <a
               href={`/${locale}/dossiers/${getLocalizedSlug(card, locale as Locale)}/scrolly`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-brand-300 bg-brand-50 px-3 py-1 text-sm font-medium text-brand-800 transition-colors hover:bg-brand-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-1.5 rounded-full border border-brand-600 bg-brand-50 px-3 py-1 text-sm font-medium text-brand-800 transition-colors hover:bg-brand-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
               aria-label="Ouvrir la vue immersive scrollytelling de ce dossier"
             >
               <svg
@@ -285,8 +285,8 @@ function DossierDetail({
 
         {/* Blocked counter */}
         {blockedDays !== null && blockedDays > 0 && (
-          <div className="mb-6 rounded-lg border border-amber-300 bg-amber-50 p-4">
-            <p className="text-lg font-bold text-amber-800">
+          <div className="mb-6 rounded-lg border border-warning-border bg-warning-bg p-4">
+            <p className="text-lg font-bold text-warning-fg">
               {t('blockedSince', { days: blockedDays })}
             </p>
           </div>
@@ -340,7 +340,7 @@ function DossierDetail({
           <p className="-mt-3 mb-6 text-sm">
             <Link
               href={{ pathname: '/domains/[slug]', params: { slug: followDomain.slug } }}
-              className="font-medium text-brand-700 underline underline-offset-2 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+              className="font-medium text-brand-700 underline underline-offset-2 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
               data-umami-event={INTERNAL_LINK_EVENT}
               data-umami-event-type="follow"
               data-umami-event-cible={followDomain.slug}
@@ -401,12 +401,12 @@ function DossierDetail({
               {sortAlertsByDateDesc(card.alerts).map((alert) => (
                 <li
                   key={`${alert.date}-${alert.label}`}
-                  className={`rounded-lg border p-3 text-sm ${
+                  className={`rounded-lg p-3 text-sm ${
                     alert.severity === 'critical'
-                      ? 'border-amber-300 bg-amber-50'
+                      ? 'border-2 border-warning-strong bg-warning-bg'
                       : alert.severity === 'warning'
-                        ? 'border-amber-200 bg-amber-50/50'
-                        : 'border-neutral-200 bg-neutral-50'
+                        ? 'border border-warning-border bg-warning-bg'
+                        : 'border border-neutral-200 bg-neutral-50'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2">

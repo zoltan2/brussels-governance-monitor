@@ -37,21 +37,21 @@ export function DossierFaq({ faq, title }: { faq: FaqEntry[]; title: string }) {
   };
 
   return (
-    <section aria-labelledby="dossier-faq-heading" className="mt-12 border-t border-slate-200 pt-8">
-      <h2 id="dossier-faq-heading" className="text-2xl font-bold text-slate-900">
+    <section aria-labelledby="dossier-faq-heading" className="mt-12 border-t border-neutral-200 pt-8">
+      <h2 id="dossier-faq-heading" className="text-2xl font-bold text-neutral-900">
         {title}
       </h2>
       <div className="mt-6 space-y-3">
         {faq.map((e, i) => (
-          <details key={i} open id={`faq-${i}`} className="rounded-lg bg-slate-50 p-4">
-            <summary className="cursor-pointer text-lg font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+          <details key={i} open id={`faq-${i}`} className="rounded-lg bg-neutral-100 p-4">
+            <summary className="cursor-pointer text-lg font-semibold text-neutral-900 [&::-webkit-details-marker]:hidden">
               {e.q}
             </summary>
-            <div className="mt-3 leading-relaxed text-slate-700">
+            <div className="mt-3 leading-relaxed text-neutral-700">
               <ReactMarkdown
                 components={{
                   a: ({ href, children }) => (
-                    <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-800 underline hover:text-blue-900">
+                    <a href={href} target="_blank" rel="noopener noreferrer" className="text-info-fg underline hover:text-info-fg">
                       {children}
                     </a>
                   ),
@@ -61,10 +61,10 @@ export function DossierFaq({ faq, title }: { faq: FaqEntry[]; title: string }) {
               </ReactMarkdown>
             </div>
             {e.sources.length > 0 && (
-              <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-500">
+              <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-neutral-500">
                 {e.sources.map((s, j) => (
                   <li key={j}>
-                    <a href={s.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">
+                    <a href={s.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-info-fg">
                       {s.label}
                     </a>
                   </li>

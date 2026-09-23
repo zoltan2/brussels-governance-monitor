@@ -44,8 +44,8 @@ const LABELS: Record<Locale, Labels> = {
 
 const SEVERITY_TONE: Record<Severity, string> = {
   info: 'border-brand-600/40 bg-brand-600/10 text-brand-700',
-  warning: 'border-amber-300 bg-amber-50 text-amber-800',
-  critical: 'border-amber-400 bg-amber-100 text-amber-900',
+  warning: 'border-warning-border bg-warning-bg text-warning-fg',
+  critical: 'border-warning-strong bg-warning-bg text-warning-fg',
 };
 
 export function CpasProceduresTracker({
@@ -61,7 +61,7 @@ export function CpasProceduresTracker({
   return (
     <figure
       aria-labelledby={captionId}
-      className="my-8 rounded-lg border border-neutral-200 bg-white"
+      className="my-8 rounded-lg border border-neutral-200 bg-neutral-50"
     >
       <figcaption
         id={captionId}

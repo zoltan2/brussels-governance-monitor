@@ -54,8 +54,8 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
 
   if (status === 'success' || status === 'successExisting') {
     return (
-      <div className="rounded-lg border border-teal-200 bg-teal-50 p-4" role="status" aria-live="polite">
-        <p className="text-sm text-teal-700">
+      <div className="rounded-lg border border-confirmed-border bg-confirmed-bg p-4" role="status" aria-live="polite">
+        <p className="text-sm text-confirmed-fg">
           {status === 'successExisting' ? labels.successExisting : labels.success}
         </p>
       </div>

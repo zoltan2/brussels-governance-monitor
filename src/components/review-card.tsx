@@ -102,15 +102,15 @@ export function ReviewCard({
 
   const typeBadgeColors: Record<string, string> = {
     domain: 'bg-brand-700/20 text-brand-800',
-    solution: 'bg-amber-100 text-amber-800',
-    sector: 'bg-teal-100 text-teal-800',
-    comparison: 'bg-purple-100 text-purple-800',
+    solution: 'bg-warning-bg text-warning-fg',
+    sector: 'bg-confirmed-bg text-confirmed-fg',
+    comparison: 'bg-info-bg text-info-fg',
   };
 
   if (state === 'published') {
     return (
-      <div className="rounded-lg border border-teal-200 bg-teal-50 p-4">
-        <p className="text-sm font-medium text-teal-800">{labels.published}: {title}</p>
+      <div className="rounded-lg border border-confirmed-border bg-confirmed-bg p-4">
+        <p className="text-sm font-medium text-confirmed-fg">{labels.published}: {title}</p>
       </div>
     );
   }
@@ -124,7 +124,7 @@ export function ReviewCard({
   }
 
   return (
-    <div className="rounded-lg border border-amber-200 bg-neutral-50 p-4">
+    <div className="rounded-lg border border-warning-border bg-neutral-50 p-4">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <div className="mb-2 flex items-center gap-2">
@@ -148,7 +148,7 @@ export function ReviewCard({
       </div>
 
       {state === 'error' && (
-        <div className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-700">
+        <div className="mt-3 rounded-md bg-warning-bg px-3 py-2 text-xs text-warning-fg">
           {labels.error}: {errorMsg}
         </div>
       )}

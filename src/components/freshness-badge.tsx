@@ -18,13 +18,13 @@ export function FreshnessBadge({ lastModified, locale }: FreshnessBadgeProps) {
   let label: string;
 
   if (days <= 7) {
-    colorClass = 'bg-teal-50 text-teal-700 border-teal-200';
+    colorClass = 'bg-confirmed-bg text-confirmed-fg border-confirmed-border';
     label = t('recent');
   } else if (days <= 30) {
     colorClass = 'bg-brand-900/5 text-brand-700 border-brand-700/30';
     label = t('current');
   } else if (days <= 90) {
-    colorClass = 'bg-amber-50 text-amber-700 border-amber-200';
+    colorClass = 'bg-warning-bg text-warning-fg border-warning-border';
     label = t('aging');
   } else {
     colorClass = 'bg-neutral-50 text-neutral-500 border-neutral-200';

@@ -251,13 +251,13 @@ function MethodologyView() {
             <h2 className="mb-2 text-lg font-semibold text-neutral-900">{t('protocol.title')}</h2>
             <p className="mb-3">{t('protocol.intro')}</p>
             <div className="space-y-2">
-              <div className="rounded-lg border border-teal-200 bg-teal-50 p-3">
-                <p className="text-xs font-medium text-teal-800">{t('protocol.v1Title')}</p>
-                <p className="mt-1 text-xs text-teal-700">{t('protocol.v1Desc')}</p>
+              <div className="rounded-lg border border-confirmed-border bg-confirmed-bg p-3">
+                <p className="text-xs font-medium text-confirmed-fg">{t('protocol.v1Title')}</p>
+                <p className="mt-1 text-xs text-confirmed-fg">{t('protocol.v1Desc')}</p>
               </div>
-              <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
-                <p className="text-xs font-medium text-amber-800">{t('protocol.v2Title')}</p>
-                <p className="mt-1 text-xs text-amber-700">{t('protocol.v2Desc')}</p>
+              <div className="rounded-lg border border-warning-border bg-warning-bg p-3">
+                <p className="text-xs font-medium text-warning-fg">{t('protocol.v2Title')}</p>
+                <p className="mt-1 text-xs text-warning-fg">{t('protocol.v2Desc')}</p>
               </div>
               <div className="rounded-lg border border-neutral-300 bg-neutral-100 p-3">
                 <p className="text-xs font-medium text-neutral-700">{t('protocol.v3Title')}</p>

@@ -45,6 +45,22 @@
   --color-feasibility-low: oklch(0.52 0.06 50);
   --color-feasibility-very-low: oklch(0.5 0.04 30);
   --color-feasibility-near-zero: oklch(0.45 0 0);
+
+  /* Familles sémantiques adaptatives : vigilance (warning), information (info),
+     confirmé (confirmed, même teinte 195 que status-resolved, sans vert). Elles
+     remplacent les couleurs brutes de Tailwind (amber-50, teal-700, blue-50…),
+     qui ne changent pas en sombre : une alerte en bg-amber-50 avec un texte en
+     token tombait à 1,9:1 (audit du 23/09/2026). Redéfinies dans les 4 modes. */
+  --color-warning-bg: oklch(0.97 0.03 85);
+  --color-warning-border: oklch(0.62 0.13 70);
+  --color-warning-strong: oklch(0.55 0.14 65);
+  --color-warning-fg: oklch(0.45 0.11 60);
+  --color-info-bg: oklch(0.97 0.015 250);
+  --color-info-border: oklch(0.6 0.08 250);
+  --color-info-fg: oklch(0.42 0.08 250);
+  --color-confirmed-bg: oklch(0.97 0.02 195);
+  --color-confirmed-border: oklch(0.6 0.08 195);
+  --color-confirmed-fg: oklch(0.44 0.08 195);
 }
 
 /* Dark mode — inverted neutral + brand palette */
@@ -81,36 +97,17 @@
   --color-feasibility-low: oklch(0.7 0.06 50);
   --color-feasibility-very-low: oklch(0.65 0.04 30);
   --color-feasibility-near-zero: oklch(0.6 0 0);
-}
 
-/* High contrast mode — WCAG AAA (7:1 ratio) */
-.high-contrast {
-  --color-neutral-50: oklch(1 0 0);
-  --color-neutral-100: oklch(0.97 0 0);
-  --color-neutral-900: oklch(0 0 0);
-  --color-neutral-800: oklch(0.05 0 0);
-  --color-neutral-700: oklch(0.1 0 0);
-  --color-neutral-600: oklch(0.15 0 0);
-  --color-neutral-500: oklch(0.2 0 0);
-  --color-brand-900: oklch(0.1 0.08 250);
-  --color-brand-800: oklch(0.15 0.08 250);
-}
-
-.dark.high-contrast {
-  --color-neutral-50: oklch(0.05 0 0);
-  --color-neutral-100: oklch(0.08 0 0);
-  --color-neutral-900: oklch(1 0 0);
-  --color-neutral-800: oklch(0.97 0 0);
-  /* Sans ces trois lignes, le texte secondaire restait à 4.32:1 en sombre :
-     le mode « contraste élevé » ne tenait pas sa promesse AAA. */
-  --color-neutral-700: oklch(0.82 0 0);
-  --color-neutral-600: oklch(0.75 0 0);
-  --color-neutral-500: oklch(0.68 0 0);
-  /* `.high-contrast` fonce la couleur de marque pour le fond blanc, et il est
-     déclaré après `.dark` : sans ces deux lignes, les chiffres clés et les
-     titres en brand-900 tombaient à ~1:1 sur le fond noir (mesuré le 23/09/2026). */
-  --color-brand-900: oklch(0.9 0.05 250);
-  --color-brand-800: oklch(0.85 0.06 250);
+  --color-warning-bg: oklch(0.24 0.04 75);
+  --color-warning-border: oklch(0.62 0.12 75);
+  --color-warning-strong: oklch(0.72 0.14 75);
+  --color-warning-fg: oklch(0.85 0.11 85);
+  --color-info-bg: oklch(0.23 0.03 250);
+  --color-info-border: oklch(0.58 0.08 250);
+  --color-info-fg: oklch(0.82 0.06 250);
+  --color-confirmed-bg: oklch(0.23 0.03 195);
+  --color-confirmed-border: oklch(0.58 0.08 195);
+  --color-confirmed-fg: oklch(0.82 0.07 195);
 }
 
 /* Font scaling — controlled by --font-scale on <html> */
@@ -236,8 +233,84 @@ mark {
     --color-status-delayed: oklch(0.65 0.15 75);
     --color-status-ongoing: oklch(0.65 0.12 250);
     --color-status-resolved: oklch(0.65 0.1 195);
+    --color-feasibility-high: oklch(0.7 0.12 250);
+    --color-feasibility-medium: oklch(0.7 0.15 75);
+    --color-feasibility-low: oklch(0.7 0.06 50);
+    --color-feasibility-very-low: oklch(0.65 0.04 30);
+    --color-feasibility-near-zero: oklch(0.6 0 0);
+
+    --color-warning-bg: oklch(0.24 0.04 75);
+    --color-warning-border: oklch(0.62 0.12 75);
+    --color-warning-strong: oklch(0.72 0.14 75);
+    --color-warning-fg: oklch(0.85 0.11 85);
+    --color-info-bg: oklch(0.23 0.03 250);
+    --color-info-border: oklch(0.58 0.08 250);
+    --color-info-fg: oklch(0.82 0.06 250);
+    --color-confirmed-bg: oklch(0.23 0.03 195);
+    --color-confirmed-border: oklch(0.58 0.08 195);
+    --color-confirmed-fg: oklch(0.82 0.07 195);
+  }
+
+  /* `.dark mark` ne s'applique qu'à la classe : en sombre système, le texte
+     s'éclaircissait sur un surlignage resté clair (1,10:1). */
+  :root:not(.light-forced) mark {
+    background-color: oklch(0.4 0.1 90);
   }
 }
+
+/* High contrast mode — WCAG AAA (7:1 ratio) */
+.high-contrast {
+  --color-neutral-50: oklch(1 0 0);
+  --color-neutral-100: oklch(0.97 0 0);
+  --color-neutral-900: oklch(0 0 0);
+  --color-neutral-800: oklch(0.05 0 0);
+  --color-neutral-700: oklch(0.1 0 0);
+  --color-neutral-600: oklch(0.15 0 0);
+  --color-neutral-500: oklch(0.2 0 0);
+  --color-brand-900: oklch(0.1 0.08 250);
+  --color-brand-800: oklch(0.15 0.08 250);
+  --color-warning-bg: oklch(0.98 0.02 85);
+  --color-warning-border: oklch(0.45 0.1 60);
+  --color-warning-strong: oklch(0.38 0.09 55);
+  --color-warning-fg: oklch(0.3 0.07 55);
+  --color-info-bg: oklch(0.98 0.01 250);
+  --color-info-border: oklch(0.42 0.08 250);
+  --color-info-fg: oklch(0.28 0.07 250);
+  --color-confirmed-bg: oklch(0.98 0.015 195);
+  --color-confirmed-border: oklch(0.42 0.07 195);
+  --color-confirmed-fg: oklch(0.3 0.06 195);
+}
+
+/* `:root.dark.high-contrast` (0,3,0), déclaré APRÈS le @media sombre : le
+   sélecteur `:root:not(.light-forced)` (0,2,0) écrasait sinon ces tokens dès
+   que le système était en sombre, et le contraste élevé ne faisait plus rien. */
+:root.dark.high-contrast {
+  --color-neutral-50: oklch(0.05 0 0);
+  --color-neutral-100: oklch(0.08 0 0);
+  --color-neutral-900: oklch(1 0 0);
+  --color-neutral-800: oklch(0.97 0 0);
+  /* Sans ces trois lignes, le texte secondaire restait à 4.32:1 en sombre :
+     le mode « contraste élevé » ne tenait pas sa promesse AAA. */
+  --color-neutral-700: oklch(0.82 0 0);
+  --color-neutral-600: oklch(0.75 0 0);
+  --color-neutral-500: oklch(0.68 0 0);
+  /* `.high-contrast` fonce la couleur de marque pour le fond blanc, et il est
+     déclaré après `.dark` : sans ces deux lignes, les chiffres clés et les
+     titres en brand-900 tombaient à ~1:1 sur le fond noir (mesuré le 23/09/2026). */
+  --color-brand-900: oklch(0.9 0.05 250);
+  --color-brand-800: oklch(0.85 0.06 250);
+  --color-warning-bg: oklch(0.12 0.025 75);
+  --color-warning-border: oklch(0.78 0.13 80);
+  --color-warning-strong: oklch(0.85 0.14 85);
+  --color-warning-fg: oklch(0.93 0.08 90);
+  --color-info-bg: oklch(0.12 0.025 250);
+  --color-info-border: oklch(0.75 0.07 250);
+  --color-info-fg: oklch(0.92 0.04 250);
+  --color-confirmed-bg: oklch(0.12 0.025 195);
+  --color-confirmed-border: oklch(0.75 0.08 195);
+  --color-confirmed-fg: oklch(0.92 0.05 195);
+}
+
 
 /* Print styles — optimized for journalists */
 @media print {

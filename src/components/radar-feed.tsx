@@ -8,7 +8,7 @@ import type { LocalizedRadarEntry } from '@/lib/radar';
 
 const CONFIDENCE_STYLES: Record<string, string> = {
   official: 'bg-brand-900/5 text-brand-700 border-brand-700/30',
-  estimated: 'bg-amber-50 text-amber-700 border-amber-200',
+  estimated: 'bg-warning-bg text-warning-fg border-warning-border',
   unconfirmed: 'bg-neutral-100 text-neutral-500 border-neutral-200',
 };
 

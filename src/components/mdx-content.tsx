@@ -82,7 +82,7 @@ const sharedComponents = {
     </div>
   ),
   thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <thead className="bg-slate-50 text-left text-xs font-semibold uppercase tracking-wide text-neutral-500" {...props} />
+    <thead className="bg-neutral-100 text-left text-xs font-semibold uppercase tracking-wide text-neutral-500" {...props} />
   ),
   th: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th className="px-4 py-2.5" {...props} />
@@ -91,7 +91,7 @@ const sharedComponents = {
     <td className="border-t border-neutral-100 px-4 py-2.5 text-neutral-700" {...props} />
   ),
   tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr className="even:bg-slate-50/50" {...props} />
+    <tr className="even:bg-neutral-100/50" {...props} />
   ),
 };
 

@@ -74,7 +74,7 @@ export function ConfirmClient({ dossierLabels }: { dossierLabels: Record<string,
               {state === 'already' ? t('alreadyMessage') : t('successMessage')}
             </p>
             {topics.length > 0 && (
-              <div className="mt-4 rounded-md bg-slate-50 p-4">
+              <div className="mt-4 rounded-md bg-neutral-100 p-4">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-neutral-500">
                   {t('successTopics')}
                 </p>
@@ -102,7 +102,7 @@ export function ConfirmClient({ dossierLabels }: { dossierLabels: Record<string,
       <section className="py-12">
         <div className="mx-auto max-w-lg px-4">
           <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-50">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-warning-bg">
               <svg className="h-6 w-6 text-status-delayed" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -121,8 +121,8 @@ export function ConfirmClient({ dossierLabels }: { dossierLabels: Record<string,
       <section className="py-12">
         <div className="mx-auto max-w-lg px-4">
           <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
-              <svg className="h-6 w-6 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100">
+              <svg className="h-6 w-6 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" />
               </svg>
             </div>

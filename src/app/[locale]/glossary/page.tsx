@@ -44,9 +44,9 @@ export default async function GlossaryPage({
 
 const CATEGORY_COLORS: Record<string, string> = {
   institution: 'bg-brand-700/20 text-brand-800',
-  procedure: 'bg-indigo-100 text-indigo-800',
-  budget: 'bg-amber-100 text-amber-800',
-  political: 'bg-slate-100 text-slate-700',
+  procedure: 'bg-info-bg text-info-fg',
+  budget: 'bg-warning-bg text-warning-fg',
+  political: 'bg-neutral-100 text-neutral-700',
   legal: 'bg-neutral-100 text-neutral-700',
   bgm: 'bg-brand-900/5 text-brand-700',
 };

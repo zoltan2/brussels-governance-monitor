@@ -14,7 +14,7 @@ export function MagazineLink({ weekShort, lang }: MagazineLinkProps) {
   return (
     <a
       href={href}
-      className="inline-flex items-center gap-2 rounded border border-slate-900 px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-900 hover:text-white"
+      className="inline-flex items-center gap-2 rounded border border-neutral-900 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:bg-neutral-900 hover:text-neutral-50"
       target="_blank"
       rel="noopener noreferrer"
     >

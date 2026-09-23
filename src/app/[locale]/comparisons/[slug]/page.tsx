@@ -210,7 +210,7 @@ function ComparisonDetail({
         </div>
 
         {card.caveat && (
-          <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4">
+          <div className="mb-6 rounded-lg border border-warning-border bg-warning-bg p-4">
             <h2 className="mb-1 text-xs font-semibold uppercase tracking-wide text-status-delayed">
               {t('caveat')}
             </h2>

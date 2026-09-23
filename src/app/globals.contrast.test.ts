@@ -92,11 +92,17 @@ const HC_LIGHT = readBlock('.high-contrast {', LIGHT);
 // `.dark.high-contrast`. Modéliser `.dark` + `.dark.high-contrast` seuls, comme
 // le faisait ce test, masquait les tokens que `.high-contrast` fonce et que
 // `.dark.high-contrast` oublie de rééclaircir : brand-900 tombait à ~1:1.
-const HC_DARK = readBlock('.dark.high-contrast', readBlock('.high-contrast {', DARK));
+const HC_DARK = readBlock(':root.dark.high-contrast', readBlock('.high-contrast {', DARK));
 
+// Trois façons d'être en clair ou en sombre : le défaut clair, la classe
+// `.dark` posée par la barre d'accessibilité, et la préférence du système
+// (`@media`), qui est le cas par défaut d'un visiteur en sombre. Ce dernier
+// n'était pas testé : les pastilles feasibility-* y retombaient sur les valeurs
+// claires, sous 4.5:1, sans qu'aucun test ne le voie (audit du 23/09/2026).
 const MODES: [string, Record<string, string>][] = [
   ['clair', LIGHT],
   ['sombre', DARK],
+  ['sombre (système)', MEDIA_DARK],
 ];
 
 /** Les trois fonds sur lesquels du texte est réellement posé dans le projet. */
@@ -105,18 +111,32 @@ const SURFACES = ['neutral-50', 'neutral-100', 'neutral-200'] as const;
 // ------------------------------------------------------------------ tests ---
 
 describe('palette : le bloc @media doit rester aligné sur .dark', () => {
-  it('déclare les mêmes valeurs que .dark pour tous les tokens communs', () => {
+  it('déclare exactement les mêmes tokens, avec les mêmes valeurs, que .dark', () => {
     // Deux blocs distincts (classe + préférence OS) : ils divergent en silence
-    // si on n'en modifie qu'un. Les status/feasibility ne sont pas tous repris
-    // dans le @media, on ne compare donc que l'intersection déclarée.
-    const declaredInMedia = Object.keys(MEDIA_DARK).filter((k) =>
-      css.slice(css.indexOf(':root:not(.light-forced)')).includes(`--color-${k}:`)
-    );
-    for (const token of declaredInMedia) {
-      expect(MEDIA_DARK[token], `--color-${token} désaligné entre .dark et @media`).toBe(
-        DARK[token]
-      );
+    // si on n'en modifie qu'un. L'ancienne version ne comparait que les tokens
+    // présents dans les deux, et laissait donc passer un token oublié.
+    const own = (selector: string) => readBlock(selector);
+    const dark = own('.dark {');
+    const media = own(':root:not(.light-forced)');
+    expect(Object.keys(media).sort()).toEqual(Object.keys(dark).sort());
+    for (const token of Object.keys(dark)) {
+      expect(media[token], `--color-${token} désaligné entre .dark et @media`).toBe(dark[token]);
     }
+  });
+});
+
+describe('cascade : le contraste élevé l\'emporte sur le sombre système', () => {
+  // `:root:not(.light-forced)` a une spécificité (0,2,0) : déclaré après les
+  // blocs de contraste élevé, il écrasait leurs tokens dès que le système était
+  // en sombre, et le mode « contraste élevé » ne faisait plus rien.
+  const media = css.indexOf('@media (prefers-color-scheme: dark)');
+  it('les blocs de contraste élevé sont déclarés après le @media sombre', () => {
+    expect(media).toBeGreaterThan(-1);
+    expect(css.indexOf('.high-contrast {')).toBeGreaterThan(media);
+    expect(css.indexOf(':root.dark.high-contrast')).toBeGreaterThan(media);
+  });
+  it('le surlignage de recherche suit aussi le sombre système', () => {
+    expect(css).toMatch(/:root:not\(\.light-forced\) mark/);
   });
 });
 
@@ -201,6 +221,43 @@ describe.each(MODES)('mode %s — pastilles pleines : texte neutral-50 sur fond 
     expect(ratio, `${mode} : bg-${token} = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(4.5);
   });
 });
+
+// Familles sémantiques adaptatives : vigilance (warning), information (info),
+// confirmé (confirmed). Elles remplacent les couleurs brutes de Tailwind
+// (bg-amber-50, text-teal-700…), qui ne changent pas en sombre : une alerte en
+// bg-amber-50 avec un texte en token tombait à 1,9:1 en sombre (23/09/2026).
+const FAMILIES = ['warning', 'info', 'confirmed'] as const;
+const HC_MODES: [string, Record<string, string>][] = [
+  ['contraste élevé clair', HC_LIGHT],
+  ['contraste élevé sombre', HC_DARK],
+];
+
+describe.each([...MODES.map(([m, p]) => [m, p, 4.5] as const), ...HC_MODES.map(([m, p]) => [m, p, 7] as const)])(
+  'mode %s — familles sémantiques',
+  (mode, palette, seuil) => {
+    it.each(FAMILIES)('%s : texte et bordures lisibles', (f) => {
+      const bg = palette[`${f}-bg`];
+      expect(bg, `${mode} : --color-${f}-bg manquant`).toBeDefined();
+      for (const [fg, surface, min] of [
+        [`${f}-fg`, `${f}-bg`, seuil],
+        [`${f}-fg`, 'neutral-50', seuil],
+        ['neutral-500', `${f}-bg`, seuil],
+        ['neutral-700', `${f}-bg`, seuil],
+        [`${f}-border`, `${f}-bg`, 3],
+        [`${f}-border`, 'neutral-50', 3],
+      ] as const) {
+        const ratio = contrast(palette[fg], palette[surface]);
+        expect(ratio, `${mode} : ${fg} sur ${surface} = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(min);
+      }
+    });
+    it('warning-strong (alerte critique) se détache', () => {
+      for (const surface of ['warning-bg', 'neutral-50']) {
+        const ratio = contrast(palette['warning-strong'], palette[surface]);
+        expect(ratio, `${mode} : warning-strong sur ${surface} = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(3);
+      }
+    });
+  },
+);
 
 describe('mode contraste élevé — promesse AAA (7:1)', () => {
   it.each([

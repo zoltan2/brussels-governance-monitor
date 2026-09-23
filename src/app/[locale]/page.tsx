@@ -29,6 +29,7 @@ import type { DossierCard as DossierCardType, SectorCard as SectorCardType } fro
 import type { LocalizedRadarEntry } from '@/lib/radar';
 import { buildMetadata } from '@/lib/metadata';
 import { getHomepageCta, type HomepageCta } from '@/lib/homepage-cta';
+import { isNumericFigure } from '@/lib/key-figure';
 import { CORE_DIGEST_LOCALES } from '@/lib/digest-langs';
 // Table des noms natifs réutilisée, jamais recopiée : un doublon divergerait.
 import { nativeName } from '@/components/publications-band';
@@ -647,17 +648,23 @@ function KeyFigure({
    *  En texte et non en lien : la carte entière est déjà un lien, on n'en imbrique pas. */
   source?: string;
 }) {
+  const t = useTranslations('home');
   // Short units read with the number ("62 200 SPA"); long ones are sentences and go below.
   const inlineUnit = unit && unit.length <= 24 ? unit : undefined;
   const detail = [inlineUnit ? undefined : unit, label].filter(Boolean).join(' · ');
+  // Seul un nombre passe au-dessus du titre de la carte ; une phrase ou une
+  // date garde la taille du texte courant (voir src/lib/key-figure.ts).
+  const valueClass = isNumericFigure(value)
+    ? 'line-clamp-2 text-lg font-bold leading-tight text-brand-900'
+    : 'line-clamp-2 text-sm font-semibold leading-snug text-brand-900';
   return (
     <div className="mt-3">
-      <p className="line-clamp-2 text-lg font-bold leading-tight text-brand-900">
+      <p className={valueClass}>
         {value}
         {inlineUnit && <span className="ml-1 text-sm font-medium text-neutral-700">{inlineUnit}</span>}
       </p>
       {detail && <p className="mt-1 line-clamp-2 text-xs leading-snug text-neutral-600">{detail}</p>}
-      {source && <p className="mt-1 line-clamp-1 text-xs text-neutral-500">Source : {source}</p>}
+      {source && <p className="mt-1 line-clamp-1 text-xs text-neutral-500">{t('keyFigureSource', { source })}</p>}
     </div>
   );
 }
@@ -707,7 +714,7 @@ function DossiersPreview({
                 className={cardClass}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-sm font-semibold text-neutral-900">{card.title}</h3>
+                  <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
                   <span
                     className={dossierBadgeClass(card.phase)}
                   >
@@ -764,7 +771,7 @@ function DomainsPreview({
                 className={cardClass}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-sm font-semibold text-neutral-900">{card.title}</h3>
+                  <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
                   <span
                     className={domainBadgeClass(card.status)}
                   >
@@ -801,6 +808,8 @@ function SectorsPreview({
   totalCount: number;
 }) {
   const t = useTranslations('home');
+  // Même libellé que les cartes de domaine : « Mis à jour le » était écrit en dur en français.
+  const tdo = useTranslations('domains');
 
   return (
     <section aria-labelledby="sectors-title" className="py-8">
@@ -824,9 +833,9 @@ function SectorsPreview({
                 data-umami-event-slug={card.slug}
                 className={cardClass}
               >
-                <h3 className="text-sm font-semibold text-neutral-900">{card.title}</h3>
+                <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
                 {indicator && <KeyFigure value={indicator.value} label={indicator.label} source={indicator.source} />}
-                <CardFooter>Mis à jour le {formatDate(card.lastModified, locale)}</CardFooter>
+                <CardFooter>{tdo('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
               </Link>
             );
           })}

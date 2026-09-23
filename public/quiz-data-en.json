@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T07:12:06.613Z",
+  "generatedAt": "2026-09-23T10:11:30.340Z",
   "locale": "en",
   "poolSize": 69,
   "questionsPerSession": 10,
@@ -21,8 +21,8 @@
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
         "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:383e977e8d263d25906a983240ca40db",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceContentHash": "sha256:8353c153d33d6aa6df89e46769fcdbb5",
+        "generatedAt": "2026-09-23T10:11:30.340Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -44,8 +44,8 @@
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
         "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:383e977e8d263d25906a983240ca40db",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceContentHash": "sha256:8353c153d33d6aa6df89e46769fcdbb5",
+        "generatedAt": "2026-09-23T10:11:30.340Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -342,9 +342,9 @@
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:5b3f73b9cec0b1c5d5c1200ae69bad54",
-        "generatedAt": "2026-09-18T16:03:22.483Z",
+        "sourceLastModified": "2026-09-21",
+        "sourceContentHash": "sha256:a6941da0ba42b38d7f702618ef7d076a",
+        "generatedAt": "2026-09-23T10:11:30.340Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Housing",
-      "question": "By how much may a rent not exceed the reference rent, under the Brussels ordinance in force since May 2025?",
+      "question": "Why did the Constitutional Court not rule, on 17 September 2026, on the reliability of the Brussels indicative rent grid?",
       "options": [
-        "By more than 20%",
-        "By more than 10%",
-        "By more than 35%",
-        "By more than 50%"
+        "The grid rests on a government order, not on a legislative norm",
+        "The applicants had withdrawn that complaint before the 1 July 2026 hearing",
+        "The grid rests on a European directive, outside its review",
+        "The Council of State had already validated the grid in October 2021"
       ],
       "correct": 0,
-      "explanation": "The tenant may bring the matter before the Joint Rental Commission or, where appropriate, the court. The principle had been decided in October 2021, but implementation was deferred to make the grid reliable. It is that scheme the Constitutional Court upheld by dismissing the annulment appeal, according to the communication of 17 September 2026.",
+      "explanation": "The contested ordinance's sole purpose was to set an entry-into-force date; the grid is governed by the order of 19 October 2017. Its representativeness was therefore not decided by this judgment.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:5b3f73b9cec0b1c5d5c1200ae69bad54",
-        "generatedAt": "2026-09-18T16:03:22.483Z",
+        "sourceLastModified": "2026-09-21",
+        "sourceContentHash": "sha256:a6941da0ba42b38d7f702618ef7d076a",
+        "generatedAt": "2026-09-23T10:11:30.340Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1216,9 +1216,9 @@
       "sourceSlug": "/en/dossiers/novacity-ii",
       "sourceTitle": "NovaCity II",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:a56f229260e92a4b5ae5c341c9e7ae92",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:1bda9092d36450f6f1ad25e5c0f5d01b",
+        "generatedAt": "2026-09-23T10:11:30.340Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1285,9 +1285,9 @@
       "sourceSlug": "/en/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-06-12",
-        "sourceContentHash": "sha256:2acf1e70f011e41df50ab7c4b739acac",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:ce598f6eddc052b000c0bd814bf5df65",
+        "generatedAt": "2026-09-23T10:11:30.340Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1308,9 +1308,9 @@
       "sourceSlug": "/en/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-06-12",
-        "sourceContentHash": "sha256:2acf1e70f011e41df50ab7c4b739acac",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:ce598f6eddc052b000c0bd814bf5df65",
+        "generatedAt": "2026-09-23T10:11:30.340Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1423,9 +1423,9 @@
       "sourceSlug": "/en/dossiers/seniors-a-bruxelles",
       "sourceTitle": "Seniors",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:7e56e0c020cb4a4aff8e736fb38fc0b9",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:35296038fb007abe6da6948658973ce4",
+        "generatedAt": "2026-09-23T10:11:30.340Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1584,13 +1584,12 @@
       "sourceSlug": "/en/dossiers/vivaqua",
       "sourceTitle": "Vivaqua",
       "provenance": {
-        "sourceLastModified": "2026-06-12",
-        "sourceContentHash": "sha256:bf7352c06cb51b633cecbae734ae7079",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:c5951d5ab6f77ddcc007463736f02a14",
+        "generatedAt": "2026-09-23T10:11:30.340Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 69
+  ]
 }

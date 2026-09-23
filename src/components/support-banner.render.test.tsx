@@ -45,7 +45,7 @@ describe('SupportBanner', () => {
   });
 
   it("mesure le clic et dit d'où il vient", () => {
-    for (const position of ['pied-de-page', 'dossier-haut'] as const) {
+    for (const position of ['pied-de-page', 'dossier-haut', 'domaine-haut', 'secteur-haut'] as const) {
       const { container } = render(<SupportBanner position={position} />);
       const a = container.querySelector('a')!;
       expect(a.getAttribute('data-umami-event')).toBe('soutien-clic');

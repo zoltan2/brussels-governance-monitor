@@ -30,6 +30,7 @@ import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { WhatChangedBanner } from '@/components/what-changed-banner';
 import { DossierFaq } from '@/components/dossier/dossier-faq';
+import { SupportBanner } from '@/components/support-cta';
 
 
 export const dynamicParams = false;
@@ -273,6 +274,9 @@ function DomainDetail({
           comparisons={relatedComparisons}
           glossaryTerms={relatedGlossary}
         />
+
+        {/* Rappel du soutien avant le sommaire, comme sur les dossiers. */}
+        <SupportBanner position="domaine-haut" className="mb-6" hideOnPrint />
 
         <TableOfContents locale={locale} />
 

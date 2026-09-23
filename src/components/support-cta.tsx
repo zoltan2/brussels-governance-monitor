@@ -81,7 +81,7 @@ export function SupportBanner({
   className,
   hideOnPrint = false,
 }: {
-  position: 'pied-de-page' | 'dossier-haut';
+  position: 'pied-de-page' | 'dossier-haut' | 'domaine-haut' | 'secteur-haut';
   className?: string;
   /** Un dossier imprimé ne commence pas par un appel au don. */
   hideOnPrint?: boolean;

@@ -28,8 +28,8 @@ describe('RechauffementHeatCounters', () => {
   it('contient les 5 compteurs avec leurs qualificatifs', () => {
     const { container } = render(<RechauffementHeatCounters />);
     const text = container.textContent ?? '';
-    // Compteur 1 : +10 avec degre
-    expect(text).toMatch(/\+10/);
+    // Compteur 1 : +4,5 avec degre (ecart moyen a 23 h, VITO)
+    expect(text).toMatch(/\+4,5/);
     expect(text).toMatch(/°C|ilot de chaleur/i);
     // Compteur 2 : 20 jours
     expect(text).toMatch(/20/);
@@ -49,12 +49,10 @@ describe('RechauffementHeatCounters', () => {
     const { container } = render(<RechauffementHeatCounters />);
     const text = container.textContent ?? '';
 
-    // "10" doit etre accompagne de "°C"
-    const idx10 = text.indexOf('+10');
-    if (idx10 !== -1) {
-      const surrounding = text.slice(Math.max(0, idx10 - 5), idx10 + 20);
-      expect(surrounding).toMatch(/°C/);
-    }
+    // "+4,5" doit etre accompagne de "°C"
+    const idx45 = text.indexOf('+4,5');
+    expect(idx45).not.toBe(-1);
+    expect(text.slice(idx45, idx45 + 12)).toMatch(/°C/);
 
     // "62 000" ou "62000" doit etre accompagne de "autoris" ou "selon"
     const idx62 = text.search(/62[\s ]?000/);

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20",
+  "updatedAt": "2026-09-23",
   "entries": {
     "fr:domain-budget-0": {
       "status": "approved",
@@ -1538,9 +1538,10 @@
     },
     "fr:dossier-bifff-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:33bb9637d20293f522f48473c9c864fe"
+      "reviewedHash": "sha256:f470c250ee0e9933cc7abc912225a3a3",
+      "hashVersion": 2
     },
     "fr:dossier-bim-bruxelles-0": {
       "status": "edited",
@@ -1550,11 +1551,11 @@
       "note": "Relecture : sigle BIM développé, il ne disait rien seul."
     },
     "fr:dossier-commissaire-europe-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:d0be1048d651e0641a876fe4ab6a70cc",
-      "note": "Relecture : suppression datée (prévue au 1er juillet 2026)."
+      "reviewedHash": "sha256:b4a914853e5de38d6afa602672f3209b",
+      "hashVersion": 2
     },
     "fr:dossier-cpas-bruxellois-0": {
       "status": "approved",
@@ -1586,9 +1587,10 @@
     },
     "fr:dossier-rechauffement-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:b9de6982115f788fecd5c8f5c56efe05"
+      "reviewedHash": "sha256:53dc82958fb30d1860306b18157c46d0",
+      "hashVersion": 2
     },
     "fr:dossier-titres-services-economie-sociale-0": {
       "status": "edited",
@@ -1612,9 +1614,10 @@
     },
     "nl:dossier-bifff-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:6c66659f48e8b34e3725414958199ea6"
+      "reviewedHash": "sha256:53515171d0f51c8f35e9e61d02ce68c1",
+      "hashVersion": 2
     },
     "nl:dossier-bim-bruxelles-0": {
       "status": "approved",
@@ -1624,9 +1627,10 @@
     },
     "nl:dossier-commissaire-europe-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:5c59a4f3d3ee2fd0cd74140d9ac7a1d0"
+      "reviewedHash": "sha256:3955233a1bf4cf5a737d7c4421c511c7",
+      "hashVersion": 2
     },
     "nl:dossier-cpas-bruxellois-0": {
       "status": "approved",
@@ -1650,9 +1654,10 @@
     },
     "nl:dossier-rechauffement-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:a301df11e83be4a2c3e87ef097e52595"
+      "reviewedHash": "sha256:836b2e564ebd4f5db64e1d81fe286e72",
+      "hashVersion": 2
     },
     "nl:dossier-titres-services-economie-sociale-0": {
       "status": "approved",
@@ -1674,11 +1679,11 @@
       "note": "Relecture EN : guillemets français remplacés, seule question du pool à en porter."
     },
     "en:dossier-bifff-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:3266c41c8d9a30f25a4fb10319224411",
-      "note": "Relecture EN : « rooms » et « screening room » désignaient la même chose dans une même question."
+      "reviewedHash": "sha256:5363d1be44056f12a325326164b926cf",
+      "hashVersion": 2
     },
     "en:dossier-bim-bruxelles-0": {
       "status": "approved",
@@ -1687,11 +1692,11 @@
       "reviewedHash": "sha256:ca7ba96ed6d3785ab0ad15e13baedd24"
     },
     "en:dossier-commissaire-europe-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:08901a3af78ec2da90fc741d8261fd02",
-      "note": "Relecture EN : deux génitifs empilés, « Commissioner to Europe's office »."
+      "reviewedHash": "sha256:82f15d2ea5d63f9b981e685c4bc076b8",
+      "hashVersion": 2
     },
     "en:dossier-cpas-bruxellois-0": {
       "status": "approved",
@@ -1715,9 +1720,10 @@
     },
     "en:dossier-rechauffement-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:03fcbce20579423c7bc6e17fbef0dc96"
+      "reviewedHash": "sha256:034d32a5178285e8458e4e0d00ef13b6",
+      "hashVersion": 2
     },
     "en:dossier-titres-services-economie-sociale-0": {
       "status": "edited",
@@ -1769,9 +1775,10 @@
     },
     "de:dossier-bifff-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e5e70634e96d367274bf0e94d6fe032f"
+      "reviewedHash": "sha256:4c9d0031908e4160f73889ddcc2b459b",
+      "hashVersion": 2
     },
     "de:dossier-bim-bruxelles-0": {
       "status": "approved",
@@ -1780,11 +1787,11 @@
       "reviewedHash": "sha256:9c682a5f906c87604c25d24038bb3957"
     },
     "de:dossier-commissaire-europe-0": {
-      "status": "edited",
-      "reviewedAt": "2026-08-06",
+      "status": "approved",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:326b85c2c0aea1e4a66dc570b185b7a2",
-      "note": "Relecture DE : « Einsatz » est une mise de jeu ou un déploiement, pas un enjeu."
+      "reviewedHash": "sha256:290923defe4850b000f8eaeba6589ff4",
+      "hashVersion": 2
     },
     "de:dossier-cpas-bruxellois-0": {
       "status": "approved",
@@ -1808,9 +1815,10 @@
     },
     "de:dossier-rechauffement-bruxelles-0": {
       "status": "approved",
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-09-23",
       "reviewedBy": "zoltan",
-      "reviewedHash": "sha256:e797567fcd1917ce403617fb39164e0b"
+      "reviewedHash": "sha256:10321127f52db49810bc3a6ea6708cb0",
+      "hashVersion": 2
     },
     "de:dossier-titres-services-economie-sociale-0": {
       "status": "approved",
@@ -1843,6 +1851,34 @@
       "reviewedAt": "2026-09-18",
       "reviewedBy": "zoltan",
       "reviewedHash": "sha256:220be216b23d21dcfa7a3cff8847111f",
+      "hashVersion": 2
+    },
+    "fr:dossier-taxis-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-09-23",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:6a9a9c98344a62268f815f5809173dd0",
+      "hashVersion": 2
+    },
+    "nl:dossier-taxis-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-09-23",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:a4e1d93e556099a2dc0eaec06f0b6e34",
+      "hashVersion": 2
+    },
+    "en:dossier-taxis-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-09-23",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:a51686a5fca39c01fc8c6e51062bb4f0",
+      "hashVersion": 2
+    },
+    "de:dossier-taxis-bruxellois-0": {
+      "status": "approved",
+      "reviewedAt": "2026-09-23",
+      "reviewedBy": "zoltan",
+      "reviewedHash": "sha256:d5d7c696516aeb093677487860fd4308",
       "hashVersion": 2
     }
   }

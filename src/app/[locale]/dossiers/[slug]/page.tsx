@@ -39,6 +39,7 @@ import { DossierFaq } from '@/components/dossier/dossier-faq';
 import { WhatChangedBanner } from '@/components/what-changed-banner';
 import { RelatedDossiers } from '@/components/related-dossiers';
 import { TableOfContents } from '@/components/table-of-contents';
+import { SupportBanner } from '@/components/support-cta';
 
 /**
  * Un seul nom d'événement Umami pour tous les liens internes de la page ; la
@@ -350,6 +351,10 @@ function DossierDetail({
             </Link>
           </p>
         )}
+
+        {/* Rappel du soutien avant le sommaire : le bandeau du pied de page est
+            identique, mais presque personne ne descend jusque-là. */}
+        <SupportBanner position="dossier-haut" className="mb-6" hideOnPrint />
 
         <TableOfContents locale={locale} />
 

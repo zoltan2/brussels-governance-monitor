@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T07:12:05.379Z",
+  "generatedAt": "2026-09-23T10:11:28.744Z",
   "locale": "fr",
   "poolSize": 69,
   "questionsPerSession": 10,
@@ -21,8 +21,8 @@
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
         "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:06ea6f075870c9ea39aff57c93b8c65a",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceContentHash": "sha256:8a5434b9fd8e80aa872534b7027f74a4",
+        "generatedAt": "2026-09-23T10:11:28.744Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -44,8 +44,8 @@
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
         "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:06ea6f075870c9ea39aff57c93b8c65a",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceContentHash": "sha256:8a5434b9fd8e80aa872534b7027f74a4",
+        "generatedAt": "2026-09-23T10:11:28.744Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -342,9 +342,9 @@
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:467a0a7f57785825f915433745f7d9e2",
-        "generatedAt": "2026-09-18T15:53:50.153Z",
+        "sourceLastModified": "2026-09-21",
+        "sourceContentHash": "sha256:7c906267aed4d898989431adea2ebd0c",
+        "generatedAt": "2026-09-23T10:11:28.744Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
-      "question": "De combien un loyer ne peut-il pas dépasser le loyer de référence, selon l'ordonnance bruxelloise en vigueur depuis mai 2025 ?",
+      "question": "Pourquoi la Cour constitutionnelle ne s'est-elle pas prononcée, le 17 septembre 2026, sur la fiabilité de la grille bruxelloise des loyers ?",
       "options": [
-        "De plus de 20 %",
-        "De plus de 10 %",
-        "De plus de 35 %",
-        "De plus de 50 %"
+        "La grille relève d'un arrêté du gouvernement, pas d'une norme législative",
+        "Les requérants avaient retiré ce grief avant l'audience du 1er juillet 2026",
+        "La grille relève d'une directive européenne, hors de son contrôle",
+        "Le Conseil d'État avait déjà validé la grille en octobre 2021"
       ],
       "correct": 0,
-      "explanation": "Le locataire peut saisir la Commission paritaire locative ou, le cas échéant, le juge. Le principe avait été décidé en octobre 2021, mais sa mise en œuvre avait été différée pour fiabiliser la grille. C'est ce dispositif que la Cour constitutionnelle a confirmé en rejetant le recours en annulation, selon la communication du 17 septembre 2026.",
+      "explanation": "L'ordonnance attaquée avait pour unique objet de fixer une date d'entrée en vigueur ; la grille est réglée par l'arrêté du 19 octobre 2017. Sa représentativité n'a donc pas été tranchée par cet arrêt.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:467a0a7f57785825f915433745f7d9e2",
-        "generatedAt": "2026-09-18T15:53:50.153Z",
+        "sourceLastModified": "2026-09-21",
+        "sourceContentHash": "sha256:7c906267aed4d898989431adea2ebd0c",
+        "generatedAt": "2026-09-23T10:11:28.744Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1216,9 +1216,9 @@
       "sourceSlug": "/fr/dossiers/novacity-ii",
       "sourceTitle": "NovaCity II",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
+        "sourceLastModified": "2026-09-22",
         "sourceContentHash": "sha256:3cc64915bc7775cb67a611c94ce9052b",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "generatedAt": "2026-09-23T10:11:28.744Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1285,9 +1285,9 @@
       "sourceSlug": "/fr/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-06-12",
-        "sourceContentHash": "sha256:4e6283194d0905433fcc8936e4354c06",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:15e2437bce119b2307a4b3a081ca5fa7",
+        "generatedAt": "2026-09-23T10:11:28.744Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1308,9 +1308,9 @@
       "sourceSlug": "/fr/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-06-12",
-        "sourceContentHash": "sha256:4e6283194d0905433fcc8936e4354c06",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:15e2437bce119b2307a4b3a081ca5fa7",
+        "generatedAt": "2026-09-23T10:11:28.744Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1423,9 +1423,9 @@
       "sourceSlug": "/fr/dossiers/seniors-a-bruxelles",
       "sourceTitle": "Seniors",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
-        "sourceContentHash": "sha256:1b48b80eb7dab2b37029be3beacffeaa",
-        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:f540d396c3fa68a63246618ca142c126",
+        "generatedAt": "2026-09-23T10:11:28.744Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1584,13 +1584,12 @@
       "sourceSlug": "/fr/dossiers/vivaqua",
       "sourceTitle": "Vivaqua",
       "provenance": {
-        "sourceLastModified": "2026-06-12",
-        "sourceContentHash": "sha256:631cfdd9e2003efd1984e53f28970e32",
-        "generatedAt": "2026-08-05T20:01:30.474Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:cf65db6ef432b31c977e13e006b8924b",
+        "generatedAt": "2026-09-23T10:11:28.744Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 69
+  ]
 }

@@ -87,7 +87,12 @@ const LIGHT = readBlock('@theme');
 const DARK = readBlock('.dark {', LIGHT);
 const MEDIA_DARK = readBlock(':root:not(.light-forced)', LIGHT);
 const HC_LIGHT = readBlock('.high-contrast {', LIGHT);
-const HC_DARK = readBlock('.dark.high-contrast', DARK);
+// Cascade réelle en sombre + contraste élevé : `.dark`, puis `.high-contrast`
+// (même spécificité, déclaré plus bas, donc il l'emporte), puis
+// `.dark.high-contrast`. Modéliser `.dark` + `.dark.high-contrast` seuls, comme
+// le faisait ce test, masquait les tokens que `.high-contrast` fonce et que
+// `.dark.high-contrast` oublie de rééclaircir : brand-900 tombait à ~1:1.
+const HC_DARK = readBlock('.dark.high-contrast', readBlock('.high-contrast {', DARK));
 
 const MODES: [string, Record<string, string>][] = [
   ['clair', LIGHT],
@@ -201,8 +206,8 @@ describe('mode contraste élevé — promesse AAA (7:1)', () => {
   it.each([
     ['clair', HC_LIGHT],
     ['sombre', HC_DARK],
-  ] as [string, Record<string, string>][])('%s : le texte secondaire atteint 7:1', (_mode, palette) => {
-    for (const token of ['neutral-500', 'neutral-600', 'neutral-700', 'neutral-900']) {
+  ] as [string, Record<string, string>][])('%s : le texte secondaire et la couleur de marque atteignent 7:1', (_mode, palette) => {
+    for (const token of ['neutral-500', 'neutral-600', 'neutral-700', 'neutral-900', 'brand-800', 'brand-900']) {
       const ratio = contrast(palette[token], palette['neutral-50']);
       expect(ratio, `${token} = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(7);
     }

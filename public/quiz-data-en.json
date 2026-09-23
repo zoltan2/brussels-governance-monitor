@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T21:25:26.968Z",
+  "generatedAt": "2026-09-23T07:12:06.613Z",
   "locale": "en",
   "poolSize": 69,
   "questionsPerSession": 10,
@@ -746,19 +746,19 @@
       "domain": "Culture",
       "question": "What format did the BIFFF adopt for its 44th edition, in April 2026, under budgetary pressure?",
       "options": [
-        "A single screening room, over 16 continuous days",
-        "Three simultaneous screening rooms, over 5 days of programming",
+        "A single screening room, over 16 consecutive days",
+        "Three rooms at once, over 5 days of programming",
         "A tour of the 19 municipalities, over 2 weeks",
-        "A fully online edition, over 10 days of access"
+        "A fully online edition, with 10 days of access"
       ],
       "correct": 0,
-      "explanation": "The aim was to cut fixed costs while covering three busy weekends. The bet paid off: 60,000 spectators, a 30% rise and a record since the return to the Heysel.",
+      "explanation": "The aim was to cut fixed costs while covering three high-attendance weekends. According to the organisers, the edition drew 60,000 spectators, up 30% on the previous one.",
       "sourceSlug": "/en/dossiers/bifff",
       "sourceTitle": "BIFFF",
       "provenance": {
-        "sourceLastModified": "2026-04-19",
-        "sourceContentHash": "sha256:3ae6c971492b558af51ef2aa6472aed2",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:00709ececf1106e7a62d86dc65025acd",
+        "generatedAt": "2026-09-23T07:12:06.613Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -790,21 +790,21 @@
       "id": "dossier-commissaire-europe-0",
       "source": "dossier",
       "domain": "Institutional",
-      "question": "What becomes of the staff of the office of the regional Commissioner to Europe once it is abolished, as planned for 1 July 2026?",
+      "question": "What ended on 30 June 2026 at the Brussels Region's office of the Commissioner for Europe and International Organisations?",
       "options": [
-        "They are absorbed into Brussels International",
-        "They join the Belgian permanent representation",
-        "They are transferred to the Brussels Parliament",
-        "They are seconded to the European Commission"
+        "The commissioner's mandate, while the non-profit stays active",
+        "The non-profit itself, dissolved by its general assembly",
+        "The expat welcome desk, closed to the public",
+        "The regional subsidy, removed from the 2026 budget"
       ],
       "correct": 0,
-      "explanation": "The abolition is part of the reform regrouping the regional administration into four pillars. According to the government, all tasks and missions are maintained; the real issue is high-level political access.",
+      "explanation": "The commissioner post is not renewed, but the structure remains: its integration into the Brussels International administration was announced on 3 July 2026, with no date, and staff are to be kept.",
       "sourceSlug": "/en/dossiers/commissaire-europe",
       "sourceTitle": "Commissioner to Europe",
       "provenance": {
-        "sourceLastModified": "2026-06-26",
-        "sourceContentHash": "sha256:2ab67a356b7ce85ecd50697d182ad5ca",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:54967a15924e4dd17c189618ae34f988",
+        "generatedAt": "2026-09-23T07:12:06.613Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1342,21 +1342,21 @@
       "id": "dossier-rechauffement-bruxelles-0",
       "source": "dossier",
       "domain": "Climate",
-      "question": "When is the temperature gap between central Brussels and its outskirts most dangerous?",
+      "question": "According to the IRM, what was the average temperature of summer 2026 in Uccle, a record since 1833?",
       "options": [
-        "At night, when the temperature no longer falls back",
-        "In the middle of the day, at peak sunshine",
-        "In the early morning, before sunrise",
-        "In the late afternoon, as offices empty"
+        "20.3 °C, against a normal of 17.9 °C",
+        "19.9 °C, against a normal of 17.9 °C",
+        "21.6 °C, against a normal of 18.4 °C",
+        "18.8 °C, against a normal of 16.9 °C"
       ],
       "correct": 0,
-      "explanation": "The night-time gap reaches 4.5 degrees on average and up to 10 degrees during extreme episodes. When the body does not recover at night, excess mortality sets in, particularly among elderly and isolated people.",
+      "explanation": "It is the first time the summer average in Uccle has exceeded 20 °C. Summer 2026 brought three heatwaves there and 15 days at 30 °C or more, against a normal of 5.",
       "sourceSlug": "/en/dossiers/rechauffement-bruxelles",
       "sourceTitle": "Brussels warming",
       "provenance": {
-        "sourceLastModified": "2026-06-26",
-        "sourceContentHash": "sha256:f9578db8a0bee9857b060e97e89db1fd",
-        "generatedAt": "2026-08-05T21:13:00.476Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:d3c7305e94d296829f59315bdb92d7fd",
+        "generatedAt": "2026-09-23T07:12:06.613Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1592,5 +1592,5 @@
       }
     }
   ],
-  "reviewedCount": 68
+  "reviewedCount": 65
 }

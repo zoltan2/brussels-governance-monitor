@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T21:25:27.965Z",
+  "generatedAt": "2026-09-23T07:12:07.239Z",
   "locale": "de",
   "poolSize": 69,
   "questionsPerSession": 10,
@@ -746,19 +746,19 @@
       "domain": "Kultur",
       "question": "Welches Format wählte das BIFFF für seine 44. Ausgabe im April 2026 unter Budgetdruck?",
       "options": [
-        "Einen einzigen Saal, über 16 Tage am Stück",
-        "Drei gleichzeitige Säle, über 5 Programmtage",
-        "Eine Tour durch die 19 Gemeinden, über 2 Wochen",
-        "Eine vollständig digitale Ausgabe, über 10 Zugangstage"
+        "Ein einziger Saal, 16 Tage am Stück",
+        "Drei Säle gleichzeitig, 5 Tage Programm",
+        "Eine Tournee durch die 19 Gemeinden, 2 Wochen lang",
+        "Eine reine Online-Ausgabe, 10 Tage Zugang"
       ],
       "correct": 0,
-      "explanation": "Ziel war es, die Fixkosten zu senken und zugleich drei besucherstarke Wochenenden abzudecken. Die Wette ging auf: 60.000 Zuschauer, ein Plus von 30 % und ein Rekord seit der Rückkehr zum Heysel.",
+      "explanation": "Ziel war es, die Fixkosten zu senken und dennoch drei besucherstarke Wochenenden abzudecken. Laut den Veranstaltern kamen 60.000 Zuschauer, 30 % mehr als bei der vorigen Ausgabe.",
       "sourceSlug": "/de/dossiers/bifff",
       "sourceTitle": "BIFFF",
       "provenance": {
-        "sourceLastModified": "2026-04-19",
-        "sourceContentHash": "sha256:2608328d3212f8bf16943a116e48e6cc",
-        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:1cd0bfe4a78d8b289e033c891edf5033",
+        "generatedAt": "2026-09-23T07:12:07.239Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -790,21 +790,21 @@
       "id": "dossier-commissaire-europe-0",
       "source": "dossier",
       "domain": "Institutionell",
-      "question": "Was geschieht mit den Bediensteten des regionalen Kommissariats für Europa nach dessen für den 1. Juli 2026 vorgesehener Abschaffung?",
+      "question": "Was endete am 30. Juni 2026 beim Kommissariat der Region Brüssel für Europa und die internationalen Organisationen?",
       "options": [
-        "Sie werden in die Verwaltung Brüssel International übernommen",
-        "Sie wechseln zur belgischen Ständigen Vertretung",
-        "Sie werden zum Brüsseler Parlament versetzt",
-        "Sie werden zur Europäischen Kommission abgeordnet"
+        "Das Mandat des Kommissars, die VoG bleibt aktiv",
+        "Die VoG selbst, aufgelöst durch ihre Generalversammlung",
+        "Der Empfangsschalter für Expats, für die Öffentlichkeit geschlossen",
+        "Der regionale Zuschuss, aus dem Haushalt 2026 gestrichen"
       ],
       "correct": 0,
-      "explanation": "Die Abschaffung ist Teil der Reform, die die Regionalverwaltung zu vier Säulen zusammenführt. Laut Regierung bleiben alle Aufgaben und Aufträge erhalten; worum es eigentlich geht, ist der politische Zugang auf hoher Ebene.",
+      "explanation": "Das Amt des Kommissars wird nicht erneuert, doch die Struktur bleibt bestehen: Ihre Eingliederung in die Verwaltung Brussels International wurde am 3. Juli 2026 angekündigt, ohne Datum, bei Erhalt des Personals.",
       "sourceSlug": "/de/dossiers/commissaire-europe",
       "sourceTitle": "Kommissar für Europa",
       "provenance": {
-        "sourceLastModified": "2026-06-26",
-        "sourceContentHash": "sha256:1b15378973ae9835d56fc2c88b9d7972",
-        "generatedAt": "2026-08-05T21:18:25.184Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:5cd128b3ae8c40e04d89514cf8a84e29",
+        "generatedAt": "2026-09-23T07:12:07.239Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1342,21 +1342,21 @@
       "id": "dossier-rechauffement-bruxelles-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Zu welchem Zeitpunkt ist der Temperaturunterschied zwischen dem Brüsseler Zentrum und seiner Peripherie am gefährlichsten?",
+      "question": "Wie hoch war laut IRM die Durchschnittstemperatur des Sommers 2026 in Uccle, ein Rekord seit 1833?",
       "options": [
-        "Nachts, wenn die Temperatur nicht mehr absinkt",
-        "Mitten am Tag, auf dem Höhepunkt der Sonneneinstrahlung",
-        "Am frühen Morgen, vor dem Sonnenaufgang",
-        "Am späten Nachmittag, beim Verlassen der Büros"
+        "20,3 °C, bei einem Normalwert von 17,9 °C",
+        "19,9 °C, bei einem Normalwert von 17,9 °C",
+        "21,6 °C, bei einem Normalwert von 18,4 °C",
+        "18,8 °C, bei einem Normalwert von 16,9 °C"
       ],
       "correct": 0,
-      "explanation": "Der nächtliche Unterschied erreicht im Schnitt 4,5 Grad und bei extremen Ereignissen bis zu 10 Grad. Wenn sich der Körper nachts nicht erholt, setzt Übersterblichkeit ein, insbesondere bei älteren und isolierten Menschen.",
+      "explanation": "Zum ersten Mal lag der Sommerdurchschnitt in Uccle über 20 °C. Der Sommer 2026 brachte dort drei Hitzewellen und 15 Tage mit 30 °C oder mehr, bei einem Normalwert von 5.",
       "sourceSlug": "/de/dossiers/rechauffement-bruxelles",
       "sourceTitle": "Erwärmung Brüssels",
       "provenance": {
-        "sourceLastModified": "2026-06-26",
-        "sourceContentHash": "sha256:92f733f938ffec7677b66f5df4085e4b",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:08e755ecbbd0a68197b7c885aa27ed77",
+        "generatedAt": "2026-09-23T07:12:07.239Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1592,5 +1592,5 @@
       }
     }
   ],
-  "reviewedCount": 68
+  "reviewedCount": 65
 }

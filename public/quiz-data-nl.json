@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T21:25:25.970Z",
+  "generatedAt": "2026-09-23T07:12:06.003Z",
   "locale": "nl",
   "poolSize": 69,
   "questionsPerSession": 10,
@@ -746,19 +746,19 @@
       "domain": "Cultuur",
       "question": "Welk formaat koos het BIFFF voor zijn 44e editie, in april 2026, onder budgettaire druk?",
       "options": [
-        "Eén enkele zaal, gedurende 16 dagen aan één stuk",
-        "Drie gelijktijdige zalen, gedurende 5 programmadagen",
-        "Een rondgang door de 19 gemeenten, gedurende 2 weken",
-        "Een volledig online editie, gedurende 10 dagen toegang"
+        "Eén enkele zaal, 16 dagen aan een stuk",
+        "Drie zalen tegelijk, 5 dagen programmatie",
+        "Een tournee door de 19 gemeenten, 2 weken lang",
+        "Een volledig online editie, 10 dagen toegang"
       ],
       "correct": 0,
-      "explanation": "Het doel was de vaste kosten te drukken en tegelijk drie drukbezochte weekends te bestrijken. De gok werd gewonnen: 60 000 toeschouwers, een stijging van 30 % en een record sinds de terugkeer naar de Heizel.",
+      "explanation": "Het doel was de vaste kosten te drukken en toch drie drukke weekends te dekken. Volgens de organisatoren trok de editie 60.000 toeschouwers, 30 % meer dan de vorige.",
       "sourceSlug": "/nl/dossiers/bifff",
       "sourceTitle": "BIFFF",
       "provenance": {
-        "sourceLastModified": "2026-04-19",
-        "sourceContentHash": "sha256:7d8b542c7088ba53b1006a1b3c507eb6",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:9cabfaa008522b3764a4f3e40e820707",
+        "generatedAt": "2026-09-23T07:12:06.003Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -790,21 +790,21 @@
       "id": "dossier-commissaire-europe-0",
       "source": "dossier",
       "domain": "Institutioneel",
-      "question": "Wat gebeurt er met de medewerkers van het gewestelijk commissariaat voor Europa na de afschaffing ervan, voorzien op 1 juli 2026?",
+      "question": "Wat eindigde op 30 juni 2026 bij het commissariaat van het Brussels Gewest voor Europa en de Internationale Organisaties?",
       "options": [
-        "Ze worden opgenomen binnen Brussel Internationaal",
-        "Ze vervoegen de Belgische permanente vertegenwoordiging",
-        "Ze worden overgeheveld naar het Brussels Parlement",
-        "Ze worden gedetacheerd bij de Europese Commissie"
+        "Het mandaat van commissaris; de vzw blijft actief",
+        "De vzw zelf, ontbonden door haar algemene vergadering",
+        "Het onthaalloket voor expats, gesloten voor het publiek",
+        "De gewestelijke subsidie, geschrapt uit de begroting 2026"
       ],
       "correct": 0,
-      "explanation": "De afschaffing kadert in de hervorming die het gewestelijk bestuur in vier pijlers hergroepeert. Volgens de regering blijven alle taken en opdrachten behouden; de echte inzet is de politieke toegang op hoog niveau.",
+      "explanation": "De functie van commissaris wordt niet hernieuwd, maar de structuur blijft bestaan: haar integratie in de administratie Brussels International werd op 3 juli 2026 aangekondigd, zonder datum, met behoud van het personeel.",
       "sourceSlug": "/nl/dossiers/commissaire-europe",
       "sourceTitle": "Commissaris voor Europa",
       "provenance": {
-        "sourceLastModified": "2026-06-26",
-        "sourceContentHash": "sha256:6796f38ff46d2252633bae6e3e13bc65",
-        "generatedAt": "2026-08-05T21:04:16.356Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:8e11c073fcc7794a0b0b5941d8456efc",
+        "generatedAt": "2026-09-23T07:12:06.003Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1342,21 +1342,21 @@
       "id": "dossier-rechauffement-bruxelles-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Op welk moment is het temperatuurverschil tussen het centrum van Brussel en de rand het gevaarlijkst?",
+      "question": "Wat was volgens het KMI de gemiddelde temperatuur van de zomer van 2026 in Ukkel, een record sinds 1833?",
       "options": [
-        "'s Nachts, wanneer de temperatuur niet meer zakt",
-        "Midden op de dag, op de piek van de zonneschijn",
-        "In de vroege ochtend, vóór zonsopgang",
-        "Op het einde van de namiddag, bij het verlaten van de kantoren"
+        "20,3 °C, bij een normale waarde van 17,9 °C",
+        "19,9 °C, bij een normale waarde van 17,9 °C",
+        "21,6 °C, bij een normale waarde van 18,4 °C",
+        "18,8 °C, bij een normale waarde van 16,9 °C"
       ],
       "correct": 0,
-      "explanation": "Het nachtelijke verschil bedraagt gemiddeld 4,5 graden en loopt tijdens extreme episodes op tot 10 graden. Wanneer het lichaam 's nachts niet herstelt, ontstaat oversterfte, vooral bij oudere en alleenstaande mensen.",
+      "explanation": "Het is de eerste keer dat het zomergemiddelde in Ukkel boven 20 °C uitkomt. De zomer van 2026 telde er drie hittegolven en 15 dagen van 30 °C of meer, tegenover een normale waarde van 5.",
       "sourceSlug": "/nl/dossiers/rechauffement-bruxelles",
       "sourceTitle": "Opwarming van Brussel",
       "provenance": {
-        "sourceLastModified": "2026-06-26",
-        "sourceContentHash": "sha256:3a46bf4601cb28af57ac274e3c9b833a",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:95f20f263499285c9df8f59554ddd07b",
+        "generatedAt": "2026-09-23T07:12:06.003Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1592,5 +1592,5 @@
       }
     }
   ],
-  "reviewedCount": 68
+  "reviewedCount": 65
 }

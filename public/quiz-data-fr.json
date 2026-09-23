@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T21:25:09.773Z",
+  "generatedAt": "2026-09-23T07:12:05.379Z",
   "locale": "fr",
   "poolSize": 69,
   "questionsPerSession": 10,
@@ -752,13 +752,13 @@
         "Une édition entièrement en ligne, sur 10 jours d'accès"
       ],
       "correct": 0,
-      "explanation": "L'objectif était de réduire les coûts fixes tout en couvrant trois week-ends de forte fréquentation. Le pari a été tenu : 60 000 spectateurs, soit une hausse de 30 % et un record depuis le retour au Heysel.",
+      "explanation": "L'objectif était de réduire les coûts fixes tout en couvrant trois week-ends de forte fréquentation. Selon les organisateurs, l'édition a réuni 60 000 spectateurs, en hausse de 30 % sur la précédente.",
       "sourceSlug": "/fr/dossiers/bifff",
       "sourceTitle": "BIFFF",
       "provenance": {
-        "sourceLastModified": "2026-04-19",
-        "sourceContentHash": "sha256:4c0021f60d5f3e84c3d430f91226af41",
-        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:2fadf320745ede623aef30eaa2bf6249",
+        "generatedAt": "2026-09-23T07:12:05.379Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -790,21 +790,21 @@
       "id": "dossier-commissaire-europe-0",
       "source": "dossier",
       "domain": "Institutionnel",
-      "question": "Que deviennent les agents du commissariat régional à l'Europe après sa suppression, prévue au 1er juillet 2026 ?",
+      "question": "Qu'est-ce qui a pris fin le 30 juin 2026 au commissariat de la Région bruxelloise à l'Europe et aux Organisations internationales ?",
       "options": [
-        "Ils sont repris au sein de Bruxelles International",
-        "Ils rejoignent la représentation permanente belge",
-        "Ils sont transférés vers le Parlement bruxellois",
-        "Ils sont détachés auprès de la Commission européenne"
+        "Le mandat de commissaire, l'asbl restant active",
+        "L'asbl elle-même, dissoute par son assemblée",
+        "Le guichet d'accueil des expatriés, fermé au public",
+        "La subvention régionale, rayée du budget 2026"
       ],
       "correct": 0,
-      "explanation": "La suppression s'inscrit dans la réforme regroupant l'administration régionale en quatre piliers. Selon le gouvernement, toutes les tâches et missions sont maintenues ; l'enjeu réel porte sur l'accès politique de haut niveau.",
+      "explanation": "Le poste de commissaire n'est pas renouvelé, mais la structure subsiste : son intégration dans l'administration Brussels International a été annoncée le 3 juillet 2026, sans date, avec le maintien annoncé du personnel.",
       "sourceSlug": "/fr/dossiers/commissaire-europe",
       "sourceTitle": "Commissaire à l'Europe",
       "provenance": {
-        "sourceLastModified": "2026-06-26",
-        "sourceContentHash": "sha256:35ad6a9ad697808fed3bf6f875d5d2c2",
-        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:e91f8c219444e05f9a39912f9abcecc5",
+        "generatedAt": "2026-09-23T07:12:05.379Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1342,21 +1342,21 @@
       "id": "dossier-rechauffement-bruxelles-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "À quel moment l'écart de température entre le centre de Bruxelles et sa périphérie est-il le plus dangereux ?",
+      "question": "Selon l'IRM, quelle a été la température moyenne de l'été 2026 à Uccle, un record depuis 1833 ?",
       "options": [
-        "La nuit, quand la température ne redescend plus",
-        "En milieu de journée, au pic d'ensoleillement",
-        "Au petit matin, avant le lever du soleil",
-        "En fin d'après-midi, à la sortie des bureaux"
+        "20,3 °C, pour une normale de 17,9 °C",
+        "19,9 °C, pour une normale de 17,9 °C",
+        "21,6 °C, pour une normale de 18,4 °C",
+        "18,8 °C, pour une normale de 16,9 °C"
       ],
       "correct": 0,
-      "explanation": "L'écart nocturne atteint 4,5 degrés en moyenne et jusqu'à 10 degrés lors des épisodes extrêmes. Quand le corps ne récupère pas la nuit, la surmortalité s'installe, en particulier chez les personnes âgées et isolées.",
+      "explanation": "C'est la première fois que la moyenne estivale dépasse 20 °C à Uccle. L'été 2026 y a compté trois vagues de chaleur et 15 jours à 30 °C ou plus, contre une normale de 5.",
       "sourceSlug": "/fr/dossiers/rechauffement-bruxelles",
       "sourceTitle": "Réchauffement de Bruxelles",
       "provenance": {
-        "sourceLastModified": "2026-06-26",
-        "sourceContentHash": "sha256:62ebd8b89adcae7f2f70f64d5215e82d",
-        "generatedAt": "2026-08-05T20:00:31.791Z",
+        "sourceLastModified": "2026-09-23",
+        "sourceContentHash": "sha256:662556dd9adb8a39cf740097f4ea9c48",
+        "generatedAt": "2026-09-23T07:12:05.379Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1592,5 +1592,5 @@
       }
     }
   ],
-  "reviewedCount": 68
+  "reviewedCount": 65
 }

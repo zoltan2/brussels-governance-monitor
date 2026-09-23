@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T07:12:06.003Z",
+  "generatedAt": "2026-09-23T10:11:29.953Z",
   "locale": "nl",
   "poolSize": 69,
   "questionsPerSession": 10,
@@ -21,8 +21,8 @@
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
         "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:dc721cff487dda1a04a9b3860346eef9",
-        "generatedAt": "2026-09-20T16:20:29.530Z",
+        "sourceContentHash": "sha256:a6db81e018ff4ece1603d383dffde123",
+        "generatedAt": "2026-09-23T10:11:29.953Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -44,8 +44,8 @@
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
         "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:dc721cff487dda1a04a9b3860346eef9",
-        "generatedAt": "2026-09-20T16:20:29.530Z",
+        "sourceContentHash": "sha256:a6db81e018ff4ece1603d383dffde123",
+        "generatedAt": "2026-09-23T10:11:29.953Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -342,9 +342,9 @@
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 400M voor de BGHM, 1 000 publieke woningen",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:9f11115c444678a1bd26d011a1d3b8c1",
-        "generatedAt": "2026-09-18T15:59:42.437Z",
+        "sourceLastModified": "2026-09-21",
+        "sourceContentHash": "sha256:eb2607137ac898a7392caa1772231a3b",
+        "generatedAt": "2026-09-23T10:11:29.953Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Met hoeveel mag een huurprijs de referentiehuurprijs niet overschrijden, volgens de Brusselse ordonnantie die sinds mei 2025 van kracht is?",
+      "question": "Waarom sprak het Grondwettelijk Hof zich op 17 september 2026 niet uit over de betrouwbaarheid van het Brusselse indicatieve huurrooster?",
       "options": [
-        "Met meer dan 20 %",
-        "Met meer dan 10 %",
-        "Met meer dan 35 %",
-        "Met meer dan 50 %"
+        "Het rooster berust op een regeringsbesluit, niet op een wetgevende norm",
+        "De verzoekers hadden die grief vóór de zitting van 1 juli 2026 ingetrokken",
+        "Het rooster berust op een Europese richtlijn, buiten zijn toezicht",
+        "De Raad van State had het rooster al in oktober 2021 goedgekeurd"
       ],
       "correct": 0,
-      "explanation": "De huurder kan de Paritaire Huurcommissie vatten of, in voorkomend geval, de rechter. Het principe was al in oktober 2021 beslist, maar de uitvoering werd uitgesteld om het rooster betrouwbaar te maken. Het is die regeling die het Grondwettelijk Hof heeft bevestigd door het beroep tot nietigverklaring te verwerpen, volgens de mededeling van 17 september 2026.",
+      "explanation": "De bestreden ordonnantie had als enig voorwerp een datum van inwerkingtreding vast te leggen; het rooster wordt geregeld door het besluit van 19 oktober 2017. Over de representativiteit ervan heeft dit arrest dus niet beslist.",
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 400M voor de BGHM, 1 000 publieke woningen",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:9f11115c444678a1bd26d011a1d3b8c1",
-        "generatedAt": "2026-09-18T15:59:42.437Z",
+        "sourceLastModified": "2026-09-21",
+        "sourceContentHash": "sha256:eb2607137ac898a7392caa1772231a3b",
+        "generatedAt": "2026-09-23T10:11:29.953Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1216,9 +1216,9 @@
       "sourceSlug": "/nl/dossiers/novacity-ii",
       "sourceTitle": "NovaCity II",
       "provenance": {
-        "sourceLastModified": "2026-07-19",
-        "sourceContentHash": "sha256:fb658b09a78be41cd8657bd22b36be14",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:f5b1b499a4c882eaf2ed6e708c0e2c82",
+        "generatedAt": "2026-09-23T10:11:29.953Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1285,9 +1285,9 @@
       "sourceSlug": "/nl/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-06-12",
-        "sourceContentHash": "sha256:48ffa43a00c9d1ecc378423423bc164d",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:d929b6eb244c1784538d51ae689388a1",
+        "generatedAt": "2026-09-23T10:11:29.953Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1308,9 +1308,9 @@
       "sourceSlug": "/nl/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-06-12",
-        "sourceContentHash": "sha256:48ffa43a00c9d1ecc378423423bc164d",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-20",
+        "sourceContentHash": "sha256:d929b6eb244c1784538d51ae689388a1",
+        "generatedAt": "2026-09-23T10:11:29.953Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1423,9 +1423,9 @@
       "sourceSlug": "/nl/dossiers/seniors-a-bruxelles",
       "sourceTitle": "Senioren",
       "provenance": {
-        "sourceLastModified": "2026-07-26",
+        "sourceLastModified": "2026-09-22",
         "sourceContentHash": "sha256:e2fd88329d26c74fc75da46142b39155",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "generatedAt": "2026-09-23T10:11:29.953Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1584,13 +1584,12 @@
       "sourceSlug": "/nl/dossiers/vivaqua",
       "sourceTitle": "Vivaqua",
       "provenance": {
-        "sourceLastModified": "2026-06-12",
-        "sourceContentHash": "sha256:0b8178cdb4ed530602412f1a21f39858",
-        "generatedAt": "2026-08-05T21:07:20.410Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:4c485e86e95a929a54cbf0f27aa5389f",
+        "generatedAt": "2026-09-23T10:11:29.953Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 69
+  ]
 }

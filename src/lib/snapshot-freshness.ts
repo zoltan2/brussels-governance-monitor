@@ -55,7 +55,7 @@ export function describeFreshness(
 export function freshnessClassName(level: FreshnessLevel): string {
   return level === 'fresh'
     ? 'mt-3 text-xs text-neutral-500'
-    : 'mt-3 text-xs font-medium text-amber-700';
+    : 'mt-3 text-xs font-medium text-warning-fg';
 }
 
 const GRAVITE_FRAICHEUR: Record<FreshnessLevel, number> = { clock: 2, stale: 1, fresh: 0 };

@@ -195,7 +195,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
           {entry.auto_translated && (
             <>
               <span>&middot;</span>
-              <span className="rounded bg-amber-50 px-1.5 py-0.5 text-amber-700">
+              <span className="rounded bg-warning-bg px-1.5 py-0.5 text-warning-fg">
                 {getDigestNotice(lang).badge}
               </span>
             </>
@@ -204,7 +204,7 @@ export default async function DigestDetailPage({ params }: DigestPageProps) {
 
         {/* Fallback banner */}
         {isFallback && (
-          <div className="mb-6 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800" {...chrome}>
+          <div className="mb-6 rounded-md border border-warning-border bg-warning-bg px-4 py-3 text-sm text-warning-fg" {...chrome}>
             This digest is not yet available in{' '}
             {langInfo?.name || lang}. Showing the French version.
           </div>

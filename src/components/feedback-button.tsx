@@ -103,7 +103,7 @@ export function FeedbackButton({ cardTitle, cardType, cardSlug, context, labels 
       <h3 className="mb-3 text-sm font-semibold text-neutral-900">{labels.title}</h3>
 
       {status === 'success' ? (
-        <p className="text-sm text-teal-700" role="status" aria-live="polite">{labels.success}</p>
+        <p className="text-sm text-confirmed-fg" role="status" aria-live="polite">{labels.success}</p>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-3">
           <div>

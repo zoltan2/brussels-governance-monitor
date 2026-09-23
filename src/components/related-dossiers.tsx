@@ -36,7 +36,7 @@ export function RelatedDossiers({
             <Link
               // Slug localisé : seules ces URL sont générées (dynamicParams = false)
               href={{ pathname: '/dossiers/[slug]', params: { slug: getLocalizedSlug(d, locale) } }}
-              className="group block rounded-lg bg-neutral-50 p-3 transition-colors hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+              className="group block rounded-lg bg-neutral-50 p-3 transition-colors hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
               {...(umamiEvent
                 ? {
                     'data-umami-event': umamiEvent,

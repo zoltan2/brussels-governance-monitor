@@ -37,7 +37,7 @@ export function CommuneCard({ card }: CommuneCardProps) {
       <div className="mt-auto flex items-center justify-between pt-2">
         <TransparencyScoreBadge score={card.transparencyScore} total={card.transparencyTotal} />
         {activeAlerts > 0 && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-status-delayed">
+          <span className="inline-flex items-center gap-1 rounded-full bg-warning-bg px-2.5 py-0.5 text-xs font-medium text-warning-fg">
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>

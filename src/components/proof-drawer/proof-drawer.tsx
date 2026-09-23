@@ -23,10 +23,10 @@ const TAG_LABELS: Record<ProofSourceType, string> = {
 };
 
 const TAG_CLASSES: Record<ProofSourceType, string> = {
-  primary: 'bg-teal-50 text-teal-700 border-teal-200',
-  analysis: 'bg-blue-50 text-blue-700 border-blue-200',
-  relay: 'bg-violet-50 text-violet-700 border-violet-200',
-  contested: 'bg-rose-50 text-rose-700 border-rose-200',
+  primary: 'bg-confirmed-bg text-confirmed-fg border-confirmed-border',
+  analysis: 'bg-info-bg text-info-fg border-info-border',
+  relay: 'bg-neutral-100 text-neutral-700 border-neutral-300',
+  contested: 'bg-warning-bg text-warning-fg border-warning-border',
 };
 
 const ALL_TABS: Tab[] = ['narrative', 'data', 'histoire'];
@@ -49,11 +49,11 @@ const JSON_TOKEN_RE = new RegExp(
 );
 
 const JSON_TOKEN_CLASSES = {
-  key: 'text-blue-700',
-  string: 'text-emerald-700',
-  number: 'text-amber-700',
-  bool: 'text-violet-700',
-  punct: 'text-slate-500',
+  key: 'text-info-fg',
+  string: 'text-confirmed-fg',
+  number: 'text-warning-fg',
+  bool: 'text-brand-700',
+  punct: 'text-neutral-500',
 } as const;
 
 type JsonTokenKind = keyof typeof JSON_TOKEN_CLASSES | 'whitespace';
@@ -142,7 +142,7 @@ export function ProofDrawer({ id, metric, open, tab, onTabChange }: ProofDrawerP
       role="region"
       aria-labelledby={`${id}-claim`}
       hidden={!open}
-      className="my-3 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 transition-[max-height,opacity] duration-200 ease-out motion-reduce:transition-none"
+      className="my-3 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 transition-[max-height,opacity] duration-200 ease-out motion-reduce:transition-none"
       style={{
         maxHeight: open ? '40rem' : '0',
         opacity: open ? 1 : 0,
@@ -151,7 +151,7 @@ export function ProofDrawer({ id, metric, open, tab, onTabChange }: ProofDrawerP
       <div className="space-y-3 p-4 text-sm">
         <RobustnessBar score={score} />
 
-        <p id={`${id}-claim`} className="border-l-2 border-slate-300 pl-3 italic text-slate-700">
+        <p id={`${id}-claim`} className="border-l-2 border-neutral-300 pl-3 italic text-neutral-700">
           {metric.claim}
         </p>
 
@@ -159,7 +159,7 @@ export function ProofDrawer({ id, metric, open, tab, onTabChange }: ProofDrawerP
           role="tablist"
           aria-label="Vues du fil de preuves"
           onKeyDown={handleTablistKeydown}
-          className="flex gap-1 border-b border-slate-200"
+          className="flex gap-1 border-b border-neutral-200"
         >
           <TabButton
             current={tab}
@@ -223,9 +223,9 @@ function RobustnessBar({ score }: { score: number }) {
   const colorClass = robustnessColorClass(score);
   return (
     <div className="flex items-center gap-3">
-      <span className="text-xs uppercase tracking-wide text-slate-500">Robustesse</span>
+      <span className="text-xs uppercase tracking-wide text-neutral-500">Robustesse</span>
       <div
-        className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-200"
+        className="h-1.5 flex-1 overflow-hidden rounded-full bg-neutral-200"
         role="progressbar"
         aria-valuenow={pct}
         aria-valuemin={0}
@@ -233,7 +233,7 @@ function RobustnessBar({ score }: { score: number }) {
         aria-label="Score de robustesse"
       >
         <div
-          className={`h-full ${pct >= 80 ? 'bg-teal-600' : pct >= 65 ? 'bg-amber-500' : 'bg-rose-500'}`}
+          className={`h-full ${pct >= 80 ? 'bg-status-resolved' : pct >= 65 ? 'bg-status-delayed' : 'bg-status-blocked'}`}
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -270,12 +270,12 @@ function TabButton({
       tabIndex={active ? 0 : -1}
       disabled={disabled}
       onClick={() => onClick(value)}
-      className={`-mb-px border-b-2 px-3 py-1.5 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 ${
+      className={`-mb-px border-b-2 px-3 py-1.5 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 ${
         active
           ? 'border-brand-700 text-brand-800'
           : disabled
-            ? 'cursor-not-allowed border-transparent text-slate-400'
-            : 'border-transparent text-slate-600 hover:text-slate-900'
+            ? 'cursor-not-allowed border-transparent text-neutral-400'
+            : 'border-transparent text-neutral-600 hover:text-neutral-900'
       }`}
     >
       {children}
@@ -295,17 +295,17 @@ function NarrativeTab({ metric }: { metric: InstrumentedMetric }) {
               aria-hidden="true"
               className={`mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full ${
                 src.type === 'primary'
-                  ? 'bg-teal-500'
+                  ? 'bg-confirmed-border'
                   : src.type === 'contested'
-                    ? 'bg-rose-500'
+                    ? 'bg-warning-strong'
                     : src.type === 'analysis'
-                      ? 'bg-blue-500'
-                      : 'bg-violet-500'
+                      ? 'bg-info-border'
+                      : 'bg-neutral-400'
               }`}
             />
             <div className="flex-1">
-              <div className="font-medium text-slate-900">{src.label}</div>
-              {src.description && <div className="mt-0.5 text-xs text-slate-600">{src.description}</div>}
+              <div className="font-medium text-neutral-900">{src.label}</div>
+              {src.description && <div className="mt-0.5 text-xs text-neutral-600">{src.description}</div>}
               <div className="mt-1 flex flex-wrap items-center gap-2">
                 <span
                   className={`inline-block rounded border px-1.5 py-0.5 text-[10px] uppercase tracking-wide ${TAG_CLASSES[src.type]}`}
@@ -345,7 +345,7 @@ function DataTab({ metric }: { metric: InstrumentedMetric }) {
   const tokens = tokenizeJson(json);
 
   return (
-    <pre className="overflow-x-auto rounded bg-slate-900/5 p-3 text-xs font-mono leading-relaxed">
+    <pre className="overflow-x-auto rounded bg-neutral-900/5 p-3 text-xs font-mono leading-relaxed">
       <code>
         {tokens.map((token, idx) => {
           if (token.kind === 'whitespace') return token.value;

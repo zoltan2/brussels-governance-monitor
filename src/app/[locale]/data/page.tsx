@@ -222,8 +222,8 @@ export default async function DataPage({
 // ---------- Confidence badge ----------
 
 const CONFIDENCE_STYLES: Record<string, string> = {
-  official: 'bg-teal-50 text-teal-700 border-teal-200',
-  estimated: 'bg-amber-50 text-amber-700 border-amber-200',
+  official: 'bg-confirmed-bg text-confirmed-fg border-confirmed-border',
+  estimated: 'bg-warning-bg text-warning-fg border-warning-border',
   unconfirmed: 'bg-neutral-100 text-neutral-500 border-neutral-200',
 };
 

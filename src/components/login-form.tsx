@@ -80,7 +80,7 @@ export function LoginForm({ destination, labels }: LoginFormProps) {
       </div>
 
       {error && (
-        <p className="text-sm text-amber-700" role="alert">{labels.error}</p>
+        <p className="text-sm text-warning-fg" role="alert">{labels.error}</p>
       )}
 
       <button

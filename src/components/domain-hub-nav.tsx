@@ -52,7 +52,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
           <Link
             key={s.slug}
             href={{ pathname: '/sectors/[slug]', params: { slug: s.slug } }}
-            className="group rounded-lg border border-neutral-150 bg-neutral-50 p-4 transition-all hover:border-brand-300 hover:shadow-sm"
+            className="group rounded-lg border border-neutral-200 bg-neutral-50 p-4 transition-all hover:border-brand-600 hover:shadow-sm"
           >
             <div className="mb-1 flex items-center gap-2">
               <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{l.sectors}</span>
@@ -79,7 +79,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
           <Link
             key={d.slug}
             href={{ pathname: '/dossiers/[slug]', params: { slug: d.slug } }}
-            className="group rounded-lg border border-neutral-150 bg-neutral-50 p-4 transition-all hover:border-brand-300 hover:shadow-sm"
+            className="group rounded-lg border border-neutral-200 bg-neutral-50 p-4 transition-all hover:border-brand-600 hover:shadow-sm"
           >
             <div className="mb-1 flex items-center gap-2">
               <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{l.dossiers}</span>
@@ -101,7 +101,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
           <Link
             key={c.slug}
             href={{ pathname: '/comparisons/[slug]', params: { slug: c.slug } }}
-            className="group rounded-lg border border-neutral-150 bg-neutral-50 p-4 transition-all hover:border-brand-300 hover:shadow-sm"
+            className="group rounded-lg border border-neutral-200 bg-neutral-50 p-4 transition-all hover:border-brand-600 hover:shadow-sm"
           >
             <div className="mb-1">
               <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-500">{l.comparisons}</span>
@@ -110,7 +110,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
             {c.dataPoints.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-2">
                 {c.dataPoints.slice(0, 3).map((dp) => (
-                  <span key={dp.entity} className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] text-neutral-600">
+                  <span key={dp.entity} className="rounded bg-neutral-100 px-1.5 py-0.5 text-[10px] text-neutral-600">
                     {dp.entity}: {dp.value}
                   </span>
                 ))}
@@ -129,7 +129,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
               <Link
                 key={g.slug}
                 href={{ pathname: '/glossary' }}
-                className="rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs text-neutral-600 transition-colors hover:border-brand-300 hover:text-brand-700"
+                className="rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs text-neutral-600 transition-colors hover:border-brand-600 hover:text-brand-700"
               >
                 {g.term}
               </Link>

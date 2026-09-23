@@ -13,13 +13,13 @@ const PAGE_SIZE = 30;
 
 const CONFIDENCE_STYLES: Record<string, string> = {
   official: 'bg-brand-900/5 text-brand-700 border-brand-700/30',
-  estimated: 'bg-amber-50 text-amber-700 border-amber-200',
+  estimated: 'bg-warning-bg text-warning-fg border-warning-border',
   unconfirmed: 'bg-neutral-100 text-neutral-500 border-neutral-200',
 };
 
 const STATUS_STYLES: Record<string, string> = {
   active: 'bg-brand-900/5 text-brand-700 border-brand-700/30',
-  confirmed: 'bg-teal-50 text-teal-700 border-teal-200',
+  confirmed: 'bg-confirmed-bg text-confirmed-fg border-confirmed-border',
   archived: 'bg-neutral-50 text-neutral-500 border-neutral-200',
 };
 
@@ -191,7 +191,7 @@ function SignalCard({
         {signal.promotedTo && promotedSection === 'dossiers' && (
           <Link
             href={{ pathname: '/dossiers/[slug]', params: { slug: signal.promotedTo } }}
-            className="font-medium text-teal-700 underline underline-offset-2 hover:text-teal-900"
+            className="font-medium text-confirmed-fg underline underline-offset-2 hover:decoration-2"
           >
             {labels.seeCard}
           </Link>
@@ -199,7 +199,7 @@ function SignalCard({
         {signal.promotedTo && promotedSection === 'communes' && (
           <Link
             href={{ pathname: '/communes/[slug]', params: { slug: signal.promotedTo } }}
-            className="font-medium text-teal-700 underline underline-offset-2 hover:text-teal-900"
+            className="font-medium text-confirmed-fg underline underline-offset-2 hover:decoration-2"
           >
             {labels.seeCard}
           </Link>
@@ -207,7 +207,7 @@ function SignalCard({
         {signal.promotedTo && promotedSection === 'sectors' && (
           <Link
             href={{ pathname: '/sectors/[slug]', params: { slug: signal.promotedTo } }}
-            className="font-medium text-teal-700 underline underline-offset-2 hover:text-teal-900"
+            className="font-medium text-confirmed-fg underline underline-offset-2 hover:decoration-2"
           >
             {labels.seeCard}
           </Link>
@@ -215,7 +215,7 @@ function SignalCard({
         {signal.promotedTo && promotedSection !== 'dossiers' && promotedSection !== 'communes' && promotedSection !== 'sectors' && (
           <Link
             href={{ pathname: '/domains/[slug]', params: { slug: signal.promotedTo } }}
-            className="font-medium text-teal-700 underline underline-offset-2 hover:text-teal-900"
+            className="font-medium text-confirmed-fg underline underline-offset-2 hover:decoration-2"
           >
             {labels.seeCard}
           </Link>

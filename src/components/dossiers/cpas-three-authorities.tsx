@@ -183,7 +183,7 @@ export function CpasThreeAuthorities({ locale = 'fr' }: { locale?: Locale }) {
         {labels.columns.map((column) => (
           <div
             key={column.title}
-            className="rounded-md border border-neutral-200 bg-white p-3 sm:p-4"
+            className="rounded-md border border-neutral-200 bg-neutral-50 p-3 sm:p-4"
           >
             <h3 className="text-sm font-semibold text-neutral-900">{column.title}</h3>
             {column.subtitle && (

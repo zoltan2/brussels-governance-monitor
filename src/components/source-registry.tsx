@@ -53,9 +53,9 @@ const TYPE_STYLES: Record<string, { bg: string; text: string }> = {
   press: { bg: 'bg-neutral-100', text: 'text-neutral-600' },
   legal: { bg: 'bg-brand-900/5', text: 'text-brand-700' },
   agency: { bg: 'bg-brand-900/5', text: 'text-brand-700' },
-  research: { bg: 'bg-amber-50', text: 'text-amber-700' },
-  'think-tank': { bg: 'bg-amber-50', text: 'text-amber-700' },
-  ngo: { bg: 'bg-teal-50', text: 'text-teal-700' },
+  research: { bg: 'bg-warning-bg', text: 'text-warning-fg' },
+  'think-tank': { bg: 'bg-warning-bg', text: 'text-warning-fg' },
+  ngo: { bg: 'bg-confirmed-bg', text: 'text-confirmed-fg' },
 };
 
 const INITIAL_VISIBLE = 20;
@@ -167,7 +167,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
           <select
             value={activeDomain}
             onChange={(e) => { setActiveDomain(e.target.value); setExpanded(false); }}
-            className="w-full rounded-lg border border-neutral-500 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 focus-visible:border-brand-500 focus-visible:ring-1 focus-visible:ring-brand-500"
+            className="w-full rounded-lg border border-neutral-500 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
             aria-label={labels.domainFilter ?? 'Domain'}
           >
             <option value="all">{labels.domainFilter ?? 'Domain'} — {labels.all}</option>
@@ -188,7 +188,7 @@ export function SourceRegistry({ sources, labels }: SourceRegistryProps) {
           onChange={(e) => { setQuery(e.target.value); setExpanded(false); }}
           placeholder={labels.search}
           aria-label={labels.search}
-          className="w-full rounded-lg border border-neutral-500 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:border-brand-500 focus-visible:ring-1 focus-visible:ring-brand-500"
+          className="w-full rounded-lg border border-neutral-500 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
         />
       </div>
 
@@ -317,7 +317,7 @@ function SuggestSourceForm({ labels }: { labels: SuggestLabels }) {
       <p className="mb-4 text-xs text-neutral-500">{labels.suggestDescription}</p>
 
       {status === 'success' ? (
-        <p className="text-sm font-medium text-teal-700" role="status" aria-live="polite">
+        <p className="text-sm font-medium text-confirmed-fg" role="status" aria-live="polite">
           {labels.suggestSuccess}
         </p>
       ) : (

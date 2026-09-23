@@ -101,7 +101,7 @@ export function ProofDrawerTrigger({ metric, children }: ProofDrawerTriggerProps
         aria-expanded={open}
         aria-controls={drawerId}
         onClick={handleClick}
-        className="inline border-b border-dotted border-brand-700 bg-transparent text-brand-800 underline-offset-2 transition-colors hover:bg-brand-50 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2"
+        className="inline border-b border-dotted border-brand-700 bg-transparent text-brand-800 underline-offset-2 transition-colors hover:bg-brand-50 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
       >
         {children}
       </button>

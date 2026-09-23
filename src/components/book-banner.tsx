@@ -9,7 +9,7 @@ export function BookBanner() {
   return (
     <section className="py-10">
       <div className="mx-auto max-w-5xl px-4">
-        <div className="overflow-hidden rounded-xl border border-neutral-200 bg-white p-6 sm:p-8">
+        <div className="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
           <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
             {/* Cover */}
             <div className="w-[140px] shrink-0 sm:w-[160px]">

@@ -59,8 +59,8 @@ export default async function PressPage({
 
 const typeBadgeClasses: Record<PressMention['type'], string> = {
   feature: 'bg-brand-700/20 text-brand-800',
-  citation: 'bg-slate-100 text-slate-700',
-  mention: 'bg-amber-100 text-amber-800',
+  citation: 'bg-neutral-100 text-neutral-700',
+  mention: 'bg-warning-bg text-warning-fg',
 };
 
 function PressView({ mentions, locale }: { mentions: PressMention[]; locale: string }) {

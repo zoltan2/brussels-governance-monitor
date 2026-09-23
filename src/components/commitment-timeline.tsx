@@ -9,13 +9,15 @@ interface StatusEntry {
   source: string;
 }
 
+// Tokens de statut adaptatifs : les teintes brutes (indigo-600, slate-500…) ne
+// changeaient pas en sombre et se perdaient sur le fond (23/09/2026).
 const STATUS_DOT_COLORS: Record<string, string> = {
   'not-started': 'bg-neutral-500',
   announced: 'bg-brand-600',
-  'in-legislation': 'bg-indigo-600',
-  implemented: 'bg-teal-600',
-  delayed: 'bg-amber-600',
-  abandoned: 'bg-slate-500',
+  'in-legislation': 'bg-status-ongoing',
+  implemented: 'bg-status-resolved',
+  delayed: 'bg-status-delayed',
+  abandoned: 'bg-status-blocked',
 };
 
 export function CommitmentTimeline({
@@ -36,7 +38,7 @@ export function CommitmentTimeline({
         <div key={`${entry.date}-${i}`} className="relative flex gap-3 pb-3 last:pb-0">
           <div className="relative z-10 mt-1.5 flex shrink-0">
             <div
-              className={`h-[11px] w-[11px] rounded-full border-2 border-white ${
+              className={`h-[11px] w-[11px] rounded-full border-2 border-neutral-50 ${
                 STATUS_DOT_COLORS[entry.status] || 'bg-neutral-500'
               }`}
             />

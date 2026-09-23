@@ -72,7 +72,7 @@ export function SuggestDossier({ labels }: SuggestDossierProps) {
       <p className="mb-4 text-sm text-neutral-500">{labels.description}</p>
 
       {status === 'success' ? (
-        <p className="text-sm font-medium text-teal-700" role="status" aria-live="polite">
+        <p className="text-sm font-medium text-confirmed-fg" role="status" aria-live="polite">
           {labels.success}
         </p>
       ) : (

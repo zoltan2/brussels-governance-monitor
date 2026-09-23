@@ -195,11 +195,11 @@ describe('ProofDrawer phase 2b — data tab', () => {
         onTabChange={() => {}}
       />,
     );
-    expect(container.querySelector('span.text-blue-700')).not.toBeNull(); // key
-    expect(container.querySelector('span.text-emerald-700')).not.toBeNull(); // string
-    expect(container.querySelector('span.text-amber-700')).not.toBeNull(); // number
-    expect(container.querySelector('span.text-violet-700')).not.toBeNull(); // bool (false)
-    expect(container.querySelector('span.text-slate-500')).not.toBeNull(); // punct
+    expect(container.querySelector('span.text-info-fg')).not.toBeNull(); // key
+    expect(container.querySelector('span.text-confirmed-fg')).not.toBeNull(); // string
+    expect(container.querySelector('span.text-warning-fg')).not.toBeNull(); // number
+    expect(container.querySelector('span.text-brand-700')).not.toBeNull(); // bool (false)
+    expect(container.querySelector('span.text-neutral-500')).not.toBeNull(); // punct
   });
 
   it('does NOT render <a> in the data tab (URLs are plain text)', () => {

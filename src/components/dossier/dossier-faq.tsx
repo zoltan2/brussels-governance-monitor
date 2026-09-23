@@ -51,7 +51,7 @@ export function DossierFaq({ faq, title }: { faq: FaqEntry[]; title: string }) {
               <ReactMarkdown
                 components={{
                   a: ({ href, children }) => (
-                    <a href={href} target="_blank" rel="noopener noreferrer" className="text-info-fg underline hover:text-info-fg">
+                    <a href={href} target="_blank" rel="noopener noreferrer" className="text-info-fg underline hover:decoration-2">
                       {children}
                     </a>
                   ),

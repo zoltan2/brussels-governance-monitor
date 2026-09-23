@@ -43,9 +43,10 @@ const LABELS: Record<Locale, Labels> = {
 };
 
 const SEVERITY_TONE: Record<Severity, string> = {
-  info: 'border-brand-600/40 bg-brand-600/10 text-brand-700',
-  warning: 'border-warning-border bg-warning-bg text-warning-fg',
-  critical: 'border-warning-strong bg-warning-bg text-warning-fg',
+  info: 'border border-brand-600/40 bg-brand-600/10 text-brand-700',
+  warning: 'border border-warning-border bg-warning-bg text-warning-fg',
+  // Bordure plus épaisse : ne pas distinguer critical de warning par la seule couleur (1.4.1).
+  critical: 'border-2 border-warning-strong bg-warning-bg text-warning-fg',
 };
 
 export function CpasProceduresTracker({
@@ -76,7 +77,7 @@ export function CpasProceduresTracker({
             <div className="flex items-start justify-between gap-3">
               <span className="min-w-0 text-sm font-semibold text-neutral-900">{p.label}</span>
               <span
-                className={`shrink-0 whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] font-medium ${SEVERITY_TONE[p.severity]}`}
+                className={`shrink-0 whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium ${SEVERITY_TONE[p.severity]}`}
               >
                 {labels.severity[p.severity]}
               </span>
@@ -106,7 +107,7 @@ export function CpasProceduresTracker({
                 </td>
                 <td className="px-4 py-2.5">
                   <span
-                    className={`inline-block whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] font-medium ${SEVERITY_TONE[p.severity]}`}
+                    className={`inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium ${SEVERITY_TONE[p.severity]}`}
                   >
                     {labels.severity[p.severity]}
                   </span>

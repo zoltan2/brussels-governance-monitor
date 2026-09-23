@@ -348,10 +348,17 @@ mark {
   /* Reset light backgrounds to white */
   [class*="bg-neutral-50"],
   [class*="bg-brand-50"],
-  [class*="bg-teal-50"],
-  [class*="bg-amber-50"],
-  [class*="bg-blue-50"] {
+  [class*="bg-warning-bg"],
+  [class*="bg-info-bg"],
+  [class*="bg-confirmed-bg"] {
     background: white !important;
+  }
+  /* Les textes sémantiques sont clairs en sombre : imprimés depuis le mode
+     sombre, ils tomberaient en clair sur le papier blanc. */
+  [class*="text-warning-fg"],
+  [class*="text-info-fg"],
+  [class*="text-confirmed-fg"] {
+    color: black !important;
   }
 
   /* Ensure links show their URL */

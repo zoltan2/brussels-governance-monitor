@@ -47,7 +47,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   procedure: 'bg-info-bg text-info-fg',
   budget: 'bg-warning-bg text-warning-fg',
   political: 'bg-neutral-100 text-neutral-700',
-  legal: 'bg-neutral-100 text-neutral-700',
+  legal: 'bg-confirmed-bg text-confirmed-fg',
   bgm: 'bg-brand-900/5 text-brand-700',
 };
 

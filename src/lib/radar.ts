@@ -5,6 +5,12 @@ import { z } from 'zod';
 import type { Locale } from '@/i18n/routing';
 import radarData from '../../data/radar.json';
 import sourceRegistry from '../../docs/source-registry.json';
+import {
+  getAllDomainSlugs,
+  getAllDossierSlugs,
+  getAllCommuneSlugs,
+  getAllSectorSlugs,
+} from './content';
 
 // ---------- Schema ----------
 
@@ -49,6 +55,13 @@ const radarSchema = z.object({
 
 export type RadarEntry = z.infer<typeof radarEntrySchema>;
 
+export type PromotedSection = 'domains' | 'dossiers' | 'communes' | 'sectors';
+
+export interface PromotedLink {
+  section: PromotedSection;
+  slug: string;
+}
+
 export interface LocalizedRadarEntry {
   id: string;
   date: string;
@@ -60,9 +73,98 @@ export interface LocalizedRadarEntry {
   summary?: string;
   description: string;
   promotedTo: string | null;
-  promotedSection?: 'domains' | 'dossiers' | 'communes' | 'sectors';
+  promotedSection?: PromotedSection;
+  /**
+   * Lien « voir la fiche » RÉSOLU côté serveur à partir des collections de
+   * contenu réelles, jamais du seul `promotedSection` déclaré. `null` quand
+   * `promotedTo` ne correspond à aucune fiche existante : pas de lien plutôt
+   * qu'un lien mort. Voir `resolvePromotedLink()`.
+   */
+  promotedLink: PromotedLink | null;
   archivedAt: string | null;
   period?: string;
+}
+
+// ---------- Résolution du lien « voir la fiche » ----------
+
+/**
+ * Ensembles de slugs existants par type de fiche, utilisés pour résoudre le
+ * VRAI type d'un signal promu. Interface pure (ensembles passés en
+ * argument), testable sans dépendre de Velite — voir
+ * `getContentPromotionSlugSets()` pour la variante branchée sur les
+ * collections réelles.
+ */
+export interface PromotionSlugSets {
+  domains: ReadonlySet<string> | readonly string[];
+  dossiers: ReadonlySet<string> | readonly string[];
+  communes: ReadonlySet<string> | readonly string[];
+  sectors: ReadonlySet<string> | readonly string[];
+}
+
+function slugSetHas(set: PromotionSlugSets[PromotedSection], slug: string): boolean {
+  return Array.isArray(set) ? set.includes(slug) : (set as ReadonlySet<string>).has(slug);
+}
+
+/**
+ * Ordre de repli quand `promotedSection` est absent, ou pointe vers une
+ * section où la fiche n'existe pas : `domains` d'abord (comportement
+ * historique, correct pour la grande majorité des signaux promus — ex.
+ * "education" existe à la fois comme domaine et comme secteur, et le
+ * domaine est la lecture voulue), puis les types plus spécifiques.
+ */
+const FALLBACK_SECTION_ORDER: PromotedSection[] = ['domains', 'dossiers', 'communes', 'sectors'];
+
+/**
+ * Résout la VRAIE section d'un signal promu. Un `promotedSection` déclaré et
+ * valide (la fiche existe bien dans cette section) est respecté tel quel,
+ * même quand le même slug existe aussi ailleurs. Un `promotedSection` absent
+ * ou qui contredit la réalité (la fiche n'y existe pas) est recalculé à
+ * partir des fiches qui existent vraiment : le vrai type l'emporte toujours
+ * sur un défaut. Rend `null` si le slug ne correspond à aucune fiche connue —
+ * c'était le bug du 24/09/2026 : `promotedSection ?? 'domains'` pointait vers
+ * /domaines/<slug> pour 23 signaux qui promouvaient en réalité un dossier ou
+ * une commune, produisant 227 - 23 liens valides mais 23 liens en 404 (voir
+ * les logs d'accès de production).
+ */
+export function resolvePromotedSection(
+  promotedTo: string | null | undefined,
+  storedSection: PromotedSection | undefined,
+  slugSets: PromotionSlugSets,
+): PromotedSection | null {
+  if (!promotedTo) return null;
+  if (storedSection && slugSetHas(slugSets[storedSection], promotedTo)) return storedSection;
+  for (const section of FALLBACK_SECTION_ORDER) {
+    if (slugSetHas(slugSets[section], promotedTo)) return section;
+  }
+  return null;
+}
+
+/** Combine `resolvePromotedSection()` et le slug en un lien prêt à rendre, ou `null`. */
+export function resolvePromotedLink(
+  promotedTo: string | null | undefined,
+  storedSection: PromotedSection | undefined,
+  slugSets: PromotionSlugSets,
+): PromotedLink | null {
+  const section = resolvePromotedSection(promotedTo, storedSection, slugSets);
+  return section && promotedTo ? { section, slug: promotedTo } : null;
+}
+
+let cachedPromotionSlugSets: PromotionSlugSets | null = null;
+
+/**
+ * Variante de `PromotionSlugSets` branchée sur les vraies collections
+ * Velite, mémoïsée (les slugs ne changent pas pendant un build/une requête).
+ */
+export function getContentPromotionSlugSets(): PromotionSlugSets {
+  if (!cachedPromotionSlugSets) {
+    cachedPromotionSlugSets = {
+      domains: getAllDomainSlugs(),
+      dossiers: getAllDossierSlugs(),
+      communes: getAllCommuneSlugs(),
+      sectors: getAllSectorSlugs(),
+    };
+  }
+  return cachedPromotionSlugSets;
 }
 
 // ---------- Parsed data ----------
@@ -84,6 +186,11 @@ function localize(entry: RadarEntry, locale: Locale): LocalizedRadarEntry {
     description: entry.descriptions[locale] || entry.descriptions.fr,
     promotedTo: entry.promotedTo,
     promotedSection: entry.promotedSection,
+    promotedLink: resolvePromotedLink(
+      entry.promotedTo,
+      entry.promotedSection,
+      getContentPromotionSlugSets(),
+    ),
     archivedAt: entry.archivedAt,
     period: entry.period,
   };

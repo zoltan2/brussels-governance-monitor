@@ -97,7 +97,7 @@ export function ZruCarteQuartiers({ locale = 'fr' }: { locale?: Locale }): React
   const bornes: (number | null)[] = [null, ...SEUILS_PALIERS, null];
   // Euro entier : formaterNombre garde ses décimales par défaut pour les autres appelants
   // (surfaces en km²…), donc l'arrondi se fait ici, avant formatage.
-  const avecUnite = (n: number) => `${formaterNombre(Math.round(n), locale)} €`;
+  const avecUnite = (n: number) => `${formaterNombre(Math.round(n), locale)}\u00a0€`;
   const texteBornes = (n: number): string => {
     const basse = bornes[n - 1];
     const haute = bornes[n];

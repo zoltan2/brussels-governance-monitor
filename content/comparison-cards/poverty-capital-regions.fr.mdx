@@ -6,61 +6,65 @@ locale: fr
 comparisonType: international
 entities:
   - name: "Bruxelles-Capitale"
-    code: "BE1"
-  - name: "Ostösterreich (Wien)"
-    code: "AT1"
-  - name: "Île-de-France"
-    code: "FR1"
+    code: "BE10"
+  - name: "Vienne"
+    code: "AT13"
   - name: "Berlin"
-    code: "DE3"
-  - name: "West-Nederland"
-    code: "NL3"
-indicator: "Taux de risque de pauvreté (AROP)"
+    code: "DE30"
+  - name: "Île-de-France"
+    code: "FR10"
+  - name: "Hollande-Septentrionale"
+    code: "NL32"
+indicator: "Taux de risque de pauvreté ou d'exclusion sociale (AROPE)"
 sourceDataset:
-  name: "Eurostat — ilc_li41"
-  url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_li41/default/table"
-  code: "ilc_li41"
-methodology: "Comparaison du taux de risque de pauvreté (AROP, At Risk of Poverty) au niveau NUTS-1, sur base de l'enquête EU-SILC harmonisée par Eurostat. Le taux AROP mesure la part de la population dont le revenu disponible équivalent est inférieur à 60 % du revenu médian national. Il ne couvre pas les deux autres dimensions de l'indicateur AROPE (risque de pauvreté ou d'exclusion sociale) : la privation matérielle et sociale sévère et la très faible intensité de travail. Les données sont publiées au niveau NUTS-1, ce qui signifie que certaines régions de comparaison sont plus larges que la seule ville-capitale."
+  name: "Eurostat — ilc_peps11n"
+  url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table"
+  code: "ilc_peps11n"
+methodology: "Comparaison du taux de risque de pauvreté ou d'exclusion sociale (AROPE) des régions-capitales au niveau NUTS-2, sur base de l'enquête EU-SILC harmonisée par Eurostat, données 2025. Le taux AROPE compte les personnes qui se trouvent dans au moins une de ces trois situations : un revenu disponible équivalent inférieur à 60 % du revenu médian national (risque de pauvreté), une privation matérielle et sociale sévère, ou une très faible intensité de travail du ménage. C'est l'indicateur de référence de l'Union européenne. La fiche donne aussi le taux de risque de pauvreté (AROP), fondé sur le seul revenu (Eurostat, ilc_li41)."
 dataPoints:
-  - entity: "BE1"
-    value: "28,8 %"
-    date: "2023-12-31"
-  - entity: "AT1"
-    value: "17,3 %"
-    date: "2023-12-31"
-  - entity: "FR1"
-    value: "14,8 %"
-    date: "2023-12-31"
-  - entity: "DE3"
-    value: "13,7 %"
-    date: "2023-12-31"
-  - entity: "NL3"
-    value: "13,6 %"
-    date: "2023-12-31"
-caveat: "Les données sont au niveau NUTS-1 et non NUTS-2. Pour Bruxelles (BE1), Berlin (DE3) et l'Île-de-France (FR1), le NUTS-1 correspond de facto à la région-capitale. En revanche, AT1 (Ostösterreich) englobe Wien mais aussi la Basse-Autriche et le Burgenland, et NL3 (West-Nederland) inclut les provinces d'Utrecht, de Hollande-Méridionale et de Noord-Holland — ces valeurs sont donc diluées par rapport à la seule ville-capitale. Le seuil de pauvreté est calculé par rapport au revenu médian national, ce qui peut produire des résultats différents dans les pays à forte disparité régionale."
-lastModified: "2026-09-19"
+  - entity: "BE10"
+    value: "33,6 %"
+    date: "2025-12-31"
+  - entity: "AT13"
+    value: "29,8 %"
+    date: "2025-12-31"
+  - entity: "DE30"
+    value: "24,4 %"
+    date: "2025-12-31"
+  - entity: "FR10"
+    value: "20,9 %"
+    date: "2025-12-31"
+  - entity: "NL32"
+    value: "16,9 %"
+    date: "2025-12-31"
+caveat: "Le niveau NUTS-2 correspond à la ville-capitale pour Bruxelles, Vienne et Berlin. L'Île-de-France et la Hollande-Septentrionale couvrent un territoire plus large que Paris et Amsterdam, ce qui rend la comparaison moins directe. Le seuil de pauvreté est calculé par rapport au revenu médian de chaque pays : il n'est pas le même d'un pays à l'autre. Sur le seul critère du revenu (AROP), Vienne dépasse Bruxelles en 2025 (25,7 % contre 23,3 %)."
+lastModified: "2026-09-24"
 changeType: corrected
-changeSummary: "Correction : les 28,8 % mesurés à Bruxelles en 2023 sont un taux de risque de pauvreté, et non l'indicateur AROPE. Ce dernier, qui ajoute la privation matérielle et sociale sévère et la très faible intensité de travail, atteignait 38,9 % la même année. Les valeurs des autres régions, issues de la même série Eurostat, restent valables et portent désormais la bonne étiquette."
-changeSummaryDate: "2026-09-19"
+changeSummary: "Correction : sur le seul revenu, Vienne dépasse désormais Bruxelles (25,7 % contre 23,3 % en 2025). La fiche compare maintenant l'indicateur européen de référence, le risque de pauvreté ou d'exclusion sociale : Bruxelles reste la région-capitale la plus touchée de l'UE, avec 33,6 %. Les données portent sur 2025 et sur les régions-capitales elles-mêmes, et non plus sur 2023 à un niveau plus large."
+changeSummaryDate: "2026-09-24"
 ---
-
 ## Contexte
 
-Le taux de risque de pauvreté (AROP, At Risk of Poverty) mesure la part de la population dont le revenu disponible équivalent est inférieur à 60 % du revenu médian national. C'est la composante monétaire du taux AROPE (risque de pauvreté ou d'exclusion sociale), l'indicateur de référence de l'Union européenne, qui y ajoute la privation matérielle et sociale sévère et la très faible intensité de travail du ménage. Eurostat publie le taux AROP au niveau NUTS-1 via l'enquête EU-SILC (jeu de données ilc_li41). En 2023, le taux AROPE atteignait 38,9 % à Bruxelles (Eurostat, ilc_peps11n).
+Le taux de risque de pauvreté ou d'exclusion sociale (AROPE) est l'indicateur de référence de l'Union européenne. Il compte les personnes qui se trouvent dans au moins une de ces trois situations : un revenu disponible équivalent inférieur à 60 % du revenu médian national, une privation matérielle et sociale sévère, ou une très faible intensité de travail du ménage. Eurostat le publie pour chaque région NUTS-2 via l'enquête EU-SILC (jeu de données ilc_peps11n). Ce niveau permet de comparer les régions-capitales elles-mêmes.
 
 ## Les données comparées
 
-Avec un taux de risque de pauvreté (AROP) de **28,8 %** en 2023, Bruxelles-Capitale se distingue nettement des autres régions-capitales européennes. Le taux bruxellois est :
+En 2025, **33,6 %** des habitants de la Région de Bruxelles-Capitale étaient exposés au risque de pauvreté ou d'exclusion sociale, soit un habitant sur trois. C'est le taux le plus élevé des 27 régions NUTS-2 qui abritent la capitale d'un État membre de l'Union. Le taux bruxellois dépasse celui de :
 
-- **Plus du double** de celui de Berlin (13,7 %) et du West-Nederland (13,6 %)
-- **Près du double** de celui de l'Île-de-France (14,8 %)
-- **67 % plus élevé** que celui de l'Ostösterreich (17,3 %), qui inclut pourtant des zones rurales moins favorisées
+- Vienne (29,8 %), de 3,8 points
+- Berlin (24,4 %), de 9,2 points
+- l'Île-de-France (20,9 %), de 12,7 points
+- la Hollande-Septentrionale (16,9 %), région d'Amsterdam : le taux bruxellois en est presque le double
 
-Près de **3 Bruxellois sur 10** vivaient sous le seuil de risque de pauvreté en 2023 : un chiffre qui contraste avec le PIB par habitant le plus élevé de toutes ces régions.
+## Sur le seul revenu, Vienne devant Bruxelles
+
+Le taux de risque de pauvreté (AROP) ne retient que le critère du revenu. Sur cette mesure, Vienne dépasse Bruxelles en 2025 : **25,7 %** contre **23,3 %**. Suivent Berlin (18,7 %), l'Île-de-France (16,9 %) et la Hollande-Septentrionale (14,8 %).
+
+À Bruxelles, ce taux a reculé en deux ans : 28,8 % en 2023, 26,3 % en 2024 et 23,3 % en 2025. Bruxelles doit donc son premier rang sur le taux AROPE aux deux autres composantes de l'indicateur : la privation matérielle et sociale sévère et la très faible intensité de travail.
 
 ## Le paradoxe confirmé
 
-Cette comparaison renforce le « paradoxe bruxellois » déjà visible dans les données de PIB : la région qui produit le plus de richesse par habitant est aussi celle qui concentre le plus de pauvreté. Plusieurs facteurs expliquent cette situation :
+Cette comparaison renforce le « paradoxe bruxellois » déjà visible dans les données de PIB. Parmi ces cinq régions, Bruxelles a le PIB par habitant le plus élevé (73 100 SPA en 2023, contre 66 100 en Hollande-Septentrionale et 61 500 en Île-de-France) et le taux de pauvreté ou d'exclusion sociale le plus élevé. Plusieurs facteurs expliquent cette situation :
 
 - **L'effet navetteur** : la richesse produite à Bruxelles bénéficie en grande partie à des non-résidents qui se redistribuent dans les couronnes flamande et wallonne.
 - **La structure démographique** : Bruxelles concentre une population jeune, diverse et en partie peu qualifiée, dans un marché du travail exigeant le bilinguisme.
@@ -72,11 +76,12 @@ Au-delà du seuil de pauvreté monétaire, **38,3 % des Bruxellois** déclarent 
 
 ## Limites de la comparaison
 
-Le niveau NUTS-1 produit des périmètres inégaux. Pour Bruxelles, Berlin et l'Île-de-France, le NUTS-1 correspond à la région-capitale. Pour l'Autriche et les Pays-Bas, le NUTS-1 englobe des territoires plus larges, ce qui dilue les résultats. Une comparaison strictement limitée aux villes-capitales montrerait vraisemblablement des taux de pauvreté plus élevés pour Wien et Amsterdam que ceux présentés ici.
+Le niveau NUTS-2 correspond à la ville-capitale pour Bruxelles, Vienne et Berlin. L'Île-de-France et la Hollande-Septentrionale couvrent un territoire plus large que Paris et Amsterdam. Le seuil de pauvreté est fixé par rapport au revenu médian de chaque pays : dans un pays plus riche, le seuil est plus haut, et une région-capitale peut y afficher un taux plus élevé à niveau de vie égal. Les chiffres régionaux de l'enquête EU-SILC reposent sur un échantillon : un écart de quelques points entre deux régions ne se lit pas comme un classement précis.
 
 ## Sources
 
-- Eurostat, EU-SILC, taux de risque de pauvreté par région NUTS-1 (ilc_li41), données 2023, consultées le 19 septembre 2026
-- Eurostat, EU-SILC, taux de risque de pauvreté ou d'exclusion sociale par région (ilc_peps11n), données 2023, consultées le 19 septembre 2026
+- Eurostat, EU-SILC, taux de risque de pauvreté ou d'exclusion sociale par région NUTS-2 (ilc_peps11n), données 2025, consultées le 24 septembre 2026
+- Eurostat, EU-SILC, taux de risque de pauvreté par région NUTS-2 (ilc_li41), données 2023 à 2025, consultées le 24 septembre 2026
+- Eurostat, PIB régional par habitant en standards de pouvoir d'achat (nama_10r_2gdp), données 2023, consultées le 24 septembre 2026
 - Statbel, EU-SILC 2025 — données régionales belges
 - Observatoire de la Santé et du Social, Baromètre social 2025

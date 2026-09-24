@@ -6,61 +6,65 @@ locale: nl
 comparisonType: international
 entities:
   - name: "Brussels Hoofdstedelijk Gewest"
-    code: "BE1"
-  - name: "Ostösterreich (Wien)"
-    code: "AT1"
-  - name: "Île-de-France"
-    code: "FR1"
+    code: "BE10"
+  - name: "Wenen"
+    code: "AT13"
   - name: "Berlin"
-    code: "DE3"
-  - name: "West-Nederland"
-    code: "NL3"
-indicator: "Armoederisicograad (AROP)"
+    code: "DE30"
+  - name: "Île-de-France"
+    code: "FR10"
+  - name: "Noord-Holland"
+    code: "NL32"
+indicator: "Risico op armoede of sociale uitsluiting (AROPE)"
 sourceDataset:
-  name: "Eurostat — ilc_li41"
-  url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_li41/default/table"
-  code: "ilc_li41"
-methodology: "Vergelijking van de armoederisicograad (AROP, At Risk of Poverty) op NUTS-1-niveau, op basis van de door Eurostat geharmoniseerde EU-SILC-enquête. De armoederisicograad meet het aandeel van de bevolking met een equivalent beschikbaar inkomen onder 60 % van het nationale mediaaninkomen. Hij omvat niet de twee andere dimensies van de AROPE-indicator (risico op armoede of sociale uitsluiting): ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit. De gegevens worden gepubliceerd op NUTS-1-niveau, wat betekent dat sommige vergelijkingsregio's groter zijn dan enkel de hoofdstad."
+  name: "Eurostat — ilc_peps11n"
+  url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table"
+  code: "ilc_peps11n"
+methodology: "Vergelijking van het risico op armoede of sociale uitsluiting (AROPE) van de hoofdstedelijke regio's op NUTS-2-niveau, op basis van de door Eurostat geharmoniseerde EU-SILC-enquête, gegevens 2025. AROPE telt de personen die zich in minstens een van deze drie situaties bevinden: een equivalent beschikbaar inkomen onder 60 % van het nationale mediaaninkomen (armoederisico), ernstige materiële en sociale deprivatie, of een zeer lage werkintensiteit van het huishouden. Het is de referentie-indicator van de Europese Unie. De fiche geeft ook de armoederisicograad (AROP), die alleen op het inkomen berust (Eurostat, ilc_li41)."
 dataPoints:
-  - entity: "BE1"
-    value: "28,8 %"
-    date: "2023-12-31"
-  - entity: "AT1"
-    value: "17,3 %"
-    date: "2023-12-31"
-  - entity: "FR1"
-    value: "14,8 %"
-    date: "2023-12-31"
-  - entity: "DE3"
-    value: "13,7 %"
-    date: "2023-12-31"
-  - entity: "NL3"
-    value: "13,6 %"
-    date: "2023-12-31"
-caveat: "De gegevens zijn op NUTS-1-niveau en niet op NUTS-2-niveau. Voor Brussel (BE1), Berlin (DE3) en Île-de-France (FR1) komt het NUTS-1-niveau de facto overeen met de hoofdstedelijke regio. Daarentegen omvat AT1 (Ostösterreich) naast Wien ook Neder-Oostenrijk en Burgenland, en NL3 (West-Nederland) omvat de provincies Utrecht, Zuid-Holland en Noord-Holland — deze waarden zijn dus verdund ten opzichte van enkel de hoofdstad. De armoedegrens wordt berekend ten opzichte van het nationale mediaaninkomen, wat in landen met grote regionale verschillen tot afwijkende resultaten kan leiden."
-lastModified: "2026-09-19"
+  - entity: "BE10"
+    value: "33,6 %"
+    date: "2025-12-31"
+  - entity: "AT13"
+    value: "29,8 %"
+    date: "2025-12-31"
+  - entity: "DE30"
+    value: "24,4 %"
+    date: "2025-12-31"
+  - entity: "FR10"
+    value: "20,9 %"
+    date: "2025-12-31"
+  - entity: "NL32"
+    value: "16,9 %"
+    date: "2025-12-31"
+caveat: "Het NUTS-2-niveau valt samen met de hoofdstad voor Brussel, Wenen en Berlin. Île-de-France en Noord-Holland beslaan een ruimer gebied dan Parijs en Amsterdam, wat de vergelijking minder rechtstreeks maakt. De armoedegrens wordt berekend ten opzichte van het mediaaninkomen van elk land: ze verschilt van land tot land. Op het inkomen alleen (AROP) ligt Wenen in 2025 boven Brussel (25,7 % tegenover 23,3 %)."
+lastModified: "2026-09-24"
 changeType: corrected
-changeSummary: "Correctie: de 28,8 % gemeten in Brussel in 2023 is een armoederisicograad, en niet de AROPE-indicator. Die laatste, die daar ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit aan toevoegt, bedroeg dat jaar 38,9 %. De waarden van de andere regio's, uit dezelfde Eurostat-reeks, blijven geldig en dragen nu het juiste label."
-changeSummaryDate: "2026-09-19"
+changeSummary: "Correctie: op het inkomen alleen ligt Wenen nu boven Brussel (25,7 % tegenover 23,3 % in 2025). De fiche vergelijkt voortaan de Europese referentie-indicator, het risico op armoede of sociale uitsluiting: Brussel blijft de zwaarst getroffen hoofdstedelijke regio van de EU, met 33,6 %. De gegevens gaan over 2025 en over de hoofdstedelijke regio's zelf, en niet langer over 2023 op een ruimer niveau."
+changeSummaryDate: "2026-09-24"
 ---
-
 ## Context
 
-De armoederisicograad (AROP, At Risk of Poverty) meet het aandeel van de bevolking met een equivalent beschikbaar inkomen onder 60 % van het nationale mediaaninkomen. Het is de monetaire component van het AROPE-percentage (risico op armoede of sociale uitsluiting), de referentie-indicator van de Europese Unie, dat daar ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit van het huishouden aan toevoegt. Eurostat publiceert de armoederisicograad op NUTS-1-niveau via de EU-SILC-enquête (dataset ilc_li41). In 2023 bedroeg het AROPE-percentage in Brussel 38,9 % (Eurostat, ilc_peps11n).
+Het risico op armoede of sociale uitsluiting (AROPE) is de referentie-indicator van de Europese Unie. Het telt de personen die zich in minstens een van deze drie situaties bevinden: een equivalent beschikbaar inkomen onder 60 % van het nationale mediaaninkomen, ernstige materiële en sociale deprivatie, of een zeer lage werkintensiteit van het huishouden. Eurostat publiceert het voor elke NUTS-2-regio via de EU-SILC-enquête (dataset ilc_peps11n). Op dat niveau kunnen de hoofdstedelijke regio's zelf worden vergeleken.
 
 ## De vergeleken gegevens
 
-Met een armoederisicograad (AROP) van **28,8 %** in 2023 onderscheidt het Brussels Hoofdstedelijk Gewest zich duidelijk van de andere Europese hoofdstedelijke regio's. Het Brusselse percentage is:
+In 2025 liep **33,6 %** van de inwoners van het Brussels Hoofdstedelijk Gewest risico op armoede of sociale uitsluiting, of een op de drie inwoners. Dat is het hoogste cijfer van de 27 NUTS-2-regio's waarin de hoofdstad van een EU-lidstaat ligt. Het Brusselse cijfer ligt hoger dan dat van:
 
-- **Meer dan het dubbele** van dat van Berlin (13,7 %) en West-Nederland (13,6 %)
-- **Bijna het dubbele** van dat van Île-de-France (14,8 %)
-- **67 % hoger** dan dat van Ostösterreich (17,3 %), dat bovendien minder welvarende landelijke gebieden omvat
+- Wenen (29,8 %), met 3,8 procentpunt
+- Berlin (24,4 %), met 9,2 procentpunt
+- Île-de-France (20,9 %), met 12,7 procentpunt
+- Noord-Holland (16,9 %), de regio van Amsterdam: het Brusselse cijfer is bijna het dubbele
 
-Bijna **3 op de 10 Brusselaars** leefden in 2023 onder de armoederisicodrempel: een cijfer dat contrasteert met het hoogste bbp per inwoner van al deze regio's.
+## Op het inkomen alleen ligt Wenen voor
+
+De armoederisicograad (AROP) houdt alleen rekening met het inkomen. Op die maatstaf ligt Wenen in 2025 boven Brussel: **25,7 %** tegenover **23,3 %**. Daarna volgen Berlin (18,7 %), Île-de-France (16,9 %) en Noord-Holland (14,8 %).
+
+In Brussel is dit cijfer in twee jaar gedaald: 28,8 % in 2023, 26,3 % in 2024 en 23,3 % in 2025. Brussel dankt zijn eerste plaats op AROPE dus aan de twee andere onderdelen van de indicator: ernstige materiële en sociale deprivatie en een zeer lage werkintensiteit.
 
 ## De bevestigde paradox
 
-Deze vergelijking versterkt de « Brusselse paradox » die al zichtbaar was in de bbp-gegevens: de regio die de meeste rijkdom per inwoner produceert, concentreert ook de meeste armoede. Verschillende factoren verklaren deze situatie:
+Deze vergelijking versterkt de « Brusselse paradox » die al zichtbaar was in de bbp-gegevens. Van deze vijf regio's heeft Brussel het hoogste bbp per inwoner (73 100 KKS in 2023, tegenover 66 100 in Noord-Holland en 61 500 in Île-de-France) en het hoogste risico op armoede of sociale uitsluiting. Verschillende factoren verklaren deze situatie:
 
 - **Het pendelaarseffect**: de in Brussel geproduceerde rijkdom komt grotendeels ten goede aan niet-inwoners die zich herverdelen over de Vlaamse en Waalse rand.
 - **De demografische structuur**: Brussel concentreert een jonge, diverse en deels laaggeschoolde bevolking, in een arbeidsmarkt die tweetaligheid vereist.
@@ -72,11 +76,12 @@ Naast de monetaire armoedegrens verklaart **38,3 % van de Brusselaars** niet in 
 
 ## Beperkingen van de vergelijking
 
-Het NUTS-1-niveau levert ongelijke perimeters op. Voor Brussel, Berlin en Île-de-France komt het NUTS-1-niveau overeen met de hoofdstedelijke regio. Voor Oostenrijk en Nederland omvat het NUTS-1-niveau uitgestrektere gebieden, waardoor de resultaten worden verdund. Een vergelijking die strikt beperkt is tot de hoofdsteden zou waarschijnlijk hogere armoedecijfers voor Wien en Amsterdam opleveren dan hier gepresenteerd.
+Het NUTS-2-niveau valt samen met de hoofdstad voor Brussel, Wenen en Berlin. Île-de-France en Noord-Holland beslaan een ruimer gebied dan Parijs en Amsterdam. De armoedegrens wordt vastgelegd ten opzichte van het mediaaninkomen van elk land: in een rijker land ligt die grens hoger, en kan een hoofdstedelijke regio bij een gelijke levensstandaard een hoger cijfer tonen. De regionale EU-SILC-cijfers berusten op een steekproef: een verschil van enkele procentpunten tussen twee regio's is geen precieze rangschikking.
 
 ## Bronnen
 
-- Eurostat, EU-SILC, armoederisicograad per NUTS-1-regio (ilc_li41), gegevens 2023, geraadpleegd op 19 september 2026
-- Eurostat, EU-SILC, risico op armoede of sociale uitsluiting per regio (ilc_peps11n), gegevens 2023, geraadpleegd op 19 september 2026
+- Eurostat, EU-SILC, risico op armoede of sociale uitsluiting per NUTS-2-regio (ilc_peps11n), gegevens 2025, geraadpleegd op 24 september 2026
+- Eurostat, EU-SILC, armoederisicograad per NUTS-2-regio (ilc_li41), gegevens 2023 tot 2025, geraadpleegd op 24 september 2026
+- Eurostat, regionaal bbp per inwoner in koopkrachtstandaarden (nama_10r_2gdp), gegevens 2023, geraadpleegd op 24 september 2026
 - Statbel, EU-SILC 2025 — Belgische regionale gegevens
 - Observatorium voor Gezondheid en Welzijn, Sociaal Barometer 2025

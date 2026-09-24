@@ -6,61 +6,65 @@ locale: en
 comparisonType: international
 entities:
   - name: "Brussels-Capital"
-    code: "BE1"
-  - name: "Ostösterreich (Wien)"
-    code: "AT1"
-  - name: "Île-de-France"
-    code: "FR1"
+    code: "BE10"
+  - name: "Vienna"
+    code: "AT13"
   - name: "Berlin"
-    code: "DE3"
-  - name: "West-Nederland"
-    code: "NL3"
-indicator: "At-risk-of-poverty rate (AROP)"
+    code: "DE30"
+  - name: "Île-de-France"
+    code: "FR10"
+  - name: "North Holland"
+    code: "NL32"
+indicator: "At-risk-of-poverty-or-social-exclusion rate (AROPE)"
 sourceDataset:
-  name: "Eurostat — ilc_li41"
-  url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_li41/default/table"
-  code: "ilc_li41"
-methodology: "Comparison of the at-risk-of-poverty rate (AROP) at NUTS-1 level, based on the EU-SILC survey harmonised by Eurostat. The AROP rate measures the share of the population whose equivalised disposable income is below 60% of national median income. It does not cover the two other dimensions of the AROPE indicator (at risk of poverty or social exclusion): severe material and social deprivation and very low work intensity. Data are published at NUTS-1 level, which means that some comparison regions are larger than the capital city alone."
+  name: "Eurostat — ilc_peps11n"
+  url: "https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table"
+  code: "ilc_peps11n"
+methodology: "Comparison of the at-risk-of-poverty-or-social-exclusion rate (AROPE) of capital regions at NUTS-2 level, based on the EU-SILC survey harmonised by Eurostat, 2025 data. AROPE counts people in at least one of three situations: equivalised disposable income below 60% of the national median income (at risk of poverty), severe material and social deprivation, or very low household work intensity. It is the European Union's reference indicator. The card also gives the at-risk-of-poverty rate (AROP), based on income alone (Eurostat, ilc_li41)."
 dataPoints:
-  - entity: "BE1"
-    value: "28.8%"
-    date: "2023-12-31"
-  - entity: "AT1"
-    value: "17.3%"
-    date: "2023-12-31"
-  - entity: "FR1"
-    value: "14.8%"
-    date: "2023-12-31"
-  - entity: "DE3"
-    value: "13.7%"
-    date: "2023-12-31"
-  - entity: "NL3"
-    value: "13.6%"
-    date: "2023-12-31"
-caveat: "Data are at NUTS-1 level, not NUTS-2. For Brussels (BE1), Berlin (DE3) and Île-de-France (FR1), NUTS-1 corresponds de facto to the capital region. By contrast, AT1 (Ostösterreich) encompasses Wien but also Lower Austria and Burgenland, and NL3 (West-Nederland) includes the provinces of Utrecht, South Holland and Noord-Holland — these values are therefore diluted compared to the capital city alone. The poverty threshold is calculated relative to national median income, which can produce divergent results in countries with large regional disparities."
-lastModified: "2026-09-19"
+  - entity: "BE10"
+    value: "33.6%"
+    date: "2025-12-31"
+  - entity: "AT13"
+    value: "29.8%"
+    date: "2025-12-31"
+  - entity: "DE30"
+    value: "24.4%"
+    date: "2025-12-31"
+  - entity: "FR10"
+    value: "20.9%"
+    date: "2025-12-31"
+  - entity: "NL32"
+    value: "16.9%"
+    date: "2025-12-31"
+caveat: "At NUTS-2 level the region matches the capital city for Brussels, Vienna and Berlin. Île-de-France and North Holland cover a wider area than Paris and Amsterdam, which makes the comparison less direct. The poverty threshold is set against each country's median income, so it differs from country to country. On income alone (AROP), Vienna is above Brussels in 2025 (25.7% against 23.3%)."
+lastModified: "2026-09-24"
 changeType: corrected
-changeSummary: "Correction: the 28.8% measured in Brussels in 2023 is an at-risk-of-poverty rate, not the AROPE indicator. The latter, which adds severe material and social deprivation and very low work intensity, reached 38.9% the same year. The values for the other regions, from the same Eurostat series, remain valid and now carry the correct label."
-changeSummaryDate: "2026-09-19"
+changeSummary: "Correction: on income alone, Vienna is now above Brussels (25.7% against 23.3% in 2025). The card now compares the EU's reference indicator, the risk of poverty or social exclusion: Brussels remains the EU's hardest-hit capital region, at 33.6%. The data cover 2025 and the capital regions themselves, no longer 2023 at a wider level."
+changeSummaryDate: "2026-09-24"
 ---
-
 ## Context
 
-The at-risk-of-poverty rate (AROP) measures the share of the population whose equivalised disposable income is below 60% of national median income. It is the monetary component of the AROPE rate (at risk of poverty or social exclusion), the European Union's reference indicator, which adds severe material and social deprivation and very low household work intensity. Eurostat publishes the AROP rate at NUTS-1 level through the EU-SILC survey (dataset ilc_li41). In 2023, the AROPE rate reached 38.9% in Brussels (Eurostat, ilc_peps11n).
+The at-risk-of-poverty-or-social-exclusion rate (AROPE) is the European Union's reference indicator. It counts people in at least one of three situations: equivalised disposable income below 60% of the national median income, severe material and social deprivation, or very low household work intensity. Eurostat publishes it for each NUTS-2 region through the EU-SILC survey (dataset ilc_peps11n). This level makes it possible to compare the capital regions themselves.
 
 ## The data compared
 
-With an at-risk-of-poverty rate (AROP) of **28.8%** in 2023, Brussels-Capital stands out sharply from other European capital regions. The Brussels rate is:
+In 2025, **33.6%** of residents of the Brussels-Capital Region were at risk of poverty or social exclusion, one resident in three. That is the highest rate of the 27 NUTS-2 regions that contain the capital of an EU member state. The Brussels rate is higher than that of:
 
-- **More than double** that of Berlin (13.7%) and West-Nederland (13.6%)
-- **Nearly double** that of Île-de-France (14.8%)
-- **67% higher** than that of Ostösterreich (17.3%), which itself includes less affluent rural areas
+- Vienna (29.8%), by 3.8 points
+- Berlin (24.4%), by 9.2 points
+- Île-de-France (20.9%), by 12.7 points
+- North Holland (16.9%), the Amsterdam region: the Brussels rate is almost double
 
-Nearly **3 out of 10 Brussels residents** lived below the at-risk-of-poverty threshold in 2023: a figure that contrasts with the highest GDP per capita of all these regions.
+## On income alone, Vienna ahead of Brussels
+
+The at-risk-of-poverty rate (AROP) looks at income only. On that measure, Vienna is above Brussels in 2025: **25.7%** against **23.3%**. Berlin (18.7%), Île-de-France (16.9%) and North Holland (14.8%) follow.
+
+In Brussels, this rate fell over two years: 28.8% in 2023, 26.3% in 2024 and 23.3% in 2025. Brussels therefore owes its first place on AROPE to the indicator's two other components: severe material and social deprivation and very low work intensity.
 
 ## The paradox confirmed
 
-This comparison reinforces the "Brussels paradox" already visible in GDP data: the region that produces the most wealth per capita is also the one that concentrates the most poverty. Several factors explain this situation:
+This comparison reinforces the "Brussels paradox" already visible in GDP data. Of these five regions, Brussels has the highest GDP per inhabitant (73,100 PPS in 2023, against 66,100 in North Holland and 61,500 in Île-de-France) and the highest rate of poverty or social exclusion. Several factors explain this situation:
 
 - **The commuter effect**: wealth produced in Brussels largely benefits non-residents who redistribute across the Flemish and Walloon peripheries.
 - **Demographic structure**: Brussels concentrates a young, diverse and partly low-skilled population in a labour market that demands bilingualism.
@@ -72,11 +76,12 @@ Beyond the monetary poverty threshold, **38.3% of Brussels residents** report be
 
 ## Limitations of the comparison
 
-The NUTS-1 level produces unequal perimeters. For Brussels, Berlin and Île-de-France, NUTS-1 corresponds to the capital region. For Austria and the Netherlands, NUTS-1 encompasses larger territories, which dilutes the results. A comparison strictly limited to capital cities would likely show higher poverty rates for Wien and Amsterdam than those presented here.
+At NUTS-2 level the region matches the capital city for Brussels, Vienna and Berlin. Île-de-France and North Holland cover a wider area than Paris and Amsterdam. The poverty threshold is set against each country's median income: in a richer country the threshold is higher, and a capital region there can show a higher rate at the same standard of living. Regional EU-SILC figures rest on a sample: a gap of a few points between two regions is not a precise ranking.
 
 ## Sources
 
-- Eurostat, EU-SILC, at-risk-of-poverty rate by NUTS-1 region (ilc_li41), 2023 data, accessed 19 September 2026
-- Eurostat, EU-SILC, at-risk-of-poverty-or-social-exclusion rate by region (ilc_peps11n), 2023 data, accessed 19 September 2026
+- Eurostat, EU-SILC, at-risk-of-poverty-or-social-exclusion rate by NUTS-2 region (ilc_peps11n), 2025 data, accessed 24 September 2026
+- Eurostat, EU-SILC, at-risk-of-poverty rate by NUTS-2 region (ilc_li41), 2023 to 2025 data, accessed 24 September 2026
+- Eurostat, regional GDP per inhabitant in purchasing power standards (nama_10r_2gdp), 2023 data, accessed 24 September 2026
 - Statbel, EU-SILC 2025 — Belgian regional data
 - Observatory of Health and Social Affairs, Social Barometer 2025

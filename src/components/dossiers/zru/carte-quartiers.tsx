@@ -85,6 +85,20 @@ const T: Record<Locale, Palier> = {
   },
 };
 
+/**
+ * Classes de remplissage des cinq paliers, écrites en toutes lettres : Tailwind v4 ne génère que
+ * les classes qu'il lit littéralement dans le code source, jamais une classe assemblée à
+ * l'exécution (`fill-choro-${n}` rendait la carte noire en production). Voir
+ * classes-tailwind-litterales.test.ts.
+ */
+const FILL = {
+  1: 'fill-choro-1',
+  2: 'fill-choro-2',
+  3: 'fill-choro-3',
+  4: 'fill-choro-4',
+  5: 'fill-choro-5',
+} as const;
+
 export function ZruCarteQuartiers({ locale = 'fr' }: { locale?: Locale }): ReactElement {
   const t = T[locale];
   const idBase = 'zru-carte-quartiers';
@@ -129,7 +143,7 @@ export function ZruCarteQuartiers({ locale = 'fr' }: { locale?: Locale }): React
           {QUARTIERS.map((g) => {
             const v = parId.get(g.mdId);
             return v?.palier ? (
-              <path key={g.mdId} data-md-id={g.mdId} d={g.d} className={`fill-choro-${v.palier} stroke-neutral-50`} strokeWidth="0.5" />
+              <path key={g.mdId} data-md-id={g.mdId} d={g.d} className={`${FILL[v.palier]} stroke-neutral-50`} strokeWidth="0.5" />
             ) : (
               <path
                 key={g.mdId}
@@ -149,10 +163,10 @@ export function ZruCarteQuartiers({ locale = 'fr' }: { locale?: Locale }): React
         <div className="mt-3">
           <p className="text-xs text-neutral-600">{t.direction}</p>
           <ul data-legende className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-neutral-600">
-            {[1, 2, 3, 4, 5].map((n) => (
+            {([1, 2, 3, 4, 5] as const).map((n) => (
               <li key={n} className="flex items-center gap-1.5">
                 <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" className="shrink-0">
-                  <rect width="12" height="12" className={`fill-choro-${n}`} />
+                  <rect width="12" height="12" className={FILL[n]} />
                 </svg>
                 <span>
                   {t.palier(n)} : {texteBornes(n)}

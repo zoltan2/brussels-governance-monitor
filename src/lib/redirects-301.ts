@@ -21,9 +21,18 @@
  * ╚══════════════════════════════════════════════════════════════════════╝
  *
  * Format : `from` = ancienne URL absolue (avec préfixe locale), `to` =
- * nouvelle URL absolue. Les redirections sont toutes permanentes (HTTP 301).
+ * nouvelle URL absolue. Les redirections sont toutes permanentes. Next.js
+ * répond 308 (et non 301) pour `permanent: true` : même effet pour les moteurs
+ * et les navigateurs, la méthode HTTP est conservée en plus.
  *
- * Évaluées au build via `next.config.ts` `redirects()`. Pas de coût runtime.
+ * Évaluées au build via `next.config.ts` `redirects()`, appliquées avant le
+ * proxy next-intl et avant les routes. Pas de coût runtime.
+ *
+ * Contrôlé en CI par scripts/content-lint/slug-redirects.ts : une URL de
+ * dossier servie sur main et perdue par la PR fait échouer la vérification
+ * tant que l'entrée correspondante manque. La table elle-même doit rester
+ * plate (pas de chaîne A → B → C : réécrire A → C), sans boucle, une entrée
+ * par `from`, même langue des deux côtés, cible servie.
  *
  * Exemple (commenté tant qu'aucune migration éditoriale n'est effectuée) :
  *
@@ -45,8 +54,23 @@ export const SLUG_REDIRECTS_301: ReadonlyArray<SlugRedirect301> = [
 ];
 
 /**
+ * URL de dossier retirées VOLONTAIREMENT, sans redirection (dossier supprimé
+ * sans successeur). Décision explicite exigée par le contrôle CI : sans entrée
+ * ici ni redirection, la suppression d'un dossier fait échouer la PR.
+ * `raison` est obligatoire et non vide.
+ */
+export interface RetiredDossierUrl {
+  path: string;
+  raison: string;
+}
+
+export const DOSSIER_URLS_RETIREES: ReadonlyArray<RetiredDossierUrl> = [
+  // Aucune.
+];
+
+/**
  * Convertit la table en format attendu par Next.js `redirects()`.
- * Toutes les redirections sont marquées `permanent: true` (HTTP 301).
+ * Toutes les redirections sont marquées `permanent: true` (Next.js répond 308).
  */
 export function getRedirectsConfig(): Array<{
   source: string;

@@ -613,6 +613,9 @@ const dossierCards = defineCollection({
       // `src/lib/redirects-301.ts` dans le même commit. Sinon les URLs
       // externes (bookmarks, partages LinkedIn/X, citations presse) qui
       // pointent vers l'ancienne URL renverront 404 silencieusement.
+      // Vérifié en CI par scripts/content-lint/slug-redirects.ts, qui donne
+      // l'entrée exacte à ajouter. Un slug localisé doit figurer à l'identique
+      // sur la carte FR ET sur la carte de sa langue (sinon la page répond 404).
       localizedSlugs: s
         .object({
           fr: s.string().optional(),

@@ -48,6 +48,10 @@ on:
       # PR qui ne touche que la table peut casser une URL publique.
       - 'src/lib/redirects-301.ts'
       - 'src/lib/slug-redirects.ts'
+      # slug-redirects.ts reproduit le routage des dossiers : une modification
+      # de ce routage doit relancer la garde (revue de la PR #589).
+      - 'src/lib/content.ts'
+      - 'src/app/*/dossiers/**'
       - '.github/workflows/content-lint.yml'
 
 jobs:

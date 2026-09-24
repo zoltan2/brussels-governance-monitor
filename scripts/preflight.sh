@@ -118,7 +118,7 @@ fi
 # 2 septies) Slug de dossier modifié sans redirection permanente. Règle
 #    MANDATORY de velite.config.ts (localizedSlugs), sans garde jusqu'au
 #    24/09/2026. Même fonction que la CI (lib.sh, check_slug_redirects).
-if printf '%s\n' "$CHANGED_ALL" | grep -qE '^(content/dossiers/|src/lib/(redirects-301|slug-redirects|scrolly-allowlist)\.ts$|scripts/content-lint/slug-redirects\.ts$)'; then
+if printf '%s\n' "$CHANGED_ALL" | grep -qE '^(content/dossiers/|src/lib/(redirects-301|slug-redirects|scrolly-allowlist|content)\.ts$|src/app/\[locale\]/dossiers/|scripts/content-lint/slug-redirects\.ts$)'; then
   check_slug_redirects "$BASE" || rc=1
 fi
 

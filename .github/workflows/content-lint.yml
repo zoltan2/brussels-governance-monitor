@@ -60,6 +60,11 @@ on:
       # d'autres pages à trois niveaux, sans dommage. Vue immersive à part.
       - 'src/app/*/*/*/page.tsx'
       - 'src/app/*/dossiers/**'
+      # Pages fixes : une page.tsx supprimée ou déplacée (sous [locale] ou non)
+      # retire une URL publique ; le matcher du proxy décide quelles pages hors
+      # [locale] sont servies sans préfixe de langue.
+      - 'src/app/**/page.tsx'
+      - 'src/proxy.ts'
       - 'next.config.ts'
       - '.github/workflows/content-lint.yml'
 

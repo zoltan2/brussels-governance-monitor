@@ -45,6 +45,13 @@
  * même langue des deux côtés, cible servie (page de contenu, index ou page
  * statique de routing.ts).
  *
+ * Pages fixes aussi (depuis le 24/09/2026) : un chemin localisé changé dans
+ * routing.ts (ex. fr `/methodologie` → `/methode`) exige l'entrée exacte
+ * `{ from: '/fr/methodologie', to: '/fr/methode' }`, même quand next-intl
+ * redirigerait de lui-même (307 temporaire seulement) ; une clé de routing.ts
+ * ou une page.tsx supprimée exige une redirection ou un retrait. Pages hors
+ * [locale] (`/livre`…) : `from` sans préfixe de langue.
+ *
  * Exemple (commenté tant qu'aucune migration éditoriale n'est effectuée) :
  *
  * ```ts

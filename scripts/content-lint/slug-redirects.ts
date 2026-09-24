@@ -2,11 +2,13 @@
  * scripts/content-lint/slug-redirects.ts
  *
  * Une page publiée (dossier, domaine, solution, secteur, comparaison,
- * commune, archive, vérification) dont l'URL disparaît sans redirection
- * permanente fait échouer la vérification : slug renommé, `localizedSlugs`
- * d'un dossier changé, fiche supprimée, segment localisé renommé dans
- * src/i18n/routing.ts. Règle MANDATORY de src/lib/redirects-301.ts. Logique
- * pure et modèle des URL servies : src/lib/slug-redirects.ts.
+ * commune, archive, vérification, et page fixe : méthodologie, charte,
+ * explications, presse…) dont l'URL disparaît sans redirection permanente fait
+ * échouer la vérification : slug renommé, `localizedSlugs` d'un dossier
+ * changé, fiche supprimée, segment localisé renommé dans src/i18n/routing.ts,
+ * chemin localisé d'une page fixe changé, clé de routing.ts ou page.tsx
+ * supprimée. Règle MANDATORY de src/lib/redirects-301.ts. Logique pure et
+ * modèle des URL servies : src/lib/slug-redirects.ts.
  *
  * Usage :
  *   npx tsx scripts/content-lint/slug-redirects.ts <base-ref>
@@ -30,10 +32,15 @@ import {
   PAGE_TYPE_NAMES,
   checkSlugRedirects,
   countByType,
+  countStaticByLocale,
+  pageRoutesFromFiles,
   parseScrollyAllowlist,
   parseSlugPathnames,
+  parseStaticPathnames,
   routesByType,
+  servedStatic,
   servedUrls,
+  type PageFiles,
   type ContentEntry,
   type PageType,
   type SlugSnapshot,
@@ -83,28 +90,68 @@ function listAt(base: string, dir: string): string[] {
   return out.filter((n) => n.endsWith('.mdx') && !n.slice(dir.length + 1).includes('/'));
 }
 
-function readSnapshot(read: (file: string) => string, list: (dir: string) => string[]): SlugSnapshot {
+interface Revision {
+  snapshot: SlugSnapshot;
+  pages: PageFiles;
+}
+
+function readSnapshot(
+  read: (file: string) => string,
+  list: (dir: string) => string[],
+  pageFiles: string[],
+): Revision {
   const entries: SlugSnapshot['entries'] = {};
   for (const type of PAGE_TYPE_NAMES) {
     entries[type] = list(PAGE_TYPES[type].dir).map((f) => toEntry(type, f, read(f)));
   }
   const allowlist = parseScrollyAllowlist(read(ALLOWLIST_FILE));
   if (!allowlist) throw new Error(`SCROLLY_ENABLED_DOSSIERS introuvable dans ${ALLOWLIST_FILE}`);
-  const pathnames = parseSlugPathnames(read(ROUTING_FILE), routing.locales);
+  const routingSrc = read(ROUTING_FILE);
+  const pathnames = parseSlugPathnames(routingSrc, routing.locales);
   if (!pathnames || Object.keys(pathnames).length === 0) {
     throw new Error(`aucune route [slug] lue dans ${ROUTING_FILE}`);
   }
-  return { entries, routes: routesByType(pathnames), scrollyAllowlist: allowlist };
+  // Pages fixes : échec fermé si la table est illisible à l'une des révisions.
+  const staticRoutes = parseStaticPathnames(routingSrc, routing.locales);
+  if (!staticRoutes) throw new Error(`aucune page fixe lue dans ${ROUTING_FILE}`);
+  const pages = pageRoutesFromFiles(pageFiles);
+  if (pages.localeRoutes.size === 0) throw new Error('aucun fichier src/app/[locale]/**/page.tsx trouvé');
+  return {
+    snapshot: {
+      entries,
+      routes: routesByType(pathnames),
+      scrollyAllowlist: allowlist,
+      staticRoutes,
+      pageRoutes: pages.localeRoutes,
+      rootPages: pages.rootPages,
+    },
+    pages,
+  };
 }
 
-function readBase(base: string): SlugSnapshot {
+function readBase(base: string): Revision {
   return readSnapshot(
     (f) => git(['show', `${base}:${f}`]),
     (dir) => listAt(base, dir),
+    git(['ls-tree', '-r', '--name-only', base, '--', 'src/app/']).split('\n').filter(Boolean),
   );
 }
 
-function readWorkingTree(): SlugSnapshot {
+/** Fichiers page.tsx de l'arbre de travail sous src/app, chemins relatifs au dépôt. */
+function workingTreePages(): string[] {
+  const out: string[] = [];
+  const walk = (rel: string) => {
+    for (const d of fs.readdirSync(path.join(REPO_ROOT, rel), { withFileTypes: true })) {
+      const r = `${rel}/${d.name}`;
+      if (d.isDirectory()) walk(r);
+      else if (d.name === 'page.tsx') out.push(r);
+    }
+  };
+  walk('src/app');
+  return out.sort();
+}
+
+function readWorkingTree(): Revision {
   return readSnapshot(
     (f) => fs.readFileSync(path.join(REPO_ROOT, f), 'utf8'),
     (dir) => {
@@ -116,24 +163,22 @@ function readWorkingTree(): SlugSnapshot {
         .sort()
         .map((n) => `${dir}/${n}`);
     },
+    workingTreePages(),
   );
 }
 
 /**
- * Pages statiques servies (cibles admises) : chaque entrée sans paramètre de
- * routing.ts dont le fichier page.tsx existe, dans chaque langue.
+ * Pages sous [locale] que le modèle ne couvre pas : ni clé de routing.ts, ni
+ * route [slug] de PAGE_TYPES, ni vue immersive (admin, connexion, étapes
+ * d'abonnement…). Servies au chemin interne ; signalées, pas gardées.
  */
-function staticPages(): string[] {
-  const out: string[] = [];
-  for (const [key, value] of Object.entries(routing.pathnames)) {
-    if (key === '/' || key.includes('[')) continue;
-    if (!fs.existsSync(path.join(REPO_ROOT, 'src/app/[locale]', key, 'page.tsx'))) continue;
-    for (const locale of routing.locales) {
-      const local = typeof value === 'string' ? value : (value as Record<string, string>)[locale];
-      if (local) out.push(`/${locale}${local}`);
-    }
-  }
-  return out;
+function localePagesOutOfScope(r: Revision): string[] {
+  const known = new Set([
+    ...Object.keys(r.snapshot.staticRoutes ?? {}),
+    ...PAGE_TYPE_NAMES.map((t) => PAGE_TYPES[t].route),
+    '/dossiers/[slug]/scrolly',
+  ]);
+  return [...r.pages.localeRoutes].filter((k) => !known.has(k)).sort();
 }
 
 /** Renommages de fichiers de contenu depuis la base (détection git, -M). */
@@ -160,11 +205,13 @@ function main(): void {
   let base: string;
   let before: SlugSnapshot;
   let after: SlugSnapshot;
+  let afterRev: Revision;
   let renames: Map<string, string>;
   try {
     base = git(['merge-base', baseRef, 'HEAD']).trim();
-    before = readBase(base);
-    after = readWorkingTree();
+    before = readBase(base).snapshot;
+    afterRev = readWorkingTree();
+    after = afterRev.snapshot;
     renames = readRenames(base);
   } catch (err) {
     const msg = err instanceof Error ? err.message.split('\n')[0] : String(err);
@@ -173,7 +220,6 @@ function main(): void {
     process.exit(2);
   }
 
-  const statics = staticPages();
   const violations = checkSlugRedirects({
     locales: routing.locales,
     before,
@@ -181,8 +227,18 @@ function main(): void {
     renames,
     redirects: SLUG_REDIRECTS_301,
     retired: URLS_RETIREES,
-    staticPages: statics,
   });
+
+  // Signalements, sans échec : clé de routing.ts sans page (pas servie), pages
+  // que le modèle ne couvre pas. Une URL servie sur la base et perdue ici est,
+  // elle, une violation ci-dessus.
+  const staticAfter = servedStatic(after, routing.locales);
+  const staticBefore = servedStatic(before, routing.locales);
+  for (const k of staticAfter.withoutPage) {
+    console.warn(`AVERTISSEMENT : ${ROUTING_FILE} déclare ${k} mais src/app/[locale]${k}/page.tsx n'existe pas : aucune URL servie.`);
+  }
+  const horsLangue = localePagesOutOfScope(afterRev);
+  const horsModele = afterRev.pages.outOfScope;
 
   if (violations.length === 0) {
     // Témoin : un « OK » sur zéro URL lue serait une panne, pas un succès. Un
@@ -201,17 +257,26 @@ function main(): void {
       }
     }
     const total = (c: Record<PageType, number>) => PAGE_TYPE_NAMES.reduce((n, t) => n + c[t], 0);
-    if (total(cBefore) === 0 || total(cAfter) === 0 || statics.length === 0) {
+    const sB = staticBefore.served.length;
+    const sA = staticAfter.served.length;
+    if (total(cBefore) === 0 || total(cAfter) === 0 || sB === 0 || sA === 0) {
       console.error(
-        `ERREUR : aucune URL calculée (base ${total(cBefore)}, branche ${total(cAfter)}, pages statiques ${statics.length}). Contrôle en échec fermé.`,
+        `ERREUR : aucune URL calculée (base ${total(cBefore)} + ${sB} fixes, branche ${total(cAfter)} + ${sA} fixes). Contrôle en échec fermé.`,
       );
       process.exit(2);
     }
+    const perLocale = (c: Record<string, number>) =>
+      Object.entries(c)
+        .map(([l, n]) => `${l} ${n}`)
+        .join(', ');
     console.log(
-      `OK: pages publiées et redirections (${total(cBefore)} URL servies sur la base ${base.slice(0, 8)}, ` +
-        `${total(cAfter)} sur la branche, ${SLUG_REDIRECTS_301.length} redirection(s), ${URLS_RETIREES.length} URL retirée(s))\n` +
-        `  base    : ${formatCounts(cBefore)}\n` +
-        `  branche : ${formatCounts(cAfter)}`,
+      `OK: pages publiées et redirections (${total(cBefore) + sB} URL servies sur la base ${base.slice(0, 8)}, ` +
+        `${total(cAfter) + sA} sur la branche, ${SLUG_REDIRECTS_301.length} redirection(s), ${URLS_RETIREES.length} URL retirée(s))\n` +
+        `  base    : ${formatCounts(cBefore)}, pages fixes ${sB}\n` +
+        `  branche : ${formatCounts(cAfter)}, pages fixes ${sA}\n` +
+        `  pages fixes par langue (branche) : ${perLocale(countStaticByLocale(staticAfter.served, routing.locales))}\n` +
+        `  hors périmètre, non gardées : ${horsLangue.length} page(s) sous [locale] absentes de routing.ts ` +
+        `(${horsLangue.join(', ')}) ; ${horsModele.length} page(s) hors [locale] non énumérables (${horsModele.join(', ')})`,
     );
     return;
   }

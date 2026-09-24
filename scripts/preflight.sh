@@ -119,8 +119,10 @@ fi
 #    commune, archive, vérification) dont l'URL change sans redirection
 #    permanente. Même fonction que la CI (lib.sh, check_slug_redirects). Le
 #    motif suit PAGE_TYPES (src/lib/slug-redirects.ts) : dossiers de contenu,
-#    table de routage, pages [slug], et le contrôle lui-même.
-if printf '%s\n' "$CHANGED_ALL" | grep -qE '^(content/(dossiers|domain-cards|solution-cards|sector-cards|comparison-cards|commune-cards|archive-pages|verifications)/|src/i18n/routing\.ts$|src/lib/(redirects-301|slug-redirects|scrolly-allowlist|content|velite-date|frontmatter)\.ts$|src/app/\[locale\]/[^/]+/\[slug\]/|scripts/content-lint/slug-redirects\.ts$|next\.config\.ts$)'; then
+#    table de routage, pages [slug], toute page.tsx (pages fixes : chemin
+#    localisé changé, page supprimée), le matcher du proxy (pages hors
+#    [locale]) et le contrôle lui-même.
+if printf '%s\n' "$CHANGED_ALL" | grep -qE '^(content/(dossiers|domain-cards|solution-cards|sector-cards|comparison-cards|commune-cards|archive-pages|verifications)/|src/i18n/routing\.ts$|src/lib/(redirects-301|slug-redirects|scrolly-allowlist|content|velite-date|frontmatter)\.ts$|src/app/\[locale\]/[^/]+/\[slug\]/|src/app/.*page\.tsx$|src/proxy\.ts$|scripts/content-lint/slug-redirects\.ts$|next\.config\.ts$)'; then
   check_slug_redirects "$BASE" || rc=1
 fi
 

@@ -9,9 +9,13 @@ import {
   PAGE_TYPE_NAMES,
   checkSlugRedirects,
   countByType,
+  countStaticByLocale,
+  pageRoutesFromFiles,
   parseScrollyAllowlist,
   parseSlugPathnames,
+  parseStaticPathnames,
   routesByType,
+  servedStatic,
   servedUrls,
   type ContentEntry,
   type PageType,
@@ -729,6 +733,313 @@ describe('le modèle suit les routes réelles', () => {
     expect(page).toContain('getVerificationSlugs(locale).map((slug) => ({ locale, slug }))');
     expect(page).toContain('const verification = getVerification(slug, locale as Locale); if (!verification) notFound();');
     expect(contentSrc).toContain('.filter((v) => v.locale === locale) .map(idDeVerification)');
+  });
+});
+
+// ── Pages fixes ─────────────────────────────────────────────────────────
+
+/** Pages fixes RÉELLES de routing.ts, toutes supposées avoir leur page.tsx. */
+const STATIC_ROUTES = parseStaticPathnames(ROUTING_SRC, LOCALES)!;
+const ROOT_PAGES = ['/digest', '/digest/feedback', '/livre', '/merci-cafe-numerique'];
+
+function snapS(
+  opts: { routes?: Record<string, RouteTemplates>; pages?: Iterable<string>; root?: readonly string[] } = {},
+): SlugSnapshot {
+  const routes = opts.routes ?? STATIC_ROUTES;
+  return {
+    ...snap({}),
+    staticRoutes: routes,
+    pageRoutes: new Set(opts.pages ?? Object.keys(routes)),
+    rootPages: opts.root ?? ROOT_PAGES,
+  };
+}
+
+const withPath = (key: string, locale: string, local: string) => ({
+  ...STATIC_ROUTES,
+  [key]: { ...STATIC_ROUTES[key], [locale]: local },
+});
+
+const without = (key: string) => Object.fromEntries(Object.entries(STATIC_ROUTES).filter(([k]) => k !== key));
+
+describe('servedStatic : pages fixes', () => {
+  it('une URL par langue et par clé fixe qui a sa page, accueil exclu, pages hors [locale] sans préfixe', () => {
+    const r = servedStatic(snapS(), LOCALES);
+    const urls = r.served.map((s) => s.url);
+    expect(urls).toContain('/fr/methodologie');
+    expect(urls).toContain('/nl/methodologie');
+    expect(urls).toContain('/de/methodik');
+    expect(urls).toContain('/fr/comprendre/cocof');
+    expect(urls).toContain('/fr/charte-editoriale');
+    expect(urls).toContain('/nl/pers');
+    expect(urls).toContain('/livre');
+    expect(urls).not.toContain('/fr/');
+    expect(urls).not.toContain('/fr');
+    expect(r.withoutPage).toEqual([]);
+    const keys = Object.keys(STATIC_ROUTES).filter((k) => k !== '/').length;
+    expect(countStaticByLocale(r.served, LOCALES)).toEqual({ de: keys, en: keys, fr: keys, nl: keys, 'hors langue': 4 });
+  });
+
+  it('clé de routing.ts sans page.tsx : pas servie, signalée', () => {
+    const pages = Object.keys(STATIC_ROUTES).filter((k) => k !== '/press');
+    const r = servedStatic(snapS({ pages }), LOCALES);
+    expect(r.withoutPage).toEqual(['/press']);
+    expect(r.served.map((s) => s.url)).not.toContain('/fr/presse');
+  });
+
+  it('langue absente de la clé : repli sur le chemin interne, comme next-intl', () => {
+    const r = servedStatic(snapS({ routes: { '/x': { fr: '/iks' } }, root: [] }), LOCALES);
+    expect(r.served.map((s) => s.url).sort()).toEqual(['/de/x', '/en/x', '/fr/iks', '/nl/x']);
+  });
+});
+
+describe('checkSlugRedirects : pages fixes', () => {
+  const runS = (after: SlugSnapshot, extra: Extra = {}, before = snapS()) =>
+    checkSlugRedirects({
+      locales: LOCALES,
+      before,
+      after,
+      redirects: extra.redirects ?? [],
+      retired: extra.retired ?? [],
+    });
+
+  it('aucun changement : conforme', () => {
+    expect(runS(snapS())).toEqual([]);
+  });
+
+  it('chemin FR renommé (/methodologie → /methode) : échec avec l’entrée exacte, puis conforme', () => {
+    const after = snapS({ routes: withPath('/methodology', 'fr', '/methode') });
+    const v = runS(after);
+    expect(kinds(v)).toEqual(['static-path-changed']);
+    const fix = { from: '/fr/methodologie', to: '/fr/methode' };
+    expect(v[0]!.fix).toEqual(fix);
+    expect(v[0]!.message).toContain("{ from: '/fr/methodologie', to: '/fr/methode' },");
+    // Le néerlandais garde /methodologie : next-intl redirigerait en 307, pas assez.
+    expect(v[0]!.message).toContain('307');
+    expect(runS(after, { redirects: [fix] })).toEqual([]);
+  });
+
+  it('chemin changé dans une seule langue : une seule URL perdue', () => {
+    const v = runS(snapS({ routes: withPath('/methodology', 'de', '/methodenlehre') }));
+    expect(v.map((x) => x.fix)).toEqual([{ from: '/de/methodik', to: '/de/methodenlehre' }]);
+    // /methodik n'est ni la clé ni le chemin d'une autre langue : pas de 307 implicite.
+    expect(v[0]!.message).not.toContain('307');
+  });
+
+  it('chemin égal à la clé interne renommé : next-intl redirigerait de lui-même, l’entrée permanente reste exigée', () => {
+    const v = runS(snapS({ routes: withPath('/methodology', 'en', '/method') }));
+    expect(kinds(v)).toEqual(['static-path-changed']);
+    expect(v[0]!.fix).toEqual({ from: '/en/methodology', to: '/en/method' });
+    expect(v[0]!.message).toContain('307 TEMPORAIRE');
+  });
+
+  it('page d’explication renommée (/comprendre/cocof) : même règle', () => {
+    const v = runS(snapS({ routes: withPath('/explainers/cocof', 'fr', '/comprendre/commission-communautaire-francaise') }));
+    expect(v.map((x) => x.fix)).toEqual([
+      { from: '/fr/comprendre/cocof', to: '/fr/comprendre/commission-communautaire-francaise' },
+    ]);
+  });
+
+  it('redirection existante vers la mauvaise cible : wrong-target', () => {
+    const v = runS(snapS({ routes: withPath('/methodology', 'fr', '/methode') }), {
+      redirects: [{ from: '/fr/methodologie', to: '/fr/a-propos' }],
+    });
+    expect(kinds(v)).toEqual(['wrong-target']);
+    expect(v[0]!.fix).toEqual({ from: '/fr/methodologie', to: '/fr/methode' });
+  });
+
+  it('clé supprimée de routing.ts : décision exigée dans chaque langue, puis conforme', () => {
+    const after = snapS({ routes: without('/press') });
+    const v = runS(after);
+    expect(kinds(v)).toEqual(Array(4).fill('static-page-removed'));
+    expect(v[0]!.message).toContain('disparu de src/i18n/routing.ts');
+    expect(v[0]!.message).toContain('URLS_RETIREES');
+    expect(
+      runS(after, {
+        redirects: [
+          { from: '/fr/presse', to: '/fr/a-propos' },
+          { from: '/nl/pers', to: '/nl/over-ons' },
+        ],
+        retired: [
+          { path: '/en/press', raison: 'Page presse fermée.' },
+          { path: '/de/presse', raison: 'Page presse fermée.' },
+        ],
+      }),
+    ).toEqual([]);
+  });
+
+  it('page.tsx supprimée, clé gardée : même décision exigée', () => {
+    const v = runS(snapS({ pages: Object.keys(STATIC_ROUTES).filter((k) => k !== '/editorial') }));
+    expect(kinds(v)).toEqual(Array(4).fill('static-page-removed'));
+    expect(v.map((x) => x.message).join()).toContain('src/app/[locale]/editorial/page.tsx a disparu');
+  });
+
+  it('clé renommée, mêmes chemins publics : aucune URL perdue', () => {
+    const { ['/press']: press, ...rest } = STATIC_ROUTES;
+    const routes = { ...rest, '/media': press! };
+    expect(runS(snapS({ routes }))).toEqual([]);
+  });
+
+  it('nouvelle page fixe ajoutée : conforme', () => {
+    const routes = { ...STATIC_ROUTES, '/nouveau': { fr: '/nouveau', nl: '/nieuw', en: '/new', de: '/neu' } };
+    expect(runS(snapS({ routes }))).toEqual([]);
+  });
+
+  it('cible de redirection : une page fixe servie est admise, son chemin interne ou une autre langue non', () => {
+    const same = snapS();
+    expect(runS(same, { redirects: [{ from: '/fr/ancienne-methode', to: '/fr/methodologie' }] })).toEqual([]);
+    expect(runS(same, { redirects: [{ from: '/de/alt', to: '/de/methodik' }] })).toEqual([]);
+    // /fr/methodology : next-intl le redirige (307), ce n'est pas une page servie.
+    expect(kinds(runS(same, { redirects: [{ from: '/fr/ancienne-methode', to: '/fr/methodology' }] }))).toEqual([
+      'target-missing',
+    ]);
+    expect(kinds(runS(same, { redirects: [{ from: '/fr/ancienne-methode', to: '/fr/methodik' }] }))).toEqual([
+      'target-missing',
+    ]);
+    // Page fixe renommée : l'ancienne adresse n'est plus une cible admise.
+    const renamed = snapS({ routes: withPath('/methodology', 'fr', '/methode') });
+    expect(
+      kinds(
+        runS(renamed, {
+          redirects: [
+            { from: '/fr/methodologie', to: '/fr/methode' },
+            { from: '/fr/vieux', to: '/fr/methodologie' },
+          ],
+        }),
+      ),
+    ).toEqual(['chain']);
+  });
+
+  it('une redirection ne peut pas partir d’une page fixe servie', () => {
+    expect(kinds(runS(snapS(), { redirects: [{ from: '/fr/methodologie', to: '/fr/a-propos' }] }))).toEqual([
+      'shadows-live-page',
+    ]);
+  });
+
+  it('page hors [locale] supprimée : décision exigée ; redirection sans préfixe ou retrait admis', () => {
+    const after = snapS({ root: ROOT_PAGES.filter((p) => p !== '/livre') });
+    const v = runS(after);
+    expect(kinds(v)).toEqual(['static-page-removed']);
+    expect(v[0]!.message).toContain("{ from: '/livre'");
+    expect(runS(after, { redirects: [{ from: '/livre', to: '/fr/a-propos' }] })).toEqual([]);
+    expect(runS(after, { redirects: [{ from: '/livre', to: '/merci-cafe-numerique' }] })).toEqual([]);
+    expect(runS(after, { retired: [{ path: '/livre', raison: 'Précommande close.' }] })).toEqual([]);
+  });
+
+  it('adresse sans préfixe hors des pages hors [locale] : refusée', () => {
+    expect(kinds(runS(snapS(), { redirects: [{ from: '/methodologie', to: '/fr/methodologie' }] }))).toEqual([
+      'invalid-path',
+    ]);
+    expect(kinds(runS(snapS(), { retired: [{ path: '/methodologie', raison: 'x' }] }))).toEqual(['invalid-retired']);
+  });
+
+  it('sans modèle de pages fixes (anciens appels) : rien de nouveau n’est exigé', () => {
+    expect(runS(snap({}), {}, snap({}))).toEqual([]);
+  });
+});
+
+describe('pages fixes : lecture des sources', () => {
+  it('parseStaticPathnames lit dans le source de routing.ts exactement les clés fixes de l’objet importé', () => {
+    const expected: Record<string, RouteTemplates> = {};
+    for (const [k, v] of Object.entries(routing.pathnames)) {
+      if (k.includes('[')) continue;
+      expected[k] = typeof v === 'string' ? Object.fromEntries(routing.locales.map((l) => [l, v])) : { ...(v as object) };
+    }
+    expect(STATIC_ROUTES).toEqual(expected);
+    expect(Object.keys(STATIC_ROUTES)).toContain('/methodology');
+  });
+
+  it('parseStaticPathnames : null sans bloc pathnames ou sans clé fixe (échec fermé)', () => {
+    expect(parseStaticPathnames('export const x = 1;', ['fr'])).toBeNull();
+    expect(parseStaticPathnames("pathnames: {\n  '/y/[slug]': '/y/[slug]',\n}", ['fr'])).toBeNull();
+  });
+
+  it('pageRoutesFromFiles : [locale], groupes retirés, dossiers privés ignorés, dynamiques hors [locale] écartés', () => {
+    const r = pageRoutesFromFiles([
+      'src/app/[locale]/page.tsx',
+      'src/app/[locale]/methodology/page.tsx',
+      'src/app/[locale]/(groupe)/press/page.tsx',
+      'src/app/[locale]/_brouillon/page.tsx',
+      'src/app/[locale]/domains/[slug]/page.tsx',
+      'src/app/[locale]/methodology/layout.tsx',
+      'src/app/livre/page.tsx',
+      'src/app/digest/(hub)/page.tsx',
+      'src/app/digest/(hub)/feedback/page.tsx',
+      'src/app/digest/[lang]/[year]/[week]/page.tsx',
+      'src/app/page.tsx',
+      'src/app/api/health/route.ts',
+    ]);
+    expect([...r.localeRoutes].sort()).toEqual(['/', '/domains/[slug]', '/methodology', '/press']);
+    expect(r.rootPages).toEqual(['/digest', '/digest/feedback', '/livre']);
+    expect(r.outOfScope).toEqual(['src/app/digest/[lang]/[year]/[week]/page.tsx', 'src/app/page.tsx']);
+  });
+});
+
+/** Pages sous [locale] servies au chemin interne, volontairement hors routing.ts. */
+const HORS_ROUTING = [
+  '/admin',
+  '/admin/chat',
+  '/admin/content',
+  '/admin/quiz',
+  '/admin/rapport',
+  '/admin/refonte',
+  '/admin/relecture',
+  '/login',
+  '/review',
+  '/review/digest',
+  '/subscribe/confirm',
+  '/subscribe/confirmed',
+  '/subscribe/preferences',
+  '/subscribe/unsubscribed',
+];
+
+describe('pages fixes : le modèle suit le dépôt réel', () => {
+  const files = (() => {
+    const out: string[] = [];
+    const walk = (rel: string) => {
+      for (const d of fs.readdirSync(path.join(ROOT, rel), { withFileTypes: true })) {
+        if (d.isDirectory()) walk(`${rel}/${d.name}`);
+        else if (d.name === 'page.tsx') out.push(`${rel}/${d.name}`);
+      }
+    };
+    walk('src/app');
+    return out;
+  })();
+  const pages = pageRoutesFromFiles(files);
+
+  it('chaque clé fixe de routing.ts a son src/app/[locale]/…/page.tsx', () => {
+    const r = servedStatic(
+      { ...snap({}), staticRoutes: STATIC_ROUTES, pageRoutes: pages.localeRoutes, rootPages: pages.rootPages },
+      LOCALES,
+    );
+    expect(r.withoutPage).toEqual([]);
+    for (const k of Object.keys(STATIC_ROUTES)) expect(pages.localeRoutes.has(k), k).toBe(true);
+  });
+
+  it('chaque page fixe sous [locale] est dans routing.ts ou dans la liste hors routage', () => {
+    const fixed = [...pages.localeRoutes].filter((k) => !k.includes('['));
+    const unknown = fixed.filter((k) => !(k in STATIC_ROUTES) && !HORS_ROUTING.includes(k));
+    expect(unknown).toEqual([]);
+    for (const k of HORS_ROUTING) expect(pages.localeRoutes.has(k), k).toBe(true);
+  });
+
+  it('pages hors [locale] : exactement celles attendues, et exclues du proxy next-intl', () => {
+    expect(pages.rootPages).toEqual(ROOT_PAGES);
+    expect(pages.outOfScope).toEqual(['src/app/digest/[lang]/[year]/[week]/page.tsx']);
+    // Sans exclusion du matcher, next-intl les préfixerait d'une langue et le modèle serait faux.
+    const matcher = /matcher:\s*\[\s*'\/\(\(\?!([^)]*)\)/.exec(fs.readFileSync(path.join(ROOT, 'src/proxy.ts'), 'utf8'))?.[1];
+    expect(matcher).toBeDefined();
+    const excluded = matcher!.split('|');
+    for (const p of pages.rootPages) expect(excluded, p).toContain(p.split('/')[1]);
+  });
+
+  it('le pré-vol déclenche la garde sur une page fixe, sous [locale] ou non', () => {
+    const pre = fs.readFileSync(path.join(ROOT, 'scripts/preflight.sh'), 'utf8');
+    const rx = new RegExp(/2 septies[\s\S]*?grep -qE '([^']+)'/.exec(pre)![1]!);
+    expect(rx.test('src/app/[locale]/methodology/page.tsx')).toBe(true);
+    expect(rx.test('src/app/[locale]/explainers/cocof/page.tsx')).toBe(true);
+    expect(rx.test('src/app/livre/page.tsx')).toBe(true);
+    expect(rx.test('src/app/digest/(hub)/feedback/page.tsx')).toBe(true);
+    expect(rx.test('src/proxy.ts')).toBe(true);
   });
 });
 

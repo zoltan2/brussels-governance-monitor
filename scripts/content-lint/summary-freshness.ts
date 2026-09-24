@@ -21,7 +21,10 @@
  *
  * Usage :
  *   npx tsx scripts/content-lint/summary-freshness.ts <fichier-liste>
- *     Vérifie les fiches listées (un chemin par ligne). Mode CI.
+ *     Vérifie les fiches listées (un chemin par ligne). Mode CI. Une fiche
+ *     `draft: true` passe ce contrôle sans `summaryReviewed` (ligne explicite,
+ *     jamais un OK muet) : l'attestation est exigée à la publication, voir
+ *     src/lib/summary-freshness.ts.
  *
  *   npm run lint:summaries
  *     Audite toutes les fiches du dépôt et affiche un classement par âge.
@@ -79,6 +82,7 @@ function inspect(files: string[]): Row[] {
       const result = checkSummaryFreshness({
         lastModified: readFrontmatterScalar(content, 'lastModified'),
         summaryReviewed: readFrontmatterScalar(content, 'summaryReviewed'),
+        draft: readFrontmatterScalar(content, 'draft') === 'true',
       });
       rows.push({ file, verdict: result.verdict, ageDays: result.ageDays, reason: result.reason });
     } catch (err) {
@@ -92,10 +96,11 @@ function inspect(files: string[]): Row[] {
 function main(): void {
   const listPath = process.argv[2];
 
-  // Mode audit : aucun argument, on regarde tout et on ne bloque rien.
+  // Mode audit : aucun argument, on regarde tout et on ne bloque rien. Un
+  // brouillon n'a rien à relire avant sa publication : il n'encombre pas la liste.
   if (!listPath) {
     const rows = inspect(listAllCards())
-      .filter((r) => r.verdict !== 'ok')
+      .filter((r) => r.verdict !== 'ok' && r.verdict !== 'draft')
       .sort((a, b) => (b.ageDays ?? Number.MAX_SAFE_INTEGER) - (a.ageDays ?? Number.MAX_SAFE_INTEGER));
 
     if (rows.length === 0) {
@@ -128,10 +133,22 @@ function main(): void {
     return;
   }
 
-  const violations = inspect(changed).filter((r) => r.verdict !== 'ok');
+  const inspected = inspect(changed);
+  const draftRows = inspected.filter((r) => r.verdict === 'draft');
+  for (const d of draftRows) {
+    // Jamais un OK muet : la dispense est explicite, fichier par fichier.
+    console.log(`  ${d.file} : ${d.reason}`);
+  }
+  const violations = inspected.filter((r) => r.verdict !== 'ok' && r.verdict !== 'draft');
+  const draftsNote = draftRows.length > 0 ? `, ${draftRows.length} brouillon(s) dispensé(s)` : '';
 
   if (violations.length === 0) {
-    console.log(`OK : ${changed.length} fiche(s) vérifiée(s), tous les chapeaux sont à jour.`);
+    const checkedCount = changed.length - draftRows.length;
+    if (checkedCount === 0) {
+      console.log(`Aucune fiche à vérifier${draftsNote}.`);
+    } else {
+      console.log(`OK : ${checkedCount} fiche(s) vérifiée(s), tous les chapeaux sont à jour${draftsNote}.`);
+    }
     return;
   }
 

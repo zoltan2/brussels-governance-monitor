@@ -102,6 +102,25 @@ describe('checkSummaryFreshness', () => {
   it('expose une limite par défaut de nonante jours', () => {
     expect(SUMMARY_MAX_AGE_DAYS).toBe(90);
   });
+
+  it('dispense un brouillon sans summaryReviewed : la relecture est exigée à la publication', () => {
+    const r = checkSummaryFreshness({ lastModified: '2026-08-30', summaryReviewed: undefined, draft: true });
+    expect(r.verdict).toBe('draft');
+    expect(r.ageDays).toBeNull();
+    expect(r.reason).toContain('publication');
+  });
+
+  it('un brouillon reste dispensé même avec un summaryReviewed périmé', () => {
+    const r = checkSummaryFreshness({ lastModified: '2026-08-30', summaryReviewed: '2026-01-01', draft: true });
+    expect(r.verdict).toBe('draft');
+  });
+
+  it('exige de nouveau summaryReviewed dès que draft repasse à false (transition de publication)', () => {
+    // Preuve de mutation : retirer le court-circuit `draft` ferait passer ce
+    // cas comme le précédent au lieu de le refuser en `missing`.
+    const r = checkSummaryFreshness({ lastModified: '2026-08-30', summaryReviewed: undefined, draft: false });
+    expect(r.verdict).toBe('missing');
+  });
 });
 
 describe('readFrontmatterScalar', () => {

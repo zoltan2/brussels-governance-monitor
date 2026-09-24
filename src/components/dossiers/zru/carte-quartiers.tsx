@@ -32,7 +32,7 @@ const T: Record<Locale, Palier> = {
     resume:
       "Les 145 quartiers colorés en cinq paliers de revenu médian après impôt, les quartiers sans donnée (non habités ou trop peu peuplés) hachurés, et le contour de la ZRU 2026.",
     cap: 'Valeur et palier de chaque quartier',
-    cols: ['Quartier', 'Valeur', 'Palier'],
+    cols: ['Quartier', 'Valeur (€)', 'Palier'],
     sans: 'sans donnée',
     palier: (n) => `palier ${n} sur 5`,
     zru: "Contour : ZRU 2026, zone prioritaire d'investissement public",
@@ -46,7 +46,7 @@ const T: Record<Locale, Palier> = {
     resume:
       'De 145 wijken in vijf klassen naar mediaan inkomen na belasting, wijken zonder gegevens (onbewoond of met te weinig inwoners) gearceerd, en de grens van de ZSH 2026.',
     cap: 'Waarde en klasse van elke wijk',
-    cols: ['Wijk', 'Waarde', 'Klasse'],
+    cols: ['Wijk', 'Waarde (€)', 'Klasse'],
     sans: 'geen gegevens',
     palier: (n) => `klasse ${n} van 5`,
     zru: 'Grens: ZSH 2026, prioritaire zone voor overheidsinvesteringen',
@@ -60,7 +60,7 @@ const T: Record<Locale, Palier> = {
     resume:
       'The 145 neighbourhoods in five bands of median income after tax, neighbourhoods with no data (uninhabited or too sparsely populated) hatched, and the outline of the 2026 zone.',
     cap: 'Value and band of each neighbourhood',
-    cols: ['Neighbourhood', 'Value', 'Band'],
+    cols: ['Neighbourhood', 'Value (€)', 'Band'],
     sans: 'no data',
     palier: (n) => `band ${n} of 5`,
     zru: 'Outline: 2026 zone, priority area for public investment',
@@ -74,7 +74,7 @@ const T: Record<Locale, Palier> = {
     resume:
       'Die 145 Viertel in fünf Stufen nach medianem Einkommen nach Steuern, Viertel ohne Daten (unbewohnt oder zu dünn besiedelt) schraffiert, und die Grenze der Zone 2026.',
     cap: 'Wert und Stufe jedes Viertels',
-    cols: ['Viertel', 'Wert', 'Stufe'],
+    cols: ['Viertel', 'Wert (€)', 'Stufe'],
     sans: 'keine Daten',
     palier: (n) => `Stufe ${n} von 5`,
     zru: 'Umriss: Zone 2026, vorrangiges Gebiet für öffentliche Investitionen',
@@ -95,12 +95,15 @@ export function ZruCarteQuartiers({ locale = 'fr' }: { locale?: Locale }): React
   // Bornes des cinq paliers : [null, s1, s2, s3, s4, null], bornes[n-1] = borne basse
   // du palier n, bornes[n] = borne haute. Palier 1 = revenu le plus bas (SEUILS_PALIERS croissant).
   const bornes: (number | null)[] = [null, ...SEUILS_PALIERS, null];
+  // Euro entier : formaterNombre garde ses décimales par défaut pour les autres appelants
+  // (surfaces en km²…), donc l'arrondi se fait ici, avant formatage.
+  const avecUnite = (n: number) => `${formaterNombre(Math.round(n), locale)} €`;
   const texteBornes = (n: number): string => {
     const basse = bornes[n - 1];
     const haute = bornes[n];
-    if (basse === null) return t.moinsDe(formaterNombre(haute as number, locale));
-    if (haute === null) return t.etPlus(formaterNombre(basse, locale));
-    return t.deA(formaterNombre(basse, locale), formaterNombre(haute, locale));
+    if (basse === null) return t.moinsDe(avecUnite(haute as number));
+    if (haute === null) return t.etPlus(avecUnite(basse));
+    return t.deA(avecUnite(basse), avecUnite(haute));
   };
 
   return (
@@ -115,8 +118,12 @@ export function ZruCarteQuartiers({ locale = 'fr' }: { locale?: Locale }): React
       svg={
         <svg viewBox={VIEWBOX}>
           <defs>
+            {/* Fond explicite (neutral-100) + trait neutral-600 : ≥ 3:1 (SC 1.4.11) contre le
+                fond du motif et contre le palier 1 (choro-1), en clair comme en sombre — voir
+                globals.contrast.test.ts, describe 'ZRU : motif « sans donnée »'. */}
             <pattern id={idMotifSansDonnee} width="5" height="5" patternUnits="userSpaceOnUse">
-              <path d="M0 5L5 0" className="stroke-neutral-400" strokeWidth="1" />
+              <rect width="5" height="5" className="fill-neutral-100" />
+              <path d="M0 5L5 0" className="stroke-neutral-600" strokeWidth="1" />
             </pattern>
           </defs>
           {QUARTIERS.map((g) => {
@@ -172,7 +179,11 @@ export function ZruCarteQuartiers({ locale = 'fr' }: { locale?: Locale }): React
         colonnes: t.cols,
         lignes: [...QUARTIERS_VALEURS]
           .sort((a, b) => nomLocal(a).localeCompare(nomLocal(b), locale))
-          .map((q) => [nomLocal(q), q.valeur === null ? t.sans : q.valeur, q.palier ? t.palier(q.palier) : t.sans]),
+          .map((q) => [
+            nomLocal(q),
+            q.valeur === null ? t.sans : Math.round(q.valeur),
+            q.palier ? t.palier(q.palier) : t.sans,
+          ]),
       }}
     />
   );

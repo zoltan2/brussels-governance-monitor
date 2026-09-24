@@ -68,4 +68,26 @@ describe('ZruCarteQuartiers', () => {
     const { container } = render(<ZruCarteQuartiers locale="fr" />);
     expect(container.querySelector('svg desc')!.textContent).toMatch(/non habités ou trop peu peuplés/);
   });
+
+  it('le motif « sans donnée » porte le trait et le fond vérifiés par globals.contrast.test.ts (neutral-600 sur neutral-100)', () => {
+    const { container } = render(<ZruCarteQuartiers />);
+    const pattern = container.querySelector('pattern#zru-carte-quartiers-sans-donnee')!;
+    const trait = pattern.querySelector('path')!;
+    const fond = pattern.querySelector('rect')!;
+    expect(trait.getAttribute('class') ?? '').toMatch(/stroke-neutral-600/);
+    expect(fond.getAttribute('class') ?? '').toMatch(/fill-neutral-100/);
+  });
+
+  it("les valeurs sont arrondies à l'euro entier (aucune décimale) et l'unité € est dans l'en-tête de colonne", () => {
+    const { container } = render(<ZruCarteQuartiers locale="fr" />);
+    const entetes = Array.from(container.querySelectorAll('details thead th')).map((th) => th.textContent ?? '');
+    expect(entetes.some((h) => h.includes('€'))).toBe(true);
+    const valeurs = Array.from(container.querySelectorAll('details tbody tr td:nth-child(2)')).map(
+      (td) => td.textContent ?? '',
+    );
+    expect(valeurs.length).toBeGreaterThan(0);
+    // Convention fr-BE : la virgule ne marque qu'une décimale. Arrondies à l'euro, les valeurs
+    // n'en portent plus jamais (le séparateur de milliers est une espace, jamais une virgule).
+    for (const v of valeurs) expect(v).not.toMatch(/\d,\d/);
+  });
 });

@@ -307,3 +307,20 @@ describe('rampe de choroplèthe', () => {
     }
   });
 });
+
+// Motif « sans donnée » de src/components/dossiers/zru/carte-quartiers.tsx : un objet
+// graphique porteur de sens (SC 1.4.11, ≥ 3:1), pas du texte. neutral-400 sur fond neutre
+// et sur choro-1 tombait à 2,3-2,5:1 (audit fix round 1, 24/09/2026) : le motif porte
+// maintenant un fond explicite (neutral-100) et un trait neutral-600.
+describe('ZRU : motif « sans donnée » (contour hachuré)', () => {
+  for (const mode of ['clair', 'sombre'] as const) {
+    it(`${mode} : le trait (neutral-600) atteint 3:1 sur le fond du motif (neutral-100)`, () => {
+      const ratio = contrast(jeton(mode, '--color-neutral-600'), jeton(mode, '--color-neutral-100'));
+      expect(ratio, `${mode} : neutral-600 sur neutral-100 = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(3);
+    });
+    it(`${mode} : le trait (neutral-600) atteint 3:1 sur le palier 1 (choro-1), le voisin le plus clair`, () => {
+      const ratio = contrast(jeton(mode, '--color-neutral-600'), jeton(mode, '--color-choro-1'));
+      expect(ratio, `${mode} : neutral-600 sur choro-1 = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(3);
+    });
+  }
+});

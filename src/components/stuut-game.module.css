@@ -381,6 +381,16 @@
   font: inherit;
   font-size: 14px;
 }
+/* Plancher de 16 px en mobile, comme globals.css pour input/select/textarea. La règle
+   globale vise l'élément ; cette classe l'emporte sur elle et ramenait le champ à 14 px.
+   Sous 16 px, iOS zoome à la mise au point et ne dézoome pas : la page reste agrandie
+   pour la session, Stuut comme Amai paraissent alors trop larges. max() garde
+   --font-scale de la barre d'accessibilité. Même piège que search.render.test.tsx. */
+@media (max-width: 767px) {
+  .champ {
+    font-size: max(1rem, 16px);
+  }
+}
 
 /* ─── Inscription par e-mail ──────────────────────────────────────────────── */
 .inscription {

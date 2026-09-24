@@ -95,9 +95,9 @@ modifications: ["donnée millésime 2023 (dernière année disponible)", "jointu
 confiance: "official"
 ```
 
-Note : le libellé « En 2022 » en tête du texte d'analyse de la fiche (description longue de l'indicateur)
-suggère que le millésime « 2023 » affiché par le site est l'exercice d'imposition, portant sur les
-revenus de l'année 2022 — à vérifier avant rédaction (Tâche C, §9 du plan), ne pas trancher ici.
+Note : tranché par la vérification des faits du 24/09/2026 (tâche 17) : le millésime 2023 est l'année
+de revenus. La fiche indique désormais « En 2023 » et sa source 51 précise « (année de revenus) » ;
+Statbel a publié les revenus 2023 le 19/11/2025. La légende de la carte dit « revenus 2023 ».
 
 ### 1.3 Jointure MD_ID vérifiée (145/145, exacte)
 

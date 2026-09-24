@@ -41,7 +41,7 @@ export function CollapsibleMetrics({ metrics, locale }: { metrics: Metric[]; loc
               {metric.value}
               {metric.unit && (
                 <>
-                  {' '}
+                  {' '}
                   <span className="text-sm font-normal text-neutral-500">{metric.unit}</span>
                 </>
               )}

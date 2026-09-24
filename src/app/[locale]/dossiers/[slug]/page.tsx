@@ -388,7 +388,7 @@ function DossierDetail({
                     {metric.value}
                     {metric.unit && (
                       <>
-                        {' '}
+                        {' '}
                         <span className="text-sm font-normal text-neutral-500">{metric.unit}</span>
                       </>
                     )}

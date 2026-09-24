@@ -202,14 +202,33 @@ mark {
   padding: 0.1em 0.15em;
   border-radius: 2px;
 }
-.dark mark {
-  background-color: oklch(0.4 0.1 90);
-  color: var(--color-neutral-900);
-}
+/* Garde-fous `.dark` valables seulement à l'écran (incident PR #602,
+   impression depuis le sombre système). Les deux règles ci-dessous posent une
+   couleur littérale (pas un token) qui suppose que `.dark` signifie « fond et
+   variables réellement sombres ». Or `@media print` reforce `--color-neutral-*`
+   en clair (voir plus bas) alors que `.dark` reste posée sur `<html>` pendant
+   l'impression : ces deux règles gagnaient quand même la cascade (plus
+   spécifiques, `!important` pour la première) et cassaient le contraste sur
+   papier. En les limitant à `@media screen`, l'impression retombe sur les
+   valeurs de base — elles-mêmes neutralisées par ailleurs (bloc @media print,
+   `mark` de base, `section[class*="from-slate"]`). Garde :
+   `src/app/globals.contrast.test.ts`, describe « garde-fous .dark
+   écran-seulement ». */
+@media screen {
+  /* Surlignage de recherche : sans ce garde, le fond ambre foncé restait
+     posé sous un texte reforcé en clair (contraste insuffisant sur papier). */
+  .dark mark {
+    background-color: oklch(0.4 0.1 90);
+    color: var(--color-neutral-900);
+  }
 
-/* Dark mode gradient override for crisis counter */
-.dark section[class*="from-slate"] {
-  background: var(--color-neutral-200) !important;
+  /* Fond de secours des sections à gradient slate (CrisisCounter, Hero
+     d'accueil, LegislatureCountdown) : sans ce garde, le fond devenait
+     quasi blanc (neutral-200 reforcé en clair) sous un texte resté blanc en
+     dur (`text-white`) — blanc sur quasi-blanc. */
+  .dark section[class*="from-slate"] {
+    background: var(--color-neutral-200) !important;
+  }
 }
 
 /* Dark mode: ensure focus ring visibility */
@@ -269,9 +288,15 @@ mark {
     --color-choro-4: oklch(0.72 0.08 250);
     --color-choro-5: oklch(0.88 0.04 250);
   }
+}
 
-  /* `.dark mark` ne s'applique qu'à la classe : en sombre système, le texte
-     s'éclaircissait sur un surlignage resté clair (1,10:1). */
+/* `.dark mark` ne s'applique qu'à la classe : en sombre système, le texte
+   s'éclaircissait sur un surlignage resté clair (1,10:1). `@media screen` en
+   plus de `prefers-color-scheme: dark` : à l'impression depuis le sombre
+   système, `--color-neutral-900` est reforcé en clair (bloc @media print) et
+   ce fond ambre foncé ne l'est pas ; retomber sur le `mark` de base garde un
+   contraste correct sur papier (incident PR #602). */
+@media screen and (prefers-color-scheme: dark) {
   :root:not(.light-forced) mark {
     background-color: oklch(0.4 0.1 90);
   }
@@ -419,12 +444,21 @@ mark {
     --color-choro-5: oklch(0.36 0.08 250) !important;
   }
 
-  /* Crisis counter: fix white-on-white text */
-  section[class*="from-brand"] {
+  /* Sections à gradient littéral (slate/brand) et texte blanc en dur :
+     CrisisCounter, le Hero de la page d'accueil, LegislatureCountdown.
+     `from-slate` : ajouté PR #602, incident « impression depuis le sombre » —
+     le fond y était rendu quasi blanc par le token `--color-neutral-200`
+     reforcé en clair juste au-dessus, alors que `text-white` restait blanc.
+     `from-brand` n'est plus utilisé par aucun composant à ce jour, conservé
+     par précaution (garde de sécurité, coûte rien). Fond et texte forcés,
+     indépendamment du réglage « graphiques d'arrière-plan » du navigateur. */
+  section[class*="from-brand"],
+  section[class*="from-slate"] {
     background: white !important;
     color: black !important;
   }
-  section[class*="from-brand"] * {
+  section[class*="from-brand"] *,
+  section[class*="from-slate"] * {
     color: black !important;
   }
 

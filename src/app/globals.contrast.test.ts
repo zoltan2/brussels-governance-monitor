@@ -70,6 +70,38 @@ function blockBody(selector: string): string {
 }
 
 /**
+ * Chaîne des @-règles qui enveloppent la première occurrence de `needle` dans
+ * `source`, de la plus extérieure à la plus intérieure (les blocs de règle
+ * ordinaires, non `@`, sont ignorés mais comptent pour la profondeur). Sert à
+ * prouver qu'une règle est structurellement À L'INTÉRIEUR d'un `@media`
+ * donné — pas seulement que les deux chaînes de caractères coexistent dans le
+ * fichier, ce qu'un simple `includes()` ne distinguerait pas.
+ */
+function enclosingAtRules(source: string, needle: string): string[] {
+  // Commentaires retirés d'abord : un commentaire qui précède une @-règle
+  // (documentation courante dans ce fichier) fait sinon échouer
+  // `prelude.startsWith('@')`, puisque le prélude capturé commence par `/*`.
+  // On opère ensuite entièrement sur le texte nettoyé, y compris pour
+  // localiser `needle`, afin que les indices restent cohérents entre eux.
+  const clean = source.replace(/\/\*[\s\S]*?\*\//g, '');
+  const idx = clean.indexOf(needle);
+  if (idx === -1) throw new Error(`Introuvable : ${needle}`);
+  const stack: (string | null)[] = [];
+  let preludeStart = 0;
+  for (let i = 0; i < idx; i++) {
+    if (clean[i] === '{') {
+      const prelude = clean.slice(preludeStart, i).trim();
+      stack.push(prelude.startsWith('@') ? prelude : null);
+      preludeStart = i + 1;
+    } else if (clean[i] === '}') {
+      stack.pop();
+      preludeStart = i + 1;
+    }
+  }
+  return stack.filter((x): x is string => x !== null);
+}
+
+/**
  * Lit un bloc CSS et renvoie les tokens `--color-*` qu'il déclare, en héritant
  * du bloc de base (`@theme`) pour ce qu'il ne redéfinit pas.
  */
@@ -100,7 +132,7 @@ function parseOklch(value: string): [number, number, number] {
 const LIGHT = readBlock('@theme');
 const DARK = readBlock('.dark {', LIGHT);
 const MEDIA_DARK = readBlock(':root:not(.light-forced)', LIGHT);
-const PRINT = readBlock('@media print');
+const PRINT = readBlock('@media print {');
 const HC_LIGHT = readBlock('.high-contrast {', LIGHT);
 // Cascade réelle en sombre + contraste élevé : `.dark`, puis `.high-contrast`
 // (même spécificité, déclaré plus bas, donc il l'emporte), puis
@@ -300,7 +332,7 @@ describe('rampe de choroplèthe', () => {
     expect(jeton('print', '--color-choro-1')).toBe(jeton('clair', '--color-choro-1'));
   });
   it('impression : les paliers portent !important (sinon le sombre système gagne, spécificité 0,2,0)', () => {
-    const printBody = blockBody('@media print');
+    const printBody = blockBody('@media print {');
     for (let i = 1; i <= 5; i++) {
       const re = new RegExp(`--color-choro-${i}:\\s*oklch\\([^)]*\\)\\s*!important`);
       expect(printBody, `--color-choro-${i} sans !important dans @media print`).toMatch(re);
@@ -351,7 +383,7 @@ describe('impression depuis le mode sombre : palette entière reforcée en clair
   });
 
   it.each(PRINT_TOKENS)('%s : porte !important dans @media print (sinon le sombre système gagne, spécificité 0,2,0)', (token) => {
-    const printBody = blockBody('@media print');
+    const printBody = blockBody('@media print {');
     const re = new RegExp(`--color-${token}:\\s*oklch\\([^)]*\\)\\s*!important`);
     expect(printBody, `--color-${token} sans !important dans @media print`).toMatch(re);
   });
@@ -369,5 +401,72 @@ describe('impression depuis le mode sombre : palette entière reforcée en clair
   it('bandeau WhatChangedBanner : texte (text-neutral-900) reste lisible à l\'impression', () => {
     const ratio = contrast(jeton('print', '--color-neutral-900'), jeton('print', '--color-neutral-50'));
     expect(ratio, `print : neutral-900 sur neutral-50 = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(4.5);
+  });
+});
+
+// Round 2 de l'incident ci-dessus (revue PR #602) : reforcer les tokens ne
+// suffit pas. `.dark mark` et `.dark section[class*="from-slate"]` (fond de
+// secours de CrisisCounter / Hero d'accueil / LegislatureCountdown) posent
+// une couleur LITTÉRALE (pas `var(--color-*)`) qui suppose que `.dark`
+// signifie « valeurs réellement sombres ». `.dark` reste sur `<html>` pendant
+// l'impression, alors que `--color-neutral-200`/`--color-neutral-900` sont
+// reforcés en clair juste au-dessus : ces deux règles gagnaient quand même la
+// cascade (plus spécifiques que les classes Tailwind de la section, et
+// `!important` pour la première) et remettaient un fond quasi blanc sous un
+// texte `text-white` resté blanc — blanc sur quasi-blanc. Fix : les limiter à
+// `@media screen`.
+describe('garde-fous .dark écran-seulement (impression depuis le mode sombre, PR #602)', () => {
+  const SCREEN_ONLY_DARK_RULES: [string, string, string][] = [
+    ['.dark mark (surlignage de recherche)', '.dark mark {', '@media screen'],
+    [
+      '.dark section[class*="from-slate"] (fond CrisisCounter / Hero / LegislatureCountdown)',
+      '.dark section[class*="from-slate"] {',
+      '@media screen',
+    ],
+    [
+      ':root:not(.light-forced) mark (pendant « préférence système sombre »)',
+      ':root:not(.light-forced) mark {',
+      '@media screen and (prefers-color-scheme: dark)',
+    ],
+  ];
+
+  it.each(SCREEN_ONLY_DARK_RULES)('%s est structurellement à l\'intérieur de « %s », pas de @media print', (_label, needle, expectedAtRule) => {
+    const chain = enclosingAtRules(css, needle);
+    expect(chain[chain.length - 1], `chaîne d'enveloppement : ${chain.join(' > ') || '(aucune, règle inconditionnelle)'}`).toBe(
+      expectedAtRule
+    );
+  });
+
+  it('preuve par mutation : sans le bloc @media screen, le garde ci-dessus échouerait', () => {
+    // Simule la régression exacte que ce garde doit attraper : le wrapper
+    // `@media screen { … }` disparaît (ex. un refactor qui le retire par
+    // inadvertance), les deux règles qu'il contient redeviennent
+    // inconditionnelles — donc actives aussi à l'impression. Un garde qui ne
+    // détecterait pas cette mutation serait un placebo (cf.
+    // feedback_test_placebo_preuve_par_mutation).
+    const marker = '@media screen {';
+    const start = css.indexOf(marker);
+    expect(start, 'bloc "@media screen {" introuvable').toBeGreaterThan(-1);
+    const open = start + marker.length - 1;
+    let depth = 0;
+    let end = open;
+    for (let i = open; i < css.length; i++) {
+      if (css[i] === '{') depth++;
+      else if (css[i] === '}' && --depth === 0) {
+        end = i;
+        break;
+      }
+    }
+    expect(end, 'accolade fermante du bloc "@media screen {" introuvable').toBeGreaterThan(open);
+
+    // Retire uniquement l'enveloppe (la ligne d'ouverture et l'accolade
+    // fermante correspondante), garde le contenu intact : les deux règles
+    // `.dark` deviennent donc inconditionnelles, exactement la régression visée.
+    const mutated = css.slice(0, start) + css.slice(open + 1, end) + css.slice(end + 1);
+
+    const chainAvant = enclosingAtRules(css, '.dark section[class*="from-slate"] {');
+    const chainApres = enclosingAtRules(mutated, '.dark section[class*="from-slate"] {');
+    expect(chainAvant[chainAvant.length - 1], 'avant mutation : doit être gardée').toBe('@media screen');
+    expect(chainApres.includes('@media screen'), 'après mutation : le garde doit avoir disparu').toBe(false);
   });
 });

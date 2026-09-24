@@ -2,8 +2,8 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { setRequestLocale } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
-import { getDossierCards } from '@/lib/content';
+import { useTranslations, useLocale } from 'next-intl';
+import { getDossierCards, getLocalizedSlug } from '@/lib/content';
 import { budgetSummary, budgetLabels } from '@/lib/budget';
 import { buildMetadata } from '@/lib/metadata';
 import { Breadcrumb } from '@/components/breadcrumb';
@@ -68,6 +68,7 @@ function DossiersContent({
   const t = useTranslations('dossiers');
   const tb = useTranslations('breadcrumb');
   const bl = budgetLabels(t);
+  const locale = useLocale() as Locale;
 
   return (
     <>
@@ -89,7 +90,7 @@ function DossiersContent({
             return (
             <Link
               key={card.slug}
-              href={{ pathname: '/dossiers/[slug]', params: { slug: card.slug } }}
+              href={{ pathname: '/dossiers/[slug]', params: { slug: getLocalizedSlug(card, locale) } }}
               className="group rounded-lg border border-neutral-200 bg-neutral-50 p-5 transition-shadow hover:shadow-md"
             >
               <div className="mb-3 flex flex-wrap items-center gap-2">

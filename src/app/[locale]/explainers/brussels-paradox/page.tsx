@@ -4,8 +4,9 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import type { ComponentProps } from 'react';
-import { routing } from '@/i18n/routing';
+import { routing, type Locale } from '@/i18n/routing';
 import { buildMetadata, canonicalUrl } from '@/lib/metadata';
+import { getDossierCard, getLocalizedSlug } from '@/lib/content';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import type { Metadata } from 'next';
@@ -88,6 +89,16 @@ export default async function BrusselsParadoxPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  // Le dossier CPAS a un slug NL localisé (localizedSlugs.nl) : résolu ici
+  // plutôt que codé en dur dans GO_FURTHER, pour ne pas se périmer si le
+  // slug change à nouveau (cf. src/lib/redirects-301.ts).
+  const cpasCard = getDossierCard('cpas-bruxellois', locale as Locale)?.card;
+  const goFurther = GO_FURTHER.map((item) =>
+    item.key === 'cpas' && cpasCard
+      ? { ...item, href: { pathname: '/dossiers/[slug]' as const, params: { slug: getLocalizedSlug(cpasCard, locale as Locale) } } }
+      : item,
+  );
+
   const t = await getTranslations({ locale, namespace: 'explainers.brusselsParadox' });
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   // Same node as the Organization declared in the locale layout's JSON-LD graph.
@@ -118,7 +129,7 @@ export default async function BrusselsParadoxPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <BrusselsParadoxView />
+      <BrusselsParadoxView goFurther={goFurther} />
     </>
   );
 }
@@ -126,7 +137,7 @@ export default async function BrusselsParadoxPage({
 const h2 = 'text-lg font-semibold text-neutral-900';
 const textLink = 'text-brand-700 underline underline-offset-2 hover:text-brand-900';
 
-function BrusselsParadoxView() {
+function BrusselsParadoxView({ goFurther }: { goFurther: { key: string; href: LinkHref }[] }) {
   const t = useTranslations('explainers.brusselsParadox');
   const tb = useTranslations('breadcrumb');
   const tf = useTranslations('footer');
@@ -250,7 +261,7 @@ function BrusselsParadoxView() {
               {t('goFurther.title')}
             </h2>
             <ul className="space-y-2">
-              {GO_FURTHER.map(({ key, href }) => (
+              {goFurther.map(({ key, href }) => (
                 <li key={key}>
                   <Link href={href} className={textLink}>
                     {t(`goFurther.${key}`)}

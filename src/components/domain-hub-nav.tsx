@@ -3,6 +3,8 @@
 
 import { Link } from '@/i18n/navigation';
 import type { SectorCard, DossierCard, ComparisonCard, GlossaryTerm } from '@/lib/content';
+import { getLocalizedSlug } from '@/lib/content';
+import type { Locale } from '@/i18n/routing';
 import { budgetSummary, type BudgetLabels } from '@/lib/budget';
 import { dossierBadgeClass } from '@/lib/status-badge';
 
@@ -78,7 +80,7 @@ export function DomainHubNav({ locale, sectors, dossiers, comparisons, glossaryT
           return (
           <Link
             key={d.slug}
-            href={{ pathname: '/dossiers/[slug]', params: { slug: d.slug } }}
+            href={{ pathname: '/dossiers/[slug]', params: { slug: getLocalizedSlug(d, locale as Locale) } }}
             className="group rounded-lg border border-neutral-200 bg-neutral-50 p-4 transition-all hover:border-brand-600 hover:shadow-sm"
           >
             <div className="mb-1 flex items-center gap-2">

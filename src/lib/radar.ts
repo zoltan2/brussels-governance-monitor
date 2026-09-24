@@ -10,6 +10,8 @@ import {
   getAllDossierSlugs,
   getAllCommuneSlugs,
   getAllSectorSlugs,
+  getDossierCard,
+  getLocalizedSlug,
 } from './content';
 
 // ---------- Schema ----------
@@ -149,6 +151,19 @@ export function resolvePromotedLink(
   return section && promotedTo ? { section, slug: promotedTo } : null;
 }
 
+/**
+ * `resolvePromotedLink` rend le slug CANONIQUE (`promotedTo`, comparé aux
+ * ensembles de `getContentPromotionSlugSets()`) : un dossier à slug NL
+ * localisé (`localizedSlugs.nl`, ex. cpas-bruxellois → brusselse-ocmws) y
+ * apparaîtrait donc avec son ancienne URL. Résolu ici, par locale, à partir
+ * de la fiche réelle. Un dossier introuvable (retiré) rend le slug tel quel :
+ * `resolvePromotedSection` a déjà validé son existence au moment du build.
+ */
+function localizeDossierRouteSlug(canonicalSlug: string, locale: Locale): string {
+  const card = getDossierCard(canonicalSlug, locale)?.card;
+  return card ? getLocalizedSlug(card, locale) : canonicalSlug;
+}
+
 let cachedPromotionSlugSets: PromotionSlugSets | null = null;
 
 /**
@@ -174,6 +189,15 @@ const parsed = radarSchema.parse(radarData);
 // ---------- Helpers ----------
 
 function localize(entry: RadarEntry, locale: Locale): LocalizedRadarEntry {
+  const rawLink = resolvePromotedLink(
+    entry.promotedTo,
+    entry.promotedSection,
+    getContentPromotionSlugSets(),
+  );
+  const promotedLink: PromotedLink | null =
+    rawLink && rawLink.section === 'dossiers'
+      ? { ...rawLink, slug: localizeDossierRouteSlug(rawLink.slug, locale) }
+      : rawLink;
   return {
     id: entry.id,
     date: entry.date,
@@ -186,11 +210,7 @@ function localize(entry: RadarEntry, locale: Locale): LocalizedRadarEntry {
     description: entry.descriptions[locale] || entry.descriptions.fr,
     promotedTo: entry.promotedTo,
     promotedSection: entry.promotedSection,
-    promotedLink: resolvePromotedLink(
-      entry.promotedTo,
-      entry.promotedSection,
-      getContentPromotionSlugSets(),
-    ),
+    promotedLink,
     archivedAt: entry.archivedAt,
     period: entry.period,
   };

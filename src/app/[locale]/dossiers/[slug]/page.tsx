@@ -24,7 +24,7 @@ import { buildMetadata, dossierSearchMeta } from '@/lib/metadata';
 import { dossierBadgeClass } from '@/lib/status-badge';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
-import { MdxContent } from '@/components/mdx-content';
+import { DossierMdxContent } from '@/components/dossier-mdx-content';
 import { isScrollyEnabled } from '@/lib/scrolly-allowlist';
 import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
@@ -451,7 +451,7 @@ function DossierDetail({
           data-mdx-content
           {...(isFallback && card.locale !== locale ? { lang: card.locale } : {})}
         >
-          <MdxContent code={card.content} metrics={card.metrics} />
+          <DossierMdxContent code={card.content} metrics={card.metrics} />
         </div>
 
         {/* Dossiers liés : la suite de lecture, juste après le texte */}

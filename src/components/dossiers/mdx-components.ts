@@ -19,6 +19,12 @@ import { RechauffementChantiersTable } from '@/components/dossiers/rechauffement
 import { RechauffementEauCounters } from '@/components/dossiers/rechauffement/eau-counters';
 import { RechauffementHeatCounters } from '@/components/dossiers/rechauffement/heat-counters';
 import { RechauffementResponsibilityMatrix } from '@/components/dossiers/rechauffement/responsibility-matrix';
+import { ZruCarte2020_2026 } from '@/components/dossiers/zru/carte-zru';
+import { ZruCarteQuartiers } from '@/components/dossiers/zru/carte-quartiers';
+import { ZruCommunesRangs } from '@/components/dossiers/zru/communes-rangs';
+import { ZruPointsEurope } from '@/components/dossiers/zru/points-europe';
+import { ZruProgrammes } from '@/components/dossiers/zru/programmes';
+import { ZruMatrice } from '@/components/dossiers/zru/matrice';
 import type { MdxComponents } from '@/components/mdx-components';
 
 export const dossierMdxComponents: MdxComponents = {
@@ -29,4 +35,10 @@ export const dossierMdxComponents: MdxComponents = {
   RechauffementEauCounters,
   RechauffementHeatCounters,
   RechauffementResponsibilityMatrix,
+  ZruCarte2020_2026,
+  ZruCarteQuartiers,
+  ZruCommunesRangs,
+  ZruPointsEurope,
+  ZruProgrammes,
+  ZruMatrice,
 };

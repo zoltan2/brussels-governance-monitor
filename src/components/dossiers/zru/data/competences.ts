@@ -23,8 +23,8 @@ export const SOURCES_MATRICE = {
     libelle: {
       fr: 'Monitoring des quartiers, à propos',
       nl: 'Wijkmonitoring, over',
-      en: 'Neighbourhood Monitoring, about',
-      de: 'Quartiersmonitoring, Info',
+      en: 'Monitoring des Quartiers, about',
+      de: 'Monitoring des Quartiers, Info',
     },
     url: 'https://monitoringdesquartiers.brussels/a-propos',
   },
@@ -151,8 +151,8 @@ export const LIGNES: {
       regional: {
         fr: 'Indicateurs par quartier : Monitoring des quartiers de l’IBSA (perspective.brussels), 145 quartiers',
         nl: 'Indicatoren per wijk: Wijkmonitoring van het BISA (perspective.brussels), 145 wijken',
-        en: 'Indicators by neighbourhood: IBSA Neighbourhood Monitoring (perspective.brussels), 145 neighbourhoods',
-        de: 'Indikatoren je Quartier: Quartiersmonitoring des IBSA (perspective.brussels), 145 Quartiere',
+        en: 'Indicators by neighbourhood: IBSA Monitoring des Quartiers (perspective.brussels), 145 neighbourhoods',
+        de: 'Indikatoren je Quartier: Monitoring des Quartiers des IBSA (perspective.brussels), 145 Quartiere',
       },
       cocom: {
         fr: 'Rapport sur l’état de la pauvreté, dont le baromètre social annuel, sous la responsabilité du Collège réuni (ordonnance du 20 juillet 2006), rédigé par l’Observatoire de la Santé et du Social',

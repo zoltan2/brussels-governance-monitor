@@ -100,10 +100,11 @@ describe('ZruCarte2020_2026', () => {
     expect(grandSvg.querySelectorAll('text')).toHaveLength(0);
   });
 
-  it('surfaces et décomptes présentés comme un calcul BGM, secteurs entrants et sortants listés par identifiant', () => {
+  it('la colonne de surface ne porte pas de provenance unique, le décompte de secteurs reste un calcul BGM, secteurs entrants et sortants listés par identifiant', () => {
     const { container } = render(<ZruCarte2020_2026 locale="fr" />);
     const entetes = Array.from(container.querySelectorAll('details thead th')).map((th) => th.textContent ?? '');
-    expect(entetes[1]).toContain('calcul BGM');
+    expect(entetes[1]).toBe('Surface (km²)');
+    expect(entetes[1]).not.toContain('calcul BGM');
     expect(entetes[2]).toContain('calcul BGM');
     const lignes = Array.from(container.querySelectorAll('details tbody tr'));
     const ligne2020 = lignes.find((tr) => tr.textContent?.includes('ZRU 2020'))!.textContent!;
@@ -111,6 +112,36 @@ describe('ZruCarte2020_2026', () => {
     for (const s of SECTEURS_SORTANTS) expect(ligne2020).toContain(s.id);
     for (const s of SECTEURS_ENTRANTS) expect(ligne2026).toContain(s.id);
     expect(ligne2020).not.toContain(SECTEURS_ENTRANTS[0].id);
+  });
+
+  it('la surface 2020 est étiquetée comme un attribut officiel de la couche, la surface 2026 comme un calcul BGM (fr)', () => {
+    const { container } = render(<ZruCarte2020_2026 locale="fr" />);
+    const lignes = Array.from(container.querySelectorAll('details tbody tr'));
+    const ligne2020 = lignes.find((tr) => tr.textContent?.includes('ZRU 2020'))!.textContent!;
+    const ligne2026 = lignes.find((tr) => tr.textContent?.includes('ZRU 2026'))!.textContent!;
+    expect(ligne2020).toContain('attribut officiel de la couche');
+    expect(ligne2020).not.toContain('calcul BGM');
+    expect(ligne2026).toContain('calcul BGM');
+    expect(ligne2026).not.toContain('attribut officiel de la couche');
+  });
+
+  it('la surface 2020 est étiquetée comme un officieel attribuut van de laag, la surface 2026 comme een berekening BGM (nl)', () => {
+    const { container } = render(<ZruCarte2020_2026 locale="nl" />);
+    const entetes = Array.from(container.querySelectorAll('details thead th')).map((th) => th.textContent ?? '');
+    expect(entetes[1]).toBe('Oppervlakte (km²)');
+    const lignes = Array.from(container.querySelectorAll('details tbody tr'));
+    const ligne2020 = lignes.find((tr) => tr.textContent?.includes('ZSH 2020'))!.textContent!;
+    const ligne2026 = lignes.find((tr) => tr.textContent?.includes('ZSH 2026'))!.textContent!;
+    expect(ligne2020).toContain('officieel attribuut van de laag');
+    expect(ligne2020).not.toContain('berekening BGM');
+    expect(ligne2026).toContain('berekening BGM');
+    expect(ligne2026).not.toContain('officieel attribuut van de laag');
+  });
+
+  it('la légende néerlandaise décrit le trait tireté 2026 comme amberkleurig, jamais oranje', () => {
+    const { container } = render(<ZruCarte2020_2026 locale="nl" />);
+    expect(container.textContent).toContain('amberkleurige streepjeslijn');
+    expect(container.textContent).not.toContain('oranje streepjeslijn');
   });
 
   it('en néerlandais : « zone voor stedelijke herwaardering (ZSH) »', () => {

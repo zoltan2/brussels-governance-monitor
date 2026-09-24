@@ -4,10 +4,18 @@
 import { useTranslations } from 'next-intl';
 import type { Verification } from '@/lib/content';
 import { Link } from '@/i18n/navigation';
+import { estEnRetard, estJourISO, aujourdhuiBruxelles } from '@/lib/verification-due';
+import { jourISO } from '@/lib/velite-date';
 
 interface VerificationBadgeProps {
   verification: Verification;
   locale: string;
+  /**
+   * Jour ISO (`AAAA-MM-JJ`) pris comme « aujourd'hui » pour juger si
+   * `nextVerification` est dépassée. Par défaut le jour courant à Bruxelles ;
+   * les tests l'injectent pour figer la comparaison.
+   */
+  today?: string;
 }
 
 const resultStyles: Record<Verification['result'], string> = {
@@ -31,8 +39,11 @@ function formatLocalDate(dateStr: string, locale: string): string {
   );
 }
 
-export function VerificationBadge({ verification, locale }: VerificationBadgeProps) {
+export function VerificationBadge({ verification, locale, today }: VerificationBadgeProps) {
   const t = useTranslations('verification');
+  const aujourdhui = today ?? aujourdhuiBruxelles();
+  const echeance = verification.nextVerification ? jourISO(verification.nextVerification) : undefined;
+  const echeanceEnRetard = echeance !== undefined && estJourISO(echeance) && estEnRetard(echeance, aujourdhui);
 
   return (
     <div
@@ -56,8 +67,10 @@ export function VerificationBadge({ verification, locale }: VerificationBadgePro
           </p>
           <p className="mt-1 text-xs leading-relaxed">{verification.summary}</p>
           {verification.nextVerification && (
-            <p className="mt-1 text-xs">
-              {t('nextDate', { date: formatLocalDate(verification.nextVerification, locale) })}
+            <p className={`mt-1 text-xs${echeanceEnRetard ? ' font-medium text-warning-fg' : ''}`}>
+              {t(echeanceEnRetard ? 'nextDateOverdue' : 'nextDate', {
+                date: formatLocalDate(verification.nextVerification, locale),
+              })}
             </p>
           )}
           {/*

@@ -281,7 +281,7 @@ function DossierDetail({
                 />
               </svg>
               Vue immersive
-              <span className="text-[10px] uppercase tracking-wide opacity-60">bêta</span>
+              <span className="text-[10px] uppercase tracking-wide text-brand-700">{t('scrollyBeta')}</span>
             </a>
           )}
         </div>
@@ -383,16 +383,17 @@ function DossierDetail({
             </h2>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {card.metrics.map((metric) => (
-                <div key={metric.label} className="rounded-lg bg-neutral-50 p-4">
-                  <p className="text-2xl font-bold text-brand-900">
+                <div key={metric.label} className="min-w-0 rounded-lg bg-neutral-50 p-4">
+                  <p className="break-words text-2xl font-bold text-brand-900">
                     {metric.value}
                     {metric.unit && (
-                      <span className="ml-1 text-sm font-normal text-neutral-500">
-                        {metric.unit}
-                      </span>
+                      <>
+                        {' '}
+                        <span className="text-sm font-normal text-neutral-500">{metric.unit}</span>
+                      </>
                     )}
                   </p>
-                  <p className="mt-1 text-xs text-neutral-500">{metric.label}</p>
+                  <p className="mt-1 break-words text-xs text-neutral-500">{metric.label}</p>
                 </div>
               ))}
             </div>

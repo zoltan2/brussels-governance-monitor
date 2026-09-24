@@ -355,14 +355,63 @@ mark {
     line-height: 1.5;
   }
 
-  /* Rampe de choroplèthe : valeurs claires même si l'impression part du mode
+  /* Palette entière : valeurs claires même si l'impression part du mode
      sombre (papier blanc). `!important` obligatoire : `:root,.dark` ici est en
      spécificité (0,1,0), et perd sinon face à `:root:not(.light-forced)`
      (0,2,0) dans `@media (prefers-color-scheme: dark)` quand le navigateur
      rapporte encore le sombre à l'impression (même piège que .high-contrast
-     documenté plus haut). */
+     documenté plus haut). Sans ça, un texte posé via une classe utilitaire
+     (`text-neutral-900` sur le h1, `text-status-delayed`/`text-neutral-900`
+     sur `WhatChangedBanner`) hérite de la valeur sombre du token — gris très
+     clair sur papier blanc, quasi invisible — la règle `body{color:black}`
+     ci-dessus ne le corrige pas : une couleur posée directement sur l'élément
+     l'emporte sur celle héritée du body, quelle que soit la spécificité de
+     `body`. On reforce donc ici tout le jeu de tokens `@theme` (valeurs
+     claires), pas seulement les paliers du choroplèthe. Garde :
+     `src/app/globals.contrast.test.ts`. */
   :root,
   .dark {
+    --color-brand-900: oklch(0.25 0.05 250) !important;
+    --color-brand-800: oklch(0.3 0.06 250) !important;
+    --color-brand-700: oklch(0.35 0.07 250) !important;
+    --color-brand-600: oklch(0.42 0.08 250) !important;
+    --color-brand-200: oklch(0.88 0.03 250) !important;
+    --color-brand-50: oklch(0.97 0.01 250) !important;
+    --color-stuut: oklch(0.487 0.085 181.8) !important;
+
+    --color-neutral-50: oklch(0.98 0 0) !important;
+    --color-neutral-100: oklch(0.96 0 0) !important;
+    --color-neutral-200: oklch(0.92 0 0) !important;
+    --color-neutral-300: oklch(0.87 0 0) !important;
+    --color-neutral-400: oklch(0.7 0 0) !important;
+    --color-neutral-500: oklch(0.51 0 0) !important;
+    --color-neutral-600: oklch(0.45 0 0) !important;
+    --color-neutral-700: oklch(0.37 0 0) !important;
+    --color-neutral-800: oklch(0.27 0 0) !important;
+    --color-neutral-900: oklch(0.18 0 0) !important;
+
+    --color-status-blocked: oklch(0.37 0 0) !important;
+    --color-status-delayed: oklch(0.48 0.15 75) !important;
+    --color-status-ongoing: oklch(0.48 0.12 250) !important;
+    --color-status-resolved: oklch(0.48 0.1 195) !important;
+
+    --color-feasibility-high: oklch(0.55 0.12 250) !important;
+    --color-feasibility-medium: oklch(0.55 0.15 75) !important;
+    --color-feasibility-low: oklch(0.52 0.06 50) !important;
+    --color-feasibility-very-low: oklch(0.5 0.04 30) !important;
+    --color-feasibility-near-zero: oklch(0.45 0 0) !important;
+
+    --color-warning-bg: oklch(0.97 0.03 85) !important;
+    --color-warning-border: oklch(0.62 0.13 70) !important;
+    --color-warning-strong: oklch(0.55 0.14 65) !important;
+    --color-warning-fg: oklch(0.45 0.11 60) !important;
+    --color-info-bg: oklch(0.97 0.015 250) !important;
+    --color-info-border: oklch(0.6 0.08 250) !important;
+    --color-info-fg: oklch(0.42 0.08 250) !important;
+    --color-confirmed-bg: oklch(0.97 0.02 195) !important;
+    --color-confirmed-border: oklch(0.6 0.08 195) !important;
+    --color-confirmed-fg: oklch(0.44 0.08 195) !important;
+
     --color-choro-1: oklch(0.95 0.02 250) !important;
     --color-choro-2: oklch(0.82 0.05 250) !important;
     --color-choro-3: oklch(0.67 0.08 250) !important;

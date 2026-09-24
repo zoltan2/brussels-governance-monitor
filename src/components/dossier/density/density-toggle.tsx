@@ -31,14 +31,17 @@ export function DensityToggle() {
   return (
     <div className="sticky top-16 z-30 -mx-4 mb-6 border-b border-neutral-200 bg-neutral-50/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-neutral-50/80">
       <fieldset
-        className="flex items-center gap-2"
+        className="flex flex-wrap items-center gap-x-2 gap-y-1.5"
         aria-label="Profondeur de lecture"
       >
         <legend className="sr-only">Profondeur de lecture</legend>
-        <span aria-hidden="true" className="text-xs font-medium uppercase tracking-wide text-neutral-500">
+        <span
+          aria-hidden="true"
+          className="hidden text-xs font-medium uppercase tracking-wide text-neutral-500 min-[400px]:inline"
+        >
           Lecture
         </span>
-        <div className="flex gap-1" role="radiogroup">
+        <div className="flex flex-wrap gap-1" role="radiogroup">
           {ALL_DENSITIES.map((d) => (
             <DensityRadio
               key={d}
@@ -72,10 +75,12 @@ function DensityRadio({ value, current, onChange }: DensityRadioProps) {
         className="peer sr-only"
       />
       <span
-        className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-700 transition-colors hover:bg-brand-50 peer-checked:border-brand-700 peer-checked:bg-brand-700 peer-checked:text-neutral-50 peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-brand-700 peer-focus-visible:ring-offset-2"
+        className="inline-flex items-center gap-1 whitespace-nowrap rounded-md border border-neutral-200 px-2 py-1.5 text-xs font-medium text-neutral-700 transition-colors hover:bg-brand-50 peer-checked:border-brand-700 peer-checked:bg-brand-700 peer-checked:text-neutral-50 peer-focus-visible:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-brand-700 peer-focus-visible:ring-offset-2 min-[400px]:gap-1.5 min-[400px]:px-3"
       >
         {LABELS[value]}
-        <span className="text-[10px] font-mono opacity-70">{READING_TIMES[value]}</span>
+        <span className="hidden text-[10px] font-mono opacity-70 min-[400px]:inline">
+          {READING_TIMES[value]}
+        </span>
       </span>
     </label>
   );

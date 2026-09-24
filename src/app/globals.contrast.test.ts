@@ -324,3 +324,50 @@ describe('ZRU : motif « sans donnée » (contour hachuré)', () => {
     });
   }
 });
+
+// Impression depuis le mode sombre (audit visuel 24/09/2026, /fr/dossiers/bien-etre) :
+// le h1 (`text-neutral-900`) et le bandeau WhatChangedBanner (`text-status-delayed`,
+// `text-neutral-900`) sont posés directement sur l'élément via une classe utilitaire.
+// `body{color:black}` dans `@media print` ne les touche pas : une couleur déclarée sur
+// l'élément l'emporte sur celle héritée du body, quelle que soit la spécificité de
+// `body`. Sans forcer les tokens eux-mêmes, ces éléments restent sur les valeurs
+// sombres (claires) du mode sombre système et deviennent quasi invisibles sur papier
+// blanc. Même piège de spécificité que le choroplèthe : voir le commentaire au-dessus
+// du bloc `:root, .dark { … !important }` dans `@media print`.
+describe('impression depuis le mode sombre : palette entière reforcée en clair', () => {
+  const PRINT_TOKENS = [
+    'brand-900', 'brand-800', 'brand-700', 'brand-600', 'brand-200', 'brand-50', 'stuut',
+    'neutral-50', 'neutral-100', 'neutral-200', 'neutral-300', 'neutral-400', 'neutral-500',
+    'neutral-600', 'neutral-700', 'neutral-800', 'neutral-900',
+    'status-blocked', 'status-delayed', 'status-ongoing', 'status-resolved',
+    'feasibility-high', 'feasibility-medium', 'feasibility-low', 'feasibility-very-low', 'feasibility-near-zero',
+    'warning-bg', 'warning-border', 'warning-strong', 'warning-fg',
+    'info-bg', 'info-border', 'info-fg',
+    'confirmed-bg', 'confirmed-border', 'confirmed-fg',
+  ];
+
+  it.each(PRINT_TOKENS)('%s : la valeur imprimée est celle du mode clair', (token) => {
+    expect(jeton('print', `--color-${token}`)).toBe(jeton('clair', `--color-${token}`));
+  });
+
+  it.each(PRINT_TOKENS)('%s : porte !important dans @media print (sinon le sombre système gagne, spécificité 0,2,0)', (token) => {
+    const printBody = blockBody('@media print');
+    const re = new RegExp(`--color-${token}:\\s*oklch\\([^)]*\\)\\s*!important`);
+    expect(printBody, `--color-${token} sans !important dans @media print`).toMatch(re);
+  });
+
+  it('h1 (text-neutral-900) reste lisible sur le fond de page (neutral-50) à l\'impression', () => {
+    const ratio = contrast(jeton('print', '--color-neutral-900'), jeton('print', '--color-neutral-50'));
+    expect(ratio, `print : neutral-900 sur neutral-50 = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(4.5);
+  });
+
+  it('bandeau WhatChangedBanner : pill (text-status-delayed) reste lisible à l\'impression', () => {
+    const ratio = contrast(jeton('print', '--color-status-delayed'), jeton('print', '--color-neutral-50'));
+    expect(ratio, `print : status-delayed sur neutral-50 = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(4.5);
+  });
+
+  it('bandeau WhatChangedBanner : texte (text-neutral-900) reste lisible à l\'impression', () => {
+    const ratio = contrast(jeton('print', '--color-neutral-900'), jeton('print', '--color-neutral-50'));
+    expect(ratio, `print : neutral-900 sur neutral-50 = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(4.5);
+  });
+});

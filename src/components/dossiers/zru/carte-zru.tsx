@@ -22,6 +22,7 @@ const T: Record<
     resume: string;
     cap: string;
     cols: [string, string, string];
+    codes: string;
     l2020: string;
     l2026: string;
     entrants: string;
@@ -37,7 +38,8 @@ const T: Record<
     indic: 'Périmètre réglementaire par secteur statistique',
     resume: 'Contours de la ZRU 2020 et de la ZRU 2026 sur la Région, avec les secteurs qui entrent et qui sortent.',
     cap: 'Surfaces et secteurs des deux périmètres',
-    cols: ['Périmètre', 'Surface (km²)', 'Secteurs entrants ou sortants'],
+    cols: ['Périmètre', 'Surface (km², calcul BGM)', 'Secteurs entrants ou sortants (calcul BGM)'],
+    codes: 'secteurs désignés par le code INS de la commune et le code du secteur statistique',
     l2020: 'ZRU 2020',
     l2026: 'ZRU 2026',
     entrants: 'entrants',
@@ -48,11 +50,12 @@ const T: Record<
     legSortants: 'Secteurs sortants (pointillés)',
   },
   nl: {
-    titre: 'Stedelijke herwaarderingszone: perimeters 2020 en 2026',
+    titre: 'Zone voor stedelijke herwaardering (ZSH): perimeters 2020 en 2026',
     indic: 'Reglementaire perimeter per statistische sector',
     resume: 'Grenzen van de ZSH 2020 en 2026 over het Gewest, met de sectoren die erbij komen en die wegvallen.',
     cap: 'Oppervlakte en sectoren van beide perimeters',
-    cols: ['Perimeter', 'Oppervlakte (km²)', 'Sectoren erbij of weg'],
+    cols: ['Perimeter', 'Oppervlakte (km², berekening BGM)', 'Sectoren erbij of weg (berekening BGM)'],
+    codes: 'sectoren aangeduid met de NIS-code van de gemeente en de code van de statistische sector',
     l2020: 'ZSH 2020',
     l2026: 'ZSH 2026',
     entrants: 'erbij',
@@ -67,7 +70,8 @@ const T: Record<
     indic: 'Regulatory boundary by statistical sector',
     resume: 'Outlines of the 2020 and 2026 zones across the Region, with sectors joining and leaving.',
     cap: 'Area and sectors of both boundaries',
-    cols: ['Boundary', 'Area (km²)', 'Sectors joining or leaving'],
+    cols: ['Boundary', 'Area (km², BGM calculation)', 'Sectors joining or leaving (BGM calculation)'],
+    codes: 'sectors identified by the municipality’s NIS code and the statistical sector code',
     l2020: 'Zone 2020',
     l2026: 'Zone 2026',
     entrants: 'joining',
@@ -82,7 +86,8 @@ const T: Record<
     indic: 'Rechtliche Abgrenzung nach statistischen Sektoren',
     resume: 'Umrisse der Zonen 2020 und 2026 in der Region, mit hinzukommenden und wegfallenden Sektoren.',
     cap: 'Fläche und Sektoren beider Abgrenzungen',
-    cols: ['Abgrenzung', 'Fläche (km²)', 'Sektoren hinzu oder weg'],
+    cols: ['Abgrenzung', 'Fläche (km², Berechnung BGM)', 'Sektoren hinzu oder weg (Berechnung BGM)'],
+    codes: 'Sektoren bezeichnet mit dem NIS-Code der Gemeinde und dem Code des statistischen Sektors',
     l2020: 'Zone 2020',
     l2026: 'Zone 2026',
     entrants: 'hinzu',
@@ -97,6 +102,12 @@ const T: Record<
 /** Arrondit une surface à 2 décimales ; le formatage local (virgule, séparateur de milliers) revient à FigureZru. */
 function arrondirKm2(valeur: number): number {
   return Math.round(valeur * 100) / 100;
+}
+
+/** « 31 sortants : 21001-A30K, 21001-A331, … » ; identifiants triés, ponctuation de la locale. */
+function listeSecteurs(secteurs: { id: string }[], libelle: string, locale: Locale): string {
+  const ids = secteurs.map((s) => s.id).sort();
+  return `${secteurs.length} ${libelle}${locale === 'fr' ? '\u00a0:' : ':'} ${ids.join(', ')}`;
 }
 
 export function ZruCarte2020_2026({ locale = 'fr' }: { locale?: Locale }): ReactElement {
@@ -173,11 +184,15 @@ export function ZruCarte2020_2026({ locale = 'fr' }: { locale?: Locale }): React
         </ul>
       }
       tableau={{
-        caption: t.cap,
+        caption: `${t.cap} (${t.codes})`,
         colonnes: t.cols,
+        // Surfaces et listes de secteurs : calcul BGM (recouvrement majoritaire des entités du
+        // Monitoring sur les contours WFS, scripts/zru/geometrie.py), pas les chiffres officiels
+        // de l'arrêté ; le rapprochement avec ceux-ci relève de la vérification des faits (Tâche 17).
+        // Les secteurs sont listés par identifiant : la géométrie ne porte pas leur nom.
         lignes: [
-          [t.l2020, arrondirKm2(SURFACES_KM2.zru2020), `${SECTEURS_SORTANTS.length} ${t.sortants}`],
-          [t.l2026, arrondirKm2(SURFACES_KM2.zru2026), `${SECTEURS_ENTRANTS.length} ${t.entrants}`],
+          [t.l2020, arrondirKm2(SURFACES_KM2.zru2020), listeSecteurs(SECTEURS_SORTANTS, t.sortants, locale)],
+          [t.l2026, arrondirKm2(SURFACES_KM2.zru2026), listeSecteurs(SECTEURS_ENTRANTS, t.entrants, locale)],
         ],
       }}
     />

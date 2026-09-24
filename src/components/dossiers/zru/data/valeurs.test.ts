@@ -52,7 +52,7 @@ describe('valeurs ZRU', () => {
       expect(r.nation).toBeGreaterThan(0);
       expect(r.nom.de.trim()).not.toBe('');
     }
-    expect(PROVENANCE_EUROPE.modifications.join(' ')).toMatch(/calcul/);
+    expect(PROVENANCE_EUROPE.modifications.fr.join(' ')).toMatch(/calcul/);
   });
   it('provenances complètes', () => {
     for (const p of [PROVENANCE_QUARTIERS, PROVENANCE_COMMUNES, PROVENANCE_EUROPE]) expect(validerProvenance(p)).toEqual([]);

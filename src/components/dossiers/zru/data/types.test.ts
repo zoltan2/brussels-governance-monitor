@@ -5,12 +5,12 @@ import { describe, expect, it } from 'vitest';
 import { validerProvenance, type Provenance } from './types';
 
 const ok: Provenance = {
-  producteur: 'Eurostat',
+  producteur: { fr: 'Eurostat', nl: 'Eurostat', en: 'Eurostat', de: 'Eurostat' },
   url: 'https://ec.europa.eu/eurostat/databrowser/view/ilc_peps11n/default/table',
   sourceMiseAJour: '2026-07-08',
   extraitLe: '2026-09-24',
-  licence: 'Réutilisation autorisée avec mention de la source (Décision de la Commission du 12/12/2011)',
-  modifications: ['ratio région-capitale / pays calculé par BGM'],
+  licence: { fr: 'Réutilisation autorisée', nl: 'Hergebruik toegestaan', en: 'Reuse authorised', de: 'Weiterverwendung gestattet' },
+  modifications: { fr: ['rapport calculé par BGM'], nl: ['verhouding berekend door BGM'], en: ['ratio calculated by BGM'], de: ['Verhältnis berechnet von BGM'] },
   confiance: 'official',
 };
 
@@ -28,7 +28,12 @@ describe('validerProvenance', () => {
     expect(validerProvenance({ ...ok, sourceMiseAJour: null })).toEqual([]);
     expect(validerProvenance({ ...ok, sourceMiseAJour: '' })).toContain('sourceMiseAJour : date ISO ou null');
   });
-  it('refuse une licence vide', () => {
-    expect(validerProvenance({ ...ok, licence: ' ' })).toContain('licence : requise');
+  it('refuse une licence vide dans une langue', () => {
+    expect(validerProvenance({ ...ok, licence: { ...ok.licence, de: ' ' } })).toContain('licence (de) : requise');
+  });
+  it('refuse des modifications de longueur différente selon la langue', () => {
+    expect(validerProvenance({ ...ok, modifications: { ...ok.modifications, nl: [] } })).toContain(
+      'modifications (nl) : 0 entrées au lieu de 1',
+    );
   });
 });

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 // src/components/dossiers/zru/data/geometrie.test.ts
 import { describe, expect, it } from 'vitest';
 import * as G from './geometrie';

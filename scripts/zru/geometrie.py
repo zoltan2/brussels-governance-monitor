@@ -71,14 +71,33 @@ if dup_e or dup_s:
     print('clés composées dupliquées, index ajouté :', dict(dup_e), dict(dup_s), file=sys.stderr)
 
 date = sys.argv[sys.argv.index('--date') + 1] if '--date' in sys.argv else datetime.date.today().isoformat()
-prov = {'producteur': 'urban.brussels (BruGIS) ; perspective.brussels (ZRU)', 'url': 'https://gis.urban.brussels/geoserver/ows?service=WFS&request=GetCapabilities',
+# Textes montrés au lecteur : les quatre langues (Provenance.producteur/licence/modifications).
+# Les empreintes des réponses WFS vont dans un commentaire et une constante non rendue, jamais
+# dans les modifications affichées. Les surfaces et les secteurs entrants/sortants sont un calcul
+# BGM (recouvrement majoritaire, fonction dans()), d'où la confiance « estimated ».
+METHODE = {
+  'fr': "calcul BGM\u00a0: recouvrement majoritaire des entités du Monitoring sur les contours WFS\u00a0; surfaces calculées sur ces contours, peuvent différer des chiffres officiels de l'arrêté",
+  'nl': 'berekening BGM: meerderheidsoverlapping van de entiteiten van de Wijkmonitoring met de WFS-grenzen; oppervlakten berekend op die grenzen, kunnen afwijken van de officiële cijfers van het besluit',
+  'en': 'BGM calculation: majority-area overlap of the Monitoring entities with the WFS outlines; areas computed on those outlines, may differ from the official figures in the decree',
+  'de': 'Berechnung BGM: Mehrheitsüberlappung der Einheiten des Quartiersmonitorings mit den WFS-Umrissen; Flächen auf diesen Umrissen berechnet, können von den amtlichen Zahlen des Erlasses abweichen',
+}
+prov = {'producteur': {l: 'urban.brussels (BruGIS) & perspective.brussels (ZRU)' for l in ('fr', 'nl', 'en', 'de')},
+        'url': 'https://gis.urban.brussels/geoserver/ows?service=WFS&request=GetCapabilities',
         'sourceMiseAJour': None, 'extraitLe': date,
-        'licence': 'CC BY 4.0 (service BruGIS) ; CC0 (couches ZRU)',
-        'modifications': [f'simplification en topologie partagée, tolérance {TOL} m', 'quartiers reconstitués par fusion des secteurs statistiques', f'empreintes sources {h1} {h2} {h3}'],
-        'confiance': 'official'}
+        'licence': {'fr': 'CC BY 4.0 (service BruGIS)\u00a0; CC0 (couches ZRU)', 'nl': 'CC BY 4.0 (BruGIS-dienst); CC0 (ZSH-lagen)',
+                    'en': 'CC BY 4.0 (BruGIS service); CC0 (zone layers)', 'de': 'CC BY 4.0 (BruGIS-Dienst); CC0 (Zonen-Layer)'},
+        'modifications': {
+          'fr': [f'simplification en topologie partagée, tolérance {TOL}\u00a0m', 'quartiers reconstitués par fusion des secteurs statistiques', METHODE['fr']],
+          'nl': [f'vereenvoudiging met gedeelde topologie, tolerantie {TOL} m', 'wijken samengesteld door samenvoeging van de statistische sectoren', METHODE['nl']],
+          'en': [f'simplified with shared topology, {TOL} m tolerance', 'neighbourhoods rebuilt by merging statistical sectors', METHODE['en']],
+          'de': [f'Vereinfachung mit gemeinsamer Topologie, Toleranz {TOL} m', 'Viertel durch Zusammenlegung der statistischen Sektoren gebildet', METHODE['de']],
+        },
+        'confiance': 'estimated'}
+empreintes = [h1, h2, h3]
 ts = f'''// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 // Généré par scripts/zru/geometrie.py le {date}. Ne pas modifier à la main.
+// Empreintes SHA-256 (16 premiers caractères) des réponses WFS secteurs, ZRU 2020, ZRU 2026 : {' '.join(empreintes)}.
 import type {{ Provenance }} from './types';
 
 export const VIEWBOX = '0 0 {LARGEUR} {H}';
@@ -90,6 +109,8 @@ export const SECTEURS_ENTRANTS: {{ id: string; d: string }}[] = {json.dumps(entr
 export const SECTEURS_SORTANTS: {{ id: string; d: string }}[] = {json.dumps(sortants)};
 export const SURFACES_KM2 = {{ zru2020: {round(zru20.area/1e6, 2)}, zru2026: {round(zru26.area/1e6, 2)} }};
 export const PROVENANCE_GEOMETRIE: Provenance = {json.dumps(prov, ensure_ascii=False)};
+/** Empreintes des réponses WFS (secteurs, ZRU 2020, ZRU 2026) : traçabilité, jamais rendues. */
+export const EMPREINTES_SOURCES_GEOMETRIE = {json.dumps(empreintes)};
 '''
 open('src/components/dossiers/zru/data/geometrie.ts', 'w', encoding='utf-8').write(ts)
 print('ok', len(quartiers), 'quartiers,', len(entrants), 'entrants,', len(sortants), 'sortants')

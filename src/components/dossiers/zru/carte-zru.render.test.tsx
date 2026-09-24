@@ -3,10 +3,20 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 // src/components/dossiers/zru/carte-zru.render.test.tsx
 import { render, cleanup } from '@testing-library/react';
+import * as matchers from 'vitest-axe/matchers';
+import { axe } from 'vitest-axe';
+import type { AxeMatchers } from 'vitest-axe/matchers';
 import { afterEach, describe, expect, it } from 'vitest';
 import { ZruCarte2020_2026 } from './carte-zru';
 import { SECTEURS_ENTRANTS, SECTEURS_SORTANTS } from './data/geometrie';
 
+declare module 'vitest' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+  interface Assertion<T = any> extends AxeMatchers {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  interface AsymmetricMatchersContaining extends AxeMatchers {}
+}
+expect.extend(matchers);
 afterEach(() => cleanup());
 
 describe('ZruCarte2020_2026', () => {
@@ -88,5 +98,29 @@ describe('ZruCarte2020_2026', () => {
     const { container } = render(<ZruCarte2020_2026 />);
     const grandSvg = container.querySelector('figure > svg')!;
     expect(grandSvg.querySelectorAll('text')).toHaveLength(0);
+  });
+
+  it('surfaces et décomptes présentés comme un calcul BGM, secteurs entrants et sortants listés par identifiant', () => {
+    const { container } = render(<ZruCarte2020_2026 locale="fr" />);
+    const entetes = Array.from(container.querySelectorAll('details thead th')).map((th) => th.textContent ?? '');
+    expect(entetes[1]).toContain('calcul BGM');
+    expect(entetes[2]).toContain('calcul BGM');
+    const lignes = Array.from(container.querySelectorAll('details tbody tr'));
+    const ligne2020 = lignes.find((tr) => tr.textContent?.includes('ZRU 2020'))!.textContent!;
+    const ligne2026 = lignes.find((tr) => tr.textContent?.includes('ZRU 2026'))!.textContent!;
+    for (const s of SECTEURS_SORTANTS) expect(ligne2020).toContain(s.id);
+    for (const s of SECTEURS_ENTRANTS) expect(ligne2026).toContain(s.id);
+    expect(ligne2020).not.toContain(SECTEURS_ENTRANTS[0].id);
+  });
+
+  it('en néerlandais : « zone voor stedelijke herwaardering (ZSH) »', () => {
+    const { container } = render(<ZruCarte2020_2026 locale="nl" />);
+    expect(container.textContent).toContain('Zone voor stedelijke herwaardering (ZSH)');
+    expect(container.textContent).not.toContain('herwaarderingszone');
+  });
+
+  it('passe axe', async () => {
+    const { container } = render(<ZruCarte2020_2026 />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

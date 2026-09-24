@@ -100,27 +100,39 @@ export function LegendeSource({ locale, indicateur, periode, provenance }: Legen
     <span>{l.inconnue}</span>
   );
 
+  // Ponctuation : en français, espace insécable avant « : » et « ; » ; en néerlandais, anglais et
+  // allemand, aucune espace avant.
+  const dp = locale === 'fr' ? '\u00a0:' : ':';
+  const pv = locale === 'fr' ? '\u00a0;' : ';';
+  const modifications = provenance.modifications[locale];
+
   return (
     <figcaption className="mt-3 text-xs leading-relaxed text-neutral-600">
       <span className="font-medium">
         {indicateur}, {periode}.
       </span>{' '}
-      {l.source} :{' '}
+      {l.source}
+      {dp}{' '}
       <a
         href={provenance.url}
         target="_blank"
         rel="noopener noreferrer"
         className="text-brand-700 underline underline-offset-2 [overflow-wrap:anywhere] hover:text-brand-900"
       >
-        {provenance.producteur}
+        {provenance.producteur[locale]}
       </a>{' '}
-      ({l.miseAJour} : {sourceMiseAJourNode} ; {l.licence} : {provenance.licence}),{' '}
-      {l.extrait} <time dateTime={provenance.extraitLe}>{formatDate(provenance.extraitLe, locale)}</time> ; {l.confiance}{' '}
-      : {LIBELLES_CONFIANCE[locale][provenance.confiance]}.
-      {provenance.modifications.length > 0 && (
+      ({l.miseAJour}
+      {dp} {sourceMiseAJourNode}
+      {pv} {l.licence}
+      {dp} {provenance.licence[locale]}), {l.extrait}{' '}
+      <time dateTime={provenance.extraitLe}>{formatDate(provenance.extraitLe, locale)}</time>
+      {pv} {l.confiance}
+      {dp} {LIBELLES_CONFIANCE[locale][provenance.confiance]}.
+      {modifications.length > 0 && (
         <>
           {' '}
-          {l.modifs} : {provenance.modifications.join(' ; ')}.
+          {l.modifs}
+          {dp} {modifications.join(`${pv} `)}.
         </>
       )}
     </figcaption>
@@ -139,6 +151,11 @@ export type FigureZruProps = {
   resumeSvg: string;
   /** Élément SVG unique (carte ou graphique) ; reçoit role="img" et un titre/desc accessibles. */
   svg: ReactNode;
+  /**
+   * Cadre HTML facultatif autour du SVG (étiquettes de lignes, graduations…), pour les textes qui
+   * ne peuvent pas être dans le SVG. Reçoit le SVG déjà rendu accessible et le place où il veut.
+   */
+  cadreSvg?: (svg: ReactNode) => ReactNode;
   /** Légende visuelle facultative (motifs, tirets…) rendue en HTML juste après le SVG, jamais dans le SVG lui-même. */
   legende?: ReactNode;
   tableau: { caption: string; colonnes: string[]; lignes: (string | number)[][] };
@@ -183,7 +200,7 @@ export function FigureZru(p: FigureZruProps): ReactElement {
         </p>
       </div>
 
-      {svgAccessible}
+      {p.cadreSvg ? p.cadreSvg(svgAccessible) : svgAccessible}
 
       {p.legende}
 

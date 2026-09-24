@@ -19,12 +19,17 @@ afterEach(() => cleanup());
 const props = {
   idBase: 'test-fig', locale: 'nl' as const, titre: 'Titel', indicateur: 'Mediaan belastbaar inkomen', periode: '2023',
   provenance: {
-    producteur: 'BISA',
+    producteur: { fr: 'IBSA', nl: 'BISA', en: 'IBSA', de: 'IBSA' },
     url: 'https://monitoringdesquartiers.brussels/Indicator/IndicatorPage/2498',
     sourceMiseAJour: '2026-06-01',
     extraitLe: '2026-09-24',
-    licence: 'Vrij hergebruik met bronvermelding',
-    modifications: [],
+    licence: {
+      fr: 'Réutilisation libre avec mention de la source',
+      nl: 'Vrij hergebruik met bronvermelding',
+      en: 'Free reuse with attribution',
+      de: 'Freie Weiterverwendung mit Quellenangabe',
+    },
+    modifications: { fr: [] as string[], nl: [] as string[], en: [] as string[], de: [] as string[] },
     confiance: 'official' as const,
   },
   resumeSvg: 'Kaart van 145 wijken',
@@ -48,7 +53,10 @@ describe('FigureZru', () => {
     const { container } = render(
       <FigureZru
         {...props}
-        provenance={{ ...props.provenance, modifications: ['Simplification à 5 classes', 'Arrondi au dixième'] }}
+        provenance={{
+          ...props.provenance,
+          modifications: { fr: ['Simplification', 'Arrondi'], nl: ['Vereenvoudiging tot 5 klassen', 'Afgerond op een decimaal'], en: ['a', 'b'], de: ['c', 'd'] },
+        }}
       />,
     );
     const texte = container.textContent!;
@@ -63,10 +71,10 @@ describe('FigureZru', () => {
     // Extraction
     expect(container.querySelector('time[datetime="2026-09-24"]')).not.toBeNull();
     // Licence
-    expect(texte).toContain(props.provenance.licence);
-    // Modifications
-    expect(texte).toContain('Simplification à 5 classes');
-    expect(texte).toContain('Arrondi au dixième');
+    expect(texte).toContain(props.provenance.licence.nl);
+    // Modifications : celles de la locale, jamais celles d'une autre
+    expect(texte).toContain('Vereenvoudiging tot 5 klassen; Afgerond op een decimaal');
+    expect(texte).not.toContain('Simplification');
     // Confiance
     expect(texte).toContain('officieel');
   });
@@ -79,6 +87,17 @@ describe('FigureZru', () => {
     expect(cap).toContain('onbekend');
     // Jamais une valeur vide entre le libellé et le séparateur suivant.
     expect(cap).not.toMatch(/bijwerking van de bron\s*:\s*;/);
+  });
+
+  it('ponctuation localisée : espace insécable avant « : » et « ; » en français seulement', () => {
+    const { container, rerender } = render(<FigureZru {...props} />);
+    const nl = container.querySelector('figcaption')!.textContent!;
+    expect(nl).toContain('Bron: ');
+    expect(nl).not.toMatch(/\s[:;]/);
+    rerender(<FigureZru {...props} locale="fr" />);
+    const fr = container.querySelector('figcaption')!.textContent!;
+    expect(fr).toContain('Source\u00a0: ');
+    expect(fr).not.toMatch(/[^\u00a0][:;]\s/);
   });
 
   it('les nombres du tableau suivent la convention locale (fr-BE : virgule décimale, espace insécable pour les milliers)', () => {

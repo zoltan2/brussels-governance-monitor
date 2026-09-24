@@ -40,6 +40,7 @@ describe('DossierAlert', () => {
               severity={severity}
               severityLabel={severityLabel(locale, severity)}
               formattedDate="24 septembre 2026"
+              locale={locale}
             />
           </ul>,
         );
@@ -47,7 +48,12 @@ describe('DossierAlert', () => {
         // Le défaut corrigé : une alerte "critical" ne portait sa gravité que par la
         // couleur (constat revue du 24/09/2026, /fr/dossiers/metro-3). Le libellé
         // traduit doit apparaître comme texte visible, pas seulement en couleur.
-        expect(screen.getByText(`${severityLabel(locale, severity)} :`)).toBeTruthy();
+        // Texte exact, espace insécable comprise en français (getByText la
+        // normaliserait en espace ordinaire) ; « Kritiek: » sans espace ailleurs.
+        const attendu = `${severityLabel(locale, severity)}${locale === 'fr' ? '\u00a0:' : ':'}`;
+        expect(
+          screen.getByText((_, el) => el?.tagName === 'SPAN' && el.textContent === attendu),
+        ).toBeTruthy();
         expect(screen.getByText('Vote reporté en commission')).toBeTruthy();
       });
     });
@@ -61,6 +67,7 @@ describe('DossierAlert', () => {
           severity="critical"
           severityLabel={severityLabel('fr', 'critical')}
           formattedDate="24 septembre 2026"
+          locale="fr"
         />
       </ul>,
     );
@@ -79,11 +86,14 @@ describe('DossierAlert', () => {
           severity="critical"
           severityLabel={severityLabel('fr', 'critical')}
           formattedDate="24 septembre 2026"
+          locale="fr"
         />
       </ul>,
     );
 
-    const labelNode = screen.getByText('Critique :');
+    const labelNode = screen.getByText(
+      (_, el) => el?.tagName === 'SPAN' && el.textContent === 'Critique\u00a0:',
+    );
     expect(labelNode.className).not.toMatch(/sr-only/);
     expect(labelNode.closest('[aria-hidden="true"]')).toBeNull();
   });

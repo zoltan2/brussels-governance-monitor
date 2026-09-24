@@ -19,6 +19,8 @@ export interface DossierAlertProps {
   severityLabel: string;
   /** Date déjà formatée pour la locale courante. */
   formattedDate: string;
+  /** Langue de la page : « Critique : » (espace insécable) en français seulement, « Kritiek: » ailleurs. */
+  locale: string;
 }
 
 export function DossierAlert({
@@ -26,7 +28,9 @@ export function DossierAlert({
   severity,
   severityLabel,
   formattedDate,
+  locale,
 }: DossierAlertProps) {
+  const separateur = locale === 'fr' ? '\u00a0:' : ':';
   return (
     <li
       className={`rounded-lg p-3 text-sm ${
@@ -39,7 +43,11 @@ export function DossierAlert({
     >
       <div className="flex items-start justify-between gap-2">
         <span className="text-neutral-700">
-          <span className="font-semibold">{severityLabel} :</span> {label}
+          <span className="font-semibold">
+            {severityLabel}
+            {separateur}
+          </span>{' '}
+          {label}
         </span>
         <span className="shrink-0 text-xs text-neutral-500">{formattedDate}</span>
       </div>

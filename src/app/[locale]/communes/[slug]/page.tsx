@@ -282,6 +282,7 @@ function CommuneDetail({
                   severity={alert.severity}
                   severityLabel={t(`alertSeverity.${alert.severity}`)}
                   formattedDate={formatDate(alert.date, locale)}
+                  locale={locale}
                 />
               ))}
             </ul>

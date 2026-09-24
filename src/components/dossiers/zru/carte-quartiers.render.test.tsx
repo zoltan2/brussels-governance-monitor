@@ -74,9 +74,9 @@ describe('ZruCarteQuartiers', () => {
     expect(nomsRendus).toEqual(nomsAttendus);
   });
 
-  it('quartier sans donnée : le texte explique « non habités ou trop peu peuplés »', () => {
+  it('quartier sans donnée : le texte explique « non habités » (libellé du Monitoring des Quartiers)', () => {
     const { container } = render(<ZruCarteQuartiers locale="fr" />);
-    expect(container.querySelector('svg desc')!.textContent).toMatch(/non habités ou trop peu peuplés/);
+    expect(container.querySelector('svg desc')!.textContent).toMatch(/non habités/);
   });
 
   it('le motif « sans donnée » porte le trait et le fond vérifiés par globals.contrast.test.ts (neutral-600 sur neutral-100)', () => {

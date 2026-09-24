@@ -30,7 +30,7 @@ const T: Record<Locale, Palier> = {
   fr: {
     titre: 'Revenu par quartier et ZRU 2026',
     resume:
-      "Les 145 quartiers colorés en cinq paliers de revenu médian après impôt, les quartiers sans donnée (non habités ou trop peu peuplés) hachurés, et le contour de la ZRU 2026.",
+      "Les 145 quartiers colorés en cinq paliers de revenu médian après impôt, les quartiers sans donnée (non habités) hachurés, et le contour de la ZRU 2026.",
     cap: 'Valeur et palier de chaque quartier',
     cols: ['Quartier', 'Valeur (€)', 'Palier'],
     sans: 'sans donnée',
@@ -44,7 +44,7 @@ const T: Record<Locale, Palier> = {
   nl: {
     titre: 'Inkomen per wijk en ZSH 2026',
     resume:
-      'De 145 wijken in vijf klassen naar mediaan inkomen na belasting, wijken zonder gegevens (onbewoond of met te weinig inwoners) gearceerd, en de grens van de ZSH 2026.',
+      'De 145 wijken in vijf klassen naar mediaan inkomen na belasting, wijken zonder gegevens (onbewoond) gearceerd, en de grens van de ZSH 2026.',
     cap: 'Waarde en klasse van elke wijk',
     cols: ['Wijk', 'Waarde (€)', 'Klasse'],
     sans: 'geen gegevens',
@@ -58,7 +58,7 @@ const T: Record<Locale, Palier> = {
   en: {
     titre: 'Income by neighbourhood and the 2026 zone',
     resume:
-      'The 145 neighbourhoods in five bands of median income after tax, neighbourhoods with no data (uninhabited or too sparsely populated) hatched, and the outline of the 2026 zone.',
+      'The 145 neighbourhoods in five bands of median income after tax, neighbourhoods with no data (uninhabited) hatched, and the outline of the 2026 zone.',
     cap: 'Value and band of each neighbourhood',
     cols: ['Neighbourhood', 'Value (€)', 'Band'],
     sans: 'no data',
@@ -72,7 +72,7 @@ const T: Record<Locale, Palier> = {
   de: {
     titre: 'Einkommen je Viertel und Zone 2026',
     resume:
-      'Die 145 Viertel in fünf Stufen nach medianem Einkommen nach Steuern, Viertel ohne Daten (unbewohnt oder zu dünn besiedelt) schraffiert, und die Grenze der Zone 2026.',
+      'Die 145 Viertel in fünf Stufen nach medianem Einkommen nach Steuern, Viertel ohne Daten (unbewohnt) schraffiert, und die Grenze der Zone 2026.',
     cap: 'Wert und Stufe jedes Viertels',
     cols: ['Viertel', 'Wert (€)', 'Stufe'],
     sans: 'keine Daten',

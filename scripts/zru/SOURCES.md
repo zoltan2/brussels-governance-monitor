@@ -66,9 +66,14 @@ MD_ID;nom_fr;nom_nl;valeur
   (les deux langues sont publiées par la source — aucune traduction inventée ; `en` existe aussi côté
   source mais n'est pas repris, le brief ne demandait que fr/nl), `valeur` (revenu équivalent médian
   après impôt, en euros, année 2023 — vide quand la source ne publie pas de valeur).
-- **118 lignes avec valeur, 27 lignes vides** (`flag == "GM"` dans la source ; ce sont des quartiers
-  non habités ou à trop faible population — bois, parcs, cimetières : Bois du Laarbeek, Scheutbos,
-  Parc Marie-José, Parc Elisabeth, Forêt de Soignes, Cimetière d'Ixelles… noms lisibles dans le CSV).
+- **118 lignes avec valeur, 27 lignes vides** (`flag == "GM"` dans la source). Le Monitoring des
+  Quartiers nomme lui-même ces 27 quartiers « non-habités » (page « À propos »,
+  `https://monitoringdesquartiers.brussels/a-propos`, vérifiée le 24/09/2026 avec le même bocal à
+  cookies que ci-dessus : 118 quartiers d'habitat où réside 99,5 % de la population, 27 quartiers
+  non-habités où réside 0,5 % — 6 zones industrielles ou ferroviaires, 18 espaces verts, 3
+  cimetières ; version nl, `https://wijkmonitoring.brussels/over-de-wijkmonitoring` : « 27
+  onbewoonde wijken »). Noms lisibles dans le CSV : Bois du Laarbeek, Scheutbos, Parc Marie-José,
+  Parc Elisabeth, Forêt de Soignes, Cimetière d'Ixelles…
   Ces 27 lignes doivent rester `null` dans les données du site, jamais 0.
 - **Commande de re-génération** (à exécuter à la main pour rafraîchir ce fichier lors d'une mise à
   jour ; ne pas automatiser en CI, conformément à la contrainte globale du plan) :

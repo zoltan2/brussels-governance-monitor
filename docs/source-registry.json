@@ -1,10 +1,10 @@
 {
-  "description": "Registre des sources surveillées par BGM. 325 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
+  "description": "Registre des sources surveillées par BGM. 328 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
   "lastUpdated": "2026-09-18",
   "stats": {
-    "total": 325,
+    "total": 328,
     "byType": {
-      "institutional": 88,
+      "institutional": 91,
       "press": 106,
       "unknown": 14,
       "legal": 7,
@@ -203,7 +203,8 @@
         "budget",
         "employment",
         "housing",
-        "mobility"
+        "mobility",
+        "zone-revitalisation-urbaine"
       ],
       "frequency": "weekly",
       "enabled": true,
@@ -249,7 +250,8 @@
       "cardsAffected": [
         "housing",
         "mobility",
-        "construction"
+        "construction",
+        "zone-revitalisation-urbaine"
       ],
       "frequency": "weekly",
       "enabled": true,
@@ -355,7 +357,8 @@
       "category": "social",
       "cardsAffected": [
         "social",
-        "health-social"
+        "health-social",
+        "zone-revitalisation-urbaine"
       ],
       "frequency": "weekly",
       "enabled": true,
@@ -6326,6 +6329,69 @@
         "institutional"
       ],
       "document_trust_tier": "P1"
+    },
+    {
+      "id": "watch-326",
+      "name": "Eurostat — ilc_li41 (taux de risque de pauvreté par région, BE10)",
+      "url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_li41/default/table?lang=fr",
+      "type": "institutional",
+      "lang": "multi",
+      "priority": "P1",
+      "category": "social",
+      "cardsAffected": [
+        "social",
+        "zone-revitalisation-urbaine"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Taux de risque de pauvreté (AROP) par région NUTS-2, EU-SILC. BE10 = Région de Bruxelles-Capitale.",
+      "tier": "editorial",
+      "domaines": [
+        "social"
+      ],
+      "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-327",
+      "name": "Statbel — SILC (risque de pauvreté ou d'exclusion sociale)",
+      "url": "https://statbel.fgov.be/fr/themes/menages/pauvrete-et-conditions-de-vie/risque-de-pauvrete-ou-dexclusion-sociale",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "social",
+      "cardsAffected": [
+        "social",
+        "zone-revitalisation-urbaine"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Publication belge de l'enquête EU-SILC : pauvreté, exclusion sociale, privation matérielle, par région.",
+      "tier": "editorial",
+      "domaines": [
+        "social"
+      ],
+      "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-328",
+      "name": "Statbel — ADI (revenu disponible administratif, taux de pauvreté communal)",
+      "url": "https://statbel.fgov.be/fr/themes/datalab/revenu-disponible-administratif",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "social",
+      "cardsAffected": [
+        "social",
+        "zone-revitalisation-urbaine"
+      ],
+      "frequency": "monthly",
+      "enabled": true,
+      "notes": "Taux de pauvreté administratif (ADI_T2) par commune et secteur statistique, source fiscale.",
+      "tier": "editorial",
+      "domaines": [
+        "social"
+      ],
+      "document_trust_tier": "P0"
     }
   ]
 }

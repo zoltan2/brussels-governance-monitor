@@ -361,6 +361,18 @@ export function PresseView({
           )}
         </section>
 
+        {(locale === 'fr' || locale === 'nl') && (
+          <div className="mt-10 rounded-lg border border-brand-700/20 bg-brand-900/5 px-5 py-4">
+            <ExternalLink
+              href={locale === 'nl' ? 'https://podcast.governance.brussels/@debriefingbgm' : 'https://podcast.governance.brussels/@lebriefingbgm'}
+              newTab={newTab}
+              className="text-sm font-medium text-brand-900 hover:text-brand-700 hover:underline"
+            >
+              {t('podcastLabel')}
+            </ExternalLink>
+          </div>
+        )}
+
         {/* G. Contact */}
         <section
           aria-labelledby="presse-contact"

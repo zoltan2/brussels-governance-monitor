@@ -6,11 +6,21 @@
 //   npx tsx scripts/zru/extraire.ts --verifier  n'écrit rien ; une ligne par source :
 //                                               « inchangée », « MISE À JOUR » ou « ÉCHEC »
 // Sources, URL et licences : scripts/zru/SOURCES.md.
+//
+// À lancer depuis la racine du dépôt : les chemins (scripts/zru/sources/…, src/components/…)
+// sont relatifs au répertoire courant.
+//
+// Chaque fichier *-brut.ts reçoit sa date d'extraction (EXTRAIT_LE_…), lue par communes.ts,
+// quartiers.ts et europe.ts. Pour Statbel ADI et le Monitoring des Quartiers, le script lit une
+// copie locale versionnée (scripts/zru/sources/) : la date écrite est celle du lancement, donc
+// rafraîchir la copie AVANT de relancer, sinon la date annoncerait une lecture qui n'a pas eu
+// lieu. En mode --verifier, ces deux lignes portent « (copie locale) » : elles ne comparent que
+// la copie locale au fichier généré, pas la source en ligne.
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { derniereMiseAJour, valeurRequise, type JsonStat } from '../../src/lib/zru/eurostat';
 import { lireFeuille } from '../../src/lib/zru/xlsx';
 import { trouverTauxCommunesBruxelles } from '../../src/lib/zru/statbel';
-import { fichierTs, paliers } from '../../src/lib/zru/ecriture';
+import { fichierTs, paliers, statutComparaison } from '../../src/lib/zru/ecriture';
 
 const VERIFIER = process.argv.includes('--verifier');
 const AUJ = new Date().toISOString().slice(0, 10);
@@ -22,15 +32,11 @@ const ENTETE = [
 ].join('\n');
 const lignes: string[] = [];
 
-/** Ce qui change d'un lancement à l'autre sans que la donnée change : la date de génération. */
-const comparable = (s: string) =>
-  s.split('\n').filter((l) => !/^\/\/ Généré par|^export const EXTRAIT_LE/.test(l)).join('\n');
-
 /** En mode --verifier, compare au fichier en place ; sinon l'écrit. Renvoie le statut à afficher. */
 function ecrire(fichier: string, contenu: string): string {
   const chemin = `${DATA}/${fichier}`;
   const avant = existsSync(chemin) ? readFileSync(chemin, 'utf8') : null;
-  const statut = avant !== null && comparable(avant) === comparable(contenu) ? 'inchangée' : 'MISE À JOUR';
+  const statut = statutComparaison(avant, contenu);
   if (!VERIFIER) writeFileSync(chemin, contenu);
   return VERIFIER ? statut : `${statut}, ${fichier} écrit`;
 }
@@ -107,10 +113,10 @@ function communes(): string {
   }));
   const contenu = fichierTs(
     ENTETE,
-    { FEUILLE_ADI: titre, COMMUNES_TAUX_BRUT: data },
-    { FEUILLE_ADI: 'string', COMMUNES_TAUX_BRUT: '{ niscode: string; nomSource: string; serie: Record<string, string | number | null> }[]' },
+    { FEUILLE_ADI: titre, EXTRAIT_LE_COMMUNES: AUJ, COMMUNES_TAUX_BRUT: data },
+    { FEUILLE_ADI: 'string', EXTRAIT_LE_COMMUNES: 'string', COMMUNES_TAUX_BRUT: '{ niscode: string; nomSource: string; serie: Record<string, string | number | null> }[]' },
   );
-  return `Statbel ADI_T2 : feuille ${feuille} « ${titre} », 19 communes, 2015 à 2023 ; ${ecrire('communes-brut.ts', contenu)}`;
+  return `Statbel ADI_T2 (copie locale) : feuille ${feuille} « ${titre} », 19 communes, 2015 à 2023 ; ${ecrire('communes-brut.ts', contenu)}`;
 }
 
 function quartiers(): string {
@@ -131,9 +137,10 @@ function quartiers(): string {
   const { seuils, palierDe } = paliers(vals.map((v) => v.valeur));
   const contenu = fichierTs(
     ENTETE,
-    { SEUILS_PALIERS: seuils, QUARTIERS_VALEURS_BRUTS: vals.map((v) => ({ ...v, palier: palierDe(v.valeur) })) },
+    { SEUILS_PALIERS: seuils, EXTRAIT_LE_QUARTIERS: AUJ, QUARTIERS_VALEURS_BRUTS: vals.map((v) => ({ ...v, palier: palierDe(v.valeur) })) },
     {
       SEUILS_PALIERS: 'number[]',
+      EXTRAIT_LE_QUARTIERS: 'string',
       QUARTIERS_VALEURS_BRUTS:
         "{ mdId: number; nom: Record<'fr' | 'nl', string>; valeur: number | null; palier: 1 | 2 | 3 | 4 | 5 | null }[]",
     },
@@ -145,8 +152,8 @@ function quartiers(): string {
 (async () => {
   const sources: [string, () => string | Promise<string>][] = [
     ['Eurostat ilc_li41', europe],
-    ['Statbel ADI_T2', communes],
-    ['Monitoring 2498', quartiers],
+    ['Statbel ADI_T2 (copie locale)', communes],
+    ['Monitoring 2498 (copie locale)', quartiers],
   ];
   for (const [nom, lire] of sources) {
     try {

@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 // Écrit à la main : noms, unité et provenance des taux communaux (cellules brutes dans communes-brut.ts).
 
-import { COMMUNES_TAUX_BRUT, FEUILLE_ADI } from './communes-brut';
+import { COMMUNES_TAUX_BRUT, EXTRAIT_LE_COMMUNES, FEUILLE_ADI } from './communes-brut';
 import { lireTauxStatbel, type CelluleStatbel } from '@/lib/zru/statbel';
 import type { Provenance } from './types';
 
@@ -41,8 +41,11 @@ export const COMMUNES_TAUX: { niscode: string; nom: Record<'fr' | 'nl', string>;
 export const PROVENANCE_COMMUNES: Provenance = {
   producteur: 'Statbel (Direction générale Statistique – Statistics Belgium), revenu disponible équivalent administratif (ADI)',
   url: 'https://statbel.fgov.be/fr/themes/datalab/revenu-disponible-administratif',
+  // Date de publication affichée par Statbel sur la page de l'indicateur (SOURCES.md §3). Le script
+  // ne peut pas la lire dans le fichier : les métadonnées du XLSX donnent une autre date (création
+  // et modification le 11/12/2025), qui est celle du fichier, pas celle de la publication.
   sourceMiseAJour: '2025-11-19',
-  extraitLe: '2026-09-24',
+  extraitLe: EXTRAIT_LE_COMMUNES,
   licence: 'CC BY 4.0',
   modifications: [
     `fichier ADI_T2_STATBEL_FR.xlsx, feuille « ${FEUILLE_ADI} », 19 communes bruxelloises, années de revenus 2015 à 2023`,

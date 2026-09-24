@@ -23,3 +23,16 @@ export function fichierTs(entete: string, exports: Record<string, unknown>, type
     .join('\n');
   return `${entete}\n\n${corps}\n`;
 }
+
+/** Retire ce qui change d'un lancement à l'autre sans que la donnée change : la ligne « Généré par … le » et les dates d'extraction. */
+export function contenuComparable(s: string): string {
+  return s
+    .split('\n')
+    .filter((l) => !/^\/\/ Généré par|^export const EXTRAIT_LE/.test(l))
+    .join('\n');
+}
+
+/** Statut de --verifier : « inchangée » si seules les dates de génération ou d'extraction diffèrent. */
+export function statutComparaison(avant: string | null, apres: string): 'inchangée' | 'MISE À JOUR' {
+  return avant !== null && contenuComparable(avant) === contenuComparable(apres) ? 'inchangée' : 'MISE À JOUR';
+}

@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 // Écrit à la main : libellés et provenance de l'indicateur 2498 (valeurs dans quartiers-brut.ts).
 
-import { QUARTIERS_VALEURS_BRUTS, SEUILS_PALIERS } from './quartiers-brut';
+import { EXTRAIT_LE_QUARTIERS, QUARTIERS_VALEURS_BRUTS, SEUILS_PALIERS } from './quartiers-brut';
 import type { Locale, Provenance } from './types';
 
 export { SEUILS_PALIERS };
@@ -23,7 +23,7 @@ export const PROVENANCE_QUARTIERS: Provenance = {
   producteur: 'IBSA & Statbel (Direction générale Statistique – Statistics Belgium) (Statistique fiscale des revenus), via le Monitoring des Quartiers',
   url: 'https://monitoringdesquartiers.brussels/Indicator/IndicatorPage/2498?tab=Sheet',
   sourceMiseAJour: null,
-  extraitLe: '2026-09-24',
+  extraitLe: EXTRAIT_LE_QUARTIERS,
   licence: 'Réutilisation libre avec mention de la source (IBSA et Statbel pour l’indicateur 2498) et des modifications',
   modifications: [
     'millésime 2023, dernière année affichée par le Monitoring des Quartiers ; montants en euros',

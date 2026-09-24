@@ -32,10 +32,7 @@ describe('checkRadarPromotions', () => {
   });
 
   it('ne signale rien quand promotedSection est absent mais que la fiche est un domaine (repli implicite correct)', () => {
-    const violations = checkRadarPromotions(
-      [{ id: 'a', promotedTo: 'mobility' }],
-      SLUG_SETS,
-    );
+    const violations = checkRadarPromotions([{ id: 'a', promotedTo: 'mobility' }], SLUG_SETS);
     expect(violations).toEqual([]);
   });
 
@@ -80,6 +77,37 @@ describe('checkRadarPromotions', () => {
   it('ignore les entrées sans promotedTo', () => {
     const violations = checkRadarPromotions([{ id: 'e', promotedTo: null }], SLUG_SETS);
     expect(violations).toEqual([]);
+  });
+});
+
+describe('checkRadarPromotions : slug ambigu (domaine ET secteur)', () => {
+  const AMBIGU: PromotionSlugSets = {
+    domains: new Set(['education']),
+    dossiers: new Set([]),
+    communes: new Set([]),
+    sectors: new Set(['education']),
+  };
+
+  it('exige promotedSection quand le slug existe dans plusieurs types de fiches', () => {
+    const violations = checkRadarPromotions([{ id: 'c', promotedTo: 'education' }], AMBIGU);
+    expect(violations).toHaveLength(1);
+    expect(violations[0]!.message).toContain('plusieurs types');
+    expect(violations[0]!.message).toContain('domains, sectors');
+  });
+
+  it('accepte le slug ambigu dès que promotedSection est écrit, domaine ou secteur', () => {
+    expect(
+      checkRadarPromotions(
+        [{ id: 'c', promotedTo: 'education', promotedSection: 'domains' }],
+        AMBIGU,
+      ),
+    ).toEqual([]);
+    expect(
+      checkRadarPromotions(
+        [{ id: 'c', promotedTo: 'education', promotedSection: 'sectors' }],
+        AMBIGU,
+      ),
+    ).toEqual([]);
   });
 });
 

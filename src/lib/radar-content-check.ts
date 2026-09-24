@@ -57,6 +57,22 @@ export function checkRadarPromotions(
     }
 
     if (!entry.promotedSection) {
+      // Slug présent dans plusieurs collections (ex. « education », « digital » :
+      // domaine ET secteur) : le repli choisirait le domaine en silence, peut-être
+      // à tort. Le type doit être écrit, même quand c'est le domaine (revue #592).
+      const collections = (Object.keys(slugSets) as PromotedSection[]).filter((s) => {
+        const set = slugSets[s];
+        return Array.isArray(set)
+          ? set.includes(entry.promotedTo!)
+          : (set as ReadonlySet<string>).has(entry.promotedTo!);
+      });
+      if (collections.length > 1) {
+        violations.push({
+          id: entry.id,
+          message: `${entry.id} : promotedTo "${entry.promotedTo}" existe dans plusieurs types de fiches (${collections.join(', ')}) — préciser promotedSection.`,
+        });
+        continue;
+      }
       if (effective !== 'domains') {
         violations.push({
           id: entry.id,
@@ -77,7 +93,8 @@ export function checkRadarPromotions(
   return violations;
 }
 
-export type CardCollection = 'domains' | 'dossiers' | 'communes' | 'sectors' | 'comparisons' | 'solutions';
+export type CardCollection =
+  'domains' | 'dossiers' | 'communes' | 'sectors' | 'comparisons' | 'solutions';
 
 export type CardSlugSets = Record<CardCollection, ReadonlySet<string> | readonly string[]>;
 
@@ -112,7 +129,9 @@ export function checkRadarCardSlugs(
   const violations: RadarCardSlugViolation[] = [];
   for (const entry of entries) {
     for (const card of entry.cards) {
-      const exists = ALL_CARD_COLLECTIONS.some((collection) => cardSlugSetHas(slugSets[collection], card));
+      const exists = ALL_CARD_COLLECTIONS.some((collection) =>
+        cardSlugSetHas(slugSets[collection], card),
+      );
       if (!exists) violations.push({ id: entry.id, card });
     }
   }

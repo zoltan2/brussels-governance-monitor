@@ -5,6 +5,7 @@
 import { inflateRawSync } from 'node:zlib';
 
 function entrees(buf: Buffer): Map<string, Buffer> {
+  // ZIP64 extension not supported; assumes standard ZIP format
   let eocd = -1;
   for (let i = buf.length - 22; i >= 0; i--) if (buf.readUInt32LE(i) === 0x06054b50) { eocd = i; break; }
   if (eocd < 0) throw new Error('xlsx : fin de répertoire zip introuvable');
@@ -45,10 +46,18 @@ export function lireFeuille(buf: Buffer, feuille: number): (string | number | nu
   const xml = z.get(`xl/worksheets/sheet${feuille}.xml`)?.toString('utf8');
   if (!xml) throw new Error(`xlsx : feuille ${feuille} absente`);
   const lignes: (string | number | null)[][] = [];
-  for (const r of xml.matchAll(/<row[^>]*>([\s\S]*?)<\/row>/g)) {
+  for (const r of xml.matchAll(/<row\b([^>]*)(?:\/>|>([\s\S]*?)<\/row>)/g)) {
+    const rowAttrs = r[1];
+    const cellsXml = r[2] ?? '';
+    const rMatch = rowAttrs.match(/r="(\d+)"/);
+    const rowNum = rMatch ? Number(rMatch[1]) : null;
     const ligne: (string | number | null)[] = [];
-    for (const c of r[1].matchAll(/<c r="([A-Z]+\d+)"([^>]*?)(?:\/>|>([\s\S]*?)<\/c>)/g)) {
-      const [, ref, attrs, corps = ''] = c;
+    for (const c of cellsXml.matchAll(/<c\b([^>]*)(?:\/>|>([\s\S]*?)<\/c>)/g)) {
+      const attrs = c[1];
+      const corps = c[2] ?? '';
+      const rCellMatch = attrs.match(/r="([A-Z]+\d+)"/);
+      const ref = rCellMatch?.[1];
+      if (!ref) throw new Error('xlsx : cellule sans attribut r');
       const t = attrs.match(/t="([^"]+)"/)?.[1];
       const v = corps.match(/<v>([\s\S]*?)<\/v>/)?.[1];
       let val: string | number | null = null;
@@ -60,7 +69,13 @@ export function lireFeuille(buf: Buffer, feuille: number): (string | number | nu
       while (ligne.length < i) ligne.push(null);
       ligne[i] = val;
     }
-    lignes.push(ligne);
+    if (rowNum !== null) {
+      const rowIdx = rowNum - 1;
+      while (lignes.length < rowIdx) lignes.push([]);
+      lignes[rowIdx] = ligne;
+    } else {
+      lignes.push(ligne);
+    }
   }
   return lignes;
 }

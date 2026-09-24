@@ -39,7 +39,7 @@ const ministerSchema = z.object({
 
 export const commitmentSchema = z.object({
   id: z.string().min(1),
-  // All 13 DomainIds — matches src/lib/entities.ts DomainId type.
+  // All 13 DomainIds — matches the parentDomain enum in velite.config.ts.
   domain: z.enum([
     'budget', 'mobility', 'housing', 'employment', 'climate', 'social',
     'security', 'economy', 'cleanliness', 'institutional', 'urban-planning',

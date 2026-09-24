@@ -89,17 +89,6 @@ const ALLOWED: Record<string, { classes: string[]; raison: string }> = {
     ],
     raison: 'un liseré par domaine (12 teintes) ; emerald, lime et rose contreviennent à la règle « jamais rouge ni vert »',
   },
-  'lib/entities.ts': {
-    classes: ['bg-blue-800', 'bg-slate-700', 'bg-blue-600', 'bg-amber-600', 'bg-slate-600', 'bg-amber-700', 'bg-slate-800'],
-    raison: 'couleurs d\'entités, importées nulle part au 23/09/2026 (code mort)',
-  },
-  'components/formation-phase.tsx': {
-    classes: [
-      'bg-amber-500', 'bg-indigo-400', 'text-white/50', 'bg-white/30', 'bg-white/10', 'text-white',
-      'text-white/40', 'text-white/30', 'group-hover:text-white/70',
-    ],
-    raison: 'composant importé nulle part au 23/09/2026 (code mort)',
-  },
   'components/games-panel.tsx': { classes: ['bg-black/40'], raison: 'voile de fenêtre modale' },
   'components/search.tsx': { classes: ['bg-black/40'], raison: 'voile de fenêtre modale' },
 };

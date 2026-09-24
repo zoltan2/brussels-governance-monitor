@@ -47,7 +47,6 @@ export const CLIENT_NAMESPACES = [
   'subscribeConfirm',
   'subscribePreferences',
   'support',
-  'timeline',
   'toolbar',
 ] as const;
 

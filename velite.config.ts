@@ -185,7 +185,7 @@ const domainCards = defineCollection({
         .array(
           s.object({
             q: s.string().max(150),
-            a: s.string().max(600),
+            a: s.string().max(1000),
             sources: s.array(sourceSchema).default([]),
           }),
         )
@@ -664,7 +664,7 @@ const dossierCards = defineCollection({
         .array(
           s.object({
             q: s.string().max(150),
-            a: s.string().max(600),
+            a: s.string().max(1000),
             sources: s.array(sourceSchema).default([]),
           }),
         )

@@ -58,6 +58,15 @@ describe('ZruPointsEurope', () => {
     for (const r of EUROPE_RATIOS) expect(svg.textContent).not.toContain(r.nom.fr);
   });
 
+  it('le rapport de Bruxelles reste dans la fourchette 1,8-2,2 qui valide « environ deux fois » / « about twice »', () => {
+    const be10 = EUROPE_RATIOS.find((r) => r.geo === 'BE10');
+    const dansLaFourchette = be10 !== undefined && be10.ratio >= 1.8 && be10.ratio <= 2.2;
+    expect(
+      dansLaFourchette,
+      `le rapport de Bruxelles (${be10?.ratio}) est hors de la fourchette 1,8-2,2 : la phrase fixe « environ deux fois » / « about twice » doit être revue avant de republier.`,
+    ).toBe(true);
+  });
+
   it('passe axe', async () => {
     const { container } = render(<ZruPointsEurope />);
     expect(await axe(container)).toHaveNoViolations();

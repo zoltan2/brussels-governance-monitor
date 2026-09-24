@@ -21,53 +21,68 @@ const T: Record<
   }
 > = {
   fr: {
-    titre: 'Taux de risque de pauvreté : région-capitale rapportée à son pays',
-    indic: 'Rapport entre le taux de la région-capitale et celui du pays (calcul BGM)',
-    resume: 'Un point par région-capitale sur un axe de 0,5 à 2,5, avec une ligne de référence à 1.',
-    sens: 'Au-dessus de 1, la région-capitale a un taux plus élevé que son pays. Chaque région est comparée au seuil de son propre pays.',
+    titre: 'Taux de risque de pauvreté : région de la capitale rapportée à son pays',
+    indic: 'Rapport entre le taux de la région de la capitale et celui du pays (calcul BGM)',
+    resume: 'Un point par région de la capitale sur un axe de 0,5 à 2,5, avec une ligne de référence à 1.',
+    sens: 'Au-dessus de 1, la région de la capitale a un taux plus élevé que son pays. Chaque région est comparée au seuil de son propre pays.',
     bxl: 'Bruxelles : environ deux fois le taux belge.',
     cap: 'Taux régional, taux national et rapport',
     cols: ['Région', 'Taux régional (%)', 'Taux national (%)', 'Rapport'],
     legBxl: 'Bruxelles-Capitale',
-    legAutres: 'Autres régions-capitales',
+    legAutres: 'Autres régions de la capitale',
     legRef: 'Rapport de 1 (même taux que le pays)',
   },
   nl: {
-    titre: 'Armoederisico: hoofdstedelijke regio tegenover het land',
-    indic: 'Verhouding tussen het cijfer van de hoofdstedelijke regio en dat van het land (berekening BGM)',
-    resume: 'Eén punt per hoofdstedelijke regio op een as van 0,5 tot 2,5, met een referentielijn op 1.',
-    sens: 'Boven 1 heeft de hoofdstedelijke regio een hoger cijfer dan haar land. Elke regio wordt vergeleken met de drempel van haar eigen land.',
+    titre: 'Armoederisico: regio van de hoofdstad tegenover het land',
+    indic: 'Verhouding tussen het cijfer van de regio van de hoofdstad en dat van het land (berekening BGM)',
+    resume: 'Eén punt per regio van de hoofdstad op een as van 0,5 tot 2,5, met een referentielijn op 1.',
+    sens: 'Boven 1 heeft de regio van de hoofdstad een hoger cijfer dan haar land. Elke regio wordt vergeleken met de drempel van haar eigen land.',
     bxl: 'Brussel: ongeveer twee keer het Belgische cijfer.',
     cap: 'Regionaal cijfer, nationaal cijfer en verhouding',
     cols: ['Regio', 'Regionaal cijfer (%)', 'Nationaal cijfer (%)', 'Verhouding'],
     legBxl: 'Brussels Hoofdstedelijk Gewest',
-    legAutres: 'Andere hoofdstedelijke regio’s',
+    legAutres: 'Andere regio’s van de hoofdstad',
     legRef: 'Verhouding van 1 (zelfde cijfer als het land)',
   },
   en: {
-    titre: 'At-risk-of-poverty rate: capital region relative to its country',
-    indic: 'Ratio of the capital region’s rate to the national rate (BGM calculation)',
-    resume: 'One dot per capital region on an axis from 0.5 to 2.5, with a reference line at 1.',
-    sens: 'A ratio above 1 means the capital region has a higher rate than its country. Each region is compared with its own country’s threshold.',
+    titre: 'At-risk-of-poverty rate: the capital’s region relative to its country',
+    indic: 'Ratio between the rate of the capital’s region and the national rate (BGM calculation)',
+    resume: 'One dot per capital’s region on an axis from 0.5 to 2.5, with a reference line at 1.',
+    sens: 'A ratio above 1 means the capital’s region has a higher rate than its country. Each region is compared with its own country’s threshold.',
     bxl: 'Brussels: about twice the Belgian rate.',
     cap: 'Regional rate, national rate and ratio',
     cols: ['Region', 'Regional rate (%)', 'National rate (%)', 'Ratio'],
     legBxl: 'Brussels-Capital Region',
-    legAutres: 'Other capital regions',
+    legAutres: 'Other capitals’ regions',
     legRef: 'Ratio of 1 (same rate as the country)',
   },
   de: {
-    titre: 'Armutsgefährdungsquote: Hauptstadtregion im Verhältnis zu ihrem Land',
-    indic: 'Verhältnis der Quote der Hauptstadtregion zur Landesquote (Berechnung BGM)',
-    resume: 'Ein Punkt je Hauptstadtregion auf einer Achse von 0,5 bis 2,5, mit einer Bezugslinie bei 1.',
-    sens: 'Über 1 hat die Hauptstadtregion eine höhere Quote als ihr Land. Jede Region wird mit der Schwelle ihres eigenen Landes verglichen.',
+    titre: 'Armutsgefährdungsquote: Region der Hauptstadt im Verhältnis zu ihrem Land',
+    indic: 'Verhältnis der Quote der Region der Hauptstadt zur Landesquote (Berechnung BGM)',
+    resume: 'Ein Punkt je Region der Hauptstadt auf einer Achse von 0,5 bis 2,5, mit einer Bezugslinie bei 1.',
+    sens: 'Über 1 hat die Region der Hauptstadt eine höhere Quote als ihr Land. Jede Region wird mit der Schwelle ihres eigenen Landes verglichen.',
     bxl: 'Brüssel: etwa das Doppelte der belgischen Quote.',
     cap: 'Regionale Quote, Landesquote und Verhältnis',
     cols: ['Region', 'Regionale Quote (%)', 'Landesquote (%)', 'Verhältnis'],
     legBxl: 'Region Brüssel-Hauptstadt',
-    legAutres: 'Andere Hauptstadtregionen',
+    legAutres: 'Andere Regionen der Hauptstadt',
     legRef: 'Verhältnis von 1 (gleiche Quote wie das Land)',
   },
+};
+
+/** Nom localisé de NL32 (Hollande-Septentrionale), repris depuis EUROPE_RATIOS pour ne jamais diverger. */
+const NOM_NL32: Record<Locale, string> = EUROPE_RATIOS.find((r) => r.geo === 'NL32')!.nom;
+
+/**
+ * Précision NUTS 2 : la « région de la capitale » est la région statistique qui contient la
+ * capitale, pas nécessairement la capitale seule ni une entité à statut de région-capitale — aux
+ * Pays-Bas notamment, il s'agit d'une province (Hollande-Septentrionale) qui contient Amsterdam.
+ */
+const NOTE_NUTS: Record<Locale, string> = {
+  fr: `Pour chaque pays, la région statistique (NUTS 2) qui contient la capitale ; aux Pays-Bas, la province de ${NOM_NL32.fr}, qui contient Amsterdam.`,
+  nl: `Voor elk land de statistische regio (NUTS 2) die de hoofdstad bevat; in Nederland de provincie ${NOM_NL32.nl}, waarin Amsterdam ligt.`,
+  en: `For each country, the statistical region (NUTS 2) containing the capital; in the Netherlands, the province of ${NOM_NL32.en}, which contains Amsterdam.`,
+  de: `Für jedes Land die statistische Region (NUTS 2), die die Hauptstadt enthält; in den Niederlanden die Provinz ${NOM_NL32.de}, die Amsterdam enthält.`,
 };
 
 const W = 600;
@@ -85,20 +100,13 @@ function arrondirRatio(valeur: number): number {
   return Math.round(valeur * 100) / 100;
 }
 
-// Vérifie que « environ deux fois » (texte fr/nl/en/de ci-dessus) reste vrai : le rapport de
-// Bruxelles doit rester entre 1,8 et 2,2. Si les données changent au point de sortir de cette
-// fourchette, le texte fixe doit être revu avant d'être republié.
-const RAPPORT_BXL = EUROPE_RATIOS.find((r) => r.geo === 'BE10')?.ratio;
-if (RAPPORT_BXL === undefined || RAPPORT_BXL < 1.8 || RAPPORT_BXL > 2.2) {
-  throw new Error(
-    `ZruPointsEurope : le rapport de Bruxelles (${RAPPORT_BXL}) est hors de la fourchette 1,8-2,2 validée pour le texte « environ deux fois ».`,
-  );
-}
-
 /**
- * Point européen : rapport entre le taux de risque de pauvreté de chaque région-capitale et celui
- * de son pays, un point par région autour d'une ligne de référence à 1. Aucun classement : les
- * points comme le tableau sont triés par ordre alphabétique du nom localisé, jamais par rapport.
+ * Point européen : rapport entre le taux de risque de pauvreté de chaque région de la capitale et
+ * celui de son pays, un point par région autour d'une ligne de référence à 1. Aucun classement :
+ * les points comme le tableau sont triés par ordre alphabétique du nom localisé, jamais par
+ * rapport. Le texte fixe « environ deux fois » (Bruxelles) suppose un rapport BE10 entre 1,8 et
+ * 2,2 — vérifié par un test (pas ici en exécution, pour ne jamais faire planter le rendu de page
+ * si une donnée est rafraîchie) : voir points-europe.render.test.tsx.
  */
 export function ZruPointsEurope({ locale = 'fr' }: { locale?: Locale }): ReactElement {
   const t = T[locale];
@@ -144,6 +152,7 @@ export function ZruPointsEurope({ locale = 'fr' }: { locale?: Locale }): ReactEl
           <p className="text-xs text-neutral-600">
             {t.sens} {t.bxl}
           </p>
+          <p className="mt-1 text-xs text-neutral-600">{NOTE_NUTS[locale]}</p>
           <ul className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-neutral-600">
             <li className="flex items-center gap-1.5">
               <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" className="shrink-0">

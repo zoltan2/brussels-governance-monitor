@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
-// Écrit à la main : libellés et provenance des rapports région-capitale / pays (valeurs dans europe-brut.ts).
+// Écrit à la main : libellés et provenance des rapports région de la capitale / pays (valeurs dans europe-brut.ts).
 
 import { ANNEE_EUROPE, EUROPE_RATIOS_BRUTS, EXTRAIT_LE_EUROPE, SOURCE_MISE_A_JOUR_EUROPE } from './europe-brut';
 import type { Locale, Provenance } from './types';
@@ -41,7 +41,8 @@ export const PROVENANCE_EUROPE: Provenance = {
   licence: 'Réutilisation autorisée avec mention de la source et des modifications (décision de la Commission du 12/12/2011)',
   modifications: [
     `année ${ANNEE_EUROPE}, taux de risque de pauvreté en % de la population (unité PC)`,
-    'rapport taux de la région-capitale / taux national calculé par BGM, arrondi au centième',
+    'rapport taux de la région de la capitale / taux national calculé par BGM, arrondi au centième',
+    "pour chaque pays, la région statistique (NUTS 2) qui contient la capitale ; aux Pays-Bas, la province de Hollande-Septentrionale, qui contient Amsterdam",
   ],
   confiance: 'official',
 };

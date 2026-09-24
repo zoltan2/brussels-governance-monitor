@@ -185,11 +185,13 @@ export function buildMetadata({
    * should not be treated as an endorsed part of the site graph. Takes
    * precedence over `noindex` if both are set (most restrictive wins).
    *
-   * Also drops the hreflang `languages` alternates down to the draft's own
-   * canonical URL only. The published siblings a draft would otherwise list
-   * as translations are not equivalents of unpublished, unreviewed content —
-   * advertising them as such under the draft's hreflang group would be
-   * incorrect even though the draft itself is noindexed.
+   * Also drops the hreflang `languages` alternates entirely — no `languages`
+   * key at all, not even a self-referencing one; only `alternates.canonical`
+   * (the draft's own URL) remains. The published siblings a draft would
+   * otherwise list as translations are not equivalents of unpublished,
+   * unreviewed content — advertising them as such under the draft's hreflang
+   * group would be incorrect even though the draft itself is noindexed, so
+   * the group is dropped rather than narrowed.
    */
   draft?: boolean;
   /**
@@ -268,7 +270,8 @@ export function buildMetadata({
     ...(robots ? { robots } : {}),
     alternates: {
       canonical: url,
-      // A draft's alternates only ever point to itself: the published
+      // A draft drops the `languages` hreflang group entirely — no `languages`
+      // key is emitted, not even a self-referencing one — since the published
       // siblings otherwise listed here are not equivalents of unpublished,
       // unreviewed content (see the `draft` param doc above).
       ...(draft ? {} : { languages }),

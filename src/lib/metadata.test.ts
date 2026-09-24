@@ -228,7 +228,7 @@ describe('buildMetadata draft', () => {
     expect(meta.robots).toEqual({ index: false, follow: false });
   });
 
-  it("ne liste que sa propre URL dans les alternates hreflang, jamais les fiches publiées sœurs", () => {
+  it("supprime entièrement le groupe hreflang (aucune clé `languages`, même pas auto-référente) ; le canonique reste posé", () => {
     const meta = buildMetadata({
       ...base,
       draft: true,

@@ -229,8 +229,9 @@ export default async function HomePage({
 
       <LatestUpdateBar
         date={latestUpdate.date}
-        description={latestUpdate.description}
-        summary={latestUpdate.summary}
+        headline={latestUpdate.headline}
+        isCorrection={latestUpdate.isCorrection}
+        cardTitle={latestUpdate.cardTitle}
         section={latestUpdate.section}
         targetSlug={latestUpdate.targetSlug}
         anchor={latestUpdate.anchor}

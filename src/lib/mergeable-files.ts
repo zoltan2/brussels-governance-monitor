@@ -4,7 +4,7 @@
 /**
  * ⚠️ Cette liste blanche limite le RAYON D'ACTION d'une veille légitime.
  * Ce n'est PAS une frontière de sécurité : `content/**` est compilé par
- * Velite puis évalué par `new Function` (`src/components/mdx-content.tsx:98`,
+ * Velite puis évalué par `new Function` (`src/components/mdx-components.tsx`, `renderMdx`,
  * avec `unsafe-eval` accordé dans `next.config.ts:53`). Fusionner du contenu,
  * c'est exécuter du code. La vraie garde est « d'où vient cette PR » —
  * `headRepo === repo` dans la route. Ne pas durcir ceci en croyant fermer ce

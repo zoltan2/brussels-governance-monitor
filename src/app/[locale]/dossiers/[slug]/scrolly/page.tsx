@@ -7,7 +7,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { getDossierCard, getDossierByLocalizedSlug, getLocalizedSlug } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { isScrollyEnabled, SCROLLY_ENABLED_DOSSIERS } from '@/lib/scrolly-allowlist';
-import { MdxContent } from '@/components/mdx-content';
+import { DossierMdxContent } from '@/components/dossier-mdx-content';
 import { DensityProvider } from '@/components/dossier/density/density-context';
 import { DensityToggle } from '@/components/dossier/density/density-toggle';
 import { ScrollyHeader } from '@/components/dossier/scrolly/scrolly-header';
@@ -113,7 +113,7 @@ export default async function ScrollyPage({
         <div className="mx-auto max-w-3xl px-4 pb-24">
           <DensityToggle />
           <h1 className="mb-8 mt-2 text-4xl font-bold text-neutral-900">{card.title}</h1>
-          <MdxContent code={card.content} metrics={card.metrics} />
+          <DossierMdxContent code={card.content} metrics={card.metrics} />
         </div>
       </DensityProvider>
     </article>

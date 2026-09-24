@@ -6,7 +6,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { getArchivePage, getAllArchiveSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
-import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata, searchMeta } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { MdxContent } from '@/components/mdx-content';
 import { TableOfContents } from '@/components/table-of-contents';
@@ -30,10 +30,12 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { page } = result;
+  const search = searchMeta({ title: page.title, seoTitle: page.seoTitle, fallbackDescription: page.summary });
   return buildMetadata({
     locale,
-    title: page.title,
-    description: page.summary,
+    title: search.title,
+    absoluteTitle: search.absoluteTitle,
+    description: search.description,
     path: `/archives/${slug}`,
   });
 }

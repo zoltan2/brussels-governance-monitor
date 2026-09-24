@@ -77,6 +77,8 @@ export const SEO_TITLE_DIRS = new Set([
   'content/domain-cards',
   'content/sector-cards',
   'content/comparison-cards',
+  'content/commune-cards',
+  'content/archive-pages',
 ]);
 
 function collectionOf(file: string): string {

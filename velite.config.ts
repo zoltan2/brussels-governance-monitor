@@ -493,6 +493,11 @@ const communeCards = defineCollection({
   schema: s
     .object({
       title: s.string().max(120),
+      // Titre de recherche, rendu sans suffixe (voir searchMeta). Étendu à
+      // cette collection le 24/09/2026 : le `title` porte le nom de la commune
+      // avant le « : », que la meta description et le digest découpent. Le
+      // raccourcir aurait cassé ce découpage ; `seoTitle` ne touche qu'au <title>.
+      seoTitle: s.string().max(60).optional(),
       slug: s.string(),
       locale: localeEnum,
       commune: s.string(),
@@ -810,6 +815,9 @@ const archivePages = defineCollection({
   schema: s
     .object({
       title: s.string().max(200),
+      // Titre de recherche, rendu sans suffixe (voir searchMeta). Étendu à
+      // cette collection le 24/09/2026, dernière à ne pas l'avoir.
+      seoTitle: s.string().max(60).optional(),
       slug: s.string(),
       locale: localeEnum,
       summary: s.string().max(500),

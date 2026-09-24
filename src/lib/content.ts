@@ -265,6 +265,7 @@ export interface DossierCard {
 
 export interface CommuneCard {
   title: string;
+  seoTitle?: string;
   slug: string;
   locale: Locale;
   commune: string;
@@ -1353,6 +1354,7 @@ export function getAdjacentDigestWeeks(
 
 export interface ArchivePage {
   title: string;
+  seoTitle?: string;
   slug: string;
   locale: string;
   summary: string;

@@ -14,7 +14,7 @@ import {
 } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
-import { buildMetadata, canonicalUrl } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl, searchMeta } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { MdxContent } from '@/components/mdx-content';
@@ -48,9 +48,13 @@ export async function generateMetadata({
 
   const { card } = result;
   const t = await getTranslations({ locale, namespace: 'communes' });
+  // seoTitle : ce que Google affiche, sans toucher au H1 ni au découpage du nom
+  // de commune ci-dessous. La description reste propre aux communes.
+  const search = searchMeta({ title: card.title, seoTitle: card.seoTitle, fallbackDescription: '' });
   return buildMetadata({
     locale,
-    title: card.title,
+    title: search.title,
+    absoluteTitle: search.absoluteTitle,
     // Built from the card's own fields only. The previous "Mayor (party) — 4/6"
     // was the same shape on 76 pages and said nothing a searcher could act on.
     description: t('metaDescription', {

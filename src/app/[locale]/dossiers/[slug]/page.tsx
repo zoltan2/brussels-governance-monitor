@@ -36,6 +36,7 @@ import { CardSubscribe } from '@/components/card-subscribe';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { DossierFaq } from '@/components/dossier/dossier-faq';
+import { DossierAlert } from '@/components/dossier/dossier-alert';
 import { WhatChangedBanner } from '@/components/what-changed-banner';
 import { RelatedDossiers } from '@/components/related-dossiers';
 import { TableOfContents } from '@/components/table-of-contents';
@@ -404,23 +405,14 @@ function DossierDetail({
             </h2>
             <ul className="space-y-2">
               {sortAlertsByDateDesc(card.alerts).map((alert) => (
-                <li
+                <DossierAlert
                   key={`${alert.date}-${alert.label}`}
-                  className={`rounded-lg p-3 text-sm ${
-                    alert.severity === 'critical'
-                      ? 'border-2 border-warning-strong bg-warning-bg'
-                      : alert.severity === 'warning'
-                        ? 'border border-warning-border bg-warning-bg'
-                        : 'border border-neutral-200 bg-neutral-50'
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="text-neutral-700">{alert.label}</span>
-                    <span className="shrink-0 text-xs text-neutral-500">
-                      {formatDate(alert.date, locale)}
-                    </span>
-                  </div>
-                </li>
+                  label={alert.label}
+                  severity={alert.severity}
+                  severityLabel={t(`alertSeverity.${alert.severity}`)}
+                  formattedDate={formatDate(alert.date, locale)}
+                  locale={locale}
+                />
               ))}
             </ul>
           </div>

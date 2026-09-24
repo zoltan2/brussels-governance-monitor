@@ -2339,6 +2339,11 @@
     "accessedAt": "abgerufen am {date}",
     "metrics": "Kennzahlen",
     "alerts": "Warnungen",
+    "alertSeverity": {
+      "info": "Information",
+      "warning": "Warnung",
+      "critical": "Kritisch"
+    },
     "relatedDomains": "Verwandte Bereiche",
     "relatedSectors": "Verwandte Sektoren",
     "relatedCommunes": "Verwandte Gemeinden",

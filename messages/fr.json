@@ -2360,6 +2360,11 @@
     "accessedAt": "consulté le {date}",
     "metrics": "Chiffres clés",
     "alerts": "Alertes",
+    "alertSeverity": {
+      "info": "Information",
+      "warning": "Attention",
+      "critical": "Critique"
+    },
     "relatedDomains": "Domaines liés",
     "relatedSectors": "Secteurs liés",
     "relatedCommunes": "Communes liées",

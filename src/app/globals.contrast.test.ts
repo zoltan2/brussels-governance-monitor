@@ -52,11 +52,8 @@ function contrast(a: string, b: string): number {
 
 // -------------------------------------------------------------- extraction --
 
-/**
- * Lit un bloc CSS et renvoie les tokens `--color-*` qu'il déclare, en héritant
- * du bloc de base (`@theme`) pour ce qu'il ne redéfinit pas.
- */
-function readBlock(selector: string, inherit: Record<string, string> = {}): Record<string, string> {
+/** Isole le texte brut d'un bloc CSS (accolades comprises), délimité par comptage de profondeur. */
+function blockBody(selector: string): string {
   const start = css.indexOf(selector);
   if (start === -1) throw new Error(`Bloc CSS introuvable : ${selector}`);
   const open = css.indexOf('{', start);
@@ -69,12 +66,29 @@ function readBlock(selector: string, inherit: Record<string, string> = {}): Reco
       break;
     }
   }
-  const body = css.slice(open, end);
+  return css.slice(open, end);
+}
+
+/**
+ * Lit un bloc CSS et renvoie les tokens `--color-*` qu'il déclare, en héritant
+ * du bloc de base (`@theme`) pour ce qu'il ne redéfinit pas.
+ */
+function readBlock(selector: string, inherit: Record<string, string> = {}): Record<string, string> {
+  const body = blockBody(selector);
   const out: Record<string, string> = { ...inherit };
   for (const m of body.matchAll(/--color-([a-z0-9-]+):\s*(oklch\([^)]*\))/g)) {
     out[m[1]] = m[2];
   }
   return out;
+}
+
+/** Lit un jeton `--color-*` dans le bloc clair / sombre / impression. */
+function jeton(mode: 'clair' | 'sombre' | 'print', nom: string): string {
+  const cle = nom.replace(/^--color-/, '');
+  const bloc = mode === 'clair' ? LIGHT : mode === 'sombre' ? DARK : PRINT;
+  const val = bloc[cle];
+  if (!val) throw new Error(`Jeton introuvable : ${nom} (${mode})`);
+  return val;
 }
 
 function parseOklch(value: string): [number, number, number] {
@@ -86,6 +100,7 @@ function parseOklch(value: string): [number, number, number] {
 const LIGHT = readBlock('@theme');
 const DARK = readBlock('.dark {', LIGHT);
 const MEDIA_DARK = readBlock(':root:not(.light-forced)', LIGHT);
+const PRINT = readBlock('@media print');
 const HC_LIGHT = readBlock('.high-contrast {', LIGHT);
 // Cascade réelle en sombre + contraste élevé : `.dark`, puis `.high-contrast`
 // (même spécificité, déclaré plus bas, donc il l'emporte), puis
@@ -269,4 +284,43 @@ describe('mode contraste élevé — promesse AAA (7:1)', () => {
       expect(ratio, `${token} = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(7);
     }
   });
+});
+
+describe('rampe de choroplèthe', () => {
+  for (const mode of ['clair', 'sombre'] as const) {
+    it(`${mode} : cinq paliers, écart de luminance ≥ 1,4:1 entre voisins`, () => {
+      const vals = [1, 2, 3, 4, 5].map((i) => jeton(mode, `--color-choro-${i}`));
+      for (let i = 0; i < 4; i++) expect(contrast(vals[i], vals[i + 1])).toBeGreaterThanOrEqual(1.4);
+    });
+  }
+  it('le contour ambre sur halo neutre atteint 3:1', () => {
+    expect(contrast(jeton('clair', '--color-status-delayed'), jeton('clair', '--color-neutral-50'))).toBeGreaterThanOrEqual(3);
+  });
+  it('impression : paliers en valeurs claires', () => {
+    expect(jeton('print', '--color-choro-1')).toBe(jeton('clair', '--color-choro-1'));
+  });
+  it('impression : les paliers portent !important (sinon le sombre système gagne, spécificité 0,2,0)', () => {
+    const printBody = blockBody('@media print');
+    for (let i = 1; i <= 5; i++) {
+      const re = new RegExp(`--color-choro-${i}:\\s*oklch\\([^)]*\\)\\s*!important`);
+      expect(printBody, `--color-choro-${i} sans !important dans @media print`).toMatch(re);
+    }
+  });
+});
+
+// Motif « sans donnée » de src/components/dossiers/zru/carte-quartiers.tsx : un objet
+// graphique porteur de sens (SC 1.4.11, ≥ 3:1), pas du texte. neutral-400 sur fond neutre
+// et sur choro-1 tombait à 2,3-2,5:1 (audit fix round 1, 24/09/2026) : le motif porte
+// maintenant un fond explicite (neutral-100) et un trait neutral-600.
+describe('ZRU : motif « sans donnée » (contour hachuré)', () => {
+  for (const mode of ['clair', 'sombre'] as const) {
+    it(`${mode} : le trait (neutral-600) atteint 3:1 sur le fond du motif (neutral-100)`, () => {
+      const ratio = contrast(jeton(mode, '--color-neutral-600'), jeton(mode, '--color-neutral-100'));
+      expect(ratio, `${mode} : neutral-600 sur neutral-100 = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(3);
+    });
+    it(`${mode} : le trait (neutral-600) atteint 3:1 sur le palier 1 (choro-1), le voisin le plus clair`, () => {
+      const ratio = contrast(jeton(mode, '--color-neutral-600'), jeton(mode, '--color-choro-1'));
+      expect(ratio, `${mode} : neutral-600 sur choro-1 = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(3);
+    });
+  }
 });

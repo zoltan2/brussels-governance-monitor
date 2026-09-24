@@ -1,0 +1,239 @@
+// SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
+// Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
+
+import { Children, cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react';
+import { formatDate } from '@/lib/utils';
+import { LIBELLES_CONFIANCE, type Locale, type Provenance } from './data/types';
+
+/**
+ * Libellés du cadre de figure, par locale. Ne pas ajouter le français en
+ * néerlandais/anglais/allemand : un test vérifie l'absence de fuite de locale.
+ */
+const L: Record<
+  Locale,
+  {
+    source: string;
+    extrait: string;
+    confiance: string;
+    donnees: string;
+    modifs: string;
+    miseAJour: string;
+    licence: string;
+    inconnue: string;
+  }
+> = {
+  fr: {
+    source: 'Source',
+    extrait: 'données extraites le',
+    confiance: 'confiance',
+    donnees: 'Voir les données',
+    modifs: 'Traitements BGM',
+    miseAJour: 'mise à jour de la source',
+    licence: 'licence',
+    inconnue: 'non précisée',
+  },
+  nl: {
+    source: 'Bron',
+    extrait: 'gegevens opgehaald op',
+    confiance: 'betrouwbaarheid',
+    donnees: 'Gegevens bekijken',
+    modifs: 'Bewerkingen door BGM',
+    miseAJour: 'bijwerking van de bron',
+    licence: 'licentie',
+    inconnue: 'onbekend',
+  },
+  en: {
+    source: 'Source',
+    extrait: 'data extracted on',
+    confiance: 'confidence',
+    donnees: 'View the data',
+    modifs: 'BGM processing',
+    miseAJour: 'source updated',
+    licence: 'licence',
+    inconnue: 'unknown',
+  },
+  de: {
+    source: 'Quelle',
+    extrait: 'Daten abgerufen am',
+    confiance: 'Vertrauen',
+    donnees: 'Daten anzeigen',
+    modifs: 'Bearbeitung durch BGM',
+    miseAJour: 'Aktualisierung der Quelle',
+    licence: 'Lizenz',
+    inconnue: 'unbekannt',
+  },
+};
+
+/** Code Intl (BCP 47) associé à chaque locale du site, pour les dates et les nombres. */
+const CODE_INTL: Record<Locale, string> = { fr: 'fr-BE', nl: 'nl-BE', en: 'en-GB', de: 'de-DE' };
+
+/** Formate un nombre selon la convention locale (virgule décimale et espace insécable pour fr-BE). Exporté pour les légendes hors tableau (bornes de paliers…). */
+export function formaterNombre(valeur: number, locale: Locale): string {
+  return new Intl.NumberFormat(CODE_INTL[locale]).format(valeur);
+}
+
+/** Formate une cellule de tableau : les nombres suivent la convention locale, les chaînes passent telles quelles. */
+function formaterCellule(valeur: string | number, locale: Locale): string {
+  return typeof valeur === 'number' ? formaterNombre(valeur, locale) : valeur;
+}
+
+export type LegendeSourceProps = {
+  locale: Locale;
+  indicateur: string;
+  periode: string;
+  provenance: Provenance;
+};
+
+/**
+ * Légende de provenance commune aux figures ZRU : indicateur, période et les 7 champs de
+ * provenance (producteur, url, mise à jour de la source avec repli localisé « inconnue »,
+ * date d'extraction localisée, licence, modifications, confiance). Extrait du figcaption de
+ * FigureZru pour être réutilisé par des figures qui n'utilisent pas son cadre SVG (ex. tableaux
+ * de rangs).
+ */
+export function LegendeSource({ locale, indicateur, periode, provenance }: LegendeSourceProps): ReactElement {
+  const l = L[locale];
+  const sourceMiseAJour = provenance.sourceMiseAJour?.trim();
+  const sourceMiseAJourNode = sourceMiseAJour ? (
+    <time dateTime={sourceMiseAJour}>{formatDate(sourceMiseAJour, locale)}</time>
+  ) : (
+    <span>{l.inconnue}</span>
+  );
+
+  // Ponctuation : en français, espace insécable avant « : » et « ; » ; en néerlandais, anglais et
+  // allemand, aucune espace avant.
+  const dp = locale === 'fr' ? '\u00a0:' : ':';
+  const pv = locale === 'fr' ? '\u00a0;' : ';';
+  const modifications = provenance.modifications[locale];
+
+  return (
+    <figcaption className="mt-3 text-xs leading-relaxed text-neutral-600">
+      <span className="font-medium">
+        {indicateur}, {periode}.
+      </span>{' '}
+      {l.source}
+      {dp}{' '}
+      <a
+        href={provenance.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-brand-700 underline underline-offset-2 [overflow-wrap:anywhere] hover:text-brand-900"
+      >
+        {provenance.producteur[locale]}
+      </a>{' '}
+      ({l.miseAJour}
+      {dp} {sourceMiseAJourNode}
+      {pv} {l.licence}
+      {dp} {provenance.licence[locale]}), {l.extrait}{' '}
+      <time dateTime={provenance.extraitLe}>{formatDate(provenance.extraitLe, locale)}</time>
+      {pv} {l.confiance}
+      {dp} {LIBELLES_CONFIANCE[locale][provenance.confiance]}.
+      {modifications.length > 0 && (
+        <>
+          {' '}
+          {l.modifs}
+          {dp} {modifications.join(`${pv} `)}.
+        </>
+      )}
+    </figcaption>
+  );
+}
+
+export type FigureZruProps = {
+  /** Préfixe des identifiants DOM, pour distinguer plusieurs figures sur une même page. */
+  idBase: string;
+  locale: Locale;
+  titre: string;
+  indicateur: string;
+  periode: string;
+  provenance: Provenance;
+  /** Résumé textuel du contenu graphique, porté par <desc> dans le SVG (pas de <text> dans le SVG). */
+  resumeSvg: string;
+  /** Élément SVG unique (carte ou graphique) ; reçoit role="img" et un titre/desc accessibles. */
+  svg: ReactNode;
+  /**
+   * Cadre HTML facultatif autour du SVG (étiquettes de lignes, graduations…), pour les textes qui
+   * ne peuvent pas être dans le SVG. Reçoit le SVG déjà rendu accessible et le place où il veut.
+   */
+  cadreSvg?: (svg: ReactNode) => ReactNode;
+  /** Légende visuelle facultative (motifs, tirets…) rendue en HTML juste après le SVG, jamais dans le SVG lui-même. */
+  legende?: ReactNode;
+  tableau: { caption: string; colonnes: string[]; lignes: (string | number)[][] };
+};
+
+/**
+ * Cadre de figure commun aux cartes et graphiques du dossier ZRU : SVG sans
+ * texte incrusté, légende HTML (indicateur, période, les 7 champs de
+ * provenance, confiance) et tableau de données équivalent replié dans un
+ * <details>. Composant serveur uniquement (pas de hook, pas de gestionnaire
+ * d'événement, pas de 'use client').
+ */
+export function FigureZru(p: FigureZruProps): ReactElement {
+  const l = L[p.locale];
+  const idTitre = `${p.idBase}-titre`;
+  const svgIdTitre = `${p.idBase}-svg-titre`;
+  const svgIdDesc = `${p.idBase}-svg-desc`;
+
+  const svgSource = Children.only(p.svg);
+  const svgAccessible = isValidElement<{ children?: ReactNode }>(svgSource)
+    ? cloneElement(
+        svgSource as ReactElement<Record<string, unknown>>,
+        {
+          role: 'img',
+          'aria-labelledby': `${svgIdTitre} ${svgIdDesc}`,
+          className: 'h-auto w-full',
+        },
+        <title id={svgIdTitre}>{p.titre}</title>,
+        <desc id={svgIdDesc}>{p.resumeSvg}</desc>,
+        (svgSource.props as { children?: ReactNode }).children,
+      )
+    : svgSource;
+
+  return (
+    <figure aria-labelledby={idTitre} className="my-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
+      <div className="mb-3">
+        <p id={idTitre} className="text-sm font-semibold text-neutral-900">
+          {p.titre}
+        </p>
+        <p className="text-xs text-neutral-600">
+          {p.indicateur}, {p.periode}
+        </p>
+      </div>
+
+      {p.cadreSvg ? p.cadreSvg(svgAccessible) : svgAccessible}
+
+      {p.legende}
+
+      <LegendeSource locale={p.locale} indicateur={p.indicateur} periode={p.periode} provenance={p.provenance} />
+
+      <details className="mt-3 text-sm">
+        <summary className="cursor-pointer text-brand-700 underline">{l.donnees}</summary>
+        <div role="region" aria-label={p.tableau.caption} tabIndex={0} className="mt-2 max-h-96 overflow-auto">
+          <table className="w-full text-xs">
+            <caption className="sr-only">{p.tableau.caption}</caption>
+            <thead>
+              <tr>
+                {p.tableau.colonnes.map((c) => (
+                  <th key={c} scope="col" className="px-2 py-1 text-left font-semibold text-neutral-700">
+                    {c}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {p.tableau.lignes.map((r, i) => (
+                <tr key={i} className="border-t border-neutral-200">
+                  {r.map((c, j) => (
+                    <td key={j} className="px-2 py-1 text-neutral-600">
+                      {formaterCellule(c, p.locale)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </figure>
+  );
+}

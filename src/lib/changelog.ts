@@ -12,6 +12,8 @@ import {
   getComparisonCard,
 } from '@/lib/content';
 import type { FilterableSection } from './filterable-sections';
+import { isFilterableSection } from './filterable-sections';
+import { selectLatestHeadline, type TargetCardChange } from './latest-update-headline';
 import changelogData from '../../data/changelog.json';
 
 const changelogEntrySchema = z.object({
@@ -100,6 +102,12 @@ export interface LatestUpdate {
   summary?: string;
   anchor?: string;
   href: string | null;
+  /** Texte affiché par la barre : première phrase du `changeSummary` de la fiche, ou repli sur le changelog. */
+  headline: string;
+  headlineSource: 'changeSummary' | 'changelog';
+  isCorrection: boolean;
+  /** Titre de la fiche cible dans la langue demandée, pour le nom accessible du lien. */
+  cardTitle: string | null;
 }
 
 const SECTION_ROUTES: Record<string, string> = {
@@ -117,7 +125,61 @@ export function getLatestUpdate(locale: Locale): LatestUpdate {
   const entry = entries[0];
   const base = SECTION_ROUTES[entry.section];
   const href = base && entry.targetSlug ? `${base}/${entry.targetSlug}` : null;
-  return { ...entry, href };
+  const card =
+    entry.targetSlug && isFilterableSection(entry.section)
+      ? resolveCardChange(entry.section, entry.targetSlug, locale)
+      : null;
+  const h = selectLatestHeadline({
+    entryDate: entry.date,
+    entryType: entry.type,
+    summary: entry.summary,
+    description: entry.description,
+    card,
+  });
+  return {
+    ...entry,
+    href,
+    headline: h.text,
+    headlineSource: h.source,
+    isCorrection: h.isCorrection,
+    cardTitle: h.cardTitle,
+  };
+}
+
+/**
+ * Lit sur la fiche cible ce qu'il faut à la barre « Dernière mise à jour ».
+ * Rend null si la fiche n'existe plus (renommée, retirée).
+ */
+function resolveCardChange(
+  section: FilterableSection,
+  slug: string,
+  locale: Locale,
+): TargetCardChange | null {
+  const found = (() => {
+    switch (section) {
+      case 'domains':
+        return getDomainCard(slug, locale);
+      case 'sectors':
+        return getSectorCard(slug, locale);
+      case 'communes':
+        return getCommuneCard(slug, locale);
+      case 'dossiers':
+        return getDossierCard(slug, locale);
+      case 'solutions':
+        return getSolutionCard(slug, locale);
+      case 'comparisons':
+        return getComparisonCard(slug, locale);
+    }
+  })();
+  if (!found) return null;
+  const { card, isFallback } = found;
+  return {
+    title: card.title,
+    changeSummary: card.changeSummary,
+    changeSummaryDate: card.changeSummaryDate,
+    changeType: card.changeType,
+    isFallback,
+  };
 }
 
 export {

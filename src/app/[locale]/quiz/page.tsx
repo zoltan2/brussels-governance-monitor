@@ -6,6 +6,7 @@ import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import QuizLoader from '@/components/quiz/quiz-loader';
+import { getNombreDeLangues, getSourcesSuivies } from '@/lib/site-stats';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -48,7 +49,7 @@ export default async function QuizPage({
         </p>
       </div>
 
-      <QuizLoader />
+      <QuizLoader sourcesSuivies={getSourcesSuivies()} langues={getNombreDeLangues()} />
     </main>
   );
 }

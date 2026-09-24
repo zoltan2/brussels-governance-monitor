@@ -20,7 +20,8 @@ import {
   getRecentDigestLangs,
   getDigestEntry,
 } from '@/lib/content';
-import { getActiveSignals, getEditorialSourceCount } from '@/lib/radar';
+import { getActiveSignals } from '@/lib/radar';
+import { getSiteStats } from '@/lib/site-stats';
 import { getLatestUpdate } from '@/lib/changelog';
 import { cn, formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
@@ -148,7 +149,9 @@ export default async function HomePage({
   const domainCards = getDomainCards(loc);
   const sectorCards = getSectorCards(loc);
   const dossierCards = getDossierCards(loc);
-  const veilleSourceCount = getEditorialSourceCount();
+  // Un seul calcul pour « Ce qu'on surveille » et pour le bloc de soutien :
+  // les deux affichent le même nombre de sources, par construction.
+  const siteStats = getSiteStats();
 
   const byLastModified = <T extends { lastModified: string }>(cards: T[]) =>
     [...cards].sort((a, b) => b.lastModified.localeCompare(a.lastModified));
@@ -240,7 +243,7 @@ export default async function HomePage({
             150 caractères ; en 2fr son texte tombait à 224 px et se brisait en cinq
             lignes de trois mots. */}
         <div className="mx-auto grid max-w-5xl gap-y-8 px-4 lg:grid-cols-[3fr_2fr] lg:gap-x-8">
-          <WhatWeWatch signals={radarSignals} locale={locale} sourceCount={veilleSourceCount} />
+          <WhatWeWatch signals={radarSignals} locale={locale} sourceCount={siteStats.sourcesSuivies} />
           <UnderstandColumn locale={locale} />
         </div>
       </section>
@@ -279,7 +282,7 @@ export default async function HomePage({
           puis les chiffres et l'appel au soutien, juste avant « Restez informé ». */}
       <QuizPromo />
 
-      <SupportCtaHome />
+      <SupportCtaHome stats={siteStats} />
 
       <section id="subscribe" className="bg-neutral-50 py-12">
         <div className="mx-auto max-w-5xl px-4">

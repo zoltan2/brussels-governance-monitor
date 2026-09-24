@@ -29,21 +29,17 @@
 
 import { useSyncExternalStore } from 'react';
 import { useTranslations } from 'next-intl';
-
-const DAY_MS = 86_400_000;
+import { joursEcoulesDepuis } from '@/lib/jours-ecoules';
 
 /** Le compteur ne depend d'aucune source externe : rien a souscrire. */
 const subscribe = () => () => {};
 
-function daysSince(isoDate: string, now: Date): number {
-  const start = Date.parse(`${isoDate}T00:00:00Z`);
-  // Tout en UTC, des deux côtés. La version précédente prenait le quantième LOCAL
-  // (getFullYear/getMonth/getDate) et le comparait à un minuit UTC : entre minuit et
-  // 2 h en heure belge, la date locale a déjà changé mais pas la date UTC, et le
-  // compteur avançait d'un jour trop tôt. Attrapé par le test de ce composant.
-  const today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-  return Math.max(0, Math.floor((today - start) / DAY_MS));
-}
+// Le calcul vit dans src/lib/jours-ecoules.ts : jours de calendrier a l'heure de
+// Bruxelles, et non plus en UTC. La version UTC affichait la veille entre minuit
+// et 1 h (hiver) ou 2 h (ete) a Bruxelles. Les deux instantanes ci-dessous
+// appellent la meme fonction pure avec le meme fuseau explicite : le serveur
+// (en UTC sur le VPS) et le navigateur (dans n'importe quel fuseau) rendent donc
+// le meme nombre au meme instant, sans divergence d'hydratation.
 
 export function GovernmentDayCounter({
   oathDate,
@@ -68,8 +64,8 @@ export function GovernmentDayCounter({
   // se compare par valeur, donc aucun rendu superflu quand elle est identique.
   const days = useSyncExternalStore(
     subscribe,
-    () => daysSince(oathDate, new Date()),
-    () => daysSince(oathDate, new Date()),
+    () => joursEcoulesDepuis(oathDate, new Date()),
+    () => joursEcoulesDepuis(oathDate, new Date()),
   );
 
   return (

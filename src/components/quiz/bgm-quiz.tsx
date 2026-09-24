@@ -110,7 +110,13 @@ function LinkIcon() {
   )
 }
 
-export default function BGMQuiz() {
+/** Chiffres du site, calculés côté serveur par src/lib/site-stats.ts (jamais en dur ici). */
+export interface QuizSiteStats {
+  sourcesSuivies: number
+  langues: number
+}
+
+export default function BGMQuiz({ sourcesSuivies, langues }: QuizSiteStats) {
   const t = useTranslations('quiz')
   const tFeedback = useTranslations('feedback')
   const locale = useLocale()
@@ -365,7 +371,7 @@ export default function BGMQuiz() {
             {t('donateMessage')}
           </p>
           <p className="mt-1 text-xs text-neutral-500">
-            {t('donateDetail')}
+            {t('donateDetail', { sources: sourcesSuivies, languages: langues })}
           </p>
           <a
             href={`/${locale}/support`}

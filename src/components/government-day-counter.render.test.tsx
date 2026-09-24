@@ -33,7 +33,10 @@ afterEach(cleanup);
  *  composant : un test qui recopie la formule qu'il contrôle hérite de ses angles
  *  morts et passerait même si elle était fausse. */
 function ilYA(n: number): string {
-  const d = new Date();
+  // Le compteur compte en jours de Bruxelles : partir du jour UTC rendait ce
+  // test faux chaque soir entre 22 h/23 h UTC et minuit UTC.
+  const aBruxelles = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Brussels' });
+  const d = new Date(`${aBruxelles}T12:00:00Z`);
   d.setUTCDate(d.getUTCDate() - n);
   return d.toISOString().slice(0, 10);
 }

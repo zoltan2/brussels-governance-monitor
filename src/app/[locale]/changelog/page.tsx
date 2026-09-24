@@ -15,6 +15,7 @@ import type { Locale } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import type { ChangelogEntry } from '@/lib/changelog';
 import { SupportCtaChangelog } from '@/components/support-cta';
+import { getSourcesSuivies } from '@/lib/site-stats';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -99,7 +100,7 @@ function ChangelogView({ rows, locale }: { rows: Row[]; locale: string }) {
           <ChangelogFilterClient />
         </Suspense>
 
-        <SupportCtaChangelog />
+        <SupportCtaChangelog sourcesSuivies={getSourcesSuivies()} />
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">

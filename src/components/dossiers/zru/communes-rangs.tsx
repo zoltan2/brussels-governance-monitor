@@ -23,9 +23,10 @@ const T: Record<
 > = {
   fr: {
     titre: 'Taux de pauvreté administratif des 19 communes : rangs par période',
-    indic: 'Taux de pauvreté administratif (Statbel), rang parmi les communes bruxelloises (calcul BGM)',
+    indic:
+      'Taux de pauvreté administratif (Statbel), rang parmi les communes bruxelloises (calcul BGM)',
     rupture:
-      'Rupture de série en 2020 : les revenus des non-résidents ne sont connus que depuis 2020, les deux périodes ne se comparent pas.',
+      "Rupture de série en 2020 : Statbel a amélioré sa méthodologie, et les chiffres jusqu'à 2019 ne sont comparables à ceux de 2020 et suivants que dans une certaine mesure. Les rangs sont donc donnés par période.",
     direction: 'Rang 1 : taux le plus élevé.',
     nd: 'non disponible',
     prudence: 'à lire avec prudence',
@@ -35,9 +36,10 @@ const T: Record<
   },
   nl: {
     titre: 'Administratieve armoedegraad van de 19 gemeenten: rang per periode',
-    indic: 'Administratieve armoedegraad (Statbel), rang onder de Brusselse gemeenten (berekening BGM)',
+    indic:
+      'Administratieve armoedegraad (Statbel), rang onder de Brusselse gemeenten (berekening BGM)',
     rupture:
-      'Breuk in de reeks in 2020: de inkomens van niet-inwoners zijn pas sinds 2020 bekend, de twee periodes zijn niet vergelijkbaar.',
+      'Breuk in de reeks in 2020: Statbel heeft zijn methodologie verbeterd, en de cijfers tot en met 2019 zijn slechts in zekere mate vergelijkbaar met die van 2020 en later. De rangen worden daarom per periode gegeven.',
     direction: 'Rang 1: hoogste percentage.',
     nd: 'niet beschikbaar',
     prudence: 'met voorzichtigheid te lezen',
@@ -47,8 +49,10 @@ const T: Record<
   },
   en: {
     titre: 'Administrative poverty rate of the 19 municipalities: ranks by period',
-    indic: 'Administrative poverty rate (Statbel), rank among Brussels municipalities (BGM calculation)',
-    rupture: "Series break in 2020: non-residents' incomes are only known from 2020, so the two periods cannot be compared.",
+    indic:
+      'Administrative poverty rate (Statbel), rank among Brussels municipalities (BGM calculation)',
+    rupture:
+      'Series break in 2020: Statbel improved its methodology, and figures up to 2019 are only comparable to some extent with those from 2020 onwards. Ranks are therefore given by period.',
     direction: 'Rank 1: highest rate.',
     nd: 'not available',
     prudence: 'to be read with caution',
@@ -58,9 +62,10 @@ const T: Record<
   },
   de: {
     titre: 'Administrative Armutsquote der 19 Gemeinden: Rang je Zeitraum',
-    indic: 'Administrative Armutsquote (Statbel), Rang unter den Brüsseler Gemeinden (Berechnung BGM)',
+    indic:
+      'Administrative Armutsquote (Statbel), Rang unter den Brüsseler Gemeinden (Berechnung BGM)',
     rupture:
-      'Reihenbruch 2020: Die Einkommen von Nichtansässigen sind erst ab 2020 bekannt, die beiden Zeiträume sind nicht vergleichbar.',
+      'Reihenbruch 2020: Statbel hat seine Methodik verbessert, die Zahlen bis einschließlich 2019 sind mit denen ab 2020 nur bedingt vergleichbar. Die Ränge werden daher je Zeitraum angegeben.',
     direction: 'Rang 1: höchste Quote.',
     nd: 'nicht verfügbar',
     prudence: 'mit Vorsicht zu lesen',
@@ -81,8 +86,12 @@ const PERIODES: [string, string, string][] = [
  * Les communes sans valeur cette année-là (Ixelles avant 2020) sont exclues du classement et
  * du calcul de N. Fonction pure, exportée pour être testée directement (égalités, N).
  */
-export function calculerRangs(valeurs: { niscode: string; valeur: number | null }[]): Map<string, number> {
-  const disponibles = valeurs.filter((v): v is { niscode: string; valeur: number } => v.valeur !== null);
+export function calculerRangs(
+  valeurs: { niscode: string; valeur: number | null }[],
+): Map<string, number> {
+  const disponibles = valeurs.filter(
+    (v): v is { niscode: string; valeur: number } => v.valeur !== null,
+  );
   const tries = [...disponibles].sort((a, b) => b.valeur - a.valeur);
   const rangs = new Map<string, number>();
   let rangCourant = 0;
@@ -99,7 +108,10 @@ export function calculerRangs(valeurs: { niscode: string; valeur: number | null 
 
 /** Rangs et effectif (N = nombre de communes avec une valeur) pour une année donnée. */
 function rangsAnnee(annee: string): { rangs: Map<string, number>; n: number } {
-  const valeurs = COMMUNES_TAUX.map((c) => ({ niscode: c.niscode, valeur: c.serie[annee]?.valeur ?? null }));
+  const valeurs = COMMUNES_TAUX.map((c) => ({
+    niscode: c.niscode,
+    valeur: c.serie[annee]?.valeur ?? null,
+  }));
   return { rangs: calculerRangs(valeurs), n: valeurs.filter((v) => v.valeur !== null).length };
 }
 
@@ -113,7 +125,10 @@ export function ZruCommunesRangs({ locale = 'fr' }: { locale?: Locale }): ReactE
   };
 
   return (
-    <figure aria-labelledby="zru-communes-titre" className="my-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
+    <figure
+      aria-labelledby="zru-communes-titre"
+      className="my-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4"
+    >
       <p id="zru-communes-titre" className="text-sm font-semibold text-neutral-900">
         {t.titre}
       </p>
@@ -124,9 +139,17 @@ export function ZruCommunesRangs({ locale = 'fr' }: { locale?: Locale }): ReactE
         const { rangs: rangsDebut, n: nDebut } = rangsAnnee(debut);
         const { rangs: rangsFin, n: nFin } = rangsAnnee(fin);
         return (
-          <div key={cle} role="region" aria-label={t.periode(debut, fin)} tabIndex={0} className="mt-3 overflow-x-auto">
+          <div
+            key={cle}
+            role="region"
+            aria-label={t.periode(debut, fin)}
+            tabIndex={0}
+            className="mt-3 overflow-x-auto"
+          >
             <table data-periode={cle} className="w-full text-xs">
-              <caption className="text-left font-medium text-neutral-800">{t.periode(debut, fin)}</caption>
+              <caption className="text-left font-medium text-neutral-800">
+                {t.periode(debut, fin)}
+              </caption>
               <thead>
                 <tr>
                   <th scope="col" className="px-2 py-1 text-left">
@@ -142,7 +165,11 @@ export function ZruCommunesRangs({ locale = 'fr' }: { locale?: Locale }): ReactE
               </thead>
               <tbody>
                 {COMMUNES_TAUX.map((c) => (
-                  <tr key={c.niscode} data-niscode={c.niscode} className="border-t border-neutral-200">
+                  <tr
+                    key={c.niscode}
+                    data-niscode={c.niscode}
+                    className="border-t border-neutral-200"
+                  >
                     <th scope="row" className="px-2 py-1 text-left font-normal">
                       {locale === 'nl' ? c.nom.nl : c.nom.fr}
                     </th>
@@ -160,7 +187,12 @@ export function ZruCommunesRangs({ locale = 'fr' }: { locale?: Locale }): ReactE
         );
       })}
 
-      <LegendeSource locale={locale} indicateur={t.indic} periode="2015-2023" provenance={PROVENANCE_COMMUNES} />
+      <LegendeSource
+        locale={locale}
+        indicateur={t.indic}
+        periode="2015-2023"
+        provenance={PROVENANCE_COMMUNES}
+      />
     </figure>
   );
 }

@@ -35,7 +35,7 @@ const T: Record<Locale, Palier> = {
     cols: ['Quartier', 'Valeur (€)', 'Palier'],
     sans: 'sans donnée',
     palier: (n) => `palier ${n} sur 5`,
-    zru: "Contour : ZRU 2026, zone prioritaire d'investissement public",
+    zru: 'Contour\u00a0: ZRU 2026',
     direction: 'Paliers du revenu le plus bas (1) au plus élevé (5).',
     moinsDe: (b) => `moins de ${b}`,
     etPlus: (b) => `${b} et plus`,
@@ -49,7 +49,7 @@ const T: Record<Locale, Palier> = {
     cols: ['Wijk', 'Waarde (€)', 'Klasse'],
     sans: 'geen gegevens',
     palier: (n) => `klasse ${n} van 5`,
-    zru: 'Grens: ZSH 2026, prioritaire zone voor overheidsinvesteringen',
+    zru: 'Grens: ZSH 2026',
     direction: 'Klassen van het laagste (1) tot het hoogste inkomen (5).',
     moinsDe: (b) => `minder dan ${b}`,
     etPlus: (b) => `${b} en meer`,
@@ -63,7 +63,7 @@ const T: Record<Locale, Palier> = {
     cols: ['Neighbourhood', 'Value (€)', 'Band'],
     sans: 'no data',
     palier: (n) => `band ${n} of 5`,
-    zru: 'Outline: 2026 zone, priority area for public investment',
+    zru: 'Outline: 2026 zone',
     direction: 'Bands from lowest (1) to highest (5) income.',
     moinsDe: (b) => `under ${b}`,
     etPlus: (b) => `${b} and over`,
@@ -77,7 +77,7 @@ const T: Record<Locale, Palier> = {
     cols: ['Viertel', 'Wert (€)', 'Stufe'],
     sans: 'keine Daten',
     palier: (n) => `Stufe ${n} von 5`,
-    zru: 'Umriss: Zone 2026, vorrangiges Gebiet für öffentliche Investitionen',
+    zru: 'Umriss: Zone 2026',
     direction: 'Stufen vom niedrigsten (1) bis zum höchsten (5) Einkommen.',
     moinsDe: (b) => `unter ${b}`,
     etPlus: (b) => `${b} und mehr`,
@@ -169,7 +169,9 @@ export function ZruCarteQuartiers({ locale = 'fr' }: { locale?: Locale }): React
                   <rect width="12" height="12" className={FILL[n]} />
                 </svg>
                 <span>
-                  {t.palier(n)} : {texteBornes(n)}
+                  {t.palier(n)}
+                  {locale === 'fr' ? '\u00a0: ' : ': '}
+                  {texteBornes(n)}
                 </span>
               </li>
             ))}

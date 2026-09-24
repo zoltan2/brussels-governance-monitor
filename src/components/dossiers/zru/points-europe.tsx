@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 import type { ReactElement } from 'react';
-import { FigureZru } from './figure-zru';
+import { FigureZru, formaterNombre } from './figure-zru';
 import { EUROPE_RATIOS, ANNEE_EUROPE, PROVENANCE_EUROPE } from './data/europe';
 import type { Locale } from './data/types';
 
@@ -85,10 +85,14 @@ const NOTE_NUTS: Record<Locale, string> = {
   de: `Für jedes Land die statistische Region (NUTS 2), die die Hauptstadt enthält; in den Niederlanden die Provinz ${NOM_NL32.de}, die Amsterdam enthält.`,
 };
 
-const W = 600;
+/** Domaine de l'axe des rapports et graduations affichées en HTML sous le graphique. */
 const X0 = 0.5;
 const X1 = 2.5;
-const x = (r: number) => ((r - X0) / (X1 - X0)) * W;
+const GRADUATIONS = [0.5, 1, 1.5, 2, 2.5];
+/** Position horizontale en pourcentage de la largeur : le SVG n'a pas de viewBox, il suit la largeur de sa colonne sans déformer les points. */
+const xPct = (r: number) => `${((r - X0) / (X1 - X0)) * 100}%`;
+/** Hauteur d'une ligne en pixels, commune au SVG et aux étiquettes HTML (classe h-6 = 24 px). */
+const LIGNE = 24;
 
 /** Arrondit un taux à 1 décimale ; le formatage local (virgule, espace insécable) revient à FigureZru. */
 function arrondirTaux(valeur: number): number {
@@ -111,7 +115,7 @@ function arrondirRatio(valeur: number): number {
 export function ZruPointsEurope({ locale = 'fr' }: { locale?: Locale }): ReactElement {
   const t = T[locale];
   const parNom = [...EUROPE_RATIOS].sort((a, b) => a.nom[locale].localeCompare(b.nom[locale], locale));
-  const H = parNom.length * 24 + 10;
+  const H = parNom.length * LIGNE;
 
   return (
     <FigureZru
@@ -123,11 +127,25 @@ export function ZruPointsEurope({ locale = 'fr' }: { locale?: Locale }): ReactEl
       provenance={PROVENANCE_EUROPE}
       resumeSvg={t.resume}
       svg={
-        <svg viewBox={`0 0 ${W} ${H}`}>
+        // Sans viewBox : x en pourcentage, y en pixels ; la hauteur fixe garde chaque point en face
+        // de son étiquette HTML (même hauteur de ligne), quelle que soit la largeur de l'écran.
+        <svg height={H} style={{ height: `${H}px` }}>
+          {GRADUATIONS.map((g) => (
+            <line
+              key={g}
+              data-graduation={g}
+              x1={xPct(g)}
+              x2={xPct(g)}
+              y1={0}
+              y2={H}
+              className="stroke-neutral-200"
+              strokeWidth="1"
+            />
+          ))}
           <line
             data-reference="1"
-            x1={x(1)}
-            x2={x(1)}
+            x1={xPct(1)}
+            x2={xPct(1)}
             y1={0}
             y2={H}
             className="stroke-neutral-500"
@@ -138,8 +156,8 @@ export function ZruPointsEurope({ locale = 'fr' }: { locale?: Locale }): ReactEl
             <circle
               key={r.geo}
               data-geo={r.geo}
-              cx={x(r.ratio)}
-              cy={i * 24 + 16}
+              cx={xPct(r.ratio)}
+              cy={i * LIGNE + LIGNE / 2}
               r={r.geo === 'BE10' ? 7 : 5}
               className={r.geo === 'BE10' ? 'fill-status-delayed stroke-neutral-50' : 'fill-brand-700 stroke-neutral-50'}
               strokeWidth="2"
@@ -147,6 +165,34 @@ export function ZruPointsEurope({ locale = 'fr' }: { locale?: Locale }): ReactEl
           ))}
         </svg>
       }
+      cadreSvg={(svgRendu) => (
+        // Étiquettes et graduations en HTML (jamais de texte dans le SVG). Masquées aux lecteurs
+        // d'écran : elles doublent le tableau de données, qui porte noms et valeurs.
+        <div data-cadre-points className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-3">
+          <ul aria-hidden="true" data-etiquettes className="text-xs text-neutral-700">
+            {parNom.map((r) => (
+              <li key={r.geo} className="flex h-6 items-center whitespace-nowrap">
+                {r.nom[locale]}
+              </li>
+            ))}
+          </ul>
+          <div className="min-w-0">{svgRendu}</div>
+          <div aria-hidden="true" data-graduations className="relative col-start-2 mt-1 h-4 text-xs text-neutral-600">
+            {GRADUATIONS.map((g, i) => (
+              <span
+                key={g}
+                className="absolute top-0"
+                style={{
+                  left: xPct(g),
+                  transform: i === 0 ? 'none' : i === GRADUATIONS.length - 1 ? 'translateX(-100%)' : 'translateX(-50%)',
+                }}
+              >
+                {formaterNombre(g, locale)}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
       legende={
         <div className="mt-3">
           <p className="text-xs text-neutral-600">

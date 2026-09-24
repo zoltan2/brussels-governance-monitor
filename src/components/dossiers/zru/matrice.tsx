@@ -26,6 +26,7 @@ export function ZruMatrice({ locale = 'fr' }: { locale?: Locale }): ReactElement
     <div className="my-8">
       <ResponsibilityMatrix
         idBase="zru-matrice"
+        sansMarge
         caption={CAPTION[locale]}
         themeColLabel={COL_THEME[locale]}
         emptyCellLabel={CASE_VIDE[locale]}
@@ -36,7 +37,7 @@ export function ZruMatrice({ locale = 'fr' }: { locale?: Locale }): ReactElement
           cells: Object.fromEntries(NIVEAUX.map((n) => [n.cle, l.cases[n.cle]?.[locale] ?? null])),
         }))}
       />
-      <p className="-mt-6 text-xs leading-relaxed text-neutral-600">
+      <p className="mt-2 text-xs leading-relaxed text-neutral-600">
         {LIBELLE_SOURCES[locale]}{' '}
         {cles.map((cle, i) => (
           <span key={cle}>

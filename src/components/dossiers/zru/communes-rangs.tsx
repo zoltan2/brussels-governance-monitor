@@ -117,19 +117,23 @@ function rangsAnnee(annee: string): { rangs: Map<string, number>; n: number } {
 
 export function ZruCommunesRangs({ locale = 'fr' }: { locale?: Locale }): ReactElement {
   const t = T[locale];
+  const idBase = 'zru-communes-rangs';
+  const idTitre = `${idBase}-titre`;
+  // Espace insécable avant % en français, néerlandais et allemand ; aucune espace en anglais.
+  const pourcent = locale === 'en' ? '%' : '\u00a0%';
 
   const cellule = (c: CelluleStatbel | undefined, rang: number | undefined, n: number): string => {
     if (!c || c.valeur === null || rang === undefined) return t.nd;
     const pct = Math.round(c.valeur * 10) / 10;
-    return `${t.rangSur(rang, n)} (${formaterNombre(pct, locale)} %)${c.statut === 'prudence' ? `, ${t.prudence}` : ''}`;
+    return `${t.rangSur(rang, n)} (${formaterNombre(pct, locale)}${pourcent})${c.statut === 'prudence' ? `, ${t.prudence}` : ''}`;
   };
 
   return (
     <figure
-      aria-labelledby="zru-communes-titre"
+      aria-labelledby={idTitre}
       className="my-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4"
     >
-      <p id="zru-communes-titre" className="text-sm font-semibold text-neutral-900">
+      <p id={idTitre} className="text-sm font-semibold text-neutral-900">
         {t.titre}
       </p>
       <p className="mt-1 text-xs text-neutral-700">{t.rupture}</p>
@@ -142,7 +146,9 @@ export function ZruCommunesRangs({ locale = 'fr' }: { locale?: Locale }): ReactE
           <div
             key={cle}
             role="region"
-            aria-label={t.periode(debut, fin)}
+            // Nom du repère préfixé par le titre de la figure : « De 2015 à 2019 » seul serait
+            // ambigu dans la liste des repères d'un lecteur d'écran.
+            aria-label={`${t.titre}, ${t.periode(debut, fin).toLowerCase()}`}
             tabIndex={0}
             className="mt-3 overflow-x-auto"
           >

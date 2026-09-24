@@ -71,4 +71,25 @@ describe('ZruPointsEurope', () => {
     const { container } = render(<ZruPointsEurope />);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it('étiquettes HTML des lignes : un nom par point, même ordre alphabétique que les points, hors du SVG', () => {
+    const { container } = render(<ZruPointsEurope locale="nl" />);
+    const etiquettes = Array.from(container.querySelectorAll('[data-etiquettes] li')).map((li) => li.textContent);
+    const attendu = [...EUROPE_RATIOS].map((r) => r.nom.nl).sort((a, b) => a.localeCompare(b, 'nl'));
+    expect(etiquettes).toEqual(attendu);
+    // Ordre des points = ordre des étiquettes, une ligne de 24 px chacun.
+    const points = Array.from(container.querySelectorAll('[data-geo]'));
+    const ordrePoints = points.map((c) => EUROPE_RATIOS.find((r) => r.geo === c.getAttribute('data-geo'))!.nom.nl);
+    expect(ordrePoints).toEqual(attendu);
+    points.forEach((c, i) => expect(Number(c.getAttribute('cy'))).toBe(i * 24 + 12));
+    expect(container.querySelector('svg[role="img"]')!.querySelectorAll('text')).toHaveLength(0);
+  });
+
+  it('graduations HTML 0,5 à 2,5 au format de la langue', () => {
+    const { container, rerender } = render(<ZruPointsEurope locale="fr" />);
+    const lire = () => Array.from(container.querySelectorAll('[data-graduations] span')).map((s) => s.textContent);
+    expect(lire()).toEqual(['0,5', '1', '1,5', '2', '2,5']);
+    rerender(<ZruPointsEurope locale="en" />);
+    expect(lire()).toEqual(['0.5', '1', '1.5', '2', '2.5']);
+  });
 });

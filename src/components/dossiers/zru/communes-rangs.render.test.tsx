@@ -121,4 +121,22 @@ describe('calculerRangs (fonction pure)', () => {
     expect(rangs.has('b')).toBe(false);
     expect(rangs.size).toBe(2);
   });
+
+  it('pourcentage : espace insécable avant % en français, néerlandais et allemand, aucune espace en anglais', () => {
+    for (const [locale, motif] of [['fr', /\d\u00a0%/], ['nl', /\d\u00a0%/], ['de', /\d\u00a0%/], ['en', /\d%/]] as const) {
+      const { container } = render(<ZruCommunesRangs locale={locale} />);
+      const cellule = container.querySelector('[data-periode="2020-2023"] td')!.textContent!;
+      expect(cellule).toMatch(motif);
+      expect(cellule).not.toMatch(/\d %/);
+      cleanup();
+    }
+  });
+
+  it('les deux régions sont nommées sans ambiguïté : titre de la figure puis période', () => {
+    const { container } = render(<ZruCommunesRangs />);
+    const noms = Array.from(container.querySelectorAll('[role="region"]')).map((r) => r.getAttribute('aria-label'));
+    expect(noms[0]).toMatch(/^Taux de pauvreté administratif des 19 communes.*de 2015 à 2019$/);
+    expect(noms[1]).toMatch(/de 2020 à 2023$/);
+    expect(container.querySelector('figure')!.getAttribute('aria-labelledby')).toBe('zru-communes-rangs-titre');
+  });
 });

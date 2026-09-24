@@ -48,6 +48,11 @@ export type ResponsibilityMatrixProps = {
   levels: ResponsibilityMatrixLevel[];
   /** Themes/competences, en lignes */
   rows: ResponsibilityMatrixRow[];
+  /**
+   * Sans marge verticale propre (my-8) : pour une matrice placee dans un bloc qui porte deja la
+   * marge et un pied (ligne des sources). Absent = rendu inchange.
+   */
+  sansMarge?: boolean;
 };
 
 /**
@@ -61,13 +66,18 @@ export function ResponsibilityMatrix({
   emptyCellLabel,
   levels,
   rows,
+  sansMarge = false,
 }: ResponsibilityMatrixProps): ReactElement {
   const captionId = `${idBase}-caption`;
 
   return (
     <figure
       aria-labelledby={captionId}
-      className="my-8 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50"
+      className={
+        sansMarge
+          ? 'overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50'
+          : 'my-8 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50'
+      }
     >
       <figcaption
         id={captionId}

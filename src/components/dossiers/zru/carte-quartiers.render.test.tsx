@@ -3,10 +3,20 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 // src/components/dossiers/zru/carte-quartiers.render.test.tsx
 import { render, cleanup } from '@testing-library/react';
+import * as matchers from 'vitest-axe/matchers';
+import { axe } from 'vitest-axe';
+import type { AxeMatchers } from 'vitest-axe/matchers';
 import { afterEach, describe, expect, it } from 'vitest';
 import { ZruCarteQuartiers } from './carte-quartiers';
 import { QUARTIERS_VALEURS } from './data/quartiers';
 
+declare module 'vitest' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+  interface Assertion<T = any> extends AxeMatchers {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  interface AsymmetricMatchersContaining extends AxeMatchers {}
+}
+expect.extend(matchers);
 afterEach(() => cleanup());
 const sans = QUARTIERS_VALEURS.filter((q) => q.valeur === null);
 
@@ -89,5 +99,26 @@ describe('ZruCarteQuartiers', () => {
     // Convention fr-BE : la virgule ne marque qu'une décimale. Arrondies à l'euro, les valeurs
     // n'en portent plus jamais (le séparateur de milliers est une espace, jamais une virgule).
     for (const v of valeurs) expect(v).not.toMatch(/\d,\d/);
+  });
+
+  it('chaque polygone avec valeur porte la classe littérale de son palier (fill-choro-1 à 5), jamais une classe assemblée', () => {
+    const { container } = render(<ZruCarteQuartiers />);
+    for (const q of QUARTIERS_VALEURS.filter((x) => x.palier !== null)) {
+      const cls = container.querySelector(`[data-md-id="${q.mdId}"]`)!.getAttribute('class') ?? '';
+      expect(cls.split(' ')).toContain(`fill-choro-${q.palier}`);
+    }
+  });
+
+  it('légende du contour : « ZRU 2026 » seul, sans qualification non sourcée', () => {
+    for (const locale of ['fr', 'nl', 'en', 'de'] as const) {
+      const { container } = render(<ZruCarteQuartiers locale={locale} />);
+      expect(container.querySelector('[data-legende]')!.textContent).not.toMatch(/investissement|investering|investment|Investition/i);
+      cleanup();
+    }
+  });
+
+  it('passe axe', async () => {
+    const { container } = render(<ZruCarteQuartiers />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

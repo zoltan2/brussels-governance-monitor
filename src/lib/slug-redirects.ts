@@ -46,6 +46,35 @@
  *
  * `draft` n'est filtré par aucune de ces routes (les pages affichent un
  * bandeau) : une fiche en brouillon est servie, et la supprimer perd une URL.
+ *
+ * ── Pages fixes (depuis le 24/09/2026)
+ *
+ * Chaque clé SANS paramètre de routing.ts pathnames (`/methodology`,
+ * `/explainers/cocof`, `/press`…) dont le fichier
+ * `src/app/[locale]{clé}/page.tsx` existe est servie en `/{L}` + son chemin
+ * localisé (repli sur la clé elle-même si la langue manque, comme
+ * next-intl `getLocalizedTemplate`). Une entrée de routing.ts sans page.tsx
+ * n'est pas servie : le script la signale. L'accueil (`'/'`) est hors modèle :
+ * son chemin ne peut pas être localisé.
+ *
+ * Pages hors `[locale]` (`src/app/livre/page.tsx` → `/livre`, groupes de routes
+ * `(hub)` retirés) : servies telles quelles, sans préfixe de langue, parce que
+ * le matcher de src/proxy.ts les exclut du proxy next-intl. Seules celles sans
+ * segment dynamique sont modélisées ; les autres sont signalées hors périmètre.
+ *
+ * Une URL fixe perdue exige, comme une fiche : une redirection exacte
+ * ancienne → nouvelle (même clé, même langue), ou, si la route ou sa page a
+ * disparu, une redirection vers une page servie ou une entrée d'URLS_RETIREES.
+ *
+ * Nuance next-intl : quand l'ancien chemin reste reconnu par la table
+ * `pathnames` (il égale la clé interne, ex. `/en/methodology`, ou le chemin
+ * d'une AUTRE langue pour la même clé, ex. `/fr/methodologie` quand le
+ * néerlandais garde `/methodologie`), le proxy next-intl redirige déjà de
+ * lui-même vers le nouveau chemin localisé, mais en 307 TEMPORAIRE
+ * (NextResponse.redirect) et seulement tant que cette coïncidence tient. La
+ * garde exige quand même l'entrée permanente de SLUG_REDIRECTS_301
+ * (next.config redirects() passe avant le proxy, donc elle l'emporte) : plus
+ * sûr pour les moteurs, et indépendant d'un futur changement de l'autre langue.
  */
 
 // Accesseurs PURS de content.ts, réutilisés tels quels (aucun ne lit la sortie
@@ -112,6 +141,15 @@ export interface SlugSnapshot {
   /** Gabarits de routing.ts pathnames pour chaque type, dans cette révision. */
   routes: Partial<Record<PageType, RouteTemplates>>;
   scrollyAllowlist: ReadonlySet<string>;
+  /**
+   * Pages fixes : clés SANS paramètre de routing.ts pathnames et leurs chemins
+   * par langue. Absent : pages fixes hors modèle.
+   */
+  staticRoutes?: Record<string, RouteTemplates>;
+  /** Clés de route qui ont un `src/app/[locale]{clé}/page.tsx` (voir pageRoutesFromFiles). */
+  pageRoutes?: ReadonlySet<string>;
+  /** Pages hors `[locale]`, sans segment dynamique : URL servies sans préfixe de langue. */
+  rootPages?: readonly string[];
 }
 
 export interface Redirect {
@@ -156,7 +194,9 @@ export type ViolationKind =
   | 'loop'
   | 'target-missing'
   | 'shadows-live-page'
-  | 'invalid-retired';
+  | 'invalid-retired'
+  | 'static-path-changed'
+  | 'static-page-removed';
 
 export interface Violation {
   kind: ViolationKind;
@@ -341,6 +381,92 @@ export function countByType(served: readonly ServedUrl[]): Record<PageType, numb
   return counts;
 }
 
+// ── Pages fixes ─────────────────────────────────────────────────────────
+
+/** Langue d'une page hors `[locale]` (servie sans préfixe). */
+export const ROOT_LOCALE = '';
+
+export interface StaticUrl {
+  url: string;
+  /** Identité stable : clé de routing.ts (ou `root:{url}`) et langue. */
+  key: string;
+  /** Clé interne de routing.ts, ou le chemin pour une page hors `[locale]`. */
+  route: string;
+  /** Langue, ou ROOT_LOCALE pour une page hors `[locale]`. */
+  locale: string;
+}
+
+export interface StaticResult {
+  served: StaticUrl[];
+  /** Clés de routing.ts sans page.tsx : déclarées mais pas servies. */
+  withoutPage: string[];
+}
+
+/** URL des pages fixes réellement servies pour un état du dépôt. */
+export function servedStatic(snapshot: SlugSnapshot, locales: readonly string[]): StaticResult {
+  const out: StaticResult = { served: [], withoutPage: [] };
+  for (const [route, templates] of Object.entries(snapshot.staticRoutes ?? {})) {
+    if (route === '/' || route.includes('[')) continue;
+    if (!snapshot.pageRoutes?.has(route)) {
+      out.withoutPage.push(route);
+      continue;
+    }
+    for (const locale of locales) {
+      // next-intl getLocalizedTemplate : chemin de la langue, sinon la clé.
+      const local = templates[locale] ?? route;
+      out.served.push({ url: `/${locale}${local}`, key: `${route}\u0000${locale}`, route, locale });
+    }
+  }
+  for (const url of snapshot.rootPages ?? []) {
+    out.served.push({ url, key: `root:${url}`, route: url, locale: ROOT_LOCALE });
+  }
+  return out;
+}
+
+/** Nombre d'URL fixes par langue (`hors langue` pour les pages sans préfixe). */
+export function countStaticByLocale(served: readonly StaticUrl[], locales: readonly string[]): Record<string, number> {
+  const counts: Record<string, number> = Object.fromEntries(locales.map((l) => [l, 0]));
+  counts['hors langue'] = 0;
+  for (const s of served) counts[s.locale === ROOT_LOCALE ? 'hors langue' : s.locale]!++;
+  return counts;
+}
+
+export interface PageFiles {
+  /** Clés de route sous `src/app/[locale]` (`/methodology`, `/`, `/admin/content/[number]`…). */
+  localeRoutes: Set<string>;
+  /** Pages hors `[locale]` sans segment dynamique : leur URL. */
+  rootPages: string[];
+  /** Pages hors `[locale]` non énumérables (segment dynamique, route parallèle, racine). */
+  outOfScope: string[];
+}
+
+/**
+ * Classe les fichiers `page.tsx` d'une révision (chemins relatifs au dépôt).
+ * Groupes de routes `(x)` retirés de l'URL, dossiers privés `_x` ignorés
+ * (conventions de src/app : node_modules/next/dist/docs/01-app/01-getting-started/02-project-structure.md).
+ */
+export function pageRoutesFromFiles(files: readonly string[]): PageFiles {
+  const out: PageFiles = { localeRoutes: new Set(), rootPages: [], outOfScope: [] };
+  for (const f of files) {
+    if (!f.startsWith('src/app/') || !(f === 'src/app/page.tsx' || f.endsWith('/page.tsx'))) continue;
+    const segs = f.slice('src/app/'.length).split('/').slice(0, -1);
+    if (segs.some((x) => x.startsWith('_'))) continue;
+    const isLocale = segs[0] === '[locale]';
+    const url = (isLocale ? segs.slice(1) : segs).filter((x) => !/^\(.*\)$/.test(x));
+    const p = `/${url.join('/')}`;
+    if (isLocale) out.localeRoutes.add(p);
+    else if (url.length === 0 || url.some((x) => x.includes('[') || x.startsWith('@'))) out.outOfScope.push(f);
+    else out.rootPages.push(p);
+  }
+  out.rootPages.sort();
+  out.outOfScope.sort();
+  return out;
+}
+
+/** Premier segment de chaque page hors `[locale]` : seules adresses admises sans préfixe de langue. */
+const rootNamespaces = (...snaps: SlugSnapshot[]) =>
+  new Set(snaps.flatMap((s) => (s.rootPages ?? []).map((u) => u.split('/')[1]!)));
+
 // ── Table de redirections ───────────────────────────────────────────────
 
 /**
@@ -356,6 +482,11 @@ const EXACT_RE = /^\/([a-z]{2})(?:\/[^/\s?#:(){}*+\\]+)+$/;
  * matching : `:slug` = exactement un segment, sans sous-chemin).
  */
 const PATTERN_RE = /^\/([a-z]{2})((?:\/[^/\s?#:(){}*+\\]+)+)\/:slug$/;
+/**
+ * Entrée exacte SANS préfixe de langue : admise seulement pour une page hors
+ * `[locale]` (premier segment = celui d'une page hors `[locale]`, ex. `/livre`).
+ */
+const ROOT_EXACT_RE = /^(?:\/[^/\s?#:(){}*+\\]+)+$/;
 
 interface ParsedRedirect extends Redirect {
   index: number;
@@ -366,9 +497,17 @@ interface ParsedRedirect extends Redirect {
   toPrefix?: string;
 }
 
-function parseEntry(r: Redirect, index: number): ParsedRedirect | null {
+function isRootPath(p: string, ns: ReadonlySet<string>): boolean {
+  return ROOT_EXACT_RE.test(p) && ns.has(p.split('/')[1]!);
+}
+
+function parseEntry(r: Redirect, index: number, ns: ReadonlySet<string>): ParsedRedirect | null {
   const ef = EXACT_RE.exec(r.from);
   const et = EXACT_RE.exec(r.to);
+  // Page hors [locale] : l'ancienne adresse n'a pas de langue, la cible peut en avoir une.
+  if (!ef && isRootPath(r.from, ns) && (et || isRootPath(r.to, ns))) {
+    return { ...r, index, pattern: false, locale: ROOT_LOCALE };
+  }
   if (ef && et) return { ...r, index, pattern: false, locale: ef[1]! };
   const pf = PATTERN_RE.exec(r.from);
   const pt = PATTERN_RE.exec(r.to);
@@ -446,7 +585,11 @@ export function checkSlugRedirects(input: SlugRedirectInput): Violation[] {
   const after = afterResult.served;
   const afterByKey = new Map(after.map((s) => [s.key, s]));
   const contentUrls = new Set(after.map((s) => s.url));
-  const liveUrls = new Set([...contentUrls, ...(input.staticPages ?? [])]);
+  const staticBefore = servedStatic(input.before, locales).served;
+  const staticAfter = servedStatic(input.after, locales).served;
+  const staticAfterByKey = new Map(staticAfter.map((s) => [s.key, s]));
+  const liveUrls = new Set([...contentUrls, ...(input.staticPages ?? []), ...staticAfter.map((s) => s.url)]);
+  const ns = rootNamespaces(input.before, input.after);
 
   for (const m of afterResult.missingRoutes) {
     violations.push({
@@ -472,18 +615,19 @@ export function checkSlugRedirects(input: SlugRedirectInput): Violation[] {
   const table: ParsedRedirect[] = [];
   const byFrom = new Map<string, ParsedRedirect>();
   redirects.forEach((r, index) => {
-    const p = parseEntry(r, index);
-    if (!p || !locales.includes(p.locale)) {
+    const p = parseEntry(r, index, ns);
+    if (!p || (p.locale !== ROOT_LOCALE && !locales.includes(p.locale))) {
       violations.push({
         kind: 'invalid-path',
         message:
           `Entrée ${fmt(r)} : chaque côté doit être un chemin absolu préfixé par une langue (/${locales.join('|/')}/…), ` +
           `sans barre finale, requête, ancre ni caractère de motif ; ou, pour un segment renommé, ` +
-          `un motif /{langue}/{segment}/:slug des DEUX côtés.`,
+          `un motif /{langue}/{segment}/:slug des DEUX côtés. Sans langue : seulement l'ancienne adresse ` +
+          `d'une page hors [locale] (${[...ns].map((x) => `/${x}`).join(', ') || 'aucune'}).`,
       });
       return;
     }
-    const lt = (p.pattern ? PATTERN_RE : EXACT_RE).exec(r.to)![1]!;
+    const lt = p.locale === ROOT_LOCALE ? ROOT_LOCALE : (p.pattern ? PATTERN_RE : EXACT_RE).exec(r.to)![1]!;
     if (p.locale !== lt) {
       violations.push({
         kind: 'locale-mismatch',
@@ -588,8 +732,8 @@ export function checkSlugRedirects(input: SlugRedirectInput): Violation[] {
 
   const retiredPaths = new Set<string>();
   for (const r of retired) {
-    const rl = EXACT_RE.exec(r.path)?.[1];
-    if (!rl || !locales.includes(rl) || !r.raison?.trim()) {
+    const rl = EXACT_RE.exec(r.path)?.[1] ?? (isRootPath(r.path, ns) ? ROOT_LOCALE : undefined);
+    if (rl === undefined || (rl !== ROOT_LOCALE && !locales.includes(rl)) || !r.raison?.trim()) {
       violations.push({
         kind: 'invalid-retired',
         message: `URL retirée « ${r.path} » : chemin préfixé par une langue et raison non vide obligatoires.`,
@@ -692,6 +836,62 @@ export function checkSlugRedirects(input: SlugRedirectInput): Violation[] {
     });
   }
 
+  // ── 3. Pages fixes perdues ────────────────────────────────────────────
+  const staticTemplatesAfter = input.after.staticRoutes ?? {};
+  for (const old of staticBefore) {
+    if (liveUrls.has(old.url)) continue;
+    const successor = staticAfterByKey.get(old.key);
+    const res = resolve(table, old.url);
+    if (successor) {
+      const fix = { from: old.url, to: successor.url };
+      if (!res) {
+        // Nuance next-intl (voir l'en-tête) : sa redirection 307 implicite ne suffit pas.
+        const oldLocal = old.url.slice(old.locale.length + 1);
+        const tpls = staticTemplatesAfter[old.route] ?? {};
+        const implicit = oldLocal === old.route || Object.values(tpls).includes(oldLocal);
+        violations.push({
+          kind: 'static-path-changed',
+          message:
+            `Le chemin ${old.locale.toUpperCase()} de la page fixe ${old.route} a changé dans src/i18n/routing.ts : ` +
+            `${old.url} n'est plus servie (nouvelle URL : ${successor.url}). ` +
+            (implicit
+              ? `next-intl la redirigerait de lui-même, mais en 307 TEMPORAIRE et seulement tant que « ${oldLocal} » reste un chemin connu de cette route : l'entrée permanente reste exigée. `
+              : '') +
+            `Ajouter dans SLUG_REDIRECTS_301 (src/lib/redirects-301.ts) : ${fmt(fix)}`,
+          fix,
+        });
+      } else if (res.final !== successor.url) {
+        violations.push({
+          kind: 'wrong-target',
+          message: `${old.url} redirige vers ${res.final}, mais la page fixe ${old.route} est désormais ${successor.url}. Remplacer l'entrée par : ${fmt(fix)}`,
+          fix,
+        });
+      } else if (res.hops.length > 1 && !chainReported.has(res.first.from)) {
+        violations.push({
+          kind: 'chain',
+          message: `${old.url} atteint ${successor.url} en ${res.hops.length} redirections (${res.hops.join(' → ')} → ${res.final}). Ajouter une entrée directe AVANT les autres : ${fmt(fix)}`,
+          fix,
+        });
+      }
+      continue;
+    }
+    if (res || retiredPaths.has(old.url)) continue;
+    const where =
+      old.locale === ROOT_LOCALE
+        ? `sa page (src/app/…${old.route}/page.tsx, hors [locale]) a disparu`
+        : !staticTemplatesAfter[old.route]
+          ? `la clé ${old.route} a disparu de src/i18n/routing.ts pathnames`
+          : `src/app/[locale]${old.route}/page.tsx a disparu`;
+    violations.push({
+      kind: 'static-page-removed',
+      message:
+        `${old.url} (page fixe ${old.route}) n'est plus servie : ${where}. Décision explicite requise : ` +
+        `soit une redirection vers une page servie dans SLUG_REDIRECTS_301, ex. { from: '${old.url}', to: '/…' }, ` +
+        `soit une entrée { path: '${old.url}', raison: '…' } dans URLS_RETIREES (src/lib/redirects-301.ts). ` +
+        `Clé RENOMMÉE dans routing.ts (même page sous un autre nom) : la redirection vers la nouvelle adresse.`,
+    });
+  }
+
   for (const g of segmentGroups.values()) {
     violations.push({
       kind: 'segment-changed',
@@ -732,12 +932,34 @@ export function parseSlugPathnames(
   source: string,
   locales: readonly string[],
 ): Record<string, RouteTemplates> | null {
+  const all = parsePathnames(source, locales);
+  if (!all) return null;
+  return Object.fromEntries(Object.entries(all).filter(([k]) => k.includes('[slug]')));
+}
+
+/**
+ * Pages fixes de routing.ts : toutes les clés SANS paramètre (`[…]`), accueil
+ * compris (servedStatic l'écarte). Rend null si le bloc `pathnames` est
+ * introuvable ou ne contient aucune clé fixe : l'appelant échoue fermé.
+ */
+export function parseStaticPathnames(
+  source: string,
+  locales: readonly string[],
+): Record<string, RouteTemplates> | null {
+  const all = parsePathnames(source, locales);
+  if (!all) return null;
+  const out = Object.fromEntries(Object.entries(all).filter(([k]) => !k.includes('[')));
+  return Object.keys(out).length > 0 ? out : null;
+}
+
+/** Toutes les entrées du bloc `pathnames` de routing.ts, lues dans le source. */
+export function parsePathnames(source: string, locales: readonly string[]): Record<string, RouteTemplates> | null {
   const start = source.indexOf('pathnames:');
   if (start < 0) return null;
   // Commentaires de ligne entière seulement : une URL entre guillemets n'en est pas un.
   const body = source.slice(start).replace(/^\s*\/\/.*$/gm, '');
   const out: Record<string, RouteTemplates> = {};
-  const re = /'(\/[^']*\[slug\][^']*)'\s*:\s*(?:'([^']*)'|\{([^}]*)\})/g;
+  const re = /'(\/[^']*)'\s*:\s*(?:'([^']*)'|\{([^}]*)\})/g;
   for (const m of body.matchAll(re)) {
     const key = m[1]!;
     if (m[2] !== undefined) {

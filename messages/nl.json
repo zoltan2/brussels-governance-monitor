@@ -45,7 +45,8 @@
     "radar": "Radar",
     "tools": "Hulpmiddelen",
     "support": "Steunen",
-    "quiz": "Quiz"
+    "quiz": "Quiz",
+    "press": "Pers & data"
   },
   "counter": {
     "archived": "dagen zonder gewestregering",
@@ -193,7 +194,7 @@
     "dossiers": "Dossiers",
     "changelog": "Wijzigingen",
     "radar": "Radar",
-    "press": "Pers",
+    "press": "Pers & data",
     "podcast": "Podcast",
     "quiz": "Quiz",
     "support": "Steunen",
@@ -1954,7 +1955,7 @@
     "subscribe": "Inschrijven",
     "about": "Over ons",
     "radar": "Radar",
-    "press": "Pers",
+    "press": "Pers & data",
     "support": "Het project steunen",
     "verifications": "Verificaties"
   },
@@ -2033,17 +2034,70 @@
     }
   },
   "press": {
-    "pageTitle": "Persoverzicht",
-    "pageSubtitle": "Zij schrijven over governance.brussels",
-    "intro": "governance.brussels is een onafhankelijk burgerproject. Hier vindt u artikelen, citaten en vermeldingen in de pers en media. Luister ook naar De Briefing BGM, onze podcast.",
-    "podcastLabel": "Luister naar de podcast",
-    "types": {
-      "feature": "Artikel",
-      "citation": "Citaat",
-      "mention": "Vermelding"
+    "seoTitle": "Pers, data en bronnen | Brussels Governance Monitor",
+    "seoDescription": "Perscontact, citeerklare cijfers, voorstellingsteksten en persoverzicht van Brussels Governance Monitor, de burgeropvolging van het Brusselse bestuur.",
+    "pageTitle": "Pers & data",
+    "lead": "BGM helpt journalisten, onderzoekers en organisaties om een cijfer te controleren, een beslissing terug te vinden, een tijdlijn te reconstrueren en de uitvoering van de Brusselse engagementen op te volgen.",
+    "briefTitle": "In het kort",
+    "briefLine": "Brussels Governance Monitor (BGM) volgt het bestuur van het Brussels Hoofdstedelijk Gewest op basis van openbare bronnen: regeringsengagementen, dossiers, begrotingen, sectoren en gemeenten.",
+    "stats": {
+      "pages": "openbare pagina's, alle talen samen",
+      "sources": "bronnen gevolgd door de monitoring",
+      "dossiers": "gepubliceerde dossiers",
+      "domaines": "thematische domeinen",
+      "langues": "talen van de site"
     },
-    "by": "door",
-    "readArticle": "Artikel lezen"
+    "statsNote": "Cijfers herberekend bij elke publicatie van de site: pagina's van het sitemapbestand, actieve bronnen van de redactionele monitoring, gepubliceerde fiches.",
+    "provideTitle": "Wat BGM kan aanreiken",
+    "provide1": "Een cijfer controleren",
+    "provide2": "Een beslissing en haar primaire bron terugvinden",
+    "provide3": "De tijdlijn van een dossier reconstrueren",
+    "provide4": "Een aankondiging vergelijken met de stand van uitvoering",
+    "provide5": "Een bestaande tabel of grafiek aanreiken",
+    "provide6": "Aangeven wat onmogelijk te bevestigen blijft",
+    "provideNote": "BGM documenteert de beschikbare feiten en hun grenzen. Het geeft geen partijdig commentaar en vervangt de primaire bronnen niet.",
+    "factsTitle": "Drie citeerklare gegevens",
+    "factsIntro": "Elk cijfer wordt ongewijzigd overgenomen uit de fiche die het opvolgt, met datum, bron en betrouwbaarheidsniveau. Het verandert wanneer de fiche verandert.",
+    "factDateLabel": "Datum van het gegeven:",
+    "factConfidenceLabel": "Betrouwbaarheidsniveau:",
+    "factSourceLabel": "Bron:",
+    "factPage": "Fiche „{title}” bekijken",
+    "suggestedLabel": "Voorgestelde formulering",
+    "suggested": "{label}: {figure} ({source}, {date}), volgens Brussels Governance Monitor, {url}",
+    "suggestedNoSource": "{label}: {figure} ({date}), volgens Brussels Governance Monitor, {url}",
+    "copyReference": "Referentie kopiëren",
+    "copyText": "Tekst kopiëren",
+    "copied": "Gekopieerd naar het klembord.",
+    "selected": "Automatisch kopiëren niet beschikbaar: de tekst is geselecteerd, kopieer hem met Ctrl+C (Cmd+C op een Mac).",
+    "presentTitle": "BGM voorstellen",
+    "presentIntro": "Twee voorstellingsteksten, afgestemd op de pagina's Over ons, Transparantie en Methodologie van de site.",
+    "shortTitle": "Korte voorstelling",
+    "shortText": "Brussels Governance Monitor is een onafhankelijk burgerproject dat Brusselse overheidsinformatie structureert, traceert en verifieert. Het volgt de engagementen van de gewestregering, de belangrijkste dossiers, de begrotingen en de beslissingen, en maakt daarbij het onderscheid tussen wat beloofd, aangekondigd, beslist en uitgevoerd is. Elke gepubliceerde informatie verwijst naar haar bronnen.",
+    "longTitle": "Uitgebreide voorstelling",
+    "longText": "Brussels Governance Monitor, gepubliceerd op governance.brussels, is een onafhankelijk burgerproject dat het bestuur van het Brussels Hoofdstedelijk Gewest opvolgt. Het verzamelt en structureert informatie uit openbare, institutionele, parlementaire en journalistieke bronnen, om Brusselse beslissingen leesbaarder en verifieerbaar te maken. BGM volgt onder meer de engagementen van de gewestregering, de begrotingen, de grote openbare dossiers, de activiteitssectoren en de negentien gemeenten. Het maakt het onderscheid tussen wat beloofd, aangekondigd, beslist, lopend en uitgevoerd is, kent elke informatie een betrouwbaarheidsniveau toe en geeft aan welke informatie nog door geen enkele officiële bron bevestigd is. Artificiële intelligentie wordt gebruikt om bronnen te bewaken, wijzigingen op te sporen, vertalingen voor te bereiden en de eerste vormgeving op te zetten. De keuze van wat gepubliceerd wordt, de verificatie en de uiteindelijke formulering vallen onder een menselijke redactionele verantwoordelijkheid. BGM is niet verbonden aan een partij, regering, belangengroep of medium. Het is opgericht en wordt onderhouden door Zoltán Jánosi en wordt gehost door Advice That SRL.",
+    "reviewTitle": "Persoverzicht",
+    "kinds": {
+      "about_bgm": {
+        "title": "Artikels over BGM",
+        "description": "Persartikels die het project voorstellen."
+      },
+      "source_citation": {
+        "title": "BGM geciteerd als bron",
+        "description": "Publicaties die steunen op een pagina van BGM."
+      },
+      "institutional_relay": {
+        "title": "Institutionele en encyclopedische verwijzingen",
+        "description": "Instellingen en encyclopedieën die naar BGM verwijzen."
+      }
+    },
+    "by": "door {author}",
+    "updatedOn": "bijgewerkt op",
+    "otherVersion": "Versie in het {language}",
+    "verifiedNote": "Elke vermelding werd op {date} bij de bron gecontroleerd (getoonde titel, medium, auteur en datum).",
+    "contactTitle": "Perscontact",
+    "contactQuestion": "Een vraag over een gegeven, een tijdlijn of de methode van BGM?",
+    "contactInterviews": "Interviews mogelijk in het Frans, Nederlands, Engels, Spaans en Hongaars.",
+    "contactCite": "Om BGM te citeren: Brussels Governance Monitor, governance.brussels, raadplegingsdatum en URL van de pagina."
   },
   "support": {
     "pageTitle": "Steun de Brussels Governance Monitor",

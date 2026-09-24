@@ -18,12 +18,15 @@
  *     N sources suivies » sur l'accueil et que la page Méthodologie ;
  *   - pages : les URL du plan du site (`sitemap.ts`), c'est-à-dire les pages
  *     publiques et indexables, toutes langues confondues ;
- *   - langues : les locales du routage.
+ *   - langues : les locales du routage ;
+ *   - dossiers et domaines (page Presse & données) : les listes publiées que
+ *     l'accueil compte déjà pour « Voir les N dossiers / domaines ».
  */
 
 import sitemap from '@/app/sitemap';
 import { routing } from '@/i18n/routing';
 import { getEditorialSourceCount } from '@/lib/radar';
+import { getDomainCards, getDossierCards } from '@/lib/content';
 
 export interface SiteStats {
   /** Pages publiques déclarées au plan du site, toutes langues confondues. */
@@ -52,5 +55,25 @@ export function getSiteStats(): SiteStats {
     pages: getNombreDePages(),
     sourcesSuivies: getSourcesSuivies(),
     langues: getNombreDeLangues(),
+  };
+}
+
+export interface PressStats extends SiteStats {
+  /** Dossiers publiés (brouillons exclus), le même compte que l'accueil. */
+  dossiers: number;
+  /** Domaines thématiques publiés (brouillons exclus). */
+  domaines: number;
+}
+
+/**
+ * Les chiffres « En bref » de la page Presse & données : ceux de l'accueil, plus
+ * les deux comptes de contenu. La langue n'y change rien, les listes localisées
+ * retombant sur la fiche française quand une traduction manque.
+ */
+export function getPressStats(): PressStats {
+  return {
+    ...getSiteStats(),
+    dossiers: getDossierCards('fr').length,
+    domaines: getDomainCards('fr').length,
   };
 }

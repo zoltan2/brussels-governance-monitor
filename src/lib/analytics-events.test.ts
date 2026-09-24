@@ -65,6 +65,11 @@ const EVENEMENTS_LIENS = [
   // Page dossier : tous les liens internes (dossiers liés, « Suivre le sujet »,
   // pastilles domaine, secteur, commune), avec `type` et `cible` en propriétés.
   'dossier-lien-interne',
+  // Page Presse & données : le mailto, les mentions (id et famille en
+  // propriétés) et le lien vers la fiche d'une information prête à citer.
+  'presse-contact',
+  'presse-mention',
+  'presse-fait',
 ];
 
 /** Les actions sans navigation, mesurées par appel explicite. */
@@ -86,6 +91,9 @@ const EVENEMENTS_ACTIONS = [
   'jeux-stuut-inscription-echec',
   'jeux-amai-termine',
   'jeux-amai-partage',
+  // Page Presse & données : copies réussies, jamais le texte copié.
+  'presse-copie-courte',
+  'presse-copie-longue',
 ];
 
 describe('suivi Umami de la page d’accueil', () => {

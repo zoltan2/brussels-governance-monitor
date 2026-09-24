@@ -31,10 +31,10 @@ vi.mock('@/lib/content', () => ({
     card: { slug: string; localizedSlugs?: Record<string, string> },
     locale: string,
   ) => card.localizedSlugs?.[locale] ?? card.slug,
-  getAllDomainSlugs: () => [],
-  getAllDossierSlugs: () => [],
-  getAllCommuneSlugs: () => [],
-  getAllSectorSlugs: () => [],
+  getPublishedDomainCards: () => [],
+  getPublishedDossierCards: () => [],
+  getPublishedCommuneCards: () => [],
+  getPublishedSectorCards: () => [],
 }));
 
 import { localizeDossierRouteSlug } from './radar';

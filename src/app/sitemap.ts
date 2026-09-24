@@ -110,6 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Domains ───────────────────────────────────────────────────
   for (const slug of getAllDomainSlugs()) {
     const result = getDomainCard(slug, 'fr' as Locale);
+    if (result?.card.draft) continue; // brouillon : hors sitemap, reste servi à son URL
     const lastModified = contentDate(result?.card.lastModified);
     trackDate(lastModified);
     addLocalizedEntries(
@@ -123,6 +124,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Sectors ───────────────────────────────────────────────────
   for (const slug of getAllSectorSlugs()) {
     const result = getSectorCard(slug, 'fr' as Locale);
+    if (result?.card.draft) continue; // brouillon : hors sitemap, reste servi à son URL
     const lastModified = contentDate(result?.card.lastModified);
     trackDate(lastModified);
     addLocalizedEntries(
@@ -136,6 +138,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Comparisons ───────────────────────────────────────────────
   for (const slug of getAllComparisonSlugs()) {
     const result = getComparisonCard(slug, 'fr' as Locale);
+    if (result?.card.draft) continue; // brouillon : hors sitemap, reste servi à son URL
     const lastModified = contentDate(result?.card.lastModified);
     trackDate(lastModified);
     addLocalizedEntries(
@@ -176,6 +179,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Communes ──────────────────────────────────────────────────
   for (const slug of getAllCommuneSlugs()) {
     const result = getCommuneCard(slug, 'fr' as Locale);
+    if (result?.card.draft) continue; // brouillon : hors sitemap, reste servi à son URL
     const lastModified = contentDate(result?.card.lastModified);
     trackDate(lastModified);
     addLocalizedEntries(
@@ -197,6 +201,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const result = getDossierCard(canonicalSlug, 'fr' as Locale);
     if (!result) continue;
     const { card } = result;
+    if (card.draft) continue; // brouillon : hors sitemap, reste servi à son URL
     const lastModified = contentDate(card.lastModified);
     trackDate(lastModified);
 

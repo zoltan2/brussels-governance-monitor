@@ -11,6 +11,8 @@ import { DossierMdxContent } from '@/components/dossier-mdx-content';
 import { DensityProvider } from '@/components/dossier/density/density-context';
 import { DensityToggle } from '@/components/dossier/density/density-toggle';
 import { ScrollyHeader } from '@/components/dossier/scrolly/scrolly-header';
+import { DraftBanner } from '@/components/draft-banner';
+import { SearchExclude } from '@/components/search-exclude';
 
 /**
  * Seules les combinaisons générées existent. Sans cette ligne, un slug hors
@@ -107,15 +109,22 @@ export default async function ScrollyPage({
   const { card } = result;
 
   return (
+    // Brouillon : la route pose déjà noindex,nofollow (ci-dessus), mais pas
+    // suffisant pour Pagefind — il indexe le HTML statique généré, sans lire
+    // les meta robots (constaté avec la fiche ZRU : ses 4 URL scrolly
+    // apparaissaient dans l'index construit alors que la route est noindex).
+    <SearchExclude when={card.draft}>
     <article className="min-h-screen bg-neutral-50">
       <ScrollyHeader slug={slug} locale={locale} lastModified={card.lastModified} />
       <DensityProvider>
         <div className="mx-auto max-w-3xl px-4 pb-24">
           <DensityToggle />
+          {card.draft && <DraftBanner />}
           <h1 className="mb-8 mt-2 text-4xl font-bold text-neutral-900">{card.title}</h1>
           <DossierMdxContent code={card.content} metrics={card.metrics} />
         </div>
       </DensityProvider>
     </article>
+    </SearchExclude>
   );
 }

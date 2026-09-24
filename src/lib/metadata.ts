@@ -151,6 +151,7 @@ export function buildMetadata({
   ogParams,
   localizedPaths,
   noindex,
+  draft,
   absoluteTitle,
   availableLocales,
 }: {
@@ -175,6 +176,24 @@ export function buildMetadata({
    * is missing) to avoid duplicate content penalty (spec 2026-05-03 §3.7).
    */
   noindex?: boolean;
+  /**
+   * If true, this is a `draft: true` card previewed at its URL for editorial
+   * review (see components/draft-banner.tsx). Forces
+   * `<meta name="robots" content="noindex, nofollow">` — stricter than
+   * `noindex` above, which still lets crawlers follow outbound links. A draft
+   * is unpublished: its outbound links (and hreflang alternates, see below)
+   * should not be treated as an endorsed part of the site graph. Takes
+   * precedence over `noindex` if both are set (most restrictive wins).
+   *
+   * Also drops the hreflang `languages` alternates entirely — no `languages`
+   * key at all, not even a self-referencing one; only `alternates.canonical`
+   * (the draft's own URL) remains. The published siblings a draft would
+   * otherwise list as translations are not equivalents of unpublished,
+   * unreviewed content — advertising them as such under the draft's hreflang
+   * group would be incorrect even though the draft itself is noindexed, so
+   * the group is dropped rather than narrowed.
+   */
+  draft?: boolean;
   /**
    * If true, `<title>` is `title` as is, without the ' | BGM' template of the
    * locale layout. For titles already written to fit search results (dossier
@@ -239,13 +258,23 @@ export function buildMetadata({
       : `${siteUrl}/fr`;
   }
 
+  const robots = draft
+    ? { index: false, follow: false }
+    : noindex
+      ? { index: false, follow: true }
+      : undefined;
+
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description: truncatedDescription,
-    ...(noindex ? { robots: { index: false, follow: true } } : {}),
+    ...(robots ? { robots } : {}),
     alternates: {
       canonical: url,
-      languages,
+      // A draft drops the `languages` hreflang group entirely — no `languages`
+      // key is emitted, not even a self-referencing one — since the published
+      // siblings otherwise listed here are not equivalents of unpublished,
+      // unreviewed content (see the `draft` param doc above).
+      ...(draft ? {} : { languages }),
     },
     openGraph: {
       title,

@@ -24,6 +24,7 @@ import { buildMetadata, dossierSearchMeta } from '@/lib/metadata';
 import { dossierBadgeClass } from '@/lib/status-badge';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
+import { SearchExclude } from '@/components/search-exclude';
 import { DossierMdxContent } from '@/components/dossier-mdx-content';
 import { isScrollyEnabled } from '@/lib/scrolly-allowlist';
 import { ShareButton } from '@/components/share-button';
@@ -102,6 +103,8 @@ export async function generateMetadata({
     // Spec §3.7 : noindex sur fallback locale (contenu FR servi sous NL/EN/DE)
     // pour éviter duplicate content. Bascule auto à `index` quand traduction native existe.
     noindex: isFallback,
+    // Brouillon : servi à son URL pour relecture, jamais indexé ni suivi.
+    draft: card.draft,
     ogParams: `title=${encodeURIComponent(card.title)}&type=dossier&date=${card.lastModified}&confidence=${card.confidenceLevel}${card.metrics.length > 0 ? `&stats=${encodeURIComponent(JSON.stringify(card.metrics.slice(0, 3).map((m) => ({ label: m.label, value: `${m.value}${m.unit ? ` ${m.unit}` : ''}` }))))}` : ''}`,
   });
 }
@@ -223,6 +226,10 @@ function DossierDetail({
     : [];
 
   return (
+    // Brouillon : hors sitemap et noindex (src/lib/metadata.ts, src/app/sitemap.ts)
+    // ne suffisent pas pour la recherche du site elle-même — Pagefind indexe le
+    // HTML statique tel quel, sans lire les meta robots.
+    <SearchExclude when={card.draft}>
     <article className="py-12">
       <div className="mx-auto max-w-5xl px-4">
         <Breadcrumb
@@ -617,5 +624,6 @@ function DossierDetail({
         </div>
       </div>
     </article>
+    </SearchExclude>
   );
 }

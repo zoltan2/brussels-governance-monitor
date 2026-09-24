@@ -11,6 +11,7 @@ import { formatDate } from '@/lib/utils';
 import { buildMetadata, canonicalUrl, searchMeta } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
+import { SearchExclude } from '@/components/search-exclude';
 import { MdxContent } from '@/components/mdx-content';
 import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
@@ -50,6 +51,8 @@ export async function generateMetadata({
     description: search.description,
     path: `/comparisons/${slug}`,
     ogParams: `title=${encodeURIComponent(card.title)}&type=comparison`,
+    // Brouillon : servi à son URL pour relecture, jamais indexé ni suivi.
+    draft: card.draft,
   });
 }
 
@@ -113,6 +116,7 @@ function ComparisonDetail({
   const tw = useTranslations('whatChanged');
 
   return (
+    <SearchExclude when={card.draft}>
     <article className="py-12">
       <div className="mx-auto max-w-5xl px-4">
         <Breadcrumb items={[
@@ -260,5 +264,6 @@ function ComparisonDetail({
         </div>
       </div>
     </article>
+    </SearchExclude>
   );
 }

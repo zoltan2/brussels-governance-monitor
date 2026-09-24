@@ -6,10 +6,10 @@ import type { Locale } from '@/i18n/routing';
 import radarData from '../../data/radar.json';
 import sourceRegistry from '../../docs/source-registry.json';
 import {
-  getAllDomainSlugs,
-  getAllDossierSlugs,
-  getAllCommuneSlugs,
-  getAllSectorSlugs,
+  getPublishedDomainCards,
+  getPublishedDossierCards,
+  getPublishedCommuneCards,
+  getPublishedSectorCards,
   getDossierCard,
   getLocalizedSlug,
 } from './content';
@@ -169,14 +169,20 @@ let cachedPromotionSlugSets: PromotionSlugSets | null = null;
 /**
  * Variante de `PromotionSlugSets` branchée sur les vraies collections
  * Velite, mémoïsée (les slugs ne changent pas pendant un build/une requête).
+ *
+ * Cartes PUBLIÉES uniquement (drafts exclus) : un signal du radar qui
+ * promeut vers une fiche encore en brouillon ne doit produire aucun lien
+ * (`resolvePromotedSection` rend `null`, faute de correspondance dans ces
+ * ensembles), pas un lien vers une page hors sitemap et non indexée que le
+ * lecteur du radar ne devrait pas encore voir.
  */
 export function getContentPromotionSlugSets(): PromotionSlugSets {
   if (!cachedPromotionSlugSets) {
     cachedPromotionSlugSets = {
-      domains: getAllDomainSlugs(),
-      dossiers: getAllDossierSlugs(),
-      communes: getAllCommuneSlugs(),
-      sectors: getAllSectorSlugs(),
+      domains: new Set(getPublishedDomainCards().map((c) => c.slug)),
+      dossiers: new Set(getPublishedDossierCards().map((c) => c.slug)),
+      communes: new Set(getPublishedCommuneCards().map((c) => c.slug)),
+      sectors: new Set(getPublishedSectorCards().map((c) => c.slug)),
     };
   }
   return cachedPromotionSlugSets;

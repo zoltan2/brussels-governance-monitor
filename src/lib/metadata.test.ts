@@ -201,3 +201,49 @@ describe('alternates restreints aux langues publiées', () => {
     expect(langs['fr']).toBeUndefined();
   });
 });
+
+/**
+ * Une fiche `draft: true` reste PRÉ-RENDUE et servie à son URL pour relecture
+ * éditoriale (voir src/components/draft-banner.tsx), mais ne doit jamais être
+ * indexée ni suivie : un dossier brouillon était jusqu'ici prérendu et servi
+ * sans aucune balise robots (seul le fallback de locale en posait une, avec
+ * follow: true). Voir aussi src/app/sitemap.ts (hors sitemap) et
+ * src/components/search-exclude.tsx (hors index Pagefind).
+ */
+describe('buildMetadata draft', () => {
+  const base = { locale: 'fr', title: 'T', description: 'D', path: '/dossiers/brouillon' };
+
+  it('pose noindex ET nofollow, plus strict que le noindex de repli de locale', () => {
+    const meta = buildMetadata({ ...base, draft: true });
+    expect(meta.robots).toEqual({ index: false, follow: false });
+  });
+
+  it("ne pose aucune balise robots quand la fiche n'est ni brouillon ni en repli", () => {
+    const meta = buildMetadata({ ...base, draft: false });
+    expect(meta.robots).toBeUndefined();
+  });
+
+  it('le brouillon gagne sur le repli de locale : follow reste false même si noindex (repli) est aussi vrai', () => {
+    const meta = buildMetadata({ ...base, draft: true, noindex: true });
+    expect(meta.robots).toEqual({ index: false, follow: false });
+  });
+
+  it("supprime entièrement le groupe hreflang (aucune clé `languages`, même pas auto-référente) ; le canonique reste posé", () => {
+    const meta = buildMetadata({
+      ...base,
+      draft: true,
+      localizedPaths: {
+        fr: '/dossiers/brouillon',
+        nl: '/dossiers/gepubliceerde-fiche',
+      },
+    });
+    expect(meta.alternates?.languages).toBeUndefined();
+    // Le canonique reste posé : la page existe bel et bien à cette URL.
+    expect(meta.alternates?.canonical).toContain('/fr/dossiers/brouillon');
+  });
+
+  it('une fiche non-brouillon garde ses alternates hreflang habituels', () => {
+    const meta = buildMetadata({ ...base, draft: false });
+    expect(meta.alternates?.languages).toBeDefined();
+  });
+});

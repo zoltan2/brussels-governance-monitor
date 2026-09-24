@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils';
 import { buildMetadata, canonicalUrl } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
+import { SearchExclude } from '@/components/search-exclude';
 import { MdxContent } from '@/components/mdx-content';
 import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
@@ -38,16 +39,17 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { card } = result;
-  return {
-    ...buildMetadata({
-      locale,
-      title: card.title,
-      description: card.mechanism,
-      path: `/solutions/${slug}`,
-      ogParams: `title=${encodeURIComponent(card.title)}&type=solution&feasibility=${card.feasibility}`,
-    }),
-    robots: { index: false, follow: true },
-  };
+  // Toute fiche solution est noindex (pilote non publié pour la recherche) ;
+  // un brouillon resserre en plus à nofollow, comme les autres types de fiches.
+  return buildMetadata({
+    locale,
+    title: card.title,
+    description: card.mechanism,
+    path: `/solutions/${slug}`,
+    ogParams: `title=${encodeURIComponent(card.title)}&type=solution&feasibility=${card.feasibility}`,
+    noindex: true,
+    draft: card.draft,
+  });
 }
 
 const feasibilityStyles: Record<string, string> = {
@@ -115,6 +117,7 @@ function SolutionDetail({
   const tw = useTranslations('whatChanged');
 
   return (
+    <SearchExclude when={card.draft}>
     <article className="py-12">
       <div className="mx-auto max-w-5xl px-4">
         <Breadcrumb items={[
@@ -294,5 +297,6 @@ function SolutionDetail({
         </div>
       </div>
     </article>
+    </SearchExclude>
   );
 }

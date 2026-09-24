@@ -216,6 +216,17 @@ export function Header() {
                 >
                   {t('glossary')}
                 </Link>
+
+                <hr role="separator" className="my-1.5 border-neutral-100" />
+
+                <Link
+                  role="menuitem"
+                  href="/press"
+                  onClick={() => setDropdownOpen(false)}
+                  className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
+                >
+                  {t('press')}
+                </Link>
               </div>
             )}
           </div>
@@ -314,6 +325,10 @@ export function Header() {
                 </Link>
                 <Link href="/glossary" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('glossary')}
+                </Link>
+                <hr aria-hidden="true" className="my-1 border-neutral-100" />
+                <Link href="/press" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                  {t('press')}
                 </Link>
               </div>
             )}

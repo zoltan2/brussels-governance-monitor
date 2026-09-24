@@ -45,7 +45,8 @@
     "radar": "Radar",
     "tools": "Tools",
     "support": "Support",
-    "quiz": "Quiz"
+    "quiz": "Quiz",
+    "press": "Press & data"
   },
   "counter": {
     "archived": "days without a regional government",
@@ -193,7 +194,7 @@
     "dossiers": "Dossiers",
     "changelog": "Updates",
     "radar": "Radar",
-    "press": "Press",
+    "press": "Press & data",
     "podcast": "Podcast",
     "quiz": "Quiz",
     "support": "Support",
@@ -1954,7 +1955,7 @@
     "subscribe": "Subscribe",
     "about": "About",
     "radar": "Radar",
-    "press": "Press",
+    "press": "Press & data",
     "support": "Support the project",
     "verifications": "Verifications"
   },
@@ -2033,16 +2034,71 @@
     }
   },
   "press": {
-    "pageTitle": "Press coverage",
-    "pageSubtitle": "They write about governance.brussels",
-    "intro": "governance.brussels is an independent citizen project. Here are the articles, citations and mentions covering it in the press and media.",
-    "types": {
-      "feature": "Article",
-      "citation": "Citation",
-      "mention": "Mention"
+    "seoTitle": "Press and data | Brussels Governance Monitor",
+    "seoDescription": "Press contact, ready-to-cite figures, project descriptions and press coverage of Brussels Governance Monitor, the citizen-led monitor of Brussels governance.",
+    "pageTitle": "Press & data",
+    "lead": "BGM helps journalists, researchers and organisations check a figure, trace a decision, reconstruct a timeline and track how Brussels commitments are implemented.",
+    "briefTitle": "At a glance",
+    "briefLine": "Brussels Governance Monitor (BGM) tracks governance in the Brussels-Capital Region using public sources: government commitments, dossiers, budgets, sectors and municipalities.",
+    "stats": {
+      "pages": "public pages, all languages combined",
+      "sources": "monitored sources",
+      "dossiers": "published dossiers",
+      "domaines": "thematic domains",
+      "langues": "site languages"
     },
-    "by": "by",
-    "readArticle": "Read article"
+    "statsNote": "Figures recalculated with every site update: pages in the sitemap, active sources in editorial monitoring, published cards.",
+    "provideTitle": "What BGM can provide",
+    "provide1": "Check a figure",
+    "provide2": "Trace a decision and its primary source",
+    "provide3": "Reconstruct the timeline of a dossier",
+    "provide4": "Compare an announcement with its implementation status",
+    "provide5": "Provide an existing table or chart",
+    "provide6": "Identify what still cannot be confirmed",
+    "provideNote": "BGM documents the available facts and their limits. It provides no partisan commentary and does not replace primary sources.",
+    "factsTitle": "Three ready-to-cite facts",
+    "factsIntro": "Each figure is taken as is from the card that tracks it, with its date, source and confidence level. It changes when the card changes.",
+    "factDateLabel": "Data as of:",
+    "factConfidenceLabel": "Confidence level:",
+    "factSourceLabel": "Source:",
+    "factPage": "See the “{title}” card",
+    "suggestedLabel": "Suggested wording",
+    "suggested": "{label}: {figure} ({source}, {date}), according to Brussels Governance Monitor, {url}",
+    "suggestedNoSource": "{label}: {figure} ({date}), according to Brussels Governance Monitor, {url}",
+    "copyReference": "Copy reference",
+    "copyText": "Copy text",
+    "copied": "Copied to clipboard.",
+    "selected": "Automatic copying unavailable: the text is selected; copy it with Ctrl+C (Cmd+C on a Mac).",
+    "presentTitle": "Introducing BGM",
+    "presentIntro": "Two descriptions of the project, consistent with the site's About, Transparency and Methodology pages.",
+    "shortTitle": "Short description",
+    "shortText": "Brussels Governance Monitor is an independent citizen project that structures, traces and verifies Brussels public information. It follows the regional government's commitments, the main dossiers, budgets and decisions, distinguishing between what is promised, announced, decided and implemented. Every published piece of information links to its sources.",
+    "longTitle": "Long description",
+    "longText": "Brussels Governance Monitor, published at governance.brussels, is an independent citizen project that monitors the governance of the Brussels-Capital Region. It gathers and structures information from public, institutional, parliamentary and press sources to make Brussels decisions easier to understand and verify. BGM tracks, in particular, the regional government's commitments, budgets, major public dossiers, sectors of activity and the nineteen municipalities. It distinguishes between what is promised, announced, decided, under way and implemented, gives every piece of information a confidence level and flags what no official source has yet confirmed. Artificial intelligence is used to watch sources, detect changes, prepare translations and draft the initial formatting. Deciding what is published, verifying it and settling the final wording remain a human editorial responsibility. BGM is not affiliated with any party, government, interest group or media outlet. It is created and maintained by Zoltán Jánosi and hosted by Advice That SRL.",
+    "reviewTitle": "Press coverage",
+    "kinds": {
+      "about_bgm": {
+        "title": "Articles about BGM",
+        "description": "Press articles presenting the project."
+      },
+      "source_citation": {
+        "title": "BGM cited as a source",
+        "description": "Publications that rely on a BGM page."
+      },
+      "institutional_relay": {
+        "title": "Institutional and encyclopaedic references",
+        "description": "Institutions and encyclopaedias that link to BGM."
+      }
+    },
+    "by": "by {author}",
+    "updatedOn": "updated on",
+    "otherVersion": "{language} version",
+    "verifiedNote": "Each entry was checked against its source (displayed title, outlet, author and date) on {date}.",
+    "contactTitle": "Press contact",
+    "contactQuestion": "A question about a data point, a timeline or BGM's methodology?",
+    "contactInterviews": "Interviews available in French, Dutch, English, Spanish and Hungarian.",
+    "contactCite": "To cite BGM: Brussels Governance Monitor (governance.brussels), Advice That SRL, date accessed, followed by the page URL.",
+    "podcastLabel": "Listen to the podcast (French and Dutch)"
   },
   "support": {
     "pageTitle": "Support the Brussels Governance Monitor",

@@ -86,6 +86,19 @@ const T: Record<Locale, Palier> = {
 };
 
 /**
+ * Millésime affiché en légende, par langue : l'indicateur 2498 du Monitoring des Quartiers
+ * publie une statistique fiscale par ANNÉE DE REVENUS (vérifié le 24/09/2026, Tâche 17 ;
+ * Statbel a publié les revenus 2023 le 19/11/2025), pas une année de publication. Le dire
+ * explicitement évite de laisser croire à un revenu 2023 constaté en 2023.
+ */
+const PERIODE_QUARTIERS: Record<Locale, string> = {
+  fr: `revenus ${ANNEE_QUARTIERS}`,
+  nl: `inkomens ${ANNEE_QUARTIERS}`,
+  en: `${ANNEE_QUARTIERS} income`,
+  de: `Einkommen ${ANNEE_QUARTIERS}`,
+};
+
+/**
  * Classes de remplissage des cinq paliers, écrites en toutes lettres : Tailwind v4 ne génère que
  * les classes qu'il lit littéralement dans le code source, jamais une classe assemblée à
  * l'exécution (`fill-choro-${n}` rendait la carte noire en production). Voir
@@ -126,7 +139,7 @@ export function ZruCarteQuartiers({ locale = 'fr' }: { locale?: Locale }): React
       locale={locale}
       titre={t.titre}
       indicateur={INDICATEUR_QUARTIERS[locale]}
-      periode={String(ANNEE_QUARTIERS)}
+      periode={PERIODE_QUARTIERS[locale]}
       provenance={PROVENANCE_QUARTIERS}
       resumeSvg={t.resume}
       svg={

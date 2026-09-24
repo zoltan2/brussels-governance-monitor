@@ -79,10 +79,34 @@ async function europe(): Promise<string> {
 /** Titre de la feuille de l'indicateur dans ADI_T2_STATBEL_FR.xlsx (ligne 2 de la feuille). */
 const TITRE_FEUILLE_ADI = 'Risque de pauvreté administratif';
 
+/** En-tête de la cellule qui porte la date de version, sur la feuille « Home » du classeur Statbel. */
+const ENTETE_DATE_VERSION = 'Dernier update';
+
+/**
+ * Lit la date de version imprimée par Statbel dans le classeur lui-même (feuille « Home »,
+ * colonne sous l'en-tête « Dernier update », au format jj/mm/aaaa), et la rend en ISO (aaaa-mm-jj).
+ * C'est la date de la VERSION du fichier, distincte de la date de publication de la page Statbel
+ * (voir SOURCES.md §3 et communes.ts : les deux sont citées, chacune à sa place).
+ */
+function dateVersionStatbel(rows: (string | number | null)[][]): string {
+  for (let i = 0; i < rows.length - 1; i++) {
+    const col = rows[i]?.findIndex((c) => typeof c === 'string' && c.trim() === ENTETE_DATE_VERSION);
+    if (col !== undefined && col >= 0) {
+      const brut = rows[i + 1]?.[col];
+      const m = typeof brut === 'string' ? brut.trim().match(/^(\d{2})\/(\d{2})\/(\d{4})$/) : null;
+      if (!m) throw new Error(`date de version illisible sous « ${ENTETE_DATE_VERSION} » : ${JSON.stringify(brut)}`);
+      const [, j, mo, a] = m;
+      return `${a}-${mo}-${j}`;
+    }
+  }
+  throw new Error(`en-tête « ${ENTETE_DATE_VERSION} » introuvable sur la feuille Home`);
+}
+
 function communes(): string {
   const fichier = 'scripts/zru/sources/ADI_T2_STATBEL_FR.xlsx'; // téléchargé à la main, voir SOURCES.md §3
   if (!existsSync(fichier)) throw new Error(`fichier ${fichier} absent`);
   const buf = readFileSync(fichier);
+  const sourceMiseAJour = dateVersionStatbel(lireFeuille(buf, 1)); // feuille « Home »
   // La feuille est repérée par son contenu, pas par son rang (Statbel réordonne parfois ses onglets).
   const trouvees: { feuille: number; titre: string; lu: NonNullable<ReturnType<typeof trouverTauxCommunesBruxelles>> }[] = [];
   for (let feuille = 1; ; feuille++) {
@@ -113,10 +137,15 @@ function communes(): string {
   }));
   const contenu = fichierTs(
     ENTETE,
-    { FEUILLE_ADI: titre, EXTRAIT_LE_COMMUNES: AUJ, COMMUNES_TAUX_BRUT: data },
-    { FEUILLE_ADI: 'string', EXTRAIT_LE_COMMUNES: 'string', COMMUNES_TAUX_BRUT: '{ niscode: string; nomSource: string; serie: Record<string, string | number | null> }[]' },
+    { FEUILLE_ADI: titre, EXTRAIT_LE_COMMUNES: AUJ, SOURCE_MISE_A_JOUR_COMMUNES: sourceMiseAJour, COMMUNES_TAUX_BRUT: data },
+    {
+      FEUILLE_ADI: 'string',
+      EXTRAIT_LE_COMMUNES: 'string',
+      SOURCE_MISE_A_JOUR_COMMUNES: 'string',
+      COMMUNES_TAUX_BRUT: '{ niscode: string; nomSource: string; serie: Record<string, string | number | null> }[]',
+    },
   );
-  return `Statbel ADI_T2 (copie locale) : feuille ${feuille} « ${titre} », 19 communes, 2015 à 2023 ; ${ecrire('communes-brut.ts', contenu)}`;
+  return `Statbel ADI_T2 (copie locale) : feuille ${feuille} « ${titre} », version du ${sourceMiseAJour}, 19 communes, 2015 à 2023 ; ${ecrire('communes-brut.ts', contenu)}`;
 }
 
 function quartiers(): string {

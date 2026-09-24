@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 // Écrit à la main : noms, unité et provenance des taux communaux (cellules brutes dans communes-brut.ts).
 
-import { COMMUNES_TAUX_BRUT, EXTRAIT_LE_COMMUNES, FEUILLE_ADI } from './communes-brut';
+import { COMMUNES_TAUX_BRUT, EXTRAIT_LE_COMMUNES, FEUILLE_ADI, SOURCE_MISE_A_JOUR_COMMUNES } from './communes-brut';
 import { lireTauxStatbel, type CelluleStatbel } from '@/lib/zru/statbel';
 import type { Provenance } from './types';
 
@@ -41,10 +41,12 @@ export const COMMUNES_TAUX: { niscode: string; nom: Record<'fr' | 'nl', string>;
 export const PROVENANCE_COMMUNES: Provenance = {
   producteur: { fr: 'Statbel', nl: 'Statbel', en: 'Statbel', de: 'Statbel' },
   url: 'https://statbel.fgov.be/fr/themes/datalab/revenu-disponible-administratif',
-  // Date de publication affichée par Statbel sur la page de l'indicateur (SOURCES.md §3). Le script
-  // ne peut pas la lire dans le fichier : les métadonnées du XLSX donnent une autre date (création
-  // et modification le 11/12/2025), qui est celle du fichier, pas celle de la publication.
-  sourceMiseAJour: '2025-11-19',
+  // Date de version du fichier, lue par extraire.ts dans la feuille « Home » du classeur
+  // (cellule sous l'en-tête « Dernier update »), vérifiée le 24/09/2026 : « 11/12/2025 ». C'est la
+  // date qui identifie la version des données reprises, à distinguer de la date de première
+  // publication de la page Statbel (19/11/2025) et de sa révision (09/01/2026), toutes deux
+  // postérieures ou antérieures à cette version sans la remplacer.
+  sourceMiseAJour: SOURCE_MISE_A_JOUR_COMMUNES,
   extraitLe: EXTRAIT_LE_COMMUNES,
   licence: { fr: 'CC BY 4.0', nl: 'CC BY 4.0', en: 'CC BY 4.0', de: 'CC BY 4.0' },
   // Le titre de la feuille est cité tel quel : c'est un libellé du fichier source (en français).

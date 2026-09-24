@@ -41,8 +41,12 @@ export type Programme = {
    * (ex. un bilan publié seulement toutes régions confondues). Sinon, libellé générique « non publié ».
    */
   faitNonPublie?: Record<Locale, string>;
-  /** Source de la colonne Évalué, quand elle diffère de `source`. */
-  sourceEvalue?: SourceProgramme;
+  /**
+   * Source de la colonne Évalué, quand elle diffère de `source`. Un tableau quand plusieurs
+   * évaluations distinctes sont citées dans le même texte (ex. contrats de quartier : audit de
+   * 2001 et évaluation d'ensemble de 2018), chacune avec son propre lien.
+   */
+  sourceEvalue?: SourceProgramme | SourceProgramme[];
 };
 
 /**
@@ -68,6 +72,25 @@ const EVALUE_2018: Record<Locale, string> = {
   de: 'Evaluierung durch BDO im Auftrag von Bruxelles Urbanisme & Patrimoine (urban.brussels), Abschlussbericht vom April 2018: 12 Quartiersverträge und 22 nachhaltige Quartiersverträge, begonnen zwischen Januar 2007 und Januar 2017. Fazit: Maßnahmen, die dem Bedarf der Brüsselerinnen und Brüsseler entsprechen, deren Umfang jedoch nicht ausreicht, um die regionalen Indikatoren strukturell zu beeinflussen.',
 };
 
+/**
+ * Audit de la Cour des comptes sur les six premiers contrats de quartier (initiés en 1994),
+ * publié dans son 158e Cahier / 12e Cahier d'observations (session 2001-2002), table des
+ * matières : « Mise en œuvre des premiers « Contrats de quartier » en Région de
+ * Bruxelles-Capitale », pages 14 à 59 (URL vérifiée HTTP 200 le 24/09/2026, Tâche 17).
+ */
+const AUDIT_CCREK_2001: SourceProgramme = {
+  libelle: 'ccrek.be',
+  url: 'https://www.ccrek.be/sites/default/files/Docs/158e_12e_b_opm_c_obs_br.pdf',
+};
+
+/** Les deux évaluations publiées des contrats de quartier (1994-2013) : l'audit ciblé de 2001 et l'évaluation d'ensemble de 2018 (partagée avec les CQD, EVALUE_2018). */
+const EVALUE_CQ: Record<Locale, string> = {
+  fr: "Audit de la Cour des comptes sur les six premiers contrats de quartier (initiés en 1994) : contrôle de légalité et de régularité des dépenses, rapport définitif envoyé le 28 février 2001 (158e Cahier, 12e Cahier d'observations, pages 14 à 59). Dernière évaluation d'ensemble, confiée à BDO pour Bruxelles Urbanisme & Patrimoine, avril 2018 : 12 des 13 séries de contrats de quartier (entreprises entre janvier 2007 et janvier 2017) incluses, conclusion : des interventions pertinentes par rapport aux besoins des Bruxelloises et des Bruxellois, mais sans l'amplitude suffisante pour influencer structurellement les indicateurs régionaux.",
+  nl: 'Audit van het Rekenhof over de eerste zes wijkcontracten (gestart in 1994): wettigheids- en regelmatigheidscontrole van de uitgaven, definitief verslag verzonden op 28 februari 2001 (158e Boek, 12e Boek met opmerkingen, bladzijden 14 tot 59). Laatste globale evaluatie, toevertrouwd aan BDO voor Brussel Stedenbouw en Erfgoed (urban.brussels), april 2018: 12 van de 13 reeksen wijkcontracten (gestart tussen januari 2007 en januari 2017) opgenomen, conclusie: ingrepen die relevant zijn voor de behoeften van de Brusselaars, maar zonder voldoende omvang om de gewestelijke indicatoren structureel te beïnvloeden.',
+  en: 'Audit by the Belgian Court of Audit on the first six neighbourhood contracts (started in 1994): a legality and regularity check of the expenditure, final report sent on 28 February 2001 (158th Cahier, 12th Cahier of observations, pages 14 to 59). Last overall evaluation, entrusted to BDO for Brussels Urbanism and Heritage (urban.brussels), April 2018: 12 of the 13 series of neighbourhood contracts (started between January 2007 and January 2017) included, conclusion: interventions relevant to the needs of Brussels residents, but without sufficient scale to structurally influence regional indicators.',
+  de: 'Prüfung durch den belgischen Rechnungshof zu den ersten sechs Quartiersverträgen (gestartet 1994): Rechtmäßigkeits- und Ordnungsmäßigkeitsprüfung der Ausgaben, Abschlussbericht übermittelt am 28. Februar 2001 (158. Cahier, 12. Cahier d’observations, Seiten 14 bis 59). Letzte Gesamtevaluierung, in Auftrag gegeben an BDO für Bruxelles Urbanisme & Patrimoine (urban.brussels), April 2018: 12 der 13 Serien von Quartiersverträgen (begonnen zwischen Januar 2007 und Januar 2017) einbezogen, Fazit: Maßnahmen, die dem Bedarf der Brüsselerinnen und Brüsseler entsprechen, deren Umfang jedoch nicht ausreicht, um die regionalen Indikatoren strukturell zu beeinflussen.',
+};
+
 export const PROGRAMMES: Programme[] = [
   {
     id: 'contrats-quartier',
@@ -86,13 +109,13 @@ export const PROGRAMMES: Programme[] = [
     // Des engagements ne sont pas des réalisations : les 194 881 409 euros sont dans Promis.
     // Aucun bilan de réalisation publié pour cette génération.
     fait: { fr: null, nl: null, en: null, de: null },
-    evalue: EVALUE_2018,
+    evalue: EVALUE_CQ,
     source: { libelle: 'quartiers.brussels', url: 'https://quartiers.brussels/1/page/programmes' },
     sourcePromis: {
       libelle: 'weblex.brussels',
       url: 'http://weblex.brussels/data/crb/bqr/2005-06/00013/images.pdf',
     },
-    sourceEvalue: EVALUATION_2018,
+    sourceEvalue: [AUDIT_CCREK_2001, EVALUATION_2018],
   },
   {
     id: 'contrats-quartier-durables',

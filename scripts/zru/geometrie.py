@@ -73,13 +73,16 @@ if dup_e or dup_s:
 date = sys.argv[sys.argv.index('--date') + 1] if '--date' in sys.argv else datetime.date.today().isoformat()
 # Textes montrés au lecteur : les quatre langues (Provenance.producteur/licence/modifications).
 # Les empreintes des réponses WFS vont dans un commentaire et une constante non rendue, jamais
-# dans les modifications affichées. Les surfaces et les secteurs entrants/sortants sont un calcul
-# BGM (recouvrement majoritaire, fonction dans()), d'où la confiance « estimated ».
+# dans les modifications affichées. Vérifié le 24/09/2026 (Tâche 17) : la surface 2020 calculée
+# ici (30,68 km²) est EXACTEMENT l'attribut AREA officiel de la couche WFS ZRU 2020
+# ('AREA': 30678858.94 m²) ; la surface 2026 et les secteurs entrants/sortants restent, eux, un
+# calcul BGM (recouvrement majoritaire, fonction dans()), sans équivalent officiel, d'où la
+# confiance « estimated » gardée pour l'ensemble (le type Provenance ne distingue pas les champs).
 METHODE = {
-  'fr': "calcul BGM\u00a0: recouvrement majoritaire des entités du Monitoring sur les contours WFS\u00a0; surfaces calculées sur ces contours, peuvent différer des chiffres officiels de l'arrêté",
-  'nl': 'berekening BGM: meerderheidsoverlapping van de entiteiten van de Wijkmonitoring met de WFS-grenzen; oppervlakten berekend op die grenzen, kunnen afwijken van de officiële cijfers van het besluit',
-  'en': 'BGM calculation: majority-area overlap of the Monitoring entities with the WFS outlines; areas computed on those outlines, may differ from the official figures in the decree',
-  'de': 'Berechnung BGM: Mehrheitsüberlappung der Einheiten des Quartiersmonitorings mit den WFS-Umrissen; Flächen auf diesen Umrissen berechnet, können von den amtlichen Zahlen des Erlasses abweichen',
+  'fr': "surface 2020 (30,68\u00a0km²)\u00a0: attribut AREA officiel de la couche WFS ZRU 2020\u00a0; surface 2026 (27,82\u00a0km²) et secteurs entrants/sortants\u00a0: calcul BGM (recouvrement majoritaire des entités du Monitoring sur les contours WFS), sans équivalent officiel, à distinguer des 27,7\u00a0km² publiés par perspective.brussels (secteurs complets seulement)",
+  'nl': 'oppervlakte 2020 (30,68 km²): officieel AREA-attribuut van de WFS-laag ZSH 2020; oppervlakte 2026 (27,82 km²) en de instromende/uitstromende sectoren: berekening BGM (meerderheidsoverlapping van de entiteiten van de Wijkmonitoring met de WFS-grenzen), zonder officieel equivalent, te onderscheiden van de 27,7 km² die perspective.brussels publiceert (enkel volledige sectoren)',
+  'en': '2020 area (30.68 km²): official AREA attribute of the ZRU 2020 WFS layer; 2026 area (27.82 km²) and the entering/leaving sectors: BGM calculation (majority-area overlap of the Monitoring entities with the WFS outlines), with no official equivalent, to be distinguished from the 27.7 km² published by perspective.brussels (complete sectors only)',
+  'de': 'Fläche 2020 (30,68 km²): amtliches AREA-Attribut der WFS-Schicht ZRU 2020; Fläche 2026 (27,82 km²) und die ein-/austretenden Sektoren: Berechnung BGM (Mehrheitsüberlappung der Einheiten des Quartiersmonitorings mit den WFS-Umrissen), ohne amtliches Äquivalent, zu unterscheiden von den 27,7 km², die perspective.brussels veröffentlicht (nur vollständige Sektoren)',
 }
 prov = {'producteur': {l: 'urban.brussels (BruGIS) & perspective.brussels (ZRU)' for l in ('fr', 'nl', 'en', 'de')},
         'url': 'https://gis.urban.brussels/geoserver/ows?service=WFS&request=GetCapabilities',

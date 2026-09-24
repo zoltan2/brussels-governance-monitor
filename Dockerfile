@@ -49,6 +49,18 @@ ENV NEXT_PUBLIC_SITE_URL=https://governance.brussels
 # statically-generated page (cf. tech_nextjs_public_env_build_time_selfhost).
 ENV NEXT_PUBLIC_UMAMI_WEBSITE_ID=e42598c7-0c04-4c2f-b7c3-e1c5e0b2b6bc
 RUN npm run build
+# Contrôle d'après build DANS l'image (24/09/2026). `next build` reste vert même
+# s'il ne pré-rend aucune fiche, ou si deux dossiers se disputent la même URL
+# traduite (localizedSlugs). Ce contrôle ne tournait que dans ci.yml ; or
+# deploy-image.yml se déclenche sur main indépendamment de la CI, et main n'a
+# pas de protection de branche : un tel build partait quand même en production.
+# Ici, un code de sortie non nul arrête l'image, donc la mise en ligne.
+# tsx est la devDependency verrouillée par package-lock.json (installée par
+# `npm ci` dans l'étage deps) : on l'appelle par son chemin, sans npx, pour
+# qu'aucun téléchargement ne puisse avoir lieu au build. Le script ne lit que
+# .velite/ et .next/ : ni git, ni réseau, ni secret. Étage builder uniquement,
+# l'image finale n'en contient rien.
+RUN ./node_modules/.bin/tsx scripts/controle-apres-build.ts
 
 # ---- runner : image finale minimale, .next/standalone + assets explicites ----
 FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS runner

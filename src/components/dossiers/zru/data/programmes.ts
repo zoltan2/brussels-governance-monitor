@@ -69,7 +69,7 @@ const EVALUE_2018: Record<Locale, string> = {
   fr: "Évaluation réalisée par BDO pour Bruxelles Urbanisme & Patrimoine, rapport final d'avril 2018 : 12 contrats de quartier et 22 contrats de quartier durables entrepris entre janvier 2007 et janvier 2017. Conclusion : des interventions pertinentes par rapport aux besoins des Bruxelloises et des Bruxellois, mais sans l'amplitude suffisante pour influencer structurellement les indicateurs régionaux.",
   nl: 'Evaluatie uitgevoerd door BDO voor Brussel Stedenbouw en Erfgoed (urban.brussels), eindrapport van april 2018: 12 wijkcontracten en 22 duurzame wijkcontracten gestart tussen januari 2007 en januari 2017. Conclusie: ingrepen die relevant zijn voor de behoeften van de Brusselaars, maar zonder voldoende omvang om de gewestelijke indicatoren structureel te beïnvloeden.',
   en: 'Evaluation carried out by BDO for Brussels Urbanism and Heritage (urban.brussels), final report of April 2018: 12 neighbourhood contracts and 22 sustainable neighbourhood contracts started between January 2007 and January 2017. Conclusion: interventions relevant to the needs of Brussels residents, but without sufficient scale to structurally influence regional indicators.',
-  de: 'Evaluierung durch BDO im Auftrag von Bruxelles Urbanisme & Patrimoine (urban.brussels), Abschlussbericht vom April 2018: 12 Quartiersverträge und 22 nachhaltige Quartiersverträge, begonnen zwischen Januar 2007 und Januar 2017. Fazit: Maßnahmen, die dem Bedarf der Brüsselerinnen und Brüsseler entsprechen, deren Umfang jedoch nicht ausreicht, um die regionalen Indikatoren strukturell zu beeinflussen.',
+  de: 'Bewertung durch BDO im Auftrag von Bruxelles Urbanisme & Patrimoine (urban.brussels), Abschlussbericht vom April 2018: 12 Quartiersverträge und 22 nachhaltige Quartiersverträge, begonnen zwischen Januar 2007 und Januar 2017. Fazit: Maßnahmen, die dem Bedarf der Brüsselerinnen und Brüsseler entsprechen, deren Umfang jedoch nicht ausreicht, um die regionalen Indikatoren strukturell zu beeinflussen.',
 };
 
 /**
@@ -104,7 +104,7 @@ export const PROGRAMMES: Programme[] = [
       fr: `13 séries de 1994 à 2013, avec une attribution budgétaire publiée par série : de 28${NBSP}507${NBSP}755 euros (série 3, 1999-2003) à 70${NBSP}237${NBSP}016 euros (série 12, 2008-2012) ; 194${NBSP}881${NBSP}409 euros engagés par la Région de 1994 à 2004 (état au 31 août 2005, réponse à la question écrite n° 177 au Parlement bruxellois).`,
       nl: '13 reeksen van 1994 tot 2013, met een gepubliceerde budgettaire toewijzing per reeks: van 28.507.755 euro (reeks 3, 1999-2003) tot 70.237.016 euro (reeks 12, 2008-2012); 194.881.409 euro vastgelegd door het Gewest van 1994 tot 2004 (stand op 31 augustus 2005, antwoord op schriftelijke vraag nr. 177 in het Brussels Parlement).',
       en: '13 series from 1994 to 2013, with a published budget allocation per series: from €28,507,755 (series 3, 1999-2003) to €70,237,016 (series 12, 2008-2012); €194,881,409 committed by the Region from 1994 to 2004 (position at 31 August 2005, answer to written question no. 177 in the Brussels Parliament).',
-      de: '13 Serien von 1994 bis 2013, mit einer veröffentlichten Mittelzuweisung je Serie: von 28.507.755 Euro (Serie 3, 1999-2003) bis 70.237.016 Euro (Serie 12, 2008-2012); 194.881.409 Euro von der Region von 1994 bis 2004 gebunden (Stand 31. August 2005, Antwort auf die schriftliche Frage Nr. 177 im Brüsseler Parlament).',
+      de: '13 Serien von 1994 bis 2013, mit einer veröffentlichten Mittelzuweisung je Serie: von 28 507 755 Euro (Serie 3, 1999-2003) bis 70 237 016 Euro (Serie 12, 2008-2012); 194 881 409 Euro von der Region von 1994 bis 2004 gebunden (Stand 31. August 2005, Antwort auf die schriftliche Frage Nr. 177 im Brüsseler Parlament).',
     },
     // Des engagements ne sont pas des réalisations : les 194 881 409 euros sont dans Promis.
     // Aucun bilan de réalisation publié pour cette génération.
@@ -150,7 +150,7 @@ export const PROGRAMMES: Programme[] = [
       fr: `22${NBSP}000${NBSP}000 euros d’investissement par contrat pour les contrats 1 à 7, complétés d’autres budgets publics et privés ; lancement d’un contrat 8 approuvé le 7 juillet 2022.`,
       nl: '22.000.000 euro investering per contract voor de contracten 1 tot 7, aangevuld met andere openbare en private budgetten; de start van een contract 8 werd op 7 juli 2022 goedgekeurd.',
       en: '€22,000,000 of investment per contract for contracts 1 to 7, supplemented by other public and private budgets; the launch of a contract 8 was approved on 7 July 2022.',
-      de: '22.000.000 Euro Investition je Vertrag für die Verträge 1 bis 7, ergänzt durch weitere öffentliche und private Mittel; der Start eines Vertrags 8 wurde am 7. Juli 2022 genehmigt.',
+      de: '22 000 000 Euro Investition je Vertrag für die Verträge 1 bis 7, ergänzt durch weitere öffentliche und private Mittel; der Start eines Vertrags 8 wurde am 7. Juli 2022 genehmigt.',
     },
     // La page annonce que la mise en œuvre des cinq premiers « sera finalisée mi-2025 » :
     // une prévision, pas un bilan.
@@ -212,13 +212,13 @@ export const PROGRAMMES: Programme[] = [
       fr: `28${NBSP}960${NBSP}536,62 euros engagés en 2023.`,
       nl: '28.960.536,62 euro vastgelegd in 2023.',
       en: '€28,960,536.62 committed in 2023.',
-      de: '28.960.536,62 Euro im Jahr 2023 gebunden.',
+      de: '28 960 536,62 Euro im Jahr 2023 gebunden.',
     },
     fait: {
       fr: `32${NBSP}591${NBSP}282,36 euros liquidés en 2023.`,
       nl: '32.591.282,36 euro vereffend in 2023.',
       en: '€32,591,282.36 paid out in 2023.',
-      de: '32.591.282,36 Euro im Jahr 2023 ausgezahlt.',
+      de: '32 591 282,36 Euro im Jahr 2023 ausgezahlt.',
     },
     evalue: { fr: null, nl: null, en: null, de: null },
     source: {
@@ -284,7 +284,7 @@ export const PROGRAMMES: Programme[] = [
       fr: `27${NBSP}288${NBSP}925,00 euros au total, dont 10${NBSP}915${NBSP}570,00 euros du FEDER, en soutien aux contrats de quartier durables et aux contrats de rénovation urbaine.`,
       nl: '27.288.925,00 euro in totaal, waarvan 10.915.570,00 euro uit het EFRO, ter ondersteuning van de duurzame wijkcontracten en de stadsvernieuwingscontracten.',
       en: '€27,288,925.00 in total, of which €10,915,570.00 from the ERDF, supporting the sustainable neighbourhood contracts and the urban renovation contracts.',
-      de: '27.288.925,00 Euro insgesamt, davon 10.915.570,00 Euro aus dem EFRE, zur Unterstützung der nachhaltigen Quartiersverträge und der Stadterneuerungsverträge.',
+      de: '27 288 925,00 Euro insgesamt, davon 10 915 570,00 Euro aus dem EFRE, zur Unterstützung der nachhaltigen Quartiersverträge und der Stadterneuerungsverträge.',
     },
     fait: { fr: null, nl: null, en: null, de: null },
     evalue: { fr: null, nl: null, en: null, de: null },
@@ -302,7 +302,7 @@ export const PROGRAMMES: Programme[] = [
       fr: `48${NBSP}604${NBSP}213 euros de subsides accordés pour 2005-2007 aux sept communes bruxelloises retenues.`,
       nl: '48.604.213 euro subsidies toegekend voor 2005-2007 aan de zeven geselecteerde Brusselse gemeenten.',
       en: '€48,604,213 in subsidies granted for 2005-2007 to the seven Brussels municipalities selected.',
-      de: '48.604.213 Euro Zuschüsse für 2005-2007 an die sieben ausgewählten Brüsseler Gemeinden.',
+      de: '48 604 213 Euro Zuschüsse für 2005-2007 an die sieben ausgewählten Brüsseler Gemeinden.',
     },
     // L'audit ne publie l'état des dépenses que toutes régions confondues (tableau 2) :
     // aucun chiffre de réalisation pour les communes bruxelloises.

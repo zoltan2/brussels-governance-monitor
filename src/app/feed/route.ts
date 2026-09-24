@@ -7,6 +7,7 @@ import {
   getDomainCards,
   getDossierCards,
   getFormationEvents,
+  getLocalizedSlug,
   getSectorCards,
   getSolutionCards,
 } from '@/lib/content';
@@ -99,7 +100,7 @@ function collectItems(
         for (const card of getDossierCards(locale)) {
           items.push({
             title: card.title,
-            link: `${SITE_URL}/${locale}${card.permalink}`,
+            link: `${SITE_URL}/${locale}/dossiers/${getLocalizedSlug(card, locale)}`,
             description: card.summary,
             pubDate: new Date(card.lastModified).toUTCString(),
             category: 'dossiers',

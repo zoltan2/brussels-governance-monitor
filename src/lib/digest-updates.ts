@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { getDomainCards, getDossierCards, getSectorCards, getCommuneCards } from '@/lib/content';
+import { getDomainCards, getDossierCards, getSectorCards, getCommuneCards, getLocalizedSlug } from '@/lib/content';
 import { SECTOR_TO_DOMAIN, DOSSIER_SLUG_TO_TOPIC } from '@/lib/resend';
 import type { DigestUpdate } from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
@@ -101,8 +101,8 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
         headline,
         summary: body,
         url: campaign
-          ? withUtm(`${siteUrl}/${locale}/dossiers/${c.slug}`, campaign, topic)
-          : `${siteUrl}/${locale}/dossiers/${c.slug}`,
+          ? withUtm(`${siteUrl}/${locale}/dossiers/${getLocalizedSlug(c, locale)}`, campaign, topic)
+          : `${siteUrl}/${locale}/dossiers/${getLocalizedSlug(c, locale)}`,
       });
     }
 

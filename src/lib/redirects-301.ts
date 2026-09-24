@@ -74,7 +74,10 @@ export interface SlugRedirect301 {
 // adresse, exactement comme pour un renommage simple. Plus sûr encore : renommer
 // dans un commit, réécrire dans le suivant.
 export const SLUG_REDIRECTS_301: ReadonlyArray<SlugRedirect301> = [
-  // Aucune migration éditoriale en cours. Ajouter ici page par page.
+  // Pilote URL néerlandaise du dossier CPAS (2026-09-24) : slug localisé NL
+  // ajouté (localizedSlugs.nl), ancienne URL = ancien slug canonique.
+  { from: '/nl/dossiers/cpas-bruxellois', to: '/nl/dossiers/brusselse-ocmws' },
+  { from: '/nl/dossiers/cpas-bruxellois/scrolly', to: '/nl/dossiers/brusselse-ocmws/scrolly' },
 ];
 
 /**

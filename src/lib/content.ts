@@ -1187,10 +1187,23 @@ export function getDossierByLocalizedSlug(
  *
  * Pure function (takes dossiers as input). Throws on collision.
  *
+ * Parameter type is deliberately the minimal structural shape (not the full
+ * `DossierCard`), and the fallback logic is inlined rather than calling
+ * `getLocalizedSlug()`: this lets `scripts/controle-apres-build.ts` call it
+ * directly on the raw `.velite/dossierCards.json` entries (read as plain
+ * JSON, no `getCollections()`/`.velite` require involved), wiring this check
+ * into every `npm run build`, not only PR content-lint. See PR #593.
+ *
  * Spec 2026-05-03 §3.1 (refine collection-level, runtime variant since Velite
  * does not natively support cross-document refines).
  */
-export function validateLocalizedSlugs(dossiers: DossierCard[]): void {
+export function validateLocalizedSlugs(
+  dossiers: ReadonlyArray<{
+    slug: string;
+    locale: string;
+    localizedSlugs?: Partial<Record<string, string>>;
+  }>,
+): void {
   const seen: Record<string, Map<string, string>> = {
     fr: new Map(),
     nl: new Map(),
@@ -1199,7 +1212,7 @@ export function validateLocalizedSlugs(dossiers: DossierCard[]): void {
   };
   for (const d of dossiers) {
     if (!seen[d.locale]) continue;
-    const effectiveSlug = getLocalizedSlug(d, d.locale);
+    const effectiveSlug = d.localizedSlugs?.[d.locale] ?? d.slug;
     const previousSlug = seen[d.locale].get(effectiveSlug);
     if (previousSlug && previousSlug !== d.slug) {
       throw new Error(

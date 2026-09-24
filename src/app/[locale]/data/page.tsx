@@ -3,7 +3,7 @@
 
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { getDomainCards, getDossierCards } from '@/lib/content';
+import { getDomainCards, getDossierCards, getLocalizedSlug } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { CsvDownloadButton, JsonDownloadButton } from '@/components/csv-download-button';
 import { SourceRegistry, type RegistrySource } from '@/components/source-registry';
@@ -146,7 +146,7 @@ export default async function DataPage({
     }));
     const dossierSection: DossierSection = {
       title: card.title.split(':')[0]?.trim() ?? card.title,
-      slug: card.slug,
+      slug: getLocalizedSlug(card, locale as Locale),
       rows,
     };
     const group = groupMap.get(parentKey);

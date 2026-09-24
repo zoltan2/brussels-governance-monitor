@@ -19,6 +19,7 @@ import {
   getAllDossierTopicOptions,
   getRecentDigestLangs,
   getDigestEntry,
+  getLocalizedSlug,
 } from '@/lib/content';
 import { getActiveSignals } from '@/lib/radar';
 import { getSiteStats } from '@/lib/site-stats';
@@ -710,7 +711,7 @@ function DossiersPreview({
             return (
               <Link
                 key={card.slug}
-                href={{ pathname: '/dossiers/[slug]', params: { slug: card.slug } }}
+                href={{ pathname: '/dossiers/[slug]', params: { slug: getLocalizedSlug(card, locale as Locale) } }}
                 // Un seul nom pour les treize cartes, le type et le slug en propriétés.
                 data-umami-event="accueil-fiche"
                 data-umami-event-type="dossier"

@@ -14,6 +14,7 @@ import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import { CHAT_SUGGESTIONS } from '@/lib/chat-suggestions';
+import type { DossierTitleEntry } from '@/app/api/chat/dossier-titles/route';
 
 type Message = {
   role: 'user' | 'assistant';
@@ -473,14 +474,24 @@ function trackEvent(event: string, data?: Record<string, unknown>): void {
   (window as UmamiWindow).umami?.track?.(event, data);
 }
 
-function linkifyDossierMarkers(
+/**
+ * `titles` maps the CANONICAL slug (as written by the LLM in the
+ * `[Dossier: slug]` marker — that contract is unchanged) to its localized
+ * title and route slug, from `/api/chat/dossier-titles`. The link uses
+ * `routeSlug` (the dossier's localized URL, e.g. brusselse-ocmws for NL),
+ * falling back to the canonical slug when the map has no entry yet (title
+ * fetch still pending, or unknown slug). See PR #593.
+ */
+export function linkifyDossierMarkers(
   text: string,
   locale: string,
-  titles: Record<string, string>,
+  titles: Record<string, DossierTitleEntry>,
 ): string {
   return text.replace(DOSSIER_MARKER_RE, (_m, slug: string) => {
-    const label = titles[slug] ?? slug;
-    return `[${escapeMarkdown(label)}](/${locale}/dossiers/${slug})`;
+    const entry = titles[slug];
+    const label = entry?.title ?? slug;
+    const routeSlug = entry?.routeSlug ?? slug;
+    return `[${escapeMarkdown(label)}](/${locale}/dossiers/${routeSlug})`;
   });
 }
 
@@ -540,7 +551,7 @@ export function ChatWidget() {
   const [feedback, setFeedback] = useState<Record<number, FeedbackState>>({});
   const [showRating, setShowRating] = useState(false);
   const [ratingSubmitted, setRatingSubmitted] = useState(false);
-  const [dossierTitles, setDossierTitles] = useState<Record<string, string>>({});
+  const [dossierTitles, setDossierTitles] = useState<Record<string, DossierTitleEntry>>({});
   const [emailInput, setEmailInput] = useState('');
   const [emailOptIn, setEmailOptIn] = useState(false);
   const [emailHoneypot, setEmailHoneypot] = useState('');
@@ -619,7 +630,7 @@ export function ChatWidget() {
       .then((data: unknown) => {
         if (cancelled) return;
         if (data && typeof data === 'object') {
-          setDossierTitles(data as Record<string, string>);
+          setDossierTitles(data as Record<string, DossierTitleEntry>);
         }
       })
       .catch(() => {

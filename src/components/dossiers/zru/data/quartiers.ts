@@ -17,10 +17,9 @@ export const INDICATEUR_QUARTIERS: Record<Locale, string> = {
 };
 
 /**
- * Millésime affiché par le Monitoring des Quartiers.
- * Réserve interne, NON montrée au lecteur : le libellé du millésime est 2023, mais la description
- * de l'indicateur commence par « En 2022 ». Question reportée à la vérification humaine des faits
- * (Tâche 17) avant de citer l'année dans le texte.
+ * Millésime affiché par le Monitoring des Quartiers : année de REVENUS, pas de publication
+ * (vérifié le 24/09/2026, Tâche 17 : fiche indicateur 2498, « En 2023 » ; source 51, « année de
+ * revenus » ; Statbel a publié les revenus 2023 le 19/11/2025).
  */
 export const ANNEE_QUARTIERS = 2023;
 

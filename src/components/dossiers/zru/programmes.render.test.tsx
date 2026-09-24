@@ -24,9 +24,10 @@ afterEach(() => cleanup());
 
 const LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
 
-/** Toutes les sources d'une ligne : la source principale et, le cas échéant, celles des colonnes Fait et Évalué. */
+/** Toutes les sources d'une ligne : la source principale et, le cas échéant, celles des colonnes Fait et Évalué (sourceEvalue peut être un tableau). */
 function sourcesDe(p: (typeof PROGRAMMES)[number]) {
-  return [p.source, p.sourcePromis, p.sourceFait, p.sourceEvalue].filter((s): s is { libelle: string; url: string } => s !== undefined);
+  const evalues = p.sourceEvalue === undefined ? [] : Array.isArray(p.sourceEvalue) ? p.sourceEvalue : [p.sourceEvalue];
+  return [p.source, p.sourcePromis, p.sourceFait, ...evalues].filter((s): s is { libelle: string; url: string } => s !== undefined);
 }
 
 describe('ZruProgrammes', () => {
@@ -73,7 +74,8 @@ describe('ZruProgrammes', () => {
       }
       if (p.sourceEvalue) {
         expect(p.evalue.fr).not.toBeNull();
-        expect(container.querySelector(`a[href="${p.sourceEvalue.url}"]`)).toBeTruthy();
+        const evalues = Array.isArray(p.sourceEvalue) ? p.sourceEvalue : [p.sourceEvalue];
+        for (const s of evalues) expect(container.querySelector(`a[href="${s.url}"]`)).toBeTruthy();
       }
     }
   });
@@ -130,6 +132,24 @@ describe('ZruProgrammes', () => {
       expect(p.fait[l]).toBeNull();
       expect(p.promis[l]).toMatch(/194[.,\u00a0]881[.,\u00a0]409/);
     }
+  });
+
+  it('contrats de quartier : \u00c9valu\u00e9 cite les deux \u00e9valuations publi\u00e9es (audit 2001 et \u00e9valuation 2018), chacune avec sa source li\u00e9e', () => {
+    const p = PROGRAMMES.find((x) => x.id === 'contrats-quartier')!;
+    expect(Array.isArray(p.sourceEvalue)).toBe(true);
+    const sources = p.sourceEvalue as { libelle: string; url: string }[];
+    expect(sources).toHaveLength(2);
+    expect(sources.map((s) => s.url)).toContain('https://www.ccrek.be/sites/default/files/Docs/158e_12e_b_opm_c_obs_br.pdf');
+    expect(sources.map((s) => s.url)).toContain(
+      'https://publication.urban.brussels/DRU_DSV/COM/Liens_doc_site_quartiers/EVAL_CQD_Rapport%20final_FR_03092018.pdf',
+    );
+    for (const l of LOCALES) {
+      expect(p.evalue[l]).toMatch(/2001/);
+      expect(p.evalue[l]).toMatch(/2018/);
+    }
+    const { container } = render(<ZruProgrammes />);
+    const ligne = Array.from(container.querySelectorAll('tbody tr')).find((tr) => tr.querySelector('th')!.textContent!.includes(p.libelle.fr))!;
+    for (const s of sources) expect(ligne.querySelector(`a[href="${s.url}"]`)).toBeTruthy();
   });
 
   it('pourcentages : espace insécable avant % en fr, nl et de, jamais une espace simple', () => {
@@ -256,5 +276,18 @@ describe('ZruMatrice', () => {
   it('passe axe', async () => {
     const { container } = render(<ZruMatrice />);
     expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+// Revue de la PR #594 : l'évaluation de 2018 couvre 12 contrats de quartier et
+// 22 contrats de quartier durables, pas « 12 des 13 séries » (les séries sont une
+// autre unité). Aucune langue ne doit réintroduire cette confusion.
+describe('ligne contrats de quartier : périmètre de l’évaluation 2018', () => {
+  const cq = PROGRAMMES.find((p) => p.id === 'contrats-quartier')!;
+  it.each(['fr', 'nl', 'en', 'de'] as const)('%s', (locale) => {
+    const texte = cq.evalue[locale] ?? '';
+    expect(texte).toMatch(/\b12\b/);
+    expect(texte).toMatch(/\b22\b/);
+    expect(texte).not.toMatch(/13 (séries|reeksen|series|Serien)/);
   });
 });

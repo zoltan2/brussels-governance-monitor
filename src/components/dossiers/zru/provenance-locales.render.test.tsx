@@ -80,12 +80,15 @@ describe('provenance des figures ZRU, par langue', () => {
     }
   }
 
-  it('surfaces et secteurs de la carte ZRU : confiance « estimé », méthode BGM expliquée', () => {
+  it('surfaces et secteurs de la carte ZRU : confiance « estimé », méthode BGM expliquée, surface 2020 distinguée de la surface 2026', () => {
     expect(PROVENANCE_GEOMETRIE.confiance).toBe('estimated');
     const fr = legende(<ZruCarte2020_2026 locale="fr" />);
     expect(fr).toContain('estimé');
     expect(fr).toContain('recouvrement majoritaire');
-    expect(fr).toContain('peuvent différer des chiffres officiels');
+    // Vérifié le 24/09/2026 (Tâche 17) : la surface 2020 est l'attribut AREA officiel de la
+    // couche WFS, la surface 2026 et les secteurs entrants/sortants restent un calcul BGM.
+    expect(fr).toContain('attribut AREA officiel');
+    expect(fr).toContain('sans équivalent officiel');
     cleanup();
     expect(legende(<ZruCarte2020_2026 locale="nl" />)).toContain('geschat');
   });

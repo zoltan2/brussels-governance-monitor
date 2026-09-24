@@ -14,6 +14,8 @@ const T: Record<
     nonConnu: string;
     /** Préfixe du lien vers la source propre d'une cellule, ponctuation de la langue comprise. */
     source: string;
+    /** Même préfixe, au pluriel : quand la cellule cite plusieurs sources distinctes. */
+    sources: string;
   }
 > = {
   fr: {
@@ -22,6 +24,7 @@ const T: Record<
     nonEvalue: 'non évalué',
     nonConnu: 'non publié',
     source: 'source\u00a0:',
+    sources: 'sources\u00a0:',
   },
   nl: {
     caption: "Herwaarderingsprogramma's: beloofd, gedaan, geëvalueerd",
@@ -29,6 +32,7 @@ const T: Record<
     nonEvalue: 'niet geëvalueerd',
     nonConnu: 'niet gepubliceerd',
     source: 'bron:',
+    sources: 'bronnen:',
   },
   en: {
     caption: 'Revitalisation programmes: promised, done, evaluated',
@@ -36,6 +40,7 @@ const T: Record<
     nonEvalue: 'not evaluated',
     nonConnu: 'not published',
     source: 'source:',
+    sources: 'sources:',
   },
   de: {
     caption: 'Revitalisierungsprogramme: versprochen, umgesetzt, bewertet',
@@ -43,6 +48,7 @@ const T: Record<
     nonEvalue: 'nicht bewertet',
     nonConnu: 'nicht veröffentlicht',
     source: 'Quelle:',
+    sources: 'Quellen:',
   },
 };
 
@@ -60,27 +66,42 @@ function LienSource({ source }: { source: SourceProgramme }): ReactElement {
   );
 }
 
-/** Valeur de cellule, suivie du lien vers sa source propre quand elle diffère de la source de la ligne. */
+/**
+ * Valeur de cellule, suivie du lien vers sa (ou ses) source(s) propre(s) quand elle diffère
+ * de la source de la ligne. `source` peut être un tableau : plusieurs évaluations distinctes
+ * citées dans le même texte (ex. contrats de quartier, audit de 2001 et évaluation de 2018),
+ * chacune avec son propre lien, séparées par une virgule.
+ */
 function Valeur({
   valeur,
   repli,
   source,
   libelleSource,
+  libelleSources,
 }: {
   valeur: string | null;
   repli: string;
-  source?: SourceProgramme;
+  source?: SourceProgramme | SourceProgramme[];
   libelleSource: string;
+  libelleSources: string;
 }): ReactElement {
   if (valeur === null) return <span className="italic text-neutral-600">{repli}</span>;
+  const sources = source === undefined ? [] : Array.isArray(source) ? source : [source];
   return (
     <>
       {valeur}
-      {source && (
+      {sources.length > 0 && (
         <>
           {' '}
           <span className="text-xs text-neutral-600">
-            ({libelleSource} <LienSource source={source} />)
+            ({sources.length > 1 ? libelleSources : libelleSource}{' '}
+            {sources.map((s, i) => (
+              <span key={s.url}>
+                {i > 0 && ', '}
+                <LienSource source={s} />
+              </span>
+            ))}
+            )
           </span>
         </>
       )}
@@ -127,6 +148,7 @@ export function ZruProgrammes({ locale = 'fr' }: { locale?: Locale }): ReactElem
                   repli={t.nonConnu}
                   source={p.sourcePromis}
                   libelleSource={t.source}
+                  libelleSources={t.sources}
                 />
               </td>
               <td className="px-3 py-2 text-neutral-700">
@@ -135,6 +157,7 @@ export function ZruProgrammes({ locale = 'fr' }: { locale?: Locale }): ReactElem
                   repli={p.faitNonPublie?.[locale] ?? t.nonConnu}
                   source={p.sourceFait}
                   libelleSource={t.source}
+                  libelleSources={t.sources}
                 />
               </td>
               <td className="px-3 py-2 text-neutral-700">
@@ -143,6 +166,7 @@ export function ZruProgrammes({ locale = 'fr' }: { locale?: Locale }): ReactElem
                   repli={t.nonEvalue}
                   source={p.sourceEvalue}
                   libelleSource={t.source}
+                  libelleSources={t.sources}
                 />
               </td>
               <td className="px-3 py-2">

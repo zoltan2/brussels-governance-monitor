@@ -187,8 +187,10 @@ export function ZruCarte2020_2026({ locale = 'fr' }: { locale?: Locale }): React
         caption: `${t.cap} (${t.codes})`,
         colonnes: t.cols,
         // Surfaces et listes de secteurs : calcul BGM (recouvrement majoritaire des entités du
-        // Monitoring sur les contours WFS, scripts/zru/geometrie.py), pas les chiffres officiels
-        // de l'arrêté ; le rapprochement avec ceux-ci relève de la vérification des faits (Tâche 17).
+        // Monitoring sur les contours WFS, scripts/zru/geometrie.py). Vérifié le 24/09/2026
+        // (Tâche 17) : la surface 2020 (30,68 km²) est exactement l'attribut AREA officiel de la
+        // couche WFS ZRU 2020 ; la surface 2026 (27,82 km²) reste un calcul BGM, à distinguer des
+        // 27,7 km² publiés par perspective.brussels (secteurs complets seulement, N26 p. 31).
         // Les secteurs sont listés par identifiant : la géométrie ne porte pas leur nom.
         lignes: [
           [t.l2020, arrondirKm2(SURFACES_KM2.zru2020), listeSecteurs(SECTEURS_SORTANTS, t.sortants, locale)],

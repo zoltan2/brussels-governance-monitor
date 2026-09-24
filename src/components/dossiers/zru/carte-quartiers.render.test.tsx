@@ -122,3 +122,17 @@ describe('ZruCarteQuartiers', () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 });
+
+// Vérification des faits du 24/09/2026 : l'indicateur 2498 porte sur l'année de
+// revenus 2023 ; la légende doit le dire dans chaque langue.
+describe('ZruCarteQuartiers : année de revenus dans la légende', () => {
+  it.each([
+    ['fr', 'revenus 2023'],
+    ['nl', 'inkomens 2023'],
+    ['en', '2023 income'],
+    ['de', 'Einkommen 2023'],
+  ] as const)('%s : « %s »', (locale, attendu) => {
+    const { container } = render(<ZruCarteQuartiers locale={locale} />);
+    expect(container.querySelector('figcaption')!.textContent).toContain(attendu);
+  });
+});

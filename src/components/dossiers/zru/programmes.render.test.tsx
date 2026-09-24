@@ -278,3 +278,16 @@ describe('ZruMatrice', () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 });
+
+// Revue de la PR #594 : l'évaluation de 2018 couvre 12 contrats de quartier et
+// 22 contrats de quartier durables, pas « 12 des 13 séries » (les séries sont une
+// autre unité). Aucune langue ne doit réintroduire cette confusion.
+describe('ligne contrats de quartier : périmètre de l’évaluation 2018', () => {
+  const cq = PROGRAMMES.find((p) => p.id === 'contrats-quartier')!;
+  it.each(['fr', 'nl', 'en', 'de'] as const)('%s', (locale) => {
+    const texte = cq.evalue[locale] ?? '';
+    expect(texte).toMatch(/\b12\b/);
+    expect(texte).toMatch(/\b22\b/);
+    expect(texte).not.toMatch(/13 (séries|reeksen|series|Serien)/);
+  });
+});

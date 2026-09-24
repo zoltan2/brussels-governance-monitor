@@ -297,13 +297,13 @@ function DossierDetail({
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
           <ShareButton
-            url={`${siteUrl}/${locale}/dossiers/${card.slug}`}
+            url={`${siteUrl}/${locale}/dossiers/${getLocalizedSlug(card, locale as Locale)}`}
             title={card.title}
             description={card.summary}
             labels={{ share: tShare('share'), copyLink: tShare('copyLink'), copied: tShare('copied'), shareVia: tShare('shareVia'), email: tShare('email') }}
           />
           <CiteButton
-            url={`${siteUrl}/${locale}/dossiers/${card.slug}`}
+            url={`${siteUrl}/${locale}/dossiers/${getLocalizedSlug(card, locale as Locale)}`}
             title={card.title}
             date={card.lastModified}
             locale={locale}

@@ -3,7 +3,7 @@
 # topologie partagée et écrit src/components/dossiers/zru/data/geometrie.ts.
 # Usage : /tmp/zru-venv/bin/python scripts/zru/geometrie.py [--date AAAA-MM-JJ]
 import json, sys, hashlib, datetime, urllib.request, urllib.parse
-from shapely.geometry import shape, mapping
+from shapely.geometry import shape
 from shapely import coverage_simplify, union_all
 
 WFS = 'https://gis.urban.brussels/geoserver/ows'

@@ -14,59 +14,58 @@ indicator: "Durée de formation gouvernementale après les élections du 9 juin 
 sourceDataset:
   name: "Parlements régionaux — Actes et documents officiels"
   url: "https://www.parlement.brussels/"
-methodology: "Calcul de la durée entre le jour des élections (9 juin 2024) et la prestation de serment du gouvernement régional. Pour Bruxelles, où aucun gouvernement n'a été formé, la durée est calculée jusqu'à la date de publication (février 2026). Les dates de prestation de serment proviennent des actes officiels des parlements régionaux."
+methodology: "Calcul de la durée entre le jour des élections (9 juin 2024) et la prestation de serment du gouvernement régional : 15 juillet 2024 en Wallonie, 30 septembre 2024 en Flandre, 14 février 2026 à Bruxelles."
 dataPoints:
-  - entity: "VLA"
-    value: "~4 mois (gouvernement formé en octobre 2024)"
-    date: "2024-10-01"
   - entity: "WAL"
-    value: "~8 mois (gouvernement formé en février 2025)"
-    date: "2025-02-01"
-  - entity: "BXL"
-    value: "20+ mois (toujours sans gouvernement en février 2026)"
-    date: "2026-02-07"
+    value: "~5 semaines (gouvernement assermenté le 15 juillet 2024)"
+    date: "2024-07-15"
   - entity: "VLA"
-    value: "Budget 2025 voté dans les délais"
-    date: "2025-01-01"
-  - entity: "WAL"
-    value: "Budget 2025 voté en décembre 2025"
-    date: "2025-12-01"
+    value: "~4 mois (gouvernement assermenté le 30 septembre 2024)"
+    date: "2024-09-30"
   - entity: "BXL"
-    value: "Douzièmes provisoires depuis juillet 2024"
-    date: "2026-02-01"
+    value: "~20 mois (gouvernement assermenté le 14 février 2026)"
+    date: "2026-02-14"
+  - entity: "WAL"
+    value: "Budget 2025 voté le 18 décembre 2024"
+    date: "2024-12-18"
+  - entity: "VLA"
+    value: "Budget 2025 voté le 20 décembre 2024"
+    date: "2024-12-20"
+  - entity: "BXL"
+    value: "Douzièmes provisoires jusqu'au vote du budget 2026, le 27 mars 2026"
+    date: "2026-03-27"
 caveat: "Les durées de formation ne sont pas directement comparables sans tenir compte du contexte institutionnel : Bruxelles requiert des équilibres linguistiques constitutionnels absents en Flandre et en Wallonie. Le nombre de partis nécessaires pour former une majorité est également plus élevé à Bruxelles."
-lastModified: "2026-02-07"
+lastModified: "2026-09-24"
+changeType: corrected
+changeSummary: "Correction : le gouvernement wallon a prêté serment le 15 juillet 2024, cinq semaines après les élections, et non en février 2025. La fiche présentait la Wallonie comme plus lente que la Flandre et datait son budget 2025 de décembre 2025, alors qu'il a été voté le 18 décembre 2024. Elle intègre aussi la prestation de serment du gouvernement bruxellois, le 14 février 2026."
+changeSummaryDate: "2026-09-24"
 ---
 
 ## Contexte
 
 Les élections du 9 juin 2024 ont renouvelé simultanément les parlements régionaux et le parlement fédéral. Chaque Région a entamé son propre processus de formation gouvernementale, avec des résultats très différents.
 
-## Flandre : formation rapide (~4 mois)
+## Wallonie : la formation la plus rapide (~5 semaines)
 
-Le Parlement flamand a rapidement dégagé une majorité. Le formateur désigné a pu constituer un gouvernement qui a prêté serment en octobre 2024. Cette rapidité s'explique par une configuration parlementaire plus lisible, avec moins de partis nécessaires pour atteindre la majorité.
-
-**Conséquences :**
-- Continuité des politiques régionales
-- Budget 2025 voté dans les délais constitutionnels
-- Aucune rupture dans les investissements publics
-
-## Wallonie : formation intermédiaire (~8 mois)
-
-La Région wallonne a connu un processus de formation plus long. Les négociations ont duré de l'été 2024 à janvier 2025, et le gouvernement wallon a prêté serment en février 2025. La Région a fonctionné en douzièmes provisoires pendant cette période.
+Le gouvernement wallon, formé par le MR et Les Engagés, a prêté serment le 15 juillet 2024, cinq semaines après les élections.
 
 **Conséquences :**
-- Douzièmes provisoires pendant environ huit mois
-- Retard dans le lancement de nouveaux programmes régionaux
-- Budget 2025 finalement voté en décembre 2025
+- Budget 2025 voté par le Parlement wallon le 18 décembre 2024, avant le début de l'exercice
 
-## Bruxelles : formation toujours en cours (20+ mois)
+## Flandre : près de quatre mois
 
-La Région bruxelloise n'a toujours pas de gouvernement de plein exercice en février 2026. Plusieurs tentatives de formation ont échoué, avec des missions d'information et de formation successives. Le gouvernement sortant reste en affaires courantes.
+Le gouvernement flamand, formé par la N-VA, Vooruit et le CD&V, a prêté serment le 30 septembre 2024 devant le Parlement flamand.
 
 **Conséquences :**
-- Régime de douzièmes provisoires ininterrompu depuis les élections
-- Paralysie de toute nouvelle politique régionale
+- Budget 2025 voté par le Parlement flamand le 20 décembre 2024, avant le début de l'exercice
+
+## Bruxelles : vingt mois de formation
+
+Le gouvernement bruxellois a prêté serment le 14 février 2026, vingt mois après les élections. Jusque-là, plusieurs missions d'information et de formation s'étaient succédé, et le gouvernement sortant gérait les affaires courantes.
+
+**Conséquences :**
+- Régime de douzièmes provisoires jusqu'au vote du budget 2026, le 27 mars 2026
+- Aucune nouvelle politique régionale pendant les affaires courantes
 - Érosion de la capacité d'action publique
 
 ## Facteurs explicatifs
@@ -79,7 +78,9 @@ La durée de formation bruxelloise s'explique par plusieurs facteurs structurels
 
 ## Sources
 
-- Parlement bruxellois, documents de session et actes officiels
-- Parlement flamand, prestation de serment du gouvernement (octobre 2024)
-- Parlement wallon, prestation de serment du gouvernement (février 2025)
+- Parlement wallon, prestation de serment du gouvernement (15 juillet 2024)
+- Parlement flamand, prestation de serment du gouvernement (30 septembre 2024)
+- Parlement bruxellois, prestation de serment du gouvernement (14 février 2026)
+- Parlement wallon, adoption du budget 2025 (18 décembre 2024)
+- Parlement flamand, adoption du budget 2025 (20 décembre 2024)
 - Moniteur belge, nominations gouvernementales

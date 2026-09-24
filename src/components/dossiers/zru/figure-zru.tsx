@@ -67,9 +67,14 @@ const L: Record<
 /** Code Intl (BCP 47) associé à chaque locale du site, pour les dates et les nombres. */
 const CODE_INTL: Record<Locale, string> = { fr: 'fr-BE', nl: 'nl-BE', en: 'en-GB', de: 'de-DE' };
 
-/** Formate une cellule de tableau : les nombres suivent la convention locale (virgule décimale et espace insécable pour fr-BE), les chaînes passent telles quelles. */
+/** Formate un nombre selon la convention locale (virgule décimale et espace insécable pour fr-BE). Exporté pour les légendes hors tableau (bornes de paliers…). */
+export function formaterNombre(valeur: number, locale: Locale): string {
+  return new Intl.NumberFormat(CODE_INTL[locale]).format(valeur);
+}
+
+/** Formate une cellule de tableau : les nombres suivent la convention locale, les chaînes passent telles quelles. */
 function formaterCellule(valeur: string | number, locale: Locale): string {
-  return typeof valeur === 'number' ? new Intl.NumberFormat(CODE_INTL[locale]).format(valeur) : valeur;
+  return typeof valeur === 'number' ? formaterNombre(valeur, locale) : valeur;
 }
 
 export type FigureZruProps = {

@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { useTranslations } from 'next-intl'
+import type { QuizSiteStats } from '@/components/quiz/bgm-quiz'
 
 const BGMQuiz = dynamic(() => import('@/components/quiz/bgm-quiz'), {
   ssr: false,
@@ -18,6 +19,6 @@ function QuizLoadingFallback() {
   )
 }
 
-export default function QuizLoader() {
-  return <BGMQuiz />
+export default function QuizLoader(stats: QuizSiteStats) {
+  return <BGMQuiz {...stats} />
 }

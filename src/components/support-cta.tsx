@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { useTranslations } from 'next-intl';
+import { useFormatter, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
+import type { SiteStats } from '@/lib/site-stats';
 
 /**
  * Minimal CTA for the end of content cards (domains, dossiers, communes, sectors).
@@ -26,15 +27,20 @@ export function SupportCtaInline() {
 
 /**
  * CTA block for the homepage — slightly more prominent with stats.
+ *
+ * Les chiffres arrivent de la page, calculés par `getSiteStats()` (src/lib/site-stats.ts) :
+ * c'est le même objet qui alimente « Ce qu'on surveille », les deux blocs ne
+ * peuvent donc plus annoncer deux nombres de sources différents.
  */
-export function SupportCtaHome() {
+export function SupportCtaHome({ stats }: { stats: SiteStats }) {
   const t = useTranslations('supportCta');
+  const format = useFormatter();
 
   return (
     <section className="bg-neutral-50 py-10">
       <div className="mx-auto max-w-5xl px-4 text-center">
         <p className="text-sm text-neutral-600">
-          <strong className="text-neutral-700">528</strong> {t('statPages')} · <strong className="text-neutral-700">323</strong> {t('statSources')} · <strong className="text-neutral-700">4</strong> {t('statLangs')}
+          <strong className="text-neutral-700">{format.number(stats.pages)}</strong>&nbsp;{t('statPages')} · <strong className="text-neutral-700">{format.number(stats.sourcesSuivies)}</strong>&nbsp;{t('statSources')} · <strong className="text-neutral-700">{format.number(stats.langues)}</strong>&nbsp;{t('statLangs')}
         </p>
         <p className="mt-1 text-xs text-neutral-500">{t('homeLine')}</p>
         <Link
@@ -52,13 +58,13 @@ export function SupportCtaHome() {
 /**
  * CTA for the changelog page — dashed border, one line.
  */
-export function SupportCtaChangelog() {
+export function SupportCtaChangelog({ sourcesSuivies }: { sourcesSuivies: number }) {
   const t = useTranslations('supportCta');
 
   return (
     <div className="mb-6 rounded-md border border-dashed border-neutral-200 px-4 py-3 text-center">
       <p className="text-xs text-neutral-500">
-        {t('changelogLine')}{' '}
+        {t('changelogLine', { count: sourcesSuivies })}{' '}
         <Link href="/support" className="font-medium text-brand-700 hover:underline">
           {t('cardLink')}
         </Link>

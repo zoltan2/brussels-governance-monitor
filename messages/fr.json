@@ -2079,9 +2079,9 @@
     "cardLink": "Soutenir →",
     "homeLine": "Mis à jour chaque jour, sans publicité ni subvention.",
     "homeButton": "Soutenir le projet",
-    "changelogLine": "323 sources vérifiées quotidiennement. Ce travail est bénévole.",
+    "changelogLine": "{count} sources suivies par la veille. Ce travail est bénévole.",
     "statPages": "pages",
-    "statSources": "sources",
+    "statSources": "sources suivies",
     "statLangs": "langues"
   },
   "quiz": {
@@ -2111,7 +2111,7 @@
     "podcastTitle": "Le Briefing BGM",
     "podcastDesc": "Podcast — l'essentiel en 5 min",
     "donateMessage": "Ce quiz est gratuit. Le maintenir ne l'est pas.",
-    "donateDetail": "BGM surveille 323 sources en 4 langues, sans pub ni subvention.",
+    "donateDetail": "La veille de BGM suit {sources} sources en {languages} langues, sans pub ni subvention.",
     "donateCTA": "Soutenir le projet",
     "digestTitle": "Digest email",
     "digestDesc": "Par domaine, à votre rythme",

@@ -22,6 +22,7 @@ import path from 'node:path';
 import { routing } from '../src/i18n/routing';
 import { jourISO } from '../src/lib/velite-date';
 import { SCROLLY_ENABLED_DOSSIERS } from '../src/lib/scrolly-allowlist';
+import { validateLocalizedSlugs } from '../src/lib/content';
 import {
   comparer,
   formaterRapport,
@@ -76,6 +77,32 @@ function lireCollections(): CollectionsVelite {
   return sortie;
 }
 
+/**
+ * Deux dossiers dont `localizedSlugs` (ou son absence, replié sur `slug`)
+ * résout à la même URL pour une locale casseraient le routage en silence :
+ * `getDossierByLocalizedSlug` ne saurait plus lequel des deux rendre. Ce
+ * contrôle existait déjà (`validateLocalizedSlugs`, src/lib/content.ts) mais
+ * n'était appelé que dans des tests unitaires avec des fixtures synthétiques,
+ * jamais sur le contenu réel ni au build. Branché ici (pas dans
+ * velite.config.ts : `@/lib/content` importe des modules non triviaux et
+ * `validateLocalizedSlugs` doit rester joignable AVANT que `.velite/` existe,
+ * ce que seul un `require()` paresseux évite ; lire le JSON déjà écrit est
+ * plus sûr), il tourne à chaque `npm run build`, donc dans le job CI
+ * inconditionnel (ci.yml), pas seulement dans le content-lint gardé par des
+ * filtres de chemin. Voir PR #593.
+ */
+function verifierLocalizedSlugs(dossierCards: CollectionsVelite['dossierCards']): void {
+  const localesConnues = new Set<string>(routing.locales);
+  const dossiers = dossierCards
+    .filter((d) => typeof d.slug === 'string' && typeof d.locale === 'string' && localesConnues.has(d.locale))
+    .map((d) => ({ slug: d.slug as string, locale: d.locale as string, localizedSlugs: d.localizedSlugs }));
+  try {
+    validateLocalizedSlugs(dossiers);
+  } catch (e) {
+    echouer((e as Error).message);
+  }
+}
+
 function lireManifeste(): ManifestePrerendu {
   const m = lireJson(MANIFESTE) as Partial<ManifestePrerendu> & { version?: number };
   if (!m || typeof m.routes !== 'object' || m.routes === null) {
@@ -85,7 +112,9 @@ function lireManifeste(): ManifestePrerendu {
 }
 
 function main(): void {
-  const attendus = pagesAttendues(lireCollections(), {
+  const collections = lireCollections();
+  verifierLocalizedSlugs(collections.dossierCards);
+  const attendus = pagesAttendues(collections, {
     locales: routing.locales,
     scrollyAutorises: SCROLLY_ENABLED_DOSSIERS,
     // Même interpolation que `idDeVerification` (src/lib/content.ts).

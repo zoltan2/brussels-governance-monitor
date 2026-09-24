@@ -159,7 +159,7 @@ export function resolvePromotedLink(
  * de la fiche réelle. Un dossier introuvable (retiré) rend le slug tel quel :
  * `resolvePromotedSection` a déjà validé son existence au moment du build.
  */
-function localizeDossierRouteSlug(canonicalSlug: string, locale: Locale): string {
+export function localizeDossierRouteSlug(canonicalSlug: string, locale: Locale): string {
   const card = getDossierCard(canonicalSlug, locale)?.card;
   return card ? getLocalizedSlug(card, locale) : canonicalSlug;
 }

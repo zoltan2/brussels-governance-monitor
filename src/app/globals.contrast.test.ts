@@ -77,6 +77,15 @@ function readBlock(selector: string, inherit: Record<string, string> = {}): Reco
   return out;
 }
 
+/** Lit un jeton `--color-*` dans le bloc clair / sombre / impression. */
+function jeton(mode: 'clair' | 'sombre' | 'print', nom: string): string {
+  const cle = nom.replace(/^--color-/, '');
+  const bloc = mode === 'clair' ? LIGHT : mode === 'sombre' ? DARK : PRINT;
+  const val = bloc[cle];
+  if (!val) throw new Error(`Jeton introuvable : ${nom} (${mode})`);
+  return val;
+}
+
 function parseOklch(value: string): [number, number, number] {
   const m = value.match(/oklch\(\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)/);
   if (!m) throw new Error(`Valeur oklch illisible : ${value}`);
@@ -86,6 +95,7 @@ function parseOklch(value: string): [number, number, number] {
 const LIGHT = readBlock('@theme');
 const DARK = readBlock('.dark {', LIGHT);
 const MEDIA_DARK = readBlock(':root:not(.light-forced)', LIGHT);
+const PRINT = readBlock('@media print');
 const HC_LIGHT = readBlock('.high-contrast {', LIGHT);
 // Cascade réelle en sombre + contraste élevé : `.dark`, puis `.high-contrast`
 // (même spécificité, déclaré plus bas, donc il l'emporte), puis
@@ -268,5 +278,20 @@ describe('mode contraste élevé — promesse AAA (7:1)', () => {
       const ratio = contrast(palette[token], palette['neutral-50']);
       expect(ratio, `${token} = ${ratio.toFixed(2)}:1`).toBeGreaterThanOrEqual(7);
     }
+  });
+});
+
+describe('rampe de choroplèthe', () => {
+  for (const mode of ['clair', 'sombre'] as const) {
+    it(`${mode} : cinq paliers, écart de luminance ≥ 1,4:1 entre voisins`, () => {
+      const vals = [1, 2, 3, 4, 5].map((i) => jeton(mode, `--color-choro-${i}`));
+      for (let i = 0; i < 4; i++) expect(contrast(vals[i], vals[i + 1])).toBeGreaterThanOrEqual(1.4);
+    });
+  }
+  it('le contour ambre sur halo neutre atteint 3:1', () => {
+    expect(contrast(jeton('clair', '--color-status-delayed'), jeton('clair', '--color-neutral-50'))).toBeGreaterThanOrEqual(3);
+  });
+  it('impression : paliers en valeurs claires', () => {
+    expect(jeton('print', '--color-choro-1')).toBe(jeton('clair', '--color-choro-1'));
   });
 });

@@ -8,8 +8,8 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Un contrat ACS (agent contractuel subventionné) est réservé aux chercheurs d'emploi inscrits chez Actiris, en principe depuis au moins six mois, et engagés par une ASBL ou une administration sous convention avec Actiris. Environ dix mille postes existent à Bruxelles, dont 6 700 occupés, pour un budget de 276 millions d'euros en 2026. Aucun nouveau poste n'a été créé depuis 2015, hors petite enfance, et 550 postes d'insertion ont été supprimés fin 2023."
-summaryReviewed: "2026-09-19"
+summary: "Un contrat ACS (agent contractuel subventionné) est réservé aux chercheurs d'emploi inscrits chez Actiris, en principe depuis au moins six mois, et engagés par une ASBL ou une administration sous convention avec Actiris. Selon le ministre de l'Emploi, le dispositif occupe 5 500 travailleurs dans plus de 1 000 associations, pour 276 millions d'euros en 2026 ; le 21 septembre, il a exclu toute réduction des emplois. Selon BRUXEO, aucun poste n'a été créé depuis 2015, hors petite enfance."
+summaryReviewed: "2026-09-24"
 estimatedBudget: "~276 millions EUR en 2026 (budget ACS consolidé)"
 stakeholders:
   - "Actiris"
@@ -29,6 +29,21 @@ relatedSectors:
 relatedCommunes: []
 relatedFormationEvents: []
 sources:
+  - label: "COJ : carte blanche « Défendons les emplois ACS et le tissu associatif bruxellois », parue dans Le Soir (18 septembre 2026)"
+    url: "http://coj.be/carte-blanche-defendons-les-emplois-acs-et-le-tissu-associatif-bruxellois/"
+    accessedAt: "2026-09-24"
+  - label: "La Libre : « Il n'est pas question de réduire les emplois ACS », insiste le ministre (dépêche Belga, 21 septembre 2026)"
+    url: "https://www.lalibre.be/dernieres-depeches/2026/09/21/il-nest-pas-question-de-reduire-les-emplois-acs-insiste-le-ministre-l-hublet-4XTY34EYE5DYTCFHT6JWXAKVQY/"
+    accessedAt: "2026-09-24"
+  - label: "Parlement bruxellois : question d'actualité n° 13 sur la carte blanche de plus de 200 associations pour la défense des emplois ACS (21 septembre 2026)"
+    url: "https://www.parlement.brussels/weblex-quest-det/?moncode=170660&base=1&taal=fr"
+    accessedAt: "2026-09-24"
+  - label: "BRUZZ : Cristina Amboldi neemt ontslag als hoofd van Actiris (30 mars 2026)"
+    url: "https://www.bruzz.be/actua/economie/cristina-amboldi-neemt-ontslag-als-hoofd-van-actiris-2026-03-30"
+    accessedAt: "2026-09-24"
+  - label: "ONEM : l'ONEM publie le troisième monitoring des sorties du chômage après la réforme (17 septembre 2026)"
+    url: "https://www.onem.be/page/lonem-publie-le-troisieme-monitoring-des-sorties-du-chomage-apres-la-reforme"
+    accessedAt: "2026-09-24"
   - label: "CBCS — Le destin précaire des ACS bruxellois (fév. 2015)"
     url: "https://cbcs.be/le-destin-precaire-des-acs/"
     accessedAt: "2026-02-27"
@@ -55,7 +70,7 @@ sources:
     accessedAt: "2026-09-19"
   - label: "view.brussels : Inventaire des mesures d'aide à l'emploi en Région de Bruxelles-Capitale 2022"
     url: "https://www.actiris.brussels/media/ivfpjbtg/2022-10-view-brussels-inventaire-des-mesures-d-aide-%C3%A0-l-emploi_cpr-h-0AB51BC8.pdf"
-    accessedAt: "2026-09-19"
+    accessedAt: "2026-09-24"
   - label: "Arrêté du Gouvernement de la Région de Bruxelles-Capitale du 4 mars 2021 : subvention aux pouvoirs locaux, réforme ACS"
     url: "https://etaamb.openjustice.be/fr/arrete-du-gouvernement-de-la-region-de-bruxellescapit_n2021041414.html"
     accessedAt: "2026-09-19"
@@ -108,14 +123,20 @@ sources:
     url: "https://pro.guidesocial.be/articles/actualites/article/region-bruxelloise-le-budget-2026-adopte-les-aides-acs-dans-le-viseur"
     accessedAt: "2026-04-16"
 metrics:
+  - label: "Travailleurs ACS selon le ministre de l'Emploi"
+    value: "5 500"
+    unit: "travailleurs dans plus de 1 000 associations (réponse en plénière, 21 septembre 2026)"
+    source: "Ministre bruxellois de l'Emploi, via Belga"
+    date: "2026-09-21"
+  - label: "Travailleurs ACS Loi-programme (31/12/2021)"
+    value: "6 906"
+    unit: "personnes, soit 5 402 ETP (hors pouvoirs locaux)"
+    source: "view.brussels, inventaire 2022"
+    date: "2021-12-31"
   - label: "Postes ACS subsidisés (fin 2017)"
     value: "~10 000"
     source: "BRUXEO"
     date: "2017-12-31"
-  - label: "Postes actifs (estimation 2024)"
-    value: "~6 700"
-    source: "Actiris / MonASBL"
-    date: "2024-12-31"
   - label: "Employeurs ACS"
     value: "1 312"
     source: "CBCS / Actiris"
@@ -175,6 +196,12 @@ metrics:
     url: "https://www.rtbf.be/article/les-aides-menageres-se-mobilisent-a-bruxelles-mercredi-735-emplois-menaces-11726163"
     date: "2026-05-20"
 alerts:
+  - label: "Carte blanche de plus de 200 associations pour la défense des emplois ACS"
+    severity: warning
+    date: "2026-09-18"
+  - label: "Le ministre de l'Emploi exclut une réduction des emplois ACS"
+    severity: info
+    date: "2026-09-21"
   - label: "Non-marchand : manifestation pour un accord social et des investissements"
     severity: warning
     date: "2026-02-03"
@@ -207,7 +234,7 @@ faq:
         url: "https://www.monasbl.be/info/acs-une-aide-specifique-pour-le-non-marchand-bruxellois"
         accessedAt: "2026-06-17"
   - q: "Qui décide de la réforme des ACS ?"
-    a: "La compétence appartient à la **Région de Bruxelles-Capitale**. La 6e réforme de l'État a transféré la politique de l'emploi, dont les ACS, du fédéral aux Régions. La réforme est pilotée par le **gouvernement bruxellois** et mise en œuvre par **Actiris**. Sa traduction budgétaire est votée au **Parlement bruxellois**, tandis que les pouvoirs locaux (communes et CPAS) relèvent d'un volet de subvention distinct."
+    a: "La compétence appartient à la **Région de Bruxelles-Capitale**. La 6e réforme de l'État a transféré la politique de l'emploi, dont les ACS, du fédéral aux Régions. La déclaration de politique régionale du 13 février 2026 prévoit un **monitoring et une évaluation** du dispositif, pilotés par le **gouvernement bruxellois** et mis en œuvre par **Actiris**. Le 21 septembre 2026, le ministre de l'Emploi a déclaré qu'il n'était « pas question de réduire les emplois ACS ». Les budgets sont votés au **Parlement bruxellois** ; les pouvoirs locaux (communes et CPAS) relèvent d'un volet de subvention distinct."
     sources:
       - label: "MonASBL.be : Réforme ACS, quels changements pour les ASBL"
         url: "https://www.monasbl.be/nouvelles/les-aides-lemploi/reforme-acs-quels-changements-pour-les-asbl"
@@ -215,8 +242,14 @@ faq:
       - label: "Guide Social : le budget régional adopté, les aides ACS dans le viseur"
         url: "https://pro.guidesocial.be/articles/actualites/article/region-bruxelloise-le-budget-2026-adopte-les-aides-acs-dans-le-viseur"
         accessedAt: "2026-06-17"
+      - label: "La Libre : « Il n'est pas question de réduire les emplois ACS », insiste le ministre (dépêche Belga, 21 septembre 2026)"
+        url: "https://www.lalibre.be/dernieres-depeches/2026/09/21/il-nest-pas-question-de-reduire-les-emplois-acs-insiste-le-ministre-l-hublet-4XTY34EYE5DYTCFHT6JWXAKVQY/"
+        accessedAt: "2026-09-24"
+      - label: "Parlement bruxellois : Déclaration de politique régionale du 13 février 2026"
+        url: "https://www.parlement.brussels/wp-content/uploads/2026/02/Declaration-de-politique-2.pdf"
+        accessedAt: "2026-09-19"
   - q: "Pourquoi le secteur non marchand se mobilise-t-il sur les ACS ?"
-    a: "La réforme régionale fait passer les ACS d'un **soutien structurel** au secteur social vers une **logique d'activation**, où le poste sert de tremplin vers un emploi durable. Le secteur dénonce ce glissement, car les postes occupent souvent des fonctions permanentes et essentielles (aide à domicile, accueil de la petite enfance, cohésion sociale), ainsi qu'un sous-financement structurel et l'absence de création de nouveaux postes."
+    a: "Depuis la réforme régionale de 2015, les ACS sont passés d'un **soutien structurel** au secteur social vers une **logique d'activation**, où le poste sert de tremplin vers un emploi durable. Le secteur dénonce ce glissement, car les postes occupent souvent des fonctions permanentes et essentielles (aide à domicile, accueil de la petite enfance, cohésion sociale), ainsi qu'un sous-financement structurel et l'absence de création de nouveaux postes. Le 18 septembre 2026, une carte blanche de plus de 200 associations et des syndicats a demandé au gouvernement de renoncer à toute réforme, par crainte que le monitoring en cours ne prépare un recentrage du dispositif."
     sources:
       - label: "CBCS : le destin précaire des ACS bruxellois"
         url: "https://cbcs.be/le-destin-precaire-des-acs/"
@@ -224,6 +257,9 @@ faq:
       - label: "BX1 : des centaines de travailleurs du non marchand devant le Parlement bruxellois"
         url: "https://bx1.be/categories/news/des-centaines-de-travailleurs-du-non-marchand-en-colere-devant-le-parlement-bruxellois/"
         accessedAt: "2026-06-17"
+      - label: "COJ : carte blanche « Défendons les emplois ACS et le tissu associatif bruxellois », parue dans Le Soir (18 septembre 2026)"
+        url: "http://coj.be/carte-blanche-defendons-les-emplois-acs-et-le-tissu-associatif-bruxellois/"
+        accessedAt: "2026-09-24"
   - q: "Quelles sont les conditions pour obtenir un contrat ACS à Bruxelles ?"
     a: "Il faut être inscrit chez **Actiris** comme chercheur d'emploi inoccupé et, en règle générale, l'avoir été au moins **six mois** au cours de l'année précédant l'engagement, ou avoir perçu le revenu d'intégration ou l'aide sociale pendant six mois. Des exceptions existent notamment à partir de **40 ans**, pour les personnes handicapées et pour les postes dans l'enseignement ou l'accueil d'enfants de moins de 12 ans. Il faut aussi le diplôme ou l'expérience exigés pour la fonction, et une **attestation d'éligibilité** délivrée via My Actiris."
     sources:
@@ -254,19 +290,19 @@ faq:
       - label: "Moniteur belge : Arrêté du 20 novembre 2025, subvention aux pouvoirs locaux (réforme ACS)"
         url: "https://www.ejustice.just.fgov.be/cgi/article.pl?language=fr&numac_search=2026000021&lg_txt=F&caller=list&pd_search=2026-01-16"
         accessedAt: "2026-09-19"
-faqReviewed: "2026-09-19"
+faqReviewed: "2026-09-24"
 confidenceLevel: official
-lastModified: "2026-09-19"
-changeType: corrected
-changeSummary: "Ajout des conditions d'accès à un contrat ACS, côté travailleur et côté employeur. Correction : la DPR du 13 février 2026 prévoit un monitoring et une évaluation du système ACS, et non la « poursuite de la réforme » ; selon BRUXEO, aucun poste n'a été créé depuis 2015, hors petite enfance, et non depuis 2007."
-changeSummaryDate: "2026-09-19"
+lastModified: "2026-09-24"
+changeType: updated
+changeSummary: "ACS : le ministre de l'Emploi exclut toute réduction des emplois, après une carte blanche de plus de 200 associations. Le lundi 21 septembre, au Parlement bruxellois, il a chiffré le dispositif à 276 millions d'euros, plus de 1 000 associations et 5 500 travailleurs, et annoncé une concertation avec le secteur sur la base du questionnaire d'Actiris, clos le 13 septembre avec 92 % de réponses. Les associations signataires, soutenues par les syndicats, demandent au gouvernement de renoncer à toute réforme du dispositif."
+changeSummaryDate: "2026-09-24"
 ---
 
 ## Qu'est-ce que le dispositif ACS ?
 
 Les **Agents Contractuels Subventionnés** (ACS) constituent le principal mécanisme de soutien à l'emploi dans le secteur non marchand bruxellois. Le dispositif fonctionne sur un double levier : une **prime régionale** (indexée selon les barèmes de la fonction publique) et une **dispense des cotisations patronales de sécurité sociale de base** (réduction groupe-cible de l'ONSS). Les postes sont destinés aux demandeurs d'emploi inscrits chez Actiris, avec des conditions d'éligibilité liées à la durée de chômage, l'âge ou le handicap.
 
-À fin 2017, environ **10 000 postes** étaient subsidiés auprès de **1 312 employeurs** : plus de 7 000 dans les ASBL et administrations (postes « Loi-Programme ») et environ 2 500 dans les pouvoirs locaux. En 2024, le nombre de postes actifs est estimé à environ **6 700** — la différence s'explique par les postes non remplacés dans le délai de 6 mois imposé depuis 2015.
+À fin 2017, environ **10 000 postes** étaient subsidiés auprès de **1 312 employeurs** : plus de 7 000 dans les ASBL et administrations (postes « Loi-Programme ») et environ 2 500 dans les pouvoirs locaux. Fin 2021, le régime « Loi-programme », hors pouvoirs locaux, occupait **6 906 travailleurs**, soit 5 402 équivalents temps plein, selon view.brussels ; le ministre de l'Emploi parle de **5 500 travailleurs** en septembre 2026. Une grande partie de la baisse depuis 2017 tient au transfert des postes des communes et des CPAS à Bruxelles Pouvoirs locaux en 2021 (voir la section du 18-21 septembre 2026).
 
 ## Quelles sont les conditions pour un contrat ACS ?
 
@@ -284,7 +320,7 @@ Sur le **domicile**, Actiris exige dans ses pages et ses offres ACS d'habiter la
 
 **Côté employeur**, peuvent engager des ACS les ASBL (hors hôpitaux), les administrations régionales, communautaires et des commissions communautaires, les écoles et les sociétés immobilières de service public. L'activité doit être non marchande et exercée en Région bruxelloise. L'employeur signe une **convention avec Actiris** après accord des ministres bruxellois de l'Emploi et du Budget, puis dispose de six mois pour engager. Il reçoit une **prime régionale** et est dispensé des cotisations patronales de sécurité sociale de base. De nouveaux postes restent possibles dans des programmes ciblés : le protocole petite enfance 2021-2026 finance un équivalent temps plein ACS pour sept places de crèche créées. Dans les communes et les CPAS, le statut ACS a été en grande partie supprimé au 1er janvier 2021 ; il subsiste pour le plan Cigogne, la VGC, les contrats d'insertion et les anciens postes FBI.
 
-**Réforme** : la Déclaration de politique régionale du 13 février 2026 prévoit « un monitoring et une évaluation du système ACS ». Les associations avaient jusqu'au 13 septembre 2026 pour remplir un questionnaire d'Actiris envoyé le 16 juillet. Selon la CESSoC, fédération d'employeurs socioculturels, aucune information concrète sur une réforme n'existait au 5 août 2026.
+**Réforme** : la Déclaration de politique régionale du 13 février 2026 prévoit « un monitoring et une évaluation du système ACS ». Les associations avaient jusqu'au 13 septembre 2026 pour remplir un questionnaire d'Actiris envoyé le 16 juillet. Selon la CESSoC, fédération d'employeurs socioculturels, aucune information concrète sur une réforme n'existait au 5 août 2026. Le 21 septembre 2026, le ministre de l'Emploi a indiqué que le questionnaire s'était clôturé avec 92 % de réponses et qu'il n'était « pas question de réduire les emplois ACS » (voir la section du 18-21 septembre 2026).
 
 ## Historique et transfert de compétence
 
@@ -340,7 +376,7 @@ La Déclaration de Politique Régionale du 13 février 2026 prévoit que « le G
 
 ## Budget Actiris 2026 adapté (avril 2026)
 
-Le **26 mars 2026**, le Comité de gestion d'Actiris a rejeté une première mouture du budget 2026 lors d'une réunion décrite comme « extrêmement tendue » : les représentants des employeurs (Beci, UCM) et les partenaires sociaux (syndicats, non-marchand) n'ont pu s'accorder sur des économies de **40 millions EUR** imposées aux politiques d'emploi par le nouveau gouvernement bruxellois. La directrice générale **Cristina Amboldi**, estimant ne pas être soutenue, a quitté la réunion puis **présenté sa démission le 30 mars 2026**. Son adjointe Caroline Mancel a terminé son mandat au 31 mars. La gestion courante est assurée par le Comité de gestion pendant la procédure de recrutement de la nouvelle direction.
+Le **26 mars 2026**, le Comité de gestion d'Actiris a rejeté une première mouture du budget 2026 lors d'une réunion décrite comme « extrêmement tendue » : les représentants des employeurs (Beci, UCM) et les partenaires sociaux (syndicats, non-marchand) n'ont pu s'accorder sur des économies de **40 millions EUR** imposées aux politiques d'emploi par le nouveau gouvernement bruxellois. La directrice générale **Cristina Amboldi**, estimant ne pas être soutenue, a quitté la réunion puis présenté sa démission, **annoncée le lundi 30 mars 2026** par le cabinet du ministre de l'Emploi. Son adjointe Caroline Mancel a terminé son mandat au 31 mars. La gestion courante est assurée par le Comité de gestion pendant la procédure de recrutement de la nouvelle direction.
 
 Le **jeudi 16 avril 2026**, le gouvernement bruxellois s'est accordé sur un budget Actiris 2026 adapté. Selon le ministre de l'Emploi **Laurent Hublet** (Les Engagés), l'effort initial de 40 M€ est ramené à **~28 M€** en 2026 (−12 M€). Concessions principales concernant les ACS et le non-marchand :
 
@@ -354,10 +390,34 @@ La prime **Activa.brussels** est confirmée supprimée, remplacée par un nouvea
 
 Le budget adapté doit encore être présenté au Comité de gestion d'Actiris et traduit dans un ajustement budgétaire régional voté au Parlement bruxellois.
 
+## Monitoring des ACS : une carte blanche de plus de 200 associations, et la réponse du ministre (18-21 septembre 2026)
+
+Le vendredi 18 septembre 2026, Le Soir a publié une carte blanche intitulée « Défendons les emplois ACS et le tissu associatif bruxellois », portée par la Plateforme ACS. Elle est signée par plus de **200 associations et organisations** bruxelloises, par la CNE, le SETCa-FGTB, la FGTB Bruxelles et la CSC Bruxelles, ainsi que par 157 travailleurs à titre individuel. Les signataires chiffrent le dispositif à 5 600 emplois. Ils s'inquiètent du questionnaire adressé en juillet aux associations, dont « les finalités » et « le statut des réponses recueillies restent cependant peu explicites », et craignent qu'il prépare un « recentrage » du dispositif ou sa réorientation vers l'activation des demandeurs d'emploi. Ils demandent au gouvernement bruxellois de « renoncer à toute réforme » des ACS, tout en précisant ne pas contester « le principe d'un suivi ».
+
+Le lundi 21 septembre 2026, interrogé en séance plénière du Parlement bruxellois par la députée Farida Tahar (Ecolo), le ministre bruxellois de l'Emploi, **Laurent Hublet** (Les Engagés), a déclaré : « Je souhaite rassurer pleinement le secteur : Il n'est pas question de réduire les emplois ACS. » Selon lui, le dispositif représente un budget de **276 millions d'euros** et soutient plus de **1 000 associations** et **5 500 travailleurs**. Il indique que le questionnaire envoyé par Actiris s'est clôturé le 13 septembre 2026 avec un taux de réponse de 92 %, et que ces données seront croisées avec celles dont dispose Actiris avant une concertation avec le secteur non marchand. L'évaluation, a-t-il ajouté, ne remet pas en cause l'utilité du dispositif.
+
+La question figure dans la base du Parlement (question d'actualité n° 13, réponse du 21 septembre 2026). Le compte rendu de la séance n'était pas encore publié au 24 septembre 2026 : les propos du ministre sont cités d'après la dépêche de l'agence Belga.
+
+### Combien d'emplois ACS ? Des chiffres qui ne comptent pas la même chose
+
+Les ordres de grandeur publiés varient du simple au double parce qu'ils ne portent ni sur la même date ni sur le même périmètre.
+
+| Chiffre | Date | Ce qu'il compte | Source |
+|---|---|---|---|
+| environ 10 000 postes | fin 2017 | postes subsidiés, y compris environ 2 500 dans les communes et les CPAS (2 537 personnes selon view.brussels) | BRUXEO |
+| 6 906 travailleurs, soit 5 402 équivalents temps plein | 31 décembre 2021 | régime « Loi-programme » (ASBL, administrations, écoles), hors pouvoirs locaux | view.brussels |
+| 5 600 emplois | septembre 2026 | périmètre non précisé | carte blanche des associations |
+| 5 500 travailleurs, plus de 1 000 associations | septembre 2026 | périmètre non précisé | ministre de l'Emploi |
+
+La baisse entre 2017 et 2021 s'explique en grande partie par la réforme des ACS dans les pouvoirs locaux : depuis le 1er janvier 2021, 85 % de ces postes ont été transférés en gestion et en budget à Bruxelles Pouvoirs locaux, et seuls 10 % sont encore gérés par Actiris, selon view.brussels. L'écart entre les 6 906 travailleurs de 2021 et les 5 500 annoncés en 2026 n'est en revanche expliqué par aucune des sources consultées au 24 septembre 2026 : ni le ministre ni la carte blanche ne précisent s'il s'agit de personnes ou d'équivalents temps plein, ni si les administrations et les écoles sont incluses.
+
+Sources : [COJ, texte intégral de la carte blanche parue dans Le Soir (18 septembre 2026)](http://coj.be/carte-blanche-defendons-les-emplois-acs-et-le-tissu-associatif-bruxellois/) ; [La Libre, dépêche Belga (21 septembre 2026)](https://www.lalibre.be/dernieres-depeches/2026/09/21/il-nest-pas-question-de-reduire-les-emplois-acs-insiste-le-ministre-l-hublet-4XTY34EYE5DYTCFHT6JWXAKVQY/) ; [Parlement bruxellois, question d'actualité n° 13 (21 septembre 2026)](https://www.parlement.brussels/weblex-quest-det/?moncode=170660&base=1&taal=fr) ; [view.brussels, inventaire des mesures d'aide à l'emploi 2022](https://www.actiris.brussels/media/ivfpjbtg/2022-10-view-brussels-inventaire-des-mesures-d-aide-%C3%A0-l-emploi_cpr-h-0AB51BC8.pdf). Confiance : *official* pour la tenue de la séance et la question ; *estimated* pour les propos du ministre, cités d'après une dépêche d'agence en l'absence du compte rendu.
+
 ## Enjeux à suivre
 
 - **Accord social non-marchand** : aboutira-t-il avant 2028, comme le demandent les syndicats ?
 - **Différentiel ACS** : la Région revalorisera-t-elle les primes pour combler l'écart salarial ?
 - **Création de postes** : le gel en vigueur depuis 2015 sera-t-il levé pour répondre aux besoins croissants (aide à domicile, accueil de la petite enfance, cohésion sociale) ?
 - **Articulation Emploi/Formation** : la scission COCOF Hublet/Dilliès permettra-t-elle un pilotage cohérent d'Actiris et Bruxelles Formation ?
-- **Impact de la réforme du chômage** : les 42 000 exclusions prévues augmenteront la pression sur le secteur non marchand (CPAS, aide sociale), qui manque déjà de moyens. En février 2026, **20 792 inscrits CPAS** figurent parmi les DEI (+17,5 % sur un an) — un signal avant-coureur de la vague attendue dès juillet 2026 (source : DH / Actiris, 5 mars 2026)
+- **Impact de la réforme du chômage** : selon l'ONEM, 26 986 Bruxellois sont arrivés en fin de droit aux allocations entre janvier et juin 2026, et une majorité d'entre eux restent inscrits chez Actiris ; la pression se reporte sur les CPAS et sur le secteur non marchand (voir le dossier [CPAS bruxellois](/fr/dossiers/cpas-bruxellois)).
+- **Monitoring ACS** : quels résultats tirés du questionnaire clos le 13 septembre 2026, et selon quel calendrier de concertation ? Aucune date n'a été donnée par le ministre dans sa réponse du 21 septembre, telle que rapportée par Belga.

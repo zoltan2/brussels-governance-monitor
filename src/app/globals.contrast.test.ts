@@ -52,11 +52,8 @@ function contrast(a: string, b: string): number {
 
 // -------------------------------------------------------------- extraction --
 
-/**
- * Lit un bloc CSS et renvoie les tokens `--color-*` qu'il déclare, en héritant
- * du bloc de base (`@theme`) pour ce qu'il ne redéfinit pas.
- */
-function readBlock(selector: string, inherit: Record<string, string> = {}): Record<string, string> {
+/** Isole le texte brut d'un bloc CSS (accolades comprises), délimité par comptage de profondeur. */
+function blockBody(selector: string): string {
   const start = css.indexOf(selector);
   if (start === -1) throw new Error(`Bloc CSS introuvable : ${selector}`);
   const open = css.indexOf('{', start);
@@ -69,7 +66,15 @@ function readBlock(selector: string, inherit: Record<string, string> = {}): Reco
       break;
     }
   }
-  const body = css.slice(open, end);
+  return css.slice(open, end);
+}
+
+/**
+ * Lit un bloc CSS et renvoie les tokens `--color-*` qu'il déclare, en héritant
+ * du bloc de base (`@theme`) pour ce qu'il ne redéfinit pas.
+ */
+function readBlock(selector: string, inherit: Record<string, string> = {}): Record<string, string> {
+  const body = blockBody(selector);
   const out: Record<string, string> = { ...inherit };
   for (const m of body.matchAll(/--color-([a-z0-9-]+):\s*(oklch\([^)]*\))/g)) {
     out[m[1]] = m[2];
@@ -293,5 +298,12 @@ describe('rampe de choroplèthe', () => {
   });
   it('impression : paliers en valeurs claires', () => {
     expect(jeton('print', '--color-choro-1')).toBe(jeton('clair', '--color-choro-1'));
+  });
+  it('impression : les paliers portent !important (sinon le sombre système gagne, spécificité 0,2,0)', () => {
+    const printBody = blockBody('@media print');
+    for (let i = 1; i <= 5; i++) {
+      const re = new RegExp(`--color-choro-${i}:\\s*oklch\\([^)]*\\)\\s*!important`);
+      expect(printBody, `--color-choro-${i} sans !important dans @media print`).toMatch(re);
+    }
   });
 });

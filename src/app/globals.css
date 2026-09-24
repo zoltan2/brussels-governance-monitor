@@ -356,14 +356,18 @@ mark {
   }
 
   /* Rampe de choroplèthe : valeurs claires même si l'impression part du mode
-     sombre (papier blanc). */
+     sombre (papier blanc). `!important` obligatoire : `:root,.dark` ici est en
+     spécificité (0,1,0), et perd sinon face à `:root:not(.light-forced)`
+     (0,2,0) dans `@media (prefers-color-scheme: dark)` quand le navigateur
+     rapporte encore le sombre à l'impression (même piège que .high-contrast
+     documenté plus haut). */
   :root,
   .dark {
-    --color-choro-1: oklch(0.95 0.02 250);
-    --color-choro-2: oklch(0.82 0.05 250);
-    --color-choro-3: oklch(0.67 0.08 250);
-    --color-choro-4: oklch(0.52 0.09 250);
-    --color-choro-5: oklch(0.36 0.08 250);
+    --color-choro-1: oklch(0.95 0.02 250) !important;
+    --color-choro-2: oklch(0.82 0.05 250) !important;
+    --color-choro-3: oklch(0.67 0.08 250) !important;
+    --color-choro-4: oklch(0.52 0.09 250) !important;
+    --color-choro-5: oklch(0.36 0.08 250) !important;
   }
 
   /* Crisis counter: fix white-on-white text */

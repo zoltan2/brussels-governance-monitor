@@ -2,7 +2,8 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { render, cleanup, screen, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { NextIntlClientProvider } from 'next-intl';
 import * as matchers from 'vitest-axe/matchers';
 import { axe } from 'vitest-axe';
@@ -72,24 +73,48 @@ describe('VerifiedBadge', () => {
     expect(container.textContent).not.toContain('Vérifié');
   });
 
-  it('explique la date au clavier comme au toucher, et se referme par Échap', () => {
-    rendre('fr', '2026-09-20');
-    const bouton = screen.getByRole('button', { name: 'Que signifie « vérifié » ?' });
-    const bulle = screen.getByRole('tooltip', { hidden: true });
-    expect(bouton.getAttribute('aria-describedby')).toBe(bulle.id);
-    expect(bulle.textContent).toMatch(/que le texte ait changé ou non/);
-    expect(bulle.className).toContain('hidden');
+  it.each([
+    ['fr', 'Que signifie « vérifié » ?', /que le texte ait changé ou non/],
+    ['nl', 'Wat betekent „gecontroleerd”?', /of de tekst nu veranderd is of niet/],
+  ] as const)('%s : explication en divulgation native, ouverte puis refermée par son summary', (locale, nom, texte) => {
+    const { container } = rendre(locale, '2026-09-20');
+    const details = container.querySelector('details');
+    const summary = container.querySelector('summary');
+    expect(details).not.toBeNull();
+    expect(summary).not.toBeNull();
+    // Aucun ARIA ajouté : ni role="tooltip", ni aria-expanded écrit à la main.
+    expect(container.querySelector('[role="tooltip"]')).toBeNull();
+    expect(container.querySelector('[aria-expanded]')).toBeNull();
+    // Nom accessible complet, « ? » visible décoratif.
+    expect(summary!.textContent).toContain(nom);
+    expect(summary!.querySelector('[aria-hidden="true"]')?.textContent).toBe('?');
+    expect(details!.textContent).toMatch(texte);
 
-    fireEvent.focus(bouton);
-    expect(bulle.className).not.toMatch(/\bhidden\b/);
-    fireEvent.keyDown(bouton, { key: 'Escape' });
-    expect(bulle.className).toMatch(/\bhidden\b/);
-    fireEvent.click(bouton);
-    expect(bouton.getAttribute('aria-expanded')).toBe('true');
+    expect(details!.open).toBe(false);
+    fireEvent.click(summary!);
+    expect(details!.open).toBe(true);
+    fireEvent.click(summary!);
+    expect(details!.open).toBe(false);
   });
 
-  it('ne présente aucune violation axe', async () => {
+  it('fonctionne sans JavaScript : le HTML serveur porte déjà le <details> et son texte', () => {
+    const html = renderToStaticMarkup(
+      <NextIntlClientProvider locale="fr" messages={fr} timeZone="Europe/Brussels">
+        <VerifiedBadge lastVerified="2026-09-20" locale="fr" />
+      </NextIntlClientProvider>,
+    );
+    expect(html).toMatch(/^<div[^>]*>/);
+    expect(html).toContain('<details');
+    expect(html).toContain('<summary');
+    expect(html).toContain('que le texte ait changé ou non');
+    expect(html).not.toContain('role="tooltip"');
+  });
+
+  it('ne présente aucune violation axe, fermé comme ouvert', async () => {
     const { container } = rendre('fr', '2026-09-20');
+    expect(await axe(container)).toHaveNoViolations();
+    fireEvent.click(container.querySelector('summary')!);
+    expect(container.querySelector('details')!.open).toBe(true);
     expect(await axe(container)).toHaveNoViolations();
   });
 });

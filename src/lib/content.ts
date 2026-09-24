@@ -1120,6 +1120,13 @@ export function getPublishedDossierCards(): DossierCard[] {
   return dossierCards.filter((c) => !c.draft);
 }
 
+/** Même raison d'être que getPublishedDomainCards, pour les fiches secteur :
+ * titre d'une vérification de secteur en retard (src/lib/a-relire.ts). */
+export function getPublishedSectorCards(): SectorCard[] {
+  const { sectorCards } = getCollections();
+  return sectorCards.filter((c) => !c.draft);
+}
+
 /** Toutes les vérifications, toutes langues, pour le calcul des échéances
  * dépassées (src/lib/a-relire.ts, via src/lib/verification-due.ts). */
 export function getAllVerifications(): Verification[] {

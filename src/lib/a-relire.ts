@@ -47,9 +47,11 @@ import {
   getLocalizedSlug,
   getPublishedDomainCards,
   getPublishedDossierCards,
+  getPublishedSectorCards,
   idDeVerification,
   type DomainCard,
   type DossierCard,
+  type SectorCard,
   type Verification,
 } from './content';
 import type { Locale } from '@/i18n/routing';
@@ -86,6 +88,9 @@ export interface ElementsARelire {
 interface Cartes {
   domainCards: DomainCard[];
   dossierCards: DossierCard[];
+  /** Seulement pour titrer une vérification de secteur en retard. Absent :
+   * le titre reste inconnu (null), jamais deviné. */
+  sectorCards?: SectorCard[];
 }
 
 const LOCALES_CONNUES: readonly Locale[] = ['fr', 'nl', 'en', 'de'];
@@ -141,6 +146,13 @@ function trouverDomaine(cartes: DomainCard[], locale: string, slug: string): Dom
     cartes.find((c) => c.locale === locale && c.slug === slug) ??
     // Repli FR : la page publiée à cette URL montre le contenu FR faute de
     // traduction, c'est donc bien cette fiche qui doit être relue.
+    cartes.find((c) => c.locale === 'fr' && c.slug === slug)
+  );
+}
+
+function trouverSecteur(cartes: SectorCard[], locale: string, slug: string): SectorCard | undefined {
+  return (
+    cartes.find((c) => c.locale === locale && c.slug === slug) ??
     cartes.find((c) => c.locale === 'fr' && c.slug === slug)
   );
 }
@@ -386,14 +398,19 @@ export function buildVerificationsEnRetard(
   const elements: ElementARelire[] = [];
   for (const v of bilan.verificationsEnRetard) {
     const [idVerif, locale] = v.fichier.split(':');
-    const domaine =
-      v.cardType === 'domain' ? trouverDomaine(cartes.domainCards, locale, v.cardSlug) : undefined;
+    // Le registre vérifie des fiches domaine ET secteur (cardType au schéma).
+    const fiche =
+      v.cardType === 'domain'
+        ? trouverDomaine(cartes.domainCards, locale, v.cardSlug)
+        : v.cardType === 'sector'
+          ? trouverSecteur(cartes.sectorCards ?? [], locale, v.cardSlug)
+          : undefined;
     elements.push({
       id: identifiant(v.cardType === 'domain' ? 'domain' : 'inconnue', locale, v.cardSlug),
       collection: v.cardType === 'domain' ? 'domain' : 'inconnue',
       slug: v.cardSlug,
       locale,
-      titre: domaine?.title ?? null,
+      titre: fiche?.title ?? null,
       motif: `Prochaine vérification prévue le ${v.echeance}, non faite (dernière vérification le ${v.date}). Revérifier les faits contre les sources, puis enregistrer une nouvelle vérification.`,
       ageDays: v.joursDeRetard,
       lien: `/${locale}/verifications/${idVerif}`,
@@ -446,6 +463,7 @@ export async function chargerElementsARelire(today?: string): Promise<ElementsAR
   const cartes: Cartes = {
     domainCards: getPublishedDomainCards(),
     dossierCards: getPublishedDossierCards(),
+    sectorCards: getPublishedSectorCards(),
   };
   return getElementsARelire(rapport, cartes, getAllVerifications(), today);
 }

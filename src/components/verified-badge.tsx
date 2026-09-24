@@ -34,7 +34,8 @@ export function VerifiedBadge({ lastVerified, locale }: VerifiedBadgeProps) {
   const date = formatDate(`${jour}T12:00:00Z`, locale);
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs font-medium text-neutral-700">
+    // <div>, pas <span> : ExplainTip rend un <details>, contenu de flux.
+    <div className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs font-medium text-neutral-700">
       <span>
         {t.rich('verifiedOn', {
           date,
@@ -42,6 +43,6 @@ export function VerifiedBadge({ lastVerified, locale }: VerifiedBadgeProps) {
         })}
       </span>
       <ExplainTip label={t('verifiedExplainLabel')} text={t('verifiedExplain')} />
-    </span>
+    </div>
   );
 }

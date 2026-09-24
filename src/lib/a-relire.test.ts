@@ -11,7 +11,7 @@ import {
 } from './a-relire';
 import { SUMMARY_MAX_AGE_DAYS } from './summary-freshness';
 import type { RapportSeo, ActionSuggeree, GscDonnees } from './seo-report';
-import type { DomainCard, DossierCard, Verification } from './content';
+import type { DomainCard, DossierCard, SectorCard, Verification } from './content';
 
 // --- Fixtures ---------------------------------------------------------
 
@@ -524,6 +524,31 @@ describe('buildVerificationsEnRetard', () => {
     expect(el.lien).toBe('/fr/verifications/budget-2026-03-06');
     expect(el.cheminFichier).toBeNull();
     expect(el.motif).toContain('2026-04-06');
+  });
+
+  it('titre aussi une vérification de fiche secteur, sans la confondre avec un domaine du même slug', () => {
+    const secteur = { title: 'Enseignement fondamental', slug: 'education', locale: 'fr', draft: false } as SectorCard;
+    const cartes = {
+      domainCards: [domainCard({ slug: 'education', title: 'Éducation (domaine)' })],
+      dossierCards: [] as DossierCard[],
+      sectorCards: [secteur],
+    };
+    const [el] = buildVerificationsEnRetard(
+      cartes,
+      [verification({ cardType: 'sector', cardSlug: 'education', date: H('2026-03-06') })],
+      '2026-09-24',
+    );
+    expect(el.titre).toBe('Enseignement fondamental');
+    expect(el.lien).toBe('/fr/verifications/education-2026-03-06');
+  });
+
+  it("laisse le titre inconnu (null) quand la fiche secteur n'est pas fournie, sans le deviner", () => {
+    const [el] = buildVerificationsEnRetard(
+      AUCUNE_CARTE,
+      [verification({ cardType: 'sector', cardSlug: 'education' })],
+      '2026-09-24',
+    );
+    expect(el.titre).toBeNull();
   });
 
   it("ignore une vérification dont l'échéance a été honorée par une vérification plus récente", () => {

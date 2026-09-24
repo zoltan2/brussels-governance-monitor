@@ -77,6 +77,56 @@ function formaterCellule(valeur: string | number, locale: Locale): string {
   return typeof valeur === 'number' ? formaterNombre(valeur, locale) : valeur;
 }
 
+export type LegendeSourceProps = {
+  locale: Locale;
+  indicateur: string;
+  periode: string;
+  provenance: Provenance;
+};
+
+/**
+ * Légende de provenance commune aux figures ZRU : indicateur, période et les 7 champs de
+ * provenance (producteur, url, mise à jour de la source avec repli localisé « inconnue »,
+ * date d'extraction localisée, licence, modifications, confiance). Extrait du figcaption de
+ * FigureZru pour être réutilisé par des figures qui n'utilisent pas son cadre SVG (ex. tableaux
+ * de rangs).
+ */
+export function LegendeSource({ locale, indicateur, periode, provenance }: LegendeSourceProps): ReactElement {
+  const l = L[locale];
+  const sourceMiseAJour = provenance.sourceMiseAJour?.trim();
+  const sourceMiseAJourNode = sourceMiseAJour ? (
+    <time dateTime={sourceMiseAJour}>{formatDate(sourceMiseAJour, locale)}</time>
+  ) : (
+    <span>{l.inconnue}</span>
+  );
+
+  return (
+    <figcaption className="mt-3 text-xs leading-relaxed text-neutral-600">
+      <span className="font-medium">
+        {indicateur}, {periode}.
+      </span>{' '}
+      {l.source} :{' '}
+      <a
+        href={provenance.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-brand-700 underline underline-offset-2 [overflow-wrap:anywhere] hover:text-brand-900"
+      >
+        {provenance.producteur}
+      </a>{' '}
+      ({l.miseAJour} : {sourceMiseAJourNode} ; {l.licence} : {provenance.licence}),{' '}
+      {l.extrait} <time dateTime={provenance.extraitLe}>{formatDate(provenance.extraitLe, locale)}</time> ; {l.confiance}{' '}
+      : {LIBELLES_CONFIANCE[locale][provenance.confiance]}.
+      {provenance.modifications.length > 0 && (
+        <>
+          {' '}
+          {l.modifs} : {provenance.modifications.join(' ; ')}.
+        </>
+      )}
+    </figcaption>
+  );
+}
+
 export type FigureZruProps = {
   /** Préfixe des identifiants DOM, pour distinguer plusieurs figures sur une même page. */
   idBase: string;
@@ -122,13 +172,6 @@ export function FigureZru(p: FigureZruProps): ReactElement {
       )
     : svgSource;
 
-  const sourceMiseAJour = p.provenance.sourceMiseAJour?.trim();
-  const sourceMiseAJourNode = sourceMiseAJour ? (
-    <time dateTime={sourceMiseAJour}>{formatDate(sourceMiseAJour, p.locale)}</time>
-  ) : (
-    <span>{l.inconnue}</span>
-  );
-
   return (
     <figure aria-labelledby={idTitre} className="my-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4">
       <div className="mb-3">
@@ -144,29 +187,7 @@ export function FigureZru(p: FigureZruProps): ReactElement {
 
       {p.legende}
 
-      <figcaption className="mt-3 text-xs leading-relaxed text-neutral-600">
-        <span className="font-medium">
-          {p.indicateur}, {p.periode}.
-        </span>{' '}
-        {l.source} :{' '}
-        <a
-          href={p.provenance.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-brand-700 underline underline-offset-2 [overflow-wrap:anywhere] hover:text-brand-900"
-        >
-          {p.provenance.producteur}
-        </a>{' '}
-        ({l.miseAJour} : {sourceMiseAJourNode} ; {l.licence} : {p.provenance.licence}),{' '}
-        {l.extrait} <time dateTime={p.provenance.extraitLe}>{formatDate(p.provenance.extraitLe, p.locale)}</time> ; {l.confiance}{' '}
-        : {LIBELLES_CONFIANCE[p.locale][p.provenance.confiance]}.
-        {p.provenance.modifications.length > 0 && (
-          <>
-            {' '}
-            {l.modifs} : {p.provenance.modifications.join(' ; ')}.
-          </>
-        )}
-      </figcaption>
+      <LegendeSource locale={p.locale} indicateur={p.indicateur} periode={p.periode} provenance={p.provenance} />
 
       <details className="mt-3 text-sm">
         <summary className="cursor-pointer text-brand-700 underline">{l.donnees}</summary>

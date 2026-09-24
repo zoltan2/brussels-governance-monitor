@@ -60,6 +60,12 @@ export interface SlugRedirect301 {
   to: string;
 }
 
+// Renommer une fiche : le contrôle reconnaît le renommage via `git diff -M`
+// (similarité ≥ 50 %). Si le texte est aussi fortement réécrit dans le même
+// commit, git y voit une suppression plus une création, et le contrôle demande
+// « une décision explicite » : ajouter ici la redirection ancienne → nouvelle
+// adresse, exactement comme pour un renommage simple. Plus sûr encore : renommer
+// dans un commit, réécrire dans le suivant.
 export const SLUG_REDIRECTS_301: ReadonlyArray<SlugRedirect301> = [
   // Aucune migration éditoriale en cours. Ajouter ici page par page.
 ];

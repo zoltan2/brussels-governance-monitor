@@ -686,7 +686,9 @@ export function checkSlugRedirects(input: SlugRedirectInput): Violation[] {
       message:
         `${old.url} n'est plus servie et sa fiche (${old.file}) a disparu. Décision explicite requise : ` +
         `soit une redirection dans SLUG_REDIRECTS_301, ex. { from: '${old.url}', to: '${example}' }, ` +
-        `soit une entrée { path: '${old.url}', raison: '…' } dans URLS_RETIREES (src/lib/redirects-301.ts).`,
+        `soit une entrée { path: '${old.url}', raison: '…' } dans URLS_RETIREES (src/lib/redirects-301.ts). ` +
+        `S'il s'agit d'un RENOMMAGE (fichier renommé et texte fortement réécrit dans le même commit, que git ne ` +
+        `reconnaît plus comme renommage), la bonne réponse est la redirection vers la nouvelle adresse.`,
     });
   }
 

@@ -29,7 +29,7 @@ const T: Record<
     cap: 'Taux régional, taux national et rapport',
     cols: ['Région', 'Taux régional (%)', 'Taux national (%)', 'Rapport'],
     legBxl: 'Bruxelles-Capitale',
-    legAutres: 'Autres régions de la capitale',
+    legAutres: 'Régions des autres capitales',
     legRef: 'Rapport de 1 (même taux que le pays)',
   },
   nl: {
@@ -41,7 +41,7 @@ const T: Record<
     cap: 'Regionaal cijfer, nationaal cijfer en verhouding',
     cols: ['Regio', 'Regionaal cijfer (%)', 'Nationaal cijfer (%)', 'Verhouding'],
     legBxl: 'Brussels Hoofdstedelijk Gewest',
-    legAutres: 'Andere regio’s van de hoofdstad',
+    legAutres: 'Regio’s van de andere hoofdsteden',
     legRef: 'Verhouding van 1 (zelfde cijfer als het land)',
   },
   en: {
@@ -53,7 +53,7 @@ const T: Record<
     cap: 'Regional rate, national rate and ratio',
     cols: ['Region', 'Regional rate (%)', 'National rate (%)', 'Ratio'],
     legBxl: 'Brussels-Capital Region',
-    legAutres: 'Other capitals’ regions',
+    legAutres: 'Regions of the other capitals',
     legRef: 'Ratio of 1 (same rate as the country)',
   },
   de: {
@@ -65,7 +65,7 @@ const T: Record<
     cap: 'Regionale Quote, Landesquote und Verhältnis',
     cols: ['Region', 'Regionale Quote (%)', 'Landesquote (%)', 'Verhältnis'],
     legBxl: 'Region Brüssel-Hauptstadt',
-    legAutres: 'Andere Regionen der Hauptstadt',
+    legAutres: 'Regionen der anderen Hauptstädte',
     legRef: 'Verhältnis von 1 (gleiche Quote wie das Land)',
   },
 };

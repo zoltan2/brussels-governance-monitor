@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { UnsubscribeSurvey } from '@/components/unsubscribe-survey';
-import { DOMAIN_TOPICS, SECTOR_TOPICS, COMMUNE_TOPICS, ENGAGEMENT_TOPICS } from '@/lib/resend';
+import { DOMAIN_TOPICS, SECTOR_TOPICS, COMMUNE_TOPICS, ENGAGEMENT_TOPICS } from '@/lib/subscription-topics';
 
 const LOCALE_OPTIONS = [
   { value: 'fr', label: 'Français' },

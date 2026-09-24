@@ -84,6 +84,8 @@ export type FigureZruProps = {
   resumeSvg: string;
   /** Élément SVG unique (carte ou graphique) ; reçoit role="img" et un titre/desc accessibles. */
   svg: ReactNode;
+  /** Légende visuelle facultative (motifs, tirets…) rendue en HTML juste après le SVG, jamais dans le SVG lui-même. */
+  legende?: ReactNode;
   tableau: { caption: string; colonnes: string[]; lignes: (string | number)[][] };
 };
 
@@ -134,6 +136,8 @@ export function FigureZru(p: FigureZruProps): ReactElement {
       </div>
 
       {svgAccessible}
+
+      {p.legende}
 
       <figcaption className="mt-3 text-xs leading-relaxed text-neutral-600">
         <span className="font-medium">

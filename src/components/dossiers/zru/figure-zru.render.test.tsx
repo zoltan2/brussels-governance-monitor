@@ -137,6 +137,18 @@ describe('FigureZru', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
+  it('légende : rendue dans la figure si fournie, absente du rendu si omise', () => {
+    const { container, rerender } = render(
+      <FigureZru {...props} legende={<ul data-testid="legende"><li>Trait plein</li></ul>} />,
+    );
+    const figure = container.querySelector('figure')!;
+    expect(figure.querySelector('[data-testid="legende"]')).not.toBeNull();
+    expect(figure.textContent).toContain('Trait plein');
+
+    rerender(<FigureZru {...props} />);
+    expect(container.querySelector('[data-testid="legende"]')).toBeNull();
+  });
+
   it('passe axe', async () => {
     const { container } = render(<FigureZru {...props} />);
     expect(await axe(container)).toHaveNoViolations();

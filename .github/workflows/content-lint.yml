@@ -44,6 +44,14 @@ on:
       # fiches que la PR ne touche pas : il doit relancer le contrôle des liens.
       - 'src/lib/internal-links.ts'
       - 'src/i18n/routing.ts'
+      # Table des redirections permanentes et garde des slugs de dossiers : une
+      # PR qui ne touche que la table peut casser une URL publique.
+      - 'src/lib/redirects-301.ts'
+      - 'src/lib/slug-redirects.ts'
+      # slug-redirects.ts reproduit le routage des dossiers : une modification
+      # de ce routage doit relancer la garde (revue de la PR #589).
+      - 'src/lib/content.ts'
+      - 'src/app/*/dossiers/**'
       - '.github/workflows/content-lint.yml'
 
 jobs:
@@ -90,6 +98,11 @@ jobs:
       #
       # Le label `skip-lastmodified-check` reste lu ici, car un correctif publié
       # le même jour que la fiche qu'il corrige ne peut pas faire bouger la date.
+      #
+      # run.sh lance aussi, en premier et même sans .mdx modifié, le contrôle des
+      # slugs de dossiers : une URL servie sur la base et perdue par la PR exige
+      # son entrée dans src/lib/redirects-301.ts (règle MANDATORY de
+      # velite.config.ts, restée sans garde jusqu'au 24/09/2026).
       - name: Phrases temporelles, sources vides, lastModified
         env:
           SKIP_LASTMODIFIED: ${{ contains(github.event.pull_request.labels.*.name, 'skip-lastmodified-check') && '1' || '0' }}

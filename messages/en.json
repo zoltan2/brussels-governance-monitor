@@ -2339,6 +2339,11 @@
     "accessedAt": "accessed on {date}",
     "metrics": "Key figures",
     "alerts": "Alerts",
+    "alertSeverity": {
+      "info": "Information",
+      "warning": "Warning",
+      "critical": "Critical"
+    },
     "relatedDomains": "Related domains",
     "relatedSectors": "Related sectors",
     "relatedCommunes": "Related municipalities",

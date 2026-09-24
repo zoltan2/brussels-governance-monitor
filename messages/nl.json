@@ -2360,6 +2360,11 @@
     "accessedAt": "geraadpleegd op {date}",
     "metrics": "Kerncijfers",
     "alerts": "Waarschuwingen",
+    "alertSeverity": {
+      "info": "Informatie",
+      "warning": "Waarschuwing",
+      "critical": "Kritiek"
+    },
     "relatedDomains": "Gerelateerde domeinen",
     "relatedSectors": "Gerelateerde sectoren",
     "relatedCommunes": "Gerelateerde gemeenten",

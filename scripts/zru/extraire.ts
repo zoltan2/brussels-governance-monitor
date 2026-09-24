@@ -70,6 +70,9 @@ async function europe(): Promise<string> {
   return `Eurostat ilc_li41 ${ANNEE} : ${ratios.length} régions, source mise à jour le ${maj ?? 'date inconnue'} ; ${ecrire('europe-brut.ts', contenu)}`;
 }
 
+/** Titre de la feuille de l'indicateur dans ADI_T2_STATBEL_FR.xlsx (ligne 2 de la feuille). */
+const TITRE_FEUILLE_ADI = 'Risque de pauvreté administratif';
+
 function communes(): string {
   const fichier = 'scripts/zru/sources/ADI_T2_STATBEL_FR.xlsx'; // téléchargé à la main, voir SOURCES.md §3
   if (!existsSync(fichier)) throw new Error(`fichier ${fichier} absent`);
@@ -87,8 +90,15 @@ function communes(): string {
     const lu = trouverTauxCommunesBruxelles(rows);
     if (lu) trouvees.push({ feuille, titre: String(rows[1]?.[0] ?? ''), lu });
   }
-  if (trouvees.length !== 1) throw new Error(`${trouvees.length} feuilles de taux communaux trouvées au lieu d'une`);
-  const [{ feuille, titre, lu }] = trouvees;
+  // La feuille « Population » a la même forme (années 2015 à 2023, 19 communes, parts de population
+  // entre 0 et 1) : seule la feuille dont le titre (ligne 2) est celui de l'indicateur est retenue.
+  // L'ancien lecteur XLSX avalait une cellule vide sur deux et masquait ce doublon.
+  const retenues = trouvees.filter((t) => t.titre.trim() === TITRE_FEUILLE_ADI);
+  if (retenues.length !== 1)
+    throw new Error(
+      `${retenues.length} feuille(s) « ${TITRE_FEUILLE_ADI} » trouvée(s) au lieu d'une (candidates : ${trouvees.map((t) => `${t.feuille} « ${t.titre} »`).join(', ')})`,
+    );
+  const [{ feuille, titre, lu }] = retenues;
   const data = lu.communes.map((r) => ({
     niscode: String(r[0]),
     nomSource: String(r[1]),

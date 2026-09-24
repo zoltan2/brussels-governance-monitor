@@ -45,14 +45,24 @@ export function lireFeuille(buf: Buffer, feuille: number): (string | number | nu
   );
   const xml = z.get(`xl/worksheets/sheet${feuille}.xml`)?.toString('utf8');
   if (!xml) throw new Error(`xlsx : feuille ${feuille} absente`);
+  return lireFeuilleXml(xml, partagees);
+}
+
+/**
+ * Lit le XML d'une feuille (sheetN.xml) avec la table des chaînes partagées. Fonction pure,
+ * exportée pour tester les formes XML sans fabriquer de fichier zip.
+ * Les balises auto-fermantes (`<c r="A1" s="14"/>`, `<row r="6"/>`) sont reconnues comme
+ * telles : l'attribut ne peut pas contenir « /> », sinon la balise suivante serait avalée.
+ */
+export function lireFeuilleXml(xml: string, partagees: string[]): (string | number | null)[][] {
   const lignes: (string | number | null)[][] = [];
-  for (const r of xml.matchAll(/<row\b([^>]*)(?:\/>|>([\s\S]*?)<\/row>)/g)) {
+  for (const r of xml.matchAll(/<row\b((?:[^>/]|\/(?!>))*)(?:\/>|>([\s\S]*?)<\/row>)/g)) {
     const rowAttrs = r[1];
     const cellsXml = r[2] ?? '';
     const rMatch = rowAttrs.match(/r="(\d+)"/);
     const rowNum = rMatch ? Number(rMatch[1]) : null;
     const ligne: (string | number | null)[] = [];
-    for (const c of cellsXml.matchAll(/<c\b([^>]*)(?:\/>|>([\s\S]*?)<\/c>)/g)) {
+    for (const c of cellsXml.matchAll(/<c\b((?:[^>/]|\/(?!>))*)(?:\/>|>([\s\S]*?)<\/c>)/g)) {
       const attrs = c[1];
       const corps = c[2] ?? '';
       const rCellMatch = attrs.match(/r="([A-Z]+\d+)"/);

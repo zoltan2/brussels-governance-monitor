@@ -11,6 +11,26 @@ sectors:
   - associatif
   - construction
 sources:
+  - label: "ONEM : l'ONEM publie le troisième monitoring des sorties du chômage après la réforme (17 septembre 2026)"
+    url: "https://www.onem.be/page/lonem-publie-le-troisieme-monitoring-des-sorties-du-chomage-apres-la-reforme"
+    type: official
+    accessedAt: "2026-09-24"
+  - label: "ONEM : suivi de la limitation du droit dans le temps, rapport à fin juin 2026 (PDF)"
+    url: "https://www.onem.be/file/cc73d96153bbd5448a56f19d925d05b1379c7f21/2b2c7c4ebafdd33d1efc40b4f6c310de0206ab52/monitoringfr202606.pdf?name=monitoringFR202606.pdf&type=application/pdf"
+    type: official
+    accessedAt: "2026-09-24"
+  - label: "La Libre : « Il n'est pas question de réduire les emplois ACS », insiste le ministre (dépêche Belga, 21 septembre 2026)"
+    url: "https://www.lalibre.be/dernieres-depeches/2026/09/21/il-nest-pas-question-de-reduire-les-emplois-acs-insiste-le-ministre-l-hublet-4XTY34EYE5DYTCFHT6JWXAKVQY/"
+    type: media
+    accessedAt: "2026-09-24"
+  - label: "La Libre : la directrice générale d'Actiris a présenté sa démission (dépêche Belga, 30 mars 2026)"
+    url: "https://www.lalibre.be/belgique/politique-belge/2026/03/30/la-directrice-generale-dactiris-a-presente-sa-demission-MQRHAWLPSRCIDOCPBORGZGEPRQ/"
+    type: media
+    accessedAt: "2026-09-24"
+  - label: "L'Avenir : 30,4 % des exclus du chômage se sont tournés vers les CPAS, selon une estimation provisoire (23 juin 2026)"
+    url: "https://www.lavenir.net/actu/belgique/politique/2026/06/23/304-des-exclus-du-chomage-se-sont-tournes-vers-les-cpas-selon-une-estimation-provisoire-JVV3MDPRBRGHPIAPFPMENGW3CI/"
+    type: media
+    accessedAt: "2026-09-24"
   - label: "Cour constitutionnelle : arrêt 96/2026 sur la limitation dans le temps des allocations de chômage (10 septembre 2026)"
     url: "https://fr.const-court.be/public/f/2026/2026-096f.pdf"
     accessedAt: "2026-09-13"
@@ -125,7 +145,7 @@ sources:
     accessedAt: "2026-03-18"
   - label: "BRUZZ — Cristina Amboldi neemt ontslag als hoofd van Actiris (30 mars 2026)"
     url: "https://www.bruzz.be/actua/economie/cristina-amboldi-neemt-ontslag-als-hoofd-van-actiris-2026-03-30"
-    accessedAt: "2026-03-31"
+    accessedAt: "2026-09-24"
   - label: "Actiris — Chiffres mensuels des personnes inscrites (mars 2026, publié 3 avril 2026)"
     url: "https://press.actiris.be/les-chiffres-mensuels-des-personnes-inscrites-chez-actiris-hfi4vl"
     accessedAt: "2026-04-08"
@@ -257,12 +277,18 @@ metrics:
     source: "ONEM / Actiris"
     url: "https://press.actiris.be/les-chiffres-du-chomage-en-region-bruxelloise-ef1hne"
     date: "2026-01-15"
-  - label: "Recours réel au CPAS après exclusion (3 premières vagues)"
-    value: "28,1"
-    unit: "% à Bruxelles (national 30,4 % ; Flandre 22,5 % ; Wallonie 36 %), estimation provisoire SPP Intégration sociale, citée en commission de la Chambre le 23 juin 2026"
-    source: "SPP Intégration sociale, cité en commission des Affaires sociales de la Chambre (L'Avenir/Belga, BRUZZ)"
-    url: "https://www.lavenir.net/actu/belgique/politique/2026/06/23/304-des-exclus-du-chomage-se-sont-tournes-vers-les-cpas-selon-une-estimation-provisoire-JVV3MDPRBRGHPIAPFPMENGW3CI/"
-    date: "2026-06-23"
+  - label: "Report vers le revenu d'intégration après fin de droit (janvier-juin 2026)"
+    value: "44,0"
+    unit: "% en Belgique (43 613 personnes sur 99 144) ; 43,9 % à Bruxelles selon le SPP Intégration sociale (août 2026). Remplace la première estimation provisoire de juin (28,1 % à Bruxelles, personnes ayant sollicité un CPAS)"
+    source: "ONEM, troisième rapport de suivi, données SPP Intégration sociale (17 septembre 2026)"
+    url: "https://www.onem.be/page/lonem-publie-le-troisieme-monitoring-des-sorties-du-chomage-apres-la-reforme"
+    date: "2026-09-17"
+  - label: "Bruxellois en fin de droit : sorties vers un emploi salarié (janvier-juin 2026)"
+    value: "10,4 %"
+    unit: "des 26 986 Bruxellois arrivés en fin de droit (Flandre 16,8 %, Wallonie 13,8 %) ; 74,9 % restent inscrits chez Actiris"
+    source: "ONEM, troisième rapport de suivi (17 septembre 2026)"
+    url: "https://www.onem.be/page/lonem-publie-le-troisieme-monitoring-des-sorties-du-chomage-apres-la-reforme"
+    date: "2026-06-30"
   - label: "5e vague ONEM (14/02/2026)"
     value: "~36 000"
     unit: "courriers envoyés (fin de droit 07/2026 – 07/2027)"
@@ -602,7 +628,7 @@ faq:
         url: "https://www.actiris.brussels/"
         accessedAt: "2026-09-11"
   - q: "Pourquoi le nombre de demandeurs d'emploi augmente-t-il alors que le chômage indemnisé baisse ?"
-    a: "Parce que la réforme fédérale limite désormais les allocations de chômage dans le temps. Les personnes qui perdent leur allocation ne disparaissent pas des listes : beaucoup restent inscrites chez Actiris et basculent vers le revenu d'intégration versé par le CPAS. Fin août 2026, 34 830 demandeurs d'emploi bruxellois étaient inscrits dans un CPAS, soit 35 % du total et 82,6 % de plus en un an. Selon Actiris, la mesure ne réduit pas le nombre d'inscrits, elle change leur catégorie."
+    a: "Parce que la réforme fédérale limite désormais les allocations de chômage dans le temps. Les personnes qui perdent leur allocation ne disparaissent pas des listes : beaucoup restent inscrites chez Actiris et basculent vers le revenu d'intégration versé par le CPAS. Fin août 2026, 34 830 demandeurs d'emploi bruxellois étaient inscrits dans un CPAS, soit 35 % du total et 82,6 % de plus en un an. Selon Actiris, la mesure ne réduit pas le nombre d'inscrits, elle change leur catégorie. Selon l'ONEM, 74,9 % des Bruxellois arrivés en fin de droit entre janvier et juin 2026 restaient inscrits comme demandeurs d'emploi."
     sources:
       - label: "BX1, le taux de chômage atteint les 16 % à Bruxelles (3 sept. 2026)"
         url: "https://bx1.be/categories/economie/le-taux-de-chomage-atteint-les-16-a-bruxelles/"
@@ -610,13 +636,30 @@ faq:
       - label: "ONEM, Office national de l'emploi"
         url: "https://www.onem.be/"
         accessedAt: "2026-09-11"
-lastModified: "2026-09-13"
-faqReviewed: "2026-09-13"
+      - label: "ONEM, suivi de la limitation du droit dans le temps, rapport à fin juin 2026 (PDF)"
+        url: "https://www.onem.be/file/cc73d96153bbd5448a56f19d925d05b1379c7f21/2b2c7c4ebafdd33d1efc40b4f6c310de0206ab52/monitoringfr202606.pdf?name=monitoringFR202606.pdf&type=application/pdf"
+        accessedAt: "2026-09-24"
+lastModified: "2026-09-24"
+faqReviewed: "2026-09-24"
 changeType: updated
-changeSummary: "Taux d'emploi bruxellois : 64,7 % au deuxième trimestre 2026. Selon l'enquête de Statbel publiée le 9 septembre, 64,7 % des Bruxellois de 20 à 64 ans avaient un emploi, contre 63,7 % trois mois plus tôt, et le taux de chômage mesuré par l'enquête passait de 13,4 % à 12,7 %, des évolutions que Statbel juge non significatives. Le lendemain, la Commission communautaire française (COCOF) adoptait un Plan Formation jusqu'en 2029, et la Cour constitutionnelle validait la limitation dans le temps des allocations de chômage, en n'annulant que le régime transitoire qui accordait moins de douze mois de droits à certains chômeurs de longue durée."
-changeSummaryDate: "2026-09-13"
+changeSummary: "Chômage : à Bruxelles, une personne sur dix arrivée en fin de droit occupait ensuite un emploi salarié, selon l'ONEM. Son rapport du 17 septembre compte 26 986 Bruxellois en fin de droit entre janvier et juin 2026 ; 74,9 % restent inscrits chez Actiris. Pour le report vers les CPAS, la carte retient désormais la mesure de janvier à juin : 43,9 % des Bruxellois concernés ont obtenu le revenu d'intégration, plutôt que les 28,1 % de la première estimation, provisoire et partielle, de juin. Au Parlement bruxellois, le ministre de l'Emploi a exclu le 21 septembre toute réduction des emplois ACS."
+changeSummaryDate: "2026-09-24"
 summaryFalc: "Le nouveau gouvernement veut que 70 % des Bruxellois aient un emploi. Il oblige les chercheurs d'emploi à faire un bilan de compétences et à apprendre le français ou le néerlandais."
 ---
+
+## Fin de droit au chômage : à Bruxelles, une sortie sur dix vers un emploi salarié (ONEM, 17 septembre 2026)
+
+Selon le troisième rapport de suivi publié par l'ONEM le jeudi 17 septembre 2026, **26 986 Bruxellois** ont atteint la fin de leur droit aux allocations de chômage ou d'insertion entre janvier et juin 2026, soit **27,2 %** des 99 144 fins de droit enregistrées en Belgique. Dans leur première situation connue après la sortie, **10,4 %** occupaient un emploi salarié, contre 16,8 % en Flandre, 13,8 % en Wallonie et 7,0 % en Communauté germanophone. À Bruxelles, 5,5 % sont passés en maladie, contre 13,1 % en Flandre et 5,2 % en Wallonie.
+
+Pour 82,8 % des sortants bruxellois, la situation reste classée « autres » : ils n'ont pas (encore) été retrouvés dans les bases de données des salariés, des indépendants, de la maladie ou des pensions. **20 205 d'entre eux**, soit 74,9 %, restent inscrits comme demandeurs d'emploi chez Actiris. Ce chiffre rejoint le constat d'Actiris déjà documenté sur cette carte : la fin de droit ne réduit pas le nombre d'inscrits, elle change leur catégorie.
+
+### Deux taux de report vers les CPAS qui ne mesurent pas la même chose
+
+Le 23 juin 2026, cette carte a documenté un taux de **28,1 %** à Bruxelles. Il venait d'un rapport provisoire du SPP Intégration sociale publié le 1er juin et cité à la Chambre par la ministre fédérale de l'Intégration sociale. Il ne portait que sur les fins de droit aux allocations de chômage des trois premières vagues, celles de janvier, mars et avril 2026, quelques semaines après la dernière d'entre elles, et comptait les personnes qui avaient sollicité un CPAS. La ministre annonçait alors des chiffres consolidés pour la fin de l'été.
+
+La mesure suivante couvre janvier à juin 2026 et compte les personnes qui ont **obtenu** le revenu d'intégration : **43,9 %** à Bruxelles selon le SPP Intégration sociale, publié en août, et **44,0 %** en Belgique, soit 43 613 personnes, selon les données reprises par l'ONEM le 17 septembre. Le même rapport compte 8 980 demandes refusées, dont 1 985 à Bruxelles. Cette carte retient désormais cette seconde mesure. Aucune des deux ne compte les personnes qui n'ont pas introduit de demande.
+
+Sources : [ONEM, communiqué du 17 septembre 2026](https://www.onem.be/page/lonem-publie-le-troisieme-monitoring-des-sorties-du-chomage-apres-la-reforme) ; [ONEM, troisième rapport de suivi (PDF)](https://www.onem.be/file/cc73d96153bbd5448a56f19d925d05b1379c7f21/2b2c7c4ebafdd33d1efc40b4f6c310de0206ab52/monitoringfr202606.pdf?name=monitoringFR202606.pdf&type=application/pdf) ; [L'Avenir, dépêche Belga (23 juin 2026)](https://www.lavenir.net/actu/belgique/politique/2026/06/23/304-des-exclus-du-chomage-se-sont-tournes-vers-les-cpas-selon-une-estimation-provisoire-JVV3MDPRBRGHPIAPFPMENGW3CI/) ; analyse détaillée dans le dossier [CPAS bruxellois](/fr/dossiers/cpas-bruxellois). Confiance : *official* pour les chiffres de l'ONEM, provisoires ; le taux bruxellois de 43,9 % est celui du SPP Intégration sociale, relayé par la presse le 4 août 2026.
 
 ## Réforme du chômage : la Cour constitutionnelle valide la limitation dans le temps, sauf un point (10 septembre 2026)
 
@@ -766,7 +809,7 @@ Source : [La Libre — Les recours contre l'exclusion du chômage ont triplé (1
 
 ## Report vers les CPAS : 28,1 % de recours réel à Bruxelles, dernière vague d'avertissements le 1er juillet (23 juin 2026)
 
-Le 23 juin 2026, en commission des Affaires sociales de la Chambre, la ministre fédérale de l'emploi a livré la première mesure du report effectif vers les CPAS. Sur la base des statistiques provisoires du SPP Intégration sociale (trois premières vagues d'exclusions), **28,1 %** des Bruxellois exclus se sont effectivement adressés à un CPAS, contre **30,4 %** au niveau national, **22,5 %** en Flandre et **36 %** en Wallonie. Le chiffre est provisoire : le délai entre l'exclusion, la demande et l'encodage administratif retarde le constat, et la mesure ne capte ni les dossiers en cours d'instruction ni le non-recours aux droits.
+Le 23 juin 2026, en commission des Affaires sociales de la Chambre, la ministre fédérale de l'Intégration sociale a livré la première mesure du report effectif vers les CPAS. Sur la base des statistiques provisoires du SPP Intégration sociale (trois premières vagues d'exclusions), **28,1 %** des Bruxellois exclus se sont effectivement adressés à un CPAS, contre **30,4 %** au niveau national, **22,5 %** en Flandre et **36 %** en Wallonie. Le chiffre est provisoire : le délai entre l'exclusion, la demande et l'encodage administratif retarde le constat, et la mesure ne capte ni les dossiers en cours d'instruction ni le non-recours aux droits. Cette première mesure est dépassée par celle de janvier à juin 2026, publiée en août et reprise par l'ONEM le 17 septembre (voir la section du 17 septembre 2026).
 
 La presse rapporte un taux nettement plus élevé à Molenbeek, autour de soixante-cinq pour cent. Le record national, supérieur à nonante pour cent, concerne Seraing, en Wallonie, et non une commune bruxelloise.
 
@@ -796,7 +839,7 @@ Source : SD Worx / Trends-Tendances, mars 2026.
 
 ## Emploi non marchand : les ACS sous pression
 
-Le dispositif des **Agents Contractuels Subventionnés** (ACS) — ~10 000 postes, ~6 700 actifs, budget consolidé **276 M€** en 2026 — reste le principal levier d'emploi subsidié en Région bruxelloise. Aucun nouveau poste n'a été créé depuis 2007. La réforme engagée en 2015 transforme l'outil de soutien structurel en politique d'activation, un virage contesté par le secteur associatif. Le 3 février 2026, des centaines de travailleurs du non-marchand ont manifesté à Bruxelles pour un accord social sectoriel. La DPR 2026 mentionne la « poursuite de la réforme ACS ». Le budget adapté du 16 avril 2026 (voir infra) préserve l'article 20 et abandonne l'uniformisation à 95 %. Voir le dossier dédié pour l'analyse complète.
+Le dispositif des **agents contractuels subventionnés** (ACS) reste le principal levier d'emploi subsidié du secteur non marchand bruxellois : selon le ministre bruxellois de l'Emploi, il occupe **5 500 travailleurs** dans plus de 1 000 associations, pour un budget de **276 millions d'euros** en 2026. Selon BRUXEO, aucun nouveau poste n'a été créé depuis 2015, hors petite enfance. La réforme engagée en 2015 a transformé l'outil de soutien structurel en politique d'activation, un virage contesté par le secteur associatif. La déclaration de politique régionale du 13 février 2026 prévoit un monitoring et une évaluation du dispositif ; le questionnaire envoyé par Actiris aux employeurs s'est clôturé le 13 septembre 2026. Le 18 septembre, plus de 200 associations et les syndicats ont demandé dans une carte blanche de renoncer à toute réforme ; le 21 septembre, en séance plénière du Parlement bruxellois, le ministre a déclaré qu'il n'était « pas question de réduire les emplois ACS ». Le budget adapté du 16 avril 2026 (voir plus bas) préserve l'article 20 et abandonne l'uniformisation à 95 %. Voir le dossier [ACS](/fr/dossiers/acs) pour l'analyse complète et les écarts entre les chiffres d'emplois publiés.
 
 ## Chômage juin 2026 : 14,6 %, et le report vers les CPAS s'accentue
 
@@ -851,19 +894,19 @@ Ces résultats interviennent dans un contexte de chômage élevé (96 113 DEI en
 
 Source : DH / Bruxelles Formation (17 mars 2026).
 
-## Direction Actiris : transition en cours (28 mars 2026)
+## Direction d'Actiris : démission de la directrice générale (30 mars 2026)
 
-Le **28 mars 2026**, **Cristina Amboldi** a remis sa démission de directrice générale d'Actiris, avec effet immédiat. Nommée à titre temporaire en novembre 2025 (mandat de 6 mois), elle a déclaré au Soir que « le cadre d'exercice de la fonction ne correspond plus à [sa] vision » et qu'elle n'avait « jamais été consultée » sur les coupes budgétaires. Le point de rupture : le rejet de son budget 2026 par le conseil d'administration, lors d'une séance tendue le 27 mars.
+Le lundi 30 mars 2026, le cabinet du ministre bruxellois de l'Emploi a annoncé que **Cristina Amboldi** avait remis sa démission de directrice générale d'Actiris ; la date de sa lettre n'a pas été rendue publique. Dans un entretien au Soir, cité par BRUZZ, elle explique ne pas se retrouver dans les économies imposées par le gouvernement bruxellois et n'avoir jamais été consultée. Le point de rupture a été, selon BRUZZ, une réunion houleuse du comité de gestion d'Actiris, le jeudi 26 mars 2026, qui a rejeté le budget 2026 qu'elle proposait.
 
-La directrice générale adjointe **Caroline Mancel** arrive également en fin de mandat le 1er avril 2026. Le **comité de gestion** assure la continuité opérationnelle. Un processus de recrutement pour les deux postes a été engagé à partir d'avril 2026.
+Le mandat de la directrice générale adjointe, **Caroline Mancel**, arrivait à échéance fin mars 2026. Le ministre a annoncé des mesures pour assurer la gestion journalière et le lancement d'une procédure de recrutement pour les postes laissés vacants.
 
-L'opposition (PTB-PVDA, Ecolo, DéFI) a dénoncé l'impact des **40 millions EUR d'économies** initialement imposées à Actiris sur la qualité du service public, dans un contexte de réforme du chômage (42 000 exclusions) et d'objectif d'emploi à 70 %.
+L'opposition (PTB-PVDA, Ecolo, DéFI) craint une dégradation du service public ; le PTB évoque 44 millions d'euros en moins au budget d'Actiris, alors que les économies initialement demandées aux politiques d'emploi s'élevaient à 40 millions d'euros.
 
-Source : BRUZZ / Le Soir / BX1 (28-30 mars 2026). Confiance : official (cabinet Hublet + interview Amboldi).
+Sources : [BRUZZ (30 mars 2026)](https://www.bruzz.be/actua/economie/cristina-amboldi-neemt-ontslag-als-hoofd-van-actiris-2026-03-30) ; [La Libre, dépêche Belga (30 mars 2026)](https://www.lalibre.be/belgique/politique-belge/2026/03/30/la-directrice-generale-dactiris-a-presente-sa-demission-MQRHAWLPSRCIDOCPBORGZGEPRQ/). Confiance : *official* pour l'annonce, faite par communiqué du cabinet ; les propos de l'intéressée viennent de son entretien au Soir, cité par BRUZZ.
 
 ## Budget Actiris 2026 adapté (16 avril 2026)
 
-Trois semaines après le rejet de la première mouture par le Comité de gestion (26 mars) et la démission d'Amboldi (30 mars), le gouvernement bruxellois s'est accordé le **jeudi 16 avril 2026** sur un budget Actiris 2026 adapté. Selon le ministre de l'Emploi **Laurent Hublet** (Les Engagés), l'effort initial de **40 millions EUR** sur les politiques d'emploi est ramené à **environ 28 millions EUR** en 2026 (−12 M€). Concessions obtenues :
+Trois semaines après le rejet de la première mouture par le comité de gestion (jeudi 26 mars) et l'annonce de la démission de la directrice générale (lundi 30 mars), le gouvernement bruxellois s'est accordé le **jeudi 16 avril 2026** sur un budget Actiris 2026 adapté. Selon le ministre bruxellois de l'Emploi, l'effort initial de **40 millions EUR** sur les politiques d'emploi est ramené à **environ 28 millions EUR** en 2026 (−12 M€). Concessions obtenues :
 
 - **Conventions Premiers Emplois (CPE)** : maintien d'une part importante dans les administrations bruxelloises, « face aux difficultés d'accès à l'emploi rencontrées par de nombreux jeunes »
 - **Article 20 du régime ACS** : préservé — pas de suppression du mécanisme de dérogation
@@ -956,7 +999,7 @@ L'ONEM attribue l'évolution aux mesures fédérales de **limitation dans le tem
 
 - Le **taux de chômage** bruxellois calculé par Actiris s'établit à **14,6 %** en juin 2026, soit **0,31 point de plus** qu'un an plus tôt. Il augmente pendant que l'indemnisation recule.
 - **31 850 demandeurs d'emploi bruxellois**, soit **34 %** d'entre eux, sont inscrits dans un CPAS. Selon Actiris, cette proportion a progressé de **plus de 70 %** en un an.
-- Selon les chiffres de l'ONEM relayés par BRUZZ, **99 144 personnes** ont perdu leur droit à une allocation en Belgique depuis le début de l'année 2026 (11 356 jeunes et 87 788 chômeurs). **Plus d'un quart** de ces fins de droit concernent des Bruxellois.
+- Selon l'ONEM, **99 144 personnes** ont perdu leur droit à une allocation en Belgique entre janvier et juin 2026 : 87 788 bénéficiaires d'une allocation de chômage et 11 356 d'une allocation d'insertion. **26 986**, soit 27,2 %, sont des Bruxellois (rapport du 17 septembre 2026).
 
 Autrement dit, la sortie des statistiques du chômage indemnisé s'opère principalement par la fin de droit, et non par l'insertion professionnelle. Le coût correspondant se déplace du budget fédéral de l'assurance chômage vers les CPAS bruxellois, financés par les communes et la Cocom. Cette bascule était anticipée par la projection ONEM/Brulocalis déjà documentée sur cette carte (40 775 exclusions attendues entre janvier 2026 et juillet 2027) et par l'estimation du SPP Intégration sociale de juin 2026 (28,1 % de recours effectif au CPAS après exclusion à Bruxelles).
 

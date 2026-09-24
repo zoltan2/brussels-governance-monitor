@@ -8,8 +8,8 @@ dossierType: regulatory
 phase: in-progress
 crisisImpact: resolved
 decisionLevel: mixed
-summary: "Een GESCO-contract (gesubsidieerde contractueel) is voorbehouden aan werkzoekenden die bij Actiris zijn ingeschreven, in principe sinds minstens zes maanden, en aangeworven door een vzw of een bestuur met een overeenkomst met Actiris. In Brussel bestaan ongeveer tienduizend betrekkingen, waarvan 6.700 ingevuld, voor een budget van 276 miljoen euro in 2026. Sinds 2015 werd geen nieuwe betrekking gecreëerd, kinderopvang niet meegerekend, en eind 2023 verdwenen 550 inschakelingsbetrekkingen."
-summaryReviewed: "2026-09-19"
+summary: "Een GESCO-contract (gesubsidieerde contractueel) is voorbehouden aan werkzoekenden die bij Actiris zijn ingeschreven, in principe sinds minstens zes maanden, en aangeworven door een vzw of bestuur met een Actiris-overeenkomst. Volgens de minister van Werk telt het stelsel 5 500 werknemers in meer dan 1 000 verenigingen, voor 276 miljoen euro in 2026; op 21 september sloot hij elke vermindering van de banen uit. Sinds 2015 werd geen nieuwe betrekking gecreëerd, behalve in de kinderopvang."
+summaryReviewed: "2026-09-24"
 estimatedBudget: "~276 miljoen EUR in 2026 (geconsolideerd GESCO-budget)"
 stakeholders:
   - "Actiris"
@@ -29,6 +29,21 @@ relatedSectors:
 relatedCommunes: []
 relatedFormationEvents: []
 sources:
+  - label: "COJ: opiniestuk « Défendons les emplois ACS et le tissu associatif bruxellois », verschenen in Le Soir (18 september 2026)"
+    url: "http://coj.be/carte-blanche-defendons-les-emplois-acs-et-le-tissu-associatif-bruxellois/"
+    accessedAt: "2026-09-24"
+  - label: "La Libre: « Il n'est pas question de réduire les emplois ACS », benadrukt de minister (Belga-bericht, 21 september 2026)"
+    url: "https://www.lalibre.be/dernieres-depeches/2026/09/21/il-nest-pas-question-de-reduire-les-emplois-acs-insiste-le-ministre-l-hublet-4XTY34EYE5DYTCFHT6JWXAKVQY/"
+    accessedAt: "2026-09-24"
+  - label: "Brussels Parlement: actualiteitsvraag nr. 13 over het opiniestuk van meer dan 200 verenigingen ter verdediging van de GESCO-banen (21 september 2026)"
+    url: "https://www.parlement.brussels/weblex-quest-det/?moncode=170660&base=1&taal=fr"
+    accessedAt: "2026-09-24"
+  - label: "BRUZZ: Cristina Amboldi neemt ontslag als hoofd van Actiris (30 maart 2026)"
+    url: "https://www.bruzz.be/actua/economie/cristina-amboldi-neemt-ontslag-als-hoofd-van-actiris-2026-03-30"
+    accessedAt: "2026-09-24"
+  - label: "RVA: de RVA publiceert de derde monitoring van de uitstroom uit de werkloosheid na de hervorming (17 september 2026)"
+    url: "https://www.onem.be/page/lonem-publie-le-troisieme-monitoring-des-sorties-du-chomage-apres-la-reforme"
+    accessedAt: "2026-09-24"
   - label: "CBCS — Het precaire lot van de Brusselse GESCO's (feb. 2015)"
     url: "https://cbcs.be/le-destin-precaire-des-acs/"
     accessedAt: "2026-02-27"
@@ -55,7 +70,7 @@ sources:
     accessedAt: "2026-09-19"
   - label: "view.brussels: Inventaris van de tewerkstellingsmaatregelen in het Brussels Hoofdstedelijk Gewest 2022"
     url: "https://www.actiris.brussels/media/ivfpjbtg/2022-10-view-brussels-inventaire-des-mesures-d-aide-%C3%A0-l-emploi_cpr-h-0AB51BC8.pdf"
-    accessedAt: "2026-09-19"
+    accessedAt: "2026-09-24"
   - label: "Besluit van de Brusselse Hoofdstedelijke Regering van 4 maart 2021: subsidie aan de lokale besturen, GESCO-hervorming"
     url: "https://etaamb.openjustice.be/fr/arrete-du-gouvernement-de-la-region-de-bruxellescapit_n2021041414.html"
     accessedAt: "2026-09-19"
@@ -108,14 +123,20 @@ sources:
     url: "https://pro.guidesocial.be/articles/actualites/article/region-bruxelloise-le-budget-2026-adopte-les-aides-acs-dans-le-viseur"
     accessedAt: "2026-04-16"
 metrics:
+  - label: "GESCO-werknemers volgens de minister van Werk"
+    value: "5 500"
+    unit: "werknemers in meer dan 1 000 verenigingen (antwoord in de plenaire vergadering, 21 september 2026)"
+    source: "Brusselse minister van Werk, via Belga"
+    date: "2026-09-21"
+  - label: "GESCO-werknemers Programmawet (31/12/2021)"
+    value: "6 906"
+    unit: "personen, of 5 402 VTE (zonder lokale besturen)"
+    source: "view.brussels, inventaris 2022"
+    date: "2021-12-31"
   - label: "Gesubsidieerde GESCO-posten (eind 2017)"
     value: "~10 000"
     source: "BRUXEO"
     date: "2017-12-31"
-  - label: "Actieve posten (schatting 2024)"
-    value: "~6 700"
-    source: "Actiris / MonASBL"
-    date: "2024-12-31"
   - label: "GESCO-werkgevers"
     value: "1 312"
     source: "CBCS / Actiris"
@@ -169,6 +190,12 @@ metrics:
     source: "Kabinet Hublet / RTBF"
     date: "2026-04-16"
 alerts:
+  - label: "Opiniestuk van meer dan 200 verenigingen ter verdediging van de GESCO-banen"
+    severity: warning
+    date: "2026-09-18"
+  - label: "De minister van Werk sluit een vermindering van de GESCO-banen uit"
+    severity: info
+    date: "2026-09-21"
   - label: "Non-profit: betoging voor sociaal akkoord en investeringen"
     severity: warning
     date: "2026-02-03"
@@ -198,7 +225,7 @@ faq:
         url: "https://www.monasbl.be/info/acs-une-aide-specifique-pour-le-non-marchand-bruxellois"
         accessedAt: "2026-06-17"
   - q: "Wie beslist over de GESCO-hervorming?"
-    a: "De bevoegdheid ligt bij het **Brussels Hoofdstedelijk Gewest**. De 6e staatshervorming droeg het werkgelegenheidsbeleid, inclusief de GESCO's, over van het federale naar het gewestelijke niveau. De hervorming wordt gestuurd door de **Brusselse regering** en uitgevoerd door **Actiris**. De budgettaire vertaling wordt gestemd in het **Brussels Parlement**, terwijl de lokale besturen (gemeenten en OCMW's) onder een afzonderlijk subsidieluik vallen."
+    a: "De bevoegdheid ligt bij het **Brussels Hoofdstedelijk Gewest**. De 6e staatshervorming droeg het werkgelegenheidsbeleid, inclusief de GESCO's, over van het federale naar het gewestelijke niveau. De Gewestelijke Beleidsverklaring van 13 februari 2026 voorziet in een **monitoring en een evaluatie** van het stelsel, gestuurd door de **Brusselse regering** en uitgevoerd door **Actiris**. Op 21 september 2026 verklaarde de minister van Werk dat er geen sprake is van het verminderen van de GESCO-banen. De budgetten worden gestemd in het **Brussels Parlement**; de lokale besturen (gemeenten en OCMW's) vallen onder een afzonderlijk subsidieluik."
     sources:
       - label: "MonASBL.be: Hervorming GESCO, welke veranderingen voor vzw's"
         url: "https://www.monasbl.be/nouvelles/les-aides-lemploi/reforme-acs-quels-changements-pour-les-asbl"
@@ -206,8 +233,14 @@ faq:
       - label: "Guide Social: gewestelijk budget aangenomen, GESCO-steun onder druk"
         url: "https://pro.guidesocial.be/articles/actualites/article/region-bruxelloise-le-budget-2026-adopte-les-aides-acs-dans-le-viseur"
         accessedAt: "2026-06-17"
+      - label: "La Libre: « Il n'est pas question de réduire les emplois ACS », benadrukt de minister (Belga-bericht, 21 september 2026)"
+        url: "https://www.lalibre.be/dernieres-depeches/2026/09/21/il-nest-pas-question-de-reduire-les-emplois-acs-insiste-le-ministre-l-hublet-4XTY34EYE5DYTCFHT6JWXAKVQY/"
+        accessedAt: "2026-09-24"
+      - label: "Brussels Parlement: Gewestelijke Beleidsverklaring van 13 februari 2026"
+        url: "https://www.parlement.brussels/wp-content/uploads/2026/02/Declaration-de-politique-2.pdf"
+        accessedAt: "2026-09-19"
   - q: "Waarom mobiliseert de non-profitsector rond de GESCO's?"
-    a: "De gewestelijke hervorming verschuift de GESCO's van **structurele steun** aan de sociale sector naar een **activeringslogica**, waarbij de post als springplank naar duurzame tewerkstelling moet dienen. De sector bekritiseert deze verschuiving, want de posten vervullen vaak permanente en essentiële functies (thuiszorg, kinderopvang, sociale cohesie), naast een structurele onderfinanciering en het uitblijven van nieuwe posten."
+    a: "Sinds de gewestelijke hervorming van 2015 zijn de GESCO's verschoven van **structurele steun** aan de sociale sector naar een **activeringslogica**, waarbij de post als springplank naar duurzame tewerkstelling moet dienen. De sector bekritiseert deze verschuiving, want de posten vervullen vaak permanente en essentiële functies (thuiszorg, kinderopvang, sociale cohesie), naast een structurele onderfinanciering en het uitblijven van nieuwe posten. Op 18 september 2026 vroeg een opiniestuk van meer dan 200 verenigingen en de vakbonden de regering af te zien van elke hervorming, uit vrees dat de lopende monitoring een herfocussing van het stelsel voorbereidt."
     sources:
       - label: "CBCS: het precaire lot van de Brusselse GESCO's"
         url: "https://cbcs.be/le-destin-precaire-des-acs/"
@@ -215,6 +248,9 @@ faq:
       - label: "BX1: honderden non-profitwerkers voor het Brusselse Parlement"
         url: "https://bx1.be/categories/news/des-centaines-de-travailleurs-du-non-marchand-en-colere-devant-le-parlement-bruxellois/"
         accessedAt: "2026-06-17"
+      - label: "COJ: opiniestuk « Défendons les emplois ACS et le tissu associatif bruxellois », verschenen in Le Soir (18 september 2026)"
+        url: "http://coj.be/carte-blanche-defendons-les-emplois-acs-et-le-tissu-associatif-bruxellois/"
+        accessedAt: "2026-09-24"
   - q: "Wat zijn de voorwaarden voor een GESCO-contract in Brussel?"
     a: "Je moet bij **Actiris** ingeschreven zijn als niet-werkende werkzoekende en, als algemene regel, in het jaar vóór de aanwerving minstens **zes maanden** ingeschreven zijn geweest, of zes maanden een leefloon of maatschappelijke hulp hebben ontvangen. Er gelden uitzonderingen, onder meer vanaf **40 jaar**, voor personen met een handicap en voor betrekkingen in het onderwijs of de opvang van kinderen jonger dan 12 jaar. Je hebt ook het diploma of de ervaring nodig die voor de functie vereist is, en een **attest** van Actiris via My Actiris."
     sources:
@@ -245,19 +281,19 @@ faq:
       - label: "Belgisch Staatsblad: Besluit van 20 november 2025, subsidie aan de lokale besturen (GESCO-hervorming)"
         url: "https://www.ejustice.just.fgov.be/cgi/article.pl?language=fr&numac_search=2026000021&lg_txt=F&caller=list&pd_search=2026-01-16"
         accessedAt: "2026-09-19"
-faqReviewed: "2026-09-19"
+faqReviewed: "2026-09-24"
 confidenceLevel: official
-lastModified: "2026-09-19"
-changeType: corrected
-changeSummary: "Toegevoegd: de voorwaarden voor een GESCO-contract, voor werknemers en werkgevers. Correctie: de Gewestelijke Beleidsverklaring van 13 februari 2026 voorziet in een monitoring en een evaluatie van het GESCO-stelsel, niet in de « voortzetting van de hervorming »; volgens BRUXEO werd sinds 2015 geen enkele betrekking gecreëerd, kinderopvang niet meegerekend, en niet sinds 2007."
-changeSummaryDate: "2026-09-19"
+lastModified: "2026-09-24"
+changeType: updated
+changeSummary: "GESCO: de minister van Werk sluit elke vermindering van de banen uit, na een opiniestuk van 200 verenigingen. Op maandag 21 september becijferde hij in het Brussels Parlement het stelsel op 276 miljoen euro, meer dan 1 000 verenigingen en 5 500 werknemers, en kondigde hij overleg met de sector aan op basis van de vragenlijst van Actiris, die op 13 september werd afgesloten met 92 % antwoorden. De ondertekenende verenigingen, gesteund door de vakbonden, vragen de regering af te zien van elke hervorming van het stelsel."
+changeSummaryDate: "2026-09-24"
 ---
 
 ## Wat is het GESCO-stelsel?
 
 **Gesubsidieerde Contractuelen** (GESCO's, in het Frans ACS) vormen het belangrijkste tewerkstellingsinstrument voor de Brusselse non-profitsector. Het stelsel werkt via een dubbele hefboom: een **gewestelijke premie** (geïndexeerd volgens de barema's van het openbaar ambt) en een **vrijstelling van de basiswerkgeversbijdragen voor de sociale zekerheid** (doelgroepvermindering van de RSZ). De posten zijn bestemd voor werkzoekenden die bij Actiris zijn ingeschreven, met voorwaarden rond werkloosheidsduur, leeftijd of handicap.
 
-Eind 2017 werden ongeveer **10 000 posten** gesubsidieerd bij **1 312 werkgevers**: meer dan 7 000 in vzw's en besturen (posten "Programmawet") en ongeveer 2 500 bij lokale besturen. In 2024 wordt het aantal actieve posten geschat op ongeveer **6 700** — het verschil wordt verklaard doordat posten niet binnen de verplichte termijn van 6 maanden zijn ingevuld.
+Eind 2017 werden ongeveer **10 000 posten** gesubsidieerd bij **1 312 werkgevers**: meer dan 7 000 in vzw's en besturen (posten "Programmawet") en ongeveer 2 500 bij lokale besturen. Eind 2021 telde het stelsel « Programmawet », zonder lokale besturen, **6 906 werknemers**, of 5 402 voltijdse equivalenten, volgens view.brussels; de minister van Werk spreekt in september 2026 van **5 500 werknemers**. Een groot deel van de daling sinds 2017 is te verklaren door de overdracht van de posten van de gemeenten en OCMW's naar Brussel Plaatselijke Besturen in 2021 (zie de sectie van 18-21 september 2026).
 
 ## Wat zijn de voorwaarden voor een GESCO-contract?
 
@@ -275,7 +311,7 @@ Wat de **woonplaats** betreft, eist Actiris op zijn pagina's en in zijn GESCO-va
 
 **Voor de werkgever** kunnen GESCO's worden aangeworven door vzw's (behalve ziekenhuizen), gewestelijke en gemeenschapsbesturen en die van de gemeenschapscommissies, scholen en openbare vastgoedmaatschappijen. De activiteit moet non-profit zijn en in het Brussels Gewest plaatsvinden. De werkgever sluit een **overeenkomst met Actiris** na akkoord van de Brusselse ministers van Werk en Begroting, en heeft daarna zes maanden om aan te werven. Hij ontvangt een **gewestelijke premie** en is vrijgesteld van de basiswerkgeversbijdragen voor de sociale zekerheid. Nieuwe betrekkingen blijven mogelijk in gerichte programma's: het protocol kinderopvang 2021-2026 financiert één voltijds equivalent GESCO per zeven gecreëerde opvangplaatsen. In de gemeenten en OCMW's werd het GESCO-statuut op 1 januari 2021 grotendeels afgeschaft; het blijft bestaan voor het plan Cigogne, de VGC, inschakelingscontracten en de voormalige FBI-posten.
 
-**Hervorming**: de Gewestelijke Beleidsverklaring van 13 februari 2026 voorziet in een monitoring en een evaluatie van het GESCO-stelsel. De verenigingen hadden tot 13 september 2026 de tijd om een vragenlijst van Actiris in te vullen die op 16 juli was verstuurd. Volgens CESSoC, een federatie van socioculturele werkgevers, was er op 5 augustus 2026 geen concrete informatie over een hervorming.
+**Hervorming**: de Gewestelijke Beleidsverklaring van 13 februari 2026 voorziet in een monitoring en een evaluatie van het GESCO-stelsel. De verenigingen hadden tot 13 september 2026 de tijd om een vragenlijst van Actiris in te vullen die op 16 juli was verstuurd. Volgens CESSoC, een federatie van socioculturele werkgevers, was er op 5 augustus 2026 geen concrete informatie over een hervorming. Op 21 september 2026 gaf de minister van Werk aan dat de vragenlijst was afgesloten met 92 % antwoorden en dat er geen sprake is van het verminderen van de GESCO-banen (zie de sectie van 18-21 september 2026).
 
 ## Geschiedenis en bevoegdheidsoverdracht
 
@@ -331,7 +367,7 @@ De Gewestelijke Beleidsverklaring van 13 februari 2026 voorziet dat de Regering 
 
 ## Aangepast Actiris-budget 2026 (april 2026)
 
-Op **26 maart 2026** verwierp het Beheerscomité van Actiris een eerste versie van het budget 2026 tijdens een als « uiterst gespannen » omschreven vergadering: werkgeversvertegenwoordigers (Beci, UCM) en sociale partners (vakbonden, non-profit) raakten het niet eens over de **40 miljoen EUR besparingen** die de nieuwe Brusselse regering oplegt aan het tewerkstellingsbeleid. Directeur-generaal **Cristina Amboldi**, die zich niet gesteund voelde, verliet de vergadering en diende op **30 maart 2026 haar ontslag** in. Haar adjunct Caroline Mancel beëindigde haar mandaat op 31 maart. Het Beheerscomité neemt het dagelijks beheer waar tijdens de rekrutering van de nieuwe directie.
+Op **26 maart 2026** verwierp het Beheerscomité van Actiris een eerste versie van het budget 2026 tijdens een als « uiterst gespannen » omschreven vergadering: werkgeversvertegenwoordigers (Beci, UCM) en sociale partners (vakbonden, non-profit) raakten het niet eens over de **40 miljoen EUR besparingen** die de nieuwe Brusselse regering oplegt aan het tewerkstellingsbeleid. Directeur-generaal **Cristina Amboldi**, die zich niet gesteund voelde, verliet de vergadering en diende haar ontslag in, dat op **maandag 30 maart 2026** werd aangekondigd door het kabinet van de minister van Werk. Haar adjunct Caroline Mancel beëindigde haar mandaat op 31 maart. Het Beheerscomité neemt het dagelijks beheer waar tijdens de rekrutering van de nieuwe directie.
 
 Op **donderdag 16 april 2026** bereikte de Brusselse regering een akkoord over een aangepast Actiris-budget 2026. Volgens minister van Werk **Laurent Hublet** (Les Engagés) wordt de initiële besparingsinspanning van 40 M€ teruggebracht tot **~28 M€** in 2026 (−12 M€). Belangrijkste toegevingen voor GESCO's en non-profit:
 
@@ -345,10 +381,34 @@ De **Activa.brussels**-premie wordt wel afgeschaft en vervangen door een nieuw m
 
 Het aangepaste budget moet nog worden voorgesteld aan het Beheerscomité van Actiris en omgezet in een gewestelijke begrotingsaanpassing die in het Brussels Parlement wordt gestemd.
 
+## Monitoring van de GESCO's: een opiniestuk van 200 verenigingen, en het antwoord van de minister (18-21 september 2026)
+
+Op vrijdag 18 september 2026 publiceerde Le Soir een opiniestuk met de titel « Défendons les emplois ACS et le tissu associatif bruxellois » (Laten we de GESCO-banen en het Brusselse verenigingsleven verdedigen), gedragen door het Platform ACS. Het is ondertekend door meer dan **200 Brusselse verenigingen en organisaties**, door de CNE, de SETCa-FGTB, de FGTB Bruxelles en de CSC Bruxelles, en door 157 werknemers in eigen naam. De ondertekenaars becijferen het stelsel op 5 600 banen. Ze maken zich zorgen over de vragenlijst die in juli naar de verenigingen werd gestuurd, waarvan de doelstellingen en het statuut van de verzamelde antwoorden volgens hen weinig duidelijk blijven, en vrezen dat die een herfocussing van het stelsel of een heroriëntering naar de activering van werkzoekenden voorbereidt. Ze vragen de Brusselse regering af te zien van elke hervorming van de GESCO's, maar betwisten naar eigen zeggen niet het principe van een opvolging.
+
+Op maandag 21 september 2026 verklaarde de Brusselse minister van Werk, **Laurent Hublet** (Les Engagés), in de plenaire vergadering van het Brussels Parlement, in antwoord op een vraag van volksvertegenwoordiger Farida Tahar (Ecolo): « Je souhaite rassurer pleinement le secteur : Il n'est pas question de réduire les emplois ACS. » (Ik wil de sector volledig geruststellen: er is geen sprake van het verminderen van de GESCO-banen.) Volgens hem vertegenwoordigt het stelsel een budget van **276 miljoen euro** en ondersteunt het meer dan **1 000 verenigingen** en **5 500 werknemers**. Hij geeft aan dat de door Actiris verstuurde vragenlijst op 13 september 2026 werd afgesloten met een responsgraad van 92 %, en dat die gegevens zullen worden gekruist met die waarover Actiris beschikt, vóór overleg met de non-profitsector. De evaluatie stelt volgens hem het nut van het stelsel niet ter discussie.
+
+De vraag staat in de databank van het Parlement (actualiteitsvraag nr. 13, antwoord van 21 september 2026). Het verslag van de vergadering was op 24 september 2026 nog niet gepubliceerd: de uitspraken van de minister worden geciteerd op basis van het bericht van het persagentschap Belga.
+
+### Hoeveel GESCO-banen? Cijfers die niet hetzelfde tellen
+
+De gepubliceerde grootteordes lopen tot het dubbele uiteen, omdat ze noch op dezelfde datum noch op dezelfde afbakening slaan.
+
+| Cijfer | Datum | Wat het telt | Bron |
+|---|---|---|---|
+| ongeveer 10 000 posten | eind 2017 | gesubsidieerde posten, inclusief ongeveer 2 500 bij gemeenten en OCMW's (2 537 personen volgens view.brussels) | BRUXEO |
+| 6 906 werknemers, of 5 402 voltijdse equivalenten | 31 december 2021 | stelsel « Programmawet » (vzw's, besturen, scholen), zonder lokale besturen | view.brussels |
+| 5 600 banen | september 2026 | afbakening niet gepreciseerd | opiniestuk van de verenigingen |
+| 5 500 werknemers, meer dan 1 000 verenigingen | september 2026 | afbakening niet gepreciseerd | minister van Werk |
+
+De daling tussen 2017 en 2021 is grotendeels te verklaren door de GESCO-hervorming bij de lokale besturen: sinds 1 januari 2021 werd 85 % van die posten qua beheer en budget overgedragen aan Brussel Plaatselijke Besturen, en beheert Actiris er nog maar 10 % van, volgens view.brussels. Het verschil tussen de 6 906 werknemers van 2021 en de 5 500 die in 2026 worden genoemd, wordt daarentegen door geen enkele gepubliceerde bron verklaard: noch de minister noch het opiniestuk preciseert of het om personen of voltijdse equivalenten gaat, en of besturen en scholen zijn inbegrepen.
+
+Bronnen: [COJ, volledige tekst van het opiniestuk in Le Soir (18 september 2026)](http://coj.be/carte-blanche-defendons-les-emplois-acs-et-le-tissu-associatif-bruxellois/) ; [La Libre, Belga-bericht (21 september 2026)](https://www.lalibre.be/dernieres-depeches/2026/09/21/il-nest-pas-question-de-reduire-les-emplois-acs-insiste-le-ministre-l-hublet-4XTY34EYE5DYTCFHT6JWXAKVQY/) ; [Brussels Parlement, actualiteitsvraag nr. 13 (21 september 2026)](https://www.parlement.brussels/weblex-quest-det/?moncode=170660&base=1&taal=fr) ; [view.brussels, inventaris van de tewerkstellingsmaatregelen 2022](https://www.actiris.brussels/media/ivfpjbtg/2022-10-view-brussels-inventaire-des-mesures-d-aide-%C3%A0-l-emploi_cpr-h-0AB51BC8.pdf). Betrouwbaarheid: *official* voor het houden van de vergadering en de vraag; *estimated* voor de uitspraken van de minister, geciteerd op basis van een agentschapsbericht bij gebrek aan verslag.
+
 ## Te volgen kwesties
 
 - **Sociaal akkoord non-profit**: komt er een akkoord vóór 2028, zoals de vakbonden eisen?
 - **GESCO-differentieel**: zal het Gewest de premies herwaarderen om het loonverschil te overbruggen?
 - **Creatie van posten**: wordt de bevriezing sinds 2015 opgeheven om te beantwoorden aan de groeiende noden (thuiszorg, kinderopvang, sociale cohesie)?
 - **Afstemming Werk/Opleiding**: maakt de COCOF-splitsing Hublet/Dilliès een coherente sturing van Actiris en Bruxelles Formation mogelijk?
-- **Impact werkloosheidshervorming**: de verwachte 42 000 uitsluitingen zullen de druk op de non-profitsector verhogen (OCMW's, sociale hulp), die al middelen tekortkomt. In februari 2026 zijn **20 792 OCMW-ingeschrevenen** werkzoekend (+17,5 % op jaarbasis) — een voorbode van de golf die vanaf juli 2026 verwacht wordt (bron: DH / Actiris, 5 maart 2026)
+- **Impact werkloosheidshervorming**: volgens de RVA kwamen 26 986 Brusselaars tussen januari en juni 2026 aan het einde van hun recht op een uitkering, en de meerderheid van hen blijft ingeschreven bij Actiris; de druk verschuift naar de OCMW's en de non-profitsector (zie het dossier [Brusselse OCMW's](/nl/dossiers/cpas-bruxellois)).
+- **GESCO-monitoring**: welke resultaten worden getrokken uit de vragenlijst die op 13 september 2026 werd afgesloten, en volgens welke overlegkalender? De minister gaf in zijn antwoord van 21 september, zoals weergegeven door Belga, geen datum.

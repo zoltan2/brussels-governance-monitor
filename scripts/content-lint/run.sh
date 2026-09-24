@@ -17,6 +17,11 @@ rc=0
 # la liste des vues immersives peut elle aussi casser une URL publique.
 check_slug_redirects "$BASE_REF" || rc=1
 
+# Vérifications en retard : sur tout le dépôt, avant le filtre des .mdx (une
+# échéance se dépasse sans qu'aucun fichier change). Avertissement non
+# bloquant ; seule une date illisible ou future fait échouer.
+check_verification_overdue || rc=1
+
 CHANGED="$(git diff --name-only "${BASE_REF}...HEAD" -- 'content/' | grep '\.mdx$' || true)"
 if [ -z "$CHANGED" ]; then
   echo "content-lint: aucun .mdx modifié vs ${BASE_REF}, skip"

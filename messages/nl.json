@@ -278,10 +278,13 @@
     }
   },
   "freshness": {
-    "recent": "Recent geverifieerd",
+    "recent": "Recent bijgewerkt",
     "current": "Actueel",
     "aging": "Hercontrole nodig",
-    "stale": "Update nodig"
+    "stale": "Update nodig",
+    "verifiedOn": "Gecontroleerd op <time>{date}</time>",
+    "verifiedExplainLabel": "Wat betekent „gecontroleerd”?",
+    "verifiedExplain": "Datum waarop we de feiten op deze pagina opnieuw aan hun bronnen hebben getoetst, of de tekst nu veranderd is of niet. De bijwerkingsdatum ernaast geeft de laatste wijziging van de tekst aan."
   },
   "subscribe": {
     "title": "Blijf op de hoogte",
@@ -1841,7 +1844,7 @@
   },
   "relecture": {
     "title": "Te herlezen",
-    "intro": "Drie signalen uit de fiches en het wekelijkse SEO-rapport, om te zien wat veroudert voor iemand anders het opmerkt.",
+    "intro": "Vier signalen uit de fiches en het wekelijkse SEO-rapport, om te zien wat veroudert voor iemand anders het opmerkt.",
     "total": "{count, plural, one {# te herlezen element} other {# te herlezen elementen}}",
     "unavailableCount": "niet beschikbaar",
     "pagesIa": {
@@ -1862,6 +1865,12 @@
       "explain": "Intro herlezen meer dan {days} dagen geleden, of nooit herlezen.",
       "empty": "Geen enkele verouderde intro: alle intro's zijn minder dan {days} dagen geleden herlezen.",
       "count": "{count, plural, one {# fiche} other {# fiches}}"
+    },
+    "verifications": {
+      "title": "Achterstallige controles",
+      "explain": "Termijn voor hercontrole verstreken: « volgende controle » uit het controleregister, of controledatum van een fiche plus het interval. Alleen hier zichtbaar, nooit op de publieke site.",
+      "empty": "Geen achterstallige controles: alle geregistreerde termijnen liggen nog in de toekomst.",
+      "count": "{count, plural, one {# controle} other {# controles}}"
     },
     "item": {
       "age": "{count, plural, one {# dag geleden} other {# dagen geleden}}",

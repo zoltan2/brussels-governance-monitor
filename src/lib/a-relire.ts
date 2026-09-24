@@ -15,6 +15,10 @@
  * 2. Les FAQ republiées sans relecture (src/lib/faq-review.ts).
  * 3. Les chapeaux (`summary`) laissés à pourrir au-delà du seuil
  *    (src/lib/summary-freshness.ts, SUMMARY_MAX_AGE_DAYS).
+ * 4. Les vérifications dont l'échéance est dépassée : `nextVerification` du
+ *    registre, ou `lastVerified` + `verificationIntervalDays` d'une fiche
+ *    (src/lib/verification-due.ts, même règle que le content-lint
+ *    scripts/content-lint/verification-overdue.ts).
  *
  * Ce module se contente d'assembler ces trois signaux déjà calculés
  * ailleurs ; il n'invente aucune règle de fraîcheur. Les fonctions
@@ -30,6 +34,7 @@
 import { checkFaqReview, type FaqReviewVerdict } from './faq-review';
 import { jourISO } from './velite-date';
 import { checkSummaryFreshness, SUMMARY_MAX_AGE_DAYS } from './summary-freshness';
+import { aujourdhuiBruxelles, bilanEcheances } from './verification-due';
 import {
   gscMesurePresente,
   readSeoReport,
@@ -38,11 +43,16 @@ import {
 } from './seo-report';
 import { chemin } from './utils';
 import {
+  getAllVerifications,
   getLocalizedSlug,
   getPublishedDomainCards,
   getPublishedDossierCards,
+  getPublishedSectorCards,
+  idDeVerification,
   type DomainCard,
   type DossierCard,
+  type SectorCard,
+  type Verification,
 } from './content';
 import type { Locale } from '@/i18n/routing';
 
@@ -71,11 +81,16 @@ export interface ElementsARelire {
   pagesIa: ElementARelire[] | null;
   faq: ElementARelire[];
   chapeau: ElementARelire[];
+  /** Vérifications dont l'échéance est dépassée (registre et fiches). */
+  verifications: ElementARelire[];
 }
 
 interface Cartes {
   domainCards: DomainCard[];
   dossierCards: DossierCard[];
+  /** Seulement pour titrer une vérification de secteur en retard. Absent :
+   * le titre reste inconnu (null), jamais deviné. */
+  sectorCards?: SectorCard[];
 }
 
 const LOCALES_CONNUES: readonly Locale[] = ['fr', 'nl', 'en', 'de'];
@@ -131,6 +146,13 @@ function trouverDomaine(cartes: DomainCard[], locale: string, slug: string): Dom
     cartes.find((c) => c.locale === locale && c.slug === slug) ??
     // Repli FR : la page publiée à cette URL montre le contenu FR faute de
     // traduction, c'est donc bien cette fiche qui doit être relue.
+    cartes.find((c) => c.locale === 'fr' && c.slug === slug)
+  );
+}
+
+function trouverSecteur(cartes: SectorCard[], locale: string, slug: string): SectorCard | undefined {
+  return (
+    cartes.find((c) => c.locale === locale && c.slug === slug) ??
     cartes.find((c) => c.locale === 'fr' && c.slug === slug)
   );
 }
@@ -332,14 +354,102 @@ export function buildChapeauARelire(cartes: Cartes, today?: string): ElementARel
 }
 
 /**
- * Assemble les trois listes. Pure (aucune I/O) : orchestrateur testable
+ * Vérifications dont l'échéance est dépassée. La règle (dernière vérification
+ * par fiche, échéance strictement antérieure au jour) vit dans
+ * src/lib/verification-due.ts, partagée avec le content-lint : jamais une
+ * seconde règle ici. Une date illisible n'est pas en retard, elle est
+ * signalée par le lint, qui échoue dessus.
+ */
+export function buildVerificationsEnRetard(
+  cartes: Cartes,
+  verifications: Verification[],
+  today?: string,
+): ElementARelire[] {
+  const aujourdhui = today ?? aujourdhuiBruxelles();
+  const parFichier = new Map<string, DomainCard | DossierCard>();
+  for (const spec of specs(cartes)) {
+    for (const carte of spec.cartes) parFichier.set(`${spec.dir}/${carte.slug}.${carte.locale}.mdx`, carte);
+  }
+  const bilan = bilanEcheances({
+    aujourdhui,
+    // ⚑ Dates Velite : horodatages complets, ramenés au jour par
+    // bilanEcheances (jourISO). Voir src/lib/velite-date.ts.
+    verifications: verifications.map((v) => ({
+      fichier: `${idDeVerification(v)}:${v.locale}`,
+      cardType: v.cardType,
+      cardSlug: v.cardSlug,
+      locale: v.locale,
+      date: v.date,
+      nextVerification: v.nextVerification,
+    })),
+    fiches: specs(cartes).flatMap((spec) =>
+      spec.cartes.map((carte) => ({
+        fichier: `${spec.dir}/${carte.slug}.${carte.locale}.mdx`,
+        collection: spec.collection,
+        slug: carte.slug,
+        locale: carte.locale,
+        title: carte.title,
+        lastVerified: carte.lastVerified,
+        verificationIntervalDays: carte.verificationIntervalDays,
+      })),
+    ),
+  });
+
+  const elements: ElementARelire[] = [];
+  for (const v of bilan.verificationsEnRetard) {
+    const [idVerif, locale] = v.fichier.split(':');
+    // Le registre vérifie des fiches domaine ET secteur (cardType au schéma).
+    const fiche =
+      v.cardType === 'domain'
+        ? trouverDomaine(cartes.domainCards, locale, v.cardSlug)
+        : v.cardType === 'sector'
+          ? trouverSecteur(cartes.sectorCards ?? [], locale, v.cardSlug)
+          : undefined;
+    elements.push({
+      id: identifiant(v.cardType === 'domain' ? 'domain' : 'inconnue', locale, v.cardSlug),
+      collection: v.cardType === 'domain' ? 'domain' : 'inconnue',
+      slug: v.cardSlug,
+      locale,
+      titre: fiche?.title ?? null,
+      motif: `Prochaine vérification prévue le ${v.echeance}, non faite (dernière vérification le ${v.date}). Revérifier les faits contre les sources, puis enregistrer une nouvelle vérification.`,
+      ageDays: v.joursDeRetard,
+      lien: `/${locale}/verifications/${idVerif}`,
+      // Le nom du fichier source n'est pas porté par Velite : on ne le devine pas.
+      cheminFichier: null,
+    });
+  }
+  for (const f of bilan.fichesEnRetard) {
+    const carte = parFichier.get(f.fichier);
+    elements.push({
+      id: identifiant(f.collection, f.locale, f.slug),
+      collection: f.collection,
+      slug: f.slug,
+      locale: f.locale,
+      titre: f.title ?? null,
+      motif: `Vérifiée le ${f.lastVerified}, à revérifier tous les ${f.intervalDays} jours : échéance du ${f.echeance} dépassée. Relire les faits contre les sources, puis poser lastVerified au jour de la relecture.`,
+      ageDays: f.joursDeRetard,
+      lien: carte ? construireLien(f.collection, f.locale as Locale, carte) : '',
+      cheminFichier: f.fichier,
+    });
+  }
+  return elements.sort((a, b) => (b.ageDays ?? -1) - (a.ageDays ?? -1));
+}
+
+/**
+ * Assemble les quatre listes. Pure (aucune I/O) : orchestrateur testable
  * séparément du chargement des données réelles (chargerElementsARelire).
  */
-export function getElementsARelire(rapport: RapportSeo, cartes: Cartes, today?: string): ElementsARelire {
+export function getElementsARelire(
+  rapport: RapportSeo,
+  cartes: Cartes,
+  verifications: Verification[],
+  today?: string,
+): ElementsARelire {
   return {
     pagesIa: buildPagesIaPerimees(rapport, cartes, today),
     faq: buildFaqARelire(cartes, today),
     chapeau: buildChapeauARelire(cartes, today),
+    verifications: buildVerificationsEnRetard(cartes, verifications, today),
   };
 }
 
@@ -353,6 +463,7 @@ export async function chargerElementsARelire(today?: string): Promise<ElementsAR
   const cartes: Cartes = {
     domainCards: getPublishedDomainCards(),
     dossierCards: getPublishedDossierCards(),
+    sectorCards: getPublishedSectorCards(),
   };
-  return getElementsARelire(rapport, cartes, today);
+  return getElementsARelire(rapport, cartes, getAllVerifications(), today);
 }

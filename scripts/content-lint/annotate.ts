@@ -20,6 +20,17 @@ export function annotate(title: string, message: string, file?: string): void {
   console.log(`::error ${fileProp}title=${escProp(title)}::${escData(message)}`);
 }
 
+/**
+ * Annotation `::warning` : visible dans l'onglet de la PR sans faire échouer
+ * le contrôle. /fr/admin ne la lit pas comme une cause d'échec
+ * (readFailureNotes ne retient que le niveau `failure`).
+ */
+export function annotateWarning(title: string, message: string, file?: string): void {
+  if (process.env.GITHUB_ACTIONS !== 'true') return;
+  const fileProp = file ? `file=${escProp(file)},` : '';
+  console.log(`::warning ${fileProp}title=${escProp(title)}::${escData(message)}`);
+}
+
 /** Texte sur une seule ligne, sans séquence « :: » en tête. */
 export function safeLine(text: string): string {
   return text.replace(/[\r\n]+/g, ' ').replace(/^\s*::/, ' ::');

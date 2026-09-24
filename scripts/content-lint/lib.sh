@@ -118,3 +118,14 @@ check_slug_redirects() {
   local base="${1:?check_slug_redirects: base_ref manquant}"
   npx tsx "$CONTENT_LINT_DIR/slug-redirects.ts" "$base"
 }
+
+# Vérifications dont l'échéance est dépassée : `nextVerification` du registre
+# content/verifications/, ou `lastVerified` + `verificationIntervalDays` d'un
+# dossier ou d'une fiche domaine. AVERTISSEMENT SEULEMENT : un retard vient du
+# temps qui passe, pas de la PR, et ne fait jamais échouer (sinon chaque PR
+# serait bloquée le lendemain d'une échéance). Imprime toujours ses compteurs,
+# même à zéro. N'échoue (1) que sur une valeur illisible ou future, ou une
+# lecture impossible. Logique : src/lib/verification-due.ts. Ne lit pas stdin.
+check_verification_overdue() {
+  npx tsx "$CONTENT_LINT_DIR/verification-overdue.ts"
+}

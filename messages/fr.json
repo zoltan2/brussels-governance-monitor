@@ -278,10 +278,13 @@
     }
   },
   "freshness": {
-    "recent": "Vérifié récemment",
+    "recent": "Mis à jour récemment",
     "current": "À jour",
     "aging": "À revérifier",
-    "stale": "Mise à jour nécessaire"
+    "stale": "Mise à jour nécessaire",
+    "verifiedOn": "Vérifié le <time>{date}</time>",
+    "verifiedExplainLabel": "Que signifie « vérifié » ?",
+    "verifiedExplain": "Date à laquelle nous avons revérifié les faits de cette page contre leurs sources, que le texte ait changé ou non. La date de mise à jour, à côté, indique le dernier changement du texte."
   },
   "subscribe": {
     "title": "Restez informé",
@@ -1841,7 +1844,7 @@
   },
   "relecture": {
     "title": "À relire",
-    "intro": "Trois signaux tirés des fiches et du rapport SEO hebdomadaire, pour voir ce qui vieillit avant que quelqu'un d'autre ne le remarque.",
+    "intro": "Quatre signaux tirés des fiches et du rapport SEO hebdomadaire, pour voir ce qui vieillit avant que quelqu'un d'autre ne le remarque.",
     "total": "{count, plural, one {# élément à relire} other {# éléments à relire}}",
     "unavailableCount": "indisponible",
     "pagesIa": {
@@ -1862,6 +1865,12 @@
       "explain": "Chapeau relu il y a plus de {days} jours, ou jamais relu.",
       "empty": "Aucun chapeau périmé : tous les chapeaux ont été relus il y a moins de {days} jours.",
       "count": "{count, plural, one {# fiche} other {# fiches}}"
+    },
+    "verifications": {
+      "title": "Vérifications en retard",
+      "explain": "Échéance de revérification dépassée : « prochaine vérification » du registre des vérifications, ou date de vérification d'une fiche plus son intervalle. Visible ici seulement, jamais sur le site public.",
+      "empty": "Aucune vérification en retard : toutes les échéances enregistrées sont à venir.",
+      "count": "{count, plural, one {# vérification} other {# vérifications}}"
     },
     "item": {
       "age": "{count, plural, one {il y a # jour} other {il y a # jours}}",

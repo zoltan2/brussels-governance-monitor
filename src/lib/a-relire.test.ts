@@ -6,11 +6,12 @@ import {
   buildPagesIaPerimees,
   buildFaqARelire,
   buildChapeauARelire,
+  buildVerificationsEnRetard,
   getElementsARelire,
 } from './a-relire';
 import { SUMMARY_MAX_AGE_DAYS } from './summary-freshness';
 import type { RapportSeo, ActionSuggeree, GscDonnees } from './seo-report';
-import type { DomainCard, DossierCard } from './content';
+import type { DomainCard, DossierCard, SectorCard, Verification } from './content';
 
 // --- Fixtures ---------------------------------------------------------
 
@@ -400,13 +401,16 @@ describe('buildChapeauARelire', () => {
 describe('getElementsARelire', () => {
   it('combine les trois listes, en gardant pagesIa distinct de vide quand le rapport manque', () => {
     const carte = domainCard({ summaryReviewed: undefined });
-    const resultat = getElementsARelire(rapportIndisponible('absent'), {
-      domainCards: [carte],
-      dossierCards: [],
-    });
+    const resultat = getElementsARelire(
+      rapportIndisponible('absent'),
+      { domainCards: [carte], dossierCards: [] },
+      [],
+      '2026-09-24',
+    );
     expect(resultat.pagesIa).toBeNull();
     expect(resultat.chapeau).toHaveLength(1);
     expect(resultat.faq).toHaveLength(1); // pas de faqReviewed non plus par défaut
+    expect(resultat.verifications).toEqual([]); // ni registre, ni lastVerified
   });
 });
 
@@ -479,5 +483,89 @@ describe('dates Velite (horodatage complet)', () => {
       ],
     };
     expect(buildChapeauARelire(cartes, '2026-09-22')[0].motif).toMatch(/illisible/);
+  });
+});
+
+// --- buildVerificationsEnRetard ------------------------------------------
+
+/**
+ * Fixtures à la forme réellement servie par Velite : `s.isodate()` rend un
+ * horodatage complet (voir src/lib/velite-date.ts). `lastVerified`, lui, est
+ * une chaîne stricte `AAAA-MM-JJ` au schéma.
+ */
+describe('buildVerificationsEnRetard', () => {
+  const H = (jour: string) => `${jour}T00:00:00.000Z`;
+
+  function verification(overrides: Partial<Verification> = {}): Verification {
+    return {
+      slug: 'budget-2026-03-06',
+      locale: 'fr',
+      cardType: 'domain',
+      cardSlug: 'budget',
+      date: H('2026-03-06'),
+      result: 'no-change',
+      summary: 'RAS',
+      sourcesConsulted: [],
+      editor: 'BGM',
+      nextVerification: H('2026-04-06'),
+      lastModified: H('2026-03-06'),
+      content: '',
+      permalink: '/verifications/budget-2026-03-06',
+      ...overrides,
+    };
+  }
+
+  it('liste la dernière vérification dépassée, avec le lien de la vérification et le titre de la fiche', () => {
+    const cartes = { domainCards: [domainCard()], dossierCards: [] as DossierCard[] };
+    const [el, ...reste] = buildVerificationsEnRetard(cartes, [verification()], '2026-09-24');
+    expect(reste).toHaveLength(0);
+    expect(el.titre).toBe('Budget régional');
+    expect(el.ageDays).toBe(171);
+    expect(el.lien).toBe('/fr/verifications/budget-2026-03-06');
+    expect(el.cheminFichier).toBeNull();
+    expect(el.motif).toContain('2026-04-06');
+  });
+
+  it('titre aussi une vérification de fiche secteur, sans la confondre avec un domaine du même slug', () => {
+    const secteur = { title: 'Enseignement fondamental', slug: 'education', locale: 'fr', draft: false } as SectorCard;
+    const cartes = {
+      domainCards: [domainCard({ slug: 'education', title: 'Éducation (domaine)' })],
+      dossierCards: [] as DossierCard[],
+      sectorCards: [secteur],
+    };
+    const [el] = buildVerificationsEnRetard(
+      cartes,
+      [verification({ cardType: 'sector', cardSlug: 'education', date: H('2026-03-06') })],
+      '2026-09-24',
+    );
+    expect(el.titre).toBe('Enseignement fondamental');
+    expect(el.lien).toBe('/fr/verifications/education-2026-03-06');
+  });
+
+  it("laisse le titre inconnu (null) quand la fiche secteur n'est pas fournie, sans le deviner", () => {
+    const [el] = buildVerificationsEnRetard(
+      AUCUNE_CARTE,
+      [verification({ cardType: 'sector', cardSlug: 'education' })],
+      '2026-09-24',
+    );
+    expect(el.titre).toBeNull();
+  });
+
+  it("ignore une vérification dont l'échéance a été honorée par une vérification plus récente", () => {
+    const ancienne = verification({ date: H('2026-02-08'), nextVerification: H('2026-03-08') });
+    const recente = verification({ nextVerification: H('2026-10-06') });
+    expect(buildVerificationsEnRetard(AUCUNE_CARTE, [ancienne, recente], '2026-09-24')).toEqual([]);
+  });
+
+  it('liste un dossier dont lastVerified + intervalle est dépassé, jamais sans intervalle', () => {
+    const enRetard = dossierCard({ lastVerified: '2026-06-01', verificationIntervalDays: 90 });
+    const sansIntervalle = dossierCard({ slug: 'autre', lastVerified: '2026-01-01' });
+    const cartes = { domainCards: [] as DomainCard[], dossierCards: [enRetard, sansIntervalle] };
+    const liste = buildVerificationsEnRetard(cartes, [], '2026-09-24');
+    expect(liste).toHaveLength(1);
+    expect(liste[0].cheminFichier).toBe('content/dossiers/lez.fr.mdx');
+    expect(liste[0].lien).toBe('/fr/dossiers/lez');
+    // 01/06 + 90 j = 30/08 ; 25 jours de retard au 24/09.
+    expect(liste[0].ageDays).toBe(25);
   });
 });

@@ -105,11 +105,13 @@ check_lastmodified() {
   return 0
 }
 
-# Un slug de dossier modifié (localizedSlugs, slug canonique, suppression) doit
-# livrer sa redirection permanente dans src/lib/redirects-301.ts : règle
-# MANDATORY de velite.config.ts, sans garde jusqu'au 24/09/2026. Compare les
-# URL servies au merge-base et dans l'arbre de travail ; le message donne
-# l'entrée exacte à ajouter. Logique : src/lib/slug-redirects.ts.
+# Une page publiée dont l'URL change ou disparaît (dossier, domaine, solution,
+# secteur, comparaison, commune, archive, vérification ; slug renommé, fiche
+# supprimée, segment localisé de src/i18n/routing.ts renommé) doit livrer sa
+# redirection permanente dans src/lib/redirects-301.ts, ou un retrait explicite
+# dans URLS_RETIREES. Compare les URL servies au merge-base et dans l'arbre de
+# travail ; le message donne l'entrée exacte à ajouter. Logique :
+# src/lib/slug-redirects.ts. Dossiers seuls du 24/09/2026 (#589), tous types ensuite.
 # $1 = base_ref. Ne lit pas stdin.
 check_slug_redirects() {
   local base="${1:?check_slug_redirects: base_ref manquant}"

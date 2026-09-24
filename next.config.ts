@@ -17,9 +17,10 @@ const nextConfig: NextConfig = {
   ...selfHostConfig,
   poweredByHeader: false,
   async redirects() {
-    // 301 permanents pour la migration des slugs localisés (spec 2026-05-03 §3.4-3.5).
-    // Table dans src/lib/redirects-301.ts. Initialement vide ; se remplit dossier par
-    // dossier au fur et à mesure des migrations éditoriales.
+    // Redirections permanentes de toute page publiée dont l'URL change (spec
+    // 2026-05-03 §3.4-3.5). Table dans src/lib/redirects-301.ts, ordre conservé :
+    // Next applique la première entrée qui correspond. Contrôlée en CI par
+    // scripts/content-lint/slug-redirects.ts.
     return getRedirectsConfig();
   },
   async rewrites() {

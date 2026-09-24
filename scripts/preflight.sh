@@ -4,7 +4,7 @@
 # temporelles, sources vides, relecture et unicité des FAQ, chapeau, date du
 # changeSummary, liens internes, schémas des trois fichiers data/ d'une
 # veille (validés sinon au seul next build), date des pages /explainers/
-# dans messages/*.json, et redirection de tout slug de dossier modifié.
+# dans messages/*.json, et redirection de toute page publiée dont l'URL change.
 #
 # Le contrôle de fraîcheur de l'index Pagefind a été retiré le 2026-09-11 :
 # public/pagefind/ n'est plus suivi par git, l'image Docker génère l'index au
@@ -115,10 +115,12 @@ if printf '%s\n' "$CHANGED_ALL" | grep -qE '^messages/.*\.json$'; then
   npx tsx scripts/content-lint/explainer-messages-date.ts "$BASE" || rc=1
 fi
 
-# 2 septies) Slug de dossier modifié sans redirection permanente. Règle
-#    MANDATORY de velite.config.ts (localizedSlugs), sans garde jusqu'au
-#    24/09/2026. Même fonction que la CI (lib.sh, check_slug_redirects).
-if printf '%s\n' "$CHANGED_ALL" | grep -qE '^(content/dossiers/|src/lib/(redirects-301|slug-redirects|scrolly-allowlist|content)\.ts$|src/app/\[locale\]/dossiers/|scripts/content-lint/slug-redirects\.ts$)'; then
+# 2 septies) Page publiée (dossier, domaine, solution, secteur, comparaison,
+#    commune, archive, vérification) dont l'URL change sans redirection
+#    permanente. Même fonction que la CI (lib.sh, check_slug_redirects). Le
+#    motif suit PAGE_TYPES (src/lib/slug-redirects.ts) : dossiers de contenu,
+#    table de routage, pages [slug], et le contrôle lui-même.
+if printf '%s\n' "$CHANGED_ALL" | grep -qE '^(content/(dossiers|domain-cards|solution-cards|sector-cards|comparison-cards|commune-cards|archive-pages|verifications)/|src/i18n/routing\.ts$|src/lib/(redirects-301|slug-redirects|scrolly-allowlist|content|velite-date|frontmatter)\.ts$|src/app/\[locale\]/[^/]+/\[slug\]/|scripts/content-lint/slug-redirects\.ts$|next\.config\.ts$)'; then
   check_slug_redirects "$BASE" || rc=1
 fi
 

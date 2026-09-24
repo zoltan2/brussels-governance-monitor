@@ -2,7 +2,7 @@
 # Usage: run.sh <base_ref>   (ex: run.sh origin/main)
 # Le caller doit avoir fetché base_ref (CI: fetch-depth 0 ; preflight: git fetch).
 # Diff trois-points (merge-base) ; ne linte que les .mdx de content/ modifiés,
-# sauf le contrôle des slugs de dossiers, qui compare toujours tout l'ensemble.
+# sauf le contrôle des URL publiées, qui compare toujours tout l'ensemble.
 # SKIP_LASTMODIFIED=1 désactive le check lastModified (miroir du label PR).
 set -uo pipefail
 BASE_REF="${1:?usage: run.sh <base_ref>}"
@@ -12,9 +12,9 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 rc=0
 
-# Slugs de dossiers et redirections permanentes. Tourne AVANT le filtre des
-# .mdx : une PR qui ne touche que src/lib/redirects-301.ts ou la liste des vues
-# immersives peut elle aussi casser une URL publique.
+# URL des pages publiées et redirections permanentes. Tourne AVANT le filtre
+# des .mdx : une PR qui ne touche que src/lib/redirects-301.ts, routing.ts ou
+# la liste des vues immersives peut elle aussi casser une URL publique.
 check_slug_redirects "$BASE_REF" || rc=1
 
 CHANGED="$(git diff --name-only "${BASE_REF}...HEAD" -- 'content/' | grep '\.mdx$' || true)"

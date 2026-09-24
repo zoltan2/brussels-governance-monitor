@@ -6,10 +6,25 @@
 import { useState } from 'react';
 import { Link } from '@/i18n/navigation';
 import { formatDate } from '@/lib/utils';
-import type { LocalizedRadarEntry } from '@/lib/radar';
+import type { LocalizedRadarEntry, PromotedSection } from '@/lib/radar';
 import type { RadarLabels } from './page';
 
 const PAGE_SIZE = 30;
+
+/**
+ * Chemin de la fiche pour chaque type réel de promotion. Le lien lui-même
+ * (section + slug) est résolu côté serveur dans src/lib/radar.ts — jamais
+ * ici : voir `signal.promotedLink` et `resolvePromotedSection()`.
+ */
+const PROMOTED_SECTION_PATHNAME: Record<
+  PromotedSection,
+  '/dossiers/[slug]' | '/communes/[slug]' | '/sectors/[slug]' | '/domains/[slug]'
+> = {
+  dossiers: '/dossiers/[slug]',
+  communes: '/communes/[slug]',
+  sectors: '/sectors/[slug]',
+  domains: '/domains/[slug]',
+};
 
 const CONFIDENCE_STYLES: Record<string, string> = {
   official: 'bg-brand-900/5 text-brand-700 border-brand-700/30',
@@ -132,7 +147,6 @@ function SignalCard({
   labels: RadarLabels;
 }) {
   const isArchived = signal.status === 'archived';
-  const promotedSection = signal.promotedSection ?? 'domains';
 
   return (
     <div
@@ -188,33 +202,12 @@ function SignalCard({
           </span>
         )}
 
-        {signal.promotedTo && promotedSection === 'dossiers' && (
+        {signal.promotedLink && (
           <Link
-            href={{ pathname: '/dossiers/[slug]', params: { slug: signal.promotedTo } }}
-            className="font-medium text-confirmed-fg underline underline-offset-2 hover:decoration-2"
-          >
-            {labels.seeCard}
-          </Link>
-        )}
-        {signal.promotedTo && promotedSection === 'communes' && (
-          <Link
-            href={{ pathname: '/communes/[slug]', params: { slug: signal.promotedTo } }}
-            className="font-medium text-confirmed-fg underline underline-offset-2 hover:decoration-2"
-          >
-            {labels.seeCard}
-          </Link>
-        )}
-        {signal.promotedTo && promotedSection === 'sectors' && (
-          <Link
-            href={{ pathname: '/sectors/[slug]', params: { slug: signal.promotedTo } }}
-            className="font-medium text-confirmed-fg underline underline-offset-2 hover:decoration-2"
-          >
-            {labels.seeCard}
-          </Link>
-        )}
-        {signal.promotedTo && promotedSection !== 'dossiers' && promotedSection !== 'communes' && promotedSection !== 'sectors' && (
-          <Link
-            href={{ pathname: '/domains/[slug]', params: { slug: signal.promotedTo } }}
+            href={{
+              pathname: PROMOTED_SECTION_PATHNAME[signal.promotedLink.section],
+              params: { slug: signal.promotedLink.slug },
+            }}
             className="font-medium text-confirmed-fg underline underline-offset-2 hover:decoration-2"
           >
             {labels.seeCard}

@@ -3,6 +3,14 @@
 
 import { Resend } from 'resend';
 import { getDossierCards } from '@/lib/content';
+import {
+  DOMAIN_TOPICS,
+  SECTOR_TOPICS,
+  COMMUNE_TOPICS,
+  ENGAGEMENT_TOPICS,
+} from '@/lib/subscription-topics';
+
+export { DOMAIN_TOPICS, SECTOR_TOPICS, COMMUNE_TOPICS, ENGAGEMENT_TOPICS };
 
 let _resend: Resend | null = null;
 
@@ -17,60 +25,6 @@ export function getResend(): Resend {
 
 export const EMAIL_FROM = 'Brussels Governance Monitor <noreply@mail.brusselsgovernance.be>';
 
-export const DOMAIN_TOPICS = [
-  'budget',
-  'mobility',
-  'employment',
-  'housing',
-  'climate',
-  'social',
-  'solutions',
-  'security',
-  'economy',
-  'cleanliness',
-  'institutional',
-  'urban-planning',
-  'digital',
-  'education',
-] as const;
-
-export const SECTOR_TOPICS = [
-  'commerce',
-  'construction',
-  'culture',
-  'digital',
-  'education',
-  'environment',
-  'health-social',
-  'horeca',
-  'housing-sector',
-  'nonprofit',
-  'transport',
-] as const;
-
-export const COMMUNE_TOPICS = [
-  'communes',
-  'commune-anderlecht',
-  'commune-auderghem',
-  'commune-berchem-sainte-agathe',
-  'commune-bruxelles-ville',
-  'commune-etterbeek',
-  'commune-evere',
-  'commune-forest',
-  'commune-ganshoren',
-  'commune-ixelles',
-  'commune-jette',
-  'commune-koekelberg',
-  'commune-molenbeek-saint-jean',
-  'commune-saint-gilles',
-  'commune-saint-josse-ten-noode',
-  'commune-schaerbeek',
-  'commune-uccle',
-  'commune-watermael-boitsfort',
-  'commune-woluwe-saint-lambert',
-  'commune-woluwe-saint-pierre',
-] as const;
-
 /** Maps Velite dossier slugs to topic identifiers (only for slugs that differ). */
 export const DOSSIER_SLUG_TO_TOPIC: Record<string, string> = {
   'seniors-a-bruxelles': 'dossier-seniors',
@@ -81,7 +35,9 @@ export const DOSSIER_SLUG_TO_TOPIC: Record<string, string> = {
 /**
  * Get all dossier topics dynamically from Velite.
  * Returns ['dossiers', 'dossier-slrb', 'dossier-lez', ...].
- * Uses getDossierCards() from content.ts (static Velite import, safe in all contexts).
+ * Uses getDossierCards() from content.ts (static import of all Velite content):
+ * server only, never reachable from a `'use client'` module (see
+ * src/components/client-bundle-boundary.test.ts).
  */
 export function getDossierTopics(): string[] {
   const cards = getDossierCards('fr');
@@ -92,8 +48,6 @@ export function getDossierTopics(): string[] {
   ];
   return ['dossiers', ...slugs];
 }
-
-export const ENGAGEMENT_TOPICS = ['engagements'] as const;
 
 /**
  * Get all valid topics (static + dynamic dossiers).

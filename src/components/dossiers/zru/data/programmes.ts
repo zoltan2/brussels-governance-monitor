@@ -192,10 +192,10 @@ export const PROGRAMMES: Programme[] = [
       de: '28.960.536,62 Euro im Jahr 2023 gebunden.',
     },
     fait: {
-      fr: `32${NBSP}591${NBSP}282,36 euros liquidés en 2023 (tous exercices d’engagement).`,
-      nl: '32.591.282,36 euro vereffend in 2023 (ongeacht het jaar van vastlegging).',
-      en: '€32,591,282.36 paid out in 2023 (whatever the year of commitment).',
-      de: '32.591.282,36 Euro im Jahr 2023 ausgezahlt (unabhängig vom Jahr der Mittelbindung).',
+      fr: `32${NBSP}591${NBSP}282,36 euros liquidés en 2023.`,
+      nl: '32.591.282,36 euro vereffend in 2023.',
+      en: '€32,591,282.36 paid out in 2023.',
+      de: '32.591.282,36 Euro im Jahr 2023 ausgezahlt.',
     },
     evalue: { fr: null, nl: null, en: null, de: null },
     source: {

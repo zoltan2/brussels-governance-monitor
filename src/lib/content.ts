@@ -1127,6 +1127,16 @@ export function getPublishedSectorCards(): SectorCard[] {
   return sectorCards.filter((c) => !c.draft);
 }
 
+/**
+ * Même raison d'être que getPublishedDomainCards, pour les fiches commune :
+ * src/lib/radar.ts s'en sert pour ne jamais résoudre un lien de signal promu
+ * vers une commune encore en brouillon.
+ */
+export function getPublishedCommuneCards(): CommuneCard[] {
+  const { communeCards } = getCollections();
+  return communeCards.filter((c) => !c.draft);
+}
+
 /** Toutes les vérifications, toutes langues, pour le calcul des échéances
  * dépassées (src/lib/a-relire.ts, via src/lib/verification-due.ts). */
 export function getAllVerifications(): Verification[] {

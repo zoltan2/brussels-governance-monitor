@@ -12,6 +12,7 @@ import { buildMetadata, canonicalUrl, searchMeta } from '@/lib/metadata';
 import { domainBadgeClass } from '@/lib/status-badge';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
+import { SearchExclude } from '@/components/search-exclude';
 import { MdxContent } from '@/components/mdx-content';
 import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
@@ -66,6 +67,8 @@ export async function generateMetadata({
     description: search.description,
     path: `/domains/${slug}`,
     ogParams: `title=${encodeURIComponent(card.title)}&type=domain&status=${card.status}&date=${card.lastModified}&confidence=${card.confidenceLevel}${card.metrics.length > 0 ? `&stats=${encodeURIComponent(JSON.stringify(card.metrics.slice(0, 3).map((m) => ({ label: m.label, value: `${m.value}${m.unit ? ` ${m.unit}` : ''}` }))))}` : ''}`,
+    // Brouillon : servi à son URL pour relecture, jamais indexé ni suivi.
+    draft: card.draft,
   });
 }
 
@@ -155,6 +158,7 @@ function DomainDetail({
   };
 
   return (
+    <SearchExclude when={card.draft}>
     <article className="py-12">
       <div className="mx-auto max-w-5xl px-4">
         {/* ── HEADER ── */}
@@ -378,5 +382,6 @@ function DomainDetail({
         </div>
       </div>
     </article>
+    </SearchExclude>
   );
 }

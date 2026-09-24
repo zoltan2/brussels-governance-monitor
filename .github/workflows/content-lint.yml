@@ -35,6 +35,8 @@ on:
       - 'src/lib/summary-length.ts'
       - 'src/lib/frontmatter.ts'
       - 'src/lib/change-summary-date.ts'
+      # Règle des vérifications en retard (avertissement non bloquant, run.sh).
+      - 'src/lib/verification-due.ts'
       # Liste des vues immersives (garde de liens) et version de js-yaml (parseur
       # des gardes) : les changer change ce que les gardes acceptent.
       - 'src/lib/scrolly-allowlist.ts'
@@ -96,7 +98,7 @@ jobs:
       # laisse passer les cas propres, et surtout qu'il échoue FERMÉ si son fichier
       # de motifs est vide, plutôt que de se taire.
       - name: Tests du module content-lint
-        run: npx vitest run scripts/content-lint/content-lint.test.ts
+        run: npx vitest run scripts/content-lint/content-lint.test.ts scripts/content-lint/verification-overdue.test.ts
 
       # Les trois checks éditoriaux viennent de scripts/content-lint/lib.sh,
       # source unique partagée avec scripts/preflight.sh. Ils étaient auparavant
@@ -112,6 +114,10 @@ jobs:
       # URL publiées : une page (dossier, domaine, commune…) servie sur la base
       # et perdue par la PR exige son entrée dans src/lib/redirects-301.ts, ou
       # un retrait explicite dans URLS_RETIREES.
+      #
+      # Il lance aussi le bilan des vérifications en retard (registre
+      # content/verifications/ et lastVerified des fiches) : AVERTISSEMENT
+      # (::warning, résumé du run), jamais un échec, sauf date illisible ou future.
       - name: Phrases temporelles, sources vides, lastModified
         env:
           SKIP_LASTMODIFIED: ${{ contains(github.event.pull_request.labels.*.name, 'skip-lastmodified-check') && '1' || '0' }}

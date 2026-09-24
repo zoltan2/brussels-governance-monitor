@@ -2,6 +2,44 @@ import { defineCollection, defineConfig, s } from 'velite';
 
 const localeEnum = s.enum(['fr', 'nl', 'en', 'de']);
 
+// ──────────────────────────────────────────────
+// Date de dernière vérification (dossiers et fiches domaine)
+// ──────────────────────────────────────────────
+//
+// `lastVerified` ATTESTE qu'une personne a relu, ce jour-là, les faits de la
+// fiche contre leurs sources, QUE LE TEXTE AIT CHANGÉ OU NON. Il se distingue de :
+//   - `lastModified` : dernier changement du texte. Une fiche revérifiée sans
+//     changement garde son `lastModified` ; une fiche modifiée n'est pas pour
+//     autant vérifiée. Les deux dates ne se déduisent pas l'une de l'autre.
+//   - `summaryReviewed` / `faqReviewed` : relecture du chapeau ou de la FAQ,
+//     pas des faits de toute la fiche.
+//
+// ⚑ Une attestation ne se tamponne pas : jamais posée en masse, jamais
+// remplie par un script, jamais recopiée de `lastModified`. Absente = non
+// affichée (aucune date inventée). Aucune fiche n'a été pré-remplie à
+// l'introduction du champ (24/09/2026).
+//
+// `verificationIntervalDays` (facultatif) : nombre de jours au terme duquel la
+// fiche doit être revérifiée. Sans lui, aucune échéance n'est calculée.
+// L'échéance dépassée est signalée à l'éditeur seul (content-lint
+// scripts/content-lint/verification-overdue.ts et /admin/relecture), jamais
+// au public, et ne bloque jamais la CI. Règle : src/lib/verification-due.ts.
+//
+// Jour strict `AAAA-MM-JJ` en chaîne, PAS `s.isodate()` : celui-ci rend un
+// horodatage complet (voir src/lib/velite-date.ts) et plante sur un jour
+// illisible. Velite ne bloque pas sur une erreur de schéma : le lint
+// ci-dessus, lui, échoue sur une valeur illisible ou future.
+const lastVerifiedField = s
+  .string()
+  .regex(/^\d{4}-\d{2}-\d{2}$/, 'lastVerified : jour attendu au format AAAA-MM-JJ')
+  // Jamais `toISOString()` sur une date invalide : il lève au lieu de refuser.
+  .refine((v) => {
+    const ms = Date.parse(`${v}T00:00:00Z`);
+    return !Number.isNaN(ms) && new Date(ms).toISOString().slice(0, 10) === v;
+  }, 'lastVerified : ce jour n’existe pas')
+  .optional();
+const verificationIntervalDaysField = s.number().int().positive().max(730).optional();
+
 const sourceSchema = s.object({
   label: s.string(),
   url: s.string().url(),
@@ -175,6 +213,9 @@ const domainCards = defineCollection({
       // Date de relecture de la FAQ, exigée à chaque republication par
       // scripts/content-lint/faq-check.ts. Voir src/lib/faq-review.ts.
       faqReviewed: s.isodate().optional(),
+      // Dernière vérification des faits contre les sources. Voir lastVerifiedField.
+      lastVerified: lastVerifiedField,
+      verificationIntervalDays: verificationIntervalDaysField,
       sectors: s.array(s.string()).default([]),
       sources: s.array(sourceSchema),
       confidenceLevel: s.enum(['official', 'estimated', 'unconfirmed']),
@@ -640,6 +681,9 @@ const dossierCards = defineCollection({
       // Date de relecture de la FAQ, exigée à chaque republication par
       // scripts/content-lint/faq-check.ts. Voir src/lib/faq-review.ts.
       faqReviewed: s.isodate().optional(),
+      // Dernière vérification des faits contre les sources. Voir lastVerifiedField.
+      lastVerified: lastVerifiedField,
+      verificationIntervalDays: verificationIntervalDaysField,
       estimatedBudget: budgetSchema.optional(),
       estimatedCostOfInaction: budgetSchema.optional(),
       stakeholders: s.array(s.string()).default([]),

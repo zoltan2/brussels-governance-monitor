@@ -23,6 +23,10 @@ export interface DomainCard {
   /** Date de dernière relecture du chapeau. Voir src/lib/summary-freshness.ts. */
   summaryReviewed?: string;
   faqReviewed?: string;
+  /** Jour (`AAAA-MM-JJ`) où les faits ont été revérifiés contre les sources. Voir velite.config.ts. */
+  lastVerified?: string;
+  /** Intervalle de revérification en jours ; sans lui, pas d'échéance. */
+  verificationIntervalDays?: number;
   sectors: string[];
   sources: Array<{ label: string; url: string; accessedAt: string }>;
   confidenceLevel: 'official' | 'estimated' | 'unconfirmed';
@@ -234,6 +238,10 @@ export interface DossierCard {
   /** Date de dernière relecture du chapeau. Voir src/lib/summary-freshness.ts. */
   summaryReviewed?: string;
   faqReviewed?: string;
+  /** Jour (`AAAA-MM-JJ`) où les faits ont été revérifiés contre les sources. Voir velite.config.ts. */
+  lastVerified?: string;
+  /** Intervalle de revérification en jours ; sans lui, pas d'échéance. */
+  verificationIntervalDays?: number;
   estimatedBudget?: BudgetValue;
   estimatedCostOfInaction?: BudgetValue;
   stakeholders: string[];
@@ -1110,6 +1118,12 @@ export function getPublishedDomainCards(): DomainCard[] {
 export function getPublishedDossierCards(): DossierCard[] {
   const { dossierCards } = getCollections();
   return dossierCards.filter((c) => !c.draft);
+}
+
+/** Toutes les vérifications, toutes langues, pour le calcul des échéances
+ * dépassées (src/lib/a-relire.ts, via src/lib/verification-due.ts). */
+export function getAllVerifications(): Verification[] {
+  return getCollections().verifications;
 }
 
 /**

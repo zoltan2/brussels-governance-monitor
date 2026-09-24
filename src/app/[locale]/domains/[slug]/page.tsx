@@ -17,6 +17,7 @@ import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FreshnessBadge } from '@/components/freshness-badge';
+import { VerifiedBadge } from '@/components/verified-badge';
 import { VerificationBadge } from '@/components/verification-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
 import { StatusAccordion } from '@/components/status-accordion';
@@ -197,6 +198,7 @@ function DomainDetail({
             {t(`confidence.${card.confidenceLevel}`)}
           </span>
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
+          <VerifiedBadge lastVerified={card.lastVerified} locale={locale} />
           <ShareButton
             url={canonicalUrl(locale, `/domains/${card.slug}`)}
             title={card.title}

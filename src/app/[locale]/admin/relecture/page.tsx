@@ -124,7 +124,13 @@ function SectionElements({
 }
 
 function total(elements: ElementsARelire, drafts: number): number {
-  return elements.faq.length + elements.chapeau.length + drafts + (elements.pagesIa?.length ?? 0);
+  return (
+    elements.faq.length +
+    elements.chapeau.length +
+    elements.verifications.length +
+    drafts +
+    (elements.pagesIa?.length ?? 0)
+  );
 }
 
 function Compteur({ href, children }: { href: string; children: React.ReactNode }) {
@@ -218,6 +224,12 @@ export default async function AdminRelecturePage({
               {t('chapeau.count', { count: elements.chapeau.length })}
             </span>
           </Compteur>
+          <Compteur href="#verifications">
+            <span>{t('verifications.title')}</span>
+            <span className="font-semibold tabular-nums">
+              {t('verifications.count', { count: elements.verifications.length })}
+            </span>
+          </Compteur>
           <Compteur href="#brouillons">
             <span>{tReview('title')}</span>
             <span className="font-semibold tabular-nums">
@@ -260,6 +272,18 @@ export default async function AdminRelecturePage({
             explain={t('chapeau.explain', { days: SUMMARY_MAX_AGE_DAYS })}
             items={elements.chapeau}
             emptyMessage={t('chapeau.empty', { days: SUMMARY_MAX_AGE_DAYS })}
+          />
+
+          {/* Échéances de revérification dépassées : même règle que le
+           * content-lint verification-overdue (src/lib/verification-due.ts).
+           * Écran éditeur seulement : rien de ceci n'est publié. */}
+          <SectionElements
+            id="verifications"
+            t={t}
+            title={t('verifications.title')}
+            explain={t('verifications.explain')}
+            items={elements.verifications}
+            emptyMessage={t('verifications.empty')}
           />
 
           <section id="brouillons" className="scroll-mt-4">

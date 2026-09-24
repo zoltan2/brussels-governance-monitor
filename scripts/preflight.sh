@@ -4,7 +4,8 @@
 # temporelles, sources vides, relecture et unicité des FAQ, chapeau, date du
 # changeSummary, liens internes, schémas des trois fichiers data/ d'une
 # veille (validés sinon au seul next build), date des pages /explainers/
-# dans messages/*.json, et redirection de toute page publiée dont l'URL change.
+# dans messages/*.json, redirection de toute page publiée dont l'URL change,
+# et, en avertissement non bloquant, les vérifications en retard.
 #
 # Le contrôle de fraîcheur de l'index Pagefind a été retiré le 2026-09-11 :
 # public/pagefind/ n'est plus suivi par git, l'image Docker génère l'index au
@@ -123,6 +124,12 @@ fi
 if printf '%s\n' "$CHANGED_ALL" | grep -qE '^(content/(dossiers|domain-cards|solution-cards|sector-cards|comparison-cards|commune-cards|archive-pages|verifications)/|src/i18n/routing\.ts$|src/lib/(redirects-301|slug-redirects|scrolly-allowlist|content|velite-date|frontmatter)\.ts$|src/app/\[locale\]/[^/]+/\[slug\]/|scripts/content-lint/slug-redirects\.ts$|next\.config\.ts$)'; then
   check_slug_redirects "$BASE" || rc=1
 fi
+
+# 2 octies) Vérifications en retard (échéance du registre, ou lastVerified +
+#    intervalle). Tourne à chaque pré-vol, quel que soit le fichier modifié :
+#    le retard vient du temps qui passe. AVERTISSEMENT, jamais bloquant ;
+#    seule une date illisible ou future bloque. Même fonction que la CI.
+check_verification_overdue || rc=1
 
 if [ "$rc" != 0 ]; then
   echo ""

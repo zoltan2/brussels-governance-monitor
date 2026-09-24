@@ -278,10 +278,13 @@
     }
   },
   "freshness": {
-    "recent": "Kürzlich überprüft",
+    "recent": "Kürzlich aktualisiert",
     "current": "Aktuell",
     "aging": "Überprüfung nötig",
-    "stale": "Aktualisierung nötig"
+    "stale": "Aktualisierung nötig",
+    "verifiedOn": "Überprüft am <time>{date}</time>",
+    "verifiedExplainLabel": "Was bedeutet „überprüft“?",
+    "verifiedExplain": "Datum, an dem wir die Fakten dieser Seite erneut mit ihren Quellen abgeglichen haben, unabhängig davon, ob sich der Text geändert hat. Das Aktualisierungsdatum daneben zeigt die letzte Textänderung."
   },
   "subscribe": {
     "title": "Bleiben Sie informiert",
@@ -1841,7 +1844,7 @@
   },
   "relecture": {
     "title": "Zu überprüfen",
-    "intro": "Drei Signale aus den Karten und dem wöchentlichen SEO-Bericht, um zu erkennen, was veraltet, bevor es jemand anderes bemerkt.",
+    "intro": "Vier Signale aus den Karten und dem wöchentlichen SEO-Bericht, um zu erkennen, was veraltet, bevor es jemand anderes bemerkt.",
     "total": "{count, plural, one {# zu überprüfendes Element} other {# zu überprüfende Elemente}}",
     "unavailableCount": "nicht verfügbar",
     "pagesIa": {
@@ -1862,6 +1865,12 @@
       "explain": "Kurzfassung vor mehr als {days} Tagen überprüft, oder nie überprüft.",
       "empty": "Keine veraltete Kurzfassung: alle Kurzfassungen wurden vor weniger als {days} Tagen überprüft.",
       "count": "{count, plural, one {# Karte} other {# Karten}}"
+    },
+    "verifications": {
+      "title": "Überfällige Überprüfungen",
+      "explain": "Frist für die erneute Überprüfung überschritten: „nächste Überprüfung“ aus dem Prüfregister oder Prüfdatum einer Karte plus Intervall. Nur hier sichtbar, nie auf der öffentlichen Website.",
+      "empty": "Keine überfällige Überprüfung: alle erfassten Fristen liegen noch in der Zukunft.",
+      "count": "{count, plural, one {# Überprüfung} other {# Überprüfungen}}"
     },
     "item": {
       "age": "{count, plural, one {vor # Tag} other {vor # Tagen}}",

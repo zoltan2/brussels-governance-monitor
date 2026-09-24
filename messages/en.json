@@ -278,10 +278,13 @@
     }
   },
   "freshness": {
-    "recent": "Recently verified",
+    "recent": "Recently updated",
     "current": "Up to date",
     "aging": "Review needed",
-    "stale": "Update needed"
+    "stale": "Update needed",
+    "verifiedOn": "Verified on <time>{date}</time>",
+    "verifiedExplainLabel": "What does “verified” mean?",
+    "verifiedExplain": "The date we re-checked the facts on this page against their sources, whether or not the text changed. The update date next to it shows the last change to the text."
   },
   "subscribe": {
     "title": "Stay informed",
@@ -1841,7 +1844,7 @@
   },
   "relecture": {
     "title": "To review",
-    "intro": "Three signals drawn from the cards and the weekly SEO report, to catch what is ageing before someone else notices.",
+    "intro": "Four signals drawn from the cards and the weekly SEO report, to catch what is ageing before someone else notices.",
     "total": "{count, plural, one {# item to review} other {# items to review}}",
     "unavailableCount": "unavailable",
     "pagesIa": {
@@ -1862,6 +1865,12 @@
       "explain": "Summary reviewed more than {days} days ago, or never reviewed.",
       "empty": "No stale summary: every summary was reviewed less than {days} days ago.",
       "count": "{count, plural, one {# card} other {# cards}}"
+    },
+    "verifications": {
+      "title": "Overdue verifications",
+      "explain": "Re-verification deadline passed: “next verification” from the verification log, or a card's verification date plus its interval. Shown here only, never on the public site.",
+      "empty": "No overdue verification: every recorded deadline is still ahead.",
+      "count": "{count, plural, one {# verification} other {# verifications}}"
     },
     "item": {
       "age": "{count, plural, one {# day ago} other {# days ago}}",

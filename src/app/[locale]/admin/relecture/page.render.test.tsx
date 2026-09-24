@@ -53,7 +53,7 @@ function elt(overrides: Partial<ElementARelire> = {}): ElementARelire {
   };
 }
 
-const ELEMENTS_VIDES: ElementsARelire = { pagesIa: [], faq: [], chapeau: [] };
+const ELEMENTS_VIDES: ElementsARelire = { pagesIa: [], faq: [], chapeau: [], verifications: [] };
 
 async function rendrePage() {
   return render(await AdminRelecturePage({ params: Promise.resolve({ locale: 'fr' }) }));
@@ -74,7 +74,7 @@ describe('AdminRelecturePage', () => {
   });
 
   it('distingue le rapport SEO indisponible (null) de « aucune page à relire » (liste vide)', async () => {
-    chargerElementsARelire.mockResolvedValue({ pagesIa: null, faq: [], chapeau: [] });
+    chargerElementsARelire.mockResolvedValue({ pagesIa: null, faq: [], chapeau: [], verifications: [] });
     await rendrePage();
     expect(screen.getByText('relecture.pagesIa.unavailable')).toBeDefined();
     expect(screen.queryByText('relecture.pagesIa.empty')).toBeNull();
@@ -92,6 +92,7 @@ describe('AdminRelecturePage', () => {
       pagesIa: [elt({ id: 'domain:fr:budget', motif: 'visitée par des assistants' })],
       faq: [],
       chapeau: [],
+      verifications: [],
     });
     await rendrePage();
     expect(screen.getByText('Budget régional')).toBeDefined();
@@ -105,6 +106,7 @@ describe('AdminRelecturePage', () => {
       pagesIa: [elt({ titre: null, cheminFichier: null })],
       faq: [],
       chapeau: [],
+      verifications: [],
     });
     await rendrePage();
     expect(screen.getByText('relecture.item.unknownTitle')).toBeDefined();
@@ -117,7 +119,7 @@ describe('AdminRelecturePage', () => {
     expect(screen.getByText('relecture.chapeau.explain:{"days":90}')).toBeDefined();
   });
 
-  it("range les sections dans l'ordre : pages IA, FAQ, chapeau, brouillons", async () => {
+  it("range les sections dans l'ordre : pages IA, FAQ, chapeau, vérifications, brouillons", async () => {
     chargerElementsARelire.mockResolvedValue(ELEMENTS_VIDES);
     getDraftCards.mockReturnValue([]);
     await rendrePage();
@@ -126,27 +128,37 @@ describe('AdminRelecturePage', () => {
       'relecture.pagesIa.title',
       'relecture.faq.title',
       'relecture.chapeau.title',
+      'relecture.verifications.title',
       'review.title',
     ]);
   });
 
-  it('affiche le total combinant les trois listes et les brouillons (pagesIa vide compte 0)', async () => {
+  it('affiche le total combinant les quatre listes et les brouillons (pagesIa vide compte 0)', async () => {
     chargerElementsARelire.mockResolvedValue({
       pagesIa: [elt({ id: 'a' })],
       faq: [elt({ id: 'b' })],
       chapeau: [elt({ id: 'c' }), elt({ id: 'd' })],
+      verifications: [elt({ id: 'e' })],
     });
     getDraftCards.mockReturnValue([{ type: 'domain', title: 'X', slug: 'x', locale: 'fr', lastModified: '2026-01-01' }]);
     await rendrePage();
-    // 1 + 1 + 2 + 1 brouillon = 5
-    expect(screen.getByText('relecture.total:{"count":5}')).toBeDefined();
+    // 1 + 1 + 2 + 1 vérification + 1 brouillon = 6
+    expect(screen.getByText('relecture.total:{"count":6}')).toBeDefined();
+    expect(screen.getByText('relecture.verifications.count:{"count":1}')).toBeDefined();
   });
 
   it('ne compte pas les pages IA dans le total quand le rapport est indisponible', async () => {
-    chargerElementsARelire.mockResolvedValue({ pagesIa: null, faq: [], chapeau: [] });
+    chargerElementsARelire.mockResolvedValue({ pagesIa: null, faq: [], chapeau: [], verifications: [] });
     getDraftCards.mockReturnValue([]);
     await rendrePage();
     expect(screen.getByText('relecture.total:{"count":0}')).toBeDefined();
+  });
+
+  it('affiche « aucune vérification en retard » quand la liste est vide, avec son compteur à 0', async () => {
+    chargerElementsARelire.mockResolvedValue(ELEMENTS_VIDES);
+    await rendrePage();
+    expect(screen.getByText('relecture.verifications.empty')).toBeDefined();
+    expect(screen.getByText('relecture.verifications.count:{"count":0}')).toBeDefined();
   });
 
   it('affiche le bloc brouillons vide avec le message existant de /review', async () => {

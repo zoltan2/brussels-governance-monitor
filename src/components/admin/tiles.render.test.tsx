@@ -159,18 +159,21 @@ describe('RefonteTile', () => {
 });
 
 describe('ARelireTile', () => {
-  const ELEMENTS_VIDES = { pagesIa: [], faq: [], chapeau: [] };
+  const ELEMENTS_VIDES = { pagesIa: [], faq: [], chapeau: [], verifications: [] };
 
-  it('additionne les trois listes et les brouillons dans le total', async () => {
+  it('additionne les quatre listes et les brouillons dans le total', async () => {
     vi.mocked(chargerElementsARelire).mockResolvedValue({
       pagesIa: [{}, {}],
       faq: [{}],
       chapeau: [{}, {}, {}],
+      verifications: [{}, {}, {}, {}],
     } as never);
     vi.mocked(getDraftCards).mockReturnValue([{}] as never);
     render(await ARelireTile({ locale: 'fr' }));
-    // 2 + 1 + 3 + 1 = 7
-    expect(screen.getByText('7')).toBeDefined();
+    // 2 + 1 + 3 + 4 + 1 = 11
+    expect(screen.getByText('11')).toBeDefined();
+    expect(screen.getByText('Vérifications en retard')).toBeDefined();
+    expect(screen.getByText('4')).toBeDefined();
     expect(screen.getByText('éléments à relire')).toBeDefined();
   });
 
@@ -179,6 +182,7 @@ describe('ARelireTile', () => {
       pagesIa: null,
       faq: [],
       chapeau: [],
+      verifications: [],
     } as never);
     vi.mocked(getDraftCards).mockReturnValue([]);
     render(await ARelireTile({ locale: 'fr' }));

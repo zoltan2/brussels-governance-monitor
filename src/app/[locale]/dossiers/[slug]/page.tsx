@@ -30,6 +30,7 @@ import { ShareButton } from '@/components/share-button';
 import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FreshnessBadge } from '@/components/freshness-badge';
+import { VerifiedBadge } from '@/components/verified-badge';
 import { BudgetTable } from '@/components/budget-table';
 import { budgetLabels } from '@/lib/budget';
 import { CardSubscribe } from '@/components/card-subscribe';
@@ -296,6 +297,7 @@ function DossierDetail({
 
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <FreshnessBadge lastModified={card.lastModified} locale={locale} />
+          <VerifiedBadge lastVerified={card.lastVerified} locale={locale} />
           <ShareButton
             url={`${siteUrl}/${locale}/dossiers/${card.slug}`}
             title={card.title}

@@ -10,7 +10,9 @@
  *     `faqReviewed` au moins égal à sa `lastModified`, puis que chaque question
  *     n'est portée que par une seule fiche, sur tout le dépôt. Sort en code 1 si
  *     l'un des deux échoue. SKIP_FAQ_REVIEW=1 (label PR `skip-faq-check`)
- *     désactive la relecture, jamais l'unicité.
+ *     désactive la relecture, jamais l'unicité. Une fiche `draft: true` passe
+ *     la relecture sans `faqReviewed` (ligne explicite, jamais un OK muet) :
+ *     l'attestation est exigée à la publication, voir src/lib/faq-review.ts.
  *
  *   npm run faq:check
  *     Mode audit sur tout le dépôt. Affiche, ne bloque jamais.
@@ -217,30 +219,42 @@ function main(): void {
     const violations: { file: string; reason: string }[] = [];
     let checked = 0;
     let deleted = 0;
+    let drafts = 0;
     for (const file of changed) {
       const content = read(file);
       if (content === null) {
         deleted++; // fiche supprimée par la PR
         continue;
       }
-      checked++;
       try {
         const r = checkFaqReview({
           lastModified: readFrontmatterScalar(content, 'lastModified'),
           faqReviewed: readFrontmatterScalar(content, 'faqReviewed'),
+          draft: readFrontmatterScalar(content, 'draft') === 'true',
         });
+        if (r.verdict === 'draft') {
+          // Jamais un OK muet : la dispense est explicite, fichier par fichier.
+          drafts++;
+          console.log(`  ${file} : ${r.reason}`);
+          continue;
+        }
+        checked++;
         if (r.verdict !== 'ok') violations.push({ file, reason: r.reason });
       } catch (err) {
         if (!(err instanceof FrontmatterError)) throw err;
+        checked++;
         violations.push({ file, reason: err.message });
       }
     }
 
     const deletedNote = deleted > 0 ? `, ${deleted} supprimée(s) ignorée(s)` : '';
-    if (checked === 0) {
+    const draftsNote = drafts > 0 ? `, ${drafts} brouillon(s) dispensé(s)` : '';
+    if (checked === 0 && drafts === 0) {
       console.log(`Relecture : aucune fiche domaine ou dossier à vérifier${deletedNote}.`);
+    } else if (checked === 0) {
+      console.log(`Relecture : aucune fiche à vérifier${deletedNote}${draftsNote}.`);
     } else if (violations.length === 0) {
-      console.log(`OK : FAQ relue sur ${checked} fiche(s) vérifiée(s)${deletedNote}.`);
+      console.log(`OK : FAQ relue sur ${checked} fiche(s) vérifiée(s)${deletedNote}${draftsNote}.`);
     } else {
       failed = true;
       console.error('FAIL : FAQ à relire dans les fiches suivantes :\n');

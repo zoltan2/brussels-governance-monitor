@@ -89,6 +89,26 @@ describe('checkFaqReview', () => {
     const r = checkFaqReview({ lastModified: undefined, faqReviewed: '2026-09-10' });
     expect(r.verdict).toBe('ok');
   });
+
+  it('dispense un brouillon sans faqReviewed : la relecture est exigée à la publication', () => {
+    const r = checkFaqReview({ lastModified: '2026-09-10', faqReviewed: undefined, draft: true });
+    expect(r.verdict).toBe('draft');
+    expect(r.reason).toContain('publication');
+  });
+
+  it('un brouillon reste dispensé même avec un faqReviewed périmé', () => {
+    // draft: true prime : la republication d'un brouillon ne doit pas exiger
+    // une relecture d'un rendu qui n'existe pas encore publiquement.
+    const r = checkFaqReview({ lastModified: '2026-09-10', faqReviewed: '2026-01-01', draft: true });
+    expect(r.verdict).toBe('draft');
+  });
+
+  it('exige de nouveau faqReviewed dès que draft repasse à false (transition de publication)', () => {
+    // Preuve de mutation : retirer le court-circuit `draft` ci-dessus ferait
+    // échouer ce test comme le premier (missing) plutôt que de le laisser passer.
+    const r = checkFaqReview({ lastModified: '2026-09-10', faqReviewed: undefined, draft: false });
+    expect(r.verdict).toBe('missing');
+  });
 });
 
 describe('normalizeQuestion', () => {

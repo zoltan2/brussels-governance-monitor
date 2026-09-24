@@ -18,6 +18,14 @@
  *    Pas de tolérance en jours, contrairement au chapeau : une contradiction le
  *    jour même est précisément la panne observée.
  *
+ *    Exception : une fiche `draft: true` en passe cette relecture, sans date.
+ *    L'attestation certifie une relecture contre le rendu réel de la fiche ;
+ *    un brouillon n'en a pas encore un (voir la mémoire sur le tamponnage en
+ *    masse). L'éditeur peut donc fusionner un dossier en brouillon, le relire
+ *    en ligne, puis dater les attestations dans le même changement qui le
+ *    publie (`draft` passe à `false` ou est retiré). Dès cet instant, la
+ *    relecture redevient obligatoire — voir `checkFaqReview` ci-dessous.
+ *
  * 2. Unicité. Une question, une seule fiche, par langue. Calculée depuis le
  *    contenu à chaque passage, sans registre tenu à la main : celui de juin
  *    comptait 5 entrées pour 117 questions trois mois plus tard. Aucun artefact
@@ -30,7 +38,7 @@
 
 import { readGuardFrontmatter } from './frontmatter';
 
-export type FaqReviewVerdict = 'ok' | 'stale' | 'missing' | 'unparsable' | 'future';
+export type FaqReviewVerdict = 'ok' | 'stale' | 'missing' | 'unparsable' | 'future' | 'draft';
 
 export interface FaqReview {
   verdict: FaqReviewVerdict;
@@ -64,9 +72,21 @@ export function isFuture(dateMs: number, today?: string): boolean {
 export function checkFaqReview(params: {
   lastModified: string | undefined;
   faqReviewed: string | undefined;
+  /**
+   * `draft: true` du frontmatter. Un brouillon n'a pas encore de rendu réel à
+   * relire : la relecture est exigée à la publication, pas pour un brouillon.
+   */
+  draft?: boolean;
   /** Date du jour AAAA-MM-JJ, injectable pour les tests. Défaut : aujourd'hui en UTC. */
   today?: string;
 }): FaqReview {
+  if (params.draft) {
+    return {
+      verdict: 'draft',
+      reason: 'brouillon : attestations exigées à la publication.',
+    };
+  }
+
   if (!params.faqReviewed) {
     return {
       verdict: 'missing',

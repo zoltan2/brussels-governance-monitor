@@ -208,10 +208,13 @@ const domainCards = defineCollection({
       // scripts/content-lint/summary-freshness.ts : au-delà de nonante jours
       // d'écart avec lastModified, une PR qui touche la fiche échoue. Optionnel
       // au schéma pour ne pas casser une fiche en cours de rédaction ; c'est le
-      // lint, pas Velite, qui traite l'absence comme une dette.
+      // lint, pas Velite, qui traite l'absence comme une dette. Exigée à la
+      // publication seulement : une fiche `draft: true` (ci-dessous) en est
+      // dispensée.
       summaryReviewed: s.isodate().optional(),
       // Date de relecture de la FAQ, exigée à chaque republication par
-      // scripts/content-lint/faq-check.ts. Voir src/lib/faq-review.ts.
+      // scripts/content-lint/faq-check.ts, sauf brouillon (même dispense que
+      // summaryReviewed ci-dessus). Voir src/lib/faq-review.ts.
       faqReviewed: s.isodate().optional(),
       // Dernière vérification des faits contre les sources. Voir lastVerifiedField.
       lastVerified: lastVerifiedField,
@@ -237,6 +240,12 @@ const domainCards = defineCollection({
       changeSummaryDate: s.isodate().optional(),
       digestHeadline: s.string().max(120).optional(),
       summaryFalc: s.string().max(200).optional(),
+      // true = brouillon : /review la liste, la page est noindex (src/lib/metadata.ts),
+      // et summaryReviewed/faqReviewed ci-dessus ne sont pas exigées. Dès que ce
+      // champ passe à false ou est retiré, les deux attestations redeviennent
+      // obligatoires — y compris si seul ce champ a changé (voir faq-check.ts,
+      // summary-freshness.ts : la liste des fiches vérifiées vient d'un diff Git,
+      // qui voit tout changement de frontmatter).
       draft: s.boolean().default(false),
       content: s.mdx(),
     })
@@ -676,10 +685,13 @@ const dossierCards = defineCollection({
       // scripts/content-lint/summary-freshness.ts : au-delà de nonante jours
       // d'écart avec lastModified, une PR qui touche la fiche échoue. Optionnel
       // au schéma pour ne pas casser une fiche en cours de rédaction ; c'est le
-      // lint, pas Velite, qui traite l'absence comme une dette.
+      // lint, pas Velite, qui traite l'absence comme une dette. Exigée à la
+      // publication seulement : une fiche `draft: true` (ci-dessous) en est
+      // dispensée.
       summaryReviewed: s.isodate().optional(),
       // Date de relecture de la FAQ, exigée à chaque republication par
-      // scripts/content-lint/faq-check.ts. Voir src/lib/faq-review.ts.
+      // scripts/content-lint/faq-check.ts, sauf brouillon (même dispense que
+      // summaryReviewed ci-dessus). Voir src/lib/faq-review.ts.
       faqReviewed: s.isodate().optional(),
       // Dernière vérification des faits contre les sources. Voir lastVerifiedField.
       lastVerified: lastVerifiedField,
@@ -726,6 +738,12 @@ const dossierCards = defineCollection({
       changeSummaryDate: s.isodate().optional(),
       digestHeadline: s.string().max(120).optional(),
       lastModified: s.isodate(),
+      // true = brouillon : /review la liste, la page est noindex (src/lib/metadata.ts),
+      // et summaryReviewed/faqReviewed ci-dessus ne sont pas exigées. Dès que ce
+      // champ passe à false ou est retiré, les deux attestations redeviennent
+      // obligatoires — y compris si seul ce champ a changé (voir faq-check.ts,
+      // summary-freshness.ts : la liste des fiches vérifiées vient d'un diff Git,
+      // qui voit tout changement de frontmatter).
       draft: s.boolean().default(false),
       content: s.mdx(),
     })

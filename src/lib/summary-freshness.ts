@@ -23,6 +23,12 @@
  * moindre reformatage. On la rend donc explicite dans le frontmatter, comme le
  * fait déjà `changeSummaryDate` à côté de `changeSummary`.
  *
+ * Exception : une fiche `draft: true` passe ce contrôle sans `summaryReviewed`.
+ * Même raisonnement que pour `faqReviewed` (voir src/lib/faq-review.ts) : la
+ * relecture est exigée à la publication, pas pour un brouillon qui n'a pas
+ * encore de rendu réel à relire. Dès que `draft` passe à `false` ou est
+ * retiré, le contrôle redevient plein — voir `checkSummaryFreshness`.
+ *
  * Ce module ne contient que l'arithmétique, sans accès disque, pour être
  * testable sans tirer le runtime Next.js (voir la mémoire sur les tests qui
  * importent `@/auth` et n'exécutent alors aucun test).
@@ -34,7 +40,7 @@ export const SUMMARY_MAX_AGE_DAYS = 90;
 import { isFuture } from './faq-review';
 import { readGuardFrontmatter } from './frontmatter';
 
-export type SummaryVerdict = 'ok' | 'stale' | 'missing' | 'unparsable' | 'future';
+export type SummaryVerdict = 'ok' | 'stale' | 'missing' | 'unparsable' | 'future' | 'draft';
 
 export interface SummaryFreshness {
   verdict: SummaryVerdict;
@@ -60,11 +66,24 @@ function parseISODate(value: string): number | null {
 export function checkSummaryFreshness(params: {
   lastModified: string | undefined;
   summaryReviewed: string | undefined;
+  /**
+   * `draft: true` du frontmatter. Un brouillon n'a pas encore de rendu réel à
+   * relire : la relecture est exigée à la publication, pas pour un brouillon.
+   */
+  draft?: boolean;
   maxAgeDays?: number;
   /** Date du jour AAAA-MM-JJ, injectable pour les tests. Défaut : aujourd'hui en UTC. */
   today?: string;
 }): SummaryFreshness {
   const maxAge = params.maxAgeDays ?? SUMMARY_MAX_AGE_DAYS;
+
+  if (params.draft) {
+    return {
+      verdict: 'draft',
+      ageDays: null,
+      reason: 'brouillon : attestations exigées à la publication.',
+    };
+  }
 
   if (!params.summaryReviewed) {
     return {

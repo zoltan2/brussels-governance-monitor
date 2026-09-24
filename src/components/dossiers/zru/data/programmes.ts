@@ -32,8 +32,15 @@ export type Programme = {
   evalue: Record<Locale, string | null>;
   /** Source de la ligne, et des colonnes Promis, Fait et Évalué quand aucune source propre n'est donnée. */
   source: SourceProgramme;
+  /** Source de la colonne Promis, quand elle s'ajoute à `source` (second élément de la cellule). */
+  sourcePromis?: SourceProgramme;
   /** Source de la colonne Fait, quand elle diffère de `source`. */
   sourceFait?: SourceProgramme;
+  /**
+   * Libellé propre à la ligne quand `fait` est null, pour préciser le périmètre de l'absence
+   * (ex. un bilan publié seulement toutes régions confondues). Sinon, libellé générique « non publié ».
+   */
+  faitNonPublie?: Record<Locale, string>;
   /** Source de la colonne Évalué, quand elle diffère de `source`. */
   sourceEvalue?: SourceProgramme;
 };
@@ -55,10 +62,10 @@ const EVALUATION_2018: SourceProgramme = {
 };
 
 const EVALUE_2018: Record<Locale, string> = {
-  fr: "Évaluation de Bruxelles Urbanisme & Patrimoine, rapport final d'avril 2018 : 12 contrats de quartier et 22 contrats de quartier durables entrepris entre janvier 2007 et janvier 2017. Conclusion : des interventions pertinentes, mais sans l'amplitude suffisante pour influencer structurellement les indicateurs régionaux.",
-  nl: 'Evaluatie van Brussel Stedenbouw en Erfgoed (urban.brussels), eindrapport van april 2018: 12 wijkcontracten en 22 duurzame wijkcontracten gestart tussen januari 2007 en januari 2017. Conclusie: relevante ingrepen, maar zonder voldoende omvang om de gewestelijke indicatoren structureel te beïnvloeden.',
-  en: 'Evaluation by Brussels Urbanism and Heritage (urban.brussels), final report of April 2018: 12 neighbourhood contracts and 22 sustainable neighbourhood contracts started between January 2007 and January 2017. Conclusion: relevant interventions, but without sufficient scale to structurally influence regional indicators.',
-  de: 'Evaluierung von Bruxelles Urbanisme & Patrimoine (urban.brussels), Abschlussbericht vom April 2018: 12 Quartiersverträge und 22 nachhaltige Quartiersverträge, begonnen zwischen Januar 2007 und Januar 2017. Fazit: sachgerechte Maßnahmen, deren Umfang jedoch nicht ausreicht, um die regionalen Indikatoren strukturell zu beeinflussen.',
+  fr: "Évaluation réalisée par BDO pour Bruxelles Urbanisme & Patrimoine, rapport final d'avril 2018 : 12 contrats de quartier et 22 contrats de quartier durables entrepris entre janvier 2007 et janvier 2017. Conclusion : des interventions pertinentes par rapport aux besoins des Bruxelloises et des Bruxellois, mais sans l'amplitude suffisante pour influencer structurellement les indicateurs régionaux.",
+  nl: 'Evaluatie uitgevoerd door BDO voor Brussel Stedenbouw en Erfgoed (urban.brussels), eindrapport van april 2018: 12 wijkcontracten en 22 duurzame wijkcontracten gestart tussen januari 2007 en januari 2017. Conclusie: ingrepen die relevant zijn voor de behoeften van de Brusselaars, maar zonder voldoende omvang om de gewestelijke indicatoren structureel te beïnvloeden.',
+  en: 'Evaluation carried out by BDO for Brussels Urbanism and Heritage (urban.brussels), final report of April 2018: 12 neighbourhood contracts and 22 sustainable neighbourhood contracts started between January 2007 and January 2017. Conclusion: interventions relevant to the needs of Brussels residents, but without sufficient scale to structurally influence regional indicators.',
+  de: 'Evaluierung durch BDO im Auftrag von Bruxelles Urbanisme & Patrimoine (urban.brussels), Abschlussbericht vom April 2018: 12 Quartiersverträge und 22 nachhaltige Quartiersverträge, begonnen zwischen Januar 2007 und Januar 2017. Fazit: Maßnahmen, die dem Bedarf der Brüsselerinnen und Brüsseler entsprechen, deren Umfang jedoch nicht ausreicht, um die regionalen Indikatoren strukturell zu beeinflussen.',
 };
 
 export const PROGRAMMES: Programme[] = [
@@ -71,20 +78,17 @@ export const PROGRAMMES: Programme[] = [
       de: 'Quartiersverträge (1994-2013)',
     },
     promis: {
-      fr: `13 séries de 1994 à 2013, avec une attribution budgétaire publiée par série : de 28${NBSP}507${NBSP}755 euros (série 3, 1999-2003) à 70${NBSP}237${NBSP}016 euros (série 12, 2008-2012).`,
-      nl: '13 reeksen van 1994 tot 2013, met een gepubliceerde budgettaire toewijzing per reeks: van 28.507.755 euro (reeks 3, 1999-2003) tot 70.237.016 euro (reeks 12, 2008-2012).',
-      en: '13 series from 1994 to 2013, with a published budget allocation per series: from €28,507,755 (series 3, 1999-2003) to €70,237,016 (series 12, 2008-2012).',
-      de: '13 Serien von 1994 bis 2013, mit einer veröffentlichten Mittelzuweisung je Serie: von 28.507.755 Euro (Serie 3, 1999-2003) bis 70.237.016 Euro (Serie 12, 2008-2012).',
+      fr: `13 séries de 1994 à 2013, avec une attribution budgétaire publiée par série : de 28${NBSP}507${NBSP}755 euros (série 3, 1999-2003) à 70${NBSP}237${NBSP}016 euros (série 12, 2008-2012) ; 194${NBSP}881${NBSP}409 euros engagés par la Région de 1994 à 2004 (état au 31 août 2005, réponse à la question écrite n° 177 au Parlement bruxellois).`,
+      nl: '13 reeksen van 1994 tot 2013, met een gepubliceerde budgettaire toewijzing per reeks: van 28.507.755 euro (reeks 3, 1999-2003) tot 70.237.016 euro (reeks 12, 2008-2012); 194.881.409 euro vastgelegd door het Gewest van 1994 tot 2004 (stand op 31 augustus 2005, antwoord op schriftelijke vraag nr. 177 in het Brussels Parlement).',
+      en: '13 series from 1994 to 2013, with a published budget allocation per series: from €28,507,755 (series 3, 1999-2003) to €70,237,016 (series 12, 2008-2012); €194,881,409 committed by the Region from 1994 to 2004 (position at 31 August 2005, answer to written question no. 177 in the Brussels Parliament).',
+      de: '13 Serien von 1994 bis 2013, mit einer veröffentlichten Mittelzuweisung je Serie: von 28.507.755 Euro (Serie 3, 1999-2003) bis 70.237.016 Euro (Serie 12, 2008-2012); 194.881.409 Euro von der Region von 1994 bis 2004 gebunden (Stand 31. August 2005, Antwort auf die schriftliche Frage Nr. 177 im Brüsseler Parlament).',
     },
-    fait: {
-      fr: `194${NBSP}881${NBSP}409 euros engagés par la Région de 1994 à 2004 (état au 31 août 2005, réponse écrite au Parlement bruxellois).`,
-      nl: '194.881.409 euro vastgelegd door het Gewest van 1994 tot 2004 (stand op 31 augustus 2005, schriftelijk antwoord aan het Brussels Parlement).',
-      en: '€194,881,409 committed by the Region from 1994 to 2004 (position at 31 August 2005, written answer to the Brussels Parliament).',
-      de: '194.881.409 Euro von der Region von 1994 bis 2004 gebunden (Stand 31. August 2005, schriftliche Antwort an das Brüsseler Parlament).',
-    },
+    // Des engagements ne sont pas des réalisations : les 194 881 409 euros sont dans Promis.
+    // Aucun bilan de réalisation publié pour cette génération.
+    fait: { fr: null, nl: null, en: null, de: null },
     evalue: EVALUE_2018,
     source: { libelle: 'quartiers.brussels', url: 'https://quartiers.brussels/1/page/programmes' },
-    sourceFait: {
+    sourcePromis: {
       libelle: 'weblex.brussels',
       url: 'http://weblex.brussels/data/crb/bqr/2005-06/00013/images.pdf',
     },
@@ -99,10 +103,10 @@ export const PROGRAMMES: Programme[] = [
       de: 'Nachhaltige Quartiersverträge (seit 2010)',
     },
     promis: {
-      fr: '14,125 millions d’euros de la Région par programme, plus une contribution communale d’au moins 5 % du montant du programme ; deux à trois programmes soutenus chaque année.',
-      nl: '14,125 miljoen euro van het Gewest per programma, plus een gemeentelijke bijdrage van minstens 5 % van het programmabedrag; elk jaar worden twee tot drie programma’s gesteund.',
+      fr: `14,125 millions d’euros de la Région par programme, plus une contribution communale d’au moins 5${NBSP}% du montant du programme ; deux à trois programmes soutenus chaque année.`,
+      nl: `14,125 miljoen euro van het Gewest per programma, plus een gemeentelijke bijdrage van minstens 5${NBSP}% van het programmabedrag; elk jaar worden twee tot drie programma’s gesteund.`,
       en: '€14.125 million from the Region per programme, plus a municipal contribution of at least 5% of the programme amount; two to three programmes supported each year.',
-      de: '14,125 Millionen Euro der Region je Programm, zuzüglich eines Gemeindebeitrags von mindestens 5 % des Programmbetrags; jedes Jahr werden zwei bis drei Programme unterstützt.',
+      de: `14,125 Millionen Euro der Region je Programm, zuzüglich eines Gemeindebeitrags von mindestens 5${NBSP}% des Programmbetrags; jedes Jahr werden zwei bis drei Programme unterstützt.`,
     },
     // Le même site publie 1 903 logements (page d'accueil) et 1 673 (page « Chiffres-clés ») :
     // chiffre contradictoire, non repris.
@@ -188,10 +192,10 @@ export const PROGRAMMES: Programme[] = [
       de: '28.960.536,62 Euro im Jahr 2023 gebunden.',
     },
     fait: {
-      fr: `32${NBSP}591${NBSP}282,36 euros liquidés en 2023.`,
-      nl: '32.591.282,36 euro vereffend in 2023.',
-      en: '€32,591,282.36 paid out in 2023.',
-      de: '32.591.282,36 Euro im Jahr 2023 ausgezahlt.',
+      fr: `32${NBSP}591${NBSP}282,36 euros liquidés en 2023 (tous exercices d’engagement).`,
+      nl: '32.591.282,36 euro vereffend in 2023 (ongeacht het jaar van vastlegging).',
+      en: '€32,591,282.36 paid out in 2023 (whatever the year of commitment).',
+      de: '32.591.282,36 Euro im Jahr 2023 ausgezahlt (unabhängig vom Jahr der Mittelbindung).',
     },
     evalue: { fr: null, nl: null, en: null, de: null },
     source: {
@@ -208,10 +212,10 @@ export const PROGRAMMES: Programme[] = [
       de: 'EFRE 2007-2013 (Europäische Union und Region)',
     },
     promis: {
-      fr: '115 millions d’euros, cofinancés par l’Union européenne et la Région.',
-      nl: '115 miljoen euro, gecofinancierd door de Europese Unie en het Gewest.',
-      en: '€115 million, co-financed by the European Union and the Region.',
-      de: '115 Millionen Euro, kofinanziert von der Europäischen Union und der Region.',
+      fr: '115 millions d’euros pour l’ensemble du programme (deux axes), cofinancés par l’Union européenne et la Région.',
+      nl: '115 miljoen euro voor het hele programma (twee assen), gecofinancierd door de Europese Unie en het Gewest.',
+      en: '€115 million for the whole programme (two strands), co-financed by the European Union and the Region.',
+      de: '115 Millionen Euro für das gesamte Programm (zwei Achsen), kofinanziert von der Europäischen Union und der Region.',
     },
     fait: {
       fr: '34 projets réalisés.',
@@ -237,10 +241,10 @@ export const PROGRAMMES: Programme[] = [
       de: 'Projektaufruf über 200 Millionen Euro, gestartet am 12. Mai 2014; eine der Achsen soll das Lebensumfeld benachteiligter Quartiere und Bevölkerungsgruppen verbessern.',
     },
     fait: {
-      fr: '58 projets soutenus : 46 sélectionnés le 21 mai 2015, 12 le 6 juin 2019.',
-      nl: '58 projecten gesteund: 46 geselecteerd op 21 mei 2015, 12 op 6 juni 2019.',
-      en: '58 projects supported: 46 selected on 21 May 2015, 12 on 6 June 2019.',
-      de: '58 Projekte gefördert: 46 ausgewählt am 21. Mai 2015, 12 am 6. Juni 2019.',
+      fr: '58 projets sélectionnés, tous axes confondus : 46 le 21 mai 2015, 12 le 6 juin 2019.',
+      nl: '58 projecten geselecteerd, alle assen samen: 46 op 21 mei 2015, 12 op 6 juni 2019.',
+      en: '58 projects selected, all strands combined: 46 on 21 May 2015, 12 on 6 June 2019.',
+      de: '58 Projekte ausgewählt, alle Achsen zusammen: 46 am 21. Mai 2015, 12 am 6. Juni 2019.',
     },
     evalue: { fr: null, nl: null, en: null, de: null },
     source: { libelle: 'feder.brussels', url: 'https://feder.brussels/programmation-2014-2020/' },
@@ -277,11 +281,14 @@ export const PROGRAMMES: Programme[] = [
       en: '€48,604,213 in subsidies granted for 2005-2007 to the seven Brussels municipalities selected.',
       de: '48.604.213 Euro Zuschüsse für 2005-2007 an die sieben ausgewählten Brüsseler Gemeinden.',
     },
-    fait: {
-      fr: `Au 1er avril 2007, 60${NBSP}412${NBSP}545 euros dépensés, soit 30,5 % des montants engagés, toutes régions confondues.`,
-      nl: 'Op 1 april 2007 was 60.412.545 euro uitgegeven, of 30,5 % van de vastgelegde bedragen, alle gewesten samen.',
-      en: 'At 1 April 2007, €60,412,545 spent, or 30.5% of the amounts committed, all regions combined.',
-      de: 'Zum 1. April 2007 waren 60.412.545 Euro ausgegeben, also 30,5 % der gebundenen Beträge, alle Regionen zusammen.',
+    // L'audit ne publie l'état des dépenses que toutes régions confondues (tableau 2) :
+    // aucun chiffre de réalisation pour les communes bruxelloises.
+    fait: { fr: null, nl: null, en: null, de: null },
+    faitNonPublie: {
+      fr: 'non publié pour Bruxelles',
+      nl: 'niet gepubliceerd voor Brussel',
+      en: 'not published for Brussels',
+      de: 'für Brüssel nicht veröffentlicht',
     },
     evalue: {
       fr: 'Audit de la Cour des comptes, rapport adopté le 21 novembre 2007 et transmis à la Chambre des représentants.',

@@ -121,9 +121,21 @@ export function ZruProgrammes({ locale = 'fr' }: { locale?: Locale }): ReactElem
               <th scope="row" className="px-3 py-2 text-left font-medium text-neutral-900">
                 {p.libelle[locale]}
               </th>
-              <td className="px-3 py-2 text-neutral-700">{p.promis[locale]}</td>
               <td className="px-3 py-2 text-neutral-700">
-                <Valeur valeur={p.fait[locale]} repli={t.nonConnu} source={p.sourceFait} libelleSource={t.source} />
+                <Valeur
+                  valeur={p.promis[locale]}
+                  repli={t.nonConnu}
+                  source={p.sourcePromis}
+                  libelleSource={t.source}
+                />
+              </td>
+              <td className="px-3 py-2 text-neutral-700">
+                <Valeur
+                  valeur={p.fait[locale]}
+                  repli={p.faitNonPublie?.[locale] ?? t.nonConnu}
+                  source={p.sourceFait}
+                  libelleSource={t.source}
+                />
               </td>
               <td className="px-3 py-2 text-neutral-700">
                 <Valeur

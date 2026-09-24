@@ -3,10 +3,14 @@
 
 import type { ReactElement } from 'react';
 
-/** Cellule vide : affichage neutre avec indication d'accessibilite */
+/**
+ * Cellule vide : affichage neutre avec indication d'accessibilite. Le role="img" rend
+ * l'aria-label valide (un aria-label sur un span generique n'est pas un nom accessible).
+ */
 function EmptyCell({ ariaLabel }: { ariaLabel: string }): ReactElement {
   return (
     <span
+      role="img"
       aria-label={ariaLabel}
       className="text-neutral-300"
     >
@@ -86,9 +90,7 @@ export function ResponsibilityMatrix({
                   <div key={level.key} className="flex gap-2 text-xs">
                     <dt className="w-28 shrink-0 font-medium text-neutral-500">{level.label}</dt>
                     <dd className="text-neutral-700">
-                      {cell ? cell : (
-                        <span className="text-neutral-300" aria-label={emptyCellLabel}>-</span>
-                      )}
+                      {cell ? cell : <EmptyCell ariaLabel={emptyCellLabel} />}
                     </dd>
                   </div>
                 );
@@ -99,7 +101,12 @@ export function ResponsibilityMatrix({
       </ul>
 
       {/* Desktop : tableau complet */}
-      <div className="hidden overflow-x-auto sm:block">
+      <div
+        role="region"
+        tabIndex={0}
+        aria-labelledby={captionId}
+        className="hidden overflow-x-auto sm:block"
+      >
         <table className="w-full text-sm">
           <thead className="bg-neutral-50 text-left text-xs font-semibold uppercase tracking-wide text-neutral-500">
             <tr>

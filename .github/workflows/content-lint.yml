@@ -48,10 +48,19 @@ on:
       # PR qui ne touche que la table peut casser une URL publique.
       - 'src/lib/redirects-301.ts'
       - 'src/lib/slug-redirects.ts'
-      # slug-redirects.ts reproduit le routage des dossiers : une modification
-      # de ce routage doit relancer la garde (revue de la PR #589).
+      # slug-redirects.ts reproduit le routage de toutes les pages [slug]
+      # (dossiers, domaines, solutions, secteurs, comparaisons, communes,
+      # archives, vérifications) et en réutilise les accesseurs purs : une
+      # modification de ce routage doit relancer la garde. content/** et
+      # src/i18n/routing.ts (segments localisés) sont déjà couverts plus haut.
       - 'src/lib/content.ts'
+      - 'src/lib/velite-date.ts'
+      # Pages [slug] (src/app/[locale]/{type}/[slug]/page.tsx) sans crochets
+      # littéraux, qui seraient une classe de caractères ; déclenche aussi sur
+      # d'autres pages à trois niveaux, sans dommage. Vue immersive à part.
+      - 'src/app/*/*/*/page.tsx'
       - 'src/app/*/dossiers/**'
+      - 'next.config.ts'
       - '.github/workflows/content-lint.yml'
 
 jobs:
@@ -100,9 +109,9 @@ jobs:
       # le même jour que la fiche qu'il corrige ne peut pas faire bouger la date.
       #
       # run.sh lance aussi, en premier et même sans .mdx modifié, le contrôle des
-      # slugs de dossiers : une URL servie sur la base et perdue par la PR exige
-      # son entrée dans src/lib/redirects-301.ts (règle MANDATORY de
-      # velite.config.ts, restée sans garde jusqu'au 24/09/2026).
+      # URL publiées : une page (dossier, domaine, commune…) servie sur la base
+      # et perdue par la PR exige son entrée dans src/lib/redirects-301.ts, ou
+      # un retrait explicite dans URLS_RETIREES.
       - name: Phrases temporelles, sources vides, lastModified
         env:
           SKIP_LASTMODIFIED: ${{ contains(github.event.pull_request.labels.*.name, 'skip-lastmodified-check') && '1' || '0' }}

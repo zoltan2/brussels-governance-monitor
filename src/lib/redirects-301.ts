@@ -78,6 +78,15 @@ export const SLUG_REDIRECTS_301: ReadonlyArray<SlugRedirect301> = [
   // ajouté (localizedSlugs.nl), ancienne URL = ancien slug canonique.
   { from: '/nl/dossiers/cpas-bruxellois', to: '/nl/dossiers/brusselse-ocmws' },
   { from: '/nl/dossiers/cpas-bruxellois/scrolly', to: '/nl/dossiers/brusselse-ocmws/scrolly' },
+  // Dossier ZRU (2026-09-25) : né avec ses slugs localisés, il n'avait pas
+  // d'ancienne URL, mais un post Bluesky NL a été publié avec le slug canonique
+  // sous /nl (404). Le slug canonique sous chaque langue mène au slug localisé.
+  { from: '/nl/dossiers/zone-revitalisation-urbaine', to: '/nl/dossiers/stedelijke-herwaarderingszone' },
+  { from: '/nl/dossiers/zone-revitalisation-urbaine/scrolly', to: '/nl/dossiers/stedelijke-herwaarderingszone/scrolly' },
+  { from: '/en/dossiers/zone-revitalisation-urbaine', to: '/en/dossiers/urban-revitalisation-zone' },
+  { from: '/en/dossiers/zone-revitalisation-urbaine/scrolly', to: '/en/dossiers/urban-revitalisation-zone/scrolly' },
+  { from: '/de/dossiers/zone-revitalisation-urbaine', to: '/de/dossiers/staedtische-revitalisierungszone' },
+  { from: '/de/dossiers/zone-revitalisation-urbaine/scrolly', to: '/de/dossiers/staedtische-revitalisierungszone/scrolly' },
 ];
 
 /**

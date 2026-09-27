@@ -331,12 +331,19 @@ export async function mergeContactSources(
  */
 export async function removeContact(email: string): Promise<void> {
   const resend = getResend();
-  await resendCall(() =>
+  const result = await resendCall(() =>
     resend.contacts.update({
       email,
       unsubscribed: true,
     }),
   );
+  // resendCall ne jette jamais : sans ce contrôle, un désabonnement refusé
+  // par Resend passait pour réussi (motif de l'incident du 27/04).
+  if (result.error) {
+    throw new Error(
+      `Resend contacts.update (unsubscribed) failed for ${email}: ${formatResendError(result.error)}`,
+    );
+  }
 }
 
 export interface ActiveContact {

@@ -7,6 +7,7 @@ import { NextResponse } from 'next/server';
 import { readGitHubFile, writeGitHubFile } from '@/lib/github';
 import { getResend, EMAIL_FROM, listActiveContacts, resendCall } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
+import { listUnsubscribeHeaders } from '@/lib/list-unsubscribe';
 import { collectDigestUpdates, filterUpdatesForSubscriber } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
@@ -184,10 +185,7 @@ export const POST = auth(async function POST(req) {
       subject: subjectMap[locale] || subjectMap.fr,
       react: DigestEmail(emailProps),
       text: generateDigestPlainText(emailProps),
-      headers: {
-        'List-Unsubscribe': `<${unsubscribeUrl}>`,
-        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-      },
+      headers: listUnsubscribeHeaders(siteUrl, unsubToken, locale),
       tags: [
         { name: 'type', value: 'digest' },
         { name: 'locale', value: locale },

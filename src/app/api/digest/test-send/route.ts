@@ -7,6 +7,7 @@ import { NextResponse } from 'next/server';
 import { readGitHubFile } from '@/lib/github';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
+import { listUnsubscribeHeaders } from '@/lib/list-unsubscribe';
 import { collectDigestUpdates } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
 
@@ -124,10 +125,7 @@ export const POST = auth(async function POST(req) {
       subject: `[TEST] BGM Digest #${weekNum} — ${weekOf}`,
       react: DigestEmail(emailProps),
       text: generateDigestPlainText(emailProps),
-      headers: {
-        'List-Unsubscribe': `<${unsubscribeUrl}>`,
-        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-      },
+      headers: listUnsubscribeHeaders(siteUrl, unsubToken, locale),
       tags: [{ name: 'type', value: 'digest-test' }],
     }),
   );

@@ -1,41 +1,42 @@
 {
-  "week": "2026-w38",
-  "weekStart": "2026-09-14",
-  "created_at": "2026-09-20T19:00:14.331Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w39",
+  "weekStart": "2026-09-21",
+  "created_at": "2026-09-27T19:00:04.667Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "9 domaines, 7 dossiers, 4 secteurs mis à jour",
-    "nl": "9 domeinen, 7 dossiers, 4 sectoren bijgewerkt",
-    "en": "9 domains, 7 dossiers, 4 sectors updated",
-    "de": "9 Bereiche, 7 Dossiers, 4 Sektoren aktualisiert"
+    "fr": "10 domaines, 26 dossiers, 3 secteurs, 8 communes mis à jour",
+    "nl": "10 domeinen, 26 dossiers, 3 sectoren, 8 gemeenten bijgewerkt",
+    "en": "10 domains, 26 dossiers, 3 sectors, 8 communes updated",
+    "de": "10 Bereiche, 26 Dossiers, 3 Sektoren, 8 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "328 %",
+    "value": "43 %",
     "label": {
-      "fr": "Le niveau que la dette bruxelloise atteindrait en 2031, rapporté aux recettes de la Région, contre 118 % en Flandre, seule entité dont le risque est jugé modéré",
-      "nl": "Het peil dat de Brusselse schuld in 2031 zou bereiken, afgezet tegen de ontvangsten van het Gewest, tegenover 118 % in Vlaanderen, de enige entiteit met een als matig beoordeeld risico",
-      "en": "The level Brussels debt would reach in 2031, measured against the Region's revenue, against 118% in Flanders, the only entity whose risk is deemed moderate",
-      "de": "Der Stand, den die Brüsseler Schuld 2031 erreichen würde, gemessen an den Einnahmen der Region, gegenüber 118 % in Flandern, der einzigen Einheit mit einem als moderat bewerteten Risiko"
+      "fr": "La part des déclarations d'impôt bruxelloises (revenus 2023) qui n'aboutissent à aucun impôt dû, contre 35 % en 2014",
+      "nl": "Het aandeel Brusselse belastingaangiften (inkomsten 2023) waarvoor geen belasting verschuldigd is, tegenover 35 % in 2014",
+      "en": "The share of Brussels income tax returns (2023 income) that result in no tax due, compared with 35% in 2014",
+      "de": "Der Anteil der Brüsseler Steuererklärungen (Einkommen 2023), bei denen keine Steuer fällig wird, gegenüber 35 % im Jahr 2014"
     },
     "source": {
-      "fr": "Bureau fédéral du Plan, analyse de soutenabilité de la dette des entités fédérées (15 septembre 2026)",
-      "nl": "Federaal Planbureau, analyse van de houdbaarheid van de schuld van de deelentiteiten (15 september 2026)",
-      "en": "Federal Planning Bureau, debt sustainability analysis of the federated entities (15 September 2026)",
-      "de": "Föderales Planbüro, Analyse der Schuldentragfähigkeit der Gliedstaaten (15. September 2026)"
+      "fr": "Analyse de l'IBSA pour BRUZZ (24 septembre 2026)",
+      "nl": "Analyse van BISA voor BRUZZ (24 september 2026)",
+      "en": "IBSA analysis for BRUZZ (24 September 2026)",
+      "de": "Analyse des IBSA für BRUZZ (24. September 2026)"
     }
   },
   "closingNote": {
-    "fr": "Compter l'attente. Mesurer les engagements. Distinguer les faits des zones d'ombre.\n\nAprès un dimanche sans voiture, Bruxelles reprend sa route, et BGM sa surveillance.\n\nLa page d'accueil fait peau neuve : un compteur pour suivre le temps politique bruxellois, un baromètre des engagements chiffrés et une séparation plus nette entre ce qui est établi et ce qui reste à vérifier.\n\nDécouvrir la nouvelle page d'accueil : https://governance.brussels/fr\n\nBonne semaine à toutes et à tous.",
-    "nl": "De wachttijd tellen. De engagementen meten. Feiten van grijze zones onderscheiden.\n\nNa een autoloze zondag hervat Brussel zijn weg, en BGM zijn toezicht.\n\nDe homepage is vernieuwd: een teller om de Brusselse politieke tijd te volgen, een barometer van de becijferde beloften en een duidelijker onderscheid tussen wat vaststaat en wat nog geverifieerd moet worden.\n\nOntdek de nieuwe homepage: https://governance.brussels/nl\n\nEen fijne week aan iedereen.",
-    "en": "Counting the wait. Measuring the commitments. Telling facts from grey areas.\n\nAfter a car-free Sunday, Brussels is back on the road, and BGM back on watch.\n\nThe homepage has a new look: a counter for the Brussels political clock, a barometer of the quantified commitments, and a clearer separation between what is established and what still needs checking.\n\nDiscover the new homepage: https://governance.brussels/en\n\nHave a good week, everyone.",
-    "de": "Das Warten zählen. Die Verpflichtungen messen. Fakten von Grauzonen unterscheiden.\n\nNach einem autofreien Sonntag nimmt Brüssel seinen Weg wieder auf, und BGM seine Beobachtung.\n\nDie Startseite hat ein neues Gesicht: ein Zähler für die Brüsseler politische Zeit, ein Barometer der bezifferten Verpflichtungen und eine klarere Trennung zwischen dem, was feststeht, und dem, was noch zu prüfen ist.\n\nDie neue Startseite entdecken: https://governance.brussels/de\n\nEine gute Woche an alle."
+    "fr": "Bonne semaine à tous.",
+    "nl": "Een goede week gewenst.",
+    "en": "Wishing you all a good week.",
+    "de": "Allen eine gute Woche."
   },
   "commitmentCount": 16,
   "updatedTopics": [
     "budget",
     "cleanliness",
-    "climate",
+    "economy",
+    "employment",
     "housing",
     "institutional",
     "mobility",
@@ -43,16 +44,41 @@
     "social",
     "urban-planning",
     "dossier-acs",
-    "dossier-bien-etre",
-    "dossier-fusion-polices",
-    "dossier-lez",
+    "dossier-activa",
+    "dossier-assemblees-citoyennes",
+    "dossier-bifff",
+    "dossier-bim-bruxelles",
+    "dossier-commissaire-europe",
+    "dossier-cpas-bruxellois",
+    "dossier-data-centers",
+    "dossier-enseignement",
+    "dossier-faillites",
+    "dossier-foyer-anderlechtois",
     "dossier-mobilite-partagee",
-    "dossier-pfas",
+    "dossier-plan-securite",
+    "dossier-rechauffement-bruxelles",
+    "dossier-reforme-administration",
+    "dossier-rse",
+    "dossier-seniors",
+    "dossier-slrb",
+    "dossier-survol-bruxelles",
+    "dossier-taxis-bruxellois",
+    "dossier-titres-services-economie-sociale",
+    "dossier-vivaqua",
+    "dossier-zone-revitalisation-urbaine",
+    "dossier-novacity-ii",
     "dossier-metro-3",
+    "dossier-petite-enfance",
     "culture",
+    "health-social",
     "horeca",
-    "nonprofit",
-    "transport"
-  ],
-  "sent_at": "2026-09-20T20:53:50.967Z"
+    "commune-bruxelles-ville",
+    "commune-evere",
+    "commune-forest",
+    "commune-ixelles",
+    "commune-molenbeek-saint-jean",
+    "commune-saint-gilles",
+    "commune-saint-josse-ten-noode",
+    "commune-schaerbeek"
+  ]
 }

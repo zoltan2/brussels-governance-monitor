@@ -7,7 +7,7 @@ domain: budget
 status: ongoing
 summary: "Le budget 2026 a été voté en plénière le 27 mars 2026, par 53 voix contre 32, mettant fin aux douzièmes provisoires. Il porte 6,622 milliards d'euros de recettes, 7,613 milliards de dépenses et un déficit de 957 millions. La dette consolidée brute atteint 15,65 milliards d'euros, triplée depuis 2016, et les charges d'intérêts 399 millions par an. La Région dispose de 1,25 milliard d'euros de lignes de crédit auprès de quatre prestataires. L'équilibre est visé pour 2029."
 summaryReviewed: "2026-08-30"
-faqReviewed: "2026-09-20"
+faqReviewed: "2026-09-27"
 sectors:
   - associatif
   - construction
@@ -163,6 +163,26 @@ sources:
     url: "https://bx1.be/categories/news/la-region-bruxelloise-fait-face-a-un-risque-eleve-de-ne-pas-pouvoir-assumer-sa-dette-en-2031/"
     type: media
     accessedAt: "2026-09-20"
+  - label: "IBSA : statistique fiscale des revenus, déclarations par commune, revenus 2023 (mise à jour du 16 décembre 2025)"
+    url: "https://ibsa.brussels/sites/default/files/documents/2.1a_rev_dep_menages_stat_fisc_declarations_20251216.xlsx"
+    type: official
+    accessedAt: "2026-09-27"
+  - label: "IBSA : statistique fiscale des revenus (page thématique)"
+    url: "https://ibsa.brussels/themes/revenus-et-depenses-des-menages/statistique-fiscale-des-revenus"
+    type: official
+    accessedAt: "2026-09-27"
+  - label: "BRUZZ : Vier op de tien Brusselse huishoudens betalen geen belasting (24 septembre 2026)"
+    url: "https://www.bruzz.be/actua/economie/vier-op-de-tien-brusselse-huishoudens-betalen-geen-belasting-2026-09-24"
+    type: media
+    accessedAt: "2026-09-27"
+  - label: "Justel : ordonnance du 17 juillet 2025 portant modification du tarif de la taxe régionale sur les établissements d'hébergement touristique (MB 24 juillet 2025)"
+    url: "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&cn_search=2025071703"
+    type: official
+    accessedAt: "2026-09-27"
+  - label: "be.brussels : taxe sur les établissements d'hébergement touristique, taux relevés au 1er janvier 2026 (9 décembre 2025)"
+    url: "https://be.brussels/en/taxes-finances/tax-tourist-accommodation-establishments-higher-rates-1-january-2026"
+    type: official
+    accessedAt: "2026-09-27"
 confidenceLevel: official
 metrics:
   - label: "Déficit budgétaire 2026"
@@ -289,6 +309,12 @@ metrics:
     source: "La Libre (16 juillet 2026)"
     url: "https://www.lalibre.be/belgique/politique-belge/2026/07/16/baisse-des-impots-accord-sur-la-lez-et-nouvelles-piscines-a-val-duchesse-le-gouvernement-bruxellois-annonce-son-accord-estival-RGZHK7PQLRDZTICW7FJV5UYZXM/"
     date: "2026-07-16"
+  - label: "Déclarations IPP en Région bruxelloise (revenus 2023)"
+    value: "791 621"
+    unit: "déclarations, dont 128 667 à revenu imposable nul ; 43 % sans impôt dû selon une analyse de l'IBSA pour BRUZZ (35 % en 2014)"
+    source: "IBSA, statistique fiscale des revenus (données Statbel) ; part sans impôt : IBSA à la demande de BRUZZ (24 septembre 2026)"
+    url: "https://ibsa.brussels/themes/revenus-et-depenses-des-menages/statistique-fiscale-des-revenus"
+    date: "2023-12-31"
   - label: "Communes relevant leurs additionnels au précompte immobilier en 2026"
     value: "9 sur 19"
     unit: "hausse maximale à Saint-Josse-ten-Noode (2 980 → 4 090 centimes additionnels)"
@@ -301,12 +327,24 @@ metrics:
     source: "Ville de Bruxelles, citée par BRUZZ (17 août 2026)"
     url: "https://www.bruzz.be/actua/politiek/stad-brussel-compenseert-hogere-onroerende-voorheffing-voor-eigenaar-bewoners-2026-08-17"
     date: "2026-08-17"
-lastModified: "2026-09-20"
-changeType: updated
-changeSummary: "Le document primaire du Bureau fédéral du Plan est désormais consulté : la dette bruxelloise atteint 328 % des recettes disponibles ajustées en 2031, avec 100 % de probabilité de dépasser son niveau de 2026. La Wallonie est à 327 %, la Communauté française à 158 %, la Communauté flamande à 118 %. Correction : le risque flamand est faible dans le scénario de référence, et non modéré comme l'ont rapporté trois rédactions. La confiance passe d'estimée à officielle."
-changeSummaryDate: "2026-09-20"
+lastModified: "2026-09-27"
+changeType: "updated"
+changeSummary: "À Bruxelles, 43 % des déclarations d'impôt sur les revenus 2023 n'aboutissent à aucun impôt, selon l'IBSA pour BRUZZ. L'analyse, réalisée par l'IBSA à la demande de BRUZZ, compare cette part aux 35 % de 2014 ; la statistique fiscale officielle de l'IBSA compte 791 621 déclarations pour ces revenus. Précision sur l'engagement « pas de nouvelle taxe » : la taxe régionale existante sur l'hébergement touristique est passée de 4 à 5 euros par nuitée au taux standard à partir de l'exercice 2026, en vertu d'une ordonnance du 17 juillet 2025."
+changeSummaryDate: "2026-09-27"
 summaryFalc: "Le budget 2026 de Bruxelles est approuvé. Le déficit diminue. L'objectif est l'équilibre en 2029, avec des économies de 1,2 milliard d'euros et moins d'impôts pour les travailleurs."
 ---
+
+## Impôt des personnes physiques : 43 % des déclarations bruxelloises sans impôt dû (revenus 2023, 24 septembre 2026)
+
+Pour les revenus 2023 (exercice d'imposition 2024), la Région bruxelloise compte **791 621 déclarations** à l'impôt des personnes physiques, selon la statistique fiscale des revenus publiée par l'IBSA à partir des données de Statbel : **662 954** avec un revenu imposable positif et **128 667** avec un revenu imposable nul.
+
+Selon une analyse de l'IBSA réalisée à la demande de BRUZZ et publiée le jeudi 24 septembre 2026, **451 740 déclarations**, soit 57 %, aboutissent à un impôt à payer, et **339 881**, soit **43 %**, à aucun impôt dû. En 2014, cette part était de **35 %**. L'IBSA n'a pas publié cette analyse : ces deux derniers chiffres ne figurent pas dans ses tableaux.
+
+### Ce que ce chiffre mesure
+
+L'unité est la déclaration, c'est-à-dire le ménage fiscal : une déclaration commune compte pour un seul ménage fiscal, qui ne correspond pas au ménage au sens démographique. Le chiffre ne dit donc pas quelle part des habitants ne paie pas d'impôt.
+
+Sources : [IBSA, statistique fiscale des revenus, tableau des déclarations (mise à jour du 16 décembre 2025)](https://ibsa.brussels/sites/default/files/documents/2.1a_rev_dep_menages_stat_fisc_declarations_20251216.xlsx) ; [IBSA, page thématique « Statistique fiscale des revenus »](https://ibsa.brussels/themes/revenus-et-depenses-des-menages/statistique-fiscale-des-revenus) ; [BRUZZ (24 septembre 2026)](https://www.bruzz.be/actua/economie/vier-op-de-tien-brusselse-huishoudens-betalen-geen-belasting-2026-09-24). Confiance : *official* pour le nombre de déclarations (tableau IBSA) ; *estimated* pour la part sans impôt dû et la comparaison avec 2014, une analyse de l'IBSA connue par BRUZZ seul.
 
 ## Le Bureau fédéral du Plan juge élevé le risque d'une dette régionale insoutenable (15 septembre 2026)
 
@@ -365,7 +403,7 @@ Dès sa mise au travail le 15 février, le gouvernement a annoncé les première
 L'accord conclu le 12 février 2026 entre les sept partis de la nouvelle majorité bruxelloise fixe un cadre budgétaire ambitieux :
 
 - **Retour à l'équilibre budgétaire en 2029** — trajectoire de ~1,2 milliard EUR d'économies, réparties en 80 % de coupes et 20 % de recettes nouvelles
-- **Pas de nouvelle taxe** — pas de City Tax ni de taxe au kilomètre
+- **Pas de nouvelle taxe** — pas de City Tax ni de taxe au kilomètre. La taxe régionale existante sur les établissements d'hébergement touristique a toutefois été relevée par une ordonnance du 17 juillet 2025, votée sous la législature précédente et applicable à partir de l'exercice d'imposition 2026 : de 4 à 5 euros par unité d'hébergement et par nuitée au taux standard, centimes additionnels communaux compris, et de 3 à 4 euros pour les lieux d'hébergement à domicile ([Justel](https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&cn_search=2025071703) ; [be.brussels, 9 décembre 2025](https://be.brussels/en/taxes-finances/tax-tourist-accommodation-establishments-higher-rates-1-january-2026)).
 - **Baisse de l'IPP régional d'un point** — gain estimé à ~268 EUR/an par travailleur bruxellois
 - **Droits d'enregistrement** — seuil d'exemption relevé de 600 000 à 800 000 EUR
 - **Réforme administrative** — fusion de 25 structures régionales en 4 entités (4 piliers) avec une réduction de 20 à 30 % des coûts opérationnels

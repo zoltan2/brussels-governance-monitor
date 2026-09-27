@@ -97,11 +97,24 @@ describe('renderMagazine', () => {
     expect(html).toContain('class="path path--link"');
   });
 
-  it('makes item pill clickable when a path is provided', () => {
+  it('turns the pill into an explicit call to action when a path is provided', () => {
     const html = renderMagazine(draft());
-    expect(html).toContain('class="pill pill--link"');
-    const pillLinkMatches = html.match(/class="pill pill--link"/g) ?? [];
-    expect(pillLinkMatches.length).toBe(3);
+    const ctas = html.match(/<a class="cta" href="https:\/\/governance\.brussels\/fr\/\d"/g) ?? [];
+    expect(ctas.length).toBe(3);
+    expect(html).toContain('Continuer la lecture');
+    expect(html).toContain('Pill 1 sur governance.brussels');
+    expect(html).not.toContain('class="pill pill--link"');
+  });
+
+  // Seul chemin de retour vers le site depuis le magazine (demande du 27/09/2026) :
+  // fixe, donc visible sur toutes les pages, pas seulement sur la couverture.
+  it('renders one fixed link back to governance.brussels, outside the page track', () => {
+    const html = renderMagazine(draft());
+    const liens = html.match(/<a class="site-link" href="https:\/\/governance\.brussels\/fr"/g) ?? [];
+    expect(liens.length).toBe(1);
+    expect(html.indexOf('class="site-link"')).toBeGreaterThan(html.indexOf('id="track"'));
+    expect(html).toMatch(/\.site-link\s*\{[^}]*position:\s*fixed/);
+    expect(html).toContain('Aller sur governance.brussels');
   });
 
   it('renders non-clickable plain pill when item has no path', () => {

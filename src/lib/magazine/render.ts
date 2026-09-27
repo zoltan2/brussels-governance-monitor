@@ -1,3 +1,4 @@
+import { AUTHOR } from './author';
 import type { MagazineDraft } from './types';
 import {
   escapeHtml,
@@ -66,6 +67,7 @@ ${renderBusinessCardPage()}
         </div>
       </section>
     </div>
+    <a class="site-link" href="${escapeHtml(AUTHOR.siteBase)}/fr">Aller sur governance.brussels</a>
     <button class="nav-arrow prev" id="prev" aria-label="Page précédente">←</button>
     <button class="nav-arrow next" id="next" aria-label="Page suivante">→</button>
     <div class="dots" id="dots"></div>

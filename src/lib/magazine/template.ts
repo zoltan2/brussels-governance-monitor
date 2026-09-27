@@ -26,7 +26,7 @@ export function renderItemPage(
     : '';
   const pillEl = item.pill
     ? item.path
-      ? `<a class="pill pill--link" href="${escapeHtml(pathHref!)}" ${linkAttrs}>${escapeHtml(item.pill)}</a>`
+      ? `<a class="cta" href="${escapeHtml(pathHref!)}" ${linkAttrs}><span class="cta-kicker">Continuer la lecture</span><span class="cta-main">${escapeHtml(item.pill)} sur governance.brussels →</span></a>`
       : `<div class="pill">${escapeHtml(item.pill)}</div>`
     : '';
 
@@ -237,16 +237,44 @@ export const MAGAZINE_CSS = `
     text-underline-offset: 4px;
     text-decoration-thickness: 1px;
   }
-  a.pill--link {
-    color: inherit;
+  /* Bouton plein, opacité complète : la pastille grisée ne disait ni l'action
+     ni la destination (27/09/2026). Couleurs inversées selon la page. */
+  a.cta {
+    display: inline-flex;
+    flex-direction: column;
+    gap: .5vh;
+    align-self: flex-start;
+    padding: 1.4vh 1.6vw;
     text-decoration: none;
-    display: inline-block;
-    transition: opacity .2s ease, transform .2s ease;
+    font-family: 'IBM Plex Mono', monospace;
+    transition: transform .2s ease;
   }
-  a.pill--link:hover {
-    opacity: 1;
-    transform: translateY(-1px);
+  .page.light a.cta { background: #1a1a1a; color: #f3f1ec; }
+  .page.dark  a.cta { background: #e9e6df; color: #111110; }
+  a.cta:hover { transform: translateY(-2px); }
+  a.cta:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+  .cta-kicker { font-size: clamp(10px, .7vw, 12px); letter-spacing: .2em; text-transform: uppercase; opacity: .75; }
+  .cta-main { font-size: clamp(13px, 1vw, 16px); letter-spacing: .06em; font-weight: 500; }
+
+  /* Seul chemin de retour vers le site : fixe, visible sur toutes les pages.
+     Coin bas droit libre (numéro de page à gauche, points au centre). */
+  .site-link {
+    position: fixed;
+    right: 2vw;
+    bottom: 2.5vh;
+    z-index: 20;
+    padding: 1vh 1.2vw;
+    background: #111110;
+    color: #f3f1ec;
+    border: 1px solid #e9e6df;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: clamp(12px, .85vw, 14px);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-decoration: none;
   }
+  .site-link:hover { background: #f3f1ec; color: #111110; }
+  .site-link:focus-visible { outline: 3px solid #e9e6df; outline-offset: 3px; }
   .rule {
     width: 3vw;
     height: 1.5px;
@@ -568,7 +596,7 @@ export const MAGAZINE_CSS = `
     html, body { overflow: visible !important; height: auto !important; }
     .viewport, .track { overflow: visible !important; height: auto !important; transform: none !important; display: block !important; }
     .page { flex: none !important; width: 100% !important; height: 100vh !important; page-break-after: always; page-break-inside: avoid; }
-    .dots, .nav-arrow { display: none !important; }
+    .dots, .nav-arrow, .site-link { display: none !important; }
   }
 `;
 

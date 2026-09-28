@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { useTranslations, useLocale } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { NavLink } from './nav-link';
 // `/livre` vit hors du segment [locale] : il lui faut le Link brut de Next,
 // qui ne préfixe pas la locale, là où celui de @/i18n/navigation le ferait.
 import NextLink from 'next/link';
@@ -14,8 +14,11 @@ export function Footer() {
   const locale = useLocale();
   const game = dailyGame(locale);
   return (
+    // Sur mobile, marge basse de 96 px (au lieu de 40) : les boutons flottants
+    // (assistant, accessibilité : 56 px + 16 px) couvraient la dernière ligne du
+    // pied de page en fin de défilement.
     <footer className="border-t border-neutral-200 bg-neutral-50">
-      <div className="mx-auto max-w-5xl px-4 py-10">
+      <div className="mx-auto max-w-5xl px-4 pb-24 pt-10 md:py-10">
         <SupportBanner position="pied-de-page" className="mb-8" />
 
         <div className="grid gap-8 sm:grid-cols-3">
@@ -25,27 +28,27 @@ export function Footer() {
               {t('explorerTitle')}
             </p>
             <nav aria-label={t('explorerTitle')} className="flex flex-col gap-1 text-xs text-neutral-600 [&>a]:py-1 [&>a]:min-h-[24px]">
-              <Link href="/domains" className="hover:text-neutral-700">
+              <NavLink zone="pied-de-page" href="/domains" className="hover:text-neutral-700">
                 {t('domains')}
-              </Link>
-              <Link href="/sectors" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/sectors" className="hover:text-neutral-700">
                 {t('sectors')}
-              </Link>
-              <Link href="/solutions" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/solutions" className="hover:text-neutral-700">
                 {t('solutions')}
-              </Link>
-              <Link href="/comparisons" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/comparisons" className="hover:text-neutral-700">
                 {t('comparisons')}
-              </Link>
-              <Link href="/communes" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/communes" className="hover:text-neutral-700">
                 {t('communes')}
-              </Link>
-              <Link href="/dossiers" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/dossiers" className="hover:text-neutral-700">
                 {t('dossiers')}
-              </Link>
-              <Link href="/quiz" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/quiz" className="hover:text-neutral-700">
                 {t('quiz')}
-              </Link>
+              </NavLink>
             </nav>
           </div>
 
@@ -55,28 +58,32 @@ export function Footer() {
               {t('comprendreTitle')}
             </p>
             <nav aria-label={t('comprendreTitle')} className="flex flex-col gap-1 text-xs text-neutral-600 [&>a]:py-1 [&>a]:min-h-[24px]">
-              <Link href="/timeline" className="hover:text-neutral-700">
+              <NavLink zone="pied-de-page" href="/timeline" className="hover:text-neutral-700">
                 {t('timeline')}
-              </Link>
-              <Link href="/glossary" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/glossary" className="hover:text-neutral-700">
                 {t('glossary')}
-              </Link>
-              <Link href="/faq" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/faq" className="hover:text-neutral-700">
                 {t('faq')}
-              </Link>
-              <Link href="/data" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/data" className="hover:text-neutral-700">
                 {t('data')}
-              </Link>
-              <Link href="/changelog" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/changelog" className="hover:text-neutral-700">
                 {t('changelog')}
-              </Link>
-              <Link href="/radar" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/radar" className="hover:text-neutral-700">
                 {t('radar')}
-              </Link>
+              </NavLink>
               {/* PROTOTYPE : le podcast est en pause, le jeu du jour prend sa place.
                   Le Stuut n'existe qu'en FR, Amai ! prend le relais dans les autres langues. */}
               <a
                 href={game.url}
+                // Nouvel onglet : le traceur n'empêche pas la navigation, l'attribut suffit.
+                data-umami-event="navigation-clic"
+                data-umami-event-zone="pied-de-page"
+                data-umami-event-cible={game.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-neutral-700"
@@ -94,29 +101,37 @@ export function Footer() {
               {t('transparenceTitle')}
             </p>
             <nav aria-label={t('transparenceTitle')} className="flex flex-col gap-1 text-xs text-neutral-600 [&>a]:py-1 [&>a]:min-h-[24px]">
-              <Link href="/transparency" className="hover:text-neutral-700">
+              <NavLink zone="pied-de-page" href="/transparency" className="hover:text-neutral-700">
                 {t('transparenceTitle')}
-              </Link>
-              <Link href="/editorial" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/editorial" className="hover:text-neutral-700">
                 {t('editorial')}
-              </Link>
-              <Link href="/methodology" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/methodology" className="hover:text-neutral-700">
                 {t('methodology')}
-              </Link>
-              <Link href="/accessibility" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/accessibility" className="hover:text-neutral-700">
                 {t('accessibility')}
-              </Link>
-              <Link href="/about" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/about" className="hover:text-neutral-700">
                 {t('about')}
-              </Link>
-              <Link href="/press" className="hover:text-neutral-700">
+              </NavLink>
+              <NavLink zone="pied-de-page" href="/press" className="hover:text-neutral-700">
                 {t('press')}
-              </Link>
+              </NavLink>
               {/* Le prototype d'accueil a retiré le bandeau du livre ; le lien vit
                   désormais ici, donc sur toutes les pages plutôt que sur une seule.
                   `/livre` est hors du segment [locale] : NextLink, et non le Link
                   localisé, qui le réécrirait en /fr/livre. */}
-              <NextLink href="/livre" className="hover:text-neutral-700">
+              <NextLink
+                href="/livre"
+                // Attribut plutôt que `track()` : /livre a son propre layout
+                // racine, la navigation y est de toute façon complète.
+                data-umami-event="navigation-clic"
+                data-umami-event-zone="pied-de-page"
+                data-umami-event-cible="/livre"
+                className="hover:text-neutral-700"
+              >
                 {t('book')}
               </NextLink>
             </nav>
@@ -128,9 +143,9 @@ export function Footer() {
           <p className="text-sm font-medium text-neutral-600">{t('project')}</p>
           <p className="mt-1 text-xs text-neutral-500">{t('identity')}</p>
           <p className="mt-2 text-xs text-neutral-500">
-            <Link href="/privacy" className="hover:text-neutral-700">{t('privacy')}</Link>
+            <NavLink zone="pied-de-page" href="/privacy" className="hover:text-neutral-700">{t('privacy')}</NavLink>
             {' · '}
-            <Link href="/legal" className="hover:text-neutral-700">{t('legal')}</Link>
+            <NavLink zone="pied-de-page" href="/legal" className="hover:text-neutral-700">{t('legal')}</NavLink>
           </p>
           <p className="mt-1 text-xs text-neutral-500">{t('disclaimer')}</p>
         </div>

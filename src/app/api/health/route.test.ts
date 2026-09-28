@@ -3,6 +3,8 @@
 
 import { describe, it, expect } from 'vitest';
 import { GET } from './route';
+import { onRequestError } from '@/instrumentation';
+import { viderErreursRendu } from '@/lib/render-errors';
 
 describe('GET /api/health', () => {
   it('returns 200 with status ok', async () => {
@@ -33,5 +35,33 @@ describe('GET /api/health', () => {
     } finally {
       if (previous !== undefined) process.env.BUILD_SHA = previous;
     }
+  });
+});
+
+describe('GET /api/health : erreurs de rendu', () => {
+  it('publie les régénérations ISR en échec notées par onRequestError', async () => {
+    viderErreursRendu();
+    expect((await GET().json()).renderErrors).toEqual({ total24h: 0, revalidation24h: 0, derniere: null });
+
+    // Même chemin que Next en production : instrumentation.ts → noterErreurRendu.
+    await onRequestError(
+      new Error('boom'),
+      { path: '/fr', method: 'GET', headers: {} },
+      {
+        routerKind: 'App Router',
+        routePath: '/[locale]',
+        routeType: 'render',
+        renderSource: 'server-rendering',
+        revalidateReason: 'stale',
+      },
+    );
+    const body = await GET().json();
+    expect(body.status).toBe('ok');
+    expect(body.renderErrors.total24h).toBe(1);
+    expect(body.renderErrors.revalidation24h).toBe(1);
+    expect(body.renderErrors.derniere).toMatchObject({ routePath: '/[locale]', revalidateReason: 'stale' });
+    // Route publique : jamais le message de l'erreur.
+    expect(JSON.stringify(body)).not.toContain('boom');
+    viderErreursRendu();
   });
 });

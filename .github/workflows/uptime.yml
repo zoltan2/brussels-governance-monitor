@@ -1,0 +1,160 @@
+name: Uptime
+
+# Surveillance de disponibilité EXTÉRIEURE au VPS (revue gold, P2).
+#
+# Toutes les autres alertes partent du VPS lui-même (bgm-deploy, bgm-backup,
+# sonde de l'accueil) : si la machine, Docker ou le réseau tombe, elles se
+# taisent avec lui. Ce workflow tourne chez GitHub, toutes les 30 minutes, et
+# vérifie deux choses légères : /api/health répond « ok », et l'accueil /fr
+# répond 200 avec son bloc « Ce qu'on surveille » (un 200 de page d'erreur ne
+# compte pas).
+#
+# Deux passages en échec d'affilée (soit 30 à 60 minutes de panne) ouvrent une
+# issue « uptime » assignée au propriétaire : GitHub l'en notifie par email.
+# Un échec isolé ne fait qu'un avertissement dans le journal, sans email.
+# Au retour, un commentaire est posté et l'issue est fermée (un email). Pendant
+# la panne, l'issue est mise à jour sans commentaire (pas d'email toutes les
+# 30 minutes).
+#
+# Mémoire d'un passage à l'autre : l'étape « Marqueur d'échec » n'est exécutée
+# que si la sonde a échoué. Le passage suivant lit, par l'API, si cette étape
+# a tourné (success) ou a été sautée (skipped) au passage précédent.
+#
+# Coût : dépôt public, minutes Actions gratuites ; environ 20 s par passage,
+# aucune dépendance installée.
+
+on:
+  schedule:
+    # Minutes 7 et 37 : pas pile à l'heure, quand GitHub retarde le plus les
+    # tâches planifiées.
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+env:
+  BASE: https://governance.brussels
+  PROPRIETAIRE: zoltan2
+  LABEL: uptime
+
+jobs:
+  sonde:
+    name: Disponibilité vue de l'extérieur
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          sparse-checkout: scripts/ops
+
+      - name: Sonde
+        id: sonde
+        continue-on-error: true
+        run: |
+          source scripts/ops/http.sh
+          ECHEC=0
+          RAPPORT=""
+
+          SANTE="$RUNNER_TEMP/sante.json"; rm -f "$SANTE"   # jamais le corps d'un passage précédent
+          CODE=$(CODE_HTTP_SORTIE="$SANTE" code_http "$BASE/api/health?cb=$RANDOM$RANDOM")
+          if [ "$CODE" = "200" ] && jq -e '.status == "ok"' "$SANTE" >/dev/null 2>&1; then
+            RAPPORT+="OK /api/health ($(jq -r '.version // "?"' "$SANTE" | cut -c1-8))"$'\n'
+          else
+            ECHEC=1
+            RAPPORT+="ÉCHEC /api/health : HTTP $CODE $(head -c 200 "$SANTE" 2>/dev/null || true)"$'\n'
+          fi
+
+          PAGE="$RUNNER_TEMP/fr.html"; rm -f "$PAGE"
+          CODE=$(CODE_HTTP_SORTIE="$PAGE" code_http "$BASE/fr?cb=$RANDOM$RANDOM" -L)
+          if [ "$CODE" = "200" ] && grep -q 'id="watch-title"' "$PAGE"; then
+            RAPPORT+="OK /fr"$'\n'
+          else
+            ECHEC=1
+            RAPPORT+="ÉCHEC /fr : HTTP $CODE, repère de l'accueil $(grep -q 'id="watch-title"' "$PAGE" 2>/dev/null && echo présent || echo absent)"$'\n'
+          fi
+
+          printf '%s' "$RAPPORT"
+          {
+            echo 'rapport<<FIN_RAPPORT'
+            printf '%s' "$RAPPORT"
+            echo 'FIN_RAPPORT'
+          } >> "$GITHUB_OUTPUT"
+          exit $ECHEC
+
+      # NE PAS RENOMMER sans mettre à jour l'étape suivante, qui le cherche par
+      # son nom dans le passage précédent.
+      - name: Marqueur d'échec
+        if: steps.sonde.outcome == 'failure'
+        run: echo "Sonde en échec à ce passage."
+
+      - name: Décision
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESULTAT: ${{ steps.sonde.outcome }}
+          RAPPORT: ${{ steps.sonde.outputs.rapport }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          REPO="$GITHUB_REPOSITORY"
+          MAINTENANT="$(date -u +'%Y-%m-%d %H:%M UTC')"
+
+          # Passage précédent terminé de CE workflow (hors passage courant).
+          PRECEDENT=$(gh api "repos/$REPO/actions/workflows/uptime.yml/runs?status=completed&per_page=5" \
+            --jq "[.workflow_runs[] | select(.id != $GITHUB_RUN_ID)][0].id // empty" || true)
+          PRECEDENT_EN_ECHEC=false
+          if [ -n "$PRECEDENT" ]; then
+            ETAPE=$(gh api "repos/$REPO/actions/runs/$PRECEDENT/jobs" \
+              --jq '[.jobs[].steps[] | select(.name == "Marqueur d'"'"'échec") | .conclusion][0] // "absent"' || echo absent)
+            [ "$ETAPE" = "success" ] && PRECEDENT_EN_ECHEC=true
+            echo "Passage précédent $PRECEDENT : marqueur d'échec = $ETAPE"
+          fi
+
+          OUVERTE=$(gh issue list -R "$REPO" --label "$LABEL" --state open --json number --jq '.[0].number // empty' || true)
+
+          if [ "$RESULTAT" = "success" ]; then
+            if [ -n "$OUVERTE" ]; then
+              gh issue comment "$OUVERTE" -R "$REPO" --body "Site de nouveau disponible le $MAINTENANT.
+
+          $RAPPORT
+          $RUN_URL"
+              gh issue close "$OUVERTE" -R "$REPO"
+              echo "Rétabli : issue #$OUVERTE fermée."
+            else
+              echo "Disponible."
+            fi
+            exit 0
+          fi
+
+          if [ "$PRECEDENT_EN_ECHEC" != "true" ]; then
+            echo "::warning::Premier échec : pas d'alerte avant un second passage en échec (30 min)."
+            exit 0
+          fi
+
+          CORPS="governance.brussels ne répond pas correctement depuis au moins deux passages de la sonde externe (30 minutes d'écart).
+
+          Dernier constat, le $MAINTENANT :
+          $RAPPORT
+          Pistes : conteneur bgm-app arrêté (ssh wouaw-admin, docker ps), VPS Hetzner injoignable, Caddy, Cloudflare. Journal du déploiement : journalctl -u bgm-deploy -n 50.
+
+          $RUN_URL
+
+          Cette issue se ferme seule au retour du site. Elle est mise à jour à chaque passage sans nouveau commentaire."
+
+          if [ -n "$OUVERTE" ]; then
+            gh issue edit "$OUVERTE" -R "$REPO" --body "$CORPS"
+            echo "Panne en cours : issue #$OUVERTE mise à jour."
+          else
+            gh label create "$LABEL" -R "$REPO" --color B45309 \
+              --description "Panne vue par la sonde externe (uptime.yml)" 2>/dev/null || true
+            gh issue create -R "$REPO" --label "$LABEL" --assignee "$PROPRIETAIRE" \
+              --title "Site indisponible (sonde externe, depuis le $MAINTENANT)" --body "$CORPS"
+          fi
+          # Rouge dans l'onglet Actions aussi, pour que la panne se voie partout.
+          exit 1

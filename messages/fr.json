@@ -352,7 +352,8 @@
     "successExistingTitle": "Thèmes mis à jour",
     "successExistingMessage": "Les nouveaux thèmes ont été ajoutés à votre abonnement existant.",
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
-    "privacy": "Max. 1 email/semaine. Désabonnement en 1 clic."
+    "privacy": "Max. 1 email/semaine. Désabonnement en 1 clic.",
+    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest, avec votre consentement. <link>Politique de confidentialité</link>"
   },
   "subscribeConfirm": {
     "title": "Confirmez votre inscription",
@@ -552,7 +553,8 @@
       "description": "Nous collectons uniquement les données strictement nécessaires au fonctionnement du service d'alerte email :",
       "email": "Adresse email (pour l'envoi des digest hebdomadaires)",
       "topics": "Thèmes choisis (pour personnaliser le contenu des alertes)",
-      "locale": "Langue préférée (pour envoyer les emails dans la bonne langue)"
+      "locale": "Langue préférée (pour envoyer les emails dans la bonne langue)",
+      "sources": "Canal d'inscription (par exemple le site ou l'assistant BGM), pour savoir d'où vient l'inscription"
     },
     "basis": {
       "title": "Base juridique",
@@ -579,12 +581,12 @@
       "description": "Dans un souci de transparence, voici la liste complète des services tiers utilisés par ce site :",
       "hosting": "Hetzner (hébergement) : héberge le site sur un serveur situé à Nuremberg, en Allemagne. Traite les logs serveur (adresses IP, en-têtes HTTP). Aucune donnée personnelle n'est stockée au-delà des logs techniques temporaires.",
       "cloudflare": "Cloudflare (CDN et protection anti-DDoS) : filtre et distribue le trafic depuis ses points de présence européens. Traite les adresses IP des visiteurs pendant la requête. Société américaine, certifiée sous le EU-US Data Privacy Framework.",
-      "umami": "Umami (statistiques) : mesure de fréquentation respectueuse de la vie privée, auto-hébergée sur notre propre serveur en Allemagne. Aucun cookie, aucun suivi inter-sites. Les adresses des pages sont enregistrées sans leur chaîne de requête, afin qu'aucun jeton figurant dans un lien d'email ne soit conservé.",
+      "umami": "Umami (statistiques) : mesure de fréquentation respectueuse de la vie privée, auto-hébergée sur notre propre serveur en Allemagne. Aucun cookie, aucun suivi inter-sites. Les adresses des pages sont enregistrées sans leur chaîne de requête, à l'exception des balises de campagne (paramètres utm_), afin qu'aucun jeton figurant dans un lien d'email ne soit conservé. Pour un site d'origine externe, seuls son domaine et son chemin sont conservés. Les pages réservées à l'équipe (administration, relecture, connexion) ne sont pas mesurées.",
       "resend": "Resend (emails) : envoie les emails de confirmation, les digest hebdomadaires et le Stuut quotidien. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
       "stripe": "Stripe (paiements) : traite les dons, les précommandes du livre et le déverrouillage de l'assistant. La saisie des données bancaires a lieu sur les pages hébergées par Stripe : le site ne voit ni ne stocke aucune donnée de carte. Société américaine.",
-      "anthropic": "Anthropic (assistant IA) : traite les questions posées à l'assistant BGM pour produire les réponses. Société américaine. Les questions ne sont pas liées à une identité ; aucune donnée personnelle n'est requise pour utiliser l'assistant.",
-      "upstash": "Upstash (base de données) : conserve la télémétrie de l'assistant, les votes de consultation et le registre des précommandes du livre, qui contient prénom et adresse email.",
-      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Hetzner, Cloudflare, Umami, Upstash et Anthropic ; consentement (article 6.1.a) pour Resend ; exécution du contrat (article 6.1.b) pour Stripe.",
+      "anthropic": "Anthropic (assistant IA) : traite les questions posées à l'assistant BGM pour produire les réponses. Société américaine. Les questions ne sont pas liées à une identité, et l'adresse email que l'assistant peut demander ne lui est pas transmise.",
+      "database": "Base de données : la télémétrie de l'assistant, les votes de consultation et le registre des précommandes du livre, qui contient prénom et adresse email, sont conservés dans une base SQLite sur notre propre serveur, chez Hetzner en Allemagne.",
+      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Hetzner, Cloudflare, Umami, la base de données et Anthropic ; consentement (article 6.1.a) pour Resend ; exécution du contrat (article 6.1.b) pour Stripe.",
       "statusPage": "Page de statut du service : https://status.governance.brussels",
       "transfers": "Transferts hors UE : l'hébergement du site, les statistiques et la base de données restent en Europe. Resend, Stripe, Anthropic (États-Unis) et Cloudflare (société américaine) opèrent sous clauses contractuelles types (SCCs) ou certification EU-US Data Privacy Framework (DPF). Les DPA sont acceptés avec les conditions d'utilisation de chaque service."
     },
@@ -606,7 +608,8 @@
     },
     "chatbot": {
       "title": "Assistant BGM",
-      "paragraph1": "Les questions posées à l'assistant BGM sont conservées à des fins d'amélioration du service, au maximum les 10 000 dernières, et pas au-delà de 90 jours. Elles sont associées à un identifiant de session anonymisé (hachage non réversible, renouvelé chaque jour) et ne sont jamais liées à une identité. Aucune donnée personnelle n'est requise pour utiliser l'assistant. Les questions sont transmises à Anthropic (États-Unis) pour produire la réponse.",
+      "paragraph1": "Les questions posées à l'assistant BGM sont conservées à des fins d'amélioration du service, au maximum les 10 000 dernières, et pas au-delà de 90 jours. Elles sont associées à un identifiant de session anonymisé (hachage non réversible, renouvelé chaque jour) et ne sont jamais liées à une identité. Les questions sont transmises à Anthropic (États-Unis) pour produire la réponse.",
+      "emailGate": "Après trois questions gratuites, l'assistant propose dix questions de plus en échange d'une adresse email. Le journal de l'assistant n'enregistre pas cette adresse, mais une empreinte calculée avec une clé secrète (hachage), ainsi que la date, la langue, le choix de s'inscrire ou non au digest, le fait que l'adresse soit déjà abonnée ou non et l'envoi éventuel d'un email de confirmation. Ce journal est ramené chaque jour à ses 10 000 dernières entrées. Si vous demandez l'inscription au digest, l'adresse est transmise à Resend pour vous envoyer un email de confirmation, et l'inscription n'est active qu'après un clic sur le lien qu'il contient. Si l'adresse est déjà abonnée, sa fiche d'abonné indique que l'assistant fait partie de ses canaux d'inscription.",
       "paragraph2": "L'accès étendu à l'assistant est proposé via une contribution volontaire, traitée par Stripe. Depuis le 21 septembre 2026, le paiement est vérifié côté serveur auprès de Stripe avant l'ouverture de l'accès."
     },
     "lastUpdated": "Dernière mise à jour : {date}"
@@ -1609,20 +1612,13 @@
     "title": "Pour aller plus loin"
   },
   "home": {
-    "citizenIntro": "Ils ont promis quoi ? Et ils tiennent parole ? Bruxelles a un gouvernement depuis février 2026. Ce site suit la mise en œuvre des engagements pris — domaine par domaine, chiffre par chiffre, source par source.",
-    "citizenIntroFalc": "Bruxelles a un nouveau gouvernement. Brussels Governance Monitor vérifie les promesses tenues.",
-    "howToReadLink": "Comment lire ce site ?",
-    "subscribeCta": "Recevez l'essentiel de la semaine par email.",
     "mission": {
       "what": "BGM rend visible ce que fait (ou ne fait pas) le gouvernement bruxellois.",
       "how": "Chaque donnée est sourcée, chaque métrique est vérifiable, chaque analyse est transparente.",
       "why": "Parce qu'une démocratie a besoin de citoyens informés qui vérifient les engagements."
     },
-    "explainersTitle": "Comprendre la gouvernance bruxelloise",
-    "explainersSubtitle": "Des explications pédagogiques pour aller plus loin",
     "explainerParliament": "Que peut faire le Parlement sans gouvernement ?",
     "explainerParadox": "Le paradoxe bruxellois : PIB vs revenus",
-    "explainerFormation": "Comment se forme un gouvernement bruxellois ?",
     "explainerLevels": "Les niveaux de pouvoir à Bruxelles",
     "explainerOverview": "Bruxelles en bref",
     "explainerCosmopolitan": "Bruxelles cosmopolite",
@@ -1637,16 +1633,7 @@
     "sectorCommerce": "Commerce",
     "sectorDigital": "Numérique",
     "sectorEducation": "Enseignement",
-    "viewAllExplainers": "Toutes les pages pour comprendre",
-    "sectorsTitle": "Secteurs impactés",
-    "sectorsSubtitle": "Les secteurs clés de l'économie bruxelloise, suivis et documentés",
-    "viewAllSectors": "Voir toutes les fiches secteur",
     "timelineTitle": "Chronologie",
-    "timelineSubtitle": "Suivre les étapes de la formation du gouvernement bruxellois",
-    "viewTimeline2": "Consulter la chronologie complète",
-    "dashboardTitle": "Suivi des engagements",
-    "dashboardSubtitle": "16 promesses chiffrées extraites de la Déclaration de Politique Régionale, vérifiées source par source.",
-    "viewDashboard": "Consulter le tableau de bord",
     "governmentTitle": "Nouveau gouvernement bruxellois",
     "governmentSubtitle": "Gouvernement Dilliès — prestation de serment le 14 février 2026",
     "governmentRoles": {
@@ -1660,7 +1647,6 @@
     "identity": "BGM est un projet citoyen indépendant.",
     "identityDetail": "Non affilié à un parti, un gouvernement, ou un média.",
     "identityLink": "Qui se cache derrière ce projet ?",
-    "columnFollow": "Suivre",
     "columnUnderstand": "Comprendre",
     "newHere": "Nouveau ici ?",
     "allExplainers": "Tout comprendre",
@@ -1669,8 +1655,6 @@
     "explainerUsers": "Les niveaux de pouvoir",
     "explainerScale": "Le paradoxe bruxellois",
     "lastVeille": "Dernière veille",
-    "veilleActive": "Veille active — {count} sources consultées",
-    "veilleSources": "{count} sources consultées",
     "veilleMethod": "Notre méthode",
     "signalsTitle": "Signaux en cours de vérification",
     "shieldFootnote": "BGM ne publie que des données confirmées par des sources primaires.",
@@ -1683,9 +1667,6 @@
     "sectorsHomeTitle": "Secteurs clés",
     "sectorsHomeSubtitle": "Les secteurs de l'économie bruxelloise",
     "viewAllSectorsCount": "Voir les {count} secteurs",
-    "subscribeSection": "Restez informé",
-    "heroTitle": "Brussels Governance Monitor",
-    "heroDescription": "Moniteur indépendant de la gouvernance bruxelloise. 13 domaines, 16 dossiers clés, 19 communes et 290+ sources vérifiées — suivi factuel, sans affiliation politique.",
     "quizTitle": "Testez vos connaissances",
     "quizSubtitle": "10 questions sur la gouvernance bruxelloise — un nouveau quiz à chaque session.",
     "quizCta": "Lancer le quiz",
@@ -1710,6 +1691,7 @@
     "protoMagazineFallback": "Bruxelles relue et vérifiée.",
     "protoMagazineRead": "Lire le magazine, numéro {week}",
     "protoMagazineReadPlain": "Lire le magazine",
+    "protoMagazineWeek": "Semaine {week}",
     "protoSignalTeaser": "La newsletter LinkedIn du lundi : la gouvernance bruxelloise en deux minutes.",
     "protoSignalCta": "Découvrir la newsletter",
     "protoGamesTab": "Jouer",
@@ -1737,7 +1719,8 @@
     "keyFigureSource": "Source : {source}",
     "latestUpdateLabel": "Dernière mise à jour",
     "latestUpdateCorrection": "Correction",
-    "latestUpdateLinkLabel": "Lire la mise à jour : {title}"
+    "latestUpdateLinkLabel": "Lire la mise à jour : {title}",
+    "barometerAsOf": "Statuts au {date}"
   },
   "sectors": {
     "title": "Secteurs impactés",
@@ -2120,9 +2103,9 @@
     "whatItFunds": "À quoi sert votre soutien",
     "pillarHosting": "Hébergement",
     "pillarVeille": "Veille quotidienne",
-    "pillarLanguages": "13 langues",
+    "pillarLanguages": "11 langues",
     "pillarIndependence": "Indépendance",
-    "languagesNote": "4 langues complètes (FR, NL, EN, DE) + digest hebdomadaire en 12 langues, 79 à terme.",
+    "languagesNote": "4 langues complètes (FR, NL, EN, DE) + digest hebdomadaire en 11 langues, 79 à terme.",
     "donateButton": "Soutenir governance.brussels",
     "onceTitle": "Don ponctuel",
     "onceSubtitle": "Montant libre, une seule fois",
@@ -2210,8 +2193,8 @@
     "measure1": "Structure sémantique : balises HTML5 (header, main, nav, article, section, fieldset, legend), hiérarchie de titres cohérente, fil d'Ariane avec balisage Schema.org",
     "measure2": "Navigation au clavier : lien d'accès rapide au contenu (skip link), navigation clavier dans les menus déroulants (flèches, Échap, Home, End), piège de focus dans la boîte de recherche et le menu mobile",
     "measure3": "Formulaires accessibles : labels associés (htmlFor), fieldset/legend pour les groupes, messages d'erreur et de succès annoncés aux lecteurs d'écran (role=\"status\", role=\"alert\", aria-live), champs honeypot masqués (aria-hidden, tabIndex -1)",
-    "measure4": "Contrastes : palette de couleurs en oklch vérifiée pour un rapport de contraste minimum de 4,5:1 sur tous les textes. Mode « contraste élevé » disponible (ratio 7:1, WCAG AAA)",
-    "measure5": "Médias et mouvement : respect de la préférence « prefers-reduced-motion », aucune animation automatique",
+    "measure4": "Contrastes : palette de couleurs en oklch ; un test automatisé recalcule les rapports de contraste des couleurs de la palette (4,5:1 minimum pour le texte) en mode clair, sombre et contraste élevé. Mode « contraste élevé » disponible (ratio 7:1, WCAG AAA)",
+    "measure5": "Médias et mouvement : respect de la préférence « prefers-reduced-motion », aucune animation automatique en dehors des indicateurs de chargement, eux aussi neutralisés par cette préférence",
     "measure6": "Langue : attribut lang dynamique sur chaque page (fr/nl/en/de). Lecteur vocal intégré avec détection de la langue (fr-BE, nl-BE, en-GB, de-DE)",
     "measure7": "Impression : feuille de style dédiée avec URLs visibles, suppression des éléments interactifs, marges de page, pagination des sections. Bouton « Imprimer » dans la barre d'accessibilité",
     "measure8": "Mode sombre : thème sombre complet via inversion des variables CSS. Détection automatique de la préférence système (prefers-color-scheme). Basculement manuel conservé dans localStorage",
@@ -2231,19 +2214,18 @@
     "techText": "HTML5, CSS (Tailwind CSS v4, variables oklch), JavaScript (React 19/Next.js 16), ARIA 1.2, Schema.org (JSON-LD), Web Speech API.",
     "limitationsTitle": "Limites connues",
     "limitation1": "Les extraits de résultats de recherche sont rendus en HTML via Pagefind avec balises <mark> stylisées, mais la sémantique « highlight » n'est pas annoncée par tous les lecteurs d'écran",
-    "limitation2": "Le digest hebdomadaire utilise un layout séparé avec lang=\"en\" sur la balise <html> (limitation Next.js pour les layouts imbriqués). Le contenu multilingue est correctement balisé via un attribut lang sur le conteneur intérieur",
-    "limitation3": "Les ratios de contraste exacts en mode sombre nécessitent une vérification en conditions réelles (les couleurs oklch ne sont pas convertibles statiquement)",
+    "limitation3": "Un test automatisé vérifie les rapports de contraste de la palette en mode clair, sombre et contraste élevé, mais chaque combinaison de texte et de fond n'a pas été mesurée page par page en conditions réelles",
     "limitation4": "La qualité de la synthèse vocale dépend du navigateur et du système d'exploitation de l'utilisateur",
-    "limitation5": "Le bouton d'accessibilité (fixé en bas à droite) peut partiellement masquer un élément recevant le focus clavier en bas de page (critère WCAG 2.4.11 Focus Not Obscured). Le contenu reste accessible par défilement",
+    "limitation5": "Le bouton d'accessibilité (fixé en bas à droite) et le bouton de l'assistant (fixé en bas à gauche) peuvent partiellement masquer un élément recevant le focus clavier en bas de l'écran (critère WCAG 2.4.11 Focus Not Obscured). Le contenu reste accessible par défilement",
     "anysurferText": "Ce site vise la conformité WCAG 2.2 niveau AA, le référentiel sur lequel repose le label AnySurfer. Une certification AnySurfer n'a pas encore été sollicitée.",
     "feedbackTitle": "Retour d'information",
     "linguisticTitle": "Accessibilité linguistique",
-    "linguisticText": "Le contenu principal du site est disponible en quatre langues : français, néerlandais, anglais et allemand. L'attribut lang est défini dynamiquement sur chaque page. Le digest hebdomadaire (BGM Weekly Digest) est disponible dans plus de 80 langues, parce que Bruxelles compte 184 nationalités et que la gouvernance concerne tout le monde. Les traductions automatiques sont signalées comme telles.",
+    "linguisticText": "Le contenu principal du site est disponible en quatre langues : français, néerlandais, anglais et allemand. L'attribut lang est défini dynamiquement sur chaque page. Le digest hebdomadaire (BGM Weekly Digest) est publié sur le site en {count} langues, parce que Bruxelles compte 184 nationalités et que la gouvernance concerne tout le monde. Chaque page d'archive du digest déclare sa propre langue (attribut lang de la page), avec un sens de lecture de droite à gauche pour l'arabe. Les traductions automatiques sont signalées comme telles.",
     "plainLanguageTitle": "Langage clair",
     "plainLanguageText": "BGM utilise un langage accessible et évite le jargon institutionnel. Chaque fiche domaine inclut un résumé « En bref » en lecture facile. Un travail d'adaptation complète en Facile à Lire et à Comprendre (FALC) est envisagé pour les contenus clés.",
     "feedbackText": "Si vous rencontrez un obstacle d'accessibilité sur ce site, utilisez le formulaire de feedback ou contactez-nous à contact@brusselsgovernance.be. Nous nous engageons à répondre dans un délai de 15 jours ouvrables.",
     "feedbackEmail": "contact@brusselsgovernance.be",
-    "statementDate": "Cette déclaration a été mise à jour le 24 mars 2026."
+    "statementDate": "Cette déclaration a été mise à jour le 28 septembre 2026."
   },
   "transparency": {
     "title": "Transparence",

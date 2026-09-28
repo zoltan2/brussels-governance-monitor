@@ -352,7 +352,8 @@
     "successExistingTitle": "Themen aktualisiert",
     "successExistingMessage": "Die neuen Themen wurden zu Ihrem bestehenden Abonnement hinzugefügt.",
     "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
-    "privacy": "Max. 1 E-Mail/Woche. Abmeldung mit 1 Klick."
+    "privacy": "Max. 1 E-Mail/Woche. Abmeldung mit 1 Klick.",
+    "privacyNotice": "Daten werden von Advice That SRL mit Ihrer Einwilligung für den Versand des Digests verarbeitet. <link>Datenschutzrichtlinie</link>"
   },
   "subscribeConfirm": {
     "title": "Bestätigen Sie Ihre Anmeldung",
@@ -552,7 +553,8 @@
       "description": "Wir erheben ausschließlich die für den E-Mail-Benachrichtigungsdienst unbedingt erforderlichen Daten:",
       "email": "E-Mail-Adresse (für den Versand wöchentlicher Zusammenfassungen)",
       "topics": "Gewählte Themen (zur Personalisierung der Benachrichtigungsinhalte)",
-      "locale": "Bevorzugte Sprache (um E-Mails in der richtigen Sprache zu versenden)"
+      "locale": "Bevorzugte Sprache (um E-Mails in der richtigen Sprache zu versenden)",
+      "sources": "Anmeldekanal (zum Beispiel die Website oder der BGM-Assistent), um zu wissen, woher die Anmeldung stammt"
     },
     "basis": {
       "title": "Rechtsgrundlage",
@@ -579,12 +581,12 @@
       "description": "Im Sinne der Transparenz finden Sie hier die vollständige Liste der von dieser Website genutzten externen Dienste:",
       "hosting": "Hetzner (Hosting): hostet die Website auf einem Server in Nürnberg, Deutschland. Verarbeitet Serverprotokolle (IP-Adressen, HTTP-Header). Keine personenbezogenen Daten werden über die temporären technischen Protokolle hinaus gespeichert.",
       "cloudflare": "Cloudflare (CDN und DDoS-Schutz): filtert und verteilt den Datenverkehr über seine europäischen Standorte. Verarbeitet die IP-Adressen der Besucher während der Anfrage. US-Unternehmen, zertifiziert unter dem EU-US Data Privacy Framework.",
-      "umami": "Umami (Statistiken): datenschutzfreundliche Reichweitenmessung, selbst gehostet auf unserem eigenen Server in Deutschland. Keine Cookies, kein seitenübergreifendes Tracking. Seitenadressen werden ohne Query-String gespeichert, sodass kein Token aus einem E-Mail-Link erhalten bleibt.",
+      "umami": "Umami (Statistiken): datenschutzfreundliche Reichweitenmessung, selbst gehostet auf unserem eigenen Server in Deutschland. Keine Cookies, kein seitenübergreifendes Tracking. Seitenadressen werden ohne Query-String gespeichert, mit Ausnahme der Kampagnen-Tags (utm_-Parameter), sodass kein Token aus einem E-Mail-Link erhalten bleibt. Bei einer externen verweisenden Website werden nur Domain und Pfad gespeichert. Dem Team vorbehaltene Seiten (Verwaltung, Prüfung, Anmeldung) werden nicht gemessen.",
       "resend": "Resend (E-Mails): versendet Bestätigungs-E-Mails, wöchentliche Zusammenfassungen und den täglichen Stuut. Verarbeitet E-Mail-Adressen der Abonnenten. Sitz in den USA mit DSGVO-Konformität (DPA unterzeichnet).",
       "stripe": "Stripe (Zahlungen): verarbeitet Spenden, Vorbestellungen des Buches und die Freischaltung des Assistenten. Die Eingabe der Zahlungsdaten erfolgt auf von Stripe gehosteten Seiten: die Website sieht und speichert keine Kartendaten. US-amerikanisches Unternehmen.",
-      "anthropic": "Anthropic (KI-Assistent): verarbeitet die an den BGM-Assistenten gestellten Fragen, um die Antworten zu erzeugen. US-amerikanisches Unternehmen. Die Fragen werden keiner Identität zugeordnet; für die Nutzung des Assistenten sind keine personenbezogenen Daten erforderlich.",
-      "upstash": "Upstash (Datenbank): speichert die Telemetrie des Assistenten, die Stimmen der Befragung und das Register der Buchvorbestellungen, das Vorname und E-Mail-Adresse enthält.",
-      "legalBasis": "Rechtsgrundlage: berechtigtes Interesse (Artikel 6.1.f DSGVO) für Hetzner, Cloudflare, Umami, Upstash und Anthropic; Einwilligung (Artikel 6.1.a) für Resend; Vertragserfüllung (Artikel 6.1.b) für Stripe.",
+      "anthropic": "Anthropic (KI-Assistent): verarbeitet die an den BGM-Assistenten gestellten Fragen, um die Antworten zu erzeugen. US-amerikanisches Unternehmen. Die Fragen werden keiner Identität zugeordnet, und die E-Mail-Adresse, die der Assistent abfragen kann, wird nicht an Anthropic übermittelt.",
+      "database": "Datenbank: Die Telemetrie des Assistenten, die Stimmen der Befragung und das Register der Buchvorbestellungen, das Vorname und E-Mail-Adresse enthält, werden in einer SQLite-Datenbank auf unserem eigenen Server bei Hetzner in Deutschland gespeichert.",
+      "legalBasis": "Rechtsgrundlage: berechtigtes Interesse (Artikel 6.1.f DSGVO) für Hetzner, Cloudflare, Umami, die Datenbank und Anthropic; Einwilligung (Artikel 6.1.a) für Resend; Vertragserfüllung (Artikel 6.1.b) für Stripe.",
       "statusPage": "Statusseite des Dienstes: https://status.governance.brussels",
       "transfers": "Übermittlungen außerhalb der EU: Hosting, Statistiken und Datenbank bleiben in Europa. Resend, Stripe, Anthropic (Vereinigte Staaten) und Cloudflare (US-Unternehmen) arbeiten auf Grundlage von Standardvertragsklauseln (SCCs) oder der EU-US-Data-Privacy-Framework-Zertifizierung (DPF). Die DPAs werden mit den Nutzungsbedingungen des jeweiligen Dienstes akzeptiert."
     },
@@ -606,7 +608,8 @@
     },
     "chatbot": {
       "title": "BGM-Assistent",
-      "paragraph1": "Die an den BGM-Assistenten gestellten Fragen werden zur Verbesserung des Dienstes gespeichert, höchstens die letzten 10 000 und nicht länger als 90 Tage. Sie sind mit einer anonymisierten Sitzungskennung verknüpft (nicht umkehrbarer Hash, täglich erneuert) und niemals mit einer Identität. Für die Nutzung des Assistenten sind keine personenbezogenen Daten erforderlich. Die Fragen werden zur Erzeugung der Antwort an Anthropic (Vereinigte Staaten) übermittelt.",
+      "paragraph1": "Die an den BGM-Assistenten gestellten Fragen werden zur Verbesserung des Dienstes gespeichert, höchstens die letzten 10 000 und nicht länger als 90 Tage. Sie sind mit einer anonymisierten Sitzungskennung verknüpft (nicht umkehrbarer Hash, täglich erneuert) und niemals mit einer Identität. Die Fragen werden zur Erzeugung der Antwort an Anthropic (Vereinigte Staaten) übermittelt.",
+      "emailGate": "Nach drei kostenlosen Fragen bietet der Assistent zehn weitere im Austausch gegen eine E-Mail-Adresse an. Das Protokoll des Assistenten speichert diese Adresse nicht, sondern einen mit einem geheimen Schlüssel berechneten Fingerabdruck (Hash), zusammen mit Datum, Sprache, der Wahl, den Digest zu abonnieren oder nicht, der Angabe, ob die Adresse bereits abonniert ist, und ob eine Bestätigungs-E-Mail versandt wurde. Dieses Protokoll wird täglich auf seine letzten 10 000 Einträge gekürzt. Wenn Sie den Digest abonnieren möchten, wird die Adresse an Resend übermittelt, um Ihnen eine Bestätigungs-E-Mail zu senden; das Abonnement wird erst nach einem Klick auf den darin enthaltenen Link aktiv. Ist die Adresse bereits abonniert, führt ihr Abonnenteneintrag den Assistenten als einen ihrer Anmeldekanäle.",
       "paragraph2": "Der erweiterte Zugang zum Assistenten wird über einen freiwilligen Beitrag angeboten, der von Stripe abgewickelt wird. Seit dem 21. September 2026 wird die Zahlung serverseitig bei Stripe geprüft, bevor der Zugang freigeschaltet wird."
     },
     "lastUpdated": "Letzte Aktualisierung: {date}"
@@ -1609,20 +1612,13 @@
     "title": "Weiterführend"
   },
   "home": {
-    "citizenIntro": "Was haben sie versprochen? Und halten sie Wort? Brüssel hat seit Februar 2026 eine Regierung. Diese Seite verfolgt die Umsetzung der eingegangenen Verpflichtungen — Bereich für Bereich, Zahl für Zahl, Quelle für Quelle.",
-    "citizenIntroFalc": "Brüssel hat eine neue Regierung. Brussels Governance Monitor prüft, ob Versprechen eingehalten werden.",
-    "howToReadLink": "Wie liest man diese Seite?",
-    "subscribeCta": "Das Wichtigste der Woche per E-Mail erhalten.",
     "mission": {
       "what": "BGM macht sichtbar, was die Brüsseler Regierung tut (oder nicht tut).",
       "how": "Jede Angabe ist belegt, jede Kennzahl ist überprüfbar, jede Analyse ist transparent.",
       "why": "Weil eine Demokratie informierte Bürger braucht, die Versprechen überprüfen."
     },
-    "explainersTitle": "Die Brüsseler Regierungsführung verstehen",
-    "explainersSubtitle": "Pädagogische Erklärungen zum Vertiefen",
     "explainerParliament": "Was kann das Parlament ohne Regierung tun?",
     "explainerParadox": "Das Brüsseler Paradox: BIP vs Einkommen",
-    "explainerFormation": "Wie wird eine Brüsseler Regierung gebildet?",
     "explainerLevels": "Die Machtebenen in Brüssel",
     "explainerOverview": "Brüssel im Überblick",
     "explainerCosmopolitan": "Kosmopolitisches Brüssel",
@@ -1637,16 +1633,7 @@
     "sectorCommerce": "Handel",
     "sectorDigital": "Digitales",
     "sectorEducation": "Bildung",
-    "viewAllExplainers": "Alle Seiten zum Verstehen",
-    "sectorsTitle": "Betroffene Sektoren",
-    "sectorsSubtitle": "Die wichtigsten Sektoren der Brüsseler Wirtschaft, verfolgt und dokumentiert",
-    "viewAllSectors": "Alle Sektorkarten ansehen",
     "timelineTitle": "Chronologie",
-    "timelineSubtitle": "Die Schritte der Brüsseler Regierungsbildung verfolgen",
-    "viewTimeline2": "Die vollständige Chronologie ansehen",
-    "dashboardTitle": "Verfolgung der Verpflichtungen",
-    "dashboardSubtitle": "16 bezifferte Versprechen aus der Regionalen Politikerklärung, quellenbasiert überprüft.",
-    "viewDashboard": "Dashboard ansehen",
     "governmentTitle": "Neue Brüsseler Regierung",
     "governmentSubtitle": "Regierung Dilliès — Vereidigung am 14. Februar 2026",
     "governmentRoles": {
@@ -1660,7 +1647,6 @@
     "identity": "BGM ist ein unabhängiges Bürgerprojekt.",
     "identityDetail": "Nicht verbunden mit einer Partei, einer Regierung oder einem Medium.",
     "identityLink": "Wer steckt hinter diesem Projekt?",
-    "columnFollow": "Verfolgen",
     "columnUnderstand": "Verstehen",
     "newHere": "Neu hier?",
     "allExplainers": "Alles verstehen",
@@ -1669,8 +1655,6 @@
     "explainerUsers": "Die Machtebenen",
     "explainerScale": "Das Brüsseler Paradoxon",
     "lastVeille": "Letzte Prüfung",
-    "veilleActive": "Aktive Überwachung — {count} Quellen konsultiert",
-    "veilleSources": "{count} Quellen überprüft",
     "signalsTitle": "Signale in Überprüfung",
     "shieldFootnote": "BGM veröffentlicht nur durch Primärquellen bestätigte Daten.",
     "veilleMethod": "Unsere Methode",
@@ -1683,9 +1667,6 @@
     "sectorsHomeTitle": "Schlüsselsektoren",
     "sectorsHomeSubtitle": "Die Sektoren der Brüsseler Wirtschaft",
     "viewAllSectorsCount": "Alle {count} Sektoren ansehen",
-    "subscribeSection": "Bleiben Sie informiert",
-    "heroTitle": "Brussels Governance Monitor",
-    "heroDescription": "Unabhängiger Monitor der Brüsseler Regierungsführung. 13 Politikbereiche, 16 Schlüsseldossiers, 19 Gemeinden und 290+ verifizierte Quellen — faktenbasierte Beobachtung, ohne politische Zugehörigkeit.",
     "quizTitle": "Testen Sie Ihr Wissen",
     "quizSubtitle": "10 Fragen zur Brüsseler Governance — bei jeder Sitzung ein neues Quiz.",
     "quizCta": "Quiz starten",
@@ -1710,6 +1691,7 @@
     "protoMagazineFallback": "Brüssel nachgelesen und geprüft.",
     "protoMagazineRead": "Magazin lesen, Ausgabe {week}",
     "protoMagazineReadPlain": "Magazin lesen",
+    "protoMagazineWeek": "Woche {week}",
     "protoSignalTeaser": "Der LinkedIn-Newsletter am Montag: Brüsseler Governance in zwei Minuten.",
     "protoSignalCta": "Newsletter entdecken",
     "protoGamesTab": "Spielen",
@@ -1737,7 +1719,8 @@
     "keyFigureSource": "Quelle: {source}",
     "latestUpdateLabel": "Letzte Aktualisierung",
     "latestUpdateCorrection": "Korrektur",
-    "latestUpdateLinkLabel": "Aktualisierung lesen: {title}"
+    "latestUpdateLinkLabel": "Aktualisierung lesen: {title}",
+    "barometerAsOf": "Stand: {date}"
   },
   "sectors": {
     "title": "Betroffene Sektoren",
@@ -2120,9 +2103,9 @@
     "whatItFunds": "Wofür Ihre Unterstützung verwendet wird",
     "pillarHosting": "Hosting",
     "pillarVeille": "Tägliche Überwachung",
-    "pillarLanguages": "13 Sprachen",
+    "pillarLanguages": "11 Sprachen",
     "pillarIndependence": "Unabhängigkeit",
-    "languagesNote": "4 vollständige Sprachen (FR, NL, EN, DE) + wöchentlicher Digest in 12 Sprachen, langfristig 79.",
+    "languagesNote": "4 vollständige Sprachen (FR, NL, EN, DE) + wöchentlicher Digest in 11 Sprachen, langfristig 79.",
     "donateButton": "governance.brussels unterstützen",
     "onceTitle": "Einmalige Spende",
     "onceSubtitle": "Freier Betrag, einmalig",
@@ -2208,8 +2191,8 @@
     "measure1": "Semantische Struktur: HTML5-Elemente (header, main, nav, article, section, fieldset, legend), konsistente Überschriftenhierarchie, Breadcrumbs mit Schema.org-Markup",
     "measure2": "Tastaturnavigation: Sprunglink zum Inhalt (Skip Link), Tastaturnavigation in Dropdown-Menüs (Pfeiltasten, Escape, Home, End), Fokus-Falle im Suchfeld und im mobilen Menü",
     "measure3": "Barrierefreie Formulare: verknüpfte Labels (htmlFor), fieldset/legend für Gruppen, Fehler- und Erfolgsmeldungen für Screenreader (role=\"status\", role=\"alert\", aria-live), Honeypot-Felder verborgen (aria-hidden, tabIndex -1)",
-    "measure4": "Kontraste: Farbpalette in oklch auf ein Mindestkontrasrverhältnis von 4,5:1 bei allen Texten geprüft. Modus « Hoher Kontrast » verfügbar (Verhältnis 7:1, WCAG AAA)",
-    "measure5": "Medien und Bewegung: Beachtung der Einstellung « prefers-reduced-motion », keine automatischen Animationen",
+    "measure4": "Kontraste: Farbpalette in oklch; ein automatisierter Test berechnet die Kontrastverhältnisse der Palettenfarben (mindestens 4,5:1 für Text) im hellen, dunklen und kontrastreichen Modus neu. Modus « Hoher Kontrast » verfügbar (Verhältnis 7:1, WCAG AAA)",
+    "measure5": "Medien und Bewegung: Beachtung der Einstellung « prefers-reduced-motion », keine automatischen Animationen außer Ladeanzeigen, die diese Einstellung ebenfalls abschaltet",
     "measure6": "Sprache: dynamisches lang-Attribut auf jeder Seite (fr/nl/en/de). Integrierter Sprachleser mit Spracherkennung (fr-BE, nl-BE, en-GB, de-DE)",
     "measure7": "Druck: spezielles Stylesheet mit sichtbaren URLs, Entfernung interaktiver Elemente, Seitenränder, Abschnittspaginierung. Schaltfläche « Drucken » in der Barrierefreiheits-Werkzeugleiste",
     "measure8": "Dunkelmodus: vollständiges dunkles Thema durch Invertierung der CSS-Variablen. Automatische Erkennung der Systemeinstellung (prefers-color-scheme). Manueller Umschalter in localStorage gespeichert",
@@ -2229,19 +2212,18 @@
     "techText": "HTML5, CSS (Tailwind CSS v4, oklch-Variablen), JavaScript (React 19/Next.js 16), ARIA 1.2, Schema.org (JSON-LD), Web Speech API.",
     "limitationsTitle": "Bekannte Einschränkungen",
     "limitation1": "Suchergebnis-Auszüge werden in HTML über Pagefind mit gestalteten <mark>-Tags gerendert, aber die Semantik « Highlight » wird nicht von allen Screenreadern angekündigt",
-    "limitation2": "Die wöchentliche Zusammenfassung verwendet ein separates Layout mit lang=\"en\" auf dem <html>-Element (Einschränkung von Next.js bei verschachtelten Layouts). Der mehrsprachige Inhalt ist korrekt über ein lang-Attribut auf dem inneren Container ausgezeichnet",
-    "limitation3": "Die exakten Kontrastverhältnisse im Dunkelmodus erfordern eine Überprüfung unter realen Bedingungen (oklch-Farben sind nicht statisch konvertierbar)",
+    "limitation3": "Ein automatisierter Test prüft die Kontrastverhältnisse der Palette im hellen, dunklen und kontrastreichen Modus, doch nicht jede Kombination aus Text und Hintergrund wurde Seite für Seite unter realen Bedingungen gemessen",
     "limitation4": "Die Qualität der Sprachsynthese hängt vom Browser und Betriebssystem des Nutzers ab",
-    "limitation5": "Die Barrierefreiheits-Schaltfläche (fest unten rechts) kann ein tastaturfokussiertes Element am Seitenende teilweise verdecken (WCAG 2.4.11 Focus Not Obscured). Der Inhalt bleibt durch Scrollen erreichbar",
+    "limitation5": "Die Barrierefreiheits-Schaltfläche (fest unten rechts) und die Schaltfläche des Assistenten (fest unten links) können ein tastaturfokussiertes Element am unteren Bildschirmrand teilweise verdecken (WCAG 2.4.11 Focus Not Obscured). Der Inhalt bleibt durch Scrollen erreichbar",
     "anysurferText": "Diese Website strebt die Konformität mit WCAG 2.2 Stufe AA an, dem Standard, auf dem das AnySurfer-Label basiert. Eine AnySurfer-Zertifizierung wurde noch nicht beantragt.",
     "feedbackTitle": "Rückmeldung",
     "linguisticTitle": "Sprachliche Barrierefreiheit",
-    "linguisticText": "Der Hauptinhalt der Website ist in vier Sprachen verfügbar: Französisch, Niederländisch, Englisch und Deutsch. Das lang-Attribut wird auf jeder Seite dynamisch gesetzt. Die wöchentliche Zusammenfassung (BGM Weekly Digest) ist in über 80 Sprachen verfügbar, da Brüssel 184 Nationalitäten zählt und Regierungsführung alle betrifft. Automatische Übersetzungen werden als solche gekennzeichnet.",
+    "linguisticText": "Der Hauptinhalt der Website ist in vier Sprachen verfügbar: Französisch, Niederländisch, Englisch und Deutsch. Das lang-Attribut wird auf jeder Seite dynamisch gesetzt. Die wöchentliche Zusammenfassung (BGM Weekly Digest) erscheint auf der Website in {count} Sprachen, da Brüssel 184 Nationalitäten zählt und Regierungsführung alle betrifft. Jede Archivseite der Zusammenfassung gibt ihre eigene Sprache an (lang-Attribut der Seite), bei Arabisch mit einer Leserichtung von rechts nach links. Automatische Übersetzungen werden als solche gekennzeichnet.",
     "plainLanguageTitle": "Einfache Sprache",
     "plainLanguageText": "BGM verwendet eine zugängliche Sprache und vermeidet institutionellen Fachjargon. Jede Bereichskarte enthält eine Zusammenfassung « Kurz zusammengefasst » in leicht lesbarer Sprache. Eine vollständige Anpassung in Leichte Sprache (FALC) wird für die Kerninhalte in Betracht gezogen.",
     "feedbackText": "Wenn Sie auf ein Hindernis der Barrierefreiheit auf dieser Website stoßen, verwenden Sie bitte das Feedback-Formular oder kontaktieren Sie uns unter contact@brusselsgovernance.be. Wir verpflichten uns, innerhalb von 15 Werktagen zu antworten.",
     "feedbackEmail": "contact@brusselsgovernance.be",
-    "statementDate": "Diese Erklärung wurde zuletzt am 24. März 2026 aktualisiert."
+    "statementDate": "Diese Erklärung wurde zuletzt am 28. September 2026 aktualisiert."
   },
   "transparency": {
     "title": "Transparenz",

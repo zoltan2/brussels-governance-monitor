@@ -352,7 +352,8 @@
     "successExistingTitle": "Topics updated",
     "successExistingMessage": "The new topics have been added to your existing subscription.",
     "errorMessage": "An error occurred. Please try again.",
-    "privacy": "Max. 1 email/week. Unsubscribe in 1 click."
+    "privacy": "Max. 1 email/week. Unsubscribe in 1 click.",
+    "privacyNotice": "Data processed by Advice That SRL to send the digest, with your consent. <link>Privacy policy</link>"
   },
   "subscribeConfirm": {
     "title": "Confirm your subscription",
@@ -552,7 +553,8 @@
       "description": "We only collect data strictly necessary for the email alert service:",
       "email": "Email address (for sending weekly digests)",
       "topics": "Chosen topics (to personalise alert content)",
-      "locale": "Preferred language (to send emails in the correct language)"
+      "locale": "Preferred language (to send emails in the correct language)",
+      "sources": "Sign-up channel (for example the website or the BGM assistant), to know where the subscription came from"
     },
     "basis": {
       "title": "Legal basis",
@@ -579,12 +581,12 @@
       "description": "For the sake of transparency, here is the complete list of third-party services used by this site:",
       "hosting": "Hetzner (hosting): hosts the website on a server located in Nuremberg, Germany. Processes server logs (IP addresses, HTTP headers). No personal data is stored beyond temporary technical logs.",
       "cloudflare": "Cloudflare (CDN and DDoS protection): filters and delivers traffic from its European points of presence. Processes visitor IP addresses for the duration of the request. US company, certified under the EU-US Data Privacy Framework.",
-      "umami": "Umami (analytics): privacy-friendly traffic measurement, self-hosted on our own server in Germany. No cookies, no cross-site tracking. Page addresses are recorded without their query string, so no token contained in an email link is ever stored.",
+      "umami": "Umami (analytics): privacy-friendly traffic measurement, self-hosted on our own server in Germany. No cookies, no cross-site tracking. Page addresses are recorded without their query string, except for campaign tags (utm_ parameters), so no token contained in an email link is ever stored. For an external referring site, only its domain and path are kept. Pages reserved for the team (administration, review, login) are not measured.",
       "resend": "Resend (email): sends confirmation emails, weekly digests and the daily Stuut. Processes subscriber email addresses. Based in the United States with GDPR compliance (DPA signed).",
       "stripe": "Stripe (payments): processes donations, book pre-orders and assistant unlocking. Card details are entered on pages hosted by Stripe: the site never sees or stores card data. US company.",
-      "anthropic": "Anthropic (AI assistant): processes the questions put to the BGM assistant in order to generate answers. US company. Questions are not linked to an identity; no personal data is required to use the assistant.",
-      "upstash": "Upstash (database): stores assistant telemetry, consultation votes and the book pre-order register, which contains first name and email address.",
-      "legalBasis": "Legal basis: legitimate interest (GDPR article 6.1.f) for Hetzner, Cloudflare, Umami, Upstash and Anthropic; consent (article 6.1.a) for Resend; performance of a contract (article 6.1.b) for Stripe.",
+      "anthropic": "Anthropic (AI assistant): processes the questions put to the BGM assistant in order to generate answers. US company. Questions are not linked to an identity, and the email address the assistant may ask for is not passed on to Anthropic.",
+      "database": "Database: assistant telemetry, consultation votes and the book pre-order register, which contains first name and email address, are stored in a SQLite database on our own server, at Hetzner in Germany.",
+      "legalBasis": "Legal basis: legitimate interest (GDPR article 6.1.f) for Hetzner, Cloudflare, Umami, the database and Anthropic; consent (article 6.1.a) for Resend; performance of a contract (article 6.1.b) for Stripe.",
       "statusPage": "Service status page: https://status.governance.brussels",
       "transfers": "Transfers outside the EU: hosting, analytics and database stay in Europe. Resend, Stripe, Anthropic (United States) and Cloudflare (US company) operate under standard contractual clauses (SCCs) or EU-US Data Privacy Framework (DPF) certification. DPAs are accepted along with each service's terms."
     },
@@ -606,7 +608,8 @@
     },
     "chatbot": {
       "title": "BGM Assistant",
-      "paragraph1": "Questions put to the BGM assistant are kept to improve the service, at most the last 10,000 and no longer than 90 days. They are tied to an anonymised session identifier (non-reversible hash, renewed daily) and never to an identity. No personal data is required to use the assistant. Questions are sent to Anthropic (United States) to produce the answer.",
+      "paragraph1": "Questions put to the BGM assistant are kept to improve the service, at most the last 10,000 and no longer than 90 days. They are tied to an anonymised session identifier (non-reversible hash, renewed daily) and never to an identity. Questions are sent to Anthropic (United States) to produce the answer.",
+      "emailGate": "After three free questions, the assistant offers ten more in exchange for an email address. The assistant's log does not record that address, but a fingerprint computed with a secret key (hash), together with the date, the language, whether you chose to subscribe to the digest, whether the address is already subscribed and whether a confirmation email was sent. This log is trimmed every day to its latest 10,000 entries. If you ask to subscribe to the digest, the address is passed to Resend to send you a confirmation email, and the subscription only becomes active once you click the link it contains. If the address is already subscribed, its subscriber record lists the assistant among its sign-up channels.",
       "paragraph2": "Extended access to the assistant is offered through a voluntary contribution, processed by Stripe. Since 21 September 2026 the payment is verified server-side with Stripe before access is granted."
     },
     "lastUpdated": "Last updated: {date}"
@@ -1609,20 +1612,13 @@
     "title": "Go further"
   },
   "home": {
-    "citizenIntro": "What did they promise? And are they keeping their word? Brussels has had a government since February 2026. This site tracks the implementation of their commitments — domain by domain, figure by figure, source by source.",
-    "citizenIntroFalc": "Brussels has a new government. Brussels Governance Monitor checks whether promises are kept.",
-    "howToReadLink": "How to read this site?",
-    "subscribeCta": "Get the week's essentials by email.",
     "mission": {
       "what": "BGM makes visible what the Brussels government does (or doesn't do).",
       "how": "Every data point is sourced, every metric is verifiable, every analysis is transparent.",
       "why": "Because a democracy needs informed citizens who verify commitments."
     },
-    "explainersTitle": "Understanding Brussels governance",
-    "explainersSubtitle": "Educational explanations to go further",
     "explainerParliament": "What can Parliament do without a government?",
     "explainerParadox": "The Brussels paradox: GDP vs income",
-    "explainerFormation": "How is a Brussels government formed?",
     "explainerLevels": "Levels of power in Brussels",
     "explainerOverview": "Brussels at a glance",
     "explainerCosmopolitan": "Cosmopolitan Brussels",
@@ -1637,16 +1633,7 @@
     "sectorCommerce": "Commerce",
     "sectorDigital": "Digital",
     "sectorEducation": "Education",
-    "viewAllExplainers": "All pages to understand",
-    "sectorsTitle": "Sectors impacted",
-    "sectorsSubtitle": "Key sectors of the Brussels economy, tracked and documented",
-    "viewAllSectors": "View all sector cards",
     "timelineTitle": "Timeline",
-    "timelineSubtitle": "Follow the steps of the Brussels government formation",
-    "viewTimeline2": "View the full timeline",
-    "dashboardTitle": "Commitment tracking",
-    "dashboardSubtitle": "16 quantified promises from the Regional Policy Declaration, verified source by source.",
-    "viewDashboard": "View the dashboard",
     "governmentTitle": "New Brussels government",
     "governmentSubtitle": "Dilliès Government — sworn in on 14 February 2026",
     "governmentRoles": {
@@ -1660,7 +1647,6 @@
     "identity": "BGM is an independent civic project.",
     "identityDetail": "Not affiliated with any party, government, or media outlet.",
     "identityLink": "Who is behind this project?",
-    "columnFollow": "Follow",
     "columnUnderstand": "Understand",
     "newHere": "New here?",
     "allExplainers": "Understand everything",
@@ -1669,8 +1655,6 @@
     "explainerUsers": "Levels of power",
     "explainerScale": "The Brussels paradox",
     "lastVeille": "Last check",
-    "veilleActive": "Active monitoring — {count} sources consulted",
-    "veilleSources": "{count} sources checked",
     "signalsTitle": "Signals under verification",
     "shieldFootnote": "BGM only publishes data confirmed by primary sources.",
     "veilleMethod": "Our method",
@@ -1683,9 +1667,6 @@
     "sectorsHomeTitle": "Key sectors",
     "sectorsHomeSubtitle": "Sectors of the Brussels economy",
     "viewAllSectorsCount": "View all {count} sectors",
-    "subscribeSection": "Stay informed",
-    "heroTitle": "Brussels Governance Monitor",
-    "heroDescription": "Independent Brussels governance monitor. 13 policy domains, 16 key dossiers, 19 municipalities and 290+ verified sources — factual tracking, no political affiliation.",
     "quizTitle": "Test your knowledge",
     "quizSubtitle": "10 questions on Brussels governance — a new quiz every session.",
     "quizCta": "Take the quiz",
@@ -1710,6 +1691,7 @@
     "protoMagazineFallback": "Brussels reread and verified.",
     "protoMagazineRead": "Read the magazine, issue {week}",
     "protoMagazineReadPlain": "Read the magazine",
+    "protoMagazineWeek": "Week {week}",
     "protoSignalTeaser": "The Monday LinkedIn newsletter: Brussels governance in two minutes.",
     "protoSignalCta": "Discover the newsletter",
     "protoGamesTab": "Play",
@@ -1737,7 +1719,8 @@
     "keyFigureSource": "Source: {source}",
     "latestUpdateLabel": "Latest update",
     "latestUpdateCorrection": "Correction",
-    "latestUpdateLinkLabel": "Read the update: {title}"
+    "latestUpdateLinkLabel": "Read the update: {title}",
+    "barometerAsOf": "Status as of {date}"
   },
   "sectors": {
     "title": "Impacted sectors",
@@ -2120,9 +2103,9 @@
     "whatItFunds": "What your support funds",
     "pillarHosting": "Hosting",
     "pillarVeille": "Daily monitoring",
-    "pillarLanguages": "13 languages",
+    "pillarLanguages": "11 languages",
     "pillarIndependence": "Independence",
-    "languagesNote": "4 full languages (FR, NL, EN, DE) + weekly digest in 12 languages, 79 eventually.",
+    "languagesNote": "4 full languages (FR, NL, EN, DE) + weekly digest in 11 languages, 79 eventually.",
     "donateButton": "Support governance.brussels",
     "onceTitle": "One-time donation",
     "onceSubtitle": "Any amount, once",
@@ -2208,8 +2191,8 @@
     "measure1": "Semantic structure: HTML5 elements (header, main, nav, article, section, fieldset, legend), consistent heading hierarchy, breadcrumbs with Schema.org markup",
     "measure2": "Keyboard navigation: skip-to-content link, keyboard navigation in dropdown menus (arrow keys, Escape, Home, End), focus trap in the search box and mobile menu",
     "measure3": "Accessible forms: associated labels (htmlFor), fieldset/legend for groups, error and success messages announced to screen readers (role=\"status\", role=\"alert\", aria-live), honeypot fields hidden (aria-hidden, tabIndex -1)",
-    "measure4": "Contrast: colour palette in oklch verified for a minimum contrast ratio of 4.5:1 on all text. « High contrast » mode available (7:1 ratio, WCAG AAA)",
-    "measure5": "Media and motion: respects the « prefers-reduced-motion » preference, no automatic animations",
+    "measure4": "Contrast: colour palette in oklch; an automated test recalculates the contrast ratios of the palette colours (at least 4.5:1 for text) in light, dark and high-contrast modes. « High contrast » mode available (7:1 ratio, WCAG AAA)",
+    "measure5": "Media and motion: respects the « prefers-reduced-motion » preference, no automatic animations apart from loading indicators, which this preference also disables",
     "measure6": "Language: dynamic lang attribute on each page (fr/nl/en/de). Built-in voice reader with language detection (fr-BE, nl-BE, en-GB, de-DE)",
     "measure7": "Print: dedicated stylesheet with visible URLs, removal of interactive elements, page margins, section pagination. « Print » button in the accessibility toolbar",
     "measure8": "Dark mode: full dark theme via CSS variable inversion. Automatic detection of system preference (prefers-color-scheme). Manual toggle saved in localStorage",
@@ -2229,19 +2212,18 @@
     "techText": "HTML5, CSS (Tailwind CSS v4, oklch variables), JavaScript (React 19/Next.js 16), ARIA 1.2, Schema.org (JSON-LD), Web Speech API.",
     "limitationsTitle": "Known limitations",
     "limitation1": "Search result excerpts are rendered in HTML via Pagefind with styled <mark> tags, but the « highlight » semantics are not announced by all screen readers",
-    "limitation2": "The weekly digest uses a separate layout with lang=\"en\" on the <html> element (Next.js limitation for nested layouts). Multilingual content is correctly marked up via a lang attribute on the inner container",
-    "limitation3": "Exact contrast ratios in dark mode require verification under real-world conditions (oklch colours cannot be statically converted)",
+    "limitation3": "An automated test checks the palette's contrast ratios in light, dark and high-contrast modes, but not every combination of text and background has been measured page by page under real-world conditions",
     "limitation4": "Text-to-speech quality depends on the user's browser and operating system",
-    "limitation5": "The accessibility button (fixed bottom-right) may partially obscure a keyboard-focused element near the bottom of the page (WCAG 2.4.11 Focus Not Obscured). Content remains accessible by scrolling",
+    "limitation5": "The accessibility button (fixed bottom-right) and the assistant button (fixed bottom-left) may partially obscure a keyboard-focused element near the bottom of the screen (WCAG 2.4.11 Focus Not Obscured). Content remains accessible by scrolling",
     "anysurferText": "This website aims for WCAG 2.2 Level AA conformance, the standard on which the AnySurfer label is based. AnySurfer certification has not yet been sought.",
     "feedbackTitle": "Feedback",
     "linguisticTitle": "Linguistic accessibility",
-    "linguisticText": "The main content of the site is available in four languages: French, Dutch, English and German. The lang attribute is set dynamically on each page. The weekly digest (BGM Weekly Digest) is available in over 80 languages, because Brussels has 184 nationalities and governance concerns everyone. Automatic translations are labelled as such.",
+    "linguisticText": "The main content of the site is available in four languages: French, Dutch, English and German. The lang attribute is set dynamically on each page. The weekly digest (BGM Weekly Digest) is published on the site in {count} languages, because Brussels has 184 nationalities and governance concerns everyone. Each digest archive page declares its own language (the page's lang attribute), with right-to-left reading direction for Arabic. Automatic translations are labelled as such.",
     "plainLanguageTitle": "Plain language",
     "plainLanguageText": "BGM uses accessible language and avoids institutional jargon. Each domain card includes an « In brief » summary in easy-read format. Full adaptation to Easy Read and Understand (FALC) is being considered for key content.",
     "feedbackText": "If you encounter an accessibility barrier on this site, please use the feedback form or contact us at contact@brusselsgovernance.be. We commit to responding within 15 working days.",
     "feedbackEmail": "contact@brusselsgovernance.be",
-    "statementDate": "This statement was last updated on 24 March 2026."
+    "statementDate": "This statement was last updated on 28 September 2026."
   },
   "transparency": {
     "title": "Transparency",

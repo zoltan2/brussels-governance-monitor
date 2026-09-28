@@ -5,6 +5,8 @@
 
 import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { Link, usePathname } from '@/i18n/navigation';
+import { track } from '@/lib/analytics';
 
 const TOPIC_OPTIONS = [
   'budget',
@@ -66,6 +68,12 @@ interface SubscribeFormProps {
 export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
   const t = useTranslations('subscribe');
   const locale = useLocale();
+  // Le formulaire vit sur l'accueil ET sur /subscribe, sous le même nom
+  // d'événement historique `accueil-inscription` (on ne le renomme pas : la
+  // série se couperait). La propriété `page` distingue les deux : `accueil`, ou
+  // le chemin interne sans langue (`/subscribe`).
+  const pathname = usePathname();
+  const page = pathname === '/' ? 'accueil' : pathname;
   const [email, setEmail] = useState('');
   const [website, setWebsite] = useState(''); // honeypot
   const [topics, setTopics] = useState<string[]>(['budget', 'mobility', 'engagements']);
@@ -108,6 +116,13 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
 
       if (res.ok) {
         const data = await res.json();
+        // `accueil-inscription` compte le CLIC sur le bouton ; celui-ci compte la
+        // réponse 2xx. Entre les deux : erreurs, abandons, champ vide. Jamais
+        // l'adresse ni les thèmes.
+        track('inscription-reussie', {
+          page,
+          statut: data.alreadySubscribed ? 'deja-abonne' : 'nouveau',
+        });
         setState(data.alreadySubscribed ? 'successExisting' : 'success');
         setEmail('');
       } else {
@@ -270,6 +285,7 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
       <button
         type="submit"
         data-umami-event="accueil-inscription"
+        data-umami-event-page={page}
         disabled={state === 'loading' || totalSelected === 0}
         className="w-full rounded-md bg-brand-900 px-4 py-2.5 text-sm font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
       >
@@ -281,6 +297,17 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
       )}
 
       <p className="mt-3 text-center text-xs text-neutral-500">{t('privacy')}</p>
+      {/* Information au point de collecte (RGPD art. 13) : responsable, finalité,
+          base légale et lien vers la politique complète, pas seulement en pied de page. */}
+      <p className="mt-1 text-center text-xs text-neutral-500">
+        {t.rich('privacyNotice', {
+          link: (chunks) => (
+            <Link href="/privacy" className="underline hover:text-neutral-700">
+              {chunks}
+            </Link>
+          ),
+        })}
+      </p>
     </form>
   );
 }

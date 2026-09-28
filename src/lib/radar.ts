@@ -259,21 +259,36 @@ export function getVeilleSourceCount(): number {
  * hors sources désactivées. À utiliser quand la phrase parle du registre entier
  * (« X sources, toutes listées »), et non du travail quotidien.
  */
+type RegistryEntry = { id?: string; tier?: string; enabled?: boolean };
+
+/**
+ * Une vraie source a un `id`. Le registre contient aussi des intertitres
+ * (`_comment`, sans `id`) qui portent parfois `tier: editorial` : les compter
+ * gonflait « sources suivies » de 14 (251 annoncées pour 237 réelles, relevé le
+ * 28/09/2026 par la revue de l'accueil).
+ */
+function isSource(s: RegistryEntry): boolean {
+  return typeof s.id === 'string' && s.id.length > 0;
+}
+
 export function getActiveSourceCount(): number {
-  const { sources } = sourceRegistry as { sources: { enabled?: boolean }[] };
-  return sources.filter((s) => s.enabled !== false).length;
+  const { sources } = sourceRegistry as { sources: RegistryEntry[] };
+  return sources.filter((s) => isSource(s) && s.enabled !== false).length;
 }
 
 export function getEditorialSourceCount(): number {
-  const { sources } = sourceRegistry as {
-    sources: { tier?: string; enabled?: boolean }[];
-  };
-  return sources.filter((s) => s.tier === 'editorial' && s.enabled !== false).length;
+  const { sources } = sourceRegistry as { sources: RegistryEntry[] };
+  return sources.filter((s) => isSource(s) && s.tier === 'editorial' && s.enabled !== false).length;
 }
 
+/**
+ * Signaux `active` seulement. Renvoyait aussi les `confirmed` : la page /radar,
+ * qui affiche aussi `getConfirmedSignals`, listait donc ces signaux deux fois, et
+ * l'accueil devait refiltrer derrière un nom trompeur (revue du 28/09/2026).
+ */
 export function getActiveSignals(locale: Locale, limit?: number): LocalizedRadarEntry[] {
   const active = parsed.entries
-    .filter((e) => e.status === 'active' || e.status === 'confirmed')
+    .filter((e) => e.status === 'active')
     .sort((a, b) => b.date.localeCompare(a.date))
     .map((e) => localize(e, locale));
   return limit ? active.slice(0, limit) : active;

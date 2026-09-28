@@ -26,10 +26,10 @@ export async function generateMetadata({
     de: 'Die Gemeinschaften in Brüssel',
   };
   const descriptions: Record<string, string> = {
-    fr: 'La FWB et la Communauté flamande : leur rôle dans la capitale.',
-    nl: 'De FWB en de Vlaamse Gemeenschap: hun rol in de hoofdstad.',
-    en: 'The FWB and the Flemish Community: their role in the capital.',
-    de: 'Die FWB und die Flämische Gemeinschaft: ihre Rolle in der Hauptstadt.',
+    fr: 'Que sont la Communauté flamande et la Fédération Wallonie-Bruxelles ? Leurs compétences à Bruxelles : écoles, culture, crèches, jeunesse.',
+    nl: 'Wat zijn de Vlaamse Gemeenschap en de Federatie Wallonië-Brussel? Hun bevoegdheden in Brussel: scholen, cultuur, crèches, jeugd.',
+    en: 'What are the Flemish Community and the Wallonia-Brussels Federation? Their powers in Brussels: schools, culture, nurseries, youth.',
+    de: 'Was sind die Flämische Gemeinschaft und die Föderation Wallonien-Brüssel? Ihre Zuständigkeiten in Brüssel: Schulen, Kultur, Kinderkrippen, Jugend.',
   };
   return buildMetadata({ locale, title: titles[locale] || titles.en, description: descriptions[locale] || descriptions.en, path: '/explainers/communities-in-brussels' });
 }

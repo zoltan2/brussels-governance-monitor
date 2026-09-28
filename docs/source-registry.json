@@ -1,11 +1,11 @@
 {
-  "description": "Registre des sources surveillées par BGM. 328 sources (32 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
-  "lastUpdated": "2026-09-18",
+  "description": "Registre des sources surveillées par BGM. 331 sources (34 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
+  "lastUpdated": "2026-09-28",
   "stats": {
-    "total": 328,
+    "total": 331,
     "byType": {
-      "institutional": 91,
-      "press": 106,
+      "institutional": 92,
+      "press": 108,
       "unknown": 14,
       "legal": 7,
       "agency": 4,
@@ -6391,6 +6391,72 @@
       "domaines": [
         "social"
       ],
+      "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-329",
+      "name": "BRUZZ Onderwijs",
+      "url": "https://www.bruzz.be/topic/onderwijs",
+      "fetchMode": "rss",
+      "rssUrl": "https://www.bruzz.be/topic/552/rss.xml",
+      "skipKeywordFilter": true,
+      "type": "press",
+      "lang": "nl",
+      "priority": "P1",
+      "frequency": "daily",
+      "enabled": true,
+      "tier": "editorial",
+      "category": "education",
+      "cardsAffected": [
+        "education"
+      ],
+      "domaines": [
+        "education"
+      ],
+      "notes": "BRUZZ, rubrique enseignement (Brussels, NL et FR). Flux lu dans la balise rel=alternate de la page le 28/09/2026 ; ajouté parce que la veille n'avait aucune presse enseignement (fiche education muette du 27/08 au 28/09).",
+      "document_trust_tier": "P1"
+    },
+    {
+      "id": "watch-330",
+      "name": "La Libre — Enseignement",
+      "url": "https://www.lalibre.be/belgique/enseignement/",
+      "fetchMode": "rss",
+      "rssUrl": "https://www.lalibre.be/arc/outboundfeeds/rss/section/belgique/enseignement?outputType=xml",
+      "type": "press",
+      "lang": "fr",
+      "priority": "P1",
+      "frequency": "daily",
+      "enabled": true,
+      "tier": "editorial",
+      "category": "education",
+      "cardsAffected": [
+        "education"
+      ],
+      "domaines": [
+        "education"
+      ],
+      "notes": "La Libre, section enseignement (FWB, grèves, réformes). Flux lu dans la balise rel=alternate de la page le 28/09/2026. Même groupe de presse (IPM) que L'Avenir et La DH : ne compte pas comme corroboration indépendante.",
+      "document_trust_tier": "P1"
+    },
+    {
+      "id": "watch-331",
+      "name": "enseignement.be — Actualités (FWB)",
+      "url": "https://www.enseignement.be/actualites",
+      "fetchMode": "html",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P1",
+      "frequency": "daily",
+      "enabled": true,
+      "tier": "editorial",
+      "category": "education",
+      "cardsAffected": [
+        "education"
+      ],
+      "domaines": [
+        "education"
+      ],
+      "notes": "Portail officiel de l'enseignement de la Fédération Wallonie-Bruxelles, page des actualités (pas de flux RSS publié, vérifié le 28/09/2026).",
       "document_trust_tier": "P0"
     }
   ]

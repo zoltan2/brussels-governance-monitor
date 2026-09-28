@@ -43,7 +43,8 @@ vi.mock('next/link', () => ({
 }));
 
 vi.mock('next-intl', () => ({
-  useTranslations: () => (key: string) => key,
+  // `t.rich` : la mention RGPD du formulaire (#628) insère un lien dans le texte.
+  useTranslations: () => Object.assign((key: string) => key, { rich: (key: string) => key }),
   useLocale: () => 'fr',
 }));
 

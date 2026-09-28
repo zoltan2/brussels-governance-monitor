@@ -5,7 +5,7 @@
 
 import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { usePathname } from '@/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import { track } from '@/lib/analytics';
 
 const TOPIC_OPTIONS = [
@@ -297,6 +297,17 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
       )}
 
       <p className="mt-3 text-center text-xs text-neutral-500">{t('privacy')}</p>
+      {/* Information au point de collecte (RGPD art. 13) : responsable, finalité,
+          base légale et lien vers la politique complète, pas seulement en pied de page. */}
+      <p className="mt-1 text-center text-xs text-neutral-500">
+        {t.rich('privacyNotice', {
+          link: (chunks) => (
+            <Link href="/privacy" className="underline hover:text-neutral-700">
+              {chunks}
+            </Link>
+          ),
+        })}
+      </p>
     </form>
   );
 }

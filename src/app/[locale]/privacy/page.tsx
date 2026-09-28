@@ -68,6 +68,7 @@ function PrivacyView() {
             <li>{t('dataCollected.email')}</li>
             <li>{t('dataCollected.topics')}</li>
             <li>{t('dataCollected.locale')}</li>
+            <li>{t('dataCollected.sources')}</li>
           </ul>
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('basis.title')}</h2>
@@ -97,15 +98,19 @@ function PrivacyView() {
             <li>{t('thirdParties.umami')}</li>
             <li>{t('thirdParties.resend')}</li>
             {/*
-              Stripe, Anthropic et Upstash traitent des donnees personnelles et
-              n'etaient pas declares : Stripe les paiements, Anthropic CHAQUE
-              question posee au chatbot, Upstash les prenoms et adresses du
-              registre de precommande (src/lib/preorder-log.ts). La liste se
-              presente comme « complete » : elle ne l'etait pas (audit 21/09).
+              Stripe, Anthropic et la base de donnees traitent des donnees
+              personnelles et n'etaient pas declares : Stripe les paiements,
+              Anthropic CHAQUE question posee au chatbot, la base les prenoms et
+              adresses du registre de precommande (src/lib/preorder-log.ts). La
+              liste se presente comme « complete » : elle ne l'etait pas (audit
+              21/09). La base est SQLite sur le serveur Hetzner des que DB_PATH
+              est pose (src/lib/db.ts, chat-logs.ts, preorder-log.ts,
+              refonte-votes.ts), ce qui est le cas en production depuis le
+              19/07/2026 ; Upstash n'est que le repli sans DB_PATH (28/09).
             */}
             <li>{t('thirdParties.stripe')}</li>
             <li>{t('thirdParties.anthropic')}</li>
-            <li>{t('thirdParties.upstash')}</li>
+            <li>{t('thirdParties.database')}</li>
           </ul>
           <p className="text-xs text-neutral-500">{t('thirdParties.legalBasis')}</p>
           <p className="text-xs text-neutral-500">{t('thirdParties.transfers')}</p>
@@ -125,10 +130,12 @@ function PrivacyView() {
 
           <h2 className="text-lg font-semibold text-neutral-900">{t('chatbot.title')}</h2>
           <p>{t('chatbot.paragraph1')}</p>
+          {/* Deblocage par email : src/app/api/chat/email-gate/route.ts. */}
+          <p>{t('chatbot.emailGate')}</p>
           <p>{t('chatbot.paragraph2')}</p>
 
           <p className="mt-8 text-xs text-neutral-500">
-            {t('lastUpdated', { date: '2026-09-19' })}
+            {t('lastUpdated', { date: '2026-09-28' })}
           </p>
         </div>
       </div>

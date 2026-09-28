@@ -1027,7 +1027,7 @@ function FormatsSection({
                 <p className={`${dmSerif.className} text-xl leading-none text-neutral-900`}>Magazine</p>
                 {weekNum && (
                   <p className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-neutral-600 lining-nums">
-                    Semaine {weekNum}
+                    {t('protoMagazineWeek', { week: weekNum })}
                   </p>
                 )}
               </div>

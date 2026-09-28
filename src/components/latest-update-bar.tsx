@@ -70,6 +70,10 @@ export function LatestUpdateBar({
         <Link
           href={linkHref}
           data-umami-event="accueil-fait-du-jour"
+          // La cible change chaque jour : sans elle, on ne sait pas quel fait a
+          // été cliqué (revue du 28/09/2026). Forme `section:slug`, comme
+          // `dossiers:lez`. Le nom de l'événement, lui, ne change pas.
+          data-umami-event-cible={`${section}:${targetSlug}`}
           className="group block transition-colors hover:bg-neutral-200 focus-visible:outline-offset-[-2px] motion-reduce:transition-none"
         >
           {content}

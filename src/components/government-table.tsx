@@ -4,6 +4,7 @@
 import { useTranslations } from 'next-intl';
 import governmentData from '@/../data/government.json';
 import type { Locale } from '@/i18n/routing';
+import { TrackedDetails } from '@/components/tracked-details';
 
 type Role = 'minister-president' | 'minister' | 'state-secretary' | 'parliament-vp';
 
@@ -26,7 +27,13 @@ export function GovernmentTable({ locale, inline = false }: GovernmentTableProps
   const Heading = inline ? 'h3' : 'h2';
 
   const table = (
-    <details className="group rounded-lg border border-neutral-200 bg-neutral-50" {...(inline ? {} : { open: true })}>
+    // Inline (accueil), le tableau est replié : on mesure qui l'ouvre, avec
+    // `etat` en propriété. En pleine page, il est ouvert d'office et ne mesure
+    // rien (un `<details open>` émettrait `toggle` à chaque vue).
+    <TrackedDetails
+      className="group rounded-lg border border-neutral-200 bg-neutral-50"
+      {...(inline ? { event: 'accueil-gouvernement' } : { open: true })}
+    >
       <summary className="flex cursor-pointer list-none items-center justify-between p-5 [&::-webkit-details-marker]:hidden">
         <div>
           <Heading className={`font-semibold text-neutral-900 ${inline ? 'text-xs' : 'text-sm'}`}>
@@ -88,7 +95,7 @@ export function GovernmentTable({ locale, inline = false }: GovernmentTableProps
           {t('governmentSource')}
         </p>
       </div>
-    </details>
+    </TrackedDetails>
   );
 
   if (inline) return table;

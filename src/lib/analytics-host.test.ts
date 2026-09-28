@@ -17,6 +17,9 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { globSync } from 'node:fs';
 import { join } from 'node:path';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { UmamiScript } from '@/components/umami-script';
 
 const SRC = join(process.cwd(), 'src');
 
@@ -67,6 +70,25 @@ describe('hôte des analytics', () => {
     expect(filtre).toBeGreaterThan(-1);
     expect(traceur).toBeGreaterThan(filtre);
     expect(s).toContain('data-before-send={UMAMI_BEFORE_SEND}');
+  });
+
+  /**
+   * Né du 28/09/2026 : zéro Web Vital en base sur 60 jours, faute de cet
+   * attribut. Le test REND le composant, pour juger la balise servie et non
+   * une chaîne qui traînerait dans un commentaire.
+   */
+  it('rend le traceur avec data-performance="true", sans quoi aucun Web Vital ne part', () => {
+    const avant = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+    process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID = 'test-website-id';
+    try {
+      const html = renderToStaticMarkup(createElement(UmamiScript));
+      const balise = html.match(/<script[^>]*src="\/u\/script\.js"[^>]*>/)?.[0] ?? '';
+      expect(balise).toContain('data-website-id="test-website-id"');
+      expect(balise).toContain('data-performance="true"');
+    } finally {
+      if (avant === undefined) delete process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+      else process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID = avant;
+    }
   });
 
   it("n'utilise plus data-exclude-search, qui effaçait aussi les UTM", () => {

@@ -42,3 +42,42 @@ export function track(event: string, data?: Record<string, string | number>): vo
   if (typeof window === 'undefined') return;
   window.umami?.track(event, data);
 }
+
+/**
+ * Clé que le traceur Umami lit avant CHAQUE envoi. Vérifié dans le traceur servi
+ * en production le 28/09/2026 (4 595 octets, SHA-256 be444c28…) : `W=()=>…||g?.getItem("umami.disabled")||…`, où `g` est
+ * `window.localStorage`, puis `C=async(e,a)=>{if(W())return; …}`. Toute valeur
+ * non vide coupe l'envoi : pages vues, événements et Web Vitals.
+ */
+export const UMAMI_DISABLED_KEY = 'umami.disabled';
+
+/**
+ * Exclut CET appareil des statistiques, pour de bon.
+ *
+ * Pourquoi : la revue du 28/09/2026 a montré que 14 des 23 clics « fait du
+ * jour » venaient d'appareils ayant ouvert /admin. Le filtre `before-send`
+ * n'écarte que les URL d'administration ; l'accueil vu par le propriétaire
+ * restait compté et faussait le classement des blocs.
+ *
+ * Appelée par `UmamiOwnerOptOut`, monté dans les layouts /admin et /review,
+ * donc seulement après authentification. Le marquage n'est JAMAIS retiré
+ * automatiquement (ni à la déconnexion, ni après un délai) : un appareil qui a
+ * servi à administrer le site reste exclu. Pour le réintégrer, à la main dans
+ * la console du navigateur : `localStorage.removeItem('umami.disabled')`.
+ *
+ * Ne lève jamais : en navigation privée, stockage plein ou bloqué, l'accès à
+ * `localStorage` peut lever ; on renonce alors en silence, comme `track()`.
+ */
+export function excludeThisDeviceFromAnalytics(): void {
+  try {
+    window.localStorage.setItem(UMAMI_DISABLED_KEY, '1');
+  } catch {
+    // Stockage indisponible : l'appareil restera compté, rien de plus grave.
+  }
+}
+
+/**
+ * Zones de la navigation commune : propriété `zone` de l'événement unique
+ * `navigation-clic`, dont la page de destination part dans `cible`.
+ */
+export type NavigationZone = 'entete' | 'entete-menu' | 'entete-mobile' | 'pied-de-page';

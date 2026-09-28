@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { DM_Serif_Display } from 'next/font/google';
 import { setRequestLocale } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { LatestUpdateBar } from '@/components/latest-update-bar';
 import { GovernmentTable } from '@/components/government-table';
@@ -22,6 +22,7 @@ import {
   getLocalizedSlug,
 } from '@/lib/content';
 import { getActiveSignals } from '@/lib/radar';
+import { getHomepageBlurb, selectHomepageSignals } from '@/lib/homepage-signals';
 import { getSiteStats } from '@/lib/site-stats';
 import { getLatestUpdate } from '@/lib/changelog';
 import { cn, formatDate } from '@/lib/utils';
@@ -79,16 +80,13 @@ const descriptions: Record<string, string> = {
 // Crawlers read repeated 5xx as a server in trouble and slow down.
 export const dynamicParams = false;
 
-// La page d'accueil n'avait AUCUNE revalidation : son HTML etait fige jusqu'au
-// deploiement suivant, et servi avec `s-maxage=31536000` (un an). Deux
-// consequences, constatees le 21/09/2026 :
-//   - le compteur de jours de gouvernement ne pouvait pas etre rendu par le
-//     serveur sans deriver, d'ou le « … » affiche jusqu'a l'hydratation ;
-//   - tout ce que la page presente de « dernier » (signal, evenement) restait
-//     fige entre deux deploiements.
-// Une heure borne la derive sans peser : les pages de detail utilisent deja
-// `revalidate = 86400`, et Cloudflare ne met de toute facon pas encore le HTML
-// en cache (`cf-cache-status: DYNAMIC`).
+// La page d'accueil n'avait AUCUNE revalidation : son HTML était figé jusqu'au
+// déploiement suivant, servi avec `s-maxage=31536000` (un an), et le compteur de
+// jours de gouvernement ne pouvait pas être rendu par le serveur sans dériver
+// (constaté le 21/09/2026). Une heure borne cette dérive.
+// Ce que `revalidate` NE change PAS : radar, changelog et fiches sont importés dans
+// le bundle, ils ne bougent qu'au déploiement suivant (chaque veille en passe par
+// un). Cloudflare ne met pas le HTML en cache (`cf-cache-status: DYNAMIC`).
 export const revalidate = 3600;
 
 export async function generateMetadata({
@@ -108,26 +106,6 @@ export async function generateMetadata({
   });
 }
 
-// Max width of the homepage radar blurb (~150 chars/locale is the editorial target).
-// No cross-reference here: the veille workflow note is a private file, unreachable to
-// a reader of this source-available repository.
-const HOMEPAGE_SIGNAL_MAX_CHARS = 180;
-
-function couperAuPlafond(texte: string): string {
-  if (texte.length <= HOMEPAGE_SIGNAL_MAX_CHARS) return texte;
-  return texte.slice(0, HOMEPAGE_SIGNAL_MAX_CHARS).trimEnd() + '…';
-}
-
-function getHomepageBlurb(summary: string | undefined, description: string): string {
-  // Le plafond s'applique AUX DEUX branches. Il ne gardait auparavant que le repli
-  // sur la description, et `summary` sortait verbatim : mesuré sur data/radar.json,
-  // 56 des 365 signaux actifs ont un résumé français de plus de 180 caractères,
-  // jusqu'à 381. Le bloc de surveillance affirmait le contraire, et c'est sur cette
-  // affirmation que la coupe CSS avait été retirée.
-  if (summary) return couperAuPlafond(summary);
-  const firstSentenceMatch = description.match(/^[^.!?]+[.!?]/);
-  return couperAuPlafond(firstSentenceMatch ? firstSentenceMatch[0] : description);
-}
 
 
 type LinkHref = ComponentProps<typeof Link>['href'];
@@ -178,14 +156,9 @@ export default async function HomePage({
   ].filter((e): e is { section: string; slug: string } => Boolean(e.slug));
   const shownSlugs = new Set(shown.map((e) => e.slug));
   const shownKeys = new Set(shown.map((e) => `${e.section}:${e.slug}`));
-  const allSignals = getActiveSignals(loc);
-  // La liste doit tenir la promesse du compteur : uniquement des signaux encore actifs.
-  // getActiveSignals renvoie aussi les confirmés, qui ne sont plus sous surveillance.
-  const radarSignals = allSignals
-    .filter((signal) => signal.status === 'active')
-    .filter((signal) => !signal.cards.some((card) => shownSlugs.has(card)))
-    // Trois, comme la page d'accueil en production.
-    .slice(0, 3);
+  // Signaux actifs les plus récents, hors fiche déjà citée par la barre : logique et
+  // invariants dans src/lib/homepage-signals.ts (testés, incident du 28/09/2026).
+  const radarSignals = selectHomepageSignals(getActiveSignals(loc), shownSlugs);
   const homeDossiers = byLastModified(dossierCards)
     .filter((card) => !shownKeys.has(`dossiers:${card.slug}`))
     .slice(0, 4);
@@ -196,8 +169,8 @@ export default async function HomePage({
     .filter((card) => !shownKeys.has(`sectors:${card.slug}`))
     .slice(0, 6);
 
-  // Formats: same data sources as PublicationsBand, which this prototype replaces on
-  // the homepage. The component itself still exists and is still rendered on main.
+  // Formats : mêmes sources de données que l'ancien bandeau PublicationsBand, qui
+  // n'est plus rendu nulle part (seul `nativeName` en est encore importé).
   // Deux chiffres, deux réalités : `langs` donne les langues des PAGES du digest
   // (onze au 17/09/2026), CORE_DIGEST_LOCALES celles de l'ENVOI par email (quatre,
   // la seule liste qu'accepte l'inscription). La carte doit dire les deux sans les
@@ -210,7 +183,7 @@ export default async function HomePage({
   // la page d'accueil. Une langue n'est cliquable que si elle a un digest RÉEL pour la
   // semaine visée : getDigestEntry retombe sur le français, donc on garde sur
   // `isFallback === false`, sinon on enverrait le lecteur sur une page française sous
-  // une URL étrangère. Même calcul que PublicationsBand, que ce prototype remplace.
+  // une URL étrangère. Même calcul que l'ancien bandeau PublicationsBand.
   const linkableLangs = latestCompleteWeek
     ? langs.filter((l) => getDigestEntry(latestCompleteWeek, l)?.isFallback === false)
     : [];
@@ -240,7 +213,7 @@ export default async function HomePage({
       />
 
       <section className="py-8">
-        {/* La paire de la page d'accueil en production : surveiller à gauche,
+        {/* La paire de l'accueil : surveiller à gauche,
             comprendre à droite. Le 3fr va à la surveillance, qui porte des phrases de
             150 caractères ; en 2fr son texte tombait à 224 px et se brisait en cinq
             lignes de trois mots. */}
@@ -280,8 +253,8 @@ export default async function HomePage({
         totalCount={sectorCards.length}
       />
 
-      {/* Repris de la production sans modification, dans le même ordre : le quiz,
-          puis les chiffres et l'appel au soutien, juste avant « Restez informé ». */}
+      {/* Dans cet ordre : le quiz, puis les chiffres et l'appel au soutien, juste
+          avant « Restez informé ». */}
       <QuizPromo />
 
       <SupportCtaHome stats={siteStats} />
@@ -298,12 +271,10 @@ export default async function HomePage({
 }
 
 // ──────────────────────────────────────────────
-// Quiz (repris tel quel de la production)
+// Quiz
 // ──────────────────────────────────────────────
 
-/** Copie conforme du bloc de production. Ne pas le « moderniser » au passage :
- *  le prototype le reprend à l'identique, clés `home.quiz*` comprises, qui sont
- *  traduites dans les quatre langues. */
+/** Bloc quiz de l'accueil, clés `home.quiz*` traduites dans les quatre langues. */
 function QuizPromo() {
   const t = useTranslations('home');
 
@@ -449,6 +420,11 @@ function Hero({ cta, locale }: { cta: HomepageCta; locale: string }) {
             oathLabel={formatDate(governmentData.oathDate, locale)}
           />
           <CommitmentsBarometer commitments={commitmentsData.commitments} />
+          {/* Daté : sans date, des statuts figés se présentaient comme actuels si la
+              veille s'arrêtait (revue de l'accueil, 28/09/2026). */}
+          <p className="mt-3 text-xs text-white/80">
+            {t('barometerAsOf', { date: formatDate(commitmentsData.lastModified, locale) })}
+          </p>
         </div>
       </div>
     </section>
@@ -473,7 +449,7 @@ function WhatWeWatch({
   const t = useTranslations('home');
   const tr = useTranslations('radar');
 
-  // Bloc restitué à l'identique de la page d'accueil en production (FollowColumn) :
+  // Bloc de veille :
   // encadré, en-tête de veille avec « Notre méthode », séparateur, titre des signaux,
   // puis date et phrase entière, « Voir tout le radar » et le garde-fou éditorial.
   //
@@ -484,16 +460,16 @@ function WhatWeWatch({
   // l'exécution et bougent à chaque ajout : ne pas les recopier en dur.
   //
   // Les résumés sont des PHRASES, pas des titres : leur sens est à la fin, une coupe
-  // à une ligne les décapitait. Mesuré sur data/radar.json : 365 signaux actifs, dont
-  // 250 avec un résumé français et 115 sans. getHomepageBlurb les borne désormais
-  // vraiment à 180 caractères, des deux côtés, ce qui tient en quatre lignes ici :
+  // à une ligne les décapitait. Une partie des signaux n'a pas de résumé et passe par
+  // le repli sur la description. getHomepageBlurb les borne à 180 caractères, des
+  // deux côtés, ce qui tient en quatre lignes ici :
   // aucune coupe CSS à ajouter.
   return (
     // La gouttière vient désormais du lg:gap-x-8 de la grille parente, plus d'une
     // marge intérieure : sans elle, les colonnes se touchaient et ce titre percutait
     // « Tout l'historique ».
     <div aria-labelledby="watch-title" className="min-w-0">
-      {/* Titre de colonne avec son icône, comme en production. Le libellé reste
+      {/* Titre de colonne avec son icône. Le libellé reste
           « Ce qu'on surveille » et non « Suivre » : titre choisi en cours de projet. */}
       <div className="mb-4 flex items-center gap-2">
         <Radio size={18} className="text-neutral-500" aria-hidden={true} />
@@ -575,7 +551,7 @@ function WhatWeWatch({
 // ailleurs devenue fausse (1, 9, 4, 5, 6, 7 dans cet ordre, 2, 3 et 8 supprimées) :
 // elle n'est plus un guide de lecture, ces bandeaux nomment donc la section.
 
-// Colonne « Comprendre », reprise de la page d'accueil en production : les quatre
+// Colonne « Comprendre » : les quatre
 // explicateurs dans un encadré, puis la table du gouvernement. Elle était jusqu'ici
 // une section pleine largeur reléguée en bas de page, sous le nom « Nouveau ici ? » ;
 // elle remonte face à la surveillance, comme dans le live.
@@ -786,8 +762,14 @@ function DomainsPreview({
                 {/* Le chapeau du domaine, comme sur la fiche et comme en production.
                     Le rendu compact l'avait laissé tomber au profit du seul chiffre :
                     la section perdait 2 839 caractères indexables face au live, soit
-                    la totalité de l'écart de texte entre le prototype et la prod. */}
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{card.summary}</p>
+                    la totalité de l'écart de texte entre le prototype et la prod.
+                    Sur mobile, il est coupé à l'œil après trois lignes : les quatre
+                    chapeaux (430 à 490 caractères) faisaient 2 092 px de section à
+                    390 px. Le texte entier reste dans le DOM (indexable, lu par les
+                    lecteurs d'écran) et la carte mène à la fiche. Desktop inchangé. */}
+                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-neutral-600 md:line-clamp-none">
+                  {card.summary}
+                </p>
                 {m && <KeyFigure value={m.value} unit={m.unit} label={m.label} source={m.source} />}
                 <CardFooter>{tdo('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
               </Link>
@@ -869,6 +851,7 @@ function FormatCard({
   children,
   meta,
   visualInteractive,
+  visualClassName = 'h-16',
   link,
   className,
 }: {
@@ -885,6 +868,8 @@ function FormatCard({
    * non-conformité (un focus qui se pose sur un élément que rien n'annonce).
    */
   visualInteractive?: boolean;
+  /** Hauteur de la vignette ; `h-16` par défaut. */
+  visualClassName?: string;
   link: ReactNode;
   /** Pour qu'une carte occupe deux colonnes tant que la grille n'en a que deux. */
   className?: string;
@@ -897,7 +882,7 @@ function FormatCard({
       )}
     >
       <div
-        className="h-16 overflow-hidden border-b border-neutral-200"
+        className={cn('overflow-hidden border-b border-neutral-200', visualClassName)}
         aria-hidden={visualInteractive ? undefined : true}
       >
         {visual}
@@ -909,6 +894,21 @@ function FormatCard({
         <div className="mt-auto pt-2">{link}</div>
       </div>
     </div>
+  );
+}
+
+// Même hauteur pour le digest et le magazine, côte à côte sous `lg`.
+const FORMAT_VISUAL_TALL = 'h-24 lg:h-16';
+
+/** « (FR) » à l'écran, « (français) » prononcé en français par les lecteurs d'écran. */
+function FrenchOnlyMark() {
+  return (
+    <>
+      <span aria-hidden="true">(FR)</span>
+      <span className="sr-only" lang="fr">
+        {` (${nativeName('fr').toLowerCase()})`}
+      </span>
+    </>
   );
 }
 
@@ -930,6 +930,7 @@ function FormatsSection({
   weekNum: string | null;
 }) {
   const t = useTranslations('home');
+  const locale = useLocale();
 
   return (
     <section aria-labelledby="formats-title" className="py-8">
@@ -944,8 +945,11 @@ function FormatsSection({
           <FormatCard
             title={t('protoDigestName')}
             visualInteractive
+            // Pastilles de 24 px (WCAG 2.5.8) : onze langues tiennent sur trois rangées
+            // à 390 px, d'où une vignette de 96 px tant que la grille a deux colonnes.
+            visualClassName={FORMAT_VISUAL_TALL}
             visual={
-              <div className="flex h-full flex-wrap content-center gap-1 overflow-y-auto bg-neutral-100 px-3 py-2">
+              <div className="flex h-full flex-wrap content-center gap-1 overflow-y-auto bg-neutral-100 px-2 py-1.5">
                 {/* Chaque langue réellement traduite est un VRAI lien (règle du
                     29/06/2026, livrée par #319 sur le bandeau que cette carte remplace).
                     Celles qui n'ont pas de digest pour cette semaine restent inertes,
@@ -953,8 +957,11 @@ function FormatsSection({
                     Le code à deux lettres tient dans la carte ; le nom natif est porté
                     par `lang` et par le nom accessible, pour la prononciation. */}
                 {(digest?.langs ?? CORE_DIGEST_LOCALES).map((lang) => {
+                  // Cible de 24 × 24 px au moins (WCAG 2.5.8) : les pastilles faisaient
+                  // 18 px de haut, sur un pas vertical de 22 px, trop serré pour
+                  // l'exception d'espacement.
                   const pastille =
-                    'rounded-full border px-1.5 text-[11px] font-semibold uppercase leading-4';
+                    'inline-flex min-h-6 min-w-6 items-center justify-center rounded-full border px-1.5 text-[11px] font-semibold uppercase leading-4';
                   if (!digest?.linkableLangs.includes(lang)) {
                     return (
                       <span
@@ -1014,6 +1021,7 @@ function FormatsSection({
 
           <FormatCard
             title={t('protoMagazineName')}
+            visualClassName={FORMAT_VISUAL_TALL}
             visual={
               <div className="flex h-full flex-col justify-center bg-neutral-100 px-3 py-2">
                 <p className={`${dmSerif.className} text-xl leading-none text-neutral-900`}>Magazine</p>
@@ -1036,9 +1044,12 @@ function FormatsSection({
                     : 'https://magazine.governance.brussels/'
                 }
                 data-umami-event="accueil-magazine"
+                // Le magazine n'existe qu'en français : on le dit avant le clic, hors fr.
+                hrefLang="fr"
                 className={stretchedLink}
               >
                 {weekNum ? t('protoMagazineRead', { week: weekNum }) : t('protoMagazineReadPlain')}
+                {locale !== 'fr' && <FrenchOnlyMark />}
                 <ArrowRight size={14} aria-hidden={true} />
               </a>
             }

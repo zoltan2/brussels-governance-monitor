@@ -558,6 +558,30 @@ textarea:focus-visible,
   border-radius: 2px;
 }
 
+/* Sections à fond slate figé (héros d'accueil, CrisisCounter, LegislatureCountdown) :
+   le contour brand-700 ci-dessus y tombait à 1,19:1 en mode clair (mesuré le
+   28/09/2026 sur « Qui se cache derrière ce projet ? », premier arrêt de
+   tabulation de l'accueil), sous les 3:1 de WCAG 1.4.11. Le fond est figé
+   (slate, ou neutral-200 sombre en `.dark`), jamais clair : un blanc figé tient
+   donc dans tous les modes, comme le `text-white` de ces sections. Spécificité
+   (0,3,1) : l'emporte sur `.dark a:focus-visible` (0,2,1).
+   Garde : `src/app/globals.contrast.test.ts`, « focus sur fond slate ». */
+section[class*="from-slate"] :is(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline-color: oklch(1 0 0);
+}
+
+/* Boutons flottants (assistant en bas à gauche, accessibilité en bas à droite,
+   56 px + 16 px de marge) : sur mobile, ils recouvrent le bas de l'écran. Un lien
+   qui reçoit le focus clavier sous l'un d'eux restait caché (WCAG 2.4.11) :
+   `scroll-padding-bottom` fait défiler l'élément focalisé au-dessus de cette
+   bande (5,5 rem = 88 px > 72 px). La fin de page, elle, remonte au-dessus des
+   boutons grâce à la marge basse du pied de page (`layout/footer.tsx`). */
+@media (max-width: 767px) {
+  html {
+    scroll-padding-bottom: 5.5rem;
+  }
+}
+
 /* Link underlines — WCAG 1.4.1: links distinguishable without color alone */
 footer nav a {
   text-decoration: underline;

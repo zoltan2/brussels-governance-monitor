@@ -470,3 +470,47 @@ describe('garde-fous .dark écran-seulement (impression depuis le mode sombre, P
     expect(chainApres.includes('@media screen'), 'après mutation : le garde doit avoir disparu').toBe(false);
   });
 });
+
+// Anneau de focus dans les sections à fond slate figé (héros d'accueil,
+// CrisisCounter, LegislatureCountdown). Le contour global brand-700 y tombait à
+// 1,19:1 mesuré (revue de l'accueil du 28/09/2026), sur le premier arrêt de
+// tabulation de la page. Les fonds slate viennent du thème Tailwind : on les lit
+// dans `tailwindcss/theme.css` plutôt que de les recopier.
+describe('focus sur fond slate figé — SC 1.4.11 : anneau ≥ 3:1', () => {
+  const theme = readFileSync(resolve(__dirname, '../../node_modules/tailwindcss/theme.css'), 'utf8');
+  /** `oklch(27.9% 0.041 260.031)` → `oklch(0.279 0.041 260.031)`. */
+  const slate = (n: number): string => {
+    const m = theme.match(new RegExp(`--color-slate-${n}:\\s*oklch\\(([\\d.]+)%\\s+([\\d.]+)\\s+([\\d.]+)\\)`));
+    if (!m) throw new Error(`slate-${n} introuvable dans tailwindcss/theme.css`);
+    return `oklch(${Number(m[1]) / 100} ${m[2]} ${m[3]})`;
+  };
+  const SELECTEUR = 'section[class*="from-slate"] :is(a, button, input, select, textarea, [tabindex]):focus-visible {';
+  const anneau = (): string => {
+    const m = blockBody(SELECTEUR).match(/outline-color:\s*(oklch\([^)]*\))/);
+    if (!m) throw new Error('outline-color oklch introuvable dans la règle de focus slate');
+    return m[1];
+  };
+
+  it('la règle est inconditionnelle (ni @media print, ni @media screen seul)', () => {
+    expect(enclosingAtRules(css, SELECTEUR)).toEqual([]);
+  });
+
+  // Les fonds possibles sous l'anneau : les deux bouts du dégradé (clair, sombre
+  // système et contraste élevé : la section ne change pas) et le fond de secours
+  // `.dark section[class*="from-slate"]` (neutral-200 sombre).
+  const FONDS: [string, () => string][] = [
+    ['slate-800 (haut du dégradé)', () => slate(800)],
+    ['slate-700 (bas du dégradé)', () => slate(700)],
+    ['neutral-200 sombre (fond de secours .dark)', () => jeton('sombre', 'neutral-200')],
+    ['neutral-200 sombre + contraste élevé', () => HC_DARK['neutral-200']],
+  ];
+
+  it.each(FONDS)('anneau ≥ 3:1 sur %s', (_label, fond) => {
+    expect(contrast(anneau(), fond())).toBeGreaterThanOrEqual(3);
+  });
+
+  it('témoin : le contour global brand-700 échoue sur ce fond en clair (le défaut corrigé)', () => {
+    expect(contrast(jeton('clair', 'brand-700'), slate(800))).toBeLessThan(3);
+    expect(contrast(jeton('clair', 'brand-700'), slate(700))).toBeLessThan(3);
+  });
+});

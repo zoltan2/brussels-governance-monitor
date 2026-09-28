@@ -4,6 +4,7 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@/auth';
 import { AdminNav } from '@/components/admin/admin-nav';
+import { UmamiOwnerOptOut } from '@/components/umami-owner-opt-out';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -40,6 +41,8 @@ export default async function AdminLayout({
 
   return (
     <div className="py-8">
+      {/* Exclut cet appareil d'Umami, sur tout le site et pour de bon. */}
+      <UmamiOwnerOptOut />
       <AdminNav locale={locale} />
       {children}
     </div>

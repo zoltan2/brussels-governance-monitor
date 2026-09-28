@@ -26,20 +26,55 @@ function sourceFiles(): string[] {
     .map((f) => join(SRC, f));
 }
 
+/**
+ * Le code sans ses commentaires : un nom d'événement cité dans une explication
+ * ne doit pas suffire à rendre le test vert. Commentaires de bloc (dont les
+ * `{/* … *\/}` du JSX) et commentaires de ligne, y compris en fin de ligne ou
+ * entre deux attributs JSX. Le `//` d'une URL (`https://`) n'est pas précédé
+ * d'une espace : il est épargné.
+ */
+function codeSansCommentaires(s: string): string {
+  return s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|\s)\/\/.*$/gm, '$1');
+}
+
 function allSource(): string {
   return sourceFiles()
-    .map((f) => readFileSync(f, 'utf8'))
+    .map((f) => codeSansCommentaires(readFileSync(f, 'utf8')))
     .join('\n');
+}
+
+/**
+ * Chaînes littérales COMPLÈTES du code : `'x'`, `"x"` ou `` `x` `` sans
+ * interpolation. Correspondance EXACTE, jamais par sous-chaîne.
+ *
+ * Né du 28/09/2026. L'ancienne version cherchait `source.includes(nom)` :
+ * `accueil-digest` était « trouvé » dans `accueil-digest-langue` et
+ * `accueil-digest-abonnement`, si bien que retirer le seul attribut
+ * `data-umami-event="accueil-digest"` de l'accueil laissait le test vert. Un nom
+ * cité dans un commentaire suffisait aussi.
+ *
+ * Littéral plutôt qu'attribut exact : certains noms passent par une constante
+ * (`INTERNAL_LINK_EVENT = 'dossier-lien-interne'`) ou une propriété
+ * (`event="presse-copie-courte"`, `{ event: 'accueil-gouvernement' }`).
+ */
+function litteraux(source: string): Set<string> {
+  return new Set([...source.matchAll(/(['"`])([a-z][a-z0-9:_-]*)\1/g)].map((m) => m[2]));
+}
+
+/** Noms émis EN DIRECT : attribut `data-umami-event="…"` ou `track('…'`. */
+function nomsEmis(source: string): Set<string> {
+  const attributs = [...source.matchAll(/data-umami-event=["']([^"']+)["']/g)].map((m) => m[1]);
+  const appels = [...source.matchAll(/\b(?:track|trackEvent)\(\s*['"]([^'"]+)['"]/g)].map((m) => m[1]);
+  return new Set([...attributs, ...appels]);
 }
 
 /** Les liens, mesurés par attribut : le tracker s'en charge, sans JavaScript à nous.
  *
- *  ⚠️ Ce garde est UNIDIRECTIONNEL : il échoue si un nom listé ici disparaît des
- *  sources, mais reste vert si un événement existe dans le code sans figurer dans
- *  la liste. Un événement non inscrit n'est donc protégé par rien. C'est ainsi que
- *  `accueil-digest-abonnement` est resté sans garde jusqu'au 18/09/2026.
- *  Tout nouvel événement de lien doit être ajouté ici, sans quoi le test ne fait
- *  que confirmer ce qu'on lui a déjà dit. */
+ *  Le garde est BIDIRECTIONNEL depuis le 28/09/2026 : il échoue si un nom listé
+ *  disparaît du code, ET si un nom émis en direct (`data-umami-event="…"`,
+ *  `track('…'`) n'est inscrit dans aucune liste. Avant, un événement non inscrit
+ *  n'était protégé par rien : c'est ainsi que `accueil-digest-abonnement` est
+ *  resté sans garde jusqu'au 18/09/2026. */
 const EVENEMENTS_LIENS = [
   'accueil-a-propos',
   'accueil-cta-dossiers',
@@ -70,6 +105,11 @@ const EVENEMENTS_LIENS = [
   'presse-contact',
   'presse-mention',
   'presse-fait',
+  // Soutien : bandeau (pied de page, haut des fiches), bouton de l'accueil et
+  // en-tête, avec `position` en propriété.
+  'soutien-clic',
+  // En-tête, menu et pied de page, avec `zone` et `cible` (28/09/2026).
+  'navigation-clic',
 ];
 
 /** Les actions sans navigation, mesurées par appel explicite. */
@@ -94,19 +134,79 @@ const EVENEMENTS_ACTIONS = [
   // Page Presse & données : copies réussies, jamais le texte copié.
   'presse-copie-courte',
   'presse-copie-longue',
+  // Accueil : ouverture et fermeture du tableau du gouvernement, `etat` en propriété.
+  'accueil-gouvernement',
+  // Réponse 2xx de l'inscription (le clic, lui, reste `accueil-inscription`),
+  // avec `page` et `statut`. Jamais l'adresse.
+  'inscription-reussie',
+];
+
+/**
+ * Noms antérieurs à la convention (anglais, deux-points), GARDÉS tels quels : les
+ * renommer couperait les séries du tableau de bord, qui ne sait pas raccorder
+ * deux noms. Inscrits ici pour être protégés comme les autres.
+ */
+const EVENEMENTS_HISTORIQUES = [
+  'quiz-start',
+  'quiz-question-shown',
+  'quiz-answer',
+  'quiz-complete',
+  'quiz-share',
+  'quiz-donate-click',
+  'chatbot:opened',
+  'chatbot:question_sent',
+  'chatbot:paywall_shown',
+  'chatbot:choice_shown',
+  'chatbot:checkout_clicked',
+  'chatbot:choice_email_selected',
+  'chatbot:email_gate_passed',
+  'chatbot:session_rated',
+  'chatbot:session_rating_skipped',
+  'chatbot:feedback_up',
+  'chatbot:feedback_down_opened',
+  'chatbot:feedback_submitted',
 ];
 
 describe('suivi Umami de la page d’accueil', () => {
-  it('conserve chaque événement de lien', () => {
-    const source = allSource();
-    const manquants = EVENEMENTS_LIENS.filter((e) => !source.includes(e));
+  it('conserve chaque événement de lien, nom exact', () => {
+    const presents = litteraux(allSource());
+    const manquants = EVENEMENTS_LIENS.filter((e) => !presents.has(e));
     expect(manquants).toEqual([]);
   });
 
-  it('conserve chaque événement d’action', () => {
-    const source = allSource();
-    const manquants = EVENEMENTS_ACTIONS.filter((e) => !source.includes(e));
+  it('conserve chaque événement d’action, nom exact', () => {
+    const presents = litteraux(allSource());
+    const manquants = EVENEMENTS_ACTIONS.filter((e) => !presents.has(e));
     expect(manquants).toEqual([]);
+  });
+
+  it('conserve chaque événement historique, nom exact', () => {
+    const presents = litteraux(allSource());
+    const manquants = EVENEMENTS_HISTORIQUES.filter((e) => !presents.has(e));
+    expect(manquants).toEqual([]);
+  });
+
+  it('n’émet aucun événement qui ne soit inscrit dans une liste', () => {
+    const inscrits = new Set([...EVENEMENTS_LIENS, ...EVENEMENTS_ACTIONS, ...EVENEMENTS_HISTORIQUES]);
+    const orphelins = [...nomsEmis(allSource())].filter((e) => !inscrits.has(e));
+    expect(orphelins).toEqual([]);
+  });
+
+  it('ne se laisse pas tromper par un préfixe ni par un commentaire', () => {
+    // Témoins du garde lui-même : sans eux, une régression de `litteraux` ou de
+    // `codeSansCommentaires` rendrait les tests ci-dessus placebo sans bruit.
+    const code = codeSansCommentaires(
+      [
+        '<a data-umami-event="accueil-digest-langue" />',
+        '// data-umami-event="accueil-digest"',
+        '{/* track(\'accueil-digest\') */}',
+        '<a href="https://example.org" data-umami-event="x-ok" /> // accueil-digest',
+      ].join('\n'),
+    );
+    expect(litteraux(code).has('accueil-digest')).toBe(false);
+    expect(litteraux(code).has('accueil-digest-langue')).toBe(true);
+    expect(code).toContain('https://example.org');
+    expect([...nomsEmis(code)].sort()).toEqual(['accueil-digest-langue', 'x-ok']);
   });
 
   it('ne déclare le type global de window.umami qu’à un seul endroit', () => {

@@ -7,7 +7,9 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { track } from '@/lib/analytics';
 import { LocaleSwitcher } from './locale-switcher';
+import { NavLink } from './nav-link';
 import { Search } from '@/components/search';
 
 export function Header() {
@@ -116,22 +118,22 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-        <Link href="/" className="flex items-center gap-2 text-base font-semibold tracking-tight text-brand-900">
+        <NavLink zone="entete" href="/" className="flex items-center gap-2 text-base font-semibold tracking-tight text-brand-900">
           <Image src="/logo.png" alt="" width={28} height={28} className="shrink-0" />
           Brussels Governance Monitor
-        </Link>
+        </NavLink>
 
         {/* Bascule à lg (1024 px) et non md (768 px) : mesurée, cette barre réclame
             797 px alors que md n'en offre que 768. À 768 le logo passait sur trois
             lignes, « Domaines » le percutait et « Français » sortait de l'écran.
             À 1024 px il reste 99 px de marge. */}
         <nav aria-label="Main" className="hidden items-center gap-4 lg:flex">
-          <Link href="/domains" className="inline-flex h-5 items-center text-sm text-neutral-600 hover:text-neutral-900">
+          <NavLink zone="entete" href="/domains" className="inline-flex h-5 items-center text-sm text-neutral-600 hover:text-neutral-900">
             {t('domains')}
-          </Link>
-          <Link href="/dashboard" className="inline-flex h-5 items-center text-sm text-neutral-600 hover:text-neutral-900">
+          </NavLink>
+          <NavLink zone="entete" href="/dashboard" className="inline-flex h-5 items-center text-sm text-neutral-600 hover:text-neutral-900">
             {t('dashboard')}
-          </Link>
+          </NavLink>
 
           {/* Explorer dropdown */}
           <div ref={dropdownRef} className="relative">
@@ -157,83 +159,94 @@ export function Header() {
             </button>
             {dropdownOpen && (
               <div ref={menuRef} role="menu" onKeyDown={handleMenuKeyDown} className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-neutral-200 bg-neutral-50 py-2 shadow-lg">
-                <Link
+                <NavLink
+                  zone="entete-menu"
                   role="menuitem"
                   href="/sectors"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('sectors')}
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
+                  zone="entete-menu"
                   role="menuitem"
                   href="/dossiers"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('dossiers')}
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
+                  zone="entete-menu"
                   role="menuitem"
                   href="/communes"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('communes')}
-                </Link>
+                </NavLink>
 
                 <hr role="separator" className="my-1.5 border-neutral-100" />
 
-                <Link
+                <NavLink
+                  zone="entete-menu"
                   role="menuitem"
                   href="/understand"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('understand')}
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
+                  zone="entete-menu"
                   role="menuitem"
                   href="/timeline"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('timeline')}
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
+                  zone="entete-menu"
                   role="menuitem"
                   href="/radar"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('radar')}
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
+                  zone="entete-menu"
                   role="menuitem"
                   href="/glossary"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('glossary')}
-                </Link>
+                </NavLink>
 
                 <hr role="separator" className="my-1.5 border-neutral-100" />
 
-                <Link
+                <NavLink
+                  zone="entete-menu"
                   role="menuitem"
                   href="/press"
                   onClick={() => setDropdownOpen(false)}
                   className="block px-4 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900"
                 >
                   {t('press')}
-                </Link>
+                </NavLink>
               </div>
             )}
           </div>
 
           <Search />
+          {/* Soutien : famille `soutien-clic` (comme le bandeau), par `track()`
+              pour garder la navigation client (voir nav-link.tsx). */}
           <Link
             href="/support"
+            onClick={() => track('soutien-clic', { position: 'entete' })}
             className="inline-flex items-center gap-1.5 rounded-md border border-brand-700 px-3 py-1 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-900 hover:text-neutral-50"
           >
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
@@ -272,15 +285,15 @@ export function Header() {
 
             <hr aria-hidden="true" className="border-neutral-100" />
 
-            <Link href="/" onClick={() => setMenuOpen(false)} className="py-3 text-sm font-medium text-neutral-900">
+            <NavLink zone="entete-mobile" href="/" onClick={() => setMenuOpen(false)} className="py-3 text-sm font-medium text-neutral-900">
               {t('home')}
-            </Link>
-            <Link href="/domains" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
+            </NavLink>
+            <NavLink zone="entete-mobile" href="/domains" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
               {t('domains')}
-            </Link>
-            <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
+            </NavLink>
+            <NavLink zone="entete-mobile" href="/dashboard" onClick={() => setMenuOpen(false)} className="py-3 text-sm text-neutral-600 hover:text-neutral-900">
               {t('dashboard')}
-            </Link>
+            </NavLink>
 
             <hr aria-hidden="true" className="border-neutral-100" />
 
@@ -304,32 +317,32 @@ export function Header() {
             </button>
             {mobileExplore && (
               <div className="flex flex-col pb-2">
-                <Link href="/sectors" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                <NavLink zone="entete-mobile" href="/sectors" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('sectors')}
-                </Link>
-                <Link href="/dossiers" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                </NavLink>
+                <NavLink zone="entete-mobile" href="/dossiers" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('dossiers')}
-                </Link>
-                <Link href="/communes" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                </NavLink>
+                <NavLink zone="entete-mobile" href="/communes" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('communes')}
-                </Link>
+                </NavLink>
                 <hr aria-hidden="true" className="my-1 border-neutral-100" />
-                <Link href="/understand" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                <NavLink zone="entete-mobile" href="/understand" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('understand')}
-                </Link>
-                <Link href="/timeline" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                </NavLink>
+                <NavLink zone="entete-mobile" href="/timeline" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('timeline')}
-                </Link>
-                <Link href="/radar" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                </NavLink>
+                <NavLink zone="entete-mobile" href="/radar" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('radar')}
-                </Link>
-                <Link href="/glossary" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                </NavLink>
+                <NavLink zone="entete-mobile" href="/glossary" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('glossary')}
-                </Link>
+                </NavLink>
                 <hr aria-hidden="true" className="my-1 border-neutral-100" />
-                <Link href="/press" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
+                <NavLink zone="entete-mobile" href="/press" onClick={() => setMenuOpen(false)} className="py-2.5 pl-4 text-sm text-neutral-600 hover:text-neutral-900">
                   {t('press')}
-                </Link>
+                </NavLink>
               </div>
             )}
 
@@ -337,7 +350,10 @@ export function Header() {
 
             <Link
               href="/support"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                track('soutien-clic', { position: 'entete-mobile' });
+                setMenuOpen(false);
+              }}
               className="my-3 inline-flex items-center justify-center gap-1.5 rounded-md border border-brand-700 px-4 py-2 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-900 hover:text-neutral-50"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>

@@ -59,6 +59,21 @@ describe('getSiteStats', () => {
     );
   });
 
+  it('ne compte pas les intertitres du registre (entrées sans id)', () => {
+    // 251 annoncées pour 237 réelles le 28/09/2026 : 14 intertitres `_comment`
+    // portent `tier: editorial`. Compte recalculé ici sans passer par la fonction
+    // testée, sinon le test se compare à lui-même.
+    const { sources } = sourceRegistry as {
+      sources: { id?: string; tier?: string; enabled?: boolean }[];
+    };
+    const intertitres = sources.filter((s) => !s.id && s.tier === 'editorial');
+    expect(intertitres.length, 'témoin : le registre contient des intertitres éditoriaux').toBeGreaterThan(0);
+    const vraies = sources.filter((s) => typeof s.id === 'string' && s.id.length > 0);
+    expect(stats.sourcesSuivies).toBe(
+      vraies.filter((s) => s.tier === 'editorial' && s.enabled !== false).length,
+    );
+  });
+
   it('compte les pages du plan du site', () => {
     expect(stats.pages).toBe(sitemap().length);
   });

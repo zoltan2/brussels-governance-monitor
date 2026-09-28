@@ -43,8 +43,13 @@ export function SupportCtaHome({ stats }: { stats: SiteStats }) {
           <strong className="text-neutral-700">{format.number(stats.pages)}</strong>&nbsp;{t('statPages')} · <strong className="text-neutral-700">{format.number(stats.sourcesSuivies)}</strong>&nbsp;{t('statSources')} · <strong className="text-neutral-700">{format.number(stats.langues)}</strong>&nbsp;{t('statLangs')}
         </p>
         <p className="mt-1 text-xs text-neutral-500">{t('homeLine')}</p>
+        {/* Même famille que le bandeau (`soutien-clic`), position `accueil` :
+            jusqu'au 28/09/2026, ce bouton était le seul lien de l'accueil à ne
+            rien mesurer. */}
         <Link
           href="/support"
+          data-umami-event="soutien-clic"
+          data-umami-event-position="accueil"
           className="mt-4 inline-flex items-center gap-1.5 rounded-md border border-brand-700 px-5 py-2 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-900 hover:text-neutral-50"
         >
           <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>

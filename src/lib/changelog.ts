@@ -10,6 +10,7 @@ import {
   getDossierCard,
   getSolutionCard,
   getComparisonCard,
+  getLocalizedSlug,
 } from '@/lib/content';
 import type { FilterableSection } from './filterable-sections';
 import { isFilterableSection } from './filterable-sections';
@@ -64,8 +65,15 @@ export interface ChangelogEntry {
   anchor?: string;
 }
 
+/**
+ * Entrées du plus récent au plus ancien. Trié ICI plutôt que de faire confiance
+ * à l'ordre du fichier : data/changelog.json a compté cinq inversions de date
+ * (avril et mai 2026), que la barre « Dernière mise à jour » de l'accueil
+ * (entries[0]) et /mises-a-jour lisaient telles quelles. Tri stable : à date
+ * égale, l'ordre du fichier (plus récente ajoutée en tête) est conservé.
+ */
 export function getChangelog(locale: Locale): ChangelogEntry[] {
-  const parsed = changelogSchema.parse(changelogData);
+  const parsed = [...changelogSchema.parse(changelogData)].sort((a, b) => b.date.localeCompare(a.date));
   return parsed.map((entry) => ({
     date: entry.date,
     type: entry.type,
@@ -124,7 +132,11 @@ export function getLatestUpdate(locale: Locale): LatestUpdate {
   const entries = getChangelog(locale);
   const entry = entries[0];
   const base = SECTION_ROUTES[entry.section];
-  const href = base && entry.targetSlug ? `${base}/${entry.targetSlug}` : null;
+  // Les dossiers ont un slug traduit par langue : lier au slug canonique coûtait une
+  // redirection 308 à chaque clic depuis /nl, /en et /de.
+  const dossier = entry.section === 'dossiers' && entry.targetSlug ? getDossierCard(entry.targetSlug, locale)?.card : null;
+  const slug = dossier ? getLocalizedSlug(dossier, locale) : entry.targetSlug;
+  const href = base && slug ? `${base}/${slug}` : null;
   const card =
     entry.targetSlug && isFilterableSection(entry.section)
       ? resolveCardChange(entry.section, entry.targetSlug, locale)

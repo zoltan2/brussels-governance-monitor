@@ -41,6 +41,13 @@ describe('SupportCtaHome', () => {
     expect(nombres).toEqual(['7351', '6173', '9']);
     expect(container.textContent).not.toMatch(/\b(528|323)\b/);
   });
+
+  it('mesure le clic sur le bouton, dans la famille soutien-clic, position accueil', () => {
+    const { container } = render(<SupportCtaHome stats={STATS} />);
+    const a = container.querySelector('a[href="/support"]')!;
+    expect(a.getAttribute('data-umami-event')).toBe('soutien-clic');
+    expect(a.getAttribute('data-umami-event-position')).toBe('accueil');
+  });
 });
 
 describe('SupportCtaChangelog', () => {

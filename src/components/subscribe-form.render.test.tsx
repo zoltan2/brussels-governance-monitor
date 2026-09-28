@@ -18,6 +18,9 @@ vi.mock('@/i18n/navigation', () => ({
       {children}
     </a>
   ),
+  // Le formulaire lit la page courante pour la propriété `page` de ses
+  // événements (#626) : sans cet export, le rendu échoue.
+  usePathname: () => '/',
 }));
 
 import { SubscribeForm } from './subscribe-form';

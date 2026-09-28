@@ -13,6 +13,8 @@ import suggestedAnswersCache from '@/lib/chat-cache/suggested-answers.json';
 import { clientIp } from '@/lib/client-ip';
 import { sameOriginRefusal } from '@/lib/same-origin';
 import { readChatTier, type ChatTier } from '@/lib/chat-access';
+import { bodyTooLargeRefusal, readJsonCapped } from '@/lib/request-guards';
+import { boundAssistantTurns, chatHistoryRefusal, type ChatTurn } from '@/lib/chat-history';
 
 export const runtime = 'nodejs';
 
@@ -26,11 +28,21 @@ export const runtime = 'nodejs';
  */
 const MAX_MESSAGES = 12;
 const MAX_CONTENT_CHARS = 2000;
+/**
+ * Une reponse de l'assistant renvoyee par le widget peut depasser 2 000
+ * caracteres (sortie plafonnee a 2 048 jetons) : la refuser cassait le tour
+ * suivant. Elle est acceptee jusqu'a ce plafond, puis TRONQUEE a 2 000
+ * caracteres avant d'etre relayee (`boundAssistantTurns`), donc sans surcout.
+ */
+const MAX_ASSISTANT_INPUT_CHARS = 8000;
 
-const messageSchema = z.object({
-  role: z.enum(['user', 'assistant']),
-  content: z.string().min(1).max(MAX_CONTENT_CHARS),
-});
+const messageSchema = z.discriminatedUnion('role', [
+  z.object({ role: z.literal('user'), content: z.string().min(1).max(MAX_CONTENT_CHARS) }),
+  z.object({
+    role: z.literal('assistant'),
+    content: z.string().min(1).max(MAX_ASSISTANT_INPUT_CHARS),
+  }),
+]);
 
 const bodySchema = z.object({
   messages: z.array(messageSchema).min(1).max(MAX_MESSAGES),
@@ -144,7 +156,7 @@ function streamingResponse(
 
 async function* anthropicDeltas(
   system: string,
-  messages: z.infer<typeof messageSchema>[],
+  messages: ChatTurn[],
   ctx: UsageContext,
 ): AsyncIterable<string> {
   const client = new Anthropic();
@@ -211,7 +223,7 @@ async function* cachedDeltas(text: string): AsyncIterable<string> {
  * match, locale + tier scoped). Falls back to null otherwise.
  */
 function lookupCachedAnswer(
-  messages: z.infer<typeof messageSchema>[],
+  messages: ChatTurn[],
   locale: string,
   tier: Tier,
 ): string | null {
@@ -252,8 +264,9 @@ export async function POST(request: Request) {
 
   // 3. TAILLE DU CORPS. `request.json()` met tout en tampon avant validation :
   //    un corps de plusieurs centaines de Mo tuait le processus.
-  const declaredLength = Number(request.headers.get('content-length') ?? '0');
-  if (declaredLength > MAX_BODY_BYTES) {
+  //    Ce test sur `Content-Length` n'ecarte que le cas franc, sans rien lire ;
+  //    la lecture plus bas compte les octets reellement recus.
+  if (bodyTooLargeRefusal(request.headers, MAX_BODY_BYTES)) {
     return NextResponse.json({ error: 'Payload too large' }, { status: 413 });
   }
 
@@ -277,21 +290,25 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Daily quota reached', tier }, { status: 429 });
   }
 
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+  const lu = await readJsonCapped(request, MAX_BODY_BYTES);
+  if (!lu.ok) {
+    return NextResponse.json({ error: lu.error }, { status: lu.status });
   }
 
-  const parsed = bodySchema.safeParse(body);
+  const parsed = bodySchema.safeParse(lu.value);
   if (!parsed.success) {
     // Le detail du schema exposait la forme exacte des champs, y compris le nom
     // du champ piege anti-robot que d'autres routes utilisent. Message generique.
     return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
   }
 
-  const { messages } = parsed.data;
+  // Forme de l'historique : alternance stricte, du premier au dernier tour
+  // `user`. Un tour `assistant` fabrique en tete ou enchaine est refuse
+  // (revue red team du 28/09, voir src/lib/chat-history.ts).
+  if (chatHistoryRefusal(parsed.data.messages)) {
+    return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
+  }
+  const messages = boundAssistantTurns(parsed.data.messages);
   const locale = parsed.data.locale ?? 'fr';
 
   const session = sessionHash(ip);

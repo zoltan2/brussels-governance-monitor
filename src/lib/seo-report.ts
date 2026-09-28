@@ -105,6 +105,10 @@ export interface RequeteEmergente {
   impressions: number | null;
   impressionsPrecedentes: number | null;
   position: number | null;
+  /** Page que Google montre pour cette requête (celle qui a reçu le plus
+   * d'impressions), ou null : absente des rapports d'avant le 28/09/2026,
+   * ou adresse hors du site, écartée plutôt que liée. */
+  page: string | null;
 }
 
 export interface FenetreRapport {
@@ -435,9 +439,16 @@ function asRequetesEmergentes(value: unknown): RequeteEmergente[] {
       impressions: asCompte(record.impressions),
       impressionsPrecedentes: asCompte(record.impressionsPrecedentes),
       position: asPosition(record.position),
+      page: asPageDuSite(record.page),
     });
   }
   return requetes;
+}
+
+/** Seule une adresse du site devient un lien dans l'administration. */
+function asPageDuSite(value: unknown): string | null {
+  const url = asString(value);
+  return url !== null && url.startsWith('https://governance.brussels/') ? url : null;
 }
 
 /** Une action sans règle, URL ou preuve n'est pas exploitable : on l'écarte

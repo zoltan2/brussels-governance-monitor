@@ -1329,6 +1329,14 @@ describe('AdminRapportPage', () => {
               impressions: 30,
               impressionsPrecedentes: 0,
               position: 14.2,
+              page: 'https://governance.brussels/fr/domaines/urban-planning',
+            },
+            {
+              requete: 'sans page connue',
+              impressions: 20,
+              impressionsPrecedentes: 0,
+              position: 12,
+              page: null,
             },
           ],
         }),
@@ -1341,5 +1349,9 @@ describe('AdminRapportPage', () => {
     await rendrePage();
     expect(screen.getByText('permis environnement bruxelles')).toBeDefined();
     expect(screen.getByText(/classé au-delà de la première page/)).toBeDefined();
+    // La page que Google montre est un lien : c'est elle qu'on retouche.
+    const lien = screen.getByRole('link', { name: '/fr/domaines/urban-planning' });
+    expect(lien.getAttribute('href')).toBe('https://governance.brussels/fr/domaines/urban-planning');
+    expect(screen.getByText('Page montrée : indisponible')).toBeDefined();
   });
 });

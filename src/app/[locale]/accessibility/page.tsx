@@ -5,6 +5,7 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { getRecentDigestLangs } from '@/lib/content';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -117,7 +118,10 @@ export default async function AccessibilityPage({
             <h2 className="text-lg font-semibold text-neutral-900">
               {t('linguisticTitle')}
             </h2>
-            <p>{t('linguisticText')}</p>
+            {/* Nombre calculé depuis les digests publiés, comme sur l'accueil
+                (« sur le site en N ») : la déclaration a affiché « plus de 80
+                langues » quand le site en publiait 11. */}
+            <p>{t('linguisticText', { count: getRecentDigestLangs(2).langs.length })}</p>
 
             {/* Plain language */}
             <h2 className="text-lg font-semibold text-neutral-900">
@@ -131,7 +135,6 @@ export default async function AccessibilityPage({
             </h2>
             <ul className="ml-4 list-disc space-y-2">
               <li>{t('limitation1')}</li>
-              <li>{t('limitation2')}</li>
               <li>{t('limitation3')}</li>
               <li>{t('limitation4')}</li>
               <li>{t('limitation5')}</li>

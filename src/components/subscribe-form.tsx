@@ -5,6 +5,7 @@
 
 import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 const TOPIC_OPTIONS = [
   'budget',
@@ -281,6 +282,17 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
       )}
 
       <p className="mt-3 text-center text-xs text-neutral-500">{t('privacy')}</p>
+      {/* Information au point de collecte (RGPD art. 13) : responsable, finalité,
+          base légale et lien vers la politique complète, pas seulement en pied de page. */}
+      <p className="mt-1 text-center text-xs text-neutral-500">
+        {t.rich('privacyNotice', {
+          link: (chunks) => (
+            <Link href="/privacy" className="underline hover:text-neutral-700">
+              {chunks}
+            </Link>
+          ),
+        })}
+      </p>
     </form>
   );
 }

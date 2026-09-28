@@ -30,6 +30,14 @@ jobs:
       EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
 
     steps:
+      # Les scripts de sonde et l'action d'alerte seulement : pas de npm ci,
+      # node seul (préinstallé sur le runner).
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          sparse-checkout: |
+            scripts/ops
+            .github/actions
+
       - name: Wait for the VPS to serve this commit
         run: |
           # Le timer tourne toutes les 5 min, plus le pull de l'image et le
@@ -72,18 +80,45 @@ jobs:
 
       - name: HTTP availability checks
         run: |
+          source scripts/ops/http.sh
           for ROUTE in "/" "/fr" "/fr/data"; do
-            HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L --max-time 30 "$BASE$ROUTE")
-            if [ "$HTTP" != "200" ]; then
-              echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
-            fi
-            echo "OK: $BASE$ROUTE → $HTTP"
+            exiger_code 200 "$BASE$ROUTE" -L
           done
 
       - name: Pagefind probe
         run: |
-          HTTP=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 "$BASE/pagefind/pagefind.js")
-          if [ "$HTTP" != "200" ]; then
-            echo "FAIL: pagefind.js returned $HTTP (search index may not be served)"; exit 1
-          fi
-          echo "OK: pagefind.js → $HTTP"
+          source scripts/ops/http.sh
+          exiger_code 200 "$BASE/pagefind/pagefind.js" || {
+            echo "(l'index de recherche n'est peut-être pas servi)"; exit 1; }
+
+      # Un code 200 ne dit rien du contenu : du 24 au 28/09/2026, l'accueil a
+      # répondu 200 avec un bloc « Ce qu'on surveille » figé (revues blue P0,
+      # purple P3). Contrôle minimal ici (blocs datés présents dans les quatre
+      # langues) ; la comparaison des dates aux données est faite toutes les
+      # 6 h par la sonde du VPS (bgm-ops, deploy/sonde-accueil).
+      - name: Homepage content (4 locales)
+        run: |
+          ECHEC=0
+          for LOC in fr nl en de; do
+            F="$RUNNER_TEMP/accueil-$LOC.html"; rm -f "$F"
+            curl -s -L --max-time 30 --retry 2 --retry-delay 10 --retry-all-errors \
+              -o "$F" "$BASE/$LOC?cb=$RANDOM$RANDOM" || true
+            node scripts/ops/controle-contenu-accueil.mjs "$F" "/$LOC" || ECHEC=1
+          done
+          exit $ECHEC
+
+      # Sans cette étape, un smoke rouge n'existait que dans l'onglet Actions
+      # (revue blue, P1 : deux échecs le 28/09 vus par personne), et il coupe
+      # aussi le test de régression, qui ne se lance qu'après un smoke réussi.
+      - name: Notify on failure
+        if: failure()
+        uses: ./.github/actions/alerte-resend
+        with:
+          sujet: "[BGM] smoke test post-déploiement en ÉCHEC"
+          texte: |
+            Le smoke test a échoué après le déploiement de ${{ env.EXPECTED_SHA || 'un déclenchement manuel' }}.
+            La production ne sert peut-être pas ce commit, ou une page clé (accueil, données, recherche) ne répond pas ou a perdu son contenu.
+
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          resend-api-key: ${{ secrets.RESEND_API_KEY }}
+          admin-email: ${{ secrets.ADMIN_EMAIL }}

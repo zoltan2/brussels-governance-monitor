@@ -1,0 +1,46 @@
+name: Alerte Resend
+description: >
+  Envoie un email d'alerte au propriétaire (ADMIN_EMAIL) via Resend, comme
+  l'étape « Notify on failure » de deploy-image.yml. Un envoi raté fait
+  échouer l'étape : une alerte perdue en silence est pire que pas d'alerte.
+
+inputs:
+  sujet:
+    description: Sujet de l'email
+    required: true
+  texte:
+    description: Corps de l'email (texte brut)
+    required: true
+  resend-api-key:
+    description: secrets.RESEND_API_KEY
+    required: true
+  admin-email:
+    description: secrets.ADMIN_EMAIL
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        RESEND_API_KEY: ${{ inputs.resend-api-key }}
+        ADMIN_EMAIL: ${{ inputs.admin-email }}
+        SUJET: ${{ inputs.sujet }}
+        TEXTE: ${{ inputs.texte }}
+      run: |
+        set -euo pipefail
+        if [ -z "${RESEND_API_KEY:-}" ] || [ -z "${ADMIN_EMAIL:-}" ]; then
+          echo "::warning::Secrets Resend absents, aucune alerte envoyée."
+          exit 0
+        fi
+        CODE="$(curl -s -o "$RUNNER_TEMP/resend.out" -w '%{http_code}' \
+          -X POST 'https://api.resend.com/emails' \
+          -H "Authorization: Bearer $RESEND_API_KEY" \
+          -H 'Content-Type: application/json' \
+          -d "$(jq -n --arg to "$ADMIN_EMAIL" --arg subject "$SUJET" --arg text "$TEXTE" \
+            '{from:"BGM Deploy <noreply@mail.brusselsgovernance.be>", to:[$to], subject:$subject, text:$text}')" || true)"
+        if [ "$CODE" != "200" ]; then
+          echo "Resend a renvoyé ${CODE:-aucune réponse} : $(cat "$RUNNER_TEMP/resend.out" 2>/dev/null || true)"
+          exit 1
+        fi
+        echo "Alerte envoyée : $SUJET"

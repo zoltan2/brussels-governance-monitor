@@ -11,84 +11,87 @@ on:
     workflows: ["Smoke Test"]
     types: [completed]
     branches: [main]
+  workflow_dispatch:
 
+# Toutes les requêtes passent par scripts/ops/http.sh : trois tentatives sur
+# 000 ou 5xx (la bascule du conteneur produit des échecs isolés), et un délai
+# dépassé aboutit à un message lisible. Avant le 28/09/2026, `HTTP=$(curl …)`
+# sous `bash -e` mourait en code 28 avant son propre test « 000 », qui était
+# du code mort (revue blue, P3), et les deux échecs du jour n'avaient prévenu
+# personne (blue, P1).
 jobs:
   regression:
     name: Site health regression checks
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    env:
+      BASE: https://governance.brussels
 
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          sparse-checkout: |
+            scripts/ops
+            .github/actions
+
       - name: Locale availability
         run: |
-          BASE="https://governance.brussels"
+          source scripts/ops/http.sh
           for ROUTE in "/nl" "/en" "/de"; do
-            HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L --max-time 30 "$BASE$ROUTE")
-            if [ "$HTTP" = "000" ]; then
-              echo "FAIL: curl error on $BASE$ROUTE (network error or timeout)"; exit 1
-            fi
-            if [ "$HTTP" != "200" ]; then
-              echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
-            fi
-            echo "OK: $BASE$ROUTE → $HTTP"
+            exiger_code 200 "$BASE$ROUTE" -L
           done
 
       - name: Key pages availability
         run: |
-          BASE="https://governance.brussels"
+          source scripts/ops/http.sh
           # metro-3 est le dossier de référence stable (projet décennal, slug canonique)
           for ROUTE in "/fr/domains" "/fr/radar" "/fr/quiz" "/fr/dossiers/metro-3"; do
-            HTTP=$(curl -o /dev/null -s -w "%{http_code}" -L --max-time 30 "$BASE$ROUTE")
-            if [ "$HTTP" = "000" ]; then
-              echo "FAIL: curl error on $BASE$ROUTE (network error or timeout)"; exit 1
-            fi
-            if [ "$HTTP" != "200" ]; then
-              echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
-            fi
-            echo "OK: $BASE$ROUTE → $HTTP"
+            exiger_code 200 "$BASE$ROUTE" -L
           done
 
       - name: Sitemap and robots
         run: |
-          BASE="https://governance.brussels"
+          source scripts/ops/http.sh
           for ROUTE in "/sitemap.xml" "/robots.txt"; do
-            HTTP=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 "$BASE$ROUTE")
-            if [ "$HTTP" = "000" ]; then
-              echo "FAIL: curl error on $BASE$ROUTE (network error or timeout)"; exit 1
-            fi
-            if [ "$HTTP" != "200" ]; then
-              echo "FAIL: $BASE$ROUTE returned $HTTP"; exit 1
-            fi
-            echo "OK: $BASE$ROUTE → $HTTP"
+            exiger_code 200 "$BASE$ROUTE"
           done
 
       - name: 404 handling
         run: |
-          HTTP=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 \
-            "https://governance.brussels/fr/404test-inexistant")
-          if [ "$HTTP" != "404" ]; then
-            echo "FAIL: expected 404 on nonexistent page, got $HTTP"; exit 1
-          fi
-          echo "OK: 404 handler returns $HTTP"
+          source scripts/ops/http.sh
+          exiger_code 404 "$BASE/fr/404test-inexistant"
 
       - name: Security headers
         run: |
-          HEADER=$(curl -sI --max-time 30 "https://governance.brussels/fr" \
-            | grep -i "x-content-type-options" | tr -d '\r')
+          HEADER=$(curl -sI --max-time 30 --retry 2 --retry-delay 10 "$BASE/fr" \
+            | grep -i "x-content-type-options" | tr -d '\r' || true)
           if [ -z "$HEADER" ]; then
-            echo "FAIL: X-Content-Type-Options header missing on /fr"; exit 1
+            echo "FAIL: X-Content-Type-Options header missing on /fr (ou /fr injoignable)"; exit 1
           fi
           echo "OK: $HEADER"
 
       - name: API health
         run: |
-          HTTP=$(curl -s -o /tmp/health_body --max-time 30 -w "%{http_code}" \
-            "https://governance.brussels/api/health")
-          BODY=$(cat /tmp/health_body)
+          HTTP=$(curl -s -o "$RUNNER_TEMP/health_body" --max-time 30 --retry 2 --retry-delay 10 \
+            -w "%{http_code}" "$BASE/api/health?cb=$RANDOM" || true)
+          BODY=$(cat "$RUNNER_TEMP/health_body" 2>/dev/null || true)
           if [ "$HTTP" != "200" ]; then
-            echo "FAIL: /api/health returned $HTTP"; exit 1
+            echo "FAIL: /api/health returned ${HTTP:-000}"; exit 1
           fi
           echo "$BODY" | jq -e '.status == "ok"' > /dev/null 2>&1 || {
             echo "FAIL: /api/health body unexpected: $BODY"; exit 1
           }
           echo "OK: /api/health → $HTTP, body: $BODY"
+
+      - name: Notify on failure
+        if: failure()
+        uses: ./.github/actions/alerte-resend
+        with:
+          sujet: "[BGM] test de régression post-déploiement en ÉCHEC"
+          texte: |
+            Le test de régression a échoué après le déploiement de ${{ github.event.workflow_run.head_sha || 'un déclenchement manuel' }}.
+            Une langue, une page clé, le sitemap, la page 404, un en-tête de sécurité ou /api/health ne répond pas comme attendu. Le détail est dans le journal du run.
+
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          resend-api-key: ${{ secrets.RESEND_API_KEY }}
+          admin-email: ${{ secrets.ADMIN_EMAIL }}

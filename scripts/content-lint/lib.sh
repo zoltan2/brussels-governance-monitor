@@ -119,6 +119,30 @@ check_slug_redirects() {
   npx tsx "$CONTENT_LINT_DIR/slug-redirects.ts" "$base"
 }
 
+# changeType d'une fiche cohérent avec le type de son entrée du changelog quand
+# changeSummaryDate tombe le jour de cette entrée. Sur TOUT le dépôt : il
+# concordait entièrement au 28/09/2026 (#623), et une PR qui ne touche que
+# data/changelog.json peut créer l'incohérence. Incident : dossier enseignement
+# affiché « Correction » sur une information nouvelle. Les corrections qu'une
+# fiche domaine ne sait pas dire (pas de `corrected` à son schéma) sortent en
+# avertissement. Logique : src/lib/change-type-consistency.ts. Ne lit pas stdin.
+check_change_type() {
+  npx tsx "$CONTENT_LINT_DIR/change-type.ts"
+}
+
+# Textes ajoutés ou réécrits dans data/radar.json et data/changelog.json par
+# rapport à la base : phrases temporelles relatives (mêmes motifs que les MDX,
+# hors citations « »), et `summary` des nouveaux signaux du radar (4 langues,
+# 20 à 180 caractères). Sans changement de data/, les deux ne trouvent rien.
+# Logique : src/lib/data-temporal.ts, src/lib/radar-summary-check.ts.
+# $1 = base_ref. Ne lit pas stdin.
+check_data_texts() {
+  local base="${1:?check_data_texts: base_ref manquant}" rc=0
+  npx tsx "$CONTENT_LINT_DIR/data-temporal.ts" "$base" || rc=1
+  npx tsx "$CONTENT_LINT_DIR/radar-summary.ts" "$base" || rc=1
+  return $rc
+}
+
 # Vérifications dont l'échéance est dépassée : `nextVerification` du registre
 # content/verifications/, ou `lastVerified` + `verificationIntervalDays` d'un
 # dossier ou d'une fiche domaine. AVERTISSEMENT SEULEMENT : un retard vient du

@@ -35,6 +35,20 @@ on:
       - 'src/lib/summary-length.ts'
       - 'src/lib/frontmatter.ts'
       - 'src/lib/change-summary-date.ts'
+      # Gardes de l'accueil (28/09/2026) : titre d'email, changeType, sources en
+      # double, texte d'impact des secteurs, textes de data/. `lead-split.ts` est
+      # la vraie fonction que la garde du titre appelle.
+      - 'src/lib/lead-split.ts'
+      - 'src/lib/lead-headline-check.ts'
+      - 'src/lib/change-type-consistency.ts'
+      - 'src/lib/duplicate-sources.ts'
+      - 'src/lib/impact-freshness.ts'
+      - 'src/lib/data-temporal.ts'
+      - 'src/lib/radar-summary-check.ts'
+      # Radar et changelog : l'accueil affiche leurs textes, et le changelog
+      # décide du badge « Correction » avec le changeType des fiches.
+      - 'data/radar.json'
+      - 'data/changelog.json'
       # Règle des vérifications en retard (avertissement non bloquant, run.sh).
       - 'src/lib/verification-due.ts'
       # Liste des vues immersives (garde de liens) et version de js-yaml (parseur
@@ -103,7 +117,12 @@ jobs:
       # laisse passer les cas propres, et surtout qu'il échoue FERMÉ si son fichier
       # de motifs est vide, plutôt que de se taire.
       - name: Tests du module content-lint
-        run: npx vitest run scripts/content-lint/content-lint.test.ts scripts/content-lint/verification-overdue.test.ts
+        run: >-
+          npx vitest run scripts/content-lint/content-lint.test.ts scripts/content-lint/verification-overdue.test.ts
+          src/lib/lead-headline-check.test.ts src/lib/change-type-consistency.test.ts
+          src/lib/duplicate-sources.test.ts src/lib/impact-freshness.test.ts
+          src/lib/data-temporal.test.ts src/lib/radar-summary-check.test.ts
+          src/lib/summary-freshness.test.ts
 
       # Les trois checks éditoriaux viennent de scripts/content-lint/lib.sh,
       # source unique partagée avec scripts/preflight.sh. Ils étaient auparavant
@@ -123,7 +142,16 @@ jobs:
       # Il lance aussi le bilan des vérifications en retard (registre
       # content/verifications/ et lastVerified des fiches) : AVERTISSEMENT
       # (::warning, résumé du run), jamais un échec, sauf date illisible ou future.
-      - name: Phrases temporelles, sources vides, lastModified
+      #
+      # Et, avant le filtre des .mdx (une veille touche aussi data/) :
+      # - changeType de TOUTES les fiches cohérent avec leur entrée du changelog
+      #   du même jour (le 28/09/2026, l'accueil affichait « Correction » sur une
+      #   information nouvelle, dossier enseignement) ;
+      # - phrases temporelles relatives dans les textes ajoutés ou réécrits de
+      #   data/radar.json et data/changelog.json, hors citations « » ;
+      # - summary en 4 langues, 20 à 180 caractères, sur tout signal ajouté au
+      #   radar (sans lui, l'accueil affichait « Am 14. »).
+      - name: Phrases temporelles, sources vides, lastModified, changeType, textes de data/
         env:
           SKIP_LASTMODIFIED: ${{ contains(github.event.pull_request.labels.*.name, 'skip-lastmodified-check') && '1' || '0' }}
         run: bash scripts/content-lint/run.sh "origin/${{ github.base_ref }}"
@@ -177,6 +205,39 @@ jobs:
             echo "No MDX files changed, skipping"; exit 0
           fi
           npx tsx scripts/content-lint/summary-length.ts /tmp/changed_content.txt "origin/${{ github.base_ref }}"
+
+      # La première phrase du changeSummary est l'objet de la carte du digest et
+      # le texte de la barre « Dernière mise à jour » de l'accueil (leadSplit).
+      # Au 28/09/2026 : 88 titres tronqués « … », et des titres allemands coupés
+      # sur une date (« Das Gericht hat am 19. »). Seuls les changeSummary
+      # nouveaux ou réécrits bloquent.
+      - name: Titre d'email du changeSummary entier
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          npx tsx scripts/content-lint/lead-headline.ts /tmp/changed_content.txt "origin/${{ github.base_ref }}"
+
+      # #547 avait retiré un doublon de source à la main ; six jours plus tard,
+      # 14 fichiers portaient 21 URL en double. Bloque sur les fiches modifiées.
+      - name: Aucune source citée deux fois
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          npx tsx scripts/content-lint/duplicate-sources.ts /tmp/changed_content.txt
+
+      # Fiches secteur : title, humanImpact et activeMechanisms relus
+      # (impactReviewed) à moins de 90 jours de lastModified. #619 a dû retirer
+      # d'education un texte d'avril republié trois fois fin septembre. Le label
+      # skip-impact-check, posé à la création de la PR, suspend la garde.
+      - name: Texte d'impact des fiches secteur relu
+        if: ${{ !contains(github.event.pull_request.labels.*.name, 'skip-impact-check') }}
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          npx tsx scripts/content-lint/impact-freshness.ts /tmp/changed_content.txt
 
       # La FAQ vieillissait derrière le corps des fiches : sur les douze veilles
       # précédant le 2026-09-11, 35 fiches à FAQ ont été republiées et la FAQ n'a

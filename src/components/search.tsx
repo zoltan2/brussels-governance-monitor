@@ -6,6 +6,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { useLocale, useTranslations } from 'next-intl';
+import { excerptSegments } from '@/lib/search-excerpt';
 
 interface SearchResult {
   url: string;
@@ -21,12 +22,16 @@ interface PagefindResult {
 const stripDiacritics = (s: string) =>
   s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-/** Strip all HTML tags except <mark> (used by Pagefind for highlighting).
- *  Also strips any attributes from <mark> to prevent event handler injection. */
-const sanitizeExcerpt = (html: string) =>
-  html
-    .replace(/<mark[^>]*>/gi, '<mark>')
-    .replace(/<(?!\/?mark>)[^>]*>/gi, '');
+/** Extrait rendu en texte React, `<mark>` seul conserve : voir src/lib/search-excerpt.ts. */
+function Excerpt({ html }: { html: string }) {
+  return (
+    <>
+      {excerptSegments(html).map((s, i) =>
+        s.mark ? <mark key={i}>{s.text}</mark> : <span key={i}>{s.text}</span>,
+      )}
+    </>
+  );
+}
 
 export function Search() {
   const t = useTranslations('search');
@@ -235,10 +240,9 @@ export function Search() {
                       <p className="text-sm font-medium text-neutral-900">
                         {result.meta.title || result.url}
                       </p>
-                      <p
-                        className="mt-0.5 text-xs text-neutral-500"
-                        dangerouslySetInnerHTML={{ __html: sanitizeExcerpt(result.excerpt) }}
-                      />
+                      <p className="mt-0.5 text-xs text-neutral-500">
+                        <Excerpt html={result.excerpt} />
+                      </p>
                     </a>
                   </li>
                 ))}

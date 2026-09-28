@@ -8,7 +8,7 @@ import { getResend, EMAIL_FROM, removeContact, resendCall } from '@/lib/resend';
 import GoodbyeEmail from '@/emails/goodbye';
 import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
-import { bodyTooLargeRefusal } from '@/lib/request-guards';
+import { readJsonCapped } from '@/lib/request-guards';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -90,19 +90,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
   }
 
-  const tropGros = bodyTooLargeRefusal(request.headers);
-  if (tropGros) {
-    return NextResponse.json({ error: tropGros }, { status: 413 });
+  // Lecture plafonnee, `Content-Length` ou pas (envoi en `chunked`).
+  const lu = await readJsonCapped(request);
+  if (!lu.ok) {
+    return NextResponse.json({ error: lu.error }, { status: lu.status });
   }
 
-  let brut: unknown;
-  try {
-    brut = await request.json();
-  } catch {
-    return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
-  }
-
-  const parsed = unsubscribeSchema.safeParse(brut);
+  const parsed = unsubscribeSchema.safeParse(lu.value);
   if (!parsed.success) {
     return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
   }

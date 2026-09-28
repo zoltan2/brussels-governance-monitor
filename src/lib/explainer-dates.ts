@@ -55,7 +55,7 @@ export const EXPLAINER_LAST_MODIFIED: Record<string, string> = {
   // Page créée après le lancement (commit f5412fbb, architecture multi-entités).
   vgc: '2026-02-16',
   // Page créée après le lancement (commit f5412fbb, architecture multi-entités).
-  'communities-in-brussels': '2026-02-16',
+  'communities-in-brussels': '2026-09-28',
   // Volet fiscal corrigé (17,3 % du PIB belge en 2023) (commit eb552ae4, PR #510).
   'federal-and-brussels': '2026-09-19',
   // Lien vers le nouveau dossier vice-gouverneur ajouté (commit 2b9d0e08, PR #285).

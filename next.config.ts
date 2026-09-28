@@ -29,9 +29,16 @@ const nextConfig: NextConfig = {
     // so the i18n middleware (src/proxy.ts) bypasses locale-prefixing for these paths.
     // Forgetting that step causes a 307 redirect loop that silently drops all proxied requests.
     return [
-      // /u/* → Umami analytics (self-hosted; bypasses ad blocker filter lists)
+      // /u/* → Umami analytics (self-hosted; bypasses ad blocker filter lists).
+      // Seul le traceur est reecrit. Les evenements (`POST /u/api/send`) passent
+      // par le relais `src/app/u/api/send/route.ts`, qui ne transmet ni cookie ni
+      // en-tete superflu. L'ancienne reecriture `/u/api/:path*` exposait toute
+      // l'API d'Umami (connexion, administration) sous ce domaine et y relayait
+      // les cookies du site (revue red team du 28/09/2026). Verrouille par
+      // src/lib/analytics-host.test.ts.
+      // En production, Caddy intercepte `/u/*` AVANT l'application : ce bloc ne
+      // sert qu'au developpement et a un deploiement sans Caddy.
       { source: '/u/script.js', destination: 'https://analytics.governance.brussels/script.js' },
-      { source: '/u/api/:path*', destination: 'https://analytics.governance.brussels/api/:path*' },
     ];
   },
   async headers() {
@@ -51,7 +58,16 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval'", // unsafe-eval: Velite MDX new Function(); wasm-unsafe-eval: Pagefind WASM
+              // 'unsafe-eval' reste INDISPENSABLE en production : les fiches rendent
+              // leur MDX dans le NAVIGATEUR (`src/components/mdx-content.tsx` est
+              // 'use client' et appelle `new Function(code)` via `renderMdx`).
+              // Le reserver aux routes des fiches ne marche pas : la CSP est celle
+              // du document CHARGE, et une navigation cote client de l'accueil vers
+              // une fiche garde la politique de l'accueil, donc la fiche planterait.
+              // Le retirer suppose de rendre ce MDX cote serveur, comme les
+              // dossiers (`DossierMdxContent`). Verifie par `next start` le 28/09.
+              // 'wasm-unsafe-eval' : Pagefind (WASM).
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval'",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self'",
@@ -70,6 +86,14 @@ const nextConfig: NextConfig = {
               "base-uri 'self'",
               "form-action 'self'",
               'upgrade-insecure-requests',
+              // Violations journalisees par src/app/api/csp-report/route.ts (sans
+              // donnee personnelle). `report-uri` SEUL, volontairement : des qu'une
+              // politique porte aussi `report-to`, Chromium ignore `report-uri` et
+              // passe par la Reporting API, dont aucun rapport n'est arrive lors de
+              // l'essai sous `next start` le 28/09 (90 s d'attente), alors que
+              // `report-uri` seul a livre le sien aussitot. La route lit les deux
+              // formats si l'on ajoute `report-to` plus tard.
+              'report-uri /api/csp-report',
             ].join('; '),
           },
         ],

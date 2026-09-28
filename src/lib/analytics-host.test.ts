@@ -69,6 +69,27 @@ describe('hôte des analytics', () => {
     expect(s).toContain('data-before-send={UMAMI_BEFORE_SEND}');
   });
 
+  /**
+   * Né du 28/09/2026 (revue red team). La réécriture `/u/api/:path*` exposait
+   * toute l'API d'Umami (`/u/api/me`, `/u/api/auth/login`) sous le domaine du
+   * site, et relayait les cookies du site, session d'administration comprise.
+   * Seul le traceur reste réécrit ; les événements passent par un relais qui
+   * choisit ses en-têtes. `next.config.ts` est lu sur disque (le plugin
+   * next-intl n'est pas évaluable ici, voir csp-jeux.test.ts).
+   */
+  it('ne réécrit vers Umami que le traceur, aucune route de son API', () => {
+    const config = readFileSync(join(process.cwd(), 'next.config.ts'), 'utf8');
+    const destinations = [...config.matchAll(/destination:\s*'([^']+)'/g)].map((m) => m[1]);
+    const versUmami = destinations.filter((d) => d.includes('analytics.governance.brussels'));
+    expect(versUmami).toEqual(['https://analytics.governance.brussels/script.js']);
+    expect(config).not.toMatch(/source:\s*'\/u\/api/);
+  });
+
+  it("relaie /u/api/send par une route qui n'expose que POST", async () => {
+    const route = await import('@/app/u/api/send/route');
+    expect(Object.keys(route).filter((k) => /^[A-Z]+$/.test(k))).toEqual(['POST']);
+  });
+
   it("n'utilise plus data-exclude-search, qui effaçait aussi les UTM", () => {
     const coupables = sourceFiles().filter((f) => {
       const s = readFileSync(f, 'utf8');

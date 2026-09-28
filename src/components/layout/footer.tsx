@@ -14,8 +14,11 @@ export function Footer() {
   const locale = useLocale();
   const game = dailyGame(locale);
   return (
+    // Sur mobile, marge basse de 96 px (au lieu de 40) : les boutons flottants
+    // (assistant, accessibilité : 56 px + 16 px) couvraient la dernière ligne du
+    // pied de page en fin de défilement.
     <footer className="border-t border-neutral-200 bg-neutral-50">
-      <div className="mx-auto max-w-5xl px-4 py-10">
+      <div className="mx-auto max-w-5xl px-4 pb-24 pt-10 md:py-10">
         <SupportBanner position="pied-de-page" className="mb-8" />
 
         <div className="grid gap-8 sm:grid-cols-3">

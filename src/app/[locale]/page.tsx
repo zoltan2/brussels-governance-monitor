@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { DM_Serif_Display } from 'next/font/google';
 import { setRequestLocale } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { LatestUpdateBar } from '@/components/latest-update-bar';
 import { GovernmentTable } from '@/components/government-table';
@@ -786,8 +786,14 @@ function DomainsPreview({
                 {/* Le chapeau du domaine, comme sur la fiche et comme en production.
                     Le rendu compact l'avait laissé tomber au profit du seul chiffre :
                     la section perdait 2 839 caractères indexables face au live, soit
-                    la totalité de l'écart de texte entre le prototype et la prod. */}
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{card.summary}</p>
+                    la totalité de l'écart de texte entre le prototype et la prod.
+                    Sur mobile, il est coupé à l'œil après trois lignes : les quatre
+                    chapeaux (430 à 490 caractères) faisaient 2 092 px de section à
+                    390 px. Le texte entier reste dans le DOM (indexable, lu par les
+                    lecteurs d'écran) et la carte mène à la fiche. Desktop inchangé. */}
+                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-neutral-600 md:line-clamp-none">
+                  {card.summary}
+                </p>
                 {m && <KeyFigure value={m.value} unit={m.unit} label={m.label} source={m.source} />}
                 <CardFooter>{tdo('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
               </Link>
@@ -869,6 +875,7 @@ function FormatCard({
   children,
   meta,
   visualInteractive,
+  visualClassName = 'h-16',
   link,
   className,
 }: {
@@ -885,6 +892,8 @@ function FormatCard({
    * non-conformité (un focus qui se pose sur un élément que rien n'annonce).
    */
   visualInteractive?: boolean;
+  /** Hauteur de la vignette ; `h-16` par défaut. */
+  visualClassName?: string;
   link: ReactNode;
   /** Pour qu'une carte occupe deux colonnes tant que la grille n'en a que deux. */
   className?: string;
@@ -897,7 +906,7 @@ function FormatCard({
       )}
     >
       <div
-        className="h-16 overflow-hidden border-b border-neutral-200"
+        className={cn('overflow-hidden border-b border-neutral-200', visualClassName)}
         aria-hidden={visualInteractive ? undefined : true}
       >
         {visual}
@@ -909,6 +918,21 @@ function FormatCard({
         <div className="mt-auto pt-2">{link}</div>
       </div>
     </div>
+  );
+}
+
+// Même hauteur pour le digest et le magazine, côte à côte sous `lg`.
+const FORMAT_VISUAL_TALL = 'h-24 lg:h-16';
+
+/** « (FR) » à l'écran, « (français) » prononcé en français par les lecteurs d'écran. */
+function FrenchOnlyMark() {
+  return (
+    <>
+      <span aria-hidden="true">(FR)</span>
+      <span className="sr-only" lang="fr">
+        {` (${nativeName('fr').toLowerCase()})`}
+      </span>
+    </>
   );
 }
 
@@ -930,6 +954,7 @@ function FormatsSection({
   weekNum: string | null;
 }) {
   const t = useTranslations('home');
+  const locale = useLocale();
 
   return (
     <section aria-labelledby="formats-title" className="py-8">
@@ -944,8 +969,11 @@ function FormatsSection({
           <FormatCard
             title={t('protoDigestName')}
             visualInteractive
+            // Pastilles de 24 px (WCAG 2.5.8) : onze langues tiennent sur trois rangées
+            // à 390 px, d'où une vignette de 96 px tant que la grille a deux colonnes.
+            visualClassName={FORMAT_VISUAL_TALL}
             visual={
-              <div className="flex h-full flex-wrap content-center gap-1 overflow-y-auto bg-neutral-100 px-3 py-2">
+              <div className="flex h-full flex-wrap content-center gap-1 overflow-y-auto bg-neutral-100 px-2 py-1.5">
                 {/* Chaque langue réellement traduite est un VRAI lien (règle du
                     29/06/2026, livrée par #319 sur le bandeau que cette carte remplace).
                     Celles qui n'ont pas de digest pour cette semaine restent inertes,
@@ -953,8 +981,11 @@ function FormatsSection({
                     Le code à deux lettres tient dans la carte ; le nom natif est porté
                     par `lang` et par le nom accessible, pour la prononciation. */}
                 {(digest?.langs ?? CORE_DIGEST_LOCALES).map((lang) => {
+                  // Cible de 24 × 24 px au moins (WCAG 2.5.8) : les pastilles faisaient
+                  // 18 px de haut, sur un pas vertical de 22 px, trop serré pour
+                  // l'exception d'espacement.
                   const pastille =
-                    'rounded-full border px-1.5 text-[11px] font-semibold uppercase leading-4';
+                    'inline-flex min-h-6 min-w-6 items-center justify-center rounded-full border px-1.5 text-[11px] font-semibold uppercase leading-4';
                   if (!digest?.linkableLangs.includes(lang)) {
                     return (
                       <span
@@ -1014,6 +1045,7 @@ function FormatsSection({
 
           <FormatCard
             title={t('protoMagazineName')}
+            visualClassName={FORMAT_VISUAL_TALL}
             visual={
               <div className="flex h-full flex-col justify-center bg-neutral-100 px-3 py-2">
                 <p className={`${dmSerif.className} text-xl leading-none text-neutral-900`}>Magazine</p>
@@ -1036,9 +1068,12 @@ function FormatsSection({
                     : 'https://magazine.governance.brussels/'
                 }
                 data-umami-event="accueil-magazine"
+                // Le magazine n'existe qu'en français : on le dit avant le clic, hors fr.
+                hrefLang="fr"
                 className={stretchedLink}
               >
                 {weekNum ? t('protoMagazineRead', { week: weekNum }) : t('protoMagazineReadPlain')}
+                {locale !== 'fr' && <FrenchOnlyMark />}
                 <ArrowRight size={14} aria-hidden={true} />
               </a>
             }

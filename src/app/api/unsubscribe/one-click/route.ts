@@ -6,7 +6,7 @@ import { verifyUnsubscribeToken } from '@/lib/token';
 import { removeContact } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
-import { bodyTooLargeRefusal } from '@/lib/request-guards';
+import { readTextCapped } from '@/lib/request-guards';
 import { routing } from '@/i18n/routing';
 
 /**
@@ -30,12 +30,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
   }
 
-  const tropGros = bodyTooLargeRefusal(request.headers);
-  if (tropGros) {
-    return NextResponse.json({ error: tropGros }, { status: 413 });
+  // Lecture plafonnee, `Content-Length` ou pas (envoi en `chunked`).
+  const lu = await readTextCapped(request);
+  if (!lu.ok && lu.status === 413) {
+    return NextResponse.json({ error: lu.error }, { status: 413 });
   }
-
-  const corps = (await request.text().catch(() => '')).trim();
+  const corps = (lu.ok ? lu.value : '').trim();
   if (corps !== CORPS_RFC_8058) {
     return NextResponse.json({ error: 'Invalid body' }, { status: 400 });
   }

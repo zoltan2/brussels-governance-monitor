@@ -15,7 +15,7 @@ import { generateConfirmToken } from '@/lib/token';
 import { rateLimit } from '@/lib/rate-limit';
 import ConfirmEmail from '@/emails/confirm';
 import { clientIp } from '@/lib/client-ip';
-import { bodyTooLargeRefusal } from '@/lib/request-guards';
+import { readJsonCapped } from '@/lib/request-guards';
 
 const subscribeSchema = z.object({
   email: z.string().email(),
@@ -39,13 +39,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const tropGros = bodyTooLargeRefusal(request.headers);
-    if (tropGros) {
-      return NextResponse.json({ error: tropGros }, { status: 413 });
+    // Lecture plafonnee : le `Content-Length` seul ne protegeait pas d'un envoi
+    // en `chunked`, qui n'en porte pas (revue red team du 28/09).
+    const lu = await readJsonCapped(request);
+    if (!lu.ok) {
+      return NextResponse.json({ error: lu.error }, { status: lu.status });
     }
-
-    const body = await request.json();
-    const parsed = subscribeSchema.safeParse(body);
+    const parsed = subscribeSchema.safeParse(lu.value);
 
     // Honeypot check — if the hidden field has a value, it's a bot
     if (parsed.success && parsed.data.website) {

@@ -1046,6 +1046,21 @@ function TablesGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
                     : ''}
                   {' · '}Position : {formatDecimal(r.position)}
                 </p>
+                <p className="mt-1 text-xs">
+                  {r.page ? (
+                    <>
+                      <span className="text-neutral-600">Page montrée : </span>
+                      <a
+                        href={r.page}
+                        className="break-words text-brand-700 underline-offset-4 hover:underline"
+                      >
+                        {chemin(r.page)}
+                      </a>
+                    </>
+                  ) : (
+                    <span className="text-neutral-500">Page montrée : indisponible</span>
+                  )}
+                </p>
               </li>
             ))}
           </ul>

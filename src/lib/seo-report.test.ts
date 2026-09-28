@@ -962,7 +962,30 @@ describe('readSeoReport', () => {
           impressions: 30,
           impressionsPrecedentes: 0,
           position: 14.2,
+          page: null,
         },
+      ]);
+    });
+
+    it("lit la page montrée d'une requête émergente, et écarte une adresse hors du site", async () => {
+      vi.mocked(readFile).mockResolvedValue(
+        gscV3({
+          requetesEmergentes: [
+            {
+              requete: 'staking onderwijs 2026',
+              impressions: 41,
+              impressionsPrecedentes: 0,
+              position: 10.3,
+              page: 'https://governance.brussels/nl/sectoren/education',
+            },
+            { requete: 'autre', impressions: 20, impressionsPrecedentes: 0, position: 12, page: 'https://example.com/piege' },
+          ],
+        }),
+      );
+      const rapport = await readSeoReport();
+      expect(rapport.blocs.gsc.donnees?.requetesEmergentes.map((r) => r.page)).toEqual([
+        'https://governance.brussels/nl/sectoren/education',
+        null,
       ]);
     });
 

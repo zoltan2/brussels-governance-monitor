@@ -36,9 +36,12 @@ export async function GET(request: Request) {
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const echec = NextResponse.redirect(`${siteUrl}/fr?chat_unlocked=0`, { status: 303 });
+  const params = new URL(request.url).searchParams;
+  // Retour dans la langue du visiteur (valeur bornée à fr, nl, en, de).
+  const l = ['fr', 'nl', 'en', 'de'].includes(params.get('l') ?? '') ? params.get('l') : 'fr';
+  const echec = NextResponse.redirect(`${siteUrl}/${l}?chat_unlocked=0`, { status: 303 });
 
-  const sessionId = new URL(request.url).searchParams.get('session_id');
+  const sessionId = params.get('session_id');
   // Les identifiants de session Stripe sont opaques : on borne la forme avant de
   // la transmettre, plutot que de relayer telle quelle une valeur d'URL.
   if (!sessionId || !/^cs_[A-Za-z0-9_]{10,200}$/.test(sessionId)) return echec;
@@ -68,13 +71,13 @@ export async function GET(request: Request) {
       // (la personne qui recharge la page de retour) est renvoye en succes, sans
       // nouveau cookie.
       if (readChatAccessRef(request.headers) === sessionId) {
-        return NextResponse.redirect(`${siteUrl}/fr?chat_unlocked=1`, { status: 303 });
+        return NextResponse.redirect(`${siteUrl}/${l}?chat_unlocked=1`, { status: 303 });
       }
       return echec;
     }
 
     const { value, maxAge } = mintChatAccess(sessionId);
-    const ok = NextResponse.redirect(`${siteUrl}/fr?chat_unlocked=1`, { status: 303 });
+    const ok = NextResponse.redirect(`${siteUrl}/${l}?chat_unlocked=1`, { status: 303 });
     ok.cookies.set(CHAT_ACCESS_COOKIE, value, {
       httpOnly: true,
       secure: true,

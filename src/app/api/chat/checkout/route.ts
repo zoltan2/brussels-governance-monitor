@@ -8,6 +8,14 @@ import { clientIp } from '@/lib/client-ip';
 
 export const runtime = 'nodejs';
 
+const LANGUES_PAIEMENT = ['fr', 'nl', 'en', 'de'] as const;
+type LanguePaiement = (typeof LANGUES_PAIEMENT)[number];
+
+/** Langue du visiteur pour les pages Stripe et le retour ; français par défaut. */
+export function languePaiement(v: unknown): LanguePaiement {
+  return (LANGUES_PAIEMENT as readonly unknown[]).includes(v) ? (v as LanguePaiement) : 'fr';
+}
+
 export async function POST(request: Request) {
   // Cap checkout-session creation per IP. Prevents bots from spamming the
   // Stripe dashboard with aborted sessions. 5/min is well above any legit
@@ -28,6 +36,20 @@ export async function POST(request: Request) {
     );
   }
 
+  // Renonciation expresse au droit de rétractation, exigée AVANT le paiement
+  // (revue white du 29/09/2026 : l'accès est une vente de service numérique,
+  // directive 2011/83/UE art. 16 m). Le widget ne l'envoie que case cochée.
+  let corps: { locale?: unknown; renonciation?: unknown } = {};
+  try {
+    corps = await request.json();
+  } catch {
+    /* corps absent ou illisible : refusé ci-dessous */
+  }
+  if (corps.renonciation !== true) {
+    return NextResponse.json({ error: 'Waiver required' }, { status: 400 });
+  }
+  const locale = languePaiement(corps.locale);
+
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const stripe = new Stripe(secret);
 
@@ -42,8 +64,14 @@ export async function POST(request: Request) {
       // On renvoie maintenant vers une route qui INTERROGE Stripe avec
       // l'identifiant de session, verifie que le paiement a bien eu lieu, et ne
       // pose qu'alors un cookie signe. Le parametre d'URL n'accorde plus rien.
-      success_url: `${siteUrl}/api/chat/unlock?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteUrl}/fr`,
+      success_url: `${siteUrl}/api/chat/unlock?session_id={CHECKOUT_SESSION_ID}&l=${locale}`,
+      cancel_url: `${siteUrl}/${locale}`,
+      locale,
+      // Trace de la renonciation, consultable dans Stripe pour chaque paiement.
+      metadata: {
+        renonciation_retractation: 'oui',
+        renonciation_le: new Date().toISOString(),
+      },
     });
 
     return NextResponse.json({ url: session.url });

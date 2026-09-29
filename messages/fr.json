@@ -610,7 +610,7 @@
       "title": "Assistant BGM",
       "paragraph1": "Les questions posées à l'assistant BGM sont conservées à des fins d'amélioration du service, au maximum les 10 000 dernières. Elles sont associées à un identifiant de session anonymisé (hachage non réversible, renouvelé chaque jour) et ne sont jamais liées à une identité. Les questions sont transmises à Anthropic (États-Unis) pour produire la réponse.",
       "emailGate": "Après cinq questions gratuites, l'assistant propose dix questions de plus en échange d'une adresse email. Le journal de l'assistant n'enregistre pas cette adresse, mais une empreinte calculée avec une clé secrète (hachage), ainsi que la date, la langue, le choix de s'inscrire ou non au digest, le fait que l'adresse soit déjà abonnée ou non et l'envoi éventuel d'un email de confirmation. Ce journal est ramené chaque jour à ses 10 000 dernières entrées. Si vous demandez l'inscription au digest, l'adresse est transmise à Resend pour vous envoyer un email de confirmation, et l'inscription n'est active qu'après un clic sur le lien qu'il contient. Si l'adresse est déjà abonnée, sa fiche d'abonné indique que l'assistant fait partie de ses canaux d'inscription.",
-      "paragraph2": "L'accès étendu à l'assistant est proposé via une contribution volontaire, traitée par Stripe. Depuis le 21 septembre 2026, le paiement est vérifié côté serveur auprès de Stripe avant l'ouverture de l'accès."
+      "paragraph2": "L'accès étendu à l'assistant (90 jours, 5 EUR) est vendu par Advice That SRL ; le paiement est traité par Stripe. Depuis le 21 septembre 2026, le paiement est vérifié côté serveur auprès de Stripe avant l'ouverture de l'accès."
     },
     "lastUpdated": "Dernière mise à jour : {date}"
   },

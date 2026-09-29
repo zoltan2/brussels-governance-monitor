@@ -69,28 +69,40 @@ type PaywallCopy = { title: string; body: string; button: string; link: string }
 const PAYWALL: Record<string, PaywallCopy> = {
   fr: {
     title: "L'assistant BGM a un coût réel",
-    body: "Ce projet fonctionne sans publicité, sans subvention, sans tracking. Chaque requête IA est financée de ma poche. Si BGM vous est utile, contribuez pour continuer à accéder à l'assistant et soutenir le monitoring indépendant.",
+    body: "Ce projet fonctionne sans publicité, sans subvention, sans tracking. Chaque requête IA est financée de ma poche. Si BGM vous est utile, un accès de 90 jours à l'assistant est en vente pour 5 EUR ; il finance aussi le monitoring indépendant.",
     button: 'Débloquer pour 5 EUR →',
     link: 'Peut-être plus tard',
   },
   nl: {
     title: 'De BGM-assistent heeft een echte kost',
-    body: 'Dit project werkt zonder reclame, zonder subsidies, zonder tracking. Elke AI-aanvraag wordt uit eigen zak betaald. Als BGM nuttig voor u is, draag bij om de assistent toegankelijk te houden en onafhankelijke monitoring te ondersteunen.',
+    body: 'Dit project werkt zonder reclame, zonder subsidies, zonder tracking. Elke AI-aanvraag wordt uit eigen zak betaald. Als BGM nuttig voor u is, kunt u 90 dagen toegang tot de assistent kopen voor 5 EUR; dat financiert ook de onafhankelijke monitoring.',
     button: 'Ontgrendelen voor 5 EUR →',
     link: 'Misschien later',
   },
   en: {
     title: 'The BGM assistant has a real cost',
-    body: 'This project runs without ads, without subsidies, without tracking. Every AI request comes out of my own pocket. If BGM is useful to you, contribute to keep the assistant accessible and support independent monitoring.',
+    body: 'This project runs without ads, without subsidies, without tracking. Every AI request comes out of my own pocket. If BGM is useful to you, 90 days of access to the assistant are on sale for 5 EUR; this also funds independent monitoring.',
     button: 'Unlock for 5 EUR →',
     link: 'Maybe later',
   },
   de: {
     title: 'Der BGM-Assistent hat echte Kosten',
-    body: 'Dieses Projekt funktioniert ohne Werbung, ohne Subventionen, ohne Tracking. Jede KI-Anfrage wird aus eigener Tasche bezahlt. Wenn BGM für Sie nützlich ist, tragen Sie dazu bei, den Assistenten zugänglich zu halten.',
+    body: 'Dieses Projekt funktioniert ohne Werbung, ohne Subventionen, ohne Tracking. Jede KI-Anfrage wird aus eigener Tasche bezahlt. Wenn BGM für Sie nützlich ist, können Sie 90 Tage Zugang zum Assistenten für 5 EUR kaufen; das finanziert auch das unabhängige Monitoring.',
     button: 'Für 5 EUR freischalten →',
     link: 'Vielleicht später',
   },
+};
+
+// Renonciation au droit de rétractation (revue white du 29/09/2026). L'accès est
+// une vente de service numérique à un consommateur : exécution immédiate
+// seulement avec son consentement exprès préalable et la reconnaissance de la
+// perte du droit de rétractation (directive 2011/83/UE art. 16 m) ; CDE livre VI).
+// Le serveur refuse le paiement sans cette case (src/app/api/chat/checkout).
+const WAIVER: Record<string, string> = {
+  fr: "Je demande l'accès immédiat à l'assistant et je reconnais perdre mon droit de rétractation de 14 jours dès l'ouverture de l'accès.",
+  nl: 'Ik vraag onmiddellijke toegang tot de assistent en erken dat ik mijn herroepingsrecht van 14 dagen verlies zodra de toegang wordt geopend.',
+  en: 'I request immediate access to the assistant and acknowledge that I lose my 14-day right of withdrawal once access is opened.',
+  de: 'Ich verlange den sofortigen Zugang zum Assistenten und erkenne an, dass ich mein 14-tägiges Widerrufsrecht mit der Freischaltung verliere.',
 };
 
 const UNLOCK_CONFIRM: Record<string, string> = {
@@ -268,6 +280,7 @@ type UiCopy = {
   send: string;
   sending: string;
   errorMessage: string;
+  budgetMessage: string;
 };
 
 const RESPONSE_DISCLAIMER: Record<string, string> = {
@@ -325,6 +338,7 @@ const UI: Record<string, UiCopy> = {
     send: 'Envoyer',
     sending: 'Envoi…',
     errorMessage: 'Une erreur est survenue. Veuillez réessayer.',
+    budgetMessage: "L'assistant a atteint sa limite d'utilisation pour aujourd'hui. Il sera de nouveau disponible demain.",
   },
   nl: {
     title: 'BGM-assistent',
@@ -339,6 +353,7 @@ const UI: Record<string, UiCopy> = {
     send: 'Verzenden',
     sending: 'Verzenden…',
     errorMessage: 'Er is een fout opgetreden. Probeer opnieuw.',
+    budgetMessage: 'De assistent heeft zijn gebruikslimiet voor vandaag bereikt. Hij is morgen weer beschikbaar.',
   },
   en: {
     title: 'BGM Assistant',
@@ -353,6 +368,7 @@ const UI: Record<string, UiCopy> = {
     send: 'Send',
     sending: 'Sending…',
     errorMessage: 'Something went wrong. Please try again.',
+    budgetMessage: 'The assistant has reached its usage limit for today. It will be available again tomorrow.',
   },
   de: {
     title: 'BGM-Assistent',
@@ -367,6 +383,7 @@ const UI: Record<string, UiCopy> = {
     send: 'Senden',
     sending: 'Senden…',
     errorMessage: 'Es ist ein Fehler aufgetreten. Bitte erneut versuchen.',
+    budgetMessage: 'Der Assistent hat sein Nutzungslimit für heute erreicht. Er ist morgen wieder verfügbar.',
   },
 };
 
@@ -545,6 +562,7 @@ export function ChatWidget() {
   const [paywallState, setPaywallState] = useState<PaywallState>('free');
   const [justUnlocked, setJustUnlocked] = useState(false);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [renonce, setRenonce] = useState(false);
   const [feedback, setFeedback] = useState<Record<number, FeedbackState>>({});
   const [showRating, setShowRating] = useState(false);
   const [ratingSubmitted, setRatingSubmitted] = useState(false);
@@ -688,6 +706,10 @@ export function ChatWidget() {
           }),
         });
 
+        if (res.status === 503) {
+          // Plafond de dépense quotidien atteint (src/lib/chat-budget.ts).
+          throw new Error('budget');
+        }
         if (!res.ok || !res.body) {
           throw new Error(`HTTP ${res.status}`);
         }
@@ -737,9 +759,10 @@ export function ChatWidget() {
             }
           }
         }
-      } catch {
+      } catch (err) {
+        const ui0 = UI[locale] ?? UI.fr;
         const localizedError =
-          (UI[locale] ?? UI.fr).errorMessage;
+          err instanceof Error && err.message === 'budget' ? ui0.budgetMessage : ui0.errorMessage;
         setMessages((prev) => {
           const copy = prev.slice();
           copy[copy.length - 1] = {
@@ -763,11 +786,15 @@ export function ChatWidget() {
   }
 
   async function onCheckout() {
-    if (checkoutLoading) return;
+    if (checkoutLoading || !renonce) return;
     setCheckoutLoading(true);
     trackEvent('chatbot:checkout_clicked', { locale });
     try {
-      const res = await fetch('/api/chat/checkout', { method: 'POST' });
+      const res = await fetch('/api/chat/checkout', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ locale, renonciation: true }),
+      });
       const data: { url?: string } = await res.json();
       if (data.url) {
         window.location.href = data.url;
@@ -999,6 +1026,17 @@ export function ChatWidget() {
   }
 
   const paywallCopy = PAYWALL[locale] ?? PAYWALL.fr;
+  const waiverBox = (
+    <label className="mt-3 flex items-start gap-2 text-xs text-neutral-700">
+      <input
+        type="checkbox"
+        checked={renonce}
+        onChange={(e) => setRenonce(e.target.checked)}
+        className="mt-0.5 h-4 w-4 shrink-0 accent-brand-900"
+      />
+      <span>{WAIVER[locale] ?? WAIVER.fr}</span>
+    </label>
+  );
   const fc = FEEDBACK[locale] ?? FEEDBACK.fr;
   const lastFreeBanner = LAST_FREE[locale] ?? LAST_FREE.fr;
   const ui = UI[locale] ?? UI.fr;
@@ -1405,11 +1443,12 @@ export function ChatWidget() {
                 {cc.optionEmailHint}
               </p>
 
+              {waiverBox}
               <button
                 type="button"
                 onClick={onCheckout}
-                disabled={checkoutLoading}
-                className="mt-3 w-full rounded-md border border-brand-900/30 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-brand-900 transition hover:bg-brand-900/5 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+                disabled={checkoutLoading || !renonce}
+                className="mt-2 w-full rounded-md border border-brand-900/30 bg-neutral-50 px-4 py-2.5 text-sm font-medium text-brand-900 transition hover:bg-brand-900/5 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {cc.optionPay}
               </button>
@@ -1533,10 +1572,11 @@ export function ChatWidget() {
         <div className="border-t border-neutral-200 bg-neutral-50 p-4">
           <p className="text-sm font-semibold text-neutral-900">{paywallCopy.title}</p>
           <p className="mt-2 text-sm text-neutral-700">{paywallCopy.body}</p>
+          {waiverBox}
           <button
             type="button"
             onClick={onCheckout}
-            disabled={checkoutLoading}
+            disabled={checkoutLoading || !renonce}
             className="mt-3 w-full rounded-md bg-brand-900 px-4 py-2 text-sm font-medium text-neutral-50 transition hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {paywallCopy.button}

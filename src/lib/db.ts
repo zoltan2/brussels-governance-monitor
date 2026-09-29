@@ -63,6 +63,23 @@ CREATE TABLE IF NOT EXISTS desabonnements (
   contact_supprime_le INTEGER
 );
 CREATE INDEX IF NOT EXISTS idx_desabonnements_date ON desabonnements(desabonne_le);
+
+-- Paiements du chatbot (src/lib/chat-paiements.ts). Une session Stripe
+-- n'ouvre l'accès qu'une fois ; un remboursement le révoque (revue red team
+-- du 29/09/2026 : le lien de retour était réutilisable et survivait au
+-- remboursement).
+CREATE TABLE IF NOT EXISTS chat_paiements (
+  session_id   TEXT PRIMARY KEY,
+  debloque_le  INTEGER NOT NULL,
+  verifie_le   INTEGER NOT NULL,
+  rembourse    INTEGER NOT NULL DEFAULT 0
+);
+
+-- Coût du modèle par jour (src/lib/chat-budget.ts), en millionièmes de dollar.
+CREATE TABLE IF NOT EXISTS chat_budget (
+  jour      TEXT PRIMARY KEY,
+  micro_usd INTEGER NOT NULL
+);
 `;
 
 /** Opens a SQLite database at `path` and applies the schema (idempotent). */

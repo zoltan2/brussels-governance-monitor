@@ -201,7 +201,8 @@
     "book": "Le livre",
     "supportTitle": "Ce projet vit grâce à vous",
     "supportSubtitle": "Indépendant, sans pub, sans subvention — votre soutien compte.",
-    "supportCta": "Soutenir le projet"
+    "supportCta": "Soutenir le projet",
+    "terms": "Conditions de vente"
   },
   "locale": {
     "switchTo": "Changer de langue",
@@ -2508,5 +2509,27 @@
     "close": "Fermer",
     "open": "Accessibilité",
     "fontScale": "Taille du texte"
+  },
+  "terms": {
+    "title": "Conditions de vente de l'accès à l'assistant",
+    "intro": "Ces conditions s'appliquent à l'achat d'un accès étendu à l'assistant IA du Brussels Governance Monitor. La lecture du site, la recherche et les premières questions à l'assistant restent gratuites.",
+    "s1t": "Vendeur",
+    "s1": "Advice That SRL, société à responsabilité limitée de droit belge, Rue Delwart 149, 1070 Bruxelles, Belgique. BCE et TVA : BE 0728.534.930. Contact : contact@brusselsgovernance.be.",
+    "s2t": "Ce qui est vendu",
+    "s2": "Un accès étendu à l'assistant IA pendant 90 jours à partir de son ouverture, jusqu'à 300 questions par jour. L'accès est lié au navigateur utilisé pour le paiement, pas à un compte. L'assistant peut être momentanément indisponible, notamment lorsque la limite d'utilisation quotidienne du service est atteinte ; il redevient disponible le lendemain. Les réponses sont produites par un modèle d'intelligence artificielle à partir des dossiers publiés : elles peuvent contenir des erreurs et ne remplacent pas les fiches sourcées du site.",
+    "s3t": "Prix et paiement",
+    "s3": "5 EUR, TVA comprise. Le paiement est traité par Stripe.",
+    "s4t": "Exécution immédiate et droit de rétractation",
+    "s4": "L'accès s'ouvre dès la confirmation du paiement. Avant de payer, vous demandez expressément cette exécution immédiate et reconnaissez perdre votre droit de rétractation de 14 jours dès l'ouverture de l'accès. Sans cet accord, le paiement n'est pas proposé.",
+    "s5t": "Fin de l'accès et remboursement",
+    "s5": "L'accès prend fin après 90 jours. Pour toute demande, y compris de remboursement, écrivez à contact@brusselsgovernance.be. Un paiement remboursé met fin à l'accès.",
+    "s6t": "Réclamations et médiation",
+    "s6": "Adressez d'abord votre réclamation à contact@brusselsgovernance.be. Si elle n'aboutit pas, vous pouvez vous adresser au Service de Médiation pour le Consommateur :",
+    "s6url": "https://mediationconsommateur.be/",
+    "s7t": "Données personnelles",
+    "s7": "Le traitement de vos données est décrit dans la politique de confidentialité.",
+    "s7link": "Politique de confidentialité",
+    "lastUpdated": "Dernière mise à jour : {date}",
+    "paywallLink": "Conditions de vente"
   }
 }

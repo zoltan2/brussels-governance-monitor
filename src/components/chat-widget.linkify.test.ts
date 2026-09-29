@@ -53,3 +53,12 @@ describe('linkifyDossierMarkers', () => {
     expect(out).toBe('[CPAS \\[pilote\\]](/nl/dossiers/brusselse-ocmws)');
   });
 });
+
+describe('cheminConditions', () => {
+  it('rend le chemin localisé des conditions de vente', async () => {
+    const { cheminConditions } = await import('./chat-widget');
+    expect(cheminConditions('fr')).toBe('/fr/conditions-de-vente');
+    expect(cheminConditions('de')).toBe('/de/verkaufsbedingungen');
+    expect(cheminConditions('xx')).toBe('/fr/conditions-de-vente');
+  });
+});

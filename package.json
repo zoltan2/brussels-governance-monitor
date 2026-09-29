@@ -9,7 +9,7 @@
     "preflight": "bash scripts/preflight.sh",
     "velite": "velite",
     "dev": "velite && next dev",
-    "build": "velite --clean && next build && node scripts/pagefind-build.mjs",
+    "build": "node scripts/ops/velite-sans-erreur.mjs --clean && next build && node scripts/pagefind-build.mjs",
     "start": "next start",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",

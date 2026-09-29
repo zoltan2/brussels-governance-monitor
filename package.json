@@ -17,6 +17,7 @@
     "faq:check": "tsx scripts/content-lint/faq-check.ts",
     "faq:registry": "tsx scripts/content-lint/faq-check.ts --registry",
     "lint:links": "tsx scripts/content-lint/internal-links.ts --audit",
+    "lint:digests": "tsx scripts/content-lint/digest-check.ts --audit",
     "lint:titles": "tsx scripts/content-lint/title-length.ts",
     "lint:summary-length": "tsx scripts/content-lint/summary-length.ts",
     "lint:verifications": "tsx scripts/content-lint/verification-overdue.ts",

@@ -580,16 +580,17 @@
     "thirdParties": {
       "title": "Sous-traitants et outils tiers",
       "description": "Dans un souci de transparence, voici la liste complète des services tiers utilisés par ce site :",
-      "hosting": "Hetzner (hébergement) : héberge le site sur un serveur situé à Nuremberg, en Allemagne. Traite les logs serveur (adresses IP, en-têtes HTTP). Aucune donnée personnelle n'est stockée au-delà des logs techniques temporaires.",
+      "hosting": "Hetzner (hébergement) : héberge le site sur un serveur situé à Nuremberg, en Allemagne. Ce serveur conserve des données personnelles : les logs techniques temporaires (adresses IP, en-têtes HTTP), la base de données décrite ci-dessous, les statistiques Umami et les données du Stuut par e-mail (voir la section qui lui est consacrée).",
       "cloudflare": "Cloudflare (CDN et protection anti-DDoS) : filtre et distribue le trafic depuis ses points de présence européens. Traite les adresses IP des visiteurs pendant la requête. Société américaine, certifiée sous le EU-US Data Privacy Framework.",
       "umami": "Umami (statistiques) : mesure de fréquentation respectueuse de la vie privée, auto-hébergée sur notre propre serveur en Allemagne. Aucun cookie, aucun suivi inter-sites. Les adresses des pages sont enregistrées sans leur chaîne de requête, à l'exception des balises de campagne (paramètres utm_), afin qu'aucun jeton figurant dans un lien d'email ne soit conservé. Pour un site d'origine externe, seuls son domaine et son chemin sont conservés. Les pages réservées à l'équipe (administration, relecture, connexion) ne sont pas mesurées.",
       "resend": "Resend (emails) : envoie les emails de confirmation, les digest hebdomadaires et le Stuut quotidien. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
       "stripe": "Stripe (paiements) : traite les dons, les précommandes du livre et le déverrouillage de l'assistant. La saisie des données bancaires a lieu sur les pages hébergées par Stripe : le site ne voit ni ne stocke aucune donnée de carte. Société américaine.",
       "anthropic": "Anthropic (assistant IA) : traite les questions posées à l'assistant BGM pour produire les réponses. Société américaine. Les questions ne sont pas liées à une identité, et l'adresse email que l'assistant peut demander ne lui est pas transmise.",
-      "database": "Base de données : la télémétrie de l'assistant, les votes de consultation et le registre des précommandes du livre, qui contient prénom et adresse email, sont conservés dans une base SQLite sur notre propre serveur, chez Hetzner en Allemagne.",
-      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Hetzner, Cloudflare, Umami, la base de données et Anthropic ; consentement (article 6.1.a) pour Resend ; exécution du contrat (article 6.1.b) pour Stripe.",
+      "database": "Base de données : une base SQLite sur notre propre serveur, chez Hetzner en Allemagne, contient le registre des précommandes du livre (prénom et adresse email), les votes de la consultation sur la page d'accueil, avec l'adresse email des votants qui l'ont laissée, le journal de l'assistant (questions posées et empreintes des adresses email données pour débloquer des questions), les identifiants des paiements Stripe de l'accès à l'assistant et le registre des désabonnements, qui ne garde qu'une empreinte de l'adresse.",
+      "dropbox": "Dropbox (sauvegarde) : une copie de cette base de données est envoyée toutes les six heures vers un espace Dropbox, pour pouvoir la restaurer en cas de panne du serveur. Nous ne chiffrons pas ces copies avant leur envoi. Société américaine.",
+      "legalBasis": "Base légale : intérêt légitime (article 6.1.f du RGPD) pour Hetzner, Cloudflare, Umami, la base de données, sa sauvegarde chez Dropbox et Anthropic ; consentement (article 6.1.a) pour Resend ; exécution du contrat (article 6.1.b) pour Stripe.",
       "statusPage": "Page de statut du service : https://status.governance.brussels",
-      "transfers": "Transferts hors UE : l'hébergement du site, les statistiques et la base de données restent en Europe. Resend, Stripe, Anthropic (États-Unis) et Cloudflare (société américaine) opèrent sous clauses contractuelles types (SCCs) ou certification EU-US Data Privacy Framework (DPF). Les DPA sont acceptés avec les conditions d'utilisation de chaque service."
+      "transfers": "Transferts hors UE : le serveur du site, les statistiques et la base de données sont en Europe. Une copie de sauvegarde de la base est confiée à Dropbox, société américaine. Resend, Stripe, Anthropic (États-Unis) et Cloudflare (société américaine) opèrent sous clauses contractuelles types (SCCs) ou certification EU-US Data Privacy Framework (DPF). Les DPA de ces quatre services sont acceptés avec leurs conditions d'utilisation."
     },
     "games": {
       "title": "Jeux quotidiens (Stuut et Amai)",
@@ -2164,8 +2165,6 @@
     "resultDescription": "Bruxelles a 19 communes, 6 gouvernements qui se superposent, et des centaines de décisions qui affectent votre quotidien. BGM surveille tout ça pour vous.",
     "signalTitle": "Le Signal",
     "signalDesc": "Newsletter LinkedIn — chaque lundi",
-    "podcastTitle": "Le Briefing BGM",
-    "podcastDesc": "Podcast — l'essentiel en 5 min",
     "donateMessage": "Ce quiz est gratuit. Le maintenir ne l'est pas.",
     "donateDetail": "La veille de BGM suit {sources} sources en {languages} langues, sans pub ni subvention.",
     "donateCTA": "Soutenir le projet",
@@ -2532,5 +2531,19 @@
     "s7link": "Politique de confidentialité",
     "lastUpdated": "Dernière mise à jour : {date}",
     "paywallLink": "Conditions de vente"
+  },
+  "refonte": {
+    "metaTitle": "Consultation sur la page d'accueil (close)",
+    "metaDescription": "La consultation de 2026 sur la page d'accueil du Brussels Governance Monitor est close.",
+    "eyebrow": "Consultation · close",
+    "title": "La consultation sur la page d'accueil est close",
+    "noteDate": "Note du 29 septembre 2026",
+    "intro": "Cette consultation invitait les lecteurs à choisir l'orientation de la future page d'accueil du Brussels Governance Monitor. Elle n'accepte plus de votes.",
+    "participation": "Elle a recueilli 16 votes. Avant son ouverture, nous avions fixé à 50 votes le minimum pour que ses résultats aient une portée. Ce minimum n'a pas été atteint : la synthèse annoncée à la clôture ne sera pas publiée, car elle ne représenterait pas les lecteurs.",
+    "home": "La page d'accueil a été refaite le 18 septembre 2026.",
+    "next": "Nous préparons un sondage auprès des lecteurs du digest. Il sera annoncé dans le digest quand il ouvrira.",
+    "privacy": "Les données recueillies par la consultation restent régies par notre politique de confidentialité.",
+    "privacyLink": "Politique de confidentialité",
+    "homeLink": "Retour à l'accueil"
   }
 }

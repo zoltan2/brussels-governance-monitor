@@ -39,8 +39,6 @@ const RAW_COLOR = new RegExp(
 const EXCLUDED_DIRS = [
   'app/[locale]/admin',
   'components/admin',
-  'app/[locale]/refonte', // maquettes noindex, couleurs figées volontairement
-  'components/refonte',
   'app/merci-cafe-numerique', // layout en light-forced
   'app/livre', // layout en light-forced
   'emails', // e-mails : pas de mode sombre (règle maison)

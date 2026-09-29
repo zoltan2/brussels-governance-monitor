@@ -107,10 +107,20 @@ function PrivacyView() {
               est pose (src/lib/db.ts, chat-logs.ts, preorder-log.ts,
               refonte-votes.ts), ce qui est le cas en production depuis le
               19/07/2026 ; Upstash n'est que le repli sans DB_PATH (28/09).
+
+              29/09/2026 (prealables du sondage lecteurs) : « Hetzner : aucune
+              donnee personnelle » etait faux, le serveur porte la base SQLite
+              (tables de src/lib/db.ts), Umami et le service du Stuut. Dropbox
+              etait absent : bgm-ops deploy/bgm-backup.sh y copie la base
+              toutes les 6 h (remote rclone « bgm-dropbox », de type dropbox,
+              SANS couche crypt : verifie par `rclone listremotes --long`).
+              Aucun contrat de sous-traitance Dropbox n'a ete verifie : ne pas
+              en affirmer un ici tant qu'il n'est pas constate.
             */}
             <li>{t('thirdParties.stripe')}</li>
             <li>{t('thirdParties.anthropic')}</li>
             <li>{t('thirdParties.database')}</li>
+            <li>{t('thirdParties.dropbox')}</li>
           </ul>
           <p className="text-xs text-neutral-500">{t('thirdParties.legalBasis')}</p>
           <p className="text-xs text-neutral-500">{t('thirdParties.transfers')}</p>

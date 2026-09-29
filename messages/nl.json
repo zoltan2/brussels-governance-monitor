@@ -580,16 +580,17 @@
     "thirdParties": {
       "title": "Onderaannemers en tools van derden",
       "description": "In het kader van transparantie vindt u hier de volledige lijst van externe diensten die door deze site worden gebruikt:",
-      "hosting": "Hetzner (hosting): host de website op een server in Neurenberg, Duitsland. Verwerkt serverlogs (IP-adressen, HTTP-headers). Geen persoonsgegevens worden opgeslagen buiten tijdelijke technische logs.",
+      "hosting": "Hetzner (hosting): host de website op een server in Neurenberg, Duitsland. Op deze server staan persoonsgegevens: tijdelijke technische logs (IP-adressen, HTTP-headers), de hieronder beschreven database, de Umami-statistieken en de gegevens van de Stuut per e-mail (zie het betreffende onderdeel).",
       "cloudflare": "Cloudflare (CDN en DDoS-bescherming): filtert en verdeelt het verkeer vanaf zijn Europese aanwezigheidspunten. Verwerkt de IP-adressen van bezoekers tijdens de aanvraag. Amerikaans bedrijf, gecertificeerd onder het EU-US Data Privacy Framework.",
       "umami": "Umami (statistieken): privacyvriendelijke bezoekmeting, zelf gehost op onze eigen server in Duitsland. Geen cookies, geen tracking over sites heen. Pagina-adressen worden zonder querystring opgeslagen, behalve de campagnetags (utm_-parameters), zodat geen enkel token uit een e-maillink bewaard blijft. Van een externe verwijzende site worden alleen het domein en het pad bewaard. Pagina's die voor het team bestemd zijn (beheer, nalezing, aanmelding) worden niet gemeten.",
       "resend": "Resend (e-mails): verstuurt bevestigings-e-mails, wekelijkse samenvattingen en de dagelijkse Stuut. Verwerkt e-mailadressen van abonnees. Gevestigd in de Verenigde Staten met AVG-naleving (DPA ondertekend).",
       "stripe": "Stripe (betalingen): verwerkt donaties, voorbestellingen van het boek en de ontgrendeling van de assistent. Bankgegevens worden ingevoerd op pagina's van Stripe zelf: de site ziet noch bewaart kaartgegevens. Amerikaans bedrijf.",
       "anthropic": "Anthropic (AI-assistent): verwerkt de vragen aan de BGM-assistent om de antwoorden te genereren. Amerikaans bedrijf. De vragen worden niet aan een identiteit gekoppeld, en het e-mailadres dat de assistent kan vragen, wordt niet aan Anthropic doorgegeven.",
-      "database": "Database: de telemetrie van de assistent, de stemmen van de raadpleging en het register van voorbestellingen van het boek, dat voornaam en e-mailadres bevat, worden bewaard in een SQLite-database op onze eigen server, bij Hetzner in Duitsland.",
-      "legalBasis": "Rechtsgrond: gerechtvaardigd belang (artikel 6.1.f AVG) voor Hetzner, Cloudflare, Umami, de database en Anthropic; toestemming (artikel 6.1.a) voor Resend; uitvoering van de overeenkomst (artikel 6.1.b) voor Stripe.",
+      "database": "Database: een SQLite-database op onze eigen server, bij Hetzner in Duitsland, bevat het register van voorbestellingen van het boek (voornaam en e-mailadres), de stemmen van de raadpleging over de startpagina, met het e-mailadres van de deelnemers die het hebben opgegeven, het logboek van de assistent (gestelde vragen en vingerafdrukken van de e-mailadressen die zijn opgegeven om extra vragen te ontgrendelen), de kenmerken van de Stripe-betalingen voor toegang tot de assistent en het register van uitschrijvingen, dat alleen een vingerafdruk van het adres bewaart.",
+      "dropbox": "Dropbox (back-up): elke zes uur wordt een kopie van deze database naar een Dropbox-opslag gestuurd, zodat ze bij een defect van de server kan worden hersteld. Wij versleutelen deze kopieën niet voor ze worden verzonden. Amerikaans bedrijf.",
+      "legalBasis": "Rechtsgrond: gerechtvaardigd belang (artikel 6.1.f AVG) voor Hetzner, Cloudflare, Umami, de database, de back-up ervan bij Dropbox en Anthropic; toestemming (artikel 6.1.a) voor Resend; uitvoering van de overeenkomst (artikel 6.1.b) voor Stripe.",
       "statusPage": "Statuspagina van de dienst: https://status.governance.brussels",
-      "transfers": "Doorgifte buiten de EU: hosting, statistieken en database blijven in Europa. Resend, Stripe, Anthropic (Verenigde Staten) en Cloudflare (Amerikaans bedrijf) werken onder modelcontractbepalingen (SCC's) of EU-US Data Privacy Framework (DPF). De DPA's worden aanvaard met de gebruiksvoorwaarden van elke dienst."
+      "transfers": "Doorgifte buiten de EU: de server van de website, de statistieken en de database staan in Europa. Een back-upkopie van de database wordt toevertrouwd aan Dropbox, een Amerikaans bedrijf. Resend, Stripe, Anthropic (Verenigde Staten) en Cloudflare (Amerikaans bedrijf) werken onder modelcontractbepalingen (SCC's) of EU-US Data Privacy Framework (DPF). De DPA's van deze vier diensten worden aanvaard met hun gebruiksvoorwaarden."
     },
     "games": {
       "title": "Dagelijkse spellen (Stuut en Amai)",
@@ -2164,8 +2165,6 @@
     "resultDescription": "Brussel heeft 19 gemeenten, 6 overlappende overheden en honderden beslissingen die uw dagelijks leven beïnvloeden. BGM volgt dit allemaal voor u.",
     "signalTitle": "Le Signal",
     "signalDesc": "LinkedIn nieuwsbrief — elke maandag",
-    "podcastTitle": "De Briefing BGM",
-    "podcastDesc": "Podcast — het essentiële in 5 min",
     "donateMessage": "Deze quiz is gratis. Het onderhouden ervan niet.",
     "donateDetail": "De monitoring van BGM volgt {sources} bronnen in {languages} talen, zonder reclame of subsidie.",
     "donateCTA": "Steun het project",
@@ -2532,5 +2531,19 @@
     "s7link": "Privacybeleid",
     "lastUpdated": "Laatste update: {date}",
     "paywallLink": "Verkoopvoorwaarden"
+  },
+  "refonte": {
+    "metaTitle": "Raadpleging over de startpagina (afgesloten)",
+    "metaDescription": "De raadpleging van 2026 over de startpagina van de Brussels Governance Monitor is afgesloten.",
+    "eyebrow": "Raadpleging · afgesloten",
+    "title": "De raadpleging over de startpagina is afgesloten",
+    "noteDate": "Nota van 29 september 2026",
+    "intro": "Deze raadpleging vroeg lezers om de richting van de nieuwe startpagina van de Brussels Governance Monitor te kiezen. Er kunnen geen stemmen meer worden uitgebracht.",
+    "participation": "Ze leverde 16 stemmen op. Voor de opening hadden we 50 stemmen vastgelegd als minimum om de resultaten betekenis te geven. Dat minimum werd niet gehaald: de synthese die bij de afsluiting was aangekondigd, wordt niet gepubliceerd, omdat ze niet representatief zou zijn voor de lezers.",
+    "home": "De startpagina werd op 18 september 2026 vernieuwd.",
+    "next": "We bereiden een enquête voor bij de lezers van de digest. Die wordt in de digest aangekondigd wanneer ze opent.",
+    "privacy": "De gegevens die de raadpleging verzamelde, blijven onder ons privacybeleid vallen.",
+    "privacyLink": "Privacybeleid",
+    "homeLink": "Terug naar de startpagina"
   }
 }

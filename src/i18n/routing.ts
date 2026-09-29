@@ -293,10 +293,6 @@ export const routing = defineRouting({
     // signal etait consolide sur l'accueil (audit 21/09).
     '/subscribe': '/subscribe',
     '/refonte': '/refonte',
-    '/refonte/preview/mosaique': '/refonte/preview/mosaique',
-    '/refonte/preview/thermometre': '/refonte/preview/thermometre',
-    '/refonte/preview/texte-fort': '/refonte/preview/texte-fort',
-    '/refonte/preview/multilingue': '/refonte/preview/multilingue',
   },
 });
 

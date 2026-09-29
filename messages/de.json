@@ -580,16 +580,17 @@
     "thirdParties": {
       "title": "Auftragsverarbeiter und Drittanbieter-Tools",
       "description": "Im Sinne der Transparenz finden Sie hier die vollständige Liste der von dieser Website genutzten externen Dienste:",
-      "hosting": "Hetzner (Hosting): hostet die Website auf einem Server in Nürnberg, Deutschland. Verarbeitet Serverprotokolle (IP-Adressen, HTTP-Header). Keine personenbezogenen Daten werden über die temporären technischen Protokolle hinaus gespeichert.",
+      "hosting": "Hetzner (Hosting): hostet die Website auf einem Server in Nürnberg, Deutschland. Auf diesem Server liegen personenbezogene Daten: temporäre technische Protokolle (IP-Adressen, HTTP-Header), die unten beschriebene Datenbank, die Umami-Statistiken und die Daten des Stuut per E-Mail (siehe den entsprechenden Abschnitt).",
       "cloudflare": "Cloudflare (CDN und DDoS-Schutz): filtert und verteilt den Datenverkehr über seine europäischen Standorte. Verarbeitet die IP-Adressen der Besucher während der Anfrage. US-Unternehmen, zertifiziert unter dem EU-US Data Privacy Framework.",
       "umami": "Umami (Statistiken): datenschutzfreundliche Reichweitenmessung, selbst gehostet auf unserem eigenen Server in Deutschland. Keine Cookies, kein seitenübergreifendes Tracking. Seitenadressen werden ohne Query-String gespeichert, mit Ausnahme der Kampagnen-Tags (utm_-Parameter), sodass kein Token aus einem E-Mail-Link erhalten bleibt. Bei einer externen verweisenden Website werden nur Domain und Pfad gespeichert. Dem Team vorbehaltene Seiten (Verwaltung, Prüfung, Anmeldung) werden nicht gemessen.",
       "resend": "Resend (E-Mails): versendet Bestätigungs-E-Mails, wöchentliche Zusammenfassungen und den täglichen Stuut. Verarbeitet E-Mail-Adressen der Abonnenten. Sitz in den USA mit DSGVO-Konformität (DPA unterzeichnet).",
       "stripe": "Stripe (Zahlungen): verarbeitet Spenden, Vorbestellungen des Buches und die Freischaltung des Assistenten. Die Eingabe der Zahlungsdaten erfolgt auf von Stripe gehosteten Seiten: die Website sieht und speichert keine Kartendaten. US-amerikanisches Unternehmen.",
       "anthropic": "Anthropic (KI-Assistent): verarbeitet die an den BGM-Assistenten gestellten Fragen, um die Antworten zu erzeugen. US-amerikanisches Unternehmen. Die Fragen werden keiner Identität zugeordnet, und die E-Mail-Adresse, die der Assistent abfragen kann, wird nicht an Anthropic übermittelt.",
-      "database": "Datenbank: Die Telemetrie des Assistenten, die Stimmen der Befragung und das Register der Buchvorbestellungen, das Vorname und E-Mail-Adresse enthält, werden in einer SQLite-Datenbank auf unserem eigenen Server bei Hetzner in Deutschland gespeichert.",
-      "legalBasis": "Rechtsgrundlage: berechtigtes Interesse (Artikel 6.1.f DSGVO) für Hetzner, Cloudflare, Umami, die Datenbank und Anthropic; Einwilligung (Artikel 6.1.a) für Resend; Vertragserfüllung (Artikel 6.1.b) für Stripe.",
+      "database": "Datenbank: Eine SQLite-Datenbank auf unserem eigenen Server bei Hetzner in Deutschland enthält das Register der Buchvorbestellungen (Vorname und E-Mail-Adresse), die Stimmen der Befragung zur Startseite, mit der E-Mail-Adresse der Teilnehmenden, die eine angegeben haben, das Protokoll des Assistenten (gestellte Fragen und Fingerabdrücke der E-Mail-Adressen, die zum Freischalten weiterer Fragen angegeben wurden), die Kennungen der Stripe-Zahlungen für den Zugang zum Assistenten und das Register der Abmeldungen, das nur einen Fingerabdruck der Adresse speichert.",
+      "dropbox": "Dropbox (Sicherung): Alle sechs Stunden wird eine Kopie dieser Datenbank in einen Dropbox-Speicher übertragen, damit sie bei einem Serverausfall wiederhergestellt werden kann. Wir verschlüsseln diese Kopien vor dem Versand nicht. US-Unternehmen.",
+      "legalBasis": "Rechtsgrundlage: berechtigtes Interesse (Artikel 6.1.f DSGVO) für Hetzner, Cloudflare, Umami, die Datenbank, ihre Sicherung bei Dropbox und Anthropic; Einwilligung (Artikel 6.1.a) für Resend; Vertragserfüllung (Artikel 6.1.b) für Stripe.",
       "statusPage": "Statusseite des Dienstes: https://status.governance.brussels",
-      "transfers": "Übermittlungen außerhalb der EU: Hosting, Statistiken und Datenbank bleiben in Europa. Resend, Stripe, Anthropic (Vereinigte Staaten) und Cloudflare (US-Unternehmen) arbeiten auf Grundlage von Standardvertragsklauseln (SCCs) oder der EU-US-Data-Privacy-Framework-Zertifizierung (DPF). Die DPAs werden mit den Nutzungsbedingungen des jeweiligen Dienstes akzeptiert."
+      "transfers": "Übermittlungen außerhalb der EU: Der Server der Website, die Statistiken und die Datenbank befinden sich in Europa. Eine Sicherungskopie der Datenbank wird Dropbox, einem US-Unternehmen, anvertraut. Resend, Stripe, Anthropic (Vereinigte Staaten) und Cloudflare (US-Unternehmen) arbeiten auf Grundlage von Standardvertragsklauseln (SCCs) oder der EU-US-Data-Privacy-Framework-Zertifizierung (DPF). Die DPAs dieser vier Dienste werden mit ihren Nutzungsbedingungen akzeptiert."
     },
     "games": {
       "title": "Tägliche Spiele (Stuut und Amai)",
@@ -2530,5 +2531,19 @@
     "s7link": "Datenschutzerklärung",
     "lastUpdated": "Letzte Aktualisierung: {date}",
     "paywallLink": "Verkaufsbedingungen"
+  },
+  "refonte": {
+    "metaTitle": "Befragung zur Startseite (abgeschlossen)",
+    "metaDescription": "Die Befragung von 2026 zur Startseite des Brussels Governance Monitor ist abgeschlossen.",
+    "eyebrow": "Befragung · abgeschlossen",
+    "title": "Die Befragung zur Startseite ist abgeschlossen",
+    "noteDate": "Hinweis vom 29. September 2026",
+    "intro": "Diese Befragung lud die Leserinnen und Leser ein, die Ausrichtung der neuen Startseite des Brussels Governance Monitor zu wählen. Sie nimmt keine Stimmen mehr an.",
+    "participation": "Sie erhielt 16 Stimmen. Vor ihrer Eröffnung hatten wir 50 Stimmen als Minimum festgelegt, damit die Ergebnisse aussagekräftig sind. Dieses Minimum wurde nicht erreicht: Die zum Abschluss angekündigte Auswertung wird nicht veröffentlicht, weil sie die Leserschaft nicht abbilden würde.",
+    "home": "Die Startseite wurde am 18. September 2026 neu gestaltet.",
+    "next": "Wir bereiten eine Umfrage unter den Leserinnen und Lesern des Digest vor. Sie wird im Digest angekündigt, sobald sie startet.",
+    "privacy": "Die von der Befragung erhobenen Daten unterliegen weiterhin unserer Datenschutzrichtlinie.",
+    "privacyLink": "Datenschutzrichtlinie",
+    "homeLink": "Zurück zur Startseite"
   }
 }

@@ -124,6 +124,29 @@ describe('POST /api/chat, forme de l’historique', () => {
   });
 });
 
+describe('POST /api/chat, plus de réponses préparées (29/09/2026)', () => {
+  it('une ancienne question suggérée part au modèle, jamais à un cache figé', async () => {
+    // Le cache du 22/04 répondait « 2 tenus » (exemple du prompt recopié),
+    // 16 ou 23 dossiers et « Premium ». Retiré avec les boutons.
+    stream.mockReturnValue({
+      async *[Symbol.asyncIterator]() {
+        yield { type: 'content_block_delta', delta: { type: 'text_delta', text: 'réponse du modèle' } };
+      },
+      finalMessage: async () => ({ usage: { input_tokens: 1, output_tokens: 1 } }),
+    });
+    const res = await POST(
+      requete({
+        messages: [{ role: 'user', content: 'Quels engagements de la DPR ont été vérifiés ?' }],
+        locale: 'fr',
+        tier: 'free',
+      }),
+    );
+    expect(res.status).toBe(200);
+    expect(await res.text()).toBe('réponse du modèle');
+    expect(stream).toHaveBeenCalledTimes(1);
+  });
+});
+
 describe('POST /api/chat, taille du corps', () => {
   it('refuse en 413 un corps en flux, sans Content-Length, au-delà de 64 Kio', async () => {
     const enorme = JSON.stringify({

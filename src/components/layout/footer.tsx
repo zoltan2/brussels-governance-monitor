@@ -149,6 +149,8 @@ export function Footer() {
             <NavLink zone="pied-de-page" href="/privacy" className="hover:text-neutral-700">{t('privacy')}</NavLink>
             {' · '}
             <NavLink zone="pied-de-page" href="/legal" className="hover:text-neutral-700">{t('legal')}</NavLink>
+            {' · '}
+            <NavLink zone="pied-de-page" href="/terms" className="hover:text-neutral-700">{t('terms')}</NavLink>
           </p>
           <p className="mt-1 text-xs text-neutral-500">{t('disclaimer')}</p>
         </div>

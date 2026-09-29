@@ -56,6 +56,12 @@ export const routing = defineRouting({
       en: '/privacy',
       de: '/datenschutz',
     },
+    '/terms': {
+      fr: '/conditions-de-vente',
+      nl: '/verkoopvoorwaarden',
+      en: '/terms-of-sale',
+      de: '/verkaufsbedingungen',
+    },
     '/legal': {
       fr: '/mentions-legales',
       nl: '/juridisch',

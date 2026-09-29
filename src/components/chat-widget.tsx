@@ -11,6 +11,7 @@ import {
   type ReactNode,
 } from 'react';
 import { useLocale } from 'next-intl';
+import { routing } from '@/i18n/routing';
 import { useRouter } from 'next/navigation';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import { HIDDEN_UNTIL_SCROLL, useRevealOnScroll } from '@/components/use-reveal-on-scroll';
@@ -104,6 +105,22 @@ const WAIVER: Record<string, string> = {
   en: 'I request immediate access to the assistant and acknowledge that I lose my 14-day right of withdrawal once access is opened.',
   de: 'Ich verlange den sofortigen Zugang zum Assistenten und erkenne an, dass ich mein 14-tägiges Widerrufsrecht mit der Freischaltung verliere.',
 };
+
+// Lien vers les conditions de vente (/terms), ouvert dans un nouvel onglet pour
+// ne pas perdre l'étape de paiement.
+const TERMS_LINK: Record<string, string> = {
+  fr: 'Conditions de vente',
+  nl: 'Verkoopvoorwaarden',
+  en: 'Terms of sale',
+  de: 'Verkaufsbedingungen',
+};
+
+/** Chemin localisé de /terms, lu dans routing.ts (source unique des slugs). */
+export function cheminConditions(locale: string): string {
+  const chemins = routing.pathnames['/terms'] as Record<string, string>;
+  const l = chemins[locale] ? locale : 'fr';
+  return `/${l}${chemins[l]}`;
+}
 
 const UNLOCK_CONFIRM: Record<string, string> = {
   fr: 'Paiement confirmé — l’assistant est débloqué pour 90 jours. Merci pour votre soutien.',
@@ -1034,7 +1051,17 @@ export function ChatWidget() {
         onChange={(e) => setRenonce(e.target.checked)}
         className="mt-0.5 h-4 w-4 shrink-0 accent-brand-900"
       />
-      <span>{WAIVER[locale] ?? WAIVER.fr}</span>
+      <span>
+        {WAIVER[locale] ?? WAIVER.fr}{' '}
+        <a
+          href={cheminConditions(locale)}
+          target="_blank"
+          rel="noopener"
+          className="text-brand-700 underline hover:text-brand-900"
+        >
+          {TERMS_LINK[locale] ?? TERMS_LINK.fr}
+        </a>
+      </span>
     </label>
   );
   const fc = FEEDBACK[locale] ?? FEEDBACK.fr;

@@ -7,6 +7,20 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { useLocale, useTranslations } from 'next-intl';
 import { excerptSegments } from '@/lib/search-excerpt';
+import { track } from '@/lib/analytics';
+import {
+  trancheResultats,
+  typeDeResultat,
+  type OrigineRecherche,
+} from '@/lib/search-analytics';
+
+/**
+ * Délai pendant lequel un affichage de résultats doit rester stable avant
+ * d'émettre `recherche-requete` : au-delà du débounce de 200 ms de la recherche,
+ * pour ne pas mesurer un mot à moitié tapé. Fermer le dialogue ou cliquer un
+ * résultat émet sans attendre.
+ */
+const DELAI_MESURE_REQUETE_MS = 1000;
 
 interface SearchResult {
   url: string;
@@ -60,6 +74,36 @@ export function Search({ variante = 'barre', raccourciClavier = true }: SearchPr
   const triggerRef = useRef<HTMLButtonElement>(null);
   const etaitOuvert = useRef(false);
 
+  // Mesure (src/lib/search-analytics.ts). Origine d'ouverture : déduite des
+  // props, les trois instances de l'entête étant distinctes (barre large avec
+  // raccourci, loupe mobile, bouton du menu mobile sans raccourci). Le
+  // raccourci clavier l'écrase au moment où il ouvre.
+  const origineBouton: OrigineRecherche =
+    variante === 'icone' ? 'mobile' : raccourciClavier ? 'entete' : 'menu';
+  const origineOuverture = useRef<OrigineRecherche>(origineBouton);
+  // Nombre de résultats affichés pour la requête courante, `null` tant
+  // qu'aucune recherche n'a abouti depuis l'ouverture. Jamais la requête.
+  const affichageMesure = useRef<number | null>(null);
+  const requeteMesuree = useRef(false);
+  const minuterieMesure = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const requeteCourante = useRef('');
+
+  const emettreRequete = useCallback(() => {
+    if (minuterieMesure.current) clearTimeout(minuterieMesure.current);
+    minuterieMesure.current = null;
+    if (requeteMesuree.current || affichageMesure.current === null) return;
+    requeteMesuree.current = true;
+    track('recherche-requete', {
+      resultats: trancheResultats(affichageMesure.current),
+      langue: locale,
+    });
+  }, [locale]);
+
+  function ouvrirDepuisBouton() {
+    origineOuverture.current = origineBouton;
+    setOpen(true);
+  }
+
   useEffect(() => {
     // Lecture d'une API navigateur au montage : la valeur ne peut pas être
     // connue au rendu serveur, donc l'effet est ici le seul point d'entrée.
@@ -82,6 +126,14 @@ export function Search({ variante = 'barre', raccourciClavier = true }: SearchPr
   }, [open, pagefind]);
 
   useEffect(() => {
+    if (open && !etaitOuvert.current) {
+      affichageMesure.current = null;
+      requeteMesuree.current = false;
+      track('recherche-ouverte', { origine: origineOuverture.current });
+    } else if (!open && etaitOuvert.current) {
+      // Fermeture avant la fin du délai : la requête affichée compte quand même.
+      emettreRequete();
+    }
     if (open) {
       inputRef.current?.focus();
     } else if (etaitOuvert.current) {
@@ -91,12 +143,23 @@ export function Search({ variante = 'barre', raccourciClavier = true }: SearchPr
       if (!actif || actif === document.body) triggerRef.current?.focus();
     }
     etaitOuvert.current = open;
-  }, [open]);
+  }, [open, emettreRequete]);
+
+  useEffect(
+    () => () => {
+      if (minuterieMesure.current) clearTimeout(minuterieMesure.current);
+    },
+    [],
+  );
 
   const search = useCallback(
     async (term: string) => {
+      requeteCourante.current = term;
       if (!pagefind || !term.trim()) {
         setResults([]);
+        affichageMesure.current = null;
+        if (minuterieMesure.current) clearTimeout(minuterieMesure.current);
+        minuterieMesure.current = null;
         return;
       }
 
@@ -127,8 +190,14 @@ export function Search({ variante = 'barre', raccourciClavier = true }: SearchPr
         .filter((r: SearchResult) => r.url.includes(`/${locale}/`))
         .map((r: SearchResult) => ({ ...r, url: r.url.replace(/\.html$/, '') }));
       setResults(filtered);
+
+      // Réponse périmée (la saisie a changé entre-temps) : pas de mesure.
+      if (term !== requeteCourante.current) return;
+      affichageMesure.current = filtered.length;
+      if (minuterieMesure.current) clearTimeout(minuterieMesure.current);
+      minuterieMesure.current = setTimeout(emettreRequete, DELAI_MESURE_REQUETE_MS);
     },
-    [pagefind, locale],
+    [pagefind, locale, emettreRequete],
   );
 
   useEffect(() => {
@@ -141,6 +210,7 @@ export function Search({ variante = 'barre', raccourciClavier = true }: SearchPr
     function handleKeydown(e: KeyboardEvent) {
       if (raccourciClavier && (e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
+        origineOuverture.current = 'raccourci';
         setOpen((prev) => !prev);
       }
       if (e.key === 'Escape') {
@@ -174,7 +244,7 @@ export function Search({ variante = 'barre', raccourciClavier = true }: SearchPr
         <button
           ref={triggerRef}
           type="button"
-          onClick={() => setOpen(true)}
+          onClick={ouvrirDepuisBouton}
           className="inline-flex h-11 w-11 items-center justify-center rounded-md text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
           aria-label={t('open')}
           aria-haspopup="dialog"
@@ -192,7 +262,7 @@ export function Search({ variante = 'barre', raccourciClavier = true }: SearchPr
         <button
           ref={triggerRef}
           type="button"
-          onClick={() => setOpen(true)}
+          onClick={ouvrirDepuisBouton}
           className="inline-flex items-center gap-1.5 rounded-md border border-neutral-500 bg-neutral-50 px-2.5 py-1 text-xs text-neutral-500 transition-colors hover:bg-neutral-100"
           aria-label={t('placeholder')}
         >
@@ -276,7 +346,11 @@ export function Search({ variante = 'barre', raccourciClavier = true }: SearchPr
                   <li key={i} role="option" aria-selected={false}>
                     <a
                       href={result.url}
-                      onClick={() => setOpen(false)}
+                      onClick={() => {
+                        emettreRequete();
+                        track('recherche-clic', { rang: i + 1, type: typeDeResultat(result.url) });
+                        setOpen(false);
+                      }}
                       className="block rounded-md px-3 py-2 hover:bg-neutral-100"
                     >
                       <p className="text-sm font-medium text-neutral-900">

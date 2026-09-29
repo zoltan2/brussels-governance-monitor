@@ -142,6 +142,13 @@ const EVENEMENTS_ACTIONS = [
   // Réponse 2xx de l'inscription (le clic, lui, reste `accueil-inscription`),
   // avec `page` et `statut`. Jamais l'adresse.
   'inscription-reussie',
+  // Recherche (29/09/2026, ligne de base du projet Search) : ouverture avec
+  // `origine`, requête (tranche de résultats et langue, une fois par ouverture),
+  // clic sur un résultat avec `rang` et `type`. JAMAIS le texte saisi : voir
+  // src/lib/search-analytics.ts et search.render.test.tsx.
+  'recherche-ouverte',
+  'recherche-requete',
+  'recherche-clic',
 ];
 
 /**

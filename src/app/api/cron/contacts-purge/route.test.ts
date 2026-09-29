@@ -55,8 +55,15 @@ function semer() {
   noterDesabonnement(db, 'empreinte-perimee', maintenant - 800 * JOUR_MS);
   noterDesabonnement(db, 'empreinte-23-mois', maintenant - 700 * JOUR_MS);
   // Une question de 91 jours, une de 10 jours, un retour d'avis de 200 jours.
-  pushLogSqlite(db, 'usage', { question: 'vieille' });
-  pushLogSqlite(db, 'usage', { question: 'recente' });
+  pushLogSqlite(db, 'usage', {
+    question: 'vieille',
+    locale: 'nl',
+    prompt_tokens: 9100,
+    completion_tokens: 240,
+    dossier_count: 34,
+    session: 'abc123def456',
+  });
+  pushLogSqlite(db, 'usage', { question: 'recente', prompt_tokens: 9000 });
   pushLogSqlite(db, 'feedback', { value: 1 });
   db.prepare("UPDATE chat_logs SET created_at = ? WHERE payload LIKE '%vieille%'").run(
     maintenant - 91 * JOUR_MS,
@@ -152,7 +159,7 @@ describe('GET /api/cron/contacts-purge', () => {
     expect(ligne?.desabonne_le).toBeGreaterThanOrEqual(avant);
   });
 
-  it('actif : efface les empreintes de plus de 24 mois et les questions de plus de 90 jours', async () => {
+  it('actif : efface les empreintes de plus de 24 mois et le texte des questions de plus de 90 jours', async () => {
     process.env.CONTACTS_PURGE_ENABLED = '1';
     semer();
     const corps = await (await GET(requete())).json();
@@ -161,10 +168,28 @@ describe('GET /api/cron/contacts-purge', () => {
     expect(corps.questionsExpirees).toBe(1);
     expect(lireDesabonnement(db, 'empreinte-perimee')).toBeNull();
     expect(lireDesabonnement(db, 'empreinte-23-mois')).not.toBeNull();
-    const questions = db
-      .prepare("SELECT payload FROM chat_logs WHERE stream = 'usage'")
-      .all() as { payload: string }[];
-    expect(questions.map((q) => JSON.parse(q.payload).question)).toEqual(['recente']);
+    const lignes = (
+      db.prepare("SELECT payload FROM chat_logs WHERE stream = 'usage' ORDER BY id").all() as {
+        payload: string;
+      }[]
+    ).map((q) => JSON.parse(q.payload));
+    // Le texte part, la ligne et ses chiffres restent (décision du 29/09/2026 :
+    // seule série de coût de l'assistant).
+    expect(lignes).toHaveLength(2);
+    expect(lignes.map((l) => l.question)).toEqual([undefined, 'recente']);
+    expect(lignes[0]).toEqual({
+      locale: 'nl',
+      prompt_tokens: 9100,
+      completion_tokens: 240,
+      dossier_count: 34,
+      session: 'abc123def456',
+    });
+    expect(JSON.stringify(lignes[0])).not.toContain('vieille');
+
+    // Deuxième passage : plus rien à effacer, rien de supprimé.
+    const encore = await (await GET(requete())).json();
+    expect(encore.questionsExpirees).toBe(0);
+    expect(compterLignes("chat_logs WHERE stream = 'usage'")).toBe(2);
     // Les autres flux gardent leur seul plafond de 10 000 entrées.
     expect(compterLignes("chat_logs WHERE stream = 'feedback'")).toBe(1);
   });

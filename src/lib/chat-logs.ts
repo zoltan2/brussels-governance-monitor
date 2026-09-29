@@ -233,24 +233,39 @@ export function pruneLogsSqlite(
 // le trafic est faible. Appelé par /api/cron/contacts-purge. Les autres flux
 // (errors, feedback, email-gate) ne contiennent pas le texte des questions et
 // gardent leur seul plafond.
+//
+// On EFFACE LE TEXTE, on garde la ligne. La première version (#634) supprimait
+// la ligne entière, donc aussi la date, la langue, les jetons et le nombre de
+// dossiers : la seule série de coût de l'assistant (revue green du 29/09/2026).
+// Décision de Zoltán le 29/09 : garder cet historique. La promesse porte sur
+// la question, qui est la seule donnée libre ; l'identifiant de session est un
+// hachage quotidien non réversible, que la politique ne promet pas d'effacer.
 // ---------------------------------------------------------------------------
 
 export const QUESTIONS_RETENTION_DAYS = 90;
 
-/** Nombre de questions enregistrées avant `limitMs` (strictement). */
+const QUESTION_PRESENTE = "json_extract(payload, '$.question') IS NOT NULL";
+
+/** Nombre de questions encore en clair, enregistrées avant `limitMs` (strictement). */
 export function countExpiredQuestionsSqlite(db: DatabaseSync, limitMs: number): number {
   const r = db
     .prepare(
-      "SELECT COUNT(*) AS n FROM chat_logs WHERE stream = 'usage' AND created_at < ?",
+      `SELECT COUNT(*) AS n FROM chat_logs WHERE stream = 'usage' AND created_at < ? AND ${QUESTION_PRESENTE}`,
     )
     .get(limitMs) as { n: number };
   return Number(r.n);
 }
 
-/** Supprime les questions enregistrées avant `limitMs`. Rend le nombre supprimé. */
+/**
+ * Efface le texte des questions enregistrées avant `limitMs`, en gardant la
+ * ligne et ses chiffres. Rend le nombre de questions effacées.
+ */
 export function purgeExpiredQuestionsSqlite(db: DatabaseSync, limitMs: number): number {
   const res = db
-    .prepare("DELETE FROM chat_logs WHERE stream = 'usage' AND created_at < ?")
+    .prepare(
+      `UPDATE chat_logs SET payload = json_remove(payload, '$.question')
+       WHERE stream = 'usage' AND created_at < ? AND ${QUESTION_PRESENTE}`,
+    )
     .run(limitMs);
   return Number(res.changes);
 }

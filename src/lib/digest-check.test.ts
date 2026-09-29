@@ -82,7 +82,9 @@ describe('Règle 1 : complétude entre langues', () => {
   });
 
   it('compte aussi les sous-sections « ### » : w36 publié, cinq sujets sur quinze perdus en swahili', () => {
-    const f = checkCompleteness({ fr: archive('2026-w36', 'fr'), sw: archive('2026-w36', 'sw') }, { requireAll: false });
+    // Version publiée avant sa correction (#653), figée en fixture : l'archive
+    // corrigée ne présente plus le défaut.
+    const f = checkCompleteness({ fr: brut('2026-w36.fr.brut.mdx'), sw: brut('2026-w36.sw.brut.mdx') }, { requireAll: false });
     expect(f.filter((x) => x.level === 'error').map((x) => x.message)).toEqual([
       '10 sous-section(s) « ### » contre 15 en français',
       expect.stringMatching(/^corps de \d+ caractères, 58 % du français/),

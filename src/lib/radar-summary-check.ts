@@ -14,7 +14,7 @@
  *
  * Bornes : 20 caractères au moins (en dessous, c'est le repli qu'on veut
  * éviter), 180 au plus, le plafond au-delà duquel l'accueil coupe le résumé et
- * ajoute « … » (HOMEPAGE_SIGNAL_MAX_CHARS de la page, verrouillé par le test).
+ * ajoute « … » (HOMEPAGE_SIGNAL_MAX_CHARS de src/lib/homepage-signals.ts, verrouillé par le test).
  *
  * Seuls les signaux AJOUTÉS (id absent de la base) sont vérifiés : les 114
  * signaux anciens sans résumé ne bloquent aucune veille.
@@ -23,7 +23,7 @@
  */
 
 export const RADAR_SUMMARY_MIN = 20;
-/** Égal à HOMEPAGE_SIGNAL_MAX_CHARS dans src/app/[locale]/page.tsx (test de verrou). */
+/** Égal à HOMEPAGE_SIGNAL_MAX_CHARS de src/lib/homepage-signals.ts (test de verrou). */
 export const RADAR_SUMMARY_MAX = 180;
 
 const LOCALES = ['fr', 'nl', 'en', 'de'] as const;

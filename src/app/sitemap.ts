@@ -307,6 +307,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: '/changelog' },
     { href: '/privacy' },
     { href: '/legal' },
+    { href: '/terms' },
     { href: '/transparency' },
     { href: '/accessibility' },
     { href: '/about' },

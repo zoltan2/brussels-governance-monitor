@@ -118,7 +118,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-        <NavLink zone="entete" href="/" className="flex items-center gap-2 text-base font-semibold tracking-tight text-brand-900">
+        <NavLink zone="entete" href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight text-brand-900 min-[375px]:text-base">
           <Image src="/logo.png" alt="" width={28} height={28} className="shrink-0" />
           Brussels Governance Monitor
         </NavLink>

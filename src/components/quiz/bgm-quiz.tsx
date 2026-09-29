@@ -398,20 +398,16 @@ export default function BGMQuiz({ sourcesSuivies, langues }: QuizSiteStats) {
             </a>
           )}
 
-          {/* Podcast — FR + NL */}
-          {(locale === 'fr' || locale === 'nl') && (
-            <a
-              href={locale === 'fr'
-                ? 'https://podcast.governance.brussels/@lebriefingbgm'
-                : 'https://podcast.governance.brussels/@debriefingbgm'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
-            >
-              <div className="text-sm font-medium text-neutral-900">{t('podcastTitle')}</div>
-              <div className="mt-0.5 text-xs text-neutral-500">{t('podcastDesc')}</div>
-            </a>
-          )}
+          {/*
+            Carte podcast retiree le 29/09/2026. Elle annoncait « l'essentiel
+            en 5 min » dans un bloc « pour aller plus loin », donc comme une
+            serie vivante. Flux Castopod verifie ce jour-la : 8 episodes FR
+            (562 a 688 s) et 7 NL (562 a 666 s), les derniers publies les 22
+            et 23/04/2026, rien depuis. Un briefing d'actualite en pause depuis
+            cinq mois renvoyait le lecteur vers des nouvelles perimees. A
+            remettre si le podcast reprend (question posee par le sondage
+            lecteurs, spec bgm-ops 2026-09-25).
+          */}
 
           {/* Digest email — all locales */}
           <a

@@ -1,16 +1,33 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/metadata';
-import { notFound } from 'next/navigation';
+import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
-import { RefonteForm } from './refonte-form';
 
-// Consultation v1 FR uniquement. On pré-génère tous les locales pour
-// que /nl/, /en/, /de/refonte renvoient un 404 statique propre via
-// notFound() — sinon le runtime hit fait crasher avec 500.
+/*
+ * Consultation /refonte : CLOSE le 29/09/2026.
+ *
+ * Premier vote le 28/04/2026, dernier le 11/05/2026 (spec bgm-ops 2026-04-28-homepage-refonte-
+ * participatory-design.md), en francais seulement. Elle a recueilli 16 votes
+ * (compte lu en lecture seule sur la base de production le 29/09/2026), sous
+ * le seuil de validite de 50 votes complets que fixait sa propre spec.
+ * L'accueil a ete refait le 18/09/2026 (#493). La page promettait une synthese
+ * « a la cloture » : la note dit qu'il n'y en aura pas, et pourquoi.
+ *
+ * Le formulaire, les quatre maquettes (/refonte/preview/*) et leur gabarit ont
+ * ete retires ; ils restent dans l'historique git. La route
+ * /api/refonte-vote refuse tout vote (410). Les votes deja recus restent
+ * consultables dans /admin/refonte.
+ *
+ * La note est servie dans les quatre langues, alors que le formulaire n'etait
+ * qu'en francais : un lien partage vers /nl/refonte recoit une reponse, pas
+ * une 404.
+ */
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -21,10 +38,11 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'refonte' });
   const base = buildMetadata({
     locale,
-    title: 'Refonte de la home — consultation participative',
-    description: "Choisis avec nous l'angle de la prochaine home de governance.brussels.",
+    title: t('metaTitle'),
+    description: t('metaDescription'),
     path: '/refonte',
   });
   return {
@@ -39,44 +57,46 @@ export default async function RefontePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  if (locale !== 'fr') notFound();
   setRequestLocale(locale);
 
+  return <RefonteClose />;
+}
+
+function RefonteClose() {
+  const t = useTranslations('refonte');
+
   return (
-    <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
-      <header className="mb-12 border-b border-neutral-200 pb-8">
+    <section className="py-12">
+      <div className="mx-auto max-w-3xl px-4">
         <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
-          Consultation · 2026
+          {t('eyebrow')}
         </p>
-        <h1 className="text-4xl leading-tight tracking-tight text-neutral-900 md:text-5xl">
-          Aide-nous à faire évoluer la homepage.
-        </h1>
+        <h1 className="text-2xl font-bold text-neutral-900 md:text-3xl">{t('title')}</h1>
+        <p className="mt-2 text-sm text-neutral-500">{t('noteDate')}</p>
 
-        <p className="mt-8 max-w-2xl text-base leading-relaxed text-neutral-700 md:text-lg">
-          Le Brussels Governance Monitor prépare une nouvelle version de sa page d&apos;accueil.
-        </p>
+        <div className="mt-8 space-y-4 text-base leading-relaxed text-neutral-700">
+          <p>{t('intro')}</p>
+          <p>{t('participation')}</p>
+          <p>{t('home')}</p>
+          <p>{t('next')}</p>
+          <p className="text-sm text-neutral-600">
+            {t('privacy')}{' '}
+            <Link href="/privacy" className="underline underline-offset-2 hover:text-neutral-900">
+              {t('privacyLink')}
+            </Link>
+          </p>
+        </div>
 
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-700 md:text-lg">
-          Plutôt que d&apos;imposer un choix, on préfère ouvrir la réflexion.
-          Tu es invité·e à te positionner sur cinq axes structurants — pas
-          sur des maquettes finalisées, mais sur des orientations claires.
-        </p>
-
-        <p className="mt-6 max-w-2xl border-l-4 border-neutral-900 pl-5 text-base leading-relaxed text-neutral-800 md:text-lg">
-          Ton vote est consultatif, mais il compte&nbsp;:
-          <br />
-          il viendra nourrir une décision éditoriale qui sera expliquée
-          publiquement une fois le processus terminé.
-        </p>
-
-        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-neutral-600">
-          Cela prend environ trois minutes. Un seul vote par navigateur.
-          <br />
-          À la fin, tu peux ajouter un commentaire libre. Et si tu le
-          souhaites, laisser ton email pour suivre la suite.
-        </p>
-      </header>
-      <RefonteForm />
-    </main>
+        <Link
+          href="/"
+          className="mt-10 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700"
+        >
+          <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          {t('homeLink')}
+        </Link>
+      </div>
+    </section>
   );
 }

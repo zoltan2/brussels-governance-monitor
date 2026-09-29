@@ -580,16 +580,17 @@
     "thirdParties": {
       "title": "Third-party processors",
       "description": "For the sake of transparency, here is the complete list of third-party services used by this site:",
-      "hosting": "Hetzner (hosting): hosts the website on a server located in Nuremberg, Germany. Processes server logs (IP addresses, HTTP headers). No personal data is stored beyond temporary technical logs.",
+      "hosting": "Hetzner (hosting): hosts the website on a server located in Nuremberg, Germany. This server holds personal data: temporary technical logs (IP addresses, HTTP headers), the database described below, the Umami analytics and the data of the Stuut by email (see its own section).",
       "cloudflare": "Cloudflare (CDN and DDoS protection): filters and delivers traffic from its European points of presence. Processes visitor IP addresses for the duration of the request. US company, certified under the EU-US Data Privacy Framework.",
       "umami": "Umami (analytics): privacy-friendly traffic measurement, self-hosted on our own server in Germany. No cookies, no cross-site tracking. Page addresses are recorded without their query string, except for campaign tags (utm_ parameters), so no token contained in an email link is ever stored. For an external referring site, only its domain and path are kept. Pages reserved for the team (administration, review, login) are not measured.",
       "resend": "Resend (email): sends confirmation emails, weekly digests and the daily Stuut. Processes subscriber email addresses. Based in the United States with GDPR compliance (DPA signed).",
       "stripe": "Stripe (payments): processes donations, book pre-orders and assistant unlocking. Card details are entered on pages hosted by Stripe: the site never sees or stores card data. US company.",
       "anthropic": "Anthropic (AI assistant): processes the questions put to the BGM assistant in order to generate answers. US company. Questions are not linked to an identity, and the email address the assistant may ask for is not passed on to Anthropic.",
-      "database": "Database: assistant telemetry, consultation votes and the book pre-order register, which contains first name and email address, are stored in a SQLite database on our own server, at Hetzner in Germany.",
-      "legalBasis": "Legal basis: legitimate interest (GDPR article 6.1.f) for Hetzner, Cloudflare, Umami, the database and Anthropic; consent (article 6.1.a) for Resend; performance of a contract (article 6.1.b) for Stripe.",
+      "database": "Database: a SQLite database on our own server, at Hetzner in Germany, holds the book pre-order register (first name and email address), the votes of the consultation on the home page, with the email address of voters who left one, the assistant log (questions asked and fingerprints of the email addresses given to unlock more questions), the identifiers of Stripe payments for assistant access, and the unsubscribe register, which keeps only a fingerprint of the address.",
+      "dropbox": "Dropbox (backup): a copy of this database is sent every six hours to a Dropbox storage space, so that it can be restored if the server fails. We do not encrypt these copies before sending them. US company.",
+      "legalBasis": "Legal basis: legitimate interest (GDPR article 6.1.f) for Hetzner, Cloudflare, Umami, the database, its backup at Dropbox and Anthropic; consent (article 6.1.a) for Resend; performance of a contract (article 6.1.b) for Stripe.",
       "statusPage": "Service status page: https://status.governance.brussels",
-      "transfers": "Transfers outside the EU: hosting, analytics and database stay in Europe. Resend, Stripe, Anthropic (United States) and Cloudflare (US company) operate under standard contractual clauses (SCCs) or EU-US Data Privacy Framework (DPF) certification. DPAs are accepted along with each service's terms."
+      "transfers": "Transfers outside the EU: the website server, analytics and database are in Europe. A backup copy of the database is entrusted to Dropbox, a US company. Resend, Stripe, Anthropic (United States) and Cloudflare (US company) operate under standard contractual clauses (SCCs) or EU-US Data Privacy Framework (DPF) certification. The DPAs of these four services are accepted along with their terms."
     },
     "games": {
       "title": "Daily games (Stuut and Amai)",
@@ -2530,5 +2531,19 @@
     "s7link": "Privacy policy",
     "lastUpdated": "Last updated: {date}",
     "paywallLink": "Terms of sale"
+  },
+  "refonte": {
+    "metaTitle": "Home page consultation (closed)",
+    "metaDescription": "The 2026 consultation on the Brussels Governance Monitor home page is closed.",
+    "eyebrow": "Consultation · closed",
+    "title": "The home page consultation is closed",
+    "noteDate": "Note of 29 September 2026",
+    "intro": "This consultation asked readers to choose the direction of the new Brussels Governance Monitor home page. It no longer accepts votes.",
+    "participation": "It received 16 votes. Before it opened, we had set 50 votes as the minimum for its results to carry weight. That minimum was not reached: the summary announced for the close will not be published, because it would not represent readers.",
+    "home": "The home page was redesigned on 18 September 2026.",
+    "next": "We are preparing a survey of digest readers. It will be announced in the digest when it opens.",
+    "privacy": "Data collected by the consultation remains covered by our privacy policy.",
+    "privacyLink": "Privacy policy",
+    "homeLink": "Back to home"
   }
 }

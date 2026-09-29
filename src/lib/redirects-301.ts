@@ -87,6 +87,25 @@ export const SLUG_REDIRECTS_301: ReadonlyArray<SlugRedirect301> = [
   { from: '/en/dossiers/zone-revitalisation-urbaine/scrolly', to: '/en/dossiers/urban-revitalisation-zone/scrolly' },
   { from: '/de/dossiers/zone-revitalisation-urbaine', to: '/de/dossiers/staedtische-revitalisierungszone' },
   { from: '/de/dossiers/zone-revitalisation-urbaine/scrolly', to: '/de/dossiers/staedtische-revitalisierungszone/scrolly' },
+  // Consultation /refonte close (2026-09-29) : les quatre maquettes de la page
+  // d'accueil soumises au vote sont retirées ; leurs adresses mènent à la note
+  // de clôture, servie dans les quatre langues.
+  { from: '/fr/refonte/preview/mosaique', to: '/fr/refonte' },
+  { from: '/fr/refonte/preview/thermometre', to: '/fr/refonte' },
+  { from: '/fr/refonte/preview/texte-fort', to: '/fr/refonte' },
+  { from: '/fr/refonte/preview/multilingue', to: '/fr/refonte' },
+  { from: '/nl/refonte/preview/mosaique', to: '/nl/refonte' },
+  { from: '/nl/refonte/preview/thermometre', to: '/nl/refonte' },
+  { from: '/nl/refonte/preview/texte-fort', to: '/nl/refonte' },
+  { from: '/nl/refonte/preview/multilingue', to: '/nl/refonte' },
+  { from: '/en/refonte/preview/mosaique', to: '/en/refonte' },
+  { from: '/en/refonte/preview/thermometre', to: '/en/refonte' },
+  { from: '/en/refonte/preview/texte-fort', to: '/en/refonte' },
+  { from: '/en/refonte/preview/multilingue', to: '/en/refonte' },
+  { from: '/de/refonte/preview/mosaique', to: '/de/refonte' },
+  { from: '/de/refonte/preview/thermometre', to: '/de/refonte' },
+  { from: '/de/refonte/preview/texte-fort', to: '/de/refonte' },
+  { from: '/de/refonte/preview/multilingue', to: '/de/refonte' },
 ];
 
 /**

@@ -70,6 +70,23 @@ describe('checkSummaryFreshness', () => {
     expect(r.verdict).toBe('unparsable');
   });
 
+  it("garde ses messages mot pour mot depuis la mise en commun avec impactReviewed (28/09/2026)", () => {
+    // Les messages sont lus en CI et dans /fr/admin : la factorisation avec la
+    // garde du texte d'impact des secteurs ne doit pas les changer.
+    expect(checkSummaryFreshness({ lastModified: '2026-08-30', summaryReviewed: undefined }).reason).toBe(
+      'summaryReviewed absent. Relire le champ summary, puis ajouter summaryReviewed avec la date du jour.',
+    );
+    expect(checkSummaryFreshness({ lastModified: '2026-08-30', summaryReviewed: '30/08/2026' }).reason).toBe(
+      'summaryReviewed illisible (30/08/2026), format attendu AAAA-MM-JJ.',
+    );
+    expect(checkSummaryFreshness({ lastModified: '2026-08-30', summaryReviewed: '2026-05-31' }).reason).toBe(
+      'chapeau relu il y a 91 jours (limite 90). Relire summary, puis passer summaryReviewed à la date du jour.',
+    );
+    expect(
+      checkSummaryFreshness({ lastModified: '2026-09-10', summaryReviewed: '2026-09-20', today: '2026-09-11' }).reason,
+    ).toBe('summaryReviewed dans le futur (2026-09-20). La date atteste une relecture faite : poser la date du jour.');
+  });
+
   it('accepte un chapeau relu après la dernière publication de la fiche', () => {
     // Cas d'une reprise éditoriale qui relit les chapeaux sans republier les
     // fiches : l'écart est négatif, il est ramené à zéro et le verdict est ok.

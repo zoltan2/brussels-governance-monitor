@@ -2,8 +2,11 @@
 # Garde-fou local AVANT push. Miroir des checks CI de content-lint.yml, qui
 # sinon ne tombent qu'après coup (et restent rouges sur main) : phrases
 # temporelles, sources vides, relecture et unicité des FAQ, chapeau, date du
-# changeSummary, liens internes, schémas des trois fichiers data/ d'une
-# veille (validés sinon au seul next build), date des pages /explainers/
+# changeSummary, titre d'email du changeSummary, sources en double, texte
+# d'impact des fiches secteur, changeType cohérent avec le changelog, liens
+# internes, schémas des trois fichiers data/ d'une veille (validés sinon au
+# seul next build), phrases temporelles et résumés des nouveaux signaux dans
+# data/radar.json et data/changelog.json, date des pages /explainers/
 # dans messages/*.json, redirection de toute page publiée dont l'URL change,
 # et, en avertissement non bloquant, les vérifications en retard.
 #
@@ -91,13 +94,37 @@ if [ -n "$CHANGED_MDX" ]; then
   # signale en `info` par Velite qui publie quand meme. Pas d'echappatoire :
   # SKIP_SUMMARY_CHECK suspend la relecture du chapeau, pas sa longueur.
   npx tsx scripts/content-lint/summary-length.ts "$_cs_list" "$BASE" || rc=1
+  # Titre d'email et de la barre de l'accueil : première phrase d'un
+  # changeSummary nouveau ou réécrit, ni tronquée « … », ni coupée sur une date
+  # allemande (« am 19. ») ou dans une parenthèse.
+  npx tsx scripts/content-lint/lead-headline.ts "$_cs_list" "$BASE" || rc=1
+  # Même URL citée deux fois dans sources: (sans utm_*, fragment, barre finale).
+  npx tsx scripts/content-lint/duplicate-sources.ts "$_cs_list" || rc=1
+  # Fiches secteur : title, humanImpact et activeMechanisms relus (impactReviewed)
+  # depuis moins de 90 jours. SKIP_IMPACT_CHECK=1 : miroir du label skip-impact-check.
+  if [ "${SKIP_IMPACT_CHECK:-0}" != "1" ]; then
+    npx tsx scripts/content-lint/impact-freshness.ts "$_cs_list" || rc=1
+  else
+    echo "SKIP : texte d'impact des fiches secteur (SKIP_IMPACT_CHECK=1)"
+  fi
   rm -f "$_cs_list"
 fi
 
+# 2 ter bis) changeType cohérent avec le changelog, sur tout le dépôt, dès
+#    qu'une fiche ou le changelog change. Même fonction que la CI.
+if [ -n "$CHANGED_MDX" ] || printf '%s\n' "$CHANGED_ALL" | grep -q '^data/changelog\.json$'; then
+  check_change_type || rc=1
+fi
+
 # 2 quater) Schémas de data/radar.json, changelog.json, commitments.json :
-#    validés sinon au seul next build, donc en CI après le push.
+#    validés sinon au seul next build, donc en CI après le push. Puis, sur les
+#    textes ajoutés ou réécrits du radar et du changelog : phrases temporelles
+#    relatives, et summary obligatoire des nouveaux signaux. Même fonction que la CI.
 if printf '%s\n' "$CHANGED_ALL" | grep -qE '^data/(radar|changelog|commitments)\.json$'; then
   npx tsx scripts/content-lint/data-schemas.ts || rc=1
+fi
+if printf '%s\n' "$CHANGED_ALL" | grep -qE '^data/(radar|changelog)\.json$'; then
+  check_data_texts "$BASE" || rc=1
 fi
 
 # 2 quinquies) Liens internes sur le segment de route de leur langue, sur tout le

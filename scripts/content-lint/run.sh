@@ -22,6 +22,12 @@ check_slug_redirects "$BASE_REF" || rc=1
 # bloquant ; seule une date illisible ou future fait échouer.
 check_verification_overdue || rc=1
 
+# changeType cohérent avec le changelog, sur tout le dépôt ; puis textes ajoutés
+# ou réécrits de data/radar.json et data/changelog.json. Avant le filtre des
+# .mdx : une veille modifie aussi, voire seulement, data/.
+check_change_type || rc=1
+check_data_texts "$BASE_REF" || rc=1
+
 CHANGED="$(git diff --name-only "${BASE_REF}...HEAD" -- 'content/' | grep '\.mdx$' || true)"
 if [ -z "$CHANGED" ]; then
   echo "content-lint: aucun .mdx modifié vs ${BASE_REF}, skip"

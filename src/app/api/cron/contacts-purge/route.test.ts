@@ -113,8 +113,8 @@ describe('GET /api/cron/contacts-purge', () => {
       aSupprimer: 1,
       contactsSupprimes: 0,
       lignesExpirees: 1,
-      questionsExpirees: 1,
     });
+    expect(corps).not.toHaveProperty('questionsExpirees');
     expect(deleteContactById).not.toHaveBeenCalled();
     // Rien d'écrit : ni ligne de première observation, ni purge.
     expect(lireDesabonnement(db, fingerprintEmail(INCONNU))).toBeNull();
@@ -159,13 +159,12 @@ describe('GET /api/cron/contacts-purge', () => {
     expect(ligne?.desabonne_le).toBeGreaterThanOrEqual(avant);
   });
 
-  it('actif : efface les empreintes de plus de 24 mois et le texte des questions de plus de 90 jours', async () => {
+  it('actif : efface les empreintes de plus de 24 mois, garde les questions de l’assistant', async () => {
     process.env.CONTACTS_PURGE_ENABLED = '1';
     semer();
     const corps = await (await GET(requete())).json();
 
     expect(corps.lignesExpirees).toBe(1);
-    expect(corps.questionsExpirees).toBe(1);
     expect(lireDesabonnement(db, 'empreinte-perimee')).toBeNull();
     expect(lireDesabonnement(db, 'empreinte-23-mois')).not.toBeNull();
     const lignes = (
@@ -173,23 +172,10 @@ describe('GET /api/cron/contacts-purge', () => {
         payload: string;
       }[]
     ).map((q) => JSON.parse(q.payload));
-    // Le texte part, la ligne et ses chiffres restent (décision du 29/09/2026 :
-    // seule série de coût de l'assistant).
-    expect(lignes).toHaveLength(2);
-    expect(lignes.map((l) => l.question)).toEqual([undefined, 'recente']);
-    expect(lignes[0]).toEqual({
-      locale: 'nl',
-      prompt_tokens: 9100,
-      completion_tokens: 240,
-      dossier_count: 34,
-      session: 'abc123def456',
-    });
-    expect(JSON.stringify(lignes[0])).not.toContain('vieille');
-
-    // Deuxième passage : plus rien à effacer, rien de supprimé.
-    const encore = await (await GET(requete())).json();
-    expect(encore.questionsExpirees).toBe(0);
-    expect(compterLignes("chat_logs WHERE stream = 'usage'")).toBe(2);
+    // Décision de Zoltán du 29/09/2026 : les questions sont gardées, texte
+    // compris, même au-delà de 90 jours (seul plafond : 10 000 entrées).
+    expect(lignes.map((l) => l.question)).toEqual(['vieille', 'recente']);
+    expect(lignes[0].prompt_tokens).toBe(9100);
     // Les autres flux gardent leur seul plafond de 10 000 entrées.
     expect(compterLignes("chat_logs WHERE stream = 'feedback'")).toBe(1);
   });

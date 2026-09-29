@@ -118,7 +118,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-        <NavLink zone="entete" href="/" className="flex items-center gap-2 text-base font-semibold tracking-tight text-brand-900">
+        <NavLink zone="entete" href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight text-brand-900 min-[375px]:text-base">
           <Image src="/logo.png" alt="" width={28} height={28} className="shrink-0" />
           Brussels Governance Monitor
         </NavLink>
@@ -255,24 +255,32 @@ export function Header() {
           <LocaleSwitcher />
         </nav>
 
-        <button
-          ref={mobileToggleRef}
-          type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 lg:hidden"
-          aria-expanded={menuOpen}
-          aria-label="Menu"
-        >
-          {menuOpen ? (
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
+        {/* Sous lg, la loupe reste dans la barre, hors du menu (décision du
+            29/09/2026). Cibles de 44 × 44 px ; la marge négative garde la
+            hauteur de l'entête (la zone cliquable déborde sur son padding).
+            Cette instance n'écoute pas Ctrl/Cmd+K : celle de la barre large
+            s'en charge, et deux écouteurs ouvriraient deux dialogues. */}
+        <div className="-my-1 -mr-2 flex items-center lg:hidden">
+          <Search variante="icone" raccourciClavier={false} />
+          <button
+            ref={mobileToggleRef}
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
+            aria-expanded={menuOpen}
+            aria-label="Menu"
+          >
+            {menuOpen ? (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -280,7 +288,7 @@ export function Header() {
         <div ref={mobileMenuRef} className="border-t border-neutral-100 px-4 pb-4 lg:hidden">
           <nav aria-label="Menu" className="flex flex-col pt-3">
             <div className="pb-3">
-              <Search />
+              <Search raccourciClavier={false} />
             </div>
 
             <hr aria-hidden="true" className="border-neutral-100" />

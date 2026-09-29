@@ -33,7 +33,20 @@ function Excerpt({ html }: { html: string }) {
   );
 }
 
-export function Search() {
+interface SearchProps {
+  /**
+   * `barre` : bouton libellé (barre de navigation large).
+   * `icone` : loupe seule, cible de 44 × 44 px, pour l'entête mobile.
+   */
+  variante?: 'barre' | 'icone';
+  /**
+   * Écoute de Ctrl/Cmd+K. Une seule instance par page doit l'écouter : deux
+   * instances montées ouvriraient deux dialogues au même raccourci.
+   */
+  raccourciClavier?: boolean;
+}
+
+export function Search({ variante = 'barre', raccourciClavier = true }: SearchProps = {}) {
   const t = useTranslations('search');
   const locale = useLocale();
   const [open, setOpen] = useState(false);
@@ -44,6 +57,8 @@ export function Search() {
   const [pagefind, setPagefind] = useState<any>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const etaitOuvert = useRef(false);
 
   useEffect(() => {
     // Lecture d'une API navigateur au montage : la valeur ne peut pas être
@@ -69,7 +84,13 @@ export function Search() {
   useEffect(() => {
     if (open) {
       inputRef.current?.focus();
+    } else if (etaitOuvert.current) {
+      // À la fermeture, le dialogue disparaît avec le focus : le rendre au
+      // bouton qui l'a ouvert, sauf si l'utilisateur l'a déjà posé ailleurs.
+      const actif = document.activeElement;
+      if (!actif || actif === document.body) triggerRef.current?.focus();
     }
+    etaitOuvert.current = open;
   }, [open]);
 
   const search = useCallback(
@@ -118,7 +139,7 @@ export function Search() {
   // Keyboard shortcut: Ctrl/Cmd+K
   useEffect(() => {
     function handleKeydown(e: KeyboardEvent) {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if (raccourciClavier && (e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         setOpen((prev) => !prev);
       }
@@ -128,7 +149,7 @@ export function Search() {
     }
     document.addEventListener('keydown', handleKeydown);
     return () => document.removeEventListener('keydown', handleKeydown);
-  }, []);
+  }, [raccourciClavier]);
 
   function handleDialogKeyDown(e: React.KeyboardEvent) {
     if (e.key !== 'Tab' || !dialogRef.current) return;
@@ -149,25 +170,46 @@ export function Search() {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-1.5 rounded-md border border-neutral-500 bg-neutral-50 px-2.5 py-1 text-xs text-neutral-500 transition-colors hover:bg-neutral-100"
-        aria-label={t('placeholder')}
-      >
-        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
-        <span className="hidden sm:inline">{t('placeholder')}</span>
-        <kbd className="hidden rounded border border-neutral-300 px-1 font-mono text-[10px] sm:inline" suppressHydrationWarning>
-          {isMac ? '\u2318' : 'Ctrl+'}K
-        </kbd>
-      </button>
+      {variante === 'icone' ? (
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={() => setOpen(true)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
+          aria-label={t('open')}
+          aria-haspopup="dialog"
+        >
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </button>
+      ) : (
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={() => setOpen(true)}
+          className="inline-flex items-center gap-1.5 rounded-md border border-neutral-500 bg-neutral-50 px-2.5 py-1 text-xs text-neutral-500 transition-colors hover:bg-neutral-100"
+          aria-label={t('placeholder')}
+        >
+          <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+          <span className="hidden sm:inline">{t('placeholder')}</span>
+          <kbd className="hidden rounded border border-neutral-300 px-1 font-mono text-[10px] sm:inline" suppressHydrationWarning>
+            {isMac ? '\u2318' : 'Ctrl+'}K
+          </kbd>
+        </button>
+      )}
 
       {/* Portail vers <body> : l'entête porte `backdrop-blur`, et un
           `backdrop-filter` crée un bloc conteneur pour les descendants

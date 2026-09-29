@@ -541,9 +541,11 @@ mark {
   }
 }
 
-/* Scroll margin — WCAG 2.4.11: focused/anchored content not obscured by sticky header (~64px) */
+/* Scroll margin — WCAG 2.4.11: focused/anchored content not obscured by sticky header.
+   L'en-tête fait 69 px, mais jusqu'à 81 px quand le titre passe sur deux lignes
+   (320 px de large) : 6rem couvre les deux cas (loupe mobile, 29/09/2026). */
 [id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 6rem;
 }
 
 /* Focus visible — WCAG 2.4.7: visible focus indicator on all interactive elements */

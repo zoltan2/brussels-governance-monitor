@@ -14,6 +14,7 @@ import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import { CHAT_SUGGESTIONS } from '@/lib/chat-suggestions';
+import { HIDDEN_UNTIL_SCROLL, useRevealOnScroll } from '@/components/use-reveal-on-scroll';
 import type { DossierTitleEntry } from '@/app/api/chat/dossier-titles/route';
 
 type Message = {
@@ -539,6 +540,8 @@ function isUnlocked(access: AccessState): boolean {
 }
 
 export function ChatWidget() {
+  // Sous 768 px, la bulle attend le premier défilement : voir use-reveal-on-scroll.ts.
+  const revealed = useRevealOnScroll();
   const locale = useLocale();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -1231,7 +1234,7 @@ export function ChatWidget() {
           trackEvent('chatbot:opened', { locale });
         }}
         aria-label={ui.openAria}
-        className="fixed bottom-4 left-4 z-[9999] flex h-14 w-14 items-center justify-center rounded-full bg-brand-900 text-neutral-50 shadow-lg transition hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:ring-offset-2"
+        className={`fixed bottom-4 left-4 z-[9999] flex h-14 w-14 items-center justify-center rounded-full bg-brand-900 text-neutral-50 shadow-lg transition hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-900 focus:ring-offset-2 ${revealed ? '' : HIDDEN_UNTIL_SCROLL}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

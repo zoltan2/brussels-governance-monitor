@@ -4,6 +4,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { HIDDEN_UNTIL_SCROLL, useRevealOnScroll } from '@/components/use-reveal-on-scroll';
 
 const STORAGE_KEY = 'bgm-a11y';
 
@@ -93,6 +94,10 @@ function getInitialPrefs(): A11yPrefs {
  */
 function AccessibilityToolbarInner({ labels: t, locale }: { labels: ToolbarLabels; locale: string }) {
   const [open, setOpen] = useState(false);
+  // Sous 768 px, le bouton attend le premier défilement ou la première tabulation :
+  // à l'ouverture en 390 × 844, il recouvrait le coin du lien du baromètre de l'accueil.
+  // Voir use-reveal-on-scroll.ts.
+  const revealed = useRevealOnScroll();
   const [prefs, setPrefs] = useState<A11yPrefs>(getInitialPrefs);
   const [speaking, setSpeaking] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -199,7 +204,11 @@ function AccessibilityToolbarInner({ labels: t, locale }: { labels: ToolbarLabel
   const hasTTS = typeof window !== 'undefined' && 'speechSynthesis' in window;
 
   return (
-    <div ref={panelRef} className="fixed bottom-4 end-4 z-50 print:hidden" data-hide-print>
+    <div
+      ref={panelRef}
+      className={`fixed bottom-4 end-4 z-50 print:hidden ${revealed ? '' : HIDDEN_UNTIL_SCROLL}`}
+      data-hide-print
+    >
       {/* Toggle button */}
       {!open && (
         <button

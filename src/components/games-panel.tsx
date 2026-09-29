@@ -60,6 +60,7 @@ const AmaiGame = dynamic(() => import('@/components/amai-game').then((m) => m.Am
 // et le panneau vit dans un portail monté après hydratation. L'appel explicite
 // supprime toute dépendance à la liaison d'événements du tracker.
 import { track } from '@/lib/analytics';
+import { HIDDEN_UNTIL_SCROLL, useRevealOnScroll } from '@/components/use-reveal-on-scroll';
 
 // Identités relevées le 16/09/2026 à la source : stuut.governance.brussels/assets/styles.css
 // (--navy, --teal, --amber, --slate, --ink, --muted) et rendu d'amai.governance.brussels.
@@ -187,6 +188,8 @@ function ongletsFor(locale: string, t: (key: string) => string): Onglet[] {
 
 export function GamesPanel({ locale }: { locale: string }) {
   const [open, setOpen] = useState(false);
+  // Sous 768 px, l'onglet attend le premier défilement : voir use-reveal-on-scroll.ts.
+  const revealed = useRevealOnScroll();
   const [dateDuJour, setDateDuJour] = useState('');
   const [actif, setActif] = useState(0);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -303,7 +306,10 @@ export function GamesPanel({ locale }: { locale: string }) {
 
   return (
     <>
-      {/* Toujours disponible, à toutes les largeurs, en onglet centré au bord gauche.
+      {/* Disponible à toutes les largeurs, en onglet centré au bord gauche. Sous 768 px,
+          il n'apparaît qu'au premier défilement (ou à la première tabulation) : à
+          l'ouverture en 390 × 844, il recouvrait le bord des deux boutons du héros.
+          Voir use-reveal-on-scroll.ts.
           Icône seule au repos : 36 px contre 58 px pour l'ancienne étiquette verticale.
           Le mot se déplie horizontalement au survol et au focus — un texte pivoté à 90°
           se lit nettement moins vite.
@@ -320,7 +326,7 @@ export function GamesPanel({ locale }: { locale: string }) {
         onClick={openPanel}
         aria-expanded={open}
         aria-label={t('protoGamesTab')}
-        className="group fixed left-0 top-1/2 z-[60] flex -translate-y-1/2 items-center rounded-r-lg bg-brand-900 py-3 pl-2 pr-2 text-neutral-50 shadow-lg transition-colors hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 print:hidden"
+        className={`group fixed left-0 top-1/2 z-[60] flex -translate-y-1/2 items-center rounded-r-lg bg-brand-900 py-3 pl-2 pr-2 text-neutral-50 shadow-lg transition-colors hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 print:hidden ${revealed ? '' : HIDDEN_UNTIL_SCROLL}`}
       >
         <Gamepad2 size={20} aria-hidden={true} />
         <span

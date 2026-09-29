@@ -16,11 +16,6 @@ import {
   compterDesabonnementsExpires,
   purgerDesabonnementsExpires,
 } from '@/lib/desabonnements';
-import {
-  QUESTIONS_RETENTION_DAYS,
-  countExpiredQuestionsSqlite,
-  purgeExpiredQuestionsSqlite,
-} from '@/lib/chat-logs';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -38,7 +33,12 @@ export const dynamic = 'force-dynamic';
  *    donc de la première observation par cette route. Avec une ligne de
  *    30 jours ou plus, le contact est supprimé de Resend.
  * 2. Lignes du registre de plus de 24 mois : effacées.
- * 3. Questions de l'assistant de plus de 90 jours : effacées.
+ *
+ * Les questions posées à l'assistant ne sont PAS purgées ici : décision de
+ * Zoltán du 29/09/2026 de les garder (seul plafond : les 10 000 dernières,
+ * src/lib/chat-logs.ts). La politique de confidentialité a été mise à jour
+ * dans les quatre langues le même jour. Une première version (#634, #640)
+ * effaçait leur texte à 90 jours.
  *
  * MODE À BLANC PAR DÉFAUT. Sans `CONTACTS_PURGE_ENABLED=1` dans
  * l'environnement du serveur, la route n'écrit ni ne supprime RIEN (pas même
@@ -114,11 +114,6 @@ export async function GET(request: Request) {
     ? purgerDesabonnementsExpires(db, limiteEmpreintes)
     : compterDesabonnementsExpires(db, limiteEmpreintes);
 
-  const limiteQuestions = maintenant - QUESTIONS_RETENTION_DAYS * JOUR_MS;
-  const questionsExpirees = actif
-    ? purgeExpiredQuestionsSqlite(db, limiteQuestions)
-    : countExpiredQuestionsSqlite(db, limiteQuestions);
-
   const rapport = {
     mode: actif ? 'actif' : 'a-blanc',
     listeComplete: liste.complete,
@@ -129,7 +124,6 @@ export async function GET(request: Request) {
     contactsSupprimes,
     erreursResend,
     lignesExpirees,
-    questionsExpirees,
   };
   console.log('[contacts-purge]', JSON.stringify(rapport));
 

@@ -54,8 +54,8 @@ type AccessState = {
 const ACCESS_KEY = 'bgm_chat_access';
 const RATED_KEY = 'bgm_chat_session_rated';
 const ACCESS_TTL_MS = 90 * 24 * 60 * 60 * 1000; // 90 days
-const FREE_LIMIT = 3;
-const EMAIL_GATED_LIMIT = 13; // 3 free + 10 post-email-gate
+const FREE_LIMIT = 5; // 3 jusqu'au 29/09/2026, décision de Zoltán
+const EMAIL_GATED_LIMIT = 15; // 5 free + 10 post-email-gate
 const PROVIDER = 'anthropic' as const;
 const REASON_ORDER: Reason[] = ['wrong', 'irrelevant', 'hallucinated', 'other'];
 const DEFAULT_ACCESS: AccessState = {
@@ -111,7 +111,7 @@ type ChoiceCopy = {
 };
 const CHOICE: Record<string, ChoiceCopy> = {
   fr: {
-    title: 'Vous avez utilisé vos 3 questions gratuites',
+    title: 'Vous avez utilisé vos 5 questions gratuites',
     subtitle: 'Comment souhaitez-vous continuer ?',
     optionEmail: 'Continuer avec votre email',
     optionEmailHint: '+10 questions gratuites',
@@ -120,7 +120,7 @@ const CHOICE: Record<string, ChoiceCopy> = {
     skip: 'Plus tard',
   },
   nl: {
-    title: 'U hebt uw 3 gratis vragen gebruikt',
+    title: 'U hebt uw 5 gratis vragen gebruikt',
     subtitle: 'Hoe wilt u verdergaan?',
     optionEmail: 'Doorgaan met uw e-mail',
     optionEmailHint: '+10 gratis vragen',
@@ -129,7 +129,7 @@ const CHOICE: Record<string, ChoiceCopy> = {
     skip: 'Later',
   },
   en: {
-    title: 'You have used your 3 free questions',
+    title: 'You have used your 5 free questions',
     subtitle: 'How would you like to continue?',
     optionEmail: 'Continue with your email',
     optionEmailHint: '+10 free questions',
@@ -138,7 +138,7 @@ const CHOICE: Record<string, ChoiceCopy> = {
     skip: 'Maybe later',
   },
   de: {
-    title: 'Sie haben Ihre 3 kostenlosen Fragen verbraucht',
+    title: 'Sie haben Ihre 5 kostenlosen Fragen verbraucht',
     subtitle: 'Wie möchten Sie fortfahren?',
     optionEmail: 'Mit Ihrer E-Mail weitermachen',
     optionEmailHint: '+10 kostenlose Fragen',

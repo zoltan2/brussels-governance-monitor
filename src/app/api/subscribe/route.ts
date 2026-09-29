@@ -16,6 +16,7 @@ import { rateLimit } from '@/lib/rate-limit';
 import ConfirmEmail from '@/emails/confirm';
 import { clientIp } from '@/lib/client-ip';
 import { readJsonCapped } from '@/lib/request-guards';
+import { pseudonymeEmail } from '@/lib/log-safe';
 
 const subscribeSchema = z.object({
   email: z.string().email(),
@@ -98,12 +99,26 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, requiresConfirmation: true });
     }
 
-    // Personne desinscrite : on ne lui ecrit PAS. `getContact` filtre les
-    // desinscrits, donc elle revenait « inconnue » et recevait un nouvel email
-    // de confirmation — a quelqu'un qui avait explicitement demande a ne plus
-    // en recevoir. La reponse reste la meme que pour une adresse inconnue.
+    // Personne desinscrite qui revient : elle recoit l'email de confirmation,
+    // comme une adresse inconnue (double opt-in : rien ne change sans son clic),
+    // mais AU PLUS UN par adresse et par 24 heures.
+    //
+    // Avant le 29/09, cette branche ne lui ecrivait jamais : un tiers ne
+    // pouvait pas relancer quelqu'un qui avait demande a ne plus recevoir de
+    // messages, mais la personne elle-meme ne pouvait plus se reabonner tant que
+    // son contact restait au carnet (desormais 30 jours, purge RGPD). Le
+    // plafond garde la premiere protection : un tiers obtient au plus un email
+    // par jour, sans effet sans clic. La reponse reste identique dans tous les
+    // cas : elle ne revele pas qu'une adresse s'est desinscrite.
     if (await estDesinscrit(email)) {
-      return NextResponse.json({ success: true, requiresConfirmation: true });
+      const { allowed: relanceAutorisee } = rateLimit(pseudonymeEmail(email), {
+        bucket: 'subscribe-desinscrit',
+        max: 1,
+        windowMs: 24 * 60 * 60 * 1000,
+      });
+      if (!relanceAutorisee) {
+        return NextResponse.json({ success: true, requiresConfirmation: true });
+      }
     }
 
     // New subscriber — send confirmation email

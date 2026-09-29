@@ -10,6 +10,7 @@ import {
   ENGAGEMENT_TOPICS,
 } from '@/lib/subscription-topics';
 import { enregistrerDesabonnement } from '@/lib/desabonnements';
+import { pseudonymeEmail } from '@/lib/log-safe';
 
 export { DOMAIN_TOPICS, SECTOR_TOPICS, COMMUNE_TOPICS, ENGAGEMENT_TOPICS };
 
@@ -153,7 +154,7 @@ export async function addContact(
   );
   if (created.error) {
     throw new Error(
-      `Resend contacts.create failed for ${email}: ${formatResendError(created.error)}`,
+      `Resend contacts.create failed for ${pseudonymeEmail(email)}: ${formatResendError(created.error)}`,
     );
   }
   if (!created.data) return;
@@ -166,17 +167,21 @@ export async function addContact(
   );
   if (updated.error) {
     throw new Error(
-      `Resend contacts.update (post-create) failed for ${email}: ${formatResendError(updated.error)}`,
+      `Resend contacts.update (post-create) failed for ${pseudonymeEmail(email)}: ${formatResendError(updated.error)}`,
     );
   }
 }
+
+const ADRESSE_EMAIL = /[^\s@<>"'()]+@[^\s@<>"'()]+\.[^\s@<>"'()]+/g;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function formatResendError(err: any): string {
   if (!err) return 'unknown';
   const name = err.name ?? 'error';
   const status = err.statusCode ? ` ${err.statusCode}` : '';
-  const msg = err.message ?? JSON.stringify(err);
+  // Le message de Resend peut citer l'adresse (« contact x@y already
+  // exists ») : ces erreurs finissent dans les journaux des routes.
+  const msg = String(err.message ?? JSON.stringify(err)).replace(ADRESSE_EMAIL, '[adresse]');
   return `[${name}${status}] ${msg}`;
 }
 
@@ -304,7 +309,7 @@ export async function updateContactPreferences(
   );
   if (result.error) {
     throw new Error(
-      `Resend contacts.update failed for ${email}: ${formatResendError(result.error)}`,
+      `Resend contacts.update failed for ${pseudonymeEmail(email)}: ${formatResendError(result.error)}`,
     );
   }
 }
@@ -342,13 +347,51 @@ export async function removeContact(email: string): Promise<void> {
   // par Resend passait pour réussi (motif de l'incident du 27/04).
   if (result.error) {
     throw new Error(
-      `Resend contacts.update (unsubscribed) failed for ${email}: ${formatResendError(result.error)}`,
+      `Resend contacts.update (unsubscribed) failed for ${pseudonymeEmail(email)}: ${formatResendError(result.error)}`,
     );
   }
   // Toutes les routes de désabonnement passent par ici (/api/unsubscribe GET
   // et POST, one-click, formulaire de préférences) : c'est ici que démarre le
   // délai de 30 jours avant la suppression du contact (cron contacts-purge).
   enregistrerDesabonnement(email);
+}
+
+/**
+ * Réabonne un contact DÉSINSCRIT : `unsubscribed: false` et nouvelles
+ * préférences, sur le contact existant.
+ *
+ * `addContact` échouait ici : `contacts.create` refuse une adresse déjà au
+ * carnet, et `getContact` masque les désinscrits. Une personne désabonnée qui
+ * confirmait un réabonnement recevait l'email de bienvenue sans être abonnée,
+ * jusqu'à la suppression de son contact 30 jours plus tard (revue du 29/09).
+ *
+ * À n'appeler QUE depuis `/api/confirm` : le jeton de confirmation prouve que
+ * la personne a accès à la boîte. `/api/refonte-vote` et les autres appelants
+ * d'`addContact` n'ont pas cette preuve et ne doivent jamais réabonner.
+ */
+export async function reactiverContact(
+  email: string,
+  locale: string,
+  topics: string[],
+  sources: string[] = [],
+): Promise<void> {
+  const resend = getResend();
+  const result = await resendCall(() =>
+    resend.contacts.update({
+      email,
+      unsubscribed: false,
+      properties: {
+        locale,
+        topics: topics.join(','),
+        sources: dedupeSources(sources).join(','),
+      },
+    }),
+  );
+  if (result.error) {
+    throw new Error(
+      `Resend contacts.update (réabonnement) failed for ${pseudonymeEmail(email)}: ${formatResendError(result.error)}`,
+    );
+  }
 }
 
 /**

@@ -103,9 +103,12 @@ describe('fait du jour', () => {
         locale="fr"
       />,
     );
+    // Mesuré par track() au clic, plus par data-umami-event : sur un lien annoté,
+    // le traceur bloque le clic et recharge toute la page (TrackedLink).
     const a = container.querySelector('a')!;
-    expect(a.getAttribute('data-umami-event')).toBe('accueil-fait-du-jour');
-    expect(a.getAttribute('data-umami-event-cible')).toBe('dossiers:lez');
+    expect(a.hasAttribute('data-umami-event')).toBe(false);
+    fireEvent.click(a);
+    expect(trackMock).toHaveBeenCalledWith('accueil-fait-du-jour', { cible: 'dossiers:lez' });
   });
 });
 

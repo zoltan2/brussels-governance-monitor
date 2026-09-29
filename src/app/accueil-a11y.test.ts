@@ -66,7 +66,7 @@ describe('domaines : chapeau coupé sur mobile, entier sur desktop', () => {
 describe('magazine : langue annoncée avant le clic', () => {
   const lien = (() => {
     const src = fonction('FormatsSection');
-    const i = src.indexOf('data-umami-event="accueil-magazine"');
+    const i = src.indexOf('event="accueil-magazine"');
     return src.slice(i, src.indexOf('</a>', i));
   })();
 

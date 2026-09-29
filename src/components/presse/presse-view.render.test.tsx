@@ -7,11 +7,17 @@
  * et des chiffres arbitraires : aucun nombre de la page ne peut être écrit en
  * dur sans que ce test le voie.
  */
-import { cleanup, render, screen, within } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { ReactNode } from 'react';
 
 // Le traducteur simulé restitue la clé ET ses valeurs.
+const trackMock = vi.fn();
+vi.mock('@/lib/analytics', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/lib/analytics')>()),
+  track: (...args: unknown[]) => trackMock(...args),
+}));
+
 vi.mock('next-intl', () => ({
   useTranslations:
     (ns: string) =>
@@ -122,8 +128,12 @@ describe('PresseView', () => {
     expect(carte.querySelector('time')?.getAttribute('dateTime')).toBe('2026-09-06');
     expect(carte.textContent).toContain('domains.confidence.official');
     expect(carte.querySelector('a[href="https://www.example.org/source"]')).not.toBeNull();
-    const lienFiche = carte.querySelector('[data-umami-event="presse-fait"]');
-    expect(lienFiche?.getAttribute('data-umami-event-slug')).toBe('lez');
+    // Lien interne vers la fiche : mesuré par track() au clic (TrackedLink), plus
+    // par data-umami-event, qui rechargeait toute la page.
+    const lienFiche = carte.querySelector('a[href*="lez"]:not([target])') as HTMLElement;
+    trackMock.mockReset();
+    fireEvent.click(lienFiche);
+    expect(trackMock).toHaveBeenCalledWith('presse-fait', { action: 'page', slug: 'lez' });
     expect(carte.textContent).toContain('press.suggestedLabel');
     const citation = carte.querySelector('#presse-fait-lez');
     expect(citation?.textContent).toContain('https://governance.brussels/fr/dossiers/lez');

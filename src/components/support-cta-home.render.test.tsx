@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { ReactNode } from 'react';
 
@@ -13,6 +13,11 @@ vi.mock('next-intl', () => ({
     (key: string, values?: Record<string, unknown>) =>
       values ? `${key} ${Object.values(values).join(' ')}` : key,
   useFormatter: () => ({ number: (n: number) => String(n) }),
+}));
+
+const trackMock = vi.fn();
+vi.mock('@/lib/analytics', () => ({
+  track: (...args: unknown[]) => trackMock(...args),
 }));
 
 vi.mock('@/i18n/navigation', () => ({
@@ -45,8 +50,8 @@ describe('SupportCtaHome', () => {
   it('mesure le clic sur le bouton, dans la famille soutien-clic, position accueil', () => {
     const { container } = render(<SupportCtaHome stats={STATS} />);
     const a = container.querySelector('a[href="/support"]')!;
-    expect(a.getAttribute('data-umami-event')).toBe('soutien-clic');
-    expect(a.getAttribute('data-umami-event-position')).toBe('accueil');
+    fireEvent.click(a);
+    expect(trackMock).toHaveBeenCalledWith('soutien-clic', { position: 'accueil' });
   });
 });
 

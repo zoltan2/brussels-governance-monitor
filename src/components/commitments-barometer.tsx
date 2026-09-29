@@ -13,8 +13,8 @@
 
 import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
-import { Link } from '@/i18n/navigation';
 import { countByStatus, type CommitmentLike, type CommitmentStatus } from '@/lib/commitment-status';
+import { TrackedLink } from '@/components/tracked-link';
 
 const COLORS: Record<CommitmentStatus, string> = {
   implemented: '#eaf2ff',
@@ -54,10 +54,10 @@ export function CommitmentsBarometer({ commitments }: { commitments: CommitmentL
   const summary = legend.map((g) => `${g.label} : ${g.count}`).join(', ');
 
   return (
-    <Link
+    <TrackedLink
       href="/dashboard"
       aria-label={th('protoBarometerAria', { total, summary })}
-      data-umami-event="accueil-barometre"
+      event="accueil-barometre"
       className="group mt-4 block rounded-sm border-t border-white/15 pt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-slate-800"
     >
       <p className="text-xs font-semibold uppercase tracking-wider text-white/75">
@@ -99,6 +99,6 @@ export function CommitmentsBarometer({ commitments }: { commitments: CommitmentL
         {th('protoBarometerCta')}
         <ArrowRight size={14} aria-hidden={true} />
       </span>
-    </Link>
+    </TrackedLink>
   );
 }

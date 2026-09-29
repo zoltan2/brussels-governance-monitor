@@ -3,13 +3,13 @@
 
 import type { ReactNode } from 'react';
 import { useFormatter, useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { CopyButton } from '@/components/presse/copy-button';
 import { formatDate } from '@/lib/utils';
 import { PRESS_KINDS, groupPressMentions, latestVerification, type PressMention } from '@/lib/press';
 import { pressFactFigure, type PressFact } from '@/lib/press-facts';
 import type { PressStats } from '@/lib/site-stats';
+import { TrackedLink } from '@/components/tracked-link';
 
 /** Adresse validée par le propriétaire du site (24/09/2026) : ni formulaire ni téléphone. */
 export const PRESS_EMAIL = 'contact@brusselsgovernance.be';
@@ -206,15 +206,13 @@ export function PresseView({
                       )}
                     </dl>
                     <p className="mt-3 text-xs">
-                      <Link
+                      <TrackedLink
                         href={pageHref}
                         className={linkClass}
-                        data-umami-event="presse-fait"
-                        data-umami-event-action="page"
-                        data-umami-event-slug={f.slug}
+                        event="presse-fait" eventData={{ action: "page", slug: f.slug }}
                       >
                         {t('factPage', { title: f.pageTitle })}
-                      </Link>
+                      </TrackedLink>
                     </p>
                     <div className="mt-4 border-t border-neutral-200 pt-3">
                       <p className="text-xs font-semibold uppercase tracking-wide text-neutral-600">

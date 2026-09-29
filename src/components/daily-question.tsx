@@ -13,8 +13,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
 import { track } from '@/lib/analytics';
+import { TrackedLink } from '@/components/tracked-link';
 
 interface QuizQuestion {
   id: string;
@@ -258,14 +258,14 @@ export function DailyQuestion({
       </div>
 
       <div className="mt-auto pt-3">
-        <Link
+        <TrackedLink
           href="/quiz"
-          data-umami-event="jeux-quiz-complet"
+          event="jeux-quiz-complet"
           className="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-900 hover:underline"
         >
           {answered ? t('protoQuizContinue') : t('protoQuizFull')}
           <ArrowRight size={14} aria-hidden={true} />
-        </Link>
+        </TrackedLink>
       </div>
     </div>
   );

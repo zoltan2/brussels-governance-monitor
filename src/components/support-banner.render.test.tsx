@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import * as matchers from 'vitest-axe/matchers';
 import { axe } from 'vitest-axe';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -14,6 +14,11 @@ vi.mock('next-intl', () => ({
 }));
 
 // Le Link localisé préfixe la langue ; ici, seul compte l'attribut qu'il reçoit.
+const trackMock = vi.fn();
+vi.mock('@/lib/analytics', () => ({
+  track: (...args: unknown[]) => trackMock(...args),
+}));
+
 vi.mock('@/i18n/navigation', () => ({
   Link: ({ href, children, ...rest }: { href: string; children: ReactNode }) => (
     <a href={href} {...rest}>
@@ -48,8 +53,9 @@ describe('SupportBanner', () => {
     for (const position of ['pied-de-page', 'dossier-haut', 'domaine-haut', 'secteur-haut'] as const) {
       const { container } = render(<SupportBanner position={position} />);
       const a = container.querySelector('a')!;
-      expect(a.getAttribute('data-umami-event')).toBe('soutien-clic');
-      expect(a.getAttribute('data-umami-event-position')).toBe(position);
+      trackMock.mockReset();
+      fireEvent.click(a);
+      expect(trackMock).toHaveBeenCalledWith('soutien-clic', { position });
       cleanup();
     }
   });

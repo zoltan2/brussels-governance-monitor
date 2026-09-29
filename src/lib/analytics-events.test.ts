@@ -65,7 +65,10 @@ function litteraux(source: string): Set<string> {
 function nomsEmis(source: string): Set<string> {
   const attributs = [...source.matchAll(/data-umami-event=["']([^"']+)["']/g)].map((m) => m[1]);
   const appels = [...source.matchAll(/\b(?:track|trackEvent)\(\s*['"]([^'"]+)['"]/g)].map((m) => m[1]);
-  return new Set([...attributs, ...appels]);
+  // <TrackedLink event="…"> / <TrackedAnchor event="…"> (src/components/tracked-link.tsx) :
+  // la mesure des liens sans le rechargement qu'impose data-umami-event.
+  const liens = [...source.matchAll(/<Tracked(?:Link|Anchor)\b[^>]*?\bevent=["']([^"']+)["']/g)].map((m) => m[1]);
+  return new Set([...attributs, ...appels, ...liens]);
 }
 
 /** Les liens, mesurés par attribut : le tracker s'en charge, sans JavaScript à nous.

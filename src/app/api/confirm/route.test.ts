@@ -15,12 +15,16 @@ process.env.AUTH_SECRET = 'secret-auth';
 const getContact = vi.fn();
 const addContact = vi.fn();
 const updateContactPreferences = vi.fn();
+const estDesinscrit = vi.fn();
+const reactiverContact = vi.fn();
 const send = vi.fn();
 vi.mock('@/lib/resend', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/lib/resend')>()),
   getContact: (...a: unknown[]) => getContact(...a),
   addContact: (...a: unknown[]) => addContact(...a),
   updateContactPreferences: (...a: unknown[]) => updateContactPreferences(...a),
+  estDesinscrit: (...a: unknown[]) => estDesinscrit(...a),
+  reactiverContact: (...a: unknown[]) => reactiverContact(...a),
   getResend: () => ({ emails: { send } }),
   resendCall: (fn: () => unknown) => fn(),
 }));
@@ -50,6 +54,8 @@ beforeEach(() => {
   getContact.mockReset().mockResolvedValue(null);
   addContact.mockReset().mockResolvedValue(undefined);
   updateContactPreferences.mockReset().mockResolvedValue(undefined);
+  estDesinscrit.mockReset().mockResolvedValue(false);
+  reactiverContact.mockReset().mockResolvedValue(undefined);
   send.mockReset().mockResolvedValue({ data: { id: 'e1' }, error: null });
 });
 
@@ -93,5 +99,27 @@ describe('POST /api/confirm : réabonnement', () => {
       'retour',
     ]);
     expect(lireDesabonnement(db, fingerprintEmail(EMAIL))).toBeNull();
+  });
+
+  it('contact encore désinscrit dans Resend : le réactive au lieu de le recréer', async () => {
+    // Avant le 29/09 : `contacts.create` refusait l'adresse déjà au carnet, la
+    // personne recevait la bienvenue sans être abonnée.
+    noterDesabonnement(db, fingerprintEmail(EMAIL), Date.now() - 3 * 86_400_000);
+    estDesinscrit.mockResolvedValue(true);
+    const res = await POST(requete());
+
+    expect(res.status).toBe(200);
+    expect(addContact).not.toHaveBeenCalled();
+    expect(reactiverContact).toHaveBeenCalledWith(EMAIL, 'fr', ['budget'], ['website', 'retour']);
+    expect(lireDesabonnement(db, fingerprintEmail(EMAIL))).toBeNull();
+  });
+
+  it('garde la ligne si la réactivation échoue', async () => {
+    noterDesabonnement(db, fingerprintEmail(EMAIL), 1000);
+    estDesinscrit.mockResolvedValue(true);
+    reactiverContact.mockRejectedValue(new Error('refus Resend'));
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    await POST(requete());
+    expect(lireDesabonnement(db, fingerprintEmail(EMAIL))).not.toBeNull();
   });
 });

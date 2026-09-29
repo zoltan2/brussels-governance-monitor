@@ -3,7 +3,15 @@
 
 import { NextResponse } from 'next/server';
 import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
-import { getResend, EMAIL_FROM, addContact, getContact, resendCall } from '@/lib/resend';
+import {
+  getResend,
+  EMAIL_FROM,
+  addContact,
+  getContact,
+  estDesinscrit,
+  reactiverContact,
+  resendCall,
+} from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import { pseudonymeEmail } from '@/lib/log-safe';
 import { estUnRetour, oublierDesabonnement } from '@/lib/desabonnements';
@@ -94,8 +102,14 @@ export async function POST(request: Request) {
     );
 
     // Persist subscriber in Resend Contacts with their origin tag.
+    // Une personne désinscrite est encore au carnet jusqu'à la purge (30 jours) :
+    // `contacts.create` la refuserait, on réactive donc son contact existant.
     try {
-      await addContact(email, locale, topics, nouvellesSources);
+      if (await estDesinscrit(email)) {
+        await reactiverContact(email, locale, topics, nouvellesSources);
+      } else {
+        await addContact(email, locale, topics, nouvellesSources);
+      }
       if (retour) oublierDesabonnement(email);
     } catch (err) {
       console.error('Confirm: addContact failed — subscriber received welcome email but was NOT persisted:', pseudonymeEmail(email), err);

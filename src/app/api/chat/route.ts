@@ -11,7 +11,7 @@ import { pushLog } from '@/lib/chat-logs';
 import { currentQuestion } from '@/lib/chat-question';
 import { clientIp } from '@/lib/client-ip';
 import { sameOriginRefusal } from '@/lib/same-origin';
-import { readChatTier, type ChatTier } from '@/lib/chat-access';
+import { readChatTier } from '@/lib/chat-access';
 import { bodyTooLargeRefusal, readJsonCapped } from '@/lib/request-guards';
 import { boundAssistantTurns, chatHistoryRefusal, type ChatTurn } from '@/lib/chat-history';
 
@@ -52,8 +52,6 @@ const bodySchema = z.object({
   // Le niveau est desormais derive d'un cookie signe cote serveur, pose seulement
   // apres verification du paiement aupres de Stripe (src/lib/chat-access.ts).
 });
-
-type Tier = ChatTier;
 
 function sessionHash(ip: string): string {
   // ECHEC FERME. Le repli etait la chaine litterale 'fallback'. Si la variable

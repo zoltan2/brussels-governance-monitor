@@ -13,7 +13,6 @@ import {
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import ReactMarkdown, { type Components } from 'react-markdown';
-import { CHAT_SUGGESTIONS } from '@/lib/chat-suggestions';
 import { HIDDEN_UNTIL_SCROLL, useRevealOnScroll } from '@/components/use-reveal-on-scroll';
 import type { DossierTitleEntry } from '@/app/api/chat/dossier-titles/route';
 
@@ -65,11 +64,6 @@ const DEFAULT_ACCESS: AccessState = {
   freeCount: 0,
   emailGated: false,
 };
-
-// Suggested questions live in src/lib/chat-suggestions.ts — imported so both
-// the widget (render) and the pre-generation script (cache) share one source
-// of truth.
-const SUGGESTED = CHAT_SUGGESTIONS;
 
 type PaywallCopy = { title: string; body: string; button: string; link: string };
 const PAYWALL: Record<string, PaywallCopy> = {
@@ -1004,7 +998,6 @@ export function ChatWidget() {
     }
   }
 
-  const suggestions = SUGGESTED[locale] ?? SUGGESTED.fr;
   const paywallCopy = PAYWALL[locale] ?? PAYWALL.fr;
   const fc = FEEDBACK[locale] ?? FEEDBACK.fr;
   const lastFreeBanner = LAST_FREE[locale] ?? LAST_FREE.fr;
@@ -1305,21 +1298,11 @@ export function ChatWidget() {
                 {UNLOCK_CONFIRM[locale] ?? UNLOCK_CONFIRM.fr}
               </p>
             )}
+            {/* Plus de questions suggérées depuis le 29/09/2026 : leurs réponses
+                préparées dataient du 22/04 et affirmaient des faits faux
+                (« 2 tenus » recopié de l'exemple du prompt, 16 ou 23 dossiers,
+                « Premium »). Revue multi-équipes du projet Search. */}
             <p className="text-sm text-neutral-500">{ui.emptyPrompt}</p>
-            <ul className="space-y-2">
-              {suggestions.map((q) => (
-                <li key={q}>
-                  <button
-                    type="button"
-                    onClick={() => send(q)}
-                    disabled={loading}
-                    className="w-full rounded-md border border-neutral-200 bg-neutral-50 px-3 py-2 text-left text-sm text-neutral-800 transition hover:border-brand-900 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-brand-900 disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    {q}
-                  </button>
-                </li>
-              ))}
-            </ul>
           </div>
         ) : (
           <ul className="flex flex-col gap-5">

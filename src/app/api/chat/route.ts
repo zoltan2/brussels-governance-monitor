@@ -11,7 +11,22 @@ import { pushLog } from '@/lib/chat-logs';
 import { currentQuestion } from '@/lib/chat-question';
 import { clientIp } from '@/lib/client-ip';
 import { sameOriginRefusal } from '@/lib/same-origin';
-import { readChatTier } from '@/lib/chat-access';
+import { readChatTier, readChatAccessRef, type ChatTier } from '@/lib/chat-access';
+import { getDb } from '@/lib/db';
+import {
+  MODELE_CHAT,
+  ajouterDepense,
+  budgetAtteint,
+  coutMicroUsd,
+  jourBruxelles,
+} from '@/lib/chat-budget';
+import {
+  enregistrerDeblocage,
+  etatPaiement,
+  noterVerification,
+  sessionRemboursee,
+} from '@/lib/chat-paiements';
+import Stripe from 'stripe';
 import { bodyTooLargeRefusal, readJsonCapped } from '@/lib/request-guards';
 import { boundAssistantTurns, chatHistoryRefusal, type ChatTurn } from '@/lib/chat-history';
 
@@ -154,7 +169,7 @@ async function* anthropicDeltas(
 
   try {
     const stream = client.messages.stream({
-      model: 'claude-sonnet-4-5',
+      model: MODELE_CHAT,
       max_tokens: 2048,
       temperature: 0.1,
       system: [
@@ -180,6 +195,10 @@ async function* anthropicDeltas(
       const cacheRead = final.usage.cache_read_input_tokens ?? 0;
       ctx.prompt_tokens = input + cacheCreate + cacheRead;
       ctx.completion_tokens = final.usage.output_tokens ?? null;
+      // Plafond de dépense quotidien (src/lib/chat-budget.ts) : chaque type de
+      // jeton à son prix, pas la somme des jetons d'entrée.
+      const db = getDb();
+      if (db) ajouterDepense(db, jourBruxelles(), coutMicroUsd(final.usage));
     } catch {
       /* usage unavailable — leave nulls */
     }
@@ -191,6 +210,45 @@ async function* anthropicDeltas(
       stage: 'anthropic-stream',
     });
     throw err;
+  }
+}
+
+/**
+ * Niveau d'accès, avec révocation d'un accès payant remboursé (revue red team
+ * du 29/09/2026). La signature du cookie suffit à `readChatTier` ; ici, on
+ * vérifie aussi au registre des paiements, et auprès de Stripe au plus une
+ * fois par jour et par session. Une panne de Stripe laisse l'accès ouvert
+ * (journalisée) : quelques euros ne valent pas de couper un lecteur qui a payé.
+ */
+async function niveauVerifie(headers: Headers): Promise<ChatTier> {
+  const tier = readChatTier(headers);
+  if (tier !== 'paid') return tier;
+  const ref = readChatAccessRef(headers);
+  const db = getDb();
+  if (!ref || !db) return tier;
+
+  const maintenant = Date.now();
+  let etat = etatPaiement(db, ref, maintenant);
+  if (!etat) {
+    // Accès ouvert avant le registre : on l'inscrit et on le vérifie tout de suite.
+    enregistrerDeblocage(db, ref, 0);
+    etat = { rembourse: false, aReverifier: true };
+  }
+  if (etat.rembourse) return 'free';
+  if (!etat.aReverifier) return tier;
+
+  const secret = process.env.STRIPE_SECRET_KEY;
+  if (!secret) return tier;
+  try {
+    const session = await new Stripe(secret).checkout.sessions.retrieve(ref, {
+      expand: ['payment_intent.latest_charge'],
+    });
+    const rembourse = sessionRemboursee(session);
+    noterVerification(db, ref, maintenant, rembourse);
+    return rembourse ? 'free' : tier;
+  } catch (err) {
+    console.error('[chat] revérification du paiement impossible', err instanceof Error ? err.message : 'erreur');
+    return tier;
   }
 }
 
@@ -237,7 +295,15 @@ export async function POST(request: Request) {
   }
 
   // 4. NIVEAU D'ACCES DERIVE DU SERVEUR, jamais du corps de la requete.
-  const tier = readChatTier(request.headers);
+  const tier = await niveauVerifie(request.headers);
+
+  // 4 bis. PLAFOND DE DÉPENSE QUOTIDIEN, tous visiteurs confondus (2 USD par
+  //    défaut, décision du 29/09/2026). Au-delà, plus aucun appel au modèle
+  //    jusqu'à minuit, heure de Bruxelles.
+  const dbBudget = getDb();
+  if (dbBudget && budgetAtteint(dbBudget, jourBruxelles())) {
+    return NextResponse.json({ error: 'Daily budget reached' }, { status: 503 });
+  }
 
   // 5. QUOTA JOURNALIER. Le quota vivait dans le `localStorage` : le vider
   //    suffisait a le reinitialiser, et un appel direct a l'API l'ignorait.

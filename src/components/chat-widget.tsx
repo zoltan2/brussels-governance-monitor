@@ -268,6 +268,7 @@ type UiCopy = {
   send: string;
   sending: string;
   errorMessage: string;
+  budgetMessage: string;
 };
 
 const RESPONSE_DISCLAIMER: Record<string, string> = {
@@ -325,6 +326,7 @@ const UI: Record<string, UiCopy> = {
     send: 'Envoyer',
     sending: 'Envoi…',
     errorMessage: 'Une erreur est survenue. Veuillez réessayer.',
+    budgetMessage: "L'assistant a atteint sa limite d'utilisation pour aujourd'hui. Il sera de nouveau disponible demain.",
   },
   nl: {
     title: 'BGM-assistent',
@@ -339,6 +341,7 @@ const UI: Record<string, UiCopy> = {
     send: 'Verzenden',
     sending: 'Verzenden…',
     errorMessage: 'Er is een fout opgetreden. Probeer opnieuw.',
+    budgetMessage: 'De assistent heeft zijn gebruikslimiet voor vandaag bereikt. Hij is morgen weer beschikbaar.',
   },
   en: {
     title: 'BGM Assistant',
@@ -353,6 +356,7 @@ const UI: Record<string, UiCopy> = {
     send: 'Send',
     sending: 'Sending…',
     errorMessage: 'Something went wrong. Please try again.',
+    budgetMessage: 'The assistant has reached its usage limit for today. It will be available again tomorrow.',
   },
   de: {
     title: 'BGM-Assistent',
@@ -367,6 +371,7 @@ const UI: Record<string, UiCopy> = {
     send: 'Senden',
     sending: 'Senden…',
     errorMessage: 'Es ist ein Fehler aufgetreten. Bitte erneut versuchen.',
+    budgetMessage: 'Der Assistent hat sein Nutzungslimit für heute erreicht. Er ist morgen wieder verfügbar.',
   },
 };
 
@@ -688,6 +693,10 @@ export function ChatWidget() {
           }),
         });
 
+        if (res.status === 503) {
+          // Plafond de dépense quotidien atteint (src/lib/chat-budget.ts).
+          throw new Error('budget');
+        }
         if (!res.ok || !res.body) {
           throw new Error(`HTTP ${res.status}`);
         }
@@ -737,9 +746,10 @@ export function ChatWidget() {
             }
           }
         }
-      } catch {
+      } catch (err) {
+        const ui0 = UI[locale] ?? UI.fr;
         const localizedError =
-          (UI[locale] ?? UI.fr).errorMessage;
+          err instanceof Error && err.message === 'budget' ? ui0.budgetMessage : ui0.errorMessage;
         setMessages((prev) => {
           const copy = prev.slice();
           copy[copy.length - 1] = {

@@ -59,27 +59,47 @@ export function mintChatAccess(reference: string): { value: string; maxAge: numb
  * lecture echoue FERMEE, un cookie illisible ne vaut pas un acces.
  */
 export function verifyChatAccess(value: string | undefined): boolean {
-  if (!value) return false;
+  return chatAccessRef(value) !== null;
+}
+
+/**
+ * Référence (identifiant de session Stripe) d'un cookie d'accès valide, ou
+ * `null`. Sert à révoquer un accès dont le paiement a été remboursé
+ * (src/lib/chat-paiements.ts).
+ */
+export function chatAccessRef(value: string | undefined): string | null {
+  if (!value) return null;
   const parts = value.split('.');
-  if (parts.length !== 2) return false;
+  if (parts.length !== 2) return null;
   const [encoded, signature] = parts;
 
   try {
     const given = Buffer.from(signature, 'base64url');
     const expected = Buffer.from(sign(encoded), 'base64url');
-    if (given.length !== expected.length || !timingSafeEqual(given, expected)) return false;
+    if (given.length !== expected.length || !timingSafeEqual(given, expected)) return null;
   } catch {
-    return false;
+    return null;
   }
 
   try {
     const data = JSON.parse(Buffer.from(encoded, 'base64url').toString());
-    if (data.type !== 'chat-access') return false;
-    if (typeof data.exp !== 'number' || data.exp < Date.now()) return false;
-    return true;
+    if (data.type !== 'chat-access') return null;
+    if (typeof data.exp !== 'number' || data.exp < Date.now()) return null;
+    return typeof data.ref === 'string' ? data.ref : '';
   } catch {
-    return false;
+    return null;
   }
+}
+
+/** Référence du cookie d'accès présent dans les en-têtes, si valide. */
+export function readChatAccessRef(headers: Headers): string | null {
+  const cookieHeader = headers.get('cookie');
+  if (!cookieHeader) return null;
+  for (const part of cookieHeader.split(';')) {
+    const [name, ...rest] = part.trim().split('=');
+    if (name === CHAT_ACCESS_COOKIE) return chatAccessRef(rest.join('='));
+  }
+  return null;
 }
 
 /** Lit le niveau d'acces depuis les en-tetes de la requete. Jamais depuis le corps. */

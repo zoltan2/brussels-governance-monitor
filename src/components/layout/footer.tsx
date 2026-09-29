@@ -21,7 +21,10 @@ export function Footer() {
       <div className="mx-auto max-w-5xl px-4 pb-24 pt-10 md:py-10">
         <SupportBanner position="pied-de-page" className="mb-8" />
 
-        <div className="grid gap-8 sm:grid-cols-3">
+        {/* Trois colonnes dès 360 px : empilées, elles faisaient 3 × 220 px sur mobile
+            (pied de page de 1 214 px à 390 px). En dessous de 360 px, « TRANSPARENCE »
+            ne tient plus dans un tiers de largeur : deux colonnes. Desktop inchangé. */}
+        <div className="grid grid-cols-2 gap-x-3 gap-y-8 min-[360px]:grid-cols-3 sm:gap-8">
           {/* Column 1: Explorer */}
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">

@@ -114,8 +114,20 @@ type LinkHref = ComponentProps<typeof Link>['href'];
 const linkClass =
   'inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-900 hover:underline';
 
+// Marge intérieure de 12 px sous 768 px (16 au-delà) : 8 px de moins par carte, et
+// quelques retours à la ligne en moins dans les titres.
 const cardClass =
-  'group flex h-full flex-col rounded-lg border border-neutral-200 bg-neutral-50 p-4 transition-colors hover:border-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700';
+  'group flex h-full flex-col rounded-lg border border-neutral-200 bg-neutral-50 p-4 max-md:p-3 transition-colors hover:border-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700';
+
+/**
+ * Cartes par inventaire (dossiers, domaines, secteurs) tant que la grille n'a qu'une
+ * colonne : sous 768 px pour les dossiers et les domaines, sous 640 px pour les
+ * secteurs. À 390 px, l'accueil faisait 8 878 px (onze écrans), dont 3 800 pour ces
+ * trois inventaires. Les cartes suivantes restent dans le HTML et réapparaissent dès
+ * que la grille a deux colonnes ; sur mobile, le lien « Voir les N … » en tête de
+ * chaque section mène à la liste complète.
+ */
+const MOBILE_CARDS = 3;
 
 export default async function HomePage({
   params,
@@ -213,7 +225,7 @@ export default async function HomePage({
         locale={locale}
       />
 
-      <section className="py-8">
+      <section className="py-6 md:py-8">
         {/* La paire de l'accueil : surveiller à gauche,
             comprendre à droite. Le 3fr va à la surveillance, qui porte des phrases de
             150 caractères ; en 2fr son texte tombait à 224 px et se brisait en cinq
@@ -260,7 +272,7 @@ export default async function HomePage({
 
       <SupportCtaHome stats={siteStats} />
 
-      <section id="subscribe" className="bg-neutral-50 py-12">
+      <section id="subscribe" className="bg-neutral-50 py-8 md:py-12">
         <div className="mx-auto max-w-5xl px-4">
           <SubscribeForm
             dossierOptions={getAllDossierTopicOptions(loc).map((d) => ({ id: d.topicId, label: d.label }))}
@@ -280,7 +292,7 @@ function QuizPromo() {
   const t = useTranslations('home');
 
   return (
-    <section className="py-8">
+    <section className="py-6 md:py-8">
       <div className="mx-auto max-w-5xl px-4">
         <div className="flex flex-col items-center gap-4 rounded-lg border border-neutral-200 bg-neutral-50 px-6 py-8 text-center sm:flex-row sm:text-left">
           <div className="flex-1">
@@ -364,7 +376,7 @@ function Hero({ cta, locale }: { cta: HomepageCta; locale: string }) {
 
   return (
     <section className="bg-gradient-to-b from-slate-800 to-slate-700 text-white">
-      <div className="mx-auto grid max-w-5xl gap-8 px-4 py-10 sm:py-14 lg:grid-cols-[1fr_20rem] lg:items-center">
+      <div className="mx-auto grid max-w-5xl gap-6 px-4 py-8 sm:gap-8 sm:py-14 lg:grid-cols-[1fr_20rem] lg:items-center">
         <div>
         <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-white/80">
           <Shield size={14} className="shrink-0" aria-hidden={true} />
@@ -643,7 +655,14 @@ function KeyFigure({
         {inlineUnit && <span className="ml-1 text-sm font-medium text-neutral-700">{inlineUnit}</span>}
       </p>
       {detail && <p className="mt-1 line-clamp-2 text-xs leading-snug text-neutral-600">{detail}</p>}
-      {source && <p className="mt-1 line-clamp-1 text-xs text-neutral-500">{t('keyFigureSource', { source })}</p>}
+      {/* Sous 768 px, la source n'est plus affichée mais reste lue par les lecteurs
+          d'écran (sr-only), et la fiche la donne en entier : 20 px de moins par
+          carte. */}
+      {source && (
+        <p className="mt-1 line-clamp-1 text-xs text-neutral-500 max-md:sr-only">
+          {t('keyFigureSource', { source })}
+        </p>
+      )}
     </div>
   );
 }
@@ -670,7 +689,7 @@ function DossiersPreview({
   const td = useTranslations('dossiers');
 
   return (
-    <section aria-labelledby="dossiers-title" className="py-8">
+    <section aria-labelledby="dossiers-title" className="py-6 md:py-8">
       <div className="mx-auto max-w-5xl px-4">
         <SectionHeader
           id="dossiers-title"
@@ -680,7 +699,7 @@ function DossiersPreview({
           link={<MoreLink href="/dossiers">{t('viewAllDossiers', { count: totalCount })}</MoreLink>}
         />
         <div className="grid gap-3 md:grid-cols-2">
-          {cards.map((card) => {
+          {cards.map((card, i) => {
             const m = card.metrics[0];
             return (
               <TrackedLink
@@ -688,7 +707,7 @@ function DossiersPreview({
                 href={{ pathname: '/dossiers/[slug]', params: { slug: getLocalizedSlug(card, locale as Locale) } }}
                 // Un seul nom pour les treize cartes, le type et le slug en propriétés.
                 event="accueil-fiche" eventData={{ type: "dossier", slug: card.slug }}
-                className={cardClass}
+                className={cn(cardClass, i >= MOBILE_CARDS && 'max-md:hidden')}
               >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
@@ -726,7 +745,7 @@ function DomainsPreview({
   const tdo = useTranslations('domains');
 
   return (
-    <section aria-labelledby="domains-title" className="py-8">
+    <section aria-labelledby="domains-title" className="py-6 md:py-8">
       <div className="mx-auto max-w-5xl px-4">
         <SectionHeader
           id="domains-title"
@@ -736,14 +755,14 @@ function DomainsPreview({
           link={<MoreLink href="/domains">{t('viewAllDomains', { count: totalCount })}</MoreLink>}
         />
         <div className="grid gap-3 md:grid-cols-2">
-          {cards.map((card) => {
+          {cards.map((card, i) => {
             const m = card.metrics[0];
             return (
               <TrackedLink
                 key={card.slug}
                 href={{ pathname: '/domains/[slug]', params: { slug: card.slug } }}
                 event="accueil-fiche" eventData={{ type: "domaine", slug: card.slug }}
-                className={cardClass}
+                className={cn(cardClass, i >= MOBILE_CARDS && 'max-md:hidden')}
               >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
@@ -757,11 +776,11 @@ function DomainsPreview({
                     Le rendu compact l'avait laissé tomber au profit du seul chiffre :
                     la section perdait 2 839 caractères indexables face au live, soit
                     la totalité de l'écart de texte entre le prototype et la prod.
-                    Sur mobile, il est coupé à l'œil après trois lignes : les quatre
+                    Sur mobile, il est coupé à l'œil après deux lignes : les quatre
                     chapeaux (430 à 490 caractères) faisaient 2 092 px de section à
                     390 px. Le texte entier reste dans le DOM (indexable, lu par les
                     lecteurs d'écran) et la carte mène à la fiche. Desktop inchangé. */}
-                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-neutral-600 md:line-clamp-none">
+                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-neutral-600 md:line-clamp-none">
                   {card.summary}
                 </p>
                 {m && <KeyFigure value={m.value} unit={m.unit} label={m.label} source={m.source} />}
@@ -793,7 +812,7 @@ function SectorsPreview({
   const tdo = useTranslations('domains');
 
   return (
-    <section aria-labelledby="sectors-title" className="py-8">
+    <section aria-labelledby="sectors-title" className="py-6 md:py-8">
       <div className="mx-auto max-w-5xl px-4">
         <SectionHeader
           id="sectors-title"
@@ -803,14 +822,16 @@ function SectorsPreview({
           link={<MoreLink href="/sectors">{t('viewAllSectorsCount', { count: totalCount })}</MoreLink>}
         />
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card) => {
+          {cards.map((card, i) => {
             const indicator = card.impactIndicators[0];
             return (
               <TrackedLink
                 key={card.slug}
                 href={{ pathname: '/sectors/[slug]', params: { slug: card.slug } }}
                 event="accueil-fiche" eventData={{ type: "secteur", slug: card.slug }}
-                className={cardClass}
+                // Grille à une colonne sous sm seulement : les six cartes restent de
+                // 640 à 767 px, en deux colonnes. Voir MOBILE_CARDS.
+                className={cn(cardClass, i >= MOBILE_CARDS && 'max-sm:hidden')}
               >
                 <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
                 {indicator && <KeyFigure value={indicator.value} label={indicator.label} source={indicator.source} />}
@@ -925,7 +946,7 @@ function FormatsSection({
   const locale = useLocale();
 
   return (
-    <section aria-labelledby="formats-title" className="py-8">
+    <section aria-labelledby="formats-title" className="py-6 md:py-8">
       <div className="mx-auto max-w-5xl px-4">
         <SectionHeader id="formats-title" title={t('protoFormatsTitle')} />
 

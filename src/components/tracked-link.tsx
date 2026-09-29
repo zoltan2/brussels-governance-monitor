@@ -19,6 +19,12 @@ type EventData = Record<string, string | number>;
  * mesuré de l'accueil devenait un rechargement complet, retardé d'un
  * aller-retour réseau. `track()` part en `keepalive` et laisse la navigation
  * intacte. Même principe que `NavLink` (en-tête et pied de page).
+ *
+ * `data-suivi` reprend le nom de l'événement dans le HTML servi : les sondes de
+ * l'accueil (scripts/ops/controle-contenu-accueil.mjs, bgm-ops
+ * deploy/sonde-accueil) s'en servent comme repère. Elles lisaient
+ * `data-umami-event`, disparu avec ce composant (#632) : fausse alerte du
+ * 29/09/2026. Umami ne lit pas cet attribut.
  */
 export function TrackedLink({
   event,
@@ -29,6 +35,7 @@ export function TrackedLink({
   return (
     <Link
       {...props}
+      data-suivi={event}
       onClick={(e) => {
         // Sans nom d'événement (lien mesuré sur certaines pages seulement) : rien n'est envoyé.
         if (event) track(event, eventData);
@@ -52,6 +59,7 @@ export function TrackedAnchor({
   return (
     <a
       {...props}
+      data-suivi={event}
       onClick={(e) => {
         track(event, eventData);
         onClick?.(e);

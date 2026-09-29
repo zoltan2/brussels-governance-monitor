@@ -12,7 +12,8 @@
 // - barre « Dernière mise à jour » : premier <time dateTime> de la page, avant
 //   le bloc « Ce qu'on surveille » ;
 // - bloc « Ce qu'on surveille » : du titre id="watch-title" au lien
-//   data-umami-event="accueil-radar", avec au moins un <time dateTime> ;
+//   data-suivi="accueil-radar" (TrackedLink ; data-umami-event="accueil-radar"
+//   avant #632, encore accepté), avec au moins un <time dateTime> ;
 // - compteur de jours rendu par le serveur (nombre dans le HTML).
 //
 // Sortie : une ligne par contrôle ; code 1 si l'un échoue. Sans dépendance
@@ -23,10 +24,20 @@ import { pathToFileURL } from 'node:url';
 
 const TIME = /<time\b[^>]*\bdatetime="(\d{4}-\d{2}-\d{2})[^"]*"/gi;
 
+// Repère de fin du bloc : le lien « voir tout ». #632 a remplacé
+// `data-umami-event` par TrackedLink, qui écrit `data-suivi` : la sonde a crié
+// au bloc disparu le 29/09/2026 alors qu'il était servi. Les deux sont acceptés.
+const REPERES_FIN_RADAR = ['data-suivi="accueil-radar"', 'data-umami-event="accueil-radar"'];
+
+export function finDuBlocRadar(html, debut) {
+  const positions = REPERES_FIN_RADAR.map((r) => html.indexOf(r, debut)).filter((i) => i !== -1);
+  return positions.length === 0 ? -1 : Math.min(...positions);
+}
+
 export function controlerAccueil(html) {
   const problemes = [];
   const debut = html.indexOf('id="watch-title"');
-  const fin = debut === -1 ? -1 : html.indexOf('data-umami-event="accueil-radar"', debut);
+  const fin = debut === -1 ? -1 : finDuBlocRadar(html, debut);
 
   const barre = [...(debut === -1 ? html : html.slice(0, debut)).matchAll(TIME)][0]?.[1] ?? null;
   if (!barre) problemes.push('barre « Dernière mise à jour » absente ou sans date');

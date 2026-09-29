@@ -16,7 +16,12 @@ import { controlerAccueil } from '../ops/controle-contenu-accueil.mjs';
  */
 
 // Squelette fidèle au HTML servi : mêmes repères, même ordre.
-function page({ barre = '2026-09-28', signaux = ['2026-09-28', '2026-09-27'], compteur = '226' } = {}) {
+function page({
+  barre = '2026-09-28',
+  signaux = ['2026-09-28', '2026-09-27'],
+  compteur = '226',
+  lienRadar = '<a href="/fr/radar" data-suivi="accueil-radar">Tout voir</a>',
+} = {}) {
   return [
     '<html><body>',
     '<div class="bg-brand-900"><p class="mt-1 min-h-[2.5rem] text-4xl font-extrabold tabular-nums">',
@@ -25,7 +30,7 @@ function page({ barre = '2026-09-28', signaux = ['2026-09-28', '2026-09-27'], co
     barre ? `<p><time dateTime="${barre}" class="tabular-nums">28 septembre 2026</time></p>` : '<p></p>',
     '<h2 id="watch-title" class="text-sm">Ce qu’on surveille</h2>',
     ...signaux.map((d) => `<div><time dateTime="${d}" class="shrink-0">x</time><p>signal</p></div>`),
-    '<a href="/fr/radar" data-umami-event="accueil-radar">Tout voir</a>',
+    lienRadar,
     '</body></html>',
   ].join('');
 }
@@ -37,6 +42,17 @@ describe('controle-contenu-accueil.mjs', () => {
     expect(r.barre).toBe('2026-09-28');
     expect(r.signaux).toEqual(['2026-09-28', '2026-09-27']);
     expect(r.compteur).toBe('226');
+  });
+
+  it('repère la fin du bloc par data-suivi (TrackedLink), et encore par data-umami-event', () => {
+    // Fausse alerte du 29/09/2026 : #632 a retiré data-umami-event du lien,
+    // la sonde cherchait ce seul repère et déclarait le bloc disparu.
+    expect(controlerAccueil(page()).problemes).toEqual([]);
+    const ancien = page({ lienRadar: '<a href="/fr/radar" data-umami-event="accueil-radar">Tout voir</a>' });
+    expect(controlerAccueil(ancien).problemes).toEqual([]);
+    expect(controlerAccueil(page({ lienRadar: '<a href="/fr/radar">Tout voir</a>' })).problemes).toEqual([
+      "bloc « Ce qu'on surveille » introuvable (id=\"watch-title\" ou lien accueil-radar absent)",
+    ]);
   });
 
   it('refuse un bloc signaux vide (page en 200, contenu absent)', () => {

@@ -225,3 +225,32 @@ export function pruneLogsSqlite(
      )`,
   ).run(stream, stream, keep);
 }
+
+// ---------------------------------------------------------------------------
+// Purge par âge des questions posées à l'assistant (flux `usage`, champ
+// `question`). La politique de confidentialité promet « pas au-delà de
+// 90 jours » : le plafond de 10 000 entrées ne suffit pas à le garantir quand
+// le trafic est faible. Appelé par /api/cron/contacts-purge. Les autres flux
+// (errors, feedback, email-gate) ne contiennent pas le texte des questions et
+// gardent leur seul plafond.
+// ---------------------------------------------------------------------------
+
+export const QUESTIONS_RETENTION_DAYS = 90;
+
+/** Nombre de questions enregistrées avant `limitMs` (strictement). */
+export function countExpiredQuestionsSqlite(db: DatabaseSync, limitMs: number): number {
+  const r = db
+    .prepare(
+      "SELECT COUNT(*) AS n FROM chat_logs WHERE stream = 'usage' AND created_at < ?",
+    )
+    .get(limitMs) as { n: number };
+  return Number(r.n);
+}
+
+/** Supprime les questions enregistrées avant `limitMs`. Rend le nombre supprimé. */
+export function purgeExpiredQuestionsSqlite(db: DatabaseSync, limitMs: number): number {
+  const res = db
+    .prepare("DELETE FROM chat_logs WHERE stream = 'usage' AND created_at < ?")
+    .run(limitMs);
+  return Number(res.changes);
+}

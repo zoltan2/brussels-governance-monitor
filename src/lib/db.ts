@@ -53,6 +53,16 @@ CREATE TABLE IF NOT EXISTS cron_cursors (
   cursor_ms  INTEGER NOT NULL,
   updated_at INTEGER NOT NULL
 );
+
+-- Registre des désabonnements (src/lib/desabonnements.ts). Jamais l'adresse :
+-- une empreinte HMAC. Le contact Resend est supprimé 30 jours après
+-- desabonne_le, la ligne 24 mois après.
+CREATE TABLE IF NOT EXISTS desabonnements (
+  empreinte           TEXT PRIMARY KEY,
+  desabonne_le        INTEGER NOT NULL,
+  contact_supprime_le INTEGER
+);
+CREATE INDEX IF NOT EXISTS idx_desabonnements_date ON desabonnements(desabonne_le);
 `;
 
 /** Opens a SQLite database at `path` and applies the schema (idempotent). */

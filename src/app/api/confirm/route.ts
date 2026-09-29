@@ -6,6 +6,7 @@ import { verifyConfirmToken, generateUnsubscribeToken } from '@/lib/token';
 import { getResend, EMAIL_FROM, addContact, getContact, resendCall } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import { pseudonymeEmail } from '@/lib/log-safe';
+import { estUnRetour, oublierDesabonnement } from '@/lib/desabonnements';
 import WelcomeEmail from '@/emails/welcome';
 import { clientIp } from '@/lib/client-ip';
 
@@ -37,6 +38,13 @@ export async function POST(request: Request) {
     }
 
     const { email, locale, topics, source } = payload;
+    // Réabonnement : l'empreinte de l'adresse figure au registre des
+    // désabonnements (24 mois). Le contact reçoit la source `retour`, puis la
+    // ligne est effacée, une fois l'abonnement réellement enregistré.
+    const retour = estUnRetour(email);
+    const nouvellesSources = [source, retour ? 'retour' : undefined].filter(
+      (s): s is string => Boolean(s),
+    );
 
     if (!process.env.RESEND_API_KEY) {
       return NextResponse.json({ error: 'service_unavailable' }, { status: 503 });
@@ -46,9 +54,7 @@ export async function POST(request: Request) {
     const existing = await getContact(email);
     if (existing) {
       const mergedTopics = [...new Set([...existing.topics, ...topics])];
-      const mergedSources = source
-        ? [...new Set([...existing.sources, source])]
-        : existing.sources;
+      const mergedSources = [...new Set([...existing.sources, ...nouvellesSources])];
       const topicsChanged = mergedTopics.length !== existing.topics.length;
       const sourcesChanged = mergedSources.length !== existing.sources.length;
       if (topicsChanged || sourcesChanged) {
@@ -60,6 +66,7 @@ export async function POST(request: Request) {
           mergedSources,
         );
       }
+      if (retour) oublierDesabonnement(email);
       return NextResponse.json({ success: true, topics: mergedTopics, alreadyConfirmed: true });
     }
 
@@ -88,7 +95,8 @@ export async function POST(request: Request) {
 
     // Persist subscriber in Resend Contacts with their origin tag.
     try {
-      await addContact(email, locale, topics, source ? [source] : []);
+      await addContact(email, locale, topics, nouvellesSources);
+      if (retour) oublierDesabonnement(email);
     } catch (err) {
       console.error('Confirm: addContact failed — subscriber received welcome email but was NOT persisted:', pseudonymeEmail(email), err);
     }

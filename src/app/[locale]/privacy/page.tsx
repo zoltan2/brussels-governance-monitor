@@ -135,7 +135,7 @@ function PrivacyView() {
           <p>{t('chatbot.paragraph2')}</p>
 
           <p className="mt-8 text-xs text-neutral-500">
-            {t('lastUpdated', { date: '2026-09-28' })}
+            {t('lastUpdated', { date: '2026-09-29' })}
           </p>
         </div>
       </div>

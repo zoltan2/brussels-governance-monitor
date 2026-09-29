@@ -45,6 +45,8 @@ on:
       - 'src/lib/impact-freshness.ts'
       - 'src/lib/data-temporal.ts'
       - 'src/lib/radar-summary-check.ts'
+      # Contrôle éditorial du digest hebdomadaire (29/09/2026).
+      - 'src/lib/digest-check.ts'
       # Radar et changelog : l'accueil affiche leurs textes, et le changelog
       # décide du badge « Correction » avec le changeType des fiches.
       - 'data/radar.json'
@@ -122,7 +124,7 @@ jobs:
           src/lib/lead-headline-check.test.ts src/lib/change-type-consistency.test.ts
           src/lib/duplicate-sources.test.ts src/lib/impact-freshness.test.ts
           src/lib/data-temporal.test.ts src/lib/radar-summary-check.test.ts
-          src/lib/summary-freshness.test.ts
+          src/lib/summary-freshness.test.ts src/lib/digest-check.test.ts
 
       # Les trois checks éditoriaux viennent de scripts/content-lint/lib.sh,
       # source unique partagée avec scripts/preflight.sh. Ils étaient auparavant
@@ -258,6 +260,27 @@ jobs:
       # Tout le dépôt est vérifié, hors archives du digest.
       - name: Liens internes sur le segment de route de leur langue
         run: npx tsx scripts/content-lint/internal-links.ts
+
+      # Le digest hebdomadaire est écrit par Haiku (bgm-ops, src/digest.ts) et
+      # arrive en PR depuis bgm-ops #30 ; il était poussé sur main sans
+      # relecture. Défauts réels publiés : w38 (20/09/2026) fichier turc coupé
+      # au milieu d'un lien, paragraphe « Foyer anderlechtois » consacré à
+      # Kanal, « Région francophone » inventée ; w39 (27/09) treize erreurs
+      # corrigées par #613, dont une date fausse. Sur les digests ajoutés ou
+      # modifiés : complétude des onze langues, liens (page existante, et
+      # fiche liée justifiée par la semaine ou nommée par le texte), entités
+      # belges inventées, et en français chaque date et chaque nombre présents
+      # dans le changelog ou le radar de la semaine. Le label skip-digest-facts
+      # rabat la seule règle des faits en avertissement (correction humaine
+      # qui cite un fait pris hors du changelog). Logique : src/lib/digest-check.ts.
+      - name: Digest hebdomadaire (complétude, liens, entités, faits)
+        env:
+          SKIP_DIGEST_FACTS: ${{ contains(github.event.pull_request.labels.*.name, 'skip-digest-facts') && '1' || '0' }}
+        run: |
+          if ! grep -q '^content/digest/' /tmp/changed_content.txt; then
+            echo "Aucun digest modifié, skipping"; exit 0
+          fi
+          npx tsx scripts/content-lint/digest-check.ts /tmp/changed_content.txt "origin/${{ github.base_ref }}"
 
       # Les pages /explainers/ n'ont pas de lastModified Velite : leur date de
       # réécriture, servie au sitemap, vient d'une table tenue à la main

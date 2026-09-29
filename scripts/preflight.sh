@@ -8,7 +8,8 @@
 # seul next build), phrases temporelles et résumés des nouveaux signaux dans
 # data/radar.json et data/changelog.json, date des pages /explainers/
 # dans messages/*.json, redirection de toute page publiée dont l'URL change,
-# et, en avertissement non bloquant, les vérifications en retard.
+# le contrôle éditorial des digests hebdomadaires modifiés, et, en
+# avertissement non bloquant, les vérifications en retard.
 #
 # Le contrôle de fraîcheur de l'index Pagefind a été retiré le 2026-09-11 :
 # public/pagefind/ n'est plus suivi par git, l'image Docker génère l'index au
@@ -132,6 +133,17 @@ fi
 #    change. Même module que la CI.
 if [ -n "$CHANGED_MDX" ] || printf '%s\n' "$CHANGED_ALL" | grep -q '^src/i18n/routing\.ts$'; then
   npx tsx scripts/content-lint/internal-links.ts || rc=1
+fi
+
+# 2 quinquies bis) Digest hebdomadaire ajouté ou modifié : complétude des onze
+#    langues, liens, entités belges inventées, dates et nombres du français
+#    présents dans le changelog ou le radar de la semaine. Même module que la
+#    CI. SKIP_DIGEST_FACTS=1 : miroir du label skip-digest-facts.
+if printf '%s\n' "$CHANGED_MDX" | grep -q '^content/digest/'; then
+  _dg_list="$(mktemp)"
+  printf '%s\n' "$CHANGED_MDX" > "$_dg_list"
+  npx tsx scripts/content-lint/digest-check.ts "$_dg_list" "$BASE" || rc=1
+  rm -f "$_dg_list"
 fi
 
 # 2 sexies) Une page /explainers/<slug> n'a pas de lastModified Velite : sa

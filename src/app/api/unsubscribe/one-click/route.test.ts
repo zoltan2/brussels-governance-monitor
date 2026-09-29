@@ -43,9 +43,15 @@ vi.mock('@/lib/resend', async (importOriginal) => {
 process.env.RESEND_API_KEY = 'test-key';
 process.env.AUTH_SECRET = process.env.AUTH_SECRET || 'secret-de-test';
 process.env.NEXT_PUBLIC_SITE_URL = 'https://governance.brussels';
+// Base en mémoire : removeContact note le désabonnement au registre RGPD.
+process.env.DB_PATH = ':memory:';
 
 const { POST, GET } = await import('./route');
 const { generateUnsubscribeToken } = await import('@/lib/token');
+const { getDb } = await import('@/lib/db');
+const { fingerprintEmail, lireDesabonnement, noterDesabonnement } = await import(
+  '@/lib/desabonnements'
+);
 
 const CORPS_RFC = 'List-Unsubscribe=One-Click';
 
@@ -65,6 +71,7 @@ beforeEach(() => {
   send.mockReset();
   removeContactSpy.mockReset();
   update.mockResolvedValue({ data: { id: 'c1' }, error: null });
+  getDb()!.exec('DELETE FROM desabonnements');
 });
 
 describe('POST /api/unsubscribe/one-click', () => {
@@ -113,5 +120,30 @@ describe('GET /api/unsubscribe/one-click', () => {
     expect(res.status).toBe(307);
     const location = res.headers.get('location') ?? '';
     expect(location.startsWith('https://governance.brussels/nl/subscribe/preferences?token=')).toBe(true);
+  });
+});
+
+describe('registre des désabonnements (purge RGPD à 30 jours)', () => {
+  it("note l'empreinte et la date du désabonnement, jamais l'adresse", async () => {
+    const avant = Date.now();
+    await POST(requete(generateUnsubscribeToken('Lecteur@Example.org')));
+    const ligne = lireDesabonnement(getDb()!, fingerprintEmail('lecteur@example.org'));
+    expect(ligne?.desabonne_le).toBeGreaterThanOrEqual(avant);
+    const brut = JSON.stringify(getDb()!.prepare('SELECT * FROM desabonnements').all());
+    expect(brut).not.toContain('lecteur');
+  });
+
+  it("n'écrase pas la date d'un premier désabonnement", async () => {
+    noterDesabonnement(getDb()!, fingerprintEmail('lecteur@example.org'), 1000);
+    await POST(requete(generateUnsubscribeToken('lecteur@example.org')));
+    expect(
+      lireDesabonnement(getDb()!, fingerprintEmail('lecteur@example.org'))?.desabonne_le,
+    ).toBe(1000);
+  });
+
+  it("ne note rien quand Resend refuse : le contact n'est pas désabonné", async () => {
+    update.mockResolvedValue({ data: null, error: { statusCode: 422, message: 'refus' } });
+    await POST(requete(generateUnsubscribeToken('lecteur@example.org')));
+    expect(lireDesabonnement(getDb()!, fingerprintEmail('lecteur@example.org'))).toBeNull();
   });
 });

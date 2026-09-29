@@ -9,6 +9,7 @@ import {
   COMMUNE_TOPICS,
   ENGAGEMENT_TOPICS,
 } from '@/lib/subscription-topics';
+import { enregistrerDesabonnement } from '@/lib/desabonnements';
 
 export { DOMAIN_TOPICS, SECTOR_TOPICS, COMMUNE_TOPICS, ENGAGEMENT_TOPICS };
 
@@ -344,6 +345,68 @@ export async function removeContact(email: string): Promise<void> {
       `Resend contacts.update (unsubscribed) failed for ${email}: ${formatResendError(result.error)}`,
     );
   }
+  // Toutes les routes de désabonnement passent par ici (/api/unsubscribe GET
+  // et POST, one-click, formulaire de préférences) : c'est ici que démarre le
+  // délai de 30 jours avant la suppression du contact (cron contacts-purge).
+  enregistrerDesabonnement(email);
+}
+
+/**
+ * Liste les contacts désinscrits (`unsubscribed: true`), toutes pages.
+ *
+ * `complete` vaut faux si une page a échoué : l'appelant sait alors que la
+ * liste est partielle (une panne n'est pas une absence) et peut le signaler.
+ * L'erreur n'est pas renvoyée telle quelle : son message peut citer une
+ * adresse, on n'en garde que le nom et le statut.
+ */
+export async function listUnsubscribedContacts(): Promise<{
+  contacts: { id: string; email: string }[];
+  complete: boolean;
+  error?: string;
+}> {
+  const resend = getResend();
+  const contacts: { id: string; email: string }[] = [];
+  let cursor: string | undefined;
+
+  for (;;) {
+    const options: { limit: number; after?: string } = { limit: 100 };
+    if (cursor) options.after = cursor;
+
+    const { data, error } = await resendCall(() => resend.contacts.list(options));
+    if (error || !data) {
+      return { contacts, complete: false, error: resumeErreurResend(error) };
+    }
+
+    for (const contact of data.data) {
+      if (contact.unsubscribed && contact.email) {
+        contacts.push({ id: contact.id, email: contact.email });
+      }
+    }
+
+    if (!data.has_more || data.data.length === 0) break;
+    cursor = data.data[data.data.length - 1].id;
+  }
+
+  return { contacts, complete: true };
+}
+
+/**
+ * Supprime définitivement un contact (par son id, jamais par l'adresse).
+ * Rend `null` si Resend a accepté, sinon un résumé d'erreur SANS adresse.
+ */
+export async function deleteContactById(id: string): Promise<string | null> {
+  const resend = getResend();
+  const result = await resendCall(() => resend.contacts.remove({ id }));
+  if (result.error) return resumeErreurResend(result.error);
+  return null;
+}
+
+/** Nom et statut d'une erreur Resend, sans son message (qui peut citer une adresse). */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function resumeErreurResend(err: any): string {
+  if (!err) return 'réponse vide';
+  const name = typeof err.name === 'string' ? err.name : 'error';
+  return err.statusCode ? `${name} ${err.statusCode}` : name;
 }
 
 export interface ActiveContact {

@@ -562,7 +562,7 @@
     },
     "retention": {
       "title": "Durée de conservation",
-      "description": "Vos données sont conservées tant que votre abonnement est actif. En cas de désabonnement, vos données sont supprimées dans un délai de 30 jours."
+      "description": "Vos données sont conservées tant que votre abonnement est actif. Si vous vous désabonnez, vos données sont supprimées après 30 jours. Nous conservons pendant 24 mois une empreinte chiffrée de votre adresse, qui ne permet pas de la retrouver, pour savoir si vous vous réabonnez."
     },
     "rights": {
       "title": "Vos droits",
@@ -2460,7 +2460,7 @@
     "yourChoices": "Vos choix, votre langue",
     "choicesText": "Vous recevrez le digest dans la langue que vous utilisez actuellement. Vous pouvez la changer dans vos préférences.",
     "choicesDetail": "Après inscription, vous pourrez affiner vos préférences : ajouter des communes, des secteurs ou des dossiers spécifiques.",
-    "gdpr": "Base légale : consentement (art. 6.1.a RGPD). Données conservées 30 jours après désabonnement. Désabonnement en 1 clic dans chaque email. Hébergement : Resend (DPA signé). Responsable : Advice That SRL, Bruxelles."
+    "gdpr": "Base légale : consentement (art. 6.1.a RGPD). Données supprimées 30 jours après désabonnement ; empreinte non réversible de l'adresse conservée 24 mois. Désabonnement en 1 clic dans chaque email. Hébergement : Resend (DPA signé). Responsable : Advice That SRL, Bruxelles."
   },
   "veille": {
     "lastVeille": "Dernière veille",

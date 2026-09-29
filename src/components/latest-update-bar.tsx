@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { TrackedLink } from '@/components/tracked-link';
 import { formatDate, slugify } from '@/lib/utils';
 
 interface LatestUpdateBarProps {
@@ -67,18 +67,18 @@ export function LatestUpdateBar({
   if (linkHref) {
     return (
       <div className="border-b border-neutral-200 bg-neutral-100">
-        <Link
+        <TrackedLink
           href={linkHref}
-          data-umami-event="accueil-fait-du-jour"
+          event="accueil-fait-du-jour"
           // La cible change chaque jour : sans elle, on ne sait pas quel fait a
           // été cliqué (revue du 28/09/2026). Forme `section:slug`, comme
           // `dossiers:lez`. Le nom de l'événement, lui, ne change pas.
-          data-umami-event-cible={`${section}:${targetSlug}`}
+          eventData={{ cible: `${section}:${targetSlug}` }}
           className="group block transition-colors hover:bg-neutral-200 focus-visible:outline-offset-[-2px] motion-reduce:transition-none"
         >
           {content}
           <span className="sr-only">{t('latestUpdateLinkLabel', { title: cardTitle ?? headline })}</span>
-        </Link>
+        </TrackedLink>
       </div>
     );
   }

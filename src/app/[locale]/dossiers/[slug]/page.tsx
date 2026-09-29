@@ -35,7 +35,6 @@ import { VerifiedBadge } from '@/components/verified-badge';
 import { BudgetTable } from '@/components/budget-table';
 import { budgetLabels } from '@/lib/budget';
 import { CardSubscribe } from '@/components/card-subscribe';
-import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { DossierFaq } from '@/components/dossier/dossier-faq';
 import { DossierAlert } from '@/components/dossier/dossier-alert';
@@ -43,6 +42,7 @@ import { WhatChangedBanner } from '@/components/what-changed-banner';
 import { RelatedDossiers } from '@/components/related-dossiers';
 import { TableOfContents } from '@/components/table-of-contents';
 import { SupportBanner } from '@/components/support-cta';
+import { TrackedLink } from '@/components/tracked-link';
 
 /**
  * Un seul nom d'événement Umami pour tous les liens internes de la page ; la
@@ -349,16 +349,14 @@ function DossierDetail({
             seulement en pied de page où presque personne ne descend. */}
         {followDomain && (
           <p className="-mt-3 mb-6 text-sm">
-            <Link
+            <TrackedLink
               href={{ pathname: '/domains/[slug]', params: { slug: followDomain.slug } }}
               className="font-medium text-brand-700 underline underline-offset-2 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
-              data-umami-event={INTERNAL_LINK_EVENT}
-              data-umami-event-type="follow"
-              data-umami-event-cible={followDomain.slug}
+              event={INTERNAL_LINK_EVENT} eventData={{ type: "follow", cible: followDomain.slug }}
             >
               {t('followTopic', { domain: tTopics(followDomain.slug) })}
               <span aria-hidden="true"> →</span>
-            </Link>
+            </TrackedLink>
           </p>
         )}
 
@@ -470,16 +468,14 @@ function DossierDetail({
             </h2>
             <div className="flex flex-wrap gap-2">
               {relatedDomainCards.map((d) => (
-                <Link
+                <TrackedLink
                   key={d.slug}
                   href={{ pathname: '/domains/[slug]', params: { slug: d.slug } }}
                   className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
-                  data-umami-event={INTERNAL_LINK_EVENT}
-                  data-umami-event-type="domain"
-                  data-umami-event-cible={d.slug}
+                  event={INTERNAL_LINK_EVENT} eventData={{ type: "domain", cible: d.slug }}
                 >
                   {d.title}
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>
@@ -493,16 +489,14 @@ function DossierDetail({
             </h2>
             <div className="flex flex-wrap gap-2">
               {relatedSectorCards.map((s) => (
-                <Link
+                <TrackedLink
                   key={s.slug}
                   href={{ pathname: '/sectors/[slug]', params: { slug: s.slug } }}
                   className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
-                  data-umami-event={INTERNAL_LINK_EVENT}
-                  data-umami-event-type="sector"
-                  data-umami-event-cible={s.slug}
+                  event={INTERNAL_LINK_EVENT} eventData={{ type: "sector", cible: s.slug }}
                 >
                   {s.title}
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>
@@ -516,16 +510,14 @@ function DossierDetail({
             </h2>
             <div className="flex flex-wrap gap-2">
               {relatedCommuneCards.map((c) => (
-                <Link
+                <TrackedLink
                   key={c.slug}
                   href={{ pathname: '/communes/[slug]', params: { slug: c.slug } }}
                   className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-brand-700 hover:bg-neutral-50"
-                  data-umami-event={INTERNAL_LINK_EVENT}
-                  data-umami-event-type="commune"
-                  data-umami-event-cible={c.slug}
+                  event={INTERNAL_LINK_EVENT} eventData={{ type: "commune", cible: c.slug }}
                 >
                   {c.title}
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>

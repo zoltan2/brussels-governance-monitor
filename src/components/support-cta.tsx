@@ -5,6 +5,7 @@ import { useFormatter, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import type { SiteStats } from '@/lib/site-stats';
+import { TrackedLink } from '@/components/tracked-link';
 
 /**
  * Minimal CTA for the end of content cards (domains, dossiers, communes, sectors).
@@ -46,15 +47,14 @@ export function SupportCtaHome({ stats }: { stats: SiteStats }) {
         {/* Même famille que le bandeau (`soutien-clic`), position `accueil` :
             jusqu'au 28/09/2026, ce bouton était le seul lien de l'accueil à ne
             rien mesurer. */}
-        <Link
+        <TrackedLink
           href="/support"
-          data-umami-event="soutien-clic"
-          data-umami-event-position="accueil"
+          event="soutien-clic" eventData={{ position: "accueil" }}
           className="mt-4 inline-flex items-center gap-1.5 rounded-md border border-brand-700 px-5 py-2 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-900 hover:text-neutral-50"
         >
           <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
           {t('homeButton')}
-        </Link>
+        </TrackedLink>
       </div>
     </section>
   );
@@ -111,15 +111,14 @@ export function SupportBanner({
         <p className="text-sm font-semibold text-neutral-800">{t('supportTitle')}</p>
         <p className="mt-0.5 text-xs text-neutral-500">{t('supportSubtitle')}</p>
       </div>
-      <Link
+      <TrackedLink
         href="/support"
-        data-umami-event="soutien-clic"
-        data-umami-event-position={position}
+        event="soutien-clic" eventData={{ position: position }}
         className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-brand-900 px-5 py-2.5 text-xs font-semibold text-neutral-50 shadow-sm transition-all hover:bg-brand-800 hover:shadow-md"
       >
         {t('supportCta')}
         <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
-      </Link>
+      </TrackedLink>
     </div>
   );
 }

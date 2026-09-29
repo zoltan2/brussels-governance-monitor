@@ -56,6 +56,7 @@ import {
   Radio,
   type LucideIcon,
 } from 'lucide-react';
+import { TrackedAnchor, TrackedLink } from '@/components/tracked-link';
 
 // Le Stuut et le magazine portent la même serif que leurs propres sites.
 const dmSerif = DM_Serif_Display({ weight: '400', subsets: ['latin'], display: 'swap' });
@@ -290,14 +291,14 @@ function QuizPromo() {
               {t('quizSubtitle')}
             </p>
           </div>
-          <Link
+          <TrackedLink
             href="/quiz"
-            data-umami-event="accueil-quiz"
+            event="accueil-quiz"
             className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-brand-700 px-5 py-2.5 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50"
           >
             {t('quizCta')}
             <ArrowRight size={14} aria-hidden={true} />
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     </section>
@@ -343,15 +344,14 @@ function SectionHeader({
 // La hauteur est posée ici et non sur `linkClass`, partagé par d'autres appels.
 function MoreLink({ href, children }: { href: LinkHref; children: ReactNode }) {
   return (
-    <Link
+    <TrackedLink
       href={href}
-      data-umami-event="accueil-inventaire"
-      data-umami-event-cible={String(href)}
+      event="accueil-inventaire" eventData={{ cible: String(href) }}
       className={`${linkClass} min-h-[24px]`}
     >
       {children}
       <ArrowRight size={14} aria-hidden={true} />
-    </Link>
+    </TrackedLink>
   );
 }
 
@@ -371,13 +371,13 @@ function Hero({ cta, locale }: { cta: HomepageCta; locale: string }) {
           <span>
             {t('identity')} {t('identityDetail')}
           </span>
-          <Link
+          <TrackedLink
             href="/about"
-            data-umami-event="accueil-a-propos"
+            event="accueil-a-propos"
             className="font-medium text-white underline underline-offset-2 hover:text-white/90"
           >
             {t('identityLink')}
-          </Link>
+          </TrackedLink>
         </p>
 
         {/* Accroche éditoriale. Le verdict chiffré vit dans le panneau, à droite. */}
@@ -390,23 +390,22 @@ function Hero({ cta, locale }: { cta: HomepageCta; locale: string }) {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link
+          <TrackedLink
             href="/dossiers"
-            data-umami-event="accueil-cta-dossiers"
+            event="accueil-cta-dossiers"
             className="inline-flex items-center gap-1.5 rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
           >
             {t('protoCtaDossiers')}
             <ArrowRight size={14} aria-hidden={true} />
-          </Link>
+          </TrackedLink>
           {/* Second bouton : libellé et destination viennent de data/homepage-cta.json. */}
-          <a
+          <TrackedAnchor
             href={cta.href}
-            data-umami-event="accueil-cta-secondaire"
-            data-umami-event-cible={cta.href}
+            event="accueil-cta-secondaire" eventData={{ cible: cta.href }}
             className="inline-flex items-center rounded-lg border border-white/70 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
           >
             {cta.label}
-          </a>
+          </TrackedAnchor>
         </div>
 
         </div>
@@ -487,14 +486,14 @@ function WhatWeWatch({
             <Eye size={14} className="shrink-0 text-neutral-500" aria-hidden={true} />
             <span className="font-medium">{t('protoVeilleActive', { count: sourceCount })}</span>
           </div>
-          <Link
+          <TrackedLink
             href="/methodology"
-            data-umami-event="accueil-methode"
+            event="accueil-methode"
             className="mt-1.5 inline-flex min-h-[24px] items-center gap-1 pl-[22px] text-xs font-medium text-brand-700 hover:text-brand-900"
           >
             {t('veilleMethod')}
             <ArrowRight size={12} aria-hidden={true} />
-          </Link>
+          </TrackedLink>
         </div>
 
         <div className="border-t border-neutral-100" />
@@ -521,14 +520,14 @@ function WhatWeWatch({
         )}
 
         <div className="mt-4 border-t border-neutral-100 px-4 py-3">
-          <Link
+          <TrackedLink
             href="/radar"
-            data-umami-event="accueil-radar"
+            event="accueil-radar"
             className="inline-flex min-h-[24px] items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
           >
             {tr('seeAll')}
             <ArrowRight size={12} aria-hidden={true} />
-          </Link>
+          </TrackedLink>
         </div>
 
         <div className="border-t border-neutral-100 px-4 py-3">
@@ -581,27 +580,26 @@ function UnderstandColumn({ locale }: { locale: string }) {
         <p className="mb-3 text-xs font-medium text-neutral-500">{t('newHere')}</p>
         <div className="space-y-1">
           {explainers.map((exp) => (
-            <Link
+            <TrackedLink
               key={exp.href}
               href={exp.href}
-              data-umami-event="accueil-explicateur"
-              data-umami-event-fiche={exp.href}
+              event="accueil-explicateur" eventData={{ fiche: exp.href }}
               className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-neutral-800 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
             >
               <exp.Icon size={16} className="shrink-0 text-neutral-500" aria-hidden={true} />
               {exp.label}
-            </Link>
+            </TrackedLink>
           ))}
         </div>
         <div className="mt-3 border-t border-neutral-100 pt-3">
-          <Link
+          <TrackedLink
             href="/understand"
-            data-umami-event="accueil-comprendre-tout"
+            event="accueil-comprendre-tout"
             className="inline-flex min-h-[24px] items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-900"
           >
             {t('allExplainers')}
             <ArrowRight size={12} aria-hidden={true} />
-          </Link>
+          </TrackedLink>
         </div>
       </div>
 
@@ -685,13 +683,11 @@ function DossiersPreview({
           {cards.map((card) => {
             const m = card.metrics[0];
             return (
-              <Link
+              <TrackedLink
                 key={card.slug}
                 href={{ pathname: '/dossiers/[slug]', params: { slug: getLocalizedSlug(card, locale as Locale) } }}
                 // Un seul nom pour les treize cartes, le type et le slug en propriétés.
-                data-umami-event="accueil-fiche"
-                data-umami-event-type="dossier"
-                data-umami-event-slug={card.slug}
+                event="accueil-fiche" eventData={{ type: "dossier", slug: card.slug }}
                 className={cardClass}
               >
                 <div className="flex items-start justify-between gap-3">
@@ -704,7 +700,7 @@ function DossiersPreview({
                 </div>
                 {m && <KeyFigure value={m.value} unit={m.unit} label={m.label} source={m.source} />}
                 <CardFooter>{td('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
-              </Link>
+              </TrackedLink>
             );
           })}
         </div>
@@ -743,12 +739,10 @@ function DomainsPreview({
           {cards.map((card) => {
             const m = card.metrics[0];
             return (
-              <Link
+              <TrackedLink
                 key={card.slug}
                 href={{ pathname: '/domains/[slug]', params: { slug: card.slug } }}
-                data-umami-event="accueil-fiche"
-                data-umami-event-type="domaine"
-                data-umami-event-slug={card.slug}
+                event="accueil-fiche" eventData={{ type: "domaine", slug: card.slug }}
                 className={cardClass}
               >
                 <div className="flex items-start justify-between gap-3">
@@ -772,7 +766,7 @@ function DomainsPreview({
                 </p>
                 {m && <KeyFigure value={m.value} unit={m.unit} label={m.label} source={m.source} />}
                 <CardFooter>{tdo('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
-              </Link>
+              </TrackedLink>
             );
           })}
         </div>
@@ -812,18 +806,16 @@ function SectorsPreview({
           {cards.map((card) => {
             const indicator = card.impactIndicators[0];
             return (
-              <Link
+              <TrackedLink
                 key={card.slug}
                 href={{ pathname: '/sectors/[slug]', params: { slug: card.slug } }}
-                data-umami-event="accueil-fiche"
-                data-umami-event-type="secteur"
-                data-umami-event-slug={card.slug}
+                event="accueil-fiche" eventData={{ type: "secteur", slug: card.slug }}
                 className={cardClass}
               >
                 <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
                 {indicator && <KeyFigure value={indicator.value} label={indicator.label} source={indicator.source} />}
                 <CardFooter>{tdo('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
-              </Link>
+              </TrackedLink>
             );
           })}
         </div>
@@ -974,19 +966,18 @@ function FormatsSection({
                     );
                   }
                   return (
-                    <a
+                    <TrackedAnchor
                       key={lang}
                       href={`/digest/${lang}/${digest.weekPath}`}
                       lang={lang}
                       aria-label={t('protoDigestLangAria', { lang: nativeName(lang) })}
                       // Un seul nom d'événement pour onze pastilles, la langue en
                       // propriété : onze noms distincts seraient illisibles dans Umami.
-                      data-umami-event="accueil-digest-langue"
-                      data-umami-event-lang={lang}
+                      event="accueil-digest-langue" eventData={{ lang: lang }}
                       className={`${pastille} relative z-10 border-brand-700 text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700`}
                     >
                       {lang}
-                    </a>
+                    </TrackedAnchor>
                   );
                 })}
               </div>
@@ -1001,14 +992,14 @@ function FormatsSection({
             }
             link={
               digest ? (
-                <a href={digest.href} data-umami-event="accueil-digest" className={stretchedLink}>
+                <TrackedAnchor href={digest.href} event="accueil-digest" className={stretchedLink}>
                   {t('protoDigestRead', { week: digest.weekNum })}
                   <ArrowRight size={14} aria-hidden={true} />
-                </a>
+                </TrackedAnchor>
               ) : (
-                <a href="#subscribe" data-umami-event="accueil-digest-abonnement" className={stretchedLink}>
+                <TrackedAnchor href="#subscribe" event="accueil-digest-abonnement" className={stretchedLink}>
                   {t('protoDigestSubscribe')}
-                </a>
+                </TrackedAnchor>
               )
             }
           >
@@ -1037,13 +1028,13 @@ function FormatsSection({
               // vignette annonçait « Semaine 37 » en nl/en/de pendant que le lien
               // retombait sur le sommaire général : on renvoyait le lecteur ailleurs
               // que là où on lui promettait d'aller.
-              <a
+              <TrackedAnchor
                 href={
                   weekNum
                     ? `https://magazine.governance.brussels/s${weekNum}/`
                     : 'https://magazine.governance.brussels/'
                 }
-                data-umami-event="accueil-magazine"
+                event="accueil-magazine"
                 // Le magazine n'existe qu'en français : on le dit avant le clic, hors fr.
                 hrefLang="fr"
                 className={stretchedLink}
@@ -1051,7 +1042,7 @@ function FormatsSection({
                 {weekNum ? t('protoMagazineRead', { week: weekNum }) : t('protoMagazineReadPlain')}
                 {locale !== 'fr' && <FrenchOnlyMark />}
                 <ArrowRight size={14} aria-hidden={true} />
-              </a>
+              </TrackedAnchor>
             }
           >
             {magazine ? `« ${magazine.tagline} »` : t('protoMagazineFallback')}
@@ -1073,10 +1064,10 @@ function FormatsSection({
               />
             }
             link={
-              <Link href="/signal" data-umami-event="accueil-signal" className={stretchedLink}>
+              <TrackedLink href="/signal" event="accueil-signal" className={stretchedLink}>
                 {t('protoSignalCta')}
                 <ArrowRight size={14} aria-hidden={true} />
-              </Link>
+              </TrackedLink>
             }
           >
             {t('protoSignalTeaser')}

@@ -58,6 +58,23 @@ function parseISODate(value: string): number | null {
   return Number.isNaN(ms) ? null : ms;
 }
 
+/** Textes d'une attestation de relecture : le champ daté et ce qu'il couvre. */
+export interface ReviewLabels {
+  /** Clé du frontmatter qui porte la date, ex. `summaryReviewed`. */
+  key: string;
+  /** Message quand la clé manque. */
+  missing: string;
+  /** Message quand la relecture date de plus de `maxAge` jours avant `lastModified`. */
+  stale: (ageDays: number, maxAge: number) => string;
+}
+
+const SUMMARY_LABELS: ReviewLabels = {
+  key: 'summaryReviewed',
+  missing: 'summaryReviewed absent. Relire le champ summary, puis ajouter summaryReviewed avec la date du jour.',
+  stale: (ageDays, maxAge) =>
+    `chapeau relu il y a ${ageDays} jours (limite ${maxAge}). Relire summary, puis passer summaryReviewed à la date du jour.`,
+};
+
 /**
  * Compare la date de dernière relecture du chapeau à la `lastModified` de la
  * fiche. On mesure contre `lastModified` et non contre aujourd'hui : une fiche
@@ -75,6 +92,24 @@ export function checkSummaryFreshness(params: {
   /** Date du jour AAAA-MM-JJ, injectable pour les tests. Défaut : aujourd'hui en UTC. */
   today?: string;
 }): SummaryFreshness {
+  return checkReviewFreshness({ ...params, reviewed: params.summaryReviewed }, SUMMARY_LABELS);
+}
+
+/**
+ * Arithmétique commune aux attestations de relecture datées (`summaryReviewed`
+ * du chapeau, `impactReviewed` des fiches secteur : src/lib/impact-freshness.ts).
+ * Seuls les textes changent d'une attestation à l'autre.
+ */
+export function checkReviewFreshness(
+  params: {
+    lastModified: string | undefined;
+    reviewed: string | undefined;
+    draft?: boolean;
+    maxAgeDays?: number;
+    today?: string;
+  },
+  labels: ReviewLabels,
+): SummaryFreshness {
   const maxAge = params.maxAgeDays ?? SUMMARY_MAX_AGE_DAYS;
 
   if (params.draft) {
@@ -85,21 +120,20 @@ export function checkSummaryFreshness(params: {
     };
   }
 
-  if (!params.summaryReviewed) {
+  if (!params.reviewed) {
     return {
       verdict: 'missing',
       ageDays: null,
-      reason:
-        'summaryReviewed absent. Relire le champ summary, puis ajouter summaryReviewed avec la date du jour.',
+      reason: labels.missing,
     };
   }
 
-  const reviewed = parseISODate(params.summaryReviewed);
+  const reviewed = parseISODate(params.reviewed);
   if (reviewed === null) {
     return {
       verdict: 'unparsable',
       ageDays: null,
-      reason: `summaryReviewed illisible (${params.summaryReviewed}), format attendu AAAA-MM-JJ.`,
+      reason: `${labels.key} illisible (${params.reviewed}), format attendu AAAA-MM-JJ.`,
     };
   }
 
@@ -107,7 +141,7 @@ export function checkSummaryFreshness(params: {
     return {
       verdict: 'future',
       ageDays: null,
-      reason: `summaryReviewed dans le futur (${params.summaryReviewed}). La date atteste une relecture faite : poser la date du jour.`,
+      reason: `${labels.key} dans le futur (${params.reviewed}). La date atteste une relecture faite : poser la date du jour.`,
     };
   }
 
@@ -136,7 +170,7 @@ export function checkSummaryFreshness(params: {
     return {
       verdict: 'stale',
       ageDays,
-      reason: `chapeau relu il y a ${ageDays} jours (limite ${maxAge}). Relire summary, puis passer summaryReviewed à la date du jour.`,
+      reason: labels.stale(ageDays, maxAge),
     };
   }
 

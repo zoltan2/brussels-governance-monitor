@@ -513,6 +513,11 @@ const sectorCards = defineCollection({
         )
         .default([]),
       humanImpact: s.string().optional(),
+      // Date de la dernière relecture humaine de title, humanImpact et
+      // activeMechanisms. Exigée à moins de 90 jours de lastModified à chaque
+      // republication (scripts/content-lint/impact-freshness.ts) : une veille
+      // rafraîchissait la date sans relire ce texte (education, #619).
+      impactReviewed: s.isodate().optional(),
       changeType: s.enum(['added', 'updated', 'corrected', 'removed']).optional(),
       changeSummary: s.string().optional(),
       changeSummaryDate: s.isodate().optional(),

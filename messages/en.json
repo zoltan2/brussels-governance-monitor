@@ -201,7 +201,8 @@
     "book": "The book",
     "supportTitle": "This project relies on you",
     "supportSubtitle": "Independent, ad-free, no subsidies — your support matters.",
-    "supportCta": "Support the project"
+    "supportCta": "Support the project",
+    "terms": "Terms of sale"
   },
   "locale": {
     "switchTo": "Change language",
@@ -2507,5 +2508,27 @@
     "close": "Close",
     "open": "Accessibility",
     "fontScale": "Text size"
+  },
+  "terms": {
+    "title": "Terms of sale for access to the assistant",
+    "intro": "These terms apply to the purchase of extended access to the Brussels Governance Monitor AI assistant. Reading the site, searching and the first questions to the assistant remain free.",
+    "s1t": "Seller",
+    "s1": "Advice That SRL, a Belgian private limited company, Rue Delwart 149, 1070 Brussels, Belgium. Company and VAT number: BE 0728.534.930. Contact: contact@brusselsgovernance.be.",
+    "s2t": "What is sold",
+    "s2": "Extended access to the AI assistant for 90 days from its opening, up to 300 questions a day. Access is tied to the browser used for payment, not to an account. The assistant may be temporarily unavailable, in particular when the service's daily usage limit is reached; it is available again the next day. Answers are produced by an artificial intelligence model from the published dossiers: they may contain errors and do not replace the site's sourced pages.",
+    "s3t": "Price and payment",
+    "s3": "5 EUR, VAT included. Payment is processed by Stripe.",
+    "s4t": "Immediate performance and right of withdrawal",
+    "s4": "Access opens as soon as payment is confirmed. Before paying, you expressly request this immediate performance and acknowledge that you lose your 14-day right of withdrawal once access is opened. Without this agreement, payment is not offered.",
+    "s5t": "End of access and refunds",
+    "s5": "Access ends after 90 days. For any request, including refunds, write to contact@brusselsgovernance.be. A refunded payment ends the access.",
+    "s6t": "Complaints and mediation",
+    "s6": "Send your complaint first to contact@brusselsgovernance.be. If it is not resolved, you can turn to the Belgian Consumer Mediation Service:",
+    "s6url": "https://mediationconsommateur.be/",
+    "s7t": "Personal data",
+    "s7": "How your data is processed is described in the privacy policy.",
+    "s7link": "Privacy policy",
+    "lastUpdated": "Last updated: {date}",
+    "paywallLink": "Terms of sale"
   }
 }

@@ -201,7 +201,8 @@
     "book": "Das Buch",
     "supportTitle": "Dieses Projekt lebt dank Ihnen",
     "supportSubtitle": "Unabhängig, werbefrei, ohne Subventionen — Ihre Unterstützung zählt.",
-    "supportCta": "Projekt unterstützen"
+    "supportCta": "Projekt unterstützen",
+    "terms": "Verkaufsbedingungen"
   },
   "locale": {
     "switchTo": "Sprache ändern",
@@ -2507,5 +2508,27 @@
     "close": "Schließen",
     "open": "Barrierefreiheit",
     "fontScale": "Textgröße"
+  },
+  "terms": {
+    "title": "Verkaufsbedingungen für den Zugang zum Assistenten",
+    "intro": "Diese Bedingungen gelten für den Kauf eines erweiterten Zugangs zum KI-Assistenten des Brussels Governance Monitor. Das Lesen der Website, die Suche und die ersten Fragen an den Assistenten bleiben kostenlos.",
+    "s1t": "Verkäufer",
+    "s1": "Advice That SRL, Gesellschaft mit beschränkter Haftung belgischen Rechts, Rue Delwart 149, 1070 Brüssel, Belgien. Unternehmens- und MwSt.-Nummer: BE 0728.534.930. Kontakt: contact@brusselsgovernance.be.",
+    "s2t": "Was verkauft wird",
+    "s2": "Ein erweiterter Zugang zum KI-Assistenten für 90 Tage ab der Freischaltung, bis zu 300 Fragen pro Tag. Der Zugang ist an den für die Zahlung verwendeten Browser gebunden, nicht an ein Konto. Der Assistent kann vorübergehend nicht verfügbar sein, insbesondere wenn das tägliche Nutzungslimit des Dienstes erreicht ist; am nächsten Tag ist er wieder verfügbar. Die Antworten werden von einem KI-Modell auf Grundlage der veröffentlichten Dossiers erzeugt: Sie können Fehler enthalten und ersetzen nicht die belegten Seiten der Website.",
+    "s3t": "Preis und Zahlung",
+    "s3": "5 EUR, inklusive MwSt. Die Zahlung wird von Stripe abgewickelt.",
+    "s4t": "Sofortige Ausführung und Widerrufsrecht",
+    "s4": "Der Zugang wird freigeschaltet, sobald die Zahlung bestätigt ist. Vor der Zahlung verlangen Sie ausdrücklich diese sofortige Ausführung und erkennen an, dass Sie Ihr 14-tägiges Widerrufsrecht mit der Freischaltung verlieren. Ohne diese Zustimmung wird die Zahlung nicht angeboten.",
+    "s5t": "Ende des Zugangs und Erstattung",
+    "s5": "Der Zugang endet nach 90 Tagen. Für jede Anfrage, auch zur Erstattung, schreiben Sie an contact@brusselsgovernance.be. Eine erstattete Zahlung beendet den Zugang.",
+    "s6t": "Beschwerden und Schlichtung",
+    "s6": "Richten Sie Ihre Beschwerde zunächst an contact@brusselsgovernance.be. Führt sie zu keinem Ergebnis, können Sie sich an den belgischen Verbraucherschlichtungsdienst wenden:",
+    "s6url": "https://mediationconsommateur.be/",
+    "s7t": "Personenbezogene Daten",
+    "s7": "Die Verarbeitung Ihrer Daten ist in der Datenschutzerklärung beschrieben.",
+    "s7link": "Datenschutzerklärung",
+    "lastUpdated": "Letzte Aktualisierung: {date}",
+    "paywallLink": "Verkaufsbedingungen"
   }
 }

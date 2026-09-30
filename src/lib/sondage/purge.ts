@@ -15,8 +15,9 @@
  *    les adresses lisibles dans les pages libres du fichier (constaté à la revue
  *    du 25/09 : 66 témoins restants après checkpoint, 0 après VACUUM).
  *
- * Les sauvegardes (copie toutes les 6 h, gardée 7 jours) contiennent encore les
- * données purgées jusqu'à leur rotation : c'est ce que dit /privacy.
+ * Les sauvegardes de la base (copie toutes les 6 h vers Dropbox) contiennent
+ * encore les données purgées jusqu'à leur remplacement. Leur durée de
+ * conservation n'est pas vérifiée : /privacy n'en affirme aucune.
  */
 import type { DatabaseSync } from 'node:sqlite';
 import { FIN_CONSERVATION_REPONSES, jourBruxelles } from './campagne';

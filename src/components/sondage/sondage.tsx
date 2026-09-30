@@ -114,17 +114,17 @@ export function Sondage({
   const [annonce, setAnnonce] = useState('');
   const titreRef = useRef<HTMLHeadingElement>(null);
   const piegeRef = useRef<HTMLInputElement>(null);
-  const premierRendu = useRef(true);
+  // Écran déjà vu : le mode strict de React rejoue les effets au montage, un
+  // simple drapeau « premier rendu » focalisait donc le titre au chargement.
+  const ecranPrecedent = useRef<Ecran>(ecran);
   const id = useId();
   const idErreur = `${id}-erreur`;
 
   // Focus sur le titre à chaque changement d'écran, pas au chargement de la page
   // (le lecteur arrive alors normalement, par le lien d'évitement ou le haut).
   useEffect(() => {
-    if (premierRendu.current) {
-      premierRendu.current = false;
-      return;
-    }
+    if (ecranPrecedent.current === ecran) return;
+    ecranPrecedent.current = ecran;
     titreRef.current?.focus();
   }, [ecran]);
 

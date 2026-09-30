@@ -293,6 +293,14 @@ export const routing = defineRouting({
     // signal etait consolide sur l'accueil (audit 21/09).
     '/subscribe': '/subscribe',
     '/refonte': '/refonte',
+    // Sondage lecteurs du digest (FR et NL seulement : la page répond 404 en
+    // anglais et en allemand, qui gardent un chemin pour satisfaire le typage).
+    '/sondage': {
+      fr: '/sondage',
+      nl: '/enquete',
+      en: '/sondage',
+      de: '/sondage',
+    },
   },
 });
 

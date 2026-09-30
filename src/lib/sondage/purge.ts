@@ -21,6 +21,9 @@
 import type { DatabaseSync } from 'node:sqlite';
 import { FIN_CONSERVATION_REPONSES, jourBruxelles } from './campagne';
 
+/** Mot à taper dans l'admin pour confirmer la purge. */
+export const CONFIRMATION_PURGE = 'PURGER';
+
 export interface BilanPurge {
   entretiensSupprimes: number;
   reponsesSupprimees: number;

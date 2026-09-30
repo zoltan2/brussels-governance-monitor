@@ -17,6 +17,7 @@ export function AdminNav({ locale }: { locale: string }) {
     { href: `/${locale}/admin/rapport`, label: 'Rapport SEO' },
     { href: `/${locale}/admin/chat`, label: 'Chat' },
     { href: `/${locale}/admin/refonte`, label: 'Refonte' },
+    { href: `/${locale}/admin/sondage`, label: 'Sondage' },
     { href: `/${locale}/admin/quiz`, label: 'Quiz' },
     { href: `/${locale}/admin/relecture`, label: 'À relire' },
     { href: `/${locale}/review/digest`, label: 'Digest' },

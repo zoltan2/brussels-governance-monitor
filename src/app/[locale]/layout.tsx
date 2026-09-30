@@ -11,8 +11,7 @@ import { messagesPourLeClient } from '@/i18n/client-namespaces';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { AccessibilityToolbar } from '@/components/accessibility-toolbar';
-import { ChatWidget } from '@/components/chat-widget';
-import { GamesPanel } from '@/components/games-panel';
+import { WidgetsFlottants } from '@/components/widgets-flottants';
 
 import '../globals.css';
 import { UmamiScript } from '@/components/umami-script';
@@ -207,8 +206,8 @@ export default async function LocaleLayout({
             <Footer />
           </div>
           <AccessibilityToolbar />
-          <ChatWidget />
-          <GamesPanel locale={locale} />
+          {/* Bulle du chat et panneau de jeux, sauf sur le sondage lecteurs. */}
+          <WidgetsFlottants locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>

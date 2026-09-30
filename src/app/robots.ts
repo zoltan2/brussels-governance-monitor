@@ -35,6 +35,9 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
   const privatePaths = [
     '/api/',
     '/*/refonte',
+    // Sondage lecteurs : noindex aussi, et sans valeur de recherche.
+    '/*/sondage',
+    '/*/enquete',
     '/*/og',
     '/social/queue/',
     '/*/admin',

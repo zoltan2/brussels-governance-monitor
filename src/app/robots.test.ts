@@ -108,6 +108,13 @@ describe('robots.txt', () => {
     }
   });
 
+  it('exclut le sondage lecteurs sous ses deux chemins, dans chaque groupe ouvert', async () => {
+    const { rules } = await robots();
+    for (const groupe of (rules as Groupe[]).filter((g) => g.allow !== undefined)) {
+      expect(groupe.disallow).toEqual(expect.arrayContaining(['/*/sondage', '/*/enquete']));
+    }
+  });
+
   it('annonce le plan du site', async () => {
     const { sitemap } = await robots();
     expect(sitemap).toContain('/sitemap.xml');

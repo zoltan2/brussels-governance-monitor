@@ -132,6 +132,26 @@ function PrivacyView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('stuutEmail.title')}</h2>
           <p>{t('stuutEmail.description')}</p>
 
+          {/*
+            Sondage lecteurs (src/lib/sondage/, spec bgm-ops
+            2026-09-25-sondage-lecteurs-design.md, § 13). Ancre #sondage : le
+            lien « Comment vos réponses sont traitées » de l'accueil du
+            questionnaire y mène. Chaque phrase correspond au code : cookie de
+            session (src/lib/sondage/cookie.ts), dates au jour près et aucune
+            IP en base (src/lib/db.ts), limite en mémoire d'une heure au plus
+            (traitement.ts, LIMITE_CREATION_IP), adresse seulement si Q9 « oui »,
+            purge (purge.ts), événements Umami sans contenu (sondage.tsx).
+          */}
+          <h2 id="sondage" className="scroll-mt-24 text-lg font-semibold text-neutral-900">
+            {t('survey.title')}
+          </h2>
+          <p>{t('survey.purpose')}</p>
+          <p>{t('survey.anonymity')}</p>
+          <p>{t('survey.volunteers')}</p>
+          <p>{t('survey.retention')}</p>
+          <p>{t('survey.measurement')}</p>
+          <p>{t('survey.basis')}</p>
+
           <h2 className="text-lg font-semibold text-neutral-900">{t('cookies.title')}</h2>
           <p>{t('cookies.description')}</p>
 
@@ -145,7 +165,7 @@ function PrivacyView() {
           <p>{t('chatbot.paragraph2')}</p>
 
           <p className="mt-8 text-xs text-neutral-500">
-            {t('lastUpdated', { date: '2026-09-29' })}
+            {t('lastUpdated', { date: '2026-09-30' })}
           </p>
         </div>
       </div>

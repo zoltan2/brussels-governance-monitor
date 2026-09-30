@@ -149,6 +149,12 @@ const EVENEMENTS_ACTIONS = [
   'recherche-ouverte',
   'recherche-requete',
   'recherche-clic',
+  // Sondage lecteurs (spec bgm-ops 2026-09-25, § 13) : début, écran enregistré
+  // (`etape` en propriété, l'identifiant seul) et fin. JAMAIS une réponse : voir
+  // src/components/sondage/sondage.render.test.tsx.
+  'sondage_commence',
+  'sondage_etape',
+  'sondage_termine',
 ];
 
 /**

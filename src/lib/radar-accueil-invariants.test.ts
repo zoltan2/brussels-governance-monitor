@@ -95,4 +95,22 @@ describe('radar : ce que l’accueil peut afficher', () => {
         `Rattacher au moins un signal du jour à une autre fiche, ou ne pas y mettre « ${barre?.targetSlug} » par défaut.`,
     ).toBe(true);
   });
+
+  it('barre de l’accueil : une correction ne passe pas devant un fait nouveau du même jour', () => {
+    // 28/09 (#623) puis 30/09 (#661) : des entrées « corrected » ajoutées en tête
+    // du changelog passaient devant les mises à jour de la veille du même jour.
+    // La barre « Dernière mise à jour » affiche la première entrée : « Correction »
+    // aurait remplacé le fait du jour. Les corrections vont après.
+    const entrees = changelogData as Array<{ date: string; type: string; targetSlug?: string }>;
+    const tries = [...entrees].sort((a, b) => b.date.localeCompare(a.date));
+    const jour = tries[0]?.date;
+    const duJour = tries.filter((e) => e.date === jour);
+    if (!duJour.some((e) => e.type !== 'corrected')) return;
+    expect(
+      duJour[0].type,
+      `La barre du ${jour} afficherait la correction de « ${duJour[0].targetSlug} » ; ` +
+        `placer les entrées « corrected » après les faits nouveaux du jour dans data/changelog.json.`,
+    ).not.toBe('corrected');
+  });
 });
+

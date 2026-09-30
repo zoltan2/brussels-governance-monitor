@@ -8,12 +8,15 @@
 // Écrit par l'équipe purple de la revue de l'accueil.
 import { describe, expect, it } from 'vitest';
 import radarData from '../../data/radar.json';
+import changelogData from '../../data/changelog.json';
+import { selectHomepageSignals } from './homepage-signals';
 
 type Statut = 'active' | 'confirmed' | 'archived';
 interface Signal {
   id: string;
   date: string;
   status: Statut;
+  cards: string[];
   confidence: 'official' | 'estimated' | 'unconfirmed';
   nextStep?: Record<string, string>;
 }
@@ -68,5 +71,28 @@ describe('radar : ce que l’accueil peut afficher', () => {
   it('lastVeille n’est pas antérieure au signal le plus récent', () => {
     const recent = plusRecente(radar.entries.map((s) => s.date));
     expect(radar.lastVeille >= recent, `lastVeille ${radar.lastVeille} < signal du ${recent}`).toBe(true);
+  });
+
+  it('la veille du jour est visible : si elle a créé des signaux, l’accueil en montre au moins un', () => {
+    // Incident du 30/09/2026 : les deux signaux de la veille visaient `budget`, la
+    // fiche citée par la barre « Dernière mise à jour ». L'accueil écarte les
+    // signaux de cette fiche (selectHomepageSignals) : aucun signal du jour ne
+    // s'affichait, avec une CI verte. Même tri que getChangelog (date
+    // décroissante, ordre du fichier à date égale).
+    const entrees = changelogData as Array<{ date: string; targetSlug?: string }>;
+    const barre = [...entrees].sort((a, b) => b.date.localeCompare(a.date))[0];
+    const exclus = new Set(barre?.targetSlug ? [barre.targetSlug] : []);
+    const duJour = radar.entries.filter((s) => s.status === 'active' && s.date === radar.lastVeille);
+    if (duJour.length === 0) return;
+    const affiches = selectHomepageSignals(
+      radar.entries.map((s) => ({ ...s, description: '' })),
+      exclus,
+    );
+    expect(
+      affiches.some((s) => s.date === radar.lastVeille),
+      `Aucun signal du ${radar.lastVeille} sur l’accueil : tous visent « ${barre?.targetSlug} », ` +
+        `la fiche citée par la barre (${duJour.map((s) => s.id).join(', ')}). ` +
+        `Rattacher au moins un signal du jour à une autre fiche, ou ne pas y mettre « ${barre?.targetSlug} » par défaut.`,
+    ).toBe(true);
   });
 });

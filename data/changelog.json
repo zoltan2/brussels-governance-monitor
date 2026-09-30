@@ -1,6 +1,66 @@
 [
     {
         "date": "2026-09-29",
+        "type": "corrected",
+        "section": "communes",
+        "targetSlug": "jette",
+        "descriptions": {
+            "fr": "Avenue Broustin : c'est Jette qui a mis la Région en demeure, et non l'inverse comme l'indiquait la fiche. Selon BX1 (20 février 2026), le collège communal a décidé d'envoyer cette mise en demeure pour demander la réouverture de l'avenue.",
+            "nl": "Broustinlaan: het is Jette dat het Gewest in gebreke stelde, en niet omgekeerd zoals de fiche vermeldde. Volgens BX1 (20 februari 2026) besliste het schepencollege die ingebrekestelling te sturen om de heropening van de laan te vragen.",
+            "en": "Avenue Broustin: it was Jette that served formal notice on the Region, not the other way round as the page said. According to BX1 (20 February 2026), the municipal council decided to send this formal notice requesting the reopening of the avenue.",
+            "de": "Avenue Broustin: Jette hat die Region abgemahnt, nicht umgekehrt, wie es auf der Seite hieß. Laut BX1 (20. Februar 2026) beschloss das Gemeindekollegium diese Mahnung, um die Wiedereröffnung der Straße zu verlangen."
+        }
+    },
+    {
+        "date": "2026-09-29",
+        "type": "corrected",
+        "section": "sectors",
+        "targetSlug": "culture",
+        "descriptions": {
+            "fr": "La Centrale a fermé ses portes le dimanche 22 février 2026, et non le 23 comme l'indiquait la fiche. La date est celle de l'article de la RTBF, publié le jour même, qui annonçait la fermeture « ce dimanche ».",
+            "nl": "La Centrale sloot haar deuren op zondag 22 februari 2026, en niet op de 23e zoals de fiche vermeldde. De datum is die van het RTBF-artikel, dezelfde dag gepubliceerd, dat de sluiting « ce dimanche » aankondigde.",
+            "en": "La Centrale closed its doors on Sunday 22 February 2026, not on the 23rd as the page said. The date is that of the RTBF article, published the same day, which announced the closure « ce dimanche ».",
+            "de": "La Centrale hat am Sonntag, 22.02.2026, geschlossen, nicht am 23., wie es auf der Seite hieß. Das Datum ist jenes des am selben Tag erschienenen RTBF-Artikels, der die Schließung « ce dimanche » ankündigte."
+        }
+    },
+    {
+        "date": "2026-09-29",
+        "type": "corrected",
+        "section": "domains",
+        "targetSlug": "education",
+        "descriptions": {
+            "fr": "Correction de date : l'examen du décret-programme en commission du Parlement FWB a commencé le lundi 11 mai 2026.",
+            "nl": "Datumcorrectie: de bespreking van het programmadecreet in de commissie van het FWB-parlement begon op maandag 11 mei 2026.",
+            "en": "Date correction: the FWB Parliament's committee began examining the programme decree on Monday 11 May 2026.",
+            "de": "Datumskorrektur: Die Prüfung des Programmdekrets im Ausschuss des FWB-Parlaments begann am Montag, 11.05.2026."
+        }
+    },
+    {
+        "date": "2026-09-29",
+        "type": "corrected",
+        "section": "domains",
+        "targetSlug": "social",
+        "descriptions": {
+            "fr": "Réforme du chômage : les 709 millions EUR de dépenses des CPAS portent sur la seule année 2029, pas sur un cumul. Selon La Libre, la Cour des comptes cite une estimation du SPP Intégration sociale ; la version anglaise de la fiche disait « by 2029 ».",
+            "nl": "Werkloosheidshervorming: de 709 miljoen EUR uitgaven van de OCMW's gelden voor 2029 alleen, niet als cumul. Volgens La Libre citeert het Rekenhof een raming van de POD Maatschappelijke Integratie; de Engelse versie van de fiche zei « by 2029 ».",
+            "en": "Unemployment reform: the EUR 709 million of CPAS spending applies to 2029 alone, not to a cumulative total. According to La Libre, the Court of Audit cites an estimate by the PPS Social Integration; this page previously said « by 2029 ».",
+            "de": "Arbeitslosenreform: Die 709 Millionen EUR an ÖSHZ-Ausgaben gelten allein für das Jahr 2029, nicht kumuliert. Laut La Libre zitiert der Rechnungshof eine Schätzung des ÖPD Sozialeingliederung; die englische Fassung der Seite sagte « by 2029 »."
+        }
+    },
+    {
+        "date": "2026-09-29",
+        "type": "corrected",
+        "section": "domains",
+        "targetSlug": "cleanliness",
+        "descriptions": {
+            "fr": "Couleurs des sacs corrigées : les sacs jaunes servent au papier-carton, les bleus aux PMC, et non au verre. Selon Bruxelles-Propreté, les sacs oranges reçoivent les déchets alimentaires et les verts les déchets de jardin.",
+            "nl": "Kleuren van de zakken gecorrigeerd: gele zakken zijn voor papier-karton, blauwe voor PMD, niet voor glas. Volgens Net Brussel zijn oranje zakken voor voedingsafval en groene voor tuinafval.",
+            "en": "Bag colours corrected: yellow bags are for paper-cardboard and blue bags for PMC, not for glass. According to Bruxelles-Propreté, orange bags take food waste and green bags garden waste.",
+            "de": "Sackfarben korrigiert: Gelbe Säcke sind für Papier und Karton, blaue für PMC, nicht für Glas. Laut Bruxelles-Propreté nehmen orange Säcke Lebensmittelabfälle und grüne Gartenabfälle auf."
+        }
+    },
+    {
+        "date": "2026-09-29",
         "type": "updated",
         "section": "communes",
         "targetSlug": "forest",
@@ -8735,10 +8795,10 @@
         "section": "sectors",
         "targetSlug": "culture",
         "descriptions": {
-            "fr": "Kanal : ouverture confirmée 28 novembre 2026, coût total 230M EUR, programmation dévoilée. La Centrale fermée définitivement le 23/02 (6 licenciements). FAME supprimé (budget Ville −19,6 %). Zinneke Parade (30 mai 2026) : financement toujours incertain, zinnodes réduits de 20 à 13. FWB : gel indexation = 3,8M EUR.",
-            "nl": "Kanal: opening bevestigd 28 november 2026, totale kost 230M EUR, programmatie onthuld. La Centrale definitief gesloten op 23/02 (6 ontslagen). FAME geschrapt (budget Stad −19,6 %). Zinneke Parade (30 mei 2026): financiering nog onzeker, zinnodes van 20 naar 13. FWB: bevriezing indexering = 3,8M EUR.",
-            "en": "Kanal: opening confirmed 28 November 2026, total cost EUR 230M, programming revealed. La Centrale permanently closed 23/02 (6 redundancies). FAME cancelled (City budget −19.6%). Zinneke Parade (30 May 2026): funding still uncertain, zinnodes reduced from 20 to 13. FWB: indexation freeze = EUR 3.8M.",
-            "de": "Kanal: Eröffnung bestätigt 28. November 2026, Gesamtkosten 230M EUR, Programm enthüllt. La Centrale endgültig geschlossen am 23.02 (6 Entlassungen). FAME gestrichen (Stadtbudget −19,6 %). Zinneke Parade (30. Mai 2026): Finanzierung noch unsicher, Zinnodes von 20 auf 13 reduziert. FWB: Indexierungsstopp = 3,8M EUR."
+            "fr": "Kanal : ouverture confirmée 28 novembre 2026, coût total 230M EUR, programmation dévoilée. La Centrale fermée définitivement le 22/02 (6 licenciements). FAME supprimé (budget Ville −19,6 %). Zinneke Parade (30 mai 2026) : financement toujours incertain, zinnodes réduits de 20 à 13. FWB : gel indexation = 3,8M EUR.",
+            "nl": "Kanal: opening bevestigd 28 november 2026, totale kost 230M EUR, programmatie onthuld. La Centrale definitief gesloten op 22/02 (6 ontslagen). FAME geschrapt (budget Stad −19,6 %). Zinneke Parade (30 mei 2026): financiering nog onzeker, zinnodes van 20 naar 13. FWB: bevriezing indexering = 3,8M EUR.",
+            "en": "Kanal: opening confirmed 28 November 2026, total cost EUR 230M, programming revealed. La Centrale permanently closed 22/02 (6 redundancies). FAME cancelled (City budget −19.6%). Zinneke Parade (30 May 2026): funding still uncertain, zinnodes reduced from 20 to 13. FWB: indexation freeze = EUR 3.8M.",
+            "de": "Kanal: Eröffnung bestätigt 28. November 2026, Gesamtkosten 230M EUR, Programm enthüllt. La Centrale endgültig geschlossen am 22.02 (6 Entlassungen). FAME gestrichen (Stadtbudget −19,6 %). Zinneke Parade (30. Mai 2026): Finanzierung noch unsicher, Zinnodes von 20 auf 13 reduziert. FWB: Indexierungsstopp = 3,8M EUR."
         },
         "summaries": {
             "fr": "Culture — Kanal ouverture 28/11, La Centrale fermée, FAME supprimé, Zinneke incertain",
@@ -9419,10 +9479,10 @@
         "section": "domains",
         "targetSlug": "employment",
         "descriptions": {
-            "fr": "Emploi : 5e vague ONEM (36 000 courriers, 168 063 exclusions nationales dont 22,1 % à Bruxelles). La Cour des comptes juge la compensation CPAS sous-estimée (709,3M EUR d'ici 2029).",
-            "nl": "Werk: 5e RVA-golf (36.000 brieven, 168.063 nationale uitsluitingen waarvan 22,1% in Brussel). Rekenkamer oordeelt dat OCMW-compensatie onderschat is (709,3M EUR tegen 2029).",
-            "en": "Employment: 5th ONEM wave (36,000 letters, 168,063 national exclusions of which 22.1% in Brussels). Court of Audit deems CPAS compensation underestimated (EUR 709.3M by 2029).",
-            "de": "Beschäftigung: 5. ONEM-Welle (36.000 Briefe, 168.063 nationale Ausschlüsse, davon 22,1% in Brüssel). Rechnungshof hält ÖSHZ-Kompensation für unterschätzt (709,3M EUR bis 2029)."
+            "fr": "Emploi : 5e vague ONEM (36 000 courriers, 168 063 exclusions nationales dont 22,1 % à Bruxelles). La Cour des comptes juge la compensation CPAS sous-estimée (709,3M EUR de dépenses en 2029).",
+            "nl": "Werk: 5e RVA-golf (36.000 brieven, 168.063 nationale uitsluitingen waarvan 22,1% in Brussel). Rekenkamer oordeelt dat OCMW-compensatie onderschat is (709,3M EUR uitgaven in 2029).",
+            "en": "Employment: 5th ONEM wave (36,000 letters, 168,063 national exclusions of which 22.1% in Brussels). Court of Audit deems CPAS compensation underestimated (EUR 709.3M of spending in 2029).",
+            "de": "Beschäftigung: 5. ONEM-Welle (36.000 Briefe, 168.063 nationale Ausschlüsse, davon 22,1% in Brüssel). Rechnungshof hält ÖSHZ-Kompensation für unterschätzt (709,3M EUR Ausgaben im Jahr 2029)."
         }
     },
     {

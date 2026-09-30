@@ -4,7 +4,7 @@
 /**
  * Admin du sondage lecteurs : effectifs bruts avec n (JAMAIS de pourcentage :
  * plan d'analyse de la spec, § 13), verbatims de Q8 (citables à part), liste
- * des volontaires de Q9 (seule vue qui affiche une adresse), deux exports CSV
+ * des volontaires de Q9 (seule vue qui affiche des coordonnées), deux exports CSV
  * séparés et la purge. Les routes appelées (/api/admin/sondage/*) contrôlent
  * chacune la session : le garde du layout ne couvre pas les routes API.
  */
@@ -86,7 +86,7 @@ export default async function AdminSondagePage({
         </p>
         {purge.entretiens !== undefined && (
           <p role="status" className="mt-4 rounded border border-neutral-300 px-4 py-3 text-sm text-neutral-900">
-            Purge faite : {purge.entretiens} adresse(s) supprimée(s), {purge.reponses ?? 0} réponse(s) supprimée(s),
+            Purge faite : {purge.entretiens} volontaire(s) supprimé(s) (adresses et téléphones), {purge.reponses ?? 0} réponse(s) supprimée(s),
             puis VACUUM.
           </p>
         )}
@@ -161,6 +161,10 @@ export default async function AdminSondagePage({
 
       <section className="mb-12">
         <h2 className={H2}>Q5. Reconnaissance des noms</h2>
+        <p className="mb-3 text-sm text-neutral-700">
+          Chaque nom n’est compté que parmi les répondants à qui il a été proposé : la version néerlandaise ne
+          propose ni Le Signal ni le Stuut du jour.
+        </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -177,7 +181,10 @@ export default async function AdminSondagePage({
               {s.q5.map((l) => (
                 <tr key={l.nom} className="border-t border-neutral-200">
                   <th scope="row" className="py-1 pr-4 text-left font-normal">
-                    {T.q5Noms[l.nom as keyof typeof T.q5Noms]}
+                    {T.q5Noms[l.nom as keyof typeof T.q5Noms] ?? l.nom}
+                    {l.langues.length === 1 && (
+                      <span className="text-neutral-600"> ({l.langues[0].toUpperCase()} seulement)</span>
+                    )}
                   </th>
                   <td className="py-1 pr-4 font-mono tabular-nums">{l.parEtat.inconnu}</td>
                   <td className="py-1 pr-4 font-mono tabular-nums">{l.parEtat.connu}</td>
@@ -235,7 +242,7 @@ export default async function AdminSondagePage({
       <section className="mb-12">
         <h2 className={H2}>Q9. Volontaires pour un échange ({entretiens.length})</h2>
         <p className="mb-3 text-sm text-neutral-700">
-          Seule vue qui affiche une adresse. Aucun lien avec les réponses. À supprimer après les échanges, au plus
+          Seule vue qui affiche des coordonnées (adresse e-mail et/ou téléphone). Aucun lien avec les réponses. À supprimer après les échanges, au plus
           tard le {FIN_CONSERVATION_ENTRETIENS} (purge ci-dessous).
         </p>
         {entretiens.length === 0 ? (
@@ -245,15 +252,17 @@ export default async function AdminSondagePage({
             <thead>
               <tr className="text-left">
                 <th scope="col" className="py-1 pr-6">Adresse</th>
+                <th scope="col" className="py-1 pr-6">Téléphone</th>
                 <th scope="col" className="py-1 pr-6">Langue</th>
                 <th scope="col" className="py-1 pr-6">Jour</th>
                 <th scope="col" className="py-1">Statut</th>
               </tr>
             </thead>
             <tbody>
-              {entretiens.map((e) => (
-                <tr key={e.email + e.cree_le} className="border-t border-neutral-200">
-                  <td className="py-1 pr-6 font-mono">{e.email}</td>
+              {entretiens.map((e, i) => (
+                <tr key={i} className="border-t border-neutral-200">
+                  <td className="py-1 pr-6 font-mono">{e.email ?? 'aucune'}</td>
+                  <td className="py-1 pr-6 font-mono">{e.telephone ?? 'aucun'}</td>
                   <td className="py-1 pr-6">{e.langue}</td>
                   <td className="py-1 pr-6">{e.cree_le}</td>
                   <td className="py-1">{e.statut}</td>
@@ -274,7 +283,7 @@ export default async function AdminSondagePage({
           </form>
           <form method="post" action="/api/admin/sondage/export-entretiens">
             <button type="submit" className={BOUTON}>
-              Exporter les volontaires (adresses)
+              Exporter les volontaires (coordonnées)
             </button>
           </form>
         </div>

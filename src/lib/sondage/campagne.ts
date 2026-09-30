@@ -24,7 +24,7 @@ export const OUVERTURE_DEFAUT = '2026-10-12';
 export const CLOTURE_DEFAUT = '2026-12-06';
 /** Au-delà de ce jour, les réponses brutes sont supprimées (purge.ts). */
 export const FIN_CONSERVATION_REPONSES = '2027-12-06';
-/** Au plus tard ce jour, les adresses des volontaires sont supprimées. */
+/** Au plus tard ce jour, les coordonnées des volontaires (e-mail, téléphone) sont supprimées. */
 export const FIN_CONSERVATION_ENTRETIENS = '2026-12-06';
 
 const JOUR = /^\d{4}-\d{2}-\d{2}$/;

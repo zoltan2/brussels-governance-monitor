@@ -93,6 +93,8 @@ export const corpsSondageSchema = z.discriminatedUnion('etape', [
         .object({
           valeur: z.enum(OPTIONS.q9).nullable(),
           email: z.string().max(254).optional(),
+          // Borne large : la forme exacte est contrôlée par telephoneValide().
+          telephone: z.string().max(60).optional(),
         })
         .strict(),
       site: piege,

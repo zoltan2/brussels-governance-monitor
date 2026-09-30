@@ -2,7 +2,16 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, expect, it } from 'vitest';
-import { etapeDeReprise, etapePrecedente, obligatoireManquante, OPTIONS, parcours, Q5_NOMS } from './questionnaire';
+import {
+  etapeDeReprise,
+  etapePrecedente,
+  obligatoireManquante,
+  OPTIONS,
+  parcours,
+  Q5_NOMS,
+  Q5_NOMS_PAR_LANGUE,
+  telephoneValide,
+} from './questionnaire';
 import { TEXTES } from './textes';
 
 describe('parcours', () => {
@@ -44,7 +53,31 @@ describe('textes', () => {
       expect(Object.keys(libelles).sort()).toEqual([...valeurs].sort());
       for (const v of valeurs) expect(libelles[v]).toBeTruthy();
     }
-    for (const nom of Q5_NOMS) expect(t.q5Noms[nom]).toBeTruthy();
+    for (const nom of Q5_NOMS_PAR_LANGUE[langue]) expect(t.q5Noms[nom]).toBeTruthy();
+    // Pas de libellé pour un nom que la langue ne propose pas.
+    expect(Object.keys(t.q5Noms).sort()).toEqual([...Q5_NOMS_PAR_LANGUE[langue]].sort());
+  });
+
+  it('Q5 : la liste française garde les sept noms ; la néerlandaise, ni Stuut ni Signal', () => {
+    expect(Q5_NOMS_PAR_LANGUE.fr).toEqual(Q5_NOMS);
+    expect(Q5_NOMS_PAR_LANGUE.nl).toEqual(['magazine', 'amai', 'quiz', 'question_du_jour', 'radar']);
+    expect(Object.values(TEXTES.nl.q5Noms)).toEqual([
+      'Het magazine',
+      'Amai !',
+      'De quiz',
+      'De vraag van de dag',
+      'De radar',
+    ]);
+  });
+
+  it('Q9 : texte validé le 30/09/2026', () => {
+    expect(TEXTES.fr.questions.q9.question).toBe(
+      'Accepteriez-vous un échange de quinze minutes, par téléphone ou en visio ? Zoltán Jánosi, qui édite BGM, vous contactera pour fixer un moment. Aucune sollicitation commerciale.',
+    );
+    expect(TEXTES.nl.questions.q9.question).toContain(
+      'Zoltán Jánosi, die BGM uitgeeft, neemt contact met u op om een moment af te spreken. Zonder enig commercieel oogmerk.',
+    );
+    for (const l of ['fr', 'nl'] as const) expect(TEXTES[l].q9Aide).toMatch(/6 (décembre|december) 2026/);
   });
 
   it('aucun libellé ne contient « envoyé en » ni de tiret cadratin', () => {
@@ -56,4 +89,21 @@ describe('textes', () => {
     expect(TEXTES.fr.accueilParagraphe1(null)).not.toMatch(/Environ/);
     expect(TEXTES.fr.accueilParagraphe1(6)).toMatch(/Environ 6 minutes\.$/);
   });
+});
+
+describe('telephoneValide (souple)', () => {
+  it.each(['0470 12 34 56', '+32 470 12 34 56', '02.123.45.67', '0470-12-34-56', '+32470123456', '12345678'])(
+    'accepte « %s »',
+    (t) => expect(telephoneValide(t)).toBe(true),
+  );
+
+  it.each([
+    ['trop court (7 chiffres)', '1234567'],
+    ['trop long (21 chiffres)', '1'.repeat(21)],
+    ['lettres', '0470 ABC 456'],
+    ['parenthèses', '(02) 123 45 67'],
+    ['« + » ailleurs qu’en tête', '0032+470123456'],
+    ['vide', ''],
+    ['séparateurs seuls', '+ . - . - . -'],
+  ])('refuse : %s', (_, t) => expect(telephoneValide(t)).toBe(false));
 });

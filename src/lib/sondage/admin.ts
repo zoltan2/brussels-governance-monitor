@@ -13,6 +13,7 @@ import {
   OPTIONS,
   Q5_ETATS,
   Q5_NOMS,
+  languesDuNomQ5,
   parcours,
   type EtapeChoix,
   type Reponses,
@@ -36,7 +37,12 @@ export interface Synthese {
   /** Parcours non terminés, par dernière étape enregistrée. */
   abandonsParEtape: Record<string, number>;
   questions: EffectifsQuestion[];
-  q5: { nom: string; concernes: number; n: number; parEtat: Record<string, number> }[];
+  /**
+   * Par nom, seuls comptent les répondants à qui ce nom a été PROPOSÉ (sa
+   * langue) : un lecteur néerlandophone n'est ni « concerné » ni « non
+   * répondu » pour « Le Signal » ou le Stuut du jour.
+   */
+  q5: { nom: string; langues: string[]; concernes: number; n: number; parEtat: Record<string, number> }[];
   verbatims: { citables: string[]; nonCitables: string[] };
   autres: { etape: string; texte: string }[];
 }
@@ -76,9 +82,11 @@ export function synthese(db: DatabaseSync): Synthese {
 
   const q5 = Q5_NOMS.map((nom) => {
     const parEtat: Record<string, number> = Object.fromEntries(Q5_ETATS.map((e) => [e, 0]));
+    const langues: string[] = languesDuNomQ5(nom);
     let concernes = 0;
     let n = 0;
     for (const l of lignes) {
+      if (!langues.includes(l.langue)) continue;
       if (!parcours(l.reponses).includes('q5')) continue;
       concernes++;
       const v = l.reponses.q5?.lignes?.[nom];
@@ -87,7 +95,7 @@ export function synthese(db: DatabaseSync): Synthese {
         n++;
       }
     }
-    return { nom, concernes, n, parEtat };
+    return { nom, langues, concernes, n, parEtat };
   });
 
   const citables: string[] = [];
@@ -165,8 +173,15 @@ export function csvReponses(db: DatabaseSync): string {
   return [ligneCsv(colonnes), ...corps].join('\r\n') + '\r\n';
 }
 
-/** Export des volontaires de Q9 : la seule sortie qui contient une adresse. */
+/**
+ * Export des volontaires de Q9 : la seule sortie qui contient des coordonnées
+ * (adresse e-mail et/ou téléphone ; cellule vide pour celle qui manque). Un
+ * numéro qui commence par « + » sort précédé d'une apostrophe, comme toute
+ * cellule qui pourrait passer pour une formule (celluleCsv).
+ */
 export function csvEntretiens(db: DatabaseSync): string {
-  const lignes = tousLesEntretiens(db).map((e) => ligneCsv([e.email, e.langue, e.cree_le, e.statut]));
-  return [ligneCsv(['email', 'langue', 'cree_le', 'statut']), ...lignes].join('\r\n') + '\r\n';
+  const lignes = tousLesEntretiens(db).map((e) =>
+    ligneCsv([e.email, e.telephone, e.langue, e.cree_le, e.statut]),
+  );
+  return [ligneCsv(['email', 'telephone', 'langue', 'cree_le', 'statut']), ...lignes].join('\r\n') + '\r\n';
 }

@@ -5,7 +5,8 @@
  * Purge du sondage lecteurs. PAS de cron : Zoltán la déclenche depuis
  * /fr/admin/sondage (bouton « Purger », route /api/admin/sondage/purge).
  *
- *  - `sondage_entretiens` est vidée à CHAQUE appel. À lancer une fois les
+ *  - `sondage_entretiens` est vidée à CHAQUE appel (lignes entières : adresse
+ *    e-mail ET téléphone partent ensemble). À lancer une fois les
  *    échanges menés, et au plus tard le 06/12/2026 (promesse de /privacy et de
  *    l'accueil du questionnaire).
  *  - `sondage_reponses` n'est vidée qu'APRÈS le 06/12/2027, fin de conservation

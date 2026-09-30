@@ -65,9 +65,25 @@ export type EtapeChoix = keyof typeof OPTIONS;
 export const ETAPES_AVEC_AUTRE = ['q1b', 'q7'] as const;
 export const AUTRE_MAX = 120;
 
-/** Q5 : une ligne par nom, trois états, rien de coché d'avance. */
+/**
+ * Q5 : une ligne par nom, trois états, rien de coché d'avance. Q5_NOMS est
+ * l'ensemble de TOUS les noms (la liste française) ; chaque langue n'en montre
+ * que ceux qui existent pour son lecteur (décision du 30/09/2026) : ni
+ * « Le Signal » (français seulement) ni le Stuut du jour (absent en
+ * néerlandais) dans la version néerlandaise. La route refuse une réponse qui
+ * porterait un nom absent de la liste de sa langue.
+ */
 export const Q5_NOMS = ['magazine', 'signal', 'stuut', 'amai', 'quiz', 'question_du_jour', 'radar'] as const;
 export type NomQ5 = (typeof Q5_NOMS)[number];
+export const Q5_NOMS_PAR_LANGUE: Record<LangueSondage, readonly NomQ5[]> = {
+  fr: Q5_NOMS,
+  nl: ['magazine', 'amai', 'quiz', 'question_du_jour', 'radar'],
+};
+
+/** Les langues dans lesquelles un nom de Q5 est proposé. */
+export function languesDuNomQ5(nom: NomQ5): LangueSondage[] {
+  return LANGUES_SONDAGE.filter((l) => Q5_NOMS_PAR_LANGUE[l].includes(nom));
+}
 export const Q5_ETATS = ['inconnu', 'connu', 'utilise'] as const;
 export type EtatQ5 = (typeof Q5_ETATS)[number];
 
@@ -80,7 +96,23 @@ export const OBLIGATOIRES: readonly Etape[] = ['q1', 'q2'];
 export type ReponseChoix = { valeur: string | null; autre?: string };
 export type ReponseQ5 = { lignes: Partial<Record<NomQ5, EtatQ5>> };
 export type ReponseQ8 = { texte: string; citation: 'oui' | 'non' };
-/** Q9 : l'adresse n'est JAMAIS dans les réponses ; elle va, seule, dans sondage_entretiens. */
+/**
+ * Q9, coordonnées (décision du 30/09/2026) : adresse e-mail, numéro de
+ * téléphone, ou les deux ; au moins un des deux si « oui ». Le téléphone est
+ * validé de façon souple : chiffres, espaces, « + » en tête, points et tirets ;
+ * de 8 à 20 chiffres (les « caractères utiles »), séparateurs non comptés.
+ */
+export const TELEPHONE_MAX = 30;
+const TELEPHONE_RE = /^\+?[0-9 .-]+$/;
+
+export function telephoneValide(saisie: string): boolean {
+  const t = saisie.trim();
+  if (t.length > TELEPHONE_MAX || !TELEPHONE_RE.test(t)) return false;
+  const chiffres = t.replace(/[^0-9]/g, '').length;
+  return chiffres >= 8 && chiffres <= 20;
+}
+
+/** Q9 : les coordonnées ne sont JAMAIS dans les réponses ; elles vont, seules, dans sondage_entretiens. */
 export type ReponseQ9 = { valeur: 'oui' | 'non' | null };
 
 export type Reponses = Partial<{

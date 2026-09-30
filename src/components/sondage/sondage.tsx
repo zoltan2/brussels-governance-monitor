@@ -292,11 +292,6 @@ export function Sondage({
         {titre(t.accueilTitre)}
         <p className="mt-4 text-base text-neutral-800">{t.accueilParagraphe1(DUREE_ANNONCEE_MINUTES)}</p>
         <p className="mt-3 text-base text-neutral-800">{t.accueilParagraphe2}</p>
-        <p className="mt-3 text-base">
-          <a href={lienNotice} className="text-brand-700 underline underline-offset-4 hover:text-brand-900">
-            {t.lienNotice}
-          </a>
-        </p>
         <div className="mt-6">
           <button type="button" className={BOUTON_PRIMAIRE} onClick={commencer} disabled={envoi}>
             {envoi ? t.envoi : t.commencer}
@@ -304,6 +299,12 @@ export function Sondage({
         </div>
         <ChampPiege piegeRef={piegeRef} libelle={t.champPiege} />
         {zoneStatut}
+        {/* Discret et sous le bouton : l’accueil sert à démarrer (demande du 30/09). */}
+        <p className="mt-8 text-sm">
+          <a href={lienNotice} className="text-neutral-600 underline underline-offset-4 hover:text-neutral-900">
+            {t.lienNotice}
+          </a>
+        </p>
       </div>
     );
   }

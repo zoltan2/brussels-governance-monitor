@@ -80,6 +80,40 @@ CREATE TABLE IF NOT EXISTS chat_budget (
   jour      TEXT PRIMARY KEY,
   micro_usd INTEGER NOT NULL
 );
+
+-- Sondage lecteurs du digest (src/lib/sondage/, spec bgm-ops
+-- 2026-09-25-sondage-lecteurs-design.md, § 13). SCHÉMA FIGÉ AVANT LE PILOTE :
+-- « CREATE TABLE IF NOT EXISTS » ignore en silence une colonne ajoutée plus
+-- tard sur une base existante. Toute évolution passe par PRAGMA user_version et
+-- des ALTER TABLE numérotés, jamais par une retouche de ce bloc.
+--
+-- Réponses ANONYMES : une session aléatoire (cookie), aucune adresse, aucune IP,
+-- des dates au jour près seulement. Supprimées après le 06/12/2027.
+CREATE TABLE IF NOT EXISTS sondage_reponses (
+  session  TEXT PRIMARY KEY,
+  langue   TEXT NOT NULL,
+  version  TEXT NOT NULL,
+  reponses TEXT NOT NULL DEFAULT '{}',
+  etape    TEXT NOT NULL,
+  duree_ms INTEGER NOT NULL DEFAULT 0,
+  cree_le  TEXT NOT NULL,
+  maj_le   TEXT NOT NULL,
+  termine  INTEGER NOT NULL DEFAULT 0,
+  pilote   INTEGER NOT NULL DEFAULT 0
+);
+
+-- Volontaires pour un échange (Q9 « oui » avec une adresse valide). AUCUN lien
+-- vers sondage_reponses : ni session, ni horodatage précis. Identifiant
+-- aléatoire et table WITHOUT ROWID, pour que l'ordre d'insertion ne permette
+-- pas de rapprocher une adresse d'une réponse. Vidée après les échanges, au
+-- plus tard le 06/12/2026.
+CREATE TABLE IF NOT EXISTS sondage_entretiens (
+  id      TEXT PRIMARY KEY,
+  email   TEXT NOT NULL,
+  langue  TEXT NOT NULL,
+  cree_le TEXT NOT NULL,
+  statut  TEXT NOT NULL DEFAULT 'a_contacter'
+) WITHOUT ROWID;
 `;
 
 /** Opens a SQLite database at `path` and applies the schema (idempotent). */

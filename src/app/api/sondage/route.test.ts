@@ -63,6 +63,13 @@ describe('POST /api/sondage', () => {
     expect(base.db!.prepare('SELECT COUNT(*) AS n FROM sondage_reponses').get()).toEqual({ n: 0 });
   });
 
+  it('hors période, le refus vient avant la lecture du corps (410, pas 413)', async () => {
+    vi.stubEnv('SONDAGE_OUVERTURE', '2026-11-20');
+    const res = await POST(requete({ etape: 'q8', reponse: { texte: 'x'.repeat(40_000), citation: 'non' } }));
+    expect(res.status).toBe(410);
+    expect(await res.json()).toMatchObject({ erreur: 'sondage_pas_ouvert' });
+  });
+
   it('un corps trop gros est refusé sans être lu en entier', async () => {
     const res = await POST(requete({ etape: 'q8', reponse: { texte: 'x'.repeat(40_000), citation: 'non' } }));
     expect(res.status).toBe(413);

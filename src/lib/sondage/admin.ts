@@ -7,6 +7,10 @@
  * Plan d'analyse (spec § 13, écrit avant la collecte) : des EFFECTIFS avec n,
  * jamais de pourcentage. Les effectifs ne comptent que les réponses terminées et
  * hors pilote ; les réponses pilotes et les parcours abandonnés sont comptés à part.
+ *
+ * Vue « pilote » (30/09/2026) : pendant le pilote, les mêmes tableaux calculés
+ * sur les seules réponses pilotes, jamais mélangées aux réelles. Sans elle,
+ * l'admin n'affichait rien d'une réponse pilote terminée (constat de Zoltán).
  */
 import type { DatabaseSync } from 'node:sqlite';
 import {
@@ -30,8 +34,13 @@ export interface EffectifsQuestion {
   parOption: Record<string, number>;
 }
 
+export type Vue = 'reel' | 'pilote';
+
 export interface Synthese {
+  vue: Vue;
   terminees: number;
+  /** Durée active médiane des réponses terminées de la vue, en secondes (null si aucune). */
+  dureeMedianeS: number | null;
   enCours: number;
   pilotes: number;
   /** Parcours non terminés, par dernière étape enregistrée. */
@@ -51,16 +60,24 @@ function choixDe(r: Reponses, e: EtapeChoix): ReponseChoix | undefined {
   return r[e as keyof Reponses] as ReponseChoix | undefined;
 }
 
-export function retenues(lignes: LigneReponse[]): LigneReponse[] {
-  return lignes.filter((l) => l.termine && !l.pilote);
+export function retenues(lignes: LigneReponse[], vue: Vue = 'reel'): LigneReponse[] {
+  return lignes.filter((l) => l.termine && Boolean(l.pilote) === (vue === 'pilote'));
 }
 
-export function synthese(db: DatabaseSync): Synthese {
+export function mediane(valeurs: number[]): number | null {
+  if (valeurs.length === 0) return null;
+  const t = [...valeurs].sort((a, b) => a - b);
+  const m = Math.floor(t.length / 2);
+  return t.length % 2 ? t[m] : (t[m - 1] + t[m]) / 2;
+}
+
+export function synthese(db: DatabaseSync, vue: Vue = 'reel'): Synthese {
   const toutes = toutesLesReponses(db);
-  const lignes = retenues(toutes);
+  const lignes = retenues(toutes, vue);
+  const deLaVue = (l: LigneReponse) => Boolean(l.pilote) === (vue === 'pilote');
   const abandonsParEtape: Record<string, number> = {};
   for (const l of toutes) {
-    if (l.termine || l.pilote) continue;
+    if (l.termine || !deLaVue(l)) continue;
     abandonsParEtape[l.etape] = (abandonsParEtape[l.etape] ?? 0) + 1;
   }
 
@@ -110,9 +127,12 @@ export function synthese(db: DatabaseSync): Synthese {
     }
   }
 
+  const med = mediane(lignes.map((l) => l.duree_ms));
   return {
+    vue,
     terminees: lignes.length,
-    enCours: toutes.filter((l) => !l.termine && !l.pilote).length,
+    dureeMedianeS: med === null ? null : Math.round(med / 1000),
+    enCours: toutes.filter((l) => !l.termine && deLaVue(l)).length,
     pilotes: toutes.filter((l) => l.pilote).length,
     abandonsParEtape,
     questions,

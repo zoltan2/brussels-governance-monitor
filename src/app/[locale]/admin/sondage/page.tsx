@@ -47,7 +47,7 @@ const BOUTON =
 export default async function AdminSondagePage({
   searchParams,
 }: {
-  searchParams: Promise<{ entretiens?: string; reponses?: string }>;
+  searchParams: Promise<{ entretiens?: string; reponses?: string; vue?: string }>;
 }) {
   await requireAdmin();
   // Le layout contrôle aussi la session, mais Next rend la page même quand il
@@ -68,7 +68,8 @@ export default async function AdminSondagePage({
     );
   }
 
-  const s = synthese(db);
+  const vue = purge.vue === 'pilote' ? 'pilote' : 'reel';
+  const s = synthese(db, vue);
   const entretiens = tousLesEntretiens(db);
 
   return (
@@ -82,8 +83,27 @@ export default async function AdminSondagePage({
           {piloteParEnv() && ' Mode pilote actif (SONDAGE_PILOTE=1) : toutes les nouvelles réponses sont marquées pilote.'}
         </p>
         <p className="mt-2 text-sm text-neutral-700">
-          Effectifs bruts, jamais de pourcentage. Seules les réponses terminées et hors pilote sont comptées.
+          Effectifs bruts, jamais de pourcentage.{' '}
+          {vue === 'pilote'
+            ? 'Vue pilote : seules les réponses pilotes terminées sont comptées, jamais mélangées aux réelles.'
+            : 'Seules les réponses terminées et hors pilote sont comptées.'}
         </p>
+        <nav aria-label="Vue des réponses" className="mt-4 flex gap-3 text-sm">
+          <a
+            href="?"
+            aria-current={vue === 'reel' ? 'page' : undefined}
+            className={vue === 'reel' ? 'font-semibold text-neutral-900 underline' : 'text-brand-700 underline'}
+          >
+            Réponses réelles
+          </a>
+          <a
+            href="?vue=pilote"
+            aria-current={vue === 'pilote' ? 'page' : undefined}
+            className={vue === 'pilote' ? 'font-semibold text-neutral-900 underline' : 'text-brand-700 underline'}
+          >
+            Réponses pilotes ({s.pilotes})
+          </a>
+        </nav>
         {purge.entretiens !== undefined && (
           <p role="status" className="mt-4 rounded border border-neutral-300 px-4 py-3 text-sm text-neutral-900">
             Purge faite : {purge.entretiens} volontaire(s) supprimé(s) (adresses et téléphones), {purge.reponses ?? 0} réponse(s) supprimée(s),
@@ -94,9 +114,9 @@ export default async function AdminSondagePage({
 
       <section className="mb-10 grid gap-4 md:grid-cols-4">
         {[
-          ['Terminées (hors pilote)', s.terminees],
+          [vue === 'pilote' ? 'Pilotes terminées' : 'Terminées (hors pilote)', s.terminees],
           ['Commencées, non terminées', s.enCours],
-          ['Pilote', s.pilotes],
+          ['Durée médiane', s.dureeMedianeS === null ? '–' : `${Math.floor(s.dureeMedianeS / 60)} min ${s.dureeMedianeS % 60} s`],
           ['Volontaires Q9', entretiens.length],
         ].map(([libelle, n]) => (
           <div key={libelle} className={CARTE}>

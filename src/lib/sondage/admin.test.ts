@@ -3,7 +3,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { createDb } from '@/lib/db';
-import { celluleCsv, csvEntretiens, csvReponses, synthese } from './admin';
+import { celluleCsv, csvEntretiens, csvReponses, mediane, synthese } from './admin';
 import { ajouterEntretien, creerReponse, majReponse } from './store';
 import type { Reponses } from './questionnaire';
 
@@ -11,14 +11,41 @@ let n = 0;
 function reponse(
   db: ReturnType<typeof createDb>,
   reponses: Reponses,
-  { termine = true, pilote = false, etape = 'fin', langue = 'fr' as 'fr' | 'nl' } = {},
+  { termine = true, pilote = false, etape = 'fin', langue = 'fr' as 'fr' | 'nl', duree_ms = 90_000 } = {},
 ) {
   const session = String(++n).padStart(22, 'x');
   creerReponse(db, { session, langue, version: 'v3', jour: '2026-11-17', pilote });
-  majReponse(db, { session, reponses, etape, duree_ms: 90_000, jour: '2026-11-17', termine });
+  majReponse(db, { session, reponses, etape, duree_ms, jour: '2026-11-17', termine });
 }
 
 describe('synthèse de l’admin', () => {
+  it('vue pilote : les seules réponses pilotes, jamais mélangées aux réelles (constat du 30/09)', () => {
+    const db = createDb(':memory:');
+    reponse(db, { q1: { valeur: 'souvent' } }, { duree_ms: 60_000 });
+    reponse(db, { q1: { valeur: 'jamais' }, q1b: { valeur: 'trop_long' } }, { pilote: true, duree_ms: 148_000 });
+    reponse(db, { q1: { valeur: 'toujours' } }, { pilote: true, duree_ms: 200_000 });
+    reponse(db, { q1: { valeur: 'parfois' } }, { pilote: true, termine: false, etape: 'q2' });
+
+    const p = synthese(db, 'pilote');
+    expect(p.vue).toBe('pilote');
+    expect(p.terminees).toBe(2);
+    expect(p.enCours).toBe(1);
+    expect(p.abandonsParEtape).toEqual({ q2: 1 });
+    expect(p.questions.find((q) => q.etape === 'q1')).toMatchObject({ n: 2, parOption: { jamais: 1, toujours: 1, souvent: 0 } });
+    expect(p.dureeMedianeS).toBe(174);
+
+    const r = synthese(db);
+    expect(r.terminees).toBe(1);
+    expect(r.questions.find((q) => q.etape === 'q1')).toMatchObject({ n: 1, parOption: { souvent: 1, jamais: 0 } });
+    expect(r.dureeMedianeS).toBe(60);
+  });
+
+  it('médiane', () => {
+    expect(mediane([])).toBeNull();
+    expect(mediane([3, 1, 2])).toBe(2);
+    expect(mediane([4, 1, 3, 2])).toBe(2.5);
+  });
+
   it('compte en effectifs les seules réponses terminées hors pilote', () => {
     const db = createDb(':memory:');
     reponse(db, { q1: { valeur: 'souvent' }, q2: { valeur: 'manquerait' } });

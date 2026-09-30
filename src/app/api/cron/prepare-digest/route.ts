@@ -8,6 +8,7 @@ import { getResend, EMAIL_FROM, listActiveContacts, resendCall } from '@/lib/res
 import { generateUnsubscribeToken } from '@/lib/token';
 import { collectDigestUpdates, generateSummaryLine } from '@/lib/digest-updates';
 import DigestPreviewEmail from '@/emails/digest-preview';
+import { encartSondageDigest } from '@/lib/sondage/encart-digest';
 import { isValidCronAuth } from '@/lib/cron-auth';
 import { resolveWeeklyNumber, weeklyNumberForLocale } from '@/lib/weekly-number';
 
@@ -298,6 +299,7 @@ export async function GET(request: Request) {
         closingNote: pendingDigest.closingNote.fr,
         commitmentCount,
         siteUrl,
+        sondage: encartSondageDigest('fr', siteUrl),
         approveUrl,
         editUrl,
         subscriberCount,

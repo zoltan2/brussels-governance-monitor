@@ -8,6 +8,7 @@ import { generateUnsubscribeToken } from '@/lib/token';
 import { listUnsubscribeHeaders } from '@/lib/list-unsubscribe';
 import { collectDigestUpdates, filterUpdatesForSubscriber } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
+import { encartSondageDigest } from '@/lib/sondage/encart-digest';
 import type { Locale } from '@/i18n/routing';
 import { isValidCronAuth } from '@/lib/cron-auth';
 
@@ -177,6 +178,7 @@ export async function GET(request: Request) {
       feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
       feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
       magazineUrl,
+      sondage: encartSondageDigest(locale, siteUrl),
     };
 
     emailPayloads.push({

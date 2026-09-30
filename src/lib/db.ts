@@ -84,8 +84,9 @@ CREATE TABLE IF NOT EXISTS chat_budget (
 -- Sondage lecteurs du digest (src/lib/sondage/, spec bgm-ops
 -- 2026-09-25-sondage-lecteurs-design.md, § 13). SCHÉMA FIGÉ AVANT LE PILOTE :
 -- « CREATE TABLE IF NOT EXISTS » ignore en silence une colonne ajoutée plus
--- tard sur une base existante. Toute évolution passe par PRAGMA user_version et
--- des ALTER TABLE numérotés, jamais par une retouche de ce bloc.
+-- tard sur une base existante. Toute évolution passe par une migration écrite
+-- dans createDb (PRAGMA table_info puis ALTER TABLE, idempotente), jamais par
+-- une retouche de ce bloc. Première du genre : migrerSondageEntretiens().
 --
 -- Réponses ANONYMES : une session aléatoire (cookie), aucune adresse, aucune IP,
 -- des dates au jour près seulement. Supprimées après le 06/12/2027.
@@ -102,7 +103,7 @@ CREATE TABLE IF NOT EXISTS sondage_reponses (
   pilote   INTEGER NOT NULL DEFAULT 0
 );
 
--- Volontaires pour un échange (Q9 « oui » avec une adresse valide). AUCUN lien
+-- Volontaires pour un échange (Q9 « oui » avec des coordonnées valides). AUCUN lien
 -- vers sondage_reponses : ni session, ni horodatage précis. Identifiant
 -- aléatoire et table WITHOUT ROWID, pour que l'ordre d'insertion ne permette
 -- pas de rapprocher une adresse d'une réponse. Vidée après les échanges, au
@@ -114,7 +115,76 @@ CREATE TABLE IF NOT EXISTS sondage_entretiens (
   cree_le TEXT NOT NULL,
   statut  TEXT NOT NULL DEFAULT 'a_contacter'
 ) WITHOUT ROWID;
+-- Ce CREATE est le schéma d'ORIGINE (#662), gardé tel quel : la migration
+-- migrerSondageEntretiens() ci-dessous le fait évoluer (email facultatif,
+-- colonne telephone), sur une base neuve comme sur la base de production.
 `;
+
+/** Schéma cible de sondage_entretiens (décision du 30/09/2026 : e-mail et/ou téléphone). */
+const SONDAGE_ENTRETIENS_V2 = `
+CREATE TABLE sondage_entretiens_v2 (
+  id        TEXT PRIMARY KEY,
+  email     TEXT,
+  telephone TEXT,
+  langue    TEXT NOT NULL,
+  cree_le   TEXT NOT NULL,
+  statut    TEXT NOT NULL DEFAULT 'a_contacter',
+  CHECK (email IS NOT NULL OR telephone IS NOT NULL)
+) WITHOUT ROWID;
+`;
+
+type Colonne = { name: string; notnull: number };
+
+function colonnesEntretiens(db: DatabaseSync): Colonne[] {
+  return db.prepare('PRAGMA table_info(sondage_entretiens)').all() as unknown as Colonne[];
+}
+
+/**
+ * Q9 accepte désormais une adresse e-mail, un numéro de téléphone, ou les deux.
+ * Migration idempotente, décidée sur l'état RÉEL de la table (PRAGMA table_info),
+ * pas sur un numéro de version :
+ *
+ *  - `email` encore NOT NULL (schéma d'origine) : SQLite ne sait pas retirer une
+ *    contrainte NOT NULL par ALTER TABLE, la table est donc reconstruite
+ *    (création de la nouvelle, copie des lignes, suppression de l'ancienne,
+ *    renommage), dans une transaction. Sûr en production : la table y est VIDE
+ *    (campagne fermée jusqu'au 12/10/2026, aucune écriture possible avant) ; et
+ *    même non vide, les lignes sont recopiées à l'identique, id compris. La
+ *    table n'a ni index, ni déclencheur, ni vue qui en dépende.
+ *  - `email` déjà facultative mais `telephone` absente : simple ADD COLUMN.
+ *  - schéma déjà à jour : rien.
+ *
+ * L'état est relu APRÈS avoir pris le verrou d'écriture (BEGIN IMMEDIATE) : deux
+ * processus qui ouvrent la base en même temps ne migrent pas deux fois.
+ */
+export function migrerSondageEntretiens(db: DatabaseSync): void {
+  const aJour = (cols: Colonne[]) =>
+    cols.some((c) => c.name === 'telephone') && cols.find((c) => c.name === 'email')?.notnull === 0;
+  if (aJour(colonnesEntretiens(db))) return;
+
+  db.exec('BEGIN IMMEDIATE');
+  try {
+    const cols = colonnesEntretiens(db);
+    const email = cols.find((c) => c.name === 'email');
+    if (email && email.notnull !== 0) {
+      db.exec('DROP TABLE IF EXISTS sondage_entretiens_v2');
+      db.exec(SONDAGE_ENTRETIENS_V2);
+      const avecTel = cols.some((c) => c.name === 'telephone');
+      db.exec(
+        `INSERT INTO sondage_entretiens_v2 (id, email, telephone, langue, cree_le, statut)
+         SELECT id, email, ${avecTel ? 'telephone' : 'NULL'}, langue, cree_le, statut FROM sondage_entretiens`,
+      );
+      db.exec('DROP TABLE sondage_entretiens');
+      db.exec('ALTER TABLE sondage_entretiens_v2 RENAME TO sondage_entretiens');
+    } else if (!cols.some((c) => c.name === 'telephone')) {
+      db.exec('ALTER TABLE sondage_entretiens ADD COLUMN telephone TEXT');
+    }
+    db.exec('COMMIT');
+  } catch (e) {
+    db.exec('ROLLBACK');
+    throw e;
+  }
+}
 
 /** Opens a SQLite database at `path` and applies the schema (idempotent). */
 export function createDb(path: string): DatabaseSync {
@@ -125,6 +195,7 @@ export function createDb(path: string): DatabaseSync {
   db.exec('PRAGMA journal_mode = WAL');
   db.exec('PRAGMA busy_timeout = 5000');
   db.exec(MIGRATIONS);
+  migrerSondageEntretiens(db);
   return db;
 }
 

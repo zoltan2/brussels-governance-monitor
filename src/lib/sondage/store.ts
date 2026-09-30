@@ -97,13 +97,18 @@ export function supprimerReponse(db: DatabaseSync, session: string): void {
   db.prepare('DELETE FROM sondage_reponses WHERE session = ?').run(session);
 }
 
+/** Un volontaire de Q9 : adresse e-mail, téléphone, ou les deux (jamais aucun des deux). */
 export function ajouterEntretien(
   db: DatabaseSync,
-  e: { email: string; langue: LangueSondage; jour: string },
+  e: { email?: string | null; telephone?: string | null; langue: LangueSondage; jour: string },
 ): void {
+  const email = e.email || null;
+  const telephone = e.telephone || null;
+  if (!email && !telephone) throw new Error('ajouterEntretien : ni adresse ni téléphone');
   db.prepare(
-    `INSERT INTO sondage_entretiens (id, email, langue, cree_le, statut) VALUES (?, ?, ?, ?, 'a_contacter')`,
-  ).run(randomUUID(), e.email, e.langue, e.jour);
+    `INSERT INTO sondage_entretiens (id, email, telephone, langue, cree_le, statut)
+     VALUES (?, ?, ?, ?, ?, 'a_contacter')`,
+  ).run(randomUUID(), email, telephone, e.langue, e.jour);
 }
 
 export function toutesLesReponses(db: DatabaseSync): LigneReponse[] {
@@ -114,7 +119,8 @@ export function toutesLesReponses(db: DatabaseSync): LigneReponse[] {
 }
 
 export interface Entretien {
-  email: string;
+  email: string | null;
+  telephone: string | null;
   langue: string;
   cree_le: string;
   statut: string;
@@ -122,6 +128,6 @@ export interface Entretien {
 
 export function tousLesEntretiens(db: DatabaseSync): Entretien[] {
   return db
-    .prepare('SELECT email, langue, cree_le, statut FROM sondage_entretiens ORDER BY cree_le, email')
+    .prepare('SELECT email, telephone, langue, cree_le, statut FROM sondage_entretiens ORDER BY cree_le, email, telephone')
     .all() as unknown as Entretien[];
 }

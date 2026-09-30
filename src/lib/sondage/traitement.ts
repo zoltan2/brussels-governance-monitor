@@ -13,7 +13,8 @@
  *   3. champ piège : un robot qui le remplit reçoit un succès, rien n'est écrit ;
  *   4. validation stricte (liste fermée de valeurs par question) ;
  *   5. session : création à « Commencer », limite par session, verrou après la fin ;
- *   6. parcours : une étape hors parcours est refusée ;
+ *   6. Q5 : un nom absent de la liste de la langue est refusé ; puis parcours :
+ *      une étape hors parcours est refusée ;
  *   7. à la fin : obligatoires présentes, durée active d'au moins 20 s, sinon la
  *      réponse est ignorée (supprimée) sans que l'appelant le sache.
  *
@@ -30,12 +31,15 @@ import { etatCampagne, jourBruxelles, type Campagne } from './campagne';
 import {
   AUTRE_MAX,
   ETAPES_AVEC_AUTRE,
+  Q5_NOMS_PAR_LANGUE,
   VERSION_QUESTIONNAIRE,
   nettoyer,
   obligatoireManquante,
   parcours,
   etapeSuivante,
+  telephoneValide,
   type Etape,
+  type NomQ5,
   type Reponses,
 } from './questionnaire';
 import { corpsSondageSchema, type CorpsSondage } from './validation';
@@ -93,7 +97,7 @@ function refus(status: number, erreur: string, extra: Record<string, unknown> = 
   return { status, corps: { ok: false, erreur, ...extra } };
 }
 
-/** La réponse telle qu'elle sera stockée : textes rognés, « autre » seulement si choisi, jamais d'adresse. */
+/** La réponse telle qu'elle sera stockée : textes rognés, « autre » seulement si choisi, jamais de coordonnées. */
 function reponseAStocker(c: Exclude<CorpsSondage, { etape: 'accueil' }>): Reponses[keyof Reponses] {
   switch (c.etape) {
     case 'q5':
@@ -176,18 +180,33 @@ export function traiterEnvoi(
   // 5c. Verrou : une réponse terminée ne se modifie plus.
   if (existante.termine) return refus(409, 'deja_termine');
 
+  // 5d. Q5 : seuls les noms proposés dans la langue de la session. Un lecteur
+  //     néerlandophone ne voit ni « Le Signal » ni le Stuut du jour ; une
+  //     réponse qui les porterait ne vient pas du questionnaire.
+  if (c.etape === 'q5') {
+    const proposes = Q5_NOMS_PAR_LANGUE[existante.langue] ?? [];
+    if (Object.keys(c.reponse.lignes).some((nom) => !proposes.includes(nom as NomQ5))) {
+      return refus(400, 'invalide');
+    }
+  }
+
   // 6. Parcours : l'étape doit y figurer, compte tenu de la réponse qu'elle apporte.
   const etape = c.etape as Etape;
   const fusion: Reponses = { ...existante.reponses, [etape]: reponseAStocker(c) };
   if (!parcours(fusion).includes(etape)) return refus(409, 'hors_parcours');
 
-  // Q9 : l'adresse n'est retenue que si « oui » ET valide.
+  // Q9 : les coordonnées ne sont retenues que si « oui ». Au moins une des deux ;
+  //     chacune, si elle est remplie, doit être valide.
   let email: string | null = null;
+  let telephone: string | null = null;
   if (c.etape === 'q9' && c.reponse.valeur === 'oui') {
-    const saisie = (c.reponse.email ?? '').trim();
-    if (!saisie) return refus(400, 'email_vide');
-    if (!emailValide(saisie)) return refus(400, 'email_invalide');
-    email = saisie.toLowerCase();
+    const saisieEmail = (c.reponse.email ?? '').trim();
+    const saisieTel = (c.reponse.telephone ?? '').trim();
+    if (!saisieEmail && !saisieTel) return refus(400, 'contact_vide');
+    if (saisieEmail && !emailValide(saisieEmail)) return refus(400, 'email_invalide');
+    if (saisieTel && !telephoneValide(saisieTel)) return refus(400, 'telephone_invalide');
+    email = saisieEmail ? saisieEmail.toLowerCase() : null;
+    telephone = saisieTel ? saisieTel.replace(/\s+/g, ' ') : null;
   }
 
   const reponses = nettoyer(fusion);
@@ -205,7 +224,7 @@ export function traiterEnvoi(
     }
     if (duree < DUREE_MIN_MS) {
       // Trop rapide pour un humain : ignorée. L'appelant voit un succès, et
-      // aucune adresse n'est enregistrée.
+      // aucune coordonnée n'est enregistrée.
       supprimerReponse(db, existante.session);
       vus.delete(existante.session);
       return { status: 200, corps: { ok: true, termine: true } };
@@ -213,7 +232,7 @@ export function traiterEnvoi(
     db.exec('BEGIN');
     try {
       majReponse(db, { session: existante.session, reponses, etape: 'fin', duree_ms: duree, jour, termine: true });
-      if (email) ajouterEntretien(db, { email, langue: existante.langue, jour });
+      if (email || telephone) ajouterEntretien(db, { email, telephone, langue: existante.langue, jour });
       db.exec('COMMIT');
     } catch (e) {
       db.exec('ROLLBACK');

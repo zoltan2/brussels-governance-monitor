@@ -51,6 +51,7 @@ const ROUTES: [string, Handler, string, string?][] = [
 beforeEach(() => {
   base.db = createDb(':memory:');
   ajouterEntretien(base.db, { email: 'volontaire@example.org', langue: 'fr', jour: '2026-11-20' });
+  ajouterEntretien(base.db, { telephone: '0470 99 88 77', langue: 'nl', jour: '2026-11-21' });
   session.valeur = null;
 });
 
@@ -58,8 +59,10 @@ describe('routes admin du sondage', () => {
   it.each(ROUTES)('%s : refusée sans session, sans rien lire ni effacer', async (_, handler, chemin, corps) => {
     const res = await handler(requete(chemin, corps));
     expect(res.status).toBe(401);
-    expect(await res.text()).not.toContain('volontaire@example.org');
-    expect(base.db!.prepare('SELECT COUNT(*) AS n FROM sondage_entretiens').get()).toEqual({ n: 1 });
+    const texte = await res.text();
+    expect(texte).not.toContain('volontaire@example.org');
+    expect(texte).not.toContain('0470 99 88 77');
+    expect(base.db!.prepare('SELECT COUNT(*) AS n FROM sondage_entretiens').get()).toEqual({ n: 2 });
   });
 
   it.each(ROUTES)('%s : refusée depuis une autre origine, même avec une session', async (_, handler, chemin, corps) => {
@@ -75,17 +78,19 @@ describe('routes admin du sondage', () => {
     const res = await (exportEntretiens as unknown as Handler)(requete('/api/admin/sondage/export-entretiens'));
     expect(res.status).toBe(200);
     expect(res.headers.get('content-type')).toContain('text/csv');
-    expect(await res.text()).toContain('volontaire@example.org');
+    const csv = await res.text();
+    expect(csv).toContain('volontaire@example.org');
+    expect(csv).toContain('"","0470 99 88 77","nl","2026-11-21"');
   });
 
   it('la purge exige la confirmation tapée', async () => {
     session.valeur = { user: { email: 'admin@example.org' } };
     const sans = await (purge as unknown as Handler)(requete('/api/admin/sondage/purge', 'confirmation=oui'));
     expect(sans.status).toBe(400);
-    expect(base.db!.prepare('SELECT COUNT(*) AS n FROM sondage_entretiens').get()).toEqual({ n: 1 });
+    expect(base.db!.prepare('SELECT COUNT(*) AS n FROM sondage_entretiens').get()).toEqual({ n: 2 });
     const avec = await (purge as unknown as Handler)(requete('/api/admin/sondage/purge', 'confirmation=PURGER'));
     expect(avec.status).toBe(303);
-    expect(avec.headers.get('location')).toContain('/fr/admin/sondage?entretiens=1');
+    expect(avec.headers.get('location')).toContain('/fr/admin/sondage?entretiens=2');
     expect(base.db!.prepare('SELECT COUNT(*) AS n FROM sondage_entretiens').get()).toEqual({ n: 0 });
   });
 });

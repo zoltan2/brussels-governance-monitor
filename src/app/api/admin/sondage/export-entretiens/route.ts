@@ -3,8 +3,9 @@
 
 /**
  * POST /api/admin/sondage/export-entretiens : CSV des volontaires de Q9
- * (adresse, langue, jour, statut). Seule sortie du sondage qui contient une
- * adresse ; export distinct de celui des réponses, sans rien qui les relie.
+ * (adresse e-mail et/ou téléphone, langue, jour, statut). Seule sortie du
+ * sondage qui contient des coordonnées ; export distinct de celui des réponses,
+ * sans rien qui les relie.
  */
 import { auth } from '@/auth';
 import { NextResponse } from 'next/server';

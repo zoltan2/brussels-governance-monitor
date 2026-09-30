@@ -139,7 +139,7 @@ function PrivacyView() {
             questionnaire y mène. Chaque phrase correspond au code : cookie de
             session (src/lib/sondage/cookie.ts), dates au jour près et aucune
             IP en base (src/lib/db.ts), limite en mémoire d'une heure au plus
-            (traitement.ts, LIMITE_CREATION_IP), adresse seulement si Q9 « oui »,
+            (traitement.ts, LIMITE_CREATION_IP), e-mail et/ou téléphone seulement si Q9 « oui »,
             purge (purge.ts), événements Umami sans contenu (sondage.tsx).
           */}
           <h2 id="sondage" className="scroll-mt-24 text-lg font-semibold text-neutral-900">

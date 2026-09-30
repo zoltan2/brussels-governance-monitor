@@ -31,11 +31,13 @@ import {
   AUTRE_MAX,
   OPTIONS,
   Q5_ETATS,
-  Q5_NOMS,
+  Q5_NOMS_PAR_LANGUE,
   Q8_MAX,
+  TELEPHONE_MAX,
   OBLIGATOIRES,
   etapePrecedente,
   parcours,
+  telephoneValide,
   type Etape,
   type EtapeChoix,
   type LangueSondage,
@@ -45,7 +47,9 @@ import {
 import { DUREE_ANNONCEE_MINUTES, TEXTES } from '@/lib/sondage/textes';
 
 type Ecran = 'accueil' | Etape | 'fin' | 'deja' | 'clos' | 'pas_encore' | 'indisponible';
-type Erreur = { message: string; champ: 'choix' | 'email' | 'global'; essai: number };
+/** `contact` : ni adresse ni téléphone (les deux champs sont en cause). */
+type Erreur = { message: string; champ: 'choix' | 'email' | 'telephone' | 'contact' | 'global'; essai: number };
+type Contact = { email: string; telephone: string };
 
 const DELAI_MAX_MS = 15_000;
 
@@ -60,8 +64,8 @@ function ecranInitial(i: EtatInitial): Ecran {
   }
 }
 
-/** Le corps envoyé pour une étape, à partir du brouillon local. Q9 : l'adresse ne voyage qu'avec « oui ». */
-function corpsEtape(etape: Etape, r: Reponses, email: string): Record<string, unknown> {
+/** Le corps envoyé pour une étape, à partir du brouillon local. Q9 : les coordonnées ne voyagent qu'avec « oui ». */
+function corpsEtape(etape: Etape, r: Reponses, contact: Contact): Record<string, unknown> {
   switch (etape) {
     case 'q5':
       return { etape, reponse: { lignes: r.q5?.lignes ?? {} } };
@@ -71,7 +75,13 @@ function corpsEtape(etape: Etape, r: Reponses, email: string): Record<string, un
     }
     case 'q9': {
       const valeur = r.q9?.valeur ?? null;
-      return { etape, reponse: valeur === 'oui' ? { valeur, email: email.trim() } : { valeur } };
+      if (valeur !== 'oui') return { etape, reponse: { valeur } };
+      const email = contact.email.trim();
+      const telephone = contact.telephone.trim();
+      return {
+        etape,
+        reponse: { valeur, ...(email ? { email } : {}), ...(telephone ? { telephone } : {}) },
+      };
     }
     default: {
       const rep = r[etape] as ReponseChoix | undefined;
@@ -108,7 +118,7 @@ export function Sondage({
   const t = TEXTES[langue];
   const [ecran, setEcran] = useState<Ecran>(() => ecranInitial(initial));
   const [reponses, setReponses] = useState<Reponses>(() => (initial.mode === 'reprise' ? initial.reponses : {}));
-  const [email, setEmail] = useState('');
+  const [contact, setContact] = useState<Contact>({ email: '', telephone: '' });
   const [envoi, setEnvoi] = useState(false);
   const [erreur, setErreur] = useState<Erreur | null>(null);
   const [annonce, setAnnonce] = useState('');
@@ -170,8 +180,9 @@ export function Sondage({
       echouer(t.erreurObligatoire, 'choix');
       return;
     }
-    if (code === 'email_vide') return echouer(t.erreurEmailVide, 'email');
+    if (code === 'contact_vide') return echouer(t.erreurContactVide, 'contact');
     if (code === 'email_invalide') return echouer(t.erreurEmailInvalide, 'email');
+    if (code === 'telephone_invalide') return echouer(t.erreurTelephoneInvalide, 'telephone');
     if (status === 429) return echouer(t.erreurTropDeRequetes, 'global');
     if (status === 503) return echouer(t.indisponible, 'global');
     echouer(t.erreurEnregistrement, 'global');
@@ -203,18 +214,21 @@ export function Sondage({
       return echouer(t.erreurObligatoire, 'choix');
     }
     if (etape === 'q9' && reponses.q9?.valeur === 'oui') {
-      if (!email.trim()) return echouer(t.erreurEmailVide, 'email');
-      if (!emailValide(email.trim())) return echouer(t.erreurEmailInvalide, 'email');
+      const email = contact.email.trim();
+      const telephone = contact.telephone.trim();
+      if (!email && !telephone) return echouer(t.erreurContactVide, 'contact');
+      if (email && !emailValide(email)) return echouer(t.erreurEmailInvalide, 'email');
+      if (telephone && !telephoneValide(telephone)) return echouer(t.erreurTelephoneInvalide, 'telephone');
     }
 
     setEnvoi(true);
     try {
-      const { status, json } = await poster(corpsEtape(etape, reponses, email));
+      const { status, json } = await poster(corpsEtape(etape, reponses, contact));
       if (status !== 200 || json.ok !== true) return traiterRefus(status, json);
       track('sondage_etape', { etape });
       if (json.termine === true) {
         track('sondage_termine');
-        setEmail('');
+        setContact({ email: '', telephone: '' });
         changerEcran('fin');
         return;
       }
@@ -314,9 +328,9 @@ export function Sondage({
         <legend>{titre(<>{progression}{t.q5Question}</>, 'text-xl')}</legend>
         <p className="mt-2 text-sm text-neutral-600">{t.facultatif}</p>
         <div className="mt-4 space-y-5">
-          {Q5_NOMS.map((nom) => (
+          {Q5_NOMS_PAR_LANGUE[langue].map((nom) => (
             <fieldset key={nom} className="rounded-md border border-neutral-300 p-3">
-              <legend className="px-1 text-base font-semibold text-neutral-900">{t.q5Noms[nom]}</legend>
+              <legend className="px-1 text-base font-semibold text-neutral-900">{t.q5Noms[nom] ?? nom}</legend>
               <div className="mt-1 space-y-2">
                 {Q5_ETATS.map((etat) => (
                   <label key={etat} className={CARTE}>
@@ -399,7 +413,16 @@ export function Sondage({
     const avecAutre = (ETAPES_AVEC_AUTRE as readonly string[]).includes(etape);
     const idAutre = `${id}-autre`;
     const idEmail = `${id}-email`;
-    const idAideEmail = `${id}-email-aide`;
+    const idTelephone = `${id}-telephone`;
+    const idAide = `${id}-contact-aide`;
+    // Erreur d'un champ de coordonnées : celle du champ lui-même, ou « aucun des deux ».
+    const enErreur = (champ: 'email' | 'telephone') => erreur?.champ === champ || erreur?.champ === 'contact';
+    const decritContact = (champ: 'email' | 'telephone') =>
+      [idAide, enErreur(champ) ? idErreur : null].filter(Boolean).join(' ');
+    const majContact = (champ: keyof Contact, v: string) => {
+      setContact((c) => ({ ...c, [champ]: v }));
+      if (erreur && (erreur.champ === champ || erreur.champ === 'contact')) setErreur(null);
+    };
     const decrit = [q.note ? idNote : null, erreurChoix && erreur ? idErreur : null].filter(Boolean).join(' ');
     corps = (
       <fieldset aria-describedby={decrit || undefined}>
@@ -444,13 +467,14 @@ export function Sondage({
           </div>
         )}
         {etape === 'q9' && valeur === 'oui' && (
-          <div className="mt-4">
-            <label htmlFor={idEmail} className="text-base font-semibold text-neutral-900">
+          <fieldset className="mt-4" aria-describedby={idAide}>
+            <legend className="text-base font-semibold text-neutral-900">{t.q9Coordonnees}</legend>
+            <p id={idAide} className="mt-1 text-sm text-neutral-600">
+              {t.q9Aide}
+            </p>
+            <label htmlFor={idEmail} className="mt-3 block text-base text-neutral-900">
               {t.q9Email}
             </label>
-            <p id={idAideEmail} className="mt-1 text-sm text-neutral-600">
-              {t.q9EmailAide}
-            </p>
             <input
               id={idEmail}
               type="email"
@@ -458,16 +482,27 @@ export function Sondage({
               autoComplete="email"
               className={CHAMP}
               maxLength={254}
-              required
-              value={email}
-              aria-invalid={erreur?.champ === 'email' ? true : undefined}
-              aria-describedby={[idAideEmail, erreur?.champ === 'email' ? idErreur : null].filter(Boolean).join(' ')}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                if (erreur?.champ === 'email') setErreur(null);
-              }}
+              value={contact.email}
+              aria-invalid={enErreur('email') ? true : undefined}
+              aria-describedby={decritContact('email')}
+              onChange={(e) => majContact('email', e.target.value)}
             />
-          </div>
+            <label htmlFor={idTelephone} className="mt-3 block text-base text-neutral-900">
+              {t.q9Telephone}
+            </label>
+            <input
+              id={idTelephone}
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              className={CHAMP}
+              maxLength={TELEPHONE_MAX}
+              value={contact.telephone}
+              aria-invalid={enErreur('telephone') ? true : undefined}
+              aria-describedby={decritContact('telephone')}
+              onChange={(e) => majContact('telephone', e.target.value)}
+            />
+          </fieldset>
         )}
       </fieldset>
     );

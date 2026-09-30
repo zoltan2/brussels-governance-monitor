@@ -112,16 +112,69 @@ describe('Sondage : écrans et accessibilité', () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it('Q9 « oui » sans adresse : erreur liée au champ, rien n’est envoyé', async () => {
+  it('Q5 néerlandais : cinq noms, ni Stuut ni Signal', () => {
+    const { container } = rendre({ mode: 'reprise', reponses: { q1: { valeur: 'souvent' } }, etape: 'q5' }, 'nl');
+    const noms = [...container.querySelectorAll('fieldset fieldset legend')].map((l) => l.textContent);
+    expect(noms).toEqual(['Het magazine', 'Amai !', 'De quiz', 'De vraag van de dag', 'De radar']);
+    expect(container.textContent).not.toMatch(/Stuut|Signal/);
+  });
+
+  it('Q9 « oui » : deux champs étiquetés, autocomplete et inputmode, aide liée, sans violation axe', async () => {
+    const { container } = rendre({ mode: 'reprise', reponses: { q1: { valeur: 'jamais' } }, etape: 'q9' });
+    fireEvent.click(screen.getByLabelText('oui'));
+    const email = screen.getByLabelText('Votre adresse e-mail');
+    const tel = screen.getByLabelText('Votre numéro de téléphone');
+    expect([email.getAttribute('type'), email.getAttribute('autocomplete'), email.getAttribute('inputmode')]).toEqual([
+      'email',
+      'email',
+      'email',
+    ]);
+    expect([tel.getAttribute('type'), tel.getAttribute('autocomplete'), tel.getAttribute('inputmode')]).toEqual([
+      'tel',
+      'tel',
+      'tel',
+    ]);
+    const idAide = screen.getByText(/seules données personnelles/).id;
+    expect(idAide).toBeTruthy();
+    expect(email.getAttribute('aria-describedby')).toContain(idAide);
+    expect(tel.getAttribute('aria-describedby')).toContain(idAide);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('Q9 « oui » sans aucune coordonnée : erreur liée aux deux champs, rien n’est envoyé', async () => {
     rendre({ mode: 'reprise', reponses: { q1: { valeur: 'jamais' } }, etape: 'q9' });
     fireEvent.click(screen.getByLabelText('oui'));
     suivant();
-    await screen.findByText(/Indiquez votre adresse e-mail/);
-    const champ = screen.getByLabelText('Votre adresse e-mail');
-    expect(champ.getAttribute('aria-invalid')).toBe('true');
-    const idErreur = screen.getByText(/Indiquez votre adresse e-mail/).closest('p')!.id;
-    expect(champ.getAttribute('aria-describedby')).toContain(idErreur);
+    const erreur = await screen.findByText(/Indiquez une adresse e-mail ou un numéro de téléphone/);
+    const idErreur = erreur.closest('p')!.id;
+    expect(screen.getByRole('status').contains(erreur)).toBe(true);
+    for (const libelle of ['Votre adresse e-mail', 'Votre numéro de téléphone']) {
+      const champ = screen.getByLabelText(libelle);
+      expect(champ.getAttribute('aria-invalid')).toBe('true');
+      expect(champ.getAttribute('aria-describedby')).toContain(idErreur);
+    }
     expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it('Q9 « oui », téléphone invalide : erreur liée au seul champ téléphone', async () => {
+    rendre({ mode: 'reprise', reponses: { q1: { valeur: 'jamais' } }, etape: 'q9' });
+    fireEvent.click(screen.getByLabelText('oui'));
+    fireEvent.change(screen.getByLabelText('Votre numéro de téléphone'), { target: { value: '0470 ABC' } });
+    suivant();
+    const erreur = await screen.findByText(/Numéro de téléphone invalide/);
+    const idErreur = erreur.closest('p')!.id;
+    expect(screen.getByLabelText('Votre numéro de téléphone').getAttribute('aria-describedby')).toContain(idErreur);
+    expect(screen.getByLabelText('Votre adresse e-mail').getAttribute('aria-invalid')).toBeNull();
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it('Q9 « oui », téléphone seul : envoyé sans champ email', async () => {
+    rendre({ mode: 'reprise', reponses: { q1: { valeur: 'jamais' } }, etape: 'q9' });
+    fireEvent.click(screen.getByLabelText('oui'));
+    fireEvent.change(screen.getByLabelText('Votre numéro de téléphone'), { target: { value: ' 0470 12 34 56 ' } });
+    suivant();
+    await titreActif(/Merci, vos réponses sont enregistrées/);
+    expect(recus.at(-1)).toEqual({ etape: 'q9', reponse: { valeur: 'oui', telephone: '0470 12 34 56' }, site: '' });
   });
 
   it('néerlandais : textes traduits', () => {

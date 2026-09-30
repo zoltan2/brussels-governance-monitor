@@ -9,7 +9,9 @@
  * question : les réponses déjà reçues ne seraient plus comparables.
  * NÉERLANDAIS : traduction de ce texte, vouvoiement « u » comme le site ; les
  * noms des rendez-vous reprennent ceux de messages/nl.json (« het magazine »,
- * « Le Signal », « de Stuut van de dag », « de vraag van de dag »…).
+ * « de vraag van de dag »…). Q5 n'y propose ni « Le Signal » (français
+ * seulement) ni le Stuut du jour (absent en néerlandais) : décision du
+ * 30/09/2026, liste par langue dans questionnaire.ts (Q5_NOMS_PAR_LANGUE).
  *
  * Pourquoi un module et pas messages/*.json : le sondage n'existe ni en anglais
  * ni en allemand, et les dictionnaires doivent porter les quatre langues.
@@ -42,15 +44,18 @@ export interface TextesSondage {
   precisez: string;
   questions: Record<EtapeChoix, TextesQuestion>;
   q5Question: string;
-  q5Noms: Record<NomQ5, string>;
+  /** Libellés des noms de Q5 proposés dans cette langue (Q5_NOMS_PAR_LANGUE), pas un de plus. */
+  q5Noms: Partial<Record<NomQ5, string>>;
   q5Etats: Record<EtatQ5, string>;
   q8Question: string;
   q8Compteur: (n: number, max: number) => string;
   q8Limite: string;
   q8Citation: string;
   q8CitationOptions: { oui: string; non: string };
+  q9Coordonnees: string;
+  q9Aide: string;
   q9Email: string;
-  q9EmailAide: string;
+  q9Telephone: string;
   finTitre: string;
   finTexte: string;
   dejaRepondu: string;
@@ -60,8 +65,9 @@ export interface TextesSondage {
   indisponible: string;
   pilote: string;
   erreurObligatoire: string;
-  erreurEmailVide: string;
+  erreurContactVide: string;
   erreurEmailInvalide: string;
+  erreurTelephoneInvalide: string;
   erreurEnregistrement: string;
   erreurTropDeRequetes: string;
   erreurSession: string;
@@ -75,7 +81,7 @@ const fr: TextesSondage = {
     'Le digest existe depuis février 2026. Dix questions pour savoir ce qu\'il vous apporte et ce que nous devons changer. Les critiques nous aident plus que les compliments.' +
     (duree ? ` Environ ${duree} minutes.` : ''),
   accueilParagraphe2:
-    'Vos réponses sont anonymes : nous ne demandons votre adresse qu\'à la dernière question, si vous acceptez un échange. Nous les conservons jusqu\'au 6 décembre 2027, puis seulement des résultats agrégés. Nous vous dirons ce que nous en retenons dans le digest du 14 décembre 2026.',
+    'Vos réponses sont anonymes : nous ne demandons vos coordonnées qu\'à la dernière question, si vous acceptez un échange. Nous les conservons jusqu\'au 6 décembre 2027, puis seulement des résultats agrégés. Nous vous dirons ce que nous en retenons dans le digest du 14 décembre 2026.',
   lienNotice: 'Comment vos réponses sont traitées',
   commencer: 'Commencer',
   suivant: 'Suivant',
@@ -188,7 +194,7 @@ const fr: TextesSondage = {
     },
     q9: {
       question:
-        'Accepteriez-vous un échange de quinze minutes, par téléphone ou en visio ? Zoltán Jánosi, qui édite BGM, vous écrirait lui-même pour fixer un moment. Aucune sollicitation commerciale.',
+        'Accepteriez-vous un échange de quinze minutes, par téléphone ou en visio ? Zoltán Jánosi, qui édite BGM, vous contactera pour fixer un moment. Aucune sollicitation commerciale.',
       options: { oui: 'oui', non: 'pas cette fois' },
     },
   },
@@ -212,9 +218,11 @@ const fr: TextesSondage = {
   q8Limite: 'Limite de 200 caractères atteinte.',
   q8Citation: 'Pouvons-nous citer cette réponse, sans votre nom, dans le digest ou sur le site ?',
   q8CitationOptions: { oui: 'oui', non: 'non' },
+  q9Coordonnees: 'Vos coordonnées',
+  q9Aide:
+    'Indiquez au moins l\'une des deux. Ce sont les seules données personnelles du questionnaire. Nous les conservons jusqu\'à l\'échange, et au plus tard jusqu\'au 6 décembre 2026.',
   q9Email: 'Votre adresse e-mail',
-  q9EmailAide:
-    'C\'est la seule donnée personnelle du questionnaire. Nous la conservons jusqu\'à l\'échange, et au plus tard jusqu\'au 6 décembre 2026.',
+  q9Telephone: 'Votre numéro de téléphone',
   finTitre: 'Merci, vos réponses sont enregistrées.',
   finTexte: 'Nous vous dirons ce que nous en retenons dans le digest du 14 décembre 2026.',
   dejaRepondu: 'Vous avez déjà répondu, merci.',
@@ -224,8 +232,11 @@ const fr: TextesSondage = {
   indisponible: 'Le sondage est momentanément indisponible. Réessayez plus tard.',
   pilote: 'Mode pilote : ces réponses sont marquées comme essai et exclues de l\'analyse.',
   erreurObligatoire: 'Choisissez une réponse pour continuer.',
-  erreurEmailVide: 'Indiquez votre adresse e-mail, ou choisissez « pas cette fois ».',
+  erreurContactVide:
+    'Indiquez une adresse e-mail ou un numéro de téléphone, ou choisissez « pas cette fois ».',
   erreurEmailInvalide: 'Adresse e-mail invalide.',
+  erreurTelephoneInvalide:
+    'Numéro de téléphone invalide : de 8 à 20 chiffres, avec si besoin « + » en tête, des espaces, des points ou des tirets.',
   erreurEnregistrement: 'Votre réponse n\'a pas pu être enregistrée. Réessayez.',
   erreurTropDeRequetes: 'Trop de tentatives depuis cette connexion. Attendez une minute, puis réessayez.',
   erreurSession: 'Votre session a expiré. Le questionnaire reprend au début.',
@@ -239,7 +250,7 @@ const nl: TextesSondage = {
     'De digest bestaat sinds februari 2026. Tien vragen om te weten wat hij u oplevert en wat we moeten veranderen. Kritiek helpt ons meer dan complimenten.' +
     (duree ? ` Ongeveer ${duree} minuten.` : ''),
   accueilParagraphe2:
-    'Uw antwoorden zijn anoniem: we vragen uw adres pas bij de laatste vraag, als u instemt met een gesprek. We bewaren ze tot 6 december 2027, daarna alleen nog geaggregeerde resultaten. In de digest van 14 december 2026 vertellen we u wat we eruit meenemen.',
+    'Uw antwoorden zijn anoniem: we vragen uw contactgegevens pas bij de laatste vraag, als u instemt met een gesprek. We bewaren ze tot 6 december 2027, daarna alleen nog geaggregeerde resultaten. In de digest van 14 december 2026 vertellen we u wat we eruit meenemen.',
   lienNotice: 'Hoe uw antwoorden worden verwerkt',
   commencer: 'Beginnen',
   suivant: 'Volgende',
@@ -277,7 +288,7 @@ const nl: TextesSondage = {
       options: {
         manquerait: 'zou ik hem echt missen',
         regrettable: 'zou ik dat jammer vinden',
-        autre_chose: 'zou ik er vrij snel overheen stappen',
+        autre_chose: 'zou ik vrij snel iets anders zoeken',
         pas_remarque: 'zou ik het waarschijnlijk niet merken',
       },
     },
@@ -352,15 +363,13 @@ const nl: TextesSondage = {
     },
     q9: {
       question:
-        'Zou u openstaan voor een gesprek van een kwartier, telefonisch of via video? Zoltán Jánosi, die BGM uitgeeft, zou u zelf schrijven om een moment af te spreken. Zonder enig commercieel oogmerk.',
+        'Zou u openstaan voor een gesprek van een kwartier, telefonisch of via video? Zoltán Jánosi, die BGM uitgeeft, neemt contact met u op om een moment af te spreken. Zonder enig commercieel oogmerk.',
       options: { oui: 'ja', non: 'deze keer niet' },
     },
   },
   q5Question: 'Herkent u deze namen?',
   q5Noms: {
     magazine: 'Het magazine',
-    signal: 'Le Signal',
-    stuut: 'De Stuut van de dag',
     amai: 'Amai !',
     quiz: 'De quiz',
     question_du_jour: 'De vraag van de dag',
@@ -376,9 +385,11 @@ const nl: TextesSondage = {
   q8Limite: 'Limiet van 200 tekens bereikt.',
   q8Citation: 'Mogen we dit antwoord, zonder uw naam, citeren in de digest of op de site?',
   q8CitationOptions: { oui: 'ja', non: 'nee' },
+  q9Coordonnees: 'Uw contactgegevens',
+  q9Aide:
+    'Vul ten minste een van beide in. Dit zijn de enige persoonsgegevens van de vragenlijst. We bewaren ze tot het gesprek, en uiterlijk tot 6 december 2026.',
   q9Email: 'Uw e-mailadres',
-  q9EmailAide:
-    'Dit is het enige persoonsgegeven van de vragenlijst. We bewaren het tot het gesprek, en uiterlijk tot 6 december 2026.',
+  q9Telephone: 'Uw telefoonnummer',
   finTitre: 'Bedankt, uw antwoorden zijn opgeslagen.',
   finTexte: 'In de digest van 14 december 2026 vertellen we u wat we eruit meenemen.',
   dejaRepondu: 'U hebt al geantwoord, bedankt.',
@@ -388,8 +399,10 @@ const nl: TextesSondage = {
   indisponible: 'De enquête is tijdelijk niet beschikbaar. Probeer het later opnieuw.',
   pilote: 'Pilotmodus: deze antwoorden worden als test gemarkeerd en niet meegeteld in de analyse.',
   erreurObligatoire: 'Kies een antwoord om verder te gaan.',
-  erreurEmailVide: 'Vul uw e-mailadres in, of kies ‘deze keer niet’.',
+  erreurContactVide: 'Vul een e-mailadres of een telefoonnummer in, of kies ‘deze keer niet’.',
   erreurEmailInvalide: 'Ongeldig e-mailadres.',
+  erreurTelephoneInvalide:
+    'Ongeldig telefoonnummer: 8 tot 20 cijfers, zo nodig met ‘+’ vooraan, spaties, punten of streepjes.',
   erreurEnregistrement: 'Uw antwoord kon niet worden opgeslagen. Probeer het opnieuw.',
   erreurTropDeRequetes: 'Te veel pogingen vanaf deze verbinding. Wacht een minuut en probeer het dan opnieuw.',
   erreurSession: 'Uw sessie is verlopen. De vragenlijst begint opnieuw.',

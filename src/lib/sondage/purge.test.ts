@@ -10,10 +10,16 @@ import { purgerSondage } from './purge';
 import { ajouterEntretien, creerReponse, majReponse, tousLesEntretiens } from './store';
 
 const TEMOIN = 'temoin-purge-7f3a@example.org';
+const TEMOIN_TEL_VALIDE = '+32 499 731 999';
 
 function remplir(db: ReturnType<typeof createDb>) {
   for (let i = 0; i < 40; i++) {
     ajouterEntretien(db, { email: `${i}-${TEMOIN}`, langue: 'fr', jour: '2026-11-20' });
+  }
+  // Volontaires joignables par téléphone : seul, et avec une adresse.
+  for (let i = 0; i < 10; i++) {
+    ajouterEntretien(db, { telephone: `${TEMOIN_TEL_VALIDE} ${i}`, langue: 'nl', jour: '2026-11-20' });
+    ajouterEntretien(db, { email: `tel-${i}-${TEMOIN}`, telephone: `${TEMOIN_TEL_VALIDE} ${i}`, langue: 'fr', jour: '2026-11-20' });
   }
   creerReponse(db, { session: 'a'.repeat(22), langue: 'nl', version: 'v3', jour: '2026-11-20', pilote: false });
   majReponse(db, {
@@ -40,7 +46,7 @@ describe('purgerSondage', () => {
     const db = createDb(':memory:');
     remplir(db);
     const bilan = purgerSondage(db, new Date('2026-12-06T10:00:00Z'));
-    expect(bilan).toEqual({ entretiensSupprimes: 40, reponsesSupprimees: 0, reponsesEchues: false });
+    expect(bilan).toEqual({ entretiensSupprimes: 60, reponsesSupprimees: 0, reponsesEchues: false });
     expect(tousLesEntretiens(db)).toEqual([]);
     expect(nbReponses(db)).toBe(1);
   });
@@ -78,8 +84,10 @@ describe('purgerSondage', () => {
         .join('');
     // Témoin : avant la purge, l'adresse est bien dans le fichier.
     expect(lire()).toContain(TEMOIN);
+    expect(lire()).toContain(TEMOIN_TEL_VALIDE);
     purgerSondage(db, new Date('2026-12-06T10:00:00Z'));
     expect(lire()).not.toContain(TEMOIN);
+    expect(lire()).not.toContain(TEMOIN_TEL_VALIDE);
     db.close();
   });
 });

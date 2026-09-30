@@ -29,8 +29,8 @@ function envoyer(corps: unknown, session?: string, extra: Partial<Dependances> =
   return traiterEnvoi({ corps, session, ip }, deps(extra));
 }
 
-function commencer(extra: Partial<Dependances> = {}, pilote?: boolean): string {
-  const r = envoyer({ etape: 'accueil', langue: 'fr', ...(pilote ? { pilote } : {}) }, undefined, extra);
+function commencer(extra: Partial<Dependances> = {}, pilote?: boolean, langue: 'fr' | 'nl' = 'fr'): string {
+  const r = envoyer({ etape: 'accueil', langue, ...(pilote ? { pilote } : {}) }, undefined, extra);
   expect(r.status).toBe(200);
   expect(r.session).toMatch(/^[A-Za-z0-9_-]{22}$/);
   return r.session!;
@@ -41,7 +41,10 @@ function choix(etape: string, valeur: string | null, autre?: string) {
 }
 
 /** Parcours complet « lecteur régulier », 5 s par écran. */
-function parcoursComplet(session: string, q9: { valeur: 'oui' | 'non' | null; email?: string }) {
+function parcoursComplet(
+  session: string,
+  q9: { valeur: 'oui' | 'non' | null; email?: string; telephone?: string },
+) {
   const etapes: unknown[] = [
     choix('q1', 'souvent'),
     choix('q2', 'regrettable'),
@@ -288,7 +291,7 @@ describe('Q9 : l’adresse des volontaires', () => {
     const r = parcoursComplet(s, { valeur: 'oui', email: '  Lectrice@Example.org ' });
     expect(r.status).toBe(200);
     expect(tousLesEntretiens(db)).toEqual([
-      { email: 'lectrice@example.org', langue: 'fr', cree_le: '2026-11-16', statut: 'a_contacter' },
+      { email: 'lectrice@example.org', telephone: null, langue: 'fr', cree_le: '2026-11-16', statut: 'a_contacter' },
     ]);
     const brut = db.prepare('SELECT reponses FROM sondage_reponses').get() as { reponses: string };
     expect(brut.reponses).not.toContain('example.org');
@@ -310,16 +313,53 @@ describe('Q9 : l’adresse des volontaires', () => {
   });
 
   it.each([
-    ['vide', '', 'email_vide'],
-    ['invalide', 'pas-une-adresse', 'email_invalide'],
-    ['avec invisible', 'a​@example.org', 'email_invalide'],
-  ])('« oui » avec une adresse %s : 400, rien de terminé', (_, email, erreur) => {
+    ['adresse vide, sans téléphone', { email: '' }, 'contact_vide'],
+    ['ni adresse ni téléphone', {}, 'contact_vide'],
+    ['adresse et téléphone faits d’espaces', { email: '   ', telephone: '  ' }, 'contact_vide'],
+    ['adresse invalide', { email: 'pas-une-adresse' }, 'email_invalide'],
+    ['adresse avec invisible', { email: 'a​@example.org' }, 'email_invalide'],
+    ['téléphone invalide', { telephone: '0470 ABC' }, 'telephone_invalide'],
+    ['téléphone trop court', { telephone: '123 45' }, 'telephone_invalide'],
+    ['adresse valide mais téléphone invalide', { email: 'ok@example.org', telephone: '12' }, 'telephone_invalide'],
+    ['téléphone valide mais adresse invalide', { email: 'x@', telephone: '0470 12 34 56' }, 'email_invalide'],
+  ])('« oui », %s : 400, rien de terminé', (_, contact, erreur) => {
     const s = commencer();
-    const r = parcoursComplet(s, { valeur: 'oui', email });
+    const r = parcoursComplet(s, { valeur: 'oui', ...contact });
     expect(r.status).toBe(400);
     expect(r.corps.erreur).toBe(erreur);
     expect(tousLesEntretiens(db)).toEqual([]);
     expect(lireReponse(db, s)?.termine).toBe(false);
+  });
+
+  it('« oui » avec le téléphone seul : accepté, sans adresse', () => {
+    const s = commencer();
+    const r = parcoursComplet(s, { valeur: 'oui', telephone: ' +32  470 12 34 56 ' });
+    expect(r.status).toBe(200);
+    expect(tousLesEntretiens(db)).toEqual([
+      { email: null, telephone: '+32 470 12 34 56', langue: 'fr', cree_le: '2026-11-16', statut: 'a_contacter' },
+    ]);
+    const brut = db.prepare('SELECT reponses FROM sondage_reponses').get() as { reponses: string };
+    expect(brut.reponses).not.toContain('470');
+  });
+
+  it('« oui » avec l’adresse seule (téléphone vide) : acceptée', () => {
+    const s = commencer();
+    expect(parcoursComplet(s, { valeur: 'oui', email: 'seule@example.org', telephone: '' }).status).toBe(200);
+    expect(tousLesEntretiens(db)).toMatchObject([{ email: 'seule@example.org', telephone: null }]);
+  });
+
+  it('« oui » avec les deux : les deux sont gardés, dans une seule ligne', () => {
+    const s = commencer();
+    expect(parcoursComplet(s, { valeur: 'oui', email: 'deux@example.org', telephone: '02.123.45.67' }).status).toBe(200);
+    expect(tousLesEntretiens(db)).toEqual([
+      { email: 'deux@example.org', telephone: '02.123.45.67', langue: 'fr', cree_le: '2026-11-16', statut: 'a_contacter' },
+    ]);
+  });
+
+  it('« pas cette fois » avec un téléphone : rien n’est enregistré', () => {
+    const s = commencer();
+    parcoursComplet(s, { valeur: 'non', telephone: '0470 12 34 56' });
+    expect(tousLesEntretiens(db)).toEqual([]);
   });
 
   it('les dates stockées sont au jour près', () => {
@@ -327,6 +367,35 @@ describe('Q9 : l’adresse des volontaires', () => {
     parcoursComplet(s, { valeur: 'non' });
     const l = db.prepare('SELECT cree_le, maj_le FROM sondage_reponses').get() as Record<string, string>;
     expect(l).toEqual({ cree_le: '2026-11-16', maj_le: '2026-11-16' });
+  });
+});
+
+describe('Q5 : noms proposés selon la langue', () => {
+  function jusquaQ5(langue: 'fr' | 'nl'): string {
+    const s = commencer({}, undefined, langue);
+    envoyer(choix('q1', 'souvent'), s);
+    return s;
+  }
+
+  it.each(['stuut', 'signal'])('néerlandais : une réponse qui porte « %s » est refusée', (nom) => {
+    const s = jusquaQ5('nl');
+    const r = envoyer({ etape: 'q5', reponse: { lignes: { magazine: 'connu', [nom]: 'utilise' } } }, s);
+    expect(r.status).toBe(400);
+    expect(r.corps.erreur).toBe('invalide');
+    expect(lireReponse(db, s)?.reponses.q5).toBeUndefined();
+  });
+
+  it('néerlandais : les cinq noms proposés sont acceptés', () => {
+    const s = jusquaQ5('nl');
+    const lignes = { magazine: 'connu', amai: 'utilise', quiz: 'inconnu', question_du_jour: 'connu', radar: 'inconnu' };
+    expect(envoyer({ etape: 'q5', reponse: { lignes } }, s).status).toBe(200);
+    expect(lireReponse(db, s)?.reponses.q5).toEqual({ lignes });
+  });
+
+  it('français : Stuut et Signal restent acceptés', () => {
+    const s = jusquaQ5('fr');
+    const r = envoyer({ etape: 'q5', reponse: { lignes: { stuut: 'utilise', signal: 'connu' } } }, s);
+    expect(r.status).toBe(200);
   });
 });
 

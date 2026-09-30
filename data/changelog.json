@@ -1,6 +1,42 @@
 [
     {
         "date": "2026-09-30",
+        "type": "corrected",
+        "section": "domains",
+        "targetSlug": "economy",
+        "descriptions": {
+            "fr": "Hub.brussels : les bureaux de La Haye, Lille et Luxembourg ferment aussi, leurs marchés étant désormais suivis depuis Bruxelles, et non repris par des opérateurs locaux comme l'indiquait la fiche. Selon BRUZZ (16 avril 2026), au moins 14 des 33 bureaux à l'étranger ferment et 18 subsistent, et non 19.",
+            "nl": "Hub.brussels: ook de kantoren in Den Haag, Rijsel en Luxemburg sluiten, en hun markten worden voortaan vanuit Brussel opgevolgd, niet overgenomen door lokale operatoren zoals de fiche vermeldde. Volgens BRUZZ (16 april 2026) sluiten minstens 14 van de 33 buitenlandse kantoren en blijven er 18 over, niet 19.",
+            "en": "Hub.brussels: the offices in The Hague, Lille and Luxembourg also close, with their markets now followed from Brussels, not taken over by local operators as the page said. According to BRUZZ (16 April 2026), at least 14 of the 33 foreign offices close and 18 remain, not 19.",
+            "de": "Hub.brussels: Auch die Büros in Den Haag, Lille und Luxemburg schließen, ihre Märkte werden künftig von Brüssel aus betreut und nicht von lokalen Betreibern übernommen, wie es auf der Seite hieß. Laut BRUZZ (16.04.2026) schließen mindestens 14 der 33 Auslandsbüros, 18 bleiben bestehen, nicht 19."
+        }
+    },
+    {
+        "date": "2026-09-30",
+        "type": "corrected",
+        "section": "dossiers",
+        "targetSlug": "enseignement",
+        "descriptions": {
+            "fr": "Manifestation du jeudi 4 juin 2026 : 14 arrestations judiciaires (six majeurs, huit mineurs) selon le parquet de Bruxelles, et non 15 comme l'indiquait la fiche. Le chiffre est confirmé par la RTBF et La Libre (5 juin 2026) ; l'article de la RTBF cité est daté du 5 juin.",
+            "nl": "Betoging van donderdag 4 juni 2026: 14 gerechtelijke aanhoudingen (zes meerderjarigen, acht minderjarigen) volgens het Brusselse parket, niet 15 zoals de fiche vermeldde. Het cijfer wordt bevestigd door RTBF en La Libre (5 juni 2026); het geciteerde RTBF-artikel dateert van 5 juni.",
+            "en": "Demonstration on Thursday 4 June 2026: 14 judicial arrests (six adults, eight minors) according to the Brussels prosecutor, not 15 as the page said. The figure is confirmed by RTBF and La Libre (5 June 2026); the RTBF article cited is dated 5 June.",
+            "de": "Demonstration am Donnerstag, 04.06.2026: 14 justizielle Festnahmen (sechs Volljährige, acht Minderjährige) laut Brüsseler Staatsanwaltschaft, nicht 15, wie es auf der Seite hieß. Die Zahl bestätigen RTBF und La Libre (5. Juni 2026); der zitierte RTBF-Artikel stammt vom 5. Juni."
+        }
+    },
+    {
+        "date": "2026-09-30",
+        "type": "corrected",
+        "section": "dossiers",
+        "targetSlug": "plan-securite",
+        "descriptions": {
+            "fr": "Enquête sur le comportement policier : les manifestations ont eu lieu du 4 au 6 juin 2026, et non les 5 et 6 juin. Le parquet de Bruxelles fait état de 14 arrestations judiciaires le jeudi 4 juin, et non 15 (RTBF, 5 juin 2026).",
+            "nl": "Onderzoek naar het politieoptreden: de betogingen vonden plaats van 4 tot 6 juni 2026, niet op 5 en 6 juni. Het Brusselse parket meldt 14 gerechtelijke aanhoudingen op donderdag 4 juni, niet 15 (RTBF, 5 juni 2026).",
+            "en": "Police conduct investigation: the demonstrations took place from 4 to 6 June 2026, not on 5 and 6 June. The Brussels prosecutor reports 14 judicial arrests on Thursday 4 June, not 15 (RTBF, 5 June 2026).",
+            "de": "Ermittlung zum Polizeiverhalten: Die Demonstrationen fanden vom 04.06.2026 bis 06.06.2026 statt, nicht am 5. und 6. Juni. Die Brüsseler Staatsanwaltschaft meldet 14 justizielle Festnahmen am Donnerstag, 4. Juni, nicht 15 (RTBF, 5. Juni 2026)."
+        }
+    },
+    {
+        "date": "2026-09-30",
         "type": "updated",
         "section": "domains",
         "targetSlug": "budget",
@@ -4877,10 +4913,10 @@
         "section": "domains",
         "targetSlug": "security",
         "descriptions": {
-            "fr": "Enquête ouverte sur le comportement de certains policiers lors des manifestations FWB des 5-6 juin (symbole interdit, propos filmés) — annoncée par le porte-parole du bourgmestre de la Ville de Bruxelles. Incendie Anderlecht : syndicats relancent la polémique réductions SIAMU.",
-            "nl": "Onderzoek geopend naar gedrag politieagenten bij FWB-betogingen 5-6 juni (verboden symbool, gefilmde uitspraken) — aangekondigd door woordvoerder burgemeester Brussel-Stad. Brand Anderlecht: vakbonden hervatten polemiek SIAMU-inkrimping.",
-            "en": "Investigation opened into conduct of certain officers at FWB protests on 5-6 June (forbidden symbol, filmed remarks) — announced by the Mayor of Brussels City's spokesperson. Anderlecht fire: unions reopen controversy over SIAMU cuts.",
-            "de": "Untersuchung über das Verhalten bestimmter Polizeibeamter bei FWB-Protesten 5.-6. Juni (verbotenes Symbol, gefilmte Aussagen) — angekündigt vom Sprecher des Bürgermeisters. Brand Anderlecht: Gewerkschaften erneuern SIAMU-Polemik."
+            "fr": "Enquête ouverte sur le comportement de certains policiers lors des manifestations FWB du 4 au 6 juin (symbole interdit, propos filmés) — annoncée par le porte-parole du bourgmestre de la Ville de Bruxelles. Incendie Anderlecht : syndicats relancent la polémique réductions SIAMU.",
+            "nl": "Onderzoek geopend naar gedrag politieagenten bij FWB-betogingen 4-6 juni (verboden symbool, gefilmde uitspraken) — aangekondigd door woordvoerder burgemeester Brussel-Stad. Brand Anderlecht: vakbonden hervatten polemiek SIAMU-inkrimping.",
+            "en": "Investigation opened into conduct of certain officers at FWB protests on 4-6 June (forbidden symbol, filmed remarks) — announced by the Mayor of Brussels City's spokesperson. Anderlecht fire: unions reopen controversy over SIAMU cuts.",
+            "de": "Untersuchung über das Verhalten bestimmter Polizeibeamter bei FWB-Protesten 4.-6. Juni (verbotenes Symbol, gefilmte Aussagen) — angekündigt vom Sprecher des Bürgermeisters. Brand Anderlecht: Gewerkschaften erneuern SIAMU-Polemik."
         }
     },
     {
@@ -4961,10 +4997,10 @@
         "section": "dossiers",
         "targetSlug": "enseignement",
         "descriptions": {
-            "fr": "Suites à Bruxelles du vote du décret-programme FWB (5-7 juin) : enquête ouverte sur le comportement de certains policiers (symbole interdit, propos filmés), 15 arrestations judiciaires jeudi, tensions persistantes à la Gare Centrale.",
-            "nl": "Brusselse gevolgen van de stemming over het FWB-begrotingsdecreet (5-7 juni): onderzoek geopend naar gedrag politieagenten (verboden symbool), 15 gerechtelijke arrestaties donderdag, aanhoudende spanningen aan het Centraal Station.",
-            "en": "Brussels aftermath of the FWB decree-programme vote (5-7 June): investigation into police conduct (forbidden symbol), 15 judicial arrests Thursday, persistent tensions at Brussels Central station.",
-            "de": "Brüsseler Folgen der FWB-Dekretabstimmung (5.-7. Juni): Untersuchung über Polizeiverhalten (verbotenes Symbol), 15 Gerichtsverhaftungen Donnerstag, anhaltende Spannungen am Hauptbahnhof."
+            "fr": "Suites à Bruxelles du vote du décret-programme FWB (4-6 juin) : enquête ouverte sur le comportement de certains policiers (symbole interdit, propos filmés), 14 arrestations judiciaires jeudi, tensions persistantes à la Gare Centrale.",
+            "nl": "Brusselse gevolgen van de stemming over het FWB-begrotingsdecreet (4-6 juni): onderzoek geopend naar gedrag politieagenten (verboden symbool), 14 gerechtelijke arrestaties donderdag, aanhoudende spanningen aan het Centraal Station.",
+            "en": "Brussels aftermath of the FWB decree-programme vote (4-6 June): investigation into police conduct (forbidden symbol), 14 judicial arrests Thursday, persistent tensions at Brussels Central station.",
+            "de": "Brüsseler Folgen der FWB-Dekretabstimmung (4.-6. Juni): Untersuchung über Polizeiverhalten (verbotenes Symbol), 14 Gerichtsverhaftungen Donnerstag, anhaltende Spannungen am Hauptbahnhof."
         }
     },
     {
@@ -6359,16 +6395,16 @@
         "section": "domains",
         "targetSlug": "economy",
         "descriptions": {
-            "fr": "Carte Économie enrichie : le gouvernement bruxellois a entériné le 16 avril la fermeture de 14 des 33 bureaux à l'étranger de Hub.brussels. Bureaux fermés : Milan, Barcelone, Copenhague, Belgrade, Genève (Europe) ; Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (reste du monde) ; La Havane (précédemment annoncée). Gestion décentralisée : La Haye, Lille, Luxembourg. Bureaux conservés (~19). Économies : 3 à 6 M EUR/an. ~30 salariés concernés. Dilliès : « maintenir 33 bureaux à l'étranger est un luxe que Bruxelles ne peut se permettre ». Mise à jour : summary, changeSummary, metric, nouvelle section « Hub.brussels : 14 fermetures confirmées ». Source : BRUZZ (16 avril 2026).",
-            "nl": "Kaart Economie verrijkt: de Brusselse regering bekrachtigde op 16 april de sluiting van 14 van de 33 buitenlandse kantoren van Hub.brussels. Gesloten: Milaan, Barcelona, Kopenhagen, Belgrado, Genève (Europa); Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (rest van de wereld); Havana (eerder aangekondigd). Gedecentraliseerd beheer: Den Haag, Rijsel, Luxemburg. Behouden (~19). Besparingen: 3 tot 6 M EUR/jaar. ~30 werknemers betrokken. Dilliès: « 33 buitenlandse kantoren openhouden is een luxe die Brussel zich niet kan veroorloven ». Update: summary, changeSummary, metric, nieuwe sectie « Hub.brussels: 14 sluitingen bevestigd ». Bron: BRUZZ (16 april 2026).",
-            "en": "Economy card enriched: the Brussels government formalised on 16 April the closure of 14 of Hub.brussels' 33 foreign offices. Closed: Milan, Barcelona, Copenhagen, Belgrade, Geneva (Europe); Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (rest of world); Havana (previously announced). Decentralised management: The Hague, Lille, Luxembourg. Retained (~19). Savings: EUR 3-6M/year. ~30 employees affected. Dilliès: 'Maintaining 33 foreign offices is a luxury Brussels cannot afford'. Update: summary, changeSummary, metric, new section 'Hub.brussels: 14 closures confirmed'. Source: BRUZZ (16 April 2026).",
-            "de": "Karte Wirtschaft angereichert: Die Brüsseler Regierung formalisierte am 16. April die Schließung von 14 der 33 Auslandsbüros von Hub.brussels. Geschlossen: Mailand, Barcelona, Kopenhagen, Belgrad, Genf (Europa); Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (Rest der Welt); Havanna (zuvor angekündigt). Dezentrale Verwaltung: Den Haag, Lille, Luxemburg. Erhalten (~19). Einsparungen: 3 bis 6 Mio. EUR/Jahr. ~30 Mitarbeiter betroffen. Dilliès: „33 Auslandsbüros zu unterhalten ist ein Luxus, den Brüssel sich nicht leisten kann“. Update: summary, changeSummary, metric, neuer Abschnitt „Hub.brussels: 14 Schließungen bestätigt“. Quelle: BRUZZ (16. April 2026)."
+            "fr": "Carte Économie enrichie : le gouvernement bruxellois a entériné le 16 avril la fermeture d'au moins 14 des 33 bureaux à l'étranger de Hub.brussels. Bureaux fermés : Milan, Barcelone, Copenhague, Belgrade, Genève (Europe) ; Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (reste du monde) ; La Havane (précédemment annoncée). Également fermés, marchés désormais suivis depuis Bruxelles : La Haye, Lille, Luxembourg. Bureaux conservés (18). Économies : 3 à 6 M EUR/an. ~30 salariés concernés. Dilliès : « maintenir 33 bureaux à l'étranger est un luxe que Bruxelles ne peut se permettre ». Mise à jour : summary, changeSummary, metric, nouvelle section « Hub.brussels : 14 fermetures confirmées ». Source : BRUZZ (16 avril 2026).",
+            "nl": "Kaart Economie verrijkt: de Brusselse regering bekrachtigde op 16 april de sluiting van minstens 14 van de 33 buitenlandse kantoren van Hub.brussels. Gesloten: Milaan, Barcelona, Kopenhagen, Belgrado, Genève (Europa); Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (rest van de wereld); Havana (eerder aangekondigd). Eveneens gesloten, markt voortaan vanuit Brussel opgevolgd: Den Haag, Rijsel, Luxemburg. Behouden (18). Besparingen: 3 tot 6 M EUR/jaar. ~30 werknemers betrokken. Dilliès: « 33 buitenlandse kantoren openhouden is een luxe die Brussel zich niet kan veroorloven ». Update: summary, changeSummary, metric, nieuwe sectie « Hub.brussels: 14 sluitingen bevestigd ». Bron: BRUZZ (16 april 2026).",
+            "en": "Economy card enriched: the Brussels government formalised on 16 April the closure of at least 14 of Hub.brussels' 33 foreign offices. Closed: Milan, Barcelona, Copenhagen, Belgrade, Geneva (Europe); Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (rest of world); Havana (previously announced). Also closed, with their markets now followed from Brussels: The Hague, Lille, Luxembourg. Retained (18). Savings: EUR 3-6M/year. ~30 employees affected. Dilliès: 'Maintaining 33 foreign offices is a luxury Brussels cannot afford'. Update: summary, changeSummary, metric, new section 'Hub.brussels: 14 closures confirmed'. Source: BRUZZ (16 April 2026).",
+            "de": "Karte Wirtschaft angereichert: Die Brüsseler Regierung formalisierte am 16. April die Schließung von mindestens 14 der 33 Auslandsbüros von Hub.brussels. Geschlossen: Mailand, Barcelona, Kopenhagen, Belgrad, Genf (Europa); Abu Dhabi, Hanoi, Montevideo, San Francisco, Shanghai, Vancouver (Rest der Welt); Havanna (zuvor angekündigt). Ebenfalls geschlossen, Märkte künftig von Brüssel aus betreut: Den Haag, Lille, Luxemburg. Erhalten (18). Einsparungen: 3 bis 6 Mio. EUR/Jahr. ~30 Mitarbeiter betroffen. Dilliès: „33 Auslandsbüros zu unterhalten ist ein Luxus, den Brüssel sich nicht leisten kann“. Update: summary, changeSummary, metric, neuer Abschnitt „Hub.brussels: 14 Schließungen bestätigt“. Quelle: BRUZZ (16. April 2026)."
         },
         "summaries": {
-            "fr": "Hub.brussels : 14 fermetures confirmées sur 33 (décision 16 avril) — liste précise + gestion décentralisée La Haye/Lille/Luxembourg",
-            "nl": "Hub.brussels: 14 sluitingen op 33 bevestigd (beslissing 16 april) — precieze lijst + gedecentraliseerd beheer Den Haag/Rijsel/Luxemburg",
-            "en": "Hub.brussels: 14 of 33 closures confirmed (decision 16 April) — precise list + decentralised management The Hague/Lille/Luxembourg",
-            "de": "Hub.brussels: 14 von 33 Schließungen bestätigt (Entscheidung 16. April) — genaue Liste + dezentrale Verwaltung Den Haag/Lille/Luxemburg"
+            "fr": "Hub.brussels : au moins 14 fermetures sur 33 (décision 16 avril) — liste précise, marchés de La Haye, Lille et Luxembourg suivis depuis Bruxelles",
+            "nl": "Hub.brussels: minstens 14 sluitingen op 33 (beslissing 16 april) — precieze lijst, markten Den Haag, Rijsel en Luxemburg vanuit Brussel opgevolgd",
+            "en": "Hub.brussels: at least 14 of 33 closures (decision 16 April) — precise list, The Hague, Lille and Luxembourg markets followed from Brussels",
+            "de": "Hub.brussels: mindestens 14 von 33 Schließungen (Entscheidung 16. April) — genaue Liste, Märkte Den Haag, Lille und Luxemburg von Brüssel aus betreut"
         }
     },
     {

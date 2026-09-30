@@ -28,7 +28,7 @@
  *     plus que des avertissements, pour une correction humaine qui cite un
  *     fait tiré d'une fiche et non du changelog. Les autres règles restent.
  *
- *   npx tsx scripts/content-lint/digest-check.ts --audit [--ref <commit>] [--week 2026-w39]
+ *   npx tsx scripts/content-lint/digest-check.ts --audit [--ref <commit>] [--week 2026-w39 [--week 2026-w38 …]]
  *     Rapport sur toutes les semaines (ou une seule), lues sur le disque ou à
  *     un commit donné (digests ET data/ de ce commit). Ne bloque jamais.
  */
@@ -254,12 +254,14 @@ function print(checked: Checked[]): { errors: number; warnings: number } {
 function audit(args: string[]): void {
   const refIdx = args.indexOf('--ref');
   const ref = refIdx >= 0 ? args[refIdx + 1] : undefined;
-  const weekIdx = args.indexOf('--week');
-  const only = weekIdx >= 0 ? args[weekIdx + 1] : undefined;
+  // Plusieurs --week possibles (--week a --week b) : chaque valeur est retenue.
+  // Seule la première l'était jusqu'au 30/09/2026, en silence : « --week w23
+  // --week w13 » n'auditait que w23.
+  const only = new Set(args.flatMap((a, i) => (a === '--week' && args[i + 1] ? [args[i + 1]] : [])));
   const read = ref ? refReader(ref) : diskReader;
   const data = readData(read);
   const files = listDigests(ref);
-  const weeks = [...new Set(files.map((f) => parseDigestPath(f)!.week))].filter((w) => !only || w === only).sort();
+  const weeks = [...new Set(files.map((f) => parseDigestPath(f)!.week))].filter((w) => only.size === 0 || only.has(w)).sort();
   const cards = buildCardIndex();
   const routes = siteRoutes();
   const checked: Checked[] = [];

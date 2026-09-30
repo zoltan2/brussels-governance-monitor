@@ -10,6 +10,7 @@ import { generateUnsubscribeToken } from '@/lib/token';
 import { listUnsubscribeHeaders } from '@/lib/list-unsubscribe';
 import { collectDigestUpdates, filterUpdatesForSubscriber } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
+import { encartSondageDigest } from '@/lib/sondage/encart-digest';
 import type { Locale } from '@/i18n/routing';
 
 const SUPPORTED_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
@@ -175,6 +176,7 @@ export const POST = auth(async function POST(req) {
       feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
       feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
       magazineUrl,
+      sondage: encartSondageDigest(locale, siteUrl),
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -4,9 +4,11 @@
 /**
  * Période de la campagne du sondage lecteurs, et mode pilote.
  *
- * Calendrier décidé le 27/09/2026 (spec § 12) : pilote à la mi-octobre, encart
- * dans le digest du lundi 16/11/2026, clôture le 06/12/2026, restitution dans le
- * digest du 14/12/2026. Réponses conservées jusqu'au 06/12/2027.
+ * Calendrier décidé le 27/09/2026 (spec § 12), avancé le 30/09 : pilote puis
+ * vrai sondage ouverts le 30/09 (SONDAGE_OUVERTURE en production), encart en
+ * tête de chaque digest fr et nl tant que la campagne est ouverte
+ * (encart-digest.ts), clôture le 06/12/2026, restitution dans le digest du
+ * 14/12/2026. Réponses conservées jusqu'au 06/12/2027.
  *
  * Ouverture et clôture se règlent sans redéploiement de code, par variables
  * d'environnement au format AAAA-MM-JJ, en heure de Bruxelles :
@@ -15,7 +17,7 @@
  * Une valeur mal formée est ignorée au profit du défaut, jamais interprétée.
  *
  * Mode pilote : SONDAGE_PILOTE=1 marque TOUTES les nouvelles réponses `pilote`
- * (à retirer avant l'encart du 16/11). Sans la variable, un lien
+ * (retiré en production le 30/09/2026). Sans la variable, un lien
  * `/fr/sondage?pilote=1` marque la réponse de celui qui le suit. Une réponse
  * pilote est exclue des effectifs de l'admin et des analyses.
  */

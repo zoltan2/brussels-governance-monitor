@@ -10,6 +10,7 @@ import {
   Link,
   Preview,
 } from '@react-email/components';
+import type { EncartSondage } from '@/lib/sondage/encart-digest';
 
 export interface DigestUpdate {
   title: string;
@@ -38,6 +39,8 @@ export interface DigestEmailProps {
   feedbackYesUrl?: string;
   feedbackNoUrl?: string;
   magazineUrl?: string;
+  /** Encart du sondage lecteurs, en tête (fr et nl, campagne ouverte). */
+  sondage?: EncartSondage | null;
 }
 
 const STATUS_STYLES = {
@@ -237,6 +240,7 @@ export function generateDigestPlainText({
   commitmentCount,
   siteUrl,
   magazineUrl,
+  sondage,
 }: DigestEmailProps): string {
   const t = T[locale] || T.fr;
 
@@ -249,6 +253,7 @@ export function generateDigestPlainText({
     `${t.title} — ${weekOf}`,
     t.welcome,
     '',
+    ...(sondage ? [sondage.titre.toUpperCase(), sondage.texte, `${sondage.bouton} : ${sondage.url}`, ''] : []),
     `${t.briefLabel}: ${summaryLine}`,
     '',
     t.weeklyNumberTitle,
@@ -376,6 +381,7 @@ export function DigestContent({
   feedbackYesUrl,
   feedbackNoUrl,
   magazineUrl,
+  sondage,
 }: DigestEmailProps) {
   const t = T[locale] || T.fr;
 
@@ -471,6 +477,49 @@ export function DigestContent({
             </table>
           </td>
         </tr>
+
+        {/* ===== SONDAGE LECTEURS (conditionnel, en tête) ===== */}
+        {sondage ? (
+          <tr>
+            <td style={{ padding: '28px 40px 0' }}>
+              <table
+                role="presentation"
+                width="100%"
+                cellPadding={0}
+                cellSpacing={0}
+                style={{ backgroundColor: '#fffbeb', borderRadius: '8px', borderLeft: '4px solid #f59e0b' }}
+              >
+                <tbody>
+                  <tr>
+                    <td style={{ padding: '18px 20px' }}>
+                      <p style={{ margin: '0 0 6px', color: '#1a2744', fontSize: '17px', fontWeight: 700, lineHeight: '1.3' }}>
+                        {sondage.titre}
+                      </p>
+                      <p style={{ margin: '0 0 14px', color: '#334155', fontSize: '14px', lineHeight: '1.5' }}>
+                        {sondage.texte}
+                      </p>
+                      <Button
+                        href={sondage.url}
+                        style={{
+                          display: 'inline-block',
+                          backgroundColor: '#1a2744',
+                          color: '#ffffff',
+                          fontSize: '14px',
+                          fontWeight: 600,
+                          textDecoration: 'none',
+                          padding: '10px 20px',
+                          borderRadius: '6px',
+                        }}
+                      >
+                        {sondage.bouton} →
+                      </Button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        ) : null}
 
         {/* ===== EN BREF BAR ===== */}
         <tr>

@@ -187,7 +187,6 @@ function DossierDetail({
   const tb = useTranslations('breadcrumb');
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
-  const tSub = useTranslations('cardSubscribe');
   const tFaq = useTranslations('faq');
   const tw = useTranslations('whatChanged');
   const tTopics = useTranslations('subscribe.topics');
@@ -574,17 +573,8 @@ function DossierDetail({
         <div className="mt-8">
           <CardSubscribe
             topic={cleDeTheme('dossier', card.slug)}
-            locale={locale}
-            labels={{
-              title: tSub('title'),
-              emailPlaceholder: tSub('emailPlaceholder'),
-              submit: tSub('submit'),
-              submitting: tSub('submitting'),
-              success: tSub('success'),
-              successExisting: tSub('successExisting'),
-              error: tSub('error'),
-              privacy: tSub('privacy'),
-            }}
+            type="dossier"
+            origine="fiche-bas"
           />
         </div>
 

@@ -105,9 +105,8 @@ describe('SubscribeForm : promesse et message de succès', () => {
   });
 
   it('envoie l’origine « accueil » et affiche le même message pour tous', async () => {
-    const fetchMock = vi.fn(
-      async (_url: string, _init?: RequestInit) =>
-        new Response(JSON.stringify({ success: true }), { status: 200 }),
+    const fetchMock = vi.fn<(url: string, init: RequestInit) => Promise<Response>>(
+      async () => new Response(JSON.stringify({ success: true }), { status: 200 }),
     );
     vi.stubGlobal('fetch', fetchMock);
     const { container, findByRole } = rendre('fr');
@@ -117,7 +116,7 @@ describe('SubscribeForm : promesse et message de succès', () => {
     fireEvent.submit(container.querySelector('form')!);
     const statut = await findByRole('status');
     expect(statut.textContent).toContain('Si vous êtes déjà abonné');
-    expect(JSON.parse(String(fetchMock.mock.calls[0][1]!.body))).toMatchObject({
+    expect(JSON.parse(String(fetchMock.mock.calls[0][1].body))).toMatchObject({
       origine: 'accueil',
       topics: ['budget', 'mobility'],
     });

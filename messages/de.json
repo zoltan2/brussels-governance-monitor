@@ -1758,14 +1758,20 @@
     "noData": "Keine Vergleiche verfügbar."
   },
   "cardSubscribe": {
-    "title": "Dieses Thema per E-Mail verfolgen",
+    "titles": {
+      "domain": "Diesen Bereich per E-Mail verfolgen",
+      "sector": "Diesen Sektor per E-Mail verfolgen",
+      "dossier": "Dieses Dossier per E-Mail verfolgen",
+      "commune": "Diese Gemeinde per E-Mail verfolgen"
+    },
+    "emailLabel": "E-Mail-Adresse",
     "emailPlaceholder": "ihre@email.de",
     "submit": "Abonnieren",
     "submitting": "...",
-    "success": "Überprüfen Sie Ihren Posteingang, um Ihr Abonnement zu bestätigen.",
-    "successExisting": "Thema zu Ihrem bestehenden Abonnement hinzugefügt.",
+    "success": "An diese Adresse wurde soeben eine E-Mail gesendet. Wenn Sie bereits abonniert sind, schlägt sie vor, dieses Thema hinzuzufügen.",
     "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
-    "privacy": "Max. 1 E-Mail/Woche. Abmeldung mit 1 Klick."
+    "promise": "Die Zusammenfassung kommt montags, in den Wochen, in denen dieses Thema aktualisiert wurde. Abmeldung mit 1 Klick.",
+    "privacyNotice": "Daten werden von Advice That SRL mit Ihrer Einwilligung für den Versand des Digests verarbeitet. <link>Datenschutzrichtlinie</link>"
   },
   "share": {
     "share": "Teilen",

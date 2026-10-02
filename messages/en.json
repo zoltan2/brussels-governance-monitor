@@ -1758,14 +1758,20 @@
     "noData": "No comparisons available."
   },
   "cardSubscribe": {
-    "title": "Follow this topic by email",
+    "titles": {
+      "domain": "Follow this domain by email",
+      "sector": "Follow this sector by email",
+      "dossier": "Follow this dossier by email",
+      "commune": "Follow this municipality by email"
+    },
+    "emailLabel": "Email address",
     "emailPlaceholder": "your@email.com",
     "submit": "Subscribe",
     "submitting": "...",
-    "success": "Check your inbox to confirm your subscription.",
-    "successExisting": "Topic added to your existing subscription.",
+    "success": "An email has just been sent to this address. If you are already subscribed, it offers to add this topic.",
     "error": "An error occurred. Please try again.",
-    "privacy": "Max. 1 email/week. Unsubscribe in 1 click."
+    "promise": "The digest arrives on Mondays, in the weeks when this topic has been updated. Unsubscribe in 1 click.",
+    "privacyNotice": "Data processed by Advice That SRL to send the digest, with your consent. <link>Privacy policy</link>"
   },
   "share": {
     "share": "Share",

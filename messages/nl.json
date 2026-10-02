@@ -1758,14 +1758,20 @@
     "noData": "Geen vergelijkingen beschikbaar."
   },
   "cardSubscribe": {
-    "title": "Volg dit domein per e-mail",
+    "titles": {
+      "domain": "Volg dit domein per e-mail",
+      "sector": "Volg deze sector per e-mail",
+      "dossier": "Volg dit dossier per e-mail",
+      "commune": "Volg deze gemeente per e-mail"
+    },
+    "emailLabel": "E-mailadres",
     "emailPlaceholder": "uw@email.be",
     "submit": "Abonneren",
     "submitting": "...",
-    "success": "Controleer uw mailbox om uw inschrijving te bevestigen.",
-    "successExisting": "Thema toegevoegd aan uw bestaand abonnement.",
+    "success": "Er is zonet een e-mail naar dit adres verstuurd. Bent u al geabonneerd, dan stelt die voor om dit thema toe te voegen.",
     "error": "Er is een fout opgetreden. Probeer het opnieuw.",
-    "privacy": "Max. 1 e-mail/week. Uitschrijven met 1 klik."
+    "promise": "De samenvatting komt op maandag, in de weken waarin dit thema is bijgewerkt. Uitschrijven met 1 klik.",
+    "privacyNotice": "Gegevens verwerkt door Advice That SRL voor het versturen van de digest, met uw toestemming. <link>Privacybeleid</link>"
   },
   "share": {
     "share": "Delen",

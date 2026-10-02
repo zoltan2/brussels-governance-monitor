@@ -19,7 +19,6 @@ import { FeedbackButton } from '@/components/feedback-button';
 import { FalcSummary } from '@/components/falc-summary';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { WhatChangedBanner } from '@/components/what-changed-banner';
-import { CardSubscribe } from '@/components/card-subscribe';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 export const dynamicParams = false;
@@ -113,7 +112,6 @@ function SolutionDetail({
   const tb = useTranslations('breadcrumb');
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
-  const tSub = useTranslations('cardSubscribe');
   const tw = useTranslations('whatChanged');
 
   return (
@@ -249,23 +247,6 @@ function SolutionDetail({
 
         <div className="mt-8">
           <MdxContent code={card.content} />
-        </div>
-
-        <div className="mt-10">
-          <CardSubscribe
-            topic="solutions"
-            locale={locale}
-            labels={{
-              title: tSub('title'),
-              emailPlaceholder: tSub('emailPlaceholder'),
-              submit: tSub('submit'),
-              submitting: tSub('submitting'),
-              success: tSub('success'),
-              successExisting: tSub('successExisting'),
-              error: tSub('error'),
-              privacy: tSub('privacy'),
-            }}
-          />
         </div>
 
         <div className="mt-8">

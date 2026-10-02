@@ -24,6 +24,7 @@ import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
+import { cleDeTheme } from '@/lib/theme-de-fiche';
 import { TransparencyGrid } from '@/components/transparency-grid';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/breadcrumb';
@@ -144,7 +145,6 @@ function CommuneDetail({
   const tb = useTranslations('breadcrumb');
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
-  const tSub = useTranslations('cardSubscribe');
   const tw = useTranslations('whatChanged');
 
   // Resolve related domain cards
@@ -375,18 +375,9 @@ function CommuneDetail({
 
         <div className="mt-8">
           <CardSubscribe
-            topic={`commune-${card.slug}`}
-            locale={locale}
-            labels={{
-              title: tSub('title'),
-              emailPlaceholder: tSub('emailPlaceholder'),
-              submit: tSub('submit'),
-              submitting: tSub('submitting'),
-              success: tSub('success'),
-              successExisting: tSub('successExisting'),
-              error: tSub('error'),
-              privacy: tSub('privacy'),
-            }}
+            topic={cleDeTheme('commune', card.slug)}
+            type="commune"
+            origine="fiche-bas"
           />
         </div>
 

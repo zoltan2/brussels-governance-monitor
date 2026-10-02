@@ -62,9 +62,15 @@ type SubmitState = 'idle' | 'loading' | 'success' | 'error';
 
 interface SubscribeFormProps {
   dossierOptions: Array<{ id: string; label: string }>;
+  /**
+   * Clés de thème des fiches affichées sur la page (accueil), calculées côté
+   * serveur par `cleDeTheme`. Proposées en tête du formulaire. Absente sur
+   * `/subscribe` : rien ne change.
+   */
+  sujetsDeLaPage?: string[];
 }
 
-export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
+export function SubscribeForm({ dossierOptions, sujetsDeLaPage }: SubscribeFormProps) {
   const t = useTranslations('subscribe');
   const locale = useLocale();
   // Le formulaire vit sur l'accueil ET sur /subscribe, sous le même nom
@@ -93,6 +99,32 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
   const toggleSector = toggleItem(setSectors);
   const toggleDossier = toggleItem(setDossiers);
   const toggleCommune = toggleItem(setCommunes);
+
+  // Thèmes de la page : chaque pastille lit et modifie le MÊME état que sa
+  // jumelle des listes complètes, donc cocher l'une coche l'autre. Un thème
+  // que le formulaire ne propose pas (clé inconnue, thème retiré) est écarté :
+  // il n'aurait ni libellé ni liste où apparaître.
+  const dossierLabels = new Map(dossierOptions.map((o) => [o.id, o.label]));
+  const groupeDe = (id: string) => {
+    if ((TOPIC_OPTIONS as readonly string[]).includes(id)) {
+      return { coche: topics.includes(id), basculer: toggleTopic, libelle: t(`topics.${id}`) };
+    }
+    if ((SECTOR_OPTIONS as readonly string[]).includes(id)) {
+      return { coche: sectors.includes(id), basculer: toggleSector, libelle: t(`topics.${id}`) };
+    }
+    if ((COMMUNE_OPTIONS as readonly string[]).includes(id)) {
+      return { coche: communes.includes(id), basculer: toggleCommune, libelle: t(`topics.${id}`) };
+    }
+    const libelle = dossierLabels.get(id);
+    if (libelle !== undefined) {
+      return { coche: dossiers.includes(id), basculer: toggleDossier, libelle };
+    }
+    return null;
+  };
+  const pastillesDeLaPage = [...new Set(sujetsDeLaPage ?? [])].flatMap((id) => {
+    const g = groupeDe(id);
+    return g ? [{ id, ...g }] : [];
+  });
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -189,6 +221,26 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
           className="w-full rounded-md border border-neutral-500 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:border-brand-600 focus-visible:ring-1 focus-visible:ring-brand-600"
         />
       </div>
+
+      {pastillesDeLaPage.length > 0 && (
+        <fieldset className="mb-4" data-groupe="page">
+          <legend className="mb-2 text-xs font-medium text-neutral-600">{t('pageTopicsLabel')}</legend>
+          <div className="flex flex-wrap gap-2">
+            {pastillesDeLaPage.map((p) => (
+              <label key={p.id} className={pillClass(p.coche)}>
+                <input
+                  type="checkbox"
+                  name={`page-${p.id}`}
+                  checked={p.coche}
+                  onChange={() => p.basculer(p.id)}
+                  className="sr-only"
+                />
+                {p.libelle}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      )}
 
       <fieldset className="mb-4">
         <legend className="mb-2 text-xs font-medium text-neutral-600">{t('topicsLabel')}</legend>

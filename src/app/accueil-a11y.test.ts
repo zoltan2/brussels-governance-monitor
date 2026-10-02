@@ -181,3 +181,87 @@ describe('boutons flottants sur mobile — WCAG 2.4.11', () => {
     expect(c.has('md:py-10')).toBe(true);
   });
 });
+
+/**
+ * Lot 2 de l'abonnement (02/10/2026) : la carte du digest ne menait à
+ * l'inscription que s'il n'existait AUCUN digest, donc jamais. Elle porte
+ * maintenant deux liens : lire le digest de la semaine, et le recevoir par email.
+ */
+describe('carte du digest : une seconde porte vers l’inscription', () => {
+  const carte = fonction('FormatsSection').split("title={t('protoDigestName')}")[1]?.split("title={t('protoMagazineName')}")[0] ?? '';
+  const lien = carte.split('link={')[1] ?? '';
+  const ancres = [...lien.matchAll(/<TrackedAnchor\b([\s\S]*?)>/g)].map((m) => m[1]);
+
+  it('témoin : la carte et sa propriété link sont bien lues', () => {
+    expect(carte.length).toBeGreaterThan(500);
+    expect(ancres.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('le lien vers le digest de la semaine reste le lien étiré de la carte', () => {
+    const lire = ancres.find((a) => a.includes('event="accueil-digest"'));
+    expect(lire, 'lien accueil-digest introuvable').toBeDefined();
+    expect(lire).toContain('href={digest.href}');
+    expect(lire).toContain('className={stretchedLink}');
+  });
+
+  it('le lien « recevoir par email » est rendu quand un digest existe, vers #subscribe', () => {
+    const recevoir = ancres.filter((a) => a.includes('event="accueil-digest-abonnement"'));
+    expect(recevoir).toHaveLength(1);
+    expect(recevoir[0]).toContain('href="#subscribe"');
+    // Rendu hors de toute branche « pas de digest » : il n'est dans aucun `: (`.
+    const avant = lien.slice(0, lien.indexOf('event="accueil-digest-abonnement"'));
+    expect(avant.lastIndexOf(') : (')).toBe(-1);
+    expect(lien).toContain("t('protoDigestByEmail')");
+  });
+
+  it('il passe au-dessus du lien étiré et offre une cible de 24 px', () => {
+    const recevoir = ancres.find((a) => a.includes('event="accueil-digest-abonnement"'))!;
+    const c = recevoir.match(/className=\{([^}]+)\}/)?.[1] ?? '';
+    expect(c).toContain('digestEmailLink');
+    const def = page.match(/const digestEmailLink =\s*`([^`]+)`/)?.[1] ?? '';
+    const cls = classes(def.replace('${linkClass}', ''));
+    expect(cls.has('relative')).toBe(true);
+    expect(cls.has('z-10')).toBe(true);
+    expect(cls.has('min-h-6')).toBe(true);
+    // Sans pseudo-élément étiré : sinon il recouvrirait le lien de lecture.
+    expect(def).not.toContain('after:inset-0');
+  });
+
+  it('aucun élément interactif imbriqué : les deux liens sont frères', () => {
+    const corps = lien.slice(0, lien.indexOf('\n            }'));
+    const ouvertures = [...corps.matchAll(/<TrackedAnchor\b|<\/TrackedAnchor>/g)].map((m) => m[0]);
+    let profondeur = 0;
+    for (const o of ouvertures) {
+      profondeur += o.startsWith('</') ? -1 : 1;
+      expect(profondeur).toBeLessThanOrEqual(1);
+    }
+    expect(profondeur).toBe(0);
+  });
+
+  it('la section d’inscription garde son ancre', () => {
+    expect(page).toMatch(/<section id="subscribe"/);
+  });
+
+  it.each(['fr', 'nl', 'en', 'de'])('%s : le libellé du second lien existe', (l) => {
+    const m = JSON.parse(readFileSync(resolve(__dirname, `../../messages/${l}.json`), 'utf8'));
+    expect(typeof m.home.protoDigestByEmail).toBe('string');
+    expect(m.home.protoDigestByEmail.length).toBeGreaterThan(5);
+  });
+});
+
+describe('formulaire de l’accueil : il reçoit les thèmes des cartes affichées', () => {
+  const appel = page.split('<SubscribeForm')[1]?.split('/>')[0] ?? '';
+
+  it('témoin : l’appel du formulaire est bien lu', () => {
+    expect(appel).toContain('dossierOptions=');
+  });
+
+  it.each([
+    ['homeDossiers', 'dossier'],
+    ['homeDomains', 'domain'],
+    ['homeSectors', 'sector'],
+  ])('%s passe par cleDeTheme(\'%s\')', (liste, type) => {
+    expect(appel).toContain('sujetsDeLaPage={[');
+    expect(appel).toContain(`...${liste}.map((card) => cleDeTheme('${type}', card.slug))`);
+  });
+});

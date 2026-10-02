@@ -50,4 +50,25 @@ describe('cleDeTheme', () => {
     const publies = slugs('dossiers');
     expect(Object.keys(DOSSIER_SLUG_TO_TOPIC).filter((s) => !publies.includes(s))).toEqual([]);
   });
+
+  // Le formulaire des fiches solution envoyait `topic="solutions"`, thème que le
+  // digest n'envoie jamais (retiré le 02/10/2026). Une clé écrite à la main dans
+  // une page échappe à la vérification ci-dessus : elle passe donc par ici.
+  it('toute page qui pose le petit formulaire calcule sa clé par cleDeTheme', () => {
+    const APP = path.resolve(__dirname, '../app');
+    const pages = (dir: string): string[] =>
+      fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+        const p = path.join(dir, e.name);
+        if (e.isDirectory()) return pages(p);
+        return /\.tsx$/.test(e.name) && !/\.test\.tsx$/.test(e.name) ? [p] : [];
+      });
+    const poses = pages(APP).flatMap((p) =>
+      [...fs.readFileSync(p, 'utf8').matchAll(/<CardSubscribe\s+topic=\{?([^\n]*)/g)].map(
+        (m) => `${path.relative(APP, p)} : ${m[1].trim()}`,
+      ),
+    );
+    expect(poses).toHaveLength(4);
+    expect(poses.filter((l) => !/ : cleDeTheme\('(domain|sector|dossier|commune)', card\.slug\)\}$/.test(l))).toEqual([]);
+    expect(poses.filter((l) => l.includes('solutions'))).toEqual([]);
+  });
 });

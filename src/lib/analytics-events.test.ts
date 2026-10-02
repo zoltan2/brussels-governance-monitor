@@ -140,7 +140,7 @@ const EVENEMENTS_ACTIONS = [
   // Accueil : ouverture et fermeture du tableau du gouvernement, `etat` en propriété.
   'accueil-gouvernement',
   // Réponse 2xx de l'inscription (le clic, lui, reste `accueil-inscription`),
-  // avec `page` et `statut`. Jamais l'adresse.
+  // avec `page` et `formulaire` (`complet` ou `fiche`). Jamais l'adresse.
   'inscription-reussie',
   // Recherche (29/09/2026, ligne de base du projet Search) : ouverture avec
   // `origine`, requête (tranche de résultats et langue, une fois par ouverture),

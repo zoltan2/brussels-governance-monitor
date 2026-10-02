@@ -39,7 +39,7 @@ const translations: Record<string, WelcomeTranslation> = {
     title: 'Bienvenue',
     greeting: 'Votre inscription est confirmée.',
     explanation:
-      'Vous recevrez un digest hebdomadaire (le lundi) avec les mises à jour des domaines que vous suivez. Pas de changement = pas d\'email.',
+      'Vous recevez le digest le lundi, les semaines où vos thèmes ont été mis à jour. Pas de changement = pas d\'email.',
     topicsTitle: 'Vos thèmes suivis :',
     frequency: 'Fréquence : maximum 1 email par semaine.',
     unsubscribe: 'Gérer mes préférences ou me désabonner',
@@ -51,7 +51,7 @@ const translations: Record<string, WelcomeTranslation> = {
     title: 'Welkom',
     greeting: 'Uw inschrijving is bevestigd.',
     explanation:
-      'U ontvangt een wekelijkse samenvatting (op maandag) met updates over de domeinen die u volgt. Geen wijziging = geen e-mail.',
+      'U ontvangt de samenvatting op maandag, in de weken waarin uw thema\'s zijn bijgewerkt. Geen wijziging = geen e-mail.',
     topicsTitle: 'Uw gevolgde thema\'s:',
     frequency: 'Frequentie: maximaal 1 e-mail per week.',
     unsubscribe: 'Mijn voorkeuren beheren of uitschrijven',
@@ -63,7 +63,7 @@ const translations: Record<string, WelcomeTranslation> = {
     title: 'Welcome',
     greeting: 'Your subscription is confirmed.',
     explanation:
-      'You will receive a weekly digest (on Mondays) with updates on the domains you follow. No changes = no email.',
+      'You receive the digest on Mondays, in the weeks when your topics have been updated. No changes = no email.',
     topicsTitle: 'Your followed topics:',
     frequency: 'Frequency: maximum 1 email per week.',
     unsubscribe: 'Manage my preferences or unsubscribe',
@@ -75,7 +75,7 @@ const translations: Record<string, WelcomeTranslation> = {
     title: 'Willkommen',
     greeting: 'Ihre Anmeldung ist bestätigt.',
     explanation:
-      'Sie erhalten eine wöchentliche Zusammenfassung (montags) mit Aktualisierungen zu den von Ihnen verfolgten Bereichen. Keine Änderung = keine E-Mail.',
+      'Sie erhalten die Zusammenfassung montags, in den Wochen, in denen Ihre Themen aktualisiert wurden. Keine Änderung = keine E-Mail.',
     topicsTitle: 'Ihre verfolgten Themen:',
     frequency: 'Häufigkeit: maximal 1 E-Mail pro Woche.',
     unsubscribe: 'Meine Einstellungen verwalten oder abmelden',

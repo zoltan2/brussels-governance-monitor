@@ -3,6 +3,7 @@
 
 import { Resend } from 'resend';
 import { getDossierCards } from '@/lib/content';
+import { cleDeTheme, DOSSIER_SLUG_TO_TOPIC } from '@/lib/theme-de-fiche';
 import {
   DOMAIN_TOPICS,
   SECTOR_TOPICS,
@@ -27,12 +28,8 @@ export function getResend(): Resend {
 
 export const EMAIL_FROM = 'Brussels Governance Monitor <noreply@mail.brusselsgovernance.be>';
 
-/** Maps Velite dossier slugs to topic identifiers (only for slugs that differ). */
-export const DOSSIER_SLUG_TO_TOPIC: Record<string, string> = {
-  'seniors-a-bruxelles': 'dossier-seniors',
-  'data-centers-ia-energie': 'dossier-data-centers',
-  'faillites-a-bruxelles': 'dossier-faillites',
-};
+// La correspondance fiche vers clé de thème vit dans `@/lib/theme-de-fiche`.
+export { DOSSIER_SLUG_TO_TOPIC };
 
 /**
  * Get all dossier topics dynamically from Velite.
@@ -43,11 +40,7 @@ export const DOSSIER_SLUG_TO_TOPIC: Record<string, string> = {
  */
 export function getDossierTopics(): string[] {
   const cards = getDossierCards('fr');
-  const slugs = [
-    ...new Set(
-      cards.map((c) => DOSSIER_SLUG_TO_TOPIC[c.slug] || `dossier-${c.slug}`),
-    ),
-  ];
+  const slugs = [...new Set(cards.map((c) => cleDeTheme('dossier', c.slug)))];
   return ['dossiers', ...slugs];
 }
 

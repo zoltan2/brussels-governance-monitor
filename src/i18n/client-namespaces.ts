@@ -34,6 +34,7 @@
  * CI, pas la production.
  */
 export const CLIENT_NAMESPACES = [
+  'cardSubscribe',
   'changelog',
   'dashboard',
   'error',

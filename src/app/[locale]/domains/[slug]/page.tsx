@@ -21,6 +21,7 @@ import { FreshnessBadge } from '@/components/freshness-badge';
 import { VerifiedBadge } from '@/components/verified-badge';
 import { VerificationBadge } from '@/components/verification-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
+import { cleDeTheme } from '@/lib/theme-de-fiche';
 import { StatusAccordion } from '@/components/status-accordion';
 import { RelatedCards } from '@/components/related-cards';
 import { DomainTags } from '@/components/domain-tags';
@@ -146,7 +147,6 @@ function DomainDetail({
   const tb = useTranslations('breadcrumb');
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
-  const tSub = useTranslations('cardSubscribe');
   const tFaq = useTranslations('faq');
   const tw = useTranslations('whatChanged');
 
@@ -338,18 +338,9 @@ function DomainDetail({
 
         <div className="mt-8">
           <CardSubscribe
-            topic={card.slug}
-            locale={locale}
-            labels={{
-              title: tSub('title'),
-              emailPlaceholder: tSub('emailPlaceholder'),
-              submit: tSub('submit'),
-              submitting: tSub('submitting'),
-              success: tSub('success'),
-              successExisting: tSub('successExisting'),
-              error: tSub('error'),
-              privacy: tSub('privacy'),
-            }}
+            topic={cleDeTheme('domain', card.slug)}
+            type="domain"
+            origine="fiche-bas"
           />
         </div>
 

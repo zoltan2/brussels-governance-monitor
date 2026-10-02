@@ -292,7 +292,7 @@
   },
   "subscribe": {
     "title": "Restez informé",
-    "subtitle": "Recevez un digest hebdomadaire des mises à jour sur les domaines qui vous intéressent.",
+    "subtitle": "Choisissez vos thèmes. Vous recevez le digest le lundi, les semaines où vos thèmes ont été mis à jour.",
     "emailLabel": "Adresse email",
     "emailPlaceholder": "votre@email.be",
     "topicsLabel": "Thèmes à suivre",
@@ -349,23 +349,21 @@
     "submit": "S'inscrire",
     "submitting": "Inscription...",
     "successTitle": "Vérifiez votre boîte mail",
-    "successMessage": "Un email de confirmation vous a été envoyé. Cliquez sur le lien pour activer votre abonnement.",
-    "successExistingTitle": "Thèmes mis à jour",
-    "successExistingMessage": "Les nouveaux thèmes ont été ajoutés à votre abonnement existant.",
+    "successMessage": "Un email vient de partir à cette adresse. Si vous êtes déjà abonné, il vous propose d'ajouter ces thèmes.",
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
     "privacy": "Max. 1 email/semaine. Désabonnement en 1 clic.",
     "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest, avec votre consentement. <link>Politique de confidentialité</link>"
   },
   "subscribeConfirm": {
     "title": "Confirmez votre inscription",
-    "message": "Cliquez sur le bouton ci-dessous pour activer votre abonnement au digest hebdomadaire.",
+    "message": "Cliquez sur le bouton ci-dessous pour confirmer les thèmes que vous voulez suivre.",
     "confirmButton": "Confirmer mon inscription",
     "confirming": "Confirmation en cours...",
     "successTitle": "Inscription confirmée",
-    "successMessage": "Votre abonnement est actif. Vous recevrez un digest hebdomadaire (le lundi) avec les mises à jour des thèmes que vous suivez.",
+    "successMessage": "Votre abonnement est actif. Vous recevez le digest le lundi, les semaines où vos thèmes ont été mis à jour.",
     "successTopics": "Thèmes suivis :",
-    "alreadyTitle": "Déjà inscrit",
-    "alreadyMessage": "Votre adresse email est déjà confirmée. Vous recevez le digest hebdomadaire.",
+    "alreadyTitle": "Vos thèmes sont à jour",
+    "alreadyMessage": "Vous étiez déjà abonné. Votre abonnement comprend les thèmes ci-dessous.",
     "errorTitle": "Erreur",
     "errorMessage": "Une erreur est survenue lors de la confirmation. Veuillez réessayer en vous inscrivant à nouveau.",
     "expiredTitle": "Lien expiré",
@@ -421,7 +419,7 @@
   },
   "subscribeConfirmed": {
     "successTitle": "Inscription confirmée",
-    "successMessage": "Votre abonnement est actif. Vous recevrez un digest hebdomadaire (le lundi) avec les mises à jour des domaines que vous suivez.",
+    "successMessage": "Votre abonnement est actif. Vous recevez le digest le lundi, les semaines où vos thèmes ont été mis à jour.",
     "successTopics": "Thèmes suivis :",
     "errorTitle": "Erreur",
     "errorMessage": "Une erreur est survenue lors de la confirmation. Veuillez réessayer en vous inscrivant à nouveau.",
@@ -1760,14 +1758,20 @@
     "noData": "Aucune comparaison disponible."
   },
   "cardSubscribe": {
-    "title": "Suivre ce domaine par email",
+    "titles": {
+      "domain": "Suivre ce domaine par email",
+      "sector": "Suivre ce secteur par email",
+      "dossier": "Suivre ce dossier par email",
+      "commune": "Suivre cette commune par email"
+    },
+    "emailLabel": "Adresse email",
     "emailPlaceholder": "votre@email.be",
     "submit": "S'abonner",
     "submitting": "...",
-    "success": "Vérifiez votre boîte mail pour confirmer votre inscription.",
-    "successExisting": "Thème ajouté à votre abonnement existant.",
+    "success": "Un email vient de partir à cette adresse. Si vous êtes déjà abonné, il vous propose d'ajouter ce thème.",
     "error": "Une erreur est survenue. Réessayez.",
-    "privacy": "Max. 1 email/semaine. Désabonnement en 1 clic."
+    "promise": "Le digest arrive le lundi, les semaines où ce thème a été mis à jour. Désabonnement en 1 clic.",
+    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest, avec votre consentement. <link>Politique de confidentialité</link>"
   },
   "share": {
     "share": "Partager",

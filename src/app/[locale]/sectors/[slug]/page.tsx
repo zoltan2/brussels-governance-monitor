@@ -18,6 +18,7 @@ import { CiteButton } from '@/components/cite-button';
 import { FeedbackButton } from '@/components/feedback-button';
 import { FreshnessBadge } from '@/components/freshness-badge';
 import { CardSubscribe } from '@/components/card-subscribe';
+import { cleDeTheme } from '@/lib/theme-de-fiche';
 import { HeritageCallout } from '@/components/heritage-callout';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { WhatChangedBanner } from '@/components/what-changed-banner';
@@ -122,7 +123,6 @@ function SectorDetail({
   const tb = useTranslations('breadcrumb');
   const tShare = useTranslations('share');
   const tFeedback = useTranslations('feedback');
-  const tSub = useTranslations('cardSubscribe');
   const tw = useTranslations('whatChanged');
 
   return (
@@ -277,18 +277,9 @@ function SectorDetail({
 
         <div className="mt-8">
           <CardSubscribe
-            topic={card.slug}
-            locale={locale}
-            labels={{
-              title: tSub('title'),
-              emailPlaceholder: tSub('emailPlaceholder'),
-              submit: tSub('submit'),
-              submitting: tSub('submitting'),
-              success: tSub('success'),
-              successExisting: tSub('successExisting'),
-              error: tSub('error'),
-              privacy: tSub('privacy'),
-            }}
+            topic={cleDeTheme('sector', card.slug)}
+            type="sector"
+            origine="fiche-bas"
           />
         </div>
 

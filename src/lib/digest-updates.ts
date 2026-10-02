@@ -2,7 +2,8 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { getDomainCards, getDossierCards, getSectorCards, getCommuneCards, getLocalizedSlug } from '@/lib/content';
-import { SECTOR_TO_DOMAIN, DOSSIER_SLUG_TO_TOPIC } from '@/lib/resend';
+import { SECTOR_TO_DOMAIN } from '@/lib/resend';
+import { cleDeTheme } from '@/lib/theme-de-fiche';
 import type { DigestUpdate } from '@/emails/digest';
 import type { Locale } from '@/i18n/routing';
 import { leadSplit } from '@/lib/lead-split';
@@ -87,7 +88,7 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
     const dossierCards = getDossierCards(locale);
     for (const c of dossierCards) {
       if (c.lastModified < cutoff) continue;
-      const topic = DOSSIER_SLUG_TO_TOPIC[c.slug] || `dossier-${c.slug}`;
+      const topic = cleDeTheme('dossier', c.slug);
       topicSet.add(topic);
       if (locale === 'fr') frCounts.dossiers++;
       const fresh = c.changeSummary || c.summary;

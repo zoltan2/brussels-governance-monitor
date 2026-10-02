@@ -22,7 +22,6 @@ const TOPIC_OPTIONS = [
   'urban-planning',
   'digital',
   'education',
-  'engagements',
 ] as const;
 
 const SECTOR_OPTIONS = [
@@ -59,7 +58,7 @@ const COMMUNE_OPTIONS = [
   'commune-woluwe-saint-pierre',
 ] as const;
 
-type SubmitState = 'idle' | 'loading' | 'success' | 'successExisting' | 'error';
+type SubmitState = 'idle' | 'loading' | 'success' | 'error';
 
 interface SubscribeFormProps {
   dossierOptions: Array<{ id: string; label: string }>;
@@ -76,7 +75,7 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
   const page = pathname === '/' ? 'accueil' : pathname;
   const [email, setEmail] = useState('');
   const [website, setWebsite] = useState(''); // honeypot
-  const [topics, setTopics] = useState<string[]>(['budget', 'mobility', 'engagements']);
+  const [topics, setTopics] = useState<string[]>(['budget', 'mobility']);
   const [sectors, setSectors] = useState<string[]>([]);
   const [dossiers, setDossiers] = useState<string[]>([]);
   const [communes, setCommunes] = useState<string[]>([]);
@@ -110,20 +109,19 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
           email,
           locale: ['fr', 'nl', 'en', 'de'].includes(locale) ? locale : 'fr',
           topics: allTopics,
+          origine: page === 'accueil' ? 'accueil' : 'page',
           website, // honeypot
         }),
       });
 
       if (res.ok) {
-        const data = await res.json();
         // `accueil-inscription` compte le CLIC sur le bouton ; celui-ci compte la
         // réponse 2xx. Entre les deux : erreurs, abandons, champ vide. Jamais
-        // l'adresse ni les thèmes.
-        track('inscription-reussie', {
-          page,
-          statut: data.alreadySubscribed ? 'deja-abonne' : 'nouveau',
-        });
-        setState(data.alreadySubscribed ? 'successExisting' : 'success');
+        // l'adresse ni les thèmes. La route répond la même chose à un abonné et
+        // à une adresse inconnue : `formulaire` dit seulement lequel a servi
+        // (`complet` ici, `fiche` pour le petit formulaire des fiches).
+        track('inscription-reussie', { page, formulaire: 'complet' });
+        setState('success');
         setEmail('');
       } else {
         const data = await res.json().catch(() => ({}));
@@ -136,14 +134,14 @@ export function SubscribeForm({ dossierOptions }: SubscribeFormProps) {
     }
   }
 
-  if (state === 'success' || state === 'successExisting') {
+  if (state === 'success') {
     return (
       <div className="rounded-lg border border-brand-600/20 bg-brand-900/5 p-6 text-center" role="status" aria-live="polite">
         <p className="text-sm font-medium text-brand-900">
-          {state === 'successExisting' ? t('successExistingTitle') : t('successTitle')}
+          {t('successTitle')}
         </p>
         <p className="mt-1 text-xs text-neutral-500">
-          {state === 'successExisting' ? t('successExistingMessage') : t('successMessage')}
+          {t('successMessage')}
         </p>
       </div>
     );

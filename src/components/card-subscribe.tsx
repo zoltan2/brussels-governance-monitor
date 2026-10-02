@@ -4,25 +4,26 @@
 'use client';
 
 import { useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import { Link, usePathname } from '@/i18n/navigation';
+import { track } from '@/lib/analytics';
+import type { TypeDeFiche } from '@/lib/theme-de-fiche';
 
 interface CardSubscribeProps {
+  /** Clé de thème, calculée par `cleDeTheme` côté serveur. */
   topic: string;
-  locale: string;
-  labels: {
-    title: string;
-    emailPlaceholder: string;
-    submit: string;
-    submitting: string;
-    success: string;
-    successExisting: string;
-    error: string;
-    privacy: string;
-  };
+  type: TypeDeFiche;
+  /** Emplacement sur la fiche : recopié dans la source du contact. */
+  origine: 'fiche-haut' | 'fiche-bas';
 }
 
-export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
+export function CardSubscribe({ topic, type, origine }: CardSubscribeProps) {
+  const t = useTranslations('cardSubscribe');
+  const locale = useLocale();
+  const page = usePathname();
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'successExisting' | 'error'>('idle');
+  const [website, setWebsite] = useState(''); // honeypot
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -37,13 +38,15 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
           email: email.trim(),
           locale: ['fr', 'nl', 'en', 'de'].includes(locale) ? locale : 'fr',
           topics: [topic],
-          website: '', // honeypot
+          origine,
+          website, // honeypot
         }),
       });
 
       if (res.ok) {
-        const data = await res.json();
-        setStatus(data.alreadySubscribed ? 'successExisting' : 'success');
+        // Réponse 2xx seulement. Jamais l'adresse ni le thème : la page suffit.
+        track('inscription-reussie', { page, formulaire: 'fiche' });
+        setStatus('success');
       } else {
         setStatus('error');
       }
@@ -52,28 +55,40 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
     }
   }
 
-  if (status === 'success' || status === 'successExisting') {
+  if (status === 'success') {
     return (
       <div className="rounded-lg border border-confirmed-border bg-confirmed-bg p-4" role="status" aria-live="polite">
-        <p className="text-sm text-confirmed-fg">
-          {status === 'successExisting' ? labels.successExisting : labels.success}
-        </p>
+        <p className="text-sm text-confirmed-fg">{t('success')}</p>
       </div>
     );
   }
 
   return (
     <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
-      <p className="mb-3 text-sm font-medium text-neutral-700">{labels.title}</p>
+      <p className="mb-3 text-sm font-medium text-neutral-700">{t(`titles.${type}`)}</p>
       <form onSubmit={handleSubmit} className="flex gap-2">
-        <label htmlFor={`card-subscribe-${topic}`} className="sr-only">{labels.emailPlaceholder}</label>
+        {/* Honeypot field — hidden from users, filled by bots */}
+        <div className="absolute -left-[9999px]" aria-hidden="true">
+          <label htmlFor={`card-subscribe-website-${origine}`}>Website</label>
+          <input
+            id={`card-subscribe-website-${origine}`}
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+          />
+        </div>
+        <label htmlFor={`card-subscribe-${origine}`} className="sr-only">{t('emailLabel')}</label>
         <input
           type="email"
-          id={`card-subscribe-${topic}`}
+          id={`card-subscribe-${origine}`}
           name="email"
+          autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder={labels.emailPlaceholder}
+          placeholder={t('emailPlaceholder')}
           required
           className="min-w-0 flex-1 rounded-md border border-neutral-500 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
         />
@@ -82,13 +97,23 @@ export function CardSubscribe({ topic, locale, labels }: CardSubscribeProps) {
           disabled={status === 'submitting' || !email.trim()}
           className="shrink-0 rounded-md bg-brand-900 px-4 py-1.5 text-xs font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:opacity-50"
         >
-          {status === 'submitting' ? labels.submitting : labels.submit}
+          {status === 'submitting' ? t('submitting') : t('submit')}
         </button>
       </form>
       {status === 'error' && (
-        <p className="mt-2 text-xs text-status-delayed" role="alert">{labels.error}</p>
+        <p className="mt-2 text-xs text-status-delayed" role="alert">{t('error')}</p>
       )}
-      <p className="mt-2 text-xs text-neutral-500">{labels.privacy}</p>
+      <p className="mt-2 text-xs text-neutral-500">{t('promise')}</p>
+      {/* Information au point de collecte (RGPD art. 13), comme le grand formulaire. */}
+      <p className="mt-1 text-xs text-neutral-500">
+        {t.rich('privacyNotice', {
+          link: (chunks) => (
+            <Link href="/privacy" className="underline hover:text-neutral-700">
+              {chunks}
+            </Link>
+          ),
+        })}
+      </p>
     </div>
   );
 }

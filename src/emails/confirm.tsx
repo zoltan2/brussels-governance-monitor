@@ -31,7 +31,7 @@ const translations: Record<string, {
     preview: 'Confirmez votre inscription à Brussels Governance Monitor',
     title: 'Confirmez votre email',
     greeting:
-      "Vous avez demandé à recevoir les alertes de Brussels Governance Monitor. Cliquez sur le bouton ci-dessous pour confirmer votre inscription.",
+      "Vous avez demandé à recevoir le digest de Brussels Governance Monitor, envoyé le lundi, les semaines où vos thèmes ont été mis à jour. Cliquez sur le bouton ci-dessous pour confirmer votre inscription.",
     button: 'Confirmer mon inscription',
     expiry: 'Ce lien expire dans 48 heures.',
     ignore:
@@ -43,7 +43,7 @@ const translations: Record<string, {
     preview: 'Bevestig uw inschrijving bij Brussels Governance Monitor',
     title: 'Bevestig uw e-mail',
     greeting:
-      'U hebt gevraagd om waarschuwingen te ontvangen van Brussels Governance Monitor. Klik op de onderstaande knop om uw inschrijving te bevestigen.',
+      'U hebt gevraagd om de samenvatting van Brussels Governance Monitor te ontvangen, verstuurd op maandag, in de weken waarin uw thema\'s zijn bijgewerkt. Klik op de onderstaande knop om uw inschrijving te bevestigen.',
     button: 'Mijn inschrijving bevestigen',
     expiry: 'Deze link vervalt na 48 uur.',
     ignore:
@@ -55,7 +55,7 @@ const translations: Record<string, {
     preview: 'Confirm your subscription to Brussels Governance Monitor',
     title: 'Confirm your email',
     greeting:
-      'You have requested to receive alerts from Brussels Governance Monitor. Click the button below to confirm your subscription.',
+      'You have requested to receive the Brussels Governance Monitor digest, sent on Mondays, in the weeks when your topics have been updated. Click the button below to confirm your subscription.',
     button: 'Confirm my subscription',
     expiry: 'This link expires in 48 hours.',
     ignore:
@@ -67,7 +67,7 @@ const translations: Record<string, {
     preview: 'Bestätigen Sie Ihre Anmeldung bei Brussels Governance Monitor',
     title: 'Bestätigen Sie Ihre E-Mail',
     greeting:
-      'Sie haben Benachrichtigungen von Brussels Governance Monitor angefordert. Klicken Sie auf die Schaltfläche unten, um Ihre Anmeldung zu bestätigen.',
+      'Sie haben die Zusammenfassung von Brussels Governance Monitor angefordert, die montags versendet wird, in den Wochen, in denen Ihre Themen aktualisiert wurden. Klicken Sie auf die Schaltfläche unten, um Ihre Anmeldung zu bestätigen.',
     button: 'Meine Anmeldung bestätigen',
     expiry: 'Dieser Link läuft in 48 Stunden ab.',
     ignore:

@@ -14,7 +14,9 @@
 // - bloc « Ce qu'on surveille » : du titre id="watch-title" au lien
 //   data-suivi="accueil-radar" (TrackedLink ; data-umami-event="accueil-radar"
 //   avant #632, encore accepté), avec au moins un <time dateTime> ;
-// - compteur de jours rendu par le serveur (nombre dans le HTML).
+// - compteur de jours rendu par le serveur (nombre dans le HTML) ;
+// - formulaire d'inscription : section id="subscribe" et champ
+//   id="subscribe-email". Plusieurs liens de la page mènent à cette ancre.
 //
 // Sortie : une ligne par contrôle ; code 1 si l'un échoue. Sans dépendance
 // (node seul), pour tourner sans `npm ci` dans un workflow.
@@ -53,7 +55,14 @@ export function controlerAccueil(html) {
   const compteur = html.match(/class="[^"]*\btext-4xl\b[^"]*\btabular-nums\b[^"]*"[^>]*>\s*(\d+)\s*</)?.[1] ?? null;
   if (!compteur) problemes.push('compteur de jours absent du HTML rendu par le serveur');
 
-  return { barre, signaux, compteur, problemes };
+  const inscription = / id="subscribe"/.test(html);
+  if (!inscription) {
+    problemes.push('formulaire d’inscription absent (section id="subscribe")');
+  } else if (!/ id="subscribe-email"/.test(html)) {
+    problemes.push('formulaire d’inscription sans champ email (id="subscribe-email")');
+  }
+
+  return { barre, signaux, compteur, inscription, problemes };
 }
 
 const direct = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;

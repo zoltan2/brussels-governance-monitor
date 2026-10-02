@@ -21,6 +21,7 @@ function page({
   signaux = ['2026-09-28', '2026-09-27'],
   compteur = '226',
   lienRadar = '<a href="/fr/radar" data-suivi="accueil-radar">Tout voir</a>',
+  inscription = '<section id="subscribe" class="bg-neutral-50"><form><input type="email" id="subscribe-email"/></form></section>',
 } = {}) {
   return [
     '<html><body>',
@@ -31,6 +32,7 @@ function page({
     '<h2 id="watch-title" class="text-sm">Ce qu’on surveille</h2>',
     ...signaux.map((d) => `<div><time dateTime="${d}" class="shrink-0">x</time><p>signal</p></div>`),
     lienRadar,
+    inscription,
     '</body></html>',
   ].join('');
 }
@@ -68,7 +70,23 @@ describe('controle-contenu-accueil.mjs', () => {
   });
 
   it("refuse une page d'erreur", () => {
-    expect(controlerAccueil('<html><body>502 Bad Gateway</body></html>').problemes).toHaveLength(3);
+    expect(controlerAccueil('<html><body>502 Bad Gateway</body></html>').problemes).toHaveLength(4);
+  });
+
+  // Lot 2 de l'abonnement (02/10/2026) : la carte du digest, le héros et le lien
+  // d'évitement mènent à `#subscribe`. Sans l'ancre ou sans le champ, ces liens
+  // ne mènent nulle part et plus personne ne peut s'inscrire depuis l'accueil.
+  it('refuse une page sans la section d’inscription, ou sans son champ email', () => {
+    expect(controlerAccueil(page({ inscription: '' })).problemes).toEqual([
+      'formulaire d’inscription absent (section id="subscribe")',
+    ]);
+    expect(controlerAccueil(page({ inscription: '<section id="subscribe"></section>' })).problemes).toEqual([
+      'formulaire d’inscription sans champ email (id="subscribe-email")',
+    ]);
+    // Un lien vers l'ancre ne vaut pas l'ancre.
+    expect(controlerAccueil(page({ inscription: '<a href="#subscribe">Recevoir</a>' })).problemes).toEqual([
+      'formulaire d’inscription absent (section id="subscribe")',
+    ]);
   });
 
   it('refuse un compteur absent du HTML serveur', () => {

@@ -3,10 +3,11 @@
 
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { controlerAccueil } from '../ops/controle-contenu-accueil.mjs';
+import { controlerFiche } from '../ops/controle-contenu-fiche.mjs';
 
 /**
  * Sondes post-déploiement (smoke-test.yml, regression-test.yml).
@@ -75,6 +76,61 @@ describe('controle-contenu-accueil.mjs', () => {
     expect(controlerAccueil(page({ compteur: '' })).problemes).toEqual([
       'compteur de jours absent du HTML rendu par le serveur',
     ]);
+  });
+});
+
+describe('controle-contenu-fiche.mjs', () => {
+  const bloc = (e: string, champ = true) =>
+    `<div data-suivi="inscription-fiche-${e}" class="rounded-lg"><form>${
+      champ ? `<input type="email" id="card-subscribe-fiche-${e}" name="email"/>` : ''
+    }</form></div>`;
+  const fiche = (haut = bloc('haut'), bas = bloc('bas')) =>
+    `<html><body><h1>LEZ</h1>${haut}<div>corps de la fiche</div>${bas}</body></html>`;
+
+  it('accepte une fiche avec ses deux formulaires', () => {
+    expect(controlerFiche(fiche()).problemes).toEqual([]);
+  });
+
+  it('refuse une fiche sans le formulaire du haut (état d’avant le lot 2)', () => {
+    expect(controlerFiche(fiche('')).problemes).toEqual([
+      'formulaire d’inscription du haut absent (data-suivi="inscription-fiche-haut")',
+    ]);
+  });
+
+  it('refuse une fiche sans le formulaire du bas', () => {
+    expect(controlerFiche(fiche(bloc('haut'), '')).problemes).toEqual([
+      'formulaire d’inscription du bas absent (data-suivi="inscription-fiche-bas")',
+    ]);
+  });
+
+  it('refuse un formulaire sans champ email', () => {
+    expect(controlerFiche(fiche(bloc('haut', false))).problemes).toEqual([
+      'formulaire d’inscription du haut sans champ email (id="card-subscribe-fiche-haut")',
+    ]);
+  });
+
+  it('refuse le formulaire du haut placé après celui du bas', () => {
+    expect(controlerFiche(fiche(bloc('bas'), bloc('haut'))).problemes).toEqual([
+      'formulaire du haut placé après celui du bas',
+    ]);
+  });
+
+  it("refuse une page d'erreur", () => {
+    expect(controlerFiche('<html><body>502 Bad Gateway</body></html>').problemes).toHaveLength(2);
+  });
+
+  it('les repères du contrôle sont ceux que le composant écrit', () => {
+    const composant = readFileSync('src/components/card-subscribe.tsx', 'utf8');
+    expect(composant).toContain('const repere = `inscription-${origine}`;');
+    expect(composant).toContain('data-suivi={repere}');
+    expect(composant).toContain('id={`card-subscribe-${origine}`}');
+    expect(composant).toContain("origine: 'fiche-haut' | 'fiche-bas'");
+  });
+
+  it('le workflow lance ce contrôle sur une fiche témoin', () => {
+    const workflow = readFileSync('.github/workflows/smoke-test.yml', 'utf8');
+    expect(workflow).toContain('node scripts/ops/controle-contenu-fiche.mjs');
+    expect(workflow).toMatch(/\$BASE\/fr\/dossiers\/lez\?cb=/);
   });
 });
 

@@ -18,6 +18,10 @@ const slugs = (dossier: string) =>
   fs
     .readdirSync(path.join(CONTENU, dossier))
     .filter((f) => f.endsWith('.fr.mdx'))
+    // Un autre test pose un fichier témoin temporaire (`__citest-…`) dans
+    // `content/` pendant la suite : vu en CI le 02/10/2026, où ce test l'a pris
+    // pour une fiche publiée. Aucune fiche réelle ne commence par `__`.
+    .filter((f) => !f.startsWith('__'))
     .map((f) => f.replace(/\.fr\.mdx$/, ''));
 
 describe('cleDeTheme', () => {

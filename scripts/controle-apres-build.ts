@@ -15,6 +15,11 @@
  * Ne dépend d'aucune variable d'environnement : il ne lit que des fichiers.
  * Sort en code 1 si une page attendue manque, si une locale exigée n'a aucune
  * page, ou si un artefact de build est absent ou illisible.
+ *
+ * Contrôle aussi les données que le serveur chargera (voir
+ * `src/lib/controle-donnees-build.ts`) : en sortie autonome, `.velite/` doit
+ * avoir été recopié en entier ; et aucun module serveur ne doit dépasser le
+ * plafond au-delà duquel il embarque à coup sûr un jeu de données.
  */
 
 import fs from 'node:fs';
@@ -31,6 +36,13 @@ import {
   type CollectionsVelite,
   type ManifestePrerendu,
 } from '../src/lib/controle-build';
+import {
+  PLAFOND_MODULE_SERVEUR,
+  donneesAutonomesManquantes,
+  modulesServeurTropLourds,
+  type FichierMesure,
+  type ModuleMesure,
+} from '../src/lib/controle-donnees-build';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -103,6 +115,70 @@ function verifierLocalizedSlugs(dossierCards: CollectionsVelite['dossierCards'])
   }
 }
 
+const mesurer = (dossier: string, garder: (nom: string) => boolean): FichierMesure[] =>
+  fs.existsSync(dossier)
+    ? fs
+        .readdirSync(dossier)
+        .filter(garder)
+        .map((nom) => ({ nom, octets: fs.statSync(path.join(dossier, nom)).size }))
+    : [];
+
+/**
+ * Les données de Velite se lisent sur disque à l'exécution : en sortie autonome
+ * (l'image Docker), `.velite/` doit avoir été recopié en entier. Voir
+ * `src/lib/controle-donnees-build.ts`. Hors sortie autonome (CI, build local),
+ * le serveur lit `.velite/` à la racine : rien à vérifier, et on le dit.
+ */
+function verifierDonneesAutonomes(): void {
+  const config = (lireJson(path.join(NEXT_DIR, 'required-server-files.json')) as { config?: { output?: string } }).config;
+  if (config?.output !== 'standalone') {
+    console.log('controle-apres-build : build sans sortie autonome, copie de .velite/ non contrôlée.');
+    return;
+  }
+  const estJson = (nom: string) => nom.endsWith('.json');
+  const manques = donneesAutonomesManquantes(
+    mesurer(VELITE_DIR, estJson),
+    mesurer(path.join(NEXT_DIR, 'standalone', '.velite'), estJson),
+  );
+  if (manques.length > 0) {
+    echouer(
+      `la sortie autonome n'a pas toutes les données de Velite :\n  ${manques.join('\n  ')}\n` +
+        'Le serveur les lit sur disque (src/lib/collections-velite.ts) : chaque page régénérée lèverait une erreur. ' +
+        'Vérifier `outputFileTracingIncludes` dans next.config.ts.',
+    );
+  }
+  console.log('controle-apres-build : la sortie autonome contient toutes les données de Velite.');
+}
+
+/** Aucun module serveur ne doit embarquer un jeu de données. Voir `controle-donnees-build.ts`. */
+function verifierPoidsDesModules(): void {
+  const racine = path.join(NEXT_DIR, 'server');
+  const modules: ModuleMesure[] = [];
+  const parcourir = (dossier: string): void => {
+    for (const e of fs.readdirSync(dossier, { withFileTypes: true })) {
+      const chemin = path.join(dossier, e.name);
+      if (e.isDirectory()) parcourir(chemin);
+      else if (e.name.endsWith('.js')) modules.push({ chemin: path.relative(racine, chemin), octets: fs.statSync(chemin).size });
+    }
+  };
+  if (!fs.existsSync(racine)) echouer('dossier absent : .next/server (le build a-t-il tourné ?)');
+  parcourir(racine);
+  // Un vide n'est pas un vert : un build sans aucun module serveur n'a rien prouvé.
+  if (modules.length === 0) echouer('aucun module .js sous .next/server : le contrôle de poids ne voit rien');
+  const lourds = modulesServeurTropLourds(modules);
+  if (lourds.length > 0) {
+    echouer(
+      `module(s) serveur de plus de ${PLAFOND_MODULE_SERVEUR / (1024 * 1024)} Mo :\n  ${lourds.join('\n  ')}\n` +
+        'Un jeu de données est sans doute importé comme module : il occupe le tas de Node en double ' +
+        '(texte source et copie décodée). Le lire sur disque, comme src/lib/collections-velite.ts.',
+    );
+  }
+  const max = Math.max(...modules.map((m) => m.octets));
+  console.log(
+    `controle-apres-build : ${modules.length} modules serveur, le plus lourd pèse ${(max / (1024 * 1024)).toFixed(1)} Mo.`,
+  );
+}
+
 function lireManifeste(): ManifestePrerendu {
   const m = lireJson(MANIFESTE) as Partial<ManifestePrerendu> & { version?: number };
   if (!m || typeof m.routes !== 'object' || m.routes === null) {
@@ -138,6 +214,8 @@ function main(): void {
     );
   }
   console.log('controle-apres-build : toutes les pages de contenu attendues ont été pré-rendues.');
+  verifierDonneesAutonomes();
+  verifierPoidsDesModules();
 }
 
 main();

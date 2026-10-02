@@ -15,6 +15,16 @@ const selfHostConfig: NextConfig =
 
 const nextConfig: NextConfig = {
   ...selfHostConfig,
+  // Les données de Velite sont LUES SUR DISQUE à l'exécution (src/lib/collections-velite.ts),
+  // plus importées : un import les recopiait dans deux modules serveur de 20 Mo et
+  // remplissait le tas de Node (41 arrêts mémoire le 01/10/2026). La sortie autonome
+  // ne contient que les fichiers tracés. Turbopack trace déjà cette lecture de
+  // lui-même (build sans cette ligne essayé le 02/10/2026 : `.velite/` était recopié
+  // en entier) ; la ligne rend la copie indépendante de cette détection, qui tient
+  // à la forme du `path.join` dans le module. Sans la copie, chaque page régénérée
+  // lèverait une erreur : `scripts/controle-apres-build.ts` vérifie qu'elle est là
+  // et complète, et fait échouer le build de l'image sinon.
+  outputFileTracingIncludes: { '/*': ['./.velite/*.json'] },
   poweredByHeader: false,
   async redirects() {
     // Redirections permanentes de toute page publiée dont l'URL change (spec

@@ -24,6 +24,8 @@ export interface DigestUpdate {
   category?: string;
   summary: string;
   url: string;
+  /** Date de dernière modification de la fiche. Non affichée : sert à la mesure des thèmes en silence. */
+  lastModified?: string;
 }
 
 export interface DigestEmailProps {

@@ -31,7 +31,7 @@ const translations: Record<string, {
     preview: 'Confirmez votre inscription à Brussels Governance Monitor',
     title: 'Confirmez votre email',
     greeting:
-      "Vous avez demandé à recevoir le digest de Brussels Governance Monitor, envoyé le lundi, les semaines où vos sujets ont été mis à jour. Cliquez sur le bouton ci-dessous pour confirmer votre inscription.",
+      "Vous avez demandé à recevoir le digest de Brussels Governance Monitor, envoyé le lundi, les semaines où vos thèmes ont été mis à jour. Cliquez sur le bouton ci-dessous pour confirmer votre inscription.",
     button: 'Confirmer mon inscription',
     expiry: 'Ce lien expire dans 48 heures.',
     ignore:

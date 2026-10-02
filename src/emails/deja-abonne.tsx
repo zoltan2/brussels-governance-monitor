@@ -39,12 +39,12 @@ const translations: Record<string, {
   footer: string;
 }> = {
   fr: {
-    preview: 'Vous recevez déjà le digest : ajouter ces sujets à votre abonnement ?',
+    preview: 'Vous recevez déjà le digest : ajouter ces thèmes à votre abonnement ?',
     title: 'Vous êtes déjà abonné',
     text:
-      "Une demande d'inscription vient d'être faite avec cette adresse, qui reçoit déjà le digest de Brussels Governance Monitor. Pour ajouter les sujets ci-dessous à votre abonnement, cliquez sur le bouton. Sans clic, rien ne change.",
-    topicsTitle: 'Sujets demandés :',
-    button: 'Ajouter ces sujets',
+      "Une demande d'inscription vient d'être faite avec cette adresse, qui reçoit déjà le digest de Brussels Governance Monitor. Pour ajouter les thèmes ci-dessous à votre abonnement, cliquez sur le bouton. Sans clic, rien ne change.",
+    topicsTitle: 'Thèmes demandés :',
+    button: 'Ajouter ces thèmes',
     expiry: 'Ce lien expire dans 48 heures.',
     ignore:
       'Si cette demande ne vient pas de vous, ignorez cet email : votre abonnement reste inchangé.',

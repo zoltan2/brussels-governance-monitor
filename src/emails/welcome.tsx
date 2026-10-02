@@ -39,7 +39,7 @@ const translations: Record<string, WelcomeTranslation> = {
     title: 'Bienvenue',
     greeting: 'Votre inscription est confirmée.',
     explanation:
-      'Vous recevez le digest le lundi, les semaines où vos sujets ont été mis à jour. Pas de changement = pas d\'email.',
+      'Vous recevez le digest le lundi, les semaines où vos thèmes ont été mis à jour. Pas de changement = pas d\'email.',
     topicsTitle: 'Vos thèmes suivis :',
     frequency: 'Fréquence : maximum 1 email par semaine.',
     unsubscribe: 'Gérer mes préférences ou me désabonner',

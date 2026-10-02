@@ -240,6 +240,9 @@ function CommuneDetail({
           }}
         />
 
+        {/* Inscription en haut de fiche : celle du bas est à plus de 90 % de la page. */}
+        <CardSubscribe topic={cleDeTheme('commune', card.slug)} type="commune" origine="fiche-haut" />
+
         {/* Transparency grid */}
         <div className="mb-8">
           <TransparencyGrid

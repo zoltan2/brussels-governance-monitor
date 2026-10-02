@@ -12,6 +12,8 @@ import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ReactNode } from 'react';
+import fs from 'node:fs';
+import path from 'node:path';
 import fr from '../../messages/fr.json';
 import nl from '../../messages/nl.json';
 import en from '../../messages/en.json';
@@ -41,6 +43,16 @@ function rendre(locale: Langue, type: Type, origine: 'fiche-haut' | 'fiche-bas' 
   return render(
     <NextIntlClientProvider locale={locale} messages={MESSAGES[locale]} timeZone="Europe/Brussels">
       <CardSubscribe topic="dossier-lez" type={type} origine={origine} />
+    </NextIntlClientProvider>,
+  );
+}
+
+/** La fiche telle qu'elle est servie depuis le lot 2 : un formulaire en haut, un en bas. */
+function rendreLesDeux(locale: Langue = 'fr') {
+  return render(
+    <NextIntlClientProvider locale={locale} messages={MESSAGES[locale]} timeZone="Europe/Brussels">
+      <CardSubscribe topic="dossier-lez" type="dossier" origine="fiche-haut" />
+      <CardSubscribe topic="dossier-lez" type="dossier" origine="fiche-bas" />
     </NextIntlClientProvider>,
   );
 }
@@ -102,7 +114,7 @@ const CAS = (Object.keys(TITRES) as Langue[]).flatMap((l) =>
 describe('CardSubscribe : libellé', () => {
   it.each(CAS)('%s / %s : le titre nomme le type de fiche', (locale, type) => {
     const { container } = rendre(locale, type);
-    expect(container.querySelector('p')!.textContent).toBe(TITRES[locale][type]);
+    expect(container.querySelector('[data-titre]')!.textContent).toBe(TITRES[locale][type]);
   });
 
   it.each(['fr', 'nl', 'en', 'de'] as const)('%s : aucun libellé mort', (l) => {
@@ -132,7 +144,7 @@ describe('CardSubscribe : information RGPD au point de collecte', () => {
 describe('CardSubscribe : accessibilité', () => {
   it('le champ email a un nom accessible et un identifiant propre à son emplacement', () => {
     const haut = rendre('fr', 'dossier', 'fiche-haut');
-    const champHaut = haut.getByLabelText('Adresse email') as HTMLInputElement;
+    const champHaut = haut.getByLabelText('Suivre ce dossier par email') as HTMLInputElement;
     expect(champHaut.type).toBe('email');
     const idHaut = champHaut.id;
     cleanup();
@@ -168,7 +180,7 @@ describe('CardSubscribe : envoi', () => {
     expect(statut.textContent).toContain('Si vous êtes déjà abonné');
     expect(corpsEnvoye().origine).toBe('fiche-haut');
     expect(trackMock.mock.calls).toEqual([
-      ['inscription-reussie', { page: '/dossiers/lez', formulaire: 'fiche' }],
+      ['inscription-reussie', { page: '/dossiers/lez', formulaire: 'fiche', emplacement: 'haut' }],
     ]);
     expect(JSON.stringify(trackMock.mock.calls)).not.toContain('example.org');
   });
@@ -179,5 +191,76 @@ describe('CardSubscribe : envoi', () => {
     soumettre(container);
     await findByRole('alert');
     expect(trackMock).not.toHaveBeenCalled();
+  });
+});
+
+/**
+ * Lot 2 (02/10/2026) : le formulaire était à 90-98 % de la page, après la
+ * dernière source. Il apparaît aussi en haut, sous le chapeau, en version
+ * compacte : le titre devient l'étiquette visible du champ, sur une ligne.
+ */
+describe('CardSubscribe : formulaire du haut', () => {
+  it.each(CAS)('%s / %s : le titre est l’étiquette du champ email', (locale, type) => {
+    const r = rendre(locale, type, 'fiche-haut');
+    const champ = r.getByLabelText(TITRES[locale][type]) as HTMLInputElement;
+    expect(champ.type).toBe('email');
+    expect(champ.required).toBe(true);
+  });
+
+  it('le formulaire du bas garde son titre et son étiquette de champ', () => {
+    const r = rendre('fr', 'dossier', 'fiche-bas');
+    expect((r.getByLabelText('Adresse email') as HTMLInputElement).type).toBe('email');
+    expect(r.container.querySelector('[data-titre]')!.tagName).toBe('P');
+  });
+
+  it('les deux formulaires d’une même fiche n’ont aucun identifiant en double', () => {
+    const { container } = rendreLesDeux();
+    const ids = [...container.querySelectorAll('[id]')].map((e) => e.id);
+    expect(ids.length).toBeGreaterThanOrEqual(4);
+    expect(new Set(ids).size).toBe(ids.length);
+    for (const label of container.querySelectorAll('label')) {
+      expect(container.querySelectorAll(`#${label.htmlFor}`)).toHaveLength(1);
+    }
+  });
+
+  it('chaque formulaire porte un repère d’emplacement lisible par les sondes', () => {
+    const { container } = rendreLesDeux();
+    expect(container.querySelectorAll('[data-suivi="inscription-fiche-haut"]')).toHaveLength(1);
+    expect(container.querySelectorAll('[data-suivi="inscription-fiche-bas"]')).toHaveLength(1);
+  });
+
+  it('le formulaire du haut n’est pas imprimé, et affiche promesse et information RGPD', () => {
+    const { container } = rendre('fr', 'dossier', 'fiche-haut');
+    const bloc = container.querySelector('[data-suivi="inscription-fiche-haut"]')!;
+    expect(bloc.className).toContain('print:hidden');
+    expect(bloc.textContent).toContain('le lundi');
+    expect(bloc.querySelectorAll('a[href="/privacy"]')).toHaveLength(1);
+  });
+
+  it('réussite en bas : la mesure dit l’emplacement', async () => {
+    reponse(200);
+    const { container, findByRole } = rendre('fr', 'dossier', 'fiche-bas');
+    soumettre(container);
+    await findByRole('status');
+    expect(trackMock.mock.calls).toEqual([
+      ['inscription-reussie', { page: '/dossiers/lez', formulaire: 'fiche', emplacement: 'bas' }],
+    ]);
+  });
+});
+
+/** Les quatre types de fiche posent le formulaire deux fois : en haut, puis en bas. */
+describe('CardSubscribe : pages de fiche', () => {
+  it.each(['dossiers', 'domains', 'sectors', 'communes'])('%s : formulaire du haut avant le corps, puis celui du bas', (dossier) => {
+    const source = fs.readFileSync(
+      path.resolve(__dirname, `../app/[locale]/${dossier}/[slug]/page.tsx`),
+      'utf8',
+    );
+    const origines = [...source.matchAll(/<CardSubscribe[\s\S]*?origine="(fiche-(?:haut|bas))"/g)].map((m) => m[1]);
+    expect(origines).toEqual(['fiche-haut', 'fiche-bas']);
+    const haut = source.indexOf('origine="fiche-haut"');
+    const corps = source.search(/<(Dossier)?MdxContent/);
+    expect(corps).toBeGreaterThan(-1);
+    expect(haut).toBeLessThan(corps);
+    expect(haut).toBeGreaterThan(source.indexOf('<WhatChangedBanner'));
   });
 });

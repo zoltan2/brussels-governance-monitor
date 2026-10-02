@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-09-23T10:11:30.340Z",
+  "generatedAt": "2026-10-02T08:18:22.628Z",
   "locale": "en",
-  "poolSize": 69,
+  "poolSize": 70,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "According to BX1 (15 September 2026), what debt ratio, as a percentage of regional revenue, is the Brussels Region expected to reach by 2031?",
+      "question": "According to BRUZZ (1 October 2026), what amount does the Brussels government have to find, at the budget conclave opening on 3 October 2026, to bring the regional deficit down to 719 million euros in 2027?",
       "options": [
-        "328% of regional revenue",
-        "327% of regional revenue",
-        "158% of regional revenue",
-        "118% of regional revenue"
+        "About 93 million euros",
+        "About 238 million euros",
+        "About 131 million euros",
+        "About 477 million euros"
       ],
-      "correct": 0,
-      "explanation": "The Federal Planning Bureau puts Wallonia at 327%, the French Community Federation at 158%, and Flanders, the only entity whose risk is rated moderate, at 118% of its revenue in 2031.",
+      "correct": 1,
+      "explanation": "BRUZZ reports an effort of about 238 million euros for the 2027 budget. No official document is cited, and several items remain uncertain, including Beliris and the Brussels Deal.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:8353c153d33d6aa6df89e46769fcdbb5",
-        "generatedAt": "2026-09-23T10:11:30.340Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:7847cb9ad2d70e9ad19036ddbbd030e2",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "From 17 August 2026, the City of Brussels sent out the 2026 property tax assessment notices. What was the municipal surcharge raised to?",
+      "question": "Which rating, with which outlook, does the agency S&P Global Ratings assign to the Brussels-Capital Region, according to the announcement made on 28 September 2026 by the Brussels Minister of Finance and Budget?",
       "options": [
-        "3,457",
-        "2,980",
-        "4,090",
-        "3,090"
+        "An AA- rating, with a negative outlook",
+        "An A rating, with a stable outlook",
+        "An A rating, with a negative outlook",
+        "An A+ rating, with a stable outlook"
       ],
-      "correct": 0,
-      "explanation": "The 17.2% increase is presented by the City as fully offset for owner-occupiers, through a flat municipal deduction and the regional Be-Home premium. Saint-Josse-ten-Noode recorded the largest 2026 increase, from 2,980 to 4,090.",
+      "correct": 2,
+      "explanation": "The A rating and the negative outlook are maintained, as at the confirmation of 27 March 2026. According to the minister, the high debt ratio explains why this outlook is kept.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:8353c153d33d6aa6df89e46769fcdbb5",
-        "generatedAt": "2026-09-23T10:11:30.340Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:7847cb9ad2d70e9ad19036ddbbd030e2",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Cleanliness",
-      "question": "What annual investment budget does the roll-out of sorting spaces represent over the parliamentary term, under the waste collection reform presented on 11 September 2026?",
+      "question": "What does the first phase of the Stations Plan, approved by the Brussels government on 1 October 2026 for Brussels-North and Brussels-South stations, provide for in terms of cleanliness?",
       "options": [
-        "Four million euros a year",
-        "Ten million euros a year",
-        "One million euros a year",
-        "Twenty-five million euros a year"
+        "The installation of sorting spaces in both stations, on their forecourts and in their surroundings",
+        "The creation of a permanent Bruxelles-Propreté brigade in each of the two stations",
+        "A one-off cleaning and disinfection operation carried out by a specialised company",
+        "The transfer of the cleaning of both stations to the municipalities where they are located"
       ],
-      "correct": 0,
-      "explanation": "The Region plans one hundred and twenty sorting spaces, thirty in each of the two pilot neighbourhoods, where they replace door-to-door collection during the test phase. Those neighbourhoods have not been designated yet: Forest and Ixelles intend to put themselves forward, and each of the two selected counts about two thousand dwellings. The amount is estimated and comes from a single press source.",
+      "correct": 2,
+      "explanation": "According to the minister-president's office, quoted by BRUZZ and La DH, this phase, with 3 million euros for 2026, includes a one-off cleaning and disinfection operation at both stations and their surroundings. Bruxelles-Propreté will then buy equipment to maintain the result.",
       "sourceSlug": "/en/domains/cleanliness",
       "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:52eb0be7528445db9b9ca26af6156518",
-        "generatedAt": "2026-09-18T16:03:22.483Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:36eb35dab8415d9608100807c7decc19",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Cleanliness",
-      "question": "What is the Constitutional Court due to rule on at the end of September 2026, regarding the funding of the Brussels waste collection reform?",
+      "question": "What is the purpose of Wake-Up Clean-Up, the platform launched in October 2024 by Bruxelles-Propreté, whose results the agency published on 21 September 2026?",
       "options": [
-        "Extended producer responsibility for plastics",
-        "An additional tax levied by the nineteen municipalities",
-        "The regulated price of regional refuse bags",
-        "A federal grant earmarked for public cleanliness"
+        "To plan citizen litter-picking operations in public space and book the equipment",
+        "To report illegal dumping so that a fine can be collected immediately",
+        "To book a drop-off slot at the regional and municipal Recyparks",
+        "To order home collection of bulky waste by the agency's teams"
       ],
       "correct": 0,
-      "explanation": "That scheme funds the reform, which is itself expected in 2027. The March 2026 announcement mentioned one hundred new sorting spaces, against one hundred and twenty in the plan presented on 11 September. Two types of zone will be defined according to criteria such as population density or housing type, with different collection arrangements.",
+      "explanation": "Residents, schools, associations and companies use it to plan a litter-picking operation and book the necessary equipment. According to the agency, more than 41 tonnes of waste were collected this way between October 2024 and September 2026.",
       "sourceSlug": "/en/domains/cleanliness",
       "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:52eb0be7528445db9b9ca26af6156518",
-        "generatedAt": "2026-09-18T16:03:22.483Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:36eb35dab8415d9608100807c7decc19",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Economy",
-      "question": "What area does the Audi Brussels site in Forest cover, whose takeover by Heylen Warehouses was announced on 1 September 2026?",
+      "question": "The Brussels grant for participation in a physical trade fair abroad, reopened to applications on 5 October 2026, covers 50% of eligible expenses excluding VAT. What rate applies to companies under four years old?",
       "options": [
-        "About 55 hectares",
-        "About 18 hectares",
-        "About 120 hectares",
-        "About 35 hectares"
+        "60% of eligible expenses",
+        "65% of eligible expenses",
+        "75% of eligible expenses",
+        "90% of eligible expenses"
       ],
-      "correct": 0,
-      "explanation": "It is the largest industrial site in the Region. The project, provisionally named Rings Park 21, targets at least three thousand jobs, the workforce Audi Brussels had before it closed on 28 February 2025, with a first activity announced for the start of 2027.",
+      "correct": 2,
+      "explanation": "The rate rises from 50% to 75% for companies under four years old, with a ceiling of 15,000 euros a year and four trade fairs per calendar year. The card also details the second grant, for tenders outside the European Union.",
       "sourceSlug": "/en/domains/economy",
       "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:f1fc307c874e5dfeca93d90beffabb0e",
-        "generatedAt": "2026-09-18T13:59:54.253Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:8036701052ce29ad2a085e1be70f993a",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Economy",
-      "question": "How did business creations in Brussels change in 2025 compared with 2024, according to the Starters Atlas published on 8 September 2026?",
+      "question": "With which body do Brussels SMEs and self-employed people apply online, from 5 October 2026, for the two regional export grants relaunched by the Brussels government on 24 September 2026?",
       "options": [
-        "They fall by 1.47%, the only Region to decline",
-        "They rise by 14.76%, the sharpest increase",
-        "They rise by 0.77%, in line with the national rate",
-        "They fall by 0.08%, in line with Flanders"
+        "Brussels Economy and Employment, the regional administration",
+        "Actiris, the Brussels regional employment office",
+        "The Port of Brussels, manager of the port area",
+        "Brussels Local Authorities, the administration for municipalities"
       ],
       "correct": 0,
-      "explanation": "Brussels counts 15,467 creations in 2025, or 12.1% of the Belgian total, while Wallonia jumps by 14.76% and Flanders stays stable. The Starters Atlas is published by UCM, Unizo and GraydonCreditsafe, three private bodies, and is not an official statistic.",
+      "explanation": "Applications go through Brussels Economy and Employment, which has published the conditions of both grants. They must be submitted no later than the day before the trade fair, or before the bid is filed.",
       "sourceSlug": "/en/domains/economy",
       "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:f1fc307c874e5dfeca93d90beffabb0e",
-        "generatedAt": "2026-09-18T13:59:54.253Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:8036701052ce29ad2a085e1be70f993a",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Education",
-      "question": "On 19 August 2026, the education minister of the Wallonia-Brussels Federation said the plan to abolish tenure for teachers would not go through. What obstacle did she cite?",
+      "question": "On 25 September 2026, the CSC-Enseignement union expressed concern about the loss of PTP jobs (Programme de transition professionnelle) in Brussels primary schools. How many jobs did the union cite?",
       "options": [
-        "The extra employer contributions, which the federal level refused to reduce",
-        "The unanimous opposition of the organising bodies of the free school network",
-        "A ruling handed down by the Constitutional Court in the spring of 2026",
-        "The refusal of Brussels municipalities to apply the reform in their schools"
+        "243 jobs",
+        "143 jobs",
+        "324 jobs",
+        "86 jobs"
       ],
       "correct": 0,
-      "explanation": "The contribution rate would rise from 5.26% for tenured teachers to 23.62% on a contract, an extra cost estimated at 400 million euros by 2070. Permanent contracts remain planned for the 2027 school year.",
+      "explanation": "The figure of 243 jobs is the union's. On 28 September 2026, the office of the Brussels Employment Minister replied that there was no question of touching the resources allocated to schools through PTP jobs.",
       "sourceSlug": "/en/domains/education",
       "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:8c155b4071494579179fe1b5615537e0",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:878afbbbf822ea2b1d524e396821b223",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Education",
-      "question": "According to the IBSA focus published on 16 July 2026 for the 2024-2025 school year, what share of young people in Brussels left secondary education without a certificate or qualification?",
+      "question": "According to La Libre (14 September 2026), a decree of the Wallonia-Brussels Federation has barred staff in official education from visibly wearing convictional signs since the start of the 2026 school year. Which category is the exception?",
       "options": [
-        "18%",
-        "12%",
-        "26%",
-        "8%"
+        "Trainee teachers and school heads",
+        "Educators and paramedical staff",
+        "The heads of primary schools",
+        "Teachers of religion and ethics"
       ],
-      "correct": 0,
-      "explanation": "Against 12% nationally, 16% in Antwerp and 22% in Charleroi. The institute says it holds no reliable statistics on pupils who have dropped out of school entirely in the Brussels Region.",
+      "correct": 3,
+      "explanation": "The decree, adopted in April 2026, covers in particular teachers, trainees included, school heads, educators and paramedical staff. Only teachers of religion and ethics are exempt.",
       "sourceSlug": "/en/domains/education",
       "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:8c155b4071494579179fe1b5615537e0",
-        "generatedAt": "2026-08-25T09:27:53.811Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:878afbbbf822ea2b1d524e396821b223",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Employment",
-      "question": "In its judgment 96/2026 of 10 September 2026, the Constitutional Court upheld the time limit on unemployment benefits with a single exception. Which one?",
+      "question": "According to the monitoring published by Actiris on 25 September 2026, what share of the 15,500 Brussels jobseekers whose entitlement ended in the first quarter of 2026 became CPAS beneficiaries within the following three months?",
       "options": [
-        "The transitional scheme, raised to a minimum of twelve months",
-        "The exclusion of workers aged over fifty",
-        "The removal of the length-of-service supplement",
-        "The appeal deadline, cut to thirty days"
+        "8.9%",
+        "12.6%",
+        "28.1%",
+        "47.6%"
       ],
-      "correct": 0,
-      "explanation": "The Court accepts that the reform appreciably lowers the level of protection but finds it reasonably justified. A single provision is struck down: the transitional scheme that limited to six, eight or nine months the entitlement of unemployed people who were in their third compensation period on 30 June 2025. They must now receive at least twelve months.",
+      "correct": 3,
+      "explanation": "Actiris puts at 47.6% the share of those excluded in the first two waves who became CPAS beneficiaries within three months, against 12.6% who moved into a job and 8.9% who entered health and disability insurance. These figures are provisional.",
       "sourceSlug": "/en/domains/employment",
       "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:439053683576ea57d46ac71cebae2ca0",
-        "generatedAt": "2026-09-18T14:02:35.872Z",
+        "sourceLastModified": "2026-09-28",
+        "sourceContentHash": "sha256:98b1ae0171fcdf9d25c3f095c9d6793b",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Employment",
-      "question": "In August 2026, what share of the 99,458 registered jobseekers in Brussels depended on a CPAS?",
+      "question": "According to the third monitoring report published by ONEM on 17 September 2026, what share of the ends of entitlement to unemployment or integration allowances recorded in Belgium between January and June 2026 concerned Brussels residents?",
       "options": [
-        "35%, up 82.6% on a year earlier",
-        "12%, up 4.9% on a year earlier",
-        "21%, up 17.5% on a year earlier",
-        "48%, up 30.4% on a year earlier"
+        "10.4%",
+        "27.2%",
+        "16.8%",
+        "43.9%"
       ],
-      "correct": 0,
-      "explanation": "That is 34,830 people. Actiris attributes the shift to the federal reform: the time limit on benefits does not reduce the number of registrations, it moves the burden from the federal budget to that of the nineteen Brussels CPAS. The administrative unemployment rate reaches 16.0%, its highest level since December 2020.",
+      "correct": 1,
+      "explanation": "ONEM counts 26,986 Brussels residents among the 99,144 ends of entitlement recorded in Belgium over the period, or 27.2%. In their first known situation after leaving, 10.4% of them were in salaried employment.",
       "sourceSlug": "/en/domains/employment",
       "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:439053683576ea57d46ac71cebae2ca0",
-        "generatedAt": "2026-09-18T14:02:35.872Z",
+        "sourceLastModified": "2026-09-28",
+        "sourceContentHash": "sha256:98b1ae0171fcdf9d25c3f095c9d6793b",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Housing",
-      "question": "What did the Constitutional Court decide on the Brussels ordinance against excessive rents, according to the communication of 17 September 2026?",
+      "question": "What does the draft ordinance approved at first reading by the Brussels government on 18 June 2026 provide for the property tax reduction granted to Brussels families with at least two children?",
       "options": [
-        "It dismissed the annulment appeal brought against it",
-        "It annulled the ordinance in its entirety",
-        "It suspended its application pending a fresh examination",
-        "It referred the question to the Court of Justice of the Union"
+        "Its outright abolition from tax year 2027",
+        "Its doubling for owner-occupiers in 2027",
+        "Its extension to one-child families in 2027",
+        "Its replacement by a flat amount from tax year 2027"
       ],
-      "correct": 0,
-      "explanation": "The ordinance came into force in May 2025. The office of the State Secretary for Housing announces a revision of the indicative grid in two stages. No source consulted gives the judgment number, and the number of applicants differs between newsrooms: four federations from the property and construction sector according to La Libre, seven associations according to L'Avenir and La DH.",
+      "correct": 3,
+      "explanation": "The reduction of 10% per child would be replaced by a flat amount from tax year 2027, which had not yet been set according to the Ligue des familles study of 1 October 2026. The same draft doubles the Be Home premium.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units",
       "provenance": {
-        "sourceLastModified": "2026-09-21",
-        "sourceContentHash": "sha256:a6941da0ba42b38d7f702618ef7d076a",
-        "generatedAt": "2026-09-23T10:11:30.340Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:81d8af0fc17402409b03c790192a1e11",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Housing",
-      "question": "Why did the Constitutional Court not rule, on 17 September 2026, on the reliability of the Brussels indicative rent grid?",
+      "question": "According to the Ligue des familles study published on 1 October 2026, above what amount of property tax would a Brussels family lose out from the switch to a flat amount of 125 euros per child, the assumption mentioned for 2027?",
       "options": [
-        "The grid rests on a government order, not on a legislative norm",
-        "The applicants had withdrawn that complaint before the 1 July 2026 hearing",
-        "The grid rests on a European directive, outside its review",
-        "The Council of State had already validated the grid in October 2021"
+        "Above 750 euros of property tax",
+        "Above 1,250 euros of property tax",
+        "Above 2,000 euros of property tax",
+        "Above 2,500 euros of property tax"
       ],
-      "correct": 0,
-      "explanation": "The contested ordinance's sole purpose was to set an entry-into-force date; the grid is governed by the order of 19 October 2017. Its representativeness was therefore not decided by this judgment.",
+      "correct": 1,
+      "explanation": "With the amounts mentioned, any family whose property tax exceeds 1,250 euros would lose out, according to the study. Tenant families would be hit hardest, as they do not receive the Be Home premium, which is reserved for owner-occupiers.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: EUR 400M for the SLRB, 1,000 public housing units",
       "provenance": {
-        "sourceLastModified": "2026-09-21",
-        "sourceContentHash": "sha256:a6941da0ba42b38d7f702618ef7d076a",
-        "generatedAt": "2026-09-23T10:11:30.340Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:81d8af0fc17402409b03c790192a1e11",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutional",
-      "question": "Why does a stretch of the Ring in Neder-Over-Heembeek, and therefore inside the Brussels-Capital Region, carry signs in Dutch only?",
+      "question": "What does draft resolution No A-302, placed on the agenda of the Brussels Parliament's plenary session of 2 October 2026, oppose?",
       "options": [
-        "It has been maintained by the Flemish Region since a 1991 agreement",
-        "It has come under the municipality of Wemmel since a 1991 agreement",
-        "It was classified as a language facilities area in 1991",
-        "It falls to the federal level, which is not bound by bilingualism"
+        "The federal bill abolishing the funding of Beliris",
+        "The federal bill merging the Brussels police zones",
+        "The federal bill authorising home entries",
+        "The federal bill changing night-time flight routes"
       ],
-      "correct": 0,
-      "explanation": "The 1991 inter-regional cooperation agreement gives each Region the management of short border segments located in its neighbour's territory. Brussels Mobility points out that the Flemish Region remains bound by the language laws: on Brussels soil, bilingualism applies without discussion. The stretch measures about 880 metres according to press reports.",
+      "correct": 2,
+      "explanation": "The resolution targets the federal bill authorising home entries in the context of the enforcement of removal measures. The General Affairs Committee had adopted it on 28 September 2026 with an alternative majority.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-09-14",
-        "sourceContentHash": "sha256:16ae40aef69b4f6b91f2e94a6b7e0f4f",
-        "generatedAt": "2026-09-18T14:02:35.872Z",
+        "sourceLastModified": "2026-10-01",
+        "sourceContentHash": "sha256:b80c024796cb29dcbcdde67757a2b116",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutional",
-      "question": "What sanction did the Brussels ethics committee issue on 4 July 2026 against twenty local public officeholders?",
+      "question": "On 28 September 2026, what did the Brussels public prosecutor's office state about the request that a Brussels MP reportedly made to the King's Prosecutor to have a detainee released?",
       "options": [
-        "Fines of 10 to 40% of one month's remuneration",
-        "A two-year ban on holding derived mandates",
-        "Repayment of the remuneration received in 2025",
-        "Suspension from office for three to six months"
+        "That a corruption investigation had been opened against the MP",
+        "That the facts do not constitute a criminal offence",
+        "That the lifting of the MP's immunity had been requested",
+        "That the MP had been summoned before the criminal court"
       ],
-      "correct": 0,
-      "explanation": "The ground is a lack of transparency about their remuneration. The transparency unit had counted 305 officeholders in default, or 24% of the files examined; after targeted reminders, twenty-seven remained in default. It is the first quantified and sanctioning assessment of this oversight mechanism.",
+      "correct": 1,
+      "explanation": "According to the public prosecutor's office, the request came with no promise, offer or advantage, and no criminal file was opened. The office refers to opinion No 2026-003 of the Brussels ethics committee on the separation of powers.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-09-14",
-        "sourceContentHash": "sha256:16ae40aef69b4f6b91f2e94a6b7e0f4f",
-        "generatedAt": "2026-09-18T14:02:35.872Z",
+        "sourceLastModified": "2026-10-01",
+        "sourceContentHash": "sha256:b80c024796cb29dcbcdde67757a2b116",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobility",
-      "question": "Which Brussels municipality announced, on 17 and 18 September 2026, that it would not take part in the second regional car-free day of 2 May 2027?",
+      "question": "According to BRUZZ, what did the Brussels Parliament's Mobility Committee of 29 September 2026 bring to light about the Mediatram, the tram project to the Mediapark site approved in 2022?",
       "options": [
-        "Woluwe-Saint-Lambert",
-        "Ixelles",
-        "Schaerbeek",
-        "Uccle"
+        "The project has a planning permit, but its works are postponed to 2029",
+        "The project is dropped in favour of a bus line to boulevard Reyers",
+        "The project has neither a cost estimate nor a planning permit application",
+        "The project is costed, but its route across the Mediapark site was refused"
       ],
-      "correct": 0,
-      "explanation": "The municipal council cites an estimated organisation cost of EUR 35,000 to 50,000 and the deployment of 70 to 80 police officers; the regional Mobility minister's cabinet disputes the argument on cycling subsidies.",
+      "correct": 2,
+      "explanation": "According to BRUZZ, the Mediatram has neither a cost estimate nor a permit application, and it is not among the tram projects that the Brussels government is keeping for budgetary reasons. The project is provisionally on hold.",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:4f36e427279b74fbd9c6c268cfb3ee11",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:e9d69f1a3cfd7b47b012ec20a27d3556",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobility",
-      "question": "According to BRUZZ, which postponement was the delay, on Thursday 10 September 2026, of the Good Move evaluation in the Brussels government?",
+      "question": "In the Court of Audit report adopted on 8 October 2025, to which starting estimate does the 255% increase in the cost of the full Metro 3 line in Brussels refer?",
       "options": [
-        "The fourth",
-        "The second",
-        "The third",
-        "The fifth"
+        "The March 2015 estimate, of 1,338 million euros",
+        "The August 2012 estimate, of 824.2 million euros",
+        "The June 2019 estimate, of 2,300 million euros",
+        "The May 2009 estimate, of 650.5 million euros"
       ],
       "correct": 0,
-      "explanation": "The item has been on the Brussels government's agenda since early July 2026; the Mobility Minister proposes following the legal procedure set out in the ordinance of 13 October 2023 on mobility planning, with Good Move remaining in force until the next plan is adopted.",
+      "explanation": "The cost of the full line goes from 1,338 million euros in March 2015 to 4,759.7 million in December 2024, or +255%. The Court also cites +477%, but compared with the first estimate of August 2012 (824.2 million euros).",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:4f36e427279b74fbd9c6c268cfb3ee11",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:e9d69f1a3cfd7b47b012ec20a27d3556",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "The federal Council of Ministers approved, on 18 September 2026, a six-month extension of the 'Urban Shield' deployment. According to RTBF and BX1, how many soldiers does the contingent in Brussels train stations and metro stations rise to with this extension?",
+      "question": "What budget for 2026 comes with the first phase of the Stations Plan, approved by the Brussels government on 1 October 2026 for Brussels-North and Brussels-South stations, according to the minister-president's office quoted by BRUZZ and La DH?",
       "options": [
-        "About fifty",
-        "About thirty",
-        "Forty-five",
-        "About sixty"
+        "300,000 euros for the year 2026",
+        "3 million euros for the year 2026",
+        "5 million euros for the year 2026",
+        "10 million euros for the year 2026"
       ],
-      "correct": 0,
-      "explanation": "The contingent numbered about thirty soldiers at its launch in April 2026. The figure of 45 soldiers, mentioned elsewhere in the card for the 3 April 2026 extension, comes from a different source on a different date and is not reconciled with this one.",
+      "correct": 1,
+      "explanation": "The first phase has 3 million euros for 2026: cleaning and disinfection, replacement of obsolete cameras, new lighting and more social outreach rounds. According to BRUZZ, the plan then provides 5 million euros in 2027.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:6145dc5f882ae8c2a9602288166e7858",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:c8a3a67ccc368279642247b1d3143d43",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "What number 'hotspot' drug zone, established by police order in the Brussels Region, is the one created at the request of the municipality of Ixelles around rue Gray, rue Marie-Henriette, rue du Levain and rue de la Brasserie, near Flagey (18-19 September 2026)?",
+      "question": "Where is the new headquarters station of SIAMU, the Brussels fire service, to be built, the public contract for which the Brussels government approved awarding on 24 September 2026?",
       "options": [
-        "The nineteenth",
-        "The twelfth",
-        "The fifteenth",
-        "The twentieth"
+        "On the avenue de l'Héliport site, in place of the station dating from the 1980s",
+        "On the former Audi Brussels industrial site, along the railway in Forest",
+        "On a site close to Brussels-South station, between Anderlecht and Saint-Gilles",
+        "On a Port of Brussels site, near Tour & Taxis in Laeken"
       ],
-      "correct": 0,
-      "explanation": "The order, signed by the minister-president, bans alcohol consumption on public roads and its takeaway sale between 10pm and 6am, and allows for stepped-up checks and the use of mobile cameras.",
+      "correct": 3,
+      "explanation": "The station will be built on a Port of Brussels site of about 1.7 hectares, along the future drève Maritime, and will replace the one on avenue de l'Héliport. The start of works is targeted for the end of 2029.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, €10M for stations, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:6145dc5f882ae8c2a9602288166e7858",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:c8a3a67ccc368279642247b1d3143d43",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "What does Vivalis report on 17 September 2026 about West Nile virus in Brussels?",
+      "question": "After the closure of its WTC emergency shelter on 30 September 2026, how many places does Samusocial say it keeps in Brussels for single men?",
       "options": [
-        "Two suspected cases, one a tourist who returned to Italy",
-        "Two cases confirmed by laboratory analysis",
-        "Eight highly probable cases, as in Flanders",
-        "A first cluster identified in a northern municipality"
+        "370 places",
+        "300 places",
+        "130 places",
+        "240 places"
       ],
-      "correct": 0,
-      "explanation": "The other person lives in Brussels, is well and no longer has symptoms. In Flanders, the health department counts eight highly probable cases. The two Brussels cases are described as suspected and not confirmed: the source is Vivalis, a regional body, but the information is relayed by a single press dispatch.",
+      "correct": 3,
+      "explanation": "There remain 200 places at the Poincaré centre in Anderlecht and 40 in the centre for unaccompanied minors in transit in Molenbeek. Samusocial describes this capacity as historically low.",
       "sourceSlug": "/en/domains/social",
-      "sourceTitle": "Social affairs: reception scheme halved, Samusocial saturated, CPAS under strain",
+      "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:5f4ee986547ac9f74f395917b1816a1f",
-        "generatedAt": "2026-09-18T16:04:43.585Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:6387d64180d9835dc17253cf6b185957",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "How are the thirty-nine additional residential places announced in Brussels for people with addictions distributed?",
+      "question": "According to La DH (1 October 2026), which body coordinates the reinforcement of social outreach rounds and day reception provided for in the first phase of the Stations Plan, approved that day by the Brussels government?",
       "options": [
-        "Twenty-four in 2027 and fifteen in 2028",
-        "Fifteen in 2027 and twenty-four in 2028",
-        "Nineteen in 2027 and twenty in 2028",
-        "All thirty-nine at once in 2027"
+        "Bruss'help",
+        "Samusocial",
+        "BelRefugees",
+        "Vivalis"
       ],
       "correct": 0,
-      "explanation": "Current capacity is sixty-three residential places in the centres supported by Iriscare, unchanged in 2023, 2024 and 2025. In 2025, a short stay involved an average wait of ten months, and crisis admission at the Enaden centre about two months. The parliamentary answer itself was not available online as at 13 September 2026.",
+      "explanation": "Bruss'help coordinates this social strand, carried out around Brussels-North and Brussels-South stations with the municipalities of Anderlecht, Saint-Gilles and Schaerbeek. This information appears only in La DH.",
       "sourceSlug": "/en/domains/social",
-      "sourceTitle": "Social affairs: reception scheme halved, Samusocial saturated, CPAS under strain",
+      "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:5f4ee986547ac9f74f395917b1816a1f",
-        "generatedAt": "2026-09-18T16:04:43.585Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:6387d64180d9835dc17253cf6b185957",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "What does a group of opponents ask of the Schaerbeek municipal council on 16 September 2026 about the Josaphat wasteland?",
+      "question": "How many responses in total did the municipality of Schaerbeek receive during the public inquiry on the subdivision permit for the Josaphat wasteland, closed on 26 September 2026, according to its acting mayor quoted by BRUZZ on 28 September 2026?",
       "options": [
-        "To issue an unfavourable opinion on the subdivision permit",
-        "To buy the land back from the regional public operator",
-        "To have the whole site classified as a nature reserve",
-        "To suspend the public inquiry until August 2027"
+        "About 2,800 responses",
+        "About 5,000 responses",
+        "About 8,500 responses",
+        "About 15,000 responses"
       ],
-      "correct": 0,
-      "explanation": "The group asks the council to break with its 2025 position, when the executive abstained. The public inquiry covers 537 homes, against 540 in the version filed in 2025. The application comes from the SAU, the regional public urban development corporation, while the Regional Policy Declaration of 14 February 2026 freezes development of the site for the first eighteen months of the parliamentary term.",
+      "correct": 3,
+      "explanation": "The acting mayor puts the figure at about 15,000 responses, paper ones included, against 2,800 during the 2025 inquiry on the previous version of the project. About 5,000 people asked to attend the consultation committee, scheduled for 12 October 2026.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:788a4e0894f9e733ca3a3a84406539f7",
-        "generatedAt": "2026-09-18T16:04:43.585Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:eab897dee7587bda2f6dba7a391e91e0",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "Why do the areas quoted for the Josaphat wasteland differ between the sources consulted?",
+      "question": "Before which court did ARAU, BRAL and Inter-Environnement Bruxelles lodge, in early August 2026, an appeal for annulment and suspension against the second permit for the partial dismantling of the Palais du Midi?",
       "options": [
-        "They do not refer to the same perimeter",
-        "Part of the land was sold in September",
-        "The sources use different units of measure",
-        "The permit was split into two applications"
+        "The Constitutional Court",
+        "The Council of State",
+        "The Collège d'urbanisme",
+        "The Court of Audit"
       ],
-      "correct": 0,
-      "explanation": "The August sources describe a site of about twenty-four hectares, those of September the perimeter of the permit application, 6.76 hectares. The newsrooms do not give the same closing date for the public inquiry either. A subdivision permit is not a building consent: it covers plots, roads and utilities, and building will require a separate application.",
+      "correct": 1,
+      "explanation": "The three associations took the case to the Council of State and announced it on 14 September 2026. According to them, the first permit, suspended by that same court on 18 December 2025, had been withdrawn by the Region on 10 June 2026.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:788a4e0894f9e733ca3a3a84406539f7",
-        "generatedAt": "2026-09-18T16:04:43.585Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:eab897dee7587bda2f6dba7a391e91e0",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -629,21 +629,21 @@
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Employment",
-      "question": "According to the card, how many ACS positions were subsidised by end 2017, across 1,312 employers?",
+      "question": "Under the Brussels Order of 28 November 2002 on subsidised contract workers (ACS), whose last recorded amendment dates from 2 May 2024, how long must a candidate have been registered as an unemployed jobseeker during the year before recruitment?",
       "options": [
-        "Approximately 10,000",
-        "Approximately 6,700",
-        "Approximately 7,000",
-        "Approximately 2,500"
+        "At least three months",
+        "At least twelve months",
+        "At least six months",
+        "At least nine months"
       ],
-      "correct": 0,
-      "explanation": "Over 7,000 positions were in non-profits and administrations ('Programme Law' positions) and approximately 2,500 in local authorities; in 2024 the number of active positions is estimated at approximately 6,700, positions not filled within the mandatory six-month deadline imposed since 2015 accounting for the difference.",
+      "correct": 2,
+      "explanation": "Six months of registration are required during the year before recruitment, or six months of integration income or social assistance over the same period. The card lists the categories exempt from this condition.",
       "sourceSlug": "/en/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:cb4f68c98c26dc87d8bf559b95e7c1bd",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:9636040adbde498ce2fb371da796b951",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -652,21 +652,21 @@
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Employment",
-      "question": "Which institutional reform, in 2014, transferred employment competence, including the ACS scheme, from the federal level to the Regions?",
+      "question": "What response rate did the Brussels Employment Minister announce, on 21 September 2026, for the Actiris questionnaire on ACS positions sent to associations on 16 July 2026?",
       "options": [
-        "The 6th State Reform",
-        "The 5th State Reform",
-        "The 4th State Reform",
-        "The 7th State Reform"
+        "A 92% response rate",
+        "A 58% response rate",
+        "A 67% response rate",
+        "A 74% response rate"
       ],
       "correct": 0,
-      "explanation": "The ACS scheme has existed since 1987, originally created to combat Brussels unemployment; the 6th State Reform gave the Brussels-Capital Region full responsibility for this mechanism.",
+      "explanation": "The questionnaire, which associations could complete until 13 September 2026, closed with a 92% response rate. It is part of the monitoring and evaluation of the ACS scheme provided for in the Regional Policy Declaration of 13 February 2026.",
       "sourceSlug": "/en/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:cb4f68c98c26dc87d8bf559b95e7c1bd",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:9636040adbde498ce2fb371da796b951",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -698,21 +698,21 @@
       "id": "dossier-assemblees-citoyennes-0",
       "source": "dossier",
       "domain": "Institutional",
-      "question": "What ratio do the Brussels Parliament's rules set for a deliberative commission?",
+      "question": "How many recommendations did the Brussels Parliament's deliberative commission on the cleanliness of public space adopt on 30 May 2026?",
       "options": [
-        "Three quarters citizens and one quarter MPs",
-        "Two thirds citizens and one third MPs",
-        "Half citizens and half MPs",
-        "One third citizens and two thirds MPs"
+        "43 recommendations",
+        "97 recommendations",
+        "26 recommendations",
+        "22 recommendations"
       ],
-      "correct": 0,
-      "explanation": "The standard composition brings together 45 citizens and 15 MPs. The citizens are selected by a double draw by lot among Brussels residents aged sixteen and over.",
+      "correct": 2,
+      "explanation": "The 26 recommendations fall under five themes, from governance to the organisation of collections. The report of this seventh deliberative commission was approved on 6 June 2026.",
       "sourceSlug": "/en/dossiers/assemblees-citoyennes",
       "sourceTitle": "Citizen Assemblies",
       "provenance": {
-        "sourceLastModified": "2026-04-20",
-        "sourceContentHash": "sha256:baf2ffe8f49103808eccdee1483241e3",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:a92266ab1719ed42e48654b28f0b0ce1",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -721,21 +721,21 @@
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "According to the National Happiness Barometer (UGent/NN), a survey of 1,572 respondents in January 2026 published in March 2026, which Belgian region records the highest subjective happiness score?",
+      "question": "According to IBSA's Focus No. 77, published in September 2025 on the basis of the EU-SILC 2023 survey, which factor weighs most on the life satisfaction of Brussels residents?",
       "options": [
-        "The Brussels-Capital Region, at 6.62/10",
-        "Flanders, at 6.61/10",
-        "Wallonia, at 6.36/10",
-        "The national average, at 6.53/10"
+        "Having a suitable home",
+        "Being able to have a job",
+        "Health, physical and mental",
+        "Keeping up social relationships"
       ],
-      "correct": 0,
-      "explanation": "For the first time since 2017, active workers no longer score higher than retirees; unemployed people (5.32/10) and those in work incapacity (5.13/10) report the lowest scores.",
+      "correct": 2,
+      "explanation": "IBSA places physical and mental health at the top of the determinants, ahead of standard of living, social relationships, housing and work. Brussels residents give their life satisfaction an average score of 7.5 out of 10.",
       "sourceSlug": "/en/dossiers/bien-etre",
       "sourceTitle": "Well-being",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:2d42bf5d686458c7a8eacb4d9457b7c6",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-09-28",
+        "sourceContentHash": "sha256:b2d4e4a68d28c67354da8e4aaeb16557",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "How does the federal reimbursement of the integration income paid to people in the first wave of unemployment exclusions change, according to the projection presented by Molenbeek-Saint-Jean on 11 September 2026?",
+      "question": "According to the Actiris press release of 25 September 2026 on the federal unemployment reforms, in which Brussels municipality is the share of people at the end of their entitlement who turned to a CPAS the highest?",
       "options": [
-        "From 100% in 2026 to 75% in 2029",
-        "From 100% in 2026 to 90% in 2029",
-        "From 85% in 2026 to 60% in 2029",
-        "From 90% in 2026 to 50% in 2029"
+        "In Saint-Gilles",
+        "In Brussels-City",
+        "In Etterbeek",
+        "In Auderghem"
       ],
-      "correct": 0,
-      "explanation": "That is 90% in 2027 and 80% in 2028. The CPAS counted 1,740 files linked to the exclusions on 31 August 2026 and puts at 16.3 million euros the share of the integration income left to its own budget from 2027 to 2029. For the second wave, the federal reimbursement is only 85% from the outset.",
+      "correct": 2,
+      "explanation": "Etterbeek comes first with 57.8%, ahead of Auderghem, Brussels-City and Saint-Gilles. The Actiris press release does not specify the period covered by these municipal rates, a limitation the card points out.",
       "sourceSlug": "/en/dossiers/cpas-bruxellois",
       "sourceTitle": "Brussels CPASs",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:cc6dac797a45fc30e78e2a93515aa016",
-        "generatedAt": "2026-09-18T14:05:03.243Z",
+        "sourceLastModified": "2026-09-27",
+        "sourceContentHash": "sha256:11ccaf979ca84f4a9c34c6a9505fc846",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -882,21 +882,21 @@
       "id": "dossier-enseignement-0",
       "source": "dossier",
       "domain": "Education",
-      "question": "By how much did standard higher education tuition in the Wallonia-Brussels Federation rise for the 2026-2027 academic year?",
+      "question": "On 10 September 2026, a demonstration against education cuts was held in Liège. How many people did it draw according to the final police count, reported by La Libre?",
       "options": [
-        "From 835 to 1,194 euros a year",
-        "From 835 to 1,002 euros a year",
-        "From 920 to 1,194 euros a year",
-        "From 750 to 1,050 euros a year"
+        "7,000 people",
+        "10,000 people",
+        "13,000 people",
+        "20,000 people"
       ],
-      "correct": 0,
-      "explanation": "That is a rise of about 43%, presented as catching up on indexation since 2011. It is part of a 500 million euro savings plan for 2026-2029, of which 86.7 million falls on compulsory education from the first year.",
+      "correct": 1,
+      "explanation": "The police counted 10,000 people, the unions 13,000. Teachers, higher education students and a few parents were calling for education to be refinanced.",
       "sourceSlug": "/en/dossiers/enseignement",
       "sourceTitle": "Education",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:aa3deff7d01f5f3956a5ca5970cb961c",
-        "generatedAt": "2026-09-18T14:07:36.217Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:ab274367e22016e42e151735d3bb368e",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -905,21 +905,21 @@
       "id": "dossier-enseignement-1",
       "source": "dossier",
       "domain": "Education",
-      "question": "What share of teachers in Dutch-speaking Brussels education held the required qualification in 2023-2024, according to the Flemish education department?",
+      "question": "What is the purpose of the advisory committee whose first meeting the education minister of the Wallonia-Brussels Federation has called for 13 October 2026?",
       "options": [
-        "59%, against 75% in Flanders",
-        "72%, against 75% in Flanders",
-        "84%, against 91% in Flanders",
-        "45%, against 60% in Flanders"
+        "To rule on teachers' appeals against their organising body",
+        "To share out among school networks the savings already decided",
+        "To assess each year how schools perform in the external tests",
+        "To present to education stakeholders the texts in preparation"
       ],
-      "correct": 0,
-      "explanation": "The share stood at 72% in Brussels in 2016: it has fallen by thirteen points in seven years. The same administrative data, closed in October 2024, count 459 missing teachers in Brussels, 293 of them in primary education, for 53,613 pupils.",
+      "correct": 3,
+      "explanation": "This consultation body brings together around thirty stakeholders (unions, organising bodies, representatives of school heads) to take note of the legislative texts in preparation and discuss them. The Federation's government approved it during the summer of 2026.",
       "sourceSlug": "/en/dossiers/enseignement",
       "sourceTitle": "Education",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:aa3deff7d01f5f3956a5ca5970cb961c",
-        "generatedAt": "2026-09-18T14:07:36.217Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:ab274367e22016e42e151735d3bb368e",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -928,21 +928,21 @@
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Economy",
-      "question": "How does the rise in Brussels bankruptcies in 2025 compare with the other regions?",
+      "question": "According to Statbel, how many companies were declared bankrupt in the Brussels Region from January to August 2026?",
       "options": [
-        "It is the strongest regional increase in the country",
-        "It is the only region declining over the past year",
-        "It is the weakest increase of the three regions",
-        "It is an increase identical to that of Flanders"
+        "1,299 companies",
+        "1,098 companies",
+        "1,966 companies",
+        "2,190 companies"
       ],
       "correct": 0,
-      "explanation": "Brussels bankruptcies rose by 13.2%, against 7.8% in Flanders and a fall of 3% in Wallonia. Construction and the hospitality sector were among the hardest hit.",
+      "explanation": "Statbel counts 1,299 bankruptcies from January to August 2026, against 1,306 over the same period of 2025, which is near stability (-0.5%). This cumulative total remains below the levels of 2018 and 2019: it is not a Brussels record, unlike the national level.",
       "sourceSlug": "/en/dossiers/faillites-a-bruxelles",
       "sourceTitle": "Bankruptcies",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:6d722a2a39782465b79794deafc21feb",
-        "generatedAt": "2026-08-05T21:11:50.060Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:29d99e1e0f9d63f3577c1222e7b1833c",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -974,21 +974,21 @@
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
       "domain": "Housing",
-      "question": "What role did the special commissioner play in the re-election of the chair of the Foyer anderlechtois on 17 August 2026?",
+      "question": "According to La Libre and La DH of 21 September 2026, which body appointed a director to fill the seat it is entitled to on the board of directors of the Foyer anderlechtois, the social housing company of Anderlecht?",
       "options": [
-        "He asked for the vote to be held himself",
-        "He took the chair in place of the board",
-        "He suspended the vote until the end of his assignment",
-        "He refused to convene the board"
+        "The municipal council of the municipality of Anderlecht",
+        "The social action council of the Anderlecht CPAS",
+        "The board of directors of the SLRB, in Brussels",
+        "The government of the Brussels-Capital Region"
       ],
-      "correct": 0,
-      "explanation": "He wanted a fresh vote to clear up a situation that had become confused: a temporary withdrawal voted on 15 June, a board without a quorum on 20 June, a first re-election on 10 July by five votes out of nine. His assignment, set on 16 July for four months, covers convening the bodies, their agendas, their chairing and the authorisation to sign documents.",
+      "correct": 1,
+      "explanation": "The seat belongs to the Anderlecht CPAS, whose social action council voted on the appointment. The information, reported by a single press group, remained unconfirmed as at 24 September 2026; the card details how the groups voted.",
       "sourceSlug": "/en/dossiers/foyer-anderlechtois",
       "sourceTitle": "Foyer anderlechtois",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:87dcdcd7a402919720e66bcb140289fb",
-        "generatedAt": "2026-09-18T14:07:36.217Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:ab95bc925d0d373de36f4a23099b7503",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,21 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "According to ARAU (9 September 2026), how many air-raid shelters, predating the listed shelter under place du Jeu de Balle, does the association say it has established in the cellars of the Palais du Midi?",
+      "question": "In its report adopted on 8 October 2025, at how much does the Court of Audit estimate the total cost of the Metro 3 line between Albert and Bordet, in Brussels?",
       "options": [
-        "Two",
-        "One",
-        "Three",
-        "Four"
+        "About 4.76 billion euros",
+        "About 1.85 billion euros",
+        "About 3.2 billion euros",
+        "About 2.4 billion euros"
       ],
       "correct": 0,
-      "explanation": "ARAU dates them to 1940 and 1943, over an area of 450 square metres with a capacity of up to 1,500 people, and asks for archaeological work before underground works continue on Metro 3.",
+      "explanation": "The Court puts the project at 4,759.7 million euros (December 2024 assessment), an increase of 477% on the 2012 estimates. It places the opening of the full line in 2035 at the earliest.",
       "sourceSlug": "/en/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:7610399faec8b4175d37f0c0a06a7f48",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:0f384c8df248f81b37803097e51db8e3",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1135,21 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "On 15 September 2026, Beliris began backfilling excavated pits around North Station, after the halt of the Metro 3 worksites. Which two streets are involved?",
+      "question": "According to RTBF, for how long does the Brussels government agreement of 12 February 2026 pause the works on the Metro 3 line?",
       "options": [
-        "Rue du Progrès and rue d'Aerschot",
-        "Rue Gray and rue Marie-Henriette",
-        "Rue Neuve and boulevard Anspach",
-        "Rue de la Loi and rue Belliard"
+        "For 3 years",
+        "For 5 years",
+        "For 10 years",
+        "For 15 years"
       ],
-      "correct": 0,
-      "explanation": "The roadway of rue du Progrès is to be restored identically by the end of 2026 according to Beliris, while the upgrading of rue d'Aerschot is to be completed during 2027; the Albert-North section remains frozen for an indefinite period.",
+      "correct": 2,
+      "explanation": "RTBF reports a 10-year pause. On 15 September 2026, La Libre and BRUZZ describe the Albert-North project as frozen for an indefinite period, without mentioning this duration.",
       "sourceSlug": "/en/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:7610399faec8b4175d37f0c0a06a7f48",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:0f384c8df248f81b37803097e51db8e3",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutional",
-      "question": "By how much has the Brussels Region's workforce fallen since the start of 2026, according to the Minister for the Budget and the Public Service quoted on 12 September 2026?",
+      "question": "Which measures in the draft amendment to the employment status of Brussels regional staff do the CGSP-ACOD and CSC-ACV unions contest in their strike notice filed on 29 September 2026?",
       "options": [
-        "By more than 500 full-time equivalents",
-        "By more than 1,800 full-time equivalents",
-        "By more than 120 full-time equivalents",
-        "By more than 3,000 full-time equivalents"
+        "A two-year freeze on pay scales and a quarterly evaluation",
+        "The removal of two days of leave and an annual evaluation",
+        "The end of telework and the removal of five days of leave",
+        "A later retirement age and a six-monthly evaluation"
       ],
-      "correct": 0,
-      "explanation": "338 of them came in the four months since the tightening of the hiring freeze in March 2026. Departures are no longer automatically replaced, but targeted recruitment remains possible where the service requires it. The scope of the count is not specified and no official statement accompanied it, while the Region employs about 12,000 staff.",
+      "correct": 1,
+      "explanation": "The notice, open-ended and valid from 1 October 2026, targets in particular the removal of two days of leave and the annual evaluation, both maintained by the minister for the Civil Service. The unions also contest the hiring freeze in 2026.",
       "sourceSlug": "/en/dossiers/reforme-administration",
       "sourceTitle": "Admin Reform",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:0e3f6307b1988efd7269af957c3f1241",
-        "generatedAt": "2026-09-18T14:10:04.598Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:19eea1fd2791d5ae69675f0a15b62ddd",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Housing",
-      "question": "What do several public service housing companies hold against the SLRB, which according to a press report of 11 September 2026 refuse to leave their cash with it?",
+      "question": "How many social homes did the SLRB and the housing company Foyer du Sud open in Forest on 23 September 2026, in the former Luttre industrial building of 11,000 m²?",
       "options": [
-        "Using it to offset the difficulties of other companies",
-        "Placing those amounts in risky financial products",
-        "Delaying the transfer of rents collected from tenants",
-        "Taking a management fee on every movement"
+        "63 social homes",
+        "36 social homes",
+        "112 social homes",
+        "131 social homes"
       ],
       "correct": 0,
-      "explanation": "The SLRB pools the accounts of the sixteen public service housing companies. That common fund showed a deficit of around 60 million euros and the SLRB had stopped topping it up in November 2025. These tensions come on top of the blocking of the 131 million euro regional endowment.",
+      "explanation": "The Luttre project has 63 social homes with one to six bedrooms, four of them adapted for people with reduced mobility. The building had been acquired in 2016 as part of the regional Alliance Habitat-Acquisitions operation.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:fb8418062b5d71174b5ada12cab8d973",
-        "generatedAt": "2026-09-18T14:10:04.598Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:6882bdddd63a18a9d22d339ec253dba7",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Housing",
-      "question": "To what point was the blocking of the 131 million euro regional endowment for the SLRB referred, according to the information of 8 September 2026?",
+      "question": "According to BRUZZ (1 October 2026), what amount of regional endowment, blocked since 3 September 2026, was the SLRB still waiting for at the opening of the Brussels budget conclave of Saturday 3 October 2026?",
       "options": [
-        "To the budget conclave of early October 2026",
-        "To the vote on the regional budget in March 2027",
-        "To the end of the special commissioner's assignment",
-        "To the next budget review in June 2027"
+        "60 million euros",
+        "250 million euros",
+        "131 million euros",
+        "400 million euros"
       ],
-      "correct": 0,
-      "explanation": "That is where the government settles the 2027 budget. The counterpart requested is turning the recommendations of the committee of inquiry into the Foyer anderlechtois into decisions. The amount represents part of the 400 million planned for the legislature.",
+      "correct": 2,
+      "explanation": "The SLRB was still waiting for 131 million euros for 2026, referred to that conclave. According to BRUZZ, the social housing reform and the rise in rents were among the topics announced, with no detail on the conditions for releasing the funds.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:fb8418062b5d71174b5ada12cab8d973",
-        "generatedAt": "2026-09-18T14:10:04.598Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:6882bdddd63a18a9d22d339ec253dba7",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climate",
-      "question": "How many exceedances of the Brussels noise standards did Brussels Environment record between January and April 2026?",
+      "question": "Among the measures on the overflight of Brussels presented on 1 October 2026 by the federal Mobility Minister, from what altitude do aircraft line up to land on runway 07L?",
       "options": [
-        "3,815 exceedances",
-        "1,240 exceedances",
-        "8,600 exceedances",
-        "4,758 exceedances"
+        "From 2,500 feet",
+        "From 3,000 feet",
+        "From 4,000 feet",
+        "From 6,000 feet"
       ],
-      "correct": 0,
-      "explanation": "That is about nine hundred and fifty a month, against four hundred and seventy-six a month over ten months in 2025: the rate doubles. One caveat for readers: about 80% of the exceedances come from a single monitoring station, in Molenbeek-Saint-Jean. That concentration locates the finding but makes the series dependent on one measurement point.",
+      "correct": 2,
+      "explanation": "Aircraft line up from 4,000 feet, 22 kilometres from the airport instead of 16.5, then descend continuously. The consultancy commissioned by the minister sees no significant gain in the number of residents overflown.",
       "sourceSlug": "/en/dossiers/survol-bruxelles",
       "sourceTitle": "Aircraft overflight",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:4ecb2d340fa19ee0c8ed1b9272cb5a16",
-        "generatedAt": "2026-09-18T14:10:04.598Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:d3c0b775c63f8967eee0581b53c0b971",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1590,7 +1590,30 @@
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
+    },
+    {
+      "id": "dossier-zone-revitalisation-urbaine-0",
+      "source": "dossier",
+      "domain": "Urban Planning",
+      "question": "What are the three cumulative conditions that the Brussels organic ordinance of 6 October 2016 sets for a statistical sector to be included in the urban revitalisation zone (ZRU)?",
+      "options": [
+        "A lower median income, older buildings and more vacant homes than the regional reference values",
+        "A higher unemployment rate, fewer green spaces and more social homes than the regional reference values",
+        "A higher density, older buildings and a higher poverty rate than the regional reference values",
+        "A lower median income, and a higher density and unemployment rate than the regional reference values"
+      ],
+      "correct": 3,
+      "explanation": "The three criteria are relative: each statistical sector is compared with the most recent regional values. Sustainable neighbourhood contracts and urban renovation contracts are run within the zone defined in this way.",
+      "sourceSlug": "/en/dossiers/zone-revitalisation-urbaine",
+      "sourceTitle": "Urban revitalisation zone",
+      "provenance": {
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:36617b4b3698b86ed62053cb02e46e8a",
+        "generatedAt": "2026-10-02T08:18:22.628Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
     }
   ],
-  "reviewedCount": 69
+  "reviewedCount": 32
 }

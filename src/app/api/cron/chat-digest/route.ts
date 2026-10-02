@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
+import { adresseAlertes } from '@/lib/adresse-alertes';
 import { NextResponse } from 'next/server';
 import { getResend, EMAIL_FROM, resendCall } from '@/lib/resend';
 import { readLogs, isPersistentStoreConfigured } from '@/lib/chat-logs';
@@ -71,10 +72,11 @@ export async function GET(request: Request) {
     );
   }
 
-  const adminEmail = process.env.ADMIN_EMAIL;
+  // Rapport technique : boîte directe si elle est configurée (voir le module).
+  const adminEmail = adresseAlertes();
   if (!adminEmail) {
     return NextResponse.json(
-      { error: 'ADMIN_EMAIL is required' },
+      { error: 'alert recipient is not configured' },
       { status: 500 },
     );
   }

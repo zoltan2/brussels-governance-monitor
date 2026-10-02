@@ -8,6 +8,7 @@ import { DM_Serif_Display } from 'next/font/google';
 import { setRequestLocale } from 'next-intl/server';
 import { useLocale, useTranslations } from 'next-intl';
 import { SubscribeForm } from '@/components/subscribe-form';
+import { cleDeTheme } from '@/lib/theme-de-fiche';
 import { LatestUpdateBar } from '@/components/latest-update-bar';
 import { GovernmentTable } from '@/components/government-table';
 import { SupportCtaHome } from '@/components/support-cta';
@@ -276,6 +277,12 @@ export default async function HomePage({
         <div className="mx-auto max-w-5xl px-4">
           <SubscribeForm
             dossierOptions={getAllDossierTopicOptions(loc).map((d) => ({ id: d.topicId, label: d.label }))}
+            // Les thèmes des quatorze cartes de la page, proposés en tête du formulaire.
+            sujetsDeLaPage={[
+              ...homeDossiers.map((card) => cleDeTheme('dossier', card.slug)),
+              ...homeDomains.map((card) => cleDeTheme('domain', card.slug)),
+              ...homeSectors.map((card) => cleDeTheme('sector', card.slug)),
+            ]}
           />
         </div>
       </section>
@@ -851,6 +858,9 @@ function SectorsPreview({
 
 // Lien étiré : toute la carte est cliquable, mais il n'y a qu'un seul arrêt de tabulation.
 const stretchedLink = `${linkClass} after:absolute after:inset-0 after:content-['']`;
+// Second lien d'une carte à lien étiré : posé AU-DESSUS du pseudo-élément (z-10),
+// avec une cible de 24 px (WCAG 2.5.8), sans s'étirer lui-même.
+const digestEmailLink = `${linkClass} relative z-10 min-h-6`;
 
 function RowLabel({ children }: { children: ReactNode }) {
   return (
@@ -1012,16 +1022,20 @@ function FormatsSection({
                 : undefined
             }
             link={
-              digest ? (
-                <TrackedAnchor href={digest.href} event="accueil-digest" className={stretchedLink}>
-                  {t('protoDigestRead', { week: digest.weekNum })}
-                  <ArrowRight size={14} aria-hidden={true} />
+              // Deux liens FRÈRES, jamais imbriqués : lire le digest de la semaine
+              // (lien étiré, toute la carte), et le recevoir par email. Ce second
+              // lien n'était rendu que s'il n'existait aucun digest, donc jamais.
+              <span className="flex flex-col items-start gap-0.5">
+                {digest && (
+                  <TrackedAnchor href={digest.href} event="accueil-digest" className={stretchedLink}>
+                    {t('protoDigestRead', { week: digest.weekNum })}
+                    <ArrowRight size={14} aria-hidden={true} />
+                  </TrackedAnchor>
+                )}
+                <TrackedAnchor href="#subscribe" event="accueil-digest-abonnement" className={digestEmailLink}>
+                  {digest ? t('protoDigestByEmail') : t('protoDigestSubscribe')}
                 </TrackedAnchor>
-              ) : (
-                <TrackedAnchor href="#subscribe" event="accueil-digest-abonnement" className={stretchedLink}>
-                  {t('protoDigestSubscribe')}
-                </TrackedAnchor>
-              )
+              </span>
             }
           >
             {/* Ce que contient l'email, et non le titre du numéro de la semaine : un

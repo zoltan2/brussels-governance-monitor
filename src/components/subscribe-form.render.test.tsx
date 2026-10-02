@@ -122,3 +122,105 @@ describe('SubscribeForm : promesse et message de succès', () => {
     });
   });
 });
+
+/**
+ * Lot 2 (02/10/2026) : les thèmes que le lecteur a sous les yeux sur l'accueil
+ * sont proposés en premier. Une pastille du haut et la même pastille dans les
+ * listes complètes ne font qu'un seul choix.
+ */
+describe('SubscribeForm : thèmes de la page', () => {
+  const DOSSIERS = [
+    { id: 'dossier-lez', label: 'LEZ' },
+    { id: 'dossier-slrb', label: 'SLRB' },
+  ];
+  function rendreAvec(sujets: string[] | undefined, locale: 'fr' | 'nl' | 'en' | 'de' = 'fr') {
+    return render(
+      <NextIntlClientProvider locale={locale} messages={MESSAGES[locale]} timeZone="Europe/Brussels">
+        <SubscribeForm dossierOptions={DOSSIERS} sujetsDeLaPage={sujets} />
+      </NextIntlClientProvider>,
+    );
+  }
+  const groupe = (c: HTMLElement) => c.querySelector('fieldset[data-groupe="page"]');
+  const case_ = (c: HTMLElement, nom: string) => c.querySelector<HTMLInputElement>(`input[name="${nom}"]`)!;
+
+  it('sans la propriété (page /subscribe) : aucun groupe, rien ne change', () => {
+    expect(groupe(rendreAvec(undefined).container)).toBeNull();
+    expect(groupe(rendreAvec([]).container)).toBeNull();
+  });
+
+  it.each([
+    ['fr', 'Les thèmes de cette page'],
+    ['nl', "De thema's van deze pagina"],
+    ['en', 'Topics on this page'],
+    ['de', 'Die Themen dieser Seite'],
+  ] as const)('%s : le groupe est en tête, sous son intertitre', (locale, intertitre) => {
+    const { container } = rendreAvec(['dossier-lez', 'housing', 'horeca'], locale);
+    const g = groupe(container)!;
+    expect(g.querySelector('legend')!.textContent).toBe(intertitre);
+    const fieldsets = [...container.querySelectorAll('fieldset')];
+    expect(fieldsets[0]).toBe(g);
+  });
+
+  it('affiche les thèmes passés, dans l’ordre, avec leur libellé, non cochés', () => {
+    const { container } = rendreAvec(['dossier-lez', 'housing', 'horeca']);
+    const cases = [...groupe(container)!.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+    expect(cases.map((i) => i.name)).toEqual(['page-dossier-lez', 'page-housing', 'page-horeca']);
+    expect(cases.map((i) => i.closest('label')!.textContent)).toEqual(['LEZ', 'Logement', 'Horeca']);
+    expect(cases.every((i) => !i.checked)).toBe(true);
+  });
+
+  it('dédoublonne, et écarte un thème que le formulaire ne connaît pas', () => {
+    const { container } = rendreAvec(['housing', 'housing', 'dossier-inconnu', 'engagements', 'solutions']);
+    const cases = [...groupe(container)!.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+    expect(cases.map((i) => i.name)).toEqual(['page-housing']);
+  });
+
+  it('un thème coché par défaut l’est aussi dans le groupe de la page', () => {
+    const { container } = rendreAvec(['budget', 'housing']);
+    expect(case_(container, 'page-budget').checked).toBe(true);
+    expect(case_(container, 'page-housing').checked).toBe(false);
+  });
+
+  it('cocher en haut coche dans les listes complètes, et l’inverse', () => {
+    const { container } = rendreAvec(['dossier-lez', 'housing', 'horeca']);
+    fireEvent.click(case_(container, 'page-housing'));
+    expect(case_(container, 'topic-housing').checked).toBe(true);
+    fireEvent.click(case_(container, 'page-horeca'));
+    expect(case_(container, 'sector-horeca').checked).toBe(true);
+    fireEvent.click(case_(container, 'page-dossier-lez'));
+    expect(case_(container, 'dossier-dossier-lez').checked).toBe(true);
+    // Sens inverse : décocher dans la liste complète décoche en haut.
+    fireEvent.click(case_(container, 'topic-housing'));
+    expect(case_(container, 'page-housing').checked).toBe(false);
+    fireEvent.click(case_(container, 'dossier-dossier-slrb'));
+    expect(case_(container, 'dossier-dossier-slrb').checked).toBe(true);
+  });
+
+  it('une pastille cochée en haut envoie la bonne clé, une seule fois', async () => {
+    const fetchMock = vi.fn<(url: string, init: RequestInit) => Promise<Response>>(
+      async () => new Response(JSON.stringify({ success: true }), { status: 200 }),
+    );
+    vi.stubGlobal('fetch', fetchMock);
+    const { container, findByRole } = rendreAvec(['dossier-lez', 'horeca', 'budget']);
+    fireEvent.click(case_(container, 'page-dossier-lez'));
+    fireEvent.click(case_(container, 'page-horeca'));
+    fireEvent.change(container.querySelector('input[type="email"]')!, {
+      target: { value: 'a@example.org' },
+    });
+    fireEvent.submit(container.querySelector('form')!);
+    await findByRole('status');
+    expect(JSON.parse(String(fetchMock.mock.calls[0][1].body)).topics).toEqual([
+      'budget',
+      'mobility',
+      'horeca',
+      'dossier-lez',
+    ]);
+  });
+
+  it('la pastille garde un focus visible, comme celles des listes', () => {
+    const { container } = rendreAvec(['housing']);
+    expect(case_(container, 'page-housing').closest('label')!.className).toContain(
+      'has-[:focus-visible]:ring-2',
+    );
+  });
+});

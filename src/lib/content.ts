@@ -8,6 +8,7 @@ import type { Metric } from '@/components/proof-drawer/types';
 import { computeRecentDigestLangs, type RecentDigestLangs } from '@/lib/digest-langs';
 import type { BudgetValue } from '@/lib/budget';
 import { selectRelatedDossiers } from '@/lib/related-dossiers';
+import { cleDeTheme } from '@/lib/theme-de-fiche';
 
 export interface DomainCard {
   title: string;
@@ -1273,20 +1274,14 @@ export function getRelatedDossiers(card: DossierCard, locale: Locale): DossierCa
 /**
  * Get all dossier topic options for subscription forms.
  * Derives topic IDs and labels from Velite dossier cards.
- * Uses DOSSIER_SLUG_TO_TOPIC for the 3 slugs that differ from the `dossier-{slug}` convention.
+ * La clé vient de `cleDeTheme` (trois slugs s'écartent de `dossier-{slug}`).
  */
 export function getAllDossierTopicOptions(
   locale: Locale,
 ): Array<{ topicId: string; label: string }> {
-  // Inline the 3 slug→topic overrides to avoid importing from resend.ts
-  const slugToTopic: Record<string, string> = {
-    'seniors-a-bruxelles': 'dossier-seniors',
-    'data-centers-ia-energie': 'dossier-data-centers',
-    'faillites-a-bruxelles': 'dossier-faillites',
-  };
   const cards = getDossierCards(locale);
   return cards.map((c) => ({
-    topicId: slugToTopic[c.slug] || `dossier-${c.slug}`,
+    topicId: cleDeTheme('dossier', c.slug),
     label: c.shortTitle || c.title,
   }));
 }

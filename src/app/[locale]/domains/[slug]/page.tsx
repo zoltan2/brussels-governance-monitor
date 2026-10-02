@@ -246,6 +246,9 @@ function DomainDetail({
           <DomainTags domain={card.slug} locale={locale} />
         </div>
 
+        {/* Inscription en haut de fiche : celle du bas est à plus de 90 % de la page. */}
+        <CardSubscribe topic={cleDeTheme('domain', card.slug)} type="domain" origine="fiche-haut" />
+
         {/* FALC — collapsible, closed by default */}
         {card.summaryFalc && (
           <details className="mb-6 rounded-lg border border-brand-700/30 bg-brand-900/5">

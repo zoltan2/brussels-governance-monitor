@@ -107,6 +107,16 @@ jobs:
           done
           exit $ECHEC
 
+      # Environ 80 % des visites arrivent sur une fiche. Le formulaire
+      # d'inscription y est posé en haut et en bas (lot 2 de l'abonnement,
+      # 02/10/2026) : s'il disparaît, aucun code HTTP ne le dit.
+      - name: Fiche content (formulaire d'inscription)
+        run: |
+          F="$RUNNER_TEMP/fiche-lez.html"; rm -f "$F"
+          curl -s -L --max-time 30 --retry 2 --retry-delay 10 --retry-all-errors \
+            -o "$F" "$BASE/fr/dossiers/lez?cb=$RANDOM$RANDOM" || true
+          node scripts/ops/controle-contenu-fiche.mjs "$F" "/fr/dossiers/lez"
+
       # Sans cette étape, un smoke rouge n'existait que dans l'onglet Actions
       # (revue blue, P1 : deux échecs le 28/09 vus par personne), et il coupe
       # aussi le test de régression, qui ne se lance qu'après un smoke réussi.

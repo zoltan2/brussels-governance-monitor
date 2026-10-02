@@ -359,6 +359,9 @@ function DossierDetail({
           </p>
         )}
 
+        {/* Inscription en haut de fiche : celle du bas est à plus de 90 % de la page. */}
+        <CardSubscribe topic={cleDeTheme('dossier', card.slug)} type="dossier" origine="fiche-haut" />
+
         {/* Rappel du soutien avant le sommaire : le bandeau du pied de page est
             identique, mais presque personne ne descend jusque-là. */}
         <SupportBanner position="dossier-haut" className="mb-6" hideOnPrint />

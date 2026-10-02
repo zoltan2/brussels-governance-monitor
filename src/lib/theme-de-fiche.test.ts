@@ -71,8 +71,9 @@ describe('cleDeTheme', () => {
         (m) => `${path.relative(APP, p)} : ${m[1].trim()}`,
       ),
     );
-    expect(poses).toHaveLength(4);
-    expect(poses.filter((l) => !/ : cleDeTheme\('(domain|sector|dossier|commune)', card\.slug\)\}$/.test(l))).toEqual([]);
+    // Quatre types de fiche, un formulaire en haut et un en bas (lot 2).
+    expect(poses).toHaveLength(8);
+    expect(poses.filter((l) => !/ : cleDeTheme\('(domain|sector|dossier|commune)', card\.slug\)\}( |$)/.test(l))).toEqual([]);
     expect(poses.filter((l) => l.includes('solutions'))).toEqual([]);
   });
 });

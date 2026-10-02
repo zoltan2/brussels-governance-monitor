@@ -24,6 +24,11 @@ export function CardSubscribe({ topic, type, origine }: CardSubscribeProps) {
   const [email, setEmail] = useState('');
   const [website, setWebsite] = useState(''); // honeypot
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  // En haut de fiche : version compacte, le titre sert d'étiquette visible au
+  // champ et tout tient sur une ligne dès `sm`. En bas : le bloc d'origine.
+  const haut = origine === 'fiche-haut';
+  const emplacement = haut ? 'haut' : 'bas';
+  const repere = `inscription-${origine}`;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -45,7 +50,7 @@ export function CardSubscribe({ topic, type, origine }: CardSubscribeProps) {
 
       if (res.ok) {
         // Réponse 2xx seulement. Jamais l'adresse ni le thème : la page suffit.
-        track('inscription-reussie', { page, formulaire: 'fiche' });
+        track('inscription-reussie', { page, formulaire: 'fiche', emplacement });
         setStatus('success');
       } else {
         setStatus('error');
@@ -57,16 +62,29 @@ export function CardSubscribe({ topic, type, origine }: CardSubscribeProps) {
 
   if (status === 'success') {
     return (
-      <div className="rounded-lg border border-confirmed-border bg-confirmed-bg p-4" role="status" aria-live="polite">
+      <div
+        data-suivi={repere}
+        className={`rounded-lg border border-confirmed-border bg-confirmed-bg p-4 ${haut ? 'mb-8 print:hidden' : ''}`}
+        role="status"
+        aria-live="polite"
+      >
         <p className="text-sm text-confirmed-fg">{t('success')}</p>
       </div>
     );
   }
 
   return (
-    <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4">
-      <p className="mb-3 text-sm font-medium text-neutral-700">{t(`titles.${type}`)}</p>
-      <form onSubmit={handleSubmit} className="flex gap-2">
+    <div
+      data-suivi={repere}
+      className={`rounded-lg border border-neutral-200 bg-neutral-50 p-4 ${haut ? 'mb-8 print:hidden' : ''}`}
+    >
+      {!haut && (
+        <p data-titre className="mb-3 text-sm font-medium text-neutral-700">{t(`titles.${type}`)}</p>
+      )}
+      <form
+        onSubmit={handleSubmit}
+        className={haut ? 'flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3' : 'flex gap-2'}
+      >
         {/* Honeypot field — hidden from users, filled by bots */}
         <div className="absolute -left-[9999px]" aria-hidden="true">
           <label htmlFor={`card-subscribe-website-${origine}`}>Website</label>
@@ -80,25 +98,38 @@ export function CardSubscribe({ topic, type, origine }: CardSubscribeProps) {
             onChange={(e) => setWebsite(e.target.value)}
           />
         </div>
-        <label htmlFor={`card-subscribe-${origine}`} className="sr-only">{t('emailLabel')}</label>
-        <input
-          type="email"
-          id={`card-subscribe-${origine}`}
-          name="email"
-          autoComplete="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={t('emailPlaceholder')}
-          required
-          className="min-w-0 flex-1 rounded-md border border-neutral-500 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
-        />
-        <button
-          type="submit"
-          disabled={status === 'submitting' || !email.trim()}
-          className="shrink-0 rounded-md bg-brand-900 px-4 py-1.5 text-xs font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:opacity-50"
-        >
-          {status === 'submitting' ? t('submitting') : t('submit')}
-        </button>
+        {haut ? (
+          <label
+            data-titre
+            htmlFor={`card-subscribe-${origine}`}
+            className="text-sm font-medium text-neutral-700 sm:shrink-0"
+          >
+            {t(`titles.${type}`)}
+          </label>
+        ) : (
+          <label htmlFor={`card-subscribe-${origine}`} className="sr-only">{t('emailLabel')}</label>
+        )}
+        {/* Sur mobile, le champ et le bouton restent côte à côte sous l'étiquette. */}
+        <div className={haut ? 'flex min-w-0 flex-1 gap-2' : 'contents'}>
+          <input
+            type="email"
+            id={`card-subscribe-${origine}`}
+            name="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={t('emailPlaceholder')}
+            required
+            className="min-w-0 flex-1 rounded-md border border-neutral-500 px-3 py-1.5 text-sm text-neutral-900 placeholder:text-neutral-500 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+          />
+          <button
+            type="submit"
+            disabled={status === 'submitting' || !email.trim()}
+            className="shrink-0 rounded-md bg-brand-900 px-4 py-1.5 text-xs font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:opacity-50"
+          >
+            {status === 'submitting' ? t('submitting') : t('submit')}
+          </button>
+        </div>
       </form>
       {status === 'error' && (
         <p className="mt-2 text-xs text-status-delayed" role="alert">{t('error')}</p>

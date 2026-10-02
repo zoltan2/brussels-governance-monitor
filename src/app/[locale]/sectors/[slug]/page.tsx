@@ -183,6 +183,9 @@ function SectorDetail({
           <p className="mb-6 text-base leading-relaxed text-neutral-600">{card.humanImpact}</p>
         )}
 
+        {/* Inscription en haut de fiche : celle du bas est à plus de 90 % de la page. */}
+        <CardSubscribe topic={cleDeTheme('sector', card.slug)} type="sector" origine="fiche-haut" />
+
         {/* Rappel du soutien à la fin de l'introduction : la fiche secteur n'a
             pas de sommaire, c'est l'équivalent de l'emplacement des dossiers. */}
         <SupportBanner position="secteur-haut" className="mb-8" hideOnPrint />

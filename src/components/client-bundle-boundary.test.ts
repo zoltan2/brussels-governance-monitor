@@ -21,6 +21,8 @@ const ROOT = path.resolve(SRC, '..');
 const VELITE_DIR = path.join(ROOT, '.velite');
 const FORBIDDEN_MODULES = [
   path.join(SRC, 'lib', 'content.ts'),
+  // Lit `.velite/` sur disque (`node:fs`) depuis le 02/10/2026 : serveur seulement.
+  path.join(SRC, 'lib', 'collections-velite.ts'),
   path.join(SRC, 'lib', 'resend.ts'),
 ];
 /** Paquets npm serveur qui ne doivent jamais partir dans le bundle client. */
@@ -110,7 +112,10 @@ describe('frontière du bundle client : ni contenu Velite ni Resend', () => {
     expect(clientModules.map(rel)).toContain('src/components/preferences-form.tsx');
     // Côté serveur, la route des préférences atteint bien Resend et le contenu.
     expect(forbiddenChainFrom(path.join(SRC, 'app', 'api', 'preferences', 'route.ts'))).not.toBeNull();
-    expect(forbiddenChainFrom(path.join(SRC, 'lib', 'content.ts'))).toEqual(['src/lib/content.ts', '.velite']);
+    expect(forbiddenChainFrom(path.join(SRC, 'lib', 'content.ts'))).toEqual([
+      'src/lib/content.ts',
+      'src/lib/collections-velite.ts',
+    ]);
   });
 
   it("aucun module 'use client' n'atteint @/lib/content, .velite ou @/lib/resend", () => {

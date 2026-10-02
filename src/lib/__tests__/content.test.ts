@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   getDomainCards,
@@ -19,14 +21,10 @@ import {
 
 // These tests require Velite build output (.velite/ directory).
 // Run `npm run build` first to generate it, or they will be skipped.
-let hasVeliteData = false;
-try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  require('../../.velite');
-  hasVeliteData = true;
-} catch {
-  // Velite data not available
-}
+// Même fichier que celui lu par `content.ts` (voir collections-velite.ts).
+// Jusqu'au 02/10/2026, la détection faisait `require('../../.velite')`, qui
+// depuis ce dossier désigne `src/.velite` : ces tests étaient toujours sautés.
+const hasVeliteData = fs.existsSync(path.join(process.cwd(), '.velite', 'domainCards.json'));
 
 const describeWithData = hasVeliteData ? describe : describe.skip;
 

@@ -3,6 +3,7 @@
 
 import { routing, type Locale } from '@/i18n/routing';
 import { jourISO } from './velite-date';
+import { collectionsVelite } from './collections-velite';
 import type { Metric } from '@/components/proof-drawer/types';
 import { computeRecentDigestLangs, type RecentDigestLangs } from '@/lib/digest-langs';
 import type { BudgetValue } from '@/lib/budget';
@@ -362,27 +363,26 @@ interface VeliteCollections {
   archivePages: ArchivePage[];
 }
 
+// Lues sur disque à la demande, jamais importées : un import recopierait les
+// 20 Mo de données dans chaque couche du bundle serveur. Voir collections-velite.ts.
+const collections = collectionsVelite<VeliteCollections>([
+  'domainCards',
+  'solutionCards',
+  'formationRounds',
+  'formationEvents',
+  'governmentChapters',
+  'glossaryTerms',
+  'verifications',
+  'sectorCards',
+  'comparisonCards',
+  'communeCards',
+  'dossierCards',
+  'digestEntries',
+  'archivePages',
+]);
+
 function getCollections(): VeliteCollections {
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    return require('../../.velite') as unknown as VeliteCollections;
-  } catch {
-    return {
-      domainCards: [],
-      solutionCards: [],
-      formationRounds: [],
-      formationEvents: [],
-      governmentChapters: [],
-      glossaryTerms: [],
-      verifications: [],
-      sectorCards: [],
-      comparisonCards: [],
-      communeCards: [],
-      dossierCards: [],
-      digestEntries: [],
-      archivePages: [],
-    };
-  }
+  return collections;
 }
 
 /**

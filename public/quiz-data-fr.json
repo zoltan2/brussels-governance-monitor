@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-09-23T10:11:28.744Z",
+  "generatedAt": "2026-10-02T08:11:35.043Z",
   "locale": "fr",
-  "poolSize": 69,
+  "poolSize": 70,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Selon BX1 (15 septembre 2026), à quel taux d'endettement, en pourcentage des recettes régionales, la Région bruxelloise est-elle attendue en 2031 ?",
+      "question": "Selon BRUZZ (1er octobre 2026), quel montant le gouvernement bruxellois doit-il trouver, lors du conclave budgétaire ouvert le 3 octobre 2026, pour ramener le déficit régional à 719 millions d'euros en 2027 ?",
       "options": [
-        "328 % des recettes régionales",
-        "327 % des recettes régionales",
-        "158 % des recettes régionales",
-        "118 % des recettes régionales"
+        "Environ 93 millions d'euros",
+        "Environ 238 millions d'euros",
+        "Environ 131 millions d'euros",
+        "Environ 477 millions d'euros"
       ],
-      "correct": 0,
-      "explanation": "Le Bureau fédéral du Plan situe la Wallonie à 327 %, la Fédération Wallonie-Bruxelles à 158 % et la Flandre, seule entité au risque qualifié de modéré, à 118 % de ses recettes en 2031.",
+      "correct": 1,
+      "explanation": "BRUZZ évoque un effort d'environ 238 millions d'euros pour le budget 2027. Aucun document officiel n'est cité, et plusieurs postes restent incertains, dont Beliris et le Brussels Deal.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:8a5434b9fd8e80aa872534b7027f74a4",
-        "generatedAt": "2026-09-23T10:11:28.744Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:92b2efa840b828a03dcea58169d1a04b",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Le 17 août 2026, la Ville de Bruxelles a envoyé les avertissements-extraits de rôle du précompte immobilier 2026. À combien les centimes additionnels communaux ont-ils été portés ?",
+      "question": "Quelle note, assortie de quelle perspective, l'agence S&P Global Ratings attribue-t-elle à la Région de Bruxelles-Capitale selon l'annonce faite le 28 septembre 2026 par le ministre bruxellois des Finances et du Budget ?",
       "options": [
-        "3 457",
-        "2 980",
-        "4 090",
-        "3 090"
+        "La note AA-, avec une perspective négative",
+        "La note A, avec une perspective stable",
+        "La note A, avec une perspective négative",
+        "La note A+, avec une perspective stable"
       ],
-      "correct": 0,
-      "explanation": "La hausse, de 17,2 %, est présentée par la Ville comme intégralement compensée pour les propriétaires occupants, via une déduction communale forfaitaire et la prime régionale Be-Home. Saint-Josse-ten-Noode a enregistré la plus forte hausse de 2026, de 2 980 à 4 090.",
+      "correct": 2,
+      "explanation": "La note A et la perspective négative sont maintenues, comme lors de la confirmation du 27 mars 2026. Selon le ministre, le taux d'endettement élevé explique le maintien de cette perspective.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:8a5434b9fd8e80aa872534b7027f74a4",
-        "generatedAt": "2026-09-23T10:11:28.744Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:92b2efa840b828a03dcea58169d1a04b",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Quel budget d'investissement annuel le déploiement des espaces-tri représente-t-il sur la législature, selon la réforme de la collecte présentée le 11 septembre 2026 ?",
+      "question": "Que prévoit, en matière de propreté, la première phase du Plan Gares approuvée par le gouvernement bruxellois le 1er octobre 2026 pour les gares du Nord et du Midi ?",
       "options": [
-        "Quatre millions d'euros par an",
-        "Dix millions d'euros par an",
-        "Un million d'euros par an",
-        "Vingt-cinq millions d'euros par an"
+        "L'installation d'espaces-tri dans les deux gares, sur leurs parvis et à leurs abords",
+        "La création d'une brigade permanente de Bruxelles-Propreté dans chaque gare",
+        "Une opération unique de nettoyage et de désinfection par une entreprise spécialisée",
+        "Le transfert du nettoyage des deux gares aux communes où elles se situent"
       ],
-      "correct": 0,
-      "explanation": "La Région prévoit cent vingt espaces-tri, dont trente dans chacun des deux quartiers pilotes, où ils remplaceront le porte-à-porte pendant la phase de test. Ces quartiers ne sont pas encore désignés : Forest et Ixelles comptent se porter candidates, et chacun des deux retenus compte environ deux mille logements. Le montant est estimé, rapporté par une source de presse unique.",
+      "correct": 2,
+      "explanation": "Selon le cabinet du ministre-président, cité par BRUZZ et La DH, cette phase dotée de 3 millions d'euros pour 2026 comprend une opération unique de nettoyage et de désinfection des deux gares et de leurs abords. Bruxelles-Propreté achètera ensuite du matériel pour en maintenir le résultat.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:6b6cb56ca78bfb6f9912f5d7fddb3778",
-        "generatedAt": "2026-09-18T15:53:50.153Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:6d51f3590d7fd60dd97309047f9678d7",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Sur quoi la Cour constitutionnelle doit-elle se prononcer fin septembre 2026, s'agissant du financement de la réforme bruxelloise de la collecte des déchets ?",
+      "question": "À quoi sert Wake-Up Clean-Up, la plateforme lancée en octobre 2024 par Bruxelles-Propreté et dont l'agence a publié le bilan le 21 septembre 2026 ?",
       "options": [
-        "Sur la responsabilité élargie des producteurs de plastiques",
-        "Sur une taxe additionnelle levée par les dix-neuf communes",
-        "Sur le prix réglementé des sacs-poubelle régionaux",
-        "Sur une dotation fédérale affectée à la propreté publique"
+        "À planifier des ramassages citoyens dans l'espace public et à réserver le matériel",
+        "À signaler les dépôts clandestins pour qu'une amende soit perçue immédiatement",
+        "À réserver un créneau de dépôt dans les recyparks régionaux et communaux",
+        "À commander l'enlèvement à domicile des encombrants par les équipes de l'agence"
       ],
       "correct": 0,
-      "explanation": "C'est ce régime qui finance la réforme, elle-même attendue en 2027. L'annonce de mars 2026 évoquait cent nouveaux espaces de tri, contre cent vingt dans le plan présenté le 11 septembre. Deux types de zones seront définis selon des critères comme la densité de population ou la typologie de l'habitat, avec des modalités de collecte différentes.",
+      "explanation": "Habitants, écoles, associations et entreprises y planifient une opération de ramassage et réservent le matériel nécessaire. Selon l'agence, plus de 41 tonnes de déchets ont été ramassées par ce biais entre octobre 2024 et septembre 2026.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:6b6cb56ca78bfb6f9912f5d7fddb3778",
-        "generatedAt": "2026-09-18T15:53:50.153Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:6d51f3590d7fd60dd97309047f9678d7",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Économie",
-      "question": "Quelle superficie couvre le site d'Audi Brussels à Forest, dont la reprise par Heylen Warehouses a été annoncée le 1er septembre 2026 ?",
+      "question": "La prime bruxelloise pour la participation à une foire physique à l'étranger, rouverte aux demandes le 5 octobre 2026, couvre 50 % des dépenses admissibles hors TVA. Quel taux s'applique aux entreprises de moins de quatre ans ?",
       "options": [
-        "Environ 55 hectares",
-        "Environ 18 hectares",
-        "Environ 120 hectares",
-        "Environ 35 hectares"
+        "60 % des dépenses admissibles",
+        "65 % des dépenses admissibles",
+        "75 % des dépenses admissibles",
+        "90 % des dépenses admissibles"
       ],
-      "correct": 0,
-      "explanation": "C'est le plus grand terrain industriel de la Région. Le projet, provisoirement nommé Rings Park 21, vise au moins trois mille emplois, soit l'effectif d'Audi Brussels avant sa fermeture le 28 février 2025, avec une première activité annoncée pour le début de 2027.",
+      "correct": 2,
+      "explanation": "Le taux passe de 50 % à 75 % pour les entreprises de moins de quatre ans, avec un plafond de 15 000 euros par an et quatre foires par année civile. La fiche détaille aussi la seconde prime, pour les appels d'offres hors Union européenne.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:73cd50bb99c2ba9de179d75da6ba7fc9",
-        "generatedAt": "2026-09-18T12:31:17.905Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:3fad43ef39b89d343364b3886cbc36d3",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Économie",
-      "question": "En 2025, comment les créations d'entreprises à Bruxelles ont-elles évolué par rapport à 2024, selon l'Atlas des Starters publié le 8 septembre 2026 ?",
+      "question": "Auprès de quel organisme les PME et indépendants bruxellois introduisent-ils en ligne, à partir du 5 octobre 2026, leur demande pour les deux primes régionales à l'exportation relancées par le gouvernement bruxellois le 24 septembre 2026 ?",
       "options": [
-        "Elles reculent de 1,47 %, seule Région en baisse",
-        "Elles progressent de 14,76 %, plus forte hausse",
-        "Elles progressent de 0,77 %, au rythme national",
-        "Elles reculent de 0,08 %, au rythme de la Flandre"
+        "Bruxelles Économie et Emploi, l'administration régionale",
+        "Actiris, l'office régional bruxellois de l'emploi",
+        "Le Port de Bruxelles, gestionnaire du domaine portuaire",
+        "Bruxelles Pouvoirs locaux, l'administration des communes"
       ],
       "correct": 0,
-      "explanation": "Bruxelles compte 15 467 créations en 2025, soit 12,1 % du total belge, quand la Wallonie bondit de 14,76 % et que la Flandre reste stable. L'Atlas des Starters est publié par l'UCM, l'Unizo et GraydonCreditsafe, trois acteurs privés, et ne constitue pas une statistique officielle.",
+      "explanation": "Les demandes passent par Bruxelles Économie et Emploi, qui a publié les conditions des deux primes. Elles doivent être introduites au plus tard la veille de la foire, ou avant le dépôt de l'offre.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:73cd50bb99c2ba9de179d75da6ba7fc9",
-        "generatedAt": "2026-09-18T12:31:17.905Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:3fad43ef39b89d343364b3886cbc36d3",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Le 19 août 2026, la ministre de l'Enseignement de la Fédération Wallonie-Bruxelles a indiqué que la suppression du régime de nomination des enseignants n'aboutirait pas. Quel obstacle a-t-elle invoqué ?",
+      "question": "Le 25 septembre 2026, la CSC-Enseignement s'est inquiétée de la suppression de postes PTP (Programme de transition professionnelle) dans des écoles fondamentales bruxelloises. Combien de postes le syndicat a-t-il cités ?",
       "options": [
-        "Le surcoût des cotisations patronales, que le fédéral n'a pas accepté de réduire",
-        "L'opposition unanime des pouvoirs organisateurs de l'enseignement libre",
-        "Un arrêt de la Cour constitutionnelle rendu au printemps 2026",
-        "Le refus des communes bruxelloises d'appliquer la réforme dans leurs écoles"
+        "243 postes",
+        "143 postes",
+        "324 postes",
+        "86 postes"
       ],
       "correct": 0,
-      "explanation": "Le taux de cotisation passerait de 5,26 % pour les enseignants statutaires à 23,62 % sous contrat, soit un surcoût estimé à 400 millions d'euros à l'horizon 2070. Le contrat à durée indéterminée reste prévu pour la rentrée 2027.",
+      "explanation": "Le chiffre de 243 postes est celui du syndicat. Le 28 septembre 2026, le cabinet du ministre bruxellois de l'Emploi a répondu qu'il n'était pas question de toucher aux moyens affectés aux écoles via les PTP.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:2f9bc12c03f32395dcf271ca74afc7b8",
-        "generatedAt": "2026-08-25T09:20:47.707Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:a2dfdef356fb0261ef4a5ecc81154c37",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Selon le focus de l'IBSA publié le 16 juillet 2026 sur l'année scolaire 2024-2025, quelle part des jeunes Bruxellois est sortie du secondaire sans certificat ni qualification ?",
+      "question": "Selon La Libre (14 septembre 2026), un décret de la Fédération Wallonie-Bruxelles interdit depuis la rentrée 2026 le port visible de signes convictionnels au personnel de l'enseignement officiel. Quelle catégorie fait exception ?",
       "options": [
-        "18 %",
-        "12 %",
-        "26 %",
-        "8 %"
+        "Les enseignants stagiaires et les directions",
+        "Les éducateurs et le personnel paramédical",
+        "Les directions des écoles fondamentales",
+        "Les professeurs de religion et de morale"
       ],
-      "correct": 0,
-      "explanation": "Contre 12 % au niveau national, 16 % à Anvers et 22 % à Charleroi. L'institut précise ne disposer d'aucune statistique fiable sur les élèves totalement déscolarisés en Région bruxelloise.",
+      "correct": 3,
+      "explanation": "Le décret, adopté en avril 2026, vise notamment les enseignants, stagiaires compris, les directions, les éducateurs et le personnel paramédical. Seuls les professeurs de religion et de morale en sont exemptés.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-08-22",
-        "sourceContentHash": "sha256:2f9bc12c03f32395dcf271ca74afc7b8",
-        "generatedAt": "2026-08-25T09:20:47.707Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:a2dfdef356fb0261ef4a5ecc81154c37",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Dans son arrêt 96/2026 du 10 septembre 2026, la Cour constitutionnelle a validé la limitation dans le temps des allocations de chômage, à une exception près. Laquelle ?",
+      "question": "Selon le monitoring publié par Actiris le 25 septembre 2026, quelle part des 15 500 chercheurs d'emploi bruxellois arrivés en fin de droits au premier trimestre 2026 est devenue bénéficiaire d'un CPAS dans les trois mois suivants ?",
       "options": [
-        "Le régime transitoire, porté à douze mois minimum",
-        "L'exclusion des travailleurs de plus de cinquante ans",
-        "La suppression du complément d'ancienneté",
-        "Le délai de recours ramené à trente jours"
+        "8,9 %",
+        "12,6 %",
+        "28,1 %",
+        "47,6 %"
       ],
-      "correct": 0,
-      "explanation": "La Cour admet que la réforme réduit sensiblement le niveau de protection, mais la juge raisonnablement justifiée. Seul tombe le régime qui limitait à six, huit ou neuf mois le droit des chômeurs en troisième période d'indemnisation au 30 juin 2025 : ces personnes doivent désormais bénéficier d'au moins douze mois.",
+      "correct": 3,
+      "explanation": "Actiris chiffre à 47,6 % la part des exclus des deux premières vagues devenus bénéficiaires d'un CPAS en trois mois, contre 12,6 % qui ont accédé à un emploi et 8,9 % entrés dans l'assurance maladie-invalidité. Ces chiffres sont provisoires.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:24b313e76b9ed65ce5b52b3c4f6c3252",
-        "generatedAt": "2026-09-18T12:45:35.102Z",
+        "sourceLastModified": "2026-09-28",
+        "sourceContentHash": "sha256:f93fad64e20af62758383c9c9bb74e51",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Emploi",
-      "question": "En août 2026, quelle part des 99 458 demandeurs d'emploi inscrits à Bruxelles dépendait d'un CPAS ?",
+      "question": "Selon le troisième rapport de suivi publié par l'ONEM le 17 septembre 2026, quelle part des fins de droit aux allocations de chômage ou d'insertion enregistrées en Belgique entre janvier et juin 2026 concernait des Bruxellois ?",
       "options": [
-        "35 %, en hausse de 82,6 % sur un an",
-        "12 %, en hausse de 4,9 % sur un an",
-        "21 %, en hausse de 17,5 % sur un an",
-        "48 %, en hausse de 30,4 % sur un an"
+        "10,4 %",
+        "27,2 %",
+        "16,8 %",
+        "43,9 %"
       ],
-      "correct": 0,
-      "explanation": "Soit 34 830 personnes. Actiris attribue ce mouvement à la réforme fédérale : la limitation des allocations dans le temps ne réduit pas le nombre d'inscrits, elle déplace la charge du budget fédéral vers celui des dix-neuf CPAS bruxellois. Le taux de chômage administratif atteint 16,0 %, son plus haut niveau depuis décembre 2020.",
+      "correct": 1,
+      "explanation": "L'ONEM compte 26 986 Bruxellois parmi les 99 144 fins de droit enregistrées en Belgique sur la période, soit 27,2 %. Dans leur première situation connue après la sortie, 10,4 % d'entre eux occupaient un emploi salarié.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:24b313e76b9ed65ce5b52b3c4f6c3252",
-        "generatedAt": "2026-09-18T12:45:35.102Z",
+        "sourceLastModified": "2026-09-28",
+        "sourceContentHash": "sha256:f93fad64e20af62758383c9c9bb74e51",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Logement",
-      "question": "Qu'a décidé la Cour constitutionnelle au sujet de l'ordonnance bruxelloise contre les loyers abusifs, selon la communication du 17 septembre 2026 ?",
+      "question": "Que prévoit, pour la réduction de précompte immobilier accordée aux familles bruxelloises d'au moins deux enfants, le projet d'ordonnance approuvé en première lecture le 18 juin 2026 par le gouvernement bruxellois ?",
       "options": [
-        "Elle a rejeté le recours en annulation introduit contre elle",
-        "Elle a annulé l'ordonnance dans son intégralité",
-        "Elle a suspendu son application jusqu'à un nouvel examen",
-        "Elle a renvoyé la question à la Cour de justice de l'Union"
+        "Sa suppression pure et simple dès l'exercice 2027",
+        "Son doublement pour les propriétaires occupants en 2027",
+        "Son extension aux familles d'un seul enfant en 2027",
+        "Son remplacement par un forfait à partir de l'exercice 2027"
       ],
-      "correct": 0,
-      "explanation": "L'ordonnance est entrée en vigueur en mai 2025. Le cabinet de la secrétaire d'État au Logement annonce une révision de la grille indicative en deux étapes. Aucune source consultée ne donne le numéro de l'arrêt, et le nombre de requérants diffère selon les rédactions : quatre fédérations du secteur immobilier et de la construction selon La Libre, sept associations selon L'Avenir et La DH.",
+      "correct": 3,
+      "explanation": "La réduction de 10 % par enfant serait remplacée par un forfait à partir de l'exercice 2027, dont le montant n'était pas encore fixé selon l'étude de la Ligue des familles du 1er octobre 2026. Le même projet double la prime Be Home.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-09-21",
-        "sourceContentHash": "sha256:7c906267aed4d898989431adea2ebd0c",
-        "generatedAt": "2026-09-23T10:11:28.744Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:88f6387ef7da050b33c2d513f08b467e",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
-      "question": "Pourquoi la Cour constitutionnelle ne s'est-elle pas prononcée, le 17 septembre 2026, sur la fiabilité de la grille bruxelloise des loyers ?",
+      "question": "Selon l'étude de la Ligue des familles publiée le 1er octobre 2026, à partir de quel montant de précompte immobilier une famille bruxelloise perdrait-elle au passage à un forfait de 125 euros par enfant, hypothèse évoquée pour 2027 ?",
       "options": [
-        "La grille relève d'un arrêté du gouvernement, pas d'une norme législative",
-        "Les requérants avaient retiré ce grief avant l'audience du 1er juillet 2026",
-        "La grille relève d'une directive européenne, hors de son contrôle",
-        "Le Conseil d'État avait déjà validé la grille en octobre 2021"
+        "Au-delà de 750 euros de précompte",
+        "Au-delà de 1 250 euros de précompte",
+        "Au-delà de 2 000 euros de précompte",
+        "Au-delà de 2 500 euros de précompte"
       ],
-      "correct": 0,
-      "explanation": "L'ordonnance attaquée avait pour unique objet de fixer une date d'entrée en vigueur ; la grille est réglée par l'arrêté du 19 octobre 2017. Sa représentativité n'a donc pas été tranchée par cet arrêt.",
+      "correct": 1,
+      "explanation": "Avec les montants évoqués, toute famille dont le précompte dépasse 1 250 euros y perdrait, selon l'étude. Les familles locataires seraient les plus touchées, car elles ne bénéficient pas de la prime Be Home réservée aux propriétaires occupants.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 400M pour la SLRB, 1 000 logements publics",
       "provenance": {
-        "sourceLastModified": "2026-09-21",
-        "sourceContentHash": "sha256:7c906267aed4d898989431adea2ebd0c",
-        "generatedAt": "2026-09-23T10:11:28.744Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:88f6387ef7da050b33c2d513f08b467e",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Pourquoi un tronçon du Ring situé à Neder-Over-Heembeek, donc en Région de Bruxelles-Capitale, porte-t-il une signalisation uniquement néerlandophone ?",
+      "question": "À quoi s'oppose la proposition de résolution n° A-302, inscrite à la séance plénière du Parlement bruxellois du 2 octobre 2026 ?",
       "options": [
-        "Il est entretenu par la Région flamande depuis un accord de 1991",
-        "Il dépend de la commune de Wemmel depuis un accord de 1991",
-        "Il a été classé en zone de facilités linguistiques en 1991",
-        "Il relève du fédéral, qui n'est pas tenu au bilinguisme"
+        "Au projet de loi fédéral supprimant le financement de Beliris",
+        "Au projet de loi fédéral fusionnant les zones de police bruxelloises",
+        "Au projet de loi fédéral autorisant les visites domiciliaires",
+        "Au projet de loi fédéral modifiant les routes aériennes de nuit"
       ],
-      "correct": 0,
-      "explanation": "L'accord de coopération interrégional de 1991 confie à chaque Région la gestion de courts segments frontaliers situés chez sa voisine. Bruxelles Mobilité rappelle que la Région flamande reste tenue de respecter les lois linguistiques : sur sol bruxellois, le bilinguisme s'impose sans discussion. Le tronçon mesure environ 880 mètres selon la presse.",
+      "correct": 2,
+      "explanation": "La résolution vise le projet de loi fédéral autorisant les visites domiciliaires dans le cadre de l'exécution des mesures d'éloignement. La commission des Affaires générales l'avait adoptée le 28 septembre 2026 avec une majorité alternative.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-09-14",
-        "sourceContentHash": "sha256:965cf5f86eb4d0565e69eeb9d1b18600",
-        "generatedAt": "2026-09-18T12:45:35.102Z",
+        "sourceLastModified": "2026-10-01",
+        "sourceContentHash": "sha256:5136f07ce6afba8ac2aaeecee7463d9b",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Quelle sanction la commission bruxelloise de déontologie a-t-elle prononcée le 4 juillet 2026 contre vingt mandataires publics locaux ?",
+      "question": "Le 28 septembre 2026, qu'a indiqué le parquet de Bruxelles au sujet de la demande qu'un député bruxellois aurait adressée au procureur du Roi pour faire libérer un détenu ?",
       "options": [
-        "Des amendes de 10 à 40 % d'une rémunération mensuelle",
-        "Une inéligibilité aux mandats dérivés pendant deux ans",
-        "La restitution des jetons de présence perçus en 2025",
-        "Une suspension de mandat de trois à six mois"
+        "Qu'une instruction pour corruption était ouverte contre le député",
+        "Que les faits ne constituent pas une infraction pénale",
+        "Que la levée de l'immunité du député était demandée",
+        "Que le député était cité devant le tribunal correctionnel"
       ],
-      "correct": 0,
-      "explanation": "Le motif est un défaut de transparence sur les rémunérations. La cellule transparence avait recensé 305 mandataires en défaut, soit 24 % des dossiers examinés ; après des rappels ciblés, vingt-sept restaient en défaut. C'est le premier bilan chiffré et sanctionnant de ce mécanisme de contrôle.",
+      "correct": 1,
+      "explanation": "Selon le parquet, la demande n'était assortie d'aucune promesse, offre ou avantage, et aucun dossier pénal n'a été ouvert. Le parquet renvoie à l'avis n° 2026-003 de la commission bruxelloise de déontologie sur la séparation des pouvoirs.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-09-14",
-        "sourceContentHash": "sha256:965cf5f86eb4d0565e69eeb9d1b18600",
-        "generatedAt": "2026-09-18T12:45:35.102Z",
+        "sourceLastModified": "2026-10-01",
+        "sourceContentHash": "sha256:5136f07ce6afba8ac2aaeecee7463d9b",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Quelle commune bruxelloise a annoncé, les 17 et 18 septembre 2026, qu'elle ne participerait pas à la deuxième journée sans voiture régionale du 2 mai 2027 ?",
+      "question": "Selon BRUZZ, qu'a fait apparaître la commission Mobilité du Parlement bruxellois du 29 septembre 2026 au sujet du Mediatram, le projet de tram vers le site Mediapark approuvé en 2022 ?",
       "options": [
-        "Woluwe-Saint-Lambert",
-        "Ixelles",
-        "Schaerbeek",
-        "Uccle"
+        "Le projet dispose d'un permis d'urbanisme, mais son chantier est reporté à 2029",
+        "Le projet est abandonné au profit d'une ligne de bus vers le boulevard Reyers",
+        "Le projet n'a ni estimation financière ni demande de permis d'urbanisme",
+        "Le projet est chiffré, mais son tracé à travers le site Mediapark a été refusé"
       ],
-      "correct": 0,
-      "explanation": "Le collège invoque un coût d'organisation estimé entre 35 000 et 50 000 euros et la mobilisation de 70 à 80 policiers ; le cabinet de la ministre régionale de la Mobilité conteste l'argument budgétaire avancé sur les subsides au vélo.",
+      "correct": 2,
+      "explanation": "D'après BRUZZ, le Mediatram n'a ni estimation financière ni demande de permis, et il ne figure pas parmi les projets de tram que le gouvernement bruxellois retient pour raisons budgétaires. Le projet est provisoirement mis en attente.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:e86ca1a9a862f5b443d85ab9a5960ebc",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:0408b18d5f670adc1d7318b24409a543",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Selon BRUZZ, le report du jeudi 10 septembre 2026 de l'évaluation du plan Good Move au gouvernement bruxellois en était le combientième ?",
+      "question": "Dans le rapport de la Cour des comptes adopté le 8 octobre 2025, à quelle estimation de départ se rapporte la hausse de 255 % du coût de la ligne complète du métro 3 à Bruxelles ?",
       "options": [
-        "Le quatrième",
-        "Le deuxième",
-        "Le troisième",
-        "Le cinquième"
+        "À l'estimation de mars 2015, soit 1 338 millions d'euros",
+        "À l'estimation d'août 2012, soit 824,2 millions d'euros",
+        "À l'estimation de juin 2019, soit 2 300 millions d'euros",
+        "À l'estimation de mai 2009, soit 650,5 millions d'euros"
       ],
       "correct": 0,
-      "explanation": "Le point est inscrit à l'ordre du jour du gouvernement bruxellois depuis début juillet 2026 ; la ministre de la Mobilité propose de suivre la procédure légale de l'ordonnance du 13 octobre 2023 sur la planification de la mobilité, Good Move restant en vigueur jusqu'à l'adoption du plan suivant.",
+      "explanation": "Le coût de la ligne complète passe de 1 338 millions d'euros en mars 2015 à 4 759,7 millions en décembre 2024, soit +255 %. La Cour cite aussi +477 %, mais par rapport à la première estimation d'août 2012 (824,2 millions d'euros).",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:e86ca1a9a862f5b443d85ab9a5960ebc",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:0408b18d5f670adc1d7318b24409a543",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Le Conseil des ministres fédéral a approuvé, le 18 septembre 2026, une prolongation de six mois du dispositif « Urban Shield ». Selon la RTBF et BX1, à combien de militaires le contingent déployé dans les gares et stations de métro bruxelloises passe-t-il avec cette prolongation ?",
+      "question": "Quel budget pour 2026 accompagne la première phase du Plan Gares, approuvée par le gouvernement bruxellois le 1er octobre 2026 pour les gares du Nord et du Midi, selon le cabinet du ministre-président cité par BRUZZ et La DH ?",
       "options": [
-        "Une cinquantaine",
-        "Une trentaine",
-        "Quarante-cinq",
-        "Une soixantaine"
+        "300 000 euros pour l'année 2026",
+        "3 millions d'euros pour l'année 2026",
+        "5 millions d'euros pour l'année 2026",
+        "10 millions d'euros pour l'année 2026"
       ],
-      "correct": 0,
-      "explanation": "Le contingent comptait une trentaine de militaires à son lancement en avril 2026. Le chiffre de quarante-cinq militaires, cité ailleurs pour l'extension du 3 avril 2026, provient d'une autre source à une autre date et n'est pas réconcilié avec celui-ci.",
+      "correct": 1,
+      "explanation": "La première phase est dotée de 3 millions d'euros pour 2026 : nettoyage et désinfection, remplacement des caméras obsolètes, nouvel éclairage et renforcement des maraudes sociales. Selon BRUZZ, le plan porte ensuite 5 millions d'euros en 2027.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:ba806ccfefedc96a4f2a765c3c69d870",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:1430c96984cc07ac4cd578fe0d49ab2d",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Quel est le rang, parmi les zones dites « hotspots » anti-drogue instaurées par arrêté de police en Région bruxelloise, de celle créée à la demande de la commune d'Ixelles autour des rues Gray, Marie-Henriette, du Levain et de la Brasserie, près de Flagey (18-19 septembre 2026) ?",
+      "question": "Où doit être construite la nouvelle caserne d'état-major du SIAMU, le service d'incendie bruxellois, dont le gouvernement bruxellois a approuvé l'attribution du marché public le 24 septembre 2026 ?",
       "options": [
-        "La dix-neuvième",
-        "La douzième",
-        "La quinzième",
-        "La vingtième"
+        "Sur le site de l'avenue de l'Héliport, à la place de la caserne des années 1980",
+        "Sur l'ancien site industriel d'Audi Brussels, le long du chemin de fer à Forest",
+        "Sur un terrain proche de la gare du Midi, entre Anderlecht et Saint-Gilles",
+        "Sur un terrain du Port de Bruxelles, près de Tour & Taxis à Laeken"
       ],
-      "correct": 0,
-      "explanation": "L'arrêté, signé par le ministre-président, interdit la consommation d'alcool sur la voie publique et sa vente à emporter entre 22h et 6h, et permet des contrôles renforcés et l'usage de caméras mobiles.",
+      "correct": 3,
+      "explanation": "La caserne sera construite sur un terrain du Port de Bruxelles d'environ 1,7 hectare, le long de la future drève Maritime, et remplacera celle de l'avenue de l'Héliport. Le début des travaux est visé pour fin 2029.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, 10M EUR gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:ba806ccfefedc96a4f2a765c3c69d870",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:1430c96984cc07ac4cd578fe0d49ab2d",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Que signale Vivalis le 17 septembre 2026 au sujet du virus du Nil occidental à Bruxelles ?",
+      "question": "Après la fermeture de son centre d'hébergement d'urgence du WTC, le 30 septembre 2026, combien de places le Samusocial dit-il conserver à Bruxelles pour les hommes seuls ?",
       "options": [
-        "Deux cas suspects, dont un touriste reparti en Italie",
-        "Deux cas confirmés par analyse de laboratoire",
-        "Huit cas très probables, comme en Flandre",
-        "Un premier foyer identifié dans une commune du nord"
+        "370 places",
+        "300 places",
+        "130 places",
+        "240 places"
       ],
-      "correct": 0,
-      "explanation": "L'autre personne réside à Bruxelles, se porte bien et ne présente plus de symptômes. En Flandre, le département de la Santé recense huit cas très probables. Les deux cas bruxellois sont qualifiés de suspects et non de confirmés : l'origine est Vivalis, organisme régional, mais l'information n'est relayée que par une seule dépêche de presse.",
+      "correct": 3,
+      "explanation": "Il reste 200 places au centre Poincaré, à Anderlecht, et 40 dans le centre pour mineurs non accompagnés en transit, à Molenbeek. Le Samusocial qualifie cette capacité d'historiquement basse.",
       "sourceSlug": "/fr/domaines/social",
-      "sourceTitle": "Social : dispositif d'accueil réduit de moitié, Samusocial saturé, CPAS sous pression",
+      "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:a93e24d8311598dd650b8f00f603a910",
-        "generatedAt": "2026-09-18T15:56:26.827Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:51c5466f5e8c7ad5ded9b908954b7692",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Comment se répartissent les trente-neuf places d'hébergement supplémentaires annoncées à Bruxelles pour les personnes souffrant d'assuétudes ?",
+      "question": "Selon La DH (1er octobre 2026), quel organisme coordonne le renforcement des maraudes sociales et de l'accueil de jour prévu par la première phase du Plan Gares, approuvée ce jour-là par le gouvernement bruxellois ?",
       "options": [
-        "Vingt-quatre en 2027 et quinze en 2028",
-        "Quinze en 2027 et vingt-quatre en 2028",
-        "Dix-neuf en 2027 et vingt en 2028",
-        "Trente-neuf en une seule fois en 2027"
+        "Bruss'help",
+        "Le Samusocial",
+        "BelRefugees",
+        "Vivalis"
       ],
       "correct": 0,
-      "explanation": "La capacité actuelle est de soixante-trois places résidentielles dans les centres soutenus par Iriscare, inchangée en 2023, 2024 et 2025. En 2025, un séjour court se faisait attendre dix mois en moyenne, et l'accueil de crise du centre Enaden environ deux mois. La réponse parlementaire elle-même n'était pas consultable en ligne au 13 septembre 2026.",
+      "explanation": "Bruss'help coordonne ce volet social, mené autour des gares du Nord et du Midi avec les communes d'Anderlecht, de Saint-Gilles et de Schaerbeek. Cette information ne figure que dans La DH.",
       "sourceSlug": "/fr/domaines/social",
-      "sourceTitle": "Social : dispositif d'accueil réduit de moitié, Samusocial saturé, CPAS sous pression",
+      "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:a93e24d8311598dd650b8f00f603a910",
-        "generatedAt": "2026-09-18T15:56:26.827Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:51c5466f5e8c7ad5ded9b908954b7692",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Que demande un collectif d'opposants au conseil communal de Schaerbeek, le 16 septembre 2026, au sujet de la friche Josaphat ?",
+      "question": "Combien de réactions la commune de Schaerbeek a-t-elle reçues au total lors de l'enquête publique sur le permis de lotir de la friche Josaphat, close le 26 septembre 2026, selon son bourgmestre faisant fonction cité par BRUZZ le 28 septembre 2026 ?",
       "options": [
-        "Rendre un avis défavorable sur le permis de lotir",
-        "Racheter le terrain à l'opérateur public régional",
-        "Classer l'ensemble du site comme réserve naturelle",
-        "Suspendre l'enquête publique jusqu'en août 2027"
+        "Environ 2 800 réactions",
+        "Environ 5 000 réactions",
+        "Environ 8 500 réactions",
+        "Environ 15 000 réactions"
       ],
-      "correct": 0,
-      "explanation": "Le collectif demande de rompre avec la position de 2025, lorsque le collège s'était abstenu. L'enquête publique porte sur 537 logements, contre 540 dans la version déposée en 2025. La demande émane de la SAU, la Société d'Aménagement Urbain, opérateur public de la Région, alors que la déclaration de politique régionale du 14 février 2026 gèle le développement du site pendant les dix-huit premiers mois de la législature.",
+      "correct": 3,
+      "explanation": "Le bourgmestre faisant fonction avance environ 15 000 réactions, papier compris, contre 2 800 lors de l'enquête de 2025 sur la version précédente du projet. Environ 5 000 personnes ont demandé à assister à la commission de concertation, prévue le 12 octobre 2026.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:38fe295087cb4cef952267cffcd97863",
-        "generatedAt": "2026-09-18T15:56:26.827Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:78b92ac3ef0b642d83b83c0f6019ba77",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Pourquoi les superficies citées pour la friche Josaphat diffèrent-elles selon les sources consultées ?",
+      "question": "Devant quelle juridiction l'ARAU, le BRAL et Inter-Environnement Bruxelles ont-ils introduit, début août 2026, un recours en annulation et en suspension contre le second permis de démantèlement partiel du Palais du Midi ?",
       "options": [
-        "Elles ne désignent pas le même périmètre",
-        "Une partie du terrain a été vendue en septembre",
-        "Les sources emploient des unités différentes",
-        "Le permis a été scindé en deux demandes"
+        "La Cour constitutionnelle",
+        "Le Conseil d'État",
+        "Le Collège d'urbanisme",
+        "La Cour des comptes"
       ],
-      "correct": 0,
-      "explanation": "Les sources d'août décrivent un terrain d'environ vingt-quatre hectares, celles de septembre le périmètre de la demande de permis, 6,76 hectares. Les rédactions ne donnent pas non plus la même date de clôture de l'enquête publique. Un permis de lotir ne vaut pas autorisation de construire : il porte sur le découpage des parcelles, les voiries et les impétrants, et la construction exigera une demande distincte.",
+      "correct": 1,
+      "explanation": "Les trois associations ont saisi le Conseil d'État et l'ont annoncé le 14 septembre 2026. Selon elles, le premier permis, suspendu par cette même juridiction le 18 décembre 2025, avait été retiré par la Région le 10 juin 2026.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:38fe295087cb4cef952267cffcd97863",
-        "generatedAt": "2026-09-18T15:56:26.827Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:78b92ac3ef0b642d83b83c0f6019ba77",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -629,21 +629,21 @@
       "id": "dossier-acs-0",
       "source": "dossier",
       "domain": "Emploi",
-      "question": "Selon la fiche, combien de postes ACS étaient subsidiés à fin 2017, auprès de 1 312 employeurs ?",
+      "question": "Selon l'arrêté bruxellois du 28 novembre 2002 sur les agents contractuels subventionnés (ACS), dont la dernière modification répertoriée date du 2 mai 2024, combien de temps un candidat doit-il avoir été inscrit comme demandeur d'emploi inoccupé durant l'année qui précède son engagement ?",
       "options": [
-        "Environ 10 000",
-        "Environ 6 700",
-        "Environ 7 000",
-        "Environ 2 500"
+        "Au moins trois mois",
+        "Au moins douze mois",
+        "Au moins six mois",
+        "Au moins neuf mois"
       ],
-      "correct": 0,
-      "explanation": "Plus de 7 000 postes relevaient des ASBL et administrations (postes « Loi-Programme ») et environ 2 500 des pouvoirs locaux ; en 2024, le nombre de postes actifs est estimé à environ 6 700, les postes non remplacés dans le délai de six mois imposé depuis 2015 expliquant l'écart.",
+      "correct": 2,
+      "explanation": "Il faut six mois d'inscription au cours de l'année précédant l'engagement, ou six mois de revenu d'intégration ou d'aide sociale sur la même période. La fiche liste les catégories dispensées de cette condition.",
       "sourceSlug": "/fr/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:31769a5a4dcbeb62d10e631763e63097",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:2d0d0169c249be13cebdf122d70a8fc7",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -652,21 +652,21 @@
       "id": "dossier-acs-1",
       "source": "dossier",
       "domain": "Emploi",
-      "question": "Quelle réforme institutionnelle, en 2014, a transféré la compétence de l'emploi, et avec elle le dispositif ACS, du fédéral vers les Régions ?",
+      "question": "Quel taux de réponse le ministre bruxellois de l'Emploi a-t-il annoncé, le 21 septembre 2026, pour le questionnaire d'Actiris sur les postes ACS envoyé aux associations le 16 juillet 2026 ?",
       "options": [
-        "La sixième réforme de l'État",
-        "La cinquième réforme de l'État",
-        "La quatrième réforme de l'État",
-        "La septième réforme de l'État"
+        "92 % de réponses",
+        "58 % de réponses",
+        "67 % de réponses",
+        "74 % de réponses"
       ],
       "correct": 0,
-      "explanation": "Le dispositif ACS existe depuis 1987, créé à l'origine comme outil de lutte contre le chômage bruxellois ; la sixième réforme de l'État a donné à la Région bruxelloise la pleine responsabilité de ce mécanisme.",
+      "explanation": "Le questionnaire, que les associations pouvaient remplir jusqu'au 13 septembre 2026, s'est clôturé avec 92 % de réponses. Il s'inscrit dans le monitoring et l'évaluation du système ACS prévus par la Déclaration de politique régionale du 13 février 2026.",
       "sourceSlug": "/fr/dossiers/acs",
       "sourceTitle": "ACS",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:31769a5a4dcbeb62d10e631763e63097",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:2d0d0169c249be13cebdf122d70a8fc7",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -698,21 +698,21 @@
       "id": "dossier-assemblees-citoyennes-0",
       "source": "dossier",
       "domain": "Institutionnel",
-      "question": "Quel ratio le règlement du Parlement bruxellois fixe-t-il pour une commission délibérative ?",
+      "question": "Combien de recommandations la commission délibérative du Parlement bruxellois consacrée à la propreté de l'espace public a-t-elle adoptées le 30 mai 2026 ?",
       "options": [
-        "Trois quarts de citoyens et un quart de parlementaires",
-        "Deux tiers de citoyens et un tiers de parlementaires",
-        "La moitié de citoyens et la moitié de parlementaires",
-        "Un tiers de citoyens et deux tiers de parlementaires"
+        "43 recommandations",
+        "97 recommandations",
+        "26 recommandations",
+        "22 recommandations"
       ],
-      "correct": 0,
-      "explanation": "La composition standard réunit 45 citoyens et 15 parlementaires. Les citoyens sont sélectionnés par double tirage au sort parmi les résidents bruxellois âgés de seize ans et plus.",
+      "correct": 2,
+      "explanation": "Les 26 recommandations se répartissent en cinq thèmes, de la gouvernance à l'organisation des collectes. Le rapport de cette septième commission délibérative a été approuvé le 6 juin 2026.",
       "sourceSlug": "/fr/dossiers/assemblees-citoyennes",
       "sourceTitle": "Assemblées citoyennes",
       "provenance": {
-        "sourceLastModified": "2026-04-20",
-        "sourceContentHash": "sha256:8a04b0c0a1f0c7e4bf52245b598a8024",
-        "generatedAt": "2026-08-05T19:54:22.112Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:99d8a482271a9342f10e67bb1304e34a",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -721,21 +721,21 @@
       "id": "dossier-bien-etre-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Selon le Baromètre national du bonheur (UGent/NN), enquête menée en janvier 2026 auprès de 1 572 personnes et publiée en mars 2026, quelle région belge affiche le score de bonheur subjectif le plus élevé ?",
+      "question": "Selon le Focus n°77 de l'IBSA, publié en septembre 2025 à partir de l'enquête EU-SILC 2023, quel facteur est le plus déterminant pour la satisfaction de vie des Bruxellois ?",
       "options": [
-        "La Région bruxelloise, avec 6,62/10",
-        "La Flandre, avec 6,61/10",
-        "La Wallonie, avec 6,36/10",
-        "La moyenne nationale, avec 6,53/10"
+        "Le fait de disposer d'un logement adapté",
+        "La possibilité d'exercer un travail",
+        "La santé, physique et mentale",
+        "Le maintien de relations sociales"
       ],
-      "correct": 0,
-      "explanation": "C'est la première fois depuis 2017 que les travailleurs actifs ne se distinguent plus des retraités ; les personnes sans emploi (5,32/10) et en incapacité de travail (5,13/10) affichent les scores les plus bas.",
+      "correct": 2,
+      "explanation": "L'IBSA place la santé physique et mentale en tête des déterminants, devant le niveau de vie, les relations sociales, le logement et le travail. Les Bruxellois y attribuent une note moyenne de 7,5 sur 10 à leur satisfaction dans la vie.",
       "sourceSlug": "/fr/dossiers/bien-etre",
       "sourceTitle": "Bien-être",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:4e0f37e5537d146475c951ce6281c31f",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-09-28",
+        "sourceContentHash": "sha256:320244888f866ffde3d1a334bdbdbad4",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Comment évolue le remboursement fédéral du revenu d'intégration versé aux personnes de la première vague d'exclusions du chômage, selon la projection présentée par Molenbeek-Saint-Jean le 11 septembre 2026 ?",
+      "question": "Selon le communiqué d'Actiris du 25 septembre 2026 sur les réformes fédérales du chômage, dans quelle commune bruxelloise la proportion de personnes en fin de droits ayant rejoint un CPAS est-elle la plus forte ?",
       "options": [
-        "De 100 % en 2026 à 75 % en 2029",
-        "De 100 % en 2026 à 90 % en 2029",
-        "De 85 % en 2026 à 60 % en 2029",
-        "De 90 % en 2026 à 50 % en 2029"
+        "À Saint-Gilles",
+        "À Bruxelles-Ville",
+        "À Etterbeek",
+        "À Auderghem"
       ],
-      "correct": 0,
-      "explanation": "Soit 90 % en 2027 et 80 % en 2028. Le CPAS comptait 1 740 dossiers liés aux exclusions au 31 août 2026 et chiffre à 16,3 millions d'euros la part du revenu d'intégration restant à sa charge de 2027 à 2029. Pour la deuxième vague, le remboursement fédéral n'est que de 85 % dès le départ.",
+      "correct": 2,
+      "explanation": "Etterbeek arrive en tête avec 57,8 %, devant Auderghem, Bruxelles-Ville et Saint-Gilles. Le communiqué d'Actiris ne précise pas la période couverte par ces taux communaux, une limite que la fiche signale.",
       "sourceSlug": "/fr/dossiers/cpas-bruxellois",
       "sourceTitle": "CPAS bruxellois",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:a3a922a072eb7a72fb52039026a35447",
-        "generatedAt": "2026-09-18T12:51:47.041Z",
+        "sourceLastModified": "2026-09-27",
+        "sourceContentHash": "sha256:acda227ed1be94644d9c0d2a3209930a",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -882,21 +882,21 @@
       "id": "dossier-enseignement-0",
       "source": "dossier",
       "domain": "Enseignement",
-      "question": "De combien le minerval standard de l'enseignement supérieur en Fédération Wallonie-Bruxelles a-t-il augmenté à la rentrée 2026-2027 ?",
+      "question": "Le 10 septembre 2026, une manifestation contre les économies dans l'enseignement s'est tenue à Liège. Combien de personnes a-t-elle réunies selon le décompte final de la police, rapporté par La Libre ?",
       "options": [
-        "De 835 à 1 194 euros par an",
-        "De 835 à 1 002 euros par an",
-        "De 920 à 1 194 euros par an",
-        "De 750 à 1 050 euros par an"
+        "7 000 personnes",
+        "10 000 personnes",
+        "13 000 personnes",
+        "20 000 personnes"
       ],
-      "correct": 0,
-      "explanation": "Soit une hausse d'environ 43 %, présentée comme un rattrapage de l'indexation depuis 2011. Elle s'inscrit dans un plan d'économies de 500 millions d'euros sur 2026-2029, dont 86,7 millions portent sur l'enseignement obligatoire dès la première année.",
+      "correct": 1,
+      "explanation": "La police a compté 10 000 personnes, les syndicats 13 000. Enseignants, étudiants du supérieur et quelques parents y réclamaient un refinancement de l'enseignement.",
       "sourceSlug": "/fr/dossiers/enseignement",
       "sourceTitle": "Enseignement",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:096e37461aab9c03b0220dcbfed6a54f",
-        "generatedAt": "2026-09-18T12:51:47.041Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:826e31ac941cc7a5e719001e90a9aa42",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -905,21 +905,21 @@
       "id": "dossier-enseignement-1",
       "source": "dossier",
       "domain": "Enseignement",
-      "question": "Quelle part des enseignants de l'enseignement néerlandophone bruxellois disposait du titre requis en 2023-2024, selon le département flamand de l'Enseignement ?",
+      "question": "À quoi doit servir le comité d'avis dont la ministre de l'Éducation de la Fédération Wallonie-Bruxelles a convoqué la première réunion pour le 13 octobre 2026 ?",
       "options": [
-        "59 %, contre 75 % en Flandre",
-        "72 %, contre 75 % en Flandre",
-        "84 %, contre 91 % en Flandre",
-        "45 %, contre 60 % en Flandre"
+        "Arbitrer les recours des enseignants contre leur pouvoir organisateur",
+        "Répartir entre les réseaux scolaires les économies déjà décidées",
+        "Évaluer chaque année les résultats des écoles aux épreuves externes",
+        "Présenter aux acteurs de l'enseignement les textes en préparation"
       ],
-      "correct": 0,
-      "explanation": "Ce taux était de 72 % à Bruxelles en 2016 : il s'est dégradé de treize points en sept ans. Les mêmes données administratives, arrêtées en octobre 2024, recensent 459 enseignants manquants à Bruxelles, dont 293 dans le fondamental, pour 53 613 élèves.",
+      "correct": 3,
+      "explanation": "Cette instance de concertation réunit une trentaine d'acteurs (syndicats, pouvoirs organisateurs, représentants des directions) pour prendre connaissance des textes législatifs en préparation et en discuter. Le gouvernement de la Fédération l'a validée durant l'été 2026.",
       "sourceSlug": "/fr/dossiers/enseignement",
       "sourceTitle": "Enseignement",
       "provenance": {
-        "sourceLastModified": "2026-09-06",
-        "sourceContentHash": "sha256:096e37461aab9c03b0220dcbfed6a54f",
-        "generatedAt": "2026-09-18T12:51:47.041Z",
+        "sourceLastModified": "2026-09-30",
+        "sourceContentHash": "sha256:826e31ac941cc7a5e719001e90a9aa42",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -928,21 +928,21 @@
       "id": "dossier-faillites-a-bruxelles-0",
       "source": "dossier",
       "domain": "Économie",
-      "question": "Comment la progression des faillites bruxelloises en 2025 se situe-t-elle par rapport aux autres régions ?",
+      "question": "Selon Statbel, combien d'entreprises ont été déclarées en faillite en Région bruxelloise de janvier à août 2026 ?",
       "options": [
-        "C'est la plus forte progression régionale du pays",
-        "C'est la seule région en recul sur l'année écoulée",
-        "C'est la progression la plus faible des trois régions",
-        "C'est une progression identique à celle de la Flandre"
+        "1 299 entreprises",
+        "1 098 entreprises",
+        "1 966 entreprises",
+        "2 190 entreprises"
       ],
       "correct": 0,
-      "explanation": "Les faillites bruxelloises augmentent de 13,2 %, contre 7,8 % en Flandre et un recul de 3 % en Wallonie. La construction et l'horeca figurent parmi les secteurs les plus touchés.",
+      "explanation": "Statbel compte 1 299 faillites de janvier à août 2026, contre 1 306 à la même période de 2025, soit une quasi-stabilité (-0,5 %). Ce cumul reste sous les niveaux de 2018 et 2019 : ce n'est pas un record bruxellois, à la différence du niveau national.",
       "sourceSlug": "/fr/dossiers/faillites-a-bruxelles",
       "sourceTitle": "Faillites",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:054c0d3e788a9218d2ba9eda7ebd9500",
-        "generatedAt": "2026-08-05T19:55:16.062Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:b72afd0b78e040c004f7a15808e20023",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -974,21 +974,21 @@
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Quel rôle le commissaire spécial a-t-il joué dans la réélection du président du Foyer anderlechtois, le 17 août 2026 ?",
+      "question": "Selon La Libre et La DH du 21 septembre 2026, quelle instance a désigné une administratrice pour occuper le siège qui lui revient au conseil d'administration du Foyer anderlechtois, société de logement social d'Anderlecht ?",
       "options": [
-        "Il a demandé lui-même l'organisation du scrutin",
-        "Il a exercé la présidence à la place du conseil",
-        "Il a suspendu le vote jusqu'à la fin de sa mission",
-        "Il a refusé de convoquer le conseil d'administration"
+        "Le conseil communal de la commune d'Anderlecht",
+        "Le conseil de l'action sociale du CPAS d'Anderlecht",
+        "Le conseil d'administration de la SLRB, à Bruxelles",
+        "Le gouvernement de la Région de Bruxelles-Capitale"
       ],
-      "correct": 0,
-      "explanation": "Il souhaitait un nouveau scrutin pour clarifier une situation devenue confuse : retrait temporaire voté le 15 juin, conseil sans quorum le 20 juin, première réélection le 10 juillet par cinq voix sur neuf. Sa mission, établie le 16 juillet pour quatre mois, porte sur la convocation des organes, leur ordre du jour, leur présidence et l'autorisation de signature des actes.",
+      "correct": 1,
+      "explanation": "Le siège revient au CPAS d'Anderlecht, dont le conseil de l'action sociale a voté la désignation. L'information, rapportée par un seul groupe de presse, restait non confirmée au 24 septembre 2026 ; la fiche détaille les votes des groupes.",
       "sourceSlug": "/fr/dossiers/foyer-anderlechtois",
       "sourceTitle": "Foyer anderlechtois",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:7cfe2cd17c0907316bccaac978bc44fa",
-        "generatedAt": "2026-09-18T12:54:32.625Z",
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:185cfb94603bdfd8798704b4fa40149b",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1112,21 +1112,21 @@
       "id": "dossier-metro-3-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Selon l'ARAU (9 septembre 2026), combien d'abris anti-aériens, antérieurs à celui classé sous la place du Jeu de Balle, l'association affirme-t-elle avoir attestés dans les caves du Palais du Midi ?",
+      "question": "Dans son rapport adopté le 8 octobre 2025, à combien la Cour des comptes estime-t-elle le coût total de la ligne de métro 3 entre Albert et Bordet, à Bruxelles ?",
       "options": [
-        "Deux",
-        "Un",
-        "Trois",
-        "Quatre"
+        "Environ 4,76 milliards d'euros",
+        "Environ 1,85 milliard d'euros",
+        "Environ 3,2 milliards d'euros",
+        "Environ 2,4 milliards d'euros"
       ],
       "correct": 0,
-      "explanation": "L'ARAU les date de 1940 et 1943, sur une surface totale de 450 mètres carrés pour une capacité pouvant atteindre 1 500 personnes, et demande un travail archéologique avant la poursuite des travaux du Métro 3 en sous-sol.",
+      "explanation": "La Cour chiffre le projet à 4 759,7 millions d'euros (évaluation de décembre 2024), soit une hausse de 477 % par rapport aux estimations de 2012. Elle situe la mise en service de la ligne complète au plus tôt en 2035.",
       "sourceSlug": "/fr/dossiers/metro-3",
       "sourceTitle": "Métro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:edde48570a35f5d853c2fbaa74a2e6ab",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:9c17e1ae7ed0509cc84ad01594389c32",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1135,21 +1135,21 @@
       "id": "dossier-metro-3-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Le 15 septembre 2026, Beliris a entamé le remblayage de fosses excavées autour de la gare du Nord, après l'arrêt des chantiers du Métro 3. Quelles sont les deux rues concernées ?",
+      "question": "Selon la RTBF, pendant combien de temps l'accord de gouvernement bruxellois du 12 février 2026 met-il en pause les travaux de la ligne de métro 3 ?",
       "options": [
-        "La rue du Progrès et la rue d'Aerschot",
-        "La rue Gray et la rue Marie-Henriette",
-        "La rue Neuve et le boulevard Anspach",
-        "La rue de la Loi et la rue Belliard"
+        "Pendant 3 ans",
+        "Pendant 5 ans",
+        "Pendant 10 ans",
+        "Pendant 15 ans"
       ],
-      "correct": 0,
-      "explanation": "La voirie de la rue du Progrès doit être rétablie à l'identique d'ici la fin de l'année 2026 selon Beliris, la revalorisation de la rue d'Aerschot devant s'achever dans le courant de 2027 ; le tronçon Albert-Nord reste gelé pour une durée indéterminée.",
+      "correct": 2,
+      "explanation": "La RTBF rapporte une pause de 10 ans. Le 15 septembre 2026, La Libre et BRUZZ décrivent le projet Albert-Nord comme gelé pour une durée indéterminée, sans mentionner cette durée.",
       "sourceSlug": "/fr/dossiers/metro-3",
       "sourceTitle": "Métro 3",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:edde48570a35f5d853c2fbaa74a2e6ab",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:9c17e1ae7ed0509cc84ad01594389c32",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutionnel",
-      "question": "De combien l'effectif de la Région bruxelloise a-t-il diminué depuis janvier 2026, selon le ministre du Budget et de la Fonction publique cité le 12 septembre 2026 ?",
+      "question": "Quelles mesures du projet de modification du statut des agents régionaux bruxellois la CGSP-ACOD et la CSC-ACV contestent-elles dans leur préavis de grève déposé le 29 septembre 2026 ?",
       "options": [
-        "De plus de 500 équivalents temps plein",
-        "De plus de 1 800 équivalents temps plein",
-        "De plus de 120 équivalents temps plein",
-        "De plus de 3 000 équivalents temps plein"
+        "Le gel des barèmes pendant deux ans et une évaluation trimestrielle",
+        "La suppression de deux jours de congé et une évaluation annuelle",
+        "La fin du télétravail et la suppression de cinq jours de congé",
+        "Le recul de l'âge de la pension et une évaluation semestrielle"
       ],
-      "correct": 0,
-      "explanation": "Dont 338 en quatre mois depuis le durcissement du moratoire sur les embauches en mars 2026. Les départs ne sont plus remplacés automatiquement, mais des recrutements ciblés restent possibles là où le service l'exige. Le périmètre du décompte n'est pas précisé et aucun communiqué officiel ne l'a accompagné, alors que la Région emploie environ 12 000 agents.",
+      "correct": 1,
+      "explanation": "Le préavis, à durée indéterminée et valable à partir du 1er octobre 2026, vise notamment la suppression de deux jours de congé et l'évaluation annuelle, maintenues par le ministre de la Fonction publique. Les syndicats contestent aussi le moratoire sur les recrutements en 2026.",
       "sourceSlug": "/fr/dossiers/reforme-administration",
       "sourceTitle": "Réforme administration",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:a2625d0990fa9643dde2a03be5f867e4",
-        "generatedAt": "2026-09-18T12:57:06.876Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:0f23e51ecc063a8b59cfca1d177c9ab1",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Que reprochent à la SLRB plusieurs sociétés immobilières de service public qui, selon une information de presse du 11 septembre 2026, refusent d'y laisser leurs liquidités ?",
+      "question": "Combien de logements sociaux la SLRB et la société Foyer du Sud ont-elles inaugurés à Forest le 23 septembre 2026, dans l'ancien bâtiment industriel Luttre de 11 000 m² ?",
       "options": [
-        "De s'en servir pour compenser les difficultés d'autres sociétés",
-        "De placer ces montants sur des produits financiers risqués",
-        "De retarder le versement des loyers perçus auprès des locataires",
-        "De prélever une commission de gestion sur chaque mouvement"
+        "63 logements sociaux",
+        "36 logements sociaux",
+        "112 logements sociaux",
+        "131 logements sociaux"
       ],
       "correct": 0,
-      "explanation": "La SLRB regroupe les comptes des seize sociétés immobilières de service public. Ce pot commun présentait un déficit d'environ 60 millions d'euros et la société faîtière avait cessé de le renflouer en novembre 2025. Ces tensions s'ajoutent au blocage de la dotation régionale de 131 millions.",
+      "explanation": "Le projet Luttre compte 63 logements sociaux d'une à six chambres, dont quatre adaptés aux personnes à mobilité réduite. Le bâtiment avait été acquis en 2016 dans le cadre de l'opération régionale Alliance Habitat-Acquisitions.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:a388f67b41842eca049643b9711415b0",
-        "generatedAt": "2026-09-18T12:59:29.515Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:cae4e1222a63afbca0d4487b8e9ad5d9",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Logement",
-      "question": "À quelle échéance le blocage des 131 millions d'euros de dotation régionale destinés à la SLRB a-t-il été renvoyé, selon l'information du 8 septembre 2026 ?",
+      "question": "Selon BRUZZ (1er octobre 2026), quel montant de dotation régionale, bloqué depuis le 3 septembre 2026, la SLRB attendait-elle encore à l'ouverture du conclave budgétaire bruxellois du samedi 3 octobre 2026 ?",
       "options": [
-        "Au conclave budgétaire de début octobre 2026",
-        "Au vote du budget régional de mars 2027",
-        "À la fin de la mission du commissaire spécial",
-        "Au prochain contrôle budgétaire de juin 2027"
+        "60 millions d'euros",
+        "250 millions d'euros",
+        "131 millions d'euros",
+        "400 millions d'euros"
       ],
-      "correct": 0,
-      "explanation": "C'est là que le gouvernement arrête le budget 2027. La contrepartie demandée est la traduction en décisions des recommandations de la commission d'enquête sur le Foyer anderlechtois. Le montant représente une part des 400 millions prévus pour la législature.",
+      "correct": 2,
+      "explanation": "La SLRB attendait encore 131 millions d'euros pour 2026, renvoyés à ce conclave. Selon BRUZZ, la réforme du logement social et la hausse des loyers figuraient parmi les sujets annoncés, sans précision sur les conditions du déblocage.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:a388f67b41842eca049643b9711415b0",
-        "generatedAt": "2026-09-18T12:59:29.515Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:cae4e1222a63afbca0d4487b8e9ad5d9",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Combien de dépassements des normes bruxelloises de bruit Bruxelles Environnement a-t-il enregistrés entre janvier et avril 2026 ?",
+      "question": "Parmi les mesures sur le survol de Bruxelles présentées le 1er octobre 2026 par le ministre fédéral de la Mobilité, à partir de quelle altitude les avions s'alignent-ils pour atterrir sur la piste 07L ?",
       "options": [
-        "3 815 dépassements",
-        "1 240 dépassements",
-        "8 600 dépassements",
-        "4 758 dépassements"
+        "Dès 2 500 pieds",
+        "Dès 3 000 pieds",
+        "Dès 4 000 pieds",
+        "Dès 6 000 pieds"
       ],
-      "correct": 0,
-      "explanation": "Soit environ neuf cent cinquante par mois, contre quatre cent septante-six par mois sur dix mois en 2025 : le rythme double. Une réserve de lecture s'impose, environ 80 % des dépassements provenant d'une seule station de mesure, à Molenbeek-Saint-Jean. Cette concentration localise le constat mais rend la série dépendante d'un point de mesure unique.",
+      "correct": 2,
+      "explanation": "Les avions s'alignent dès 4 000 pieds, à 22 kilomètres de l'aéroport au lieu de 16,5, puis descendent en continu. Le bureau d'études mandaté par le ministre n'y voit pas de gain significatif quant au nombre d'habitants survolés.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-09-13",
-        "sourceContentHash": "sha256:9c1f7377f6d80837cfd6dd2d284d001e",
-        "generatedAt": "2026-09-18T12:59:29.515Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:e7e2b68a3f8dadb52da979c2f1cee817",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1590,7 +1590,30 @@
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
+    },
+    {
+      "id": "dossier-zone-revitalisation-urbaine-0",
+      "source": "dossier",
+      "domain": "Urbanisme",
+      "question": "Quelles sont les trois conditions cumulatives que l'ordonnance organique bruxelloise du 6 octobre 2016 pose pour qu'un secteur statistique entre dans la zone de revitalisation urbaine (ZRU) ?",
+      "options": [
+        "Un revenu médian plus bas, un bâti plus ancien et plus de logements vides que les références régionales",
+        "Un taux de chômage plus élevé, moins d'espaces verts et plus de logements sociaux que les références régionales",
+        "Une densité plus élevée, un bâti plus ancien et un taux de pauvreté plus élevé que les références régionales",
+        "Un revenu médian plus bas, une densité et un taux de chômage plus élevés que les références régionales"
+      ],
+      "correct": 3,
+      "explanation": "Les trois critères sont relatifs : chaque secteur statistique est comparé aux valeurs régionales les plus récentes. Les contrats de quartier durables et les contrats de rénovation urbaine sont menés dans la zone ainsi délimitée.",
+      "sourceSlug": "/fr/dossiers/zone-revitalisation-urbaine",
+      "sourceTitle": "Zone de revitalisation urbaine",
+      "provenance": {
+        "sourceLastModified": "2026-09-24",
+        "sourceContentHash": "sha256:5280ce7e86dbfca966b1efda97938ded",
+        "generatedAt": "2026-10-02T08:11:35.043Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
     }
   ],
-  "reviewedCount": 69
+  "reviewedCount": 32
 }

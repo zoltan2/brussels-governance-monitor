@@ -72,6 +72,7 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
       const { headline, body } = leadSplit(fresh, c.digestHeadline);
       updates.push({
         title: c.title,
+        lastModified: c.lastModified,
         domain: c.domain,
         section: 'domains',
         status: c.status,
@@ -95,6 +96,7 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
       const { headline, body } = leadSplit(fresh, c.digestHeadline);
       updates.push({
         title: c.title,
+        lastModified: c.lastModified,
         domain: topic,
         section: 'dossiers',
         phase: c.phase,
@@ -117,6 +119,7 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
       const { headline, body } = leadSplit(fresh, c.digestHeadline);
       updates.push({
         title: c.title,
+        lastModified: c.lastModified,
         domain: c.slug,
         section: 'sectors',
         category: (SECTION_LABELS[locale] || SECTION_LABELS.fr).sector,
@@ -140,6 +143,7 @@ export function collectDigestUpdates(cutoff: string, siteUrl: string, campaign?:
       const { headline, body } = leadSplit(fresh, c.digestHeadline);
       updates.push({
         title: c.title,
+        lastModified: c.lastModified,
         domain: topic,
         section: 'communes',
         category: `${(SECTION_LABELS[locale] || SECTION_LABELS.fr).commune} · ${communeName}`,

@@ -8,6 +8,7 @@ import { TileSkeleton } from '@/components/admin/tile';
 import { TrafficTile } from '@/components/admin/traffic-tile';
 import { InfraTile } from '@/components/admin/infra-tile';
 import { SubscribersTile } from '@/components/admin/subscribers-tile';
+import { ThemesMuetsTile } from '@/components/admin/themes-muets-tile';
 import { DigestTile } from '@/components/admin/digest-tile';
 import { ARelireTile } from '@/components/admin/a-relire-tile';
 import { ContentTile } from '@/components/admin/content-tile';
@@ -60,6 +61,9 @@ export default async function AdminHubPage({
         </Suspense>
         <Suspense fallback={<TileSkeleton title="Abonnés" />}>
           <SubscribersTile />
+        </Suspense>
+        <Suspense fallback={<TileSkeleton title="Thèmes en silence" />}>
+          <ThemesMuetsTile />
         </Suspense>
         <Suspense fallback={<TileSkeleton title="Digest en cours" />}>
           <DigestTile locale={locale} />

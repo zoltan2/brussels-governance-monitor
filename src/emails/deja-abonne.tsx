@@ -53,12 +53,12 @@ const translations: Record<string, {
       "Brussels Governance Monitor, un projet d'intérêt général hébergé par Advice That SRL",
   },
   nl: {
-    preview: 'U ontvangt de digest al: deze onderwerpen aan uw abonnement toevoegen?',
+    preview: "U ontvangt de samenvatting al: deze thema's aan uw abonnement toevoegen?",
     title: 'U bent al geabonneerd',
     text:
-      'Er is zonet een inschrijving aangevraagd met dit adres, dat de digest van Brussels Governance Monitor al ontvangt. Klik op de knop om de onderstaande onderwerpen aan uw abonnement toe te voegen. Zonder klik verandert er niets.',
-    topicsTitle: 'Gevraagde onderwerpen:',
-    button: 'Deze onderwerpen toevoegen',
+      "Er is zonet een inschrijving aangevraagd met dit adres, dat de samenvatting van Brussels Governance Monitor al ontvangt. Klik op de knop om de onderstaande thema's aan uw abonnement toe te voegen. Zonder klik verandert er niets.",
+    topicsTitle: "Gevraagde thema's:",
+    button: "Deze thema's toevoegen",
     expiry: 'Deze link vervalt na 48 uur.',
     ignore:
       'Komt deze aanvraag niet van u, negeer dan deze e-mail: uw abonnement blijft ongewijzigd.',
@@ -81,10 +81,10 @@ const translations: Record<string, {
       'Brussels Governance Monitor, a public interest project hosted by Advice That SRL',
   },
   de: {
-    preview: 'Sie erhalten den Digest bereits: diese Themen zu Ihrem Abonnement hinzufügen?',
+    preview: 'Sie erhalten die Zusammenfassung bereits: diese Themen zu Ihrem Abonnement hinzufügen?',
     title: 'Sie sind bereits abonniert',
     text:
-      'Mit dieser Adresse, die den Digest von Brussels Governance Monitor bereits erhält, wurde soeben eine Anmeldung angefragt. Um die folgenden Themen zu Ihrem Abonnement hinzuzufügen, klicken Sie auf die Schaltfläche. Ohne Klick ändert sich nichts.',
+      'Mit dieser Adresse, die die Zusammenfassung von Brussels Governance Monitor bereits erhält, wurde soeben eine Anmeldung angefragt. Um die folgenden Themen zu Ihrem Abonnement hinzuzufügen, klicken Sie auf die Schaltfläche. Ohne Klick ändert sich nichts.',
     topicsTitle: 'Angefragte Themen:',
     button: 'Diese Themen hinzufügen',
     expiry: 'Dieser Link läuft in 48 Stunden ab.',

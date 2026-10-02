@@ -142,7 +142,7 @@ describe('formulaire d’inscription', () => {
 
     await waitFor(() => expect(trackMock).toHaveBeenCalled());
     expect(trackMock.mock.calls).toEqual([
-      ['inscription-reussie', { page: '/subscribe', statut: 'nouveau' }],
+      ['inscription-reussie', { page: '/subscribe', formulaire: 'complet' }],
     ]);
     expect(JSON.stringify(trackMock.mock.calls)).not.toContain('example.org');
   });

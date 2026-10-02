@@ -43,7 +43,7 @@ const SUJETS_CONFIRMATION: Record<LocaleEmail, string> = {
 
 const SUJETS_DEJA_ABONNE: Record<LocaleEmail, string> = {
   fr: 'Vous êtes déjà abonné : ajouter ces sujets ?',
-  nl: 'U bent al geabonneerd: deze onderwerpen toevoegen?',
+  nl: "U bent al geabonneerd: deze thema's toevoegen?",
   en: 'You are already subscribed: add these topics?',
   de: 'Sie sind bereits abonniert: diese Themen hinzufügen?',
 };

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T08:11:35.043Z",
+  "generatedAt": "2026-10-03T15:14:30.960Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -158,9 +158,9 @@
       "sourceSlug": "/fr/domaines/digital",
       "sourceTitle": "Numérique : fracture digitale et simplification administrative",
       "provenance": {
-        "sourceLastModified": "2026-08-09",
-        "sourceContentHash": "sha256:6094126b9bb6dfde3f925cad816fcdc5",
-        "generatedAt": "2026-08-25T12:39:56.967Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:e963d0dcdfd3fd63ad5bd902eaee7c81",
+        "generatedAt": "2026-10-03T15:14:30.960Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -181,9 +181,9 @@
       "sourceSlug": "/fr/domaines/digital",
       "sourceTitle": "Numérique : fracture digitale et simplification administrative",
       "provenance": {
-        "sourceLastModified": "2026-08-09",
-        "sourceContentHash": "sha256:6094126b9bb6dfde3f925cad816fcdc5",
-        "generatedAt": "2026-08-25T12:39:56.967Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:e963d0dcdfd3fd63ad5bd902eaee7c81",
+        "generatedAt": "2026-10-03T15:14:30.960Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "À quoi s'oppose la proposition de résolution n° A-302, inscrite à la séance plénière du Parlement bruxellois du 2 octobre 2026 ?",
+      "question": "Qu'a décidé le Parlement bruxellois en séance plénière, le 2 octobre 2026, au sujet de la proposition de résolution n° A-302, qui s'oppose au projet de loi fédéral autorisant les visites domiciliaires ?",
       "options": [
-        "Au projet de loi fédéral supprimant le financement de Beliris",
-        "Au projet de loi fédéral fusionnant les zones de police bruxelloises",
-        "Au projet de loi fédéral autorisant les visites domiciliaires",
-        "Au projet de loi fédéral modifiant les routes aériennes de nuit"
+        "Il l'a rejetée, faute de majorité régionale",
+        "Il l'a adoptée avec une majorité alternative",
+        "Il l'a renvoyée en commission des Affaires générales",
+        "Il a reporté le vote après la déclaration de politique générale"
       ],
-      "correct": 2,
-      "explanation": "La résolution vise le projet de loi fédéral autorisant les visites domiciliaires dans le cadre de l'exécution des mesures d'éloignement. La commission des Affaires générales l'avait adoptée le 28 septembre 2026 avec une majorité alternative.",
+      "correct": 1,
+      "explanation": "Selon la RTBF et BX1, le texte a été adopté avec une majorité alternative : deux partis de la majorité régionale l'ont soutenu aux côtés de l'opposition. Les articles ne donnent pas le décompte des voix.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-10-01",
-        "sourceContentHash": "sha256:5136f07ce6afba8ac2aaeecee7463d9b",
-        "generatedAt": "2026-10-02T08:11:35.043Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:fb78694ec9ff51d8e6c586acecbd1863",
+        "generatedAt": "2026-10-03T15:14:30.960Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,27 +399,50 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Le 28 septembre 2026, qu'a indiqué le parquet de Bruxelles au sujet de la demande qu'un député bruxellois aurait adressée au procureur du Roi pour faire libérer un détenu ?",
+      "question": "Le 2 octobre 2026, quel sort le Parlement bruxellois a-t-il réservé, selon La Libre, à la demande de convoquer en urgence sa commission du Règlement pour introduire une sanction contre un élu qui violerait la séparation des pouvoirs ?",
       "options": [
-        "Qu'une instruction pour corruption était ouverte contre le député",
-        "Que les faits ne constituent pas une infraction pénale",
-        "Que la levée de l'immunité du député était demandée",
-        "Que le député était cité devant le tribunal correctionnel"
+        "La demande a été acceptée et la commission s'est réunie le jour même",
+        "La demande a été retirée par le groupe qui l'avait déposée",
+        "La demande a été rejetée et la proposition suit la procédure ordinaire",
+        "La demande a été transmise pour avis à la commission de déontologie"
       ],
-      "correct": 1,
-      "explanation": "Selon le parquet, la demande n'était assortie d'aucune promesse, offre ou avantage, et aucun dossier pénal n'a été ouvert. Le parquet renvoie à l'avis n° 2026-003 de la commission bruxelloise de déontologie sur la séparation des pouvoirs.",
+      "correct": 2,
+      "explanation": "Selon La Libre, aucun autre groupe n'a appuyé la demande d'urgence et deux groupes se sont abstenus. La proposition de sanction n'est pas abandonnée : elle suit la procédure ordinaire.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-10-01",
-        "sourceContentHash": "sha256:5136f07ce6afba8ac2aaeecee7463d9b",
-        "generatedAt": "2026-10-02T08:11:35.043Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:fb78694ec9ff51d8e6c586acecbd1863",
+        "generatedAt": "2026-10-03T15:14:30.960Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-mobility-0",
+      "source": "domain",
+      "domain": "Mobilité",
+      "question": "Selon un communiqué diffusé le 2 octobre 2026, qu'a décidé le gouvernement bruxellois le 1er octobre 2026 au sujet de l'obligation « zéro émission » pour les véhicules nouvellement enregistrés comme taxis à Bruxelles ?",
+      "options": [
+        "L'échéance est reportée au 1er janvier 2029",
+        "L'échéance est avancée au 1er juillet 2026",
+        "L'échéance est suspendue jusqu'en 2030",
+        "L'échéance reste fixée au 1er janvier 2027"
+      ],
+      "correct": 3,
+      "explanation": "Le report de deux ans demandé début septembre 2026 n'est pas retenu. Des mesures d'accompagnement sont annoncées, dont deux ans d'exploitation en plus pour les véhicules en circulation et 100 à 150 bornes de recharge rapide d'ici fin 2028.",
+      "sourceSlug": "/fr/domaines/mobility",
+      "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
+      "provenance": {
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:ba83425b72fbd75e248fa97d75ab70b4",
+        "generatedAt": "2026-10-03T15:14:30.960Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
       "question": "Selon BRUZZ, qu'a fait apparaître la commission Mobilité du Parlement bruxellois du 29 septembre 2026 au sujet du Mediatram, le projet de tram vers le site Mediapark approuvé en 2022 ?",
@@ -434,32 +457,9 @@
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:0408b18d5f670adc1d7318b24409a543",
-        "generatedAt": "2026-10-02T08:11:35.043Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-mobility-1",
-      "source": "domain",
-      "domain": "Mobilité",
-      "question": "Dans le rapport de la Cour des comptes adopté le 8 octobre 2025, à quelle estimation de départ se rapporte la hausse de 255 % du coût de la ligne complète du métro 3 à Bruxelles ?",
-      "options": [
-        "À l'estimation de mars 2015, soit 1 338 millions d'euros",
-        "À l'estimation d'août 2012, soit 824,2 millions d'euros",
-        "À l'estimation de juin 2019, soit 2 300 millions d'euros",
-        "À l'estimation de mai 2009, soit 650,5 millions d'euros"
-      ],
-      "correct": 0,
-      "explanation": "Le coût de la ligne complète passe de 1 338 millions d'euros en mars 2015 à 4 759,7 millions en décembre 2024, soit +255 %. La Cour cite aussi +477 %, mais par rapport à la première estimation d'août 2012 (824,2 millions d'euros).",
-      "sourceSlug": "/fr/domaines/mobility",
-      "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
-      "provenance": {
-        "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:0408b18d5f670adc1d7318b24409a543",
-        "generatedAt": "2026-10-02T08:11:35.043Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:ba83425b72fbd75e248fa97d75ab70b4",
+        "generatedAt": "2026-10-03T15:14:30.960Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

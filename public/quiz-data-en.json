@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T08:18:22.628Z",
+  "generatedAt": "2026-10-03T15:14:33.334Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -158,9 +158,9 @@
       "sourceSlug": "/en/domains/digital",
       "sourceTitle": "Digital: bridging the digital divide and administrative simplification",
       "provenance": {
-        "sourceLastModified": "2026-08-09",
-        "sourceContentHash": "sha256:4b01450a1de2449994a5e3efb4498212",
-        "generatedAt": "2026-08-25T12:39:57.590Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:0ed5a09a40a89648936f317b143962b1",
+        "generatedAt": "2026-10-03T15:14:33.334Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -181,9 +181,9 @@
       "sourceSlug": "/en/domains/digital",
       "sourceTitle": "Digital: bridging the digital divide and administrative simplification",
       "provenance": {
-        "sourceLastModified": "2026-08-09",
-        "sourceContentHash": "sha256:4b01450a1de2449994a5e3efb4498212",
-        "generatedAt": "2026-08-25T12:39:57.590Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:0ed5a09a40a89648936f317b143962b1",
+        "generatedAt": "2026-10-03T15:14:33.334Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutional",
-      "question": "What does draft resolution No A-302, placed on the agenda of the Brussels Parliament's plenary session of 2 October 2026, oppose?",
+      "question": "What did the Brussels Parliament decide in plenary session on 2 October 2026 about draft resolution No A-302, which opposes the federal bill authorising home entries?",
       "options": [
-        "The federal bill abolishing the funding of Beliris",
-        "The federal bill merging the Brussels police zones",
-        "The federal bill authorising home entries",
-        "The federal bill changing night-time flight routes"
+        "It rejected the text for lack of a regional majority",
+        "It adopted the text with an alternative majority",
+        "It sent the text back to the General Affairs Committee",
+        "It postponed the vote until after the general policy statement"
       ],
-      "correct": 2,
-      "explanation": "The resolution targets the federal bill authorising home entries in the context of the enforcement of removal measures. The General Affairs Committee had adopted it on 28 September 2026 with an alternative majority.",
+      "correct": 1,
+      "explanation": "According to RTBF and BX1, the text was adopted with an alternative majority: two parties of the regional majority backed it alongside the opposition. The articles do not give the vote count.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-10-01",
-        "sourceContentHash": "sha256:b80c024796cb29dcbcdde67757a2b116",
-        "generatedAt": "2026-10-02T08:18:22.628Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:45b91d9f3fa2ddb9c2571001a05044c0",
+        "generatedAt": "2026-10-03T15:14:33.334Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,27 +399,50 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutional",
-      "question": "On 28 September 2026, what did the Brussels public prosecutor's office state about the request that a Brussels MP reportedly made to the King's Prosecutor to have a detainee released?",
+      "question": "On 2 October 2026, according to La Libre, what happened in the Brussels Parliament to the request to convene its Rules Committee as a matter of urgency in order to introduce a sanction against an elected member who breaches the separation of powers?",
       "options": [
-        "That a corruption investigation had been opened against the MP",
-        "That the facts do not constitute a criminal offence",
-        "That the lifting of the MP's immunity had been requested",
-        "That the MP had been summoned before the criminal court"
+        "The request was accepted and the committee met the same day",
+        "The request was withdrawn by the group that had tabled it",
+        "The request was rejected and the proposal follows the ordinary procedure",
+        "The request was referred to the ethics committee for an opinion"
       ],
-      "correct": 1,
-      "explanation": "According to the public prosecutor's office, the request came with no promise, offer or advantage, and no criminal file was opened. The office refers to opinion No 2026-003 of the Brussels ethics committee on the separation of powers.",
+      "correct": 2,
+      "explanation": "According to La Libre, no other group backed the urgency request and two groups abstained. The proposed sanction has not been dropped: it follows the ordinary procedure.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-10-01",
-        "sourceContentHash": "sha256:b80c024796cb29dcbcdde67757a2b116",
-        "generatedAt": "2026-10-02T08:18:22.628Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:45b91d9f3fa2ddb9c2571001a05044c0",
+        "generatedAt": "2026-10-03T15:14:33.334Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-mobility-0",
+      "source": "domain",
+      "domain": "Mobility",
+      "question": "According to a press release issued on 2 October 2026, what did the Brussels government decide on 1 October 2026 about the zero-emission requirement for vehicles newly registered as taxis in Brussels?",
+      "options": [
+        "The deadline is postponed to 1 January 2029",
+        "The deadline is brought forward to 1 July 2026",
+        "The deadline is suspended until 2030",
+        "The deadline remains set for 1 January 2027"
+      ],
+      "correct": 3,
+      "explanation": "The two-year postponement requested in early September 2026 was not granted. Support measures were announced, including two more years of service for vehicles already in use and 100 to 150 fast-charging points by the end of 2028.",
+      "sourceSlug": "/en/domains/mobility",
+      "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
+      "provenance": {
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:3461e81d4975ca24c425b1dd28134852",
+        "generatedAt": "2026-10-03T15:14:33.334Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobility",
       "question": "According to BRUZZ, what did the Brussels Parliament's Mobility Committee of 29 September 2026 bring to light about the Mediatram, the tram project to the Mediapark site approved in 2022?",
@@ -434,32 +457,9 @@
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:e9d69f1a3cfd7b47b012ec20a27d3556",
-        "generatedAt": "2026-10-02T08:18:22.628Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-mobility-1",
-      "source": "domain",
-      "domain": "Mobility",
-      "question": "In the Court of Audit report adopted on 8 October 2025, to which starting estimate does the 255% increase in the cost of the full Metro 3 line in Brussels refer?",
-      "options": [
-        "The March 2015 estimate, of 1,338 million euros",
-        "The August 2012 estimate, of 824.2 million euros",
-        "The June 2019 estimate, of 2,300 million euros",
-        "The May 2009 estimate, of 650.5 million euros"
-      ],
-      "correct": 0,
-      "explanation": "The cost of the full line goes from 1,338 million euros in March 2015 to 4,759.7 million in December 2024, or +255%. The Court also cites +477%, but compared with the first estimate of August 2012 (824.2 million euros).",
-      "sourceSlug": "/en/domains/mobility",
-      "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
-      "provenance": {
-        "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:e9d69f1a3cfd7b47b012ec20a27d3556",
-        "generatedAt": "2026-10-02T08:18:22.628Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:3461e81d4975ca24c425b1dd28134852",
+        "generatedAt": "2026-10-03T15:14:33.334Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

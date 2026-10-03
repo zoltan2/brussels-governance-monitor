@@ -96,6 +96,7 @@ const EVENEMENTS_LIENS = [
   'accueil-inventaire',
   'accueil-fiche',
   'accueil-quiz',
+  'accueil-whatsapp',
   'accueil-inscription',
   // Jeux natifs du panneau : les sorties vers le site.
   'jeux-stuut-dossier',

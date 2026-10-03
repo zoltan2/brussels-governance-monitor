@@ -8,6 +8,7 @@ import { DM_Serif_Display } from 'next/font/google';
 import { setRequestLocale } from 'next-intl/server';
 import { useLocale, useTranslations } from 'next-intl';
 import { SubscribeForm } from '@/components/subscribe-form';
+import { WhatsappInvite } from '@/components/whatsapp-invite';
 import { cleDeTheme } from '@/lib/theme-de-fiche';
 import { LatestUpdateBar } from '@/components/latest-update-bar';
 import { GovernmentTable } from '@/components/government-table';
@@ -284,6 +285,8 @@ export default async function HomePage({
               ...homeSectors.map((card) => cleDeTheme('sector', card.slug)),
             ]}
           />
+          {/* Chaîne WhatsApp : rien n'est rendu dans une langue où elle n'est pas proposée. */}
+          <WhatsappInvite locale={loc} />
         </div>
       </section>
     </>

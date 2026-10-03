@@ -7,12 +7,14 @@ import { NavLink } from './nav-link';
 // qui ne préfixe pas la locale, là où celui de @/i18n/navigation le ferait.
 import NextLink from 'next/link';
 import { dailyGame } from '@/lib/daily-game';
+import { getWhatsappChannel } from '@/lib/whatsapp-channel';
 import { SupportBanner } from '@/components/support-cta';
 
 export function Footer() {
   const t = useTranslations('footer');
   const locale = useLocale();
   const game = dailyGame(locale);
+  const whatsapp = getWhatsappChannel(locale);
   return (
     // Sur mobile, marge basse de 96 px (au lieu de 40) : les boutons flottants
     // (assistant, accessibilité : 56 px + 16 px) couvraient la dernière ligne du
@@ -95,6 +97,22 @@ export function Footer() {
                 <span className="ml-1 text-neutral-500" aria-hidden="true">&#8599;</span>
                 <span className="sr-only"> ({t('newTab')})</span>
               </a>
+              {/* Chaîne WhatsApp : absente des langues où elle n'est pas proposée (allemand). */}
+              {whatsapp && (
+                <a
+                  href={whatsapp.url}
+                  data-umami-event="navigation-clic"
+                  data-umami-event-zone="pied-de-page"
+                  data-umami-event-cible={whatsapp.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-neutral-700"
+                >
+                  {whatsapp.piedDePage}
+                  <span className="ml-1 text-neutral-500" aria-hidden="true">&#8599;</span>
+                  <span className="sr-only"> ({t('newTab')})</span>
+                </a>
+              )}
             </nav>
           </div>
 

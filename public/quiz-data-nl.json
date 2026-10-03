@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T08:18:22.401Z",
+  "generatedAt": "2026-10-03T15:14:32.171Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -158,9 +158,9 @@
       "sourceSlug": "/nl/domeinen/digital",
       "sourceTitle": "Digitaal: digitale kloof en administratieve vereenvoudiging",
       "provenance": {
-        "sourceLastModified": "2026-08-09",
-        "sourceContentHash": "sha256:00b5c052bdd0d74e239b2d82e13d6925",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:823367b9caf7767cd5de54b76ddf7436",
+        "generatedAt": "2026-10-03T15:14:32.171Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -181,9 +181,9 @@
       "sourceSlug": "/nl/domeinen/digital",
       "sourceTitle": "Digitaal: digitale kloof en administratieve vereenvoudiging",
       "provenance": {
-        "sourceLastModified": "2026-08-09",
-        "sourceContentHash": "sha256:00b5c052bdd0d74e239b2d82e13d6925",
-        "generatedAt": "2026-08-25T09:26:26.715Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:823367b9caf7767cd5de54b76ddf7436",
+        "generatedAt": "2026-10-03T15:14:32.171Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Waartegen verzet zich het voorstel van resolutie nr. A-302, dat op de agenda staat van de plenaire vergadering van het Brussels Parlement van 2 oktober 2026?",
+      "question": "Wat besliste het Brussels Parlement in plenaire vergadering op 2 oktober 2026 over het voorstel van resolutie nr. A-302, dat zich verzet tegen het federale wetsontwerp dat woonstbetredingen toestaat?",
       "options": [
-        "Tegen het federale wetsontwerp dat de financiering van Beliris schrapt",
-        "Tegen het federale wetsontwerp dat de Brusselse politiezones fuseert",
-        "Tegen het federale wetsontwerp dat woonstbetredingen toestaat",
-        "Tegen het federale wetsontwerp dat de nachtelijke vliegroutes wijzigt"
+        "Het verwierp de tekst bij gebrek aan een gewestelijke meerderheid",
+        "Het keurde de tekst goed met een wisselmeerderheid",
+        "Het stuurde de tekst terug naar de commissie Algemene Zaken",
+        "Het stelde de stemming uit tot na de algemene beleidsverklaring"
       ],
-      "correct": 2,
-      "explanation": "De resolutie is gericht tegen het federale wetsontwerp dat woonstbetredingen toestaat in het kader van de uitvoering van verwijderingsmaatregelen. De commissie Algemene Zaken had ze op 28 september 2026 goedgekeurd met een wisselmeerderheid.",
+      "correct": 1,
+      "explanation": "Volgens RTBF en BX1 werd de tekst goedgekeurd met een wisselmeerderheid: twee partijen van de gewestelijke meerderheid steunden hem samen met de oppositie. De artikels geven de stemverhouding niet.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-10-01",
-        "sourceContentHash": "sha256:9af62f14ad31ab9e2b43c99b177ed8c6",
-        "generatedAt": "2026-10-02T08:18:22.401Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:ae8fe9de86a0354da9031a45ac6f10d9",
+        "generatedAt": "2026-10-03T15:14:32.171Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,27 +399,50 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Wat deelde het parket van Brussel op 28 september 2026 mee over het verzoek dat een Brussels parlementslid aan de procureur des Konings zou hebben gericht om een gedetineerde te laten vrijlaten?",
+      "question": "Wat gebeurde er op 2 oktober 2026 in het Brussels Parlement, volgens La Libre, met de vraag om de commissie voor het Reglement bij hoogdringendheid bijeen te roepen om een sanctie in te voeren tegen een verkozene die de scheiding der machten schendt?",
       "options": [
-        "Dat tegen het parlementslid een gerechtelijk onderzoek wegens corruptie was geopend",
-        "Dat de feiten geen strafbaar feit vormen",
-        "Dat de opheffing van de onschendbaarheid van het parlementslid was gevraagd",
-        "Dat het parlementslid voor de correctionele rechtbank was gedagvaard"
+        "De vraag werd aanvaard en de commissie kwam dezelfde dag bijeen",
+        "De vraag werd ingetrokken door de fractie die ze had ingediend",
+        "De vraag werd verworpen en het voorstel volgt de gewone procedure",
+        "De vraag werd voor advies naar de deontologische commissie gestuurd"
       ],
-      "correct": 1,
-      "explanation": "Volgens het parket ging het verzoek niet gepaard met enige belofte, aanbod of voordeel, en werd er geen strafdossier geopend. Het parket verwijst naar het advies nr. 2026-003 van de Brusselse deontologische commissie over de scheiding der machten.",
+      "correct": 2,
+      "explanation": "Volgens La Libre steunde geen enkele andere fractie de vraag om hoogdringendheid en onthielden twee fracties zich. Het voorstel van sanctie is niet van tafel: het volgt de gewone procedure.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-10-01",
-        "sourceContentHash": "sha256:9af62f14ad31ab9e2b43c99b177ed8c6",
-        "generatedAt": "2026-10-02T08:18:22.401Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:ae8fe9de86a0354da9031a45ac6f10d9",
+        "generatedAt": "2026-10-03T15:14:32.171Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-mobility-0",
+      "source": "domain",
+      "domain": "Mobiliteit",
+      "question": "Wat besliste de Brusselse regering op 1 oktober 2026, volgens een persbericht van 2 oktober 2026, over de verplichting dat nieuw ingeschreven taxivoertuigen in Brussel emissievrij moeten zijn?",
+      "options": [
+        "De datum wordt uitgesteld tot 1 januari 2029",
+        "De datum wordt vervroegd naar 1 juli 2026",
+        "De datum wordt opgeschort tot 2030",
+        "De datum blijft behouden op 1 januari 2027"
+      ],
+      "correct": 3,
+      "explanation": "Het uitstel van twee jaar dat begin september 2026 werd gevraagd, komt er niet. Er zijn begeleidende maatregelen aangekondigd, waaronder twee jaar extra gebruik voor voertuigen in omloop en 100 tot 150 snellaadpunten tegen eind 2028.",
+      "sourceSlug": "/nl/domeinen/mobility",
+      "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
+      "provenance": {
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:7a9dc2cbf25ccfd7163b1f8cade83c89",
+        "generatedAt": "2026-10-03T15:14:32.171Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobiliteit",
       "question": "Wat bracht de commissie Mobiliteit van het Brussels Parlement van 29 september 2026 volgens BRUZZ aan het licht over de Mediatram, het tramproject naar de Mediapark-site dat in 2022 werd goedgekeurd?",
@@ -434,32 +457,9 @@
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
       "provenance": {
-        "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:3bfbc26aa3b986b9c7cd7ffed8597175",
-        "generatedAt": "2026-10-02T08:18:22.401Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-mobility-1",
-      "source": "domain",
-      "domain": "Mobiliteit",
-      "question": "Op welke oorspronkelijke raming slaat de stijging met 255 % van de kosten van de volledige lijn van metro 3 in Brussel, in het verslag dat het Rekenhof op 8 oktober 2025 aannam?",
-      "options": [
-        "Op de raming van maart 2015, namelijk 1 338 miljoen euro",
-        "Op de raming van augustus 2012, namelijk 824,2 miljoen euro",
-        "Op de raming van juni 2019, namelijk 2 300 miljoen euro",
-        "Op de raming van mei 2009, namelijk 650,5 miljoen euro"
-      ],
-      "correct": 0,
-      "explanation": "De kosten van de volledige lijn stijgen van 1 338 miljoen euro in maart 2015 tot 4 759,7 miljoen in december 2024, of +255 %. Het Rekenhof vermeldt ook +477 %, maar dan ten opzichte van de eerste raming van augustus 2012 (824,2 miljoen euro).",
-      "sourceSlug": "/nl/domeinen/mobility",
-      "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
-      "provenance": {
-        "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:3bfbc26aa3b986b9c7cd7ffed8597175",
-        "generatedAt": "2026-10-02T08:18:22.401Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:7a9dc2cbf25ccfd7163b1f8cade83c89",
+        "generatedAt": "2026-10-03T15:14:32.171Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

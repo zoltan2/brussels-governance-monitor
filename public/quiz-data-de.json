@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T08:18:22.850Z",
+  "generatedAt": "2026-10-03T15:14:34.500Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -158,9 +158,9 @@
       "sourceSlug": "/de/bereiche/digital",
       "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung",
       "provenance": {
-        "sourceLastModified": "2026-08-09",
-        "sourceContentHash": "sha256:b660201ac2f30fc1a7b90fece8ebc884",
-        "generatedAt": "2026-08-25T12:39:57.901Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:a359bcf215b4ff7171e2e615fb097d82",
+        "generatedAt": "2026-10-03T15:14:34.500Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -181,9 +181,9 @@
       "sourceSlug": "/de/bereiche/digital",
       "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung",
       "provenance": {
-        "sourceLastModified": "2026-08-09",
-        "sourceContentHash": "sha256:b660201ac2f30fc1a7b90fece8ebc884",
-        "generatedAt": "2026-08-25T12:39:57.901Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:a359bcf215b4ff7171e2e615fb097d82",
+        "generatedAt": "2026-10-03T15:14:34.500Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Wogegen richtet sich der Resolutionsvorschlag Nr. A-302, der auf der Tagesordnung der Plenarsitzung des Brüsseler Parlaments vom 2. Oktober 2026 steht?",
+      "question": "Was hat das Brüsseler Parlament am 2. Oktober 2026 in der Plenarsitzung über den Resolutionsvorschlag Nr. A-302 entschieden, der sich gegen den föderalen Gesetzentwurf richtet, der Wohnungsbetretungen erlaubt?",
       "options": [
-        "Gegen den föderalen Gesetzentwurf zur Streichung der Finanzierung von Beliris",
-        "Gegen den föderalen Gesetzentwurf zur Fusion der Brüsseler Polizeizonen",
-        "Gegen den föderalen Gesetzentwurf zur Erlaubnis von Wohnungsbetretungen",
-        "Gegen den föderalen Gesetzentwurf zur Änderung der nächtlichen Flugrouten"
+        "Es hat den Text mangels regionaler Mehrheit abgelehnt",
+        "Es hat den Text mit einer wechselnden Mehrheit angenommen",
+        "Es hat den Text an den Ausschuss für Allgemeine Angelegenheiten zurückverwiesen",
+        "Es hat die Abstimmung auf die Zeit nach der Erklärung zur allgemeinen Politik verschoben"
       ],
-      "correct": 2,
-      "explanation": "Die Resolution zielt auf den föderalen Gesetzentwurf, der Wohnungsbetretungen im Rahmen der Vollstreckung von Entfernungsmaßnahmen erlaubt. Der Ausschuss für Allgemeine Angelegenheiten hatte sie am 28. September 2026 mit einer wechselnden Mehrheit angenommen.",
+      "correct": 1,
+      "explanation": "Laut RTBF und BX1 wurde der Text mit einer wechselnden Mehrheit angenommen: Zwei Parteien der regionalen Mehrheit unterstützten ihn gemeinsam mit der Opposition. Die Artikel nennen das Stimmenverhältnis nicht.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-10-01",
-        "sourceContentHash": "sha256:b3908258c7a2a937d90945341452615f",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:5400b1745957455d13c4683aee368999",
+        "generatedAt": "2026-10-03T15:14:34.500Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,27 +399,50 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Was erklärte die Brüsseler Staatsanwaltschaft am 28. September 2026 zu der Bitte, die ein Brüsseler Abgeordneter an den Prokurator des Königs gerichtet haben soll, um einen Häftling freizulassen?",
+      "question": "Was geschah am 2. Oktober 2026 im Brüsseler Parlament laut La Libre mit dem Antrag, den Geschäftsordnungsausschuss im Dringlichkeitsverfahren einzuberufen, um eine Sanktion gegen Abgeordnete einzuführen, die gegen die Gewaltenteilung verstoßen?",
       "options": [
-        "Dass gegen den Abgeordneten eine Untersuchung wegen Korruption eröffnet wurde",
-        "Dass die Tatsachen keine Straftat darstellen",
-        "Dass die Aufhebung der Immunität des Abgeordneten beantragt wurde",
-        "Dass der Abgeordnete vor das Strafgericht geladen wurde"
+        "Der Antrag wurde angenommen und der Ausschuss tagte noch am selben Tag",
+        "Der Antrag wurde von der Fraktion zurückgezogen, die ihn gestellt hatte",
+        "Der Antrag wurde abgelehnt und der Vorschlag folgt dem ordentlichen Verfahren",
+        "Der Antrag wurde zur Stellungnahme an den Deontologieausschuss verwiesen"
       ],
-      "correct": 1,
-      "explanation": "Laut der Staatsanwaltschaft war die Bitte mit keinerlei Versprechen, Angebot oder Vorteil verbunden, und es wurde kein Strafverfahren eröffnet. Die Staatsanwaltschaft verweist auf die Stellungnahme Nr. 2026-003 der Brüsseler Deontologiekommission zur Gewaltenteilung.",
+      "correct": 2,
+      "explanation": "Laut La Libre unterstützte keine andere Fraktion den Dringlichkeitsantrag, zwei Fraktionen enthielten sich. Der Sanktionsvorschlag ist nicht vom Tisch: Er folgt dem ordentlichen Verfahren.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-10-01",
-        "sourceContentHash": "sha256:b3908258c7a2a937d90945341452615f",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:5400b1745957455d13c4683aee368999",
+        "generatedAt": "2026-10-03T15:14:34.500Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-mobility-0",
+      "source": "domain",
+      "domain": "Mobilität",
+      "question": "Was hat die Brüsseler Regierung am 1. Oktober 2026 laut einer Pressemitteilung vom 2. Oktober 2026 über die Pflicht entschieden, dass neu als Taxi registrierte Fahrzeuge in Brüssel emissionsfrei sein müssen?",
+      "options": [
+        "Die Frist wird auf den 1. Januar 2029 verschoben",
+        "Die Frist wird auf den 1. Juli 2026 vorgezogen",
+        "Die Frist wird bis 2030 ausgesetzt",
+        "Die Frist bleibt beim 1. Januar 2027"
+      ],
+      "correct": 3,
+      "explanation": "Der Anfang September 2026 geforderte Aufschub um zwei Jahre kommt nicht. Angekündigt sind Begleitmaßnahmen, darunter zwei zusätzliche Betriebsjahre für Fahrzeuge im Umlauf und 100 bis 150 Schnellladepunkte bis Ende 2028.",
+      "sourceSlug": "/de/bereiche/mobility",
+      "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
+      "provenance": {
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:58ade07d808ec05f9b950863b33810af",
+        "generatedAt": "2026-10-03T15:14:34.500Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilität",
       "question": "Was zeigte sich laut BRUZZ im Mobilitätsausschuss des Brüsseler Parlaments vom 29. September 2026 zur Mediatram, dem 2022 genehmigten Straßenbahnprojekt zum Mediapark-Gelände?",
@@ -434,32 +457,9 @@
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:f9eba921287c6d241e037ce6c9ebf6c8",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-mobility-1",
-      "source": "domain",
-      "domain": "Mobilität",
-      "question": "Auf welche Ausgangsschätzung bezieht sich im Bericht des Rechnungshofs, verabschiedet am 8. Oktober 2025, der Anstieg um 255 % bei den Kosten der gesamten Linie der Metro 3 in Brüssel?",
-      "options": [
-        "Auf die Schätzung vom März 2015, also 1 338 Millionen Euro",
-        "Auf die Schätzung vom August 2012, also 824,2 Millionen Euro",
-        "Auf die Schätzung vom Juni 2019, also 2 300 Millionen Euro",
-        "Auf die Schätzung vom Mai 2009, also 650,5 Millionen Euro"
-      ],
-      "correct": 0,
-      "explanation": "Die Kosten der gesamten Linie steigen von 1 338 Millionen Euro im März 2015 auf 4 759,7 Millionen im Dezember 2024, also +255 %. Der Rechnungshof nennt auch +477 %, aber gegenüber der ersten Schätzung vom August 2012 (824,2 Millionen Euro).",
-      "sourceSlug": "/de/bereiche/mobility",
-      "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
-      "provenance": {
-        "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:f9eba921287c6d241e037ce6c9ebf6c8",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:58ade07d808ec05f9b950863b33810af",
+        "generatedAt": "2026-10-03T15:14:34.500Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

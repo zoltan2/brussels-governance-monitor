@@ -9,18 +9,27 @@
  * Usage: npm run magazine:preview  (or `run magazine` via the zsh shortcut)
  */
 
-import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { spawn } from 'node:child_process';
 import { parseDigestMagazine } from '../src/lib/magazine/parse';
 import { validateMagazine } from '../src/lib/magazine/validate';
+import { checkSourcesAgainstCards } from '../src/lib/magazine/sources-check';
 import { renderMagazine } from '../src/lib/magazine/render';
 
 const DIGEST_DIR = resolve(process.cwd(), 'content/digest');
 const PREVIEW_DIR = resolve(process.cwd(), '.preview');
 const PREVIEW_FILE = join(PREVIEW_DIR, 'magazine.html');
 
+// `npm run magazine:preview -- 2026-w39` relit un numéro précis ; sans argument,
+// le digest français le plus récent.
 function findLatestFrDigest(): string {
+  const wanted = process.argv[2];
+  if (wanted) {
+    const path = join(DIGEST_DIR, `${wanted}.fr.mdx`);
+    if (!existsSync(path)) throw new Error(`No digest ${wanted}.fr.mdx in content/digest/`);
+    return path;
+  }
   const files = readdirSync(DIGEST_DIR).filter(
     (f) => f.endsWith('.fr.mdx') && !f.startsWith('__'),
   );
@@ -49,7 +58,10 @@ function main(): void {
     process.exit(1);
   }
 
-  const errors = validateMagazine(draft.magazine);
+  const errors = [
+    ...validateMagazine(draft.magazine),
+    ...checkSourcesAgainstCards(draft.magazine, process.cwd()),
+  ];
   if (errors.length > 0) {
     console.warn('[magazine] Validation warnings (preview will still render):');
     for (const e of errors) {

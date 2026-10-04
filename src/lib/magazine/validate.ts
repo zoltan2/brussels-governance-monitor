@@ -36,9 +36,10 @@ function validateItemV2(item: MagazineItem, i: number, errors: ValidationError[]
       reason: `confidence doit valoir official, estimated ou unconfirmed (reçu « ${item.confidence ?? ''} »)`,
     });
   }
-  if (!item.sources || item.sources.length === 0) {
-    errors.push({ itemIndex: i, field: 'sources', reason: 'au moins une source par sujet' });
-  } else {
+  // Les sources ne sont pas affichées (décision du 04/10/2026 : le magazine renvoie
+  // au site, où elles vivent). Facultatives, elles restent vérifiées quand elles
+  // sont données : forme de l'URL ici, présence dans la fiche par sources-check.
+  if (item.sources && item.sources.length > 0) {
     item.sources.forEach((src, j) => {
       if (!/^https?:\/\//.test(src.url ?? '')) {
         errors.push({ itemIndex: i, field: 'sources', reason: `source ${j + 1} : URL http(s) attendue (reçu « ${src.url ?? ''} »)` });

@@ -61,8 +61,11 @@ describe('validateMagazine, gabarit v2', () => {
     expect(fields(validateMagazine(magazine({}, [item({ confidence: 'sure' as never }), item(), item()])))).toContain('confidence');
   });
 
-  it('exige au moins une source par sujet, avec une URL http(s) et un type connu', () => {
-    expect(fields(validateMagazine(magazine({}, [item({ sources: [] }), item(), item()])))).toContain('sources');
+  it('accepte un sujet sans sources ; si elles sont là, URL http(s) et type connu', () => {
+    // Les sources ne sont plus affichées (04/10/2026) : elles restent une trace
+    // facultative, vérifiée contre la fiche quand elle est donnée.
+    expect(fields(validateMagazine(magazine({}, [item({ sources: [] }), item(), item()])))).not.toContain('sources');
+    expect(fields(validateMagazine(magazine({}, [item({ sources: undefined }), item(), item()])))).not.toContain('sources');
     expect(fields(validateMagazine(magazine({}, [item({ sources: [{ label: 'x', url: 'bruzz.be/a', kind: 'secondaire' }] }), item(), item()])))).toContain('sources');
     expect(fields(validateMagazine(magazine({}, [item({ sources: [{ label: 'x', url: 'https://bruzz.be/a', kind: 'blog' as never }] }), item(), item()])))).toContain('sources');
   });

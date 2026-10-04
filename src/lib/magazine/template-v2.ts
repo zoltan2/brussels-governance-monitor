@@ -94,6 +94,19 @@ a{color:inherit}
 .closing p{max-width:var(--measure)}
 .footerline{font-family:var(--sans);font-size:.8125rem;color:var(--on-dark-muted);border-top:1px solid var(--dark-2);padding-top:1rem;margin-top:2rem}
 .footerline a{color:inherit}
+.cover-tagline{font-family:var(--serif);font-style:italic;font-size:1.0625rem;color:var(--on-dark-muted);max-width:var(--measure);margin:0 0 1.75rem}
+.site-note{font-family:var(--sans);font-size:.8125rem;margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.card-inner{max-width:46rem}
+.card-manifesto{font-family:var(--display);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.4;margin:0 0 1.25rem}
+.card-signature{font-family:var(--sans);font-weight:600;letter-spacing:.04em;margin:0 0 1.5rem;padding-top:1rem;border-top:2px solid var(--accent);display:inline-block}
+.card-publication{margin:0 0 .75rem;line-height:1.5}
+.card-offer{font-family:var(--sans);font-size:.9375rem;color:var(--on-dark-muted);margin:0 0 1rem}
+.card-contact{font-family:var(--sans);font-size:.9375rem;margin:0}
+.card-contact a{color:#fde68a;text-decoration:none}
+.card-contact a:hover,.card-contact a:focus-visible{text-decoration:underline}
+.a-lundi{font-family:var(--display);font-style:italic;font-size:1.5rem;margin:.5rem 0 1.25rem}
+.closing .footerline{color:var(--muted);border-color:var(--line)}
 @media(max-width:760px){.toc-link{grid-template-columns:2.25rem 1fr}.toc-stat{grid-column:2;font-size:1.25rem}.site-nav ul{gap:.75rem}}
 @media print{.site-nav,.skip,.story-foot,.actions{display:none}.sheet{break-inside:avoid;border:0;padding:1.5rem 0}.sheet.dark{background:#fff;color:#000}.print-url::after{content:" (" attr(href) ")";font-size:.8em}}
 `;

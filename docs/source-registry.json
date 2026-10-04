@@ -1,8 +1,8 @@
 {
   "description": "Registre des sources surveillées par BGM. 331 sources (34 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
-  "lastUpdated": "2026-09-28",
+  "lastUpdated": "2026-10-04",
   "stats": {
-    "total": 331,
+    "total": 332,
     "byType": {
       "institutional": 92,
       "press": 108,
@@ -11,7 +11,7 @@
       "agency": 4,
       "research": 43,
       "think-tank": 21,
-      "ngo": 42
+      "ngo": 43
     }
   },
   "sources": [
@@ -6309,6 +6309,28 @@
         "climate"
       ],
       "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-332",
+      "name": "Free Air 4 Brussels (FA4B) — survol du nord et de l'ouest de Bruxelles",
+      "url": "https://fa4b.net/",
+      "type": "ngo",
+      "lang": "fr",
+      "priority": "P2",
+      "category": "climate",
+      "cardsAffected": [
+        "survol-bruxelles",
+        "climate"
+      ],
+      "frequency": "weekly",
+      "enabled": true,
+      "fetchMode": "direct",
+      "notes": "Asbl de citoyens du nord et de l'ouest de Bruxelles contre le survol intensif lié à Brussels Airport (adhésions, actions, affiches). Site Squarespace d'une seule page, fr et nl, sans flux ni blog : suivi par différentiel du texte de l'accueil (ETag honoré, vérifié le 04/10/2026). Source militante : faits à recouper, confiance unconfirmed. Ajoutée le 04/10/2026 à la demande de Zoltán.",
+      "tier": "editorial",
+      "domaines": [
+        "climate"
+      ],
+      "document_trust_tier": "P3"
     },
     {
       "id": "watch-325",

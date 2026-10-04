@@ -1,4 +1,5 @@
 import { AUTHOR } from './author';
+import { renderMagazineV2 } from './render-v2';
 import type { MagazineDraft } from './types';
 import {
   escapeHtml,
@@ -14,6 +15,9 @@ export function renderMagazine(draft: MagazineDraft): string {
   if (!draft.magazine) {
     throw new Error('Cannot render: magazine is undefined');
   }
+  // Gabarit v2 (maquette du 27/09/2026) dès que le bloc le demande ; l'ancien
+  // format reste servi pour les numéros déjà publiés.
+  if (draft.magazine.version === 2) return renderMagazineV2(draft);
   const { magazine, weekShort, week } = draft;
   const weekLabel = weekShort.replace(/^s/, 'S');
   const weekUpper = week.replace(/-w/, '-W');

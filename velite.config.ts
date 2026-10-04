@@ -773,11 +773,36 @@ const magazineItemSchema = s.object({
   pill: s.string().optional(),
   description: s.string().min(100).max(800),
   howto: s.string().min(80).max(800),
+  // Gabarit v2 (maquette du 27/09/2026). Tous facultatifs ici : la cohérence
+  // d'un bloc v2 (nuance, confiance, sources) est tenue par
+  // src/lib/magazine/validate.ts, qui fait échouer le build du magazine.
+  short: s.string().max(24).optional(),
+  lead: s.string().max(300).optional(),
+  facts: s.array(s.string().max(120)).max(2).optional(),
+  nuance_title: s.string().max(80).optional(),
+  confidence: s.enum(['official', 'estimated', 'unconfirmed']).optional(),
+  status: s.string().max(80).optional(),
+  sources: s
+    .array(
+      s.object({
+        label: s.string().min(1).max(120),
+        url: s.string().url(),
+        kind: s.enum(['primaire', 'secondaire', 'tierce']),
+        note: s.string().max(160).optional(),
+      }),
+    )
+    .max(6)
+    .optional(),
+  cover: s.boolean().optional(),
 });
 
 const magazineSchema = s.object({
   tagline: s.string().min(1).max(120),
   closing_line: s.string().min(1).max(120),
+  version: s.union([s.literal(1), s.literal(2)]).optional(),
+  period: s.string().max(60).optional(),
+  consulted: s.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  intro: s.string().max(160).optional(),
   // ⚠️ Contrainte DURE : un dépassement fait échouer `npm run build`, donc la CI
   // et le déploiement du site entier, pas seulement le magazine. Une semaine
   // dense peut légitimement porter treize, quinze ou vingt items : le plafond

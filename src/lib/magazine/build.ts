@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 
 import { join } from 'node:path';
 import { parseDigestMagazine } from './parse';
 import { validateMagazine } from './validate';
+import { checkSourcesAgainstCards } from './sources-check';
 import { renderMagazine } from './render';
 import { renderIndexPage, type WeekMeta } from './index-page';
 import type { MagazineDraft } from './types';
@@ -85,7 +86,8 @@ export function buildMagazine(opts: BuildOptions): BuildResult {
     return { status: 'skipped' };
   }
 
-  const errors = validateMagazine(draft.magazine);
+  // Gabarit v2 : chaque source citée doit être dans la fiche que le sujet désigne.
+  const errors = [...validateMagazine(draft.magazine), ...checkSourcesAgainstCards(draft.magazine, opts.root)];
   if (errors.length > 0) {
     const msg = errors
       .map((e) => `  - item ${e.itemIndex ?? 'n/a'}, field "${e.field}": ${e.reason}`)

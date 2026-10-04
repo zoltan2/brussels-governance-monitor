@@ -70,6 +70,17 @@ describe('renderMagazineV2', () => {
     expect((html.match(/class="toc-link"/g) ?? []).length).toBe(6);
   });
 
+  it('donne du rythme : couverture en deux colonnes, panneau du chiffre inversé sur les feuilles claires', () => {
+    // Retour de Zoltán du 04/10/2026 : « travaille la couverture et l’alternance des couleurs ».
+    expect(html).toContain('class="inner cover-grid"');
+    expect(html).toContain('class="cover-issue"');
+    const first = html.slice(html.indexOf('id="sujet-01-'), html.indexOf('id="sujet-02-'));
+    const second = html.slice(html.indexOf('id="sujet-02-'), html.indexOf('id="sujet-03-'));
+    expect(first).toContain('class="stat-panel inverse"');
+    expect(second).toContain('class="stat-panel"');
+    expect(first).toContain('<span class="rank-mark" aria-hidden="true">01</span>');
+  });
+
   it('met en couverture les trois sujets marqués, pas les autres', () => {
     const cover = html.slice(html.indexOf('class="cover-numbers"'), html.indexOf('id="sommaire"'));
     expect(cover).toContain('10 %');
@@ -77,22 +88,38 @@ describe('renderMagazineV2', () => {
     expect(cover).not.toContain('40 %');
   });
 
-  it('rend pour chaque sujet le chapeau, la nuance titrée, les repères et les sources typées', () => {
+  it('rend pour chaque sujet le chapeau, la nuance titrée et les repères', () => {
     expect(html).toContain('Chapeau du sujet 4');
     expect(html).toContain('<h3 class="nuance-title">La nuance du sujet 4</h3>');
     expect(html).toContain('repère deux du sujet 4');
-    expect(html).toContain('Sources et périmètre');
-    expect(html).toContain('href="https://source.example/4"');
-    expect(html).toContain('Source secondaire');
-    expect(html).toContain('Source primaire');
-    expect(html).toContain('Références consultées le 27 septembre 2026');
   });
 
-  it('affiche le statut à partir du niveau de confiance de la fiche', () => {
+  it('ne montre ni source, ni lien vers un média, ni précision de statut : la porte d’entrée, c’est le site', () => {
+    // Décision de Zoltán du 04/10/2026 : le magazine renvoie au site, où vivent les sources.
+    expect(html).not.toContain('Sources et périmètre');
+    expect(html).not.toContain('source.example');
+    expect(html).not.toContain('Références consultées');
+    expect(html).not.toContain('Statistique publiée');
+    expect(html).not.toMatch(/Source (primaire|secondaire|tierce)/);
+  });
+
+  it('affiche un statut sobre tiré du niveau de confiance de la fiche', () => {
     expect(html).toContain('Donnée officielle');
     expect(html).toContain('Estimation');
-    expect(html).toContain('Rapporté par la presse, non confirmé');
-    expect(html).toContain('Statistique publiée');
+    expect(html).toContain('À confirmer');
+    expect(html).not.toContain('presse');
+  });
+
+  it('se termine par la carte de visite et « À lundi prochain »', () => {
+    expect(html).toContain('Zoltán Jánosi');
+    expect(html).toContain('Mon métier consiste à rendre lisible');
+    expect(html).toContain('Édité par Advice That SRL');
+    expect(html).toContain('contact@brusselsgovernance.be');
+    expect(html).toContain('À lundi prochain.');
+    // Demande de Zoltán du 04/10/2026 : « Recevoir le digest » mène à l'abonnement.
+    expect(html).toContain('href="https://governance.brussels/fr/subscribe">Recevoir le digest</a>');
+    expect(html).not.toContain('/fr/digest"');
+    expect(html.indexOf('Mon métier consiste')).toBeGreaterThan(html.indexOf('id="comment-lire"'));
   });
 
   it('vouvoie le lecteur et s’adresse à lui dans « Comment lire »', () => {

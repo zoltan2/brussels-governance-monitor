@@ -1,13 +1,17 @@
 import { AUTHOR } from './author';
-import type { MagazineDraft, MagazineItem, MagazineConfidence, MagazineSourceKind } from './types';
+import type { MagazineDraft, MagazineItem, MagazineConfidence } from './types';
 import { escapeHtml, GOOGLE_FONTS_HREF, umamiSnippet } from './template';
 import { MAGAZINE_V2_CSS } from './template-v2';
 
 /**
  * Gabarit v2 du magazine : couverture, sommaire, une feuille par sujet
- * (chapeau, corps, sources typées, panneau du chiffre avec statut et repères,
- * nuance titrée), « Comment lire » adressé au lecteur, clôture.
- * Lecture verticale, liens d'ancrage, aucun script hors mesure d'audience.
+ * (chapeau, corps, lien vers la fiche, panneau du chiffre avec statut et
+ * repères, nuance titrée), « Comment lire », carte de visite, « À lundi
+ * prochain ». Lecture verticale, liens d'ancrage, aucun script hors mesure.
+ *
+ * Décision de Zoltán du 04/10/2026 : le magazine est la porte d'entrée vers
+ * governance.brussels. Il ne montre ni source, ni lien vers un média : chaque
+ * sujet renvoie à sa fiche, où vivent les sources et le détail.
  */
 
 const MAGAZINE_BASE = 'https://magazine.governance.brussels';
@@ -15,13 +19,7 @@ const MAGAZINE_BASE = 'https://magazine.governance.brussels';
 const CONFIDENCE_LABEL: Record<MagazineConfidence, string> = {
   official: 'Donnée officielle',
   estimated: 'Estimation',
-  unconfirmed: 'Rapporté par la presse, non confirmé',
-};
-
-const KIND_LABEL: Record<MagazineSourceKind, string> = {
-  primaire: 'Source primaire',
-  secondaire: 'Source secondaire',
-  tierce: 'Source tierce',
+  unconfirmed: 'À confirmer',
 };
 
 const COUNT_WORDS = ['', 'Un', 'Deux', 'Trois', 'Quatre', 'Cinq', 'Six', 'Sept', 'Huit', 'Neuf', 'Dix', 'Onze', 'Douze'];
@@ -33,13 +31,6 @@ function countLabel(n: number): string {
 
 function pad2(n: number): string {
   return String(n).padStart(2, '0');
-}
-
-export function formatDayFr(iso: string | undefined): string {
-  if (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(iso)) return '';
-  const d = new Date(`${iso}T12:00:00Z`);
-  const s = new Intl.DateTimeFormat('fr-BE', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d);
-  return s.replace(/^1 /, '1er ');
 }
 
 function siteUrl(path: string | undefined): string | null {
@@ -67,26 +58,7 @@ function slug(item: MagazineItem, rank: number): string {
   return `sujet-${pad2(rank)}-${base || 'sujet'}`;
 }
 
-function renderSources(item: MagazineItem, consulted: string): string {
-  const sources = item.sources ?? [];
-  if (sources.length === 0) return '';
-  const refs = `${sources.length} référence${sources.length > 1 ? 's' : ''}`;
-  const lis = sources
-    .map(
-      (s) => `<li><span class="kind">${escapeHtml(KIND_LABEL[s.kind] ?? s.kind)}</span><a class="print-url" href="${escapeHtml(s.url)}" rel="noopener">${escapeHtml(s.label)}</a>${s.note ? `<br><span class="muted">${escapeHtml(s.note)}</span>` : ''}</li>`,
-    )
-    .join('\n');
-  const consultedLine = consulted ? `<p class="consulted">Références consultées le ${escapeHtml(consulted)}.</p>` : '';
-  return `<div class="sources">
-<h3>Sources et périmètre · ${refs}</h3>
-<ul>
-${lis}
-</ul>
-${consultedLine}
-</div>`;
-}
-
-function renderStory(item: MagazineItem, rank: number, total: number, consulted: string, weekNumber: string): string {
+function renderStory(item: MagazineItem, rank: number, total: number, weekNumber: string): string {
   const theme = rank % 2 === 0 ? 'dark' : 'light';
   const id = slug(item, rank);
   const url = siteUrl(item.path);
@@ -94,16 +66,17 @@ function renderStory(item: MagazineItem, rank: number, total: number, consulted:
   const facts = (item.facts ?? []).map((f) => `<li>${escapeHtml(f)}</li>`).join('');
   return `<section class="sheet story ${theme}" id="${id}" aria-labelledby="${id}-titre">
 <div class="inner">
+<span class="rank-mark" aria-hidden="true">${pad2(rank)}</span>
 <div class="copy">
 <p class="eyebrow">${escapeHtml(item.category ?? '')} · ${pad2(rank)} / ${pad2(total)}</p>
 <h2 id="${id}-titre">${escapeHtml(item.headline)}</h2>
 ${item.lead ? `<p class="lead">${escapeHtml(item.lead)}</p>` : ''}
 <p class="body-text">${escapeHtml(item.description)}</p>
-${url ? `<p class="actions"><a class="button secondary" href="${escapeHtml(url)}">${escapeHtml(ctaLabel(item.path))}</a></p>` : ''}
-${renderSources(item, consulted)}
+${url ? `<p class="actions"><a class="button secondary" href="${escapeHtml(url)}">${escapeHtml(ctaLabel(item.path))} sur governance.brussels</a></p>` : ''}
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
 </div>
-<aside class="stat-panel" aria-label="Le chiffre et sa nuance">
-<p class="status">${confidence ? `<span class="badge">${escapeHtml(confidence)}</span>` : ''}${item.status ? `<span class="detail">${escapeHtml(item.status)}</span>` : ''}</p>
+<aside class="${theme === 'light' ? 'stat-panel inverse' : 'stat-panel'}" aria-label="Le chiffre et sa nuance">
+${confidence ? `<p class="status"><span class="badge">${escapeHtml(confidence)}</span></p>` : ''}
 <p class="stat">${escapeHtml(item.stat)}</p>
 <p class="stat-label">${escapeHtml(item.stat_label)}</p>
 ${facts ? `<ul class="facts">${facts}</ul>` : ''}
@@ -125,7 +98,6 @@ export function renderMagazineV2(draft: MagazineDraft): string {
   const weekLabel = weekShort.replace(/^s/, 'S');
   const total = magazine.items.length;
   const canonical = `${MAGAZINE_BASE}/${weekShort}/`;
-  const consulted = formatDayFr(magazine.consulted);
   const title = `BGM, Bruxelles, derrière les chiffres · Semaine ${weekNumber}`;
   const intro = magazine.intro ?? 'Ce qui change. Ce que l’on sait. Et ce que les chiffres ne disent pas.';
 
@@ -149,7 +121,7 @@ ${covers
     )
     .join('\n');
 
-  const stories = magazine.items.map((item, i) => renderStory(item, i + 1, total, consulted, weekNumber)).join('\n');
+  const stories = magazine.items.map((item, i) => renderStory(item, i + 1, total, weekNumber)).join('\n');
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -183,19 +155,26 @@ ${umamiSnippet()}
 </header>
 <main class="magazine">
 <section class="sheet cover dark" aria-labelledby="titre">
-<div class="inner">
-<p class="cover-meta"><span>Semaine ${escapeHtml(weekNumber)} · ${escapeHtml(magazine.period ?? '')}</span><span>${countLabel(total)} · Bruxelles</span></p>
+<div class="inner cover-grid">
+<div class="cover-copy">
+<p class="cover-issue"><span class="dot" aria-hidden="true"></span>Le magazine BGM · Semaine ${escapeHtml(weekNumber)}</p>
 <h1 id="titre">Bruxelles, derrière les chiffres.</h1>
 <p class="intro">${escapeHtml(intro)}</p>
+<p class="cover-tagline">${escapeHtml(magazine.tagline)}</p>
+<p class="cover-meta"><span>${escapeHtml(magazine.period ?? '')}</span><span>${countLabel(total)} · Bruxelles</span></p>
 <p class="actions"><a class="button" href="#sommaire">Explorer les sujets ↓</a></p>
+</div>
+<div class="cover-side">
 ${coverNumbers}
+</div>
+<span class="cover-watermark" aria-hidden="true">${escapeHtml(weekNumber)}</span>
 </div>
 </section>
 <section class="sheet toc" id="sommaire" aria-labelledby="sommaire-titre">
 <div class="inner">
 <p class="eyebrow">Cette semaine</p>
 <h2 id="sommaire-titre">Choisissez votre point d’entrée</h2>
-<p class="muted">${escapeHtml(magazine.tagline)}</p>
+<p class="muted">Chaque sujet tient en une page et vous mène à sa fiche sur governance.brussels.</p>
 <ol class="toc-list">
 ${toc}
 </ol>
@@ -207,27 +186,38 @@ ${stories}
 <p class="eyebrow">Mode d’emploi</p>
 <h2 id="comment-lire-titre">Comment lire ce magazine</h2>
 <ol>
-<li>Chaque sujet commence par ce qui change, puis ce que l’on sait, avec ses sources. La nuance, en fin de panneau, dit ce que le chiffre ne mesure pas.</li>
-<li>Le statut du chiffre vient du niveau de confiance de la fiche sur le site : donnée officielle, estimation, ou fait rapporté par la presse et non confirmé.</li>
-<li>Les sources sont typées : une source primaire est le document d’origine, une source secondaire le rapporte, une source tierce le commente.</li>
-<li>Un lien par sujet vous mène à la fiche complète sur governance.brussels, qui est mise à jour quand le fait évolue.</li>
+<li>Chaque sujet commence par ce qui change, puis ce que l’on sait. La nuance, en fin de panneau, dit ce que le chiffre ne mesure pas.</li>
+<li>Le statut du chiffre vient du niveau de confiance de la fiche sur le site : donnée officielle, estimation, ou fait encore à confirmer.</li>
+<li>Les sources, les dates et le détail ne sont pas ici : ils sont sur la fiche, à un clic, mise à jour quand le fait évolue.</li>
+<li>Ce magazine est une porte d’entrée. Le site, lui, suit chaque dossier dans la durée, en quatre langues.</li>
 </ol>
 </div>
 </section>
-<section class="sheet closing dark" aria-labelledby="cloture-titre">
+<section class="sheet card dark" aria-labelledby="carte-titre">
+<div class="inner card-inner">
+<p class="eyebrow">Qui écrit</p>
+<h2 id="carte-titre" class="sr-only">Carte de visite</h2>
+<p class="card-manifesto">${escapeHtml(AUTHOR.manifesto)}</p>
+<p class="card-signature">${escapeHtml(AUTHOR.name)}</p>
+<p class="card-publication"><strong>${escapeHtml(AUTHOR.publication)}</strong><br>${escapeHtml(AUTHOR.publisher)}</p>
+<p class="card-offer">${escapeHtml(AUTHOR.offer)}</p>
+<p class="card-contact"><a href="mailto:${AUTHOR.email}">${AUTHOR.email}</a> · <a href="${AUTHOR.linkedinUrl}" rel="noopener">${AUTHOR.linkedinHandle}</a></p>
+</div>
+</section>
+<section class="sheet closing" aria-labelledby="cloture-titre">
 <div class="inner closing-grid">
 <div>
 <p class="eyebrow">À suivre</p>
 <h2 id="cloture-titre">${escapeHtml(magazine.closing_line)}</h2>
-<p>${escapeHtml(AUTHOR.publication)} suit les décisions publiques à Bruxelles : faits, contexte, nuances. ${escapeHtml(AUTHOR.publisher)}.</p>
-<p class="actions"><a class="button" href="${AUTHOR.siteBase}/fr">Aller sur governance.brussels</a> <a class="button secondary" href="${AUTHOR.siteBase}/fr/digest">Recevoir le digest</a></p>
+<p class="a-lundi">À lundi prochain.</p>
+<p class="actions"><a class="button" href="${AUTHOR.siteBase}/fr">Aller sur governance.brussels</a> <a class="button secondary" href="${AUTHOR.siteBase}/fr/subscribe">Recevoir le digest</a></p>
 </div>
 <div>
 <p class="eyebrow">Ce numéro</p>
-<p class="muted">Semaine ${escapeHtml(weekNumber)}, ${escapeHtml(magazine.period ?? '')}. ${countLabel(total)}. ${consulted ? `Références consultées le ${escapeHtml(consulted)}.` : ''}</p>
+<p class="muted">Semaine ${escapeHtml(weekNumber)}, ${escapeHtml(magazine.period ?? '')}. ${countLabel(total)}.</p>
 <p class="muted">Adresse de ce numéro : <a href="${canonical}">${canonical}</a></p>
+<p class="footerline">Le Signal, le digest et ce magazine sont les publications hebdomadaires de ${escapeHtml(AUTHOR.publication)}, moniteur citoyen indépendant de la gouvernance régionale bruxelloise. Apolitique, factuel, sourcé.</p>
 </div>
-<p class="footerline">${escapeHtml(AUTHOR.publication)} · ${escapeHtml(AUTHOR.publisher)} · <a href="mailto:${AUTHOR.email}">${AUTHOR.email}</a></p>
 </div>
 </section>
 </main>

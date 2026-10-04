@@ -66,8 +66,18 @@ a{color:inherit}
 .sources a{word-break:break-all}
 .kind{display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:.1rem .4rem;border:1px solid currentColor;border-radius:.25rem;margin-right:.5rem;vertical-align:middle}
 .consulted{color:var(--muted);margin:.5rem 0 0}
-.stat-panel{align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:.5rem;padding:1.5rem}
-.sheet.dark .stat-panel{background:var(--dark-2);border-color:var(--dark-2)}
+.stat-panel{align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:.5rem;padding:1.5rem;color:var(--ink)}
+/* Rythme : sur une feuille sombre, le panneau est clair ; sur une feuille claire, il est sombre. */
+.sheet.dark .stat-panel{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.sheet.dark .stat-panel .stat-label,.sheet.dark .stat-panel .nuance p{color:var(--ink-2)}
+.sheet.dark .stat-panel .facts,.sheet.dark .stat-panel .facts li{border-color:var(--line)}
+.sheet.dark .stat-panel .status .badge{background:var(--accent-soft);color:var(--accent)}
+.stat-panel.inverse{background:var(--dark);border-color:var(--dark);color:var(--on-dark)}
+.stat-panel.inverse .stat-label,.stat-panel.inverse .nuance p{color:var(--on-dark-muted)}
+.stat-panel.inverse .facts,.stat-panel.inverse .facts li{border-color:rgba(255,255,255,.18)}
+.stat-panel.inverse .status .badge{background:rgba(254,243,199,.16);color:#fde68a}
+.stat-panel.inverse .nuance .eyebrow{color:#fde68a}
+.stat-panel.inverse .nuance{border-top-color:#fde68a}
 .status{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 .5rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
 .status .badge{background:var(--accent-soft);color:var(--accent);padding:.15rem .5rem;border-radius:.25rem;letter-spacing:.06em}
 .sheet.dark .status .badge{background:rgba(254,243,199,.15);color:#fde68a}
@@ -94,6 +104,40 @@ a{color:inherit}
 .closing p{max-width:var(--measure)}
 .footerline{font-family:var(--sans);font-size:.8125rem;color:var(--on-dark-muted);border-top:1px solid var(--dark-2);padding-top:1rem;margin-top:2rem}
 .footerline a{color:inherit}
+.cover-tagline{font-family:var(--serif);font-style:italic;font-size:1.0625rem;color:var(--on-dark-muted);max-width:var(--measure);margin:0 0 1.25rem}
+/* Couverture : deux colonnes, dégradé, filigrane du numéro de semaine, trois chiffres en tuiles. */
+.sheet.cover{background:linear-gradient(160deg,var(--dark) 0%,var(--dark-2) 70%,#1d4ed8 140%);position:relative;overflow:hidden;min-height:min(88vh,52rem);display:flex;align-items:center}
+.cover-grid{position:relative;display:grid;gap:2.5rem;width:100%}
+@media(min-width:900px){.cover-grid{grid-template-columns:minmax(0,1.3fr) minmax(16rem,.9fr);align-items:center;gap:4rem}}
+.cover-issue{font-family:var(--sans);font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:#fde68a;margin:0 0 1.25rem;display:flex;align-items:center;gap:.6rem}
+.cover-issue .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 0 .35rem rgba(180,83,9,.25)}
+.cover .cover-meta{margin:0 0 1.5rem}
+.cover-side .cover-numbers{grid-template-columns:1fr;gap:1rem;margin:0}
+.cover-side .cover-number{border-top:0;border-left:3px solid var(--accent);padding:.9rem 0 .9rem 1.1rem;background:rgba(255,255,255,.05);border-radius:0 .5rem .5rem 0}
+.cover-side .cover-number .n{font-size:clamp(2rem,3.4vw,2.75rem)}
+.cover-watermark{position:absolute;right:-1rem;bottom:-3rem;font-family:var(--display);font-weight:700;font-size:clamp(14rem,34vw,30rem);line-height:1;color:rgba(255,255,255,.04);pointer-events:none;user-select:none}
+/* Feuilles : blanc, teinte ardoise, bleu foncé, en alternance ; numéro en filigrane. */
+.sheet.story{position:relative;overflow:hidden}
+.sheet.story.light{background:var(--paper)}
+.sheet.toc,.sheet.howto{background:var(--paper-2)}
+.sheet.closing{background:var(--paper)}
+.rank-mark{position:absolute;top:-1.5rem;left:var(--gutter);font-family:var(--display);font-weight:700;font-size:clamp(7rem,16vw,12rem);line-height:1;color:rgba(15,23,42,.045);pointer-events:none;user-select:none}
+.sheet.dark .rank-mark{color:rgba(255,255,255,.05)}
+.story .inner{position:relative}
+.story h2::before{content:"";display:block;width:3rem;height:3px;background:var(--accent);margin:0 0 1rem}
+.toc-link:hover .toc-rank,.toc-link:focus-visible .toc-rank{color:var(--accent)}
+.site-note{font-family:var(--sans);font-size:.8125rem;margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.card-inner{max-width:46rem}
+.card-manifesto{font-family:var(--display);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.4;margin:0 0 1.25rem}
+.card-signature{font-family:var(--sans);font-weight:600;letter-spacing:.04em;margin:0 0 1.5rem;padding-top:1rem;border-top:2px solid var(--accent);display:inline-block}
+.card-publication{margin:0 0 .75rem;line-height:1.5}
+.card-offer{font-family:var(--sans);font-size:.9375rem;color:var(--on-dark-muted);margin:0 0 1rem}
+.card-contact{font-family:var(--sans);font-size:.9375rem;margin:0}
+.card-contact a{color:#fde68a;text-decoration:none}
+.card-contact a:hover,.card-contact a:focus-visible{text-decoration:underline}
+.a-lundi{font-family:var(--display);font-style:italic;font-size:1.5rem;margin:.5rem 0 1.25rem}
+.closing .footerline{color:var(--muted);border-color:var(--line)}
 @media(max-width:760px){.toc-link{grid-template-columns:2.25rem 1fr}.toc-stat{grid-column:2;font-size:1.25rem}.site-nav ul{gap:.75rem}}
 @media print{.site-nav,.skip,.story-foot,.actions{display:none}.sheet{break-inside:avoid;border:0;padding:1.5rem 0}.sheet.dark{background:#fff;color:#000}.print-url::after{content:" (" attr(href) ")";font-size:.8em}}
 `;

@@ -28,10 +28,18 @@ export function cardFileForPath(path: string | undefined): string | null {
   return `content/${dir}/${m[2]}.fr.mdx`;
 }
 
+// Toutes les URL que la fiche cite : sa liste `sources` quand elle en a une
+// (domaines, dossiers, communes) et les liens de son texte (les fiches secteur
+// n'ont pas de liste et citent leurs références en fin de section).
 function cardSourceUrls(absolutePath: string): Set<string> {
-  const { data } = matter(readFileSync(absolutePath, 'utf-8'));
-  const sources = (data as { sources?: { url?: string }[] }).sources ?? [];
-  return new Set(sources.map((s) => s.url).filter((u): u is string => typeof u === 'string'));
+  const raw = readFileSync(absolutePath, 'utf-8');
+  const urls = new Set<string>();
+  const { data } = matter(raw);
+  for (const s of (data as { sources?: { url?: string }[] }).sources ?? []) {
+    if (typeof s.url === 'string') urls.add(s.url);
+  }
+  for (const m of raw.matchAll(/https?:\/\/[^\s)"'<>\]]+/g)) urls.add(m[0]);
+  return urls;
 }
 
 export function checkSourcesAgainstCards(mag: Magazine, root: string): ValidationError[] {

@@ -2,8 +2,8 @@
   "week": "2026-w40",
   "weekStart": "2026-09-28",
   "created_at": "2026-10-04T19:00:03.336Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "12 domaines, 11 dossiers, 3 secteurs, 7 communes mis à jour",
     "nl": "12 domeinen, 11 dossiers, 3 sectoren, 7 gemeenten bijgewerkt",
@@ -65,5 +65,6 @@
     "commune-molenbeek-saint-jean",
     "commune-watermael-boitsfort",
     "commune-woluwe-saint-lambert"
-  ]
+  ],
+  "sent_at": "2026-10-04T19:40:59.387Z"
 }

@@ -70,6 +70,17 @@ describe('renderMagazineV2', () => {
     expect((html.match(/class="toc-link"/g) ?? []).length).toBe(6);
   });
 
+  it('donne du rythme : couverture en deux colonnes, panneau du chiffre inversé sur les feuilles claires', () => {
+    // Retour de Zoltán du 04/10/2026 : « travaille la couverture et l’alternance des couleurs ».
+    expect(html).toContain('class="inner cover-grid"');
+    expect(html).toContain('class="cover-issue"');
+    const first = html.slice(html.indexOf('id="sujet-01-'), html.indexOf('id="sujet-02-'));
+    const second = html.slice(html.indexOf('id="sujet-02-'), html.indexOf('id="sujet-03-'));
+    expect(first).toContain('class="stat-panel inverse"');
+    expect(second).toContain('class="stat-panel"');
+    expect(first).toContain('<span class="rank-mark" aria-hidden="true">01</span>');
+  });
+
   it('met en couverture les trois sujets marqués, pas les autres', () => {
     const cover = html.slice(html.indexOf('class="cover-numbers"'), html.indexOf('id="sommaire"'));
     expect(cover).toContain('10 %');

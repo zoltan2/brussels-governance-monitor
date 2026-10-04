@@ -66,6 +66,7 @@ function renderStory(item: MagazineItem, rank: number, total: number, weekNumber
   const facts = (item.facts ?? []).map((f) => `<li>${escapeHtml(f)}</li>`).join('');
   return `<section class="sheet story ${theme}" id="${id}" aria-labelledby="${id}-titre">
 <div class="inner">
+<span class="rank-mark" aria-hidden="true">${pad2(rank)}</span>
 <div class="copy">
 <p class="eyebrow">${escapeHtml(item.category ?? '')} · ${pad2(rank)} / ${pad2(total)}</p>
 <h2 id="${id}-titre">${escapeHtml(item.headline)}</h2>
@@ -74,7 +75,7 @@ ${item.lead ? `<p class="lead">${escapeHtml(item.lead)}</p>` : ''}
 ${url ? `<p class="actions"><a class="button secondary" href="${escapeHtml(url)}">${escapeHtml(ctaLabel(item.path))} sur governance.brussels</a></p>` : ''}
 <p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
 </div>
-<aside class="stat-panel" aria-label="Le chiffre et sa nuance">
+<aside class="${theme === 'light' ? 'stat-panel inverse' : 'stat-panel'}" aria-label="Le chiffre et sa nuance">
 ${confidence ? `<p class="status"><span class="badge">${escapeHtml(confidence)}</span></p>` : ''}
 <p class="stat">${escapeHtml(item.stat)}</p>
 <p class="stat-label">${escapeHtml(item.stat_label)}</p>
@@ -154,13 +155,19 @@ ${umamiSnippet()}
 </header>
 <main class="magazine">
 <section class="sheet cover dark" aria-labelledby="titre">
-<div class="inner">
-<p class="cover-meta"><span>Semaine ${escapeHtml(weekNumber)} · ${escapeHtml(magazine.period ?? '')}</span><span>${countLabel(total)} · Bruxelles</span></p>
+<div class="inner cover-grid">
+<div class="cover-copy">
+<p class="cover-issue"><span class="dot" aria-hidden="true"></span>Le magazine BGM · Semaine ${escapeHtml(weekNumber)}</p>
 <h1 id="titre">Bruxelles, derrière les chiffres.</h1>
 <p class="intro">${escapeHtml(intro)}</p>
 <p class="cover-tagline">${escapeHtml(magazine.tagline)}</p>
+<p class="cover-meta"><span>${escapeHtml(magazine.period ?? '')}</span><span>${countLabel(total)} · Bruxelles</span></p>
 <p class="actions"><a class="button" href="#sommaire">Explorer les sujets ↓</a></p>
+</div>
+<div class="cover-side">
 ${coverNumbers}
+</div>
+<span class="cover-watermark" aria-hidden="true">${escapeHtml(weekNumber)}</span>
 </div>
 </section>
 <section class="sheet toc" id="sommaire" aria-labelledby="sommaire-titre">

@@ -10,6 +10,7 @@ import { generateUnsubscribeToken } from '@/lib/token';
 import { listUnsubscribeHeaders } from '@/lib/list-unsubscribe';
 import { collectDigestUpdates } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
+import { encartSondageDigest } from '@/lib/sondage/encart-digest';
 
 function formatWeekRange(date: Date, locale: string): string {
   const localeMap: Record<string, string> = {
@@ -114,6 +115,9 @@ export const POST = auth(async function POST(req) {
     feedbackYesUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=yes&lang=${locale}`,
     feedbackNoUrl: `${siteUrl}/digest/feedback?week=${digest.week}&vote=no&lang=${locale}`,
     magazineUrl,
+    // Le test doit montrer ce que les abonnés recevront : encart du sondage compris
+    // (oubli du 30/09, constaté par Zoltán le 04/10 : « j'ai perdu le sondage »).
+    sondage: encartSondageDigest(locale, siteUrl),
   };
 
   const resend = getResend();

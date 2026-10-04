@@ -1,28 +1,28 @@
 {
-  "week": "2026-w39",
-  "weekStart": "2026-09-21",
-  "created_at": "2026-09-27T19:00:04.667Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w40",
+  "weekStart": "2026-09-28",
+  "created_at": "2026-10-04T19:00:03.336Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "10 domaines, 26 dossiers, 3 secteurs, 8 communes mis à jour",
-    "nl": "10 domeinen, 26 dossiers, 3 sectoren, 8 gemeenten bijgewerkt",
-    "en": "10 domains, 26 dossiers, 3 sectors, 8 communes updated",
-    "de": "10 Bereiche, 26 Dossiers, 3 Sektoren, 8 Gemeinden aktualisiert"
+    "fr": "12 domaines, 11 dossiers, 3 secteurs, 7 communes mis à jour",
+    "nl": "12 domeinen, 11 dossiers, 3 sectoren, 7 gemeenten bijgewerkt",
+    "en": "12 domains, 11 dossiers, 3 sectors, 7 communes updated",
+    "de": "12 Bereiche, 11 Dossiers, 3 Sektoren, 7 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "43 %",
+    "value": "30 %",
     "label": {
-      "fr": "La part des déclarations d'impôt bruxelloises (revenus 2023) qui n'aboutissent à aucun impôt dû, contre 35 % en 2014",
-      "nl": "Het aandeel Brusselse belastingaangiften (inkomsten 2023) waarvoor geen belasting verschuldigd is, tegenover 35 % in 2014",
-      "en": "The share of Brussels income tax returns (2023 income) that result in no tax due, compared with 35% in 2014",
-      "de": "Der Anteil der Brüsseler Steuererklärungen (Einkommen 2023), bei denen keine Steuer fällig wird, gegenüber 35 % im Jahr 2014"
+      "fr": "La baisse des subsides culturels flamands aux communes bruxelloises à partir de 2027 : de 3,7 à 2,6 millions d'euros par an",
+      "nl": "De vermindering van de Vlaamse cultuursubsidies aan de Brusselse gemeenten vanaf 2027: van 3,7 naar 2,6 miljoen euro per jaar",
+      "en": "The cut in Flemish cultural subsidies to Brussels municipalities from 2027: from 3.7 to 2.6 million euros a year",
+      "de": "Die Kürzung der flämischen Kultursubventionen für die Brüsseler Gemeinden ab 2027: von 3,7 auf 2,6 Millionen Euro pro Jahr"
     },
     "source": {
-      "fr": "Analyse de l'IBSA pour BRUZZ (24 septembre 2026)",
-      "nl": "Analyse van BISA voor BRUZZ (24 september 2026)",
-      "en": "IBSA analysis for BRUZZ (24 September 2026)",
-      "de": "Analyse des IBSA für BRUZZ (24. September 2026)"
+      "fr": "BRUZZ, confirmation du porte-parole de la ministre flamande de la Culture (2 octobre 2026)",
+      "nl": "BRUZZ, bevestiging door de woordvoerder van de Vlaamse minister van Cultuur (2 oktober 2026)",
+      "en": "BRUZZ, confirmed by the spokesperson of the Flemish Minister of Culture (2 October 2026)",
+      "de": "BRUZZ, bestätigt vom Sprecher der flämischen Kulturministerin (2. Oktober 2026)"
     }
   },
   "closingNote": {
@@ -35,7 +35,9 @@
   "updatedTopics": [
     "budget",
     "cleanliness",
+    "digital",
     "economy",
+    "education",
     "employment",
     "housing",
     "institutional",
@@ -43,43 +45,25 @@
     "security",
     "social",
     "urban-planning",
-    "dossier-acs",
-    "dossier-activa",
-    "dossier-assemblees-citoyennes",
-    "dossier-bifff",
-    "dossier-bim-bruxelles",
-    "dossier-commissaire-europe",
-    "dossier-cpas-bruxellois",
-    "dossier-data-centers",
+    "dossier-accessibilite-pmr",
+    "dossier-bien-etre",
     "dossier-enseignement",
-    "dossier-faillites",
-    "dossier-foyer-anderlechtois",
     "dossier-mobilite-partagee",
     "dossier-plan-securite",
-    "dossier-rechauffement-bruxelles",
     "dossier-reforme-administration",
-    "dossier-rse",
     "dossier-seniors",
     "dossier-slrb",
     "dossier-survol-bruxelles",
-    "dossier-taxis-bruxellois",
-    "dossier-titres-services-economie-sociale",
     "dossier-vivaqua",
-    "dossier-zone-revitalisation-urbaine",
-    "dossier-novacity-ii",
     "dossier-metro-3",
-    "dossier-petite-enfance",
     "culture",
-    "health-social",
-    "horeca",
+    "housing-sector",
     "commune-bruxelles-ville",
-    "commune-evere",
+    "commune-etterbeek",
     "commune-forest",
-    "commune-ixelles",
+    "commune-jette",
     "commune-molenbeek-saint-jean",
-    "commune-saint-gilles",
-    "commune-saint-josse-ten-noode",
-    "commune-schaerbeek"
-  ],
-  "sent_at": "2026-09-27T19:11:07.050Z"
+    "commune-watermael-boitsfort",
+    "commune-woluwe-saint-lambert"
+  ]
 }

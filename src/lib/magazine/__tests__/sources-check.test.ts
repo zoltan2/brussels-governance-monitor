@@ -62,6 +62,21 @@ describe('checkSourcesAgainstCards', () => {
     expect(checkSourcesAgainstCards(mag([item({ path: '/fr/chronologie' })]), root)).toEqual([]);
   });
 
+  it('accepte une URL citée dans le corps de la fiche, pas seulement dans sa liste sources', () => {
+    // Les fiches secteur n'ont pas de liste `sources` : leurs références sont
+    // des liens dans le texte (culture, 02/10/2026). La règle vaut pour tout
+    // le fichier : la fiche cite l'URL, le magazine peut la reprendre.
+    mkdirSync(join(root, 'content/sector-cards'), { recursive: true });
+    writeFileSync(
+      join(root, 'content/sector-cards/culture.fr.mdx'),
+      `---\ntitle: "Culture"\n---\n## Section\n\nSources : [BRUZZ](https://www.bruzz.be/actua/x-2026-10-02) (2 octobre 2026).\n`,
+    );
+    const ok = item({ path: '/fr/secteurs/culture', sources: [{ label: 'BRUZZ', url: 'https://www.bruzz.be/actua/x-2026-10-02', kind: 'secondaire' }] });
+    expect(checkSourcesAgainstCards(mag([ok]), root)).toEqual([]);
+    const ko = item({ path: '/fr/secteurs/culture', sources: [{ label: 'Autre', url: 'https://autre.example/y', kind: 'secondaire' }] });
+    expect(checkSourcesAgainstCards(mag([ko]), root)).toHaveLength(1);
+  });
+
   it('ne vérifie rien pour un magazine v1', () => {
     expect(checkSourcesAgainstCards({ tagline: 't', closing_line: 'c', items: [item({ sources: [{ label: 'B', url: 'https://b.example/2', kind: 'secondaire' }] })] }, root)).toEqual([]);
   });

@@ -44,21 +44,23 @@ export function encartSondageDigest(
   const cloture = jourLisible(campagne.cloture, locale);
   const duree = DUREE_ANNONCEE_MINUTES;
 
+  // Libellé arrêté par Zoltán le 04/10/2026 : le plus court, sans podcast ni
+  // phrase sur les critiques. La durée ne s'affiche que si elle est réglée.
   if (locale === 'fr') {
     return {
-      titre: 'Dix questions sur le digest (et le podcast)',
+      titre: 'Dix questions sur le digest',
       texte:
-        `${duree ? `Environ ${duree} minutes, anonyme.` : 'Anonyme.'} Les critiques nous aident plus que les compliments. ` +
-        `Réponses jusqu'au ${cloture}, résultats dans le digest du 14 décembre.`,
+        `${duree ? `Environ ${duree} minutes, anonyme` : 'Anonyme'}, jusqu'au ${cloture}. ` +
+        'Résultats dans le digest du 14 décembre.',
       bouton: 'Répondre au sondage',
       url,
     };
   }
   return {
-    titre: 'Tien vragen over de digest (en de podcast)',
+    titre: 'Tien vragen over de digest',
     texte:
-      `${duree ? `Ongeveer ${duree} minuten, anoniem.` : 'Anoniem.'} Kritiek helpt ons meer dan complimenten. ` +
-      `Antwoorden tot ${cloture}, resultaten in de digest van 14 december.`,
+      `${duree ? `Ongeveer ${duree} minuten, anoniem` : 'Anoniem'}, tot ${cloture}. ` +
+      'Resultaten in de digest van 14 december.',
     bouton: 'Naar de enquête',
     url,
   };

@@ -17,9 +17,15 @@ describe('encart du sondage dans le digest', () => {
       `${SITE}/fr/sondage?utm_source=bgm-digest&utm_medium=email&utm_campaign=sondage&utm_content=encart-haut`,
     );
     expect(fr.texte).toContain('jusqu\'au 6 décembre');
+    // Libellé arrêté par Zoltán le 04/10/2026 : ni podcast, ni phrase sur les critiques.
+    expect(fr.titre).toBe('Dix questions sur le digest');
+    expect(fr.texte).toBe('Anonyme, jusqu\'au 6 décembre. Résultats dans le digest du 14 décembre.');
+    expect(fr.titre + fr.texte).not.toMatch(/podcast|critiques/i);
     const nl = encartSondageDigest('nl', SITE, LUNDI, CAMPAGNE)!;
     expect(nl.url.startsWith(`${SITE}/nl/enquete?`)).toBe(true);
     expect(nl.texte).toContain('tot 6 december');
+    expect(nl.titre).toBe('Tien vragen over de digest');
+    expect(nl.texte).toBe('Anoniem, tot 6 december. Resultaten in de digest van 14 december.');
   });
 
   it('aucun encart hors fr et nl, ni hors campagne', () => {

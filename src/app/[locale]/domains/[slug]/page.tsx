@@ -6,7 +6,6 @@ import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { getDomainCard, getAllDomainSlugs, getLatestVerification, getDossiersForDomain, getSectorsForDomain, getComparisonsForDomain, getGlossaryForDomain } from '@/lib/content';
-import { pickStatusBox } from '@/lib/status-boxes';
 import { routing, type Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { buildMetadata, canonicalUrl, searchMeta } from '@/lib/metadata';
@@ -182,11 +181,11 @@ function DomainDetail({
           <p className="mt-2 text-sm text-neutral-500">
             {t(`statusCitizen.${card.status}`)}
           </p>
-          <div className="mt-3">
-            <StatusAccordion title={t('whyStatusTitle')}>
-              {pickStatusBox(card.whyStatus, t(`whyStatus.${card.slug}`))}
-            </StatusAccordion>
-          </div>
+          {card.whyStatus && (
+            <div className="mt-3">
+              <StatusAccordion title={t('whyStatusTitle')}>{card.whyStatus}</StatusAccordion>
+            </div>
+          )}
         </div>
 
         {/* Metadata line: confidence + freshness + share + cite */}
@@ -305,14 +304,14 @@ function DomainDetail({
         <HeritageCallout slug={card.slug} locale={locale} type="domain" />
 
         {/* ── CONCLUSION — concrete impact (after analysis, not before) ── */}
-        <div className="mt-8 rounded-lg border border-brand-200 bg-brand-50 p-4">
-          <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-800">
-            {t('concreteImpactTitle')}
-          </h2>
-          <p className="text-sm leading-relaxed text-brand-900">
-            {pickStatusBox(card.concreteImpact, t(`concreteImpact.${card.slug}`))}
-          </p>
-        </div>
+        {card.concreteImpact && (
+          <div className="mt-8 rounded-lg border border-brand-200 bg-brand-50 p-4">
+            <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-800">
+              {t('concreteImpactTitle')}
+            </h2>
+            <p className="text-sm leading-relaxed text-brand-900">{card.concreteImpact}</p>
+          </div>
+        )}
 
         {/* ── TRANSPARENCY — "Ce que BGM ne dit pas" (before sources) ── */}
         <div className="mt-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4">

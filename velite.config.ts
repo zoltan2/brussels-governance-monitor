@@ -243,6 +243,7 @@ const domainCards = defineCollection({
       // Encadrés « Pourquoi ce statut » et « Ce que ça signifie concrètement »
       // de la page domaine. Ils vivaient dans messages/*.json, hors de toute
       // veille : le 05/10/2026, treize domaines affichaient des textes de mars.
+      // Les treize sont migrés ; messages/*.json ne garde que les titres.
       // `statusReviewed` atteste leur relecture, exigée à chaque republication
       // par scripts/content-lint/status-boxes.ts. Voir src/lib/status-boxes.ts.
       whyStatus: s.string().max(600).optional(),

@@ -44,6 +44,10 @@ export interface DomainCard {
   changeSummaryDate?: string;
   digestHeadline?: string;
   summaryFalc?: string;
+  /** Encadrés de la page domaine, relus à chaque republication (src/lib/status-boxes.ts). */
+  whyStatus?: string;
+  concreteImpact?: string;
+  statusReviewed?: string;
   draft: boolean;
   content: string;
   permalink: string;

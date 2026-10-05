@@ -43,6 +43,7 @@ on:
       - 'src/lib/change-type-consistency.ts'
       - 'src/lib/duplicate-sources.ts'
       - 'src/lib/impact-freshness.ts'
+      - 'src/lib/status-boxes.ts'
       - 'src/lib/data-temporal.ts'
       - 'src/lib/radar-summary-check.ts'
       # Contrôle éditorial du digest hebdomadaire (29/09/2026).
@@ -122,7 +123,7 @@ jobs:
         run: >-
           npx vitest run scripts/content-lint/content-lint.test.ts scripts/content-lint/verification-overdue.test.ts
           src/lib/lead-headline-check.test.ts src/lib/change-type-consistency.test.ts
-          src/lib/duplicate-sources.test.ts src/lib/impact-freshness.test.ts
+          src/lib/duplicate-sources.test.ts src/lib/impact-freshness.test.ts src/lib/status-boxes.test.ts
           src/lib/data-temporal.test.ts src/lib/radar-summary-check.test.ts
           src/lib/summary-freshness.test.ts src/lib/digest-check.test.ts
 
@@ -240,6 +241,19 @@ jobs:
             echo "No MDX files changed, skipping"; exit 0
           fi
           npx tsx scripts/content-lint/impact-freshness.ts /tmp/changed_content.txt
+
+      # Fiches domaine : encadrés « Pourquoi ce statut » et « Ce que ça signifie
+      # concrètement » relus à chaque republication (statusReviewed). Le
+      # 05/10/2026, treize domaines affichaient des textes de mars sous une fiche
+      # datée du jour. Le label skip-status-check, posé à la création de la PR,
+      # suspend la garde.
+      - name: Encadrés de statut des fiches domaine relus
+        if: ${{ !contains(github.event.pull_request.labels.*.name, 'skip-status-check') }}
+        run: |
+          if [ ! -s /tmp/changed_content.txt ]; then
+            echo "No MDX files changed, skipping"; exit 0
+          fi
+          npx tsx scripts/content-lint/status-boxes.ts /tmp/changed_content.txt
 
       # La FAQ vieillissait derrière le corps des fiches : sur les douze veilles
       # précédant le 2026-09-11, 35 fiches à FAQ ont été republiées et la FAQ n'a

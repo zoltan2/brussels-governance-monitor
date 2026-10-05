@@ -108,6 +108,14 @@ if [ -n "$CHANGED_MDX" ]; then
   else
     echo "SKIP : texte d'impact des fiches secteur (SKIP_IMPACT_CHECK=1)"
   fi
+  # Fiches domaine : encadrés « Pourquoi ce statut » et « Ce que ça signifie
+  # concrètement » relus à chaque republication (statusReviewed).
+  # SKIP_STATUS_CHECK=1 : miroir du label skip-status-check.
+  if [ "${SKIP_STATUS_CHECK:-0}" != "1" ]; then
+    npx tsx scripts/content-lint/status-boxes.ts "$_cs_list" || rc=1
+  else
+    echo "SKIP : encadrés de statut des fiches domaine (SKIP_STATUS_CHECK=1)"
+  fi
   rm -f "$_cs_list"
 fi
 

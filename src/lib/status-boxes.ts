@@ -16,13 +16,15 @@
  * Les textes passent donc dans la fiche (`whyStatus`, `concreteImpact`), où une
  * veille les met à jour comme le chapeau, avec leur attestation
  * `statusReviewed`. La règle est celle de la FAQ : relus à CHAQUE
- * republication, parce qu'ils disent l'état présent du domaine. Les messages
- * restent le repli des fiches pas encore migrées.
+ * republication, parce qu'ils disent l'état présent du domaine. Depuis la
+ * migration des treize domaines (5 octobre 2026), il n'y a plus de repli : une
+ * fiche domaine sans encadrés est refusée, et messages/*.json ne garde que les
+ * titres des deux encadrés.
  *
  * Module pur, sans accès disque.
  */
 
-export type StatusBoxesVerdict = 'ok' | 'legacy' | 'draft' | 'incomplete' | 'missing' | 'unparsable' | 'stale';
+export type StatusBoxesVerdict = 'ok' | 'draft' | 'absent' | 'incomplete' | 'missing' | 'unparsable' | 'stale';
 
 export interface StatusBoxesCheck {
   verdict: StatusBoxesVerdict;
@@ -30,12 +32,6 @@ export interface StatusBoxesCheck {
 }
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
-
-/** Texte de la fiche s'il existe, sinon celui des messages. */
-export function pickStatusBox(fromCard: string | undefined, fromMessages: string): string {
-  const text = fromCard?.trim();
-  return text ? text : fromMessages;
-}
 
 export function checkStatusBoxes(params: {
   whyStatus?: string;
@@ -47,15 +43,16 @@ export function checkStatusBoxes(params: {
   const why = Boolean(params.whyStatus?.trim());
   const impact = Boolean(params.concreteImpact?.trim());
 
-  if (!why && !impact) {
-    return {
-      verdict: 'legacy',
-      reason:
-        "encadrés encore dans messages/*.json : aucune veille ne les relit. Les écrire dans la fiche (whyStatus, concreteImpact, statusReviewed).",
-    };
-  }
   if (params.draft) {
     return { verdict: 'draft', reason: 'brouillon : attestations exigées à la publication.' };
+  }
+  if (!why && !impact) {
+    return {
+      verdict: 'absent',
+      reason:
+        'whyStatus et concreteImpact absents : la page du domaine ne dirait plus pourquoi ce statut ni ce que cela change. ' +
+        'Les écrire dans la fiche, avec statusReviewed à la date du jour.',
+    };
   }
   if (why !== impact) {
     return {

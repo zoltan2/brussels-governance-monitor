@@ -4,18 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { checkStatusBoxes, pickStatusBox } from './status-boxes';
-
-describe('pickStatusBox', () => {
-  it('préfère le texte de la fiche à celui des messages', () => {
-    expect(pickStatusBox('Accord du 4 octobre 2026.', 'Vote prévu avant le 1er avril.')).toBe('Accord du 4 octobre 2026.');
-  });
-
-  it('retombe sur les messages tant que la fiche ne porte rien, ou porte du vide', () => {
-    expect(pickStatusBox(undefined, 'ancien texte')).toBe('ancien texte');
-    expect(pickStatusBox('   ', 'ancien texte')).toBe('ancien texte');
-  });
-});
+import { checkStatusBoxes } from './status-boxes';
 
 describe('checkStatusBoxes', () => {
   const boxes = { whyStatus: 'Pourquoi.', concreteImpact: 'Concrètement.' };
@@ -39,10 +28,15 @@ describe('checkStatusBoxes', () => {
     expect(checkStatusBoxes({ whyStatus: 'Pourquoi.', lastModified: '2026-10-05', statusReviewed: '2026-10-05' }).verdict).toBe('incomplete');
   });
 
-  it('laisse passer, en le disant, une fiche pas encore migrée, et dispense un brouillon', () => {
+  it('refuse une fiche domaine sans encadrés : la page ne dirait plus pourquoi ce statut', () => {
     const r = checkStatusBoxes({ lastModified: '2026-10-05', statusReviewed: undefined });
-    expect(r.verdict).toBe('legacy');
+    expect(r.verdict).toBe('absent');
+    expect(r.reason).toContain('whyStatus');
+  });
+
+  it('dispense un brouillon', () => {
     expect(checkStatusBoxes({ ...boxes, lastModified: '2026-10-05', statusReviewed: undefined, draft: true }).verdict).toBe('draft');
+    expect(checkStatusBoxes({ lastModified: '2026-10-05', statusReviewed: undefined, draft: true }).verdict).toBe('draft');
   });
 });
 
@@ -57,19 +51,34 @@ describe('câblage', () => {
     expect(domain).toMatch(/statusReviewed: s\.isodate\(\)\.optional\(\)/);
   });
 
-  it('la page domaine lit les encadrés par pickStatusBox, plus directement dans les messages', () => {
+  it('la page domaine lit les encadrés dans la fiche, plus dans les messages', () => {
     const page = fs.readFileSync(path.join(root, 'src/app/[locale]/domains/[slug]/page.tsx'), 'utf8');
-    expect(page).toContain('pickStatusBox(card.whyStatus');
-    expect(page).toContain('pickStatusBox(card.concreteImpact');
+    expect(page).toContain('card.whyStatus');
+    expect(page).toContain('card.concreteImpact');
+    expect(page).not.toMatch(/t\(`whyStatus\./);
+    expect(page).not.toMatch(/t\(`concreteImpact\./);
   });
 
-  it('la fiche budget porte ses encadrés et leur attestation dans les quatre langues', () => {
+  it('les anciens textes ne vivent plus dans messages/*.json, seuls les titres des encadrés y restent', () => {
     for (const locale of ['fr', 'nl', 'en', 'de']) {
-      const fiche = fs.readFileSync(path.join(root, `content/domain-cards/budget.${locale}.mdx`), 'utf8');
+      const domains = JSON.parse(fs.readFileSync(path.join(root, `messages/${locale}.json`), 'utf8')).domains;
+      expect(domains.whyStatus, locale).toBeUndefined();
+      expect(domains.concreteImpact, locale).toBeUndefined();
+      expect(typeof domains.whyStatusTitle, locale).toBe('string');
+      expect(typeof domains.concreteImpactTitle, locale).toBe('string');
+    }
+  });
+
+  it('chaque fiche domaine porte ses deux encadrés et leur attestation, dans chaque langue', () => {
+    const dir = path.join(root, 'content/domain-cards');
+    const fiches = fs.readdirSync(dir).filter((n) => n.endsWith('.mdx'));
+    expect(fiches.length).toBeGreaterThanOrEqual(52);
+    for (const name of fiches) {
+      const fiche = fs.readFileSync(path.join(dir, name), 'utf8');
       const fm = fiche.slice(0, fiche.indexOf('\n---\n', 4));
-      expect(fm, locale).toMatch(/^whyStatus: ".+"$/m);
-      expect(fm, locale).toMatch(/^concreteImpact: ".+"$/m);
-      expect(fm, locale).toMatch(/^statusReviewed: "\d{4}-\d{2}-\d{2}"$/m);
+      expect(fm, name).toMatch(/^whyStatus: ".+"$/m);
+      expect(fm, name).toMatch(/^concreteImpact: ".+"$/m);
+      expect(fm, name).toMatch(/^statusReviewed: "\d{4}-\d{2}-\d{2}"$/m);
     }
   });
 });

@@ -6,9 +6,8 @@
  * (page budget du 5 octobre 2026) : src/lib/status-boxes.ts.
  *
  * Une fiche domaine republiée qui porte ses encadrés doit porter
- * `statusReviewed` au jour de sa `lastModified` ou après. Une fiche qui ne les
- * porte pas encore est signalée sans bloquer : ses encadrés restent ceux de
- * messages/*.json.
+ * `statusReviewed` au jour de sa `lastModified` ou après. Une fiche domaine
+ * sans encadrés est refusée : la page n'a plus de texte de repli.
  *
  * Usage :
  *   npx tsx scripts/content-lint/status-boxes.ts <fichier-liste>
@@ -28,7 +27,7 @@ import { annotate } from './annotate';
 
 const DIR = 'content/domain-cards';
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const PASSING: StatusBoxesVerdict[] = ['ok', 'legacy', 'draft'];
+const PASSING: StatusBoxesVerdict[] = ['ok', 'draft'];
 
 interface Row {
   file: string;
@@ -69,8 +68,8 @@ function main(): void {
       .sort()
       .map((n) => `${DIR}/${n}`);
     const rows = inspect(all);
-    const legacy = rows.filter((r) => r.verdict === 'legacy').length;
-    console.log(`Audit des encadrés de statut : ${legacy} fiche(s) domaine sur ${all.length} encore servies par messages/*.json.`);
+    const absent = rows.filter((r) => r.verdict === 'absent').length;
+    console.log(`Audit des encadrés de statut : ${absent} fiche(s) domaine sur ${all.length} sans encadrés.`);
     for (const r of rows.filter((x) => !PASSING.includes(x.verdict as StatusBoxesVerdict))) {
       console.log(`  ${r.file}  [${r.verdict}] ${r.reason}`);
     }
@@ -94,14 +93,9 @@ function main(): void {
   }
 
   const inspected = inspect(changed);
-  const legacy = inspected.filter((r) => r.verdict === 'legacy');
-  if (legacy.length > 0) {
-    console.log(`À MIGRER (non bloquant) : ${legacy.length} fiche(s) domaine modifiée(s) dont les encadrés sont encore dans messages/*.json :`);
-    for (const r of legacy) console.log(`  ${r.file}`);
-  }
   const violations = inspected.filter((r) => !PASSING.includes(r.verdict as StatusBoxesVerdict));
   if (violations.length === 0) {
-    console.log(`OK : encadrés de statut relus sur ${inspected.length - legacy.length} fiche(s) domaine qui les portent.`);
+    console.log(`OK : encadrés de statut présents et relus sur ${inspected.length} fiche(s) domaine vérifiée(s).`);
     return;
   }
 

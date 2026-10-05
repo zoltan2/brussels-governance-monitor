@@ -10,7 +10,7 @@
 # (écosystème `docker` ajouté dans .github/dependabot.yml).
 
 # ---- deps : dépendances complètes (dev incluses) pour le build ----
-FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS deps
+FROM node:26-slim@sha256:ec7758ee051e457b468b32bde57b0879010b325bb9862718e9615225ce4aaae1 AS deps
 WORKDIR /app
 # npm ci a besoin du lockfile. On installe TOUT (velite/pagefind/tsx sont en
 # devDependencies et sont requis par le script `build`), donc pas de --omit=dev.
@@ -18,7 +18,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 # ---- builder : exécute le script `build` EXISTANT verbatim ----
-FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS builder
+FROM node:26-slim@sha256:ec7758ee051e457b468b32bde57b0879010b325bb9862718e9615225ce4aaae1 AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -63,7 +63,7 @@ RUN npm run build
 RUN ./node_modules/.bin/tsx scripts/controle-apres-build.ts
 
 # ---- runner : image finale minimale, .next/standalone + assets explicites ----
-FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS runner
+FROM node:26-slim@sha256:ec7758ee051e457b468b32bde57b0879010b325bb9862718e9615225ce4aaae1 AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

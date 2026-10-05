@@ -6,6 +6,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { getDomainCard, getAllDomainSlugs, getLatestVerification, getDossiersForDomain, getSectorsForDomain, getComparisonsForDomain, getGlossaryForDomain } from '@/lib/content';
+import { pickStatusBox } from '@/lib/status-boxes';
 import { routing, type Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { buildMetadata, canonicalUrl, searchMeta } from '@/lib/metadata';
@@ -183,7 +184,7 @@ function DomainDetail({
           </p>
           <div className="mt-3">
             <StatusAccordion title={t('whyStatusTitle')}>
-              {t(`whyStatus.${card.slug}`)}
+              {pickStatusBox(card.whyStatus, t(`whyStatus.${card.slug}`))}
             </StatusAccordion>
           </div>
         </div>
@@ -309,7 +310,7 @@ function DomainDetail({
             {t('concreteImpactTitle')}
           </h2>
           <p className="text-sm leading-relaxed text-brand-900">
-            {t(`concreteImpact.${card.slug}`)}
+            {pickStatusBox(card.concreteImpact, t(`concreteImpact.${card.slug}`))}
           </p>
         </div>
 

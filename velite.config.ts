@@ -240,6 +240,14 @@ const domainCards = defineCollection({
       changeSummaryDate: s.isodate().optional(),
       digestHeadline: s.string().max(120).optional(),
       summaryFalc: s.string().max(200).optional(),
+      // Encadrés « Pourquoi ce statut » et « Ce que ça signifie concrètement »
+      // de la page domaine. Ils vivaient dans messages/*.json, hors de toute
+      // veille : le 05/10/2026, treize domaines affichaient des textes de mars.
+      // `statusReviewed` atteste leur relecture, exigée à chaque republication
+      // par scripts/content-lint/status-boxes.ts. Voir src/lib/status-boxes.ts.
+      whyStatus: s.string().max(600).optional(),
+      concreteImpact: s.string().max(700).optional(),
+      statusReviewed: s.isodate().optional(),
       // true = brouillon : /review la liste, la page est noindex (src/lib/metadata.ts),
       // et summaryReviewed/faqReviewed ci-dessus ne sont pas exigées. Dès que ce
       // champ passe à false ou est retiré, les deux attestations redeviennent

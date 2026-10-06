@@ -123,7 +123,7 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klima",
-      "question": "Welcher Anteil der vom Klimaexpertenausschuss empfohlenen Indikatoren ist laut seiner Mitteilung vom 2. Oktober 2026 in Brüssel nicht verfügbar oder nicht vorhanden?",
+      "question": "Welcher Anteil der vom Komitee der Klimaexperten empfohlenen Indikatoren ist laut seiner Mitteilung vom 2. Oktober 2026 in Brüssel nicht verfügbar oder nicht vorhanden?",
       "options": [
         "Rund 13 %",
         "Rund 25 %",
@@ -131,7 +131,7 @@
         "Rund 87 %"
       ],
       "correct": 2,
-      "explanation": "Mangels Daten kann der Ausschuss nach eigenen Angaben die Wirkung der regionalen Klimapolitik nicht wirksam bewerten. Sein Bericht 2026 prüft 51 Indikatoren.",
+      "explanation": "Mangels Daten kann das Komitee nach eigenen Angaben die Wirkung der regionalen Klimapolitik nicht wirksam bewerten. Sein Bericht 2026 prüft 51 Indikatoren.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
@@ -1614,5 +1614,6 @@
         "promptVersion": "v3"
       }
     }
-  ]
+  ],
+  "reviewedCount": 44
 }

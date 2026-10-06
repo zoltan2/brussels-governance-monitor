@@ -123,7 +123,7 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climate",
-      "question": "According to the Climate Expert Committee's press release of 2 October 2026, what share of the indicators it recommends is unavailable or non-existent in Brussels?",
+      "question": "According to the Climate Experts Committee's press release of 2 October 2026, what share of the indicators it recommends is unavailable or non-existent in Brussels?",
       "options": [
         "About 13%",
         "About 25%",
@@ -522,7 +522,7 @@
         "66 million euros"
       ],
       "correct": 1,
-      "explanation": "The agreement also reintroduces a growth norm for social and health policy, according to the Minister for Social Action. No budget table had been published at that date.",
+      "explanation": "The agreement also reintroduces a growth norm for social and health policy, according to the Social Action minister. No budget table had been published at that date.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
@@ -1614,5 +1614,6 @@
         "promptVersion": "v3"
       }
     }
-  ]
+  ],
+  "reviewedCount": 44
 }

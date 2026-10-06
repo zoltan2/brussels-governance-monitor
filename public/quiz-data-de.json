@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T15:14:34.500Z",
+  "generatedAt": "2026-10-06T13:44:24.640Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welchen Betrag muss die Brüsseler Regierung laut BRUZZ (1. Oktober 2026) beim Haushaltskonklave, das am 3. Oktober 2026 beginnt, finden, um das regionale Defizit im Jahr 2027 auf 719 Millionen Euro zu senken?",
+      "question": "Welches Defizit strebt die Brüsseler Regierung für 2027 in der am 4. Oktober 2026 erzielten Haushaltseinigung an?",
       "options": [
-        "Rund 93 Millionen Euro",
-        "Rund 238 Millionen Euro",
-        "Rund 131 Millionen Euro",
-        "Rund 477 Millionen Euro"
+        "416 Millionen Euro",
+        "719 Millionen Euro",
+        "957 Millionen Euro",
+        "1,3 Milliarden Euro"
       ],
       "correct": 1,
-      "explanation": "BRUZZ nennt eine Anstrengung von rund 238 Millionen Euro für den Haushalt 2027. Es wird kein offizielles Dokument zitiert, und mehrere Posten bleiben ungewiss, darunter Beliris und der Brussels Deal.",
+      "explanation": "Die Einigung senkt das Defizit auf 719 Millionen Euro im Jahr 2027, gegenüber 957 Millionen im Jahr 2026. Die Haushaltstabellen lagen den Abgeordneten vor der Erklärung vom 5. Oktober 2026 nicht vor.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:1a23fca249ea7b5ebe9d680b537f2b23",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:388af9c0b1526a8c347dbe9f17c9c998",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welches Rating, verbunden mit welchem Ausblick, vergibt die Agentur S&P Global Ratings an die Region Brüssel-Hauptstadt, laut der Mitteilung des Brüsseler Ministers für Finanzen und Haushalt vom 28. September 2026?",
+      "question": "In welchem Jahr sieht die Brüsseler Haushaltseinigung vom 4. Oktober 2026 die Rückkehr zum Ausgleich der Regionalfinanzen vor?",
       "options": [
-        "Das Rating AA-, mit negativem Ausblick",
-        "Das Rating A, mit stabilem Ausblick",
-        "Das Rating A, mit negativem Ausblick",
-        "Das Rating A+, mit stabilem Ausblick"
+        "Im Jahr 2027",
+        "Im Jahr 2028",
+        "Im Jahr 2029",
+        "Im Jahr 2031"
       ],
       "correct": 2,
-      "explanation": "Das Rating A und der negative Ausblick werden beibehalten, wie bei der Bestätigung vom 27. März 2026. Laut dem Minister erklärt die hohe Verschuldungsquote, dass dieser Ausblick beibehalten wird.",
+      "explanation": "Der angekündigte Pfad führt über ein Defizit von 719 Millionen Euro im Jahr 2027 und 416 Millionen im Jahr 2028 zum Ausgleich im Jahr 2029.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:1a23fca249ea7b5ebe9d680b537f2b23",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:388af9c0b1526a8c347dbe9f17c9c998",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Was sieht die erste Phase des Bahnhofsplans, die die Brüsseler Regierung am 1. Oktober 2026 für den Nordbahnhof und den Südbahnhof genehmigt hat, im Bereich Sauberkeit vor?",
+      "question": "Welche Säcke sollen laut Bruxelles-Propreté am 9. und 12. Oktober 2026, den gewerkschaftlichen Aktionstagen, nicht herausgestellt werden?",
       "options": [
-        "Die Einrichtung von Sortierräumen in beiden Bahnhöfen, auf ihren Vorplätzen und in ihrer Umgebung",
-        "Die Schaffung einer ständigen Brigade von Bruxelles-Propreté in jedem der beiden Bahnhöfe",
-        "Eine einmalige Reinigungs- und Desinfektionsaktion durch ein Fachunternehmen",
-        "Die Übertragung der Reinigung beider Bahnhöfe an die Gemeinden, in denen sie liegen"
+        "Die blauen und gelben Säcke",
+        "Die weißen und grünen Säcke",
+        "Die orangefarbenen und weißen Säcke",
+        "Die grünen und orangefarbenen Säcke"
       ],
-      "correct": 2,
-      "explanation": "Laut dem Kabinett des Ministerpräsidenten, zitiert von BRUZZ und La DH, umfasst diese mit 3 Millionen Euro für 2026 ausgestattete Phase eine einmalige Reinigungs- und Desinfektionsaktion in beiden Bahnhöfen und ihrer Umgebung. Bruxelles-Propreté kauft anschließend Material, um das Ergebnis zu halten.",
+      "correct": 0,
+      "explanation": "Vorrang haben die weißen, grünen und orangefarbenen Säcke. Die an diesen Tagen in drei Gemeinden geplanten mobilen Recyparks entfallen.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:a82741e6715b3bf6cdb05a3c593c2f41",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:d7512400f94207a65c7b39d91e1fb6dd",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Wozu dient Wake-Up Clean-Up, die im Oktober 2024 von Bruxelles-Propreté gestartete Plattform, deren Bilanz die Agentur am 21. September 2026 veröffentlicht hat?",
+      "question": "Was ist Wake-Up Clean-Up, dessen Bilanz Bruxelles-Propreté am 21. September 2026 veröffentlicht hat?",
       "options": [
-        "Um Sammelaktionen von Bürgern im öffentlichen Raum zu planen und das Material zu reservieren",
-        "Um illegale Ablagerungen zu melden, damit sofort ein Bußgeld erhoben werden kann",
-        "Um einen Abgabetermin in den regionalen und kommunalen Recyparks zu buchen",
-        "Um die Abholung von Sperrmüll zu Hause durch die Teams der Agentur zu bestellen"
+        "Eine Plattform für Bürger-Putzaktionen",
+        "Eine regionale Brigade für Bußgelder",
+        "Ein Netz unterirdischer Container",
+        "Eine nächtliche Sperrmüllabholung"
       ],
       "correct": 0,
-      "explanation": "Einwohner, Schulen, Vereine und Unternehmen planen dort eine Sammelaktion und reservieren das nötige Material. Laut der Agentur wurden auf diesem Weg zwischen Oktober 2024 und September 2026 mehr als 41 Tonnen Abfall gesammelt.",
+      "explanation": "Die im Oktober 2024 gestartete Plattform lässt Anwohner, Schulen und Unternehmen eine Sammelaktion planen und Material reservieren. Die Agentur zählt mehr als 41 Tonnen.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:a82741e6715b3bf6cdb05a3c593c2f41",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:d7512400f94207a65c7b39d91e1fb6dd",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klima",
-      "question": "Welche Forderung nahm der Gemeinderat von Schaerbeek am 16. September 2026 an?",
+      "question": "Wodurch ersetzt die Brüsseler Haushaltseinigung vom 4. Oktober 2026 die Renolution-Prämien?",
       "options": [
-        "Ein Verbot fossiler Werbung im öffentlichen Raum",
-        "Eine Ausweitung der Umweltzone auf Lieferwagen",
-        "Die Einführung einer Stadtmaut an den Gemeindegrenzen",
-        "Eine Pflicht zur energetischen Sanierung der Gemeindegebäude"
+        "Zinslose Darlehen für die Renovierung",
+        "Eine Senkung des Immobiliensteuervorabzugs",
+        "Einen jährlichen Energiescheck pro Haushalt",
+        "Eine einmalige Prämie nur für Dämmung"
       ],
       "correct": 0,
-      "explanation": "Schaerbeek ist damit die dritte Brüsseler Gemeinde mit dieser Forderung, nach Saint-Gilles und Jette. Der Antrag zielt unter anderem auf Werbung für Autos und Flugreisen und fordert die Regionalregierung auf, die rechtlichen und politischen Möglichkeiten eines regionalen Verbots zu prüfen. Die Information stammt aus einer einzigen Pressequelle.",
+      "explanation": "Die zinslosen Energie- und Renovierungsdarlehen sind für das Frühjahr 2027 angekündigt, mit 66 Millionen Euro pro Jahr.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:bef91225787d3ec4ed12d14a47b11606",
-        "generatedAt": "2026-09-18T16:07:32.630Z",
+        "sourceLastModified": "2026-10-05",
+        "sourceContentHash": "sha256:35d1a3aceef216fab3878462098a0c52",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klima",
-      "question": "Wann wird der vollständige belgische Wiederherstellungsplan für die Natur erwartet, nachdem die europäische Frist vom 1. September 2026 verstrichen ist?",
+      "question": "Welcher Anteil der vom Komitee der Klimaexperten empfohlenen Indikatoren ist laut seiner Mitteilung vom 2. Oktober 2026 in Brüssel nicht verfügbar oder nicht vorhanden?",
       "options": [
-        "Nicht vor dem Sommer 2027",
-        "Nicht vor dem Sommer 2028",
-        "Vor Ende 2026",
-        "Im ersten Quartal 2027"
+        "Rund 13 %",
+        "Rund 25 %",
+        "Rund 50 %",
+        "Rund 87 %"
       ],
-      "correct": 0,
-      "explanation": "Der Brüsseler Plan wird für September oder Oktober 2026 angekündigt. Der Brüsseler Rückstand ist doppelt, denn der auf der offiziellen Website des Plans Renature Brussels veröffentlichte Zeitplan sah eine Annahme in erster Lesung für den Sommer 2026 vor. Die konsultierten Quellen nennen keine Sanktion.",
+      "correct": 2,
+      "explanation": "Mangels Daten kann das Komitee nach eigenen Angaben die Wirkung der regionalen Klimapolitik nicht wirksam bewerten. Sein Bericht 2026 prüft 51 Indikatoren.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-09-18",
-        "sourceContentHash": "sha256:bef91225787d3ec4ed12d14a47b11606",
-        "generatedAt": "2026-09-18T16:07:32.630Z",
+        "sourceLastModified": "2026-10-05",
+        "sourceContentHash": "sha256:35d1a3aceef216fab3878462098a0c52",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -146,21 +146,21 @@
       "id": "domain-digital-0",
       "source": "domain",
       "domain": "Digital",
-      "question": "Laut den am 4. August 2026 vom IBSA, dem Brüsseler Institut für Statistik und Analyse, veröffentlichten Zahlen: Welcher Anteil der Brüsseler Unternehmen mit mehr als 250 Beschäftigten nutzte 2025 mindestens eine Technologie der künstlichen Intelligenz?",
+      "question": "Welche Plattform der Föderation Wallonie-Brüssel gab am 5. Oktober 2026 bekannt, Opfer eines Cyberangriffs geworden zu sein?",
       "options": [
-        "Siebzig Prozent",
-        "Fünfundzwanzig Prozent",
-        "Vierzig Prozent",
-        "Neunzig Prozent"
+        "EAD-online.be, für das Selbststudium",
+        "Irisbox, der elektronische Schalter",
+        "MyActiris, für die Arbeitsuche",
+        "Smartschool, für die Schulbegleitung"
       ],
       "correct": 0,
-      "explanation": "Gegenüber fünfundzwanzig Prozent bei Unternehmen mit 2 bis 9 Beschäftigten, die das Brüsseler Gefüge prägen. Die Region liegt über dem europäischen Schnitt von 19,95 %, aber unter dem belgischen, der bei rund einem Drittel liegt.",
+      "explanation": "Die Generalverwaltung des Unterrichtswesens bestätigt, dass eine Schwachstelle ausgenutzt wurde und Daten abgeflossen sind. Die Plattform bleibt bis Mitte Oktober 2026 geschlossen.",
       "sourceSlug": "/de/bereiche/digital",
       "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung",
       "provenance": {
-        "sourceLastModified": "2026-10-03",
-        "sourceContentHash": "sha256:a359bcf215b4ff7171e2e615fb097d82",
-        "generatedAt": "2026-10-03T15:14:34.500Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:b01c0e7afedb4af1c76d7d01c22a64ba",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -169,21 +169,21 @@
       "id": "domain-digital-1",
       "source": "domain",
       "domain": "Digital",
-      "question": "Was bedeutet der Grundsatz only once zur Verwaltungsvereinfachung in der Regionalen Politikerklärung vom 13. Februar 2026?",
+      "question": "Welcher Anteil der Brüsseler Unternehmen mit 2 bis 9 Beschäftigten nutzte laut IBSA im Jahr 2025 eine Technologie der künstlichen Intelligenz?",
       "options": [
-        "Daten, die der Verwaltung vorliegen, nicht erneut beim Bürger abfragen",
-        "Jeden Verwaltungsschritt auf ein einziges Papierformular beschränken",
-        "Pro Haushalt und Kalenderjahr nur einen Prämienantrag zulassen",
-        "Ein amtliches Dokument nur einmal ausstellen, ohne Zweitschrift"
+        "10 %",
+        "25 %",
+        "45 %",
+        "70 %"
       ],
-      "correct": 0,
-      "explanation": "Getragen wird der Grundsatz vom einheitlichen Schalter Easy Brussels und von der Online-Plattform IRISbox. Er ergänzt den Teil der Erklärung zur digitalen Inklusion für Menschen mit geringem Zugang zum Digitalen.",
+      "correct": 1,
+      "explanation": "Der Abstand zu den großen Strukturen ist deutlich: 70 % bei Unternehmen mit mehr als 250 Beschäftigten, laut den am 4. August 2026 veröffentlichten Zahlen.",
       "sourceSlug": "/de/bereiche/digital",
       "sourceTitle": "Digital: digitale Kluft und Verwaltungsvereinfachung",
       "provenance": {
-        "sourceLastModified": "2026-10-03",
-        "sourceContentHash": "sha256:a359bcf215b4ff7171e2e615fb097d82",
-        "generatedAt": "2026-10-03T15:14:34.500Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:b01c0e7afedb4af1c76d7d01c22a64ba",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Laut dem von Actiris am 25. September 2026 veröffentlichten Monitoring: Welcher Anteil der 15 500 Brüsseler Arbeitsuchenden, deren Anspruch im ersten Quartal 2026 endete, wurde in den drei folgenden Monaten Leistungsempfänger eines ÖSHZ?",
+      "question": "Welche Beschäftigungsquote strebt die Brüsseler Regierung bis 2030 an, ein Ziel, das in der allgemeinen Regierungserklärung vom 5. Oktober 2026 bekräftigt wurde?",
       "options": [
-        "8,9 %",
-        "12,6 %",
-        "28,1 %",
-        "47,6 %"
+        "60 %",
+        "65 %",
+        "70 %",
+        "75 %"
       ],
-      "correct": 3,
-      "explanation": "Actiris beziffert den Anteil der Ausgeschlossenen der ersten beiden Wellen, die binnen drei Monaten Leistungsempfänger eines ÖSHZ wurden, auf 47,6 %, gegenüber 12,6 %, die eine Beschäftigung fanden, und 8,9 %, die in die Kranken- und Invalidenversicherung übertraten. Diese Zahlen sind vorläufig.",
+      "correct": 2,
+      "explanation": "Laut dem Ministerpräsidenten entspricht dieses Ziel 50 000 zusätzlichen Beschäftigten. Die Quote lag im zweiten Quartal 2026 bei 64,7 %.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-09-28",
-        "sourceContentHash": "sha256:8818be6eb98ef146008f9459759cf810",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:f38e779ef8981d62ac8516ecc59de64e",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Laut dem dritten Monitoringbericht, den das LfA am 17. September 2026 veröffentlicht hat: Welcher Anteil der zwischen Januar und Juni 2026 in Belgien verzeichneten Anspruchsenden beim Arbeitslosengeld oder bei der Eingliederungszulage betraf Brüsseler?",
+      "question": "Welcher Anteil der Brüsseler, deren Anspruch im ersten Quartal 2026 endete, wurde laut dem von Actiris am 25. September 2026 veröffentlichten Monitoring binnen drei Monaten Leistungsempfänger eines ÖSHZ?",
       "options": [
-        "10,4 %",
-        "27,2 %",
-        "16,8 %",
-        "43,9 %"
+        "12,6 %",
+        "28,4 %",
+        "47,6 %",
+        "63,6 %"
       ],
-      "correct": 1,
-      "explanation": "Das LfA zählt 26 986 Brüsseler unter den 99 144 Anspruchsenden, die in diesem Zeitraum in Belgien verzeichnet wurden, also 27,2 %. In ihrer ersten bekannten Situation nach dem Abgang hatten 10,4 % von ihnen eine Beschäftigung als Arbeitnehmer.",
+      "correct": 2,
+      "explanation": "Im selben Zeitraum fanden 12,6 % eine Beschäftigung, unabhängig von der Dauer. Actiris weist darauf hin, dass diese Zahlen vorläufig sind.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-09-28",
-        "sourceContentHash": "sha256:8818be6eb98ef146008f9459759cf810",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:f38e779ef8981d62ac8516ecc59de64e",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Was sieht der Ordonnanzentwurf, den die Brüsseler Regierung am 18. Juni 2026 in erster Lesung gebilligt hat, für die Ermäßigung des Immobiliensteuervorabzugs vor, die Brüsseler Familien mit mindestens zwei Kindern gewährt wird?",
+      "question": "Wie viel sieht die Brüsseler Haushaltseinigung vom 4. Oktober 2026 laut der Staatssekretärin für Wohnen für den Bau von mehr als 1 000 Wohnungen vor, die zu einem moderaten Preis verkauft werden?",
       "options": [
-        "Ihre ersatzlose Abschaffung ab dem Steuerjahr 2027",
-        "Ihre Verdopplung für selbstnutzende Eigentümer im Jahr 2027",
-        "Ihre Ausweitung auf Familien mit einem einzigen Kind im Jahr 2027",
-        "Ihren Ersatz durch eine Pauschale ab dem Steuerjahr 2027"
+        "61 Millionen Euro",
+        "104 Millionen Euro",
+        "131 Millionen Euro",
+        "250 Millionen Euro"
       ],
-      "correct": 3,
-      "explanation": "Die Ermäßigung von 10 % pro Kind würde ab dem Steuerjahr 2027 durch eine Pauschale ersetzt, deren Betrag laut der Studie der Ligue des familles vom 1. Oktober 2026 noch nicht feststand. Derselbe Entwurf verdoppelt die Be-Home-Prämie.",
+      "correct": 1,
+      "explanation": "Diese Wohnungen sollen über citydev.brussels gebaut werden. Zu den 131 Millionen Euro der SLRB gibt es dagegen zwei Versionen innerhalb der Regierung.",
       "sourceSlug": "/de/bereiche/housing",
-      "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen",
+      "sourceTitle": "Wohnungswesen: 62 234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:2971b223da836c9ccf0ab4f80bddb2e9",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:0967465ccd10a7e393186e21ff905ad5",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Laut der am 1. Oktober 2026 veröffentlichten Studie der Ligue des familles: Ab welchem Betrag des Immobiliensteuervorabzugs würde eine Brüsseler Familie beim Wechsel zu einer Pauschale von 125 Euro pro Kind verlieren, einer für 2027 genannten Annahme?",
+      "question": "Was sieht der Brüsseler Ordonnanzentwurf zum Immobiliensteuervorabzug, der am 18. Juni 2026 in erster Lesung gebilligt wurde, für Familien vor?",
       "options": [
-        "Bei mehr als 750 Euro Vorabzug",
-        "Bei mehr als 1 250 Euro Vorabzug",
-        "Bei mehr als 2 000 Euro Vorabzug",
-        "Bei mehr als 2 500 Euro Vorabzug"
+        "Einen Pauschalbetrag statt der prozentualen Ermäßigung",
+        "Die Abschaffung jeder Ermäßigung für Kinder",
+        "Eine Verdopplung der Ermäßigung pro Kind",
+        "Eine Ermäßigung nur für Familien zur Miete"
       ],
-      "correct": 1,
-      "explanation": "Mit den genannten Beträgen würde laut der Studie jede Familie verlieren, deren Immobiliensteuervorabzug 1 250 Euro übersteigt. Am stärksten betroffen wären Mieterfamilien, denn sie erhalten die Be-Home-Prämie nicht, die selbstnutzenden Eigentümern vorbehalten ist.",
+      "correct": 0,
+      "explanation": "Laut einer Studie der Ligue des familles vom 1. Oktober 2026 steht die Höhe des Pauschalbetrags noch nicht fest. Die erwartete Einsparung beträgt 9 Millionen Euro pro Jahr.",
       "sourceSlug": "/de/bereiche/housing",
-      "sourceTitle": "Wohnungswesen: 400M für die SLRB, 1.000 Sozialwohnungen",
+      "sourceTitle": "Wohnungswesen: 62 234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:2971b223da836c9ccf0ab4f80bddb2e9",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:0967465ccd10a7e393186e21ff905ad5",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Was hat das Brüsseler Parlament am 2. Oktober 2026 in der Plenarsitzung über den Resolutionsvorschlag Nr. A-302 entschieden, der sich gegen den föderalen Gesetzentwurf richtet, der Wohnungsbetretungen erlaubt?",
+      "question": "Vor welchen Versammlungen wurde die Brüsseler allgemeine Regierungserklärung am 5. Oktober 2026 abgegeben?",
       "options": [
-        "Es hat den Text mangels regionaler Mehrheit abgelehnt",
-        "Es hat den Text mit einer wechselnden Mehrheit angenommen",
-        "Es hat den Text an den Ausschuss für Allgemeine Angelegenheiten zurückverwiesen",
-        "Es hat die Abstimmung auf die Zeit nach der Erklärung zur allgemeinen Politik verschoben"
+        "Dem Brüsseler Parlament und der Vereinigten Versammlung",
+        "Der Abgeordnetenkammer und dem Senat",
+        "Dem Brüsseler Parlament und der föderalen Kammer",
+        "Nur dem Französischsprachigen Brüsseler Parlament"
       ],
-      "correct": 1,
-      "explanation": "Laut RTBF und BX1 wurde der Text mit einer wechselnden Mehrheit angenommen: Zwei Parteien der regionalen Mehrheit unterstützten ihn gemeinsam mit der Opposition. Die Artikel nennen das Stimmenverhältnis nicht.",
+      "correct": 0,
+      "explanation": "Die Vereinigte Versammlung ist das gesetzgebende Organ der Gemeinsamen Gemeinschaftskommission. Die Debatte über die Erklärung findet am Folgetag statt, dem 6. Oktober 2026.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-10-03",
-        "sourceContentHash": "sha256:5400b1745957455d13c4683aee368999",
-        "generatedAt": "2026-10-03T15:14:34.500Z",
+        "sourceLastModified": "2026-10-05",
+        "sourceContentHash": "sha256:fe25cd0fb0c920498e0c7a55c7649560",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Was geschah am 2. Oktober 2026 im Brüsseler Parlament laut La Libre mit dem Antrag, den Geschäftsordnungsausschuss im Dringlichkeitsverfahren einzuberufen, um eine Sanktion gegen Abgeordnete einzuführen, die gegen die Gewaltenteilung verstoßen?",
+      "question": "Wogegen richtet sich die Resolution Nr. A-302, die das Brüsseler Parlament am 2. Oktober 2026 angenommen hat?",
       "options": [
-        "Der Antrag wurde angenommen und der Ausschuss tagte noch am selben Tag",
-        "Der Antrag wurde von der Fraktion zurückgezogen, die ihn gestellt hatte",
-        "Der Antrag wurde abgelehnt und der Vorschlag folgt dem ordentlichen Verfahren",
-        "Der Antrag wurde zur Stellungnahme an den Deontologieausschuss verwiesen"
+        "Gegen den föderalen Gesetzentwurf zu Wohnungsbetretungen",
+        "Gegen das föderale Gesetz zur Fusion der Polizeizonen",
+        "Gegen die geplante interregionale Straßenvignette",
+        "Gegen die föderalen Normen für Überflüge der Stadt"
       ],
-      "correct": 2,
-      "explanation": "Laut La Libre unterstützte keine andere Fraktion den Dringlichkeitsantrag, zwei Fraktionen enthielten sich. Der Sanktionsvorschlag ist nicht vom Tisch: Er folgt dem ordentlichen Verfahren.",
+      "correct": 0,
+      "explanation": "Der Text wurde mit einer wechselnden Mehrheit angenommen: Ein Teil der regionalen Mehrheit unterstützte ihn, ein anderer stimmte dagegen.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-10-03",
-        "sourceContentHash": "sha256:5400b1745957455d13c4683aee368999",
-        "generatedAt": "2026-10-03T15:14:34.500Z",
+        "sourceLastModified": "2026-10-05",
+        "sourceContentHash": "sha256:fe25cd0fb0c920498e0c7a55c7649560",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Was hat die Brüsseler Regierung am 1. Oktober 2026 laut einer Pressemitteilung vom 2. Oktober 2026 über die Pflicht entschieden, dass neu als Taxi registrierte Fahrzeuge in Brüssel emissionsfrei sein müssen?",
+      "question": "Was kündigt die Brüsseler allgemeine Regierungserklärung vom 5. Oktober 2026 für die Tunnel Bailli und Vleurgat an der Avenue Louise an?",
       "options": [
-        "Die Frist wird auf den 1. Januar 2029 verschoben",
-        "Die Frist wird auf den 1. Juli 2026 vorgezogen",
-        "Die Frist wird bis 2030 ausgesetzt",
-        "Die Frist bleibt beim 1. Januar 2027"
+        "Eine Sanierung im bisherigen Zustand, zweispurig",
+        "Eine endgültige Schließung für den Autoverkehr",
+        "Einen Umbau zu Tunneln nur für Straßenbahnen",
+        "Eine Stadtmaut an der Einfahrt jedes Tunnels"
       ],
-      "correct": 3,
-      "explanation": "Der Anfang September 2026 geforderte Aufschub um zwei Jahre kommt nicht. Angekündigt sind Begleitmaßnahmen, darunter zwei zusätzliche Betriebsjahre für Fahrzeuge im Umlauf und 100 bis 150 Schnellladepunkte bis Ende 2028.",
+      "correct": 0,
+      "explanation": "Ein mehrjähriger Investitionsplan für Brücken, Tunnel und Viadukte soll bis November 2026 vorgelegt werden. Die Arbeiten am Vleurgat-Tunnel sollen bis 2029 beginnen.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-10-03",
-        "sourceContentHash": "sha256:58ade07d808ec05f9b950863b33810af",
-        "generatedAt": "2026-10-03T15:14:34.500Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:e3fe845bec9800916651d44ce80d2770",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Was zeigte sich laut BRUZZ im Mobilitätsausschuss des Brüsseler Parlaments vom 29. September 2026 zur Mediatram, dem 2022 genehmigten Straßenbahnprojekt zum Mediapark-Gelände?",
+      "question": "Bis wann soll laut der Brüsseler allgemeinen Regierungserklärung vom 5. Oktober 2026 ein neuer Regionaler Mobilitätsplan verabschiedet werden?",
       "options": [
-        "Das Projekt hat eine Städtebaugenehmigung, aber seine Baustelle ist auf 2029 verschoben",
-        "Das Projekt wird zugunsten einer Buslinie zum Boulevard Reyers aufgegeben",
-        "Das Projekt hat weder eine Kostenschätzung noch einen Antrag auf Städtebaugenehmigung",
-        "Das Projekt ist beziffert, aber seine Trasse durch das Mediapark-Gelände wurde abgelehnt"
+        "Bis Ende 2026",
+        "Bis Ende 2027",
+        "Bis Ende 2028",
+        "Bis Ende 2030"
       ],
       "correct": 2,
-      "explanation": "Laut BRUZZ gibt es für die Mediatram weder eine Kostenschätzung noch einen Genehmigungsantrag, und sie gehört nicht zu den Straßenbahnprojekten, die die Brüsseler Regierung aus Haushaltsgründen beibehält. Das Projekt ist vorläufig auf Eis gelegt.",
+      "explanation": "Dieser Plan soll Good Move ablösen, den 2020 verabschiedeten regionalen Mobilitätsplan.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-10-03",
-        "sourceContentHash": "sha256:58ade07d808ec05f9b950863b33810af",
-        "generatedAt": "2026-10-03T15:14:34.500Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:e3fe845bec9800916651d44ce80d2770",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Welches Budget für 2026 begleitet die erste Phase des Bahnhofsplans, die die Brüsseler Regierung am 1. Oktober 2026 für den Nordbahnhof und den Südbahnhof genehmigt hat, laut dem Kabinett des Ministerpräsidenten, zitiert von BRUZZ und La DH?",
+      "question": "Wie viele Rekruten kündigt die Brüsseler allgemeine Regierungserklärung vom 5. Oktober 2026 für die Feuerwehr SIAMU im Jahr 2027 an?",
       "options": [
-        "300 000 Euro für das Jahr 2026",
-        "3 Millionen Euro für das Jahr 2026",
-        "5 Millionen Euro für das Jahr 2026",
-        "10 Millionen Euro für das Jahr 2026"
+        "35 Rekruten",
+        "69 Rekruten",
+        "92 Rekruten",
+        "132 Rekruten"
       ],
-      "correct": 1,
-      "explanation": "Die erste Phase ist mit 3 Millionen Euro für 2026 ausgestattet: Reinigung und Desinfektion, Austausch der veralteten Kameras, neue Beleuchtung und Verstärkung der aufsuchenden Sozialarbeit. Laut BRUZZ sieht der Plan anschließend 5 Millionen Euro im Jahr 2027 vor.",
+      "correct": 2,
+      "explanation": "Laut RTBF fließen 10 Millionen Euro in die Verstärkung der Feuerwehr und 2027 20 Millionen in ihren neuen Stabssitz.",
       "sourceSlug": "/de/bereiche/security",
-      "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
+      "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:e6469ff7dae67b3fc33b1dfc8da48727",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:8f269d17046f15383dac1c2834bee2aa",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Wo soll die neue Stabskaserne der SIAMU, der Brüsseler Feuerwehr, gebaut werden, für die die Brüsseler Regierung am 24. September 2026 die Vergabe des öffentlichen Auftrags genehmigt hat?",
+      "question": "Was umfasst die erste Phase des Bahnhofsplans, die die Brüsseler Regierung am 1. Oktober 2026 genehmigt hat?",
       "options": [
-        "Auf dem Gelände an der Avenue de l'Héliport, anstelle der Kaserne aus den 1980er-Jahren",
-        "Auf dem ehemaligen Industriegelände von Audi Brussels, entlang der Eisenbahn in Forest",
-        "Auf einem Gelände nahe dem Südbahnhof, zwischen Anderlecht und Saint-Gilles",
-        "Auf einem Gelände des Hafens von Brüssel, bei Tour & Taxis in Laeken"
+        "Den Austausch veralteter Kameras",
+        "Die Schaffung einer Bahnhofspolizei",
+        "Die nächtliche Schließung des Südbahnhofs",
+        "Kontrollschleusen an den Eingängen"
       ],
-      "correct": 3,
-      "explanation": "Die Kaserne entsteht auf einem rund 1,7 Hektar großen Gelände des Hafens von Brüssel, entlang der künftigen drève Maritime, und ersetzt die Kaserne an der Avenue de l'Héliport. Der Baubeginn ist für Ende 2029 vorgesehen.",
+      "correct": 0,
+      "explanation": "Diese Phase, mit 3 Millionen Euro für 2026 ausgestattet, umfasst auch eine Reinigung von Nordbahnhof und Südbahnhof und mehr aufsuchende Sozialarbeit.",
       "sourceSlug": "/de/bereiche/security",
-      "sourceTitle": "Sicherheit: Drogenkommissar, 10 Mio. EUR Bahnhöfe, stabile Kriminalitätsrate",
+      "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:e6469ff7dae67b3fc33b1dfc8da48727",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:8f269d17046f15383dac1c2834bee2aa",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Wie viele Plätze behält der Samusocial nach eigenen Angaben in Brüssel für alleinstehende Männer, nachdem sein Notunterbringungszentrum im WTC am 30. September 2026 geschlossen hat?",
+      "question": "Wie viele zusätzliche Mittel kündigt die Brüsseler Haushaltseinigung vom 4. Oktober 2026 für die Gemeinden und die ÖSHZ im Jahr 2027 an?",
       "options": [
-        "370 Plätze",
-        "300 Plätze",
-        "130 Plätze",
-        "240 Plätze"
+        "5 Millionen Euro",
+        "15 Millionen Euro",
+        "30 Millionen Euro",
+        "66 Millionen Euro"
       ],
-      "correct": 3,
-      "explanation": "Es bleiben 200 Plätze im Zentrum Poincaré in Anderlecht und 40 im Zentrum für unbegleitete Minderjährige im Transit in Molenbeek. Der Samusocial bezeichnet diese Kapazität als historisch niedrig.",
+      "correct": 1,
+      "explanation": "Die Einigung führt laut dem Minister für Soziales auch wieder eine Wachstumsnorm für Soziales und Gesundheit ein. Zu diesem Zeitpunkt war keine Haushaltstabelle veröffentlicht.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:cb586fbd1f2a30800dfd205cdf4bfb22",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-05",
+        "sourceContentHash": "sha256:1c32dc3c3d1f48b28f3a08cb46610f68",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Welche Einrichtung koordiniert laut La DH (1. Oktober 2026) die Verstärkung der aufsuchenden Sozialarbeit und der Tagesaufnahme, vorgesehen in der ersten Phase des Bahnhofsplans, die die Brüsseler Regierung an diesem Tag genehmigt hat?",
+      "question": "Welches Brüsseler Notunterbringungszentrum für alleinstehende Männer hat am 30. September 2026 nach acht Monaten Betrieb geschlossen?",
       "options": [
-        "Bruss'help",
-        "Der Samusocial",
-        "BelRefugees",
-        "Vivalis"
+        "Das Zentrum im WTC",
+        "Das Zentrum Poincaré",
+        "Das Petit-Château",
+        "Das Zentrum Ariane"
       ],
       "correct": 0,
-      "explanation": "Bruss'help koordiniert diesen sozialen Teil, der rund um den Nordbahnhof und den Südbahnhof mit den Gemeinden Anderlecht, Saint-Gilles und Schaerbeek umgesetzt wird. Diese Information steht nur in La DH.",
+      "explanation": "Laut Samusocial bleiben nach dieser Schließung 240 Plätze für alleinstehende Männer, eine Kapazität, die der Betreiber als historisch niedrig bezeichnet.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:cb586fbd1f2a30800dfd205cdf4bfb22",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-05",
+        "sourceContentHash": "sha256:1c32dc3c3d1f48b28f3a08cb46610f68",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Wie viele Reaktionen hat die Gemeinde Schaerbeek insgesamt bei der am 26. September 2026 beendeten öffentlichen Untersuchung zur Parzellierungsgenehmigung für die Josaphat-Brache erhalten, laut ihrem amtierenden Bürgermeister, zitiert von BRUZZ am 28. September 2026?",
+      "question": "Was beantragt die Region Brüssel beim Appellationshof im Verfahren zum Baustopp auf Brachflächen, das am 5. Oktober 2026 begonnen hat?",
       "options": [
-        "Rund 2 800 Reaktionen",
-        "Rund 5 000 Reaktionen",
-        "Rund 8 500 Reaktionen",
-        "Rund 15 000 Reaktionen"
+        "Die Aufhebung des Urteils vom 29. Oktober 2025",
+        "Die Verlängerung des Baustopps bis 30. Juni 2030",
+        "Den Schutz von Flächen über 5 Hektar",
+        "Eine Vertagung auf den 31. Dezember 2026"
       ],
-      "correct": 3,
-      "explanation": "Der amtierende Bürgermeister nennt rund 15 000 Reaktionen, Papierform eingeschlossen, gegenüber 2 800 bei der Untersuchung von 2025 zur vorherigen Fassung des Projekts. Rund 5 000 Personen haben beantragt, am Konzertierungsausschuss teilzunehmen, der für den 12. Oktober 2026 vorgesehen ist.",
+      "correct": 0,
+      "explanation": "Dieses Urteil verbietet bis zum 31. Dezember 2026 die Bebauung von Brachflächen über 0,5 Hektar. Die VoG We Are Nature beantragt dagegen eine Verlängerung.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:5d522cafd4e21c79c7c1dcc6a65e743d",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:a5eff9bd3e652ef6462e6198a9c231e3",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Bei welchem Gericht haben das ARAU, der BRAL und Inter-Environnement Bruxelles Anfang August 2026 eine Klage auf Nichtigerklärung und Aussetzung gegen die zweite Genehmigung für den Teilabbruch des Palais du Midi eingereicht?",
+      "question": "Wie viele Reaktionen hat die am 26. September 2026 beendete öffentliche Untersuchung zur Josaphat-Brache laut der Gemeinde Schaerbeek erhalten?",
       "options": [
-        "Beim Verfassungsgerichtshof",
-        "Beim Staatsrat",
-        "Beim Collège d'urbanisme",
-        "Beim Rechnungshof"
+        "Rund 2 800",
+        "Rund 5 000",
+        "Rund 15 000",
+        "Rund 40 000"
       ],
-      "correct": 1,
-      "explanation": "Die drei Vereinigungen haben den Staatsrat angerufen und dies am 14. September 2026 bekannt gegeben. Ihnen zufolge war die erste Genehmigung, die derselbe Staatsrat am 18. Dezember 2025 ausgesetzt hatte, am 10. Juni 2026 von der Region zurückgezogen worden.",
+      "correct": 2,
+      "explanation": "Die Untersuchung von 2025 zur vorherigen Fassung des Projekts hatte 2 800 erhalten. Der Antrag betrifft höchstens 537 Wohnungen.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:5d522cafd4e21c79c7c1dcc6a65e743d",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:a5eff9bd3e652ef6462e6198a9c231e3",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -974,21 +974,21 @@
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welche Instanz hat laut La Libre und La DH vom 21. September 2026 eine Verwalterin benannt, um den Sitz einzunehmen, der ihr im Verwaltungsrat des Foyer anderlechtois, der Sozialwohnungsgesellschaft von Anderlecht, zusteht?",
+      "question": "Woran ist die Blockade der 131 Millionen Euro für die SLRB geknüpft, nach den am 5. Oktober 2026 geäußerten Positionen?",
       "options": [
-        "Der Gemeinderat der Gemeinde Anderlecht",
-        "Der Sozialhilferat des ÖSHZ Anderlecht",
-        "Der Verwaltungsrat der SLRB in Brüssel",
-        "Die Regierung der Region Brüssel-Hauptstadt"
+        "An den Vorsitz des Foyer anderlechtois",
+        "An eine Klage vor dem Staatsrat",
+        "An ein Gutachten des Rechnungshofs",
+        "An den Verkauf der Standorte Ariane und Palais"
       ],
-      "correct": 1,
-      "explanation": "Der Sitz steht dem ÖSHZ Anderlecht zu, dessen Sozialhilferat über die Benennung abgestimmt hat. Die Information, von einer einzigen Pressegruppe berichtet, war am 24. September 2026 noch unbestätigt; die Karte beschreibt, wie die Fraktionen abgestimmt haben.",
+      "correct": 0,
+      "explanation": "Der Vorsitzende der Partei des Ministerpräsidenten bleibt dabei, dass die Mittel nicht freigegeben werden, solange der Präsident der Gesellschaft im Amt bleibt.",
       "sourceSlug": "/de/dossiers/foyer-anderlechtois",
       "sourceTitle": "Foyer anderlechtois",
       "provenance": {
-        "sourceLastModified": "2026-09-24",
-        "sourceContentHash": "sha256:639fc304cfe883d1fd0a5836695fae59",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-05",
+        "sourceContentHash": "sha256:7d8fedecf07c75ad7b4ae3b0fcda538d",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutionell",
-      "question": "Welche Maßnahmen des Entwurfs zur Änderung des Statuts der Brüsseler Regionalbediensteten fechten die CGSP-ACOD und die CSC-ACV in ihrer am 29. September 2026 eingereichten Streikankündigung an?",
+      "question": "Wie viele Brüsseler Verwaltungen sollen laut der Haushaltseinigung vom 4. Oktober 2026 am 1. Januar 2027 in atlas.brussels zentralisiert werden?",
       "options": [
-        "Das Einfrieren der Gehaltstabellen für zwei Jahre und eine vierteljährliche Bewertung",
-        "Die Streichung von zwei Urlaubstagen und eine jährliche Bewertung",
-        "Das Ende der Telearbeit und die Streichung von fünf Urlaubstagen",
-        "Die Anhebung des Pensionsalters und eine halbjährliche Bewertung"
+        "4 Verwaltungen",
+        "10 Verwaltungen",
+        "23 Verwaltungen",
+        "35 Verwaltungen"
       ],
       "correct": 1,
-      "explanation": "Die unbefristete, ab dem 1. Oktober 2026 geltende Ankündigung zielt unter anderem auf die Streichung von zwei Urlaubstagen und die jährliche Bewertung, die der Minister für den öffentlichen Dienst beibehalten hat. Die Gewerkschaften fechten auch den Einstellungsstopp im Jahr 2026 an.",
+      "explanation": "Der Einstellungsstopp bleibt 2027 bestehen. Der Ministerpräsident beziffert die Einsparung beim Personal auf 74 Millionen Euro.",
       "sourceSlug": "/de/dossiers/reforme-administration",
       "sourceTitle": "Verwaltungsreform",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:261c30770641a4807711bf76870a7858",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:395a70231a98842e4f4d9285f241ddac",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Wie viele Sozialwohnungen haben die SLRB und die Gesellschaft Foyer du Sud am 23. September 2026 in Forest im ehemaligen Industriegebäude Luttre von 11 000 m² eingeweiht?",
+      "question": "Bis wann können die 131 Millionen Euro zur Rekapitalisierung der SLRB laut dem Brüsseler Haushaltsminister, zitiert am 5. Oktober 2026, ausgezahlt werden?",
       "options": [
-        "63 Sozialwohnungen",
-        "36 Sozialwohnungen",
-        "112 Sozialwohnungen",
-        "131 Sozialwohnungen"
+        "Bis Ende Oktober 2026",
+        "Bis Ende Dezember 2026",
+        "Bis Ende März 2027",
+        "Bis Ende Juni 2027"
       ],
-      "correct": 0,
-      "explanation": "Das Projekt Luttre umfasst 63 Sozialwohnungen mit einem bis sechs Schlafzimmern, davon vier für Menschen mit eingeschränkter Mobilität angepasst. Das Gebäude war 2016 im Rahmen der regionalen Operation Alliance Habitat-Acquisitions erworben worden.",
+      "correct": 1,
+      "explanation": "Der Ministerpräsident erklärt seinerseits, das Dossier sei nicht behandelt worden und die Freigabe müsse noch vom Ministerrat gebilligt werden.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:179b21cac8c3281ae48f561e27c120d2",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:e0766b270f8b42ecc1faec761f31ff26",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Auf welchen Betrag an regionaler Dotation, blockiert seit dem 3. September 2026, wartete die SLRB laut BRUZZ (1. Oktober 2026) noch bei Beginn des Brüsseler Haushaltskonklaves am Samstag, dem 3. Oktober 2026?",
+      "question": "Wie viele Sozialwohnungen haben die SLRB und Foyer du Sud am 23. September 2026 in Forest im ehemaligen Industriegebäude Luttre eingeweiht?",
       "options": [
-        "60 Millionen Euro",
-        "250 Millionen Euro",
-        "131 Millionen Euro",
-        "400 Millionen Euro"
+        "36 Wohnungen",
+        "63 Wohnungen",
+        "120 Wohnungen",
+        "537 Wohnungen"
       ],
-      "correct": 2,
-      "explanation": "Die SLRB wartete noch auf 131 Millionen Euro für 2026, die auf dieses Konklave vertagt wurden. Laut BRUZZ gehörten die Reform des sozialen Wohnungsbaus und die Erhöhung der Mieten zu den angekündigten Themen, ohne Angaben zu den Bedingungen der Freigabe.",
+      "correct": 1,
+      "explanation": "Das 11 000 m² große Gebäude wurde 2016 im Rahmen der regionalen Operation Alliance Habitat-Acquisitions erworben.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:179b21cac8c3281ae48f561e27c120d2",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-06",
+        "sourceContentHash": "sha256:e0766b270f8b42ecc1faec761f31ff26",
+        "generatedAt": "2026-10-06T13:44:24.640Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 44
 }

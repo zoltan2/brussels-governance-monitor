@@ -31,7 +31,7 @@ export interface ErreurRendu {
   at: string;
   /** Fichier de route (`/[locale]`, `/[locale]/dossiers/[slug]`…). */
   routePath: string;
-  /** `stale` ou `on-demand` pour une régénération ISR, `null` pour une requête ordinaire. */
+  /** `stale` ou `on-demand` pour une régénération ISR, `null` pour une requête ordinaire (dont tout ce qui n'est ni GET ni HEAD). */
   revalidateReason: string | null;
 }
 
@@ -56,15 +56,22 @@ function registre(): Registre {
 
 /** Note une erreur. Ne lève jamais : un rapport d'erreur ne doit pas en créer une. */
 export function noterErreurRendu(
-  contexte: { routePath?: string; revalidateReason?: string | undefined },
+  contexte: { routePath?: string; revalidateReason?: string | undefined; method?: string },
   maintenant: Date = new Date(),
 ): void {
   try {
     const r = registre();
+    // Une régénération ISR ne naît que d'une lecture. Next annonce pourtant
+    // `stale` pour un POST au corps illisible tombé sur `/_not-found/page`
+    // (robot du 05/10/2026, « Failed to parse body as FormData ») : l'erreur
+    // reste comptée, mais comme requête ordinaire. Méthode inconnue : on garde
+    // la raison, une alarme ne se tait pas faute d'information.
+    const methode = contexte.method?.toUpperCase();
+    const lecture = methode === undefined || methode === 'GET' || methode === 'HEAD';
     r.erreurs.push({
       at: maintenant.toISOString(),
       routePath: String(contexte.routePath ?? '?').slice(0, 200),
-      revalidateReason: contexte.revalidateReason ?? null,
+      revalidateReason: lecture ? (contexte.revalidateReason ?? null) : null,
     });
     // Anneau borné : un robot qui provoque des erreurs en boucle ne doit pas
     // faire grossir la mémoire du serveur.

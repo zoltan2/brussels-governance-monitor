@@ -12,6 +12,10 @@ export function register() {}
  * (`revalidateReason` renseigné) : Next sert alors l'ancienne page en 200, et
  * rien d'autre ne le signale.
  */
-export const onRequestError: Instrumentation.onRequestError = (_error, _request, context) => {
-  noterErreurRendu({ routePath: context.routePath, revalidateReason: context.revalidateReason });
+export const onRequestError: Instrumentation.onRequestError = (_error, request, context) => {
+  noterErreurRendu({
+    routePath: context.routePath,
+    revalidateReason: context.revalidateReason,
+    method: request.method,
+  });
 };

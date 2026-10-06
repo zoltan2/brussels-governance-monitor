@@ -20,6 +20,18 @@ describe('registre des erreurs de rendu', () => {
     });
   });
 
+  it('ne compte pas comme régénération une requête qui n\'est ni GET ni HEAD', () => {
+    // 05/10/2026 : un robot envoie un POST au corps illisible sur une adresse
+    // inexistante. Next rattache l'erreur à `/_not-found/page` avec `stale`,
+    // alors qu'aucune page n'a manqué sa régénération.
+    noterErreurRendu({ routePath: '/_not-found/page', revalidateReason: 'stale', method: 'POST' }, T0);
+    noterErreurRendu({ routePath: '/[locale]', revalidateReason: 'stale', method: 'GET' }, plus(1));
+    noterErreurRendu({ routePath: '/[locale]', revalidateReason: 'on-demand', method: 'head' }, plus(2));
+    const bilan = bilanErreursRendu(plus(3));
+    expect(bilan.total24h).toBe(3);
+    expect(bilan.revalidation24h).toBe(2);
+  });
+
   it('oublie ce qui a plus de 24 h', () => {
     noterErreurRendu({ routePath: '/[locale]', revalidateReason: 'stale' }, T0);
     expect(bilanErreursRendu(plus(23)).revalidation24h).toBe(1);

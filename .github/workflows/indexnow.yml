@@ -1,0 +1,112 @@
+name: IndexNow
+
+# Annonce à IndexNow (Bing, donc la recherche de ChatGPT et de Copilot) les
+# pages modifiées par un déploiement. Sans cela, Bing ne découvre une mise à
+# jour qu'à son prochain passage, alors que la valeur du site est sa fraîcheur.
+#
+# Même déclencheur que le smoke test, pour la même raison : pousser sur main ne
+# déploie rien directement, le VPS tire l'image quelques minutes plus tard. On
+# attend que la production serve le commit avant de comparer les sitemaps.
+#
+# Le sitemap du passage précédent est gardé dans le cache d'Actions. Sans lui
+# (premier passage, cache expiré après 7 jours sans déploiement), rien n'est
+# annoncé : le passage pose le repère. Lancement manuel avec `tout` pour
+# annoncer le sitemap entier.
+on:
+  workflow_run:
+    workflows: ["Deploy image"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      tout:
+        description: "Annoncer tout le sitemap (mise en route)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+# Deux déploiements rapprochés : le second attend, pour comparer au repère que
+# le premier vient de poser.
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  annoncer:
+    name: Annoncer les pages modifiées
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    env:
+      BASE: https://governance.brussels
+      EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          sparse-checkout: |
+            scripts/ops
+            .github/actions
+
+      - name: Attendre que la production serve ce commit
+        run: |
+          if [ -z "$EXPECTED_SHA" ]; then
+            echo "Lancement manuel : on prend la production telle qu'elle est."
+            exit 0
+          fi
+          TIMEOUT=900; INTERVAL=20; ELAPSED=0
+          while [ $ELAPSED -lt $TIMEOUT ]; do
+            SERVED=$(curl -s --max-time 30 "$BASE/api/health?cb=$RANDOM$RANDOM" | jq -r '.version // empty' 2>/dev/null || true)
+            if [ "$SERVED" = "$EXPECTED_SHA" ]; then
+              echo "OK: la production sert $SERVED (après ${ELAPSED}s)"
+              exit 0
+            fi
+            sleep $INTERVAL
+            ELAPSED=$((ELAPSED + INTERVAL))
+          done
+          # Un déploiement plus récent a pu passer devant, ou le VPS est en
+          # retard : le smoke test porte l'alerte. Ici on n'annonce rien et on
+          # garde l'ancien repère, le prochain passage rattrapera.
+          echo "La production sert '${SERVED:-<absent>}' et non $EXPECTED_SHA : rien d'annoncé."
+          echo "SAUTER=1" >> "$GITHUB_ENV"
+
+      - name: Reprendre le sitemap du passage précédent
+        if: env.SAUTER != '1'
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: indexnow/precedent.xml
+          key: indexnow-sitemap-${{ github.run_id }}
+          restore-keys: indexnow-sitemap-
+
+      - name: Annoncer
+        if: env.SAUTER != '1'
+        run: |
+          mkdir -p indexnow
+          curl -s -L --fail --max-time 60 --retry 2 --retry-delay 10 --retry-all-errors \
+            -o indexnow/courant.xml "$BASE/sitemap.xml?cb=$RANDOM$RANDOM"
+          OPTIONS=""
+          if [ "${{ inputs.tout }}" = "true" ]; then OPTIONS="--tout"; fi
+          node scripts/ops/indexnow.mjs --courant indexnow/courant.xml --precedent indexnow/precedent.xml $OPTIONS
+          # Le repère n'avance qu'après une annonce acceptée : en cas de refus,
+          # le prochain passage annoncera de nouveau ces pages.
+          mv indexnow/courant.xml indexnow/precedent.xml
+
+      - name: Garder le sitemap comme repère
+        if: env.SAUTER != '1'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: indexnow/precedent.xml
+          key: indexnow-sitemap-${{ github.run_id }}
+
+      - name: Notify on failure
+        if: failure()
+        uses: ./.github/actions/alerte-resend
+        with:
+          sujet: "[BGM] annonce IndexNow en ÉCHEC"
+          texte: |
+            L'annonce des pages modifiées à IndexNow a échoué après le déploiement de ${{ env.EXPECTED_SHA || 'un lancement manuel' }}.
+            Le site n'est pas touché : seul Bing apprendra ces mises à jour plus tard, à son prochain passage.
+
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          resend-api-key: ${{ secrets.RESEND_API_KEY }}
+          admin-email: ${{ secrets.ADMIN_EMAIL }}

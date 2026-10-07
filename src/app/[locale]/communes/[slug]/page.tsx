@@ -14,7 +14,7 @@ import {
 } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
-import { buildMetadata, canonicalUrl, searchMeta } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl, searchMeta, localizedPath } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { SearchExclude } from '@/components/search-exclude';
@@ -222,7 +222,7 @@ function CommuneDetail({
           changeSummary={card.changeSummary}
           changeSummaryDate={card.changeSummaryDate}
           changeType={card.changeType}
-          historyHref={`/${locale}/changelog?slug=${card.slug}&section=communes`}
+          historyHref={`${localizedPath(locale, '/changelog')}?slug=${card.slug}&section=communes`}
           labels={{
             updated: tw('updated'),
             readMore: tw('readMore'),

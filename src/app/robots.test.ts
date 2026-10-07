@@ -85,7 +85,7 @@ describe('robots.txt', () => {
       expect(groupe.disallow).toEqual(
         expect.arrayContaining([
           '/*/refonte',
-          '/*/og',
+          '/*/og?*date=',
           '/social/queue/',
           '/*/subscribe/preferences',
         ]),
@@ -95,6 +95,23 @@ describe('robots.txt', () => {
     // donnaient l'illusion d'une protection.
     for (const groupe of ouverts) {
       expect(groupe.disallow).not.toContain('/refonte');
+    }
+  });
+
+  /**
+   * La regle sur `/og` (toutes langues) bloquait toute la route d'image sociale (21/09/2026), donc l'image
+   * `og:image` de chaque page : Google ne pouvait plus la lire pour ses vignettes
+   * et la Search Console comptait une URL bloquee par page et par mise a jour.
+   * Depuis le 07/10, l'URL d'une fiche est stable (src/lib/og-card.ts) et la route
+   * est ouverte. Seules restent fermees les anciennes URL, reconnaissables a leur
+   * parametre `date=`.
+   */
+  it("laisse lire l'image sociale, sauf les anciennes URL instables", async () => {
+    const { rules } = await robots();
+    const ouverts = (rules as Groupe[]).filter((groupe) => groupe.allow !== undefined);
+    for (const groupe of ouverts) {
+      expect(groupe.disallow).not.toContain('/*/og');
+      expect(groupe.disallow).toContain('/*/og?*date=');
     }
   });
 

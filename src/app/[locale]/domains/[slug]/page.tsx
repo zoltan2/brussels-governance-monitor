@@ -8,7 +8,8 @@ import { notFound } from 'next/navigation';
 import { getDomainCard, getAllDomainSlugs, getLatestVerification, getDossiersForDomain, getSectorsForDomain, getComparisonsForDomain, getGlossaryForDomain } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
-import { buildMetadata, canonicalUrl, searchMeta } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl, searchMeta, localizedPath } from '@/lib/metadata';
+import { ogCardParams } from '@/lib/og-card';
 import { domainBadgeClass } from '@/lib/status-badge';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
@@ -67,7 +68,7 @@ export async function generateMetadata({
     absoluteTitle: search.absoluteTitle,
     description: search.description,
     path: `/domains/${slug}`,
-    ogParams: `title=${encodeURIComponent(card.title)}&type=domain&status=${card.status}&date=${card.lastModified}&confidence=${card.confidenceLevel}${card.metrics.length > 0 ? `&stats=${encodeURIComponent(JSON.stringify(card.metrics.slice(0, 3).map((m) => ({ label: m.label, value: `${m.value}${m.unit ? ` ${m.unit}` : ''}` }))))}` : ''}`,
+    ogParams: ogCardParams('domain', card.slug),
     // Brouillon : servi à son URL pour relecture, jamais indexé ni suivi.
     draft: card.draft,
   });
@@ -222,7 +223,7 @@ function DomainDetail({
           changeSummary={card.changeSummary}
           changeSummaryDate={card.changeSummaryDate}
           changeType={card.changeType}
-          historyHref={`/${locale}/changelog?slug=${card.slug}&section=domains`}
+          historyHref={`${localizedPath(locale, '/changelog')}?slug=${card.slug}&section=domains`}
           labels={{
             updated: tw('updated'),
             readMore: tw('readMore'),

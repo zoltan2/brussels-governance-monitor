@@ -15,7 +15,7 @@ interface WhatChangedBannerProps {
   changeSummary?: string;
   changeSummaryDate?: string;
   changeType?: string;
-  /** Already locale-prefixed by the caller, e.g. `/fr/changelog?slug=x&section=domains`. */
+  /** Already localized by the caller (`localizedPath`), e.g. `/fr/mises-a-jour?slug=x&section=domains`. */
   historyHref?: string;
   labels: WhatChangedBannerLabels;
   /** Test seam; production callers omit it. */

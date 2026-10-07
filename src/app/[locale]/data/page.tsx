@@ -9,7 +9,7 @@ import { CsvDownloadButton, JsonDownloadButton } from '@/components/csv-download
 import { SourceRegistry, type RegistrySource } from '@/components/source-registry';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { Link } from '@/i18n/navigation';
-import { buildMetadata } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import registry from '@/../docs/source-registry.json';
 
@@ -179,7 +179,7 @@ export default async function DataPage({
     '@type': 'Dataset',
     name: 'Brussels Governance Monitor — Open Data',
     description: 'Key metrics on Brussels regional governance: budget, mobility, employment, housing, climate, social, security, economy, and more. Sourced from official institutions and verified press.',
-    url: `${siteUrl}/${locale}/data`,
+    url: canonicalUrl(locale, '/data'),
     license: 'https://governance.brussels/legal',
     creator: {
       '@type': 'Organization',
@@ -190,12 +190,12 @@ export default async function DataPage({
       {
         '@type': 'DataDownload',
         encodingFormat: 'text/csv',
-        contentUrl: `${siteUrl}/${locale}/data`,
+        contentUrl: canonicalUrl(locale, '/data'),
       },
       {
         '@type': 'DataDownload',
         encodingFormat: 'application/json',
-        contentUrl: `${siteUrl}/${locale}/data`,
+        contentUrl: canonicalUrl(locale, '/data'),
       },
     ],
     spatialCoverage: {

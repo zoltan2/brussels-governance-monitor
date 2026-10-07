@@ -27,9 +27,12 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
   // `/refonte` et `/refonte/preview` etaient ecrits SANS prefixe de langue, alors
   // que ces routes vivent sous [locale] : la regle ne couvrait pas /fr/refonte,
   // qui repond bien 200. `/*/refonte` couvre la page et ses apercus (audit 21/09).
-  // `/*/og` : la route d'image sociale sert une URL unique et longue par page,
-  // crawlable pour rien. Les reseaux sociaux ne lisent pas robots.txt pour leurs
-  // apercus, le blocage ne les gene pas.
+  // `/*/og?*date=` : la route d'image sociale etait fermee en entier (`/*/og`,
+  // 21/09). Google ne pouvait donc plus lire l'`og:image` des pages, et la Search
+  // Console comptait une URL bloquee par page et par mise a jour. L'URL d'une
+  // fiche est maintenant stable (src/lib/og-card.ts) et la route est ouverte ;
+  // seules les anciennes URL, qui portaient la date et les chiffres, restent
+  // fermees (07/10).
   // `/social/queue/` : 540 PNG de file d'attente, references nulle part, servis
   // publiquement et indexables.
   const privatePaths = [
@@ -38,7 +41,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     // Sondage lecteurs : noindex aussi, et sans valeur de recherche.
     '/*/sondage',
     '/*/enquete',
-    '/*/og',
+    '/*/og?*date=',
     '/social/queue/',
     '/*/admin',
     '/*/review',

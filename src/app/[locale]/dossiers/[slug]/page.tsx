@@ -20,7 +20,8 @@ import {
 import { cleDeTheme } from '@/lib/theme-de-fiche';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate, cn } from '@/lib/utils';
-import { buildMetadata, dossierSearchMeta } from '@/lib/metadata';
+import { buildMetadata, dossierSearchMeta, localizedPath } from '@/lib/metadata';
+import { ogCardParams } from '@/lib/og-card';
 import { dossierBadgeClass } from '@/lib/status-badge';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
@@ -105,7 +106,8 @@ export async function generateMetadata({
     noindex: isFallback,
     // Brouillon : servi à son URL pour relecture, jamais indexé ni suivi.
     draft: card.draft,
-    ogParams: `title=${encodeURIComponent(card.title)}&type=dossier&date=${card.lastModified}&confidence=${card.confidenceLevel}${card.metrics.length > 0 ? `&stats=${encodeURIComponent(JSON.stringify(card.metrics.slice(0, 3).map((m) => ({ label: m.label, value: `${m.value}${m.unit ? ` ${m.unit}` : ''}` }))))}` : ''}`,
+    // Slug canonique, pas le slug localisé : l'URL de l'image ne dépend pas de la langue du slug.
+    ogParams: ogCardParams('dossier', card.slug),
   });
 }
 
@@ -323,7 +325,7 @@ function DossierDetail({
           changeSummary={card.changeSummary}
           changeSummaryDate={card.changeSummaryDate}
           changeType={card.changeType}
-          historyHref={`/${locale}/changelog?slug=${card.slug}&section=dossiers`}
+          historyHref={`${localizedPath(locale, '/changelog')}?slug=${card.slug}&section=dossiers`}
           labels={{
             updated: tw('updated'),
             readMore: tw('readMore'),

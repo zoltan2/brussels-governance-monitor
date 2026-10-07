@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { getComparisonCard, getAllComparisonSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { formatDate } from '@/lib/utils';
-import { buildMetadata, canonicalUrl, searchMeta } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl, searchMeta, localizedPath } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { SearchExclude } from '@/components/search-exclude';
@@ -151,7 +151,7 @@ function ComparisonDetail({
           changeSummary={card.changeSummary}
           changeSummaryDate={card.changeSummaryDate}
           changeType={card.changeType}
-          historyHref={`/${locale}/changelog?slug=${card.slug}&section=comparisons`}
+          historyHref={`${localizedPath(locale, '/changelog')}?slug=${card.slug}&section=comparisons`}
           labels={{
             updated: tw('updated'),
             readMore: tw('readMore'),

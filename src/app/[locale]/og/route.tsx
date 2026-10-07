@@ -5,6 +5,9 @@ import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { getDomainCard, getDossierCard } from '@/lib/content';
+import { routing, type Locale } from '@/i18n/routing';
+import { isOgCardType, ogCardContent, type OgCardContent } from '@/lib/og-card';
 
 export const runtime = 'nodejs';
 
@@ -53,20 +56,34 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ locale: string }> },
 ) {
-  await params;
+  const { locale } = await params;
   const { searchParams } = new URL(request.url);
 
-  // Existing params (backward compatible)
-  const title = searchParams.get('title') || 'Brussels Governance Monitor';
   const type = searchParams.get('type') || 'default';
-  const status = searchParams.get('status');
+
+  // Fiche domaine ou dossier désignée par son slug : la route relit la fiche, et
+  // l'URL de l'image ne change plus à chaque mise à jour (voir lib/og-card.ts).
+  // Slug inconnu : l'image générique, comme pour un titre absent.
+  const slug = searchParams.get('slug');
+  let fiche: OgCardContent | null = null;
+  if (slug && isOgCardType(type) && (routing.locales as readonly string[]).includes(locale)) {
+    const result =
+      type === 'domain'
+        ? getDomainCard(slug, locale as Locale)
+        : getDossierCard(slug, locale as Locale);
+    if (result) fiche = ogCardContent(result.card);
+  }
+
+  // Existing params (backward compatible)
+  const title = fiche?.title || searchParams.get('title') || 'Brussels Governance Monitor';
+  const status = fiche ? fiche.status : searchParams.get('status');
   const feasibility = searchParams.get('feasibility');
   const subtitle = searchParams.get('subtitle');
 
   // New enrichment params
   const statsRaw = searchParams.get('stats');
-  const dateParam = searchParams.get('date');
-  const confidence = searchParams.get('confidence');
+  const dateParam = fiche ? fiche.date : searchParams.get('date');
+  const confidence = fiche ? fiche.confidence : searchParams.get('confidence');
 
   const badgeText =
     type === 'domain' && status
@@ -76,8 +93,8 @@ export async function GET(
         : null;
 
   // Parse stats JSON: [{label, value}]
-  let stats: { label: string; value: string }[] = [];
-  if (statsRaw) {
+  let stats: { label: string; value: string }[] = fiche ? fiche.stats : [];
+  if (!fiche && statsRaw) {
     try {
       const parsed = JSON.parse(statsRaw);
       if (Array.isArray(parsed)) {

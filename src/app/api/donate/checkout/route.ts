@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { rateLimit } from '@/lib/rate-limit';
 import { routing } from '@/i18n/routing';
+import { getPathname } from '@/i18n/navigation';
 import { clientIp } from '@/lib/client-ip';
 
 export const runtime = 'nodejs';
@@ -44,13 +45,15 @@ export async function POST(request: Request) {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const stripe = new Stripe(secret);
+  // Chemin localisé (`/fr/soutenir`) : le retour de Stripe n'emprunte plus de redirection.
+  const supportPath = getPathname({ locale, href: '/support' });
 
   try {
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${siteUrl}/${locale}/support?donated=1`,
-      cancel_url: `${siteUrl}/${locale}/support`,
+      success_url: `${siteUrl}${supportPath}?donated=1`,
+      cancel_url: `${siteUrl}${supportPath}`,
       locale: locale as Stripe.Checkout.SessionCreateParams['locale'],
     });
 

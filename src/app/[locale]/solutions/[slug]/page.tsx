@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { getSolutionCard, getAllSolutionSlugs } from '@/lib/content';
 import { routing, type Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
-import { buildMetadata, canonicalUrl } from '@/lib/metadata';
+import { buildMetadata, canonicalUrl, localizedPath } from '@/lib/metadata';
 import { FallbackBanner } from '@/components/fallback-banner';
 import { DraftBanner } from '@/components/draft-banner';
 import { SearchExclude } from '@/components/search-exclude';
@@ -166,7 +166,7 @@ function SolutionDetail({
           changeSummary={card.changeSummary}
           changeSummaryDate={card.changeSummaryDate}
           changeType={card.changeType}
-          historyHref={`/${locale}/changelog?slug=${card.slug}&section=solutions`}
+          historyHref={`${localizedPath(locale, '/changelog')}?slug=${card.slug}&section=solutions`}
           labels={{
             updated: tw('updated'),
             readMore: tw('readMore'),

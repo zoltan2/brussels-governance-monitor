@@ -79,7 +79,7 @@ export function VerificationBadge({ verification, locale, today }: VerificationB
             ne menait nulle part : la route a ete ouverte le 21/09/2026.
           */}
           <Link
-            href={`/verifications/${verification.slug}` as never}
+            href={{ pathname: '/verifications/[slug]', params: { slug: verification.slug } }}
             className="mt-2 inline-block text-xs font-medium underline underline-offset-2"
           >
             {t('readFull')}

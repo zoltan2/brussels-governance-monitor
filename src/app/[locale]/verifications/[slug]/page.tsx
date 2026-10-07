@@ -76,6 +76,15 @@ function cheminDeLaFiche(verification: Verification): string {
     : `/sectors/${verification.cardSlug}`;
 }
 
+// Objet et non chaîne : `<Link>` ne localise le segment (`/nl/domeinen/…`) que
+// s'il reconnaît le motif de la route.
+function lienVersLaFiche(verification: Verification) {
+  return {
+    pathname: verification.cardType === 'domain' ? '/domains/[slug]' : '/sectors/[slug]',
+    params: { slug: verification.cardSlug },
+  } as const;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -214,7 +223,7 @@ function VerificationDetail({
         <p className="mt-2 text-xs leading-relaxed text-neutral-500">{t('whatIsThis')}</p>
 
         <Link
-          href={cheminDeLaFiche(verification) as never}
+          href={lienVersLaFiche(verification)}
           className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-900 hover:underline"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />

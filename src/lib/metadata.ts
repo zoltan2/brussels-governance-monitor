@@ -54,7 +54,17 @@ function pathToHref(path: string): Href {
  * routing table on five detail pages (domains, sectors, comparisons, solutions, communes).
  */
 export function canonicalUrl(locale: string, path: string): string {
-  return `${siteUrl}${getPathname({ locale: locale as Locale, href: pathToHref(path) })}`;
+  return `${siteUrl}${localizedPath(locale, path)}`;
+}
+
+/**
+ * Same resolution as `canonicalUrl`, without the site origin: the href of an
+ * internal link. `/changelog` in fr gives `/fr/mises-a-jour`. A hand built path with
+ * the internal segment only exists as a 307 redirect (07/10/2026 audit; guarded
+ * by src/lib/liens-code-localises.test.ts).
+ */
+export function localizedPath(locale: string, path: string): string {
+  return getPathname({ locale: locale as Locale, href: pathToHref(path) });
 }
 
 const DESCRIPTION_MAX = 160;

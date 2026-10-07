@@ -9,6 +9,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
+import { getPathname } from '@/i18n/navigation'
+import type { Locale } from '@/i18n/routing'
 import { FeedbackButton } from '@/components/feedback-button'
 import { track } from '@/lib/analytics'
 
@@ -374,7 +376,7 @@ export default function BGMQuiz({ sourcesSuivies, langues }: QuizSiteStats) {
             {t('donateDetail', { sources: sourcesSuivies, languages: langues })}
           </p>
           <a
-            href={`/${locale}/support`}
+            href={getPathname({ locale: locale as Locale, href: '/support' })}
             className="mt-3 inline-flex items-center gap-2 rounded-lg bg-brand-900 px-5 py-2.5 text-sm font-medium text-neutral-50 transition hover:bg-brand-800"
             onClick={() => track('quiz-donate-click', { score, total })}
           >
@@ -420,7 +422,7 @@ export default function BGMQuiz({ sourcesSuivies, langues }: QuizSiteStats) {
 
           {/* Explorer les domaines — all locales */}
           <a
-            href={`/${locale}/domaines`}
+            href={getPathname({ locale: locale as Locale, href: '/domains' })}
             className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 transition hover:bg-neutral-100"
           >
             <div className="text-sm font-medium text-neutral-900">{t('explore13Domains')}</div>

@@ -53,11 +53,31 @@ relatedCommunes:
   - schaerbeek
 relatedFormationEvents: []
 sources:
+  - label: "Cour des comptes : commentaires et observations sur les projets de budget de l'État pour l'année budgétaire 2026 (18 février 2026, PDF)"
+    url: "https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf"
+    type: official
+    accessedAt: "2026-10-08"
+  - label: "RTBF : le gouvernement s'entend sur des compensations financières pour les CPAS (17 juin 2025)"
+    url: "https://www.rtbf.be/article/limitation-dans-le-temps-des-allocations-de-chomage-le-gouvernement-s-entend-sur-des-compensations-financieres-pour-les-cpas-11563251"
+    type: media
+    accessedAt: "2026-10-08"
+  - label: "RTBF : 37 millions en moins, les CPAS accusent l'État fédéral de prévoir des compensations plus faibles que prévu (4 décembre 2025)"
+    url: "https://www.rtbf.be/article/reforme-du-chomage-37-millions-en-moins-les-cpas-accusent-l-etat-federal-de-prevoir-des-compensations-financieres-plus-faibles-que-prevu-11642488"
+    type: media
+    accessedAt: "2026-10-08"
+  - label: "L'Avenir : la compensation de la réforme du chômage pour les CPAS sous-estimée, selon la Cour des comptes (19 février 2026)"
+    url: "https://www.lavenir.net/actu/belgique/2026/02/19/budget-federal-la-compensation-de-la-reforme-du-chomage-pour-les-cpas-sous-estimee-cest-lavis-de-la-cour-des-comptes-PY6AKWWOBJFR5CYNSTAGFMKR3E/"
+    type: media
+    accessedAt: "2026-10-08"
+  - label: "RTBF : la réforme du chômage pourrait coûter près d'un milliard d'euros aux CPAS d'ici 2029 (5 mars 2026)"
+    url: "https://www.rtbf.be/article/la-reforme-du-chomage-pourrait-couter-pres-d-un-milliard-d-euros-aux-cpas-d-ici-2029-non-compenses-par-le-federal-11689203"
+    type: media
+    accessedAt: "2026-10-08"
   - label: "Loi organique des CPAS du 8 juillet 1976 (Justel — texte consolidé)"
     url: "https://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=fr&la=F&cn=1976070801&table_name=loi"
     accessedAt: "2026-05-01"
-  - label: "SPP Intégration sociale — Décision du gouvernement fédéral concernant la compensation des CPAS"
-    url: "https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
+  - label: "SPP Intégration sociale — Décision du gouvernement fédéral concernant la compensation des CPAS (copie archivée du 15 octobre 2025 ; page retirée par l'éditeur)"
+    url: "https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
     accessedAt: "2026-05-01"
   - label: "SPP Intégration sociale — Nouvelles FAQ sur la subvention CPAS dans le cadre de la réforme du chômage (AR du 18/01/2026)"
     url: "https://www.mi-is.be/fr/nouvelles/nouvelle-faqs-concernant-la-subvention-octroyee-aux-cpas-dans-le-cadre-de-la-mise-en"
@@ -288,25 +308,32 @@ metrics:
     source: "21news"
     url: "https://www.21news.be/fin-dune-subvention-federale-de-15-millions-le-gouvernement-assume-les-cpas-bruxellois-contestent/"
     date: "2025-12-15"
-  - label: "Compensation fédérale annoncée (chiffrage Brulocalis / Cour des comptes)"
+  - label: "Compensation fédérale inscrite au budget (réforme du chômage)"
     value: "300"
-    unit: "M€ (national, 2026 et 2027) → 342 M€ en 2029 ; cumul ~631 M€ ; impact réel projeté ~1 Mrd €"
-    date: "2025-11-17"
+    unit: "M€ en 2026 et en 2027, 302,3 M€ en 2028, 342,6 M€ en 2029 (national) ; enveloppe ouverte selon la Cour des comptes"
+    source: "SPP Intégration sociale, décision du 19 septembre 2025 (copie archivée du 15 octobre 2025 ; page retirée par l'éditeur)"
+    url: "https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
+    date: "2025-09-19"
     id: "cpas-234-vs-300"
-    claim: "La compensation fédérale pour la réforme du chômage est chiffrée à 300 M€ (Cour des comptes / UVCW) contre 234 M€ dans la décision gouvernementale : écart de 22 % non réconcilié publiquement."
+    claim: "Le budget fédéral prévoit 300 M€ de compensation en 2026 et 342,6 M€ en 2029 ; le SPP Intégration sociale chiffre le coût à 709,3 M€ en 2029, soit 366,7 M€ de plus, relève la Cour des comptes."
     proofStatus: "contested"
     robustness: 65
     proofSources:
-      - label: "UVCW — Réforme du chômage : compensations octroyées aux CPAS"
+      - label: "Cour des comptes : commentaires et observations sur les projets de budget de l'État pour 2026 (18 février 2026, PDF)"
+        url: "https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf"
+        type: "primary"
+        description: "Point 7.2.2 : le SPP Intégration sociale calcule un coût de 295,7 M€ en 2026, 819,8 M€ en 2027, 887,8 M€ en 2028 et 709,3 M€ en 2029, contre 300, 300, 302,3 et 342,6 M€ inscrits au budget."
+        accessedAt: "2026-10-08"
+      - label: "SPP Intégration sociale : décision du gouvernement fédéral concernant la compensation des CPAS (copie archivée du 15 octobre 2025 ; page retirée par l'éditeur)"
+        url: "https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
+        type: "primary"
+        description: "Décision du 19 septembre 2025 : budget de compensation de 300 M€ en 2026 et en 2027, 302,3 M€ en 2028 et 342,6 M€ en 2029."
+        accessedAt: "2026-10-08"
+      - label: "UVCW : réforme du chômage, le point sur les compensations octroyées aux CPAS"
         url: "https://www.uvcw.be/insertion/actus/art-9826"
         type: "primary"
-        description: "Synthèse de la fédération wallonne des pouvoirs locaux : 300 M€ en 2026, 709 M€ en 2029, cumul environ 1 Mrd € — chiffrage Cour des comptes / Brulocalis."
-        accessedAt: "2026-05-01"
-      - label: "SPP Intégration sociale — Décision du gouvernement fédéral concernant la compensation des CPAS"
-        url: "https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
-        type: "contested"
-        description: "Position gouvernementale concurrente : 234 M€ en 2026, hypothèse haute de retour à l'emploi."
-        accessedAt: "2026-05-01"
+        description: "Synthèse de la fédération wallonne des pouvoirs locaux : 300 M€ en 2026 et en 2027, 302 M€ en 2028, 342 M€ en 2029, présentés comme le budget prévu par le gouvernement."
+        accessedAt: "2026-10-08"
     revisions:
       - date: "2026-05-02"
         badge: "initial"
@@ -318,12 +345,21 @@ metrics:
           reflète le statut des chiffres sous-jacents, pas la qualité de la documentation.
           La formule dérivée aurait produit 40, ce qui aurait signalé une information fragile
           à tort.
-  - label: "Compensation fédérale annoncée (chiffrage SPP IS / gouvernement)"
-    value: "234"
-    unit: "M€ (national, hypothèse hautes de retour à l'emploi)"
-    source: "SPP Intégration sociale — décision du gouvernement"
-    url: "https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
-    date: "2025-09-19"
+      - date: "2026-10-08"
+        badge: "update"
+        title: "Correction : les deux montants venaient du gouvernement"
+        description: >
+          La fiche opposait 234 M€ (gouvernement) à 300 M€ (Cour des comptes). Les deux
+          montants sont ceux du gouvernement : 234 M€ annoncés le 17 juin 2025, portés à
+          300 M€ par les notifications du 18 juillet 2025. Le constat porte sur
+          l'écart relevé par la Cour des comptes entre l'enveloppe inscrite au budget et
+          le coût calculé par le SPP Intégration sociale.
+  - label: "Coût de la réforme en 2029 selon le calcul du SPP Intégration sociale"
+    value: "709,3"
+    unit: "M€ (national), contre 342,6 M€ inscrits au budget ; 819,8 M€ en 2027 et 887,8 M€ en 2028"
+    source: "Cour des comptes, commentaires sur le budget de l'État 2026 (18 février 2026)"
+    url: "https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf"
+    date: "2026-02-18"
   - label: "Compensation fédérale 2025 (acompte voté à la Chambre)"
     value: "26"
     unit: "M€ (national, voté en Commission des Finances le 10 décembre 2025, non versé au 7 janvier 2026, engagement de versement fin janvier 2026)"
@@ -448,11 +484,11 @@ faq:
       - label: "Actiris : réforme du chômage, près d'un Bruxellois en fin de droit sur deux se tourne vers un CPAS (25 septembre 2026)"
         url: "https://press.actiris.be/reforme-du-chomage-pres-dun-bruxellois-en-fin-de-droit-sur-deux-se-tourne-vers-un-cpas-apres-exclusion-lors-des-deux-premieres-vagues"
         accessedAt: "2026-09-27"
-lastModified: "2026-09-27"
-faqReviewed: "2026-09-27"
-changeType: "updated"
-changeSummary: "Selon Actiris, 47,6 % des Bruxellois en fin de droits au premier trimestre 2026 ont rejoint un CPAS en trois mois. Son monitoring du 25 septembre suit 15 500 personnes des deux premières vagues : 12,6 % ont accédé à un emploi et 8,9 % sont entrées à l'INAMI. Ce taux ne se compare pas aux 43,9 % du SPP Intégration sociale, qui mesurent le revenu d'intégration obtenu entre janvier et juin sur l'ensemble des fins de droit. Etterbeek, Auderghem, Bruxelles-Ville et Saint-Gilles présentent les plus fortes proportions de personnes en fin de droits ayant rejoint un CPAS."
-changeSummaryDate: "2026-09-27"
+lastModified: "2026-10-08"
+faqReviewed: "2026-10-08"
+changeType: "corrected"
+changeSummary: "Correction : la compensation fédérale des CPAS est de 300 millions d'euros en 2026, et non de 234 millions. Selon la Cour des comptes, l'enveloppe ne suffit que pour 2026 : le SPP Intégration sociale chiffre le coût à 709,3 millions en 2029."
+changeSummaryDate: "2026-10-08"
 draft: false
 ---
 
@@ -672,7 +708,7 @@ Cette formulation appelle deux précisions. D'une part, l'avis de l'Inspection d
 ## Choc 3 — La réforme fédérale du chômage : l'absorption à marche forcée
 
 <SignalLead>
-La réforme fédérale du chômage entrée en vigueur le 1ᵉʳ janvier 2026 fait basculer 35 799 Bruxellois exclus vers les CPAS en quatre vagues, avec une compensation fédérale en tension entre 234 M€ et 300 M€.
+La réforme fédérale du chômage entrée en vigueur le 1ᵉʳ janvier 2026 fait basculer 35 799 Bruxellois exclus vers les CPAS en quatre vagues, avec une compensation fédérale de 300 millions d'euros en 2026 que la Cour des comptes juge insuffisante pour les années suivantes.
 </SignalLead>
 
 <Essentiel>
@@ -705,9 +741,9 @@ Le gouvernement fédéral a échelonné les exclusions en plusieurs vagues. Pour
 
 <Essentiel>
 
-### Les compensations annoncées : deux chiffres officiels en tension
+### Les compensations annoncées : 300 millions d'euros inscrits, un coût estimé supérieur après 2026
 
-Le gouvernement fédéral et la **Cour des comptes** ne s'accordent pas sur le coût réel de la réforme pour les CPAS. La **Cour des comptes**, dans son **rapport 2026 sur le projet de budget**, a explicitement mis en cause le calcul fédéral des compensations, jugeant l'enveloppe sous-estimée. La décision de compensation prise par le gouvernement le 19 septembre 2025 et la loi du 17 novembre 2025 prévoient, au niveau national :
+Le gouvernement fédéral a d'abord annoncé, le 17 juin 2025, **234 millions d'euros** de compensation pour 2026, un montant présenté comme une base. Les notifications du Conseil des ministres du 18 juillet 2025, puis la décision du 19 septembre 2025, ont porté l'enveloppe à **300 millions d'euros** en 2026 et en 2027, 302,3 millions en 2028 et 342,6 millions en 2029. La loi du 17 novembre 2025 en fixe les modalités, au niveau national :
 
 <CpasMoneyFlow
   locale="fr"
@@ -727,15 +763,15 @@ Le gouvernement fédéral et la **Cour des comptes** ne s'accordent pas sur le c
       note: "Recours en annulation introduit fin 2025 au Conseil d'État ; aucune décision publiée trouvée au 13/09/2026"
     },
     {
-      source: "Compensation réforme chômage (chiffrage Brulocalis / Cour des comptes)",
+      source: "Compensation réforme chômage (enveloppe inscrite au budget fédéral)",
       channel: "SPP IS → CPAS",
-      amount: "300 M€ (2026 et 2027) → 342 M€ en 2029 ; cumul ~631 M€ ; impact réel projeté ~1 Mrd €",
+      amount: "300 M€ en 2026 et en 2027, 302,3 M€ en 2028, 342,6 M€ en 2029 (national, enveloppe ouverte)",
       status: "announced"
     },
     {
-      source: "Compensation réforme chômage (chiffrage SPP IS / gouvernement)",
+      source: "Coût de la réforme pour le fédéral (calcul du SPP IS, cité par la Cour des comptes)",
       channel: "SPP IS → CPAS",
-      amount: "234 M€ (national, hypothèses hautes de retour à l'emploi)",
+      amount: "295,7 M€ en 2026, 819,8 M€ en 2027, 887,8 M€ en 2028, 709,3 M€ en 2029 (national)",
       status: "announced"
     },
     {
@@ -782,7 +818,13 @@ Le gouvernement fédéral et la **Cour des comptes** ne s'accordent pas sur le c
 
 </Essentiel>
 
-L'écart entre **234 M€ (gouvernement)** et <Claim id="cpas-234-vs-300">**300 M€ (Cour des comptes / Brulocalis)**</Claim> reflète des hypothèses différentes sur le taux de retour à l'emploi. Le gouvernement table sur des sorties rapides du RIS ; la Cour des comptes considère que cette hypothèse est « optimiste » au regard du profil des publics concernés (chômeurs de longue durée souvent éloignés de l'emploi). Si l'hypothèse haute du gouvernement se confirme, l'écart se résorbera. Si elle ne se confirme pas, le différentiel devra être assumé localement.
+Selon la **Cour des comptes** (commentaires sur le budget de l'État 2026, 18 février 2026), cette enveloppe semble suffire pour 2026 seulement. Le SPP Intégration sociale chiffre le coût à 295,7 millions d'euros en 2026, <Claim id="cpas-234-vs-300">**819,8 millions en 2027, 887,8 millions en 2028 et 709,3 millions en 2029**</Claim>, soit jusqu'à 585,5 millions de plus que le montant inscrit. Ce calcul suppose qu'un tiers des chômeurs exclus passe au revenu d'intégration, hypothèse que la Cour tient pour un minimum, et que la moitié des nouveaux bénéficiaires en sortent après deux ans, ce qu'elle ne juge « pas très réaliste ». L'enveloppe est ouverte : le cabinet de la ministre de l'Intégration sociale a indiqué à la Cour qu'un dépassement serait compensé.
+
+Les jeunes qui perdent leur allocation d'insertion ne sont pas couverts par le système de compensation. La Fédération des CPAS y voit 37 millions d'euros de moins au total (RTBF, 4 décembre 2025) et estime à près d'un milliard d'euros le surcoût non compensé pour les CPAS du pays d'ici 2029 (RTBF, 5 mars 2026). Le rapport de la Cour sur le budget ajusté 2026 (21 mai 2026) ne revient pas sur ce point.
+
+**Correction (8 octobre 2026).** La fiche opposait 234 millions d'euros attribués au gouvernement à 300 millions attribués à la Cour des comptes et à Brulocalis, et parlait d'un écart non réconcilié. Les deux montants viennent du gouvernement : 234 millions annoncés le 17 juin 2025, portés à 300 millions par les notifications du 18 juillet 2025. L'écart documenté par la Cour des comptes oppose l'enveloppe inscrite au budget au coût calculé par le SPP Intégration sociale.
+
+Sources : [Cour des comptes, commentaires sur le budget de l'État 2026 (PDF, point 7.2.2)](https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf) ; [SPP Intégration sociale, décision du 19 septembre 2025 (copie archivée)](https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas) ; [RTBF (17 juin 2025)](https://www.rtbf.be/article/limitation-dans-le-temps-des-allocations-de-chomage-le-gouvernement-s-entend-sur-des-compensations-financieres-pour-les-cpas-11563251) ; [RTBF (4 décembre 2025)](https://www.rtbf.be/article/reforme-du-chomage-37-millions-en-moins-les-cpas-accusent-l-etat-federal-de-prevoir-des-compensations-financieres-plus-faibles-que-prevu-11642488) ; [L'Avenir (19 février 2026)](https://www.lavenir.net/actu/belgique/2026/02/19/budget-federal-la-compensation-de-la-reforme-du-chomage-pour-les-cpas-sous-estimee-cest-lavis-de-la-cour-des-comptes-PY6AKWWOBJFR5CYNSTAGFMKR3E/) ; [RTBF (5 mars 2026)](https://www.rtbf.be/article/la-reforme-du-chomage-pourrait-couter-pres-d-un-milliard-d-euros-aux-cpas-d-ici-2029-non-compenses-par-le-federal-11689203). Confiance : *official* pour les montants du budget et le calcul du SPP Intégration sociale ; *estimated* pour les estimations de la Fédération des CPAS.
 
 <Essentiel>
 
@@ -931,7 +973,7 @@ Cinq questions structurent le suivi par BGM. Elles seront mises à jour en conti
 />
 
 1. **Décision du Conseil d'État sur la subvention PAS.** Recours introduit fin 2025 ; aucune décision publiée trouvée par BGM au 13 septembre 2026. Une annulation imposerait au fédéral de réinscrire la subvention au budget ou de la requalifier ; un rejet entérinerait la suppression et déplacerait définitivement la charge.
-2. **Compensations chômage 2027-2029 : suffisantes ou pas ?** L'écart 234 M€ vs 300 M€ se résoudra dans les 18 prochains mois selon que les hypothèses de retour à l'emploi du gouvernement se vérifient ou non. La Cour des comptes a déjà battu en brèche le calcul fédéral dans son rapport 2026 sur le projet de budget.
+2. **Compensations chômage 2027-2029 : suffisantes ou pas ?** L'enveloppe inscrite (300 M€ en 2027, 342,6 M€ en 2029) est inférieure au coût calculé par le SPP Intégration sociale (819,8 M€ et 709,3 M€), relève la Cour des comptes dans ses commentaires du 18 février 2026. L'enveloppe est ouverte : à suivre dans les budgets fédéraux de 2027 à 2029.
 3. **Recours des CPAS devant la Cour constitutionnelle.** L'arrêt 96/2026 du 10 septembre 2026 a tranché le recours des associations, syndicats et particuliers contre la limitation des allocations de chômage dans le temps. Le recours des CPAS de Saint-Gilles, Forest, Mons et Andenne n'y figure pas ; son issue reste à suivre.
 4. **Recrutements tenus.** Le plan annoncé (2 000 postes nationaux, 550 bruxellois dont 306 AS et 245 administratifs selon Brulocalis) sera tenu si la formation et les conditions de travail suivent. Sinon, l'absorption restera théorique.
 5. **Réponse politique aux 1,7 milliard demandés par Brulocalis et la Conférence des bourgmestres.** Une compensation à hauteur de 26,7 % du besoin documenté n'est pas tenable structurellement ; la Région et le fédéral devront se positionner. À surveiller en particulier le sort de **Housing First** et **MIRIAM**, dont Brulocalis signale les incertitudes.

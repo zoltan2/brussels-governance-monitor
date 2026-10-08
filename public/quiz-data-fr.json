@@ -1,11 +1,34 @@
 {
-  "generatedAt": "2026-10-06T13:42:01.600Z",
+  "generatedAt": "2026-10-08T09:01:16.837Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
+      "source": "domain",
+      "domain": "Budget",
+      "question": "Avant quelle date le budget bruxellois 2027 doit-il être déposé au Parlement, selon le ministre-président lors du débat du 6 octobre 2026 ?",
+      "options": [
+        "Avant le 15 octobre 2026",
+        "Avant le 31 octobre 2026",
+        "Avant le 30 novembre 2026",
+        "Avant le 31 décembre 2026"
+      ],
+      "correct": 1,
+      "explanation": "L'examen ligne par ligne du budget doit ensuite avoir lieu en commission. Les tableaux budgétaires n'avaient pas été remis aux députés pour le débat du 6 octobre 2026.",
+      "sourceSlug": "/fr/domaines/budget",
+      "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:a7458b38879c067c9e72ab14f09bbbcf",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
       "question": "Quel déficit le gouvernement bruxellois vise-t-il pour 2027 dans l'accord budgétaire conclu le 4 octobre 2026 ?",
@@ -20,32 +43,9 @@
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:fdbe1d1933e0cae0694d29609afe42d8",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-budget-1",
-      "source": "domain",
-      "domain": "Budget",
-      "question": "En quelle année l'accord budgétaire bruxellois du 4 octobre 2026 situe-t-il le retour à l'équilibre des finances régionales ?",
-      "options": [
-        "En 2027",
-        "En 2028",
-        "En 2029",
-        "En 2031"
-      ],
-      "correct": 2,
-      "explanation": "La trajectoire annoncée passe par 719 millions d'euros de déficit en 2027 et 416 millions en 2028, avant l'équilibre en 2029.",
-      "sourceSlug": "/fr/domaines/budget",
-      "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:fdbe1d1933e0cae0694d29609afe42d8",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:a7458b38879c067c9e72ab14f09bbbcf",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,6 +100,29 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climat",
+      "question": "Selon la modélisation publiée le 8 octobre 2026 par Les Chercheurs d'air, combien des 841 établissements scolaires bruxellois étudiés dépassent la recommandation de l'OMS pour le dioxyde d'azote ?",
+      "options": [
+        "167 établissements",
+        "420 établissements",
+        "618 établissements",
+        "Les 841 établissements"
+      ],
+      "correct": 3,
+      "explanation": "La recommandation de l'OMS est de 10 µg/m³ en moyenne annuelle. Sur 618 écoles maternelles et primaires, 167 dépassent même 15 µg/m³.",
+      "sourceSlug": "/fr/domaines/climate",
+      "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:ecd843829c0b3b6d8a5472c30271faeb",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-climate-1",
+      "source": "domain",
+      "domain": "Climat",
       "question": "Par quoi l'accord budgétaire bruxellois du 4 octobre 2026 remplace-t-il les primes Renolution ?",
       "options": [
         "Des prêts à taux zéro pour la rénovation",
@@ -112,32 +135,9 @@
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:8ca751165040a262d6a2a66ab1cad71a",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-climate-1",
-      "source": "domain",
-      "domain": "Climat",
-      "question": "Selon le communiqué du Comité d'experts climat du 2 octobre 2026, quelle part des indicateurs qu'il recommande est indisponible ou inexistante à Bruxelles ?",
-      "options": [
-        "Environ 13 %",
-        "Environ 25 %",
-        "Environ 50 %",
-        "Environ 87 %"
-      ],
-      "correct": 2,
-      "explanation": "Faute de données, le Comité dit ne pas pouvoir évaluer efficacement l'effet des politiques climatiques régionales. Son rapport 2026 examine 51 indicateurs.",
-      "sourceSlug": "/fr/domaines/climate",
-      "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
-      "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:8ca751165040a262d6a2a66ab1cad71a",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:ecd843829c0b3b6d8a5472c30271faeb",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,6 +284,29 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Emploi",
+      "question": "Combien de chercheurs d'emploi étaient inscrits chez Actiris fin septembre 2026, selon son communiqué du 6 octobre 2026 ?",
+      "options": [
+        "87 450",
+        "94 700",
+        "100 198",
+        "112 640"
+      ],
+      "correct": 2,
+      "explanation": "C'est 5,8 % de plus qu'en septembre 2025. Le taux de chômage administratif atteint 16,1 %, et 35 % des inscrits relèvent d'un CPAS.",
+      "sourceSlug": "/fr/domaines/employment",
+      "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:218bd9ff1a97ce1c1669b096ee8f3fb1",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-employment-1",
+      "source": "domain",
+      "domain": "Emploi",
       "question": "Quel taux d'emploi le gouvernement bruxellois vise-t-il d'ici 2030, objectif rappelé dans la déclaration de politique générale du 5 octobre 2026 ?",
       "options": [
         "60 %",
@@ -296,32 +319,9 @@
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:236282fb19e2fd032ead09741bc9fdb6",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-employment-1",
-      "source": "domain",
-      "domain": "Emploi",
-      "question": "Selon le monitoring d'Actiris publié le 25 septembre 2026, quelle part des Bruxellois arrivés en fin de droits au premier trimestre 2026 est devenue bénéficiaire d'un CPAS dans les trois mois ?",
-      "options": [
-        "12,6 %",
-        "28,4 %",
-        "47,6 %",
-        "63,6 %"
-      ],
-      "correct": 2,
-      "explanation": "Dans le même délai, 12,6 % ont accédé à un emploi, toutes durées confondues. Actiris précise que ces chiffres sont provisoires.",
-      "sourceSlug": "/fr/domaines/employment",
-      "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:236282fb19e2fd032ead09741bc9fdb6",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:218bd9ff1a97ce1c1669b096ee8f3fb1",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Logement",
-      "question": "Combien l'accord budgétaire bruxellois du 4 octobre 2026 prévoit-il, selon la secrétaire d'État au Logement, pour construire plus de 1 000 logements vendus à prix modéré ?",
+      "question": "De combien d'habitants la population de la Région bruxelloise a-t-elle augmenté en 2025, selon le Baromètre démographique 2026 de l'IBSA ?",
       "options": [
-        "61 millions d'euros",
-        "104 millions d'euros",
-        "131 millions d'euros",
-        "250 millions d'euros"
+        "39 habitants",
+        "6 200 habitants",
+        "13 988 habitants",
+        "18 553 habitants"
       ],
-      "correct": 1,
-      "explanation": "Ces logements doivent être construits via citydev.brussels. Les 131 millions d'euros de la SLRB, eux, font l'objet de deux versions au sein du gouvernement.",
+      "correct": 0,
+      "explanation": "La Région compte 1 255 834 habitants au 1er janvier 2026, plus faible hausse depuis 1996. Les départs vers la Flandre et la Wallonie compensent presque les naissances et les arrivées de l'étranger.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 62 234 ménages en attente, 131 millions de la SLRB bloqués",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:a9104c9634efb3b952c54b15f66a4c42",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:3debc906e5c0d62c45af250ee73fae6d",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -365,9 +365,9 @@
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 62 234 ménages en attente, 131 millions de la SLRB bloqués",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:a9104c9634efb3b952c54b15f66a4c42",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:3debc906e5c0d62c45af250ee73fae6d",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Qu'annonce la déclaration de politique générale bruxelloise du 5 octobre 2026 pour les tunnels Bailli et Vleurgat, avenue Louise ?",
+      "question": "Selon Bruxelles Mobilité, comment le nombre de blessés graves sur les routes bruxelloises a-t-il évolué au premier semestre 2026 par rapport au premier semestre 2025 ?",
       "options": [
-        "Une rénovation à l'identique, à deux bandes",
-        "Une fermeture définitive au trafic automobile",
-        "Une transformation en tunnels réservés aux trams",
-        "Un péage urbain à l'entrée de chaque tunnel"
+        "Une baisse de 34 %, à 82 personnes",
+        "Une baisse de 5 %, à 118 personnes",
+        "Une hausse de 12 %, à 139 personnes",
+        "Une hausse de 34 %, à 166 personnes"
       ],
       "correct": 0,
-      "explanation": "Un plan pluriannuel d'investissement pour les ponts, tunnels et viaducs doit être déposé d'ici novembre 2026. Les travaux du tunnel Vleurgat doivent débuter d'ici 2029.",
+      "explanation": "Le nombre total de blessés recule de près de 20 %, niveau le plus bas en cinq ans. Bruxelles Mobilité précise que 2025 était une année particulièrement élevée.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:32d6bdea6e1ca57dac5e508e1652f5fe",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:11d8c4cb130e4893a87854dcb9926e70",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -457,9 +457,9 @@
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:32d6bdea6e1ca57dac5e508e1652f5fe",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:11d8c4cb130e4893a87854dcb9926e70",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,6 +560,29 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
+      "question": "Quel avis le collège de Schaerbeek a-t-il rendu le 6 octobre 2026 sur la demande de permis de lotir de la friche Josaphat ?",
+      "options": [
+        "Un avis défavorable, adopté à la majorité",
+        "Un avis favorable assorti de conditions",
+        "Une abstention, comme lors de l'avis de 2025",
+        "Un avis favorable, adopté à l'unanimité"
+      ],
+      "correct": 0,
+      "explanation": "L'avis communal est consultatif : la décision appartient à la Région. L'enquête publique avait recueilli près de 15 000 réclamations.",
+      "sourceSlug": "/fr/domaines/urban-planning",
+      "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:63f685ef99d69ac45449fa937cb04f17",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-urban-planning-1",
+      "source": "domain",
+      "domain": "Urbanisme",
       "question": "Que demande la Région bruxelloise à la cour d'appel dans le procès sur le gel des friches, ouvert le 5 octobre 2026 ?",
       "options": [
         "L'annulation du jugement du 29 octobre 2025",
@@ -572,32 +595,9 @@
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:abdc1b25eee7dcc015e7c84e023f3a20",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-urban-planning-1",
-      "source": "domain",
-      "domain": "Urbanisme",
-      "question": "Combien de réactions l'enquête publique sur la friche Josaphat, close le 26 septembre 2026, a-t-elle recueillies selon la commune de Schaerbeek ?",
-      "options": [
-        "Environ 2 800",
-        "Environ 5 000",
-        "Environ 15 000",
-        "Environ 40 000"
-      ],
-      "correct": 2,
-      "explanation": "L'enquête de 2025 sur la version précédente du projet en avait recueilli 2 800. La demande porte sur 537 logements au maximum.",
-      "sourceSlug": "/fr/domaines/urban-planning",
-      "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:abdc1b25eee7dcc015e7c84e023f3a20",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:63f685ef99d69ac45449fa937cb04f17",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutionnel",
-      "question": "Combien d'administrations bruxelloises doivent être centralisées dans atlas.brussels au 1er janvier 2027, selon l'accord budgétaire du 4 octobre 2026 ?",
+      "question": "Selon La Libre du 7 octobre 2026, quel montant le gouvernement bruxellois doit-il compenser sur 2026 et 2027 après l'abandon du plafonnement des barèmes des fonctionnaires ?",
       "options": [
-        "4 administrations",
-        "10 administrations",
-        "23 administrations",
-        "35 administrations"
+        "3 millions d'euros",
+        "9 millions d'euros",
+        "40 millions d'euros",
+        "74 millions d'euros"
       ],
       "correct": 1,
-      "explanation": "Le moratoire sur les engagements est maintenu en 2027. Le ministre-président chiffre l'économie à 74 millions d'euros sur le personnel.",
+      "explanation": "Le plafonnement de l'ancienneté pécuniaire à 29 ans a été retiré en septembre 2026. Le cabinet du ministre du Budget confirme que ce montant doit être compensé.",
       "sourceSlug": "/fr/dossiers/reforme-administration",
       "sourceTitle": "Réforme administration",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:3245b4631d4636de6b1256e8f65289e4",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:9608626a1a32a74449e8822df7733c49",
+        "generatedAt": "2026-10-08T09:01:16.837Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 59
 }

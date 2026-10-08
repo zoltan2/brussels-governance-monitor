@@ -1,11 +1,34 @@
 {
-  "generatedAt": "2026-10-06T13:44:23.883Z",
+  "generatedAt": "2026-10-08T09:02:20.878Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
+      "source": "domain",
+      "domain": "Budget",
+      "question": "By what date must the 2027 Brussels budget be tabled in Parliament, according to the Minister-President during the debate of 6 October 2026?",
+      "options": [
+        "Before 15 October 2026",
+        "Before 31 October 2026",
+        "Before 30 November 2026",
+        "Before 31 December 2026"
+      ],
+      "correct": 1,
+      "explanation": "The line-by-line examination of the budget is then to take place in committee. The budget tables had not been given to MPs for the debate of 6 October 2026.",
+      "sourceSlug": "/en/domains/budget",
+      "sourceTitle": "Regional budget: targeting balance by 2029",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:ec6a59b1a49663b2a9d9e95a194a009a",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
       "question": "What deficit does the Brussels government target for 2027 in the budget agreement reached on 4 October 2026?",
@@ -20,32 +43,9 @@
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:619be38c371659c9e865975435682041",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-budget-1",
-      "source": "domain",
-      "domain": "Budget",
-      "question": "In which year does the Brussels budget agreement of 4 October 2026 place the return to balance of the regional finances?",
-      "options": [
-        "In 2027",
-        "In 2028",
-        "In 2029",
-        "In 2031"
-      ],
-      "correct": 2,
-      "explanation": "The announced path goes through a deficit of 719 million euros in 2027 and 416 million in 2028, before balance in 2029.",
-      "sourceSlug": "/en/domains/budget",
-      "sourceTitle": "Regional budget: targeting balance by 2029",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:619be38c371659c9e865975435682041",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:ec6a59b1a49663b2a9d9e95a194a009a",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,6 +100,29 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climate",
+      "question": "According to the modelling published on 8 October 2026 by Les Chercheurs d'air, how many of the 841 Brussels schools studied exceed the WHO recommendation for nitrogen dioxide?",
+      "options": [
+        "167 schools",
+        "420 schools",
+        "618 schools",
+        "All 841 schools"
+      ],
+      "correct": 3,
+      "explanation": "The WHO recommendation is an annual average of 10 µg/m³. Of 618 nursery and primary schools, 167 even exceed 15 µg/m³.",
+      "sourceSlug": "/en/domains/climate",
+      "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:ff37a04d81df780c92b5250df0fd3c1f",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-climate-1",
+      "source": "domain",
+      "domain": "Climate",
       "question": "What does the Brussels budget agreement of 4 October 2026 replace the Renolution grants with?",
       "options": [
         "Zero-interest loans for renovation",
@@ -112,32 +135,9 @@
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:826c78686c1b9b2ae713fb31bfb35b5d",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-climate-1",
-      "source": "domain",
-      "domain": "Climate",
-      "question": "According to the Climate Experts Committee's press release of 2 October 2026, what share of the indicators it recommends is unavailable or non-existent in Brussels?",
-      "options": [
-        "About 13%",
-        "About 25%",
-        "About 50%",
-        "About 87%"
-      ],
-      "correct": 2,
-      "explanation": "For lack of data, the Committee says it cannot effectively assess the impact of regional climate policies. Its 2026 report examines 51 indicators.",
-      "sourceSlug": "/en/domains/climate",
-      "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
-      "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:826c78686c1b9b2ae713fb31bfb35b5d",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:ff37a04d81df780c92b5250df0fd3c1f",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,6 +284,29 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Employment",
+      "question": "How many jobseekers were registered with Actiris at the end of September 2026, according to its press release of 6 October 2026?",
+      "options": [
+        "87,450",
+        "94,700",
+        "100,198",
+        "112,640"
+      ],
+      "correct": 2,
+      "explanation": "That is 5.8% more than in September 2025. The administrative unemployment rate stands at 16.1%, and 35% of those registered depend on a CPAS.",
+      "sourceSlug": "/en/domains/employment",
+      "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:9ca6818f7776008834c7c3c4dc498865",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-employment-1",
+      "source": "domain",
+      "domain": "Employment",
       "question": "What employment rate does the Brussels government target by 2030, a goal restated in the general policy statement of 5 October 2026?",
       "options": [
         "60%",
@@ -296,32 +319,9 @@
       "sourceSlug": "/en/domains/employment",
       "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e39ad351a98e925e01331b458a988296",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-employment-1",
-      "source": "domain",
-      "domain": "Employment",
-      "question": "According to the monitoring published by Actiris on 25 September 2026, what share of Brussels residents whose entitlement ended in the first quarter of 2026 became CPAS beneficiaries within three months?",
-      "options": [
-        "12.6%",
-        "28.4%",
-        "47.6%",
-        "63.6%"
-      ],
-      "correct": 2,
-      "explanation": "Within the same period, 12.6% found a job, of any duration. Actiris specifies that these figures are provisional.",
-      "sourceSlug": "/en/domains/employment",
-      "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e39ad351a98e925e01331b458a988296",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:9ca6818f7776008834c7c3c4dc498865",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Housing",
-      "question": "According to the State Secretary for Housing, how much does the Brussels budget agreement of 4 October 2026 provide to build more than 1,000 homes sold at a moderate price?",
+      "question": "By how many inhabitants did the population of the Brussels Region grow in 2025, according to IBSA's 2026 Demographic Barometer?",
       "options": [
-        "61 million euros",
-        "104 million euros",
-        "131 million euros",
-        "250 million euros"
+        "39 inhabitants",
+        "6,200 inhabitants",
+        "13,988 inhabitants",
+        "18,553 inhabitants"
       ],
-      "correct": 1,
-      "explanation": "These homes are to be built through citydev.brussels. The SLRB's 131 million euros, meanwhile, are the subject of two versions within the government.",
+      "correct": 0,
+      "explanation": "The Region has 1,255,834 inhabitants on 1 January 2026, the smallest rise since 1996. Departures to Flanders and Wallonia almost offset births and arrivals from abroad.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: 62,234 households waiting, the SLRB's 131 million blocked",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:97823d0bdea92abd7c2ea7f684c1f693",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:db885b3acd635ea5addbe6e8b33c5108",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -365,9 +365,9 @@
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: 62,234 households waiting, the SLRB's 131 million blocked",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:97823d0bdea92abd7c2ea7f684c1f693",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:db885b3acd635ea5addbe6e8b33c5108",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobility",
-      "question": "What does the Brussels general policy statement of 5 October 2026 announce for the Bailli and Vleurgat tunnels on avenue Louise?",
+      "question": "According to Brussels Mobility, how did the number of people seriously injured on Brussels roads change in the first half of 2026 compared with the first half of 2025?",
       "options": [
-        "A like-for-like renovation, with two lanes",
-        "A permanent closure to car traffic",
-        "A conversion into tunnels reserved for trams",
-        "A city toll at the entrance to each tunnel"
+        "A fall of 34%, to 82 people",
+        "A fall of 5%, to 118 people",
+        "A rise of 12%, to 139 people",
+        "A rise of 34%, to 166 people"
       ],
       "correct": 0,
-      "explanation": "A multi-year investment plan for bridges, tunnels and viaducts is to be tabled by November 2026. Works on the Vleurgat tunnel are due to start by 2029.",
+      "explanation": "The total number of people injured falls by nearly 20%, the lowest level in five years. Brussels Mobility points out that 2025 was a particularly high year.",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e028d62207cd2c7e5548a1903e4ca183",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:482919b49b729d45057718d2bf09810d",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -457,9 +457,9 @@
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e028d62207cd2c7e5548a1903e4ca183",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:482919b49b729d45057718d2bf09810d",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,6 +560,29 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
+      "question": "What opinion did the Schaerbeek municipal executive issue on 6 October 2026 on the subdivision permit application for the Josaphat wasteland?",
+      "options": [
+        "An unfavourable opinion, adopted by majority",
+        "A favourable opinion, with conditions attached",
+        "An abstention, as with the opinion of 2025",
+        "A favourable opinion, adopted unanimously"
+      ],
+      "correct": 0,
+      "explanation": "The municipal opinion is advisory: the decision lies with the Region. The public enquiry had drawn nearly 15,000 objections.",
+      "sourceSlug": "/en/domains/urban-planning",
+      "sourceTitle": "Urban Planning: faster permits and planning amnesty",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:269c8267b089f9b8a7438d65c58a7229",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-urban-planning-1",
+      "source": "domain",
+      "domain": "Urban Planning",
       "question": "What is the Brussels Region asking the Court of Appeal for in the trial on the freeze on undeveloped land, which opened on 5 October 2026?",
       "options": [
         "Setting aside the judgment of 29 October 2025",
@@ -572,32 +595,9 @@
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:449063bc137b51c18788a83174d61a67",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-urban-planning-1",
-      "source": "domain",
-      "domain": "Urban Planning",
-      "question": "How many responses did the public inquiry on the Josaphat wasteland, closed on 26 September 2026, receive according to the municipality of Schaerbeek?",
-      "options": [
-        "About 2,800",
-        "About 5,000",
-        "About 15,000",
-        "About 40,000"
-      ],
-      "correct": 2,
-      "explanation": "The 2025 inquiry on the previous version of the project had received 2,800. The application covers a maximum of 537 homes.",
-      "sourceSlug": "/en/domains/urban-planning",
-      "sourceTitle": "Urban Planning: faster permits and planning amnesty",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:449063bc137b51c18788a83174d61a67",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:269c8267b089f9b8a7438d65c58a7229",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutional",
-      "question": "How many Brussels administrations are to be centralised in atlas.brussels on 1 January 2027, according to the budget agreement of 4 October 2026?",
+      "question": "According to La Libre of 7 October 2026, what amount must the Brussels government offset over 2026 and 2027 after dropping the cap on civil servants' pay scales?",
       "options": [
-        "4 administrations",
-        "10 administrations",
-        "23 administrations",
-        "35 administrations"
+        "3 million euros",
+        "9 million euros",
+        "40 million euros",
+        "74 million euros"
       ],
       "correct": 1,
-      "explanation": "The hiring freeze is maintained in 2027. The minister-president puts the saving at 74 million euros on staff.",
+      "explanation": "The cap on pay seniority at 29 years was withdrawn in September 2026. The Budget Minister's office confirms that this amount has to be offset.",
       "sourceSlug": "/en/dossiers/reforme-administration",
       "sourceTitle": "Admin Reform",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:cda9a9615561af1633c45ae088bcd476",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:eade406f3e822e5265ea236fdd915610",
+        "generatedAt": "2026-10-08T09:02:20.878Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 59
 }

@@ -1,11 +1,34 @@
 {
-  "generatedAt": "2026-10-06T13:44:24.640Z",
+  "generatedAt": "2026-10-08T09:02:21.199Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
+      "source": "domain",
+      "domain": "Budget",
+      "question": "Vor welchem Datum soll der Brüsseler Haushalt 2027 laut dem Ministerpräsidenten in der Debatte vom 6. Oktober 2026 im Parlament hinterlegt werden?",
+      "options": [
+        "Vor dem 15. Oktober 2026",
+        "Vor dem 31. Oktober 2026",
+        "Vor dem 30. November 2026",
+        "Vor dem 31. Dezember 2026"
+      ],
+      "correct": 1,
+      "explanation": "Die Prüfung des Haushalts Zeile für Zeile soll anschließend im Ausschuss stattfinden. Die Haushaltstabellen lagen den Abgeordneten für die Debatte vom 6. Oktober 2026 nicht vor.",
+      "sourceSlug": "/de/bereiche/budget",
+      "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:662719c1e015ad75393775452caaf38a",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
       "question": "Welches Defizit strebt die Brüsseler Regierung für 2027 in der am 4. Oktober 2026 erzielten Haushaltseinigung an?",
@@ -20,32 +43,9 @@
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:388af9c0b1526a8c347dbe9f17c9c998",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-budget-1",
-      "source": "domain",
-      "domain": "Budget",
-      "question": "In welchem Jahr sieht die Brüsseler Haushaltseinigung vom 4. Oktober 2026 die Rückkehr zum Ausgleich der Regionalfinanzen vor?",
-      "options": [
-        "Im Jahr 2027",
-        "Im Jahr 2028",
-        "Im Jahr 2029",
-        "Im Jahr 2031"
-      ],
-      "correct": 2,
-      "explanation": "Der angekündigte Pfad führt über ein Defizit von 719 Millionen Euro im Jahr 2027 und 416 Millionen im Jahr 2028 zum Ausgleich im Jahr 2029.",
-      "sourceSlug": "/de/bereiche/budget",
-      "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:388af9c0b1526a8c347dbe9f17c9c998",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:662719c1e015ad75393775452caaf38a",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,6 +100,29 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klima",
+      "question": "Wie viele der 841 untersuchten Brüsseler Schuleinrichtungen überschreiten laut der am 8. Oktober 2026 von Les Chercheurs d'air veröffentlichten Modellierung die WHO-Empfehlung für Stickstoffdioxid?",
+      "options": [
+        "167 Einrichtungen",
+        "420 Einrichtungen",
+        "618 Einrichtungen",
+        "Alle 841 Einrichtungen"
+      ],
+      "correct": 3,
+      "explanation": "Die WHO-Empfehlung liegt bei 10 µg/m³ im Jahresmittel. Von 618 Kindergärten und Grundschulen überschreiten 167 sogar 15 µg/m³.",
+      "sourceSlug": "/de/bereiche/climate",
+      "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:d3f9251324a694a45f02bced9ee7bfc3",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-climate-1",
+      "source": "domain",
+      "domain": "Klima",
       "question": "Wodurch ersetzt die Brüsseler Haushaltseinigung vom 4. Oktober 2026 die Renolution-Prämien?",
       "options": [
         "Zinslose Darlehen für die Renovierung",
@@ -112,32 +135,9 @@
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:35d1a3aceef216fab3878462098a0c52",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-climate-1",
-      "source": "domain",
-      "domain": "Klima",
-      "question": "Welcher Anteil der vom Komitee der Klimaexperten empfohlenen Indikatoren ist laut seiner Mitteilung vom 2. Oktober 2026 in Brüssel nicht verfügbar oder nicht vorhanden?",
-      "options": [
-        "Rund 13 %",
-        "Rund 25 %",
-        "Rund 50 %",
-        "Rund 87 %"
-      ],
-      "correct": 2,
-      "explanation": "Mangels Daten kann das Komitee nach eigenen Angaben die Wirkung der regionalen Klimapolitik nicht wirksam bewerten. Sein Bericht 2026 prüft 51 Indikatoren.",
-      "sourceSlug": "/de/bereiche/climate",
-      "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
-      "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:35d1a3aceef216fab3878462098a0c52",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:d3f9251324a694a45f02bced9ee7bfc3",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,6 +284,29 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Beschäftigung",
+      "question": "Wie viele Arbeitsuchende waren Ende September 2026 bei Actiris gemeldet, laut der Pressemitteilung von Actiris vom 6. Oktober 2026?",
+      "options": [
+        "87.450",
+        "94.700",
+        "100.198",
+        "112.640"
+      ],
+      "correct": 2,
+      "explanation": "Das sind 5,8 % mehr als im September 2025. Die administrative Arbeitslosenquote beträgt 16,1 %, und 35 % der Gemeldeten beziehen Leistungen eines ÖSHZ.",
+      "sourceSlug": "/de/bereiche/employment",
+      "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:bfbe7fd0bfa342f40c72121a80b5d785",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-employment-1",
+      "source": "domain",
+      "domain": "Beschäftigung",
       "question": "Welche Beschäftigungsquote strebt die Brüsseler Regierung bis 2030 an, ein Ziel, das in der allgemeinen Regierungserklärung vom 5. Oktober 2026 bekräftigt wurde?",
       "options": [
         "60 %",
@@ -296,32 +319,9 @@
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:f38e779ef8981d62ac8516ecc59de64e",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-employment-1",
-      "source": "domain",
-      "domain": "Beschäftigung",
-      "question": "Welcher Anteil der Brüsseler, deren Anspruch im ersten Quartal 2026 endete, wurde laut dem von Actiris am 25. September 2026 veröffentlichten Monitoring binnen drei Monaten Leistungsempfänger eines ÖSHZ?",
-      "options": [
-        "12,6 %",
-        "28,4 %",
-        "47,6 %",
-        "63,6 %"
-      ],
-      "correct": 2,
-      "explanation": "Im selben Zeitraum fanden 12,6 % eine Beschäftigung, unabhängig von der Dauer. Actiris weist darauf hin, dass diese Zahlen vorläufig sind.",
-      "sourceSlug": "/de/bereiche/employment",
-      "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:f38e779ef8981d62ac8516ecc59de64e",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:bfbe7fd0bfa342f40c72121a80b5d785",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Wie viel sieht die Brüsseler Haushaltseinigung vom 4. Oktober 2026 laut der Staatssekretärin für Wohnen für den Bau von mehr als 1 000 Wohnungen vor, die zu einem moderaten Preis verkauft werden?",
+      "question": "Um wie viele Einwohner ist die Bevölkerung der Region Brüssel im Jahr 2025 gewachsen, laut dem Demografischen Barometer 2026 des IBSA?",
       "options": [
-        "61 Millionen Euro",
-        "104 Millionen Euro",
-        "131 Millionen Euro",
-        "250 Millionen Euro"
+        "39 Einwohner",
+        "6.200 Einwohner",
+        "13.988 Einwohner",
+        "18.553 Einwohner"
       ],
-      "correct": 1,
-      "explanation": "Diese Wohnungen sollen über citydev.brussels gebaut werden. Zu den 131 Millionen Euro der SLRB gibt es dagegen zwei Versionen innerhalb der Regierung.",
+      "correct": 0,
+      "explanation": "Die Region zählt am 1. Januar 2026 1.255.834 Einwohner, der geringste Anstieg seit 1996. Die Wegzüge nach Flandern und in die Wallonie gleichen Geburten und Zuzüge aus dem Ausland fast aus.",
       "sourceSlug": "/de/bereiche/housing",
-      "sourceTitle": "Wohnungswesen: 62 234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
+      "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:0967465ccd10a7e393186e21ff905ad5",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:d99c1d86f3b2f2ce98f941c5982d9dcd",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -363,11 +363,11 @@
       "correct": 0,
       "explanation": "Laut einer Studie der Ligue des familles vom 1. Oktober 2026 steht die Höhe des Pauschalbetrags noch nicht fest. Die erwartete Einsparung beträgt 9 Millionen Euro pro Jahr.",
       "sourceSlug": "/de/bereiche/housing",
-      "sourceTitle": "Wohnungswesen: 62 234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
+      "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:0967465ccd10a7e393186e21ff905ad5",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:d99c1d86f3b2f2ce98f941c5982d9dcd",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Was kündigt die Brüsseler allgemeine Regierungserklärung vom 5. Oktober 2026 für die Tunnel Bailli und Vleurgat an der Avenue Louise an?",
+      "question": "Wie hat sich laut Brüssel Mobilität die Zahl der Schwerverletzten auf den Brüsseler Straßen im ersten Halbjahr 2026 gegenüber dem ersten Halbjahr 2025 entwickelt?",
       "options": [
-        "Eine Sanierung im bisherigen Zustand, zweispurig",
-        "Eine endgültige Schließung für den Autoverkehr",
-        "Einen Umbau zu Tunneln nur für Straßenbahnen",
-        "Eine Stadtmaut an der Einfahrt jedes Tunnels"
+        "Ein Rückgang um 34 % auf 82 Personen",
+        "Ein Rückgang um 5 % auf 118 Personen",
+        "Ein Anstieg um 12 % auf 139 Personen",
+        "Ein Anstieg um 34 % auf 166 Personen"
       ],
       "correct": 0,
-      "explanation": "Ein mehrjähriger Investitionsplan für Brücken, Tunnel und Viadukte soll bis November 2026 vorgelegt werden. Die Arbeiten am Vleurgat-Tunnel sollen bis 2029 beginnen.",
+      "explanation": "Die Gesamtzahl der Verletzten sinkt um fast 20 %, der niedrigste Stand seit fünf Jahren. Brüssel Mobilität weist darauf hin, dass 2025 ein besonders hohes Jahr war.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e3fe845bec9800916651d44ce80d2770",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:f7fec236fe643499b47a16cd0c4a200f",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -457,9 +457,9 @@
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e3fe845bec9800916651d44ce80d2770",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:f7fec236fe643499b47a16cd0c4a200f",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,6 +560,29 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
+      "question": "Welche Stellungnahme hat das Kollegium von Schaerbeek am 6. Oktober 2026 zum Antrag auf Parzellierungsgenehmigung für die Josaphat-Brache abgegeben?",
+      "options": [
+        "Eine ablehnende, mehrheitlich beschlossen",
+        "Eine zustimmende, an Auflagen geknüpft",
+        "Eine Enthaltung, wie bei der von 2025",
+        "Eine zustimmende, einstimmig beschlossen"
+      ],
+      "correct": 0,
+      "explanation": "Die Stellungnahme der Gemeinde ist beratend: Die Entscheidung liegt bei der Region. Die öffentliche Untersuchung hatte fast 15.000 Einwände erbracht.",
+      "sourceSlug": "/de/bereiche/urban-planning",
+      "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:1001d05617b3cd36814e0c686bebc638",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-urban-planning-1",
+      "source": "domain",
+      "domain": "Stadtplanung",
       "question": "Was beantragt die Region Brüssel beim Appellationshof im Verfahren zum Baustopp auf Brachflächen, das am 5. Oktober 2026 begonnen hat?",
       "options": [
         "Die Aufhebung des Urteils vom 29. Oktober 2025",
@@ -572,32 +595,9 @@
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:a5eff9bd3e652ef6462e6198a9c231e3",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-urban-planning-1",
-      "source": "domain",
-      "domain": "Stadtplanung",
-      "question": "Wie viele Reaktionen hat die am 26. September 2026 beendete öffentliche Untersuchung zur Josaphat-Brache laut der Gemeinde Schaerbeek erhalten?",
-      "options": [
-        "Rund 2 800",
-        "Rund 5 000",
-        "Rund 15 000",
-        "Rund 40 000"
-      ],
-      "correct": 2,
-      "explanation": "Die Untersuchung von 2025 zur vorherigen Fassung des Projekts hatte 2 800 erhalten. Der Antrag betrifft höchstens 537 Wohnungen.",
-      "sourceSlug": "/de/bereiche/urban-planning",
-      "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:a5eff9bd3e652ef6462e6198a9c231e3",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:1001d05617b3cd36814e0c686bebc638",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutionell",
-      "question": "Wie viele Brüsseler Verwaltungen sollen laut der Haushaltseinigung vom 4. Oktober 2026 am 1. Januar 2027 in atlas.brussels zentralisiert werden?",
+      "question": "Welchen Betrag muss die Brüsseler Regierung laut La Libre vom 7. Oktober 2026 für 2026 und 2027 ausgleichen, nachdem die Deckelung der Gehaltstabellen der Beamten aufgegeben wurde?",
       "options": [
-        "4 Verwaltungen",
-        "10 Verwaltungen",
-        "23 Verwaltungen",
-        "35 Verwaltungen"
+        "3 Millionen Euro",
+        "9 Millionen Euro",
+        "40 Millionen Euro",
+        "74 Millionen Euro"
       ],
       "correct": 1,
-      "explanation": "Der Einstellungsstopp bleibt 2027 bestehen. Der Ministerpräsident beziffert die Einsparung beim Personal auf 74 Millionen Euro.",
+      "explanation": "Die Begrenzung des Besoldungsdienstalters auf 29 Jahre wurde im September 2026 zurückgezogen. Das Kabinett des Haushaltsministers bestätigt, dass dieser Betrag ausgeglichen werden muss.",
       "sourceSlug": "/de/dossiers/reforme-administration",
       "sourceTitle": "Verwaltungsreform",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:395a70231a98842e4f4d9285f241ddac",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:47fff570371079f7ce8d7f26bac57865",
+        "generatedAt": "2026-10-08T09:02:21.199Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 59
 }

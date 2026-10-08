@@ -53,11 +53,31 @@ relatedCommunes:
   - schaerbeek
 relatedFormationEvents: []
 sources:
+  - label: "Rekenhof: commentaar en opmerkingen bij de ontwerpen van staatsbegroting voor het begrotingsjaar 2026 (18 februari 2026, pdf)"
+    url: "https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf"
+    type: official
+    accessedAt: "2026-10-08"
+  - label: "RTBF: de regering bereikt een akkoord over financiële compensaties voor de OCMW's (17 juni 2025)"
+    url: "https://www.rtbf.be/article/limitation-dans-le-temps-des-allocations-de-chomage-le-gouvernement-s-entend-sur-des-compensations-financieres-pour-les-cpas-11563251"
+    type: media
+    accessedAt: "2026-10-08"
+  - label: "RTBF: 37 miljoen minder, de OCMW's beschuldigen de federale staat ervan lagere compensaties te voorzien dan gepland (4 december 2025)"
+    url: "https://www.rtbf.be/article/reforme-du-chomage-37-millions-en-moins-les-cpas-accusent-l-etat-federal-de-prevoir-des-compensations-financieres-plus-faibles-que-prevu-11642488"
+    type: media
+    accessedAt: "2026-10-08"
+  - label: "L'Avenir: de compensatie van de werkloosheidshervorming voor de OCMW's is onderschat, volgens het Rekenhof (19 februari 2026)"
+    url: "https://www.lavenir.net/actu/belgique/2026/02/19/budget-federal-la-compensation-de-la-reforme-du-chomage-pour-les-cpas-sous-estimee-cest-lavis-de-la-cour-des-comptes-PY6AKWWOBJFR5CYNSTAGFMKR3E/"
+    type: media
+    accessedAt: "2026-10-08"
+  - label: "RTBF: de werkloosheidshervorming zou de OCMW's tegen 2029 bijna een miljard euro kunnen kosten (5 maart 2026)"
+    url: "https://www.rtbf.be/article/la-reforme-du-chomage-pourrait-couter-pres-d-un-milliard-d-euros-aux-cpas-d-ici-2029-non-compenses-par-le-federal-11689203"
+    type: media
+    accessedAt: "2026-10-08"
   - label: "Organieke wet betreffende de OCMW's van 8 juli 1976 (Justel, geconsolideerde tekst)"
     url: "https://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=fr&la=F&cn=1976070801&table_name=loi"
     accessedAt: "2026-05-01"
-  - label: "POD Maatschappelijke Integratie, beslissing van de federale regering over de compensatie van de OCMW's"
-    url: "https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
+  - label: "POD Maatschappelijke Integratie, beslissing van de federale regering over de compensatie van de OCMW's (gearchiveerde kopie van 15 oktober 2025; pagina verwijderd door de uitgever)"
+    url: "https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
     accessedAt: "2026-05-01"
   - label: "POD Maatschappelijke Integratie, nieuwe FAQ over de OCMW-subsidie in het kader van de werkloosheidshervorming (KB van 18/01/2026)"
     url: "https://www.mi-is.be/fr/nouvelles/nouvelle-faqs-concernant-la-subvention-octroyee-aux-cpas-dans-le-cadre-de-la-mise-en"
@@ -288,25 +308,32 @@ metrics:
     source: "21news"
     url: "https://www.21news.be/fin-dune-subvention-federale-de-15-millions-le-gouvernement-assume-les-cpas-bruxellois-contestent/"
     date: "2025-12-15"
-  - label: "Aangekondigde federale compensatie (raming Brulocalis / Rekenhof)"
+  - label: "Federale compensatie ingeschreven in de begroting (werkloosheidshervorming)"
     value: "300"
-    unit: "M€ (nationaal, 2026 en 2027) → 342 M€ in 2029; cumul ~631 M€; geraamde reële impact ~1 mld €"
-    date: "2025-11-17"
+    unit: "M€ in 2026 en in 2027, 302,3 M€ in 2028, 342,6 M€ in 2029 (nationaal); open enveloppe volgens het Rekenhof"
+    source: "POD Maatschappelijke Integratie, beslissing van 19 september 2025 (gearchiveerde kopie van 15 oktober 2025; pagina verwijderd door de uitgever)"
+    url: "https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
+    date: "2025-09-19"
     id: "cpas-234-vs-300"
-    claim: "De federale compensatie voor de werkloosheidshervorming wordt geraamd op 300 M€ (Rekenhof / UVCW) tegenover 234 M€ in de regeringsbeslissing: een verschil van 22 % dat publiek niet werd verzoend."
+    claim: "De federale begroting voorziet 300 M€ compensatie in 2026 en 342,6 M€ in 2029; de POD Maatschappelijke Integratie raamt de kostprijs op 709,3 M€ in 2029, of 366,7 M€ meer, stelt het Rekenhof vast."
     proofStatus: "contested"
     robustness: 65
     proofSources:
-      - label: "UVCW, Werkloosheidshervorming: compensaties aan de OCMW's"
+      - label: "Rekenhof: commentaar en opmerkingen bij de ontwerpen van staatsbegroting voor 2026 (18 februari 2026, pdf)"
+        url: "https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf"
+        type: "primary"
+        description: "Punt 7.2.2: de POD Maatschappelijke Integratie berekent een kostprijs van 295,7 M€ in 2026, 819,8 M€ in 2027, 887,8 M€ in 2028 en 709,3 M€ in 2029, tegenover 300, 300, 302,3 en 342,6 M€ ingeschreven in de begroting."
+        accessedAt: "2026-10-08"
+      - label: "POD Maatschappelijke Integratie: beslissing van de federale regering over de compensatie van de OCMW's (gearchiveerde kopie van 15 oktober 2025; pagina verwijderd door de uitgever)"
+        url: "https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
+        type: "primary"
+        description: "Beslissing van 19 september 2025: compensatiebudget van 300 M€ in 2026 en in 2027, 302,3 M€ in 2028 en 342,6 M€ in 2029."
+        accessedAt: "2026-10-08"
+      - label: "UVCW: werkloosheidshervorming, stand van zaken over de compensaties aan de OCMW's"
         url: "https://www.uvcw.be/insertion/actus/art-9826"
         type: "primary"
-        description: "Synthese van de Waalse federatie van plaatselijke besturen: 300 M€ in 2026, 709 M€ in 2029, cumul ongeveer 1 mld €, raming Rekenhof / Brulocalis."
-        accessedAt: "2026-05-01"
-      - label: "POD Maatschappelijke Integratie, beslissing van de federale regering over de compensatie van de OCMW's"
-        url: "https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
-        type: "contested"
-        description: "Concurrerende regeringspositie: 234 M€ in 2026, hoge hypothese van terugkeer naar werk."
-        accessedAt: "2026-05-01"
+        description: "Synthese van de Waalse federatie van plaatselijke besturen: 300 M€ in 2026 en in 2027, 302 M€ in 2028, 342 M€ in 2029, voorgesteld als het door de regering voorziene budget."
+        accessedAt: "2026-10-08"
     revisions:
       - date: "2026-05-02"
         badge: "initial"
@@ -318,12 +345,21 @@ metrics:
           weerspiegelt de status van de onderliggende cijfers, niet de kwaliteit van de documentatie.
           De afgeleide formule zou 40 hebben opgeleverd, wat ten onrechte een fragiele informatie
           zou hebben gesignaleerd.
-  - label: "Aangekondigde federale compensatie (raming POD MI / regering)"
-    value: "234"
-    unit: "M€ (nationaal, hoge hypotheses van terugkeer naar werk)"
-    source: "POD Maatschappelijke Integratie, regeringsbeslissing"
-    url: "https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
-    date: "2025-09-19"
+      - date: "2026-10-08"
+        badge: "update"
+        title: "Correctie: beide bedragen kwamen van de regering"
+        description: >
+          Het dossier stelde 234 M€ (regering) tegenover 300 M€ (Rekenhof). Beide bedragen
+          zijn die van de regering: 234 M€ aangekondigd op 17 juni 2025, opgetrokken tot
+          300 M€ door de notificaties van 18 juli 2025. De vaststelling gaat over het
+          verschil dat het Rekenhof optekent tussen de in de begroting ingeschreven enveloppe
+          en de kostprijs die de POD Maatschappelijke Integratie berekent.
+  - label: "Kostprijs van de hervorming in 2029 volgens de berekening van de POD Maatschappelijke Integratie"
+    value: "709,3"
+    unit: "M€ (nationaal), tegenover 342,6 M€ ingeschreven in de begroting; 819,8 M€ in 2027 en 887,8 M€ in 2028"
+    source: "Rekenhof, commentaar bij de staatsbegroting 2026 (18 februari 2026)"
+    url: "https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf"
+    date: "2026-02-18"
   - label: "Federale compensatie 2025 (voorschot gestemd in de Kamer)"
     value: "26"
     unit: "M€ (nationaal, gestemd in de Commissie Financiën op 10 december 2025, niet gestort op 7 januari 2026, toezegging tot storting eind januari 2026)"
@@ -448,11 +484,11 @@ faq:
       - label: "Actiris: werkloosheidshervorming, bijna één op twee Brusselaars aan het einde van hun recht wendt zich tot een OCMW (25 september 2026)"
         url: "https://press.actiris.be/reforme-du-chomage-pres-dun-bruxellois-en-fin-de-droit-sur-deux-se-tourne-vers-un-cpas-apres-exclusion-lors-des-deux-premieres-vagues"
         accessedAt: "2026-09-27"
-lastModified: "2026-09-27"
-faqReviewed: "2026-09-27"
-changeType: "updated"
-changeSummary: "Actiris: 47,6 % van de Brusselaars met einde recht in het eerste kwartaal van 2026 kwam in drie maanden bij een OCMW. Zijn monitoring van 25 september volgt 15 500 personen van de eerste twee golven: 12,6 % vond werk en 8,9 % stroomde in in het RIZIV. Dat percentage is niet vergelijkbaar met de 43,9 % van de POD Maatschappelijke Integratie, die het verkregen leefloon tussen januari en juni meten voor alle eindes van recht. Etterbeek, Oudergem, Brussel-Stad en Sint-Gillis tellen de hoogste aandelen personen aan het einde van hun recht die bij een OCMW terechtkwamen."
-changeSummaryDate: "2026-09-27"
+lastModified: "2026-10-08"
+faqReviewed: "2026-10-08"
+changeType: "corrected"
+changeSummary: "Correctie: de federale compensatie voor de OCMW's bedraagt 300 miljoen euro in 2026, en niet 234 miljoen. Volgens het Rekenhof volstaat de enveloppe alleen voor 2026: de POD Maatschappelijke Integratie raamt de kostprijs op 709,3 miljoen in 2029."
+changeSummaryDate: "2026-10-08"
 draft: false
 ---
 
@@ -672,7 +708,7 @@ Deze formulering vraagt om twee preciseringen. Enerzijds wordt het advies van de
 ## Schok 3, de federale werkloosheidshervorming: de absorptie in gedwongen tempo
 
 <SignalLead>
-De federale werkloosheidshervorming die op 1 januari 2026 in werking trad, doet 35.799 uitgesloten Brusselaars in vier golven overschakelen naar de OCMW's, met een federale compensatie in spanning tussen 234 M€ en 300 M€.
+De federale werkloosheidshervorming die op 1 januari 2026 in werking trad, doet 35.799 uitgesloten Brusselaars in vier golven overschakelen naar de OCMW's, met een federale compensatie van 300 miljoen euro in 2026 die het Rekenhof ontoereikend acht voor de daaropvolgende jaren.
 </SignalLead>
 
 <Essentiel>
@@ -705,9 +741,9 @@ Daarbovenop komt een bijkomende laag die op **1 maart 2026** in werking trad: ee
 
 <Essentiel>
 
-### De aangekondigde compensaties: twee officiële cijfers in spanning
+### De aangekondigde compensaties: 300 miljoen euro ingeschreven, een hoger geraamde kostprijs na 2026
 
-De federale regering en het **Rekenhof** zijn het niet eens over de reële kostprijs van de hervorming voor de OCMW's. Het **Rekenhof** stelde in zijn **rapport 2026 over het begrotingsontwerp** de federale berekening van de compensaties expliciet ter discussie, en oordeelde dat de enveloppe onderschat is. De compensatiebeslissing die de regering op 19 september 2025 nam en de wet van 17 november 2025 voorzien, op nationaal niveau:
+De federale regering kondigde op 17 juni 2025 eerst **234 miljoen euro** compensatie voor 2026 aan, een bedrag dat als een basis werd voorgesteld. De notificaties van de ministerraad van 18 juli 2025, en daarna de beslissing van 19 september 2025, trokken de enveloppe op tot **300 miljoen euro** in 2026 en in 2027, 302,3 miljoen in 2028 en 342,6 miljoen in 2029. De wet van 17 november 2025 legt de nadere regels vast, op nationaal niveau:
 
 <CpasMoneyFlow
   locale="nl"
@@ -727,15 +763,15 @@ De federale regering en het **Rekenhof** zijn het niet eens over de reële kostp
       note: "Annulatieberoep ingediend eind 2025 bij de Raad van State; geen gepubliceerde uitspraak gevonden op 13/09/2026"
     },
     {
-      source: "Compensatie werkloosheidshervorming (raming Brulocalis / Rekenhof)",
+      source: "Compensatie werkloosheidshervorming (enveloppe ingeschreven in de federale begroting)",
       channel: "POD MI → OCMW",
-      amount: "300 M€ (2026 en 2027) → 342 M€ in 2029; cumul ~631 M€; geraamde reële impact ~1 mld €",
+      amount: "300 M€ in 2026 en in 2027, 302,3 M€ in 2028, 342,6 M€ in 2029 (nationaal, open enveloppe)",
       status: "announced"
     },
     {
-      source: "Compensatie werkloosheidshervorming (raming POD MI / regering)",
+      source: "Kostprijs van de hervorming voor het federale niveau (berekening van de POD MI, aangehaald door het Rekenhof)",
       channel: "POD MI → OCMW",
-      amount: "234 M€ (nationaal, hoge hypotheses van terugkeer naar werk)",
+      amount: "295,7 M€ in 2026, 819,8 M€ in 2027, 887,8 M€ in 2028, 709,3 M€ in 2029 (nationaal)",
       status: "announced"
     },
     {
@@ -782,7 +818,13 @@ De federale regering en het **Rekenhof** zijn het niet eens over de reële kostp
 
 </Essentiel>
 
-Het verschil tussen **234 M€ (regering)** en <Claim id="cpas-234-vs-300">**300 M€ (Rekenhof / Brulocalis)**</Claim> weerspiegelt verschillende hypotheses over de graad van terugkeer naar werk. De regering rekent op een snelle uitstroom uit het leefloon; het Rekenhof beschouwt deze hypothese als « optimistisch » gezien het profiel van de betrokken publieken (langdurig werklozen die vaak ver van de arbeidsmarkt staan). Indien de hoge hypothese van de regering bevestigd wordt, vermindert het verschil. Indien zij niet bevestigd wordt, zal het verschil lokaal moeten worden gedragen.
+Volgens het **Rekenhof** (commentaar bij de staatsbegroting 2026, 18 februari 2026) lijkt die enveloppe alleen voor 2026 te volstaan. De POD Maatschappelijke Integratie raamt de kostprijs op 295,7 miljoen euro in 2026, <Claim id="cpas-234-vs-300">**819,8 miljoen in 2027, 887,8 miljoen in 2028 en 709,3 miljoen in 2029**</Claim>, of tot 585,5 miljoen meer dan het ingeschreven bedrag. Die berekening veronderstelt dat een derde van de uitgesloten werklozen naar het leefloon overgaat, een hypothese die het Hof als een minimum beschouwt, en dat de helft van de nieuwe begunstigden er na twee jaar uitstroomt, wat het niet erg realistisch acht. De enveloppe is open: het kabinet van de minister van Maatschappelijke Integratie heeft het Hof meegedeeld dat een overschrijding gecompenseerd zou worden.
+
+Jongeren die hun inschakelingsuitkering verliezen, vallen niet onder het compensatiesysteem. De Federatie van OCMW's ziet daarin in totaal 37 miljoen euro minder (RTBF, 4 december 2025) en raamt de niet-gecompenseerde meerkosten voor de OCMW's van het land op bijna een miljard euro tegen 2029 (RTBF, 5 maart 2026). Het rapport van het Hof over de aangepaste begroting 2026 (21 mei 2026) komt niet op dat punt terug.
+
+**Correctie (8 oktober 2026).** Het dossier stelde 234 miljoen euro, toegeschreven aan de regering, tegenover 300 miljoen, toegeschreven aan het Rekenhof en aan Brulocalis, en sprak van een verschil dat niet was verzoend. Beide bedragen komen van de regering: 234 miljoen aangekondigd op 17 juni 2025, opgetrokken tot 300 miljoen door de notificaties van 18 juli 2025. Het verschil dat het Rekenhof documenteert, stelt de in de begroting ingeschreven enveloppe tegenover de kostprijs die de POD Maatschappelijke Integratie berekent.
+
+Bronnen: [Rekenhof, commentaar bij de staatsbegroting 2026 (pdf, punt 7.2.2)](https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf) ; [POD Maatschappelijke Integratie, beslissing van 19 september 2025 (gearchiveerde kopie)](https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas) ; [RTBF (17 juni 2025)](https://www.rtbf.be/article/limitation-dans-le-temps-des-allocations-de-chomage-le-gouvernement-s-entend-sur-des-compensations-financieres-pour-les-cpas-11563251) ; [RTBF (4 december 2025)](https://www.rtbf.be/article/reforme-du-chomage-37-millions-en-moins-les-cpas-accusent-l-etat-federal-de-prevoir-des-compensations-financieres-plus-faibles-que-prevu-11642488) ; [L'Avenir (19 februari 2026)](https://www.lavenir.net/actu/belgique/2026/02/19/budget-federal-la-compensation-de-la-reforme-du-chomage-pour-les-cpas-sous-estimee-cest-lavis-de-la-cour-des-comptes-PY6AKWWOBJFR5CYNSTAGFMKR3E/) ; [RTBF (5 maart 2026)](https://www.rtbf.be/article/la-reforme-du-chomage-pourrait-couter-pres-d-un-milliard-d-euros-aux-cpas-d-ici-2029-non-compenses-par-le-federal-11689203). Betrouwbaarheid: *official* voor de bedragen van de begroting en de berekening van de POD Maatschappelijke Integratie; *estimated* voor de ramingen van de Federatie van OCMW's.
 
 <Essentiel>
 
@@ -931,7 +973,7 @@ Vijf vragen structureren de opvolging door BGM. Zij zullen voortdurend worden ge
 />
 
 1. **Beslissing van de Raad van State over de PAS-subsidie.** Beroep ingediend eind 2025; geen gepubliceerde beslissing gevonden door BGM op 13 september 2026. Een vernietiging zou het federale niveau verplichten om de subsidie opnieuw op de begroting in te schrijven of te herkwalificeren; een verwerping zou de afschaffing bekrachtigen en de last definitief verschuiven.
-2. **Compensaties werkloosheid 2027-2029: toereikend of niet?** Het verschil 234 M€ vs 300 M€ zal zich in de komende 18 maanden oplossen naargelang de hypotheses van de regering over de terugkeer naar werk zich al dan niet bevestigen. Het Rekenhof heeft de federale berekening al onderuitgehaald in zijn rapport 2026 over het begrotingsontwerp.
+2. **Compensaties werkloosheid 2027-2029: toereikend of niet?** De ingeschreven enveloppe (300 M€ in 2027, 342,6 M€ in 2029) ligt lager dan de kostprijs die de POD Maatschappelijke Integratie berekent (819,8 M€ en 709,3 M€), stelt het Rekenhof vast in zijn commentaar van 18 februari 2026. De enveloppe is open: op te volgen in de federale begrotingen van 2027 tot 2029.
 3. **Beroep van de OCMW's bij het Grondwettelijk Hof.** Het arrest 96/2026 van 10 september 2026 heeft het beroep van de verenigingen, vakbonden en particulieren tegen de beperking van de werkloosheidsuitkeringen in de tijd beslecht. Het beroep van de OCMW's van Sint-Gillis, Vorst, Bergen en Andenne maakt er geen deel van uit; de afloop ervan blijft op te volgen.
 4. **Gehaalde aanwervingen.** Het aangekondigde plan (2.000 nationale functies, 550 Brusselse waarvan 306 MA en 245 administratieven volgens Brulocalis) zal gehaald worden als de opleiding en de arbeidsvoorwaarden volgen. Zo niet blijft de absorptie theoretisch.
 5. **Politiek antwoord op de 1,7 miljard gevraagd door Brulocalis en de Conferentie van de burgemeesters.** Een compensatie ten belope van 26,7 % van de gedocumenteerde nood is structureel niet houdbaar; het Gewest en het federale niveau zullen zich moeten positioneren. In het bijzonder in de gaten te houden: het lot van **Housing First** en **MIRIAM**, waarvan Brulocalis de onzekerheden signaleert.

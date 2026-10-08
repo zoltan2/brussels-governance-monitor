@@ -53,11 +53,31 @@ relatedCommunes:
   - schaerbeek
 relatedFormationEvents: []
 sources:
+  - label: "Court of Audit: comments and observations on the draft State budgets for the 2026 budget year (18 February 2026, PDF)"
+    url: "https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf"
+    type: official
+    accessedAt: "2026-10-08"
+  - label: "RTBF: the government agrees on financial compensation for the CPAS (17 June 2025)"
+    url: "https://www.rtbf.be/article/limitation-dans-le-temps-des-allocations-de-chomage-le-gouvernement-s-entend-sur-des-compensations-financieres-pour-les-cpas-11563251"
+    type: media
+    accessedAt: "2026-10-08"
+  - label: "RTBF: 37 million less, the CPAS accuse the federal State of planning lower compensation than expected (4 December 2025)"
+    url: "https://www.rtbf.be/article/reforme-du-chomage-37-millions-en-moins-les-cpas-accusent-l-etat-federal-de-prevoir-des-compensations-financieres-plus-faibles-que-prevu-11642488"
+    type: media
+    accessedAt: "2026-10-08"
+  - label: "L'Avenir: compensation for the unemployment reform for the CPAS underestimated, according to the Court of Audit (19 February 2026)"
+    url: "https://www.lavenir.net/actu/belgique/2026/02/19/budget-federal-la-compensation-de-la-reforme-du-chomage-pour-les-cpas-sous-estimee-cest-lavis-de-la-cour-des-comptes-PY6AKWWOBJFR5CYNSTAGFMKR3E/"
+    type: media
+    accessedAt: "2026-10-08"
+  - label: "RTBF: the unemployment reform could cost the CPAS nearly one billion euros by 2029 (5 March 2026)"
+    url: "https://www.rtbf.be/article/la-reforme-du-chomage-pourrait-couter-pres-d-un-milliard-d-euros-aux-cpas-d-ici-2029-non-compenses-par-le-federal-11689203"
+    type: media
+    accessedAt: "2026-10-08"
   - label: "Organic Law on CPASs of 8 July 1976 (Justel — consolidated text)"
     url: "https://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=fr&la=F&cn=1976070801&table_name=loi"
     accessedAt: "2026-05-01"
-  - label: "SPP Intégration sociale — Décision du gouvernement fédéral concernant la compensation des CPAS"
-    url: "https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
+  - label: "SPP Intégration sociale — Décision du gouvernement fédéral concernant la compensation des CPAS (archived copy of 15 October 2025; page removed by the publisher)"
+    url: "https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
     accessedAt: "2026-05-01"
   - label: "SPP Intégration sociale — Nouvelles FAQ sur la subvention CPAS dans le cadre de la réforme du chômage (AR du 18/01/2026)"
     url: "https://www.mi-is.be/fr/nouvelles/nouvelle-faqs-concernant-la-subvention-octroyee-aux-cpas-dans-le-cadre-de-la-mise-en"
@@ -288,25 +308,32 @@ metrics:
     source: "21news"
     url: "https://www.21news.be/fin-dune-subvention-federale-de-15-millions-le-gouvernement-assume-les-cpas-bruxellois-contestent/"
     date: "2025-12-15"
-  - label: "Announced federal compensation (Brulocalis / Court of Auditors estimate)"
+  - label: "Federal compensation entered in the budget (unemployment reform)"
     value: "300"
-    unit: "M€ (national, 2026 and 2027) -> 342 M€ in 2029; cumulative approximately 631 M€; projected real impact approximately 1 billion €"
-    date: "2025-11-17"
+    unit: "M€ in 2026 and in 2027, 302.3 M€ in 2028, 342.6 M€ in 2029 (national); open-ended envelope according to the Court of Audit"
+    source: "SPP Social Integration, decision of 19 September 2025 (archived copy of 15 October 2025; page removed by the publisher)"
+    url: "https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
+    date: "2025-09-19"
     id: "cpas-234-vs-300"
-    claim: "The federal compensation for the unemployment reform is estimated at 300 M€ (Court of Auditors / UVCW) versus 234 M€ in the government decision: a 22% gap not publicly reconciled."
+    claim: "The federal budget provides 300 M€ of compensation in 2026 and 342.6 M€ in 2029; SPP Social Integration puts the cost at 709.3 M€ in 2029, that is 366.7 M€ more, the Court of Audit notes."
     proofStatus: "contested"
     robustness: 65
     proofSources:
-      - label: "UVCW — Réforme du chômage : compensations octroyées aux CPAS"
+      - label: "Court of Audit: comments and observations on the draft State budgets for 2026 (18 February 2026, PDF)"
+        url: "https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf"
+        type: "primary"
+        description: "Point 7.2.2: SPP Social Integration calculates a cost of 295.7 M€ in 2026, 819.8 M€ in 2027, 887.8 M€ in 2028 and 709.3 M€ in 2029, against 300, 300, 302.3 and 342.6 M€ entered in the budget."
+        accessedAt: "2026-10-08"
+      - label: "SPP Social Integration: federal government decision on compensation for the CPAS (archived copy of 15 October 2025; page removed by the publisher)"
+        url: "https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
+        type: "primary"
+        description: "Decision of 19 September 2025: compensation budget of 300 M€ in 2026 and in 2027, 302.3 M€ in 2028 and 342.6 M€ in 2029."
+        accessedAt: "2026-10-08"
+      - label: "UVCW: unemployment reform, an update on the compensation granted to the CPAS"
         url: "https://www.uvcw.be/insertion/actus/art-9826"
         type: "primary"
-        description: "Summary by the Walloon federation of local authorities: 300 M€ in 2026, 709 M€ in 2029, cumulative approximately 1 billion euros (Court of Auditors / Brulocalis estimate)."
-        accessedAt: "2026-05-01"
-      - label: "SPP Intégration sociale — Décision du gouvernement fédéral concernant la compensation des CPAS"
-        url: "https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
-        type: "contested"
-        description: "Competing government position: 234 M€ in 2026, high-assumption return-to-employment scenario."
-        accessedAt: "2026-05-01"
+        description: "Summary by the Walloon federation of local authorities: 300 M€ in 2026 and in 2027, 302 M€ in 2028, 342 M€ in 2029, presented as the budget planned by the government."
+        accessedAt: "2026-10-08"
     revisions:
       - date: "2026-05-02"
         badge: "initial"
@@ -318,12 +345,21 @@ metrics:
           reflects the status of the underlying figures, not the quality of the documentation.
           The derived formula would have produced 40, which would have incorrectly flagged
           the information as fragile.
-  - label: "Announced federal compensation (SPP IS / government estimate)"
-    value: "234"
-    unit: "M€ (national, high return-to-employment assumption)"
-    source: "Federal Public Planning Service for Social Integration — government decision"
-    url: "https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas"
-    date: "2025-09-19"
+      - date: "2026-10-08"
+        badge: "update"
+        title: "Correction: both amounts came from the government"
+        description: >
+          The dossier set 234 M€ (government) against 300 M€ (Court of Audit). Both
+          amounts are the government's: 234 M€ announced on 17 June 2025, raised to
+          300 M€ by the notifications of 18 July 2025. The claim concerns the gap
+          noted by the Court of Audit between the envelope entered in the budget and
+          the cost calculated by SPP Social Integration.
+  - label: "Cost of the reform in 2029 according to the SPP Social Integration calculation"
+    value: "709.3"
+    unit: "M€ (national), against 342.6 M€ entered in the budget; 819.8 M€ in 2027 and 887.8 M€ in 2028"
+    source: "Court of Audit, comments on the 2026 State budget (18 February 2026)"
+    url: "https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf"
+    date: "2026-02-18"
   - label: "Federal compensation 2025 (advance voted in the Chamber)"
     value: "26"
     unit: "M€ (national, voted in the Finance Committee on 10 December 2025, not yet disbursed as of 7 January 2026, commitment to pay by end of January 2026)"
@@ -448,11 +484,11 @@ faq:
       - label: "Actiris: unemployment reform, nearly one in two Brussels residents at the end of their entitlement turns to a CPAS (25 September 2026)"
         url: "https://press.actiris.be/reforme-du-chomage-pres-dun-bruxellois-en-fin-de-droit-sur-deux-se-tourne-vers-un-cpas-apres-exclusion-lors-des-deux-premieres-vagues"
         accessedAt: "2026-09-27"
-lastModified: "2026-09-27"
-faqReviewed: "2026-09-27"
-changeType: "updated"
-changeSummary: "Actiris: 47.6% of Brussels residents whose entitlement ended in Q1 2026 turned to a CPAS within three months. Its monitoring of 25 September follows 15,500 people from the first two waves, whose entitlement ended in the first quarter of 2026: 12.6% found work and 8.9% entered INAMI. This rate is not comparable with SPP Social Integration's 43.9%, which measures the integration income obtained between January and June across all entitlement endings. Etterbeek, Auderghem, Brussels-City and Saint-Gilles show the highest shares of people at the end of their entitlement who turned to a CPAS."
-changeSummaryDate: "2026-09-27"
+lastModified: "2026-10-08"
+faqReviewed: "2026-10-08"
+changeType: "corrected"
+changeSummary: "Correction: federal compensation for the CPAS is 300 million euros in 2026, not 234 million. According to the Court of Audit, the envelope is sufficient for 2026 only: SPP Social Integration puts the cost at 709.3 million in 2029."
+changeSummaryDate: "2026-10-08"
 draft: false
 ---
 
@@ -672,7 +708,7 @@ Two points of clarification are needed here. First, the Finance Inspectorate's o
 ## Shock 3: The federal unemployment reform: forced absorption
 
 <SignalLead>
-The federal unemployment reform that entered into force on 1 January 2026 channels 35,799 excluded Brussels residents toward CPASs in four waves, with federal compensation disputed between 234 M€ and 300 M€.
+The federal unemployment reform that entered into force on 1 January 2026 channels 35,799 excluded Brussels residents toward CPASs in four waves, with federal compensation of 300 million euros in 2026 that the Court of Audit considers insufficient for the following years.
 </SignalLead>
 
 <Essentiel>
@@ -705,9 +741,9 @@ An additional layer entered into force on **1 March 2026**: a legislative change
 
 <Essentiel>
 
-### The announced compensation: two official figures in tension
+### The announced compensation: 300 million euros budgeted, a higher estimated cost after 2026
 
-The federal government and the **Court of Auditors** do not agree on the real cost of the reform for CPASs. The **Court of Auditors**, in its **2026 report on the draft budget**, explicitly challenged the federal compensation calculation, finding the envelope to be underestimated. The compensation decision taken by the government on 19 September 2025 and the law of 17 November 2025 provide, at the national level:
+The federal government first announced, on 17 June 2025, **234 million euros** of compensation for 2026, an amount presented as a baseline. The notifications of the Council of Ministers of 18 July 2025, followed by the decision of 19 September 2025, raised the envelope to **300 million euros** in 2026 and in 2027, 302.3 million in 2028 and 342.6 million in 2029. The law of 17 November 2025 sets out the arrangements, at the national level:
 
 <CpasMoneyFlow
   locale="en"
@@ -727,15 +763,15 @@ The federal government and the **Court of Auditors** do not agree on the real co
       note: "Annulment proceedings filed at end of 2025 before the Council of State; no published decision found as of 13/09/2026"
     },
     {
-      source: "Unemployment reform compensation (Brulocalis / Court of Auditors estimate)",
+      source: "Unemployment reform compensation (envelope entered in the federal budget)",
       channel: "SPP IS -> CPAS",
-      amount: "300 M€ (2026 and 2027) -> 342 M€ in 2029; cumulative approximately 631 M€; projected real impact approximately 1 billion €",
+      amount: "300 M€ in 2026 and in 2027, 302.3 M€ in 2028, 342.6 M€ in 2029 (national, open-ended envelope)",
       status: "announced"
     },
     {
-      source: "Unemployment reform compensation (SPP IS / government estimate)",
+      source: "Cost of the reform for the federal level (SPP IS calculation, cited by the Court of Audit)",
       channel: "SPP IS -> CPAS",
-      amount: "234 M€ (national, high return-to-employment assumption)",
+      amount: "295.7 M€ in 2026, 819.8 M€ in 2027, 887.8 M€ in 2028, 709.3 M€ in 2029 (national)",
       status: "announced"
     },
     {
@@ -782,7 +818,13 @@ The federal government and the **Court of Auditors** do not agree on the real co
 
 </Essentiel>
 
-The gap between **234 M€ (government)** and <Claim id="cpas-234-vs-300">**300 M€ (Court of Auditors / Brulocalis)**</Claim> reflects different assumptions about the rate of return to employment. The government expects rapid exits from the RIS; the Court of Auditors considers this assumption «optimistic» given the profile of the populations concerned (long-term unemployed persons often distant from the labour market). If the government's high assumption is borne out, the gap will narrow. If it is not, the difference will have to be absorbed locally.
+According to the **Court of Audit** (comments on the 2026 State budget, 18 February 2026), this envelope appears sufficient for 2026 only. SPP Social Integration puts the cost at 295.7 million euros in 2026, <Claim id="cpas-234-vs-300">**819.8 million in 2027, 887.8 million in 2028 and 709.3 million in 2029**</Claim>, that is up to 585.5 million more than the amount entered in the budget. This calculation assumes that one third of excluded unemployed people move to the integration income, an assumption the Court regards as a minimum, and that half of the new recipients leave it after two years, which it considers not very realistic. The envelope is open-ended: the office of the Minister for Social Integration told the Court that any overrun would be compensated.
+
+Young people who lose their integration allowance are not covered by the compensation system. The Federation of CPAS sees in this 37 million euros less in total (RTBF, 4 December 2025) and estimates at nearly one billion euros the uncompensated extra cost for the country's CPAS by 2029 (RTBF, 5 March 2026). The Court's report on the adjusted 2026 budget (21 May 2026) does not return to this point.
+
+**Correction (8 October 2026).** This dossier set 234 million euros attributed to the government against 300 million attributed to the Court of Audit and to Brulocalis, and spoke of an unreconciled gap. Both amounts come from the government: 234 million announced on 17 June 2025, raised to 300 million by the notifications of 18 July 2025. The gap documented by the Court of Audit sets the envelope entered in the budget against the cost calculated by SPP Social Integration.
+
+Sources: [Court of Audit, comments on the 2026 State budget (PDF, point 7.2.2)](https://www.ccrek.be/sites/default/files/Docs/2026_16_Budget2026.pdf); [SPP Social Integration, decision of 19 September 2025 (archived copy)](https://web.archive.org/web/20251015083350/https://www.mi-is.be/fr/nouvelles/decision-du-gouvernement-federal-concernant-la-compensation-des-cpas); [RTBF (17 June 2025)](https://www.rtbf.be/article/limitation-dans-le-temps-des-allocations-de-chomage-le-gouvernement-s-entend-sur-des-compensations-financieres-pour-les-cpas-11563251); [RTBF (4 December 2025)](https://www.rtbf.be/article/reforme-du-chomage-37-millions-en-moins-les-cpas-accusent-l-etat-federal-de-prevoir-des-compensations-financieres-plus-faibles-que-prevu-11642488); [L'Avenir (19 February 2026)](https://www.lavenir.net/actu/belgique/2026/02/19/budget-federal-la-compensation-de-la-reforme-du-chomage-pour-les-cpas-sous-estimee-cest-lavis-de-la-cour-des-comptes-PY6AKWWOBJFR5CYNSTAGFMKR3E/); [RTBF (5 March 2026)](https://www.rtbf.be/article/la-reforme-du-chomage-pourrait-couter-pres-d-un-milliard-d-euros-aux-cpas-d-ici-2029-non-compenses-par-le-federal-11689203). Confidence: *official* for the budget amounts and the SPP Social Integration calculation; *estimated* for the estimates of the Federation of CPAS.
 
 <Essentiel>
 
@@ -931,7 +973,7 @@ Five questions structure BGM monitoring. They will be updated continuously via d
 />
 
 1. **Council of State decision on the PAS subsidy.** Appeal filed at the end of 2025; no published decision found by BGM as of 13 September 2026. An annulment would require the federal level to reinstate the subsidy in the budget or reclassify it; a rejection would definitively confirm the abolition and permanently shift the burden.
-2. **Unemployment compensation 2027-2029: adequate or not?** The gap between 234 M€ and 300 M€ will be resolved within the next 18 months depending on whether the government's return-to-employment assumptions hold or not. The Court of Auditors has already challenged the federal calculation in its 2026 report on the draft budget.
+2. **Unemployment compensation 2027-2029: adequate or not?** The budgeted envelope (300 M€ in 2027, 342.6 M€ in 2029) is lower than the cost calculated by SPP Social Integration (819.8 M€ and 709.3 M€), the Court of Audit notes in its comments of 18 February 2026. The envelope is open-ended: to be followed in the federal budgets for 2027 to 2029.
 3. **CPAS challenge before the Constitutional Court.** Ruling 96/2026 of 10 September 2026 decided the challenge brought by associations, trade unions and individuals against the time limit on unemployment benefits. The challenge by the CPASs of Saint-Gilles, Forest, Mons and Andenne is not part of it; its outcome remains to be monitored.
 4. **Recruitments fulfilled.** The announced plan (2,000 national posts, 550 in Brussels including 306 social workers and 245 administrative staff according to Brulocalis) will be met if training and working conditions follow. Otherwise, absorption will remain theoretical.
 5. **Political response to the 1.7 billion requested by Brulocalis and the Conference of Mayors.** Compensation covering only 26.7% of the documented need is not structurally sustainable; the Region and the federal level will need to take a position. To monitor in particular the fate of **Housing First** and **MIRIAM**, whose uncertainties Brulocalis has flagged.

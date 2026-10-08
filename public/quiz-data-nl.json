@@ -1,11 +1,34 @@
 {
-  "generatedAt": "2026-10-06T13:44:23.081Z",
+  "generatedAt": "2026-10-08T09:02:20.551Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
+      "source": "domain",
+      "domain": "Budget",
+      "question": "Vóór welke datum moet de Brusselse begroting 2027 bij het Parlement worden ingediend, volgens de minister-president tijdens het debat van 6 oktober 2026?",
+      "options": [
+        "Vóór 15 oktober 2026",
+        "Vóór 31 oktober 2026",
+        "Vóór 30 november 2026",
+        "Vóór 31 december 2026"
+      ],
+      "correct": 1,
+      "explanation": "De bespreking lijn per lijn van de begroting moet daarna in commissie plaatsvinden. De begrotingstabellen waren niet aan de parlementsleden bezorgd voor het debat van 6 oktober 2026.",
+      "sourceSlug": "/nl/domeinen/budget",
+      "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:ad7db51111dca4ed38b336f4b6430805",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
       "question": "Welk tekort beoogt de Brusselse regering voor 2027 in het begrotingsakkoord dat op 4 oktober 2026 werd gesloten?",
@@ -20,32 +43,9 @@
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e3875e687afd3e6834e7384f54b36968",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-budget-1",
-      "source": "domain",
-      "domain": "Budget",
-      "question": "In welk jaar plaatst het Brusselse begrotingsakkoord van 4 oktober 2026 de terugkeer naar een evenwicht van de gewestfinanciën?",
-      "options": [
-        "In 2027",
-        "In 2028",
-        "In 2029",
-        "In 2031"
-      ],
-      "correct": 2,
-      "explanation": "Het aangekondigde traject loopt via een tekort van 719 miljoen euro in 2027 en 416 miljoen in 2028, vóór het evenwicht in 2029.",
-      "sourceSlug": "/nl/domeinen/budget",
-      "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e3875e687afd3e6834e7384f54b36968",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:ad7db51111dca4ed38b336f4b6430805",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,6 +100,29 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klimaat",
+      "question": "Hoeveel van de 841 onderzochte Brusselse onderwijsinstellingen overschrijden de WHO-aanbeveling voor stikstofdioxide, volgens de modellering die Les Chercheurs d'air op 8 oktober 2026 publiceerde?",
+      "options": [
+        "167 instellingen",
+        "420 instellingen",
+        "618 instellingen",
+        "Alle 841 instellingen"
+      ],
+      "correct": 3,
+      "explanation": "De WHO-aanbeveling bedraagt 10 µg/m³ als jaargemiddelde. Van de 618 kleuter- en lagere scholen overschrijden er 167 zelfs 15 µg/m³.",
+      "sourceSlug": "/nl/domeinen/climate",
+      "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen onopgelost",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:b02d629d80df45c95ecba8e0551d76ad",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-climate-1",
+      "source": "domain",
+      "domain": "Klimaat",
       "question": "Waardoor vervangt het Brusselse begrotingsakkoord van 4 oktober 2026 de Renolution-premies?",
       "options": [
         "Renteloze leningen voor renovatie",
@@ -112,32 +135,9 @@
       "sourceSlug": "/nl/domeinen/climate",
       "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen onopgelost",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:21dfddd2a6440bb887b443b415f63f10",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-climate-1",
-      "source": "domain",
-      "domain": "Klimaat",
-      "question": "Welk aandeel van de indicatoren die het Comité van Klimaatdeskundigen aanbeveelt, is volgens zijn persbericht van 2 oktober 2026 in Brussel niet beschikbaar of onbestaand?",
-      "options": [
-        "Ongeveer 13 %",
-        "Ongeveer 25 %",
-        "Ongeveer 50 %",
-        "Ongeveer 87 %"
-      ],
-      "correct": 2,
-      "explanation": "Bij gebrek aan gegevens zegt het Comité het effect van het gewestelijke klimaatbeleid niet doeltreffend te kunnen evalueren. Zijn rapport 2026 onderzoekt 51 indicatoren.",
-      "sourceSlug": "/nl/domeinen/climate",
-      "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen onopgelost",
-      "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:21dfddd2a6440bb887b443b415f63f10",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:b02d629d80df45c95ecba8e0551d76ad",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,6 +284,29 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Werkgelegenheid",
+      "question": "Hoeveel werkzoekenden waren eind september 2026 ingeschreven bij Actiris, volgens het persbericht van Actiris van 6 oktober 2026?",
+      "options": [
+        "87.450",
+        "94.700",
+        "100.198",
+        "112.640"
+      ],
+      "correct": 2,
+      "explanation": "Dat is 5,8 % meer dan in september 2025. De administratieve werkloosheidsgraad bedraagt 16,1 %, en 35 % van de ingeschrevenen hangt af van een OCMW.",
+      "sourceSlug": "/nl/domeinen/employment",
+      "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:05c0a1573957122d2b9e481a03bec295",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-employment-1",
+      "source": "domain",
+      "domain": "Werkgelegenheid",
       "question": "Welke werkgelegenheidsgraad beoogt de Brusselse regering tegen 2030, een doelstelling die in de algemene beleidsverklaring van 5 oktober 2026 werd herhaald?",
       "options": [
         "60 %",
@@ -296,32 +319,9 @@
       "sourceSlug": "/nl/domeinen/employment",
       "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:40bfa1a73da48b731677a9cf4f581f95",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-employment-1",
-      "source": "domain",
-      "domain": "Werkgelegenheid",
-      "question": "Welk aandeel van de Brusselaars die in het eerste kwartaal van 2026 aan het einde van hun recht kwamen, werd binnen drie maanden begunstigde van een OCMW, volgens de monitoring die Actiris op 25 september 2026 publiceerde?",
-      "options": [
-        "12,6 %",
-        "28,4 %",
-        "47,6 %",
-        "63,6 %"
-      ],
-      "correct": 2,
-      "explanation": "Binnen dezelfde termijn vond 12,6 % werk, ongeacht de duur. Actiris preciseert dat deze cijfers voorlopig zijn.",
-      "sourceSlug": "/nl/domeinen/employment",
-      "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:40bfa1a73da48b731677a9cf4f581f95",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:05c0a1573957122d2b9e481a03bec295",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Hoeveel voorziet het Brusselse begrotingsakkoord van 4 oktober 2026, volgens de staatssecretaris voor Huisvesting, voor de bouw van meer dan 1 000 woningen die tegen een bescheiden prijs worden verkocht?",
+      "question": "Met hoeveel inwoners is de bevolking van het Brussels Gewest in 2025 toegenomen, volgens de Demografische Barometer 2026 van het BISA?",
       "options": [
-        "61 miljoen euro",
-        "104 miljoen euro",
-        "131 miljoen euro",
-        "250 miljoen euro"
+        "39 inwoners",
+        "6.200 inwoners",
+        "13.988 inwoners",
+        "18.553 inwoners"
       ],
-      "correct": 1,
-      "explanation": "Die woningen moeten via citydev.brussels worden gebouwd. Over de 131 miljoen euro van de BGHM bestaan er binnen de regering twee versies.",
+      "correct": 0,
+      "explanation": "Het Gewest telt 1.255.834 inwoners op 1 januari 2026, de kleinste stijging sinds 1996. Het vertrek naar Vlaanderen en Wallonië compenseert bijna de geboorten en de aankomsten uit het buitenland.",
       "sourceSlug": "/nl/domeinen/housing",
-      "sourceTitle": "Huisvesting: 62 234 gezinnen op de wachtlijst, 131 miljoen van de BGHM geblokkeerd",
+      "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, 131 miljoen van de BGHM geblokkeerd",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:6b70d61f2d390647d1192ef9c13acb94",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:8faaf935aebe39158cd9b2aa8bc83f27",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -363,11 +363,11 @@
       "correct": 0,
       "explanation": "Volgens een studie van de Ligue des familles van 1 oktober 2026 ligt het bedrag van het forfait nog niet vast. De verwachte besparing bedraagt 9 miljoen euro per jaar.",
       "sourceSlug": "/nl/domeinen/housing",
-      "sourceTitle": "Huisvesting: 62 234 gezinnen op de wachtlijst, 131 miljoen van de BGHM geblokkeerd",
+      "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, 131 miljoen van de BGHM geblokkeerd",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:6b70d61f2d390647d1192ef9c13acb94",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:8faaf935aebe39158cd9b2aa8bc83f27",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobiliteit",
-      "question": "Wat kondigt de Brusselse algemene beleidsverklaring van 5 oktober 2026 aan voor de Baljuwtunnel en de Vleurgattunnel aan de Louizalaan?",
+      "question": "Hoe is het aantal zwaargewonden op de Brusselse wegen in de eerste helft van 2026 geëvolueerd tegenover de eerste helft van 2025, volgens Brussel Mobiliteit?",
       "options": [
-        "Een renovatie in dezelfde vorm, met twee rijstroken",
-        "Een definitieve sluiting voor het autoverkeer",
-        "Een ombouw tot tunnels die enkel voor trams dienen",
-        "Een stadstol aan de ingang van elke tunnel"
+        "Een daling van 34 %, tot 82 personen",
+        "Een daling van 5 %, tot 118 personen",
+        "Een stijging van 12 %, tot 139 personen",
+        "Een stijging van 34 %, tot 166 personen"
       ],
       "correct": 0,
-      "explanation": "Een meerjareninvesteringsplan voor bruggen, tunnels en viaducten moet tegen november 2026 worden ingediend. De werken aan de Vleurgattunnel moeten tegen 2029 starten.",
+      "explanation": "Het totale aantal gewonden daalt met bijna 20 %, het laagste niveau in vijf jaar. Brussel Mobiliteit preciseert dat 2025 een bijzonder hoog jaar was.",
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:dd6e6c4b62d5369e97a6d884527d661f",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:9c9a8e76d8c3ed78e922f805d7085650",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -457,9 +457,9 @@
       "sourceSlug": "/nl/domeinen/mobility",
       "sourceTitle": "Mobiliteit: nieuw gewestelijk plan, Metro 3 bevroren, LEZ behouden",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:dd6e6c4b62d5369e97a6d884527d661f",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:9c9a8e76d8c3ed78e922f805d7085650",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,6 +560,29 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stedenbouw",
+      "question": "Welk advies heeft het college van Schaarbeek op 6 oktober 2026 uitgebracht over de aanvraag voor een verkavelingsvergunning voor de Josaphat-site?",
+      "options": [
+        "Een ongunstig advies, bij meerderheid aangenomen",
+        "Een gunstig advies, gekoppeld aan voorwaarden",
+        "Een onthouding, zoals bij het advies van 2025",
+        "Een gunstig advies, eenparig aangenomen"
+      ],
+      "correct": 0,
+      "explanation": "Het gemeentelijke advies is niet bindend: de beslissing ligt bij het Gewest. Het openbaar onderzoek had bijna 15.000 bezwaarschriften opgeleverd.",
+      "sourceSlug": "/nl/domeinen/urban-planning",
+      "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
+      "provenance": {
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:7c39212c4becbe0720ef7c9abcfe30c1",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-urban-planning-1",
+      "source": "domain",
+      "domain": "Stedenbouw",
       "question": "Wat vraagt het Brussels Gewest aan het hof van beroep in het proces over de bouwstop op braakliggende terreinen, dat op 5 oktober 2026 begon?",
       "options": [
         "De vernietiging van het vonnis van 29 oktober 2025",
@@ -572,32 +595,9 @@
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:aa296d361dfb4f6cd3942647da7a0a92",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-urban-planning-1",
-      "source": "domain",
-      "domain": "Stedenbouw",
-      "question": "Hoeveel reacties leverde het openbaar onderzoek naar de Josaphat-site op, dat op 26 september 2026 werd afgesloten, volgens de gemeente Schaarbeek?",
-      "options": [
-        "Ongeveer 2 800",
-        "Ongeveer 5 000",
-        "Ongeveer 15 000",
-        "Ongeveer 40 000"
-      ],
-      "correct": 2,
-      "explanation": "Het onderzoek van 2025 naar de vorige versie van het project leverde er 2 800 op. De aanvraag gaat over maximaal 537 woningen.",
-      "sourceSlug": "/nl/domeinen/urban-planning",
-      "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
-      "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:aa296d361dfb4f6cd3942647da7a0a92",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:7c39212c4becbe0720ef7c9abcfe30c1",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutioneel",
-      "question": "Hoeveel Brusselse administraties moeten op 1 januari 2027 in atlas.brussels worden gecentraliseerd, volgens het begrotingsakkoord van 4 oktober 2026?",
+      "question": "Welk bedrag moet de Brusselse regering over 2026 en 2027 compenseren nadat de begrenzing van de barema's van de ambtenaren werd geschrapt, volgens La Libre van 7 oktober 2026?",
       "options": [
-        "4 administraties",
-        "10 administraties",
-        "23 administraties",
-        "35 administraties"
+        "3 miljoen euro",
+        "9 miljoen euro",
+        "40 miljoen euro",
+        "74 miljoen euro"
       ],
       "correct": 1,
-      "explanation": "De aanwervingsstop blijft behouden in 2027. De minister-president raamt de besparing op 74 miljoen euro op het personeel.",
+      "explanation": "De begrenzing van de geldelijke anciënniteit tot 29 jaar werd in september 2026 ingetrokken. Het kabinet van de minister van Begroting bevestigt dat dit bedrag moet worden gecompenseerd.",
       "sourceSlug": "/nl/dossiers/reforme-administration",
       "sourceTitle": "Hervorming bestuur",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:33fb38f843f57c1da1a0eb6e7e728429",
-        "generatedAt": "2026-10-06T13:44:23.081Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:0b868dc66d94a318cc520a4ef98cdb80",
+        "generatedAt": "2026-10-08T09:02:20.551Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

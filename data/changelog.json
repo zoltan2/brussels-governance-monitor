@@ -1,18 +1,6 @@
 [
     {
         "date": "2026-10-09",
-        "type": "corrected",
-        "section": "sectors",
-        "targetSlug": "health-social",
-        "descriptions": {
-            "fr": "Santé-social : chiffres et sources corrigés après relecture. Le risque de pauvreté monétaire est de 23,3 % en 2025 selon Statbel (28,8 % en 2023) ; ce sont les tentes aux abords du Hub humanitaire, et non le Hub, qui ont été évacuées le 21 avril 2026.",
-            "nl": "Gezondheid en welzijn: cijfers en bronnen verbeterd na herlezing. Het risico op monetaire armoede bedraagt 23,3 % in 2025 volgens Statbel (28,8 % in 2023); de tenten bij het Humanitair Hub, en niet het Hub zelf, werden op 21 april 2026 ontruimd.",
-            "en": "Health and social affairs: figures and sources corrected after review. The at-risk-of-poverty rate is 23.3% in 2025 according to Statbel (28.8% in 2023); it was the tents next to the Humanitarian Hub, not the Hub itself, that were cleared on 21 April 2026.",
-            "de": "Gesundheit und Soziales: Zahlen und Quellen nach erneuter Prüfung korrigiert. Die Armutsgefährdungsquote liegt 2025 laut Statbel bei 23,3 % (28,8 % im Jahr 2023); geräumt wurden am 21. April 2026 die Zelte in der Nähe des Humanitären Hub, nicht das Hub selbst."
-        }
-    },
-    {
-        "date": "2026-10-09",
         "type": "updated",
         "section": "domains",
         "targetSlug": "education",
@@ -105,6 +93,18 @@
             "nl": "Kanal: de brandveiligheidstests van de brandweer zijn geslaagd, volgens BRUZZ. De opening van het museum blijft gepland op 28 november 2026.",
             "en": "Kanal: the fire service's fire safety tests have been passed, according to BRUZZ. The opening of the museum remains set for 28 November 2026.",
             "de": "Kanal: Die Brandschutztests der Feuerwehr sind laut BRUZZ bestanden. Die Eröffnung des Museums bleibt für den 28. November 2026 geplant."
+        }
+    },
+    {
+        "date": "2026-10-09",
+        "type": "corrected",
+        "section": "sectors",
+        "targetSlug": "health-social",
+        "descriptions": {
+            "fr": "Santé-social : chiffres et sources corrigés après relecture. Le risque de pauvreté monétaire est de 23,3 % en 2025 selon Statbel (28,8 % en 2023) ; ce sont les tentes aux abords du Hub humanitaire, et non le Hub, qui ont été évacuées le 21 avril 2026.",
+            "nl": "Gezondheid en welzijn: cijfers en bronnen verbeterd na herlezing. Het risico op monetaire armoede bedraagt 23,3 % in 2025 volgens Statbel (28,8 % in 2023); de tenten bij het Humanitair Hub, en niet het Hub zelf, werden op 21 april 2026 ontruimd.",
+            "en": "Health and social affairs: figures and sources corrected after review. The at-risk-of-poverty rate is 23.3% in 2025 according to Statbel (28.8% in 2023); it was the tents next to the Humanitarian Hub, not the Hub itself, that were cleared on 21 April 2026.",
+            "de": "Gesundheit und Soziales: Zahlen und Quellen nach erneuter Prüfung korrigiert. Die Armutsgefährdungsquote liegt 2025 laut Statbel bei 23,3 % (28,8 % im Jahr 2023); geräumt wurden am 21. April 2026 die Zelte in der Nähe des Humanitären Hub, nicht das Hub selbst."
         }
     },
     {

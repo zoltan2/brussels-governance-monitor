@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T09:02:21.199Z",
+  "generatedAt": "2026-10-09T06:43:50.881Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Vor welchem Datum soll der Brüsseler Haushalt 2027 laut dem Ministerpräsidenten in der Debatte vom 6. Oktober 2026 im Parlament hinterlegt werden?",
+      "question": "Welches Defizit strebt die Brüsseler Regierung für 2027 in der am 4. Oktober 2026 erzielten Haushaltseinigung an?",
       "options": [
-        "Vor dem 15. Oktober 2026",
-        "Vor dem 31. Oktober 2026",
-        "Vor dem 30. November 2026",
-        "Vor dem 31. Dezember 2026"
+        "416 Millionen Euro",
+        "719 Millionen Euro",
+        "957 Millionen Euro",
+        "1,6 Milliarden Euro"
       ],
       "correct": 1,
-      "explanation": "Die Prüfung des Haushalts Zeile für Zeile soll anschließend im Ausschuss stattfinden. Die Haushaltstabellen lagen den Abgeordneten für die Debatte vom 6. Oktober 2026 nicht vor.",
+      "explanation": "Das Defizit lag 2026 bei 957 Millionen Euro; die Rückkehr zum Haushaltsgleichgewicht wird für 2029 angestrebt.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:662719c1e015ad75393775452caaf38a",
-        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:5b646a51602325b1572b031606497353",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welches Defizit strebt die Brüsseler Regierung für 2027 in der am 4. Oktober 2026 erzielten Haushaltseinigung an?",
+      "question": "Welche Bank hat Ende 2025 ihre Kreditlinie von 500 Millionen Euro für die Region Brüssel zurückgezogen?",
       "options": [
-        "416 Millionen Euro",
-        "719 Millionen Euro",
-        "957 Millionen Euro",
-        "1,3 Milliarden Euro"
+        "ING",
+        "Belfius",
+        "Deutsche Bank",
+        "BBVA"
       ],
       "correct": 1,
-      "explanation": "Die Einigung senkt das Defizit auf 719 Millionen Euro im Jahr 2027, gegenüber 957 Millionen im Jahr 2026. Die Haushaltstabellen lagen den Abgeordneten vor der Erklärung vom 5. Oktober 2026 nicht vor.",
+      "explanation": "Belegt ist nur der Rückzug von Belfius. Die Linie von ING über denselben Betrag lief am 31. Dezember 2025 aus, und die Bank erklärte, nichts entschieden zu haben.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:662719c1e015ad75393775452caaf38a",
-        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:5b646a51602325b1572b031606497353",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -67,8 +67,8 @@
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
         "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:d7512400f94207a65c7b39d91e1fb6dd",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceContentHash": "sha256:f94426bdae0ad671a29e8bd8a5b7161f",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -85,13 +85,13 @@
         "Eine nächtliche Sperrmüllabholung"
       ],
       "correct": 0,
-      "explanation": "Die im Oktober 2024 gestartete Plattform lässt Anwohner, Schulen und Unternehmen eine Sammelaktion planen und Material reservieren. Die Agentur zählt mehr als 41 Tonnen.",
+      "explanation": "Die im Oktober 2024 gestartete Plattform lässt Anwohner, Schulen und Unternehmen eine Sammelaktion planen und das Material reservieren. Die Agentur zählt mehr als 41 gesammelte Tonnen.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
         "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:d7512400f94207a65c7b39d91e1fb6dd",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceContentHash": "sha256:f94426bdae0ad671a29e8bd8a5b7161f",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -200,13 +200,13 @@
         "90 % der förderfähigen Ausgaben"
       ],
       "correct": 2,
-      "explanation": "Der Satz steigt für Unternehmen, die jünger als vier Jahre sind, von 50 % auf 75 %, mit einer Obergrenze von 15 000 Euro pro Jahr und vier Messen pro Kalenderjahr. Die Karte beschreibt auch die zweite Prämie, für Ausschreibungen außerhalb der Europäischen Union.",
+      "explanation": "Der Satz steigt für Unternehmen, die jünger als vier Jahre sind, von 50 % auf 75 %, mit einer Obergrenze von 15.000 Euro pro Jahr und vier Messen pro Kalenderjahr. Die Karte beschreibt auch die zweite Prämie, für Ausschreibungen außerhalb der Europäischen Union.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
         "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:cd7c6874b8ef9c54a957aa9e8284dbfa",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceContentHash": "sha256:da2bd186e65200198db1a362446005bc",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -228,8 +228,8 @@
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
         "sourceLastModified": "2026-09-30",
-        "sourceContentHash": "sha256:cd7c6874b8ef9c54a957aa9e8284dbfa",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceContentHash": "sha256:da2bd186e65200198db1a362446005bc",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -286,19 +286,19 @@
       "domain": "Beschäftigung",
       "question": "Wie viele Arbeitsuchende waren Ende September 2026 bei Actiris gemeldet, laut der Pressemitteilung von Actiris vom 6. Oktober 2026?",
       "options": [
-        "87.450",
-        "94.700",
+        "82.500",
+        "91.340",
         "100.198",
-        "112.640"
+        "112.760"
       ],
       "correct": 2,
-      "explanation": "Das sind 5,8 % mehr als im September 2025. Die administrative Arbeitslosenquote beträgt 16,1 %, und 35 % der Gemeldeten beziehen Leistungen eines ÖSHZ.",
+      "explanation": "Das sind 5,8 % mehr als im September 2025; die Arbeitslosenquote liegt bei 16,1 %.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:bfbe7fd0bfa342f40c72121a80b5d785",
-        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:4f3a875f7455ae06ea4917ddeaf41ff0",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welche Beschäftigungsquote strebt die Brüsseler Regierung bis 2030 an, ein Ziel, das in der allgemeinen Regierungserklärung vom 5. Oktober 2026 bekräftigt wurde?",
+      "question": "Welchen Betrag an Subventionen für den bezahlten Bildungsurlaub versucht die Brüsseler Verwaltung laut La DH wegen Betrugs zurückzufordern, nach Angaben des Wirtschaftsministers vom 6. Oktober 2026?",
       "options": [
-        "60 %",
-        "65 %",
-        "70 %",
-        "75 %"
+        "362.348 Euro",
+        "1.952.653 Euro",
+        "8,5 Millionen Euro",
+        "19 Millionen Euro"
       ],
-      "correct": 2,
-      "explanation": "Laut dem Ministerpräsidenten entspricht dieses Ziel 50 000 zusätzlichen Beschäftigten. Die Quote lag im zweiten Quartal 2026 bei 64,7 %.",
+      "correct": 1,
+      "explanation": "Zwölf Subventionsanträge über 362.348 Euro wurden außerdem blockiert. Die Information beruht auf einer einzigen Quelle.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:bfbe7fd0bfa342f40c72121a80b5d785",
-        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:4f3a875f7455ae06ea4917ddeaf41ff0",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Um wie viele Einwohner ist die Bevölkerung der Region Brüssel im Jahr 2025 gewachsen, laut dem Demografischen Barometer 2026 des IBSA?",
+      "question": "Was geschah im Brüsseler Ministerrat vom 8. Oktober 2026 bei der Beratung über die 131 Millionen Euro der SLRB?",
       "options": [
-        "39 Einwohner",
-        "6.200 Einwohner",
-        "13.988 Einwohner",
-        "18.553 Einwohner"
+        "Die Auszahlung wurde einstimmig gebilligt",
+        "Die Sitzung wurde vor ihrem Ende unterbrochen",
+        "Der Betrag wurde auf 400 Millionen Euro erhöht",
+        "Das Dossier wurde an das Brüsseler Parlament verwiesen"
       ],
-      "correct": 0,
-      "explanation": "Die Region zählt am 1. Januar 2026 1.255.834 Einwohner, der geringste Anstieg seit 1996. Die Wegzüge nach Flandern und in die Wallonie gleichen Geburten und Zuzüge aus dem Ausland fast aus.",
+      "correct": 1,
+      "explanation": "Der sozialistische Minister und die sozialistische Staatssekretärin verließen die Sitzung; an diesem Tag wurde keine Entscheidung getroffen.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:d99c1d86f3b2f2ce98f941c5982d9dcd",
-        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:838429608ab5683da8c857a7a938e6ee",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Was sieht der Brüsseler Ordonnanzentwurf zum Immobiliensteuervorabzug, der am 18. Juni 2026 in erster Lesung gebilligt wurde, für Familien vor?",
+      "question": "Um wie viele Einwohner ist die Bevölkerung der Region Brüssel im Jahr 2025 gewachsen, laut dem Demografischen Barometer 2026 des IBSA?",
       "options": [
-        "Einen Pauschalbetrag statt der prozentualen Ermäßigung",
-        "Die Abschaffung jeder Ermäßigung für Kinder",
-        "Eine Verdopplung der Ermäßigung pro Kind",
-        "Eine Ermäßigung nur für Familien zur Miete"
+        "39 Einwohner",
+        "1.342 Einwohner",
+        "5.103 Einwohner",
+        "13.988 Einwohner"
       ],
       "correct": 0,
-      "explanation": "Laut einer Studie der Ligue des familles vom 1. Oktober 2026 steht die Höhe des Pauschalbetrags noch nicht fest. Die erwartete Einsparung beträgt 9 Millionen Euro pro Jahr.",
+      "explanation": "Die Region zählt am 1. Januar 2026 1.255.834 Einwohner; es ist der geringste Anstieg seit 1996.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:d99c1d86f3b2f2ce98f941c5982d9dcd",
-        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:838429608ab5683da8c857a7a938e6ee",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Vor welchen Versammlungen wurde die Brüsseler allgemeine Regierungserklärung am 5. Oktober 2026 abgegeben?",
+      "question": "Vor welchen Versammlungen hat der Brüsseler Ministerpräsident am 5. Oktober 2026 seine allgemeine Regierungserklärung abgegeben?",
       "options": [
-        "Dem Brüsseler Parlament und der Vereinigten Versammlung",
-        "Der Abgeordnetenkammer und dem Senat",
-        "Dem Brüsseler Parlament und der föderalen Kammer",
-        "Nur dem Französischsprachigen Brüsseler Parlament"
+        "Nur vor dem Brüsseler Parlament",
+        "Vor dem Brüsseler Parlament und der Vereinigten Versammlung",
+        "Vor der Abgeordnetenkammer und dem Senat",
+        "Vor dem Frankophonen Brüsseler Parlament und dem VGC-Rat"
       ],
-      "correct": 0,
-      "explanation": "Die Vereinigte Versammlung ist das gesetzgebende Organ der Gemeinsamen Gemeinschaftskommission. Die Debatte über die Erklärung findet am Folgetag statt, dem 6. Oktober 2026.",
+      "correct": 1,
+      "explanation": "Die Erklärung wurde am Tag nach der Einigung der Regierung über den Haushalt 2027 abgegeben; die Debatte fand am 6. Oktober 2026 statt.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:fe25cd0fb0c920498e0c7a55c7649560",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:2eeb6d258a2a3bad9e39382e524df155",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -401,19 +401,19 @@
       "domain": "Institutionell",
       "question": "Wogegen richtet sich die Resolution Nr. A-302, die das Brüsseler Parlament am 2. Oktober 2026 angenommen hat?",
       "options": [
-        "Gegen den föderalen Gesetzentwurf zu Wohnungsbetretungen",
-        "Gegen das föderale Gesetz zur Fusion der Polizeizonen",
-        "Gegen die geplante interregionale Straßenvignette",
-        "Gegen die föderalen Normen für Überflüge der Stadt"
+        "Gegen den föderalen Gesetzentwurf, der Wohnungsbetretungen erlaubt",
+        "Gegen die Fusion der sechs Brüsseler Polizeizonen",
+        "Gegen die Erhöhung der MwSt. für das Hotelgewerbe",
+        "Gegen den nächtlichen Überflug der Region"
       ],
       "correct": 0,
-      "explanation": "Der Text wurde mit einer wechselnden Mehrheit angenommen: Ein Teil der regionalen Mehrheit unterstützte ihn, ein anderer stimmte dagegen.",
+      "explanation": "Der Text wurde mit einer wechselnden Mehrheit angenommen: PS und Groen unterstützten ihn, Anders stimmte dagegen.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:fe25cd0fb0c920498e0c7a55c7649560",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:2eeb6d258a2a3bad9e39382e524df155",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -481,8 +481,8 @@
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
         "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:8f269d17046f15383dac1c2834bee2aa",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceContentHash": "sha256:fb063fb1c2c738778c769f1b8a2cff0c",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -504,8 +504,8 @@
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
         "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:8f269d17046f15383dac1c2834bee2aa",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceContentHash": "sha256:fb063fb1c2c738778c769f1b8a2cff0c",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Wie viele zusätzliche Mittel kündigt die Brüsseler Haushaltseinigung vom 4. Oktober 2026 für die Gemeinden und die ÖSHZ im Jahr 2027 an?",
+      "question": "Welcher Teil der ärmsten Brüsseler gibt laut dem Brüsseler Sozialbarometer mehr als die Hälfte seines Einkommens für das Wohnen aus?",
       "options": [
-        "5 Millionen Euro",
-        "15 Millionen Euro",
-        "30 Millionen Euro",
-        "66 Millionen Euro"
+        "Die ärmsten 2 %",
+        "Die ärmsten 10 %",
+        "Die ärmsten 20 %",
+        "Die ärmsten 40 %"
       ],
-      "correct": 1,
-      "explanation": "Die Einigung führt laut dem Minister für Soziales auch wieder eine Wachstumsnorm für Soziales und Gesundheit ein. Zu diesem Zeitpunkt war keine Haushaltstabelle veröffentlicht.",
+      "correct": 2,
+      "explanation": "Ihnen bleiben kaum mehr als 10 Euro pro Person und Tag zum Leben.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:1c32dc3c3d1f48b28f3a08cb46610f68",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:01d5e7274041593a0fd7212c96506d73",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Welches Brüsseler Notunterbringungszentrum für alleinstehende Männer hat am 30. September 2026 nach acht Monaten Betrieb geschlossen?",
+      "question": "Wie viele Personen schließt die Reform der Arbeitslosenunterstützung 2026 in der Region Brüssel aus, laut Brulocalis auf Grundlage der Zahlen des LfA?",
       "options": [
-        "Das Zentrum im WTC",
-        "Das Zentrum Poincaré",
-        "Das Petit-Château",
-        "Das Zentrum Ariane"
+        "Etwa 8.000",
+        "24.700",
+        "35.799",
+        "145.800"
       ],
-      "correct": 0,
-      "explanation": "Laut Samusocial bleiben nach dieser Schließung 240 Plätze für alleinstehende Männer, eine Kapazität, die der Betreiber als historisch niedrig bezeichnet.",
+      "correct": 2,
+      "explanation": "Die Zahl von etwa 8.000 bezog sich allein auf die Gemeinde Stadt Brüssel.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:1c32dc3c3d1f48b28f3a08cb46610f68",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:01d5e7274041593a0fd7212c96506d73",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -711,8 +711,8 @@
       "sourceTitle": "Bürgerversammlungen",
       "provenance": {
         "sourceLastModified": "2026-09-24",
-        "sourceContentHash": "sha256:eda5106f4267b51ca9a4c1544ac32cac",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceContentHash": "sha256:7a30caa54311b46f7e184c209d269980",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -734,8 +734,8 @@
       "sourceTitle": "Wohlbefinden",
       "provenance": {
         "sourceLastModified": "2026-09-28",
-        "sourceContentHash": "sha256:c0ccf385d72f4ee647367ac89301fe4b",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceContentHash": "sha256:2d371145aff7300d4a6c4fb44bdedb98",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -767,7 +767,7 @@
       "id": "dossier-bim-bruxelles-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welchen Unterschied zwischen Brüsseler Gemeinden zeigte der BIM-Status (erhöhte Erstattung von Gesundheitskosten) bei Minderjährigen im Januar 2021?",
+      "question": "Welchen Unterschied zwischen Brüsseler Gemeinden zeigte der BIM-Status (Begünstigte der erhöhten Kostenerstattung) bei Minderjährigen im Januar 2021?",
       "options": [
         "48 % in Molenbeek-Saint-Jean gegenüber 9 % in Woluwe-Saint-Pierre",
         "33 % in Molenbeek-Saint-Jean gegenüber 25 % in Woluwe-Saint-Pierre",
@@ -779,9 +779,9 @@
       "sourceSlug": "/de/dossiers/bim-bruxelles",
       "sourceTitle": "BIM Brüssel",
       "provenance": {
-        "sourceLastModified": "2026-07-20",
-        "sourceContentHash": "sha256:482303d2013600dab5630e8b35f4a724",
-        "generatedAt": "2026-08-25T12:39:57.901Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:95f134675f77df89e757fb8d3ab0da1f",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -825,9 +825,9 @@
       "sourceSlug": "/de/dossiers/cpas-bruxellois",
       "sourceTitle": "Brüsseler ÖSHZ",
       "provenance": {
-        "sourceLastModified": "2026-09-27",
-        "sourceContentHash": "sha256:2f51b2eb02a6ffa151aafe265481202b",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-08",
+        "sourceContentHash": "sha256:97b473919e83a03113cff064e0122ce7",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -974,21 +974,21 @@
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Woran ist die Blockade der 131 Millionen Euro für die SLRB geknüpft, nach den am 5. Oktober 2026 geäußerten Positionen?",
+      "question": "An welche Bedingung knüpft der MR-Vorsitzende die Auszahlung der 131 Millionen Euro für die SLRB, eine am 8. Oktober 2026 aufrechterhaltene Position?",
       "options": [
-        "An den Vorsitz des Foyer anderlechtois",
-        "An eine Klage vor dem Staatsrat",
-        "An ein Gutachten des Rechnungshofs",
-        "An den Verkauf der Standorte Ariane und Palais"
+        "An den Abgang des Vorsitzenden des Foyer anderlechtois",
+        "An den Verkauf von Sozialwohnungen",
+        "An eine Erhöhung der Sozialmieten",
+        "An die Fusion der Wohnungsgesellschaften"
       ],
       "correct": 0,
-      "explanation": "Der Vorsitzende der Partei des Ministerpräsidenten bleibt dabei, dass die Mittel nicht freigegeben werden, solange der Präsident der Gesellschaft im Amt bleibt.",
+      "explanation": "Der Vorsitzende der Gesellschaft wurde im August 2026 wiedergewählt; der MR verlangt auch Garantien für eine gute Verwaltung.",
       "sourceSlug": "/de/dossiers/foyer-anderlechtois",
       "sourceTitle": "Foyer anderlechtois",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:7d8fedecf07c75ad7b4ae3b0fcda538d",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:57476fa129cb8d543253ad6af578bf45",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1066,21 +1066,21 @@
       "id": "dossier-lez-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Von den 1 890 seit Juli 2026 versandten Bußgeldern der Umweltzone waren am 6. September 2026 wie viele tatsächlich bezahlt?",
+      "question": "Von den 1.890 seit Juli 2026 versandten Bußgeldern der Umweltzone waren am 6. September 2026 wie viele tatsächlich bezahlt?",
       "options": [
         "Etwa 255, gut 13 %",
         "Etwa 940, knapp 50 %",
-        "Etwa 1 700, fast 90 %",
+        "Etwa 1.700, fast 90 %",
         "Etwa 630, ein Drittel des Ganzen"
       ],
       "correct": 0,
-      "explanation": "Das sind 89 152,50 Euro an Einnahmen. Die Verwaltung stellt klar, dass ein Teil der Zahlungsfristen noch läuft und dass die jüngsten Bußgelder noch nicht alle versandt wurden: es ist ein Zwischenstand, kein Saldo. Das erste Halbjahr brachte 25 905 Verwarnungen, bei einem geschätzten Bestand von 29 000 Fahrzeugen in der Region Brüssel.",
+      "explanation": "Das sind 89.152,50 Euro an Einnahmen. Die Verwaltung stellt klar, dass ein Teil der Zahlungsfristen noch läuft und dass die jüngsten Bußgelder noch nicht alle versandt wurden: es ist ein Zwischenstand, kein Saldo. Das erste Halbjahr brachte 25.905 Verwarnungen, bei einem geschätzten Bestand von 29.000 Fahrzeugen in der Region Brüssel.",
       "sourceSlug": "/de/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:d2d1c32a1ac31c28ba98e66a7c6ec110",
-        "generatedAt": "2026-09-18T14:23:31.855Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:5da8bcbe4cfcbb0afc93be389ecdd366",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1089,7 +1089,7 @@
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Unter welcher Bedingung ist ein Oldtimer von der Brüsseler Umweltzone befreit?",
+      "question": "Unter welcher Bedingung ist ein Oldtimer mit O-Kennzeichen von der Brüsseler Umweltzone befreit?",
       "options": [
         "Allein durch sein Alter, ohne Kontrolle der Nutzung",
         "Bei höchstens dreißig Fahrtagen im Jahr",
@@ -1097,13 +1097,13 @@
         "Bei einem jährlich erneuerten Befreiungsantrag"
       ],
       "correct": 0,
-      "explanation": "Die Kennzeichenkameras erkennen diese Fahrzeuge, kontrollieren aber ihre tatsächliche Nutzung nicht: ein selten gefahrener Sammlerwagen und ein täglich gefahrener alter Wagen genießen dieselbe Befreiung. Ihre Zahl stieg von 3 936 im Jahr 2019 auf 13 799 im Jahr 2024, und die Zahl derer, die hundert Tage im Jahr oder mehr fahren, von 17 auf 156.",
+      "explanation": "Die Kennzeichenkameras erkennen diese Fahrzeuge, kontrollieren aber ihre tatsächliche Nutzung nicht: ein selten gefahrener Sammlerwagen und ein täglich gefahrener alter Wagen genießen dieselbe Befreiung. Ihre Zahl stieg von 3.936 im Jahr 2019 auf 13.799 im Jahr 2024, und die Zahl derer, die hundert Tage im Jahr oder mehr fahren, von 17 auf 156.",
       "sourceSlug": "/de/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:d2d1c32a1ac31c28ba98e66a7c6ec110",
-        "generatedAt": "2026-09-18T14:23:31.855Z",
+        "sourceLastModified": "2026-09-19",
+        "sourceContentHash": "sha256:5da8bcbe4cfcbb0afc93be389ecdd366",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1120,13 +1120,13 @@
         "Rund 2,4 Milliarden Euro"
       ],
       "correct": 0,
-      "explanation": "Der Rechnungshof beziffert das Projekt auf 4 759,7 Millionen Euro (Bewertung vom Dezember 2024), ein Anstieg um 477 % gegenüber den Schätzungen von 2012. Die Inbetriebnahme der gesamten Linie sieht er frühestens 2035.",
+      "explanation": "Der Rechnungshof beziffert das Projekt auf 4.759,7 Millionen Euro (Bewertung vom Dezember 2024), ein Anstieg um 477 % gegenüber den Schätzungen von 2012. Die Inbetriebnahme der gesamten Linie sieht er frühestens 2035.",
       "sourceSlug": "/de/dossiers/metro-3",
       "sourceTitle": "Metro 3",
       "provenance": {
         "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:b03cea6a6aadb5d79b297e3709bb1657",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceContentHash": "sha256:e94b9c174fc296707341a0ba3efea4c5",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1148,8 +1148,8 @@
       "sourceTitle": "Metro 3",
       "provenance": {
         "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:b03cea6a6aadb5d79b297e3709bb1657",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceContentHash": "sha256:e94b9c174fc296707341a0ba3efea4c5",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1166,13 +1166,13 @@
         "Pony"
       ],
       "correct": 0,
-      "explanation": "Die Annullierung führte am 21. August 2026 zur Ankündigung einer Übergangsregelung: Leih-E-Scooter bleiben bis zum 1. Januar 2027 verfügbar, Leihfahrräder bis Mai 2028 mit einer Obergrenze von 2 500 Fahrrädern je Betreiber.",
+      "explanation": "Die Annullierung führte am 21. August 2026 zur Ankündigung einer Übergangsregelung: Leih-E-Scooter bleiben bis zum 1. Januar 2027 verfügbar, Leihfahrräder bis Mai 2028 mit einer Obergrenze von 2.500 Fahrrädern je Betreiber.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:ba47cff7ec867357e17c911e229f9cf9",
-        "generatedAt": "2026-09-20T16:24:14.488Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:6777bfd634673af281d85b6af2b49ef4",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1189,13 +1189,13 @@
         "70 Euro"
       ],
       "correct": 0,
-      "explanation": "Am 19. September 2026 kostet Villo 3,50 Euro im Monat oder 1,50 Euro für ein Tagesticket; die 360 Villo!-Stationen stehen für rund 5 000 stationsgebundene Fahrräder, neben rund 15 700 im März 2025 gezählten Free-Floating-Fahrzeugen.",
+      "explanation": "Am 19. September 2026 kostet Villo 3,50 Euro im Monat oder 1,50 Euro für ein Tagesticket; die 360 Villo!-Stationen stehen für rund 5.000 stationsgebundene Fahrräder, neben rund 15.700 im März 2025 gezählten Free-Floating-Fahrzeugen.",
       "sourceSlug": "/de/dossiers/mobilite-partagee",
       "sourceTitle": "Geteilte Mobilität",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:ba47cff7ec867357e17c911e229f9cf9",
-        "generatedAt": "2026-09-20T16:24:14.488Z",
+        "sourceLastModified": "2026-10-03",
+        "sourceContentHash": "sha256:6777bfd634673af281d85b6af2b49ef4",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1239,9 +1239,9 @@
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:4eba1a734ed6d18bfdb9db0f5224833f",
-        "generatedAt": "2026-09-18T14:26:03.354Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:d1831ab3f82568a38c85fdbb6c2d6c91",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,7 +1250,7 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Warum lassen sich die Inspektionszahlen der niederländischsprachigen Brüsseler Krippen nicht mit denen der französischsprachigen Krippen vergleichen?",
+      "question": "Warum lässt sich der Anteil der beanstandeten niederländischsprachigen Brüsseler Krippen nicht mit dem der französischsprachigen Krippen vergleichen?",
       "options": [
         "Drei Behörden prüfen getrennt, jede nach eigenen Kriterien",
         "Die französischsprachigen Krippen werden gar nicht geprüft",
@@ -1262,9 +1262,9 @@
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-09-09",
-        "sourceContentHash": "sha256:4eba1a734ed6d18bfdb9db0f5224833f",
-        "generatedAt": "2026-09-18T14:26:03.354Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:d1831ab3f82568a38c85fdbb6c2d6c91",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1331,9 +1331,9 @@
       "sourceSlug": "/de/dossiers/plan-securite",
       "sourceTitle": "Sicherheitsplan",
       "provenance": {
-        "sourceLastModified": "2026-08-05",
-        "sourceContentHash": "sha256:2c95d073b81e3b102f0c1776322c0092",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-10-02",
+        "sourceContentHash": "sha256:7aa8fc8fd5a96a4eb65785c6a7bb4c49",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Bis wann können die 131 Millionen Euro zur Rekapitalisierung der SLRB laut dem Brüsseler Haushaltsminister, zitiert am 5. Oktober 2026, ausgezahlt werden?",
+      "question": "Wie hoch ist die im Februar 2026 beschlossene gesamte Rekapitalisierung der SLRB, von der eine Tranche von 131 Millionen Euro für 2026 vorgesehen ist?",
       "options": [
-        "Bis Ende Oktober 2026",
-        "Bis Ende Dezember 2026",
-        "Bis Ende März 2027",
-        "Bis Ende Juni 2027"
+        "200 Millionen Euro",
+        "250 Millionen Euro",
+        "400 Millionen Euro",
+        "1 Milliarde Euro"
       ],
-      "correct": 1,
-      "explanation": "Der Ministerpräsident erklärt seinerseits, das Dossier sei nicht behandelt worden und die Freigabe müsse noch vom Ministerrat gebilligt werden.",
+      "correct": 2,
+      "explanation": "Sie wird außerhalb des Haushaltssaldos gehalten, erhöht aber die Schulden der Region.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e0766b270f8b42ecc1faec761f31ff26",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:903c109f86a79030717dd7d1d332d34c",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Wie viele Sozialwohnungen haben die SLRB und Foyer du Sud am 23. September 2026 in Forest im ehemaligen Industriegebäude Luttre eingeweiht?",
+      "question": "Was bestätigt der Brüsseler Haushaltsminister am 8. Oktober 2026 zu den Mitteln von 131 Millionen Euro für die SLRB?",
       "options": [
-        "36 Wohnungen",
-        "63 Wohnungen",
-        "120 Wohnungen",
-        "537 Wohnungen"
+        "Dass sie im ursprünglichen, bereits verabschiedeten Haushalt 2026 stehen",
+        "Dass sie in der Haushaltsklausur gestrichen wurden",
+        "Dass sie auf den Haushalt 2028 verschoben werden",
+        "Dass sie von einem europäischen Darlehen abhängen"
       ],
-      "correct": 1,
-      "explanation": "Das 11 000 m² große Gebäude wurde 2016 im Rahmen der regionalen Operation Alliance Habitat-Acquisitions erworben.",
+      "correct": 0,
+      "explanation": "Er hält es laut BRUZZ auch für legitim, dass ein Partner Bedingungen für die Ausführung eines Haushalts stellt.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:e0766b270f8b42ecc1faec761f31ff26",
-        "generatedAt": "2026-10-06T13:44:24.640Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:903c109f86a79030717dd7d1d332d34c",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1482,19 +1482,19 @@
       "domain": "Klima",
       "question": "Ab welcher Höhe richten sich die Flugzeuge für die Landung auf Piste 07L aus, nach den Maßnahmen zum Überflug von Brüssel, die der föderale Mobilitätsminister am 1. Oktober 2026 vorgestellt hat?",
       "options": [
-        "Bereits ab 2 500 Fuß",
-        "Bereits ab 3 000 Fuß",
-        "Bereits ab 4 000 Fuß",
-        "Bereits ab 6 000 Fuß"
+        "Bereits ab 2.500 Fuß",
+        "Bereits ab 3.000 Fuß",
+        "Bereits ab 4.000 Fuß",
+        "Bereits ab 6.000 Fuß"
       ],
       "correct": 2,
-      "explanation": "Die Flugzeuge richten sich bereits ab 4 000 Fuß aus, 22 Kilometer vom Flughafen entfernt statt 16,5, und sinken dann kontinuierlich. Das vom Minister beauftragte Beratungsbüro sieht darin keinen signifikanten Gewinn bei der Zahl der überflogenen Einwohner.",
+      "explanation": "Die Flugzeuge richten sich bereits ab 4.000 Fuß aus, 22 Kilometer vom Flughafen entfernt statt 16,5, und sinken dann kontinuierlich. Das vom Minister beauftragte Beratungsbüro sieht darin keinen signifikanten Gewinn bei der Zahl der überflogenen Einwohner.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
       "sourceTitle": "Fluglärm Brüssel",
       "provenance": {
         "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:20cd3968f49d483c81cdeac270b36725",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceContentHash": "sha256:dc1baab26f2f2f461f23840557df1e5f",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1538,9 +1538,9 @@
       "sourceSlug": "/de/dossiers/titres-services-economie-sociale",
       "sourceTitle": "Dienstleistungsschecks / Soziale Eingliederungswirtschaft",
       "provenance": {
-        "sourceLastModified": "2026-06-18",
-        "sourceContentHash": "sha256:136ce4d2bada5a756b20f9c45328842d",
-        "generatedAt": "2026-08-05T21:20:07.472Z",
+        "sourceLastModified": "2026-09-22",
+        "sourceContentHash": "sha256:03c3e514a62c8f3f86c442a83cc5ffee",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1584,9 +1584,9 @@
       "sourceSlug": "/de/dossiers/vivaqua",
       "sourceTitle": "Vivaqua",
       "provenance": {
-        "sourceLastModified": "2026-09-22",
-        "sourceContentHash": "sha256:c95d7efa755fab89b05da339498f565d",
-        "generatedAt": "2026-09-23T10:11:30.723Z",
+        "sourceLastModified": "2026-09-29",
+        "sourceContentHash": "sha256:7ba295de9801a290e83153bb2dd1da1f",
+        "generatedAt": "2026-10-09T06:43:50.881Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 47
 }

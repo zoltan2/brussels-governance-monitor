@@ -44,23 +44,24 @@ export function encartSondageDigest(
   const cloture = jourLisible(campagne.cloture, locale);
   const duree = DUREE_ANNONCEE_MINUTES;
 
-  // Libellé arrêté par Zoltán le 04/10/2026 : le plus court, sans podcast ni
-  // phrase sur les critiques. La durée ne s'affiche que si elle est réglée.
+  // Libellé arrêté par Zoltán le 09/10/2026 : le titre interroge le lecteur, le
+  // texte dit à quoi servent les réponses. Ni podcast ni phrase sur les
+  // critiques (04/10/2026). La durée ne s'affiche que si elle est réglée.
   if (locale === 'fr') {
     return {
-      titre: 'Dix questions sur le digest',
+      titre: 'Que faut-il changer au digest ?',
       texte:
-        `${duree ? `Environ ${duree} minutes, anonyme` : 'Anonyme'}, jusqu'au ${cloture}. ` +
-        'Résultats dans le digest du 14 décembre.',
+        `Dix questions, ${duree ? `environ ${duree} minutes, ` : ''}anonyme, jusqu'au ${cloture}. ` +
+        'Vos réponses décident de la suite. Résultats dans le digest du 14 décembre.',
       bouton: 'Répondre au sondage',
       url,
     };
   }
   return {
-    titre: 'Tien vragen over de digest',
+    titre: 'Wat moet er veranderen aan de digest?',
     texte:
-      `${duree ? `Ongeveer ${duree} minuten, anoniem` : 'Anoniem'}, tot ${cloture}. ` +
-      'Resultaten in de digest van 14 december.',
+      `Tien vragen, ${duree ? `ongeveer ${duree} minuten, ` : ''}anoniem, tot ${cloture}. ` +
+      'Uw antwoorden bepalen het vervolg. Resultaten in de digest van 14 december.',
     bouton: 'Naar de enquête',
     url,
   };

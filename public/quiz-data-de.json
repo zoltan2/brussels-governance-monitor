@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T06:43:50.881Z",
+  "generatedAt": "2026-10-09T07:12:12.345Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Bildung",
-      "question": "Am 25. September 2026 äußerte sich die CSC-Enseignement besorgt über den Wegfall von PTP-Stellen (Programme de transition professionnelle) an Brüsseler Grundschulen. Wie viele Stellen nannte die Gewerkschaft?",
+      "question": "Vor wie vielen französischsprachigen Brüsseler Sekundarschulen standen am 7. Oktober 2026 Streikposten, so das von BRUZZ zitierte Kollektiv Mars Attacks?",
       "options": [
-        "243 Stellen",
-        "143 Stellen",
-        "324 Stellen",
-        "86 Stellen"
+        "3 Schulen",
+        "7 Schulen",
+        "11 Schulen",
+        "25 Schulen"
       ],
-      "correct": 0,
-      "explanation": "Die Zahl von 243 Stellen stammt von der Gewerkschaft. Am 28. September 2026 antwortete das Kabinett des Brüsseler Beschäftigungsministers, es sei keine Rede davon, die Mittel anzutasten, die den Schulen über die PTP zugewiesen sind.",
+      "correct": 2,
+      "explanation": "Die Zahl stammt vom Kollektiv; eine offizielle Zählung wurde nicht veröffentlicht.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:4d2bbee44060032aabb815a6d1cd7042",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:f22097054afd638702305468e34ed8fb",
+        "generatedAt": "2026-10-09T07:12:12.345Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Bildung",
-      "question": "Laut La Libre (14. September 2026) verbietet ein Dekret der Föderation Wallonie-Brüssel seit Beginn des Schuljahres 2026 dem Personal des offiziellen Unterrichtswesens das sichtbare Tragen weltanschaulicher Zeichen. Welche Gruppe ist davon ausgenommen?",
+      "question": "Welchen Campus der ULB haben Studierende, Reinigungspersonal und forschende Lehrkräfte am 9. Oktober 2026 blockiert?",
       "options": [
-        "Die Lehrkräfte im Praktikum und die Schulleitungen",
-        "Die Erzieher und das paramedizinische Personal",
-        "Die Schulleitungen der Grundschulen",
-        "Die Religions- und Morallehrer"
+        "Den Campus Plaine",
+        "Den Campus Solbosch",
+        "Den Campus Erasme",
+        "Den Campus in Charleroi"
       ],
-      "correct": 3,
-      "explanation": "Das im April 2026 angenommene Dekret betrifft unter anderem Lehrkräfte, einschließlich Praktikanten, Schulleitungen, Erzieher und paramedizinisches Personal. Nur Religions- und Morallehrer sind davon ausgenommen.",
+      "correct": 1,
+      "explanation": "Eine weitere Blockade ist für den 12. Oktober 2026 angekündigt, den Streiktag im öffentlichen Dienst.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:4d2bbee44060032aabb815a6d1cd7042",
-        "generatedAt": "2026-10-02T08:18:22.850Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:f22097054afd638702305468e34ed8fb",
+        "generatedAt": "2026-10-09T07:12:12.345Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 47
+  "reviewedCount": 45
 }

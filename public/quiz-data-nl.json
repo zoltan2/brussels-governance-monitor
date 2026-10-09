@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T06:43:50.633Z",
+  "generatedAt": "2026-10-09T07:12:11.928Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Onderwijs",
-      "question": "Op 25 september 2026 uitte de CSC-Enseignement haar bezorgdheid over de schrapping van PTP-banen (Programme de transition professionnelle) in Brusselse basisscholen. Hoeveel banen noemde de vakbond?",
+      "question": "Aan hoeveel Franstalige Brusselse secundaire scholen stonden er op 7 oktober 2026 stakingsposten, volgens het collectief Mars Attacks, geciteerd door BRUZZ?",
       "options": [
-        "243 banen",
-        "143 banen",
-        "324 banen",
-        "86 banen"
+        "3 scholen",
+        "7 scholen",
+        "11 scholen",
+        "25 scholen"
       ],
-      "correct": 0,
-      "explanation": "Het cijfer van 243 banen komt van de vakbond. Op 28 september 2026 antwoordde het kabinet van de Brusselse minister van Werk dat er geen sprake van is te raken aan de middelen die via de PTP-banen naar de scholen gaan.",
+      "correct": 2,
+      "explanation": "Dit cijfer komt van het collectief; er is geen officiële telling gepubliceerd.",
       "sourceSlug": "/nl/domeinen/education",
       "sourceTitle": "Onderwijs: kinderopvangplaatsen, schooluitval en spanningen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:b1e3906ebd19d69701fe7cf03cda35cb",
-        "generatedAt": "2026-10-02T08:18:22.401Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:61569c70b70e03f05ff9f6f7c4ac50ca",
+        "generatedAt": "2026-10-09T07:12:11.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Onderwijs",
-      "question": "Volgens La Libre (14 september 2026) verbiedt een decreet van de Federatie Wallonië-Brussel sinds de start van het schooljaar in 2026 het personeel van het officieel onderwijs om zichtbaar levensbeschouwelijke tekens te dragen. Welke categorie vormt een uitzondering?",
+      "question": "Welke campus van de ULB hebben studenten, schoonmaakpersoneel en onderzoekers-docenten op 9 oktober 2026 geblokkeerd?",
       "options": [
-        "De leerkrachten in stage en de directies",
-        "De opvoeders en het paramedisch personeel",
-        "De directies van de basisscholen",
-        "De leerkrachten godsdienst en zedenleer"
+        "De campus Plaine",
+        "De campus Solbosch",
+        "De campus Erasmus",
+        "De campus van Charleroi"
       ],
-      "correct": 3,
-      "explanation": "Het decreet, aangenomen in april 2026, geldt onder meer voor leerkrachten, stagiairs inbegrepen, directies, opvoeders en paramedisch personeel. Enkel de leerkrachten godsdienst en zedenleer zijn ervan vrijgesteld.",
+      "correct": 1,
+      "explanation": "Een nieuwe blokkade is aangekondigd voor 12 oktober 2026, de stakingsdag in de openbare diensten.",
       "sourceSlug": "/nl/domeinen/education",
       "sourceTitle": "Onderwijs: kinderopvangplaatsen, schooluitval en spanningen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:b1e3906ebd19d69701fe7cf03cda35cb",
-        "generatedAt": "2026-10-02T08:18:22.401Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:61569c70b70e03f05ff9f6f7c4ac50ca",
+        "generatedAt": "2026-10-09T07:12:11.928Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 40
+  "reviewedCount": 38
 }

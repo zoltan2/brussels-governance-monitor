@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T06:42:00.074Z",
+  "generatedAt": "2026-10-09T07:12:12.138Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Education",
-      "question": "On 25 September 2026, the CSC-Enseignement union expressed concern about the loss of PTP jobs (Programme de transition professionnelle) in Brussels primary schools. How many jobs did the union cite?",
+      "question": "According to the Mars Attacks collective, quoted by BRUZZ, outside how many French-speaking Brussels secondary schools were pickets held on 7 October 2026?",
       "options": [
-        "243 jobs",
-        "143 jobs",
-        "324 jobs",
-        "86 jobs"
+        "3 schools",
+        "7 schools",
+        "11 schools",
+        "25 schools"
       ],
-      "correct": 0,
-      "explanation": "The figure of 243 jobs is the union's. On 28 September 2026, the office of the Brussels Employment Minister replied that there was no question of touching the resources allocated to schools through PTP jobs.",
+      "correct": 2,
+      "explanation": "The figure comes from the collective; no official count has been published.",
       "sourceSlug": "/en/domains/education",
       "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:878afbbbf822ea2b1d524e396821b223",
-        "generatedAt": "2026-10-02T08:18:22.628Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:53e8c5968b092886377b99fedd4f8a2a",
+        "generatedAt": "2026-10-09T07:12:12.138Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Education",
-      "question": "According to La Libre (14 September 2026), a decree of the Wallonia-Brussels Federation has barred staff in official education from visibly wearing convictional signs since the start of the 2026 school year. Which category is the exception?",
+      "question": "Which ULB campus did students, cleaning staff and researcher-lecturers block on 9 October 2026?",
       "options": [
-        "Trainee teachers and school heads",
-        "Educators and paramedical staff",
-        "The heads of primary schools",
-        "Teachers of religion and ethics"
+        "The Plaine campus",
+        "The Solbosch campus",
+        "The Erasme campus",
+        "The Charleroi campus"
       ],
-      "correct": 3,
-      "explanation": "The decree, adopted in April 2026, covers in particular teachers, trainees included, school heads, educators and paramedical staff. Only teachers of religion and ethics are exempt.",
+      "correct": 1,
+      "explanation": "Another blockade is announced for 12 October 2026, the day of a public services strike.",
       "sourceSlug": "/en/domains/education",
       "sourceTitle": "Education: childcare places, school dropout and Cocof/VGC tensions",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:878afbbbf822ea2b1d524e396821b223",
-        "generatedAt": "2026-10-02T08:18:22.628Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:53e8c5968b092886377b99fedd4f8a2a",
+        "generatedAt": "2026-10-09T07:12:12.138Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 57
+  "reviewedCount": 55
 }

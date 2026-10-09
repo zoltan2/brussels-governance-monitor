@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T06:39:49.191Z",
+  "generatedAt": "2026-10-09T07:12:11.721Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Le 25 septembre 2026, la CSC-Enseignement s'est inquiétée de la suppression de postes PTP (Programme de transition professionnelle) dans des écoles fondamentales bruxelloises. Combien de postes le syndicat a-t-il cités ?",
+      "question": "Selon le collectif Mars Attacks, cité par BRUZZ, devant combien d'écoles secondaires francophones bruxelloises des piquets de grève se tenaient-ils le 7 octobre 2026 ?",
       "options": [
-        "243 postes",
-        "143 postes",
-        "324 postes",
-        "86 postes"
+        "3 écoles",
+        "7 écoles",
+        "11 écoles",
+        "25 écoles"
       ],
-      "correct": 0,
-      "explanation": "Le chiffre de 243 postes est celui du syndicat. Le 28 septembre 2026, le cabinet du ministre bruxellois de l'Emploi a répondu qu'il n'était pas question de toucher aux moyens affectés aux écoles via les PTP.",
+      "correct": 2,
+      "explanation": "Ce chiffre vient du collectif ; aucun comptage officiel n'est publié.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:a2dfdef356fb0261ef4a5ecc81154c37",
-        "generatedAt": "2026-10-02T08:11:35.043Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:f90b57c231ff74d3993dea6bc74779a8",
+        "generatedAt": "2026-10-09T07:12:11.721Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Selon La Libre (14 septembre 2026), un décret de la Fédération Wallonie-Bruxelles interdit depuis la rentrée 2026 le port visible de signes convictionnels au personnel de l'enseignement officiel. Quelle catégorie fait exception ?",
+      "question": "Quel campus de l'ULB des étudiants, des membres du personnel de nettoyage et des chercheurs-enseignants ont-ils bloqué le 9 octobre 2026 ?",
       "options": [
-        "Les enseignants stagiaires et les directions",
-        "Les éducateurs et le personnel paramédical",
-        "Les directions des écoles fondamentales",
-        "Les professeurs de religion et de morale"
+        "Le campus de la Plaine",
+        "Le campus du Solbosch",
+        "Le campus Erasme",
+        "Le campus de Charleroi"
       ],
-      "correct": 3,
-      "explanation": "Le décret, adopté en avril 2026, vise notamment les enseignants, stagiaires compris, les directions, les éducateurs et le personnel paramédical. Seuls les professeurs de religion et de morale en sont exemptés.",
+      "correct": 1,
+      "explanation": "Un autre blocage est annoncé pour le 12 octobre 2026, jour de grève dans les services publics.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-09-29",
-        "sourceContentHash": "sha256:a2dfdef356fb0261ef4a5ecc81154c37",
-        "generatedAt": "2026-10-02T08:11:35.043Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:f90b57c231ff74d3993dea6bc74779a8",
+        "generatedAt": "2026-10-09T07:12:11.721Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 57
+  "reviewedCount": 55
 }

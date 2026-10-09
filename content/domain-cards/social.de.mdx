@@ -117,9 +117,6 @@ sources:
   - label: "COCOM/GGC — Haushalt und geschäftsführende Regierung"
     url: "https://www.vivalis.brussels/fr/budget"
     accessedAt: "2026-02-07"
-  - label: "Bruss'Help — Zählung obdachloser Personen (Nov. 2024)"
-    url: "https://www.brusshelp.org/publications"
-    accessedAt: "2026-02-07"
   - label: "Verband der Brüsseler ÖSHZ — Sozialkonjunkturnote 2025"
     url: "https://brulocalis.brussels/fr/publications"
     accessedAt: "2026-02-07"
@@ -147,7 +144,7 @@ sources:
   - label: "L'Avenir — Medizinisches Zentrum Athéna schließt nach 10 Jahren (3. Feb. 2026)"
     url: "https://www.lavenir.net/regions/bruxelles/2026/02/03/lacces-aux-soins-a-bruxelles-mis-en-peril-par-labsence-de-decision-politique-le-centre-medical-athena-baisse-le-volet-apres-10-ans-dactivite-TE7NU2SBVRHXTMKZQA3EDN4VPU/"
     accessedAt: "2026-02-11"
-  - label: "RTBF — Kosten der Arbeitslosenreform für ÖSHZ: über 1 Milliarde EUR"
+  - label: "RTBF — Reform des Arbeitslosengeldes: 1 Milliarde Euro Kosten für die ÖSHZ (Zahl betrifft die wallonischen ÖSHZ)"
     url: "https://www.rtbf.be/article/reforme-des-allocations-de-chomage-1-milliard-d-euros-de-couts-pour-les-cpas-11641900"
     accessedAt: "2026-02-11"
   - label: "DH — Sécurité, impôts, Good Move, logement : l'accord des 7 partis (12 fév. 2026)"
@@ -418,9 +415,9 @@ metrics:
     source: "Vivalis — Sozialbarometer 2025"
     url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
     date: "2026-04-15"
-  - label: "2 % Ärmste — Rest nach Miete"
+  - label: "Ärmste 20 % — Rest nach Wohnkosten"
     value: "~10"
-    unit: "€/Person/Tag (50 %+ des Einkommens gehen in die Miete)"
+    unit: "€/Person/Tag (mehr als 50 % des Einkommens gehen in das Wohnen)"
     source: "Vivalis — Sozialbarometer 2025"
     url: "https://www.rtbf.be/article/la-precarite-augmente-a-bruxelles-selon-plusieurs-indicateurs-du-barometre-social-11710138"
     date: "2026-04-15"
@@ -438,27 +435,22 @@ metrics:
     date: "2026-03-19"
   - label: "Gezählte obdachlose Personen"
     value: "9.777"
-    unit: "+25 % in 2 Jahren (Sozialbarometer 2025)"
-    source: "Bruss'Help (8. Zählung) / Vivalis"
-    url: "https://www.brusshelp.org/publications"
+    unit: "+24,5 % seit 2022 (8. Zählung)"
+    source: "Bruss'help, die Zahlen der Zählungen"
+    url: "https://brusshelp.org/index.php/fr/missions/analyse/les-chiffres"
     date: "2024-11-06"
   - label: "Obdachlose Minderjährige"
     value: "1.678"
     unit: "davon >1.000 regelmäßig auf der Straße"
     source: "Bruss'Help / KRC / DGDE"
-    url: "https://www.brusshelp.org/publications"
+    url: "https://brusshelp.org/index.php/fr/missions/analyse/les-chiffres"
     date: "2024-11-06"
-  - label: "Verweigerung Familienunterbringung"
+  - label: "Verweigerte Unterbringung, hauptsächlich Familien"
     value: "127"
     unit: "Personen/Woche (seit Okt. 2025)"
-    source: "Samusocial / DGDE"
+    source: "Flämisches Kinderrechtskommissariat, zitiert von BRUZZ (19. Februar 2026)"
     url: "https://www.bruzz.be/actua/samenleving/steeds-meer-kinderen-slapen-op-straat-brussel-2026-02-19"
     date: "2026-02-19"
-  - label: "Kinder mit Kindergeld"
-    value: "308.000+"
-    source: "Famiris / COCOM"
-    url: "https://www.vivalis.brussels/fr/budget"
-    date: "2026-02-01"
   - label: "Einsparungen beim Kindergeld"
     value: "33"
     unit: "Millionen EUR"
@@ -471,71 +463,53 @@ metrics:
     source: "Statbel (EU-SILC 2025)"
     url: "https://statbel.fgov.be/fr/themes/menages/pauvrete-et-conditions-de-vie/risque-de-pauvrete-ou-dexclusion-sociale"
     date: "2025-12-31"
-  - label: "Außerplanmäßige Ausgabe nicht tragbar"
-    value: "38,3%"
-    unit: "vs 13,2 % Flandern, 31,4 % Wallonien"
-    source: "Statbel (EU-SILC 2025)"
-    url: "https://statbel.fgov.be/fr/themes/menages/pauvrete-et-conditions-de-vie/risque-de-pauvrete-ou-dexclusion-sociale"
-    date: "2025-12-31"
   - label: "Bevölkerung"
-    value: "1.255.795"
-    unit: "Einwohner (01.01.2025)"
-    source: "Statbel"
-    url: "https://statbel.fgov.be/fr/themes/menages/pauvrete-et-conditions-de-vie/risque-de-pauvrete-ou-dexclusion-sociale"
-    date: "2025-01-01"
-  - label: "Erwerbsarmut"
-    value: "9,6%"
-    unit: "vs 4,7 % in Belgien"
-    source: "Vivalis (Sozialbarometer)"
-    url: "https://vivalis.brussels/publications"
-    date: "2025-12-31"
+    value: "1.255.834"
+    unit: "Einwohner (01.01.2026)"
+    source: "IBSA, Demografisches Barometer 2026"
+    url: "https://ibsa.brussels/actualites/barometre-demographique-2026-la-population-bruxelloise-s-est-maintenue-en-2025"
+    date: "2026-01-01"
   - label: "Junge Menschen beim ÖSHZ Brüssel-Stadt"
     value: "3.056"
     unit: "Studierende 2024-2025 (+11 % ggü. Vorjahr)"
     source: "ÖSHZ Brüssel-Stadt / La DH (11. Mai 2026)"
     url: "https://www.dhnet.be/regions/bruxelles/2026/05/11/de-plus-en-plus-de-jeunes-emargeant-au-cpas-rencontrent-des-problemes-de-sante-mentale-QLRRU6AGYBFMPE3DTPSUDQGWMI/"
     date: "2025-09-01"
-  - label: "Kosten der Arbeitslosenreform für ÖSHZ"
-    value: ">1"
-    unit: "Milliarde EUR (kumulative Schätzung)"
-    source: "RTBF / Brulocalis"
+  - label: "Kosten der Arbeitslosenreform für die Brüsseler ÖSHZ"
+    value: "145,8"
+    unit: "Millionen EUR pro Jahr (Schätzung)"
+    source: "Brulocalis"
     url: "https://brulocalis.brussels/sites/default/files/2025-09/tub-144-fr-web-reforme-chomage-impact-cpas-bruxellois.pdf"
-    date: "2026-02-01"
-  - label: "Ausschlüsse Arbeitslosigkeit in Brüssel (Wellen 1-3)"
-    value: "~33.085"
-    unit: "Personen (kumuliert Jan.–Apr. 2026)"
-    source: "SPP Intégration sociale / BX1 / Le Soir"
-    url: "https://www.rtbf.be/article/reforme-des-allocations-de-chomage-1-milliard-d-euros-de-couts-pour-les-cpas-11641900"
-    date: "2026-04-01"
+    date: "2025-09-01"
+  - label: "Ausschlüsse vom Arbeitslosengeld in der Region Brüssel (Reform, 2026)"
+    value: "35.799"
+    unit: "Personen im Jahr 2026"
+    source: "Brulocalis, Zahlen des LfA"
+    url: "https://brulocalis.brussels/sites/default/files/2025-09/tub-144-fr-web-reforme-chomage-impact-cpas-bruxellois.pdf"
+    date: "2025-09-01"
   - label: "Ausgeschlossene ohne identifizierbares Einkommen (Projektion)"
     value: "42"
     unit: "% der Ausgeschlossenen <55 Jahre (Brüssel)"
     source: "Vivalis (BKSZ-Studie, März 2025)"
-    url: "https://vivalis.brussels/publications"
+    url: "https://vivalis.brussels/fr/actualites/projet-de-limitation-de-la-duree-doctroi-des-allocations-de"
     date: "2025-03-01"
-  - label: "Abkommen — Bahnhofssicherheit"
-    value: "10"
-    unit: "Millionen EUR (Midi + Nord)"
-    source: "DH / RTBF (fév. 2026)"
-    url: "https://www.dhnet.be/regions/bruxelles/2026/02/12/securite-impots-good-move-logement-etc-voici-ce-que-contient-laccord-conclu-entre-les-sept-partis-du-nouveau-gouvernement-bruxellois-ZEAEQ3FBBJGS5BOSHK6632GJRI/"
-    date: "2026-02-12"
-  - label: "Abkommen — Drogenbeauftragter"
-    value: "Eingerichtet"
-    unit: "regionaler Beauftragter"
-    source: "RTBF / DH (fév. 2026)"
-    url: "https://www.rtbf.be/article/equilibre-budgetaire-en-2029-good-move-primes-renolution-voici-ce-que-contient-l-accord-de-gouvernement-regional-a-bruxelles-11678417"
-    date: "2026-02-12"
+  - label: "Bahnhofsplan (Midi und Nord)"
+    value: "3"
+    unit: "Millionen EUR im Jahr 2026 für die erste Phase; 10 Millionen im Regierungsabkommen angekündigt"
+    source: "La DH (1. Oktober 2026 und 12. Februar 2026)"
+    url: "https://www.dhnet.be/regions/bruxelles/2026/10/01/nouvel-eclairage-cameras-et-nettoyage-intensif-trois-millions-deuros-debloques-pour-securiser-les-gares-de-bruxelles-midi-et-du-nord-en-2026-VY65JC5PNFB2HA73YFOGBDHJDE/"
+    date: "2026-10-01"
+  - label: "Regionaler Beauftragter für Sicherheit und Drogen"
+    value: "Noch nicht ernannt"
+    unit: "im Regierungsabkommen vorgesehen; elf Bewerber am 29. August 2026"
+    source: "La DH (13. Februar 2026); RTBF (29. August 2026)"
+    url: "https://www.rtbf.be/article/un-commissaire-regional-aux-drogues-a-bruxelles-des-fin-septembre-un-super-flic-ou-un-super-coordinateur-11777007"
+    date: "2026-08-29"
   - label: "Abkommen — Kanal"
-    value: "60"
-    unit: "Millionen EUR für die Eröffnung"
-    source: "DH / La Libre (fév. 2026)"
+    value: "50 bis 60"
+    unit: "Millionen EUR je nach Quelle (50 laut La DH, 60 laut La Libre)"
+    source: "La DH / La Libre (12. Februar 2026)"
     url: "https://www.lalibre.be/belgique/politique-belge/2026/02/12/nouveau-gouvernement-a-bruxelles-voici-les-principales-mesures-de-laccord-E2ZPXNRVKFASHGK6CTWDZ4BYTA/"
-    date: "2026-02-12"
-  - label: "Abkommen — Sozialdienste"
-    value: "Geschützt"
-    unit: "Obdachlose, Sucht, Begleitung"
-    source: "RTBF / DH (fév. 2026)"
-    url: "https://www.rtbf.be/article/equilibre-budgetaire-en-2029-good-move-primes-renolution-voici-ce-que-contient-l-accord-de-gouvernement-regional-a-bruxelles-11678417"
     date: "2026-02-12"
   - label: "Behinderung: Warteliste angepasste Plätze"
     value: "500+"
@@ -551,20 +525,34 @@ metrics:
     date: "2026-07-02"
   - label: "Nächste Zählung wohnungsloser Personen"
     value: "15.-16. Oktober 2026"
-    unit: "9. Ausgabe, Bruss'help, nächtliche Zählung zwischen 23 Uhr und Mitternacht; die 8., in der Nacht vom 6. auf den 7. November 2024, erfasste 9.777 Personen, darunter 1.991 Frauen und 1.678 Minderjährige"
+    unit: "9. Ausgabe, Bruss'help, nächtliche Zählung zwischen 23 Uhr und Mitternacht; die 8. erfasste 9.777 Personen, darunter 1.678 Minderjährige"
     source: "denombrement.org, offizielle Website der Erhebung"
     url: "https://denombrement.org/index.php/fr"
     date: "2026-08-31"
 whyStatus: "Brüssel konzentriert die belgische Armut: 23 % monetäres Armutsrisiko, gegenüber 7 % in Flandern. Die Notunterbringung schrumpft: Der Samusocial bietet alleinstehenden Männern nur noch 240 Plätze statt 370. Die Haushaltseinigung vom 4. Oktober 2026 kündigt 15 Millionen Euro mehr für die Gemeinden und die ÖSHZ an."
 concreteImpact: "Das Eingliederungseinkommen zählt in Brüssel 47.304 Empfänger. Der Preis der Dienstleistungsschecks und das Kindergeld ändern sich im Haushalt 2027 nicht. Die neunte Zählung der Wohnungslosen findet in der Nacht vom 15. auf den 16. Oktober 2026 statt."
-statusReviewed: "2026-10-05"
-lastModified: "2026-10-05"
-faqReviewed: "2026-10-05"
+statusReviewed: "2026-10-09"
+lastModified: "2026-10-09"
+faqReviewed: "2026-10-09"
 changeType: updated
-changeSummary: "Haushalt 2027: 15 Millionen Euro mehr für Gemeinden und ÖSHZ, laut dem Minister für Soziales. Die Einigung vom 04.10.2026 führt wieder eine Wachstumsnorm für Soziales und Gesundheit ein und ändert weder den Preis der Dienstleistungsschecks noch das Kindergeld."
-changeSummaryDate: "2026-10-05"
+changeSummary: "Soziales: mehrere Kennzahlen nach erneuter Prüfung der Quellen korrigiert. Es sind die ärmsten 20 % der Brüsseler, nicht 2 %, die mehr als die Hälfte ihres Einkommens für das Wohnen aufwenden; die Arbeitslosenreform schließt laut Brulocalis 2026 in der Region Brüssel 35.799 Personen aus."
+changeSummaryDate: "2026-10-09"
 summaryFalc: "Der Föderalstaat will tausend Notplätze in Brüssel bezahlen, nicht zweitausend. Laut Samusocial sind 700 dieser Plätze Ende September 2026 noch offen. Er hat 240 Plätze für alleinstehende Männer."
 ---
+
+## Korrekturen nach erneuter Prüfung der Quellen (9. Oktober 2026)
+
+Die Quellen dieser Karte wurden einzeln erneut gelesen. Mehrere Zahlen wurden korrigiert:
+
+- **Sozialbarometer**: Es sind die ärmsten 20 % der Brüsseler, nicht 2 %, die mehr als die Hälfte ihres Einkommens für das Wohnen aufwenden.
+- **Ausschlüsse vom Arbeitslosengeld**: Die Kennzahl nennt jetzt die Jahreszahl für die Region: Brulocalis zählt auf Grundlage der Zahlen des LfA 35.799 Ausgeschlossene im Jahr 2026.
+- **Kosten für die ÖSHZ**: Der Betrag von mehr als einer Milliarde Euro betraf die wallonischen ÖSHZ. Für die Brüsseler ÖSHZ schätzt Brulocalis die Kosten auf 145,8 Millionen Euro pro Jahr.
+- **Verweigerte Unterbringung**: Die 127 Ablehnungen pro Woche werden vom flämischen Kinderrechtskommissariat genannt, nicht vom Samusocial.
+- **Kanal**: La DH spricht von 50 Millionen Euro, La Libre von 60 Millionen.
+- **Beauftragter für Sicherheit und Drogen**: Die Funktion ist im Regierungsabkommen vorgesehen, aber noch nicht besetzt; die Karte führte sie als eingerichtet.
+- **Bahnhofsplan**: Die erste Phase umfasst 3 Millionen Euro im Jahr 2026.
+- **Bevölkerung**: 1.255.834 Einwohner am 1. Januar 2026 laut IBSA.
+- **Mangels Quelle entfernt**: der Anteil der Haushalte, die eine unerwartete Ausgabe nicht bestreiten können, die Erwerbsarmutsquote, die Zahl der Frauen bei der achten Zählung, der Hinweis « geschützte Sozialdienste » und eine frühere Zahl der Kinder mit Kindergeld, ersetzt durch jene von Iriscare.
 
 ## Haushalt 2027: die angekündigten Mittel für Soziales und Gesundheit (5. Oktober 2026)
 
@@ -576,7 +564,7 @@ Laut dem Minister für Soziales führt die Haushaltseinigung vom 4. Oktober 2026
 - **1,8 Millionen Euro** für 140 Aufnahmeplätze für obdachlose Familien (BRUZZ);
 - mehr als eine Million Euro für Prävention, darunter Krebsfrüherkennung und ein Hitzeplan (BRUZZ, VRT NWS).
 
-Der Preis der Dienstleistungsschecks und das Kindergeld werden laut dem Beschäftigungsminister nicht geändert.
+Der Preis der Dienstleistungsschecks und das Kindergeld werden nicht geändert.
 
 Quellen: [RTBF](https://www.rtbf.be/article/prets-renovation-a-0-taxe-de-circulation-logement-ce-que-prevoit-le-budget-bruxellois-2027-11794913); [BRUZZ](https://www.bruzz.be/actua/politiek/dit-staat-het-brussels-begrotingsakkoord-2026-10-05); [VRT NWS](https://www.vrt.be/vrtnws/nl/2026/10/05/brussels-gewest-akkoord-over-begroting/) (5. Oktober 2026). Vertrauen: *estimated* (Ankündigungen der Minister; keine Haushaltstabelle veröffentlicht).
 
@@ -656,7 +644,7 @@ BX1 schreibt am 27. August, dass die tausend Plätze am 1. September entfallen. 
 
 ### Wann wir es wissen werden
 
-In der **Nacht vom 15. auf den 16. Oktober 2026** führt Bruss'help gemeinsam mit dem Sektor die **neunte Ausgabe der Zählung** wohnungsloser Personen in der Region Brüssel durch, mit einer nächtlichen Erhebung zwischen 23 Uhr und Mitternacht. Die Erhebung ist **seit 2008 zweijährlich** und folgt von Ausgabe zu Ausgabe demselben Protokoll. Die vorherige, in der Nacht vom **6. auf den 7. November 2024**, erfasste **9.777 Personen**, ein Anstieg um **24,5 %** in zwei Jahren laut Bruss'help, darunter **1.991 Frauen** und **1.678 Minderjährige**.
+In der **Nacht vom 15. auf den 16. Oktober 2026** führt Bruss'help gemeinsam mit dem Sektor die **neunte Ausgabe der Zählung** wohnungsloser Personen in der Region Brüssel durch, mit einer nächtlichen Erhebung zwischen 23 Uhr und Mitternacht. Die Erhebung ist **seit 2008 zweijährlich** und folgt von Ausgabe zu Ausgabe demselben Protokoll. Die vorherige, deren Ergebnisse am 16. April 2025 veröffentlicht wurden, erfasste **9.777 Personen**, ein Anstieg um **24,5 %** seit 2022 laut Bruss'help, darunter **1.678 Minderjährige**.
 
 Diese Zählung fällt sechs Wochen nach der Kürzung. Sie wird sie nicht erklären: eine Zählung misst einen Bestand in einer bestimmten Nacht und weist keine Ursachen zu. Sie liefert jedoch den ersten Vergleichspunkt nach der Entscheidung, auf bekannter Grundlage und nach einer veröffentlichten Methode.
 
@@ -750,13 +738,12 @@ Quellen: [Iriscare, 9. Juli 2026](https://www.iriscare.brussels/fr/2026/07/09/le
 ## Regierungsabkommen: Angekündigte Maßnahmen
 Das Abkommen vom 12. Februar 2026 enthält querschnittliche soziale und sicherheitspolitische Maßnahmen:
 
-- **10 Millionen EUR** für die Sicherung der Bahnhöfe Midi und Nord (Kameras, Polizei, Reinigung, Betreuung von Menschen in prekären Situationen)
-- **Regionaler Drogenbeauftragter**: Schaffung einer eigenen Funktion
-- **Schutz der Sozialdienste**: Obdachlosenhilfe, Suchtbetreuung, Begleitung bestätigt
+- **10 Millionen EUR** für die Sicherung der Bahnhöfe Midi und Nord (Kameras, Polizei, Reinigung, Betreuung von Menschen in prekären Situationen); die erste Phase des Bahnhofsplans, genehmigt am 1. Oktober 2026, umfasst 3 Millionen EUR im Jahr 2026
+- **Regionaler Beauftragter für Sicherheit und Drogen**: im Abkommen vorgesehene Funktion, am 9. Oktober 2026 noch nicht besetzt
 - **Verstärkte Sicherheitsrolle** des Ministerpräsidenten
-- **Kanal gerettet**: 60 Millionen EUR für die Eröffnung des Museums für zeitgenössische Kunst (ehemalige Citroen-Garage). Das jährliche Betriebsbudget wird degressiv sein, mit einer Verpflichtung zur Erschließung eigener Einnahmen
+- **Kanal**: eine Unterstützung von 50 Millionen EUR laut La DH, von 60 Millionen laut La Libre
 
-**Offene Punkte**: Die Einzelheiten zur COCOM (bikommunale Gesundheit) sind noch nicht veröffentlicht, und die Gesundheitskürzungen werden noch verhandelt. Der Druck auf die ÖSHZ durch die Arbeitslosenreform (>1 Milliarde EUR kumuliert) muss vom neuen Haushaltsrahmen aufgefangen werden.
+**Offene Punkte**: Die Einzelheiten zur COCOM (bikommunale Gesundheit) sind noch nicht veröffentlicht, und die Gesundheitskürzungen werden noch verhandelt. Den Druck auf die Brüsseler ÖSHZ durch die Arbeitslosenreform schätzt Brulocalis auf 145,8 Millionen EUR pro Jahr.
 
 ## Chancengleichheit (DPR, Kapitel 12)
 
@@ -817,7 +804,7 @@ Ohne systematische Kreuzung der Datenbanken (LfA, LSS, Krankenkassen, ÖSHZ) üb
 
 ### Haushaltsauswirkungen
 
-Die Bundesregierung hat 300 Millionen EUR Kompensation für die ÖSHZ im Jahr 2026 vorgesehen. Laut Rechnungshof würde dieser Betrag die Bedürfnisse für 2026 abdecken, sich aber für die Folgejahre als unzureichend erweisen, mit geschätzten Ausgaben von 709 Millionen EUR im Jahr 2029. Die kumulativen Kosten für alle belgischen ÖSHZ werden auf 631 Millionen bis über eine Milliarde EUR über die Legislaturperiode geschätzt.
+Die Bundesregierung hat 300 Millionen EUR Kompensation für die ÖSHZ im Jahr 2026 vorgesehen. Laut Rechnungshof würde dieser Betrag die Bedürfnisse für 2026 abdecken, sich aber für die Folgejahre als unzureichend erweisen, mit geschätzten Ausgaben von 709 Millionen EUR im Jahr 2029. Für die Brüsseler ÖSHZ schätzt Brulocalis die Kosten auf 145,8 Millionen EUR pro Jahr.
 
 Quellen: LfA; ÖPD Soziale Eingliederung; Vivalis (März 2025); Rechnungshof (Feb. 2026, [berichtet von La Libre](https://www.lalibre.be/belgique/politique-belge/2026/02/19/la-compensation-de-la-reforme-du-chomage-pour-les-cpas-sous-estimee-selon-la-cour-des-comptes-U6OOL7TFIJGXLJSVJFI4P7JNG4/)); UVCW; IBSA; RTBF (März 2026).
 
@@ -957,7 +944,7 @@ Am **15. April 2026** veröffentlicht das **Observatorium für Gesundheit und So
 - **55.572 Haushalte** auf der Warteliste für eine Sozialwohnung (**+78 % in 15 Jahren**), Wartezeiten oft über 10 Jahre
 - **24 %** der Brüsseler leben in ungesunden Wohnungen
 - **30 %** in überbelegten Wohnungen (darunter **50 % der Haushalte mit Kindern**)
-- Die **2 % ärmsten** Haushalte verwenden über **50 % ihres Einkommens für die Miete**, sodass ihnen rund **10 € pro Person und Tag** zum Leben bleiben
+- Die **ärmsten 20 % der Brüsseler** verwenden über **50 % ihres Einkommens für das Wohnen**, sodass ihnen kaum mehr als **10 € pro Person und Tag** zum Leben bleiben
 
 **Besonders gefährdete Gruppen**:
 - **~50.000 Menschen ohne Aufenthaltstitel** (≈ **4 % der Bevölkerung**)
@@ -1048,7 +1035,7 @@ Die Bewohner waren **im Voraus informiert** und an **Notunterbringungslösungen*
 
 Der **Humanitarian Hub** ist eine Aufnahmestruktur für Personen in Migrationstransit, gemeinsam von einem Vereinskonsortium betrieben. Die Räumung betrifft nicht den Hub selbst, sondern das Lager, das sich rund um ihn gebildet hatte.
 
-**Kontext** — die Zählung von Bruss'help in der Nacht vom 6. auf den 7. November 2024, veröffentlicht im April 2025, verzeichnete **9.777 Personen ohne Zuhause** in der Region Brüssel, ein Anstieg um 25 % in zwei Jahren (siehe Abschnitt Sozialbarometer 2025 oben).
+**Kontext** — die achte Zählung von Bruss'help, veröffentlicht im April 2025, verzeichnete **9.777 Personen ohne Zuhause** in der Region Brüssel, ein Anstieg um 25 % in zwei Jahren (siehe Abschnitt Sozialbarometer 2025 oben).
 
 Vertrauen: unconfirmed (Pressebericht; offizielle Mitteilung von Stadt / Bruss'help am 23. April nicht gefunden). Quelle: [La Libre, 21. April 2026](https://www.lalibre.be/regions/bruxelles/2026/04/21/les-tentes-du-hub-humanitaire-evacuees-a-bruxelles-une-decision-difficile-pour-la-ville-NXUZJKYMQVHZZPZEDHQKFNBPQ4/).
 

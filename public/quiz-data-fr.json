@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T09:01:16.837Z",
+  "generatedAt": "2026-10-09T06:39:49.191Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Avant quelle date le budget bruxellois 2027 doit-il être déposé au Parlement, selon le ministre-président lors du débat du 6 octobre 2026 ?",
+      "question": "Quel déficit le gouvernement bruxellois vise-t-il pour 2027 dans l'accord budgétaire conclu le 4 octobre 2026 ?",
       "options": [
-        "Avant le 15 octobre 2026",
-        "Avant le 31 octobre 2026",
-        "Avant le 30 novembre 2026",
-        "Avant le 31 décembre 2026"
+        "416 millions d'euros",
+        "719 millions d'euros",
+        "957 millions d'euros",
+        "1,6 milliard d'euros"
       ],
       "correct": 1,
-      "explanation": "L'examen ligne par ligne du budget doit ensuite avoir lieu en commission. Les tableaux budgétaires n'avaient pas été remis aux députés pour le débat du 6 octobre 2026.",
+      "explanation": "Le déficit était de 957 millions d'euros en 2026 ; le retour à l'équilibre est visé pour 2029.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:a7458b38879c067c9e72ab14f09bbbcf",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:d25ada2c5384fb05c93b5bb7d9f67093",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Quel déficit le gouvernement bruxellois vise-t-il pour 2027 dans l'accord budgétaire conclu le 4 octobre 2026 ?",
+      "question": "Fin 2025, quelle banque a retiré sa ligne de crédit de 500 millions d'euros à la Région bruxelloise ?",
       "options": [
-        "416 millions d'euros",
-        "719 millions d'euros",
-        "957 millions d'euros",
-        "1,3 milliard d'euros"
+        "ING",
+        "Belfius",
+        "Deutsche Bank",
+        "BBVA"
       ],
       "correct": 1,
-      "explanation": "L'accord ramène le déficit à 719 millions d'euros en 2027, contre 957 millions en 2026. Les tableaux budgétaires n'avaient pas été remis aux députés avant la déclaration du 5 octobre 2026.",
+      "explanation": "Seul le retrait de Belfius est établi. La ligne d'ING, du même montant, arrivait à échéance le 31 décembre 2025 et la banque disait n'avoir rien décidé.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:a7458b38879c067c9e72ab14f09bbbcf",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:d25ada2c5384fb05c93b5bb7d9f67093",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -286,19 +286,19 @@
       "domain": "Emploi",
       "question": "Combien de chercheurs d'emploi étaient inscrits chez Actiris fin septembre 2026, selon son communiqué du 6 octobre 2026 ?",
       "options": [
-        "87 450",
-        "94 700",
+        "82 500",
+        "91 340",
         "100 198",
-        "112 640"
+        "112 760"
       ],
       "correct": 2,
-      "explanation": "C'est 5,8 % de plus qu'en septembre 2025. Le taux de chômage administratif atteint 16,1 %, et 35 % des inscrits relèvent d'un CPAS.",
+      "explanation": "C'est 5,8 % de plus qu'en septembre 2025 ; le taux de chômage s'établit à 16,1 %.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:218bd9ff1a97ce1c1669b096ee8f3fb1",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:3d4dc885fcf49999d59f76eee2bf5a2d",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Quel taux d'emploi le gouvernement bruxellois vise-t-il d'ici 2030, objectif rappelé dans la déclaration de politique générale du 5 octobre 2026 ?",
+      "question": "Selon La DH, quel montant de subsides au congé-éducation payé l'administration bruxelloise cherche-t-elle à récupérer pour fraude, d'après le ministre de l'Économie le 6 octobre 2026 ?",
       "options": [
-        "60 %",
-        "65 %",
-        "70 %",
-        "75 %"
+        "362 348 euros",
+        "1 952 653 euros",
+        "8,5 millions d'euros",
+        "19 millions d'euros"
       ],
-      "correct": 2,
-      "explanation": "Selon le ministre-président, cet objectif représente 50 000 mises à l'emploi supplémentaires. Le taux était de 64,7 % au deuxième trimestre 2026.",
+      "correct": 1,
+      "explanation": "Douze demandes de subsides ont en outre été bloquées, pour 362 348 euros. L'information repose sur une seule source.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:218bd9ff1a97ce1c1669b096ee8f3fb1",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:3d4dc885fcf49999d59f76eee2bf5a2d",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Logement",
-      "question": "De combien d'habitants la population de la Région bruxelloise a-t-elle augmenté en 2025, selon le Baromètre démographique 2026 de l'IBSA ?",
+      "question": "Que s'est-il passé au conseil des ministres bruxellois du 8 octobre 2026 lors de la discussion sur les 131 millions d'euros de la SLRB ?",
       "options": [
-        "39 habitants",
-        "6 200 habitants",
-        "13 988 habitants",
-        "18 553 habitants"
+        "Le versement a été approuvé à l'unanimité",
+        "La réunion a été interrompue avant son terme",
+        "Le montant a été porté à 400 millions d'euros",
+        "Le dossier a été renvoyé au Parlement bruxellois"
       ],
-      "correct": 0,
-      "explanation": "La Région compte 1 255 834 habitants au 1er janvier 2026, plus faible hausse depuis 1996. Les départs vers la Flandre et la Wallonie compensent presque les naissances et les arrivées de l'étranger.",
+      "correct": 1,
+      "explanation": "Le ministre et la secrétaire d'État socialistes ont quitté la réunion ; aucune décision n'a été prise ce jour-là.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 62 234 ménages en attente, 131 millions de la SLRB bloqués",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:3debc906e5c0d62c45af250ee73fae6d",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:891060f09fc134d2cc1c3a38a785c66d",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
-      "question": "Que prévoit, pour les familles, le projet d'ordonnance bruxellois sur le précompte immobilier approuvé en première lecture le 18 juin 2026 ?",
+      "question": "De combien d'habitants la population de la Région bruxelloise a-t-elle augmenté en 2025, selon le Baromètre démographique 2026 de l'IBSA ?",
       "options": [
-        "Un forfait à la place de la réduction en pourcentage",
-        "La suppression de toute réduction pour enfants",
-        "Un doublement de la réduction par enfant à charge",
-        "Une réduction réservée aux familles locataires"
+        "39 habitants",
+        "1 342 habitants",
+        "5 103 habitants",
+        "13 988 habitants"
       ],
       "correct": 0,
-      "explanation": "Selon une étude de la Ligue des familles du 1er octobre 2026, le montant du forfait n'est pas encore fixé. L'économie attendue est de 9 millions d'euros par an.",
+      "explanation": "La Région compte 1 255 834 habitants au 1er janvier 2026 ; c'est la plus faible hausse depuis 1996.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 62 234 ménages en attente, 131 millions de la SLRB bloqués",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:3debc906e5c0d62c45af250ee73fae6d",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:891060f09fc134d2cc1c3a38a785c66d",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Devant quelles assemblées la déclaration de politique générale bruxelloise a-t-elle été prononcée le 5 octobre 2026 ?",
+      "question": "Devant quelles assemblées le ministre-président bruxellois a-t-il prononcé sa déclaration de politique générale le 5 octobre 2026 ?",
       "options": [
+        "Le Parlement bruxellois seul",
         "Le Parlement bruxellois et l'Assemblée réunie",
-        "La Chambre des représentants et le Sénat",
-        "Le Parlement bruxellois et la Chambre",
-        "Le Parlement francophone bruxellois seul"
+        "La Chambre et le Sénat",
+        "Le Parlement francophone bruxellois et le Conseil de la VGC"
       ],
-      "correct": 0,
-      "explanation": "L'Assemblée réunie est l'organe législatif de la Commission communautaire commune. La discussion de la déclaration a lieu le lendemain, le 6 octobre 2026.",
+      "correct": 1,
+      "explanation": "La déclaration a été prononcée au lendemain de l'accord du gouvernement sur le budget 2027 ; la discussion a eu lieu le 6 octobre 2026.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:4768015eeafd6803fcc7e57a690f5810",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:c10511a27e89fc5429127795294d891d",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -401,19 +401,19 @@
       "domain": "Institutionnel",
       "question": "À quoi s'oppose la résolution n° A-302 adoptée par le Parlement bruxellois le 2 octobre 2026 ?",
       "options": [
-        "Au projet de loi fédéral sur les visites domiciliaires",
-        "À la loi fédérale de fusion des zones de police",
-        "Au projet de vignette routière interrégionale",
-        "Aux nouvelles normes fédérales de survol aérien"
+        "Au projet de loi fédéral autorisant les visites domiciliaires",
+        "À la fusion des six zones de police bruxelloises",
+        "À la hausse de la TVA sur l'hôtellerie",
+        "Au survol nocturne de la Région"
       ],
       "correct": 0,
-      "explanation": "Le texte a été adopté avec une majorité alternative : une partie de la majorité régionale l'a soutenu, une autre a voté contre.",
+      "explanation": "Le texte a été adopté par une majorité alternative : le PS et Groen l'ont soutenu, Anders a voté contre.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:4768015eeafd6803fcc7e57a690f5810",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:c10511a27e89fc5429127795294d891d",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Combien l'accord budgétaire bruxellois du 4 octobre 2026 annonce-t-il de moyens supplémentaires pour les communes et les CPAS en 2027 ?",
+      "question": "Selon le Baromètre social bruxellois, quelle tranche des Bruxellois les plus pauvres consacre plus de la moitié de ses revenus au logement ?",
       "options": [
-        "5 millions d'euros",
-        "15 millions d'euros",
-        "30 millions d'euros",
-        "66 millions d'euros"
+        "Les 2 % les plus pauvres",
+        "Les 10 % les plus pauvres",
+        "Les 20 % les plus pauvres",
+        "Les 40 % les plus pauvres"
       ],
-      "correct": 1,
-      "explanation": "L'accord réintroduit aussi une norme de croissance pour le social-santé, selon le ministre de l'Action sociale. Aucun tableau budgétaire n'était publié à cette date.",
+      "correct": 2,
+      "explanation": "Il leur reste à peine plus de 10 euros par personne et par jour pour vivre.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:aa1dd7a77fa92bc1202b6a4f6fddbb3a",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:d3c18145861a73a79983b4b36c8a92f2",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Quel centre d'hébergement d'urgence bruxellois pour hommes seuls a fermé le 30 septembre 2026, après huit mois d'activité ?",
+      "question": "Combien de personnes la réforme du chômage exclut-elle en Région bruxelloise en 2026, selon Brulocalis sur la base des chiffres de l'ONEM ?",
       "options": [
-        "Le centre du WTC",
-        "Le centre Poincaré",
-        "Le Petit-Château",
-        "Le centre Ariane"
+        "Environ 8 000",
+        "24 700",
+        "35 799",
+        "145 800"
       ],
-      "correct": 0,
-      "explanation": "Selon le Samusocial, il reste 240 places pour les hommes seuls après cette fermeture, une capacité que l'opérateur qualifie d'historiquement basse.",
+      "correct": 2,
+      "explanation": "Le chiffre d'environ 8 000 portait sur la seule commune de Bruxelles-Ville.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:aa1dd7a77fa92bc1202b6a4f6fddbb3a",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:d3c18145861a73a79983b4b36c8a92f2",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -974,21 +974,21 @@
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
       "domain": "Logement",
-      "question": "À quoi le blocage des 131 millions d'euros destinés à la SLRB est-il lié, d'après les positions exprimées le 5 octobre 2026 ?",
+      "question": "À quelle condition le président du MR lie-t-il le versement des 131 millions d'euros destinés à la SLRB, position maintenue le 8 octobre 2026 ?",
       "options": [
-        "À la présidence du Foyer anderlechtois",
-        "À un recours devant le Conseil d'État",
-        "À un avis de la Cour des comptes",
-        "À la vente des sites Ariane et Palais"
+        "Au départ du président du Foyer anderlechtois",
+        "À la vente de logements sociaux",
+        "À une hausse des loyers sociaux",
+        "À la fusion des sociétés de logement"
       ],
       "correct": 0,
-      "explanation": "Le président du parti du ministre-président maintient que les fonds ne seront pas libérés tant que le président de la société reste en place.",
+      "explanation": "Le président de la société a été réélu en août 2026 ; le MR demande aussi des garanties de bonne gestion.",
       "sourceSlug": "/fr/dossiers/foyer-anderlechtois",
       "sourceTitle": "Foyer anderlechtois",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:cec9de2e82e93e0a997152e23c4c1c3b",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:872de5fd039210f0a17da300c03d4b69",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Selon le ministre bruxellois du Budget, cité le 5 octobre 2026, jusqu'à quand les 131 millions d'euros de recapitalisation de la SLRB peuvent-ils être versés ?",
+      "question": "À combien s'élève la recapitalisation totale de la SLRB décidée en février 2026, dont une tranche de 131 millions d'euros est prévue en 2026 ?",
       "options": [
-        "Jusqu'à la fin octobre 2026",
-        "Jusqu'à la fin décembre 2026",
-        "Jusqu'à la fin mars 2027",
-        "Jusqu'à la fin juin 2027"
+        "200 millions d'euros",
+        "250 millions d'euros",
+        "400 millions d'euros",
+        "1 milliard d'euros"
       ],
-      "correct": 1,
-      "explanation": "Le ministre-président affirme de son côté que le dossier n'a pas été traité et que la libération doit encore être approuvée par le conseil des ministres.",
+      "correct": 2,
+      "explanation": "Elle est tenue hors du solde budgétaire mais augmente la dette régionale.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:5e7b586a5522d12bfaf6917afcf361ee",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:893ac1581d6121f30d4333c0e04951f7",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Combien de logements sociaux la SLRB et le Foyer du Sud ont-ils inaugurés à Forest, dans l'ancien bâtiment industriel Luttre, le 23 septembre 2026 ?",
+      "question": "Que confirme le ministre bruxellois du Budget, le 8 octobre 2026, au sujet des crédits de 131 millions d'euros destinés à la SLRB ?",
       "options": [
-        "36 logements",
-        "63 logements",
-        "120 logements",
-        "537 logements"
+        "Qu'ils figurent au budget 2026 initial, déjà voté",
+        "Qu'ils ont été supprimés lors du conclave",
+        "Qu'ils sont reportés au budget 2028",
+        "Qu'ils dépendent d'un prêt européen"
       ],
-      "correct": 1,
-      "explanation": "Le bâtiment de 11 000 m² avait été acquis en 2016 dans le cadre de l'opération régionale Alliance Habitat-Acquisitions.",
+      "correct": 0,
+      "explanation": "Il juge aussi légitime qu'un partenaire pose des conditions à l'exécution d'un budget, selon BRUZZ.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:5e7b586a5522d12bfaf6917afcf361ee",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:893ac1581d6121f30d4333c0e04951f7",
+        "generatedAt": "2026-10-09T06:39:49.191Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 57
 }

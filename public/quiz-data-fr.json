@@ -31,7 +31,7 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Fin 2025, quelle banque a retiré sa ligne de crédit de 500 millions d'euros à la Région bruxelloise, selon la fiche Budget corrigée le 9 octobre 2026 ?",
+      "question": "Fin 2025, quelle banque a retiré sa ligne de crédit de 500 millions d'euros à la Région bruxelloise ?",
       "options": [
         "ING",
         "Belfius",
@@ -355,10 +355,10 @@
       "domain": "Logement",
       "question": "De combien d'habitants la population de la Région bruxelloise a-t-elle augmenté en 2025, selon le Baromètre démographique 2026 de l'IBSA ?",
       "options": [
-        "39",
-        "1 342",
-        "5 103",
-        "13 988"
+        "39 habitants",
+        "1 342 habitants",
+        "5 103 habitants",
+        "13 988 habitants"
       ],
       "correct": 0,
       "explanation": "La Région compte 1 255 834 habitants au 1er janvier 2026 ; c'est la plus faible hausse depuis 1996.",
@@ -514,7 +514,7 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Quelle part des Bruxellois les plus pauvres consacre plus de la moitié de ses revenus au logement, selon la fiche Social corrigée le 9 octobre 2026 ?",
+      "question": "Selon le Baromètre social bruxellois, quelle tranche des Bruxellois les plus pauvres consacre plus de la moitié de ses revenus au logement ?",
       "options": [
         "Les 2 % les plus pauvres",
         "Les 10 % les plus pauvres",
@@ -522,7 +522,7 @@
         "Les 40 % les plus pauvres"
       ],
       "correct": 2,
-      "explanation": "La fiche indiquait 2 % par erreur ; le chiffre de 20 % vient du Baromètre social.",
+      "explanation": "Il leur reste à peine plus de 10 euros par personne et par jour pour vivre.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
@@ -1614,5 +1614,6 @@
         "promptVersion": "v3"
       }
     }
-  ]
+  ],
+  "reviewedCount": 57
 }

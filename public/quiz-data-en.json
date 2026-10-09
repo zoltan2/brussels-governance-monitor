@@ -31,7 +31,7 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "In late 2025, which bank withdrew its 500 million euro credit line to the Brussels Region, according to the Budget card as corrected on 9 October 2026?",
+      "question": "At the end of 2025, which bank withdrew its 500 million euro credit line from the Brussels Region?",
       "options": [
         "ING",
         "Belfius",
@@ -355,10 +355,10 @@
       "domain": "Housing",
       "question": "By how many inhabitants did the population of the Brussels Region grow in 2025, according to IBSA's 2026 Demographic Barometer?",
       "options": [
-        "39",
-        "1,342",
-        "5,103",
-        "13,988"
+        "39 inhabitants",
+        "1,342 inhabitants",
+        "5,103 inhabitants",
+        "13,988 inhabitants"
       ],
       "correct": 0,
       "explanation": "The Region has 1,255,834 inhabitants on 1 January 2026; it is the smallest rise since 1996.",
@@ -514,7 +514,7 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "What share of the poorest Brussels residents spends more than half of its income on housing, according to the Social card as corrected on 9 October 2026?",
+      "question": "According to the Brussels Social Barometer, which share of the poorest Brussels residents spends more than half of its income on housing?",
       "options": [
         "The poorest 2%",
         "The poorest 10%",
@@ -522,7 +522,7 @@
         "The poorest 40%"
       ],
       "correct": 2,
-      "explanation": "The card stated 2% by mistake; the 20% figure comes from the Social Barometer.",
+      "explanation": "They are left with barely more than 10 euros per person per day to live on.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
@@ -1614,5 +1614,6 @@
         "promptVersion": "v3"
       }
     }
-  ]
+  ],
+  "reviewedCount": 57
 }

@@ -17,15 +17,20 @@ describe('encart du sondage dans le digest', () => {
       `${SITE}/fr/sondage?utm_source=bgm-digest&utm_medium=email&utm_campaign=sondage&utm_content=encart-haut`,
     );
     expect(fr.texte).toContain('jusqu\'au 6 décembre');
-    // Libellé arrêté par Zoltán le 04/10/2026 : ni podcast, ni phrase sur les critiques.
-    expect(fr.titre).toBe('Dix questions sur le digest');
-    expect(fr.texte).toBe('Anonyme, jusqu\'au 6 décembre. Résultats dans le digest du 14 décembre.');
+    // Libellé arrêté par Zoltán le 09/10/2026 : le titre interroge le lecteur et
+    // le texte dit à quoi servent les réponses. Ni podcast, ni phrase sur les critiques.
+    expect(fr.titre).toBe('Que faut-il changer au digest ?');
+    expect(fr.texte).toBe(
+      'Dix questions, anonyme, jusqu\'au 6 décembre. Vos réponses décident de la suite. Résultats dans le digest du 14 décembre.',
+    );
     expect(fr.titre + fr.texte).not.toMatch(/podcast|critiques/i);
     const nl = encartSondageDigest('nl', SITE, LUNDI, CAMPAGNE)!;
     expect(nl.url.startsWith(`${SITE}/nl/enquete?`)).toBe(true);
     expect(nl.texte).toContain('tot 6 december');
-    expect(nl.titre).toBe('Tien vragen over de digest');
-    expect(nl.texte).toBe('Anoniem, tot 6 december. Resultaten in de digest van 14 december.');
+    expect(nl.titre).toBe('Wat moet er veranderen aan de digest?');
+    expect(nl.texte).toBe(
+      'Tien vragen, anoniem, tot 6 december. Uw antwoorden bepalen het vervolg. Resultaten in de digest van 14 december.',
+    );
   });
 
   it('aucun encart hors fr et nl, ni hors campagne', () => {
@@ -49,7 +54,7 @@ describe('encart du sondage dans le digest', () => {
       sondage: encartSondageDigest('fr', SITE, LUNDI, CAMPAGNE),
     };
     const html = await render(DigestEmail(props));
-    const iSondage = html.indexOf('Dix questions sur le digest');
+    const iSondage = html.indexOf('Que faut-il changer au digest');
     expect(iSondage).toBeGreaterThan(-1);
     expect(iSondage).toBeLessThan(html.indexOf('RESUME_DE_LA_SEMAINE'));
     expect(html).toContain('utm_campaign=sondage');
@@ -59,6 +64,7 @@ describe('encart du sondage dans le digest', () => {
     expect(texte.indexOf('/fr/sondage?')).toBeLessThan(texte.indexOf('RESUME_DE_LA_SEMAINE'));
 
     const sans = await render(DigestEmail({ ...props, sondage: null }));
-    expect(sans).not.toContain('Dix questions');
+    expect(sans).not.toContain('Que faut-il changer au digest');
+    expect(sans).not.toContain('utm_campaign=sondage');
   });
 });

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T09:02:20.878Z",
+  "generatedAt": "2026-10-09T06:42:00.074Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "By what date must the 2027 Brussels budget be tabled in Parliament, according to the Minister-President during the debate of 6 October 2026?",
+      "question": "What deficit does the Brussels government target for 2027 in the budget agreement reached on 4 October 2026?",
       "options": [
-        "Before 15 October 2026",
-        "Before 31 October 2026",
-        "Before 30 November 2026",
-        "Before 31 December 2026"
+        "416 million euros",
+        "719 million euros",
+        "957 million euros",
+        "1.6 billion euros"
       ],
       "correct": 1,
-      "explanation": "The line-by-line examination of the budget is then to take place in committee. The budget tables had not been given to MPs for the debate of 6 October 2026.",
+      "explanation": "The deficit was 957 million euros in 2026; a return to balance is targeted for 2029.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:ec6a59b1a49663b2a9d9e95a194a009a",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:1f82b3009b408a2482b4e259d3b2abdf",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "What deficit does the Brussels government target for 2027 in the budget agreement reached on 4 October 2026?",
+      "question": "In late 2025, which bank withdrew its 500 million euro credit line to the Brussels Region, according to the Budget card as corrected on 9 October 2026?",
       "options": [
-        "416 million euros",
-        "719 million euros",
-        "957 million euros",
-        "1.3 billion euros"
+        "ING",
+        "Belfius",
+        "Deutsche Bank",
+        "BBVA"
       ],
       "correct": 1,
-      "explanation": "The agreement brings the deficit down to 719 million euros in 2027, from 957 million in 2026. The budget tables had not been given to MPs before the statement of 5 October 2026.",
+      "explanation": "Only the Belfius withdrawal is established. ING's credit line, of the same amount, was due to expire on 31 December 2025, and the bank said it had not decided anything.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:ec6a59b1a49663b2a9d9e95a194a009a",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:1f82b3009b408a2482b4e259d3b2abdf",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -286,19 +286,19 @@
       "domain": "Employment",
       "question": "How many jobseekers were registered with Actiris at the end of September 2026, according to its press release of 6 October 2026?",
       "options": [
-        "87,450",
-        "94,700",
+        "82,500",
+        "91,340",
         "100,198",
-        "112,640"
+        "112,760"
       ],
       "correct": 2,
-      "explanation": "That is 5.8% more than in September 2025. The administrative unemployment rate stands at 16.1%, and 35% of those registered depend on a CPAS.",
+      "explanation": "That is 5.8% more than in September 2025; the unemployment rate stands at 16.1%.",
       "sourceSlug": "/en/domains/employment",
       "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:9ca6818f7776008834c7c3c4dc498865",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:b1c00f9020fee3876bd3154f9b593b16",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Employment",
-      "question": "What employment rate does the Brussels government target by 2030, a goal restated in the general policy statement of 5 October 2026?",
+      "question": "According to La DH, what amount of paid educational leave subsidies is the Brussels administration seeking to recover for fraud, as stated by the Economy Minister on 6 October 2026?",
       "options": [
-        "60%",
-        "65%",
-        "70%",
-        "75%"
+        "362,348 euros",
+        "1,952,653 euros",
+        "8.5 million euros",
+        "19 million euros"
       ],
-      "correct": 2,
-      "explanation": "According to the minister-president, this goal means 50,000 additional people in work. The rate stood at 64.7% in the second quarter of 2026.",
+      "correct": 1,
+      "explanation": "Twelve subsidy applications were also blocked, for 362,348 euros. The information rests on a single source.",
       "sourceSlug": "/en/domains/employment",
       "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:9ca6818f7776008834c7c3c4dc498865",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:b1c00f9020fee3876bd3154f9b593b16",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Housing",
-      "question": "By how many inhabitants did the population of the Brussels Region grow in 2025, according to IBSA's 2026 Demographic Barometer?",
+      "question": "What happened at the Brussels Council of Ministers meeting of 8 October 2026 during the discussion on the SLRB's 131 million euros?",
       "options": [
-        "39 inhabitants",
-        "6,200 inhabitants",
-        "13,988 inhabitants",
-        "18,553 inhabitants"
+        "The payment was approved unanimously",
+        "The meeting was interrupted before its end",
+        "The amount was raised to 400 million euros",
+        "The matter was referred to the Brussels Parliament"
       ],
-      "correct": 0,
-      "explanation": "The Region has 1,255,834 inhabitants on 1 January 2026, the smallest rise since 1996. Departures to Flanders and Wallonia almost offset births and arrivals from abroad.",
+      "correct": 1,
+      "explanation": "The Socialist minister and State Secretary left the meeting; no decision was taken that day.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: 62,234 households waiting, the SLRB's 131 million blocked",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:db885b3acd635ea5addbe6e8b33c5108",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:17b50ea8507f965538a18baab1cb7d04",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Housing",
-      "question": "What does the Brussels draft ordinance on property tax, approved at first reading on 18 June 2026, provide for families?",
+      "question": "By how many inhabitants did the population of the Brussels Region grow in 2025, according to IBSA's 2026 Demographic Barometer?",
       "options": [
-        "A flat amount instead of the percentage reduction",
-        "The abolition of any reduction for children",
-        "A doubling of the reduction per dependent child",
-        "A reduction reserved for tenant families"
+        "39",
+        "1,342",
+        "5,103",
+        "13,988"
       ],
       "correct": 0,
-      "explanation": "According to a study by the Ligue des familles of 1 October 2026, the flat amount has not yet been set. The expected saving is 9 million euros a year.",
+      "explanation": "The Region has 1,255,834 inhabitants on 1 January 2026; it is the smallest rise since 1996.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: 62,234 households waiting, the SLRB's 131 million blocked",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:db885b3acd635ea5addbe6e8b33c5108",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:17b50ea8507f965538a18baab1cb7d04",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutional",
-      "question": "Before which assemblies was the Brussels general policy statement delivered on 5 October 2026?",
+      "question": "Before which assemblies did the Brussels Minister-President deliver his general policy statement on 5 October 2026?",
       "options": [
+        "The Brussels Parliament alone",
         "The Brussels Parliament and the United Assembly",
-        "The Chamber of Representatives and the Senate",
-        "The Brussels Parliament and the federal Chamber",
-        "The Francophone Brussels Parliament alone"
+        "The Chamber and the Senate",
+        "The Francophone Brussels Parliament and the VGC Council"
       ],
-      "correct": 0,
-      "explanation": "The United Assembly is the legislative body of the Common Community Commission. The debate on the statement takes place the next day, 6 October 2026.",
+      "correct": 1,
+      "explanation": "The statement was delivered the day after the government's agreement on the 2027 budget; the debate took place on 6 October 2026.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:da6920f7f6426146116ca0722397faa7",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:f41b0d7622864cb38974f72f501856ef",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -401,19 +401,19 @@
       "domain": "Institutional",
       "question": "What does resolution No A-302, adopted by the Brussels Parliament on 2 October 2026, oppose?",
       "options": [
-        "The federal bill on home entries",
-        "The federal law merging the police zones",
-        "The planned interregional road vignette",
-        "The federal standards on overflights"
+        "The federal bill authorising home entries",
+        "The merger of the six Brussels police zones",
+        "The increase in VAT on the hotel sector",
+        "Night-time overflights of the Region"
       ],
       "correct": 0,
-      "explanation": "The text was adopted with an alternative majority: part of the regional majority supported it, another part voted against.",
+      "explanation": "The text was adopted by an alternative majority: the PS and Groen supported it, Anders voted against.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:da6920f7f6426146116ca0722397faa7",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:f41b0d7622864cb38974f72f501856ef",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "How much additional funding does the Brussels budget agreement of 4 October 2026 announce for the municipalities and CPAS in 2027?",
+      "question": "What share of the poorest Brussels residents spends more than half of its income on housing, according to the Social card as corrected on 9 October 2026?",
       "options": [
-        "5 million euros",
-        "15 million euros",
-        "30 million euros",
-        "66 million euros"
+        "The poorest 2%",
+        "The poorest 10%",
+        "The poorest 20%",
+        "The poorest 40%"
       ],
-      "correct": 1,
-      "explanation": "The agreement also reintroduces a growth norm for social and health policy, according to the Social Action minister. No budget table had been published at that date.",
+      "correct": 2,
+      "explanation": "The card stated 2% by mistake; the 20% figure comes from the Social Barometer.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:1eb35ceb2b2d030d259bfd572d1a0442",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:dca07a05ee75a48ed4fc637eaefcf45f",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Which Brussels emergency shelter for single men closed on 30 September 2026, after eight months of operation?",
+      "question": "How many people does the unemployment reform exclude in the Brussels Region in 2026, according to Brulocalis on the basis of ONEM figures?",
       "options": [
-        "The WTC centre",
-        "The Poincaré centre",
-        "The Petit-Château",
-        "The Ariane centre"
+        "Around 8,000",
+        "24,700",
+        "35,799",
+        "145,800"
       ],
-      "correct": 0,
-      "explanation": "According to Samusocial, 240 places remain for single men after this closure, a capacity the operator describes as historically low.",
+      "correct": 2,
+      "explanation": "The figure of around 8,000 covered the City of Brussels municipality alone.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:1eb35ceb2b2d030d259bfd572d1a0442",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:dca07a05ee75a48ed4fc637eaefcf45f",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -974,21 +974,21 @@
       "id": "dossier-foyer-anderlechtois-0",
       "source": "dossier",
       "domain": "Housing",
-      "question": "What is the blocking of the 131 million euros intended for the SLRB tied to, according to the positions expressed on 5 October 2026?",
+      "question": "On what condition does the MR chair make the payment of the 131 million euros intended for the SLRB depend, a position maintained on 8 October 2026?",
       "options": [
-        "The chairmanship of the Foyer anderlechtois",
-        "An appeal before the Council of State",
-        "An opinion of the Court of Audit",
-        "The sale of the Ariane and Palais sites"
+        "The departure of the chair of the Foyer anderlechtois",
+        "The sale of social housing",
+        "An increase in social housing rents",
+        "The merger of the housing companies"
       ],
       "correct": 0,
-      "explanation": "The president of the minister-president's party maintains that the funds will not be released as long as the company's chair stays in place.",
+      "explanation": "The company's chair was re-elected in August 2026; the MR also asks for guarantees of sound management.",
       "sourceSlug": "/en/dossiers/foyer-anderlechtois",
       "sourceTitle": "Foyer anderlechtois",
       "provenance": {
-        "sourceLastModified": "2026-10-05",
-        "sourceContentHash": "sha256:08913d5aa28e5ace45cc547cb15cf453",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:fc05dc4becb0d17babc2aff567a82120",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Housing",
-      "question": "According to the Brussels Budget Minister, quoted on 5 October 2026, until when can the 131 million euros to recapitalise the SLRB be paid?",
+      "question": "What is the total amount of the SLRB recapitalisation decided in February 2026, of which a 131 million euro tranche is planned for 2026?",
       "options": [
-        "Until the end of October 2026",
-        "Until the end of December 2026",
-        "Until the end of March 2027",
-        "Until the end of June 2027"
+        "200 million euros",
+        "250 million euros",
+        "400 million euros",
+        "1 billion euros"
       ],
-      "correct": 1,
-      "explanation": "The minister-president, for his part, states that the matter was not dealt with and that the release still has to be approved by the council of ministers.",
+      "correct": 2,
+      "explanation": "It is kept outside the budget balance but increases the regional debt.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:cce349b24d320b00a50c3fe20a4fbd20",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:d5bba9bca9ea2813769fae43ee625c6a",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Housing",
-      "question": "How many social homes did the SLRB and Foyer du Sud open in Forest on 23 September 2026, in the former Luttre industrial building?",
+      "question": "What does the Brussels Budget Minister confirm, on 8 October 2026, about the 131 million euros in funds intended for the SLRB?",
       "options": [
-        "36 homes",
-        "63 homes",
-        "120 homes",
-        "537 homes"
+        "That they are in the initial 2026 budget, already voted",
+        "That they were removed during the conclave",
+        "That they are postponed to the 2028 budget",
+        "That they depend on a European loan"
       ],
-      "correct": 1,
-      "explanation": "The 11,000 m² building was bought in 2016 as part of the regional Alliance Habitat-Acquisitions operation.",
+      "correct": 0,
+      "explanation": "He also considers it legitimate for a partner to set conditions on the execution of a budget, according to BRUZZ.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:cce349b24d320b00a50c3fe20a4fbd20",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-09",
+        "sourceContentHash": "sha256:d5bba9bca9ea2813769fae43ee625c6a",
+        "generatedAt": "2026-10-09T06:42:00.074Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

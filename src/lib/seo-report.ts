@@ -29,8 +29,10 @@ const SCHEMA_VERSIONS = {
   crawl: 1,
 } as const satisfies Record<NomBloc, number>;
 
-// Le rapport est hebdomadaire : passé 8 jours sans relevé, ça doit se voir.
-const STALE_AFTER_HOURS = 192;
+// Le relevé tourne chaque jour à 06:30 UTC (bgm-ops, bgm-seo-report.timer) :
+// passé deux passages manqués, ça doit se voir. 50 h et non 48, pour ne pas
+// rougir pendant les quelques minutes que dure le passage lui-même.
+const STALE_AFTER_HOURS = 50;
 
 type NomBloc = 'gsc' | 'umami' | 'crawl';
 

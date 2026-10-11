@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BGM, Bruxelles, derrière les chiffres · Semaine 41</title>
+<meta name="description" content="Logement social, population, chômage, air des écoles, manifestation, friche Josaphat : six sujets." />
+<link rel="canonical" href="https://magazine.governance.brussels/s41/" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Brussels Governance Monitor" />
+<meta property="og:title" content="BGM, Bruxelles, derrière les chiffres · Semaine 41" />
+<meta property="og:description" content="Logement social, population, chômage, air des écoles, manifestation, friche Josaphat : six sujets." />
+<meta property="og:url" content="https://magazine.governance.brussels/s41/" />
+<meta property="og:locale" content="fr_BE" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#ffffff;--paper-2:#f8fafc;--ink:#0f172a;--ink-2:#334155;--muted:#64748b;--line:#e2e8f0;
+  --accent:#b45309;--accent-soft:#fef3c7;--dark:#172554;--dark-2:#1e3a8a;--on-dark:#f8fafc;--on-dark-muted:#cbd5e1;
+  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;--display:'Playfair Display',Georgia,serif;--sans:'Inter',Arial,Helvetica,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  --measure:38rem;--gutter:clamp(1rem,4vw,3rem);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper-2);color:var(--ink);font-family:var(--serif);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;padding:.5rem 1rem;font-family:var(--sans)}
+.skip:focus{left:1rem;top:1rem;z-index:10}
+.site-nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem var(--gutter);background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
+.brand{display:flex;align-items:baseline;gap:.75rem;text-decoration:none}
+.brand strong{font-family:var(--display);font-size:1.25rem;letter-spacing:.02em}
+.brand span{color:var(--muted)}
+.site-nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
+.site-nav a{text-decoration:none;color:var(--ink-2)}
+.site-nav a:hover,.site-nav a:focus-visible{color:var(--accent);text-decoration:underline}
+.sheet{padding:clamp(2.5rem,7vh,5rem) var(--gutter);border-bottom:1px solid var(--line)}
+.sheet .inner{max-width:72rem;margin:0 auto}
+.sheet.dark{background:var(--dark);color:var(--on-dark);border-color:var(--dark-2)}
+.sheet.dark .muted,.sheet.dark .eyebrow{color:var(--on-dark-muted)}
+.eyebrow{font-family:var(--sans);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 .75rem}
+.muted{color:var(--muted)}
+.cover h1{font-family:var(--display);font-weight:700;font-size:clamp(2.25rem,6vw,4.5rem);line-height:1.05;margin:0 0 1rem;max-width:18ch}
+.cover .intro{font-size:clamp(1.125rem,2vw,1.5rem);max-width:var(--measure);margin:0 0 2rem;color:var(--on-dark-muted)}
+.cover-meta{display:flex;flex-wrap:wrap;gap:1rem 2rem;font-family:var(--sans);font-size:.875rem;color:var(--on-dark-muted);margin-bottom:2.5rem}
+.cover-numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1.5rem;margin:2.5rem 0 0;padding:0;list-style:none}
+.cover-number{border-top:2px solid var(--accent);padding-top:.75rem}
+.cover-number .n{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);line-height:1;display:block;margin:.25rem 0}
+.cover-number small{font-family:var(--sans);font-size:.875rem;color:var(--on-dark-muted)}
+.button{display:inline-block;font-family:var(--sans);font-weight:600;text-decoration:none;padding:.7rem 1.1rem;border-radius:.375rem;background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.button.secondary{background:transparent;color:inherit;border-color:currentColor}
+.button:hover,.button:focus-visible{filter:brightness(1.08);text-decoration:underline}
+.toc h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.25rem);margin:0 0 .25rem}
+.toc-list{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.toc-list li{border-bottom:1px solid var(--line)}
+.toc-link{display:grid;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:baseline;padding:1rem 0;text-decoration:none}
+.toc-link:hover .toc-title,.toc-link:focus-visible .toc-title{text-decoration:underline;color:var(--accent)}
+.toc-rank{font-family:var(--mono);color:var(--muted)}
+.toc-short{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
+.toc-stat{font-family:var(--display);font-size:1.5rem;white-space:nowrap}
+.story .inner{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem}
+@media(min-width:900px){.story .inner{grid-template-columns:minmax(0,1.4fr) minmax(16rem,.8fr);gap:3rem}}
+.story h2{font-family:var(--display);font-size:clamp(1.75rem,3.6vw,2.75rem);line-height:1.12;margin:0 0 .75rem;max-width:22ch}
+.lead{font-size:1.25rem;line-height:1.5;color:var(--ink-2);margin:0 0 1.25rem;max-width:var(--measure)}
+.sheet.dark .lead{color:var(--on-dark-muted)}
+.body-text{max-width:var(--measure);margin:0 0 1.25rem}
+.story .actions{margin:1.25rem 0 2rem}
+.sources{font-family:var(--sans);font-size:.875rem;border-top:1px solid var(--line);padding-top:1rem;max-width:var(--measure)}
+.sheet.dark .sources{border-color:var(--dark-2)}
+.sources h3{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 .75rem;color:var(--muted)}
+.sources ul{list-style:none;margin:0;padding:0}
+.sources li{margin:0 0 .75rem}
+.sources a{word-break:break-all}
+.kind{display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:.1rem .4rem;border:1px solid currentColor;border-radius:.25rem;margin-right:.5rem;vertical-align:middle}
+.consulted{color:var(--muted);margin:.5rem 0 0}
+.stat-panel{align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:.5rem;padding:1.5rem;color:var(--ink)}
+/* Rythme : sur une feuille sombre, le panneau est clair ; sur une feuille claire, il est sombre. */
+.sheet.dark .stat-panel{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.sheet.dark .stat-panel .stat-label,.sheet.dark .stat-panel .nuance p{color:var(--ink-2)}
+.sheet.dark .stat-panel .facts,.sheet.dark .stat-panel .facts li{border-color:var(--line)}
+.sheet.dark .stat-panel .status .badge{background:var(--accent-soft);color:var(--accent)}
+.stat-panel.inverse{background:var(--dark);border-color:var(--dark);color:var(--on-dark)}
+.stat-panel.inverse .stat-label,.stat-panel.inverse .nuance p{color:var(--on-dark-muted)}
+.stat-panel.inverse .facts,.stat-panel.inverse .facts li{border-color:rgba(255,255,255,.18)}
+.stat-panel.inverse .status .badge{background:rgba(254,243,199,.16);color:#fde68a}
+.stat-panel.inverse .nuance .eyebrow{color:#fde68a}
+.stat-panel.inverse .nuance{border-top-color:#fde68a}
+.status{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 .5rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.status .badge{background:var(--accent-soft);color:var(--accent);padding:.15rem .5rem;border-radius:.25rem;letter-spacing:.06em}
+.sheet.dark .status .badge{background:rgba(254,243,199,.15);color:#fde68a}
+.status .detail{color:var(--muted);text-transform:none;letter-spacing:0;font-size:.8125rem}
+.stat{font-family:var(--display);font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;margin:.25rem 0 .5rem}
+.stat-label{font-family:var(--sans);font-size:.9375rem;margin:0 0 1rem;color:var(--ink-2)}
+.sheet.dark .stat-label{color:var(--on-dark-muted)}
+.facts{list-style:none;margin:0;padding:0;font-family:var(--sans);font-size:.875rem;border-top:1px solid var(--line)}
+.sheet.dark .facts{border-color:rgba(255,255,255,.15)}
+.facts li{padding:.5rem 0;border-bottom:1px solid var(--line)}
+.sheet.dark .facts li{border-color:rgba(255,255,255,.15)}
+.nuance{margin-top:1.5rem;padding-top:1.25rem;border-top:2px solid var(--accent)}
+.nuance .eyebrow{color:var(--accent)}
+.nuance-title{font-family:var(--display);font-size:1.25rem;margin:0 0 .5rem}
+.nuance p{margin:0;font-size:.9375rem}
+.story-foot{grid-column:1 / -1;display:flex;justify-content:space-between;gap:1rem;font-family:var(--sans);font-size:.8125rem;color:var(--muted);margin-top:1rem}
+.story-foot a{text-decoration:none}
+.story-foot a:hover,.story-foot a:focus-visible{text-decoration:underline}
+.howto h2,.closing h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.25rem);margin:0 0 1rem}
+.howto ol{max-width:var(--measure);padding-left:1.25rem}
+.howto li{margin-bottom:.5rem}
+.closing-grid{display:grid;gap:2rem}
+@media(min-width:800px){.closing-grid{grid-template-columns:1fr 1fr}}
+.closing p{max-width:var(--measure)}
+.footerline{font-family:var(--sans);font-size:.8125rem;color:var(--on-dark-muted);border-top:1px solid var(--dark-2);padding-top:1rem;margin-top:2rem}
+.footerline a{color:inherit}
+.cover-tagline{font-family:var(--serif);font-style:italic;font-size:1.0625rem;color:var(--on-dark-muted);max-width:var(--measure);margin:0 0 1.25rem}
+/* Couverture : deux colonnes, dégradé, filigrane du numéro de semaine, trois chiffres en tuiles. */
+.sheet.cover{background:linear-gradient(160deg,var(--dark) 0%,var(--dark-2) 70%,#1d4ed8 140%);position:relative;overflow:hidden;min-height:min(88vh,52rem);display:flex;align-items:center}
+.cover-grid{position:relative;display:grid;gap:2.5rem;width:100%}
+@media(min-width:900px){.cover-grid{grid-template-columns:minmax(0,1.3fr) minmax(16rem,.9fr);align-items:center;gap:4rem}}
+.cover-issue{font-family:var(--sans);font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:#fde68a;margin:0 0 1.25rem;display:flex;align-items:center;gap:.6rem}
+.cover-issue .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 0 .35rem rgba(180,83,9,.25)}
+.cover .cover-meta{margin:0 0 1.5rem}
+.cover-side .cover-numbers{grid-template-columns:1fr;gap:1rem;margin:0}
+.cover-side .cover-number{border-top:0;border-left:3px solid var(--accent);padding:.9rem 0 .9rem 1.1rem;background:rgba(255,255,255,.05);border-radius:0 .5rem .5rem 0}
+.cover-side .cover-number .n{font-size:clamp(2rem,3.4vw,2.75rem)}
+.cover-watermark{position:absolute;right:-1rem;bottom:-3rem;font-family:var(--display);font-weight:700;font-size:clamp(14rem,34vw,30rem);line-height:1;color:rgba(255,255,255,.04);pointer-events:none;user-select:none}
+/* Feuilles : blanc, teinte ardoise, bleu foncé, en alternance ; numéro en filigrane. */
+.sheet.story{position:relative;overflow:hidden}
+.sheet.story.light{background:var(--paper)}
+.sheet.toc,.sheet.howto{background:var(--paper-2)}
+.sheet.closing{background:var(--paper)}
+.rank-mark{position:absolute;top:-1.5rem;left:var(--gutter);font-family:var(--display);font-weight:700;font-size:clamp(7rem,16vw,12rem);line-height:1;color:rgba(15,23,42,.045);pointer-events:none;user-select:none}
+.sheet.dark .rank-mark{color:rgba(255,255,255,.05)}
+.story .inner{position:relative}
+.story h2::before{content:"";display:block;width:3rem;height:3px;background:var(--accent);margin:0 0 1rem}
+.toc-link:hover .toc-rank,.toc-link:focus-visible .toc-rank{color:var(--accent)}
+.site-note{font-family:var(--sans);font-size:.8125rem;margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.card-inner{max-width:46rem}
+.card-manifesto{font-family:var(--display);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.4;margin:0 0 1.25rem}
+.card-signature{font-family:var(--sans);font-weight:600;letter-spacing:.04em;margin:0 0 1.5rem;padding-top:1rem;border-top:2px solid var(--accent);display:inline-block}
+.card-publication{margin:0 0 .75rem;line-height:1.5}
+.card-offer{font-family:var(--sans);font-size:.9375rem;color:var(--on-dark-muted);margin:0 0 1rem}
+.card-contact{font-family:var(--sans);font-size:.9375rem;margin:0}
+.card-contact a{color:#fde68a;text-decoration:none}
+.card-contact a:hover,.card-contact a:focus-visible{text-decoration:underline}
+.a-lundi{font-family:var(--display);font-style:italic;font-size:1.5rem;margin:.5rem 0 1.25rem}
+.closing .footerline{color:var(--muted);border-color:var(--line)}
+@media(max-width:760px){.toc-link{grid-template-columns:2.25rem 1fr}.toc-stat{grid-column:2;font-size:1.25rem}.site-nav ul{gap:.75rem}}
+@media print{.site-nav,.skip,.story-foot,.actions{display:none}.sheet{break-inside:avoid;border:0;padding:1.5rem 0}.sheet.dark{background:#fff;color:#000}.print-url::after{content:" (" attr(href) ")";font-size:.8em}}
+</style>
+<link rel="preconnect" href="https://analytics.governance.brussels" />
+<script defer src="https://analytics.governance.brussels/script.js" data-website-id="e42598c7-0c04-4c2f-b7c3-e1c5e0b2b6bc"></script>
+</head>
+<body>
+<a class="skip" href="#sommaire">Aller au sommaire</a>
+<header class="site-nav">
+<a class="brand" href="https://governance.brussels/fr"><strong>BGM</strong><span>Le magazine · S41</span></a>
+<nav aria-label="Navigation du magazine"><ul>
+<li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#comment-lire">Comment lire</a></li>
+<li><a href="https://governance.brussels/fr">Le site ↗</a></li>
+</ul></nav>
+</header>
+<main class="magazine">
+<section class="sheet cover dark" aria-labelledby="titre">
+<div class="inner cover-grid">
+<div class="cover-copy">
+<p class="cover-issue"><span class="dot" aria-hidden="true"></span>Le magazine BGM · Semaine 41</p>
+<h1 id="titre">Bruxelles, derrière les chiffres.</h1>
+<p class="intro">Ce qui change. Ce que l’on sait. Et ce que les chiffres ne disent pas.</p>
+<p class="cover-tagline">Logement social, population, chômage, air des écoles, manifestation, friche Josaphat : six sujets.</p>
+<p class="cover-meta"><span>5 au 11 octobre 2026</span><span>Six sujets · Bruxelles</span></p>
+<p class="actions"><a class="button" href="#sommaire">Explorer les sujets ↓</a></p>
+</div>
+<div class="cover-side">
+<ul class="cover-numbers">
+<li class="cover-number"><span class="eyebrow">01 / Logement social</span><span class="n">131 M€</span><small>inscrits au budget 2026, pas encore versés</small></li>
+<li class="cover-number"><span class="eyebrow">02 / Population</span><span class="n">39</span><small>habitants de plus en un an, plus faible hausse depuis 1996</small></li>
+<li class="cover-number"><span class="eyebrow">03 / Chômage</span><span class="n">100 198</span><small>chercheurs d&#39;emploi inscrits fin septembre 2026</small></li>
+</ul>
+</div>
+<span class="cover-watermark" aria-hidden="true">41</span>
+</div>
+</section>
+<section class="sheet toc" id="sommaire" aria-labelledby="sommaire-titre">
+<div class="inner">
+<p class="eyebrow">Cette semaine</p>
+<h2 id="sommaire-titre">Choisissez votre point d’entrée</h2>
+<p class="muted">Chaque sujet tient en une page et vous mène à sa fiche sur governance.brussels.</p>
+<ol class="toc-list">
+<li><a class="toc-link" href="#sujet-01-logement-social"><span class="toc-rank">01</span><span><span class="toc-short">Logement social</span><span class="toc-title">Logement social : le conseil des ministres s&#39;interrompt sur 131 millions.</span></span><span class="toc-stat">131 M€</span></a></li>
+<li><a class="toc-link" href="#sujet-02-population"><span class="toc-rank">02</span><span><span class="toc-short">Population</span><span class="toc-title">Trente-neuf habitants de plus en un an.</span></span><span class="toc-stat">39</span></a></li>
+<li><a class="toc-link" href="#sujet-03-chomage"><span class="toc-rank">03</span><span><span class="toc-short">Chômage</span><span class="toc-title">Plus de 100 000 chercheurs d&#39;emploi inscrits.</span></span><span class="toc-stat">100 198</span></a></li>
+<li><a class="toc-link" href="#sujet-04-air-des-ecoles"><span class="toc-rank">04</span><span><span class="toc-short">Air des écoles</span><span class="toc-title">Dioxyde d&#39;azote : toutes les écoles au-dessus de la recommandation de l&#39;OMS.</span></span><span class="toc-stat">841</span></a></li>
+<li><a class="toc-link" href="#sujet-05-manifestation"><span class="toc-rank">05</span><span><span class="toc-short">Manifestation</span><span class="toc-title">Après la manifestation, des mineurs relâchés faute de places.</span></span><span class="toc-stat">283</span></a></li>
+<li><a class="toc-link" href="#sujet-06-josaphat"><span class="toc-rank">06</span><span><span class="toc-short">Josaphat</span><span class="toc-title">Friche Josaphat : Schaerbeek dit non, la Région décide.</span></span><span class="toc-stat">15 000</span></a></li>
+</ol>
+</div>
+</section>
+<section class="sheet story light" id="sujet-01-logement-social" aria-labelledby="sujet-01-logement-social-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">01</span>
+<div class="copy">
+<p class="eyebrow">Logement · Région · 01 / 06</p>
+<h2 id="sujet-01-logement-social-titre">Logement social : le conseil des ministres s&#39;interrompt sur 131 millions.</h2>
+<p class="lead">Quatre jours après l&#39;accord sur le budget 2027, deux membres du gouvernement quittent la réunion. Les crédits sont votés ; leur versement ne l&#39;est pas.</p>
+<p class="body-text">Le jeudi 8 octobre 2026, le conseil des ministres bruxellois a été interrompu avant son terme pendant la discussion sur la tranche de 131 millions d&#39;euros destinée à la SLRB, la société régionale du logement social. Une partie de la majorité demande le versement immédiat et estime que le conclave budgétaire du 4 octobre a tranché. L&#39;autre demande un dossier sur l&#39;affectation des fonds et des garanties sur la réforme du logement social. Le ministre du Budget confirme que les crédits figurent au budget 2026, déjà voté.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/dossiers/slrb">Lire le dossier sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel inverse" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">À confirmer</span></p>
+<p class="stat">131 M€</p>
+<p class="stat-label">inscrits au budget 2026, pas encore versés</p>
+<ul class="facts"><li>Première tranche d&#39;une recapitalisation de 400 millions d&#39;euros</li><li>Aucune décision prise le 8 octobre 2026</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Un crédit voté n&#39;est pas un crédit versé</h3>
+<p>Les 131 millions existent dans un budget adopté par le Parlement ; ce qui manque est la décision du gouvernement de les libérer. Ce qui s&#39;est dit en réunion n&#39;est connu que par les récits de ceux qui y étaient.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 41</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story dark" id="sujet-02-population" aria-labelledby="sujet-02-population-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">02</span>
+<div class="copy">
+<p class="eyebrow">Démographie · Région · 02 / 06</p>
+<h2 id="sujet-02-population-titre">Trente-neuf habitants de plus en un an.</h2>
+<p class="lead">La Région compte 1 255 834 habitants au 1er janvier 2026. C&#39;est la plus faible hausse depuis 1996 : les départs vers la Flandre et la Wallonie effacent presque tout le reste.</p>
+<p class="body-text">Selon le Baromètre démographique 2026 de l&#39;IBSA, la Région bruxelloise compte 1 255 834 habitants au 1er janvier 2026, soit 39 de plus qu&#39;un an plus tôt. Trois mouvements se compensent : les naissances dépassent les décès de 5 103, les arrivées de l&#39;étranger dépassent les départs de 13 988, et les départs vers les deux autres Régions dépassent les arrivées de 18 553. La population augmente dans neuf communes et diminue dans dix. Avec 129 600 habitants, Anderlecht passe devant Schaerbeek.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/housing">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">Donnée officielle</span></p>
+<p class="stat">39</p>
+<p class="stat-label">habitants de plus en un an, plus faible hausse depuis 1996</p>
+<ul class="facts"><li>18 553 départs nets vers la Flandre et la Wallonie</li><li>Anderlecht devient la deuxième commune, devant Schaerbeek</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Une population stable n&#39;est pas une population immobile</h3>
+<p>Le solde de 39 cache des dizaines de milliers d&#39;arrivées et de départs. La Région garde le même nombre d&#39;habitants, mais pas les mêmes habitants : le chiffre ne dit rien de qui part et de qui arrive.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 41</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story light" id="sujet-03-chomage" aria-labelledby="sujet-03-chomage-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">03</span>
+<div class="copy">
+<p class="eyebrow">Emploi · Région et fédéral · 03 / 06</p>
+<h2 id="sujet-03-chomage-titre">Plus de 100 000 chercheurs d&#39;emploi inscrits.</h2>
+<p class="lead">Actiris compte 100 198 inscrits fin septembre 2026. La limitation des allocations dans le temps ne réduit pas ce nombre : elle déplace des personnes vers les CPAS.</p>
+<p class="body-text">Fin septembre 2026, Actiris compte 100 198 chercheurs d&#39;emploi inscrits, soit 5,8 % de plus qu&#39;un an plus tôt, et un taux de chômage de 16,1 %. Le nombre de chercheurs d&#39;emploi indemnisés recule de 44,6 % sur un an, tandis que 35 455 inscrits relèvent désormais d&#39;un CPAS, en hausse de 86,8 %. La hausse est la plus forte chez les moins de 25 ans : 15,2 % de plus. Actiris écrit que la réforme fédérale déplace des personnes de la catégorie des allocataires vers celle des bénéficiaires du revenu d&#39;intégration.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/employment">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel inverse" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">Donnée officielle</span></p>
+<p class="stat">100 198</p>
+<p class="stat-label">chercheurs d&#39;emploi inscrits fin septembre 2026</p>
+<ul class="facts"><li>35 % des inscrits relèvent d&#39;un CPAS, en hausse de 86,8 %</li><li>Taux de chômage de 16,1 %</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Moins d&#39;allocataires, pas moins de chercheurs d&#39;emploi</h3>
+<p>Le nombre d&#39;inscrits et le nombre de chômeurs indemnisés mesurent deux choses différentes. Le second baisse parce que la règle a changé ; le premier monte, et une part croissante de ces personnes dépend maintenant des communes.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 41</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story dark" id="sujet-04-air-des-ecoles" aria-labelledby="sujet-04-air-des-ecoles-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">04</span>
+<div class="copy">
+<p class="eyebrow">Air · Région · 04 / 06</p>
+<h2 id="sujet-04-air-des-ecoles-titre">Dioxyde d&#39;azote : toutes les écoles au-dessus de la recommandation de l&#39;OMS.</h2>
+<p class="lead">Une modélisation publiée par une association place les 841 établissements bruxellois étudiés au-dessus de la valeur recommandée pour protéger la santé.</p>
+<p class="body-text">Selon une analyse publiée le jeudi 8 octobre 2026 par l&#39;association Les Chercheurs d&#39;air, les 841 établissements scolaires bruxellois étudiés sont tous exposés, en 2024, à une concentration annuelle moyenne de dioxyde d&#39;azote supérieure à la recommandation de l&#39;Organisation mondiale de la santé, soit 10 microgrammes par mètre cube. Sur 618 écoles maternelles et primaires, 167 dépassent 15 microgrammes : toutes celles de Saint-Josse-ten-Noode, sept sur dix à Schaerbeek, une sur deux à Ixelles et à la Ville de Bruxelles.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/climate">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">Estimation</span></p>
+<p class="stat">841</p>
+<p class="stat-label">établissements étudiés, tous au-dessus de la recommandation</p>
+<ul class="facts"><li>167 écoles maternelles et primaires au-dessus de 15 µg/m³</li><li>Amélioration entre 2022 et 2024, selon l&#39;association</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Un calcul, pas une mesure ; une recommandation, pas une norme</h3>
+<p>Les concentrations sont modélisées par logiciel, pas mesurées devant chaque école. Et la valeur de l&#39;OMS indique ce qui protège la santé : elle n&#39;a pas de force obligatoire. L&#39;association relève elle-même une amélioration depuis 2022.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 41</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story light" id="sujet-05-manifestation" aria-labelledby="sujet-05-manifestation-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">05</span>
+<div class="copy">
+<p class="eyebrow">Sécurité · Fédéral et Communautés · 05 / 06</p>
+<h2 id="sujet-05-manifestation-titre">Après la manifestation, des mineurs relâchés faute de places.</h2>
+<p class="lead">Environ 110 arrestations en marge du cortège du 9 octobre. Le parquet avait requis huit placements de mineurs ; les institutions n&#39;avaient pas de place.</p>
+<p class="body-text">Le vendredi 9 octobre 2026, une manifestation nationale a réuni à Bruxelles 30 000 personnes selon la police et 50 000 selon le syndicat organisateur. En marge du cortège, des affrontements ont mené à environ 110 arrestations, un bilan encore provisoire. Le parquet de Bruxelles a ordonné 21 mises à disposition, dont 17 mineurs. Le dimanche 11 octobre, il indique avoir requis le placement de huit mineurs en institution ; faute de places disponibles, ils ont été remis en liberté. Selon le parquet, 283 jeunes francophones attendent une place en régime fermé.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/security">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel inverse" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">Estimation</span></p>
+<p class="stat">283</p>
+<p class="stat-label">jeunes francophones attendent une place en régime fermé</p>
+<ul class="facts"><li>30 000 manifestants selon la police, 50 000 selon le syndicat</li><li>21 mises à disposition du parquet, dont 17 mineurs</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">La décision est judiciaire, les places dépendent des Communautés</h3>
+<p>Le parquet et le juge de la jeunesse relèvent de la justice fédérale ; les institutions de placement relèvent de la Fédération Wallonie-Bruxelles. La Région bruxelloise n&#39;a de compétence ni sur l&#39;un ni sur l&#39;autre, alors que les faits se passent chez elle.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 41</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story dark" id="sujet-06-josaphat" aria-labelledby="sujet-06-josaphat-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">06</span>
+<div class="copy">
+<p class="eyebrow">Urbanisme · Commune et Région · 06 / 06</p>
+<h2 id="sujet-06-josaphat-titre">Friche Josaphat : Schaerbeek dit non, la Région décide.</h2>
+<p class="lead">Le collège rend un avis défavorable sur le permis de lotir, après près de 15 000 réclamations. L&#39;an dernier, il s&#39;était abstenu.</p>
+<p class="body-text">Le mardi 6 octobre 2026, le collège des bourgmestre et échevins de Schaerbeek a adopté un avis défavorable sur la demande de permis de lotir de la friche Josaphat. Il estime que les adaptations du projet ne répondent pas assez aux préoccupations liées au réchauffement : îlots de chaleur, gestion des eaux pluviales, préservation des sols et de la biodiversité. L&#39;enquête publique avait recueilli près de 15 000 réclamations. La commune défend sa position à la commission de concertation du lundi 12 octobre 2026.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/urban-planning">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">Donnée officielle</span></p>
+<p class="stat">15 000</p>
+<p class="stat-label">réclamations, environ, à l&#39;enquête publique</p>
+<ul class="facts"><li>Avis adopté à la majorité, pas à l&#39;unanimité</li><li>Commission de concertation le lundi 12 octobre 2026</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Un avis communal ne bloque pas un permis régional</h3>
+<p>L&#39;avis du collège est consultatif. Il pèse dans le dossier, mais la décision de délivrer ou non le permis appartient à la Région. Un avis défavorable ne signifie donc pas que le projet est arrêté.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 41</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet howto" id="comment-lire" aria-labelledby="comment-lire-titre">
+<div class="inner">
+<p class="eyebrow">Mode d’emploi</p>
+<h2 id="comment-lire-titre">Comment lire ce magazine</h2>
+<ol>
+<li>Chaque sujet commence par ce qui change, puis ce que l’on sait. La nuance, en fin de panneau, dit ce que le chiffre ne mesure pas.</li>
+<li>Le statut du chiffre vient du niveau de confiance de la fiche sur le site : donnée officielle, estimation, ou fait encore à confirmer.</li>
+<li>Les sources, les dates et le détail ne sont pas ici : ils sont sur la fiche, à un clic, mise à jour quand le fait évolue.</li>
+<li>Ce magazine est une porte d’entrée. Le site, lui, suit chaque dossier dans la durée, en quatre langues.</li>
+</ol>
+</div>
+</section>
+<section class="sheet card dark" aria-labelledby="carte-titre">
+<div class="inner card-inner">
+<p class="eyebrow">Qui écrit</p>
+<h2 id="carte-titre" class="sr-only">Carte de visite</h2>
+<p class="card-manifesto">« Mon métier consiste à rendre lisible la complexité institutionnelle de Bruxelles pour des organisations qui dépendent de ses décisions. Le BGM est le prolongement public de ce travail : chaque semaine, transformer la lasagne institutionnelle en grille lisible pour tout Bruxellois qui veut comprendre, sans filtre ni parti pris. »</p>
+<p class="card-signature">Zoltán Jánosi</p>
+<p class="card-publication"><strong>Brussels Governance Monitor</strong><br>Édité par Advice That SRL · Bruxelles</p>
+<p class="card-offer">Conseil en stratégie · Analyse institutionnelle · Veille sur mesure · Accompagnement personnalisé</p>
+<p class="card-contact"><a href="mailto:contact@brusselsgovernance.be">contact@brusselsgovernance.be</a> · <a href="https://linkedin.com/in/zoltan" rel="noopener">linkedin.com/in/zoltan</a></p>
+</div>
+</section>
+<section class="sheet closing" aria-labelledby="cloture-titre">
+<div class="inner closing-grid">
+<div>
+<p class="eyebrow">À suivre</p>
+<h2 id="cloture-titre">Retour lundi prochain.</h2>
+<p class="a-lundi">À lundi prochain.</p>
+<p class="actions"><a class="button" href="https://governance.brussels/fr">Aller sur governance.brussels</a> <a class="button secondary" href="https://governance.brussels/fr/subscribe">Recevoir le digest</a></p>
+</div>
+<div>
+<p class="eyebrow">Ce numéro</p>
+<p class="muted">Semaine 41, 5 au 11 octobre 2026. Six sujets.</p>
+<p class="muted">Adresse de ce numéro : <a href="https://magazine.governance.brussels/s41/">https://magazine.governance.brussels/s41/</a></p>
+<p class="footerline">Le Signal, le digest et ce magazine sont les publications hebdomadaires de Brussels Governance Monitor, moniteur citoyen indépendant de la gouvernance régionale bruxelloise. Apolitique, factuel, sourcé.</p>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>

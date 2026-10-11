@@ -1,28 +1,28 @@
 {
-  "week": "2026-w40",
-  "weekStart": "2026-09-28",
-  "created_at": "2026-10-04T19:00:03.336Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w41",
+  "weekStart": "2026-10-05",
+  "created_at": "2026-10-11T19:00:03.392Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "12 domaines, 11 dossiers, 3 secteurs, 7 communes mis à jour",
-    "nl": "12 domeinen, 11 dossiers, 3 sectoren, 7 gemeenten bijgewerkt",
-    "en": "12 domains, 11 dossiers, 3 sectors, 7 communes updated",
-    "de": "12 Bereiche, 11 Dossiers, 3 Sektoren, 7 Gemeinden aktualisiert"
+    "fr": "12 domaines, 5 dossiers, 5 secteurs, 3 communes mis à jour",
+    "nl": "12 domeinen, 5 dossiers, 5 sectoren, 3 gemeenten bijgewerkt",
+    "en": "12 domains, 5 dossiers, 5 sectors, 3 communes updated",
+    "de": "12 Bereiche, 5 Dossiers, 5 Sektoren, 3 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "30 %",
+    "value": "39",
     "label": {
-      "fr": "La baisse des subsides culturels flamands aux communes bruxelloises à partir de 2027 : de 3,7 à 2,6 millions d'euros par an",
-      "nl": "De vermindering van de Vlaamse cultuursubsidies aan de Brusselse gemeenten vanaf 2027: van 3,7 naar 2,6 miljoen euro per jaar",
-      "en": "The cut in Flemish cultural subsidies to Brussels municipalities from 2027: from 3.7 to 2.6 million euros a year",
-      "de": "Die Kürzung der flämischen Kultursubventionen für die Brüsseler Gemeinden ab 2027: von 3,7 auf 2,6 Millionen Euro pro Jahr"
+      "fr": "Le nombre d'habitants gagnés par la Région bruxelloise en un an : 1 255 834 au 1er janvier 2026, la plus faible hausse depuis 1996",
+      "nl": "Het aantal inwoners dat het Brussels Gewest er in een jaar bij kreeg: 1.255.834 op 1 januari 2026, de kleinste stijging sinds 1996",
+      "en": "The number of inhabitants the Brussels Region gained in a year: 1,255,834 on 1 January 2026, the smallest increase since 1996",
+      "de": "Die Zahl der Einwohner, die die Region Brüssel in einem Jahr hinzugewonnen hat: 1.255.834 am 1. Januar 2026, der geringste Anstieg seit 1996"
     },
     "source": {
-      "fr": "BRUZZ, confirmation du porte-parole de la ministre flamande de la Culture (2 octobre 2026)",
-      "nl": "BRUZZ, bevestiging door de woordvoerder van de Vlaamse minister van Cultuur (2 oktober 2026)",
-      "en": "BRUZZ, confirmed by the spokesperson of the Flemish Minister of Culture (2 October 2026)",
-      "de": "BRUZZ, bestätigt vom Sprecher der flämischen Kulturministerin (2. Oktober 2026)"
+      "fr": "IBSA, Baromètre démographique 2026 (Focus n° 85, 7 octobre 2026)",
+      "nl": "BISA, Demografische barometer 2026 (Focus nr. 85, 7 oktober 2026)",
+      "en": "IBSA, Demographic Barometer 2026 (Focus No. 85, 7 October 2026)",
+      "de": "IBSA, Demografisches Barometer 2026 (Focus Nr. 85, 7. Oktober 2026)"
     }
   },
   "closingNote": {
@@ -35,8 +35,8 @@
   "updatedTopics": [
     "budget",
     "cleanliness",
+    "climate",
     "digital",
-    "economy",
     "education",
     "employment",
     "housing",
@@ -45,26 +45,18 @@
     "security",
     "social",
     "urban-planning",
-    "dossier-accessibilite-pmr",
-    "dossier-bien-etre",
-    "dossier-enseignement",
-    "dossier-mobilite-partagee",
-    "dossier-plan-securite",
+    "dossier-cpas-bruxellois",
+    "dossier-foyer-anderlechtois",
     "dossier-reforme-administration",
-    "dossier-seniors",
     "dossier-slrb",
     "dossier-survol-bruxelles",
-    "dossier-vivaqua",
-    "dossier-metro-3",
+    "construction",
     "culture",
+    "environment",
+    "health-social",
     "housing-sector",
+    "commune-anderlecht",
     "commune-bruxelles-ville",
-    "commune-etterbeek",
-    "commune-forest",
-    "commune-jette",
-    "commune-molenbeek-saint-jean",
-    "commune-watermael-boitsfort",
-    "commune-woluwe-saint-lambert"
-  ],
-  "sent_at": "2026-10-04T19:40:59.387Z"
+    "commune-schaerbeek"
+  ]
 }

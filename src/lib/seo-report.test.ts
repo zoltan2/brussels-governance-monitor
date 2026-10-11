@@ -134,14 +134,29 @@ describe('readSeoReport', () => {
     expect(rapport.blocs.gsc.donnees?.actions).toHaveLength(0);
   });
 
-  it('calcule la fraîcheur de chaque bloc avec le seuil de 8 jours', async () => {
-    const ilYA9Jours = new Date(Date.now() - 9 * 24 * 3_600_000).toISOString();
+  it('juge frais un relevé de la veille', async () => {
+    const ilYA30Heures = new Date(Date.now() - 30 * 3_600_000).toISOString();
     vi.mocked(readFile).mockResolvedValue(
       JSON.stringify({
         schemaVersion: 3,
         bloc: 'gsc',
         status: 'ok',
-        generatedAt: ilYA9Jours,
+        generatedAt: ilYA30Heures,
+        donnees: {},
+      }),
+    );
+    const rapport = await readSeoReport();
+    expect(rapport.fraicheur.gsc?.level).toBe('fresh');
+  });
+
+  it('signale un relevé périmé dès deux passages quotidiens manqués', async () => {
+    const ilYA3Jours = new Date(Date.now() - 3 * 24 * 3_600_000).toISOString();
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 3,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: ilYA3Jours,
         donnees: {},
       }),
     );

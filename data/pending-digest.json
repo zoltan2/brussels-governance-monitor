@@ -2,8 +2,8 @@
   "week": "2026-w41",
   "weekStart": "2026-10-05",
   "created_at": "2026-10-11T19:00:03.392Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "12 domaines, 5 dossiers, 5 secteurs, 3 communes mis à jour",
     "nl": "12 domeinen, 5 dossiers, 5 sectoren, 3 gemeenten bijgewerkt",
@@ -58,5 +58,6 @@
     "commune-anderlecht",
     "commune-bruxelles-ville",
     "commune-schaerbeek"
-  ]
+  ],
+  "sent_at": "2026-10-11T19:04:49.084Z"
 }

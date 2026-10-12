@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T07:12:12.138Z",
+  "generatedAt": "2026-10-12T19:10:57.776Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "What deficit does the Brussels government target for 2027 in the budget agreement reached on 4 October 2026?",
+      "question": "According to the Brussels Finance Minister, on what date should the revised road tax ideally enter into force?",
       "options": [
-        "416 million euros",
-        "719 million euros",
-        "957 million euros",
-        "1.6 billion euros"
+        "1 January 2027",
+        "2 April 2027",
+        "1 May 2027",
+        "1 July 2027"
       ],
-      "correct": 1,
-      "explanation": "The deficit was 957 million euros in 2026; a return to balance is targeted for 2029.",
+      "correct": 3,
+      "explanation": "He said so on 12 October 2026 in the Finance Committee of the Brussels Parliament.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:1f82b3009b408a2482b4e259d3b2abdf",
-        "generatedAt": "2026-10-09T06:42:00.074Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:3badf353f4322c6def21201e6035cc68",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "At the end of 2025, which bank withdrew its 500 million euro credit line from the Brussels Region?",
+      "question": "According to the draft cooperation agreement discussed in the Brussels Parliament on 12 October 2026, in what range would the annual price of the road vignette fall?",
       "options": [
-        "ING",
-        "Belfius",
-        "Deutsche Bank",
-        "BBVA"
+        "Between 30 and 50 euros",
+        "Between 90 and 125 euros",
+        "Between 150 and 200 euros",
+        "Between 250 and 350 euros"
       ],
       "correct": 1,
-      "explanation": "Only the Belfius withdrawal is established. ING's credit line, of the same amount, was due to expire on 31 December 2025, and the bank said it had not decided anything.",
+      "explanation": "The price would depend on the emission class; no compensation is planned, according to the Finance Minister.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:1f82b3009b408a2482b4e259d3b2abdf",
-        "generatedAt": "2026-10-09T06:42:00.074Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:3badf353f4322c6def21201e6035cc68",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Cleanliness",
-      "question": "Which bags does Bruxelles-Propreté ask residents not to put out on 9 and 12 October 2026, days of trade union action?",
+      "question": "According to Bruxelles-Propreté, what share of white bags was not collected in Anderlecht and Saint-Gilles during the strike of 12 October 2026?",
       "options": [
-        "The blue and yellow bags",
-        "The white and green bags",
-        "The orange and white bags",
-        "The green and orange bags"
+        "Around 30%",
+        "Around 50%",
+        "Around 70%",
+        "Around 98%"
       ],
-      "correct": 0,
-      "explanation": "Priority goes to white, green and orange bags. The mobile Recyparks planned on those days in three municipalities are cancelled.",
+      "correct": 2,
+      "explanation": "The share is 60% in Forest and Ixelles; the agency announces catch-up rounds.",
       "sourceSlug": "/en/domains/cleanliness",
       "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:5aae96dfacb477b4d38793fc88ba37e4",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:eadf2d3a0718a0781ef0cba5210f8747",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Cleanliness",
-      "question": "What is Wake-Up Clean-Up, whose results Bruxelles-Propreté published on 21 September 2026?",
+      "question": "What did the Constitutional Court decide on 24 September 2026 about the cooperation agreement on extended producer responsibility?",
       "options": [
-        "A platform for citizen clean-ups",
-        "A regional brigade issuing fines",
-        "A network of underground containers",
-        "A night-time bulky waste collection"
+        "It annulled the agreement",
+        "It dismissed the application for suspension",
+        "It suspended two articles",
+        "It declared that it had no jurisdiction"
       ],
-      "correct": 0,
-      "explanation": "Launched in October 2024, the platform lets residents, schools and companies plan a clean-up and book equipment. The agency counts more than 41 tonnes collected.",
+      "correct": 1,
+      "explanation": "In its judgment no. 115/2026, the Court finds that the risk of serious harm that is difficult to repair has not been demonstrated; the action for annulment remains to be examined.",
       "sourceSlug": "/en/domains/cleanliness",
       "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:5aae96dfacb477b4d38793fc88ba37e4",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:eadf2d3a0718a0781ef0cba5210f8747",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climate",
-      "question": "According to the modelling published on 8 October 2026 by Les Chercheurs d'air, how many of the 841 Brussels schools studied exceed the WHO recommendation for nitrogen dioxide?",
+      "question": "Against whom has Brussels Environment brought legal action over the PFAS pollution of a site in Uccle, according to the announcement of 12 October 2026?",
       "options": [
-        "167 schools",
-        "420 schools",
-        "618 schools",
-        "All 841 schools"
+        "The municipality of Uccle",
+        "The trustees of Sicli",
+        "The federal State",
+        "Vivaqua"
       ],
-      "correct": 3,
-      "explanation": "The WHO recommendation is an annual average of 10 µg/m³. Of 618 nursery and primary schools, 167 even exceed 15 µg/m³.",
+      "correct": 1,
+      "explanation": "Sicli is a bankrupt fire extinguisher manufacturer; the Region wants the bankruptcy not to prevent the clean-up.",
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:ff37a04d81df780c92b5250df0fd3c1f",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:65abe90555f3e0e15e6644ae03c9ce2c",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climate",
-      "question": "What does the Brussels budget agreement of 4 October 2026 replace the Renolution grants with?",
+      "question": "How many people did the Climate March of 11 October 2026 bring together in Brussels according to the police?",
       "options": [
-        "Zero-interest loans for renovation",
-        "A reduction in property tax",
-        "A yearly energy voucher per household",
-        "A one-off grant for insulation only"
+        "At least 15,000",
+        "At least 45,000",
+        "At least 75,000",
+        "At least 100,000"
       ],
-      "correct": 0,
-      "explanation": "The zero-interest energy and renovation loans are announced for spring 2027, with 66 million euros a year.",
+      "correct": 1,
+      "explanation": "The organisers speak of 60,000 participants.",
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:ff37a04d81df780c92b5250df0fd3c1f",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:65abe90555f3e0e15e6644ae03c9ce2c",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Employment",
-      "question": "How many jobseekers were registered with Actiris at the end of September 2026, according to its press release of 6 October 2026?",
+      "question": "At the end of September 2026, what share of the jobseekers registered with Actiris depended on a CPAS, according to the Actiris press release of 6 October 2026?",
       "options": [
-        "82,500",
-        "91,340",
-        "100,198",
-        "112,760"
+        "12%",
+        "35%",
+        "21%",
+        "48%"
       ],
-      "correct": 2,
-      "explanation": "That is 5.8% more than in September 2025; the unemployment rate stands at 16.1%.",
+      "correct": 1,
+      "explanation": "That is 35,455 of the 100,198 people registered, up 86.8% year on year.",
       "sourceSlug": "/en/domains/employment",
       "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:b1c00f9020fee3876bd3154f9b593b16",
-        "generatedAt": "2026-10-09T06:42:00.074Z",
+        "sourceLastModified": "2026-10-11",
+        "sourceContentHash": "sha256:8cb4f29c994ce5bcede9dc6e628cb7ef",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Employment",
-      "question": "According to La DH, what amount of paid educational leave subsidies is the Brussels administration seeking to recover for fraud, as stated by the Economy Minister on 6 October 2026?",
+      "question": "According to La DH and BruxellesToday, for what amount has the Brussels administration launched recoveries of paid educational leave subsidies, as stated by the Economy Minister on 6 October 2026?",
       "options": [
         "362,348 euros",
-        "1,952,653 euros",
         "8.5 million euros",
-        "19 million euros"
+        "19 million euros",
+        "1,952,653 euros"
       ],
-      "correct": 1,
-      "explanation": "Twelve subsidy applications were also blocked, for 362,348 euros. The information rests on a single source.",
+      "correct": 3,
+      "explanation": "Twelve subsidy applications were also blocked, for 362,348 euros. The judicial investigation is being conducted by the Liège labour auditor's office.",
       "sourceSlug": "/en/domains/employment",
       "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:b1c00f9020fee3876bd3154f9b593b16",
-        "generatedAt": "2026-10-09T06:42:00.074Z",
+        "sourceLastModified": "2026-10-11",
+        "sourceContentHash": "sha256:8cb4f29c994ce5bcede9dc6e628cb7ef",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobility",
-      "question": "According to Brussels Mobility, how did the number of people seriously injured on Brussels roads change in the first half of 2026 compared with the first half of 2025?",
+      "question": "How many tram lines was STIB running on the morning of 12 October 2026, a public-sector strike day?",
       "options": [
-        "A fall of 34%, to 82 people",
-        "A fall of 5%, to 118 people",
-        "A rise of 12%, to 139 people",
-        "A rise of 34%, to 166 people"
+        "Six",
+        "Nine",
+        "Thirteen",
+        "Eighteen"
       ],
-      "correct": 0,
-      "explanation": "The total number of people injured falls by nearly 20%, the lowest level in five years. Brussels Mobility points out that 2025 was a particularly high year.",
+      "correct": 2,
+      "explanation": "All metro and bus lines were running at 6.30 am, buses at sharply reduced frequencies, according to STIB as quoted by RTBF.",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:482919b49b729d45057718d2bf09810d",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:967031bf2f49a34e70b9481d44b8cbc8",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobility",
-      "question": "By when must a new Regional Mobility Plan be adopted, according to the Brussels general policy statement of 5 October 2026?",
+      "question": "From what date would the road vignette be on sale, according to the Brussels Finance Minister on 12 October 2026?",
       "options": [
-        "By the end of 2026",
-        "By the end of 2027",
-        "By the end of 2028",
-        "By the end of 2030"
+        "1 January 2027",
+        "2 April 2027",
+        "1 July 2027",
+        "1 January 2028"
       ],
-      "correct": 2,
-      "explanation": "This plan is to succeed Good Move, the regional mobility plan adopted in 2020.",
+      "correct": 1,
+      "explanation": "Its entry into force is planned for 1 May 2027; the revised road tax is targeted for 1 July 2027.",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:482919b49b729d45057718d2bf09810d",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:967031bf2f49a34e70b9481d44b8cbc8",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "How many recruits does the Brussels general policy statement of 5 October 2026 announce for the SIAMU fire service in 2027?",
+      "question": "According to the provisional police tally, how many of the judicial deprivations of liberty after the clashes of 12 October 2026 near Brussels-South station concerned minors?",
       "options": [
-        "35 recruits",
-        "69 recruits",
-        "92 recruits",
-        "132 recruits"
+        "Two",
+        "Five",
+        "Nine",
+        "Fifteen"
       ],
       "correct": 2,
-      "explanation": "According to RTBF, 10 million euros are allocated to reinforcing the fire service, and 20 million in 2027 to its new headquarters.",
+      "explanation": "The police report around ten judicial deprivations of liberty and several administrative arrests.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:a8c70a1493aba49bee6783890927a6ee",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:64a392cb45a2732d47f0079302d2a1fe",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "What does the first phase of the Stations Plan, approved by the Brussels government on 1 October 2026, include?",
+      "question": "In what year did the Brussels court of first instance rule the police technique of kettling illegal, according to BX1?",
       "options": [
-        "The replacement of obsolete cameras",
-        "The creation of a station police force",
-        "The night-time closure of Brussels-South",
-        "Security gates at the entrances"
+        "2019",
+        "2022",
+        "2025",
+        "2026"
       ],
-      "correct": 0,
-      "explanation": "With 3 million euros for 2026, this phase also includes a clean-up of Brussels-North and Brussels-South stations and stronger social outreach rounds.",
+      "correct": 2,
+      "explanation": "The judgment, of March 2025, is under appeal but remains enforceable; a new hearing is set for 15 October 2026.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:a8c70a1493aba49bee6783890927a6ee",
-        "generatedAt": "2026-10-06T13:44:23.883Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:64a392cb45a2732d47f0079302d2a1fe",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "According to the Brussels Social Barometer, which share of the poorest Brussels residents spends more than half of its income on housing?",
+      "question": "How many Brussels institutions did Iriscare fund in 2025, according to its press release of 8 October 2026?",
       "options": [
-        "The poorest 2%",
-        "The poorest 10%",
-        "The poorest 20%",
-        "The poorest 40%"
+        "376",
+        "204",
+        "248",
+        "548"
       ],
-      "correct": 2,
-      "explanation": "They are left with barely more than 10 euros per person per day to live on.",
+      "correct": 0,
+      "explanation": "They received 537.7 million euros. The same institution can appear in several sectors: the total is not the sum of the numbers per sector.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:dca07a05ee75a48ed4fc637eaefcf45f",
-        "generatedAt": "2026-10-09T06:42:00.074Z",
+        "sourceLastModified": "2026-10-11",
+        "sourceContentHash": "sha256:ee7708661114a1608b53db654838c14b",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "How many people does the unemployment reform exclude in the Brussels Region in 2026, according to Brulocalis on the basis of ONEM figures?",
+      "question": "According to the Brussels minister in charge of social action, what additional amount does the budget agreement of 4 October 2026 provide for municipalities and CPAS in 2027?",
       "options": [
-        "Around 8,000",
-        "24,700",
-        "35,799",
-        "145,800"
+        "1.8 million euros",
+        "6.3 million euros",
+        "15 million euros",
+        "50 million euros"
       ],
       "correct": 2,
-      "explanation": "The figure of around 8,000 covered the City of Brussels municipality alone.",
+      "explanation": "The minister also announces 6.3 million euros for addiction prevention. These are announcements: no budget table accompanied the agreement.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:dca07a05ee75a48ed4fc637eaefcf45f",
-        "generatedAt": "2026-10-09T06:42:00.074Z",
+        "sourceLastModified": "2026-10-11",
+        "sourceContentHash": "sha256:ee7708661114a1608b53db654838c14b",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "What opinion did the Schaerbeek municipal executive issue on 6 October 2026 on the subdivision permit application for the Josaphat wasteland?",
+      "question": "What was the subject of the consultation committee that met on 12 October 2026 at Schaerbeek town hall?",
       "options": [
-        "An unfavourable opinion, adopted by majority",
-        "A favourable opinion, with conditions attached",
-        "An abstention, as with the opinion of 2025",
-        "A favourable opinion, adopted unanimously"
+        "The subdivision permit for the Josaphat wasteland",
+        "The route of metro 3",
+        "The renovation of a station",
+        "The construction of a stadium"
       ],
       "correct": 0,
-      "explanation": "The municipal opinion is advisory: the decision lies with the Region. The public enquiry had drawn nearly 15,000 objections.",
+      "explanation": "The application covers just under seven hectares, nine buildings and more than 530 homes, according to BX1.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:269c8267b089f9b8a7438d65c58a7229",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:3444217a0c3f29361c20fe6bcfdc0d52",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "What is the Brussels Region asking the Court of Appeal for in the trial on the freeze on undeveloped land, which opened on 5 October 2026?",
+      "question": "Which authority issues the subdivision permit for the Josaphat wasteland?",
       "options": [
-        "Setting aside the judgment of 29 October 2025",
-        "Extending the freeze until 30 June 2030",
-        "Protecting plots of more than 5 hectares",
-        "Postponing the hearing to 31 December 2026"
+        "The municipality of Schaerbeek",
+        "The Brussels Region",
+        "The consultation committee",
+        "The federal State"
       ],
-      "correct": 0,
-      "explanation": "That judgment bans building on undeveloped plots of more than 0.5 hectare until 31 December 2026. The non-profit We Are Nature is asking instead for an extension.",
+      "correct": 1,
+      "explanation": "The opinion of the Schaerbeek college, unfavourable since 6 October 2026, is advisory.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:269c8267b089f9b8a7438d65c58a7229",
-        "generatedAt": "2026-10-08T09:02:20.878Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:3444217a0c3f29361c20fe6bcfdc0d52",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1273,21 +1273,21 @@
       "id": "dossier-pfas-0",
       "source": "dossier",
       "domain": "Climate",
-      "question": "Where does the PFAS contamination found in the Brussels Region come from?",
+      "question": "In which month were PFAS discovered on the former Sicli site on chaussée de Neerstalle in Uccle?",
       "options": [
-        "From the diffuse use of products and from specific industrial sites",
-        "From a production plant located within the Region",
-        "From a single discharge into the canal in 2021",
-        "From agricultural spreading in the outskirts"
+        "February 2024",
+        "June 2025",
+        "January 2026",
+        "October 2026"
       ],
-      "correct": 0,
-      "explanation": "No PFAS production plant exists in the Brussels Region, unlike in Flanders. Around 3,500 sites are inventoried as potentially contaminated, notably because of firefighting foams.",
+      "correct": 1,
+      "explanation": "On 12 October 2026 Brussels Environment announced legal action against the company's trustees.",
       "sourceSlug": "/en/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:ce598f6eddc052b000c0bd814bf5df65",
-        "generatedAt": "2026-09-23T10:11:30.340Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:1df5625ac57b5351629b289ce4ac9a59",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1296,21 +1296,21 @@
       "id": "dossier-pfas-1",
       "source": "dossier",
       "domain": "Climate",
-      "question": "What precautionary measure accompanies the perimeter set around the former Sicli site in Uccle, following the analyses published in September 2025?",
+      "question": "How many PFAS-contaminated parcels have been identified in the Brussels Region?",
       "options": [
-        "A ban on eating fruit, vegetables and eggs from the perimeter",
-        "A total ban on road access for local residents",
-        "An obligation to connect homes to the sewer network",
-        "The closure of the schools inside the perimeter"
+        "12",
+        "82",
+        "350",
+        "3,500"
       ],
-      "correct": 0,
-      "explanation": "The safety perimeter extends over 100 metres. On the industrial site, the standard is exceeded up to 708 times in the soil and 1,058 times in the groundwater.",
+      "correct": 1,
+      "explanation": "On top of these come around 3,500 potentially contaminated sites.",
       "sourceSlug": "/en/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:ce598f6eddc052b000c0bd814bf5df65",
-        "generatedAt": "2026-09-23T10:11:30.340Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:1df5625ac57b5351629b289ce4ac9a59",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climate",
-      "question": "Among the measures on the overflight of Brussels presented on 1 October 2026 by the federal Mobility Minister, from what altitude do aircraft line up to land on runway 07L?",
+      "question": "According to the Free Air 4 Brussels collective, how many people does the RNP 07L landing route overfly above Brussels?",
       "options": [
-        "From 2,500 feet",
-        "From 3,000 feet",
-        "From 4,000 feet",
-        "From 6,000 feet"
+        "Between 50,000 and 90,000",
+        "Between 270,000 and 460,000",
+        "Between 120,000 and 200,000",
+        "Between 600,000 and 800,000"
       ],
-      "correct": 2,
-      "explanation": "Aircraft line up from 4,000 feet, 22 kilometres from the airport instead of 16.5, then descend continuously. The consultancy commissioned by the minister sees no significant gain in the number of residents overflown.",
+      "correct": 1,
+      "explanation": "The figure is the collective's own; it calls for this route to be scrapped, and BX1 reported it on 10 October 2026.",
       "sourceSlug": "/en/dossiers/survol-bruxelles",
       "sourceTitle": "Aircraft overflight",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:d3c0b775c63f8967eee0581b53c0b971",
-        "generatedAt": "2026-10-02T08:18:22.628Z",
+        "sourceLastModified": "2026-10-10",
+        "sourceContentHash": "sha256:4cce951ac185bdd9bf4a7e4f31aa1fc7",
+        "generatedAt": "2026-10-12T19:10:57.776Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 64
+  ]
 }

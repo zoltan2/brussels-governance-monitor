@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T07:12:11.721Z",
+  "generatedAt": "2026-10-12T19:10:54.952Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Quel déficit le gouvernement bruxellois vise-t-il pour 2027 dans l'accord budgétaire conclu le 4 octobre 2026 ?",
+      "question": "Selon le ministre bruxellois des Finances, à quelle date la taxe de circulation revue doit-elle idéalement entrer en vigueur ?",
       "options": [
-        "416 millions d'euros",
-        "719 millions d'euros",
-        "957 millions d'euros",
-        "1,6 milliard d'euros"
+        "1er janvier 2027",
+        "2 avril 2027",
+        "1er mai 2027",
+        "1er juillet 2027"
       ],
-      "correct": 1,
-      "explanation": "Le déficit était de 957 millions d'euros en 2026 ; le retour à l'équilibre est visé pour 2029.",
+      "correct": 3,
+      "explanation": "Il l'a indiqué le 12 octobre 2026 en commission des Finances du Parlement bruxellois.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:d25ada2c5384fb05c93b5bb7d9f67093",
-        "generatedAt": "2026-10-09T06:39:49.191Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:cece65afbc0be9d945dbd5495f8cfbd8",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Fin 2025, quelle banque a retiré sa ligne de crédit de 500 millions d'euros à la Région bruxelloise ?",
+      "question": "Selon le projet d'accord de coopération évoqué au Parlement bruxellois le 12 octobre 2026, dans quelle fourchette se situerait le prix annuel de la vignette routière ?",
       "options": [
-        "ING",
-        "Belfius",
-        "Deutsche Bank",
-        "BBVA"
+        "Entre 30 et 50 euros",
+        "Entre 90 et 125 euros",
+        "Entre 150 et 200 euros",
+        "Entre 250 et 350 euros"
       ],
       "correct": 1,
-      "explanation": "Seul le retrait de Belfius est établi. La ligne d'ING, du même montant, arrivait à échéance le 31 décembre 2025 et la banque disait n'avoir rien décidé.",
+      "explanation": "Le prix dépendrait de la classe d'émission ; aucune compensation n'est prévue, selon le ministre des Finances.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:d25ada2c5384fb05c93b5bb7d9f67093",
-        "generatedAt": "2026-10-09T06:39:49.191Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:cece65afbc0be9d945dbd5495f8cfbd8",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Quels sacs Bruxelles-Propreté demande-t-elle de ne pas sortir les 9 et 12 octobre 2026, journées d'action syndicale ?",
+      "question": "Selon Bruxelles-Propreté, quelle part des sacs blancs n'a pas été collectée à Anderlecht et à Saint-Gilles lors de la grève du 12 octobre 2026 ?",
       "options": [
-        "Les sacs bleus et jaunes",
-        "Les sacs blancs et verts",
-        "Les sacs orange et blancs",
-        "Les sacs verts et orange"
+        "Environ 30 %",
+        "Environ 50 %",
+        "Environ 70 %",
+        "Environ 98 %"
       ],
-      "correct": 0,
-      "explanation": "La priorité va aux sacs blancs, verts et orange. Les Recyparks mobiles prévus ces jours-là dans trois communes sont annulés.",
+      "correct": 2,
+      "explanation": "La part est de 60 % à Forest et à Ixelles ; l'agence annonce des tournées de rattrapage.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:09e4f424475cf07bd4729d2fe373e462",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:a8d2ddcb8b624e55d2738bae9fed5553",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Qu'est-ce que Wake-Up Clean-Up, dont Bruxelles-Propreté a publié le bilan le 21 septembre 2026 ?",
+      "question": "Qu'a décidé la Cour constitutionnelle le 24 septembre 2026 au sujet de l'accord de coopération sur la responsabilité élargie des producteurs ?",
       "options": [
-        "Une plateforme de nettoyage citoyen",
-        "Une brigade régionale de verbalisation",
-        "Un réseau de conteneurs enterrés",
-        "Une collecte nocturne des encombrants"
+        "Elle a annulé l'accord",
+        "Elle a rejeté la demande de suspension",
+        "Elle a suspendu deux articles",
+        "Elle s'est déclarée incompétente"
       ],
-      "correct": 0,
-      "explanation": "Lancée en octobre 2024, la plateforme permet aux habitants, écoles et entreprises de planifier un ramassage et de réserver le matériel. L'agence compte plus de 41 tonnes ramassées.",
+      "correct": 1,
+      "explanation": "Par son arrêt n° 115/2026, la Cour juge que le risque de préjudice grave et difficilement réparable n'est pas démontré ; le recours en annulation reste à examiner.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:09e4f424475cf07bd4729d2fe373e462",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:a8d2ddcb8b624e55d2738bae9fed5553",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climat",
-      "question": "Selon la modélisation publiée le 8 octobre 2026 par Les Chercheurs d'air, combien des 841 établissements scolaires bruxellois étudiés dépassent la recommandation de l'OMS pour le dioxyde d'azote ?",
+      "question": "Contre qui Bruxelles Environnement a-t-il engagé une action en justice pour la pollution aux PFAS d'un site d'Uccle, selon l'annonce du 12 octobre 2026 ?",
       "options": [
-        "167 établissements",
-        "420 établissements",
-        "618 établissements",
-        "Les 841 établissements"
+        "La commune d'Uccle",
+        "Les curateurs de Sicli",
+        "L'État fédéral",
+        "Vivaqua"
       ],
-      "correct": 3,
-      "explanation": "La recommandation de l'OMS est de 10 µg/m³ en moyenne annuelle. Sur 618 écoles maternelles et primaires, 167 dépassent même 15 µg/m³.",
+      "correct": 1,
+      "explanation": "Sicli est un fabricant d'extincteurs en faillite ; la Région veut que la faillite n'empêche pas l'assainissement.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:ecd843829c0b3b6d8a5472c30271faeb",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:2b9b682fc566a866d3047b54c0887a10",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climat",
-      "question": "Par quoi l'accord budgétaire bruxellois du 4 octobre 2026 remplace-t-il les primes Renolution ?",
+      "question": "Combien de personnes la Marche pour le climat du 11 octobre 2026 a-t-elle réunies à Bruxelles selon la police ?",
       "options": [
-        "Des prêts à taux zéro pour la rénovation",
-        "Une réduction du précompte immobilier",
-        "Un chèque énergie annuel par ménage",
-        "Une prime unique réservée à l'isolation"
+        "Au moins 15 000",
+        "Au moins 45 000",
+        "Au moins 75 000",
+        "Au moins 100 000"
       ],
-      "correct": 0,
-      "explanation": "Les prêts énergie et rénovation à taux zéro sont annoncés pour le printemps 2027, avec 66 millions d'euros par an.",
+      "correct": 1,
+      "explanation": "Les organisateurs parlent de 60 000 participants.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:ecd843829c0b3b6d8a5472c30271faeb",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:2b9b682fc566a866d3047b54c0887a10",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Combien de chercheurs d'emploi étaient inscrits chez Actiris fin septembre 2026, selon son communiqué du 6 octobre 2026 ?",
+      "question": "Fin septembre 2026, quelle part des chercheurs d'emploi inscrits chez Actiris relève d'un CPAS, selon le communiqué d'Actiris du 6 octobre 2026 ?",
       "options": [
-        "82 500",
-        "91 340",
-        "100 198",
-        "112 760"
+        "12 %",
+        "35 %",
+        "21 %",
+        "48 %"
       ],
-      "correct": 2,
-      "explanation": "C'est 5,8 % de plus qu'en septembre 2025 ; le taux de chômage s'établit à 16,1 %.",
+      "correct": 1,
+      "explanation": "Cela représente 35 455 inscrits sur 100 198, en hausse de 86,8 % sur un an.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:3d4dc885fcf49999d59f76eee2bf5a2d",
-        "generatedAt": "2026-10-09T06:39:49.191Z",
+        "sourceLastModified": "2026-10-11",
+        "sourceContentHash": "sha256:fea1c31bc75663016d0e18c159b8285d",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Selon La DH, quel montant de subsides au congé-éducation payé l'administration bruxelloise cherche-t-elle à récupérer pour fraude, d'après le ministre de l'Économie le 6 octobre 2026 ?",
+      "question": "Selon La DH et BruxellesToday, pour quel montant l'administration bruxelloise a-t-elle lancé des récupérations de subsides au congé-éducation payé, d'après le ministre de l'Économie le 6 octobre 2026 ?",
       "options": [
         "362 348 euros",
-        "1 952 653 euros",
         "8,5 millions d'euros",
-        "19 millions d'euros"
+        "19 millions d'euros",
+        "1 952 653 euros"
       ],
-      "correct": 1,
-      "explanation": "Douze demandes de subsides ont en outre été bloquées, pour 362 348 euros. L'information repose sur une seule source.",
+      "correct": 3,
+      "explanation": "Douze demandes de subsides ont en outre été bloquées, pour 362 348 euros. L'enquête judiciaire est menée par l'auditorat du travail de Liège.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:3d4dc885fcf49999d59f76eee2bf5a2d",
-        "generatedAt": "2026-10-09T06:39:49.191Z",
+        "sourceLastModified": "2026-10-11",
+        "sourceContentHash": "sha256:fea1c31bc75663016d0e18c159b8285d",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Selon Bruxelles Mobilité, comment le nombre de blessés graves sur les routes bruxelloises a-t-il évolué au premier semestre 2026 par rapport au premier semestre 2025 ?",
+      "question": "Combien de lignes de tram la STIB faisait-elle circuler le matin du 12 octobre 2026, jour de grève dans les services publics ?",
       "options": [
-        "Une baisse de 34 %, à 82 personnes",
-        "Une baisse de 5 %, à 118 personnes",
-        "Une hausse de 12 %, à 139 personnes",
-        "Une hausse de 34 %, à 166 personnes"
+        "Six",
+        "Neuf",
+        "Treize",
+        "Dix-huit"
       ],
-      "correct": 0,
-      "explanation": "Le nombre total de blessés recule de près de 20 %, niveau le plus bas en cinq ans. Bruxelles Mobilité précise que 2025 était une année particulièrement élevée.",
+      "correct": 2,
+      "explanation": "Toutes les lignes de métro et de bus circulaient à 6 h 30, les bus à des fréquences fortement réduites, selon la STIB citée par la RTBF.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:11d8c4cb130e4893a87854dcb9926e70",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:f1e4e4be3d06ec625bce0147b9de206d",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "D'ici quand un nouveau Plan régional de mobilité doit-il être adopté, selon la déclaration de politique générale bruxelloise du 5 octobre 2026 ?",
+      "question": "À partir de quelle date la vignette routière serait-elle en vente, selon le ministre bruxellois des Finances le 12 octobre 2026 ?",
       "options": [
-        "D'ici la fin 2026",
-        "D'ici la fin 2027",
-        "D'ici la fin 2028",
-        "D'ici la fin 2030"
+        "1er janvier 2027",
+        "2 avril 2027",
+        "1er juillet 2027",
+        "1er janvier 2028"
       ],
-      "correct": 2,
-      "explanation": "Ce plan doit succéder à Good Move, le plan régional de mobilité adopté en 2020.",
+      "correct": 1,
+      "explanation": "Son entrée en vigueur est prévue le 1er mai 2027 ; la taxe de circulation revue est visée pour le 1er juillet 2027.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:11d8c4cb130e4893a87854dcb9926e70",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:f1e4e4be3d06ec625bce0147b9de206d",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Combien de recrues la déclaration de politique générale bruxelloise du 5 octobre 2026 annonce-t-elle au SIAMU pour l'année 2027 ?",
+      "question": "Selon le bilan provisoire de la police, combien des privations de liberté judiciaires opérées après les heurts du 12 octobre 2026 près de la gare du Midi concernaient des mineurs ?",
       "options": [
-        "35 recrues",
-        "69 recrues",
-        "92 recrues",
-        "132 recrues"
+        "Deux",
+        "Cinq",
+        "Neuf",
+        "Quinze"
       ],
       "correct": 2,
-      "explanation": "Selon la RTBF, 10 millions d'euros sont alloués au renforcement du service d'incendie, et 20 millions en 2027 à son nouvel état-major.",
+      "explanation": "La police fait état d'une dizaine de privations de liberté judiciaires et de plusieurs arrestations administratives.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:95fee3709db0dc24bfcf3ddbbaf08206",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:100ba7695d147e11d5bb232cef408981",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Que comprend la première phase du Plan Gares approuvée par le gouvernement bruxellois le 1er octobre 2026 ?",
+      "question": "En quelle année le tribunal de première instance de Bruxelles a-t-il jugé illégale la technique policière de la nasse, selon BX1 ?",
       "options": [
-        "Le remplacement des caméras obsolètes",
-        "La création d'une police des gares",
-        "La fermeture nocturne de la gare du Midi",
-        "Des portiques de contrôle aux entrées"
+        "2019",
+        "2022",
+        "2025",
+        "2026"
       ],
-      "correct": 0,
-      "explanation": "Dotée de 3 millions d'euros pour 2026, cette phase comprend aussi un nettoyage des gares du Nord et du Midi et un renforcement des maraudes sociales.",
+      "correct": 2,
+      "explanation": "Le jugement, de mars 2025, est frappé d'appel mais reste exécutoire ; une nouvelle audience est fixée au 15 octobre 2026.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-10-06",
-        "sourceContentHash": "sha256:95fee3709db0dc24bfcf3ddbbaf08206",
-        "generatedAt": "2026-10-06T13:42:01.600Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:100ba7695d147e11d5bb232cef408981",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Selon le Baromètre social bruxellois, quelle tranche des Bruxellois les plus pauvres consacre plus de la moitié de ses revenus au logement ?",
+      "question": "Combien d'institutions bruxelloises Iriscare a-t-il financées en 2025, selon son communiqué du 8 octobre 2026 ?",
       "options": [
-        "Les 2 % les plus pauvres",
-        "Les 10 % les plus pauvres",
-        "Les 20 % les plus pauvres",
-        "Les 40 % les plus pauvres"
+        "376",
+        "204",
+        "248",
+        "548"
       ],
-      "correct": 2,
-      "explanation": "Il leur reste à peine plus de 10 euros par personne et par jour pour vivre.",
+      "correct": 0,
+      "explanation": "Elles ont reçu 537,7 millions d'euros. Une même institution peut figurer dans plusieurs secteurs : le total n'est pas la somme des nombres par secteur.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:d3c18145861a73a79983b4b36c8a92f2",
-        "generatedAt": "2026-10-09T06:39:49.191Z",
+        "sourceLastModified": "2026-10-11",
+        "sourceContentHash": "sha256:b9e1caf0cad7ff40a584192dc6dbb075",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Combien de personnes la réforme du chômage exclut-elle en Région bruxelloise en 2026, selon Brulocalis sur la base des chiffres de l'ONEM ?",
+      "question": "Selon le ministre bruxellois de l'Action sociale, quel montant supplémentaire l'accord budgétaire du 4 octobre 2026 prévoit-il pour les communes et les CPAS en 2027 ?",
       "options": [
-        "Environ 8 000",
-        "24 700",
-        "35 799",
-        "145 800"
+        "1,8 million d'euros",
+        "6,3 millions d'euros",
+        "15 millions d'euros",
+        "50 millions d'euros"
       ],
       "correct": 2,
-      "explanation": "Le chiffre d'environ 8 000 portait sur la seule commune de Bruxelles-Ville.",
+      "explanation": "Le ministre annonce aussi 6,3 millions d'euros pour la prévention des assuétudes. Ces montants sont des annonces : aucun tableau budgétaire n'accompagnait l'accord.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:d3c18145861a73a79983b4b36c8a92f2",
-        "generatedAt": "2026-10-09T06:39:49.191Z",
+        "sourceLastModified": "2026-10-11",
+        "sourceContentHash": "sha256:b9e1caf0cad7ff40a584192dc6dbb075",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Quel avis le collège de Schaerbeek a-t-il rendu le 6 octobre 2026 sur la demande de permis de lotir de la friche Josaphat ?",
+      "question": "Sur quoi portait la commission de concertation réunie le 12 octobre 2026 à la maison communale de Schaerbeek ?",
       "options": [
-        "Un avis défavorable, adopté à la majorité",
-        "Un avis favorable assorti de conditions",
-        "Une abstention, comme lors de l'avis de 2025",
-        "Un avis favorable, adopté à l'unanimité"
+        "Le permis de lotir de la friche Josaphat",
+        "Le tracé du métro 3",
+        "La rénovation d'une gare",
+        "La construction d'un stade"
       ],
       "correct": 0,
-      "explanation": "L'avis communal est consultatif : la décision appartient à la Région. L'enquête publique avait recueilli près de 15 000 réclamations.",
+      "explanation": "La demande porte sur un peu moins de sept hectares, neuf bâtiments et plus de 530 logements, selon BX1.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:63f685ef99d69ac45449fa937cb04f17",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:2bd3c365992dec7a7835bbeac0c4002d",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Que demande la Région bruxelloise à la cour d'appel dans le procès sur le gel des friches, ouvert le 5 octobre 2026 ?",
+      "question": "Quelle autorité délivre le permis de lotir de la friche Josaphat ?",
       "options": [
-        "L'annulation du jugement du 29 octobre 2025",
-        "La prolongation du gel jusqu'au 30 juin 2030",
-        "Le classement des friches de plus de 5 hectares",
-        "Un report de l'audience au 31 décembre 2026"
+        "La commune de Schaerbeek",
+        "La Région bruxelloise",
+        "La commission de concertation",
+        "L'État fédéral"
       ],
-      "correct": 0,
-      "explanation": "Ce jugement interdit de bâtir sur les friches de plus de 0,5 hectare jusqu'au 31 décembre 2026. L'ASBL We Are Nature demande au contraire sa prolongation.",
+      "correct": 1,
+      "explanation": "L'avis du collège de Schaerbeek, défavorable depuis le 6 octobre 2026, est consultatif.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:63f685ef99d69ac45449fa937cb04f17",
-        "generatedAt": "2026-10-08T09:01:16.837Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:2bd3c365992dec7a7835bbeac0c4002d",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1273,21 +1273,21 @@
       "id": "dossier-pfas-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "D'où provient la contamination aux PFAS constatée en Région bruxelloise ?",
+      "question": "En quel mois des PFAS ont-ils été découverts sur l'ancien site de Sicli, chaussée de Neerstalle à Uccle ?",
       "options": [
-        "De l'usage diffus de produits et de sites industriels ciblés",
-        "D'une usine de production implantée dans la Région",
-        "D'un rejet unique survenu dans le canal en 2021",
-        "De l'épandage agricole pratiqué dans la périphérie"
+        "Février 2024",
+        "Juin 2025",
+        "Janvier 2026",
+        "Octobre 2026"
       ],
-      "correct": 0,
-      "explanation": "Aucune usine de production de PFAS n'existe en Région bruxelloise, contrairement à la Flandre. Environ 3 500 sites sont recensés comme potentiellement contaminés, notamment du fait des mousses anti-incendie.",
+      "correct": 1,
+      "explanation": "Bruxelles Environnement a annoncé le 12 octobre 2026 une action en justice contre les curateurs de la société.",
       "sourceSlug": "/fr/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:15e2437bce119b2307a4b3a081ca5fa7",
-        "generatedAt": "2026-09-23T10:11:28.744Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:c0c8214dbcc54ef1a4959a147e9e0b4b",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1296,21 +1296,21 @@
       "id": "dossier-pfas-1",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Quelle mesure de précaution accompagne le périmètre établi autour de l'ancien site Sicli à Uccle, après les analyses publiées en septembre 2025 ?",
+      "question": "Combien de parcelles contaminées aux PFAS ont été identifiées en Région bruxelloise ?",
       "options": [
-        "L'interdiction de consommer fruits, légumes et œufs du périmètre",
-        "L'interdiction totale d'accès à la voirie pour les riverains",
-        "L'obligation de raccorder les habitations au réseau d'égouts",
-        "La fermeture des écoles situées dans le périmètre concerné"
+        "12",
+        "82",
+        "350",
+        "3 500"
       ],
-      "correct": 0,
-      "explanation": "Le périmètre de sécurité s'étend sur 100 mètres. Sur le site industriel, la norme est dépassée jusqu'à 708 fois dans le sol et 1 058 fois dans les eaux souterraines.",
+      "correct": 1,
+      "explanation": "S'y ajoutent environ 3 500 sites potentiellement contaminés.",
       "sourceSlug": "/fr/dossiers/pfas",
       "sourceTitle": "PFAS",
       "provenance": {
-        "sourceLastModified": "2026-09-20",
-        "sourceContentHash": "sha256:15e2437bce119b2307a4b3a081ca5fa7",
-        "generatedAt": "2026-09-23T10:11:28.744Z",
+        "sourceLastModified": "2026-10-12",
+        "sourceContentHash": "sha256:c0c8214dbcc54ef1a4959a147e9e0b4b",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Parmi les mesures sur le survol de Bruxelles présentées le 1er octobre 2026 par le ministre fédéral de la Mobilité, à partir de quelle altitude les avions s'alignent-ils pour atterrir sur la piste 07L ?",
+      "question": "Selon le collectif Free Air 4 Brussels, combien de personnes la route d'atterrissage RNP 07L survole-t-elle au-dessus de Bruxelles ?",
       "options": [
-        "Dès 2 500 pieds",
-        "Dès 3 000 pieds",
-        "Dès 4 000 pieds",
-        "Dès 6 000 pieds"
+        "Entre 50 000 et 90 000",
+        "Entre 270 000 et 460 000",
+        "Entre 120 000 et 200 000",
+        "Entre 600 000 et 800 000"
       ],
-      "correct": 2,
-      "explanation": "Les avions s'alignent dès 4 000 pieds, à 22 kilomètres de l'aéroport au lieu de 16,5, puis descendent en continu. Le bureau d'études mandaté par le ministre n'y voit pas de gain significatif quant au nombre d'habitants survolés.",
+      "correct": 1,
+      "explanation": "Le chiffre est celui du collectif, qui demande la suppression de cette route ; BX1 l'a rapporté le 10 octobre 2026.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-10-02",
-        "sourceContentHash": "sha256:e7e2b68a3f8dadb52da979c2f1cee817",
-        "generatedAt": "2026-10-02T08:11:35.043Z",
+        "sourceLastModified": "2026-10-10",
+        "sourceContentHash": "sha256:5bcf2d6e2a406480b55d1af4fe90bab3",
+        "generatedAt": "2026-10-12T19:10:54.952Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 64
+  "reviewedCount": 47
 }

@@ -1,0 +1,78 @@
+# Exemple de brouillon de veille. Le vrai brouillon reste hors dépôt
+# (.local/veille/, gitignoré). Format et déductions : scripts/veille/brouillon.ts.
+#
+#   npm run veille:appliquer -- .local/veille/brouillon.yaml --dry-run   (avant de le montrer)
+#   npm run veille:appliquer -- .local/veille/brouillon.yaml             (après validation)
+#
+# Les quatre langues sont obligatoires partout. Les blocs « | » gardent les
+# guillemets et les apostrophes tels quels.
+date: 2026-10-13
+
+fiches:
+  - fiche: commune-cards/anderlecht        # domain-cards, commune-cards, sector-cards ou dossiers
+    # Première phrase : 120 caractères au plus, c'est le titre d'email et la barre de l'accueil.
+    changeSummary:
+      fr: "Anderlecht : un bâtiment communal est occupé pour 400 euros par an, selon La DH. La Fédération dit n'avoir reçu aucun dossier."
+      nl: "Anderlecht: een gemeentegebouw wordt voor 400 euro per jaar gebruikt, volgens La DH. De Franse Gemeenschap kreeg geen dossier."
+      en: "Anderlecht: a municipal building is occupied for EUR 400 a year, La DH reports. The Federation says it received no application."
+      de: "Anderlecht: Ein Gemeindegebäude wird laut La DH für 400 Euro pro Jahr genutzt. Die Föderation erhielt keinen Antrag."
+    # Dates de relecture à poser au jour : seulement ce qui a vraiment été relu.
+    # Domaine : statusReviewed, faqReviewed. Secteur : impactReviewed. Dossier : faqReviewed.
+    relectures: []
+    # Ajoutées en tête de sources:. À omettre sur une fiche secteur (pas de champ sources).
+    sources:
+      - url: https://www.dhnet.be/regions/bruxelles/2026/10/10/exemple
+        type: media
+        label:
+          fr: "La DH, Anderlecht : un bâtiment communal occupé pour 400 euros par an (10 octobre 2026)"
+          nl: "La DH, Anderlecht: een gemeentegebouw gebruikt voor 400 euro per jaar (10 oktober 2026)"
+          en: "La DH, Anderlecht: a municipal building occupied for EUR 400 a year (10 October 2026)"
+          de: "La DH, Anderlecht: ein Gemeindegebäude für 400 Euro pro Jahr genutzt (10.10.2026)"
+    corps:
+      # avant     : insère le texte avant la ligne qui commence par l'ancre
+      # apres     : insère le texte après le paragraphe qui contient l'ancre
+      # remplacer : remplace l'ancre par le texte
+      # fin       : ajoute le texte en bas de la fiche (sans ancre)
+      # L'ancre doit apparaître exactement une fois dans chaque langue.
+      - op: avant
+        ancre:
+          fr: "## Population : Anderlecht devient"
+          nl: "## Bevolking: Anderlecht wordt"
+          en: "## Population: Anderlecht becomes"
+          de: "## Bevölkerung: Anderlecht wird"
+        texte:
+          fr: |
+            ## Politique de la jeunesse : un bâtiment communal occupé pour 400 euros par an (10 octobre 2026)
+
+            Selon La DH du samedi 10 octobre 2026, ...
+          nl: |
+            ## Jeugdbeleid: een gemeentegebouw gebruikt voor 400 euro per jaar (10 oktober 2026)
+
+            Volgens La DH van zaterdag 10 oktober 2026 ...
+          en: |
+            ## Youth policy: a municipal building occupied for EUR 400 a year (10 October 2026)
+
+            According to La DH of Saturday 10 October 2026, ...
+          de: |
+            ## Jugendpolitik: ein Gemeindegebäude für 400 Euro pro Jahr genutzt (10.10.2026)
+
+            Laut La DH vom Samstag, 10.10.2026, ...
+
+radar:
+  # Signal lié à une fiche du brouillon : summary et descriptions sont facultatifs
+  # (par défaut, première phrase et changeSummary de la fiche).
+  - id: 2026-10-13-anderlecht-batiment-communal-400-euros-jeunesse
+    confidence: unconfirmed              # official, estimated ou unconfirmed
+    cards: [anderlecht]
+    promotedTo: anderlecht               # null pour un signal sans fiche (summary et descriptions alors obligatoires)
+    source:
+      label: "La DH, Anderlecht : bâtiment communal occupé pour 400 euros par an (10/10/2026)"
+      url: https://www.dhnet.be/regions/bruxelles/2026/10/10/exemple
+    nextStep:
+      fr: "Suivi du dossier annoncé par la Fédération Wallonie-Bruxelles ; analyse en cours à la commune, sans date."
+      nl: "Opvolging van het dossier aangekondigd door de Franse Gemeenschap; onderzoek loopt bij de gemeente, zonder datum."
+      en: "Follow-up announced by the Wallonia-Brussels Federation; examination under way at the municipality, no date."
+      de: "Nachverfolgung durch die Föderation Wallonie-Brüssel angekündigt; Prüfung bei der Gemeinde läuft, ohne Termin."
+  # Réécrire un signal existant (même id, remis en tête) : ajouter « remplace: true ».
+  # Archiver un signal remplacé par un autre :
+  - archiver: 2026-10-08-groupe-hospitalier-hub-saint-pierre-iris-sud

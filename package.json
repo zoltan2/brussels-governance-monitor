@@ -40,6 +40,7 @@
     "quiz:generate:stale": "tsx scripts/generate-quiz.ts --only-stale",
     "quiz:manual:dump": "tsx scripts/quiz-manual.ts dump",
     "quiz:manual:apply": "tsx scripts/quiz-manual.ts apply",
+    "veille:appliquer": "tsx scripts/veille/appliquer.ts",
     "quiz:translate:prep": "tsx scripts/quiz-translate-prep.ts"
   },
   "engines": {

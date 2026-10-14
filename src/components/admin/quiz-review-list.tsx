@@ -229,7 +229,7 @@ export function QuizReviewList({
                             setRemoving(null);
                             setNote('');
                           }}
-                          className="rounded bg-neutral-900 px-3 py-1.5 text-sm text-white"
+                          className="rounded bg-neutral-900 px-3 py-1.5 text-sm text-neutral-50"
                         >
                           Confirmer le retrait
                         </button>
@@ -290,7 +290,7 @@ export function QuizReviewList({
 
       {mounted && taken.length > 0 &&
         createPortal(
-          <div className="fixed inset-x-0 bottom-0 z-50 border-t border-neutral-300 bg-white p-4">
+          <div className="fixed inset-x-0 bottom-0 z-50 border-t border-neutral-300 bg-neutral-50 p-4">
             <div className="mx-auto flex max-w-3xl items-center justify-between gap-4">
               <p className="text-sm text-neutral-700">
                 {totalBlocks - taken.length} restantes · {approved} approuvées ·{' '}
@@ -300,7 +300,7 @@ export function QuizReviewList({
                 type="button"
                 onClick={send}
                 disabled={sending || sessionOpen}
-                className="rounded bg-neutral-900 px-4 py-2 text-sm text-white disabled:opacity-50"
+                className="rounded bg-neutral-900 px-4 py-2 text-sm text-neutral-50 disabled:opacity-50"
               >
                 {sending ? 'Enregistrement…' : `Enregistrer (${taken.length})`}
               </button>

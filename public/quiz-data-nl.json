@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T19:10:56.741Z",
+  "generatedAt": "2026-10-14T07:51:05.366Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Op welke datum moet de herziene verkeersbelasting idealiter in werking treden, volgens de Brusselse minister van Financiën?",
+      "question": "Welk geconsolideerd ESR-tekort zou het Brussels Hoofdstedelijk Gewest in 2029, het jaar waarin het regeerakkoord evenwicht beoogt, nog vertonen volgens Cahier nr. 127 van het CERPE (UNamur), gepubliceerd in september 2026?",
       "options": [
-        "1 januari 2027",
-        "2 april 2027",
-        "1 mei 2027",
-        "1 juli 2027"
+        "Ongeveer 150 miljoen euro",
+        "Ongeveer 512 miljoen euro",
+        "Ongeveer 930 miljoen euro",
+        "Ongeveer 1,4 miljard euro"
       ],
-      "correct": 3,
-      "explanation": "Hij zei dat op 12 oktober 2026 in de commissie Financiën van het Brussels Parlement.",
+      "correct": 1,
+      "explanation": "De projectie vertrekt van de initiële begroting 2026 en houdt geen rekening met het begrotingsakkoord van 4 oktober 2026. De auteurs vinden de genomen maatregelen onvoldoende om in 2029 evenwicht te bereiken.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:9260e98f97d1f831a5c81e8365070b2a",
-        "generatedAt": "2026-10-12T19:10:56.741Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:c92bd6c0b959403ff109b8be3a1307b7",
+        "generatedAt": "2026-10-14T07:51:05.366Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Binnen welke vork zou de jaarprijs van het wegenvignet liggen, volgens het ontwerp van samenwerkingsakkoord dat op 12 oktober 2026 in het Brussels Parlement ter sprake kwam?",
+      "question": "Welk oordeel gaf het Rekenhof in zijn 30e Boek van Opmerkingen over de algemene rekening 2024 van het Brussels Hoofdstedelijk Gewest?",
       "options": [
-        "Tussen 30 en 50 euro",
-        "Tussen 90 en 125 euro",
-        "Tussen 150 en 200 euro",
-        "Tussen 250 en 350 euro"
+        "Een goedkeurend oordeel zonder voorbehoud",
+        "Een goedkeurend oordeel met voorbehoud",
+        "Een onthouding van oordeel",
+        "Een afkeurend oordeel"
       ],
-      "correct": 1,
-      "explanation": "De prijs zou afhangen van de emissieklasse; er is geen compensatie gepland, volgens de minister van Financiën.",
+      "correct": 3,
+      "explanation": "Voor de algemene rekeningen 2022 en 2023 had het Rekenhof zich van een oordeel onthouden.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:9260e98f97d1f831a5c81e8365070b2a",
-        "generatedAt": "2026-10-12T19:10:56.741Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:c92bd6c0b959403ff109b8be3a1307b7",
+        "generatedAt": "2026-10-14T07:51:05.366Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Hoeveel van de gerechtelijke vrijheidsberovingen na de ongeregeldheden van 12 oktober 2026 bij het Zuidstation betroffen minderjarigen, volgens de voorlopige balans van de politie?",
+      "question": "Welke voorziening moet volgens de vergunningsaanvraag van 26 mei 2026 de voormalige autoconcessie aan de Havenlaan 94 in Brussel innemen?",
       "options": [
-        "Twee",
-        "Vijf",
-        "Negen",
-        "Vijftien"
+        "Een trainingscampus voor Safe.brussels",
+        "De centrale brandweerkazerne",
+        "Een commissariaat van een politiezone",
+        "Een federaal opvangcentrum"
       ],
-      "correct": 2,
-      "explanation": "De politie meldt een tiental gerechtelijke vrijheidsberovingen en meerdere bestuurlijke aanhoudingen.",
+      "correct": 0,
+      "explanation": "Het project betreft 4.067 m² voor een school voor politie- en veiligheidsberoepen. Het openbaar onderzoek loopt tot 29 oktober 2026.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:43c8aa0f0820f894cd32e9ac4277e19b",
-        "generatedAt": "2026-10-12T19:10:56.741Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:49637f13422afbeeaeb70c58c618bde7",
+        "generatedAt": "2026-10-14T07:51:05.366Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "In welk jaar verklaarde de Brusselse rechtbank van eerste aanleg de omsingelingstechniek van de politie onwettig, volgens BX1?",
+      "question": "In welke Brusselse wijk is de opleiding van Safe.brussels gevestigd vóór de geplande verhuizing naar de Havenlaan, volgens BRUZZ (14 oktober 2026)?",
       "options": [
-        "2019",
-        "2022",
-        "2025",
-        "2026"
+        "Haren",
+        "Neder-Over-Heembeek",
+        "Anderlecht-Kuregem",
+        "Evere"
       ],
-      "correct": 2,
-      "explanation": "Tegen het vonnis van maart 2025 is beroep aangetekend, maar het blijft uitvoerbaar; een nieuwe zitting is vastgesteld op 15 oktober 2026.",
+      "correct": 0,
+      "explanation": "De verhuizing moet de opleiding dichter bij de toekomstige centrale brandweerkazerne op Thurn & Taxis brengen.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:43c8aa0f0820f894cd32e9ac4277e19b",
-        "generatedAt": "2026-10-12T19:10:56.741Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:49637f13422afbeeaeb70c58c618bde7",
+        "generatedAt": "2026-10-14T07:51:05.366Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Hoeveel Brusselse instellingen heeft Iriscare in 2025 gefinancierd, volgens zijn persbericht van 8 oktober 2026?",
+      "question": "Tegen wanneer moet de Humanitaire Hub aan de Havenlaan in Brussel zijn gebouw verlaten, volgens BRUZZ (14 oktober 2026)?",
       "options": [
-        "376",
-        "204",
-        "248",
-        "548"
+        "December 2026",
+        "Maart 2027",
+        "September 2027",
+        "Juni 2028"
       ],
-      "correct": 0,
-      "explanation": "Ze kregen 537,7 miljoen euro. Eenzelfde instelling kan in meerdere sectoren voorkomen: het totaal is niet de som van de aantallen per sector.",
+      "correct": 2,
+      "explanation": "Het gebouw moet de toekomstige campus van Safe.brussels huisvesten; de werf is aangekondigd voor oktober 2027. Volgens Dokters van de Wereld is er nog geen nieuwe locatie voor de Hub gevonden.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: opvangsysteem ingekrompen, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-10-11",
-        "sourceContentHash": "sha256:f0ee75605f8a46fc43f6ca5774d1ba9a",
-        "generatedAt": "2026-10-12T19:10:56.741Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:09003daa97e3b6cb832282f8d3fd30e6",
+        "generatedAt": "2026-10-14T07:51:05.366Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Welk extra bedrag voorziet het begrotingsakkoord van 4 oktober 2026 voor de gemeenten en de OCMW's in 2027, volgens de Brusselse minister van Sociale Actie?",
+      "question": "Hoeveel mensen ontvingen in mei 2026 een leefloon in het Brussels Hoofdstedelijk Gewest, volgens de POD Maatschappelijke Integratie?",
       "options": [
-        "1,8 miljoen euro",
-        "6,3 miljoen euro",
-        "15 miljoen euro",
-        "50 miljoen euro"
+        "Ongeveer 26.500",
+        "Ongeveer 41.500",
+        "Ongeveer 56.500",
+        "Ongeveer 81.500"
       ],
       "correct": 2,
-      "explanation": "De minister kondigt ook 6,3 miljoen euro aan voor de preventie van verslavingen. Het gaat om aankondigingen: bij het akkoord hoorde geen begrotingstabel.",
+      "explanation": "Dat is meer dan in Vlaanderen (53.361), dat nochtans vijf keer meer inwoners telt. De stijging volgt op de beperking in de tijd van de werkloosheidsuitkeringen.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: opvangsysteem ingekrompen, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-10-11",
-        "sourceContentHash": "sha256:f0ee75605f8a46fc43f6ca5774d1ba9a",
-        "generatedAt": "2026-10-12T19:10:56.741Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:09003daa97e3b6cb832282f8d3fd30e6",
+        "generatedAt": "2026-10-14T07:51:05.366Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Waarover ging de overlegcommissie die op 12 oktober 2026 samenkwam in het gemeentehuis van Schaarbeek?",
+      "question": "Welk advies nam het college van burgemeester en schepenen van Schaarbeek op 6 oktober 2026 aan over de aanvraag voor een verkavelingsvergunning voor de Josaphat-site?",
       "options": [
-        "De verkavelingsvergunning voor de Josaphat-site",
-        "Het tracé van metro 3",
-        "De renovatie van een station",
-        "De bouw van een stadion"
+        "Een gunstig advies zonder voorwaarden",
+        "Een gunstig advies onder voorwaarden",
+        "Een onthouding, zoals in 2025",
+        "Een ongunstig advies"
       ],
-      "correct": 0,
-      "explanation": "De aanvraag betreft iets minder dan zeven hectare, negen gebouwen en meer dan 530 woningen, volgens BX1.",
+      "correct": 3,
+      "explanation": "Het advies, bij meerderheid aangenomen, is niet bindend: het Gewest levert de vergunning af. Het openbaar onderzoek leverde bijna 15.000 bezwaren op.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:c590bc9d55364841334d473da2e39b8a",
-        "generatedAt": "2026-10-12T19:10:56.741Z",
+        "sourceLastModified": "2026-10-13",
+        "sourceContentHash": "sha256:2acec3263e1ab0117b96303af207df05",
+        "generatedAt": "2026-10-14T07:51:05.366Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Welke overheid levert de verkavelingsvergunning voor de Josaphat-site af?",
+      "question": "Vanaf welke oppervlakte mogen Brusselse braakliggende terreinen tot 31 december 2026 niet meer bebouwd of verhard worden, volgens het vonnis van 29 oktober 2025 dat in oktober 2026 in beroep werd behandeld?",
       "options": [
-        "De gemeente Schaarbeek",
-        "Het Brussels Gewest",
-        "De overlegcommissie",
-        "De federale Staat"
+        "0,1 hectare",
+        "0,5 hectare",
+        "1 hectare",
+        "2 hectare"
       ],
       "correct": 1,
-      "explanation": "Het advies van het Schaarbeekse college, ongunstig sinds 6 oktober 2026, is niet bindend.",
+      "explanation": "Het Gewest vraagt de vernietiging van het vonnis; de vzw We Are Nature vraagt een verlenging van het verbod. Dat verbod staat los van de bevriezing van achttien maanden die de regering voor vier sites besliste.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:c590bc9d55364841334d473da2e39b8a",
-        "generatedAt": "2026-10-12T19:10:56.741Z",
+        "sourceLastModified": "2026-10-13",
+        "sourceContentHash": "sha256:2acec3263e1ab0117b96303af207df05",
+        "generatedAt": "2026-10-14T07:51:05.366Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 62
 }

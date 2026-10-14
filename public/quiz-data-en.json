@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T19:10:57.776Z",
+  "generatedAt": "2026-10-14T07:51:05.683Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "According to the Brussels Finance Minister, on what date should the revised road tax ideally enter into force?",
+      "question": "According to CERPE (UNamur) Cahier No. 127, published in September 2026, what consolidated ESA deficit would the Brussels-Capital Region still show in 2029, the year the government agreement targets a balanced budget?",
       "options": [
-        "1 January 2027",
-        "2 April 2027",
-        "1 May 2027",
-        "1 July 2027"
+        "About 150 million euros",
+        "About 512 million euros",
+        "About 930 million euros",
+        "About 1.4 billion euros"
       ],
-      "correct": 3,
-      "explanation": "He said so on 12 October 2026 in the Finance Committee of the Brussels Parliament.",
+      "correct": 1,
+      "explanation": "The projection starts from the initial 2026 budget and does not take into account the budget agreement of 4 October 2026. The authors find the measures taken insufficient to reach balance in 2029.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:3badf353f4322c6def21201e6035cc68",
-        "generatedAt": "2026-10-12T19:10:57.776Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:2ac19270f57e72f3ec9358c28f66a92b",
+        "generatedAt": "2026-10-14T07:51:05.683Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "According to the draft cooperation agreement discussed in the Brussels Parliament on 12 October 2026, in what range would the annual price of the road vignette fall?",
+      "question": "What opinion did the Court of Audit issue on the Brussels-Capital Region's 2024 general account, in its 30th Book of Observations?",
       "options": [
-        "Between 30 and 50 euros",
-        "Between 90 and 125 euros",
-        "Between 150 and 200 euros",
-        "Between 250 and 350 euros"
+        "An unqualified opinion",
+        "A qualified opinion",
+        "A disclaimer of opinion",
+        "An adverse opinion"
       ],
-      "correct": 1,
-      "explanation": "The price would depend on the emission class; no compensation is planned, according to the Finance Minister.",
+      "correct": 3,
+      "explanation": "For the 2022 and 2023 general accounts, the Court of Audit had abstained from giving an opinion.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:3badf353f4322c6def21201e6035cc68",
-        "generatedAt": "2026-10-12T19:10:57.776Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:2ac19270f57e72f3ec9358c28f66a92b",
+        "generatedAt": "2026-10-14T07:51:05.683Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "According to the provisional police tally, how many of the judicial deprivations of liberty after the clashes of 12 October 2026 near Brussels-South station concerned minors?",
+      "question": "According to the permit application filed on 26 May 2026, what facility is to occupy the former car dealership at Avenue du Port 94 in Brussels?",
       "options": [
-        "Two",
-        "Five",
-        "Nine",
-        "Fifteen"
+        "A training campus for Safe.brussels",
+        "The central fire station",
+        "A police zone station",
+        "A federal reception centre"
       ],
-      "correct": 2,
-      "explanation": "The police report around ten judicial deprivations of liberty and several administrative arrests.",
+      "correct": 0,
+      "explanation": "The project covers 4,067 m² for a school for police and security professions. The public inquiry runs until 29 October 2026.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:64a392cb45a2732d47f0079302d2a1fe",
-        "generatedAt": "2026-10-12T19:10:57.776Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:b69079c319108494494ccf8f58d3024d",
+        "generatedAt": "2026-10-14T07:51:05.683Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "In what year did the Brussels court of first instance rule the police technique of kettling illegal, according to BX1?",
+      "question": "According to BRUZZ (14 October 2026), in which Brussels district is Safe.brussels' training based before its planned move to Avenue du Port?",
       "options": [
-        "2019",
-        "2022",
-        "2025",
-        "2026"
+        "Haren",
+        "Neder-Over-Heembeek",
+        "Anderlecht-Cureghem",
+        "Evere"
       ],
-      "correct": 2,
-      "explanation": "The judgment, of March 2025, is under appeal but remains enforceable; a new hearing is set for 15 October 2026.",
+      "correct": 0,
+      "explanation": "The move is meant to bring training closer to the future central fire station at Tour & Taxis.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:64a392cb45a2732d47f0079302d2a1fe",
-        "generatedAt": "2026-10-12T19:10:57.776Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:b69079c319108494494ccf8f58d3024d",
+        "generatedAt": "2026-10-14T07:51:05.683Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "How many Brussels institutions did Iriscare fund in 2025, according to its press release of 8 October 2026?",
+      "question": "According to BRUZZ (14 October 2026), by when must the Humanitarian Hub on Avenue du Port in Brussels leave its building?",
       "options": [
-        "376",
-        "204",
-        "248",
-        "548"
+        "December 2026",
+        "March 2027",
+        "September 2027",
+        "June 2028"
       ],
-      "correct": 0,
-      "explanation": "They received 537.7 million euros. The same institution can appear in several sectors: the total is not the sum of the numbers per sector.",
+      "correct": 2,
+      "explanation": "The building is to house the future Safe.brussels campus, with works announced for October 2027. No new site has been found for the Hub, according to Médecins du Monde.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-10-11",
-        "sourceContentHash": "sha256:ee7708661114a1608b53db654838c14b",
-        "generatedAt": "2026-10-12T19:10:57.776Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:3683383528df712814b1c9692de8ac2a",
+        "generatedAt": "2026-10-14T07:51:05.683Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "According to the Brussels minister in charge of social action, what additional amount does the budget agreement of 4 October 2026 provide for municipalities and CPAS in 2027?",
+      "question": "According to the FPS Social Integration, how many people received the integration income in the Brussels-Capital Region in May 2026?",
       "options": [
-        "1.8 million euros",
-        "6.3 million euros",
-        "15 million euros",
-        "50 million euros"
+        "About 26,500",
+        "About 41,500",
+        "About 56,500",
+        "About 81,500"
       ],
       "correct": 2,
-      "explanation": "The minister also announces 6.3 million euros for addiction prevention. These are announcements: no budget table accompanied the agreement.",
+      "explanation": "That is more than in Flanders (53,361), which has five times as many inhabitants. The rise follows the time limit placed on unemployment benefits.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-10-11",
-        "sourceContentHash": "sha256:ee7708661114a1608b53db654838c14b",
-        "generatedAt": "2026-10-12T19:10:57.776Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:3683383528df712814b1c9692de8ac2a",
+        "generatedAt": "2026-10-14T07:51:05.683Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "What was the subject of the consultation committee that met on 12 October 2026 at Schaerbeek town hall?",
+      "question": "What opinion did Schaerbeek's college of mayor and aldermen adopt on 6 October 2026 on the subdivision permit application for the Josaphat wasteland?",
       "options": [
-        "The subdivision permit for the Josaphat wasteland",
-        "The route of metro 3",
-        "The renovation of a station",
-        "The construction of a stadium"
+        "A favourable opinion without conditions",
+        "A favourable opinion with conditions",
+        "An abstention, as in 2025",
+        "An unfavourable opinion"
       ],
-      "correct": 0,
-      "explanation": "The application covers just under seven hectares, nine buildings and more than 530 homes, according to BX1.",
+      "correct": 3,
+      "explanation": "The opinion, adopted by a majority, is advisory: the Region issues the permit. The public inquiry had drawn nearly 15,000 objections.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:3444217a0c3f29361c20fe6bcfdc0d52",
-        "generatedAt": "2026-10-12T19:10:57.776Z",
+        "sourceLastModified": "2026-10-13",
+        "sourceContentHash": "sha256:94dfcdd620efee3278f8442100e753fc",
+        "generatedAt": "2026-10-14T07:51:05.683Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "Which authority issues the subdivision permit for the Josaphat wasteland?",
+      "question": "Under the judgment of 29 October 2025, heard on appeal in Brussels in October 2026, above what size can Brussels brownfields no longer be built on or sealed until 31 December 2026?",
       "options": [
-        "The municipality of Schaerbeek",
-        "The Brussels Region",
-        "The consultation committee",
-        "The federal State"
+        "0.1 hectare",
+        "0.5 hectare",
+        "1 hectare",
+        "2 hectares"
       ],
       "correct": 1,
-      "explanation": "The opinion of the Schaerbeek college, unfavourable since 6 October 2026, is advisory.",
+      "explanation": "The Region seeks the annulment of the judgment; the non-profit We Are Nature seeks an extension of the ban. The ban is separate from the eighteen-month freeze the government decided for four sites.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:3444217a0c3f29361c20fe6bcfdc0d52",
-        "generatedAt": "2026-10-12T19:10:57.776Z",
+        "sourceLastModified": "2026-10-13",
+        "sourceContentHash": "sha256:94dfcdd620efee3278f8442100e753fc",
+        "generatedAt": "2026-10-14T07:51:05.683Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 62
 }

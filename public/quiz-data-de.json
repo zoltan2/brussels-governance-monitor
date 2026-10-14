@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T19:11:07.400Z",
+  "generatedAt": "2026-10-14T07:51:05.998Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "An welchem Datum soll die reformierte Verkehrssteuer laut dem Brüsseler Finanzminister idealerweise in Kraft treten?",
+      "question": "Welches konsolidierte ESVG-Defizit würde die Region Brüssel-Hauptstadt laut Cahier Nr. 127 des CERPE (UNamur), veröffentlicht im September 2026, im Jahr 2029 noch aufweisen, dem Jahr, für das das Regierungsabkommen den Haushaltsausgleich anstrebt?",
       "options": [
-        "1. Januar 2027",
-        "2. April 2027",
-        "1. Mai 2027",
-        "1. Juli 2027"
+        "Rund 150 Millionen Euro",
+        "Rund 512 Millionen Euro",
+        "Rund 930 Millionen Euro",
+        "Rund 1,4 Milliarden Euro"
       ],
-      "correct": 3,
-      "explanation": "Das erklärte er am 12. Oktober 2026 im Finanzausschuss des Brüsseler Parlaments.",
+      "correct": 1,
+      "explanation": "Die Projektion geht vom ursprünglichen Haushalt 2026 aus und berücksichtigt die Haushaltseinigung vom 4. Oktober 2026 nicht. Die Autoren halten die ergriffenen Maßnahmen für unzureichend, um 2029 den Ausgleich zu erreichen.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:e81ec5050aa0c9c88568fd92be7d383a",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:2acf8cd25a5a8eda100b3ba9729c6e67",
+        "generatedAt": "2026-10-14T07:51:05.998Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "In welcher Spanne läge der Jahrespreis der Straßenvignette laut dem Entwurf des Zusammenarbeitsabkommens, der am 12. Oktober 2026 im Brüsseler Parlament zur Sprache kam?",
+      "question": "Welches Prüfungsurteil hat der Rechnungshof in seinem 30. Buch der Bemerkungen zur allgemeinen Rechnung 2024 der Region Brüssel-Hauptstadt abgegeben?",
       "options": [
-        "Zwischen 30 und 50 Euro",
-        "Zwischen 90 und 125 Euro",
-        "Zwischen 150 und 200 Euro",
-        "Zwischen 250 und 350 Euro"
+        "Ein uneingeschränktes Prüfungsurteil",
+        "Ein eingeschränktes Prüfungsurteil",
+        "Kein Prüfungsurteil",
+        "Ein negatives Prüfungsurteil"
       ],
-      "correct": 1,
-      "explanation": "Der Preis hinge von der Emissionsklasse ab; ein Ausgleich ist laut dem Finanzminister nicht vorgesehen.",
+      "correct": 3,
+      "explanation": "Zu den allgemeinen Rechnungen 2022 und 2023 hatte der Rechnungshof kein Prüfungsurteil abgegeben.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:e81ec5050aa0c9c88568fd92be7d383a",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:2acf8cd25a5a8eda100b3ba9729c6e67",
+        "generatedAt": "2026-10-14T07:51:05.998Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Wie viele der gerichtlichen Freiheitsentziehungen nach den Zusammenstößen vom 12. Oktober 2026 am Südbahnhof betrafen laut der vorläufigen Bilanz der Polizei Minderjährige?",
+      "question": "Welche Einrichtung soll laut dem am 26. Mai 2026 eingereichten Genehmigungsantrag das ehemalige Autohaus in der Avenue du Port 94 in Brüssel beziehen?",
       "options": [
-        "Zwei",
-        "Fünf",
-        "Neun",
-        "Fünfzehn"
+        "Ein Trainingscampus für Safe.brussels",
+        "Die zentrale Feuerwache",
+        "Ein Kommissariat einer Polizeizone",
+        "Ein föderales Aufnahmezentrum"
       ],
-      "correct": 2,
-      "explanation": "Die Polizei meldet rund zehn gerichtliche Freiheitsentziehungen und mehrere administrative Festnahmen.",
+      "correct": 0,
+      "explanation": "Das Projekt umfasst 4.067 m² für eine Schule für Polizei- und Sicherheitsberufe. Die öffentliche Untersuchung läuft bis zum 29. Oktober 2026.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:64af08a1f27a9f8502651301993f058d",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:dc4e86ebd51959e98012cbc9accde984",
+        "generatedAt": "2026-10-14T07:51:05.998Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "In welchem Jahr hat das Brüsseler Gericht Erster Instanz die polizeiliche Einkesselung laut BX1 für rechtswidrig erklärt?",
+      "question": "In welchem Brüsseler Stadtteil ist die Ausbildung von Safe.brussels laut BRUZZ (14. Oktober 2026) vor dem geplanten Umzug in die Avenue du Port angesiedelt?",
       "options": [
-        "2019",
-        "2022",
-        "2025",
-        "2026"
+        "Haren",
+        "Neder-Over-Heembeek",
+        "Anderlecht-Cureghem",
+        "Evere"
       ],
-      "correct": 2,
-      "explanation": "Gegen das Urteil vom März 2025 wurde Berufung eingelegt, es bleibt aber vollstreckbar; eine neue Verhandlung ist auf den 15. Oktober 2026 angesetzt.",
+      "correct": 0,
+      "explanation": "Der Umzug soll die Ausbildung näher an die künftige zentrale Feuerwache auf Tour & Taxis bringen.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:64af08a1f27a9f8502651301993f058d",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:dc4e86ebd51959e98012cbc9accde984",
+        "generatedAt": "2026-10-14T07:51:05.998Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Wie viele Brüsseler Einrichtungen hat Iriscare 2025 finanziert, laut seiner Pressemitteilung vom 8. Oktober 2026?",
+      "question": "Bis wann muss der Humanitäre Hub in der Avenue du Port in Brüssel laut BRUZZ (14. Oktober 2026) sein Gebäude räumen?",
       "options": [
-        "376",
-        "204",
-        "248",
-        "548"
+        "Dezember 2026",
+        "März 2027",
+        "September 2027",
+        "Juni 2028"
       ],
-      "correct": 0,
-      "explanation": "Sie erhielten 537,7 Millionen Euro. Dieselbe Einrichtung kann in mehreren Sektoren vorkommen: Die Gesamtzahl ist nicht die Summe der Zahlen je Sektor.",
+      "correct": 2,
+      "explanation": "Das Gebäude soll den künftigen Campus von Safe.brussels aufnehmen; die Bauarbeiten sind für Oktober 2027 angekündigt. Laut Ärzte der Welt ist noch kein neuer Standort für den Hub gefunden.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-10-11",
-        "sourceContentHash": "sha256:b204fccb356cf02a2a1e5f34a4a20cff",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:e610383582e7b4ab2444fb50f304d11e",
+        "generatedAt": "2026-10-14T07:51:05.998Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Welchen zusätzlichen Betrag sieht die Haushaltseinigung vom 4. Oktober 2026 laut dem Brüsseler Minister für Soziales für die Gemeinden und die ÖSHZ im Jahr 2027 vor?",
+      "question": "Wie viele Personen bezogen laut dem ÖPD Soziale Eingliederung im Mai 2026 das Eingliederungseinkommen in der Region Brüssel-Hauptstadt?",
       "options": [
-        "1,8 Millionen Euro",
-        "6,3 Millionen Euro",
-        "15 Millionen Euro",
-        "50 Millionen Euro"
+        "Rund 26.500",
+        "Rund 41.500",
+        "Rund 56.500",
+        "Rund 81.500"
       ],
       "correct": 2,
-      "explanation": "Der Minister kündigt außerdem 6,3 Millionen Euro für die Suchtprävention an. Es handelt sich um Ankündigungen: Der Einigung lag keine Haushaltstabelle bei.",
+      "explanation": "Das sind mehr als in Flandern (53.361), das fünfmal so viele Einwohner zählt. Der Anstieg folgt auf die zeitliche Begrenzung des Arbeitslosengeldes.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-10-11",
-        "sourceContentHash": "sha256:b204fccb356cf02a2a1e5f34a4a20cff",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:e610383582e7b4ab2444fb50f304d11e",
+        "generatedAt": "2026-10-14T07:51:05.998Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Worum ging es im Konzertierungsausschuss, der am 12. Oktober 2026 im Gemeindehaus von Schaerbeek tagte?",
+      "question": "Welche Stellungnahme hat das Kollegium der Bürgermeister und Schöffen von Schaerbeek am 6. Oktober 2026 zum Antrag auf Parzellierungsgenehmigung für die Josaphat-Brache abgegeben?",
       "options": [
-        "Um die Bebauung der Josaphat-Brache",
-        "Um die Trasse der Metro 3",
-        "Um die Renovierung eines Bahnhofs",
-        "Um den Bau eines Stadions"
+        "Eine befürwortende Stellungnahme ohne Auflagen",
+        "Eine befürwortende Stellungnahme mit Auflagen",
+        "Eine Enthaltung, wie im Jahr 2025",
+        "Eine ablehnende Stellungnahme"
       ],
-      "correct": 0,
-      "explanation": "Der Antrag auf Parzellierungsgenehmigung betrifft knapp sieben Hektar, neun Gebäude und mehr als 530 Wohnungen, so BX1.",
+      "correct": 3,
+      "explanation": "Die mehrheitlich angenommene Stellungnahme ist beratend: Die Region erteilt die Genehmigung. Die öffentliche Untersuchung hatte fast 15.000 Einwendungen ergeben.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:d2f0c8df006c8b7f91d6324ec3a67b33",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-13",
+        "sourceContentHash": "sha256:68d77c8cd8a95505c989ce4bcca3faf8",
+        "generatedAt": "2026-10-14T07:51:05.998Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Welche Behörde erteilt die Parzellierungsgenehmigung für die Josaphat-Brache?",
+      "question": "Ab welcher Fläche dürfen Brüsseler Brachflächen laut dem Urteil vom 29. Oktober 2025, das im Oktober 2026 in Brüssel in der Berufung verhandelt wurde, bis zum 31. Dezember 2026 weder bebaut noch versiegelt werden?",
       "options": [
-        "Die Gemeinde Schaerbeek",
-        "Die Region Brüssel",
-        "Der Konzertierungsausschuss",
-        "Der Föderalstaat"
+        "0,1 Hektar",
+        "0,5 Hektar",
+        "1 Hektar",
+        "2 Hektar"
       ],
       "correct": 1,
-      "explanation": "Die Stellungnahme des Schaerbeeker Kollegiums, seit dem 6. Oktober 2026 ablehnend, ist beratend.",
+      "explanation": "Die Region verlangt die Aufhebung des Urteils; die Vereinigung We Are Nature verlangt eine Verlängerung des Verbots. Es ist unabhängig vom achtzehnmonatigen Baustopp, den die Regierung für vier Standorte beschlossen hat.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:d2f0c8df006c8b7f91d6324ec3a67b33",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-13",
+        "sourceContentHash": "sha256:68d77c8cd8a95505c989ce4bcca3faf8",
+        "generatedAt": "2026-10-14T07:51:05.998Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 62
 }

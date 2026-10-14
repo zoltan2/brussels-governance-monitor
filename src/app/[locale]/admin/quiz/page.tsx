@@ -8,7 +8,12 @@ import { LOCALES, type ReviewState } from '@/lib/quiz-review';
 import { buildReviewQueue, pendingByLocale } from '@/lib/quiz-review-queue';
 import type { PoolsByLocale } from '@/lib/quiz-review-apply';
 import { REVIEW_STATE_PATH, poolPathFor } from '@/lib/quiz-review-guards';
-import { reviewContext, readReviewFile, listOpenReviewPrs } from '@/lib/github-commit';
+import {
+  reviewContext,
+  readReviewFile,
+  listOpenReviewPrs,
+  listOpenPoolPrs,
+} from '@/lib/github-commit';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -45,7 +50,13 @@ async function loadFromRepo() {
     shas[poolPathFor(l)] = poolFiles[i]!.sha;
   });
 
-  return { state, pools, shas, openPrs: await listOpenReviewPrs(ctx) };
+  // Simple information : si GitHub ne répond pas ici, la page reste utilisable.
+  const poolPrs = await listOpenPoolPrs(ctx).catch((err) => {
+    console.error('Relecture quiz — PR de régénération illisibles :', err);
+    return [];
+  });
+
+  return { state, pools, shas, openPrs: await listOpenReviewPrs(ctx), poolPrs };
 }
 
 export default async function AdminQuizPage() {
@@ -84,11 +95,23 @@ export default async function AdminQuizPage() {
         </span>
       </p>
 
+      {data.poolPrs.length > 0 && (
+        <p
+          role="status"
+          className="mt-6 rounded-lg border border-status-delayed bg-neutral-50 p-4 text-sm text-neutral-800"
+        >
+          Régénération en attente de fusion :{' '}
+          {data.poolPrs.map((p) => `PR #${p.number}`).join(', ')}. Cette page lit
+          la branche main : les questions de cette PR apparaîtront ici une fois
+          qu’elle sera fusionnée.
+        </p>
+      )}
+
       {totalPending === 0 && (
         <p className="mt-6 rounded-lg border border-neutral-200 bg-neutral-50 p-5 text-sm text-neutral-700">
-          Les questions neuves apparaissent ici après une régénération du pool
-          (<code className="text-xs">npm run quiz:manual:dump</code>). Tant que la
-          liste est vide, le quiz ne porte aucune mention de contenu non relu.
+          Les questions neuves apparaissent ici une fois la PR de régénération du
+          pool fusionnée sur main. Tant que la liste est vide, le quiz ne porte
+          aucune mention de contenu non relu.
         </p>
       )}
 

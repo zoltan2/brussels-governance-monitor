@@ -94,7 +94,7 @@ Elles reprennent le prompt v2 de `scripts/generate-quiz.ts`, à garder synchroni
 ## Ordre de travail recommandé
 
 1. **Français d'abord**, langue source de tout le site. 13 cartes domaine à 2 questions, puis 32 dossiers à 1 ou 2.
-2. **Puis les trois autres langues par traduction** des questions françaises validées, plutôt qu'en repartant des fiches traduites. Les fiches sont des traductions les unes des autres, donc les faits sont identiques, et cet ordre apporte une chose que les pools n'ont jamais eue : la **parité entre langues**, mêmes identifiants et mêmes faits partout. Le pool français comptait 57 questions et l'allemand 53, sans que personne ne sache lesquelles manquaient.
+2. **Puis les trois autres langues par traduction** (`npm run quiz:translate:prep -- --locale nl`, qui refait lui-même le dump de la langue cible) des questions françaises validées, plutôt qu'en repartant des fiches traduites. Les fiches sont des traductions les unes des autres, donc les faits sont identiques, et cet ordre apporte une chose que les pools n'ont jamais eue : la **parité entre langues**, mêmes identifiants et mêmes faits partout. Le pool français comptait 57 questions et l'allemand 53, sans que personne ne sache lesquelles manquaient.
 
 ---
 
@@ -106,6 +106,8 @@ Les questions neuves ne sont **pas relues**. Deux conséquences :
 - au sens de l'**article 50 du règlement (UE) 2024/1689**, applicable depuis le 2 août 2026, du contenu généré et non relu doit porter une mention. Soit les questions sont relues et approuvées, soit le quiz porte une mention le temps de la relecture
 
 C'est le moment où la page de relecture admin cesse d'être un confort.
+
+`/fr/admin/quiz` lit la branche `main`, jamais une branche de PR. L'ordre est donc : fusionner la PR de régénération, relire, puis fusionner la PR `review/quiz-…` que crée le bouton Enregistrer. La page annonce elle-même une régénération ou une relecture en attente de fusion.
 
 ---
 

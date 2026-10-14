@@ -117,10 +117,12 @@ export function QuizReviewList({
           role="status"
           className="mt-6 rounded-lg border border-status-delayed bg-neutral-50 p-4 text-sm text-neutral-800"
         >
-          Une session de relecture est déjà ouverte —{' '}
-          {openPrs.map((p) => `PR #${p.number}`).join(', ')}. Fusionnez-la avant d’en
-          commencer une autre : deux sessions parallèles réécrivent le même fichier
-          d’état et la seconde fusion casserait.
+          Relecture enregistrée dans la{' '}
+          {openPrs.map((p) => `PR #${p.number}`).join(', ')}, en attente de fusion.
+          Elle comptera une fois fusionnée : d’ici là, cette page lit la branche
+          main et montre encore ces questions comme à relire. Aucune nouvelle
+          session avant la fusion : deux sessions parallèles réécrivent le même
+          fichier d’état et la seconde fusion casserait.
         </div>
       )}
 

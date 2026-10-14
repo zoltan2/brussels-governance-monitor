@@ -184,6 +184,34 @@ export async function listOpenReviewPrs(ctx: GitHubContext): Promise<OpenPr[]> {
     }));
 }
 
+/**
+ * PR ouvertes, hors relecture, qui touchent un fichier du quiz : en pratique
+ * une régénération qui attend sa fusion.
+ *
+ * La page de relecture lit `main`. Tant qu'une telle PR n'est pas fusionnée,
+ * ses questions n'y apparaissent pas, et la page semble vide sans dire
+ * pourquoi : c'est arrivé le 14/10/2026 avec la PR #752.
+ */
+export async function listOpenPoolPrs(
+  ctx: GitHubContext,
+): Promise<Array<{ number: number; branch: string }>> {
+  const prs = await call<Array<{ number: number; head: { ref: string } }>>(
+    ctx,
+    '/pulls?state=open&per_page=100',
+  );
+  const candidates = prs.filter((p) => !p.head.ref.startsWith(QUIZ_REVIEW_BRANCH_PREFIX));
+
+  const touched = await Promise.all(
+    candidates.map(async (p) => {
+      const files = await reviewPrFiles(ctx, p.number);
+      return files.paths.some((path) => QUIZ_REVIEW_PATHS.includes(path))
+        ? { number: p.number, branch: p.head.ref }
+        : null;
+    }),
+  );
+  return touched.filter((p): p is { number: number; branch: string } => p !== null);
+}
+
 export async function openReviewPr(
   ctx: GitHubContext,
   params: { branch: string; title: string; body: string },

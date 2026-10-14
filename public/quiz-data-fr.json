@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T19:10:54.952Z",
+  "generatedAt": "2026-10-14T07:49:09.460Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Selon le ministre bruxellois des Finances, à quelle date la taxe de circulation revue doit-elle idéalement entrer en vigueur ?",
+      "question": "Selon le Cahier n° 127 du CERPE (UNamur), publié en septembre 2026, quel déficit SEC consolidé la Région de Bruxelles-Capitale afficherait-elle encore en 2029, l'année où l'accord de gouvernement vise l'équilibre ?",
       "options": [
-        "1er janvier 2027",
-        "2 avril 2027",
-        "1er mai 2027",
-        "1er juillet 2027"
+        "Environ 150 millions d'euros",
+        "Environ 512 millions d'euros",
+        "Environ 930 millions d'euros",
+        "Environ 1,4 milliard d'euros"
       ],
-      "correct": 3,
-      "explanation": "Il l'a indiqué le 12 octobre 2026 en commission des Finances du Parlement bruxellois.",
+      "correct": 1,
+      "explanation": "La projection part du budget 2026 initial et ne tient pas compte de l'accord budgétaire du 4 octobre 2026. Les auteurs jugent les mesures engagées insuffisantes pour atteindre l'équilibre en 2029.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:cece65afbc0be9d945dbd5495f8cfbd8",
-        "generatedAt": "2026-10-12T19:10:54.952Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:922d95c547c091a0d903786372b51d09",
+        "generatedAt": "2026-10-14T07:49:09.460Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Selon le projet d'accord de coopération évoqué au Parlement bruxellois le 12 octobre 2026, dans quelle fourchette se situerait le prix annuel de la vignette routière ?",
+      "question": "Quelle opinion la Cour des comptes a-t-elle rendue sur le compte général 2024 de la Région de Bruxelles-Capitale, dans son 30e Cahier d'observations ?",
       "options": [
-        "Entre 30 et 50 euros",
-        "Entre 90 et 125 euros",
-        "Entre 150 et 200 euros",
-        "Entre 250 et 350 euros"
+        "Une opinion favorable sans réserve",
+        "Une opinion favorable avec réserves",
+        "Une abstention d'opinion",
+        "Une opinion défavorable"
       ],
-      "correct": 1,
-      "explanation": "Le prix dépendrait de la classe d'émission ; aucune compensation n'est prévue, selon le ministre des Finances.",
+      "correct": 3,
+      "explanation": "Pour les comptes généraux 2022 et 2023, la Cour s'était abstenue de rendre une opinion.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:cece65afbc0be9d945dbd5495f8cfbd8",
-        "generatedAt": "2026-10-12T19:10:54.952Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:922d95c547c091a0d903786372b51d09",
+        "generatedAt": "2026-10-14T07:49:09.460Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Selon le bilan provisoire de la police, combien des privations de liberté judiciaires opérées après les heurts du 12 octobre 2026 près de la gare du Midi concernaient des mineurs ?",
+      "question": "Selon la demande de permis déposée le 26 mai 2026, quel équipement doit occuper l'ancienne concession automobile de l'avenue du Port 94, à Bruxelles ?",
       "options": [
-        "Deux",
-        "Cinq",
-        "Neuf",
-        "Quinze"
+        "Un campus d'entraînement pour Safe.brussels",
+        "La caserne centrale des pompiers",
+        "Un commissariat de zone de police",
+        "Un centre fédéral d'accueil"
       ],
-      "correct": 2,
-      "explanation": "La police fait état d'une dizaine de privations de liberté judiciaires et de plusieurs arrestations administratives.",
+      "correct": 0,
+      "explanation": "Le projet porte sur 4 067 m² pour une école de police et des métiers de la sécurité. L'enquête publique court jusqu'au 29 octobre 2026.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:100ba7695d147e11d5bb232cef408981",
-        "generatedAt": "2026-10-12T19:10:54.952Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:9f9224eef62bfee6ca3f6c8c41c8a909",
+        "generatedAt": "2026-10-14T07:49:09.460Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "En quelle année le tribunal de première instance de Bruxelles a-t-il jugé illégale la technique policière de la nasse, selon BX1 ?",
+      "question": "Selon BRUZZ (14 octobre 2026), dans quel quartier bruxellois la formation de Safe.brussels est-elle installée avant son déménagement prévu avenue du Port ?",
       "options": [
-        "2019",
-        "2022",
-        "2025",
-        "2026"
+        "Haren",
+        "Neder-Over-Heembeek",
+        "Anderlecht-Cureghem",
+        "Evere"
       ],
-      "correct": 2,
-      "explanation": "Le jugement, de mars 2025, est frappé d'appel mais reste exécutoire ; une nouvelle audience est fixée au 15 octobre 2026.",
+      "correct": 0,
+      "explanation": "Le déménagement doit rapprocher la formation de la future caserne centrale des pompiers, à Tour & Taxis.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:100ba7695d147e11d5bb232cef408981",
-        "generatedAt": "2026-10-12T19:10:54.952Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:9f9224eef62bfee6ca3f6c8c41c8a909",
+        "generatedAt": "2026-10-14T07:49:09.460Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Combien d'institutions bruxelloises Iriscare a-t-il financées en 2025, selon son communiqué du 8 octobre 2026 ?",
+      "question": "Selon BRUZZ (14 octobre 2026), d'ici quand le Hub humanitaire de l'avenue du Port, à Bruxelles, doit-il quitter son bâtiment ?",
       "options": [
-        "376",
-        "204",
-        "248",
-        "548"
+        "Décembre 2026",
+        "Mars 2027",
+        "Septembre 2027",
+        "Juin 2028"
       ],
-      "correct": 0,
-      "explanation": "Elles ont reçu 537,7 millions d'euros. Une même institution peut figurer dans plusieurs secteurs : le total n'est pas la somme des nombres par secteur.",
+      "correct": 2,
+      "explanation": "Le bâtiment doit accueillir le futur campus de Safe.brussels, avec un chantier annoncé pour octobre 2027. Aucun nouveau lieu n'est trouvé pour le Hub, selon Médecins du Monde.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-10-11",
-        "sourceContentHash": "sha256:b9e1caf0cad7ff40a584192dc6dbb075",
-        "generatedAt": "2026-10-12T19:10:54.952Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:1b10aa655a6c33c0db06bbdc436f9553",
+        "generatedAt": "2026-10-14T07:49:09.460Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Selon le ministre bruxellois de l'Action sociale, quel montant supplémentaire l'accord budgétaire du 4 octobre 2026 prévoit-il pour les communes et les CPAS en 2027 ?",
+      "question": "Selon le SPP Intégration sociale, combien de personnes touchaient le revenu d'intégration en Région de Bruxelles-Capitale en mai 2026 ?",
       "options": [
-        "1,8 million d'euros",
-        "6,3 millions d'euros",
-        "15 millions d'euros",
-        "50 millions d'euros"
+        "Environ 26 500",
+        "Environ 41 500",
+        "Environ 56 500",
+        "Environ 81 500"
       ],
       "correct": 2,
-      "explanation": "Le ministre annonce aussi 6,3 millions d'euros pour la prévention des assuétudes. Ces montants sont des annonces : aucun tableau budgétaire n'accompagnait l'accord.",
+      "explanation": "C'est plus qu'en Flandre (53 361), pourtant cinq fois plus peuplée. La hausse suit la limitation dans le temps des allocations de chômage.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-10-11",
-        "sourceContentHash": "sha256:b9e1caf0cad7ff40a584192dc6dbb075",
-        "generatedAt": "2026-10-12T19:10:54.952Z",
+        "sourceLastModified": "2026-10-14",
+        "sourceContentHash": "sha256:1b10aa655a6c33c0db06bbdc436f9553",
+        "generatedAt": "2026-10-14T07:49:09.460Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Sur quoi portait la commission de concertation réunie le 12 octobre 2026 à la maison communale de Schaerbeek ?",
+      "question": "Quel avis le collège des bourgmestre et échevins de Schaerbeek a-t-il adopté le 6 octobre 2026 sur la demande de permis de lotir de la friche Josaphat ?",
       "options": [
-        "Le permis de lotir de la friche Josaphat",
-        "Le tracé du métro 3",
-        "La rénovation d'une gare",
-        "La construction d'un stade"
+        "Un avis favorable sans condition",
+        "Un avis favorable sous conditions",
+        "Une abstention, comme en 2025",
+        "Un avis défavorable"
       ],
-      "correct": 0,
-      "explanation": "La demande porte sur un peu moins de sept hectares, neuf bâtiments et plus de 530 logements, selon BX1.",
+      "correct": 3,
+      "explanation": "L'avis, adopté à la majorité, est consultatif : la Région délivre le permis. L'enquête publique avait recueilli près de 15 000 réclamations.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:2bd3c365992dec7a7835bbeac0c4002d",
-        "generatedAt": "2026-10-12T19:10:54.952Z",
+        "sourceLastModified": "2026-10-13",
+        "sourceContentHash": "sha256:f6757d828f89de176f474d1254bdaea0",
+        "generatedAt": "2026-10-14T07:49:09.460Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Quelle autorité délivre le permis de lotir de la friche Josaphat ?",
+      "question": "Selon le jugement du 29 octobre 2025, examiné en appel à Bruxelles en octobre 2026, à partir de quelle superficie les terrains en friche bruxellois ne peuvent-ils plus être bâtis ni imperméabilisés jusqu'au 31 décembre 2026 ?",
       "options": [
-        "La commune de Schaerbeek",
-        "La Région bruxelloise",
-        "La commission de concertation",
-        "L'État fédéral"
+        "0,1 hectare",
+        "0,5 hectare",
+        "1 hectare",
+        "2 hectares"
       ],
       "correct": 1,
-      "explanation": "L'avis du collège de Schaerbeek, défavorable depuis le 6 octobre 2026, est consultatif.",
+      "explanation": "La Région demande l'annulation du jugement ; l'ASBL We Are Nature demande la prolongation de l'interdiction. Elle est distincte du gel de dix-huit mois décidé par le gouvernement pour quatre sites.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:2bd3c365992dec7a7835bbeac0c4002d",
-        "generatedAt": "2026-10-12T19:10:54.952Z",
+        "sourceLastModified": "2026-10-13",
+        "sourceContentHash": "sha256:f6757d828f89de176f474d1254bdaea0",
+        "generatedAt": "2026-10-14T07:49:09.460Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

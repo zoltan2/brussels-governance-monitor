@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T07:51:05.998Z",
+  "generatedAt": "2026-10-15T07:21:07.396Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welches konsolidierte ESVG-Defizit würde die Region Brüssel-Hauptstadt laut Cahier Nr. 127 des CERPE (UNamur), veröffentlicht im September 2026, im Jahr 2029 noch aufweisen, dem Jahr, für das das Regierungsabkommen den Haushaltsausgleich anstrebt?",
+      "question": "Auf welchem Satz hält die Region Brüssel-Hauptstadt laut BRUZZ (14. Oktober 2026) ihre Steuer auf Online-Spiele und -Wetten, während Flandern und die Wallonie sie auf 15 % anheben?",
       "options": [
-        "Rund 150 Millionen Euro",
-        "Rund 512 Millionen Euro",
-        "Rund 930 Millionen Euro",
-        "Rund 1,4 Milliarden Euro"
+        "5 %",
+        "11 %",
+        "15 %",
+        "20 %"
       ],
       "correct": 1,
-      "explanation": "Die Projektion geht vom ursprünglichen Haushalt 2026 aus und berücksichtigt die Haushaltseinigung vom 4. Oktober 2026 nicht. Die Autoren halten die ergriffenen Maßnahmen für unzureichend, um 2029 den Ausgleich zu erreichen.",
+      "explanation": "Der Brüsseler Finanzminister bekräftigte am 12. Oktober 2026 im Parlament, dass das Regierungsabkommen keine Erhöhung vorsieht.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:2acf8cd25a5a8eda100b3ba9729c6e67",
-        "generatedAt": "2026-10-14T07:51:05.998Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:db92d8ffe8b058b889f07e4ebf23dd85",
+        "generatedAt": "2026-10-15T07:21:07.396Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welches Prüfungsurteil hat der Rechnungshof in seinem 30. Buch der Bemerkungen zur allgemeinen Rechnung 2024 der Region Brüssel-Hauptstadt abgegeben?",
+      "question": "Warum kann laut BRUZZ (14. Oktober 2026) ein Unterschied der Steuersätze zwischen der Region Brüssel-Hauptstadt, Flandern und der Wallonie bei der Steuer auf Online-Spiele und -Wetten Einnahmen von einer Region in eine andere verlagern?",
       "options": [
-        "Ein uneingeschränktes Prüfungsurteil",
-        "Ein eingeschränktes Prüfungsurteil",
-        "Kein Prüfungsurteil",
-        "Ein negatives Prüfungsurteil"
+        "Anbieter können ihre Server in der Region mit dem niedrigsten Satz aufstellen",
+        "Spieler werden nach ihrer Wohngemeinde besteuert",
+        "Die Steuer wird vom Föderalstaat erhoben und dann nach Bevölkerungszahl verteilt",
+        "Spielbanken zahlen die Steuer anstelle der Online-Anbieter"
       ],
-      "correct": 3,
-      "explanation": "Zu den allgemeinen Rechnungen 2022 und 2023 hatte der Rechnungshof kein Prüfungsurteil abgegeben.",
+      "correct": 0,
+      "explanation": "Der Brüsseler Finanzminister bestätigte am 12. Oktober 2026 im Parlament, dass ein wallonischer Anbieter seinen Server nach Brüssel verlegt hatte, ohne ihn zu nennen.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:2acf8cd25a5a8eda100b3ba9729c6e67",
-        "generatedAt": "2026-10-14T07:51:05.998Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:db92d8ffe8b058b889f07e4ebf23dd85",
+        "generatedAt": "2026-10-15T07:21:07.396Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Welche Einrichtung soll laut dem am 26. Mai 2026 eingereichten Genehmigungsantrag das ehemalige Autohaus in der Avenue du Port 94 in Brüssel beziehen?",
+      "question": "Wie weit war laut einer Belga-Meldung vom 15. Oktober 2026 die Ernennung des regionalen Brüsseler Kommissars für Sicherheit und Drogen?",
       "options": [
-        "Ein Trainingscampus für Safe.brussels",
-        "Die zentrale Feuerwache",
-        "Ein Kommissariat einer Polizeizone",
-        "Ein föderales Aufnahmezentrum"
+        "Die Anwerbung lief noch, der Amtsantritt war für Herbst 2026 angekündigt",
+        "Der Kommissar war seit September 2026 im Amt",
+        "Die Brüsseler Regierung hatte das Amt abgeschafft",
+        "Das Brüsseler Parlament hatte die Schaffung des Amtes noch nicht beschlossen"
       ],
       "correct": 0,
-      "explanation": "Das Projekt umfasst 4.067 m² für eine Schule für Polizei- und Sicherheitsberufe. Die öffentliche Untersuchung läuft bis zum 29. Oktober 2026.",
+      "explanation": "Der Ende August 2026 veröffentlichte Zeitplan sah einen Abschluss der Auswahl Ende September und eine Ernennung um Mitte Oktober vor. Der Generalprokurator von Brüssel bezeichnete das Amt am 14. Oktober 2026 als überflüssig.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:dc4e86ebd51959e98012cbc9accde984",
-        "generatedAt": "2026-10-14T07:51:05.998Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:5d61dc15ccbe0b40f864c2e7b1b239e7",
+        "generatedAt": "2026-10-15T07:21:07.396Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "In welchem Brüsseler Stadtteil ist die Ausbildung von Safe.brussels laut BRUZZ (14. Oktober 2026) vor dem geplanten Umzug in die Avenue du Port angesiedelt?",
+      "question": "Um wie viel sind die Straftaten in der Brüsseler Metro seit dem Start der Militäroperation Urban Shield im April 2026 laut dem föderalen Verteidigungsminister im Kammerausschuss am 14. Oktober 2026 zurückgegangen?",
       "options": [
-        "Haren",
-        "Neder-Over-Heembeek",
-        "Anderlecht-Cureghem",
-        "Evere"
+        "Um 3,5 %",
+        "Um 16,8 %",
+        "Um 25 %",
+        "Um 40 %"
       ],
-      "correct": 0,
-      "explanation": "Der Umzug soll die Ausbildung näher an die künftige zentrale Feuerwache auf Tour & Taxis bringen.",
+      "correct": 1,
+      "explanation": "In den Brüsseler Bahnhöfen beträgt der angekündigte Rückgang 7,1 %. Die von der Föderalregierung beschlossene Operation kostete mehr als 4 Millionen Euro und hat kein Enddatum.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:dc4e86ebd51959e98012cbc9accde984",
-        "generatedAt": "2026-10-14T07:51:05.998Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:5d61dc15ccbe0b40f864c2e7b1b239e7",
+        "generatedAt": "2026-10-15T07:21:07.396Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Welche Stellungnahme hat das Kollegium der Bürgermeister und Schöffen von Schaerbeek am 6. Oktober 2026 zum Antrag auf Parzellierungsgenehmigung für die Josaphat-Brache abgegeben?",
+      "question": "Welcher Instanz hat die Region Brüssel-Hauptstadt laut La DH und BRUZZ (14. Oktober 2026) ihren Entwurf zur Reform des Erlasses über Arbeiten von geringfügiger Bedeutung vorgelegt, der unter anderem die Glasfaserkästen an Fassaden regelt?",
       "options": [
-        "Eine befürwortende Stellungnahme ohne Auflagen",
-        "Eine befürwortende Stellungnahme mit Auflagen",
-        "Eine Enthaltung, wie im Jahr 2025",
-        "Eine ablehnende Stellungnahme"
+        "Dem Staatsrat",
+        "Dem Verfassungsgerichtshof",
+        "Der Königlichen Kommission für Denkmäler und Landschaften",
+        "Dem Wirtschafts- und Sozialrat der Region"
       ],
-      "correct": 3,
-      "explanation": "Die mehrheitlich angenommene Stellungnahme ist beratend: Die Region erteilt die Genehmigung. Die öffentliche Untersuchung hatte fast 15.000 Einwendungen ergeben.",
+      "correct": 0,
+      "explanation": "Die Region prüft das Gutachten des Staatsrats vor einer erneuten Befassung der Regierung. Der Text würde Kabel von den Regeln zu Farbe und Volumen ausnehmen; am 14. Oktober 2026 gab es kein Datum des Inkrafttretens.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-13",
-        "sourceContentHash": "sha256:68d77c8cd8a95505c989ce4bcca3faf8",
-        "generatedAt": "2026-10-14T07:51:05.998Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:7099f9233ec3159db6c3acc8ba19bb32",
+        "generatedAt": "2026-10-15T07:21:07.396Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Ab welcher Fläche dürfen Brüsseler Brachflächen laut dem Urteil vom 29. Oktober 2025, das im Oktober 2026 in Brüssel in der Berufung verhandelt wurde, bis zum 31. Dezember 2026 weder bebaut noch versiegelt werden?",
+      "question": "Welches Höchstvolumen dürfen Vorrichtungen an Fassaden wie Glasfaserkästen laut dem Brüsseler Erlass über Arbeiten von geringfügiger Bedeutung, an den La DH am 14. Oktober 2026 erinnerte, einnehmen, um von der Städtebaugenehmigung befreit zu sein?",
       "options": [
-        "0,1 Hektar",
-        "0,5 Hektar",
-        "1 Hektar",
-        "2 Hektar"
+        "2 dm³",
+        "8 dm³",
+        "20 dm³",
+        "50 dm³"
       ],
       "correct": 1,
-      "explanation": "Die Region verlangt die Aufhebung des Urteils; die Vereinigung We Are Nature verlangt eine Verlängerung des Verbots. Es ist unabhängig vom achtzehnmonatigen Baustopp, den die Regierung für vier Standorte beschlossen hat.",
+      "explanation": "Diese Vorrichtungen müssen außerdem die Farbe der Fassade haben. Die meisten in Brüssel angebrachten Glasfaserkästen erfüllen diese Bedingungen nicht.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-13",
-        "sourceContentHash": "sha256:68d77c8cd8a95505c989ce4bcca3faf8",
-        "generatedAt": "2026-10-14T07:51:05.998Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:7099f9233ec3159db6c3acc8ba19bb32",
+        "generatedAt": "2026-10-15T07:21:07.396Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Wie hoch ist die im Februar 2026 beschlossene gesamte Rekapitalisierung der SLRB, von der eine Tranche von 131 Millionen Euro für 2026 vorgesehen ist?",
+      "question": "Für welches Datum kündigt die Brüsseler Staatssekretärin für Wohnungswesen laut La Libre (14. Oktober 2026) einen Reformvorschlag für den Sozialwohnungsbau an?",
       "options": [
-        "200 Millionen Euro",
-        "250 Millionen Euro",
-        "400 Millionen Euro",
-        "1 Milliarde Euro"
+        "15. Oktober 2026",
+        "1. November 2026",
+        "1. Januar 2027",
+        "30. Juni 2027"
       ],
-      "correct": 2,
-      "explanation": "Sie wird außerhalb des Haushaltssaldos gehalten, erhöht aber die Schulden der Region.",
+      "correct": 1,
+      "explanation": "Am 14. Oktober 2026 hatte sich der Streit über die Zuweisung 2026 von 131 Millionen Euro an die SLRB seit dem abgebrochenen Ministerrat vom 8. Oktober nicht bewegt.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:903c109f86a79030717dd7d1d332d34c",
-        "generatedAt": "2026-10-09T06:43:50.881Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:0cc24937264f07dffb6b4f78540dc3ba",
+        "generatedAt": "2026-10-15T07:21:07.396Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Was bestätigt der Brüsseler Haushaltsminister am 8. Oktober 2026 zu den Mitteln von 131 Millionen Euro für die SLRB?",
+      "question": "An welche Bedingung knüpft der Vorsitzende des MR laut La Libre (14. Oktober 2026) die Stimme der Abgeordneten seiner Partei zum Brüsseler Haushalt 2027?",
       "options": [
-        "Dass sie im ursprünglichen, bereits verabschiedeten Haushalt 2026 stehen",
-        "Dass sie in der Haushaltsklausur gestrichen wurden",
-        "Dass sie auf den Haushalt 2028 verschoben werden",
-        "Dass sie von einem europäischen Darlehen abhängen"
+        "An den Rücktritt des derzeitigen Vorsitzenden des Foyer anderlechtois",
+        "An die sofortige Auszahlung von 131 Millionen Euro an die SLRB",
+        "An die Fusion der sechzehn öffentlichen Wohnungsbaugesellschaften",
+        "An die Abschaffung der Verkehrssteuer"
       ],
       "correct": 0,
-      "explanation": "Er hält es laut BRUZZ auch für legitim, dass ein Partner Bedingungen für die Ausführung eines Haushalts stellt.",
+      "explanation": "Der Foyer anderlechtois ist die größte Sozialwohnungsgesellschaft der Region. Die Sperre der 131 Millionen Euro für die SLRB besteht seit September 2026.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:903c109f86a79030717dd7d1d332d34c",
-        "generatedAt": "2026-10-09T06:43:50.881Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:0cc24937264f07dffb6b4f78540dc3ba",
+        "generatedAt": "2026-10-15T07:21:07.396Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

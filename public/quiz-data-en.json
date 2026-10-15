@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T07:51:05.683Z",
+  "generatedAt": "2026-10-15T07:21:07.727Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "According to CERPE (UNamur) Cahier No. 127, published in September 2026, what consolidated ESA deficit would the Brussels-Capital Region still show in 2029, the year the government agreement targets a balanced budget?",
+      "question": "According to BRUZZ (14 October 2026), at what rate is the Brussels Region keeping its tax on online games and betting, while Flanders and Wallonia raise theirs to 15%?",
       "options": [
-        "About 150 million euros",
-        "About 512 million euros",
-        "About 930 million euros",
-        "About 1.4 billion euros"
+        "5%",
+        "11%",
+        "15%",
+        "20%"
       ],
       "correct": 1,
-      "explanation": "The projection starts from the initial 2026 budget and does not take into account the budget agreement of 4 October 2026. The authors find the measures taken insufficient to reach balance in 2029.",
+      "explanation": "The Brussels finance minister reiterated in Parliament on 12 October 2026 that the government agreement does not provide for an increase.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:2ac19270f57e72f3ec9358c28f66a92b",
-        "generatedAt": "2026-10-14T07:51:05.683Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:ac56032279e5047cc78f28381b6a679e",
+        "generatedAt": "2026-10-15T07:21:07.727Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "What opinion did the Court of Audit issue on the Brussels-Capital Region's 2024 general account, in its 30th Book of Observations?",
+      "question": "According to BRUZZ (14 October 2026), why can a rate gap between the Brussels Region, Flanders and Wallonia on the tax on online games and betting shift revenue from one region to another?",
       "options": [
-        "An unqualified opinion",
-        "A qualified opinion",
-        "A disclaimer of opinion",
-        "An adverse opinion"
+        "Operators can place their servers in the region with the lowest rate",
+        "Players are taxed according to their municipality of residence",
+        "The tax is collected by the federal state and then shared out by population",
+        "Physical casinos pay the tax instead of online sites"
       ],
-      "correct": 3,
-      "explanation": "For the 2022 and 2023 general accounts, the Court of Audit had abstained from giving an opinion.",
+      "correct": 0,
+      "explanation": "The Brussels finance minister confirmed in Parliament on 12 October 2026 that a Walloon operator had moved its server to Brussels, without naming it.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:2ac19270f57e72f3ec9358c28f66a92b",
-        "generatedAt": "2026-10-14T07:51:05.683Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:ac56032279e5047cc78f28381b6a679e",
+        "generatedAt": "2026-10-15T07:21:07.727Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "According to the permit application filed on 26 May 2026, what facility is to occupy the former car dealership at Avenue du Port 94 in Brussels?",
+      "question": "According to a Belga dispatch of 15 October 2026, where did the appointment of the Brussels regional commissioner for security and drugs stand?",
       "options": [
-        "A training campus for Safe.brussels",
-        "The central fire station",
-        "A police zone station",
-        "A federal reception centre"
+        "Recruitment was still under way, with the start in office announced for autumn 2026",
+        "The commissioner had been in office since September 2026",
+        "The Brussels government had abolished the post",
+        "The Brussels Parliament had not yet voted to create the post"
       ],
       "correct": 0,
-      "explanation": "The project covers 4,067 m² for a school for police and security professions. The public inquiry runs until 29 October 2026.",
+      "explanation": "The timetable published at the end of August 2026 provided for selection to close at the end of September and an appointment around mid-October. The Brussels prosecutor general called the post unnecessary on 14 October 2026.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:b69079c319108494494ccf8f58d3024d",
-        "generatedAt": "2026-10-14T07:51:05.683Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:758b8eeecce642f704b2fd602bb64e46",
+        "generatedAt": "2026-10-15T07:21:07.727Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "According to BRUZZ (14 October 2026), in which Brussels district is Safe.brussels' training based before its planned move to Avenue du Port?",
+      "question": "According to the federal defence minister in a Chamber committee on 14 October 2026, by how much have criminal offences fallen in the Brussels metro since military operation Urban Shield began in April 2026?",
       "options": [
-        "Haren",
-        "Neder-Over-Heembeek",
-        "Anderlecht-Cureghem",
-        "Evere"
+        "By 3.5%",
+        "By 16.8%",
+        "By 25%",
+        "By 40%"
       ],
-      "correct": 0,
-      "explanation": "The move is meant to bring training closer to the future central fire station at Tour & Taxis.",
+      "correct": 1,
+      "explanation": "In Brussels railway stations, the announced fall is 7.1%. The operation, decided by the federal government, has cost more than EUR 4 million and has no end date.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:b69079c319108494494ccf8f58d3024d",
-        "generatedAt": "2026-10-14T07:51:05.683Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:758b8eeecce642f704b2fd602bb64e46",
+        "generatedAt": "2026-10-15T07:21:07.727Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "What opinion did Schaerbeek's college of mayor and aldermen adopt on 6 October 2026 on the subdivision permit application for the Josaphat wasteland?",
+      "question": "According to La DH and BRUZZ (14 October 2026), to which body has the Brussels Region submitted its draft reform of the minor-works order, which governs among other things fibre-optic boxes on façades?",
       "options": [
-        "A favourable opinion without conditions",
-        "A favourable opinion with conditions",
-        "An abstention, as in 2025",
-        "An unfavourable opinion"
+        "The Council of State",
+        "The Constitutional Court",
+        "The Royal Commission for Monuments and Sites",
+        "The Region's Economic and Social Council"
       ],
-      "correct": 3,
-      "explanation": "The opinion, adopted by a majority, is advisory: the Region issues the permit. The public inquiry had drawn nearly 15,000 objections.",
+      "correct": 0,
+      "explanation": "The Region is analysing the Council of State's opinion before a new reading in government. The text would exempt cables from the colour and volume rules; as of 14 October 2026, no entry-into-force date had been set.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-10-13",
-        "sourceContentHash": "sha256:94dfcdd620efee3278f8442100e753fc",
-        "generatedAt": "2026-10-14T07:51:05.683Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:76e92bea61248dbd30fb09d13c6c18a4",
+        "generatedAt": "2026-10-15T07:21:07.727Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "Under the judgment of 29 October 2025, heard on appeal in Brussels in October 2026, above what size can Brussels brownfields no longer be built on or sealed until 31 December 2026?",
+      "question": "Under the Brussels minor-works order, as recalled by La DH on 14 October 2026, what is the maximum volume that fixtures on façades, such as fibre-optic boxes, may take up to be exempt from planning permission?",
       "options": [
-        "0.1 hectare",
-        "0.5 hectare",
-        "1 hectare",
-        "2 hectares"
+        "2 dm³",
+        "8 dm³",
+        "20 dm³",
+        "50 dm³"
       ],
       "correct": 1,
-      "explanation": "The Region seeks the annulment of the judgment; the non-profit We Are Nature seeks an extension of the ban. The ban is separate from the eighteen-month freeze the government decided for four sites.",
+      "explanation": "These fixtures must also match the colour of the façade. Most fibre-optic boxes installed in Brussels do not meet these conditions.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-10-13",
-        "sourceContentHash": "sha256:94dfcdd620efee3278f8442100e753fc",
-        "generatedAt": "2026-10-14T07:51:05.683Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:76e92bea61248dbd30fb09d13c6c18a4",
+        "generatedAt": "2026-10-15T07:21:07.727Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Housing",
-      "question": "What is the total amount of the SLRB recapitalisation decided in February 2026, of which a 131 million euro tranche is planned for 2026?",
+      "question": "According to La Libre (14 October 2026), for what date does the Brussels state secretary for housing announce a proposal to reform social housing?",
       "options": [
-        "200 million euros",
-        "250 million euros",
-        "400 million euros",
-        "1 billion euros"
+        "15 October 2026",
+        "1 November 2026",
+        "1 January 2027",
+        "30 June 2027"
       ],
-      "correct": 2,
-      "explanation": "It is kept outside the budget balance but increases the regional debt.",
+      "correct": 1,
+      "explanation": "As of 14 October 2026, the disagreement over the SLRB's EUR 131 million endowment for 2026 had not moved since the interrupted cabinet meeting of 8 October.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:d5bba9bca9ea2813769fae43ee625c6a",
-        "generatedAt": "2026-10-09T06:42:00.074Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:f28411493e5f9dd7f08bfc784970e424",
+        "generatedAt": "2026-10-15T07:21:07.727Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Housing",
-      "question": "What does the Brussels Budget Minister confirm, on 8 October 2026, about the 131 million euros in funds intended for the SLRB?",
+      "question": "According to La Libre (14 October 2026), what condition does the MR president attach to his party's MPs voting for the Brussels 2027 budget?",
       "options": [
-        "That they are in the initial 2026 budget, already voted",
-        "That they were removed during the conclave",
-        "That they are postponed to the 2028 budget",
-        "That they depend on a European loan"
+        "The departure of the current chair of the Foyer anderlechtois",
+        "The immediate payment of EUR 131 million to the SLRB",
+        "The merger of the sixteen public service housing companies",
+        "The abolition of the road tax"
       ],
       "correct": 0,
-      "explanation": "He also considers it legitimate for a partner to set conditions on the execution of a budget, according to BRUZZ.",
+      "explanation": "The Foyer anderlechtois is the largest social housing company in the Region. The EUR 131 million for the SLRB has been blocked since September 2026.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:d5bba9bca9ea2813769fae43ee625c6a",
-        "generatedAt": "2026-10-09T06:42:00.074Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:f28411493e5f9dd7f08bfc784970e424",
+        "generatedAt": "2026-10-15T07:21:07.727Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

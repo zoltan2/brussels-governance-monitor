@@ -11,6 +11,7 @@ import DigestPreviewEmail from '@/emails/digest-preview';
 import { encartSondageDigest } from '@/lib/sondage/encart-digest';
 import { isValidCronAuth } from '@/lib/cron-auth';
 import { resolveWeeklyNumber, weeklyNumberForLocale } from '@/lib/weekly-number';
+import { digestDejaEnvoye } from '@/lib/digest-prepare-guard';
 
 /** Figure pinned ahead of the draft by the Sunday veille. Consumed on first use. */
 const PINNED_NUMBER_PATH = 'data/next-weekly-number.json';
@@ -202,6 +203,14 @@ export async function GET(request: Request) {
     }
   } catch {
     // File doesn't exist yet, that's fine
+  }
+
+  // Digest of this week already approved and sent or scheduled (early
+  // approval before a leave): rewriting would reset approved/sent and invite a
+  // second send. Leave the file, the pin and the preview untouched.
+  if (digestDejaEnvoye(prev, week)) {
+    console.log(`prepare-digest: digest ${week} already sent or scheduled, nothing to prepare`);
+    return NextResponse.json({ success: true, skipped: true, reason: 'Digest already sent or scheduled', week });
   }
 
   // 7 bis. Resolve the number of the week. A human edit on the review screen

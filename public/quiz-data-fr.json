@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T07:49:09.460Z",
+  "generatedAt": "2026-10-15T07:19:17.056Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Selon le Cahier n° 127 du CERPE (UNamur), publié en septembre 2026, quel déficit SEC consolidé la Région de Bruxelles-Capitale afficherait-elle encore en 2029, l'année où l'accord de gouvernement vise l'équilibre ?",
+      "question": "Selon BRUZZ (14 octobre 2026), à quel taux la Région bruxelloise maintient-elle sa taxe sur les jeux et paris en ligne, alors que la Flandre et la Wallonie la portent à 15 % ?",
       "options": [
-        "Environ 150 millions d'euros",
-        "Environ 512 millions d'euros",
-        "Environ 930 millions d'euros",
-        "Environ 1,4 milliard d'euros"
+        "5 %",
+        "11 %",
+        "15 %",
+        "20 %"
       ],
       "correct": 1,
-      "explanation": "La projection part du budget 2026 initial et ne tient pas compte de l'accord budgétaire du 4 octobre 2026. Les auteurs jugent les mesures engagées insuffisantes pour atteindre l'équilibre en 2029.",
+      "explanation": "Le ministre bruxellois des Finances a redit au Parlement, le 12 octobre 2026, que l'accord de gouvernement ne prévoit pas de hausse.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:922d95c547c091a0d903786372b51d09",
-        "generatedAt": "2026-10-14T07:49:09.460Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:b2646d5292fc572a48964b0b11926406",
+        "generatedAt": "2026-10-15T07:19:17.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Quelle opinion la Cour des comptes a-t-elle rendue sur le compte général 2024 de la Région de Bruxelles-Capitale, dans son 30e Cahier d'observations ?",
+      "question": "Selon BRUZZ (14 octobre 2026), pourquoi un écart de taux entre la Région bruxelloise, la Flandre et la Wallonie sur la taxe des jeux et paris en ligne peut-il déplacer des recettes d'une Région à l'autre ?",
       "options": [
-        "Une opinion favorable sans réserve",
-        "Une opinion favorable avec réserves",
-        "Une abstention d'opinion",
-        "Une opinion défavorable"
+        "Les opérateurs peuvent installer leurs serveurs dans la Région au taux le plus bas",
+        "Les joueurs sont taxés selon leur commune de résidence",
+        "La taxe est perçue par l'État fédéral, puis répartie selon la population",
+        "Les casinos physiques paient la taxe à la place des sites en ligne"
       ],
-      "correct": 3,
-      "explanation": "Pour les comptes généraux 2022 et 2023, la Cour s'était abstenue de rendre une opinion.",
+      "correct": 0,
+      "explanation": "Le ministre bruxellois des Finances a confirmé au Parlement, le 12 octobre 2026, qu'un opérateur wallon avait déplacé son serveur à Bruxelles, sans le nommer.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:922d95c547c091a0d903786372b51d09",
-        "generatedAt": "2026-10-14T07:49:09.460Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:b2646d5292fc572a48964b0b11926406",
+        "generatedAt": "2026-10-15T07:19:17.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Selon la demande de permis déposée le 26 mai 2026, quel équipement doit occuper l'ancienne concession automobile de l'avenue du Port 94, à Bruxelles ?",
+      "question": "Selon une dépêche Belga du 15 octobre 2026, où en était la désignation du commissaire régional bruxellois à la sécurité et aux drogues ?",
       "options": [
-        "Un campus d'entraînement pour Safe.brussels",
-        "La caserne centrale des pompiers",
-        "Un commissariat de zone de police",
-        "Un centre fédéral d'accueil"
+        "Le recrutement était toujours en cours, l'entrée en fonction étant annoncée pour l'automne 2026",
+        "Le commissaire était en fonction depuis septembre 2026",
+        "Le gouvernement bruxellois avait supprimé le poste",
+        "Le Parlement bruxellois n'avait pas encore voté la création du poste"
       ],
       "correct": 0,
-      "explanation": "Le projet porte sur 4 067 m² pour une école de police et des métiers de la sécurité. L'enquête publique court jusqu'au 29 octobre 2026.",
+      "explanation": "Le calendrier publié fin août 2026 prévoyait une sélection close fin septembre et une désignation vers la mi-octobre. Le procureur général de Bruxelles a jugé le poste inutile le 14 octobre 2026.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:9f9224eef62bfee6ca3f6c8c41c8a909",
-        "generatedAt": "2026-10-14T07:49:09.460Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:5341b1389ea3fe7c8acdaddb1e6ffb65",
+        "generatedAt": "2026-10-15T07:19:17.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Selon BRUZZ (14 octobre 2026), dans quel quartier bruxellois la formation de Safe.brussels est-elle installée avant son déménagement prévu avenue du Port ?",
+      "question": "Selon le ministre fédéral de la Défense, en commission de la Chambre le 14 octobre 2026, de combien les faits criminels ont-ils baissé dans le métro bruxellois depuis le lancement de l'opération militaire Urban Shield en avril 2026 ?",
       "options": [
-        "Haren",
-        "Neder-Over-Heembeek",
-        "Anderlecht-Cureghem",
-        "Evere"
+        "De 3,5 %",
+        "De 16,8 %",
+        "De 25 %",
+        "De 40 %"
       ],
-      "correct": 0,
-      "explanation": "Le déménagement doit rapprocher la formation de la future caserne centrale des pompiers, à Tour & Taxis.",
+      "correct": 1,
+      "explanation": "Dans les gares bruxelloises, la baisse annoncée est de 7,1 %. L'opération, décidée par le gouvernement fédéral, a coûté plus de 4 millions d'euros et n'a pas de date de fin.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-10-14",
-        "sourceContentHash": "sha256:9f9224eef62bfee6ca3f6c8c41c8a909",
-        "generatedAt": "2026-10-14T07:49:09.460Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:5341b1389ea3fe7c8acdaddb1e6ffb65",
+        "generatedAt": "2026-10-15T07:19:17.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Quel avis le collège des bourgmestre et échevins de Schaerbeek a-t-il adopté le 6 octobre 2026 sur la demande de permis de lotir de la friche Josaphat ?",
+      "question": "Selon La DH et BRUZZ (14 octobre 2026), à quelle instance la Région bruxelloise a-t-elle soumis son projet de réforme de l'arrêté « de minime importance », qui encadre notamment les boîtiers de fibre optique posés en façade ?",
       "options": [
-        "Un avis favorable sans condition",
-        "Un avis favorable sous conditions",
-        "Une abstention, comme en 2025",
-        "Un avis défavorable"
+        "Au Conseil d'État",
+        "À la Cour constitutionnelle",
+        "À la Commission royale des monuments et sites",
+        "Au Conseil économique et social de la Région"
       ],
-      "correct": 3,
-      "explanation": "L'avis, adopté à la majorité, est consultatif : la Région délivre le permis. L'enquête publique avait recueilli près de 15 000 réclamations.",
+      "correct": 0,
+      "explanation": "La Région analyse l'avis du Conseil d'État avant un nouveau passage en gouvernement. Le texte exclurait les câbles des règles de couleur et de volume ; aucune date d'entrée en vigueur n'était fixée au 14 octobre 2026.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-10-13",
-        "sourceContentHash": "sha256:f6757d828f89de176f474d1254bdaea0",
-        "generatedAt": "2026-10-14T07:49:09.460Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:df24e98bbbfe3f9cbfcafd620e8312a8",
+        "generatedAt": "2026-10-15T07:19:17.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Selon le jugement du 29 octobre 2025, examiné en appel à Bruxelles en octobre 2026, à partir de quelle superficie les terrains en friche bruxellois ne peuvent-ils plus être bâtis ni imperméabilisés jusqu'au 31 décembre 2026 ?",
+      "question": "Selon l'arrêté bruxellois « de minime importance », tel que rappelé par La DH le 14 octobre 2026, quel volume maximal peuvent occuper les dispositifs posés en façade, comme les boîtiers de fibre optique, pour être dispensés de permis d'urbanisme ?",
       "options": [
-        "0,1 hectare",
-        "0,5 hectare",
-        "1 hectare",
-        "2 hectares"
+        "2 dm³",
+        "8 dm³",
+        "20 dm³",
+        "50 dm³"
       ],
       "correct": 1,
-      "explanation": "La Région demande l'annulation du jugement ; l'ASBL We Are Nature demande la prolongation de l'interdiction. Elle est distincte du gel de dix-huit mois décidé par le gouvernement pour quatre sites.",
+      "explanation": "Ces dispositifs doivent aussi avoir la couleur de la façade. La plupart des boîtiers de fibre optique posés à Bruxelles ne respectent pas ces conditions.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-10-13",
-        "sourceContentHash": "sha256:f6757d828f89de176f474d1254bdaea0",
-        "generatedAt": "2026-10-14T07:49:09.460Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:df24e98bbbfe3f9cbfcafd620e8312a8",
+        "generatedAt": "2026-10-15T07:19:17.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Logement",
-      "question": "À combien s'élève la recapitalisation totale de la SLRB décidée en février 2026, dont une tranche de 131 millions d'euros est prévue en 2026 ?",
+      "question": "Selon La Libre (14 octobre 2026), pour quelle date la secrétaire d'État bruxelloise au Logement annonce-t-elle une proposition de réforme du logement social ?",
       "options": [
-        "200 millions d'euros",
-        "250 millions d'euros",
-        "400 millions d'euros",
-        "1 milliard d'euros"
+        "Le 15 octobre 2026",
+        "Le 1er novembre 2026",
+        "Le 1er janvier 2027",
+        "Le 30 juin 2027"
       ],
-      "correct": 2,
-      "explanation": "Elle est tenue hors du solde budgétaire mais augmente la dette régionale.",
+      "correct": 1,
+      "explanation": "Au 14 octobre 2026, le désaccord sur la dotation 2026 de 131 millions d'euros de la SLRB n'avait pas évolué depuis le conseil des ministres interrompu du 8 octobre.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:893ac1581d6121f30d4333c0e04951f7",
-        "generatedAt": "2026-10-09T06:39:49.191Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:90257ad500f90021e1d06aa14b086a43",
+        "generatedAt": "2026-10-15T07:19:17.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Que confirme le ministre bruxellois du Budget, le 8 octobre 2026, au sujet des crédits de 131 millions d'euros destinés à la SLRB ?",
+      "question": "Selon La Libre (14 octobre 2026), à quelle condition le président du MR lie-t-il le vote du budget bruxellois 2027 par les députés de son parti ?",
       "options": [
-        "Qu'ils figurent au budget 2026 initial, déjà voté",
-        "Qu'ils ont été supprimés lors du conclave",
-        "Qu'ils sont reportés au budget 2028",
-        "Qu'ils dépendent d'un prêt européen"
+        "Au départ de l'actuel président du Foyer anderlechtois",
+        "Au versement immédiat des 131 millions d'euros à la SLRB",
+        "À la fusion des seize sociétés immobilières de service public",
+        "À la suppression de la taxe de circulation"
       ],
       "correct": 0,
-      "explanation": "Il juge aussi légitime qu'un partenaire pose des conditions à l'exécution d'un budget, selon BRUZZ.",
+      "explanation": "Le Foyer anderlechtois est la plus grande société de logement social de la Région. Le blocage des 131 millions d'euros de la SLRB dure depuis septembre 2026.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-10-09",
-        "sourceContentHash": "sha256:893ac1581d6121f30d4333c0e04951f7",
-        "generatedAt": "2026-10-09T06:39:49.191Z",
+        "sourceLastModified": "2026-10-15",
+        "sourceContentHash": "sha256:90257ad500f90021e1d06aa14b086a43",
+        "generatedAt": "2026-10-15T07:19:17.056Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

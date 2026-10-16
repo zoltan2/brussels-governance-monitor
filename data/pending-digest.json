@@ -1,28 +1,28 @@
 {
-  "week": "2026-w41",
-  "weekStart": "2026-10-05",
-  "created_at": "2026-10-11T19:00:03.392Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w42",
+  "weekStart": "2026-10-12",
+  "created_at": "2026-10-16T11:52:58.266Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "12 domaines, 5 dossiers, 5 secteurs, 3 communes mis à jour",
-    "nl": "12 domeinen, 5 dossiers, 5 sectoren, 3 gemeenten bijgewerkt",
-    "en": "12 domains, 5 dossiers, 5 sectors, 3 communes updated",
-    "de": "12 Bereiche, 5 Dossiers, 5 Sektoren, 3 Gemeinden aktualisiert"
+    "fr": "8 domaines, 3 dossiers, 1 secteur, 10 communes mis à jour",
+    "nl": "8 domeinen, 3 dossiers, 1 sector, 10 gemeenten bijgewerkt",
+    "en": "8 domains, 3 dossiers, 1 sector, 10 communes updated",
+    "de": "8 Bereiche, 3 Dossiers, 1 Sektor, 10 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "39",
+    "value": "719",
     "label": {
-      "fr": "Le nombre d'habitants gagnés par la Région bruxelloise en un an : 1 255 834 au 1er janvier 2026, la plus faible hausse depuis 1996",
-      "nl": "Het aantal inwoners dat het Brussels Gewest er in een jaar bij kreeg: 1.255.834 op 1 januari 2026, de kleinste stijging sinds 1996",
-      "en": "The number of inhabitants the Brussels Region gained in a year: 1,255,834 on 1 January 2026, the smallest increase since 1996",
-      "de": "Die Zahl der Einwohner, die die Region Brüssel in einem Jahr hinzugewonnen hat: 1.255.834 am 1. Januar 2026, der geringste Anstieg seit 1996"
+      "fr": "Déficit visé en 2027",
+      "nl": "Beoogd tekort in 2027",
+      "en": "Targeted deficit in 2027",
+      "de": "Angestrebtes Defizit 2027"
     },
     "source": {
-      "fr": "IBSA, Baromètre démographique 2026 (Focus n° 85, 7 octobre 2026)",
-      "nl": "BISA, Demografische barometer 2026 (Focus nr. 85, 7 oktober 2026)",
-      "en": "IBSA, Demographic Barometer 2026 (Focus No. 85, 7 October 2026)",
-      "de": "IBSA, Demografisches Barometer 2026 (Focus Nr. 85, 7. Oktober 2026)"
+      "fr": "Gouvernement bruxellois, rapporté par VRT NWS, BRUZZ et la RTBF (5 octobre 2026)",
+      "nl": "Brusselse regering, weergegeven door VRT NWS, BRUZZ en RTBF (5 oktober 2026)",
+      "en": "Brussels government, reported by VRT NWS, BRUZZ and RTBF (5 October 2026)",
+      "de": "Brüsseler Regierung, wiedergegeben von VRT NWS, BRUZZ und RTBF (5. Oktober 2026)"
     }
   },
   "closingNote": {
@@ -36,28 +36,24 @@
     "budget",
     "cleanliness",
     "climate",
-    "digital",
-    "education",
-    "employment",
-    "housing",
-    "institutional",
+    "economy",
     "mobility",
     "security",
     "social",
     "urban-planning",
-    "dossier-cpas-bruxellois",
-    "dossier-foyer-anderlechtois",
-    "dossier-reforme-administration",
+    "dossier-faillites",
+    "dossier-pfas",
     "dossier-slrb",
-    "dossier-survol-bruxelles",
-    "construction",
     "culture",
-    "environment",
-    "health-social",
-    "housing-sector",
     "commune-anderlecht",
+    "commune-auderghem",
     "commune-bruxelles-ville",
-    "commune-schaerbeek"
-  ],
-  "sent_at": "2026-10-11T19:04:49.084Z"
+    "commune-etterbeek",
+    "commune-ixelles",
+    "commune-molenbeek-saint-jean",
+    "commune-saint-gilles",
+    "commune-saint-josse-ten-noode",
+    "commune-schaerbeek",
+    "commune-uccle"
+  ]
 }

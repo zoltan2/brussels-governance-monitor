@@ -26,3 +26,21 @@ export interface PendingDigestState {
 export function digestDejaEnvoye(previous: PendingDigestState | null, week: string): boolean {
   return previous?.week === week && previous.sent === true;
 }
+
+/**
+ * Semaine ISO 8601 de `date`, calculee en UTC : `2026-w42`.
+ *
+ * L'ancienne formule de la route (jour local, `Math.round`, `getDay()` du
+ * 4 janvier) decalait la semaine d'un cran du lundi au vendredi en 2026 dans
+ * le conteneur en UTC : le passage du dimanche tombait juste, mais une
+ * preparation lancee a la main le vendredi 16/10/2026 visait w41 au lieu de w42.
+ */
+export function isoWeekString(date: Date): string {
+  const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+  const jour = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - jour); // le jeudi de la semaine porte son annee ISO
+  const annee = d.getUTCFullYear();
+  const debut = Date.UTC(annee, 0, 1);
+  const semaine = Math.ceil(((d.getTime() - debut) / 86400000 + 1) / 7);
+  return `${annee}-w${String(semaine).padStart(2, '0')}`;
+}

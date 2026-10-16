@@ -11,7 +11,7 @@ import DigestPreviewEmail from '@/emails/digest-preview';
 import { encartSondageDigest } from '@/lib/sondage/encart-digest';
 import { isValidCronAuth } from '@/lib/cron-auth';
 import { resolveWeeklyNumber, weeklyNumberForLocale } from '@/lib/weekly-number';
-import { digestDejaEnvoye } from '@/lib/digest-prepare-guard';
+import { digestDejaEnvoye, isoWeekString } from '@/lib/digest-prepare-guard';
 
 /** Figure pinned ahead of the draft by the Sunday veille. Consumed on first use. */
 const PINNED_NUMBER_PATH = 'data/next-weekly-number.json';
@@ -32,15 +32,6 @@ interface PendingDigest {
   closingNote: Record<string, string>;
   commitmentCount: number;
   updatedTopics: string[];
-}
-
-/** Format the ISO week string, e.g. "2026-w07" */
-function getISOWeekString(date: Date): string {
-  const d = new Date(date);
-  d.setDate(d.getDate() + 3 - ((d.getDay() + 6) % 7));
-  const yearStart = new Date(d.getFullYear(), 0, 4);
-  const weekNum = Math.round(((d.getTime() - yearStart.getTime()) / 86400000 + yearStart.getDay() + 6) / 7);
-  return `${d.getFullYear()}-w${String(weekNum).padStart(2, '0')}`;
 }
 
 /** Format a date range like "10 — 16 février 2026" in the user's locale */
@@ -158,7 +149,7 @@ export async function GET(request: Request) {
   }
 
   // 6. Build pending digest
-  const week = getISOWeekString(now);
+  const week = isoWeekString(now);
 
   const pendingDigest: PendingDigest = {
     week,

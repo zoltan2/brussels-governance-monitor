@@ -96,6 +96,53 @@ describe('commitmentSchema validation', () => {
     ).toThrow(z.ZodError);
   });
 
+  it('accepts the `abandoned` status (aligned with COMMITMENT_STATUSES)', () => {
+    expect(() =>
+      commitmentSchema.parse({
+        ...validBase,
+        statusHistory: [{ date: '2026-02-13', status: 'abandoned', source: 'src' }],
+      })
+    ).not.toThrow();
+  });
+
+  it('accepts optional url and note (string or i18n object) on statusHistory entries', () => {
+    expect(() =>
+      commitmentSchema.parse({
+        ...validBase,
+        statusHistory: [
+          {
+            date: '2026-02-13',
+            status: 'announced',
+            source: 'src',
+            url: 'https://example.org/doc.pdf',
+            note: 'Note libre',
+          },
+          {
+            date: '2026-03-01',
+            status: 'in-legislation',
+            source: 'src',
+            note: { fr: 'Note', nl: 'Nota', en: 'Note', de: 'Notiz' },
+          },
+        ],
+      })
+    ).not.toThrow();
+  });
+
+  it('rejects a statusHistory entry with a malformed url or empty note', () => {
+    expect(() =>
+      commitmentSchema.parse({
+        ...validBase,
+        statusHistory: [{ date: '2026-02-13', status: 'announced', source: 'src', url: 'pas-une-url' }],
+      })
+    ).toThrow(z.ZodError);
+    expect(() =>
+      commitmentSchema.parse({
+        ...validBase,
+        statusHistory: [{ date: '2026-02-13', status: 'announced', source: 'src', note: '' }],
+      })
+    ).toThrow(z.ZodError);
+  });
+
   it('rejects a statusHistory entry with a malformed date', () => {
     expect(() =>
       commitmentSchema.parse({

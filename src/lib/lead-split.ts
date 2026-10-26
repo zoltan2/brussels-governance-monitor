@@ -11,7 +11,9 @@ export function leadSplit(text: string, manual?: string): { headline: string; bo
   const t = (text || '').trim();
   if (manual && manual.trim()) return { headline: manual.trim(), body: t };
   if (!t) return { headline: '', body: '' };
-  const sentEnd = t.search(/(?<=[.!?])\s/);
+  // La fin du texte compte comme une fin de phrase : sans elle, un résumé d'une
+  // seule phrase était coupé au dernier mot avec « … » (26/10/2026).
+  const sentEnd = t.search(/(?<=[.!?])(\s|$)/);
   if (sentEnd >= 0 && sentEnd + 1 <= 120) {
     return { headline: t.slice(0, sentEnd + 1).trim(), body: t.slice(sentEnd + 1).trim() };
   }

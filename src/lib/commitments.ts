@@ -3,6 +3,7 @@
 
 import { z } from 'zod';
 import rawData from '../../data/commitments.json';
+import { COMMITMENT_STATUSES } from './commitment-status';
 
 // ── Shared ──────────────────────────────────────────────────────────────────
 
@@ -17,10 +18,17 @@ const i18nString = z.object({
 
 const statusHistoryEntrySchema = z.object({
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'date must be YYYY-MM-DD'),
-  // Existing values in data. Ontological rename (declared/active/…) is tracked in
+  // Aligné sur COMMITMENT_STATUSES (src/lib/commitment-status.ts) : `abandoned`
+  // est connu de l'UI (baromètre, timeline, badges) mais manquait ici (Phase 1a).
+  // Ontological rename (declared/active/…) is tracked in
   // bgm-ops/specs/2026-05-08-ontology-formalization-audit.md NEXT-08.
-  status: z.enum(['not-started', 'announced', 'in-legislation', 'implemented', 'delayed']),
+  status: z.enum(COMMITMENT_STATUSES),
   source: z.string().min(1),
+  // Champs présents dans data/commitments.json mais non déclarés jusqu'ici.
+  // `note` est soit une chaîne (9 entrées historiques), soit un objet i18n
+  // complet (47 entrées) : on accepte les deux formes existantes.
+  url: z.string().url().optional(),
+  note: z.union([z.string().min(1), i18nString]).optional(),
 });
 
 const dataPointSchema = z.object({

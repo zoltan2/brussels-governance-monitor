@@ -12,6 +12,10 @@ export default defineConfig({
     // happy-dom, ARIA partiel) déclarent `// @vitest-environment jsdom` en tête
     // de fichier — `environmentMatchGlobs` a été retiré dans Vitest 4.
     environment: 'node',
+    // Depuis Node 25, Node expose son propre `localStorage` global (indéfini
+    // sans --localstorage-file) : il masque celui de jsdom et 63 render-tests
+    // tombaient sur « Cannot read properties of undefined (reading 'clear') ».
+    execArgv: ['--no-experimental-webstorage'],
     // `src/auth.test.ts` importe `src/auth.ts`, qui charge next-auth, qui
     // importe `next/server` en ESM. Hors bundle Next, la résolution échoue
     // (« Did you mean next/server.js ? ») : les inliner rend le module testable

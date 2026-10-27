@@ -41,10 +41,10 @@
     "quiz:translate:prep": "tsx scripts/quiz-translate-prep.ts"
   },
   "engines": {
-    "node": ">=22 <23"
+    "node": ">=26 <27"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.132.1",
+    "@anthropic-ai/sdk": "^0.137.0",
     "@react-email/components": "^1.0.12",
     "@types/node": "^25.9.9",
     "@types/react": "^19.3.0",
@@ -52,23 +52,23 @@
     "autoprefixer": "^10.6.1",
     "bcryptjs": "^3.0.3",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.4.0",
+    "eslint-config-next": "^16.4.2",
     "js-yaml": "^4.3.2",
     "lucide-react": "^0.577.0",
-    "next": "^16.4.0",
+    "next": "^16.4.2",
     "next-auth": "^5.0.0-beta.32",
     "next-intl": "^4.14.9",
     "postcss": "^8.5.14",
-    "prettier": "^3.9.9",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
+    "prettier": "^3.9.10",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-markdown": "^10.1.0",
-    "resend": "^6.32.1",
+    "resend": "^6.34.1",
     "stripe": "^22.6.2",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "velite": "^0.4.0",
-    "zod": "^4.6.5"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
@@ -82,7 +82,7 @@
     "pagefind": "^1.5.2",
     "qrcode": "^1.5.4",
     "tsx": "^4.23.15",
-    "vitest": "^4.1.11",
+    "vitest": "^4.1.12",
     "vitest-axe": "^0.1.0"
   },
   "overrides": {

@@ -15,9 +15,11 @@ process.env.AUTH_SECRET = 'secret-auth';
 
 const listUnsubscribedContacts = vi.fn();
 const deleteContactById = vi.fn();
+const listContactsCreation = vi.fn();
 vi.mock('@/lib/resend', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/lib/resend')>()),
   listUnsubscribedContacts: () => listUnsubscribedContacts(),
+  listContactsCreation: () => listContactsCreation(),
   deleteContactById: (id: string) => deleteContactById(id),
 }));
 
@@ -80,7 +82,10 @@ function compterLignes(table: string): number {
 let log: ReturnType<typeof vi.spyOn>;
 
 beforeEach(() => {
-  db.exec('DELETE FROM desabonnements; DELETE FROM chat_logs;');
+  db.exec(
+    'DELETE FROM desabonnements; DELETE FROM chat_logs; DELETE FROM abonnes_mois; UPDATE abonnes_suivi SET reprise_le = NULL;',
+  );
+  listContactsCreation.mockReset().mockResolvedValue({ contacts: [], complete: true });
   delete process.env.CONTACTS_PURGE_ENABLED;
   listUnsubscribedContacts.mockReset().mockResolvedValue(contacts(ANCIEN, RECENT, INCONNU));
   deleteContactById.mockReset().mockResolvedValue(null);
@@ -210,5 +215,58 @@ describe('GET /api/cron/contacts-purge', () => {
         expect(sortie).not.toContain(fingerprintEmail(email));
       }
     }
+  });
+
+  describe('reprise de l’historique', () => {
+    const CHEZ_RESEND = {
+      contacts: [{ email: ANCIEN, createdAt: '2026-03-10T10:00:00.000Z' }],
+      complete: true,
+    };
+
+    function reprisesEcrites(): number {
+      const r = db.prepare('SELECT SUM(nouveaux_reprise) AS n FROM abonnes_mois').get() as {
+        n: number | null;
+      };
+      return Number(r.n ?? 0);
+    }
+
+    it('lit les contacts avant toute suppression, une seule fois', async () => {
+      process.env.CONTACTS_PURGE_ENABLED = '1';
+      semer();
+      listContactsCreation.mockResolvedValue(CHEZ_RESEND);
+
+      const premiere = await (await GET(requete())).json();
+      expect(premiere.reprise).toBe('faite');
+      expect(reprisesEcrites()).toBe(1);
+      expect(listContactsCreation.mock.invocationCallOrder[0]).toBeLessThan(
+        deleteContactById.mock.invocationCallOrder[0],
+      );
+
+      const seconde = await (await GET(requete())).json();
+      expect(seconde.reprise).toBe('deja-faite');
+      expect(listContactsCreation).toHaveBeenCalledTimes(1);
+    });
+
+    it('à blanc : ne lit ni n’écrit rien', async () => {
+      listContactsCreation.mockResolvedValue(CHEZ_RESEND);
+      const corps = await (await GET(requete())).json();
+      expect(corps.reprise).toBe('a-blanc');
+      expect(listContactsCreation).not.toHaveBeenCalled();
+      expect(reprisesEcrites()).toBe(0);
+    });
+
+    it('liste incomplète : 500 pour l’alerte, la purge passe, nouvel essai possible', async () => {
+      process.env.CONTACTS_PURGE_ENABLED = '1';
+      semer();
+      listContactsCreation.mockResolvedValue({ contacts: [], complete: false, error: 'panne' });
+
+      const res = await GET(requete());
+      expect(res.status).toBe(500);
+      expect((await res.json()).reprise).toBe('echec');
+      expect(deleteContactById).toHaveBeenCalled();
+
+      listContactsCreation.mockResolvedValue(CHEZ_RESEND);
+      expect((await (await GET(requete())).json()).reprise).toBe('faite');
+    });
   });
 });

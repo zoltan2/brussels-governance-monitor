@@ -4,7 +4,8 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/db';
 import { isValidCronAuth } from '@/lib/cron-auth';
-import { listUnsubscribedContacts, deleteContactById } from '@/lib/resend';
+import { listContactsCreation, listUnsubscribedContacts, deleteContactById } from '@/lib/resend';
+import { appliquerReprise, repriseFaite } from '@/lib/suivi-abonnes';
 import {
   DELAI_SUPPRESSION_CONTACT_MS,
   JOUR_MS,
@@ -33,6 +34,10 @@ export const dynamic = 'force-dynamic';
  *    donc de la première observation par cette route. Avec une ligne de
  *    30 jours ou plus, le contact est supprimé de Resend.
  * 2. Lignes du registre de plus de 24 mois : effacées.
+ *
+ * Au premier passage en mode actif, AVANT toute suppression, la route reprend
+ * l'historique des inscriptions depuis Resend (src/lib/suivi-abonnes.ts). En
+ * cas d'échec, elle retente le lendemain ; le code 500 déclenche l'alerte.
  *
  * Les questions posées à l'assistant ne sont PAS purgées ici : décision de
  * Zoltán du 29/09/2026 de les garder (seul plafond : les 10 000 dernières,
@@ -69,6 +74,24 @@ export async function GET(request: Request) {
 
   const actif = process.env.CONTACTS_PURGE_ENABLED === '1';
   const maintenant = Date.now();
+
+  let reprise: 'deja-faite' | 'faite' | 'a-blanc' | 'echec' = 'deja-faite';
+  if (!actif) {
+    reprise = 'a-blanc';
+  } else if (!repriseFaite(db)) {
+    try {
+      const tous = await listContactsCreation();
+      if (!tous.complete) throw new Error(tous.error);
+      appliquerReprise(db, tous.contacts, maintenant);
+      reprise = 'faite';
+    } catch (err) {
+      reprise = 'echec';
+      console.error(
+        '[contacts-purge] reprise de l\'historique impossible',
+        err instanceof Error ? err.message : 'erreur',
+      );
+    }
+  }
 
   const liste = await listUnsubscribedContacts();
   if (!liste.complete) {
@@ -124,9 +147,10 @@ export async function GET(request: Request) {
     contactsSupprimes,
     erreursResend,
     lignesExpirees,
+    reprise,
   };
   console.log('[contacts-purge]', JSON.stringify(rapport));
 
-  const ok = liste.complete && erreursResend === 0;
+  const ok = liste.complete && erreursResend === 0 && reprise !== 'echec';
   return NextResponse.json({ ok, ...rapport }, { status: ok ? 200 : 500 });
 }

@@ -15,6 +15,7 @@ import {
 import { rateLimit } from '@/lib/rate-limit';
 import { pseudonymeEmail } from '@/lib/log-safe';
 import { estUnRetour, oublierDesabonnement } from '@/lib/desabonnements';
+import { enregistrerNouvelAbonne } from '@/lib/suivi-abonnes';
 import WelcomeEmail from '@/emails/welcome';
 import { clientIp } from '@/lib/client-ip';
 
@@ -109,6 +110,7 @@ export async function POST(request: Request) {
         await reactiverContact(email, locale, topics, nouvellesSources);
       } else {
         await addContact(email, locale, topics, nouvellesSources);
+        if (!retour) enregistrerNouvelAbonne();
       }
       if (retour) oublierDesabonnement(email);
     } catch (err) {

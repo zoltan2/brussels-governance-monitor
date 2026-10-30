@@ -427,6 +427,39 @@ export async function listUnsubscribedContacts(): Promise<{
 }
 
 /**
+ * Adresse et date de création de TOUS les contacts, pour la reprise unique de
+ * l'historique (suivi-abonnes.ts). `complete` à false : ne rien en conclure.
+ */
+export async function listContactsCreation(): Promise<{
+  contacts: { email: string; createdAt: string }[];
+  complete: boolean;
+  error?: string;
+}> {
+  const resend = getResend();
+  const contacts: { email: string; createdAt: string }[] = [];
+  let cursor: string | undefined;
+
+  for (;;) {
+    const options: { limit: number; after?: string } = { limit: 100 };
+    if (cursor) options.after = cursor;
+
+    const { data, error } = await resendCall(() => resend.contacts.list(options));
+    if (error || !data) {
+      return { contacts, complete: false, error: resumeErreurResend(error) };
+    }
+
+    for (const contact of data.data) {
+      contacts.push({ email: contact.email, createdAt: contact.created_at });
+    }
+
+    if (!data.has_more || data.data.length === 0) break;
+    cursor = data.data[data.data.length - 1].id;
+  }
+
+  return { contacts, complete: true };
+}
+
+/**
  * Supprime définitivement un contact (par son id, jamais par l'adresse).
  * Rend `null` si Resend a accepté, sinon un résumé d'erreur SANS adresse.
  */

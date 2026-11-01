@@ -2,8 +2,8 @@
   "week": "2026-w44",
   "weekStart": "2026-10-26",
   "created_at": "2026-11-01T17:41:28.250Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "13 domaines, 7 dossiers, 2 secteurs, 7 communes mis à jour",
     "nl": "13 domeinen, 7 dossiers, 2 sectoren, 7 gemeenten bijgewerkt",
@@ -62,5 +62,6 @@
     "commune-saint-josse-ten-noode",
     "commune-schaerbeek",
     "commune-uccle"
-  ]
+  ],
+  "sent_at": "2026-11-01T17:51:25.933Z"
 }

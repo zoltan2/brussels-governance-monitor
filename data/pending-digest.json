@@ -1,28 +1,28 @@
 {
-  "week": "2026-w43",
-  "weekStart": "2026-10-19",
-  "created_at": "2026-10-25T20:00:03.360Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w44",
+  "weekStart": "2026-10-26",
+  "created_at": "2026-11-01T17:41:28.250Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "9 domaines, 1 dossier, 4 communes mis à jour",
-    "nl": "9 domeinen, 1 dossier, 4 gemeenten bijgewerkt",
-    "en": "9 domains, 1 dossier, 4 communes updated",
-    "de": "9 Bereiche, 1 Dossier, 4 Gemeinden aktualisiert"
+    "fr": "13 domaines, 7 dossiers, 2 secteurs, 7 communes mis à jour",
+    "nl": "13 domeinen, 7 dossiers, 2 sectoren, 7 gemeenten bijgewerkt",
+    "en": "13 domains, 7 dossiers, 2 sectors, 7 communes updated",
+    "de": "13 Bereiche, 7 Dossiers, 2 Sektoren, 7 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "57 000",
+    "value": "563",
     "label": {
-      "fr": "Bruxellois de plus au travail qu'en 2025 pour atteindre 70 % d'emploi en 2030, selon la feuille de route d'Actiris",
-      "nl": "Brusselaars meer aan het werk dan in 2025 om in 2030 een werkzaamheidsgraad van 70 % te halen, volgens de routekaart van Actiris",
-      "en": "More Brussels residents in work than in 2025 to reach a 70% employment rate by 2030, according to Actiris's roadmap",
-      "de": "Brüsseler mehr in Arbeit als 2025, um 2030 eine Beschäftigungsquote von 70 % zu erreichen, laut dem Fahrplan von Actiris"
+      "fr": "Millions d'euros : l'effort budgétaire prévu pour viser un déficit de 719 millions d'euros en 2027",
+      "nl": "Miljoen euro: de budgettaire inspanning om in 2027 een tekort van 719 miljoen euro te beogen",
+      "en": "Million euros: the budgetary effort planned to target a deficit of 719 million euros in 2027",
+      "de": "Millionen Euro: die Haushaltsanstrengung, um 2027 ein Defizit von 719 Millionen Euro anzustreben"
     },
     "source": {
-      "fr": "Actiris, communiqué du 21 octobre 2026",
-      "nl": "Actiris, persbericht van 21 oktober 2026",
-      "en": "Actiris, press release of 21 October 2026",
-      "de": "Actiris, Pressemitteilung vom 21. Oktober 2026"
+      "fr": "Ministre du Budget, rapporté par BRUZZ et L'Avenir (30 octobre 2026)",
+      "nl": "Minister van Begroting, gemeld door BRUZZ en L'Avenir (30 oktober 2026)",
+      "en": "Budget minister, reported by BRUZZ and L'Avenir (30 October 2026)",
+      "de": "Haushaltsminister, berichtet von BRUZZ und L'Avenir (30. Oktober 2026)"
     }
   },
   "closingNote": {
@@ -34,6 +34,9 @@
   "commitmentCount": 16,
   "updatedTopics": [
     "budget",
+    "cleanliness",
+    "climate",
+    "digital",
     "economy",
     "education",
     "employment",
@@ -41,12 +44,23 @@
     "institutional",
     "mobility",
     "security",
+    "social",
     "urban-planning",
     "dossier-accessibilite-pmr",
+    "dossier-cpas-bruxellois",
+    "dossier-data-centers",
+    "dossier-enseignement",
+    "dossier-reforme-administration",
+    "dossier-survol-bruxelles",
+    "dossier-petite-enfance",
+    "culture",
+    "health-social",
     "commune-anderlecht",
+    "commune-auderghem",
     "commune-bruxelles-ville",
+    "commune-jette",
+    "commune-saint-josse-ten-noode",
     "commune-schaerbeek",
     "commune-uccle"
-  ],
-  "sent_at": "2026-10-27T06:08:34.440Z"
+  ]
 }

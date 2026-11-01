@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BGM, Bruxelles, derrière les chiffres · Semaine 44</title>
+<meta name="description" content="Budget, survol, loyers socialisés, convalescence, inondations, achat immobilier : six sujets de la semaine." />
+<link rel="canonical" href="https://magazine.governance.brussels/s44/" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Brussels Governance Monitor" />
+<meta property="og:title" content="BGM, Bruxelles, derrière les chiffres · Semaine 44" />
+<meta property="og:description" content="Budget, survol, loyers socialisés, convalescence, inondations, achat immobilier : six sujets de la semaine." />
+<meta property="og:url" content="https://magazine.governance.brussels/s44/" />
+<meta property="og:locale" content="fr_BE" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#ffffff;--paper-2:#f8fafc;--ink:#0f172a;--ink-2:#334155;--muted:#64748b;--line:#e2e8f0;
+  --accent:#b45309;--accent-soft:#fef3c7;--dark:#172554;--dark-2:#1e3a8a;--on-dark:#f8fafc;--on-dark-muted:#cbd5e1;
+  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;--display:'Playfair Display',Georgia,serif;--sans:'Inter',Arial,Helvetica,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  --measure:38rem;--gutter:clamp(1rem,4vw,3rem);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper-2);color:var(--ink);font-family:var(--serif);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;padding:.5rem 1rem;font-family:var(--sans)}
+.skip:focus{left:1rem;top:1rem;z-index:10}
+.site-nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem var(--gutter);background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
+.brand{display:flex;align-items:baseline;gap:.75rem;text-decoration:none}
+.brand strong{font-family:var(--display);font-size:1.25rem;letter-spacing:.02em}
+.brand span{color:var(--muted)}
+.site-nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
+.site-nav a{text-decoration:none;color:var(--ink-2)}
+.site-nav a:hover,.site-nav a:focus-visible{color:var(--accent);text-decoration:underline}
+.sheet{padding:clamp(2.5rem,7vh,5rem) var(--gutter);border-bottom:1px solid var(--line)}
+.sheet .inner{max-width:72rem;margin:0 auto}
+.sheet.dark{background:var(--dark);color:var(--on-dark);border-color:var(--dark-2)}
+.sheet.dark .muted,.sheet.dark .eyebrow{color:var(--on-dark-muted)}
+.eyebrow{font-family:var(--sans);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 .75rem}
+.muted{color:var(--muted)}
+.cover h1{font-family:var(--display);font-weight:700;font-size:clamp(2.25rem,6vw,4.5rem);line-height:1.05;margin:0 0 1rem;max-width:18ch}
+.cover .intro{font-size:clamp(1.125rem,2vw,1.5rem);max-width:var(--measure);margin:0 0 2rem;color:var(--on-dark-muted)}
+.cover-meta{display:flex;flex-wrap:wrap;gap:1rem 2rem;font-family:var(--sans);font-size:.875rem;color:var(--on-dark-muted);margin-bottom:2.5rem}
+.cover-numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1.5rem;margin:2.5rem 0 0;padding:0;list-style:none}
+.cover-number{border-top:2px solid var(--accent);padding-top:.75rem}
+.cover-number .n{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);line-height:1;display:block;margin:.25rem 0}
+.cover-number small{font-family:var(--sans);font-size:.875rem;color:var(--on-dark-muted)}
+.button{display:inline-block;font-family:var(--sans);font-weight:600;text-decoration:none;padding:.7rem 1.1rem;border-radius:.375rem;background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.button.secondary{background:transparent;color:inherit;border-color:currentColor}
+.button:hover,.button:focus-visible{filter:brightness(1.08);text-decoration:underline}
+.toc h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.25rem);margin:0 0 .25rem}
+.toc-list{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.toc-list li{border-bottom:1px solid var(--line)}
+.toc-link{display:grid;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:baseline;padding:1rem 0;text-decoration:none}
+.toc-link:hover .toc-title,.toc-link:focus-visible .toc-title{text-decoration:underline;color:var(--accent)}
+.toc-rank{font-family:var(--mono);color:var(--muted)}
+.toc-short{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
+.toc-stat{font-family:var(--display);font-size:1.5rem;white-space:nowrap}
+.story .inner{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem}
+@media(min-width:900px){.story .inner{grid-template-columns:minmax(0,1.4fr) minmax(16rem,.8fr);gap:3rem}}
+.story h2{font-family:var(--display);font-size:clamp(1.75rem,3.6vw,2.75rem);line-height:1.12;margin:0 0 .75rem;max-width:22ch}
+.lead{font-size:1.25rem;line-height:1.5;color:var(--ink-2);margin:0 0 1.25rem;max-width:var(--measure)}
+.sheet.dark .lead{color:var(--on-dark-muted)}
+.body-text{max-width:var(--measure);margin:0 0 1.25rem}
+.story .actions{margin:1.25rem 0 2rem}
+.sources{font-family:var(--sans);font-size:.875rem;border-top:1px solid var(--line);padding-top:1rem;max-width:var(--measure)}
+.sheet.dark .sources{border-color:var(--dark-2)}
+.sources h3{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 .75rem;color:var(--muted)}
+.sources ul{list-style:none;margin:0;padding:0}
+.sources li{margin:0 0 .75rem}
+.sources a{word-break:break-all}
+.kind{display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:.1rem .4rem;border:1px solid currentColor;border-radius:.25rem;margin-right:.5rem;vertical-align:middle}
+.consulted{color:var(--muted);margin:.5rem 0 0}
+.stat-panel{align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:.5rem;padding:1.5rem;color:var(--ink)}
+/* Rythme : sur une feuille sombre, le panneau est clair ; sur une feuille claire, il est sombre. */
+.sheet.dark .stat-panel{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.sheet.dark .stat-panel .stat-label,.sheet.dark .stat-panel .nuance p{color:var(--ink-2)}
+.sheet.dark .stat-panel .facts,.sheet.dark .stat-panel .facts li{border-color:var(--line)}
+.sheet.dark .stat-panel .status .badge{background:var(--accent-soft);color:var(--accent)}
+.stat-panel.inverse{background:var(--dark);border-color:var(--dark);color:var(--on-dark)}
+.stat-panel.inverse .stat-label,.stat-panel.inverse .nuance p{color:var(--on-dark-muted)}
+.stat-panel.inverse .facts,.stat-panel.inverse .facts li{border-color:rgba(255,255,255,.18)}
+.stat-panel.inverse .status .badge{background:rgba(254,243,199,.16);color:#fde68a}
+.stat-panel.inverse .nuance .eyebrow{color:#fde68a}
+.stat-panel.inverse .nuance{border-top-color:#fde68a}
+.status{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 .5rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.status .badge{background:var(--accent-soft);color:var(--accent);padding:.15rem .5rem;border-radius:.25rem;letter-spacing:.06em}
+.sheet.dark .status .badge{background:rgba(254,243,199,.15);color:#fde68a}
+.status .detail{color:var(--muted);text-transform:none;letter-spacing:0;font-size:.8125rem}
+.stat{font-family:var(--display);font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;margin:.25rem 0 .5rem}
+.stat-label{font-family:var(--sans);font-size:.9375rem;margin:0 0 1rem;color:var(--ink-2)}
+.sheet.dark .stat-label{color:var(--on-dark-muted)}
+.facts{list-style:none;margin:0;padding:0;font-family:var(--sans);font-size:.875rem;border-top:1px solid var(--line)}
+.sheet.dark .facts{border-color:rgba(255,255,255,.15)}
+.facts li{padding:.5rem 0;border-bottom:1px solid var(--line)}
+.sheet.dark .facts li{border-color:rgba(255,255,255,.15)}
+.nuance{margin-top:1.5rem;padding-top:1.25rem;border-top:2px solid var(--accent)}
+.nuance .eyebrow{color:var(--accent)}
+.nuance-title{font-family:var(--display);font-size:1.25rem;margin:0 0 .5rem}
+.nuance p{margin:0;font-size:.9375rem}
+.story-foot{grid-column:1 / -1;display:flex;justify-content:space-between;gap:1rem;font-family:var(--sans);font-size:.8125rem;color:var(--muted);margin-top:1rem}
+.story-foot a{text-decoration:none}
+.story-foot a:hover,.story-foot a:focus-visible{text-decoration:underline}
+.howto h2,.closing h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.25rem);margin:0 0 1rem}
+.howto ol{max-width:var(--measure);padding-left:1.25rem}
+.howto li{margin-bottom:.5rem}
+.closing-grid{display:grid;gap:2rem}
+@media(min-width:800px){.closing-grid{grid-template-columns:1fr 1fr}}
+.closing p{max-width:var(--measure)}
+.footerline{font-family:var(--sans);font-size:.8125rem;color:var(--on-dark-muted);border-top:1px solid var(--dark-2);padding-top:1rem;margin-top:2rem}
+.footerline a{color:inherit}
+.cover-tagline{font-family:var(--serif);font-style:italic;font-size:1.0625rem;color:var(--on-dark-muted);max-width:var(--measure);margin:0 0 1.25rem}
+/* Couverture : deux colonnes, dégradé, filigrane du numéro de semaine, trois chiffres en tuiles. */
+.sheet.cover{background:linear-gradient(160deg,var(--dark) 0%,var(--dark-2) 70%,#1d4ed8 140%);position:relative;overflow:hidden;min-height:min(88vh,52rem);display:flex;align-items:center}
+.cover-grid{position:relative;display:grid;gap:2.5rem;width:100%}
+@media(min-width:900px){.cover-grid{grid-template-columns:minmax(0,1.3fr) minmax(16rem,.9fr);align-items:center;gap:4rem}}
+.cover-issue{font-family:var(--sans);font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:#fde68a;margin:0 0 1.25rem;display:flex;align-items:center;gap:.6rem}
+.cover-issue .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 0 .35rem rgba(180,83,9,.25)}
+.cover .cover-meta{margin:0 0 1.5rem}
+.cover-side .cover-numbers{grid-template-columns:1fr;gap:1rem;margin:0}
+.cover-side .cover-number{border-top:0;border-left:3px solid var(--accent);padding:.9rem 0 .9rem 1.1rem;background:rgba(255,255,255,.05);border-radius:0 .5rem .5rem 0}
+.cover-side .cover-number .n{font-size:clamp(2rem,3.4vw,2.75rem)}
+.cover-watermark{position:absolute;right:-1rem;bottom:-3rem;font-family:var(--display);font-weight:700;font-size:clamp(14rem,34vw,30rem);line-height:1;color:rgba(255,255,255,.04);pointer-events:none;user-select:none}
+/* Feuilles : blanc, teinte ardoise, bleu foncé, en alternance ; numéro en filigrane. */
+.sheet.story{position:relative;overflow:hidden}
+.sheet.story.light{background:var(--paper)}
+.sheet.toc,.sheet.howto{background:var(--paper-2)}
+.sheet.closing{background:var(--paper)}
+.rank-mark{position:absolute;top:-1.5rem;left:var(--gutter);font-family:var(--display);font-weight:700;font-size:clamp(7rem,16vw,12rem);line-height:1;color:rgba(15,23,42,.045);pointer-events:none;user-select:none}
+.sheet.dark .rank-mark{color:rgba(255,255,255,.05)}
+.story .inner{position:relative}
+.story h2::before{content:"";display:block;width:3rem;height:3px;background:var(--accent);margin:0 0 1rem}
+.toc-link:hover .toc-rank,.toc-link:focus-visible .toc-rank{color:var(--accent)}
+.site-note{font-family:var(--sans);font-size:.8125rem;margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.card-inner{max-width:46rem}
+.card-manifesto{font-family:var(--display);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.4;margin:0 0 1.25rem}
+.card-signature{font-family:var(--sans);font-weight:600;letter-spacing:.04em;margin:0 0 1.5rem;padding-top:1rem;border-top:2px solid var(--accent);display:inline-block}
+.card-publication{margin:0 0 .75rem;line-height:1.5}
+.card-offer{font-family:var(--sans);font-size:.9375rem;color:var(--on-dark-muted);margin:0 0 1rem}
+.card-contact{font-family:var(--sans);font-size:.9375rem;margin:0}
+.card-contact a{color:#fde68a;text-decoration:none}
+.card-contact a:hover,.card-contact a:focus-visible{text-decoration:underline}
+.a-lundi{font-family:var(--display);font-style:italic;font-size:1.5rem;margin:.5rem 0 1.25rem}
+.closing .footerline{color:var(--muted);border-color:var(--line)}
+@media(max-width:760px){.toc-link{grid-template-columns:2.25rem 1fr}.toc-stat{grid-column:2;font-size:1.25rem}.site-nav ul{gap:.75rem}}
+@media print{.site-nav,.skip,.story-foot,.actions{display:none}.sheet{break-inside:avoid;border:0;padding:1.5rem 0}.sheet.dark{background:#fff;color:#000}.print-url::after{content:" (" attr(href) ")";font-size:.8em}}
+</style>
+<link rel="preconnect" href="https://analytics.governance.brussels" />
+<script defer src="https://analytics.governance.brussels/script.js" data-website-id="61980d1d-2227-4438-abd2-57d29bf8bdae"></script>
+</head>
+<body>
+<a class="skip" href="#sommaire">Aller au sommaire</a>
+<header class="site-nav">
+<a class="brand" href="https://governance.brussels/fr"><strong>BGM</strong><span>Le magazine · S44</span></a>
+<nav aria-label="Navigation du magazine"><ul>
+<li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#comment-lire">Comment lire</a></li>
+<li><a href="https://governance.brussels/fr">Le site ↗</a></li>
+</ul></nav>
+</header>
+<main class="magazine">
+<section class="sheet cover dark" aria-labelledby="titre">
+<div class="inner cover-grid">
+<div class="cover-copy">
+<p class="cover-issue"><span class="dot" aria-hidden="true"></span>Le magazine BGM · Semaine 44</p>
+<h1 id="titre">Bruxelles, derrière les chiffres.</h1>
+<p class="intro">Ce qui change. Ce que l’on sait. Et ce que les chiffres ne disent pas.</p>
+<p class="cover-tagline">Budget, survol, loyers socialisés, convalescence, inondations, achat immobilier : six sujets de la semaine.</p>
+<p class="cover-meta"><span>27 octobre au 1er novembre 2026</span><span>Six sujets · Bruxelles</span></p>
+<p class="actions"><a class="button" href="#sommaire">Explorer les sujets ↓</a></p>
+</div>
+<div class="cover-side">
+<ul class="cover-numbers">
+<li class="cover-number"><span class="eyebrow">01 / Budget 2027</span><span class="n">563</span><small>millions d&#39;euros d&#39;effort budgétaire pour 2027</small></li>
+<li class="cover-number"><span class="eyebrow">02 / Survol</span><span class="n">16</span><small>novembre 2026 : Comité de concertation</small></li>
+<li class="cover-number"><span class="eyebrow">03 / Loyers socialisés</span><span class="n">2 254</span><small>loyers socialisés en 2026</small></li>
+</ul>
+</div>
+<span class="cover-watermark" aria-hidden="true">44</span>
+</div>
+</section>
+<section class="sheet toc" id="sommaire" aria-labelledby="sommaire-titre">
+<div class="inner">
+<p class="eyebrow">Cette semaine</p>
+<h2 id="sommaire-titre">Choisissez votre point d’entrée</h2>
+<p class="muted">Chaque sujet tient en une page et vous mène à sa fiche sur governance.brussels.</p>
+<ol class="toc-list">
+<li><a class="toc-link" href="#sujet-01-budget-2027"><span class="toc-rank">01</span><span><span class="toc-short">Budget 2027</span><span class="toc-title">Le budget 2027 est au Parlement.</span></span><span class="toc-stat">563</span></a></li>
+<li><a class="toc-link" href="#sujet-02-survol"><span class="toc-rank">02</span><span><span class="toc-short">Survol</span><span class="toc-title">Bruxelles répond à la Flandre : un conflit « infondé ».</span></span><span class="toc-stat">16</span></a></li>
+<li><a class="toc-link" href="#sujet-03-loyers-socialises"><span class="toc-rank">03</span><span><span class="toc-short">Loyers socialisés</span><span class="toc-title">Loyers socialisés : une réforme à 3,2 millions d&#39;euros.</span></span><span class="toc-stat">2 254</span></a></li>
+<li><a class="toc-link" href="#sujet-04-convalescence"><span class="toc-rank">04</span><span><span class="toc-short">Convalescence</span><span class="toc-title">130 lits de convalescence : l&#39;appel repart, mieux doté.</span></span><span class="toc-stat">130</span></a></li>
+<li><a class="toc-link" href="#sujet-05-inondations"><span class="toc-rank">05</span><span><span class="toc-short">Inondations</span><span class="toc-title">Votre adresse est-elle inondable ? La carte est actualisée.</span></span><span class="toc-stat">33</span></a></li>
+<li><a class="toc-link" href="#sujet-06-acheter-ailleurs"><span class="toc-rank">06</span><span><span class="toc-short">Acheter ailleurs</span><span class="toc-title">Près d&#39;un acheteur bruxellois sur deux quitte la Région.</span></span><span class="toc-stat">43,6 %</span></a></li>
+</ol>
+</div>
+</section>
+<section class="sheet story light" id="sujet-01-budget-2027" aria-labelledby="sujet-01-budget-2027-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">01</span>
+<div class="copy">
+<p class="eyebrow">Budget · Région · 01 / 06</p>
+<h2 id="sujet-01-budget-2027-titre">Le budget 2027 est au Parlement.</h2>
+<p class="lead">Le déficit visé reste de 719 millions d&#39;euros. Le vote en plénière est envisagé le 18 décembre.</p>
+<p class="body-text">Le gouvernement bruxellois a transmis au Parlement les documents du budget 2027, après leur approbation lors d&#39;un conseil des ministres électronique. Le ministre du Budget l&#39;a confirmé le vendredi 30 octobre 2026. Le déficit visé reste de 719 millions d&#39;euros, pour un effort de 563 millions. Le moratoire sur les engagements doit en rapporter 75, avec une exception en 2027 pour des fonctions actives comme les pompiers, les collecteurs de déchets ou les conducteurs de métro.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/budget">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel inverse" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">Donnée officielle</span></p>
+<p class="stat">563</p>
+<p class="stat-label">millions d&#39;euros d&#39;effort budgétaire pour 2027</p>
+<ul class="facts"><li>Transmission confirmée le vendredi 30 octobre 2026</li><li>Moratoire sur les engagements : 75 millions d&#39;euros attendus</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Un milliard reste hors du calcul du déficit</h3>
+<p>Environ un milliard d&#39;euros d&#39;investissements reste hors du calcul du déficit, par des prises de participation dans Vivaqua, la SLRB, Kanal et le projet Neo. L&#39;examen en commission suit le congé d&#39;automne, et l&#39;équilibre reste visé pour 2029. Les tableaux budgétaires n&#39;ont pas été consultés pour ce numéro.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 44</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story dark" id="sujet-02-survol" aria-labelledby="sujet-02-survol-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">02</span>
+<div class="copy">
+<p class="eyebrow">Survol · Région et fédéral · 02 / 06</p>
+<h2 id="sujet-02-survol-titre">Bruxelles répond à la Flandre : un conflit « infondé ».</h2>
+<p class="lead">La Région veut porter le dossier au Comité de concertation du 16 novembre.</p>
+<p class="body-text">Dans une note approuvée le jeudi 29 octobre 2026, le gouvernement bruxellois juge infondé et sans base juridique le conflit d&#39;intérêts que la Flandre a décidé d&#39;invoquer le 23 octobre contre certaines mesures fédérales sur Brussels Airport. La Région demande une répartition équitable des routes de vol, une transparence totale sur les données de trafic et une clarification rapide sur les pistes 01 et 07, notamment la procédure RNP 07L.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/dossiers/survol-bruxelles">Lire le dossier sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">À confirmer</span></p>
+<p class="stat">16</p>
+<p class="stat-label">novembre 2026 : Comité de concertation</p>
+<ul class="facts"><li>Note du gouvernement du jeudi 29 octobre 2026</li><li>Motivation fédérale demandée au plus tard le 1er décembre</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Le choix annoncé pour le 31 octobre n&#39;est pas documenté</h3>
+<p>Le ministre fédéral de la Mobilité avait annoncé un choix sur la RNP 07L pour le 31 octobre 2026 au plus tard ; les sources consultées le 1er novembre n&#39;en font pas état. Le dossier détaille les deux procédures en justice, avec des audiences le 11 janvier et le 8 février 2027.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 44</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story light" id="sujet-03-loyers-socialises" aria-labelledby="sujet-03-loyers-socialises-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">03</span>
+<div class="copy">
+<p class="eyebrow">Logement · Région · 03 / 06</p>
+<h2 id="sujet-03-loyers-socialises-titre">Loyers socialisés : une réforme à 3,2 millions d&#39;euros.</h2>
+<p class="lead">Le budget 2027 réduit la compensation régionale, et la plupart des ménages paieraient plus.</p>
+<p class="body-text">La socialisation ramène au niveau d&#39;un loyer social le loyer de ménages logés par des communes et des CPAS, la Région compensant la différence. La réforme calculerait ces loyers sur la grille des agences immobilières sociales, au-dessus des loyers sociaux et sous le marché. La compensation passerait de 6,3 à 4,3 millions d&#39;euros pour les communes et de 3,8 à 2,6 millions pour les CPAS. Le traitement des dossiers passerait de la SLRB aux bailleurs.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/housing">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel inverse" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">À confirmer</span></p>
+<p class="stat">2 254</p>
+<p class="stat-label">loyers socialisés en 2026</p>
+<ul class="facts"><li>Échéance annoncée aux bailleurs publics : 1er janvier 2027</li><li>Surtout à la Ville de Bruxelles et à Saint-Gilles</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Une hausse chiffrée par des communes, pas par le gouvernement</h3>
+<p>Des communes parlent d&#39;une hausse de 200 euros en moyenne, d&#39;autres de 180, et le chiffre publié ne précise pas la période. Le cabinet de la secrétaire d&#39;État confirme seulement travailler sur une réforme, et le CPAS de la Ville dit attendre le texte définitif.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 44</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story dark" id="sujet-04-convalescence" aria-labelledby="sujet-04-convalescence-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">04</span>
+<div class="copy">
+<p class="eyebrow">Santé · Cocom · 04 / 06</p>
+<h2 id="sujet-04-convalescence-titre">130 lits de convalescence : l&#39;appel repart, mieux doté.</h2>
+<p class="lead">L&#39;offre n&#39;existe pas à Bruxelles aujourd&#39;hui. Iriscare porte son enveloppe à 580 000 euros.</p>
+<p class="body-text">Iriscare, institution bicommunautaire, relance son appel à projets pour ouvrir 130 lits de convalescence. Son intervention passe de 250 000 à 580 000 euros, en complément du forfait fédéral de 28,40 euros par jour de la convention INAMI. Ces places accueillent, entre l&#39;hôpital et le domicile, des patients ayant temporairement perdu leur autonomie.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/social">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">Donnée officielle</span></p>
+<p class="stat">130</p>
+<p class="stat-label">lits de convalescence visés</p>
+<ul class="facts"><li>Enveloppe portée de 250 000 à 580 000 euros</li><li>Dossiers attendus au plus tard le 30 novembre 2026</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Un premier appel avait déjà été lancé en avril</h3>
+<p>Un premier appel, pour le même nombre de lits, avait été lancé le 1er avril 2026 avec une enveloppe de 250 000 euros. Le dossier complet de candidature, avec ses critères et ses modalités, est disponible sur le site d&#39;Iriscare.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 44</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story light" id="sujet-05-inondations" aria-labelledby="sujet-05-inondations-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">05</span>
+<div class="copy">
+<p class="eyebrow">Climat · Région · 05 / 06</p>
+<h2 id="sujet-05-inondations-titre">Votre adresse est-elle inondable ? La carte est actualisée.</h2>
+<p class="lead">Bruxelles Environnement indique un risque faible, moyen ou élevé pour chaque adresse.</p>
+<p class="body-text">Bruxelles Environnement a actualisé sa carte des zones inondables, consultable par adresse. Le principal risque est le reflux des eaux usées dans les caves, qui peut toucher près d&#39;un Bruxellois sur trois lors de fortes pluies. D&#39;après des simulations, une inondation concernerait un Bruxellois sur cinq pour une pluie d&#39;occurrence millénale, un sur douze pour une pluie centennale et un sur mille pour une pluie revenant tous les 25 ans.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/climate">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel inverse" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">Donnée officielle</span></p>
+<p class="stat">33</p>
+<p class="stat-label">bassins d&#39;orage dont dispose Vivaqua</p>
+<ul class="facts"><li>Un Bruxellois sur douze concerné par une pluie centennale, selon les simulations</li><li>Reflux possible dans les caves pour près d&#39;un Bruxellois sur trois</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Une simulation, pas une prévision</h3>
+<p>Ces proportions viennent de simulations et ne prédisent aucun épisode précis. La fiche Climat renvoie vers la carte de Bruxelles Environnement, qui permet de vérifier directement une adresse. Un autre bassin d&#39;orage est en construction à Watermael-Boitsfort.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 44</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet story dark" id="sujet-06-acheter-ailleurs" aria-labelledby="sujet-06-acheter-ailleurs-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">06</span>
+<div class="copy">
+<p class="eyebrow">Logement · Région · 06 / 06</p>
+<h2 id="sujet-06-acheter-ailleurs-titre">Près d&#39;un acheteur bruxellois sur deux quitte la Région.</h2>
+<p class="lead">L&#39;écart tient aux maisons : 32 % seulement des Bruxellois qui en achètent une le font à Bruxelles.</p>
+<p class="body-text">Selon les chiffres des notaires pour 2025, 56,4 % des acheteurs domiciliés en Région bruxelloise ont acheté dans l&#39;une des 19 communes, et 43,6 % ailleurs. Les acheteurs flamands et wallons restent dans leur région à 96,5 % et 94,6 %. Les notaires citent le prix moyen : près de 583 000 euros à Bruxelles, contre 380 000 en Flandre et 270 000 en Wallonie.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/fr/domaines/housing">Explorer le thème sur governance.brussels</a></p>
+<p class="site-note muted">Les sources et le détail sont sur la fiche du site.</p>
+</div>
+<aside class="stat-panel" aria-label="Le chiffre et sa nuance">
+<p class="status"><span class="badge">Donnée officielle</span></p>
+<p class="stat">43,6 %</p>
+<p class="stat-label">des acheteurs bruxellois achètent hors de la Région en 2025</p>
+<ul class="facts"><li>28 % en Flandre, 15 % en Wallonie</li><li>86 % restent à Bruxelles pour un appartement</li></ul>
+<div class="nuance">
+<p class="eyebrow">La nuance qui compte</p>
+<h3 class="nuance-title">Un chiffre d&#39;achat, pas de déménagement</h3>
+<p>Ces chiffres décrivent le lieu d&#39;achat d&#39;un bien, et non un déménagement. Les 31-35 ans forment la tranche d&#39;âge la plus nombreuse parmi les acheteurs qui changent de région, à 19 %. La fiche Logement donne le détail et les sources.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Semaine 44</span><a href="#sommaire">Retour au sommaire ↑</a></div>
+</div>
+</section>
+<section class="sheet howto" id="comment-lire" aria-labelledby="comment-lire-titre">
+<div class="inner">
+<p class="eyebrow">Mode d’emploi</p>
+<h2 id="comment-lire-titre">Comment lire ce magazine</h2>
+<ol>
+<li>Chaque sujet commence par ce qui change, puis ce que l’on sait. La nuance, en fin de panneau, dit ce que le chiffre ne mesure pas.</li>
+<li>Le statut du chiffre vient du niveau de confiance de la fiche sur le site : donnée officielle, estimation, ou fait encore à confirmer.</li>
+<li>Les sources, les dates et le détail ne sont pas ici : ils sont sur la fiche, à un clic, mise à jour quand le fait évolue.</li>
+<li>Ce magazine est une porte d’entrée. Le site, lui, suit chaque dossier dans la durée, en quatre langues.</li>
+</ol>
+</div>
+</section>
+<section class="sheet card dark" aria-labelledby="carte-titre">
+<div class="inner card-inner">
+<p class="eyebrow">Qui écrit</p>
+<h2 id="carte-titre" class="sr-only">Carte de visite</h2>
+<p class="card-manifesto">« Mon métier consiste à rendre lisible la complexité institutionnelle de Bruxelles pour des organisations qui dépendent de ses décisions. Le BGM est le prolongement public de ce travail : chaque semaine, transformer la lasagne institutionnelle en grille lisible pour tout Bruxellois qui veut comprendre, sans filtre ni parti pris. »</p>
+<p class="card-signature">Zoltán Jánosi</p>
+<p class="card-publication"><strong>Brussels Governance Monitor</strong><br>Édité par Advice That SRL · Bruxelles</p>
+<p class="card-offer">Conseil en stratégie · Analyse institutionnelle · Veille sur mesure · Accompagnement personnalisé</p>
+<p class="card-contact"><a href="mailto:contact@brusselsgovernance.be">contact@brusselsgovernance.be</a> · <a href="https://linkedin.com/in/zoltan" rel="noopener">linkedin.com/in/zoltan</a></p>
+</div>
+</section>
+<section class="sheet closing" aria-labelledby="cloture-titre">
+<div class="inner closing-grid">
+<div>
+<p class="eyebrow">À suivre</p>
+<h2 id="cloture-titre">Retour lundi prochain.</h2>
+<p class="a-lundi">À lundi prochain.</p>
+<p class="actions"><a class="button" href="https://governance.brussels/fr">Aller sur governance.brussels</a> <a class="button secondary" href="https://governance.brussels/fr/subscribe">Recevoir le digest</a></p>
+</div>
+<div>
+<p class="eyebrow">Ce numéro</p>
+<p class="muted">Semaine 44, 27 octobre au 1er novembre 2026. Six sujets.</p>
+<p class="muted">Adresse de ce numéro : <a href="https://magazine.governance.brussels/s44/">https://magazine.governance.brussels/s44/</a></p>
+<p class="footerline">Le Signal, le digest et ce magazine sont les publications hebdomadaires de Brussels Governance Monitor, moniteur citoyen indépendant de la gouvernance régionale bruxelloise. Apolitique, factuel, sourcé.</p>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>

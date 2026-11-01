@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T21:16:53.503Z",
+  "generatedAt": "2026-11-01T14:01:26.593Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welchen Jahresbetrag erreicht die Be-Home-Prämie laut BRUZZ (26. Oktober 2026) nach der Verdopplung, die die Brüsseler Regierung am 22. Oktober 2026 in zweiter Lesung gebilligt hat?",
+      "question": "Welche Haushaltsanstrengung gehört laut dem Haushaltsminister (30. Oktober 2026) zu dem von der Region Brüssel für 2027 angestrebten Defizit von 719 Millionen Euro?",
       "options": [
-        "246 Euro",
-        "164 Euro",
-        "328 Euro",
-        "410 Euro"
+        "563 Millionen Euro",
+        "75 Millionen Euro",
+        "290 Millionen Euro",
+        "950 Millionen Euro"
       ],
-      "correct": 2,
-      "explanation": "Die Be-Home-Prämie, eine Steuerermäßigung für selbstnutzende Eigentümer, steigt von 164 auf 328 Euro pro Jahr. Die Karte Budget verfolgt ihre Kosten auf dem Pfad zum Haushaltsausgleich.",
+      "correct": 0,
+      "explanation": "Die Anstrengung beträgt 563 Millionen Euro bei einem angestrebten Defizit von 719 Millionen. Die Abstimmung im Plenum ist für den 18. Dezember 2026 vorgesehen.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-28",
-        "sourceContentHash": "sha256:3aa1aaa080d40bec7582c1839d7545f2",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:1461afc2e60fcf127d388254bb9c803f",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welches Defizit strebt die Brüsseler Regierung laut Le Soir (27. Oktober 2026) für den regionalen Haushalt 2027 an?",
+      "question": "Auf welchem Satz hält die Wallonie laut BRUZZ (31. Oktober 2026) ihre Steuer auf Online-Spiele, obwohl ihr Haushalt 2026 eine Erhöhung vorsah?",
       "options": [
-        "800 Millionen Euro",
-        "719 Millionen Euro",
-        "512 Millionen Euro",
-        "620 Millionen Euro"
+        "15 %",
+        "11 %",
+        "17 %",
+        "21 %"
       ],
       "correct": 1,
-      "explanation": "Das für 2027 angestrebte Defizit bleibt laut Le Soir trotz 20 Millionen Euro neuer Ausgaben bei 719 Millionen Euro. Die Tabellen des Haushalts 2027 waren nicht veröffentlicht.",
+      "explanation": "Die Wallonie bleibt bei 11 % und verzichtet auf die geplanten 15 %. Da Brüssel seinen Satz nicht erhöht, befürchtet sie die Abwanderung ihrer Spielserver nach Brüssel.",
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-10-28",
-        "sourceContentHash": "sha256:3aa1aaa080d40bec7582c1839d7545f2",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:1461afc2e60fcf127d388254bb9c803f",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Klima",
-      "question": "Gegen wen hat Brüssel Umwelt wegen der PFAS-Belastung eines Geländes in Ukkel Klage erhoben, laut der Ankündigung vom 12. Oktober 2026?",
+      "question": "Welchen Anteil der Brüsseler beträfe laut den bei der Aktualisierung der Überschwemmungskarte genannten Simulationen (30. Oktober 2026) ein hundertjährlicher Regen?",
       "options": [
-        "Die Gemeinde Ukkel",
-        "Die Konkursverwalter von Sicli",
-        "Den Föderalstaat",
-        "Vivaqua"
+        "Einen von fünf",
+        "Einen von zwölf",
+        "Einen von drei",
+        "Einen von tausend"
       ],
       "correct": 1,
-      "explanation": "Sicli ist ein insolventer Feuerlöscherhersteller; die Region will, dass die Insolvenz die Sanierung nicht verhindert.",
+      "explanation": "Einer von zwölf Brüsselern bei einem hundertjährlichen Regen, einer von fünf bei einem tausendjährlichen. Diese Anteile stammen aus Simulationen.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:d4a0f947e51dead20dccc59b924ac230",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-30",
+        "sourceContentHash": "sha256:c641e83d26215abda1d45c8616bb921e",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klima",
-      "question": "Wie viele Menschen versammelte der Klimamarsch vom 11. Oktober 2026 in Brüssel laut Polizei?",
+      "question": "Was ist laut den Informationen zur im Oktober 2026 aktualisierten Karte von Bruxelles Environnement das größte Überschwemmungsrisiko in Brüssel?",
       "options": [
-        "Mindestens 15.000",
-        "Mindestens 45.000",
-        "Mindestens 75.000",
-        "Mindestens 100.000"
+        "Das Überlaufen des Kanals in die Straßen",
+        "Das Versagen der Regenbecken von Vivaqua",
+        "Der Rückstau von Abwasser in die Keller",
+        "Das Ansteigen der Senne in den Tunneln"
       ],
-      "correct": 1,
-      "explanation": "Die Organisatoren sprechen von 60.000 Teilnehmenden.",
+      "correct": 2,
+      "explanation": "Der Rückstau von Abwasser in die Keller kann bei starkem Regen fast einen von drei Brüsselern treffen. Die Karte zeigt das Risiko für jede Adresse.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-10-12",
-        "sourceContentHash": "sha256:d4a0f947e51dead20dccc59b924ac230",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-10-30",
+        "sourceContentHash": "sha256:c641e83d26215abda1d45c8616bb921e",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welche Gemeinde liegt laut der experimentellen Zählung der Beschäftigungsgebiete von Statbel für 2015 bis 2024, über die BX1 im Oktober 2026 berichtete, mit 2,2 Arbeitsplätzen pro Einwohner an der Spitze?",
+      "question": "Welchen jährlichen Höchstbetrag sieht laut La Libre (31. Oktober 2026) der Ordonnanzvorschlag von DéFI für eine Brüsseler Beschäftigungsprämie vor?",
       "options": [
-        "Machelen",
-        "Zaventem",
-        "Die Stadt Brüssel",
-        "Saint-Josse-ten-Noode"
+        "700 Euro",
+        "500 Euro",
+        "1.200 Euro",
+        "600 Euro"
       ],
-      "correct": 0,
-      "explanation": "Auf Machelen folgen Saint-Josse-ten-Noode, Zaventem und die Stadt Brüssel. Die neue Methode zählt die Arbeitsplätze dort, wo sie ausgeübt werden, und nicht am Gesellschaftssitz.",
+      "correct": 3,
+      "explanation": "Bis zu 600 Euro pro Jahr für eine Vollzeitstelle zum Mindestlohn. Es handelt sich um einen Vorschlag der Opposition: Die Regierung hat dazu nichts beschlossen.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:a64a6d9b19e1e7748fe77a4b07a13590",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:23401383533368c771388bc121ba2837",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Wie viele Brüsseler mehr in Arbeit als 2025 setzt laut dem Fahrplan von Actiris vom 21. Oktober 2026 das regionale Ziel einer Beschäftigungsquote von 70 % im Jahr 2030 voraus?",
+      "question": "Wo verortet die experimentelle Erhebung der Beschäftigungsgebiete von Statbel (2015 bis 2024, von BX1 im Oktober 2026 gemeldet) die Arbeitsplätze?",
       "options": [
-        "Rund 9.000",
-        "Rund 17.600",
-        "Rund 57.000",
-        "Rund 39.000"
+        "Dort, wo die Betriebe tätig sind",
+        "Am Gesellschaftssitz des Arbeitgebers",
+        "Am gemeldeten Wohnort der Beschäftigten",
+        "Dort, wo die Verträge unterzeichnet wurden"
       ],
-      "correct": 2,
-      "explanation": "Die Entwicklung des Arbeitsmarkts würde rund 17.600 davon liefern; Actiris schätzt die Wirkung seiner eigenen Hebel auf rund 9.000 zusätzliche Arbeitsaufnahmen.",
+      "correct": 0,
+      "explanation": "Die Methode verortet die Arbeitsplätze dort, wo die Betriebe tätig sind. Die alte ordnete sie dem Gesellschaftssitz zu, was die Beschäftigung in Großstädten überschätzte.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:a64a6d9b19e1e7748fe77a4b07a13590",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:23401383533368c771388bc121ba2837",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Wie viele soziale Immobilienagenturen (AIS) betrifft die Reform, deren Leitlinien die Brüsseler Regierung am 23. Oktober 2026 gebilligt hat?",
+      "question": "Welche Miete gibt laut der von La Libre zitierten Mitteilung (30. Oktober 2026) privaten Vermietern 2027 Zugang zur Be-Home-Prämie von 328 Euro pro Jahr?",
       "options": [
-        "19 Agenturen",
-        "24 Agenturen",
-        "31 Agenturen",
-        "22 Agenturen"
+        "Zwischen 80 und 100 % der Referenzmiete",
+        "Zwischen 60 und 80 % der Referenzmiete",
+        "Zwischen 40 und 60 % der Referenzmiete",
+        "Zwischen 100 und 120 % der Referenzmiete"
       ],
-      "correct": 3,
-      "explanation": "Die 22 AIS vermieten mehr als 8.100 Wohnungen privater Eigentümer an Haushalte mit bescheidenem Einkommen. Die Reform wird für Anfang 2028 angestrebt.",
+      "correct": 1,
+      "explanation": "328 Euro zwischen 60 und 80 % der Referenzmiete, 164 Euro zwischen 80 und 100 %. Der Zugang setzt die Registrierung des Mietvertrags und die Einhaltung der angegebenen Miete voraus.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:d89b439971c61d8b99c94514295d3a7b",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:c1fc3455e09f411a1554a6e45f6e3dc7",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Welcher Anteil der in der Region Brüssel-Hauptstadt wohnhaften Käufer hat laut den am 29. Oktober 2026 berichteten Zahlen der Notare (Fednot) im Jahr 2025 eine Immobilie außerhalb der Region gekauft?",
+      "question": "Wie viele Mieten kommunaler und ÖSHZ-Wohnungen waren laut La DH (31. Oktober 2026) in Brüssel 2026 sozialisiert?",
       "options": [
-        "56,4 %",
-        "28,0 %",
-        "15,0 %",
-        "43,6 %"
+        "963",
+        "6.361",
+        "2.254",
+        "28.760"
       ],
-      "correct": 3,
-      "explanation": "Der Unterschied betrifft vor allem Häuser: Nur 32 % der Brüsseler, die ein Haus kaufen, tun dies in Brüssel, gegenüber 86 % bei einer Wohnung.",
+      "correct": 2,
+      "explanation": "2.254 sozialisierte Mieten, vor allem in der Stadt Brüssel und in Saint-Gilles. Der Haushalt 2027 sieht laut La DH eine Reform dieses Mechanismus vor.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, 131 Millionen der SLRB blockiert",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:d89b439971c61d8b99c94514295d3a7b",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:c1fc3455e09f411a1554a6e45f6e3dc7",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Welches Wahlverfahren behält die Region Brüssel-Hauptstadt laut La DH (16. Oktober 2026) für die Wahlen bei, anders als die Wallonie?",
+      "question": "Welche 2022 beschlossene Ernennung hat der Staatsrat laut RTBF (30. Oktober 2026) Anfang Oktober 2026 aufgehoben?",
       "options": [
-        "Die Stimmabgabe über das Internet von zu Hause",
-        "Die elektronische Stimmabgabe",
-        "Ausschließlich die Stimmabgabe auf Papier",
-        "Die Stimmabgabe per Briefwahl"
+        "Die stellvertretende Generaldirektion der STIB",
+        "Die stellvertretende Generaldirektion von Actiris",
+        "Die stellvertretende Generaldirektion von hub.brussels",
+        "Die stellvertretende Generaldirektion des Hafens Brüssel"
       ],
-      "correct": 1,
-      "explanation": "Die Region Brüssel-Hauptstadt behält die elektronische Stimmabgabe bei; die Gesamtkosten des neuen Systems waren nicht bekannt.",
+      "correct": 3,
+      "explanation": "Ein abgelehnter Bewerber hatte die Klage eingereicht. Der Staatsrat hält die Begründung der Auswahlkommission für « weder zutreffend noch zulässig ».",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:181fd97f825795be5371379f165980fb",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-10-30",
+        "sourceContentHash": "sha256:d80caf0a229026e3c4509aa637a553d6",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Um wie viel will das Brüsseler Parlament laut La DH (17. Oktober 2026) seine Ausgaben bis zum Ende der Legislaturperiode senken, ein Ziel, für das es auf die Indexierung der Vergütungen für Sonderfunktionen verzichtet?",
+      "question": "Wie viele Punkte standen laut La Libre ungefähr auf der Tagesordnung des Brüsseler Ministerrats vom 22. Oktober 2026, zwei Wochen nach der unterbrochenen Sitzung vom 8. Oktober?",
       "options": [
-        "10 %",
-        "20 %",
-        "15 %",
-        "5 %"
+        "Ungefähr 80",
+        "Ungefähr 40",
+        "Ungefähr 120",
+        "Ungefähr 200"
       ],
       "correct": 0,
-      "explanation": "Der Verzicht auf die Indexierung der Sonderfunktionen gehört zu diesem Ziel von 10 % Einsparungen bei den Ausgaben des Parlaments.",
+      "explanation": "Die Brüsseler Regierung entschied über die meisten dieser rund 80 Punkte, darunter die Ernennung der Generaldirektion von Actiris und der regionalen Drogenkommissarin.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:181fd97f825795be5371379f165980fb",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-10-30",
+        "sourceContentHash": "sha256:d80caf0a229026e3c4509aa637a553d6",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Was hat der Staatsrat am 27. Oktober 2026 zu drei Anträgen auf Aussetzung des teilweisen Abbaus des Südpalasts in Brüssel entschieden?",
+      "question": "Welche Bedingung muss ein Bewerber nach der ab dem 1. Januar 2027 geltenden flämischen Maßnahme erfüllen, um die praktische Führerscheinprüfung in Flandern abzulegen?",
       "options": [
-        "Er hat sie zurückgewiesen, die Klagegründe seien nicht ernsthaft",
-        "Er hat die für den Abbau erteilte Städtebaugenehmigung ausgesetzt",
-        "Er hat die Regierung angewiesen, ein Unterschutzstellungsverfahren einzuleiten",
-        "Er hat die drei Anträge an das Gericht erster Instanz verwiesen"
+        "Dort am Prüfungstag gemeldet sein",
+        "Dort eine anerkannte Fahrschule besucht haben",
+        "Dort die theoretische Prüfung abgelegt haben",
+        "Dort mindestens sechs Monate gewartet haben"
       ],
-      "correct": 0,
-      "explanation": "Die STIB kann die Vorbereitung der Arbeiten am Tunnel zwischen Toots Thielemans und Anneessens wieder aufnehmen. Die Nichtigkeitsklagen laufen weiter.",
+      "correct": 2,
+      "explanation": "Die flämische Regierung verweist auf den Druck auf die Zentren im Umland. Brüssel wendet seit 2018 eine ähnliche Regel an, die Wallonie seit 2024.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:6d39095310af4f4f22a20d397e8d9318",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:334bf60dfd5df8229c8194c891de613c",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilität",
-      "question": "Wie viele Fahrraddiebstähle hat die Polizei laut BX1, auf Grundlage der Statistiken der föderalen Polizei, im Jahr 2025 in der Region Brüssel-Hauptstadt erfasst?",
+      "question": "Welcher Anteil der Brüsseler Befragten gibt in der von BRUZZ (30. Oktober 2026) zitierten Umfrage des Instituts Vias an, sich im Straßenverkehr manchmal aggressiv zu verhalten?",
       "options": [
-        "5.210 Diebstähle",
-        "3.733 Diebstähle",
-        "1.755 Diebstähle",
-        "8.940 Diebstähle"
+        "30 %",
+        "45 %",
+        "40 %",
+        "60 %"
       ],
       "correct": 1,
-      "explanation": "Das sind rund zehn Diebstähle pro Tag, 21,2 % weniger als 2024. Gezählt werden nur die angezeigten Diebstähle.",
+      "explanation": "45 % in Brüssel, gegenüber 40 % in der Wallonie und 30 % in Flandern. Weder die Region noch die Polizei führen dazu gesonderte Zahlen, berichtet BRUZZ.",
       "sourceSlug": "/de/bereiche/mobility",
       "sourceTitle": "Mobilität: neuer Regionalplan, Metro 3 eingefroren, LEZ beibehalten",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:6d39095310af4f4f22a20d397e8d9318",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:334bf60dfd5df8229c8194c891de613c",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Welche Fahrzeuge dürfen laut der Polizeiverordnung des Brüsseler Ministerpräsidenten vom 19. Oktober 2026 zum Drogenhandel in den 19 sensiblen Zonen der Region weder fahren noch abgestellt werden?",
+      "question": "Welcher Akteur erstellte beim FIPA-Einsatz vom 29. Oktober 2026 in Brüssel laut der Bilanz der föderalen Polizei 512 der 613 Protokolle?",
       "options": [
-        "Geteilte Elektrofahrräder im Selbstbedienungsverleih",
-        "E-Scooter, ob geteilt oder privat",
-        "Motorroller und Motorräder mit kleinem Hubraum",
-        "Führerscheinfreie Leichtautos und Quads"
+        "Die Verteidigung",
+        "Die föderale Polizei",
+        "Die Polizeizonen",
+        "Die STIB"
       ],
-      "correct": 1,
-      "explanation": "Zwischen Januar 2025 und Juli 2026 wurde bei mehr als einem Viertel der Schießereien im Zusammenhang mit dem Drogenhandel ein E-Scooter benutzt, zum Schießen oder zur Flucht.",
+      "correct": 3,
+      "explanation": "Die STIB erstellte 512 Protokolle und prüfte 9.856 Fahrausweise. Mehr als 400 Einsatzkräfte nahmen an dem Einsatz teil.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:b0f8be5d087528a8bec6d68771b9ed6f",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:331c055d5b9436847559eff4ebcaadeb",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Wie oft bewertet der Bürgermeister mindestens jede sensible Zone („Hotspot“), die die Brüsseler Polizeiverordnung vom 19. Oktober 2026 zum Drogenhandel vorsieht?",
+      "question": "Welche Nettozulage pro 24 Stunden kommt laut der Verteidigung, zitiert von BRUZZ (30. Oktober 2026), zum Gehalt der bei den Operationen Urban Shield und Green Shield eingesetzten Soldaten hinzu?",
       "options": [
-        "Mindestens einmal pro Quartal",
-        "Mindestens einmal pro Monat",
-        "Mindestens einmal pro Jahr",
-        "Mindestens einmal pro Halbjahr"
+        "Rund 45 Euro",
+        "Rund 25 Euro",
+        "Rund 90 Euro",
+        "Rund 150 Euro"
       ],
       "correct": 0,
-      "explanation": "Der Bürgermeister beantragt die Beibehaltung oder die Streichung der Zone und kann beantragen, eine Zone hinzuzufügen. Die besonderen Maßnahmen für die sensiblen Zonen haben kein Enddatum mehr.",
+      "explanation": "Rund 45 Euro netto pro 24 Stunden. Laut BRUZZ kosten beide Operationen zusammen bis Ende September 2026 rund 4 Millionen Euro netto.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:b0f8be5d087528a8bec6d68771b9ed6f",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:331c055d5b9436847559eff4ebcaadeb",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Wie viele Projekte für Alternativen zu Pflegeheimen finanziert Iriscare laut einer Pressemitteilung vom 28. Oktober 2026 in der Region Brüssel-Hauptstadt?",
+      "question": "Auf welchen Betrag steigt laut der Mitteilung von Iriscare vom 30. Oktober 2026 sein Beitrag zur Schaffung von 130 Genesungsbetten in Brüssel?",
       "options": [
-        "Drei Projekte",
-        "Sieben Projekte",
-        "Fünfzehn Projekte",
-        "Elf Projekte"
+        "250.000 Euro",
+        "820.000 Euro",
+        "580.000 Euro",
+        "130.000 Euro"
       ],
-      "correct": 1,
-      "explanation": "Diese Projekte kommen zu den 115 Brüsseler Pflegeheimen hinzu. Sie bieten älteren Menschen andere Wohnformen an oder fördern den Verbleib zu Hause.",
+      "correct": 2,
+      "explanation": "Der Beitrag steigt von 250.000 auf 580.000 Euro, zusätzlich zur föderalen Pauschale von 28,40 Euro pro Tag. Die Unterlagen werden bis spätestens 30. November 2026 erwartet.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:1480200183c61dde01d0be548f1ddd44",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:3424dddcd39292ede0f24104789a8611",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Welches Projekt soll laut BRUZZ (14. Oktober 2026) an die Stelle des Humanitären Hubs in seinem Gebäude in der Avenue du Port in Brüssel treten?",
+      "question": "An welcher Stelle des Versorgungswegs stehen laut Iriscare (30. Oktober 2026) die Genesungsbetten, die es in Brüssel schaffen will?",
       "options": [
-        "Ein Trainingscampus von Safe.brussels für die Sicherheitsberufe",
-        "Ein Bus- und Straßenbahndepot der STIB für den Norden der Region",
-        "Ein regionales Tageszentrum für obdachlose Menschen",
-        "Eine Erweiterung des Verwaltungssitzes der Agentur Bruxelles-Propreté"
+        "Zwischen Wohnung und Altenheim",
+        "Zwischen Krankenhaus und Wohnung",
+        "Zwischen Arzt und Notaufnahme",
+        "Zwischen zwei Altenheimaufenthalten"
       ],
-      "correct": 0,
-      "explanation": "Der Genehmigungsantrag betrifft eine Schule für Polizei- und Sicherheitsberufe. Für den Hub, der obdachlose Migrantinnen und Migranten aufnimmt, war kein neuer Standort gefunden.",
+      "correct": 1,
+      "explanation": "Diese Plätze nehmen Patienten auf, die vorübergehend ihre Selbstständigkeit verloren haben. Laut Iriscare gibt es dieses Angebot zum Datum der Mitteilung in Brüssel nicht.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:1480200183c61dde01d0be548f1ddd44",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:3424dddcd39292ede0f24104789a8611",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Laut der Pressemitteilung von Actiris vom 25. September 2026 zu den föderalen Reformen der Arbeitslosigkeit: In welcher Brüsseler Gemeinde ist der Anteil der Personen am Anspruchsende, die sich an ein ÖSHZ gewandt haben, am höchsten?",
+      "question": "Welche Gründe können laut dem am 30. Oktober 2026 gemeldeten föderalen Rundschreiben an die ÖSHZ zur Arbeitsbereitschaft keine Ausnahme für einen Empfänger des Eingliederungseinkommens darstellen?",
       "options": [
-        "In Saint-Gilles",
-        "In der Stadt Brüssel",
-        "In Etterbeek",
-        "In Auderghem"
+        "Kulturelle oder religiöse Gründe",
+        "Ärztlich bescheinigte Gründe",
+        "Gründe im Zusammenhang mit einer Ausbildung",
+        "Gründe im Zusammenhang mit der Kinderbetreuung"
       ],
-      "correct": 2,
-      "explanation": "Etterbeek liegt mit 57,8 % an der Spitze, vor Auderghem, der Stadt Brüssel und Saint-Gilles. Die Pressemitteilung von Actiris nennt nicht den Zeitraum, auf den sich diese Gemeindequoten beziehen, eine Einschränkung, auf die die Karte hinweist.",
+      "correct": 0,
+      "explanation": "Der Präsident des Verbands der Brüsseler ÖSHZ sagt, das Rundschreiben ändere nichts am Gesetz. Die Entscheidung trifft weiterhin jedes ÖSHZ von Fall zu Fall.",
       "sourceSlug": "/de/dossiers/cpas-bruxellois",
       "sourceTitle": "Brüsseler ÖSHZ",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:97b473919e83a03113cff064e0122ce7",
-        "generatedAt": "2026-10-09T06:43:50.881Z",
+        "sourceLastModified": "2026-10-30",
+        "sourceContentHash": "sha256:715f45c6e3909920d49f1f50242ec414",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Welcher Anteil der geprüften niederländischsprachigen Brüsseler Krippen musste sich seit 2022 in Ordnung bringen, laut der am 9. September 2026 veröffentlichten Auswertung der Inspektionsberichte?",
+      "question": "Welche außerordentliche Hilfe pro Platz gewährt die ONE laut den am 30. Oktober 2026 veröffentlichten Informationen nicht subventionierten Kinderkrippen?",
       "options": [
-        "23 %, also 34 Krippen von 146 geprüften",
-        "10 %, also 15 Krippen von 146 geprüften",
-        "41 %, also 60 Krippen von 146 geprüften",
-        "28 %, also 41 Krippen von 146 geprüften"
+        "310 Euro",
+        "1.060 Euro",
+        "450 Euro",
+        "620 Euro"
       ],
-      "correct": 0,
-      "explanation": "Der flämische Durchschnitt liegt bei 10 %, die flämischen Gemeinden rund um Brüssel bei 28 %, Antwerpen und Gent bei 11 %. Eine zweite Zahl wiegt ebenso schwer: nur 30 % der Brüsseler Krippen hatten in drei Jahren mindestens zwei Inspektionen, was nahelegt, diesen Anteil als Untergrenze zu lesen und nicht als Endstand.",
+      "correct": 3,
+      "explanation": "620 Euro pro Platz für nicht subventionierte Kinderkrippen, 310 Euro für selbstständige Tagesmütter, wenn der Tarif 1.060 Euro pro Monat in Vollzeit nicht übersteigt.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-09-22",
-        "sourceContentHash": "sha256:d1831ab3f82568a38c85fdbb6c2d6c91",
-        "generatedAt": "2026-10-09T06:43:50.881Z",
+        "sourceLastModified": "2026-10-30",
+        "sourceContentHash": "sha256:b4211cc9f32b7223efac88a6fff44c38",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Warum lässt sich der Anteil der beanstandeten niederländischsprachigen Brüsseler Krippen nicht mit dem der französischsprachigen Krippen vergleichen?",
+      "question": "Welche Stelle prüft laut der am 9. September 2026 veröffentlichten Analyse von BRUZZ und Knack die niederländischsprachigen Kinderkrippen der Region Brüssel?",
       "options": [
-        "Drei Behörden prüfen getrennt, jede nach eigenen Kriterien",
-        "Die französischsprachigen Krippen werden gar nicht geprüft",
-        "Die französischsprachigen Berichte erscheinen nur alle fünf Jahre",
-        "Die Region bündelt die Daten, ohne sie nach Netz aufzuschlüsseln"
+        "Die ONE, in der Französischen Gemeinschaft",
+        "Opgroeien, in der Flämischen Gemeinschaft",
+        "Iriscare, bei der GGK",
+        "Actiris, bei der Region"
       ],
-      "correct": 0,
-      "explanation": "Opgroeien prüft das niederländischsprachige Netz, das ONE das französischsprachige und Iriscare die bikommunalen Einrichtungen, jede mit eigenen Berichten und Kriterien. Keine Veröffentlichung führt die drei Regelungen für Brüssel zusammen, und die 23 % sagen daher nichts über den Zustand der französischsprachigen oder bikommunalen Krippen.",
+      "correct": 1,
+      "explanation": "Opgroeien prüft die niederländischsprachigen Kinderkrippen. Die französischsprachigen fallen unter die ONE und die bikommunitären Einrichtungen unter Iriscare, jeweils mit eigenen Kriterien.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-09-22",
-        "sourceContentHash": "sha256:d1831ab3f82568a38c85fdbb6c2d6c91",
-        "generatedAt": "2026-10-09T06:43:50.881Z",
+        "sourceLastModified": "2026-10-30",
+        "sourceContentHash": "sha256:b4211cc9f32b7223efac88a6fff44c38",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1365,21 +1365,21 @@
       "id": "dossier-reforme-administration-0",
       "source": "dossier",
       "domain": "Institutionell",
-      "question": "Welchen Betrag muss die Brüsseler Regierung laut La Libre vom 7. Oktober 2026 für 2026 und 2027 ausgleichen, nachdem die Deckelung der Gehaltstabellen der Beamten aufgegeben wurde?",
+      "question": "Wie viel soll der Einstellungsstopp im Brüsseler regionalen öffentlichen Dienst laut BRUZZ (30. Oktober 2026) im Haushalt 2027 einbringen?",
       "options": [
-        "3 Millionen Euro",
-        "9 Millionen Euro",
-        "40 Millionen Euro",
-        "74 Millionen Euro"
+        "39 Millionen Euro",
+        "120 Millionen Euro",
+        "75 Millionen Euro",
+        "250 Millionen Euro"
       ],
-      "correct": 1,
-      "explanation": "Die Begrenzung des Besoldungsdienstalters auf 29 Jahre wurde im September 2026 zurückgezogen. Das Kabinett des Haushaltsministers bestätigt, dass dieser Betrag ausgeglichen werden muss.",
+      "correct": 2,
+      "explanation": "75 Millionen Euro, mit einer Ausnahme 2027 für aktive Funktionen wie Feuerwehrleute oder U-Bahn-Fahrer. Die Haushaltstabellen wurden nicht eingesehen.",
       "sourceSlug": "/de/dossiers/reforme-administration",
       "sourceTitle": "Verwaltungsreform",
       "provenance": {
-        "sourceLastModified": "2026-10-08",
-        "sourceContentHash": "sha256:47fff570371079f7ce8d7f26bac57865",
-        "generatedAt": "2026-10-08T09:02:21.199Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:dc9ec2ce2de8bcad6d157edda8582ccf",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Wie viele Personen überfliegt die Landeroute RNP 07L über Brüssel, nach Angaben des Kollektivs Free Air 4 Brussels?",
+      "question": "An welchem Datum will die Region laut der Note der Brüsseler Regierung vom 29. Oktober 2026 zu den Überflügen den flämischen Interessenkonflikt vor den Konzertierungsausschuss bringen?",
       "options": [
-        "Zwischen 50.000 und 90.000",
-        "Zwischen 270.000 und 460.000",
-        "Zwischen 120.000 und 200.000",
-        "Zwischen 600.000 und 800.000"
+        "16. November 2026",
+        "1. Dezember 2026",
+        "11. Januar 2027",
+        "8. Februar 2027"
       ],
-      "correct": 1,
-      "explanation": "Die Zahl stammt vom Kollektiv, das die Abschaffung dieser Route fordert; BX1 berichtete am 10. Oktober 2026 darüber.",
+      "correct": 0,
+      "explanation": "Die Region hält diesen Interessenkonflikt für unbegründet und ohne Rechtsgrundlage. Sie verlangt vom Föderalstaat außerdem bis spätestens 1. Dezember 2026 eine klare Begründung.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
       "sourceTitle": "Fluglärm Brüssel",
       "provenance": {
-        "sourceLastModified": "2026-10-10",
-        "sourceContentHash": "sha256:d512a674756ff3259974f0944895e997",
-        "generatedAt": "2026-10-12T19:11:07.400Z",
+        "sourceLastModified": "2026-11-01",
+        "sourceContentHash": "sha256:fe03bb55d547d36de59f805a1f5b78f2",
+        "generatedAt": "2026-11-01T14:01:26.593Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

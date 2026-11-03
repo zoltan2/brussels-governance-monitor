@@ -106,6 +106,32 @@ describe('envoyerNumero', () => {
     expect(batchSend).not.toHaveBeenCalled();
   });
 
+  it('erreur 5xx : issue inconnue, marqué incertain (jamais libéré ni renvoyé)', async () => {
+    abonne('a');
+    preparer();
+    batchSend.mockResolvedValue({ data: null, error: { statusCode: 504, name: 'application_error', message: 'Gateway Timeout' } });
+    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    expect(r.incertains).toBe(1);
+    expect(r.refusesParResend).toBe(0);
+    expect(J.compterJournal(db, 1)).toEqual({ incertain: 1 });
+  });
+
+  it('exception pendant l’appel : incertain, pas de réservation orpheline', async () => {
+    abonne('a');
+    preparer();
+    batchSend.mockRejectedValue(new Error('rendu impossible'));
+    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    expect(r.incertains).toBe(1);
+    expect(J.compterJournal(db, 1)).toEqual({ incertain: 1 });
+  });
+
+  it('passe une clé d’idempotence par lot', async () => {
+    abonne('a');
+    preparer();
+    await envoyerNumero(db, 1, SITE, MAINTENANT);
+    expect(batchSend.mock.calls[0][1]).toEqual({ idempotencyKey: 'coulisses-1-a' });
+  });
+
   it('refuse sans COULISSES_EXCLUS et sans rien envoyer', async () => {
     delete process.env.COULISSES_EXCLUS;
     abonne('a');

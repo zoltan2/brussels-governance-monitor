@@ -32,6 +32,7 @@ export interface Numero {
   essaiEmpreinte: string | null;
   essaiLe: number | null;
   etat: EtatNumero;
+  verrouLe: number | null;
   rapport: unknown;
 }
 
@@ -62,6 +63,7 @@ export function lireNumero(db: DatabaseSync, numero: number): Numero | null {
     essaiEmpreinte: (r.essai_empreinte as string | null) ?? null,
     essaiLe: r.essai_le == null ? null : Number(r.essai_le),
     etat: r.etat as EtatNumero,
+    verrouLe: r.verrou_le == null ? null : Number(r.verrou_le),
     rapport: r.rapport ? JSON.parse(String(r.rapport)) : null,
   };
 }
@@ -100,15 +102,36 @@ export function noterEssai(db: DatabaseSync, numero: number, empreinte: string, 
  * Prend le verrou d'envoi. Vrai seulement si le numéro est en brouillon (ou
  * interrompu, pour une reprise) ET si l'essai porte sur le texte actuel.
  */
-export function prendreVerrou(db: DatabaseSync, numero: number): boolean {
+export function prendreVerrou(db: DatabaseSync, numero: number, maintenant = Date.now()): boolean {
   const n = lireNumero(db, numero);
   if (!n || !n.essaiEmpreinte || n.essaiEmpreinte !== empreinteTextes(n.textes)) return false;
   const r = db
     .prepare(
-      `UPDATE coulisses_numeros SET etat = 'envoi'
+      `UPDATE coulisses_numeros SET etat = 'envoi', verrou_le = ?
        WHERE numero = ? AND etat IN ('brouillon', 'interrompu') AND essai_empreinte = ?`,
     )
-    .run(numero, n.essaiEmpreinte);
+    .run(maintenant, numero, n.essaiEmpreinte);
+  return r.changes === 1;
+}
+
+/** Délai après lequel un envoi encore « en cours » est réputé coupé (redémarrage). */
+export const BLOCAGE_MINUTES = 10;
+
+/**
+ * Débloque un envoi coupé (conteneur redémarré en plein envoi) : le numéro
+ * passe « interrompu », les réservations sans issue deviennent « incertain »
+ * (jamais renvoyées, à vérifier dans Resend). Refusé avant BLOCAGE_MINUTES.
+ */
+export function debloquer(db: DatabaseSync, numero: number, maintenant = Date.now()): boolean {
+  const n = lireNumero(db, numero);
+  if (!n || n.etat !== 'envoi' || !n.verrouLe || maintenant - n.verrouLe < BLOCAGE_MINUTES * 60_000) return false;
+  db.prepare(`UPDATE coulisses_envois SET etat = 'incertain', le = ? WHERE numero = ? AND etat = 'reserve'`).run(
+    maintenant,
+    numero,
+  );
+  const r = db
+    .prepare(`UPDATE coulisses_numeros SET etat = 'interrompu' WHERE numero = ? AND etat = 'envoi'`)
+    .run(numero);
   return r.changes === 1;
 }
 

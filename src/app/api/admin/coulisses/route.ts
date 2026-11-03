@@ -11,6 +11,7 @@ import { NextResponse } from 'next/server';
 import { sameOriginRefusal } from '@/lib/same-origin';
 import { getDb } from '@/lib/db';
 import * as J from '@/lib/coulisses/journal';
+import { BLOCAGE_MINUTES } from '@/lib/coulisses/journal';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -28,6 +29,8 @@ export const GET = auth(async function GET(req) {
     numero,
     textes: n?.textes ?? null,
     etat: n?.etat ?? 'brouillon',
+    verrouLe: n?.verrouLe ?? null,
+    bloque: Boolean(n && n.etat === 'envoi' && n.verrouLe && Date.now() - n.verrouLe > BLOCAGE_MINUTES * 60_000),
     essaiLe: n?.essaiLe ?? null,
     essaiAJour: Boolean(n && n.essaiEmpreinte && n.essaiEmpreinte === J.empreinteTextes(n.textes)),
     rapport: n?.rapport ?? null,

@@ -11,6 +11,8 @@ interface Etat {
   numero: number;
   textes: Textes | null;
   etat: string;
+  verrouLe: number | null;
+  bloque: boolean;
   essaiLe: number | null;
   essaiAJour: boolean;
   rapport: unknown;
@@ -84,11 +86,36 @@ export function CoulissesAdmin() {
   }
 
   async function envoyer() {
-    const { data } = await appel('/api/admin/coulisses/envoi', 'POST', { numero, confirmation });
-    setMessage(data.error ? `Envoi refusé : ${String(data.error)}` : 'Envoi terminé : voir le rapport.');
+    const { ok, data } = await appel('/api/admin/coulisses/envoi', 'POST', { numero, confirmation });
+    setMessage(ok ? 'Envoi lancé. Cette page suit son avancement.' : `Envoi refusé : ${String(data.error ?? 'réponse inattendue')}`);
     setConfirmation('');
     await charger(numero);
   }
+
+  async function debloquer() {
+    const { ok, data } = await appel('/api/admin/coulisses/debloquer', 'POST', { numero });
+    setMessage(ok ? 'Débloqué : envoi « interrompu ». Vérifier les incertains dans Resend avant de reprendre.' : `Refusé : ${String(data.error ?? '')}`);
+    await charger(numero);
+  }
+
+  // Pendant l'envoi (en arrière-plan sur le serveur), relire l'état toutes les 3 s.
+  useEffect(() => {
+    if (etat?.etat !== 'envoi') return;
+    const id = setInterval(() => {
+      fetch(`/api/admin/coulisses?numero=${etat.numero}`, { cache: 'no-store' })
+        .then((res) => (res.ok ? (res.json() as Promise<Etat>) : null))
+        .then((e) => {
+          if (e && (e.etat !== 'envoi' || e.bloque)) {
+            appliquer(e);
+            if (e.etat !== 'envoi') {
+              setMessage(e.etat === 'envoye' ? 'Envoi terminé sans erreur. Rapport ci-dessous.' : 'Envoi interrompu : voir les erreurs du rapport.');
+            }
+          }
+        })
+        .catch(() => {});
+    }, 3000);
+    return () => clearInterval(id);
+  }, [etat?.etat, etat?.numero, appliquer]);
 
   const fige = etat ? etat.etat !== 'brouillon' : false;
   const complets = LANGUES.every((l) => textes[l.id].objet.trim() && textes[l.id].corps.trim());
@@ -172,6 +199,18 @@ export function CoulissesAdmin() {
           </button>
         </div>
       </div>
+
+      {etat?.etat === 'envoi' && (
+        <div className="flex items-center gap-3 text-sm text-neutral-800">
+          <span>Envoi en cours sur le serveur…</span>
+          {etat.bloque && (
+            <button type="button" onClick={() => void debloquer()} disabled={occupe}
+              className="rounded border border-neutral-500 px-3 py-1 text-xs">
+              Débloquer (envoi coupé)
+            </button>
+          )}
+        </div>
+      )}
 
       {message && <p role="status" aria-live="polite" className="text-sm text-neutral-800">{message}</p>}
 

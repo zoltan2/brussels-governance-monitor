@@ -51,6 +51,8 @@ describe('choisirDestinataires', () => {
     ['sonde healthcheck', { email: 'healthcheck-1730000000@governance.brussels' }, 'interne'],
     ['domaine du site', { email: 'zoltan@governance.brussels' }, 'interne'],
     ['source healthcheck', { sources: 'website,healthcheck' }, 'interne'],
+    ['domaine brusselsgovernance.be', { email: 'contact@brusselsgovernance.be' }, 'interne'],
+    ['sous-domaine d’envoi', { email: 'veille@mail.brusselsgovernance.be' }, 'interne'],
   ] as const)('exclut : %s', (_nom, p, motif) => {
     const s = choisirDestinataires([contact(p as Partial<ContactBrut>)], vide);
     expect(s.destinataires).toEqual([]);

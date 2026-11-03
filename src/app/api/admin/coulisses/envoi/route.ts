@@ -4,9 +4,14 @@
 /**
  * POST : envoi réel d'un numéro. Exige de retaper le numéro, un essai fait
  * sur le texte actuel, et prend le verrou du numéro (second clic refusé).
+ *
+ * L'envoi tourne APRÈS la réponse (`after`, pris en charge en auto-hébergement
+ * et terminé avant l'arrêt du serveur) : la lecture d'environ 130 fiches Resend
+ * approche le délai de 100 s de Cloudflare. L'admin suit l'état en relisant
+ * GET /api/admin/coulisses.
  */
 import { auth } from '@/auth';
-import { NextResponse } from 'next/server';
+import { NextResponse, after } from 'next/server';
 import { sameOriginRefusal } from '@/lib/same-origin';
 import { getDb } from '@/lib/db';
 import { prendreVerrou } from '@/lib/coulisses/journal';
@@ -41,6 +46,12 @@ export const POST = auth(async function POST(req) {
     );
   }
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://governance.brussels';
-  const rapport = await envoyerNumero(db, numero, siteUrl);
-  return NextResponse.json(rapport, { status: rapport.erreurs.length ? 207 : 200 });
+  after(async () => {
+    try {
+      await envoyerNumero(db, numero, siteUrl);
+    } catch (e) {
+      console.error('[coulisses-envoi] arrêt inattendu', e instanceof Error ? e.message : e);
+    }
+  });
+  return NextResponse.json({ lance: true, numero }, { status: 202 });
 });

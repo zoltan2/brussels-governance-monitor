@@ -67,7 +67,7 @@ const translations: Record<string, {
     preview: 'Bestätigen Sie Ihre Anmeldung bei Brussels Governance Monitor',
     title: 'Bestätigen Sie Ihre E-Mail',
     greeting:
-      'Sie haben die Zusammenfassung von Brussels Governance Monitor angefordert, die montags versendet wird, in den Wochen, in denen Ihre Themen aktualisiert wurden, und einmal im Monat ein paar Neuigkeiten zum Projekt. Klicken Sie auf die Schaltfläche unten, um Ihre Anmeldung zu bestätigen.',
+      'Sie haben die Zusammenfassung von Brussels Governance Monitor angefordert, die montags versendet wird, in den Wochen, in denen Ihre Themen aktualisiert wurden, und einmal im Monat ein paar Neuigkeiten zum Projekt, auf Englisch. Klicken Sie auf die Schaltfläche unten, um Ihre Anmeldung zu bestätigen.',
     button: 'Meine Anmeldung bestätigen',
     expiry: 'Dieser Link läuft in 48 Stunden ab.',
     ignore:

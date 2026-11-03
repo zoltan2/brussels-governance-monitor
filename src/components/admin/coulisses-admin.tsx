@@ -4,9 +4,10 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { CoulissesEditeur } from './coulisses-editeur';
 
 type Langue = 'fr' | 'nl' | 'en';
-type Textes = Record<Langue, { objet: string; corps: string }>;
+type Textes = Record<Langue, { objet: string; corps: string; apercu: string }>;
 interface Etat {
   numero: number;
   textes: Textes | null;
@@ -25,7 +26,16 @@ const LANGUES: Array<{ id: Langue; nom: string }> = [
   { id: 'nl', nom: 'Nederlands' },
   { id: 'en', nom: 'English (aussi pour les abonnés en allemand)' },
 ];
-const VIDE: Textes = { fr: { objet: '', corps: '' }, nl: { objet: '', corps: '' }, en: { objet: '', corps: '' } };
+const VIDE: Textes = {
+  fr: { objet: '', corps: '', apercu: '' },
+  nl: { objet: '', corps: '', apercu: '' },
+  en: { objet: '', corps: '', apercu: '' },
+};
+
+/** Texte visible d'un corps HTML, pour les contrôles de la page. */
+function texteVisible(html: string): string {
+  return html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+}
 
 export function CoulissesAdmin() {
   const [etat, setEtat] = useState<Etat | null>(null);
@@ -35,12 +45,15 @@ export function CoulissesAdmin() {
   const [message, setMessage] = useState('');
   const [occupe, setOccupe] = useState(false);
   const [confirmation, setConfirmation] = useState('');
+  // Recrée les éditeurs à chaque chargement depuis le serveur.
+  const [chargement, setChargement] = useState(0);
 
   const appliquer = useCallback((e: Etat) => {
     setEtat(e);
     setNumero(e.numero);
     setTextes(e.textes ?? VIDE);
     setModifie(false);
+    setChargement((c) => c + 1);
   }, []);
 
   const charger = useCallback(async (n?: number) => {
@@ -118,7 +131,7 @@ export function CoulissesAdmin() {
   }, [etat?.etat, etat?.numero, appliquer]);
 
   const fige = etat ? etat.etat !== 'brouillon' : false;
-  const complets = LANGUES.every((l) => textes[l.id].objet.trim() && textes[l.id].corps.trim());
+  const complets = LANGUES.every((l) => textes[l.id].objet.trim() && texteVisible(textes[l.id].corps));
 
   return (
     <div className="mt-6 space-y-6">
@@ -152,22 +165,42 @@ export function CoulissesAdmin() {
             id={`objet-${l.id}`}
             value={textes[l.id].objet}
             onChange={(e) => {
-              setTextes({ ...textes, [l.id]: { ...textes[l.id], objet: e.target.value } });
+              const v = e.target.value;
+              setTextes((t) => ({ ...t, [l.id]: { ...t[l.id], objet: v } }));
+              setModifie(true);
+            }}
+            className="mb-3 w-full rounded border border-neutral-400 px-2 py-1 text-sm"
+          />
+          <label className="block text-xs text-neutral-600" htmlFor={`apercu-${l.id}`}>
+            Aperçu dans la boîte de réception (facultatif, sinon le début du texte)
+          </label>
+          <input
+            id={`apercu-${l.id}`}
+            value={textes[l.id].apercu}
+            maxLength={200}
+            onChange={(e) => {
+              const v = e.target.value;
+              setTextes((t) => ({ ...t, [l.id]: { ...t[l.id], apercu: v } }));
               setModifie(true);
             }}
             className="mb-3 w-full rounded border border-neutral-400 px-2 py-1 text-sm"
           />
           <label className="block text-xs text-neutral-600" htmlFor={`corps-${l.id}`}>Texte</label>
-          <textarea
+          <CoulissesEditeur
+            key={`${l.id}-${chargement}`}
             id={`corps-${l.id}`}
-            rows={10}
-            value={textes[l.id].corps}
-            onChange={(e) => {
-              setTextes({ ...textes, [l.id]: { ...textes[l.id], corps: e.target.value } });
+            initial={textes[l.id].corps}
+            disabled={fige}
+            onChange={(html) => {
+              setTextes((t) => ({ ...t, [l.id]: { ...t[l.id], corps: html } }));
               setModifie(true);
             }}
-            className="w-full rounded border border-neutral-400 px-2 py-1 font-serif text-sm"
           />
+          {/[\u2014\u2013]/.test(texteVisible(textes[l.id].corps) + textes[l.id].objet + textes[l.id].apercu) && (
+            <p className="mt-2 text-xs text-status-delayed">
+              Tiret cadratin ou demi-cadratin présent : à remplacer par une virgule ou un deux-points.
+            </p>
+          )}
         </fieldset>
       ))}
 

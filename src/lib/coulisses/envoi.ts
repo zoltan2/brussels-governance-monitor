@@ -11,7 +11,7 @@
 import type { DatabaseSync } from 'node:sqlite';
 import { getResend, resendCall } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
-import CoulissesEmail, { texteBrutCoulisses } from '@/emails/coulisses';
+import CoulissesEmail from '@/emails/coulisses';
 import { choisirDestinataires, lireExclus, type ContactBrut, type Destinataire, type LangueEnvoi, type Selection, type Variante } from './selection';
 import * as J from './journal';
 
@@ -88,7 +88,7 @@ function urls(siteUrl: string, email: string, langue: LangueEnvoi) {
 }
 
 export function construireMail(
-  d: { email: string; langue: LangueEnvoi; variante: Variante },
+  d: { email: string; langue: LangueEnvoi; variante: Variante; localeAbonne?: string },
   textes: J.Textes,
   numero: number,
   siteUrl: string,
@@ -96,14 +96,15 @@ export function construireMail(
 ) {
   const t = textes[d.langue];
   const { preferencesUrl, oneClick } = urls(siteUrl, d.email, d.langue);
-  const props = { langue: d.langue, variante: d.variante, corps: t.corps, preferencesUrl };
+  const germanophone = d.localeAbonne === 'de';
+  const props = { langue: d.langue, variante: d.variante, corps: t.corps, apercu: t.apercu, germanophone, preferencesUrl };
   return {
     from: COULISSES_FROM,
     to: options.destinataire ?? d.email,
     replyTo: COULISSES_REPLY_TO,
-    subject: options.essai ? `[Essai ${d.langue} ${d.variante}] ${t.objet}` : t.objet,
+    subject: options.essai ? `[Essai ${germanophone ? 'de→en' : d.langue} ${d.variante}] ${t.objet}` : t.objet,
+    // Pas de `text` : Resend tire la version texte du HTML rendu.
     react: CoulissesEmail(props),
-    text: texteBrutCoulisses(props),
     headers: {
       // Le bouton « se désabonner » du client mail refuse les coulisses seules,
       // jamais le digest (POST RFC 8058 sur /api/coulisses/one-click).
@@ -131,9 +132,16 @@ export async function envoyerEssai(
   const n = J.lireNumero(db, numero);
   if (!n || !J.textesComplets(n.textes)) throw new Error('Textes incomplets : fr, nl et en, objet et corps.');
   const variantes: Variante[] = J.ontDejaRecu(db, numero).size > 0 ? ['premier', 'courant'] : ['premier'];
-  const mails = (['fr', 'nl', 'en'] as const).flatMap((langue) =>
+  // Chaque langue, plus l'anglais tel que le reçoit un abonné en allemand.
+  const cibles = [
+    { langue: 'fr' as const, localeAbonne: 'fr' },
+    { langue: 'nl' as const, localeAbonne: 'nl' },
+    { langue: 'en' as const, localeAbonne: 'en' },
+    { langue: 'en' as const, localeAbonne: 'de' },
+  ];
+  const mails = cibles.flatMap(({ langue, localeAbonne }) =>
     variantes.map((variante) =>
-      construireMail({ email: destinataire, langue, variante }, n.textes, numero, siteUrl, { essai: true, destinataire }),
+      construireMail({ email: destinataire, langue, variante, localeAbonne }, n.textes, numero, siteUrl, { essai: true, destinataire }),
     ),
   );
   const { error } = await resendCall(() => getResend().batch.send(mails));

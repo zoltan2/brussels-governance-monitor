@@ -41,7 +41,7 @@ const translations: Record<string, WelcomeTranslation> = {
     explanation:
       'Vous recevez le digest le lundi, les semaines où vos thèmes ont été mis à jour. Pas de changement = pas d\'email.',
     topicsTitle: 'Vos thèmes suivis :',
-    frequency: 'Le digest arrive le lundi matin. Une fois par mois au plus, vous recevrez aussi quelques lignes sur l\'avancée du projet.',
+    frequency: 'Le digest arrive le lundi matin. Une fois par mois, vous recevrez aussi quelques lignes sur l\'avancée du projet.',
     unsubscribe: 'Gérer mes préférences ou me désabonner',
     footer: 'Brussels Governance Monitor — Un projet d\'intérêt général hébergé par Advice That SRL',
     disclaimer: 'Non affilié à aucun parti politique',
@@ -53,7 +53,7 @@ const translations: Record<string, WelcomeTranslation> = {
     explanation:
       'U ontvangt de samenvatting op maandag, in de weken waarin uw thema\'s zijn bijgewerkt. Geen wijziging = geen e-mail.',
     topicsTitle: 'Uw gevolgde thema\'s:',
-    frequency: 'De digest komt op maandagochtend. Maximaal één keer per maand krijgt u ook een paar regels over de voortgang van het project.',
+    frequency: 'De digest komt op maandagochtend. Eén keer per maand krijgt u ook een paar regels over de voortgang van het project.',
     unsubscribe: 'Mijn voorkeuren beheren of uitschrijven',
     footer: 'Brussels Governance Monitor — Een project van algemeen belang gehost door Advice That SRL',
     disclaimer: 'Niet gelieerd aan enige politieke partij',
@@ -65,7 +65,7 @@ const translations: Record<string, WelcomeTranslation> = {
     explanation:
       'You receive the digest on Mondays, in the weeks when your topics have been updated. No changes = no email.',
     topicsTitle: 'Your followed topics:',
-    frequency: 'The digest arrives on Monday morning. Once a month at most, you will also receive a few lines on how the project is going.',
+    frequency: 'The digest arrives on Monday morning. Once a month, you will also receive a few lines on how the project is going.',
     unsubscribe: 'Manage my preferences or unsubscribe',
     footer: 'Brussels Governance Monitor — A public interest project hosted by Advice That SRL',
     disclaimer: 'Not affiliated with any political party',
@@ -77,7 +77,7 @@ const translations: Record<string, WelcomeTranslation> = {
     explanation:
       'Sie erhalten die Zusammenfassung montags, in den Wochen, in denen Ihre Themen aktualisiert wurden. Keine Änderung = keine E-Mail.',
     topicsTitle: 'Ihre verfolgten Themen:',
-    frequency: 'Der Digest kommt am Montagmorgen. Höchstens einmal im Monat erhalten Sie außerdem ein paar Zeilen zum Stand des Projekts.',
+    frequency: 'Der Digest kommt am Montagmorgen. Einmal im Monat erhalten Sie außerdem ein paar Zeilen zum Stand des Projekts.',
     unsubscribe: 'Meine Einstellungen verwalten oder abmelden',
     footer: 'Brussels Governance Monitor — Ein Projekt im öffentlichen Interesse, gehostet von Advice That SRL',
     disclaimer: 'Keiner politischen Partei angeschlossen',

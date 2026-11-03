@@ -16,10 +16,14 @@
 import { createHash } from 'node:crypto';
 import type { DatabaseSync } from 'node:sqlite';
 import type { LangueEnvoi, Variante } from './selection';
+import { corpsVide } from './corps';
 
 export interface TexteLangue {
   objet: string;
+  /** HTML de l'éditeur, nettoyé (src/lib/coulisses/corps.ts). */
   corps: string;
+  /** Aperçu dans la boîte de réception ; facultatif. */
+  apercu?: string;
 }
 export type Textes = Record<LangueEnvoi, TexteLangue>;
 
@@ -37,7 +41,7 @@ export interface Numero {
 }
 
 /** À changer quand le gabarit du mail change : un ancien essai ne vaut plus. */
-export const VERSION_GABARIT = 'coulisses-gabarit-1';
+export const VERSION_GABARIT = 'coulisses-gabarit-2';
 
 export function empreinteTextes(textes: Textes): string {
   return createHash('sha256')
@@ -47,7 +51,7 @@ export function empreinteTextes(textes: Textes): string {
 
 export function textesComplets(t: Partial<Textes> | null | undefined): t is Textes {
   return (['fr', 'nl', 'en'] as const).every(
-    (l) => Boolean(t?.[l]?.objet?.trim()) && Boolean(t?.[l]?.corps?.trim()),
+    (l) => Boolean(t?.[l]?.objet?.trim()) && typeof t?.[l]?.corps === 'string' && !corpsVide(t[l].corps),
   );
 }
 

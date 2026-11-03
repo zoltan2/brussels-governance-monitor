@@ -47,6 +47,9 @@ export async function lireContactsStricts(): Promise<ContactBrut[]> {
       else await pause(2000);
     }
     if (!page) throw new Error('Lecture de la liste Resend impossible : envoi arrêté.');
+    if (page.data.length === 0 && page.has_more) {
+      throw new Error('Page vide annoncée non finale par Resend : envoi arrêté.');
+    }
 
     for (const c of page.data) {
       if (c.unsubscribed) {
@@ -187,12 +190,22 @@ export async function envoyerNumero(
     for (let i = 0; i < selection.destinataires.length; i += TAILLE_LOT) {
       const lot = selection.destinataires.slice(i, i + TAILLE_LOT).filter((d) => J.reserver(db, numero, d));
       if (lot.length === 0) continue;
-      const mails = lot.map((d) => construireMail(d, n.textes, numero, siteUrl));
-      const { data, error } = await resendCall(() => resend.batch.send(mails));
+      let reponse: { data: unknown; error: { statusCode?: number | null; name?: string; message?: string } | null };
+      try {
+        const mails = lot.map((d) => construireMail(d, n.textes, numero, siteUrl));
+        reponse = await resendCall(() =>
+          resend.batch.send(mails, { idempotencyKey: `coulisses-${numero}-${lot[0].id}` }),
+        );
+      } catch (e) {
+        // Exception (rendu, réseau) : issue inconnue, comme une réponse perdue.
+        reponse = { data: null, error: { statusCode: null, name: 'exception', message: e instanceof Error ? e.message : String(e) } };
+      }
+      const { data, error } = reponse;
       if (error) {
-        // Code HTTP connu : Resend a refusé le lot entier (validation stricte),
-        // rien n'est parti. Sans code : réponse perdue, issue inconnue.
-        const refuse = typeof error.statusCode === 'number';
+        // Seul un 4xx prouve que Resend a refusé le lot entier (validation
+        // stricte) : rien n'est parti. Un 5xx ou l'absence de code peut
+        // suivre une acceptation : issue inconnue, jamais renvoyée.
+        const refuse = typeof error.statusCode === 'number' && error.statusCode >= 400 && error.statusCode < 500;
         for (const d of lot) {
           if (refuse) J.annulerReservation(db, numero, d.id);
           else J.marquerIncertain(db, numero, d.id);

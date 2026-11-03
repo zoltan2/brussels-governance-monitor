@@ -79,7 +79,7 @@ function estInterne(email: string, sources: string, exclus: Set<string>): boolea
   const e = normaliser(email);
   if (exclus.has(e)) return true;
   if (e.startsWith('healthcheck-')) return true;
-  if (e.endsWith('@governance.brussels')) return true;
+  if (/@(mail\.)?(governance\.brussels|brusselsgovernance\.be)$/.test(e)) return true;
   return normaliser(sources).split(',').some((s) => s.trim() === 'healthcheck');
 }
 

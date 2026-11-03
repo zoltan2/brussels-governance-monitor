@@ -75,6 +75,17 @@ describe('journal des coulisses', () => {
     expect(J.prendreVerrou(db, 1)).toBe(false);
   });
 
+  it('débloque un envoi coupé après 10 minutes, pas avant', () => {
+    J.enregistrerTextes(db, 1, T);
+    J.noterEssai(db, 1, J.empreinteTextes(T));
+    J.prendreVerrou(db, 1, 1_000_000);
+    J.reserver(db, 1, { id: 'a', langue: 'fr', variante: 'premier' });
+    expect(J.debloquer(db, 1, 1_000_000 + 5 * 60_000)).toBe(false);
+    expect(J.debloquer(db, 1, 1_000_000 + 11 * 60_000)).toBe(true);
+    expect(J.lireNumero(db, 1)!.etat).toBe('interrompu');
+    expect(J.compterJournal(db, 1)).toEqual({ incertain: 1 });
+  });
+
   it('textes incomplets détectés', () => {
     expect(J.textesComplets(T)).toBe(true);
     expect(J.textesComplets({ ...T, en: { objet: ' ', corps: 'x' } })).toBe(false);

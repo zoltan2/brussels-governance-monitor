@@ -64,9 +64,6 @@ CREATE TABLE IF NOT EXISTS desabonnements (
 );
 CREATE INDEX IF NOT EXISTS idx_desabonnements_date ON desabonnements(desabonne_le);
 
--- Événements Resend reçus par webhook (src/app/api/webhooks/resend) : rebonds
--- et plaintes. Aucune adresse en clair, seulement l'empreinte. event_id unique :
--- un événement redélivré par Resend n'alerte qu'une fois.
 -- « Les coulisses de BGM » (src/lib/coulisses/journal.ts) : textes des
 -- numéros (jamais dans le dépôt public) et journal par destinataire. Aucune
 -- adresse : contact_id de Resend seulement.
@@ -77,6 +74,7 @@ CREATE TABLE IF NOT EXISTS coulisses_numeros (
   essai_empreinte TEXT,
   essai_le        INTEGER,
   etat            TEXT NOT NULL DEFAULT 'brouillon',
+  verrou_le       INTEGER,
   rapport         TEXT
 );
 CREATE TABLE IF NOT EXISTS coulisses_envois (
@@ -90,6 +88,9 @@ CREATE TABLE IF NOT EXISTS coulisses_envois (
   PRIMARY KEY (numero, contact_id)
 );
 
+-- Événements Resend reçus par webhook (src/app/api/webhooks/resend) : rebonds
+-- et plaintes. Aucune adresse en clair, seulement l'empreinte. event_id unique :
+-- un événement redélivré par Resend n'alerte qu'une fois.
 CREATE TABLE IF NOT EXISTS resend_evenements (
   event_id  TEXT PRIMARY KEY,
   type      TEXT NOT NULL,

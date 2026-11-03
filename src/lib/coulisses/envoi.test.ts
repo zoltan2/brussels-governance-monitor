@@ -20,6 +20,7 @@ vi.mock('@/lib/resend', () => ({
   resendCall: (fn: () => unknown) => fn(),
 }));
 
+const { render } = await import('@react-email/render');
 const { getDb } = await import('@/lib/db');
 const J = await import('./journal');
 const { envoyerNumero, envoyerEssai, construireMail, COULISSES_FROM } = await import('./envoi');
@@ -125,11 +126,42 @@ describe('envoyerNumero', () => {
     expect(J.compterJournal(db, 1)).toEqual({ incertain: 1 });
   });
 
-  it('passe une clé d’idempotence par lot', async () => {
+  it('passe une clé d’idempotence par lot, propre au lancement (une reprise ne réutilise pas la clé)', async () => {
     abonne('a');
     preparer();
     await envoyerNumero(db, 1, SITE, MAINTENANT);
-    expect(batchSend.mock.calls[0][1]).toEqual({ idempotencyKey: 'coulisses-1-a' });
+    const cle = (batchSend.mock.calls[0][1] as { idempotencyKey: string }).idempotencyKey;
+    expect(cle).toMatch(/^coulisses-1-[0-9a-z]+-a$/);
+  });
+
+  it('lot refusé (422) à cause d’une adresse : renvoi un par un, seule la fautive reste dehors', async () => {
+    abonne('a');
+    abonne('b');
+    preparer();
+    batchSend.mockImplementation(async (mails: Array<{ to: string }>) =>
+      mails.length > 1 || mails[0].to === 'b@example.org'
+        ? { data: null, error: { statusCode: 422, name: 'validation_error', message: 'Invalid `to` field: b@example.org' } }
+        : { data: { data: [{ id: 'r1' }] }, error: null },
+    );
+    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    expect(r.refusesParResend).toBe(1);
+    expect(r.envoyes).toEqual({ 'fr-premier': 1 });
+    expect(J.compterJournal(db, 1)).toEqual({ envoye: 1 });
+    // Aucune adresse dans le rapport.
+    expect(r.erreurs.join(' ')).not.toContain('@');
+    expect(r.erreurs.join(' ')).toContain('[adresse]');
+  });
+
+  it('battement : verrou_le avance après chaque lot', async () => {
+    abonne('a');
+    preparer();
+    db.prepare('UPDATE coulisses_numeros SET verrou_le = 1 WHERE numero = 1').run();
+    let vu = 0;
+    batchSend.mockImplementation(async () => ({ data: { data: [{ id: 'r' }] }, error: null }));
+    const avant = Date.now();
+    await envoyerNumero(db, 1, SITE, MAINTENANT);
+    vu = J.lireNumero(db, 1)!.verrouLe ?? 0;
+    expect(vu).toBeGreaterThanOrEqual(avant);
   });
 
   it('refuse sans COULISSES_EXCLUS et sans rien envoyer', async () => {
@@ -159,29 +191,79 @@ describe('envoyerNumero', () => {
 });
 
 describe('envoyerEssai', () => {
-  it("envoie les trois langues à l'administrateur seulement et note l'essai", async () => {
+  it("envoie les trois langues et la version des germanophones à l'administrateur seulement, et note l'essai", async () => {
     abonne('a');
     J.enregistrerTextes(db, 1, T);
     const r = await envoyerEssai(db, 1, 'admin@example.net', SITE);
-    expect(r.envoyes).toBe(3);
+    expect(r.envoyes).toBe(4);
     const mails = batchSend.mock.calls[0][0] as Array<Record<string, unknown>>;
     expect(new Set(mails.map((m) => m.to))).toEqual(new Set(['admin@example.net']));
+    expect(mails.map((m) => m.subject)).toContain('[Essai de→en premier] Where BGM stands');
     expect(J.lireNumero(db, 1)!.essaiEmpreinte).toBe(J.empreinteTextes(T));
   });
 });
 
 describe('construireMail', () => {
-  it('premier mot : P.-S. de refus et lien #coulisses ; en-tête one-click propre aux coulisses', () => {
+  it('premier mot : P.-S. de refus et lien #coulisses ; en-tête one-click propre aux coulisses', async () => {
     const m = construireMail({ email: 'a@example.org', langue: 'fr', variante: 'premier' }, T, 1, SITE);
-    expect(m.text).toContain('P.-S.');
-    expect(m.text).toContain('#coulisses');
-    expect(m.text).toContain('Gérer mes préférences');
+    const html = await render(m.react);
+    expect(html).toContain('P.-S.');
+    expect(html).toContain('#coulisses');
+    expect(html).toContain('Gérer mes préférences');
     expect(m.headers['List-Unsubscribe']).toContain('/api/coulisses/one-click?token=');
   });
 
-  it('numéro courant : pas de P.-S., mais toujours le lien de pied de page', () => {
+  it('numéro courant : pas de P.-S., mais toujours le lien de pied de page', async () => {
     const m = construireMail({ email: 'a@example.org', langue: 'nl', variante: 'courant' }, T, 2, SITE);
-    expect(m.text).not.toContain('P.S.');
-    expect(m.text).toContain('Mijn voorkeuren beheren');
+    const html = await render(m.react);
+    expect(html).not.toContain('P.S.');
+    expect(html).toContain('Mijn voorkeuren beheren');
+  });
+
+  it('pas de version texte écrite à la main : Resend la tire du HTML', () => {
+    const m = construireMail({ email: 'a@example.org', langue: 'fr', variante: 'premier' }, T, 1, SITE);
+    expect('text' in m).toBe(false);
+  });
+
+  it('signature : LinkedIn et chaîne WhatsApp ; un ancien texte brut devient des paragraphes', async () => {
+    const html = await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, T, 1, SITE).react);
+    expect(html).toContain('https://www.linkedin.com/in/zoltan');
+    expect(html).toContain('https://whatsapp.com/channel/');
+    expect(html).toMatch(/<p style="[^"]+">Texte\.<\/p>/);
+  });
+
+  it('corps HTML : intertitre, gras et lien stylés en ligne ; balises hors liste retirées', async () => {
+    const H = { ...T, fr: { objet: 'x', corps: '<h2>Titre</h2><p><strong>Gras</strong> <a href="https://governance.brussels/fr/sondage">sondage</a></p><script>alert(1)</script><p><a href="javascript:alert(1)">piège</a></p>' } };
+    const html = await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, H, 1, SITE).react);
+    expect(html).toMatch(/<h2 style="[^"]+">Titre<\/h2>/);
+    expect(html).toContain('<strong>Gras</strong>');
+    expect(html).toMatch(/<a href="https:\/\/governance\.brussels\/fr\/sondage" style="[^"]+">sondage<\/a>/);
+    expect(html).not.toContain('<script');
+    expect(html).not.toContain('javascript:');
+  });
+
+  it("aperçu : celui de l'admin s'il existe, sinon le début du texte (pas seulement « Bonjour, »)", async () => {
+    const avec = { ...T, fr: { ...T.fr, apercu: 'Merci, et ce qui se passe derrière BGM' } };
+    expect(await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, avec, 1, SITE).react)).toContain('Merci, et ce qui se passe derrière BGM');
+    const { texteApercu } = await import('@/emails/coulisses');
+    expect(texteApercu(T.fr.corps)).toBe('Bonjour, Texte. Zoltán');
+    expect(texteApercu(`<p>${'mot '.repeat(60)}</p>`)).toHaveLength(150);
+    expect(texteApercu('<p>x</p>', '  ')).toBe('x');
+  });
+
+  it('abonné en allemand : version anglaise avec la note en allemand en tête ; les autres sans note', async () => {
+    const de = await render(construireMail({ email: 'a@example.org', langue: 'en', variante: 'courant', localeAbonne: 'de' }, T, 1, SITE).react);
+    expect(de).toContain('nicht auf Deutsch schreiben kann');
+    expect(de).toContain('Hello,');
+    const en = await render(construireMail({ email: 'a@example.org', langue: 'en', variante: 'courant', localeAbonne: 'en' }, T, 1, SITE).react);
+    expect(en).not.toContain('Deutsch');
+  });
+});
+
+describe('masquerAdresses', () => {
+  it('remplace toute adresse, garde le reste', async () => {
+    const { masquerAdresses } = await import('./envoi');
+    expect(masquerAdresses('Invalid `to` field: x.y+z@ex-ample.org (strict)')).toBe('Invalid `to` field: [adresse] (strict)');
+    expect(masquerAdresses('<a@b.be>, c@d.be')).toBe('<[adresse]>, [adresse]');
   });
 });

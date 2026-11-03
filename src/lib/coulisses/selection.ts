@@ -11,6 +11,7 @@
  * Plan : bgm-ops/plans/2026-11-03-mot-mensuel-lot3-envoi.md. Les précommandes
  * du livre ne sont PAS exclues (décision de Zoltán, 3 novembre 2026).
  */
+import { joursEcoulesDepuis, jourABruxelles } from '@/lib/jours-ecoules';
 
 export type LangueEnvoi = 'fr' | 'nl' | 'en';
 export type Variante = 'premier' | 'courant';
@@ -53,8 +54,12 @@ export interface Selection {
   exclus: Record<MotifExclusion, number>;
 }
 
+/**
+ * 21 jours COMPLETS de calendrier, comptés à Bruxelles : inscrit le 15/10,
+ * éligible le 5/11 quelle que soit l'heure de l'un et de l'autre, et sans
+ * effet du changement d'heure (même calcul que le compteur de l'accueil).
+ */
 export const ANCIENNETE_MIN_JOURS = 21;
-const JOUR = 86_400_000;
 const LANGUES: Record<string, LangueEnvoi> = { fr: 'fr', nl: 'nl', en: 'en', de: 'en' };
 
 const normaliser = (s: string) => s.trim().toLowerCase();
@@ -120,7 +125,8 @@ export function choisirDestinataires(
 
     const cree = c.createdAt ? Date.parse(c.createdAt) : NaN;
     if (!Number.isFinite(cree)) { exclus.date++; continue; }
-    if (options.maintenant - cree < ANCIENNETE_MIN_JOURS * JOUR) { exclus.recent++; continue; }
+    const anciennete = joursEcoulesDepuis(jourABruxelles(new Date(cree)), new Date(options.maintenant));
+    if (anciennete < ANCIENNETE_MIN_JOURS) { exclus.recent++; continue; }
 
     if (options.dejaAuJournal.has(c.id)) { exclus.deja_envoye++; continue; }
 

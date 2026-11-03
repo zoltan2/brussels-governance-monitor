@@ -3,7 +3,7 @@
 
 /**
  * GET : état du numéro (textes, essai, verrou, rapport, journal).
- * PUT : enregistre les textes d'un numéro ; périme l'essai.
+ * PUT : enregistre les textes d'un numéro (corps HTML nettoyé) ; périme l'essai.
  * Les textes vivent en SQLite sur le serveur, jamais dans le dépôt public.
  */
 import { auth } from '@/auth';
@@ -12,11 +12,14 @@ import { sameOriginRefusal } from '@/lib/same-origin';
 import { getDb } from '@/lib/db';
 import * as J from '@/lib/coulisses/journal';
 import { BLOCAGE_MINUTES } from '@/lib/coulisses/journal';
+import { nettoyerCorps } from '@/lib/coulisses/corps';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-const LONGUEUR_MAX = 20_000;
+// HTML de l'éditeur : les balises comptent, d'où une marge large.
+const LONGUEUR_MAX = 60_000;
+const APERCU_MAX = 200;
 
 export const GET = auth(async function GET(req) {
   if (!req.auth) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });
@@ -27,7 +30,12 @@ export const GET = auth(async function GET(req) {
   const n = J.lireNumero(db, numero);
   return NextResponse.json({
     numero,
-    textes: n?.textes ?? null,
+    // Corps toujours rendu en HTML : un ancien texte brut s'ouvre en paragraphes dans l'éditeur.
+    textes: n
+      ? (Object.fromEntries(
+          Object.entries(n.textes).map(([l, t]) => [l, { ...t, apercu: t.apercu ?? '', corps: nettoyerCorps(t.corps) }]),
+        ) as J.Textes)
+      : null,
     etat: n?.etat ?? 'brouillon',
     verrouLe: n?.verrouLe ?? null,
     bloque: Boolean(n && n.etat === 'envoi' && n.verrouLe && Date.now() - n.verrouLe > BLOCAGE_MINUTES * 60_000),
@@ -60,10 +68,16 @@ export const PUT = auth(async function PUT(req) {
   for (const l of ['fr', 'nl', 'en'] as const) {
     const objet = t?.[l]?.objet;
     const corps = t?.[l]?.corps;
-    if (typeof objet !== 'string' || typeof corps !== 'string' || objet.length > 300 || corps.length > LONGUEUR_MAX) {
+    const apercu = t?.[l]?.apercu ?? '';
+    if (
+      typeof objet !== 'string' || typeof corps !== 'string' || typeof apercu !== 'string' ||
+      objet.length > 300 || corps.length > LONGUEUR_MAX || apercu.length > APERCU_MAX ||
+      // Objet et aperçu sont des en-têtes ou leur voisin : jamais de retour à la ligne.
+      /[\r\n]/.test(objet) || /[\r\n]/.test(apercu)
+    ) {
       return NextResponse.json({ error: `Texte ${l} invalide` }, { status: 400 });
     }
-    textes[l] = { objet: objet.trim(), corps };
+    textes[l] = { objet: objet.trim(), corps: nettoyerCorps(corps), apercu: apercu.trim() };
   }
   if (J.enregistrerTextes(db, numero, textes) === 'verrouille') {
     return NextResponse.json({ error: 'Envoi commencé : texte figé' }, { status: 409 });

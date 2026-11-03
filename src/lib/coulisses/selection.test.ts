@@ -64,6 +64,25 @@ describe('choisirDestinataires', () => {
     expect(s.destinataires).toHaveLength(1);
   });
 
+  it("21 jours de calendrier à Bruxelles, quelle que soit l'heure : inscrit le 15/10 à 23 h 30, reçoit le 5/11 à 8 h", () => {
+    // 15/10 23:30 à Bruxelles (heure d'été) = 21:30 UTC ; 5/11 8:00 (heure d'hiver) = 7:00 UTC.
+    const at = Date.parse('2026-11-05T07:00:00Z');
+    expect(choisirDestinataires([contact({ createdAt: '2026-10-15T21:30:00Z' })], { ...vide, maintenant: at }).destinataires).toHaveLength(1);
+    // 16/10 00:30 à Bruxelles (= 15/10 22:30 UTC) : 20 jours seulement.
+    expect(choisirDestinataires([contact({ createdAt: '2026-10-15T22:30:00Z' })], { ...vide, maintenant: at }).exclus.recent).toBe(1);
+  });
+
+  it("exemple C : inscrit le 12/11 reçoit le 3/12, inscrit le 13/11 n'y est pas encore (pas d'effet du passage à l'heure d'été)", () => {
+    const decembre = Date.parse('2026-12-03T07:00:00Z');
+    expect(choisirDestinataires([contact({ createdAt: '2026-11-12T16:00:00Z' })], { ...vide, maintenant: decembre }).destinataires).toHaveLength(1);
+    expect(choisirDestinataires([contact({ createdAt: '2026-11-13T08:00:00Z' })], { ...vide, maintenant: decembre }).exclus.recent).toBe(1);
+    // Passage à l'heure d'été le 28/03/2027. Envoi le 1/04 à 8 h (6:00 UTC) :
+    // inscrit le 11/03 à 23 h 30 (22:30 UTC) reçoit, le 12/03 à 0 h 30 (23:30 UTC la veille) non.
+    const avril = Date.parse('2027-04-01T06:00:00Z');
+    expect(choisirDestinataires([contact({ createdAt: '2027-03-11T22:30:00Z' })], { ...vide, maintenant: avril }).destinataires).toHaveLength(1);
+    expect(choisirDestinataires([contact({ createdAt: '2027-03-11T23:30:00Z' })], { ...vide, maintenant: avril }).exclus.recent).toBe(1);
+  });
+
   it('exclut les adresses de COULISSES_EXCLUS, sans tenir compte de la casse', () => {
     const s = choisirDestinataires([contact({ email: ' Test@Example.org ' })], {
       ...vide,

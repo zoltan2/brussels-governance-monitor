@@ -11,7 +11,7 @@
 import type { DatabaseSync } from 'node:sqlite';
 import { getResend, resendCall } from '@/lib/resend';
 import { generateUnsubscribeToken } from '@/lib/token';
-import CoulissesEmail, { texteBrutCoulisses } from '@/emails/coulisses';
+import CoulissesEmail from '@/emails/coulisses';
 import { choisirDestinataires, lireExclus, type ContactBrut, type Destinataire, type LangueEnvoi, type Selection, type Variante } from './selection';
 import * as J from './journal';
 
@@ -20,6 +20,18 @@ import * as J from './journal';
 export const COULISSES_FROM = '"Zoltán Jánosi, Brussels Governance Monitor" <contact@mail.brusselsgovernance.be>';
 export const COULISSES_REPLY_TO = 'contact@brusselsgovernance.be';
 const TAILLE_LOT = 100;
+
+/** Une adresse dans un message d'erreur de Resend ne va jamais au rapport. */
+export function masquerAdresses(texte: string): string {
+  return texte.replace(/[^\s<>"'(),;:]+@[^\s<>"'(),;:]+/g, '[adresse]');
+}
+
+type ReponseResend = { data: unknown; error: { statusCode?: number | null; name?: string; message?: string } | null };
+
+/** Un 4xx, hors 429 (déjà rejoué par resendCall), prouve que rien n'est parti. */
+function estRefus(error: ReponseResend['error']): boolean {
+  return typeof error?.statusCode === 'number' && error.statusCode >= 400 && error.statusCode < 500 && error.statusCode !== 429;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function valeur(props: any, cle: string): string {
@@ -88,7 +100,7 @@ function urls(siteUrl: string, email: string, langue: LangueEnvoi) {
 }
 
 export function construireMail(
-  d: { email: string; langue: LangueEnvoi; variante: Variante },
+  d: { email: string; langue: LangueEnvoi; variante: Variante; localeAbonne?: string },
   textes: J.Textes,
   numero: number,
   siteUrl: string,
@@ -96,14 +108,15 @@ export function construireMail(
 ) {
   const t = textes[d.langue];
   const { preferencesUrl, oneClick } = urls(siteUrl, d.email, d.langue);
-  const props = { langue: d.langue, variante: d.variante, corps: t.corps, preferencesUrl };
+  const germanophone = d.localeAbonne === 'de';
+  const props = { langue: d.langue, variante: d.variante, corps: t.corps, apercu: t.apercu, germanophone, preferencesUrl };
   return {
     from: COULISSES_FROM,
     to: options.destinataire ?? d.email,
     replyTo: COULISSES_REPLY_TO,
-    subject: options.essai ? `[Essai ${d.langue} ${d.variante}] ${t.objet}` : t.objet,
+    subject: options.essai ? `[Essai ${germanophone ? 'de→en' : d.langue} ${d.variante}] ${t.objet}` : t.objet,
+    // Pas de `text` : Resend tire la version texte du HTML rendu.
     react: CoulissesEmail(props),
-    text: texteBrutCoulisses(props),
     headers: {
       // Le bouton « se désabonner » du client mail refuse les coulisses seules,
       // jamais le digest (POST RFC 8058 sur /api/coulisses/one-click).
@@ -131,9 +144,16 @@ export async function envoyerEssai(
   const n = J.lireNumero(db, numero);
   if (!n || !J.textesComplets(n.textes)) throw new Error('Textes incomplets : fr, nl et en, objet et corps.');
   const variantes: Variante[] = J.ontDejaRecu(db, numero).size > 0 ? ['premier', 'courant'] : ['premier'];
-  const mails = (['fr', 'nl', 'en'] as const).flatMap((langue) =>
+  // Chaque langue, plus l'anglais tel que le reçoit un abonné en allemand.
+  const cibles = [
+    { langue: 'fr' as const, localeAbonne: 'fr' },
+    { langue: 'nl' as const, localeAbonne: 'nl' },
+    { langue: 'en' as const, localeAbonne: 'en' },
+    { langue: 'en' as const, localeAbonne: 'de' },
+  ];
+  const mails = cibles.flatMap(({ langue, localeAbonne }) =>
     variantes.map((variante) =>
-      construireMail({ email: destinataire, langue, variante }, n.textes, numero, siteUrl, { essai: true, destinataire }),
+      construireMail({ email: destinataire, langue, variante, localeAbonne }, n.textes, numero, siteUrl, { essai: true, destinataire }),
     ),
   );
   const { error } = await resendCall(() => getResend().batch.send(mails));
@@ -167,6 +187,9 @@ export async function envoyerNumero(
   maintenant = Date.now(),
 ): Promise<Rapport> {
   const debut = new Date().toISOString();
+  // Clé d'idempotence propre à CE lancement : une reprise (contenu, jetons ou
+  // lots différents) ne réutilise jamais la clé d'un lancement précédent.
+  const lancement = Date.now().toString(36);
   const n = J.lireNumero(db, numero);
   if (!n || n.etat !== 'envoi') throw new Error('Numéro non verrouillé pour l’envoi.');
   const exclusEnv = lireExclus(process.env.COULISSES_EXCLUS);
@@ -190,39 +213,57 @@ export async function envoyerNumero(
     for (let i = 0; i < selection.destinataires.length; i += TAILLE_LOT) {
       const lot = selection.destinataires.slice(i, i + TAILLE_LOT).filter((d) => J.reserver(db, numero, d));
       if (lot.length === 0) continue;
-      let reponse: { data: unknown; error: { statusCode?: number | null; name?: string; message?: string } | null };
-      try {
-        const mails = lot.map((d) => construireMail(d, n.textes, numero, siteUrl));
-        reponse = await resendCall(() =>
-          resend.batch.send(mails, { idempotencyKey: `coulisses-${numero}-${lot[0].id}` }),
-        );
-      } catch (e) {
-        // Exception (rendu, réseau) : issue inconnue, comme une réponse perdue.
-        reponse = { data: null, error: { statusCode: null, name: 'exception', message: e instanceof Error ? e.message : String(e) } };
-      }
-      const { data, error } = reponse;
-      if (error) {
-        // Seul un 4xx prouve que Resend a refusé le lot entier (validation
-        // stricte) : rien n'est parti. Un 5xx ou l'absence de code peut
-        // suivre une acceptation : issue inconnue, jamais renvoyée.
-        const refuse = typeof error.statusCode === 'number' && error.statusCode >= 400 && error.statusCode < 500;
-        for (const d of lot) {
-          if (refuse) J.annulerReservation(db, numero, d.id);
-          else J.marquerIncertain(db, numero, d.id);
+      const envoyerLot = async (ds: Destinataire[], cle: string): Promise<ReponseResend> => {
+        try {
+          const mails = ds.map((d) => construireMail(d, n.textes, numero, siteUrl));
+          return await resendCall(() => resend.batch.send(mails, { idempotencyKey: cle }));
+        } catch (e) {
+          // Exception (rendu, réseau) : issue inconnue, comme une réponse perdue.
+          return { data: null, error: { statusCode: null, name: 'exception', message: e instanceof Error ? e.message : String(e) } };
         }
-        if (refuse) refusesParResend += lot.length;
-        else incertains += lot.length;
-        erreurs.push(`Lot ${i / TAILLE_LOT + 1} : ${String(error.name ?? '')} ${String(error.message ?? '')}`.trim());
-        continue;
+      };
+      const accepter = (ds: Destinataire[], data: unknown) => {
+        const ids = (data as { data?: Array<{ id?: string }> } | null)?.data ?? [];
+        ds.forEach((d, k) => {
+          J.marquerEnvoye(db, numero, d.id, ids[k]?.id ?? null);
+          envoyes.push(d);
+        });
+      };
+      const noterErreur = (quoi: string, error: NonNullable<ReponseResend['error']>) =>
+        erreurs.push(masquerAdresses(`${quoi} : ${String(error.name ?? '')} ${String(error.message ?? '')}`.trim()));
+
+      const r = await envoyerLot(lot, `coulisses-${numero}-${lancement}-${lot[0].id}`);
+      if (!r.error) {
+        accepter(lot, r.data);
+      } else if (estRefus(r.error)) {
+        // Validation stricte : UNE adresse refusée fait refuser le lot entier,
+        // et rien n'est parti. On renvoie alors un par un, pour que seules
+        // les adresses fautives restent sur le carreau.
+        noterErreur(`Lot ${i / TAILLE_LOT + 1} refusé, envoi un par un`, r.error);
+        for (const d of lot) {
+          const u = await envoyerLot([d], `coulisses-${numero}-${lancement}-u-${d.id}`);
+          if (!u.error) accepter([d], u.data);
+          else if (estRefus(u.error)) {
+            J.annulerReservation(db, numero, d.id);
+            refusesParResend++;
+            noterErreur('Refusé par Resend', u.error);
+          } else {
+            J.marquerIncertain(db, numero, d.id);
+            incertains++;
+            noterErreur('Issue inconnue', u.error);
+          }
+        }
+      } else {
+        // 5xx, délai dépassé, exception : peut suivre une acceptation. Issue
+        // inconnue, jamais renvoyée automatiquement.
+        for (const d of lot) J.marquerIncertain(db, numero, d.id);
+        incertains += lot.length;
+        noterErreur(`Lot ${i / TAILLE_LOT + 1}`, r.error);
       }
-      const ids = (data as { data?: Array<{ id?: string }> } | null)?.data ?? [];
-      lot.forEach((d, k) => {
-        J.marquerEnvoye(db, numero, d.id, ids[k]?.id ?? null);
-        envoyes.push(d);
-      });
+      J.battement(db, numero);
     }
   } catch (e) {
-    erreurs.push(e instanceof Error ? e.message : String(e));
+    erreurs.push(masquerAdresses(e instanceof Error ? e.message : String(e)));
   }
 
   const rapport: Rapport = {

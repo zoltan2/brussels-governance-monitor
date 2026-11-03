@@ -16,10 +16,14 @@
 import { createHash } from 'node:crypto';
 import type { DatabaseSync } from 'node:sqlite';
 import type { LangueEnvoi, Variante } from './selection';
+import { corpsVide } from './corps';
 
 export interface TexteLangue {
   objet: string;
+  /** HTML de l'éditeur, nettoyé (src/lib/coulisses/corps.ts). */
   corps: string;
+  /** Aperçu dans la boîte de réception ; facultatif. */
+  apercu?: string;
 }
 export type Textes = Record<LangueEnvoi, TexteLangue>;
 
@@ -37,7 +41,7 @@ export interface Numero {
 }
 
 /** À changer quand le gabarit du mail change : un ancien essai ne vaut plus. */
-export const VERSION_GABARIT = 'coulisses-gabarit-1';
+export const VERSION_GABARIT = 'coulisses-gabarit-2';
 
 export function empreinteTextes(textes: Textes): string {
   return createHash('sha256')
@@ -47,7 +51,7 @@ export function empreinteTextes(textes: Textes): string {
 
 export function textesComplets(t: Partial<Textes> | null | undefined): t is Textes {
   return (['fr', 'nl', 'en'] as const).every(
-    (l) => Boolean(t?.[l]?.objet?.trim()) && Boolean(t?.[l]?.corps?.trim()),
+    (l) => Boolean(t?.[l]?.objet?.trim()) && typeof t?.[l]?.corps === 'string' && !corpsVide(t[l].corps),
   );
 }
 
@@ -114,7 +118,15 @@ export function prendreVerrou(db: DatabaseSync, numero: number, maintenant = Dat
   return r.changes === 1;
 }
 
-/** Délai après lequel un envoi encore « en cours » est réputé coupé (redémarrage). */
+/**
+ * Battement de cœur de l'envoi : `verrou_le` avance après chaque lot, si bien
+ * qu'un envoi long (liste qui grandit) n'est jamais pris pour un envoi coupé.
+ */
+export function battement(db: DatabaseSync, numero: number, maintenant = Date.now()): void {
+  db.prepare(`UPDATE coulisses_numeros SET verrou_le = ? WHERE numero = ? AND etat = 'envoi'`).run(maintenant, numero);
+}
+
+/** Délai sans battement après lequel un envoi « en cours » est réputé coupé (redémarrage). */
 export const BLOCAGE_MINUTES = 10;
 
 /**

@@ -75,6 +75,15 @@ beforeEach(() => {
 });
 
 describe('POST /api/unsubscribe/one-click', () => {
+  it('POST multipart/form-data (forme recommandée par la RFC 8058) : désabonne aussi', async () => {
+    const url = new URL('https://governance.brussels/api/unsubscribe/one-click');
+    url.searchParams.set('token', generateUnsubscribeToken('lecteur@example.org'));
+    const form = new FormData();
+    form.set('List-Unsubscribe', 'One-Click');
+    const res = await POST(new Request(url, { method: 'POST', body: form }));
+    expect(res.status).toBe(200);
+  });
+
   it('désabonne le contact du jeton et répond 200', async () => {
     const res = await POST(requete(generateUnsubscribeToken('lecteur@example.org')));
     expect(res.status).toBe(200);

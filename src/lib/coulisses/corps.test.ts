@@ -36,3 +36,12 @@ describe('corps des coulisses', () => {
     expect(texteSeul('<h2>A</h2><p>b<br>c</p>')).toBe('A b c');
   });
 });
+
+describe('HTML collé qui commence par une balise en ligne', () => {
+  it('reste du HTML (pas de balises visibles dans le mail)', () => {
+    expect(nettoyerCorps('<b>Gras</b> puis <a href="https://a.be">lien</a>')).toBe('<strong>Gras</strong> puis <a href="https://a.be">lien</a>');
+    expect(estHtml('<!-- x --><p>a</p>')).toBe(true);
+    expect(estHtml('a < b et c > d')).toBe(false);
+    expect(estHtml('<3 merci')).toBe(false);
+  });
+});

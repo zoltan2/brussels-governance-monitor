@@ -33,6 +33,28 @@ describe('/api/coulisses/one-click', () => {
     expect(removeContact).not.toHaveBeenCalled();
   });
 
+  it('POST multipart/form-data (forme recommandée par la RFC 8058) : accepté', async () => {
+    const form = new FormData();
+    form.set('List-Unsubscribe', 'One-Click');
+    const res = await POST(
+      new Request(`https://governance.brussels/api/coulisses/one-click?token=${encodeURIComponent(generateUnsubscribeToken('a@example.org'))}`, { method: 'POST', body: form }),
+    );
+    expect(res.status).toBe(200);
+    expect(setMotMensuel).toHaveBeenCalledWith('a@example.org', false);
+  });
+
+  it('refuse un multipart sans le bon champ, et un champ à une autre valeur', async () => {
+    const t = encodeURIComponent(generateUnsubscribeToken('a@example.org'));
+    const f1 = new FormData();
+    f1.set('autre', 'One-Click');
+    const f2 = new FormData();
+    f2.set('List-Unsubscribe', 'Oui');
+    for (const f of [f1, f2]) {
+      expect((await POST(new Request(`https://governance.brussels/api/coulisses/one-click?token=${t}`, { method: 'POST', body: f }))).status).toBe(400);
+    }
+    expect(setMotMensuel).not.toHaveBeenCalled();
+  });
+
   it('refuse un corps autre que celui de la RFC', async () => {
     const res = await POST(post(generateUnsubscribeToken('a@example.org'), 'autre'));
     expect(res.status).toBe(400);

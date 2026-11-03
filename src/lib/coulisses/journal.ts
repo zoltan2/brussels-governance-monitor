@@ -211,7 +211,15 @@ export function prendreVerrou(db: DatabaseSync, numero: number, empreinteActuell
   return r.changes === 1;
 }
 
-/** Délai après lequel un envoi encore « en cours » est réputé coupé (redémarrage). */
+/**
+ * Battement de cœur de l'envoi : `verrou_le` avance après chaque lot, si bien
+ * qu'un envoi long (liste qui grandit) n'est jamais pris pour un envoi coupé.
+ */
+export function battement(db: DatabaseSync, numero: number, maintenant = Date.now()): void {
+  db.prepare(`UPDATE coulisses_numeros SET verrou_le = ? WHERE numero = ? AND etat = 'envoi'`).run(maintenant, numero);
+}
+
+/** Délai sans battement après lequel un envoi « en cours » est réputé coupé (redémarrage). */
 export const BLOCAGE_MINUTES = 10;
 
 /**

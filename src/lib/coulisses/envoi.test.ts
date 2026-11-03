@@ -126,11 +126,42 @@ describe('envoyerNumero', () => {
     expect(J.compterJournal(db, 1)).toEqual({ incertain: 1 });
   });
 
-  it('passe une clé d’idempotence par lot', async () => {
+  it('passe une clé d’idempotence par lot, propre au lancement (une reprise ne réutilise pas la clé)', async () => {
     abonne('a');
     preparer();
     await envoyerNumero(db, 1, SITE, MAINTENANT);
-    expect(batchSend.mock.calls[0][1]).toEqual({ idempotencyKey: 'coulisses-1-a' });
+    const cle = (batchSend.mock.calls[0][1] as { idempotencyKey: string }).idempotencyKey;
+    expect(cle).toMatch(/^coulisses-1-[0-9a-z]+-a$/);
+  });
+
+  it('lot refusé (422) à cause d’une adresse : renvoi un par un, seule la fautive reste dehors', async () => {
+    abonne('a');
+    abonne('b');
+    preparer();
+    batchSend.mockImplementation(async (mails: Array<{ to: string }>) =>
+      mails.length > 1 || mails[0].to === 'b@example.org'
+        ? { data: null, error: { statusCode: 422, name: 'validation_error', message: 'Invalid `to` field: b@example.org' } }
+        : { data: { data: [{ id: 'r1' }] }, error: null },
+    );
+    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    expect(r.refusesParResend).toBe(1);
+    expect(r.envoyes).toEqual({ 'fr-premier': 1 });
+    expect(J.compterJournal(db, 1)).toEqual({ envoye: 1 });
+    // Aucune adresse dans le rapport.
+    expect(r.erreurs.join(' ')).not.toContain('@');
+    expect(r.erreurs.join(' ')).toContain('[adresse]');
+  });
+
+  it('battement : verrou_le avance après chaque lot', async () => {
+    abonne('a');
+    preparer();
+    db.prepare('UPDATE coulisses_numeros SET verrou_le = 1 WHERE numero = 1').run();
+    let vu = 0;
+    batchSend.mockImplementation(async () => ({ data: { data: [{ id: 'r' }] }, error: null }));
+    const avant = Date.now();
+    await envoyerNumero(db, 1, SITE, MAINTENANT);
+    vu = J.lireNumero(db, 1)!.verrouLe ?? 0;
+    expect(vu).toBeGreaterThanOrEqual(avant);
   });
 
   it('refuse sans COULISSES_EXCLUS et sans rien envoyer', async () => {
@@ -226,5 +257,13 @@ describe('construireMail', () => {
     expect(de).toContain('Hello,');
     const en = await render(construireMail({ email: 'a@example.org', langue: 'en', variante: 'courant', localeAbonne: 'en' }, T, 1, SITE).react);
     expect(en).not.toContain('Deutsch');
+  });
+});
+
+describe('masquerAdresses', () => {
+  it('remplace toute adresse, garde le reste', async () => {
+    const { masquerAdresses } = await import('./envoi');
+    expect(masquerAdresses('Invalid `to` field: x.y+z@ex-ample.org (strict)')).toBe('Invalid `to` field: [adresse] (strict)');
+    expect(masquerAdresses('<a@b.be>, c@d.be')).toBe('<[adresse]>, [adresse]');
   });
 });

@@ -71,7 +71,9 @@ export const PUT = auth(async function PUT(req) {
     const apercu = t?.[l]?.apercu ?? '';
     if (
       typeof objet !== 'string' || typeof corps !== 'string' || typeof apercu !== 'string' ||
-      objet.length > 300 || corps.length > LONGUEUR_MAX || apercu.length > APERCU_MAX
+      objet.length > 300 || corps.length > LONGUEUR_MAX || apercu.length > APERCU_MAX ||
+      // Objet et aperçu sont des en-têtes ou leur voisin : jamais de retour à la ligne.
+      /[\r\n]/.test(objet) || /[\r\n]/.test(apercu)
     ) {
       return NextResponse.json({ error: `Texte ${l} invalide` }, { status: 400 });
     }

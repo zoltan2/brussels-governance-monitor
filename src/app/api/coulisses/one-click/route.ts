@@ -7,6 +7,7 @@ import { setMotMensuel } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
 import { readTextCapped } from '@/lib/request-guards';
+import { corpsOneClickValide } from '@/lib/one-click-corps';
 import { routing } from '@/i18n/routing';
 
 /**
@@ -15,7 +16,6 @@ import { routing } from '@/i18n/routing';
  * touche ni au digest, ni aux thèmes, ni à la langue. Calquée sur
  * /api/unsubscribe/one-click, qui retire le contact entier.
  */
-const CORPS_RFC_8058 = 'List-Unsubscribe=One-Click';
 
 export async function POST(request: Request) {
   const { allowed } = rateLimit(clientIp(request.headers), { max: 60, bucket: 'coulisses-one-click' });
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
 
   const lu = await readTextCapped(request);
   if (!lu.ok && lu.status === 413) return NextResponse.json({ error: lu.error }, { status: 413 });
-  if ((lu.ok ? lu.value : '').trim() !== CORPS_RFC_8058) {
+  if (!(await corpsOneClickValide(lu.ok ? lu.value : '', request.headers.get('content-type')))) {
     return NextResponse.json({ error: 'Invalid body' }, { status: 400 });
   }
 

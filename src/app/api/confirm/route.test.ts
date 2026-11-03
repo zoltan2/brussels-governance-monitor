@@ -161,3 +161,19 @@ describe('POST /api/confirm : réabonnement', () => {
     });
   });
 });
+
+describe('POST /api/confirm : abonné existant', () => {
+  it('garde « aucun thème » (tout le digest) au lieu de le restreindre au thème ajouté', async () => {
+    getContact.mockResolvedValue({ locale: 'fr', topics: [], sources: ['website'], motMensuel: true });
+    const res = await POST(requete());
+    expect(res.status).toBe(200);
+    expect(updateContactPreferences).not.toHaveBeenCalled();
+    expect((await res.json()).topics).toEqual([]);
+  });
+
+  it('ajoute le thème à un abonné qui en suit déjà', async () => {
+    getContact.mockResolvedValue({ locale: 'fr', topics: ['mobility'], sources: ['website'], motMensuel: true });
+    await POST(requete());
+    expect(updateContactPreferences).toHaveBeenCalledWith(EMAIL, 'fr', ['mobility', 'budget'], ['website']);
+  });
+});

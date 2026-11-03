@@ -62,7 +62,11 @@ export async function POST(request: Request) {
     // If contact already exists, merge topics AND sources instead of ignoring.
     const existing = await getContact(email);
     if (existing) {
-      const mergedTopics = [...new Set([...existing.topics, ...topics])];
+      // Aucun thème = tout le digest : ajouter un thème le restreindrait.
+      const mergedTopics =
+        existing.topics.length === 0
+          ? []
+          : [...new Set([...existing.topics, ...topics])];
       const mergedSources = [...new Set([...existing.sources, ...nouvellesSources])];
       const topicsChanged = mergedTopics.length !== existing.topics.length;
       const sourcesChanged = mergedSources.length !== existing.sources.length;

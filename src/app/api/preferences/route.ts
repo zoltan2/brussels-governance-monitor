@@ -163,6 +163,7 @@ export async function POST(request: Request) {
           locale: selectedLocale,
           topics: validTopics,
           preferencesUrl,
+          motMensuel,
         }),
         tags: [
           { name: 'type', value: 'preferences-updated' },

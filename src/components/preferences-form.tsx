@@ -49,7 +49,10 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
       .then((res) => {
         if (!res.ok) {
           // Échec de lecture : ne jamais afficher un formulaire vide et
-          // enregistrable, il écraserait les vrais réglages.
+          // enregistrable, il écraserait les vrais réglages. Limite : une
+          // panne de Resend pendant la recherche du contact remonte aujourd'hui
+          // en 404 (getContact rend null dans les deux cas), donc « lien
+          // invalide » plutôt que errorLoad. Rien n'est écrasé pour autant.
           setState(res.status === 401 || res.status === 404 ? 'invalid' : 'loadError');
           return null;
         }
@@ -348,9 +351,9 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
             </label>
           ))}
         </div>
-        {topics.length === 0 && (
-          <p className="mt-3 text-xs text-neutral-500">{t('noTopicsHint')}</p>
-        )}
+        <p aria-live="polite" className="mt-3 text-xs text-neutral-500">
+          {topics.length === 0 ? t('noTopicsHint') : ''}
+        </p>
       </fieldset>
 
       <fieldset className="mb-6 border-t border-neutral-200 pt-4">

@@ -45,9 +45,13 @@ function echapper(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-/** Vrai si le corps vient de l'éditeur (HTML) plutôt que du texte brut d'avant. */
+/**
+ * Vrai si le corps est du HTML (éditeur, ou HTML collé qui commence par une
+ * balise en ligne ou un commentaire) plutôt que le texte brut d'avant l'éditeur.
+ * Un texte brut qui contient « a < b » reste du texte.
+ */
 export function estHtml(corps: string): boolean {
-  return /^\s*<(p|h[1-6]|ul|ol|blockquote|div)\b/i.test(corps);
+  return /^\s*(<!--|<\/?[a-z][a-z0-9]*(\s[^>]*)?\/?>)/i.test(corps);
 }
 
 /** Texte brut ancien → paragraphes HTML (retours simples gardés). */

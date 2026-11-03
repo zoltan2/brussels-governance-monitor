@@ -7,6 +7,7 @@ import { removeContact } from '@/lib/resend';
 import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
 import { readTextCapped } from '@/lib/request-guards';
+import { corpsOneClickValide } from '@/lib/one-click-corps';
 import { routing } from '@/i18n/routing';
 
 /**
@@ -21,7 +22,6 @@ import { routing } from '@/i18n/routing';
  * La limite est large et par IP : les POST de Gmail partent d'un parc
  * d'adresses partagé, une limite à 5 bloquerait des désabonnements légitimes.
  */
-const CORPS_RFC_8058 = 'List-Unsubscribe=One-Click';
 
 export async function POST(request: Request) {
   const ip = clientIp(request.headers);
@@ -35,8 +35,7 @@ export async function POST(request: Request) {
   if (!lu.ok && lu.status === 413) {
     return NextResponse.json({ error: lu.error }, { status: 413 });
   }
-  const corps = (lu.ok ? lu.value : '').trim();
-  if (corps !== CORPS_RFC_8058) {
+  if (!(await corpsOneClickValide(lu.ok ? lu.value : '', request.headers.get('content-type')))) {
     return NextResponse.json({ error: 'Invalid body' }, { status: 400 });
   }
 

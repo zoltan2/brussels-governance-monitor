@@ -244,7 +244,12 @@ export async function estDesinscrit(email: string): Promise<boolean> {
 
 export async function getContact(
   email: string,
-): Promise<{ locale: string; topics: string[]; sources: string[] } | null> {
+): Promise<{
+  locale: string;
+  topics: string[];
+  sources: string[];
+  motMensuel: boolean;
+} | null> {
   const resend = getResend();
   const trouve = await trouverContact(email);
   if (!trouve || trouve.unsubscribed) return null;
@@ -269,22 +274,33 @@ export async function getContact(
       ? String(props.sources.value)
       : '';
 
+  // « Les coulisses de BGM » : propriété `mot_mensuel`, déclarée chez Resend
+  // le 3 novembre 2026. Vide ou absente = oui (case cochée par défaut) ;
+  // seul « non » vaut refus.
+  const motStr =
+    props.mot_mensuel && typeof props.mot_mensuel === 'object' && 'value' in props.mot_mensuel
+      ? String(props.mot_mensuel.value)
+      : '';
+
   return {
     locale,
     topics: topicsStr ? topicsStr.split(',') : [],
     sources: sourcesStr ? sourcesStr.split(',').filter(Boolean) : [],
+    motMensuel: motStr !== 'non',
   };
 }
 
 /**
- * Update a contact's preferences (locale, topics, and optionally sources).
- * Passing `sources` explicitly overwrites the current set; omit to preserve.
+ * Update a contact's preferences (locale, topics, and optionally sources and
+ * the « coulisses » choice). Passing `sources` explicitly overwrites the
+ * current set; omit to preserve. Same for `motMensuel`.
  */
 export async function updateContactPreferences(
   email: string,
   locale: string,
   topics: string[],
   sources?: string[],
+  motMensuel?: boolean,
 ): Promise<void> {
   const resend = getResend();
   const properties: Record<string, string> = {
@@ -293,6 +309,10 @@ export async function updateContactPreferences(
   };
   if (sources !== undefined) {
     properties.sources = dedupeSources(sources).join(',');
+  }
+  // Omis = choix inchangé chez Resend.
+  if (motMensuel !== undefined) {
+    properties.mot_mensuel = motMensuel ? 'oui' : 'non';
   }
   const result = await resendCall(() =>
     resend.contacts.update({

@@ -63,6 +63,7 @@ export async function GET(request: Request) {
       email: payload.email,
       locale: contact.locale,
       topics: contact.topics,
+      motMensuel: contact.motMensuel,
     });
   } catch {
     return NextResponse.json(
@@ -78,14 +79,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
   }
 
-  let body: { token?: string; topics?: string[]; locale?: string };
+  let body: { token?: string; topics?: unknown; locale?: string; motMensuel?: unknown };
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
-  const { token, topics, locale } = body;
+  const { token, topics, locale, motMensuel } = body;
 
   if (!token) {
     return NextResponse.json({ error: 'Missing token' }, { status: 400 });
@@ -99,18 +100,21 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!Array.isArray(topics) || topics.length === 0) {
-    return NextResponse.json(
-      { error: 'At least one topic is required' },
-      { status: 400 },
-    );
+  // Aucun thème est un choix valide : l'abonné reçoit tout.
+  if (!Array.isArray(topics)) {
+    return NextResponse.json({ error: 'Invalid topics' }, { status: 400 });
+  }
+  if (motMensuel !== undefined && typeof motMensuel !== 'boolean') {
+    return NextResponse.json({ error: 'Invalid motMensuel' }, { status: 400 });
   }
 
   const allTopics = getTopics();
-  const validTopics = topics.filter((t): t is string =>
-    allTopics.includes(t),
+  const validTopics = topics.filter(
+    (t): t is string => typeof t === 'string' && allTopics.includes(t),
   );
-  if (validTopics.length === 0) {
+  // Des thèmes envoyés mais tous inconnus : refuser plutôt que d'enregistrer
+  // « aucun thème », qui changerait le sens du choix.
+  if (topics.length > 0 && validTopics.length === 0) {
     return NextResponse.json(
       { error: 'No valid topics provided' },
       { status: 400 },
@@ -128,7 +132,13 @@ export async function POST(request: Request) {
   }
 
   try {
-    await updateContactPreferences(payload.email, selectedLocale, validTopics);
+    await updateContactPreferences(
+      payload.email,
+      selectedLocale,
+      validTopics,
+      undefined,
+      motMensuel,
+    );
 
     // Send confirmation email
     const siteUrl =

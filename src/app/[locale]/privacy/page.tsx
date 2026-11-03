@@ -132,6 +132,9 @@ function PrivacyView() {
           <h2 className="text-lg font-semibold text-neutral-900">{t('stuutEmail.title')}</h2>
           <p>{t('stuutEmail.description')}</p>
 
+          <h2 id="coulisses" className="scroll-mt-24 text-lg font-semibold text-neutral-900">{t('coulisses.title')}</h2>
+          <p>{t('coulisses.description')}</p>
+
           {/*
             Sondage lecteurs (src/lib/sondage/, spec bgm-ops
             2026-09-25-sondage-lecteurs-design.md, § 13). Ancre #sondage : le
@@ -165,7 +168,7 @@ function PrivacyView() {
           <p>{t('chatbot.paragraph2')}</p>
 
           <p className="mt-8 text-xs text-neutral-500">
-            {t('lastUpdated', { date: '2026-09-30' })}
+            {t('lastUpdated', { date: '2026-11-03' })}
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T14:01:23.398Z",
+  "generatedAt": "2026-11-03T12:02:34.828Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Welke begrotingsinspanning hoort volgens de minister van Begroting (30 oktober 2026) bij het tekort van 719 miljoen euro dat het Brussels Gewest voor 2027 beoogt?",
+      "question": "Welk tekort beoogt het Brussels Gewest voor 2027 volgens de documenten van de gewestbegroting 2027 die op 30 oktober 2026 aan het Brussels Parlement werden bezorgd?",
       "options": [
+        "719 miljoen euro",
         "563 miljoen euro",
-        "75 miljoen euro",
-        "290 miljoen euro",
-        "950 miljoen euro"
+        "957 miljoen euro",
+        "1,6 miljard euro"
       ],
       "correct": 0,
-      "explanation": "De inspanning bedraagt 563 miljoen euro voor een beoogd tekort van 719 miljoen. De stemming in de plenaire vergadering is overwogen op 18 december 2026.",
+      "explanation": "De begroting 2027 beoogt een tekort van 719 miljoen euro, met een begrotingsinspanning van 563 miljoen. De stemming in de plenaire vergadering is gepland op vrijdag 18 december 2026.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:8d753d98ac2f6d16be148a1ab97ca335",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-02",
+        "sourceContentHash": "sha256:2e44fbec6005ec3786a74b0e0781c376",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Op welk tarief houdt Wallonië volgens BRUZZ (31 oktober 2026) zijn belasting op onlinespelen, terwijl zijn begroting 2026 een verhoging voorzag?",
+      "question": "Welke maatregel van de Brusselse begroting 2027 moet volgens BRUZZ (30 oktober 2026) 75 miljoen euro opbrengen?",
       "options": [
-        "15 %",
-        "11 %",
-        "17 %",
-        "21 %"
+        "De aanwervingsstop in de gewestelijke administratie",
+        "De verkoop van de ambtswoning van de minister-president",
+        "De verhoging van de gewestbelasting op onlinespelen",
+        "Het spreiden in de tijd van gewestelijke IT-projecten"
       ],
-      "correct": 1,
-      "explanation": "Wallonië blijft op 11 % en ziet af van de geplande 15 %. Omdat Brussel zijn tarief niet verhoogt, vreest het dat zijn spelservers naar Brussel vertrekken.",
+      "correct": 0,
+      "explanation": "De aanwervingsstop blijft in 2027 behouden, met een uitzondering voor actieve functies zoals brandweerlui, afvalophalers of metrobestuurders. De verkoop van de ambtswoning wordt op 15 miljoen geraamd.",
       "sourceSlug": "/nl/domeinen/budget",
       "sourceTitle": "Gewestelijk budget: koers op evenwicht in 2029",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:8d753d98ac2f6d16be148a1ab97ca335",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-02",
+        "sourceContentHash": "sha256:2e44fbec6005ec3786a74b0e0781c376",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Welke huur geeft volgens de mededeling geciteerd door La Libre (30 oktober 2026) privéverhuurders in 2027 recht op de Be Home-premie van 328 euro per jaar?",
+      "question": "Tussen welke data mag sinds de Brusselse ordonnantie van 22 juni 2023 in principe geen enkele uithuiszetting worden uitgevoerd in de 19 gemeenten?",
       "options": [
-        "Tussen 80 en 100 % van de referentiehuur",
-        "Tussen 60 en 80 % van de referentiehuur",
-        "Tussen 40 en 60 % van de referentiehuur",
-        "Tussen 100 en 120 % van de referentiehuur"
+        "Van 1 november tot 15 maart",
+        "Van 1 december tot 28 februari",
+        "Van 15 oktober tot 31 maart",
+        "Van 1 november tot 31 januari"
       ],
-      "correct": 1,
-      "explanation": "328 euro tussen 60 en 80 % van de referentiehuur, 164 euro tussen 80 en 100 %. Toegang vereist de registratie van het huurcontract en de naleving van de aangegeven huur.",
+      "correct": 0,
+      "explanation": "De ordonnantie van 22 juni 2023 breidde het wintermoratorium uit tot alle woningen, en het Grondwettelijk Hof bekrachtigde het in 2025. Voor de winter 2026-2027 loopt het van 1 november 2026 tot 15 maart 2027.",
       "sourceSlug": "/nl/domeinen/housing",
-      "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, 131 miljoen van de BGHM geblokkeerd",
+      "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, de BGHM wacht op haar 131 miljoen",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:89c60033fe961bef75d7ead5a6377100",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-03",
+        "sourceContentHash": "sha256:9d09b96a72b8df870f0278112ce4c401",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Hoeveel huren van gemeentelijke en OCMW-woningen waren volgens La DH (31 oktober 2026) in 2026 in Brussel gesocialiseerd?",
+      "question": "Wie vergoedt Brusselse eigenaars onder voorwaarden voor onbetaalde huur tijdens het wintermoratorium op uithuiszettingen uit de ordonnantie van 22 juni 2023?",
       "options": [
-        "963",
-        "6.361",
-        "2.254",
-        "28.760"
+        "Een gewestelijk solidariteitsfonds",
+        "Het OCMW van de gemeente van de woning",
+        "De Brusselse Gewestelijke Huisvestingsmaatschappij",
+        "De gemeente waar de woning ligt"
       ],
-      "correct": 2,
-      "explanation": "2.254 gesocialiseerde huren, vooral in de Stad Brussel en in Sint-Gillis. De begroting 2027 voorziet volgens La DH een hervorming van dit mechanisme.",
+      "correct": 0,
+      "explanation": "Het gewestelijk solidariteitsfonds vergoedt alleen huur die onbetaald blijft tijdens het moratorium. Volgens de Franstalige voorzitter van de gerechtsdeurwaarders, geciteerd door La DH in november 2026, stelt het moratorium uithuiszettingen vooral uit.",
       "sourceSlug": "/nl/domeinen/housing",
-      "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, 131 miljoen van de BGHM geblokkeerd",
+      "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, de BGHM wacht op haar 131 miljoen",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:89c60033fe961bef75d7ead5a6377100",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-03",
+        "sourceContentHash": "sha256:9d09b96a72b8df870f0278112ce4c401",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Welke aanstelling uit 2022 heeft de Raad van State volgens de RTBF (30 oktober 2026) begin oktober 2026 vernietigd?",
+      "question": "Waarom heeft de Raad van State volgens de RTBF (30 oktober 2026) een aanstelling uit 2022 tot adjunct-directeur-generaal van de Haven van Brussel vernietigd?",
       "options": [
-        "De adjunct-directie-generaal van de MIVB",
-        "De adjunct-directie-generaal van Actiris",
-        "De adjunct-directie-generaal van hub.brussels",
-        "De adjunct-directie-generaal van de Haven van Brussel"
+        "De motivering werd noch juist noch aanvaardbaar geacht",
+        "De aangestelde persoon sprak geen Nederlands",
+        "Een lid van de selectiecommissie had een conflict",
+        "Het mandaat overschreed de wettelijke duur"
       ],
-      "correct": 3,
-      "explanation": "Een afgewezen kandidaat had het beroep ingediend. De Raad van State acht het motief van de selectiecommissie « noch juist noch aanvaardbaar ».",
+      "correct": 0,
+      "explanation": "De gekozen persoon werd voorgesteld als « overtuigender », terwijl de afgewezen kandidaat 26 op 30 had behaald in het assessment, tegenover 25. De Haven schrijft de fout toe aan Talent.brussels.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:e8cf37d13be190d33b2e871921173474",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-02",
+        "sourceContentHash": "sha256:51a21d795388c5b583dc16ef78053cff",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Hoeveel punten stonden volgens La Libre ongeveer op de agenda van de Brusselse ministerraad van 22 oktober 2026, twee weken na de onderbroken ministerraad van 8 oktober?",
+      "question": "Met hoeveel wil het Brussels Parlement volgens La DH (17 oktober 2026) zijn uitgaven tegen het einde van de legislatuur verminderen?",
       "options": [
-        "Ongeveer 80",
-        "Ongeveer 40",
-        "Ongeveer 120",
-        "Ongeveer 200"
+        "10 %",
+        "5 %",
+        "15 %",
+        "25 %"
       ],
       "correct": 0,
-      "explanation": "De Brusselse regering hakte de knoop door over de meeste van die zowat 80 punten, waaronder de aanstelling van de directie-generaal van Actiris en van de gewestelijke drugscommissaris.",
+      "explanation": "In dat kader ziet het Brussels Parlement af van de indexering van de vergoedingen voor bijzondere functies.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:e8cf37d13be190d33b2e871921173474",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-02",
+        "sourceContentHash": "sha256:51a21d795388c5b583dc16ef78053cff",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Welke actor stelde tijdens de FIPA-operatie van 29 oktober 2026 in Brussel volgens de balans van de federale politie 512 van de 613 processen-verbaal op?",
+      "question": "Hoeveel extra brandweerlui eisen de vakbonden voor Brussel bij de Europese betoging van 3 november 2026?",
       "options": [
-        "Defensie",
-        "De federale politie",
-        "De politiezones",
-        "De MIVB"
+        "200",
+        "50",
+        "500",
+        "1.000"
       ],
-      "correct": 3,
-      "explanation": "De MIVB stelde 512 processen-verbaal op en controleerde 9.856 vervoerbewijzen. Meer dan 400 hulpverleners en agenten namen aan de operatie deel.",
+      "correct": 0,
+      "explanation": "Die vakbondseis dateert van begin 2026. Volgens BRUZZ zijn de tien medewerkers gevraagd voor de noodcentrale 112 er gekomen, en staat er op 13 november 2026 een nieuw overleg gepland.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:8dfec49361d2e7626c4f01f4f7d8f9f5",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-03",
+        "sourceContentHash": "sha256:25bbfc9eb2ae5f2dcc3a79b27be0d55b",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Welke nettovergoeding per 24 uur komt volgens Defensie, geciteerd door BRUZZ (30 oktober 2026), bovenop het loon van militairen die worden ingezet bij de operaties Urban Shield en Green Shield?",
+      "question": "Hoeveel personen werden volgens de federale politie gecontroleerd tijdens de FIPA-actie van 29 oktober 2026 in de drugshotspots in Brussel?",
       "options": [
-        "Ongeveer 45 euro",
-        "Ongeveer 25 euro",
-        "Ongeveer 90 euro",
-        "Ongeveer 150 euro"
+        "11.388",
+        "641",
+        "4.000",
+        "25.000"
       ],
       "correct": 0,
-      "explanation": "Ongeveer 45 euro netto per 24 uur. Volgens BRUZZ kosten beide operaties samen ongeveer 4 miljoen euro netto tot eind september 2026.",
+      "explanation": "Meer dan 400 betrokkenen namen deel, onder wie de zes politiezones, Defensie en de MIVB. De balans telt 16 gerechtelijke en 20 administratieve aanhoudingen en 641 gecontroleerde voertuigen.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:8dfec49361d2e7626c4f01f4f7d8f9f5",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-03",
+        "sourceContentHash": "sha256:25bbfc9eb2ae5f2dcc3a79b27be0d55b",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Wat deed de gemachtigde ambtenaar van het Brussels Gewest op 14 augustus 2026 met de vergunning voor de hoofdzetel van Infrabel « The Switch » in de Zuidwijk?",
+      "question": "Vanaf welke oppervlakte valt een braakliggend terrein onder het bouwverbod uit het vonnis van 29 oktober 2025, waartegen het Brussels Gewest in beroep ging?",
       "options": [
-        "Hij trok ze in om een nieuwe vergunning af te leveren",
-        "Hij stuurde ze terug naar de gemeente voor een nieuw advies",
-        "Hij verlengde ze zonder de inhoud te wijzigen",
-        "Hij schorste ze tot het arrest van de Raad van State"
+        "0,5 hectare",
+        "1 hectare",
+        "2 hectare",
+        "5 hectare"
       ],
       "correct": 0,
-      "explanation": "De intrekking moest « de rechtszekerheid van het project waarborgen » na een ongunstig advies van het auditoraat van de Raad van State. De verenigingen gaan opnieuw in beroep.",
+      "explanation": "Het verbod loopt tot 31 december 2026. Na de laatste zitting van 2 november 2026 doet het hof van beroep uiterlijk op 4 januari 2027 uitspraak.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:9e9cce6e960a60b38d4391c60de8b0d3",
-        "generatedAt": "2026-10-29T21:16:21.636Z",
+        "sourceLastModified": "2026-11-03",
+        "sourceContentHash": "sha256:8cf278ee2401160f9736e109bba7478c",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Tot welke datum loopt volgens La DH en L'Avenir (28 oktober 2026) de vrijstelling van stedenbouwkundige vergunning waarmee sinds de covidcrisis horecaterrassen in het Brussels Gewest kunnen worden geplaatst?",
+      "question": "Tegen welk project van 60 meter hoog in de Frankrijkstraat in Sint-Gillis werd op 28 oktober 2026 een nieuw beroep bij de Raad van State aangekondigd?",
       "options": [
-        "Tot 1 januari 2027",
-        "Tot 30 september 2026",
-        "Tot 31 december 2026",
-        "Tot 31 oktober 2026"
+        "De hoofdzetel van Infrabel « The Switch »",
+        "De stafkazerne van de DBDMH",
+        "De zetel van de NMBS aan het Zuidstation",
+        "De kantoortoren van Brussel Mobiliteit"
       ],
-      "correct": 3,
-      "explanation": "De tekst die deze terrassen permanent moet maken, zal op die datum niet van kracht zijn. De gemeenten worden gevraagd het weghalen te vermijden wanneer enkel die vervaldatum de reden is.",
+      "correct": 0,
+      "explanation": "De eerste vergunning werd op 14 augustus 2026 ingetrokken en opnieuw afgeleverd. De verenigingen betwisten de hoogte, het verdwijnen van woningen zonder compensatie en de bouw van nieuwe kantoren.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:9e9cce6e960a60b38d4391c60de8b0d3",
-        "generatedAt": "2026-10-29T21:16:21.636Z",
+        "sourceLastModified": "2026-11-03",
+        "sourceContentHash": "sha256:8cf278ee2401160f9736e109bba7478c",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welke motieven kunnen volgens de federale omzendbrief aan de OCMW's over werkbereidheid, gemeld op 30 oktober 2026, geen uitzondering vormen voor een leefloongerechtigde?",
+      "question": "Welk deel van de Brusselaars van wie het werkloosheidsrecht in het eerste kwartaal van 2026 afliep, werd volgens de monitoring van Actiris van 25 september 2026 binnen drie maanden OCMW-gerechtigde?",
       "options": [
-        "Culturele of religieuze motieven",
-        "Medisch gestaafde motieven",
-        "Motieven in verband met een opleiding",
-        "Motieven in verband met kinderopvang"
+        "47,6 %",
+        "12,6 %",
+        "8,9 %",
+        "63,6 %"
       ],
       "correct": 0,
-      "explanation": "De voorzitter van de federatie van Brusselse OCMW's zegt dat de omzendbrief niets aan de wet verandert. De beslissing blijft geval per geval bij elk OCMW.",
+      "explanation": "De monitoring volgt 15.500 werkzoekenden uit de eerste twee golven van uitsluitingen: 12,6 % vond werk en 8,9 % stapte over naar de ziekte- en invaliditeitsverzekering.",
       "sourceSlug": "/nl/dossiers/cpas-bruxellois",
       "sourceTitle": "Brusselse OCMW's",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:9af577c8e2e8cca36f6af9bc0c0a9d4d",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-02",
+        "sourceContentHash": "sha256:1b9f8c5b8df6e7578c16d59c0a6a5136",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Wat verklaarde de Brusselse staatssecretaris voor Huisvesting volgens BX1 en BRUZZ op 15 oktober 2026 in de commissie Huisvesting over de enveloppe voor de herkapitalisatie van de BGHM die voor 2026 gepland is?",
+      "question": "Welke voorwaarde stelt de Brusselse staatssecretaris voor Huisvesting volgens BX1 (15 oktober 2026) aan de herkapitalisatie van 131 miljoen euro van de BGHM?",
       "options": [
-        "Dat de enveloppe geschrapt is bij gebrek aan akkoord",
-        "Dat de enveloppe via Beliris zal verlopen",
-        "Dat de enveloppe wel degelijk aan de BGHM gestort wordt",
-        "Dat de enveloppe met de helft verminderd wordt"
+        "De deconsolidatie van de BGHM",
+        "Een fusie met citydev.brussels",
+        "De verkoop van een deel van het sociaal woningbestand",
+        "Een audit door het Rekenhof"
       ],
-      "correct": 2,
-      "explanation": "Volgens haar maakt de enveloppe deel uit van het akkoord over de initiële begroting 2026; de voorwaarde is de deconsolidatie van de BGHM. Er werd geen beslissing van de regering over de storting gemeld.",
+      "correct": 0,
+      "explanation": "Ze zegt daaraan te werken met de minister van Financiën. Volgens BRUZZ voorzien de documenten van de begroting 2027 de schijf van 131 miljoen voor 2026 en een nieuwe schijf van 120 miljoen in 2027.",
       "sourceSlug": "/nl/dossiers/slrb",
       "sourceTitle": "BGHM",
       "provenance": {
-        "sourceLastModified": "2026-10-16",
-        "sourceContentHash": "sha256:1052b56da700a927c80db72136b8cab0",
-        "generatedAt": "2026-10-29T21:16:21.636Z",
+        "sourceLastModified": "2026-11-02",
+        "sourceContentHash": "sha256:4042056963727d2f284872e482a08c81",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Hoeveel bedraagt de totale herkapitalisatie van de BGHM waartoe de Brusselse regering in februari 2026 besliste?",
+      "question": "Welk deel van de enveloppe van 131 miljoen euro voor de BGHM moet volgens de Brusselse staatssecretaris voor Huisvesting, in de commissie van 15 oktober 2026, facturen van de bouwsector betalen?",
       "options": [
-        "250 miljoen euro",
-        "131 miljoen euro",
-        "400 miljoen euro",
-        "600 miljoen euro"
+        "70 %",
+        "30 %",
+        "50 %",
+        "90 %"
       ],
-      "correct": 2,
-      "explanation": "De schijf van 131 miljoen euro die voor 2026 gepland is, blokkeerde de ministerraad van 8 oktober 2026. De herkapitalisatie wordt buiten het begrotingssaldo gehouden maar verhoogt de gewestschuld.",
+      "correct": 0,
+      "explanation": "Volgens BRUZZ zijn de 26 aanbevelingen van de onderzoekscommissie over de Anderlechtse Haard opgenomen in het ontwerp van beheerscontract van de BGHM voor 2027-2031.",
       "sourceSlug": "/nl/dossiers/slrb",
       "sourceTitle": "BGHM",
       "provenance": {
-        "sourceLastModified": "2026-10-16",
-        "sourceContentHash": "sha256:1052b56da700a927c80db72136b8cab0",
-        "generatedAt": "2026-10-29T21:16:21.636Z",
+        "sourceLastModified": "2026-11-02",
+        "sourceContentHash": "sha256:4042056963727d2f284872e482a08c81",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Op welke datum wil het Gewest volgens de nota van de Brusselse regering van 29 oktober 2026 over de overvluchten het Vlaamse belangenconflict op het Overlegcomité brengen?",
+      "question": "In welk document blijft de naderingsprocedure RNP 07L volgens BRUZZ (2 november 2026) zonder einddatum opgenomen, na het einde van de testfase op 31 oktober 2026?",
       "options": [
-        "16 november 2026",
-        "1 december 2026",
-        "11 januari 2027",
-        "8 februari 2027"
+        "Het luchtvaarthandboek (AIP) voor België",
+        "De milieuvergunning van Brussels Airport",
+        "Het beheerscontract met skeyes",
+        "Het federaal besluit over de windnormen"
       ],
       "correct": 0,
-      "explanation": "Het Gewest acht dit belangenconflict ongegrond en zonder juridische basis. Het vraagt de federale overheid ook uiterlijk op 1 december 2026 een duidelijke motivering.",
+      "explanation": "De federale minister van Mobiliteit behoudt de procedure omdat skeyes geen alternatief heeft voorgelegd, en laat een afwisseling met een licht gebogen variant bestuderen.",
       "sourceSlug": "/nl/dossiers/survol-bruxelles",
       "sourceTitle": "Overvliegen Brussel",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:2835f8dbd02b4cf88b46b6150d1046cf",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-03",
+        "sourceContentHash": "sha256:bb49c4bfb3fa7cdd126fe8cefd4fca38",
+        "generatedAt": "2026-11-03T12:02:34.828Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

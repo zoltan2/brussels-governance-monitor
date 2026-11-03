@@ -11,7 +11,8 @@
  * - vérifie la signature (bibliothèque standardwebhooks via le SDK Resend,
  *   secret RESEND_WEBHOOK_SECRET posé sur le serveur) ;
  * - inscrit l'événement dans `resend_evenements` (empreinte, jamais l'adresse) ;
- * - envoie une alerte à ALERT_EMAIL, une seule fois par événement.
+ * - envoie une alerte à l'adresse d'alertes privée (adresseAlertes), une seule
+ *   fois par événement.
  *
  * Elle ne désinscrit personne : Resend place lui-même les adresses en rebond
  * définitif ou en plainte dans sa liste de suppression, et la décision de

@@ -41,12 +41,18 @@ describe('ALERT_EMAIL reste privée', () => {
     expect(tous.filter(([, s]) => s.includes('ALERT_EMAIL')).map(([f]) => f)).toEqual(['lib/adresse-alertes.ts']);
   });
 
-  it('le module n’est importé que par des tâches planifiées', () => {
+  // Exception : le webhook Resend (rebonds et plaintes, 3 novembre 2026). C'est
+  // un rapport technique déclenché par Resend et non par un visiteur ; la
+  // signature est vérifiée avant tout envoi, et l'adresse n'y est ni réponse,
+  // ni expéditeur, ni texte de page (dernier test ci-dessous).
+  it('le module n’est importé que par des tâches planifiées ou le webhook Resend', () => {
     const importeurs = tous
       .filter(([f, s]) => f !== 'lib/adresse-alertes.ts' && s.includes('adresse-alertes'))
       .map(([f]) => f);
     expect(importeurs.length).toBeGreaterThan(0);
-    expect(importeurs.filter((f) => !f.startsWith('app/api/cron/'))).toEqual([]);
+    expect(
+      importeurs.filter((f) => !f.startsWith('app/api/cron/') && f !== 'app/api/webhooks/resend/route.ts'),
+    ).toEqual([]);
   });
 
   it('aucun importeur ne s’en sert comme adresse de réponse ou d’expéditeur', () => {

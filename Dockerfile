@@ -1,16 +1,16 @@
 # syntax=docker/dockerfile:1
 # Image Docker autonome pour le staging Hetzner (Next.js standalone).
-# Multi-stage : deps -> builder -> runner. Base node:22-slim partout (aligne
-# le runtime sur le dev local Node 22, évite les surprises musl d'Alpine).
+# Multi-stage : deps -> builder -> runner. Base node:26-slim partout (aligne
+# le runtime sur le dev local Node 26, évite les surprises musl d'Alpine).
 #
 # L'image de base est épinglée PAR EMPREINTE depuis le 21/09/2026. L'étiquette
-# `22-slim` est réécrite à chaque publication amont : deux builds du même commit
+# `26-slim` est réécrite à chaque publication amont : deux builds du même commit
 # ne produisaient pas la même image, et une compromission de l'étiquette se
 # serait propagée au déploiement suivant. Dependabot met l'empreinte à jour
 # (écosystème `docker` ajouté dans .github/dependabot.yml).
 
 # ---- deps : dépendances complètes (dev incluses) pour le build ----
-FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS deps
+FROM node:26-slim@sha256:ec7758ee051e457b468b32bde57b0879010b325bb9862718e9615225ce4aaae1 AS deps
 WORKDIR /app
 # npm ci a besoin du lockfile. On installe TOUT (velite/pagefind/tsx sont en
 # devDependencies et sont requis par le script `build`), donc pas de --omit=dev.
@@ -18,7 +18,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 # ---- builder : exécute le script `build` EXISTANT verbatim ----
-FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS builder
+FROM node:26-slim@sha256:ec7758ee051e457b468b32bde57b0879010b325bb9862718e9615225ce4aaae1 AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -63,7 +63,7 @@ RUN npm run build
 RUN ./node_modules/.bin/tsx scripts/controle-apres-build.ts
 
 # ---- runner : image finale minimale, .next/standalone + assets explicites ----
-FROM node:22-slim@sha256:48e4b67d85f87bd551df43704e24d252f56cc5f8e9718841aace50f19948f0f9 AS runner
+FROM node:26-slim@sha256:ec7758ee051e457b468b32bde57b0879010b325bb9862718e9615225ce4aaae1 AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

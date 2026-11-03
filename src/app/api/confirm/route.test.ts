@@ -122,4 +122,42 @@ describe('POST /api/confirm : réabonnement', () => {
     await POST(requete());
     expect(lireDesabonnement(db, fingerprintEmail(EMAIL))).not.toBeNull();
   });
+
+  describe('compteur mensuel', () => {
+    function totaux() {
+      return db
+        .prepare(
+          'SELECT COALESCE(SUM(nouveaux), 0) AS nouveaux, COALESCE(SUM(retours), 0) AS retours FROM abonnes_mois',
+        )
+        .get() as { nouveaux: number; retours: number };
+    }
+
+    beforeEach(() => {
+      db.exec('DELETE FROM abonnes_mois');
+    });
+
+    it('une première inscription compte comme nouvel abonné', async () => {
+      await POST(requete());
+      expect(totaux()).toEqual({ nouveaux: 1, retours: 0 });
+    });
+
+    it('un retour ne compte pas comme nouvel abonné', async () => {
+      noterDesabonnement(db, fingerprintEmail(EMAIL), 1000);
+      await POST(requete());
+      expect(totaux()).toEqual({ nouveaux: 0, retours: 1 });
+    });
+
+    it('un abonné qui reconfirme ne compte pas', async () => {
+      getContact.mockResolvedValue({ locale: 'fr', topics: ['budget'], sources: ['website'] });
+      await POST(requete());
+      expect(totaux()).toEqual({ nouveaux: 0, retours: 0 });
+    });
+
+    it('un contact refusé par Resend ne compte pas', async () => {
+      addContact.mockRejectedValue(new Error('refus Resend'));
+      vi.spyOn(console, 'error').mockImplementation(() => {});
+      await POST(requete());
+      expect(totaux()).toEqual({ nouveaux: 0, retours: 0 });
+    });
+  });
 });

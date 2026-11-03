@@ -28,7 +28,7 @@ vi.mock('@/i18n/navigation', () => ({
 }));
 
 import { StuutGame } from './stuut-game';
-import { CLE_INSCRIT, CLE_INVITATION, CLE_STATS, STUUT_API_INSCRIPTION, STUUT_API_JOUR } from '@/lib/stuut';
+import { CLE_INSCRIT, CLE_INVITATION, CLE_PARTIE, CLE_STATS, STUUT_API_INSCRIPTION, STUUT_API_JOUR } from '@/lib/stuut';
 
 const JOUR = {
   jour: '2026-09-18',
@@ -152,6 +152,38 @@ describe('StuutGame', () => {
     render(<StuutGame actif />);
     expect(await screen.findByText(/Vous avez déjà joué aujourd’hui/)).toBeTruthy();
     expect(screen.queryByRole('group', { name: 'Clavier du jeu' })).toBeNull();
+  });
+
+  it('reprend une partie en cours au rechargement : les essais validés reviennent, sans en redonner six', async () => {
+    render(<StuutGame actif />);
+    await screen.findByText(/n°95/);
+    taper('CCCCCCC');
+    await attendreFinEssai(1);
+    taper('CCCCCCC');
+    await attendreFinEssai(2);
+    cleanup();
+
+    render(<StuutGame actif />);
+    await screen.findByText(/n°95/);
+    await waitFor(() => expect(document.querySelectorAll('.sr-only ol li').length).toBe(2));
+    taper('CABINET');
+    await waitFor(() => expect(JSON.parse(localStorage.getItem(CLE_STATS)!).today).toMatchObject({ day: 94, won: true, n: 3 }));
+    expect(localStorage.getItem(CLE_PARTIE)).toBeNull();
+  });
+
+  it('clôture une partie sauvegardée mais jamais terminée (rechargement pendant l’animation du dernier essai)', async () => {
+    localStorage.setItem(CLE_PARTIE, JSON.stringify({ day: 94, g: ['CABINET'] }));
+    render(<StuutGame actif />);
+    expect(await screen.findByText('Du premier coup. Chapeau, vraiment.')).toBeTruthy();
+    expect(JSON.parse(localStorage.getItem(CLE_STATS)!).today).toMatchObject({ day: 94, won: true, n: 1 });
+    expect(localStorage.getItem(CLE_PARTIE)).toBeNull();
+  });
+
+  it('ignore la partie en cours d’un autre jour', async () => {
+    localStorage.setItem(CLE_PARTIE, JSON.stringify({ day: 93, g: ['CCCCCCC'] }));
+    render(<StuutGame actif />);
+    await screen.findByText(/n°95/);
+    expect(document.querySelectorAll('.sr-only ol li').length).toBe(0);
   });
 
   it('ignore le clavier physique quand son onglet est masqué', async () => {

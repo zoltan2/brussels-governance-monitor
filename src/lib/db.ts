@@ -64,6 +64,26 @@ CREATE TABLE IF NOT EXISTS desabonnements (
 );
 CREATE INDEX IF NOT EXISTS idx_desabonnements_date ON desabonnements(desabonne_le);
 
+-- Compteur mensuel des abonnés (src/lib/suivi-abonnes.ts) : des totaux, sans
+-- adresse ni empreinte, jamais purgés. La ligne de abonnes_suivi s'écrit une
+-- seule fois, au premier démarrage : elle date le début du suivi et garde le
+-- nombre de personnes déjà désinscrites à ce moment.
+CREATE TABLE IF NOT EXISTS abonnes_mois (
+  mois             TEXT PRIMARY KEY,
+  nouveaux         INTEGER NOT NULL DEFAULT 0,
+  desabonnements   INTEGER NOT NULL DEFAULT 0,
+  retours          INTEGER NOT NULL DEFAULT 0,
+  nouveaux_reprise INTEGER NOT NULL DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS abonnes_suivi (
+  id                   INTEGER PRIMARY KEY CHECK (id = 1),
+  debut                INTEGER NOT NULL,
+  stock_desabonnements INTEGER NOT NULL,
+  reprise_le           INTEGER
+);
+INSERT OR IGNORE INTO abonnes_suivi (id, debut, stock_desabonnements)
+  SELECT 1, CAST(strftime('%s', 'now') AS INTEGER) * 1000, COUNT(*) FROM desabonnements;
+
 -- Paiements du chatbot (src/lib/chat-paiements.ts). Une session Stripe
 -- n'ouvre l'accès qu'une fois ; un remboursement le révoque (revue red team
 -- du 29/09/2026 : le lien de retour était réutilisable et survivait au

@@ -1,5 +1,989 @@
 [
     {
+        "date": "2026-11-02",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "budget",
+        "descriptions": {
+            "fr": "Budget 2027 : 144 millions de moins sur le personnel par rapport à fin 2025, selon BRUZZ. Le média cite aussi 55 millions sur la consultance et 40 millions de retours attendus en 2027.",
+            "nl": "Begroting 2027: 144 miljoen minder voor personeel ten opzichte van eind 2025, volgens BRUZZ. Het medium noemt ook 55 miljoen op consultancy en 40 miljoen verwachte terugverdieneffecten in 2027.",
+            "en": "2027 budget: 144 million less for staff compared with the end of 2025, according to BRUZZ. The outlet also cites 55 million on consultancy and 40 million of expected returns in 2027.",
+            "de": "Haushalt 2027: 144 Millionen weniger beim Personal gegenüber Ende 2025, laut BRUZZ. Das Medium nennt auch 55 Millionen bei der Beratung und 40 Millionen erwartete Rückflüsse im Jahr 2027."
+        }
+    },
+    {
+        "date": "2026-11-02",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "slrb",
+        "descriptions": {
+            "fr": "SLRB : les 131 millions semblent approuvés dans le budget 2027, avec 120 millions prévus en 2027, selon BRUZZ. Aucun versement n'est rapporté, et ces documents montrent peu de chose de la réforme du logement social.",
+            "nl": "BGHM: de 131 miljoen lijkt goedgekeurd in de begroting 2027, met 120 miljoen voorzien in 2027, volgens BRUZZ. Er wordt geen storting gemeld, en de documenten tonen weinig van de hervorming van de sociale huisvesting.",
+            "en": "SLRB: the 131 million appears approved in the 2027 budget, with 120 million planned for 2027, according to BRUZZ. No payment is reported, and these documents show little of the social housing reform.",
+            "de": "SLRB: Die 131 Millionen scheinen laut BRUZZ im Haushalt 2027 genehmigt, dazu 120 Millionen für 2027. Eine Auszahlung wird nicht gemeldet, und die Unterlagen zeigen wenig von der Reform des Sozialwohnungsbaus."
+        }
+    },
+    {
+        "date": "2026-11-02",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "housing",
+        "descriptions": {
+            "fr": "Logement social : les 131 millions de la SLRB semblent approuvés dans le budget 2027, selon BRUZZ. Une nouvelle tranche de 120 millions y est prévue ; aucun versement n'est rapporté.",
+            "nl": "Sociale huisvesting: de 131 miljoen van de BGHM lijkt goedgekeurd in de begroting 2027, volgens BRUZZ. Er is een nieuwe schijf van 120 miljoen voorzien; er wordt geen storting gemeld.",
+            "en": "Social housing: the SLRB's 131 million appears approved in the 2027 budget, according to BRUZZ. A new tranche of 120 million is planned; no payment is reported.",
+            "de": "Sozialwohnungsbau: Die 131 Millionen der SLRB scheinen laut BRUZZ im Haushalt 2027 genehmigt. Eine neue Tranche von 120 Millionen ist vorgesehen; eine Auszahlung wird nicht gemeldet."
+        }
+    },
+    {
+        "date": "2026-11-02",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "saint-josse-ten-noode",
+        "descriptions": {
+            "fr": "Saint-Josse a mis la Région en demeure le 15 octobre 2026 de mettre fin à la tutelle coercitive. Le cabinet du ministre répond « pas de réaction prévue à ce stade » ; la commune évoque une nouvelle action au Conseil d'État.",
+            "nl": "Sint-Joost stelde het Gewest op 15 oktober 2026 in gebreke om het dwangtoezicht te beëindigen. Het kabinet van de minister antwoordt dat er voorlopig geen reactie gepland is; de gemeente overweegt een nieuwe procedure bij de Raad van State.",
+            "en": "Saint-Josse gave the Region formal notice on 15 October 2026 to end the coercive supervision. The minister's office replies that no reaction is planned at this stage; the municipality mentions new action at the Council of State.",
+            "de": "Saint-Josse setzte die Region am 15.10.2026 in Verzug, die Zwangsaufsicht zu beenden. Das Kabinett des Ministers antwortet, derzeit sei keine Reaktion vorgesehen; die Gemeinde erwägt ein neues Verfahren vor dem Staatsrat."
+        }
+    },
+    {
+        "date": "2026-11-02",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "institutional",
+        "descriptions": {
+            "fr": "Gouvernement fédéral : le Premier ministre remet sa démission, le Roi tient sa décision en suspens. Les sources consultées ne précisent pas l'effet sur le Comité de concertation du 16 novembre.",
+            "nl": "Federale regering: de premier biedt zijn ontslag aan, de Koning houdt zijn beslissing in beraad. De geraadpleegde bronnen preciseren het effect op het Overlegcomité van 16 november niet.",
+            "en": "Federal government: the Prime Minister tenders his resignation, the King reserves his decision. The sources consulted do not specify the effect on the Concertation Committee of 16 November.",
+            "de": "Föderalregierung: Der Premierminister reicht seinen Rücktritt ein, der König behält sich die Entscheidung vor. Die eingesehenen Quellen nennen keine Auswirkung auf den Konzertierungsausschuss vom 16.11."
+        }
+    },
+    {
+        "date": "2026-11-02",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "cpas-bruxellois",
+        "descriptions": {
+            "fr": "Circulaire fédérale aux CPAS : la fédération bruxelloise dit n'avoir été ni informée ni concertée, selon La Libre. Elle estime aussi que le texte ne change rien à la loi.",
+            "nl": "OCMW-omzendbrief: de Brusselse federatie zegt niet geïnformeerd of geraadpleegd te zijn, volgens La Libre. Ze vindt ook dat de tekst niets aan de wet verandert.",
+            "en": "CPAS circular: the Brussels federation says it was neither informed nor consulted, according to La Libre. It also considers that the text does not change the law.",
+            "de": "ÖSHZ-Rundschreiben: Der Brüsseler Verband gibt laut La Libre an, weder informiert noch konsultiert worden zu sein. Er meint auch, der Text ändere nichts am Gesetz."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "uccle",
+        "descriptions": {
+            "fr": "Uccle : une sanction administrative communale peut être infligée dès 14 ans, contre 16 ans auparavant. La règle s'applique à partir du 1er novembre 2026, avec une amende plafonnée à 175 euros pour les mineurs.",
+            "nl": "Ukkel: een GAS-boete kan worden opgelegd vanaf 14 jaar, tegenover 16 jaar voordien. De regel geldt vanaf 1 november 2026, met een boete van maximaal 175 euro voor minderjarigen.",
+            "en": "Uccle: a municipal administrative sanction can be imposed from age 14, compared with 16 previously. The rule applies from 1 November 2026, with a fine capped at 175 euros for minors.",
+            "de": "Uccle: Eine kommunale Verwaltungssanktion kann ab 14 Jahren verhängt werden, gegenüber 16 Jahren zuvor. Die Regel gilt ab dem 01.11.2026, mit einer Geldbuße von höchstens 175 Euro für Minderjährige."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "reforme-administration",
+        "descriptions": {
+            "fr": "Moratoire : 75 millions d'euros attendus en 2027, selon BRUZZ, avec une exception pour des fonctions actives. Les estimations d'octobre étaient de 70 à 74 millions pour le personnel.",
+            "nl": "Aanwervingsstop: 75 miljoen euro verwacht in 2027, volgens BRUZZ, met een uitzondering voor actieve functies. De ramingen van oktober bedroegen 70 tot 74 miljoen voor het personeel.",
+            "en": "Hiring freeze: 75 million euros expected in 2027, according to BRUZZ, with an exception for active roles. The October estimates were 70 to 74 million for staff.",
+            "de": "Einstellungsstopp: 75 Millionen Euro für 2027 erwartet, laut BRUZZ, mit einer Ausnahme für aktive Funktionen. Die Schätzungen vom Oktober lagen bei 70 bis 74 Millionen für das Personal."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "budget",
+        "descriptions": {
+            "fr": "Budget 2027 : les documents sont transmis au Parlement, avec un déficit visé de 719 millions d'euros. Le vote en plénière est envisagé le 18 décembre 2026.",
+            "nl": "Begroting 2027: de documenten zijn naar het Parlement gestuurd, met een beoogd tekort van 719 miljoen euro. De stemming in plenaire zitting wordt beoogd op 18 december 2026.",
+            "en": "2027 budget: the documents have been sent to Parliament, with a targeted deficit of 719 million euros. The plenary vote is envisaged for 18 December 2026.",
+            "de": "Haushalt 2027: Unterlagen dem Parlament übermittelt, mit einem angestrebten Defizit von 719 Millionen Euro. Die Abstimmung im Plenum ist für den 18. Dezember 2026 vorgesehen."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "survol-bruxelles",
+        "descriptions": {
+            "fr": "Survol : le gouvernement bruxellois juge « infondé » le conflit d'intérêts invoqué par la Flandre. Il veut inscrire le dossier au Comité de concertation du 16 novembre 2026.",
+            "nl": "Vliegtuiglawaai: de Brusselse regering noemt het Vlaamse belangenconflict « ongegrond ». Ze wil het dossier op de agenda van het Overlegcomité van 16 november 2026.",
+            "en": "Overflights: the Brussels government deems the conflict of interest invoked by Flanders 'unfounded'. It wants the file on the agenda of the Concertation Committee of 16 November 2026.",
+            "de": "Überflüge: Die Brüsseler Regierung hält den von Flandern geltend gemachten Interessenkonflikt für « unbegründet ». Sie will das Dossier auf die Tagesordnung des Konzertierungsausschusses vom 16. November 2026 setzen."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "social",
+        "descriptions": {
+            "fr": "Convalescence : Iriscare relance son appel pour 130 lits et porte son enveloppe de 250 000 à 580 000 euros. Les candidatures sont ouvertes jusqu'au 30 novembre 2026.",
+            "nl": "Herstelverblijf: Iriscare lanceert opnieuw zijn oproep voor 130 bedden en verhoogt zijn budget naar 580.000 euro. Het bedrag lag op 250.000 euro; kandidaturen kunnen tot 30 november 2026.",
+            "en": "Convalescence: Iriscare relaunches its call for 130 beds and raises its envelope from 250,000 to 580,000 euros. Applications are open until 30 November 2026.",
+            "de": "Rekonvaleszenz: Iriscare startet seinen Aufruf für 130 Betten neu und erhöht auf 580.000 Euro. Der Betrag lag bei 250.000 Euro; Bewerbungen sind bis zum 30. November 2026 möglich."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "sectors",
+        "targetSlug": "health-social",
+        "descriptions": {
+            "fr": "Santé-social : l'appel d'Iriscare pour 130 lits de convalescence rouvre, candidatures jusqu'au 30 novembre 2026. L'enveloppe passe à 580 000 euros, en plus du forfait fédéral de 28,40 euros par jour.",
+            "nl": "Gezondheid-welzijn: de oproep van Iriscare voor 130 bedden herstelverblijf gaat opnieuw open, tot 30 november 2026. Het budget stijgt naar 580.000 euro, bovenop het federale forfait van 28,40 euro per dag.",
+            "en": "Health-social: Iriscare's call for 130 convalescence beds reopens, with applications until 30 November 2026. The envelope rises to 580,000 euros, on top of the federal flat rate of 28.40 euros a day.",
+            "de": "Gesundheit-Soziales: Iriscare startet den Aufruf für 130 Rekonvaleszenzbetten neu. Bewerbungen bis zum 30. November 2026. Der Betrag steigt auf 580.000 Euro, zusätzlich zur föderalen Pauschale von 28,40 Euro pro Tag."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "housing",
+        "descriptions": {
+            "fr": "Loyers socialisés : le budget 2027 prévoit 3,2 millions d'euros d'économies, selon La DH. Des communes calculent une hausse moyenne de 180 à 200 euros pour les ménages concernés.",
+            "nl": "Gesocialiseerde huurprijzen: de begroting 2027 voorziet 3,2 miljoen euro besparingen, volgens La DH. Gemeenten berekenen een gemiddelde stijging van 180 tot 200 euro voor de betrokken gezinnen.",
+            "en": "Socialised rents: the 2027 budget plans savings of 3.2 million euros, according to La DH. Municipalities calculate an average rise of 180 to 200 euros for the households concerned.",
+            "de": "Sozialisierte Mieten: Der Haushalt 2027 sieht laut La DH Einsparungen von 3,2 Millionen Euro vor. Gemeinden berechnen einen durchschnittlichen Anstieg von 180 bis 200 Euro für die betroffenen Haushalte."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "employment",
+        "descriptions": {
+            "fr": "Prime à l'emploi : une proposition d'ordonnance de l'opposition vise jusqu'à 600 euros par an, selon La Libre. Ses auteurs chiffrent la mesure entre 50 et 70 millions d'euros par an.",
+            "nl": "Jobbonus: een voorstel van ordonnantie van de oppositie mikt op maximaal 600 euro per jaar, volgens La Libre. De indieners ramen de maatregel op 50 tot 70 miljoen euro per jaar.",
+            "en": "Job bonus: an opposition draft ordinance aims at up to 600 euros a year, according to La Libre. Its authors put the measure at 50 to 70 million euros a year.",
+            "de": "Beschäftigungsprämie: Ein Ordonnanzvorschlag der Opposition sieht laut La Libre bis zu 600 Euro pro Jahr vor. Die Verfasser beziffern die Maßnahme auf 50 bis 70 Millionen Euro pro Jahr."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "security",
+        "descriptions": {
+            "fr": "Opération FIPA du 29 octobre : plus de 400 intervenants, 16 arrestations judiciaires et 20 administratives. Cinq établissements horeca sur huit contrôlés ont été fermés, selon la police fédérale.",
+            "nl": "FIPA-actie van 29 oktober: meer dan 400 betrokkenen, 16 gerechtelijke en 20 bestuurlijke aanhoudingen. Vijf van de acht gecontroleerde horecazaken werden gesloten, volgens de federale politie.",
+            "en": "FIPA operation of 29 October: over 400 personnel, 16 judicial and 20 administrative arrests. Five of the eight hospitality venues inspected were closed, according to the federal police.",
+            "de": "FIPA-Einsatz in den Hotspots: über 400 Einsatzkräfte, 16 gerichtliche und 20 administrative Festnahmen. Fünf von acht kontrollierten Horeca-Betrieben wurden laut Föderalpolizei geschlossen."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "mobility",
+        "descriptions": {
+            "fr": "Permis de conduire : dès le 1er janvier 2027, la Flandre exige théorie et pratique dans la même Région. Bruxelles applique cette règle depuis 2018 et compte deux centres d'examen, contre 16 en Flandre.",
+            "nl": "Rijbewijs: vanaf 1 januari 2027 eist Vlaanderen theorie en praktijk in hetzelfde gewest. Brussel past die regel toe sinds 2018 en telt twee examencentra, tegenover 16 in Vlaanderen.",
+            "en": "Driving licence: from 1 January 2027, Flanders requires theory and practical in the same Region. Brussels has applied this rule since 2018 and has two test centres, against 16 in Flanders.",
+            "de": "Führerschein: Ab 2027 verlangt Flandern Theorie und Praxis in derselben Region. Brüssel wendet diese Regel seit 2018 an und zählt zwei Prüfungszentren, gegenüber 16 in Flandern."
+        }
+    },
+    {
+        "date": "2026-11-01",
+        "type": "added",
+        "section": "timeline",
+        "targetSlug": "budget-2027-transmis-parlement-30-octobre-2026",
+        "descriptions": {
+            "fr": "Budget 2027 transmis au Parlement.",
+            "nl": "Begroting 2027 naar het Parlement gestuurd.",
+            "en": "2027 budget sent to Parliament.",
+            "de": "Haushalt 2027 dem Parlament übermittelt."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "housing",
+        "descriptions": {
+            "fr": "Prime Be Home : les bailleurs sous le loyer de référence y auront accès en 2027, pour 164 ou 328 euros par an. Le budget prévu est de 5 millions d'euros ; l'accès est volontaire et suppose un bail enregistré.",
+            "nl": "Be Home-premie: verhuurders onder de referentiehuurprijs krijgen er in 2027 toegang toe, voor 164 of 328 euro. Het voorziene budget bedraagt 5 miljoen euro; deelname is vrijwillig en vereist een geregistreerd huurcontract.",
+            "en": "Be Home premium: landlords below the reference rent will have access in 2027, for 164 or 328 euros a year. The planned budget is 5 million euros; access is voluntary and requires a registered lease.",
+            "de": "Be-Home-Prämie: Vermieter unter der Referenzmiete erhalten 2027 Zugang, für 164 oder 328 Euro pro Jahr. Vorgesehen sind 5 Millionen Euro; die Teilnahme ist freiwillig und setzt einen registrierten Mietvertrag voraus."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "budget",
+        "descriptions": {
+            "fr": "Logement : 5 millions d'euros prévus en 2027 pour ouvrir la prime Be Home à certains bailleurs. La prime est de 164 ou 328 euros par an selon l'écart avec le loyer de référence.",
+            "nl": "Huisvesting: 5 miljoen euro voorzien in 2027 om de Be Home-premie open te stellen voor bepaalde verhuurders. De premie bedraagt 164 of 328 euro per jaar, naargelang het verschil met de referentiehuurprijs.",
+            "en": "Housing: 5 million euros planned in 2027 to open the Be Home premium to some landlords. The premium is 164 or 328 euros a year, depending on the gap with the reference rent.",
+            "de": "Wohnen: 5 Millionen Euro sind 2027 vorgesehen, um die Be-Home-Prämie für bestimmte Vermieter zu öffnen. Die Prämie beträgt je nach Abstand zur Referenzmiete 164 oder 328 Euro pro Jahr."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "institutional",
+        "descriptions": {
+            "fr": "Port de Bruxelles : le Conseil d'État annule la désignation de 2022 à la direction adjointe, selon la RTBF. Le conseil d'administration demande au gouvernement de clarifier la situation.",
+            "nl": "Haven van Brussel: de Raad van State vernietigt de aanstelling van 2022 aan de adjunct-directie, volgens de RTBF. De raad van bestuur vraagt de regering de situatie te verduidelijken.",
+            "en": "Port of Brussels: the Council of State annuls the 2022 appointment of the deputy director, according to RTBF. The board asks the government to clarify the situation.",
+            "de": "Hafen Brüssel: Der Staatsrat hebt laut RTBF die Ernennung der stellvertretenden Direktion von 2022 auf. Der Verwaltungsrat bittet die Regierung um Klärung."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "climate",
+        "descriptions": {
+            "fr": "Inondations : Bruxelles Environnement actualise sa carte, consultable par adresse. Selon les simulations, une pluie centennale concernerait un Bruxellois sur douze.",
+            "nl": "Overstromingen: Leefmilieu Brussel actualiseert zijn kaart, raadpleegbaar per adres. Volgens de simulaties zou een honderdjarige regenbui een op de twaalf Brusselaars treffen.",
+            "en": "Flooding: Brussels Environment updates its map, searchable by address. According to simulations, a 100-year rainfall would affect one in twelve Brussels residents.",
+            "de": "Überschwemmungen: Bruxelles Environnement aktualisiert seine Karte, abrufbar nach Adresse. Laut Simulationen beträfe ein hundertjährlicher Regen jeden zwölften Brüsseler."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "mobility",
+        "descriptions": {
+            "fr": "Agressivité routière : 45 % des répondants bruxellois admettent de tels comportements, selon une enquête Vias. Selon BRUZZ, la Région prépare une campagne de sensibilisation pour 2027.",
+            "nl": "Verkeersagressie: 45 % van de Brusselse respondenten geeft zulk gedrag toe, volgens een enquête van Vias. Volgens BRUZZ bereidt het Gewest een sensibiliseringscampagne voor 2027 voor.",
+            "en": "Road aggression: 45% of Brussels respondents admit such behaviour, according to a Vias survey. According to BRUZZ, the Region is preparing an awareness campaign for 2027.",
+            "de": "Aggression im Verkehr: 45 % der Brüsseler Befragten räumen solches Verhalten ein, so eine Vias-Umfrage. Laut BRUZZ bereitet die Region für 2027 eine Sensibilisierungskampagne vor."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "security",
+        "descriptions": {
+            "fr": "Militaires à Bruxelles : environ 4 millions d'euros nets jusqu'à fin septembre pour deux opérations, selon BRUZZ. Aucune date de fin n'est fixée.",
+            "nl": "Militairen in Brussel: ongeveer 4 miljoen euro netto tot eind september voor twee operaties, volgens BRUZZ. Er is geen einddatum vastgelegd.",
+            "en": "Soldiers in Brussels: about 4 million euros net until the end of September for two operations, according to BRUZZ. No end date has been set.",
+            "de": "Militär in Brüssel: rund 4 Millionen Euro netto bis Ende September für zwei Einsätze, so BRUZZ. Ein Enddatum ist nicht festgelegt."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "sectors",
+        "targetSlug": "culture",
+        "descriptions": {
+            "fr": "Bibliothèques néerlandophones : 600 000 euros compensent une partie de l'économie flamande, selon BRUZZ. Groen conteste au conseil de la VGC l'usage de 200 000 euros de la Commission.",
+            "nl": "Nederlandstalige bibliotheken: 600.000 euro compenseert een deel van de Vlaamse besparing, volgens BRUZZ. Groen betwist in de Raad van de VGC het gebruik van 200.000 euro van de Commissie.",
+            "en": "Dutch-speaking libraries: 600,000 euros offset part of the Flemish saving, according to BRUZZ. Groen challenges in the VGC council the use of 200,000 euros from the Commission.",
+            "de": "Niederländischsprachige Bibliotheken: 600.000 Euro gleichen laut BRUZZ einen Teil der flämischen Einsparung aus. Groen beanstandet im VGC-Rat den Einsatz von 200.000 Euro der Kommission."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "bruxelles-ville",
+        "descriptions": {
+            "fr": "Arbres du Marché aux Herbes : We Are Nature porte plainte contre la Ville auprès du procureur du Roi. L'ASBL parle d'abattage sans permis ; la Ville invoque un danger immédiat.",
+            "nl": "Bomen aan de Grasmarkt: We Are Nature dient klacht in tegen de Stad bij de procureur des Konings. De vzw spreekt van kappen zonder vergunning; de Stad wijst op een onmiddellijk gevaar.",
+            "en": "Trees on Rue du Marché aux Herbes: We Are Nature files a complaint against the City with the public prosecutor. The association alleges felling without a permit; the City cites an immediate danger.",
+            "de": "Bäume an der Rue du Marché aux Herbes: We Are Nature erstattet Anzeige gegen die Stadt beim Staatsanwalt. Der Verein spricht von Fällung ohne Genehmigung; die Stadt verweist auf eine unmittelbare Gefahr."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "petite-enfance",
+        "descriptions": {
+            "fr": "Crèches non subventionnées : l'ONE débloque 5,7 millions d'euros d'aide exceptionnelle pour 2026. Le plafond de tarif est fixé à 1 060 euros par mois ; la part bruxelloise n'est pas publiée.",
+            "nl": "Niet-gesubsidieerde crèches: de ONE trekt 5,7 miljoen euro uitzonderlijke steun uit voor 2026. Het tariefplafond bedraagt 1.060 euro per maand; het Brusselse aandeel is niet gepubliceerd.",
+            "en": "Non-subsidised nurseries: ONE releases 5.7 million euros in exceptional aid for 2026. The fee cap is 1,060 euros a month; the Brussels share has not been published.",
+            "de": "Nicht bezuschusste Krippen: Das ONE stellt 5,7 Millionen Euro Sonderhilfe für 2026 bereit. Die Gebührenobergrenze liegt bei 1.060 Euro pro Monat; der Brüsseler Anteil ist nicht veröffentlicht."
+        }
+    },
+    {
+        "date": "2026-10-30",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "cpas-bruxellois",
+        "descriptions": {
+            "fr": "Revenu d'intégration : une circulaire fédérale précise aux CPAS les critères de disposition au travail. La fédération bruxelloise estime qu'elle ne change rien à la loi.",
+            "nl": "Leefloon: een federale omzendbrief verduidelijkt voor de OCMW's de criteria van werkbereidheid. De Brusselse federatie meent dat hij niets aan de wet verandert.",
+            "en": "Social integration income: a federal circular sets out for CPAS the criteria for willingness to work. The Brussels federation considers that it changes nothing in the law.",
+            "de": "Eingliederungseinkommen: Ein föderales Rundschreiben präzisiert für die ÖSHZ die Kriterien der Arbeitsbereitschaft. Der Brüsseler Verband sieht darin keine Änderung des Gesetzes."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "mobility",
+        "descriptions": {
+            "fr": "Palais du Midi : le Conseil d'État rejette le 27 octobre 2026 trois demandes de suspension du démantèlement. La STIB peut reprendre la préparation des travaux ; aucune date de chantier n'est fixée.",
+            "nl": "Zuidpaleis: de Raad van State verwerpt op 27 oktober 2026 drie vorderingen tot schorsing van de ontmanteling. De MIVB kan de voorbereiding van de werken hervatten; er is geen startdatum voor de werf vastgelegd.",
+            "en": "Palais du Midi: the Council of State rejected three requests to suspend the dismantling on 27 October 2026. STIB can resume preparing the works; no start date for the construction work has been set.",
+            "de": "Südpalast: Der Staatsrat weist am 27.10.2026 drei Anträge auf Aussetzung des Abbruchs zurück. Die STIB kann die Vorbereitung der Arbeiten wieder aufnehmen; ein Baubeginn ist nicht festgelegt."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "added",
+        "section": "timeline",
+        "targetSlug": "reforme-agences-immobilieres-sociales-23-octobre-2026",
+        "descriptions": {
+            "fr": "Nouvel événement de la chronologie : la réforme des agences immobilières sociales. Le 23 octobre 2026, le gouvernement approuve les orientations de la réforme des 22 AIS, visée pour début 2028.",
+            "nl": "Nieuwe gebeurtenis in de chronologie: de hervorming van de sociale verhuurkantoren. Op 23 oktober 2026 keurt de regering de krijtlijnen goed van de hervorming van de 22 SVK's, beoogd voor begin 2028.",
+            "en": "New timeline event: the reform of the social rental agencies. On 23 October 2026, the government approves the outline of the reform of the 22 agencies, planned for early 2028.",
+            "de": "Neues Ereignis in der Chronologie: die Reform der sozialen Immobilienagenturen. Am 23.10.2026 billigt die Regierung die Leitlinien der Reform der 22 Agenturen, geplant für Anfang 2028."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "housing",
+        "descriptions": {
+            "fr": "Agences immobilières sociales : le gouvernement approuve le 23 octobre 2026 les orientations de leur réforme. Selon les notaires, 43,6 % des acheteurs bruxellois achètent hors de la Région en 2025.",
+            "nl": "Sociale verhuurkantoren: de regering keurt op 23 oktober 2026 de krachtlijnen van hun hervorming goed. Volgens de notarissen kocht 43,6 % van de Brusselse kopers in 2025 buiten het Gewest.",
+            "en": "Social rental agencies: the government approves the guidelines for their reform on 23 October 2026. According to notaries, 43.6% of Brussels buyers bought outside the Region in 2025.",
+            "de": "Soziale Immobilienagenturen: Die Regierung billigt am 23.10.2026 die Leitlinien ihrer Reform. Laut den Notaren kauften 43,6 % der Brüsseler Käufer 2025 außerhalb der Region."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "urban-planning",
+        "descriptions": {
+            "fr": "Siège d'Infrabel au Midi : retiré le 14 août 2026, le permis est redélivré ; les associations repartent en recours. Les terrasses horeca n'ont pas encore leur nouveau cadre au 31 octobre.",
+            "nl": "Hoofdzetel van Infrabel in de Zuidwijk: de op 14 augustus 2026 ingetrokken vergunning is opnieuw afgeleverd. De verenigingen gaan opnieuw in beroep; de horecaterrassen hebben op 31 oktober nog geen nieuw kader.",
+            "en": "Infrabel HQ in the Midi district: withdrawn on 14 August 2026, the permit is reissued; associations appeal again. Hospitality terraces do not yet have their new framework on 31 October.",
+            "de": "Infrabel-Sitz im Südbahnhofsviertel: Die am 14.08.2026 zurückgezogene Genehmigung ist neu erteilt. Die Vereinigungen klagen erneut; die Horeca-Terrassen haben zum 31.10.2026 noch keinen neuen Rahmen."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "bruxelles-ville",
+        "descriptions": {
+            "fr": "Casino : la Ville prolonge de six mois la concession de Viage, aux conditions actuelles. Selon La Libre, elle perd près de 3 millions d'euros par rapport à la future concession.",
+            "nl": "Casino: de Stad verlengt de concessie van Viage met zes maanden, tegen de huidige voorwaarden. Volgens La Libre loopt ze bijna 3 miljoen euro mis ten opzichte van de toekomstige concessie.",
+            "en": "Casino: the City extends Viage's concession by six months, on current terms. According to La Libre, it loses nearly 3 million euros compared with the future concession.",
+            "de": "Casino: Die Stadt verlängert die Konzession von Viage um sechs Monate zu den aktuellen Bedingungen. Laut La Libre entgehen ihr fast 3 Millionen Euro gegenüber der künftigen Konzession."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "cleanliness",
+        "descriptions": {
+            "fr": "Recyparks : Bruxelles-Propreté rachète le parc à conteneurs de Saint-Josse pour 700 000 euros. Le site deviendrait régional et ouvert à tous les Bruxellois ; aucune date d'ouverture n'est annoncée.",
+            "nl": "Recyparks: Net Brussel koopt het containerpark van Sint-Joost voor 700.000 euro. De site zou gewestelijk worden en open voor alle Brusselaars; er is geen openingsdatum aangekondigd.",
+            "en": "Recyparks: Bruxelles-Propreté buys the Saint-Josse container park for 700,000 euros. The site would become regional and open to all Brussels residents; no opening date has been announced.",
+            "de": "Recyparks: Bruxelles-Propreté kauft den Containerpark von Saint-Josse für 700.000 Euro. Das Gelände würde regional und für alle Brüsseler offen; ein Eröffnungsdatum ist nicht angekündigt."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "saint-josse-ten-noode",
+        "descriptions": {
+            "fr": "Saint-Josse cède son parc à conteneurs de la rue de la Cible à Bruxelles-Propreté pour 700 000 euros. Fermé en 2025, il deviendrait un recypark régional ; la tutelle doit valider la vente.",
+            "nl": "Sint-Joost staat zijn containerpark in de Doelstraat voor 700.000 euro af aan Net Brussel. Het park, gesloten in 2025, zou een gewestelijk recypark worden; het toezicht moet de verkoop goedkeuren.",
+            "en": "Saint-Josse sells its container park on rue de la Cible to Bruxelles-Propreté for 700,000 euros. Closed in 2025, it would become a regional Recypark; the supervisory authority must approve the sale.",
+            "de": "Saint-Josse tritt seinen Containerpark in der Rue de la Cible für 700.000 Euro an Bruxelles-Propreté ab. Der 2025 geschlossene Park würde ein regionaler Recypark; die Aufsicht muss den Verkauf genehmigen."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "employment",
+        "descriptions": {
+            "fr": "Statbel publie des bassins d'emploi expérimentaux : Saint-Josse et la Ville de Bruxelles en tête de la Région. Les emplois y sont comptés là où ils s'exercent, selon BX1.",
+            "nl": "Statbel publiceert experimentele werkgelegenheidsbekkens: Sint-Joost en de Stad Brussel aan kop in het Gewest. De banen worden er geteld waar ze worden uitgeoefend, volgens BX1.",
+            "en": "Statbel publishes experimental employment areas: Saint-Josse and the City of Brussels top the Region. Jobs are counted where they are carried out, according to BX1.",
+            "de": "Experimentelle Beschäftigungsgebiete von Statbel: Saint-Josse und die Stadt Brüssel führen in der Region. Die Arbeitsplätze werden dort gezählt, wo sie ausgeübt werden, laut BX1."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "social",
+        "descriptions": {
+            "fr": "Iriscare finance sept projets d'alternatives aux maisons de repos, à côté des 115 maisons de repos bruxelloises. Les subsides visent aussi le maintien à domicile des aînés.",
+            "nl": "Iriscare financiert zeven projecten met alternatieven voor rusthuizen, naast de 115 Brusselse rusthuizen. De subsidies zijn ook gericht op het thuis blijven wonen van ouderen.",
+            "en": "Iriscare funds seven projects offering alternatives to nursing homes, alongside the 115 Brussels nursing homes. The grants also aim to help older people stay at home.",
+            "de": "Iriscare finanziert sieben Projekte für Alternativen zu Pflegeheimen, neben den 115 Brüsseler Pflegeheimen. Die Zuschüsse sollen auch älteren Menschen das Wohnen zu Hause ermöglichen."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "auderghem",
+        "descriptions": {
+            "fr": "Auderghem lance un Conseil d'évaluation citoyen : 33 habitants évalueront l'action communale, selon La DH. Les candidatures sont ouvertes jusqu'au 15 novembre 2026.",
+            "nl": "Oudergem start een burgerevaluatieraad: 33 inwoners zullen het gemeentebeleid evalueren, volgens La DH. Kandidaturen kunnen tot 15 november 2026 worden ingediend.",
+            "en": "Auderghem launches a citizens' evaluation council: 33 residents will assess municipal action, according to La DH. Applications are open until 15 November 2026.",
+            "de": "Auderghem startet einen Bürgerbewertungsrat: 33 Einwohner sollen laut La DH das Handeln der Gemeinde bewerten. Bewerbungen sind bis zum 15.11.2026 möglich."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "enseignement",
+        "descriptions": {
+            "fr": "Enseignement flamand : la pénurie d'enseignants atteint environ 6 % à Bruxelles selon la Cour des comptes flamande. La moyenne du secondaire flamand est de 3,6 % en mars 2025.",
+            "nl": "Vlaams onderwijs: het lerarentekort bereikt ongeveer 6 % in Brussel, volgens het Vlaamse Rekenhof. Het gemiddelde in het Vlaamse secundair onderwijs bedraagt 3,6 % in maart 2025.",
+            "en": "Flemish education: the teacher shortage reaches around 6% in Brussels, according to the Flemish Court of Audit. The Flemish secondary average stood at 3.6% in March 2025.",
+            "de": "Flämischer Unterricht: Der Lehrkräftemangel erreicht in Brüssel laut dem flämischen Rechnungshof rund 6 %. Der Durchschnitt im flämischen Sekundarunterricht liegt im März 2025 bei 3,6 %."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "economy",
+        "descriptions": {
+            "fr": "Data center BRU01 : réceptionné fin 2025, sa première phase consommerait environ 140 GWh par an. Selon une réponse parlementaire, cela représente environ 3 % de la demande électrique bruxelloise.",
+            "nl": "Datacenter BRU01: eind 2025 opgeleverd, zou de eerste fase ongeveer 140 GWh per jaar verbruiken. Volgens een parlementair antwoord is dat ongeveer 3 % van de Brusselse elektriciteitsvraag.",
+            "en": "BRU01 data centre: handed over at the end of 2025, its first phase would consume around 140 GWh a year. According to a parliamentary answer, this represents around 3% of Brussels electricity demand.",
+            "de": "Rechenzentrum BRU01: Ende 2025 übergeben, würde die erste Phase etwa 140 GWh pro Jahr verbrauchen. Laut einer parlamentarischen Antwort entspricht das etwa 3 % des Brüsseler Strombedarfs."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "digital",
+        "descriptions": {
+            "fr": "Data center BRU01 : réceptionné en décembre 2025, il n'est pas encore en service, selon une réponse parlementaire. Sa première phase doit être raccordée au réseau à 20 MW.",
+            "nl": "Datacenter BRU01: in december 2025 opgeleverd, maar volgens een parlementair antwoord nog niet in gebruik. De eerste fase moet met 20 MW op het net worden aangesloten.",
+            "en": "BRU01 data centre: handed over in December 2025, it is not yet in service, according to a parliamentary answer. Its first phase is due to be connected to the grid at 20 MW.",
+            "de": "Rechenzentrum BRU01: im Dezember 2025 übergeben, laut einer parlamentarischen Antwort aber noch nicht in Betrieb. Die erste Phase soll mit 20 MW an das Netz angeschlossen werden."
+        }
+    },
+    {
+        "date": "2026-10-29",
+        "type": "corrected",
+        "section": "dossiers",
+        "targetSlug": "data-centers-ia-energie",
+        "descriptions": {
+            "fr": "Correction : le data center BRU01 a été réceptionné en décembre 2025 mais n'est pas encore en service. Selon une réponse parlementaire relayée par Belga le 26 octobre 2026, sa première phase consommerait environ 140 GWh par an, soit 3 % de la demande bruxelloise.",
+            "nl": "Correctie: het datacenter BRU01 werd in december 2025 opgeleverd, maar is nog niet in gebruik. Volgens een parlementair antwoord dat Belga op 26 oktober 2026 verspreidde, zou de eerste fase ongeveer 140 GWh per jaar verbruiken, ofwel 3 % van de Brusselse vraag.",
+            "en": "Correction: the BRU01 data centre was handed over in December 2025 but is not yet in service. According to a parliamentary answer reported by Belga on 26 October 2026, its first phase would consume around 140 GWh a year, or 3% of Brussels demand.",
+            "de": "Korrektur: Das Rechenzentrum BRU01 wurde im Dezember 2025 übergeben, ist aber noch nicht in Betrieb. Laut einer von Belga am 26.10.2026 verbreiteten parlamentarischen Antwort würde die erste Phase etwa 140 GWh pro Jahr verbrauchen, also 3 % des Brüsseler Bedarfs."
+        }
+    },
+    {
+        "date": "2026-10-28",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "mobility",
+        "descriptions": {
+            "fr": "Ring : la Région ne soutient pas sans conditions la fermeture de la sortie 8 à Wemmel. Une étude interrégionale est relancée en octobre 2026, confirme Bruxelles Mobilité.",
+            "nl": "Ring: het Gewest steunt de sluiting van afrit 8 in Wemmel niet zonder voorwaarden. Een intergewestelijke studie is in oktober 2026 opnieuw opgestart, bevestigt Brussel Mobiliteit.",
+            "en": "Ring: the Region does not back the closure of exit 8 at Wemmel without conditions. An interregional study was relaunched in October 2026, Brussels Mobility confirms.",
+            "de": "Ring: Die Region unterstützt die Schließung der Ausfahrt 8 bei Wemmel nicht ohne Bedingungen. Eine interregionale Studie wurde im Oktober 2026 neu gestartet, bestätigt Brüssel Mobilität."
+        }
+    },
+    {
+        "date": "2026-10-28",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "budget",
+        "descriptions": {
+            "fr": "Budget 2027 : 20 millions d'euros de dépenses nouvelles, dont cinq millions par famille politique, selon Le Soir. L'économie de 9 millions d'euros sur le précompte pour enfants est abandonnée.",
+            "nl": "Begroting 2027: 20 miljoen euro nieuwe uitgaven, waarvan vijf miljoen per politieke familie, volgens Le Soir. De besparing van 9 miljoen euro op de voorheffing voor kinderen is geschrapt.",
+            "en": "2027 budget: 20 million euros of new spending, including five million per political family, according to Le Soir. The 9 million euro saving on the property tax reduction for children is dropped.",
+            "de": "Haushalt 2027: 20 Millionen Euro neue Ausgaben, davon fünf Millionen je politische Familie, laut Le Soir. Die Einsparung von 9 Millionen Euro beim Vorabzug für Kinder entfällt."
+        }
+    },
+    {
+        "date": "2026-10-28",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "cleanliness",
+        "descriptions": {
+            "fr": "Bruxelles-Propreté : le système « fini-fini » des collectes est en évaluation, sans échéance fixée. Selon La DH, deux pistes sont étudiées, dont sa suppression contre une réduction du temps de travail.",
+            "nl": "Net Brussel: het « fini-fini »-systeem van de ophalingen wordt geëvalueerd, zonder vaste termijn. Volgens La DH liggen twee pistes op tafel, waaronder de afschaffing in ruil voor een kortere arbeidstijd.",
+            "en": "Bruxelles-Propreté: the « fini-fini » system for collections is under evaluation, with no deadline set. According to La DH, two options are being studied, including scrapping it in exchange for shorter working hours.",
+            "de": "Bruxelles-Propreté: Das « fini-fini »-System bei der Müllabfuhr wird ohne festen Termin bewertet. Laut La DH werden zwei Wege geprüft, darunter die Abschaffung gegen eine kürzere Arbeitszeit."
+        }
+    },
+    {
+        "date": "2026-10-28",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "urban-planning",
+        "descriptions": {
+            "fr": "Marais du Biestebroeck : le permis du projet The Dock, plus de 250 logements, est délivré, selon BX1. Les opposants le contestent en justice ; leur pétition dépasse 3 300 signatures.",
+            "nl": "Moeras van Biestebroeck: de vergunning voor het project The Dock, meer dan 250 woningen, is volgens BX1 afgeleverd. De tegenstanders vechten ze aan voor de rechter; hun petitie telt meer dan 3.300 handtekeningen.",
+            "en": "Biestebroeck marsh: the permit for The Dock project, more than 250 homes, has been granted, according to BX1. Opponents are challenging it in court; their petition has passed 3,300 signatures.",
+            "de": "Biestebroeck-Sumpfgebiet: Die Genehmigung für das Projekt The Dock mit mehr als 250 Wohnungen ist laut BX1 erteilt. Die Gegner fechten sie vor Gericht an; ihre Petition hat mehr als 3.300 Unterschriften."
+        }
+    },
+    {
+        "date": "2026-10-28",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "jette",
+        "descriptions": {
+            "fr": "Jette renonce à la piste cyclable séparée de l'avenue du Sacré-Cœur, selon BX1, et doit rembourser un subside. Une bande cyclable ocre la remplace. Sur le Ring, une étude interrégionale sur la fermeture de la sortie 8 à Wemmel est relancée.",
+            "nl": "Jette ziet volgens BX1 af van het afgescheiden fietspad op de Heilig-Hartlaan en moet een subsidie terugbetalen. Een okerkleurige fietsstrook komt in de plaats. Op de Ring is een intergewestelijke studie over de sluiting van afrit 8 in Wemmel opnieuw opgestart.",
+            "en": "Jette drops the separated cycle path on avenue du Sacré-Cœur, according to BX1, and must repay a subsidy. An ochre cycle lane replaces it. On the Ring, an interregional study on closing exit 8 at Wemmel has been relaunched.",
+            "de": "Jette gibt laut BX1 den getrennten Radweg in der Avenue du Sacré-Cœur auf und muss einen Zuschuss zurückzahlen. Ein ockerfarbener Radfahrstreifen ersetzt ihn. Am Ring wurde eine interregionale Studie zur Schließung der Ausfahrt 8 bei Wemmel neu gestartet."
+        }
+    },
+    {
+        "date": "2026-10-28",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "saint-josse-ten-noode",
+        "descriptions": {
+            "fr": "Saint-Josse soumet au conseil communal du 28 octobre 2026 une troisième version de ses comptes 2024. Selon BRUZZ, le déficit 2024 passe à près de 12 millions d'euros ; l'opposition annonce un vote contre.",
+            "nl": "Sint-Joost legt de gemeenteraad van 28 oktober 2026 een derde versie van zijn rekeningen 2024 voor. Volgens BRUZZ stijgt het tekort over 2024 tot bijna 12 miljoen euro; de oppositie kondigt een tegenstem aan.",
+            "en": "Saint-Josse puts a third version of its 2024 accounts to the municipal council of 28 October 2026. According to BRUZZ, the 2024 deficit rises to almost 12 million euros; the opposition will vote against.",
+            "de": "Saint-Josse legt dem Gemeinderat vom 28.10.2026 eine dritte Fassung seiner Rechnungen 2024 vor. Laut BRUZZ steigt das Defizit 2024 auf fast 12 Millionen Euro; die Opposition kündigt eine Gegenstimme an."
+        }
+    },
+    {
+        "date": "2026-10-28",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "anderlecht",
+        "descriptions": {
+            "fr": "Marais du Biestebroeck : le projet The Dock obtient son permis avec le soutien de la commune, selon BX1. Des riverains le contestent en justice.",
+            "nl": "Moeras van Biestebroeck: het project The Dock krijgt volgens BX1 zijn vergunning, met steun van de gemeente. Buurtbewoners vechten ze aan voor de rechter.",
+            "en": "Biestebroeck marsh: The Dock project gets its permit with the municipality's support, according to BX1. Local residents are challenging it in court.",
+            "de": "Biestebroeck-Sumpfgebiet: Das Projekt The Dock erhält laut BX1 seine Genehmigung, mit Unterstützung der Gemeinde. Anwohner fechten sie vor Gericht an."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "security",
+        "descriptions": {
+            "fr": "Narcotrafic : l'arrêté de police du 19 octobre 2026 interdit les trottinettes dans les 19 zones sensibles. La commissaire régionale aux drogues est désignée le 22 octobre.",
+            "nl": "Drugshandel: het politiebesluit van 19 oktober 2026 verbiedt steps in de 19 hotspots. De gewestelijke drugscommissaris is op 22 oktober aangesteld.",
+            "en": "Drug trafficking: the police order of 19 October 2026 bans scooters in the 19 sensitive zones. The regional drugs commissioner was appointed on 22 October.",
+            "de": "Drogenhandel: Die Polizeiverordnung vom 19.10.2026 verbietet E-Scooter in den 19 sensiblen Zonen. Die regionale Drogenkommissarin wurde am 22.10.2026 ernannt."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "employment",
+        "descriptions": {
+            "fr": "Actiris : la direction générale est désignée le 22 octobre 2026, au lendemain de sa feuille de route vers 70 %. Chaque nouvel inscrit sera contacté au plus tard 15 jours après son inscription.",
+            "nl": "Actiris: de algemene directie wordt op 22 oktober 2026 aangesteld, een dag na de routekaart naar 70 %. Elke nieuwe ingeschrevene wordt uiterlijk 15 dagen na de inschrijving gecontacteerd.",
+            "en": "Actiris: the general management is appointed on 22 October 2026, the day after its roadmap towards 70%. Every new registrant will be contacted no later than 15 days after registering.",
+            "de": "Actiris: Die Generaldirektion wird am 22.10.2026 ernannt, einen Tag nach dem Actiris-Fahrplan zu 70 %. Jede neu eingeschriebene Person wird spätestens 15 Tage nach der Einschreibung kontaktiert."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "housing",
+        "descriptions": {
+            "fr": "Gens du voyage : la justice condamne la Région à ouvrir au moins 60 places pour caravanes en six mois. La réduction de précompte pour enfants reste en pourcentage, selon BRUZZ.",
+            "nl": "Woonwagenbewoners: de rechter verplicht het Gewest om binnen zes maanden minstens 60 caravanplaatsen te openen. De vermindering van de onroerende voorheffing voor kinderen blijft procentueel, volgens BRUZZ.",
+            "en": "Travellers: a court orders the Region to open at least 60 caravan places within six months. The property tax reduction for children remains a percentage, according to BRUZZ.",
+            "de": "Fahrende: Die Region muss laut Urteil vom 15.10.2026 binnen sechs Monaten mindestens 60 Wohnwagenplätze öffnen. Die Ermäßigung des Immobiliensteuervorabzugs für Kinder bleibt laut BRUZZ prozentual."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "budget",
+        "descriptions": {
+            "fr": "Précompte immobilier : la réduction pour enfants reste en pourcentage, décidé le 22 octobre 2026. Selon BRUZZ, il manque 9 millions d'euros pour 2027.",
+            "nl": "Onroerende voorheffing: de vermindering voor kinderen blijft procentueel, beslist op 22 oktober 2026. Volgens BRUZZ ontbreekt 9 miljoen euro voor 2027.",
+            "en": "Property tax: the reduction for children remains a percentage, as decided on 22 October 2026. According to BRUZZ, 9 million euros are missing for 2027.",
+            "de": "Immobilienvorabzug: Die Ermäßigung für Kinder bleibt prozentual, so beschlossen am 22.10.2026. Laut BRUZZ fehlen 9 Millionen Euro für 2027."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "urban-planning",
+        "descriptions": {
+            "fr": "Plan Canal : environ 4 500 logements autorisés de 2015 à 2024 et 9 000 emplois créés, selon perspective.brussels. Le Conseil d'État annule le permis du projet Key West.",
+            "nl": "Kanaalplan: zowat 4.500 woningen vergund van 2015 tot 2024 en 9.000 banen gecreëerd, volgens perspective.brussels. De Raad van State vernietigt de vergunning van het project Key West.",
+            "en": "Canal Plan: about 4,500 homes authorised from 2015 to 2024 and 9,000 jobs created, says perspective.brussels. The Council of State annuls the permit for the Key West project.",
+            "de": "Kanalplan: rund 4.500 Wohnungen 2015-2024 genehmigt und 9.000 Arbeitsplätze geschaffen, laut perspective.brussels. Der Staatsrat hebt die Genehmigung des Projekts Key West auf."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "mobility",
+        "descriptions": {
+            "fr": "Tram : 889 accidents en 2025 contre 1 196 en 2023, soit environ un quart de moins, selon la STIB. Cela fait encore plus de deux accidents par jour.",
+            "nl": "Tram: 889 ongevallen in 2025 tegenover 1.196 in 2023, of ongeveer een kwart minder, volgens de MIVB. Dat zijn nog altijd meer dan twee ongevallen per dag.",
+            "en": "Trams: 889 accidents in 2025 against 1,196 in 2023, about a quarter fewer, according to STIB. That is still more than two accidents a day.",
+            "de": "Straßenbahn: 889 Unfälle im Jahr 2025 gegenüber 1.196 im Jahr 2023, rund ein Viertel weniger, laut STIB. Das sind immer noch mehr als zwei Unfälle pro Tag."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "economy",
+        "descriptions": {
+            "fr": "Entreprises : en 2025, 1 687 ont quitté Bruxelles pour la Flandre, 1 263 ont fait l'inverse (Statbel). Le solde est aussi négatif avec la Wallonie.",
+            "nl": "Bedrijven: in 2025 verhuisden er 1.687 van Brussel naar Vlaanderen, 1.263 deden het omgekeerde (Statbel). Ook met Wallonië is het saldo negatief.",
+            "en": "Businesses: in 2025, 1,687 left Brussels for Flanders and 1,263 moved the other way (Statbel). The balance with Wallonia is also negative.",
+            "de": "Unternehmen: 2025 zogen 1.687 von Brüssel nach Flandern, 1.263 gingen den umgekehrten Weg (Statbel). Auch mit der Wallonie ist der Saldo negativ."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "institutional",
+        "descriptions": {
+            "fr": "Gouvernement : le conseil des ministres du 22 octobre 2026 tranche la plupart de ses 80 points, selon La Libre. Les directions d'Actiris et du commissariat aux drogues sont désignées.",
+            "nl": "Regering: de ministerraad van 22 oktober 2026 beslist over de meeste van zijn 80 punten, volgens La Libre. De leiding van Actiris en van het drugscommissariaat is aangesteld.",
+            "en": "Government: the Council of Ministers of 22 October 2026 settles most of its 80 items, according to La Libre. The heads of Actiris and of the drugs commissioner's office are appointed.",
+            "de": "Regierung: Der Ministerrat vom 22.10.2026 entscheidet laut La Libre über die meisten seiner 80 Punkte. Die Leitungen von Actiris und des Drogenkommissariats sind ernannt."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "education",
+        "descriptions": {
+            "fr": "Décrochage scolaire : la Cocof lance « Parcours + », un appel à projets d'un million d'euros par an. Les associations ont jusqu'au 18 novembre 2026 pour postuler.",
+            "nl": "Schooluitval: de Cocof lanceert “Parcours +”, een projectoproep van een miljoen euro per jaar. Verenigingen kunnen zich tot 18 november 2026 kandidaat stellen.",
+            "en": "School dropout: the Cocof launches “Parcours +”, a call for projects worth one million euros a year. Associations have until 18 November 2026 to apply.",
+            "de": "Schulabbruch: Die Cocof startet „Parcours +“, einen Projektaufruf über eine Million Euro pro Jahr. Vereinigungen können sich bis zum 18. November 2026 bewerben."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "accessibilite-pmr",
+        "descriptions": {
+            "fr": "Minibus PMR de la STIB : la pétition contre leur suppression est entendue en commission, selon BX1. Leur maintien coûterait moins de 0,1 % du budget régional, disent-ils.",
+            "nl": "PBM-minibussen van de MIVB: de petitie tegen hun afschaffing wordt in de commissie gehoord, volgens BX1. Hun behoud zou minder dan 0,1 % van de gewestbegroting kosten, zeggen de indieners.",
+            "en": "STIB PRM minibuses: the petition against their withdrawal is heard in committee, according to BX1. Keeping them would cost less than 0.1% of the regional budget, the petitioners say.",
+            "de": "PRM-Minibusse der STIB: Die Petition gegen ihre Abschaffung wird laut BX1 im Ausschuss angehört. Ihr Erhalt würde weniger als 0,1 % des Regionalhaushalts kosten, sagen die Petenten."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "schaerbeek",
+        "descriptions": {
+            "fr": "Carré des Chardons : la Région délivre le permis malgré l'avis défavorable de la commune, selon BX1. Le projet prévoit 35 logements et l'abattage de 50 arbres.",
+            "nl": "Carré des Chardons: het Gewest levert de vergunning af ondanks het ongunstige advies van de gemeente, volgens BX1. Het project voorziet 35 woningen en de kap van 50 bomen.",
+            "en": "Carré des Chardons: the Region grants the permit despite the municipality's negative opinion, says BX1. The project provides for 35 homes and the felling of 50 trees.",
+            "de": "Carré des Chardons: Die Region erteilt die Genehmigung trotz der ablehnenden Stellungnahme der Gemeinde, laut BX1. Das Projekt sieht 35 Wohnungen und das Fällen von 50 Bäumen vor."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "anderlecht",
+        "descriptions": {
+            "fr": "Bassin de Biestebroeck : le Conseil d'État annule le permis du projet Key West, rebaptisé A'Rive. Selon Inter-Environnement Bruxelles, le motif tient aux lois sur l'emploi des langues.",
+            "nl": "Biestebroekdok: de Raad van State vernietigt de vergunning van het project Key West, omgedoopt tot A'Rive. Volgens Inter-Environnement Bruxelles gaat het om de taalwetgeving.",
+            "en": "Biestebroeck dock: the Council of State annuls the permit for the Key West project, renamed A'Rive. According to Inter-Environnement Bruxelles, the ground is the language legislation.",
+            "de": "Biestebroeck-Becken: Der Staatsrat hebt die Genehmigung des in A'Rive umbenannten Projekts Key West auf. Laut Inter-Environnement Bruxelles geht es um die Sprachengesetzgebung."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "bruxelles-ville",
+        "descriptions": {
+            "fr": "PPAS Grand-Place : enquête publique du 6 novembre au 5 décembre 2026, réunion d'information le 9 novembre. La réunion se tient à l'Hôtel de Ville.",
+            "nl": "BBP Grote Markt: openbaar onderzoek van 6 november tot 5 december 2026, informatievergadering op 9 november. De vergadering vindt plaats in het stadhuis.",
+            "en": "Grand-Place land-use plan: public inquiry from 6 November to 5 December 2026, information meeting on 9 November. The meeting takes place at the City Hall.",
+            "de": "Sonderbebauungsplan Grand-Place: öffentliche Untersuchung vom 06.11.2026 bis 05.12.2026. Infoabend am 09.11.2026 im Rathaus."
+        }
+    },
+    {
+        "date": "2026-10-26",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "uccle",
+        "descriptions": {
+            "fr": "Rue Beeckman : le Samusocial déposera sa demande de permis début novembre 2026 au plus tard, selon BX1. La dispense temporaire expire le 4 mars 2027.",
+            "nl": "Beeckmanstraat: Samusocial dient zijn vergunningsaanvraag uiterlijk begin november 2026 in, volgens BX1. De tijdelijke vrijstelling loopt af op 4 maart 2027.",
+            "en": "Rue Beeckman: the Samusocial will file its permit application by early November 2026 at the latest, says BX1. The temporary exemption expires on 4 March 2027.",
+            "de": "Beeckmanstraße: Der Samusocial reicht seinen Genehmigungsantrag spätestens Anfang November 2026 ein, laut BX1. Die befristete Befreiung läuft am 4. März 2027 ab."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "economy",
+        "descriptions": {
+            "fr": "Économie : le gouvernement bruxellois adopte le 15 octobre 2026 le plan Oxygen Brussels, 22 mesures pour les PME en quatre priorités. Premières mesures : hub.info avec un agent d'intelligence artificielle et un guichet pour trouver un local ; aucun budget annoncé.",
+            "nl": "Economie: de Brusselse regering keurt op 15 oktober 2026 het plan Oxygen Brussels goed, 22 maatregelen voor kmo's rond vier prioriteiten. Eerste maatregelen: hub.info met een AI-agent en een loket om een pand te vinden; geen budget aangekondigd.",
+            "en": "Economy: on 15 October 2026 the Brussels government adopts the Oxygen Brussels plan, 22 measures for SMEs under four priorities. First measures: hub.info with an AI agent and a one-stop shop to find premises; no budget announced.",
+            "de": "Wirtschaft: Die Brüsseler Regierung verabschiedet am 15.10.2026 den Plan Oxygen Brussels mit 22 Maßnahmen für KMU in vier Schwerpunkten. Erste Maßnahmen: hub.info mit einem KI-Agenten und eine Anlaufstelle für die Suche nach Räumlichkeiten; kein Budget angekündigt."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "urban-planning",
+        "descriptions": {
+            "fr": "Urbanisme : la commission de concertation rend le 15 octobre 2026 un avis défavorable sur le permis de lotir de la friche Josaphat ; Schaerbeek a voté contre, trois membres se sont abstenus. L'avis est consultatif, la Région décide.",
+            "nl": "Stedenbouw: de overlegcommissie geeft op 15 oktober 2026 een ongunstig advies over de verkavelingsvergunning voor de Josaphatsite; Schaarbeek stemde tegen, drie leden onthielden zich. Het advies is niet bindend, het Gewest beslist.",
+            "en": "Urban planning: on 15 October 2026 the consultation committee issues an unfavourable opinion on the subdivision permit for the Josaphat site; Schaerbeek voted against and three members abstained. The opinion is advisory; the Region decides.",
+            "de": "Städtebau: Der Konzertierungsausschuss gibt am 15.10.2026 ein ablehnendes Gutachten zur Parzellierungsgenehmigung für das Josaphat-Gelände ab; Schaerbeek stimmte dagegen, drei Mitglieder enthielten sich. Das Gutachten ist beratend, die Region entscheidet."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "schaerbeek",
+        "descriptions": {
+            "fr": "Schaerbeek : la commission de concertation suit la commune et rend le 15 octobre 2026 un avis défavorable sur la friche Josaphat ; la Région délivre ou non le permis.",
+            "nl": "Schaarbeek: de overlegcommissie volgt de gemeente en geeft op 15 oktober 2026 een ongunstig advies over de Josaphatsite; het Gewest beslist over de vergunning.",
+            "en": "Schaerbeek: the consultation committee follows the municipality and issues an unfavourable opinion on the Josaphat site on 15 October 2026; the Region decides on the permit.",
+            "de": "Schaerbeek: Der Konzertierungsausschuss folgt der Gemeinde und gibt am 15.10.2026 ein ablehnendes Gutachten zum Josaphat-Gelände ab; die Region entscheidet über die Genehmigung."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "faillites-a-bruxelles",
+        "descriptions": {
+            "fr": "Faillites à Bruxelles : le plan Oxygen pour les PME, encore à l'étude en juin 2026, est adopté par le gouvernement le 15 octobre 2026 avec 22 mesures.",
+            "nl": "Faillissementen in Brussel: het kmo-plan Oxygen, in juni 2026 nog in studie, wordt op 15 oktober 2026 door de regering goedgekeurd met 22 maatregelen.",
+            "en": "Bankruptcies in Brussels: the Oxygen plan for SMEs, still under study in June 2026, is adopted by the government on 15 October 2026 with 22 measures.",
+            "de": "Konkurse in Brüssel: Der KMU-Plan Oxygen, im Juni 2026 noch in Prüfung, wird am 15.10.2026 von der Regierung mit 22 Maßnahmen verabschiedet."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "auderghem",
+        "descriptions": {
+            "fr": "Auderghem : Bruxelles Mobilité rénove la station de métro Herrmann-Debroux pour 3 millions d'euros ; les travaux se termineront fin 2027.",
+            "nl": "Oudergem: Brussel Mobiliteit renoveert het metrostation Herrmann-Debroux voor 3 miljoen euro; de werken lopen tot eind 2027.",
+            "en": "Auderghem: Brussels Mobility is renovating Herrmann-Debroux metro station for 3 million euros; works will end in late 2027.",
+            "de": "Auderghem: Brüssel Mobilität renoviert die Metrostation Herrmann-Debroux für 3 Millionen Euro; die Arbeiten enden Ende 2027."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "anderlecht",
+        "descriptions": {
+            "fr": "Anderlecht : le conseil communal approuve le 15 octobre 2026 le regroupement des Hôpitaux Universitaires de Bruxelles ; le PTB et Team Fouad Ahidar s'abstiennent.",
+            "nl": "Anderlecht: de gemeenteraad keurt op 15 oktober 2026 de hergroepering van de Hôpitaux Universitaires de Bruxelles goed; PVDA en Team Fouad Ahidar onthouden zich.",
+            "en": "Anderlecht: the municipal council approves the Hôpitaux Universitaires de Bruxelles merger on 15 October 2026; the PTB and Team Fouad Ahidar abstain.",
+            "de": "Anderlecht: Der Gemeinderat billigt am 15.10.2026 den Zusammenschluss der Hôpitaux Universitaires de Bruxelles; PTB und Team Fouad Ahidar enthalten sich."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "ixelles",
+        "descriptions": {
+            "fr": "Ixelles : le conseil communal approuve à l'unanimité le regroupement hospitalier le 15 octobre 2026 ; seule l'ULB doit encore se prononcer.",
+            "nl": "Elsene: de gemeenteraad keurt de ziekenhuishergroepering op 15 oktober 2026 unaniem goed; enkel de ULB moet zich nog uitspreken.",
+            "en": "Ixelles: the municipal council unanimously approves the hospital merger on 15 October 2026; only the ULB has yet to decide.",
+            "de": "Ixelles: Der Gemeinderat billigt den Krankenhauszusammenschluss am 15.10.2026 einstimmig; nur die ULB muss noch entscheiden."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "saint-gilles",
+        "descriptions": {
+            "fr": "Saint-Gilles : vote unanime du conseil communal pour le regroupement de cinq hôpitaux publics bruxellois, le 15 octobre 2026.",
+            "nl": "Sint-Gillis: unanieme stemming van de gemeenteraad voor de hergroepering van vijf Brusselse openbare ziekenhuizen, op 15 oktober 2026.",
+            "en": "Saint-Gilles: unanimous council vote for the merger of five Brussels public hospitals, on 15 October 2026.",
+            "de": "Saint-Gilles: Einstimmiges Votum des Gemeinderats für den Zusammenschluss von fünf öffentlichen Brüsseler Krankenhäusern am 15.10.2026."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "bruxelles-ville",
+        "descriptions": {
+            "fr": "Bruxelles-Ville : Anderlecht, Ixelles et Saint-Gilles approuvent à leur tour le regroupement hospitalier le 15 octobre 2026 ; seule l'ULB doit encore se prononcer.",
+            "nl": "Brussel-Stad: ook Anderlecht, Elsene en Sint-Gillis keuren de ziekenhuishergroepering op 15 oktober 2026 goed; enkel de ULB moet zich nog uitspreken.",
+            "en": "City of Brussels: Anderlecht, Ixelles and Saint-Gilles also approve the hospital merger on 15 October 2026; only the ULB has yet to decide.",
+            "de": "Stadt Brüssel: Auch Anderlecht, Ixelles und Saint-Gilles billigen den Krankenhauszusammenschluss am 15.10.2026; nur die ULB muss noch entscheiden."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "etterbeek",
+        "descriptions": {
+            "fr": "Etterbeek : après la commune, Anderlecht, Ixelles et Saint-Gilles approuvent le regroupement hospitalier le 15 octobre 2026 ; reste le vote de l'ULB.",
+            "nl": "Etterbeek: na de gemeente keuren Anderlecht, Elsene en Sint-Gillis de ziekenhuishergroepering op 15 oktober 2026 goed; de stemming van de ULB volgt nog.",
+            "en": "Etterbeek: after the municipality, Anderlecht, Ixelles and Saint-Gilles approve the hospital merger on 15 October 2026; the ULB vote remains.",
+            "de": "Etterbeek: Nach der Gemeinde billigen Anderlecht, Ixelles und Saint-Gilles den Krankenhauszusammenschluss am 15.10.2026; das Votum der ULB steht noch aus."
+        }
+    },
+    {
+        "date": "2026-10-16",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "slrb",
+        "descriptions": {
+            "fr": "SLRB : en commission le 15 octobre 2026, la secrétaire d'État au Logement affirme que les 131 millions seront versés, selon BX1 et BRUZZ ; aucune décision du gouvernement n'est rapportée.",
+            "nl": "BGHM: in de commissie op 15 oktober 2026 zegt de staatssecretaris voor Huisvesting dat de 131 miljoen gestort wordt, volgens BX1 en BRUZZ; er wordt geen regeringsbeslissing gemeld.",
+            "en": "SLRB: in committee on 15 October 2026, the housing state secretary says the 131 million will be paid, according to BX1 and BRUZZ; no government decision is reported.",
+            "de": "SLRB: Im Ausschuss erklärt die Staatssekretärin für Wohnungswesen am 15.10.2026 laut BX1 und BRUZZ, die 131 Millionen würden gezahlt; ein Regierungsbeschluss wird nicht gemeldet."
+        }
+    },
+    {
+        "date": "2026-10-15",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "security",
+        "descriptions": {
+            "fr": "Sécurité : selon Belga, le recrutement du commissaire régional à la sécurité et aux drogues court toujours, entrée en fonction annoncée pour l'automne 2026 ; le procureur général de Bruxelles juge le poste inutile. Urban Shield : faits criminels en baisse de 16,8 % dans le métro et de 7,1 % dans les gares depuis avril, selon le ministre fédéral de la Défense.",
+            "nl": "Veiligheid: volgens Belga loopt de aanwerving van de gewestelijke commissaris voor veiligheid en drugs nog, indiensttreding aangekondigd voor het najaar van 2026; de procureur-generaal van Brussel vindt de functie overbodig. Urban Shield: criminele feiten met 16,8 % gedaald in de metro en met 7,1 % in de stations sinds april, volgens de federale minister van Defensie.",
+            "en": "Security: according to Belga, recruitment of the regional commissioner for security and drugs is still under way, with the start announced for autumn 2026; the Brussels prosecutor general calls the post unnecessary. Urban Shield: criminal offences down 16.8% in the metro and 7.1% in stations since April, according to the federal defence minister.",
+            "de": "Sicherheit: Laut Belga läuft die Anwerbung des regionalen Kommissars für Sicherheit und Drogen weiter, Amtsantritt für Herbst 2026 angekündigt; der Generalprokurator von Brüssel hält das Amt für überflüssig. Urban Shield: Straftaten seit April in der Metro um 16,8 % und in den Bahnhöfen um 7,1 % gesunken, laut dem föderalen Verteidigungsminister."
+        }
+    },
+    {
+        "date": "2026-10-15",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "urban-planning",
+        "descriptions": {
+            "fr": "Urbanisme : la réforme de l'arrêté de minime importance, qui encadre les boîtiers fibre en façade, a été soumise au Conseil d'État ; les câbles seraient exclus des règles de couleur et de volume, sans date d'entrée en vigueur (La DH, BRUZZ).",
+            "nl": "Stedenbouw: de hervorming van het besluit over werken van geringe omvang, dat de glasvezelkastjes op gevels regelt, werd voorgelegd aan de Raad van State; kabels zouden buiten de regels voor kleur en volume vallen, zonder datum van inwerkingtreding (La DH, BRUZZ).",
+            "en": "Urban planning: the reform of the minor-works order, which governs fibre boxes on façades, has been submitted to the Council of State; cables would be exempt from the colour and volume rules, with no entry-into-force date (La DH, BRUZZ).",
+            "de": "Städtebau: Die Reform des Erlasses über geringfügige Arbeiten, der die Glasfaserkästen an Fassaden regelt, wurde dem Staatsrat vorgelegt; Kabel wären von den Regeln zu Farbe und Volumen ausgenommen, ohne Datum des Inkrafttretens (La DH, BRUZZ)."
+        }
+    },
+    {
+        "date": "2026-10-15",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "budget",
+        "descriptions": {
+            "fr": "Budget : selon BRUZZ, le ministre bruxellois des Finances a redit au Parlement le 12 octobre 2026 que la taxe sur les jeux en ligne resterait à 11 %, alors que la Flandre et la Wallonie passent à 15 % ; un opérateur wallon a déplacé son serveur à Bruxelles.",
+            "nl": "Begroting: volgens BRUZZ herhaalde de Brusselse minister van Financiën op 12 oktober 2026 in het Parlement dat de belasting op online gokken op 11 % blijft, terwijl Vlaanderen en Wallonië naar 15 % gaan; een Waalse operator verhuisde zijn server naar Brussel.",
+            "en": "Budget: according to BRUZZ, the Brussels finance minister reiterated in Parliament on 12 October 2026 that the online gambling tax will stay at 11%, while Flanders and Wallonia move to 15%; a Walloon operator has moved its server to Brussels.",
+            "de": "Haushalt: Laut BRUZZ bekräftigte der Brüsseler Finanzminister am 12.10.2026 im Parlament, dass die Steuer auf Online-Glücksspiele bei 11 % bleibt, während Flandern und die Wallonie auf 15 % gehen; ein wallonischer Anbieter hat seinen Server nach Brüssel verlegt."
+        }
+    },
+    {
+        "date": "2026-10-15",
+        "type": "updated",
+        "section": "dossiers",
+        "targetSlug": "slrb",
+        "descriptions": {
+            "fr": "SLRB : selon La Libre, une proposition de réforme du logement social est annoncée pour le 1er novembre 2026 ; le blocage sur les 131 millions d'euros persiste et le MR lie son vote du budget 2027 au départ du président du Foyer anderlechtois.",
+            "nl": "BGHM: volgens La Libre is een voorstel tot hervorming van de sociale huisvesting aangekondigd voor 1 november 2026; de blokkering van de 131 miljoen euro duurt voort en de MR koppelt haar stem over de begroting 2027 aan het vertrek van de voorzitter van de Anderlechtse Haard.",
+            "en": "SLRB: according to La Libre, a proposal to reform social housing is announced for 1 November 2026; the deadlock over the EUR 131 million continues and the MR ties its vote on the 2027 budget to the departure of the Foyer anderlechtois chair.",
+            "de": "SLRB: Laut La Libre ist ein Reformvorschlag für den Sozialwohnungsbau zum 1. November 2026 angekündigt; die Blockade der 131 Millionen Euro hält an, und der MR knüpft seine Stimme zum Haushalt 2027 an den Rücktritt des Vorsitzenden des Foyer anderlechtois."
+        }
+    },
+    {
+        "date": "2026-10-14",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "social",
+        "descriptions": {
+            "fr": "Social : selon BRUZZ, le Hub humanitaire doit quitter son bâtiment de l'avenue du Port d'ici septembre 2027 ; une demande de permis y prévoit un campus d'entraînement pour Safe.brussels, à l'enquête publique jusqu'au 29 octobre 2026. Revenu d'intégration : 56 497 bénéficiaires à Bruxelles en mai 2026 (SPP Intégration sociale) ; 31 273 chômeurs complets indemnisés en août 2026 (ONEM).",
+            "nl": "Sociaal: volgens BRUZZ moet de Humanitaire Hub zijn gebouw aan de Havenlaan tegen september 2027 verlaten; een vergunningsaanvraag voorziet er een trainingscampus voor Safe.brussels, in openbaar onderzoek tot 29 oktober 2026. Leefloon: 56 497 gerechtigden in Brussel in mei 2026 (POD Maatschappelijke Integratie); 31 273 uitkeringsgerechtigde volledig werklozen in augustus 2026 (RVA).",
+            "en": "Social: according to BRUZZ, the Humanitarian Hub must leave its building on Avenue du Port by September 2027; a permit application plans a training campus for Safe.brussels there, under public inquiry until 29 October 2026. Integration income: 56,497 recipients in Brussels in May 2026 (FPS Social Integration); 31,273 fully unemployed people receiving benefits in August 2026 (ONEM/RVA).",
+            "de": "Soziales: Laut BRUZZ muss der Humanitäre Hub sein Gebäude in der Avenue du Port bis September 2027 räumen; ein Bauantrag sieht dort einen Trainingscampus für Safe.brussels vor, öffentliche Untersuchung bis 29.10.2026. Eingliederungseinkommen: 56.497 Bezieher in Brüssel im Mai 2026 (ÖPD Sozialeingliederung); 31.273 entschädigte Vollarbeitslose im August 2026 (ONEM/RVA)."
+        }
+    },
+    {
+        "date": "2026-10-14",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "budget",
+        "descriptions": {
+            "fr": "Budget : une étude du CERPE (UNamur, septembre 2026), faite sur le budget 2026 initial et antérieure à l'accord du 4 octobre, projette un déficit SEC consolidé de 512 millions d'euros en 2029 et une dette brute de 21,4 milliards. Rappel : opinion défavorable de la Cour des comptes sur le compte général 2024.",
+            "nl": "Begroting: een studie van het CERPE (UNamur, september 2026), gebaseerd op de initiële begroting 2026 en van vóór het akkoord van 4 oktober, raamt een geconsolideerd ESR-tekort van 512 miljoen euro in 2029 en een brutoschuld van 21,4 miljard. Ter herinnering: afkeurend oordeel van het Rekenhof over de algemene rekening 2024.",
+            "en": "Budget: a CERPE study (UNamur, September 2026), based on the initial 2026 budget and predating the 4 October agreement, projects a consolidated ESA deficit of 512 million euros in 2029 and gross debt of 21.4 billion. Reminder: adverse opinion of the Court of Audit on the 2024 general account.",
+            "de": "Haushalt: Eine Studie des CERPE (UNamur, September 2026) auf Basis des ursprünglichen Haushalts 2026, vor der Einigung vom 04.10.2026, rechnet für 2029 mit einem konsolidierten ESVG-Defizit von 512 Millionen Euro und einer Bruttoverschuldung von 21,4 Milliarden. Zur Erinnerung: negatives Prüfungsurteil des Rechnungshofs zur Gesamtrechnung 2024."
+        }
+    },
+    {
+        "date": "2026-10-14",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "security",
+        "descriptions": {
+            "fr": "Sécurité : une demande de permis prévoit un campus d'entraînement pour Safe.brussels avenue du Port 94 (4 067 m²), à l'enquête publique jusqu'au 29 octobre 2026. Hommage au policier tué à Jette : registre de condoléances à l'Hôtel de Ville du 14 au 16 octobre, rassemblement le vendredi 16 octobre à 11 h au parc du Cinquantenaire selon La DH et La Libre.",
+            "nl": "Veiligheid: een vergunningsaanvraag voorziet een trainingscampus voor Safe.brussels aan de Havenlaan 94 (4 067 m²), in openbaar onderzoek tot 29 oktober 2026. Eerbetoon aan de in Jette gedode agent: condoleanceregister in het stadhuis van 14 tot 16 oktober, samenkomst op vrijdag 16 oktober om 11 uur in het Jubelpark volgens La DH en La Libre.",
+            "en": "Security: a permit application plans a training campus for Safe.brussels at Avenue du Port 94 (4,067 m²), under public inquiry until 29 October 2026. Tribute to the police officer killed in Jette: book of condolence at the City Hall from 14 to 16 October, gathering on Friday 16 October at 11 am in Cinquantenaire Park according to La DH and La Libre.",
+            "de": "Sicherheit: Ein Bauantrag sieht einen Trainingscampus für Safe.brussels in der Avenue du Port 94 (4.067 m²) vor, öffentliche Untersuchung bis 29.10.2026. Gedenken an den in Jette getöteten Polizisten: Kondolenzbuch im Rathaus vom 14. bis 16. Oktober, Versammlung am Freitag, 16. Oktober, um 11 Uhr im Jubelpark laut La DH und La Libre."
+        }
+    },
+    {
+        "date": "2026-10-14",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "molenbeek-saint-jean",
+        "descriptions": {
+            "fr": "Molenbeek-Saint-Jean : Synova, CNE et SETCa déposent le mardi 13 octobre 2026 un préavis de grève à la Mission locale et à Molenbeek Formation contre une restructuration ; sept licenciements annoncés, dont quatre notifiés selon la CNE. La direction invoque la perte de subsides structurels.",
+            "nl": "Sint-Jans-Molenbeek: Synova, CNE en SETCa dienen op dinsdag 13 oktober 2026 een stakingsaanzegging in bij de Mission Locale en Molenbeek Formation tegen een herstructurering; zeven ontslagen aangekondigd, waarvan vier betekend volgens de CNE. De directie wijst op het verlies van structurele subsidies.",
+            "en": "Molenbeek-Saint-Jean: Synova, CNE and SETCa file a strike notice on Tuesday 13 October 2026 at the Mission Locale and Molenbeek Formation against a restructuring; seven dismissals announced, four of them notified according to the CNE. Management cites the loss of structural subsidies.",
+            "de": "Molenbeek-Saint-Jean: Synova, CNE und SETCa reichen am Dienstag, 13.10.2026, eine Streikankündigung bei der Mission Locale und Molenbeek Formation gegen eine Umstrukturierung ein; sieben Entlassungen angekündigt, davon vier laut CNE zugestellt. Die Leitung verweist auf den Verlust struktureller Zuschüsse."
+        }
+    },
+    {
+        "date": "2026-10-13",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "saint-josse-ten-noode",
+        "descriptions": {
+            "fr": "Saint-Josse : le bourgmestre annonce une mise en demeure de la Région pour faire arrêter la tutelle coercitive, selon BRUZZ. La commune dit avoir saisi le Conseil d'État contre le refus d'approuver ses comptes 2024 et affirme que son budget 2026 est prêt depuis février. Trois points restent à régulariser : comptes 2024, budget 2026, receveur.",
+            "nl": "Sint-Joost: de burgemeester kondigt een ingebrekestelling van het Gewest aan om het dwangtoezicht te laten stopzetten, volgens BRUZZ. De gemeente zegt beroep te hebben ingesteld bij de Raad van State tegen de weigering om haar rekeningen 2024 goed te keuren en stelt dat haar begroting 2026 sinds februari klaar is. Drie punten moeten nog worden geregulariseerd: rekeningen 2024, begroting 2026, ontvanger.",
+            "en": "Saint-Josse: the mayor announces a formal notice to the Region to have coercive supervision stopped, BRUZZ reports. The municipality says it has appealed to the Council of State against the refusal to approve its 2024 accounts and states that its 2026 budget has been ready since February. Three points remain to be regularised: 2024 accounts, 2026 budget, municipal treasurer.",
+            "de": "Saint-Josse: Der Bürgermeister kündigt laut BRUZZ (13.10.2026) eine Inverzugsetzung der Region an, um die Zwangsaufsicht zu stoppen. Die Gemeinde hat nach eigenen Angaben den Staatsrat gegen die Weigerung angerufen, ihre Konten 2024 zu genehmigen, und erklärt, ihr Haushalt 2026 liege seit Februar vor. Drei Punkte sind noch zu regularisieren: Konten 2024, Haushalt 2026, Einnehmer."
+        }
+    },
+    {
         "date": "2026-10-13",
         "type": "updated",
         "section": "communes",
@@ -3461,10 +4445,10 @@
         "section": "domains",
         "targetSlug": "urban-planning",
         "descriptions": {
-            "fr": "Enquête publique sur le permis de lotir de la friche Josaphat du 28 août au 29 septembre 2026, pour 537 logements sur environ 24 hectares. La demande émane de la SAU, opérateur public de la Région, alors que la déclaration de politique régionale gèle le développement du site jusqu'en août 2027. Un jugement de novembre 2025 impose par ailleurs un arrêt des chantiers sur les parcelles de plus d'un demi-hectare ; le gouvernement a fait appel.",
-            "nl": "Openbaar onderzoek over de verkavelingsvergunning van de Josaphat-site van 28 augustus tot 29 september 2026, voor 537 woningen op ongeveer 24 hectare. De aanvraag komt van de SAU, de publieke operator van het Gewest, terwijl de gewestelijke beleidsverklaring de ontwikkeling van de site bevriest tot augustus 2027. Een vonnis van november 2025 legt bovendien een bouwstop op voor percelen van meer dan een halve hectare; de regering ging in beroep.",
-            "en": "Public enquiry on the Josaphat subdivision permit from 28 August to 29 September 2026, for 537 homes on about 24 hectares. The application comes from the SAU, the Region's public operator, while the regional policy declaration freezes development of the site until August 2027. A judgment of November 2025 also halts works on plots larger than half a hectare; the government has appealed.",
-            "de": "Öffentliche Untersuchung zur Parzellierungsgenehmigung der Josaphat-Brache vom 28. August bis 29. September 2026, für 537 Wohnungen auf etwa 24 Hektar. Der Antrag stammt von der SAU, dem öffentlichen Operator der Region, während die regionale Politikerklärung die Entwicklung des Geländes bis August 2027 einfriert. Ein Urteil vom November 2025 verhängt zudem einen Baustopp für Parzellen über einem halben Hektar; die Regierung legte Berufung ein."
+            "fr": "Enquête publique sur le permis de lotir de la friche Josaphat du 28 août au 29 septembre 2026, pour 537 logements sur environ 24 hectares. La demande émane d'Eiffage, pour le consortium Eiffage-AXA sélectionné par la SAU, opérateur public de la Région, alors que la déclaration de politique régionale gèle le développement du site durant les dix-huit premiers mois des réformes du RRU et du PRAS. Un jugement de novembre 2025 impose par ailleurs un arrêt des chantiers sur les parcelles de plus d'un demi-hectare ; le gouvernement a fait appel.",
+            "nl": "Openbaar onderzoek over de verkavelingsvergunning van de Josaphat-site van 28 augustus tot 29 september 2026, voor 537 woningen op ongeveer 24 hectare. De aanvraag komt van Eiffage, voor het consortium Eiffage-AXA dat de MSI, de publieke operator van het Gewest, heeft geselecteerd, terwijl de gewestelijke beleidsverklaring de ontwikkeling van de site bevriest tijdens de eerste achttien maanden van de hervormingen van de GSV en het GBP. Een vonnis van november 2025 legt bovendien een bouwstop op voor percelen van meer dan een halve hectare; de regering ging in beroep.",
+            "en": "Public enquiry on the Josaphat subdivision permit from 28 August to 29 September 2026, for 537 homes on about 24 hectares. The application comes from Eiffage, for the Eiffage-AXA consortium selected by the SAU, the Region's public operator, while the regional policy declaration freezes development of the site for the first eighteen months of the RRU and PRAS reforms. A judgment of November 2025 also halts works on plots larger than half a hectare; the government has appealed.",
+            "de": "Öffentliche Untersuchung zur Parzellierungsgenehmigung der Josaphat-Brache vom 28. August bis 29. September 2026, für 537 Wohnungen auf etwa 24 Hektar. Der Antrag stammt von Eiffage, für das von der SAU, dem öffentlichen Operator der Region, ausgewählte Konsortium Eiffage-AXA, während die regionale Politikerklärung die Entwicklung des Geländes während der ersten achtzehn Monate der Reformen von RRU und PRAS einfriert. Ein Urteil vom November 2025 verhängt zudem einen Baustopp für Parzellen über einem halben Hektar; die Regierung legte Berufung ein."
         }
     },
     {

@@ -117,10 +117,12 @@ export function QuizReviewList({
           role="status"
           className="mt-6 rounded-lg border border-status-delayed bg-neutral-50 p-4 text-sm text-neutral-800"
         >
-          Une session de relecture est déjà ouverte —{' '}
-          {openPrs.map((p) => `PR #${p.number}`).join(', ')}. Fusionnez-la avant d’en
-          commencer une autre : deux sessions parallèles réécrivent le même fichier
-          d’état et la seconde fusion casserait.
+          Relecture enregistrée dans la{' '}
+          {openPrs.map((p) => `PR #${p.number}`).join(', ')}, en attente de fusion.
+          Elle comptera une fois fusionnée : d’ici là, cette page lit la branche
+          main et montre encore ces questions comme à relire. Aucune nouvelle
+          session avant la fusion : deux sessions parallèles réécrivent le même
+          fichier d’état et la seconde fusion casserait.
         </div>
       )}
 
@@ -229,7 +231,7 @@ export function QuizReviewList({
                             setRemoving(null);
                             setNote('');
                           }}
-                          className="rounded bg-neutral-900 px-3 py-1.5 text-sm text-white"
+                          className="rounded bg-neutral-900 px-3 py-1.5 text-sm text-neutral-50"
                         >
                           Confirmer le retrait
                         </button>
@@ -290,7 +292,7 @@ export function QuizReviewList({
 
       {mounted && taken.length > 0 &&
         createPortal(
-          <div className="fixed inset-x-0 bottom-0 z-50 border-t border-neutral-300 bg-white p-4">
+          <div className="fixed inset-x-0 bottom-0 z-50 border-t border-neutral-300 bg-neutral-50 p-4">
             <div className="mx-auto flex max-w-3xl items-center justify-between gap-4">
               <p className="text-sm text-neutral-700">
                 {totalBlocks - taken.length} restantes · {approved} approuvées ·{' '}
@@ -300,7 +302,7 @@ export function QuizReviewList({
                 type="button"
                 onClick={send}
                 disabled={sending || sessionOpen}
-                className="rounded bg-neutral-900 px-4 py-2 text-sm text-white disabled:opacity-50"
+                className="rounded bg-neutral-900 px-4 py-2 text-sm text-neutral-50 disabled:opacity-50"
               >
                 {sending ? 'Enregistrement…' : `Enregistrer (${taken.length})`}
               </button>

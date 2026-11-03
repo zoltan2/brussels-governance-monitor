@@ -29,6 +29,7 @@ import {
   CLAVIER,
   CLE_INSCRIT,
   CLE_INVITATION,
+  CLE_PARTIE,
   CLE_PSEUDO,
   CLE_STATS,
   MAX_ESSAIS,
@@ -47,6 +48,7 @@ import {
   interstice,
   lienDefi,
   lienInterne,
+  lirePartie,
   lireStats,
   norm,
   texteDefi,
@@ -80,6 +82,13 @@ function ecrireStockage(cle: string, valeur: string): void {
     localStorage.setItem(cle, valeur);
   } catch {
     // navigation privée, stockage plein : le jeu reste jouable, rien n'est retenu
+  }
+}
+function effacerStockage(cle: string): void {
+  try {
+    localStorage.removeItem(cle);
+  } catch {
+    // même cas que ci-dessus : rien à effacer de fiable
   }
 }
 
@@ -134,6 +143,26 @@ export function StuutGame({ actif }: { actif: boolean }) {
   const revelationRef = useRef<HTMLDivElement>(null);
   const racineRef = useRef<HTMLDivElement>(null);
 
+  // Clôture d'une partie, à partir du jour reçu de l'API. Prend le jour en argument
+  // pour servir aussi au chargement, où l'état `donnees` n'est pas encore posé.
+  const cloturer = useCallback((j: StuutJour, gagne: boolean, evalsFinales: Verdict[][]) => {
+    const resultat: ResultatDuJour = {
+      day: j.numero - 1,
+      won: gagne,
+      n: gagne ? evalsFinales.length : 0,
+      grid: grilleDepuisEvals(evalsFinales),
+    };
+    const suivantes = enregistrer(lireStats(lireStockage(CLE_STATS)), resultat);
+    ecrireStockage(CLE_STATS, JSON.stringify(suivantes));
+    // stats.today prend le relais : la partie en cours n'a plus rien à reprendre.
+    effacerStockage(CLE_PARTIE);
+    setStats(suivantes);
+    setFini(resultat);
+    setInviter(decideInvitation());
+    setAnnonce(`${verdictFinal(resultat)} Le mot était ${j.mot}.`);
+    track('jeux-stuut-termine', { resultat: gagne ? 'gagne' : 'perdu', essais: resultat.n });
+  }, []);
+
   // Chargement du mot. Les setState sont dans les rappels de la promesse, pas
   // dans le corps de l'effet (react-hooks/set-state-in-effect).
   useEffect(() => {
@@ -150,6 +179,19 @@ export function StuutGame({ actif }: { actif: boolean }) {
         if (st.today && st.today.day === d.numero - 1) {
           setFini(st.today);
           setInviter(decideInvitation());
+        } else {
+          // Partie en cours : on rejoue les essais validés avant le rechargement. Une
+          // partie sauvegardée mais jamais clôturée (rechargement pendant l'animation
+          // du dernier essai) se clôture ici, comme elle l'aurait été.
+          const sol = norm(d.mot);
+          const repris = lirePartie(lireStockage(CLE_PARTIE), { day: d.numero - 1, longueur: sol.length, initiale: sol[0] ?? '' });
+          if (repris.length > 0) {
+            const evalsReprises = repris.map((e) => evaluer(e, sol));
+            setEssais(repris);
+            setEvals(evalsReprises);
+            if (repris[repris.length - 1] === sol) cloturer(d, true, evalsReprises);
+            else if (repris.length >= MAX_ESSAIS) cloturer(d, false, evalsReprises);
+          }
         }
         setDonnees({ etat: 'pret', jour: d });
       })
@@ -159,7 +201,7 @@ export function StuutGame({ actif }: { actif: boolean }) {
     return () => {
       abandon = true;
     };
-  }, [tentative]);
+  }, [tentative, cloturer]);
 
   const dire = useCallback((texte: string) => {
     setMessage(texte);
@@ -177,22 +219,9 @@ export function StuutGame({ actif }: { actif: boolean }) {
 
   const terminer = useCallback(
     (gagne: boolean, evalsFinales: Verdict[][]) => {
-      if (!jour) return;
-      const resultat: ResultatDuJour = {
-        day: jour.numero - 1,
-        won: gagne,
-        n: gagne ? evalsFinales.length : 0,
-        grid: grilleDepuisEvals(evalsFinales),
-      };
-      const suivantes = enregistrer(lireStats(lireStockage(CLE_STATS)), resultat);
-      ecrireStockage(CLE_STATS, JSON.stringify(suivantes));
-      setStats(suivantes);
-      setFini(resultat);
-      setInviter(decideInvitation());
-      setAnnonce(`${verdictFinal(resultat)} Le mot était ${jour.mot}.`);
-      track('jeux-stuut-termine', { resultat: gagne ? 'gagne' : 'perdu', essais: resultat.n });
+      if (jour) cloturer(jour, gagne, evalsFinales);
     },
-    [jour],
+    [jour, cloturer],
   );
 
   const taper = useCallback(
@@ -221,6 +250,7 @@ export function StuutGame({ actif }: { actif: boolean }) {
     const nouvellesEvals = [...evals, res];
     setEssais(nouveauxEssais);
     setEvals(nouvellesEvals);
+    ecrireStockage(CLE_PARTIE, JSON.stringify({ day: jour.numero - 1, g: nouveauxEssais }));
     setSaisie('');
     setVerrou(true);
 

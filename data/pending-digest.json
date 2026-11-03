@@ -1,28 +1,28 @@
 {
-  "week": "2026-w41",
-  "weekStart": "2026-10-05",
-  "created_at": "2026-10-11T19:00:03.392Z",
+  "week": "2026-w44",
+  "weekStart": "2026-10-26",
+  "created_at": "2026-11-01T17:41:28.250Z",
   "approved": true,
   "sent": true,
   "summary": {
-    "fr": "12 domaines, 5 dossiers, 5 secteurs, 3 communes mis à jour",
-    "nl": "12 domeinen, 5 dossiers, 5 sectoren, 3 gemeenten bijgewerkt",
-    "en": "12 domains, 5 dossiers, 5 sectors, 3 communes updated",
-    "de": "12 Bereiche, 5 Dossiers, 5 Sektoren, 3 Gemeinden aktualisiert"
+    "fr": "13 domaines, 7 dossiers, 2 secteurs, 7 communes mis à jour",
+    "nl": "13 domeinen, 7 dossiers, 2 sectoren, 7 gemeenten bijgewerkt",
+    "en": "13 domains, 7 dossiers, 2 sectors, 7 communes updated",
+    "de": "13 Bereiche, 7 Dossiers, 2 Sektoren, 7 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "39",
+    "value": "563",
     "label": {
-      "fr": "Le nombre d'habitants gagnés par la Région bruxelloise en un an : 1 255 834 au 1er janvier 2026, la plus faible hausse depuis 1996",
-      "nl": "Het aantal inwoners dat het Brussels Gewest er in een jaar bij kreeg: 1.255.834 op 1 januari 2026, de kleinste stijging sinds 1996",
-      "en": "The number of inhabitants the Brussels Region gained in a year: 1,255,834 on 1 January 2026, the smallest increase since 1996",
-      "de": "Die Zahl der Einwohner, die die Region Brüssel in einem Jahr hinzugewonnen hat: 1.255.834 am 1. Januar 2026, der geringste Anstieg seit 1996"
+      "fr": "Millions d'euros : l'effort budgétaire prévu pour viser un déficit de 719 millions d'euros en 2027",
+      "nl": "Miljoen euro: de budgettaire inspanning om in 2027 een tekort van 719 miljoen euro te beogen",
+      "en": "Million euros: the budgetary effort planned to target a deficit of 719 million euros in 2027",
+      "de": "Millionen Euro: die Haushaltsanstrengung, um 2027 ein Defizit von 719 Millionen Euro anzustreben"
     },
     "source": {
-      "fr": "IBSA, Baromètre démographique 2026 (Focus n° 85, 7 octobre 2026)",
-      "nl": "BISA, Demografische barometer 2026 (Focus nr. 85, 7 oktober 2026)",
-      "en": "IBSA, Demographic Barometer 2026 (Focus No. 85, 7 October 2026)",
-      "de": "IBSA, Demografisches Barometer 2026 (Focus Nr. 85, 7. Oktober 2026)"
+      "fr": "Ministre du Budget, rapporté par BRUZZ et L'Avenir (30 octobre 2026)",
+      "nl": "Minister van Begroting, gemeld door BRUZZ en L'Avenir (30 oktober 2026)",
+      "en": "Budget minister, reported by BRUZZ and L'Avenir (30 October 2026)",
+      "de": "Haushaltsminister, berichtet von BRUZZ und L'Avenir (30. Oktober 2026)"
     }
   },
   "closingNote": {
@@ -37,6 +37,7 @@
     "cleanliness",
     "climate",
     "digital",
+    "economy",
     "education",
     "employment",
     "housing",
@@ -45,19 +46,22 @@
     "security",
     "social",
     "urban-planning",
+    "dossier-accessibilite-pmr",
     "dossier-cpas-bruxellois",
-    "dossier-foyer-anderlechtois",
+    "dossier-data-centers",
+    "dossier-enseignement",
     "dossier-reforme-administration",
-    "dossier-slrb",
     "dossier-survol-bruxelles",
-    "construction",
+    "dossier-petite-enfance",
     "culture",
-    "environment",
     "health-social",
-    "housing-sector",
     "commune-anderlecht",
+    "commune-auderghem",
     "commune-bruxelles-ville",
-    "commune-schaerbeek"
+    "commune-jette",
+    "commune-saint-josse-ten-noode",
+    "commune-schaerbeek",
+    "commune-uccle"
   ],
-  "sent_at": "2026-10-11T19:04:49.084Z"
+  "sent_at": "2026-11-01T17:51:25.933Z"
 }

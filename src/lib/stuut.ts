@@ -113,6 +113,36 @@ export function grilleDepuisEvals(evals: Verdict[][]): string {
 export const CLE_STATS = 'bgm_stuut_stats';
 export const CLE_PSEUDO = 'bgm_stuut_pseudo';
 
+/**
+ * Essais validés de la partie en cours. Sans eux, un rechargement rendait un plateau
+ * vierge, donc six essais neufs (même correctif que le jeu autonome, commit 33ad015).
+ */
+export const CLE_PARTIE = 'bgm_stuut_partie_en_cours';
+
+/**
+ * Relit la partie en cours du jour. Tout ou rien : une seule entrée suspecte (valeur
+ * éditée à la main, autre longueur de mot) invalide l'ensemble plutôt que de
+ * reconstruire une partie à trous. Six essais restent acceptés : c'est une partie
+ * perdue que le chargement doit clôturer.
+ */
+export function lirePartie(
+  brut: string | null,
+  { day, longueur, initiale }: { day: number; longueur: number; initiale: string },
+): string[] {
+  if (!brut) return [];
+  let v: unknown;
+  try {
+    v = JSON.parse(brut);
+  } catch {
+    return [];
+  }
+  if (!v || typeof v !== 'object') return [];
+  const { day: d, g } = v as { day?: unknown; g?: unknown };
+  if (d !== day || !Array.isArray(g) || g.length > MAX_ESSAIS) return [];
+  const ok = g.every((e) => typeof e === 'string' && e.length === longueur && /^[A-Z]+$/.test(e) && e[0] === initiale);
+  return ok ? [...(g as string[])] : [];
+}
+
 export interface ResultatDuJour {
   day: number;
   won: boolean;

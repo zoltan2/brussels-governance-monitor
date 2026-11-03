@@ -15,6 +15,7 @@ import {
   grilleDepuisEvals,
   lienDefi,
   lienInterne,
+  lirePartie,
   lireStats,
   norm,
   statsVierges,
@@ -190,5 +191,33 @@ describe('Stuut : réponse de /api/jour', () => {
   it('rend relatif un lien vers ce site, et laisse un lien externe intact', () => {
     expect(lienInterne('https://governance.brussels/fr/glossaire#ordonnance')).toBe('/fr/glossaire#ordonnance');
     expect(lienInterne('https://exemple.be/x')).toBe('https://exemple.be/x');
+  });
+});
+
+describe('lirePartie', () => {
+  const o = { day: 94, longueur: 7, initiale: 'C' };
+  const brut = (v: unknown) => JSON.stringify(v);
+
+  it('rend les essais validés du jour', () => {
+    expect(lirePartie(brut({ day: 94, g: ['CCCCCCC', 'CABINET'] }), o)).toEqual(['CCCCCCC', 'CABINET']);
+  });
+
+  it('ne rend rien pour une autre journée, une valeur absente ou illisible', () => {
+    expect(lirePartie(null, o)).toEqual([]);
+    expect(lirePartie('{pas du json', o)).toEqual([]);
+    expect(lirePartie(brut({ day: 93, g: ['CCCCCCC'] }), o)).toEqual([]);
+    expect(lirePartie(brut({ day: 94, g: 'CCCCCCC' }), o)).toEqual([]);
+  });
+
+  it('tout ou rien : une seule entrée suspecte invalide la partie', () => {
+    expect(lirePartie(brut({ day: 94, g: ['CCCCCCC', 'CCCCCC'] }), o)).toEqual([]); // longueur
+    expect(lirePartie(brut({ day: 94, g: ['ACCCCCC'] }), o)).toEqual([]); // initiale
+    expect(lirePartie(brut({ day: 94, g: ['Ccccccc'] }), o)).toEqual([]); // casse que le jeu n'écrit pas
+    expect(lirePartie(brut({ day: 94, g: ['CCCCCCC', 42] }), o)).toEqual([]);
+  });
+
+  it('accepte six essais (partie à clôturer), refuse au-delà', () => {
+    expect(lirePartie(brut({ day: 94, g: Array(6).fill('CCCCCCC') }), o)).toHaveLength(6);
+    expect(lirePartie(brut({ day: 94, g: Array(7).fill('CCCCCCC') }), o)).toEqual([]);
   });
 });

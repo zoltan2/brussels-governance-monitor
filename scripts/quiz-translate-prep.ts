@@ -6,6 +6,8 @@
  *
  *   npx tsx scripts/quiz-translate-prep.ts --locale nl [--type dossier] [--limit 8]
  *
+ * Le dump de la locale cible est refait à chaque appel (voir `main`).
+ *
  * Le dump de `quiz-manual.ts` dit QUELLES unités régénérer et avec quel hash de
  * source. Il ne dit pas SUR QUOI s'appuyer pour les rédiger. Cet atelier comble
  * ce vide en écrivant `.quiz-pending/atelier-{locale}.json`, où chaque unité
@@ -34,6 +36,7 @@
  * squelette supprime la possibilité même de l'oubli.
  */
 
+import { execFileSync } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 import { readPool, unitKeyOf, type Locale, type QuizQuestion } from './quiz-provenance'
@@ -104,15 +107,23 @@ function resolveDomain(
 function main(): void {
   const locale = flag('--locale') as Locale | null
   if (!locale || locale === SOURCE_LOCALE) {
-    console.error('Usage : quiz-translate-prep.ts --locale nl|en|de [--type domain|dossier] [--limit N]')
+    console.error('Usage : quiz-translate-prep.ts --locale nl|en|de [--type domain|dossier] [--limit N] [--unit k1,k2]')
     process.exit(1)
   }
 
-  const unitsFile = path.join(PENDING_DIR, `units-${locale}.json`)
-  if (!fs.existsSync(unitsFile)) {
-    console.error(`${unitsFile} absent : lancer d'abord « npm run quiz:manual:dump -- --locale ${locale} ».`)
-    process.exit(1)
+  // Le dump est TOUJOURS refait ici, avec les mêmes filtres, jamais relu tel
+  // quel. Le 14/10/2026, l'atelier a lu des `units-{locale}.json` laissés par
+  // une session précédente : 10 unités annoncées au lieu des 4 réellement
+  // périmées. Refaire le dump garantit aussi que `apply` validera contre la
+  // même liste que celle de l'atelier.
+  const dumpArgs = ['tsx', 'scripts/quiz-manual.ts', 'dump', '--locale', locale]
+  for (const name of ['--type', '--limit', '--unit']) {
+    const value = flag(name)
+    if (value) dumpArgs.push(name, value)
   }
+  execFileSync('npx', dumpArgs, { stdio: 'inherit' })
+
+  const unitsFile = path.join(PENDING_DIR, `units-${locale}.json`)
 
   const dumped = (JSON.parse(fs.readFileSync(unitsFile, 'utf-8')) as { units: DumpUnit[] }).units
   const frPool = readPool(SOURCE_LOCALE)
@@ -125,12 +136,8 @@ function main(): void {
   const frUnits = byUnit(frPool.questions)
   const targetUnits = byUnit(targetPool?.questions ?? [])
 
-  const typeFilter = flag('--type')
-  const limit = flag('--limit')
-
+  // Les filtres `--type`, `--limit` et `--unit` sont déjà appliqués par le dump.
   const selected = dumped
-    .filter((u) => !typeFilter || u.type === typeFilter)
-    .slice(0, limit ? Number(limit) : undefined)
 
   const sansSource: string[] = []
   const sansLibelle: string[] = []

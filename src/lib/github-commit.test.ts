@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import {
   commitReviewFiles,
+  listOpenPoolPrs,
   listOpenReviewPrs,
   mergeReviewPr,
   reviewCheckState,
@@ -111,6 +112,31 @@ describe('listOpenReviewPrs', () => {
       ],
     });
     expect((await listOpenReviewPrs(ctx))[0]!.headRepo).toBeNull();
+  });
+});
+
+describe('listOpenPoolPrs', () => {
+  it('signale une régénération ouverte qui touche un pool, pas les autres PR', async () => {
+    const { ctx } = fakeGitHub({
+      '/pulls/752/files': [{ filename: 'public/quiz-data-fr.json' }],
+      '/pulls/749/files': [{ filename: 'scripts/veille.ts' }],
+      '/pulls?state=open': [
+        { number: 752, head: { ref: 'content/quiz-regen-2026-10-14' } },
+        { number: 749, head: { ref: 'feat/veille-appliquer' } },
+        { number: 753, head: { ref: 'review/quiz-2026-10-14-x' } },
+      ],
+    });
+    expect(await listOpenPoolPrs(ctx)).toEqual([
+      { number: 752, branch: 'content/quiz-regen-2026-10-14' },
+    ]);
+  });
+
+  it('laisse de côté les PR de relecture, déjà annoncées par la liste', async () => {
+    const { ctx, calls } = fakeGitHub({
+      '/pulls?state=open': [{ number: 753, head: { ref: 'review/quiz-2026-10-14-x' } }],
+    });
+    expect(await listOpenPoolPrs(ctx)).toEqual([]);
+    expect(calls.some((c) => c.url.includes('/files'))).toBe(false);
   });
 });
 

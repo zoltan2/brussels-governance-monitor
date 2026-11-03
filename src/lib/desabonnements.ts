@@ -37,6 +37,7 @@
 import { createHmac } from 'node:crypto';
 import type { DatabaseSync } from 'node:sqlite';
 import { getDb } from './db';
+import { compterEvenement } from './suivi-abonnes';
 
 const DOMAINE_EMPREINTE = 'bgm-empreinte-abonne-v1';
 
@@ -96,7 +97,10 @@ export function noterDesabonnement(
        ON CONFLICT(empreinte) DO NOTHING`,
     )
     .run(empreinte, maintenant);
-  return Number(res.changes) > 0;
+  const creee = Number(res.changes) > 0;
+  // Seulement une ligne neuve : un double clic ne compte pas deux départs.
+  if (creee) compterEvenement(db, 'desabonnements', maintenant);
+  return creee;
 }
 
 export function lireDesabonnement(
@@ -189,7 +193,7 @@ export function oublierDesabonnement(email: string): void {
   try {
     const db = getDb();
     if (!db) return;
-    effacerDesabonnement(db, fingerprintEmail(email));
+    if (effacerDesabonnement(db, fingerprintEmail(email))) compterEvenement(db, 'retours');
   } catch (err) {
     console.error(
       '[desabonnements] effacement impossible',

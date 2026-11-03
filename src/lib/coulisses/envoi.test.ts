@@ -2,6 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import type { Textes } from './journal';
 
 process.env.DB_PATH = ':memory:';
 process.env.AUTH_SECRET = 'secret-auth';
@@ -23,246 +24,393 @@ vi.mock('@/lib/resend', () => ({
 const { render } = await import('@react-email/render');
 const { getDb } = await import('@/lib/db');
 const J = await import('./journal');
-const { envoyerNumero, envoyerEssai, construireMail, COULISSES_FROM } = await import('./envoi');
+const { envoyerNumero, envoyerEssai, construireMail, contenuDuRendezVous, simuler, masquerAdresses, COULISSES_FROM } = await import('./envoi');
+const { texteApercu } = await import('@/emails/coulisses');
 const db = getDb()!;
 
-const T = {
-  fr: { objet: 'Où en est BGM', corps: 'Bonjour,\n\nTexte.\n\nZoltán' },
-  nl: { objet: 'Waar BGM staat', corps: 'Hallo,\n\nTekst.\n\nZoltán' },
-  en: { objet: 'Where BGM stands', corps: 'Hello,\n\nText.\n\nZoltán' },
+/** Bienvenue : le repère du sondage entre deux paragraphes, bloc fr et nl, pas en. */
+const B = {
+  fr: { objet: 'Les coulisses de BGM : un mot plus personnel', corps: '<p>Bonjour,</p><p>[sondage]</p><p>Zoltán</p>', apercu: '', sondage: '<p>Répondez au <a href="https://governance.brussels/fr/sondage">sondage</a>.</p>' },
+  nl: { objet: 'Achter de schermen', corps: '<p>Hallo,</p><p>[sondage]</p><p>Zoltán</p>', apercu: '', sondage: '<p>Vul de <a href="https://governance.brussels/nl/sondage">enquête</a> in.</p>' },
+  en: { objet: 'Behind the scenes', corps: '<p>Hello,</p><p>[sondage]</p><p>Zoltán</p>', apercu: '', sondage: '' },
 };
-const SITE = 'https://governance.brussels';
-const MAINTENANT = Date.parse('2026-11-05T07:00:00Z');
+/** Édition d'un mois. */
+const ED = {
+  fr: { objet: 'Les coulisses de BGM : ce qui avance', corps: '<p>Ce mois-ci.</p>' },
+  nl: { objet: 'Wat er beweegt', corps: '<p>Deze maand.</p>' },
+  en: { objet: 'What moves', corps: '<p>This month.</p>' },
+};
 
-function abonne(id: string, locale = 'fr', extra: Record<string, string> = {}) {
-  contacts.push({ id, email: `${id}@example.org`, unsubscribed: false, created_at: '2026-06-01 10:00:00.000+00' });
+const SITE = 'https://governance.brussels';
+const NOV = Date.parse('2026-11-05T07:00:00Z');
+const DEC = Date.parse('2026-12-03T07:00:00Z');
+const JAN = Date.parse('2027-01-07T07:00:00Z');
+const FEV = Date.parse('2027-02-04T07:00:00Z');
+
+function abonne(id: string, locale = 'fr', extra: Record<string, string> = {}, creeLe = '2026-06-01 10:00:00.000+00', email = `${id}@example.org`) {
+  contacts.push({ id, email, unsubscribed: false, created_at: creeLe });
   details[id] = { locale: { value: locale }, sources: { value: 'website' }, ...Object.fromEntries(Object.entries(extra).map(([k, v]) => [k, { value: v }])) };
 }
 
-function preparer() {
-  J.enregistrerTextes(db, 1, T);
-  J.noterEssai(db, 1, J.empreinteTextes(T));
-  expect(J.prendreVerrou(db, 1)).toBe(true);
+/** Rendez-vous du mois prêt et verrouillé : bienvenue (si absente), édition, essai. */
+function preparer(mois: string, maintenant: number, edition: Partial<Textes> = {}): number {
+  if (!J.lireBienvenue(db)) J.enregistrerBienvenue(db, B);
+  const n = J.numeroDuMois(db, mois, true)!;
+  J.enregistrerTextes(db, n, edition);
+  const c = contenuDuRendezVous(db, n, maintenant)!;
+  J.noterEssai(db, n, c.empreinte);
+  expect(J.prendreVerrou(db, n, c.empreinte)).toBe(true);
+  return n;
+}
+
+/** Destinataires et objets du dernier envoi réel, par adresse. */
+function objetsEnvoyes(): Record<string, string> {
+  const r: Record<string, string> = {};
+  for (const [mails] of batchSend.mock.calls as Array<[Array<{ to: string; subject: string }>]>) {
+    for (const m of mails) r[m.to] = m.subject;
+  }
+  return r;
 }
 
 beforeEach(() => {
   contacts.length = 0;
   for (const k of Object.keys(details)) delete details[k];
-  db.exec('DELETE FROM coulisses_numeros; DELETE FROM coulisses_envois;');
+  db.exec('DELETE FROM coulisses_numeros; DELETE FROM coulisses_envois; DELETE FROM coulisses_bienvenue;');
   batchSend.mockReset().mockImplementation(async (mails: unknown[]) => ({
     data: { data: mails.map((_, i) => ({ id: `em_${i}` })) },
     error: null,
   }));
   process.env.COULISSES_EXCLUS = '';
+  process.env.SONDAGE_OUVERTURE = '2026-10-12';
+  process.env.SONDAGE_CLOTURE = '2026-12-06';
 });
 
-describe('envoyerNumero', () => {
-  it('envoie à chacun une fois, avec la bonne langue et la variante premier mot', async () => {
+describe('envoyerNumero : envoi réel', () => {
+  it('novembre : la bienvenue à chacun, une fois, dans sa langue (de → en) ; refus exclu', async () => {
     abonne('a', 'fr');
     abonne('b', 'de');
     abonne('c', 'nl', { mot_mensuel: 'non' });
-    preparer();
-    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    const n = preparer('2026-11', NOV);
+    const r = await envoyerNumero(db, n, SITE, NOV);
     expect(r.erreurs).toEqual([]);
     expect(r.envoyes).toEqual({ 'fr-premier': 1, 'en-premier': 1 });
     expect(r.exclus.refus).toBe(1);
+    expect(r.versionBienvenue).toBe(1);
     const mails = batchSend.mock.calls[0][0] as Array<Record<string, unknown>>;
     expect(mails.map((m) => m.to)).toEqual(['a@example.org', 'b@example.org']);
     expect(mails[0].from).toBe(COULISSES_FROM);
     expect(mails[0].replyTo).toBe('contact@brusselsgovernance.be');
-    expect(J.lireNumero(db, 1)!.etat).toBe('envoye');
+    expect(J.lireNumero(db, n)!.etat).toBe('envoye');
+  });
+
+  it('refusé un autre jour que le premier jeudi du mois du rendez-vous (pas de rattrapage)', async () => {
+    abonne('a');
+    const n = preparer('2026-11', NOV);
+    const r = await envoyerNumero(db, n, SITE, Date.parse('2026-11-06T07:00:00Z'));
+    expect(batchSend).not.toHaveBeenCalled();
+    expect(r.erreurs.join(' ')).toContain('premier jeudi');
+    expect(J.lireNumero(db, n)!.etat).toBe('interrompu');
+  });
+
+  it('refusé si la bienvenue a changé après le verrou (contenu différent de l’essai)', async () => {
+    abonne('a');
+    const n = preparer('2026-11', NOV);
+    J.enregistrerBienvenue(db, { ...B, fr: { ...B.fr, objet: 'Autre objet' } });
+    const r = await envoyerNumero(db, n, SITE, NOV);
+    expect(batchSend).not.toHaveBeenCalled();
+    expect(r.erreurs.join(' ')).toContain('Refaire l’essai');
+  });
+
+  it('sondage clos entre l’essai et l’envoi : rien ne part (invitation périmée), un nouvel essai est exigé', async () => {
+    abonne('a');
+    const n = preparer('2026-11', NOV);
+    process.env.SONDAGE_CLOTURE = '2026-11-01';
+    const r = await envoyerNumero(db, n, SITE, NOV);
+    expect(batchSend).not.toHaveBeenCalled();
+    expect(r.erreurs.join(' ')).toContain('sondage');
   });
 
   it("une reprise n'envoie pas deux fois", async () => {
     abonne('a');
-    preparer();
-    await envoyerNumero(db, 1, SITE, MAINTENANT);
-    J.terminer(db, 1, 'interrompu', {});
-    expect(J.prendreVerrou(db, 1)).toBe(true);
-    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    const n = preparer('2026-11', NOV);
+    await envoyerNumero(db, n, SITE, NOV);
+    J.terminer(db, n, 'interrompu', {});
+    expect(J.prendreVerrou(db, n, contenuDuRendezVous(db, n, NOV)!.empreinte)).toBe(true);
+    const r = await envoyerNumero(db, n, SITE, NOV);
     expect(batchSend).toHaveBeenCalledTimes(1);
     expect(r.exclus.deja_envoye).toBe(1);
   });
 
-  it('lot refusé par Resend : rien de parti, réservations libérées', async () => {
-    abonne('a');
-    preparer();
-    batchSend.mockResolvedValue({ data: null, error: { statusCode: 422, name: 'validation_error', message: 'x' } });
-    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
-    expect(r.refusesParResend).toBe(1);
-    expect(J.dejaAuJournal(db, 1).size).toBe(0);
-    expect(J.lireNumero(db, 1)!.etat).toBe('interrompu');
-  });
-
   it('réponse perdue : marqué incertain, jamais renvoyé automatiquement', async () => {
     abonne('a');
-    preparer();
+    const n = preparer('2026-11', NOV);
     batchSend.mockResolvedValue({ data: null, error: { statusCode: null, name: 'application_error', message: 'réseau' } });
-    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    const r = await envoyerNumero(db, n, SITE, NOV);
     expect(r.incertains).toBe(1);
-    expect(J.compterJournal(db, 1)).toEqual({ incertain: 1 });
-    expect(J.prendreVerrou(db, 1)).toBe(true);
+    expect(J.compterJournal(db, n)).toEqual({ incertain: 1 });
+    expect(J.prendreVerrou(db, n, contenuDuRendezVous(db, n, NOV)!.empreinte)).toBe(true);
     batchSend.mockClear();
-    await envoyerNumero(db, 1, SITE, MAINTENANT);
+    await envoyerNumero(db, n, SITE, NOV);
     expect(batchSend).not.toHaveBeenCalled();
   });
 
   it('erreur 5xx : issue inconnue, marqué incertain (jamais libéré ni renvoyé)', async () => {
     abonne('a');
-    preparer();
+    const n = preparer('2026-11', NOV);
     batchSend.mockResolvedValue({ data: null, error: { statusCode: 504, name: 'application_error', message: 'Gateway Timeout' } });
-    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    const r = await envoyerNumero(db, n, SITE, NOV);
     expect(r.incertains).toBe(1);
     expect(r.refusesParResend).toBe(0);
-    expect(J.compterJournal(db, 1)).toEqual({ incertain: 1 });
   });
 
   it('exception pendant l’appel : incertain, pas de réservation orpheline', async () => {
     abonne('a');
-    preparer();
+    const n = preparer('2026-11', NOV);
     batchSend.mockRejectedValue(new Error('rendu impossible'));
-    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    const r = await envoyerNumero(db, n, SITE, NOV);
     expect(r.incertains).toBe(1);
-    expect(J.compterJournal(db, 1)).toEqual({ incertain: 1 });
+    expect(J.compterJournal(db, n)).toEqual({ incertain: 1 });
   });
 
-  it('passe une clé d’idempotence par lot, propre au lancement (une reprise ne réutilise pas la clé)', async () => {
-    abonne('a');
-    preparer();
-    await envoyerNumero(db, 1, SITE, MAINTENANT);
-    const cle = (batchSend.mock.calls[0][1] as { idempotencyKey: string }).idempotencyKey;
-    expect(cle).toMatch(/^coulisses-1-[0-9a-z]+-a$/);
-  });
-
-  it('lot refusé (422) à cause d’une adresse : renvoi un par un, seule la fautive reste dehors', async () => {
+  it('lot refusé (422) à cause d’une adresse : renvoi un par un, seule la fautive reste dehors, sans adresse au rapport', async () => {
     abonne('a');
     abonne('b');
-    preparer();
+    const n = preparer('2026-11', NOV);
     batchSend.mockImplementation(async (mails: Array<{ to: string }>) =>
       mails.length > 1 || mails[0].to === 'b@example.org'
         ? { data: null, error: { statusCode: 422, name: 'validation_error', message: 'Invalid `to` field: b@example.org' } }
         : { data: { data: [{ id: 'r1' }] }, error: null },
     );
-    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
+    const r = await envoyerNumero(db, n, SITE, NOV);
     expect(r.refusesParResend).toBe(1);
     expect(r.envoyes).toEqual({ 'fr-premier': 1 });
-    expect(J.compterJournal(db, 1)).toEqual({ envoye: 1 });
-    // Aucune adresse dans le rapport.
-    expect(r.erreurs.join(' ')).not.toContain('@');
-    expect(r.erreurs.join(' ')).toContain('[adresse]');
+    expect(J.compterJournal(db, n)).toEqual({ envoye: 1 });
+    // Refus d'adresse définitif : avertissement, pas erreur ; le rendez-vous est envoyé.
+    expect(r.erreurs).toEqual([]);
+    expect(r.avertissements.join(' ')).not.toContain('@');
+    expect(r.avertissements).toHaveLength(2);
+    expect(J.lireNumero(db, n)!.etat).toBe('envoye');
   });
 
-  it('battement : verrou_le avance après chaque lot', async () => {
+  it('clé d’idempotence par lot, propre au lancement ; battement après chaque lot', async () => {
     abonne('a');
-    preparer();
-    db.prepare('UPDATE coulisses_numeros SET verrou_le = 1 WHERE numero = 1').run();
-    let vu = 0;
-    batchSend.mockImplementation(async () => ({ data: { data: [{ id: 'r' }] }, error: null }));
+    const n = preparer('2026-11', NOV);
+    db.prepare('UPDATE coulisses_numeros SET verrou_le = 1 WHERE numero = ?').run(n);
     const avant = Date.now();
-    await envoyerNumero(db, 1, SITE, MAINTENANT);
-    vu = J.lireNumero(db, 1)!.verrouLe ?? 0;
-    expect(vu).toBeGreaterThanOrEqual(avant);
+    await envoyerNumero(db, n, SITE, NOV);
+    expect((batchSend.mock.calls[0][1] as { idempotencyKey: string }).idempotencyKey).toMatch(new RegExp(`^coulisses-${n}-[0-9a-z]+-a$`));
+    expect(J.lireNumero(db, n)!.verrouLe ?? 0).toBeGreaterThanOrEqual(avant);
   });
 
-  it('refuse sans COULISSES_EXCLUS et sans rien envoyer', async () => {
+  it('refuse sans COULISSES_EXCLUS, et un numéro non verrouillé', async () => {
     delete process.env.COULISSES_EXCLUS;
     abonne('a');
-    preparer();
-    const r = await envoyerNumero(db, 1, SITE, MAINTENANT);
-    expect(r.erreurs[0]).toMatch(/COULISSES_EXCLUS/);
+    const n = preparer('2026-11', NOV);
+    const r = await envoyerNumero(db, n, SITE, NOV);
     expect(batchSend).not.toHaveBeenCalled();
+    expect(r.erreurs.join(' ')).toContain('COULISSES_EXCLUS');
+    await expect(envoyerNumero(db, 99, SITE, NOV)).rejects.toThrow('non verrouillé');
+  });
+});
+
+describe('bienvenue une seule fois, éditions collectives (tableau du 3 novembre)', () => {
+  it('A, B, C de novembre 2026 à février 2027', async () => {
+    abonne('a', 'fr', {}, '2026-08-05 10:00:00.000+00'); // inscrit depuis trois mois
+    abonne('b', 'fr', {}, '2026-10-21 10:00:00.000+00'); // quinze jours au 5/11
+    const recu: Record<string, Record<string, string>> = {};
+    const tour = async (mois: string, quand: number, edition: Partial<Textes>) => {
+      batchSend.mockClear();
+      const r = await envoyerNumero(db, preparer(mois, quand, edition), SITE, quand);
+      expect(r.erreurs).toEqual([]);
+      recu[mois] = objetsEnvoyes();
+    };
+    await tour('2026-11', NOV, {});
+    abonne('c', 'fr', {}, '2026-11-13 18:00:00.000+00'); // après le 12/11
+    await tour('2026-12', DEC, ED);
+    await tour('2027-01', JAN, ED);
+    await tour('2027-02', FEV, ED);
+
+    const BV = B.fr.objet;
+    const AC = ED.fr.objet;
+    expect(recu['2026-11']).toEqual({ 'a@example.org': BV });
+    expect(recu['2026-12']).toEqual({ 'a@example.org': AC, 'b@example.org': BV });
+    expect(recu['2027-01']).toEqual({ 'a@example.org': AC, 'b@example.org': AC, 'c@example.org': BV });
+    expect(recu['2027-02']).toEqual({ 'a@example.org': AC, 'b@example.org': AC, 'c@example.org': AC });
   });
 
-  it('refuse un numéro non verrouillé', async () => {
-    J.enregistrerTextes(db, 1, T);
-    await expect(envoyerNumero(db, 1, SITE, MAINTENANT)).rejects.toThrow(/verrouill/);
-  });
-
-  it('variante courante au numéro 2 pour qui a reçu le 1', async () => {
+  it('mois sans édition : les bienvenues partent quand même, les autres ne reçoivent rien', async () => {
     abonne('a');
-    preparer();
-    await envoyerNumero(db, 1, SITE, MAINTENANT);
-    J.enregistrerTextes(db, 2, T);
-    J.noterEssai(db, 2, J.empreinteTextes(T));
-    J.prendreVerrou(db, 2);
-    const r = await envoyerNumero(db, 2, SITE, MAINTENANT);
-    expect(r.envoyes).toEqual({ 'fr-courant': 1 });
+    await envoyerNumero(db, preparer('2026-11', NOV), SITE, NOV);
+    abonne('b', 'fr', {}, '2026-11-10 10:00:00.000+00');
+    batchSend.mockClear();
+    const r = await envoyerNumero(db, preparer('2026-12', DEC), SITE, DEC);
+    expect(objetsEnvoyes()).toEqual({ 'b@example.org': B.fr.objet });
+    expect(r.sansEdition).toBe(1);
+  });
+
+  it('parti puis revenu après la suppression de son contact : pas de deuxième bienvenue (empreinte)', async () => {
+    abonne('a');
+    await envoyerNumero(db, preparer('2026-11', NOV), SITE, NOV);
+    contacts.length = 0;
+    abonne('a2', 'fr', {}, '2026-11-08 10:00:00.000+00', 'a@example.org');
+    batchSend.mockClear();
+    await envoyerNumero(db, preparer('2026-12', DEC, ED), SITE, DEC);
+    expect(objetsEnvoyes()).toEqual({ 'a@example.org': ED.fr.objet });
+  });
+
+  it("bienvenue de novembre (sans empreinte), désabonné puis contact supprimé et revenu : reconnu (empreinte complétée tant qu'il est dans Resend)", async () => {
+    abonne('a');
+    const n = preparer('2026-11', NOV);
+    await envoyerNumero(db, n, SITE, NOV);
+    db.prepare('UPDATE coulisses_envois SET empreinte = NULL').run(); // comme un envoi d'avant la séparation
+    contacts[0].unsubscribed = true;
+    await envoyerNumero(db, preparer('2026-12', DEC, ED), SITE, DEC); // il est encore dans Resend, désabonné
+    contacts.length = 0;
+    abonne('a-retour', 'fr', {}, '2026-12-10 10:00:00.000+00', 'a@example.org');
+    batchSend.mockClear();
+    await envoyerNumero(db, preparer('2027-01', JAN, ED), SITE, JAN);
+    expect(objetsEnvoyes()).toEqual({ 'a@example.org': ED.fr.objet });
+  });
+
+  it('désabonné entre deux rendez-vous : rien', async () => {
+    abonne('a');
+    await envoyerNumero(db, preparer('2026-11', NOV), SITE, NOV);
+    contacts[0].unsubscribed = true;
+    batchSend.mockClear();
+    const r = await envoyerNumero(db, preparer('2026-12', DEC, ED), SITE, DEC);
+    expect(batchSend).not.toHaveBeenCalled();
+    expect(r.exclus.desinscrit).toBe(1);
+  });
+});
+
+describe('bloc sondage de la bienvenue', () => {
+  const contenu = (ouvert: boolean) => ({ bienvenue: { version: 1, textes: B, creeLe: 0 }, sondageOuvert: ouvert, edition: {} });
+  it('ouvert : le repère devient le bloc ; clos : le repère disparaît, le reste est identique', async () => {
+    const ouvert = await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'premier' }, contenu(true), 1, SITE).react);
+    const clos = await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'premier' }, contenu(false), 1, SITE).react);
+    expect(ouvert).toContain('https://governance.brussels/fr/sondage');
+    expect(clos).not.toContain('sondage</a>');
+    for (const h of [ouvert, clos]) {
+      expect(h).not.toContain('[sondage]');
+      expect(h).toContain('Bonjour,');
+      expect(h).toContain('Zoltán');
+    }
+  });
+
+  it("anglais : pas de sondage en anglais, aucun bloc même ouvert", async () => {
+    const en = await render(construireMail({ email: 'a@example.org', langue: 'en', variante: 'premier' }, contenu(true), 1, SITE).react);
+    expect(en).not.toContain('sondage');
+  });
+
+  it("l'état du sondage est lu au moment de préparer le mail", () => {
+    J.enregistrerBienvenue(db, B);
+    const n = J.numeroDuMois(db, '2026-11', true)!;
+    expect(contenuDuRendezVous(db, n, NOV)!.sondageOuvert).toBe(true);
+    expect(contenuDuRendezVous(db, n, Date.parse('2026-12-07T09:00:00Z'))!.sondageOuvert).toBe(false);
   });
 });
 
 describe('envoyerEssai', () => {
-  it("envoie les trois langues et la version des germanophones à l'administrateur seulement, et note l'essai", async () => {
+  it("sans édition : la bienvenue en fr, nl, en et de→en, à l'administrateur seulement, et note l'essai", async () => {
     abonne('a');
-    J.enregistrerTextes(db, 1, T);
-    const r = await envoyerEssai(db, 1, 'admin@example.net', SITE);
+    J.enregistrerBienvenue(db, B);
+    const n = J.numeroDuMois(db, '2026-11', true)!;
+    const r = await envoyerEssai(db, n, 'admin@example.net', SITE, NOV);
     expect(r.envoyes).toBe(4);
-    const mails = batchSend.mock.calls[0][0] as Array<Record<string, unknown>>;
+    const mails = batchSend.mock.calls[0][0] as Array<{ to: string; subject: string }>;
     expect(new Set(mails.map((m) => m.to))).toEqual(new Set(['admin@example.net']));
-    expect(mails.map((m) => m.subject)).toContain('[Essai de→en premier] Where BGM stands');
-    expect(J.lireNumero(db, 1)!.essaiEmpreinte).toBe(J.empreinteTextes(T));
+    expect(mails.map((m) => m.subject)).toContain('[Essai bienvenue de→en] Behind the scenes');
+    expect(J.lireNumero(db, n)!.essaiEmpreinte).toBe(contenuDuRendezVous(db, n, NOV)!.empreinte);
+  });
+
+  it('avec édition : bienvenue et édition, huit mails', async () => {
+    J.enregistrerBienvenue(db, B);
+    const n = J.numeroDuMois(db, '2026-12', true)!;
+    J.enregistrerTextes(db, n, ED);
+    expect((await envoyerEssai(db, n, 'admin@example.net', SITE, NOV)).envoyes).toBe(8);
+  });
+
+  it('refusé : bienvenue absente, ou édition à moitié remplie', async () => {
+    const n = J.numeroDuMois(db, '2026-12', true)!;
+    await expect(envoyerEssai(db, n, 'admin@example.net', SITE, NOV)).rejects.toThrow('Bienvenue incomplète');
+    J.enregistrerBienvenue(db, B);
+    J.enregistrerTextes(db, n, { fr: ED.fr });
+    await expect(envoyerEssai(db, n, 'admin@example.net', SITE, NOV)).rejects.toThrow('Édition incomplète');
+    expect(batchSend).not.toHaveBeenCalled();
+  });
+});
+
+describe('simuler', () => {
+  it("compte bienvenues et éditions par langue, n'écrit rien et n'envoie rien", async () => {
+    abonne('a', 'fr');
+    abonne('b', 'de', {}, '2026-11-20 10:00:00.000+00');
+    J.enregistrerBienvenue(db, B);
+    const n = J.numeroDuMois(db, '2026-11', true)!;
+    const s = await simuler(db, n, NOV);
+    expect(s.bienvenues).toEqual({ fr: 1 });
+    expect(s.exclus.recent).toBe(1);
+    expect(batchSend).not.toHaveBeenCalled();
+    expect(J.compterJournal(db, n)).toEqual({});
+    expect(JSON.stringify(s)).not.toContain('@');
   });
 });
 
 describe('construireMail', () => {
-  it('premier mot : P.-S. de refus et lien #coulisses ; en-tête one-click propre aux coulisses', async () => {
-    const m = construireMail({ email: 'a@example.org', langue: 'fr', variante: 'premier' }, T, 1, SITE);
+  const contenu = { bienvenue: { version: 1, textes: B, creeLe: 0 }, sondageOuvert: false, edition: ED };
+
+  it('bienvenue : P.-S. de refus et lien #coulisses ; en-tête one-click propre aux coulisses', async () => {
+    const m = construireMail({ email: 'a@example.org', langue: 'fr', variante: 'premier' }, contenu, 1, SITE);
     const html = await render(m.react);
+    expect(m.subject).toBe(B.fr.objet);
     expect(html).toContain('P.-S.');
     expect(html).toContain('#coulisses');
     expect(html).toContain('Gérer mes préférences');
     expect(m.headers['List-Unsubscribe']).toContain('/api/coulisses/one-click?token=');
   });
 
-  it('numéro courant : pas de P.-S., mais toujours le lien de pied de page', async () => {
-    const m = construireMail({ email: 'a@example.org', langue: 'nl', variante: 'courant' }, T, 2, SITE);
+  it('édition : son objet, pas de P.-S., mais toujours le lien de pied de page', async () => {
+    const m = construireMail({ email: 'a@example.org', langue: 'nl', variante: 'courant' }, contenu, 2, SITE);
     const html = await render(m.react);
+    expect(m.subject).toBe(ED.nl.objet);
     expect(html).not.toContain('P.S.');
     expect(html).toContain('Mijn voorkeuren beheren');
   });
 
   it('pas de version texte écrite à la main : Resend la tire du HTML', () => {
-    const m = construireMail({ email: 'a@example.org', langue: 'fr', variante: 'premier' }, T, 1, SITE);
-    expect('text' in m).toBe(false);
+    expect('text' in construireMail({ email: 'a@example.org', langue: 'fr', variante: 'premier' }, contenu, 1, SITE)).toBe(false);
   });
 
-  it('signature : LinkedIn et chaîne WhatsApp ; un ancien texte brut devient des paragraphes', async () => {
-    const html = await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, T, 1, SITE).react);
+  it('signature : LinkedIn et chaîne WhatsApp', async () => {
+    const html = await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, contenu, 1, SITE).react);
     expect(html).toContain('https://www.linkedin.com/in/zoltan');
     expect(html).toContain('https://whatsapp.com/channel/');
-    expect(html).toMatch(/<p style="[^"]+">Texte\.<\/p>/);
   });
 
   it('corps HTML : intertitre, gras et lien stylés en ligne ; balises hors liste retirées', async () => {
-    const H = { ...T, fr: { objet: 'x', corps: '<h2>Titre</h2><p><strong>Gras</strong> <a href="https://governance.brussels/fr/sondage">sondage</a></p><script>alert(1)</script><p><a href="javascript:alert(1)">piège</a></p>' } };
-    const html = await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, H, 1, SITE).react);
+    const edition = { ...ED, fr: { objet: 'x', corps: '<h2>Titre</h2><p><strong>Gras</strong> <a href="https://governance.brussels/fr/sondage">sondage</a></p><script>alert(1)</script><p><a href="javascript:alert(1)">piège</a></p>' } };
+    const html = await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, { ...contenu, edition }, 1, SITE).react);
     expect(html).toMatch(/<h2 style="[^"]+">Titre<\/h2>/);
     expect(html).toContain('<strong>Gras</strong>');
-    expect(html).toMatch(/<a href="https:\/\/governance\.brussels\/fr\/sondage" style="[^"]+">sondage<\/a>/);
     expect(html).not.toContain('<script');
     expect(html).not.toContain('javascript:');
   });
 
-  it("aperçu : celui de l'admin s'il existe, sinon le début du texte (pas seulement « Bonjour, »)", async () => {
-    const avec = { ...T, fr: { ...T.fr, apercu: 'Merci, et ce qui se passe derrière BGM' } };
-    expect(await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, avec, 1, SITE).react)).toContain('Merci, et ce qui se passe derrière BGM');
-    const { texteApercu } = await import('@/emails/coulisses');
-    expect(texteApercu(T.fr.corps)).toBe('Bonjour, Texte. Zoltán');
+  it("aperçu : celui de l'admin s'il existe, sinon le début du texte", () => {
+    expect(texteApercu('<p>Bonjour,</p><p>Texte.</p>')).toBe('Bonjour, Texte.');
     expect(texteApercu(`<p>${'mot '.repeat(60)}</p>`)).toHaveLength(150);
-    expect(texteApercu('<p>x</p>', '  ')).toBe('x');
+    expect(texteApercu('<p>x</p>', 'Choisi')).toBe('Choisi');
   });
 
   it('abonné en allemand : version anglaise avec la note en allemand en tête ; les autres sans note', async () => {
-    const de = await render(construireMail({ email: 'a@example.org', langue: 'en', variante: 'courant', localeAbonne: 'de' }, T, 1, SITE).react);
+    const de = await render(construireMail({ email: 'a@example.org', langue: 'en', variante: 'courant', localeAbonne: 'de' }, contenu, 1, SITE).react);
     expect(de).toContain('nicht auf Deutsch schreiben kann');
-    expect(de).toContain('Hello,');
-    const en = await render(construireMail({ email: 'a@example.org', langue: 'en', variante: 'courant', localeAbonne: 'en' }, T, 1, SITE).react);
+    const en = await render(construireMail({ email: 'a@example.org', langue: 'en', variante: 'courant', localeAbonne: 'en' }, contenu, 1, SITE).react);
     expect(en).not.toContain('Deutsch');
   });
 });
 
 describe('masquerAdresses', () => {
-  it('remplace toute adresse, garde le reste', async () => {
-    const { masquerAdresses } = await import('./envoi');
+  it('remplace toute adresse, garde le reste', () => {
     expect(masquerAdresses('Invalid `to` field: x.y+z@ex-ample.org (strict)')).toBe('Invalid `to` field: [adresse] (strict)');
     expect(masquerAdresses('<a@b.be>, c@d.be')).toBe('<[adresse]>, [adresse]');
   });

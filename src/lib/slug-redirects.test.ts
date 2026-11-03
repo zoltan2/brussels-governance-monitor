@@ -984,6 +984,7 @@ const HORS_ROUTING = [
   '/admin/refonte',
   '/admin/relecture',
   '/admin/sondage',
+  '/admin/coulisses',
   '/login',
   '/review',
   '/review/digest',

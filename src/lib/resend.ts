@@ -328,6 +328,23 @@ export async function updateContactPreferences(
 }
 
 /**
+ * « Les coulisses de BGM » : écrit SEULEMENT la propriété `mot_mensuel`
+ * (déclarée chez Resend le 3 novembre 2026). Vérifié sur le compte réel le
+ * 3/11 : une mise à jour partielle laisse locale, topics et sources intacts.
+ */
+export async function setMotMensuel(email: string, oui: boolean): Promise<void> {
+  const resend = getResend();
+  const result = await resendCall(() =>
+    resend.contacts.update({ email, properties: { mot_mensuel: oui ? 'oui' : 'non' } }),
+  );
+  if (result.error) {
+    throw new Error(
+      `Resend contacts.update (mot_mensuel) failed for ${pseudonymeEmail(email)}: ${formatResendError(result.error)}`,
+    );
+  }
+}
+
+/**
  * Add a source tag to an existing contact's `sources` property without
  * clobbering their topics/locale. No-op if the contact doesn't exist.
  * Returns whether a new source was actually added (for callers that want to

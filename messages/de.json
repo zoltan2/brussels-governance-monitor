@@ -323,7 +323,7 @@
     "successMessage": "An diese Adresse wurde soeben eine E-Mail gesendet. Wenn Sie bereits abonniert sind, schlägt sie vor, diese Themen hinzuzufügen.",
     "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "privacy": "Montagmorgen das Wesentliche. Selten mehr. Abmeldung mit 1 Klick.",
-    "privacyNotice": "Daten werden von Advice That SRL mit Ihrer Einwilligung für den Versand des Digests und von Neuigkeiten zum Projekt verarbeitet. <link>Datenschutzrichtlinie</link>"
+    "privacyNotice": "Daten werden von Advice That SRL für den Versand des Digests und von Neuigkeiten zum Projekt verarbeitet. <link>Datenschutzrichtlinie</link>"
   },
   "subscribeConfirm": {
     "title": "Bestätigen Sie Ihre Anmeldung",
@@ -1752,7 +1752,7 @@
     "success": "An diese Adresse wurde soeben eine E-Mail gesendet. Wenn Sie bereits abonniert sind, schlägt sie vor, dieses Thema hinzuzufügen.",
     "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "promise": "Die Zusammenfassung kommt montags, in den Wochen, in denen dieses Thema aktualisiert wurde. Abmeldung mit 1 Klick.",
-    "privacyNotice": "Daten werden von Advice That SRL mit Ihrer Einwilligung für den Versand des Digests und von Neuigkeiten zum Projekt verarbeitet. <link>Datenschutzrichtlinie</link>"
+    "privacyNotice": "Daten werden von Advice That SRL für den Versand des Digests und von Neuigkeiten zum Projekt verarbeitet. <link>Datenschutzrichtlinie</link>"
   },
   "share": {
     "share": "Teilen",
@@ -2429,15 +2429,14 @@
     "title": "Verfolgen Sie die Brüsseler Regierungsführung",
     "subtitle": "Eine wöchentliche Zusammenfassung, mit Quellenangaben und überprüft, der Entscheidungen, die Brüssel betreffen.",
     "whatYouGet": "Was Sie erhalten",
-    "digestContent": "Montagmorgens, in den Wochen, in denen sich Ihre Themen bewegt haben, ein Digest mit:",
+    "digestContent": "Ein Digest, an den Montagen, an denen sich Ihre Themen bewegt haben:",
     "digestItem1": "Die wichtigsten Entwicklungen der Woche in den Bereichen, die Sie verfolgen",
     "digestItem2": "Updates zu laufenden Dossiers (Good Move, LEZ, SLRB…)",
     "digestItem3": "Neue Kennzahlen, die den Datenseiten hinzugefügt wurden",
-    "digestExtra": "Und hin und wieder ein paar Neuigkeiten über das Projekt selbst, die Sie mit einem Klick in Ihren Einstellungen abbestellen können.",
-    "yourChoices": "Ihre Auswahl, Ihre Sprache",
-    "choicesText": "Sie erhalten den Digest in der Sprache, die Sie derzeit verwenden. Sie können diese in Ihren Einstellungen ändern.",
-    "choicesDetail": "Nach der Anmeldung können Sie Ihre Einstellungen verfeinern: Gemeinden, Sektoren oder bestimmte Dossiers hinzufügen.",
-    "gdpr": "Rechtsgrundlage: Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Daten werden 30 Tage nach Abmeldung gelöscht; ein nicht umkehrbarer Fingerabdruck der Adresse wird 24 Monate aufbewahrt. Abmeldung mit 1 Klick in jeder E-Mail. Hosting: Resend (DPA unterzeichnet). Verantwortlicher: Advice That SRL, Brüssel."
+    "digestExtra": "Und hin und wieder ein paar Neuigkeiten über das Projekt selbst.",
+    "yourChoices": "Ihre Auswahl",
+    "choicesText": "Sprache, Themen, Gemeinden, Sektoren, Dossiers, Neuigkeiten zum Projekt: Nach der Anmeldung stellen Sie alles in Ihren Einstellungen ein.",
+    "gdpr": "Daten werden 30 Tage nach Abmeldung gelöscht; ein nicht umkehrbarer Fingerabdruck der Adresse wird 24 Monate aufbewahrt. Hosting: Resend (DPA unterzeichnet). Verantwortlicher: Advice That SRL, Brüssel. Rechtsgrundlagen: siehe Datenschutzrichtlinie."
   },
   "about": {
     "title": "Über den Brussels Governance Monitor",

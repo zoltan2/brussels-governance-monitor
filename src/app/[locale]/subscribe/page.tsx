@@ -113,7 +113,6 @@ function SubscribeView({
             {t('yourChoices')}
           </h2>
           <p className="mt-2 text-sm text-neutral-600">{t('choicesText')}</p>
-          <p className="mt-1 text-sm text-neutral-500">{t('choicesDetail')}</p>
         </div>
 
         {/* GDPR compact */}

@@ -323,7 +323,7 @@
     "successMessage": "Un email vient de partir à cette adresse. Si vous êtes déjà abonné, il vous propose d'ajouter ces thèmes.",
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
     "privacy": "Le lundi matin, l'essentiel. Rarement plus. Désabonnement en 1 clic.",
-    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest et des nouvelles du projet, avec votre consentement. <link>Politique de confidentialité</link>"
+    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest et des nouvelles du projet. <link>Politique de confidentialité</link>"
   },
   "subscribeConfirm": {
     "title": "Confirmez votre inscription",
@@ -1752,7 +1752,7 @@
     "success": "Un email vient de partir à cette adresse. Si vous êtes déjà abonné, il vous propose d'ajouter ce thème.",
     "error": "Une erreur est survenue. Réessayez.",
     "promise": "Le digest arrive le lundi, les semaines où ce thème a été mis à jour. Désabonnement en 1 clic.",
-    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest et des nouvelles du projet, avec votre consentement. <link>Politique de confidentialité</link>"
+    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest et des nouvelles du projet. <link>Politique de confidentialité</link>"
   },
   "share": {
     "share": "Partager",
@@ -2448,15 +2448,14 @@
     "title": "Suivez la gouvernance bruxelloise",
     "subtitle": "Un résumé hebdomadaire, sourcé et vérifié, des décisions qui impactent Bruxelles.",
     "whatYouGet": "Ce que vous recevrez",
-    "digestContent": "Le lundi matin, les semaines où vos thèmes ont bougé, un digest avec :",
+    "digestContent": "Un digest, les lundis où vos thèmes ont bougé :",
     "digestItem1": "Les faits marquants de la semaine sur les domaines que vous suivez",
     "digestItem2": "Les mises à jour des dossiers en cours (Good Move, LEZ, SLRB…)",
     "digestItem3": "Les nouvelles métriques ajoutées aux fiches",
-    "digestExtra": "Et, de temps en temps, quelques nouvelles du projet lui-même, que vous pourrez refuser en un clic dans vos préférences.",
-    "yourChoices": "Vos choix, votre langue",
-    "choicesText": "Vous recevrez le digest dans la langue que vous utilisez actuellement. Vous pouvez la changer dans vos préférences.",
-    "choicesDetail": "Après inscription, vous pourrez affiner vos préférences : ajouter des communes, des secteurs ou des dossiers spécifiques.",
-    "gdpr": "Base légale : consentement (art. 6.1.a RGPD). Données supprimées 30 jours après désabonnement ; empreinte non réversible de l'adresse conservée 24 mois. Désabonnement en 1 clic dans chaque email. Hébergement : Resend (DPA signé). Responsable : Advice That SRL, Bruxelles."
+    "digestExtra": "Et, de temps en temps, quelques nouvelles du projet lui-même.",
+    "yourChoices": "Vos choix",
+    "choicesText": "Langue, thèmes, communes, secteurs, dossiers, nouvelles du projet : tout se règle après l'inscription, dans vos préférences.",
+    "gdpr": "Données supprimées 30 jours après désabonnement ; empreinte non réversible de l'adresse conservée 24 mois. Hébergement : Resend (DPA signé). Responsable : Advice That SRL, Bruxelles. Bases légales : voir la politique de confidentialité."
   },
   "veille": {
     "lastVeille": "Dernière veille",

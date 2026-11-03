@@ -323,7 +323,7 @@
     "successMessage": "An email has just been sent to this address. If you are already subscribed, it offers to add these topics.",
     "errorMessage": "An error occurred. Please try again.",
     "privacy": "Monday morning, the essentials. Rarely more. Unsubscribe in 1 click.",
-    "privacyNotice": "Data processed by Advice That SRL to send the digest and news about the project, with your consent. <link>Privacy policy</link>"
+    "privacyNotice": "Data processed by Advice That SRL to send the digest and news about the project. <link>Privacy policy</link>"
   },
   "subscribeConfirm": {
     "title": "Confirm your subscription",
@@ -1752,7 +1752,7 @@
     "success": "An email has just been sent to this address. If you are already subscribed, it offers to add this topic.",
     "error": "An error occurred. Please try again.",
     "promise": "The digest arrives on Mondays, in the weeks when this topic has been updated. Unsubscribe in 1 click.",
-    "privacyNotice": "Data processed by Advice That SRL to send the digest and news about the project, with your consent. <link>Privacy policy</link>"
+    "privacyNotice": "Data processed by Advice That SRL to send the digest and news about the project. <link>Privacy policy</link>"
   },
   "share": {
     "share": "Share",
@@ -2429,15 +2429,14 @@
     "title": "Follow Brussels governance",
     "subtitle": "A weekly summary, sourced and verified, of the decisions that impact Brussels.",
     "whatYouGet": "What you will receive",
-    "digestContent": "On Monday mornings, in weeks when your topics have moved, a digest with:",
+    "digestContent": "A digest, on the Mondays when your topics have moved:",
     "digestItem1": "Key developments of the week in the domains you follow",
     "digestItem2": "Updates on ongoing dossiers (Good Move, LEZ, SLRB…)",
     "digestItem3": "New metrics added to the data pages",
-    "digestExtra": "And, from time to time, a little news about the project itself, which you can turn off in one click in your preferences.",
-    "yourChoices": "Your choices, your language",
-    "choicesText": "You will receive the digest in the language you are currently using. You can change it in your preferences.",
-    "choicesDetail": "After subscribing, you can refine your preferences: add municipalities, sectors, or specific dossiers.",
-    "gdpr": "Legal basis: consent (Art. 6.1.a GDPR). Data deleted 30 days after unsubscription; a non-reversible fingerprint of the address is kept for 24 months. Unsubscribe in 1 click from any email. Hosting: Resend (DPA signed). Controller: Advice That SRL, Brussels."
+    "digestExtra": "And, from time to time, a little news about the project itself.",
+    "yourChoices": "Your choices",
+    "choicesText": "Language, topics, municipalities, sectors, dossiers, project news: after signing up, you set everything in your preferences.",
+    "gdpr": "Data deleted 30 days after unsubscription; a non-reversible fingerprint of the address is kept for 24 months. Hosting: Resend (DPA signed). Controller: Advice That SRL, Brussels. Legal bases: see the privacy policy."
   },
   "about": {
     "title": "About the Brussels Governance Monitor",

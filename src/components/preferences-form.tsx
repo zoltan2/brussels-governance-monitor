@@ -72,6 +72,13 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
       });
   }, [token]);
 
+  // Lien « #coulisses » d'un mail : le formulaire est rendu après le
+  // chargement, donc le navigateur ne trouve pas l'ancre tout seul.
+  useEffect(() => {
+    if (state !== 'idle' || window.location.hash !== '#coulisses') return;
+    document.getElementById('coulisses')?.scrollIntoView({ block: 'start' });
+  }, [state]);
+
   function toggleTopic(topic: string) {
     setTopics((prev) =>
       prev.includes(topic) ? prev.filter((t) => t !== topic) : [...prev, topic],
@@ -197,12 +204,6 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
       <h2 className="mb-1 text-lg font-semibold text-neutral-900">{t('title')}</h2>
       <p className="mb-6 text-sm text-neutral-500">{t('subtitle')}</p>
 
-      {state === 'saved' && (
-        <div role="status" aria-live="polite" className="mb-4 rounded-md border border-brand-600/20 bg-brand-900/5 p-3">
-          <p className="text-sm font-medium text-brand-900">{t('saved')}</p>
-          <p className="mt-0.5 text-xs text-neutral-500">{t('savedMessage')}</p>
-        </div>
-      )}
 
       {state === 'error' && (
         <div role="alert" className="mb-4 rounded-md border border-status-delayed/20 bg-status-delayed/5 p-3">
@@ -356,7 +357,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
         </p>
       </fieldset>
 
-      <fieldset className="mb-6 border-t border-neutral-200 pt-4">
+      <fieldset id="coulisses" className="mb-6 scroll-mt-24 border-t border-neutral-200 pt-4">
         <legend className="mb-2 text-xs font-medium text-neutral-600">
           {t('coulissesTitle')}
         </legend>
@@ -375,6 +376,15 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
           {t('coulissesHelp')}
         </p>
       </fieldset>
+
+      {/* Le message de succès vit à côté du bouton : en haut du formulaire, il
+          restait hors de l'écran sur mobile après l'enregistrement. */}
+      {state === 'saved' && (
+        <div role="status" aria-live="polite" className="mb-4 rounded-md border border-brand-600/20 bg-brand-900/5 p-3">
+          <p className="text-sm font-medium text-brand-900">{t('saved')}</p>
+          <p className="mt-0.5 text-xs text-neutral-500">{t('savedMessage')}</p>
+        </div>
+      )}
 
       <button
         type="submit"

@@ -98,3 +98,22 @@ export function texteSeul(html: string): string {
 export function corpsVide(corps: string): boolean {
   return texteSeul(nettoyerCorps(corps)) === '';
 }
+
+/**
+ * Repère du bloc sondage dans le modèle de bienvenue : un paragraphe qui ne
+ * contient que « [sondage] ». À l'envoi, il est remplacé par le bloc de la
+ * langue tant que la campagne du sondage est ouverte (src/lib/sondage/campagne.ts),
+ * et retiré sinon : les autres paragraphes ne changent pas.
+ */
+export const REPERE_SONDAGE = '[sondage]';
+const PARAGRAPHE_REPERE = /<p>\s*\[sondage\]\s*<\/p>/gi;
+
+export function contientRepereSondage(corps: string): boolean {
+  return new RegExp(PARAGRAPHE_REPERE.source, 'i').test(nettoyerCorps(corps));
+}
+
+/** Corps de bienvenue prêt à l'envoi : repère remplacé par le bloc, ou retiré. */
+export function assemblerBienvenue(corps: string, blocSondage: string | undefined, sondageOuvert: boolean): string {
+  const bloc = sondageOuvert && blocSondage && !corpsVide(blocSondage) ? nettoyerCorps(blocSondage) : '';
+  return nettoyerCorps(corps).replace(PARAGRAPHE_REPERE, bloc);
+}

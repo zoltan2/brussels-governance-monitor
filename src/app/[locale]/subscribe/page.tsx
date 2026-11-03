@@ -104,6 +104,7 @@ function SubscribeView({
               {t('digestItem3')}
             </li>
           </ul>
+          <p className="mt-3 text-sm text-neutral-600">{t('digestExtra')}</p>
         </div>
 
         {/* Vos choix, votre langue */}

@@ -64,6 +64,17 @@ CREATE TABLE IF NOT EXISTS desabonnements (
 );
 CREATE INDEX IF NOT EXISTS idx_desabonnements_date ON desabonnements(desabonne_le);
 
+-- Événements Resend reçus par webhook (src/app/api/webhooks/resend) : rebonds
+-- et plaintes. Aucune adresse en clair, seulement l'empreinte. event_id unique :
+-- un événement redélivré par Resend n'alerte qu'une fois.
+CREATE TABLE IF NOT EXISTS resend_evenements (
+  event_id  TEXT PRIMARY KEY,
+  type      TEXT NOT NULL,
+  empreinte TEXT,
+  envoi     TEXT,
+  recu_le   INTEGER NOT NULL
+);
+
 -- Compteur mensuel des abonnés (src/lib/suivi-abonnes.ts) : des totaux, sans
 -- adresse ni empreinte, jamais purgés. La ligne de abonnes_suivi s'écrit une
 -- seule fois, au premier démarrage : elle date le début du suivi et garde le

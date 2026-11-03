@@ -322,8 +322,8 @@
     "successTitle": "Check your inbox",
     "successMessage": "An email has just been sent to this address. If you are already subscribed, it offers to add these topics.",
     "errorMessage": "An error occurred. Please try again.",
-    "privacy": "Max. 1 email/week. Unsubscribe in 1 click.",
-    "privacyNotice": "Data processed by Advice That SRL to send the digest, with your consent. <link>Privacy policy</link>"
+    "privacy": "Monday morning, the essentials. Rarely more. Unsubscribe in 1 click.",
+    "privacyNotice": "Data processed by Advice That SRL to send the digest and news about the project, with your consent. <link>Privacy policy</link>"
   },
   "subscribeConfirm": {
     "title": "Confirm your subscription",
@@ -476,7 +476,12 @@
     "unsubscribed": "You have been unsubscribed. A confirmation email has been sent.",
     "errorInvalidToken": "This link is invalid or has expired.",
     "errorGeneric": "An error occurred.",
-    "backHome": "← Back to home"
+    "backHome": "← Back to home",
+    "coulissesTitle": "Behind the scenes at BGM",
+    "coulissesLabel": "Receive a few lines from me, once a month at most",
+    "coulissesHelp": "A personal message on how the project is going, with a question for you. Your digest does not depend on it.",
+    "noTopicsHint": "No topic chosen: you receive the full digest.",
+    "errorLoad": "Your preferences could not be loaded. Please try again in a few minutes: nothing has been changed."
   },
   "editorial": {
     "title": "Editorial Charter",
@@ -521,7 +526,7 @@
     "dataCollected": {
       "title": "Data collected",
       "description": "We only collect data strictly necessary for the email alert service:",
-      "email": "Email address (for sending weekly digests)",
+      "email": "Email address (for sending the weekly digest and, once a month at most, news about the project)",
       "topics": "Chosen topics (to personalise alert content)",
       "locale": "Preferred language (to send emails in the correct language)",
       "sources": "Sign-up channel (for example the website or the BGM assistant), to know where the subscription came from"
@@ -552,7 +557,7 @@
       "hosting": "Hetzner (hosting): hosts the website on a server located in Nuremberg, Germany. This server holds personal data: temporary technical logs (IP addresses, HTTP headers), the database described below, the Umami analytics and the data of the Stuut by email (see its own section).",
       "cloudflare": "Cloudflare (CDN and DDoS protection): filters and delivers traffic from its European points of presence. Processes visitor IP addresses for the duration of the request. US company, certified under the EU-US Data Privacy Framework.",
       "umami": "Umami (analytics): privacy-friendly traffic measurement, self-hosted on our own server in Germany. No cookies, no cross-site tracking. Page addresses are recorded without their query string, except for campaign tags (utm_ parameters), so no token contained in an email link is ever stored. For an external referring site, only its domain and path are kept. Pages reserved for the team (administration, review, login) are not measured.",
-      "resend": "Resend (email): sends confirmation emails, weekly digests and the daily Stuut. Processes subscriber email addresses. Based in the United States with GDPR compliance (DPA signed).",
+      "resend": "Resend (email): sends confirmation emails, weekly digests, monthly project news and the daily Stuut. Processes subscriber email addresses. Based in the United States with GDPR compliance (DPA signed).",
       "stripe": "Stripe (payments): processes donations, book pre-orders and assistant unlocking. Card details are entered on pages hosted by Stripe: the site never sees or stores card data. US company.",
       "anthropic": "Anthropic (AI assistant): processes the questions put to the BGM assistant in order to generate answers. US company. Questions are not linked to an identity, and the email address the assistant may ask for is not passed on to Anthropic.",
       "database": "Database: a SQLite database on our own server, at Hetzner in Germany, holds the book pre-order register (first name and email address), the votes of the consultation on the home page, with the email address of voters who left one, the assistant log (questions asked and fingerprints of the email addresses given to unlock more questions), the identifiers of Stripe payments for assistant access, the unsubscribe register, which keeps only a fingerprint of the address, and the digest reader survey: anonymous answers and, separately, the email address and/or phone number of readers who agree to a conversation (see the dedicated section).",
@@ -568,6 +573,10 @@
     "stuutEmail": {
       "title": "Le Stuut du jour by email",
       "description": "If you sign up to receive Le Stuut every morning, on stuut.governance.brussels or from this site's games panel, the Stuut service records your email address, the site you signed up from, the dates of sign-up, confirmation and, where applicable, unsubscription or delivery failure, and the date and outcome of each sending. This data is used solely to send you Le Stuut. Your subscription only becomes active after you click the confirmation link received by email (legal basis: your consent). Emails are sent via Resend. Every daily email contains an unsubscribe link. After you unsubscribe, your address remains recorded, marked as unsubscribed, and receives nothing further; it is permanently deleted on simple request to the contact address below. Your IP address is not recorded by this service: it is only used, in memory and for a few minutes, to limit abuse."
+    },
+    "coulisses": {
+      "title": "Behind the scenes at BGM",
+      "description": "Once a month at most, digest subscribers receive a personal message on how the project is going, no earlier than three weeks after signing up. You can turn it off at any time in your preferences, without affecting the digest. If you reply, your reply reaches the contact address below; the requests it contains may be noted, without your name or address, to report back on them in the following message. Legal basis: legitimate interest (Article 6.1.f GDPR), namely keeping subscribers informed of how the project evolves and asking for their views."
     },
     "survey": {
       "title": "Digest reader survey",
@@ -1743,7 +1752,7 @@
     "success": "An email has just been sent to this address. If you are already subscribed, it offers to add this topic.",
     "error": "An error occurred. Please try again.",
     "promise": "The digest arrives on Mondays, in the weeks when this topic has been updated. Unsubscribe in 1 click.",
-    "privacyNotice": "Data processed by Advice That SRL to send the digest, with your consent. <link>Privacy policy</link>"
+    "privacyNotice": "Data processed by Advice That SRL to send the digest and news about the project, with your consent. <link>Privacy policy</link>"
   },
   "share": {
     "share": "Share",
@@ -2420,10 +2429,11 @@
     "title": "Follow Brussels governance",
     "subtitle": "A weekly summary, sourced and verified, of the decisions that impact Brussels.",
     "whatYouGet": "What you will receive",
-    "digestContent": "One email per week, on Monday morning, with:",
+    "digestContent": "On Monday mornings, in weeks when your topics have moved, a digest with:",
     "digestItem1": "Key developments of the week in the domains you follow",
     "digestItem2": "Updates on ongoing dossiers (Good Move, LEZ, SLRB…)",
     "digestItem3": "New metrics added to the data pages",
+    "digestExtra": "And, from time to time, a little news about the project itself, which you can turn off in one click in your preferences.",
     "yourChoices": "Your choices, your language",
     "choicesText": "You will receive the digest in the language you are currently using. You can change it in your preferences.",
     "choicesDetail": "After subscribing, you can refine your preferences: add municipalities, sectors, or specific dossiers.",

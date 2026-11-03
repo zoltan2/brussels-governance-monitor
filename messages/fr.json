@@ -322,8 +322,8 @@
     "successTitle": "Vérifiez votre boîte mail",
     "successMessage": "Un email vient de partir à cette adresse. Si vous êtes déjà abonné, il vous propose d'ajouter ces thèmes.",
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
-    "privacy": "Max. 1 email/semaine. Désabonnement en 1 clic.",
-    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest, avec votre consentement. <link>Politique de confidentialité</link>"
+    "privacy": "Le lundi matin, l'essentiel. Rarement plus. Désabonnement en 1 clic.",
+    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest et des nouvelles du projet, avec votre consentement. <link>Politique de confidentialité</link>"
   },
   "subscribeConfirm": {
     "title": "Confirmez votre inscription",
@@ -476,7 +476,12 @@
     "unsubscribed": "Vous êtes désabonné. Un email de confirmation a été envoyé.",
     "errorInvalidToken": "Ce lien est invalide ou a expiré.",
     "errorGeneric": "Une erreur est survenue.",
-    "backHome": "← Retour à l'accueil"
+    "backHome": "← Retour à l'accueil",
+    "coulissesTitle": "Les coulisses de BGM",
+    "coulissesLabel": "Recevoir, une fois par mois au plus, quelques lignes de ma part",
+    "coulissesHelp": "Un message personnel sur l'avancée du projet, avec une question pour vous. Votre digest n'en dépend pas.",
+    "noTopicsHint": "Aucun thème choisi : vous recevez tout le digest.",
+    "errorLoad": "Vos préférences n'ont pas pu être chargées. Réessayez dans quelques minutes : rien n'a été modifié."
   },
   "editorial": {
     "title": "Charte éditoriale",
@@ -521,7 +526,7 @@
     "dataCollected": {
       "title": "Données collectées",
       "description": "Nous collectons uniquement les données strictement nécessaires au fonctionnement du service d'alerte email :",
-      "email": "Adresse email (pour l'envoi des digest hebdomadaires)",
+      "email": "Adresse email (pour l'envoi du digest hebdomadaire et, une fois par mois au plus, de nouvelles du projet)",
       "topics": "Thèmes choisis (pour personnaliser le contenu des alertes)",
       "locale": "Langue préférée (pour envoyer les emails dans la bonne langue)",
       "sources": "Canal d'inscription (par exemple le site ou l'assistant BGM), pour savoir d'où vient l'inscription"
@@ -552,7 +557,7 @@
       "hosting": "Hetzner (hébergement) : héberge le site sur un serveur situé à Nuremberg, en Allemagne. Ce serveur conserve des données personnelles : les logs techniques temporaires (adresses IP, en-têtes HTTP), la base de données décrite ci-dessous, les statistiques Umami et les données du Stuut par e-mail (voir la section qui lui est consacrée).",
       "cloudflare": "Cloudflare (CDN et protection anti-DDoS) : filtre et distribue le trafic depuis ses points de présence européens. Traite les adresses IP des visiteurs pendant la requête. Société américaine, certifiée sous le EU-US Data Privacy Framework.",
       "umami": "Umami (statistiques) : mesure de fréquentation respectueuse de la vie privée, auto-hébergée sur notre propre serveur en Allemagne. Aucun cookie, aucun suivi inter-sites. Les adresses des pages sont enregistrées sans leur chaîne de requête, à l'exception des balises de campagne (paramètres utm_), afin qu'aucun jeton figurant dans un lien d'email ne soit conservé. Pour un site d'origine externe, seuls son domaine et son chemin sont conservés. Les pages réservées à l'équipe (administration, relecture, connexion) ne sont pas mesurées.",
-      "resend": "Resend (emails) : envoie les emails de confirmation, les digest hebdomadaires et le Stuut quotidien. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
+      "resend": "Resend (emails) : envoie les emails de confirmation, les digest hebdomadaires, les nouvelles mensuelles du projet et le Stuut quotidien. Traite les adresses email des abonnés. Basé aux États-Unis avec conformité RGPD (DPA signé).",
       "stripe": "Stripe (paiements) : traite les dons, les précommandes du livre et le déverrouillage de l'assistant. La saisie des données bancaires a lieu sur les pages hébergées par Stripe : le site ne voit ni ne stocke aucune donnée de carte. Société américaine.",
       "anthropic": "Anthropic (assistant IA) : traite les questions posées à l'assistant BGM pour produire les réponses. Société américaine. Les questions ne sont pas liées à une identité, et l'adresse email que l'assistant peut demander ne lui est pas transmise.",
       "database": "Base de données : une base SQLite sur notre propre serveur, chez Hetzner en Allemagne, contient le registre des précommandes du livre (prénom et adresse email), les votes de la consultation sur la page d'accueil, avec l'adresse email des votants qui l'ont laissée, le journal de l'assistant (questions posées et empreintes des adresses email données pour débloquer des questions), les identifiants des paiements Stripe de l'accès à l'assistant le registre des désabonnements, qui ne garde qu'une empreinte de l'adresse, et le sondage lecteurs du digest : des réponses anonymes et, à part, l'adresse email et/ou le numéro de téléphone des volontaires pour un échange (voir la section qui lui est consacrée).",
@@ -568,6 +573,10 @@
     "stuutEmail": {
       "title": "Le Stuut du jour par e-mail",
       "description": "Si vous vous inscrivez pour recevoir le Stuut chaque matin, sur stuut.governance.brussels ou depuis le panneau de jeux de ce site, le service du Stuut enregistre votre adresse e-mail, le site d'où vous vous êtes inscrit, les dates d'inscription, de confirmation et, le cas échéant, de désinscription ou d'échec de livraison, ainsi que la date et le résultat de chaque envoi. Ces données servent uniquement à vous envoyer le Stuut. L'inscription n'est active qu'après un clic sur le lien de confirmation reçu par e-mail (base légale : votre consentement). Les e-mails sont envoyés par Resend. Chaque e-mail quotidien contient un lien de désinscription. Après une désinscription, votre adresse reste enregistrée, marquée comme désinscrite, et ne reçoit plus rien ; elle est supprimée définitivement sur simple demande à l'adresse de contact ci-dessous. Votre adresse IP n'est pas enregistrée par ce service : elle sert seulement, en mémoire et pendant quelques minutes, à limiter les abus."
+    },
+    "coulisses": {
+      "title": "Les coulisses de BGM",
+      "description": "Une fois par mois au plus, les abonnés au digest reçoivent un message personnel sur l'avancée du projet, au plus tôt trois semaines après leur inscription. Vous pouvez le refuser à tout moment dans vos préférences, sans effet sur le digest. Si vous y répondez, votre réponse arrive à l'adresse de contact ci-dessous ; les demandes qu'elle contient peuvent être notées, sans votre nom ni votre adresse, pour en rendre compte dans le message suivant. Base légale : intérêt légitime (article 6.1.f du RGPD), celui de tenir les abonnés informés de l'évolution du projet et de recueillir leur avis."
     },
     "survey": {
       "title": "Sondage lecteurs du digest",
@@ -1743,7 +1752,7 @@
     "success": "Un email vient de partir à cette adresse. Si vous êtes déjà abonné, il vous propose d'ajouter ce thème.",
     "error": "Une erreur est survenue. Réessayez.",
     "promise": "Le digest arrive le lundi, les semaines où ce thème a été mis à jour. Désabonnement en 1 clic.",
-    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest, avec votre consentement. <link>Politique de confidentialité</link>"
+    "privacyNotice": "Données traitées par Advice That SRL pour l'envoi du digest et des nouvelles du projet, avec votre consentement. <link>Politique de confidentialité</link>"
   },
   "share": {
     "share": "Partager",
@@ -2439,10 +2448,11 @@
     "title": "Suivez la gouvernance bruxelloise",
     "subtitle": "Un résumé hebdomadaire, sourcé et vérifié, des décisions qui impactent Bruxelles.",
     "whatYouGet": "Ce que vous recevrez",
-    "digestContent": "Un email par semaine, le lundi matin, avec :",
+    "digestContent": "Le lundi matin, les semaines où vos thèmes ont bougé, un digest avec :",
     "digestItem1": "Les faits marquants de la semaine sur les domaines que vous suivez",
     "digestItem2": "Les mises à jour des dossiers en cours (Good Move, LEZ, SLRB…)",
     "digestItem3": "Les nouvelles métriques ajoutées aux fiches",
+    "digestExtra": "Et, de temps en temps, quelques nouvelles du projet lui-même, que vous pourrez refuser en un clic dans vos préférences.",
     "yourChoices": "Vos choix, votre langue",
     "choicesText": "Vous recevrez le digest dans la langue que vous utilisez actuellement. Vous pouvez la changer dans vos préférences.",
     "choicesDetail": "Après inscription, vous pourrez affiner vos préférences : ajouter des communes, des secteurs ou des dossiers spécifiques.",

@@ -22,6 +22,7 @@ type FormState =
   | 'saving'
   | 'saved'
   | 'error'
+  | 'loadError'
   | 'invalid'
   | 'unsubscribing';
 
@@ -38,6 +39,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
   const [email, setEmail] = useState('');
   const [topics, setTopics] = useState<string[]>([]);
   const [locale, setLocale] = useState('fr');
+  const [motMensuel, setMotMensuel] = useState(true);
   const [showSurvey, setShowSurvey] = useState(false);
 
   useEffect(() => {
@@ -46,7 +48,12 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
     fetch(`/api/preferences?token=${encodeURIComponent(token)}`)
       .then((res) => {
         if (!res.ok) {
-          setState(res.status === 401 || res.status === 404 ? 'invalid' : 'error');
+          // Échec de lecture : ne jamais afficher un formulaire vide et
+          // enregistrable, il écraserait les vrais réglages. Limite : une
+          // panne de Resend pendant la recherche du contact remonte aujourd'hui
+          // en 404 (getContact rend null dans les deux cas), donc « lien
+          // invalide » plutôt que errorLoad. Rien n'est écrasé pour autant.
+          setState(res.status === 401 || res.status === 404 ? 'invalid' : 'loadError');
           return null;
         }
         return res.json();
@@ -56,13 +63,21 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
           setEmail(data.email);
           setTopics(data.topics);
           setLocale(data.locale);
+          setMotMensuel(data.motMensuel !== false);
           setState('idle');
         }
       })
       .catch(() => {
-        setState('error');
+        setState('loadError');
       });
   }, [token]);
+
+  // Lien « #coulisses » d'un mail : le formulaire est rendu après le
+  // chargement, donc le navigateur ne trouve pas l'ancre tout seul.
+  useEffect(() => {
+    if (state !== 'idle' || window.location.hash !== '#coulisses') return;
+    document.getElementById('coulisses')?.scrollIntoView({ block: 'start' });
+  }, [state]);
 
   function toggleTopic(topic: string) {
     setTopics((prev) =>
@@ -72,7 +87,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
 
   async function handleSave(e: React.FormEvent) {
     e.preventDefault();
-    if (!token || topics.length === 0) return;
+    if (!token) return;
 
     setState('saving');
 
@@ -80,7 +95,7 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
       const res = await fetch('/api/preferences', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token, topics, locale }),
+        body: JSON.stringify({ token, topics, locale, motMensuel }),
       });
 
       if (res.ok) {
@@ -127,6 +142,17 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
       <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
         <div className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-2 border-neutral-300 border-t-brand-900" />
         <p className="text-sm text-neutral-500">{t('title')}</p>
+      </div>
+    );
+  }
+
+  if (state === 'loadError') {
+    return (
+      <div role="alert" className="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
+        <p className="text-sm text-neutral-600">{t('errorLoad')}</p>
+        <Link href="/" className="mt-4 inline-flex items-center text-sm text-neutral-500 hover:text-neutral-700">
+          {t('backHome')}
+        </Link>
       </div>
     );
   }
@@ -178,12 +204,6 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
       <h2 className="mb-1 text-lg font-semibold text-neutral-900">{t('title')}</h2>
       <p className="mb-6 text-sm text-neutral-500">{t('subtitle')}</p>
 
-      {state === 'saved' && (
-        <div role="status" aria-live="polite" className="mb-4 rounded-md border border-brand-600/20 bg-brand-900/5 p-3">
-          <p className="text-sm font-medium text-brand-900">{t('saved')}</p>
-          <p className="mt-0.5 text-xs text-neutral-500">{t('savedMessage')}</p>
-        </div>
-      )}
 
       {state === 'error' && (
         <div role="alert" className="mb-4 rounded-md border border-status-delayed/20 bg-status-delayed/5 p-3">
@@ -332,11 +352,43 @@ export function PreferencesForm({ token, dossierOptions }: PreferencesFormProps)
             </label>
           ))}
         </div>
+        <p aria-live="polite" className="mt-3 text-xs text-neutral-500">
+          {topics.length === 0 ? t('noTopicsHint') : ''}
+        </p>
       </fieldset>
+
+      <fieldset id="coulisses" className="mb-6 scroll-mt-24 border-t border-neutral-200 pt-4">
+        <legend className="mb-2 text-xs font-medium text-neutral-600">
+          {t('coulissesTitle')}
+        </legend>
+        <label className="flex cursor-pointer items-start gap-2">
+          <input
+            type="checkbox"
+            name="coulisses"
+            checked={motMensuel}
+            onChange={(e) => setMotMensuel(e.target.checked)}
+            aria-describedby="coulisses-help"
+            className="mt-0.5 h-4 w-4 shrink-0 rounded border-neutral-500 accent-brand-900"
+          />
+          <span className="text-sm text-neutral-900">{t('coulissesLabel')}</span>
+        </label>
+        <p id="coulisses-help" className="mt-1 pl-6 text-xs text-neutral-500">
+          {t('coulissesHelp')}
+        </p>
+      </fieldset>
+
+      {/* Le message de succès vit à côté du bouton : en haut du formulaire, il
+          restait hors de l'écran sur mobile après l'enregistrement. */}
+      {state === 'saved' && (
+        <div role="status" aria-live="polite" className="mb-4 rounded-md border border-brand-600/20 bg-brand-900/5 p-3">
+          <p className="text-sm font-medium text-brand-900">{t('saved')}</p>
+          <p className="mt-0.5 text-xs text-neutral-500">{t('savedMessage')}</p>
+        </div>
+      )}
 
       <button
         type="submit"
-        disabled={state === 'saving' || topics.length === 0}
+        disabled={state === 'saving'}
         className="w-full rounded-md bg-brand-900 px-4 py-2.5 text-sm font-medium text-neutral-50 transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {state === 'saving' ? t('saving') : t('save')}

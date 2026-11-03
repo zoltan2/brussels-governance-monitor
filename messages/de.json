@@ -322,8 +322,8 @@
     "successTitle": "Überprüfen Sie Ihren Posteingang",
     "successMessage": "An diese Adresse wurde soeben eine E-Mail gesendet. Wenn Sie bereits abonniert sind, schlägt sie vor, diese Themen hinzuzufügen.",
     "errorMessage": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
-    "privacy": "Max. 1 E-Mail/Woche. Abmeldung mit 1 Klick.",
-    "privacyNotice": "Daten werden von Advice That SRL mit Ihrer Einwilligung für den Versand des Digests verarbeitet. <link>Datenschutzrichtlinie</link>"
+    "privacy": "Montagmorgen das Wesentliche. Selten mehr. Abmeldung mit 1 Klick.",
+    "privacyNotice": "Daten werden von Advice That SRL mit Ihrer Einwilligung für den Versand des Digests und von Neuigkeiten zum Projekt verarbeitet. <link>Datenschutzrichtlinie</link>"
   },
   "subscribeConfirm": {
     "title": "Bestätigen Sie Ihre Anmeldung",
@@ -476,7 +476,12 @@
     "unsubscribed": "Sie wurden abgemeldet. Eine Bestätigungs-E-Mail wurde gesendet.",
     "errorInvalidToken": "Dieser Link ist ungültig oder abgelaufen.",
     "errorGeneric": "Ein Fehler ist aufgetreten.",
-    "backHome": "← Zurück zur Startseite"
+    "backHome": "← Zurück zur Startseite",
+    "coulissesTitle": "Hinter den Kulissen von BGM",
+    "coulissesLabel": "Höchstens einmal im Monat ein paar Zeilen von mir erhalten",
+    "coulissesHelp": "Eine persönliche Nachricht zum Stand des Projekts, mit einer Frage an Sie. Ihr Digest hängt nicht davon ab.",
+    "noTopicsHint": "Kein Thema gewählt: Sie erhalten den vollständigen Digest.",
+    "errorLoad": "Ihre Einstellungen konnten nicht geladen werden. Versuchen Sie es in einigen Minuten erneut: Es wurde nichts geändert."
   },
   "editorial": {
     "title": "Redaktionelle Charta",
@@ -521,7 +526,7 @@
     "dataCollected": {
       "title": "Erhobene Daten",
       "description": "Wir erheben ausschließlich die für den E-Mail-Benachrichtigungsdienst unbedingt erforderlichen Daten:",
-      "email": "E-Mail-Adresse (für den Versand wöchentlicher Zusammenfassungen)",
+      "email": "E-Mail-Adresse (für den Versand des wöchentlichen Digests und, höchstens einmal im Monat, von Neuigkeiten zum Projekt)",
       "topics": "Gewählte Themen (zur Personalisierung der Benachrichtigungsinhalte)",
       "locale": "Bevorzugte Sprache (um E-Mails in der richtigen Sprache zu versenden)",
       "sources": "Anmeldekanal (zum Beispiel die Website oder der BGM-Assistent), um zu wissen, woher die Anmeldung stammt"
@@ -552,7 +557,7 @@
       "hosting": "Hetzner (Hosting): hostet die Website auf einem Server in Nürnberg, Deutschland. Auf diesem Server liegen personenbezogene Daten: temporäre technische Protokolle (IP-Adressen, HTTP-Header), die unten beschriebene Datenbank, die Umami-Statistiken und die Daten des Stuut per E-Mail (siehe den entsprechenden Abschnitt).",
       "cloudflare": "Cloudflare (CDN und DDoS-Schutz): filtert und verteilt den Datenverkehr über seine europäischen Standorte. Verarbeitet die IP-Adressen der Besucher während der Anfrage. US-Unternehmen, zertifiziert unter dem EU-US Data Privacy Framework.",
       "umami": "Umami (Statistiken): datenschutzfreundliche Reichweitenmessung, selbst gehostet auf unserem eigenen Server in Deutschland. Keine Cookies, kein seitenübergreifendes Tracking. Seitenadressen werden ohne Query-String gespeichert, mit Ausnahme der Kampagnen-Tags (utm_-Parameter), sodass kein Token aus einem E-Mail-Link erhalten bleibt. Bei einer externen verweisenden Website werden nur Domain und Pfad gespeichert. Dem Team vorbehaltene Seiten (Verwaltung, Prüfung, Anmeldung) werden nicht gemessen.",
-      "resend": "Resend (E-Mails): versendet Bestätigungs-E-Mails, wöchentliche Zusammenfassungen und den täglichen Stuut. Verarbeitet E-Mail-Adressen der Abonnenten. Sitz in den USA mit DSGVO-Konformität (DPA unterzeichnet).",
+      "resend": "Resend (E-Mails): versendet Bestätigungs-E-Mails, wöchentliche Zusammenfassungen, monatliche Neuigkeiten zum Projekt und den täglichen Stuut. Verarbeitet E-Mail-Adressen der Abonnenten. Sitz in den USA mit DSGVO-Konformität (DPA unterzeichnet).",
       "stripe": "Stripe (Zahlungen): verarbeitet Spenden, Vorbestellungen des Buches und die Freischaltung des Assistenten. Die Eingabe der Zahlungsdaten erfolgt auf von Stripe gehosteten Seiten: die Website sieht und speichert keine Kartendaten. US-amerikanisches Unternehmen.",
       "anthropic": "Anthropic (KI-Assistent): verarbeitet die an den BGM-Assistenten gestellten Fragen, um die Antworten zu erzeugen. US-amerikanisches Unternehmen. Die Fragen werden keiner Identität zugeordnet, und die E-Mail-Adresse, die der Assistent abfragen kann, wird nicht an Anthropic übermittelt.",
       "database": "Datenbank: Eine SQLite-Datenbank auf unserem eigenen Server bei Hetzner in Deutschland enthält das Register der Buchvorbestellungen (Vorname und E-Mail-Adresse), die Stimmen der Befragung zur Startseite, mit der E-Mail-Adresse der Teilnehmenden, die eine angegeben haben, das Protokoll des Assistenten (gestellte Fragen und Fingerabdrücke der E-Mail-Adressen, die zum Freischalten weiterer Fragen angegeben wurden), die Kennungen der Stripe-Zahlungen für den Zugang zum Assistenten das Register der Abmeldungen, das nur einen Fingerabdruck der Adresse speichert, sowie die Leserumfrage zum Digest: anonyme Antworten und, getrennt davon, die E-Mail-Adresse und/oder Telefonnummer der Personen, die einem Gespräch zustimmen (siehe den entsprechenden Abschnitt).",
@@ -568,6 +573,10 @@
     "stuutEmail": {
       "title": "Le Stuut du jour per E-Mail",
       "description": "Wenn Sie sich anmelden, um Le Stuut jeden Morgen zu erhalten, auf stuut.governance.brussels oder über den Spielebereich dieser Website, speichert der Stuut-Dienst Ihre E-Mail-Adresse, die Website, über die Sie sich angemeldet haben, die Daten der Anmeldung, der Bestätigung und gegebenenfalls der Abmeldung oder eines Zustellfehlers sowie Datum und Ergebnis jedes Versands. Diese Daten dienen ausschließlich dazu, Ihnen Le Stuut zu senden. Die Anmeldung wird erst aktiv, nachdem Sie auf den Bestätigungslink in der E-Mail geklickt haben (Rechtsgrundlage: Ihre Einwilligung). Die E-Mails werden über Resend versendet. Jede tägliche E-Mail enthält einen Abmeldelink. Nach einer Abmeldung bleibt Ihre Adresse gespeichert, als abgemeldet markiert, und erhält nichts mehr; sie wird auf einfache Anfrage an die unten stehende Kontaktadresse endgültig gelöscht. Ihre IP-Adresse wird von diesem Dienst nicht gespeichert: Sie dient nur, im Arbeitsspeicher und für wenige Minuten, der Begrenzung von Missbrauch."
+    },
+    "coulisses": {
+      "title": "Hinter den Kulissen von BGM",
+      "description": "Höchstens einmal im Monat erhalten Abonnenten des Digests eine persönliche Nachricht zum Stand des Projekts, frühestens drei Wochen nach ihrer Anmeldung. Sie können sie jederzeit in Ihren Einstellungen abbestellen, ohne Folgen für den Digest. Wenn Sie antworten, geht Ihre Antwort an die unten genannte Kontaktadresse; die darin enthaltenen Anliegen können ohne Ihren Namen und Ihre Adresse notiert werden, um in der folgenden Nachricht darüber zu berichten. Rechtsgrundlage: berechtigtes Interesse (Artikel 6.1.f DSGVO), nämlich die Abonnenten über die Entwicklung des Projekts zu informieren und ihre Meinung einzuholen."
     },
     "survey": {
       "title": "Leserumfrage zum Digest",
@@ -1743,7 +1752,7 @@
     "success": "An diese Adresse wurde soeben eine E-Mail gesendet. Wenn Sie bereits abonniert sind, schlägt sie vor, dieses Thema hinzuzufügen.",
     "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "promise": "Die Zusammenfassung kommt montags, in den Wochen, in denen dieses Thema aktualisiert wurde. Abmeldung mit 1 Klick.",
-    "privacyNotice": "Daten werden von Advice That SRL mit Ihrer Einwilligung für den Versand des Digests verarbeitet. <link>Datenschutzrichtlinie</link>"
+    "privacyNotice": "Daten werden von Advice That SRL mit Ihrer Einwilligung für den Versand des Digests und von Neuigkeiten zum Projekt verarbeitet. <link>Datenschutzrichtlinie</link>"
   },
   "share": {
     "share": "Teilen",
@@ -2420,10 +2429,11 @@
     "title": "Verfolgen Sie die Brüsseler Regierungsführung",
     "subtitle": "Eine wöchentliche Zusammenfassung, mit Quellenangaben und überprüft, der Entscheidungen, die Brüssel betreffen.",
     "whatYouGet": "Was Sie erhalten",
-    "digestContent": "Eine E-Mail pro Woche, am Montagmorgen, mit:",
+    "digestContent": "Montagmorgens, in den Wochen, in denen sich Ihre Themen bewegt haben, ein Digest mit:",
     "digestItem1": "Die wichtigsten Entwicklungen der Woche in den Bereichen, die Sie verfolgen",
     "digestItem2": "Updates zu laufenden Dossiers (Good Move, LEZ, SLRB…)",
     "digestItem3": "Neue Kennzahlen, die den Datenseiten hinzugefügt wurden",
+    "digestExtra": "Und hin und wieder ein paar Neuigkeiten über das Projekt selbst, die Sie mit einem Klick in Ihren Einstellungen abbestellen können.",
     "yourChoices": "Ihre Auswahl, Ihre Sprache",
     "choicesText": "Sie erhalten den Digest in der Sprache, die Sie derzeit verwenden. Sie können diese in Ihren Einstellungen ändern.",
     "choicesDetail": "Nach der Anmeldung können Sie Ihre Einstellungen verfeinern: Gemeinden, Sektoren oder bestimmte Dossiers hinzufügen.",

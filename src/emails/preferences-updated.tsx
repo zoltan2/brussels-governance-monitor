@@ -19,6 +19,7 @@ interface PreferencesUpdatedEmailProps {
   locale: string;
   topics: string[];
   preferencesUrl: string;
+  motMensuel?: boolean;
 }
 
 interface PreferencesTranslation {
@@ -26,6 +27,9 @@ interface PreferencesTranslation {
   title: string;
   greeting: string;
   topicsTitle: string;
+  allTopics: string;
+  coulissesOui: string;
+  coulissesNon: string;
   manage: string;
   footer: string;
   disclaimer: string;
@@ -37,6 +41,9 @@ const translations: Record<string, PreferencesTranslation> = {
     title: 'Pr\u00e9f\u00e9rences mises \u00e0 jour',
     greeting: 'Vos pr\u00e9f\u00e9rences de notification ont \u00e9t\u00e9 enregistr\u00e9es.',
     topicsTitle: 'Vos th\u00e8mes suivis :',
+    allTopics: 'Tout le digest (aucun th\u00e8me choisi)',
+    coulissesOui: 'Les coulisses de BGM : oui',
+    coulissesNon: 'Les coulisses de BGM : non',
     manage: 'G\u00e9rer mes pr\u00e9f\u00e9rences',
     footer:
       'Brussels Governance Monitor \u2014 Un projet d\'int\u00e9r\u00eat g\u00e9n\u00e9ral h\u00e9berg\u00e9 par Advice That SRL',
@@ -47,6 +54,9 @@ const translations: Record<string, PreferencesTranslation> = {
     title: 'Voorkeuren bijgewerkt',
     greeting: 'Uw meldingsvoorkeuren zijn opgeslagen.',
     topicsTitle: 'Uw gevolgde thema\'s:',
+    allTopics: 'De volledige digest (geen thema gekozen)',
+    coulissesOui: 'Achter de schermen bij BGM: ja',
+    coulissesNon: 'Achter de schermen bij BGM: nee',
     manage: 'Mijn voorkeuren beheren',
     footer:
       'Brussels Governance Monitor \u2014 Een project van algemeen belang gehost door Advice That SRL',
@@ -57,6 +67,9 @@ const translations: Record<string, PreferencesTranslation> = {
     title: 'Preferences updated',
     greeting: 'Your notification preferences have been saved.',
     topicsTitle: 'Your followed topics:',
+    allTopics: 'The full digest (no topic chosen)',
+    coulissesOui: 'Behind the scenes at BGM: yes',
+    coulissesNon: 'Behind the scenes at BGM: no',
     manage: 'Manage my preferences',
     footer:
       'Brussels Governance Monitor \u2014 A public interest project hosted by Advice That SRL',
@@ -67,6 +80,9 @@ const translations: Record<string, PreferencesTranslation> = {
     title: 'Einstellungen aktualisiert',
     greeting: 'Ihre Benachrichtigungseinstellungen wurden gespeichert.',
     topicsTitle: 'Ihre verfolgten Themen:',
+    allTopics: 'Der vollst\u00e4ndige Digest (kein Thema gew\u00e4hlt)',
+    coulissesOui: 'Hinter den Kulissen von BGM: ja',
+    coulissesNon: 'Hinter den Kulissen von BGM: nein',
     manage: 'Meine Einstellungen verwalten',
     footer:
       'Brussels Governance Monitor \u2014 Ein Projekt im \u00f6ffentlichen Interesse, gehostet von Advice That SRL',
@@ -78,6 +94,7 @@ export default function PreferencesUpdatedEmail({
   locale,
   topics,
   preferencesUrl,
+  motMensuel,
 }: PreferencesUpdatedEmailProps) {
   const t = translations[locale] || translations.fr;
   const labels = getTopicLabels(locale);
@@ -94,11 +111,20 @@ export default function PreferencesUpdatedEmail({
 
           <Section style={styles.topicsSection}>
             <Text style={styles.topicsTitle}>{t.topicsTitle}</Text>
-            {topics.map((topic) => (
-              <Text key={topic} style={styles.topicItem}>
-                — {labels[topic] || topic}
+            {topics.length === 0 ? (
+              <Text style={styles.topicItem}>{t.allTopics}</Text>
+            ) : (
+              topics.map((topic) => (
+                <Text key={topic} style={styles.topicItem}>
+                  — {labels[topic] || topic}
+                </Text>
+              ))
+            )}
+            {motMensuel !== undefined && (
+              <Text style={styles.topicItem}>
+                {motMensuel ? t.coulissesOui : t.coulissesNon}
               </Text>
-            ))}
+            )}
           </Section>
 
           <Hr style={styles.hr} />

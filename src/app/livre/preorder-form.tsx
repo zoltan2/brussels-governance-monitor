@@ -120,8 +120,8 @@ export function PreorderForm() {
           disabled={state === 'loading'}
         />
         <span>
-          Je veux aussi recevoir le digest hebdomadaire de BGM (un email par
-          semaine au maximum, désabonnement en un clic).
+          Je veux aussi recevoir le digest de BGM (le lundi matin, rarement
+          plus, désabonnement en un clic).
         </span>
       </label>
 

@@ -332,9 +332,12 @@ export function completerEmpreintes(db: DatabaseSync, contacts: Array<{ id: stri
 export const CONSERVATION_JOURS = 730;
 
 /**
- * Minimisation : efface les lignes de plus de 24 mois des personnes qui ne
- * sont plus abonnées (ni leur contact ni leur empreinte dans la liste lue).
- * Les lignes d'un abonné actif restent : elles prouvent sa bienvenue reçue.
+ * Minimisation : efface les lignes de plus de 24 mois des personnes parties,
+ * c'est-à-dire absentes de la liste lue (ni contact ni empreinte) ET absentes
+ * du registre des désabonnements (desabonnements.ts), qui garde l'empreinte
+ * 24 mois après le DÉPART. Les 24 mois courent donc depuis le départ, pas
+ * depuis le dernier envoi : quelqu'un qui avait refusé les coulisses pendant
+ * des années garde sa preuve de bienvenue s'il revient dans les 24 mois.
  */
 export function purgerJournal(
   db: DatabaseSync,
@@ -346,9 +349,11 @@ export function purgerJournal(
     .prepare('SELECT numero, contact_id, empreinte FROM coulisses_envois WHERE le < ?')
     .all(limite) as Array<{ numero: number; contact_id: string; empreinte: string | null }>;
   const suppr = db.prepare('DELETE FROM coulisses_envois WHERE numero = ? AND contact_id = ?');
+  const auRegistre = db.prepare('SELECT 1 FROM desabonnements WHERE empreinte = ?');
   let n = 0;
   for (const v of vieilles) {
     if (actifs.ids.has(v.contact_id) || (v.empreinte && actifs.empreintes.has(v.empreinte))) continue;
+    if (v.empreinte && auRegistre.get(v.empreinte)) continue;
     suppr.run(v.numero, v.contact_id);
     n++;
   }

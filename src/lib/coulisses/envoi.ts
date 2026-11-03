@@ -210,9 +210,13 @@ export async function envoyerEssai(
   return { envoyes: mails.length, erreurs: [] };
 }
 
-/** Empreinte d'adresse de chaque contact actif (jamais l'adresse au journal). */
+/**
+ * Empreinte d'adresse de chaque contact lu, désabonnés COMPRIS (jamais l'adresse
+ * au journal) : un désabonné encore dans Resend voit ses lignes complétées avant
+ * la suppression de son contact, et sera reconnu s'il revient.
+ */
 function avecEmpreintes(contacts: ContactBrut[]): ContactBrut[] {
-  return contacts.map((c) => (c.unsubscribed ? c : { ...c, empreinte: fingerprintEmail(c.email) }));
+  return contacts.map((c) => ({ ...c, empreinte: fingerprintEmail(c.email) }));
 }
 
 export interface Simulation {
@@ -276,6 +280,9 @@ export interface Rapport {
   incertains: number;
   /** Lignes de journal de plus de 24 mois effacées (personnes parties). */
   purges: number;
+  /** À lire, sans effet sur l'état : lot refusé puis renvoyé un par un, adresse refusée. */
+  avertissements: string[];
+  /** Une erreur laisse le rendez-vous « interrompu » (reprise possible). */
   erreurs: string[];
 }
 
@@ -305,6 +312,7 @@ export async function envoyerNumero(
   if (!c || c.numero.etat !== 'envoi') throw new Error('Numéro non verrouillé pour l’envoi.');
   const exclusEnv = lireExclus(process.env.COULISSES_EXCLUS);
   const erreurs: string[] = [];
+  const avertissements: string[] = [];
   const envoyes: Destinataire[] = [];
   let refusesParResend = 0;
   let incertains = 0;
@@ -324,7 +332,7 @@ export async function envoyerNumero(
     if (raison) throw new Error(raison);
 
     const contacts = avecEmpreintes(await lireContactsStricts());
-    J.completerEmpreintes(db, contacts.filter((x) => !x.unsubscribed));
+    J.completerEmpreintes(db, contacts);
     const actifs = contacts.filter((x) => !x.unsubscribed);
     try {
       purges = J.purgerJournal(
@@ -368,8 +376,11 @@ export async function envoyerNumero(
           envoyes.push(d);
         });
       };
-      const noterErreur = (quoi: string, error: NonNullable<ReponseResend['error']>) =>
-        erreurs.push(masquerAdresses(`${quoi} : ${String(error.name ?? '')} ${String(error.message ?? '')}`.trim()));
+      const texte = (quoi: string, error: NonNullable<ReponseResend['error']>) =>
+        masquerAdresses(`${quoi} : ${String(error.name ?? '')} ${String(error.message ?? '')}`.trim());
+      const noterErreur = (quoi: string, error: NonNullable<ReponseResend['error']>) => erreurs.push(texte(quoi, error));
+      // Un refus d'adresse est définitif : une reprise n'y changerait rien.
+      const noterAvertissement = (quoi: string, error: NonNullable<ReponseResend['error']>) => avertissements.push(texte(quoi, error));
 
       const r = await envoyerLot(lot, `coulisses-${numero}-${lancement}-${lot[0].id}`);
       if (!r.error) {
@@ -378,14 +389,14 @@ export async function envoyerNumero(
         // Validation stricte : UNE adresse refusée fait refuser le lot entier,
         // et rien n'est parti. On renvoie alors un par un, pour que seules
         // les adresses fautives restent sur le carreau.
-        noterErreur(`Lot ${i / TAILLE_LOT + 1} refusé, envoi un par un`, r.error);
+        noterAvertissement(`Lot ${i / TAILLE_LOT + 1} refusé, envoi un par un`, r.error);
         for (const d of lot) {
           const u = await envoyerLot([d], `coulisses-${numero}-${lancement}-u-${d.id}`);
           if (!u.error) accepter([d], u.data);
           else if (estRefus(u.error)) {
             J.annulerReservation(db, numero, d.id);
             refusesParResend++;
-            noterErreur('Refusé par Resend', u.error);
+            noterAvertissement('Refusé par Resend', u.error);
           } else {
             J.marquerIncertain(db, numero, d.id);
             incertains++;
@@ -418,6 +429,7 @@ export async function envoyerNumero(
     refusesParResend,
     incertains,
     purges,
+    avertissements,
     erreurs,
   };
   J.terminer(db, numero, erreurs.length === 0 ? 'envoye' : 'interrompu', rapport);

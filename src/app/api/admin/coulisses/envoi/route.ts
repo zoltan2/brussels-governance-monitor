@@ -15,7 +15,8 @@ import { NextResponse, after } from 'next/server';
 import { sameOriginRefusal } from '@/lib/same-origin';
 import { getDb } from '@/lib/db';
 import { prendreVerrou } from '@/lib/coulisses/journal';
-import { envoyerNumero } from '@/lib/coulisses/envoi';
+import { contenuDuRendezVous, contenuIncomplet, envoyerNumero } from '@/lib/coulisses/envoi';
+import { estJourDEnvoi, jourEnClair, premierJeudi } from '@/lib/coulisses/calendrier';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -36,10 +37,21 @@ export const POST = auth(async function POST(req) {
   }
   const numero = Number(body.numero);
   if (!Number.isInteger(numero) || numero < 1) return NextResponse.json({ error: 'Numéro invalide' }, { status: 400 });
-  if (String(body.confirmation ?? '').trim() !== String(numero)) {
-    return NextResponse.json({ error: 'Retaper le numéro pour confirmer' }, { status: 400 });
+  const c = contenuDuRendezVous(db, numero);
+  if (!c || !c.numero.mois) return NextResponse.json({ error: 'Rendez-vous inconnu' }, { status: 404 });
+  if (String(body.confirmation ?? '').trim() !== c.numero.mois) {
+    return NextResponse.json({ error: `Retaper le mois (${c.numero.mois}) pour confirmer` }, { status: 400 });
   }
-  if (!prendreVerrou(db, numero)) {
+  // Le premier jeudi du mois, à Bruxelles, et ce jour-là seulement : jamais de rattrapage.
+  if (!estJourDEnvoi(c.numero.mois, new Date())) {
+    return NextResponse.json(
+      { error: `Envoi possible seulement le ${jourEnClair(premierJeudi(c.numero.mois))} (heure de Bruxelles)` },
+      { status: 409 },
+    );
+  }
+  const raison = contenuIncomplet(c);
+  if (raison) return NextResponse.json({ error: raison }, { status: 409 });
+  if (!prendreVerrou(db, numero, c.empreinte)) {
     return NextResponse.json(
       { error: 'Envoi refusé : déjà en cours ou fait, ou essai absent ou périmé' },
       { status: 409 },

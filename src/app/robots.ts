@@ -33,8 +33,9 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
   // fiche est maintenant stable (src/lib/og-card.ts) et la route est ouverte ;
   // seules les anciennes URL, qui portaient la date et les chiffres, restent
   // fermees (07/10).
-  // `/social/queue/` : 540 PNG de file d'attente, references nulle part, servis
-  // publiquement et indexables.
+  // `/social/queue/` : images des cartes sociales, retirees du site le
+  // 04/11/2026 (desormais sur zoltan2.github.io/bgm-social). La regle reste
+  // pour les anciennes adresses deja connues des robots, qui rendent 404.
   const privatePaths = [
     '/api/',
     '/*/refonte',

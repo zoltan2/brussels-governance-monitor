@@ -3,7 +3,7 @@ import os from 'node:os';
 import fs from 'node:fs';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import { createDb, migrerSondageEntretiens } from './db';
+import { createDb, migrerSondageEntretiens, migrerResendEvenements } from './db';
 
 describe('createDb', () => {
   it('creates the refonte_votes table', () => {
@@ -131,5 +131,19 @@ describe('migration de sondage_entretiens (e-mail facultatif, téléphone)', () 
     } finally {
       fs.rmSync(base, { recursive: true, force: true });
     }
+  });
+});
+
+describe('migrerResendEvenements', () => {
+  it("ajoute la colonne rebond à une table d'avant le 4 novembre 2026, sans perdre les lignes, et deux fois sans erreur", () => {
+    const db = new DatabaseSync(':memory:');
+    db.exec(
+      'CREATE TABLE resend_evenements (event_id TEXT PRIMARY KEY, type TEXT NOT NULL, empreinte TEXT, envoi TEXT, recu_le INTEGER NOT NULL)',
+    );
+    db.prepare('INSERT INTO resend_evenements VALUES (?, ?, ?, ?, ?)').run('e1', 'email.bounced', 'h', 'digest', 1);
+    migrerResendEvenements(db);
+    migrerResendEvenements(db);
+    const ligne = db.prepare('SELECT * FROM resend_evenements').get() as Record<string, unknown>;
+    expect(ligne).toMatchObject({ event_id: 'e1', envoi: 'digest', rebond: null });
   });
 });

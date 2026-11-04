@@ -80,13 +80,15 @@ jobs:
       # Le site continue alors de servir l'ancienne version sans que rien ne
       # le signale.
       #
-      # cancelled() autant que failure() : ce workflow porte
-      # cancel-in-progress, et sept runs ont été annulés en seize secondes le
-      # 2026-08-09 par une rafale de commits de bot. Une annulation est en
-      # général bénigne, un run ultérieur publie l'image, mais elle doit être
-      # visible : c'est elle qui fait disparaître un commit sans trace.
-      - name: Notify on failure or cancellation
-        if: failure() || cancelled()
+      # failure() seulement. Jusqu'au 2026-11-04, cancelled() envoyait aussi un
+      # email : 20 runs annulés sur 30 fin octobre, un par image du pipeline
+      # social, presque tous bénins. La question utile (« le commit a-t-il
+      # fini en production ? ») est désormais posée par
+      # deploiement-fraicheur.yml, qui ouvre une issue si la production reste
+      # en retard plus de 30 minutes, y compris quand le dernier build a été
+      # annulé sans successeur.
+      - name: Notify on failure
+        if: failure()
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
@@ -99,17 +101,10 @@ jobs:
           fi
 
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          if [ "$ETAT" = "cancelled" ]; then
-            SUJET="[BGM] build de l'image annulé"
-            TEXTE="Le build de l'image a été annulé sur ${{ github.sha }}, probablement par un commit plus récent sur main. En général bénin : le run suivant publie l'image. À vérifier si aucun autre build n'a suivi.
+          SUJET="[BGM] build de l'image en ÉCHEC"
+          TEXTE="Le build de l'image a échoué sur ${{ github.sha }}. Aucune nouvelle image n'a été publiée : le site sert toujours la version précédente.
 
           $RUN_URL"
-          else
-            SUJET="[BGM] build de l'image en ÉCHEC"
-            TEXTE="Le build de l'image a échoué sur ${{ github.sha }}. Aucune nouvelle image n'a été publiée : le site sert toujours la version précédente.
-
-          $RUN_URL"
-          fi
 
           CODE="$(curl -s -o /tmp/resend.out -w '%{http_code}' \
             -X POST 'https://api.resend.com/emails' \

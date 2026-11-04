@@ -1,0 +1,169 @@
+name: Fraîcheur du déploiement
+
+# Remplace l'email « build de l'image annulé » (retiré de deploy-image.yml le
+# 2026-11-04). Cet email partait à chaque annulation, soit 20 runs sur 30 fin
+# octobre 2026 : le pipeline social commite une image par commit sur main, et
+# chaque commit annule le build précédent (cancel-in-progress). Le texte
+# disait lui-même « en général bénin, à vérifier si aucun autre build n'a
+# suivi » : c'est cette vérification que fait désormais ce workflow, seul.
+#
+# La question posée n'est plus « un build a-t-il été annulé ? » mais « la
+# production sert-elle le dernier build réussi ? ». Trois constats ouvrent un
+# incident, chacun après 30 minutes de délai (le VPS tire l'image toutes les
+# 5 minutes, la bascule prend 140 à 300 s) :
+#   1. le dernier build réussi de main n'est pas en production ;
+#   2. le dernier build de main est annulé et aucun build ne l'a suivi
+#      (le commit n'a jamais été construit) ;
+#   3. le dernier build de main tourne ou attend depuis plus de 60 minutes.
+# Un build en ÉCHEC garde son propre email (deploy-image.yml) : il demande
+# une action immédiate.
+#
+# Une seule notification par incident : une issue « deploiement » assignée
+# au propriétaire à l'ouverture (GitHub l'en notifie par email), mise à jour
+# sans commentaire pendant l'incident, fermée avec un commentaire au retour.
+# Même mécanisme que uptime.yml.
+#
+# Coût : dépôt public, minutes Actions gratuites ; environ 10 s par passage.
+
+on:
+  schedule:
+    # Toutes les 15 minutes, décalé de uptime.yml (7 et 37).
+    - cron: '2,17,32,47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+concurrency:
+  group: deploiement-fraicheur
+  cancel-in-progress: false
+
+env:
+  BASE: https://governance.brussels
+  PROPRIETAIRE: zoltan2
+  LABEL: deploiement
+  DELAI_MIN: '30'
+  DELAI_BUILD_MIN: '60'
+
+jobs:
+  fraicheur:
+    name: La production sert le dernier build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          sparse-checkout: scripts/ops
+
+      - name: Constat et décision
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          source scripts/ops/http.sh
+          REPO="$GITHUB_REPOSITORY"
+          MAINTENANT_S=$(date -u +%s)
+          MAINTENANT="$(date -u +'%Y-%m-%d %H:%M UTC')"
+          age_min() { echo $(( (MAINTENANT_S - $(date -u -d "$1" +%s)) / 60 )); }
+
+          RUNS="$RUNNER_TEMP/runs.json"
+          gh api "repos/$REPO/actions/workflows/deploy-image.yml/runs?branch=main&per_page=30" > "$RUNS"
+
+          DERNIER=$(jq -c '.workflow_runs[0] // empty' "$RUNS")
+          REUSSI=$(jq -c '[.workflow_runs[] | select(.conclusion == "success")][0] // empty' "$RUNS")
+          if [ -z "$DERNIER" ] || [ -z "$REUSSI" ]; then
+            echo "::warning::Aucun build de main lisible, constat impossible à ce passage."
+            exit 0
+          fi
+
+          # Version servie. Une sonde muette n'est pas un retard : uptime.yml
+          # couvre l'indisponibilité, on ne double pas son alerte.
+          SANTE="$RUNNER_TEMP/sante.json"; rm -f "$SANTE"
+          CODE=$(CODE_HTTP_SORTIE="$SANTE" code_http "$BASE/api/health?cb=$RANDOM$RANDOM")
+          PROD=$(jq -r '.version // empty' "$SANTE" 2>/dev/null || true)
+          if [ "$CODE" != "200" ] || [ -z "$PROD" ]; then
+            echo "::warning::/api/health illisible (HTTP $CODE) : constat reporté, uptime.yml surveille la disponibilité."
+            exit 0
+          fi
+
+          PROBLEME=""
+          D_ETAT=$(jq -r '.status' <<<"$DERNIER")
+          D_CONCL=$(jq -r '.conclusion // ""' <<<"$DERNIER")
+          D_SHA=$(jq -r '.head_sha' <<<"$DERNIER")
+          D_AGE=$(age_min "$(jq -r '.created_at' <<<"$DERNIER")")
+          D_URL=$(jq -r '.html_url' <<<"$DERNIER")
+          R_SHA=$(jq -r '.head_sha' <<<"$REUSSI")
+          R_AGE=$(age_min "$(jq -r '.updated_at' <<<"$REUSSI")")
+
+          # Référence : le build réussi le plus récent publié depuis au moins
+          # DELAI_MIN minutes. Comparer au DERNIER build réussi ne suffit pas :
+          # pendant une rafale de commits du pipeline social, un build réussit
+          # toutes les quelques minutes, le dernier a toujours moins de 30
+          # minutes, et une production bloquée ne serait jamais signalée.
+          # La production est à jour si elle sert la référence ou un build
+          # réussi plus récent qu'elle.
+          SEUIL=$(date -u -d "@$(( MAINTENANT_S - DELAI_MIN * 60 ))" +%Y-%m-%dT%H:%M:%SZ)
+          REF=$(jq -c --arg s "$SEUIL" '[.workflow_runs[] | select(.conclusion == "success" and .updated_at <= $s)][0] // empty' "$RUNS")
+          PROD_ADMISE=false
+          if [ -n "$REF" ]; then
+            REF_SHA=$(jq -r '.head_sha' <<<"$REF")
+            REF_AGE=$(age_min "$(jq -r '.updated_at' <<<"$REF")")
+            REF_URL=$(jq -r '.html_url' <<<"$REF")
+            # Les dates de l'API sont en « AAAA-MM-JJTHH:MM:SSZ » : l'ordre
+            # alphabétique est l'ordre chronologique.
+            jq -e --arg s "$SEUIL" --arg p "$PROD" --arg r "$REF_SHA" \
+              '[.workflow_runs[] | select(.conclusion == "success" and .updated_at > $s) | .head_sha] + [$r] | index($p) != null' \
+              "$RUNS" >/dev/null && PROD_ADMISE=true
+          else
+            PROD_ADMISE=true # aucun build réussi assez ancien dans les 30 derniers runs : rien à exiger
+          fi
+
+          if [ "$D_ETAT" != "completed" ] && [ "$D_AGE" -ge "$DELAI_BUILD_MIN" ]; then
+            PROBLEME="Le build de ${D_SHA:0:8} est « $D_ETAT » depuis $D_AGE minutes ($D_URL)."
+          elif [ "$D_ETAT" = "completed" ] && [ "$D_CONCL" = "cancelled" ] && [ "$D_AGE" -ge "$DELAI_MIN" ]; then
+            PROBLEME="Le dernier build de main (${D_SHA:0:8}) a été annulé il y a $D_AGE minutes et aucun build ne l'a suivi : ce commit n'est dans aucune image ($D_URL). Relancer deploy-image.yml (workflow_dispatch)."
+          elif [ "$PROD_ADMISE" != "true" ]; then
+            PROBLEME="La production sert ${PROD:0:8} alors que le build ${REF_SHA:0:8} est publié depuis $REF_AGE minutes ($REF_URL). Pistes : timer bgm-deploy sur le VPS (systemctl status bgm-deploy.timer, journalctl -u bgm-deploy -n 50), login GHCR, retour arrière automatique."
+          fi
+
+          CONSTAT="Production : ${PROD:0:8}. Dernier build réussi : ${R_SHA:0:8} (il y a $R_AGE min). Référence à 30 min : ${REF_SHA:-aucune}. Dernier build : ${D_SHA:0:8}, $D_ETAT ${D_CONCL} (il y a $D_AGE min)."
+          echo "$CONSTAT"
+
+          OUVERTE=$(gh issue list -R "$REPO" --label "$LABEL" --state open --json number --jq '.[0].number // empty' || true)
+
+          if [ -z "$PROBLEME" ]; then
+            if [ -n "$OUVERTE" ]; then
+              gh issue comment "$OUVERTE" -R "$REPO" --body "Production de nouveau à jour le $MAINTENANT.
+
+          $CONSTAT
+          $RUN_URL"
+              gh issue close "$OUVERTE" -R "$REPO"
+              echo "Rétabli : issue #$OUVERTE fermée."
+            else
+              echo "Production à jour."
+            fi
+            exit 0
+          fi
+
+          CORPS="$PROBLEME
+
+          Dernier constat, le $MAINTENANT :
+          $CONSTAT
+
+          $RUN_URL
+
+          Cette issue se ferme seule quand la production sert de nouveau le dernier build réussi. Elle est mise à jour à chaque passage (15 minutes) sans nouveau commentaire."
+
+          if [ -n "$OUVERTE" ]; then
+            gh issue edit "$OUVERTE" -R "$REPO" --body "$CORPS"
+            echo "Incident en cours : issue #$OUVERTE mise à jour."
+          else
+            gh label create "$LABEL" -R "$REPO" --color B45309 \
+              --description "Production en retard sur main (deploiement-fraicheur.yml)" 2>/dev/null || true
+            gh issue create -R "$REPO" --label "$LABEL" --assignee "$PROPRIETAIRE" \
+              --title "Production en retard sur main (depuis le $MAINTENANT)" --body "$CORPS"
+          fi
+          exit 1

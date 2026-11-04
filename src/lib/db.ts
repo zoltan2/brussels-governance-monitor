@@ -241,6 +241,25 @@ export function migrerSondageEntretiens(db: DatabaseSync): void {
   }
 }
 
+/**
+ * `resend_evenements.rebond` (4 novembre 2026) : le type de rebond annoncé par
+ * Resend (Permanent, Transient, Undetermined). Le webhook n'alerte plus à
+ * chaque rebond temporaire : il compte ceux d'une même empreinte sur 30 jours,
+ * et il lui faut donc savoir lesquels étaient temporaires. Simple ADD COLUMN,
+ * décidé sur l'état réel de la table ; les lignes antérieures restent à NULL.
+ */
+export function migrerResendEvenements(db: DatabaseSync): void {
+  const cols = db.prepare('PRAGMA table_info(resend_evenements)').all() as unknown as Colonne[];
+  if (cols.some((c) => c.name === 'rebond')) return;
+  try {
+    db.exec('ALTER TABLE resend_evenements ADD COLUMN rebond TEXT');
+  } catch (e) {
+    // Deux processus ouvrent la base en même temps : le second trouve la
+    // colonne déjà ajoutée. Toute autre erreur remonte.
+    if (!/duplicate column/i.test(e instanceof Error ? e.message : String(e))) throw e;
+  }
+}
+
 /** Opens a SQLite database at `path` and applies the schema (idempotent). */
 export function createDb(path: string): DatabaseSync {
   if (path !== ':memory:') {
@@ -251,6 +270,7 @@ export function createDb(path: string): DatabaseSync {
   db.exec('PRAGMA busy_timeout = 5000');
   db.exec(MIGRATIONS);
   migrerSondageEntretiens(db);
+  migrerResendEvenements(db);
   return db;
 }
 

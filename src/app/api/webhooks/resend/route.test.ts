@@ -88,6 +88,66 @@ describe('POST /api/webhooks/resend', () => {
     expect(send).not.toHaveBeenCalled();
   });
 
+  const rebond = (n: number, typeRebond: string, to = 'boite-pleine@example.org', extra: object = {}) =>
+    requete(
+      {
+        type: 'email.bounced',
+        created_at: '2026-11-04T06:15:06Z',
+        data: { email_id: `em_${n}`, to: [to], subject: 'x', tags: { type: 'digest' }, bounce: { type: typeRebond, subType: 'General' }, ...extra },
+      },
+      { id: `rb_${n}` },
+    );
+
+  it("n'alerte pas sur un rebond temporaire isolé, mais l'inscrit avec son type", async () => {
+    const res = await POST(rebond(1, 'Transient'));
+    expect(res.status).toBe(200);
+    expect(send).not.toHaveBeenCalled();
+    expect((db.prepare('SELECT rebond FROM resend_evenements').get() as { rebond: string }).rebond).toBe('Transient');
+  });
+
+  it('alerte une seule fois au troisième rebond temporaire de la même adresse', async () => {
+    await POST(rebond(1, 'Transient'));
+    await POST(rebond(2, 'Undetermined'));
+    expect(send).not.toHaveBeenCalled();
+    await POST(rebond(3, 'Transient'));
+    expect(send).toHaveBeenCalledTimes(1);
+    const alerte = send.mock.calls[0][0];
+    expect(alerte.subject).toContain('3 rebonds temporaires');
+    expect(alerte.text).toContain('rien n\'est suspendu');
+    expect(alerte.text).not.toContain('boite-pleine@example.org');
+    await POST(rebond(4, 'Transient'));
+    expect(send).toHaveBeenCalledTimes(1);
+  });
+
+  it("ne cumule pas les rebonds temporaires d'adresses différentes", async () => {
+    await POST(rebond(1, 'Transient', 'a@example.org'));
+    await POST(rebond(2, 'Transient', 'b@example.org'));
+    await POST(rebond(3, 'Transient', 'c@example.org'));
+    expect(send).not.toHaveBeenCalled();
+  });
+
+  it('ignore les rebonds temporaires de plus de 30 jours', async () => {
+    await POST(rebond(1, 'Transient'));
+    await POST(rebond(2, 'Transient'));
+    db.prepare('UPDATE resend_evenements SET recu_le = ?').run(Date.now() - 31 * 24 * 3600 * 1000);
+    await POST(rebond(3, 'Transient'));
+    expect(send).not.toHaveBeenCalled();
+  });
+
+  it('alerte tout de suite sur un rebond définitif, avec la bonne consigne', async () => {
+    await POST(rebond(1, 'Permanent'));
+    expect(send).toHaveBeenCalledTimes(1);
+    const alerte = send.mock.calls[0][0];
+    expect(alerte.subject).toContain('Rebond définitif');
+    expect(alerte.text).toContain('liste de suppression');
+  });
+
+  it("nomme l'envoi par l'expéditeur quand il n'a pas de tag (mail du Stuut)", async () => {
+    await POST(rebond(1, 'Permanent', 'x@example.org', { tags: null, from: 'Le Stuut du jour <stuut@mail.brusselsgovernance.be>' }));
+    expect((db.prepare('SELECT envoi FROM resend_evenements').get() as { envoi: string }).envoi).toBe('stuut (expéditeur, sans tag)');
+    expect(send.mock.calls[0][0].subject).toContain('stuut (expéditeur, sans tag)');
+  });
+
   it('lit le tag sous forme de liste', async () => {
     await POST(requete({ ...PLAINTE, type: 'email.bounced', data: { ...PLAINTE.data, tags: [{ name: 'type', value: 'digest' }] } }, { id: 'msg_3' }));
     expect((db.prepare('SELECT envoi FROM resend_evenements').get() as { envoi: string }).envoi).toBe('digest');

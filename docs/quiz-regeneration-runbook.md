@@ -109,6 +109,12 @@ C'est le moment où la page de relecture admin cesse d'être un confort.
 
 `/fr/admin/quiz` lit la branche `main`, jamais une branche de PR. L'ordre est donc : fusionner la PR de régénération, relire, puis fusionner la PR `review/quiz-…` que crée le bouton Enregistrer. La page annonce elle-même une régénération ou une relecture en attente de fusion.
 
+### Nom de branche et fusion de la PR de régénération
+
+Une PR de régénération ne touche que `public/quiz-data-*.json`, et `/fr/admin` → « Contenu à publier » ne publie que `content/`, `messages/` et trois fichiers de `data/` (`src/lib/mergeable-files.ts`). La branche se nomme donc **`quiz/regen-AAAA-MM-JJ`**, jamais `content/…` : avec le préfixe `content/`, la PR apparaît dans « Contenu à publier » puis l'écran refuse de la publier (« Fichiers hors périmètre », PR #793 le 4 novembre 2026). `/fr/admin/quiz` annonce la PR en attente quel que soit son nom (`listOpenPoolPrs`).
+
+La fusion se fait depuis GitHub, ou par `fusion-si-verte.sh` sur demande explicite, après avoir vérifié qu'aucune PR `review/quiz-…` n'est ouverte.
+
 ---
 
 ## En cas de doute sur l'état

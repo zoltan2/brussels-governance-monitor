@@ -576,7 +576,7 @@
     },
     "coulisses": {
       "title": "Les coulisses de BGM",
-      "description": "Une fois par mois, les abonnés au digest reçoivent un message personnel sur l'avancée du projet, au plus tôt trois semaines après leur inscription. Vous pouvez le refuser à tout moment dans vos préférences, sans effet sur le digest. Si vous y répondez, votre réponse arrive à l'adresse de contact ci-dessous ; les demandes qu'elle contient peuvent être notées, sans votre nom ni votre adresse, pour en rendre compte dans le message suivant. Base légale : intérêt légitime (article 6.1.f du RGPD), celui de tenir les abonnés informés de l'évolution du projet et de recueillir leur avis."
+      "description": "Une fois par mois, les abonnés au digest reçoivent un message personnel sur l'avancée du projet, au plus tôt trois semaines après leur inscription. Vous pouvez le refuser à tout moment dans vos préférences, sans effet sur le digest. Si vous y répondez, votre réponse arrive à l'adresse de contact ci-dessous ; les demandes qu'elle contient peuvent être notées, sans votre nom ni votre adresse, pour en rendre compte dans le message suivant. Si vous le refusez ou le réactivez, nous notons la date et le moyen utilisé (bouton de votre messagerie ou page de préférences), avec une empreinte HMAC de votre adresse, qui ne permet pas de la retrouver, et jamais l'adresse elle-même, pour savoir comment chaque message est reçu ; cette trace est effacée après 24 mois. Base légale : intérêt légitime (article 6.1.f du RGPD), celui de tenir les abonnés informés de l'évolution du projet et de recueillir leur avis."
     },
     "survey": {
       "title": "Sondage lecteurs du digest",

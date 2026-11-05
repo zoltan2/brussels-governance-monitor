@@ -15,6 +15,7 @@ import { generateUnsubscribeToken } from '@/lib/token';
 import PreferencesUpdatedEmail from '@/emails/preferences-updated';
 import { rateLimit } from '@/lib/rate-limit';
 import { clientIp } from '@/lib/client-ip';
+import { noterChoixCoulisses } from '@/lib/coulisses/refus';
 
 const VALID_LOCALES = ['fr', 'nl', 'en', 'de'];
 
@@ -139,6 +140,7 @@ export async function POST(request: Request) {
       undefined,
       motMensuel,
     );
+    if (motMensuel !== undefined) noterChoixCoulisses(payload.email, motMensuel, 'preferences');
 
     // Send confirmation email
     const siteUrl =

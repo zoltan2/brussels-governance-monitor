@@ -7,6 +7,8 @@ process.env.AUTH_SECRET = 'secret-auth';
 const setMotMensuel = vi.fn();
 const removeContact = vi.fn();
 vi.mock('@/lib/resend', () => ({ setMotMensuel: (...a: unknown[]) => setMotMensuel(...a), removeContact }));
+const noterChoixCoulisses = vi.fn();
+vi.mock('@/lib/coulisses/refus', () => ({ noterChoixCoulisses: (...a: unknown[]) => noterChoixCoulisses(...a) }));
 vi.mock('@/lib/rate-limit', () => ({ rateLimit: () => ({ allowed: true, remaining: 9 }) }));
 
 const { POST, GET } = await import('./route');
@@ -23,6 +25,7 @@ function post(token: string, corps = 'List-Unsubscribe=One-Click') {
 beforeEach(() => {
   setMotMensuel.mockReset().mockResolvedValue(undefined);
   removeContact.mockReset();
+  noterChoixCoulisses.mockReset();
 });
 
 describe('/api/coulisses/one-click', () => {
@@ -31,6 +34,14 @@ describe('/api/coulisses/one-click', () => {
     expect(res.status).toBe(200);
     expect(setMotMensuel).toHaveBeenCalledWith('a@example.org', false);
     expect(removeContact).not.toHaveBeenCalled();
+    expect(noterChoixCoulisses).toHaveBeenCalledWith('a@example.org', false, 'one-click');
+  });
+
+  it('ne date rien si Resend échoue', async () => {
+    setMotMensuel.mockRejectedValueOnce(new Error('Resend'));
+    const res = await POST(post(generateUnsubscribeToken('a@example.org')));
+    expect(res.status).toBe(500);
+    expect(noterChoixCoulisses).not.toHaveBeenCalled();
   });
 
   it('POST multipart/form-data (forme recommandée par la RFC 8058) : accepté', async () => {
@@ -72,5 +83,6 @@ describe('/api/coulisses/one-click', () => {
     expect(res.status).toBe(307);
     expect(res.headers.get('location')).toMatch(/\/nl\/subscribe\/preferences\?token=x#coulisses$/);
     expect(setMotMensuel).not.toHaveBeenCalled();
+    expect(noterChoixCoulisses).not.toHaveBeenCalled();
   });
 });

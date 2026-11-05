@@ -26,6 +26,8 @@ vi.mock('@/lib/resend', () => ({
   resendCall: async (f: () => unknown) => f(),
 }));
 vi.mock('@/emails/preferences-updated', () => ({ default: () => null }));
+const noterChoixCoulisses = vi.fn();
+vi.mock('@/lib/coulisses/refus', () => ({ noterChoixCoulisses: (...a: unknown[]) => noterChoixCoulisses(...a) }));
 
 process.env.RESEND_API_KEY = 'test';
 
@@ -64,11 +66,21 @@ describe('POST /api/preferences', () => {
     const res = await POST(post({ token: 'bon', topics: ['budget'], locale: 'en', motMensuel: false }));
     expect(res.status).toBe(200);
     expect(updateContactPreferences).toHaveBeenCalledWith('a@b.be', 'en', ['budget'], undefined, false);
+    expect(noterChoixCoulisses).toHaveBeenCalledWith('a@b.be', false, 'preferences');
+  });
+
+  it('ne date rien si Resend refuse la mise à jour', async () => {
+    noterChoixCoulisses.mockClear();
+    updateContactPreferences.mockRejectedValueOnce(new Error('Resend'));
+    const res = await POST(post({ token: 'bon', topics: [], locale: 'fr', motMensuel: false }));
+    expect(res.status).toBe(500);
+    expect(noterChoixCoulisses).not.toHaveBeenCalled();
   });
 
   it("laisse le choix des coulisses intact quand il n'est pas envoyé", async () => {
     await POST(post({ token: 'bon', topics: ['budget'], locale: 'fr' }));
     expect(updateContactPreferences).toHaveBeenCalledWith('a@b.be', 'fr', ['budget'], undefined, undefined);
+    expect(noterChoixCoulisses).not.toHaveBeenCalled();
   });
 
   it('refuse des thèmes qui ne sont pas une liste', async () => {

@@ -9,6 +9,7 @@ import { clientIp } from '@/lib/client-ip';
 import { readTextCapped } from '@/lib/request-guards';
 import { corpsOneClickValide } from '@/lib/one-click-corps';
 import { routing } from '@/i18n/routing';
+import { noterChoixCoulisses } from '@/lib/coulisses/refus';
 
 /**
  * Cible de l'en-tête `List-Unsubscribe` des mails « Les coulisses de BGM »
@@ -37,6 +38,7 @@ export async function POST(request: Request) {
     console.error('[coulisses-one-click] échec Resend', error);
     return NextResponse.json({ error: 'Failed' }, { status: 500 });
   }
+  noterChoixCoulisses(payload.email, false, 'one-click');
   return NextResponse.json({ success: true });
 }
 

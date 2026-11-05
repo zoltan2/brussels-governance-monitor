@@ -119,6 +119,19 @@ CREATE TABLE IF NOT EXISTS abonnes_suivi (
 INSERT OR IGNORE INTO abonnes_suivi (id, debut, stock_desabonnements)
   SELECT 1, CAST(strftime('%s', 'now') AS INTEGER) * 1000, COUNT(*) FROM desabonnements;
 
+-- Choix sur « Les coulisses de BGM » (src/lib/coulisses/refus.ts) : date et
+-- source de chaque refus ou reprise, pour l'historique des envois. Empreinte
+-- de l'adresse, jamais l'adresse ; effacé après 24 mois.
+CREATE TABLE IF NOT EXISTS coulisses_refus (
+  id        INTEGER PRIMARY KEY AUTOINCREMENT,
+  empreinte TEXT NOT NULL,
+  sens      TEXT NOT NULL CHECK (sens IN ('refus', 'reprise')),
+  source    TEXT NOT NULL CHECK (source IN ('one-click', 'preferences')),
+  le        INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_coulisses_refus_empreinte ON coulisses_refus(empreinte, le);
+CREATE INDEX IF NOT EXISTS idx_coulisses_refus_le ON coulisses_refus(le);
+
 -- Paiements du chatbot (src/lib/chat-paiements.ts). Une session Stripe
 -- n'ouvre l'accès qu'une fois ; un remboursement le révoque (revue red team
 -- du 29/09/2026 : le lien de retour était réutilisable et survivait au

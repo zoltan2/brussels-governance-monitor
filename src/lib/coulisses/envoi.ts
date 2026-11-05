@@ -16,7 +16,7 @@ import { generateUnsubscribeToken } from '@/lib/token';
 import CoulissesEmail from '@/emails/coulisses';
 import { fingerprintEmail } from '@/lib/desabonnements';
 import { etatCampagne } from '@/lib/sondage/campagne';
-import { assemblerBienvenue } from './corps';
+import { assemblerBienvenue, marquerLiens } from './corps';
 import { estJourDEnvoi } from './calendrier';
 import { choisirDestinataires, lireExclus, type ContactBrut, type Destinataire, type LangueEnvoi, type Selection, type Variante } from './selection';
 import * as J from './journal';
@@ -138,7 +138,7 @@ export function construireMail(
   contenu: Pick<Contenu, 'bienvenue' | 'sondageOuvert'> & { edition: Partial<J.Textes> },
   numero: number,
   siteUrl: string,
-  options: { essai?: boolean; destinataire?: string } = {},
+  options: { essai?: boolean; destinataire?: string; mois?: string | null } = {},
 ) {
   const t =
     d.variante === 'premier'
@@ -151,8 +151,14 @@ export function construireMail(
   if (!t) throw new Error(`Édition absente (${d.langue})`);
   const { preferencesUrl, oneClick } = urls(siteUrl, d.email, d.langue);
   const germanophone = d.localeAbonne === 'de';
-  const props = { langue: d.langue, variante: d.variante, corps: t.corps, apercu: t.apercu, germanophone, preferencesUrl };
   const genre = d.variante === 'premier' ? 'bienvenue' : 'edition';
+  // UTM : le mois du rendez-vous et le genre du mail ; « essai- » devant pour
+  // que les clics des essais ne se mêlent pas aux chiffres des abonnés.
+  const corps = marquerLiens(t.corps, siteUrl, {
+    campagne: options.mois ?? `numero-${numero}`,
+    contenu: `${options.essai ? 'essai-' : ''}${genre}`,
+  });
+  const props = { langue: d.langue, variante: d.variante, corps, apercu: t.apercu, germanophone, preferencesUrl };
   return {
     from: COULISSES_FROM,
     to: options.destinataire ?? d.email,
@@ -201,7 +207,7 @@ export async function envoyerEssai(
   const contenu = { bienvenue: c.bienvenue, sondageOuvert: c.sondageOuvert, edition: c.numero.textes };
   const mails = variantes.flatMap((variante) =>
     cibles.map(({ langue, localeAbonne }) =>
-      construireMail({ email: destinataire, langue, variante, localeAbonne }, contenu, numero, siteUrl, { essai: true, destinataire }),
+      construireMail({ email: destinataire, langue, variante, localeAbonne }, contenu, numero, siteUrl, { essai: true, destinataire, mois: c.numero.mois }),
     ),
   );
   const { error } = await resendCall(() => getResend().batch.send(mails));
@@ -362,7 +368,7 @@ export async function envoyerNumero(
       if (lot.length === 0) continue;
       const envoyerLot = async (ds: Destinataire[], cle: string): Promise<ReponseResend> => {
         try {
-          const mails = ds.map((d) => construireMail(d, contenu, numero, siteUrl));
+          const mails = ds.map((d) => construireMail(d, contenu, numero, siteUrl, { mois: c.numero.mois }));
           return await resendCall(() => resend.batch.send(mails, { idempotencyKey: cle }));
         } catch (e) {
           // Exception (rendu, réseau) : issue inconnue, comme une réponse perdue.

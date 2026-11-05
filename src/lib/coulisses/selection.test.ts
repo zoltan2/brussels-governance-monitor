@@ -20,7 +20,7 @@ function contact(p: Partial<ContactBrut> = {}): ContactBrut {
   };
 }
 
-const vide = { maintenant: MAINTENANT, exclus: new Set<string>(), ontDejaRecu: new Set<string>(), dejaAuJournal: new Set<string>() };
+const vide = { maintenant: MAINTENANT, exclus: new Set<string>(), bienvenueRecue: { ids: new Set<string>(), empreintes: new Set<string>() }, dejaAuJournal: new Set<string>() };
 
 describe('choisirDestinataires', () => {
   it('garde un abonné ordinaire, variante premier mot', () => {
@@ -31,7 +31,7 @@ describe('choisirDestinataires', () => {
   });
 
   it('variante courante pour qui a déjà reçu un numéro', () => {
-    const s = choisirDestinataires([contact()], { ...vide, ontDejaRecu: new Set(['c1']) });
+    const s = choisirDestinataires([contact()], { ...vide, bienvenueRecue: { ids: new Set(['c1']), empreintes: new Set<string>() } });
     expect(s.destinataires[0].variante).toBe('courant');
   });
 
@@ -81,6 +81,15 @@ describe('choisirDestinataires', () => {
     const avril = Date.parse('2027-04-01T06:00:00Z');
     expect(choisirDestinataires([contact({ createdAt: '2027-03-11T22:30:00Z' })], { ...vide, maintenant: avril }).destinataires).toHaveLength(1);
     expect(choisirDestinataires([contact({ createdAt: '2027-03-11T23:30:00Z' })], { ...vide, maintenant: avril }).exclus.recent).toBe(1);
+  });
+
+  it("bienvenue reçue reconnue par l'empreinte d'adresse (contact supprimé puis recréé)", () => {
+    const s = choisirDestinataires([contact({ id: 'nouveau', empreinte: 'e1' })], {
+      ...vide,
+      bienvenueRecue: { ids: new Set<string>(), empreintes: new Set(['e1']) },
+    });
+    expect(s.destinataires[0].variante).toBe('courant');
+    expect(s.destinataires[0].empreinte).toBe('e1');
   });
 
   it('exclut les adresses de COULISSES_EXCLUS, sans tenir compte de la casse', () => {

@@ -9,7 +9,7 @@
  */
 
 const LANGUES: Record<string, string> = { fr: 'Français', nl: 'Nederlands', en: 'English' };
-const VARIANTES: Record<string, string> = { premier: 'premier mot', courant: 'numéro courant' };
+const VARIANTES: Record<string, string> = { premier: 'bienvenue', courant: 'édition du mois' };
 
 /** Motifs d'exclusion, au singulier et au pluriel (src/lib/coulisses/selection.ts). */
 const MOTIFS: Record<string, [string, string]> = {
@@ -37,6 +37,12 @@ interface Rapport {
   refusesParResend: number;
   incertains: number;
   erreurs: string[];
+  /** Champs ajoutés par la séparation bienvenue / édition (#800), absents du rapport du n° 1. */
+  mois?: string | null;
+  versionBienvenue?: number | null;
+  sansEdition?: number;
+  purges?: number;
+  avertissements?: string[];
 }
 
 function estComptes(v: unknown): v is Record<string, number> {
@@ -56,7 +62,12 @@ export function lireRapport(v: unknown): Rapport | null {
     typeof r.incertains === 'number' &&
     Array.isArray(r.erreurs) &&
     r.erreurs.every((e) => typeof e === 'string');
-  return ok ? (r as unknown as Rapport) : null;
+  const optionnelsOk =
+    (r.sansEdition === undefined || typeof r.sansEdition === 'number') &&
+    (r.purges === undefined || typeof r.purges === 'number') &&
+    (r.avertissements === undefined ||
+      (Array.isArray(r.avertissements) && r.avertissements.every((e) => typeof e === 'string')));
+  return ok && optionnelsOk ? (r as unknown as Rapport) : null;
 }
 
 const nombre = (n: number) => new Intl.NumberFormat('fr-BE').format(n);
@@ -75,6 +86,12 @@ function dateHeure(iso: string): string {
   const h = heure.find((p) => p.type === 'hour')?.value ?? '';
   const m = heure.find((p) => p.type === 'minute')?.value ?? '';
   return `${jour} à ${Number(h)} h ${m}`;
+}
+
+function moisLisible(mois: string): string {
+  const d = new Date(`${mois}-15T12:00:00Z`);
+  if (!/^\d{4}-\d{2}$/.test(mois) || Number.isNaN(d.getTime())) return mois;
+  return new Intl.DateTimeFormat('fr-BE', { month: 'long', year: 'numeric', timeZone: 'Europe/Brussels' }).format(d);
 }
 
 function duree(debut: string, fin: string): string | null {
@@ -118,7 +135,7 @@ export function CoulissesRapport({ rapport, journal }: { rapport: unknown; journ
   return (
     <section aria-labelledby="coulisses-rapport-titre" className="space-y-4 rounded border border-neutral-200 p-4 text-sm text-neutral-800">
       <h2 id="coulisses-rapport-titre" className="text-base font-semibold text-neutral-900">
-        {r ? `Rapport d’envoi du numéro ${r.numero}` : 'Journal et rapport'}
+        {r ? (r.mois ? `Rapport d’envoi du rendez-vous de ${moisLisible(r.mois)}` : `Rapport d’envoi du numéro ${r.numero}`) : 'Journal et rapport'}
       </h2>
 
       {r && (
@@ -126,6 +143,7 @@ export function CoulissesRapport({ rapport, journal }: { rapport: unknown; journ
           <p>
             Parti le {dateHeure(r.debut)}
             {duree(r.debut, r.fin) ? `, en ${duree(r.debut, r.fin)}` : ''}.
+            {typeof r.versionBienvenue === 'number' ? ` Bienvenue envoyée : version ${r.versionBienvenue}.` : ''}
           </p>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -175,12 +193,24 @@ export function CoulissesRapport({ rapport, journal }: { rapport: unknown; journ
             ) : (
               <p className="mt-1">Personne n’a été exclu.</p>
             )}
+            {typeof r.sansEdition === 'number' && r.sansEdition > 0 && (
+              <p className="mt-1">{accord(r.sansEdition, ['abonné déjà accueilli, sans édition ce mois-ci', 'abonnés déjà accueillis, sans édition ce mois-ci'])}</p>
+            )}
             {exclusAbsents.length > 0 && (
               <p className="mt-1 text-xs text-neutral-700">
                 Aucun : {exclusAbsents.map(([motif]) => (MOTIFS[motif] ?? [motif, motif])[1]).join(', ')}.
               </p>
             )}
           </div>
+
+          {r.avertissements && r.avertissements.length > 0 && (
+            <div>
+              <h3 className="text-xs font-semibold text-neutral-900">Avertissements</h3>
+              <ul className="mt-1 list-disc pl-5">
+                {r.avertissements.map((e, i) => <li key={i}>{e}</li>)}
+              </ul>
+            </div>
+          )}
 
           <div>
             <h3 className="text-xs font-semibold text-neutral-900">Erreurs</h3>
@@ -193,6 +223,12 @@ export function CoulissesRapport({ rapport, journal }: { rapport: unknown; journ
             )}
           </div>
         </>
+      )}
+
+      {r && typeof r.purges === 'number' && r.purges > 0 && (
+        <p className="text-xs text-neutral-700">
+          {accord(r.purges, ['ligne de journal effacée (plus de 24 mois après le départ)', 'lignes de journal effacées (plus de 24 mois après le départ)'])}.
+        </p>
       )}
 
       {lignesJournal.length > 0 && (

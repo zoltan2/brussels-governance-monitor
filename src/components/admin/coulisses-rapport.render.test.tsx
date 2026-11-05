@@ -33,7 +33,7 @@ describe('CoulissesRapport', () => {
     const { container } = render(<CoulissesRapport rapport={RAPPORT} journal={{}} />);
     const lignes = [...container.querySelectorAll('tbody tr')].map((tr) => tr.textContent);
     expect(lignes).toEqual(['Français94', 'Nederlands13', 'English7']);
-    expect(screen.getByRole('columnheader', { name: 'premier mot' })).toBeDefined();
+    expect(screen.getByRole('columnheader', { name: 'bienvenue' })).toBeDefined();
   });
 
   it('dit en clair pourquoi des abonnés n’ont rien reçu, accordé au nombre', () => {
@@ -55,5 +55,30 @@ describe('CoulissesRapport', () => {
     render(<CoulissesRapport rapport={{ numero: 1, autre: true }} journal={{ envoye: 3 }} />);
     expect(screen.getByText('Rapport (format inattendu, affiché brut)')).toBeDefined();
     expect(screen.getByText(/"autre": true/)).toBeDefined();
+  });
+
+  it('lit le rapport d’un rendez-vous après la séparation bienvenue / édition', () => {
+    const { container } = render(
+      <CoulissesRapport
+        rapport={{
+          ...RAPPORT,
+          numero: 2,
+          mois: '2026-12',
+          versionBienvenue: 1,
+          sondageOuvert: true,
+          envoyes: { 'fr-premier': 8, 'fr-courant': 90 },
+          sansEdition: 0,
+          purges: 2,
+          avertissements: ['Lot 1 refusé, renvoyé un par un'],
+        }}
+        journal={{}}
+      />,
+    );
+    expect(screen.getByRole('heading', { name: 'Rapport d’envoi du rendez-vous de décembre 2026' })).toBeDefined();
+    expect(screen.getByText(/Bienvenue envoyée : version 1\./)).toBeDefined();
+    expect(screen.getByRole('columnheader', { name: 'édition du mois' })).toBeDefined();
+    expect([...container.querySelectorAll('tbody tr')].map((tr) => tr.textContent)).toEqual(['Français89098']);
+    expect(screen.getByText('Lot 1 refusé, renvoyé un par un')).toBeDefined();
+    expect(screen.getByText(/2 lignes de journal effacées/)).toBeDefined();
   });
 });

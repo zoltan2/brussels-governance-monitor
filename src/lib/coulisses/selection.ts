@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 /**
- * « Les coulisses de BGM » : qui reçoit un numéro, et pourquoi les autres non.
+ * « Les coulisses de BGM » : qui reçoit quoi à un rendez-vous (bienvenue ou édition), et pourquoi les autres rien.
  *
  * Fonction pure : elle reçoit les contacts déjà lus (propriétés BRUTES, sans
  * le « fr » par défaut de getContact) et rend la liste des destinataires et le
@@ -14,6 +14,7 @@
 import { joursEcoulesDepuis, jourABruxelles } from '@/lib/jours-ecoules';
 
 export type LangueEnvoi = 'fr' | 'nl' | 'en';
+/** `premier` : la bienvenue (jamais reçue) ; `courant` : l'édition du mois. */
 export type Variante = 'premier' | 'courant';
 
 export interface ContactBrut {
@@ -28,6 +29,8 @@ export interface ContactBrut {
   motMensuel: string;
   /** Propriété `sources` brute. */
   sources: string;
+  /** Empreinte HMAC de l'adresse (desabonnements.ts), calculée à la lecture. */
+  empreinte?: string;
 }
 
 export interface Destinataire {
@@ -38,6 +41,7 @@ export interface Destinataire {
   /** Langue enregistrée, pour le rapport. */
   localeAbonne: string;
   variante: Variante;
+  empreinte?: string;
 }
 
 export type MotifExclusion =
@@ -93,8 +97,8 @@ export function choisirDestinataires(
   options: {
     maintenant: number;
     exclus: Set<string>;
-    /** Contacts ayant déjà un envoi réussi d'un numéro antérieur. */
-    ontDejaRecu: Set<string>;
+    /** Bienvenue déjà reçue lors d'un autre rendez-vous (journal.bienvenueRecue). */
+    bienvenueRecue: { ids: Set<string>; empreintes: Set<string> };
     /** Contacts déjà au journal pour CE numéro (réservés ou envoyés). */
     dejaAuJournal: Set<string>;
   },
@@ -135,7 +139,11 @@ export function choisirDestinataires(
       email: c.email.trim(),
       langue,
       localeAbonne: normaliser(c.locale),
-      variante: options.ontDejaRecu.has(c.id) ? 'courant' : 'premier',
+      variante:
+        options.bienvenueRecue.ids.has(c.id) || (c.empreinte !== undefined && options.bienvenueRecue.empreintes.has(c.empreinte))
+          ? 'courant'
+          : 'premier',
+      empreinte: c.empreinte,
     });
   }
 

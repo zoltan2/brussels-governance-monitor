@@ -87,6 +87,15 @@ CREATE TABLE IF NOT EXISTS coulisses_envois (
   le         INTEGER NOT NULL,
   PRIMARY KEY (numero, contact_id)
 );
+-- Modèle de bienvenue des coulisses : une ligne par version, jamais modifiée
+-- (chaque enregistrement qui change le texte crée une version). La version
+-- envoyée est notée au journal. Colonnes ajoutées aux deux tables ci-dessus
+-- par migrerCoulisses(), jamais ici.
+CREATE TABLE IF NOT EXISTS coulisses_bienvenue (
+  version INTEGER PRIMARY KEY,
+  textes  TEXT NOT NULL,
+  cree_le INTEGER NOT NULL
+);
 
 -- Événements Resend reçus par webhook (src/app/api/webhooks/resend) : rebonds
 -- et plaintes. Aucune adresse en clair, seulement l'empreinte. event_id unique :
@@ -254,6 +263,58 @@ export function migrerSondageEntretiens(db: DatabaseSync): void {
   }
 }
 
+function colonnes(db: DatabaseSync, table: string): string[] {
+  return (db.prepare(`PRAGMA table_info(${table})`).all() as unknown as Colonne[]).map((c) => c.name);
+}
+
+/**
+ * Coulisses, bienvenue et éditions séparées (décision de Zoltán, 3 novembre 2026).
+ * Migration idempotente, décidée sur l'état réel des tables :
+ *  - `coulisses_numeros.mois` (AAAA-MM, unique) : le rendez-vous du mois ;
+ *  - `coulisses_envois.version_bienvenue` et `.empreinte` (HMAC de l'adresse,
+ *    desabonnements.ts) : quelle bienvenue est partie, et à qui, même si le
+ *    contact Resend est supprimé puis recréé ;
+ *  - reprise du rendez-vous n° 1 (novembre 2026, écrit avant la séparation) :
+ *    son texte devient la bienvenue v1, son édition est vide, ses envois
+ *    « premier » sont des bienvenues v1. Faite une fois : seulement si aucune
+ *    bienvenue n'existe encore.
+ */
+export function migrerCoulisses(db: DatabaseSync): void {
+  const aJour =
+    colonnes(db, 'coulisses_numeros').includes('mois') &&
+    colonnes(db, 'coulisses_envois').includes('empreinte');
+  const aReprendre = () =>
+    (db.prepare('SELECT COUNT(*) AS n FROM coulisses_bienvenue').get() as { n: number }).n === 0 &&
+    Boolean(db.prepare('SELECT 1 FROM coulisses_numeros WHERE numero = 1').get());
+  if (aJour && !aReprendre()) return;
+
+  db.exec('BEGIN IMMEDIATE');
+  try {
+    if (!colonnes(db, 'coulisses_numeros').includes('mois')) {
+      db.exec('ALTER TABLE coulisses_numeros ADD COLUMN mois TEXT');
+    }
+    db.exec('CREATE UNIQUE INDEX IF NOT EXISTS idx_coulisses_numeros_mois ON coulisses_numeros(mois) WHERE mois IS NOT NULL');
+    const envois = colonnes(db, 'coulisses_envois');
+    if (!envois.includes('version_bienvenue')) db.exec('ALTER TABLE coulisses_envois ADD COLUMN version_bienvenue INTEGER');
+    if (!envois.includes('empreinte')) db.exec('ALTER TABLE coulisses_envois ADD COLUMN empreinte TEXT');
+    db.exec('CREATE INDEX IF NOT EXISTS idx_coulisses_envois_empreinte ON coulisses_envois(empreinte)');
+
+    if (aReprendre()) {
+      const n1 = db.prepare('SELECT textes, modifie_le FROM coulisses_numeros WHERE numero = 1').get() as {
+        textes: string;
+        modifie_le: number;
+      };
+      db.prepare('INSERT INTO coulisses_bienvenue (version, textes, cree_le) VALUES (1, ?, ?)').run(n1.textes, n1.modifie_le);
+      db.prepare(`UPDATE coulisses_numeros SET textes = '{}', mois = COALESCE(mois, '2026-11') WHERE numero = 1`).run();
+      db.prepare(`UPDATE coulisses_envois SET version_bienvenue = 1 WHERE numero = 1 AND variante = 'premier'`).run();
+    }
+    db.exec('COMMIT');
+  } catch (e) {
+    db.exec('ROLLBACK');
+    throw e;
+  }
+}
+
 /**
  * `resend_evenements.rebond` (4 novembre 2026) : le type de rebond annoncé par
  * Resend (Permanent, Transient, Undetermined). Le webhook n'alerte plus à
@@ -283,6 +344,7 @@ export function createDb(path: string): DatabaseSync {
   db.exec('PRAGMA busy_timeout = 5000');
   db.exec(MIGRATIONS);
   migrerSondageEntretiens(db);
+  migrerCoulisses(db);
   migrerResendEvenements(db);
   return db;
 }

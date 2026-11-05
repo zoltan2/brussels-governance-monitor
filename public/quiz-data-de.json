@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T12:02:35.952Z",
+  "generatedAt": "2026-11-05T15:32:08.392Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welchen jährlichen Höchstbetrag sieht laut La Libre (31. Oktober 2026) der Ordonnanzvorschlag von DéFI für eine Brüsseler Beschäftigungsprämie vor?",
+      "question": "Welche Wirkung hat die zeitliche Begrenzung des Arbeitslosengeldes laut der Pressemitteilung von Actiris vom 5.11.2026 auf die Gesamtzahl der in Brüssel eingeschriebenen Arbeitsuchenden?",
       "options": [
-        "700 Euro",
-        "500 Euro",
-        "1.200 Euro",
-        "600 Euro"
+        "Sie senkt sie nicht: Eingeschriebene wechseln die Kategorie",
+        "Sie senkt sie, weil Ausgeschlossene die Listen verlassen",
+        "Sie senkt sie vor allem bei jungen Arbeitsuchenden",
+        "Sie stabilisiert sie, Zu- und Abgänge gleichen sich monatlich aus"
       ],
-      "correct": 3,
-      "explanation": "Bis zu 600 Euro pro Jahr für eine Vollzeitstelle zum Mindestlohn. Es handelt sich um einen Vorschlag der Opposition: Die Regierung hat dazu nichts beschlossen.",
+      "correct": 0,
+      "explanation": "Wer seinen Anspruch verliert, bleibt eingeschrieben: vor allem als Wechsel von den Leistungsbeziehern zu den Beziehern des Eingliederungseinkommens des ÖSHZ. Ende Oktober 2026 zählte Actiris 102.550 Eingeschriebene, 6,6 % mehr als ein Jahr zuvor.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:23401383533368c771388bc121ba2837",
-        "generatedAt": "2026-11-01T14:01:26.593Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:6546f2375d9a441b39828394b0f467d4",
+        "generatedAt": "2026-11-05T15:32:08.392Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,27 +307,50 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Wo verortet die experimentelle Erhebung der Beschäftigungsgebiete von Statbel (2015 bis 2024, von BX1 im Oktober 2026 gemeldet) die Arbeitsplätze?",
+      "question": "Welcher Anteil der in der Region Brüssel eingeschriebenen Arbeitsuchenden war laut Actiris Ende Oktober 2026 zugleich bei einem ÖSHZ eingeschrieben?",
       "options": [
-        "Dort, wo die Betriebe tätig sind",
-        "Am Gesellschaftssitz des Arbeitgebers",
-        "Am gemeldeten Wohnort der Beschäftigten",
-        "Dort, wo die Verträge unterzeichnet wurden"
+        "36,6 %",
+        "18,2 %",
+        "51,0 %",
+        "8,4 %"
       ],
       "correct": 0,
-      "explanation": "Die Methode verortet die Arbeitsplätze dort, wo die Betriebe tätig sind. Die alte ordnete sie dem Gesellschaftssitz zu, was die Beschäftigung in Großstädten überschätzte.",
+      "explanation": "37.564 der 102.550 Arbeitsuchenden unterstanden einem ÖSHZ, 97,3 % mehr als ein Jahr zuvor. Die föderale zeitliche Begrenzung der Leistungen verlagert die Last auf die kommunalen ÖSHZ.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:23401383533368c771388bc121ba2837",
-        "generatedAt": "2026-11-01T14:01:26.593Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:6546f2375d9a441b39828394b0f467d4",
+        "generatedAt": "2026-11-05T15:32:08.392Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-housing-0",
+      "source": "domain",
+      "domain": "Wohnen",
+      "question": "Wie viele Sozialwohnungen umfasst laut Beliris (4.11.2026) der fertiggestellte Komplex in der Rue des Potiers, der Rue de la Verdure und der Rue de Soignies am Anneessens-Platz in Brüssel-Stadt?",
+      "options": [
+        "66",
+        "48",
+        "84",
+        "120"
+      ],
+      "correct": 0,
+      "explanation": "Die 66 Wohnungen ersetzen einen Turm von 1955 mit 62 Wohnungen, darunter 24 Studios ohne eigenes Bad. Die SLRB und Le Logement bruxellois bereiten die Vermietung vor; die ersten Mieter werden Anfang 2027 erwartet.",
+      "sourceSlug": "/de/bereiche/housing",
+      "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, die SLRB erwartet ihre 131 Millionen",
+      "provenance": {
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:be65c0d104cd0bd4f675c8cf83cc34eb",
+        "generatedAt": "2026-11-05T15:32:08.392Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-housing-1",
       "source": "domain",
       "domain": "Wohnen",
       "question": "Zwischen welchen Daten darf seit der Brüsseler Ordonnanz vom 22. Juni 2023 in den 19 Gemeinden grundsätzlich keine Räumung einer Mietwohnung vollstreckt werden?",
@@ -342,38 +365,38 @@
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, die SLRB erwartet ihre 131 Millionen",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:ba3924d2a47a32b254c365acbe7f41cc",
-        "generatedAt": "2026-11-03T12:02:35.952Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-housing-1",
-      "source": "domain",
-      "domain": "Wohnen",
-      "question": "Wer entschädigt Brüsseler Eigentümer unter Bedingungen für unbezahlte Mieten während des Wintermoratoriums für Räumungen aus der Ordonnanz vom 22. Juni 2023?",
-      "options": [
-        "Ein regionaler Solidaritätsfonds",
-        "Das ÖSHZ der Gemeinde der Wohnung",
-        "Die regionale Brüsseler Wohnungsgesellschaft",
-        "Die Gemeinde, in der die Wohnung liegt"
-      ],
-      "correct": 0,
-      "explanation": "Der regionale Solidaritätsfonds erstattet nur Mieten, die während des Moratoriums unbezahlt bleiben. Laut dem frankophonen Präsidenten der Gerichtsvollzieher, zitiert von La DH im November 2026, verschiebt das Moratorium Räumungen eher, als sie zu senken.",
-      "sourceSlug": "/de/bereiche/housing",
-      "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, die SLRB erwartet ihre 131 Millionen",
-      "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:ba3924d2a47a32b254c365acbe7f41cc",
-        "generatedAt": "2026-11-03T12:02:35.952Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:be65c0d104cd0bd4f675c8cf83cc34eb",
+        "generatedAt": "2026-11-05T15:32:08.392Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-institutional-0",
+      "source": "domain",
+      "domain": "Institutionell",
+      "question": "Wie viele Ausschusssitzungen wurden laut Zahlen des Brüsseler Parlaments, über die Le Soir am 4.11.2026 berichtete, im Parlamentsjahr 2025-2026 abgesagt?",
+      "options": [
+        "26",
+        "14",
+        "8",
+        "41"
+      ],
+      "correct": 0,
+      "explanation": "In den vier Jahren davor waren es 3, 14, 1 und 4. Laut der Zeitung erklärt die lange Phase der laufenden Geschäfte, die am 14.2.2026 endete, diese Zahl zum großen Teil.",
+      "sourceSlug": "/de/bereiche/institutional",
+      "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
+      "provenance": {
+        "sourceLastModified": "2026-11-04",
+        "sourceContentHash": "sha256:c6fcc5061debb26fa71cfb3ff68f995b",
+        "generatedAt": "2026-11-05T15:32:08.392Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionell",
       "question": "Warum hat der Staatsrat laut RTBF (30. Oktober 2026) eine Ernennung von 2022 zur stellvertretenden Generaldirektion des Hafens von Brüssel aufgehoben?",
@@ -388,32 +411,9 @@
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:fef8ac8073165dd86c7fef2dd10aac91",
-        "generatedAt": "2026-11-03T12:02:35.952Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-institutional-1",
-      "source": "domain",
-      "domain": "Institutionell",
-      "question": "Um wie viel will das Brüsseler Parlament laut La DH (17. Oktober 2026) seine Ausgaben bis zum Ende der Legislaturperiode senken?",
-      "options": [
-        "10 %",
-        "5 %",
-        "15 %",
-        "25 %"
-      ],
-      "correct": 0,
-      "explanation": "In diesem Rahmen verzichtet das Brüsseler Parlament auf die Indexierung der Entschädigungen für besondere Funktionen.",
-      "sourceSlug": "/de/bereiche/institutional",
-      "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
-      "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:fef8ac8073165dd86c7fef2dd10aac91",
-        "generatedAt": "2026-11-03T12:02:35.952Z",
+        "sourceLastModified": "2026-11-04",
+        "sourceContentHash": "sha256:c6fcc5061debb26fa71cfb3ff68f995b",
+        "generatedAt": "2026-11-05T15:32:08.392Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

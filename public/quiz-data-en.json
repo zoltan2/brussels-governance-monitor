@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T12:02:35.406Z",
+  "generatedAt": "2026-11-05T15:32:08.132Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Employment",
-      "question": "According to La Libre (31 October 2026), what maximum annual amount does DéFI's draft ordinance creating a Brussels employment premium seek?",
+      "question": "According to Actiris's press release of 5 November 2026, what effect does the time limit on unemployment benefits have on the total number of jobseekers registered in Brussels?",
       "options": [
-        "700 euros",
-        "500 euros",
-        "1,200 euros",
-        "600 euros"
+        "It does not reduce it: registrants change category",
+        "It reduces it, as excluded people leave Actiris's lists",
+        "It reduces it mainly among young jobseekers",
+        "It stabilises it, as inflows and outflows balance each month"
       ],
-      "correct": 3,
-      "explanation": "Up to 600 euros per year for a full-time job at the minimum wage. This is a proposal from the opposition: the government has decided nothing on this point.",
+      "correct": 0,
+      "explanation": "People whose entitlement ends stay registered: they mostly move from the benefit-recipient category to that of social integration income paid by the CPAS. At the end of October 2026, Actiris counted 102,550 registrants, 6.6% more than a year earlier.",
       "sourceSlug": "/en/domains/employment",
       "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:30ee18a94ae87e7fb23cc7d89806e0a0",
-        "generatedAt": "2026-11-01T14:01:25.001Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:f1a509b35faea959cad2a122972990b9",
+        "generatedAt": "2026-11-05T15:32:08.132Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,27 +307,50 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Employment",
-      "question": "Where does Statbel's experimental census of employment areas (2015 to 2024, reported by BX1 in October 2026) locate jobs?",
+      "question": "At the end of October 2026, according to Actiris, what share of jobseekers registered in the Brussels Region were also registered with a CPAS?",
       "options": [
-        "Where establishments carry out their activity",
-        "At each employer's registered office",
-        "At the workers' declared home address",
-        "Where the contracts were signed"
+        "36.6%",
+        "18.2%",
+        "51.0%",
+        "8.4%"
       ],
       "correct": 0,
-      "explanation": "The method locates jobs where establishments carry out their activity. The old one attached them to the registered office, which overstated employment in large cities.",
+      "explanation": "37,564 of the 102,550 jobseekers fell under a CPAS, up 97.3% in a year. The federal time limit on benefits shifts the burden to the municipal CPAS.",
       "sourceSlug": "/en/domains/employment",
       "sourceTitle": "Employment: 70% target, enhanced activation and bilingualism",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:30ee18a94ae87e7fb23cc7d89806e0a0",
-        "generatedAt": "2026-11-01T14:01:25.001Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:f1a509b35faea959cad2a122972990b9",
+        "generatedAt": "2026-11-05T15:32:08.132Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-housing-0",
+      "source": "domain",
+      "domain": "Housing",
+      "question": "According to Beliris (4 November 2026), how many social homes are in the complex completed on Rue des Potiers, Rue de la Verdure and Rue de Soignies, near Place Anneessens in the City of Brussels?",
+      "options": [
+        "66",
+        "48",
+        "84",
+        "120"
+      ],
+      "correct": 0,
+      "explanation": "The 66 homes replace a 1955 tower that had 62, including 24 studios without their own bathroom. The SLRB and Le Logement bruxellois are preparing the letting, with the first tenants expected in early 2027.",
+      "sourceSlug": "/en/domains/housing",
+      "sourceTitle": "Housing: 62,234 households waiting, the SLRB awaits its 131 million",
+      "provenance": {
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:79ea7b3a44c1eea8668cf3fca9f84252",
+        "generatedAt": "2026-11-05T15:32:08.132Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-housing-1",
       "source": "domain",
       "domain": "Housing",
       "question": "Since the Brussels ordinance of 22 June 2023, between which dates may no rental eviction in principle be carried out in the 19 municipalities?",
@@ -342,38 +365,38 @@
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: 62,234 households waiting, the SLRB awaits its 131 million",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:613bd9ba2c08b389eb1efc247e9e3f8c",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-housing-1",
-      "source": "domain",
-      "domain": "Housing",
-      "question": "Who compensates Brussels landlords, under conditions, for rent left unpaid during the winter eviction moratorium set by the ordinance of 22 June 2023?",
-      "options": [
-        "A regional solidarity fund",
-        "The CPAS of the municipality concerned",
-        "The Brussels regional housing company",
-        "The municipality where the home is located"
-      ],
-      "correct": 0,
-      "explanation": "The regional solidarity fund only covers rent left unpaid during the moratorium period. According to the French-speaking bailiffs' president, quoted by La DH in November 2026, the moratorium postpones evictions more than it reduces them.",
-      "sourceSlug": "/en/domains/housing",
-      "sourceTitle": "Housing: 62,234 households waiting, the SLRB awaits its 131 million",
-      "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:613bd9ba2c08b389eb1efc247e9e3f8c",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:79ea7b3a44c1eea8668cf3fca9f84252",
+        "generatedAt": "2026-11-05T15:32:08.132Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-institutional-0",
+      "source": "domain",
+      "domain": "Institutional",
+      "question": "According to Brussels Parliament figures reported by Le Soir (4 November 2026), how many committee meetings were cancelled during the 2025-2026 parliamentary year?",
+      "options": [
+        "26",
+        "14",
+        "8",
+        "41"
+      ],
+      "correct": 0,
+      "explanation": "In the four previous years, the number was 3, 14, 1 and 4. According to the newspaper, the long caretaker period, which ended on 14 February 2026, largely explains this number.",
+      "sourceSlug": "/en/domains/institutional",
+      "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
+      "provenance": {
+        "sourceLastModified": "2026-11-04",
+        "sourceContentHash": "sha256:72f82fe2adb6e350eec57f8b0a71d4d2",
+        "generatedAt": "2026-11-05T15:32:08.132Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutional",
       "question": "According to RTBF (30 October 2026), why did the Council of State annul a 2022 appointment as deputy director-general of the Port of Brussels?",
@@ -388,32 +411,9 @@
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:e4431e2ea3c453078792e093c4216810",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-institutional-1",
-      "source": "domain",
-      "domain": "Institutional",
-      "question": "According to La DH (17 October 2026), by how much does the Brussels Parliament want to cut its spending by the end of the legislature?",
-      "options": [
-        "10%",
-        "5%",
-        "15%",
-        "25%"
-      ],
-      "correct": 0,
-      "explanation": "As part of this, the Brussels Parliament is forgoing the indexation of allowances for special functions.",
-      "sourceSlug": "/en/domains/institutional",
-      "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
-      "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:e4431e2ea3c453078792e093c4216810",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-04",
+        "sourceContentHash": "sha256:72f82fe2adb6e350eec57f8b0a71d4d2",
+        "generatedAt": "2026-11-05T15:32:08.132Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

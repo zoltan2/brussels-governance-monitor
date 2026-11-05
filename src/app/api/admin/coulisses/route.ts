@@ -3,7 +3,8 @@
 
 /**
  * GET : état du rendez-vous d'un mois (`?mois=AAAA-MM`, par défaut le prochain) :
- *       édition, modèle de bienvenue, essai, verrou, rapport, journal.
+ *       édition, modèle de bienvenue, essai, verrou, rapport, journal, et
+ *       l'historique de tous les envois (historique.ts).
  * PUT : enregistre la bienvenue (nouvelle version si elle change) et l'édition
  *       du mois ; tout changement périme l'essai.
  * Les textes vivent en SQLite sur le serveur, jamais dans le dépôt public.
@@ -15,6 +16,7 @@ import { getDb } from '@/lib/db';
 import * as J from '@/lib/coulisses/journal';
 import { etatAdmin, lireTextes } from '@/lib/coulisses/admin';
 import { moisValide } from '@/lib/coulisses/calendrier';
+import { lireHistorique } from '@/lib/coulisses/historique';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -24,7 +26,10 @@ export const GET = auth(async function GET(req) {
   const db = getDb();
   if (!db) return NextResponse.json({ error: 'Base non configurée' }, { status: 503 });
   const mois = new URL(req.url).searchParams.get('mois');
-  return NextResponse.json(etatAdmin(db, mois), { headers: { 'Cache-Control': 'private, no-store' } });
+  return NextResponse.json(
+    { ...etatAdmin(db, mois), historique: lireHistorique(db) },
+    { headers: { 'Cache-Control': 'private, no-store' } },
+  );
 });
 
 export const PUT = auth(async function PUT(req) {

@@ -5,6 +5,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { CoulissesEditeur } from './coulisses-editeur';
+import { CoulissesRapport } from './coulisses-rapport';
 
 type Langue = 'fr' | 'nl' | 'en';
 type Textes = Record<Langue, { objet: string; corps: string; apercu: string }>;
@@ -248,11 +249,7 @@ export function CoulissesAdmin() {
       {message && <p role="status" aria-live="polite" className="text-sm text-neutral-800">{message}</p>}
 
       {etat && (Object.keys(etat.journal).length > 0 || Boolean(etat.rapport)) && (
-        <div className="rounded border border-neutral-200 p-4 text-xs text-neutral-700">
-          <h2 className="mb-2 text-sm font-semibold text-neutral-900">Journal et rapport</h2>
-          <p>Journal : {JSON.stringify(etat.journal)}</p>
-          {etat.rapport ? <pre className="mt-2 overflow-x-auto whitespace-pre-wrap">{JSON.stringify(etat.rapport, null, 2)}</pre> : null}
-        </div>
+        <CoulissesRapport rapport={etat.rapport} journal={etat.journal} />
       )}
     </div>
   );

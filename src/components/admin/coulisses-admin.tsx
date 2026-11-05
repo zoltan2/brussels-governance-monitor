@@ -6,6 +6,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { CoulissesEditeur } from './coulisses-editeur';
 import { CoulissesRapport } from './coulisses-rapport';
+import { CoulissesHistorique } from './coulisses-historique';
+import type { Historique } from '@/lib/coulisses/historique';
 
 type Langue = 'fr' | 'nl' | 'en';
 interface Texte { objet: string; corps: string; apercu: string; sondage?: string }
@@ -30,6 +32,7 @@ interface Etat {
   rapport: unknown;
   journal: Record<string, number>;
   exclusConfigures: boolean;
+  historique?: Historique;
 }
 
 const LANGUES: Array<{ id: Langue; nom: string }> = [
@@ -353,6 +356,8 @@ export function CoulissesAdmin() {
       {etat && (Object.keys(etat.journal).length > 0 || Boolean(etat.rapport)) && (
         <CoulissesRapport rapport={etat.rapport} journal={etat.journal} />
       )}
+
+      {etat?.historique && etat.historique.rendezVous.length > 0 && <CoulissesHistorique historique={etat.historique} />}
     </div>
   );
 }

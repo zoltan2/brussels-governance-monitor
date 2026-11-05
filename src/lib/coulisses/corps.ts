@@ -121,3 +121,48 @@ export function assemblerBienvenue(corps: string, blocSondage: string | undefine
   const bloc = sondageOuvert && blocSondage && !corpsVide(blocSondage) ? nettoyerCorps(blocSondage) : '';
   return nettoyerCorps(corps).replace(PARAGRAPHE_REPERE, bloc);
 }
+
+/**
+ * Paramètres UTM ajoutés à l'envoi aux liens du corps qui mènent au site
+ * (décision de Zoltán, 5 novembre 2026). Les mêmes pour tous les
+ * destinataires d'un envoi : Umami sait qu'une visite vient des coulisses de
+ * tel mois, jamais de qui. Les liens vers d'autres sites, les mailto et les
+ * liens qui portent déjà un utm_ sont laissés tels quels. Le pied de page
+ * (préférences, refus) n'est pas concerné : il n'est pas dans le corps.
+ */
+export interface Utm {
+  campagne: string;
+  contenu: string;
+}
+
+export function marquerLiens(corps: string, siteUrl: string, utm: Utm): string {
+  let hoteSite: string;
+  try {
+    hoteSite = new URL(siteUrl).hostname.replace(/^www\./, '');
+  } catch {
+    return corps;
+  }
+  return sanitizeHtml(nettoyerCorps(corps), {
+    ...BASE,
+    transformTags: {
+      a: (tag, attribs) => {
+        const href = attribs.href;
+        if (!href) return { tagName: tag, attribs };
+        let url: URL;
+        try {
+          url = new URL(href);
+        } catch {
+          return { tagName: tag, attribs };
+        }
+        const memeSite = (url.protocol === 'https:' || url.protocol === 'http:') && url.hostname.replace(/^www\./, '') === hoteSite;
+        const dejaMarque = [...url.searchParams.keys()].some((k) => k.startsWith('utm_'));
+        if (!memeSite || dejaMarque) return { tagName: tag, attribs };
+        url.searchParams.set('utm_source', 'bgm-coulisses');
+        url.searchParams.set('utm_medium', 'email');
+        url.searchParams.set('utm_campaign', utm.campagne);
+        url.searchParams.set('utm_content', utm.contenu);
+        return { tagName: tag, attribs: { ...attribs, href: url.toString() } };
+      },
+    },
+  });
+}

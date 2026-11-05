@@ -376,6 +376,17 @@ describe('construireMail', () => {
     expect(html).toContain('Mijn voorkeuren beheren');
   });
 
+  it('UTM sur les liens du site : mois et genre du mail, « essai- » pour un essai ; pas sur le pied de page', async () => {
+    const lien = { ...contenu, edition: { ...ED, fr: { ...ED.fr, corps: '<p><a href="https://governance.brussels/fr/soutenir">Soutenir</a></p>' } } };
+    const vrai = await render(construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, lien, 2, SITE, { mois: '2026-12' }).react);
+    expect(vrai).toContain('/fr/soutenir?utm_source=bgm-coulisses&amp;utm_medium=email&amp;utm_campaign=2026-12&amp;utm_content=edition');
+    expect(vrai).not.toMatch(/preferences[^"]*utm_/);
+    const essai = await render(
+      construireMail({ email: 'a@example.org', langue: 'fr', variante: 'courant' }, lien, 2, SITE, { essai: true, mois: '2026-12' }).react,
+    );
+    expect(essai).toContain('utm_content=essai-edition');
+  });
+
   it('pas de version texte écrite à la main : Resend la tire du HTML', () => {
     expect('text' in construireMail({ email: 'a@example.org', langue: 'fr', variante: 'premier' }, contenu, 1, SITE)).toBe(false);
   });

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T12:02:34.828Z",
+  "generatedAt": "2026-11-05T15:32:07.872Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Werkgelegenheid",
-      "question": "Welk maximaal jaarbedrag beoogt volgens La Libre (31 oktober 2026) het voorstel van ordonnantie van DéFI voor een Brusselse werkgelegenheidspremie?",
+      "question": "Welk effect heeft de beperking van de werkloosheidsuitkeringen in de tijd volgens het persbericht van Actiris van 5 november 2026 op het totale aantal ingeschreven werkzoekenden in Brussel?",
       "options": [
-        "700 euro",
-        "500 euro",
-        "1.200 euro",
-        "600 euro"
+        "Ze verlaagt het niet: ingeschrevenen veranderen van categorie",
+        "Ze verlaagt het, want wie uitgesloten is, verlaat de lijsten",
+        "Ze verlaagt het vooral bij jonge werkzoekenden",
+        "Ze stabiliseert het, in- en uitstroom houden elkaar in evenwicht"
       ],
-      "correct": 3,
-      "explanation": "Tot 600 euro per jaar voor een voltijdse baan aan het minimumloon. Het gaat om een voorstel van de oppositie: de regering heeft hierover niets beslist.",
+      "correct": 0,
+      "explanation": "Wie zijn recht verliest, blijft ingeschreven: vooral van de categorie uitkeringsgerechtigden naar die van leefloners van het OCMW. Eind oktober 2026 telde Actiris 102.550 ingeschrevenen, 6,6 % meer dan een jaar eerder.",
       "sourceSlug": "/nl/domeinen/employment",
       "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:e97ae18a8a2da37eadc265bb9ec032c3",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:a30ba67e0de5a39d87e56e048922266f",
+        "generatedAt": "2026-11-05T15:32:07.872Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,27 +307,50 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Werkgelegenheid",
-      "question": "Waar situeert de experimentele telling van werkgelegenheidsgebieden van Statbel (2015 tot 2024, gemeld door BX1 in oktober 2026) de banen?",
+      "question": "Welk deel van de ingeschreven werkzoekenden in het Brussels Gewest was eind oktober 2026 volgens Actiris ook ingeschreven bij een OCMW?",
       "options": [
-        "Waar de vestigingen hun activiteit hebben",
-        "Op de maatschappelijke zetel van de werkgever",
-        "Op de aangegeven woonplaats van de werknemers",
-        "Waar de contracten zijn ondertekend"
+        "36,6 %",
+        "18,2 %",
+        "51,0 %",
+        "8,4 %"
       ],
       "correct": 0,
-      "explanation": "De methode situeert de banen waar de vestigingen hun activiteit uitoefenen. De oude koppelde ze aan de maatschappelijke zetel, wat de werkgelegenheid in grote steden overschatte.",
+      "explanation": "37.564 van de 102.550 werkzoekenden vielen onder een OCMW, 97,3 % meer op een jaar. De federale beperking van de uitkeringen in de tijd verschuift de last naar de gemeentelijke OCMW's.",
       "sourceSlug": "/nl/domeinen/employment",
       "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:e97ae18a8a2da37eadc265bb9ec032c3",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:a30ba67e0de5a39d87e56e048922266f",
+        "generatedAt": "2026-11-05T15:32:07.872Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-housing-0",
+      "source": "domain",
+      "domain": "Huisvesting",
+      "question": "Hoeveel sociale woningen telt volgens Beliris (4 november 2026) het afgewerkte geheel in de Pottenbakkers-, Loof- en Zinnikstraat, bij het Anneessensplein in Brussel-Stad?",
+      "options": [
+        "66",
+        "48",
+        "84",
+        "120"
+      ],
+      "correct": 0,
+      "explanation": "De 66 woningen vervangen een toren uit 1955 met 62 woningen, waarvan 24 studio's zonder eigen badkamer. De BGHM en de Brusselse Woning bereiden de verhuring voor; de eerste huurders worden begin 2027 verwacht.",
+      "sourceSlug": "/nl/domeinen/housing",
+      "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, de BGHM wacht op haar 131 miljoen",
+      "provenance": {
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:e9ac7b19ff1d4118d1f70aab9aa8f6af",
+        "generatedAt": "2026-11-05T15:32:07.872Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-housing-1",
       "source": "domain",
       "domain": "Huisvesting",
       "question": "Tussen welke data mag sinds de Brusselse ordonnantie van 22 juni 2023 in principe geen enkele uithuiszetting worden uitgevoerd in de 19 gemeenten?",
@@ -342,38 +365,38 @@
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, de BGHM wacht op haar 131 miljoen",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:9d09b96a72b8df870f0278112ce4c401",
-        "generatedAt": "2026-11-03T12:02:34.828Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-housing-1",
-      "source": "domain",
-      "domain": "Huisvesting",
-      "question": "Wie vergoedt Brusselse eigenaars onder voorwaarden voor onbetaalde huur tijdens het wintermoratorium op uithuiszettingen uit de ordonnantie van 22 juni 2023?",
-      "options": [
-        "Een gewestelijk solidariteitsfonds",
-        "Het OCMW van de gemeente van de woning",
-        "De Brusselse Gewestelijke Huisvestingsmaatschappij",
-        "De gemeente waar de woning ligt"
-      ],
-      "correct": 0,
-      "explanation": "Het gewestelijk solidariteitsfonds vergoedt alleen huur die onbetaald blijft tijdens het moratorium. Volgens de Franstalige voorzitter van de gerechtsdeurwaarders, geciteerd door La DH in november 2026, stelt het moratorium uithuiszettingen vooral uit.",
-      "sourceSlug": "/nl/domeinen/housing",
-      "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, de BGHM wacht op haar 131 miljoen",
-      "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:9d09b96a72b8df870f0278112ce4c401",
-        "generatedAt": "2026-11-03T12:02:34.828Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:e9ac7b19ff1d4118d1f70aab9aa8f6af",
+        "generatedAt": "2026-11-05T15:32:07.872Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-institutional-0",
+      "source": "domain",
+      "domain": "Institutioneel",
+      "question": "Hoeveel commissievergaderingen werden volgens cijfers van het Brussels Parlement, gemeld door Le Soir (4 november 2026), geannuleerd in het parlementaire jaar 2025-2026?",
+      "options": [
+        "26",
+        "14",
+        "8",
+        "41"
+      ],
+      "correct": 0,
+      "explanation": "De vier jaren daarvoor ging het om 3, 14, 1 en 4. Volgens de krant verklaart de lange periode van lopende zaken, die op 14 februari 2026 eindigde, dit aantal grotendeels.",
+      "sourceSlug": "/nl/domeinen/institutional",
+      "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
+      "provenance": {
+        "sourceLastModified": "2026-11-04",
+        "sourceContentHash": "sha256:fd69d941e6e21f608edbf9fc19eba034",
+        "generatedAt": "2026-11-05T15:32:07.872Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutioneel",
       "question": "Waarom heeft de Raad van State volgens de RTBF (30 oktober 2026) een aanstelling uit 2022 tot adjunct-directeur-generaal van de Haven van Brussel vernietigd?",
@@ -388,32 +411,9 @@
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:51a21d795388c5b583dc16ef78053cff",
-        "generatedAt": "2026-11-03T12:02:34.828Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-institutional-1",
-      "source": "domain",
-      "domain": "Institutioneel",
-      "question": "Met hoeveel wil het Brussels Parlement volgens La DH (17 oktober 2026) zijn uitgaven tegen het einde van de legislatuur verminderen?",
-      "options": [
-        "10 %",
-        "5 %",
-        "15 %",
-        "25 %"
-      ],
-      "correct": 0,
-      "explanation": "In dat kader ziet het Brussels Parlement af van de indexering van de vergoedingen voor bijzondere functies.",
-      "sourceSlug": "/nl/domeinen/institutional",
-      "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
-      "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:51a21d795388c5b583dc16ef78053cff",
-        "generatedAt": "2026-11-03T12:02:34.828Z",
+        "sourceLastModified": "2026-11-04",
+        "sourceContentHash": "sha256:fd69d941e6e21f608edbf9fc19eba034",
+        "generatedAt": "2026-11-05T15:32:07.872Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 64
 }

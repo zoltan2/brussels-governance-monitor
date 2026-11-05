@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T12:00:17.515Z",
+  "generatedAt": "2026-11-05T15:31:08.041Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Selon La Libre (31 octobre 2026), quel montant annuel maximal vise la proposition d'ordonnance de DéFI créant une prime à l'emploi bruxelloise ?",
+      "question": "Selon le communiqué d'Actiris du 5 novembre 2026, quel effet la limitation dans le temps des allocations de chômage a-t-elle sur le nombre total de chercheurs d'emploi inscrits à Bruxelles ?",
       "options": [
-        "700 euros",
-        "500 euros",
-        "1 200 euros",
-        "600 euros"
+        "Elle ne le réduit pas : des inscrits changent de catégorie",
+        "Elle le réduit, car les exclus quittent les listes d'Actiris",
+        "Elle le réduit surtout parmi les chercheurs d'emploi jeunes",
+        "Elle le stabilise, entrées et sorties s'équilibrant chaque mois"
       ],
-      "correct": 3,
-      "explanation": "Jusqu'à 600 euros par an pour un temps plein au salaire minimum. Il s'agit d'une proposition de l'opposition : le gouvernement n'a rien décidé sur ce point.",
+      "correct": 0,
+      "explanation": "Les personnes en fin de droits restent inscrites : elles passent surtout de la catégorie des allocataires à celle des bénéficiaires du revenu d'intégration versé par le CPAS. Fin octobre 2026, Actiris comptait 102 550 inscrits, 6,6 % de plus qu'un an plus tôt.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:dc9ffcbaf49a01280aef4e93442e7eeb",
-        "generatedAt": "2026-11-01T14:01:21.593Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:6f49a929bbac290ea8458eff49899561",
+        "generatedAt": "2026-11-05T15:31:08.041Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,27 +307,50 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Où le recensement expérimental des bassins d'emploi de Statbel (2015 à 2024, rapporté par BX1 en octobre 2026) situe-t-il les emplois ?",
+      "question": "Fin octobre 2026, selon Actiris, quelle part des chercheurs d'emploi inscrits en Région bruxelloise étaient aussi inscrits dans un CPAS ?",
       "options": [
-        "Là où les établissements ont leur activité",
-        "Au siège social de chaque employeur",
-        "Au domicile déclaré des travailleurs",
-        "Là où les contrats ont été signés"
+        "36,6 %",
+        "18,2 %",
+        "51,0 %",
+        "8,4 %"
       ],
       "correct": 0,
-      "explanation": "La méthode situe les emplois là où les établissements exercent leur activité. L'ancienne les rattachait au siège social, ce qui surévaluait l'emploi dans les grandes villes.",
+      "explanation": "37 564 des 102 550 chercheurs d'emploi relevaient d'un CPAS, soit 97,3 % de plus en un an. La limitation fédérale des allocations dans le temps déplace la charge vers les CPAS communaux.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:dc9ffcbaf49a01280aef4e93442e7eeb",
-        "generatedAt": "2026-11-01T14:01:21.593Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:6f49a929bbac290ea8458eff49899561",
+        "generatedAt": "2026-11-05T15:31:08.041Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-housing-0",
+      "source": "domain",
+      "domain": "Logement",
+      "question": "Selon Beliris (4 novembre 2026), combien de logements sociaux compte l'ensemble achevé rues des Potiers, de la Verdure et de Soignies, près de la place Anneessens à Bruxelles-Ville ?",
+      "options": [
+        "66",
+        "48",
+        "84",
+        "120"
+      ],
+      "correct": 0,
+      "explanation": "Les 66 logements remplacent une tour de 1955 qui en comptait 62, dont 24 studios sans salle de bain individuelle. La SLRB et le Logement bruxellois préparent la mise en location, avec de premiers locataires attendus début 2027.",
+      "sourceSlug": "/fr/domaines/housing",
+      "sourceTitle": "Logement : 62 234 ménages en attente, la SLRB attend ses 131 millions",
+      "provenance": {
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:a8cb107287f92fb94d099c42c78d0413",
+        "generatedAt": "2026-11-05T15:31:08.041Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
       "question": "Depuis l'ordonnance bruxelloise du 22 juin 2023, entre quelles dates aucune expulsion locative ne peut en principe être exécutée dans les 19 communes ?",
@@ -342,38 +365,38 @@
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 62 234 ménages en attente, la SLRB attend ses 131 millions",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:68a32cff4ed4e0426c0330f27339e8d1",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-housing-1",
-      "source": "domain",
-      "domain": "Logement",
-      "question": "Qui indemnise, sous conditions, les propriétaires bruxellois pour les loyers impayés pendant le moratoire hivernal des expulsions prévu par l'ordonnance du 22 juin 2023 ?",
-      "options": [
-        "Un fonds régional de solidarité",
-        "Le CPAS de la commune du logement",
-        "La Société du logement de la Région",
-        "La commune où se situe le logement"
-      ],
-      "correct": 0,
-      "explanation": "Le fonds régional de solidarité ne rembourse que les loyers impayés pendant la période du moratoire. Selon le président francophone des huissiers, cité par La DH en novembre 2026, le moratoire reporte les expulsions plus qu'il ne les réduit.",
-      "sourceSlug": "/fr/domaines/housing",
-      "sourceTitle": "Logement : 62 234 ménages en attente, la SLRB attend ses 131 millions",
-      "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:68a32cff4ed4e0426c0330f27339e8d1",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-05",
+        "sourceContentHash": "sha256:a8cb107287f92fb94d099c42c78d0413",
+        "generatedAt": "2026-11-05T15:31:08.041Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
     },
     {
       "id": "domain-institutional-0",
+      "source": "domain",
+      "domain": "Institutionnel",
+      "question": "Selon des chiffres du Parlement bruxellois rapportés par Le Soir (4 novembre 2026), combien de séances de commission ont été annulées pendant l'année parlementaire 2025-2026 ?",
+      "options": [
+        "26",
+        "14",
+        "8",
+        "41"
+      ],
+      "correct": 0,
+      "explanation": "Les quatre années précédentes, ce nombre était de 3, 14, 1 et 4. Selon le journal, la longue période d'affaires courantes, achevée le 14 février 2026, explique en grande partie ce nombre.",
+      "sourceSlug": "/fr/domaines/institutional",
+      "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
+      "provenance": {
+        "sourceLastModified": "2026-11-04",
+        "sourceContentHash": "sha256:cb4a1247b76e5b52d40ea253658697f7",
+        "generatedAt": "2026-11-05T15:31:08.041Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
       "question": "Selon la RTBF (30 octobre 2026), pourquoi le Conseil d'État a-t-il annulé une désignation de 2022 à la direction générale adjointe du Port de Bruxelles ?",
@@ -388,32 +411,9 @@
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:b2b3ca378eed9a2f16ea41273a07c7b5",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-institutional-1",
-      "source": "domain",
-      "domain": "Institutionnel",
-      "question": "Selon La DH (17 octobre 2026), de combien le Parlement bruxellois veut-il réduire ses dépenses d'ici la fin de la législature ?",
-      "options": [
-        "10 %",
-        "5 %",
-        "15 %",
-        "25 %"
-      ],
-      "correct": 0,
-      "explanation": "Dans ce cadre, le Parlement bruxellois renonce à indexer les indemnités des fonctions spéciales.",
-      "sourceSlug": "/fr/domaines/institutional",
-      "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
-      "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:b2b3ca378eed9a2f16ea41273a07c7b5",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-04",
+        "sourceContentHash": "sha256:cb4a1247b76e5b52d40ea253658697f7",
+        "generatedAt": "2026-11-05T15:31:08.041Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 64
 }

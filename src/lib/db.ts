@@ -128,6 +128,19 @@ CREATE TABLE IF NOT EXISTS abonnes_suivi (
 INSERT OR IGNORE INTO abonnes_suivi (id, debut, stock_desabonnements)
   SELECT 1, CAST(strftime('%s', 'now') AS INTEGER) * 1000, COUNT(*) FROM desabonnements;
 
+-- Choix sur « Les coulisses de BGM » (src/lib/coulisses/refus.ts) : date et
+-- source de chaque refus ou reprise, pour l'historique des envois. Empreinte
+-- de l'adresse, jamais l'adresse ; effacé après 24 mois.
+CREATE TABLE IF NOT EXISTS coulisses_refus (
+  id        INTEGER PRIMARY KEY AUTOINCREMENT,
+  empreinte TEXT NOT NULL,
+  sens      TEXT NOT NULL CHECK (sens IN ('refus', 'reprise')),
+  source    TEXT NOT NULL CHECK (source IN ('one-click', 'preferences')),
+  le        INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_coulisses_refus_empreinte ON coulisses_refus(empreinte, le);
+CREATE INDEX IF NOT EXISTS idx_coulisses_refus_le ON coulisses_refus(le);
+
 -- Paiements du chatbot (src/lib/chat-paiements.ts). Une session Stripe
 -- n'ouvre l'accès qu'une fois ; un remboursement le révoque (revue red team
 -- du 29/09/2026 : le lien de retour était réutilisable et survivait au
@@ -302,6 +315,25 @@ export function migrerCoulisses(db: DatabaseSync): void {
   }
 }
 
+/**
+ * `resend_evenements.rebond` (4 novembre 2026) : le type de rebond annoncé par
+ * Resend (Permanent, Transient, Undetermined). Le webhook n'alerte plus à
+ * chaque rebond temporaire : il compte ceux d'une même empreinte sur 30 jours,
+ * et il lui faut donc savoir lesquels étaient temporaires. Simple ADD COLUMN,
+ * décidé sur l'état réel de la table ; les lignes antérieures restent à NULL.
+ */
+export function migrerResendEvenements(db: DatabaseSync): void {
+  const cols = db.prepare('PRAGMA table_info(resend_evenements)').all() as unknown as Colonne[];
+  if (cols.some((c) => c.name === 'rebond')) return;
+  try {
+    db.exec('ALTER TABLE resend_evenements ADD COLUMN rebond TEXT');
+  } catch (e) {
+    // Deux processus ouvrent la base en même temps : le second trouve la
+    // colonne déjà ajoutée. Toute autre erreur remonte.
+    if (!/duplicate column/i.test(e instanceof Error ? e.message : String(e))) throw e;
+  }
+}
+
 /** Opens a SQLite database at `path` and applies the schema (idempotent). */
 export function createDb(path: string): DatabaseSync {
   if (path !== ':memory:') {
@@ -313,6 +345,7 @@ export function createDb(path: string): DatabaseSync {
   db.exec(MIGRATIONS);
   migrerSondageEntretiens(db);
   migrerCoulisses(db);
+  migrerResendEvenements(db);
   return db;
 }
 

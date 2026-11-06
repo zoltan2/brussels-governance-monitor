@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T15:31:08.041Z",
+  "generatedAt": "2026-11-06T08:13:03.623Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -112,9 +112,9 @@
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:5963ced47e5826ba0701870e94398167",
-        "generatedAt": "2026-11-01T14:01:21.593Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:8fe7565a6e02516999f72e33c6ec9bad",
+        "generatedAt": "2026-11-06T08:13:03.623Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climat",
-      "question": "Quel est le principal risque d'inondation à Bruxelles selon les informations liées à la carte de Bruxelles Environnement actualisée en octobre 2026 ?",
+      "question": "Quel niveau la Cellule régionale « sécheresse » a-t-elle rétabli en Région bruxelloise le 5 novembre 2026, après la vigilance jaune activée le 23 juillet 2026 ?",
       "options": [
-        "Le débordement du canal dans les rues",
-        "La rupture des bassins d'orage de Vivaqua",
-        "Le reflux des eaux usées dans les caves",
-        "La montée de la Senne dans les tunnels"
+        "Le code vert",
+        "Le code orange",
+        "Le code rouge",
+        "Le code jaune renforcé"
       ],
-      "correct": 2,
-      "explanation": "Le reflux des eaux usées dans les caves peut toucher près d'un Bruxellois sur trois lors de fortes pluies. La carte indique le risque pour chaque adresse.",
+      "correct": 0,
+      "explanation": "Les pluies des semaines précédentes ont en partie normalisé la situation et Vivaqua distribue l'eau normalement. Le débit de la Meuse, qui alimente le captage de Tailfer, reste surveillé.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:5963ced47e5826ba0701870e94398167",
-        "generatedAt": "2026-11-01T14:01:21.593Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:8fe7565a6e02516999f72e33c6ec9bad",
+        "generatedAt": "2026-11-06T08:13:03.623Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -388,9 +388,9 @@
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-11-04",
-        "sourceContentHash": "sha256:cb4a1247b76e5b52d40ea253658697f7",
-        "generatedAt": "2026-11-05T15:31:08.041Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:591d4c00a723126409d1a7f42cc83f57",
+        "generatedAt": "2026-11-06T08:13:03.623Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Selon la RTBF (30 octobre 2026), pourquoi le Conseil d'État a-t-il annulé une désignation de 2022 à la direction générale adjointe du Port de Bruxelles ?",
+      "question": "Selon la loi fédérale sur les visites domiciliaires adoptée par la Chambre le 6 novembre 2026, quelle autorisation préalable faut-il pour arrêter une personne étrangère à son domicile ?",
       "options": [
-        "Sa motivation a été jugée ni exacte ni admissible",
-        "La personne désignée ne parlait pas le néerlandais",
-        "Le jury de sélection comptait un membre en conflit",
-        "Le mandat dépassait la durée légale autorisée"
+        "Celle d'un juge d'instruction",
+        "Celle du bourgmestre de la commune",
+        "Celle du procureur du Roi",
+        "Celle du Conseil d'État"
       ],
       "correct": 0,
-      "explanation": "La personne retenue avait été présentée comme « plus convaincante », alors que le candidat écarté avait obtenu 26 sur 30 à l'assessment, contre 25. Le Port attribue l'erreur à Talent.brussels.",
+      "explanation": "La visite ne peut avoir lieu qu'entre 5 h et 21 h. Le Parlement bruxellois s'était opposé au projet par une résolution adoptée le 2 octobre 2026.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-11-04",
-        "sourceContentHash": "sha256:cb4a1247b76e5b52d40ea253658697f7",
-        "generatedAt": "2026-11-05T15:31:08.041Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:591d4c00a723126409d1a7f42cc83f57",
+        "generatedAt": "2026-11-06T08:13:03.623Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 64
+  ]
 }

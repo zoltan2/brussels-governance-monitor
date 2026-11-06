@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T15:32:08.392Z",
+  "generatedAt": "2026-11-06T08:13:44.875Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -112,9 +112,9 @@
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:c641e83d26215abda1d45c8616bb921e",
-        "generatedAt": "2026-11-01T14:01:26.593Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:22f31259ae8b16d9036818f0f2dd6e5c",
+        "generatedAt": "2026-11-06T08:13:44.875Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klima",
-      "question": "Was ist laut den Informationen zur im Oktober 2026 aktualisierten Karte von Bruxelles Environnement das größte Überschwemmungsrisiko in Brüssel?",
+      "question": "Welche Stufe hat die regionale Dürrezelle in der Region Brüssel am 5.11.2026 wiederhergestellt, nach der am 23.7.2026 aktivierten gelben Wachsamkeit?",
       "options": [
-        "Das Überlaufen des Kanals in die Straßen",
-        "Das Versagen der Regenbecken von Vivaqua",
-        "Der Rückstau von Abwasser in die Keller",
-        "Das Ansteigen der Senne in den Tunneln"
+        "Code Grün",
+        "Code Orange",
+        "Code Rot",
+        "Verstärkter Code Gelb"
       ],
-      "correct": 2,
-      "explanation": "Der Rückstau von Abwasser in die Keller kann bei starkem Regen fast einen von drei Brüsselern treffen. Die Karte zeigt das Risiko für jede Adresse.",
+      "correct": 0,
+      "explanation": "Die Niederschläge der vorangegangenen Wochen haben die Lage teilweise normalisiert, und Vivaqua liefert normal Wasser. Der Durchfluss der Maas, die die Fassung von Tailfer speist, bleibt unter Beobachtung.",
       "sourceSlug": "/de/bereiche/climate",
       "sourceTitle": "Klima: LEZ beibehalten, Renolution ersetzt, Ziele in der Schwebe",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:c641e83d26215abda1d45c8616bb921e",
-        "generatedAt": "2026-11-01T14:01:26.593Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:22f31259ae8b16d9036818f0f2dd6e5c",
+        "generatedAt": "2026-11-06T08:13:44.875Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -388,9 +388,9 @@
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-11-04",
-        "sourceContentHash": "sha256:c6fcc5061debb26fa71cfb3ff68f995b",
-        "generatedAt": "2026-11-05T15:32:08.392Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:c468ec9391c6b66576eaed142a3913fd",
+        "generatedAt": "2026-11-06T08:13:44.875Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionell",
-      "question": "Warum hat der Staatsrat laut RTBF (30. Oktober 2026) eine Ernennung von 2022 zur stellvertretenden Generaldirektion des Hafens von Brüssel aufgehoben?",
+      "question": "Wessen vorherige Genehmigung braucht es laut dem am 6.11.2026 von der Kammer verabschiedeten föderalen Gesetz über Wohnungsbetretungen, um eine ausländische Person in ihrer Wohnung festzunehmen?",
       "options": [
-        "Ihre Begründung galt als weder zutreffend noch zulässig",
-        "Die ernannte Person sprach kein Niederländisch",
-        "Ein Jurymitglied hatte einen Interessenkonflikt",
-        "Das Mandat überschritt die gesetzliche Dauer"
+        "Die eines Untersuchungsrichters",
+        "Die des Bürgermeisters der Gemeinde",
+        "Die des Prokurators des Königs",
+        "Die des Staatsrats"
       ],
       "correct": 0,
-      "explanation": "Die ernannte Person war als « überzeugender » dargestellt worden, obwohl der abgelehnte Bewerber im Assessment 26 von 30 Punkten erzielt hatte, gegenüber 25. Der Hafen führt den Fehler auf Talent.brussels zurück.",
+      "explanation": "Die Betretung darf nur zwischen 5 und 21 Uhr stattfinden. Das Brüsseler Parlament hatte sich am 2.10.2026 per Resolution gegen den Entwurf gestellt.",
       "sourceSlug": "/de/bereiche/institutional",
       "sourceTitle": "Institutionelle Reform: Fusion von 25 Strukturen in 4 Säulen",
       "provenance": {
-        "sourceLastModified": "2026-11-04",
-        "sourceContentHash": "sha256:c6fcc5061debb26fa71cfb3ff68f995b",
-        "generatedAt": "2026-11-05T15:32:08.392Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:c468ec9391c6b66576eaed142a3913fd",
+        "generatedAt": "2026-11-06T08:13:44.875Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 64
+  "reviewedCount": 63
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T15:32:07.872Z",
+  "generatedAt": "2026-11-06T08:13:42.772Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -112,9 +112,9 @@
       "sourceSlug": "/nl/domeinen/climate",
       "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen onopgelost",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:21cfaf602d8406668ad0be8c66dd9b33",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:8edaadcf6e2a2f2f6b83a4aaa2cdada6",
+        "generatedAt": "2026-11-06T08:13:42.772Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Klimaat",
-      "question": "Wat is het belangrijkste overstromingsrisico in Brussel volgens de informatie bij de in oktober 2026 bijgewerkte kaart van Leefmilieu Brussel?",
+      "question": "Naar welk niveau heeft de gewestelijke droogtecel het Brussels Gewest op 5 november 2026 teruggezet, na de gele waakzaamheid die op 23 juli 2026 werd geactiveerd?",
       "options": [
-        "Het overlopen van het kanaal in de straten",
-        "Het bezwijken van de stormbekkens van Vivaqua",
-        "Het terugstromen van afvalwater in de kelders",
-        "Het stijgen van de Zenne in de tunnels"
+        "Code groen",
+        "Code oranje",
+        "Code rood",
+        "Versterkte code geel"
       ],
-      "correct": 2,
-      "explanation": "Het terugstromen van afvalwater in de kelders kan bij hevige regen bijna één Brusselaar op drie treffen. De kaart geeft het risico per adres aan.",
+      "correct": 0,
+      "explanation": "De regen van de voorgaande weken heeft de toestand gedeeltelijk genormaliseerd en Vivaqua levert normaal drinkwater. Het debiet van de Maas, die de winning van Tailfer bevoorraadt, blijft onder toezicht.",
       "sourceSlug": "/nl/domeinen/climate",
       "sourceTitle": "Klimaat: LEZ behouden, Renolution vervangen, doelstellingen onopgelost",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:21cfaf602d8406668ad0be8c66dd9b33",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:8edaadcf6e2a2f2f6b83a4aaa2cdada6",
+        "generatedAt": "2026-11-06T08:13:42.772Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -388,9 +388,9 @@
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-11-04",
-        "sourceContentHash": "sha256:fd69d941e6e21f608edbf9fc19eba034",
-        "generatedAt": "2026-11-05T15:32:07.872Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:a142ced317325de050a1f66a9cfe9213",
+        "generatedAt": "2026-11-06T08:13:42.772Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutioneel",
-      "question": "Waarom heeft de Raad van State volgens de RTBF (30 oktober 2026) een aanstelling uit 2022 tot adjunct-directeur-generaal van de Haven van Brussel vernietigd?",
+      "question": "Welke voorafgaande toestemming is nodig om een vreemdeling in zijn woning te arresteren, volgens de federale wet op de woonstbetredingen die de Kamer op 6 november 2026 goedkeurde?",
       "options": [
-        "De motivering werd noch juist noch aanvaardbaar geacht",
-        "De aangestelde persoon sprak geen Nederlands",
-        "Een lid van de selectiecommissie had een conflict",
-        "Het mandaat overschreed de wettelijke duur"
+        "Die van een onderzoeksrechter",
+        "Die van de burgemeester van de gemeente",
+        "Die van de procureur des Konings",
+        "Die van de Raad van State"
       ],
       "correct": 0,
-      "explanation": "De gekozen persoon werd voorgesteld als « overtuigender », terwijl de afgewezen kandidaat 26 op 30 had behaald in het assessment, tegenover 25. De Haven schrijft de fout toe aan Talent.brussels.",
+      "explanation": "De betreding kan enkel tussen 5 en 21 uur plaatsvinden. Het Brussels Parlement had zich op 2 oktober 2026 met een resolutie tegen het ontwerp verzet.",
       "sourceSlug": "/nl/domeinen/institutional",
       "sourceTitle": "Institutionele hervorming: fusie van 25 structuren in 4 pijlers",
       "provenance": {
-        "sourceLastModified": "2026-11-04",
-        "sourceContentHash": "sha256:fd69d941e6e21f608edbf9fc19eba034",
-        "generatedAt": "2026-11-05T15:32:07.872Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:a142ced317325de050a1f66a9cfe9213",
+        "generatedAt": "2026-11-06T08:13:42.772Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 64
+  "reviewedCount": 63
 }

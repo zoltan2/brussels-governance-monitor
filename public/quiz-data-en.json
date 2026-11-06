@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T15:32:08.132Z",
+  "generatedAt": "2026-11-06T08:13:43.827Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -112,9 +112,9 @@
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:0ee49722597b66bc60ac42821f5b890d",
-        "generatedAt": "2026-11-01T14:01:25.001Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:fd6ecbb76f3a6401b073de32373a880f",
+        "generatedAt": "2026-11-06T08:13:43.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climate",
-      "question": "What is the main flood risk in Brussels according to the information linked to the Bruxelles Environnement map updated in October 2026?",
+      "question": "Which level did the regional drought unit restore in the Brussels Region on 5 November 2026, after the yellow vigilance activated on 23 July 2026?",
       "options": [
-        "The canal overflowing into the streets",
-        "The failure of Vivaqua's storm basins",
-        "Wastewater backing up into cellars",
-        "The Senne rising into the tunnels"
+        "Code green",
+        "Code orange",
+        "Code red",
+        "Reinforced code yellow"
       ],
-      "correct": 2,
-      "explanation": "Wastewater backing up into cellars can affect nearly one Brussels resident in three during heavy rain. The map shows the risk for each address.",
+      "correct": 0,
+      "explanation": "Rainfall in the preceding weeks partly normalised the situation and Vivaqua is supplying water normally. The flow of the Meuse, which feeds the Tailfer catchment, stays under watch.",
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:0ee49722597b66bc60ac42821f5b890d",
-        "generatedAt": "2026-11-01T14:01:25.001Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:fd6ecbb76f3a6401b073de32373a880f",
+        "generatedAt": "2026-11-06T08:13:43.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -388,9 +388,9 @@
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-11-04",
-        "sourceContentHash": "sha256:72f82fe2adb6e350eec57f8b0a71d4d2",
-        "generatedAt": "2026-11-05T15:32:08.132Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:c3578666b676021700a0927d338cb334",
+        "generatedAt": "2026-11-06T08:13:43.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutional",
-      "question": "According to RTBF (30 October 2026), why did the Council of State annul a 2022 appointment as deputy director-general of the Port of Brussels?",
+      "question": "Under the federal law on home entries adopted by the Chamber on 6 November 2026, whose prior authorisation is needed to arrest a foreign national at home?",
       "options": [
-        "Its reasoning was found neither accurate nor admissible",
-        "The appointee did not speak Dutch",
-        "A selection panel member had a conflict of interest",
-        "The mandate exceeded the legal term"
+        "That of an investigating judge",
+        "That of the municipality's mayor",
+        "That of the public prosecutor",
+        "That of the Council of State"
       ],
       "correct": 0,
-      "explanation": "The appointee had been described as « more convincing », although the rejected candidate scored 26 out of 30 in the assessment, against 25. The Port attributes the error to Talent.brussels.",
+      "explanation": "The entry may only take place between 5 a.m. and 9 p.m. The Brussels Parliament had opposed the bill in a resolution adopted on 2 October 2026.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-11-04",
-        "sourceContentHash": "sha256:72f82fe2adb6e350eec57f8b0a71d4d2",
-        "generatedAt": "2026-11-05T15:32:08.132Z",
+        "sourceLastModified": "2026-11-06",
+        "sourceContentHash": "sha256:c3578666b676021700a0927d338cb334",
+        "generatedAt": "2026-11-06T08:13:43.827Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 64
+  "reviewedCount": 63
 }

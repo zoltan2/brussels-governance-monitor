@@ -1,15 +1,15 @@
 {
   "description": "Registre des sources surveillées par BGM. 331 sources (34 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
-  "lastUpdated": "2026-10-04",
+  "lastUpdated": "2026-11-07",
   "stats": {
-    "total": 332,
+    "total": 333,
     "byType": {
       "institutional": 92,
       "press": 108,
       "unknown": 14,
       "legal": 7,
       "agency": 4,
-      "research": 43,
+      "research": 44,
       "think-tank": 21,
       "ngo": 43
     }
@@ -6480,6 +6480,25 @@
       ],
       "notes": "Portail officiel de l'enseignement de la Fédération Wallonie-Bruxelles, page des actualités (pas de flux RSS publié, vérifié le 28/09/2026).",
       "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-332",
+      "name": "Open Parliament — serveur MCP (Chambre fédérale)",
+      "url": "https://opentheparliament.com/mcp",
+      "type": "research",
+      "lang": "multi",
+      "priority": "P4",
+      "frequency": "monthly",
+      "enabled": false,
+      "tier": "editorial",
+      "category": "governance",
+      "cardsAffected": [],
+      "domaines": [
+        "institutional",
+        "budget"
+      ],
+      "notes": "Outil de recherche, pas une source citable, hors veille automatique (enabled: false voulu, ce n'est pas un flux). Serveur MCP en lecture seule, sans compte ni clé, édité par un acteur privé (Mavericks project, TWKL Venture SRL), pas par la Chambre. Couvre la Chambre fédérale, législature 56 (depuis juillet 2024) : comptes rendus de commission et de plénière, votes nominatifs, fiches des députés, recherche par le sens en français et en néerlandais. Usage : affiner un dossier (sujets fédéraux touchant Bruxelles), puis citer le document officiel de lachambre.be (watch-029). Données en retard au 07/11/2026 : dernière plénière indexée le 18/03/2026, dernière commission vue le 24/03/2026. Pas d'outil pour les questions écrites malgré la page d'accueil. robots.txt : /api/ interdit, reste permis.",
+      "document_trust_tier": "P2"
     }
   ]
 }

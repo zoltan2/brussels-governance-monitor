@@ -705,6 +705,26 @@ function blocIllisible<T>(status: StatutBloc): Bloc<T> {
   };
 }
 
+/** La SQL d'Umami (bgm-ops, deploy/seo-report/bloc-umami.sql) écrit la fin
+ * de fenêtre comme une borne EXCLUSIVE : `$FIN + 1 jour` à minuit UTC, soit
+ * `2026-11-08T00:00:00Z` pour une fenêtre qui s'arrête le 7 novembre inclus.
+ * Partout ici, une fenêtre est une plage de jours INCLUSIVE (Search Console
+ * écrit `2026-11-07`). Lue telle quelle, la fin Umami ajoutait un jour
+ * (« 29 jours… au 8 novembre ») et faisait croire chaque jour que les deux
+ * fenêtres ne coïncidaient pas, alors qu'elles couvraient les mêmes dates
+ * (constaté en production le 09/11/2026). On ramène donc une fin à minuit
+ * pile au jour précédent, en date seule. Une fin écrite autrement (date
+ * seule, ou heure non nulle) est laissée telle quelle : si la collecte passe
+ * un jour à une fin inclusive, cette normalisation devient sans effet au lieu
+ * de retirer un jour à tort. */
+export function normaliserFinExclusive(fenetre: FenetreRapport | null): FenetreRapport | null {
+  if (!fenetre?.fin) return fenetre;
+  const m = /^(\d{4})-(\d{2})-(\d{2})T00:00:00(?:\.0+)?Z$/.exec(fenetre.fin);
+  if (!m) return fenetre;
+  const veille = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]) - 1));
+  return { ...fenetre, fin: veille.toISOString().slice(0, 10) };
+}
+
 function estStatutConnu(value: unknown): value is StatutConnu {
   return typeof value === 'string' && (STATUTS_CONNUS as readonly string[]).includes(value);
 }
@@ -738,7 +758,8 @@ function parseBloc<T>(
   // période visée par le relevé, pas son succès. On la lit même quand le
   // bloc est en panne ou bloqué (la sonde sait quelle fenêtre elle visait
   // avant d'échouer), jamais quand le format lui-même est illisible.
-  const fenetre = asFenetre(record.fenetre);
+  const fenetreBrute = asFenetre(record.fenetre);
+  const fenetre = nomAttendu === 'umami' ? normaliserFinExclusive(fenetreBrute) : fenetreBrute;
   // error/blocked n'ont jamais de donnees exploitables dans le contrat (le
   // crawl bloqué par Cloudflare écrit `donnees: null`) : on ne tente même
   // pas de les parser, ce qui évite tout plantage sur un null inattendu.

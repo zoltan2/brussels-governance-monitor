@@ -6,7 +6,7 @@ import { describe, it, expect, vi, beforeAll } from 'vitest';
 vi.mock('node:fs/promises', () => ({ readFile: vi.fn() }));
 
 import { readFile } from 'node:fs/promises';
-import { readSeoReport } from './seo-report';
+import { normaliserFinExclusive, readSeoReport } from './seo-report';
 
 beforeAll(() => {
   // Meme mecanisme que traffic-status.ts : le repertoire est deduit de
@@ -318,6 +318,66 @@ describe('readSeoReport', () => {
       debut: '2026-08-24',
       fin: '2026-09-20',
       fuseau: 'UTC',
+    });
+  });
+
+  // Contrat producteur → lecteur, constaté en production le 09/11/2026 :
+  // bloc-umami.sql (bgm-ops) écrit la fin comme `$FIN + 1 jour` à minuit
+  // UTC, borne EXCLUSIVE. Fixture reprise de la forme exacte du producteur
+  // (bgm-ops, deploy/__tests__/seo-bloc-umami.test.ts) : debut
+  // 2026-09-13T00:00:00Z, fin 2026-09-20T00:00:00Z pour une fenêtre qui
+  // s'arrête le 19 inclus. Lue telle quelle, elle comptait un jour de trop
+  // et désalignait Umami de Search Console chaque jour.
+  it("ramène la fin exclusive d'Umami (minuit UTC du lendemain) au dernier jour inclus", async () => {
+    vi.mocked(readFile).mockImplementation(async (chemin) => {
+      const nom = String(chemin).includes('seo-gsc.json')
+        ? 'gsc'
+        : String(chemin).includes('seo-umami.json')
+          ? 'umami'
+          : 'crawl';
+      return JSON.stringify({
+        schemaVersion: { gsc: 3, umami: 2, crawl: 1 }[nom],
+        bloc: nom,
+        status: 'ok',
+        generatedAt: '2026-09-21T04:30:00Z',
+        fenetre:
+          nom === 'gsc'
+            ? { debut: '2026-09-13', fin: '2026-09-19', fuseau: 'America/Los_Angeles' }
+            : nom === 'umami'
+              ? { debut: '2026-09-13T00:00:00Z', fin: '2026-09-20T00:00:00Z', fuseau: 'UTC' }
+              : { debut: '2026-09-21T00:00:00Z', fin: '2026-09-21T00:00:00Z', fuseau: 'UTC' },
+        donnees: {},
+      });
+    });
+    const rapport = await readSeoReport();
+    expect(rapport.blocs.umami.fenetre).toEqual({
+      debut: '2026-09-13T00:00:00Z',
+      fin: '2026-09-19',
+      fuseau: 'UTC',
+    });
+    // Même dernier jour que Search Console : les deux fenêtres coïncident.
+    expect(rapport.blocs.umami.fenetre?.fin).toBe(rapport.blocs.gsc.fenetre?.fin);
+    // Les autres blocs ne sont jamais touchés (le passage technique est un
+    // instantané, pas une plage à borne exclusive).
+    expect(rapport.blocs.crawl.fenetre?.fin).toBe('2026-09-21T00:00:00Z');
+  });
+
+  describe('normaliserFinExclusive', () => {
+    it('laisse telle quelle une fin en date seule (déjà inclusive)', () => {
+      const f = { debut: '2026-09-13', fin: '2026-09-19', fuseau: 'UTC' };
+      expect(normaliserFinExclusive(f)).toEqual(f);
+    });
+    it("laisse telle quelle une fin à une heure non nulle, qui n'est pas une borne de jour", () => {
+      const f = { debut: '2026-09-13', fin: '2026-09-20T06:30:00Z', fuseau: 'UTC' };
+      expect(normaliserFinExclusive(f)).toEqual(f);
+    });
+    it("passe correctement un changement de mois et d'année", () => {
+      expect(
+        normaliserFinExclusive({ debut: null, fin: '2027-01-01T00:00:00.000Z', fuseau: 'UTC' })?.fin,
+      ).toBe('2026-12-31');
+    });
+    it('rend null pour une fenêtre absente', () => {
+      expect(normaliserFinExclusive(null)).toBeNull();
     });
   });
 

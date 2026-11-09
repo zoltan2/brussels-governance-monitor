@@ -15,6 +15,7 @@ import {
 import { Tile, TileStat } from './tile';
 import { freshnessClassName, pireFraicheurNommee } from '@/lib/snapshot-freshness';
 import { chemin } from '@/lib/utils';
+import { getNombreDePages } from '@/lib/site-stats';
 
 const NOMS_BLOCS: Record<keyof RapportSeo['blocs'], string> = {
   gsc: 'Search Console',
@@ -22,10 +23,9 @@ const NOMS_BLOCS: Record<keyof RapportSeo['blocs'], string> = {
   crawl: 'Crawl technique',
 };
 
-// Ordre de grandeur du sitemap (tâches 4-5) : repère pour juger une
-// couverture anormalement faible, pas une mesure exacte à comparer au chiffre
-// près.
-const URLS_SITEMAP_ATTENDUES = 630;
+// Seuil de couverture rapporté au nombre réel d'URL du plan du site
+// (sitemap.ts), et non plus à une constante écrite en dur (630 le 19/09,
+// 708 pages en novembre). Même règle que la page du rapport.
 const COUVERTURE_MINIMALE = 0.5;
 
 /** Une couverture nulle ou très inférieure au sitemap est la panne la plus
@@ -33,7 +33,7 @@ const COUVERTURE_MINIMALE = 0.5;
  * elle doit alarmer même quand bloquées et échecs valent zéro. */
 function couvertureFaible(pages: PageCrawl[] | null): boolean {
   if (pages === null) return false; // donnée manquante, déjà couverte ailleurs
-  return pages.length < URLS_SITEMAP_ATTENDUES * COUVERTURE_MINIMALE;
+  return pages.length < getNombreDePages() * COUVERTURE_MINIMALE;
 }
 
 /** Somme stricte : une seule valeur absente rend le total illisible plutôt
@@ -157,7 +157,7 @@ export async function SeoReportTile() {
 
   return (
     <Tile
-      title="Rapport SEO hebdomadaire"
+      title="Audience et santé du site"
       href="/fr/admin/rapport"
       linkLabel="Ouvrir le rapport"
     >

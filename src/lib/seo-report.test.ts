@@ -492,6 +492,24 @@ describe('readSeoReport', () => {
       expect(serie?.[0].gsc.clicsBelgique).toBeNull();
       expect(serie?.[0].umami.visites).toBeNull();
     });
+    it("ne compte qu'une fois un même relevé archivé sous deux semaines", () => {
+      const meme = (s: string) =>
+        semaine(s, { status: 'ok', fin: '2026-09-18', clicsBelgique: 860 }, { status: 'ok', fin: '2026-09-19T00:00:00Z', visites: 4808 });
+      const serie = parseSerie({
+        schemaVersion: 1,
+        semaines: [
+          meme('2026-W39'),
+          meme('2026-W38'),
+          semaine('2026-W40', { status: 'ok', fin: '2026-09-25', clicsBelgique: 841 }, { status: 'ok', fin: '2026-09-26T00:00:00Z', visites: 5024 }),
+        ],
+      });
+      expect(serie?.map((s) => s.semaine)).toEqual(['2026-W38', '2026-W40']);
+    });
+    it('ne dédoublonne jamais deux semaines dont une fin est inconnue', () => {
+      const inconnue = (s: string) => semaine(s, { status: 'error' }, { status: 'error' });
+      const serie = parseSerie({ schemaVersion: 1, semaines: [inconnue('2026-W38'), inconnue('2026-W39')] });
+      expect(serie).toHaveLength(2);
+    });
     it('écarte une semaine au nom illisible, refuse une version inconnue', () => {
       expect(parseSerie({ schemaVersion: 1, semaines: [semaine('W45', {}, {})] })).toEqual([]);
       expect(parseSerie({ schemaVersion: 2, semaines: [] })).toBeNull();

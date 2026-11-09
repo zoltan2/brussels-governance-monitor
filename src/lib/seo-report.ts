@@ -991,7 +991,18 @@ export function parseSerie(raw: unknown): SemaineSerie[] | null {
       },
     });
   }
-  return semaines.sort((a, b) => a.semaine.localeCompare(b.semaine));
+  semaines.sort((a, b) => a.semaine.localeCompare(b.semaine));
+  // Un même relevé peut avoir été archivé sous deux semaines (constaté le
+  // 09/11/2026 : 2026-W38 et 2026-W39 portaient le relevé arrêté au 18/09,
+  // chiffres identiques). Le compter deux fois dessinerait un plateau là où
+  // il n'y a aucune donnée nouvelle : on ne garde que la première semaine
+  // d'un relevé dont les deux fins de fenêtre sont identiques à celles de la
+  // semaine précédente. Une fin inconnue ne prouve rien : jamais dédoublonnée.
+  return semaines.filter((s, i) => {
+    const p = semaines[i - 1];
+    if (!p || s.gsc.fin === null || s.umami.fin === null) return true;
+    return !(s.gsc.fin === p.gsc.fin && s.umami.fin === p.umami.fin);
+  });
 }
 
 async function lireSerie(dir: string): Promise<SemaineSerie[] | null> {

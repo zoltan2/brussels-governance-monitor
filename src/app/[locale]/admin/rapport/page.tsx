@@ -731,38 +731,85 @@ const NOMS_LANGUES: Record<string, string> = {
  * section ne s'affiche que si au moins une des deux est transmise (GSC 4 ou
  * Umami 3) : avant, aucune donnée ne permet de répondre.
  */
+/**
+ * Constat du 09/11/2026 (premier relevé GSC 4) : la somme des clics belges
+ * page par page valait 77, pour 860 clics belges au total de la propriété.
+ * Ce n'est pas une erreur de la collecte : dès qu'une requête Search Console
+ * croise la dimension « page » avec un filtre pays, Google ne restitue
+ * qu'une partie du trafic (agrégation par page, requêtes anonymisées, lignes
+ * plafonnées). Tout chiffre par page (tableau des pages, règle de chute,
+ * langues) ne couvre donc qu'une fraction des clics : la page le dit, chiffre
+ * à l'appui, au lieu de laisser additionner ou comparer au total.
+ */
+export function couverturePages(
+  sommePages: number | null,
+  totalBelgique: number | null,
+): { somme: number; total: number; part: number } | null {
+  if (sommePages === null || totalBelgique === null || totalBelgique <= 0) return null;
+  return { somme: sommePages, total: totalBelgique, part: sommePages / totalBelgique };
+}
+
+function couvertureDe(donnees: GscDonnees | null) {
+  if (!donnees || donnees.parLangue === null) return null;
+  return couverturePages(
+    donnees.parLangue.reduce((s, l) => s + (l.clics ?? 0), 0),
+    donnees.clicsBelgique,
+  );
+}
+
+function NoteCouverture({
+  couverture,
+}: {
+  couverture: { somme: number; total: number; part: number };
+}) {
+  return (
+    <p className="mb-2 text-xs text-neutral-600">
+      Les chiffres par page de Search Console couvrent {formatNombre(couverture.somme)} des{' '}
+      {formatNombre(couverture.total)} clics belges ({formatPourcentFraction(couverture.part)}) :
+      Google ne détaille, page par page et pour un pays, qu&apos;une partie du trafic. Comparer les
+      lignes entre elles reste possible ; les additionner pour retrouver le total, non.
+    </p>
+  );
+}
+
 function SectionLangues({ gsc, umami }: { gsc: Bloc<GscDonnees>; umami: Bloc<UmamiDonnees> }) {
   const clics = gsc.status === 'ok' ? (gsc.donnees?.parLangue ?? null) : null;
   const visites = umami.status === 'ok' ? (umami.donnees?.visitesParLangue ?? null) : null;
   if (clics === null && visites === null) return null;
+  const couverture = gsc.status === 'ok' ? couvertureDe(gsc.donnees) : null;
   const langues = Array.from(
     new Set([...(clics ?? []).map((l) => l.langue), ...(visites ?? []).map((l) => l.langue)]),
   ).sort((a, b) => {
+    // Visites d'abord (mesure complète), clics ensuite pour départager.
+    const va = visites?.find((l) => l.langue === a)?.visites ?? -1;
+    const vb = visites?.find((l) => l.langue === b)?.visites ?? -1;
     const ca = clics?.find((l) => l.langue === a)?.clics ?? -1;
     const cb = clics?.find((l) => l.langue === b)?.clics ?? -1;
-    return cb - ca || a.localeCompare(b);
+    return vb - va || cb - ca || a.localeCompare(b);
   });
   return (
     <section className="mb-10">
       <h2 className="mb-3 text-xl font-semibold text-neutral-900">Par langue</h2>
       <p className="mb-2 text-sm text-neutral-600">
-        Clics depuis la Belgique (Search Console) et visites (Umami, selon la page d&apos;entrée),
-        regroupés par langue du chemin. Deux sources : ne pas additionner les colonnes.
+        Visites (Umami, selon la page d&apos;entrée) et clics depuis la Belgique (Search Console),
+        regroupés par langue du chemin. Deux sources : ne pas additionner les colonnes. Les visites
+        sont complètes, les clics ne le sont pas.
       </p>
-      <TableauEnveloppe legende="Clics depuis la Belgique et visites, par langue">
+      {couverture && <NoteCouverture couverture={couverture} />}
+      <TableauEnveloppe legende="Visites et clics depuis la Belgique, par langue">
         <thead>
           <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
             <th scope="col" className="px-3 py-2">
               Langue
             </th>
             <th scope="col" className="px-3 py-2 text-right">
+              Visites
+            </th>
+            <th scope="col" className="px-3 py-2 text-right">
               Clics (Belgique)
             </th>
             <th scope="col" className="px-3 py-2 text-right">
               28 jours précédents
-            </th>
-            <th scope="col" className="px-3 py-2 text-right">
-              Visites
             </th>
           </tr>
         </thead>
@@ -774,13 +821,13 @@ function SectionLangues({ gsc, umami }: { gsc: Bloc<GscDonnees>; umami: Bloc<Uma
               <tr key={langue} className="border-t border-neutral-100">
                 <td className="px-3 py-2 text-neutral-800">{NOMS_LANGUES[langue] ?? langue}</td>
                 <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                  {visites === null ? 'indisponible' : formatNombre(v?.visites ?? 0)}
+                </td>
+                <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
                   {clics === null ? 'indisponible' : formatNombre(c?.clics ?? 0)}
                 </td>
                 <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
                   {clics === null ? 'indisponible' : formatNombre(c?.clicsPrecedents ?? 0)}
-                </td>
-                <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                  {visites === null ? 'indisponible' : formatNombre(v?.visites ?? 0)}
                 </td>
               </tr>
             );
@@ -1297,6 +1344,7 @@ function TablesGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
       {donnees.pages.length > 0 && (
         <div className="mt-4">
           <h4 className="mb-1 text-sm font-semibold text-neutral-900">Pages les plus cliquées</h4>
+          {couvertureDe(donnees) && <NoteCouverture couverture={couvertureDe(donnees)!} />}
           <TableauEnveloppe legende="Pages les plus cliquées depuis la Belgique, avec les clics des 28 jours précédents">
             <thead>
               <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">

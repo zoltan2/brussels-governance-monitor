@@ -1614,12 +1614,16 @@ describe('AdminRapportPage', () => {
     const lignes = Array.from(section?.querySelectorAll('tbody tr') ?? []).map((tr) =>
       Array.from(tr.querySelectorAll('td')).map((td) => td.textContent),
     );
-    // Trié par clics décroissants ; une langue vue d'un seul côté vaut 0 de l'autre.
+    // Visites d'abord (mesure complète), triées par visites puis par clics ;
+    // une langue vue d'un seul côté vaut 0 de l'autre.
     expect(lignes).toEqual([
-      ['Français', '800', '950', '0'],
-      ['Allemand', '3', '2', '0'],
-      ['Néerlandais', '0', '0', '400'],
+      ['Néerlandais', '400', '0', '0'],
+      ['Français', '0', '800', '950'],
+      ['Allemand', '0', '3', '2'],
     ]);
+    // Couverture des chiffres par page, chiffrée (constat du 09/11/2026 :
+    // 77 clics par page pour 860 clics belges au total).
+    expect(section?.textContent).toMatch(/couvrent 803 des 860 clics belges \(93,4\s%\)/);
   });
 
   it("n'affiche pas « Par langue » tant qu'aucune des deux sources ne la transmet", async () => {

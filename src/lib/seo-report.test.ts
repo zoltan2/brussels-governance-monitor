@@ -362,6 +362,109 @@ describe('readSeoReport', () => {
     expect(rapport.blocs.crawl.fenetre?.fin).toBe('2026-09-21T00:00:00Z');
   });
 
+  // Lot 1 (spec bgm-ops 2026-11-09, section 11) : la page accepte l'ancienne
+  // ET la nouvelle version de chaque bloc, pour être déployée avant la
+  // collecte. Les champs nouveaux sont null quand le fichier est ancien.
+  function fichiers(gsc: unknown, umami: unknown) {
+    vi.mocked(readFile).mockImplementation(async (chemin) => {
+      const c = String(chemin);
+      if (c.includes('seo-gsc.json')) return JSON.stringify(gsc);
+      if (c.includes('seo-umami.json')) return JSON.stringify(umami);
+      return JSON.stringify({ schemaVersion: 1, bloc: 'crawl', status: 'ok', donnees: { pages: [] } });
+    });
+  }
+
+  it('lit GSC 4 : totaux belges, clics par jour, par langue, requêtes belges', async () => {
+    fichiers(
+      {
+        schemaVersion: 4,
+        bloc: 'gsc',
+        status: 'ok',
+        donnees: {
+          totaux: { clics: 1092, impressions: 41644, ctr: 0.026, position: 6.9 },
+          totauxBelgique: { clics: 860, impressions: 20000, ctr: 0.043, position: 5.1 },
+          totauxBelgiquePrecedents: { clics: 1012, impressions: 21000, ctr: 0.048, position: 5 },
+          clicsBelgiqueParJour: [
+            { date: '2026-11-06', clics: 30, impressions: 700 },
+            { date: 'pas une date', clics: 1, impressions: 1 },
+          ],
+          clicsBelgiqueParJourPrecedent: [],
+          parLangue: [{ langue: 'fr', clics: 800, impressions: 18000, clicsPrecedents: 950 }],
+        },
+      },
+      { schemaVersion: 2, bloc: 'umami', status: 'ok', donnees: {} },
+    );
+    const { blocs } = await readSeoReport();
+    expect(blocs.gsc.status).toBe('ok');
+    expect(blocs.gsc.schemaVersion).toBe(4);
+    const d = blocs.gsc.donnees!;
+    expect(d.requetesBelgique).toBe(true);
+    expect(d.totauxBelgique).toEqual({ clics: 860, impressions: 20000, ctr: 0.043, position: 5.1 });
+    // Une date illisible est écartée, jamais réparée.
+    expect(d.clicsBelgiqueParJour).toEqual([{ date: '2026-11-06', clics: 30, impressions: 700 }]);
+    // [] transmis = zéro jour constaté, distinct d'un champ absent.
+    expect(d.clicsBelgiqueParJourPrecedent).toEqual([]);
+    expect(d.parLangue?.[0]).toEqual({ langue: 'fr', clics: 800, impressions: 18000, clicsPrecedents: 950 });
+  });
+
+  it("lit encore GSC 3 et Umami 2, avec les champs nouveaux à null et des requêtes marquées mondiales", async () => {
+    fichiers(
+      { schemaVersion: 3, bloc: 'gsc', status: 'ok', donnees: { totaux: { clics: 1 } } },
+      { schemaVersion: 2, bloc: 'umami', status: 'ok', donnees: { visites: 10 } },
+    );
+    const { blocs } = await readSeoReport();
+    expect(blocs.gsc.status).toBe('ok');
+    expect(blocs.gsc.donnees?.requetesBelgique).toBe(false);
+    expect(blocs.gsc.donnees?.totauxBelgique).toBeNull();
+    expect(blocs.gsc.donnees?.parLangue).toBeNull();
+    expect(blocs.umami.status).toBe('ok');
+    expect(blocs.umami.donnees?.evenementsParNom).toBeNull();
+    expect(blocs.umami.donnees?.inscriptions).toBeNull();
+    expect(blocs.umami.donnees?.visitesParLangue).toBeNull();
+  });
+
+  it('lit Umami 3 : événements par nom, inscriptions, visites par langue', async () => {
+    fichiers(
+      { schemaVersion: 3, bloc: 'gsc', status: 'ok', donnees: {} },
+      {
+        schemaVersion: 3,
+        bloc: 'umami',
+        status: 'ok',
+        donnees: {
+          evenementsParNom: [{ nom: 'inscription-reussie', total: 14, visites: 12 }, { total: 3 }],
+          inscriptions: { total: 14, visites: 12, parPageEntree: [{ chemin: '/fr', visites: 5 }] },
+          visitesParLangue: [{ langue: 'nl', visites: 400 }],
+        },
+      },
+    );
+    const { blocs } = await readSeoReport();
+    const d = blocs.umami.donnees!;
+    // Une entrée sans nom est écartée.
+    expect(d.evenementsParNom).toEqual([{ nom: 'inscription-reussie', total: 14, visites: 12 }]);
+    expect(d.inscriptions).toEqual({ total: 14, visites: 12, parPageEntree: [{ chemin: '/fr', visites: 5 }] });
+    expect(d.visitesParLangue).toEqual([{ langue: 'nl', visites: 400 }]);
+  });
+
+  it("distingue des événements absents (colonne event_name introuvable, null) d'une liste vide constatée", async () => {
+    fichiers(
+      { schemaVersion: 3, bloc: 'gsc', status: 'ok', donnees: {} },
+      { schemaVersion: 3, bloc: 'umami', status: 'ok', donnees: { evenementsParNom: [], inscriptions: null } },
+    );
+    const { blocs } = await readSeoReport();
+    expect(blocs.umami.donnees?.evenementsParNom).toEqual([]);
+    expect(blocs.umami.donnees?.inscriptions).toBeNull();
+  });
+
+  it('refuse une version au-delà de celles connues (GSC 5, Umami 4)', async () => {
+    fichiers(
+      { schemaVersion: 5, bloc: 'gsc', status: 'ok', donnees: {} },
+      { schemaVersion: 4, bloc: 'umami', status: 'ok', donnees: {} },
+    );
+    const { blocs } = await readSeoReport();
+    expect(blocs.gsc.status).toBe('format-inconnu');
+    expect(blocs.umami.status).toBe('format-inconnu');
+  });
+
   describe('normaliserFinExclusive', () => {
     it('laisse telle quelle une fin en date seule (déjà inclusive)', () => {
       const f = { debut: '2026-09-13', fin: '2026-09-19', fuseau: 'UTC' };

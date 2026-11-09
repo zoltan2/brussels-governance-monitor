@@ -23,11 +23,18 @@ import { describeFreshness, type Freshness } from './snapshot-freshness';
 // Trois valeurs différentes, chacune pour son bloc : un fichier resté à
 // l'ancienne version pour un bloc monté depuis (script pas encore
 // redéployé) doit se lire illisible, jamais deviné compatible.
+//
+// Lot 1 de la refonte (spec bgm-ops 2026-11-09, section 11) : GSC 4 et
+// Umami 3 sont ADDITIFS (nouveaux champs, requêtes filtrées Belgique en GSC
+// 4). Ce module accepte l'ancienne et la nouvelle version de chaque bloc,
+// pour pouvoir être déployé AVANT la collecte : sinon, entre l'installation
+// de la collecte et le déploiement de la page, le bloc s'afficherait « format
+// non reconnu ». Toute autre version reste illisible.
 const SCHEMA_VERSIONS = {
-  gsc: 3,
-  umami: 2,
-  crawl: 1,
-} as const satisfies Record<NomBloc, number>;
+  gsc: [3, 4],
+  umami: [2, 3],
+  crawl: [1],
+} as const satisfies Record<NomBloc, readonly number[]>;
 
 // Le relevé tourne chaque jour à 06:30 UTC (bgm-ops, bgm-seo-report.timer) :
 // passé deux passages manqués, ça doit se voir. 50 h et non 48, pour ne pas
@@ -128,6 +135,22 @@ export interface ActionSuggeree {
   fenetre: FenetreRapport | null;
 }
 
+/** Une journée de clics depuis la Belgique (GSC 4). Un jour sans donnée est
+ * absent de la liste côté producteur, jamais inventé à zéro. */
+export interface JourClics {
+  date: string;
+  clics: number | null;
+  impressions: number | null;
+}
+
+/** Clics depuis la Belgique regroupés par langue du chemin (GSC 4). */
+export interface LangueClics {
+  langue: string;
+  clics: number | null;
+  impressions: number | null;
+  clicsPrecedents: number | null;
+}
+
 export interface GscDonnees {
   totaux: Totaux;
   totauxPrecedents: Totaux;
@@ -143,6 +166,17 @@ export interface GscDonnees {
   // Au plus 5 entrées côté producteur : ce module ne re-trie ni ne
   // tronque, il valide.
   requetesEmergentes: RequeteEmergente[];
+  // GSC 4 et suivantes. `null` = champ absent (fichier en version 3, ou
+  // donnée non transmise), jamais un tableau ou des totaux inventés.
+  totauxBelgique: Totaux | null;
+  totauxBelgiquePrecedents: Totaux | null;
+  clicsBelgiqueParJour: JourClics[] | null;
+  clicsBelgiqueParJourPrecedent: JourClics[] | null;
+  parLangue: LangueClics[] | null;
+  // Vrai à partir de GSC 4 : requêtes, requêtes émergentes et part des
+  // requêtes sont filtrées Belgique. En version 3, elles comptent le monde
+  // entier, et l'affichage doit le dire.
+  requetesBelgique: boolean;
 }
 
 export interface VisiteIa {
@@ -196,6 +230,27 @@ export interface CheminVisite {
   visites: number | null;
 }
 
+/** Un événement Umami nommé (Umami 3). */
+export interface EvenementNomme {
+  nom: string;
+  total: number | null;
+  visites: number | null;
+}
+
+/** Événement `inscription-reussie` (Umami 3). Il est aussi envoyé à une
+ * personne déjà abonnée qui se réinscrit : ce n'est pas un compte de
+ * nouveaux abonnés. */
+export interface Inscriptions {
+  total: number | null;
+  visites: number | null;
+  parPageEntree: CheminVisite[];
+}
+
+export interface LangueVisites {
+  langue: string;
+  visites: number | null;
+}
+
 export interface UmamiDonnees {
   visites: number | null;
   // null = champ absent ou du mauvais type (donnée manquante, indisponible
@@ -212,6 +267,12 @@ export interface UmamiDonnees {
   // Sans plafond, à usage interne (pas affiché tel quel sur la page) : ce
   // module ne re-trie ni ne tronque, il valide.
   visitesParChemin: CheminVisite[];
+  // Umami 3 et suivantes. `null` = champ absent ou colonne `event_name`
+  // introuvable côté base (la collecte le vérifie à l'exécution) : jamais
+  // une liste vide inventée.
+  evenementsParNom: EvenementNomme[] | null;
+  inscriptions: Inscriptions | null;
+  visitesParLangue: LangueVisites[] | null;
 }
 
 export interface PageCrawl {
@@ -237,6 +298,10 @@ export interface CrawlDonnees {
 
 export interface Bloc<T> {
   status: StatutBloc;
+  // Version du contrat lue dans le fichier, null quand le fichier est
+  // illisible ou absent. Optionnelle dans le type pour ne pas imposer le
+  // champ aux constructions de test ; toujours renseignée par la lecture.
+  schemaVersion?: number | null;
   message: string | null;
   generatedAt: string | null;
   // Empreinte du script qui a produit ce fichier (contrat JSON commun) :
@@ -509,7 +574,40 @@ export function gscMesurePresente(donnees: GscDonnees): boolean {
   );
 }
 
-function asGscDonnees(value: unknown): GscDonnees {
+function asTotauxOptionnels(value: unknown): Totaux | null {
+  return value === null || typeof value !== 'object' ? null : asTotaux(value);
+}
+
+function asJoursClics(value: unknown): JourClics[] | null {
+  if (!Array.isArray(value)) return null;
+  const jours: JourClics[] = [];
+  for (const ligne of value) {
+    const record = asRecord(ligne);
+    const date = asString(record.date);
+    if (date === null || !/^\d{4}-\d{2}-\d{2}$/.test(date)) continue;
+    jours.push({ date, clics: asCompte(record.clics), impressions: asCompte(record.impressions) });
+  }
+  return jours;
+}
+
+function asParLangue(value: unknown): LangueClics[] | null {
+  if (!Array.isArray(value)) return null;
+  const langues: LangueClics[] = [];
+  for (const ligne of value) {
+    const record = asRecord(ligne);
+    const langue = asString(record.langue);
+    if (langue === null) continue;
+    langues.push({
+      langue,
+      clics: asCompte(record.clics),
+      impressions: asCompte(record.impressions),
+      clicsPrecedents: asCompte(record.clicsPrecedents),
+    });
+  }
+  return langues;
+}
+
+function asGscDonnees(value: unknown, version: number): GscDonnees {
   const record = asRecord(value);
   return {
     totaux: asTotaux(record.totaux),
@@ -524,6 +622,12 @@ function asGscDonnees(value: unknown): GscDonnees {
     actions: asActions(record.actions),
     publieRecemment: asPublieRecemment(record.publieRecemment),
     requetesEmergentes: asRequetesEmergentes(record.requetesEmergentes),
+    totauxBelgique: asTotauxOptionnels(record.totauxBelgique),
+    totauxBelgiquePrecedents: asTotauxOptionnels(record.totauxBelgiquePrecedents),
+    clicsBelgiqueParJour: asJoursClics(record.clicsBelgiqueParJour),
+    clicsBelgiqueParJourPrecedent: asJoursClics(record.clicsBelgiqueParJourPrecedent),
+    parLangue: asParLangue(record.parLangue),
+    requetesBelgique: version >= 4,
   };
 }
 
@@ -626,6 +730,40 @@ function asVisitesParChemin(value: unknown): CheminVisite[] {
   return items;
 }
 
+function asEvenementsParNom(value: unknown): EvenementNomme[] | null {
+  if (!Array.isArray(value)) return null;
+  const items: EvenementNomme[] = [];
+  for (const ligne of value) {
+    const record = asRecord(ligne);
+    const nom = asString(record.nom);
+    if (nom === null) continue;
+    items.push({ nom, total: asCompte(record.total), visites: asCompte(record.visites) });
+  }
+  return items;
+}
+
+function asInscriptions(value: unknown): Inscriptions | null {
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) return null;
+  const record = value as Record<string, unknown>;
+  return {
+    total: asCompte(record.total),
+    visites: asCompte(record.visites),
+    parPageEntree: asVisitesParChemin(record.parPageEntree),
+  };
+}
+
+function asVisitesParLangue(value: unknown): LangueVisites[] | null {
+  if (!Array.isArray(value)) return null;
+  const items: LangueVisites[] = [];
+  for (const ligne of value) {
+    const record = asRecord(ligne);
+    const langue = asString(record.langue);
+    if (langue === null) continue;
+    items.push({ langue, visites: asCompte(record.visites) });
+  }
+  return items;
+}
+
 function asUmamiDonnees(value: unknown): UmamiDonnees {
   const record = asRecord(value);
   return {
@@ -636,6 +774,9 @@ function asUmamiDonnees(value: unknown): UmamiDonnees {
     evenements: asEntier(record.evenements),
     referents: asReferents(record.referents),
     visitesParChemin: asVisitesParChemin(record.visitesParChemin),
+    evenementsParNom: asEvenementsParNom(record.evenementsParNom),
+    inscriptions: asInscriptions(record.inscriptions),
+    visitesParLangue: asVisitesParLangue(record.visitesParLangue),
   };
 }
 
@@ -690,13 +831,14 @@ const PARSEURS_DONNEES = {
   gsc: asGscDonnees,
   umami: asUmamiDonnees,
   crawl: asCrawlDonnees,
-} satisfies Record<NomBloc, (v: unknown) => unknown>;
+} satisfies Record<NomBloc, (v: unknown, version: number) => unknown>;
 
 // --- Enveloppe commune -------------------------------------------------
 
 function blocIllisible<T>(status: StatutBloc): Bloc<T> {
   return {
     status,
+    schemaVersion: null,
     message: null,
     generatedAt: null,
     scriptSha256: null,
@@ -732,7 +874,7 @@ function estStatutConnu(value: unknown): value is StatutConnu {
 function parseBloc<T>(
   raw: unknown,
   nomAttendu: NomBloc,
-  parseurDonnees: (v: unknown) => T,
+  parseurDonnees: (v: unknown, version: number) => T,
 ): Bloc<T> {
   if (raw === null || typeof raw !== 'object') return blocIllisible('format-inconnu');
   const record = raw as Record<string, unknown>;
@@ -742,7 +884,13 @@ function parseBloc<T>(
   // ancienne version pour un bloc monté depuis, est un format qu'on ne sait
   // pas encore lire : mieux vaut l'afficher illisible que de deviner une
   // correspondance de champs fausse.
-  if (record.schemaVersion !== SCHEMA_VERSIONS[nomAttendu]) return blocIllisible('format-inconnu');
+  const version = record.schemaVersion;
+  if (
+    typeof version !== 'number' ||
+    !(SCHEMA_VERSIONS[nomAttendu] as readonly number[]).includes(version)
+  ) {
+    return blocIllisible('format-inconnu');
+  }
 
   // Le champ `bloc` doit correspondre au fichier lu (seo-gsc.json porte
   // bloc: "gsc", etc.) : un contenu mélangé ou un fichier tronqué au mauvais
@@ -763,15 +911,23 @@ function parseBloc<T>(
   // error/blocked n'ont jamais de donnees exploitables dans le contrat (le
   // crawl bloqué par Cloudflare écrit `donnees: null`) : on ne tente même
   // pas de les parser, ce qui évite tout plantage sur un null inattendu.
-  const donnees = record.status === 'ok' ? parseurDonnees(record.donnees) : null;
+  const donnees = record.status === 'ok' ? parseurDonnees(record.donnees, version) : null;
 
-  return { status: record.status, message, generatedAt, scriptSha256, fenetre, donnees };
+  return {
+    status: record.status,
+    schemaVersion: version,
+    message,
+    generatedAt,
+    scriptSha256,
+    fenetre,
+    donnees,
+  };
 }
 
 async function lireBloc<T>(
   nom: NomBloc,
   dir: string,
-  parseurDonnees: (v: unknown) => T,
+  parseurDonnees: (v: unknown, version: number) => T,
 ): Promise<Bloc<T>> {
   try {
     const contenu = await readFile(join(dir, `seo-${nom}.json`), 'utf8');

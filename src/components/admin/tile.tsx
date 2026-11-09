@@ -24,9 +24,7 @@ export function Tile({
 }) {
   return (
     <section className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
-      <h2 className="text-sm font-semibold tracking-wide text-neutral-600 uppercase">
-        {title}
-      </h2>
+      <h2 className="text-sm font-semibold tracking-wide text-neutral-600 uppercase">{title}</h2>
       <div className="mt-3">{children}</div>
       {href &&
         linkLabel &&
@@ -49,16 +47,13 @@ export function Tile({
   );
 }
 
-export function TileStat({
-  value,
-  label,
-}: {
-  value: string | number;
-  label: string;
-}) {
+/** Un nombre est toujours écrit à la belge (« 4 415 »), jamais brut. */
+export function TileStat({ value, label }: { value: string | number; label: string }) {
   return (
     <p className="flex items-baseline gap-2">
-      <span className="text-3xl font-bold text-neutral-900">{value}</span>
+      <span className="text-3xl font-bold text-neutral-900">
+        {typeof value === 'number' ? value.toLocaleString('fr-BE') : value}
+      </span>
       <span className="text-sm text-neutral-600">{label}</span>
     </p>
   );

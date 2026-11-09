@@ -12,6 +12,7 @@ import {
   type FenetreRapport,
   type GscDonnees,
   type PageCrawl,
+  type PageGsc,
   type PagePubliee,
   type RapportSeo,
   type SemaineSerie,
@@ -20,7 +21,8 @@ import {
   type UmamiDonnees,
   type VisiteIa,
 } from '@/lib/seo-report';
-import { freshnessClassName, pireFraicheurNommee, type Freshness } from '@/lib/snapshot-freshness';
+import { type Freshness } from '@/lib/snapshot-freshness';
+import { verdictRapport } from '@/lib/rapport-verdict';
 import { chemin } from '@/lib/utils';
 import { getNombreDePages } from '@/lib/site-stats';
 import { ClicsBelgiqueParJourChart } from '@/components/admin/clics-belgique-par-jour-chart';
@@ -234,7 +236,7 @@ function formatDateLongue(date: DateSeule, avecAnnee: boolean): string {
 
 /** Fenêtre en dates lisibles, à côté des chiffres qu'elle date : « 28 jours,
  * du 21 août au 17 septembre 2026 ». Contrairement à formatFenetre (utilisée
- * dans « À propos de ce relevé » pour la vérification), aucun repli textuel
+ * dans « Fenêtres d'analyse » pour la vérification), aucun repli textuel
  * n'est rendu quand la fenêtre est indisponible : la ligne reste tue, une
  * période inconnue ne s'affiche pas comme si elle valait la peine d'être lue
  * à côté des chiffres. */
@@ -408,7 +410,7 @@ function VerdictFraicheur({ freshness }: { freshness: Freshness | null }) {
 /** Sonde et fraîcheur, l'une à côté de l'autre : une sonde réussie sur un
  * relevé vieux de dix jours doit le dire ici, pas seulement dans un verdict
  * global en haut de page. L'empreinte du script n'est plus ici : voir
- * « À propos de ce relevé ». */
+ * l'annexe « Empreinte de la collecte ». */
 function MetaBloc({
   bloc,
   freshness,
@@ -508,7 +510,7 @@ function TableauEnveloppe({ legende, children }: { legende: string; children: Re
   );
 }
 
-// --- « Qui envoie des lecteurs » (referents Umami, contrat v2) -----------
+// --- « D'où viennent les lecteurs » (referents Umami, contrat v2) ---------
 
 // Cinq lignes au plus par liste, même si le contrat en autorise jusqu'à dix
 // côté producteur : sur téléphone, une liste plus longue que ça n'est plus
@@ -524,13 +526,13 @@ function ListeSources({
 }: {
   titre: string;
   liste: SourceVisites[];
-  videTexte: string;
+  videTexte: string | null;
 }) {
   return (
     <div className="mt-4">
       <h3 className="mb-1 text-sm font-semibold text-neutral-900">{titre}</h3>
       {liste.length === 0 ? (
-        <p className="text-sm text-neutral-600">{videTexte}</p>
+        videTexte && <p className="text-sm text-neutral-600">{videTexte}</p>
       ) : (
         <>
           {liste.length > TRONCATURE_LISTES_REFERENTS && (
@@ -603,111 +605,125 @@ function BlocMoteursHorsGoogle({
   );
 }
 
-/**
- * « Qui envoie des lecteurs », sous les chiffres d'Umami (mais hors de la
- * section « Chiffres clés », qui reste à trois blocs). `referents === null`
- * (mesure jamais transmise) et un `referents` présent aux listes vides
- * (zéro constaté) restent deux messages distincts, jamais confondus.
- *
- * Deux phrases d'honnêteté obligatoires : la majorité des visites arrivent
- * sans référent identifiable (avec le nombre), et un canal fermé prouve la
- * lecture depuis un outil de travail sans jamais dire quelle organisation
- * le lit.
- */
-/** `referents.campagnes` ventile TOUS les `utm_source`, pas seulement les
- * envois du site : un assistant qui marque son propre lien (ex. ChatGPT) y
- * figure EN PLUS d'apparaître dans « Visites d'assistants » (visitesIa,
- * Détails plus bas). Nommer ça « campagnes » sans distinction laisserait
- * croire qu'un assistant est une campagne du site, et inviterait à compter
- * deux fois le même trafic. Le seul repère vérifiable pour séparer les deux
- * est la présence de la même source dans visitesIa : une source qui y
- * figure est déjà comptée comme assistant, ce n'est pas un envoi du site. */
-function sourcesDejaComptéesCommeAssistants(visitesIa: VisiteIa[] | null): Set<string> {
+/** Une campagne de moins de SEUIL_CAMPAGNE visites ne tient pas une ligne à
+ * elle seule (constat du 09/11/2026 : `dubgtcg.dbz` au même rang que
+ * `bgm-digest`) : elle est regroupée sous « autres », avec le nombre de
+ * sources et de visites. Une campagne au compte indisponible reste listée
+ * (« indisponible »), jamais additionnée comme un zéro. */
+const SEUIL_CAMPAGNE = 5;
+
+export function regrouperCampagnes(campagnes: SourceVisites[]): {
+  listees: SourceVisites[];
+  autres: { sources: number; visites: number } | null;
+} {
+  const petites = campagnes.filter((c) => c.visites !== null && c.visites < SEUIL_CAMPAGNE);
+  const listees = campagnes.filter((c) => !(c.visites !== null && c.visites < SEUIL_CAMPAGNE));
+  if (petites.length === 0) return { listees, autres: null };
+  return {
+    listees,
+    autres: {
+      sources: petites.length,
+      visites: petites.reduce((s, c) => s + (c.visites as number), 0),
+    },
+  };
+}
+
+/** `referents.campagnes` ventile TOUS les `utm_source`, y compris des
+ * assistants qui marquent leur propre lien (ChatGPT) : ceux-là figurent déjà
+ * dans `visitesIa` (référent OU paramètre de campagne, dédoublonné par visite
+ * côté SQL). On ne les liste donc qu'une fois, sous « Assistants ». */
+function sourcesDejaCompteesCommeAssistants(visitesIa: VisiteIa[] | null): Set<string> {
   return new Set((visitesIa ?? []).map((v) => v.source));
 }
 
-function SectionReferents({ umami }: { umami: Bloc<UmamiDonnees> }) {
+/**
+ * « D'où viennent les lecteurs » : une liste par canal. `referents === null`
+ * (mesure jamais transmise) et un `referents` aux listes vides (zéro
+ * constaté) restent deux messages distincts. Deux phrases d'honnêteté
+ * obligatoires : la majorité des visites arrivent sans référent (avec le
+ * nombre), et un canal fermé prouve l'ouverture d'un lien depuis un outil de
+ * travail, jamais quelle organisation le lit. Les domaines restent bruts
+ * (admin à un seul lecteur, décision de Zoltán du 09/11/2026).
+ */
+function SectionSources({ umami }: { umami: Bloc<UmamiDonnees> }) {
   const disponible = umami.status === 'ok' && !!umami.donnees;
   const referents = disponible ? umami.donnees!.referents : null;
-  const assistants = disponible
-    ? sourcesDejaComptéesCommeAssistants(umami.donnees!.visitesIa)
-    : new Set<string>();
-  const envoisDuSite = referents
-    ? referents.campagnes.filter((c) => !assistants.has(c.source))
-    : [];
-  const assistantsParLeurLien = referents
-    ? referents.campagnes.filter((c) => assistants.has(c.source))
-    : [];
+  const visitesIa = disponible ? umami.donnees!.visitesIa : null;
+  const assistants = sourcesDejaCompteesCommeAssistants(visitesIa);
+  const campagnes = regrouperCampagnes(
+    referents ? referents.campagnes.filter((c) => !assistants.has(c.source)) : [],
+  );
 
   return (
-    <section className="mb-10">
-      <h2 className="mb-3 text-xl font-semibold text-neutral-900">Qui envoie des lecteurs</h2>
+    <section className="mb-10" aria-labelledby="titre-sources">
+      <h2 id="titre-sources" className="mb-3 text-xl font-semibold text-neutral-900">
+        D&apos;où viennent les lecteurs
+      </h2>
       {!disponible && (
         <p className="text-sm text-neutral-600">
-          indisponible : le bloc Umami n&apos;est pas à jour (voir Chiffres clés ci-dessus).
+          indisponible : le bloc Umami n&apos;est pas à jour (voir l&apos;état des sources en haut
+          de page).
         </p>
       )}
       {disponible && referents === null && (
         <p className="text-sm text-neutral-600">
-          indisponible : cette mesure n&apos;a pas été transmise dans ce relevé.
+          Sites, moteurs et campagnes indisponibles : cette mesure n&apos;a pas été transmise dans
+          ce relevé.
         </p>
       )}
       {disponible && referents !== null && (
+        <p className="mb-2 text-sm text-neutral-700">
+          La majorité des visites arrivent sans référent identifiable :{' '}
+          <span className="font-semibold tabular-nums">{formatNombre(referents.sansReferent)}</span>{' '}
+          sur la période. Les listes ci-dessous comptent donc pour moins qu&apos;elles n&apos;en ont
+          l&apos;air.
+        </p>
+      )}
+      {disponible && (
         <>
-          <p className="mb-2 text-sm text-neutral-700">
-            La majorité des visites arrivent sans référent identifiable :{' '}
-            <span className="font-semibold tabular-nums">
-              {formatNombre(referents.sansReferent)}
-            </span>{' '}
-            sur la période. Les listes ci-dessous comptent donc pour moins qu&apos;elles n&apos;en
-            ont l&apos;air.
-          </p>
-          <ListeSources
-            titre="Sites qui pointent vers governance.brussels"
-            liste={referents.sitesReferents}
-            videTexte="Aucun site référent sur la période."
-          />
-          <BlocMoteursHorsGoogle moteurs={referents.moteursHorsGoogle} />
-          <ListeSources
-            titre="Canaux fermés"
-            liste={referents.canauxFermes}
-            videTexte="Aucun canal fermé sur la période."
-          />
-          <p className="mt-2 text-xs text-neutral-500">
-            Un canal fermé prouve qu&apos;un lien a été ouvert depuis un outil de travail, jamais
-            quelle organisation l&apos;a lu : cette liste ne permet pas de le déduire.
-          </p>
-          <ListeSources
-            titre="Ce que vos envois rapportent"
-            liste={envoisDuSite}
-            videTexte="Aucune visite de campagne sur la période."
-          />
-          {assistantsParLeurLien.length > 0 && (
+          {referents !== null && <BlocMoteursHorsGoogle moteurs={referents.moteursHorsGoogle} />}
+          {visitesIa === null ? (
             <div className="mt-4">
-              <h3 className="mb-1 text-sm font-semibold text-neutral-900">
-                Assistants comptés une seconde fois, par leur propre lien
-              </h3>
-              <p className="mb-1 text-xs text-neutral-500">
-                Ces sources apparaissent aussi dans « Visites d&apos;assistants » (Détails, plus
-                bas), comptées cette fois par le paramètre de campagne inscrit dans leur propre lien
-                plutôt que par l&apos;en-tête technique renvoyé au clic. Les deux chiffres mesurent
-                le même trafic par deux repères différents : ne les additionnez pas, et ne lisez pas
-                leur écart comme une évolution.
-              </p>
-              <ul className="space-y-1">
-                {assistantsParLeurLien.slice(0, TRONCATURE_LISTES_REFERENTS).map((s) => (
-                  <li
-                    key={s.source}
-                    className="flex justify-between gap-3 rounded border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm"
-                  >
-                    <span className="break-all text-neutral-800">{s.source}</span>
-                    <span className="shrink-0 tabular-nums text-neutral-700">
-                      {formatNombre(s.visites)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <h3 className="mb-1 text-sm font-semibold text-neutral-900">Assistants</h3>
+              <p className="text-sm text-neutral-600">indisponible dans ce relevé.</p>
             </div>
+          ) : (
+            <ListeSources
+              titre="Assistants (comptés une seule fois, par référent ou par lien marqué)"
+              liste={visitesIa}
+              videTexte="Aucune visite d'assistant sur la période."
+            />
+          )}
+          {referents !== null && (
+            <>
+              <ListeSources
+                titre="Sites qui pointent vers governance.brussels"
+                liste={referents.sitesReferents}
+                videTexte="Aucun site référent sur la période."
+              />
+              <ListeSources
+                titre="Outils de travail (canaux fermés)"
+                liste={referents.canauxFermes}
+                videTexte="Aucun canal fermé sur la période."
+              />
+              <p className="mt-2 text-xs text-neutral-600">
+                Un canal fermé prouve qu&apos;un lien a été ouvert depuis un outil de travail,
+                jamais quelle organisation l&apos;a lu : cette liste ne permet pas de le déduire.
+              </p>
+              <ListeSources
+                titre="Vos envois et campagnes"
+                liste={campagnes.listees}
+                videTexte={campagnes.autres ? null : 'Aucune visite de campagne sur la période.'}
+              />
+              {campagnes.autres && (
+                <p className="mt-1 text-sm text-neutral-700" data-testid="campagnes-autres">
+                  autres ({campagnes.autres.sources}{' '}
+                  {campagnes.autres.sources > 1 ? 'sources' : 'source'},{' '}
+                  {formatNombre(campagnes.autres.visites)}{' '}
+                  {campagnes.autres.visites > 1 ? 'visites' : 'visite'})
+                </p>
+              )}
+            </>
           )}
         </>
       )}
@@ -903,8 +919,8 @@ function SectionPublications({ gsc }: { gsc: Bloc<GscDonnees> }) {
       </p>
       {!disponible && (
         <p className="text-sm text-neutral-600">
-          indisponible : le bloc Search Console n&apos;est pas à jour (voir Chiffres clés
-          ci-dessus).
+          indisponible : le bloc Search Console n&apos;est pas à jour (voir l&apos;état des sources
+          en haut de page).
         </p>
       )}
       {disponible && toutes.length === 0 && (
@@ -979,25 +995,38 @@ function accorderPreuve(preuve: string): string {
 }
 
 /**
- * Actions suggérées : première section de la page, ancrée pour la tuile
+ * « À faire » : les actions suggérées (trois au plus, calculées côté
+ * collecte), puis les titres à revoir. Section ancrée pour la tuile du hub
  * (#actions). Un bloc GSC « ok » mais sans la moindre mesure exploitable
- * n'est pas traité comme « aucune action cette semaine » : c'est un payload
+ * n'est pas traité comme « aucune action » : c'est un payload
  * suspect, indisponible comme une panne.
  */
-function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
+function SectionAFaire({ bloc }: { bloc: Bloc<GscDonnees> }) {
+  return (
+    <section id="actions" className="mb-10 scroll-mt-4" aria-labelledby="titre-a-faire">
+      <h2 id="titre-a-faire" className="mb-3 text-xl font-semibold text-neutral-900">
+        À faire
+      </h2>
+      <ListeActions bloc={bloc} />
+      <TitresARevoir bloc={bloc} />
+    </section>
+  );
+}
+
+function ListeActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
   const utilisable = bloc.status === 'ok' && !!bloc.donnees && gscMesurePresente(bloc.donnees);
   const actions = utilisable ? (bloc.donnees?.actions ?? []) : null;
   return (
-    <section id="actions" className="mb-10 scroll-mt-4">
-      <h2 className="mb-3 text-xl font-semibold text-neutral-900">Actions suggérées</h2>
+    <div data-testid="actions-suggerees">
+      <h3 className="mb-2 text-lg font-semibold text-neutral-900">Actions suggérées</h3>
       {actions === null && (
         <p className="text-sm text-neutral-600">
           indisponible : le bloc Search Console qui les calcule n&apos;est pas à jour ou n&apos;a
-          transmis aucune mesure exploitable dans ce relevé (voir Chiffres clés ci-dessous).
+          transmis aucune mesure exploitable dans ce relevé.
         </p>
       )}
       {actions !== null && actions.length === 0 && (
-        <p className="text-sm text-neutral-600">Aucune action cette semaine.</p>
+        <p className="text-sm text-neutral-600">Aucune action dans ce relevé.</p>
       )}
       {actions !== null && actions.length > 0 && (
         <ul className="space-y-3">
@@ -1050,7 +1079,7 @@ function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
           })}
         </ul>
       )}
-    </section>
+    </div>
   );
 }
 
@@ -1064,12 +1093,12 @@ function SectionActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
  * qui en découle est éditorial : relire le titre et la description que
  * Google affiche.
  */
-function SectionTitresARevoir({ bloc }: { bloc: Bloc<GscDonnees> }) {
+function TitresARevoir({ bloc }: { bloc: Bloc<GscDonnees> }) {
   if (bloc.status !== 'ok' || !bloc.donnees) return null;
   const occasions = bloc.donnees.opportunitesTitre;
   return (
-    <section className="mb-10">
-      <h2 className="mb-3 text-xl font-semibold text-neutral-900">Titres à revoir</h2>
+    <div className="mt-6" data-testid="titres-a-revoir">
+      <h3 className="mb-2 text-lg font-semibold text-neutral-900">Titres à revoir</h3>
       <p className="mb-3 text-sm text-neutral-600">
         Pages en première page de Google depuis la Belgique, vues au moins 300 fois, mais deux fois
         moins cliquées que les pages de même position. Le titre ou la description affichés dans les
@@ -1099,7 +1128,7 @@ function SectionTitresARevoir({ bloc }: { bloc: Bloc<GscDonnees> }) {
           ))}
         </ul>
       )}
-    </section>
+    </div>
   );
 }
 
@@ -1182,9 +1211,8 @@ function SectionTendance({ gsc, serie }: { gsc: Bloc<GscDonnees>; serie: Semaine
   );
 }
 
-/** Titre + fenêtre lisible, répétés à l'identique en tête des trois sections
- * de chiffres clés : la période se lit à côté des chiffres qu'elle date,
- * pas seulement tout en bas de page dans « À propos de ce relevé ». */
+/** Titre + fenêtre lisible, en tête de chaque bloc des annexes : la période
+ * se lit à côté des chiffres qu'elle date. */
 function TitreSection({ titre, fenetre }: { titre: string; fenetre: FenetreRapport | null }) {
   const fenetreTexte = formatFenetreLongue(fenetre);
   return (
@@ -1195,9 +1223,436 @@ function TitreSection({ titre, fenetre }: { titre: string; fenetre: FenetreRappo
   );
 }
 
+// --- En-tête : une ligne d'état par source ---------------------------------
+
+const ETATS_EN_DEFAUT: Record<Exclude<StatutBloc, 'ok'>, string> = {
+  error: 'en panne',
+  blocked: 'bloqué',
+  absent: 'aucun relevé',
+  'format-inconnu': 'format non reconnu',
+};
+
+/** « à jour », « en retard : dernier relevé il y a 3 j », « en panne »… La
+ * sonde réussie ne suffit pas à dire « à jour » : seule la fraîcheur le dit.
+ * Ambre uniquement pour une anomalie réelle (panne, retard, horloge). */
+export function etatSource(
+  status: StatutBloc,
+  freshness: Freshness | null,
+): { texte: string; anomalie: boolean } {
+  if (status !== 'ok') return { texte: ETATS_EN_DEFAUT[status], anomalie: true };
+  if (!freshness) return { texte: 'fraîcheur inconnue', anomalie: false };
+  if (freshness.level === 'fresh') return { texte: 'à jour', anomalie: false };
+  return { texte: freshness.label, anomalie: true };
+}
+
+function LigneEtatSource({
+  nom,
+  bloc,
+  freshness,
+  libelleDate,
+}: {
+  nom: string;
+  bloc: Bloc<unknown>;
+  freshness: Freshness | null;
+  libelleDate: string;
+}) {
+  const etat = etatSource(bloc.status, freshness);
+  // La date des DONNÉES, pas celle du relevé : un relevé de ce matin porte
+  // des chiffres Search Console arrêtés deux à trois jours plus tôt.
+  const fin = bloc.status === 'ok' ? (bloc.fenetre?.fin ?? null) : null;
+  return (
+    <li>
+      <span className="font-medium text-neutral-900">{nom}</span> :{' '}
+      <span className={etat.anomalie ? 'font-medium text-warning-fg' : 'text-neutral-700'}>
+        {etat.texte}
+      </span>
+      {bloc.status === 'ok' && (
+        <span className="text-neutral-600">
+          {fin ? `, ${libelleDate} ${formatDateSeule(fin)}` : ', date des données indisponible'}
+        </span>
+      )}
+    </li>
+  );
+}
+
+// --- En bref : le verdict ---------------------------------------------------
+
+function SectionEnBref({ rapport }: { rapport: RapportSeo }) {
+  const phrases = verdictRapport(rapport);
+  return (
+    <section className="mb-10" aria-labelledby="titre-en-bref">
+      <h2 id="titre-en-bref" className="mb-2 text-xl font-semibold text-neutral-900">
+        En bref
+      </h2>
+      <p data-testid="verdict" className="text-base text-neutral-900">
+        {phrases.length > 0 ? phrases.join(' ') : 'Aucun verdict possible sur ce relevé.'}
+      </p>
+    </section>
+  );
+}
+
+// --- L'essentiel : quatre chiffres, puis la tendance -----------------------
+
+/** Visites d'assistants, une seule fois : la somme de `visitesIa` (référent
+ * OU paramètre de campagne, déjà dédoublonnée par visite côté SQL). `null` si
+ * la liste manque ou si une ligne a un compte illisible (une somme partielle
+ * serait un chiffre faux) ; [] donne un vrai zéro constaté. */
+export function totalVisitesIa(visitesIa: VisiteIa[] | null): number | null {
+  if (visitesIa === null) return null;
+  if (visitesIa.some((v) => v.visites === null)) return null;
+  return visitesIa.reduce((s, v) => s + (v.visites as number), 0);
+}
+
+/** Les deux fenêtres coïncident quand elles couvrent le même jour calendaire
+ * de début et de fin (les fuseaux, eux, restent différents : Pacifique pour
+ * Search Console, UTC pour Umami). */
+function fenetresAlignees(a: FenetreRapport | null, b: FenetreRapport | null): boolean {
+  if (!a?.debut || !a?.fin || !b?.debut || !b?.fin) return false;
+  return a.debut.slice(0, 10) === b.debut.slice(0, 10) && a.fin.slice(0, 10) === b.fin.slice(0, 10);
+}
+
+function fenetreComplete(f: FenetreRapport | null): boolean {
+  return !!f?.debut && !!f?.fin;
+}
+
+/** Quatre chiffres de deux sources côte à côte : on dit tout de suite quand
+ * leurs fenêtres ne coïncident pas (ambre, role="alert", le texte porte
+ * l'interdiction), et l'on se tait quand elles coïncident (la réserve vit
+ * alors dans « Comment lire »). Une fenêtre manquante n'est pas une
+ * anomalie de plus : la bannière du bloc la signale déjà. */
+function AvertissementFenetres({
+  gsc,
+  umami,
+}: {
+  gsc: FenetreRapport | null;
+  umami: FenetreRapport | null;
+}) {
+  if (fenetresAlignees(gsc, umami)) return null;
+  if (fenetreComplete(gsc) && fenetreComplete(umami)) {
+    return (
+      <p
+        role="alert"
+        className="mb-4 rounded border border-warning-border bg-warning-bg px-4 py-3 text-sm text-warning-fg"
+      >
+        Cette fois, les fenêtres de Search Console et d&apos;Umami ne coïncident pas : ne rapprochez
+        pas leurs chiffres.
+      </p>
+    );
+  }
+  return (
+    <p className="mb-3 text-xs text-neutral-600">
+      Fenêtre de Search Console ou d&apos;Umami indisponible : ne rapprochez pas leurs chiffres.
+    </p>
+  );
+}
+
+function SectionEssentiel({
+  gsc,
+  umami,
+  serie,
+}: {
+  gsc: Bloc<GscDonnees>;
+  umami: Bloc<UmamiDonnees>;
+  serie: SemaineSerie[] | null;
+}) {
+  const g = gsc.status === 'ok' ? gsc.donnees : null;
+  const u = umami.status === 'ok' ? umami.donnees : null;
+  const ecart = g ? formatEcart(g.clicsBelgique, g.clicsBelgiquePrecedents) : null;
+  const inscriptions = u?.inscriptions ?? null;
+  const fenetreTexte = formatFenetreLongue(gsc.fenetre);
+  const fenetrePrecedenteTexte = formatFenetrePrecedente(gsc.fenetre);
+  return (
+    <section className="mb-10" aria-labelledby="titre-essentiel">
+      <h2 id="titre-essentiel" className="mb-1 text-xl font-semibold text-neutral-900">
+        L&apos;essentiel
+      </h2>
+      {fenetreTexte && <p className="mb-3 text-sm text-neutral-600">{fenetreTexte}</p>}
+      <AvertissementFenetres gsc={gsc.fenetre} umami={umami.fenetre} />
+      <dl data-testid="essentiel" className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <Stat
+          label="Clics depuis la Belgique"
+          value={formatNombre(g?.clicsBelgique ?? null)}
+          detail={ecart ? `${ecart} par rapport aux 28 jours précédents` : null}
+        />
+        <Stat label="Visites" value={formatNombre(u?.visites ?? null)} />
+        <Stat
+          label="Inscriptions envoyées"
+          value={formatNombre(inscriptions?.total ?? null)}
+          detail={
+            inscriptions
+              ? inscriptions.visites !== null
+                ? `dans ${formatNombre(inscriptions.visites)} ${inscriptions.visites > 1 ? 'visites' : 'visite'}, réinscriptions comprises`
+                : 'réinscriptions comprises'
+              : null
+          }
+        />
+        <Stat
+          label="Visites d'assistants"
+          value={formatNombre(totalVisitesIa(u?.visitesIa ?? null))}
+          detail="comptées une seule fois"
+        />
+      </dl>
+      <details className="mt-3 text-xs text-neutral-600">
+        <summary className="cursor-pointer text-sm text-neutral-700">
+          Comment lire ces chiffres
+        </summary>
+        <ul className="mt-2 space-y-1.5">
+          <li>
+            Clics depuis la Belgique : Search Console, clics venus de Belgique sur la période,
+            comparés aux 28 jours précédents
+            {fenetrePrecedenteTexte ? ` (${fenetrePrecedenteTexte})` : ''}.
+          </li>
+          <li>
+            Visites : Umami, toutes provenances, chaque visite comptée une fois quel que soit le
+            nombre de pages vues ; des robots non identifiés peuvent s&apos;y mêler.
+          </li>
+          <li>
+            Inscriptions envoyées : formulaires d&apos;abonnement acceptés par le serveur. Une
+            personne déjà abonnée qui se réinscrit est comptée aussi : ce n&apos;est pas le nombre
+            de nouveaux abonnés.
+          </li>
+          <li>
+            Visites d&apos;assistants : visites venues d&apos;un assistant (ChatGPT, Perplexity…),
+            repérées par l&apos;adresse d&apos;origine ou par le lien marqué de l&apos;assistant,
+            chaque visite comptée une seule fois.
+          </li>
+          {fenetresAlignees(gsc.fenetre, umami.fenetre) && (
+            <li data-testid="rapprochement">
+              Search Console et Umami couvrent les mêmes 28 jours : vous pouvez rapprocher leurs
+              chiffres. Search Console publie ses données avec environ trois jours de retard, sa
+              fenêtre s&apos;arrête donc trois jours avant aujourd&apos;hui. Les deux outils
+              découpent leurs journées dans des fuseaux différents, ce qui laisse quelques heures
+              d&apos;écart aux bords de la période.
+            </li>
+          )}
+        </ul>
+      </details>
+      <SectionTendance gsc={gsc} serie={serie} />
+    </section>
+  );
+}
+
+// --- Ce qui monte, ce qui baisse ---------------------------------------------
+
+function ecartBrut(p: PageGsc): number | null {
+  return p.clics !== null && p.clicsPrecedents !== null ? p.clics - p.clicsPrecedents : null;
+}
+
+/** Les pages qui bougent le plus d'abord (écart absolu décroissant) ; une
+ * page sans comparaison possible passe en dernier, jamais comptée à zéro. */
+export function trierParEcart(pages: PageGsc[]): PageGsc[] {
+  return [...pages].sort((a, b) => {
+    const da = ecartBrut(a);
+    const db = ecartBrut(b);
+    if (da === null && db === null) return 0;
+    if (da === null) return 1;
+    if (db === null) return -1;
+    return Math.abs(db) - Math.abs(da);
+  });
+}
+
+function SectionMouvements({ gsc }: { gsc: Bloc<GscDonnees> }) {
+  const donnees = gsc.status === 'ok' ? gsc.donnees : null;
+  const couverture = couvertureDe(donnees);
+  return (
+    <section className="mb-10" aria-labelledby="titre-mouvements">
+      <h2 id="titre-mouvements" className="mb-3 text-xl font-semibold text-neutral-900">
+        Ce qui monte, ce qui baisse
+      </h2>
+      {!donnees ? (
+        <p className="text-sm text-neutral-600">
+          indisponible : le bloc Search Console n&apos;est pas à jour.
+        </p>
+      ) : (
+        <>
+          <h3 className="mb-1 text-lg font-semibold text-neutral-900">
+            Pages les plus cliquées depuis la Belgique
+          </h3>
+          {couverture && <NoteCouverture couverture={couverture} />}
+          {donnees.pages.length === 0 ? (
+            <p className="text-sm text-neutral-600">Aucune page transmise sur la période.</p>
+          ) : (
+            <TableauEnveloppe legende="Pages les plus cliquées depuis la Belgique, avec l'écart aux 28 jours précédents">
+              <thead>
+                <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+                  <th scope="col" className="px-3 py-2">
+                    Chemin
+                  </th>
+                  <th scope="col" className="px-3 py-2 text-right">
+                    Clics
+                  </th>
+                  <th scope="col" className="px-3 py-2 text-right">
+                    28 jours précédents
+                  </th>
+                  <th scope="col" className="px-3 py-2 text-right">
+                    Écart
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {trierParEcart(donnees.pages)
+                  .slice(0, 10)
+                  .map((p) => (
+                    <tr key={p.url} className="border-t border-neutral-100">
+                      <td className="px-3 py-2 break-words text-neutral-800">{chemin(p.url)}</td>
+                      <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                        {formatNombre(p.clics)}
+                      </td>
+                      <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                        {formatNombre(p.clicsPrecedents)}
+                      </td>
+                      <td className="px-3 py-2 text-right tabular-nums whitespace-nowrap text-neutral-700">
+                        {formatEcart(p.clics, p.clicsPrecedents) ?? 'indisponible'}
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </TableauEnveloppe>
+          )}
+
+          <h3 className="mt-6 mb-1 text-lg font-semibold text-neutral-900">
+            Requêtes émergentes{' '}
+            {donnees.requetesBelgique ? 'depuis la Belgique' : '(le monde entier)'}
+          </h3>
+          <p className="mb-2 text-xs text-neutral-600">
+            Le site apparaît sur ces requêtes, en impressions en hausse, sans qu&apos;aucun clic ne
+            soit garanti : il peut être classé au-delà de la première page de résultats, vu mais pas
+            encore lu.
+          </p>
+          {donnees.requetesEmergentes.length === 0 ? (
+            <p className="text-sm text-neutral-600">Aucune requête émergente sur la période.</p>
+          ) : (
+            <ul className="space-y-1.5">
+              {donnees.requetesEmergentes.slice(0, 5).map((r) => (
+                <li
+                  key={r.requete}
+                  className="rounded border border-neutral-200 bg-neutral-50 p-3 text-sm"
+                >
+                  <p className="break-words font-medium text-neutral-800">{r.requete}</p>
+                  <p className="mt-1 text-xs text-neutral-600">
+                    Impressions : {formatNombre(r.impressions)}
+                    {r.impressionsPrecedentes !== null
+                      ? ` (contre ${formatNombre(r.impressionsPrecedentes)} avant)`
+                      : ''}
+                    {' · '}Position : {formatDecimal(r.position)}
+                  </p>
+                  <p className="mt-1 text-xs">
+                    {r.page ? (
+                      <>
+                        <span className="text-neutral-600">Page montrée : </span>
+                        <a
+                          href={r.page}
+                          className="break-words text-brand-700 underline-offset-4 hover:underline"
+                        >
+                          {chemin(r.page)}
+                        </a>
+                      </>
+                    ) : (
+                      <span className="text-neutral-600">Page montrée : indisponible</span>
+                    )}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
+      )}
+    </section>
+  );
+}
+
+// --- Santé technique --------------------------------------------------------
+
+function TablePagesCassees({ pages }: { pages: PageCrawl[] }) {
+  // pagesCassees() exclut les pages au statut inconnu (null) : une page
+  // jamais contrôlée n'est pas prouvée cassée, elle est comptée à part
+  // (« Pages au statut inconnu »).
+  const cassees = pagesCassees(pages);
+  const TRONCATURE = 20;
+  if (cassees.length === 0) return null;
+  return (
+    <div className="mt-4">
+      <h3 className="mb-1 text-sm font-semibold text-neutral-900">Pages sans statut 200</h3>
+      {cassees.length > TRONCATURE && (
+        <p className="mb-1 text-xs text-neutral-600">
+          {TRONCATURE} premières sur {cassees.length}.
+        </p>
+      )}
+      <TableauEnveloppe legende="Pages qui ne répondent pas en statut 200">
+        <thead>
+          <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+            <th scope="col" className="px-3 py-2">
+              Chemin
+            </th>
+            <th scope="col" className="px-3 py-2 text-right">
+              Statut
+            </th>
+            <th scope="col" className="px-3 py-2">
+              Canonical
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {cassees.slice(0, TRONCATURE).map((p) => (
+            <tr key={p.url} className="border-t border-neutral-100">
+              <td className="px-3 py-2 break-words text-neutral-800">{chemin(p.url)}</td>
+              <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                {formatNombre(p.statut)}
+              </td>
+              <td className="px-3 py-2 break-words text-neutral-700">
+                {p.canonical ? chemin(p.canonical) : 'indisponible'}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </TableauEnveloppe>
+    </div>
+  );
+}
+
+function SectionSante({ crawl }: { crawl: Bloc<CrawlDonnees> }) {
+  const donnees = crawl.status === 'ok' ? crawl.donnees : null;
+  const pagesPassees = donnees ? valeurPagesPassees(donnees.pages) : null;
+  const synthese = donnees ? syntheseAnomaliesCrawl(donnees) : null;
+  const fenetreTexte = formatFenetreLongue(crawl.fenetre);
+  return (
+    <section className="mb-10" aria-labelledby="titre-sante">
+      <h2 id="titre-sante" className="mb-1 text-xl font-semibold text-neutral-900">
+        Santé technique
+      </h2>
+      {fenetreTexte && <p className="mb-3 text-sm text-neutral-600">{fenetreTexte}</p>}
+      {!donnees && (
+        <p className="text-sm text-neutral-600">
+          indisponible : le passage technique n&apos;est pas à jour.
+        </p>
+      )}
+      {synthese?.aucuneAnomalie && <p className="text-sm text-neutral-700">{synthese.phrase}</p>}
+      {donnees && pagesPassees && !synthese?.aucuneAnomalie && (
+        <dl className="grid grid-cols-2 gap-3 lg:grid-cols-3">
+          <Stat label="Pages passées" value={pagesPassees.texte} alarme={pagesPassees.alarme} />
+          {synthese?.items.map((item) => (
+            <Stat key={item.label} label={item.label} value={item.valeur} alarme={item.alarme} />
+          ))}
+        </dl>
+      )}
+      {donnees?.pages && <TablePagesCassees pages={donnees.pages} />}
+    </section>
+  );
+}
+
+// --- Annexes ------------------------------------------------------------
+
+function Annexe({ titre, children }: { titre: string; children: React.ReactNode }) {
+  return (
+    <details className="mb-3 rounded border border-neutral-200 bg-neutral-50 p-3">
+      <summary className="cursor-pointer text-sm font-semibold text-neutral-900">{titre}</summary>
+      <div className="mt-3">{children}</div>
+    </details>
+  );
+}
+
 function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: Freshness | null }) {
   const donnees = bloc.donnees;
-  const fenetrePrecedenteTexte = formatFenetrePrecedente(bloc.fenetre);
   const totauxAffiches = donnees?.totauxBelgique ??
     donnees?.totaux ?? {
       clics: null,
@@ -1209,20 +1664,10 @@ function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: F
   return (
     <div className="mb-8">
       <TitreSection titre="Search Console" fenetre={bloc.fenetre} />
-      <EtatBloc nom={NOMS_BLOCS.gsc} bloc={bloc} />
       <MetaBloc bloc={bloc} freshness={freshness} avecFinDonnees />
       {donnees && (
         <>
-          <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <Stat
-              label="Clics depuis la Belgique"
-              value={formatNombre(donnees.clicsBelgique)}
-              detail={
-                formatEcart(donnees.clicsBelgique, donnees.clicsBelgiquePrecedents)
-                  ? `${formatEcart(donnees.clicsBelgique, donnees.clicsBelgiquePrecedents)} par rapport aux 28 jours précédents`
-                  : null
-              }
-            />
+          <dl className="grid grid-cols-2 gap-3 lg:grid-cols-3">
             <Stat
               label="Clics Belgique, 28 jours précédents"
               value={formatNombre(donnees.clicsBelgiquePrecedents)}
@@ -1249,13 +1694,8 @@ function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: F
           </dl>
           <ul className="mt-3 space-y-1.5 text-xs text-neutral-600">
             <li>
-              Clics depuis la Belgique : les clics venus de Belgique sur cette période. Les clics
-              totaux comptent le monde entier ; l&apos;écart entre les deux est surtout du bruit
-              international, sans lecteur réel derrière.
-            </li>
-            <li>
-              Clics Belgique, 28 jours précédents : la période de comparaison
-              {fenetrePrecedenteTexte ? ` (${fenetrePrecedenteTexte})` : ''}.
+              Clics totaux : le monde entier ; l&apos;écart avec les clics depuis la Belgique est
+              surtout du bruit international, sans lecteur réel derrière.
             </li>
             <li>
               Position moyenne dans Google : le rang moyen des pages du site quand elles
@@ -1284,27 +1724,15 @@ function ChiffresUmami({
   return (
     <div className="mb-8">
       <TitreSection titre="Umami" fenetre={bloc.fenetre} />
-      <EtatBloc nom={NOMS_BLOCS.umami} bloc={bloc} />
       <MetaBloc bloc={bloc} freshness={freshness} avecFinDonnees />
       {donnees && (
         <>
-          <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <Stat label="Visites" value={formatNombre(donnees.visites)} />
+          <dl className="grid grid-cols-2 gap-3 lg:grid-cols-3">
             <Stat
               label="Visites ayant vu au moins deux pages"
               value={formatPourcentFraction(donnees.profondeur)}
             />
-            {donnees.inscriptions !== null ? (
-              <Stat
-                label="Inscriptions envoyées"
-                value={formatNombre(donnees.inscriptions.total)}
-                detail={
-                  donnees.inscriptions.visites !== null
-                    ? `dans ${formatNombre(donnees.inscriptions.visites)} ${donnees.inscriptions.visites > 1 ? 'visites' : 'visite'}`
-                    : null
-                }
-              />
-            ) : (
+            {donnees.inscriptions === null && (
               <Stat label="Événements (tous types)" value={formatNombre(donnees.evenements)} />
             )}
           </dl>
@@ -1313,13 +1741,6 @@ function ChiffresUmami({
               Visites ayant vu au moins deux pages : un lecteur arrivé sur le site puis reparti
               aussitôt n&apos;y est pas compté.
             </li>
-            {donnees.inscriptions !== null && (
-              <li>
-                Inscriptions envoyées : formulaires d&apos;abonnement acceptés par le serveur. Une
-                personne déjà abonnée qui se réinscrit est comptée aussi : ce n&apos;est pas le
-                nombre de nouveaux abonnés.
-              </li>
-            )}
           </ul>
         </>
       )}
@@ -1334,426 +1755,167 @@ function ChiffresCrawl({
   bloc: Bloc<CrawlDonnees>;
   freshness: Freshness | null;
 }) {
-  const donnees = bloc.donnees;
-  const pagesPassees = donnees ? valeurPagesPassees(donnees.pages) : null;
-  const synthese = donnees ? syntheseAnomaliesCrawl(donnees) : null;
   return (
-    <div className="mb-8">
+    <div className="mb-2">
       <TitreSection titre="Passage technique" fenetre={bloc.fenetre} />
-      <EtatBloc nom={NOMS_BLOCS.crawl} bloc={bloc} />
       <MetaBloc bloc={bloc} freshness={freshness} />
-      {donnees && pagesPassees && (
-        <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <Stat label="Pages passées" value={pagesPassees.texte} alarme={pagesPassees.alarme} />
-        </dl>
-      )}
-      {synthese &&
-        (synthese.aucuneAnomalie ? (
-          <p className="mt-3 text-sm text-neutral-700">{synthese.phrase}</p>
-        ) : (
-          synthese.items.length > 0 && (
-            <dl className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {synthese.items.map((item) => (
-                <Stat
-                  key={item.label}
-                  label={item.label}
-                  value={item.valeur}
-                  alarme={item.alarme}
-                />
-              ))}
-            </dl>
-          )
-        ))}
     </div>
   );
 }
 
-function TablesGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
-  const donnees = bloc.donnees;
-  if (!donnees) return null;
+function AnnexeRequetes({ bloc }: { bloc: Bloc<GscDonnees> }) {
+  const donnees = bloc.status === 'ok' ? bloc.donnees : null;
+  if (!donnees) return <p className="text-sm text-neutral-600">indisponible.</p>;
+  if (donnees.requetes.length === 0)
+    return <p className="text-sm text-neutral-600">Aucune requête transmise.</p>;
   return (
-    <div className="mb-8">
-      <h3 className="mb-1 text-lg font-semibold text-neutral-900">Search Console</h3>
-      {donnees.requetes.length > 0 && (
-        <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">
-            Requêtes les plus cliquées{' '}
-            {donnees.requetesBelgique ? 'depuis la Belgique' : '(le monde entier)'}
-          </h4>
-          <p className="mb-1 text-xs text-neutral-500">
-            Liste couvrant environ {formatPourcentFraction(donnees.partRequetes)} des clics
-            seulement : Search Console anonymise les requêtes rares, cette liste n&apos;est donc pas
-            exhaustive.
-          </p>
-          <TableauEnveloppe legende="Requêtes les plus cliquées, Search Console">
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
-                <th scope="col" className="px-3 py-2">
-                  Requête
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Clics
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Impressions
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Position
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {donnees.requetes.slice(0, 10).map((r) => (
-                <tr key={r.requete} className="border-t border-neutral-100">
-                  <td className="px-3 py-2 text-neutral-800">{r.requete}</td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(r.clics)}
-                  </td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(r.impressions)}
-                  </td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatDecimal(r.position)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </TableauEnveloppe>
-        </div>
-      )}
-
-      {donnees.pages.length > 0 && (
-        <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">Pages les plus cliquées</h4>
-          {couvertureDe(donnees) && <NoteCouverture couverture={couvertureDe(donnees)!} />}
-          <TableauEnveloppe legende="Pages les plus cliquées depuis la Belgique, avec les clics des 28 jours précédents">
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
-                <th scope="col" className="px-3 py-2">
-                  Chemin
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Clics
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  28 jours précédents
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {donnees.pages.slice(0, 10).map((p) => (
-                <tr key={p.url} className="border-t border-neutral-100">
-                  <td className="px-3 py-2 break-words text-neutral-800">{chemin(p.url)}</td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(p.clics)}
-                  </td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(p.clicsPrecedents)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </TableauEnveloppe>
-        </div>
-      )}
-
-      {donnees.requetesEmergentes.length > 0 && (
-        <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">
-            Requêtes émergentes{' '}
-            {donnees.requetesBelgique ? 'depuis la Belgique' : '(le monde entier)'}
-          </h4>
-          <p className="mb-2 text-xs text-neutral-500">
-            Le site apparaît sur ces requêtes, en impressions en hausse, sans qu&apos;aucun clic ne
-            soit garanti : il peut être classé au-delà de la première page de résultats, vu mais pas
-            encore lu.
-          </p>
-          <ul className="space-y-1.5">
-            {donnees.requetesEmergentes.slice(0, 5).map((r) => (
-              <li
-                key={r.requete}
-                className="rounded border border-neutral-200 bg-neutral-50 p-3 text-sm"
-              >
-                <p className="break-words font-medium text-neutral-800">{r.requete}</p>
-                <p className="mt-1 text-xs text-neutral-600">
-                  Impressions : {formatNombre(r.impressions)}
-                  {r.impressionsPrecedentes !== null
-                    ? ` (contre ${formatNombre(r.impressionsPrecedentes)} avant)`
-                    : ''}
-                  {' · '}Position : {formatDecimal(r.position)}
-                </p>
-                <p className="mt-1 text-xs">
-                  {r.page ? (
-                    <>
-                      <span className="text-neutral-600">Page montrée : </span>
-                      <a
-                        href={r.page}
-                        className="break-words text-brand-700 underline-offset-4 hover:underline"
-                      >
-                        {chemin(r.page)}
-                      </a>
-                    </>
-                  ) : (
-                    <span className="text-neutral-500">Page montrée : indisponible</span>
-                  )}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function TablesUmami({ bloc }: { bloc: Bloc<UmamiDonnees> }) {
-  const donnees = bloc.donnees;
-  const visitesIa = donnees?.visitesIa ?? [];
-  if (!donnees) return null;
-  return (
-    <div className="mb-8">
-      <h3 className="mb-1 text-lg font-semibold text-neutral-900">Umami</h3>
-      {donnees.visitesIa !== null && donnees.visitesIa.length === 0 && (
-        <p className="mt-2 text-sm text-neutral-600">
-          Aucune visite d&apos;assistant sur la période.
-        </p>
-      )}
-      {visitesIa.length > 0 && (
-        <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">
-            Visites d&apos;assistants, par source
-          </h4>
-          <TableauEnveloppe legende="Visites venues d'assistants, par source">
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
-                <th scope="col" className="px-3 py-2">
-                  Source
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Visites
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {visitesIa.map((v) => (
-                <tr key={v.source} className="border-t border-neutral-100">
-                  <td className="px-3 py-2 text-neutral-800">{v.source}</td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(v.visites)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </TableauEnveloppe>
-        </div>
-      )}
-
-      {donnees.evenementsParNom !== null && donnees.evenementsParNom.length > 0 && (
-        <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">Événements, par nom</h4>
-          <TableauEnveloppe legende="Événements Umami par nom, avec le nombre de visites concernées">
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
-                <th scope="col" className="px-3 py-2">
-                  Événement
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Total
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Visites
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {donnees.evenementsParNom.slice(0, 15).map((e) => (
-                <tr key={e.nom} className="border-t border-neutral-100">
-                  <td className="px-3 py-2 break-words text-neutral-800">{e.nom}</td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(e.total)}
-                  </td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(e.visites)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </TableauEnveloppe>
-        </div>
-      )}
-
-      {donnees.inscriptions !== null && donnees.inscriptions.parPageEntree.length > 0 && (
-        <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">
-            Où sont arrivées les visites qui se sont inscrites
-          </h4>
-          <TableauEnveloppe legende="Pages d'entrée des visites ayant envoyé une inscription">
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
-                <th scope="col" className="px-3 py-2">
-                  Page d&apos;entrée
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Visites
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {donnees.inscriptions.parPageEntree.slice(0, 10).map((p) => (
-                <tr key={p.chemin} className="border-t border-neutral-100">
-                  <td className="px-3 py-2 break-words text-neutral-800">{p.chemin}</td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(p.visites)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </TableauEnveloppe>
-        </div>
-      )}
-
-      {donnees.pagesEntree.length > 0 && (
-        <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">
-            Pages d&apos;entrée les plus visitées
-          </h4>
-          <TableauEnveloppe legende="Pages d'entrée les plus visitées, dont les visites venues d'assistants">
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
-                <th scope="col" className="px-3 py-2">
-                  Chemin
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Visites
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Dont assistants
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {donnees.pagesEntree.slice(0, 10).map((p) => (
-                <tr key={p.chemin} className="border-t border-neutral-100">
-                  <td className="px-3 py-2 break-words text-neutral-800">{p.chemin}</td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(p.visites)}
-                  </td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(p.visitesIa)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </TableauEnveloppe>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function TablesCrawl({ bloc }: { bloc: Bloc<CrawlDonnees> }) {
-  const donnees = bloc.donnees;
-  const pages = donnees?.pages ?? [];
-  if (!donnees) return null;
-  // pagesCassees() exclut les pages au statut inconnu (null) : une page
-  // jamais contrôlée n'est pas prouvée cassée, elle est comptée à part
-  // (Stat « Pages au statut inconnu » dans Chiffres clés).
-  const cassees = pagesCassees(pages);
-  const TRONCATURE = 20;
-  // Rien à détailler (la synthèse des Chiffres clés le dit déjà) : pas de
-  // titre suivi d'une section vide.
-  if (cassees.length === 0) return null;
-  return (
-    <div className="mb-8">
-      <h3 className="mb-1 text-lg font-semibold text-neutral-900">Passage technique</h3>
-      {cassees.length > 0 && (
-        <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">Pages sans statut 200</h4>
-          {cassees.length > TRONCATURE && (
-            <p className="mb-1 text-xs text-neutral-500">
-              {TRONCATURE} premières sur {cassees.length}.
-            </p>
-          )}
-          <TableauEnveloppe legende="Pages qui ne répondent pas en statut 200">
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
-                <th scope="col" className="px-3 py-2">
-                  Chemin
-                </th>
-                <th scope="col" className="px-3 py-2 text-right">
-                  Statut
-                </th>
-                <th scope="col" className="px-3 py-2">
-                  Canonical
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {cassees.slice(0, TRONCATURE).map((p) => (
-                <tr key={p.url} className="border-t border-neutral-100">
-                  <td className="px-3 py-2 break-words text-neutral-800">{chemin(p.url)}</td>
-                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
-                    {formatNombre(p.statut)}
-                  </td>
-                  <td className="px-3 py-2 break-words text-neutral-700">
-                    {p.canonical ? chemin(p.canonical) : 'indisponible'}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </TableauEnveloppe>
-        </div>
-      )}
-    </div>
-  );
-}
-
-/** Les deux fenêtres coïncident quand elles couvrent le même jour calendaire
- * de début et de fin (les fuseaux, eux, restent différents : Pacifique pour
- * Search Console, UTC pour Umami). Sert à décider si le rapprochement des
- * deux blocs reste valable cette semaine. */
-function fenetresAlignees(a: FenetreRapport | null, b: FenetreRapport | null): boolean {
-  if (!a?.debut || !a?.fin || !b?.debut || !b?.fin) return false;
-  return a.debut.slice(0, 10) === b.debut.slice(0, 10) && a.fin.slice(0, 10) === b.fin.slice(0, 10);
-}
-
-/**
- * Un lecteur pressé, le lundi matin, doit savoir d'un coup d'œil s'il peut
- * rapprocher les chiffres Search Console et Umami : cette phrase vit donc en
- * tête de « Chiffres clés », avant le premier chiffre, pas en bas de page
- * dans « À propos de ce relevé ». Quand les fenêtres coïncident, une seule
- * phrase l'autorise, suivie des deux réserves qui restent vraies même dans
- * ce cas (retard de Search Console, décalage de fuseau) ; quand elles ne
- * coïncident pas (collecte partielle, panne d'un bloc), l'avertissement
- * ambre le dit aussi nettement, jamais à la seule couleur : le texte porte
- * l'interdiction, la couleur ne fait que la souligner.
- */
-function SyntheseFenetresComparaison({
-  gsc,
-  umami,
-}: {
-  gsc: FenetreRapport | null;
-  umami: FenetreRapport | null;
-}) {
-  if (fenetresAlignees(gsc, umami)) {
-    return (
-      <p className="mb-4 text-sm text-neutral-700">
-        Search Console et Umami couvrent les mêmes 28 jours : vous pouvez rapprocher leurs chiffres.
-        Search Console publie ses données avec environ trois jours de retard, sa fenêtre
-        s&apos;arrête donc trois jours avant aujourd&apos;hui. Les deux outils découpent leurs
-        journées dans des fuseaux différents, ce qui laisse quelques heures d&apos;écart aux bords
-        de la période.
+    <>
+      <p className="mb-1 text-xs text-neutral-600">
+        {donnees.requetesBelgique ? 'Depuis la Belgique' : 'Le monde entier'}. Liste couvrant
+        environ {formatPourcentFraction(donnees.partRequetes)} des clics seulement : Search Console
+        anonymise les requêtes rares, cette liste n&apos;est donc pas exhaustive.
       </p>
-    );
-  }
+      <TableauEnveloppe
+        legende={`Requêtes les plus cliquées ${donnees.requetesBelgique ? 'depuis la Belgique' : '(le monde entier)'}, Search Console`}
+      >
+        <thead>
+          <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+            <th scope="col" className="px-3 py-2">
+              Requête
+            </th>
+            <th scope="col" className="px-3 py-2 text-right">
+              Clics
+            </th>
+            <th scope="col" className="px-3 py-2 text-right">
+              Impressions
+            </th>
+            <th scope="col" className="px-3 py-2 text-right">
+              Position
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {donnees.requetes.slice(0, 10).map((r) => (
+            <tr key={r.requete} className="border-t border-neutral-100">
+              <td className="px-3 py-2 text-neutral-800">{r.requete}</td>
+              <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                {formatNombre(r.clics)}
+              </td>
+              <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                {formatNombre(r.impressions)}
+              </td>
+              <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                {formatDecimal(r.position)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </TableauEnveloppe>
+    </>
+  );
+}
+
+function AnnexePagesEntree({ donnees }: { donnees: UmamiDonnees | null }) {
+  if (!donnees) return <p className="text-sm text-neutral-600">indisponible.</p>;
+  if (donnees.pagesEntree.length === 0)
+    return <p className="text-sm text-neutral-600">Aucune page d&apos;entrée transmise.</p>;
   return (
-    <p
-      role="alert"
-      className="mb-4 rounded border border-warning-border bg-warning-bg px-4 py-3 text-sm text-warning-fg"
-    >
-      Cette fois, les fenêtres de Search Console et d&apos;Umami ne coïncident pas : ne rapprochez
-      pas leurs chiffres.
-    </p>
+    <TableauEnveloppe legende="Pages d'entrée les plus visitées, dont les visites venues d'assistants">
+      <thead>
+        <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+          <th scope="col" className="px-3 py-2">
+            Chemin
+          </th>
+          <th scope="col" className="px-3 py-2 text-right">
+            Visites
+          </th>
+          <th scope="col" className="px-3 py-2 text-right">
+            Dont assistants
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {donnees.pagesEntree.slice(0, 10).map((p) => (
+          <tr key={p.chemin} className="border-t border-neutral-100">
+            <td className="px-3 py-2 break-words text-neutral-800">{p.chemin}</td>
+            <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+              {formatNombre(p.visites)}
+            </td>
+            <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+              {formatNombre(p.visitesIa)}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </TableauEnveloppe>
+  );
+}
+
+function AnnexeEvenements({ donnees }: { donnees: UmamiDonnees | null }) {
+  if (!donnees || donnees.evenementsParNom === null)
+    return <p className="text-sm text-neutral-600">indisponible dans ce relevé.</p>;
+  if (donnees.evenementsParNom.length === 0)
+    return <p className="text-sm text-neutral-600">Aucun événement sur la période.</p>;
+  return (
+    <TableauEnveloppe legende="Événements Umami par nom, avec le nombre de visites concernées">
+      <thead>
+        <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+          <th scope="col" className="px-3 py-2">
+            Événement
+          </th>
+          <th scope="col" className="px-3 py-2 text-right">
+            Total
+          </th>
+          <th scope="col" className="px-3 py-2 text-right">
+            Visites
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {donnees.evenementsParNom.slice(0, 15).map((e) => (
+          <tr key={e.nom} className="border-t border-neutral-100">
+            <td className="px-3 py-2 break-words text-neutral-800">{e.nom}</td>
+            <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+              {formatNombre(e.total)}
+            </td>
+            <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+              {formatNombre(e.visites)}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </TableauEnveloppe>
+  );
+}
+
+function AnnexeInscrits({ donnees }: { donnees: UmamiDonnees | null }) {
+  if (!donnees || donnees.inscriptions === null)
+    return <p className="text-sm text-neutral-600">indisponible dans ce relevé.</p>;
+  if (donnees.inscriptions.parPageEntree.length === 0)
+    return <p className="text-sm text-neutral-600">Aucune inscription sur la période.</p>;
+  return (
+    <TableauEnveloppe legende="Pages d'entrée des visites ayant envoyé une inscription">
+      <thead>
+        <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+          <th scope="col" className="px-3 py-2">
+            Page d&apos;entrée
+          </th>
+          <th scope="col" className="px-3 py-2 text-right">
+            Visites
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {donnees.inscriptions.parPageEntree.slice(0, 10).map((p) => (
+          <tr key={p.chemin} className="border-t border-neutral-100">
+            <td className="px-3 py-2 break-words text-neutral-800">{p.chemin}</td>
+            <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+              {formatNombre(p.visites)}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </TableauEnveloppe>
   );
 }
 
@@ -1766,7 +1928,6 @@ function SectionEmpreinte({ blocs }: { blocs: { nom: string; sha: string | null 
   const distinctes = new Set(connues.map((b) => b.sha));
   return (
     <>
-      <h3 className="mb-1 text-sm font-semibold text-neutral-900">Empreinte de la collecte</h3>
       <p className="mb-3 text-sm text-neutral-600">
         La CI ne déploie pas <code className="text-xs">deploy/</code> de bgm-ops : la machine peut
         exécuter une autre version que le dépôt. Une seule empreinte couvre toute la collecte ; elle
@@ -1802,22 +1963,14 @@ function SectionEmpreinte({ blocs }: { blocs: { nom: string; sha: string | null 
   );
 }
 
-/** Fenêtres et empreintes de script : utiles pour vérifier le relevé, pas
- * pour décider quoi faire cette semaine — donc en dernier, jamais avant les
- * actions ou les chiffres. */
-function SectionAPropos({ rapport }: { rapport: RapportSeo }) {
+function FenetresAnalyse({ rapport }: { rapport: RapportSeo }) {
   const { gsc, umami, crawl } = rapport.blocs;
   return (
-    <section className="mb-10">
-      <h2 className="mb-3 text-xl font-semibold text-neutral-900">À propos de ce relevé</h2>
-
-      <h3 className="mb-1 text-sm font-semibold text-neutral-900">Fenêtres d&apos;analyse</h3>
+    <>
       <p className="mb-3 text-sm text-neutral-600">
-        Chaque bloc analyse sa propre période, listée ci-dessous pour vérifier le relevé. Le
-        rapprochement entre Search Console et Umami est expliqué en tête de la section Chiffres
-        clés, juste au-dessus des chiffres.
+        Chaque bloc analyse sa propre période, listée ici pour vérifier le relevé.
       </p>
-      <dl className="mb-6 grid gap-3 sm:grid-cols-3">
+      <dl className="grid gap-3 sm:grid-cols-3">
         <div className="rounded border border-neutral-200 bg-neutral-50 p-3">
           <dt className="text-xs uppercase tracking-wide text-neutral-500">{NOMS_BLOCS.gsc}</dt>
           <dd className="mt-1 text-sm font-medium text-neutral-900">
@@ -1837,14 +1990,49 @@ function SectionAPropos({ rapport }: { rapport: RapportSeo }) {
           </dd>
         </div>
       </dl>
+    </>
+  );
+}
 
-      <SectionEmpreinte
-        blocs={[
-          { nom: NOMS_BLOCS.gsc, sha: gsc.scriptSha256 },
-          { nom: NOMS_BLOCS.umami, sha: umami.scriptSha256 },
-          { nom: NOMS_BLOCS.crawl, sha: crawl.scriptSha256 },
-        ]}
-      />
+/** Ce qui sert à vérifier le relevé, pas à décider : en dernier, chaque
+ * annexe repliée dans un <details>. */
+function SectionAnnexes({ rapport }: { rapport: RapportSeo }) {
+  const { gsc, umami, crawl } = rapport.blocs;
+  const u = umami.status === 'ok' ? umami.donnees : null;
+  return (
+    <section className="mb-10" aria-labelledby="titre-annexes">
+      <h2 id="titre-annexes" className="mb-3 text-xl font-semibold text-neutral-900">
+        Annexes
+      </h2>
+      <Annexe titre="Chiffres détaillés par source">
+        <ChiffresGsc bloc={gsc} freshness={rapport.fraicheur.gsc} />
+        <ChiffresUmami bloc={umami} freshness={rapport.fraicheur.umami} />
+        <ChiffresCrawl bloc={crawl} freshness={rapport.fraicheur.crawl} />
+      </Annexe>
+      <Annexe titre="Requêtes les plus cliquées">
+        <AnnexeRequetes bloc={gsc} />
+      </Annexe>
+      <Annexe titre="Pages d'entrée">
+        <AnnexePagesEntree donnees={u} />
+      </Annexe>
+      <Annexe titre="Événements par nom">
+        <AnnexeEvenements donnees={u} />
+      </Annexe>
+      <Annexe titre="Pages d'entrée des inscrits">
+        <AnnexeInscrits donnees={u} />
+      </Annexe>
+      <Annexe titre="Fenêtres d'analyse">
+        <FenetresAnalyse rapport={rapport} />
+      </Annexe>
+      <Annexe titre="Empreinte de la collecte">
+        <SectionEmpreinte
+          blocs={[
+            { nom: NOMS_BLOCS.gsc, sha: gsc.scriptSha256 },
+            { nom: NOMS_BLOCS.umami, sha: umami.scriptSha256 },
+            { nom: NOMS_BLOCS.crawl, sha: crawl.scriptSha256 },
+          ]}
+        />
+      </Annexe>
     </section>
   );
 }
@@ -1860,69 +2048,53 @@ export default async function AdminRapportPage({
   const rapport: RapportSeo = await readSeoReport();
   const { gsc, umami, crawl } = rapport.blocs;
 
-  // Un seul verdict, sous le h1, avant le premier chiffre : sur téléphone,
-  // un retard annoncé seulement en pied de page, après trois sections et
-  // quatre tableaux, n'est vu par personne. Nomme le bloc fautif : sans
-  // cela, une horloge incohérente se confond avec le bloc suivant.
-  const fraicheurGlobale = pireFraicheurNommee([
-    { nom: NOMS_BLOCS.gsc, freshness: rapport.fraicheur.gsc },
-    { nom: NOMS_BLOCS.umami, freshness: rapport.fraicheur.umami },
-    { nom: NOMS_BLOCS.crawl, freshness: rapport.fraicheur.crawl },
-  ]);
-
   return (
     // Pas de <main> ici : la page est déjà dans le <main id="main-content">
     // du layout de locale, et deux repères principaux imbriqués trompent les
     // lecteurs d'écran.
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <header className="mb-4">
+      <header className="mb-6">
         <p className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">Admin</p>
         <h1 className="mt-2 text-3xl font-bold text-neutral-900">Audience et santé du site</h1>
         <p className="mt-2 max-w-2xl text-sm text-neutral-600">
-          Trois relevés indépendants (Search Console, Umami, passage technique), déposés chaque
-          matin par un travail planifié sur le VPS. Search Console et Umami couvrent les 28 derniers
-          jours de données disponibles. Une panne sur l&apos;un n&apos;empêche jamais
-          l&apos;affichage des autres.
+          Trois relevés indépendants, déposés chaque matin par un travail planifié sur le VPS. Une
+          panne sur l&apos;un n&apos;empêche jamais l&apos;affichage des autres.
         </p>
+        <ul aria-label="État des sources" className="mt-3 space-y-0.5 text-sm">
+          <LigneEtatSource
+            nom={NOMS_BLOCS.gsc}
+            bloc={gsc}
+            freshness={rapport.fraicheur.gsc}
+            libelleDate="données jusqu'au"
+          />
+          <LigneEtatSource
+            nom={NOMS_BLOCS.umami}
+            bloc={umami}
+            freshness={rapport.fraicheur.umami}
+            libelleDate="données jusqu'au"
+          />
+          <LigneEtatSource
+            nom="Passage technique"
+            bloc={crawl}
+            freshness={rapport.fraicheur.crawl}
+            libelleDate="contrôle du"
+          />
+        </ul>
       </header>
 
-      {fraicheurGlobale ? (
-        <p className={`${freshnessClassName(fraicheurGlobale.freshness.level)} mt-0 mb-8`}>
-          {fraicheurGlobale.nom} : {fraicheurGlobale.freshness.label}
-        </p>
-      ) : (
-        <p className="mb-8 text-xs text-neutral-500">
-          Fraîcheur indisponible pour les trois blocs.
-        </p>
-      )}
+      <EtatBloc nom={NOMS_BLOCS.gsc} bloc={gsc} />
+      <EtatBloc nom={NOMS_BLOCS.umami} bloc={umami} />
+      <EtatBloc nom={NOMS_BLOCS.crawl} bloc={crawl} />
 
-      <SectionActions bloc={gsc} />
-
-      <SectionTitresARevoir bloc={gsc} />
-
-      <section className="mb-10">
-        <h2 className="mb-4 text-xl font-semibold text-neutral-900">Chiffres clés</h2>
-        <SyntheseFenetresComparaison gsc={gsc.fenetre} umami={umami.fenetre} />
-        <SectionTendance gsc={gsc} serie={rapport.serie ?? null} />
-        <ChiffresGsc bloc={gsc} freshness={rapport.fraicheur.gsc} />
-        <ChiffresUmami bloc={umami} freshness={rapport.fraicheur.umami} />
-        <ChiffresCrawl bloc={crawl} freshness={rapport.fraicheur.crawl} />
-      </section>
-
-      <SectionReferents umami={umami} />
-
+      <SectionEnBref rapport={rapport} />
+      <SectionEssentiel gsc={gsc} umami={umami} serie={rapport.serie ?? null} />
+      <SectionAFaire bloc={gsc} />
+      <SectionMouvements gsc={gsc} />
+      <SectionSources umami={umami} />
       <SectionLangues gsc={gsc} umami={umami} />
-
       <SectionPublications gsc={gsc} />
-
-      <section className="mb-10">
-        <h2 className="mb-4 text-xl font-semibold text-neutral-900">Détails</h2>
-        <TablesGsc bloc={gsc} />
-        <TablesUmami bloc={umami} />
-        <TablesCrawl bloc={crawl} />
-      </section>
-
-      <SectionAPropos rapport={rapport} />
+      <SectionSante crawl={crawl} />
+      <SectionAnnexes rapport={rapport} />
     </div>
   );
 }

@@ -44,9 +44,20 @@ describe('TrafficTile', () => {
       topPages: [{ path: '/fr', views: 900 }],
     });
     render(await TrafficTile());
-    expect(screen.getByText('4415')).toBeDefined();
-    expect(screen.getByText('visiteurs sur 7 jours')).toBeDefined();
+    // Titre qui porte la période, nombres à la belge (espace fine
+    // insécable), y compris dans le grand chiffre de TileStat.
+    expect(screen.getByRole('heading', { level: 2 }).textContent).toBe('Trafic, 7 derniers jours');
+    expect(screen.getByText('visiteurs').previousElementSibling?.textContent).toBe('4\u202f415');
+    expect(screen.getByText('visiteurs')).toBeDefined();
+    expect(screen.getByText(/pages vues/).textContent).toBe('15\u202f171 pages vues');
+    expect(screen.getByText('900')).toBeDefined();
     expect(screen.getByText('/fr')).toBeDefined();
+  });
+
+  it('garde le titre avec sa période quand l’instantané manque', async () => {
+    vi.mocked(readTrafficStatus).mockResolvedValue(null);
+    render(await TrafficTile());
+    expect(screen.getByRole('heading', { level: 2 }).textContent).toBe('Trafic, 7 derniers jours');
   });
 
   it("date l'instantané récent sans alarmer", async () => {
@@ -85,13 +96,13 @@ describe('TrafficTile', () => {
 });
 
 describe('InfraTile', () => {
-  it('affiche « Indisponible » sans fichier d\'état', async () => {
+  it("affiche « Indisponible » sans fichier d'état", async () => {
     vi.mocked(readInfraStatus).mockResolvedValue(null);
     render(await InfraTile());
     expect(screen.getByText(/Indisponible/)).toBeDefined();
   });
 
-  it('rend les trois lignes quand l\'état est présent', async () => {
+  it("rend les trois lignes quand l'état est présent", async () => {
     vi.mocked(readInfraStatus).mockResolvedValue({
       lastDeployAt: new Date(Date.now() - 3 * 3_600_000).toISOString(),
       lastDeployStatus: 'ok',
@@ -120,7 +131,7 @@ describe('SubscribersTile', () => {
     expect(screen.getByText('abonnés actifs')).toBeDefined();
   });
 
-  it('distingue une panne Resend d\'un carnet vide', async () => {
+  it("distingue une panne Resend d'un carnet vide", async () => {
     vi.mocked(countActiveContacts).mockResolvedValue(null);
     render(await SubscribersTile());
     expect(screen.getByText(/Indisponible/)).toBeDefined();
@@ -134,7 +145,7 @@ describe('SubscribersTile', () => {
 });
 
 describe('RefonteTile', () => {
-  it('distingue l\'absence de stockage d\'une panne', async () => {
+  it("distingue l'absence de stockage d'une panne", async () => {
     vi.mocked(getVoteStats).mockResolvedValue({
       total: 0,
       recent: [],

@@ -6,7 +6,7 @@ import { describe, it, expect, vi, beforeAll } from 'vitest';
 vi.mock('node:fs/promises', () => ({ readFile: vi.fn() }));
 
 import { readFile } from 'node:fs/promises';
-import { normaliserFinExclusive, readSeoReport } from './seo-report';
+import { normaliserFinExclusive, parseSerie, readSeoReport } from './seo-report';
 
 beforeAll(() => {
   // Meme mecanisme que traffic-status.ts : le repertoire est deduit de
@@ -463,6 +463,40 @@ describe('readSeoReport', () => {
     const { blocs } = await readSeoReport();
     expect(blocs.gsc.status).toBe('format-inconnu');
     expect(blocs.umami.status).toBe('format-inconnu');
+  });
+
+  describe('parseSerie (lot 2, seo-serie.json)', () => {
+    const semaine = (s: string, gsc: unknown, umami: unknown) => ({ semaine: s, gsc, umami });
+    it('trie les semaines, garde les valeurs, normalise la fin exclusive Umami', () => {
+      const serie = parseSerie({
+        schemaVersion: 1,
+        semaines: [
+          semaine('2026-W45', { status: 'ok', fin: '2026-11-07', clicsBelgique: 860 }, { status: 'ok', fin: '2026-11-08T00:00:00Z', visites: 5511, inscriptions: 33 }),
+          semaine('2026-W44', { status: 'ok', fin: '2026-10-31', clicsBelgique: 900 }, { status: 'ok', visites: 5000 }),
+        ],
+      });
+      expect(serie?.map((s) => s.semaine)).toEqual(['2026-W44', '2026-W45']);
+      expect(serie?.[1].gsc.clicsBelgique).toBe(860);
+      expect(serie?.[1].umami.fin).toBe('2026-11-07');
+      expect(serie?.[1].umami.inscriptions).toBe(33);
+      // Champ absent dans une ancienne version : null, jamais 0.
+      expect(serie?.[0].umami.inscriptions).toBeNull();
+      expect(serie?.[0].gsc.impressionsBelgique).toBeNull();
+    });
+    it("rend null toutes les valeurs d'un bloc qui n'est pas « ok », sans écarter la semaine", () => {
+      const serie = parseSerie({
+        schemaVersion: 1,
+        semaines: [semaine('2026-W40', { status: 'error', clicsBelgique: 12 }, null)],
+      });
+      expect(serie).toHaveLength(1);
+      expect(serie?.[0].gsc.clicsBelgique).toBeNull();
+      expect(serie?.[0].umami.visites).toBeNull();
+    });
+    it('écarte une semaine au nom illisible, refuse une version inconnue', () => {
+      expect(parseSerie({ schemaVersion: 1, semaines: [semaine('W45', {}, {})] })).toEqual([]);
+      expect(parseSerie({ schemaVersion: 2, semaines: [] })).toBeNull();
+      expect(parseSerie(null)).toBeNull();
+    });
   });
 
   describe('normaliserFinExclusive', () => {

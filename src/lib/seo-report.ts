@@ -317,7 +317,33 @@ export interface Bloc<T> {
   donnees: T | null;
 }
 
+/** Une semaine de la série reconstruite depuis l'historique (lot 2, spec
+ * bgm-ops section 13). Chaque point couvre 28 jours glissants : deux points
+ * successifs se recouvrent à 75 %. `null` = bloc pas « ok » cette semaine-là
+ * ou champ absent de sa version, jamais un zéro. */
+export interface SemaineSerie {
+  semaine: string;
+  gsc: {
+    fin: string | null;
+    clicsBelgique: number | null;
+    clicsBelgiquePrecedents: number | null;
+    clicsMonde: number | null;
+    impressionsBelgique: number | null;
+  };
+  umami: {
+    fin: string | null;
+    visites: number | null;
+    visitesIa: number | null;
+    inscriptions: number | null;
+    sansReferent: number | null;
+  };
+}
+
 export interface RapportSeo {
+  // Série hebdomadaire (seo-serie.json). Optionnelle dans le type pour les
+  // constructions de test ; `null` quand le fichier est absent ou illisible
+  // (collecte du lot 2 pas encore installée), jamais une série vide inventée.
+  serie?: SemaineSerie[] | null;
   blocs: {
     gsc: Bloc<GscDonnees>;
     umami: Bloc<UmamiDonnees>;
@@ -924,6 +950,58 @@ function parseBloc<T>(
   };
 }
 
+const SERIE_SCHEMA_VERSION = 1;
+
+function blocSerieValide(value: unknown): boolean {
+  return value !== null && typeof value === 'object' && (value as Record<string, unknown>).status === 'ok';
+}
+
+/** Lecture défensive de seo-serie.json : une semaine illisible est écartée,
+ * un bloc qui n'est pas « ok » donne des valeurs null (jamais des zéros). */
+export function parseSerie(raw: unknown): SemaineSerie[] | null {
+  if (raw === null || typeof raw !== 'object') return null;
+  const record = raw as Record<string, unknown>;
+  if (record.schemaVersion !== SERIE_SCHEMA_VERSION || !Array.isArray(record.semaines)) return null;
+  const semaines: SemaineSerie[] = [];
+  for (const ligne of record.semaines) {
+    const r = asRecord(ligne);
+    const semaine = asString(r.semaine);
+    if (semaine === null || !/^\d{4}-W\d{2}$/.test(semaine)) continue;
+    const gscOk = blocSerieValide(r.gsc);
+    const umamiOk = blocSerieValide(r.umami);
+    const g = asRecord(r.gsc);
+    const u = asRecord(r.umami);
+    semaines.push({
+      semaine,
+      gsc: {
+        fin: gscOk ? asString(g.fin) : null,
+        clicsBelgique: gscOk ? asCompte(g.clicsBelgique) : null,
+        clicsBelgiquePrecedents: gscOk ? asCompte(g.clicsBelgiquePrecedents) : null,
+        clicsMonde: gscOk ? asCompte(g.clicsMonde) : null,
+        impressionsBelgique: gscOk ? asCompte(g.impressionsBelgique) : null,
+      },
+      umami: {
+        fin: umamiOk
+          ? (normaliserFinExclusive({ debut: null, fin: asString(u.fin), fuseau: 'UTC' })?.fin ?? null)
+          : null,
+        visites: umamiOk ? asCompte(u.visites) : null,
+        visitesIa: umamiOk ? asCompte(u.visitesIa) : null,
+        inscriptions: umamiOk ? asCompte(u.inscriptions) : null,
+        sansReferent: umamiOk ? asCompte(u.sansReferent) : null,
+      },
+    });
+  }
+  return semaines.sort((a, b) => a.semaine.localeCompare(b.semaine));
+}
+
+async function lireSerie(dir: string): Promise<SemaineSerie[] | null> {
+  try {
+    return parseSerie(JSON.parse(await readFile(join(dir, 'seo-serie.json'), 'utf8')));
+  } catch {
+    return null;
+  }
+}
+
 async function lireBloc<T>(
   nom: NomBloc,
   dir: string,
@@ -945,6 +1023,7 @@ export async function readSeoReport(): Promise<RapportSeo> {
   if (!dbPath) {
     // Dev local ou Vercel : pas de volume de données.
     return {
+      serie: null,
       blocs: {
         gsc: blocIllisible('absent'),
         umami: blocIllisible('absent'),
@@ -955,13 +1034,15 @@ export async function readSeoReport(): Promise<RapportSeo> {
   }
 
   const dir = join(dirname(dbPath), 'seo-report');
-  const [gsc, umami, crawl] = await Promise.all([
+  const [gsc, umami, crawl, serie] = await Promise.all([
     lireBloc('gsc', dir, PARSEURS_DONNEES.gsc),
     lireBloc('umami', dir, PARSEURS_DONNEES.umami),
     lireBloc('crawl', dir, PARSEURS_DONNEES.crawl),
+    lireSerie(dir),
   ]);
 
   return {
+    serie,
     blocs: { gsc, umami, crawl },
     fraicheur: {
       gsc: describeFreshness(gsc.generatedAt, { staleAfterHours: STALE_AFTER_HOURS }),

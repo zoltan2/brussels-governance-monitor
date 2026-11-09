@@ -133,6 +133,9 @@ export interface ActionSuggeree {
   titre: string | null;
   priorite: number | null;
   fenetre: FenetreRapport | null;
+  // Ce qu'il faut faire (règles v2, bgm-ops lot 4). `null` pour une action
+  // produite avant : la preuve reste lisible, seul le geste manque.
+  geste: string | null;
 }
 
 /** Une journée de clics depuis la Belgique (GSC 4). Un jour sans donnée est
@@ -162,6 +165,9 @@ export interface GscDonnees {
   partRequetes: number | null;
   opportunitesTitre: OpportuniteTitre[];
   actions: ActionSuggeree[];
+  // Actions candidates au-delà des trois transmises (bgm-ops lot 4). `null`
+  // = champ absent (relevé antérieur), jamais un zéro inventé.
+  actionsEcartees: number | null;
   publieRecemment: PublieRecemment;
   // Au plus 5 entrées côté producteur : ce module ne re-trie ni ne
   // tronque, il valide.
@@ -564,6 +570,7 @@ function asActions(value: unknown): ActionSuggeree[] {
       titre: asString(record.titre),
       priorite: asNumber(record.priorite),
       fenetre: asFenetre(record.fenetre),
+      geste: asString(record.geste),
     });
   }
   // Priorité croissante = plus urgent d'abord (convention regles.mjs) ; une
@@ -646,6 +653,7 @@ function asGscDonnees(value: unknown, version: number): GscDonnees {
     partRequetes: asFractionPourcentage(record.partRequetes),
     opportunitesTitre: asOpportunitesTitre(record.opportunitesTitre),
     actions: asActions(record.actions),
+    actionsEcartees: asCompte(record.actionsEcartees),
     publieRecemment: asPublieRecemment(record.publieRecemment),
     requetesEmergentes: asRequetesEmergentes(record.requetesEmergentes),
     totauxBelgique: asTotauxOptionnels(record.totauxBelgique),

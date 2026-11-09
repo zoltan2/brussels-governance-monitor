@@ -65,6 +65,7 @@ const DONNEES_GSC_VIDES = {
   partRequetes: null,
   opportunitesTitre: [],
   actions: [],
+  actionsEcartees: null,
   publieRecemment: { liste: [], total: null },
   requetesEmergentes: [],
   totauxBelgique: null,
@@ -503,6 +504,64 @@ describe('AdminRapportPage', () => {
   function sectionActionsListItems(): Element[] {
     return Array.from(sectionActions()?.querySelectorAll('ul > li') ?? []);
   }
+
+  function rapportAvecActions(actionsEcartees: number | null, geste: string | null) {
+    return {
+      blocs: {
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          clicsBelgique: 10,
+          actionsEcartees,
+          actions: [
+            {
+              regle: 'position-glisse',
+              url: 'https://governance.brussels/fr/dossiers/lez',
+              preuve: 'position 7,1 contre 5, 1 000 impressions contre 1 000',
+              titre: 'Position qui glisse : /fr/dossiers/lez',
+              priorite: 5,
+              fenetre: null,
+              geste,
+            },
+          ],
+        }),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo;
+  }
+
+  it('affiche le geste de chaque action (règles v2)', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(rapportAvecActions(0, 'Vérifier la fraîcheur de la fiche.'));
+    await rendrePage();
+    expect(sectionActionsListItems()[0].textContent).toContain('Geste : Vérifier la fraîcheur de la fiche.');
+  });
+
+  it('sans geste (relevé antérieur), ni libellé vide ni « null »', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(rapportAvecActions(null, null));
+    await rendrePage();
+    const texte = sectionActionsListItems()[0].textContent ?? '';
+    expect(texte).not.toMatch(/Geste|null/);
+  });
+
+  it('dit combien d actions sont écartées, au singulier comme au pluriel, et se tait à 0 ou sans compte', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(rapportAvecActions(4, null));
+    const { unmount } = await rendrePage();
+    expect(screen.getByTestId('actions-ecartees').textContent).toBe('Et 4 autres actions, moins prioritaires, non affichées.');
+    unmount();
+
+    vi.mocked(readSeoReport).mockResolvedValue(rapportAvecActions(1, null));
+    const deuxieme = await rendrePage();
+    expect(screen.getByTestId('actions-ecartees').textContent).toBe('Et 1 autre action, moins prioritaire, non affichée.');
+    deuxieme.unmount();
+
+    for (const compte of [0, null]) {
+      vi.mocked(readSeoReport).mockResolvedValue(rapportAvecActions(compte, null));
+      const rendu = await rendrePage();
+      expect(screen.queryByTestId('actions-ecartees')).toBeNull();
+      rendu.unmount();
+    }
+  });
 
   it("tait la ligne « Fenêtre » d'une action quand la valeur est indisponible", async () => {
     vi.mocked(readSeoReport).mockResolvedValue({

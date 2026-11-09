@@ -23,6 +23,7 @@ function action(overrides: Partial<ActionSuggeree> = {}): ActionSuggeree {
     titre: null,
     priorite: 1,
     fenetre: null,
+    geste: null,
     ...overrides,
   };
 }
@@ -38,6 +39,7 @@ const DONNEES_GSC_VIDES: GscDonnees = {
   partRequetes: null,
   opportunitesTitre: [],
   actions: [],
+  actionsEcartees: null,
   publieRecemment: { liste: [], total: null },
   requetesEmergentes: [],
   totauxBelgique: null,

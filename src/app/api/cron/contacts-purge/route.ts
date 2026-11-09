@@ -8,7 +8,6 @@ import { listContactsCreation, listUnsubscribedContacts, deleteContactById } fro
 import { appliquerReprise, repriseFaite } from '@/lib/suivi-abonnes';
 import {
   DELAI_SUPPRESSION_CONTACT_MS,
-  JOUR_MS,
   fingerprintEmail,
   lireDesabonnement,
   noterDesabonnement,

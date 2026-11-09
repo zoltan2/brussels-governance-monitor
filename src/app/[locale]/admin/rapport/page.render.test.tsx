@@ -67,6 +67,12 @@ const DONNEES_GSC_VIDES = {
   actions: [],
   publieRecemment: { liste: [], total: null },
   requetesEmergentes: [],
+  totauxBelgique: null,
+  totauxBelgiquePrecedents: null,
+  clicsBelgiqueParJour: null,
+  clicsBelgiqueParJourPrecedent: null,
+  parLangue: null,
+  requetesBelgique: false,
 };
 
 const DONNEES_UMAMI_VIDES = {
@@ -77,6 +83,9 @@ const DONNEES_UMAMI_VIDES = {
   evenements: null,
   referents: null,
   visitesParChemin: [],
+  evenementsParNom: null,
+  inscriptions: null,
+  visitesParLangue: null,
 };
 
 const DONNEES_CRAWL_VIDES = { pages: [], bloquees: null, echecs: null };
@@ -1549,5 +1558,95 @@ describe('AdminRapportPage', () => {
     await rendrePage();
     const details = screen.getByText('Détails', { selector: 'h2' }).closest('section');
     expect(details?.textContent).not.toMatch(/Passage technique/);
+  });
+
+  // --- Lot 1 : lecture des formats GSC 4 et Umami 3 -------------------------
+
+  const GSC_V4 = {
+    ...DONNEES_GSC_VIDES,
+    clicsBelgique: 860,
+    clicsBelgiquePrecedents: 1012,
+    totaux: { clics: 1092, impressions: 41644, ctr: 0.026, position: 6.9 },
+    totauxBelgique: { clics: 860, impressions: 20000, ctr: 0.043, position: 5.1 },
+    totauxBelgiquePrecedents: { clics: 1012, impressions: 21000, ctr: 0.048, position: 5 },
+    requetes: [{ requete: 'lez bruxelles', clics: 18, impressions: 96, position: 1.9 }],
+    parLangue: [
+      { langue: 'fr', clics: 800, impressions: 18000, clicsPrecedents: 950 },
+      { langue: 'de', clics: 3, impressions: 90, clicsPrecedents: 2 },
+    ],
+    requetesBelgique: true,
+  };
+
+  it("affiche impressions, taux de clic et position depuis la Belgique quand la collecte les transmet", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: { ...RAPPORT_NEUTRE.blocs, gsc: blocOk(GSC_V4) },
+    } satisfies RapportSeo);
+    await rendrePage();
+    expect(screen.getByText('Impressions (depuis la Belgique)', { selector: 'dt' })).toBeDefined();
+    expect(screen.queryByText('Impressions (le monde entier)', { selector: 'dt' })).toBeNull();
+    expect(screen.getByText(/5,1 correspond à la cinquième ou sixième position/)).toBeDefined();
+    expect(screen.getByText(/Requêtes les plus cliquées depuis la Belgique/)).toBeDefined();
+  });
+
+  it("donne l'écart des clics belges à la période précédente, signé, sans couleur de sens", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: { ...RAPPORT_NEUTRE.blocs, gsc: blocOk(GSC_V4) },
+    } satisfies RapportSeo);
+    await rendrePage();
+    const ecart = screen.getByText(/par rapport aux 28 jours précédents/);
+    expect(ecart.textContent).toBe('\u2212152 (\u221215,0 %) par rapport aux 28 jours précédents');
+    expect(ecart.className).not.toMatch(/red|green|warning/);
+  });
+
+  it('affiche la section « Par langue » avec ses deux sources en colonnes séparées', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: {
+        ...RAPPORT_NEUTRE.blocs,
+        gsc: blocOk(GSC_V4),
+        umami: blocOk({ ...DONNEES_UMAMI_VIDES, visitesParLangue: [{ langue: 'nl', visites: 400 }] }),
+      },
+    } satisfies RapportSeo);
+    await rendrePage();
+    const section = screen.getByText('Par langue', { selector: 'h2' }).closest('section');
+    const lignes = Array.from(section?.querySelectorAll('tbody tr') ?? []).map((tr) =>
+      Array.from(tr.querySelectorAll('td')).map((td) => td.textContent),
+    );
+    // Trié par clics décroissants ; une langue vue d'un seul côté vaut 0 de l'autre.
+    expect(lignes).toEqual([
+      ['Français', '800', '950', '0'],
+      ['Allemand', '3', '2', '0'],
+      ['Néerlandais', '0', '0', '400'],
+    ]);
+  });
+
+  it("n'affiche pas « Par langue » tant qu'aucune des deux sources ne la transmet", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+    expect(screen.queryByText('Par langue', { selector: 'h2' })).toBeNull();
+  });
+
+  it('affiche les inscriptions, avec la réserve sur les réinscriptions, et les événements par nom', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: {
+        ...RAPPORT_NEUTRE.blocs,
+        umami: blocOk({
+          ...DONNEES_UMAMI_VIDES,
+          evenements: 1240,
+          evenementsParNom: [{ nom: 'navigation-clic', total: 600, visites: 300 }],
+          inscriptions: { total: 14, visites: 12, parPageEntree: [{ chemin: '/fr/dossiers/lez', visites: 4 }] },
+        }),
+      },
+    } satisfies RapportSeo);
+    await rendrePage();
+    expect(screen.getByText('Inscriptions envoyées', { selector: 'dt' })).toBeDefined();
+    expect(screen.getByText('dans 12 visites')).toBeDefined();
+    expect(screen.getByText(/ce n.est pas le nombre de nouveaux abonnés/)).toBeDefined();
+    expect(screen.queryByText('Événements (tous types)', { selector: 'dt' })).toBeNull();
+    expect(screen.getByText('navigation-clic')).toBeDefined();
+    expect(screen.getByText('/fr/dossiers/lez')).toBeDefined();
   });
 });

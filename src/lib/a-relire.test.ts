@@ -40,6 +40,12 @@ const DONNEES_GSC_VIDES: GscDonnees = {
   actions: [],
   publieRecemment: { liste: [], total: null },
   requetesEmergentes: [],
+  totauxBelgique: null,
+  totauxBelgiquePrecedents: null,
+  clicsBelgiqueParJour: null,
+  clicsBelgiqueParJourPrecedent: null,
+  parLangue: null,
+  requetesBelgique: false,
 };
 
 function rapportAvecActions(actions: ActionSuggeree[]): RapportSeo {

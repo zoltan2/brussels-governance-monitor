@@ -52,12 +52,16 @@ const NOMS_BLOCS: Record<keyof RapportSeo['blocs'], string> = {
 
 // Une seule empreinte couvre toute la collecte : bgm-seo-report.sh (bgm-ops)
 // hache, dans cet ordre, le script lui-même, seo-report/main.mjs, puis le
-// reste de seo-report/ trié par nom (LC_ALL=C), et écrit la même valeur dans
+// reste de seo-report/ trié par nom en locale C, et écrit la même valeur dans
 // les trois fichiers. La commande ci-dessous reproduit ce calcul depuis une
 // copie de bgm-ops ; l'ancienne invite (« sha256sum bloc-XXX.mjs ») ne
-// pouvait jamais tomber juste.
+// pouvait jamais tomber juste. Attention : jusqu'au lot 1 de la collecte,
+// seul `ls` était en locale C et `sort` suivait celle du serveur (UTF-8, qui
+// ignore la ponctuation) ; l'empreinte du serveur n'égale cette commande
+// qu'une fois le script corrigé installé (constat du 09/11/2026 : fichiers du
+// serveur identiques au dépôt, seul l'ordre différait).
 const COMMANDE_EMPREINTE =
-  "cd bgm-ops/deploy && cat bgm-seo-report.sh seo-report/main.mjs $(LC_ALL=C ls -1 seo-report | sort | grep -vx main.mjs | sed 's|^|seo-report/|') | sha256sum";
+  "cd bgm-ops/deploy && cat bgm-seo-report.sh seo-report/main.mjs $(ls -1 seo-report | LC_ALL=C sort | grep -vx main.mjs | sed 's|^|seo-report/|') | sha256sum";
 
 // Seuil de couverture du passage technique, rapporté au nombre réel d'URL du
 // plan du site (sitemap.ts), et non plus à une constante écrite en dur (630
@@ -436,14 +440,31 @@ function MetaBloc({
   );
 }
 
+/** Écart signé à la période précédente, en texte : « −152 (−15,0 %) ».
+ * Le sens est porté par le signe et les mots, jamais par une couleur (pas de
+ * rouge ni de vert sur ce site). null si l'une des deux valeurs manque, ou si
+ * la période précédente vaut zéro (pourcentage indéfini : seul l'écart brut
+ * est donné). */
+export function formatEcart(actuel: number | null, precedent: number | null): string | null {
+  if (actuel === null || precedent === null) return null;
+  const diff = actuel - precedent;
+  const signe = diff > 0 ? '+' : diff < 0 ? '\u2212' : '';
+  const brut = `${signe}${Math.abs(diff).toLocaleString('fr-BE')}`;
+  if (precedent === 0) return brut;
+  const pct = (Math.abs(diff) / precedent) * 100;
+  return `${brut} (${signe}${formatDecimal(pct, 1)} %)`;
+}
+
 function Stat({
   label,
   value,
   alarme = false,
+  detail,
 }: {
   label: string;
   value: string;
   alarme?: boolean;
+  detail?: string | null;
 }) {
   return (
     <div
@@ -467,6 +488,7 @@ function Stat({
       >
         {value}
       </dd>
+      {detail && <dd className="mt-0.5 text-xs text-neutral-600">{detail}</dd>}
     </div>
   );
 }
@@ -687,6 +709,84 @@ function SectionReferents({ umami }: { umami: Bloc<UmamiDonnees> }) {
           )}
         </>
       )}
+    </section>
+  );
+}
+
+// --- « Par langue » (GSC 4 parLangue, Umami 3 visitesParLangue) ---------
+
+const NOMS_LANGUES: Record<string, string> = {
+  fr: 'Français',
+  nl: 'Néerlandais',
+  en: 'Anglais',
+  de: 'Allemand',
+  autre: 'Autres pages',
+};
+
+/**
+ * « Par langue » : répond à « faut-il continuer à traduire ? ». Les clics
+ * viennent de Search Console (Belgique seule, pages regroupées par langue du
+ * chemin), les visites d'Umami (page d'entrée de chaque visite). Deux
+ * mesures, deux sources : jamais additionnées, chacune dans sa colonne. La
+ * section ne s'affiche que si au moins une des deux est transmise (GSC 4 ou
+ * Umami 3) : avant, aucune donnée ne permet de répondre.
+ */
+function SectionLangues({ gsc, umami }: { gsc: Bloc<GscDonnees>; umami: Bloc<UmamiDonnees> }) {
+  const clics = gsc.status === 'ok' ? (gsc.donnees?.parLangue ?? null) : null;
+  const visites = umami.status === 'ok' ? (umami.donnees?.visitesParLangue ?? null) : null;
+  if (clics === null && visites === null) return null;
+  const langues = Array.from(
+    new Set([...(clics ?? []).map((l) => l.langue), ...(visites ?? []).map((l) => l.langue)]),
+  ).sort((a, b) => {
+    const ca = clics?.find((l) => l.langue === a)?.clics ?? -1;
+    const cb = clics?.find((l) => l.langue === b)?.clics ?? -1;
+    return cb - ca || a.localeCompare(b);
+  });
+  return (
+    <section className="mb-10">
+      <h2 className="mb-3 text-xl font-semibold text-neutral-900">Par langue</h2>
+      <p className="mb-2 text-sm text-neutral-600">
+        Clics depuis la Belgique (Search Console) et visites (Umami, selon la page d&apos;entrée),
+        regroupés par langue du chemin. Deux sources : ne pas additionner les colonnes.
+      </p>
+      <TableauEnveloppe legende="Clics depuis la Belgique et visites, par langue">
+        <thead>
+          <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+            <th scope="col" className="px-3 py-2">
+              Langue
+            </th>
+            <th scope="col" className="px-3 py-2 text-right">
+              Clics (Belgique)
+            </th>
+            <th scope="col" className="px-3 py-2 text-right">
+              28 jours précédents
+            </th>
+            <th scope="col" className="px-3 py-2 text-right">
+              Visites
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {langues.map((langue) => {
+            const c = clics?.find((l) => l.langue === langue) ?? null;
+            const v = visites?.find((l) => l.langue === langue) ?? null;
+            return (
+              <tr key={langue} className="border-t border-neutral-100">
+                <td className="px-3 py-2 text-neutral-800">{NOMS_LANGUES[langue] ?? langue}</td>
+                <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                  {clics === null ? 'indisponible' : formatNombre(c?.clics ?? 0)}
+                </td>
+                <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                  {clics === null ? 'indisponible' : formatNombre(c?.clicsPrecedents ?? 0)}
+                </td>
+                <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                  {visites === null ? 'indisponible' : formatNombre(v?.visites ?? 0)}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </TableauEnveloppe>
     </section>
   );
 }
@@ -970,6 +1070,14 @@ function TitreSection({ titre, fenetre }: { titre: string; fenetre: FenetreRappo
 function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: Freshness | null }) {
   const donnees = bloc.donnees;
   const fenetrePrecedenteTexte = formatFenetrePrecedente(bloc.fenetre);
+  const totauxAffiches = donnees?.totauxBelgique ??
+    donnees?.totaux ?? {
+      clics: null,
+      impressions: null,
+      ctr: null,
+      position: null,
+    };
+  const perimetre = donnees?.totauxBelgique ? 'depuis la Belgique' : 'le monde entier';
   return (
     <div className="mb-8">
       <TitreSection titre="Search Console" fenetre={bloc.fenetre} />
@@ -978,7 +1086,15 @@ function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: F
       {donnees && (
         <>
           <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <Stat label="Clics depuis la Belgique" value={formatNombre(donnees.clicsBelgique)} />
+            <Stat
+              label="Clics depuis la Belgique"
+              value={formatNombre(donnees.clicsBelgique)}
+              detail={
+                formatEcart(donnees.clicsBelgique, donnees.clicsBelgiquePrecedents)
+                  ? `${formatEcart(donnees.clicsBelgique, donnees.clicsBelgiquePrecedents)} par rapport aux 28 jours précédents`
+                  : null
+              }
+            />
             <Stat
               label="Clics Belgique, 28 jours précédents"
               value={formatNombre(donnees.clicsBelgiquePrecedents)}
@@ -987,21 +1103,20 @@ function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: F
               label="Clics totaux (le monde entier)"
               value={formatNombre(donnees.totaux.clics)}
             />
-            {/* Ces trois mesures sont demandées sans filtre pays par la
-                collecte (bloc-gsc.mjs) : elles comptent le monde entier, et
-                le libellé doit le dire tant qu'aucune version belge n'est
-                transmise. */}
+            {/* Impressions, taux de clic et position : version belge quand la
+                collecte la transmet (GSC 4), sinon les totaux mondiaux, et le
+                libellé dit toujours lequel des deux est affiché. */}
             <Stat
-              label="Impressions (le monde entier)"
-              value={formatNombre(donnees.totaux.impressions)}
+              label={`Impressions (${perimetre})`}
+              value={formatNombre(totauxAffiches.impressions)}
             />
             <Stat
-              label="Taux de clic (le monde entier)"
-              value={formatPourcentFraction(donnees.totaux.ctr)}
+              label={`Taux de clic (${perimetre})`}
+              value={formatPourcentFraction(totauxAffiches.ctr)}
             />
             <Stat
-              label="Position moyenne dans Google (le monde entier)"
-              value={formatDecimal(donnees.totaux.position)}
+              label={`Position moyenne dans Google (${perimetre})`}
+              value={formatDecimal(totauxAffiches.position)}
             />
           </dl>
           <ul className="mt-3 space-y-1.5 text-xs text-neutral-600">
@@ -1017,8 +1132,8 @@ function ChiffresGsc({ bloc, freshness }: { bloc: Bloc<GscDonnees>; freshness: F
             <li>
               Position moyenne dans Google : le rang moyen des pages du site quand elles
               apparaissent dans les résultats, 1 étant la première place
-              {donnees.totaux.position !== null
-                ? ` ; ${formatDecimal(donnees.totaux.position)} correspond à ${lireRang(donnees.totaux.position)} en moyenne`
+              {totauxAffiches.position !== null
+                ? ` ; ${formatDecimal(totauxAffiches.position)} correspond à ${lireRang(totauxAffiches.position)} en moyenne`
                 : ''}
               .
             </li>
@@ -1051,12 +1166,33 @@ function ChiffresUmami({
               label="Visites ayant vu au moins deux pages"
               value={formatPourcentFraction(donnees.profondeur)}
             />
-            <Stat label="Événements" value={formatNombre(donnees.evenements)} />
+            {donnees.inscriptions !== null ? (
+              <Stat
+                label="Inscriptions envoyées"
+                value={formatNombre(donnees.inscriptions.total)}
+                detail={
+                  donnees.inscriptions.visites !== null
+                    ? `dans ${formatNombre(donnees.inscriptions.visites)} ${donnees.inscriptions.visites > 1 ? 'visites' : 'visite'}`
+                    : null
+                }
+              />
+            ) : (
+              <Stat label="Événements (tous types)" value={formatNombre(donnees.evenements)} />
+            )}
           </dl>
-          <p className="mt-3 text-xs text-neutral-600">
-            Visites ayant vu au moins deux pages : un lecteur arrivé sur le site puis reparti
-            aussitôt n&apos;y est pas compté.
-          </p>
+          <ul className="mt-3 space-y-1.5 text-xs text-neutral-600">
+            <li>
+              Visites ayant vu au moins deux pages : un lecteur arrivé sur le site puis reparti
+              aussitôt n&apos;y est pas compté.
+            </li>
+            {donnees.inscriptions !== null && (
+              <li>
+                Inscriptions envoyées : formulaires d&apos;abonnement acceptés par le serveur. Une
+                personne déjà abonnée qui se réinscrit est comptée aussi : ce n&apos;est pas le
+                nombre de nouveaux abonnés.
+              </li>
+            )}
+          </ul>
         </>
       )}
     </div>
@@ -1113,7 +1249,8 @@ function TablesGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
       {donnees.requetes.length > 0 && (
         <div className="mt-4">
           <h4 className="mb-1 text-sm font-semibold text-neutral-900">
-            Requêtes les plus cliquées
+            Requêtes les plus cliquées{' '}
+            {donnees.requetesBelgique ? 'depuis la Belgique' : '(le monde entier)'}
           </h4>
           <p className="mb-1 text-xs text-neutral-500">
             Liste couvrant environ {formatPourcentFraction(donnees.partRequetes)} des clics
@@ -1193,7 +1330,10 @@ function TablesGsc({ bloc }: { bloc: Bloc<GscDonnees> }) {
 
       {donnees.requetesEmergentes.length > 0 && (
         <div className="mt-4">
-          <h4 className="mb-1 text-sm font-semibold text-neutral-900">Requêtes émergentes</h4>
+          <h4 className="mb-1 text-sm font-semibold text-neutral-900">
+            Requêtes émergentes{' '}
+            {donnees.requetesBelgique ? 'depuis la Belgique' : '(le monde entier)'}
+          </h4>
           <p className="mb-2 text-xs text-neutral-500">
             Le site apparaît sur ces requêtes, en impressions en hausse, sans qu&apos;aucun clic ne
             soit garanti : il peut être classé au-delà de la première page de résultats, vu mais pas
@@ -1271,6 +1411,70 @@ function TablesUmami({ bloc }: { bloc: Bloc<UmamiDonnees> }) {
                   <td className="px-3 py-2 text-neutral-800">{v.source}</td>
                   <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
                     {formatNombre(v.visites)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </TableauEnveloppe>
+        </div>
+      )}
+
+      {donnees.evenementsParNom !== null && donnees.evenementsParNom.length > 0 && (
+        <div className="mt-4">
+          <h4 className="mb-1 text-sm font-semibold text-neutral-900">Événements, par nom</h4>
+          <TableauEnveloppe legende="Événements Umami par nom, avec le nombre de visites concernées">
+            <thead>
+              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+                <th scope="col" className="px-3 py-2">
+                  Événement
+                </th>
+                <th scope="col" className="px-3 py-2 text-right">
+                  Total
+                </th>
+                <th scope="col" className="px-3 py-2 text-right">
+                  Visites
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {donnees.evenementsParNom.slice(0, 15).map((e) => (
+                <tr key={e.nom} className="border-t border-neutral-100">
+                  <td className="px-3 py-2 break-words text-neutral-800">{e.nom}</td>
+                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                    {formatNombre(e.total)}
+                  </td>
+                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                    {formatNombre(e.visites)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </TableauEnveloppe>
+        </div>
+      )}
+
+      {donnees.inscriptions !== null && donnees.inscriptions.parPageEntree.length > 0 && (
+        <div className="mt-4">
+          <h4 className="mb-1 text-sm font-semibold text-neutral-900">
+            Où sont arrivées les visites qui se sont inscrites
+          </h4>
+          <TableauEnveloppe legende="Pages d'entrée des visites ayant envoyé une inscription">
+            <thead>
+              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+                <th scope="col" className="px-3 py-2">
+                  Page d&apos;entrée
+                </th>
+                <th scope="col" className="px-3 py-2 text-right">
+                  Visites
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {donnees.inscriptions.parPageEntree.slice(0, 10).map((p) => (
+                <tr key={p.chemin} className="border-t border-neutral-100">
+                  <td className="px-3 py-2 break-words text-neutral-800">{p.chemin}</td>
+                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                    {formatNombre(p.visites)}
                   </td>
                 </tr>
               ))}
@@ -1576,6 +1780,8 @@ export default async function AdminRapportPage({
       </section>
 
       <SectionReferents umami={umami} />
+
+      <SectionLangues gsc={gsc} umami={umami} />
 
       <SectionPublications gsc={gsc} />
 

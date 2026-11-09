@@ -1653,4 +1653,71 @@ describe('AdminRapportPage', () => {
     expect(screen.getByText('navigation-clic')).toBeDefined();
     expect(screen.getByText('/fr/dossiers/lez')).toBeDefined();
   });
+
+  // --- Lot 2 : tendance ------------------------------------------------------
+
+  it("dessine les clics belges jour par jour sur les deux fenêtres, un jour sans donnée restant un trou", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: {
+        ...RAPPORT_NEUTRE.blocs,
+        gsc: blocOk({
+          ...GSC_V4,
+          clicsBelgiqueParJourPrecedent: [{ date: '2026-10-09', clics: 40, impressions: 900 }],
+          clicsBelgiqueParJour: [
+            { date: '2026-11-06', clics: 30, impressions: 700 },
+            { date: '2026-11-07', clics: null, impressions: null },
+          ],
+        }),
+      },
+    } satisfies RapportSeo);
+    const { container } = await rendrePage();
+    const svg = container.querySelector('[data-testid="graphique-clics-belgique-par-jour"]');
+    expect(svg?.getAttribute('aria-hidden')).toBe('true');
+    const barres = Array.from(svg?.querySelectorAll('rect') ?? []);
+    // Deux barres : le jour à null n'en dessine aucune.
+    expect(barres).toHaveLength(2);
+    expect(barres[0].getAttribute('class')).toContain('fill-neutral-300');
+    expect(barres[1].getAttribute('class')).toContain('fill-brand-700');
+    // Le tableau lu par les lecteurs d'écran garde le jour, « indisponible ».
+    expect(screen.getByText('2026-11-07').closest('tr')?.textContent).toMatch(/indisponible/);
+  });
+
+  it('affiche la série hebdomadaire, la plus récente en premier, avec la réserve des fenêtres glissantes', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      serie: [
+        {
+          semaine: '2026-W44',
+          gsc: { fin: '2026-10-31', clicsBelgique: 900, clicsBelgiquePrecedents: null, clicsMonde: null, impressionsBelgique: null },
+          umami: { fin: '2026-10-31', visites: 5000, visitesIa: 300, inscriptions: null, sansReferent: null },
+        },
+        {
+          semaine: '2026-W45',
+          gsc: { fin: '2026-11-07', clicsBelgique: 860, clicsBelgiquePrecedents: 1012, clicsMonde: 1092, impressionsBelgique: 26513 },
+          umami: { fin: '2026-11-07', visites: 5511, visitesIa: 383, inscriptions: 33, sansReferent: 2948 },
+        },
+      ],
+    } satisfies RapportSeo);
+    const { container } = await rendrePage();
+    const tableau = container.querySelector('table caption')?.closest('table');
+    const table = Array.from(container.querySelectorAll('table')).find((tb) =>
+      tb.querySelector('caption')?.textContent?.includes('28 jours glissants'),
+    );
+    expect(tableau).toBeDefined();
+    const lignes = Array.from(table?.querySelectorAll('tbody tr') ?? []).map((tr) =>
+      Array.from(tr.querySelectorAll('td')).map((td) => td.textContent),
+    );
+    expect(lignes).toEqual([
+      ['07/11/2026', '860', '5\u202f511', '383', '33'],
+      ['31/10/2026', '900', '5\u202f000', '300', 'indisponible'],
+    ]);
+    expect(screen.getByText(/partagent trois semaines sur quatre/).textContent).toMatch(/2 relevés pour l.instant/);
+  });
+
+  it("n'affiche pas de tendance tant que ni la série ni les clics par jour ne sont transmis", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+    expect(screen.queryByText('Tendance', { selector: 'h3' })).toBeNull();
+  });
 });

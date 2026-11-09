@@ -14,6 +14,7 @@ import {
   type PageCrawl,
   type PagePubliee,
   type RapportSeo,
+  type SemaineSerie,
   type SourceVisites,
   type StatutBloc,
   type UmamiDonnees,
@@ -22,6 +23,7 @@ import {
 import { freshnessClassName, pireFraicheurNommee, type Freshness } from '@/lib/snapshot-freshness';
 import { chemin } from '@/lib/utils';
 import { getNombreDePages } from '@/lib/site-stats';
+import { ClicsBelgiqueParJourChart } from '@/components/admin/clics-belgique-par-jour-chart';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -1101,6 +1103,85 @@ function SectionTitresARevoir({ bloc }: { bloc: Bloc<GscDonnees> }) {
   );
 }
 
+/**
+ * « Tendance » (lot 2) : la courbe quotidienne des clics belges (Search
+ * Console, 56 jours, déjà transmise par GSC 4) et la série hebdomadaire
+ * reconstruite depuis l'historique (seo-serie.json). Chaque point de la
+ * série couvre 28 jours glissants : deux points successifs se recouvrent à
+ * 75 %, la série lisse donc les variations et ne se lit pas comme quatre
+ * semaines indépendantes. Rien ne s'affiche tant qu'aucune des deux n'est
+ * disponible.
+ */
+function SectionTendance({ gsc, serie }: { gsc: Bloc<GscDonnees>; serie: SemaineSerie[] | null }) {
+  const courants = gsc.status === 'ok' ? (gsc.donnees?.clicsBelgiqueParJour ?? null) : null;
+  const precedents =
+    gsc.status === 'ok' ? (gsc.donnees?.clicsBelgiqueParJourPrecedent ?? null) : null;
+  const semaines = serie ?? [];
+  if (courants === null && semaines.length === 0) return null;
+  return (
+    <div className="mb-8">
+      <h3 className="mb-1 text-lg font-semibold text-neutral-900">Tendance</h3>
+      {courants !== null && (
+        <ClicsBelgiqueParJourChart courants={courants} precedents={precedents ?? []} />
+      )}
+      {semaines.length > 0 && (
+        <div className="mt-4">
+          <h4 className="mb-1 text-sm font-semibold text-neutral-900">Semaine par semaine</h4>
+          <p className="mb-1 text-xs text-neutral-600">
+            Chaque ligne est un relevé de 28 jours glissants : deux lignes successives partagent
+            trois semaines sur quatre. Une ligne lisse donc les variations, elle ne compte pas une
+            semaine isolée.
+            {semaines.length < 4 &&
+              ` ${semaines.length} ${semaines.length > 1 ? 'relevés' : 'relevé'} pour l'instant.`}
+          </p>
+          <TableauEnveloppe legende="Relevés hebdomadaires sur 28 jours glissants">
+            <thead>
+              <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+                <th scope="col" className="px-3 py-2">
+                  Données jusqu&apos;au
+                </th>
+                <th scope="col" className="px-3 py-2 text-right">
+                  Clics (Belgique)
+                </th>
+                <th scope="col" className="px-3 py-2 text-right">
+                  Visites
+                </th>
+                <th scope="col" className="px-3 py-2 text-right">
+                  Assistants
+                </th>
+                <th scope="col" className="px-3 py-2 text-right">
+                  Inscriptions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {[...semaines].reverse().map((s) => (
+                <tr key={s.semaine} className="border-t border-neutral-100">
+                  <td className="px-3 py-2 text-neutral-800">
+                    {s.gsc.fin ? formatDateSeule(s.gsc.fin) : s.semaine}
+                  </td>
+                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                    {formatNombre(s.gsc.clicsBelgique)}
+                  </td>
+                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                    {formatNombre(s.umami.visites)}
+                  </td>
+                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                    {formatNombre(s.umami.visitesIa)}
+                  </td>
+                  <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+                    {formatNombre(s.umami.inscriptions)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </TableauEnveloppe>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /** Titre + fenêtre lisible, répétés à l'identique en tête des trois sections
  * de chiffres clés : la période se lit à côté des chiffres qu'elle date,
  * pas seulement tout en bas de page dans « À propos de ce relevé ». */
@@ -1822,6 +1903,7 @@ export default async function AdminRapportPage({
       <section className="mb-10">
         <h2 className="mb-4 text-xl font-semibold text-neutral-900">Chiffres clés</h2>
         <SyntheseFenetresComparaison gsc={gsc.fenetre} umami={umami.fenetre} />
+        <SectionTendance gsc={gsc} serie={rapport.serie ?? null} />
         <ChiffresGsc bloc={gsc} freshness={rapport.fraicheur.gsc} />
         <ChiffresUmami bloc={umami} freshness={rapport.fraicheur.umami} />
         <ChiffresCrawl bloc={crawl} freshness={rapport.fraicheur.crawl} />

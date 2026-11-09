@@ -22,6 +22,9 @@ vi.mock('@/lib/seo-report', async (importOriginal) => {
   const reel = await importOriginal<typeof import('@/lib/seo-report')>();
   return { ...reel, readSeoReport: vi.fn() };
 });
+// Le seuil de couverture lit le nombre réel d'URL du plan du site, qui
+// importe tout le contenu (absent en CI quand les tests unitaires tournent).
+vi.mock('@/lib/site-stats', () => ({ getNombreDePages: () => 708 }));
 vi.mock('@/lib/require-admin', () => ({ requireAdmin: vi.fn().mockResolvedValue(undefined) }));
 
 import { readSeoReport, type RapportSeo } from '@/lib/seo-report';
@@ -101,9 +104,10 @@ describe('AdminRapportPage', () => {
     const titres = screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent);
     expect(titres).toEqual([
       'Actions suggérées',
+      'Titres à revoir',
       'Chiffres clés',
       'Qui envoie des lecteurs',
-      'Ce que vous avez publié',
+      'Pages modifiées récemment',
       'Détails',
       'À propos de ce relevé',
     ]);
@@ -222,7 +226,9 @@ describe('AdminRapportPage', () => {
     expect(synthese?.textContent).toMatch(/ne coïncident pas/);
     expect(synthese?.textContent).toMatch(/ne rapprochez pas/);
     expect(synthese?.getAttribute('role')).toBe('alert');
-    expect(synthese?.className).toContain('amber');
+    // Jeton adaptatif (clair et sombre), jamais une couleur Tailwind brute.
+    expect(synthese?.className).toContain('warning');
+    expect(synthese?.className).not.toContain('amber');
     expect(synthese?.textContent).not.toMatch(/mêmes 28 jours/);
   });
 
@@ -286,13 +292,14 @@ describe('AdminRapportPage', () => {
     await rendrePage();
     const dd = statPagesPassees();
     expect(dd?.textContent).toMatch(/couverture/);
-    expect(dd?.className).toContain('amber');
-    // La carte qui l'entoure est ambre, pas neutre.
-    expect(dd?.closest('div')?.className).toContain('amber');
+    expect(dd?.className).toContain('warning');
+    // La carte qui l'entoure est en vigilance, pas neutre.
+    expect(dd?.closest('div')?.className).toContain('warning');
   });
 
   // Distinct du cas « couverture nulle » ci-dessus : ici le crawl a bien
-  // trouvé des pages (100), mais très en dessous des ~630 attendues. Ce cas
+  // trouvé des pages (100), mais très en dessous des 708 URL du plan du site
+  // (valeur simulée de getNombreDePages). Ce cas
   // n'emprunte pas le même chemin de code que le zéro strict.
   it('affiche une alerte ambre quand la couverture du crawl est très inférieure au sitemap, sans être nulle', async () => {
     vi.mocked(readSeoReport).mockResolvedValue({
@@ -318,7 +325,7 @@ describe('AdminRapportPage', () => {
     await rendrePage();
     const dd = statPagesPassees();
     expect(dd?.textContent).toMatch(/100.*couverture très faible/);
-    expect(dd?.className).toContain('amber');
+    expect(dd?.className).toContain('warning');
   });
 
   it('affiche un compte neutre quand la couverture est bonne', async () => {
@@ -720,12 +727,30 @@ describe('AdminRapportPage', () => {
     expect(screen.getAllByText(/Relevé \(heure de Bruxelles\)/).length).toBeGreaterThan(0);
   });
 
-  it("affiche la commande de référence pour vérifier l'empreinte de chaque script", async () => {
+  // Constaté le 09/11/2026 : la page demandait de comparer chaque bloc à
+  // « sha256sum deploy/seo-report/bloc-XXX.mjs sur le dépôt », alors que la
+  // collecte écrit UNE empreinte de l'ensemble (bgm-seo-report.sh) dans les
+  // trois fichiers. La comparaison ne pouvait jamais tomber juste.
+  it("affiche une seule empreinte de la collecte et la commande qui la reproduit", async () => {
     vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
     await rendrePage();
-    expect(screen.getByText(/sha256sum deploy\/seo-report\/bloc-gsc\.mjs/)).toBeDefined();
-    expect(screen.getByText(/sha256sum deploy\/seo-report\/bloc-umami\.mjs/)).toBeDefined();
-    expect(screen.getByText(/sha256sum deploy\/seo-report\/bloc-crawl\.mjs/)).toBeDefined();
+    expect(screen.queryByText(/bloc-gsc\.mjs/)).toBeNull();
+    const commande = screen.getByText(/\| sha256sum$/);
+    expect(commande.textContent).toContain('cat bgm-seo-report.sh seo-report/main.mjs');
+    expect(commande.textContent).toContain('LC_ALL=C');
+    expect(screen.queryByText(/ne viennent pas du même passage/)).toBeNull();
+  });
+
+  it('signale des empreintes différentes entre blocs, bloc par bloc', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: {
+        ...RAPPORT_NEUTRE.blocs,
+        crawl: { ...RAPPORT_NEUTRE.blocs.crawl, scriptSha256: 'b'.repeat(64) },
+      },
+    } satisfies RapportSeo);
+    await rendrePage();
+    expect(screen.getByText(/ne viennent pas du même passage/)).toBeDefined();
   });
 
   function pageCrawl(url: string, statut: number | null) {
@@ -834,8 +859,13 @@ describe('AdminRapportPage', () => {
     // Étiquettes qui se comprennent seules.
     expect(screen.getByText('Clics depuis la Belgique')).toBeDefined();
     expect(screen.queryByText('CTR', { selector: 'dt' })).toBeNull();
-    expect(screen.getByText('Taux de clic', { selector: 'dt' })).toBeDefined();
-    expect(screen.getByText('Position moyenne dans Google', { selector: 'dt' })).toBeDefined();
+    // Impressions, taux de clic et position sont demandés sans filtre pays
+    // par la collecte : le libellé le dit (constat du 09/11/2026).
+    expect(screen.getByText('Taux de clic (le monde entier)', { selector: 'dt' })).toBeDefined();
+    expect(
+      screen.getByText('Position moyenne dans Google (le monde entier)', { selector: 'dt' }),
+    ).toBeDefined();
+    expect(screen.getByText('Impressions (le monde entier)', { selector: 'dt' })).toBeDefined();
     expect(
       screen.queryByText('Position moyenne (plus bas = mieux classé)', { selector: 'dt' }),
     ).toBeNull();
@@ -1078,16 +1108,16 @@ describe('AdminRapportPage', () => {
 
     // Les deux envois du site restent sous « Ce que vos envois rapportent ».
     const envois = screen
-      .getByText('Ce que vos envois rapportent', { selector: 'h4' })
+      .getByText('Ce que vos envois rapportent', { selector: 'h3' })
       .closest('div');
     expect(envois?.textContent).toMatch(/bgm-digest/);
     expect(envois?.textContent).toMatch(/stuut/);
     expect(envois?.textContent).not.toMatch(/chatgpt\.com/);
 
     // chatgpt.com est affiché séparément, jamais sous « campagnes ».
-    expect(screen.queryByText('Campagnes (newsletter, jeux)', { selector: 'h4' })).toBeNull();
+    expect(screen.queryByText('Campagnes (newsletter, jeux)', { selector: 'h3' })).toBeNull();
     const assistantsRecomptes = screen
-      .getByText('Assistants comptés une seconde fois, par leur propre lien', { selector: 'h4' })
+      .getByText('Assistants comptés une seconde fois, par leur propre lien', { selector: 'h3' })
       .closest('div');
     expect(assistantsRecomptes?.textContent).toMatch(/chatgpt\.com/);
     expect(assistantsRecomptes?.textContent).not.toMatch(/bgm-digest/);
@@ -1170,7 +1200,7 @@ describe('AdminRapportPage', () => {
   // --- Contrat v2 : « Ce que vous avez publié » (publieRecemment GSC) ------
 
   function sectionPublications(): Element | null {
-    return screen.getByText('Ce que vous avez publié', { selector: 'h2' }).closest('section');
+    return screen.getByText('Pages modifiées récemment', { selector: 'h2' }).closest('section');
   }
 
   function pagePubliee(
@@ -1217,7 +1247,7 @@ describe('AdminRapportPage', () => {
     } satisfies RapportSeo);
 
     await rendrePage();
-    expect(sectionPublications()?.textContent).toMatch(/Aucune page publiée/);
+    expect(sectionPublications()?.textContent).toMatch(/Aucune page modifiée/);
   });
 
   // Cas central du contrat (forme réelle depuis le premier passage : 144
@@ -1237,7 +1267,7 @@ describe('AdminRapportPage', () => {
     } satisfies RapportSeo);
 
     await rendrePage();
-    expect(sectionPublications()?.textContent).toMatch(/1 affichées sur 144/);
+    expect(sectionPublications()?.textContent).toMatch(/144 pages modifiées sur la période, 1 transmise par la collecte/);
   });
 
   function ligneClics(chemin: string): Element | null | undefined {
@@ -1280,9 +1310,9 @@ describe('AdminRapportPage', () => {
     const zero = ligneClics('/fr/zero');
     const normal = ligneClics('/fr/normal');
     expect(zero?.textContent).toBe('0');
-    expect(zero?.className).toContain('amber');
+    expect(zero?.className).toContain('warning');
     expect(normal?.textContent).toBe('5');
-    expect(normal?.className).not.toContain('amber');
+    expect(normal?.className).not.toContain('warning');
   });
 
   // Cas central du contrat : visitesUmami peut valoir null (bloc Umami en
@@ -1311,9 +1341,46 @@ describe('AdminRapportPage', () => {
     const enPanne = ligneVisitesUmami('/fr/en-panne');
     const zeroVisite = ligneVisitesUmami('/fr/zero-visite');
     expect(enPanne?.textContent).toBe('indisponible');
-    expect(enPanne?.className).not.toContain('amber');
+    expect(enPanne?.className).not.toContain('warning');
     expect(zeroVisite?.textContent).toBe('0');
-    expect(zeroVisite?.className).toContain('amber');
+    expect(zeroVisite?.className).toContain('warning');
+  });
+
+  // Constaté le 09/11/2026 : les 15 pages listées avaient toutes de un à six
+  // jours de données (relevé arrêté au 07/11), presque toutes des traductions,
+  // toutes à zéro. Un zéro mécanique présenté comme un signal. Une page
+  // modifiée moins de sept jours avant la fin des données est comptée, pas
+  // listée ; une page plus ancienne à zéro reste en évidence.
+  it("ne liste pas une page modifiée moins de sept jours avant la fin des données, mais la compte", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      blocs: {
+        gsc: blocOk(
+          {
+            ...DONNEES_GSC_VIDES,
+            publieRecemment: {
+              liste: [
+                pagePubliee({ chemin: '/de/trop-recente', datePublication: '2026-11-06', clics: 0 }),
+                pagePubliee({ chemin: '/fr/limite', datePublication: '2026-11-01', clics: 0 }),
+                pagePubliee({ chemin: '/fr/ancienne', datePublication: '2026-10-20', clics: 0 }),
+              ],
+              total: 3,
+            },
+          },
+          { debut: '2026-10-11', fin: '2026-11-07', fuseau: 'America/Los_Angeles' },
+        ),
+        umami: blocOk(DONNEES_UMAMI_VIDES),
+        crawl: blocOk(DONNEES_CRAWL_VIDES),
+      },
+      fraicheur: { gsc: null, umami: null, crawl: null },
+    } satisfies RapportSeo);
+
+    await rendrePage();
+    const texte = sectionPublications()?.textContent ?? '';
+    expect(texte).not.toMatch(/trop-recente/);
+    // 01/11 → 07/11 inclus = 7 jours de données : assez pour être listée.
+    expect(ligneClics('/fr/limite')?.textContent).toBe('0');
+    expect(ligneClics('/fr/ancienne')?.textContent).toBe('0');
+    expect(texte).toMatch(/1 a moins de 7 jours de données : trop tôt pour juger/);
   });
 
   // --- Contrat v2 : requêtes émergentes (section Search Console) -----------
@@ -1353,5 +1420,134 @@ describe('AdminRapportPage', () => {
     const lien = screen.getByRole('link', { name: '/fr/domaines/urban-planning' });
     expect(lien.getAttribute('href')).toBe('https://governance.brussels/fr/domaines/urban-planning');
     expect(screen.getByText('Page montrée : indisponible')).toBeDefined();
+  });
+
+  // --- Vérité de l'affichage (revue du 09/11/2026) -------------------------
+
+  it("titre la page « Audience et santé du site » et dit que le relevé est quotidien", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('Audience et santé du site');
+    expect(screen.getByText(/déposés chaque matin/)).toBeDefined();
+    expect(screen.queryByText(/une fois par semaine/)).toBeNull();
+  });
+
+  it("n'ouvre pas de second <main> : le layout de locale en porte déjà un", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    const { container } = await rendrePage();
+    expect(container.querySelector('main')).toBeNull();
+  });
+
+  it("donne une légende et des en-têtes de colonne à chaque tableau", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: {
+        ...RAPPORT_NEUTRE.blocs,
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          requetes: [{ requete: 'lez bruxelles', clics: 18, impressions: 96, position: 1.9 }],
+          pages: [{ url: '/fr/dossiers/lez', clics: 30, impressions: 500, ctr: 0.06, position: 2, clicsPrecedents: 58 }],
+        }),
+      },
+    } satisfies RapportSeo);
+    const { container } = await rendrePage();
+    const tableaux = Array.from(container.querySelectorAll('table'));
+    expect(tableaux.length).toBeGreaterThanOrEqual(2);
+    for (const tableau of tableaux) {
+      expect(tableau.querySelector('caption')?.textContent?.length).toBeGreaterThan(0);
+      for (const th of Array.from(tableau.querySelectorAll('th'))) {
+        expect(th.getAttribute('scope')).toBe('col');
+      }
+    }
+  });
+
+  it("titre un passage technique d'un seul jour comme un relevé, jamais « 1 jours »", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: {
+        ...RAPPORT_NEUTRE.blocs,
+        crawl: blocOk(DONNEES_CRAWL_VIDES, {
+          debut: '2026-11-09T00:00:00Z',
+          fin: '2026-11-09T00:00:00Z',
+          fuseau: 'UTC',
+        }),
+      },
+    } satisfies RapportSeo);
+    await rendrePage();
+    expect(screen.queryByText(/1 jours/)).toBeNull();
+    expect(screen.getAllByText('Relevé du 9 novembre 2026').length).toBeGreaterThan(0);
+  });
+
+  it("lit la position moyenne affichée, jamais un exemple écrit en dur", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: {
+        ...RAPPORT_NEUTRE.blocs,
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          totaux: { clics: 1092, impressions: 41644, ctr: 0.026, position: 6.9 },
+        }),
+      },
+    } satisfies RapportSeo);
+    await rendrePage();
+    expect(screen.queryByText(/6,6/)).toBeNull();
+    expect(screen.getByText(/6,9 correspond à la sixième ou septième position en moyenne/)).toBeDefined();
+  });
+
+  it("donne, à côté de l'heure du relevé, le dernier jour couvert par les données", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: {
+        ...RAPPORT_NEUTRE.blocs,
+        gsc: blocOk(DONNEES_GSC_VIDES, {
+          debut: '2026-10-11',
+          fin: '2026-11-07',
+          fuseau: 'America/Los_Angeles',
+        }),
+      },
+    } satisfies RapportSeo);
+    await rendrePage();
+    expect(screen.getByText('07/11/2026 inclus')).toBeDefined();
+  });
+
+  it("affiche les titres à revoir transmis par la collecte, avec la comparaison qui les justifie", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue({
+      ...RAPPORT_NEUTRE,
+      blocs: {
+        ...RAPPORT_NEUTRE.blocs,
+        gsc: blocOk({
+          ...DONNEES_GSC_VIDES,
+          opportunitesTitre: [
+            {
+              url: 'https://governance.brussels/fr/dossiers/acs',
+              impressions: 1200,
+              position: 3.3,
+              ctr: 0.008,
+              ctrMedianBande: 0.05,
+              bande: '1-3',
+            },
+          ],
+        }),
+      },
+    } satisfies RapportSeo);
+    await rendrePage();
+    const section = screen.getByText('Titres à revoir', { selector: 'h2' }).closest('section');
+    expect(section?.textContent).toMatch(/\/fr\/dossiers\/acs/);
+    expect(section?.textContent).toMatch(/Taux de clic 0,8 % contre 5,0 % en médiane pour les positions 1-3/);
+    expect(section?.textContent).toMatch(/1\s200 impressions/);
+  });
+
+  it("dit qu'aucun titre n'est à revoir quand la liste transmise est vide", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+    const section = screen.getByText('Titres à revoir', { selector: 'h2' }).closest('section');
+    expect(section?.textContent).toMatch(/Aucune page ne remplit ces conditions/);
+  });
+
+  it("ne titre pas « Passage technique » dans Détails quand aucune page n'est cassée", async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(RAPPORT_NEUTRE);
+    await rendrePage();
+    const details = screen.getByText('Détails', { selector: 'h2' }).closest('section');
+    expect(details?.textContent).not.toMatch(/Passage technique/);
   });
 });

@@ -12,6 +12,9 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 
+// Le seuil de couverture lit le nombre réel d'URL du plan du site, qui
+// importe tout le contenu (absent en CI quand les tests unitaires tournent).
+vi.mock('@/lib/site-stats', () => ({ getNombreDePages: () => 708 }));
 vi.mock('@/lib/seo-report', async () => {
   const reel = await vi.importActual<typeof import('@/lib/seo-report')>('@/lib/seo-report');
   return {

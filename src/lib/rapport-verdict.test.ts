@@ -31,6 +31,7 @@ function gsc(champs: Partial<GscDonnees>): GscDonnees {
     partRequetes: null,
     opportunitesTitre: [],
     actions: [],
+    actionsEcartees: null,
     publieRecemment: { liste: [], total: null },
     requetesEmergentes: [],
     totauxBelgique: null,

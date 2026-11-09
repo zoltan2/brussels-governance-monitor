@@ -1016,6 +1016,7 @@ function SectionAFaire({ bloc }: { bloc: Bloc<GscDonnees> }) {
 function ListeActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
   const utilisable = bloc.status === 'ok' && !!bloc.donnees && gscMesurePresente(bloc.donnees);
   const actions = utilisable ? (bloc.donnees?.actions ?? []) : null;
+  const ecartees = utilisable ? (bloc.donnees?.actionsEcartees ?? null) : null;
   return (
     <div data-testid="actions-suggerees">
       <h3 className="mb-2 text-lg font-semibold text-neutral-900">Actions suggérées</h3>
@@ -1063,6 +1064,12 @@ function ListeActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
                     : ' · priorité indisponible'}
                 </p>
                 <p className="mt-2 text-sm text-neutral-700">{accorderPreuve(action.preuve)}</p>
+                {action.geste && (
+                  <p className="mt-2 text-sm text-neutral-900">
+                    <span className="font-semibold">Geste : </span>
+                    {action.geste}
+                  </p>
+                )}
                 <p className="mt-2 text-sm">
                   <a
                     href={action.url}
@@ -1078,6 +1085,13 @@ function ListeActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
             );
           })}
         </ul>
+      )}
+      {actions !== null && actions.length > 0 && ecartees !== null && ecartees > 0 && (
+        <p className="mt-3 text-sm text-neutral-600" data-testid="actions-ecartees">
+          {ecartees === 1
+            ? 'Et 1 autre action, moins prioritaire, non affichée.'
+            : `Et ${ecartees.toLocaleString('fr-BE')} autres actions, moins prioritaires, non affichées.`}
+        </p>
       )}
     </div>
   );

@@ -103,7 +103,43 @@ describe('readSeoReport', () => {
         titre: 'Page en erreur : /fr/x',
         priorite: 1,
         fenetre: { debut: '2026-08-20', fin: '2026-09-16', fuseau: null },
+        geste: null,
       },
+    ]);
+    // Relevé antérieur au lot 4 : aucun compte d'actions écartées, null
+    // (jamais 0, qui affirmerait qu'il n'y en a pas).
+    expect(rapport.blocs.gsc.donnees?.actionsEcartees).toBeNull();
+  });
+
+  it('lit le geste de chaque action et le nombre d actions écartées (règles v2, bgm-ops lot 4)', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 4,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-11-10T06:30:00Z',
+        donnees: {
+          actionsEcartees: 4,
+          actions: [
+            {
+              regle: 'demande-a-servir',
+              priorite: 7,
+              titre: 'Demande à servir : « rru pras »',
+              url: 'https://governance.brussels/fr/dossiers/rru',
+              preuve: '40 impressions belges contre 0, position 14',
+              geste: 'Ajouter dans la fiche existante un intertitre en question et une réponse sourcée, sans créer de page.',
+              fenetre: { debut: '2026-10-11', fin: '2026-11-07', fuseau: 'America/Los_Angeles' },
+            },
+            { regle: 'page-en-erreur', priorite: 1, url: '/fr/x', preuve: 'statut HTTP 500', geste: 42 },
+          ],
+        },
+      }),
+    );
+    const donnees = (await readSeoReport()).blocs.gsc.donnees;
+    expect(donnees?.actionsEcartees).toBe(4);
+    expect(donnees?.actions.map((a) => [a.regle, a.geste])).toEqual([
+      ['page-en-erreur', null],
+      ['demande-a-servir', 'Ajouter dans la fiche existante un intertitre en question et une réponse sourcée, sans créer de page.'],
     ]);
   });
 

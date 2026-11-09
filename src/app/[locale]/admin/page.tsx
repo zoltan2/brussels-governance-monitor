@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { requireAdmin } from '@/lib/require-admin';
 import { TileSkeleton } from '@/components/admin/tile';
-import { TrafficTile } from '@/components/admin/traffic-tile';
+import { TrafficTile, TITRE_TRAFIC } from '@/components/admin/traffic-tile';
 import { InfraTile } from '@/components/admin/infra-tile';
 import { SubscribersTile } from '@/components/admin/subscribers-tile';
 import { ThemesMuetsTile } from '@/components/admin/themes-muets-tile';
@@ -33,19 +33,13 @@ export async function generateMetadata(): Promise<Metadata> {
  * qui garantit qu'une source lente (Umami, Resend) ne retarde pas
  * l'affichage des autres.
  */
-export default async function AdminHubPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function AdminHubPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   await requireAdmin(locale);
 
   return (
     <div className="mx-auto max-w-6xl px-4">
-      <h1 className="mb-8 text-3xl font-bold text-neutral-900">
-        Vue d&apos;ensemble
-      </h1>
+      <h1 className="mb-8 text-3xl font-bold text-neutral-900">Vue d&apos;ensemble</h1>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {/* En première rangée : c'est la tuile qui répond « dois-je agir
@@ -53,7 +47,7 @@ export default async function AdminHubPage({
         <Suspense fallback={<TileSkeleton title="Audience et santé du site" />}>
           <SeoReportTile />
         </Suspense>
-        <Suspense fallback={<TileSkeleton title="Trafic" />}>
+        <Suspense fallback={<TileSkeleton title={TITRE_TRAFIC} />}>
           <TrafficTile />
         </Suspense>
         <Suspense fallback={<TileSkeleton title="Santé infra" />}>

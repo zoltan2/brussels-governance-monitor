@@ -1,10 +1,10 @@
 {
   "description": "Registre des sources surveillées par BGM. 331 sources (34 RSS). Tier editorial (veille active) + tier radar (scan mensuel). Priorités monitoring : P0 (critique) → P4 (radar). document_trust_tier (P0/P1/P2) = niveau de confiance documentaire — orthogonal au priority monitoring.",
-  "lastUpdated": "2026-11-07",
+  "lastUpdated": "2026-11-11",
   "stats": {
-    "total": 333,
+    "total": 339,
     "byType": {
-      "institutional": 92,
+      "institutional": 98,
       "press": 108,
       "unknown": 14,
       "legal": 7,
@@ -4482,7 +4482,8 @@
       "priority": "P1",
       "category": "urban",
       "cardsAffected": [
-        "housing"
+        "housing",
+        "urban-planning"
       ],
       "frequency": "daily",
       "enabled": true,
@@ -5083,11 +5084,11 @@
         "urban-planning"
       ],
       "frequency": "weekly",
-      "enabled": true,
+      "enabled": false,
       "fetchMode": "rss",
       "rssUrl": "https://www.bruzz.be/topic/stedenbouw/rss.xml",
       "skipKeywordFilter": true,
-      "notes": "BRUZZ stedenbouw topic RSS. Thematic feed, no keyword filter needed.",
+      "notes": "Doublon de watch-239 (même flux BRUZZ Stedenbouw, lu chaque jour) : désactivé le 11/11/2026 pour ne pas lire deux fois le même flux. BRUZZ stedenbouw topic RSS. Thematic feed, no keyword filter needed.",
       "tier": "editorial",
       "domaines": [
         "urban-planning"
@@ -6499,6 +6500,160 @@
       ],
       "notes": "Outil de recherche, pas une source citable, hors veille automatique (enabled: false voulu, ce n'est pas un flux). Serveur MCP en lecture seule, sans compte ni clé, édité par un acteur privé (Mavericks project, TWKL Venture SRL), pas par la Chambre. Couvre la Chambre fédérale, législature 56 (depuis juillet 2024) : comptes rendus de commission et de plénière, votes nominatifs, fiches des députés, recherche par le sens en français et en néerlandais. Usage : affiner un dossier (sujets fédéraux touchant Bruxelles), puis citer le document officiel de lachambre.be (watch-029). Données en retard au 07/11/2026 : dernière plénière indexée le 18/03/2026, dernière commission vue le 24/03/2026. Pas d'outil pour les questions écrites malgré la page d'accueil. robots.txt : /api/ interdit, reste permis.",
       "document_trust_tier": "P2"
+    },
+    {
+      "id": "watch-333",
+      "name": "Parlement bruxellois — Documents parlementaires (flux)",
+      "url": "https://www.parlement.brussels/prb_includes/prb-DOC-fr.rss",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P0",
+      "category": "governance",
+      "cardsAffected": [
+        "budget",
+        "institutional",
+        "social"
+      ],
+      "frequency": "daily",
+      "enabled": true,
+      "fetchMode": "rss",
+      "rssUrl": "https://www.parlement.brussels/prb_includes/prb-DOC-fr.rss",
+      "skipKeywordFilter": true,
+      "notes": "Projets et propositions d'ordonnance, résolutions, rapports, cahiers de la Cour des comptes. Flux officiel, 10 derniers éléments : lecture quotidienne obligatoire. Vérifié le 11/11/2026 (200, éléments datés de 2026). Les flux CRIBQR (questions écrites) sont figés depuis 2022 : non ajoutés.",
+      "tier": "editorial",
+      "domaines": [
+        "budget",
+        "institutional",
+        "social"
+      ],
+      "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-334",
+      "name": "Parlement bruxellois — Comptes rendus des plénières (flux)",
+      "url": "https://www.parlement.brussels/prb_includes/prb-CRIS-fr.rss",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P0",
+      "category": "governance",
+      "cardsAffected": [
+        "budget",
+        "institutional",
+        "social"
+      ],
+      "frequency": "daily",
+      "enabled": true,
+      "fetchMode": "rss",
+      "rssUrl": "https://www.parlement.brussels/prb_includes/prb-CRIS-fr.rss",
+      "skipKeywordFilter": true,
+      "notes": "Comptes rendus intégraux des séances plénières. Complète watch-002 (page des plénières). Vérifié le 11/11/2026 (200, éléments datés de 2026). Les flux CRIBQR (questions écrites) sont figés depuis 2022 : non ajoutés.",
+      "tier": "editorial",
+      "domaines": [
+        "budget",
+        "institutional",
+        "social"
+      ],
+      "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-335",
+      "name": "Parlement bruxellois — Comptes rendus des commissions (flux)",
+      "url": "https://www.parlement.brussels/prb_includes/prb-CRIC-fr.rss",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "governance",
+      "cardsAffected": [
+        "budget",
+        "institutional"
+      ],
+      "frequency": "daily",
+      "enabled": true,
+      "fetchMode": "rss",
+      "rssUrl": "https://www.parlement.brussels/prb_includes/prb-CRIC-fr.rss",
+      "skipKeywordFilter": true,
+      "notes": "Interpellations et questions orales en commission. Complète watch-251. Vérifié le 11/11/2026 (200, éléments datés de 2026). Les flux CRIBQR (questions écrites) sont figés depuis 2022 : non ajoutés.",
+      "tier": "editorial",
+      "domaines": [
+        "budget",
+        "institutional"
+      ],
+      "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-336",
+      "name": "Assemblée réunie COCOM — Documents (flux)",
+      "url": "https://www.parlement.brussels/prb_includes/arccc-DOC-fr.rss",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "governance",
+      "cardsAffected": [
+        "social",
+        "institutional"
+      ],
+      "frequency": "daily",
+      "enabled": true,
+      "fetchMode": "rss",
+      "rssUrl": "https://www.parlement.brussels/prb_includes/arccc-DOC-fr.rss",
+      "skipKeywordFilter": true,
+      "notes": "Documents de l'Assemblée réunie de la Commission communautaire commune (santé, aide aux personnes, CPAS). Vérifié le 11/11/2026 (200, éléments datés de 2026). Les flux CRIBQR (questions écrites) sont figés depuis 2022 : non ajoutés.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional",
+        "social"
+      ],
+      "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-337",
+      "name": "Assemblée réunie COCOM — Comptes rendus des plénières (flux)",
+      "url": "https://www.parlement.brussels/prb_includes/arccc-CRIS-fr.rss",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "governance",
+      "cardsAffected": [
+        "social",
+        "institutional"
+      ],
+      "frequency": "daily",
+      "enabled": true,
+      "fetchMode": "rss",
+      "rssUrl": "https://www.parlement.brussels/prb_includes/arccc-CRIS-fr.rss",
+      "skipKeywordFilter": true,
+      "notes": "Comptes rendus intégraux des séances plénières de l'Assemblée réunie. Vérifié le 11/11/2026 (200, éléments datés de 2026). Les flux CRIBQR (questions écrites) sont figés depuis 2022 : non ajoutés.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional",
+        "social"
+      ],
+      "document_trust_tier": "P0"
+    },
+    {
+      "id": "watch-338",
+      "name": "Assemblée réunie COCOM — Comptes rendus des commissions (flux)",
+      "url": "https://www.parlement.brussels/prb_includes/arccc-CRIC-fr.rss",
+      "type": "institutional",
+      "lang": "fr",
+      "priority": "P1",
+      "category": "governance",
+      "cardsAffected": [
+        "social",
+        "institutional"
+      ],
+      "frequency": "daily",
+      "enabled": true,
+      "fetchMode": "rss",
+      "rssUrl": "https://www.parlement.brussels/prb_includes/arccc-CRIC-fr.rss",
+      "skipKeywordFilter": true,
+      "notes": "Interpellations et questions orales en commission de l'Assemblée réunie. Vérifié le 11/11/2026 (200, éléments datés de 2026). Les flux CRIBQR (questions écrites) sont figés depuis 2022 : non ajoutés.",
+      "tier": "editorial",
+      "domaines": [
+        "institutional",
+        "social"
+      ],
+      "document_trust_tier": "P0"
     }
   ]
 }

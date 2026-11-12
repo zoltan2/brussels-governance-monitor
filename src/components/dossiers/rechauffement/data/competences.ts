@@ -101,7 +101,7 @@ export const COMPETENCES: CompetenceTheme[] = [
         fr: 'Coordination adaptation (Bruxelles Environnement)',
         nl: 'Adaptatiecoordinatie (Leefmilieu Brussel)',
         en: 'Adaptation coordination (Brussels Environment)',
-        de: 'Anpassungskoordinierung (Brussel Umwelt)',
+        de: 'Anpassungskoordinierung (Brüssel Umwelt)',
       },
       Communal: {
         fr: 'Terrain : écoles, CPAS, eau',
@@ -146,14 +146,19 @@ export const COMPETENCES: CompetenceTheme[] = [
       de: 'Bäume und Blätterdach',
     },
     cells: {
-      UE: { fr: null, nl: null, en: null, de: null },
+      UE: {
+        fr: "Restauration de la nature : pas de perte nette d'espaces verts ni de couvert arboré urbains d'ici 2030",
+        nl: 'Natuurherstel: geen nettoverlies aan stedelijke groene ruimte en boomkronendak tegen 2030',
+        en: 'Nature restoration: no net loss of urban green space or tree canopy by 2030',
+        de: 'Wiederherstellung der Natur: kein Nettoverlust an städtischen Grünflächen und Baumüberschirmung bis 2030',
+      },
       Federal: { fr: null, nl: null, en: null, de: null },
       Communautaire: { fr: null, nl: null, en: null, de: null },
       Regional: {
-        fr: 'Permis, Plan Nature (Bruxelles Environnement)',
-        nl: 'Vergunningen, Natuurplan (Leefmilieu Brussel)',
-        en: 'Permits, Nature Plan (Brussels Environment)',
-        de: 'Genehmigungen, Naturplan (Brussel Umwelt)',
+        fr: 'Permis, Plan Nature (Bruxelles Environnement), arbres des voiries régionales (Bruxelles Mobilité), inventaire des arbres remarquables',
+        nl: 'Vergunningen, Natuurplan (Leefmilieu Brussel), bomen langs gewestwegen (Brussel Mobiliteit), inventaris van opmerkelijke bomen',
+        en: 'Permits, Nature Plan (Brussels Environment), trees on regional roads (Brussels Mobility), inventory of remarkable trees',
+        de: 'Genehmigungen, Naturplan (Brüssel Umwelt), Bäume an regionalen Straßen (Brüssel Mobilität), Inventar bemerkenswerter Bäume',
       },
       Communal: {
         fr: "Arbres communaux, permis d'abattage",
@@ -256,7 +261,7 @@ export const COMPETENCES: CompetenceTheme[] = [
         fr: 'Plan Eau, Vivaqua et Hydria (Bruxelles Environnement)',
         nl: 'Waterplan, Vivaqua en Hydria (Leefmilieu Brussel)',
         en: 'Water Plan, Vivaqua and Hydria (Brussels Environment)',
-        de: 'Wasserplan, Vivaqua und Hydria (Brussel Umwelt)',
+        de: 'Wasserplan, Vivaqua und Hydria (Brüssel Umwelt)',
       },
       Communal: {
         fr: 'Égouttage local',

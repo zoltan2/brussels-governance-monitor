@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T08:13:03.623Z",
+  "generatedAt": "2026-11-12T13:17:35.428Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "Selon les documents du budget régional 2027 transmis au Parlement bruxellois le 30 octobre 2026, quel déficit la Région vise-t-elle pour 2027 ?",
+      "question": "Selon le projet d'ordonnance déposé au Parlement bruxellois (document daté du 26 octobre 2026), à quel taux passent les centimes additionnels régionaux à l'impôt des personnes physiques ?",
       "options": [
-        "719 millions d'euros",
-        "563 millions d'euros",
-        "957 millions d'euros",
-        "1,6 milliard d'euros"
+        "31,258 %, contre 32,591 % auparavant",
+        "30,591 %, contre 32,591 % auparavant",
+        "31,591 %, contre 32,258 % auparavant",
+        "32,258 %, contre 33,591 % auparavant"
       ],
       "correct": 0,
-      "explanation": "Le budget 2027 vise un déficit de 719 millions d'euros, pour un effort budgétaire de 563 millions. Le vote en plénière est envisagé le vendredi 18 décembre 2026.",
+      "explanation": "La baisse des additionnels de 32,591 % à 31,258 % réduit de 1 % l'impôt des personnes physiques des Bruxellois à partir de l'exercice d'imposition 2028, sur les revenus de 2027.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:73951f788a4e1a39df57aed2f64883e5",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:b2de48eb01deb5b7b1ee99706bdeac13",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "Selon BRUZZ (30 octobre 2026), quelle mesure du budget bruxellois 2027 doit rapporter 75 millions d'euros ?",
+      "question": "Quelle opinion la Cour des comptes a-t-elle présentée au Parlement bruxellois, le 9 novembre 2026, sur le compte général 2025 de la Région ?",
       "options": [
-        "Le moratoire sur les engagements dans l'administration régionale",
-        "La vente de la résidence officielle du ministre-président",
-        "La hausse de la taxe régionale sur les jeux en ligne",
-        "L'étalement dans le temps des projets informatiques régionaux"
+        "Une opinion défavorable, la deuxième de suite",
+        "Une opinion favorable, sans aucune réserve",
+        "Une opinion favorable, assortie de réserves",
+        "Aucune opinion, faute de pièces suffisantes"
       ],
       "correct": 0,
-      "explanation": "Le moratoire sur les engagements est maintenu en 2027, avec une exception pour des fonctions actives comme les pompiers, les collecteurs de déchets ou les conducteurs de métro. La vente de la résidence officielle est comptée pour 15 millions.",
+      "explanation": "La Cour relève des anomalies significatives, notamment dans les comptes des services du gouvernement et de la SLRB. Elle avait déjà rendu une opinion défavorable sur le compte général 2024.",
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:73951f788a4e1a39df57aed2f64883e5",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:b2de48eb01deb5b7b1ee99706bdeac13",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climat",
-      "question": "D'après les simulations relayées lors de l'actualisation de la carte des zones inondables (30 octobre 2026), quelle part des Bruxellois une pluie centennale concernerait-elle ?",
+      "question": "Quel service gratuit de Bruxelles Environnement, destiné aux professionnels du bâtiment, aux syndics et aux copropriétés, est suspendu depuis la mi-septembre 2026 ?",
       "options": [
-        "Un sur cinq",
-        "Un sur douze",
-        "Un sur trois",
-        "Un sur mille"
+        "Le Facilitateur Bâtiment Durable",
+        "Le guichet des primes Renolution",
+        "Le conseil énergie de Homegrade",
+        "Le portail InfoBruit.brussels"
       ],
-      "correct": 1,
-      "explanation": "Un Bruxellois sur douze pour une pluie centennale, un sur cinq pour une pluie millénale. Ces proportions viennent de simulations.",
+      "correct": 0,
+      "explanation": "Le marché public du prestataire qui assurait ce helpdesk a pris fin à la mi-septembre 2026, sans nouveau marché lancé. Les particuliers restent orientés vers Homegrade.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-11-06",
-        "sourceContentHash": "sha256:8fe7565a6e02516999f72e33c6ec9bad",
-        "generatedAt": "2026-11-06T08:13:03.623Z",
+        "sourceLastModified": "2026-11-08",
+        "sourceContentHash": "sha256:6c9c0ba73c8fe3aa934deb8fc8ba002c",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climat",
-      "question": "Quel niveau la Cellule régionale « sécheresse » a-t-elle rétabli en Région bruxelloise le 5 novembre 2026, après la vigilance jaune activée le 23 juillet 2026 ?",
+      "question": "Selon la carte des zones inondables actualisée par Bruxelles Environnement en octobre 2026, quel est le principal risque lié aux fortes pluies à Bruxelles ?",
       "options": [
-        "Le code vert",
-        "Le code orange",
-        "Le code rouge",
-        "Le code jaune renforcé"
+        "Le reflux des eaux usées dans les caves",
+        "Le débordement du canal dans les quais",
+        "La remontée de la nappe dans les tunnels",
+        "L'affaissement des voiries sur les égouts"
       ],
       "correct": 0,
-      "explanation": "Les pluies des semaines précédentes ont en partie normalisé la situation et Vivaqua distribue l'eau normalement. Le débit de la Meuse, qui alimente le captage de Tailfer, reste surveillé.",
+      "explanation": "Le reflux des eaux usées peut toucher près d'un Bruxellois sur trois lors de fortes pluies. La carte indique un risque faible, moyen ou élevé pour chaque adresse.",
       "sourceSlug": "/fr/domaines/climate",
       "sourceTitle": "Climat : LEZ maintenue, Renolution remplacé, objectifs en suspens",
       "provenance": {
-        "sourceLastModified": "2026-11-06",
-        "sourceContentHash": "sha256:8fe7565a6e02516999f72e33c6ec9bad",
-        "generatedAt": "2026-11-06T08:13:03.623Z",
+        "sourceLastModified": "2026-11-08",
+        "sourceContentHash": "sha256:6c9c0ba73c8fe3aa934deb8fc8ba002c",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Selon des chiffres du Parlement bruxellois rapportés par Le Soir (4 novembre 2026), combien de séances de commission ont été annulées pendant l'année parlementaire 2025-2026 ?",
+      "question": "Selon le ministre bruxellois de la Fonction publique (commission des Finances du Parlement, 9 novembre 2026), quand le service d'appui régional atlas.brussels doit-il entrer en fonction ?",
       "options": [
-        "26",
-        "14",
-        "8",
-        "41"
+        "Le 1er janvier 2027",
+        "Le 1er septembre 2026",
+        "Le 1er janvier 2029",
+        "Le 1er juillet 2027"
       ],
       "correct": 0,
-      "explanation": "Les quatre années précédentes, ce nombre était de 3, 14, 1 et 4. Selon le journal, la longue période d'affaires courantes, achevée le 14 février 2026, explique en grande partie ce nombre.",
+      "explanation": "atlas.brussels centralise les ressources humaines, l'informatique, les achats et la comptabilité. Les agents transférés gardent leur ancienneté et leurs avantages.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-11-06",
-        "sourceContentHash": "sha256:591d4c00a723126409d1a7f42cc83f57",
-        "generatedAt": "2026-11-06T08:13:03.623Z",
+        "sourceLastModified": "2026-11-10",
+        "sourceContentHash": "sha256:9f480573b97f15c3261c4c73d4774942",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutionnel",
-      "question": "Selon la loi fédérale sur les visites domiciliaires adoptée par la Chambre le 6 novembre 2026, quelle autorisation préalable faut-il pour arrêter une personne étrangère à son domicile ?",
+      "question": "À quel horizon le ministre-président bruxellois a-t-il annoncé, le 9 novembre 2026, une proposition de réforme institutionnelle pour réduire l'éparpillement des compétences entre la Région et les communes ?",
       "options": [
-        "Celle d'un juge d'instruction",
-        "Celle du bourgmestre de la commune",
-        "Celle du procureur du Roi",
-        "Celle du Conseil d'État"
+        "D'ici 2029",
+        "D'ici 2027",
+        "D'ici 2031",
+        "D'ici 2034"
       ],
       "correct": 0,
-      "explanation": "La visite ne peut avoir lieu qu'entre 5 h et 21 h. Le Parlement bruxellois s'était opposé au projet par une résolution adoptée le 2 octobre 2026.",
+      "explanation": "L'annonce a été faite devant l'organisation patronale Voka. Aucun texte n'était déposé à cette date ; un plan de réforme de la délivrance des permis est annoncé à six mois.",
       "sourceSlug": "/fr/domaines/institutional",
       "sourceTitle": "Réforme institutionnelle : fusion de 25 structures en 4 piliers",
       "provenance": {
-        "sourceLastModified": "2026-11-06",
-        "sourceContentHash": "sha256:591d4c00a723126409d1a7f42cc83f57",
-        "generatedAt": "2026-11-06T08:13:03.623Z",
+        "sourceLastModified": "2026-11-10",
+        "sourceContentHash": "sha256:9f480573b97f15c3261c4c73d4774942",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Selon la mesure flamande applicable au 1er janvier 2027, quelle condition doit remplir un candidat pour passer l'examen pratique du permis en Flandre ?",
+      "question": "Selon parking.brussels (novembre 2026), quelle règle s'appliquera en 2027 aux vélos laissés dans un box vélo sécurisé de la Région ?",
       "options": [
-        "Y être domicilié à la date de l'examen",
-        "Y avoir suivi une auto-école agréée",
-        "Y avoir passé l'examen théorique",
-        "Y avoir attendu au moins six mois"
+        "Pas plus d'un mois sans être utilisé",
+        "Pas plus de trois mois sans être utilisé",
+        "Pas plus d'une semaine sans être utilisé",
+        "Pas plus de six mois sans être utilisé"
       ],
-      "correct": 2,
-      "explanation": "Le gouvernement flamand invoque la pression sur les centres de la périphérie. Bruxelles applique une règle semblable depuis 2018, la Wallonie depuis 2024.",
+      "correct": 0,
+      "explanation": "La limite passe de trois mois à un mois ; après deux avertissements, le vélo est déplacé vers un dépôt. Un masterplan du stationnement vélo est annoncé pour début 2027.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:855d2ea0d602aa46521de569954ef87e",
-        "generatedAt": "2026-11-01T14:01:21.593Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:7f37fefc371126b398936b65ceb2300d",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobilité",
-      "question": "Dans l'enquête de l'institut Vias citée par BRUZZ (30 octobre 2026), quelle part des répondants bruxellois dit avoir parfois un comportement agressif sur la route ?",
+      "question": "Combien de Bruxellois attendaient une place de stationnement vélo sécurisée, selon les chiffres relayés par BRUZZ le 8 novembre 2026 ?",
       "options": [
-        "30 %",
-        "45 %",
-        "40 %",
-        "60 %"
+        "Près de 15 000",
+        "Près de 5 000",
+        "Près de 30 000",
+        "Près de 1 500"
       ],
-      "correct": 1,
-      "explanation": "45 % à Bruxelles, contre 40 % en Wallonie et 30 % en Flandre. Ni la Région ni la police ne tiennent de chiffres distincts sur ce phénomène, indique BRUZZ.",
+      "correct": 0,
+      "explanation": "Le comptage de mai 2026 en recensait plus de 14 200, auxquelles se sont ajoutées environ 500 demandes. Certains candidats attendent une place dans un box depuis environ quatre ans.",
       "sourceSlug": "/fr/domaines/mobility",
       "sourceTitle": "Mobilité : nouveau plan régional, Métro 3 gelé, LEZ maintenue",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:855d2ea0d602aa46521de569954ef87e",
-        "generatedAt": "2026-11-01T14:01:21.593Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:7f37fefc371126b398936b65ceb2300d",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Combien de pompiers supplémentaires les syndicats réclament-ils pour Bruxelles lors de la manifestation européenne du 3 novembre 2026 ?",
+      "question": "Selon l'arrêté de police du 19 octobre 2026, dans combien de zones sensibles de Bruxelles les trottinettes électriques sont-elles interdites ?",
       "options": [
-        "200",
-        "50",
-        "500",
-        "1 000"
+        "19 zones",
+        "9 zones",
+        "29 zones",
+        "12 zones"
       ],
       "correct": 0,
-      "explanation": "Cette revendication syndicale date du début de l'année 2026. Selon BRUZZ, les dix agents demandés pour le centre d'appels d'urgence 112 ont été obtenus, et une nouvelle concertation est prévue le 13 novembre 2026.",
+      "explanation": "Plusieurs de ces zones entourent les gares du Nord et du Midi et des sorties de métro. Selon L'Avenir (6 novembre 2026), aucun panneau n'en marquait encore les limites.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:e8c6dd4f7cb795fe05708b383fde5cbc",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-08",
+        "sourceContentHash": "sha256:c79cad3493f4217e19f92995ae88363c",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Lors de l'opération FIPA du 29 octobre 2026 dans les hotspots liés à la drogue à Bruxelles, combien de personnes ont été contrôlées, selon la police fédérale ?",
+      "question": "Selon un responsable syndical cité par BRUZZ en novembre 2026, quel renfort a été obtenu pour le centre d'appels d'urgence 112 de Bruxelles ?",
       "options": [
-        "11 388",
-        "641",
-        "4 000",
-        "25 000"
+        "Dix agents supplémentaires",
+        "Vingt agents supplémentaires",
+        "Cinq agents supplémentaires",
+        "Quarante agents supplémentaires"
       ],
       "correct": 0,
-      "explanation": "Plus de 400 intervenants ont pris part à l'opération, dont les six zones de police, la Défense et la STIB. Le bilan compte 16 arrestations judiciaires, 20 administratives et 641 véhicules contrôlés.",
+      "explanation": "Le centre 112 a obtenu ce renfort, mais aucune solution à court terme n'a été trouvée pour le corps des pompiers, pour lequel les syndicats réclament 200 personnes de plus.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:e8c6dd4f7cb795fe05708b383fde5cbc",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-08",
+        "sourceContentHash": "sha256:c79cad3493f4217e19f92995ae88363c",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Selon le communiqué d'Iriscare du 30 octobre 2026, à quel montant passe son intervention pour la création de 130 lits de convalescence à Bruxelles ?",
+      "question": "Selon la Croix-Rouge et Médecins du Monde (12 novembre 2026), qu'a de particulier le centre médical Refugee Medical Point à Bruxelles ?",
       "options": [
-        "250 000 euros",
-        "820 000 euros",
-        "580 000 euros",
-        "130 000 euros"
+        "Le seul lieu de soins gratuits sans rendez-vous ni conditions",
+        "Le seul hôpital public réservé aux demandeurs d'asile",
+        "Le seul centre médical ouvert toute la nuit à Bruxelles",
+        "La seule maison médicale entièrement financée par la COCOM"
       ],
-      "correct": 2,
-      "explanation": "L'intervention passe de 250 000 à 580 000 euros, en complément du forfait fédéral de 28,40 euros par jour. Les dossiers sont attendus au plus tard le 30 novembre 2026.",
+      "correct": 0,
+      "explanation": "Le centre a enregistré plus de 4 800 visites d'août à novembre 2026, soit près de 80 par jour. Le centre Athéna, qui offrait un service semblable, a fermé fin 2025.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:8ee1ee749070da2907ee72c520bec226",
-        "generatedAt": "2026-11-01T14:01:21.593Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:59c8c520c7d7f8e7b1c5dd30dbabae90",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Selon Iriscare (30 octobre 2026), à quel moment du parcours de soins interviennent les lits de convalescence qu'elle veut créer à Bruxelles ?",
+      "question": "Selon BRUZZ (11 novembre 2026), de quelle autorité l'organisation bruxelloise de soins à domicile Wheel of Care attendait-elle un subside de 92 000 euros ?",
       "options": [
-        "Entre le domicile et la maison de repos",
-        "Entre l'hôpital et le domicile",
-        "Entre le médecin et les urgences",
-        "Entre deux séjours en maison de repos"
+        "La COCOM, via son administration Vivalis",
+        "La Région, via Bruxelles Économie et Emploi",
+        "La COCOF, via son service de la Santé",
+        "Le fédéral, via l'INAMI et ses forfaits"
       ],
-      "correct": 1,
-      "explanation": "Ces places accueillent des patients ayant temporairement perdu leur autonomie. Selon Iriscare, cette offre n'existe pas à Bruxelles à la date du communiqué.",
+      "correct": 0,
+      "explanation": "Le subside est resté bloqué pendant la formation du gouvernement ; Wheel of Care supprime 30 emplois. Vivalis indique que le dossier doit passer au Collège réuni.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:8ee1ee749070da2907ee72c520bec226",
-        "generatedAt": "2026-11-01T14:01:21.593Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:59c8c520c7d7f8e7b1c5dd30dbabae90",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Quelle superficie minimale de friche est visée par l'interdiction de bâtir du jugement du 29 octobre 2025, contestée en appel par la Région bruxelloise ?",
+      "question": "Selon une note du 24 avril 2026 révélée par L'Avenir et La DH en novembre 2026, sur quel plan perspective.brussels doit-il concentrer tous ses effectifs ?",
       "options": [
-        "0,5 hectare",
-        "1 hectare",
-        "2 hectares",
-        "5 hectares"
+        "Le plan régional d'affectation du sol (PRAS)",
+        "Le règlement régional d'urbanisme (RRU)",
+        "Le plan régional de développement durable",
+        "Le plan régional de mobilité Good Move"
       ],
       "correct": 0,
-      "explanation": "L'interdiction court jusqu'au 31 décembre 2026. Après la dernière audience du 2 novembre 2026, la cour d'appel rendra son arrêt au plus tard le 4 janvier 2027.",
+      "explanation": "Le PRAS date de 2001. La même note confie au cabinet de la secrétaire d'État à l'Urbanisme la finalisation du RRU, dont la version en vigueur date de 2006.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:a9582523994a1016e436879e2a9af250",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-10",
+        "sourceContentHash": "sha256:0033f95d4e36750493671e1844cb3bfe",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Quel projet de 60 mètres de haut, rue de France à Saint-Gilles, fait l'objet d'un nouveau recours au Conseil d'État annoncé le 28 octobre 2026 ?",
+      "question": "Au plus tard quand la cour d'appel de Bruxelles doit-elle se prononcer sur l'appel de la Région contre l'interdiction de bâtir sur les friches de plus de 0,5 hectare (dernière audience du 2 novembre 2026) ?",
       "options": [
-        "Le siège d'Infrabel « The Switch »",
-        "La caserne d'état-major du SIAMU",
-        "Le siège de la SNCB à la gare du Midi",
-        "La tour de bureaux de Bruxelles Mobilité"
+        "Le 4 janvier 2027",
+        "Le 31 décembre 2026",
+        "Le 1er mars 2027",
+        "Le 30 juin 2027"
       ],
       "correct": 0,
-      "explanation": "Le premier permis a été retiré le 14 août 2026 puis redélivré. Les associations contestent la hauteur, la disparition de logements sans compensation et la construction de bureaux neufs.",
+      "explanation": "Le jugement du 29 octobre 2025 interdit de bâtir ou d'imperméabiliser ces friches jusqu'au 31 décembre 2026. L'ASBL We Are Nature demande une prolongation jusqu'en 2030 au moins.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:a9582523994a1016e436879e2a9af250",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-10",
+        "sourceContentHash": "sha256:0033f95d4e36750493671e1844cb3bfe",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Quel opérateur de trottinettes et vélos partagés a obtenu, le 29 juillet 2026, l'annulation par le Conseil d'État des licences de Bolt, Dott et Voi, sur son propre recours ?",
+      "question": "Selon la proposition d'ordonnance sur la mobilité partagée adoptée par la commission Mobilité du Parlement bruxellois le 10 novembre 2026, combien de vélos partagés chaque opérateur peut-il proposer jusqu'au 1er mai 2028 ?",
       "options": [
-        "Lime",
-        "Villo",
-        "TIER",
-        "Pony"
+        "Jusqu'à 2 500 vélos",
+        "Jusqu'à 4 800 vélos",
+        "Jusqu'à 1 000 vélos",
+        "Jusqu'à 8 000 vélos"
       ],
       "correct": 0,
-      "explanation": "L'annulation a conduit à l'annonce, le 21 août 2026, d'un régime transitoire : trottinettes partagées maintenues jusqu'au 1er janvier 2027, vélos partagés jusqu'en mai 2028 avec un plafond de 2 500 vélos par opérateur.",
+      "explanation": "Ce régime transitoire, annoncé le 21 août 2026, fait suite à l'annulation des licences par le Conseil d'État. Selon BRUZZ, deux ou trois licences de 4 000 à 8 000 vélos suivront.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:5e449784ff916043e68b3db92a9808d4",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:2eb0bb8b59f4a106817a9536f78008fa",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1181,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Le 8 septembre 2026, la Région a annoncé le maintien du contrat Villo jusqu'en 2028 et un appel à candidatures, avec pour objectif un abonnement annuel autour de quel montant, contre 3,50 euros par mois au 19 septembre 2026 ?",
+      "question": "À partir de quelle date les trottinettes partagées sont-elles interdites à Bruxelles, selon la décision du gouvernement bruxellois du 11 juin 2026 ?",
       "options": [
-        "35 euros",
-        "50 euros",
-        "20 euros",
-        "70 euros"
+        "Le 1er janvier 2027",
+        "Le 1er septembre 2026",
+        "Le 1er mai 2028",
+        "Le 1er juillet 2027"
       ],
       "correct": 0,
-      "explanation": "Au 19 septembre 2026, Villo coûte 3,50 euros par mois ou 1,50 euro le ticket d'un jour ; les 360 stations Villo! représentent environ 5 000 vélos à ancrage fixe, à côté d'environ 15 700 véhicules en free-floating recensés en mars 2025.",
+      "explanation": "Le gouvernement invoque la sécurité routière et l'usage de ces engins à des fins criminelles. Les trottinettes privées restent autorisées : elles relèvent de la réglementation fédérale.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:5e449784ff916043e68b3db92a9808d4",
-        "generatedAt": "2026-09-20T16:17:42.446Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:2eb0bb8b59f4a106817a9536f78008fa",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Selon BRUZZ (2 novembre 2026), dans quel document la procédure d'approche RNP 07L reste-t-elle inscrite, sans date de fin, après la fin de sa phase de test le 31 octobre 2026 ?",
+      "question": "Selon De Standaard et Le Soir (12 novembre 2026), pourquoi la Région bruxelloise ne peut-elle plus attaquer la route d'atterrissage RNP 07L devant le Conseil d'État ?",
       "options": [
-        "La publication d'information aéronautique (AIP)",
-        "Le permis d'environnement de Brussels Airport",
-        "Le contrat de gestion conclu avec skeyes",
-        "L'arrêté fédéral fixant les normes de vent"
+        "Le délai de recours de soixante jours a expiré",
+        "Le Conseil d'État s'est déclaré incompétent",
+        "La Flandre a retiré son accord sur la route",
+        "Le fédéral a abrogé la route avant le recours"
       ],
       "correct": 0,
-      "explanation": "Le ministre fédéral de la Mobilité maintient la procédure faute d'alternative présentée par skeyes, et fait étudier une alternance avec une variante légèrement courbée.",
+      "explanation": "Le courrier fédéral du 17 juillet 2026 n'a pas été transmis à temps au membre du gouvernement compétent. Les deux procédures judiciaires en cours gardent leurs audiences de janvier et février 2027.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:76f4c3e02860aea7caf6348d2c586f30",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:9e22c8ddf425045c9ae44102bb1d20fc",
+        "generatedAt": "2026-11-12T13:17:35.428Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 63
+  ]
 }

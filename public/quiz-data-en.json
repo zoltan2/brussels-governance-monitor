@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T08:13:43.827Z",
+  "generatedAt": "2026-11-12T13:21:14.179Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -8,21 +8,21 @@
       "id": "domain-budget-0",
       "source": "domain",
       "domain": "Budget",
-      "question": "According to the 2027 regional budget documents sent to the Brussels Parliament on 30 October 2026, what deficit is the Region targeting for 2027?",
+      "question": "According to the draft ordinance tabled in the Brussels Parliament (document dated 26 October 2026), to what rate does the regional surcharge on personal income tax fall?",
       "options": [
-        "719 million euros",
-        "563 million euros",
-        "957 million euros",
-        "1.6 billion euros"
+        "31.258%, compared with 32.591% before",
+        "30.591%, compared with 32.591% before",
+        "31.591%, compared with 32.258% before",
+        "32.258%, compared with 33.591% before"
       ],
       "correct": 0,
-      "explanation": "The 2027 budget targets a deficit of 719 million euros, with a budget effort of 563 million. The plenary vote is planned for Friday 18 December 2026.",
+      "explanation": "Cutting the surcharge from 32.591% to 31.258% lowers Brussels residents' personal income tax by 1% from tax year 2028, on 2027 income.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:b65a6e102ccd348cd9f85cdad62c62d4",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:4f0110d0ffe0585af659e3e4ab483585",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -31,21 +31,21 @@
       "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
-      "question": "According to BRUZZ (30 October 2026), which measure in the 2027 Brussels budget is expected to bring in 75 million euros?",
+      "question": "What opinion did the Court of Audit present to the Brussels Parliament on 9 November 2026 on the Region's 2025 general account?",
       "options": [
-        "The hiring freeze in the regional administration",
-        "The sale of the minister-president's official residence",
-        "The increase in the regional online gaming tax",
-        "Spreading regional IT projects out over time"
+        "An adverse opinion, the second in a row",
+        "A favourable opinion, without any reservation",
+        "A favourable opinion, with reservations",
+        "No opinion, for lack of sufficient records"
       ],
       "correct": 0,
-      "explanation": "The hiring freeze is kept in 2027, with an exception for active roles such as firefighters, waste collectors and metro drivers. The sale of the official residence is counted at 15 million.",
+      "explanation": "The Court finds material misstatements, notably in the accounts of the government services and of the SLRB. It had already issued an adverse opinion on the 2024 general account.",
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:b65a6e102ccd348cd9f85cdad62c62d4",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:4f0110d0ffe0585af659e3e4ab483585",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -100,21 +100,21 @@
       "id": "domain-climate-0",
       "source": "domain",
       "domain": "Climate",
-      "question": "According to the simulations reported when the flood zone map was updated (30 October 2026), what share of Brussels residents would a once-in-a-century rainfall affect?",
+      "question": "Which free Brussels Environment service for building professionals, property managers and co-ownerships has been suspended since mid-September 2026?",
       "options": [
-        "One in five",
-        "One in twelve",
-        "One in three",
-        "One in a thousand"
+        "The Sustainable Building Facilitator",
+        "The Renolution grants desk",
+        "Homegrade's energy advice",
+        "The InfoBruit.brussels portal"
       ],
-      "correct": 1,
-      "explanation": "One Brussels resident in twelve for a once-in-a-century rainfall, one in five for a once-in-a-millennium rainfall. These proportions come from simulations.",
+      "correct": 0,
+      "explanation": "The public contract with the provider running this helpdesk ended in mid-September 2026, with no new contract launched. Private individuals are still referred to Homegrade.",
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-11-06",
-        "sourceContentHash": "sha256:fd6ecbb76f3a6401b073de32373a880f",
-        "generatedAt": "2026-11-06T08:13:43.827Z",
+        "sourceLastModified": "2026-11-08",
+        "sourceContentHash": "sha256:1accc870af4af24d4984565573c7cad0",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -123,21 +123,21 @@
       "id": "domain-climate-1",
       "source": "domain",
       "domain": "Climate",
-      "question": "Which level did the regional drought unit restore in the Brussels Region on 5 November 2026, after the yellow vigilance activated on 23 July 2026?",
+      "question": "According to the flood zone map updated by Brussels Environment in October 2026, what is the main risk from heavy rain in Brussels?",
       "options": [
-        "Code green",
-        "Code orange",
-        "Code red",
-        "Reinforced code yellow"
+        "Wastewater backing up into cellars",
+        "The canal overflowing onto the quays",
+        "Groundwater rising into tunnels",
+        "Roads subsiding above the sewers"
       ],
       "correct": 0,
-      "explanation": "Rainfall in the preceding weeks partly normalised the situation and Vivaqua is supplying water normally. The flow of the Meuse, which feeds the Tailfer catchment, stays under watch.",
+      "explanation": "Wastewater backing up can affect nearly one Brussels resident in three during heavy rain. The map shows a low, medium or high risk for every address.",
       "sourceSlug": "/en/domains/climate",
       "sourceTitle": "Climate: LEZ maintained, Renolution replaced, targets pending",
       "provenance": {
-        "sourceLastModified": "2026-11-06",
-        "sourceContentHash": "sha256:fd6ecbb76f3a6401b073de32373a880f",
-        "generatedAt": "2026-11-06T08:13:43.827Z",
+        "sourceLastModified": "2026-11-08",
+        "sourceContentHash": "sha256:1accc870af4af24d4984565573c7cad0",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -376,21 +376,21 @@
       "id": "domain-institutional-0",
       "source": "domain",
       "domain": "Institutional",
-      "question": "According to Brussels Parliament figures reported by Le Soir (4 November 2026), how many committee meetings were cancelled during the 2025-2026 parliamentary year?",
+      "question": "According to the Brussels Civil Service minister (Parliament's Finance Committee, 9 November 2026), when is the regional support service atlas.brussels to start operating?",
       "options": [
-        "26",
-        "14",
-        "8",
-        "41"
+        "On 1 January 2027",
+        "On 1 September 2026",
+        "On 1 January 2029",
+        "On 1 July 2027"
       ],
       "correct": 0,
-      "explanation": "In the four previous years, the number was 3, 14, 1 and 4. According to the newspaper, the long caretaker period, which ended on 14 February 2026, largely explains this number.",
+      "explanation": "atlas.brussels centralises human resources, IT, purchasing and accounting. Transferred staff keep their seniority and their benefits.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-11-06",
-        "sourceContentHash": "sha256:c3578666b676021700a0927d338cb334",
-        "generatedAt": "2026-11-06T08:13:43.827Z",
+        "sourceLastModified": "2026-11-10",
+        "sourceContentHash": "sha256:5a43e03d63cb358653b77caaadb02d7d",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -399,21 +399,21 @@
       "id": "domain-institutional-1",
       "source": "domain",
       "domain": "Institutional",
-      "question": "Under the federal law on home entries adopted by the Chamber on 6 November 2026, whose prior authorisation is needed to arrest a foreign national at home?",
+      "question": "By when did the Brussels Minister-President announce, on 9 November 2026, a proposal for institutional reform to reduce the fragmentation of powers between the Region and the municipalities?",
       "options": [
-        "That of an investigating judge",
-        "That of the municipality's mayor",
-        "That of the public prosecutor",
-        "That of the Council of State"
+        "By 2029",
+        "By 2027",
+        "By 2031",
+        "By 2034"
       ],
       "correct": 0,
-      "explanation": "The entry may only take place between 5 a.m. and 9 p.m. The Brussels Parliament had opposed the bill in a resolution adopted on 2 October 2026.",
+      "explanation": "The announcement was made at an event of the employers' organisation Voka. No text had been tabled by that date; a reform plan for issuing permits was announced within six months.",
       "sourceSlug": "/en/domains/institutional",
       "sourceTitle": "Institutional reform: merging 25 structures into 4 pillars",
       "provenance": {
-        "sourceLastModified": "2026-11-06",
-        "sourceContentHash": "sha256:c3578666b676021700a0927d338cb334",
-        "generatedAt": "2026-11-06T08:13:43.827Z",
+        "sourceLastModified": "2026-11-10",
+        "sourceContentHash": "sha256:5a43e03d63cb358653b77caaadb02d7d",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -422,21 +422,21 @@
       "id": "domain-mobility-0",
       "source": "domain",
       "domain": "Mobility",
-      "question": "Under the Flemish measure applying from 1 January 2027, what condition must a candidate meet to take the practical driving test in Flanders?",
+      "question": "According to parking.brussels (November 2026), what rule will apply from 2027 to bikes left in one of the Region's secure bike boxes?",
       "options": [
-        "Being domiciled there on the test date",
-        "Having attended an approved driving school there",
-        "Having passed the theory test there",
-        "Having waited at least six months there"
+        "No more than one month unused",
+        "No more than three months unused",
+        "No more than one week unused",
+        "No more than six months unused"
       ],
-      "correct": 2,
-      "explanation": "The Flemish government cites pressure on the centres around Brussels. Brussels has applied a similar rule since 2018, Wallonia since 2024.",
+      "correct": 0,
+      "explanation": "The limit drops from three months to one; after two warnings, the bike is moved to a depot. A bike parking masterplan is expected in early 2027.",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:a3a713288e2b717da9b5e8506a6cc0c9",
-        "generatedAt": "2026-11-01T14:01:25.001Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:75ffcd828b3bef4091bc521f55260bfb",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -445,21 +445,21 @@
       "id": "domain-mobility-1",
       "source": "domain",
       "domain": "Mobility",
-      "question": "In the Vias institute survey cited by BRUZZ (30 October 2026), what share of Brussels respondents say they sometimes behave aggressively on the road?",
+      "question": "How many Brussels residents were waiting for a secure bike parking space, according to figures reported by BRUZZ on 8 November 2026?",
       "options": [
-        "30%",
-        "45%",
-        "40%",
-        "60%"
+        "Nearly 15,000",
+        "Nearly 5,000",
+        "Nearly 30,000",
+        "Nearly 1,500"
       ],
-      "correct": 1,
-      "explanation": "45% in Brussels, compared with 40% in Wallonia and 30% in Flanders. Neither the Region nor the police keep separate figures on this phenomenon, BRUZZ reports.",
+      "correct": 0,
+      "explanation": "The May 2026 count found more than 14,200, and about 500 more requests followed. Some applicants have been waiting for a bike box space for about four years.",
       "sourceSlug": "/en/domains/mobility",
       "sourceTitle": "Mobility: new regional plan, Metro 3 frozen, LEZ maintained",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:a3a713288e2b717da9b5e8506a6cc0c9",
-        "generatedAt": "2026-11-01T14:01:25.001Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:75ffcd828b3bef4091bc521f55260bfb",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "How many additional firefighters are unions demanding for Brussels at the European demonstration of 3 November 2026?",
+      "question": "Under the police order of 19 October 2026, in how many sensitive zones of Brussels are electric scooters banned?",
       "options": [
-        "200",
-        "50",
-        "500",
-        "1,000"
+        "19 zones",
+        "9 zones",
+        "29 zones",
+        "12 zones"
       ],
       "correct": 0,
-      "explanation": "This union demand dates from early 2026. According to BRUZZ, the ten staff requested for the 112 emergency call centre have been granted, and new talks are scheduled for 13 November 2026.",
+      "explanation": "Several of these zones surround the North and South stations and metro exits. According to L'Avenir (6 November 2026), no sign yet marked their boundaries.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:bbac8e3c926a8f3e739f7da7cecd09fa",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-08",
+        "sourceContentHash": "sha256:059fb81924a6d4a7dfb6d4bba920badb",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "During the FIPA operation of 29 October 2026 in drug-related hotspots in Brussels, how many people were checked, according to the federal police?",
+      "question": "According to a union official quoted by BRUZZ in November 2026, what reinforcement was obtained for the Brussels 112 emergency call centre?",
       "options": [
-        "11,388",
-        "641",
-        "4,000",
-        "25,000"
+        "Ten additional staff",
+        "Twenty additional staff",
+        "Five additional staff",
+        "Forty additional staff"
       ],
       "correct": 0,
-      "explanation": "More than 400 personnel took part, including the six police zones, Defence and STIB. The results include 16 judicial and 20 administrative arrests and 641 vehicles checked.",
+      "explanation": "The 112 centre obtained this reinforcement, but no short-term solution was found for the fire brigade, for which the unions are demanding 200 more people.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:bbac8e3c926a8f3e739f7da7cecd09fa",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-08",
+        "sourceContentHash": "sha256:059fb81924a6d4a7dfb6d4bba920badb",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "According to Iriscare's statement of 30 October 2026, to what amount does its contribution rise for creating 130 convalescence beds in Brussels?",
+      "question": "According to the Red Cross and Doctors of the World (12 November 2026), what is distinctive about the Refugee Medical Point medical centre in Brussels?",
       "options": [
-        "250,000 euros",
-        "820,000 euros",
-        "580,000 euros",
-        "130,000 euros"
+        "The only free care without appointment or conditions",
+        "The only public hospital reserved for asylum seekers",
+        "The only medical centre open all night in Brussels",
+        "The only health centre fully funded by the COCOM"
       ],
-      "correct": 2,
-      "explanation": "The contribution rises from 250,000 to 580,000 euros, on top of the federal flat rate of 28.40 euros per day. Applications are due by 30 November 2026.",
+      "correct": 0,
+      "explanation": "The centre recorded more than 4,800 visits from August to November 2026, nearly 80 a day. The Athéna centre, which offered a similar service, closed at the end of 2025.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:ab33c79341048a24ec5698ee14ef7263",
-        "generatedAt": "2026-11-01T14:01:25.001Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:3c6a234200b19c1848fb6286adc3daec",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "According to Iriscare (30 October 2026), at what point in the care pathway do the convalescence beds it wants to create in Brussels come in?",
+      "question": "According to BRUZZ (11 November 2026), from which authority was the Brussels home care organisation Wheel of Care expecting a 92,000 euro subsidy?",
       "options": [
-        "Between home and the nursing home",
-        "Between hospital and home",
-        "Between the doctor and the emergency room",
-        "Between two nursing home stays"
+        "The COCOM, through its Vivalis administration",
+        "The Region, through Brussels Economy and Employment",
+        "The COCOF, through its health department",
+        "The federal level, through the INAMI flat rates"
       ],
-      "correct": 1,
-      "explanation": "These places take in patients who have temporarily lost their independence. According to Iriscare, this provision does not exist in Brussels at the date of the statement.",
+      "correct": 0,
+      "explanation": "The subsidy remained blocked during the government formation; Wheel of Care is cutting 30 jobs. Vivalis says the file is to go to the United College.",
       "sourceSlug": "/en/domains/social",
       "sourceTitle": "Social affairs: reception scheme cut back, Samusocial saturated, CPAS under strain",
       "provenance": {
-        "sourceLastModified": "2026-11-01",
-        "sourceContentHash": "sha256:ab33c79341048a24ec5698ee14ef7263",
-        "generatedAt": "2026-11-01T14:01:25.001Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:3c6a234200b19c1848fb6286adc3daec",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "From what minimum size is a wasteland site covered by the building ban of the judgment of 29 October 2025, which the Brussels Region appealed?",
+      "question": "According to a note of 24 April 2026 revealed by L'Avenir and La DH in November 2026, on which plan must perspective.brussels focus all its staff?",
       "options": [
-        "0.5 hectares",
-        "1 hectare",
-        "2 hectares",
-        "5 hectares"
+        "The Regional Land Use Plan (PRAS)",
+        "The Regional Urban Planning Regulation (RRU)",
+        "The Regional Sustainable Development Plan",
+        "The Good Move regional mobility plan"
       ],
       "correct": 0,
-      "explanation": "The ban runs until 31 December 2026. After the final hearing on 2 November 2026, the Court of Appeal will rule by 4 January 2027 at the latest.",
+      "explanation": "The PRAS dates from 2001. The same note entrusts the finalisation of the RRU, whose version in force dates from 2006, to the cabinet of the Secretary of State for Urban Planning.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:887cb1d80f15be3d8f9b3f5569acec59",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-10",
+        "sourceContentHash": "sha256:d23245584b322b0574406be907a932d0",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "Which 60-metre project on rue de France in Saint-Gilles is the subject of a new Council of State appeal announced on 28 October 2026?",
+      "question": "By when at the latest must the Brussels Court of Appeal rule on the Region's appeal against the building ban on brownfield sites of more than 0.5 hectare (final hearing on 2 November 2026)?",
       "options": [
-        "Infrabel's “The Switch” headquarters",
-        "The SIAMU headquarters fire station",
-        "The SNCB head office at Midi station",
-        "The Brussels Mobility office tower"
+        "By 4 January 2027",
+        "By 31 December 2026",
+        "By 1 March 2027",
+        "By 30 June 2027"
       ],
       "correct": 0,
-      "explanation": "The first permit was withdrawn on 14 August 2026 and then reissued. The associations contest the height, the loss of housing without compensation and the construction of new offices.",
+      "explanation": "The judgment of 29 October 2025 bans building on or sealing these sites until 31 December 2026. The non-profit We Are Nature is asking for an extension until at least 2030.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:887cb1d80f15be3d8f9b3f5569acec59",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-10",
+        "sourceContentHash": "sha256:d23245584b322b0574406be907a932d0",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1158,21 +1158,21 @@
       "id": "dossier-mobilite-partagee-0",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "Which shared e-scooter and bike operator obtained, on 29 July 2026, the annulment by the Council of State of the licences of Bolt, Dott and Voi, on its own appeal?",
+      "question": "Under the draft ordinance on shared mobility approved by the Brussels Parliament's Mobility Committee on 10 November 2026, how many shared bikes may each operator offer until 1 May 2028?",
       "options": [
-        "Lime",
-        "Villo",
-        "TIER",
-        "Pony"
+        "Up to 2,500 bikes",
+        "Up to 4,800 bikes",
+        "Up to 1,000 bikes",
+        "Up to 8,000 bikes"
       ],
       "correct": 0,
-      "explanation": "The annulment led to the announcement, on 21 August 2026, of a transitional regime: shared e-scooters remain available until 1 January 2027, shared bikes until May 2028 with a cap of 2,500 bikes per operator.",
+      "explanation": "This transitional regime, announced on 21 August 2026, follows the annulment of the licences by the Council of State. According to BRUZZ, two or three licences of 4,000 to 8,000 bikes will follow.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:025fe3e1eedb7f39f53b912b1e31ceb6",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:db05ef9e29c45191273430305e122fbd",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1181,21 +1181,21 @@
       "id": "dossier-mobilite-partagee-1",
       "source": "dossier",
       "domain": "Mobility",
-      "question": "On 8 September 2026, the Region announced the Villo contract would be maintained until 2028, alongside a call for candidates. What is the targeted annual subscription price, against 3.50 euros a month as of 19 September 2026?",
+      "question": "From what date are shared e-scooters banned in Brussels, under the Brussels government's decision of 11 June 2026?",
       "options": [
-        "35 euros",
-        "50 euros",
-        "20 euros",
-        "70 euros"
+        "From 1 January 2027",
+        "From 1 September 2026",
+        "From 1 May 2028",
+        "From 1 July 2027"
       ],
       "correct": 0,
-      "explanation": "As of 19 September 2026, Villo costs 3.50 euros a month or 1.50 euros for a one-day ticket; the 360 Villo! stations represent around 5,000 docked bicycles, alongside approximately 15,700 free-floating vehicles counted in March 2025.",
+      "explanation": "The government cites road safety and the use of these vehicles for criminal purposes. Private e-scooters remain allowed: they fall under federal rules.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:025fe3e1eedb7f39f53b912b1e31ceb6",
-        "generatedAt": "2026-09-20T16:22:26.596Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:db05ef9e29c45191273430305e122fbd",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climate",
-      "question": "According to BRUZZ (2 November 2026), in which document does the RNP 07L approach procedure remain listed, with no end date, after its test phase ended on 31 October 2026?",
+      "question": "According to De Standaard and Le Soir (12 November 2026), why can the Brussels Region no longer challenge the RNP 07L landing route before the Council of State?",
       "options": [
-        "The Aeronautical Information Publication (AIP)",
-        "Brussels Airport's environmental permit",
-        "The management contract with skeyes",
-        "The federal decree setting wind limits"
+        "The sixty-day deadline for appeal has expired",
+        "The Council of State declared itself not competent",
+        "Flanders withdrew its agreement on the route",
+        "The federal level scrapped the route before any appeal"
       ],
       "correct": 0,
-      "explanation": "The federal mobility minister is keeping the procedure because skeyes has proposed no alternative, and is having an alternation with a slightly curved variant studied.",
+      "explanation": "The federal letter of 17 July 2026 was not passed on in time to the competent government member. The two court cases under way keep their hearings in January and February 2027.",
       "sourceSlug": "/en/dossiers/survol-bruxelles",
       "sourceTitle": "Aircraft overflight",
       "provenance": {
-        "sourceLastModified": "2026-11-03",
-        "sourceContentHash": "sha256:97a84c91a0f8c55bb4e0ebc6a35ced11",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-12",
+        "sourceContentHash": "sha256:32ecafe62259cc0ed3422fc110e2373b",
+        "generatedAt": "2026-11-12T13:21:14.179Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 63
+  "reviewedCount": 49
 }

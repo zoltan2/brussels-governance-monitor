@@ -36,7 +36,29 @@ metrics:
     source: "IRM, bilan climatologique de l'été 2026"
     url: "https://www.meteo.be/fr/climat/climat-de-la-belgique/bilans-climatologiques/2026/ete"
     date: "2026-08-31"
+  - label: "Part du territoire régional couverte par la végétation en 2023 (54,9 % en 2016)"
+    value: "48,7"
+    unit: "%"
+    source: "Bruxelles Environnement, couverture végétale en Région bruxelloise"
+    url: "https://environnement.brussels/citoyen/documentation-et-outils/etat-des-lieux-de-lenvironnement/couverture-vegetale-et-qualite-biologique"
+    date: "2026-02-17"
 sources:
+  - label: "Bruxelles Environnement : Couverture végétale et qualité biologique"
+    url: "https://environnement.brussels/citoyen/documentation-et-outils/etat-des-lieux-de-lenvironnement/couverture-vegetale-et-qualite-biologique"
+    type: official
+    accessedAt: "2026-11-12"
+  - label: "EUR-Lex : Règlement (UE) 2024/1991 relatif à la restauration de la nature"
+    url: "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32024R1991"
+    type: official
+    accessedAt: "2026-11-12"
+  - label: "Bruxelles Mobilité : Inventaire des arbres d'alignement des voiries régionales"
+    url: "https://data.mobility.brussels/fr/info/trees/"
+    type: opendata
+    accessedAt: "2026-11-12"
+  - label: "Région de Bruxelles-Capitale : Inventaire du patrimoine naturel, arbres"
+    url: "https://sites.heritage.brussels/index.php?section_search=trees&section=trees&lg=fr"
+    type: official
+    accessedAt: "2026-11-12"
   - label: "The Brussels Times (Belga) : Bruxelles approuve un plan Canopée pour rendre les espaces publics plus résistants aux vagues de chaleur (17 juillet 2026)"
     url: "https://www.brusselstimes.com/2234431/brussels-approves-canopy-plan-to-make-public-spaces-more-resilient-to-heatwaves"
     type: media
@@ -199,12 +221,12 @@ faq:
       - label: "Parlement bruxellois : C.R.I. COM (25/26) n° 114, commission Environnement et Énergie (15 juillet 2026)"
         url: "http://weblex.brussels/data/crb/biq/2025-26/00114/images.pdf"
         accessedAt: "2026-09-23"
-faqReviewed: "2026-11-09"
+faqReviewed: "2026-11-12"
 confidenceLevel: estimated
-lastModified: "2026-11-09"
+lastModified: "2026-11-12"
 changeType: updated
-changeSummary: "Chaleur : le dossier distingue le Plan Canopée communal de la Ville de Bruxelles du plan Canopée régional. Le gouvernement bruxellois a approuvé ce dernier le 16 juillet 2026 pour les grands espaces publics régionaux."
-changeSummaryDate: "2026-11-09"
+changeSummary: "Chaleur : la végétation ne couvrait plus que 48,7 % du territoire bruxellois en 2023, contre 54,9 % en 2016. Le dossier détaille aussi les inventaires d'arbres existants et l'objectif européen de 2030 pour le couvert arboré urbain."
+changeSummaryDate: "2026-11-12"
 draft: false
 ---
 
@@ -362,7 +384,7 @@ Des chantiers publics livrent des espaces minéralisés sans ombrage, tandis que
 
 <Essentiel>
 
-Bruxelles est imperméabilisée à environ cinquante-trois pour cent, et soixante pour cent du foncier vert est privé (estimation, source : Bruxelles Environnement). Dans ce contexte, plusieurs grands chantiers publics récents ont livré des espaces très minéraux, sans ombrage, au moment même où la chaleur urbaine s'intensifie. En parallèle, des programmes régionaux financent la végétalisation de cours d'écoles et de places qui avaient été bétonnées des décennies plus tôt.
+Bruxelles est imperméabilisée à environ cinquante-trois pour cent, et soixante pour cent du foncier vert est privé (estimation, source : Bruxelles Environnement). Selon Bruxelles Environnement, la végétation couvrait 54,9 % du territoire régional en 2016 et 48,7 % en 2023, une baisse moyenne estimée à près d'un point par an. Ce taux compte les arbres, les arbustes, la végétation basse et les toitures vertes ; sans la forêt de Soignes et le bois de la Cambre, il tombe à 42,6 %. Bruxelles Environnement précise que l'estimation de 2016 est probablement trop haute et que les deux mesures reposent sur des images différentes : la baisse est nette, son ampleur exacte reste incertaine. Dans ce contexte, plusieurs grands chantiers publics récents ont livré des espaces très minéraux, sans ombrage, au moment même où la chaleur urbaine s'intensifie. En parallèle, des programmes régionaux financent la végétalisation de cours d'écoles et de places qui avaient été bétonnées des décennies plus tôt.
 
 Côté abattages, le collectif Help4Trees et Inter-Environnement Bruxelles (IEB) avancent le chiffre de plus de soixante-deux mille arbres à haute tige *autorisés à l'abattage* entre 2010 et 2022 en Région bruxelloise, hors Forêt de Soignes, pour environ trois mille deux cent cinquante-quatre replantés sur la même période. Attention : permis d'abattage n'est pas synonyme d'abattages réalisés ; ces chiffres reflètent des autorisations accordées, non le nombre d'arbres effectivement coupés. Leur fiabilité est classée `unconfirmed`, faute de cadastre régional consolidé.
 
@@ -446,7 +468,7 @@ Six plans coexistent, la coordination est fragmentée sur cinq niveaux : Bruxell
 
 **Le déficit de données de l'îlot de chaleur.** La cartographie officielle de l'îlot de chaleur bruxellois repose sur l'étude commandée à VITO par Bruxelles Environnement (modèle UrbClim, résolution 100 m, période de référence 1987-2016, publication 2018). Aucune nouvelle cartographie régionale n'a été trouvée dans les sources consultées au 22 septembre 2026. La page « Îlot de chaleur » de Bruxelles Environnement cite toutefois une étude de 2023 (Université de Liège, SBD Lab, MK Engineering et 1010), intitulée « Îlot de chaleur urbaine – Livrable 4 : Proposition de mesures d'atténuation », réalisée pour le compte de la Ville de Bruxelles : c'est une étude communale, pas une nouvelle carte régionale. La presse relayait en juillet 2025 que ces données étaient qualifiées de « relativement anciennes ». Cette absence de mise à jour limite la capacité à mesurer les évolutions récentes de l'îlot de chaleur, à cibler les zones d'intervention prioritaires et à évaluer l'efficacité des mesures déjà engagées. Confiance : `estimated` (absence constatée dans les sources, pas une affirmation définitive).
 
-**Le cadastre des arbres : une demande documentée, sans suite officielle confirmée.** Help4Trees et Inter-Environnement Bruxelles (IEB) ont formellement demandé la création d'un cadastre régional ouvert des arbres. À la date de rédaction, aucun cadastre de ce type n'est accessible publiquement à l'échelle régionale. Sans registre consolidé, les données sur le couvert arboré restent fragmentées entre permis d'abattage accordés (urban.brussels), arbres plantés par Bruxelles Environnement et arbres gérés par les communes. Confiance : `estimated` (absence de cadastre constatée dans les sources consultées).
+**Le cadastre des arbres : une demande documentée, sans suite officielle confirmée.** Help4Trees et Inter-Environnement Bruxelles (IEB) ont formellement demandé la création d'un cadastre régional ouvert des arbres. À la date de rédaction, aucun cadastre de ce type n'est accessible publiquement à l'échelle régionale. Sans registre consolidé, les données sur le couvert arboré restent fragmentées entre permis d'abattage accordés (urban.brussels), arbres plantés par Bruxelles Environnement et arbres gérés par les communes. Des inventaires partiels existent : Bruxelles Mobilité publie en données ouvertes celui des arbres d'alignement des voiries régionales (plus de 30 000 arbres), et l'inventaire du patrimoine naturel de la Région recense les arbres remarquables. Aucun ne couvre l'ensemble des arbres de la Région, ni les abattages et les replantations. Le règlement européen sur la restauration de la nature (2024/1991, article 8) impose pourtant de ne perdre, d'ici le 31 décembre 2030, ni surface d'espaces verts urbains ni couvert arboré urbain par rapport à 2024, puis d'en obtenir la hausse à partir de 2031. Confiance : `estimated` (absence de cadastre constatée dans les sources consultées).
 
 **Brulocalis et le constat d'impréparation.** La fédération des communes bruxelloises (Brulocalis) a estimé que Bruxelles n'est pas prête face au changement climatique. Cette position, portée par l'association représentative des 19 communes, pointe notamment le manque de moyens des communes pour assurer des missions d'adaptation (rafraîchissement des espaces publics, accueil des populations vulnérables, gestion des îlots de chaleur en zone dense). Confiance : `estimated` (position d'une association représentative, non contredite par une source officielle dans les sources consultées).
 

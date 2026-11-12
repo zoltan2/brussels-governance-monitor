@@ -36,7 +36,29 @@ metrics:
     source: "KMI, klimatologisch overzicht van de zomer van 2026"
     url: "https://www.meteo.be/fr/climat/climat-de-la-belgique/bilans-climatologiques/2026/ete"
     date: "2026-08-31"
+  - label: "Deel van het gewestelijk grondgebied bedekt met vegetatie in 2023 (54,9 % in 2016)"
+    value: "48,7"
+    unit: "%"
+    source: "Leefmilieu Brussel, vegetatiebedekking in het Brussels Gewest"
+    url: "https://environnement.brussels/citoyen/documentation-et-outils/etat-des-lieux-de-lenvironnement/couverture-vegetale-et-qualite-biologique"
+    date: "2026-02-17"
 sources:
+  - label: "Leefmilieu Brussel: Vegetatiebedekking en biologische kwaliteit (Franstalige pagina)"
+    url: "https://environnement.brussels/citoyen/documentation-et-outils/etat-des-lieux-de-lenvironnement/couverture-vegetale-et-qualite-biologique"
+    type: official
+    accessedAt: "2026-11-12"
+  - label: "EUR-Lex: Verordening (EU) 2024/1991 inzake natuurherstel"
+    url: "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32024R1991"
+    type: official
+    accessedAt: "2026-11-12"
+  - label: "Brussel Mobiliteit: Inventaris van de laanbomen langs de gewestwegen"
+    url: "https://data.mobility.brussels/fr/info/trees/"
+    type: opendata
+    accessedAt: "2026-11-12"
+  - label: "Brussels Hoofdstedelijk Gewest: Inventaris van het natuurlijk erfgoed, bomen"
+    url: "https://sites.heritage.brussels/index.php?section_search=trees&section=trees&lg=fr"
+    type: official
+    accessedAt: "2026-11-12"
   - label: "The Brussels Times (Belga): Brussel keurt plan Canopée goed om openbare ruimten beter bestand te maken tegen hittegolven (17 juli 2026)"
     url: "https://www.brusselstimes.com/2234431/brussels-approves-canopy-plan-to-make-public-spaces-more-resilient-to-heatwaves"
     type: media
@@ -199,12 +221,12 @@ faq:
       - label: "Brussels Parlement: I.V. COM (25/26) nr. 114, commissie Leefmilieu en Energie (15 juli 2026)"
         url: "http://weblex.brussels/data/crb/biq/2025-26/00114/images.pdf"
         accessedAt: "2026-09-23"
-faqReviewed: "2026-11-09"
+faqReviewed: "2026-11-12"
 confidenceLevel: estimated
-lastModified: "2026-11-09"
+lastModified: "2026-11-12"
 changeType: updated
-changeSummary: "Hitte: het dossier onderscheidt het Boomkroondakplan van de Stad Brussel van het gewestelijke plan Canopée. De Brusselse regering keurde dat laatste op 16 juli 2026 goed voor de grote gewestelijke openbare ruimten."
-changeSummaryDate: "2026-11-09"
+changeSummary: "Hitte: vegetatie bedekte in 2023 nog 48,7 % van het Brusselse grondgebied, tegenover 54,9 % in 2016. Het dossier beschrijft ook de bestaande bomeninventarissen en de Europese doelstelling voor 2030 voor het stedelijk boomkronendak."
+changeSummaryDate: "2026-11-12"
 draft: false
 ---
 
@@ -362,7 +384,7 @@ Openbare werven leveren verharde ruimten zonder schaduw op, terwijl afzonderlijk
 
 <Essentiel>
 
-Brussel is voor ongeveer drieënvijftig procent verhard, en zestig procent van het groene areaal is privé (schatting, bron: Leefmilieu Brussel). In deze context hebben meerdere grote recente openbare werken zeer minerale ruimten opgeleverd, zonder schaduw, op het moment dat de stedelijke hitte zich intensifieert. Tegelijkertijd financieren gewestelijke programma's de vergroening van schoolpleinen en pleinen die decennia eerder werden geasfalteerd.
+Brussel is voor ongeveer drieënvijftig procent verhard, en zestig procent van het groene areaal is privé (schatting, bron: Leefmilieu Brussel). Volgens Leefmilieu Brussel bedekte vegetatie in 2016 54,9 % van het gewestelijk grondgebied en in 2023 48,7 %, een gemiddelde daling van naar schatting bijna één procentpunt per jaar. Dat cijfer omvat bomen, struiken, lage vegetatie en groendaken; zonder het Zoniënwoud en het Ter Kamerenbos daalt het tot 42,6 %. Leefmilieu Brussel wijst erop dat de schatting voor 2016 waarschijnlijk te hoog ligt en dat beide metingen op verschillende beelden steunen: de daling is duidelijk, de precieze omvang blijft onzeker. In deze context hebben meerdere grote recente openbare werken zeer minerale ruimten opgeleverd, zonder schaduw, op het moment dat de stedelijke hitte zich intensifieert. Tegelijkertijd financieren gewestelijke programma's de vergroening van schoolpleinen en pleinen die decennia eerder werden geasfalteerd.
 
 Wat de kapbeurten betreft, stellen het collectief Help4Trees en Inter-Environnement Brussel (IEB) het cijfer naar voor van meer dan tweeënzestigduizend hoogstammige bomen *toegestaan voor velling* tussen 2010 en 2022 in het Brussels Gewest, exclusief het Zoniënwoud, voor ongeveer drieduizend tweehonderdvierenvijftig herplant in dezelfde periode. Let op: kapvergunning is niet hetzelfde als gerealiseerde kapbeurten; deze cijfers weerspiegelen toegekende vergunningen, niet het aantal effectief gevelde bomen. Hun betrouwbaarheid is als `unconfirmed` geclassificeerd, bij gebrek aan een geconsolideerd gewestelijk register.
 
@@ -446,7 +468,7 @@ Zes plannen bestaan naast elkaar, de coördinatie is versnipperd over vijf nivea
 
 **Het gegevenstekort van het hitte-eiland.** De officiële cartografie van het Brusselse hitte-eiland steunt op de studie besteld bij VITO door Leefmilieu Brussel (UrbClim-model, resolutie 100 m, referentieperiode 1987-2016, publicatie 2018). In de geraadpleegde bronnen werd op 22 september 2026 geen nieuwe gewestelijke cartografie gevonden. De pagina "Hitte-eiland" van Leefmilieu Brussel citeert wel een studie uit 2023 (Université de Liège, SBD Lab, MK Engineering en 1010), getiteld "Îlot de chaleur urbaine – Livrable 4 : Proposition de mesures d'atténuation", uitgevoerd in opdracht van de Stad Brussel: het is een gemeentelijke studie, geen nieuwe gewestelijke kaart. De pers meldde in juli 2025 dat deze gegevens als "relatief oud" werden gekwalificeerd. Dit ontbreken van een update beperkt de capaciteit om recente evoluties van het hitte-eiland te meten, de prioritaire interventiezone's te bepalen en de doeltreffendheid van reeds genomen maatregelen te evalueren. Vertrouwen: `estimated` (afwezigheid vastgesteld in de bronnen, geen definitieve bewering).
 
-**Het bomenregister: een gedocumenteerde vraag, zonder bevestigde officiële opvolging.** Help4Trees en Inter-Environnement Brussel (IEB) hebben formeel de aanleg gevraagd van een open gewestelijk bomenregister. Op de redactiedatum is geen register van dit type publiek toegankelijk op gewestelijke schaal. Zonder geconsolideerd register blijven de gegevens over de boomkroonbedekking versnipperd tussen toegekende kapvergunningen (urban.brussels), door Leefmilieu Brussel geplante bomen en door de gemeenten beheerde bomen. Vertrouwen: `estimated` (afwezigheid van een register vastgesteld in de geraadpleegde bronnen).
+**Het bomenregister: een gedocumenteerde vraag, zonder bevestigde officiële opvolging.** Help4Trees en Inter-Environnement Brussel (IEB) hebben formeel de aanleg gevraagd van een open gewestelijk bomenregister. Op de redactiedatum is geen register van dit type publiek toegankelijk op gewestelijke schaal. Zonder geconsolideerd register blijven de gegevens over de boomkroonbedekking versnipperd tussen toegekende kapvergunningen (urban.brussels), door Leefmilieu Brussel geplante bomen en door de gemeenten beheerde bomen. Er bestaan wel gedeeltelijke inventarissen: Brussel Mobiliteit publiceert als open data die van de laanbomen langs de gewestwegen (meer dan 30.000 bomen), en de inventaris van het natuurlijk erfgoed van het Gewest brengt de opmerkelijke bomen in kaart. Geen enkele omvat alle bomen van het Gewest, noch de kappingen en herplantingen. De Europese natuurherstelverordening (2024/1991, artikel 8) verplicht nochtans om tegen 31 december 2030 geen nettoverlies te lijden aan stedelijke groene ruimte of stedelijk boomkronendak ten opzichte van 2024, en vanaf 2031 een stijging te bereiken. Vertrouwen: `estimated` (afwezigheid van een register vastgesteld in de geraadpleegde bronnen).
 
 **Brulocalis en de vaststelling van onvoorbereiding.** De federatie van Brusselse gemeenten (Brulocalis) heeft geschat dat Brussel niet klaar is voor de klimaatverandering. Dit standpunt, gedragen door de representatieve vereniging van de 19 gemeenten, wijst met name op het gebrek aan middelen voor de gemeenten om aanpassingsopdrachten te vervullen (verkoeling van openbare ruimten, opvang van kwetsbare bevolkingsgroepen, beheer van hitte-eilanden in dichte zones). Vertrouwen: `estimated` (standpunt van een representatieve vereniging, niet tegengesproken door een officiële bron in de geraadpleegde bronnen).
 

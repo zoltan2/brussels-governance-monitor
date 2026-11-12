@@ -327,7 +327,8 @@
       "domaines": [
         "institutional"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "skipKeywordFilter": true
     },
     {
       "id": "watch-015",
@@ -609,7 +610,8 @@
       "domaines": [
         "institutional"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "skipKeywordFilter": true
     },
     {
       "id": "watch-027",
@@ -968,7 +970,8 @@
         "urban-planning",
         "mobility"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "skipKeywordFilter": true
     },
     {
       "_comment": "=== P1 — HAUTE PRIORITE : PRESSE NL ===",
@@ -4515,7 +4518,8 @@
       ],
       "document_trust_tier": "P1",
       "fetchMode": "rss",
-      "rssUrl": "https://www.bruzz.be/tag/energie/rss.xml"
+      "rssUrl": "https://www.bruzz.be/tag/energie/rss.xml",
+      "skipKeywordFilter": true
     },
     {
       "id": "watch-241",
@@ -4535,7 +4539,8 @@
       "domaines": [
         "institutional"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "skipKeywordFilter": true
     },
     {
       "id": "watch-242",
@@ -4555,7 +4560,8 @@
       "domaines": [
         "institutional"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "skipKeywordFilter": true
     },
     {
       "id": "watch-243",
@@ -4575,7 +4581,8 @@
       "domaines": [
         "institutional"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "skipKeywordFilter": true
     },
     {
       "id": "watch-244",
@@ -5044,7 +5051,8 @@
         "institutional",
         "urban-planning"
       ],
-      "document_trust_tier": "P1"
+      "document_trust_tier": "P1",
+      "skipKeywordFilter": true
     },
     {
       "id": "watch-266",

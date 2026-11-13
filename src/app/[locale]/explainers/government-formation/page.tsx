@@ -77,13 +77,12 @@ function GovernmentFormationView() {
             <div className="rounded-lg border border-neutral-200 p-4">
               <h3 className="mb-3 text-sm font-semibold text-neutral-900">{t('elections2024.frGroup')}</h3>
               <div className="space-y-1.5 text-xs">
-                <div className="flex justify-between"><span>MR</span><span className="font-medium">16</span></div>
-                <div className="flex justify-between"><span>PS</span><span className="font-medium">14</span></div>
-                <div className="flex justify-between"><span>Les Engagés</span><span className="font-medium">11</span></div>
-                <div className="flex justify-between"><span>Ecolo</span><span className="font-medium">9</span></div>
-                <div className="flex justify-between"><span>PTB-PVDA</span><span className="font-medium">8</span></div>
-                <div className="flex justify-between"><span>DéFI</span><span className="font-medium">8</span></div>
-                <div className="flex justify-between"><span>Team Ahidar</span><span className="font-medium">6</span></div>
+                <div className="flex justify-between"><span>MR</span><span className="font-medium">20</span></div>
+                <div className="flex justify-between"><span>PS</span><span className="font-medium">16</span></div>
+                <div className="flex justify-between"><span>PTB</span><span className="font-medium">15</span></div>
+                <div className="flex justify-between"><span>Les Engagés</span><span className="font-medium">8</span></div>
+                <div className="flex justify-between"><span>Ecolo</span><span className="font-medium">7</span></div>
+                <div className="flex justify-between"><span>DéFI</span><span className="font-medium">6</span></div>
               </div>
               <div className="mt-2 border-t border-neutral-100 pt-2 text-xs">
                 <div className="flex justify-between font-semibold"><span>{t('elections2024.total')}</span><span>72</span></div>
@@ -96,11 +95,13 @@ function GovernmentFormationView() {
               <h3 className="mb-3 text-sm font-semibold text-neutral-900">{t('elections2024.nlGroup')}</h3>
               <div className="space-y-1.5 text-xs">
                 <div className="flex justify-between"><span>Groen</span><span className="font-medium">4</span></div>
-                <div className="flex justify-between"><span>N-VA</span><span className="font-medium">4</span></div>
-                <div className="flex justify-between"><span>Vooruit</span><span className="font-medium">3</span></div>
-                <div className="flex justify-between"><span>Open VLD</span><span className="font-medium">3</span></div>
-                <div className="flex justify-between"><span>CD&V</span><span className="font-medium">2</span></div>
-                <div className="flex justify-between"><span>Vlaams Belang</span><span className="font-medium">1</span></div>
+                <div className="flex justify-between"><span>Team Fouad Ahidar</span><span className="font-medium">3</span></div>
+                <div className="flex justify-between"><span>N-VA</span><span className="font-medium">2</span></div>
+                <div className="flex justify-between"><span>Open Vld</span><span className="font-medium">2</span></div>
+                <div className="flex justify-between"><span>Vlaams Belang</span><span className="font-medium">2</span></div>
+                <div className="flex justify-between"><span>Vooruit</span><span className="font-medium">2</span></div>
+                <div className="flex justify-between"><span>PVDA</span><span className="font-medium">1</span></div>
+                <div className="flex justify-between"><span>CD&V</span><span className="font-medium">1</span></div>
               </div>
               <div className="mt-2 border-t border-neutral-100 pt-2 text-xs">
                 <div className="flex justify-between font-semibold"><span>{t('elections2024.total')}</span><span>17</span></div>

@@ -40,7 +40,7 @@ export const EXPLAINER_LAST_MODIFIED: Record<string, string> = {
   // Table de compétences retirée au profit d'un lien vers who-decides-what
   // (commit c87c7734).
   'levels-of-power': '2026-03-01',
-  'government-formation': SITE_LAUNCH_DATE,
+  'government-formation': '2026-11-13',
   // Réécriture texte validé le 19/09/2026 (PR #509).
   'brussels-paradox': '2026-09-19',
   'parliament-powers': SITE_LAUNCH_DATE,

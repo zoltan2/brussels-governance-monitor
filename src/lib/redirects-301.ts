@@ -67,6 +67,35 @@ export interface SlugRedirect301 {
   to: string;
 }
 
+/** Nom néerlandais (slug) → slug de la fiche commune, quand ils diffèrent. */
+const COMMUNES_NOMS_NL: ReadonlyArray<readonly [string, string]> = [
+  ['oudergem', 'auderghem'],
+  ['sint-agatha-berchem', 'berchem-sainte-agathe'],
+  ['brussel-stad', 'bruxelles-ville'],
+  ['stad-brussel', 'bruxelles-ville'],
+  ['brussel', 'bruxelles-ville'],
+  ['vorst', 'forest'],
+  ['elsene', 'ixelles'],
+  ['sint-jans-molenbeek', 'molenbeek-saint-jean'],
+  ['sint-gillis', 'saint-gilles'],
+  ['sint-joost-ten-node', 'saint-josse-ten-noode'],
+  ['schaarbeek', 'schaerbeek'],
+  ['ukkel', 'uccle'],
+  ['watermaal-bosvoorde', 'watermael-boitsfort'],
+  ['sint-lambrechts-woluwe', 'woluwe-saint-lambert'],
+  ['sint-pieters-woluwe', 'woluwe-saint-pierre'],
+];
+
+function redirectionsNomsNeerlandaisCommunes(): SlugRedirect301[] {
+  const segments = { fr: 'communes', nl: 'gemeenten', en: 'municipalities', de: 'gemeinden' } as const;
+  return Object.entries(segments).flatMap(([langue, segment]) =>
+    COMMUNES_NOMS_NL.map(([nom, slug]) => ({
+      from: `/${langue}/${segment}/${nom}`,
+      to: `/${langue}/${segment}/${slug}`,
+    })),
+  );
+}
+
 // Renommer une fiche : le contrôle reconnaît le renommage via `git diff -M`
 // (similarité ≥ 50 %). Si le texte est aussi fortement réécrit dans le même
 // commit, git y voit une suppression plus une création, et le contrôle demande
@@ -106,7 +135,13 @@ export const SLUG_REDIRECTS_301: ReadonlyArray<SlugRedirect301> = [
   { from: '/de/refonte/preview/thermometre', to: '/de/refonte' },
   { from: '/de/refonte/preview/texte-fort', to: '/de/refonte' },
   { from: '/de/refonte/preview/multilingue', to: '/de/refonte' },
+  // Communes sous leur nom néerlandais (2026-11-13) : les pages commune n'existent
+  // que sous le slug français, et /nl/gemeenten/sint-joost-ten-node répondait 404.
+  // Un lecteur ou un moteur qui tape le nom néerlandais, dans n'importe quelle
+  // langue, arrive sur la fiche.
+  ...redirectionsNomsNeerlandaisCommunes(),
 ];
+
 
 /**
  * URL de pages retirées VOLONTAIREMENT, sans redirection (fiche supprimée sans

@@ -1,11 +1,34 @@
 {
-  "generatedAt": "2026-11-12T13:17:35.428Z",
+  "generatedAt": "2026-11-13T10:41:28.788Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
+      "source": "domain",
+      "domain": "Budget",
+      "question": "Selon le tableau de l'entité régionale du projet de budget général des dépenses 2027 (document A-347/1 du 30 octobre 2026), quel élément ramène le solde SEC de la Région de −754 à −719 millions d'euros ?",
+      "options": [
+        "Une sous-utilisation des crédits estimée à 35 millions",
+        "Une correction de 35 millions liée au musée Kanal",
+        "Des provisions de 35 millions pour la dette régionale",
+        "La vente de la résidence officielle, pour 35 millions"
+      ],
+      "correct": 0,
+      "explanation": "Avant opérations budgétaires, le solde de financement SEC 2027 atteint −754 millions ; la sous-utilisation des crédits, estimée à 35 millions, le ramène aux −719 millions annoncés par le gouvernement.",
+      "sourceSlug": "/fr/domaines/budget",
+      "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
+      "provenance": {
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:a4219f100018ddb5d5b27d48846ebc64",
+        "generatedAt": "2026-11-13T10:41:28.788Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
       "question": "Selon le projet d'ordonnance déposé au Parlement bruxellois (document daté du 26 octobre 2026), à quel taux passent les centimes additionnels régionaux à l'impôt des personnes physiques ?",
@@ -20,32 +43,9 @@
       "sourceSlug": "/fr/domaines/budget",
       "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:b2de48eb01deb5b7b1ee99706bdeac13",
-        "generatedAt": "2026-11-12T13:17:35.428Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-budget-1",
-      "source": "domain",
-      "domain": "Budget",
-      "question": "Quelle opinion la Cour des comptes a-t-elle présentée au Parlement bruxellois, le 9 novembre 2026, sur le compte général 2025 de la Région ?",
-      "options": [
-        "Une opinion défavorable, la deuxième de suite",
-        "Une opinion favorable, sans aucune réserve",
-        "Une opinion favorable, assortie de réserves",
-        "Aucune opinion, faute de pièces suffisantes"
-      ],
-      "correct": 0,
-      "explanation": "La Cour relève des anomalies significatives, notamment dans les comptes des services du gouvernement et de la SLRB. Elle avait déjà rendu une opinion défavorable sur le compte général 2024.",
-      "sourceSlug": "/fr/domaines/budget",
-      "sourceTitle": "Budget régional : cap sur l'équilibre en 2029",
-      "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:b2de48eb01deb5b7b1ee99706bdeac13",
-        "generatedAt": "2026-11-12T13:17:35.428Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:a4219f100018ddb5d5b27d48846ebc64",
+        "generatedAt": "2026-11-13T10:41:28.788Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Selon l'arrêté de police du 19 octobre 2026, dans combien de zones sensibles de Bruxelles les trottinettes électriques sont-elles interdites ?",
+      "question": "Selon BRUZZ (12 novembre 2026), qu'attendent les opérateurs Bolt et Dott avant de bloquer leurs trottinettes partagées dans les 19 zones sensibles de Bruxelles ?",
       "options": [
-        "19 zones",
-        "9 zones",
-        "29 zones",
-        "12 zones"
+        "Une carte précise des limites des zones, fournie par la Région",
+        "Un arrêté fédéral qui fixe le montant des amendes applicables",
+        "Un vote du conseil communal de chaque commune concernée",
+        "Un accord de la STIB sur les accès aux stations de métro"
       ],
       "correct": 0,
-      "explanation": "Plusieurs de ces zones entourent les gares du Nord et du Midi et des sorties de métro. Selon L'Avenir (6 novembre 2026), aucun panneau n'en marquait encore les limites.",
+      "explanation": "Les deux opérateurs disent pouvoir techniquement ralentir, bloquer ou interdire le stationnement dans une zone, mais attendent un périmètre précis de l'autorité régionale ; l'interdiction reste ainsi peu appliquée.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-11-08",
-        "sourceContentHash": "sha256:c79cad3493f4217e19f92995ae88363c",
-        "generatedAt": "2026-11-12T13:17:35.428Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:da29d2206c0d53773b32485003474560",
+        "generatedAt": "2026-11-13T10:41:28.788Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Selon un responsable syndical cité par BRUZZ en novembre 2026, quel renfort a été obtenu pour le centre d'appels d'urgence 112 de Bruxelles ?",
+      "question": "Selon L'Avenir (6 novembre 2026), qui a demandé le 4 novembre 2026 une signalisation régionale commune pour les 19 zones sensibles interdites aux trottinettes électriques ?",
       "options": [
-        "Dix agents supplémentaires",
-        "Vingt agents supplémentaires",
-        "Cinq agents supplémentaires",
-        "Quarante agents supplémentaires"
+        "La conférence des bourgmestres bruxellois",
+        "La conférence des chefs de corps de police",
+        "Les deux opérateurs de trottinettes partagées",
+        "La commission Mobilité du Parlement bruxellois"
       ],
       "correct": 0,
-      "explanation": "Le centre 112 a obtenu ce renfort, mais aucune solution à court terme n'a été trouvée pour le corps des pompiers, pour lequel les syndicats réclament 200 personnes de plus.",
+      "explanation": "Les bourgmestres ont demandé à Bruxelles Mobilité une signalisation commune ; le cabinet du ministre-président répond que l'arrêté de police du 19 octobre 2026 n'impose pas de matérialiser les limites des zones.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-11-08",
-        "sourceContentHash": "sha256:c79cad3493f4217e19f92995ae88363c",
-        "generatedAt": "2026-11-12T13:17:35.428Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:da29d2206c0d53773b32485003474560",
+        "generatedAt": "2026-11-13T10:41:28.788Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Selon une note du 24 avril 2026 révélée par L'Avenir et La DH en novembre 2026, sur quel plan perspective.brussels doit-il concentrer tous ses effectifs ?",
+      "question": "Selon la secrétaire d'État à l'Urbanisme, en commission du Parlement bruxellois le 9 novembre 2026, de quoi dépend la rétrocession aux communes des charges d'urbanisme payées en argent ?",
       "options": [
-        "Le plan régional d'affectation du sol (PRAS)",
-        "Le règlement régional d'urbanisme (RRU)",
-        "Le plan régional de développement durable",
-        "Le plan régional de mobilité Good Move"
+        "D'un arrêté du gouvernement et des crédits budgétaires disponibles",
+        "D'un vote du conseil communal et d'un avis de la tutelle régionale",
+        "D'une convention signée avec chaque promoteur immobilier concerné",
+        "D'un avis préalable de la Cour des comptes sur chaque dossier"
       ],
       "correct": 0,
-      "explanation": "Le PRAS date de 2001. La même note confie au cabinet de la secrétaire d'État à l'Urbanisme la finalisation du RRU, dont la version en vigueur date de 2006.",
+      "explanation": "Les charges perçues passent par le Fonds d'aménagement urbain et foncier puis sont reversées comme subventions ; la secrétaire d'État reconnaît que ce mécanisme freine la résorption du retard.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-11-10",
-        "sourceContentHash": "sha256:0033f95d4e36750493671e1844cb3bfe",
-        "generatedAt": "2026-11-12T13:17:35.428Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:cc2575743b3fdade5d47754fab2fedc6",
+        "generatedAt": "2026-11-13T10:41:28.788Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Au plus tard quand la cour d'appel de Bruxelles doit-elle se prononcer sur l'appel de la Région contre l'interdiction de bâtir sur les friches de plus de 0,5 hectare (dernière audience du 2 novembre 2026) ?",
+      "question": "Selon la réponse donnée en commission du Parlement bruxellois le 9 novembre 2026, pour quand le premier rapport de suivi des incidences environnementales du PRAS était-il attendu ?",
       "options": [
-        "Le 4 janvier 2027",
-        "Le 31 décembre 2026",
-        "Le 1er mars 2027",
-        "Le 30 juin 2027"
+        "Le 1er septembre 2022, et il n'a pas été réalisé",
+        "Le 1er septembre 2017, et il a été publié en 2018",
+        "Le 1er janvier 2024, et il a été remis au Parlement",
+        "Le 1er septembre 2025, et il a été publié en ligne"
       ],
       "correct": 0,
-      "explanation": "Le jugement du 29 octobre 2025 interdit de bâtir ou d'imperméabiliser ces friches jusqu'au 31 décembre 2026. L'ASBL We Are Nature demande une prolongation jusqu'en 2030 au moins.",
+      "explanation": "L'article 30 du CoBAT, inséré en 2017, impose ce rapport tous les cinq ans ; perspective.brussels doit désormais assurer ce suivi, avec une situation de référence fixée à l'entrée en vigueur du nouveau PRAS.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-11-10",
-        "sourceContentHash": "sha256:0033f95d4e36750493671e1844cb3bfe",
-        "generatedAt": "2026-11-12T13:17:35.428Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:cc2575743b3fdade5d47754fab2fedc6",
+        "generatedAt": "2026-11-13T10:41:28.788Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Selon BX1 (15 octobre 2026), quelle condition la secrétaire d'État bruxelloise au Logement pose-t-elle à la recapitalisation de 131 millions d'euros de la SLRB ?",
+      "question": "Selon La DH (13 novembre 2026), quels sites de la SLRB, dont la vente est contestée en référé par quatre associations, étaient promis à une rénovation en logements sociaux ?",
       "options": [
-        "La déconsolidation de la SLRB",
-        "Sa fusion avec citydev.brussels",
-        "La vente d'une partie du parc social",
-        "Un audit de la Cour des comptes"
+        "Ariane, à Woluwe-Saint-Lambert, et Palais, à Schaerbeek",
+        "Ariane, à Anderlecht, et Palais, à Molenbeek-Saint-Jean",
+        "Reyers, à Schaerbeek, et Tivoli, à Bruxelles-Ville",
+        "Josaphat, à Evere, et Mediapark, à Schaerbeek"
       ],
       "correct": 0,
-      "explanation": "Elle dit y travailler avec le ministre des Finances. Selon BRUZZ, les documents du budget 2027 prévoient la tranche de 131 millions pour 2026 et une nouvelle tranche de 120 millions en 2027.",
+      "explanation": "Le référé introduit le 13 juillet 2026 contre ces ventes passe en audience le 13 novembre 2026 ; Ecolo demande au gouvernement de suspendre les ventes et d'en revoir les procédures.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:73ef4d10e469a7bd76c5988226749bb1",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:8a017dc873cc42a6b1a38287050c5bab",
+        "generatedAt": "2026-11-13T10:41:28.788Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Logement",
-      "question": "Selon la secrétaire d'État bruxelloise au Logement, en commission le 15 octobre 2026, quelle part de l'enveloppe de 131 millions d'euros de la SLRB doit payer des factures du secteur de la construction ?",
+      "question": "Selon BRUZZ (2 novembre 2026), quelle nouvelle tranche les documents du budget régional 2027 prévoient-ils pour la SLRB en 2027 ?",
       "options": [
-        "70 %",
-        "30 %",
-        "50 %",
-        "90 %"
+        "120 millions d'euros",
+        "131 millions d'euros",
+        "75 millions d'euros",
+        "250 millions d'euros"
       ],
       "correct": 0,
-      "explanation": "Selon BRUZZ, les 26 recommandations de la commission d'enquête sur le Foyer anderlechtois sont reprises dans le projet de contrat de gestion de la SLRB pour 2027-2031.",
+      "explanation": "La tranche de 131 millions prévue en 2026 semble approuvée et une nouvelle tranche de 120 millions est inscrite pour 2027 ; aucun versement n'est rapporté à cette date.",
       "sourceSlug": "/fr/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:73ef4d10e469a7bd76c5988226749bb1",
-        "generatedAt": "2026-11-03T12:00:17.515Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:8a017dc873cc42a6b1a38287050c5bab",
+        "generatedAt": "2026-11-13T10:41:28.788Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Selon De Standaard et Le Soir (12 novembre 2026), pourquoi la Région bruxelloise ne peut-elle plus attaquer la route d'atterrissage RNP 07L devant le Conseil d'État ?",
+      "question": "Selon BRUZZ (12 novembre 2026), pourquoi des communes bruxelloises peuvent-elles encore attaquer la route RNP 07L devant le Conseil d'État, alors que le délai de la Région a expiré ?",
       "options": [
-        "Le délai de recours de soixante jours a expiré",
-        "Le Conseil d'État s'est déclaré incompétent",
-        "La Flandre a retiré son accord sur la route",
-        "Le fédéral a abrogé la route avant le recours"
+        "Le courrier fédéral du 17 juillet 2026 ne leur était pas adressé",
+        "Le Conseil d'État leur a accordé un délai jusqu'au 31 décembre 2026",
+        "Leur délai court depuis leur vote en conseil communal du 12 novembre",
+        "La Région leur a cédé son droit de recours le 1er novembre 2026"
       ],
       "correct": 0,
-      "explanation": "Le courrier fédéral du 17 juillet 2026 n'a pas été transmis à temps au membre du gouvernement compétent. Les deux procédures judiciaires en cours gardent leurs audiences de janvier et février 2027.",
+      "explanation": "Pour les communes, le délai partirait de la publication aéronautique du 16 septembre 2026 et courrait jusqu'au 16 novembre 2026, selon BRUZZ ; Koekelberg, Schaerbeek et Molenbeek-Saint-Jean ont décidé de saisir le Conseil d'État.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:9e22c8ddf425045c9ae44102bb1d20fc",
-        "generatedAt": "2026-11-12T13:17:35.428Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:6642bfb93994bd2f241c50909c10e0b0",
+        "generatedAt": "2026-11-13T10:41:28.788Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 49
+  "reviewedCount": 47
 }

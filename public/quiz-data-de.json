@@ -1,11 +1,34 @@
 {
-  "generatedAt": "2026-11-12T13:21:29.776Z",
+  "generatedAt": "2026-11-13T10:43:17.016Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
+      "source": "domain",
+      "domain": "Budget",
+      "question": "Was senkt laut der Tabelle der regionalen Einheit im Entwurf des allgemeinen Ausgabenhaushalts 2027 (Dokument A-347/1 vom 30.10.2026) den ESVG-Saldo der Region von −754 auf −719 Millionen Euro?",
+      "options": [
+        "Eine geschätzte Unterausschöpfung der Mittel von 35 Millionen",
+        "Eine Korrektur von 35 Millionen im Zusammenhang mit dem Museum Kanal",
+        "Rückstellungen von 35 Millionen für die Regionalschuld",
+        "Der Verkauf der Amtswohnung, für 35 Millionen"
+      ],
+      "correct": 0,
+      "explanation": "Vor Haushaltsoperationen liegt der ESVG-Finanzierungssaldo 2027 bei −754 Millionen; die auf 35 Millionen geschätzte Unterausschöpfung der Mittel senkt ihn auf die von der Regierung angekündigten −719 Millionen.",
+      "sourceSlug": "/de/bereiche/budget",
+      "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
+      "provenance": {
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:6c757bf1357ee764cf6abb0f6672bda9",
+        "generatedAt": "2026-11-13T10:43:17.016Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
       "question": "Auf welchen Satz sinken die regionalen Zuschläge zur Einkommensteuer laut dem beim Brüsseler Parlament eingereichten Ordonnanzentwurf (Dokument vom 26. Oktober 2026)?",
@@ -20,32 +43,9 @@
       "sourceSlug": "/de/bereiche/budget",
       "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:97bd6cd295046d91e66cae48a5cb96c3",
-        "generatedAt": "2026-11-12T13:21:29.776Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-budget-1",
-      "source": "domain",
-      "domain": "Budget",
-      "question": "Welches Prüfungsurteil legte der Rechnungshof dem Brüsseler Parlament am 9. November 2026 zur allgemeinen Rechnung 2025 der Region vor?",
-      "options": [
-        "Ein negatives Urteil, das zweite in Folge",
-        "Ein positives Urteil, ohne jeden Vorbehalt",
-        "Ein positives Urteil, mit Vorbehalten",
-        "Kein Urteil, mangels ausreichender Belege"
-      ],
-      "correct": 0,
-      "explanation": "Der Rechnungshof stellt wesentliche Unregelmäßigkeiten fest, unter anderem in den Rechnungen der Regierungsdienste und der SLRB. Schon zur allgemeinen Rechnung 2024 hatte er ein negatives Prüfungsurteil abgegeben.",
-      "sourceSlug": "/de/bereiche/budget",
-      "sourceTitle": "Regionalhaushalt: Kurs auf Haushaltsgleichgewicht bis 2029",
-      "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:97bd6cd295046d91e66cae48a5cb96c3",
-        "generatedAt": "2026-11-12T13:21:29.776Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:6c757bf1357ee764cf6abb0f6672bda9",
+        "generatedAt": "2026-11-13T10:43:17.016Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "In wie vielen sensiblen Zonen Brüssels sind E-Scooter laut der Polizeiverordnung vom 19. Oktober 2026 verboten?",
+      "question": "Worauf warten die Anbieter Bolt und Dott laut BRUZZ (12.11.2026), bevor sie ihre Leih-E-Scooter in den 19 sensiblen Zonen Brüssels sperren?",
       "options": [
-        "19 Zonen",
-        "9 Zonen",
-        "29 Zonen",
-        "12 Zonen"
+        "Eine genaue Karte der Zonengrenzen, von der Region geliefert",
+        "Einen föderalen Erlass, der die Höhe der Bußgelder festlegt",
+        "Eine Abstimmung im Gemeinderat jeder betroffenen Gemeinde",
+        "Eine Einigung mit der STIB über die Zugänge zu den Metrostationen"
       ],
       "correct": 0,
-      "explanation": "Mehrere dieser Zonen liegen rund um den Nord- und den Südbahnhof sowie an Metroausgängen. Laut L'Avenir (6. November 2026) markierte noch kein Schild ihre Grenzen.",
+      "explanation": "Beide Anbieter sagen, sie könnten ihre E-Scooter in einer Zone technisch verlangsamen, sperren oder das Abstellen verhindern, warten aber auf einen genauen Umkreis der regionalen Behörde; das Verbot wird daher kaum angewandt.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-11-08",
-        "sourceContentHash": "sha256:508c979b52f7d6093af7a7de08fa03c5",
-        "generatedAt": "2026-11-12T13:21:29.776Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:24d952e265e798f2b7fa7765d3f4dd52",
+        "generatedAt": "2026-11-13T10:43:17.016Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Welche Verstärkung wurde laut einem von BRUZZ im November 2026 zitierten Gewerkschaftsvertreter für die Brüsseler Notrufzentrale 112 erreicht?",
+      "question": "Wer bat laut L'Avenir (06.11.2026) am 4. November 2026 um eine gemeinsame regionale Beschilderung für die 19 sensiblen Zonen, in denen E-Scooter verboten sind?",
       "options": [
-        "Zehn zusätzliche Mitarbeiter",
-        "Zwanzig zusätzliche Mitarbeiter",
-        "Fünf zusätzliche Mitarbeiter",
-        "Vierzig zusätzliche Mitarbeiter"
+        "Die Konferenz der Brüsseler Bürgermeister",
+        "Die Konferenz der Korpschefs der Polizei",
+        "Die beiden Anbieter von Leih-E-Scootern",
+        "Der Mobilitätsausschuss des Brüsseler Parlaments"
       ],
       "correct": 0,
-      "explanation": "Die Notrufzentrale 112 erhielt diese Verstärkung, doch für die Feuerwehr, für die die Gewerkschaften 200 zusätzliche Kräfte fordern, gab es keine kurzfristige Lösung.",
+      "explanation": "Die Bürgermeister baten Brüssel Mobilität um eine gemeinsame Beschilderung; das Kabinett des Ministerpräsidenten antwortet, dass der Polizeierlass vom 19.10.2026 keine Markierung der Zonengrenzen vorschreibt.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-11-08",
-        "sourceContentHash": "sha256:508c979b52f7d6093af7a7de08fa03c5",
-        "generatedAt": "2026-11-12T13:21:29.776Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:24d952e265e798f2b7fa7765d3f4dd52",
+        "generatedAt": "2026-11-13T10:43:17.016Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Auf welchen Plan soll perspective.brussels laut einer Notiz vom 24. April 2026, die L'Avenir und La DH im November 2026 enthüllten, sein gesamtes Personal konzentrieren?",
+      "question": "Wovon hängt laut der Staatssekretärin für Städtebau, im Ausschuss des Brüsseler Parlaments am 9. November 2026, die Weiterleitung der städtebaulichen Geldlasten an die Gemeinden ab?",
       "options": [
-        "Den regionalen Flächennutzungsplan (PRAS)",
-        "Die regionale Städtebauverordnung (RRU)",
-        "Den regionalen Plan für nachhaltige Entwicklung",
-        "Den regionalen Mobilitätsplan Good Move"
+        "Von einem Regierungserlass und den verfügbaren Haushaltsmitteln",
+        "Von einer Abstimmung im Gemeinderat und einer Stellungnahme der Aufsicht",
+        "Von einer Vereinbarung mit jedem betroffenen Immobilienentwickler",
+        "Von einer vorherigen Stellungnahme des Rechnungshofs zu jeder Akte"
       ],
       "correct": 0,
-      "explanation": "Der PRAS stammt aus dem Jahr 2001. Dieselbe Notiz überträgt die Fertigstellung der RRU, deren geltende Fassung von 2006 stammt, dem Kabinett der Staatssekretärin für Städtebau.",
+      "explanation": "Die erhobenen Lasten laufen über den Fonds für Stadt- und Bodenentwicklung und werden als Zuschüsse ausgezahlt; die Staatssekretärin räumt ein, dass dieser Mechanismus den Abbau des Rückstands bremst.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-11-10",
-        "sourceContentHash": "sha256:4c070f3950cf995d9994e943f32bbe9a",
-        "generatedAt": "2026-11-12T13:21:29.776Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:6fea909c44d0a0c81a6345da9d3cc125",
+        "generatedAt": "2026-11-13T10:43:17.016Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Bis wann muss der Appellationshof Brüssel spätestens über die Berufung der Region gegen das Bauverbot auf Brachflächen von mehr als 0,5 Hektar entscheiden (letzte Sitzung am 2. November 2026)?",
+      "question": "Bis wann war laut der Antwort im Ausschuss des Brüsseler Parlaments am 9. November 2026 der erste Bericht über die Begleitung der Umweltauswirkungen des PRAS fällig?",
       "options": [
-        "Bis zum 4. Januar 2027",
-        "Bis zum 31. Dezember 2026",
-        "Bis zum 1. März 2027",
-        "Bis zum 30. Juni 2027"
+        "Bis zum 01.09.2022, und er wurde nicht erstellt",
+        "Bis zum 01.09.2017, und er erschien 2018",
+        "Bis zum 01.01.2024, und er ging an das Parlament",
+        "Bis zum 01.09.2025, und er wurde online veröffentlicht"
       ],
       "correct": 0,
-      "explanation": "Das Urteil vom 29. Oktober 2025 verbietet bis zum 31. Dezember 2026, auf diesen Flächen zu bauen oder sie zu versiegeln. Die VoG We Are Nature verlangt eine Verlängerung bis mindestens 2030.",
+      "explanation": "Artikel 30 des CoBAT, 2017 eingefügt, schreibt diesen Bericht alle fünf Jahre vor; perspective.brussels soll diese Begleitung künftig übernehmen, mit einer Ausgangslage beim Inkrafttreten des neuen PRAS.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-11-10",
-        "sourceContentHash": "sha256:4c070f3950cf995d9994e943f32bbe9a",
-        "generatedAt": "2026-11-12T13:21:29.776Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:6fea909c44d0a0c81a6345da9d3cc125",
+        "generatedAt": "2026-11-13T10:43:17.016Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welche Bedingung stellt die Brüsseler Staatssekretärin für Wohnungswesen laut BX1 (15. Oktober 2026) für die Rekapitalisierung der SLRB um 131 Millionen Euro?",
+      "question": "Welche Standorte der SLRB, deren Verkauf vier Vereinigungen im Eilverfahren anfechten, sollten laut La DH (13.11.2026) zu Sozialwohnungen renoviert werden?",
       "options": [
-        "Die Dekonsolidierung der SLRB",
-        "Eine Fusion mit citydev.brussels",
-        "Den Verkauf eines Teils des Sozialwohnungsbestands",
-        "Eine Prüfung durch den Rechnungshof"
+        "Ariane in Woluwe-Saint-Lambert und Palais in Schaerbeek",
+        "Ariane in Anderlecht und Palais in Molenbeek-Saint-Jean",
+        "Reyers in Schaerbeek und Tivoli in der Stadt Brüssel",
+        "Josaphat in Evere und Mediapark in Schaerbeek"
       ],
       "correct": 0,
-      "explanation": "Sie arbeite daran mit dem Finanzminister. Laut BRUZZ sehen die Unterlagen des Haushalts 2027 die Tranche von 131 Millionen für 2026 und eine neue Tranche von 120 Millionen für 2027 vor.",
+      "explanation": "Das am 13.07.2026 gegen diese Verkäufe eingeleitete Eilverfahren wurde am 13.11.2026 verhandelt; Ecolo fordert die Regierung auf, die Verkäufe auszusetzen und die Verfahren zu überprüfen.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:54e877e685074d6c45f3485a0c6e5d51",
-        "generatedAt": "2026-11-03T12:02:35.952Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:945b8288ef47fd3990d2d5758c5c2a8b",
+        "generatedAt": "2026-11-13T10:43:17.016Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welcher Anteil des 131-Millionen-Euro-Pakets der SLRB soll laut der Brüsseler Staatssekretärin für Wohnungswesen, im Ausschuss am 15. Oktober 2026, Rechnungen des Bausektors begleichen?",
+      "question": "Welche neue Tranche sehen die Unterlagen des Regionalhaushalts 2027 laut BRUZZ (02.11.2026) für die SLRB im Jahr 2027 vor?",
       "options": [
-        "70 %",
-        "30 %",
-        "50 %",
-        "90 %"
+        "120 Millionen Euro",
+        "131 Millionen Euro",
+        "75 Millionen Euro",
+        "250 Millionen Euro"
       ],
       "correct": 0,
-      "explanation": "Laut BRUZZ sind die 26 Empfehlungen des Untersuchungsausschusses zum Foyer anderlechtois in den Entwurf des Verwaltungsvertrags der SLRB für 2027-2031 aufgenommen.",
+      "explanation": "Die Tranche von 131 Millionen für 2026 scheint genehmigt, und für 2027 ist eine neue Tranche von 120 Millionen eingetragen; zu diesem Datum wird keine Zahlung gemeldet.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:54e877e685074d6c45f3485a0c6e5d51",
-        "generatedAt": "2026-11-03T12:02:35.952Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:945b8288ef47fd3990d2d5758c5c2a8b",
+        "generatedAt": "2026-11-13T10:43:17.016Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Warum kann die Region Brüssel die Landeroute RNP 07L laut De Standaard und Le Soir (12. November 2026) nicht mehr vor dem Staatsrat anfechten?",
+      "question": "Warum können Brüsseler Gemeinden laut BRUZZ (12.11.2026) die Route RNP 07L noch vor dem Staatsrat anfechten, obwohl die Frist der Region abgelaufen ist?",
       "options": [
-        "Die Klagefrist von sechzig Tagen ist abgelaufen",
-        "Der Staatsrat hat sich für unzuständig erklärt",
-        "Flandern hat seine Zustimmung zur Route zurückgezogen",
-        "Der Föderalstaat hob die Route vor einer Klage auf"
+        "Der föderale Brief vom 17.07.2026 war nicht an sie gerichtet",
+        "Der Staatsrat gewährte ihnen eine Frist bis zum 31.12.2026",
+        "Ihre Frist läuft ab ihrer Gemeinderatsabstimmung vom 12. November",
+        "Die Region übertrug ihnen am 01.11.2026 ihr Klagerecht"
       ],
       "correct": 0,
-      "explanation": "Der föderale Brief vom 17. Juli 2026 wurde nicht rechtzeitig an das zuständige Regierungsmitglied weitergeleitet. Die beiden laufenden Gerichtsverfahren behalten ihre Termine im Januar und Februar 2027.",
+      "explanation": "Für die Gemeinden liefe die Frist laut BRUZZ ab der Luftfahrtveröffentlichung vom 16.09.2026 bis zum 16.11.2026; Koekelberg, Schaerbeek und Molenbeek-Saint-Jean beschlossen, den Staatsrat anzurufen.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
       "sourceTitle": "Fluglärm Brüssel",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:8dc5bfb5da03551ea9ce9baa1911ad6f",
-        "generatedAt": "2026-11-12T13:21:29.776Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:e984713edf7f0389859a5181963bcb65",
+        "generatedAt": "2026-11-13T10:43:17.016Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 49
+  "reviewedCount": 47
 }

@@ -1,11 +1,34 @@
 {
-  "generatedAt": "2026-11-12T13:21:14.179Z",
+  "generatedAt": "2026-11-13T10:43:16.665Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
   "questions": [
     {
       "id": "domain-budget-0",
+      "source": "domain",
+      "domain": "Budget",
+      "question": "According to the regional entity table in the draft 2027 general expenditure budget (document A-347/1 of 30 October 2026), what brings the Region's ESA balance from −754 to −719 million euros?",
+      "options": [
+        "An estimated 35 million under-use of appropriations",
+        "A 35 million correction linked to the Kanal museum",
+        "Provisions of 35 million for the regional debt",
+        "The sale of the official residence, for 35 million"
+      ],
+      "correct": 0,
+      "explanation": "Before budget operations, the 2027 ESA financing balance stands at −754 million; the under-use of appropriations, estimated at 35 million, brings it to the −719 million announced by the government.",
+      "sourceSlug": "/en/domains/budget",
+      "sourceTitle": "Regional budget: targeting balance by 2029",
+      "provenance": {
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:7d83c0d6ae30743d66bbf89cb3294262",
+        "generatedAt": "2026-11-13T10:43:16.665Z",
+        "model": "claude-opus-5 (session Claude Code, sans appel API)",
+        "promptVersion": "v3"
+      }
+    },
+    {
+      "id": "domain-budget-1",
       "source": "domain",
       "domain": "Budget",
       "question": "According to the draft ordinance tabled in the Brussels Parliament (document dated 26 October 2026), to what rate does the regional surcharge on personal income tax fall?",
@@ -20,32 +43,9 @@
       "sourceSlug": "/en/domains/budget",
       "sourceTitle": "Regional budget: targeting balance by 2029",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:4f0110d0ffe0585af659e3e4ab483585",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
-        "model": "claude-opus-5 (session Claude Code, sans appel API)",
-        "promptVersion": "v3"
-      }
-    },
-    {
-      "id": "domain-budget-1",
-      "source": "domain",
-      "domain": "Budget",
-      "question": "What opinion did the Court of Audit present to the Brussels Parliament on 9 November 2026 on the Region's 2025 general account?",
-      "options": [
-        "An adverse opinion, the second in a row",
-        "A favourable opinion, without any reservation",
-        "A favourable opinion, with reservations",
-        "No opinion, for lack of sufficient records"
-      ],
-      "correct": 0,
-      "explanation": "The Court finds material misstatements, notably in the accounts of the government services and of the SLRB. It had already issued an adverse opinion on the 2024 general account.",
-      "sourceSlug": "/en/domains/budget",
-      "sourceTitle": "Regional budget: targeting balance by 2029",
-      "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:4f0110d0ffe0585af659e3e4ab483585",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:7d83c0d6ae30743d66bbf89cb3294262",
+        "generatedAt": "2026-11-13T10:43:16.665Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "Under the police order of 19 October 2026, in how many sensitive zones of Brussels are electric scooters banned?",
+      "question": "According to BRUZZ (12 November 2026), what are the operators Bolt and Dott waiting for before blocking their shared scooters in the 19 sensitive zones of Brussels?",
       "options": [
-        "19 zones",
-        "9 zones",
-        "29 zones",
-        "12 zones"
+        "A precise map of the zone boundaries, provided by the Region",
+        "A federal decree setting the amount of the applicable fines",
+        "A vote by the municipal council of each municipality concerned",
+        "An agreement with the STIB on access to metro stations"
       ],
       "correct": 0,
-      "explanation": "Several of these zones surround the North and South stations and metro exits. According to L'Avenir (6 November 2026), no sign yet marked their boundaries.",
+      "explanation": "Both operators say they can technically slow down, block or prevent parking in a zone, but are waiting for a precise perimeter from the regional authority; the ban is therefore barely applied.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-11-08",
-        "sourceContentHash": "sha256:059fb81924a6d4a7dfb6d4bba920badb",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:5a59df984acaf509ab3218e4cc982d41",
+        "generatedAt": "2026-11-13T10:43:16.665Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "According to a union official quoted by BRUZZ in November 2026, what reinforcement was obtained for the Brussels 112 emergency call centre?",
+      "question": "According to L'Avenir (6 November 2026), who asked on 4 November 2026 for common regional signage for the 19 sensitive zones where electric scooters are banned?",
       "options": [
-        "Ten additional staff",
-        "Twenty additional staff",
-        "Five additional staff",
-        "Forty additional staff"
+        "The conference of Brussels mayors",
+        "The conference of police zone chiefs",
+        "The two shared scooter operators",
+        "The Brussels Parliament's Mobility Committee"
       ],
       "correct": 0,
-      "explanation": "The 112 centre obtained this reinforcement, but no short-term solution was found for the fire brigade, for which the unions are demanding 200 more people.",
+      "explanation": "The mayors asked Brussels Mobility for common signage; the minister-president's cabinet replies that the police decree of 19 October 2026 does not require the zone boundaries to be marked.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-11-08",
-        "sourceContentHash": "sha256:059fb81924a6d4a7dfb6d4bba920badb",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:5a59df984acaf509ab3218e4cc982d41",
+        "generatedAt": "2026-11-13T10:43:16.665Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "According to a note of 24 April 2026 revealed by L'Avenir and La DH in November 2026, on which plan must perspective.brussels focus all its staff?",
+      "question": "According to the State Secretary for Urban Planning, in a Brussels Parliament committee on 9 November 2026, what does passing cash planning charges on to the municipalities depend on?",
       "options": [
-        "The Regional Land Use Plan (PRAS)",
-        "The Regional Urban Planning Regulation (RRU)",
-        "The Regional Sustainable Development Plan",
-        "The Good Move regional mobility plan"
+        "A government decree and the available budget appropriations",
+        "A municipal council vote and an opinion from regional supervision",
+        "An agreement signed with each property developer concerned",
+        "A prior opinion from the Court of Audit on each file"
       ],
       "correct": 0,
-      "explanation": "The PRAS dates from 2001. The same note entrusts the finalisation of the RRU, whose version in force dates from 2006, to the cabinet of the Secretary of State for Urban Planning.",
+      "explanation": "The charges collected go through the Urban and Land Development Fund and are paid out as subsidies; the State Secretary acknowledges that this mechanism slows down clearing the backlog.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-11-10",
-        "sourceContentHash": "sha256:d23245584b322b0574406be907a932d0",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:f9e95d7b3ca958011a5d65afd38e30e8",
+        "generatedAt": "2026-11-13T10:43:16.665Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "By when at the latest must the Brussels Court of Appeal rule on the Region's appeal against the building ban on brownfield sites of more than 0.5 hectare (final hearing on 2 November 2026)?",
+      "question": "According to the answer given in a Brussels Parliament committee on 9 November 2026, when was the first report on monitoring the environmental effects of the PRAS due?",
       "options": [
-        "By 4 January 2027",
-        "By 31 December 2026",
-        "By 1 March 2027",
-        "By 30 June 2027"
+        "1 September 2022, and it was not produced",
+        "1 September 2017, and it was published in 2018",
+        "1 January 2024, and it was sent to Parliament",
+        "1 September 2025, and it was published online"
       ],
       "correct": 0,
-      "explanation": "The judgment of 29 October 2025 bans building on or sealing these sites until 31 December 2026. The non-profit We Are Nature is asking for an extension until at least 2030.",
+      "explanation": "Article 30 of the CoBAT, inserted in 2017, requires this report every five years; perspective.brussels is now to carry out this monitoring, with a baseline set when the new PRAS enters into force.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-11-10",
-        "sourceContentHash": "sha256:d23245584b322b0574406be907a932d0",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:f9e95d7b3ca958011a5d65afd38e30e8",
+        "generatedAt": "2026-11-13T10:43:16.665Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Housing",
-      "question": "According to BX1 (15 October 2026), what condition does the Brussels State Secretary for Housing set for the 131 million euro recapitalisation of the SLRB?",
+      "question": "According to La DH (13 November 2026), which SLRB sites, whose sale four associations are challenging in summary proceedings, had been promised a renovation into social housing?",
       "options": [
-        "The deconsolidation of the SLRB",
-        "A merger with citydev.brussels",
-        "The sale of part of the social housing stock",
-        "An audit by the Court of Audit"
+        "Ariane, in Woluwe-Saint-Lambert, and Palais, in Schaerbeek",
+        "Ariane, in Anderlecht, and Palais, in Molenbeek-Saint-Jean",
+        "Reyers, in Schaerbeek, and Tivoli, in the City of Brussels",
+        "Josaphat, in Evere, and Mediapark, in Schaerbeek"
       ],
       "correct": 0,
-      "explanation": "She says she is working on it with the Finance Minister. According to BRUZZ, the 2027 budget documents provide the 131 million tranche for 2026 and a new 120 million tranche in 2027.",
+      "explanation": "The summary proceedings brought on 13 July 2026 against these sales were heard on 13 November 2026; Ecolo asks the government to suspend the sales and review the procedures.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:990c35fbe8672c7d9965b913099e278a",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:3208a49bc38cb6e04fb217ea9ac5fa3c",
+        "generatedAt": "2026-11-13T10:43:16.665Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Housing",
-      "question": "According to the Brussels State Secretary for Housing, in committee on 15 October 2026, what share of the SLRB's 131 million euro envelope is to pay construction sector invoices?",
+      "question": "According to BRUZZ (2 November 2026), what new instalment do the 2027 regional budget documents provide for the SLRB in 2027?",
       "options": [
-        "70%",
-        "30%",
-        "50%",
-        "90%"
+        "120 million euros",
+        "131 million euros",
+        "75 million euros",
+        "250 million euros"
       ],
       "correct": 0,
-      "explanation": "According to BRUZZ, the 26 recommendations of the inquiry committee on the Foyer anderlechtois are included in the draft SLRB management contract for 2027-2031.",
+      "explanation": "The 131 million instalment for 2026 appears approved and a new instalment of 120 million is entered for 2027; no payment is reported at that date.",
       "sourceSlug": "/en/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:990c35fbe8672c7d9965b913099e278a",
-        "generatedAt": "2026-11-03T12:02:35.406Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:3208a49bc38cb6e04fb217ea9ac5fa3c",
+        "generatedAt": "2026-11-13T10:43:16.665Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climate",
-      "question": "According to De Standaard and Le Soir (12 November 2026), why can the Brussels Region no longer challenge the RNP 07L landing route before the Council of State?",
+      "question": "According to BRUZZ (12 November 2026), why can Brussels municipalities still challenge the RNP 07L route before the Council of State, although the Region's deadline has expired?",
       "options": [
-        "The sixty-day deadline for appeal has expired",
-        "The Council of State declared itself not competent",
-        "Flanders withdrew its agreement on the route",
-        "The federal level scrapped the route before any appeal"
+        "The federal letter of 17 July 2026 was not addressed to them",
+        "The Council of State granted them until 31 December 2026",
+        "Their deadline runs from their council vote of 12 November",
+        "The Region transferred its right of appeal to them on 1 November 2026"
       ],
       "correct": 0,
-      "explanation": "The federal letter of 17 July 2026 was not passed on in time to the competent government member. The two court cases under way keep their hearings in January and February 2027.",
+      "explanation": "For the municipalities, the deadline would run from the aeronautical publication of 16 September 2026 until 16 November 2026, according to BRUZZ; Koekelberg, Schaerbeek and Molenbeek-Saint-Jean decided to go to the Council of State.",
       "sourceSlug": "/en/dossiers/survol-bruxelles",
       "sourceTitle": "Aircraft overflight",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:32ecafe62259cc0ed3422fc110e2373b",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-13",
+        "sourceContentHash": "sha256:fe337235d79c0789c318f53606b5f2f9",
+        "generatedAt": "2026-11-13T10:43:16.665Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 49
+  "reviewedCount": 47
 }

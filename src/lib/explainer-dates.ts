@@ -43,9 +43,9 @@ export const EXPLAINER_LAST_MODIFIED: Record<string, string> = {
   'government-formation': '2026-11-13',
   // Réécriture texte validé le 19/09/2026 (PR #509).
   'brussels-paradox': '2026-09-19',
-  'parliament-powers': SITE_LAUNCH_DATE,
+  'parliament-powers': '2026-11-13',
   // Page créée après le lancement (commit f5412fbb, architecture multi-entités).
-  'brussels-cosmopolitan': '2026-02-16',
+  'brussels-cosmopolitan': '2026-11-13',
   // Budget régional : 17,3 % du PIB belge en 2023, IBSA (commit eb552ae4, PR #510).
   'brussels-region': '2026-09-19',
   // Lien « Voir aussi : la VGC » ajouté (commit 300e03d5).

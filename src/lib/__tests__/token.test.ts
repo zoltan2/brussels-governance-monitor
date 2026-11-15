@@ -30,9 +30,17 @@ describe('token', () => {
 
   it('rejects a tampered token', () => {
     vi.stubEnv('AUTH_SECRET', 'test-secret-key-for-testing');
-    const token = generateConfirmToken(payload);
-    const tampered = token.slice(0, -2) + 'xx';
-    expect(verifyConfirmToken(tampered)).toBeNull();
+    // On altère le PREMIER caractère de la signature, dont les six bits comptent.
+    // L'ancien test remplaçait les deux derniers par « xx » : le dernier
+    // caractère d'une signature de 32 octets ne porte que quatre bits, « …xw »
+    // et « …xx » décodent donc pareil, et le test échouait une fois sur 1 024
+    // (CI rouge du 15/11/2026, BXL #851). La boucle couvre ce hasard.
+    for (let i = 0; i < 2000; i++) {
+      const token = generateConfirmToken({ ...payload, email: `test${i}@example.com` });
+      const [encoded, signature] = token.split('.') as [string, string];
+      const tampered = `${encoded}.${signature[0] === 'A' ? 'B' : 'A'}${signature.slice(1)}`;
+      expect(verifyConfirmToken(tampered)).toBeNull();
+    }
   });
 
   it('rejects an expired token', () => {

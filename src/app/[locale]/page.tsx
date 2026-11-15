@@ -27,6 +27,7 @@ import { getActiveSignals } from '@/lib/radar';
 import { getHomepageBlurb, selectHomepageSignals } from '@/lib/homepage-signals';
 import { getSiteStats } from '@/lib/site-stats';
 import { getLatestUpdate } from '@/lib/changelog';
+import { editionUrl, isMagazineLocale, type MagazineLocale } from '@/lib/magazine/locales';
 import { cn, formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
@@ -206,12 +207,19 @@ export default async function HomePage({
   const digestHref = latestCompleteWeek
     ? `/digest/${digestLang}/${latestCompleteWeek.replace('-w', '/w')}`
     : null;
-  const mag =
-    latestCompleteWeek && locale === 'fr' ? getDigestEntry(latestCompleteWeek, 'fr')?.entry?.magazine : null;
-  const magazine =
-    mag?.tagline && weekNum
-      ? { tagline: mag.tagline, href: `https://magazine.governance.brussels/s${weekNum}/` }
-      : null;
+  // Édition du magazine dans la langue de la page si elle existe cette semaine
+  // (digest de la langue, non replié sur le français, avec un bloc `magazine:`),
+  // sinon l'édition française. Jusqu'au 15/11/2026, la carte menait toujours au
+  // français, même quand l'édition nl ou en existait.
+  const frMag = latestCompleteWeek ? getDigestEntry(latestCompleteWeek, 'fr')?.entry?.magazine : null;
+  const localeEntry =
+    latestCompleteWeek && isMagazineLocale(locale) && locale !== 'fr' ? getDigestEntry(latestCompleteWeek, locale) : null;
+  const localeMag = localeEntry && !localeEntry.isFallback ? localeEntry.entry?.magazine : null;
+  const magLang: MagazineLocale = frMag && localeMag && isMagazineLocale(locale) ? locale : 'fr';
+  const magTagline = magLang === 'fr' ? (locale === 'fr' ? frMag?.tagline : undefined) : localeMag?.tagline;
+  const magazine = weekNum
+    ? { tagline: magTagline ?? null, href: editionUrl(magLang, `s${weekNum}`), lang: magLang }
+    : null;
   return (
     <>
       <Hero cta={getHomepageCta(locale)} locale={locale} />
@@ -952,7 +960,7 @@ function FormatsSection({
     linkableLangs: string[];
     weekPath: string;
   } | null;
-  magazine: { tagline: string; href: string } | null;
+  magazine: { tagline: string | null; href: string; lang: MagazineLocale } | null;
   weekNum: string | null;
 }) {
   const t = useTranslations('home');
@@ -1062,28 +1070,27 @@ function FormatsSection({
               </div>
             }
             link={
-              // Le numéro ne dépend pas de la langue, seule la tagline est FR. La
-              // vignette annonçait « Semaine 37 » en nl/en/de pendant que le lien
-              // retombait sur le sommaire général : on renvoyait le lecteur ailleurs
-              // que là où on lui promettait d'aller.
+              // Le lien mène au numéro de la semaine, dans l'édition de la langue de
+              // la page si elle existe (fr, nl, en), sinon à l'édition française.
               <TrackedAnchor
-                href={
-                  weekNum
-                    ? `https://magazine.governance.brussels/s${weekNum}/`
-                    : 'https://magazine.governance.brussels/'
-                }
+                href={magazine?.href ?? 'https://magazine.governance.brussels/'}
                 event="accueil-magazine"
-                // Le magazine n'existe qu'en français : on le dit avant le clic, hors fr.
-                hrefLang="fr"
+                // Langue de l'édition annoncée avant le clic ; « (FR) » quand le
+                // lecteur d'une autre langue est envoyé vers l'édition française.
+                hrefLang={magazine?.lang ?? 'fr'}
                 className={stretchedLink}
               >
                 {weekNum ? t('protoMagazineRead', { week: weekNum }) : t('protoMagazineReadPlain')}
-                {locale !== 'fr' && <FrenchOnlyMark />}
+                {(magazine?.lang ?? 'fr') !== locale && <FrenchOnlyMark />}
                 <ArrowRight size={14} aria-hidden={true} />
               </TrackedAnchor>
             }
           >
-            {magazine ? `« ${magazine.tagline} »` : t('protoMagazineFallback')}
+            {magazine?.tagline
+              ? locale === 'fr'
+                ? `« ${magazine.tagline} »`
+                : `“${magazine.tagline}”`
+              : t('protoMagazineFallback')}
           </FormatCard>
 
           {/* Trois cartes dans une grille à deux colonnes laissaient une cellule vide,

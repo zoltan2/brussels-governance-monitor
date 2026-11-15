@@ -1,16 +1,27 @@
 // SPDX-License-Identifier: LicenseRef-SOURCE-AVAILABLE
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
+import { editionUrl, isMagazineLocale, type MagazineLocale } from '@/lib/magazine/locales';
+
 interface MagazineLinkProps {
   weekShort: string; // e.g. "s15"
   lang: string;
 }
 
-const MAGAZINE_BASE = 'https://magazine.governance.brussels';
+const LABELS: Record<MagazineLocale, string> = {
+  fr: 'Lire en version magazine',
+  nl: 'Lees de magazine-versie',
+  en: 'Read the magazine edition',
+};
 
+/**
+ * Lien vers l'édition du magazine dans la langue du digest affiché. La page ne
+ * le rend que si ce digest porte un bloc `magazine:` : une langue sans édition
+ * cette semaine n'a pas de lien.
+ */
 export function MagazineLink({ weekShort, lang }: MagazineLinkProps) {
-  if (lang !== 'fr') return null;
-  const href = `${MAGAZINE_BASE}/${weekShort}/`;
+  if (!isMagazineLocale(lang)) return null;
+  const href = editionUrl(lang, weekShort);
   return (
     <a
       href={href}
@@ -19,7 +30,7 @@ export function MagazineLink({ weekShort, lang }: MagazineLinkProps) {
       rel="noopener noreferrer"
     >
       <span aria-hidden>📖</span>
-      <span>Lire en version magazine</span>
+      <span>{LABELS[lang]}</span>
       <span aria-hidden>→</span>
     </a>
   );

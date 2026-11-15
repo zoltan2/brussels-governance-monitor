@@ -12,6 +12,8 @@ import { collectDigestUpdates, filterUpdatesForSubscriber } from '@/lib/digest-u
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
 import { encartSondageDigest } from '@/lib/sondage/encart-digest';
 import type { Locale } from '@/i18n/routing';
+import { getDigestEntries } from '@/lib/content';
+import { magazineUrlForSubscriber } from '@/lib/magazine/email-link';
 
 const SUPPORTED_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
 const BATCH_SIZE = 50;
@@ -129,6 +131,10 @@ export const POST = auth(async function POST(req) {
   const emailPayloads: any[] = [];
   let skipped = 0;
 
+  // Éditions du magazine parues cette semaine : lues dans les digests publiés.
+  const hasMagazineBlock = (lang: string) =>
+    Boolean(getDigestEntries(lang).find((e) => e.week === digest.week)?.magazine);
+
   for (const contact of contacts) {
     const locale = SUPPORTED_LOCALES.includes(contact.locale as Locale)
       ? (contact.locale as Locale)
@@ -155,9 +161,7 @@ export const POST = auth(async function POST(req) {
       de: `BGM Digest #${weekNum} — ${weekOf}`,
     };
 
-    const magazineUrl = digest.magazine
-      ? `https://magazine.governance.brussels/s${weekNum}/`
-      : undefined;
+    const magazineUrl = magazineUrlForSubscriber(digest.week, locale, hasMagazineBlock);
 
     const emailProps = {
       locale,

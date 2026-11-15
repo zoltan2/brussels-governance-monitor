@@ -1,5 +1,6 @@
 import { AUTHOR } from './author';
-import { renderMagazineV2 } from './render-v2';
+import { renderMagazineV2, type RenderOptions } from './render-v2';
+import { SOURCE_LOCALE } from './locales';
 import type { MagazineDraft } from './types';
 import {
   escapeHtml,
@@ -11,13 +12,17 @@ import {
   umamiSnippet,
 } from './template';
 
-export function renderMagazine(draft: MagazineDraft): string {
+export function renderMagazine(draft: MagazineDraft, opts: RenderOptions = {}): string {
   if (!draft.magazine) {
     throw new Error('Cannot render: magazine is undefined');
   }
   // Gabarit v2 (maquette du 27/09/2026) dès que le bloc le demande ; l'ancien
   // format reste servi pour les numéros déjà publiés.
-  if (draft.magazine.version === 2) return renderMagazineV2(draft);
+  if (draft.magazine.version === 2) return renderMagazineV2(draft, opts);
+  // L'ancien gabarit n'existe qu'en français : une autre édition exige le v2.
+  if ((opts.locale ?? SOURCE_LOCALE) !== SOURCE_LOCALE) {
+    throw new Error(`Cannot render: l'édition ${opts.locale} exige un bloc magazine en version 2`);
+  }
   const { magazine, weekShort, week } = draft;
   const weekLabel = weekShort.replace(/^s/, 'S');
   const weekUpper = week.replace(/-w/, '-W');

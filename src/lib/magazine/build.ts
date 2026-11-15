@@ -5,7 +5,9 @@ import { validateMagazine } from './validate';
 import { checkSourcesAgainstCards } from './sources-check';
 import { renderMagazine } from './render';
 import { renderIndexPage, type WeekMeta } from './index-page';
-import type { MagazineDraft } from './types';
+import { checkParity } from './parity';
+import { MAGAZINE_LOCALES, SOURCE_LOCALE, editionPrefix, type MagazineLocale } from './locales';
+import type { MagazineDraft, ValidationError } from './types';
 
 interface BuildOptions {
   root: string;
@@ -44,12 +46,12 @@ function extractDateRange(raw: string): string | undefined {
 // now on a fresh CI checkout. Source of truth for "what has been published" is
 // `content/digest/*.fr.mdx` with a `magazine:` block — gh-pages keeps the old
 // directories alive via `keep_files: true`.
-function collectWeeksWithMeta(root: string): WeekMeta[] {
+function collectWeeksWithMeta(root: string, locale: MagazineLocale = SOURCE_LOCALE): WeekMeta[] {
   const dir = join(root, 'content/digest');
   if (!existsSync(dir)) return [];
   const weeks: WeekMeta[] = [];
   for (const file of readdirSync(dir)) {
-    if (!file.endsWith('.fr.mdx') || file.startsWith('__')) continue;
+    if (!file.endsWith(`.${locale}.mdx`) || file.startsWith('__')) continue;
     try {
       const raw = readFileSync(join(dir, file), 'utf-8');
       const draft = parseDigestMagazine(raw);
@@ -86,27 +88,56 @@ export function buildMagazine(opts: BuildOptions): BuildResult {
     return { status: 'skipped' };
   }
 
-  // Gabarit v2 : chaque source citée doit être dans la fiche que le sujet désigne.
-  const errors = [...validateMagazine(draft.magazine), ...checkSourcesAgainstCards(draft.magazine, opts.root)];
-  if (errors.length > 0) {
+  const fail = (errors: ValidationError[]) => {
     const msg = errors
       .map((e) => `  - item ${e.itemIndex ?? 'n/a'}, field "${e.field}": ${e.reason}`)
       .join('\n');
     throw new Error(`Magazine validation failed:\n${msg}`);
+  };
+
+  // Gabarit v2 : chaque source citée doit être dans la fiche que le sujet désigne.
+  const errors = [...validateMagazine(draft.magazine), ...checkSourcesAgainstCards(draft.magazine, opts.root)];
+  if (errors.length > 0) fail(errors);
+
+  // Éditions traduites : même semaine, même nom de fichier, autre langue. Une
+  // édition sans bloc est sautée, le français sort quand même ; une édition
+  // qui s'écarte du français fait échouer le build (garde de parité).
+  const drafts: { locale: MagazineLocale; draft: MagazineDraft }[] = [{ locale: SOURCE_LOCALE, draft }];
+  for (const locale of MAGAZINE_LOCALES) {
+    if (locale === SOURCE_LOCALE) continue;
+    const path = digestPath.replace(/\.fr\.mdx$/, `.${locale}.mdx`);
+    if (!existsSync(path)) {
+      console.log(`[magazine] Pas de digest ${locale} cette semaine, édition ${locale} sautée.`);
+      continue;
+    }
+    const edition = parseDigestMagazine(readFileSync(path, 'utf-8'));
+    if (!edition.magazine) {
+      console.log(`[magazine] Pas de bloc magazine: dans ${path}, édition ${locale} sautée.`);
+      continue;
+    }
+    const editionErrors = [
+      ...validateMagazine(edition.magazine),
+      ...checkSourcesAgainstCards(edition.magazine, opts.root),
+      ...checkParity(draft.magazine, edition.magazine, locale),
+    ];
+    if (editionErrors.length > 0) fail(editionErrors);
+    drafts.push({ locale, draft: edition });
   }
 
-  const html = renderMagazine(draft);
+  const editions = drafts.map((d) => d.locale);
   const magDir = join(opts.root, 'docs/magazine');
-  const latestDir = join(magDir, 'latest');
-  const weekDir = join(magDir, draft.weekShort);
-  mkdirSync(latestDir, { recursive: true });
-  mkdirSync(weekDir, { recursive: true });
-  writeFileSync(join(latestDir, 'index.html'), html, 'utf-8');
-  writeFileSync(join(weekDir, 'index.html'), html, 'utf-8');
+  for (const { locale, draft: d } of drafts) {
+    const html = renderMagazine(d, { locale, editions });
+    const base = join(magDir, editionPrefix(locale));
+    const latestDir = join(base, 'latest');
+    const weekDir = join(base, d.weekShort);
+    mkdirSync(latestDir, { recursive: true });
+    mkdirSync(weekDir, { recursive: true });
+    writeFileSync(join(latestDir, 'index.html'), html, 'utf-8');
+    writeFileSync(join(weekDir, 'index.html'), html, 'utf-8');
+    writeFileSync(join(base, 'index.html'), renderIndexPage(collectWeeksWithMeta(opts.root, locale), locale), 'utf-8');
+  }
 
-  const weeks = collectWeeksWithMeta(opts.root);
-  writeFileSync(join(magDir, 'index.html'), renderIndexPage(weeks, 'fr'), 'utf-8');
-
-  console.log(`[magazine] Built ${draft.weekShort} — ${draft.magazine.items.length} items`);
+  console.log(`[magazine] Built ${draft.weekShort} — ${draft.magazine.items.length} items${editions.length > 1 ? ` (${editions.join(', ')})` : ''}`);
   return { status: 'built', weekShort: draft.weekShort };
 }

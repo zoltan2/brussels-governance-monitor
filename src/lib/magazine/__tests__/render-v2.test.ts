@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { renderMagazine } from '../render';
-import { renderMagazineV2 } from '../render-v2';
+import { renderMagazineV2, repeats } from '../render-v2';
 import type { MagazineDraft, MagazineItem } from '../types';
 
 // Gabarit v2 (maquette du 27/09/2026) avec les corrections actées : palette du
@@ -122,12 +122,15 @@ describe('renderMagazineV2', () => {
     expect(html).not.toContain('presse');
   });
 
-  it('se termine par la carte de visite et « À lundi prochain »', () => {
+  it('se termine par la carte de visite et un seul au revoir', () => {
     expect(html).toContain('Zoltán Jánosi');
     expect(html).toContain('Mon métier consiste à rendre lisible');
     expect(html).toContain('Édité par Advice That SRL');
     expect(html).toContain('contact@brusselsgovernance.be');
-    expect(html).toContain('À lundi prochain.');
+    // La phrase de clôture du numéro (« Retour lundi prochain. ») dit déjà au
+    // revoir : la formule du gabarit ne la double plus (15/11/2026).
+    expect(html).toContain('<h2 id="cloture-titre">Retour lundi prochain.</h2>');
+    expect(html).not.toContain('À lundi prochain.');
     // Demande de Zoltán du 04/10/2026 : « Recevoir le digest » mène à l'abonnement.
     expect(html).toContain('href="https://governance.brussels/fr/subscribe">Recevoir le digest</a>');
     expect(html).not.toContain('/fr/digest"');
@@ -162,3 +165,93 @@ describe('renderMagazine aiguille vers le gabarit v2', () => {
     expect(renderMagazine(v1)).not.toContain('id="sommaire"');
   });
 });
+
+// Éditions traduites (spec magazine trilingue, 15/11/2026).
+describe('renderMagazineV2, éditions nl et en', () => {
+  const d = draft();
+  const fr = renderMagazineV2(d);
+  const frSeul = renderMagazineV2(d, { locale: 'fr', editions: ['fr'] });
+  const frTrois = renderMagazineV2(d, { locale: 'fr', editions: ['fr', 'nl', 'en'] });
+  const nlDraft: MagazineDraft = {
+    ...d,
+    lang: 'nl',
+    magazine: { ...d.magazine!, items: d.magazine!.items.map((it) => ({ ...it, path: '/nl/domeinen/budget' })) },
+  };
+  const nl = renderMagazineV2(nlDraft, { locale: 'nl', editions: ['fr', 'nl', 'en'] });
+  const en = renderMagazineV2(d, { locale: 'en', editions: ['fr', 'nl', 'en'] });
+
+  it('français seul : la page est exactement celle d’avant, sans lien entre éditions', () => {
+    expect(frSeul).toBe(fr);
+    expect(fr).not.toContain('hreflang');
+    expect(fr).not.toContain('class="editions"');
+  });
+
+  it('plusieurs éditions : hreflang et sélecteur vers les autres, pas vers soi', () => {
+    for (const html of [frTrois, nl, en]) {
+      expect(html).toContain('<link rel="alternate" hreflang="fr" href="https://magazine.governance.brussels/s39/" />');
+      expect(html).toContain('<link rel="alternate" hreflang="nl" href="https://magazine.governance.brussels/nl/s39/" />');
+      expect(html).toContain('<link rel="alternate" hreflang="en" href="https://magazine.governance.brussels/en/s39/" />');
+    }
+    const selecteur = nl.slice(nl.indexOf('class="editions"'), nl.indexOf('</nav>'));
+    expect(selecteur).toContain('<span aria-current="true">NL</span>');
+    expect(selecteur).toContain('href="https://magazine.governance.brussels/s39/"');
+    expect(selecteur).toContain('href="https://magazine.governance.brussels/en/s39/"');
+    expect(selecteur).not.toContain('href="https://magazine.governance.brussels/nl/s39/"');
+  });
+
+  it('édition nl : langue, adresse canonique, liens du site et textes du gabarit en néerlandais', () => {
+    expect(nl).toContain('<html lang="nl">');
+    expect(nl).toContain('<link rel="canonical" href="https://magazine.governance.brussels/nl/s39/" />');
+    expect(nl).toContain('content="nl_BE"');
+    expect(nl).toContain('href="https://governance.brussels/nl"');
+    expect(nl).toContain('href="https://governance.brussels/nl/subscribe"');
+    expect(nl).toContain('Verken het thema op governance.brussels');
+    expect(nl).toContain('Brussel, achter de cijfers.');
+    expect(nl).toContain('Officieel gegeven');
+    expect(nl).toContain('Uitgegeven door Advice That SRL');
+    expect(nl).not.toContain('https://governance.brussels/fr');
+  });
+
+  it('édition traduite : aucun texte français du gabarit ne reste', () => {
+    const francais = ['Sommaire', 'Comment lire', 'Le site ↗', 'Explorer les sujets', 'La nuance qui compte', 'Donnée officielle', 'À confirmer', 'Qui écrit', 'À lundi prochain', 'Recevoir le digest', 'Ce numéro', 'Adresse de ce numéro', 'Semaine 39', 'Édité par', 'Mon métier'];
+    for (const html of [nl, en]) for (const texte of francais) expect(html, texte).not.toContain(texte);
+    expect(en).toContain('<html lang="en">');
+    expect(en).toContain('Published by Advice That SRL');
+    expect(en).toContain('Week 39');
+  });
+
+  it('l’ancien gabarit n’existe qu’en français', () => {
+    const v1: MagazineDraft = { ...d, magazine: { ...d.magazine!, version: 1 } };
+    expect(() => renderMagazine(v1, { locale: 'nl' })).toThrow(/version 2/);
+    expect(() => renderMagazine(v1)).not.toThrow();
+  });
+});
+
+// Retour de Zoltán sur la répétition du s46 (15/11/2026) : « Tot volgende
+// maandag. » deux fois de suite en clôture, pareil en français et en anglais.
+describe('clôture sans répétition', () => {
+  const avec = (closing_line: string, locale: 'fr' | 'nl' | 'en') => {
+    const d = draft();
+    return renderMagazineV2({ ...d, magazine: { ...d.magazine!, closing_line } }, { locale });
+  };
+
+  it('la formule d’au revoir disparaît quand la phrase de clôture la dit déjà', () => {
+    expect(avec('Retour lundi prochain.', 'fr')).not.toContain('class="a-lundi"');
+    expect(avec('Tot volgende maandag.', 'nl')).not.toContain('class="a-lundi"');
+    expect(avec('Back next Monday.', 'en')).not.toContain('class="a-lundi"');
+    // La phrase de clôture, elle, reste.
+    expect(avec('Tot volgende maandag.', 'nl')).toContain('<h2 id="cloture-titre">Tot volgende maandag.</h2>');
+  });
+
+  it('elle reste quand la phrase de clôture dit autre chose', () => {
+    expect(avec('Le budget se vote le 18 décembre.', 'fr')).toContain('<p class="a-lundi">À lundi prochain.</p>');
+    expect(avec('De begroting wordt op 18 december gestemd.', 'nl')).toContain('<p class="a-lundi">Tot volgende maandag.</p>');
+  });
+
+  it('repeats compare les mots, sans accents ni casse', () => {
+    expect(repeats('Retour LUNDI prochain !', 'À lundi prochain.')).toBe(true);
+    expect(repeats('Retour lundi.', 'À lundi prochain.')).toBe(false);
+    expect(repeats('', 'À lundi prochain.')).toBe(false);
+  });
+});
+

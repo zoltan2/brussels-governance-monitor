@@ -41,6 +41,20 @@ function slug(item: MagazineItem, rank: number): string {
   return `sujet-${pad2(rank)}-${base || 'sujet'}`;
 }
 
+/** Vrai si `line` contient déjà tous les mots de quatre lettres ou plus de `phrase`. */
+export function repeats(line: string, phrase: string): boolean {
+  const words = (text: string) =>
+    text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .split(/[^a-z]+/)
+      .filter((w) => w.length >= 4);
+  const have = new Set(words(line));
+  const wanted = words(phrase);
+  return wanted.length > 0 && wanted.every((w) => have.has(w));
+}
+
 /** Options de rendu : langue de l'édition et éditions parues cette semaine (pour les liens entre elles). */
 export interface RenderOptions {
   locale?: MagazineLocale;
@@ -92,6 +106,9 @@ export function renderMagazineV2(draft: MagazineDraft, opts: RenderOptions = {})
   const site = `${AUTHOR.siteBase}/${locale}`;
   const canonical = editionUrl(locale, weekShort);
   const title = s.pageTitle(weekNumber);
+  // « À lundi prochain. » sous la phrase de clôture, sauf si celle-ci le dit
+  // déjà (« Retour lundi prochain. ») : les deux lignes se répétaient.
+  const farewell = repeats(magazine.closing_line, s.seeYou) ? '' : `<p class="a-lundi">${s.seeYou}</p>\n`;
   const intro = magazine.intro ?? s.defaultIntro;
   // Liens entre éditions : seulement quand la semaine en compte plusieurs. Un
   // numéro paru en français seul garde exactement sa page d'avant.
@@ -215,8 +232,7 @@ ${s.howtoSteps.map((step) => `<li>${step}</li>`).join('\n')}
 <div>
 <p class="eyebrow">${s.closingEyebrow}</p>
 <h2 id="cloture-titre">${escapeHtml(magazine.closing_line)}</h2>
-<p class="a-lundi">${s.seeYou}</p>
-<p class="actions"><a class="button" href="${site}">${s.goToSite}</a> <a class="button secondary" href="${site}/subscribe">${s.subscribe}</a></p>
+${farewell}<p class="actions"><a class="button" href="${site}">${s.goToSite}</a> <a class="button secondary" href="${site}/subscribe">${s.subscribe}</a></p>
 </div>
 <div>
 <p class="eyebrow">${s.issueEyebrow}</p>

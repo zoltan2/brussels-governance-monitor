@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { renderMagazine } from '../render';
-import { renderMagazineV2 } from '../render-v2';
+import { renderMagazineV2, repeats } from '../render-v2';
 import type { MagazineDraft, MagazineItem } from '../types';
 
 // Gabarit v2 (maquette du 27/09/2026) avec les corrections actées : palette du
@@ -122,12 +122,15 @@ describe('renderMagazineV2', () => {
     expect(html).not.toContain('presse');
   });
 
-  it('se termine par la carte de visite et « À lundi prochain »', () => {
+  it('se termine par la carte de visite et un seul au revoir', () => {
     expect(html).toContain('Zoltán Jánosi');
     expect(html).toContain('Mon métier consiste à rendre lisible');
     expect(html).toContain('Édité par Advice That SRL');
     expect(html).toContain('contact@brusselsgovernance.be');
-    expect(html).toContain('À lundi prochain.');
+    // La phrase de clôture du numéro (« Retour lundi prochain. ») dit déjà au
+    // revoir : la formule du gabarit ne la double plus (15/11/2026).
+    expect(html).toContain('<h2 id="cloture-titre">Retour lundi prochain.</h2>');
+    expect(html).not.toContain('À lundi prochain.');
     // Demande de Zoltán du 04/10/2026 : « Recevoir le digest » mène à l'abonnement.
     expect(html).toContain('href="https://governance.brussels/fr/subscribe">Recevoir le digest</a>');
     expect(html).not.toContain('/fr/digest"');
@@ -223,3 +226,32 @@ describe('renderMagazineV2, éditions nl et en', () => {
     expect(() => renderMagazine(v1)).not.toThrow();
   });
 });
+
+// Retour de Zoltán sur la répétition du s46 (15/11/2026) : « Tot volgende
+// maandag. » deux fois de suite en clôture, pareil en français et en anglais.
+describe('clôture sans répétition', () => {
+  const avec = (closing_line: string, locale: 'fr' | 'nl' | 'en') => {
+    const d = draft();
+    return renderMagazineV2({ ...d, magazine: { ...d.magazine!, closing_line } }, { locale });
+  };
+
+  it('la formule d’au revoir disparaît quand la phrase de clôture la dit déjà', () => {
+    expect(avec('Retour lundi prochain.', 'fr')).not.toContain('class="a-lundi"');
+    expect(avec('Tot volgende maandag.', 'nl')).not.toContain('class="a-lundi"');
+    expect(avec('Back next Monday.', 'en')).not.toContain('class="a-lundi"');
+    // La phrase de clôture, elle, reste.
+    expect(avec('Tot volgende maandag.', 'nl')).toContain('<h2 id="cloture-titre">Tot volgende maandag.</h2>');
+  });
+
+  it('elle reste quand la phrase de clôture dit autre chose', () => {
+    expect(avec('Le budget se vote le 18 décembre.', 'fr')).toContain('<p class="a-lundi">À lundi prochain.</p>');
+    expect(avec('De begroting wordt op 18 december gestemd.', 'nl')).toContain('<p class="a-lundi">Tot volgende maandag.</p>');
+  });
+
+  it('repeats compare les mots, sans accents ni casse', () => {
+    expect(repeats('Retour LUNDI prochain !', 'À lundi prochain.')).toBe(true);
+    expect(repeats('Retour lundi.', 'À lundi prochain.')).toBe(false);
+    expect(repeats('', 'À lundi prochain.')).toBe(false);
+  });
+});
+

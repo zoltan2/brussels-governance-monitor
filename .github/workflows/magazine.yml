@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'content/digest/**.fr.mdx'
+      - 'content/digest/**.nl.mdx'
+      - 'content/digest/**.en.mdx'
       - 'src/lib/magazine/**'
       - 'scripts/build-magazine.ts'
   workflow_dispatch:

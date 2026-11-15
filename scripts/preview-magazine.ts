@@ -16,15 +16,23 @@ import { parseDigestMagazine } from '../src/lib/magazine/parse';
 import { validateMagazine } from '../src/lib/magazine/validate';
 import { checkSourcesAgainstCards } from '../src/lib/magazine/sources-check';
 import { renderMagazine } from '../src/lib/magazine/render';
+import { checkParity } from '../src/lib/magazine/parity';
+import { MAGAZINE_LOCALES, SOURCE_LOCALE, isMagazineLocale, type MagazineLocale } from '../src/lib/magazine/locales';
 
 const DIGEST_DIR = resolve(process.cwd(), 'content/digest');
 const PREVIEW_DIR = resolve(process.cwd(), '.preview');
-const PREVIEW_FILE = join(PREVIEW_DIR, 'magazine.html');
+// `-- 2026-w47 --lang nl` : aperçu d'une édition traduite, dans .preview/magazine-nl.html.
+const langAt = process.argv.indexOf('--lang');
+const langArg = langAt > -1 ? process.argv[langAt + 1] ?? '' : SOURCE_LOCALE;
+if (!isMagazineLocale(langArg)) throw new Error(`--lang ${langArg} : éditions connues ${MAGAZINE_LOCALES.join(', ')}`);
+const LOCALE: MagazineLocale = langArg;
+const WANTED = process.argv.slice(2).find((a, i, all) => !a.startsWith('--') && all[i - 1] !== '--lang');
+const PREVIEW_FILE = join(PREVIEW_DIR, LOCALE === SOURCE_LOCALE ? 'magazine.html' : `magazine-${LOCALE}.html`);
 
 // `npm run magazine:preview -- 2026-w39` relit un numéro précis ; sans argument,
 // le digest français le plus récent.
 function findLatestFrDigest(): string {
-  const wanted = process.argv[2];
+  const wanted = WANTED;
   if (wanted) {
     const path = join(DIGEST_DIR, `${wanted}.fr.mdx`);
     if (!existsSync(path)) throw new Error(`No digest ${wanted}.fr.mdx in content/digest/`);
@@ -58,10 +66,27 @@ function main(): void {
     process.exit(1);
   }
 
+  // Édition traduite : même semaine, autre langue, comparée au français.
+  let shown = draft;
   const errors = [
     ...validateMagazine(draft.magazine),
     ...checkSourcesAgainstCards(draft.magazine, process.cwd()),
   ];
+  if (LOCALE !== SOURCE_LOCALE) {
+    const path = digestPath.replace(/\.fr\.mdx$/, `.${LOCALE}.mdx`);
+    if (!existsSync(path)) throw new Error(`No digest ${path}`);
+    shown = parseDigestMagazine(readFileSync(path, 'utf-8'));
+    if (!shown.magazine) {
+      console.error(`[magazine] ERROR: No \`magazine:\` frontmatter block in ${path}.`);
+      process.exit(1);
+    }
+    errors.length = 0;
+    errors.push(
+      ...validateMagazine(shown.magazine),
+      ...checkSourcesAgainstCards(shown.magazine, process.cwd()),
+      ...checkParity(draft.magazine, shown.magazine, LOCALE),
+    );
+  }
   if (errors.length > 0) {
     console.warn('[magazine] Validation warnings (preview will still render):');
     for (const e of errors) {
@@ -69,12 +94,12 @@ function main(): void {
     }
   }
 
-  const html = renderMagazine(draft);
+  const html = renderMagazine(shown, { locale: LOCALE });
   mkdirSync(PREVIEW_DIR, { recursive: true });
   writeFileSync(PREVIEW_FILE, html, 'utf-8');
 
   console.log(
-    `[magazine] Preview for ${draft.weekShort} (${draft.magazine.items.length} items) → ${PREVIEW_FILE}`,
+    `[magazine] Preview for ${shown.weekShort} ${LOCALE} (${shown.magazine!.items.length} items) → ${PREVIEW_FILE}`,
   );
   openInBrowser(PREVIEW_FILE);
 }

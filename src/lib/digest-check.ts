@@ -32,7 +32,7 @@
 
 export const DIGEST_LANGS = ['fr', 'nl', 'en', 'de', 'ar', 'es', 'pl', 'pt', 'ro', 'sw', 'tr'] as const;
 
-export type DigestRule = 'completude' | 'liens' | 'coherence' | 'entites' | 'faits';
+export type DigestRule = 'completude' | 'liens' | 'coherence' | 'entites' | 'faits' | 'magazine';
 
 export interface DigestFinding {
   rule: DigestRule;

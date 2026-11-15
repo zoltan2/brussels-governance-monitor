@@ -57,6 +57,10 @@ import {
 } from '../../src/lib/digest-check';
 import { annotate, annotateWarning, safeLine } from './annotate';
 import { readAtBase } from './git-base';
+import { parseDigestMagazine } from '../../src/lib/magazine/parse';
+import { validateMagazine } from '../../src/lib/magazine/validate';
+import { checkParity } from '../../src/lib/magazine/parity';
+import { MAGAZINE_LOCALES, SOURCE_LOCALE } from '../../src/lib/magazine/locales';
 import { CONTENT, siteRoutes } from './site-routes';
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -209,6 +213,27 @@ function checkWeek(
       findings.push(...checkFacts(body, { week: extractSourceFacts(texts.week), olderRadar: extractSourceFacts(texts.olderRadar) }));
     }
   }
+  // Magazine : le bloc de chaque édition est valide, et une édition traduite
+  // dit la même chose que le français (garde de parité). Le build du magazine
+  // refait ce contrôle, mais il tourne après la fusion : ici, avant.
+  const frMagazine = raws[SOURCE_LOCALE] ? parseDigestMagazine(raws[SOURCE_LOCALE]).magazine : undefined;
+  for (const locale of MAGAZINE_LOCALES) {
+    const raw = raws[locale];
+    const magazine = raw ? parseDigestMagazine(raw).magazine : undefined;
+    if (!magazine) continue;
+    const errors = validateMagazine(magazine);
+    if (locale !== SOURCE_LOCALE) {
+      if (!frMagazine) {
+        findings.push({ rule: 'magazine', level: 'error', lang: locale, message: `bloc magazine en ${locale} sans bloc magazine en français : le français est la langue source` });
+        continue;
+      }
+      errors.push(...checkParity(frMagazine, magazine, locale));
+    }
+    for (const e of errors) {
+      findings.push({ rule: 'magazine', level: 'error', lang: locale, message: `${e.itemIndex === null ? 'bloc' : `sujet ${e.itemIndex + 1}`}, champ ${e.field} : ${e.reason}` });
+    }
+  }
+
   const frontmatterLines = (lang: string) => {
     const raw = raws[lang];
     return raw ? raw.split('\n').length - bodies[lang]!.split('\n').length : 0;
@@ -230,6 +255,7 @@ const RULE_NAMES: Record<DigestFinding['rule'], string> = {
   coherence: 'Lien et texte',
   entites: 'Entité belge',
   faits: 'Fait non ancré',
+  magazine: 'Magazine',
 };
 
 function print(checked: Checked[]): { errors: number; warnings: number } {

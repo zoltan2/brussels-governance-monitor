@@ -34,6 +34,8 @@ interface IndexStrings {
   latestSection: string;
   latestKicker: string;
   latestRead: string;
+  /** Unité du compteur de sujets du dernier numéro (« 6 signaux »). */
+  signals: string;
   archiveSection: string;
   archiveEmpty: string;
   aboutSection: string;
@@ -56,6 +58,7 @@ const STRINGS: Partial<Record<IndexLocale, IndexStrings>> = {
     latestSection: 'Dernier numéro',
     latestKicker: 'À lire cette semaine',
     latestRead: 'Lire le digest',
+    signals: 'signaux',
     archiveSection: 'Archives',
     archiveEmpty: 'Aucun numéro publié pour le moment.',
     aboutSection: 'Le projet',
@@ -65,6 +68,52 @@ const STRINGS: Partial<Record<IndexLocale, IndexStrings>> = {
     contactKicker: 'Contact',
     colophon:
       'BGM est édité par Advice That SRL (Bruxelles). Toute reproduction ou citation doit mentionner la source. Les données et analyses sont publiées sous licence source-available — voir governance.brussels/legal.',
+  },
+  nl: {
+    htmlLang: 'nl',
+    pageTitle: 'BGM Magazine, Brussels Governance Monitor',
+    publicationKicker: 'Wekelijks magazine',
+    publisherTag: 'Uitgegeven door Zoltán Jánosi',
+    heroTagline: 'Een Brusselse week, gedistilleerd.',
+    heroBlurb:
+      'Elke maandag vat de digest van de Brussels Governance Monitor de Brusselse institutionele week samen in enkele kernsignalen. Leesvoer voor vijf minuten, zonder ruis en zonder vooringenomenheid.',
+    scrollCue: 'Ontdekken',
+    latestSection: 'Laatste nummer',
+    latestKicker: 'Deze week te lezen',
+    latestRead: 'Lees het magazine',
+    signals: 'signalen',
+    archiveSection: 'Archief',
+    archiveEmpty: 'Nog geen eerdere nummers in het Nederlands.',
+    aboutSection: 'Het project',
+    aboutBody:
+      'De Brussels Governance Monitor (BGM) volgt doorlopend dertien beleidsdomeinen, eenentwintig transversale dossiers en negentien gemeenten. Het wekelijkse magazine vat het traject samen: institutioneel, sober, met bronnen. Voor de volledige versie, de gedetailleerde fiches en de dagelijkse radar kunt u terecht op de hoofdsite.',
+    siteCta: 'Naar governance.brussels',
+    contactKicker: 'Contact',
+    colophon:
+      'BGM wordt uitgegeven door Advice That SRL (Brussel). Bij elke overname of elk citaat moet de bron worden vermeld. De gegevens en analyses worden gepubliceerd onder een source-available-licentie: zie governance.brussels/legal.',
+  },
+  en: {
+    htmlLang: 'en',
+    pageTitle: 'BGM Magazine, Brussels Governance Monitor',
+    publicationKicker: 'Weekly magazine',
+    publisherTag: 'Published by Zoltán Jánosi',
+    heroTagline: 'A Brussels week, distilled.',
+    heroBlurb:
+      'Every Monday, the Brussels Governance Monitor digest distils the Brussels institutional week into a few key signals. A five-minute read, with no noise and no bias.',
+    scrollCue: 'Discover',
+    latestSection: 'Latest issue',
+    latestKicker: 'To read this week',
+    latestRead: 'Read the magazine',
+    signals: 'signals',
+    archiveSection: 'Archive',
+    archiveEmpty: 'No earlier issues in English yet.',
+    aboutSection: 'The project',
+    aboutBody:
+      'The Brussels Governance Monitor (BGM) continuously follows thirteen governance domains, twenty-one cross-cutting dossiers and nineteen municipalities. The weekly magazine condenses the trajectory: institutional, sober, sourced. For the full version, the detailed cards and the daily radar, visit the main site.',
+    siteCta: 'Go to governance.brussels',
+    contactKicker: 'Contact',
+    colophon:
+      'BGM is published by Advice That SRL (Brussels). Any reproduction or quotation must credit the source. Data and analyses are published under a source-available licence: see governance.brussels/legal.',
   },
 };
 
@@ -89,7 +138,7 @@ export function renderIndexPage(
             <div class="latest-card-body">
               <div class="latest-card-meta">${escapeHtml(latest.dateRange ?? '')}</div>
               ${latest.tagline ? `<p class="latest-card-tagline">${escapeHtml(latest.tagline)}</p>` : ''}
-              ${latest.itemCount ? `<div class="latest-card-count">${latest.itemCount} signaux</div>` : ''}
+              ${latest.itemCount ? `<div class="latest-card-count">${latest.itemCount} ${escapeHtml(t.signals)}</div>` : ''}
             </div>
             <a class="latest-card-cta" href="./${escapeHtml(latest.weekShort)}/" aria-label="${escapeHtml(t.latestRead)}">
               <span>${escapeHtml(t.latestRead)}</span>
@@ -137,7 +186,7 @@ ${archive
 <meta property="og:title" content="${escapeHtml(t.pageTitle)}" />
 <meta property="og:description" content="${escapeHtml(t.heroTagline)}" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://magazine.governance.brussels/" />
+<meta property="og:url" content="https://magazine.governance.brussels/${locale === 'fr' ? '' : `${locale}/`}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="${GOOGLE_FONTS_HREF}" rel="stylesheet" />

@@ -3,29 +3,17 @@ import { join } from 'node:path';
 import { matter } from '../frontmatter';
 import type { Magazine, ValidationError } from './types';
 import { isV2 } from './validate';
+import { CARD_DIRS, cardRefForPath } from './locales';
 
 // Décision du 27/09/2026 : les sources du magazine sont reprises des fiches, pas
 // recopiées à la main. Chaque URL citée sous un sujet doit figurer dans la liste
-// `sources` du frontmatter de la fiche française que le sujet désigne par `path`.
+// `sources` du frontmatter de la fiche que le sujet désigne par `path`, dans la langue de l'édition.
 
-const SEGMENT_TO_DIR: Record<string, string> = {
-  domaines: 'domain-cards',
-  dossiers: 'dossiers',
-  communes: 'commune-cards',
-  secteurs: 'sector-cards',
-  solutions: 'solution-cards',
-  comparaisons: 'comparison-cards',
-};
-
-/** `/fr/domaines/budget` → `content/domain-cards/budget.fr.mdx` ; null si le chemin ne désigne pas une fiche. */
+/** `/fr/domaines/budget` → `content/domain-cards/budget.fr.mdx`, `/nl/domeinen/budget` → `…budget.nl.mdx` ; null si le chemin ne désigne pas une fiche. */
 export function cardFileForPath(path: string | undefined): string | null {
-  if (!path) return null;
-  const cleaned = path.replace(/^https?:\/\/[^/]+/, '').split(/[?#]/)[0] ?? '';
-  const m = cleaned.match(/^\/fr\/([^/]+)\/([^/]+)\/?$/);
-  if (!m) return null;
-  const dir = SEGMENT_TO_DIR[m[1]!];
-  if (!dir) return null;
-  return `content/${dir}/${m[2]}.fr.mdx`;
+  const ref = cardRefForPath(path);
+  if (!ref) return null;
+  return `content/${CARD_DIRS[ref.kind]}/${ref.slug}.${ref.locale}.mdx`;
 }
 
 // Toutes les URL que la fiche cite : sa liste `sources` quand elle en a une

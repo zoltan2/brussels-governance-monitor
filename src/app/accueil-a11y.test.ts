@@ -136,13 +136,23 @@ describe('magazine : langue annoncée avant le clic', () => {
     return src.slice(i, src.indexOf('</a>', i));
   })();
 
-  it('le lien déclare hrefLang="fr"', () => {
-    expect(lien).toMatch(/hrefLang="fr"/);
+  // Depuis le 15/11/2026, le magazine existe aussi en nl et en : le lien mène à
+  // l'édition de la langue de la page, et ne dit « (FR) » que s'il retombe sur
+  // l'édition française.
+  it('le lien déclare la langue de l’édition visée', () => {
+    expect(lien).toMatch(/hrefLang=\{magazine\?\.lang \?\? 'fr'\}/);
   });
 
-  it('hors fr, le libellé porte la marque « (FR) »', () => {
-    expect(lien).toMatch(/locale !== 'fr' && <FrenchOnlyMark \/>/);
+  it('la marque « (FR) » seulement quand l’édition n’est pas dans la langue de la page', () => {
+    expect(lien).toMatch(/\(magazine\?\.lang \?\? 'fr'\) !== locale && <FrenchOnlyMark \/>/);
     expect(fonction('FrenchOnlyMark')).toContain('(FR)');
+  });
+
+  it('l’adresse vient de editionUrl, dans la langue de la page si l’édition existe', () => {
+    const page = readFileSync(resolve(__dirname, '[locale]/page.tsx'), 'utf8');
+    expect(page).toContain("editionUrl(magLang, `s${weekNum}`)");
+    expect(page).toContain("href={magazine?.href ?? 'https://magazine.governance.brussels/'}");
+    expect(page).toMatch(/localeEntry && !localeEntry\.isFallback/);
   });
 });
 

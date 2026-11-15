@@ -1,28 +1,28 @@
 {
-  "week": "2026-w45",
-  "weekStart": "2026-11-02",
-  "created_at": "2026-11-08T20:00:05.913Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w46",
+  "weekStart": "2026-11-09",
+  "created_at": "2026-11-15T20:00:24.081Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "7 domaines, 5 dossiers, 4 communes mis à jour",
-    "nl": "7 domeinen, 5 dossiers, 4 gemeenten bijgewerkt",
-    "en": "7 domains, 5 dossiers, 4 communes updated",
-    "de": "7 Bereiche, 5 Dossiers, 4 Gemeinden aktualisiert"
+    "fr": "7 domaines, 6 dossiers, 3 communes mis à jour",
+    "nl": "7 domeinen, 6 dossiers, 3 gemeenten bijgewerkt",
+    "en": "7 domains, 6 dossiers, 3 communes updated",
+    "de": "7 Bereiche, 6 Dossiers, 3 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "66",
+    "value": "48,7 %",
     "label": {
-      "fr": "Logements sociaux achevés près de la place Anneessens, à Bruxelles-Ville, à la place d'une tour de 1955 ; premiers locataires attendus début 2027",
-      "nl": "Sociale woningen opgeleverd bij het Anneessensplein, in Brussel-Stad, in de plaats van een toren uit 1955; eerste huurders verwacht begin 2027",
-      "en": "Social housing units completed near Place Anneessens, in the City of Brussels, replacing a 1955 tower; first tenants expected in early 2027",
-      "de": "Sozialwohnungen nahe der Place Anneessens in Brüssel-Stadt fertiggestellt, anstelle eines Turms von 1955; erste Mieter Anfang 2027 erwartet"
+      "fr": "La part du territoire bruxellois couverte par la végétation en 2023 ; 12,7 % dans le Pentagone, 42,6 % sans la forêt de Soignes et le bois de la Cambre",
+      "nl": "Het aandeel van het Brusselse grondgebied dat in 2023 met vegetatie bedekt is; 12,7 % in de Vijfhoek, 42,6 % zonder het Zoniënwoud en het Ter Kamerenbos",
+      "en": "The share of the Brussels Region covered by vegetation in 2023; 12.7% in the Pentagon, 42.6% excluding the Sonian Forest and the Bois de la Cambre",
+      "de": "Der Anteil des Brüsseler Gebiets, der 2023 von Vegetation bedeckt ist; 12,7 % im Pentagon, 42,6 % ohne den Sonienwald und den Bois de la Cambre"
     },
     "source": {
-      "fr": "Beliris, annonce du 4 novembre 2026, rapportée par BX1 et BRUZZ",
-      "nl": "Beliris, aankondiging van 4 november 2026, gemeld door BX1 en BRUZZ",
-      "en": "Beliris, announcement of 4 November 2026, reported by BX1 and BRUZZ",
-      "de": "Beliris, Mitteilung vom 04.11.2026, berichtet von BX1 und BRUZZ"
+      "fr": "Bruxelles Environnement, état des lieux de l'environnement : couverture végétale (photographies aériennes de 2023)",
+      "nl": "Leefmilieu Brussel, staat van het leefmilieu: vegetatiebedekking (luchtfoto's van 2023)",
+      "en": "Brussels Environment, state of the environment: vegetation cover (2023 aerial photographs)",
+      "de": "Brüssel Umwelt, Zustand der Umwelt: Vegetationsbedeckung (Luftbilder von 2023)"
     }
   },
   "closingNote": {
@@ -34,21 +34,20 @@
   "commitmentCount": 16,
   "updatedTopics": [
     "budget",
-    "climate",
-    "employment",
-    "housing",
+    "economy",
     "institutional",
+    "mobility",
     "security",
+    "social",
     "urban-planning",
-    "dossier-assemblees-citoyennes",
     "dossier-cpas-bruxellois",
+    "dossier-mobilite-partagee",
+    "dossier-rechauffement-bruxelles",
     "dossier-slrb",
     "dossier-survol-bruxelles",
-    "dossier-vivaqua",
-    "commune-berchem-sainte-agathe",
-    "commune-bruxelles-ville",
-    "commune-saint-josse-ten-noode",
-    "commune-schaerbeek"
-  ],
-  "sent_at": "2026-11-08T21:33:37.107Z"
+    "dossier-petite-enfance",
+    "commune-anderlecht",
+    "commune-etterbeek",
+    "commune-saint-josse-ten-noode"
+  ]
 }

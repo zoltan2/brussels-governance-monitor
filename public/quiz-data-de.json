@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T10:43:17.016Z",
+  "generatedAt": "2026-11-15T11:20:21.308Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Wie viele Brüsseler Unternehmen sind laut Statbel (19. Oktober 2026) im Jahr 2025 nach Flandern umgezogen?",
+      "question": "Welche Regelung von Innoviris können Brüsseler Unternehmen ab dem 19.11.2026 wieder beantragen, laut La DH vom 14.11.2026?",
       "options": [
-        "1.139 Unternehmen",
-        "1.687 Unternehmen",
-        "804 Unternehmen",
-        "1.263 Unternehmen"
+        "Den Plan „Oxygen Brussels“",
+        "Den Förderschalter „R&D Booster“",
+        "Das Kompetenzzentrum Brucefo",
+        "Das regionale Portal hub.info"
       ],
       "correct": 1,
-      "explanation": "1.687 Unternehmen zogen nach Flandern, 1.263 kamen in umgekehrter Richtung. Auch der Saldo mit der Wallonie ist für Brüssel negativ.",
+      "explanation": "Laut La DH öffnet Innoviris seinen im März 2026 geschlossenen Förderschalter „R&D Booster“ wieder, mit einem angekündigten Budget von 16 Millionen Euro für 2027. Eine Mitteilung von Innoviris bestätigte dies zu diesem Zeitpunkt nicht.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:bc70717113184689146ae4cbb9d34621",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:d0e7869198db125972a7698ebf200071",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Wie viele Maßnahmen umfasst der Plan „Oxygen Brussels“ für kleine und mittlere Unternehmen, den die Brüsseler Regierung am 15. Oktober 2026 verabschiedet hat?",
+      "question": "Was zeigen laut Statbel (19.10.2026) die Umzüge von Unternehmen zwischen Brüssel und Flandern im Jahr 2025?",
       "options": [
-        "22 Maßnahmen",
-        "35 Maßnahmen",
-        "48 Maßnahmen",
-        "12 Maßnahmen"
+        "1.263 Wegzüge aus Brüssel gegenüber 1.687 Zuzügen",
+        "1.139 Wegzüge aus Brüssel gegenüber 804 Zuzügen",
+        "1.687 Wegzüge aus Brüssel gegenüber 1.263 Zuzügen",
+        "804 Wegzüge aus Brüssel gegenüber 1.139 Zuzügen"
       ],
-      "correct": 0,
-      "explanation": "Der Plan verfolgt vier Prioritäten, darunter die Verwaltungsvereinfachung und den Zugang der KMU zu regionalen öffentlichen Aufträgen. Ein Budget wurde nicht angekündigt.",
+      "correct": 2,
+      "explanation": "2025 zogen 1.687 Brüsseler Unternehmen nach Flandern und 1.263 flämische Unternehmen in die Gegenrichtung. Auch gegenüber Wallonien zählt Brüssel mehr Wegzüge als Zuzüge.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:bc70717113184689146ae4cbb9d34621",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:d0e7869198db125972a7698ebf200071",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Worauf warten die Anbieter Bolt und Dott laut BRUZZ (12.11.2026), bevor sie ihre Leih-E-Scooter in den 19 sensiblen Zonen Brüssels sperren?",
+      "question": "Was fordert die Resolution zum Maskulinismus, die das Brüsseler Parlament am 13.11.2026 einstimmig verabschiedete, laut La DH?",
       "options": [
-        "Eine genaue Karte der Zonengrenzen, von der Region geliefert",
-        "Einen föderalen Erlass, der die Höhe der Bußgelder festlegt",
-        "Eine Abstimmung im Gemeinderat jeder betroffenen Gemeinde",
-        "Eine Einigung mit der STIB über die Zugänge zu den Metrostationen"
+        "Dass safe.brussels dessen Ausmaß in Brüssel misst",
+        "Dass eine regionale Staatsanwaltschaft gegen Sexismus entsteht",
+        "Dass maskulinistische Inhalte per Ordonnanz verboten werden",
+        "Dass die neunzehn Gemeinden diese Zuständigkeit übernehmen"
       ],
       "correct": 0,
-      "explanation": "Beide Anbieter sagen, sie könnten ihre E-Scooter in einer Zone technisch verlangsamen, sperren oder das Abstellen verhindern, warten aber auf einen genauen Umkreis der regionalen Behörde; das Verbot wird daher kaum angewandt.",
+      "explanation": "Der Text fordert, den Maskulinismus in die regionalen Sicherheitsstrategien aufzunehmen und safe.brussels mit der Messung seines Ausmaßes zu beauftragen. Eine Resolution richtet Forderungen an die Regierung, sie hat nicht die Kraft einer Ordonnanz.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:24d952e265e798f2b7fa7765d3f4dd52",
-        "generatedAt": "2026-11-13T10:43:17.016Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:8fadf7a4aef1360f2d97d4fa9b5f0379",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Wer bat laut L'Avenir (06.11.2026) am 4. November 2026 um eine gemeinsame regionale Beschilderung für die 19 sensiblen Zonen, in denen E-Scooter verboten sind?",
+      "question": "Warum wurde das Verbot von E-Scootern in den sensiblen Zonen Brüssels am 12.11.2026 kaum angewandt, laut BRUZZ?",
       "options": [
-        "Die Konferenz der Brüsseler Bürgermeister",
-        "Die Konferenz der Korpschefs der Polizei",
-        "Die beiden Anbieter von Leih-E-Scootern",
-        "Der Mobilitätsausschuss des Brüsseler Parlaments"
+        "Weil der Staatsrat den Erlass ausgesetzt hatte",
+        "Weil die Anbieter einen Aufschub erhalten hatten",
+        "Weil der Polizeierlass noch nicht ergangen war",
+        "Mangels Beschilderung, die Bußgelder ermöglicht"
       ],
-      "correct": 0,
-      "explanation": "Die Bürgermeister baten Brüssel Mobilität um eine gemeinsame Beschilderung; das Kabinett des Ministerpräsidenten antwortet, dass der Polizeierlass vom 19.10.2026 keine Markierung der Zonengrenzen vorschreibt.",
+      "correct": 3,
+      "explanation": "Laut BRUZZ markiert kein Schild die Grenzen der 19 sensiblen Zonen, was Bußgelder verhindert. Die Anbieter Bolt und Dott erklären, auf eine genaue Karte der Zonen von der regionalen Behörde zu warten.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:24d952e265e798f2b7fa7765d3f4dd52",
-        "generatedAt": "2026-11-13T10:43:17.016Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:8fadf7a4aef1360f2d97d4fa9b5f0379",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Was zeichnet laut dem Roten Kreuz und Ärzte der Welt (12. November 2026) das medizinische Zentrum Refugee Medical Point in Brüssel aus?",
+      "question": "Welche Ebene entscheidet über die Finanzierung des Brussels Deal, der Aufnahmeregelung, deren Ende laut La DH für Ende 2026 angekündigt ist?",
       "options": [
-        "Der einzige Ort mit kostenloser Versorgung ohne Termin",
-        "Das einzige öffentliche Krankenhaus nur für Asylsuchende",
-        "Das einzige medizinische Zentrum, das nachts geöffnet hat",
-        "Das einzige Gesundheitszentrum, das die GGK voll finanziert"
+        "Die Regierung der Region Brüssel",
+        "Die Föderalregierung",
+        "Die Gemeinsame Gemeinschaftskommission",
+        "Die neunzehn Brüsseler Gemeinden"
       ],
-      "correct": 0,
-      "explanation": "Das Zentrum verzeichnete von August bis November 2026 mehr als 4.800 Besuche, fast 80 am Tag. Das Zentrum Athéna, das einen ähnlichen Dienst bot, schloss Ende 2025.",
+      "correct": 1,
+      "explanation": "Der Brussels Deal wird vom Föderalstaat finanziert. Am 14.11.2026 berichtet La DH, der Brüsseler Gesundheitsminister halte Brüssel nicht für in der Lage, eine föderale Entscheidung allein auszugleichen.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:30b1950406894781ee006c46c0ea01f9",
-        "generatedAt": "2026-11-12T13:21:29.776Z",
+        "sourceLastModified": "2026-11-15",
+        "sourceContentHash": "sha256:1902f4c5ff543e0e172a78ffc57a0328",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Von welcher Behörde erwartete die Brüsseler Organisation für häusliche Pflege Wheel of Care laut BRUZZ (11. November 2026) einen Zuschuss von 92.000 Euro?",
+      "question": "Was zeichnet laut dem Roten Kreuz und Ärzte der Welt (12.11.2026) das medizinische Zentrum Refugee Medical Point in Brüssel aus?",
       "options": [
-        "Von der GGK, über ihre Verwaltung Vivalis",
-        "Von der Region, über Brüssel Wirtschaft und Arbeit",
-        "Von der COCOF, über ihren Gesundheitsdienst",
-        "Vom Föderalstaat, über das LIKIV und seine Pauschalen"
+        "Es ist der einzige Ort mit kostenlosen Sprechstunden ohne Termin und Bedingungen",
+        "Es ist das einzige Versorgungszentrum, das ganz von der Region Brüssel bezahlt wird",
+        "Es ist das einzige Krankenhaus, das Schutzsuchenden vorbehalten ist",
+        "Es ist der einzige medizinische Dienst, der nachts für Obdachlose geöffnet ist"
       ],
       "correct": 0,
-      "explanation": "Der Zuschuss blieb während der Regierungsbildung blockiert; Wheel of Care streicht 30 Stellen. Vivalis zufolge soll das Dossier dem Vereinigten Kollegium vorgelegt werden.",
+      "explanation": "Laut beiden Organisationen ist der Refugee Medical Point der einzige Ort in Brüssel mit kostenlosen Sprechstunden ohne Termin und ohne administrative Bedingungen. Das Zentrum Athéna schloss Ende 2025 mangels Zuschüssen.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:30b1950406894781ee006c46c0ea01f9",
-        "generatedAt": "2026-11-12T13:21:29.776Z",
+        "sourceLastModified": "2026-11-15",
+        "sourceContentHash": "sha256:1902f4c5ff543e0e172a78ffc57a0328",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Welcher Anteil der Brüsseler, deren Anspruch auf Arbeitslosengeld im ersten Quartal 2026 endete, wurde laut dem Monitoring von Actiris vom 25. September 2026 binnen drei Monaten ÖSHZ-Empfänger?",
+      "question": "Vor dem Sitz welcher Einrichtung versammelte sich die gemeinsame Gewerkschaftsfront der Brüsseler Gemeinden und ÖSHZ am 13.11.2026?",
       "options": [
-        "47,6 %",
-        "12,6 %",
-        "8,9 %",
-        "63,6 %"
+        "Das Brüsseler Parlament",
+        "Das regionale Amt Actiris",
+        "Die Bank Belfius",
+        "Der Verband der ÖSHZ"
       ],
-      "correct": 0,
-      "explanation": "Das Monitoring verfolgt 15.500 Arbeitsuchende aus den ersten beiden Wellen von Anspruchsenden: 12,6 % fanden eine Stelle und 8,9 % wechselten in die Kranken- und Invalidenversicherung.",
+      "correct": 2,
+      "explanation": "Die Gewerkschaften versammelten sich auf der Place Rogier, vor dem Sitz von Belfius. Laut BRUZZ werfen sie der Bank vor, jeden neuen Kredit an Gemeinden von Einsparungen abhängig zu machen.",
       "sourceSlug": "/de/dossiers/cpas-bruxellois",
       "sourceTitle": "Brüsseler ÖSHZ",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:3782c5f38dd2614904316dab401bce48",
-        "generatedAt": "2026-11-03T12:02:35.952Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:819b67dc25538fe65d4d91f6de2f2e23",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Welche außerordentliche Hilfe pro Platz gewährt die ONE laut den am 30. Oktober 2026 veröffentlichten Informationen nicht subventionierten Kinderkrippen?",
+      "question": "Welchen Auftrag erteilte die Regierung der Föderation Wallonie-Brüssel im November 2026 ihrem Kommissar bei der ONE, laut RTBF?",
       "options": [
-        "310 Euro",
-        "1.060 Euro",
-        "450 Euro",
-        "620 Euro"
+        "Die Kinderkrippen zu schließen, gegen die ermittelt wird",
+        "Die Fortführung der Verwaltung des Amtes zu sichern",
+        "Die Tarife der subventionierten Kinderkrippen zu überarbeiten",
+        "Die Inspektion der Brüsseler Kinderkrippen zu übernehmen"
       ],
-      "correct": 3,
-      "explanation": "620 Euro pro Platz für nicht subventionierte Kinderkrippen, 310 Euro für selbstständige Tagesmütter, wenn der Tarif 1.060 Euro pro Monat in Vollzeit nicht übersteigt.",
+      "correct": 1,
+      "explanation": "Laut der Mitteilung der Ministerin für Kindheit, die die RTBF am 14.11.2026 zitiert, wurde ein Mitglied der ONE vom Dienst freigestellt, und der Regierungskommissar sichert vorübergehend die Fortführung der Verwaltung.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:b4211cc9f32b7223efac88a6fff44c38",
-        "generatedAt": "2026-11-01T14:01:26.593Z",
+        "sourceLastModified": "2026-11-15",
+        "sourceContentHash": "sha256:577dbb047d61762faf1886fc713db626",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Welche Stelle prüft laut der am 9. September 2026 veröffentlichten Analyse von BRUZZ und Knack die niederländischsprachigen Kinderkrippen der Region Brüssel?",
+      "question": "Bis zu welchem Monatstarif für Vollzeitbetreuung kann eine nicht subventionierte Kinderkrippe im Oktober 2026 die außerordentliche Hilfe der ONE von 620 Euro pro Platz erhalten?",
       "options": [
-        "Die ONE, in der Französischen Gemeinschaft",
-        "Opgroeien, in der Flämischen Gemeinschaft",
-        "Iriscare, bei der GGK",
-        "Actiris, bei der Region"
+        "1.060 Euro pro Monat",
+        "620 Euro pro Monat",
+        "1.500 Euro pro Monat",
+        "850 Euro pro Monat"
       ],
-      "correct": 1,
-      "explanation": "Opgroeien prüft die niederländischsprachigen Kinderkrippen. Die französischsprachigen fallen unter die ONE und die bikommunitären Einrichtungen unter Iriscare, jeweils mit eigenen Kriterien.",
+      "correct": 0,
+      "explanation": "Die ONE gewährt nicht subventionierten Kinderkrippen auf Antrag 620 Euro pro Platz, wenn ihr Tarif 1.060 Euro pro Monat in Vollzeit nicht übersteigt. Selbstständige Tagesmütter erhalten 310 Euro pro Platz.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:b4211cc9f32b7223efac88a6fff44c38",
-        "generatedAt": "2026-11-01T14:01:26.593Z",
+        "sourceLastModified": "2026-11-15",
+        "sourceContentHash": "sha256:577dbb047d61762faf1886fc713db626",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welche Standorte der SLRB, deren Verkauf vier Vereinigungen im Eilverfahren anfechten, sollten laut La DH (13.11.2026) zu Sozialwohnungen renoviert werden?",
+      "question": "Welche Standorte der SLRB sind Gegenstand des Eilverfahrens von vier Vereinigungen, das am 13.11.2026 vor dem Gericht erster Instanz in Brüssel verhandelt wurde?",
       "options": [
-        "Ariane in Woluwe-Saint-Lambert und Palais in Schaerbeek",
-        "Ariane in Anderlecht und Palais in Molenbeek-Saint-Jean",
-        "Reyers in Schaerbeek und Tivoli in der Stadt Brüssel",
-        "Josaphat in Evere und Mediapark in Schaerbeek"
+        "Josaphat und Delta",
+        "Machtens und Potiers",
+        "Tivoli und Biestebroeck",
+        "Ariane und Palais"
       ],
-      "correct": 0,
-      "explanation": "Das am 13.07.2026 gegen diese Verkäufe eingeleitete Eilverfahren wurde am 13.11.2026 verhandelt; Ecolo fordert die Regierung auf, die Verkäufe auszusetzen und die Verfahren zu überprüfen.",
+      "correct": 3,
+      "explanation": "Das Eilverfahren betrifft den Verkauf des Standorts Ariane in Woluwe-Saint-Lambert und des Standorts Palais in Schaerbeek. Laut BRUZZ entscheidet das Gericht im Dezember 2026 über die beantragte vorläufige Maßnahme.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:945b8288ef47fd3990d2d5758c5c2a8b",
-        "generatedAt": "2026-11-13T10:43:17.016Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:9048938d25575faad6ce9221dbb02481",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Wohnen",
-      "question": "Welche neue Tranche sehen die Unterlagen des Regionalhaushalts 2027 laut BRUZZ (02.11.2026) für die SLRB im Jahr 2027 vor?",
+      "question": "Was fordern die vier Vereinigungen in ihrem Eilverfahren gegen den Verkauf von zwei Gebäuden der SLRB, verhandelt am 13.11.2026?",
       "options": [
-        "120 Millionen Euro",
-        "131 Millionen Euro",
-        "75 Millionen Euro",
-        "250 Millionen Euro"
+        "Die Aufhebung des Kaufs der Gebäude von 2020",
+        "Die Aussetzung des Verkaufs beider Gebäude",
+        "Die Übertragung der Gebäude an beide Gemeinden",
+        "Die sofortige Umsiedlung aller Mieter"
       ],
-      "correct": 0,
-      "explanation": "Die Tranche von 131 Millionen für 2026 scheint genehmigt, und für 2027 ist eine neue Tranche von 120 Millionen eingetragen; zu diesem Datum wird keine Zahlung gemeldet.",
+      "correct": 1,
+      "explanation": "Laut BRUZZ fordern die Vereinigungen die Aussetzung des Verkaufs, um eine Abgabe an den Privatmarkt ohne soziale Auflagen zu vermeiden. Sie erklären, sich nicht gegen die Verkäufe an sich zu stellen.",
       "sourceSlug": "/de/dossiers/slrb",
       "sourceTitle": "SLRB",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:945b8288ef47fd3990d2d5758c5c2a8b",
-        "generatedAt": "2026-11-13T10:43:17.016Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:9048938d25575faad6ce9221dbb02481",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Warum können Brüsseler Gemeinden laut BRUZZ (12.11.2026) die Route RNP 07L noch vor dem Staatsrat anfechten, obwohl die Frist der Region abgelaufen ist?",
+      "question": "Warum kann die Flämische Gemeinschaftskommission (VGC) die Flugroute RNP 07L nicht vor dem Staatsrat anfechten, laut BRUZZ im November 2026?",
       "options": [
-        "Der föderale Brief vom 17.07.2026 war nicht an sie gerichtet",
-        "Der Staatsrat gewährte ihnen eine Frist bis zum 31.12.2026",
-        "Ihre Frist läuft ab ihrer Gemeinderatsabstimmung vom 12. November",
-        "Die Region übertrug ihnen am 01.11.2026 ihr Klagerecht"
+        "Sie ließ die Frist von sechzig Tagen verstreichen",
+        "Sie hat keinerlei Zuständigkeit in der Region Brüssel",
+        "Sie ist eine dezentrale Behörde ohne Dekretbefugnis",
+        "Sie hatte den Erhalt dieser Route selbst gebilligt"
       ],
-      "correct": 0,
-      "explanation": "Für die Gemeinden liefe die Frist laut BRUZZ ab der Luftfahrtveröffentlichung vom 16.09.2026 bis zum 16.11.2026; Koekelberg, Schaerbeek und Molenbeek-Saint-Jean beschlossen, den Staatsrat anzurufen.",
+      "correct": 2,
+      "explanation": "Laut BRUZZ ist die VGC eine dezentrale Behörde der Flämischen Gemeinschaft, ohne Dekretbefugnis. Die COCOF und die GGK kündigten dagegen Anträge an.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
       "sourceTitle": "Fluglärm Brüssel",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:e984713edf7f0389859a5181963bcb65",
-        "generatedAt": "2026-11-13T10:43:17.016Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:ab58435e5c5c7cd820b720aaad564aec",
+        "generatedAt": "2026-11-15T11:20:21.308Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

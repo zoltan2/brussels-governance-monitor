@@ -117,7 +117,7 @@ ${covers
 
   const toc = magazine.items
     .map(
-      (item, i) => `<li><a class="toc-link" href="#${slug(item, i + 1)}"><span class="toc-rank">${pad2(i + 1)}</span><span><span class="toc-short">${escapeHtml(item.short ?? item.category ?? '')}</span><span class="toc-title">${escapeHtml(item.headline)}</span></span><span class="toc-stat">${escapeHtml(item.stat)}</span></a></li>`,
+      (item, i) => `<li><a class="toc-link" href="#${slug(item, i + 1)}"><span class="toc-rank">${pad2(i + 1)}</span><span><span class="toc-short">${escapeHtml(item.short ?? item.category ?? '')}</span><span class="toc-title">${escapeHtml(item.headline)}</span></span><span class="toc-stat">${escapeHtml(item.stat)}<small> ${escapeHtml(item.stat_label)}</small></span></a></li>`,
     )
     .join('\n');
 
@@ -146,7 +146,7 @@ ${umamiSnippet()}
 <body>
 <a class="skip" href="#sommaire">Aller au sommaire</a>
 <header class="site-nav">
-<a class="brand" href="${AUTHOR.siteBase}/fr"><strong>BGM</strong><span>Le magazine · ${escapeHtml(weekLabel)}</span></a>
+<a class="brand" href="${AUTHOR.siteBase}/fr"><strong>BGM</strong><span><span class="brand-long">Le magazine · </span>${escapeHtml(weekLabel)}</span></a>
 <nav aria-label="Navigation du magazine"><ul>
 <li><a href="#sommaire">Sommaire</a></li>
 <li><a href="#comment-lire">Comment lire</a></li>

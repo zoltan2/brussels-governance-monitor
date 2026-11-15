@@ -2,8 +2,8 @@
   "week": "2026-w46",
   "weekStart": "2026-11-09",
   "created_at": "2026-11-15T20:00:24.081Z",
-  "approved": false,
-  "sent": false,
+  "approved": true,
+  "sent": true,
   "summary": {
     "fr": "7 domaines, 6 dossiers, 3 communes mis à jour",
     "nl": "7 domeinen, 6 dossiers, 3 gemeenten bijgewerkt",
@@ -49,5 +49,6 @@
     "commune-anderlecht",
     "commune-etterbeek",
     "commune-saint-josse-ten-noode"
-  ]
+  ],
+  "sent_at": "2026-11-15T20:09:31.450Z"
 }

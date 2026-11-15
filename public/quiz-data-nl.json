@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T10:43:16.315Z",
+  "generatedAt": "2026-11-15T11:20:20.077Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Economie",
-      "question": "Hoeveel Brusselse ondernemingen verhuisden volgens Statbel (19 oktober 2026) in 2025 naar Vlaanderen?",
+      "question": "Welke regeling van Innoviris kunnen Brusselse ondernemingen vanaf 19 november 2026 opnieuw aanvragen, volgens La DH van 14 november 2026?",
       "options": [
-        "1.139 ondernemingen",
-        "1.687 ondernemingen",
-        "804 ondernemingen",
-        "1.263 ondernemingen"
+        "Het plan « Oxygen Brussels »",
+        "Het loket « R&D Booster »",
+        "Het expertisecentrum Brucefo",
+        "Het gewestelijke portaal hub.info"
       ],
       "correct": 1,
-      "explanation": "In 2025 vertrokken 1.687 ondernemingen naar Vlaanderen, tegenover 1.263 die de omgekeerde beweging maakten. Ook het saldo met Wallonië is negatief voor Brussel.",
+      "explanation": "Volgens La DH heropent Innoviris zijn loket « R&D Booster », dat in maart 2026 werd gesloten, met een aangekondigd budget van 16 miljoen euro voor 2027. Geen persbericht van Innoviris bevestigde dat op die datum.",
       "sourceSlug": "/nl/domeinen/economy",
       "sourceTitle": "Economie: Stedelijke Vrijhandelszone (Haven + Audi Forest), hoofdstad van AI",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:54ebfbd62f8492c6346bce577ddbc1fc",
-        "generatedAt": "2026-10-29T21:16:21.636Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:1114f7cb49b428a58b58462ad1d737e6",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Economie",
-      "question": "Hoeveel maatregelen telt het plan « Oxygen Brussels » voor kleine en middelgrote ondernemingen, dat de Brusselse regering op 15 oktober 2026 goedkeurde?",
+      "question": "Wat tonen de verhuizingen van ondernemingen tussen Brussel en Vlaanderen in 2025, volgens Statbel (19 oktober 2026)?",
       "options": [
-        "22 maatregelen",
-        "35 maatregelen",
-        "48 maatregelen",
-        "12 maatregelen"
+        "1.263 vertrekkers uit Brussel tegenover 1.687 nieuwkomers",
+        "1.139 vertrekkers uit Brussel tegenover 804 nieuwkomers",
+        "1.687 vertrekkers uit Brussel tegenover 1.263 nieuwkomers",
+        "804 vertrekkers uit Brussel tegenover 1.139 nieuwkomers"
       ],
-      "correct": 0,
-      "explanation": "Het plan heeft vier prioriteiten, waaronder de administratieve vereenvoudiging en de toegang van kmo's tot de gewestelijke overheidsopdrachten. Er werd geen budget aangekondigd.",
+      "correct": 2,
+      "explanation": "In 2025 verhuisden 1.687 Brusselse ondernemingen naar Vlaanderen en maakten 1.263 Vlaamse ondernemingen de omgekeerde beweging. Ook met Wallonië telt Brussel meer vertrekkers dan nieuwkomers.",
       "sourceSlug": "/nl/domeinen/economy",
       "sourceTitle": "Economie: Stedelijke Vrijhandelszone (Haven + Audi Forest), hoofdstad van AI",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:54ebfbd62f8492c6346bce577ddbc1fc",
-        "generatedAt": "2026-10-29T21:16:21.636Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:1114f7cb49b428a58b58462ad1d737e6",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Waarop wachten de operatoren Bolt en Dott volgens BRUZZ (12 november 2026) voordat ze hun deelsteps in de 19 Brusselse hotspots blokkeren?",
+      "question": "Wat vraagt de resolutie over masculinisme die het Brussels Parlement op 13 november 2026 unaniem goedkeurde, volgens La DH?",
       "options": [
-        "Een precieze kaart van de grenzen van de zones, van het Gewest",
-        "Een federaal besluit dat het bedrag van de boetes vastlegt",
-        "Een stemming in de gemeenteraad van elke betrokken gemeente",
-        "Een akkoord van de MIVB over de toegangen tot de metrostations"
+        "Dat safe.brussels de omvang ervan in Brussel meet",
+        "Dat er een gewestelijk parket tegen seksisme komt",
+        "Dat masculinistische inhoud bij ordonnantie wordt verboden",
+        "Dat de negentien gemeenten die bevoegdheid krijgen"
       ],
       "correct": 0,
-      "explanation": "Beide operatoren zeggen technisch hun steps in een zone te kunnen vertragen, blokkeren of het parkeren te kunnen verhinderen, maar wachten op een precieze afbakening van de gewestelijke overheid; het verbod wordt daardoor nauwelijks toegepast.",
+      "explanation": "De tekst vraagt om masculinisme op te nemen in de gewestelijke veiligheidsstrategieën en safe.brussels de omvang ervan te laten meten. Een resolutie richt vragen aan de regering, ze heeft niet de kracht van een ordonnantie.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:95e9865ab19038fec3de27ff0e994d6f",
-        "generatedAt": "2026-11-13T10:43:16.315Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:a33d40196aee997b276767cf3140ed20",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Wie vroeg volgens L'Avenir (6 november 2026) op 4 november 2026 om een gemeenschappelijke gewestelijke signalisatie voor de 19 hotspots waar elektrische steps verboden zijn?",
+      "question": "Waarom werd het verbod op elektrische steps in de Brusselse hotspots op 12 november 2026 nauwelijks toegepast, volgens BRUZZ?",
       "options": [
-        "De conferentie van Brusselse burgemeesters",
-        "De conferentie van korpschefs van de politie",
-        "De twee operatoren van deelsteps",
-        "De commissie Mobiliteit van het Brussels Parlement"
+        "Omdat de Raad van State het besluit had geschorst",
+        "Omdat de operatoren uitstel hadden gekregen",
+        "Omdat het politiebesluit nog niet was genomen",
+        "Bij gebrek aan signalisatie om te kunnen beboeten"
       ],
-      "correct": 0,
-      "explanation": "De burgemeesters vroegen Brussel Mobiliteit om een gemeenschappelijke signalisatie; het kabinet van de minister-president antwoordt dat het politiebesluit van 19 oktober 2026 niet oplegt de grenzen van de zones aan te duiden.",
+      "correct": 3,
+      "explanation": "Volgens BRUZZ geeft geen enkel bord de grenzen van de 19 hotspots aan, waardoor beboeten niet kan. De operatoren Bolt en Dott zeggen te wachten op een precieze kaart van de zones van de gewestelijke overheid.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:95e9865ab19038fec3de27ff0e994d6f",
-        "generatedAt": "2026-11-13T10:43:16.315Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:a33d40196aee997b276767cf3140ed20",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Wat is volgens het Rode Kruis en Dokters van de Wereld (12 november 2026) bijzonder aan het medisch centrum Refugee Medical Point in Brussel?",
+      "question": "Welk bestuursniveau beslist over de financiering van de Brussels Deal, de opvangregeling waarvan het einde tegen eind 2026 is aangekondigd volgens La DH?",
       "options": [
-        "De enige plek met gratis zorg zonder afspraak of voorwaarden",
-        "Het enige openbare ziekenhuis enkel voor asielzoekers",
-        "Het enige medisch centrum dat de hele nacht open is",
-        "Het enige wijkgezondheidscentrum volledig betaald door de GGC"
+        "De regering van het Brussels Gewest",
+        "De federale regering",
+        "De Gemeenschappelijke Gemeenschapscommissie",
+        "De negentien Brusselse gemeenten"
       ],
-      "correct": 0,
-      "explanation": "Het centrum registreerde van augustus tot november 2026 meer dan 4.800 bezoeken, bijna 80 per dag. Het centrum Athéna, dat een gelijkaardige dienst aanbood, sloot eind 2025.",
+      "correct": 1,
+      "explanation": "De Brussels Deal wordt door de federale overheid gefinancierd. Op 14 november 2026 meldt La DH dat de Brusselse minister van Gezondheid vindt dat Brussel een federale beslissing niet alleen kan compenseren.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: opvangsysteem ingekrompen, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:6c8631f1c3d5beed1ca7ae05d867fff9",
-        "generatedAt": "2026-11-12T13:21:13.855Z",
+        "sourceLastModified": "2026-11-15",
+        "sourceContentHash": "sha256:e893f3b2dc5916d6b80b766375b2e98f",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Van welke overheid verwachtte de Brusselse thuiszorgorganisatie Wheel of Care volgens BRUZZ (11 november 2026) een subsidie van 92.000 euro?",
+      "question": "Wat onderscheidt het medisch centrum Refugee Medical Point in Brussel, volgens het Rode Kruis en Dokters van de Wereld (12 november 2026)?",
       "options": [
-        "De GGC, via haar administratie Vivalis",
-        "Het Gewest, via Brussel Economie en Werkgelegenheid",
-        "De COCOF, via haar dienst Gezondheid",
-        "De federale overheid, via het RIZIV en zijn forfaits"
+        "Het is de enige plek met gratis consultaties zonder afspraak of voorwaarden",
+        "Het is het enige zorgcentrum dat volledig door het Brussels Gewest wordt betaald",
+        "Het is het enige ziekenhuis dat is voorbehouden aan verzoekers om bescherming",
+        "Het is de enige medische dienst die 's nachts open is voor daklozen"
       ],
       "correct": 0,
-      "explanation": "De subsidie bleef tijdens de regeringsvorming geblokkeerd; Wheel of Care schrapt 30 banen. Vivalis meldt dat het dossier naar het Verenigd College moet.",
+      "explanation": "Volgens beide organisaties is het Refugee Medical Point de enige plek in Brussel met gratis consultaties, zonder afspraak of administratieve voorwaarden. Het centrum Athéna sloot eind 2025 bij gebrek aan subsidies.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: opvangsysteem ingekrompen, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:6c8631f1c3d5beed1ca7ae05d867fff9",
-        "generatedAt": "2026-11-12T13:21:13.855Z",
+        "sourceLastModified": "2026-11-15",
+        "sourceContentHash": "sha256:e893f3b2dc5916d6b80b766375b2e98f",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Welk deel van de Brusselaars van wie het werkloosheidsrecht in het eerste kwartaal van 2026 afliep, werd volgens de monitoring van Actiris van 25 september 2026 binnen drie maanden OCMW-gerechtigde?",
+      "question": "Voor de zetel van welke instelling verzamelde het gemeenschappelijk vakbondsfront van de Brusselse gemeenten en OCMW's op 13 november 2026?",
       "options": [
-        "47,6 %",
-        "12,6 %",
-        "8,9 %",
-        "63,6 %"
+        "Het Brussels Parlement",
+        "De gewestelijke dienst Actiris",
+        "De bank Belfius",
+        "De federatie van OCMW's"
       ],
-      "correct": 0,
-      "explanation": "De monitoring volgt 15.500 werkzoekenden uit de eerste twee golven van uitsluitingen: 12,6 % vond werk en 8,9 % stapte over naar de ziekte- en invaliditeitsverzekering.",
+      "correct": 2,
+      "explanation": "De vakbonden verzamelden op het Rogierplein, voor de zetel van Belfius. Volgens BRUZZ verwijten ze de bank dat ze elke nieuwe lening aan gemeenten afhankelijk maakt van besparingen.",
       "sourceSlug": "/nl/dossiers/cpas-bruxellois",
       "sourceTitle": "Brusselse OCMW's",
       "provenance": {
-        "sourceLastModified": "2026-11-02",
-        "sourceContentHash": "sha256:1b9f8c5b8df6e7578c16d59c0a6a5136",
-        "generatedAt": "2026-11-03T12:02:34.828Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:eff7932c52d0830d536510078a90c600",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Welke uitzonderlijke steun per plaats kent de ONE volgens de op 30 oktober 2026 gepubliceerde informatie toe aan niet-gesubsidieerde crèches?",
+      "question": "Welke opdracht gaf de regering van de Federatie Wallonië-Brussel in november 2026 aan haar commissaris bij de ONE, volgens de RTBF?",
       "options": [
-        "310 euro",
-        "1.060 euro",
-        "450 euro",
-        "620 euro"
+        "De crèches sluiten waarnaar een onderzoek loopt",
+        "De continuïteit van het beheer van de dienst verzekeren",
+        "De tarieven van de gesubsidieerde crèches herzien",
+        "De inspectie van de Brusselse crèches overnemen"
       ],
-      "correct": 3,
-      "explanation": "620 euro per plaats voor niet-gesubsidieerde crèches, 310 euro voor zelfstandige onthaalouders, als het tarief niet hoger ligt dan 1.060 euro per maand voltijds.",
+      "correct": 1,
+      "explanation": "Volgens het persbericht van de minister van Kind dat de RTBF op 14 november 2026 aanhaalt, is een lid van de ONE vrijgesteld van dienst en verzekert de regeringscommissaris tijdelijk de continuïteit van het beheer.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:cb11aceaf7d71e6b76a8b961cc978171",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-15",
+        "sourceContentHash": "sha256:3e170e9126117622f372c7d9a6770eb3",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Welke instantie inspecteert volgens de analyse van BRUZZ en Knack, gepubliceerd op 9 september 2026, de Nederlandstalige crèches in het Brussels Gewest?",
+      "question": "Tot welk maandtarief voor voltijdse opvang kan een niet-gesubsidieerde crèche in oktober 2026 de uitzonderlijke steun van de ONE van 620 euro per plaats krijgen?",
       "options": [
-        "De ONE, in de Franse Gemeenschap",
-        "Opgroeien, in de Vlaamse Gemeenschap",
-        "Iriscare, bij de GGC",
-        "Actiris, bij het Gewest"
+        "1.060 euro per maand",
+        "620 euro per maand",
+        "1.500 euro per maand",
+        "850 euro per maand"
       ],
-      "correct": 1,
-      "explanation": "Opgroeien inspecteert de Nederlandstalige crèches. De Franstalige crèches vallen onder de ONE en de bicommunautaire structuren onder Iriscare, elk met eigen criteria.",
+      "correct": 0,
+      "explanation": "De ONE kent op aanvraag 620 euro per plaats toe aan niet-gesubsidieerde crèches, als hun tarief niet hoger is dan 1.060 euro per maand voor voltijdse opvang. Zelfstandige onthaalouders krijgen 310 euro per plaats.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-10-30",
-        "sourceContentHash": "sha256:cb11aceaf7d71e6b76a8b961cc978171",
-        "generatedAt": "2026-11-01T14:01:23.398Z",
+        "sourceLastModified": "2026-11-15",
+        "sourceContentHash": "sha256:3e170e9126117622f372c7d9a6770eb3",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1434,21 +1434,21 @@
       "id": "dossier-slrb-0",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Welke sites van de BGHM, waarvan de verkoop door vier verenigingen in kortgeding wordt betwist, zouden volgens La DH (13 november 2026) tot sociale woningen worden gerenoveerd?",
+      "question": "Welke sites van de BGHM zijn het voorwerp van het kortgeding van vier verenigingen dat op 13 november 2026 werd gepleit voor de rechtbank van eerste aanleg in Brussel?",
       "options": [
-        "Ariane, in Sint-Lambrechts-Woluwe, en Palais, in Schaarbeek",
-        "Ariane, in Anderlecht, en Palais, in Sint-Jans-Molenbeek",
-        "Reyers, in Schaarbeek, en Tivoli, in de Stad Brussel",
-        "Josaphat, in Evere, en Mediapark, in Schaarbeek"
+        "Josaphat en Delta",
+        "Machtens en Potiers",
+        "Tivoli en Biestebroeck",
+        "Ariane en Palais"
       ],
-      "correct": 0,
-      "explanation": "Het kortgeding dat op 13 juli 2026 tegen die verkopen werd ingesteld, kwam op 13 november 2026 in zitting; Ecolo vraagt de regering de verkopen op te schorten en de procedures te herzien.",
+      "correct": 3,
+      "explanation": "Het kortgeding gaat over de verkoop van de site Ariane, in Sint-Lambrechts-Woluwe, en de site Palais, in Schaarbeek. Volgens BRUZZ doet de rechtbank in december 2026 uitspraak over de gevraagde voorlopige maatregel.",
       "sourceSlug": "/nl/dossiers/slrb",
       "sourceTitle": "BGHM",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:5bf24be1f9e7f295b9d1235c0432fd36",
-        "generatedAt": "2026-11-13T10:43:16.315Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:8a4495bd533712de5e77d8c4897c91fa",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1457,21 +1457,21 @@
       "id": "dossier-slrb-1",
       "source": "dossier",
       "domain": "Huisvesting",
-      "question": "Welke nieuwe schijf voorzien de documenten van de gewestbegroting 2027 volgens BRUZZ (2 november 2026) voor de BGHM in 2027?",
+      "question": "Wat vragen de vier verenigingen in hun kortgeding tegen de verkoop van twee gebouwen van de BGHM, gepleit op 13 november 2026?",
       "options": [
-        "120 miljoen euro",
-        "131 miljoen euro",
-        "75 miljoen euro",
-        "250 miljoen euro"
+        "De vernietiging van de aankoop van de gebouwen in 2020",
+        "De schorsing van de verkoop van beide gebouwen",
+        "De overdracht van de gebouwen aan beide gemeenten",
+        "De onmiddellijke herhuisvesting van alle huurders"
       ],
-      "correct": 0,
-      "explanation": "De schijf van 131 miljoen voor 2026 lijkt goedgekeurd en voor 2027 is een nieuwe schijf van 120 miljoen ingeschreven; op die datum wordt geen enkele storting gemeld.",
+      "correct": 1,
+      "explanation": "Volgens BRUZZ vragen de verenigingen de schorsing van de verkoop, om een overdracht aan de privémarkt zonder sociale voorwaarden te vermijden. Ze zeggen zich niet tegen de verkopen op zich te verzetten.",
       "sourceSlug": "/nl/dossiers/slrb",
       "sourceTitle": "BGHM",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:5bf24be1f9e7f295b9d1235c0432fd36",
-        "generatedAt": "2026-11-13T10:43:16.315Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:8a4495bd533712de5e77d8c4897c91fa",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Waarom kunnen Brusselse gemeenten volgens BRUZZ (12 november 2026) de route RNP 07L nog aanvechten bij de Raad van State, terwijl de termijn van het Gewest verstreken is?",
+      "question": "Waarom kan de Vlaamse Gemeenschapscommissie (VGC) de vliegroute RNP 07L niet aanvechten bij de Raad van State, volgens BRUZZ in november 2026?",
       "options": [
-        "De federale brief van 17 juli 2026 was niet aan hen gericht",
-        "De Raad van State gaf hun uitstel tot 31 december 2026",
-        "Hun termijn loopt vanaf hun gemeenteraadsstemming van 12 november",
-        "Het Gewest droeg op 1 november 2026 zijn beroepsrecht aan hen over"
+        "Ze liet de termijn van zestig dagen verstrijken",
+        "Ze heeft geen enkele bevoegdheid in het Brussels Gewest",
+        "Ze is een gedecentraliseerde overheid zonder decreetgevende macht",
+        "Ze had het behoud van die route zelf goedgekeurd"
       ],
-      "correct": 0,
-      "explanation": "Voor de gemeenten zou de termijn lopen vanaf de luchtvaartpublicatie van 16 september 2026 tot 16 november 2026, volgens BRUZZ; Koekelberg, Schaarbeek en Sint-Jans-Molenbeek besloten naar de Raad van State te stappen.",
+      "correct": 2,
+      "explanation": "Volgens BRUZZ is de VGC een gedecentraliseerde overheid van de Vlaamse Gemeenschap, zonder decreetgevende bevoegdheid. De COCOF en de GGC kondigden wel verzoekschriften aan.",
       "sourceSlug": "/nl/dossiers/survol-bruxelles",
       "sourceTitle": "Overvliegen Brussel",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:15b2796451e81276075db4ed3479aa11",
-        "generatedAt": "2026-11-13T10:43:16.315Z",
+        "sourceLastModified": "2026-11-14",
+        "sourceContentHash": "sha256:f2e3983ee999a9b17a0256c9b23a712a",
+        "generatedAt": "2026-11-15T11:20:20.077Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 58
 }
